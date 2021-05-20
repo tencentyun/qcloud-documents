@@ -1,7 +1,7 @@
 本文主要介绍如何快速运行腾讯云 TRTC Demo（Flutter）。
 
 ## 环境要求
-- Flutter 1.12 及以上版本。
+- Flutter 2.0 及以上版本。
 - Android 端开发：
   -  Android Studio 3.5及以上版本。
   -  App 要求 Android 4.1及以上版本设备。

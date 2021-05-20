@@ -1,8 +1,8 @@
 TRTCChatSalon 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的组件，支持以下功能：
 
-- 主播创建新的语音沙龙开播，观众进入语音沙龙收听/互动。
-- 主播可以同意观众上麦、将麦上主播踢下麦。
-- 观众可以申请上麦，变成麦上主播，可以和其他人语音互动，也可以随时下麦成为普通的观众。
+- 房主创建新的语音沙龙开播，听众进入语音沙龙收听/互动。
+- 房主可以同意听众上麦、将麦上主播踢下麦。
+- 听众可以申请上麦，变成麦上主播，可以和其他人语音互动，也可以随时下麦成为普通的听众。
 - 支持发送各种文本消息。
 
 TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [语音沙龙（Flutter）](https://cloud.tencent.com/document/product/647/53582)。
@@ -30,10 +30,10 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                     | 描述                                                         |
 | --------------------------------------- | ------------------------------------------------------------ |
-| [createRoom](#createroom)               | 创建房间（主播调用），若房间不存在，系统将自动创建一个新房间。 |
-| [destroyRoom](#destroyroom)             | 销毁房间（主播调用）。                                       |
-| [enterRoom](#enterroom)                 | 进入房间（观众调用）。                                       |
-| [exitRoom](#exitroom)                   | 离开房间（观众调用）。                                       |
+| [createRoom](#createroom)               | 创建房间（房主调用），若房间不存在，系统将自动创建一个新房间。 |
+| [destroyRoom](#destroyroom)             | 销毁房间（房主调用）。                                       |
+| [enterRoom](#enterroom)                 | 进入房间（听众调用）。                                       |
+| [exitRoom](#exitroom)                   | 退出房间（听众调用）。                                       |
 | [getRoomInfoList](#getroominfolist)     | 获取房间列表的详细信息。                                     |
 | [getRoomMemberList](#getroommemberlist) | 获取房间内所有用户信息。                                     |
 | [getArchorInfoList](#getarchorInfolist) | 获取房间主播列表。                                           |
@@ -43,10 +43,10 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                   | 描述                                |
 | --------------------- | ----------------------------------- |
-| [enterMic](#entermic) | 观众上麦。                          |
+| [enterMic](#entermic) | 听众上麦。                          |
 | [leaveMic](#leavemic) | 主播下麦。                          |
-| [muteMic](#mutemic)   | 静音/解除静音某个麦位（主播调用）。 |
-| [kickMic](#kickmic)   | 踢人下麦（群主调用）。              |
+| [muteMic](#mutemic)   | 静音/解除静音某个麦位（房主调用）。 |
+| [kickMic](#kickmic)   | 踢人下麦（房主调用）。              |
 
 ### 本地音频操作接口
 
@@ -71,7 +71,7 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                             | 描述                                                         |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。 |
+| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。 |
 
 ### 消息发送相关接口
 
@@ -83,9 +83,9 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                             | 描述           |
 | ------------------------------- | -------------- |
-| [raiseHand](#raisehand)         | 观众申请上麦。 |
-| [agreeToSpeak](#agreetospeak)   | 群主同意上麦。 |
-| [refuseToSpeak](#refusetospeak) | 群主拒绝上麦。 |
+| [raiseHand](#raisehand)         | 听众申请上麦。 |
+| [agreeToSpeak](#agreetospeak)   | 房主同意上麦。 |
+| [refuseToSpeak](#refusetospeak) | 房主拒绝上麦。 |
 
 [](id:TRTCChatSalonDelegate)
 ## TRTCChatSalonDelegate API 概览
@@ -96,7 +96,7 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | ----------------------------------- | ---------- |
 | [onError](#onerror)                 | 错误回调。 |
 | [onWarning](#onwarning)             | 警告回调。 |
-| [onKickedOffline](#onkickedoffline) | 警告回调。 |
+| [onKickedOffline](#onkickedoffline) | 被踢下线。 |
 
 ### 房间事件回调
 
@@ -110,16 +110,16 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                   | 描述                                  |
 | ------------------------------------- | ------------------------------------- |
-| [onAnchorEnterMic](#onanchorentermic) | 有成员上麦（主动上麦/群主抱人上麦）。 |
-| [onAnchorLeaveMic](#onanchorleavemic) | 有成员下麦（主动下麦/群主踢人下麦）。 |
+| [onAnchorEnterMic](#onanchorentermic) | 有成员上麦（主动上麦/房主抱人上麦）。 |
+| [onAnchorLeaveMic](#onanchorleavemic) | 有成员下麦（主动下麦/房主踢人下麦）。 |
 | [onMicMute](#onmicmute)               | 主播禁麦。                            |
 
-### 观众进出事件回调
+### 听众进出事件回调
 
 | API                                 | 描述               |
 | ----------------------------------- | ------------------ |
-| [onAudienceEnter](#onaudienceenter) | 收到观众进房通知。 |
-| [onAudienceExit](#onaudienceexit)   | 收到观众退房通知。 |
+| [onAudienceEnter](#onaudienceenter) | 收到听众进房通知。 |
+| [onAudienceExit](#onaudienceexit)   | 收到听众退房通知。 |
 
 ### 消息事件回调
 
@@ -131,9 +131,9 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                    | 描述                                     |
 | -------------------------------------- | ---------------------------------------- |
-| [onRaiseHand](#onraisehand) | 有观众举手，申请上麦。                   |
-| [onAgreeToSpeak](#onagreetospeak)   | 观众申请举手后，收到群主同意举手的回调。 |
-| [onRefuseToSpeak](#onrefusetospeak)    | 观众申请举手后，群主拒绝举手的回调。     |
+| [onRaiseHand](#onraisehand) | 有听众举手，申请上麦。                   |
+| [onAgreeToSpeak](#onagreetospeak)   | 听众申请举手后，收到房主同意举手的回调。 |
+| [onRefuseToSpeak](#onrefusetospeak)    | 听众申请举手后，房主拒绝举手的回调。     |
 
 ## SDK 基础函数
 
@@ -238,14 +238,14 @@ Future<ActionCallback> createRoom(int roomId, RoomParam roomParam)
 | roomId    | int       | 房间标识，需要由您分配并进行统一管理。多个 roomID 可以汇总成一个语音沙龙房间列表，腾讯云暂不提供语音沙龙房间列表的管理服务，请自行管理您的语音沙龙房间列表。 |
 | roomParam | RoomParam | 房间信息，用于房间描述的信息。例如房间名称、封面信息等。     |
 
-主播开播的正常调用流程如下： 
+房主开播的正常调用流程如下： 
 
-1. 主播调用 `createRoom` 创建新的语音沙龙，此时传入房间 ID等房间属性信息。
-2. 主播还会收到麦位表有成员进入的 `onAnchorEnterMic` 的事件通知，此时会自动打开麦克风采集。
+1. 房主调用 `createRoom` 创建新的语音沙龙，此时传入房间 ID等房间属性信息。
+2. 房主还会收到麦位表有成员进入的 `onAnchorEnterMic` 的事件通知，此时会自动打开麦克风采集。
 
 ### destroyRoom
 
-销毁房间（主播调用）。主播在创建房间后，可以调用这个函数来销毁房间。
+销毁房间（房主调用）。房主在创建房间后，可以调用这个函数来销毁房间。
 
 ```dart
 Future<ActionCallback> destroyRoom()
@@ -254,7 +254,7 @@ Future<ActionCallback> destroyRoom()
 
 ### enterRoom
 
-进入房间（观众调用）。
+进入房间（听众调用）。
 
 ```dart
 Future<ActionCallback> enterRoom(int roomId)
@@ -267,16 +267,16 @@ Future<ActionCallback> enterRoom(int roomId)
 | roomId | int  | 房间标识。 |
 
 
-观众进房收听的正常调用流程如下： 
+听众进房收听的正常调用流程如下： 
 
-1. 观众向您的服务端获取最新的语音沙龙列表，可能包含多个语音沙龙房间的 roomId 和房间信息。
-2. 观众选择一个语音沙龙，调用 `enterRoom` 并传入房间号即可进入该房间。
-3. 进房后会可查询 `getArchorInfoList` 获取主播列表，并根据 `getRoomMemberList` 获取房间所有用户列表，减去主播列表可以得到观众列表。
+1. 听众向您的服务端获取最新的语音沙龙列表，可能包含多个语音沙龙房间的 roomId 和房间信息。
+2. 听众选择一个语音沙龙，调用 `enterRoom` 并传入房间号即可进入该房间。
+3. 进房后会可查询 `getArchorInfoList` 获取主播列表，并根据 `getRoomMemberList` 获取房间所有用户列表，减去主播列表可以得到听众列表。
 4. 进房后还会收到麦位表有主播进入的 `onAnchorEnterMic` 的事件通知。
 
 ### exitRoom
 
-离开房间。
+退出房间。
 
 ```dart
 Future<ActionCallback> exitRoom()
@@ -284,7 +284,7 @@ Future<ActionCallback> exitRoom()
 
 ### getRoomInfoList
 
-获取房间列表的详细信息，其中房间名称、房间封面是主播在创建 `createRoom()` 时通过 roomInfo 设置的。
+获取房间列表的详细信息，其中房间名称、房间封面是房主在创建 `createRoom()` 时通过 roomInfo 设置的。
 
 >?如果房间列表和房间信息都由您自行管理，可忽略该函数。
 
@@ -345,7 +345,7 @@ Future<UserListCallback> getUserInfoList(List<String> userIdList)
 
 ### enterMic
 
-上麦（观众端和主播均可调用）。
+上麦（听众端和房主均可调用）。
 
 >?上麦成功后，房间内所有成员会收到 `onAnchorEnterSeat` 的事件通知。
 
@@ -353,7 +353,7 @@ Future<UserListCallback> getUserInfoList(List<String> userIdList)
 Future<ActionCallback> enterMic();
 ```
 
-调用该接口会立即修改麦位表。观众需先调用 `raiseHand` 向主播申请，收到 `onAgreeToSpeak`后再调用该函数。
+调用该接口会立即修改麦位表。听众需先调用 `raiseHand` 向房主申请，收到 `onAgreeToSpeak`后再调用该函数。
 
 ### leaveMic
 
@@ -367,7 +367,7 @@ Future<ActionCallback> leaveMic()
 
 ### muteMic
 
-静音/解除静音某个麦位（主播调用）。
+静音/解除静音某个麦位（房主调用）。
 
 >? 改变麦位的状态后，房间内所有成员会收到 `onAnchorListChange` 和 `onMicMute` 的事件通。
 
@@ -377,9 +377,9 @@ Future<ActionCallback> muteMic(bool mute)
 
 ### kickMic
 
-踢人下麦（主播调用）。
+踢人下麦（房主调用）。
 
->? 主播踢人下麦，房间内所有成员会收到 `onAnchorLeaveMic` 的事件通知。
+>? 房主踢人下麦，房间内所有成员会收到 `onAnchorLeaveMic` 的事件通知。
 
 ```dart
 Future<ActionCallback> kickMic(String userId)
@@ -408,7 +408,7 @@ void startMicrophone(int quality)
 
 | 参数    | 类型 | 含义                                                         |
 | ------- | ---- | ------------------------------------------------------------ |
-| quality | int  | 音频质量，详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55)。 |
+| quality | int  | 音频质量，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55)。 |
 
 ### stopMicrophone
 
@@ -430,7 +430,7 @@ void muteLocalAudio(bool mute)
 
 | 参数 | 类型    | 含义                                                         |
 | ---- | ------- | ------------------------------------------------------------ |
-| mute | boolean | 静音/取消静音，详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86)。 |
+| mute | boolean | 静音/取消静音，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86)。 |
 
 
 ### setSpeaker
@@ -512,7 +512,7 @@ void muteAllRemoteAudio(bool mute)
 
 ### getAudioEffectManager
 
-获取背景音乐音效管理对象 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
+获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
 
 ```dart
 TXAudioEffectManager getAudioEffectManager()
@@ -541,7 +541,7 @@ Future<ActionCallback> sendRoomTextMsg(String message)
 
 ### raiseHand
 
-观众申请上麦。
+听众申请上麦。
 
 ```dart
 void raiseHand()
@@ -549,7 +549,7 @@ void raiseHand()
 
 ### agreeToSpeak
 
-群主同意上麦。
+房主同意上麦。
 
 ```dart
 Future<ActionCallback> agreeToSpeak(String userId)
@@ -563,7 +563,7 @@ Future<ActionCallback> agreeToSpeak(String userId)
 
 ### refuseToSpeak
 
-群主拒绝用户上麦。
+房主拒绝用户上麦。
 
 ```dart
 Future<ActionCallback> refuseToSpeak(String userId)
@@ -575,8 +575,8 @@ Future<ActionCallback> refuseToSpeak(String userId)
 | ------ | ------ | -------- |
 | userId | String | 用户 ID。 |
 
-
-## TRTCChatSalonDelegate事件回调
+[](id:TRTCChatSalonDelegate)
+## TRTCChatSalonDelegate 事件回调
 
 ## 通用事件回调
 
@@ -617,7 +617,7 @@ Future<ActionCallback> refuseToSpeak(String userId)
 
 ### onRoomDestroy
 
-房间被销毁的回调。主播解散房间时，房间内的所有用户都会收到此通知。
+房间被销毁的回调。房主解散房间时，房间内的所有用户都会收到此通知。
 
 ### onAnchorListChange
 
@@ -655,7 +655,7 @@ Future<ActionCallback> refuseToSpeak(String userId)
 
 | 参数       | 类型   | 含义                 |
 | ---------- | ------ | -------------------- |
-| userId     | String | 上麦的用户 ID。       |
+| userId     | String | 进房的用户 ID。       |
 | userName   | String | 用户昵称。           |
 | userAvatar | String | 头像地址。           |
 | mute       | bool   | 麦位状态，默认开麦。 |
@@ -668,11 +668,11 @@ Future<ActionCallback> refuseToSpeak(String userId)
 
 | 参数   | 类型   | 含义           |
 | ------ | ------ | -------------- |
-| userId | String | 下麦的用户 ID。 |
+| userId | String | 退房的用户 ID。 |
 
 ### onMicMute
 
-主播是否禁麦。
+房主是否禁麦。
 
 参数如下表所示：
 
@@ -682,11 +682,11 @@ Future<ActionCallback> refuseToSpeak(String userId)
 | mute   | bool   | 麦位状态。     |
 
 
-## 观众进出事件回调
+## 听众进出事件回调
 
 ### onAudienceEnter
 
-收到观众进房通知。
+收到听众进房通知。
 
 
 参数如下表所示：
@@ -699,7 +699,7 @@ Future<ActionCallback> refuseToSpeak(String userId)
 
 ### onAudienceExit
 
-收到观众退房通知。
+收到听众退房通知。
 
 参数如下表所示：
 
@@ -740,22 +740,22 @@ Future<ActionCallback> refuseToSpeak(String userId)
 
 ### onAgreeToSpeak
 
-群主同意上麦的回调。
+房主同意上麦的回调。
 
 
 参数如下表所示：
 
 | 参数   | 类型   | 含义           |
 | ------ | ------ | -------------- |
-| userId | String | 群主的用户 ID。 |
+| userId | String | 房主的用户 ID。 |
 
 ### onRefuseToSpeak
 
-群主拒绝上麦的回调。
+房主拒绝上麦的回调。
 
 
 参数如下表所示：
 
 | 参数   | 类型   | 含义           |
 | ------ | ------ | -------------- |
-| userId | String | 群主的用户 ID。 |
+| userId | String | 房主的用户 ID。 |

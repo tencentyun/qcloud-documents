@@ -30,7 +30,7 @@
 <dependency>
        <groupId>com.qcloud</groupId>
        <artifactId>cos_api</artifactId>
-       <version>5.6.37</version>
+       <version>5.6.38</version>
 </dependency>
 ```
 - 源码安装
@@ -67,6 +67,8 @@ COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 // clientConfig 中包含了设置 region, https(默认 http), 超时, 代理等 set 方法, 使用可参见源码或者常见问题 Java SDK 部分。
 Region region = new Region("COS_REGION");
 ClientConfig clientConfig = new ClientConfig(region);
+// 这里建议设置使用 https 协议
+clientConfig.setHttpProtocol(HttpProtocol.https);
 // 3 生成 cos 客户端。
 COSClient cosClient = new COSClient(cred, clientConfig);
 ```

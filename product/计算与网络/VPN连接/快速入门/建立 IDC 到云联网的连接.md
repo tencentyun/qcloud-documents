@@ -26,6 +26,7 @@ CCN 类型的 VPN 网关可以关联至云联网，每个 CCN 型 VPN 网关可�
    - 按流量计费：适用于带宽波动较大的场景。
    - 包年包月： 适用于带宽较稳定的场景。
     ![](https://main.qcloudimg.com/raw/a524d91fc73e82de17efe299d5a26a0e.png)
+		
 
 ### 步骤二：关联云联网实例[](id:step2)
 - 若您已创建云联网实例，请按如下操作关联云联网：
@@ -68,11 +69,19 @@ CCN 类型的 VPN 网关可以关联至云联网，每个 CCN 型 VPN 网关可�
 ![](https://main.qcloudimg.com/raw/5470e29feb9ff64e221df07cdfde06c3.png)
 
 ### 步骤五：启用 IDC 网段[](id:step5)
+>?
+>+ 本步骤仅针对1.0和2.0版本的VPN网关。3.0版本的 VPN 网关，此处为【路由表】页签，如下图所示。
+>+ 如果是3.0版本的CCN型 VPN 网关，且 VPN 网关已关联至云联网实例时，则下一跳到【云联网】的路由策略，系统将自动学习到并展示在路由条目中，请勿手动配置重复路由；VPN 网关中配置的路由策略会自动同步到云联网。
+>
+**3.0版本的 VPN 网关【路由表】界面展示：**
+![](https://main.qcloudimg.com/raw/d261071d65c453ecf21d3980d1b3a8cd.png)
+**针对1.0和2.0版本的 VPN，请执行如下操作启用 IDC 网段：**
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
-2. 在左侧导航栏中选择【VPN连接】>【VPN网关】。
+2. 在左侧导航栏中选择【VPN 连接】>【VPN 网关】。
 3. 在 VPN 网关列表中，单击云联网型 VPN 网关 ID。
 4. 在 VPN 网关详情页面，选择【IDC 网段】页签，并启用目标网段。
 ![](https://main.qcloudimg.com/raw/a855442ce1c46f50382a2f779f2d89b7.png)
+
 
 ## 结果验证
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。

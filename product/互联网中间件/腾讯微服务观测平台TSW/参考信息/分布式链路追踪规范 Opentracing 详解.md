@@ -11,7 +11,7 @@ Opentracing 是一个开放的分布式链路追踪框架。OpenTracing 通过�
 
 - **Span**： 一种由执行方法命名的操作，组成工作流的一部分。Spans 具有 key:value 标签（Tags），以及附加到特定 Span 实例的细粒度、带时间戳的结构化日志（调用链日志）。
 
-- **Span Contenxt**：携带工作流的跟踪信息，包括当它通过网络或消息总线将服务传递给服务时。Span上下文包含 Trace 标识符（TraceID）、Span 标识符（SpanID 或 Parent/Child Span）和跟踪系统需要传播到下游服务的任何其他数据。
+- **Span Context**：携带工作流的跟踪信息，包括当它通过网络或消息总线将服务传递给服务时。Span上下文包含 Trace 标识符（TraceID）、Span 标识符（SpanID 或 Parent/Child Span）和跟踪系统需要传播到下游服务的任何其他数据。
 ![](https://main.qcloudimg.com/raw/f41c430ed6e491876a22b6f05f6a580d.png)
 
 ## Opentracing 数据模型

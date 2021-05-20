@@ -1,7 +1,8 @@
 Linux 云服务器配置 IPv6 有两种方式：[工具配置](#gjpz) 和 [手动配置](#manual)。请根据您的实际情况选择对应的方式，推荐您使用更高效的自动配置工具配置 IPv6 地址。
 
-- **工具配置**：指通过工具一键配置 IPv6，根据镜像类型及购买时间的不同，使用的配置方法也不同，具体如下表所示。
+>?默认云服务器的 IPv6 地址仅具有私网通信能力，若您想要通过该 IPv6 地址访问公网或被公网访问，则需通过弹性公网 IPv6 为该 IPv6 地址开通公网能力，操作详情请参见 [为云服务器的 IPv6 地址开通公网](https://cloud.tencent.com/document/product/1142/47665#step4)。
 
+- **工具配置**：指通过工具一键配置 IPv6，根据镜像类型及购买时间的不同，使用的配置方法也不同，具体如下表所示。
   <table>
   <tbody>
   <tr>
@@ -93,7 +94,6 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#gjpz) 和 [手�
 ## 工具配置[](id:gjpz)
 
 ### enable_ipv6 工具配[](id:unopen)
-
 enable_ipv6 工具可以为已分配 IPv6 地址的 CVM 实例，一键配置 IPv6 地址。
 
 #### **使用限制**
@@ -103,7 +103,7 @@ enable_ipv6 工具可以为已分配 IPv6 地址的 CVM 实例，一键配置 IP
 #### **操作步骤**
 1. 登录云服务器，在云服务器中直接执行如下命令下载 enable_ipv6 工具。
 ```plaintext
- wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/enable_ipv6.sh
+wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/enable_ipv6.sh
 ```
 2. 赋予执行权限后，使用管理员权限执行如下命令：
 ```plaintext
@@ -122,10 +122,9 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
 - config_ipv6 工具运行时会自动重启网卡、网络服务，短时间内网络可能会不可用，请慎重执行。
 
 #### **操作步骤**
-
 1. 登录云服务器，在云服务器中直接执行如下命令下载 config_ipv6 工具。
 ```plaintext
-   wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/config_ipv6.sh
+wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/config_ipv6.sh
 ```
 2. 赋予执行权限后使用管理员权限执行如下命令：
 ```plaintext
@@ -166,16 +165,14 @@ $install_path eth0
 
 ## 手动配置[](id:manual)
 
-<span id="CentOS6.8"/>
-
 ### CentOS 6.8 配置 IPv6[](id:CentOS6.8)
 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
-	 ```plaintext
-   ip addr | grep inet6
-	 或者
-   ifconfig | grep inet6
-   ```
+```plaintext
+ip addr | grep inet6
+或者
+ifconfig | grep inet6
+```
  + 若实例未开启 IPv6 功能支持，请根据下文继续开启 IPv6 功能支持。 
  + 若返回`inet6`相关内容，表示实例已成功开启 IPv6 功能支持，您可以跳至 [第5步](#centstep5) 继续操作。
 3. 执行以下步骤修改并保存`ipv6.conf`文件。
@@ -631,9 +628,7 @@ key_value_editer()
 local file=$1
 local key=$2
 local value=$3
-
 [ ! -f "$file" ] && return
-
 if ! grep -i "^${key}[[:space:]]*=" "$file" &>/dev/null; then
  echo "$key=$value" >> "$file"
 else
@@ -641,7 +636,6 @@ else
  sed -i "s/^${key}[[:space:]]*=.*/$key=$value/" "$file"
 fi
 }
-
 dev=$1
 ipv6=$2
 prefix_len=$3
@@ -653,16 +647,12 @@ fi
 sed -i -e "s/ipv6_network_interfaces='none'//" $rc_conf_file
 sed -i -e "s/ipv6_activate_all_interfaces='NO'//" $rc_conf_file
 key_value_editer "$rc_conf_file" "ipv6_activate_all_interfaces" "'YES'"
-
 tail="_ipv6"
 # config ipv6 address
 echo "ifconfig_$dev$tail='inet6 $ipv6 prefixlen $prefix_len'" >> /etc/rc.conf
-
 # config ipv6 defaultrouter
 netip=$(echo $ipv6 | awk -F":" '{print $1":"$2":"$3":"$4}')
-
 echo "ipv6_defaultrouter='$netip::1'" >> /etc/rc.conf
-
 /etc/netstart restart
 ```
 3. 执行脚本，举例如下。
@@ -679,12 +669,12 @@ sh ./test.sh vtnet0 2402:4e00:1000:4200:0:8f0c:d527:b985 64
 5. 运行`vi /etc/rc.conf`打开网卡配置文件，`vtnet0`为网卡标识符，您需要修改成实际的标识符。在文件中根据实际信息添加以下配置：
 > ?为区分单个 IPv6 与多个 IPv6 地址，您只需在同一网卡标识符的基础上重复添加地址信息即可。
 > 
-    + 单 IPv6 地址：
+ - 单 IPv6 地址：
 ```plaintext
 ipv6_ifconfig_vtnet0="<IPv6地址>"
 ipv6_defaultrouter="<IPv6网关>"
 ```
-	+ 多 IPv6 地址：
+ - 多 IPv6 地址：
 ```plaintext
 ipv6_ifconfig_vtnet0="<IPv6地址1>"
 ipv6_ifconfig_vtnet0="<IPv6地址2>"

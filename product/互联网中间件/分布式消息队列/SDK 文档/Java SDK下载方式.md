@@ -37,14 +37,14 @@ java -version
 #### 2.2 设置 MAVEN_HOME 和 PATH 环境变量
 - Windows 系统下：
 ```
-   新建系统变量  MAVEN_HOME   变量值：E:\Maven\apache-maven-3.3.9
-   编辑系统变量  Path         添加变量值： ;%MAVEN_HOME%\bin
+ 新建系统变量  MAVEN_HOME   变量值：E:\Maven\apache-maven-3.3.9
+ 编辑系统变量  Path         添加变量值： ;%MAVEN_HOME%\bin
 ```
 
 - Linux / macOS 系统下：
 ```
-   export MAVEN_HOME=/usr/local/maven/apache-maven-3.3.9
-   export PATH=$MAVEN_HOME/bin:$PATH
+ export MAVEN_HOME=/usr/local/maven/apache-maven-3.3.9
+ export PATH=$MAVEN_HOME/bin:$PATH
 ```
 
 #### 2.3 验证 Maven 安装
@@ -145,12 +145,14 @@ mvn help:effective-settings
 ## 安装 SDK
 
 1. 在您 Java 工程的 pom.xml 中添加以下依赖：
-```xml
-    <dependency>
-    		<groupId>com.tencent.tdmq</groupId>
-    		<artifactId>tdmq-client</artifactId>
-    		<version>2.6.0</version>
-    </dependency>
-``` 
+<dx-codeblock>
+:::  xml
+<dependency>
+	<groupId>com.tencent.tdmq</groupId>
+	<artifactId>tdmq-client</artifactId>
+	<version>2.6.1</version>
+</dependency>
+:::
+</dx-codeblock>
 2. 在 pom.xml 所在目录执行 `mvn clean package` 即可下载 TDMQ SDK。
 

@@ -22,7 +22,7 @@
    - 当扩展协议注解中没有覆盖 Service Spec 中描述的端口时，Service Spec 按照用户描述配置。
    - 当扩展协议注解中描述的端口在 Service Spec 中不存在时，忽略该配置。
    - 当扩展协议注解中描述的端口在 Service Spec 中存在时，覆盖用户在 Service Spec 中声明的协议配置。
-- TCP SSL 是负载均衡器内测功能，需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
+
 
 
 

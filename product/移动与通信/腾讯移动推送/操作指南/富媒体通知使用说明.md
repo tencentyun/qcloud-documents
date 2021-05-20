@@ -14,10 +14,10 @@
 
 | 推送通道 | 支持类型          | 使用要求                                                     |
 | -------- | ----------------- | ------------------------------------------------------------ |
-| 华为     | 缩略图            | <li>URL 仅支持 HTTPS <li> 格式要求：<br>1. `PNG/JPG/JPEG`格式<br>2. 尺寸120 × 120px，若图片长或宽超过120px，华为系统会自动缩放<br>3. 小于200KB |
-| 小米     | 大图              | <li>URL 仅支持 HTTPS<li>格式要求：<br>1. `PNG/JPG/JPEG`格式<br>2. 固定876 x 324px<br>3. 小于1MB <li> 注意：如需使用小米通道大图通知功能，需先调用小米图片上传接口上传图片文件，获取小米指定的图片地址 pic_url ，再填入 TPNS 推送对应的参数 xg_media_resources 中。详情请参见 [小米推送富文本消息](https://dev.mi.com/console/doc/detail?pId=1163#_10_0) 文档中的上传大图 API 部分|
-| TPNS     | 大图+缩略图 +音频 | Android 平台：<li>URL 仅支持 HTTPS <li> 大图、缩略图格式要求：<br>1. `JPEG/JPG/PNG`格式<br>2. 大图高度不能超过256px，宽度自适应<br>3. 缩略图尺寸120 × 120px，若图片长或宽超过120px，TPNS 会居中截取方形<li>音视频文件格式要求：<br>1. 音频文件大小不超过5M。<br>iOS 平台：使用要求同 APNs 通道 |
-| APNs     | 缩略图+音视频     | <li>URL 仅支持 HTTPS <li>图片格式要求：<br>1. `JPEG/PNG/GIF`格式<br>2. 小于10MB<li>音视频文件格式要求：<br>1. `MPEG/MPEG2video/MPEG4/AVI`格式<br>2. 小于5MB <li>说明：图片不能与通知音视频同时开启，只能开启其中一个 |
+| 华为     | 缩略图            | <ul  style="margin: 0;"><li>URL 仅支持 HTTPS</li><li>格式要求：<ul  style="margin: 0;"><li>`PNG/JPG/JPEG` 格式</li><li>尺寸120px × 120px，若图片长或宽超过120px，华为系统会自动缩放</li><li>小于200KB</li></ul></li></ul>|
+| 小米     | 大图              | <ul  style="margin: 0;"><li>URL 仅支持 HTTPS</li><li>格式要求：<ul  style="margin: 0;"><li>`PNG/JPG/JPEG` 格式</li><li>固定876px x 324px</li><li>小于1MB</li></ul></li></ul>注意：如需使用小米通道大图通知功能，需先调用小米图片上传接口上传图片文件，获取小米指定的图片地址 pic_url ，再填入 TPNS 推送对应的参数 xg_media_resources 中。详情请参见 [小米推送富文本消息](https://dev.mi.com/console/doc/detail?pId=1163#_10_0) 文档中的上传大图 API 部分|
+| TPNS     | 大图+缩略图 +音频 | <ul  style="margin: 0;"><li>Android 平台：<ul  style="margin: 0;"><li>URL 仅支持 HTTPS</li><li>大图、缩略图格式要求：<ul  style="margin: 0;"><li>`JPEG/JPG/PNG` 格式</li><li>大图高度不能超过324px，宽度自适应</li><li>缩略图尺寸120px × 120px，若图片长或宽超过120px，TPNS 会居中截取方形</li></ul></li><li>音视频文件格式要求：音频文件大小不超过5M </li></ul></li><li>iOS 平台：使用要求同 APNs 通道</li></ul> |
+| APNs     | 缩略图+音视频     | <ul  style="margin: 0;"><li>URL 仅支持 HTTPS </li><li>图片格式要求：<ul  style="margin: 0;"><li>`JPEG/PNG/GIF` 格式</li><li>小于10MB</li></ul></li><li>音视频文件格式要求：<ul  style="margin: 0;"><li>`MPEG/MPEG2video/MPEG4/AVI` 格式</li><li>小于5MB</li></ul></li></ul>说明：图片不能与通知音视频同时开启，只能开启其中一个 |
 
 ## 操作步骤
 

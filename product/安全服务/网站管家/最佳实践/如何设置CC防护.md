@@ -8,7 +8,7 @@ CC 防护可以对网站特定的 URL 进行访问保护，CC 防护支持紧急
 ### 示例一：紧急模式 CC 防护配置
 >!紧急模式 CC 防护默认关闭，开启前请确认自定义 CC 防护规则处于未启用状态。
 >
-1.  登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面。
+1.  登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 安全防护】>【防护设置】，进入防护设置页面。
 2.  在域名列表中，找到需要防护的域名，单击【防护配置】，进入配置页面。
 ![](https://main.qcloudimg.com/raw/9be71efc16d6a472dfd7590b6ae11763.png)
 2. 单击【CC 防护设置2.0】，进行紧急模式 CC 防护配置。
@@ -21,7 +21,7 @@ CC 防护可以对网站特定的 URL 进行访问保护，CC 防护支持紧急
 [](id:two)
 ### 示例二： 基于访问源 IP 的 CC 防护设置
 基于 IP 的 CC 防护策略，不需要对 SESSION 维度进行设置，直接配置即可。
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 安全防护】>【防护设置】，进入防护设置页面。
 2. 在域名列表中，找到需要防护的域名，单击【防护配置】进入配置页面。
 ![](https://main.qcloudimg.com/raw/9be71efc16d6a472dfd7590b6ae11763.png)
 3. 单击【CC 防护设置2.0】进行 CC 规则配置，单击【添加规则】填写相应信息。
@@ -50,7 +50,7 @@ CC 防护可以对网站特定的 URL 进行访问保护，CC 防护支持紧急
 基于 SESSION 访问速率的 CC 防护，能够有效解决在办公网、商超和公共 Wi-Fi 场合，用户因使用相同 IP 出口而导致的误拦截问题。
 >!使用基于 SESSION 的 CC 防护策略，需要先进行 SESSION 设置，才能设置基于 SESSION 的 CC 防护策略，下文步骤1 - 步骤4为 SESSION 设置操作。
 
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 安全防护】>【防护设置】，进入防护设置页面。
 2. 在域名列表中，找到需要防护的域名，单击【防护配置】进入配置页面。
 ![](https://main.qcloudimg.com/raw/9be71efc16d6a472dfd7590b6ae11763.png)
 2. 选择【CC 防护设置2.0】>【设置】，设置 SESSION 维度信息。

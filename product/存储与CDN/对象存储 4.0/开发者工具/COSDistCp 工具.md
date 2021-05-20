@@ -45,7 +45,7 @@ COSDistCp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 | :------------------------------: | :----------------------------------------------------------- | :----: | :------: |
 |              --help              | 输出 COSDistCp 支持的参数选项<br> 示例：--help               |   无   |    否    |
 |          --src=LOCATION          | 指定拷贝的源目录，可以是 HDFS 或者 COS 路径<br> 示例：--src=hdfs://user/logs/ |   无   |    是    |
-|         --dest=LOCATION          | 指定拷贝的目标目录，可以是 HDFS 或者 COS 路径<br> 示例：--dest=cosn://examplebucket-1250000000/user/logs |   无   |    是    |
+|         --dest=LOCATION          | 指定拷贝的目标目录，可以是 HDFS 或者 COS 路径<br> 示例：--dest=cosn://examplebucket-1250000000/user/logs |   无   |    是 |
 |       --srcPattern=PATTERN       | 指定正则表达式对源目录中的文件进行过滤<br>示例：`--srcPattern='.*.log'`<br>**注意：您需要将参数使用单引号包围，以避免符号`*`被 shell 解释**。 |   无   |    否    |
 |      --reducerNumber=VALUE       | 指定 reducer 进程数目<br>示例：--reducerNumber=10            |   10   |    否    |
 |       --workerNumber=VALUE       | 指定每个 reducer 中的拷贝线程数，COSDistCp 在每个 reducer 中创建该参数大小的拷贝线程池<br>示例：--workerNumber=4 |   4    |    否    |
@@ -69,7 +69,7 @@ COSDistCp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 |      --cosChecksumType=TYPE      | 指定 Hadoop-COS 插件使用的 CRC 算法，可选值为 CRC32C 和 CRC64<br/>示例：--cosChecksumType=CRC32C | CRC32C |    否    |
 |      --preserveStatus=VALUE      | 指定是否将源文件的 user、group、permission、xattr 和 timestamps 元信息拷贝到目标文件，可选值为 ugpxt（即为 user、group、permission、xattr 和 timestamps 的英文首字母）<br/>示例：--preserveStatus=ugpt |   无   |    否    |
 |      --ignoreSrcMiss      | 忽略存在于文件清单中，但操作时不存在的文件 |   false   | 否       |
-|      --taskCompletionCallback=VALUE      | 在任务执行完成时，以收集到的信息作为参数回调给定函数 |   无   |    否    |
+|      --taskCompletionCallback=VALUE      | 在任务执行完成时，以收集到的信息作为参数回调到用户指定的函数 |   无   |    否    |
 |      --temp=VALUE      | 指定任务使用的临时目录|   /tmp  |    否   |
 
 ## 使用示例

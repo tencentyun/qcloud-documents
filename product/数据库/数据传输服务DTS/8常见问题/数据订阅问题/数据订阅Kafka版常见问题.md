@@ -4,7 +4,7 @@
 - 排查加密参数是否正确，参见 [Kafka 使用何种认证机制](#faq3)。
 
 ### 数据格式是怎么样的?
-数据订阅 Kafka 版使用 Protobuf 进行序列化。Demo 工程中包含了 Protobuf 定义文件，具体请参考 [生产和消费逻辑讲解](https://cloud.tencent.com/document/product/571/52381#dgxljjj)。
+数据订阅 Kafka 版使用 Protobuf 进行序列化。Protobuf 协议文件可在 [此处](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe.proto) 下载，Demo工 程中也包含了协议文件，具体请参考 [生产和消费逻辑讲解](https://cloud.tencent.com/document/product/571/52381#dgxljjj)。
 
 ### [Kafka 使用何种认证机制？](id:faq3)
 如下所示：

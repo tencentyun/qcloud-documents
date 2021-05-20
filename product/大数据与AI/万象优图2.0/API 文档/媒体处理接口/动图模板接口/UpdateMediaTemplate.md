@@ -79,7 +79,7 @@ Request 节点 Video 的具体数据描述如下：
 | Width                      | Request.Video | 宽                    | String | 否   | 视频原<br/>始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照视频原始比例计算 Height |
 | Height                     | Request.Video | 高                    | String | 否   | 视频原<br/>始高度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照视频原始比例计算 Width |
 | Fps                        | Request.Video | 帧率                  | String | 否   | 视频原<br/>始帧率 | <li>值范围：(0，60]<br/><li>单位：fps<br/><li>帧率超过60时，设置为60<br/>用户可以设置 fps，如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率。 |
-| AnimateOnly<br/>KeepKeyFrame    | Request.Video | 动图只保<br/>留关键帧      | String | 否   |      无        | <li>true、false<br/><li>动图保留关键帧参数                     |
+| AnimateOnly<br/>KeepKeyFrame    | Request.Video | 动图只保<br/>留关键帧      | String | 否   |      false        | <li>true、false<br/><li>动图保留关键帧参数                     |
 | AnimateTime<br/>IntervalOfFrame | Request.Video | 动图抽帧<br/>间隔时间      | String | 否   |      无        | <li>（0，视频时长]<br/><li>动图抽帧时间间隔<br/><li>若设置 TimeInterval.Duration，则小于该值 |
 | AnimateFrames<br/>PerSecond     | Request.Video | Animation 每秒<br/>抽帧帧数 | String | 否   |     无         | <li>（0，视频帧率)<br/><li>动图抽帧频率<br/><li>优先级：AnimateFramesPerSecond >  AnimateOnlyKeepKeyFrame  > AnimateTimeIntervalOfFrame |
 | Quality                    | Request.Video | 设置相对质量          | String | 否   |     无         | <li> [1, 100)<br/><li>webp 图像质量设定生效，gif 没有质量参数 |
@@ -167,7 +167,7 @@ TransTpl 节点 Video 的具体数据描述如下：
 | Width                      | Response.<br/>TransTpl.Video | 宽                    | String | 否   | 视频原始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照视频原始比例计算 Height |
 | Height                     | Response.<br/>TransTpl.Video | 高                    | String | 否   | 视频原始高度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照视频原始比例计算 Width |
 | Fps                        | Response.<br/>TransTpl.Video | 帧率                  | String | 否   | 视频原始帧率 | <li>值范围：(0，60]<br/><li>单位：fps<br/><li>帧率超过60时，设置为60<br/>用户可以设置 fps，如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率。 |
-| AnimateOnly<br/>KeepKeyFrame    | Response.<br/>TransTpl.Video | 动图只保<br/>留关键帧      | String | 否   |      无        | <li>true、false<br/><li>动图保留关键帧参数                     |
+| AnimateOnly<br/>KeepKeyFrame    | Response.<br/>TransTpl.Video | 动图只保<br/>留关键帧      | String | 否   |      false        | <li>true、false<br/><li>动图保留关键帧参数                     |
 | AnimateTime<br/>IntervalOfFrame | Response.<br/>TransTpl.Video | 动图抽帧<br/>间隔时间      | String | 否   |      无        | <li>（0，视频时长]<br/><li>动图抽帧时间间隔<br/><li>若设置 TimeInterval.Duration，则小于该值 |
 | AnimateFrames<br/>PerSecond     | Response.<br/>TransTpl.Video | Animation 每秒<br/>抽帧帧数 | String | 否   |     无         | <li>（0，视频帧率)<br/><li>动图抽帧频率<br/><li>优先级：AnimateFrames<br/>PerSecond >  AnimateOnlyKeepKeyFrame  > AnimateTimeIntervalOfFrame |
 | Quality                    | Response.TransTpl.Video | 设置相对质量          | String | 否   |     无         | <li>[1, 100)<br/><li>webp 图像质量设定生效，gif 没有质量参数 |
@@ -196,6 +196,8 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-
 Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
+
+
 
 <Request>
     <Tag>Animation</Tag>
@@ -228,6 +230,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+
+
 
 <Response>
     <Tag>Animation</Tag>
