@@ -22,7 +22,7 @@ APIGW 连接器实现方式为 **Push 模型**，APIGW 会监控请求并生成�
 7. 在“事件规则”顶部选框，选择与之前创建一致的事件集信息，并单击【新建事件规则】，如下图所示：
    ![](https://main.qcloudimg.com/raw/722e3a30a77d81c606a929d20191e349.jpg)
 8. 根据页面提示填写相关信息，如下图所示
-	 ![](https://main.qcloudimg.com/raw/0a0f03c10cc9927a9f87926ddb2c81a9.jpg)
+	 ![](https://main.qcloudimg.com/raw/4da8571e580f0bc6039368cb747fc5ca.jpg)
    其中**云服务类型**选择【API网关（APIGW）】，并配置触发目标端。
 9. 单击【确定】即可创建 APIGW 连接器。
 
