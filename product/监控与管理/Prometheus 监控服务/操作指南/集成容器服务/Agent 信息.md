@@ -9,4 +9,4 @@
 
 
 单击【集成容器服务】上面的【Agent 信息】可以查看 Prometheus Agent 在容器服务内的运行情况，如下图所示。
-![](https://main.qcloudimg.com/raw/5f75dc459697b539b8db889008b96788.png)
+![](https://main.qcloudimg.com/raw/0ab9b6f1a04999f652aa0ef8dcbce84f.png)
