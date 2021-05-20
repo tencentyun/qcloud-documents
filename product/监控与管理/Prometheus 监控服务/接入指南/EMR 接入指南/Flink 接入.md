@@ -130,13 +130,11 @@ metrics.reporter.promgateway.password: token
 #### 安装 Flink PushGateway 插件
 
 官方包中的 push gateway 插件目前还不支持配置认证信息，但是托管服务需要认证才允许写入，建议使用我们提供的 jar 包。我们也向 flink 官方提交了支持认证的 PR。
-
 1. 为防止类冲突，如果已经使用 Flink 官方插件，需要先执行以下命令删除官方插件。
 ```plaintext
 cd /usr/local/service/flink/lib
 rm flink-metrics-prometheus*jar
-```
-2. 在【 [弹性 MapReduce 控制台](https://console.cloud.tencent.com/emr)】>【选择对应的“实例”】>【集群资源】>【资源管理】>【Master】页面，查看 Master 节点。
+```2. 在【 [弹性 MapReduce 控制台](https://console.cloud.tencent.com/emr)】>【选择对应的“实例”】>【集群资源】>【资源管理】>【Master】页面，查看 Master 节点。
 3. 单击实例 ID 跳转至 CVM 控制台，登录 CVM 执行以下命令安装插件。
 ```plaintext
 cd /usr/local/service/flink/lib
