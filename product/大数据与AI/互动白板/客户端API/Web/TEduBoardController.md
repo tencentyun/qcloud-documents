@@ -847,7 +847,7 @@ data 参数格式如下：
     taskId: "xxxxx" //从 TEB_TRANSCODEPROGRESS 回调拿到的 taskId
 }
 ```
-转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
+转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该 [回调说明](https://cloud.tencent.com/document/product/1137/40001#teduboard.event.teb_fileuploadprogress) 文档 
 
 
 ### addTranscodeFile
