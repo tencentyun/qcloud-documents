@@ -25,7 +25,7 @@
 7. 在“事件规则”顶部选框，选择与之前创建一致的事件集信息，并单击【新建事件规则】，如下图所示：
   ![](https://main.qcloudimg.com/raw/722e3a30a77d81c606a929d20191e349.jpg)
 8. 根据页面提示填写相关信息，如下图所示：
-	 ![](https://main.qcloudimg.com/raw/94ab6064ea8b2cf6b3c7c4c79db93273.jpg)
+![](https://main.qcloudimg.com/raw/32611f2ffc4a1f9696401e317e9b8521.jpg)
    其中**云服务类型**选择【消息队列（TDMQ）】，并配置触发目标端。
 9. 单击【确定】即可创建 TDMQ 连接器。
 
