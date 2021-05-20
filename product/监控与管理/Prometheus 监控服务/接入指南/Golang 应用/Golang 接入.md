@@ -18,7 +18,6 @@ go get github.com/prometheus/client_golang/prometheus/promhttp
 
 1. 准备一个 HTTP 服务，路径通常使用 `/metrics`。可以直接使用 [`prometheus/promhttp`](https://pkg.go.dev/github.com/prometheus/client_golang@v1.8.0/prometheus/promhttp) 里提供的 [`Handler`](https://pkg.go.dev/github.com/prometheus/client_golang@v1.8.0/prometheus/promhttp#Handler) 函数。
 如下是一个简单的示例应用，通过 `http://localhost:2112/metrics` 暴露 Golang 应用的一些默认指标数据（包括运行时指标、进程相关指标以及构建相关的指标）：
-
 ```go
 package main
 
@@ -32,16 +31,10 @@ func main() {
         http.Handle("/metrics", promhttp.Handler())
         http.ListenAndServe(":2112", nil)
 }
-```
-
-2. 执行以下命令启动应用：
-
+```2. 执行以下命令启动应用：
 ```bash
 go run main.go
-```
-
-3. 执行以下命令，访问基础内置指标数据：
-
+```3. 执行以下命令，访问基础内置指标数据：
 ```bash
 curl http://localhost:2112/metrics
 ```
