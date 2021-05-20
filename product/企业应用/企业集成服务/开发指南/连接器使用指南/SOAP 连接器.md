@@ -123,7 +123,7 @@ SOAP 请求返回的响应 Response 为 XML 格式，会首先进行一次 Flatt
 ![](https://main.qcloudimg.com/raw/5d658fc3501df8b8048accddf9071a92/SOAP3.png)
 ![](https://main.qcloudimg.com/raw/4be3cab5e90c0f36636735cd7a8b692b/SOAP4.png)
 2. 输入连接器配置参数，其中 WSDL Location = "http://www.dneonline.com/calculator.asmx?WSDL",Service="Calculator" , Port = "CalculatorSoap"，其他参数保持默认值即可。具体如下图：
-![](https://main.qcloudimg.com/raw/435e4a5787019e6f946d5c826d806923/SOAP5.png)
+![](https://main.qcloudimg.com/raw/424ef72b61a46bf25f76b00f1bef3db1.png)
  - 默认使用 WSDL URL 参数设置为 true，此时会根据 WSDL Location 参数值提供的 wsdl url 链接进行解析；当使用 WSDL URL 参数设置为 false 时，用户也可通过输入 WSDL 文件参数值来对 Web 服务的 WSDL 文件内容进行解析。
 ![](https://main.qcloudimg.com/raw/8fa4beca8e96dd626c5d2dba228f77f5.png)
     - 首先在 SOAP 组件前添加 SetVariable 组件，变量名设置为 wsdlFile，变量值类型选择 entity.xml、值设为 WSDL Url 链接的 xml 内容。
