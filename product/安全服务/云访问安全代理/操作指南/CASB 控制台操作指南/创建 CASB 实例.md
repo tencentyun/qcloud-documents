@@ -12,7 +12,7 @@
 ### 步骤二：账户初始化设置（可选）
 1. 登录 [云访问安全代理控制台](https://console.cloud.tencent.com/casb)，在 CASB 实例页面右下角，单击【初始化】，进行初始化操作。
 	>?
-	>- 仅首次使用 CASB 实例需要进行以下操作操作。
+	>- 仅首次使用 CASB 实例需要进行以下操作。
 	>- 初始化操作需要3分钟 - 10分钟，初始化完成后，实例处于正常服务状态。
 	
 	![](https://main.qcloudimg.com/raw/aaba316df48c3e2515893dc178dd371d.png)
@@ -50,8 +50,9 @@
 ![](https://main.qcloudimg.com/raw/f5de699737a94153c0b6e57a43796205.png)
 5. 完成安全组配置后，单击“入站规则”或“出站规则”，即可预览“入站规则”及“出站规则”。
 ![](https://main.qcloudimg.com/raw/71cb60af0b0f838e9ad148f6129719d9.jpg)
+
 ### 步骤五：设置Proxy 资源
 1. 在 [实例列表](https://console.cloud.tencent.com/casb) 左侧操作栏，选择单击 ID/名称处的“实例名”，进入“基本信息”页面。
 2. 在基本信息页面右上角操作栏中，单击【Proxy 资源】进入 Proxy 资源页面，在该页面可查看 Proxy 资源的相关信息。
 >?在进行 Proxy 资源绑定操作之前，需要先创建关系元数据，创建完成之后才能进行 Proxy 的绑定。
->对于关系元数据的创建，详情请查阅 [**创建元数据库**](https://cloud.tencent.com/document/product/1303/55925) 或 [**创建自建数据库**](https://cloud.tencent.com/document/product/1303/55926) 。
+>对于关系元数据的创建，详情请查阅 [**添加元数据库**](https://cloud.tencent.com/document/product/1303/55925) 或 [**创建自建元数据**](https://cloud.tencent.com/document/product/1303/55926) 。
