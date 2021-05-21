@@ -31,7 +31,7 @@ const crypto = require('crypto')
 // 应用 ApiAppKey
 const apiAppKey = 'APIDLIA6tMfqsinsadaaaaaaaapHLkQ1z0kO5n5P'
 // 应用 ApiAppSecret
-const apiAppSecret = 'Dc44ACV2Da3Gm9aaaaaaaaBNumYRI4CZfVG8Qiuv'
+const apiAppSecret = 'Dc44ACV2Da3Gm9JVaaaaaaaaumYRI4CZfVG8Qiuv'
 
 const dateTime = new Date().toUTCString()
 const body = {
@@ -54,34 +54,27 @@ const options = {
   },
 }
 
-const signingStr = buildSignStr()
+const signingStr = [
+  `x-date: ${dateTime}`,
+  options.method,
+  options.headers.Accept,
+  options.headers['Content-Type'],
+  contentMD5,
+  options.path,
+].join('\n')
 const signing = crypto.createHmac('sha1', apiAppSecret).update(signingStr, 'utf8').digest('base64')
 const sign = `hmac id="${apiAppKey}", algorithm="hmac-sha1", headers="x-date", signature="${signing}"`
 options.headers.Authorization = sign
 
-function buildSignStr() {
-  return [
-    `x-date: ${dateTime}`,
-    options.method,
-    options.headers.Accept,
-    options.headers['Content-Type'],
-    contentMD5,
-    options.path,
-  ].join('\n')
-}
-
 const req = https.request(options, (res) => {
   console.log(`STATUS: ${res.statusCode}`)
-
   res.on('data', (chunk) => {
     console.log('BODY: ' + chunk)
   })
 })
-
 req.on('error', (error) => {
   console.error(error)
 })
-
 req.write(JSON.stringify(body))
 req.end()
 :::
@@ -98,7 +91,7 @@ const crypto = require('crypto')
 const querystring = require('querystring')
 
 // 应用 ApiAppKey
-const apiAppKey = 'APIDLIA6tMfqsinaaaaaaaaePFpHLkQ1z0kO5n5P'
+const apiAppKey = 'APIDLIA6tMfqsinsadaaaaaaaapHLkQ1z0kO5n5P'
 // 应用 ApiAppSecret
 const apiAppSecret = 'Dc44ACV2Da3Gm9JVaaaaaaaaumYRI4CZfVG8Qiuv'
 
@@ -125,6 +118,21 @@ const signingStr = buildSignStr(sorted_body)
 const signing = crypto.createHmac('sha1', apiAppSecret).update(signingStr, 'utf8').digest('base64')
 const sign = `hmac id="${apiAppKey}", algorithm="hmac-sha1", headers="x-date", signature="${signing}"`
 
+options.headers.Authorization = sign
+
+// 发送请求
+const req = https.request(options, (res) => {
+  console.log(`STATUS: ${res.statusCode}`)
+  res.on('data', (chunk) => {
+    console.log('BODY: ' + chunk)
+  })
+})
+req.on('error', (error) => {
+  console.error(error)
+})
+req.write(querystring.stringify(body))
+req.end()
+
 function sortBody(body) {
   const keys = Object.keys(body).sort()
   let signKeys = []
@@ -141,36 +149,15 @@ function buildSignStr(sorted_body) {
       return `${item}=${body[item]}`
     })
     .join('&')
-  return (
-    [
-      `x-date: ${dateTime}`,
-      options.method,
-      options.headers.Accept,
-      options.headers['Content-Type'],
-      contentMD5,
-      options.path,
-    ].join('\n') +
-    '?' +
-    keyStr
-  )
+  return [
+    `x-date: ${dateTime}`,
+    options.method,
+    options.headers.Accept,
+    options.headers['Content-Type'],
+    contentMD5,
+    options.path + '?' + keyStr,
+  ].join('\n')
 }
-
-options.headers.Authorization = sign
-
-const req = https.request(options, (res) => {
-  console.log(`STATUS: ${res.statusCode}`)
-
-  res.on('data', (chunk) => {
-    console.log('BODY: ' + chunk)
-  })
-})
-
-req.on('error', (error) => {
-  console.error(error)
-})
-
-req.write(querystring.stringify(body))
-req.end()
 :::
 </dx-codeblock>
 
