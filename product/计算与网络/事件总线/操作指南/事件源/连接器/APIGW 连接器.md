@@ -5,6 +5,7 @@
 APIGW 连接器实现方式为 **Push 模型**，APIGW 会监控请求并生成调用事件投递至事件集，并将相关事件通过事件规则路由到更多服务。
 
 
+
 ## 前提条件
 
 已 [创建事件集](https://cloud.tencent.com/document/product/1359/56080)。
@@ -74,3 +75,5 @@ APIGW 连接器实现方式为 **Push 模型**，APIGW 会监控请求并生成�
 | queryString | 记录实际请求的完整 Query 内容。            |
 | body        | 记录实际请求转换为 String 字符串后的内容。 |
 | headers     | 记录实际请求的完整 Header 内容。           |
+
+
