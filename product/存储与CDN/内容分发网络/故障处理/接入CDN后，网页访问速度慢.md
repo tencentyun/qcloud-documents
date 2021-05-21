@@ -20,11 +20,13 @@
 ```
 nslookup 加速域名
 ```
-![](https://main.qcloudimg.com/raw/25766483a81d51e0ba240d7e3bd5db81.png)
+![](https://main.qcloudimg.com/raw/e60f03d058f29134524166c211791568.png)
 如果查询出的域名解析中没有如上图红框中所示，是后缀为 dnsv1.com 的 CNAME 解析记录，则说明您接入域名的 CDN 加速服务未生效，可能原因是您没有在域名 DNS 服务商处配置 CNAME 记录，可以根据 [配置 CNAME](https://cloud.tencent.com/document/product/228/3121) 文档前往您的域名 DNS 服务商处配置 CNAME 记录。
 
 [](id:step2)
 ###  检查节点缓存过期时间配置
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧菜单栏选择【域名管理】，单击域名操作列的【管理】，进入域名配置页面，切换Tab至【缓存配置】，即可找到【节点缓存过期配置】。
+![](https://main.qcloudimg.com/raw/7722e07d356878b4e031984df0328759.png)
 
 - 检查所访问的资源对应的节点缓存规则，是否存在配置的节点缓存过期时间为0、节点缓存过期时间过短或不缓存的情况。
   如果 CDN 节点没有缓存，访问请求会回源，起不到加速效果。建议用户根据需要配置节点的缓存时间，
@@ -37,8 +39,8 @@ nslookup 加速域名
 [](id:step3)
 ### 进行 URL 预热
 
-如果您是首次访问资源，且之前未对该资源做过预热处理，CDN 节点会回源拉取资源，首次访问速度慢属于正常。建议可以先在控制台进行 [URL 预热](https://cloud.tencent.com/document/product/228/40273)。
-
+如果您是首次访问资源，且之前未对该资源做过预热处理，CDN 节点会回源拉取资源，首次访问速度慢属于正常。建议登录 [CDN 控制台](https://console.cloud.tencent.com/cdn) 在 【刷新预热】 中找到 URL 预热功能，进行 [URL 预热](https://cloud.tencent.com/document/product/228/40273)。
+![](https://main.qcloudimg.com/raw/83e7ceeb26fca38870fe020231542988.png)
 
 [](id:step4)
 ### 优化网页架构模式
