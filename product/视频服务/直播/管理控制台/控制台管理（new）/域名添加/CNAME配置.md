@@ -7,7 +7,7 @@
 - 推流域名和播放域名均需完成 CNAME 解析。
 - 请前往您的域名解析服务商处配置 CNAME 记录，具体操作请咨询您的域名解析服务提供商。
 - CNAME 设置完成后约15分钟生效。若您设置多层 CNAME，云直播无法有效监测解析结果，请以实际的访问情况为参考。
-- 若 CNAME 设置完成后长时间未显示成功，请前往参见 [CNAME 配置问题定位](https://cloud.tencent.com/document/product/267/45252)。
+- 若 CNAME 设置完成后长时间未显示成功，请参见 [域名配置相关](https://cloud.tencent.com/document/product/267/45252)。
 
 ## 前提条件
 - 已在 [域名注册](https://dnspod.cloud.tencent.com/?from=qcloudProductDns) 申请域名，并备案成功。
@@ -140,4 +140,4 @@
 ![](https://main.qcloudimg.com/raw/8bad41428852a7c32111933b33e8853c.png)
 
 
->!若 CNAME 设置完成后长时间未显示成功，可参考 [CNAME 配置问题定位。](https://cloud.tencent.com/document/product/267/45252)
+>!若 CNAME 设置完成后长时间未显示成功，可参考 [域名配置相关](https://cloud.tencent.com/document/product/267/45252)。
