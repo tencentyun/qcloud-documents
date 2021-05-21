@@ -241,7 +241,7 @@ public abstract int snapshot();
 #### 返回
 返回值 V2TXLiveCode：
 - V2TXLIVE_OK：成功。
-- V2TXLIVE_ERROR_REFUSED：播放器处于停止状态，不允许调用截图操作
+- V2TXLIVE_ERROR_REFUSED：播放器处于停止状态，不允许调用截图操作。
 
 ***
 
