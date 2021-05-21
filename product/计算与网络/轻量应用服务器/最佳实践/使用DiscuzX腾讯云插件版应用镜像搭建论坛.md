@@ -27,7 +27,7 @@ Discuz! X 是一款流行的社区论坛软件，具有性能优异、功能全�
 ## 相关操作
 
 ### 域名与 DNS 解析设置
-您可以给自己的 Discuz! Q 论坛设定一个单独的域名。用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。有些用户搭建网站仅用于学习，那么可使用 IP 直接访问网站，但不推荐这样操作。
+您可以给自己的 Discuz! X 论坛设定一个单独的域名。用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。有些用户搭建网站仅用于学习，那么可使用 IP 直接访问网站，但不推荐这样操作。
 
 如果您已有域名或者想要通过域名来访问您的网站，请参考以下步骤：
 1. 通过腾讯云 [购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)，具体操作请参考 [域名注册](https://cloud.tencent.com/document/product/242/9595)。
@@ -36,9 +36,7 @@ Discuz! X 是一款流行的社区论坛软件，具有性能优异、功能全�
 3. 通过腾讯云 [DNS解析 DNSPod](https://cloud.tencent.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。具体操作请参考 [A 记录](https://cloud.tencent.com/document/product/302/3449)，将域名指向一个 IP 地址（外网地址）。
 
 ### 开启 HTTPS 访问
-您可通过以下方式，为您的实例安装 SSL 证书：
-- 方式1：Discuz! Q 实例创建完成后，使用实例中内置的宝塔 Linux 面板安装 SSL 证书。详情可参考宝塔 Linux 面板官方文档。
-- 方式2：可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 Discuz! Q 实例安装 SSL 证书并开启 HTTPS 访问。
+可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 Discuz! X 实例安装 SSL 证书并开启 HTTPS 访问。
 
 
 ### 配置 URL 静态化
