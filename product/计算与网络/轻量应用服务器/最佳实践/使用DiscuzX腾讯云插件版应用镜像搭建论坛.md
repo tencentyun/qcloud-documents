@@ -46,14 +46,14 @@ Discuz! X 是一款流行的社区论坛软件，具有性能优异、功能全�
 3. 选择页面上方【全局】，并单击左侧的【SEO设置】。
 4. 在“SEO设置”页面中，单击【查看当前的 Rewrite 规则】。如下图所示：
  ![](https://main.qcloudimg.com/raw/ca62e515bbbd9e535df6fc51c65c7d31.png)
-5. 在 Rewrite 规则详情页中，查看并记录 Nginx Web Server。如下图所示：
+5. [](id:Step5)在 Rewrite 规则详情页中，查看并记录 Nginx Web Server。如下图所示：
 ![](https://main.qcloudimg.com/raw/08524623c6a4b29a9f3b14718603630f.png)
-6. [](id:Step6)登录实例，详情请参见 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)。
+6. 登录实例，详情请参见 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)。
 7. 执行以下命令，使用 vim 打开配置文件。
 ```
 sudo vim /usr/local/lighthouse/softwares/nginx/conf/include/discuzx.conf
 ```
-8. 按 **i** 进入编辑模式，将 [步骤6](#Step6) 中获取的配置，输入至 `location / {...}` 中。
+8. 按 **i** 进入编辑模式，将 [步骤5](#Step5) 中获取的配置，输入至 `location / {...}` 中。
 9. 按 **Esc**，输入 **:wq**，保存文件并返回。
 10. 执行以下命令，重启 Nginx。
 ```
