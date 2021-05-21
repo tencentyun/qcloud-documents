@@ -16,7 +16,7 @@
 1. 登录 [事件总线控制台](https://console.cloud.tencent.com/eb/)，选择左侧导航栏中的【事件集】。
 2. 在“事件集”列表，选择期望配置 TDMQ 连接器的事件集。
 3. 在“事件集详情”页事件连接器配置项中单击【添加】，如下图所示：
-	![](https://main.qcloudimg.com/raw/885812f4d4bee39c608cc564069fee7c.jpg)
+![](https://main.qcloudimg.com/raw/becfdcc055c2eb05638e662454f9d2cb.jpg)
 4. 根据页面提示填写相关信息，如下图所示：
 	![](https://main.qcloudimg.com/raw/ab46965a9f2ed3f7d977e37fa0d80acd.jpg)
   其中**连接器类型**选择【消息队列（TDMQ）】连接器，其余配置项按照提示填写。
