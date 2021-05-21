@@ -21,7 +21,7 @@ public void onError(V2TXLivePlayer player, int code, String msg, Bundle extraInf
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | player | V2TXLivePlayer |  回调该通知的播放器对象。 |
-| code | int |  错误码 。 |
+| code | int |  错误码。 |
 | msg |  String |  错误信息。 |
 | extraInfo | Bundle|  扩展信息。 |
 
@@ -39,7 +39,7 @@ public void onWarning(V2TXLivePlayer player, int code, String msg, Bundle extraI
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | player | V2TXLivePlayer |  回调该通知的播放器对象。 |
-| code | int |  警告码 。 |
+| code | int |  警告码。 |
 | msg | String |  警告码信息。 |
 | extraInfo | Bundle |  扩展信息。 |
 
@@ -62,7 +62,7 @@ public void onVideoPlayStatusUpdate(
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | player | V2TXLivePlayer |  回调该通知的播放器对象。 |
-| status | [V2TXLivePlayStatus](#V2TXLivePlayStatus)  | 状态码 。 |
+| status | [V2TXLivePlayStatus](#V2TXLivePlayStatus)  | 状态码。 |
 | reason | V2TXLiveStatusChangeReason |  状态对应的原因。 |
 | extraInfo | Bundle |  扩展信息。 |
 
@@ -89,7 +89,7 @@ public void onSnapshotComplete(V2TXLivePlayer player, Bitmap image)
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | player | V2TXLivePlayer |  回调该通知的播放器对象。 |
-| image | Bitmap * | 已截取的视频画面 。 |
+| image | Bitmap * | 已截取的视频画面。 |
 
 ***
 
@@ -128,7 +128,7 @@ public void onAudioPlayStatusUpdate(
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | player | V2TXLivePlayer |  回调该通知的播放器对象。 |
-| status | [V2TXLivePlayStatus](#V2TXLivePlayStatus)  | 状态码 。 |
+| status | [V2TXLivePlayStatus](#V2TXLivePlayStatus)  | 状态码。 |
 | reason | V2TXLiveStatusChangeReason |  状态对应的原因。 |
 | extraInfo | Bundle |  扩展信息。 |
 
