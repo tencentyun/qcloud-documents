@@ -214,7 +214,7 @@ if (ips && ips.count > 1) {
  域名批量异步解析（通用接口）
 
  @param domains  域名数组
- @param handler 返回查询到的IP数组，超时（1s）或者未未查询到返回[0,0]数组
+ @param handler 返回查询到的IP字典，超时（1s）或者未未查询到返回 {"queryDomain" : [0, 0] ...}
  */
 - (void) WGGetHostsByNamesAsync:(NSArray *) domains returnIps:(void (^)(NSDictionary * ipsDictionary))handler;
 ```
