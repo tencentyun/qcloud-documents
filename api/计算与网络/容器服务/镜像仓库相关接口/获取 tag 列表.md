@@ -44,6 +44,7 @@ tag 字段详细说明：
 | os |  操作系统|String |
 | pushTime |  push 时间|String |
 | sizeByte |  镜像大小，单位为字节|Int |
+
 ## 4. 示例
 输入
 

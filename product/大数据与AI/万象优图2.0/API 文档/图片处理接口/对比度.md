@@ -1,0 +1,30 @@
+## 功能概述
+对比度指一幅图像中明暗区域最亮的白和最暗的黑之间不同亮度层级的测量，即指一幅图像灰度反差的大小。腾讯云数据万象通过 **imageMogr2** 接口调节图片对比度。
+
+## 接口形式
+
+```shell
+download_url?imageMogr2/contrast/<value>
+```
+
+## 参数说明
+
+操作名称：contrast。
+
+| 参数             | 含义                                                         |
+| ---------------- | ------------------------------------------------------------ |
+| download_url | 文件的访问链接，具体构成为`<BucketName-APPID>.cos.<picture region>.<domain>.com/<picture name>`，<br>例如`examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/picture.jpeg`。 |
+| /contrast/&lt;value> | 图片对比度调节功能，value 为对比度参数值，取值范围为[-100, 100]的整数。<br><li>取值＜0：降低图片对比度。<br><li>取值 = 0：不调整图片对比度。<br><li>取值＞0：提高图片对比度。 |
+| /ignore-error/1            | 当处理参数中携带此参数时，针对文件过大导致处理失败的场景，会直接返回原图而不报错         |
+
+## 示例
+
+#### 对比度调节
+
+将图片对比度降低50，示例如下：
+```plaintext
+http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?imageMogr2/contrast/-50
+```
+
+最终效果如下：
+![](https://main.qcloudimg.com/raw/555a3a42dff976c0f4ef382de70eae79.jpg)

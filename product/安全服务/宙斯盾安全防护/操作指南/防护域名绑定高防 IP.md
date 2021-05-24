@@ -1,5 +1,5 @@
 
-在 [宙斯盾高防产品控制台](https://console.cloud.tencent.com/gamesec) 左侧目录中，选择 “业务域名列表”，在右侧页面中，单击 “创建业务和域名” 创建业务，并自动生成防护域名。用户可通过将业务域名 CNAME 到防护域名接入高防。
+登录 [宙斯盾高防产品控制台](https://console.cloud.tencent.com/gamesec)，在左侧目录中，选择 “业务域名列表”，在右侧页面中，单击 “创建业务和域名” 创建业务，并自动生成防护域名。用户可通过将业务域名 CNAME 到防护域名接入高防。
 
 ## 流程图
 ![](https://main.qcloudimg.com/raw/320d44047dc9745f8d802bbe595b6a17.png)

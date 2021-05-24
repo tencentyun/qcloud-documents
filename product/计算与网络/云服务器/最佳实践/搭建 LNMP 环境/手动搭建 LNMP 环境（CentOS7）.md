@@ -7,7 +7,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 ## 示例软件版本
 本文搭建的 LNMP 环境软件组成版本及说明如下：
 - Linux：Linux 操作系统，本文以 CentOS 7.6 为例。
-- Nginx：Web 服务器，本文以  Nginx 1.17.5 为例。
+- Nginx：Web 服务器，本文以  Nginx 1.17.7 为例。
 - MariaDB：数据库，本文以 MariaDB 10.4.8 为例。
 - PHP：脚本语言，本文以 PHP 7.2.22 为例。
 
@@ -46,8 +46,8 @@ yum install -y nginx
 vim /etc/nginx/nginx.conf
 ```
 6. 按 “**i**” 切换至编辑模式，编辑 `nginx.conf` 文件。
-用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
->?找到 `nginx.conf` 文件中的 `#gzip on;`，另起一行并输入以下内容。
+7. 找到 `server{...}`，并将 `server` 大括号中相应的配置信息替换为如下内容。用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
+>? 您可使用 `Ctrl+F` 向下翻页、`Ctrl+B`向上翻页查看文件。
 >
 ```
 server {
@@ -77,6 +77,8 @@ server {
 	}
 }
 ```
+若 `nginx.conf` 文件中未找到 `server{...}`，请在 `include /etc/nginx/conf.d/*conf;`上方添加以上的 `server{...}` 配置内容。如下图所示：
+![](https://main.qcloudimg.com/raw/901a3957ccd992c2fb345287271c4bef.png)
 7. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 8. 执行以下命令启动 Nginx。
 ```
@@ -110,19 +112,22 @@ yum -y remove 包名
 ```
 vi /etc/yum.repos.d/MariaDB.repo
 ```
-3. 按 “**i**” 切换至编辑模式，写入以下内容。
+3. 按 “**i**” 切换至编辑模式，写入以下内容，添加 MariaDB 软件库。
+>? 
+>- 不同操作系统的 MariaDB 软件库不同，您可前往 [MariaDB 官网](https://downloads.mariadb.org) 获取其他版本操作系统的 MariaDB 软件库安装信息。
+>- 若您的云服务器使用了 [内网服务](https://cloud.tencent.com/document/product/213/5225)，则可以将 `mirrors.cloud.tencent.com` 替换为 `mirrors.tencentyun.com` 内网地址，内网流量不占用公网流量且速度更快。
+>
 ```
 # MariaDB 10.4 CentOS repository list - created 2019-11-05 11:56 UTC
 # http://downloads.mariadb.org/mariadb/repositories/
 [mariadb]
 name = MariaDB
-baseurl = http://yum.mariadb.org/10.4/centos7-amd64
-gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+baseurl = https://mirrors.cloud.tencent.com/mariadb/yum/10.4/centos7-amd64
+gpgkey=https://mirrors.cloud.tencent.com/mariadb/yum/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
->?您可前往 [MariaDB 官网](https://downloads.mariadb.org) 获取其他版本操作系统的安装信息。
 4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-5. 执行以下命令，安装 MariaDB。
+5. 执行以下命令，安装 MariaDB。此步骤耗时较长，请关注安装进度，等待安装完毕。
 ```
 yum -y install MariaDB-client MariaDB-server
 ```
@@ -193,7 +198,3 @@ http://云服务器实例的公网 IP
 - 云服务器的登录问题，可参考 [密码及密钥](https://cloud.tencent.com/document/product/213/18120)、[登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 - 云服务器的网络问题，可参考 [IP 地址](https://cloud.tencent.com/document/product/213/17285)、[端口与安全组](https://cloud.tencent.com/document/product/213/2502)。
 - 云服务器硬盘问题，可参考 [系统盘和数据盘](https://cloud.tencent.com/document/product/213/17351)。
-
-
-
-

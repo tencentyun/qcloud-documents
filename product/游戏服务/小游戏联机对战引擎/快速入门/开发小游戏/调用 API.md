@@ -1,4 +1,5 @@
->!gameInfo.gameId、gameInfo.secretKey、config.url 均需前往 [小游戏联机对战引擎控制台](https://console.cloud.tencent.com/mgobe) 中获取。
+
+>!gameInfo.gameId、gameInfo.secretKey、config.url 均需前往 [游戏联机对战引擎控制台](https://console.cloud.tencent.com/mgobe) ，在游戏概览的基本信息里获取。
 
 1. 在 game.js 中输入以下代码，完成 SDK 初始化，获得 room 实例。
 	```
@@ -7,7 +8,7 @@
 		gameId: "xxxxxxxx",
 		// 玩家 openId
 		openId: 'openid_123_test',
-		// 替换 为控制台上的“密钥”
+		// 替换 为控制台上的“游戏Key”
 		secretKey: 'BjU3QBZLFxxxxxxxxxxxxxxxxxx',
 	};
 
@@ -59,4 +60,4 @@
 	```
 3. 在微信开发者工具中编译该项目，控制台中输出“查询成功”信息即表示接入成功。
 
-详细的 API 的使用方法您可以参考 [SDK 使用流程](https://cloud.tencent.com/document/product/1038/33315) 。
+>?详细的 API 使用方法，您可以参考 [SDK 使用流程](https://cloud.tencent.com/document/product/1038/33315) 。

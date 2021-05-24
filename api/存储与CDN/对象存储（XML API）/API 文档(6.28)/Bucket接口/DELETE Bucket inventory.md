@@ -6,6 +6,24 @@ DELETE Bucket inventory 用于删除存储桶中指定的清单任务，用户�
 > !
 > - 调用该请求时，请确保您有足够的权限对存储桶的清单任务进行操作。
 > - 存储桶所有者默认拥有该权限，如您无该项权限，请先向存储桶所有者申请该项操作的权限。
+> 
+
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=DeleteBucketInventory&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
 
 ## 请求
 
@@ -30,13 +48,8 @@ Authorization: Auth String
 
 #### 请求头
 
-#### 公共头部
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
-
-#### 非公共头部
-
-该请求操作无特殊的请求头部信息。
 
 #### 请求体
 
@@ -46,17 +59,16 @@ Authorization: Auth String
 
 #### 响应头
 
-#### 公共响应头 
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
-该响应使用公共响应头，了解公共请求头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
-
-#### 特有响应头
-
-该响应无特殊的响应头。
 
 #### 响应体
 
 该响应体返回为空。
+
+#### 错误码
+
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -67,7 +79,7 @@ Authorization: Auth String
 ```shell
 DELETE /?inventory&id=list1 HTTP/1.1
 Date: Mon, 28 Aug 2018 02:53:38 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1503901499;1503901859&q-key-time=1503901499;1503901859&q-header-list=host&q-url-param-list=inventory&q-signature=761f3f6449c6a11684464f4b09c6f292f0a4e7e0
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1503901499;1503901859&q-key-time=1503901499;1503901859&q-header-list=host&q-url-param-list=inventory&q-signature=761f3f6449c6a11684464f4b09c6f292f0a4****
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 ```
 
@@ -80,5 +92,6 @@ HTTP/1.1 204 No Content
 Server: tencent-cos
 Date: Mon, 28 Aug 2018 02:53:40 GMT
 x-cos-id-2:0dfafa/DAPDIFdafdsfDdfSFFfdfKKJdafasiuKJK2
-x-cos-request-id: NTlhM2I3M2JfMjQ4OGY3MGFfMWE1NF84ZTU=
+x-cos-request-id: NTlhM2I3M2JfMjQ4OGY3MGFfMWE1NF84****
 ```
+

@@ -12,21 +12,45 @@
 出于政策和合规的考虑，微信暂时没有放开所有小程序对 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签的支持：
 
 - 个人账号和企业账号的小程序暂时只开放如下表格中的类目：
+<table>
+<tr><th width="17%">主类目</th><th>子类目</th><th>小程序内容场景</th></tr>
+<tr>
+<td>社交</td>
+<td>直播</td>
+<td>涉及娱乐性质，如明星直播、生活趣事直播和宠物直播等。选择该类目后首次提交代码审核，需经当地互联网主管机关审核确认，预计审核时长7天左右</td>
+</tr><tr>
+<td>教育</td>
+<td>在线视频课程</td>
+<td>网课、在线培训、讲座等教育类直播</td>
+</tr><tr>
+<td>医疗</td>
+<td>互联网医院，公立医院</td>
+<td>问诊、大型健康讲座等直播</td>
+</tr><tr>
+<td>金融</td>
+<td>银行、信托、基金、证券/期货、证券、期货投资咨询、保险、征信业务、新三板信息服务平台、股票信息服务平台（港股/美股）、消费金融</td>
+<td>金融产品视频客服理赔、金融产品推广直播等</td>
+</tr><tr>
+<td>汽车</td>
+<td>汽车预售服务</td>
+<td>汽车预售、推广直播</td>
+</tr><tr>
+<td>政府主体帐号</td>
+<td>-</td>
+<td>政府相关工作推广直播、领导讲话直播等</td>
+</tr><tr>
+<td>工具</td>
+<td>视频客服</td>
+<td>不涉及以上几类内容的一对一视频客服服务，如企业售后一对一视频服务等</td>
+</tr><tr>
+<td>IT 科技</td>
+<td>多方通信；音视频设备</td>
+<td>为多方提供电话会议/视频会议等服务；智能家居场景下控制摄像头</td>
+</tr></table>
 
-
-| 主类目 | 子类目  |小程序内容场景|
-|-------|----------|----------|
-| 社交| 直播 |涉及娱乐性质，如明星直播、生活趣事直播和宠物直播等。选择该类目后首次提交代码审核，需经当地互联网主管机关审核确认，预计审核时长7天左右|
-| 教育| 在线视频课程 |网课、在线培训、讲座等教育类直播|
-| 医疗| 互联网医院，公立医院 |问诊、大型健康讲座等直播|
-| 金融| 银行、信托、基金、证券/期货、证券、期货投资咨询、保险、征信业务、新三板信息服务平台、股票信息服务平台（港股/美股）、消费金融 |金融产品视频客服理赔、金融产品推广直播等|
-|汽车|	汽车预售服务|	汽车预售、推广直播|
-|政府主体帐号|	-	|政府相关工作推广直播、领导讲话直播等|
-|工具	|视频客服	|不涉及以上几类内容的一对一视频客服服务，如企业售后一对一视频服务等|
 
 
 - 符合类目要求的小程序，需要在小程序管理后台的【开发】>【接口设置】中自助开通推拉流标签的使用权限，如下图所示：
-
 ![](https://main.qcloudimg.com/raw/cabb6b98121754b7956bd02029714616.jpg)
 
 >! 如果以上设置都正确，但小程序依然不能正常工作，可能是微信内部的缓存没更新，请删除小程序并重启微信后，再进行尝试。
@@ -59,13 +83,13 @@
 ## 示例代码
 ```html
 <view id='video-box'>  
-	<live-pusher
-	      id="pusher"
-	      mode="RTC"
-	      url="{{pusher.push_url}}" 
-	      autopush='true'
-	      bindstatechange="onPush">
-	</live-pusher>  
+  <live-pusher
+        id="pusher"
+        mode="RTC"
+        url="{{pusher.push_url}}" 
+        autopush='true'
+        bindstatechange="onPush">
+  </live-pusher>  
  </view> 
 ```
 
@@ -95,7 +119,7 @@ SD、HD 和 FHD 主要用于直播类场景，例如赛事直播、在线教育�
 出于用户隐私的考虑，在微信切到后台以后，小程序希望停止摄像头的画面采集。但是对于另一端的用户而言，画面会变成黑屏或者冻屏（停留在最后一帧），这种体验是非常差的。为了解决这个问题，我们引入了 waiting-image 属性，您可以设置一张有 “稍候” 含义的图片（waiting-image 是该图片的 URL，waiting-image-hash 则是该图片对应的 md5 校验值）。当微信切到后台以后，小程序会使用该图片作为摄像头画面的替代，以极低的流量占用维持视频流3分钟时间。
 
 - **debug**
- 调试音视频相关功能，如果没有很好的工具会是一个噩梦，所以小程序为 live-pusher 标签支持了 debug 模式，开始 debug 模式之后，原本用于渲染视频画面的窗口上，会显示一个半透明的 log 窗口，用于展示各项音视频指标和事件，降低您调试相关功能的难度，具体使用方法我们在 [FAQ](https://cloud.tencent.com/document/product/454/7946#2.-.E5.8F.91.E7.8E.B0.E9.97.AE.E9.A2.98.E7.9A.84.E2.80.9C.E7.9C.BC.E7.9D.9B.E2.80.9D) 中有详细说明。
+ 调试音视频相关功能，如果没有很好的工具会是一个噩梦，所以小程序为 live-pusher 标签支持了 debug 模式，开始 debug 模式之后，原本用于渲染视频画面的窗口上，会显示一个半透明的 log 窗口，用于展示各项音视频指标和事件，降低您调试相关功能的难度，具体使用方法我们在 [FAQ](https://cloud.tencent.com/document/product/454/7946) 中有详细说明。
 
 ## 参数设置
 这么多参数，具体要怎样设置才比较合适呢？我们给出如下建议值：
@@ -113,39 +137,30 @@ SD、HD 和 FHD 主要用于直播类场景，例如赛事直播、在线教育�
 >? 如果不是对带宽特别没有信心的应用场景，audio-quality 选项请不要选择 low，其音质和延迟感都要会比 high 模式差很多。
 
 ## 对象操作
-- **wx.createLivePusherContext()**
-通过 wx.createLivePusherContext() 可以将 &lt;live-pusher&gt; 标签和 javascript 对象关联起来，之后即可操作该对象。
 
-- **start** 
-开始推流，如果 &lt;live-pusher&gt; 的 autopush 属性设置为 false（默认值），那么就可以使用 start 来手动开始推流。
+| 对象                     | 说明                                                         |
+| ---------------------------- | ------------------------------------------------------------ |
+| wx.createLivePusherContext() | 通过 wx.createLivePusherContext() 可以将 &lt;live-pusher&gt; 标签和 javascript 对象关联起来，之后即可操作该对象 |
+| start[](id:start_push)       | 开始推流，如果 &lt;live-pusher&gt; 的 autopush 属性设置为 false（默认值），那么就可以使用 start 来手动开始推流 |
+| stop                         | 停止推流                                                   |
+| pause                        | 暂停推流                                                   |
+| resume                       | 恢复推流，请与 pause 操作配对使用                          |
+| switchCamera                 | 切换前后摄像头                                             |
+| snapshot                     | 推流截图，截图大小跟组件的大小一致。截图成功图片的临时路径为 `ret.tempImagePath` |
 
-- **stop**
-停止推流。
-
-- **pause**
-暂停推流。
-
-- **resume**
-恢复推流，请与 pause 操作配对使用。
-
-- **switchCamera**
-切换前后摄像头。
-
-- **snapshot**
-推流截图，截图大小跟组件的大小一致。截图成功图片的临时路径为` ret.tempImagePath`。
 
 ```javascript
 var pusher = wx.createLivePusherContext('pusher');
 pusher.start({
     success: function(ret){
-		    console.log('start push success!')
-		}
-		fail: function(){
-		    console.log('start push failed!')
-		}
-		complete: function(){
-		    console.log('start push complete!')
-		}
+        console.log('start push success!')
+    }
+    fail: function(){
+        console.log('start push failed!')
+    }
+    complete: function(){
+        console.log('start push complete!')
+    }
 });
 ```
 
@@ -170,7 +185,7 @@ pusher.start({
 | -1304 |PUSH_ERR_AUDIO_ENCODE_FAIL  | 音频编码失败|
 | -1305 |PUSH_ERR_UNSUPPORTED_RESOLUTION  |不支持的视频分辨率|
 | -1306 |PUSH_ERR_UNSUPPORTED_SAMPLERATE | 不支持的音频采样率|
-| -1307 |PUSH_ERR_NET_DISCONNECT       |网络断连，且经三次重连无效，可以放弃，更多重试请自行重启推流|
+| -1307 |PUSH_ERR_NET_DISCONNECT       |网络断连，且经三次重连无效，可以放弃，更多重试请 [自行重启推流](#start_push)|
 
 #### 3. 警告事件
 内部警告并非不可恢复的错误，小程序内部的音视频 SDK 会启动相应的恢复措施，警告的目的主要用于提示开发者或者最终用户，例如：
@@ -204,15 +219,15 @@ pusher.start({
 Page({
     onPush: function(ret) {
         if(ret.detail.code == 1002) {
-			    console.log('推流成功了',ret);
+          console.log('推流成功了',ret);
         }
     },
-	
-	/**
-	 * 生命周期函数--监听页面加载
-	 */
-	onLoad: function (options) {
-	//...
-	}
+  
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+  //...
+  }
 })
 ```

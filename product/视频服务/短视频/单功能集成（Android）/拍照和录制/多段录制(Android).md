@@ -1,17 +1,19 @@
 
-视频多段录制基本使用流程如下：
+视频多段录制基本使用流程如下： 
 
-1. 启动画面预览；
-2. 开始录制；
-3. 开始播放 BGM；
-4. 暂停录制；
-5. 暂停播放 BGM；
-6. 继续录制；
-7. 继续播放 BGM；
-8. 停止录制；
-9. 停止 BGM；
+1. 启动画面预览。
+2. 开始录制。
+3. 开始播放 BGM。
+4. 暂停录制。
+5. 暂停播放 BGM。
+6. 继续录制。
+7. 继续播放 BGM。
+8. 停止录制。
+9. 停止 BGM。
 
-```
+
+<dx-codeblock>
+::: android
 // 开始录制
 mTXCameraRecord.startRecord();
 
@@ -47,5 +49,5 @@ mTXUGCPartsManager.deleteAllParts();
 
 // 您可以添加当前录制视频之外的视频
 mTXUGCPartsManager.insertPart(videoPath, index) ;
-
-```
+:::
+</dx-codeblock>

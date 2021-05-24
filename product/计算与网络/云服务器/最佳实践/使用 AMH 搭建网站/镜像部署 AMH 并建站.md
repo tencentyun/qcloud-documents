@@ -10,7 +10,7 @@ AMH 是基于 Linux + Nginx + MySQL + PHP （LNMP）环境运行的虚拟主机�
 
 ## 注意事项<span id="note"></span>
 使用 AMH 搭建网站的过程中需要使用已完成备案，并且已解析到所使用云服务器的域名。
-腾讯云提供 [域名注册](https://dnspod.cloud.tencent.com/)、[网站备案](https://cloud.tencent.com/product/ba) 及 [云解析](https://cloud.tencent.com/product/cns) 服务，您可通过服务并参考 [建站基本流程](https://cloud.tencent.com/document/product/242/8584) 获得可使用域名。
+腾讯云提供 [域名注册](https://dnspod.cloud.tencent.com/)、[网站备案](https://cloud.tencent.com/product/ba) 及 [DNS 解析 DNSPod](https://cloud.tencent.com/product/cns) 服务，您可通过服务并参考 [建站基本流程](https://cloud.tencent.com/document/product/242/8584) 获得可使用域名。
 
 
 ## 操作步骤
@@ -19,12 +19,13 @@ AMH 是基于 Linux + Nginx + MySQL + PHP （LNMP）环境运行的虚拟主机�
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
 2. 根据页面提示选择机型，并选择【镜像市场】>【从镜像市场选择】。如下图所示：
-弹出“选择镜像”窗口。
+>! 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
+>
 ![](https://main.qcloudimg.com/raw/079615fcf41610885b6462a478cab823.png)
-3. 在“选择镜像”窗口的左侧搜索框中，输入 AMH 并单击<img src="https://main.qcloudimg.com/raw/124eb3377f07070061fa6cd419f49abf.png" style="margin:-3px 0px"/>。如下图所示：
+3. 在“镜像市场”窗口的搜索框中，输入 AMH 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px"/>。如下图所示：
 >?单击镜像名可查看镜像详情，本文使用镜像为 [PHP运行环境 AMH4.2面板PHP5.3CentOS 6.8](https://market.cloud.tencent.com/products/5774?productId=5774&_ga=1.62974056.658663049.1568024654)。
 >
-![](https://main.qcloudimg.com/raw/2a54522e85402984269c696e90a7024c.png)
+<img src="https://main.qcloudimg.com/raw/96815a1b05ae819ef4f50716def2276d.png" style="width: 88%;"></img>
 4. 单击【免费使用】。
 5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的创建。
 
@@ -84,7 +85,7 @@ http://云服务器实例的公网 IP:8888
 6. 在 AMFTP 登录页面上，填写 [步骤4](#ftp) 中已创建的 FTP 账号信息，并单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/86b62685fb566e8384a72e668abada1d.png)
 7. 准备 PHP 网站文件。
- - 本文使用 [DedeCMS内容管理系统](http://www.dedecms.com/products/dedecms/)，您可结合实际情况准备相关文件。
+ - 本文使用 DedeCMS 内容管理系统，您可结合实际情况准备相关文件。
  - 请将网站文件压缩为 zip 文件，本文以 `upload.zip` 为例。如下图所示：
  ![](https://main.qcloudimg.com/raw/fd734bafdac587f18f4f188bac182030.png)
 8. 请勾选 AMFTP 中默认的主页文件 `ErrorPages` 和 `index.html`，并单击下方的【删除】。如下图所示：
@@ -96,7 +97,7 @@ http://云服务器实例的公网 IP:8888
 ![](https://main.qcloudimg.com/raw/a8c20c04d5505441d38f31bb4ba3fa4a.png)
 
 ### 步骤3：安装 PHP 网站
-1. 使用本地浏览器访问在 [创建虚拟机](#create) 中已配置的绑定域名。
+1. 使用本地浏览器访问在 [创建虚拟主机](#create) 中已配置的绑定域名。
 2. 勾选”我已经阅读并同意此协议“，并单击【继续】。如下图所示：
 ![](https://main.qcloudimg.com/raw/519761fdd468e44a851a1c34713b9d1b.png)
 3. 查看环境检测结果，并单击【继续】。如下图所示：

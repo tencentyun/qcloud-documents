@@ -7,8 +7,8 @@
   </tr>
   <tr align="center">
      <td>版本</td>
-        <td style="text-align:center">SDK（6.8.7957） @ 2019-11-15</td>
-        <td style="text-align:center">SDK（6.8.7959） @ 2019-11-15</td>
+        <td style="text-align:center">SDK（8.6.10094）@2021.05.06</td>
+        <td style="text-align:center">SDK（8.6.10097）@2021.05.06</td>
   </tr>
   <tr align="center">
     <td>小窗播放</td>
@@ -88,8 +88,8 @@
  
   <tr align="center">
      <th>SDK 下载</th>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_play") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Player_iOS_latest.zip">iOS 下载</a></td>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_play") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Player_Android_latest.zip">Android 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_play") href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Player_iOS_latest.zip">iOS 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_play") href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Player_Android_latest.zip">Android 下载</a></td>
   </tr>
   <tr align="center">
      <th>超级播放器</th>
@@ -98,13 +98,12 @@
   </tr>
 </table>
 
-详细介绍请参见 [此文档](https://github.com/tencentyun/SuperPlayer)。
+>? 详细介绍请参见 [此文档](https://github.com/tencentyun/SuperPlayer)。
 
 
 ## 技术交流
-关注公众号“腾讯云视频”，在聊天窗口发送“技术支持”，将有专人和您联系。
-
-![公众号二维码](https://main.qcloudimg.com/raw/1c414d4d70e910289eac02b2e14e8c03.jpg)
+关注公众号“腾讯云视频云”，在聊天窗口发送“技术支持”，将有专人和您联系。
+<img src="https://main.qcloudimg.com/raw/1c414d4d70e910289eac02b2e14e8c03.jpg" width="150">
 
 <script>
   var _mtac = {"senseHash":0};
@@ -118,3 +117,6 @@
     s.parentNode.insertBefore(mta, s);
   })();
 </script>
+
+
+

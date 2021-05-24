@@ -34,7 +34,7 @@ JAR 包使用步骤举例如下：
 * 请用户务必将自己的各项参数值赋值到本类对应变量中。
 */
 public class AsrBaseConfig {
-	public static String secretId = "AKID31NbfXbpBLJ4kGJrytc9UfgVAlGltJJ8";
+	public static String secretId = "AKID31NbfXbpBLJ4kGJrytc9UfgVAlG*****";
 	public static String secretKey = "kKm26uXCgLtGRWVJvKtGU0LYdWCgOvGP";
 	public static String appId = "1255628450";
 }

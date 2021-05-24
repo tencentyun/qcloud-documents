@@ -1,11 +1,11 @@
-Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情可以参考 [API 接口代码实现](https://github.com/hyperledger/fabric/blob/release-1.4/core/chaincode/shim/chaincode.go)，文档可以参考 [官方文档说明](https://godoc.org/github.com/hyperledger/fabric/core/chaincode/shim)。
-从逻辑方面划分，可将 type 为 haincodeStub 的 API 划分为以下类型：
+Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情可以参考 [API 接口代码实现](https://github.com/hyperledger/fabric/blob/v1.4.1/core/chaincode/shim/chaincode.go)。
+从逻辑方面划分，可将 type 为 ChaincodeStub 的 API 划分为以下类型：
 - [交易信息提取](#informationExtraction)
 - [账本交互](#accountInteraction)
 - [参数处理](#parametersProcess)
 - [其他辅助类](#otherClass)
 
-<span id="informationExtraction"></span>
+[](id:informationExtraction)
 ### 交易信息提取
 
 <table><thead>
@@ -48,7 +48,7 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 </tr>
 </tbody></table>
 
-<span id="accountInteraction"></span>
+[](id:accountInteraction)
 ### 账本交互
 
 <table><thead>
@@ -145,7 +145,7 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 
 
 
-<span id="parametersProcess"></span>
+[](id:parametersProcess)
 ### 参数处理
 
 <table>
@@ -173,7 +173,7 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 </tr>
 </tbody></table>
 
-<span id="otherClass"></span>
+[](id:otherClass)
 ### 其他辅助类
 
 <table>

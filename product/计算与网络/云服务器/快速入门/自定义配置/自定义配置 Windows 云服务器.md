@@ -1,5 +1,5 @@
 与快速配置云服务器相比，自定义配置提供您更丰富的镜像平台，以及存储、带宽以及安全组等高级设置，您可根据需求选择合适的配置。本文档以自定义配置为例进行介绍。
-若您需要通过快速配置进行创建云服务器，可参考 [零基础配置 Windows 云服务器](https://cloud.tencent.com/document/product/213/2764) 文档进行配置。
+若您需要通过快速配置进行创建云服务器，可参考 [快速配置 Windows 云服务器](https://cloud.tencent.com/document/product/213/2764) 文档进行配置。
 
 ## 注册及认证
 
@@ -20,7 +20,7 @@
 <tr><td>地域</td><td>必选</td><td>建议选择与您的客户最近的地域，可降低访问时延、提高访问速度。</td></tr>
 <tr><td>可用区</td><td>必选</td><td>请根据实际需求进行选择。</br>如果您需要购买多台云服务器，建议选择不同可用区，实现容灾效果。</td></tr>
 <tr><td>网络</td><td>必选</td><td>表示在腾讯云上构建的逻辑隔离的网络空间，一个私有网络由至少一个子网组成。系统会为您在每个地域提供的默认私有网络和子网。</br>
-如现有的私有网络/子网不符合您的要求，可以在私有网络控制台进行创建。</br><b>注意</b>：<ul><li>同一私有网络内资源默认内网互通。</li><li>购买时，云服务器需要创建在与云服务器相同可用区属性的子网内。</li><li>Windows 云服务器无法作为 <a href="https://cloud.tencent.com/document/product/215/20078">公网网关</a> 使用，需要公网网关的用户请参见 <a href="https://cloud.tencent.com/document/product/213/10517">自定义配置 Linux 云服务器</a>。</li></ul></td></tr>
+如现有的私有网络/子网不符合您的要求，可以在私有网络控制台进行创建。</br><b>注意</b>：<ul><li>同一私有网络内资源默认内网互通。</li><li>购买时，云服务器需要创建在与云服务器相同可用区属性的子网内。</li></ul></td></tr>
 <tr><td>实例</td><td>必选</td><td>根据底层硬件的不同，腾讯云目前提供了多种不同的实例类型。为获得最佳性能，建议使用新一代实例类型。</br>更多实例详情请参见 <a href="https://cloud.tencent.com/document/product/213/11518">实例规格</a>。</td></tr>
 <tr><td>镜像</td><td>必选</td><td>腾讯云提供公共镜像、自定义镜像、共享镜像、服务市场，您可参考 <a href="https://cloud.tencent.com/document/product/213/4941">镜像类型</a> 进行选择。</br>对于刚开始使用腾讯云的用户，推荐选择公共镜像，内含 Windows 操作系统正版激活，无需额外付费（北美地域除外）。 </td></tr>
 <tr><td><a href="https://cloud.tencent.com/document/product/362/2353">系统盘</a></td><td>必选</td><td>用于安装操作系统，默认为50GB。</br>地域的不同将会影响可供选择的云硬盘类型，请根据实际页面提示进行选择。</br>更多关于云硬盘的介绍，请参考 <a href="https://cloud.tencent.com/document/product/362/2353">云硬盘类型</a>。</td></tr>
@@ -33,26 +33,27 @@
 
 ## 设置主机
 1. 根据页面提示，配置以下信息：
-![安全组和主机](https://main.qcloudimg.com/raw/240b3421c6a40829b3de4043941301a0.png)
+![安全组和主机](https://main.qcloudimg.com/raw/b9c250eac0119d020fb2c6b199bdd9c6.png)
 <table>
 <tr><th style="width: 20%">类别</th><th style="width: 12%">必选/可选</th><th>配置说明</th></tr>
-<tr><td>所属项目</td><td>必选</td><td>默认为默认项目，可根据实际需求，选择已建立的项目，用于管理不同的云服务器。</td></tr>
 <tr><td>安全组</td><td>必选</td><td>用于设置单台或多台云服务器的网络访问控制。</br><b>请确保已开放3389登录端口</b>，更多信息请参见 <a href="https://cloud.tencent.com/document/product/213/12452">安全组</a>。</td></tr>
+<tr><td>所属项目</td><td>必选</td><td>默认为默认项目，可根据实际需求，选择已建立的项目，用于管理不同的云服务器。</td></tr>
+<tr><td>标签</td><td>可选</td><td>设置标签之后可以对云服务器实现资源的分类管理。具体可参考 <a href="https://cloud.tencent.com/document/product/213/19548">标签</a> 进行设置。</td></tr>
 <tr><td>实例名称</td><td>可选</td><td>表示需要创建的云服务器的名称。</br>用户自定义，推荐为“CVM-01”。</td></tr>
-<tr><td>登录方式</td><td>必选</td><td>设置用户登录云服务器的方式，请根据实际需求进行设置。<ul><li><b>设置密码</b>：自定义设置登录实例的密码。</li><li><b>自动生成密码</b>：自动生成的密码将会以 <a href="https://console.cloud.tencent.com/message">站内信</a> 方式发送。</li></ul></td></tr>
+<tr><td>登录方式</td><td>必选</td><td>设置用户登录云服务器的方式，请根据实际需求进行设置。<ul><li><b>设置密码</b>：自定义设置登录实例的密码。</li><li><b>立即关联密钥</b>：设置密钥对作为实例的登录凭证（仅支持 Linux 系统）。</li><li><b>自动生成密码</b>：自动生成的密码将会以 <a href="https://console.cloud.tencent.com/message">站内信</a> 方式发送。</li></ul></td></tr>
 <tr><td>安全加固</td><td>可选</td><td>默认免费开通，帮助用户构建服务器安全防护体系，防止数据泄露。</td></tr>
 <tr><td>云监控</td><td>可选</td><td>默认免费开通，提供立体化云服务器数据监控、智能化数据分析、实时化故障告警和个性化数据报表配置，让用户精准掌控业务和云服务器的健康状况。</td></tr>
 <tr><td>统一到期日</td><td>可选</td><td>仅限包年包月，且已自主设置统一到期日功能的云服务器。</br>将云服务器的到期时间统一延长至用户所设定的到期日，便于用户进行续费管理。</br>设置统一到期日的相关操作可参见 <a href="https://cloud.tencent.com/document/product/555/7454">续费管理</a>。</td></tr>
 <tr><td>自动续费</td><td>可选</td><td>仅限包年包月的云服务器。</br>勾选【账户余额足够时，设备到期后按月自动续费】，避免设备到期时需要进行手动续费的操作。</td></tr>
-<tr><td>高级设置</td><td>可选</td><td>根据实际需求对实例做更多配置。<ul><li><b>主机名</b>：用户可以自定义设置云服务器操作系统内部的计算机名，云服务器成功生产后可以通过登录云服务器内部查看。</li><li><b>置放群组</b>：根据需要可以将实例添加到置放群组中，提高业务的可用性。具体可参考 <a href="https://cloud.tencent.com/document/product/213/15486">置放群组</a> 进行设置。</li><li><b>标签</b>：设置标签之后可以对云服务器实现资源的分类管理。具体可参考 <a href="https://cloud.tencent.com/document/product/213/19548">标签</a> 进行设置。</li><li><b>自定义数据</b>：指定自定义数据来配置实例，既当实例启动时运行配置的脚本。如果一次购买多台云服务器，自定义数据会在所有的云服务器上运行。Windows 操作系统支持 PowerShell 格式，最大支持 16KB 原始数据。具体可参考 <a href="https://cloud.tencent.com/document/product/213/17525">自定义数据</a>。</br><b>注意</b>：自定义数据配置仅支持 Windows 公有镜像，具体可参考 <a href="https://cloud.tencent.com/document/product/213/19670#cloudbase-init">cloudbase-init</a>。</li></ul></td></tr>
+<tr><td>高级设置</td><td>可选</td><td>根据实际需求对实例做更多配置。<ul><li><b>主机名</b>：用户可以自定义设置云服务器操作系统内部的计算机名，云服务器成功生产后可以通过登录云服务器内部查看。</li><li><b>CAM角色</b>：设置角色后可以通过角色对云服务器授予腾讯云中服务、操作和资源的访问权限。具体可参考 <a href="https://cloud.tencent.com/document/product/213/47668">管理实例角色</a> 进行设置。</li><li><b>置放群组</b>：根据需要可以将实例添加到置放群组中，提高业务的可用性。具体可参考 <a href="https://cloud.tencent.com/document/product/213/15486">置放群组</a> 进行设置。</li><li><b>自定义数据</b>：指定自定义数据来配置实例，既当实例启动时运行配置的脚本。如果一次购买多台云服务器，自定义数据会在所有的云服务器上运行。Windows 操作系统支持 PowerShell 格式，最大支持 16KB 原始数据。具体可参考 <a href="https://cloud.tencent.com/document/product/213/17525">自定义数据</a>。</br><b>注意</b>：自定义数据配置仅支持 Windows 公有镜像，具体可参考 <a href="https://cloud.tencent.com/document/product/213/19670#cloudbase-init">cloudbase-init</a>。</li></ul></td></tr>
 </table>
 2. 单击【下一步：确认配置信息】，进入确认配置信息页面。
 
 ## 确认配置信息
 
 1. 核对购买的云服务器信息，了解各项配置的费用明细。
-2. 勾选【同意《退款规则》】（仅限包年包月的云服务器）。
-3. 单击【立即购买】，完成支付。当您付款完成后，即可进入 [云服务器控制台](https://console.cloud.tencent.com/cvm) 查收您的云服务器。
+2. 阅读并勾选【同意《腾讯云服务协议》和《退款规则》】/【同意《腾讯云服务协议》】。
+3. 单击【立即购买】/【开通】，完成支付。当您付款完成后，即可进入 [云服务器控制台](https://console.cloud.tencent.com/cvm) 查收您的云服务器。
 云服务器的实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息将以 [站内信](https://console.cloud.tencent.com/message) 的方式发送到账户上。您可以使用这些信息登录和管理实例，也请尽快更改您的云服务器登录密码，以保障主机安全性。
 
 ## 登录及连接实例

@@ -15,7 +15,7 @@ Delete Archive 请求实现删除一个 Archive。请求成功以后会返回 x-
 
 #### 请求语法
 
-```HTTP
+```plaintext
 DELETE /<UID>/vaults/<VaultName>/archives/<ArchiveID> HTTP 1.1
 Host:cas.<Region>.myqcloud.com
 Date:date

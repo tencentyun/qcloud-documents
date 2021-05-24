@@ -67,7 +67,7 @@ https://cfs.api.qcloud.com/v2/index.php?Action=CreateCfsFileSystem
     "data": {
         "CreationTime": "2017-11-23 20:51:34",
         "CreationToken": "test",
-        "FileSystemId": "cfs-ocakq8tt",
+        "FileSystemId": "cfs-ocAK***abcalejrq8tt",
         "LifeCycleState": "creating",
         "NumberOfMountTargets": 0,
         "PGroup_Order_Id": "pgroupbasic",

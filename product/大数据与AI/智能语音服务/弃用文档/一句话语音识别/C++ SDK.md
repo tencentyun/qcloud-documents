@@ -25,7 +25,7 @@ Lib 文件夹中存放实时语音识别 SDK 的静态库文件，用户可以�
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-　　string SecretId="AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5";
+　　string SecretId="AKIDlfdHxN0ntSVt4KPH0xXWnGl21UU*****";
     string SecretKey="oaYWFO70LGDmcpfwo8uF1IInayysGtgZ";
     //8k or 16k
     string EngSerViceType="8k";

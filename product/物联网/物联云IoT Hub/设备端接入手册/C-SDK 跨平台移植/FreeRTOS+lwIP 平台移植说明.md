@@ -1,4 +1,3 @@
-
 本文档介绍如何将腾讯云物联 C-SDK 移植到 **FreeRTOS+lwIP** 平台。
 
 ## FreeRTOS 移植简介
@@ -60,6 +59,7 @@ qcloud_iot_c_sdk/sdk_src \
 qcloud_iot_c_sdk/platform
 ```
 至此，您可以将 qcloud_iot_c_sdk 作为一个组件进行编译了，之后在用户代码里面就可以调用物联 C-SDK 的接口进行连接和收发消息。
+
 
 
 

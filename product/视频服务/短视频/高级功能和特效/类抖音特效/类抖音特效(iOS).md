@@ -7,7 +7,7 @@
 - (void) startEffect:(TXEffectType)type  startTime:(float)startTime;
 - (void) stopEffect:(TXEffectType)type  endTime:(float)endTime;
 
-//特效的类型（type参数），在常量 TXEffectType 中有定义：
+//特效的类型（type 参数），在常量 TXEffectType 中有定义：
 typedef  NS_ENUM(NSInteger,TXEffectType)
 {
     TXEffectType_ROCK_LIGHT,  //动感光波
@@ -30,7 +30,7 @@ typedef  NS_ENUM(NSInteger,TXEffectType)
 调用 deleteAllEffect()  删除所有设置的滤镜特效。
 
 Demo 示例：
-在 1-2s 之间应用第一种滤镜特效；在 3-4s 之间应用第2种滤镜特效；删除 3-4s 设置的滤镜特效
+在1 - 2s之间应用第一种滤镜特效；在3 - 4s之间应用第2种滤镜特效；删除3 - 4s设置的滤镜特效。
 
 ```
 //在1-2s之间应用第一种滤镜特效
@@ -44,8 +44,8 @@ Demo 示例：
 ```
 ##  慢/快动作
 您可以进行多段视频的慢速/快速播放，设置慢速/快速播放的方法为：
-
-```
+<dx-codeblock>
+::: ios 
 - (void) setSpeedList:(NSArray *)speedList;
 
 //TXSpeed 的参数如下：
@@ -63,17 +63,21 @@ typedef NS_ENUM(NSInteger, TXSpeedLevel) {
     SPEED_LEVEL_FAST,          //快速
     SPEED_LEVEL_FASTEST,       //极快速
 };
-```
-Demo 示例：
+:::
+</dx-codeblock>
 
-```
-// SDK拥有支持多段变速的功能。 此DEMO仅展示一段慢速播放
+Demo 示例：
+<dx-codeblock>
+::: ios 
+// SDK 拥有支持多段变速的功能。 此 Demo 仅展示一段慢速播放
   TXSpeed *speed =[[TXSpeed alloc] init];
   speed.startTime = 1.0;
   speed.endTime = 3.0;
   speed.speedLevel = SPEED_LEVEL_SLOW;
   [_ugcEdit setSpeedList:@[speed]];
-```
+:::
+</dx-codeblock>
+
 ## 倒放
 您可以将视频画面倒序播放，设置倒放的方法：
 
@@ -88,9 +92,10 @@ Demo 示例：
 
 ## 重复视频片段
 您可以设置重复播放一段视频画面，声音不会重复播放。  
-设置重复片段方法：
+设置重复片段方法： 
 
-```
+<dx-codeblock>
+::: ios 
 - (void) setRepeatPlay:(NSArray *)repeatList;
 
 //TXRepeat 的参数如下：
@@ -99,7 +104,8 @@ Demo 示例：
 @property (nonatomic, assign) CGFloat               endTime;        //重复播放结束时间(s)
 @property (nonatomic, assign) int                   repeatTimes;    //重复播放次数
 @end
-```
+:::
+</dx-codeblock>
 
 Demo 示例：
 

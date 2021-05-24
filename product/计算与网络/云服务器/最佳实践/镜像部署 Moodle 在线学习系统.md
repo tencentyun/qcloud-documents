@@ -3,20 +3,19 @@
 
 Moodle 是一个开源的在线教育系统，也被称为在线学习系统（LMS）。Moodle 采用 PHP 语言和 MySQL 开发，您可使用 Moodle 为学习者建立开放式课程系统。本文档介绍在腾讯云云服务器（CVM）上通过镜像部署 Moodle 在线学习系统。
 
-
-
 ## 操作步骤
 ### 步骤1：创建云服务器时使用 Moodle 镜像
 >!如果您想使用已购买的云服务器部署 Moodle，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择服务市场中对应的镜像完成环境部署。部分境外地域的云服务器暂不支持通过服务市场重装系统，建议您使用其他地域云服务器进行搭建。
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
 2. 据页面提示选择机型，并在“镜像”中选择【镜像市场】>【从镜像市场选择】。如下图所示：
- 弹出“选择镜像”窗口。
- ![](https://main.qcloudimg.com/raw/bd6bbe11ae49f5a398612d495422086f.png)
-3. 在“选择镜像”窗口的左侧搜索框中，输入 moodle 并单击<img src="https://main.qcloudimg.com/raw/124eb3377f07070061fa6cd419f49abf.png" style="margin:-3px 0px;"/>。如下图所示：
+>! 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
+>
+![](https://main.qcloudimg.com/raw/bd6bbe11ae49f5a398612d495422086f.png)
+3. 在“镜像市场”窗口的搜索框中，输入 moodle 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px;"/>。如下图所示：
 >?单击镜像名可查看镜像详情，本文使用 [Moodle LMS在线学习系统](https://market.cloud.tencent.com/products/708?productId=708&_ga=1.158416825.2093467297.1571788865)。
 >
-![](https://main.qcloudimg.com/raw/e419e15c40090105770b4b1a75fd771a.png)
+<img src="https://main.qcloudimg.com/raw/4ea728940dd2c7b9961542fe38147e3c.png" style="width: 88%;"></img>
 4. 单击【免费使用】。
 5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的创建。
 
@@ -32,7 +31,7 @@ Moodle 是一个开源的在线教育系统，也被称为在线学习系统（L
 http://云服务器实例的公网 IP/phpmyadmin
 ```
 3. 输入数据库账户名及密码，并单击【执行】。如下图所示：
-帐户名为 `root`，默认密码为 `123456`。
+帐户名为 `root`，密码随机生成，请前往 [云市场](https://market.cloud.tencent.com/) 提供的 Moodle LMS在线学习系统镜像详情页获取。
 ![](https://main.qcloudimg.com/raw/54443cb3bc233568a78271f0cea07e0a.png)
 4. 进入 phpMyAdmin 管理页面，单击【修改密码】。如下图所示：
 ![](https://main.qcloudimg.com/raw/324ae5bb2a6fa8b26af795f4ea5b6426.png)

@@ -31,7 +31,8 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 ### 连接建立
 
 1. 当客户端发起 WebSocket 建立连接的请求时，API 网关会将约定好的 JSON 数据结构封装在 Body 中，并以 HTTP POST 方法发送给注册函数。您可以从函数的 event 中获取，请求的 Body 示例如下：
-```
+<dx-codeblock>
+:::  json
 {
   "requestContext": {
     "serviceName": "testsvc",
@@ -52,7 +53,8 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
     "secWebSocketExtensions":"extension1,extension2"
   }
 }
-```
+:::
+</dx-codeblock>
 数据结构内容详细说明如下：
 <table>
 <tr><th>结构名</th><th>内容</th></tr>
@@ -83,7 +85,8 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 
  >! 在 API 网关迭代过程中，requestContext 中的内容可能会大量增加。目前只保证数据结构内容仅增加，不删除，且不对已有结构进行破坏。
 2. 当注册函数收到连接建立的请求后，需要在函数处理结束时，将是否同意建立连接的响应消息返回至 API 网关中。响应  Body 要求为 JSON 格式，其示例如下：
-```
+<dx-codeblock>
+:::  json
 {
    "errNo":0, 
    "errMsg":"ok",
@@ -94,7 +97,8 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
      "secWebSocketExtensions":"extension1,extension2"
   }
 }
-```
+:::
+</dx-codeblock>
 数据结构内容详细说明如下：
 <table>
 <tr><th>结构名</th><th>内容</th></tr>
@@ -135,7 +139,7 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 ```
 {
   "websocket":{
-    "action":"data recv",
+    "action":"data send",
     "secConnectionID":"xawexasdfewezdfsdfeasdfffa==",
     "dataType":"text", 
     "data":"xxx"
@@ -146,7 +150,7 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 <table>
 <tr><th>参数</th><th>内容</th></tr>
 <tr><td>websocket</td><td>数据传输的详细信息。</td></tr>
-<tr><td>action</td><td>本次请求的动作，例如 “data recv”。</td></tr>
+<tr><td>action</td><td>本次请求的动作，本文以 “data send” 为例。</td></tr>
 <tr><td>secConnectionID</td><td>字符串，是标识 WebSocket 连接的 ID。原始长度为128Bit，是经过 base64 编码后的字符串，共32个字符</td></tr>
 <tr><td>dataType</td><td>传输数据的类型。<ul><li>“binary”：表示二进制。</li><li>“text”：表示文本。</li></ul></td></tr>
 <tr><td>data</td><td>传输的数据。如果 “dataType” 是 “binary”，则为 base64 编码后的二进制流；如果 “dataType” 是 “text”，则为字符串。</td></tr>
@@ -160,7 +164,7 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 
 >! API 网关不会处理响应 Body 中的内容。
 
-<span id="DownlinkDataCallback"></span>
+[](id:DownlinkDataCallback)
 #### 下行数据回调
 
 ##### 回调请求
@@ -259,4 +263,6 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 }
 ```
 >! 当主动断开客户端的链接时，您需要先获取客户端 WebSocket 的 secConnectionID，并将其填写在数据结构中；再在永久存储（如数据库）中删除该 ID。
+
+
 

@@ -1,3 +1,4 @@
+
 ## 请求地址 
 地址为实例的 IP 和 PORT，可从控制台获取到，例如10.13.20.15:9200。
 
@@ -18,7 +19,7 @@
 请求：
 `DELETE /_metric/ctsdb_test1`
 请求：
-`curl -u root:le201909 -X DELETE 172.16.345.14:9201/_metric/ctsdb_test1`
+`curl -u root:le201909 -H 'Content-Type:application/json' -X DELETE 172.16.345.14:9201/_metric/ctsdb_test1`
 
 返回：
 ```

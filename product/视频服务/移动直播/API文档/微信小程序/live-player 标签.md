@@ -1,34 +1,56 @@
 
 **&lt;live-player&gt;** 是小程序内部用于支持音视频下行（播放）能力的功能标签，本文主要介绍该标签的使用方法。
 
-## 版本支持
+## 版本支持 
 - 微信 App iOS 最低版本要求：6.5.21 。
 - 微信 App Android 最低版本要求：6.5.19。
 - 小程序基础库最低版本要求：1.7.0。
 
->?通过 wx.getSystemInfo 可以获取当前基础库版本信息。
+>?通过 wx.getSystemInfo 可以获取当前基础库版本信息。 
 
 ## 使用限制
-出于政策和合规的考虑，微信暂时没有放开所有小程序对 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签的支持：
+出于政策和合规的考虑，微信暂时没有放开所有小程序对[ &lt;live-pusher&gt;](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html) 和 [&lt;live-player&gt;](https://developers.weixin.qq.com/miniprogram/dev/component/live-player.html) 标签的支持：
 
 - 个人账号和企业账号的小程序暂时只开放如下表格中的类目：
-
-
-| 主类目 | 子类目  |小程序内容场景|
-|-------|----------|----------|
-| 社交| 直播 |涉及娱乐性质，如明星直播、生活趣事直播、宠物直播等。选择该类目后首次提交代码审核，需经当地互联网主管机关审核确认，预计审核时长7天左右|
-| 教育| 在线视频课程 |网课、在线培训、讲座等教育类直播|
-| 医疗| 互联网医院，公立医院 |问诊、大型健康讲座等直播|
-| 金融| 银行、信托、基金、证券/期货、证券、期货投资咨询、保险、征信业务、新三板信息服务平台、股票信息服务平台（港股/美股）、消费金融 |金融产品视频客服理赔、金融产品推广直播等|
-|汽车|	汽车预售服务|	汽车预售、推广直播|
-|政府主体帐号|	-	|政府相关工作推广直播、领导讲话直播等|
-|工具	|视频客服	|不涉及以上几类内容的一对一视频客服服务，如企业售后一对一视频服务等|
-
+<table>
+<tr><th width="17%">主类目</th><th>子类目</th><th>小程序内容场景</th></tr>
+<tr>
+<td>社交</td>
+<td>直播</td>
+<td>涉及娱乐性质，如明星直播、生活趣事直播和宠物直播等。选择该类目后首次提交代码审核，需经当地互联网主管机关审核确认，预计审核时长7天左右</td>
+</tr><tr>
+<td>教育</td>
+<td>在线视频课程</td>
+<td>网课、在线培训、讲座等教育类直播</td>
+</tr><tr>
+<td>医疗</td>
+<td>互联网医院，公立医院</td>
+<td>问诊、大型健康讲座等直播</td>
+</tr><tr>
+<td>金融</td>
+<td>银行、信托、基金、证券/期货、证券、期货投资咨询、保险、征信业务、新三板信息服务平台、股票信息服务平台（港股/美股）、消费金融</td>
+<td>金融产品视频客服理赔、金融产品推广直播等</td>
+</tr><tr>
+<td>汽车</td>
+<td>汽车预售服务</td>
+<td>汽车预售、推广直播</td>
+</tr><tr>
+<td>政府主体帐号</td>
+<td>-</td>
+<td>政府相关工作推广直播、领导讲话直播等</td>
+</tr><tr>
+<td>工具</td>
+<td>视频客服</td>
+<td>不涉及以上几类内容的一对一视频客服服务，如企业售后一对一视频服务等</td>
+</tr><tr>
+<td>IT 科技</td>
+<td>多方通信；音视频设备</td>
+<td>为多方提供电话会议/视频会议等服务；智能家居场景下控制摄像头</td>
+</tr></table>
 
 
 - 符合类目要求的小程序，需要在小程序管理后台的【设置】>【接口设置】中自助开通该组件权限，如下图所示：
-
-![](https://mc.qcloudimg.com/static/img/a34df5e3e86c9b0fcdfba86f8576e06a/weixinset.png)
+![](https://main.qcloudimg.com/raw/6fd7e3b1f42f0bb6cbb6f61f81bf0e27.png)
 
 >!如果以上设置都正确，但小程序依然不能正常工作，可能是微信内部的缓存没更新，请删除小程序并重启微信后，再进行尝试。
 
@@ -67,9 +89,9 @@
 &lt;live-player&gt; 的 RTC 模式支持500ms以内的超低时延链路，可以应用在视频通话和远程遥控等场景中，要使用超低时延播放，需要注意如下几点：
 （1）推流端如果是微信小程序，请使用 &lt;live-pusher&gt; 的 RTC 模式。
 （2）推流端如果是 iOS 或者 Android SDK，请使用 setVideoQuality 的 MAIN_PUBLISHER 模式。
-（3）推流端如果是 Windows，请不要使用 OBS，延时太高，可以使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/454/7873#Windows)。
+（3）推流端如果是 Windows，请不要使用 OBS，延时太高，可以使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/647/32689)。
 （4）&lt;live-player&gt; 的 min-cache 和 max-cache 请不要自行设置，使用默认值。
-（5）播放地址请使用超低延时播放地址，也就是带了防盗链签名的`rtmp://`地址，如下：
+（5）播放地址请使用超低延时播放地址，也就是带了防盗链签名的 `rtmp://` 地址，如下：
 
 |  对比项目 | 示例 | 时延 |
 |---------|---------| ----- |
@@ -79,7 +101,7 @@
 
 ## 属性详解
 - **src**
-用于音视频下行的播放 URL，支持 RTMP 协议（URL 以 “rtmp://” 打头）和 FLV 协议（URL 以 “http://” 打头且以 “.flv” 结尾） ，腾讯云推流 URL 的获取方法见 [DOC](https://cloud.tencent.com/document/product/454/7915)。
+用于音视频下行的播放 URL，支持 RTMP 协议（URL 以`rtmp://`打头）和 FLV 协议（URL 以`http://`打头且以`.flv`结尾） ，腾讯云推流 URL 的获取方法见 [如何生成推流 URL](https://cloud.tencent.com/document/product/454/7915)。
 >? &lt;live-player&gt; 标签是不支持 HLS（m3u8）协议的，因为 &lt;video&gt; 已经支持 HLS（m3u8）播放协议了。但直播观看不推荐使用 HLS（m3u8）协议，延迟要比 RTMP 和 FLV 协议高一个数量级。
 
 - **mode**
@@ -110,7 +132,7 @@ live 模式主要用于直播类场景，例如赛事直播、在线教育、远
 设置播放模式，可设值为：ear 与 speaker，ear 代表使用听筒播放， speaker 代表使用扬声器，默认为扬声器。
 
 - **debug**
- 调试音视频相关功能，如果没有很好的工具会是一个噩梦，所以小程序为 live-pusher 标签支持了 debug 模式，开始 debug 模式之后，原本用于渲染视频画面的窗口上，会显示一个半透明的 log 窗口，用于展示各项音视频指标和事件，降低您调试相关功能的难度，具体使用方法我们在 [FAQ](https://cloud.tencent.com/document/product/454/7946#2.-.E5.8F.91.E7.8E.B0.E9.97.AE.E9.A2.98.E7.9A.84.E2.80.9C.E7.9C.BC.E7.9D.9B.E2.80.9D) 中有详细说明。
+ 调试音视频相关功能，如果没有很好的工具会是一个噩梦，所以小程序为 live-pusher 标签支持了 debug 模式，开始 debug 模式之后，原本用于渲染视频画面的窗口上，会显示一个半透明的 log 窗口，用于展示各项音视频指标和事件，降低您调试相关功能的难度，具体使用方法我们在 [FAQ](https://cloud.tencent.com/document/product/454/7946) 中有详细说明。
 
 
 ## 对象操作

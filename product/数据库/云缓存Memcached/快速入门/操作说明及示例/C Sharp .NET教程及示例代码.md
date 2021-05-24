@@ -1,18 +1,15 @@
-本文介绍两种C#客户端的使用方法, [[.NET memcached client library](http://sourceforge.net/projects/memcacheddotnet/)]和[[EnyimMemcached](https://github.com/enyim/EnyimMemcached)].
 
-## 1 使用.NET memcached client library
+本文介绍两种 C# 客户端的使用方法 [.NET memcached client library](http://sourceforge.net/projects/memcacheddotnet/) 和 [EnyimMemcached](https://github.com/enyim/EnyimMemcached)。
 
+## 使用 .NET memcached client library
 **环境和依赖**
+下载并解压 memcacheddotnet_clientlib-1.1.5.zip。
 
-下载并解压memcacheddotnet_clientlib-1.1.5.zip;
+拷贝 memcached\trunk\clientlib\src\clientlib\bin\2.0\Release 目录下的四个 dll 文件到 .NET 工程，并保持其在同一目录下。
 
-拷贝memcached\trunk\clientlib\src\clientlib\bin\2.0\Release目录下的四个dll文件到.NET工程，并保持其在同一目录下;
-
-在.Net工程中引用Memcached.ClientLibrary.dll.
+在 .NET 工程中引用 Memcached.ClientLibrary.dll。
 
 **代码示例 .NET memcached client library**
-
-
 ```
 using System;
 using System.Collections.Generic;
@@ -41,8 +38,8 @@ namespace TestMemcachedApp
             pool.MaintenanceSleep = 30;//设置维护线程运行的睡眠时间。如果设置为0，那么维护线程将不会启动,30就是每隔30秒醒来一次  
 
             //获取或设置池的故障标志。  
-            //如果这个标志被设置为true则socket连接失败，将试图从另一台服务器返回一个套接字如果存在的话。  
-            //如果设置为false，则得到一个套接字如果存在的话。否则返回NULL，如果它无法连接到请求的服务器。  
+            //如果这个标志被设置为true则socket连接失败，将试图从另一台服务器返回一个套接字如果存在的话  
+            //如果设置为false，则得到一个套接字如果存在的话。否则返回NULL，如果它无法连接到请求的服务器  
             pool.Failover = true;
 
             pool.Nagle = false;//如果为false，对所有创建的套接字关闭Nagle的算法  
@@ -84,17 +81,16 @@ namespace TestMemcachedApp
 }
 ```
 
-## 2 使用 EnyimMemcached
-
+## 使用 EnyimMemcached
 **环境和依赖**
 
-下载后先修改build\CommonProperties.targets文件，注释掉其中的程序集签名选项，避免调用dll时编译不通过的问题;
+下载后先修改 build\CommonProperties.targets 文件，注释掉其中的程序集签名选项，避免调用 dll 时编译不通过的问题。
 
-使用Visual Studio直接打开解决方案，总共六个项目，只需右键选中Enyim.Caching项目单独生成dll即可(生成的dll文件名为Enyim.Caching.dll，最好为Release版);
+使用 Visual Studio 直接打开解决方案，总共六个项目，只需右键选中 Enyim.Caching 项目单独生成 dll 即可（生成的 dll 文件名为 Enyim.Caching.dll，最好为 Release 版）。
 
-新建.Net客户端项目，并在项目中引用之前生成的dll文件.
+新建 .Net 客户端项目，并在项目中引用之前生成的dll文件。
 
-编写测试代码并运行.
+编写测试代码并运行。
 
 **代码示例 EnyimMemcached**
 
@@ -143,3 +139,4 @@ namespace DemoApp
     }
 }
 ```
+

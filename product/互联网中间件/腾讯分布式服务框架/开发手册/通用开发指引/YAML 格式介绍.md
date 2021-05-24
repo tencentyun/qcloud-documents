@@ -1,13 +1,8 @@
 YAML 专门用来写配置文件的语言。
 
-
-
 ## 语法规则
 
 YAML 的基本语法规则如下：
-
-
-
 - 大小写敏感。
 - 使用缩进表示层级关系。
 - 缩进时**不允许**使用 Tab 键，只允许使用空格。
@@ -50,7 +45,7 @@ bar:
    ruby: scissorses 
 ```
 
-转换为 javascript 代码后
+转换为 JavaScript 代码后：
 
 ```javascript
 { foo: 'whatever',
@@ -116,7 +111,7 @@ that: >
   Bar
 ```
 
-转换为 javascript 代码：
+转换为 JavaScript 代码：
 
 ```javascript
 { this: 'Foo\nBar\n', that: 'Foo Bar\n' }

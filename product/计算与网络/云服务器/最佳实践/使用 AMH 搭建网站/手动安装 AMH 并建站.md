@@ -12,7 +12,7 @@
 ## 前提条件
 - 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 - 使用 AMH 搭建网站需要使用已完成备案，并且已解析到所使用云服务器的域名。
-腾讯云提供 [域名注册](https://dnspod.cloud.tencent.com/)、[网站备案](https://cloud.tencent.com/product/ba) 及 [云解析](https://cloud.tencent.com/product/cns) 服务，您可通过服务并参考 [建站基本流程](https://cloud.tencent.com/document/product/242/8584) 获得可使用域名。
+腾讯云提供 [域名注册](https://dnspod.cloud.tencent.com/)、[网站备案](https://cloud.tencent.com/product/ba) 及 [DNS解析 DNSPod](https://cloud.tencent.com/product/cns) 服务，您可通过服务并参考 [建站基本流程](https://cloud.tencent.com/document/product/242/8584) 获得可使用域名。
 
 
 ## 操作步骤
@@ -49,14 +49,17 @@ http://云服务器公网实例 IP:8888
 ![](https://main.qcloudimg.com/raw/c8233e94cb8ebffe146a05c244098de7.png)
 
 ### 步骤4：搭建 PHP 网站
-搭建 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [搭建 PHP 网站](https://cloud.tencent.com/document/product/213/38357#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E6.90.AD.E5.BB.BA-php-.E7.BD.91.E7.AB.99)。
+搭建 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [搭建 PHP 网站](https://cloud.tencent.com/document/product/213/38357#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E6.90.AD.E5.BB.BA-php-.E7.BD.91.E7.AB.99)。
 
 
 ### 步骤5：安装 PHP 网站
-安装 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [安装 PHP 网站](https://cloud.tencent.com/document/product/213/38357#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E5.AE.89.E8.A3.85-php-.E7.BD.91.E7.AB.99)。
+安装 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [安装 PHP 网站](https://cloud.tencent.com/document/product/213/38357#.E6.AD.A5.E9.AA.A43.EF.BC.9A.E5.AE.89.E8.A3.85-php-.E7.BD.91.E7.AB.99)。
 
 ## 常见问题
 如果您在使用云服务器的过程中遇到问题，可参考以下文档并结合实际情况分析并解决问题：
 - 云服务器的登录问题，可参考 [密码及密钥](https://cloud.tencent.com/document/product/213/18120)、[登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 - 云服务器的网络问题，可参考[ IP 地址](https://cloud.tencent.com/document/product/213/17285)、[端口与安全组](https://cloud.tencent.com/document/product/213/2502)。
 - 云服务器硬盘问题，可参考 [系统盘和数据盘](https://cloud.tencent.com/document/product/213/17351)。
+
+
+

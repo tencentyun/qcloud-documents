@@ -45,7 +45,7 @@ systemctl enable nginx
 vim /etc/nginx/nginx.conf
 ```
 4. 按 “**i**” 切换至编辑模式。
-5. 找到 server{...} 并其替换成以下内容。
+5. 找到 server{...} 并将其替换成以下内容。
 ```
 server {
 	listen       80;
@@ -167,6 +167,10 @@ vim /srv/www/htdocs/index.php
 云服务器的登录问题，可参考 [密码及密钥](https://cloud.tencent.com/document/product/213/18120)、[登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 云服务器的网络问题，可参考 [IP 地址](https://cloud.tencent.com/document/product/213/17285)、[端口与安全组](https://cloud.tencent.com/document/product/213/2502)。
 云服务器硬盘问题，可参考 [系统盘和数据盘](https://cloud.tencent.com/document/product/213/17351)。
+
+
+
+
 
 
 

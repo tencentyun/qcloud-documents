@@ -1,0 +1,24 @@
+## 命名空间
+
+Namespace=QCE/VPC_NET_DETECT
+
+## 监控指标
+
+| 指标英文名 | 指标中文名 | 指标含义           | 单位 | 维度        |
+| ---------- | ---------- | -------------- | ---- | ----------- |
+| PkgDrop    | 丢包率     | 网络探测丢包率 | %    | netdetectid |
+| Delay      | 时延       | 网络探测时延   | ms   | netdetectid |
+
+## 各维度对应参数总览
+
+| 参数名称                       | 维度名称    | 维度解释             | 格式                                  |
+| ------------------------------ | ----------- | -------------------- | ------------------------------------- |
+| Instances.N.Dimensions.0.Name  | netdetectid | 网络探测实例维度名称 | 输入 String 类型维度名称：netdetectid  |
+| Instances.N.Dimensions.0.Value | netdetectid | 网络探测具体实例 ID  | 输入具体实例 ID，例如：netd-12345678 |
+
+## 入参说明
+
+**查询私有网络弹性公网 IP 监控接口监控数据，入参取值如下：**
+&Namespace=QCE/VPC_NET_DETECT
+&Instances.N.Dimensions.0.Name=netdetectid
+&Instances.N.Dimensions.0.Value=网络探测具体实例 ID

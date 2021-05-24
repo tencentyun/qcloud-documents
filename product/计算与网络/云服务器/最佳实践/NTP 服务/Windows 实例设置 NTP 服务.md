@@ -1,6 +1,6 @@
 ## 操作场景
 
-Windows 时间服务（Windows Time service，W32Time）用于本地系统与时钟源服务器之前的时间同步，使用网络时间协议（NTP）来同步网络上的计算机时钟。本文档以 Windows Server 2012 操作系统云服务器为例，介绍如何开启 NTP 服务和修改时钟源服务器地址。
+Windows 时间服务（Windows Time service，W32Time）用于本地系统与时钟源服务器之间的时间同步，使用网络时间协议（NTP）来同步网络上的计算机时钟。本文档以 Windows Server 2012 操作系统云服务器为例，介绍如何开启 NTP 服务和修改时钟源服务器地址。
 
 ## 操作步骤
 
@@ -16,6 +16,3 @@ Windows 时间服务（Windows Time service，W32Time）用于本地系统与时
 ![](https://main.qcloudimg.com/raw/0e70f38a5b2a43c3cbdc093b79d96f8a.png)
 7. 在弹出的 “Internet 时间设置” 窗口中，将【服务器】设置为目标时钟源服务器域名或者 IP 地址，单击【确定】，完成设置。如下图所示：
 ![](https://main.qcloudimg.com/raw/d27d42f7bb62118896f675d137d9f100.png)
-
-
-

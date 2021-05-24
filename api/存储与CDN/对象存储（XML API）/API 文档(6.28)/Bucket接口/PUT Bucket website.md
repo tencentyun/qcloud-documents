@@ -2,128 +2,187 @@
 
 PUT Bucket website 请求用于为存储桶配置静态网站，您可以通过传入 XML 格式的配置文件进行配置，文件大小限制为64KB。
 
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=PutBucketWebsite&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
+
 ## 请求
 
 #### 请求示例
 
-```shell
+```plaintext
 PUT /?website HTTP/1.1
-Host:<BucketName-APPID>.<Region>.myqcloud.com
-Date: date
-Content-Length: length
-Content-Type:application/xml
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Content-Type: application/xml
+Content-Length: Content Length
+Content-MD5: MD5
 Authorization: Auth String
-<XML 文件>
+
+[Request Body]
 ```
 
->?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+
+#### 请求参数
+
+此接口无请求参数。
 
 #### 请求头
 
-#### 公共头部
-
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
-
-#### 非公共头部
-
-该请求操作无特殊的请求头部信息。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 请求体
 
-```shell
+提交 **application/xml** 请求数据，包含完整的存储桶静态网站配置信息。
+
+```xml
 <WebsiteConfiguration>
 	<IndexDocument>
-		<Suffix>index.html</Suffix>
+		<Suffix>String</Suffix>
 	</IndexDocument>
 	<RedirectAllRequestsTo>
-		<Protocol>https</Protocol>
+		<Protocol>String</Protocol>
 	</RedirectAllRequestsTo>
+    <AutoAddressing>
+        <Status>Enabled|Disabled</Status>
+    </AutoAddressing>
 	<ErrorDocument>
-		<Key>Error.html</Key>
+		<Key>String</Key>
+		<OriginalHttpStatus>Enabled|Disabled</OriginalHttpStatus>
 	</ErrorDocument>
 	<RoutingRules>
 		<RoutingRule>
 			<Condition>
-				<HttpErrorCodeReturnedEquals>404</HttpErrorCodeReturnedEquals>
+				<HttpErrorCodeReturnedEquals>Integer</HttpErrorCodeReturnedEquals>
 			</Condition>
 			<Redirect>
-				<Protocol>https</Protocol>
-				<ReplaceKeyWith>404.html</ReplaceKeyWith>
+				<Protocol>String</Protocol>
+				<ReplaceKeyWith>String</ReplaceKeyWith>
 			</Redirect>
 		</RoutingRule>
 		<RoutingRule>
 			<Condition>
-				<KeyPrefixEquals>docs/</KeyPrefixEquals>
+				<KeyPrefixEquals>String</KeyPrefixEquals>
 			</Condition>
 			<Redirect>
-				<Protocol>https</Protocol>
-				<ReplaceKeyPrefixWith>documents/</ReplaceKeyPrefixWith>
-			</Redirect>
-		</RoutingRule>
-		<RoutingRule>
-			<Condition>
-				<KeyPrefixEquals>img/</KeyPrefixEquals>
-			</Condition>
-			<Redirect>
-				<Protocol>https</Protocol>
-				<ReplaceKeyWith>demo.jpg</ReplaceKeyWith>
+				<Protocol>String</Protocol>
+				<ReplaceKeyPrefixWith>String</ReplaceKeyPrefixWith>
 			</Redirect>
 		</RoutingRule>
 	</RoutingRules>
 </WebsiteConfiguration>
 ```
 
-具体内容描述如下：
+具体的节点描述如下：
 
-| 名称                        | 父节点                | 描述                                                         | 类型      | 必选 |
-| --------------------------- | --------------------- | ------------------------------------------------------------ | --------- | ---- |
-| WebsiteConfiguration        | 无                    | 静态网站配置，包括索引文档、错误文档、协议转换和重定向规则   | Container | 是   |
-| IndexDocument               | WebsiteConfiguration  | 索引文档                                                     | Container | 是   |
-| Suffix                      | IndexDocument         | 指定索引文档                                                 | String    | 是   |
-| ErrorDocument               | WebsiteConfiguration  | 错误文档                                                     | Container | 否   |
-| Key                         | ErrorDocument         | 指定通用错误返回                                             | String    | 否   |
-| RedirectAllRequestsTo       | WebsiteConfiguration  | 重定向所有请求                                               | Container | 否   |
-| Protocol                    | RedirectAllRequestsTo | 指定全站重定向的协议，只能设置为 https                        | String    | 否   |
-| RoutingRules                | WebsiteConfiguration  | 设置重定向规则，最多设置100条 RoutingRule                     | Container | 否   |
-| RoutingRule                 | RoutingRules          | 设置单条重定向规则，包括前缀匹配重定向和错误码重定向         | Container | 否   |
-| Condition                   | RoutingRule           | 指定重定向发生的条件，前缀匹配重定向和错误码重定向只能指定一个 | Container | 否   |
-| HttpErrorCodeReturnedEquals | Condition             | 指定重定向错误码，只支持配置4XX返回码，优先级高于ErrorDocument | Interger  | 否   |
-| KeyPrefixEquals             | Condition             | 指定前缀重定向的路径，替换指定的 folder/                      | String    | 否   |
-| Redirect                    | RoutingRule           | 指定满足重定向 conditon 时重定向的具体替换规则                 | Container | 否   |
-| ReplaceKeyWith              | Redirect              | 替换整个 Key 为指定的内容                                      | String    | 否   |
-| ReplaceKeyPrefixWith        | Redirect              | 替换匹配到的前缀为指定的内容，Conditon 为 KeyPrefixEquals 才可设置 | String    | 否   |
+| 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- | --- |
+| WebsiteConfiguration | 无 | 包含 PUT Bucket website 操作的所有请求信息 | Container | 否 |
+
+**Container 节点 WebsiteConfiguration 的内容：**
+
+| 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- | --- |
+| IndexDocument | WebsiteConfiguration | 索引文档配置 | Container | 是 |
+| RedirectAllRequestsTo | WebsiteConfiguration | 重定向所有请求配置 | Container | 否 |
+| AutoAddressing     |   WebsiteConfiguration |   用于配置是否忽略扩展名  | Container | 否 |
+| ErrorDocument | WebsiteConfiguration | 错误文档配置 | Container | 否 |
+| RoutingRules | WebsiteConfiguration | 重定向规则配置，最多设置100条 RoutingRule | Container | 否 |
+
+**Container 节点 IndexDocument 的内容：**
+
+| 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- | --- |
+| Suffix | WebsiteConfiguration.IndexDocument | 指定索引文档的对象键后缀。例如指定为`index.html`，那么当访问到存储桶的根目录时，会自动返回 index.html 的内容，或者当访问到`article/`目录时，会自动返回 `article/index.html`的内容 | String | 是 |
+
+**Container 节点 RedirectAllRequestsTo 的内容：**
+
+| 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- | --- |
+| Protocol | WebsiteConfiguration.RedirectAllRequestsTo | 指定重定向所有请求的目标协议，只能设置为 https | String | 是 |
+
+**Container 节点 AutoAddressing 的内容：**
+
+| 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- | --- |
+| Status  |  WebsiteConfiguration.AutoAddressing   |    用于配置是否忽略 HTML 拓展名，可选值为 Enabled 或 Disabled，默认为 Disabled  | String | 否 |
+
+**Container 节点 ErrorDocument 的内容：**
+
+| 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- | --- |
+| Key | WebsiteConfiguration.ErrorDocument | 指定通用错误文档的对象键，当发生错误且未命中重定向规则中的错误码重定向时，将返回该对象键的内容 | String | 是 |
+|  OriginalHttpStatus   |  WebsiteConfiguration.ErrorDocument  |  用于配置命中错误文档的 HTTP 状态码，可选值为 Enabled 或 Disabled，默认为 Enabled	  |  String  |  否  |
+
+**Container 节点 RoutingRules 的内容：**
+
+| 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- | --- |
+| RoutingRule | WebsiteConfiguration.RoutingRules | 单条重定向规则配置 | Container | 是 |
+
+**Container 节点 RoutingRules.RoutingRule 的内容：**
+
+| 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- | --- |
+| Condition | WebsiteConfiguration.RoutingRules.RoutingRule | 重定向规则的条件配置 | Container | 是 |
+| Redirect | WebsiteConfiguration.RoutingRules.RoutingRule | 重定向规则的具体重定向目标配置 | Container | 是 |
+
+**Container 节点 RoutingRules.RoutingRule.Condition 的内容：**
+
+| 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- | --- |
+| HttpErrorCodeRetu<br>rnedEquals | WebsiteConfigura<br>tion.RoutingRules.<br>RoutingRule.Condition | 指定重定向规则的错误码匹配条件，只支持配置4XX返回码，例如403或404 | Integer | HttpErrorCodeReturnedEquals 与 KeyPrefixEquals 必选其一 |
+| KeyPrefixEquals | WebsiteConfigura<br>tion.RoutingRules.<br>RoutingRule.Condition | 指定重定向规则的对象键前缀匹配条件 | String | HttpErrorCodeReturnedEquals 与 KeyPrefixEquals 必选其一 |
+
+**Container 节点 RoutingRules.RoutingRule.Redirect 的内容：**
+
+| 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- | --- |
+| Protocol | WebsiteConfigura<br>tion.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的目标协议，只能设置为 https | String | 否 |
+| ReplaceKeyWith | WebsiteConfigura<br>tion.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换整个原始请求的对象键 | String | ReplaceKeyWith 与 ReplaceKeyPrefixWith 必选其一 |
+| ReplaceKeyPrefixWith | WebsiteConfigura<br>tion.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换原始请求中所匹配到的前缀部分，仅可在 Condition 为 KeyPrefixEquals 时设置 | String | ReplaceKeyWith 与 ReplaceKeyPrefixWith 必选其一|
 
 ## 响应
 
 #### 响应头
 
-#### 公共响应头
-
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
-
-#### 特有响应头
-
-该响应无特殊的响应头。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 响应体
 
-该响应体为空。
+此接口响应体为空。
 
 #### 错误码
 
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
 #### 请求
 
-```shell
+```plaintext
 PUT /?website HTTP/1.1
-Host: examplebucket-1250000000.cos.ap-shanghai.myqcloud.com
-Date:Thu, 21 Sep 2017 13:05:41 +0000
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Wed, 20 May 2020 09:33:38 GMT
 Content-Type: application/xml
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484814927;32557710927&q-key-time=1484814927;32557710927&q-header-list=host&q-url-param-list=website&q-signature=8b9f05dabce2578f3a79d732386e7cbade9033e3
-Content-Length: 646
+Content-Length: 1209
+Content-MD5: VHzj4Uwb++HLyCJp7jUzWg==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1589967218;1589974418&q-key-time=1589967218;1589974418&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=website&q-signature=4666493555640e834a879c78afaa4fd9b16a****
+Connection: close
 
 <WebsiteConfiguration>
 	<IndexDocument>
@@ -133,34 +192,41 @@ Content-Length: 646
 		<Protocol>https</Protocol>
 	</RedirectAllRequestsTo>
 	<ErrorDocument>
-		<Key>Error.html</Key>
+		<Key>pages/error.html</Key>
 	</ErrorDocument>
 	<RoutingRules>
+		<RoutingRule>
+			<Condition>
+				<HttpErrorCodeReturnedEquals>403</HttpErrorCodeReturnedEquals>
+			</Condition>
+			<Redirect>
+				<Protocol>https</Protocol>
+				<ReplaceKeyWith>pages/403.html</ReplaceKeyWith>
+			</Redirect>
+		</RoutingRule>
 		<RoutingRule>
 			<Condition>
 				<HttpErrorCodeReturnedEquals>404</HttpErrorCodeReturnedEquals>
 			</Condition>
 			<Redirect>
-				<Protocol>https</Protocol>
-				<ReplaceKeyWith>404.html</ReplaceKeyWith>
+				<ReplaceKeyWith>pages/404.html</ReplaceKeyWith>
 			</Redirect>
 		</RoutingRule>
 		<RoutingRule>
 			<Condition>
-				<KeyPrefixEquals>docs/</KeyPrefixEquals>
+				<KeyPrefixEquals>assets/</KeyPrefixEquals>
 			</Condition>
 			<Redirect>
-				<Protocol>https</Protocol>
-				<ReplaceKeyPrefixWith>documents/</ReplaceKeyPrefixWith>
+				<ReplaceKeyWith>index.html</ReplaceKeyWith>
 			</Redirect>
 		</RoutingRule>
 		<RoutingRule>
 			<Condition>
-				<KeyPrefixEquals>img/</KeyPrefixEquals>
+				<KeyPrefixEquals>article/</KeyPrefixEquals>
 			</Condition>
 			<Redirect>
 				<Protocol>https</Protocol>
-				<ReplaceKeyWith>demo.jpg</ReplaceKeyWith>
+				<ReplaceKeyPrefixWith>archived/</ReplaceKeyPrefixWith>
 			</Redirect>
 		</RoutingRule>
 	</RoutingRules>
@@ -169,12 +235,11 @@ Content-Length: 646
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
-Content-Type: application/xml
 Content-Length: 0
-Connection: keep-alive
-Date: Thu, 21 Sep 2017 13:05:54 GMT
+Connection: close
+Date: Wed, 20 May 2020 09:33:38 GMT
 Server: tencent-cos
-x-cos-request-id: NTljM2I5MzJfMjQ4OGY3MGFfNzk4OV83Zg==
+x-cos-request-id: NWVjNGY5NzJfOThjMjJhMDlfMjg5Ml8yYzNi****
 ```

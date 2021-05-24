@@ -1,3 +1,6 @@
+以下视频介绍了无法登录 Linux 实例时的排查方法：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3398-59999?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 本文主要介绍无法连接 Linux 实例时对问题进行排查的方法，以及可能导致无法连接 Linux 实例的主要原因，指导您排查、定位并解决问题。
 
 ## 可能原因
@@ -6,14 +9,13 @@
 - [密码问题导致无法登录](#CryptographicProblem)
 - [带宽利用率过高](#BandwidthUtilization)
 - [服务器高负载](#HighServerLoad)
-- [远程端口配置异常](#RemotePortConfiguration)
 - [安全组规则不当](#SafetyGroupRule)
 
 ## 使用自助诊断工具
 腾讯云提供自助诊断工具，可以帮助您判断是否由于带宽、防火墙以及安全组设置等常见问题引起。70%的故障可以通过工具定位，您可以根据检测到的原因，定位可能引起无法登录的故障问题。
 1. 单击 [自助诊断](https://console.cloud.tencent.com/workorder/check)，打开自助诊断工具。
-2. 输入需要诊断的云服务器 instance-id，单击【开始诊断】。如下图所示：
-![](https://main.qcloudimg.com/raw/0bea1afc1d29eb4e59dab3f4c6e4eace.png)
+2. 根据工具界面提示，选择需要诊断的云服务器，单击【开始检测】。如下图所示：
+![](https://main.qcloudimg.com/raw/169825c8602f00f5cc867e8f73db269c.png)
 
 如果您的问题无法通过故障排查工具检查，建议您 [通过 VNC 的方式登录](#VNC) 云服务器逐步排查故障。
 
@@ -55,13 +57,6 @@
 1. 通过 [VNC 登录](#VNC) 登录实例。
 2. 参考 [Linux 实例：CPU 与内存占用率高导致无法登录](https://cloud.tencent.com/document/product/213/10310)，在 “任务管理器” 中定位高负载的进程。
 
-
-<span id="RemotePortConfiguration"></span>
-### 远程端口配置异常
-**故障现象**：远程无法连接，远程访问端口非默认端口、被修改或者22端口没打开。
-**定位思路**：是否能 ping 通实例的公网 IP，通过 telnet 命令检测端口是否打开。
-**处理步骤**：具体操作可参考 [端口问题导致无法远程登录](https://cloud.tencent.com/document/product/213/10232)。
-
 <span id="SafetyGroupRule"></span>
 ### 安全组规则不当
 **故障现象**：通过自助检查工具检查，发现安全组规则设置不当导致无法登录。
@@ -69,7 +64,7 @@
 ![](https://main.qcloudimg.com/raw/9fc46a7133fdb07b631876cd9fa4c253.png)
 如果确定为安全组端口设置问题，可通过工具中的【一键放通】功能放通端口。
 ![](https://main.qcloudimg.com/raw/c6a26565610a1360f187ee10db12a634.png)
-如果您需要自定义设置安全组规则，请参考 [安全组操作](https://cloud.tencent.com/document/product/213/18197) 重新配置安全组规则。
+如果您需要自定义设置安全组规则，请参考 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740) 重新配置安全组规则。
 
 
 

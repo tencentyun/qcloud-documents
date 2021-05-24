@@ -40,10 +40,10 @@ Authorization: Auth
 
 | 名称                | 描述                                       | 类型     |
 | ----------------- | ---------------------------------------- | ------ |
-| Marker            | 如果返回的列表未能显示完全，该值为下一次请求的 Marker 值。 如果返回的列表已经显示完全，则此值为 `null` | String |
+| Marker            | 如果返回的列表未能显示完全，该值为下一次请求的 Marker 值。 如果返回的列表已经显示完全，则此值为`null` | String |
 | VaultList         | 文件库描述                                    | Array  |
-| CreationDate      | 文件库创建时间， ISO 8601 日期格式的字符串表示，例如，`2017-03-20T17:03:43.221Z` | String |
-| LastInventoryDate | 文件库最新读取档案列表时间， ISO 8601 日期格式的字符串表示，例如，`2017-03-20T17:03:43.221Z` | String |
+| CreationDate      | 文件库创建时间， ISO 8601 日期格式的字符串表示，例如`2017-03-20T17:03:43.221Z` | String |
+| LastInventoryDate | 文件库最新读取档案列表时间， ISO 8601 日期格式的字符串表示，例如`2017-03-20T17:03:43.221Z` | String |
 | NumberOfArchives  | 截止到上次读取档案列表时间，文件库中的档案数                   | Number |
 | SizeInBytes       | 截止到上次读取档案列表时间，文件库中的总档案大小                 | Number |
 | VaultQCS          | 文件库的资源名称 （QCS）                           | String |
@@ -64,3 +64,4 @@ Authorization: Auth
 	]
 }
 ```
+

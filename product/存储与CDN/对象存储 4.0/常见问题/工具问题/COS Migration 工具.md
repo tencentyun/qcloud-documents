@@ -16,7 +16,7 @@
 
 ### 迁移失败，日志显示503 Slow Down，该如何处理？
 
-这是触发频控所导致，COS 目前对一个账号具有每秒800QPS 的操作限制。建议调小配置中小文件的并发度,，并重新运行工具，则会将失败的重新运行。
+这是触发频控所导致，COS 目前对一个账号具有每秒30000QPS 的操作限制。建议调小配置中小文件的并发度,，并重新运行工具，则会将失败的重新运行。
 
 ### 迁移失败，日志显示404 NoSuchBucket，该如何处理？
 
@@ -33,4 +33,7 @@
 ### 如何修改日志级别？
 修改文件 src/main/resources/log4j.properties，把 log4j.rootLogger 的值复制为对应的日志级别，如 DEBUG、INFO、ERROR。
 
-如遇其他问题，请您尝试重新运行迁移工具。若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [提交工单](https://console.cloud.tencent.com/workorder/category)。
+### 在 Linux 环境下，报 /tmp/librocksdbjnixxx.so: ELF file OS ABI invalid 的错误，该如何处理？
+在 Linux 环境下，工具需要 IFUNC 支持，请检查并确保运行环境的 binutils 版本大于 2.20。
+
+如遇其他问题，请您尝试重新运行迁移工具。若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [联系我们](https://cloud.tencent.com/document/product/436/37708)。

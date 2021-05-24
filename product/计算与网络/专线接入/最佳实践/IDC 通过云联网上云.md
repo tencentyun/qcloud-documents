@@ -1,3 +1,6 @@
+您可通过如下视频了解关于 IDC 通过云联网上云的最佳实践。
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1670-12013?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 步骤1：创建云联网类型的专线网关
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，在左侧目录中，单击【专线网关】，进入管理页面。
 2. 单击【新建】。
@@ -21,3 +24,4 @@
 
 ## 步骤5：关联网络实例
 把您希望互联的网络实例（包括 VPC 和专线网关，数量可多个）加载到云联网实例，即可完成云联网内的网络实例互通。详细操作步骤，请参见云联网文档 [关联网络实例](https://cloud.tencent.com/document/product/877/18747)。
+

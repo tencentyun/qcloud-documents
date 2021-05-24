@@ -1,0 +1,36 @@
+## 可授权的资源类型
+资源级权限是能够指定用户对哪些资源具有执行操作的能力。凭据管理系统部分接口支持使用资源级权限对凭据进行操作，可控制允许用户何时执行操作或是否允许用户使用的特定资源。
+例如，您授权用户拥有广州地域凭据的权限，在 CAM 中可授权的资源类型为：
+```
+qcs::ssm:ap-guangzhou:uin/${uin}:*
+qcs::ssm:ap-guangzhou::*
+```
+您授权接口访问某个 UIN 创建的所有凭据，则资源类型为：
+```
+qcs::ssm:$region:uin/$uin:secret/creatorUin/*
+```
+您授权接口访问某个具体的凭据，则资源类型为：
+```
+qcs::ssm:$region:uin/$uin:secret/creatorUin/$creatorUin/$secretName
+```
+其中：
+- `$region`：指代地域。
+-  `$uin`：指代主账号 ID。
+-   `$creatorUin`：指代创建该资源的账号 ID。
+-   `$secretName`：指代需要配置的凭据名称。
+
+## 资源级授权接口
+如下 API 接口 DeleteSecretVersion、UpdateDescription、RestoreSecret、EnableSecret、PutSecretValue、DescribeSecret、UpdateSecret、DeleteSecret、GetSecretValue、DisableSecret、ListSecretVersionIds 资源路径为：
+```
+qcs::ssm:$region:uin/$uin:secret/*
+qcs::ssm:$region:uin/$uin:secret/creatorUin/*
+qcs::ssm:$region:uin/$uin:secret/creatorUin/$creatorUin/$secretName
+```
+
+## 接口级别授权列表
+| API 接口 | 描述信息 |
+|---------|---------|
+|CreateSecret|	创建新的凭据。|
+|GetRegions	|获取可用 region 列表，用于控制台展示。|
+|GetServiceStatus|	获取服务状态，用于判定服务是否开通。|
+|ListSecrets	|获取所有凭据列表信息。|

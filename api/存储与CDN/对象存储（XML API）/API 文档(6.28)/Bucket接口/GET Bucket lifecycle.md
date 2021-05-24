@@ -1,6 +1,25 @@
 ## 功能描述
 GET Bucket lifecycle 用于查询 Bucket 的生命周期配置。如果该 Bucket 没有配置生命周期规则会返回 NoSuchLifecycleConfiguration。
 
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=GetBucketLifecycle&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 ## 请求
 #### 请求示例
 
@@ -14,10 +33,8 @@ Authorization: Auth String
 >?Authorization：Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
-#### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
-#### 非公共头部
-该请求操作无特殊的请求头部信息。
+
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 请求体
 该请求的请求体为空。
@@ -25,17 +42,16 @@ Authorization: Auth String
 ## 响应
 
 #### 响应头
-#### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
-#### 特有响应头
-该响应无特殊的响应头。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+
 
 #### 响应体
 响应体中各个元素的内容及含义与 PUT Buket lifecycle 时的请求体一致。详情请参见 [PUT Bucket lifecycle](https://cloud.tencent.com/document/product/436/8280) 文档中的请求体节点描述内容。
 
 #### 错误码
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -44,7 +60,7 @@ Authorization: Auth String
 GET /?lifecycle HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 16 Aug 2017 12:23:54 GMT
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1502857357;1502937357&q-key-time=1502857357;1502937357&q-header-list=host&q-url-param-list=lifecycle&q-signature=da155cda3461bee7422ee95367ac8013ef847e02
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1502857357;1502937357&q-key-time=1502857357;1502937357&q-header-list=host&q-url-param-list=lifecycle&q-signature=da155cda3461bee7422ee95367ac8013ef84****
 
 ```
 
@@ -55,7 +71,7 @@ Content-Type: application/xml
 Content-Length: 312
 Date: Wed, 16 Aug 2017 12:23:54 GMT
 Server: tencent-cos
-x-cos-request-id: NTk5NDM5NWFfMjQ4OGY3Xzc3NGRfMjA=
+x-cos-request-id: NTk5NDM5NWFfMjQ4OGY3Xzc3NGRf****
 
 <LifecycleConfiguration>
   <Rule>

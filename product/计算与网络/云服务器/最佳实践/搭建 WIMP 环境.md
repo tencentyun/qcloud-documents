@@ -18,8 +18,8 @@ WIMP 环境是指在 Windows 系统下，由 IIS 服务 + MySQL + PHP 组成的�
 请参考 [安装 IIS 服务](https://cloud.tencent.com/document/product/213/2755#windows-server-2012-r2-.E6.93.8D.E4.BD.9C.E7.B3.BB.E7.BB.9F) 完成安装。
 
 ### 步骤3：安装 MySQL 和 PHP
-1. 下载并安装 [Microsoft Web 平台安装程序 5.0](https://www.microsoft.com/web/downloads/platform.aspx)。
-2. 选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px"> > <img src="https://main.qcloudimg.com/raw/3ad1de7c2eaef565dbd9c42dfdcedc12.png" style="margin:-3px 0px">，并在应用中单击运行 Web 平台安装程序。
+1. 下载并安装 [Microsoft Web 平台安装程序](https://www.microsoft.com/web/downloads/platform.aspx)。
+2. 选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px"> > <img src="https://main.qcloudimg.com/raw/3ad1de7c2eaef565dbd9c42dfdcedc12.png" style="margin:-3px 0px">，并在应用中打开 Web 平台安装程序。
 安装平台初始化时间较长，请耐心等待。
 3. 选择 Web 安装平台程序左上角的【产品】，并在右上角搜索框中输入 `MySQL`，按 “**Enter**” 进行搜索。
 4. 根据实际需求选择不同版本的数据库，并单击【添加】。如下图所示：
@@ -27,11 +27,13 @@ WIMP 环境是指在 Windows 系统下，由 IIS 服务 + MySQL + PHP 组成的�
 5. 搜索 `PHP`，选择版本后添加到安装队列。如下图所示：
 ![](https://main.qcloudimg.com/raw/62689fee50a0a5447dc31b5d932f308c.png)
 6. 单击【安装】。
-7. <span id="passwd"></span>在弹出的窗口中设置数据库帐号密码，并单击【继续】并接受许可条款即可开始安装。
+7. <span id="passwd"></span>在弹出的窗口中设置 MySQL  数据库帐号密码，并单击【继续】。
 数据库帐号为 `root`，数据库密码请自行设置并记录，本文以 `123456` 为例。
+8. 在窗口中接受许可条款，即可开始安装。
+9. （可选）完成安装后，可通过 [数据库安全配置](#safe) 提高 MySQL 数据库安全性。
 
 ### 验证环境配置
-1. 请参考相关操作中的 [展示文件扩展名](#show) 完成设置。
+1. （可选）请参考相关操作中的 [展示文件扩展名](#show) 完成设置。
 2. 在 `C:\inetpub\wwwroot` 目录下新建 `phpinfo.php` 文件，写入以下内容并保存：
 ```
 <?php phpinfo(); ?>
@@ -49,8 +51,8 @@ http://云服务器实例的公网 IP
 2. 在弹出的工具栏中勾选【文件扩展名】。如下图所示：
 ![](https://main.qcloudimg.com/raw/c3183be3bd8f82442f7c80b280eea8a6.png)
 
-### 数据库安全配置
->?建议您通过完成此步骤，提高 MySQL 数据库的安全性。
+### 数据库安全配置<span id="safe"></span>
+>?当您完成 MySQL 数据库安装后，可通过执行以下步骤，提高 MySQL 数据库的安全性。
 >
 1. 前往 [Perl Programming Language](https://www.perl.org/) 下载并安装 Perl。
 2. 在 `C:\Program Files\MySQL\MySQL Server 5.5\bin` 目录中打开 `mysql_secure_installation.pl` 文件。

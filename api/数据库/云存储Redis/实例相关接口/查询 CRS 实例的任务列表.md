@@ -4,6 +4,7 @@
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
 ## 2. 输入参数
+
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='https://cloud.tencent.com/document/product/213/6976' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的 Action 字段为 GetRedisTaskList。
 
 | 参数名称 | 是否必选  | 类型 | 描述 |

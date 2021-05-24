@@ -2,6 +2,22 @@
 
 GET Bucket referer 接口用于读取存储桶 Referer 白名单或者黑名单。
 
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=GetBucketReferer&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
 ## 请求
 
 #### 请求示例
@@ -13,7 +29,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
->?Authorization：Auth String （详请请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization：Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
 #### 请求头
@@ -44,9 +60,9 @@ Authorization: Auth String
 </RefererConfiguration>
 ```
 
-具体的数据内容如下：
+具体的节点描述如下：
 
-| 名称                    | 父节点               | 描述                                                         | 类型      | 必选 |
+| 名称                    | 父节点               | 描述                                                         | 类型      | 是否必选 |
 | ----------------------- | -------------------- | ------------------------------------------------------------ | --------- | ---- |
 | RefererConfiguration    | 无                   | 防盗链配置信息                                               | Container | 是   |
 | Status                  | RefererConfiguration | 是否开启防盗链，枚举值：Eabled，Disabled                 | String    | 是   |
@@ -57,7 +73,7 @@ Authorization: Auth String
 
 #### 错误码
 
-该请求操作无特殊错误信息，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 

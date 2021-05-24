@@ -37,15 +37,14 @@ libtersafe2.so
  ![](https://mc.qcloudimg.com/static/img/5c0861221c69ff2a296717b48223b614/image.png)
 
 ### 工程属性设置
-1. 在 Eclipse 中左边的项目导航栏 [Project Explorer] 中选择游戏项目，单击鼠标右键，在弹出的菜单中选择 [Properties]，选中 Properties 窗口左边导航栏中的[Java Build Path] 选项，然后在 [Library] 中单击 [add JARs] 添加 tp2.jar。
+1. 在 Eclipse 中左侧的项目导航栏 [Project Explorer] 中选择游戏项目，单击鼠标右键，在弹出的菜单中选择 [Properties]，选中 Properties 窗口左边导航栏中的[Java Build Path] 选项，然后在 [Library] 中单击 [add JARs] 添加 tp2.jar。
 ![](https://mc.qcloudimg.com/static/img/2b038746f019e439ef5bbdb473ab16b2/image.png)
 2. 选择已拷贝到工程目录的 tp2.jar。
 ![](https://mc.qcloudimg.com/static/img/b48aeb6b30b9c689ca5e56357a0c72b3/image.png)
 3. 添加 tp2.jar 后在 [Order and Export] 中选中 tp2.jar
 ![](https://mc.qcloudimg.com/static/img/e19cbe55f0997e7bdb68eeef275a1fb4/image.png)
 4. 再在 Android 工程加载游戏 so 的地方，添加对 libtersafe2.so 的引用。
->**注意：**
->libtersafe2.so 的加载顺序，需要在游戏自己的 so 之前。
+>!libtersafe2.so 的加载顺序，需要在游戏自己的 so 之前。
 
 ### 修改 Android.mk
 1. 在 jin/Android.mk 中添加如下代码, 用于加载 libtersafe2.so。
@@ -74,15 +73,15 @@ LOCAL_SHARED_LIBRARIES:=libtp2
 | app_key | 是 | 由腾讯云官网分配 game_key，与 game_id 对应  |
 
 - gameId 和 AppKey 在腾讯云官网（xxxxxxxxxxxx）注册完新游戏后自动生成。
-- ** 返回值 **：0 表示调用成功
+- **返回值**：0 表示调用成功
 
 ### 用户登录接口
-** 函数原型 **
+**函数原型**
 ```
 int tp2_setuserinfo(int account_type, int world_id, string open_id, string role_id);
 ```
 
-** 参数说明 **
+**参数说明**
 
 | 参数 | 说明 |
 |---------|---------|
@@ -105,12 +104,12 @@ ENTRY_ID_OTHERS = 99, // 其他平台
 };
 ```
 - world_id 由游戏自定义，如果游戏没有分区可填 0。
-- role_id 用于区分同一帐号同一分区下的不同角色，如果没有角色区分可填””。
+- role_id 用于区分同一帐号同一分区下的不同角色，如果没有角色区分可填""（空）。
 - open_id 由所在运营平台分配，用于唯一区分用户。
-- ** 返回值 **：0 表示调用成功
+- **返回值**：0 表示调用成功。
 
 ### 前后台切换接口
-** 函数原型 **
+**函数原型**
 ```
 int tp2_setgamestatus (int status);
 ```
@@ -119,7 +118,7 @@ int tp2_setgamestatus (int status);
 |---------|---------|
 | status | 前台 TP2_GAME_STATUS_FRONTEND<br> 后台 TP2_GAME_STATUS_BACKEND |
 
-** 枚举类型 **
+**枚举类型**
 ```
 enum TP2GameStatus
 {
@@ -128,7 +127,7 @@ TP2_GAME_STATUS_BACKEND = 2 // 后台
 }
 ```
 
-- ** 返回值 **：0 表示调用成功
+- **返回值**：0 表示调用成功
 
 ### 调用时机
 1. tp2_sdk_init_ex 在游戏启动的第一时间调用，参数为游戏 ID 和 App_key 信息。更早时机调用安全接口函数可以更安全的保护游戏进程。
@@ -140,11 +139,11 @@ TP2_GAME_STATUS_BACKEND = 2 // 后台
 void Start ()
 {
 // 游戏启动的第一时间调用
-tp2_sdk_init_ex (8888, “a5ab8dc7ef67ca92e41d730982c5c602”);
+tp2_sdk_init_ex (8888, “a5ab8dc7ef67ca92e41d730982******”);
 // 用户登录时调用
 int account_type = ENTRY_ID_QZONE; /* 帐号类型 */
 int world_id = 101; /* 大区 id*/
-string open_id = "B73B36366565F9E02C752"; /* 与平台相关的用户标识 */
+string open_id = "B73B36366565F9E******"; /* 与平台相关的用户标识 */
 string role_id = "paladin"; /* 角色 id*/
 tp2_setuserinfo(account_type, world_id, open_id, role_id);
 }

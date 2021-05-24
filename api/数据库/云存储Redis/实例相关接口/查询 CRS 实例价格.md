@@ -38,7 +38,7 @@
 |11052|UserNotInWhiteList|用户不在白名单中|
 |10000|NoRedisService|请求的区域暂时不提供redis服务|
 |11062|NoTypeIdRedisService|请求的区域暂时不提供请求类型的redis服务|
-|11053|InvalidInstanceTypeId|请求购买的实例类型错误（TypeId 1:集群版；2:主从版,即原主从版)|
+|11053|InvalidInstanceTypeId|请求购买的实例类型错误（TypeId 1:集群版；2:主从版,即原主从版）|
 |10703|InvalidMemSize| 请求的容量不在售卖规格中（memSize应为1024的整数倍，单位：MB）|
 |11063|MemSizeNotInRange|请求的容量不在售卖容量范围内（请用[查询售卖规格](http://cloud.tencent.com/doc/api/260/4974)接口查询售卖容量限制）|
 |11065|PeriodExceedMaxLimit|购买时长超过最大时长限制|

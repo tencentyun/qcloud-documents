@@ -6,7 +6,7 @@ ABORT [WORK | TRANSACTION]
 ```
 
 ## 描述
-ABORT当前事务并导致事务所做的所有更新都被丢弃。出于历史原因，此命令与标准SQL命令的行为相同。
+ABORT 当前事务并导致事务所做的所有更新都被丢弃。出于历史原因，此命令与标准 SQL 命令的行为相同。
 
 ## 参数
 WORK
@@ -14,8 +14,9 @@ TRANSACTION
 可选关键字，它们没有效果。
 
 ## 注解
-使用COMMIT成功终止一个事务。
-在一个事务块之外发出ABORT会发出一个警告信息并且不会产生效果。
+使用 COMMIT 成功终止一个事务。
+
+在一个事务块之外发出 ABORT 会发出一个警告信息并且不会产生效果。
 
 ## 示例
 
@@ -47,7 +48,7 @@ select * from table1;
  
 Time: 16.718 ms
  
---开启事务，等价于START TRANSACTION。
+--开启事务，等价于 START TRANSACTION。
 BEGIN;
  
 --更新字段值。
@@ -65,7 +66,7 @@ select * from table1;
  
 Time: 6.378 ms
  
---终止事务，上面所执行的更新会被撤销掉，等价于ROLLBACK。
+--终止事务，上面所执行的更新会被撤销掉，等价于 ROLLBACK。
 ABORT; 
 ROLLBACK
 Time: 0.651 ms
@@ -80,10 +81,8 @@ select * from table1;
 Time: 6.124 ms
 ```
 
- 
-
 ## 兼容性
-由于历史原因，此命令是数据库扩展名。ROLLBACK是等效的标准SQL命令。ROLLBACK是等效的标准SQL命令。
+由于历史原因，此命令是数据库扩展名。ROLLBACK 是等效的标准 SQL 命令。ROLLBACK 是等效的标准 SQL 命令。
 
 ## 另见
 BEGIN、COMMIT、ROLLBACK

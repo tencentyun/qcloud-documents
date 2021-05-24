@@ -205,3 +205,4 @@ invoke 函数对用户的不同的智能合约业务逻辑进行拆分。本例�
         return newSuccessResponse(val, ByteString.copyFrom(val, UTF_8).toByteArray());
     }
 ```
+

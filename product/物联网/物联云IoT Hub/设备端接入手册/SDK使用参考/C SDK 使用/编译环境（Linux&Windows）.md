@@ -1,4 +1,3 @@
-
 ## Linux（Ubuntu）环境
 
 >?本文演示使用 Ubuntu 的版本为16.04。
@@ -81,3 +80,4 @@ set(FEATURE_DEBUG_DEV_INFO_USED  OFF)
 ![](https://main.qcloudimg.com/raw/dc985f71fdb4b882ce2d12d01c5b7e73.png)
 6. 选择相应的示例运行，示例应与用户信息相对应。
 ![](https://main.qcloudimg.com/raw/5c3f0fe31182b8dc7b805ce7578ae0ad.jpg)
+

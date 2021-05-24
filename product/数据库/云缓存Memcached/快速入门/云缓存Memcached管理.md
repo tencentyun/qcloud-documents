@@ -3,7 +3,7 @@
 - **存储扩容**
 云数据库 Memcached 会自动为每个实例每日预留约20%的空间作为数据增长 buffer。例如，实例的使用空间为80GB，则会分配96GB作为实例的占用空间。如果实例的数据日增长量超过20%，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行存储扩容申请。云数据库 Memcached 扩容过程是数据搬迁过程，不会影响业务访问。 
 - **接口/端口扩容**
-请提交工单，填写接口/端口扩容进行申请。
+请 [提交工单](https://console.cloud.tencent.com/workorder/category)，填写接口/端口扩容进行申请。
 
 ## 实例缩容
 实例缩容指的是减少实例的占用空间，即存储缩容。因为需要预留缓冲空间，缩容后实例使用率不会超过80%。实例缩容的最小粒度是1GB，如果缩容会造成使用率超过80%，则不能进行缩容。
@@ -15,13 +15,13 @@
 云数据库 Memcached 支持通过控制台手动清理实例数据，单个实例每天只能清理累计50GB的占用空间。如果超过50GB，请提交工单联系技术支持。
 >!数据被清空后，不可以再恢复，请在清空前确认实例中的数据已经备份或不再使用。
 >
-登录 [云数据库 Memcached 控制台](https://console.cloud.tencent.com/memcached)，选择需要清空的的实例，在操作列选择【更多】>【清空】，确认清空后，后台开始清空操作。清空完成后，页面会提示清空成功。
+登录 [云数据库 Memcached 控制台](https://console.cloud.tencent.com/memcached)，选择需要清空的实例，在操作列选择【更多】>【清空】，确认清空后，后台开始清空操作。清空完成后，页面会提示清空成功。
 ![](https://main.qcloudimg.com/raw/d17c28d3702e65f5aa46a65e9f6ede41.png)
 
 ## 实例销毁
 >!实例销毁后，不可再恢复，请在销毁前确认实例中的数据已经备份或不再使用。
 
-在 Memcached 实例列表，选择需要销毁的的实例，在操作列选择【更多】>【销毁】，后台开始清理实例数据并删除表。
+在 Memcached 实例列表，选择需要销毁的实例，在操作列选择【更多】>【销毁】，后台开始清理实例数据并删除表。
 ![](https://main.qcloudimg.com/raw/2db049178eaa5f603bebc2e0eb81eb42.png)
 
 ## 实例淘汰
@@ -36,7 +36,6 @@
 
 ## 实例监控
 在 Memcached 实例列表，单击如下监控图标，或单击实例名进入【实例监控】页面可查看实例监控信息。
-指标说明请参见 [Memcached 监控指标说明](/doc/product/248/云缓存Memcached监控指标说明)。
 ![](https://main.qcloudimg.com/raw/eabba956635c2d95482e3e90bfcf325c.png)
 
 ## 数据回档

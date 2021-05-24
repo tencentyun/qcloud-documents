@@ -44,8 +44,8 @@
 ## 调用案例
 ### 示例参数
 ```
-> urls.0: http://www.test.com/1.jpg
-> urls.1: http://www.abc.com/1.jpg
+> urls.0: http://cloud.tencent.com/1.jpg
+> urls.1: http://www.example.com/1.jpg
 > limitRate: 1
 ```
 
@@ -58,8 +58,8 @@ Action=CdnUrlPusher
 &Timestamp=1462436277
 &Nonce=123456789
 &Signature=XXXXXXXXXXXXXXXXXXXXX
-&urls.0=http://www.test.com/1.jpg
-&urls.1=http://www.abc.com/1.jpg
+&urls.0=http://cloud.tencent.com/1.jpg
+&urls.1=http://www.example.com/1.jpg
 &limitRate=1
 ```
 
@@ -79,8 +79,8 @@ array (
 	'Timestamp' => 1462782282,
 	'Nonce' => 123456789,
 	'Signature' => 'XXXXXXXXXXXXXXXXXXXXXXXX',
-	'urls.0' => 'http://www.test.com/1.jpg',
-	'urls.1' => 'http://www.abc.com/1.jpg',
+	'urls.0' => 'http://cloud.tencent.com/1.jpg',
+	'urls.1' => 'http://www.example.com/1.jpg',
     'limitRate'  => 1
 )
 ```

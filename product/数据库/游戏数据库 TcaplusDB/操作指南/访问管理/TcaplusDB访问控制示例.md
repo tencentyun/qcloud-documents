@@ -1,0 +1,86 @@
+## 操作场景
+您可以通过使用访问管理（Cloud Access Management，CAM）策略让用户拥有在 TcaplusDB 控制台中查看和使用特定资源的权限。本文档提供了查看和使用特定资源的权限示例，指导用户如何使用控制台的特定部分的策略。
+
+
+## 操作步骤
+### TcaplusDB 的全读写策略
+如果您希望用户拥有创建和管理 TcaplusDB 实例的权限，您可以对该用户使用名称为：QcloudTcaplusDBFullAccess 的策略。
+该策略可让用户拥有 TcaplusDB 中所有资源的操作权限。具体操作步骤如下：
+参考 [授权管理](https://cloud.tencent.com/document/product/598/10602)，将预设策略 QcloudTcaplusDBFullAccess 授权给用户。
+
+### TcaplusDB 的只读策略
+如果您希望用户拥有查询 TcaplusDB 实例的权限，但是不具有创建、删除、修改的权限，您可以对该用户使用名称为：QcloudTcaplusDBReadOnlyAccess 的策略。
+该策略可让用户拥有 TcaplusDB 中所有以单词 “Describe” 和 “Inquiry” 开头的操作的权限。具体操作步骤如下：
+参考 [授权管理](https://cloud.tencent.com/document/product/598/10602)，将预设策略 TcaplusDB 授权给用户。
+
+### 授权用户拥有特定集群的操作权限策略
+如果您希望授权用户拥有特定 TcaplusDB 操作权限，可将以下策略关联到该用户。具体操作步骤如下：
+
+1. 根据 [策略](https://cloud.tencent.com/document/product/598/10601)，创建一个自定义策略。
+该示例策略允许用户拥有集群 ID 为19168929215的 TcaplusDB 集群的所有操作权限，策略内容可参考以下策略语法进行设置：
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": "tcaplusdb:*",
+            "resource": "qcs::tcaplusdb:ap-shanghai::cluster/19168929215",
+            "effect": "allow"
+        }
+    ]
+}
+```
+2. 找到创建的策略，在该策略行的 “操作” 列中，单击【关联用户/组】。
+3. 在弹出的 “关联用户/用户组” 窗口中，选择您需要授权的用户/组，单击【确定】。
+
+
+### 授权用户拥有 TcaplusDB 所有资源的操作权限策略
+如果您希望授权用户拥有 TcaplusDB 所有资源的操作权限，可将以下策略关联到该用户。具体操作步骤如下：
+
+1. 根据 [策略](https://cloud.tencent.com/document/product/598/10601)，创建一个自定义策略。
+该示例策略允许用户拥有对 TcaplusDB 所有资源的操作权限，策略内容可参考以下策略语法进行设置：
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": "tcaplusdb:*",
+            "resource": "qcs::tcaplusdb:::*",
+            "effect": "allow"
+        }
+    ]
+}
+```
+2. 找到创建的策略，在该策略行的 “操作” 列中，单击【关联用户/组】。
+3. 在弹出的 “关联用户/用户组” 窗口中，选择您需要授权的用户/组，单击【确定】。
+
+
+### 禁止用户拥有特定 TcaplusDB 部分表格的所有权限策略
+如果您希望禁止用户拥有特定 TcaplusDB 部分表格的操作权限，可将以下策略关联到该用户。具体操作步骤如下：
+
+1. 根据 [策略](https://cloud.tencent.com/document/product/598/10601)，创建一个自定义策略。
+该示例策略禁止用户拥有对表格（ID为tcaplus-c8d1caa4和tcaplus-d8d1cbb4）的操作权限，策略内容可参考以下策略语法进行设置：
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": "tcaplusdb:*",
+            "resource": [
+						"qcs::tcaplusdb::uin/16xxx472:table/tcaplus-c8d1caa4",
+						"qcs::tcaplusdb::uin/16xxx472:table/tcaplus-d8d1cbb4",
+						],
+            "effect": "deny"
+        }
+    ]
+}
+```
+2. 找到创建的策略，在该策略行的 “操作” 列中，单击【关联用户/组】。
+3. 在弹出的 “关联用户/用户组” 窗口中，选择您需要授权的用户/组，单击【确定】。
+
+<span id="CAMCustomPolicy"></span>
+### 自定义策略
+如果您觉得预设策略不能满足您的要求，您可以通过创建自定义策略达到目的。
+具体操作步骤请参考 [策略](https://cloud.tencent.com/document/product/598/10601)。
+更多 TcaplusDB 相关的策略语法请参考 [授权策略语法](https://cloud.tencent.com/document/product/596/42903)。
+

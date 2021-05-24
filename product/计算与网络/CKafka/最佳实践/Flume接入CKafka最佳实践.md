@@ -54,7 +54,7 @@ tier1.sources.source1.kafka.consumer.group.id = custom.g.id
 | type	| 必须为：org.apache.flume.sink.kafka.KafkaSink |
 | kafka.bootstrap.servers	| Kafka Broker 的服务器 |
 |kafka.topics	| Kafka 中数据来源 Topic|
-|flumeBatchSize	| 每次写入的 Bacth 大小 |
+|kafka.flumeBatchSize	| 每次写入的 Bacth 大小 |
 |kafka.producer.acks	 | 	Kafka 生产者的生产策略 |
 
 示例：
@@ -71,21 +71,20 @@ a1.sinks.k1.kafka.producer.acks = 1
 
 ## Flume 接入 CKafka
 ### 准备工作
-- 在 Ckafka 控制台中，[创建一个实例](https://cloud.tencent.com/document/product/597/30931#.E5.88.9B.E5.BB.BA.E5.AE.9E.E4.BE.8B)。
+- 在 CKafka 控制台中，[创建一个实例](https://cloud.tencent.com/document/product/597/53207)。
 - 下载 [Apache Flume](http://flume.apache.org/download.html) ，本教程使用的是 Flume 1.7.0。 
 
-### Ckafka 相关配置
-1. 在【[消息队列 Ckafka 控制台](https://console.cloud.tencent.com/ckafka?rid=1) 】中，单击实例名称，可以看到实例分配的具体信息。
-![](https://main.qcloudimg.com/raw/f4baef6daae62629b0c747e1a89ce235.png)
+### CKafka 相关配置
+1. 在【[消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka?rid=1) 】中，单击实例名称，可以看到实例分配的具体信息。
+![](https://main.qcloudimg.com/raw/5ac5b251945f95ee976413adab63a2ce.png)
 >?图中的内网IP与端口作为后续的 Server IP。
 2. 单击【Topic管理】>【新建】，创建一个 Topic，此处名字为 flume_test。
- ![](https://mc.qcloudimg.com/static/img/9f069263c59539be5dcf845bba0b0455/44.png)
-
+![](https://main.qcloudimg.com/raw/39b46eba678dc1af2a51739a3b7d393e.png)
 
 ### Flume 相关配置
 #### 1. 解压已下载的 Apache Flume 压缩包
 #### 2. 配置 Flume 选项
- **使用 Ckafka 作为 Sink**
+ **使用 CKafka 作为 Sink**
  1. 编写配置文件。
 此处重点介绍 Flume 与 CKafka 作为 Sink 结合，Source 和 Channel 使用默认配置。以下是一个简单的 Demo （配置在解压目录的 conf 文件夹下），若无特殊要求则将自己的实例 IP 与 Topic 替换到配置文件当中即可。本例使用的 source 为 tail -F flume-test ，即文件中新增的信息。
  ![](https://mc.qcloudimg.com/static/img/daf5063d3c2c74eddb93f729eb6feb5b/55.png)
@@ -99,10 +98,10 @@ a1.sinks.k1.kafka.producer.acks = 1
 ```
 ./kafka-console-consumer.sh --bootstrap-server 172.16.16.12:9092 --topic flume_test --from-beginning --new-consumer
 ```
-可以看到刚刚的消息被消费出来。
+可以看到刚才的消息被消费出来。
  ![](https://mc.qcloudimg.com/static/img/ee394af9d8280bfef988d71ccc30f805/77.png)
 
-**使用 Ckafka 作为 Source**
+**使用 CKafka 作为 Source**
 1. 编写配置文件。
 此处重点介绍 Flume 与 CKafka 作为 Source 结合，Sink 和 Channel 使用默认配置。以下是一个简单的 Demo （配置在解压目录的 conf 文件夹下）。若无特殊要求则将自己的实例 IP 与 Topic 替换到配置文件当中即可。此处使用的 sink 为 logger。
  ![](https://mc.qcloudimg.com/static/img/18e5d3b3a533ef8e385e18301cc08961/88.png)

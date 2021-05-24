@@ -7,8 +7,8 @@ VLC media player 是一款自由、开源的跨平台多媒体播放器及框架
 ![](https://main.qcloudimg.com/raw/ff6842cf3ca5aff6055b4eb7fa598712.jpg)
 3. 在弹出的对话框输入直播流播放地址。
 ![](https://main.qcloudimg.com/raw/f5f277cff87c55eceb1a48c3a7d58a93.jpg)
-
-4. 输入完成后，单击【Open】确认播放，如播放地址可正常拉流，则会直接弹出播放框。 
+4. 输入完成后，单击【Open】确认播放，如播放地址可正常拉流，则会直接弹出播放框。  
 ![](https://main.qcloudimg.com/raw/7b182dbf9d48f5afe588b38a834e050d.jpg)
 
 
+ 

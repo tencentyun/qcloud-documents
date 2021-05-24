@@ -1,11 +1,11 @@
-Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实现可以参考 [API接口代码实现](https://github.com/hyperledger/fabric-chaincode-java/blob/release-1.4/fabric-chaincode-shim/src/main/java/org/hyperledger/fabric/shim/impl/ChaincodeStubImpl.java)。
+Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实现可以参考 [API 接口代码实现](https://github.com/hyperledger/fabric-chaincode-java/blob/v1.4.1/fabric-chaincode-shim/src/main/java/org/hyperledger/fabric/shim/impl/ChaincodeStubImpl.java)。
 从逻辑上划分，可将 API 接口分为以下类型：
 - [交易信息提取](#information)
 - [账本交互](#count)
 - [参数处理](#parameter)
 - [其他辅助类](#auxiliary)
 
-<span id="information"></span>
+[](id:information)
 ### 交易信息提取
 <table>
 	<tr>
@@ -42,7 +42,7 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 	</tr>
 </table>
 
-<span id="count"></span>
+[](id:count)
 ### 账本交互
 <table>
 	<tr>
@@ -167,7 +167,7 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 	</tr>
 </table>
 
-<span id="parameter"></span>
+[](id:parameter)
 ### 参数处理
 <table>
 	<tr>
@@ -192,7 +192,7 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 	</tr>
 </table>
 
-<span id="auxiliary"></span>
+[](id:auxiliary)
 ### 其他辅助类
 <table>
 	<tr>
@@ -237,4 +237,3 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 	</tr>
 </table>
 	
-

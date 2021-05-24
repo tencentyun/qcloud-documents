@@ -1,0 +1,22 @@
+移动推送 TPNS（Tencent Push Notification Service） 为您提供稳定、快速高抵达的 App 推送服务。其接入方便快捷，拥有业内领先的技术实力，稳定可靠的消息推送通道，独有双 Service 联合保活，能有效提升消息抵达率；系统每分钟可容纳1800万推送消息，消息能秒级到达（支撑王者荣耀等腾讯内应用推送工具）。此外，其具备精准用户标签能力，有效助力 App 的精细化运营。
+
+下表为云审计支持的移动推送操作列表：
+
+| 操作名称       | 资源类型 | 事件名称                   |
+|------------|------|------------------------|
+| 添加厂商通道     | tpns | AddChannelInfo         |
+| 取消定时推送任务   | tpns | CancelPush             |
+| 新建应用       | tpns | CreateApp              |
+| 创建产品       | tpns | CreateProduct          |
+| 推送消息       | tpns | CreatePush             |
+| 创建推送计划     | tpns | CreatePushPlan         |
+| 删除应用       | tpns | DeleteAppInfo          |
+| 删除产品       | tpns | DeleteProductInfo      |
+| 查询设备上绑定的账号 | tpns | DescribeAccountByToken |
+| 查询 app 信息    | tpns | DescribeAppInfo        |
+| 查询厂商通道信息   | tpns | DescribeChannelInfo    |
+| 查询产品信息     | tpns | DescribeProductInfo    |
+| 更新应用信息     | tpns | ModifyAppInfo          |
+| 修改产品信息     | tpns | ModifyProductInfo      |
+| 上传证书       | tpns | UploadCert             |
+| 上传号码包      | tpns | UploadPushPackage      |

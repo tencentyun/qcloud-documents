@@ -1,6 +1,24 @@
 ## 功能描述
 PUT Bucket versioning 接口实现启用或者暂停存储桶的版本控制功能。
 
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=PutBucketVersioning&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 #### 细节分析
 
 1. 如果您从未在存储桶上启用过版本控制，则 GET Bucket versioning 请求不返回版本状态值。
@@ -22,11 +40,8 @@ Authorization: Auth String
 
 #### 请求头
 
-#### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-#### 非公共头部
-该请求操作无特殊的请求头部信息。
 
 #### 请求体
 
@@ -46,21 +61,15 @@ Authorization: Auth String
 ## 响应
 
 #### 响应头
-#### 公共响应头 
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
-#### 特有响应头
-该响应无特殊的响应头。
+
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 响应体
 该响应体为空。
 
-#### 错误分析
-以下描述此请求可能会发生的一些特殊的且常见的错误情况。获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 。
+#### 错误码
 
-| 错误码             | HTTP状态码         |描述                                       | 
-| -------------- | --------------------------------------- | -------------- |
-| InvalidArgument | 400 Bad Request |如果开启版本控制的 xml body 为空，会返回 InvalidArgument  | 
-| InvalidDigest   |400 Bad Request | 1. 携带的 Content-MD5 和服务端计算的请求 body 的不一致<br>2. 开启版本控制的状态只有 Enabled 和 Suspended 两个合法值，如果写了其他状态，将返回 InvalidArgument | 
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 
 

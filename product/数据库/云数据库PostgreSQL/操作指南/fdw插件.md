@@ -1,3 +1,4 @@
+
 ## 简介
 FDW（FOREIGN DATA WRAPPER，外部数据包装器）是 PostgreSQL 提供用于访问外部数据源的一类插件，外部数据源包括本实例其他库中数据或者其他实例的数据。
 FDW 插件有很多分类，根据不同目标数据库实例类型可以定义不同的 FDW 插件，例如：postgres_fdw、mysql_fdw、mongo_fdw 等。使用过程包含以下步骤：
@@ -39,7 +40,7 @@ FDW 插件有很多分类，根据不同目标数据库实例类型可以定义�
  - vpcid
     非必须项。私有网络 ID，目标实例如果在腾讯云 CVM 的 VPC 网络中，则需要提供该参数，可在 [VPC 控制台](https://console.cloud.tencent.com/vpc/vpc) 中查看。
  - subnetid
-    非必须项。私有网络子网ID，目标实例如果在腾讯云CVM的VPC网络中，则需要提供该参数，可在[VPC 控制台](https://console.cloud.tencent.com/vpc/subnet) 的子网中查看。
+    非必须项。私有网络子网ID，目标实例如果在腾讯云CVM的VPC网络中，则需要提供该参数，可在 [VPC 控制台](https://console.cloud.tencent.com/vpc/subnet) 的子网中查看。
  - dcgid
     非必须项。专线 ID，目标实例如果需要通过专线网络连接，则需要提供该参数值。
  - vpngwid
@@ -233,12 +234,12 @@ INSERT 0 1
     testdb1=>create server srv_test1 foreign data wrapper mysql_fdw options (host 'xxx.xxx.xxx.xxx', port '3306', instanceid 'cdb-xxxxx', uin 'xxxxxx', region 'ap-guangzhou');
     CREATE SERVER
 ```
-2. 目标实例在腾讯云CVM上，且网络类型为基础网络。
+2. 目标实例在腾讯云 CVM 上，且网络类型为基础网络。
 ```
     testdb1=>create server srv_test foreign data wrapper mysql_fdw options (host 'xxx.xxx.xxx.xxx', port '3306', instanceid 'ins-xxxxx', access_type '2', region 'ap-guangzhou'，uin 'xxxxxx'，own_uin 'xxxxxx');
     CREATE SERVER
 ```
-3. 目标实例在腾讯云CVM上，且网络类型为私有网络。
+3. 目标实例在腾讯云 CVM 上，且网络类型为私有网络。
 ```
     testdb1=>create server srv_test1 foreign data wrapper mysql_fdw options (host 'xxx.xxx.xxx.xxx', port '3306', instanceid 'ins-xxxxx', access_type '2', region 'ap-guangzhou', uin 'xxxxxx', own_uin 'xxxxxx', vpcid 'vpc-xxxxxx', subnetid 'subnet-xxxxx');
     CREATE SERVER
@@ -248,11 +249,11 @@ INSERT 0 1
     testdb1=>create server srv_test1 foreign data wrapper mysql_fdw options (host 'xxx.xxx.xxx.xxx', port '3306', access_type '3', region 'ap-guangzhou', uin 'xxxxxx', own_uin 'xxxxxx');
     CREATE SERVER   
 ```
-5. 目标实例在腾讯云VPN接入的实例。
+5. 目标实例在腾讯云 VPN 接入的实例。
 ```
     testdb1=>create server srv_test1 foreign data wrapper mysql_fdw options (host 'xxx.xxx.xxx.xxx', port '3306', access_type '4', region 'ap-guangzhou', uin 'xxxxxx', own_uin 'xxxxxx', vpngwid 'xxxxxx');
 ```
-6. 目标实例在自建VPN接入的实例。
+6. 目标实例在自建 VPN 接入的实例。
 ```
     testdb1=>create server srv_test1 foreign data wrapper mysql_fdw options (host 'xxx.xxx.xxx.xxx', port '3306', access_type '5', region 'ap-guangzhou', uin 'xxxxxx', own_uin 'xxxxxx', vpngwid 'xxxxxx');   
 ```

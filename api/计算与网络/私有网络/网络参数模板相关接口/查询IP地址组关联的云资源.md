@@ -1,14 +1,14 @@
 ## 1. 接口描述
 
 本接口(DescribeAddressGroupInstances)用于查询IP地址组关联的云资源。
-接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
+接口请求域名：vpc.api.qcloud.com。
 
 - 查询时指定 IP 地址组 ID。
 - 查询结果包括关联的安全组等云资源。
 
 ## 2. 请求参数
 
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见 <a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a> 页面。其中，此接口的 Action 字段为 DescribeAddressGroupInstances。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，详情请参见 <a href="https://cloud.tencent.com/document/api/215/4772" title="公共请求参数">公共请求参数</a> 页面。其中，此接口的 Action 字段为 DescribeAddressGroupInstances。
 
 | 参数名称 | 必选 | 类型 | 描述 |
 |---------|---------|---------|---------|
@@ -82,7 +82,7 @@ data.data 结构
 ## 6. 示例
 	执行一个参数模板的异步调用，然后使用 DescribeNetTaskResult 查询结果。
 例如查询一个参数模板是否被云资源引用：
-### 步骤1：
+### 步骤1
 
 输入
 <pre>
@@ -102,7 +102,7 @@ https://vpc.api.qcloud.com/v2/index.php?Action=DescribeAddressGroupInstances
 }
 ```
 
-### 步骤2：
+### 步骤2
 输入
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=DescribeNetTaskResult

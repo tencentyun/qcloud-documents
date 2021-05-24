@@ -1,5 +1,4 @@
 ## 获取所有 metric 
-
 ### 请求地址
 地址为实例的 IP 和 PORT，可从控制台获取到，例如10.13.20.15:9200。
 
@@ -18,7 +17,7 @@
 
 ### CURL 示例说明
 请求：
-`curl -u root:le201909 -X GET 172.16.345.14:9201/_metrics`
+`curl -u root:le201909 -H 'Content-Type:application/json' -X GET 172.16.345.14:9201/_metrics`
 
 返回：
 
@@ -56,7 +55,7 @@
 
 ### CURL 示例说明
 请求：
-`curl -u root:le201909 -X GET 172.16.345.14:9201/_metric/ctsdb_test`
+`curl -u root:le201909 -H 'Content-Type:application/json' -X GET 172.16.345.14:9201/_metric/ctsdb_test`
 
 返回：
 ```

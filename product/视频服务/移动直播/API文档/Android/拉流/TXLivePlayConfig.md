@@ -7,7 +7,7 @@ __介绍__
 
 主要负责 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34775#txliveplayer) 对应的参数设置，**其中绝大多数设置项在播放开始之后再设置是无效的**。
 
-
+ 
 
 ## 常用设置项
 ### setAutoAdjustCacheTime
@@ -171,7 +171,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | true：开启；false：关闭。 |
+| enable | boolean | true：开启，false：关闭。 |
 
 __介绍__
 
@@ -200,7 +200,7 @@ __介绍__
 
 接口说明：
 - 默认值为：false。
-- 连麦时必须开启，非连麦时不要开启。
+- 连麦时，麦克风和播放有回音，所以必须开启回声消除。非连麦情况下，建议不开启。
 
 ***
 
@@ -283,7 +283,7 @@ __参数__
 
 __介绍__
 
-待废弃，如果您需要使用点播播放器，推荐您使用：TXVodPlayer。
+待废弃，如果您需要使用点播播放器，推荐您使用：[TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#.E5.AF.B9.E6.8E.A5.E6.94.BB.E7.95.A5)。
 
 ***
 
@@ -302,8 +302,7 @@ __参数__
 
 __介绍__
 
-待废弃，用于点播视频下载；如果您需要使用点播播放器，推荐您使用：TXVodPlayer。
+待废弃，用于点播视频下载；如果您需要使用点播播放器，推荐您使用：[TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#.E5.AF.B9.E6.8E.A5.E6.94.BB.E7.95.A5)。
 
-***
 
 

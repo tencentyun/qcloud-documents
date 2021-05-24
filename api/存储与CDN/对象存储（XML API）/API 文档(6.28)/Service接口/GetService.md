@@ -2,13 +2,29 @@
 
 GET Service 接口是用来查询请求者名下的所有存储桶列表或特定地域下的存储桶列表。
 
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=GetService&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
 ## 请求
 
 #### 请求示例
 
 **示例一**
 
-```shell
+```plaintext
 GET / HTTP/1.1
 Host: service.cos.myqcloud.com
 Date: GMT Date
@@ -17,7 +33,7 @@ Authorization: Auth String
 
 **示例二**
 
-```shell
+```plaintext
 GET / HTTP/1.1
 Host: cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -50,7 +66,7 @@ Authorization: Auth String
 
 查询成功，返回 **application/xml** 数据，包含所有或特定地域下的存储桶列表。
 
-```shell
+```plaintext
 <ListAllMyBucketsResult>
 	<Owner>
 		<ID>string</ID>
@@ -107,7 +123,7 @@ Authorization: Auth String
 
 #### 错误码
 
-此接口无特殊错误信息，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -115,7 +131,7 @@ Authorization: Auth String
 
 #### 请求
 
-```shell
+```plaintext
 GET / HTTP/1.1
 Host: service.cos.myqcloud.com
 Date: Fri, 24 May 2019 11:59:50 GMT
@@ -125,7 +141,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 805
@@ -168,7 +184,7 @@ x-cos-request-id: NWNlN2RjYjdfOGFiMjM1MGFfNTVjMl8zMmI1****
 
 #### 请求
 
-```shell
+```plaintext
 GET / HTTP/1.1
 Host: cos.ap-beijing.myqcloud.com
 Date: Fri, 24 May 2019 11:59:51 GMT
@@ -178,7 +194,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 495

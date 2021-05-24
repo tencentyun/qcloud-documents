@@ -27,6 +27,6 @@ Windows，Linux 和 Mac OS
 ![](https://main.qcloudimg.com/raw/9f282782aa5096a82c05af675ff02203.png)
 4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
-
+5. 输入登录密码，按 **Enter**，即可登录到 Windows 云服务器。
 
 

@@ -1,7 +1,6 @@
 定义一个游标。
 
 ## 概要
-
 ```sql
 DECLARE name [BINARY] [INSENSITIVE] [NO SCROLL] CURSOR 
      [{WITH | WITHOUT} HOLD] 
@@ -17,11 +16,11 @@ DECLARE 允许用户创建游标，可以使用游标来从大查询中一次检
 
 应当仔细使用二进制游标，许多应用程序（包括 psql）并不准备处理二进制游标，并希望以文本格式返回数据。
 
-注意：当客户端应用程序使用扩展查询协议发出 FETCH 命令时，绑定协议信息指定数据是以文本还是二进制格式检索。此选项将覆盖游标定义的方式。因此，当使用扩展查询协议时，二进制游标的概念就会过时，任何游标都可以被视为是文本或二进制的。
-可以在 UPDATE或 DELETE语句中的 WHERE CURRENT OF 子句中指定游标，以更新或删除表数据。该 UPDATE 或 DELETE 语句只能在服务器上执行，例如在交互式 psql 会话或脚本中。语言扩展（如PL/pgSQL）不支持可更新的游标。
+当客户端应用程序使用扩展查询协议发出 FETCH 命令时，绑定协议信息指定数据是以文本还是二进制格式检索。此选项将覆盖游标定义的方式。因此，当使用扩展查询协议时，二进制游标的概念就会过时，任何游标都可以被视为是文本或二进制的。
+
+可以在 UPDATE 或 DELETE 语句中的 WHERE CURRENT OF 子句中指定游标，以更新或删除表数据。该 UPDATE 或 DELETE 语句只能在服务器上执行，例如在交互式 psql 会话或脚本中。语言扩展（如 PL/pgSQL）不支持可更新的游标。
 
 ## 参数
-
 name
 要创建有游标的名字。
 
@@ -32,33 +31,32 @@ INSENSITIVE
 表示当数据存在时，指出游标检索的数据不受游标所指表的更新的影响。在数据库，所有游标都不敏感。这个关键词目前没有任何效果，仅为了和 SQL 标准的兼容。
 
 NO SCROLL
-游标不能以非顺序方式检索行。这是数据库中的默认行为，因为不支持可滚动的游标 （SCROLL）。
+游标不能以非顺序方式检索行。这是数据库中的默认行为，因为不支持可滚动的游标（SCROLL）。
 
 WITH HOLD
 WITHOUT HOLD
-WITH HOLD 指出了该表可能会继续使用，在创建该游标的事务成功提交之后。WITHOUT HOLD 指出游标在脱离创建它的事务之后，就不能再使用了。默认值为 WITHOUT HOLD。
-WITH HOLD 不能指定，当 query 包含 FOR UPDATE 或 FOR SHARE 子句。
+WITH HOLD 指出了该表可能会继续使用，在创建该游标的事务成功提交后。WITHOUT HOLD 指出游标在脱离创建它的事务之后，就不能再使用了。默认值为 WITHOUT HOLD。WITH HOLD 不能指定，当 query 包含 FOR UPDATE 或 FOR SHARE 子句。
 
 query
 SELECT 或 VALUES 命令会提供供游标返回的行。
-如果游标在 UPDAT E或 DELETE 命令的 WHERE CURRENT OF 子句中使用，该SELECT 命令必须要满足以下条件：
+如果游标在 UPDATE 或 DELETE 命令的 WHERE CURRENT OF 子句中使用，该 SELECT 命令必须要满足以下条件：
 - 不能引用视图或者外部表。
 - 仅引用一张表。
-该表必须是可更新的，例如，以下是不可更新的：表函数，设置了返回值的函数，仅附加表，列表
+该表必须是可更新的，例如，以下是不可更新的：表函数，设置了返回值的函数，仅附加表、列表。
 - 不能包含任何以下的：
- - 分组语句
- 例如 UNION ALL 或 UNION DISTINCT 的集合操作
+ - 分组语句，例如 UNION ALL 或 UNION DISTINCT 的集合操作。
  - 排序子句
  - 窗口子句
  - 连接或者左连接
-指定 FOR UPDATE 子句在 SELECT 命令中可以阻止元组在获取和更新之间被其他会话更改行。没有该 FOR UPDATE 子句，那么随后（同会话中）带有WHERE CURRENT OF子句的 UPDATE 或 DELETE 命令就不起作用了，如果该行在创建游标之前已经更改（被其他会话更改）。（如数据删除之后用户去更新会找不到）
-注意： 指定 FOR UPDATE 子句在 SELECT 命令中锁定的是整个表，而不是仅仅是用户选择的行。
+
+指定 FOR UPDATE 子句在 SELECT 命令中可以阻止元组在获取和更新之间被其他会话更改行。没有该 FOR UPDATE 子句，那么随后（同会话中）带有 WHERE CURRENT OF 子句的 UPDATE 或 DELETE 命令就不起作用了，如果该行在创建游标之前已经更改（被其他会话更改，如数据删除之后用户去更新会找不到）。
+>!指定 FOR UPDATE 子句在 SELECT 命令中锁定的是整个表，而不仅是用户选择的行。
 
 FOR READ ONLY
 FOR READ ONLY 指明该游标仅仅用于只读模式。
 
 ## 注意
-除非指定了 WITH HOLD，由该命令创建的游标只能在当前的事务中使用。因此，没有 WITH HOLD的DECLARE 语句，除非在事务块之外，否则该游标仅生存到该语句结束。因此如果该命令用于事务块之外，数据库会报告了一个错误。使用 BEGIN，COMMIT 和 ROLLBACK 来定义一个事务块。
+除非指定了 WITH HOLD，由该命令创建的游标只能在当前的事务中使用。因此，没有 WITH HOLD 的 DECLARE 语句，除非在事务块之外，否则该游标仅生存到该语句结束。因此如果该命令用于事务块之外，数据库会报告了一个错误。使用 BEGIN、COMMIT 和 ROLLBACK 来定义一个事务块。
 
 如果指定 WITH HOLD 而且创建有游标的事务成功提交，该游标能够继续被同一个会话中的子事务访问。（但是如果创建事务被终止，则该游标会被删除）创建的带有 WITH HOLD 的游标，当被发出明确的 CLOSE 指令或者在会话结束时就会关闭。在当前的实现中，由保留游标表示的行被复制到临时文件或者存储区域中，以便他们可以用于后续的事务。
 
@@ -72,20 +70,12 @@ FOR READ ONLY 指明该游标仅仅用于只读模式。
 
 ## 示例
 声明一个游标：
-
 ```sql
 DECLARE mycursor CURSOR FOR SELECT * FROM mytable;
 ```
 
 ## 兼容性
-SQL 标准只允许在嵌入式 SQL 和模块中使用游标。数据库数据库允许交互式使用游标（interactively）。
-
-数据库没有实现有游标的 OPEN 语句。游标在声明时就被认为是打开的。
-
-SQL 标准允许游标向前向后移动。所有数据库游标仅向前移动（非滚动）。
-
-二进制游标是数据库扩展。
+SQL 标准只允许在嵌入式 SQL 和模块中使用游标。数据库数据库允许交互式使用游标（interactively）。数据库没有实现有游标的 OPEN 语句。游标在声明时就被认为是打开的。SQL 标准允许游标向前向后移动。所有数据库游标仅向前移动（非滚动）。二进制游标是数据库扩展。
 
 ## 另见
-
 CLOSE、DELETE、FETCH、MOVE、SELECT、UPDATE

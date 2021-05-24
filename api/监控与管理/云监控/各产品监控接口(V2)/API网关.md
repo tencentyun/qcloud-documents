@@ -60,7 +60,7 @@ qce/apigateway支持以下几种维度组合的查询方式，入参取值如下
 | dimensions.n.value | 是    | String   | 对应的维度的值 | 对应的维度的值，具体维度名称见第2.1.2小节，与 dimensions.n.name 配合使用。 |
 | period             | 否    | Int      | 60/300  | 监控统计周期，绝大部分指标支持60s统计粒度，部分指标仅支持300s统计粒度，统计粒度根据指标的不同而变。输入参数时可参考2.2的指标详情列表。 |
 | startTime          | 否    | Datetime | 起始时间    | 起始时间，如"2016-01-01 10:25:00"。 默认时间为当天的”00:00:00” |
-| endTime            | 否    | Datetime | 结束时间    | 结束时间，默认为当前时间。 endTime不能小于startTime       |
+| endTime            | 否    | Datetime | 结束时间    | 结束时间，默认为当前时间。 endTime 不能小于 startTime       |
 
 
 #### 2.1.2 各维度对应参数总览

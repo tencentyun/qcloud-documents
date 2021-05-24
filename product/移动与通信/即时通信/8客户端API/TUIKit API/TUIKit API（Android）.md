@@ -21,7 +21,7 @@
 | --- | --- |
 | [getInputLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IChatLayout.html#getinputlayout) | 获取聊天窗口 Input 区域 Layout。 |
 | [getMessageLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IChatLayout.html#getmessagelayout) | 获取聊天窗口 Message 区域 Layout。 |
-| [getNoticeLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IChatLayout.html#getnoticelayout) | 获取聊天窗口 Message 区域 Layout。 |
+| [getNoticeLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IChatLayout.html#getnoticelayout) | 获取聊天窗口 Notice 区域 Layout。 |
 | [setChatInfo](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IChatLayout.html#setchatinfo) | 设置当前的会话 ID，会话面板会依据该 ID 加载会话所需的相关信息，例如消息记录、用户（群）信息等。 |
 | [exitChat](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IChatLayout.html#exitchat) | 退出聊天，释放相关资源（一般在 activity finish 时调用）。 |
 | [initDefault](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IChatLayout.html#initdefault) | 初始化参数。 |
@@ -158,4 +158,5 @@
 | [getLeftTitle](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/base/ITitleBarLayout.html#getlefttitle) | 返回左边标题的文字。 |
 | [getMiddleTitle](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/base/ITitleBarLayout.html#getmiddletitle) | 返回中间标题的文字。 |
 | [getRightTitle](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/base/ITitleBarLayout.html#getrighttitle) | 返回右边标题的文字。 |
+
 

@@ -36,11 +36,10 @@ pod "QCloudCOSV4"
 git clone https://github.com/tencentyun/COS_iOS_SDK.git
 ```
 
-将目录**coslib**下面的文件拖入到工程中即可：
+将目录 **coslib** 下面的文件拖入到工程中即可：
+![](https://main.qcloudimg.com/raw/b14442ebe145e374cdc6171ae1000f4b.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fgm77ref66j30l0094dgv.jpg)
-
-将目录**coslib**下面的文件拖入到工程拖入工程目录，Xcode 会自动将其加入链接库列表中。
+将目录 **coslib** 下面的文件拖入到工程拖入工程目录，Xcode 会自动将其加入链接库列表中。
 
 并添加以下依赖库：
 
@@ -483,7 +482,7 @@ client.progressHandler = ^(NSInteger bytesWritten,NSInteger totalBytesWritten,NS
 
 | 参数名称 | 类型       | 是否必填 | 说明                 |
 | -------- | ---------- | -------- | -------------------- |
-| fileName | NSString * | 是       |                      |
+| fileName | NSString * | 是       |        -              |
 | bucket   | NSString * | 是       | 目录所属 bucket 名称 |
 | sign     | NSString * | 是       | 签名                 |
 | attrs    | NSString * | 否       | 用户自定义属性       |
@@ -528,7 +527,7 @@ client.progressHandler = ^(NSInteger bytesWritten,NSInteger totalBytesWritten,NS
 
 | 参数名称  | 类型       | 是否必填 | 说明                           |
 | --------- | ---------- | -------- | ------------------------------ |
-| filename  | NSString * | 是       |                                |
+| filename  | NSString * | 是       |         -                       |
 | bucket    | NSString * | 是       | 文件所属 bucket 名称           |
 | directory | NSString * | 是       | 目录路径（相对于bucket的路径） |
 | sign      | NSString * | 是       | 签名                           |
@@ -575,7 +574,7 @@ client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
 
 | 参数名称   | 类型          | 是否必填 | 说明                                      |
 | ---------- | ------------- | -------- | ----------------------------------------- |
-| filename   | NSString *    | 是       |                                           |
+| filename   | NSString *    | 是       |          -                                 |
 | bucket     | NSString *    | 是       | 文件所属 Bucket 名称                      |
 | directory  | NSString *    | 是       | 目录路径（相对于bucket的路径）            |
 | sign       | NSString *    | 是       | 签名                                      |

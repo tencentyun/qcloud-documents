@@ -50,7 +50,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ApplyIps
 
 | 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
-| code | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。| Int |
+| code | 公共错误码, 0表示成功，其他值表示失败。| Int |
 | message | 模块错误信息描述，与接口相关。| String |
 | count |申请成功的 IP 个数。| Int | 
 | data.n | 申请成功的 IP 数组。| Array |

@@ -20,7 +20,6 @@
 | appId | String | 账号 APPID 或者项目 APPID |
 
 ## 实际案例
-
 ### 请求示例
 
 ```

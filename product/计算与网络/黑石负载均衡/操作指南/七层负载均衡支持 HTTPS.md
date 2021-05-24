@@ -1,10 +1,10 @@
 ## 实现功能
 黑石七层负载均衡支持 HTTPS 协议，实现功能具体如下：
-- 提供外网七层 HTTPS 负载均衡能力；
-- 对外网七层 HTTPS 提供七层健康检查、cookies 插入方式七层会话保持、通过域名 +URL 路径方式实现前端请求向后端不同服务器转发、实现后端服务器与转发 URL 细粒度绑定功能，此四项功能同外网七层 HTTP；
-- 实现 SSL（Secure Sockets Layer）/TLS（transport layer security）鉴权；
-- 实现 SSL（Secure Sockets Layer）/TLS（transport layer security）证书管理；
-- 平台侧卸载 TLS：使用 HTTPS 监听转发时，客户端到负载均衡访问，使用 HTTPS 协议进行加密，负载均衡到后端服务器不进行 SSL/TLS 加密，实现平台卸载 TLS；
+- 提供外网七层 HTTPS 负载均衡能力。
+- 对外网七层 HTTPS 提供七层健康检查、cookies 插入方式七层会话保持、通过域名 +URL 路径方式实现前端请求向后端不同服务器转发、实现后端服务器与转发 URL 细粒度绑定功能，此四项功能同外网七层 HTTP。
+- 实现 SSL（Secure Sockets Layer）/TLS（transport layer security）鉴权。
+- 实现 SSL（Secure Sockets Layer）/TLS（transport layer security）证书管理。
+- 平台侧卸载 TLS：使用 HTTPS 监听转发时，客户端到负载均衡访问，使用 HTTPS 协议进行加密，负载均衡到后端服务器不进行 SSL/TLS 加密，实现平台卸载 TLS。
  
 ## 操作步骤
 1. 登录腾讯云官网，进入黑石负载均衡 [【实例列表】](https://console.cloud.tencent.com/lbbm/lb) 页。

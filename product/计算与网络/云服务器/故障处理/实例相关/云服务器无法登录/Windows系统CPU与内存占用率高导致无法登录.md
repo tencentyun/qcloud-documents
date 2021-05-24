@@ -3,7 +3,7 @@
 
 ## 可能原因
 
-CPU 或内存使用率过高，容易引起服务响应速度变慢、服务器登录不上等问题。而引起 CPU 或内存使用率过高的原因可能由硬件因素、系统进程、业务进程或者木马病毒等因素导致。您可以使用 [云监控](https://cloud.tencent.com/document/product/248/13466)，创建 CPU 或内存使用率阈值告警，当 CPU 或内存使用率超过阈值时，将及时通知到您。
+CPU 或内存使用率过高，容易引起服务响应速度变慢、服务器登录不上等问题。而引起 CPU 或内存使用率过高可能由硬件、系统进程、业务进程或者木马病毒等因素所致。您可以使用 [云监控](https://cloud.tencent.com/document/product/248/13466)，创建 CPU 或内存使用率阈值告警，当 CPU 或内存使用率超过阈值时，将及时通知到您。
 
 ## 排查思路
 
@@ -25,13 +25,15 @@ CPU 或内存使用率过高，容易引起服务响应速度变慢、服务器�
 
 ## 故障处理
 
-### 使用 mstsc 方式登录云服务器
-
-1. 在本地计算机中，使用 **Windows+R** 快捷键，打开运行框。
-2. 输入 **mstsc**，按 **Enter**，打开 “远程桌面连接” 界面。
-3. 在弹出的 “远程桌面连接” 窗口中，输入云服务器公网 IP 与登录密码，登录云服务器。
->!  若云服务器负载高，将无法建立远程连接，需 [使用 VNC 方式登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。 
+### 使用 VNC 方式登录云服务器
+>?  由于云服务器负载高时会导致无法建立远程连接，推荐 [使用 VNC 方式登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。 
 >
+1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
+2. 在实例的管理页面，找到目标云服务器实例，单击【登录】。如下图所示：
+![](https://main.qcloudimg.com/raw/038fce530c6c6827796e51d896306a93.png)
+3. 在弹出的 “登录Windows实例” 窗口中，选择【其它方式（VNC）】，单击【立即登录】，登录云服务器。
+4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
+![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
 
 ### 查看进程占用情况
 
@@ -79,4 +81,7 @@ CPU 或内存使用率过高，容易引起服务响应速度变慢、服务器�
 #### 占用大量 CPU 或内存资源的进程为腾讯云组件进程
 
 请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们进行进一步定位处理。
+
+
+
 

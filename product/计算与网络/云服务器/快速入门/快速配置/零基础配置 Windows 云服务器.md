@@ -1,6 +1,10 @@
-本文主要介绍如何从零开始，以最简单的方式搭建一个 Windows 云服务器。
+<dx-alert infotype="explain" title="">
+如果您是首次使用云服务器，建议您先选择轻量应用服务器（Lighthouse） 来作为云服务器使用的入门途径，详情请参见 [快速配置轻量应用服务器 Windows 实例](https://cloud.tencent.com/document/product/1207/44549)。轻量应用服务器专为云开发者及云计算入门者设计，您可前往 [与云服务器 CVM 对比](https://cloud.tencent.com/document/product/1207/49819) 了解云服务器与轻量应用服务器的区别。
+</dx-alert>
 
-如果您之前没有搭建云服务器的经验，建议您按照本文介绍的方式来购买和配置您的第一台云服务器。
+本文主要介绍如何从零开始，以最简单的方式搭建一个 Windows 云服务器。您可按照以下视频及文档，购买和配置您的第一台云服务器。
+
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2027-24330?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 本文是搭建 Windows 云服务器入门教程。若想了解搭建 Linux 云服务器的入门教程，可以参考 <a href="https://cloud.tencent.com/document/product/213/2936" hotrep="document.guide.2764.link1">快速配置 Linux 云服务器</a>。
 
@@ -33,12 +37,13 @@
  
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)，在实例列表中找到您刚购买的云服务器，在右侧操作栏中单击【登录】。
 ![](https://main.qcloudimg.com/raw/25d5fed7a99dda8a738490b2f89f3044.jpg)
-2. 根据您本地机器的操作系统类型，选择不同的登录方式：
-	- 如果您的本地机器是 Windows 操作系统，请先下载 RDP 文件到本地，再双击打开刚下载的 RDP 文件，输入云服务器的帐号和密码登录。
-	- 如果您的本地机器是 Linux 操作系统，推荐您首先安装 rdesktop 软件，并按照 [Linux 系统使用 RDP 登录](https://cloud.tencent.com/document/product/213/5435#linux-.E7.B3.BB.E7.BB.9F.E4.BD.BF.E7.94.A8-rdp-.E7.99.BB.E5.BD.95)。
-	- 如果您的本地机器是 MacOS 操作系统，推荐您首先安装 Microsoft Remote Desktop for Mac 软件，并按照  [MacOS 系统使用 RDP 登录](https://cloud.tencent.com/document/product/213/5435#macos-.E7.B3.BB.E7.BB.9F.E4.BD.BF.E7.94.A8-rdp-.E7.99.BB.E5.BD.95)。
+2. 在弹出的窗口中，根据您本地机器的操作系统类型，选择不同的登录方式：
+	- 如果您的本地机器是 Windows 操作系统，请先下载 RDP 文件到本地，并按照 [Windows 系统使用 RDP 登录](https://cloud.tencent.com/document/product/213/5435#windowsRDP)。
+	- 如果您的本地机器是 Linux 操作系统，推荐您首先安装 rdesktop 软件，并按照 [Linux 系统使用 RDP 登录](https://cloud.tencent.com/document/product/213/5435#LinuxRDP)。
+	- 如果您的本地机器是 MacOS 操作系统，推荐您首先安装 Microsoft Remote Desktop for Mac 软件，并按照  [MacOS 系统使用 RDP 登录](https://cloud.tencent.com/document/product/213/5435#MacRDP)。
 	>! 您可以在 [站内信](https://console.cloud.tencent.com/message) 查找云服务器的初始密码，也可以通过 [重置实例密码](https://cloud.tencent.com/document/product/213/16566) 后再登录。
-3. 输入云服务器的用户名和密码，即可正常登录。
+3. 输入云服务器的用户名和密码，即可正常登录。登录成功后将打开 Windows 云服务器界面，如下图所示：
+![](https://main.qcloudimg.com/raw/5a524210acd13624af7263b6de3aea54.png)
 
 ## 下一步操作：使用云服务器
 
@@ -50,7 +55,7 @@
 
 ## 出现问题？
 非常抱歉您在使用时出现问题，您可以第一时间通过 <a href="https://console.cloud.tencent.com/workorder/category" hotrep="document.guide.2764.link4">提交工单</a> 联系我们，也可以先参考相关文档进行问题定位和解决。
-以下是用户在使用云服务器的时出现的常见问题，建议您先参考文档进行问题定位和解决。
+以下是用户在使用云服务器时出现的常见问题，建议您先参考文档进行问题定位和解决。
 - 忘记云服务器登录密码？
 请参考 <a href="https://cloud.tencent.com/document/product/213/16566" hotrep="document.guide.2764.link5">重置实例密码</a>。
 - 登录不成功？如何定位问题？
