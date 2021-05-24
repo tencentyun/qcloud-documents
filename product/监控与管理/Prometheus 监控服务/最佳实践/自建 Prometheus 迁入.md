@@ -18,6 +18,6 @@ remote_write:
     bearer_token: k32*****trR # 从 Prometheus 基本信息中获取 Token 信息
 :::
 </dx-codeblock>
-3. 打开 Prometheus 监控服务自带的 Grafana，通过 `Explore` 来验证数据是否写入成功，如下图，也可以[自定义 Grafana 监控大盘](!https://grafana.com/docs/grafana/latest/dashboards/)。
+3. 打开 Prometheus 监控服务自带的 Grafana，通过 `Explore` 来验证数据是否写入成功，如下图，也可以 [自定义 Grafana 监控大盘](https://grafana.com/docs/grafana/latest/dashboards/)。
    ![](https://main.qcloudimg.com/raw/fc6bf3f5cfbab1bbd931d418b9dddef2.png)
 4. 也可以通过Prometheus API 进行自建可视化，详情请参考 [监控数据查询](https://cloud.tencent.com/document/product/1416/56026)。
