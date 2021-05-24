@@ -1,9 +1,6 @@
 ## 前提条件
-1. 接入验证码前进入 [图形验证](https://console.cloud.tencent.com/captcha/graphical) 页面，单击【新建验证】弹出新建验证弹窗。
+接入验证码前，进入[图形验证](https://console.cloud.tencent.com/captcha/graphical)  页完成新建验证。可在【验证列表】查看 验证码接入所需的 CaptchaAppId 及 AppSecretKey。
 ![](https://main.qcloudimg.com/raw/2fe27768c6d176bb05760de25a44206f.jpg)
-2. 在新建验证弹窗中，输入所需参数单击【确定】完成新建。
-![](https://main.qcloudimg.com/raw/a654baebe12c8bca9d81f0eddfd4e040.png)
-3. 完成新建后，可在验证列表中查看验证码 CaptchaAppId 及 AppSecretKey。
 
 ## 接入步骤
 以下为 App 端接入流程，适用于每次都需要进行人机验证的场景（如登录、注册、下发短信、活动等），App（iOS 和 Android） 皆使用 Web 前端 H5 方式进行接入。
