@@ -77,4 +77,4 @@ Audience URL(SP Entity ID)：intl.cloud.tencent.com
 4. 在弹出的设置窗口中，单击【Done】，完成配置 Okta 用户操作。如下图所示：
 ![](https://main.qcloudimg.com/raw/2d80e92964f5e7be9849c82ad4017ea7.jpg)
 5. 前往 [应用管理页面](#stepapp) ，单击您创建的应用程序名称，进入应用详情页。
-6. 在应用详情页，选择 GENERAL，复制 App Embed Link 栏下的 EMBED LINK，登录腾讯云控制台。
+6. 在应用详情页，选择 GENERAL，复制 App Embed Link 栏下的 EMBED LINK，登录腾讯云控制台
