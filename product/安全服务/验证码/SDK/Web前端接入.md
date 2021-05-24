@@ -1,7 +1,7 @@
 ## 接入步骤
 ### 前提条件
 接入验证码前，进入[图形验证](https://console.cloud.tencent.com/captcha/graphical)  页完成新建验证。可在【验证列表】查看 验证码接入所需的 CaptchaAppId 以及 AppSecretKey。
-![](https://main.qcloudimg.com/raw/6d0fbc389109b3fa6384e5b29a07dac8.png)
+![](https://main.qcloudimg.com/raw/2fe27768c6d176bb05760de25a44206f.jpg)
 
 ### 快速接入
 >!小程序插件 CaptchaAppId 仅限小程序插件接入方式使用，请勿使用在 Web 前端接入。
