@@ -506,7 +506,7 @@ coscmd download -rs --delete / D:/examplefolder
 ```plaintext
 coscmd download -rs / D:/examplefolder --ignore *.txt,*.doc
 ```
- >!在下载文件夹时，使用`--ignore`参数可以忽略某一类文件，使用`--invlude`参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,`或者使用双引号`""`。
+ >!在下载文件夹时，使用`--ignore`参数可以忽略某一类文件，使用`--include`参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,`或者使用双引号`""`。
 
 - 操作示例 - 过滤 .txt 和 .doc 的后缀文件
 ```plaintext
