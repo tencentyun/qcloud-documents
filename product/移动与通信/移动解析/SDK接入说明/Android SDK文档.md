@@ -215,6 +215,57 @@ if (null != host && null != port) {
 }
 ```
 
+## HTTPDNS SDK接入HTTP网络访问实践
+
+将HTTPDNS SDK的域名解析能力接入到业务的HTTP（HTTPS）网络访问流程中，总的来说可以分为两种方式：
+
+- 替换URL中的Host部分得到新的URL，使用新的URL进行网络访问
+  - 这种实现方案下，URL丢掉了域名的信息，对于需要使用到域名信息的网络请求，需要做比较多的兼容性工作
+- 将HTTPDNS的域名解析能力注入到网络访问流程中，替换掉原本网络访问流程中的LocalDNS实现
+  - 这种实现方案下，不需要逐个对请求的URL进行修改，同时由于没有修改URL，不需要做额外的兼容性工作；但需要业务侧使用的网络库支持DNS实现替换
+  - 单纯针对DNS替换这个思路，也可以通过Hook系统域名解析函数的方式来实现。但是HTTPDNS SDK内部已经使用了系统的域名解析函数，如果Hook系统域名解析函数可能会造成递归调用直到栈溢出
+
+不同网络库具体的接入方式，可以参见对应的接入文档（当前目录下）及参考使用Sample（HttpDnsSample目录）
+
+### 替换URL接入方式兼容
+
+如前文所述，对于需要使用到域名信息的网络请求（一般是多个域名映射到同一个IP的情况），我们需要进行额外兼容。以下从协议层面阐述具体的兼容方式，具体的实现方式需要视网络库的实现而定
+
+#### HTTP兼容
+
+对于HTTP请求，我们需要通过指定报文头中的Host字段来告知服务器域名信息。Host字段详细介绍参见[Host](https://tools.ietf.org/html/rfc2616#page-128)
+
+#### HTTPS兼容
+
+- 我们知道，HTTPS是基于TLS协议之上的HTTP协议的统称，因此对于HTTPS请求，我们同样需要设置Host字段
+- 在HTTPS请求中，我们需要先进行TLS的握手。TLS握手过程中，服务器会将自己的数字证书发给我们用于身份认证，因此，在TLS握手过程中，我们也需要告知服务器相关的域名信息。在TLS协议中，我们通过SNI扩展来指明域名信息。SNI扩展的详细介绍参见[Server Name Indication](https://tools.ietf.org/html/rfc6066#page-6)
+
+### 本地使用HTTP代理
+
+本地使用HTTP代理情况下，建议**不要使用**HTTPDNS进行域名解析
+以下区分两种接入方式进行分析：
+
+#### 替换URL接入方式
+
+根据HTTP/1.1协议规定，在使用HTTP代理情况下，客户端侧将在请求行中带上完整的服务器地址信息。详细介绍可以参见[origin-form](https://tools.ietf.org/html/rfc7230#page-42)
+这种情况下（本地使用了HTTP代理，业务侧使用替换URL方式接入了HTTPDNS SDK，且已经正确设置了Host字段），HTTP代理接收到的HTTP请求中会包含服务器的IP信息（请求行中）以及域名信息（Host字段中），但具体HTTP代理会如何向真正的目标服务器发起HTTP请求，则取决于HTTP代理的实现，可能会直接丢掉我们设置的Host字段使得网络请求失败
+
+#### 替换DNS实现方式
+
+以OkHttp网络库为例，在本地启用HTTP代理情况下，OkHttp网络库不会对一个HTTP请求URL中的Host字段进行域名解析，而只会对设置的HTTP代理的Host进行域名解析。这种情况下，启用HTTPDNS没有意义
+
+#### 判断本地是否使用HTTP代理
+
+判断代码如下：
+
+```kotlin
+val host = System.getProperty("http.proxyHost")
+val port = System.getProperty("http.proxyPort")
+if (null != host && null != port) {
+    // 本地使用了HTTP代理
+}
+```
+
 ## 实践场景
 
 ### OkHttp
