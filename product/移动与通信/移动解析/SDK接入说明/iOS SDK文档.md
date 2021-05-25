@@ -74,11 +74,12 @@ typedef enum {
 
 /**
 	配置结构体
+	以下鉴权信息可在腾讯云控制台（https://console.cloud.tencent.com/httpdns/configure）开通服务后获取
 **/
 struct DnsConfig {
-    NSString* appId; // 应用ID，腾讯云控制台（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
-    int dnsId; // 授权ID，腾讯云控制台（https://console.cloud.tencent.com/httpdns）申请后，通过邮件发送，用于域名解析鉴权
-    NSString* dnsKey; // 加密密钥，加密方式为AES、DES时必传。腾讯云控制台（https://console.cloud.tencent.com/httpdns）申请后，通过邮件发送，用于域名解析鉴权
+    NSString* appId; // 应用ID，腾讯云控制台申请获得，用于上报
+    int dnsId; // 授权ID，用于域名解析鉴权
+    NSString* dnsKey; // 加密密钥，加密方式为AES、DES时必传
     NSString* token; // 加密方式为 HTTPS 时必传
     NSString* dnsIp; // HTTPDNS 服务器IP
     BOOL debug; // 是否开启Debug日志，YES：开启，NO：关闭。建议联调阶段开启，正式上线前关闭
@@ -105,7 +106,7 @@ struct DnsConfig {
 ```objc
 	DNSConfig *config = new DnsConfig();
 	config->dnsIp = @"HTTPDNS 服务器IP";
-	config->dnsId = @"dns解析id";
+	config->dnsId = @"dns授权id";
 	config->dnsKey = @"加密密钥";
 	config->encryptType = HttpDnsEncryptTypeDES;
 	config->debug = YES;
