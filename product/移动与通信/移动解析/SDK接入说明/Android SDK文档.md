@@ -75,16 +75,32 @@ try {
 }
 
 /**
- * 初始化HTTPDNS：如果接入了MSDK，建议初始化MSDK后再初始化HTTPDNS
+ * 初始化HTTPDNS（默认为DES加密）：如果接入了MSDK，建议初始化MSDK后再初始化HTTPDNS
  *
  * @param context 应用上下文，最好传入ApplicationContext
  * @param appkey 业务appkey，即SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param dnskey dns解析key，即授权id对应的key(加密密钥)，在申请SDK后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
+ * @param dnsIp 由外部传入的dnsIp，如"119.29.29.29"，从<a href="https://cloud.tencent.com/document/product/379/17655"></a> 文档提供的IP为准
  * @param debug 是否开启debug日志，true为打开，false为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  */
-MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, debug, timeout);
+MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp debug, timeout);
+
+/**
+ * 初始化HTTPDNS（自选加密方式）：如果接入了MSDK，建议初始化MSDK后再初始化HTTPDNS
+ *
+ * @param context 应用上下文，最好传入ApplicationContext
+ * @param appkey 业务appkey，即SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
+ * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
+ * @param dnskey dns解析key，即授权id对应的key(加密密钥)，在申请SDK后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
+ * @param dnsIp 由外部传入的dnsIp，如"119.29.29.29"，从<a href="https://cloud.tencent.com/document/product/379/17655"></a> 文档提供的IP为准
+ * @param debug 是否开启debug日志，true为打开，false为关闭，建议测试阶段打开，正式上线时关闭
+ * @param timeout dns请求超时时间，单位ms，建议设置1000
+ * @param channel 设置channel，可选：DesHttp(默认), AesHttp, Https
+ * @param token 腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于HTTPS校验
+ */
+MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp debug, timeout, channel, token);
 
 /**
  * 设置OpenId，已接入MSDK业务直接传MSDK OpenId，其它业务传“NULL”
@@ -98,16 +114,31 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
  * 首先查询缓存，若存在则返回结果，若不存在则进行同步域名解析请求
  * 解析完成返回最新解析结果
  * 返回值字符串以“;”分隔，“;”前为解析得到的IPv4地址（解析失败填“0”），“;”后为解析得到的IPv6地址（解析失败填“0”）
- *
+ * 示例：121.14.77.221;2402:4e00:1020:1404:0:9227:71a3:83d2
  * @param domain 域名(如www.qq.com)
  * @return 域名对应的解析IP结果集合
  */
 String ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
+
+/**
+ * HTTPDNS同步解析接口（批量）
+ * 首先查询缓存，若存在则返回结果，若不存在则进行同步域名解析请求
+ * 解析完成返回最新解析结果
+ * 返回值ipSet即解析得到的IP集合
+ * ipSet.v4Ips为解析得到IPv4集合, 可能为null
+ * ipSet.v6Ips为解析得到IPv6集合, 可能为null
+ * 单独域名返回结果示例：IpSet{v4Ips=[121.14.77.201, 121.14.77.221], v6Ips=[2402:4e00:1020:1404:0:9227:71ab:2b74, 2402:4e00:1020:1404:0:9227:71a3:83d2], ips=null}
+ * 多域名返回结果示例：IpSet{v4Ips=[www.baidu.com:14.215.177.39, www.baidu.com:14.215.177.38, www.youtube.com:104.244.45.246], v6Ips=[www.youtube.com.:2001::1f0:5610], ips=null}
+ * @param domain 支持多域名，域名以”,“分割，例如：qq.com,baidu.com
+ * @return 域名对应的解析IP结果集合
+ */
+Ipset ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
+```
 ```
 
 ### 接入验证
 
-当 init 接口中 debug 参数传入 true，过滤 TAG 为 “WGGetHostByName” 的日志，并查看到 LocalDns（日志上为 ldns_ip）和 HTTPDNS（日志上为 hdns_ip）相关日志时，可以确认接入无误。
+当 init 接口中 debug 参数传入 true，过滤 TAG 为 “HTTPDNS” 的日志，并查看到 LocalDns（日志上为 ldns_ip）和 HTTPDNS（日志上为 hdns_ip）相关日志时，可以确认接入无误。
 
 ### 注意事项
 
