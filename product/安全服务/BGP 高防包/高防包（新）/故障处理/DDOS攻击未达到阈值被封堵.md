@@ -32,4 +32,4 @@
   ![](https://main.qcloudimg.com/raw/5c29fca1c03855c4ebcfb8e821cfaae9.png)
 5. [](id:step5)不同DDoS防护产品的用户，建议如下：
  -  如果是 DDoS 基础防护用户，建议用户购买 [高防包](https://cloud.tencent.com/document/product/1021/43894)，[首次绑定设备](https://cloud.tencent.com/document/product/1021/43898) 可进行解封。 
- - 如果是 DDoS 高防用户，建议用户 [升级防护套餐](https://cloud.tencent.com/document/product/1021/43908)，可提前解除封堵。
+ - 如果是 DDoS 高防用户，建议用户 [升级防护套餐](https://cloud.tencent.com/document/product/1021/43908)（增加防护次数或防护 IP 数），可提前解除封堵。
