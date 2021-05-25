@@ -24,7 +24,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
         </thead>
         <tbody>
             <tr>
-                <td rowspan="8">计算型</td>
+                <td rowspan="9">计算型</td>
 								<td><a href="#GT4">GT4</a></td> 
                 <td>Tesla A100 NVLink 40G</td>
                                 <td><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 16.04 及以上</li><li>Windows Server 2016 及以上</li></ul></td>
