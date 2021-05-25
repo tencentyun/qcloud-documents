@@ -46,7 +46,8 @@ sar -n DEV 1
 </tr>
 </tbody></table>
 
-## 性能指标
+
+## 性能指标[](id:Performance)
 <table>
 <thead>
 <tr>
@@ -55,20 +56,16 @@ sar -n DEV 1
 </tr>
 </thead>
 <tbody><tr>
-<td>rxpck/s</td>
-<td>每秒收包量，即接收 pps</td>
+<td>64字节 UDP 收发 PPS（包/秒）</td>
+<td>表示通过 UDP 进行批量数据传输时的数据传输吞吐量，能反映网络极限转发能力（可能会存在丢包）。</td>
 </tr>
 <tr>
-<td>txpck/s</td>
-<td>每秒发包量，即发送 pps</td>
+<td>1500字节 TCP 收发带宽（Mbits/秒）</td>
+<td>表示通过 TCP 进行批量数据传输时的数据传输吞吐量，能反映网络极限带宽能力（可能会存在丢包）。</td>
 </tr>
 <tr>
-<td>rxkB/s</td>
-<td>接收带宽</td>
-</tr>
-<tr>
-<td>txkB/s</td>
-<td>发送带宽</td>
+<td>TCP-RR（次/秒）</td>
+<td>表示在 TCP 长链接中反复进行 Request/Response 操作的交易吞吐量，能反映 TCP 不丢包网络转发能力。</td>
 </tr>
 </tbody></table>
 
@@ -112,9 +109,10 @@ netserver
 ```
 sar -n DEV 1
 ```
+根据所得结果，参考 [性能指标](#Performance) 进行分析，即可测出云服务器高吞吐网络性能。
 
 ### 测试收包性能
-1. [](id:Step1)分别在机器中执行以下命令，停止残余的 netperf 和 netserver 进程。
+1. [](id:StepStepOne)分别在机器中执行以下命令，停止残余的 netperf 和 netserver 进程。
 ```
 pkill netserver && pkill netperf
 ```
@@ -122,6 +120,10 @@ pkill netserver && pkill netperf
 ```
 netserver
 ```
+ - 若返回结果如下图所示，则说明仍存在其他 netserver 进程。请执行 [步骤1](#StepOne) 中的命令，停止该进程。
+![](https://main.qcloudimg.com/raw/79efcad3fa499fbebd2b82198c3877e3.png)
+ - 若返回结果如下图所示，则说明已成功运行 netserver，请继续下一步操作。
+![](https://main.qcloudimg.com/raw/4e137b8ec16b479066b74fa35618bab7.png)
 3. 在客户端中执行 [测试命令及监控指标](#multiSceneTest) 中提供的命令，不断增减 netperf 进程，直到客户端发包性能不再增加。
 >?需重复执行命令，客户端各自发起 netperf。若一个进程无法达到最大性能，可执行 [测试辅助脚本](#auxiliaryScript) 批量发起进程。
 >
@@ -129,13 +131,14 @@ netserver
 ```
 sar -n DEV 1
 ```
+根据所得结果，参考 [性能指标](#Performance) 进行分析，即可测出云服务器高吞吐网络性能。
 
 ## 附录
 ### 测试命令及监控指标[](id:multiSceneTest)
 <table>
 <tr>
-<th>测试场景</th>
-<th>客户端运行命令</th>
+<th width="13%">测试场景</th>
+<th width="75%">客户端运行命令</th>
 <th>SAR 监控指标</th>
 </tr>
 <tr>
