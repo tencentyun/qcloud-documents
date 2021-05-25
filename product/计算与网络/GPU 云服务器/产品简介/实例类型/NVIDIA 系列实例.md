@@ -37,19 +37,19 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
             </tr>
          <tr>
 					</tr>
+					<tr>
+						    <td><a href="#GN8">GN8</a></td> 
+                <td>Tesla P40</td>
+								 <td  rowspan=3><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
+							  <td>广州、上海、北京、成都、重庆、香港、硅谷</td>
+					</tr>
 				  <tr>
 					   <td><a href="#GI3X">GI3X</a></td> 
              <td>Tesla T4</td>
-						 <td  rowspan=3><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
-              <td>广州、上海、北京、南京</td>
-            </tr>
-            <tr>
-						<td><a href="#GN8">GN8</a></td> 
-                <td>Tesla P40</td>
-							  <td>广州、上海、北京、成都、重庆、香港、硅谷</td>
-								</tr>
-	            <tr>
-						<td rowspan="2"><a href="#GN7">GN7</a></td> 
+             <td>广州、上海、北京、南京</td>
+          </tr>
+	        <tr>
+					<td rowspan="2"><a href="#GN7">GN7</a></td> 
                 <td>Tesla T4</td>
                 <td>广州、上海、南京、北京、成都、重庆、香港、新加坡、硅谷、孟买、弗吉尼亚、法兰克福</td>
             </tr><tr>
@@ -90,8 +90,8 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
             <th width="20%">功能\实例</th>
             <th width="11.5%">GN6<br>GN6S</th>
             <th width="11.5%">GN7</th>
+						<th width="11.5%">GN8</th>
 						<th width="11.5%">GI3X</th>
-            <th width="11.5%">GN8</th>
             <th width="11.5%">GN10X<br>GN10Xp</th>
             <th width="11.5%">GN7vw</th>
             <th width="11.5%">GT4</th>
@@ -112,8 +112,8 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>视频编解码</td>
                 <td>✓</td>
                 <td>★</td>
-                <td>★</td>
-								<td>✓</td>
+                <td>✓</td>
+								<td>★</td>
 								<td>✓</td>
                 <td>★</td>
                 <td>-</td> 
@@ -122,8 +122,8 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>深度学习训练</td>
                 <td>✓</td>
                 <td>✓</td>
-								<td>✓</td>
 								<td>★</td>
+								<td>✓</td>
                 <td>★</td>
                 <td>-</td>
                 <td>★</td>
@@ -405,80 +405,6 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 		</tbody>
 </table>
 
-## 推理型 GI3X[](id:GI3X) 
-
-**NVIDIA 实例 GI3X** 适用于深度学习等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
-
-### 适用场景
-GI3X 性价比高 ，适用于如下场景：
-- 深度学习的推理场景和小规模训练场景。例如：
-  - 大规模部署的 AI 推理
-  - 深度学习小规模训练
-- 图形图像处理场景。例如：
-  - 图形图像处理
-  - 视频编解码
-  - 图形数据库
-
-### 硬件规格
-- **CPU：**2.6GHz AMD EPYC™ ROME 处理器，睿频3.3GHz。
-- **GPU：**NVIDIA<sup>®</sup> Tesla<sup>®</sup> T4（8.1 TFLOPS 单精度浮点计算，130 INT8 TOPS，260 INT4 TOPS）。
-- **内存：**搭配最新八通道 DDR4，内存计算性能稳定。
-- **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
-- **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
-
-**GI3X 实例提供以下配置：**
-
-<table>
-		<thead>
-		<tr>
-			<th width=10%>型号</th>
-			<th width=10%>GPU<br>（NVIDIA<br>Tesla T4）</th>
-            <th width=12%>GPU 显存<br>（GDDR6）</th>
-			<th width=8%>vCPU</th>
-			<th>内存<br>（DDR4）</th>
-            <th width=10%>内网带宽</th>
-            <th>网络收发包</th>
-            <th>队列数</th>
-			<th>可用区</th>
-		</tr>
-		</thead>
-		<tbody>
-            <tr>
-				<td>GI3X.8XLARGE64</td>
-				<td>1颗</td> 
-        <td>1 * 16GB</td>
-				<td>32核</td>
-				<td>64GB</td>
-        <td>5Gbps</td>
-				<td>140万PPS</td>
-        <td>8</td>
-                <td rowspan="3">广州三区，上海四区，南京一、二区，北京五区</td>
-			</tr>
-            <tr>
-				<td>GI3X.22XLARGE226</td>
-				<td>2颗</td> 
-        <td>2 * 16GB</td>
-				<td>90核</td>
-				<td>226GB</td>
-        <td>13Gbps</td>
-				<td>375万PPS</td>
-        <td>16</td>
-			</tr>
-            <tr>
-				<td>GI3X.45XLARGE452</td>
-				<td>4颗</td> 
-        <td>4 * 16GB</td>
-				<td>180核</td>
-				<td>452GB</td>
-        <td>25Gbps</td>
-				<td>750万PPS</td>
-         <td>32</td>
-			</tr>
-		</tbody>
-</table>
-
-
-
 ## 计算型 GN8[](id:GN8) 
 
 **NVIDIA 实例 GN8** 不仅适用于深度学习等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
@@ -560,6 +486,78 @@ GI3X 性价比高 ，适用于如下场景：
         <td>10Gbps</td>
 				<td>70万PPS</td>
         <td>8</td>
+			</tr>
+		</tbody>
+</table>
+
+## 推理型 GI3X[](id:GI3X) 
+
+**NVIDIA 实例 GI3X** 适用于深度学习等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
+
+### 适用场景
+GI3X 性价比高 ，适用于如下场景：
+- 深度学习的推理场景和小规模训练场景。例如：
+  - 大规模部署的 AI 推理
+  - 深度学习小规模训练
+- 图形图像处理场景。例如：
+  - 图形图像处理
+  - 视频编解码
+  - 图形数据库
+
+### 硬件规格
+- **CPU：**2.6GHz AMD EPYC™ ROME 处理器，睿频3.3GHz。
+- **GPU：**NVIDIA<sup>®</sup> Tesla<sup>®</sup> T4（8.1 TFLOPS 单精度浮点计算，130 INT8 TOPS，260 INT4 TOPS）。
+- **内存：**搭配最新八通道 DDR4，内存计算性能稳定。
+- **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
+- **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
+
+**GI3X 实例提供以下配置：**
+
+<table>
+		<thead>
+		<tr>
+			<th width=10%>型号</th>
+			<th width=10%>GPU<br>（NVIDIA<br>Tesla T4）</th>
+            <th width=12%>GPU 显存<br>（GDDR6）</th>
+			<th width=8%>vCPU</th>
+			<th>内存<br>（DDR4）</th>
+            <th width=10%>内网带宽</th>
+            <th>网络收发包</th>
+            <th>队列数</th>
+			<th>可用区</th>
+		</tr>
+		</thead>
+		<tbody>
+            <tr>
+				<td>GI3X.8XLARGE64</td>
+				<td>1颗</td> 
+        <td>1 * 16GB</td>
+				<td>32核</td>
+				<td>64GB</td>
+        <td>5Gbps</td>
+				<td>140万PPS</td>
+        <td>8</td>
+                <td rowspan="3">广州三区，上海四区，南京一、二区，北京五区</td>
+			</tr>
+            <tr>
+				<td>GI3X.22XLARGE226</td>
+				<td>2颗</td> 
+        <td>2 * 16GB</td>
+				<td>90核</td>
+				<td>226GB</td>
+        <td>13Gbps</td>
+				<td>375万PPS</td>
+        <td>16</td>
+			</tr>
+            <tr>
+				<td>GI3X.45XLARGE452</td>
+				<td>4颗</td> 
+        <td>4 * 16GB</td>
+				<td>180核</td>
+				<td>452GB</td>
+        <td>25Gbps</td>
+				<td>750万PPS</td>
+         <td>32</td>
 			</tr>
 		</tbody>
 </table>
