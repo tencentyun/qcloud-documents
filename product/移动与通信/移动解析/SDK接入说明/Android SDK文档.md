@@ -64,6 +64,7 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
 ### 接口调用
 
 ```Java
+
 // 初始化灯塔：如果已经接入MSDK或者IMSDK或者单独接入了腾讯灯塔(Beacon)则不需再初始化该接口
 try {
     // 注意：这里业务需要输入自己的灯塔appkey
@@ -72,6 +73,8 @@ try {
 } catch (Exception e) {
     Log.e(TAG, "Init beacon failed", e);
 }
+
+// 以下鉴权信息可在腾讯云控制台（https://console.cloud.tencent.com/httpdns/configure）开通服务后获取
 
 /**
  * 初始化HTTPDNS（默认为DES加密）：如果接入了MSDK，建议初始化MSDK后再初始化HTTPDNS
