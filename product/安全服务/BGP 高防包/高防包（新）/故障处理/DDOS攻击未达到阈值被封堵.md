@@ -22,7 +22,7 @@
   - 若自助解封剩余次数不为0，则跳转到 [步骤2](#step2)。
   >?自动解封时间，请参考控制台 [解封操作](https://console.cloud.tencent.com/ddos/unblock/list) 页面的“预计解封时间”项。
   >
- ![](https://main.qcloudimg.com/raw/60cd49ffe14db07d0861911c963edb49.png)
+![](https://main.qcloudimg.com/raw/0940057005414cb6849468cce70acf18.png)
 2. [](id:step2)查看攻击是否已停止，请单击 [防护概览](https://console.cloud.tencent.com/ddos/antiddos-native/overview/ddos) 查看。
  - 若是，则跳转到 [步骤3](#step3)。
  - 若否，待攻击停止时，继续执行解封操作，执行 [步骤3](#step3)。
