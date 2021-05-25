@@ -37,7 +37,7 @@
 <td>88GB</td>
 <td>4Gbps</td>
 <td>70万PPS</td>
-<td>广州三区，上海二区，北京四区，北京五区</td>
+<td rowspan=3>广州三区，上海二区，北京四区，北京五区</td>
 </tr>
 <tr>
 <td>FX4.5XLARGE176</td>
@@ -46,7 +46,6 @@
 <td>176GB</td>
 <td>7Gbps</td>
 <td>150万PPS</td>
-<td>广州三区，上海二区，北京四区，北京五区</td>
 </tr>
 <tr>
 <td>FX4.11XLARGE352</td>
@@ -55,7 +54,6 @@
 <td>352GB</td>
 <td>13Gbps</td>
 <td>300万PPS</td>
-<td>广州三区，上海二区，北京四区，北京五区</td>
 </tr>
 </tbody></table>
 
