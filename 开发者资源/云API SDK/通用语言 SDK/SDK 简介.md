@@ -160,6 +160,15 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [语音消息](https://cloud.tencent.com/document/product/1128)         | Voice Message Service | vms        |
 | [SSL证书管理服务](https://cloud.tencent.com/document/product)         | - | wss        |
 | [珠玑](https://cloud.tencent.com/document/product)                | - | zj         |
+| [区块链可信取证](https://cloud.tencent.com/document/product/1259)           | Blockchain Trusted Obtain Evidence，BTOE | btoe             |
+| [数据湖计算](https://cloud.tencent.com/document/product/1342)             | Data Lake Compute，DLC | dlc              |
+| [DNSPod](https://cloud.tencent.com/document/product/1427)            | DNSPod API | dnspod           |
+| [物联网智能视频服务（行业版）](https://cloud.tencent.com/document/product/1361)    | Internet of Things Video，IoT Video（Industry Version） | iotvideoindustry |
+| [移动网络加速](https://cloud.tencent.com/document/product/1385)            | Mobile Network Acceleration | mna              |
+| [医疗报告结构化](https://cloud.tencent.com/document/product/1314)           | Automatic Structuring of Medical Reports | mrs              |
+| [私有域解析 Private DNS](https://cloud.tencent.com/document/product/1338) | Private DNS | privatedns       |
+| [弹性微服务](https://cloud.tencent.com/document/product/1371)             | Tencent Cloud Elastic Microservice，TEM | tem              |
+| [腾讯云微服务引擎](https://cloud.tencent.com/document/product/1364)          | Tencent Cloud Service Engine，TSE | tse              |
 
 ## API Explorer
 [API Explorer](https://console.cloud.tencent.com/api/explorer) 提供了在线调用、签名验证、 SDK 代码生成和快速检索接口等能力，能显著降低使用云 API 的难度。
