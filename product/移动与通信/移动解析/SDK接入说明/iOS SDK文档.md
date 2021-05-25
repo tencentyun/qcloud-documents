@@ -24,15 +24,16 @@ HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 ```
 保存并执行 `pod install`，再使用后缀为 `.xcworkspace` 的文件打开工程。
 
->?关于 `CocoaPods` 的更多信息，请查看 [CocoaPods 官方网站](https://cocoapods.org/)。
+> 关于 `CocoaPods` 的更多信息，请查看 [CocoaPods 官方网站](https://cocoapods.org/)。
 
 ### 3.2 手动集成
 
 #### 3.2.1 已接入灯塔（Beacon）的业务
+> 灯塔（beacon）SDK 是腾讯灯塔团队开发的用于移动应用统计分析的 SDK，HTTPDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
+
 仅需引入位于 HTTPDNSLibs 目录下的 MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）即可。
 
 #### 3.2.2 未接入灯塔（Beacon）的业务
-灯塔（beacon）SDK 是腾讯灯塔团队开发的用于移动应用统计分析的 SDK，HTTPDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
 - 引入依赖库（位于 HTTPDNSLibs 目录下）：
 	- BeaconAPI_Base.framework
 	- MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）
