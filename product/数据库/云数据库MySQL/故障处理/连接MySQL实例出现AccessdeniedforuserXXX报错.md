@@ -13,7 +13,7 @@
 ## 处理步骤
 1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)，在实例列表，找到目标实例，单击实例名，进入实例管理页面。
 2. 在实例管理页面，选择【数据库管理】>【帐号管理】页，检查用户名和主机名是否匹配。
-![](https://main.qcloudimg.com/raw/34ca2f8a2d4358b5c99e953aecf9524d.png)
-3. 重试密码，确认密码输入无误；如果忘记密码，可以在控制台重置密码。
-![](https://main.qcloudimg.com/raw/fc7d9f3e751272da86e90f254f6b3a55.png)
+![](https://main.qcloudimg.com/raw/5924456fc988241b8aaff93cfe552927.png)
+3. 重试密码，确认密码输入无误；如果忘记密码，可找到需要重置密码的帐号，选择【更多】>【重置密码】。
+![](https://main.qcloudimg.com/raw/e1a269541a777ee8209fc4a6c5e35cff.png)
  
