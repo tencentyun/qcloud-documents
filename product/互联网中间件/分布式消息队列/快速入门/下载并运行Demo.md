@@ -16,7 +16,7 @@
 <dx-codeblock>
 :::  xml
    <!-- in your <properties> block -->
-   <pulsar.version>2.6.1</pulsar.version>
+   <pulsar.version>2.7.1</pulsar.version>
    <!-- in your <dependencies> block -->
    <dependency>
        <groupId>org.apache.pulsar</groupId>
@@ -29,14 +29,14 @@
    **创建 Client**
    ```java
    PulsarClient client = PulsarClient.builder()
-           .serviceUrl("pulsar://**.**.**.**:****/")//ip:port 替换成路由IP，位于【集群管理】接入点列表
-           .listenerName("custom:pulsar-****/vpc-****/subnet-****")//custom:替换成路由ID，位于【集群管理】接入点列表
+           .serviceUrl("***")//【集群管理】接入地址处复制(2.6.1集群需进入接入点列表处复制)
+           //.listenerName("custom:pulsar-****/vpc-****/subnet-****")//仅2.6.1集群需要填写，custom:替换成路由ID，位于【集群管理】接入点列表
            .authentication(AuthenticationFactory.token("eyJr****"))//替换成角色密钥，位于【角色管理】页面
            .build();
    System.out.println(">> pulsar client created.");
    ```
-	- serviceUrl 即路由地址，可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】接入点页面查看并复制
-	- listenerName 即 “custom:” 拼接路由ID（NetModel），路由ID可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】接入点页面查看并复制。
+	- serviceUrl 即接入地址，可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】页面查看并复制
+	- listenerName 仅2.6.1版本集群需要填写，即 “custom:” 拼接路由ID（NetModel），路由ID可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】接入点页面查看并复制。
 	![](https://main.qcloudimg.com/raw/23c9244cc34e43501d118c43d20c9fb3.png)
 	- token 即角色的密钥，角色密钥可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】中复制。
 ![](https://main.qcloudimg.com/raw/75c27171af47a3d35247cf3e17e7aa67.png)
