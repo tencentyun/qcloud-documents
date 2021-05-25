@@ -1,4 +1,3 @@
-#TRTCCalling API（Flutter）
 TRTCCalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持1v1音视频通话。TRTCCalling 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [实时视频通话（Flutter）](https://cloud.tencent.com/document/product/647/42045)。
 
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频通话组件。
