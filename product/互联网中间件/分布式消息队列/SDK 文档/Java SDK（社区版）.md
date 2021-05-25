@@ -19,11 +19,19 @@ Pulsar Java SDK 接入步骤如下：
 </dx-codeblock>
 2. 在 `pom.xml` 所在目录执行`mvn clean package`即可下载 Pulsar 社区版 Java SDK。
 3. 前往 TDMQ 控制台【[角色管理](https://console.cloud.tencent.com/tdmq/role)】，复制密钥。
-4. 在创建 Client 的代码中加入刚复制的密钥，并添加 `listenerName` 参数。
+4. 在创建 Client 的代码中加入刚复制的密钥（集群版本为2.6.1的则还添加 `listenerName` 参数）。
+   - 2.7.1版本集群接入示例
    ```java
    PulsarClient client = PulsarClient.builder()
-            .serviceUrl("pulsar://*.*.*.*:6000/")
-            .listenerName("custom:1********0/vpc-******/subnet-********")//custom:+路由ID
+            .serviceUrl("http://***")//完整复制控制台接入点地址
+            .authentication(AuthenticationFactory.token("eyJh****"))
+            .build();
+   ```
+   - 2.6.1版本集群接入示例
+   ```java
+   PulsarClient client = PulsarClient.builder()
+            .serviceUrl("pulsar://*.*.*.*:6000/")//接入地址到集群管理-接入点列表完整复制
+            .listenerName("custom:********/vpc-******/subnet-********")//custom:+路由ID，到集群管理-接入点列表完整复制
             .authentication(AuthenticationFactory.token("eyJh****"))
             .build();
    ```
