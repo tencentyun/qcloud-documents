@@ -1,6 +1,6 @@
 ## 问题现象
 当磁盘使用率超过85%，或者达到100%，会导致 Elasticsearch 集群或 Kibana 无法正常提供服务，可能会出现以下几种问题场景：
-- 在进行索引请求时，返回类似 `[FORBIDDEN/12/index read-only/allow delete(api)];","type":"cluster_block_exception"}}` 的报错。
+- 在进行索引请求时，返回类似 `{[FORBIDDEN/12/index read-only/allow delete(api)];","type":"cluster_block_exception"}` 的报错。
 2. 在对集群进行操作时，返回类似 `[FORBIDDEN/13/cluster read-only / allow delete (api)]` 的报错。
 3. 集群处于 Red 状态，严重情况下存在节点未加入集群的情况（可通过 `GET _cat/allocation?v` 命令查看），并且存在未分配的分片（可通过 `GET _cat/allocation?v` 命令查看）。
 4. 通过 Elasticsearch 控制台的节点监控页面，集群节点磁盘使用率曾达到或者接近100%。
