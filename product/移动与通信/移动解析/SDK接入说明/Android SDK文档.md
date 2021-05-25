@@ -134,11 +134,55 @@ String ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
  */
 Ipset ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
 ```
-```
 
 ### 接入验证
 
+#### 日志验证
+
 当 init 接口中 debug 参数传入 true，过滤 TAG 为 “HTTPDNS” 的日志，并查看到 LocalDns（日志上为 ldns_ip）和 HTTPDNS（日志上为 hdns_ip）相关日志时，可以确认接入无误。
+- key为ldns_ip的是LocalDNS的解析结果
+- key为hdns_ip的是HTTPDNS A记录的解析结果
+- key为hdns_4a_ips的是HTTPDNS AAAA记录的解析结果
+- key为a_ips的是域名解析接口返回的IPv4集合
+- key为4a_ips的是域名解析接口返回的IPv6集合
+
+#### 模拟LocalDNS劫持
+
+模拟LocalDNS劫持情况下，如果App能够正常工作，可以证明HTTPDNS已经成功接入
+
+**注意**：由于LocalDNS存在缓存机制，模拟LocalDNS进行接入验证时，请尽量保证LocalDNS的缓存已经被清理，可以通过重启机器，切换网络等方式，尽量清除LocalDNS的解析缓存；验证时，请注意对照启用LocalDNS和启用HTTPDNS的效果
+
+- 修改机器Hosts文件
+  - LocalDNS优先通过读取机器Hosts文件方式获取解析结果
+  - 通过修改Hosts文件，将对应域名指向错误的IP，可以模拟LocalDNS劫持
+  - Root机器可以直接修改机器Hosts文件
+- 修改DNS服务器配置
+  - 通过修改DNS服务器配置，将DNS服务器指向一个不可用的IP（如局域网内的另一个IP），可以模拟LocalDNS劫持
+  - 机器连接WiFi情况下，在当前连接的WiFi的高级设置选项中修改IP设置为静态设置，可以修改DNS服务器设置（不同机器具体的操作路径可能略有不同）
+  - 借助修改DNS的App来修改DNS服务器配置（通常是通过VPN篡改DNS包的方式来修改DNS服务器配置）
+
+#### 抓包验证
+
+以下以接入HTTP网络访问为例进行说明：
+
+- 使用**tcpdump**进行抓包
+  - **注意**，常用的移动端HTTP/HTTPS抓包工具如Charles/Fiddler是通过HTTP代理方式进行抓包，不适用于抓包验证HTTPDNS服务是否生效，相关说明祥见[本地使用HTTP代理](#本地使用HTTP代理)
+  - Root机器可以通过tcpdump命令抓包
+  - 非Root机器上，系统可能内置有相关的调试工具，可以获取抓包结果（不同机器具体的启用方式不同）
+
+- 通过WireShark观察抓包结果
+  - 对于HTTP请求，我们可以观察到明文信息，通过对照日志和具体的抓包记录，可以确认最终发起请求时使用的IP是否和SDK返回的一致
+
+    ![](./http_tcpdump.png)
+
+    如上图，从抓包上看，xw.qq.com的请求最终发往了IP为183.3.226.35的服务器
+
+  - 对于HTTPS请求，TLS的握手包实际上是明文包，在设置了SNI扩展（详见[HTTPS兼容](#HTTPS兼容)）情况下，通过对照日志和具体的抓包记录，可以确认最终发起请求时使用的IP是否和SDK返回的一致
+
+    ![](./https_tcpdump.png)
+
+    如上图，从抓包上看，xw.qq.com的请求最终发往了IP为183.3.226.35的服务器
+
 
 ### 注意事项
 
