@@ -18,9 +18,6 @@ tar -xf dpdk-17.11.tar.gz
 ```
 mv dpdk-17.11 dpdk
 ```
-```
-cd dpdk
-```
 3. 修改 txonly 引擎，使每个 DPDK 发包 CPU 上的 UDP 流量的端口变动产生多条流。
  - 执行以下命令，修改 `dpdk/app/test-pmd/txonly.c` 文件。
 ```
@@ -73,7 +70,7 @@ vim dpdk/app/test-pmd/txonly.c
 #define IP_SRC_ADDR (198U << 24) | (18 << 16) | (0 << 8) | 1;
 #define IP_DST_ADDR (198U << 24) | (18 << 16) | (0 << 8) | 2;   
 ```
-将数字192、18、0、1替换为机器 IP，SRC_ADDR 为发送端 IP，DST_ADDR 为接收端 IP。
+将数字198、18、0、1替换为机器 IP，SRC_ADDR 为发送端 IP，DST_ADDR 为接收端 IP。
 5. 对应机器操作系统，执行以下命令，安装 numa 库。
 <dx-tabs>
 ::: CentOS
@@ -99,6 +96,9 @@ sed -i "s/\(^WERROR_FLAGS += -Wundef -Wwrite-strings$\)/\1 -Wno-address-of-packe
 sed -i "s/fall back/falls through -/g" ./lib/librte_eal/linuxapp/igb_uio/igb_uio.c
 ```
 8. 执行以下命令，编译 DPDK。
+```
+cd dpdk/
+```
 ```
 make defconfig
 ```
