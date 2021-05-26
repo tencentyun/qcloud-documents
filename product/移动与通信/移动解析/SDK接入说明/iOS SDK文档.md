@@ -80,13 +80,13 @@ typedef enum {
 struct DnsConfig {
     NSString* appId; // 应用ID，腾讯云控制台申请获得，用于上报
     int dnsId; // 授权ID，用于域名解析鉴权
-    NSString* dnsKey; // 加密密钥，加密方式为AES、DES时必传
+    NSString* dnsKey; // 加密密钥，加密方式为 AES、DES 时必传
     NSString* token; // 加密方式为 HTTPS 时必传
-    NSString* dnsIp; // HTTPDNS 服务器IP
+    NSString* dnsIp; // HTTPDNS 服务器 IP
     BOOL debug; // 是否开启Debug日志，YES：开启，NO：关闭。建议联调阶段开启，正式上线前关闭
     int timeout; // 超时时间，单位ms，如设置0，则设置为默认值2000ms
     HttpDnsEncryptType encryptType; // 控制加密方式
-    NSString* routeIp; // 查询线路IP地址
+    NSString* routeIp; // 查询线路 IP 地址
 };
 ```
 
@@ -126,19 +126,19 @@ struct DnsConfig {
 	- 批量查询 **WGGetHostsByNamesAsync:returnIps:**；
 	
 **返回的地址格式如下：**
-- **单个查询**：单个查询接口返回 NSArray，固定长度为2，其中第一个值为 ipv4 地址，第二个值为 ipv6 地址。以下为返回格式的详细说明：
- - ipv4 下，仅返回 ipv4 地址，即返回格式为：[ipv4, 0]。
- - ipv6 下，仅返回 ipv6 地址，即返回格式为：[0, ipv6]。
- - 双栈网络下，返回解析到 ipv4&ipv6（如果存在）地址，即返回格式为：[ipv4, ipv6]。
+- **单个查询**：单个查询接口返回 NSArray，固定长度为2，其中第一个值为 IPv4 地址，第二个值为 IPv6 地址。以下为返回格式的详细说明：
+ - IPv4 下，仅返回 IPv4 地址，即返回格式为：[ipv4, 0]。
+ - IPv6 下，仅返回 IPv6 地址，即返回格式为：[0, ipv6]。
+ - 双栈网络下，返回解析到 IPv4&IPv6（如果存在）地址，即返回格式为：[ipv4, ipv6]。
  - 解析失败，返回[0, 0]，业务重新调用 WGGetHostByName 接口即可。
-- **批量查询**：批量查询接口返回 NSDictionary，key 为查询的域名，value 为 NSArray，固定长度为2，其他第一个值为 ipv4 地址，第二个值为 ipv6 地址。以下为返回格式的详细说明：
- - ipv4 下，仅返回 ipv4 地址，即返回格式为：{"queryDomain" : [ipv4, 0]}。
- - ipv6 下，仅返回 ipv6 地址，即返回格式为：{"queryDomain" : [0, ipv6]}。
- - 双栈网络下，返回解析到 ipv4&ipv6（如果存在）地址，即返回格式为：{"queryDomain" : [ipv4, ipv6]}。
+- **批量查询**：批量查询接口返回 NSDictionary，key 为查询的域名，value 为 NSArray，固定长度为2，其他第一个值为 IPv4 地址，第二个值为 IPv6 地址。以下为返回格式的详细说明：
+ - IPv4 下，仅返回 IPv4 地址，即返回格式为：{"queryDomain" : [ipv4, 0]}。
+ - IPv6 下，仅返回 IPv6 地址，即返回格式为：{"queryDomain" : [0, ipv6]}。
+ - 双栈网络下，返回解析到 IPv4&IPv6（如果存在）地址，即返回格式为：{"queryDomain" : [ipv4, ipv6]}。
  - 解析失败，返回{"queryDomain" : [0, 0]}，业务重新调用 WGGetHostByNames 接口即可。
 
 >!
->- 使用 ipv6 地址进行 URL 请求时，需添加方框号[ ]进行处理，例如：`http://[64:ff9b::b6fe:7475]/`。
+>- 使用 IPv6 地址进行 URL 请求时，需添加方框号[ ]进行处理，例如：`http://[64:ff9b::b6fe:7475]/`。
 >- 如 IPv6 地址为0，则直接使用 IPv4 地址连接。
 >- 如 IPv4 地址为0，则直接使用 IPv6 地址连接。
 >- 如 IPv4 和 IPv6 地址都不为0，则由客户端决定优先使用哪个地址进行连接，但优先地址连接失败时应切换为另一个地址。 
@@ -151,14 +151,14 @@ struct DnsConfig {
 /**
  域名同步解析（通用接口）
  @param domain 域名 
- @return 查询到的IP数组，超时（1s）或者未未查询到返回[0,0]数组
+ @return 查询到的 IP 数组，超时（1s）或者未未查询到返回[0,0]数组
 */
 - (NSArray *) WGGetHostByName:(NSString *) domain;
 
 /**
  域名批量同步解析（通用接口）
  @param domains 域名数组
- @return 查询到的IP字典
+ @return 查询到的 IP 字典
  */
 - (NSDictionary *) WGGetHostsByNames:(NSArray *) domains;
 ```
@@ -173,9 +173,9 @@ if (ipsArray && ipsArray.count > 1) {
 	NSString *ipv4 = ipsArray[0];
 	NSString *ipv6 = ipsArray[1];
 	if (![ipv6 isEqualToString:@"0"]) {
-		//TODO 使用ipv6地址进行URL连接时，注意格式，ipv6需加方框号[]进行处理，例如：http://[64:ff9b::b6fe:7475]/
+		//TODO 使用 IPv6 地址进行 URL 连接时，注意格式，IPv6 需加方框号[]进行处理，例如：http://[64:ff9b::b6fe:7475]/
 	} else if (![ipv4 isEqualToString:@"0"]){
-		//使用ipv4地址进行连接
+		//使用 IPv4 地址进行连接
 	} else {
 		//异常情况返回为0,0，建议重试一次
 	}
@@ -188,9 +188,9 @@ if (ips && ips.count > 1) {
 	NSString *ipv4 = ips[0];
 	NSString *ipv6 = ips[1];
 	if (![ipv6 isEqualToString:@"0"]) {
-		//TODO 使用ipv6地址进行URL连接时，注意格式，ipv6需加方框号[]进行处理，例如：http://[64:ff9b::b6fe:7475]/
+		//TODO 使用 IPv6 地址进行 URL 连接时，注意格式，IPv6 需加方框号[]进行处理，例如：http://[64:ff9b::b6fe:7475]/
 	} else if (![ipv4 isEqualToString:@"0"]){
-		//使用ipv4地址进行连接
+		//使用 IPv4 地址进行连接
 	} else {
 		//异常情况返回为0,0，建议重试一次
 	}
@@ -204,7 +204,7 @@ if (ips && ips.count > 1) {
 /**
  域名异步解析（通用接口）
  @param domain  域名
- @param handler 返回查询到的IP数组，超时（1s）或者未未查询到返回[0,0]数组
+ @param handler 返回查询到的 IP 数组，超时（1s）或者未未查询到返回[0,0]数组
  */
  - (void) WGGetHostByNameAsync:(NSString *) domain returnIps:(void (^)(NSArray *ipsArray))handler;
 
@@ -212,7 +212,7 @@ if (ips && ips.count > 1) {
  域名批量异步解析（通用接口）
 
  @param domains  域名数组
- @param handler 返回查询到的IP字典，超时（1s）或者未未查询到返回 {"queryDomain" : [0, 0] ...}
+ @param handler 返回查询到的IP字典，超时（1s）或者未查询到返回 {"queryDomain" : [0, 0] ...}
  */
 - (void) WGGetHostsByNamesAsync:(NSArray *) domains returnIps:(void (^)(NSDictionary * ipsDictionary))handler;
 ```
@@ -234,10 +234,10 @@ if (ips && ips.count > 1) {
 		NSString *ipv4 = ipsArray[0];
 		NSString *ipv6 = ipsArray[1];
 		if (![ipv6 isEqualToString:@"0"]) {
-			//使用建议：当ipv6地址存在时，优先使用ipv6地址
-			//TODO 使用ipv6地址进行URL连接时，注意格式，ipv6需加方框号[]进行处理，例如：http://[64:ff9b::b6fe:7475]/
+			//使用建议：当 IPv6 地址存在时，优先使用ipv6地址
+			//TODO 使用 IPv6 地址进行 URL 连接时，注意格式，IPv6 需加方框号[]进行处理，例如：http://[64:ff9b::b6fe:7475]/
 		} else if (![ipv4 isEqualToString:@"0"]){
-			//使用ipv4地址进行连接
+			//使用 IPv4 地址进行连接
 		} else {
 			//异常情况返回为0,0，建议重试一次
 		}
@@ -253,9 +253,9 @@ if (ips && ips.count > 1) {
 		NSString *ipv6 = ips[1];
 		if (![ipv6 isEqualToString:@"0"]) {
 			//使用建议：当ipv6地址存在时，优先使用ipv6地址
-			//TODO 使用ipv6地址进行URL连接时，注意格式，ipv6需加方框号[]进行处理，例如：http://[64:ff9b::b6fe:7475]/
+			//TODO 使用 IPv6 地址进行 URL 连接时，注意格式，IPv6 需加方框号[]进行处理，例如：http://[64:ff9b::b6fe:7475]/
 		} else if (![ipv4 isEqualToString:@"0"]){
-			//使用ipv4地址进行连接
+			//使用 IPv4 地址进行连接
 		} else {
 			//异常情况返回为0,0，建议重试一次
 		}
@@ -268,7 +268,7 @@ __block NSArray* result;
 [[MSDKDns sharedInstance] WGGetHostByNameAsync:domain returnIps:^(NSArray *ipsArray) {
 	result = ipsArray;
 }];
-//无需等待，可直接拿到缓存结果，如无缓存，则result为nil
+//无需等待，可直接拿到缓存结果，如无缓存，则 result 为 nil
 if (result) {
 	//拿到缓存结果，进行连接操作
 } else {
@@ -360,10 +360,10 @@ if (conn.error != null) {
 string[] sArray=ipString.Split(new char[] {';'}); 
 if (sArray != null && sArray.Length > 1) {
 	if (!sArray[1].Equals("0")) {
-		//使用建议：当ipv6地址存在时，优先使用ipv6地址
-		//TODO 使用ipv6地址进行URL连接时，注意格式，需加方框号[ ]进行处理，例如：http://[64:ff9b::b6fe:7475]/
+		//使用建议：当 IPv6 地址存在时，优先使用 IPv6 地址
+		//TODO 使用 IPv6 地址进行 URL 连接时，注意格式，需加方框号[ ]进行处理，例如：http://[64:ff9b::b6fe:7475]/
 	} else if(!sArray [0].Equals ("0")) {
-		//使用ipv4地址进行连接
+		//使 IPv4 地址进行连接
 	} else {
 		//异常情况返回为0,0，建议重试一次
 		HttpDns.GetAddrByName(domainStr);
@@ -399,10 +399,10 @@ if (sArray != null && sArray.Length > 1) {
 	//绑定校验策略到服务端的证书上
 	SecTrustSetPolicies(serverTrust, (__bridge CFArrayRef)policies);
 
-	//评估当前serverTrust是否可信任，
-	//官方建议在result = kSecTrustResultUnspecified 或 kSecTrustResultProceed的情况下serverTrust可以被验证通过，
+	//评估当前 serverTrust 是否可信任，
+	//官方建议在 result = kSecTrustResultUnspecified 或 kSecTrustResultProceed 的情况下 serverTrust 可以被验证通过，
 	//https://developer.apple.com/library/ios/technotes/tn2232/_index.html
-	//关于SecTrustResultType的详细信息请参考SecTrust.h    
+	//关于 SecTrustResultType 的详细信息请参考 SecTrust.h    
 	SecTrustResultType result;
 	SecTrustEvaluate(serverTrust, &result);
 	return (result == kSecTrustResultUnspecified || result == kSecTrustResultProceed);
@@ -413,18 +413,18 @@ if (sArray != null && sArray.Length > 1) {
 		return;
 	}
 
-	//URL里面的host在使用HTTPDNS的情况下被设置成了IP，此处从HTTP Header中获取真实域名
+	//URL 里面的 host 在使用 HTTPDNS 的情况下被设置成了 IP，此处从 HTTP Header 中获取真实域名
 	NSString *host = [[self.request allHTTPHeaderFields] objectForKey:@"host"];
 	if (!host) {
 		host = self.request.URL.host;
 	}
 
-	//判断challenge的身份验证方法是否是NSURLAuthenticationMethodServerTrust（HTTPS模式下会进行该身份验证流程），
+	//判断 challenge 的身份验证方法是否是 NSURLAuthenticationMethodServerTrust（HTTPS 模式下会进行该身份验证流程），
 	//在没有配置身份验证方法的情况下进行默认的网络请求流程。
 	if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
 		if ([self evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:host]) {        
 
-			//验证完以后，需要构造一个NSURLCredential发送给发起方    
+			//验证完以后，需要构造一个 NSURLCredential 发送给发起方    
 			NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
 			[[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
 		} else {
@@ -454,8 +454,8 @@ if (sArray != null && sArray.Length > 1) {
 	//绑定校验策略到服务端的证书上
 	SecTrustSetPolicies(serverTrust, (__bridge CFArrayRef)policies);
 
-	//评估当前serverTrust是否可信任，
-	//官方建议在result = kSecTrustResultUnspecified 或 kSecTrustResultProceed的情况下serverTrust可以被验证通过，
+	//评估当前 serverTrust 是否可信任，
+	//官方建议在 result = kSecTrustResultUnspecified 或 kSecTrustResultProceed 的情况下 serverTrust 可以被验证通过，
 	//https://developer.apple.com/library/ios/technotes/tn2232/_index.html
 	//关于SecTrustResultType的详细信息请参考SecTrust.h    
 	SecTrustResultType result;
@@ -488,7 +488,7 @@ if (sArray != null && sArray.Length > 1) {
 		disposition = NSURLSessionAuthChallengePerformDefaultHandling;
 	}
 
-	// 对于其他的challenges直接使用默认的验证方案
+	// 对于其他的 challenges 直接使用默认的验证方案
 	completionHandler(disposition,credential);
 }
 ```
@@ -521,10 +521,10 @@ SNI（Server Name Indication）是为了解决一个服务器使用多个域名�
 具体示例参见 Demo，部分代码如下：
 在网络请求前注册 NSURLProtocol 子类，在示例的 SNIViewController.m 中。
 ```
-// 注册拦截请求的NSURLProtocol
+// 注册拦截请求的 NSURLProtocol
 [NSURLProtocol registerClass:[MSDKDnsHttpMessageTools class]];
 
-// 需要设置SNI的URL
+// 需要设置 SNI 的 URL
 NSString *originalUrl = @"your url";
 NSURL *url = [NSURL URLWithString:originalUrl];
 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -537,7 +537,7 @@ if (result && result.count > 1) {
 		ip = result[0];
 	}
 }
-// 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
+// 通过 HTTPDNS 获取 IP 成功，进行 URL 替换和 HOST 头设置
 if (ip) {
 	NSRange hostFirstRange = [originalUrl rangeOfString:url.host];
 	if (NSNotFound != hostFirstRange.location) {
@@ -547,11 +547,11 @@ if (ip) {
 	}
 }
 
-// NSURLConnection例子
+// NSURLConnection 例子
 self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 [self.connection start];
 
-// NSURLSession例子
+// NSURLSession 例子
 NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
 NSArray *protocolArray = @[ [MSDKDnsHttpMessageTools class] ];
 configuration.protocolClasses = protocolArray;
@@ -559,9 +559,10 @@ NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration del
 self.task = [session dataTaskWithRequest:request];
 [self.task resume];
 
-// 注*：使用NSURLProtocol拦截NSURLSession发起的POST请求时，HTTPBody为空。
-// 解决方案有两个：1. 使用NSURLConnection发POST请求。
-// 2. 先将HTTPBody放入HTTP Header field中，然后在NSURLProtocol中再取出来。
+// 注*：使用 NSURLProtocol 拦截 NSURLSession 发起的 POST 请求时，HTTPBody 为空。
+// 解决方案有两个：
+// 1. 使用 NSURLConnection 发 POST 请求。
+// 2. 先将 HTTPBody 放入 HTTP Header field 中，然后在 NSURLProtocol 中再取出来。
 // 下面主要演示第二种解决方案
 // NSString *postStr = [NSString stringWithFormat:@"param1=%@&param2=%@", @"val1", @"val2"];
 // [_request addValue:postStr forHTTPHeaderField:@"originalBody"];
@@ -576,17 +577,17 @@ self.task = [session dataTaskWithRequest:request];
 #### 使用说明
 需调用以下接口设置需要拦截域名或无需拦截的域名：
 ```
-#pragma mark - SNI场景，仅调用一次即可，请勿多次调用
+#pragma mark - SNI 场景，仅调用一次即可，请勿多次调用
 /**
- SNI场景下设置需要拦截的域名列表
- 建议使用该接口设置，仅拦截SNI场景下的域名，避免拦截其它场景下的域名
+ SNI 场景下设置需要拦截的域名列表
+ 建议使用该接口设置，仅拦截 SNI 场景下的域名，避免拦截其它场景下的域名
 
  @param hijackDomainArray 需要拦截的域名列表
  */
 - (void) WGSetHijackDomainArray:(NSArray *)hijackDomainArray;
 
 /**
- SNI场景下设置不需要拦截的域名列表
+ SNI 场景下设置不需要拦截的域名列表
 
  @param noHijackDomainArray 不需要拦截的域名列表
  */
