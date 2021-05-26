@@ -12,7 +12,7 @@
 ![](https://main.qcloudimg.com/raw/44f4f22951e7a2f66bda10f5a372ba82.svg)
 :::
 ::: 典型场景二：辅助系统架构
-企业的非主干 WEB 业务，例如订单系统、采集系统、BI 分析等对削峰填谷比较敏感的非主干场景，使用云函数 SCF 结合负载均衡 CLB ，整体迁移成本会比较低且迁移收益大。
+企业的非主干 Web 业务，例如订单系统、采集系统、BI 分析等对削峰填谷比较敏感的非主干场景，使用云函数 SCF 结合负载均衡 CLB ，整体迁移成本会比较低且迁移收益大。
 ![](https://main.qcloudimg.com/raw/72d7fbf9db19e2613c773e4c1ef40493.svg)
 :::
 ::: 典型场景三：动静态业务分离
@@ -26,23 +26,23 @@
 
 <dx-accordion>
 ::: 通用的\sHTTP/HTTPS\s接入
-适用于电商、社交、工具等 APP 应用程序，以及个人博客、活动页面等 Web 应用程序等场景。方案流程如下所示：
-1. APP、浏览器、H5、小程序等发起 HTTP/HTTPS 请求，通过 CLB 访问 SCF。
+适用于电商、社交、工具等 App 应用程序，以及个人博客、活动页面等 Web 应用程序等场景。方案流程如下所示：
+1. App、浏览器、H5、小程序等发起 HTTP/HTTPS 请求，通过 CLB 访问 SCF。
 2. 由 CLB 做证书卸载，SCF 仅需提供 HTTP 服务。
 3. 请求转给 SCF 后，继续后续处理，例如写入云数据库或调用其他 API。
 ![](https://main.qcloudimg.com/raw/69d3cc63adfddcb3e50d8f4c0fd1fc4a.svg)
 :::
 ::: CVM/SCF\s平滑切换
 适用于 HTTP/HTTPS 服务从 CVM 迁移至 SCF 的场景，以及当 CVM（SCF）服务有问题时，快速迁移至 SCF（CVM）的故障切换场景。方案流程如下所示：
-1. APP、浏览器、H5、小程序等发起 HTTP/HTTPS 请求。
-2. 通过云解析将请求解析到 CLB 的 VIP 上。
+1. App、浏览器、H5、小程序等发起 HTTP/HTTPS 请求。
+2. 通过 DNS 解析 DNSpod 将请求解析到 CLB 的 VIP 上。
 3. 一个 CLB 转发请求给 CVM，另一个 CLB 转发请求给 SCF。
 4. 客户端无感知，即可完成后端服务在 CVM 和 SCF 之间的平滑切换。
 ![](https://main.qcloudimg.com/raw/24e16ebdfe48a948ebd931ab82b02410.svg)
 :::
 ::: CVM/SCF\s业务分流
 适用于秒杀、抢购等场景，使用 SCF 处理高弹性服务、使用 CVM 处理日常业务。
-1. 通过云解析将域名 A 解析到其中一个 CLB 的 VIP 上，将域名 B 解析到另外一个 CLB 的VIP 上。
+1. 通过 DNS 解析 DNSpod 将域名 A 解析到其中一个 CLB 的 VIP 上，将域名 B 解析到另外一个 CLB 的VIP 上。
 2. 其中一个 CLB 转发请求给 CVM，另外一个 CLB 转发请求给 SCF。
 ![](https://main.qcloudimg.com/raw/79bf0625f63b5f0b285b6907f22f8c43.svg)
 :::
