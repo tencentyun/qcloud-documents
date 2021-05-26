@@ -21,7 +21,7 @@ let myCmeNet = CME.Net.create({
   /**
    *
    *    @send 发送命令字方法,
-   *    @param path {{string}} 字符串 Web 路径,参考 API 概览。
+   *    @param path {{string}} 字符串 Web 路径,参考 API 概览https://cloud.tencent.com/document/product/1156/50861。
    *    @param param {{object}} 命令入参。
    *    @return Promise {{function}} 完成命令的回调函数。
    *

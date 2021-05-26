@@ -8,7 +8,7 @@
     - `Namespace` 命名空间，云服务器监控的命名空间为 `QCE/CVM`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-    - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+    - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
     - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
       - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以 **实例 ID** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称、`As PrivateIpAddress` 主网卡的内网IP、 `As PrivateIpAddresses` 主网卡的公网IP。
       - 可实例列表的获取可参见 [云服务器查询实例列表接口文档](https://cloud.tencent.com/document/api/213/15728)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -25,7 +25,7 @@
     - `Namespace` 命名空间，云服务器监控的命名空间为 `QCE/CDB`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-    - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+    - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
     - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
       - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以 **实例ID** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称、 `As Vip` 内网IP。
       - 实例列表的获取可参见 [云数据库MySQL查询实例列表接口文档](https://cloud.tencent.com/document/api/236/15872)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -42,7 +42,7 @@
     - `Namespace` 命名空间，云服务器监控的命名空间为 `QCE/POSTGRES`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-    - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+    - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
     - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
       - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以 **实例ID** 展示实例列表。此外，可以选择 `As DBInstanceName`数据库名称, `PrivateIpAddresses`内网ip, `PublicIpAddresses`公网ip。
       - 实例列表的获取可参见 [云数据库PostgreSQL查询实例列表接口文档](https://cloud.tencent.com/document/api/409/16773)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -59,7 +59,7 @@
     - `Namespace` 命名空间，例如 `QCE/CMONGO`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-    - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+    - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
     - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
       - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以 **实例id** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称。
       - 实例列表的获取可参见 [mongodb列表接口文档](https://cloud.tencent.com/document/api/240/38568)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -77,7 +77,7 @@
     - `Namespace` 命名空间，例如 `QCE/REDIS_MEM`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-    - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+    - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
     - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
       - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以 **实例id** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称。
       - 实例列表的获取可参见 [Redis实例列表接口文档](https://cloud.tencent.com/document/api/239/20018)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -95,7 +95,7 @@
     - `Namespace` 命名空间，例如 `QCE/CYNOSDB_MYSQL`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-    - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+    - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
     - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
       - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以 **实例ID** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称。
       - 实例列表的获取可参见 [云数据库 CYNOSDB(CYNOSDB_MYSQL)列表接口文档](https://cloud.tencent.com/product/cynosdb)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -113,7 +113,7 @@
   - `Namespace` 命名空间，例如 `QCE/TCAPLUS`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-  - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+  - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
   - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以 **实例ID** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称。
     - 实例列表的获取可参见 [云数据库 TcaplusDB(TCAPLUS)列表接口文档](https://cloud.tencent.com/document/api/1003/48334)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -130,7 +130,7 @@
   - `Namespace` 命名空间，例如 `QCE/SQLSERVER`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-  - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+  - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
   - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以 **实例ID** 展示实例列表。此外，可以选择 `As Name` 实例名称。
     - 实例列表的获取可参见 [云数据库sqlserver(SQLSERVER)列表接口文档](https://cloud.tencent.com/document/api/238/19969)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -148,7 +148,7 @@
     - `Namespace` 命名空间，例如 `QCE/CDN`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-    - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+    - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
     - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
       - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As Domain`，以 **域名** 展示实例列表。此外，可以选择 `As ProjectId` 项目id。
       - 域名列表的获取可参见 [CDN域名列表接口文档](https://cloud.tencent.com/document/api/228/41118)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -163,7 +163,7 @@
     - `Namespace` 命名空间，例如 `QCE/BWP`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-    - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+    - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
     - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
       - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为`As BandwidthPackageId`，以 **带宽包id** 展示实例列表。此外，可以选择 `As BandwidthPackageName` 名称。
       - 域名列表的获取可参见 [BWP域名列表接口文档](https://cloud.tencent.com/document/api/215/19209)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -180,7 +180,7 @@
     - `Namespace` 命名空间，例如 `QCE/CKAFKA`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-    - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+    - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
     - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
       - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以 **实例id** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称。
       - 实例列表的获取可参见 [ckafka列表接口文档](https://cloud.tencent.com/document/api/597/40835)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 10`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -198,7 +198,7 @@
     - `Namespace` 命名空间，例如 `QCE/LB_PUBLIC`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-    - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+    - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
     - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
       - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As LoadBalancerId`，以 **实例ID** 展示实例列表。此外，可以选择 `As LoadBalancerName` 实例名称、`As LoadBalancerVips` 网络ip。
       - 实例列表的获取可参见 [负载均衡实例列表接口文档](https://cloud.tencent.com/document/api/214/30685)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -218,7 +218,7 @@
     - `Namespace` 命名空间，例如 `QCE/LB`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-    - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+    - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
     - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
       - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As AddressId`，以 **实例地址id** 展示实例列表。此外，可以选择 `As AddressName`地址名称和`As AddressIp` 地址IP。
       - 实例列表的获取可参见 [lb列表接口文档](https://cloud.tencent.com/document/api/215/16702)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -235,7 +235,7 @@
     - `Namespace` 命名空间，例如 `QCE/CFS`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-    - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+    - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
     - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
       - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As FileSystemId`，以 **文件系统id** 展示实例列表。此外，可以选择 `As FsName` 文件系统名称。
       - 实例列表的获取可参见 [CFS列表接口文档](https://cloud.tencent.com/document/api/582/38170)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -252,7 +252,7 @@
     - `Namespace` 命名空间，例如 `QCE/SCF_V2`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-    - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+    - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
     - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
       - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As FunctionId`，以 **函数id** 展示实例列表。此外，可以选择 `As FunctionName` 函数名称。
       - 实例列表的获取可参见 [ SCF 列表接口文档](https://cloud.tencent.com/document/api/583/18582)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -269,7 +269,7 @@
  - `Namespace` 命名空间，例如 `QCE/DCX`。
  - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
  - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
- - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+ - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
  - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
    - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As DirectConnectTunnelId`，以 **通道ID** 展示实例列表。此外，可以选择 `As DirectConnectTunnelName` 通道名称。
    - 实例列表的获取可参见 [专线接入-专用通道(DCX)列表接口文档](https://cloud.tencent.com/document/api/216/19819)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -287,7 +287,7 @@
   - `Namespace` 命名空间，例如 `QCE/DC`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-  - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+  - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
   - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As DirectConnectId`，以 **专线ID** 展示实例列表。此外，可以选择 `As DirectConnectName` 专线名称。
     - 实例列表的获取可参见 [专线接入-物理专线(DC)列表接口文档](https://cloud.tencent.com/document/api/216/34826)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -304,7 +304,7 @@
   - `Namespace` 命名空间，例如 `QCE/VPNGW`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-  - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+  - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
   - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As VpnGatewayId`，以 **VPN网关ID** 展示实例列表。此外，可以选择 `As VpnGatewayName` VPN网关名称。
     - 实例列表的获取可参见 [私有网络-VPN 网关(VPNGW)列表接口文档](https://cloud.tencent.com/document/api/215/17514)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -322,7 +322,7 @@
   - `Namespace` 命名空间，例如 `QCE/DCG`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-  - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+  - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
   - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As DirectConnectGatewayId`，以 **专线网关ID** 展示实例列表。此外，可以选择 `As DirectConnectGatewayName` 专线网关名称。
     - 实例列表的获取可参见 [私有网络-专线网关(DCG)列表接口文档](https://cloud.tencent.com/document/api/215/30644)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -340,7 +340,7 @@
     - `Namespace` 命名空间，例如 `QCE/CDN_LOG_DATA`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-    - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+    - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
     - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
       - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As Domain`，以 **域名** 展示实例列表。此外，可以选择 `As ProjectId` 。
       - 实例列表的获取可参见 [省份域名(CDN_LOG_DATA)列表接口文档](https://cloud.tencent.com/document/api/228/41118)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -361,7 +361,7 @@
     - `Namespace` 命名空间，例如 `QCE/APIGATEWAY`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-    - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+    - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
     - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
       - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As ServiceId`，以 **协议端口 ID** 展示实例列表。此外，可以选择 `As ServiceName` 。
       - 实例列表的获取可参见 [API 网关(APIGATEWAY)列表接口文档](https://cloud.tencent.com/document/api/628/45198)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -381,7 +381,7 @@
   - `Namespace` 命名空间，例如 `QCE/BLOCK_STORAGE`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-  - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+  - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
   - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As DiskId`，以 **云硬盘ID** 展示实例列表。此外，可以选择 `As DiskName` 云硬盘名称。
     - 实例列表的获取可参见 [云硬盘(BLOCK_STORAGE)列表接口文档](https://cloud.tencent.com/document/api/362/16315)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -399,7 +399,7 @@
   - `Namespace` 命名空间，例如 `QCE/CES`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-  - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+  - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
   - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以 **实例ID** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称。
     - 实例列表的获取可参见 [Elasticsearch指标(CES)列表接口文档](https://cloud.tencent.com/document/api/845/30631)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -417,7 +417,7 @@
   - `Namespace` 命名空间，例如 `QCE/CMQ`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-  - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+  - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
   - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As QueueName`，以 **队列名称** 展示实例列表。此外，可以选择 `As QueueId` 队列ID。
     - 实例列表的获取可参见 [消息队列CMQ(队列服务监控CMQ)列表接口文档](https://cloud.tencent.com/document/api/406/42624)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。
@@ -435,7 +435,7 @@
   - `Namespace` 命名空间，例如 `QCE/CMQTOPIC`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
-  - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
+  - `Period` 监控统计粒度，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计粒度。
   - `Instance` 实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As TopicName`，以 **主题名称** 展示实例列表。此外，可以选择 `As TopicId` 主题ID。
     - 实例列表的获取可参见 [消息队列CMQTOPIC(主题订阅监控)列表接口文档](https://cloud.tencent.com/document/api/406/42637)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参见接口文档，配置相应参数。

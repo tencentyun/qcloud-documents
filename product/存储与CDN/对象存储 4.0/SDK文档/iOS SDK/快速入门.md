@@ -157,7 +157,7 @@ COS 服务实例 `QCloudCOSXMLService` 跟 `QCloudCOSTransferMangerService` 建�
 
 - (void) fenceQueue:(QCloudCredentailFenceQueue * )queue requestCreatorWithContinue:(QCloudCredentailFenceQueueContinue)continueBlock
 {
-    //这里同步从后台服务器获取临时密钥
+    //这里同步从后台服务器获取临时密钥，强烈建议将获取临时密钥的逻辑放在这里，最大程度上保证密钥的可用性
     //...
 
     QCloudCredential* credential = [QCloudCredential new];

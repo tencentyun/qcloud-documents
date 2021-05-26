@@ -36,8 +36,8 @@ service grafana-server restart
 1. 在`/var/lib/grafana/plugins/`插件目录下安装 CLS 对接 Grafana 插件。
 ```
 cd /var/lib/grafana/plugins/
-wget https://github.com/TencentCloud/cls-grafana-datasource/releases/latest/download/cls-grafana-datasource.zip
-unzip cls-grafana-datasource.zip
+wget https://github.com/TencentCloud/cls-grafana-datasource/releases/latest/download/tencent-cls-grafana-datasource.zip
+unzip tencent-cls-grafana-datasource
 ```
 >? 
 > - 如果您的云服务器非 CentOS 系统，请先确认 Grafana 的插件目录位置，再进入该插件目录进行安装。

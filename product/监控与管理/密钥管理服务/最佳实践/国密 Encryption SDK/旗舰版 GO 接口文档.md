@@ -23,7 +23,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 | KmsServiceError      | KMS 服务未开通        |
 | UserEditionError     | KMS 未升级为旗舰版    |
 
-## 初始化SDK接口
+## 初始化 SDK 接口
 
 ### InitSdk
 - 功能描述：检验用户是否已开通 KMS 旗舰版服务。
@@ -56,11 +56,12 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 <td>云账号 API 密钥 Key 值</td>
 </tr>
 <tr>
-<td>string</td>
+<td>domainName</td>
 <td>是</td>
-<td>char *</td>			
+<td>string</td>			
 <td>域名信息字符串</td>
 </tr>
+
 </tbody></table>
 
 - 返回值：接口返回 EncryptSDKError 类型结构体。
@@ -72,7 +73,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 > - 需注意 SecretID 和 SecretKey 的权限控制：建议使用子账号，根据业务需要进行接口授权的方式管控风险。
 > - 需注意 domainName 的设置：如果domainName入参为""，则从环境变量TENCENT_SDK_DOMAIN中读取值，反之，则以入参为准。
 
-## KMS加密方式的接口说明
+## KMS 加密方式的接口说明
 
 ### NewMasterKey
 
@@ -312,14 +313,14 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 
 | 枚举值                       | 数值 | 说明                            |
 | ---------------------------- | ---- | ------------------------------- |
-| C.SM4_CBC_128_WITH_SIGNATURE | 1    | 使用 SM3 HAC 签名的 SM4 CBC模式     |
-| C.SM4_CBC_128                | 2    | 不使用签名的SM4 CBC模式加密     |
-| C.SM4_GCM_128_WITH_SIGNATURE | 3    | 使用 SM3 HAC 签名的 SM4 GCM 模式     |
-| C.SM4_GCM_128                | 4    | 不使用签名的 SM4 GCM 模式加密算法 |
-| C.SM4_CTR_128_WITH_SIGNATURE | 5    | 使用 SM3HAC 签名的 SM4 CTR 模式     |
-| C.SM4_CTR_128                | 6    | 不使用签名的 SM4 CTR 模式         |
-| C.SM4_ECB_128_WITH_SIGNATURE | 7    | 使用 SM3 HAC 签名的 SM4 ECB 模式     |
-| C.SM4_ECB_128                | 8    | 不使用签名的 SM4 ECB 模式         |
+| SM4_CBC_128_WITH_SIGNATURE | 1    | 使用 SM3 HAC 签名的 SM4 CBC模式     |
+| SM4_CBC_128                | 2    | 不使用签名的SM4 CBC模式加密     |
+| SM4_GCM_128_WITH_SIGNATURE | 3    | 使用 SM3 HAC 签名的 SM4 GCM 模式     |
+| SM4_GCM_128                | 4    | 不使用签名的 SM4 GCM 模式加密算法 |
+| SM4_CTR_128_WITH_SIGNATURE | 5    | 使用 SM3HAC 签名的 SM4 CTR 模式     |
+| SM4_CTR_128                | 6    | 不使用签名的 SM4 CTR 模式         |
+| SM4_ECB_128_WITH_SIGNATURE | 7    | 使用 SM3 HAC 签名的 SM4 ECB 模式     |
+| SM4_ECB_128                | 8    | 不使用签名的 SM4 ECB 模式         |
 
 <span id="test6"></span>
 ### C.EncryptedDataKey 结构体说明

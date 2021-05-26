@@ -153,14 +153,14 @@ TransTpl 节点 Video 的具体数据描述如下：
 | Fps                        | Response.TemplateList.<br/>TransTpl.Video | 帧率                  | String | 否   | 视频原<br/>始帧率 | <li>值范围：(0，60]<br><li>单位：fps<br><li>帧率超过60时，设置为60<br/>用户可以设置 fps，如果不设置，那么播放速度按照<br/>原来的时间戳。这里设置 fps 为动图的播放帧率。 |
 | Remove                     | Response.TemplateList.<br/>TransTpl.Video | 是否删<br/>除视频流        | String | 否   | false        | true、false                                               |
 | Profile                    | Response.TemplateList.<br/>TransTpl.Video | 编码级别              | String | 否   | high         | <li>支持 baseline、main、high<br/><li>baseline：适合移动设备；<br/><li>main：适合标准分辨率设备；<br/><li>high：适合高分辨率设备;<br/><li>仅H.264支持此参数。 |
-| Bitrate                    | Response.TemplateList.<br/>TransTpl.Video | 视频输出<br/>文件的码率    | String | 否   |  无           | <li>值范围：[10，50000]<br/><li>单位：Kbps                     |
-| Crf                        | Response.TemplateList.<br/>TransTpl.Video | 码率-质量<br/>控制因子     | String | 否   | 26           | <li>值范围：[0，51]<br/><li>如果设置了 Crf，则 Bitrate 的设置失效 |
-| Gop                        | Response.TemplateList.<br/>TransTpl.Video | 关键帧间<br/>最大帧数      | String | 否   |  无            | 值范围：[0，100000]                                          |
+| Bitrate                    | Response.TemplateList.<br/>TransTpl.Video | 视频输出<br/>文件的码率    | String | 否   |  视频原始码率          | <li>值范围：[10，50000]<br/><li>单位：Kbps                     |
+| Crf                        | Response.TemplateList.<br/>TransTpl.Video | 码率-质量<br/>控制因子     | String | 否   | 空           | <li>值范围：[0，51]<br/><li>如果设置了 Crf，则 Bitrate 的设置失效<br/><li>默认为不设置 Crf |
+| Gop                        | Response.TemplateList.<br/>TransTpl.Video | 关键帧间<br/>最大帧数      | String | 否   |  空            | 值范围：<li>[0，100000] <br/><li>默认不设置 Gop                                       |
 | Preset                     | Response.TemplateList.<br/>TransTpl.Video | 视频算法<br/>器预置        | String | 否   | medium       | <li>仅H.264支持该参数<br/><li>取值 veryfast、fast、medium、slow、slower |
-| Bufsize                    | Response.TemplateList.<br/>TransTpl.Video | 缓冲区<br/>大小            | String | 否   | 0            | <li>值范围：[1000，128000]<br/><li>单位：Kb<br/><li>默认值为0表示不使用 buf |
-| Maxrate                    | Response.TemplateList.<br/>TransTpl.Video | 视频码率<br/>峰值          | String | 否   | 0            | <li>值范围：[10，50000]<br/><li>单位：Kbps<br/><li>默认值0表示不使用此参数 |
+| Bufsize                    | Response.TemplateList.<br/>TransTpl.Video | 缓冲区<br/>大小            | String | 否   | 0            | <li>值范围：[1000，128000]<br/><li>单位：Kb<br/><li>默认值为0，表示不使用缓冲区 |
+| Maxrate                    | Response.TemplateList.<br/>TransTpl.Video | 视频码率<br/>峰值          | String | 否   | 0            | <li>值范围：[10，50000]<br/><li>单位：Kbps<br/><li>默认值为0，表示不使用此参数 |
 | HlsTsTime                  | Response.TemplateList.<br/>TransTpl.Video | hls 分片时间          | String | 否   | 5            | <li>值范围：(0 视频时长] <br/> <li>单位为秒 |
-| Pixfmt                     | Response.TemplateList.<br/>TransTpl.Video | 视频颜色格式          | String | 否   | 无           | 支持 yuv420p、yuv422p、yuv444p、yuvj420p、yuvj422p、yuvj444p |
+| Pixfmt                     | Response.TemplateList.<br/>TransTpl.Video | 视频颜色格式          | String | 否   |     yuv420p       | 支持 yuv420p、yuv422p、yuv444p、yuvj420p、yuvj422p、yuvj444p |
 | LongShortMode              | Response.TemplateList.<br/>TransTpl.Video | 长短边自适应          | String | 否   | false        | true、false
 
 TransTpl 节点 TimeInterval 的具体数据描述如下：
@@ -184,7 +184,7 @@ TransTpl 节点 TransConfig 的具体数据描述如下：
 
 | 节点名称（关键字）    | 父节点              | 描述             | 类型   | 必选 | 默认值 | 限制                                                         |
 | --------------------- | ------------------- | ---------------- | ------ | ---- | ------ | ------------------------------------------------------------ |
-| AdjDarMethod          | Response.TemplateList.<br/>TransTpl.TransConfig | 分辨率调整方式   | String | 否   | none   | <li>取值 scale、crop、pad、none。<br/><li>当输出视频的宽高比与原视频不等时，需要此参数进行执行调整方式。 |
+| AdjDarMethod          | Response.TemplateList.<br/>TransTpl.TransConfig | 分辨率调整方式   | String | 否   | none   | <li>取值 scale、crop、pad、none。<br/><li>当输出视频的宽高比与原视频不等时，根据此参数做分辨率的相应调整 |
 | IsCheckReso           | Response.TemplateList.<br/>TransTpl.TransConfig | 是否检查分辨率   | String | 否   | false  | <li>true、false <br/><li>当为 false 时，按照配置参数转码 |
 | ResoAdjMethod         | Response.TemplateList.<br/>TransTpl.TransConfig | 分辨率调整方式   | String | 否   | 0      | <li>取值0、1；0 表示使用原视频分辨率；1表示返回转码失败<br/><li>当 IsCheckReso 为 true 时生效 |
 | IsCheckVideoBitrate   | Response.TemplateList.<br/>TransTpl.TransConfig | 是否检查视频码率 | String | 否   | false  | <li>true、false <br/><li>当为 false 时，按照配置参数转码 |

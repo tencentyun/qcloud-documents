@@ -1,5 +1,4 @@
 ### 出现 Yarn nodemanager 节点不健康问题怎么处理？
-
 #### 问题现象
 Core 节点磁盘利用率超过90%，nodemanager 会置为不健康状态（Unhealthy Nodes）。
 

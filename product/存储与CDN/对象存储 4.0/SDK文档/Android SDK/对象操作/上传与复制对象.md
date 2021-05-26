@@ -320,6 +320,47 @@ cosXmlService.putObjectAsync(putObjectRequest, new CosXmlResultListener() {
 >- 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferUploadObject.java) 查看。
 >- 上传之后，您可以用同样的 Key 生成文件下载链接，具体使用方法见 **生成预签名链接** 文档。但注意如果您的文件是私有读权限，那么下载链接只有一定的有效期。
 
+### 设置低优先级任务
+
+调用 setPriorityLow() 后，该任务会变成一个低优先级任务（例如后台上传日志），防止出现因线程占用导致阻塞其他上传任务的情况。
+
+
+```
+PutObjectRequest putObjectRequest= new PutObjectRequest(bucket, key, filePath);
+putObjectRequest.setPriorityLow(); // 设置为低优先级上传任务
+final COSXMLUploadTask uploadTask = transferManager.upload(putObjectRequest, null);
+uploadTask.setCosXmlResultListener(new CosXmlResultListener() {
+      @Override
+      public void onSuccess(CosXmlRequest request, CosXmlResult result) {}
+			
+
+     @Override
+      public void onFail(CosXmlRequest request, CosXmlClientException clientException, CosXmlServiceException serviceException) {}
+});
+```
+
+
+### 设置等待超时
+
+startTimeoutTimer() 方法会启动一个定时器，如果超过这个指定时间，任务还没开始执行，则会取消这个任务，并回调 onFailed 方法。
+
+
+```
+PutObjectRequest putObjectRequest= new PutObjectRequest(bucket, key, filePath);
+final COSXMLUploadTask uploadTask = transferManager.upload(putObjectRequest, null);
+uploadTask.startTimeoutTimer(1000); // 1s 等待超时
+uploadTask.setCosXmlResultListener(new CosXmlResultListener() {
+      @Override
+      public void onSuccess(CosXmlRequest request, CosXmlResult result) {}
+			
+
+     @Override
+      public void onFail(CosXmlRequest request, CosXmlClientException clientException, CosXmlServiceException serviceException) {}
+});
+```
+
+
+
 ### 复制对象
 
 高级接口封装了简单复制、分块复制接口的异步请求，并支持暂停、恢复以及取消复制请求。

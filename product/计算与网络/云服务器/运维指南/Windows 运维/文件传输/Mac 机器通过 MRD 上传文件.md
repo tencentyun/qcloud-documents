@@ -2,7 +2,7 @@
 Microsoft Remote Desktop（以下简称 MRD） 是微软推出的适用于 Mac 机器的远程桌面应用程序， 本文档介绍 Mac 机器通过 MRD 快速上传文件至 Windows Server 2012 R2 操作系统的腾讯云云服务器（CVM）。 
 
 ## 前提条件
-- 本地计算机已下载并安装 MRD，您可前往 [Microsoft Remote Desktop for Mac](https://www.techspot.com/downloads/4698-microsoft-remote-desktop-for-mac.html) 进行下载安装。
+- 本地计算机已下载并安装 MRD。本文以 Microsoft Remote Desktop for Mac 为例。微软官方已于2017年停止提供 Remote Desktop 客户端的下载链接，转由其子公司 HockeyApp 进行 Beta 版本的发布。您可前往 [Microsoft Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac) 下载 Beta 版本。
 - MRD 支持 Mac OS 10.10 及以上版本，请确保使用支持的操作系统。
 - 已购买 Windows 云服务器。
 

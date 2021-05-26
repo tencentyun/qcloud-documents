@@ -20,7 +20,7 @@ Windows
 
 ## 操作步骤
 <dx-tabs>
-::: 使用密码登录
+::: 使用密码登录[](id:passwordLogin)
 1. 下载 Windows 远程登录软件，即 PuTTY。
 PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 2. 双击【putty.exe】，打开 PuTTY 客户端。
@@ -39,7 +39,7 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 ![](https://main.qcloudimg.com/raw/9e7ddc631de2a27bfd35f9225de85506.png)
 登录完成后，命令提示符左侧将显示当前登录云服务器的信息。
 :::
-::: 使用密钥登录
+::: 使用密钥登录[](id:keyLogin)
 1. 下载 Windows 远程登录软件，即 PuTTy。
 请分别下载 putty.exe 和 puttygen.exe 软件，PuTTy 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)。
 2. 双击【puttygen.exe】，打开 PuTTy Key 客户端。

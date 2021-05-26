@@ -8,6 +8,7 @@
 ``` Java
 void onTEBError(int code, String msg)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -21,6 +22,7 @@ void onTEBError(int code, String msg)
 ``` Java
 void onTEBWarning(int code, String msg)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -37,6 +39,7 @@ void onTEBWarning(int code, String msg)
 ``` Java
 void onTEBInit()
 ```
+
 #### 介绍
 收到该回调后表示白板已处于可正常工作状态（此时白板为空白白板，历史数据尚未拉取到） 
 
@@ -52,6 +55,7 @@ void onTEBHistroyDataSyncCompleted()
 ``` Java
 void onTEBSyncData(String data)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -67,6 +71,7 @@ void onTEBSyncData(String data)
 ``` Java
 void onTEBUndoStatusChanged(boolean canUndo)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -79,6 +84,7 @@ void onTEBUndoStatusChanged(boolean canUndo)
 ``` Java
 void onTEBRedoStatusChanged(boolean canRedo)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -94,6 +100,7 @@ void onTEBRedoStatusChanged(boolean canRedo)
 ``` Java
 void onTEBImageStatusChanged(final String boardId, final String url, int status)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -108,6 +115,7 @@ void onTEBImageStatusChanged(final String boardId, final String url, int status)
 ``` Java
 void onTEBSetBackgroundImage(final String url)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -123,6 +131,7 @@ void onTEBSetBackgroundImage(final String url)
 ``` Java
 void onTEBAddImageElement(final String url)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -138,19 +147,31 @@ void onTEBAddImageElement(final String url)
 ``` Java
 void onTEBAddElement(final String id, final String url)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| id | final String |  |
-| url | final String |  |
+| id | final String | 元素的 id |
+| url | final String | 调用 AddElement 时传入的 URL  |
 
+
+### onTEBDeleteElement
+删除元素回调 
+``` Java
+void onTEBDeleteElement(final List< String > id)
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| id | final List< String > | 元素 id  |
 
 ### onTEBBackgroundH5StatusChanged
 设置白板背景 H5 状态改变回调 
 ``` Java
 void onTEBBackgroundH5StatusChanged(final String boardId, final String url, final int status)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -168,6 +189,7 @@ void onTEBBackgroundH5StatusChanged(final String boardId, final String url, fina
 ``` Java
 void onTEBAddBoard(final List< String > boardList, final String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -181,6 +203,7 @@ void onTEBAddBoard(final List< String > boardList, final String fileId)
 ``` Java
 void onTEBDeleteBoard(final List< String > boardList, final String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -194,6 +217,7 @@ void onTEBDeleteBoard(final List< String > boardList, final String fileId)
 ``` Java
 void onTEBGotoBoard(final String boardId, final String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -207,6 +231,7 @@ void onTEBGotoBoard(final String boardId, final String fileId)
 ``` Java
 void onTEBGotoStep(int currentStep, int totalStep)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -220,6 +245,7 @@ void onTEBGotoStep(int currentStep, int totalStep)
 ``` Java
 void onTEBRectSelected()
 ```
+
 #### 警告
 只有框选中涂鸦或图片元素后触发回调 
 
@@ -238,6 +264,7 @@ void onTEBRefresh()
 ``` Java
 void onTEBAddTranscodeFile(String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -253,6 +280,7 @@ void onTEBAddTranscodeFile(String fileId)
 ``` Java
 void onTEBDeleteFile(String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -265,6 +293,7 @@ void onTEBDeleteFile(String fileId)
 ``` Java
 void onTEBSwitchFile(String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -277,6 +306,7 @@ void onTEBSwitchFile(String fileId)
 ``` Java
 void onTEBFileUploadProgress(final String path, int currentBytes, int totalBytes, int uploadSpeed, float percent)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -293,6 +323,7 @@ void onTEBFileUploadProgress(final String path, int currentBytes, int totalBytes
 ``` Java
 void onTEBFileUploadStatus(final String path, int status, int errorCode, final String errorMsg)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -308,6 +339,7 @@ void onTEBFileUploadStatus(final String path, int status, int errorCode, final S
 ``` Java
 void onTEBFileTranscodeProgress(final String file, final String errorCode, final String errorMsg, final TEduBoardTranscodeFileResult result)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -323,6 +355,7 @@ H5 文件状态回调
 ``` Java
 void onTEBH5FileStatusChanged(String fileId, int status)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -361,11 +394,26 @@ void onTEBVideoStatusChanged(String fileId, int status, float progress, float du
 | duration | float | 总时长（秒）（仅支持 mp4 格式）  |
 
 
+### onTEBAudioStatusChanged
+音频文件状态回调 
+``` Java
+void onTEBAudioStatusChanged(String elementId, int status, float progress, float duration)
+```
+
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | String | 元素 ID  |
+| status | int | 文件状态  |
+| progress | float | 当前进度（秒）  |
+| duration | float | 总时长（秒）  |
+
 ### onTEBSnapshot
 白板快照 
 ``` Java
 void onTEBSnapshot(final String path, int code, final String msg)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -380,6 +428,7 @@ ppt 状态改变回调
 ``` Java
 void onTEBH5PPTStatusChanged(final int statusCode, final String fid, final String describeMsg)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -389,4 +438,18 @@ void onTEBH5PPTStatusChanged(final int statusCode, final String fid, final Strin
 | describeMsg | final String | 事件描述信息  |
 
 
+### onTEBTextComponentStatusChange
+文本组件状态回调 
+``` Java
+void onTEBTextComponentStatusChange(String status, String id, String value, int left, int top)
+```
 
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| status | String | 文本组件状态（focus：获得焦点，blur：失去焦点）  |
+| id | String | 文本组件 id  |
+| value | String | 文本内容  |
+| left | int | 文本组件水平偏移  |
+| top | int | 文本组件垂直偏移  |

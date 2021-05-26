@@ -134,14 +134,14 @@ Python3 语言 SDK，底层使用 C 语言实现，上层通过 ctypes 封装后
 
 | 枚举值                       | 数值 | 说明                            |
 | ---------------------------- | ---- | ------------------------------- |
-| C.SM4_CBC_128_WITH_SIGNATURE | 1    | 使用 SM3HAC 签名的 SM4 CBC 模式     |
-| C.SM4_CBC_128                | 2    | 不使用签名的 SM4 CBC 模式加密     |
-| C.SM4_GCM_128_WITH_SIGNATURE | 3    | 使用 SM3HAC 签名的 SM4 GCM 模式     |
-| C.SM4_GCM_128                | 4    | 不使用签名的 SM4 GCM 模式加密算法 |
-| C.SM4_CTR_128_WITH_SIGNATURE | 5    | 使用 SM3HAC 签名的 SM4 CTR 模式     |
-| C.SM4_CTR_128                | 6    | 不使用签名的 SM4 CTR 模式         |
-| C.SM4_ECB_128_WITH_SIGNATURE | 7    | 使用 SM3HAC 签名的 SM4 ECB 模式     |
-| C.SM4_ECB_128                | 8    | 不使用签名的 SM4 ECB 模式         |
+| SM4_CBC_128_WITH_SIGNATURE | 1    | 使用 SM3HAC 签名的 SM4 CBC 模式     |
+| SM4_CBC_128                | 2    | 不使用签名的 SM4 CBC 模式加密     |
+| SM4_GCM_128_WITH_SIGNATURE | 3    | 使用 SM3HAC 签名的 SM4 GCM 模式     |
+| SM4_GCM_128                | 4    | 不使用签名的 SM4 GCM 模式加密算法 |
+| SM4_CTR_128_WITH_SIGNATURE | 5    | 使用 SM3HAC 签名的 SM4 CTR 模式     |
+| SM4_CTR_128                | 6    | 不使用签名的 SM4 CTR 模式         |
+| SM4_ECB_128_WITH_SIGNATURE | 7    | 使用 SM3HAC 签名的 SM4 ECB 模式     |
+| SM4_ECB_128                | 8    | 不使用签名的 SM4 ECB 模式         |
 
 ### KMS加密方式接口调用示例
 

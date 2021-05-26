@@ -36,7 +36,7 @@ Hive 中集成了 Thrift 服务。Thrift 是 Facebook 开发的一个软件框�
 [hadoop@172 hive]$ su
 [root@172 hive]# pip install pyhs2
 ```
-安装完成后切换回 Hadoop 用户。然后在`/usr/local/service/hive/`目录下新建一个 Python 文件 hivetest.py，并且添加以下代码：
+安装完成后切换回 Hadoop 用户。然后在 `/usr/local/service/hive/` 目录下新建一个 Python 文件 hivetest.py，并且添加以下代码：
 ```
 #!/usr/bin/env python
 
