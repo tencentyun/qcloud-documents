@@ -166,7 +166,7 @@ Ipset ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
 
 以下以接入 HTTP 网络访问为例进行说明：
 - 使用 **tcpdump** 进行抓包。
->!常用的移动端 HTTP/HTTPS 抓包工具（例如 Charles/Fiddler），是通过 HTTP 代理方式进行抓包，不适用于抓包验证 HTTPDNS 服务是否生效，相关说明详见 [本地使用HTTP代理](#local)。
+>!常用的移动端 HTTP/HTTPS 抓包工具（例如 Charles/Fiddler），是通过 HTTP 代理方式进行抓包，不适用于抓包验证 HTTPDNS 服务是否生效，相关说明请参见 [本地使用 HTTP 代理](#local)。
 >
   - Root 机器可以通过 tcpdump 命令抓包。
   - 非 Root 机器上，系统可能内置有相关的调试工具，可以获取抓包结果（不同机器具体的启用方式不同）。
@@ -174,7 +174,7 @@ Ipset ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
   - 对于 HTTP 请求，我们可以观察到明文信息，通过对照日志和具体的抓包记录，可以确认最终发起请求时使用的 IP 是否和 SDK 返回的一致。如下图所示： 
 ![](https://main.qcloudimg.com/raw/63464903e3861007c1c9cb2130781701.png)
 从抓包上看，`xw.qq.com` 的请求最终发往了 IP 为 `183.3.226.35` 的服务器。
-  - 对于 HTTPS 请求，TLS 的握手包实际上是明文包，在设置了 SNI 扩展（详见 [HTTPS 兼容](#HTTPS)）情况下，通过对照日志和具体的抓包记录，可以确认最终发起请求时使用的 IP 是否和 SDK 返回的一致。如下图所示：
+  - 对于 HTTPS 请求，TLS 的握手包实际上是明文包，在设置了 SNI 扩展（请参见 [HTTPS 兼容](#HTTPS)）情况下，通过对照日志和具体的抓包记录，可以确认最终发起请求时使用的 IP 是否和 SDK 返回的一致。如下图所示：
 ![](https://main.qcloudimg.com/raw/544370c87fb2d09029699fb1f0db30d9.png)
     从抓包上看，`xw.qq.com` 的请求最终发往了 IP 为 `183.3.226.35` 的服务器。
 
