@@ -277,7 +277,7 @@ Content-Type: application/xml
 
 
 <Request>
-  <Tag>Concat<Tag>
+  <Tag>Concat/<Tag>
   <Input>
     <Object>test.mp4</Object>
   </Input>
