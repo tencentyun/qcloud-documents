@@ -47,7 +47,33 @@ sar -n DEV 1
 </tbody></table>
 
 
-## 性能指标[](id:Performance)
+## 测试场景及性能指标
+
+### 测试场景[](id:multiSceneTest)
+<table>
+<tr>
+<th width="13%">测试场景</th>
+<th width="75%">客户端运行命令</th>
+<th>SAR 监控指标</th>
+</tr>
+<tr>
+<td>UDP 64</td>
+<td><code>netperf -t UDP_STREAM -H &lt;server ip&gt; -l 10000 -- -m 64 -R 1 &</code></td>
+<td>PPS</td>
+</tr>
+<tr>
+<td>TCP 1500</td>
+<td><code>netperf -t TCP_STREAM -H &lt;server ip&gt; -l 10000 -- -m 1500 -R 1 &</code></td>
+<td>带宽</td>
+</tr>
+<tr>
+<td>TCP RR</td>
+<td><code>netperf -t TCP_RR -H &lt;server ip&gt; -l 10000 -- -r 32,128 -R 1 &</code></td>
+<td>PPS</td>
+</tr>
+</table>
+
+### 性能指标[](id:Performance)
 <table>
 <thead>
 <tr>
@@ -72,7 +98,9 @@ sar -n DEV 1
 ## 操作步骤
 ### 准备测试环境
 1. 准备3台测试机器，配置如下：
-2. 依次登录测试机器，并执行以下命令。如何登录云服务器，请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
+  - 镜像：
+  - 规格：
+2. 依次登录测试机器，并执行以下命令安装 netperf 工具。如何登录云服务器，请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 ```
 yum install -y sysstat wget tar automake make gcc 
 ```
@@ -102,7 +130,7 @@ netserver
 ![](https://main.qcloudimg.com/raw/79efcad3fa499fbebd2b82198c3877e3.png)
  - 若返回结果如下图所示，则说明已成功运行 netserver，请继续下一步操作。
 ![](https://main.qcloudimg.com/raw/4e137b8ec16b479066b74fa35618bab7.png)
-3. 在客户端中执行 [测试命令及监控指标](#multiSceneTest) 中提供的命令，不断增减 netperf 进程，直到客户端发包性能不再增加。
+3. 在客户端中执行 [测试场景](#multiSceneTest) 中提供的命令，不断增减 netperf 进程，直到客户端发包性能不再增加。
 >?需重复执行命令，且 server ip 需使用不同的服务端 IP。若一个进程无法达到最大性能，可执行 [测试辅助脚本](#auxiliaryScript) 批量发起进程。
 >
 4. 在客户端执行以下命令，观察客户端发包性能变化，取最大值。
@@ -112,7 +140,7 @@ sar -n DEV 1
 根据所得结果，参考 [性能指标](#Performance) 进行分析，即可测出云服务器高吞吐网络性能。
 
 ### 测试收包性能
-1. [](id:StepStepOne)分别在机器中执行以下命令，停止残余的 netperf 和 netserver 进程。
+1. [](id:StepOne)分别在机器中执行以下命令，停止残余的 netperf 和 netserver 进程。
 ```
 pkill netserver && pkill netperf
 ```
@@ -124,7 +152,7 @@ netserver
 ![](https://main.qcloudimg.com/raw/79efcad3fa499fbebd2b82198c3877e3.png)
  - 若返回结果如下图所示，则说明已成功运行 netserver，请继续下一步操作。
 ![](https://main.qcloudimg.com/raw/4e137b8ec16b479066b74fa35618bab7.png)
-3. 在客户端中执行 [测试命令及监控指标](#multiSceneTest) 中提供的命令，不断增减 netperf 进程，直到客户端发包性能不再增加。
+3. 在客户端中执行 [测试场景](#multiSceneTest) 中提供的命令，不断增减 netperf 进程，直到客户端发包性能不再增加。
 >?需重复执行命令，客户端各自发起 netperf。若一个进程无法达到最大性能，可执行 [测试辅助脚本](#auxiliaryScript) 批量发起进程。
 >
 4. 在服务端执行以下命令，观察服务端收包性能变化，取最大值。
@@ -134,29 +162,6 @@ sar -n DEV 1
 根据所得结果，参考 [性能指标](#Performance) 进行分析，即可测出云服务器高吞吐网络性能。
 
 ## 附录
-### 测试命令及监控指标[](id:multiSceneTest)
-<table>
-<tr>
-<th width="13%">测试场景</th>
-<th width="75%">客户端运行命令</th>
-<th>SAR 监控指标</th>
-</tr>
-<tr>
-<td>UDP 64</td>
-<td><code>netperf -t UDP_STREAM -H &lt;server ip&gt; -l 10000 -- -m 64 -R 1 &</code></td>
-<td>PPS</td>
-</tr>
-<tr>
-<td>TCP 1500</td>
-<td><code>netperf -t TCP_STREAM -H &lt;server ip&gt; -l 10000 -- -m 1500 -R 1 &</code></td>
-<td>带宽</td>
-</tr>
-<tr>
-<td>TCP RR</td>
-<td><code>netperf -t TCP_RR -H &lt;server ip&gt; -l 10000 -- -r 32,128 -R 1 &</code></td>
-<td>PPS</td>
-</tr>
-</table>
 
 ### 测试辅助脚本[](id:auxiliaryScript)
 执行该脚本，可快速发起多个 netperf 进程。
