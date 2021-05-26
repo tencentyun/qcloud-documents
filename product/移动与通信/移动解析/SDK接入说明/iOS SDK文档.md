@@ -277,9 +277,7 @@ if (result) {
 ```
 
 ## 5. 注意事项
-
 1. 如果客户端的业务是与 host 绑定的，例如绑定了 host 的 HTTP 服务或者是 cdn 的服务，那么在用 HTTPDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定下 HTTP 头的 host 字段。
-
  - 以 NSURLConnection 为例：
 ```
 NSURL *httpDnsURL = [NSURL URLWithString:@"使用解析结果ip拼接的URL"];
@@ -289,7 +287,6 @@ NSMutableURLRequest *mutableReq = [NSMutableURLRequest requestWithURL:httpDnsURL
 NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:mutableReq delegate:self];
 [connection start];
 ```
-
  - 以 NSURLSession 为例：  
  ```
 NSURL *httpDnsURL = [NSURL URLWithString:@"使用解析结果ip拼接的URL"];
