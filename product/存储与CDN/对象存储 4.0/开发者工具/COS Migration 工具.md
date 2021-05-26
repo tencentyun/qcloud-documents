@@ -102,7 +102,9 @@ entireFileMd5Attached=on
 daemonMode=off
 daemonModeInterVal=60
 executeTimeWindow=00:00,24:00
-encryptionType=sse-cos
+outputFinishedFileFolder=./result
+resume=false
+skipSamePath=false
 </pre>
 
 | 名称 | 描述 |默认值|
@@ -122,7 +124,9 @@ encryptionType=sse-cos
 | daemonMode|是否启用 daemon 模式：on 表示开启，off 表示关闭。daemon 表示程序会循环不停的去执行同步，每一轮同步的间隔由 daemonModeInterVal 参数设置|off|
 | daemonModeInterVal|表示每一轮同步结束后，多久进行下一轮同步，单位为秒 |60|
 | executeTimeWindow|执行时间窗口，时刻粒度为分钟，该参数定义迁移工具每天执行的时间段。例如：<br>参数 03:30,21:00，表示在凌晨 03:30 到晚上 21:00 之间执行任务，其他时间则会进入休眠状态，休眠态暂停迁移并会保留迁移进度, 直到下一个时间窗口自动继续执行|00:00,24:00|
-| encryptionType  |  表示使用 sse-cos 服务端加密    |     默认不填，需要服务端加密时填写       |
+| outputFinishedFileFolder  | 迁移成功的结果，按日期归档此目录，为空即不输出。格式每一行为：绝对路径\t文件大小\t最后修改时间，该目录需要存在。| ./result |
+| resume | 是否接着最后一次运行的结果，继续往下遍历源的文件列表 | false |
+| skipSamePath | 如果 COS 上已经有相同的文件名，是否直接跳过。默认不跳过，即覆盖原有文件。| false |
 
 #### 3.3 配置数据源信息
 根据`[migrateType]`的迁移类型配置相应的分节。例如`[migrateType]`的配置内容是`type=migrateLocal`, 则用户只需配置`[migrateLocal]`分节即可。
