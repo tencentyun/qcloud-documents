@@ -35,7 +35,7 @@
            .build();
    System.out.println(">> pulsar client created.");
    ```
-	- serviceUrl 即接入地址，可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】页面查看并复制
+	- serviceUrl 即接入地址，可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】页面查看并复制。
 	- listenerName 仅2.6.1版本集群需要填写，即 “custom:” 拼接路由ID（NetModel），路由ID可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】接入点页面查看并复制。
 	![](https://main.qcloudimg.com/raw/23c9244cc34e43501d118c43d20c9fb3.png)
 	- token 即角色的密钥，角色密钥可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】中复制。
