@@ -21,8 +21,10 @@ $ go get -u "github.com/apache/pulsar-client-go/pulsar"
 import "github.com/apache/pulsar-client-go/pulsar"
 ```
 
-3. 在创建 Go Client 的代码中，配置准备好的[路由 ID 和密钥](#前提条件)(2.7.1之后版本的集群可以无需复制路由ID)。
-- 2.7.1版本集群接入示例
+3. 在创建 Go Client 的代码中，配置准备好的 [路由 ID 和密钥](#前提条件)（2.7.1之后版本的集群可以无需复制路由 ID）。
+>?您可以点击以下页签，查看不同版本集群的接入示例。
+<dx-tabs>
+::: 2.7.1版本集群接入示例
 <dx-codeblock>
 :::  go
 client, err := pulsar.NewClient(pulsar.ClientOptions{
@@ -37,7 +39,8 @@ if err != nil {
 :::
 </dx-codeblock>
 
-- 2.6.1版本集群接入示例
+:::
+::: 2.6.1版本集群接入示例
 <dx-codeblock>
 :::  go
 client, err := pulsar.NewClient(pulsar.ClientOptions{
@@ -52,6 +55,10 @@ if err != nil {
 }
 :::
 </dx-codeblock>
+:::
+</dx-tabs>
+
+
   
 关于 Pulsar 社区版 Go SDK 各种功能的使用方式，请参考 [Pulsar官方文档](http://pulsar.apache.org/docs/en/client-libraries-go/)。
 
