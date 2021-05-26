@@ -5,7 +5,7 @@
 - LocalDNS 调度不准确
 
 HTTPDNS 的 Android SDK，主要提供了基于 HTTPDNS 服务的域名解析和缓存管理能力：
-- SDK 在进行域名解析时，优先通过 HTTPDNS 服务得到域名解析结果，极端情况下如果 HTTPDNS 服务不可用，则使用LocalDNS 解析结果。
+- SDK 在进行域名解析时，优先通过 HTTPDNS 服务得到域名解析结果，极端情况下如果 HTTPDNS 服务不可用，则使用 LocalDNS 解析结果。
 - HTTPDNS 服务返回的域名解析结果会携带相关的 TTL 信息，SDK 会使用该信息进行 HTTPDNS 解析结果的缓存管理。
 
 HTTPDNS 服务的详细介绍可以参见文章 [全局精确流量调度新思路-HTTPDNS 服务详解](https://cloud.tencent.com/developer/article/1035562)。
@@ -77,7 +77,7 @@ try {
 // 以下鉴权信息可在腾讯云控制台（https://console.cloud.tencent.com/httpdns/configure）开通服务后获取
 
 /**
- * 初始化HTTPDNS（默认为DES加密）：如果接入了 MSDK，建议初始化 MSDK 后再初始化 HTTPDNS
+ * 初始化 HTTPDNS（默认为 DES 加密）：如果接入了 MSDK，建议初始化 MSDK 后再初始化 HTTPDNS
  *
  * @param context 应用上下文，最好传入 ApplicationContext
  * @param appkey 业务 appkey，即 SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
@@ -154,7 +154,7 @@ Ipset ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
 >!由于 LocalDNS 存在缓存机制，模拟 LocalDNS 进行接入验证时，请尽量保证 LocalDNS 的缓存已经被清理，您可以通过重启机器，切换网络等方式，尽量清除 LocalDNS 的解析缓存；验证时，请注意对照启用 LocalDNS 和启用 HTTPDNS 的效果。
 >
 - 修改机器 Hosts 文件。
-  - LocalDNS 优先通过读取机器Hosts文件方式获取解析结果。
+  - LocalDNS 优先通过读取机器 Hosts 文件方式获取解析结果。
   - 通过修改 Hosts 文件，将对应域名指向错误的 IP，可以模拟 LocalDNS 劫持。
   - Root 机器可以直接修改机器 Hosts 文件。
 - 修改 DNS 服务器配置。
