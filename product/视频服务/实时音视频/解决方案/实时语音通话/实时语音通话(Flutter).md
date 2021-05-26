@@ -30,7 +30,6 @@
 <img src="https://main.qcloudimg.com/raw/31b265429e66a899acccb875a8c17ad6.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
-
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
@@ -51,34 +50,28 @@
 ::: iOS\s端
 1. 使用 XCode（11.0及以上的版本）打开源码目录下的 `/ios工程`。
 2. 编译并运行 Demo 工程即可。
-   :::
-   </dx-tabs>
+:::
+</dx-tabs>
 
 
 [](id:ui.step5)
-
 ### 步骤5：修改 Demo 源代码
-
 源码文件夹 `TRTCCallingDemo` 中包含两个子文件夹 ui 和 model，其中 ui 文件夹中均为界面代码：
 
 | 文件或文件夹            | 功能描述                                                     |
 | ----------------------- | ------------------------------------------------------------ |
-| TRTCCallingVideo.dart   | 展示音视频通话的主界面，通话的接听和拒绝就是在这个界面中完成的。 |
-| TRTCCallingContact.dart | 用于展示选择联系人的界面，可以通过此界面搜索已注册用户，发起通话。 |
+| TRTCCallingVideo.dart   | 展示音视频通话的主界面，通话的接听和拒绝就是在这个界面中完成的 |
+| TRTCCallingContact.dart | 用于展示选择联系人的界面，可以通过此界面搜索已注册用户，发起通话 |
 
 [](id:model)
-
 ## 实现自定义 UI 界面
-
 [源码](https://github.com/c1avie/TRTCScenesDemo) 文件夹 `TRTCCallingDemo` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCCalling，您可以在  `TRTCCalling.dart`  文件中看到该组件提供的接口函数。
 ![](https://main.qcloudimg.com/raw/36220937e8689dac4499ce9f2f187889.png)
 
 您可以使用开源组件 TRTCCalling 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。
 
 [](id:model.step1)
-
 ### 步骤1：集成 SDK
-
 音视频通话组件 TRTCCalling 依赖 [TRTC SDK](https://pub.dev/packages/tencent_trtc_cloud) 和 [IM SDK](https://pub.dev/packages/tencent_im_sdk_plugin)，您可以通过配置 `pubspec.yaml` 自动下载更新。
 
 在项目的 `pubspec.yaml` 中写如下依赖：
@@ -89,18 +82,16 @@ dependencies:
 ```
 
 [](id:model.step2)
-
 ### 步骤2：配置权限及混淆规则
-
 <dx-tabs>
-::: iOS端
+::: iOS\s端
 需要在 `Info.plist` 中加入对相机和麦克风的权限申请：
 ```
 <key>NSMicrophoneUsageDescription</key>
 <string>授权麦克风权限才能正常语音通话</string>
 ```
 :::
-::: Android端
+::: Android\s端
 1. 打开 `/android/app/src/main/AndroidManifest.xml` 文件。
 2. 将 `xmlns:tools="http://schemas.android.com/tools"` 加入到 manifest 中。
 3. 将 `tools:replace="android:label"` 加入到 application 中。
@@ -147,7 +138,7 @@ sCall.login(1400000123, "userA", "xxxx");
 
 ### 步骤5：实现 1v1 语音通话
 
-1. 发起方：调用 `TRTCCalling` 的 `call()` 方法发起通话的请求, 并传入用户 ID（userid）和通话类型（type），通话类型参数传入`typeAudioCall`。
+1. 发起方：调用 `TRTCCalling` 的 `call()` 方法发起通话的请求, 并传入用户 ID（userid）和通话类型（type），通话类型参数传入 `TRTCCalling.typeAudioCall`。
 2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的事件通知，回调中 `callType` 的参数是发起方填写的通话类型，您可以通过此参数启动相应的界面。
 3. 接收方：如果希望接听电话，接收方可以调用 `accept()` 函数，并同时调用 `openCamera()` 函数打开自己本地的摄像头。接收方也可以调用 `reject()` 拒绝此次通话。
 4. 当双方的音视频通道建立完成后，通话的双方都会接收到名为  `onUserVideoAvailable()` 的事件通知，表示对方的视频画面已经拿到。此时双方用户均可以调用 `startRemoteView()` 展示远端的视频画面。远端的声音默认是自动播放的。
