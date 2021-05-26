@@ -115,6 +115,7 @@ struct DnsConfig {
 	config->routeIp = @"查询线路ip";
 	[[MSDKDns sharedInstance] initConfig: config];
 ```
+
 ### 4.2 域名解析接口
 
 **获取 IP 共有以下四个接口，**引入头文件，调用相应接口即可。
@@ -345,7 +346,6 @@ if (conn.error != null) {
 ```
 
 ## 6. 实践场景 
-
 ### 6.1 Unity 工程接入
 
 1. 将 HTTPDNSUnityDemo/Assets/Plugins/Scripts 下的 **HttpDns.cs** 文件拷贝到 Unity 对应 Assets/Plugins/Scripts 路径下。
