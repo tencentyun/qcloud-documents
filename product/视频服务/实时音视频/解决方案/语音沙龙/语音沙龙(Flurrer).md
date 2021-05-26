@@ -28,7 +28,7 @@
 
 [](id:ui.step2)
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+1. 根据实际业务需求下载 SDK 及配套的 [Demo 源码](https://github.com/tencentyun/TRTCFlutterScenesDemo)。
 2. 下载完成后，单击【已下载，下一步】。
 ![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
 
@@ -68,7 +68,7 @@
 
 [](id:ui.step5)
 ### 步骤5：修改 Demo 源代码
-源码中的 trtcchatsalondemo 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码，如下表格列出了各个文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
+[源码](https://github.com/tencentyun/TRTCFlutterScenesDemo) 中的 trtcchatsalondemo 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码，如下表格列出了各个文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
 
 | 文件或文件夹 | 功能描述                             |
 | ------------ | ------------------------------------ |
