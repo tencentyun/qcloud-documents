@@ -35,14 +35,14 @@
 ::: CVM/SCF\s平滑切换
 适用于 HTTP/HTTPS 服务从 CVM 迁移至 SCF 的场景，以及当 CVM（SCF）服务有问题时，快速迁移至 SCF（CVM）的故障切换场景。方案流程如下所示：
 1. App、浏览器、H5、小程序等发起 HTTP/HTTPS 请求。
-2. 通过 DNS 解析 DNSpod 将请求解析到 CLB 的 VIP 上。
+2. 通过 DNS 解析将请求解析到 CLB 的 VIP 上。
 3. 一个 CLB 转发请求给 CVM，另一个 CLB 转发请求给 SCF。
 4. 客户端无感知，即可完成后端服务在 CVM 和 SCF 之间的平滑切换。
 ![](https://main.qcloudimg.com/raw/24e16ebdfe48a948ebd931ab82b02410.svg)
 :::
 ::: CVM/SCF\s业务分流
 适用于秒杀、抢购等场景，使用 SCF 处理高弹性服务、使用 CVM 处理日常业务。
-1. 通过 DNS 解析 DNSpod 将域名 A 解析到其中一个 CLB 的 VIP 上，将域名 B 解析到另外一个 CLB 的VIP 上。
+1. 通过 DNS 解析将域名 A 解析到其中一个 CLB 的 VIP 上，将域名 B 解析到另外一个 CLB 的VIP 上。
 2. 其中一个 CLB 转发请求给 CVM，另外一个 CLB 转发请求给 SCF。
 ![](https://main.qcloudimg.com/raw/79bf0625f63b5f0b285b6907f22f8c43.svg)
 :::
