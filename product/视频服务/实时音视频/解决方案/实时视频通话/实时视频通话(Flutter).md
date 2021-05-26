@@ -1,29 +1,13 @@
-## 效果展示
+如需快速实现视频通话功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCCalling 组件并实现自定义 UI 界面。
 
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验语音沙龙的能力，包括语音聊天、上下麦、低延时语音互动等 TRTC 在语音聊天场景下的相关能力。
-<table>
-     <tr>
-         <th>主播麦位操作</th>  
-         <th>观众麦位操作</th>  
-     </tr>
-<tr>
-<td><img src="https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/chatsalon/pjckq-4zdgj.gif"/></td>
-<td><img src="https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/chatsalon/new.gif"/></td>
-</tr>
-</table>
-
-如需快速接入语音沙龙功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCChatSalon 组件并实现自定义 UI 界面。
-
-[](id:DemoUI)
 ## 复用 Demo 的 UI 界面
 
-[](id:ui.step1)
 ### 步骤1：创建新的应用
+
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 输入应用名称，例如  `TestChatSalon`  ，单击【创建】。
+2. 输入应用名称，例如 `TestVideoCall` ，单击【创建】。
 
 >!本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
-
 
 
 [](id:ui.step2)
@@ -37,28 +21,29 @@
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
 2. 找到并打开 `/lib/debug/GenerateTestUserSig.dart` 文件。
 3. 设置 `GenerateTestUserSig.dart` 文件中的相关参数：
-<ul style="margin:0"><li/>SDKAPPID：默认为PLACEHOLDER，请设置为实际的 SDKAppID。
-<li/>SECRETKEY：默认为PLACEHOLDER，请设置为实际的密钥信息。</ul>
+<ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
+<li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
 <img src="https://main.qcloudimg.com/raw/31b265429e66a899acccb875a8c17ad6.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
-
-
->!本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
->正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
+>!
+>- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
+>- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 [](id:ui.step4)
-### 步骤4：编译运行
-> ! Android 端需要在真机下运行，不支持模拟器调试。
+
+### 步骤4：运行 Demo
+
+>! Android 端需要在真机下运行，不支持模拟器调试。
 
 1. 执行 `flutter pub get`。
 2. 编译运行调试：
 <dx-tabs>
-:::  Android端
+:::  Android\s端
 1. 执行 `flutter run`。
 2. 使用 Android Studio（3.5及以上的版本）打开源码工程，单击【运行】即可。
 :::
-::: iOS端
+::: iOS\s端
 1. 使用 XCode（11.0及以上的版本）打开源码目录下的 `/ios工程`。
 2. 编译并运行 Demo 工程即可。
 :::
@@ -66,23 +51,24 @@
 
 [](id:ui.step5)
 ### 步骤5：修改 Demo 源代码
-源码中的 trtcchatsalondemo 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码，如下表格列出了各个文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
+源码文件夹 `TRTCCallingDemo` 中包含两个子文件夹 ui 和 model，其中 ui 文件夹中均为界面代码：
 
-| 文件或文件夹 | 功能描述 |
-|-------|--------|
-| base | UI 使用的基础类。 |
-| list | 列表页和创建房间页。 |
-| room | 主房间页面，包括主播和观众两种界面。 |
-| widget | 通用控件。 |
+| 文件或文件夹            | 功能描述                                                     |
+| ----------------------- | ------------------------------------------------------------ |
+| TRTCCallingVideo.dart   | 展示音视频通话的主界面，通话的接听和拒绝就是在这个界面中完成的 |
+| TRTCCallingContact.dart | 用于展示选择联系人的界面，可以通过此界面搜索已注册用户，发起通话 |
 
 [](id:model)
 ## 实现自定义 UI 界面
-[源码](https://github.com/c1avie/TRTCChatSalon) 中的 trtcchatsalondemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCChatSalon，您可以在 `TRTCChatSalon.dart` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
-![](https://main.qcloudimg.com/raw/fcf694c8550664623414604d14ffcd94.png)
+[源码](https://github.com/c1avie/TRTCScenesDemo) 文件夹 `TRTCCallingDemo` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCCalling，您可以在  `TRTCCalling.dart`  文件中看到该组件提供的接口函数。
+![](https://main.qcloudimg.com/raw/36220937e8689dac4499ce9f2f187889.png)
+
+您可以使用开源组件 TRTCCalling 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。
 
 [](id:model.step1)
 ### 步骤1：集成 SDK
-语音沙龙组件 trtcchatsalondemo 依赖 [TRTC SDK](https://pub.dev/packages/tencent_trtc_cloud) 和 [IM SDK](https://pub.dev/packages/tencent_im_sdk_plugin)，您可以通过配置 `pubspec.yaml` 自动下载更新。
+音视频通话组件 TRTCCalling 依赖 [TRTC SDK](https://pub.dev/packages/tencent_trtc_cloud) 和 [IM SDK](https://pub.dev/packages/tencent_im_sdk_plugin)，您可以通过配置 `pubspec.yaml` 自动下载更新。
+
 在项目的 `pubspec.yaml` 中写如下依赖：
 ```
 dependencies:
@@ -90,18 +76,18 @@ dependencies:
   tencent_im_sdk_plugin: 最新版本号
 ```
 
-
 [](id:model.step2)
 ### 步骤2：配置权限及混淆规则
+
 <dx-tabs>
-::: iOS端
+::: iOS\s端
 需要在 `Info.plist` 中加入对相机和麦克风的权限申请：
 ```
 <key>NSMicrophoneUsageDescription</key>
 <string>授权麦克风权限才能正常语音通话</string>
 ```
 :::
-::: Android端
+::: Android\s端
 1. 打开 `/android/app/src/main/AndroidManifest.xml` 文件。
 2. 将 `xmlns:tools="http://schemas.android.com/tools"` 加入到 manifest 中。
 3. 将 `tools:replace="android:label"` 加入到 application 中。
@@ -111,236 +97,68 @@ dependencies:
 :::
 </dx-tabs>
 
-
 [](id:model.step3)
-### 步骤3：导入 TRTCChatSalon 组件
+### 步骤3：导入 TRTCCalling 组件
 拷贝以下目录中的所有文件到您的项目中：
 ```
-lib/TRTCChatSalonDemo/model/
+/lib/TRTCCallingDemo/model
 ```
 
 [](id:model.step4)
-### 步骤4：创建并登录组件
-1. 调用 `sharedInstance` 接口可以创建一个 TRTCChatSalon 组件的实例对象。
-2. 调用 `registerListener` 函数注册组件的事件通知。
-3. 调用 `login` 函数完成组件的登录，请参考下表填写关键参数：
+### 步骤4：初始化并登录组件
+1. 调用 `TRTCCalling.sharedInstance()` 获取组件实例。
+2. 调用 `login(SDKAppID, userId, userSig)` 完成组件的登录，其中几个关键参数的填写请参考下表：
  <table>
+<tr><th>参数名</th><th>作用</th></tr>
 <tr>
-<th>参数名</th>
-<th>作用</th>
-</tr>
-<tr>
-<td>sdkAppId</td>
+<td>SDKAppID</td>
 <td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>
-</tr>
-<tr>
+</tr><tr>
 <td>userId</td>
-<td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。</td>
-</tr>
-<tr>
+<td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（_）。</td>
+</tr><tr>
 <td>userSig</td>
-<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
-</tr>
-</table>
+<td>腾讯云设计的一种安全保护签名，计算方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
+</tr></table>
 <dx-codeblock>
-::: dart dart
-TRTCChatSalon trtcVoiceRoom = await TRTCChatSalon.sharedInstance();
-trtcVoiceRoom.registerListener(onVoiceListener);
-ActionCallback resValue = await trtcVoiceRoom.login(
-    GenerateTestUserSig.sdkAppId,
-    userId,
-    GenerateTestUserSig.genTestSig(userId),
-);
-if (resValue.code == 0) {
-    //登录成功
-}
+::: java 
+// 初始化
+sCall = await TRTCCalling.sharedInstance();
+sCall.login(1400000123, "userA", "xxxx");
 :::
 </dx-codeblock>
 
 [](id:model.step5)
-### 步骤5：主播端开播
-1. 主播执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
-2. 主播调用 `createRoom` 创建新的语音沙龙，此时传入房间 ID、房间名等房间属性信息。
-3. 主播会收到有成员进入的 `TRTCChatSalonDelegate.onAudienceEnter` 的事件通知，此时会自动打开麦克风采集。
+### 步骤5：实现 1v1 视频通话
+1. 发起方：调用 `TRTCCalling` 的 `call()` 方法发起通话的请求, 并传入用户 ID（userid）和通话类型（type），通话类型参数传入`TRTCCalling.typeVideoCall`。
+2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的事件通知，回调中 `callType` 的参数是发起方填写的通话类型，您可以通过此参数启动相应的界面。
+3. 接收方：如果希望接听电话，接收方可以调用 `accept()` 函数，并同时调用 `openCamera()` 函数打开自己本地的摄像头。接收方也可以调用 `reject()` 拒绝此次通话。
+4. 当双方的音视频通道建立完成后，通话的双方都会接收到名为  `onUserVideoAvailable()` 的事件通知，表示对方的视频画面已经拿到。此时双方用户均可以调用`startRemoteView()` 展示远端的视频画面。远端的声音默认是自动播放的。
 
-![](https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/chatsalon/chatsalon_zbo.png)
-<dx-codeblock>
-::: java java
-// 1.主播设置昵称和头像
-trtcVoiceRoom.setSelfProfile("my_name", "my_face_url", null);
+[](id:model.offline)
+### 步骤6：实现离线接听
+离线接听暂不支持，计划在6月中旬支持。
 
-// 2.主播调用 createRoom 创建房间
-ActionCallback resp = await trtcVoiceRoom.createRoom(
-    roomId,
-    RoomParam(
-    coverUrl: '房间封面图的 URL 地址',
-    roomName: '房间名称',
-    ),
-);
-if (resp.code == 0) {
-   //占座成功
-}
+[](id:api)
+## 组件 API 列表
+TRTCCalling 组件的 API 接口列表如下：
 
-// 4.占座成功后， 收到 TRTCChatSalonDelegate.onAudienceEnter 事件通知
-onVoiceListener(type, param) async {
-    switch (type) {
-        case TRTCChatSalonDelegate.onAudienceEnter:
-            //观众进入房间
-            break;
-    }
-}
-:::
-</dx-codeblock>
+| 接口函数           | 接口功能                                                  |
+| ------------------ | --------------------------------------------------------- |
+| registerListener   | 增加 TRTCCalling 监听器，用户可以通过该监听器获取状态通知 |
+| unRegisterListener | 移除监听器                                                |
+| destroy            | 销毁实例                                                  |
+| login              | 登录 IM，所有功能需要先进行登录后才能使用                 |
+| logout             | 登出 IM，登出后无法再进行拨打操作                         |
+| call               | C2C 邀请通话，被邀请方会收到 onInvited 的事件通知         |
+| accept             | 作为被邀请方接听来电                                      |
+| reject             | 作为被邀请方拒绝来电                                      |
+| hangup             | 结束通话                                                  |
+| startRemoteView    | 将远端用户的摄像头数据渲染到指定的 TXCloudVideoView 中    |
+| stopRemoteView     | 停止渲染某个远端用户的摄像头数据                          |
+| openCamera         | 开启摄像头，并渲染在指定的 TXCloudVideoView 中            |
+| closeCamera        | 关闭摄像头                                                |
+| switchCamera       | 切换前后摄像头                                            |
+| setMicMute         | 是否静音 mic                                              |
+| setHandsFree       | 是否开启免提                                              |
 
-[](id:model.step6)
-### 步骤6：观众端观看
-1. 观众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
-2. 观众端向业务后台获取最新的语音沙龙房间列表。
- >?Demo 中的语音沙龙列表仅做演示使用，语音沙龙列表的业务逻辑千差万别，腾讯云暂不提供语音沙龙列表的管理服务，请自行管理您的语音沙龙列表。
-3. 观众端调用 `getRoomList` 获取房间的详细信息，该信息是在主播端调用  `createRoom` 创建语音沙龙时设置的简单描述信息。
- >!如果您的语音沙龙列表包含了足够全面的信息，可跳过调用 `getRoomList` 相关步骤。 并传入房间号即可进入该房间。
-4. 进房后会收到组件的 `TRTCChatSalonDelegate.onAudienceEnter` 和 `TRTCChatSalonDelegate.onAudienceExit` 观众进退房通知，监听到事件回调后可以将变化然后刷新到 UI 界面上。
-5. 进房后还会收到麦位表有主播进入的 `TRTCChatSalonDelegate.onAnchorEnterMic` 和 `TRTCChatSalonDelegate.onAnchorLeaveMic` 的事件通知。
-
-![](https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/chatsalon/chatsalon.png)
-<dx-codeblock>
-::: dart dart
-// 1.观众设置昵称和头像
-trtcVoiceRoom.setSelfProfile("my_name", "my_face_url");
-
-// 2.假定您从业务后台获取房间列表为 roomList
-List<Integer> roomList = GetRoomList();
-
-// 3.通过调用 getRoomInfoList 获取房间的详细信息
-RoomInfoCallback resp = await trtcVoiceRoom.getRoomInfoList(roomList);
-if (resp.code == 0) {
-    //此时可以刷新您自己的 UI 房间列表
-} 
-
-// 4.传入 roomid 进入房间
-ActionCallback enterRoomResp =
-          await trtcVoiceRoom.enterRoom(_currentRoomId);
-if (enterRoomResp.code == 0) {
-    //进房成功
-}
-// 5.进房成功后，收到处理事件通知
-onVoiceListener(type, param) async {
-    switch (type) {
-      case TRTCChatSalonDelegate.onAudienceEnter:
-            //观众进入房间
-        break;
-      case TRTCChatSalonDelegate.onAudienceExit:
-            //观众离开房间
-        break;
-      case TRTCChatSalonDelegate.onAnchorLeaveMic:
-          //主播离开房间
-        break;
-      case TRTCChatSalonDelegate.onAnchorEnterMic:
-          //主播进入房间
-        break;
-    }
-}
-:::
-</dx-codeblock>
-
-[](id:model.step7)
-### 步骤7：上下麦
-
-<dx-tabs>
-::: 主播端
-1.  `leaveMic` 主动下麦,房间内所有成员会收到 `onAnchorLeaveMic` 的事件通知。
-2.  `kickMic` 传入对应用户的userId后，可以踢人下麦。群主踢人下麦，房间内所有成员会收到 `onAnchorLeaveMic` 的事件通知。
-
-![](https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/chatsalon/chatsalon-ma-m.png)
-
-
-<dx-codeblock>
-::: dart dart
-// 1.主播主动下麦
-trtcVoiceRoom.leaveMic();
-
-//2.踢人下麦
-trtcVoiceRoom.kickMic(userId);
-
-:::
-</dx-codeblock>
-:::
-::: 观众端
-1.  `enterMic` 可以进行上麦，房间内所有成员会收到 `onAnchorEnterMic` 的事件通知。
-2.  `leaveMic` 主动下麦，房间内所有成员会收到 `onAnchorLeaveMic` 的事件通知。
-
-![](https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/chatsalon/chatsalon-ma-au.png)
-
-
-<dx-codeblock>
-::: dart dart
-// 1.观众主动上麦
-trtcVoiceRoom.enterMic();
-
-// 2.主动下麦
-trtcVoiceRoom.leaveMic();
-
-:::
-</dx-codeblock>
-:::
-</dx-tabs>
-
-
-[](id:model.step8)
-### 步骤8：举手要求上麦信令的使用
-如果您的 App 需要对方同意才能进行下一步操作的业务流程，那么邀请信令可以提供相应支持。
-
-#### 观众主动申请上麦
-1. 观众端调用 `raiseHand` 申请举手。
-2. 主播端收到 `onRaiseHand` 的事件，此时 UI 可以弹窗并询问主播是否同意。
-3. 主播选择同意后，调用 `agreeToSpeak` 并传入 userId。
-4. 观众端收到 `onAgreeToSpeak` 的事件通知，调用 `enterMic` 进行上麦。
-
-![](https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/chatsalon/chatsalon-si.png)
-
-<dx-codeblock>
-::: dart dart
-// 观众端视角
-// 1.调用 sendInvitation，请求上麦
-trtcVoiceRoom.raiseHand();
-
-// 2.收到邀请的同意请求, 正式上麦
-onVoiceListener(type, param) async {
-    switch (type) {
-      case TRTCChatSalonDelegate.onRaiseHand:
-           trtcVoiceRoom.enterMic();
-        break;
-    }
-}
-
-// 主播端视角
-// 1.主播收到请求
-onVoiceListener(type, param) async {
-    switch (type) {
-      case TRTCChatSalonDelegate.onAgreeToSpeak:
-           trtcVoiceRoom.agreeToSpeak();
-        break;
-    }
-}
-:::
-</dx-codeblock>
-
-[](id:model.step9)
-### 步骤9：实现文字聊天和弹幕消息
-通过 `sendRoomTextMsg` 可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到 `onRecvRoomTextMsg` 回调。
- 即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
- <dx-codeblock>
- ::: dart dart
- // 发送端：发送文本消息
- trtcVoiceRoom.sendRoomTextMsg("Hello Word!");
-
-// 接收端：监听文本消息
-onVoiceListener(type, param) async {
-    switch (type) {
-      case TRTCChatSalonDelegate.onRecvRoomTextMsg:
-            //收到群文本消息，可以用作文本聊天室
-        break;
-    }
-}
-:::
-</dx-codeblock>
