@@ -1,5 +1,5 @@
 ## 操作场景
-本文档介绍如何在云服务器中部署人工智能平台，进行不同的机器学习及深度学习相关任务。
+腾讯云第五代次实例 S5、M5、C4、IT5、D3 全面采用第二代智能英特尔<sup>®</sup>至强<sup>®</sup>可扩展处理器 Cascade Lake，搭配 Intel Advanced Vector Extension (AVX-512) 指令集，提供高性能深度学习能力。本文以 S5、M5 实例为例，介绍如何在 CVM 上通过 AVX512 加速人工智能应用。
 
 ## 选型推荐[](id:RecommendedSelection)
 云服务器的多种实例规格可用于多种应用开发，其中 [标准型 S5](https://cloud.tencent.com/document/product/213/11518#S5) 及 [内存型 M5](https://cloud.tencent.com/document/product/213/11518#M5) 适用于机器学习或深度学习。这些实例配备了第二代 Intel<sup>®</sup> Xeon<sup>®</sup> 处理器，适配 Intel<sup>®</sup> DL boost 学习能力。推荐配置如下表：
