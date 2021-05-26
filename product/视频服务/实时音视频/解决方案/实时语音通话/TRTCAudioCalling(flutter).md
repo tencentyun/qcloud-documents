@@ -1,4 +1,4 @@
-TRTCCalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持1v1音视频通话。TRTCCalling 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [实时视频通话（Flutter）](https://cloud.tencent.com/document/product/647/56293)。
+TRTCCalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持1v1音视频通话。TRTCCalling 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [实时语音通话（Flutter）](https://cloud.tencent.com/document/product/647/56293)。
 
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频通话组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
@@ -12,8 +12,8 @@ TRTCCalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务
 | ----------------------------------------------- | ------------------------------------------------ |
 | [sharedInstance](#sharedinstance)               | 组件单例。                                       |
 | [destroySharedInstance](#destroysharedinstance) | 销毁组件单例。                                   |
-| [registerListener](#registerlistener)           | 增加事件回调。                                   |
-| [unRegisterListener](#unregisterlistener)       | 移除回调接口。                                   |
+| [registerListener](#registerlistener)                     | 增加事件回调。                                   |
+| [unRegisterListener](#unregisterlistener)               | 移除回调接口。                                   |
 | [destroy](#destroy)                             | 销毁函数，如果无需再运行该实例，请调用该接口。   |
 | [login](#login)                                 | 登录组件接口，所有功能需要先进行登录后才能使用。 |
 | [logout](#logout)                               | 登出组件接口，登出后无法再进行拨打操作。         |
@@ -21,20 +21,20 @@ TRTCCalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务
 
 ### 通话操作相关接口函数
 
-| API               | 描述           |
-| ----------------- | -------------- |
-| [call](#call)     | 单人通话邀请。 |
-| [accept](#accept) | 接受当前通话。 |
-| [reject](#reject) | 拒绝当前通话。 |
-| [hangup](#hangup) | 结束当前通话。 |
+| API                     | 描述           |
+| ----------------------- | -------------- |
+| [call](#call)           | 单人通话邀请。 |
+| [accept](#accept)       | 接受当前通话。 |
+| [reject](#reject)       | 拒绝当前通话。 |
+| [hangup](#hangup)       | 结束当前通话。 |
 
 
 ### 音频控制相关接口函数
 
-| API                           | 描述               |
-| ----------------------------- | ------------------ |
-| [setMicMute](#setmicmute)     | 静音本地音频采集。 |
-| [setHandsFree](#sethandsfree) | 设置免提。         |
+| API                           | 描述                                             |
+| ----------------------------- | ------------------------------------------------ |
+| [setMicMute](#setmicmute)     | 静音本地音频采集。                                   |
+| [setHandsFree](#sethandsfree) | 设置免提。                                       |
 
 <h2 id="TRTCCallingDelegate">TRTCCallingDelegate API 概览</h2>
 
@@ -62,13 +62,14 @@ TRTCCalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务
 
 ### 通用回调
 
-| API                                           | 描述                       |
-| --------------------------------------------- | -------------------------- |
-| [onUserEnter](#onuserenter)                   | 用户进入通话回调。         |
-| [onUserLeave](#onuserleave)                   | 用户离开通话回调。         |
-| [onUserAudioAvailable](#onuseraudioavailable) | 用户是否开启音频上行回调。 |
-| [onUserVoiceVolume](#onuservoicevolume)       | 用户通话音量回调。         |
-| [onCallEnd](#oncallend)                       | 通话结束回调。             |
+| API                                                          | 描述                       |
+| ------------------------------------------------------------ | -------------------------- |
+| 
+| [onUserEnter](#onuserenter)                                  | 用户进入通话回调。         |
+| [onUserLeave](#onuserleave)                                  | 用户离开通话回调。         |
+| [onUserAudioAvailable](#onuseraudioavailable)                | 用户是否开启音频上行回调。 |
+| [onUserVoiceVolume](#onuservoicevolume)                      | 用户通话音量回调。         |
+| [onCallEnd](#oncallend)                                      | 通话结束回调。             |
 
 ## SDK 基础函数
 
@@ -124,11 +125,11 @@ Future<ActionCallback> login(int sdkAppId, String userId, String userSig);
 
 参数如下表所示：
 
-| 参数     | 类型   | 含义                                                         |
-| -------- | ------ | ------------------------------------------------------------ |
-| sdkAppID | UInt32 | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
-| userId   | String | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
-| userSig  | String | 腾讯云设计的一种安全保护签名，获取方式请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
+| 参数     | 类型           | 含义                                                         |
+| -------- | -------------- | ------------------------------------------------------------ |
+| sdkAppID | UInt32         | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
+| userId     | String         | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
+| userSig  | String         | 腾讯云设计的一种安全保护签名，获取方式请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 
 ### logout
 
@@ -192,8 +193,8 @@ void setMicMute(bool isMute);
 
 参数如下表所示：
 
-| 参数   | 类型 | 含义                                        |
-| ------ | ---- | ------------------------------------------- |
+| 参数   | 类型    | 含义                                        |
+| ------ | ------- | ------------------------------------------- |
 | isMute | bool | true 表示麦克风关闭，false 表示麦克风打开。 |
 
 ### setHandsFree
@@ -206,8 +207,8 @@ void setHandsFree(bool isHandsFree);
 
 参数如下表所示：
 
-| 参数        | 类型 | 含义                                    |
-| ----------- | ---- | --------------------------------------- |
+| 参数        | 类型    | 含义                                    |
+| ----------- | ------- | --------------------------------------- |
 | isHandsFree | bool | true 表示开启免提，false 表示关闭免提。 |
 
 ## TRTCCallingDelegate 事件回调
@@ -273,7 +274,7 @@ void setHandsFree(bool isHandsFree);
 | ----------- | ------------------ | -------------------------------- |
 | sponsor     | String             | 发起方的 ID。                    |
 | userIds     | List&lt;String&gt; | 除自己外被邀请 ID 列表。         |
-| isFromGroup | bool               | 是否多人通话邀请。               |
+| isFromGroup | bool          | 是否多人通话邀请。               |
 | type        | int                | 1 表示语音通话，2 表示视频通话。 |
 
 ### onCallingCancel
@@ -326,10 +327,10 @@ void setHandsFree(bool isHandsFree);
 
 参数如下表所示：
 
-| 参数        | 类型 | 含义                                              |
-| ----------- | ---- | ------------------------------------------------- |
+| 参数      | 类型                       | 含义                                                         |
+| --------- | -------------------------- | ------------------------------------------------------------ |
 | userVolumes | List | 所有正在说话的房间成员的音量，取值范围：0 - 100。 |
-| totalVolume | int  | 所有远端成员的总音量, 取值范围：0 - 100。         |
+| totalVolume | int| 所有远端成员的总音量, 取值范围：0 - 100。|
 
 ### onCallEnd
 
