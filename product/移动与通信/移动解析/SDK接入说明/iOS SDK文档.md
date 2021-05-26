@@ -1,5 +1,5 @@
 ## 1. 功能介绍
-HTTPDNS 的主要功能是为了有效的避免由于运营商传统 LocalDns 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
+HTTPDNS 的主要功能是为了有效避免由于运营商传统 LocalDns 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
 
 ## 2. 安装包结构
 压缩文件中包含 demo 工程，其中包含：
@@ -30,7 +30,7 @@ HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 
 #### 3.2.1 已接入灯塔（Beacon）的业务
 >?灯塔（beacon）SDK 是腾讯灯塔团队开发的用于移动应用统计分析的 SDK，HTTPDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
-
+>
 仅需引入位于 HTTPDNSLibs 目录下的 MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）即可。
 
 #### 3.2.2 未接入灯塔（Beacon）的业务
@@ -117,29 +117,25 @@ struct DnsConfig {
 ```
 ### 4.2 域名解析接口
 
-获取 IP 共有四个接口：
+**获取 IP 共有以下四个接口，**引入头文件，调用相应接口即可。
 - 同步接口 
 	-	单个查询 **WGGetHostByName:**；
 	- 批量查询 **WGGetHostsByNames:**；
 - 异步接口 
 	- 单个查询 **WGGetHostByNameAsync:returnIps:**；
 	- 批量查询 **WGGetHostsByNamesAsync:returnIps:**；
-
-引入头文件，调用相应接口即可。
-
-返回的地址格式为：
-
-单个查询接口返回 NSArray，固定长度为2，其中第一个值为 ipv4 地址，第二个值为 ipv6 地址。以下为返回格式的详细说明：
-- ipv4 下，仅返回 ipv4 地址，即返回格式为：[ipv4, 0]。
-- ipv6 下，仅返回 ipv6 地址，即返回格式为：[0, ipv6]。
-- 双栈网络下，返回解析到 ipv4&ipv6（如果存在）地址，即返回格式为：[ipv4, ipv6]。
-- 解析失败，返回[0, 0]，业务重新调用 WGGetHostByName 接口即可。
-
-批量查询接口返回 NSDictionary, key 为查询的域名，value 为 NSArray，固定长度为2，其他第一个值为 ipv4 地址，第二个值为 ipv6 地址。以下为返回格式的详细说明：
-- ipv4 下，仅返回 ipv4 地址，即返回格式为：{"queryDomain" : [ipv4, 0]}。
-- ipv6 下，仅返回 ipv6 地址，即返回格式为：{"queryDomain" : [0, ipv6]}。
-- 双栈网络下，返回解析到 ipv4&ipv6（如果存在）地址，即返回格式为：{"queryDomain" : [ipv4, ipv6]}。
-- 解析失败，返回{"queryDomain" : [0, 0]}，业务重新调用 WGGetHostByNames 接口即可。
+	
+**返回的地址格式如下：**
+- **单个查询**：单个查询接口返回 NSArray，固定长度为2，其中第一个值为 ipv4 地址，第二个值为 ipv6 地址。以下为返回格式的详细说明：
+ - ipv4 下，仅返回 ipv4 地址，即返回格式为：[ipv4, 0]。
+ - ipv6 下，仅返回 ipv6 地址，即返回格式为：[0, ipv6]。
+ - 双栈网络下，返回解析到 ipv4&ipv6（如果存在）地址，即返回格式为：[ipv4, ipv6]。
+ - 解析失败，返回[0, 0]，业务重新调用 WGGetHostByName 接口即可。
+- **批量查询**：批量查询接口返回 NSDictionary，key 为查询的域名，value 为 NSArray，固定长度为2，其他第一个值为 ipv4 地址，第二个值为 ipv6 地址。以下为返回格式的详细说明：
+ - ipv4 下，仅返回 ipv4 地址，即返回格式为：{"queryDomain" : [ipv4, 0]}。
+ - ipv6 下，仅返回 ipv6 地址，即返回格式为：{"queryDomain" : [0, ipv6]}。
+ - 双栈网络下，返回解析到 ipv4&ipv6（如果存在）地址，即返回格式为：{"queryDomain" : [ipv4, ipv6]}。
+ - 解析失败，返回{"queryDomain" : [0, 0]}，业务重新调用 WGGetHostByNames 接口即可。
 
 >!
 >- 使用 ipv6 地址进行 URL 请求时，需添加方框号[ ]进行处理，例如：`http://[64:ff9b::b6fe:7475]/`。
@@ -221,9 +217,15 @@ if (ips && ips.count > 1) {
 - (void) WGGetHostsByNamesAsync:(NSArray *) domains returnIps:(void (^)(NSDictionary * ipsDictionary))handler;
 ```
 ##### 示例代码
-
+>!业务可根据自身需求，任选一种调用方式。
+ >- 示例1：
+     - 优点：可保证每次请求都能拿到返回结果进行接下来的连接操作。
+     - 缺点：异步接口的处理较同步接口稍显复杂。
+ >- 示例2：
+     - 优点：对于解析时间有严格要求的业务，使用本示例，可无需等待，直接拿到缓存结果进行后续的连接操作，完全避免了同步接口中解析耗时可能会超过 100ms 的情况。
+     - 缺点：第一次请求时，result 一定会 nil，需业务增加处理逻辑。
+ > 
 - 接口调用示例1：等待完整解析过程结束后，拿到结果，进行连接操作。
-
 ```objc
 // 单个域名查询
 [[MSDKDns sharedInstance] WGGetHostByNameAsync:@"qq.com" returnIps:^(NSArray *ipsArray) {
@@ -260,7 +262,7 @@ if (ips && ips.count > 1) {
 	}
 }];
 ```
--   接口调用示例2：无需等待，可直接拿到缓存结果，如无缓存，则 result 为 nil。
+-  接口调用示例2：无需等待，可直接拿到缓存结果，如无缓存，则 result 为 nil。
 ```
 __block NSArray* result;
 [[MSDKDns sharedInstance] WGGetHostByNameAsync:domain returnIps:^(NSArray *ipsArray) {
@@ -273,14 +275,6 @@ if (result) {
 	//本次请求无缓存，业务可走原始逻辑
 }
 ```
-
->!业务可根据自身需求，任选一种调用方式。
- - 示例1：
-     - 优点：可保证每次请求都能拿到返回结果进行接下来的连接操作。
-     - 缺点：异步接口的处理较同步接口稍显复杂。
- - 示例2：
-     - 优点：对于解析时间有严格要求的业务，使用本示例，可无需等待，直接拿到缓存结果进行后续的连接操作，完全避免了同步接口中解析耗时可能会超过 100ms 的情况。
-     - 缺点：第一次请求时，result 一定会 nil，需业务增加处理逻辑。
 
 ## 5. 注意事项
 
@@ -390,7 +384,6 @@ if (sArray != null && sArray.Length > 1) {
 #### Demo 示例
 
  - **以 NSURLConnection 接口为例：**
- 
 ```
 #pragma mark - NSURLConnectionDelegate
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain {
@@ -445,8 +438,7 @@ if (sArray != null && sArray.Length > 1) {
 	}
 }
 ```
-- **以 NSURLSession 接口为例：**
-
+ - **以 NSURLSession 接口为例：**
 ```
  #pragma mark - NSURLSessionDelegate
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain {
@@ -500,7 +492,7 @@ if (sArray != null && sArray.Length > 1) {
 	completionHandler(disposition,credential);
 }
 ```
-- **以 Unity 的 WWW 接口为例：**
+ - **以 Unity 的 WWW 接口为例：**
 将 Unity 工程导为 Xcode 工程后，打开 Classes/Unity/**WWWConnection.mm** 文件，修改下述代码：
  ```
 //const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";
