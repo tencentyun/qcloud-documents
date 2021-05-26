@@ -325,7 +325,7 @@ TCPlayerLite 是采用 H5`<video>` 和 Flash 相结合的方式来进行视频�
 
 - [H5 事件参考列表](https://www.w3.org/wiki/HTML/Elements/video#Media_Events)
 - [Flash 事件参考列表](http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/NetStatusEvent.html)
-- 统一后的事件列表
+- [统一后的事件列表](https://www.w3school.com.cn/)
 ```
 error
 timeupdate
