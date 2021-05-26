@@ -24,6 +24,33 @@
 :::
 </dx-accordion>
 
+<dx-accordion>
+::: 通用的\sHTTP/HTTPS\s接入
+适用于电商、社交、工具等 APP 应用程序，以及个人博客、活动页面等 Web 应用程序等场景。方案流程如下所示：
+1. APP、浏览器、H5、小程序等发起 HTTP/HTTPS 请求，通过 CLB 访问 SCF。
+2. 由 CLB 做证书卸载，SCF 仅需提供 HTTP 服务。
+3. 请求转给 SCF 后，继续后续处理，例如写入云数据库或调用其他 API。
+![](https://main.qcloudimg.com/raw/69d3cc63adfddcb3e50d8f4c0fd1fc4a.svg)
+:::
+::: CVM/SCF\s平滑切换
+适用于 HTTP/HTTPS 服务从 CVM 迁移至 SCF 的场景，以及当 CVM（SCF）服务有问题时，快速迁移至 SCF（CVM）的故障切换场景。方案流程如下所示：
+1. APP、浏览器、H5、小程序等发起 HTTP/HTTPS 请求。
+2. 通过云解析将请求解析到 CLB 的 VIP 上。
+3. 一个 CLB 转发请求给 CVM，另一个 CLB 转发请求给 SCF。
+4. 客户端无感知，即可完成后端服务在 CVM 和 SCF 之间的平滑切换。
+![](https://main.qcloudimg.com/raw/24e16ebdfe48a948ebd931ab82b02410.svg)
+:::
+::: CVM/SCF\s业务分流
+适用于秒杀、抢购等场景，使用 SCF 处理高弹性服务、使用 CVM 处理日常业务。
+1. 通过云解析将域名 A 解析到其中一个 CLB 的 VIP 上，将域名 B 解析到另外一个 CLB 的VIP 上。
+2. 其中一个 CLB 转发请求给 CVM，另外一个 CLB 转发请求给 SCF。
+![](https://main.qcloudimg.com/raw/79bf0625f63b5f0b285b6907f22f8c43.svg)
+:::
+
+</dx-accordion>
+
+
+
 ## 限制说明
 - 仅广州、深圳金融、上海、上海金融、北京、成都、中国香港、新加坡、孟买、东京、硅谷地域支持绑定 SCF。
 - 仅标准账户类型支持绑定 SCF，传统账户类型不支持。建议升级为标准账户类型，详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。 
@@ -39,8 +66,9 @@
 2. [配置 HTTP 监听器](https://cloud.tencent.com/document/product/214/36384) 或 [配置 HTTPS 监听器](https://cloud.tencent.com/document/product/214/36385)
 
 ## 操作步骤
+![](https://main.qcloudimg.com/raw/297ceb4d966949ce750add4b174a402e.svg)
 
-### 步骤一：创建函数
+### 步骤一：创建云函数
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，在左侧导航栏单击【函数服务】。
 2. 在“函数服务”页面，单击【新建】。
 3. 在“新建”函数服务页面，创建方式选择“自定义创建”，输入函数名称，地域选择与 CLB 实例相同的地域，运行环境选择“Python3.6”，在函数代码输入框中输入如下代码（本文以 Hello CLB 为例），单击【完成】。
@@ -58,12 +86,12 @@ def main_handler(event, context):
    }
 ```
 
-### 步骤二：部署函数
+### 步骤二：部署云函数
 1. 在“函数服务”页面的列表中，单击刚才创建的函数名。
 2. 在“函数管理”页面，单击【函数代码】页签，在页签底部单击【部署】。
 ![](https://main.qcloudimg.com/raw/aafe1535c4b30327601fdaa405c13da3.png)
 
-### 步骤三：配置触发器
+### 步骤三：绑定云函数
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，在左侧导航栏单击【实例管理】。
 2. 在“实例管理”页面的“负载均衡”页签中，单击目标实例右侧“操作”列的【配置监听器】。
 3. 在 HTTP/HTTPS 监听器列表中，选择需要绑定云函数 SCF 的监听器，分别单击目标监听器左侧的【+】和展开的域名左侧的【+】，然后选中展开的 URL 路径，单击【绑定】。
