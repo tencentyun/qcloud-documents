@@ -27,7 +27,7 @@
 
 ### 签名生成
 
-密钥认证使用 HMAC-sha256 算法，证书认证使用 RSA_SHA256 算法，对请求报文进行签名，详情请参见 [签名方法](https://cloud.tencent.com/document/product/634/56319)。
+对请求报文进行签名分为两种，密钥认证使用 HMAC-sha256 算法，证书认证使用 RSA_SHA256 算法，详情请参见 [签名方法](https://cloud.tencent.com/document/product/634/56319)。
 
 ### 平台返回参数
 
