@@ -124,7 +124,7 @@ skipSamePath=false
 | daemonMode|是否启用 daemon 模式：on 表示开启，off 表示关闭。daemon 表示程序会循环不停的去执行同步，每一轮同步的间隔由 daemonModeInterVal 参数设置|off|
 | daemonModeInterVal|表示每一轮同步结束后，多久进行下一轮同步，单位为秒 |60|
 | executeTimeWindow|执行时间窗口，时刻粒度为分钟，该参数定义迁移工具每天执行的时间段。例如：<br>参数 03:30,21:00，表示在凌晨 03:30 到晚上 21:00 之间执行任务，其他时间则会进入休眠状态，休眠态暂停迁移并会保留迁移进度, 直到下一个时间窗口自动继续执行|00:00,24:00|
-| outputFinishedFileFolder  | 这个目录保存迁移成功的结果，结果文件会按照日期命名。文件内容每一行为：绝对路径\t文件大小\t最后修改时间，该目录需要已经创建出来。| ./result |
+| outputFinishedFileFolder  | 这个目录保存迁移成功的结果，结果文件会按照日期命名，例如`./result/2021-05-27.out`，其中./result 为已创建的目录。文件内容每一行的格式为：绝对路径\t文件大小\t最后修改时间。设置为空，则不输出结果。| ./result |
 | resume | 是否接着最后一次运行的结果，继续往下遍历源的文件列表。默认从头开始。 | false |
 | skipSamePath | 如果 COS 上已经有相同的文件名，是否直接跳过。默认不跳过，即覆盖原有文件。| false |
 
