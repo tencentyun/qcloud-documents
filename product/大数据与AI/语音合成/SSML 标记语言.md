@@ -41,7 +41,7 @@ SSML 是一种基于 XML 的语音合成标记语言。使用 SSML 可以更加�
 
 [](id:jump)
 ## 标签
-### `<speak>`
+### &lt;speak&gt;
 #### 描述
 ```
 <speak>标签是所有待支持SSML标签的根节点。一切需要调用SSML标签的文本都要包含在“<speak></speak>”中。speak标签不支持属性。
@@ -61,7 +61,7 @@ SSML 是一种基于 XML 的语音合成标记语言。使用 SSML 可以更加�
 ```
 音频效果：[SSML-speak1.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/SSML-speak1.wav)
 
-### `<sub>`
+### &lt;sub&gt;
 #### 描述
 使用别名替换标签内文本。
 
