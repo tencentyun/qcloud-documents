@@ -66,7 +66,7 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
 #### DNSIP说明
 http 协议服务地址为 `119.29.29.98`，https 协议服务地址为 `119.29.29.99`。
 新版本 API 更新为使用 `119.29.29.99/98` 接入，同时原移动解析 HTTPDNS 服务地址 `119.29.29.29` 仅供开发调试使用，无 SLA 保障，不建议用于正式业务，请您尽快将正式业务迁移至 `119.29.29.99/98`。
-以 https://cloud.tencent.com/document/product/379/54976 文档提供的IP为准
+以 https://cloud.tencent.com/document/product/379/54976 文档提供的IP为准。
 
 #### 默认使用DES加密
 
