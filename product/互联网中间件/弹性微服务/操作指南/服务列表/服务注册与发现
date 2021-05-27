@@ -1,0 +1,43 @@
+## 操作场景
+
+本文档主要介绍在弹性微服务控制台中实现SpringCloud应用服务注册与发现的具体步骤。
+
+## 操作步骤
+
+1. 登录 [弹性微服务控制台](https://console.cloud.tencent.com/tem)。
+
+2. 在左侧导航栏，单击【服务列表】进入服务列表页面，选择您的服务部署地域。
+
+3. 单击【新建】，进入新建服务页面，填写服务信息并部署。参考[创建服务](https://cloud.tencent.com/document/product/1371/53294)。
+
+4. 对于Spring Cloud应用，如果所选择的【发布环境】中关联了注册中心，在部署时可以选择**自动注入注册中心信息**。
+
+   ![](https://main.qcloudimg.com/raw/3fbd01102a1fc7c84ce4a83a9a906514.png)
+
+
+
+如果选择了自动注入注册中心，在用户提交部署时，TEM会自动把注册中心地址注入到启动参数中，对于不同的注册中心，会注入不同的参数：
+
+**zookeeper**：
+
+```bash
+# 假设申请的zookeeper地址为：10.0.1.30:2181 -Dspring.cloud.zookeeper.connectString=10.0.1.30:2181 -Dspring.cloud.zookeeper.discovery.preferIpAddress=true
+```
+
+**eureka：**
+
+```bash
+# 假设申请的eureka地址为：10.0.1.31:8083 -Deureka.client.serviceUrl.defaultZone=http://10.0.1.31:8083/eureka/ -Deureka.instance.preferIpAddress=true
+```
+
+**consul：**
+
+```bash
+# 假设申请的consul地址为：10.0.1.32:8500 -Dspring.cloud.consul.host=10.0.1.32 -Dspring.cloud.consul.port=8500 -Dspring.cloud.consul.discovery.preferIpAddress=true
+```
+
+**说明：**
+
+这里所有注入的注册中心参数都加上了xxx.preferIpAddress=true，因为Spring Cloud在获取到本机IP时（TEM中是Pod IP）会自动再根据IP反查域名，如果判断 preferIpAddress是false（默认为 false），则通过域名去注册，否则通过IP去注册；
+
+在TEM中Pod IP映射的是PodName，也就是如果不设置preferIpAddress=true，那注册到注册中心的地址就是PodName，这样其他服务从注册中心拉取的服务实例地址就是PodName，而通过PodName去访问实例是不通的。
