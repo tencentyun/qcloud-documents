@@ -54,14 +54,21 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
 ### 接入 HTTPDNS
 将 HttpDNSLibs\HTTPDNS_ANDROID_SDK_xxxx.aar 拷贝至应用 libs 相应位置。
 
-### 接入灯塔
+### 接入灯塔（可选）
 
 将 HttpDNSLibs\beacon_android_xxxx.jar 拷贝至应用 libs 相应位置。
  >! 
  >- 若您已经接入了腾讯灯塔（beacon）组件的应用，请忽略此步骤。
  >- 灯塔（beacon）SDK 是由腾讯灯塔团队开发，用于移动应用统计分析，HTTPDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
 
-### 接口调用
+### SDK初始化
+
+#### DNSIP说明
+http 协议服务地址为 119.29.29.98，https 协议服务地址为 119.29.29.99。
+新版本 API 更新为使用 119.29.29.99/98 接入，同时原移动解析 HTTPDNS 服务地址 119.29.29.29 仅供开发调试使用，无 SLA 保障，不建议用于正式业务，请您尽快将正式业务迁移至 119.29.29.99/98。
+从<a href="https://cloud.tencent.com/document/product/379/54976"></a> 文档提供的IP为准
+
+#### 默认使用DES加密
 
 ```Java
 
@@ -83,12 +90,15 @@ try {
  * @param appkey 业务appkey，即SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param dnskey dns解析key，即授权id对应的key(加密密钥)，在申请SDK后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- * @param dnsIp 由外部传入的dnsIp，如"119.29.29.99"，从<a href="https://cloud.tencent.com/document/product/379/17655"></a> 文档提供的IP为准
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.99"，"119.29.29.98"(仅支持http请求)，从<a href="https://cloud.tencent.com/document/product/379/54976"></a> 文档提供的IP为准
  * @param debug 是否开启debug日志，true为打开，false为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  */
 MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp debug, timeout);
+```
 
+#### 自选加密方式（DesHttp, AesHttp, Https）
+```Java
 /**
  * 初始化HTTPDNS（自选加密方式）：如果接入了MSDK，建议初始化MSDK后再初始化HTTPDNS
  *
@@ -96,13 +106,17 @@ MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dns
  * @param appkey 业务appkey，即SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param dnskey dns解析key，即授权id对应的key(加密密钥)，在申请SDK后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- * @param dnsIp 由外部传入的dnsIp，如"119.29.29.99"，从<a href="https://cloud.tencent.com/document/product/379/17655"></a> 文档提供的IP为准
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.99"，"119.29.29.98"(仅支持http请求)，从<a href="https://cloud.tencent.com/document/product/379/54976"></a> 文档提供的IP为准
  * @param debug 是否开启debug日志，true为打开，false为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  * @param channel 设置channel，可选：DesHttp(默认), AesHttp, Https
  * @param token 腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于HTTPS校验
  */
 MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp debug, timeout, channel, token);
+```
+
+### 接口调用
+```Java
 
 /**
  * 设置OpenId，已接入MSDK业务直接传MSDK OpenId，其它业务传“NULL”
