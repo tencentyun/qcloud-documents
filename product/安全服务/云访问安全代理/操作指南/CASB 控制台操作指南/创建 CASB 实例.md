@@ -1,6 +1,6 @@
 本文档将指导您如何使用云访问安全代理（CASB）控制台。
 ## 前提条件
-- 需已 [购买开通 CASB 实例](https://cloud.tencent.com/document/product/1303/48148)。
+- 需已 [购买开通 CASB 实例](https://cloud.tencent.com/document/product/1303/53298)。
 - 需已开通密钥管理系统（KMS）服务并完成 KMS 对云访问安全代理服务的角色授权，详情请参见 [使用 KMS 加密并授权](https://cloud.tencent.com/document/product/1303/48491)。
 
 ## 操作步骤
