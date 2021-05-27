@@ -97,7 +97,7 @@ sar -n DEV 1
 
 ## 操作步骤
 ### 准备测试环境
-1. 准备3台测试机器，请参见 [通过购买页创建](https://cloud.tencent.com/document/product/213/4855) 购买测试机器。本文测试机器使用 CentOS 8.2 操作系统。
+1. 准备3台测试机器，请参见 [自定义配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/10517) 购买测试机器。本文测试机器使用 CentOS 8.2 操作系统。
 2. 依次登录测试机器，并执行以下命令安装 netperf 工具。如何登录云服务器，请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 ```
 yum install -y sysstat wget tar automake make gcc 
