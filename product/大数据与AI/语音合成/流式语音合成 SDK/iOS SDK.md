@@ -32,7 +32,7 @@ iOS SDK 文件夹名称为：QCloud_TTS。其中包含一个 .a 静态库和一�
 ## 快速入门
 ### 初始化 QCloudTTS 并注册 QCloudTTSDelegate
 ```
-QCloudTTS * apiObj = [[QCloudTTS alloc] initWithAppId:appId secretId:secretId secretKey:secretKey]];
+QCloudTTS * apiObj = [[QCloudTTS alloc] initWithAppId:appId secretId:secretId secretKey:secretKey];
 apiObj.ttsDelegate = self;
 ```
 
@@ -125,7 +125,7 @@ NSInteger appId = 1257709062;                                   //腾讯云 AppI
 NSString *secretId = @“AKIDzlIbgVXMPC*****QaT6TZOwDF1WktQr4”;   //腾讯云 secretId
 NSString *secretKey = @“6xYsxngLo45sT*****ORFuMZZLs9BzXt”;      //腾讯云 secretKey
 
-QCloudTTS* _apiObj = [[QCloudTTS alloc] initWithAppId:appId secretId:secretId secretKey:secretKey];_
+QCloudTTS* _apiObj = [[QCloudTTS alloc] initWithAppId:appId secretId:secretId secretKey:secretKey];
 
 apiObj.ttsDelegate = self;
 [apiObj startTTS:ttsText fail:^(NSString *code, NSString *errMsg) {
