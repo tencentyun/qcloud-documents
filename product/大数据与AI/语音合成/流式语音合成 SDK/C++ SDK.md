@@ -197,7 +197,7 @@ vector<string> SplitString(string strText, string model);
 ```
 
 
-### 请求 Demo
+### 请求 DEMO
 前提已经更改用户正确的 AppId 信息。
 ```
 cd bin
