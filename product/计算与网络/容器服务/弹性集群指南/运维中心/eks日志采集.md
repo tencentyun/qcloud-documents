@@ -1,14 +1,15 @@
 ## 操作场景
-EKS 日志采集功能可以将集群内服务的日志发送至 [日志服务 CLS](https://cloud.tencent.com/product/cls) 或用户自建 Kafka，适用于需要对 EKS 集群内服务日志进行存储和分析的用户。本文介绍如何使用弹性容器服务 EKS 提供的集群内日志采集功能。
+在弹性容器服务 EKS 中，用户可以通过环境变量配置日志采集，也可以通过 [自定义资源定义（CustomResourceDefinitions，CRD）的方式配置日志采集](https://cloud.tencent.com/document/product/457/56320)。
 
+本文介绍如何通过环境变量实现 EKS 集群的日志采集功能。该功能支持将集群内服务的日志发送至 [日志服务 CLS](https://cloud.tencent.com/product/cls) 或用户自建 Kafka，适用于需要对 EKS 集群内服务日志进行存储和分析的用户。
 
 EKS 日志采集功能需要在创建工作负载时手动开启。您可根据以下操作开启日志采集功能：
-  - [配置日志采集](#output)
-  - [配置日志消费端](#output2)
-  - [通过 yaml 配置日志采集](#yaml)
-  - [更新日志采集](#new)
+- [通过控制台配置日志采集](#output)
+- [通过 yaml 配置日志采集](#yaml)
+- [更新日志采集](#new)
 
-## 说明事项
+
+#### 说明事项
 EKS 日志采集功能开启后，日志采集 Agent 根据您配置的采集路径和消费端，将采集到的日志以 JSON 的形式发送到您指定的消费端。消费端及采集路径说明如下：
   - **消费端**：日志采集服务支持 Kafka 或 CLS 作为日志的消费端。
   - **采集路径**：需要采集的日志的路径。采集路径支持采集标准输出（stdout）和绝对路径，支持 * 通配，多个采集路径以“,”分隔。 
@@ -27,17 +28,38 @@ EKS 日志采集功能开启后，日志采集 Agent 根据您配置的采集路
 ## 操作步骤
 
 
-### 配置日志采集[](id:output)
+### 通过控制台配置日志采集[](id:output)
 EKS 日志采集功能采集到的日志信息将会以 JSON 格式输出到您指定的消费端，并会附加相关的 Kubernetes metadata，包括容器所属 pod 的 label 和 annotation 等信息。具体操作步骤如下：
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【弹性集群】。
 2. 进入“弹性集群”页面，选择需要日志采集的集群 ID，进入集群管理页面。
 3. 在左侧“工作负载”中选择需要的工作负载类型，进入对应页面后选择【新建】。
 4. 在“实例内容器”中选择【显示高级设置】，并勾选“开启”日志采集。如下图所示：
 ![](https://main.qcloudimg.com/raw/0ef3ce835e4d30651a48f54df9b23acb.png)
-5. 参考以下信息进行日志消费端配置，您可选择 CLS 或 Kafka 作为日志消费端。如下图所示：
-  - 推荐选择 [日志服务 CLS](https://cloud.tencent.com/product/cls) 为消费端，并选择日志集和日志主题。若无合适的日志集，请参考 [配置日志服务 CLS 作为日志消费端](#output2)。
-   - 若选择 Kafka 为消费端，请参考 [配置 Kafka 作为日志消费端](#output2)。
-![](https://main.qcloudimg.com/raw/4a0e6bef8d5b0c800dfdb6de9104fe4c.png)
+5. 参考以下信息进行日志消费端配置，您可选择 CLS 或 Kafka 作为日志消费端。
+<dx-tabs>
+::: 配置CLS作为日志消费端
+选择 [日志服务 CLS](https://cloud.tencent.com/product/cls) 为消费端，并选择日志集和日志主题。若无合适的日志集，请参考 [配置日志服务 CLS 作为日志消费端](#output2)。
+
+<dx-alert infotype="notice" title="">
+- 日志服务 CLS 目前仅支持同地域的容器集群进行日志采集上报。
+- **打开日志主题的【日志索引】**。索引配置是使用日志服务 CLS 进行检索分析的必要条件。若未开启，则无法查看日志。配置索引的详细操作，请参见 [日志服务配置索引](https://cloud.tencent.com/document/product/614/50922)。
+![](https://main.qcloudimg.com/raw/63261141b423f5a0728a561f63ce4c47.png)
+开启后，日志主题的索引显示已开启，如下图所示：
+![](https://main.qcloudimg.com/raw/a8413fb410367e01acfa9ff62e7a291d.png)
+</dx-alert>
+
+
+:::
+::: 配置Kafka作为日志消费端
+选择 Kafka 为消费端，推荐使用 CKafka，消费、生产方式与原生版体验一致，并支持配置告警。
+在容器配置中填写 Kafka 的 Broker 地址及 Topic，需要保证集群内所有资源都能够访问用户指定的 Kafka Topic。如下图所示：
+![](https://main.qcloudimg.com/raw/2a226f61d5db3a048f804e83d3f0debb.png)
+<dx-alert infotype="notice" title="">
+Kafka 的 Topic 配置中 `cleanup.policy` 参数需选择 delete，选择 compact 会导致 CLS 无法上报到 Kafka 而造成数据丢失。如下图所示：
+![](https://main.qcloudimg.com/raw/c3f3a6f892b9c07cb24f7e210db5f80e.png)
+</dx-alert>
+:::
+</dx-tabs>
 6. 选择角色或者密钥进行授权。
 >! 
  - 同一 pod 下的容器只能选择同一种授权方式，以您最后修改的授权方式为准。例如第一个容器选择了密钥授权，第二个选择了角色授权，最终两个容器都是角色授权。
@@ -70,23 +92,6 @@ EKS 日志采集功能采集到的日志信息将会以 JSON 格式输出到您�
 至此已完成日志采集功能配置，您可按需进行该工作负载的其他配置。
 
 
-### 配置日志消费端[](id:output2) 
-EKS 日志采集功能支持指定用户自建的 Kafka 实例、日志服务 CLS 指定的日志主题作为日志内容的消费端。日志采集 Agent 会将采集到的日志发送到指定 Kafka 的指定 Topic 或指定的 CLS 日志主题。
-
-<dx-tabs>
-::: 配置Kafka作为日志消费端
-选择 Kafka 作为日志采集的消费端，推荐使用 CKafka，消费、生产方式与原生版体验一致，并支持配置告警。
-在容器配置中填写 Kafka 的 Broker 地址及 Topic，需要保证集群内所有资源都能够访问用户指定的 Kafka Topic。如下图所示：
-![](https://main.qcloudimg.com/raw/2a226f61d5db3a048f804e83d3f0debb.png)
->! Kafka 的 Topic 配置中 `cleanup.policy` 参数需选择 delete，选择 compact 会导致 CLS 无法上报到 Kafka 而造成数据丢失。如下图所示：
-![](https://main.qcloudimg.com/raw/c3f3a6f892b9c07cb24f7e210db5f80e.png)
-:::
-::: 配置CLS作为日志消费端
-- 日志服务 CLS 目前只能支持同地域的容器集群进行日志采集上报。详情请参见 [创建日志集和日志主题](https://cloud.tencent.com/document/product/614/34340#3.-.E5.88.9B.E5.BB.BA.E6.97.A5.E5.BF.97.E9.9B.86.E5.92.8C.E6.97.A5.E5.BF.97.E4.B8.BB.E9.A2.98)。
-- 打开日志主题的【日志索引】。如下图所示：
-![](https://main.qcloudimg.com/raw/a8413fb410367e01acfa9ff62e7a291d.png)
-:::
-</dx-tabs>
 
 [](id:yaml)
 ### 通过 yaml 配置日志采集 [](id:yaml)
@@ -165,6 +170,13 @@ labels:
 		<td>EKS_LOGS_KAFKA_BROKERS</td> <td>kafka brokers，ip1:port1，ip1:port2，ip2:port2格式，多个用“,”分隔。对外用此环境变量，EKS_LOGS_KAFKA_HOST 以后不再对外可见。</td>
 	</tr>
 </table>
+
+对于开启按key投递到kafka指定分区，验证方式如下：
+- 未开启时，查询消息不显示key，如下图：
+![](https://main.qcloudimg.com/raw/15e0c8040b05c71d7ad8674bd1cdd13e.png)
+- 当开启后，查询消息显示key，如下图：
+![](https://main.qcloudimg.com/raw/11c43f4d2fc8b9c698b288b15bed4503.png)
+
 :::
 
 
@@ -425,3 +437,5 @@ spec:
 :::
 </dx-tabs>
 
+## 常见问题
+如遇问题，您可先查询 [弹性集群日志采集相关问题](https://cloud.tencent.com/document/product/457/54778)。如果您的问题仍未解决，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1) 联系我们。

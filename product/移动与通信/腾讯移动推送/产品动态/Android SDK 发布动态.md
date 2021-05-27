@@ -1,4 +1,27 @@
+
+## 2021年05月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.2.5.0 版本发布</td><td><li> 新增：新增标签查询接口
+<li>  新增：新增手机号码绑定接口，用于普通短信及智能短信发送
+<li>  新增：推送服务长连接支持 SSL 加密通信
+<li>  新增：账号绑定接口升级，新增多种预设账号类型
+<li>  修复：“清除全部通知”接口兼容清除小米厂商推送通知（MIUI 11 及以下版本小米设备）
+<li>  修复：支持荣耀手机应用角标展示</td>
+        <td>2021-05-26</td><td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></td>
+    </tr>
+<tr>
+</table>
+
 ## 2021年02月
+
 <table>
 	<tr>
 		<th width=20%>动态名称</th>
@@ -8,7 +31,7 @@
 	</tr>
 	<tr>
         <td>SDK 1.2.3.1 版本发布</td><td>修复：修复华为禁用组件逻辑错误</td>
-        <td>2021-02-04</td><td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></td>
+        <td>2021-02-04</td><td>-</td>
     </tr>
 <tr>
 </table>

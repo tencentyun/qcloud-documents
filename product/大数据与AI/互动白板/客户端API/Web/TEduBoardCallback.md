@@ -2,7 +2,8 @@
 
 白板错误事件 [TEB_ERROR](https://doc.qcloudtiw.com/web/TEduBoard.html#.event:TEB_ERROR)
 
->!1. 白板错误事件一定要监听。
+>!
+1. 白板错误事件一定要监听。
 2. 白板错误事件属于白板致命错误，只能重新初始化白板才能解决，在重新初始化之前请先调用 destroy 方法进行销毁当前实例。
 
 | 属性 | 类型 | 描述 |
@@ -20,7 +21,8 @@ teduBoard.on(TEduBoard.EVENT.TEB_ERROR, (errorCode, errorMessage) => {
 
 白板警告事件 [TEB_WARNING](https://doc.qcloudtiw.com/web/TEduBoard.html#.event:TEB_WARNING)
 
->!1. 白板警告事件一定要监听。
+>!
+1. 白板警告事件一定要监听。
 2. 警告事件不是致命事件，不影响白板运行，但需要您针对警告码找出原因并修复。
 
 
@@ -53,8 +55,8 @@ teduBoard.on(TEduBoard.EVENT.TEB_HISTROYDATA_SYNCCOMPLETED, () => {
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
-| boardIds | Array  | 新增的白板 id 列表 |
-| fileId | string	|文件 id|
+| boardIds | Array  | 新增的白板 ID 列表 |
+| fileId | string	|文件 ID|
 
 ```
 teduBoard.on(TEduBoard.EVENT.TEB_ADDBOARD, (boardIds, fileId) => {
@@ -69,7 +71,7 @@ teduBoard.on(TEduBoard.EVENT.TEB_ADDBOARD, (boardIds, fileId) => {
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
 | data | object | 回调数据 |
-| `data.id` | string | 元素的 id |
+| `data.id` | string | 元素的 ID |
 | data.userData | string | 透传 userData 数据 |
 
 ```
@@ -176,8 +178,8 @@ teduBoard.on(TEduBoard.EVENT.TEB_AUDIO_STATUS_CHANGED, (data) => {
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
-| boardIds | Array | 删除的白板 id 列表 |
-| fileId | string | 删除白板所在的文件 id |
+| boardIds | Array | 删除的白板 ID 列表 |
+| fileId | string | 删除白板所在的文件 ID |
 
 ```
 teduBoard.on(TEduBoard.EVENT.TEB_DELETEBOARD, (boardIds, fileId) => {
@@ -275,7 +277,7 @@ teduBoard.on(TEduBoard.EVENT.TEB_GOTOSTEP, (currentStep, totalStep) => {
 | --- | --- | --- |
 | status |	number |	背景 H5 加载状态码 |
 | data |	object |	回调数据 |
-| data.currentBoardId |	string |	当前白板 id |
+| data.currentBoardId |	string |	当前白板 ID |
 | data.url |	string |	加载的 H5 页面 url |
 
 ```
@@ -327,7 +329,7 @@ teduBoard.on(TEduBoard.EVENT.TEB_H5PPT_STATUS_CHANGED, (status, data) => {
 | --- | --- | --- |
 | status |	number |	图片加载状态码 |
 | data |	object |	回调数据 |
-| data.currentBoardId |	string |	当前白板 id |
+| data.currentBoardId |	string |	当前白板 ID |
 | data.imgUrl |	string |	加载的 url |
 | data.currentImgUrl |	string |	已废弃，请忽略 |
 

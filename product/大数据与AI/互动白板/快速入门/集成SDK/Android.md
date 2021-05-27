@@ -1,12 +1,9 @@
-## 集成 SDK
-
 本文主要介绍如何快速的将腾讯云 TEduBoard SDK 集成到您的项目中。如果您使用互动课堂方案，请前往 [互动课堂集成文档](https://github.com/tencentyun/TIC/blob/master/Android/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3.md) 。
 
 ## 开发环境
 
 - Android Studio 2.0+
 - Android 4.2 （SDK API 17）及以上系统
-
 
 ## 集成 TEduBoard SDK
 
@@ -17,7 +14,6 @@
 ### 自动加载（aar）
 
 TEduBoard SDK 和 TIMSDK 已经发布到 Maven Central 库，您可以通过配置 gradle 自动下载更新。
-
 ![](https://main.qcloudimg.com/raw/13352150cb8bb0a729c28500a05c338f.png)
 
 #### 1. 添加 SDK 依赖
@@ -31,7 +27,7 @@ dependencies {
 
 #### 2. 同步 SDK
 
-单击 Sync Now，如果您的网络连接 Maven Central 没有问题，很快 SDK 就会自动下载集成到工程里。
+单击 Sync Now，如果您的网络连接 Maven Central 没有问题，SDK 会自动下载集成到工程里。
 
 ### 手动下载（aar）
 
@@ -41,17 +37,14 @@ dependencies {
 
 单击下载最新版 [TEduBaord SDK](https://tic-res-1259648581.cos.ap-shanghai.myqcloud.com/sdk/Android.zip) 。前往 [即时通讯官网](https://cloud.tencent.com/document/product/269/36887) 下载 TIMSDK。
 
-
 #### 2. 导入 SDK
 
 将下载到的 aar 文件拷贝到工程的 app/libs 目录下。
-
 ![](https://main.qcloudimg.com/raw/904930451506c7a4339db9da55207908.jpg)
 
 #### 3. 指定本地仓库路径
 
 在工程根目录下的 build.gradle 中，添加 flatDir，指定本地仓库路径。
-
 ![](https://main.qcloudimg.com/raw/9d365fabfe1c752e46d6d57f74bb5a03.jpg)
 
 #### 4.  添加 SDK 依赖

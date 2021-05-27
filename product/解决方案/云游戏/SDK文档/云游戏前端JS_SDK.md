@@ -1,4 +1,19 @@
-## SDK 概览
+## JS SDK 时序图
+
+腾讯云云游戏 JS SDK 时序图如下： 
+
+![](https://main.qcloudimg.com/raw/bd9d347d6b38a6587854119ac57d9799.png)
+
+**其中：**
+
+| 时序角色       | 对应           |
+| ---------- | -------------- |
+| page       | 用户网页       |
+| tcgsdk.js  | 当前使用的云游戏 SDK         |
+| app_server | 用户业务服务器 |
+| cloud_api  | 腾讯云 API     |
+
+## JS SDK 接口概览
 
 ### 云游戏生命周期相关接口
 
@@ -9,8 +24,6 @@
 | [TCGSDK.start(serverSession)](#tcgsdk.start(serversession)) | 启动云游戏             |
 | [TCGSDK.destroy(msg)](#tcgsdk.destroy(msg))                 | 立即停止云游戏         |
 | [TCGSDK.reconnect()](#tcgsdk.reconnect())                   | 重连接口               |
-
-
 
 ### 游戏进程相关接口
 
@@ -64,14 +77,11 @@
 | [TCGSDK.getVolume()](#tcgsdk.getvolume())                    | 获取当前音量值         |
 | [TCGSDK.setPageBackground(url) ](#tcgsdk.setpagebackground(url)) | 设置云游戏页面的背景图 |
 
-
-
-
 ## 生命周期相关接口
 
 ### TCGSDK.init(params) 
 
-params对象有效字段描述：
+params 对象有效字段描述：
 
 | 参数                   | 类型     | 是否可选 | 描述                                                         |
 | ---------------------- | -------- | -------- | ------------------------------------------------------------ |
@@ -211,9 +221,9 @@ params对象有效字段描述：
 
 恢复运行当前运行的游戏进程。
 
-| 参数     | 参数类型 | 说明     |
-| -------- | -------- | -------- |
-| callback | function | 调用结果 |
+| 参数                              | 参数类型 | 说明     |
+| --------------------------------- | -------- | -------- |
+| [callback](#loginHelper_callback) | function | 调用结果 |
 
 ### TCGSDK.loginHelper(params, callback)
 
@@ -224,7 +234,9 @@ params对象有效字段描述：
 | params   | object   | 辅助登录的参数，主要参数如下：<li>gameid：游戏 ID</li><li>acc：帐号字符串</li><li>pwd：密码字符串</li> |
 | callback | function | 执行结果回调                                                 |
 
-**callback 的原型：**
+[](id:loginHelper_callback)
+
+#### callback 的原型：
 
 ```
 function(res) {
@@ -232,7 +244,7 @@ function(res) {
 }
 ```
 
-**params js object 结构示例如下：**
+#### params js object 结构示例如下：
 
 ```
 {
@@ -247,12 +259,14 @@ function(res) {
 
 获取当前窗口是否登录窗口。
 
-| 参数     | 参数类型 | 说明         |
-| -------- | -------- | ------------ |
-| gameid   | string   | 游戏 ID      |
-| callback | function | 执行结果回调 |
+| 参数                                     | 参数类型 | 说明         |
+| ---------------------------------------- | -------- | ------------ |
+| gameid                                   | string   | 游戏 ID      |
+| [callback](#getLoginWindowStat_callback) | function | 执行结果回调 |
 
-**callback 的原型如下：**
+[](id:getLoginWindowStat_callback)
+
+#### callback 的原型如下：
 
 ```
 function(res) {
@@ -260,7 +274,7 @@ function(res) {
 }
 ```
 
-**返回的 res 结构：**
+#### 返回的 res 结构：
 
 ```
 {code:0, data:{bottom: number, found: 1/0, left: number, name: 'xxxx', right: number, top: number, capslock: 0/1}}
@@ -288,22 +302,22 @@ function(res) {
 
 | 返回值      | 返回值类型 | 说明                                                         |
 | ----------- | ---------- | ------------------------------------------------------------ |
-| code        | number     | 0：success；1：ack dataChannel 未创建成功，请重试；2：该数据通道已经存在 |
+| code        | number     | <li/>0：success<li/>1：ack dataChannel 未创建成功，请重试<li/>2：该数据通道已经存在 |
 | msg         | string     | 回传的 message 信息                                          |
 | sendMessage | function   | 用于发送 message 的方法，参数类型为 any，SDK 只负责提供数据透传能力 |
 
 ### TCGSDK.setRemoteDesktopResolution({width, height})
 
-设置云端桌面分辨率，返回Promise。
+设置云端桌面分辨率，返回 Promise。
 
 | 参数   | 参数类型 | 说明         |
 | ------ | -------- | ------------ |
 | width  | number   | 云端桌面宽度 |
 | height | number   | 云端桌面高度 |
 
-| 返回值 | 返回值类型 | 说明                |
-| ------ | ---------- | ------------------- |
-| code   | number     | 0：success，1：fail |
+| 返回值 | 返回值类型 | 说明                        |
+| ------ | ---------- | --------------------------- |
+| code   | number     | <li/>0：success<li/>1：fail |
 
 
 
@@ -380,8 +394,6 @@ function(res) {
 <td><code>{type: "gamepadkey", key: 0x40, down: true/false}</code></td>
 </tr>
 </tbody></table>
-
-
 > ! 如果直接调用此接口发送鼠标移动/偏移事件，需额外处理显示区域偏移、灵敏度和坐标缩放，灵敏度设置 API 也无效，因此建议调用后面的 [mouseMove](#tcgsdk.mousemove(identifier.2C-type.2C-x.2C-y.2C-islogic)) 接口。
 
 ### TCGSDK.setMoveSensitivity(value)
@@ -550,4 +562,6 @@ function(res) {
 | 参数 | 参数类型 | 说明         |
 | ---- | -------- | ------------ |
 | url  | Context  | 背景图片 URL |
+
+
 
