@@ -171,7 +171,7 @@ count=$1
 for ((i=1;i<=count;i++))
 do
     echo "Instance:$i-------"
-    # 下方命令可以粘贴上方运行参数表格中的命令
+    # 下方命令可以替换为测试场景表格中的命令
     # -H 后填写服务器 IP 地址;
     # -l 后为测试时间，为了防止 netperf 提前结束，因此时间设为 10000;
     netperf -t UDP_STREAM -H <server ip> -l 10000 -- -m 64 -R 1 &
