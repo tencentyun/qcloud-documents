@@ -22,7 +22,7 @@ Pulsar Java SDK 接入步骤如下：
 4. 在创建 Client 的代码中加入刚复制的密钥（集群版本为2.6.1的则还添加 `listenerName` 参数）。
 >?您可以点击以下页签，查看不同版本集群的接入示例。
 <dx-tabs>
-::: 2.7.1版本集群接入示例
+::: 2.7.1版本及以上集群接入示例
 <dx-codeblock>
 :::  java
 PulsarClient client = PulsarClient.builder()
