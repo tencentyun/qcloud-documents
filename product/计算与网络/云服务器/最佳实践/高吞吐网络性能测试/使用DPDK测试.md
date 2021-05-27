@@ -5,10 +5,11 @@
 ## 操作步骤
 
 ### 编译安装 DPDK
-1. 准备2台测试机器，配置如下：
- - 镜像：
- - 规格：
+1. 准备2台测试机器。可参考 [通过购买页创建](https://cloud.tencent.com/document/product/213/4855) 文档购买测试机器。本文测试机器使用 CentOS 8.2 操作系统。
 2. 依次登录测试机器，并执行以下命令下载 DPDK 工具。如何登录云服务器，请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
+```
+yum install -y sysstat wget tar automake make gcc 
+```
 ```
 wget http://git.dpdk.org/dpdk/snapshot/dpdk-17.11.tar.gz
 ```
@@ -84,7 +85,7 @@ apt-get install libnuma-dev
 ```
 :::
 </dx-tabs>
-6. 执行以下命令，关闭 KNI。
+6. 在  `dpdk/` 目录下执行以下命令，关闭 KNI。
 ```
 sed -i  "s/\(^CONFIG_.*KNI.*\)=y/\1=n/g" ./config/*
 ```
@@ -96,9 +97,6 @@ sed -i "s/\(^WERROR_FLAGS += -Wundef -Wwrite-strings$\)/\1 -Wno-address-of-packe
 sed -i "s/fall back/falls through -/g" ./lib/librte_eal/linuxapp/igb_uio/igb_uio.c
 ```
 8. 执行以下命令，编译 DPDK。
-```
-cd dpdk/
-```
 ```
 make defconfig
 ```
@@ -117,7 +115,10 @@ echo 4096 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
 ```
 
 ### 装载内核模块及绑定接口
-依次执行以下命令，装载 UIO 模块及绑定 virito 接口。
+>?该步骤需使用 Python，请前往 [Python 官网](https://www.python.org/doc/) 下载并安装所需版本。本文以 Python 3.8.1 为例。
+>
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。由于将网卡驱动绑定至 igb_uio 用户态驱动后，该网卡将无法通过 ssh 或 IP 访问，支持通过 VNC 或 console 方式访问。
+2. 依次执行以下命令，装载 UIO 模块及绑定 virito 接口。
 ```
 ifconfig eth0 0
 ```
@@ -136,7 +137,12 @@ cd /root/dpdk/usertools/
 ```
 python3 dpdk-devbind.py --bind=igb_uio 00:05.0
 ```
-将网卡驱动绑定至 igb_uio 用户态驱动后，该网卡将无法通过 ssh 或 IP 访问，仅支持通过 console 访问。完成测试后，请执行以下命令，恢复网卡变更。
+>? 命令中的 00.05.0 为示例地址，请执行以下命令，获取机器实际地址。
+> ```
+python3 dpdk-devbind.py -s
+```
+>
+完成测试后，可通过请执行以下命令，恢复网卡变更。
 ```
 cd /root/dpdk/usertools/
 ```
