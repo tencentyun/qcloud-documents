@@ -126,13 +126,12 @@ NSString *secretId = @“AKIDzlIbgVXMPC*****QaT6TZOwDF1WktQr4”;   //腾讯云 
 NSString *secretKey = @“6xYsxngLo45sT*****ORFuMZZLs9BzXt”;      //腾讯云 secretKey
 
 QCloudTTS* _apiObj = [[QCloudTTS alloc] initWithAppId:appId secretId:secretId secretKey:secretKey];
-
-apiObj.ttsDelegate = self;
+_apiObj.ttsDelegate = self;
 [apiObj startTTS:ttsText fail:^(NSString *code, NSString *errMsg) {
-	//接口异常处理
-	NSLog(@“error:%@”,errMsg);
+//接口异常处理NSLog(@“error:%@”,errMsg);
 }];
 ```
+
 ### 暂停、恢复或停止语音播放
 ```
 [apiObj pauseTTS];
