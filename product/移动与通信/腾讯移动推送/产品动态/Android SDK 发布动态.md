@@ -1,4 +1,3 @@
-
 ## 2021年05月
 
 <table>
@@ -15,7 +14,7 @@
 <li>  新增：账号绑定接口升级，新增多种预设账号类型
 <li>  修复：“清除全部通知”接口兼容清除小米厂商推送通知（MIUI 11 及以下版本小米设备）
 <li>  修复：支持荣耀手机应用角标展示</td>
-        <td>2021-05-26</td><td><li> 由于 Jcenter 下线，您可能遇到 SDK 依赖拉取问题，请参考 [Android SDK 升级指南](第一步的链接) 配置依赖仓库镜像源
+        <td>2021-05-26</td><td><li> 由于 Jcenter 下线，您可能遇到 SDK 依赖拉取问题，请参考 <a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a> 配置依赖仓库镜像源
 <li> 新增的标签查询接口，需要注意在继承 <code>XGPushBaseReceiver</code> 的实现类中增加实现方法 <code>onQueryTagsResult</code></td>
     </tr>
 <tr>
