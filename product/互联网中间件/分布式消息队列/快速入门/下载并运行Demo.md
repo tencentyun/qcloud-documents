@@ -52,7 +52,7 @@ System.out.println(">> pulsar client created.");
 <dx-codeblock>
 :::  java
 PulsarClient client = PulsarClient.builder()
-     .serviceUrl("pulsar://...:6000/")//接入地址到集群管理-接入点列表完整复制
+    .serviceUrl("pulsar://...:6000/")//接入地址到集群管理-接入点列表完整复制
     .listenerName("custom:pulsar-****/vpc-****/subnet-****")//custom:替换成路由ID，位于【集群管理】接入点列表
     .authentication(AuthenticationFactory.token("eyJr****"))//替换成角色密钥，位于【角色管理】页面
     .build();
