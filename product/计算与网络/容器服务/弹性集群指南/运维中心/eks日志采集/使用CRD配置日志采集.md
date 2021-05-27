@@ -63,7 +63,7 @@ CRD 对 Pod 无侵入性，支持单行、多行、分隔符、完全正则、JS
 ### 配置日志规则[](id:rules)
 
 开启日志采集后，需要配置日志规则，确认日志源、消费端、日志解析方式等。
-#### 采集配置
+
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=4)，选择左侧导航栏中的【集群运维】>【[日志规则](https://console.cloud.tencent.com/tke2/ops/list?rid=1)】。
 2. 在“日志采集”页面上方选择地域和需要配置日志采集规则的 EKS 集群，单击【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/307070e947388d07be7b8e84a5514b54.png)
