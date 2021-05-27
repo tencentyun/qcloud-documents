@@ -1,5 +1,5 @@
 ## 操作场景
-在弹性容器服务 EKS 中，用户可以通过环境变量配置日志采集，也可以通过 [自定义资源定义（CustomResourceDefinitions，CRD）的方式配置日志采集](https://cloud.tencent.com/document/product/457/56320)。
+在弹性容器服务 EKS 中，用户可以通过环境变量配置日志采集，按行采集日志、不解析。也可以通过 [自定义资源定义（CustomResourceDefinitions，CRD）的方式配置日志采集](https://cloud.tencent.com/document/product/457/56320)。
 
 本文介绍如何通过环境变量实现 EKS 集群的日志采集功能。该功能支持将集群内服务的日志发送至 [日志服务 CLS](https://cloud.tencent.com/product/cls) 或用户自建 Kafka，适用于需要对 EKS 集群内服务日志进行存储和分析的用户。
 
@@ -38,22 +38,21 @@ EKS 日志采集功能采集到的日志信息将会以 JSON 格式输出到您�
 5. 参考以下信息进行日志消费端配置，您可选择 CLS 或 Kafka 作为日志消费端。
 <dx-tabs>
 ::: 配置CLS作为日志消费端
-选择 [日志服务 CLS](https://cloud.tencent.com/product/cls) 为消费端，并选择日志集和日志主题。若无合适的日志集，请参考 [配置日志服务 CLS 作为日志消费端](#output2)。
-
+1. 选择 CLS 作为日志消费端，并选择日志集和日志主题。如下图所示：
+![](https://main.qcloudimg.com/raw/be23948200404fff878179f47c6ff362.png)
+若无合适的日志集，请参考 [新建日志集及日志主题](https://cloud.tencent.com/document/product/614/34340#3.-.E5.88.9B.E5.BB.BA.E6.97.A5.E5.BF.97.E9.9B.86.E5.92.8C.E6.97.A5.E5.BF.97.E4.B8.BB.E9.A2.98)。
 <dx-alert infotype="notice" title="">
-- 日志服务 CLS 目前仅支持同地域的容器集群进行日志采集上报。
-- **打开日志主题的【日志索引】**。索引配置是使用日志服务 CLS 进行检索分析的必要条件。若未开启，则无法查看日志。配置索引的详细操作，请参见 [日志服务配置索引](https://cloud.tencent.com/document/product/614/50922)。
-![](https://main.qcloudimg.com/raw/63261141b423f5a0728a561f63ce4c47.png)
-开启后，日志主题的索引显示已开启，如下图所示：
-![](https://main.qcloudimg.com/raw/a8413fb410367e01acfa9ff62e7a291d.png)
+日志服务 CLS 目前仅支持同地域的容器集群进行日志采集上报。
 </dx-alert>
-
+2. 打开日志主题的【日志索引】。索引配置是使用日志服务 CLS 进行检索分析的必要条件。若未开启，则无法查看日志。配置索引的详细操作，请参见 [日志服务配置索引](https://cloud.tencent.com/document/product/614/50922)。
+您可在【[日志服务控制台](https://console.cloud.tencent.com/cls/topic?region=ap-guangzhou)】>【日志主题】中，选择日志主题名称，在“索引配置”页面开启索引。如下图所示：
+![](https://main.qcloudimg.com/raw/ad0ec6edc772202eaa9305100347a09b.png)
 
 :::
 ::: 配置Kafka作为日志消费端
 选择 Kafka 为消费端，推荐使用 CKafka，消费、生产方式与原生版体验一致，并支持配置告警。
 在容器配置中填写 Kafka 的 Broker 地址及 Topic，需要保证集群内所有资源都能够访问用户指定的 Kafka Topic。如下图所示：
-![](https://main.qcloudimg.com/raw/2a226f61d5db3a048f804e83d3f0debb.png)
+![](https://main.qcloudimg.com/raw/22551229fb4e7b1377aa3912f83842d6.png)
 <dx-alert infotype="notice" title="">
 Kafka 的 Topic 配置中 `cleanup.policy` 参数需选择 delete，选择 compact 会导致 CLS 无法上报到 Kafka 而造成数据丢失。如下图所示：
 ![](https://main.qcloudimg.com/raw/c3f3a6f892b9c07cb24f7e210db5f80e.png)
@@ -135,6 +134,10 @@ labels:
            value: 10.0.16.42:9092
          - name: EKS_LOGS_KAFKA_TOPIC
            value: eks
+				 - name: EKS_LOGS_KAFKA_MESSAGE_KEY	 
+           valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
          - name: EKS_LOGS_METADATA_ON
            value: "true"
          - name: EKS_LOGS_LOG_PATHS
@@ -169,13 +172,17 @@ labels:
 	<tr>
 		<td>EKS_LOGS_KAFKA_BROKERS</td> <td>kafka brokers，ip1:port1，ip1:port2，ip2:port2格式，多个用“,”分隔。对外用此环境变量，EKS_LOGS_KAFKA_HOST 以后不再对外可见。</td>
 	</tr>
+	<tr>
+		<td>EKS_LOGS_KAFKA_MESSAGE_KEY</td> <td>非必填。支持指定一个 key，将日志投递到指定分区。<li>对于未开启按 key 投递，日志将随机投递到不同分区里。</li><li>开启按 key 投递，带有同样 key 的日志，将投递到相同的分区里。</li>
+<b>注意</b>：此处 key 从 Pod 的字段获取变量值，以上示例皆以 Pod name 为例，同时还支持 namespace、PodIP 等，详情可参见 <a href="https://kubernetes.io/zh/docs/tasks/inject-data-application/environment-variable-expose-pod-information/">官方文档</a>。 </td>
+	</tr>
 </table>
 
-对于开启按key投递到kafka指定分区，验证方式如下：
-- 未开启时，查询消息不显示key，如下图：
-![](https://main.qcloudimg.com/raw/15e0c8040b05c71d7ad8674bd1cdd13e.png)
-- 当开启后，查询消息显示key，如下图：
-![](https://main.qcloudimg.com/raw/11c43f4d2fc8b9c698b288b15bed4503.png)
+对于开启按 key 投递到 kafka 指定分区，验证方式如下：
+- 未开启时，查询消息不显示 key，如下图所示：
+![](https://main.qcloudimg.com/raw/0cd127b53979d5b1d82374f940e6a312.png)
+- 当开启后，查询消息显示 key，如下图所示：
+![](https://main.qcloudimg.com/raw/038c834eeab67b7efcea23953eb21e91.png)
 
 :::
 
