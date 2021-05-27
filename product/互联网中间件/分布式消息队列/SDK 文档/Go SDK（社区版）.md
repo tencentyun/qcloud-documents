@@ -24,7 +24,7 @@ import "github.com/apache/pulsar-client-go/pulsar"
 3. 在创建 Go Client 的代码中，配置准备好的 [路由 ID 和密钥](#前提条件)（2.7.1之后版本的集群可以无需复制路由 ID）。
 >?您可以点击以下页签，查看不同版本集群的接入示例。
 <dx-tabs>
-::: 2.7.1版本集群接入示例
+::: 2.7.1版本及以上集群接入示例
 <dx-codeblock>
 :::  go
 client, err := pulsar.NewClient(pulsar.ClientOptions{
