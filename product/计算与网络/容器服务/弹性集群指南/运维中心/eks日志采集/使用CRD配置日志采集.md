@@ -132,7 +132,6 @@ CRD 对 Pod 无侵入性，支持单行、多行、分隔符、完全正则、JS
 </dx-alert>
 5. [](id:index)单击【下一步】，选择日志提取模式。如下图所示：
 ![](https://main.qcloudimg.com/raw/0be038e165d1823f7fdfedc32ef054e4.png)
-
 <dx-accordion>
 ::: <b>多类提取模式说明</b>
 <table>
