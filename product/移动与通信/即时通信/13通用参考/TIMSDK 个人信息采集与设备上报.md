@@ -1,11 +1,11 @@
 即时通信 TIMSDK 提供全球接入、单聊、群聊、消息推送、资料关系链托管、帐号鉴权等全方位解决方案，并提供完备的 App 接入、后台管理接口等服务。
-您在使用 IM 即时通信服务时，有关设备权限的使用，详情您可下载 <a href="xxxxxxxxxxxxxxxxxxx">SDK 个人信息采集和权限情况。</a></td>
+您在使用该服务时，如需了解有关设备权限的使用，详情您可下载 <a href="xxxxxxxxxxxxxxxxxxx">SDK 个人信息采集和权限情况。</a></td>
 
 ## Android 端信息字段
 有关 Android 采集信息字段名调取权限等详细说明，请参见 <a href="xxxxxxxxxxxxxxxxxxx">iOS 个人信息采集情况汇总（表二）</a></td>
 
 ## Android 端敏感权限
-详情请参见 <a href="xxxxxxxxxxxxxxxxxxx">Android 端产品隐私权限信息采集表（表三）</a></td>
+有关 SDK 是否向操作系统申请了如下权限的详细说明，详情请参见 <a href="xxxxxxxxxxxxxxxxxxx">Android 端产品隐私权限信息采集表（表三）</a></td>
 - 日历权限（CALENDAR）
 - 通话记录权限（CALL_LOG）
 - 相机权限（CAMERA）
