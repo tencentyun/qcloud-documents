@@ -1,9 +1,9 @@
 
 
 ## 操作场景
-在弹性容器服务 EKS 中，用户可以 [通过环境变量配置日志采集](https://cloud.tencent.com/document/product/457/47200)，也可以通过自定义资源定义（CustomResourceDefinitions，CRD）的方式配置日志采集。
+在弹性容器服务 EKS 中，用户可以 [通过环境变量配置日志采集](https://cloud.tencent.com/document/product/457/47200)，按行采集日志、不解析。也可以通过自定义资源定义（CustomResourceDefinitions，CRD）的方式配置日志采集。
 
-CRD 对 Pod 无侵入性，支持单行、多行、分隔符、完全正则、JSON 等多种日志解析方式，将标准输出、容器内文件日志发送至 [腾讯云日志服务 CLS](https://cloud.tencent.com/product/cls)，提供检索分析、可视化应用、日志下载消费等服务。
+CRD 对 Pod 无侵入性，支持单行、多行、分隔符、完全正则、JSON 等多种日志解析方式，将标准输出、容器内文件日志发送至 [腾讯云日志服务 CLS](https://cloud.tencent.com/product/cls)，提供检索分析、可视化应用、日志下载消费等服务。推荐使用 CRD 配置日志采集。
 
 使用 CRD 配置日志采集功能需要为每个集群手动开启并配置采集规则，采集器将根据日志采集规则配置的采集源、CLS 日志主题及日志解析方式，从采集源进行日志采集，将日志内容发送到 CLS 并存储。您可根据以下操作使用 CRD 配置 EKS 集群的日志采集功能：
 <dx-steps>
@@ -15,7 +15,7 @@ CRD 对 Pod 无侵入性，支持单行、多行、分隔符、完全正则、JS
 </dx-steps>
 
 #### 注意事项
-- 使用 CRD 配置日志采集目前只对2021年2月25号后新建的 Pod 生效，若需为旧 Pod 配置日志采集，请销毁重建。
+- 使用 CRD 配置日志采集目前只对2021年5月25号后新建的 Pod 生效，若需为旧 Pod 配置日志采集，请销毁重建。
 - 若采集的 Pod 同时配置环境变量及 CRD 采集日志，会造成重复采集、重复计费。故使用 CRD 配置日志采集时，请删除相关环境变量。
 
 
@@ -63,28 +63,35 @@ CRD 对 Pod 无侵入性，支持单行、多行、分隔符、完全正则、JS
 ### 配置日志规则[](id:rules)
 
 开启日志采集后，需要配置日志规则，确认日志源、消费端、日志解析方式等。
+#### 采集配置
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=4)，选择左侧导航栏中的【集群运维】>【[日志规则](https://console.cloud.tencent.com/tke2/ops/list?rid=1)】。
 2. 在“日志采集”页面上方选择地域和需要配置日志采集规则的 EKS 集群，单击【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/307070e947388d07be7b8e84a5514b54.png)
 3. 在“新建日志采集规则”页面中，选择采集类型，并配置日志源、消费端、日志解析方式。目前采集类型支持 [容器标准输出](#stout) 和 [容器文件路径](#insideDocker)。
 <dx-tabs>
 ::: 采集容器标准输出日志[](id:stout)
-选择【容器标准输出】采集类型，并根据自身需求，配置日志源。该类型日志源支持采集：
-- 所有 Namespace 或某个 Namespace 下的所有容器。
-- 某 Namespace 下，指定工作负载下的某些容器，并支持添加多个 Namespace。
-- 某 Namespace 下，指定多个 Pod Lables，采集符合该 Lables 的所有容器。
+选择【容器标准输出】采集类型，并根据自身需求，配置日志源。如下图所示：
+![](https://main.qcloudimg.com/raw/984aacd9e22c15e680ac4db195ea1f58.png)
+该类型日志源支持采集：
+- **所有容器**：所有 Namespace 或某个 Namespace 下的所有容器。
+- **指定工作负载**：某 Namespace 下，指定工作负载下的某些容器，并支持添加多个 Namespace。
+- **指定 Pod Labels**：某 Namespace 下，指定多个 Pod Labels，采集符合该 Lables 的所有容器。
 
 :::
 ::: 采集容器内文件日志[](id:insideDocker) 
-选择【容器文件路径】采集类型，并根据自身需求，配置日志源。该类型日志源支持采集：
+选择【容器文件路径】采集类型，并根据自身需求，配置日志源。如下图所示：
+![](https://main.qcloudimg.com/raw/c0f209f865f75e99b9009f3cd8d610e5.png)
+该类型日志源支持采集：
+- **指定工作负载**：某 Namespace 下，指定工作负载下的容器的指定文件路径。
+- **指定 Pod Labels**：某 Namespace 下，指定多个 Pod Labels，采集符合该 Labels 的所有容器的指定文件路径。
 
-- 某 Namespace 下，指定工作负载下的容器的指定文件路径。
-- 某 Namespace 下，指定多个 Pod Labels，采集符合该 Labels 的所有容器的指定文件路径。
-  采集文件路径支持文件路径和通配规则，例如当容器文件路径为 `/opt/logs/*.log`，可以指定采集路径为 `/opt/logs`，文件名为 `*.log`。
-	>?  对于容器的标准输出及容器内文件，除了原始的日志内容，还会带上容器或 kubernetes 相关的元数据（例如，产生日志的 Pod name）一起上报到 CLS，方便用户查看日志时追溯来源或根据容器标识、特征（例如，容器名、Labels）进行检索。
+采集文件路径支持文件路径和通配规则，例如当容器文件路径为 `/opt/logs/*.log`，可以指定采集路径为 `/opt/logs`，文件名为 `*.log`。
 
+:::
+</dx-tabs>
+<dx-alert infotype="explain" title="">
+对于容器的标准输出及容器内文件，除了原始的日志内容，还会带上容器或 kubernetes 相关的元数据（例如，产生日志的 Pod name）一起上报到 CLS，方便用户查看日志时追溯来源或根据容器标识、特征（例如，容器名、Labels）进行检索。
 容器或 kubernetes 相关的元数据请参考下方表格：
-
 <table>
 	<tr>
 		<th>字段名</th> <th>含义</th>
@@ -116,18 +123,16 @@ CRD 对 Pod 无侵入性，支持单行、多行、分隔符、完全正则、JS
 </td>
 	</tr>
 </table>
-
-
-:::
-</dx-tabs>
+</dx-alert>
 4. [](id:cls)配置日志服务 CLS 为消费端。选择日志集和相应的日志主题，建议选择自动新建日志主题。如下图所示：
 ![](https://main.qcloudimg.com/raw/509611a957414671931b226a1b005b63.png)
 <dx-alert infotype="notice" title="">
 - 日志服务 CLS 目前只能支持同地域的容器集群进行日志采集上报。
 - 日志集和日志主题在日志规则完成后不可更新。
 </dx-alert>
-5. [](id:index)单击【下一步】，选择日志提取模式。
-<dx-fold-block title="多类提取模式说明">
+5. [](id:index)单击【下一步】，选择日志提取模式。如下图所示：
+![](https://main.qcloudimg.com/raw/0be038e165d1823f7fdfedc32ef054e4.png)
+<dx-fold-block title="<b>多类提取模式说明</b>">
 <table>
 <thead>
 <tr>
@@ -168,9 +173,10 @@ CRD 对 Pod 无侵入性，支持单行、多行、分隔符、完全正则、JS
 </tr>
 </tbody></table>
 </dx-fold-block>
-<dx-fold-block title="正则表达式自动生成说明">
+<dx-fold-block title="<b>正则表达式自动生成说明</b>">
 [](id:auto)为方便您的使用，在选择**多行 - 完全正则**、**单行 - 完全正则**、**多行全文**的提取模式时，支持**根据日志样例自动生成正则表达式**。
 以**单行 - 完全正则**为例，使用步骤如下：
+![](https://main.qcloudimg.com/raw/a6818396ad433e6c4b295bd265153d7b.png)
 1. 单击【正则表达式自动生成】。
 2. 在“正则表达式自动生成”弹窗中，选中日志样例中需要提取的字段，填写 key 值。
 3. 单击【确认提取】，即可生成该字段对应的正则表达式，并自动填写提取结果。重复此操作，直至日志完全被提取完成。
