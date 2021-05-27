@@ -160,7 +160,7 @@ ifconfig eth0 up
 2. 执行以下命令，测试 pps（UDP 64B 小包）。
 >?
 >- 通过 txpkts 参数控制发包大小，测试带宽使用1430B，测试 pps 使用64B。
->- 此步骤命令参数适用于  CentOS 8.2 操作系统。若使用其他系统镜像版本，则需调整参数猴重新测试。例如，CentOS 7.4 内核版本为3.10，与 CentOS 8.2 的内核版本4.18存在性能差异，可将带宽测试命令中的 `nb-cores` 修改为2。关于命令参数的更多信息，请参见 [estpmd-command-line-options](https://doc.dpdk.org/guides-17.11/testpmd_app_ug/run_app.html#testpmd-command-line-options)。
+>- 此步骤命令参数适用于  CentOS 8.2 操作系统。若使用其他系统镜像版本，则需调整参数后重新测试。例如，CentOS 7.4 内核版本为3.10，与 CentOS 8.2 的内核版本4.18存在性能差异，可将带宽测试命令中的 `nb-cores` 修改为2。关于命令参数的更多信息，请参见 [estpmd-command-line-options](https://doc.dpdk.org/guides-17.11/testpmd_app_ug/run_app.html#testpmd-command-line-options)。
 > 
  - 发送端：
 ```
