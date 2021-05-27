@@ -4,13 +4,13 @@
 首先需要开通移动解析 HTTPDNS 服务，请前往 [控制台](https://console.cloud.tencent.com/httpdns) 开通。具体操作请参见 [开通移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/54577)。
 
 ## 2. 使用 HTTPDNS API 接口解析域名
-开通服务后，授权 ID 和AES、DES加密密钥及 HTTPS Token 将发送至您在腾讯云 [账号中心](https://console.cloud.tencent.com/developer/security) 设置的安全邮箱。
+开通服务后，授权 ID、AES 和 DES 加密密钥及 HTTPS Token 将发送至您在腾讯云 [账号中心](https://console.cloud.tencent.com/developer/security) 设置的安全邮箱。
 获取授权 ID 和加密密钥及 HTTPS Token 后，可以使用以下方式请求解析：
 >? 
->- 授权 ID 等于 SDK 参数中的 dnsId。
->- AES、DES加密密钥等于 SDK 参数中的 dnsKey，请根据您的加密方式进行选择。
->- HTTPS Token 等于 SDK 参数中的 token。
->- 若您需要获取 AppID 请参见：[SDK 开通流程](https://cloud.tencent.com/document/product/379/12544)。
+>- 授权 ID 即为 SDK 参数中的 dnsId。
+>- AES、DES 加密密钥（授权 ID 的 key）即为 SDK 参数中的 dnsKey，请根据您的加密方式进行选择。
+>- HTTPS Token 即为 SDK 参数中的 token。
+>- AppID 即为 SDK 参数中的 appkey。若您需要获取 AppID 请参见 [SDK 开通流程](https://cloud.tencent.com/document/product/379/12544)。
 
 ### 单个查询方式
 - HTTPS 加密方式：
