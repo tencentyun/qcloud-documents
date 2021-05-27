@@ -145,7 +145,7 @@ ignoreModifiedTimeLessThanSeconds=
 
 | 配置项 | 描述 |
 | ------| ------ |
-|localPath|本地目录，要求格式为绝对路径：<br><li>Linux 下分隔符为单斜杠，例如`/a/b/c` <br><li>Windows 下分隔符为两个反斜杠，例如`E:\\a\\b\\c`|
+|localPath|本地目录，要求格式为绝对路径：<ul  style="margin: 0;"><li>Linux 下分隔符为单斜杠，例如`/a/b/c` </li><li>Windows 下分隔符为两个反斜杠，例如`E:\\a\\b\\c`</li></ul>|
 |excludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
 |ignoreModifiedTimeLessThanSeconds| 排除更新时间与当前时间相差不足一定时间段的文件，单位为秒，默认不设置，表示不根据 lastmodified 时间进行筛选，适用于客户在更新文件的同时又在运行迁移工具，并要求不把正在更新的文件迁移上传到 COS，例如设置为300，表示只上传更新了5分钟以上的文件|
 
@@ -237,7 +237,7 @@ urllistPath=D:\\folder\\urllist.txt
      
 | 配置项 | 描述 |
 | ------| ------ |
-|urllistPath|URL 列表的地址，内容为 URL 文本，一行一条 URL 原始地址（例如`http://aaa.bbb.com/yyy/zzz.txt`，无需添加任何双引号或其他符号）。URL 列表的地址要求为绝对路径：<br><li>Linux 下分隔符为单斜杠，例如`/a/b/c.txt` <br><li>Windows  下分隔符为两个反斜杠，例如`E:\\a\\b\\c.txt`<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移|
+|urllistPath|URL 列表的地址，内容为 URL 文本，一行一条 URL 原始地址（例如`http://aaa.bbb.com/yyy/zzz.txt`，无需添加任何双引号或其他符号）。URL 列表的地址要求为绝对路径：<ul  style="margin: 0;"><li>Linux 下分隔符为单斜杠，例如`/a/b/c.txt` </li><li>Windows  下分隔符为两个反斜杠，例如`E:\\a\\b\\c.txt`<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移</li></ul>|
 
  
 **3.3.6 配置 Bucket 相互复制 migrateBucketCopy**
@@ -309,6 +309,7 @@ sh start_migrate.sh -Dcommon.cosPath=/savepoint0403_10/
 > - 命令行优先级高于配置文件，即相同配置选项会优先采用命令行里的参数。
 > - 命令行中读取配置项的形式方便用户同时运行不同的迁移任务，但前提是两次任务中的关键配置项不完全一样，例如 Bucket 名称，COS 路径，要迁移的源路径等。因为不同的迁移任务写入的是不同的 db 目录，可以保证并发迁移。请参照前文中的工具结构中的 db 信息。
 > - 配置项的形式为 **-D{sectionName}.{sectionKey}={sectionValue}** 的形式。其中 sectionName 是配置文件的分节名称，sectionKey 表示分节中配置项名称，sectionValue 表示分节中配置项值。如设置要迁移到的 COS 路径，则以 **-Dcommon.cosPath=/bbb/ddd** 表示。
+> 
 
 ## 迁移机制及流程
 ### 迁移机制原理
