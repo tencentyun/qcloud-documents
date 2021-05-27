@@ -5,7 +5,7 @@
 有关 Android 采集信息字段名调取权限等详细说明，请参见 <a href="xxxxxxxxxxxxxxxxxxx">iOS 个人信息采集情况汇总（表二）</a></td>
 
 ## Android 端敏感权限
-有关 SDK 是否向操作系统申请了如下权限的详细说明，详情请参见 <a href="xxxxxxxxxxxxxxxxxxx">Android 端产品隐私权限信息采集表（表三）</a></td>
+有关 SDK 是否向操作系统申请如下权限的详细说明，详情请参见 <a href="xxxxxxxxxxxxxxxxxxx">Android 端产品隐私权限信息采集表（表三）</a></td>
 - 日历权限（CALENDAR）
 - 通话记录权限（CALL_LOG）
 - 相机权限（CAMERA）
@@ -21,7 +21,7 @@
 有关 iOS 采集信息字段名调取权限等详细说明，请参见 <a href="xxxxxxxxxxxxxxxxxxx">iOS 个人信息采集情况汇总（表四）</a></td>
 
 ## iOS 端敏感权限
-有关 SDK 是否向操作系统申请了如下权限的详细说明，请参见 <a href="xxxxxxxxxxxxxxxxxxx">iOS 端产品隐私权限信息采集表（表五）</a></td>
+有关 SDK 是否向操作系统申请如下权限的详细说明，请参见 <a href="xxxxxxxxxxxxxxxxxxx">iOS 端产品隐私权限信息采集表（表五）</a></td>
 - Bluetooth（蓝牙）
 - Calendar（日历）
 - Camera（相机）
