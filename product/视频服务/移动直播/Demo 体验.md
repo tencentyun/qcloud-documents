@@ -58,7 +58,7 @@
  
 **腾讯云工具包 App 展示**
  
-<img width="900" src="https://main.qcloudimg.com/raw/7f5440164eb5835b1fb2b67c3752fe2a.png"/>
+<img width="900" src="https://main.qcloudimg.com/raw/52ee09ae4039d24f39e3cf8110e632c7.jpg"/>
 
 ## 小程序 Demo
 除了 Native 版本的 Demo，我们还提供了微信小程序上的解决方案，打开“微信 > 发现 > 小程序”，搜索“腾讯视频云”即可体验。

@@ -5,25 +5,22 @@
 - 需要您在目标端 MySQL 中创建迁移帐号，需要帐号权限：待迁移对象的全部读写权限。
 - 待迁移源端自建 MySQL，支持版本：MySQL 5.5、MySQL 5.6、MySQL 5.7。
 - 待迁移源端自建 MySQL 所属的本地网络已通过腾讯云云联网的方式接入到腾讯云。
-
 - 需要您在源端实例中创建迁移帐号。
   - “整个实例”迁移，需要的帐号权限如下：
-  ```
+```
 CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
 GRANT SELECT ON *.* TO ‘迁移帐号’;
-  ```
+```
   - “指定对象”迁移，需要的帐号权限如下：
-
-  ```
+```
 CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
 GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;
-  ```
-
+```
 
 ## 背景说明
 用户自建 MySQL 所在的本地 IDC 已经通过腾讯云云联网接入到腾讯云，需要将本地自建 MySQL 实例迁移到腾讯云数据库 MySQL，具体架构如下所示：

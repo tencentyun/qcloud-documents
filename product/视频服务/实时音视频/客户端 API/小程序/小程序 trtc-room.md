@@ -97,7 +97,7 @@
 | 参数                 | 类型    | 默认值    | 说明         |
 |:---------------------|:--------|:----------|:-------------|
 | scene                | String  | rtc       | 必填参数，使用场景：<li>rtc：实时通话，采用优质线路，同一房间中的人数不应超过300人。</li><li>live：直播模式，采用混合线路，支持单一房间十万人在线（同时上麦的人数应控制在50人以内）。</li>  |
-| sdkAppID             | String  | -         | 必填参数，开通实时音视频服务创建应用后分配的 SDKAppID。            |
+| sdkAppID             | Number  | -         | 必填参数，开通实时音视频服务创建应用后分配的 SDKAppID。            |
 | userID               | String  | -         | 必填参数，用户 ID，可以由您的帐号体系指定。 |
 | userSig              | String  | -         | 必填参数，身份签名（即相当于登录密码），由 userID 计算得出，具体计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。    |
 | template             | String  | custom    | 必填参数，组件内置的画面排版模式，支持如下三种模式：<li>"1v1"：大小画面上下叠加。</li><li>"grid"：网格模版，画面间相互重叠，最多显示9路画面。</li><li>"custom"：自定义，需要您修改组件的 custom.wxml 模版</li>  |
@@ -136,7 +136,7 @@
 ```
 // videocall.js
 trtcConfig = {
-  sdkAppID: '1401000123', // 开通实时音视频服务创建应用后分配的 SDKAppID
+  sdkAppID: 1401000123, // 开通实时音视频服务创建应用后分配的 SDKAppID
   userID: 'test_user_001', // 用户 ID，可以由您的帐号系统指定
   userSig: 'xxxxxxxxxxxx', // 身份签名，相当于登录密码的作用
   template: 'grid', // 画面排版模式

@@ -16,44 +16,37 @@
 
 ## 其它命令
 
-<dx-tabs>
-::: 重启&nbsp;Agent
+### 重启&nbsp;Agent
 执行如下命令：
-
 ```
 systemctl restart prometheus
 ```
 
-:::
-::: 停止&nbsp;Agent
+### 停止&nbsp;Agent
 执行如下命令：
 
 ```
 systemctl stop prometheus
 ```
 
-:::
-::: 检查&nbsp;Agent&nbsp;状态
+### 检查&nbsp;Agent&nbsp;状态
 执行如下命令：
 
 ```
 systemctl status prometheus
 ```
 
-:::
-::: 查看&nbsp;Agent&nbsp;日志
+### 查看&nbsp;Agent&nbsp;日志
 执行如下命令：
 
 ```
 journalctl -f --unit=prometheus
 ```
 
-:::
-::: 卸载&nbsp;Agent
+### 卸载&nbsp;Agent
 执行如下命令：
 ```
 systemctl stop prometheus && rm -rf /usr/lib/systemd/system/prometheus.service
 ```
-:::
-</dx-tabs>
+
 

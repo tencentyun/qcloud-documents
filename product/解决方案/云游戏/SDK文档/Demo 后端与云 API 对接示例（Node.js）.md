@@ -1,5 +1,7 @@
 [](id:step1)
+
 ### 步骤1：环境部署
+
 `cloudapi.js` 是 Node.js 版的云 API 调用实例，自行安装 Node.js 运行环境。将 `cloudapi.js` 中的 SecretId 和 SecretKey，替换成您的腾讯云帐号下的 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 信息。
 
 **cloudapi.js 示例代码如下：**
@@ -82,6 +84,7 @@ router.post('/try_lock', jsonParser, function(req, res, next){
         console.log(err);
         res.json({code:-1, data: err});
     });
+
 });
 
 router.post('/get_signature', jsonParser, function(req, res, next) {
@@ -97,6 +100,7 @@ router.post('/get_signature', jsonParser, function(req, res, next) {
         console.log(err);
         res.json({code:-1, data: err});
     });
+
 });
 
 router.post('/stopgame', jsonParser, function(req, res, next) {
@@ -112,6 +116,7 @@ router.post('/stopgame', jsonParser, function(req, res, next) {
         console.log(err);
         res.json({code:-1, data: err});
     });
+
 });
 
 
@@ -122,33 +127,45 @@ module.exports = router;
 
 
 [](id:step2)
+
 ### 步骤2：创建 express 项目
+
 使用 express-generator 初始化一个 express 项目。
+
 ```
     express myproj
     npm i
 ```
 
 [](id:step3)
+
 ### 步骤3：安装依赖库
+
 ```
 		npm install --save express tencentcloud tencentcloud-sdk-nodejs uuid
 ```
 
 [](id:step4)
+
 ### 步骤4：调用云 API
-参考示例代码编写 [cloudapi.js](#step1)，修改 app.js，在后面加入一行。
+
+参考示例代码编写 [cloudapi.js](#step1)，修改 `app.js`，在后面加入一行。
+
 ```
     app.use('/cloudapi', require('./cloudapi.js'));
 ```
 
 [](id:step5)
+
 ### 步骤5：运行服务
+
 ```
     npm run
 ```
 
 [](id:step6)
+
 ### 步骤6：启动云游戏
+
 网页端发送 `try_lock` 请求，锁定机器成功后，再调用 `get_signature`，返回值获得 ServerSession 字段，然后调用 [TCGSDK.start(ServerSession)](https://cloud.tencent.com/document/product/1162/46134#tcgsdk.start(serversession)) 接口启动云游戏。
 
