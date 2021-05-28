@@ -47,6 +47,7 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="false">119.29.29.99</domain>
+        <domain includeSubdomains="false">119.29.29.98</domain>
     </domain-config>
 </network-security-config>
 ```
