@@ -177,6 +177,11 @@ Container 类型 TransConfig 的具体数据描述如下：
 | IsCheckAudioBitrate   | Request.TransConfig | 是否检查音频码率 | String | 否   | false  | <li>true、false <br/><li>当为false时，按照配置参数转码<br/> |
 | AudioBitrateAdjMethod | Request.TransConfig | 音频码率调整方式 | String | 否   | 0      | <li>取值0、1；0 表示使用原音频码率；<br/>1表示返回转码失败<br/><li>当 IsCheckAudioBitrate 为 true 时生效 |
 
+AdjDarMethod 参数图示：
+
+![](https://main.qcloudimg.com/raw/3436731be8c1caa5ffd565b2c44b9643.png)
+
+
 ## 响应
 
 #### 响应头
