@@ -235,7 +235,7 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 | 13  | 直播已结束，请稍后再来。| RTMP 正常播放过程中触发事件（NetConnection.Connect.Closed）。<br>Flash 提示的错误。  |
 | 1001   | 网络错误，请检查网络配置或者播放链接是否正确。|  网络已断开（NetConnection.Connect.Closed）。<br>Flash 提示的错误。              |
 | 1002   | 获取视频失败，请检查播放链接是否有效。|  拉取播放文件失败（NetStream.Play.StreamNotFound），可能是服务器错误或者视频文件不存在。<br>Flash 提示的错误。     |
-| 2001 | 调用 WebRTC 接口失败 | 播放 WebRTC 时设置sdp失败提示的错误 |
+| 2001 | 调用 WebRTC 接口失败 | 播放 WebRTC 时设置 sdp 失败提示的错误 |
 | 2002 | 调用拉流接口失败 | 播放 WebRTC 时提示的错误 |
 | 2003 | 连接服务器失败，并且连接重试次数已超过设定值 | 播放 WebRTC 时提示的错误，可用于确定是否为停止推流状态 |
 | 2032   | 获取视频失败，请检查播放链接是否有效。|   Flash 提示的错误。              |
