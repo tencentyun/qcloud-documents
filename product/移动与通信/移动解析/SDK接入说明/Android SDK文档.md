@@ -61,7 +61,7 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
  >- 若您已经接入了腾讯灯塔（beacon）组件的应用，请忽略此步骤。
  >- 灯塔（beacon）SDK 是由腾讯灯塔团队开发，用于移动应用统计分析，HTTPDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
  ```Java
- // 初始化灯塔：如果已经接入MSDK或者IMSDK或者单独接入了腾讯灯塔(Beacon)则不需再初始化该接口
+// 初始化灯塔：如果已经接入MSDK或者IMSDK或者单独接入了腾讯灯塔(Beacon)则不需再初始化该接口
 try {
     // 注意：这里业务需要输入自己的灯塔appkey
     UserAction.setAppKey("0I000LT6GW1YGCP7");
@@ -69,6 +69,13 @@ try {
 } catch (Exception e) {
     Log.e(TAG, "Init beacon failed", e);
 }
+
+/**
+ * 设置OpenId，已接入MSDK业务直接传MSDK OpenId，其它业务传“NULL”
+ *
+ * @param String openId
+ */
+MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
  ```
 
 ### SDK初始化
@@ -117,13 +124,6 @@ MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dns
 
 ### 接口调用
 ```Java
-
-/**
- * 设置OpenId，已接入MSDK业务直接传MSDK OpenId，其它业务传“NULL”
- *
- * @param String openId
- */
-MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
 
 /**
  * HTTPDNS同步解析接口
