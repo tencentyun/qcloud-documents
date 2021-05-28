@@ -37,6 +37,7 @@
 | [TCGSDK.sendText(content)](#TCGSDK.sendText(content))        | 聚焦输入框时快速发送内容   |
 | [TCGSDK.createCustomDataChannel({destPort,onMessage})](#TCGSDK.createCustomDataChannel({destPort,onMessage})) | 创建自定义 dataChannel     |
 | [TCGSDK.setRemoteDesktopResolution({width,height})](#TCGSDK.setRemoteDesktopResolution({width,height})) | 设置云端桌面分辨率         |
+
 ### 鼠标键盘控制相关接口
 
 | 接口名称                                                     | 接口描述                       |
@@ -66,6 +67,8 @@
 | [TCGSDK.setDebugMode({showStats,userid,showLog})](#TCGSDK.setDebugMode({showStats,userid,showLog})) | 打开或关闭调试模式 |
 | [TCGSDK.reportLog()](#TCGSDK.reportLog())                   | 上报问题           |
 | [TCGSDK.setLogHandler(handler)](#TCGSDK.setLogHandler(handler)) | 设置日志回调函数   |
+
+
 ### 音视频相关接口
 
 | 接口名称                                                     | 接口描述               |
@@ -118,7 +121,6 @@ params 对象有效字段描述：
 | onLog                  | function | 可选     | 日志回调函数，用于外部获取日志，作用与 [setLogHandler](#tcgsdk.setloghandler(handler)) 接口一致 |
 
 [](id:onTouchEvent)
-
 #### onTouchEvent 事件字段描述
 
 | 字段       | 类型    | 描述                                                         |
@@ -353,7 +355,8 @@ function(res) {
 | ----- | -------- | -------------------------------------------- |
 | event | object   | 对象结构：`{key: Integer,down: true/false }` |
 
-[](id:TCGSDK.sendRawEvent(event))### TCGSDK.sendRawEvent(event)
+[](id:TCGSDK.sendRawEvent(event))
+### TCGSDK.sendRawEvent(event)
 
 更底层的发送函数，允许定义 event 的类型。event 对象结构如下：
 
