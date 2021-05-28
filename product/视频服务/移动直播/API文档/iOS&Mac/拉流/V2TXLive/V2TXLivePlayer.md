@@ -27,7 +27,7 @@ __介绍__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| observer | V2TXLivePlayerObserver | 播放器的回调目标对象，详情请参见 [V2TXLivePlayerObserver](https://cloud.tencent.com/document/product/454/56044?!editLang=zh&!preview)。 |
+| observer | V2TXLivePlayerObserver | 播放器的回调目标对象，详情请参见 [V2TXLivePlayerObserver](https://cloud.tencent.com/document/product/454/56047)。 |
 
 ***
 

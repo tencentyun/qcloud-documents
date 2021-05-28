@@ -6,7 +6,7 @@ __功能__
 
 __介绍__
 
-可以接收 [V2TXLivePlayer](https://cloud.tencent.com/document/product/454/56044?!editLang=zh&!preview) 播放器的一些回调通知，包括播放器状态、播放音量回调、音视频首帧回调、统计数据、警告和错误信息等。
+可以接收 [V2TXLivePlayer](https://cloud.tencent.com/document/product/454/56044) 播放器的一些回调通知，包括播放器状态、播放音量回调、音视频首帧回调、统计数据、警告和错误信息等。
 
 
 ## SDK 基础回调
@@ -25,7 +25,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | player | V2TXLivePlayer |  回调该通知的播放器对象。 |
-| code | V2TXLiveCode |  错误码 。 |
+| code | V2TXLiveCode |  错误码。 |
 | msg | NSString * |  错误信息。 |
 | extraInfo | NSDictionary * |  扩展信息。 |
 
@@ -46,7 +46,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | player | V2TXLivePlayer |  回调该通知的播放器对象。 |
-| code | V2TXLiveCode |  警告码 。 |
+| code | V2TXLiveCode |  警告码。 |
 | msg | NSString * |  警告码信息。 |
 | extraInfo | NSDictionary * |  扩展信息。 |
 
@@ -68,7 +68,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | player | V2TXLivePlayer |  回调该通知的播放器对象。 |
-| status | [V2TXLivePlayStatus](#V2TXLivePlayStatus) | 状态码 。 |
+| status | [V2TXLivePlayStatus](#V2TXLivePlayStatus) | 状态码。 |
 | reason | V2TXLiveStatusChangeReason |  状态对应的原因。 |
 | extraInfo | NSDictionary * |  扩展信息。 |
 
@@ -96,7 +96,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | player | V2TXLivePlayer |  回调该通知的播放器对象。 |
-| image | TXImage * | 已截取的视频画面 。 |
+| image | TXImage * | 已截取的视频画面。 |
 
 ***
 
@@ -135,7 +135,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | player | V2TXLivePlayer |  回调该通知的播放器对象。 |
-| status | [V2TXLivePlayStatus](#V2TXLivePlayStatus) | 状态码 。 |
+| status | [V2TXLivePlayStatus](#V2TXLivePlayStatus) | 状态码。 |
 | reason | V2TXLiveStatusChangeReason |  状态对应的原因。 |
 | extraInfo | NSDictionary * |  扩展信息。 |
 

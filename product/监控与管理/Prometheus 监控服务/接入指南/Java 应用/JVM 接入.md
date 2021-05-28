@@ -4,11 +4,11 @@
 
 本文以如何在容器服务上部署普通 Java 应用为例，介绍如何通过 Prometheus 监控服务监控其状态。
 
->?若已使用 Spring Boot 作为开发框架，请参见 [Spring Boot 接入](https://cloud.tencent.com/document/product/248/49086)。
+>?若已使用 Spring Boot 作为开发框架，请参见 [Spring Boot 接入](https://cloud.tencent.com/document/product/1416/56031)。
 
 ## 前提条件
 
-- 创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)。
+- 创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)。
 - [使用私有镜像仓库管理应用镜像](https://cloud.tencent.com/document/product/457/9117)。
 
 ## 操作步骤
@@ -120,7 +120,7 @@ public class Application {
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)，选择需要部署的容器集群。
 2. 通过【工作负载】>【Deployment】进入 `Deployment` 管理页面，选择对应的 `命名空间` 来进行部署服务，通过 YAML 来创建对应的 `Deployment`，YAML 配置如下。
->?如需通过控制台创建，请参见 [Spring Boot 接入](https://cloud.tencent.com/document/product/248/49086)。
+>?如需通过控制台创建，请参见 [Spring Boot 接入](https://cloud.tencent.com/document/product/1416/56031)。
 
 ``` yaml
 apiVersion: apps/v1
