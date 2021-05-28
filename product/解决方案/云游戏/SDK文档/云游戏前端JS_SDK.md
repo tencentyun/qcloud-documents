@@ -1,19 +1,19 @@
-## JS SDK 时序图
+## JS-SDK 时序图
 
-腾讯云云游戏 JS SDK 时序图如下： 
+腾讯云云游戏 JS-SDK 时序图如下： 
 
 ![](https://main.qcloudimg.com/raw/bd9d347d6b38a6587854119ac57d9799.png)
 
 **其中：**
 
-| 时序角色       | 对应           |
-| ---------- | -------------- |
-| page       | 用户网页       |
-| tcgsdk.js  | 当前使用的云游戏 SDK         |
-| app_server | 用户业务服务器 |
-| cloud_api  | 腾讯云 API     |
+| 时序角色   | 对应                 |
+| ---------- | -------------------- |
+| page       | 用户网页             |
+| tcgsdk.js  | 当前使用的云游戏 SDK |
+| app_server | 用户业务服务器       |
+| cloud_api  | 腾讯云 API           |
 
-## JS SDK 接口概览
+## JS-SDK 概览
 
 ### 云游戏生命周期相关接口
 
@@ -25,29 +25,32 @@
 | [TCGSDK.destroy(msg)](#tcgsdk.destroy(msg))                 | 立即停止云游戏         |
 | [TCGSDK.reconnect()](#tcgsdk.reconnect())                   | 重连接口               |
 
+
+
 ### 游戏进程相关接口
 
 | 接口名称                                                     | 接口描述                   |
 | ------------------------------------------------------------ | -------------------------- |
-| [TCGSDK.gameRestart(callback, retry)](#tcgsdk.gamerestart(callback.2C-retry)) | 重启当前运行的游戏进程     |
-| [TCGSDK.gamePause(callback)](#tcgsdk.gamepause(callback))    | 暂停当前运行的游戏进程     |
-| [TCGSDK.gameResume(callback)](#tcgsdk.gameresume(callback))  | 恢复运行当前运行的游戏进程 |
-| [TCGSDK.loginHelper(params, callback)](#tcgsdk.loginhelper(params.2C-callback)) | 辅助登录                   |
-| [TCGSDK.getLoginWindowStat(gameid, callback)](#tcgsdk.getloginwindowstat(gameid.2C-callback)) | 获取当前窗口是否为登录窗口 |
-| [TCGSDK.sendText(content)](#tcgsdk.sendtext(content))        | 聚焦输入框时快速发送内容   |
-| [TCGSDK.createCustomDataChannel({destPort, onMessage})](#tcgsdk.createcustomdatachannel(.7Bdestport.2C-onmessage.7D)) | 创建自定义 dataChannel     |
-| [TCGSDK.setRemoteDesktopResolution({width, height})](#tcgsdk.setremotedesktopresolution(.7Bwidth.2C-height.7D)) | 设置云端桌面分辨率         |
+| [TCGSDK.gameRestart(callback, retry)](#tcgsdk.gamerestart(callback,-retry)) | 重启当前运行的游戏进程     |
+| [TCGSDK.gameRestart(callback, retry)](#tcgsdk.gamerestart(callback,-retry)) | 重启当前运行的游戏进程     |
+| [TCGSDK.gamePause(callback)](#tcgsdk.gamePause(callback))    | 暂停当前运行的游戏进程     |
+| [TCGSDK.gameResume(callback)](#tcgsdk.gameResume(callback))  | 恢复运行当前运行的游戏进程 |
+| [TCGSDK.loginHelper(params, callback) ](#tcgsdk.loginhelper(params,-callback)) | 辅助登录                   |
+| [TCGSDK.getLoginWindowStat(gameid, callback)](#tcgsdk.getloginwindowstat(gameid,-callback)) | 获取当前窗口是否为登录窗口 |
+| [TCGSDK.sendText(content)](#tcgsdk.sendText(content))        | 聚焦输入框时快速发送内容   |
+| [TCGSDK.createCustomDataChannel({destPort, onMessage})](#tcgsdk.createCustomDataChannel({destPort,-onMessage})) | 创建自定义dataChannel      |
+| [TCGSDK.setRemoteDesktopResolution({width, height})](#tcgsdk.setRemoteDesktopResolution({width,-height})) | 设置云端桌面分辨率         |
 
 ### 鼠标键盘控制相关接口
 
 | 接口名称                                                     | 接口描述                       |
-| :----------------------------------------------------------- | :----------------------------- |
+| ------------------------------------------------------------ | ------------------------------ |
 | [TCGSDK.sendKeyboardEvent(event)](#tcgsdk.sendkeyboardevent(event)) | 发送鼠标及键盘事件             |
-| [TCGSDK.sendRawEvent(event)](#tcgsdk.sendrawevent(event))    | 发送鼠标及键盘事件（底层实现） |
+| [TCGSDK.sendRawEvent(event)   ](#tcgsdk.sendrawevent(event)) | 发送鼠标及键盘事件（底层实现） |
 | [TCGSDK.setMoveSensitivity(value)](#tcgsdk.setmovesensitivity(value)) | 设置鼠标移动灵敏度             |
 | [TCGSDK.sendSeqRawEvents(events)](#tcgsdk.sendseqrawevents(events)) | 发送按键序列（底层实现）       |
 | [TCGSDK.getMoveSensitivity()](#tcgsdk.getmovesensitivity())  | 获取当前鼠标灵敏度值           |
-| [TCGSDK.setMouseCanLock(true/false)](#tcgsdk.setmousecanlock(true.2Ffalse)) | 设置是否允许锁定鼠标           |
+| [TCGSDK.setMouseCanLock(true/false) ](#tcgsdk.setmousecanlock(true.2Ffalse)) | 设置是否允许锁定鼠标           |
 | [TCGSDK.mouseMove(identifier, type, x, y, isLogic)](#tcgsdk.mousemove(identifier.2C-type.2C-x.2C-y.2C-islogic)) | 移动端向云端发送鼠标移动事件   |
 | [TCGSDK.mouseTabletMode(enable)](#tcgsdk.mousetabletmode(enable)) | 开启或关闭滑屏鼠标移动模式     |
 | [TCGSDK.setRemoteCursor(mode)](#tcgsdk.setremotecursor(mode)) | 设置鼠标样式                   |
@@ -56,14 +59,16 @@
 | [TCGSDK.setMobileCursorScale(val)](#tcgsdk.setmobilecursorscale(val)) | 移动端设置鼠标放大系数         |
 | [TCGSDK.setRemoteCursorStyle(style)](#tcgsdk.setremotecursorstyle(style)) | 设置云端的系统鼠标样式         |
 | [TCGSDK.clearRemoteKeys()](#tcgsdk.clearremotekeys())        | 重置云端按键状态               |
-| [TCGSDK.resetRemoteCapsLock()](#tcgsdk.resetremotecapslock()) | 重置云端大小写状态             |
+| [TCGSDK.resetRemoteCapsLock() ](#tcgsdk.resetremotecapslock()) | 重置云端大小写状态             |
 | [TCGSDK.setDefaultCursorImage(url)](#tcgsdk.setdefaultcursorimage(url)) | 设置云游戏页面中鼠标默认图片   |
+
+
 
 ### 调试及日志相关接口
 
 | 接口名称                                                     | 接口描述           |
 | ------------------------------------------------------------ | ------------------ |
-| [TCGSDK.setDebugMode({showStats, userid, showLog})](#tcgsdk.setdebugmode(.7Bshowlog.2C-showstats.2C-userid.7D)) | 打开或关闭调试模式 |
+| [TCGSDK.setDebugMode({showStats, userid, showLog})](#tcgsdk.setDebugMode({showStats,-userid,-showLog})) | 打开或关闭调试模式 |
 | [TCGSDK.reportLog() ](#tcgsdk.reportlog())                   | 上报问题           |
 | [TCGSDK.setLogHandler(handler)](#tcgsdk.setloghandler(handler)) | 设置日志回调函数   |
 
@@ -75,13 +80,17 @@
 | [TCGSDK.getDisplayRect()](#tcgsdk.getdisplayrect())          | 获取显示区域的参数     |
 | [TCGSDK.setVolume(val) ](#tcgsdk.setvolume(val))             | 设置本地播放音量       |
 | [TCGSDK.getVolume()](#tcgsdk.getvolume())                    | 获取当前音量值         |
-| [TCGSDK.setPageBackground(url) ](#tcgsdk.setpagebackground(url)) | 设置云游戏页面的背景图 |
+| [TCGSDK.setPageBackground(url)](#tcgsdk.setpagebackground(url)) | 设置云游戏页面的背景图 |
+| [TCGSDK.setVideoOrientation(deg, rotateContainer)](#tcgsdk.setVideoOrientation(deg,-rotateContainer)) | 设置video 的旋转角度   |
+
+
+
 
 ## 生命周期相关接口
 
 ### TCGSDK.init(params) 
 
-params 对象有效字段描述：
+params对象有效字段描述：
 
 | 参数                   | 类型     | 是否可选 | 描述                                                         |
 | ---------------------- | -------- | -------- | ------------------------------------------------------------ |
@@ -89,22 +98,23 @@ params 对象有效字段描述：
 | appid                  | number   | 必填     | 用户的腾讯云 [APPID](https://console.cloud.tencent.com/developer) |
 | showLogo               | boolean  | 可选     | 默认值为 true<br />true 为显示腾讯云 Logo，false不显示       |
 | mic                    | boolean  | 可选     | 默认值为 false<br />true 为开启本地麦克风，false不开启       |
-| tabletMode             | boolean  | 可选     | 默认值为 false<br />true 为使用平板滑动鼠标模式，false 为绝对映射模式。该参数只针对移动端，PC 端忽略该参数。 |
+| tabletMode             | boolean  | 可选     | 默认值为 false<br />true 为使用平板滑动鼠标模式，false 为绝对映射模式。该参数只针对移动端，PC 端忽略该参数。该mode 下鼠标产生相对位移。 |
 | mobileGame             | boolean  | 可选     | 默认值为 false<br />true 为使用接入手游，false 为适用端游    |
 | clickToFullscreen      | boolean  | 可选     | 默认值为 false<br />是否启动点击全屏操作，true 为启用，false为禁用 |
 | idleThreshold          | number   | 可选     | 默认值为 300s<br />用户操作空闲时间阈值，单位为秒，空闲超过这个时间将触发 `onNetworkChange` 事件，消息为 `{status: 'idle', times: 1}` |
 | keepLastFrame          | boolean  | 可选     | 默认值为 false<br />断开的时候是否保留最后一帧画面，false为不保留，true保留。如果需要保留最后一帧画面并重连，不能再次调用 init 函数，而是先调用 `destroy()` 接口，再调用 `start()` 接口。 |
 | reconnect              | boolean  | 可选     | 默认值为 true<br />true 为帧率掉0或者异常断开自动重连一次，false 为不重连 |
 | loadingText            | string   | 可选     | 默认值为 `'正在启动云游戏' `<br />加载中的文字提示内容       |
-| debugSetting           | object   | 可选     | `showLog: boolean`（可选）是否展示日志， `showStats: boolean`（可选）是否展示 webrtc  状态信息，也可使用 `CTRL+~`  快捷键显示 |
+| showLoading            | boolean  | 可选     | 默认值为 true <br />是否显示正在加载中画面                   |
+| debugSetting           | object   | 可选     | showLog: boolean (可选)是否展示日志， showStats: boolean (可选)是否展示webrtc 状态信息，也可使用CTRL+~ 快捷键显示 |
 | onInitSuccess          | function | 可选     | 初始化完毕的回调，触发此回调之后才能调用后面的 API           |
 | onConnectSuccess       | function | 可选     | 连接成功回调，调用 start 接口成功后才会触发                  |
 | onConnectFail          | function | 可选     | 连接失败回调，调用 start 接口成功后才会触发                  |
 | onWebrtcStatusChange   | function | 可选     | webrtc 状态回调，调用 start 接口成功后才会触发               |
 | onDisconnect           | function | 可选     | 断开/被踢触发此回调，调用 start 接口成功后才会触发           |
 | onNetworkChange        | function | 可选     | 网络状态变化                                                 |
-| onTouchEvent           | function | 可选     | 移动端触摸事件回调，调用 start 接口成功后才会触发，返回一个 object 具体参见 [onTouchEvent](#onTouchEvent-事件字段描述) |
-| onLoadGameArchive      | function | 可选     | 游戏存档加载回调，会不断回调 size（需要进行云端配置）        |
+| onTouchEvent           | function | 可选     | 移动端触摸事件回调，调用 start 接口成功后才会触发, 返回一个object 具体参见 [onTouchEvent](#onTouchEvent-事件字段描述) |
+| onLoadGameArchive      | function | 可选     | 游戏存档加载回调，会不断回调size（需要进行云端配置）         |
 | onSaveGameArchive      | function | 可选     | 游戏保存存档回调（需要进行云端配置）                         |
 | onInputStatusChange    | function | 可选     | 云端输入状态改变，有点击事件的时候都会触发，需要判断新旧状态 |
 | onGamepadConnectChange | function | 可选     | 手柄连接/断开事件回调                                        |
@@ -137,9 +147,8 @@ params 对象有效字段描述：
 | 外网 IP 变化          | {"status": "ipchanged"}                                      |
 | 连接 loading 时间过长 | {"status": "noflow"}                                         |
 | 已连接但帧率掉0       | {"status": "noflowcenter"}                                   |
-| 实时状态数据          | {"status": "stats", "stats": {...}}，stats字段的结构请参见  [stats 字段描述](#stats) |
+| 实时状态数据          | {"status": "stats", "stats": {...}}，stats字段的结构请参见  [stats 字段描述](#stats-字段描述) |
 
-[](id:stats)
 
 ####  stats 字段描述
 
@@ -221,9 +230,9 @@ params 对象有效字段描述：
 
 恢复运行当前运行的游戏进程。
 
-| 参数                              | 参数类型 | 说明     |
-| --------------------------------- | -------- | -------- |
-| [callback](#loginHelper_callback) | function | 调用结果 |
+| 参数     | 参数类型 | 说明     |
+| -------- | -------- | -------- |
+| callback | function | 调用结果 |
 
 ### TCGSDK.loginHelper(params, callback)
 
@@ -234,9 +243,7 @@ params 对象有效字段描述：
 | params   | object   | 辅助登录的参数，主要参数如下：<li>gameid：游戏 ID</li><li>acc：帐号字符串</li><li>pwd：密码字符串</li> |
 | callback | function | 执行结果回调                                                 |
 
-[](id:loginHelper_callback)
-
-#### callback 的原型：
+**callback 的原型：**
 
 ```
 function(res) {
@@ -244,7 +251,7 @@ function(res) {
 }
 ```
 
-#### params js object 结构示例如下：
+**params js object 结构示例如下：**
 
 ```
 {
@@ -259,14 +266,12 @@ function(res) {
 
 获取当前窗口是否登录窗口。
 
-| 参数                                     | 参数类型 | 说明         |
-| ---------------------------------------- | -------- | ------------ |
-| gameid                                   | string   | 游戏 ID      |
-| [callback](#getLoginWindowStat_callback) | function | 执行结果回调 |
+| 参数     | 参数类型 | 说明         |
+| -------- | -------- | ------------ |
+| gameid   | string   | 游戏 ID      |
+| callback | function | 执行结果回调 |
 
-[](id:getLoginWindowStat_callback)
-
-#### callback 的原型如下：
+**callback 的原型如下：**
 
 ```
 function(res) {
@@ -274,7 +279,7 @@ function(res) {
 }
 ```
 
-#### 返回的 res 结构：
+**返回的 res 结构：**
 
 ```
 {code:0, data:{bottom: number, found: 1/0, left: number, name: 'xxxx', right: number, top: number, capslock: 0/1}}
@@ -293,31 +298,31 @@ function(res) {
 
 ### TCGSDK.createCustomDataChannel({destPort, onMessage})
 
-创建自定义 dataChannel，返回 Promise。（需要 server 支持）
+创建自定义dataChannel，返回Promise。（需要server 支持）
 
-| 参数      | 参数类型 | 说明                                   |
-| --------- | -------- | -------------------------------------- |
-| destPort  | number   | 目标端口好                             |
-| onMessage | function | onMessage 回调，透传 server 返回的数据 |
+| 参数      | 参数类型 | 说明                                  |
+| --------- | -------- | ------------------------------------- |
+| destPort  | number   | 目标端口好                            |
+| onMessage | function | onMessage 回调，透传server 返回的数据 |
 
 | 返回值      | 返回值类型 | 说明                                                         |
 | ----------- | ---------- | ------------------------------------------------------------ |
-| code        | number     | <li/>0：success<li/>1：ack dataChannel 未创建成功，请重试<li/>2：该数据通道已经存在 |
-| msg         | string     | 回传的 message 信息                                          |
-| sendMessage | function   | 用于发送 message 的方法，参数类型为 any，SDK 只负责提供数据透传能力 |
+| code        | number     | 0 success, 1 ack dataChannel 未创建成功，请重试, 2 该数据通道已经存在 |
+| msg         | string     | 回传的message 信息                                           |
+| sendMessage | function   | 用于发送message 的方法，params any                           |
 
 ### TCGSDK.setRemoteDesktopResolution({width, height})
 
-设置云端桌面分辨率，返回 Promise。
+设置云端桌面分辨率，返回Promise。
 
 | 参数   | 参数类型 | 说明         |
 | ------ | -------- | ------------ |
 | width  | number   | 云端桌面宽度 |
 | height | number   | 云端桌面高度 |
 
-| 返回值 | 返回值类型 | 说明                        |
-| ------ | ---------- | --------------------------- |
-| code   | number     | <li/>0：success<li/>1：fail |
+| 返回值 | 返回值类型 | 说明              |
+| ------ | ---------- | ----------------- |
+| code   | number     | 0 success, 1 fail |
 
 
 
@@ -394,6 +399,8 @@ function(res) {
 <td><code>{type: "gamepadkey", key: 0x40, down: true/false}</code></td>
 </tr>
 </tbody></table>
+
+
 > ! 如果直接调用此接口发送鼠标移动/偏移事件，需额外处理显示区域偏移、灵敏度和坐标缩放，灵敏度设置 API 也无效，因此建议调用后面的 [mouseMove](#tcgsdk.mousemove(identifier.2C-type.2C-x.2C-y.2C-islogic)) 接口。
 
 ### TCGSDK.setMoveSensitivity(value)
@@ -564,4 +571,12 @@ function(res) {
 | url  | Context  | 背景图片 URL |
 
 
+### TCGSDK.setVideoOrientation(deg, rotateContainer)
+
+设置云游戏页面的背景图。
+
+| 参数            | 参数类型 | 说明                                   |
+| --------------- | -------- | -------------------------------------- |
+| deg             | number   | 旋转角度 当前只支持0/90                |
+| rotateContainer | boolean  | 是否旋转这个试图 UI，选填，默认值 true |
 
