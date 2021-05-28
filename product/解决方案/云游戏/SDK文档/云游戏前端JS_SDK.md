@@ -32,7 +32,6 @@
 | 接口名称                                                     | 接口描述                   |
 | ------------------------------------------------------------ | -------------------------- |
 | [TCGSDK.gameRestart(callback,retry)](#TCGSDK.gameRestart(callback,retry)) | 重启当前运行的游戏进程     |
-| [TCGSDK.gameRestart(callback,retry)](#TCGSDK.gameRestart(callback,retry)) | 重启当前运行的游戏进程     |
 | [TCGSDK.gamePause(callback)](#TCGSDK.gamePause(callback))    | 暂停当前运行的游戏进程     |
 | [TCGSDK.gameResume(callback)](#TCGSDK.gameResume(callback))  | 恢复运行当前运行的游戏进程 |
 | [TCGSDK.loginHelper(params,callback)](#TCGSDK.loginHelper(params,callback)) | 辅助登录                   |
