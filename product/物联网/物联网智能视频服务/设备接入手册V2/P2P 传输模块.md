@@ -123,7 +123,7 @@ size_t iv_avt_p2p_get_send_buf(void *handle);
 | --------- | -------------------- | 
 | 大于等于0 | 获取缓存区数据的大小 |
 
-### iv_avt_p2p_get_send_status
+#### iv_avt_p2p_get_send_status
 
 **接口描述**
 获取相关 P2P 视频流传输通道的发包统计数据，例如发送速率。用于用户自定义的 P2P 链路拥塞控制，传入由 p2p_handle_send_init_cb 回调创建的视频通道句柄指针 handle。
@@ -420,7 +420,7 @@ typedef enum
 - 出现 `IV_AVT_EVENT_P2P_PEER_ERROR` 事件，表示网络出现错误，需要检查网络。
 
 
-### iv_p2p_send_stats_s
+#### iv_p2p_send_stats_s
 
 **类型描述**
 P2P 发送状态参数
