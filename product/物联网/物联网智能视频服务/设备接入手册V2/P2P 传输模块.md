@@ -450,7 +450,8 @@ typedef struct {
 
 设备在使用 P2P 发送数据时，其内存消耗与网络带宽（bandwidth）、传输的数据速率（rate）相关。
 - 当 bandwidth > rate 时：正常连接时内存消耗 **memory <= m × 150KB**。
-- 当 bandwidth <= rate 时：弱网情况下，SDK 内部缓存达到最大，其最大内存消耗 **memory =（n × 512 KB + 732 KB）× m**。
+- 当 bandwidth <= rate 时：弱网情况下，SDK 内部缓存达到最大，其最大内存消耗
+ **memory =（n × 512 KB + 732 KB）× m**。
 
 其中，m 是设备连接的 App 数量，n 是一个 App 请求的接收数据通道数量，即设备端的数据发送通道数量。
 
