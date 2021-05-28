@@ -42,7 +42,7 @@ GME 分为两个部分，提供实时语音服务、语音消息及转文本服�
 
 <dx-tag-link link="#Init" tag="接口：UnInit">反初始化 GME</dx-tag-link>
 
-## 参考 Demo 接入
+## 核心接口接入
 
 ### 1. 下载 Demo 
 
@@ -386,7 +386,7 @@ QAVSDK_AuthBuffer_GenAuthBuffer(atoi(SDKAPPID3RD), roomId, "10001", AUTHKEY,retA
 </dx-codeblock>
 
 
-## 实时语音
+## 实时语音接入
 
 ###  [加入房间](id:EnterRoom)
 
@@ -630,7 +630,7 @@ switch (eventType) {
 
 
 
-## 语音消息
+## 语音消息接入
 
 
 ### [鉴权初始化](id:ApplyPtt)
@@ -672,10 +672,6 @@ NSData* authBuffer =  [QAVAuthBuffer GenAuthBuffer:(unsigned int)SDKAPPID3RD.int
 ITMGContextGetInstance()->GetPTT()->ApplyPTTAuthbuffer(authBuffer,authBufferLen);
 :::
 </dx-codeblock>
-
-
-## 流式语音识别
-
 
 ### [启动流式语音识别](id:StartRWSR)
 
