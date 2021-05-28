@@ -20,7 +20,7 @@ SSML 是一种基于 XML 的语音合成标记语言。使用 SSML 可以更加�
  "Speed" : 0,
  "Text" : "<speak>电话号码是<say-as interpret-as=\"telephone\">4008110510</say-as>。</speak>",
  "Timestamp" : 1603184636,
- "VoiceType" : 1000,
+ "VoiceType" : 1002,
  "Volume" : 5
 }
 ```
