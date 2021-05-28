@@ -23,8 +23,8 @@ allprojects {
 public class MessageReceiver extends XGPushBaseReceiver {
 
     // 其他回调接口
-        // ...
-    // 标签查询回调接口
+		// ...
+		// 标签查询回调接口
     public void onQueryTagsResult(Context context, int errorCode, String data, String operateName) {
         Log.i(LogTag, "action - onQueryTagsResult, errorCode:" + errorCode + ", operateName:" + operateName + ", data: " + data);
     }
