@@ -60,6 +60,16 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
  >! 
  >- 若您已经接入了腾讯灯塔（beacon）组件的应用，请忽略此步骤。
  >- 灯塔（beacon）SDK 是由腾讯灯塔团队开发，用于移动应用统计分析，HTTPDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
+ ```Java
+ // 初始化灯塔：如果已经接入MSDK或者IMSDK或者单独接入了腾讯灯塔(Beacon)则不需再初始化该接口
+try {
+    // 注意：这里业务需要输入自己的灯塔appkey
+    UserAction.setAppKey("0I000LT6GW1YGCP7");
+    UserAction.initUserAction(MainActivity.this.getApplicationContext());
+} catch (Exception e) {
+    Log.e(TAG, "Init beacon failed", e);
+}
+ ```
 
 ### SDK初始化
 
@@ -71,16 +81,6 @@ http 协议服务地址为 `119.29.29.98`，https 协议服务地址为 `119.29.
 #### 默认使用DES加密
 
 ```Java
-
-// 初始化灯塔：如果已经接入MSDK或者IMSDK或者单独接入了腾讯灯塔(Beacon)则不需再初始化该接口
-try {
-    // 注意：这里业务需要输入自己的灯塔appkey
-    UserAction.setAppKey("0I000LT6GW1YGCP7");
-    UserAction.initUserAction(MainActivity.this.getApplicationContext());
-} catch (Exception e) {
-    Log.e(TAG, "Init beacon failed", e);
-}
-
 // 以下鉴权信息可在腾讯云控制台（https://console.cloud.tencent.com/httpdns/configure）开通服务后获取
 
 /**
@@ -90,7 +90,7 @@ try {
  * @param appkey 业务appkey，即SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param dnskey dns解析key，即授权id对应的key(加密密钥)，在申请SDK后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.99"，"119.29.29.98"(仅支持http请求)，从<a href="https://cloud.tencent.com/document/product/379/54976"></a> 文档提供的IP为准
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"(仅支持http请求)，"119.29.29.99" 从<a href="https://cloud.tencent.com/document/product/379/54976"></a> 文档提供的IP为准
  * @param debug 是否开启debug日志，true为打开，false为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  */
@@ -106,7 +106,7 @@ MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dns
  * @param appkey 业务appkey，即SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param dnskey dns解析key，即授权id对应的key(加密密钥)，在申请SDK后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.99"，"119.29.29.98"(仅支持http请求)，从<a href="https://cloud.tencent.com/document/product/379/54976"></a> 文档提供的IP为准
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"(仅支持http请求)，"119.29.29.99" 从<a href="https://cloud.tencent.com/document/product/379/54976"></a> 文档提供的IP为准
  * @param debug 是否开启debug日志，true为打开，false为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  * @param channel 设置channel，可选：DesHttp(默认), AesHttp, Https
@@ -148,7 +148,7 @@ String ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
  * @param domain 支持多域名，域名以”,“分割，例如：qq.com,baidu.com
  * @return 域名对应的解析IP结果集合
  */
-Ipset ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
+Ipset ips = MSDKDnsResolver.getInstance().getAddrsByName(domain);
 ```
 
 ### 接入验证
