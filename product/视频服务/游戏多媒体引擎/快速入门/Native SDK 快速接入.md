@@ -5,13 +5,13 @@ GME 快速入门文档只提供最主要的接入接口，协助用户参考接�
 
 ## 使用 GME 重要事项
 
-GME 分为两个部分，提供实时语音服务、语音消息及转文本服务，使用这两个服务都依赖 Init 以及 Poll 等核心接口。
+GME 分为两个部分，提供实时语音服务、语音消息及转文本服务，使用这两个服务都依赖 Init 和 Poll 等核心接口。
 
 <dx-alert infotype="notice" title="关于 Init 接口">
 例如使用了实时语音服务，同时也需要使用语音消息服务，**只需要调用一次 Init 初始化接口**。
 </dx-alert>
 
-#### 接口调用流程图
+### 接口调用流程图
 
 ![image](https://main.qcloudimg.com/raw/ba4f19e0665165c93a2fea33552f088b.png)
 
@@ -42,7 +42,7 @@ GME 分为两个部分，提供实时语音服务、语音消息及转文本服�
 
 <dx-tag-link link="#Init" tag="接口：UnInit">反初始化 GME</dx-tag-link>
 
-## 参考接入 Demo 接入
+## 参考 Demo 接入
 
 ### 1. 下载 Demo 
 
@@ -219,7 +219,7 @@ void CTMGSDK_For_AudioDlg::OnEvent(ITMG_MAIN_EVENT_TYPE eventType, const char* d
 ### [5. 初始化 SDK](id:Init)
 
 - 此接口用于初始化 GME 服务，建议应用侧在应用初始化时候调用。
-- **参数 sdkAppId 获取请查看 [语音服务开通指引](https://cloud.tencent.com/document/product/607/10782)**。
+- **参数 sdkAppId 获取请参见 [语音服务开通指引](https://cloud.tencent.com/document/product/607/10782)**。
 - **OpenId 用于唯一标识一个用户，目前只支持 INT64，规则由 App 开发者自行制定，App 内不重复即可**。
 
 #### 函数原型
@@ -386,11 +386,12 @@ QAVSDK_AuthBuffer_GenAuthBuffer(atoi(SDKAPPID3RD), roomId, "10001", AUTHKEY,retA
 </dx-codeblock>
 
 
-## 实时语音部分
+## 实时语音
 
 ###  [加入房间](id:EnterRoom)
 
 用生成的鉴权信息进房，会收到消息为 ITMG_MAIN_EVENT_TYPE_ENTER_ROOM 的回调。加入房间默认不打开麦克风及扬声器。返回值为 AV_OK 的时候代表成功。
+
 房间音频类型请参考 [音质选择](https://cloud.tencent.com/document/product/607/18522)。
 
 #### 函数原型
@@ -431,7 +432,7 @@ context->EnterRoom(roomID, ITMG_ROOM_TYPE_STANDARD, (char*)retAuthBuff,bufferLen
 :::
 </dx-codeblock>
 
-### 加入房间事件的回调
+### 加入房间事件回调
 
 加入房间完成后会发送信息 ITMG_MAIN_EVENT_TYPE_ENTER_ROOM，在 OnEvent 函数中进行判断回调后处理。
 - 如果回调为成功，即此时进房成功，开始进行**计费**。
@@ -629,7 +630,7 @@ switch (eventType) {
 
 
 
-## 语音消息部分
+## 语音消息
 
 
 ### [鉴权初始化](id:ApplyPtt)
@@ -728,7 +729,7 @@ ITMGContextGetInstance()->GetPTT()->StartRecordingWithStreamingRecognition(fileP
 :::
 </dx-codeblock>
 
-### 流式语音识别的回调
+### 流式语音识别回调
 
 启动流式语音识别后，需要在回调函数 OnEvent 中监听回调消息，事件消息分为 `ITMG_MAIN_EVNET_TYPE_PTT_STREAMINGRECOGNITION_COMPLETE` ，在停止录制并完成识别后才返回文字，相当于一段话说完才会返回识别的文字。
 
