@@ -26,9 +26,9 @@ GME 分为两个部分，提供实时语音服务、语音消息及转文本服�
 #### 实时语音
 
 <dx-steps>
--<dx-tag-link link="#EnterRoom" tag="接口：EnterRoom">进入实时语音房间</dx-tag-link>
--<dx-tag-link link="#EnableMic" tag="接口：EnableMic">打开麦克风</dx-tag-link>
--<dx-tag-link link="#EnableSpeaker" tag="接口：EnableSpeaker">打开扬声器</dx-tag-link>
+-<dx-tag-link link="#EnterRoom" tag="接口：EnterRoom">加入实时语音房间</dx-tag-link>
+-<dx-tag-link link="#EnableMic" tag="接口：EnableMic">打开或关闭麦克风</dx-tag-link>
+-<dx-tag-link link="#EnableSpeaker" tag="接口：EnableSpeaker">打开或关闭扬声器</dx-tag-link>
 -<dx-tag-link link="#ExitRoom" tag="接口：ExitRoom">退出语音房间</dx-tag-link>
 </dx-steps>
 
