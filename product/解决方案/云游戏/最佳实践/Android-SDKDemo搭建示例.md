@@ -21,15 +21,11 @@
    :::
    </dx-codeblock>
 4. AndroidManifest 配置：
-   <dx-codeblock>
-   ::: java java
-   <uses-feature android:name="android.hardware.camera" />
-   <uses-feature android:name="android.hardware.camera.autofocus" />
-   <uses-feature
-   android:glEsVersion="0x00020000"
-   android:required="true" />
-   :::
-   </dx-codeblock>
+``` java
+<uses-feature android:name="android.hardware.camera" />
+<uses-feature android:name="android.hardware.camera.autofocus" />
+<uses-feature  android:glEsVersion ="0x00020000"  android:required="true" />
+```
 
 [](id:demo)
 ## 调用示例
