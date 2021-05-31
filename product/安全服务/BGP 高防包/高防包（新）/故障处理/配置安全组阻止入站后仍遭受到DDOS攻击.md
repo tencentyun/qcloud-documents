@@ -17,11 +17,11 @@
 - DDoS 高防包购买方法请参见 [购买指引](https://cloud.tencent.com/document/product/1021/43894)。
 - DDoS 高防 IP 购买方法请参见 [购买指引](https://cloud.tencent.com/document/product/1014/44082)。
 
->?防护对象：
->- DDoS 高防包只针对腾讯云内的服务提升 DDoS 防护能力。
->- DDoS 高防 IP 面向云内外用户，支持网站域名和业务端口接入防护。
->
->接入：
->- DDoS 高防包的接入配置更加便捷，无需变更公网 IP 地址。
->- DDoS 高防 IP 需修改 DNS 解析或修改业务 IP 后才能接入防护。
+>?
+>- 防护对象：
+>  - DDoS 高防包只针对腾讯云内的服务提升 DDoS 防护能力。
+>  - DDoS 高防 IP 面向云内外用户，支持网站域名和业务端口接入防护。
+>- 接入：
+>  - DDoS 高防包的接入配置更加便捷，无需变更公网 IP 地址。
+>  - DDoS 高防 IP 需修改 DNS 解析或修改业务 IP 后才能接入防护。
 
