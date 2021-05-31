@@ -1,11 +1,11 @@
-云游戏提供了相关 Web 端搭建 Demo，详情请参见 [demo.zip](https://ex.cloud-gaming.myqcloud.com/lib/demo/demo.zip)。
+云游戏提供了相关 Web 端搭建 Demo，详情请参见 [demo](https://github.com/tencentyun/cloudgame-js-sdk/tree/master/demo)。
 
 [](id:web)
-
 ## Web 端搭建示例（H5）
-1.  引入云游戏的 js 文件。
+
+1.  引入云游戏的 js 文件（ts 声明文件已放在相同目录下）。
 ```
-<script type="text/javascript" src="https://ex.cloud-gaming.myqcloud.com/cloud_gaming_web_sdk/tcg-sdk/latest/index.js"></script>
+<script type="text/javascript" src="./tcg-sdk/index.js"></script>
 ```
 2.  在页面内定义一个云游戏显示用的锚点，如下所示。
 ```
