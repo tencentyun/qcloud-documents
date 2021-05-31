@@ -116,3 +116,31 @@ COSClient cosClient = new COSClient(cred, clientConfig);
 ### SDK 的上传、下载、批量删除等操作中，使用的 key 值是否需要添加 `/` 前缀？
 对象存储的 key 值无需携带 `/` 前缀。例如，您将对象 key 值设置为 exampleobject 上传的对象，可以通过 URL： `http://cos.ap-guangzhou.myqcloud.com/exampleobject`进行访问。
 >!在批删请求中，请勿传入 `/` 前缀的 key，这将导致对象删除失败。
+
+
+### COS 使用 Java SDK 上传报错 please make sure bucket name must contain legal appid when appid is missing. example: bucektname-1250000000，该如何处理？
+
+COS Java SDK 旧版本仅支持例如125开头的 APPID，如果您使用的是 130 开头的 APPID，建议您将 SDK 更新至最新版本。Java SDK 下载安装请参见 [Java SDK 文档](https://cloud.tencent.com/document/product/436/10199)。
+
+### 使用 COS java SDK 上传大文件报错，该如何处理？
+
+使用 Java SDK 上传大于5G的文件时，建议使用 [高级上传接口](https://cloud.tencent.com/document/product/436/35215#.E9.AB.98.E7.BA.A7.E6.8E.A5.E5.8F.A3.EF.BC.88.E6.8E.A8.E8.8D.90.EF.BC.89)。高级上传接口根据用户文件的长度和数据类型，自动选择以简单上传或分块上传方式。
+
+### Java SDK 如何获取文件上传进度？
+
+需获取上传进度，建议使用 [高级上传](https://cloud.tencent.com/document/product/436/35215#.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1.EF.BC.88.E8.8E.B7.E5.8F.96.E8.BF.9B.E5.BA.A6.EF.BC.89) 接口，通过调用 Upload 的方法 getProgress() 获取上传的进度 TransferProgress 类。
+
+### Java SDK 是否支持计算本地文件的 CRC64？
+
+COS Java SDK 本身不支持计算本地文件的 crc64，需要您在业务侧自行实现，您可以参考 [Java issues](https://github.com/tencentyun/cos-java-sdk-v5/issues/63) 寻求答案。
+
+### Java sdk 能否使用长连接?
+
+Java SDK 默认使用长连接。
+
+### 如何使用 Java SDK 获取指定目录所有路径的同时，判断路径是文件还是文件夹？
+
+可以使用 Java SDK 中的 [查询对象列表](https://cloud.tencent.com/document/product/436/10199#.E6.9F.A5.E8.AF.A2.E5.AF.B9.E8.B1.A1.E5.88.97.E8.A1.A8) 功能来列出存储桶内的对象，**使用 prefix 参数可以指定目录前缀**。
+
+
+
