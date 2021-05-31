@@ -22,8 +22,6 @@
    </dx-codeblock>
 4. AndroidManifest 配置：
 ``` java
-<uses-feature android:name="android.hardware.camera" />
-<uses-feature android:name="android.hardware.camera.autofocus" />
 <uses-feature  android:glEsVersion ="0x00020000"  android:required="true" />
 ```
 
