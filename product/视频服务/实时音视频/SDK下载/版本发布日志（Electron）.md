@@ -2,7 +2,7 @@
 
 **功能新增**
 - Windows & Mac：新增接口，支持屏幕分享时屏蔽应用窗口：[addExcludedShareWindow](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#addExcludedShareWindow)、[removeExcludedShareWindow](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#removeExcludedShareWindow)、[removeAllExcludedShareWindow](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#removeAllExcludedShareWindow)。
-- Windows & Mac：获取可共享的窗口列表接口[getScreenCaptureSources](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#getScreenCaptureSources)，返回值列表元素新增isMinimizeWindow字段。
+- Windows & Mac：获取可共享的窗口列表接口 [getScreenCaptureSources](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#getScreenCaptureSources)，返回值列表元素新增 isMinimizeWindow 字段。
 - Windows & Mac：支持构造函数传入参数。
 
 **问题修复**
