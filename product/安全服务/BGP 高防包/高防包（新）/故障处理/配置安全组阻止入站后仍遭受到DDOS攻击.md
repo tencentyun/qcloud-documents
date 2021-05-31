@@ -25,3 +25,5 @@
 >  - DDoS 高防包的接入配置更加便捷，无需变更公网 IP 地址。
 >  - DDoS 高防 IP 需修改 DNS 解析或修改业务 IP 后才能接入防护。
 
+详情请参见 [DDoS 防护解决方案对比](https://cloud.tencent.com/document/product/1021/44463)。
+
