@@ -206,7 +206,7 @@ Ipset ips = MSDKDnsResolver.getInstance().getAddrsByName(domain);
 - getAddrByName 是耗时同步接口，应当在子线程调用。
 - 如果客户端的业务与 HOST 绑定，例如，客户端的业务绑定了 HOST 的 HTTP 服务或者是 CDN 的服务，那么您将 URL 中的域名替换成 HTTPDNS 返回的 IP 之后，还需要指定下 HTTP 头的 HOST 字段。
  - 以 URLConnection 为例：
- ```Java
+```Java
 URL oldUrl = new URL(url);
 URLConnection connection = oldUrl.openConnection();
 // 获取HTTPDNS域名解析结果 
@@ -220,11 +220,11 @@ if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过HTTPDNS获取IP成功
 }
 ```
  - 以 curl 为例，假设您想要访问 www.qq.com，通过 HTTPDNS 解析出来的 IP 为192.168.0.111，那么您可以这么访问：
-   ```shell
+```shell
    curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt
 ```
 - 检测本地是否使用了 HTTP 代理。如果使用了 HTTP 代理，建议**不要使用** HTTPDNS 做域名解析。示例如下：
-  ```Java
+```Java
 String host = System.getProperty("http.proxyHost");
 String port= System.getProperty("http.proxyPort");
 if (null != host && null != port) {
@@ -408,7 +408,7 @@ mWebView.loadUrl(targetUrl);
 ### HttpURLConnection
 
 - HTTPS 示例如下：
-    ```Java
+```Java
  // 以域名为www.qq.com，HTTPDNS解析得到的IP为192.168.0.1为例
 String url = "https://192.168.0.1/"; // 业务自己的请求连接
  HttpsURLConnection connection = (HttpsURLConnection) new URL(url).openConnection();
@@ -424,7 +424,7 @@ String url = "https://192.168.0.1/"; // 业务自己的请求连接
  connection.connect();
 ```
 - HTTPS + SNI 示例如下：
-	```Java
+```Java
  // 以域名为www.qq.com，HttpDNS解析得到的IP为192.168.0.1为例
  String url = "https://192.168.0.1/"; // 用HTTPDNS解析得到的IP封装业务的请求URL
  HttpsURLConnection sniConn = null;
@@ -542,7 +542,7 @@ String url = "https://192.168.0.1/"; // 业务自己的请求连接
 	>! 若已接入 msdk 或者单独接入了腾讯灯塔则不用初始化灯塔。
 	>
 	示例如下：
-	```C#
+```C#
  private static AndroidJavaObject sHttpDnsObj;
  public static void Init() {
  	AndroidJavaClass unityPlayerClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
@@ -583,6 +583,6 @@ public static string GetHttpDnsIP(string url) {
 	}
 	return ip;
 }
-  ```
+```
 	
 	
