@@ -39,7 +39,7 @@ pip install coscmd
 
 安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息。
 
-> !使用windows安装后，需要 `C:\python_install_dir; C:\python_install_dir\Scripts` 两个路径加入环境变量。 
+>!使用 Windows 安装后，需要将 `C:\python_install_dir; C:\python_install_dir\Scripts` 两个路径加入到环境变量中。 
 
 #### 1.2 pip 更新
 
