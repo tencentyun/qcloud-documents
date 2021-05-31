@@ -29,7 +29,7 @@ HTTPDNS 服务的详细介绍可以参见文章 [全局精确流量调度新思�
 
 ### 网络安全配置兼容
 
-App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP 网络请求，详细信息参见 [Opt out of cleartext traffic](https://developer.android.com/training/articles/security-config#Opt%20out%20of%20cleartext%20traffic)。
+App targetSdkVersion >= 28（Android 9.0）情况下，系统默认不允许 HTTP 网络请求，详细信息参见 [Opt out of cleartext traffic](https://developer.android.com/training/articles/security-config#Opt%20out%20of%20cleartext%20traffic)。
 这种情况下，业务侧需要将 HTTPDNS 请求使用的 IP 配置到域名白名单中：
 - AndroidManifest 文件中配置。
 ```xml
