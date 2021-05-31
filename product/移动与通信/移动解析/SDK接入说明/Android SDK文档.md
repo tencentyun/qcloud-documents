@@ -85,7 +85,7 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
 
 ### SDK初始化
 
-#### DNSIP说明
+#### DNSIP 说明
 http 协议服务地址为 `119.29.29.98`，https 协议服务地址为 `119.29.29.99`。
 新版本 API 更新为使用 `119.29.29.99/98` 接入，同时原移动解析 HTTPDNS 服务地址 `119.29.29.29` 仅供开发调试使用，无 SLA 保障，不建议用于正式业务，请您尽快将正式业务迁移至 `119.29.29.99/98`。
 以 https://cloud.tencent.com/document/product/379/54976 文档提供的IP为准。
@@ -102,7 +102,7 @@ http 协议服务地址为 `119.29.29.98`，https 协议服务地址为 `119.29.
  * @param appkey 业务 appkey，即 SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param dnskey dns解析key，即授权id对应的 key（加密密钥），在申请 SDK 后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"(仅支持http请求)，"119.29.29.99" 从<a href="https://cloud.tencent.com/document/product/379/54976"></a> 文档提供的 IP 为准
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持http请求），"119.29.29.99" 从<a href="https://cloud.tencent.com/document/product/379/54976"></a> 文档提供的 IP 为准
  * @param debug 是否开启 debug 日志，true 为打开，false 为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  */
@@ -118,10 +118,10 @@ MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dns
  * @param appkey 业务 appkey，即 SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param dnskey dns解析key，即授权id对应的 key（加密密钥），在申请 SDK 后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"(仅支持http请求)，"119.29.29.99" 从<a href="https://cloud.tencent.com/document/product/379/54976"></a> 文档提供的 IP 为准
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持http请求），"119.29.29.99" 从<a href="https://cloud.tencent.com/document/product/379/54976"></a> 文档提供的 IP 为准
  * @param debug 是否开启 debug 日志，true 为打开，false 为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
- * @param channel 设置 channel，可选：DesHttp(默认), AesHttp, Https
+ * @param channel 设置 channel，可选：DesHttp（默认）, AesHttp, Https
  * @param token 腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于 HTTPS 校验
  */
 MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp debug, timeout, channel, token);
@@ -136,7 +136,7 @@ MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dns
  * 解析完成返回最新解析结果
  * 返回值字符串以“;”分隔，“;”前为解析得到的 IPv4 地址（解析失败填“0”），“;”后为解析得到的 IPv6 地址（解析失败填“0”）
  * 返回示例：121.14.77.221;2402:4e00:1020:1404:0:9227:71a3:83d2
- * @param domain 域名(如www.qq.com)
+ * @param domain 域名（如www.qq.com）
  * @return 域名对应的解析 IP 结果集合
  */
 String ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
