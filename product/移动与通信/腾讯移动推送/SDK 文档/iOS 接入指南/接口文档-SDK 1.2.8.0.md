@@ -134,8 +134,7 @@ accountsDict：账号字典。
 >- 账号类型和账号名称一起作为联合主键。
 >- 需要使用字典类型，key 为账号类型，value 为账号，示例：@{@(accountType):@"account"}。
 >- Objective-C的写法 : @{@(0):@"account0",@(1):@"account1"}；Swift的写法：[NSNumber(0):@"account0",NSNumber(1):@"account1"]。
->- 更多 accountType 请参照 SDK Demo 包内的 XGPushTokenAccountType 枚举。
->- 目前仅支持下发账号类型为 UNKNOWN 的推送，其他账号类型的推送近期将会上线，敬请期待。
+>- 更多 accountType 请参照 SDK Demo 包内的 XGPushTokenAccountType 枚举或[账号类型取值表]()。
 
 
 #### 示例代码
@@ -147,6 +146,29 @@ NSString *account = @"account";
 [[XGPushTokenManager defaultTokenManager] upsertAccountsByDict:@{ @(accountType):account }];
 ```
 
+
+ ### 添加手机号
+
+#### 接口说明
+
+添加或更新用户手机号，等于调用`upsertAccountsByDict:@{@(1002):@"具体手机号"}`。
+
+```objective-c
+/// @note TPNS SDK1.3.2.0+
+- (void)upsertPhoneNumber:(nonnull NSString *)phoneNumber;
+```
+
+#### 参数说明
+
+- phoneNumber：E.164标准，格式为+[国家或地区码][手机号],例如+8613711112222。SDK内部加密传输。
+
+#### 示例代码
+
+```Objective-C
+[[XGPushTokenManager defaultTokenManager] upsertPhoneNumber:@"13712345678"];;
+```
+>! 1.此接口应该在xgPushDidRegisteredDeviceToken:error:返回正确之后被调用
+2.如需要删除手机号，调用`delAccountsByKeys:[[NSSet alloc] initWithObjects:@(1002), nil]`
 
 ### 删除账号
 #### 接口说明
