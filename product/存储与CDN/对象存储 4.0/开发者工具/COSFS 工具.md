@@ -10,6 +10,7 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 
 ## 局限性
 **COSFS 基于 S3FS 构建， 读取和写入操作都经过磁盘中转，仅适合挂载后对文件进行简单的管理，不支持本地文件系统的一些功能用法，性能方面也无法代替云硬盘 CBS 或文件存储 CFS。** 需注意以下不适用的场景，例如：
+
 - 随机或者追加写文件会导致整个文件的下载以及重新上传，您可以使用与 Bucket 在同一个地域的 CVM 加速文件的上传下载。
 - 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
 - 文件/文件夹的 rename 操作不是原子的。
@@ -30,11 +31,18 @@ COSFS 主要提供两种安装方式：通过安装包方式安装和通过编�
 
 #### Ubuntu 系统
 
-1. 下载对应系统的 COSFS 安装包
+1. 根据系统版本选择对应的安装包，目前支持以下Ubuntu发行版：Ubuntu14.04，Ubuntu16.04，Ubuntu18.04，Ubuntu20.04。
 ```shell
+#Ubuntu14.04
+wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-ubuntu14.04_amd64.deb
+#Ubuntu16.04
 wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-ubuntu16.04_amd64.deb
+#Ubuntu18.04
+wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-ubuntu18.04_amd64.deb
+#Ubuntu20.04
+wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-ubuntu20.04_amd64.deb
 ```
-2. 安装
+2. 安装。以Ubuntu16.04为例：
 ```shell
 sudo dpkg -i cosfs_1.0.19-ubuntu16.04_amd64.deb
 ```
@@ -43,19 +51,24 @@ sudo dpkg -i cosfs_1.0.19-ubuntu16.04_amd64.deb
 
 1. 安装依赖
 ```shell
-sudo yum install  libxml2-devel libcurl-devel -y
+sudo yum install libxml2-devel libcurl-devel -y
 ```
-2. 下载对应系统的 COSFS 安装包
+2. 根据系统版本选择对应的安装包，目前支持以下CentOS发行版：CentOS6.5，CentOS7.0。
 ```shell
+#CentOS6.5
+wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs-1.0.19-centos6.5.x86_64.rpm
+#CentOS7.0
 wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs-1.0.19-centos7.0.x86_64.rpm
 ```
-3. 安装
+3. 安装。以CentOS7.0为例：
 ```shell
-rpm -ivh cosfs-1.0.19-centos7.0.x86_64.rpm
+sudo rpm -ivh cosfs-1.0.19-centos7.0.x86_64.rpm
 ```
 
+>?如果安装时报错，提示conflicts with file from package fuse-libs-*，则加--force参数再次安装 。
 
 ### 方式二：通过编译源码方式安装
+
 >?该方式支持主流的 Ubuntu、CentOS、SUSE、macOS 系统。
 
 
@@ -178,13 +191,14 @@ chmod 640 /etc/passwd-cosfs
 
 >!V1.0.5及较早版本的 COSFS，配置文件格式如下：
 >```shell
-<BucketName>:<SecretId>:<SecretKey>
+><BucketName>:<SecretId>:<SecretKey>
+>```
 ```
 
 ### 2. 运行工具
 将密钥文件中配置的存储桶挂载到指定目录，可以使用如下命令行：
 
-```shell
+​```shell
 cosfs <BucketName-APPID> <MountPoint> -ourl=<CosDomainName> -odbglevel=info -oallow_other
 ```
 其中：
@@ -203,7 +217,8 @@ cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud
 
 >!V1.0.5及较早版本的 COSFS，挂载命令如下：
 >```shell
-cosfs <APPID>:<BucketName> <MountPoint> -ourl=<CosDomainName> -oallow_other
+>cosfs <APPID>:<BucketName> <MountPoint> -ourl=<CosDomainName> -oallow_other
+>```
 ```
 
 
@@ -211,7 +226,7 @@ cosfs <APPID>:<BucketName> <MountPoint> -ourl=<CosDomainName> -oallow_other
 
 卸载存储桶示例：
 
-```shell
+​```shell
 方式1：fusermount -u /mnt, fusermount 命令专用于卸载 FUSE 文件系统 
 方式2：umount -l /mnt, 当有程序引用文件系统中文件时，进行卸载不会报错，并在没程序引用时完成卸载
 方式3：umount /mnt， 当有程序引用文件系统中的文件时，进行卸载会报错
