@@ -8,7 +8,7 @@
    }
    dependencies {
      implementation fileTree(include: ['*.jar'], dir: 'libs')
-     implementation(name: "tcgsdk-latest.aar", ext: 'aar')
+     implementation(name: "tcgsdk-latest", ext: 'aar')
    }
    :::
    </dx-codeblock>
