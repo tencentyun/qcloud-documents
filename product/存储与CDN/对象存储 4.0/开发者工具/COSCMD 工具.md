@@ -39,6 +39,8 @@ pip install coscmd
 
 安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息。
 
+> !使用windows安装后，需要 `C:\python_install_dir; C:\python_install_dir\Scripts` 两个路径加入环境变量。 
+
 #### 1.2 pip 更新
 
 安装完成后，执行以下命令进行更新：
@@ -195,7 +197,8 @@ coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe****
 
 ### 修改配置文件
 
-在 Windows 环境下，可以直接编辑`.cos.conf`文件，该文件是位于【我的文档】下的一个隐藏文件，该文件初始时不存在，是通过`coscmd config`命令生成，用户也可以手动创建。
+在 Windows 环境下，可以直接编辑`.cos.conf`文件，该文件是位于【我的文档】下的一个隐藏文件。
+>?该文件初始时不存在，是通过`coscmd config`命令生成，用户也可以手动创建。
 
 配置参数完成后的`.cos.conf`文件，内容示例如下所示：
 ```plaintext
@@ -506,7 +509,7 @@ coscmd download -rs --delete / D:/examplefolder
 ```plaintext
 coscmd download -rs / D:/examplefolder --ignore *.txt,*.doc
 ```
- >!在下载文件夹时，使用`--ignore`参数可以忽略某一类文件，使用`--invlude`参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,`或者使用双引号`""`。
+ >!在下载文件夹时，使用`--ignore`参数可以忽略某一类文件，使用`--include`参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,`或者使用双引号`""`。
 
 - 操作示例 - 过滤 .txt 和 .doc 的后缀文件
 ```plaintext

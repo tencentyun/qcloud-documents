@@ -7,56 +7,35 @@
 >?
 >- 当前负载均衡仅七层协议（HTTP/HTTPS）支持配置访问日志到 CLS，四层协议（TCP/UDP/TCP SSL）不支持配置访问日志到 CLS。
 - 负载均衡配置访问日志到 CLS 的功能免费，用户仅需支付日志服务 CLS 的费用。
-- 支持配置负载均衡访问日志到 CLS 的地域包括：广州、深圳金融、上海、上海金融、南京、北京、北京金融、成都、重庆、香港、新加坡、孟买、首尔、东京、硅谷、弗吉尼亚、多伦多、法兰克福，可直接在控制台使用或通过 API 配置。
+- 仅支持日志服务 CLS 的地域支持此功能，详情请参见 CLS 的 [可用地域](https://cloud.tencent.com/document/product/614/18940)。
 
 
-## 开启访问日志存入 CLS
-1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)。
-2. 单击需进行配置的负载均衡 ID，进入“负载均衡基本信息”页面。
-3. 在“日志访问”模块，编辑日志服务 CLS。
-![](https://main.qcloudimg.com/raw/5c6ff27e1e5f4d839ea61def06457ae3.png)
-4. 在弹出框中，开启访问日志，并选择存储访问日志的日志集和日志主题。如您没有创建日志集或日志主题，请 [新建相关资源](https://console.cloud.tencent.com/cls/logset) 后，再选取具体的存储位置。
-![](https://main.qcloudimg.com/raw/33ccb8c1bcf3b200716a4a2f1751f0c1.png)
-5. 单击【提交】，访问日志会被收集在对应的主题中。
-6. 配置完成后单击日志集或日志主题将跳转到 CLS 的日志检索页面。
-7. （可选）若想关闭访问日志，可再次编辑日志服务 CLS，在弹框中进行关闭并提交即可。
-
-## 查询访问日志
-### 步骤1：配置日志主题的索引
->?日志主题必须配置索引，否则检索不到日志。
+## 步骤一：创建日志集和日志主题[](id:step2)
+若您需要配置访问日志到日志服务 CLS 中，则需先创建日志集和日志主题。
+若已有日志集和日志主题，则可直接跳转至 [步骤二](#step3) 开始操作。
+1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，单击左侧导航栏的【访问日志】。
+2. 在“访问日志”页面左上角选择所属地域，在“日志集信息”区域，单击【创建日志集】。
+3. 在弹出的“创建日志集”对话框中，设置保存时间，单击【保存】。
+4. 在“访问日志”页面的“日志主题”区域，单击【新建日志主题】。
+5. 在弹出的“新增日志主题”对话框，选择左侧的负载均衡实例添加至右侧列表中，单击【保存】。
+>?新建日志主题时，可选择添加、或不添加负载均衡实例。在日志主题列表的右侧“操作”列中，单击【管理】可重新添加负载均衡实例。每个负载均衡实例仅限添加至一个日志主题中。
 >
-建议配置的索引如下：
+![](https://main.qcloudimg.com/raw/375049a83cf4d1b734058fab4ee7755a.png)
+6. （可选）若需关闭访问日志，在日志主题列表的右侧“操作”列中，单击【停止】停止投递日志即可。
 
-| 键值索引    | 字段类型 | 分词符 |
-| :---------- | :------- | :----- |
-| server_addr | text     | 无需配置分词符     |
-| server_name | text     | 无需配置分词符     |
-| http_host   | text     | 无需配置分词符     |
-| status      | long     | -     |
-| vip_vpcid   | long     | -     |
-
-具体操作如下：
-1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
-2. 在左侧导航中，选择【日志集管理】，进入“日志集管理”列表页。
-3. 单击日志集 ID，进入日志集详情页。
-4. 在日志集详情页，单击日志主题 ID，进入日志主题详情页。
-![](https://main.qcloudimg.com/raw/2ac7b3725bf4a598a4f9668ed3c80c1c.png)
-5. 在日志主题详情页，选择【索引配置】选项卡，您可以在日志变量中选取部分变量，按需配置索引字段，配置说明请参见 [开启索引](https://cloud.tencent.com/document/product/614/16981)。
-![](https://main.qcloudimg.com/raw/59262eff6c7f55929aa2b6ad652ec60c.png)
-6. 索引配置完成后结果如下图所示。
-![](https://main.qcloudimg.com/raw/191ba6e00fa17439094f61504433b84f.png)
-
-### 步骤2：检索访问日志
-1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
-2. 在左侧导航中，选择【检索分析】，进入“检索分析”页面。
-3. 在“检索分析 ”页面中，选择日志集、日志主题和时间范围，单击【检索分析】，即可检索 CLB 上报到 CLS 的访问日志。检索语法详情请参见 [语法与规则](https://cloud.tencent.com/document/product/614/16982)。
-![](https://main.qcloudimg.com/raw/1be3bc335e74f30538453133c34349db.png)
+## 步骤二：查看健康检查日志[](id:step3)
+负载均衡已自动配置以访问日志的变量为关键值的索引，您无需手动配置索引，可直接通过检索分析来查询访问日志。
+1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，单击左侧导航栏的【访问日志】。
+2. 在“访问日志”页面左上角选择所属地域，在“日志主题”区域，单击右侧“操作”列的【检索】，跳转至 [日志服务控制台](https://console.cloud.tencent.com/cls/search)。
+3. 在日志服务控制台，单击左侧导航栏的【检索分析】。
+4. 在“检索分析”页面的输入框中输入检索分析语句，选择时间范围，单击【检索分析】即可检索 CLB 上报到 CLS 的访问日志。
+>?检索语法详情请参见 [语法与规则](https://cloud.tencent.com/document/product/614/47044)。
 
 
 ## 日志格式及变量说明
 ### 日志格式
 ```
-[$stgw_request_id] [$time_local] [$protocol_type] [$server_addr:$server_port] [$server_name] [$remote_addr:$remote_port] [$status] [$upstream_addr] [$upstream_status] [$proxy_host] [$request] [$request_length] [$bytes_sent] [$http_host] [$http_user_agent] [$http_referer] [$request_time] [$upstream_response_time] [$upstream_connect_time] [$upstream_header_time] [$tcpinfo_rtt] [$connection] [$connection_requests] [$ssl_handshake_time] [$ssl_cipher] [$ssl_protocol] [$vip_vpcid]
+[$stgw_request_id] [$time_local] [$protocol_type] [$server_addr:$server_port]  [$server_name] [$remote_addr:$remote_port] [$status] [$upstream_addr] [$upstream_status] [$proxy_host] [$request] [$request_length] [$bytes_sent] [$http_host] [$http_user_agent] [$http_referer] [$request_time] [$upstream_response_time] [$upstream_connect_time] [$upstream_header_time] [$tcpinfo_rtt] [$connection] [$connection_requests] [$ssl_handshake_time] [$ssl_cipher] [$ssl_protocol] [$vip_vpcid] [$uri] [$server_protocol]
 ```
 
 ### 字段类型
@@ -99,4 +78,7 @@
 <tr><td>ssl_cipher</td><td> SSL 加密套件。</td><td>text</td></tr>
 <tr><td>ssl_protocol</td><td> SSL 协议版本。</td><td>text</td></tr>
 <tr><td>vip_vpcid</td><td>负载均衡 VIP 的所属私有网络 ID，公网 CLB 的 vip_vpcid 为-1。</td><td>long</td></tr>
+<tr><td>request</td><td> 请求方式，支持 POST 和 GET 请求。</td><td>text</td></tr>
+<tr><td>uri</td><td> 资源标识符。</td><td>text</td></tr>
+<tr><td>server_protocol</td><td>CLB 的协议。</td><td>text</td></tr>
 </tbody></table>

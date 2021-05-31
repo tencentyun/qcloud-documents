@@ -23,12 +23,12 @@ __介绍__
 请参见 [直播连麦（LiveRoom）](https://cloud.tencent.com/document/product/454/14606)。
 
 
-  
+
 ## SDK 基础函数
 
 ### delegate
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 事件回调，您可以通过 MLVBLiveRoomDelegate 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 的各种状态通知。
+MLVBLiveRoom 事件回调，您可以通过 MLVBLiveRoomDelegate 获得 MLVBLiveRoom 的各种状态通知。
 
 ```
 @property (nonatomic, weak) id< MLVBLiveRoomDelegate > delegate
@@ -50,7 +50,7 @@ __介绍__
 
 ### sharedInstance
 
-获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 单例对象。
+获取 MLVBLiveRoom 单例对象。
 
 ```
 + (instancetype)sharedInstance
@@ -58,7 +58,7 @@ __介绍__
 
 __返回__
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 实例。
+MLVBLiveRoom 实例。
 
 >?可以调用 MLVBLiveRoom destroySharedInstance 销毁单例对象。
 
@@ -66,13 +66,13 @@ __返回__
 
 ### destorySharedInstance
 
-销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 单例对象。
+销毁 MLVBLiveRoom 单例对象。
 
 ```
 + (void)destorySharedInstance
 ```
 
->?销毁实例后，外部缓存的 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 实例不能再使用，需要重新调用 [sharedInstance](https://cloud.tencent.com/document/product/454/34763#sharedinstance) 获取新实例。
+>?销毁实例后，外部缓存的 MLVBLiveRoom 实例不能再使用，需要重新调用 [sharedInstance](https://cloud.tencent.com/document/product/454/34763#sharedinstance) 获取新实例。
 
 ***
 
@@ -1050,6 +1050,4 @@ YES：成功；NO：失败。
 ```
 - (void)showVideoDebugLog:(BOOL)isShow 
 ```
-
-***
 

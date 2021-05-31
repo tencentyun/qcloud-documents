@@ -232,7 +232,7 @@
 | [setPriorRemoteVideoStreamType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#adadb7a837e1b50ebdbb928d4bd81b5d5) | 设定观看方优先选择的视频质量。 |
 | [setAudioQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a2cdffa1529fcaec866404f4f9b92ec53) | 设置音频质量。 |
 | [startLocalAudio](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a3177329bc84e94727a1be97563800beb) | 开启本地音频的采集和上行。 |
-| [setFocusPosition](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a6a77cc99c41b926cd99909ae1ace39ae) | 设置摄像头焦点。 |
+| [setFocusPosition](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a6a77cc99c41b926cd99909ae1ace39ae) | 设置摄像头焦点，如果 enableAutoFaceFoucs 为 YES 时无效。 |
 | [enableAutoFaceFoucs](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a32a8f584879b17f211df75494a5be96c) | 自动识别人脸位置。 |
 | [setZoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a9777fe95f7830746c1ba6b10446c37a0) | 设置摄像头缩放因子（焦距）。 |
 | [enbaleTorch](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#af6b128ee01d91a63dc1976db7a9be555) | 开关闪光灯。 |

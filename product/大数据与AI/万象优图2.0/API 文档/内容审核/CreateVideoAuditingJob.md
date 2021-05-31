@@ -75,7 +75,7 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | :-------------------- | ------------------------------------------------------------ | --------- | -------- |
-| Mode               | Request.Conf.Snapshot | 截帧模式。Interval 表示间隔模式；Average 表示平均模式；Fps 表示固定帧率模式。</br><li> Interval 模式：TimeInterval，Count 参数生效。当设置 Count，未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片</br><li> Average 模式：Count 参数生效。表示整个视频，按平均间隔截取共 Count 张图片</br><li> Fps 模式：TimeInterval 表示每秒截取多少帧，Count 表示共截取多少帧 | Container | 否       |
+| Mode               | Request.Conf.Snapshot | 截帧模式。Interval 表示间隔模式；Average 表示平均模式；Fps 表示固定帧率模式。</br><li> Interval 模式：TimeInterval，Count 参数生效。当设置 Count，未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片</br><li> Average 模式：Count 参数生效。表示整个视频，按平均间隔截取共 Count 张图片</br><li> Fps 模式：TimeInterval 表示每秒截取多少帧，Count 表示共截取多少帧 | string | 否       |
 | Count              | Request.Conf.Snapshot | 截图数量，范围为(0,10000]                                    | string    | 否       |
 | TimeInterval       | Request.Conf.Snapshot | 截图频率，范围为(0,60]，单位为秒，支持 float 格式，执行精度精确到毫秒 | string    | 否       |
 
