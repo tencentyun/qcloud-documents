@@ -89,7 +89,7 @@
 Linux 云服务器可通过 Ping 或 SSH 等操作来测试 IPv6 的连通性。
  - **方式1：**通过 Ping 进行测试，操作如下：
  在云服务器中执行 `ping6 IPv6地址`进行测试，例如，`ping6 240c::6666` 、 `ping6 www.qq.com`、`ping6 同一私有网络下的 IPv6 地址`，成功结果如下图所示：
-![](https://main.qcloudimg.com/raw/de0f8028e1ab3c670428ce65e47c7c63.png)
+![](https://main.qcloudimg.com/raw/31f97af112ee28355631332d12ded0d0.png)
  - **方式2：**通过 IPv6 地址 SSH 云服务器，操作如下：
   执行如下命令查看 IPv6 地址，并用 PuTTY 或者 Xshell 等软件，测试能否通过 IPv6 地址 SSH 到云服务器。
 	```
