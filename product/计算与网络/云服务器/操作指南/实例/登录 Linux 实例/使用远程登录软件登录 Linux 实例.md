@@ -41,7 +41,7 @@ Windows
 :::
 ::: 使用密钥登录[](id:keyLogin)
 1. 下载 Windows 远程登录软件，即 PuTTy。请分别下载 putty.exe 和 puttygen.exe 软件，获取方式：
-<div><div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;display: inline-block;"><a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe" target="_blank" style="color: white; font-size:16px;">点此获取 PuTTY</a></div>&nbsp;<div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;display: inline-block;"><a href="https://the.earth.li/~sgtatham/putty/latest/w64/puttygen.exe" target="_blank" style="color: white; font-size:16px;">点此获取 PuTTYgen</a></div></div>
+<div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;margin:5px;"><a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe" target="_blank" style="color: white; font-size:16px;">点此获取 PuTTY</a></div><div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;margin:5px;"><a href="https://the.earth.li/~sgtatham/putty/latest/w64/puttygen.exe" target="_blank" style="color: white; font-size:16px;">点此获取 PuTTYgen</a></div>
 2. 双击【puttygen.exe】，打开 PuTTy Key 客户端。
 3. 单击【Load】，选择并打开已下载的私钥存储路径。私钥已在创建时下载并由您个人保管，详情请参见 [管理 SSH 密钥](https://cloud.tencent.com/document/product/213/16691)。
 例如，选择并打开文件名为 david 的私钥文件。如下图所示：
