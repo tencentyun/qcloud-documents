@@ -33,7 +33,7 @@ API 网关调用涉及的参数如下：
 | --------- | --------- | ---- | ----------------------------------------------------------- |
 | SdkAppId  | Int       | 是   | 应用 ID，用于区分不同 TRTC 应用。                           |
 | RoomId    | Int       | 是   | 整型房间号 ID，用于在一个 TRTC 应用中唯一标识一个房间。      |
-| StrRoomId | String    | 否   | 字符串房间号 ID，如果 roomId 与 strRoomId 同时配置，将使用 roomId。 |
+| StrRoomId | String    | 否   | 字符串房间号 ID，如果 RoomId 与 StrRoomId 同时配置，将使用 RoomId。 |
 | UserId    | String    | 是   | 用户 ID，用于在一个 TRTC 应用中唯一标识一个用户。           |
 | UserSig   | String    | 是   | 用户签名，用于对一个用户进行登录鉴权认证。                  |
 | CosConfig | cosConfig | 是   |  COS 存储配置。用于存储录制文件。                             |
