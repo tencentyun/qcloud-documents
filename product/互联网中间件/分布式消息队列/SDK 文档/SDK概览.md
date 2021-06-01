@@ -6,7 +6,7 @@
 
 <table>
 <tr>
-<th>协议类型</th><th>SDK 语言</th>
+<th width="50%">协议类型</th><th width="50%">SDK 语言</th>
 </tr><tr>
 <td rowspan="5">TCP 协议（Pulsar 社区版）</td>
 <td><a href="https://cloud.tencent.com/document/product/1179/54642"> Go SDK</a></td>
