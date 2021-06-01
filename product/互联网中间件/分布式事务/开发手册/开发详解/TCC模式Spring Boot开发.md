@@ -217,7 +217,7 @@ public interface IOrderService {
 
 | 参数          | 数据类型 | 必填 | 默认值                                       | 描述                           |
 | ------------- | -------- | ---- | -------------------------------------------- | ------------------------------ |
-| name          | String   | 否   | @DtfTcc 方法名 + 方法签名 Hash                   | 分支事务名称，请在同一事务分组 |
+| name          | String   | 否   | @DtfTcc 方法名 + 方法签名 Hash                   | 分支事务名称 |
 | confirmClass  | String   | 否   | @DtfTcc 注解所在 Class                         | Confirm 操作类名                |
 | confirmMethod | String   | 否   | confirm 前缀 + @DtfTcc 注解方法名首字母大写    | Confirm 操作方法名              |
 | cancelClass   | String   | 否   | @DtfTcc 注解所在 Class                         | Cancel 操作类名                 |
@@ -231,7 +231,7 @@ public interface IOrderService {
 - `confirmMethod`：confirmOrder(Long txId, Long branchId, Order order)
 - `cancelClass`：IOrderService
 - `cancelMethod`：cancelOrder(Long txId, Long branchId, Order order)
-- rollbackFor：默认为空。若想要在发生异常时回滚，可设置为 Exception。
+- rollbackFor：默认为空。若想要在发生异常时回滚，可设置为 Exception
 
 ### 通过 API 管理分支事务（不推荐）
 
