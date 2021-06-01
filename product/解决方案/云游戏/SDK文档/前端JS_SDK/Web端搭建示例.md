@@ -11,7 +11,7 @@
 ```
 <div id="mount-point"></div>
 ```
-3.  页面内按顺序调用 init、start 接口，接口文档见 [前端 JS SDK API 文档](https://cloud.tencent.com/document/product/1162/46134)。
+3.  页面内按顺序调用 init、start 接口，接口说明请参见 [JS SDK 接口](https://cloud.tencent.com/document/product/1162/46134)。
 4.  修改 `demo.html` 的 `tryLock` 和 `createSession` 请求 URL，指向自行部署好的 [业务后台服务](https://cloud.tencent.com/document/product/1162/47523)。
 5.  刷新页面并等待浏览器连接成功。
 
