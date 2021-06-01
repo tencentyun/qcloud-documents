@@ -18,7 +18,7 @@
 <li> 增加：对第三方 SDK 对 appdelegate 的 hook 冲突，进行了日志提示
 <li> 删除：若干在生产环境下，不必要的日志提示</td>
  <td>2021-06-01</td>
- <td><a href="https://cloud.tencent.com/document/product/548/56433">升级指南 </a></td>
+ <td><ul  style="margin: 0;"><li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li><li><a href="https://cloud.tencent.com/document/product/548/56433">升级指南 </a></li></ul></td>
  </tr>
  </table>
 
