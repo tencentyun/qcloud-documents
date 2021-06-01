@@ -1,5 +1,3 @@
-
-
 ## 功能说明 
 
 COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储中的对象， COSFS 提供的主要功能包括：
@@ -27,7 +25,8 @@ COSFS 主要提供两种安装方式：通过安装包方式安装和通过编�
 
 
 ### 方式一：通过安装包方式安装
->?该方式支持主流的 Ubuntu、CentOS 系统。
+>? 该方式支持主流的 Ubuntu、CentOS 系统。
+>
 
 #### Ubuntu 系统
 
@@ -64,11 +63,13 @@ wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs-1.0.19-
 ```shell
 sudo rpm -ivh cosfs-1.0.19-centos7.0.x86_64.rpm
 ```
->?如果安装时报错，提示`conflicts with file from package fuse-libs-*`，则加`--force`参数再次安装 。
+>? 如果安装时报错，提示`conflicts with file from package fuse-libs-*`，则加`--force`参数再次安装。
+>
 
 ### 方式二：通过编译源码方式安装
 
->?该方式支持主流的 Ubuntu、CentOS、SUSE、macOS 系统。
+>? 该方式支持主流的 Ubuntu、CentOS、SUSE、macOS 系统。
+>
 
 
 #### 1. 安装依赖软件 
@@ -78,17 +79,14 @@ COSFS 的编译安装依赖于 automake、git、libcurl-devel、libxml2-devel、
 ```shell
 sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config fuse
 ```
-
 - CentOS 系统下安装依赖软件：
 ```shell
 sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel make openssl-devel fuse
 ```
-
 - SUSE 系统下安装依赖软件：
 ```shell
 sudo zypper install gcc-c++ automake make libcurl-devel libxml2-devel openssl-devel pkg-config
 ```
-
 - macOS 系统下安装依赖软件：
 ```shell
 brew install automake git curl libxml2 make pkg-config openssl 
@@ -136,7 +134,6 @@ echo "/usr/local/lib" >> /etc/ld.so.conf
 ldconfig   #更新动态链接库
 pkg-config --modversion fuse  #查看 fuse 版本号，当看到 “2.9.4” 时，表示 fuse 2.9.4 安装成功 
 ```
-
 - SUSE 系统下手动安装 fuse 2.8.4及以上版本，安装命令示例如下：
 >!安装时，需要注释掉`example/fusexmp.c`文件下第222行内容，否则 make 将报错。注释方法为`/*content*/` 。
 ```shell
@@ -153,7 +150,6 @@ echo "/usr/local/lib" >> /etc/ld.so.conf
 ldconfig   #更新动态链接库
 pkg-config --modversion fuse   #查看 fuse 版本号，当看到 “2.9.4” 时，表示 fuse2.9.4 安装成功 
 ```
-
 - 在 macOS 进行 configure 操作时，可能会出现如下提示：
 ```shell
 configure: error: Package requirements (fuse >= 2.7.3 libcurl >= 7.0 libxml-2.0 >2.6 libcrypto >= 0.9) were not met
@@ -176,10 +172,11 @@ echo <BucketName-APPID>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
 
->?您需要将 &lt;&gt; 的参数替换为您的信息。
->- &lt;BucketName-APPID&gt;为存储桶名称格式，关于存储桶命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
->- &lt;SecretId&gt; 和 &lt;SecretKey&gt;为密钥信息，您可前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中查看和创建。
->- 您也可以将密钥配置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，同时您需要将密钥文件的权限值设置为600。
+>? 您需要将 &lt;&gt; 的参数替换为您的信息。
+> - &lt;BucketName-APPID&gt;为存储桶名称格式，关于存储桶命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
+> - &lt;SecretId&gt; 和 &lt;SecretKey&gt;为密钥信息，您可前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中查看和创建。
+> - 您也可以将密钥配置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，同时您需要将密钥文件的权限值设置为600。
+> 
 
 **示例：**
 
@@ -188,7 +185,8 @@ echo examplebucket-1250000000:AKIDHTVVaVR6e3****:PdkhT9e2rZCfy6**** > /etc/passw
 chmod 640 /etc/passwd-cosfs
 ```
 
->!V1.0.5及较早版本的 COSFS，配置文件格式为&lt;BucketName>:&lt;SecretId>:&lt;SecretKey>。
+>! V1.0.5及较早版本的 COSFS，配置文件格式为&lt;BucketName>:&lt;SecretId>:&lt;SecretKey>。
+>
 
 
 ### 2. 运行工具
@@ -211,7 +209,8 @@ mkdir -p /mnt/cosfs
 cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr -oallow_other
 ```
 
->!V1.0.5及较早版本的 COSFS，挂载命令为 cosfs &lt;APPID>:&lt;BucketName> &lt;MountPoint> -ourl=&lt;CosDomainName> -oallow_other。
+>! V1.0.5及较早版本的 COSFS，挂载命令为 cosfs &lt;APPID>:&lt;BucketName> &lt;MountPoint> -ourl=&lt;CosDomainName> -oallow_other。
+>
 
 
 #### 3. 卸载存储桶
