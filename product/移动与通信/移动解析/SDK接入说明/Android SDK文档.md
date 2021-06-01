@@ -47,6 +47,7 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="false">119.29.29.99</domain>
+        <domain includeSubdomains="false">119.29.29.98</domain>
     </domain-config>
 </network-security-config>
 ```
@@ -54,7 +55,7 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
 ### 接入 HTTPDNS
 将 HttpDNSLibs\HTTPDNS_ANDROID_SDK_xxxx.aar 拷贝至应用 libs 相应位置。
 
-### 接入灯塔
+### 接入灯塔（可选）
 
 将 HttpDNSLibs\beacon_android_xxxx.jar 拷贝至应用 libs 相应位置。
  >! 
@@ -74,6 +75,24 @@ try {
     Log.e(TAG, "Init beacon failed", e);
 }
 
+/**
+ * 设置OpenId，已接入MSDK业务直接传 MSDK OpenId，其它业务传“NULL”
+ *
+ * @param String openId
+ */
+MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
+ ```
+
+### SDK初始化
+
+#### DNSIP 说明
+http 协议服务地址为 `119.29.29.98`，https 协议服务地址为 `119.29.29.99`。
+新版本 API 更新为使用 `119.29.29.99/98` 接入，同时原移动解析 HTTPDNS 服务地址 `119.29.29.29` 仅供开发调试使用，无 SLA 保障，不建议用于正式业务，请您尽快将正式业务迁移至 `119.29.29.99/98`。
+以 https://cloud.tencent.com/document/product/379/54976 文档提供的IP为准。
+
+#### 默认使用 DES 加密
+
+```Java
 // 以下鉴权信息可在腾讯云控制台（https://console.cloud.tencent.com/httpdns/configure）开通服务后获取
 
 /**
@@ -83,12 +102,15 @@ try {
  * @param appkey 业务 appkey，即 SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param dnskey dns解析key，即授权id对应的 key（加密密钥），在申请 SDK 后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- * @param dnsIp 由外部传入的dnsIp，如"119.29.29.99"，从<a href="https://cloud.tencent.com/document/product/379/17655"></a> 文档提供的IP为准
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持http请求），"119.29.29.99"（仅支持https请求）从<a href="https://cloud.tencent.com/document/product/379/54976"></a> 文档提供的 IP 为准
  * @param debug 是否开启 debug 日志，true 为打开，false 为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  */
 MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp debug, timeout);
+```
 
+#### 自选加密方式（DesHttp, AesHttp, Https）
+```Java
 /**
  * 初始化 HTTPDNS（自选加密方式）：如果接入了 MSDK，建议初始化 MSDK 后再初始化 HTTPDNS
  *
@@ -96,34 +118,31 @@ MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dns
  * @param appkey 业务 appkey，即 SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param dnskey dns解析key，即授权id对应的 key（加密密钥），在申请 SDK 后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- * @param dnsIp 由外部传入的dnsIp，如"119.29.29.99"，从<a href="https://cloud.tencent.com/document/product/379/17655"></a> 文档提供的 IP 为准
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持http请求），"119.29.29.99"（仅支持https请求）从<a href="https://cloud.tencent.com/document/product/379/54976"></a> 文档提供的 IP 为准
  * @param debug 是否开启 debug 日志，true 为打开，false 为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
- * @param channel 设置 channel，可选：DesHttp(默认), AesHttp, Https
+ * @param channel 设置 channel，可选：DesHttp（默认）, AesHttp, Https
  * @param token 腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于 HTTPS 校验
  */
 MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp debug, timeout, channel, token);
+```
 
-/**
- * 设置 OpenId，已接入 MSDK 业务直接传 MSDK OpenId，其它业务传 “NULL”
- *
- * @param String openId
- */
-MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
+### 接口调用
+```Java
 
 /**
  * HTTPDNS 同步解析接口
  * 首先查询缓存，若存在则返回结果，若不存在则进行同步域名解析请求
  * 解析完成返回最新解析结果
  * 返回值字符串以“;”分隔，“;”前为解析得到的 IPv4 地址（解析失败填“0”），“;”后为解析得到的 IPv6 地址（解析失败填“0”）
- * 示例：121.14.77.221;2402:4e00:1020:1404:0:9227:71a3:83d2
- * @param domain 域名(如www.qq.com)
+ * 返回示例：121.14.77.221;2402:4e00:1020:1404:0:9227:71a3:83d2
+ * @param domain 域名（如www.qq.com）
  * @return 域名对应的解析 IP 结果集合
  */
 String ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
 
 /**
- * HTTPDNS 同步解析接口（批量）
+ * HTTPDNS 同步解析接口（批量查询）
  * 首先查询缓存，若存在则返回结果，若不存在则进行同步域名解析请求
  * 解析完成返回最新解析结果
  * 返回值 ipSet 即解析得到的 IP 集合
@@ -134,7 +153,7 @@ String ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
  * @param domain 支持多域名，域名以“,”分割，例如：qq.com,baidu.com
  * @return 域名对应的解析 IP 结果集合
  */
-Ipset ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
+Ipset ips = MSDKDnsResolver.getInstance().getAddrsByName(domain);
 ```
 
 ### 接入验证
@@ -182,10 +201,10 @@ Ipset ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
 ### 注意事项
 - getAddrByName 是耗时同步接口，应当在子线程调用。
 - 如果客户端的业务与 HOST 绑定，例如，客户端的业务绑定了 HOST 的 HTTP 服务或者是 CDN 的服务，那么您将 URL 中的域名替换成 HTTPDNS 返回的 IP 之后，还需要指定下 HTTP 头的 HOST 字段。
-   - 以 URLConnection 为例：
- ```Java
- URL oldUrl = new URL(url);
- URLConnection connection = oldUrl.openConnection();
+ - 以 URLConnection 为例：
+```Java
+URL oldUrl = new URL(url);
+URLConnection connection = oldUrl.openConnection();
 // 获取HTTPDNS域名解析结果 
 String ips = MSDKDnsResolver.getInstance().getAddrByName(oldUrl.getHost());
 String[] ipArr = ips.split(";");
@@ -196,12 +215,12 @@ if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过 HTTPDNS 获取 IP �
     connection.setRequestProperty("Host", oldUrl.getHost());
 }
 ```
-  - 以 curl 为例，假设您想要访问 `www.qq.com`，通过 HTTPDNS 解析出来的 IP 为 `192.168.0.111`，那么您可以这么访问：
-   ```shell
+ - 以 curl 为例，假设您想要访问 `www.qq.com`，通过 HTTPDNS 解析出来的 IP 为 `192.168.0.111`，那么您可以这么访问：
+```shell
    curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt
 ```
 - 检测本地是否使用了 HTTP 代理。如果使用了 HTTP 代理，建议**不要使用 HTTPDNS** 做域名解析。示例如下：
-  ```Java
+```Java
 String host = System.getProperty("http.proxyHost");
 String port= System.getProperty("http.proxyPort");
 if (null != host && null != port) {
@@ -378,7 +397,7 @@ mWebView.loadUrl(targetUrl);
 ### HttpURLConnection
 
 - HTTPS 示例如下：
-    ```Java
+```Java
  // 以域名为www.qq.com，HTTPDNS解析得到的IP为192.168.0.1为例
 String url = "https://192.168.0.1/"; // 业务自己的请求连接
  HttpsURLConnection connection = (HttpsURLConnection) new URL(url).openConnection();
@@ -394,7 +413,7 @@ String url = "https://192.168.0.1/"; // 业务自己的请求连接
  connection.connect();
 ```
 - HTTPS + SNI 示例如下：
-	```Java
+```Java
  // 以域名为www.qq.com，HttpDNS解析得到的IP为192.168.0.1为例
  String url = "https://192.168.0.1/"; // 用HTTPDNS解析得到的IP封装业务的请求URL
  HttpsURLConnection sniConn = null;
@@ -512,7 +531,7 @@ String url = "https://192.168.0.1/"; // 业务自己的请求连接
 	>! 若已接入 msdk 或者单独接入了腾讯灯塔则不用初始化灯塔。
 	>
 	示例如下：
-	```C#
+```C#
  private static AndroidJavaObject sHttpDnsObj;
  public static void Init() {
  	AndroidJavaClass unityPlayerClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
@@ -553,6 +572,6 @@ public static string GetHttpDnsIP(string url) {
 	}
 	return ip;
 }
-  ```
+```
 	
 	
