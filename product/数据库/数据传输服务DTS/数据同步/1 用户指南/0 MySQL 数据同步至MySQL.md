@@ -97,19 +97,19 @@ FLUSH PRIVILEGES;
 <thead><tr><th>服务提供商</th><th>接入类型</th><th>实例 ID</th><th>云主机实例</th><th>主机地址</th><th>端口</th><th>账号</th><th>密码</th></tr></thead>
 <tbody><tr>
 <td rowspan=4>普通</td><td>云数据库</td>
-<td>√</td><td>×</td><td>×</td><td>×</td><td>√</td><td>√</td></tr>
+<td>&#10003;</td><td>×</td><td>×</td><td>×</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr>
-<td>云主机自建</td><td>×</td><td>√</td><td>×</td><td>√</td><td>√</td><td>√</td></tr>
+<td>云主机自建</td><td>×</td><td>&#10003;</td><td>×</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr>
-<td>公网</td><td>×</td><td>×</td><td>√</td><td>√</td><td>√</td><td>√</td></tr>
+<td>公网</td><td>×</td><td>×</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr>
-<td>云联网</td><td>×</td><td>×</td><td>√</td><td>√</td><td>√</td><td>√</td></tr>
+<td>云联网</td><td>×</td><td>×</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr>
 <td>AWS</td>
-<td>公网</td><td>×</td><td>×</td><td>√</td><td>√</td><td>√</td><td>√</td></tr>
+<td>公网</td><td>×</td><td>×</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr>
 <td>阿里云</td>
-<td>公网</td><td>×</td><td>×</td><td>√</td><td>√</td><td>√</td><td>√</td></tr>
+<td>公网</td><td>×</td><td>×</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 </tbody></table>
 <img src="https://main.qcloudimg.com/raw/d5ed42367196f718c62a90c3a3a37088.png"  style="margin:0;">
 5. 在设置同步选项和同步对象页面，将对数据初始化选项、数据同步选项、同步对象选项进行设置，在设置完成后单击【保存并下一步】。
@@ -134,9 +134,8 @@ FLUSH PRIVILEGES;
 <td>已选对象</td><td>展示已选择的同步对象，支持库表映射</td></tr>
 </tbody></table>
 <img src="https://main.qcloudimg.com/raw/272026696de9d8dd15b0034f7bf8f0dd.png"  style="margin:0;">
-<dx-alert infotype="explain" title="说明">库表映射：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
-![](https://main.qcloudimg.com/raw/533a454e1edc2dded72ac92b65948f31.png)
-</dx-alert>
+<strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
+<img src="https://main.qcloudimg.com/raw/533a454e1edc2dded72ac92b65948f31.png"  style="margin:0;">
 6. 在校验任务页面，完成校验并全部校验项通过后，单击【启动任务】。
 >?在校验结果中出现告警项不影响启动任务，但推荐单击【查看详情】获取建议进行调整。
 >
