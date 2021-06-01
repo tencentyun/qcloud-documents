@@ -1,5 +1,5 @@
 ## 功能介绍
-`TXLivePusher` 推流 SDK 主要用于视频云的快直播（超低延迟直播）推流，负责将浏览器采集的音视频画面通过 WebRTC 推送到直播服务器。目前支持摄像头推流、屏幕录制推流和本地媒体文件推流。
+[TXLivePusher](https://tcloud-doc.isd.com/document/product/454/56499?!preview&!editLang=zh) 推流 SDK 主要用于视频云的快直播（超低延迟直播）推流，负责将浏览器采集的音视频画面通过 WebRTC 推送到直播服务器。目前支持摄像头推流、屏幕录制推流和本地媒体文件推流。
 
 ## 基础知识
 
@@ -62,7 +62,7 @@ livePusher.startCamera();
 livePusher.startMicrophone();
 ```
 5. 传入腾讯云快直播推流地址，开始推流。
-	推流地址的格式参考 [腾讯云标准直播 URL](https://cloud.tencent.com/document/product/267/32720) ，只需要将 RTMP 推流地址前面的 `rtmp://` 替换成 `webrtc://` 即可。
+推流地址的格式参考 [腾讯云标准直播 URL](https://cloud.tencent.com/document/product/267/32720) ，只需要将 RTMP 推流地址前面的 `rtmp://` 替换成 `webrtc://` 即可。
 ```javascript
 livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
 ```
@@ -126,8 +126,6 @@ deviceManager.getDevicesList().then(function(data) {
 // 切换摄像头设备
 deviceManager.switchCamera('camera_device_id');
 ```
-
-
 
 
 
