@@ -100,7 +100,7 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
  * @param appkey 业务 appkey，即 SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param dnskey dns解析key，即授权id对应的 key（加密密钥），在申请 SDK 后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持http请求），"119.29.29.99"（仅支持https请求）从<a href="https://cloud.tencent.com/document/product/379/54976"></a> 文档提供的 IP 为准
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持 http 请求），"119.29.29.99"（仅支持 https 请求）以腾讯云文档（https://cloud.tencent.com/document/product/379/54976）提供的 IP 为准
  * @param debug 是否开启 debug 日志，true 为打开，false 为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  */
@@ -116,7 +116,7 @@ MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dns
  * @param appkey 业务 appkey，即 SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param dnskey dns解析key，即授权id对应的 key（加密密钥），在申请 SDK 后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持http请求），"119.29.29.99"（仅支持https请求）从<a href="https://cloud.tencent.com/document/product/379/54976"></a> 文档提供的 IP 为准
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持 http 请求），"119.29.29.99"（仅支持 https 请求）以腾讯云文档（https://cloud.tencent.com/document/product/379/54976）提供的 IP 为准
  * @param debug 是否开启 debug 日志，true 为打开，false 为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  * @param channel 设置 channel，可选：DesHttp（默认）, AesHttp, Https
@@ -187,7 +187,7 @@ Ipset ips = MSDKDnsResolver.getInstance().getAddrsByName(domain);
 >
   - Root 机器可以通过 tcpdump 命令抓包。
   - 非 Root 机器上，系统可能内置有相关的调试工具，可以获取抓包结果（不同机器具体的启用方式不同）。
-- 通过 WireShark 观察抓包结果。
+- 通过 **WireShark** 观察抓包结果。
   - 对于 HTTP 请求，我们可以观察到明文信息，通过对照日志和具体的抓包记录，可以确认最终发起请求时使用的 IP 是否和 SDK 返回的一致。如下图所示： 
 ![](https://main.qcloudimg.com/raw/63464903e3861007c1c9cb2130781701.png)
 从抓包上看，`xw.qq.com` 的请求最终发往了 IP 为 `183.3.226.35` 的服务器。
@@ -331,19 +331,19 @@ mWebView.setWebViewClient(new WebViewClient() {
             String scheme = request.getUrl().getScheme().trim();
             String url = request.getUrl().toString();
             Log.d(TAG, "url:" + url);
-            // HTTPDNS解析css文件的网络请求及图片请求
+            // HTTPDNS 解析 css 文件的网络请求及图片请求
             if ((scheme.equalsIgnoreCase("http") || scheme.equalsIgnoreCase("https"))
             && (url.contains(".css") || url.endsWith(".png") || url.endsWith(".jpg") || url .endsWith(".gif"))) {
                 try {
                     URL oldUrl = new URL(url);
                     URLConnection connection = oldUrl.openConnection();
-                    // 获取HTTPDNS域名解析结果
+                    // 获取 HTTPDNS 域名解析结果
                     String ips = MSDKDnsResolver.getInstance().getAddrByName(oldUrl.getHost());
                     String[] ipArr = ips.split(";");
-                    if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
+                    if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过 HTTPDNS 获取 IP 成功，进行 URL 替换和 HOST 头设置
                         String ip = ipArr[0];
                         String newUrl = url.replaceFirst(oldUrl.getHost(), ip);
-                        connection = (HttpURLConnection) new URL(newUrl).openConnection(); // 设置HTTP请求头Host域名
+                        connection = (HttpURLConnection) new URL(newUrl).openConnection(); // 设置 HTTP 请求头 Host 域名
                         connection.setRequestProperty("Host", oldUrl.getHost());
                     }
                     Log.d(TAG, "contentType:" + connection.getContentType());
@@ -358,24 +358,24 @@ mWebView.setWebViewClient(new WebViewClient() {
         return null;
     }
 
-    // API 11至API20使用此方法
+    // API 11至 API20使用此方法
     public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
         if (!TextUtils.isEmpty(url) && Uri.parse(url).getScheme() != null) {
             String scheme = Uri.parse(url).getScheme().trim();
             Log.d(TAG, "url:" + url);
-            // HTTPDNS解析css文件的网络请求及图片请求
+            // HTTPDNS 解析 css 文件的网络请求及图片请求
             if ((scheme.equalsIgnoreCase("http") || scheme.equalsIgnoreCase("https"))
             && (url.contains(".css") || url.endsWith(".png") || url.endsWith(".jpg") || url.endsWith(".gif"))) {
                 try {
                     URL oldUrl = new URL(url);
                     URLConnection connection = oldUrl.openConnection();
-                    // 获取HTTPDNS域名解析结果
+                    // 获取 HTTPDNS 域名解析结果
                     String ips = MSDKDnsResolver.getInstance().getAddrByName(oldUrl.getHost());
                     String[] ipArr = ips.split(";");
-                    if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
+                    if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过 HTTPDNS 获取 IP 成功，进行 URL 替换和 HOST 头设置
                         String ip = ipArr[0];
                         String newUrl = url.replaceFirst(oldUrl.getHost(), ip);
-                        connection = (HttpURLConnection) new URL(newUrl).openConnection(); // 设置HTTP请求头Host域名
+                        connection = (HttpURLConnection) new URL(newUrl).openConnection(); // 设置 HTTP 请求头 Host 域名
                         connection.setRequestProperty("Host", oldUrl.getHost());
                     }
                     Log.d(TAG, "contentType:" + connection.getContentType());
@@ -396,7 +396,7 @@ mWebView.loadUrl(targetUrl);
 
 - HTTPS 示例如下：
 ```Java
- // 以域名为www.qq.com，HTTPDNS解析得到的IP为192.168.0.1为例
+ // 以域名为 www.qq.com，HTTPDNS 解析得到的 IP 为192.168.0.1为例
 String url = "https://192.168.0.1/"; // 业务自己的请求连接
  HttpsURLConnection connection = (HttpsURLConnection) new URL(url).openConnection();
  connection.setRequestProperty("Host", "www.qq.com");
@@ -412,8 +412,8 @@ String url = "https://192.168.0.1/"; // 业务自己的请求连接
 ```
 - HTTPS + SNI 示例如下：
 ```Java
- // 以域名为www.qq.com，HttpDNS解析得到的IP为192.168.0.1为例
- String url = "https://192.168.0.1/"; // 用HTTPDNS解析得到的IP封装业务的请求URL
+ // 以域名为 www.qq.com，HttpDNS 解析得到的 IP 为192.168.0.1为例
+ String url = "https://192.168.0.1/"; // 用 HTTPDNS 解析得到的 IP 封装业务的请求 URL
  HttpsURLConnection sniConn = null;
  try {
  	sniConn = (HttpsURLConnection) new URL(url).openConnection();
@@ -541,7 +541,7 @@ String url = "https://192.168.0.1/"; // 业务自己的请求连接
  		return;
  	}
  	AndroidJavaObject contextObj = activityObj.Call<AndroidJavaObject>("getApplicationContext");
- 	// 初始化HTTPDNS
+ 	// 初始化 HTTPDNS
  	AndroidJavaObject httpDnsClass = new AndroidJavaObject("com.tencent.msdk.dns.MSDKDnsResolver");
  	if (httpDnsClass == null) {
  		return;
@@ -555,12 +555,12 @@ String url = "https://192.168.0.1/"; // 业务自己的请求连接
 ```
 - 调用 getAddrByName 接口解析域名。示例如下：
 ```C#
-// 该操作建议在子线程中或使用Coroutine处理
-// 注意在子线程中调用需要在调用前后做AttachCurrentThread和DetachCurrentThread处理 
+// 该操作建议在子线程中或使用 Coroutine 处理
+// 注意在子线程中调用需要在调用前后做 AttachCurrentThread 和 DetachCurrentThread 处理 
 public static string GetHttpDnsIP(string url) {
 	string ip = string.Empty;
 	AndroidJNI.AttachCurrentThread(); // 子线程中调用需要加上
-	// 解析得到IP配置集合
+	// 解析得到 IP 配置集合
 	string ips = sHttpDnsObj.Call<string>("getAddrByName", url);
 	AndroidJNI.DetachCurrentThread(); // 子线程中调用需要加上
 	if (null != ips) {
