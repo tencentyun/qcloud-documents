@@ -6,20 +6,20 @@ TDMQ 2.7.1及以上版本的集群已支持 Pulsar 社区版 Python SDK。本文
 
 - 获取接点地址
   在 TDMQ 控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】页面复制接入地址。
+
 - 获取密钥
   已参考 [角色与鉴权](https://cloud.tencent.com/document/product/1179/47543) 文档配置好了角色与权限，并获取到了对应角色的密钥（Token）。
 
 ## 操作步骤
 
-1. 按照[Pulsar 官方文档](http://pulsar.apache.org/docs/zh-CN/client-libraries-python/)在您客户端所在的环境中安装 Python Client。
-
+1. 按照 [Pulsar 官方文档](http://pulsar.apache.org/docs/zh-CN/client-libraries-python/) 在您客户端所在的环境中安装 Python Client。
    ```sh
    $ pip install pulsar-client==2.7.2
    ```
 
-2. 在创建consumer或 producer的代码中，配置准备好的路由 ID 和密钥。
-
-   ```python
+2. 在创建 consumer 或 producer 的代码中，配置准备好的路由 ID 和密钥。
+<dx-codeblock>
+:::  python
    import pulsar
    client = pulsar.Client('http://*','pulsar.NewAuthenticationToken("eyJh**")')  # 更换为接入地址（控制台集群管理页完整复制）和密钥
    
@@ -29,7 +29,9 @@ TDMQ 2.7.1及以上版本的集群已支持 Pulsar 社区版 Python SDK。本文
        producer.send(('Hello-%d' % i).encode('utf-8'))
    
    client.close()
-   ```
+:::
+</dx-codeblock>
+
 
 关于 Pulsar 社区版 Python SDK 各种功能的使用方式，请参考 [Pulsar官方文档](http://pulsar.apache.org/docs/en/client-libraries-go/)。
 
