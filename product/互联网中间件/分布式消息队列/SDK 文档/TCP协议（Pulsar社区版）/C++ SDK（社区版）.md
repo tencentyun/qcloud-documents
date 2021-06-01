@@ -13,7 +13,7 @@ TDMQ 2.7.1及以上版本的集群已支持 Pulsar 社区版 C++ SDK。本文介
 
 ## 操作步骤
 
-1. 按照 [Pulsar 官方文档](http://pulsar.apache.org/docs/en/client-libraries-cpp/) 在您客户端所在的环境中安装  Go Client。
+1. 按照 [Pulsar 官方文档](http://pulsar.apache.org/docs/en/client-libraries-cpp/) 在您客户端所在的环境中安装 pulsar C++ 的库。
    ```sh
    brew install libpulsar
    ```
