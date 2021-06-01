@@ -1,5 +1,4 @@
 ## 概述
-
 总的来说，HTTPDNS 作为移动互联网时代 DNS 优化的一个通用解决方案，主要解决了以下几类问题：
 - LocalDNS 劫持/故障
 - LocalDNS 调度不准确
@@ -63,7 +62,6 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
  >- 灯塔（beacon）SDK 是由腾讯灯塔团队开发，用于移动应用统计分析，HTTPDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
 
 ### 接口调用
-
 ```Java
 
 // 初始化灯塔：如果已经接入 MSDK 或者 IMSDK 或者单独接入了腾讯灯塔（Beacon）则不需再初始化该接口
@@ -81,14 +79,14 @@ try {
  * @param String openId
  */
 MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
- ```
+```
+ 
+### SDK 初始化
 
-### SDK初始化
-
-#### DNSIP 说明
-http 协议服务地址为 `119.29.29.98`，https 协议服务地址为 `119.29.29.99`。
-新版本 API 更新为使用 `119.29.29.99/98` 接入，同时原移动解析 HTTPDNS 服务地址 `119.29.29.29` 仅供开发调试使用，无 SLA 保障，不建议用于正式业务，请您尽快将正式业务迁移至 `119.29.29.99/98`。
-以 https://cloud.tencent.com/document/product/379/54976 文档提供的IP为准。
+>?
+- http 协议服务地址为 `119.29.29.98`，https 协议服务地址为 `119.29.29.99`。
+- 新版本 API 更新为使用 `119.29.29.99/98` 接入，同时原移动解析 HTTPDNS 服务地址 `119.29.29.29` 仅供开发调试使用，无 SLA 保障，不建议用于正式业务，请您尽快将正式业务迁移至 `119.29.29.99/98`。
+- 具体以 [API 说明](https://cloud.tencent.com/document/product/379/54976) 提供的 IP 为准。
 
 #### 默认使用 DES 加密
 
