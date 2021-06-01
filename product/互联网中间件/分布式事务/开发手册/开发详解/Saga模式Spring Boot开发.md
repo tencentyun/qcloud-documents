@@ -113,7 +113,7 @@ public boolean order(Long txId, Long branchId, Order order);
 | 参数             | 数据类型 | 必填 | 默认值                                     | 描述                           |
 | ---------------- | -------- | ---- | ------------------------------------------ | ------------------------------ |
 | name             | String   | 否   | @DtfSaga 方法名+方法签名 Hash                | 分支事务名称，请在同一事务分组 |
-| compensateClass  | String   | 否   | @DtfSaga 注解所在 Class                      | compensate 操作类名             |
+| compensateClass  | String   | 否   | @DtfSaga 注解所在 Class                      | compensate 操作类名，建议填写 beanname            |
 | compensateMethod | String   | 否   | execute 前缀 + @DtfSaga 注解方法名首字母大写 | compensate 操作方法名           |
 
 
