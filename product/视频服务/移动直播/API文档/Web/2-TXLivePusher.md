@@ -106,46 +106,46 @@ setProperty(key: string, value: any): void;
 - `value` 调用 key 所对应的高级 API 时，需要的参数。
 
 **说明**
-
-- 目前支持以下高级功能：
+目前支持以下高级功能：
 <table>
-<tr><th>Key</th><th width=17%>Value</th><th>描述</th><th>示例</th></tr><tr>
+<tr><th>Key</th><th>Value</th><th>描述</th><th>示例</th></tr><tr>
 <td>setVideoResolution</td>
-<td>{ width: number; height:number; }</td>
+<td>{<br>width: number;<br>height:number;<br>}</td>
 <td>设置视频的分辨率</td>
-<td><code>setProperty('setVideoResolution', { width: 1920, height: 1080 })</code></td>
+<td>setProperty('setVideoResolution', { width: 1920, height: 1080 })</td>
 </tr><tr>
 <td>setVideoFPS</td>
 <td>number</td>
 <td>设置视频的帧率</td>
-<td><code>setProperty('setVideoFPS', 25)</code></td>
+<td>setProperty('setVideoFPS', 25)</td>
 </tr><tr>
 <td>setVideoBitrate</td>
 <td>number</td>
 <td>设置视频的码率</td>
-<td><code>setProperty('setVideoBitrate', 2000)</code></td>
+<td>setProperty('setVideoBitrate', 2000)</td>
 </tr><tr>
 <td>setAudioSampleRate</td>
 <td>number</td>
 <td>设置音频的采样率</td>
-<td><code>setProperty('setAudioSampleRate', 44100)</code></td>
+<td>setProperty('setAudioSampleRate', 44100)</td>
 </tr><tr>
 <td>setAudioBitrate</td>
 <td>number</td>
 <td>设置音频的码率</td>
-<td><code>setProperty('setAudioBitrate', 200)</code></td>
+<td>setProperty('setAudioBitrate', 200)</td>
 </tr><tr>
 <td>setConnectRetryCount</td>
 <td>number</td>
 <td>设置连接重试次数<ul style="margin:0"><li/>默认值：3，取值范围[0,10]<li/>当 SDK 与服务器异常断开连接时，SDK 会尝试与服务器重连</td>
-<td><code>setProperty('setConnectRetryCount', 5)</code></td>
+<td>setProperty('setConnectRetryCount', 5)</td>
 </tr><tr>
 <td>setConnectRetryDelay</td>
 <td>number</td>
 <td>设置连接重试延迟<ul style="margin:0"><li/>默认值：1，单位为秒；取值范围[0,10]<li/>当 SDK 与服务器异常断开连接时， SDK 会尝试与服务器重连</td>
-<td><code>setProperty('setConnectRetryDelay', 2)</code></td>
+<td>setProperty('setConnectRetryDelay', 2)</td>
 </tr></table>
-- 请在采集流和推流之前进行设置。
+
+>! 请在采集流和推流之前进行设置。
 
 ---
 
@@ -159,7 +159,7 @@ startCamera(deviceId?: string): void;
 
 **参数**
 
-`deviceId` 摄像头设备 ID，可选参数，指定打开的摄像头设备。设备 ID 可通过 TXDeviceManager 中的方法 [getDevicesList](https://cloud.tencent.com/document/product/454/56501?!preview&!editLang=zh#getdeviceslist) 获取。
+`deviceId`：摄像头设备 ID，可选参数，指定打开的摄像头设备。设备 ID 可通过 TXDeviceManager 中的方法 [getDevicesList](https://cloud.tencent.com/document/product/454/56501?!preview&!editLang=zh#getdeviceslist) 获取。
 
 ---
 
@@ -348,7 +348,7 @@ setObserver(observer: TXLivePusherObserver): void;
 
 **参数**
 
-`observer` 推流器的回调目标对象。具体请参见 [TXLivePusherObserver](https://cloud.tencent.com/document/product/454/56500?!preview&!editLang=zh)。
+`observer`：推流器的回调目标对象。具体请参见 [TXLivePusherObserver](https://cloud.tencent.com/document/product/454/56500?!preview&!editLang=zh)。
 
 ---
 
