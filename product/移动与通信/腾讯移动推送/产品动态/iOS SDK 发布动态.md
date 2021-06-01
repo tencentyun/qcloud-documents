@@ -1,4 +1,4 @@
-## 2021年05月
+## 2021年06月
 
 <table>
  <tr>
@@ -7,17 +7,17 @@
  <th width=16%>发布时间 </th>
  <th width=20%>相关文档 </th>
  </tr>
- <td>SDK 1.3.2.0 版本发布 </td>
+ <td>SDK 1.3.2.1 版本发布 </td>
  <td>  
-<li> 修复：Xcode 12.5下, 引用 TPNSInAppMessage.framework 的兼容性问题
+<li> 修复：Xcode 12.5下，引用 TPNSInAppMessage.framework 的兼容性问题
 <li> 修复：用户 iCloud 备份还原，两台设备具有同样 TPNS Token 问题
-<li> 优化：切换了新集群环境的话，旧集群产生的日志不上报
+<li> 优化：接入点切换后，原接入点日志不上报
 <li> 增加：新增手机号码绑定接口，用于普通短信及智能短信发送
 <li> 增加：Demo 演示了"用户允许协议"后才进行 Push 通知弹窗的方法
 <li> 增加：对 startXGWithAccessID 接口的错误调用，进行了日志提示
 <li> 增加：对第三方 SDK 对 appdelegate 的 hook 冲突，进行了日志提示
 <li> 删除：若干在生产环境下，不必要的日志提示</td>
- <td>2021-05-31 </td>
+ <td>2021-06-01</td>
  <td><a href="https://cloud.tencent.com/document/product/548/56433">升级指南 </a></td>
  </tr>
  </table>
