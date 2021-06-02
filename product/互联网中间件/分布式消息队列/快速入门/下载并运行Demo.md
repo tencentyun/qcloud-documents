@@ -15,14 +15,16 @@
    按照 [Pulsar 官方文档](http://pulsar.apache.org/docs/en/client-libraries-java/) 添加 Maven 依赖。
 <dx-codeblock>
 :::  xml
-   <!-- in your <properties> block -->
-   <pulsar.version>2.7.1</pulsar.version>
-   <!-- in your <dependencies> block -->
-   <dependency>
-       <groupId>org.apache.pulsar</groupId>
-       <artifactId>pulsar-client</artifactId>
-       <version>${pulsar.version}</version>
-   </dependency>
+```xml
+<!-- in your <properties> block -->
+<pulsar.version>2.7.1</pulsar.version>
+<!-- in your <dependencies> block -->
+<dependency>
+			<groupId>org.apache.pulsar</groupId>
+			<artifactId>pulsar-client</artifactId>
+			<version>${pulsar.version}</version>
+</dependency>
+```
 :::
 </dx-codeblock>
 
