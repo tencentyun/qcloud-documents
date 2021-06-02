@@ -7,14 +7,19 @@
 原因一般是发生了 JAR 包冲突，例如，用户的工程中的 httpclient 库中 的 JAR 包版本没有 A 方法，但是  SDK 依赖的 JAR 包使用了 A 方法。此时，由于运行时加载顺序的问题，加载了用户工程中的 httpclient  库，运行时便会抛出 NoSuchMethodError 的异常。
 解决方法：将工程中引起 NoSuchMethodError 包的版本，改成和 SDK 中 pom.xml 里的对应库的版本一致。
 
-### SDK 上传速度慢，日志频繁打印 IOException，该如何处理？
+### Java SDK 的默认超时时间是多少？
 
-原因与解决办法：
+Java SDK 默认连接超时时间为 45000ms，默认读写超时时间为 45000ms，可以使用 SDK 中的 SetConnectionTimeoutMs 方法和 SetReadWriteTimeoutMs 来进行调整。
+
+
+### Java SDK 上传速度慢，日志频繁打印 IOException，该如何处理？
+
+原因与解决办法如下：
 
 1. 首先确认下是否是通过公网访问 COS，目前同地域 CVM 访问 COS 走内网（内网域名解析出的 IP 是10、100、169网段，有关 COS 域名请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)），如果是通过公网确认出口带宽是否较小，或者是否有其他程序占用带宽资源。
 2. 确保在生产环境中的日志级别不是 DEBUG，推荐使用 INFO 日志。
-3. 目前简单上传速度可达10MB，高级 API 在32并发的情况下速度可达60MB，如果速度远低于此两个值，请参考 1 和 2。
-4. 如果 WARN 日志打印 IOException 可以忽略，SDK 会进行重试. IOException 的原因可能是网速过慢，原因可参考 1 和 2。
+3. 目前简单上传速度可达10MB，高级 API 在32并发的情况下速度可达60MB，如果速度远低于这两个值，请参考以上两点。
+4. 如果 WARN 日志打印 IOException 可以忽略，SDK 会进行重试。IOException 的原因可能是网速过慢，解决办法可参考1和2。
 
 ### 上传文件请求路径中带有“+”，报错 Code: 403  SignatureDoesNotMatch，如何处理？
 可能原因：用户 Java 环境的 httpclient 版本引起的 urlencode 编码错误。
