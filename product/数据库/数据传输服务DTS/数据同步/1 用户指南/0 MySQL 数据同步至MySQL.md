@@ -1,7 +1,7 @@
 本文为您介绍使用数据传输服务 DTS 从 MySQL 数据库同步数据至 MySQL 数据库的过程。
 
-## 前提条件
-- 所支持的数据库及版本请参见 [数据同步介绍](https://cloud.tencent.com/document/product/571/56513)。
+## [前提条件](id:qttj)
+- 支持的数据库及版本请参见 [数据同步介绍](https://cloud.tencent.com/document/product/571/56513)。
 - 需要您在源端 MySQL 中创建迁移帐号，需要的帐号权限如下：
 ```sql
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO "迁移帐号"@"%" IDENTIFIED BY "迁移密码";
@@ -20,7 +20,7 @@ FLUSH PRIVILEGES;
 | 校验源端数据库权限                     | 对源实例检查是否有权限：Reload、LockTable、ReplClient、ReplSlave、Select、REPLICATION CLIENT |
 | 校验源端 MySQL connect\_timeout 参数   | 校验 MySQL 侧的 connect\_timeout 参数是否小于10，如果小于则会报错 |
 | 校验源端和目标端数据库连接             | 校验源MySQL 和目标MySQL是否能正确连接                        |
-| 校验源端和目标端数据库版本             | 检查是否满足版本要求(参见前提条件第一点信息)                 |
+| 校验源端和目标端数据库版本             | 检查是否满足版本要求，参见 [前提条件](#qttj) 第一点信息               |
 | 目标端权限检查                         | 目标云数据库 MySQL 的帐号需要具有如下权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE |
 | 校验源端优化参数                       | innodb\_stats\_on\_metadata 指标需要关闭                     |
 | 校验源端 binlog 参数                   | binlog\_format 须为 ROW；binlog\_row\_image 须为 FULL；log\_bin 须为 ON；gtid\_mode 须为ON |
@@ -30,7 +30,7 @@ FLUSH PRIVILEGES;
 
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
-- 为了避免数据重复，请确保需要同步的表具有主键或者非空唯一键
+- 为了避免数据重复，请确保需要同步的表具有主键或者非空唯一键。
 
 ## 支持同步的 SQL 操作
 | 操作类型 | SQL 操作语句                                                  |
