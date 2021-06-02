@@ -37,7 +37,7 @@ API 网关调用涉及的参数如下：
 | UserId    | String    | 是   | 用户 ID，用于在一个 TRTC 应用中唯一标识一个用户。           |
 | UserSig   | String    | 是   | 用户签名，用于对一个用户进行登录鉴权认证。                  |
 | CosConfig | cosConfig | 是   |  COS 存储配置。用于存储录制文件。                             |
-| Callback  | String    | 否   | 录制结束后后的回调地址。                                    |
+| Callback  | String    | 否   | 录制结束后的回调地址。                                    |
 
 CosConfig 涉及的参数如下：
 
