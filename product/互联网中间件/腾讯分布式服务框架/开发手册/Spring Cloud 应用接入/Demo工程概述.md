@@ -16,20 +16,20 @@
 
 `tsf-simple-demo`的工程目录如下：
 
-```
-|- consumer-demo：服务消费者
-|- provider-demo：服务提供者
-|- scg-demo：基于开源 Spring Cloud Gateway 的微服务网关示例（不适用于 Edgware 版本 ）
-|- zuul-demo：基于开源 Zuul 的微服务网关示例
-|- cmq-producer-demo：CMQ 消息队列消息生产者示例
-|- cmq-consumer-demo：CMQ 消息队列消息消费者示例
-|- kafka-demo：Kafka 消息队列示例，包含了消息消费者和生产者 
-|- mongodb-demo：调用 MongoDB 的微服务示例
-|- mysql-demo：调用 MySQL 的微服务示例
-|- redis-demo：调用 Redis 的微服务示例
-|- msgw-demo：基于 TSF SDK 的微服务网关示例
-|- pom.xml
-```
+| 工程名称	   |  工程说明   |
+| ----------    |  ----------  |
+| consumer-demo	            | TSF 微服务治理服务消费者 | 
+| provider-demo	              | TSF 微服务治理服务提供者 | 
+| msgw-demo	                  | 基于 TSF Spring Cloud MS Gateway 网关示例 | 
+| opensource-zuul-demo	 | 基于开源 Zuul 的微服务网关示例 | 
+| opensource-scg-demo	    | 基于开源 Spring Cloud Gateway 的微服务网关示例 | 
+| rocketmq-producer	         | 支持 RocketMQ 消息队列调用链的消息生产者示例 | 
+| rocketmq-consumer	        | 支持 RocketMQ 消息队列调用链的消息消费者示例 | 
+| kafka-demo	                   | 支持 Kafka 调用链的示例，包含了消息消费者和生产者 |
+| mongodb-demo	             | 支持 MongoDB 调用链的微服务示例 | 
+| mysql-demo                  	| 支持 MySQL 调用链的微服务示例 |
+| redis-demo	                   |支持 Redis 调用链的微服务示例 |
+| task-schedule-demo       	| TCT 分布式任务调度示例 |
 
 pom.xml 中定义了工程需要的依赖包（以下以基于 Spring Cloud Finchley 版本 SDK 举例说明）：
 
