@@ -28,7 +28,7 @@ TRIGGER
 | 校验目标数据库 schema 和 table是否存在 | schema 和 table 必须提前创建好，如果没有创建好，则会报错 |
 | 校验当前用户是否拥有目标数据表权限 | 针对要同步的表，首先判断当前用户是否是该表的 owner（owner 拥有所有权限），如果不是，则查看 information_schema.table_privilege 表中的授权信息，必须保证拥有：Delete、Truncate、Insert、References、Select、Update、TRIGGER 的授权权限，否则会报错 |
 | 校验目标端磁盘空间是否充足 | 目标库的可用空间和源端需要的空间进行对比 |
-| 校验源端数据库权限 | 对源实例检查是否有权限：Reload、LockTable、ReplClient、ReplSlave、Select、REPLICATION CLIENT |
+| 校验源端数据库权限 | 对源实例检查是否有权限：RELOAD、LOCK TABLES、REPLICATION CLIENT、REPLICATION SLAVE、SELECT |
 | 校验源端 MySQL connect_timeout 参数 | 校验 MySQL 侧的 connect_timeout 参数是否小于10，如果小于则会报错 | 
 | 校验源端和目标端数据库连接 | 校验 MySQL 和 CDWPG 是否能正确连接 |
 | 校验源端数据库版本	| MySQL 版本须是 MySQL 5.6或 MySQL 5.7 |
