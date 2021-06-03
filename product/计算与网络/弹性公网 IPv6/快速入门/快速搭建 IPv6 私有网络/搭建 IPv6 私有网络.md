@@ -65,7 +65,9 @@
 ![](https://main.qcloudimg.com/raw/0309bcccea7c2fb6abaecdcf4420ec60.png)
 
 ### 步骤五：配置 IPv6 的安全组规则
->?出入方向的安全组规则支持配置来源为单个 IPv6 地址或者 IPv6 CIDR，其中`::/0`代表所有的 IPv6 源地址。
+>?
+>- 出入方向的安全组规则支持配置来源为单个 IPv6 地址或者 IPv6 CIDR，其中`::/0`代表所有的 IPv6 源地址。
+>- 如果想要了解更多安全组的信息，请参见 [安全组](https://cloud.tencent.com/document/product/215/37888)、 [实例端口验通](https://cloud.tencent.com/document/product/215/38836)。
 >
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在左侧目录下，选择【安全】>【安全组】，单击云服务器绑定的安全组 ID，进入详情页。
