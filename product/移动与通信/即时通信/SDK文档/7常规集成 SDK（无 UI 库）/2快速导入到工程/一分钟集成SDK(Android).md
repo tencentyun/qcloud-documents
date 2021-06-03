@@ -22,23 +22,23 @@
  }
 ```
  然后在 dependencies 中添加 IM SDK 的依赖：
- 如果使用标准版 IM SDK，请添加如下依赖。
+ 如果使用基础版 IM SDK，请添加如下依赖。
 ```
 dependencies {
 		api 'com.tencent.imsdk:imsdk:版本号'
 }
 ```
-如果使用精简版 IM SDK，请添加如下依赖。
+如果使用增强版 IM SDK，请添加如下依赖。
 ```
 dependencies {
-		api 'com.tencent.imsdk:imsdk-smart:版本号'
+		api 'com.tencent.imsdk:imsdk-plus:版本号'
 }
 ```
 >?“版本号”应替换为 SDK 的实际版本号，建议使用 [最新版本]( https://github.com/tencentyun/TIMSDK/tree/master/Android/tuikit/libs)。
->以版本号是`5.3.425`为例：
+>以版本号是`5.4.666`为例：
 >```
 dependencies {
-		api 'com.tencent.imsdk:imsdk-smart:5.3.425'
+		api 'com.tencent.imsdk:imsdk-plus:5.4.666'
 }
 ```
 >
