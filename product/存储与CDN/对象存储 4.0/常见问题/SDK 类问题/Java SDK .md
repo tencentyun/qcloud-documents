@@ -1,4 +1,3 @@
-
 ### 客户端网络正常，但是通过 HTTP 访问 COS 非常慢，或者报错 Connection reset，该如何处理？
 部分区域的运营商可能会对 COS 的域名进行劫持，因此尽量通过 HTTPS 来访问 COS。
 
@@ -127,7 +126,7 @@ COSClient cosClient = new COSClient(cred, clientConfig);
 
 COS Java SDK 旧版本仅支持例如125开头的 APPID，如果您使用的是 130 开头的 APPID，建议您将 SDK 更新至最新版本。Java SDK 下载安装请参见 [Java SDK 文档](https://cloud.tencent.com/document/product/436/10199)。
 
-### 使用 COS java SDK 上传大文件报错，该如何处理？
+### 使用 COS Java SDK 上传大文件报错，该如何处理？
 
 使用 Java SDK 上传大于5G的文件时，建议使用 [高级上传接口](https://cloud.tencent.com/document/product/436/35215#.E9.AB.98.E7.BA.A7.E6.8E.A5.E5.8F.A3.EF.BC.88.E6.8E.A8.E8.8D.90.EF.BC.89)。高级上传接口根据用户文件的长度和数据类型，自动选择以简单上传或分块上传方式。
 
@@ -139,7 +138,7 @@ COS Java SDK 旧版本仅支持例如125开头的 APPID，如果您使用的是 
 
 COS Java SDK 本身不支持计算本地文件的 crc64，需要您在业务侧自行实现，您可以参考 [Java issues](https://github.com/tencentyun/cos-java-sdk-v5/issues/63) 寻求答案。
 
-### Java sdk 能否使用长连接?
+### Java SDK 能否使用长连接?
 
 Java SDK 默认使用长连接。
 
