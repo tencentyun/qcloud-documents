@@ -30,7 +30,7 @@ Xcode 9 及以上的版本，手机也必须升级至 iOS 11 以上，否则模�
 配置好 Product Name。单击【Finish】后可以看到，工程多了所输 Product Name 的目录，目录下有个系统自动生成的 SampleHandler 类，这个类负责录屏的相关处理。
 
 ### 导入 LiteAV SDK
-直播扩展需要导入 TXLiteAVSDK.framework。扩展导入 framework 的方式和主 App 导入方式相同，SDK 的系统依赖库也没有区别。具体请参见腾讯云官网 [工程配置（iOS）](https://cloud.tencent.com/document/product/454/7876)。
+直播扩展需要导入 TXLiteAVSDK.framework。扩展导入 framework 的方式和主 App 导入方式相同，SDK 的系统依赖库也没有区别。具体请参见腾讯云官网 [工程配置（iOS）](https://cloud.tencent.com/document/product/454/56588?!preview&!editLang=zh)。
 
 
 ## 对接流程
@@ -126,36 +126,7 @@ SDK 所要求的水印图片格式为 PNG，因为 PNG 这种图片格式有透�
 ```
 
 [](id:step5)
-
-### 步骤 5：事件处理
-####  事件监听
-LiteAV SDK 通过 [V2TXLivePusherObserver](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusherObserver__ios.html) 代理来监听推流相关的事件。
-
-####  错误通知 
-推流出现错误时，回调 [onError](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__ios.html#ga5506c2171438841ab3e99c80786c7ba0) 方法。
-
-| 事件 ID                 |    数值  |  含义说明                    |
-| :-------------------  |:-------- |  :------------------------ |
-| V2TXLIVE_ERROR_FAILED                 | -1    | 暂未归类的通用错误 |
-| V2TXLIVE_ERROR_INVALID_PARAMETER      | -2    | 调用 API 时，传入的参数不合法 |
-| V2TXLIVE_ERROR_REFUSED                | -3    | API 调用被拒绝               |
-| V2TXLIVE_ERROR_NOT_SUPPORTED          | -4    | 当前 API 不支持调用           |
-| V2TXLIVE_ERROR_INVALID_LICENSE        | -5    | license 不合法，调用失败      |
-| V2TXLIVE_ERROR_REQUEST_TIMEOUT        | -6    | 请求服务器超时                |
-|V2TXLIVE_ERROR_SERVER_PROCESS_FAILED   | -7    | 服务器拒绝请求                |
-
-####  警告事件 
-SDK 发现了一些问题，但这并不意味着无法解决，很多 WARNING 都会触发一些重试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复，所以，千万不要“小题大做”。
-- **V2TXLIVE_WARNING_NETWORK_BUSY**
-主播网络不给力，如果您需要 UI 提示，这个 WARNING 相对比较有用。
-
-| 事件ID                 |    数值  |  含义说明                    |
-| :-------------------  |:-------- |  :------------------------ |
-|V2TXLIVE_WARNING_NETWORK_BUSY      |  1101 | 网络状况不佳：上行带宽太小，上传数据受阻|
-
->?全部事件定义请参见头文件 [V2TXLiveCode](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__ios.html#ga5506c2171438841ab3e99c80786c7ba0)。
-
-### 步骤 6：结束推流
+### 步骤 5：结束推流
 结束推流 ReplayKit 会调用`-[SampleHandler broadcastFinished]`，示例代码：
 
 ```objective-c
@@ -167,7 +138,42 @@ SDK 发现了一些问题，但这并不意味着无法解决，很多 WARNING �
     }
 }
 ```
-结束推流很简单，不过要做好清理工作，因为用于推流的 `V2TXLivePusher`对象同一时刻只能有一个在运行，所以清理工作不当会导致下次直播遭受不良的影响。
+因为用于推流的 `V2TXLivePusher`对象同一时刻只能有一个在运行，所以结束推流时要做好清理工作。
+
+[](id:step6)
+### 步骤 6：事件处理
+### 1. 事件监听
+SDK 通过 [V2TXLivePusherObserver](http://doc.qcloudtrtc.com/group__V2TXLivePusherObserver__android.html) 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表请参见 [错误码表](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__android.html)。
+
+### 2. 错误通知
+SDK 发现部分严重问题，推流无法继续
+
+| 事件 ID                              | 数值 | 含义说明                        |
+| :------------------------------------ | :---- | :------------------------------- |
+| V2TXLIVE_ERROR_FAILED                | -1   | 暂未归类的通用错误。            |
+| V2TXLIVE_ERROR_INVALID_PARAMETER     | -2   | 调用 API 时，传入的参数不合法。 |
+| V2TXLIVE_ERROR_REFUSED               | -3   | API 调用被拒绝。                |
+| V2TXLIVE_ERROR_NOT_SUPPORTED         | -4   | 当前 API 不支持调用。           |
+| V2TXLIVE_ERROR_INVALID_LICENSE       | -5   | license 不合法，调用失败。      |
+| V2TXLIVE_ERROR_REQUEST_TIMEOUT       | -6   | 请求服务器超时。                |
+| V2TXLIVE_ERROR_SERVER_PROCESS_FAILED | -7   | 服务器无法处理您的请求。        |
+
+### 3. 警告事件
+SDK 发现部分警告问题，但 WARNING 级别的事件都会触发一些尝试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复。
+
+| 事件 ID                                       | 数值  | 含义说明                                                     |
+| :-------------------------------------------- | :---- | :----------------------------------------------------------- |
+| V2TXLIVE_WARNING_NETWORK_BUSY                 | 1101  | 网络状况不佳：上行带宽太小，上传数据受阻。                   |
+| V2TXLIVE_WARNING_VIDEO_BLOCK                  | 2105  | 当前视频播放出现卡顿                                         |
+| V2TXLIVE_WARNING_CAMERA_START_FAILED          | -1301 | 摄像头打开失败。                                             |
+| V2TXLIVE_WARNING_CAMERA_OCCUPIED              | -1316 | 摄像头正在被占用中，可尝试打开其他摄像头。                   |
+| V2TXLIVE_WARNING_CAMERA_NO_PERMISSION         | -1314 | 摄像头设备未授权，通常在移动设备出现，可能是权限被用户拒绝了。 |
+| V2TXLIVE_WARNING_MICROPHONE_START_FAILED      | -1302 | 麦克风打开失败。                                             |
+| V2TXLIVE_WARNING_MICROPHONE_OCCUPIED          | -1319 | 麦克风正在被占用中，例如移动设备正在通话时，打开麦克风会失败。 |
+| V2TXLIVE_WARNING_MICROPHONE_NO_PERMISSION     | -1317 | 麦克风设备未授权，通常在移动设备出现，可能是权限被用户拒绝了。 |
+| V2TXLIVE_WARNING_SCREEN_CAPTURE_NOT_SUPPORTED | -1309 | 当前系统不支持屏幕分享。                                     |
+| V2TXLIVE_WARNING_SCREEN_CAPTURE_START_FAILED  | -1308 | 开始录屏失败，如果在移动设备出现，可能是权限被用户拒绝了。   |
+| V2TXLIVE_WARNING_SCREEN_CAPTURE_INTERRUPTED   | -7001 | 录屏被系统中断。                                             |
 
 
 [](id:accessory)
