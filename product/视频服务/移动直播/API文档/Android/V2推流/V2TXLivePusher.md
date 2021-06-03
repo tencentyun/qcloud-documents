@@ -458,7 +458,7 @@ public abstract int setAudioQuality(V2TXLiveAudioQuality quality);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| quality | V2TXLiveAudioQuality | 音频质量 |
+| quality | V2TXLiveAudioQuality | 音频质量。 |
 
 #### V2TXLiveAudioQuality 枚举值
 | 取值 | 说明 |
