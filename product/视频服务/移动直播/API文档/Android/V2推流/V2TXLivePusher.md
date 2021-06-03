@@ -100,7 +100,7 @@ public abstract int startPush(String url);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| url |  String | 推流的目标地址，支持任意推流服务端 |
+| url |  String | 推流的目标地址，支持任意推流服务端。 |
 
 #### 返回
 
@@ -200,8 +200,8 @@ public abstract int setVideoQuality(V2TXLiveVideoResolution resolution, V2TXLive
 
 | 取值 | 含义 |
 |---------|---------|
-| V2TXLiveVideoResolutionModeLandscape | 横屏模式下的分辨率: V2TXLiveVideoResolution640_360 + V2TXLiveVideoResolutionModeLandscape = 640x360 |
-| V2TXLiveVideoResolutionModePortrait | 竖屏模式下的分辨率: V2TXLiveVideoResolution640_360 + V2TXLiveVideoResolutionModePortrait = 360x640 |
+| V2TXLiveVideoResolutionModeLandscape | 横屏模式下的分辨率：V2TXLiveVideoResolution640_360 + V2TXLiveVideoResolutionModeLandscape = 640x360 |
+| V2TXLiveVideoResolutionModePortrait | 竖屏模式下的分辨率：V2TXLiveVideoResolution640_360 + V2TXLiveVideoResolutionModePortrait = 360x640 |
 
 ***
 
@@ -370,8 +370,8 @@ public abstract int sendCustomVideoFrame(V2TXLiveVideoFrame videoFrame);
 #### 返回
 返回值 V2TXLiveCode：
 - V2TXLIVE_OK：成功。
-- V2TXLIVE_ERROR_INVALID_PARAMETER: 发送失败，视频帧数据不合法。
-- V2TXLIVE_ERROR_REFUSED: 发送失败，您必须先调用 enableCustomVideoCapture 开启自定义视频采集。
+- V2TXLIVE_ERROR_INVALID_PARAMETER：发送失败，视频帧数据不合法。
+- V2TXLIVE_ERROR_REFUSED：发送失败，您必须先调用 enableCustomVideoCapture 开启自定义视频采集。
 
 ### enableCustomVideoProcess
 开启/关闭自定义视频处理。
@@ -463,15 +463,15 @@ public abstract int setAudioQuality(V2TXLiveAudioQuality quality);
 #### V2TXLiveAudioQuality 枚举值
 | 取值 | 说明 |
 |---------|---------|
-|  V2TXLiveAudioQualitySpeech | 语音音质：采样率：16k；单声道；音频码率：16kbps；适合语音通话为主的场景，例如在线会议，语音通话。 |
-|  V2TXLiveAudioQualityDefault|  默认音质：采样率：48k；单声道；音频码率：50kbps；SDK 默认的音频质量，如无特殊需求推荐选择之。 |
-|  V2TXLiveAudioQualityMusic | 音乐音质：采样率：48k；双声道 + 全频带；音频码率：128kbps；适合需要高保真传输音乐的场景，例如 K 歌、音乐直播等。 |
+|  V2TXLiveAudioQualitySpeech | 语音音质。采样率：16k、单声道、音频码率：16kbps。<br>适合语音通话为主的场景，例如在线会议，语音通话。 |
+|  V2TXLiveAudioQualityDefault|  默认音质。采样率：48k、单声道、音频码率：50kbps。<br>SDK 默认的音频质量，如无特殊需求推荐选择之。 |
+|  V2TXLiveAudioQualityMusic | 音乐音质。采样率：48k、双声道 + 全频带、音频码率：128kbps。<br>适合需要高保真传输音乐的场景，例如 K 歌、音乐直播等。 |
 
 #### 返回
 
 返回值 V2TXLiveCode：
 - V2TXLIVE_OK：成功。
-- V2TXLIVE_ERROR_REFUSED：推流过程中，不允许调整音质
+- V2TXLIVE_ERROR_REFUSED：推流过程中，不允许调整音质。
 ***
 
 ### enableVolumeEvaluation
