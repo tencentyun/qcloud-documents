@@ -2,7 +2,7 @@ SDK 的各项监控指标可以从 [V2TXLivePusherObserver](https://liteav.sdk.q
 
 ## V2TXLivePusherObserver
 
-### 1. 如何获取推流的状态数据？
+### 获取推流的状态数据
 V2TXLivePusherObserver 的 [onStatisticsUpdate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusherObserver__ios.html#ae93683da9240a752e7b6d70d8e940cbc) 回调，会每隔2秒会将 SDK 内部的状态指标同步出来，其中如下指标比较有意义：
 
 |  推流状态                 |  含义说明                  |
@@ -15,7 +15,7 @@ V2TXLivePusherObserver 的 [onStatisticsUpdate](https://liteav.sdk.qcloud.com/do
 | videoBitrate  | 当前视频编码器输出的比特率，也就是编码器每秒生产了多少视频数据，单位：kbps。|
 | audioBitrate  | 当前音频编码器输出的比特率，也就是编码器每秒生产了多少音频数据，单位：kbps。|
 
-### 2. 哪些状态指标有参考价值？
+### 有参考价值的状态指标
 
 | 状态指标 | 说明 | 
 |---------|---------|
@@ -24,7 +24,7 @@ V2TXLivePusherObserver 的 [onStatisticsUpdate](https://liteav.sdk.qcloud.com/do
 
 >?很多客户会遇到的一个问题： App 在线下测试时性能表现极佳，但在 App 外发上线后，前排房间里的互动消息的滚屏和刷新会产生极大的 CPU 消耗导致直播画面卡顿严重。
 
-### 3. 如何看懂腾讯云推流图表？ 
+### 看懂腾讯云推流图表 
 在 【云直播控制台】>【[质量监控](https://console.cloud.tencent.com/live/livesdk)】 您可以看到您所属账户里的直播间情况，以及每个直播间的推流质量数据：
 
 - **主播端-应发速率-实发速率曲线图**
@@ -43,7 +43,7 @@ V2TXLivePusherObserver 的 [onStatisticsUpdate](https://liteav.sdk.qcloud.com/do
 
 ## V2TXLivePlayerObserver
 
-### 1. 如何获取播放的状态数据？
+### 获取播放的状态数据
 V2TXLivePlayerObserver 的 [onStatisticsUpdate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#a4cdfa0b36d4b9e910c1e0d1b5dc44cde) 回调，会每隔2秒会将 SDK 内部的状态指标同步出来，其中如下指标比较有意义：
 
 |  播放状态                 |  含义说明                  |
@@ -56,7 +56,7 @@ V2TXLivePlayerObserver 的 [onStatisticsUpdate](https://liteav.sdk.qcloud.com/do
 | videoBitrate  | 当前流媒体的视频码率，单位：kbps。|
 | audioBitrate  | 当前流媒体的音频码率，单位：kbps。|
 
-### 2. 哪些状态指标有参考价值？
+### 有参考价值的状态指标
 
 | 状态指标 | 说明 | 
 |---------|---------|
