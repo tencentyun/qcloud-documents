@@ -50,7 +50,7 @@ sudo apt-get install gnome-panel gnome-settings-daemon metacity nautilus gnome-t
 ```
 9. 执行以下命令，打开 VNC 配置文件。
 ```
-sudo vi ~/.vnc/xstartup
+sudo vi ./root/.vnc/xstartup
 ```
 10. 按 **i** 切换至编辑模式，并将配置文件修改为如下内容。
 ```
