@@ -23,7 +23,7 @@
 
 ## 对接攻略
 [](id:step1)
-### step 1: 添加渲染 View
+### 步骤1：添加渲染 View
 为了能够展示播放器的视频画面，我们第一步要做的就是在布局 xml 文件里加入渲染 View：
 ```xml
 <com.tencent.rtmp.ui.TXCloudVideoView
@@ -35,7 +35,7 @@
 ```
 
 [](id:step2)
-### step 2: 创建 Player
+### 步骤2：创建 Player
 视频云 SDK 中的 **V2TXLivePlayer** 模块负责实现直播播放功能，并使用 **setRenderView** 接口将它与我们刚刚添加到界面上的 **video_view** 渲染控件进行关联。
 ```java
 //mPlayerView 即 step1 中添加的界面 view
@@ -47,17 +47,16 @@ mLivePlayer.setRenderView(mView);
 ```
 
 [](id:step3)
-### step 3: 启动播放
+### 步骤3：启动播放
 ```java
 String flvUrl = "http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 mLivePlayer.startPlay(flvUrl); 
 ```
 
 [](id:step4)
-### step 4: 画面调整
+### 步骤4：画面调整
 - **view：大小和位置**
 如需修改画面的大小及位置，直接调整 [step1](#step1) 中添加的 `video_view` 控件的大小和位置即可。
-
 - **setRenderFillMode：铺满 or 适应**
 <table><tr><th>可选值</th><th>含义</th>
 </tr><tr>
@@ -67,7 +66,6 @@ mLivePlayer.startPlay(flvUrl);
 <td>V2TXLiveFillModeFit</td>
 <td>将图像等比例缩放，适配最长边，缩放后的宽和高都不会超过显示区域，居中显示，画面可能会留有黑边</td>
 </tr></table>
-
 - **setRenderRotation：视频画面顺时针旋转角度**
 <table>
 <tr><th>可选值</th><th>含义</th></tr><tr>
@@ -92,7 +90,7 @@ mLivePlayer.setRenderRotation(V2TXLiveRotation0);
 ![](https://main.qcloudimg.com/raw/89e7b5b2b6b944fe8377cf9f2bcff573.jpg)
 
 [](id:step5)
-### step 5: 暂停播放
+### 步骤5：暂停播放
 对于直播播放而言，并没有真正意义上的暂停，所谓的直播暂停，只是**画面冻结**和**关闭声音**，而云端的视频源还在不断地更新着，所以当您调用 resume 的时候，会从最新的时间点开始播放，这是和点播对比的最大不同点（点播播放器的暂停和继续与播放本地视频文件时的表现相同）。
 
 ```java
@@ -105,7 +103,7 @@ mLivePlayer.resumeVideo();
 ```
 
 [](id:step6)
-### step 6: 结束播放
+### 步骤6：结束播放
 结束播放时**记得销毁 view 控件**，尤其是在下次 startPlay 之前，否则会产生大量的内存泄露以及闪屏问题。
 同时，在退出播放界面时，记得一定要调用渲染 View 的 `onDestroy()` 函数，否则可能会产生内存泄露和 “`Receiver not registered`” 报警。
 
@@ -121,7 +119,7 @@ public void onDestroy() {
 点播播放结束后，默认不清除最后一帧视频画面，如果想清除最后一帧画面，调用 `TXCloudVideoView` 的 `clearLastFrame` 设置为true。
 
 [](id:step7)
-### step 7: 屏幕截图
+### 步骤7：屏幕截图
 通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 Android 的系统 API 来实现。
 ![](https://main.qcloudimg.com/raw/1439eff8e2b9629abf92960e1b784f56.jpg)
 
@@ -175,7 +173,7 @@ mLivePlayer.setCacheParams(5.0f, 5.0f);
 //设置完成之后再启动播放
 ```
 
->? 更多关于卡顿和延迟优化的技术知识，可以阅读 [如何优化视频卡顿？](https://cloud.tencent.com/document/product/454/7946)
+>? 更多关于卡顿和延迟优化的技术知识，可以阅读 [如何优化视频卡顿？](https://cloud.tencent.com/document/product/454/56613?!preview&!editLang=zh)
 
 [](id:RealTimePlay)
 
@@ -191,19 +189,19 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 则加速流地址为：
 `rtmp://domain/live/test?txTime=5c2acacc&amp;txSecret=b77e812107e1d8b8f247885a46e1bd34&amp;bizid=2157`
 
-	>? 防盗链计算默认使用推流防盗链 Key。
+    >? 防盗链计算默认使用推流防盗链 Key。
 - **该功能有并发播放限制**
   目前最多同时10路并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（例如连麦时只给主播使用，或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要贵于 CDN 线路）。
-	
+    
 - **该功能按播放时长收费**
   本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)。
 
 ## SDK 事件监听
-您可以为 V2TXLivePlayer 对象绑定一个 [V2TXLivePlayerObserver](http://doc.qcloudtrtc.com/group__V2TXLivePlayerObserver__ios.html)，之后 SDK 的内部状态信息例如播放器状态、播放音量回调、音视频首帧回调、统计数据、警告和错误信息等会通过对应的回调通知给您。
+您可以为 V2TXLivePlayer 对象绑定一个 [V2TXLivePlayerObserver](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html)，之后 SDK 的内部状态信息例如播放器状态、播放音量回调、音视频首帧回调、统计数据、警告和错误信息等会通过对应的回调通知给您。
 
 ### 定时触发的状态通知
 
-- `onStatisticsUpdate` 通知每2秒都会被触发一次，目的是实时反馈当前的播放器状态，它就像汽车的仪表盘，可以告知您目前 SDK 内部的一些具体情况，以便您能对当前网络状况和视频信息等有所了解。
+- [onStatisticsUpdate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#ab10e1f4e22e9bb73e3cea4ae15c36465) 通知每2秒都会被触发一次，目的是实时反馈当前的播放器状态，它就像汽车的仪表盘，可以告知您目前 SDK 内部的一些具体情况，以便您能对当前网络状况和视频信息等有所了解。
 <table>
 <tr><th>评估参数</th><th>含义说明</th></tr>
 <tr>
@@ -228,7 +226,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 <td>videoBitrate</td>
 <td>音频码率（Kbps）</td>
 </tr></table>
-- `onPlayoutVolumeUpdate` 播放器音量大小回调。这个回调仅当您调用 [enableVolumeEvaluation](http://doc.qcloudtrtc.com/group__V2TXLivePlayer__ios.html#aeed74080dd72e52b15475a54ca5fd86b) 开启播放音量大小提示之后才会工作。回调的时间间隔也会与您在设置 `enableVolumeEvaluation` 的参数 `intervalMs` 保持一致。
+- [onPlayoutVolumeUpdate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#a57fc000bf5e935f7253fa94e1750359e) 播放器音量大小回调。这个回调仅当您调用 [enableVolumeEvaluation](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayer__android.html#aaa893a96eff34a7ba660441f7597d6d8) 开启播放音量大小提示之后才会工作。回调的时间间隔也会与您在设置 `enableVolumeEvaluation` 的参数 `intervalMs` 保持一致。
 
 ### 非定时触发的状态通知
 其余的回调仅仅在事件发生时才会抛出来。
