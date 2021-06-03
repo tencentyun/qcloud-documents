@@ -13,7 +13,7 @@
 
 ## 对接攻略
 [](id:step1)
-### 步骤 1：创建 Pusher 对象
+### 步骤1：创建 Pusher 对象
 创建一个 **V2TXLivePusher** 对象，我们后面主要用它来完成推流工作。
 
 ```java
@@ -21,8 +21,8 @@ V2TXLivePusher mLivePusher = new V2TXLivePusherImpl(context, V2TXLiveDef.V2TXLiv
 ```
 
 [](id:step2)
-### 步骤 2：启动推流
-经过 [步骤 1](#step1) 和 [步骤 2](#step2) 的准备之后，用下面这段代码就可以启动推流了：
+### 步骤2：启动推流
+经过 [步骤1](#step1) 和 [步骤2](#step2) 的准备之后，用下面这段代码就可以启动推流了：
 ```java
 String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 mLivePusher.startMicrophone();
@@ -33,11 +33,11 @@ mLivePusher.startPush(rtmpUrl);
 - **startPush** 的作用是告诉 LiteAV SDK 音视频流要推到哪个推流 URL 上去。
 
 [](id:step3)
-### 步骤 3：设置 Logo 水印
+### 步骤3：设置 Logo 水印
 设置 V2TXLivePusher 中的 [setWatermark](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a4f56a5a937d87e5b1ae6f77c5bab2335) 可以让 SDK 在推出的视频流中增加一个水印，水印位置位是由传入参数 `(x, y, scale)` 所决定。
 
 - SDK 所要求的水印图片格式为 PNG 而不是 JPG，因为 PNG 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题（将 JPG 图片修改后缀名是不起作用的）。
-- (x, y, scale)参数设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 × 960，该字段设置为：（0.1，0.1，0.1），那么水印的实际像素坐标为：（540 × 0.1，960 × 0.1，水印宽度 × 0.1，水印高度会被自动计算）。
+- `(x, y, scale)` 参数设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 × 960，该字段设置为：`（0.1，0.1，0.1）`，那么水印的实际像素坐标为：（540 × 0.1，960 × 0.1，水印宽度 × 0.1，水印高度会被自动计算）。
 
 ```java 
 //设置视频水印 
@@ -45,13 +45,14 @@ mLivePusher.setWatermark(BitmapFactory.decodeResource(getResources(),R.drawable.
 ```
 
 [](id:step4)
-### 步骤 4：推荐的清晰度
+### 步骤4：推荐的清晰度
 调用 V2TXLivePusher 中的`setVideoQuality`接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而`setVideoQuality`设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/56600?!preview&!editLang=zh)。
 
 [](id:step5)
-### 步骤 5：提醒主播“网络不好”
+### 步骤5：提醒主播“网络不好”
 手机连接 Wi-Fi 网络不一定就非常好，如果 Wi-Fi 信号差或者出口带宽很有限，可能网速不如4G，如果主播在推流时遇到网络很差的情况，需要有一个友好的提示，提示主播应当切换网络。    
 ![](https://main.qcloudimg.com/raw/ede09b70402bee1d88f86492226c6b46.png)  
+
 通过 V2TXLivePusherObserver 里的 [onWarning](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__android.html) 可以捕获 **V2TXLIVE_WARNING_NETWORK_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。此时就可以像上图一样在 UI 上弹出一个“弱网提示”。
 
 ```objectiveC   
@@ -64,7 +65,7 @@ public void onWarning(int code, String msg, Bundle extraInfo) {
 ```
 
 [](id:step6)
-### 步骤 6：横竖屏适配
+### 步骤6：横竖屏适配
 大多数情况下，主播习惯以“竖屏持握”手机进行直播拍摄，观众端看到的也是竖屏分辨率的画面（例如 540 × 960 这样的分辨率）；有时主播也会“横屏持握”手机，这时观众端期望能看到是横屏分辨率的画面（例如 960 × 540 这样的分辨率），如下图所示： 
 ![](https://main.qcloudimg.com/raw/b1e58275542aac52fb861745d95246cc.png)    
 
@@ -75,7 +76,7 @@ mLivePusher.setVideoQuality(mVideoResolution, isLandscape ? V2TXLiveVideoResolut
 ```
 
 [](id:step7)
-### 步骤 7：结束推流
+### 步骤7：结束推流
 因为用于推流的 `V2TXLivePusher` 对象同一时刻只能有一个在运行，所以结束推流时要做好清理工作。
 ```java
 //结束录屏直播，注意做好清理工作
@@ -88,10 +89,10 @@ public void stopPublish() {
 
 ## 事件处理
 
-### 1. 事件监听
+### 事件监听
 SDK 通过 [V2TXLivePusherObserver](http://doc.qcloudtrtc.com/group__V2TXLivePusherObserver__android.html) 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表请参见 [错误码表](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__android.html)。
 
-### 2. 错误通知
+### 错误通知
 SDK 发现部分严重问题，推流无法继续。
 
 | 事件 ID                              | 数值 | 含义说明                        |
@@ -104,7 +105,7 @@ SDK 发现部分严重问题，推流无法继续。
 | V2TXLIVE_ERROR_REQUEST_TIMEOUT       | -6   | 请求服务器超时                |
 | V2TXLIVE_ERROR_SERVER_PROCESS_FAILED | -7   | 服务器无法处理您的请求        |
 
-### 3. 警告事件
+### 警告事件
 SDK 发现部分警告问题，但 WARNING 级别的事件都会触发一些尝试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复。
 
 | 事件 ID                                       | 数值  | 含义说明                                                     |
