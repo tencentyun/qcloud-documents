@@ -450,7 +450,7 @@ __介绍__
 #### V2TXLiveAudioQuality 枚举值
 | 取值 | 说明 |
 |---------|---------|
-|  V2TXLiveAudioQualitySpeech | 语音音质：采样率：16k；单声道；音频码率：16kbps；适合语音通话为主的场景，比如在线会议，语音通话。 |
+|  V2TXLiveAudioQualitySpeech | 语音音质：采样率：16k；单声道；音频码率：16kbps；适合语音通话为主的场景，例如在线会议，语音通话。 |
 |  V2TXLiveAudioQualityDefault|  默认音质：采样率：48k；单声道；音频码率：50kbps；SDK 默认的音频质量，如无特殊需求推荐选择之。 |
 |  V2TXLiveAudioQualityMusic | 音乐音质：采样率：48k；双声道 + 全频带；音频码率：128kbps；适合需要高保真传输音乐的场景，比如K歌、音乐直播等 |
 
