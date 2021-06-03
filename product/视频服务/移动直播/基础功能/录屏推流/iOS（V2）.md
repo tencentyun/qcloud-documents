@@ -35,7 +35,7 @@ Xcode 9 及以上的版本，手机也必须升级至 iOS 11 以上，否则模�
 
 ## 对接流程
 [](id:step1)
-### 步骤 1：创建推流对象
+### 步骤1：创建推流对象
 
 在 SampleHandler.m 中添加下面代码：
 <dx-codeblock>
@@ -65,7 +65,7 @@ static NSString *s_rtmpUrl;
 - 扩展与主 App 间的通信请参见 [扩展与宿主 App 之间的通信与数据传递方式](#accessory) 。
 
 [](id:step2)
-### 步骤 2：横屏推流与分辨率设置
+### 步骤2：横屏推流与分辨率设置
 
 手机录屏直播提供了多个级别的分辨率可供选择。[setVideoQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a0b08436c1e14a8d7d9875fae59ac6d84) 方法用来设置分辨率及横竖屏推流，以下录屏推流分辨率与横屏推流设置示例：
 
@@ -77,7 +77,7 @@ static NSString *s_rtmpUrl;
 ```
 
 [](id:step3)
-### 步骤 3：发送视频
+### 步骤3：发送视频
 Replaykit 会将视频以回调的方式传给 `-[SampleHandler processSampleBuffer:withType]`。
 
 ```objective-c
@@ -110,7 +110,7 @@ Replaykit 会将视频以回调的方式传给 `-[SampleHandler processSampleBuf
 >!建议保存一帧给推流启动时使用，防止推流启动或切换横竖屏时因无新的画面数据采集发送，因为画面没有变化时系统可能会很长时间才采集一帧画面。
 
 [](id:step4)
-### 步骤 4：设置 Logo 水印
+### 步骤4：设置 Logo 水印
 **据相关政策规定，直播视频必须加上水印。**腾讯视频云目前支持两种水印设置方式：一种是在推流 SDK 进行设置，原理是在 SDK 内部进行视频编码前就给画面打上水印。另一种方式是在云端打水印，也就是云端对视频进行解析并添加水印 Logo。
 
 这里我们特别建议您使用 SDK 添加水印，因为在云端打水印有三个明显的问题：
@@ -126,7 +126,7 @@ SDK 所要求的水印图片格式为 PNG，因为 PNG 这种图片格式有透�
 ```
 
 [](id:step5)
-### 步骤 5：结束推流
+### 步骤5：结束推流
 结束推流 ReplayKit 会调用`-[SampleHandler broadcastFinished]`，示例代码：
 
 ```objective-c
@@ -140,8 +140,8 @@ SDK 所要求的水印图片格式为 PNG，因为 PNG 这种图片格式有透�
 ```
 因为用于推流的 `V2TXLivePusher`对象同一时刻只能有一个在运行，所以结束推流时要做好清理工作。
 
-[](id:step6)
-### 步骤 6：事件处理
+
+## 事件处理
 ### 1. 事件监听
 SDK 通过 [V2TXLivePusherObserver](http://doc.qcloudtrtc.com/group__V2TXLivePusherObserver__android.html) 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表请参见 [错误码表](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__android.html)。
 
