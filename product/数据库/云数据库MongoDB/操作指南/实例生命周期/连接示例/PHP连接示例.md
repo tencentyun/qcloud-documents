@@ -4,7 +4,7 @@
 
 在 PHP 里，有 [两套驱动](https://docs.mongodb.com/ecosystem/drivers/php/) 可用于连接操作 MongoDB 数据库，它们分别是：
 - mongodb（[PHP 官网文档](http://php.net/manual/en/set.mongodb.php)）- MongoDB 官方推荐 mongodb 驱动，但需要 PHP 5.4 以上版本。
-- mongo（[PHP 官网文档](http://php.net/manual/en/book.mongo.php)）- mongo 比较旧，但也可以用，如果要用请选择 1.6 版本。
+- mongo - mongo 比较旧，但也可以用，如果要用请选择 1.6 版本。
 
 下面分别用上述两个驱动演示连接云数据库 MongoDB 并进行读写。
 
