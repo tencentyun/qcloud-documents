@@ -119,9 +119,9 @@ __介绍__
 ### startScreenCapture
 开启屏幕采集。
 >? iOS 端暂不支持通过此接口开启屏幕采集。
- *       需要通过 iOS Broadcast Upload Extension 来开启屏幕采集。
- *       然后设置 [enableCustomVideoCapture](@ref V2TXLivePusher#enableCustomVideoCapture:) 开启自定义采集支持。 
- *       最后通过 [sendCustomVideoFrame](@ref V2TXLivePusher#sendCustomVideoFrame:) 把 Broadcast Upload Extension 中采集到的屏幕画面送出去。
+>*       需要通过 iOS Broadcast Upload Extension 来开启屏幕采集。
+>*       然后设置 enableCustomVideoCapture 开启自定义采集支持。 
+>*       最后通过 sendCustomVideoFrame 把 Broadcast Upload Extension 中采集到的屏幕画面送出去。
 ```
 - (V2TXLiveCode)startScreenCapture:(NSString *)appGroup
 ```
