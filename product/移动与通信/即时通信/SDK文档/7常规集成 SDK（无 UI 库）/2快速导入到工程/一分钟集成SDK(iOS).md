@@ -165,5 +165,5 @@ rm ~/Library/Caches/CocoaPods/search_index.json
 ```
 - 如果使用增强版，请按照如下方式引用头文件：
 ```
-#import <ImSDK_Smart/ImSDK_Plus.h>
+#import <ImSDK_Plus/ImSDK_Plus.h>
 ```
