@@ -2,9 +2,7 @@
 ### 相关说明
 云数据库 MongoDB 默认提供 rwuser 和 mongouser 两个用户名，分别支持 MONGODB-CR 和 SCRAM-SHA-1 两种认证方式，对于这两种认证方式，连接 URI 需要做不同的处理，具体参见 [连接实例](https://cloud.tencent.com/document/product/240/7092)。
 
-在 PHP 里，有 [两套驱动](https://docs.mongodb.com/ecosystem/drivers/php/) 可用于连接操作 MongoDB 数据库，它们分别是：
-- mongodb（[PHP 官网文档](http://php.net/manual/en/set.mongodb.php)）- MongoDB 官方推荐 mongodb 驱动，但需要 PHP 5.4 以上版本。
-- mongo - mongo 比较旧，但也可以用，如果要用请选择 1.6 版本。
+在 PHP 里，有驱动可用于连接操作 MongoDB 数据库：mongodb（[PHP 官网文档](http://php.net/manual/en/set.mongodb.php)）- MongoDB 官方推荐 mongodb 驱动，但需要 PHP 5.4 以上版本。
 
 下面分别用上述两个驱动演示连接云数据库 MongoDB 并进行读写。
 
