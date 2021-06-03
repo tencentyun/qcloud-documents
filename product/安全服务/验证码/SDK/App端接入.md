@@ -1,6 +1,6 @@
 ## 前提条件
 接入验证码前，进入[图形验证](https://console.cloud.tencent.com/captcha/graphical)  页完成新建验证。可在【验证列表】查看 验证码接入所需的 CaptchaAppId 及 AppSecretKey。
-![](https://main.qcloudimg.com/raw/2fe27768c6d176bb05760de25a44206f.jpg)
+![](https://main.qcloudimg.com/raw/a15105526bbcf8c0b51b5cdafeefb92c.png)
 
 ## 接入步骤
 以下为 App 端接入流程，适用于每次都需要进行人机验证的场景（如登录、注册、下发短信、活动等），App（iOS 和 Android） 皆使用 Web 前端 H5 方式进行接入。
@@ -78,7 +78,6 @@ webview.loadUrl("https://x.x.x/x/");
 }
 ```
 6. 在 H5 业务页面中，集成验证码 SDK，并通过 JS 调用 SDK 获取验证码相关数据，最后使用 JSBridge 传回数据给具体业务端。
-
 >!如需隐藏验证码帮助按钮等功能，请参见 [Web 前端接入](https://cloud.tencent.com/document/product/1110/36841) 文档。
 >
 ```

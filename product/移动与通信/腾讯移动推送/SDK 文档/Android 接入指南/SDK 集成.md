@@ -42,8 +42,7 @@ android {
 
 dependencies {
     ......
-    //添加以下依赖
-    implementation 'com.tencent.jg:jg:1.1'                  
+    //添加以下依赖             
     implementation 'com.tencent.tpns:tpns:[VERSION]-release' 
 		  // TPNS 推送 [VERSION] 为最新 SDK 版本号，即为上述步骤2获取的版本号
 }

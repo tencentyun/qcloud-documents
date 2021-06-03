@@ -59,13 +59,13 @@ metadata:
 参考 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/30692) 为创建负载均衡追加自定义参数。
 **使用示例：**
 - 创建 NAT64 IPv6 实例：
-  `service.kubernetes.io/service.extensiveParameters: '{"AddressIPVersion":"IPV6"}'`
+  `kubernetes.io/ingress.extensiveParameters: '{"AddressIPVersion":"IPV6"}'`
 - 创建 IPv6 实例：
-  `service.kubernetes.io/service.extensiveParameters: '{"AddressIPVersion":"IPv6FullChain"}'`
+  `kubernetes.io/ingress.extensiveParameters: '{"AddressIPVersion":"IPv6FullChain"}'`
 - 购买电信负载均衡：
-  `service.kubernetes.io/service.extensiveParameters: '{"VipIsp":"CTCC"}'`
+  `kubernetes.io/ingress.extensiveParameters: '{"VipIsp":"CTCC"}'`
 - 指定可用区创建：
-  `service.kubernetes.io/service.extensiveParameters: '{"ZoneId":"ap-guangzhou-1"}'`
+  `kubernetes.io/ingress.extensiveParameters: '{"ZoneId":"ap-guangzhou-1"}'`
 :::
 ::: kubernetes.io/ingress.subnetId
 **说明：**

@@ -29,9 +29,9 @@
 
 ### 业务流程
 
-本文为您介绍如何 [使用 API 网关集成云函数](https://cloud.tencent.com/product/serverless-catalog)，将实时音视频 TRTC 房间的主播音视频进行单流录制，录制完毕后上传到COS存储，提供开箱即用、灵活便捷、可编程的直播录制能力。云函数默认提供 512MB 内存来存储录制文件，如果您需要更大的存储空间，可以选择使用 [CFS 挂载能力](https://cloud.tencent.com/document/product/583/46199)。工作流程如下图所示： 
+本文为您介绍如何 [使用 API 网关集成云函数](https://cloud.tencent.com/product/serverless-catalog)，将实时音视频 TRTC 房间的主播音频进行单流录制，录制完毕后上传到COS存储，提供开箱即用、灵活便捷、可编程的直播录制能力。云函数默认提供 512MB 内存来存储录制文件，如果您需要更大的存储空间，可以选择使用 [CFS 挂载能力](https://cloud.tencent.com/document/product/583/46199)。工作流程如下图所示： 
 
-![img](https://main.qcloudimg.com/raw/346f2a424db2d279b0a316077a04d4d9.png)
+![img](https://main.qcloudimg.com/raw/7320a87207b34e715f576ee56a3feac0.png)
 
 API 网关调用涉及的参数如下：
 
@@ -134,7 +134,7 @@ Files数组中每一项为json object，如下：
 1. 参考[跑通Demo(桌面浏览器)](https://cloud.tencent.com/document/product/647/32398)，主播user_00001进入一个trtc房间，
 
 2. 使用 Postman 构造 HTTP 请求。其中roomId 为步骤1中的trtc房间号，userId为随机另一个用户id（必须唯一），如下图所示：
-   
+    
     ```
     {
     	"SdkAppId": 1400000000,
