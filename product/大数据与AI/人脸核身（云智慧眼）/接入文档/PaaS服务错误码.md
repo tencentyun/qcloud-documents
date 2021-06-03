@@ -5,13 +5,13 @@
 
 | 返回码 | 含义                         | 是否收费 |
 | ------ | ---------------------------- | -------- |
-| Succcess | 检测通过 | 是 |
+| Success | 检测通过 | 是 |
 | FailedOperation.IdNameMisMatch|	姓名和身份证号不一致，请核实后重试。  | 是       |
-|FailedOperation.IdPhotoPoorQuality	|证件图片分辨率太低，请重新上传。|是|
-| FailedOperation.LifePhotoDetectFaces	|检测到多张人脸。|是    |
-| FailedOperation.LifePhotoDetectFake	|实人比对没通过。|是   |
-|FailedOperation.LifePhotoDetectNoFaces	|未能检测到完整人脸。| 是|
-| FailedOperation.CompareFail	|比对失败。|是    |
+|FailedOperation.IdPhotoPoorQuality	|证件图片分辨率太低，请重新上传。|否|
+| FailedOperation.LifePhotoDetectFaces	|检测到多张人脸。| 否   |
+| FailedOperation.LifePhotoDetectFake	|实人比对没通过。| 否   |
+|FailedOperation.LifePhotoDetectNoFaces	|未能检测到完整人脸。| 否|
+| FailedOperation.CompareFail	|比对失败。|否    |
 | FailedOperation.CompareLowSimilarity	|比对相似度未达到通过标准。|是 |
 
 ## 要素类

@@ -1,7 +1,11 @@
 ## 接口描述
-描述：通过会议 Code 查询直播回看信息。
-调用方式：GET
-接口请求域名：`https://api.meeting.qq.com/v1/meetings/live_play/replays?meeting_code={meetingCode}&userid={userid}&instanceid={instanceid}`
+**描述**：通过会议 Code 查询直播回看信息，目前暂不支持 OAuth2.0 鉴权访问。
+**调用方式**：GET
+**接口请求域名**：
+```plaintext
+https://api.meeting.qq.com/v1/meetings/live_play/replays?meeting_code={meetingCode}&userid={userid}&instanceid={instanceid}
+```
+
 
 ## 输入参数
 HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](https://cloud.tencent.com/document/product/1095/42413#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)。
@@ -10,7 +14,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 | ----------- | ---- | -------- | ------------------ |
 | meetingCode | 是   | String   | 有效的会议 Code。     |
 | userid      | 是   | String   | 调用 API 的用户 ID。    |
-| instanceid  | 是   | Integer  | 用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序。 |
+| instanceid  | 是   | Integer  | 用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序 |
 
 ## 输出参数
 
@@ -44,7 +48,7 @@ GET https://api.meeting.qq.com/v1/meetings/live_play/replays?meeting_code=134185
 ```
 
 #### 输出示例
-```
+```plaintext
 {
     "meeting_number":1,
     "meeting_info_list":[

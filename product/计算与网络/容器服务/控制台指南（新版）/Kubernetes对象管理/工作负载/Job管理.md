@@ -47,7 +47,7 @@ Job 执行完成后，不再创建新的 Pod，也不会删除 Pod，您可在 �
 
 ## Kubectl 操作 Job 指引
 
-<span id="YAMLSample"></span>
+[](id:YAMLSample)
 ### YAML 示例
 
 ```Yaml
@@ -101,3 +101,6 @@ job       1         0            1m
 ```
 kubectl delete job [NAME]
 ```
+
+
+

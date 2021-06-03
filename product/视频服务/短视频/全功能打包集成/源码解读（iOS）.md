@@ -1,20 +1,23 @@
+[](id:structure)
 ## 1. 工程结构
 ![](https://main.qcloudimg.com/raw/6dece0a7e9535e3fdb138975ff69452c.png)
 小视频主要集成了 UGCKit 作为核心功能库。集成方式参考 [UGCKit](https://github.com/tencentyun/UGSVSDK/tree/master/iOS)（主要负责播放录制）。
 小视频的美颜功能，主要集成 BeautySettingkit 实现。集成方式参考 [高级功能和特效](https://cloud.tencent.com/document/product/584/20323) 文档（类抖音特效、动效变脸），相关代码都可以在 BeautySettingKit 目录下找到。
 
+[](id:function)
 ## 2. 模块介绍
 小直播按照功能不同划分了7个模块，分别为：
 - 帐号、列表管理、发布以及资料模块（处于小视频目录下）。
 - 播放、录制、编辑模块由 UGCKit 负责。
 
+[](id:accounts)
 ### 帐号模块
 - 帐号模块负责处理用户登录/注册，以及登录缓存的逻辑。
 - 如果您已经有自己的帐号体系，可以直接替换该模块。
 - 账号模块的 UI 逻辑分为`XiaoShiPin/AppViewControllers/Account`及`XiaoShiPin/AppViewControllers/AccountInfo`，前者涉及登录的 UI 模块，后者涉及登录后的资料处理 UI 模块。
 - 账号模块的业务逻辑可以在`XiaoShiPin/Model`下查看。
 
-
+[](id:board)
 ### 主界面和列表管理
 #### 模块简介
 - 主界面主要负责点播列表、录制、个人资料三个一级功能的切换。
@@ -30,7 +33,7 @@
 	- TCVideoListCell：点播列表的 Cell 类，主要展示封面、标题、昵称。
 	- TCLiveListViewController：点播列表的 TableViewController，负责展示点播列表，单击后跳转播放界面。
 
-
+[](id:play)
 ### 播放模块
 #### 模块简介
 播放模块主要包括：短视频预加载、播放、缓存、分享等功能。
@@ -38,7 +41,7 @@
 #### 相关代码
 `/XiaoShiPin/AppViewControllers/VideoPlayer`目录下，主要处理播放相关的业务逻辑，包含 UI 和业务逻辑。
 
-
+[](id:record)
 ### 录制模块
 #### 模块简介
 录制模块主要包括：短视频多段录制、多段回删、多分辨率录制、变速录制等。
@@ -46,6 +49,7 @@
 #### 相关代码
 `UGCKit/Source/Record`在该目录下可以找到录制相关的所有逻辑。
 
+[](id:edit)
 ### 编辑模块
 #### 模块简介
 编辑模块主要包括：短视频裁剪、BGM、滤镜风格、特效、动态贴纸、静态贴纸等。
@@ -53,6 +57,7 @@
 #### 相关代码
 `UGCKit/Source/Edit`目录下可以找到录制相关的所有逻辑。
 
+[](id:pod)
 ### 发布模块
 #### 模块简介
 发布模块主要包括：短视频发布。
@@ -60,6 +65,7 @@
 #### 相关代码
 `XiaoShiPin/AppViewController/Publish`目录下可以找到发布相关的所有逻辑。
 
+[](id:file)
 ### 资料模块
 #### 模块简介
 - 资料模块主要负责用户资料的展示、存储和修改，并负责将这些操作同步到服务器。

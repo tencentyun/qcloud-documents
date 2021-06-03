@@ -59,7 +59,9 @@ bootmenupolicy          Standard
 ![image](https://main.qcloudimg.com/raw/de738e8549cb0f090f53038104ae3428.jpg
 )
  - 若没有安装 Virtio 驱动，则需要手动安装。
-    - Microsoft Windows Server 2008 R2（标准版、数据中心版、企业版)，Microsoft Windows Server 2012 R2（标准版），请下载：[腾讯云定制版 Virtio](http://windowsvirtio-10016717.file.myqcloud.com/InstallQCloud.exe?_ga=1.44298212.1367540472.1504757536)。
+    - Microsoft Windows Server 2008 R2（标准版、数据中心版、企业版）、Microsoft Windows Server 2012 R2（标准版）、Microsoft Windows Server 2016（数据中心版）、Microsoft Windows Server 2019（数据中心版）请下载腾讯云定制版 Virtio。下载地址如下，请对应实际网络环境下载：
+      -  公网下载地址：`http://mirrors.tencent.com/install/windows/virtio_64_1.0.9.exe`
+      -  内网下载地址：`http://mirrors.tencentyun.com/install/windows/virtio_64_1.0.9.exe`
     - 其它系统版本，请下载 [社区版本 virtio](https://www.linux-kvm.org/page/WindowsGuestDrivers/Download_Drivers)。
 
 #### 检查其它硬件相关的配置
@@ -70,21 +72,14 @@ bootmenupolicy          Standard
  - 网卡更换为 Virtio Nic，默认为本地连接。
 
 ### 导出镜像
-
-根据实际需求，选择不同的工具导出镜像。
-- [使用平台工具导出镜像](#Useplatform)。
-- [使用 disk2vhd 导出镜像](#Usedisk2vhd)。
-
-<span id="Useplatform"></span>
-#### 使用平台工具导出镜像
-
+根据实际需求，选择不同的工具导出镜像：
+<dx-tabs>
+::: 使用平台工具导出镜像[](id:Useplatform)
 使用 VMWare vCenter Convert 或 Citrix XenConvert 等虚拟化平台的导出镜像工具。详情请参见各平台的导出工具文档。
 >? 目前腾讯云服务迁移支持的镜像格式有：qcow2，vhd，raw，vmdk。
 >
-
-<span id="Usedisk2vhd"></span>
-#### 使用 disk2vhd 导出镜像
-
+:::
+::: 使用\sdisk2vhd\s导出镜像[](id:Usedisk2vhd)
 当您的需要导出物理机上的系统或者不想使用平台工具导出时，可以使用 disk2vhd 工具进行导出。
 1. 安装并打开 disk2vhd 工具。
 [点此下载 disk2vhd 工具 >>](https://download.sysinternals.com/files/Disk2vhd.zip)
@@ -95,6 +90,9 @@ bootmenupolicy          Standard
 > - 建议勾选 “Use volume Shadow Copy”，使用卷影复制功能，将能更好地保证数据完整性。
 > 
 ![image](https://main.qcloudimg.com/raw/68d9c4e5e7db49c4cefdd3785ce9b68d.jpg)
+:::
+</dx-tabs>
+
 
 ### 检查镜像
 

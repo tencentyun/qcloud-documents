@@ -1,10 +1,11 @@
 ## 购买须知
 - 在购买腾讯云 GPU 云服务器前，请确保已了解 [腾讯云 GPU 云服务器](https://cloud.tencent.com/document/product/560/8015)，且已了解 [配置与价格](https://cloud.tencent.com/document/product/560/8025)，并根据实际需求购买。
 - 确保了解所选 GPU 实例所在可用区，可用区信息请参考 [AMD GPU 实例类型介绍](https://cloud.tencent.com/document/product/560/19701)。
+- 推荐您购买次新代 [渲染型  GN7vw 实例](https://cloud.tencent.com/document/product/560/19700#GN7vw)。
 
 ##  购买步骤
 本文以渲染型 **GA2 实例**为例，指导您按照以下步骤快速购买一台 GPU 云服务器。
->?GPU 渲染型 GA2 现处于内测阶段，如需使用，请前往 [内测申请](https://cloud.tencent.com/apply/p/0pz3p9aubg29)。
+
 
 ### 步骤1：登录购买页面
 <div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/cvm?regionId=8&zoneId=800002&generation=v2&deviceType=ga&tabIndex=1" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.2764.btn2">点此进入购买页面</a></div>

@@ -2,21 +2,19 @@
 
 Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供给开发者的接口，本文将提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式。
 
-
-
 ## SDK 集成（二选一）
 
 ### AndroidStudio Gradle 自动集成
 
 #### 操作步骤
 
->!在配置 SDK 前，确保已创建 Android 平台的应用。
+>! 在配置 SDK 前，确保已创建 Android 平台的应用。
+>
 
 1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，在【产品管理】>【配置管理】页面获取应用的 AccessID、AccessKey。
 2. 在 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面，获取当前最新版本号。
 ![](https://main.qcloudimg.com/raw/14e6c42845be00c1e2cf964482062794.png)
 3. 在 app build.gradle 文件下，配置以下内容：
-
 ```
 android {
     ......
@@ -44,18 +42,17 @@ android {
 
 dependencies {
     ......
-    //添加以下依赖
-    implementation 'com.tencent.jg:jg:1.1'
-    implementation 'com.tencent.tpns:tpns:[VERSION]-release' //  TPNS 推送 [VERSION] 为当前 SDK 版本号，版本号可在 Android 发布动态页查看
-
+    //添加以下依赖             
+    implementation 'com.tencent.tpns:tpns:[VERSION]-release' 
+		  // TPNS 推送 [VERSION] 为最新 SDK 版本号，即为上述步骤2获取的版本号
 }
 ```
 
 >!
- - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
- - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置。
-   在 Androidanifest 文件 application 标签内添加以下元数据：
-```
+> - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
+> - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置。
+> 在 AndroidManifest 文件 application 标签内添加以下元数据：
+> ```
 <application>
 	// 其他安卓组件
 	<meta-data
@@ -63,16 +60,17 @@ dependencies {
 			android:value="其他服务接入点域名" />
 </application>
 ```
-其他服务接入点域名如下：
-- 上海：`tpns.sh.tencent.com`
-- 新加坡：`tpns.sgp.tencent.com`
-- 中国香港：`tpns.hk.tencent.com`
+> 其他服务接入点域名如下：
+>   - 上海：`tpns.sh.tencent.com`
+>  - 新加坡：`tpns.sgp.tencent.com`
+>  - 中国香港：`tpns.hk.tencent.com`
+>  
 
 #### 注意事项
 
  - 如在添加以上 abiFilter 配置后， Android Studio 出现以下提示：
    NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin，则在 Project 根目录的 gradle.properties 文件中添加  `android.useDeprecatedNdk=true`。
- - 如需监听消息请参考 XGPushBaseReceiver 接口或 demo 的 MessageReceiver 类。自行继承 XGPushBaseReceiver 并且在配置文件中配置如下内容（请勿在 receiver  里处理耗时操作）：
+ - 如需监听消息请参考 XGPushBaseReceiver 接口或 Demo（在 SDK 压缩包内，可前往 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面获取 ）的 MessageReceiver 类。自行继承 XGPushBaseReceiver 并且在配置文件中配置如下内容（请勿在 receiver  里处理耗时操作）：
 ```xml
 <receiver android:name="com.tencent.android.xg.cloud.demo.MessageReceiver">
     <intent-filter>
@@ -92,6 +90,9 @@ dependencies {
 
 ###  Android Studio 手动集成
 
+前往 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面获取最新版 SDK，并参考以下步骤将 SDK 导入到您的 Android 工程中。
+
+
 #### 工程配置
 
 将 SDK 导入到工程的步骤为：
@@ -99,7 +100,8 @@ dependencies {
 1. 创建或打开 Android 工程。
 2. 将移动推送 TPNS  SDK 目录下的 libs 目录所有 .jar 文件拷贝到工程的 libs（或 lib）目录下。
 3. .so 文件是移动推送 TPNS 必须的组件，支持 armeabi、armeabi-v7a、arm64-v8a、mips、mips64、x86、x86_64平台，请根据自己当前 .so 支持的平台添加
-4. 打开 Androidmanifest.xml，添加以下配置（建议参考下载包的 Demo 修改），其中 YOUR_ACCESS_ID 和YOUR_ACCESS_KEY 替换为 App 对应的 AccessId 和 AccessKey，请确保按照要求配置，否则可能导致服务不能正常使用。
+4. 打开 AndroidManifest.xml，添加以下配置（建议参考下载包 Demo 中的 Merged Manifest 修改），其中 “APP的AccessId ” 和 “APP的AccessKey” 替换为 App 对应的 AccessId 和 AccessKey，请确保按照要求配置，否则可能导致服务不能正常使用。
+
 
 #### 权限配置
 
@@ -266,10 +268,10 @@ dependencies {
 ```
 
 >!
- - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
- - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置。
-   在 Androidanifest 文件 application 标签内添加以下元数据：
-```
+>  - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
+>  - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置。
+>  在 AndroidManifest 文件 application 标签内添加以下元数据：
+> ```
 <application>
 	// 其他安卓组件
 	<meta-data
@@ -277,17 +279,18 @@ dependencies {
 			android:value="其他服务接入点域名" />
 </application>
 ```
-其他服务接入点域名如下：
-- 上海：`tpns.sh.tencent.com`
-- 新加坡：`tpns.sgp.tencent.com`
-- 中国香港：`tpns.hk.tencent.com`
+> 其他服务接入点域名如下：
+>   - 上海：`tpns.sh.tencent.com`
+>   - 新加坡：`tpns.sgp.tencent.com`
+>   - 中国香港：`tpns.hk.tencent.com`
 
 
 ## 调试及设备注册
 
 ### 开启 Debug 日志数据
 
->!上线时请设置为 false。
+>! 上线时请设置为 false。
+>
 
 ```java
 XGPushConfig.enableDebug(this,true);
@@ -314,7 +317,7 @@ XGPushManager.registerPush(this, new XGIOperateCallback() {
 过滤 "TPush" 注册成功的日志如下：
 
 ```xml
-XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
+TPNS register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 ```
 
 
@@ -362,20 +365,28 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 <ImageView android:layout_height="25dp" android:layout_width="25dp" android:id="@+id/xg_notification_audio_stop" android:layout_marginLeft="30dp" android:layout_toRightOf="@+id/xg_notification_audio_play" android:visibility="gone" android:background="@android:drawable/ic_media_pause" android:layout_alignParentBottom="true"/></RelativeLayout>
 ```
 
-
 ### 关闭联合保活
 
-如果需要关闭 TPNS 的保活功能，若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 “application” 标签下配置如下结点，其中 `xxx` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
+如需关闭联合保活功能，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值：
+>! 仅 1.1.6.0 之后版本支持关闭联合保活功能，1.1.6.0之前版本TPNS 默认开启联合保活能力，且不可关闭。
+>
 
-```xml
-   <!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->
-   <!-- 关闭与 TPNS 应用的联合保活功能，请配置 -->
-   <provider
-       android:name="com.tencent.android.tpush.XGPushProvider"
-       tools:replace="android:authorities"
-       android:authorities="应用包名.xxx.XGVIP_PUSH_AUTH"
-       android:exported="false" />     
+```java
+XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 ```
+
+若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 &lt;application&gt; 标签下配置如下结点，其中 `xxx` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
+```xml
+<!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->     
+<!-- 关闭与 TPNS 应用的联合保活功能，请配置 -->
+<provider
+		 android:name="com.tencent.android.tpush.XGPushProvider"
+		 tools:replace="android:authorities"
+		 android:authorities="应用包名.xxx.XGVIP_PUSH_AUTH"
+		 android:exported="false" />    
+```
+
+若控制台有以下日志打印，则表明联合保活功能已经关闭：`I/TPush: [ServiceUtil] disable pull up other app`。
 
 ### 获取 TPNS Token 交互建议
 
@@ -388,3 +399,36 @@ XGPushConfig.getToken(getApplicationContext());
 ```
 
 ![](https://main.qcloudimg.com/raw/854020af14428df9972629e7dbbee55f.png)
+
+### 获取 TPNS 运行日志交互建议
+
+SDK 提供日志上报接口。如用户在应用上线后遇到推送相关问题，可以通过引导用户操作触发此接口，上传 SDK 运行日志并获取回调返回的日志文件下载地址，方便问题排查。详情参考 [日志上报接口](https://cloud.tencent.com/document/product/548/36659#.E6.96.B0.E5.A2.9E.E6.97.A5.E5.BF.97.E4.B8.8A.E6.8A.A5.E6.8E.A5.E5.8F.A3)。
+
+示例代码如下：
+```java
+XGPushManager.uploadLogFile(context, new HttpRequestCallback() {
+    @Override
+    public void onSuccess(String result) {
+        Log.d("TPush", "上传成功，文件地址：" + result);
+    }
+        @Override
+    public void onFailure(int errCode, String errMsg) {
+        Log.d("TPush", "上传失败，错误码：" + errCode + ",错误信息：" + errMsg);
+    }
+});
+```
+
+
+### 隐私协议声明建议
+
+您可在申请 App 权限使用时，使用以下内容声明授权的用途：
+
+
+<pre>
+我们使用 <a href="https://cloud.tencent.com/product/tpns">腾讯云移动推送 TPNS</a> 用于实现产品信息的推送，在您授权我们“访问网络连接”和“访问网络状态”权限后，表示您同意 <a href="https://cloud.tencent.com/document/product/548/50955">腾讯 SDK 隐私协议</a>。您可以通过关闭终端设备中的通知选项来拒绝接受此 SDK 推送服务。
+</pre>
+
+其中上述声明授权的两个链接如下：
+- 腾讯云移动推送 TPNS ：`https://cloud.tencent.com/product/tpns`
+- 腾讯 SDK 隐私协议：`https://cloud.tencent.com/document/product/548/50955`
+

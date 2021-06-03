@@ -1,16 +1,14 @@
 ## 背景说明
 云函数是腾讯云为企业和开发者们提供的无服务器执行环境，具体可参见 [云函数 SCF](https://cloud.tencent.com/product/scf)，下文简称 SCF。
 
-CDWPG 常见使用场景是将消息中间件的信息同步到 CDWPG 后再进行分析。本文提供了一种便捷的方法，即使用 SCF 实时的将 Kafka 中的数据导入到 CDWPG，无需用户维护任何服务。
+云数据仓库 PostgreSQL 常见使用场景是将消息中间件的信息同步到云数据仓库 PostgreSQL 后再进行分析。本文提供了一种便捷的方法，即使用 SCF 实时的将 Kafka 中的数据导入到云数据仓库 PostgreSQL，无需用户维护任何服务。
 
 ## 注意事项
 - 该云函数目前只能将腾讯云 CKafka 作为数据源，暂不支持自建 Kafka。
-- 该云函数目前只能将 CDWPG 中的某一张表作为目标数据写入，如果有多张表的需求，请按照以下流程每张表创建对应的云函数。
+- 该云函数目前只能将云数据仓库 PostgreSQL 中的某一张表作为目标数据写入，如果有多张表的需求，请按照以下流程每张表创建对应的云函数。
 
 ## 使用步骤
-
 ###  步骤一：创建函数
-
 在 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=4) 中选择【函数服务】>【新建】，在“新建函数”页面中选择【运行环境】为“Python3.6”，【模糊搜索】中搜索关键词“ckafka”，选择模板函数“CKafka 数据加载到 CDW”，设置完成后单击【下一步】。
 ![](https://main.qcloudimg.com/raw/6115e15c0f228d08caeea72f59961262.png)
 进入“函数配置”页面后，在“高级配置”中进行【环境配置】和【网络配置】，配置如下：
@@ -34,7 +32,7 @@ CDWPG 常见使用场景是将消息中间件的信息同步到 CDWPG 后再进�
 	<tr>
 		<td>DB_HOST</td>
 		<td>是</td>
-		<td>如果函数是私有网络，并且和 CDWPG 是在同一子网，则可以填写 CDWPG 的内网 IP，否则需要填写外网 IP，并配置白名单</td>
+		<td>如果函数是私有网络，并且和云数据仓库 PostgreSQL 是在同一子网，则可以填写云数据仓库 PostgreSQL 的内网 IP，否则需要填写外网 IP，并配置白名单</td>
 	</tr>
 	<tr>
 		<td>DB_USER</td>
@@ -59,7 +57,7 @@ CDWPG 常见使用场景是将消息中间件的信息同步到 CDWPG 后再进�
 	<tr>
 		<td>DB_PORT</td>
 		<td>否</td>
-		<td>CDWPG 端口，默认为5436</td>
+		<td>云数据仓库 PostgreSQL 端口，默认为5436</td>
 	</tr>
 	<tr>
 		<td>MSG_SEPARATOR_ASCII</td>
@@ -109,9 +107,9 @@ CDWPG 常见使用场景是将消息中间件的信息同步到 CDWPG 后再进�
 </tbody>
 </table>
 - **网络配置**
- - 私有网络：建议**启用**私有网络，并将 VPC 和子网的值配置的与 CDWPG 相同。
+ - 私有网络：建议**启用**私有网络，并将 VPC 和子网的值配置的与云数据仓库 PostgreSQL 相同。
  ![](https://main.qcloudimg.com/raw/528bf58229140b1e263bd2135d0a59c6.png)
- 下图为 CDWPG 对应的值。
+ 下图为云数据仓库 PostgreSQL 对应的值。
 ![](https://main.qcloudimg.com/raw/69f95bd32b0a9057f9880dd6bf22e859.png)
  - 公网访问：建议同时**启用**公网访问。
 

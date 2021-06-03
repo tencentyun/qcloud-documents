@@ -11,7 +11,9 @@
 3. 结束录制。
 
 
-```
+
+<dx-codeblock>
+::: android 
 // 获取第一次视频录制对象
 mTXCameraRecord = TXUGCRecord.getInstance(this.getApplicationContext());
 
@@ -35,7 +37,7 @@ mTXCameraRecord2.startRecord();
 
 // 结束录制,SDK 会把缓存视频片段和当前录制视频片段合成
 mTXCameraRecord2.stopRecord();
-
-```
+:::
+</dx-codeblock>
 
 >?具体实现方法请参考 [小视频源码](https://cloud.tencent.com/document/product/584/9366) 中录制中的 RecordDraftMgr 类的使用。

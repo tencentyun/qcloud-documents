@@ -35,6 +35,6 @@ __参数__
 |-----|-----|-----|
 | status | final Bundle | 通知的内容。（key，value）格式，其中 key 请查看代码中的  TXLiveConstants.NET_STATUS_VIDEO_BITRATE 网络状态通知。 |
 
-***
 
 
+ 

@@ -1,3 +1,4 @@
+
 |错误码|	说明	|处理措施|
 |---------|--------|----------|
 |-254 |查询目标实例获取信息失败|确认目标实例处于正常状态，迁移任务进行过程中请不要对目标实例并发其他任务。|
@@ -32,3 +33,4 @@
 |-41 |同步数据失败，主从异常|请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们处理。|
 |996|内部错误，迁移模式和对比方式不同，后端是不同的配置，如果配置文件找不到就报错|请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们处理。|
 
+>?如遇到其他错误码，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 反馈。

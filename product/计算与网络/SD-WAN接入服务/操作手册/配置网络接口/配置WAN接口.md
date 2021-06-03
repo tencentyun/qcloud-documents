@@ -5,8 +5,7 @@ WAN（Wide Area Network）口为广域网端口，Edge 设备通过该端口，�
 2. 在实例详情页的左侧导航栏，选择【设备配置】>【接口配置】。
 3. 在“接口配置”页面，选择物理接口 WAN1， 并在“基本信息”区域，单击【修改】。
 ![](https://main.qcloudimg.com/raw/36e1164bd6d691c70dd08254669e1636.png)
-<span id="step4"></span>
-4. 在“编辑接口”对话框中，配置以下信息，并单击【确定】。
+4. 在“编辑接口”对话框中，配置以下信息，并单击【确定】。[](id:step4)
 ![](https://main.qcloudimg.com/raw/34273d96eadcbaf8b9b067553d086328.png)
 **字段说明**：
 	- **名称**：该 WAN 接口的名称。

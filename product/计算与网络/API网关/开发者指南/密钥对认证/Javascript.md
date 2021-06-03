@@ -28,12 +28,11 @@ used...
 */
 var nowDate = new Date(); 
 
-var dateTime = nowDate.toGMTString();
+var dateTime = nowDate.toUTCString();
 //dateTime = "Mon, 19 Mar 2018 12:00:44 GMT"
 var SecretId = 'your SecretId'; // 密钥对的 SecretId
 var SecretKey = 'your SecretKey'; // 密钥对的 SecretKey
 var source = 'xxxxxx'; // 签名水印值，可填写任意值
-source = 'source';
 var auth = "hmac id=\"" + SecretId + "\", algorithm=\"hmac-sha1\", headers=\"x-date source\", signature=\"";
 var signStr = "x-date: " + dateTime + "\n" + "source: " + source;
 console.log(signStr)

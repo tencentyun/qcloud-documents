@@ -49,7 +49,7 @@ scp $localfile root@公网IP地址:$remotefolder
 ```
 如果 Hadoop下面没有 `/user/hadoop` 文件夹，用户可以自己创建，指令如下：
 ```
-[hadoop@172 hadoop]$ hadoop fs –mkdir /user
+[hadoop@172 hadoop]$ hadoop fs –mkdir /user/hadoop
 ```
 更多 Hadoop 指令见 [HDFS 常见操作](https://cloud.tencent.com/document/product/589/12289)。
 

@@ -23,11 +23,15 @@ pod 'SuperPlayer'
 // 引入头文件
 #import <SuperPlayer/SuperPlayer.h>
 
+
+
 _playerView = [[SuperPlayerView alloc] init];
 // 设置代理，用于接受事件
 _playerView.delegate = self;
 // 设置父 View，_playerView 会被自动添加到 holderView 下面
 _playerView.fatherView = self.holderView;
+
+
 
 SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
 // 设置播放地址，直播、点播都可以
@@ -54,6 +58,7 @@ url2.title = @"高清";
 SuperPlayerUrl *url3 = [SuperPlayerUrl new];
 url3.url = @"http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e_550.flv";
 url3.title = @"标清";
+
 
 SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
 palyerModel.multiVideoURLs = @[url1, url2, url3];

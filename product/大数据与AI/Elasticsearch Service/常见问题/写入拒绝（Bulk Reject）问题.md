@@ -27,7 +27,7 @@ GET _cat/shards?index=index_name&v
  - 可在 ES 控制台集群详情页的【集群监控】>【节点状态】查看，具体操作可参见 [查看监控](https://cloud.tencent.com/document/product/845/16995)。
  - 也可通过 curl 客户端，查看集群各个节点的分片个数。
 ```
-curl "$p:$port/_cat/shards?index={index_name}&s=node,store:desc" | awk '{print $8}' | sort | uniq -c | sort
+curl "$ip:$port/_cat/shards?index={index_name}&s=node,store:desc" | awk '{print $8}' | sort | uniq -c | sort
 ```
 结果如下图（第一列为分片个数，第二列为节点 ID），有的节点分片为1，有的为8，分布极不均匀。
 ![](https://main.qcloudimg.com/raw/62d75ef4823d87934ab64a9eb243a556.png)
@@ -36,7 +36,7 @@ curl "$p:$port/_cat/shards?index={index_name}&s=node,store:desc" | awk '{print $
 1. 设置分片大小
 分片大小可以通过 index 模版下的 number_of_shards 参数进行配置（模板创建完成后，再次新创建索引时生效，老的索引不能调整）。
 2. 调整分片数据不均匀
- - 临时解决方案：
+ - 临时解决方案
 如果发现集群有分片分配不均的现象，可以通过设置 routing.allocation.total_shards_per_node 参数，动态调整某个 index 解决，[参考地址](https://www.elastic.co/guide/en/elasticsearch/reference/6.6/allocation-total-shards.html)。
 >!total_shards_per_node 要留有一定的 buffer，防止机器故障导致分片无法分配（例如10台机器，索引有20个分片，则 total_shards_per_node 设置要大于2，可以取3）。
 >
@@ -55,17 +55,17 @@ PUT {index_name}/_settings
     }
  }
 ```
- - 索引生产前设置：
+ - 索引生产前设置
 通过索引模板，设置其在每个节点上的分片个数。
 ```
 PUT _template/｛template_name｝
 {
     "order": 0,
-    "template": "｛index_prefix@｝*",  //要调整的index前缀
+    "template": "｛index_prefix@｝*",  //要调整的 index 前缀
     "settings": {
       "index": {
-        "number_of_shards": "30",   //指定index分配的shard数，可以根据一个shard 30GB左右的空间来分配
-        "routing.allocation.total_shards_per_node":3  //指定一个节点最多容纳的shards数
+        "number_of_shards": "30",   //指定 index 分配的 shard 数，可以根据一个 shard 30GB左右的空间来分配
+        "routing.allocation.total_shards_per_node":3  //指定一个节点最多容纳的 shards 数
       }
     },
     "aliases": {}

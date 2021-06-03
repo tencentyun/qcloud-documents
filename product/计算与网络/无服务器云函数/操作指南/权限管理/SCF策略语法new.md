@@ -3,12 +3,12 @@
 创建自定义策略流程可参考 CAM 的 [创建自定义策略](https://cloud.tencent.com/document/product/598/37739)。SCF 的策略语法遵循 CAM 的 [语法结构](https://cloud.tencent.com/document/product/598/10604) 和 [资源描述方式](https://cloud.tencent.com/document/product/598/10606)，策略语法以 JSON 格式为基础，所有资源均可采用下述的六段式描述方式，示例如下：
 
 ```
-qcs: :scf:region:uin/uin—id:function/function-name
+qcs::scf:region:uin/uin—id:namespace/namespace-name/function/function-name
 ```
 
 >! 在配置策略语法时，还需要配合使用 monitor 相关的接口以获得账号下的监控信息，使用方法请参考 [策略示例](#policygen)。
 
-## 策略示例<span id="policygen"></span>
+## 策略示例[](id:policygen)
 ```
 {	 
         "version":"2.0", 
@@ -40,8 +40,8 @@ qcs: :scf:region:uin/uin—id:function/function-name
             ],
             "resource": 
             [
-                "qcs::scf:gz:uin/******:function/Test1",
-                "qcs::scf:gz:uin/******:function/Test2"
+                "qcs::scf:gz:uin/******:namespace/default/function/Test1",
+                "qcs::scf:gz:uin/******:namespace/default/function/Test2"
             ]
          }
       ] 
@@ -127,7 +127,7 @@ qcs: :scf:region:uin/uin—id:function/function-name
 }
 ```
 
-## 用户策略更新说明<spoan id="Strategy"></span>
+## 用户策略更新说明[](id:Strategy)
 SCF 于2020年4月完善了预设策略权限，针对预设策略 `QcloudSCFFullAccess` 和 `QcloudSCFReadOnlyAccess` 完成修改，针对配置角色 `SCF_QcsRole` 添加了 `QcloudAccessForScfRole` 策略。详情如下：
 - 预设策略 QcloudSCFFullAccess 当前权限如下：
 

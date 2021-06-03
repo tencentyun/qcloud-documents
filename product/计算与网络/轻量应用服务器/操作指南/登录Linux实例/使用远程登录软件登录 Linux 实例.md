@@ -1,4 +1,6 @@
 ## 操作场景
+以下视频介绍了如何使用远程登录软件，登录 Linux 实例：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3401-60027?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 本文以 PuTTY 软件为例，介绍如何在 Windows 系统的本地计算机中使用远程登录软件登录 Linux 实例。
 
 ## 适用本地操作系统

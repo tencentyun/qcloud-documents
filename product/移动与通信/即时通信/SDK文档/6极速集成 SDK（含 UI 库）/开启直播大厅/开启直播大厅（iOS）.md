@@ -10,16 +10,17 @@ TUIKit_live 直播UI组件集成后的直播效果：
 
 
 
-<span id="step1"></span>
+[](id:step1)
 ## 步骤1：开通音视频服务
 
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) ，单击目标应用卡片，进入应用的基础配置页面。
 2. 单击【开通腾讯实时音视频服务】区域的【立即开通】。
 3. 在弹出的开通实时音视频 TRTC 服务对话框中，单击【确认】。
+4. 您还可以 [单击购买](https://cloud.tencent.com/act/pro/IMTRTC?from=13947) IM 专业版/旗舰版套餐包和 TRTC 时长包。
    >? 系统将为您在 [实时音视频控制台](https://console.cloud.tencent.com/trtc) 创建一个与当前 IM 应用相同 SDKAppID 的实时音视频应用，二者帐号与鉴权可复用。
    		
 
-<span id="step2"></span>
+[](id:step2)
 ## 步骤2：初始化并登录 TUIKit
 
 初始化 TUIKit 需要传入 [步骤1](#step1) 生成的 SDKAppID，并调用 `login` 登录，其中 UserSig 生成的具体操作请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
@@ -33,7 +34,7 @@ TUIKit_live 直播UI组件集成后的直播效果：
 }];
 ```
 
-<span id="step3"></span>
+[](id:step3)
 ## 步骤3：主播端开播
 
 创建主播端，您需要创建 `TUILiveRoomAnchorViewController` 并设置一个唯一的 roomid，即可开播。
@@ -50,7 +51,7 @@ anchorVC.delegate =  self ;
 [self.navigationController pushViewController:anchorVC animated: YES];
 ```
 
-<span id="step4"></span>
+[](id:step4)
 ## 步骤4：观众端观看直播
 
 创建观众端，您需要创建 `TUILiveRoomAudienceViewController` 并设置和主播端一致的 roomId 即可观看该主播的直播。
@@ -70,7 +71,7 @@ TUILiveRoomAudienceViewController *audienceVC =
 [self.navigationController pushViewController:anchorVC animated: YES];
 ```
 
-<span id="step5"></span>
+[](id:step5)
 ## 步骤5：实现直播大厅
 
 现在，您已经拥有了主播端和观众端，还需要一个直播房间列表将两者关联起来。
@@ -110,7 +111,7 @@ TUILiveRoomAudienceViewController *audienceVC =
 3.  单击观看：
    在直播大厅页点击任意直播间，参照 [步骤4：观众端观看直播](#step4) 生成观看端即可观看。
 
-<span id="step6"></span>
+[](id:step6)
 ## 步骤6：使用直播 CDN 观看
 
 创建观众端 TUILiveRoomAudienceViewController 时，如果设置 useCdn 为 NO，则默认使用 TRTC 进行观看；如果设置 useCdn 为 YES，且设置了 cdnUrl，则会采用 CDN 进行观看。

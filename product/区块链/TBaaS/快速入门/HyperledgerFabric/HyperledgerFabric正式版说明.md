@@ -13,8 +13,8 @@
 3. 支付完成后即可组建区块链网络。
 成功组建区块链网络后，可登录  [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)，选择左侧导航栏中的【Fabric】>【[区块链网络](https://console.cloud.tencent.com/tbaas/fabric/deploy)】，在“区块链网络”列表页面查看网络信息。
 
-## 步骤2：邀请组织加入联盟及网络
-### 邀请其他组织加入联盟
+## 步骤2：邀请成员加入联盟及网络
+### 邀请成员加入联盟
 1. 登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)，选择左侧导航栏中的【[联盟](https://console.cloud.tencent.com/tbaas/alliance)】。
 2. 在“联盟”列表页面，选择需邀请组织联盟所在行右侧的【邀请成员】。如下图所示：
 ![](https://main.qcloudimg.com/raw/8396a9f7d502664b493779b800f786a0.png)
@@ -44,12 +44,12 @@
  - **通道名称、通道描述**：自定义通道名称及描述。
  - **成员限制**：通道准入率，项目初期阶段准入门槛可设置为1%，请根据实际场景设置。
 4. 通道创建完成后，选择该通道所在行右侧的【加入节点】。如下图所示：
-![](https://main.qcloudimg.com/raw/47e6aa9f52d4ccaa6f57d8ac06aec072.png)
+![](https://main.qcloudimg.com/raw/ad2bafbeb74700a894ab7816b7a62afa.png)
 5. 在弹出的“加入节点”窗口中，勾选需加入节点并单击【确定】。
 
 ### 邀请组织加入业务通道
 1. 在“区块链网络”列表页面，选择资源 ID 进入网络详情页。
-2. 选择【通道管理】页面，并选择通道所在行右侧的【新增组织】。
+2. 选择【通道管理】页面，并选择通道所在行右侧的【邀请组织】。
 3. 在弹出的“邀请组织”窗口中，按照指引邀请组织。
 被邀请加入通道的组织可前往“[事件中心](https://console.cloud.tencent.com/tbaas/event)”页面，选择【我待办的】>【邀请加入通道】查询事件进展情况并等待准入。
 
@@ -69,10 +69,10 @@
 2. 选择资源 ID 进入网络详情页面，单击【合约管理】页签。
 3. 选择合约所在行右侧的【安装】。如下图所示：
 ![](https://main.qcloudimg.com/raw/ee2404eed84388fb4f3c0f8d9a30bbe2.png)
-4. 在弹出的“安装合约”窗口中，选择节点并单击【安装】即可完成合约安装。
+4. 在弹出的“安装合约”窗口中，选择节点并单击【确认】即可完成合约安装。
 5. 选择合约所在行右侧的【实例化】，进入“合约管理/实例化合约”页面进行合约实例化。如下图所示：
 >!在“背书策略”中，如没有特殊的合约背书策略要求，可选择【无】。
 >
-![](https://main.qcloudimg.com/raw/ab307bf3d5fbba80deeaeb06aa96055e.png)
+![](https://main.qcloudimg.com/raw/6635883f6c82489b6548bff158c34465.png)
 6. 您可通过智能合约发起交易上链。发起交易后，可在通道详情页或区块链浏览器来查询交易和区块。如下图所示：
 ![](https://main.qcloudimg.com/raw/4da33819b9409e7ea5f5b68760214f1c.png)

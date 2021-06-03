@@ -4,7 +4,7 @@ Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推�
 
 ### 确认应用是否可以使用 COS 服务
 
-- 如果您在应用的说明中看到类似`S3 Compatible`字样，那么大多数情况可以使用 COS 服务。如果您在实际使用过程中发现应用的某些功能无法正常使用，您可以向我们 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行咨询，在提交工单时，请说明您是从该文档中看到的指引，并提供相关应用的名称和截图等信息，以便我们可以更快的帮您解决问题。
+- 如果您在应用的说明中看到类似`S3 Compatible`字样，那么大多数情况可以使用 COS 服务。如果您在实际使用过程中发现应用的某些功能无法正常使用，您可以 [联系我们](https://cloud.tencent.com/document/product/436/37708)。联系时，请说明您是从该文档中看到的指引，并提供相关应用的名称和截图等信息，以便我们可以更快的帮您解决问题。
 - 如果您的应用只说明支持`Amazon S3`，这表明该应用可以使用 S3 服务，但能否使用 COS 服务，还需要在相关的配置中进一步尝试，本文也会在后续的配置说明中做进一步的说明。
 
 ### 准备 COS 服务
@@ -54,7 +54,8 @@ Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推�
 
 大部分应用在配置使用的存储服务时，都有类似的配置项，下面列举这些配置项的常见名称及相关说明：
 
-> ? 如果您在配置过程中有任何疑问，也可以向我们 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询，在提交工单时，请说明您是从该文档中看到的指引，并提供相关应用的名称和截图等信息，以便我们可以更快的帮您解决问题。
+>? 如果您在配置过程中有任何疑问，也可以 [联系我们](https://cloud.tencent.com/document/product/436/37708)。联系时，请说明您是从该文档中看到的指引，并提供相关应用的名称和截图等信息，以便我们可以更快的帮您解决问题。
+>
 
 
 <table>
@@ -92,7 +93,6 @@ Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推�
 </tbody></table>
 
 
-
 ### 其他项与高级配置说明
 
 部分应用除了上述基本配置外，还有一些其他项与高级配置，下面将提供部分 COS 的功能说明，以便您更好的在应用中使用 COS 服务。
@@ -106,4 +106,4 @@ Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推�
 
 ## 结语
 
-COS 不保证与 S3 的完全兼容，如果您在应用中使用 COS 服务时遇到任何问题，欢迎向我们 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询，在提交工单时，请说明您是从该文档中看到的指引，并提供相关应用的名称和截图等信息，以便我们可以更快的帮您解决问题。
+COS 不保证与 S3 的完全兼容，如果您在应用中使用 COS 服务时遇到任何问题，您可以 [联系我们](https://cloud.tencent.com/document/product/436/37708)。联系时，请说明您是从该文档中看到的指引，并提供相关应用的名称和截图等信息，以便我们可以更快的帮您解决问题。

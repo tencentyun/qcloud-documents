@@ -51,3 +51,22 @@ virtual int SetRecvMixStreamCount(int nCount) = 0;
 - **1**：房间1开麦克风后为媒体音量（原为通话音量）。
 - **2**：房间2开麦克风后为媒体音量（原为通话音量）。
 - **3**：房间1与2都还原为开麦克风后音量为通话音量。
+
+
+## 获取房间内成员说话音量
+
+调用 TrackingVolume 接口之后，监听 `TIMGContext.ITMG_MAIN_EVENT_TYPE.ITMG_MAIN_EVENT_TYPE_USER_VOLUMES` 事件，里面的键值对为 uin-volume，通过此接口可以根据房间内某 uin 说话的音量强度画出相应的能量柱状图。
+
+如果不再获取，请调用 StopTrackingVolume 接口。
+```
+//TMGAudioCtrl
+public int TrackingVolume(float fTrackingTimeS)
+public int StopTrackingVolume();
+```
+
+|参数|类型|含义|
+|----|---|----|
+|fTrackingTimeS|float|监听的秒数，建议设置为 0.5f|
+
+
+

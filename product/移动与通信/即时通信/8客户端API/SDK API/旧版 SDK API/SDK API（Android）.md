@@ -264,3 +264,4 @@ IM SDK 主核心模块，负责 IM SDK 的初始化、登录、创建会话以�
 | [getSeq](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#getseq) | 获取当前消息的序列号。 |
 
 
+

@@ -147,7 +147,6 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 ![](https://main.qcloudimg.com/raw/2500de31739754cb03f97b0d1f771c90.jpg)
 
 
-
 #### 输入访问路径
 在弹出的设置窗口中设置 "驱动器" 盘符名称及文件夹（即在 NFS 文件系统中看到的挂载目录）。
 ![](https://mc.qcloudimg.com/static/img/c7b07faf43812540d383b7767c52158b/image.png)
@@ -157,7 +156,10 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 确认后，页面直接进入到已经挂载的文件系统中。可以右键新建一个文件来验证读写的正确性。
 ![](https://mc.qcloudimg.com/static/img/60b9388885536ec7d81b1cf7f76c39d5/image.png)
 
+>! 中文 Windows 系统的默认编码为 GBK，而网关依托于 Linux 环境，中文编码为 UTF-8，如果挂载后出现异常，请先确认是否存在中文文件，如果需要使用中文文件，需要将 Windows 系统的默认编码改为 UTF-8。
+
 #### 断开文件系统
 要断开已经挂载的文件系统，只需鼠标右键单击磁盘，再出现的菜单中单击【断开】选项，即可断开文件系统的连接。
 ![](https://mc.qcloudimg.com/static/img/376cd0547aa64f4d519e5444c5a58f93/image.png)
+
 

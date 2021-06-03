@@ -208,6 +208,6 @@ Content-Type: application/json
 | -9011 | CREDITCARD_OCR_RECOG_FAILED     |
 | -9010 | CREDITCARD_OCR_PREPROCESS_ERROR |
 
-更多其他 API 错误码请查看 [错误码说明](https://cloud.tencent.com/document/product/866/17733)。 
+更多其他 API 错误码请查看 [错误码说明](https://cloud.tencent.com/document/product/866/17733)。   
 
 

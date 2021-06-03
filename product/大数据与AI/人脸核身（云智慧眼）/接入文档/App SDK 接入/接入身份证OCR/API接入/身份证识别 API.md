@@ -1,21 +1,23 @@
 >!如果因自身业务需要对 OCR 识别的影像文件进行存储或其他用途，请合作方务必自行保存订单号，通过订单号拉取 OCR 识别的影像文件是唯一方式。
 
 合作方后台服务上送 sign、请求参数到身份证识别后台服务。
-- **请求 URL：**`https://ida.webank.com/api/paas/idcardocrapp`
+- **请求 URL：**https://ida.webank.com/api/paas/idcardocrapp?orderNo=xxx
+>!为方便查询耗时，该请求 url 后面请拼接 orderNo 订单号参数。
+
 - **请求方法：**POST
 - **报文格式：**`Content-Type: application/json`
 - **请求参数：**
 
 |参数 | 说明 | 类型 | 长度（字节） | 是否必填|
 |----- | ----- | ------ | ---------------- | -----------|
-|webankAppId | WebankAppId，由腾讯指定 | String | 腾讯云线下对接决定 | 是|
+|webankAppId | 业务流程唯一标识，即 wbappid，可参考 [获取 WBappid](https://cloud.tencent.com/document/product/1007/49634) 指引在人脸核身控制台内申请 | String | 8 | 是|
 |version | 接口版本号<br>默认值：1.0.0 | String | 20 | 是|
 |nonce | 随机数<br>32 位随机串（字母 + 数字组成的随机数） | String | 32 | 是|
 |sign | 签名：使用 [生成的签名](https://cloud.tencent.com/document/product/1007/35920) | String | 40 | 是|
 |orderNo | 订单号，由合作方上送，每次调用唯一 | String | 32 | 是|
 |userId | 用户的唯一标识（不要带有特殊字符） | String | 32 | 否|
 |cardType | 身份证正反面标识<br>0：人像面<br>1：国徽面 | String | 1 | 是|  
-|idcardStr | 身份证人像面或者国徽面图片的 Base64，大小不超过3MB | String | 3145728 | 是|
+|idcardStr | 身份证人像面或者国徽面图片的 Base64，大小不超过20MB | String | 20971520 | 是|
 
 - **响应参数：**
 

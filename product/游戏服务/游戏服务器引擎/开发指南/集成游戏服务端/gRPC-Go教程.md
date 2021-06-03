@@ -1,6 +1,4 @@
 
-
-
 ## 安装 gRPC
 1. 使用 gRPC Go 时，需要先安装 Go 的最新主要版本。
 2. 安装 Protocol buffer 编辑器，版本为 protoc3。

@@ -13,9 +13,9 @@
 
 使用步骤：
 1. 打开控制中心，长按屏幕录制按钮，选择【视频云工具包】。
-2. 打开【视频云工具包】>【录屏直播】，输入推流地址或单击【New】自动获取推流地址，单击【开始推流】。
+2. 打开【视频云工具包】>【推流演示（录屏推流）】，输入推流地址或单击【New】自动获取推流地址，单击【开始推流】。
 
-![](https://main.qcloudimg.com/raw/24bb380c6d9a747db4305b3f3edb1b5e.png)
+![](https://main.qcloudimg.com/raw/822ccd7c5acbcbf25e8fb148a6db74d7.png)
 
 推流设置成功后，顶部通知栏会提示推流开始，此时您可以在其它设备上看到该手机的屏幕画面。单击手机状态栏的红条，即可停止推流。
 
@@ -66,15 +66,15 @@ static NSString *s_rtmpUrl;
     config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE; //自定义音频模式
     config.audioSampleRate = AUDIO_SAMPLE_RATE_44100;   //系统录屏的音频采样率为44100
     config.audioChannels   = 1;
-		
-		//config.autoSampleBufferSize = YES;
-		config.autoSampleBufferSize = NO;
-		config.sampleBufferSize = CGSizeMake(544， 960);
+        
+        //config.autoSampleBufferSize = YES;
+        config.autoSampleBufferSize = NO;
+        config.sampleBufferSize = CGSizeMake(544， 960);
     config.homeOrientation = HOME_ORIENTATION_DOWN;
     
     s_txLivePublisher = [[TXLivePush alloc] initWithConfig:config];
     s_txLivePublisher.delegate = self;
-	//[s_txLivePublisher startPush:s_rtmpUrl];
+    //[s_txLivePublisher startPush:s_rtmpUrl];
 }
 
 ```
@@ -92,10 +92,10 @@ static NSString *s_rtmpUrl;
 ```objective-c
   static NSString* s_resolution; //SD(标清), HD(高清), FHD(超清)
   static BOOL s_landScape; //YES:横屏， NO:竖屏
-	
+    
   CGSize screenSize = [[UIScreen mainScreen] currentMode].size;
     config.autoSampleBufferSize = NO;
-		config.homeOrientation = HOME_ORIENTATION_DOWN;
+        config.homeOrientation = HOME_ORIENTATION_DOWN;
 
     if ([s_resolution isEqualToString:@"SD"]) { //标清
         config.sampleBufferSize = CGSizeMake(368, (uint)(360 * screenSize.height / screenSize.width));
@@ -143,7 +143,7 @@ Replaykit 会将音频和视频都以回调的方式传给`-[SampleHandler proce
         {
                 if (!CMSampleBufferIsValid(sampleBuffer))
                     return;
-			//保存一帧在 startPush 时发送,防止推流启动后或切换横竖屏因无画面数据而推流不成功
+            //保存一帧在 startPush 时发送,防止推流启动后或切换横竖屏因无画面数据而推流不成功
                 if (s_lastSampleBuffer) {
                     CFRelease(s_lastSampleBuffer);
                     s_lastSampleBuffer = NULL;
@@ -201,13 +201,7 @@ SDK 内部对视频有补帧逻辑，没有视频时会重发最后一帧数据�
 
 #### 事件监听
 
-SDK 事件监听需要设置`TXLivePush`的 delegate 属性，该 delegate 遵循`TXLivePushListener`协议。底层的事件会通过
-
-`
--(void) onPushEvent:(int)EvtID withParam:(NSDictionary*)param
-`
-
-接口回调过来。录屏推流过程中，一般会收到以下事件：
+SDK 事件监听需要设置`TXLivePush`的 delegate 属性，该 delegate 遵循`TXLivePushListener`协议。底层的事件会通过 `-(void) onPushEvent:(int)EvtID withParam:(NSDictionary*)param` 接口回调过来。录屏推流过程中，一般会收到以下事件：
 
 #### 常规事件
 
@@ -277,7 +271,8 @@ SDK 事件监听需要设置`TXLivePush`的 delegate 属性，该 delegate 遵�
 结束推流后，直播扩展进程可能会被系统回收，所以需要在此处做好清理工作。
 
 
-### <span id="accessory">附: 扩展与宿主 App 之间的通信与数据传递方式参考</span>
+[](id:accessory)
+### 附: 扩展与宿主 App 之间的通信与数据传递方式参考
 ReplayKit2 录屏只唤起 upload 直播扩展，直播扩展不能进行 UI 操作，也不适于做复杂的业务逻辑，因此通常宿主 App 负责鉴权及其它业务逻辑，直播扩展只负责进行屏幕的音画采集与推流发送，扩展就经常需要与宿主 App 之间进行数据传递与通信。
 
 **1. 发本地通知**
@@ -329,7 +324,7 @@ ReplayKit2 录屏只唤起 upload 直播扩展，直播扩展不能进行 UI 操
                                     kDarvinNotificationNamePushStart,
                                     NULL,
                                     CFNotificationSuspensionBehaviorDeliverImmediately);
-																		
+                                                                        
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleReplayKit2PushStartNotification:) name:@"Cocoa_ReplayKit2_Push_Start" object:nil];
 
 

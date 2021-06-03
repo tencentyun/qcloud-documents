@@ -1,8 +1,8 @@
-支持将 EIP 从 IP 带宽包(https://cloud.tencent.com/document/product/684/15245#.E4.BA.A7.E5.93.81.E7.B1.BB.E5.88.AB) 内移除，移除后，计费模式将统一变更为按流量计费。
+支持将 EIP 从 [IP 带宽包](https://cloud.tencent.com/document/product/684/15245) 内移除，移除后，计费模式将统一变更为按流量计费。
 
 ## 前提条件
 - 目前共享带宽包处于内测阶段，使用前，请确保您的 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8) 已通过 。
-- 请确保您的账户类型为：标准账户类型，若您无法确定账户类型，请参见 [账户类型区分](https://cloud.tencent.com/document/product/1199/41692#judge)。
+- 请确保您的账户类型为：标准账户类型，若您无法确定账户类型，请参见 [判断账户类型](https://cloud.tencent.com/document/product/1199/49090#judge)。
 
 ## 限制说明
 1. EIP 中仅支持将按流量和按小时带宽计费的常规 IP 手动加入或移除 IP 带宽包，包月带宽的常规 IP 不支持加入或移除 IP 带宽包。

@@ -1,6 +1,23 @@
 ## 功能描述
 CreateMediaTemplate 用于新增拼接模板。
 
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=CreateConcatTemplate&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
+
 ## 请求
 
 #### 请求实例
@@ -16,7 +33,8 @@ Content-Type: application/xml
 <body>
 ```
 
->?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>
 
 #### 请求头
 
@@ -124,8 +142,8 @@ Container 类型 Video 的具体数据描述如下：
 | Codec                      | Request.ConcatTemplate.<br/>Video | 编解码格式             | String | 是   |   H.264 | H.264                                          |
 | Width                      | Request.ConcatTemplate.<br/>Video | 宽                    | String | 否   | 视频原始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照视频原始比例计算 Height |
 | Height                     | Request.ConcatTemplate.<br/>Video | 高                    | String | 否   | 视频原始高度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照视频原始比例计算 Width |
-| Fps                        | Request.ConcatTemplate.<br/>Video | 帧率                  | String | 否   | 无 | <li>值范围：(0，60]<br><li>单位：fps |
-| Bitrate                    | Request.ConcatTemplate.<br/>Video | 视频输出文件的码率      | String | 否   |  无           | <li>值范围：[10，50000]<br/><li>单位：Kbps                     |
+| Fps                        | Request.ConcatTemplate.<br/>Video | 帧率                  | String | 否   | 视频原始帧率 | <li>值范围：(0，60]<br><li>单位：fps |
+| Bitrate                    | Request.ConcatTemplate.<br/>Video | 视频输出文件的码率      | String | 否   |  视频原始码率           | <li>值范围：[10，50000]<br/><li>单位：Kbps    </li>                 |
 | Remove                     | Request.ConcatTemplate.<br/>Video | 是否删除视频流         | String | 否   | false        | 取值 true、false
 
 ## 响应
@@ -213,6 +231,8 @@ Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
 
+
+
 <Request>
    <Tag>Concat</Tag>
    <Name>TemplateName</Name>
@@ -255,6 +275,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+
+
 
 <Response>
     <Template>

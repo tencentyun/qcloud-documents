@@ -1,5 +1,7 @@
 ## 简介
 Java SDK 提供获取请求预签名 URL 和生成签名接口，可以分发给客户端，用于下载或者上传。如果您的文件是私有读权限，那么请注意预签名链接只有一定的有效期。
+生成的预签名 URL 包含协议名（HTTP或者HTTPS），该协议名与发起预签名请求的 COS 客户端设置的协议保持一致。
+具体使用请参见请求示例。
 
 ## 获取请求预签名 URL 
 
@@ -20,7 +22,7 @@ Request 成员说明：
 | Request 成员    | 设置方法            | 描述                                                         | 类型                    |
 | --------------- | ------------------- | ------------------------------------------------------------ | ----------------------- |
 | method          | 构造函数或 set 方法 | HTTP 方法，可选：GET、POST、PUT、DELETE、HEAD                | HttpMethodName          |
-| bucketName      | 构造函数或 set 方法 | 存储桶名称，存储桶的命名格式为 BucketName-APPID，详情请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | String |
+| bucketName      | 构造函数或 set 方法 | 存储桶名称，存储桶的命名格式为 BucketName-APPID，详情请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | String |
 | key             | 构造函数或 set 方法 | 对象键（Key）是对象在存储桶中的唯一标识，详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324#.E5.AF.B9.E8.B1.A1.E9.94.AE) | String                  |
 | expiration      | set 方法            | 签名过期的时间                                               | Date                    |
 | contentType     | set 方法            | 要签名的请求中的 Content-Type                                | String                  |
@@ -41,6 +43,8 @@ String secretKey = "COS_SECRETKEY";
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 Region region = new Region("COS_REGION");
 ClientConfig clientConfig = new ClientConfig(region);
+// 如果要生成一个使用 https 协议的 URL，则设置此行，推荐设置。
+// clientConfig.setHttpProtocol(HttpProtocol.https);
 // 生成 cos 客户端。
 COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式
@@ -72,6 +76,8 @@ COSCredentials cred = new BasicSessionCredentials(tmpSecretId, tmpSecretKey, ses
 // clientConfig 中包含了设置 region, https(默认 http), 超时, 代理等 set 方法, 使用可参见源码或者常见问题 Java SDK 部分
 Region region = new Region("COS_REGION");
 ClientConfig clientConfig = new ClientConfig(region);
+// 如果要生成一个使用 https 协议的 URL，则设置此行，推荐设置。
+// clientConfig.setHttpProtocol(HttpProtocol.https);
 // 生成 cos 客户端
 COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶的命名格式为 BucketName-APPID 

@@ -21,9 +21,8 @@
 
 >!如果`addCallback`注册 N 次，同一个事件， SDK 就会触发 N 次回调，建议只调用一次 `addCallback`。
 
-C++ 版：
-
-```c++
+<dx-codeblock>
+::: C++版 C++
 // TRTCMainViewController.h
 
 // 继承 ITRTCCloudCallback 事件回调接口类
@@ -80,11 +79,8 @@ virtual void TRTCMainViewController::onError(TXLiteAVError errCode, const char* 
 		    exitRoom();
 	 }
 }
-```
-
-C# 版：
-
-```c#
+:::
+::: C#版 C#
 // TRTCMainForm.cs
 
 // 继承 ITRTCCloudCallback 事件回调接口类
@@ -128,7 +124,8 @@ public partial class TRTCMainForm : Form, ITRTCCloudCallback, ITRTCLogCallback
     }
     ...
 }
-```
+:::
+</dx-codeblock>
 
 ### 2. 组装 TRTCParams
 
@@ -154,9 +151,8 @@ TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可
 - `Fill` 模式优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
 - `Fit` 模式则优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
 
-C++ 版：
-
-```c++
+<dx-codeblock>
+::: C++版 C++
 void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
 {
 	// 获取渲染窗口的句柄。
@@ -171,11 +167,8 @@ void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
     }
     
 }
-```
-
-C# 版：
-
-```c#
+:::
+::: C#版 C#
 // TRTCMainForm.cs
 public void onEnterRoom(int result)
 {
@@ -190,7 +183,8 @@ public void onEnterRoom(int result)
     }
 	...
 }
-```
+:::
+</dx-codeblock>
 
 ### 4. 主播开启麦克风采集
 
@@ -207,9 +201,8 @@ TRTC SDK 并不会默认打开本地的麦克风采集，主播调用 `startLoca
 - 如果创建成功，SDK 会回调 `onEnterRoom` 接口，参数：`elapsed` 代表进入耗时，单位：ms。
 - 如果创建失败，SDK 会回调 `onError` 接口，参数：`errCode`（错误码 `ERR_ROOM_ENTER_FAIL`，错误码可参考 `TXLiteAVCode.h`）、`errMsg`（错误原因）、`extraInfo`（保留参数）。
 
-C++ 版：
-
-```c++
+<dx-codeblock>
+::: C++版 C++
 // TRTCMainViewController.cpp
 
 void TRTCMainViewController::startBroadCasting()
@@ -244,11 +237,8 @@ void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
     
 	// 启动本地的视频预览，请参考下文设置视频编码参数和预览本地摄像头画面的内容
 }
-```
-
-C# 版：
-
-```c#
+:::
+::: C#版 C#
 // TRTCMainForm.cs
 
 public void createRoom()
@@ -283,7 +273,8 @@ public void onEnterRoom(int result)
 {
     // 启动本地的视频预览，请参考下文设置视频编码参数和预览本地摄像头画面的内容
 }
-```
+:::
+</dx-codeblock>
 
 ### 6. 主播开关隐私模式
 
@@ -294,10 +285,8 @@ public void onEnterRoom(int result)
 观众调用 `enterRoom` 可以进入一个音视频房间，参数 TRTCParams 中的 `roomId` 用于指定房间号。
 `appScene` 同样填写 `TRTCAppSceneLIVE`（在线直播），但 `role` 字段需要指定为 `TRTCRoleAudience`（观众）。
 
-C++ 版：
-
-```c++
-
+<dx-codeblock>
+::: C++版 C++
 void TRTCMainViewController::startPlaying()
 {
     // TRTCParams 定义参考头文件 TRTCCloudDef.h
@@ -312,11 +301,8 @@ void TRTCMainViewController::startPlaying()
     	m_pTRTCSDK->enterRoom(params, TRTCAppSceneLIVE);
     }
 }
-```
-
-C# 版：
-
-```c#
+:::
+::: C#版 C#
 public void startPlaying()
 {
     // TRTCParams 定义参考头文件TRTCCloudDef.h
@@ -331,7 +317,8 @@ public void startPlaying()
     	mTRTCCloud.enterRoom(@params, TRTCAppSceneLIVE);
     }
 }
-```
+:::
+</dx-codeblock>
 
 如果主播在房间里，观众会通过 TRTCCloudDelegate 中的 `onUserVideoAvailable` 回调获知主播的 userid。然后观众可以调用 `startRemoteView` 方法来显示主播的视频画面。
 
@@ -339,9 +326,8 @@ public void startPlaying()
 - `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
 - `Fit` 模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
 
-C++ 版：
-
-```c++
+<dx-codeblock>
+::: C++版 C++
 void TRTCMainViewController::onUserVideoAvailable(const char* userId, bool available){
     if (available) {
         // 获取渲染窗口的句柄。
@@ -356,11 +342,8 @@ void TRTCMainViewController::onUserVideoAvailable(const char* userId, bool avail
         m_pTRTCSDK->stopRemoteView(userId);
     }    
 }
-```
-
-C# 版：
-
-```c#
+:::
+::: C#版 C#
 public void onUserVideoAvailable(string userId, bool available)
 {
     if (available)
@@ -379,9 +362,12 @@ public void onUserVideoAvailable(string userId, bool available)
 		...
 	}
 }
-```
+:::
+</dx-codeblock>
 
->!在 TRTCAppSceneLIVE 模式下，同一个房间中的观众（TRTCRoleAudience）人数没有限制。
+>!
+>- 在 TRTCAppSceneLIVE 模式下，同一个房间中的观众（TRTCRoleAudience）人数没有限制。
+>- 每个端在应用场景 appScene 上必须要进行统一，否则会出现一些不可预料的问题。
 
 ### 8. 观众跟主播连麦
 主播和观众都可以通过 TRTCCloud 提供的 `switchRole` 进行角色间的相互切换，最常见的场景是观众跟主播连麦：观众可以通过该接口切换成“小主播”，然后跟房间里原来的“大主播”进行连麦互动。
@@ -389,9 +375,8 @@ public void onUserVideoAvailable(string userId, bool available)
 ### 9. 退出房间
 调用 `exitRoom` 方法退出房间。无论当前是否还在通话中，调用该方法会把视频通话相关的所有资源释放掉。在您调用 `exitRoom` 之后，SDK 会进入一个复杂的退房握手流程，当 SDK 回调 `onExitRoom` 方法时才算真正完成资源的释放。
 
-C++ 版：
-
-```c++
+<dx-codeblock>
+::: C++版 C++
 // TRTCMainViewController.cpp
 
 void TRTCMainViewController::exitRoom()
@@ -407,11 +392,8 @@ void TRTCMainViewController::onExitRoom(int reason)
 	// 退房成功，reason 参数保留，暂未使用。
 
 }
-```
-
-C# 版：
-
-```c#
+:::
+::: C#版 C#
 // TRTCMainForm.cs
 
 public void OnExit()
@@ -427,4 +409,5 @@ public void onExitRoom(int reason)
     // 退房成功
     ...
 }
-```
+:::
+</dx-codeblock>

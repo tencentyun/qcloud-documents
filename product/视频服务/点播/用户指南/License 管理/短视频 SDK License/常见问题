@@ -1,19 +1,19 @@
-<span id="que1"></span>
+[](id:que1)
 ### 1、测试 License 到期后是否可以延期？
 测试 License 试用期最多28天，不能延期，到期后请尽快 [购买正式 License](https://cloud.tencent.com/document/product/266/50290#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
 
-<span id="que2"></span>
+[](id:que2)
 ### 2、测试 License 能否更改 Android 的 PackageName 和 iOS 的 BundleID?
 测试 License 支持更改，在 [云点播控制台](https://console.cloud.tencent.com/vod/license) 选择测试 License 信息右上角，单击【编辑】即可进行修改。
 
-<span id="que3"></span>
+[](id:que3)
 ### 3、正式 License 能否更改 Android 的 PackageName 和 iOS 的 BundleID?
 当前版本，正式 License **不能**更改 PackageName 和 BundleID，后续版本会加以支持。
 
-<span id="que4"></span>
+[](id:que4)
 ### 4、License 可以同时支持多个 App 吗？
 一个 License 只能对应一个 PackageName 和 BundleID，不支持多个 App。
 
-<span id="que5"></span>
+[](id:que5)
 ### 5、License 应该如何确认绑定关系（Android 的 PackageName 和 iOS 的 BundleID）?
 在填写时用户需要确认绑定正式上架 App Store 的 iOS 所对应的 Bundle ID 和正式上架应用市场 Android 的 Package Name。

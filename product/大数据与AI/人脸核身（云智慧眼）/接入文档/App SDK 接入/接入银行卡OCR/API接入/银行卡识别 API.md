@@ -2,14 +2,16 @@
 
 合作方后台服务上送 sign、请求参数到身份证识别后台服务。
 ## 请求
-- **请求 URL：**`https://ida.webank.com/api/paas/bankcardocrapp`
+- **请求 URL：**https://ida.webank.com/api/paas/bankcardocrapp?orderNo=xxx
+>!为方便查询耗时，该请求 url 后面请拼接 orderNo 订单号参数。
+
 - **请求方法：**POST
 - **报文格式：**Content-Type: application/json
 - **请求参数：**
 
 | 参数 | 说明   | 类型   | 长度（字节） | 是否必填 |
 | ----- | ------- | -------- | ---------------- | ---------- |
-| webankAppId | WebankAppId，由腾讯指定        | String        | 腾讯云线下对接决定 | 是          |
+| webankAppId | 业务流程唯一标识，即 wbappid，可参考 [获取 WBappid](https://cloud.tencent.com/document/product/1007/49634) 指引在人脸核身控制台内申请 | String        | 8 | 是    |
 | version     | 接口版本号，默认值：1.0.0                    | String        | 20          | 是 |
 | nonce       | 随机数，32位随机串（字母+数字组成的随机数） | String        | 32          | 是        |
 | sign        | 签名：使用上面生成的签名            | String        | 40          | 是         |

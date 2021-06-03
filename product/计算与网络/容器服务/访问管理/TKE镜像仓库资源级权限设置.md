@@ -21,7 +21,7 @@
 - [策略管理](https://cloud.tencent.com/document/product/598/10601)
 - [授权管理](https://cloud.tencent.com/document/product/598/10602)
 
-<span id="PresetPpolicyAuthorization"></span>
+[](id:PresetPpolicyAuthorization)
 ## 预设策略授权
 
 为了简化容器镜像服务权限管理，容器镜像服务内置了两个预设策略：
@@ -38,7 +38,7 @@
 
 如果您不了解如何为协作者关联预设策略，请参考 CAM 文档：[策略](https://cloud.tencent.com/document/product/598/10601)、[授权管理](https://cloud.tencent.com/document/product/598/10602)。
 
-<span id="CustomPolicyAuthorization"></span>
+[](id:CustomPolicyAuthorization)
 ## 自定义策略授权
 
 通过自定义策略，管理者可以为不同的协作者关联不同的权限。
@@ -171,7 +171,7 @@ action：
 }
 ```
 
-<span id="Tag"></span>
+[](id:Tag)
 ####  镜像Tag权限
 
 resource： `qcs::ccr:::repo/${namespace}/${name}:${tag}`  
@@ -179,6 +179,8 @@ action： `ccr:DeleteTag` 删除镜像 Tag 权限
 
 功能指引：【**容器服务**】> 左侧导航栏【**镜像仓库**】 >【**我的镜像**】>【**我的镜像**】> 单击某个镜像名称 > 【**镜像版本**】页面。
 ![镜像仓库权限](https://main.qcloudimg.com/raw/b05900eb5d8df19def6ae0bc3eed56c6.png)
+
+
 
 
 

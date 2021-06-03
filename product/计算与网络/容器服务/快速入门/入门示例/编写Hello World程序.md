@@ -13,7 +13,7 @@
 ```shell
 mkdir hellonode
 ```
-```shell
+ ```shell
 cd hellonode/
 ```
 2. 执行以下命令，新建并打开 server.js 文件。
@@ -31,7 +31,7 @@ var handleRequest = function(request, response) {
 var www = http.createServer(handleRequest);
 www.listen(80);
 ```
-按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+ 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 4. 执行以下命令，执行 server.js 文件。
 ```shell
 node server.js
@@ -41,7 +41,7 @@ node server.js
 ```shell
 curl 127.0.0.1:80
 ```
-显示如下，则说明 Hello World 程序运行成功。
+ 显示如下，则说明 Hello World 程序运行成功。
 ![](https://main.qcloudimg.com/raw/4b97b9e2fdaee77376b114ef92f90936.png)
  - 打开本地浏览器，以 `IP 地址：端口` 的形式访问，端口为80。
  显示如下，则说明 Hello World 程序运行成功。
@@ -53,7 +53,7 @@ curl 127.0.0.1:80
 >
 1. 依次执行以下命令，在 hellonode 文件夹下，创建 Dockerfile 文件。
 ```
-cd /hellonode
+cd hellonode
 ```
 ```
 vim Dockerfile
@@ -70,7 +70,7 @@ CMD node server.js
 ```shell
 docker build -t hello-node:v1 .
 ```
-4. <span id="search">执行以下命令，查看构建好的 hello-node 镜像。</span>
+4. [](id:search)执行以下命令，查看构建好的 hello-node 镜像。
 ```
 docker images 
 ```
@@ -81,7 +81,7 @@ docker images
 #### 上传该镜像到 qcloud 镜像仓库
 >!上传镜像需满足以下条件：
 >- 已在 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user/space) 创建命名空间。
->- 已登录 [腾讯云 registry](https://cloud.tencent.com/document/product/457/9117#.E7.99.BB.E5.BD.95.E5.88.B0.E8.85.BE.E8.AE.AF.E4.BA.91-registry)，更多镜像操作请参见 [镜像仓库基本教程](https://cloud.tencent.com/document/product/457/9117)。
+>- 已登录 [腾讯云 registry](https://cloud.tencent.com/document/product/1141/50332#.E6.8E.A8.E9.80.81.E9.95.9C.E5.83.8F.E5.88.B0.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93)，更多镜像操作请参见 [镜像仓库基本教程](https://cloud.tencent.com/document/product/457/9117)。
 
 依次执行以下命令，上传镜像到 qcloud 镜像仓库。
 ```shell

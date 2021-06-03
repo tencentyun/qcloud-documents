@@ -108,7 +108,7 @@ __参数__
 
 __介绍__
 
-房间内的主播和连麦中的观众会收到新主播的进房事件，您可以调用 MLVBLiveRoom startRemoteView  显示该主播的视频画面。
+房间内的主播和连麦中的观众会收到新主播的进房事件，您可以调用 [MLVBLiveRoom startRemoteView](https://cloud.tencent.com/document/product/454/34763#startremoteview)  显示该主播的视频画面。
 
 >?直播间里的普通观众不会收到主播加入和推出的通知。
 
@@ -221,7 +221,7 @@ __参数__
 
 __介绍__
 
-主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要调用 MLVBLiveRoom startRemoteView  接口播放邀约主播的流。
+主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要调用 [MLVBLiveRoom startRemoteView](https://cloud.tencent.com/document/product/454/34763#startremoteview)  接口播放邀约主播的流。
 
 ***
 
@@ -277,4 +277,4 @@ __参数__
 | cmd        | NSString * | 自定义 cmd。     |
 | message    | NSString * | 自定义消息内容。 |
 
-***
+

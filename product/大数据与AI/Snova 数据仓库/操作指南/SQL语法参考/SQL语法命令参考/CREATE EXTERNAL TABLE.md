@@ -1,7 +1,6 @@
 定义一个新的外部表，目前 CDW 只支持腾讯云 COS 外部表，不提供 gpfdist、file、s3、hdfs、http 的外部表。
 
 ## 概要
-
 ```sql
 CREATE [READABLE] EXTERNAL TABLE table_name     
     ( column_name data_type [, ...] | LIKE other_table )
@@ -59,7 +58,7 @@ CREATE WRITABLE EXTERNAL TABLE table_name
 ## 描述
 有关外部表的详细信息请参阅“数据库管理员指南”中的“装载和卸载数据”。
 
-CREATE EXTERNAL TABLE 或 CREATE EXTERNAL WEB TABLE 在数据库中创建一个新的可读外部表定义。可读外部表通常用于快速并行数据加载。定义外部表后，可以使用 SQL 命令直接（并行）查询其数据。 例如用户可以选择加入或排序外部表数据。用户还可以创建外部表的视图。DML 操作（更新、插入、删除或 TRUNCATE）在可读外部表上不可操作，用户不能在可读外部表上创建索引。
+CREATE EXTERNAL TABLE 或 CREATE EXTERNAL WEB TABLE 在数据库中创建一个新的可读外部表定义。可读外部表通常用于快速并行数据加载。定义外部表后，可以使用 SQL 命令直接（并行）查询其数据。例如用户可以选择加入或排序外部表数据。用户还可以创建外部表的视图。DML 操作（更新、插入、删除或 TRUNCATE）在可读外部表上不可操作，用户不能在可读外部表上创建索引。
 
 CREATE WRITABLE EXTERNAL TABLE 或 CREATE WRITABLE EXTERNAL WEB TABLE 在数据库中创建一个新的可写外部表定义。可写外部表通常用于将数据从数据库卸载到一组文件或命名管道中。可写外部 Web 表也可用于将数据输出到可执行程序。一旦写入外部表被定义，可以从数据库表中选择数据并将其插入到可写外部表中。可写外部表仅允许插入 操作。选择、更新、删除或 TRUNCATE 不被允许。
 
@@ -70,7 +69,6 @@ CREATE WRITABLE EXTERNAL TABLE 或 CREATE WRITABLE EXTERNAL WEB TABLE 在数据�
 在创建写入或从 COS 存储区中读取的外部表之前，必须配置数据库以支持协议。COS 外部表可以使用 CSV 或文本格式的文件可写的 COS 外部表仅支持插入操作。请参见 **COS 协议配置**。
 
 ## 参数
-
 READABLE | WRITABLE
 指定外部表的类型，默认可读。可读外部表用于将数据加载到数据库中。可写外部表用于卸载数据。
 
@@ -126,7 +124,7 @@ FORMAT 'text' (delimiter ',' null '\'\'\'\'' )
 ```
 
 ESCAPE
-指定用于 C 转义序列的单个字符（例如 \n、\t、\100等）以及用于转义可能被视为行或列分隔符的数据字符。 确保选择在实际列数据中的任何地方都不使用的转义字符。默认转义字符是文本格式文件的\（反斜杠）和 csv 格式文件的"（双引号），但是可以指定其他字符来表示转义，也可以禁用文本转义通过指定值 'OFF' 作为转义值，格式化的文件对于诸如文本格式的 Web 日志数据之类的数据非常有用，这些数据具有许多不希望转义的嵌入式反斜杠。
+指定用于 C 转义序列的单个字符（例如 \n、\t、\100等）以及用于转义可能被视为行或列分隔符的数据字符。确保选择在实际列数据中的任何地方都不使用的转义字符。默认转义字符是文本格式文件的\（反斜杠）和 csv 格式文件的"（双引号），但是可以指定其他字符来表示转义，也可以禁用文本转义通过指定值 'OFF' 作为转义值，格式化的文件对于诸如文本格式的 Web 日志数据之类的数据非常有用，这些数据具有许多不希望转义的嵌入式反斜杠。
 
 NEWLINE
 指定数据文件中使用的换行符 – LF（换行符，x0A），CR（回车符号，0x0D）或 CRLF（回车加换行，0x0D 0x0A）。如果未指定，数据库的 Segment 将通过查看其接收的第一行数据并使用遇到的第一个换行符来检测换行类型。
@@ -163,11 +161,10 @@ SEGMENT REJECT LIMIT count [ROWS | PERCENT]
 
 DISTRIBUTED BY (column, [ ... ] )
 DISTRIBUTED RANDOMLY
-用于为可写外部表格声明数据库分发策略。默认情况下，可写外部表是随机分布的。如果要从中导出数据的源表具有散列分发策略，则为可写外部表定义相同的分发密钥列可以通过消除在互连上移动行的需要来改善卸载性能。当用户发出诸如 INSERT INTO wex_table SELECT * FROM source_table 的卸载命令时，如果两个表具有相同的散列分布策略，则可以将卸载的行直接从 Segment 发送到输出位置。
+用于为可写外部表格声明数据库分发策略。默认情况下，可写外部表是随机分布的。如果要从中导出数据的源表具有散列分发策略，则为可写外部表定义相同的分发密钥列可以通过消除在互连上移动行的需要来改善卸载性能。当用户发出诸如 `INSERT INTO wex_table SELECT * FROM source_table` 的卸载命令时，如果两个表具有相同的散列分布策略，则可以将卸载的行直接从 Segment 发送到输出位置。
 
 ## 示例
 创建一个名为 cos_tbl 的可读外部表使用的 COS 协议和 COS 指定读取广州 simple-bucket 下的所有文件，文件格式为 csv：
-
 ```sql
 CREATE READABLE EXTERNAL TABLE cos_tbl (c1 int, c2 text, c3 int)
 LOCATION('cos://cos.ap-guangzhou.myqcloud.com/simple-bucket/from_cos/ secretKey=xxx secretId=xxx')
@@ -205,47 +202,50 @@ cos:// {BUCKET}-{APPID}.cos.{REGION}.myqcloud.com/{PREFIX}
 
 ## 关于 COS 协议 URL
 对于 COS 协议，用户可以在 CREATE EXTERNAL TABLE 命令的 LOCATION 子句中指定文件的位置和可选的配置文件位置。语法如下：
-
 ```sql
 'cos://cos.{REGION}.myqcloud.com/{BUCKET}/{PREFIX} secretKey=xxx secretId=xxx'
 'cos://{BUCKET}-{APPID}.cos.{REGION}.myqcloud.com/{PREFIX} secretKey=xxx secretId=xxx'
 ```
-
 用户可以指定 COS 协议访问腾讯云 COS 上的数据。对于 COS 协议来说，LOCATION 子句指定数据文件为表上传的 COS 端点和存储桶名称。
-
-REGION：cos 支持的地域，需要和实例在相同地域，可选值参考 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
-BUCKET：cos 桶名称。
-PREFIX：cos 对象名称前缀。prefix 可以为空，可以包括多个斜杠。
+- REGION：cos 支持的地域，需要和实例在相同地域，可选值参考 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
+- BUCKET：cos 桶名称。
+- PREFIX：cos 对象名称前缀。prefix 可以为空，可以包括多个斜杠。
 
 在定义只读表场景下，prefix 指定需要读取的对象名前缀，如果 prefix 为空，读取 bucket 下所有文件；如果 prefix 以斜杠（/）结尾，则匹配改文件夹下面的所有文件及子文件夹中的文件；否则，读取前缀匹配的所有文件夹及子文件夹中的文件。例如 cos 对象包括：
+```
 read-bucket/simple/a.csv
 read-bucket/simple/b.csv
 read-bucket/simple/dir/c.csv
 read-bucket/simple_prefix/d.csv
-
+```
 prefix 指定：simple 则读取所有文件，包括目录名称前缀匹配的 simple_prefix，对象列表：
+```
 read-bucket/simple/a.csv
 read-bucket/simple/b.csv
 read-bucket/simple/dir/c.csv
 read-bucket/simple_prefix/d.csv
-
+```
 prefix 指定：simple/ 则读取包括 simple/ 的所有文件，包括：
+```
 read-bucket/simple/a.csv
 read-bucket/simple/b.csv
 read-bucket/simple/dir/c.csv
+```
 
-在只写表场景下，prefix 指定输出文件前缀，如果不指定 prefix，文件写入到 bucket 下；如果 prefix 以斜杠（/）结尾，文件写入到 prefix 指定的目录下，否则，以给定的 prefix 作为文件前缀。例如，需要创建的文件包括： 
-a.csv、b.csv、c.csv。
+在只写表场景下，prefix 指定输出文件前缀，如果不指定 prefix，文件写入到 bucket 下；如果 prefix 以斜杠（/）结尾，文件写入到 prefix 指定的目录下，否则，以给定的 prefix 作为文件前缀。例如，需要创建的文件包括：a.csv、b.csv、c.csv。
 
-如果指定 prefix 为 simple/ ， 则生成的对象为：
+- 如果指定 prefix 为 simple/，则生成的对象为：
+```
 read-bucket/simple/a.csv
 read-bucket/simple/b.csv
 read-bucket/simple/b.csv
-
-如果指定 prefix 为 simple\_， 则生成的对象为：
+```
+- 如果指定 prefix 为 simple\_，则生成的对象为：
+```
 read-bucket/simple_a.csv
 read-bucket/simple_b.csv
 read-bucket/simple_b.csv
+```
 
 secretKey 和 secretId 分别是用户自己在腾讯云的密钥对。
 

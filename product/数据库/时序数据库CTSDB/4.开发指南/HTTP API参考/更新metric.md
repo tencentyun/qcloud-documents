@@ -22,7 +22,7 @@ options 属性如下：
 | refresh_interval    | 否   | string  | 数据刷新频率，写入的数据从内存刷新到磁盘后可查询，默认为10秒 |
 | number_of_shards    | 否   | integer | 表分片数，取值范围为正整数，小表可忽略，大表按照一个分片至多25G设置分片数，默认为3 |
 | number_of_replicas  | 否   | integer | 副本数，取值范围为非负整数，例如一主一副为1，默认为1         |
-| rolling_period      | 否   | integer | 子表时长（单位：天），取值范围为非零整数<br> <span id="rolling"></span> CTSDB 存储数据时，为了方便做数据过期和提高查询效率，根据特定时间间隔划分子表，缺省情况下由数据过期时间决定 |
+| rolling_period      | 否   | integer | 子表时长（单位：天），取值范围为非零整数<br>  [CTSDB 存储数据时](id:rolling)，为了方便做数据过期和提高查询效率，根据特定时间间隔划分子表，缺省情况下由数据过期时间决定 |
 | max_string_length   | 否   | integer | 自定义字符串类型的值最大可支持的长度，取值范围为正整数，最大为2^31 - 1，默认为256 |
 | default_date_format | 否   | string  | 自定义维度列和指标列 date 类型的格式，默认为 strict_date_optional_time 或 epoch_millis |
 | indexed_fields      | 否   | array   | 指定指标列中需要保留索引的字段，可指定多个，以数组形式指定   |

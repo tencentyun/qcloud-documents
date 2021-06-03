@@ -16,3 +16,4 @@
    ![](https://main.qcloudimg.com/raw/cec9516de9acd85edb8d58143a307472.png)
 4. 确认配置信息无误后，单击【保存】，即可添加 FTP 行为审计策略。
 
+

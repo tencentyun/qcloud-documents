@@ -82,7 +82,7 @@ JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可�
 | Panels      | 图表配置 ，请参考 [Panels](#step3)                        |
 | Time        | Dashboard 的时间范围                              |
 
-**<span id="step1">Templating</sapan>**
+**[](id:step1)Templating</sapan>**
 
 ```
 "Templating": [ // 模板变量
@@ -98,7 +98,7 @@ JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可�
 	]
 ```
 
-**<span id="step2">Link</span>**
+**[](id:step2)Link**
 
 ```
 "Links": [ // Dashboard链接
@@ -114,7 +114,7 @@ JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可�
 	]
 ```
 
-**<span id="step3">Panels</span>**
+**[](id:step3)Panels**
 
 ```
 "Panels": [ // panel配置

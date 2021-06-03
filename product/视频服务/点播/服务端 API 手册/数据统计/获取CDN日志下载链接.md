@@ -42,7 +42,8 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | data.domesticLogList | Array   | 国内 CDN 节点产生的 CDN 日志下载链接列表，字段信息请参见 [LogInfo](#p1)。                                           |
 | data.overseaLogList  | Array   | 海外 CDN 节点产生的 CDN 日志下载链接列表，字段信息请参见 [LogInfo](#p1)，如果域名没有开通海外加速，则不会返回该数据。 |
 
-#### <span id = "p1"></span>LogInfo 日志下载链接信息
+#### [](id:p1)LogInfo 日志下载链接信息
+
 | 参数名称 | 类型   | 说明                                                                                     |
 | -------- | ------ | ---------------------------------------------------------------------------------------- |
 | date     | String | 日志所属日期，格式为：yyyy-MM-dd，如2018-03-01。                                         |
@@ -76,7 +77,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 }
 ```
 
-## <span id="logfile">日志说明</span>
+## [](id:logfile)日志说明
 日志文件的压缩格式为 GZIP，日志文件里面每条日志内容的各个字段以空格隔开，字段顺序（从左到右）及含义如下表所示：
 
 | 字段顺序 | 字段内容                                    |
@@ -97,7 +98,8 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | 14       | HTTP 协议标识。                                |
 | 15       | 缓存 HIT/MISS。                               |
 
-#### <span id="provdef">省份编号映射</span>
+#### 省份编号映射[](id:provdef)
+
 | 编号 | 省份   |
 | ---- | ------ |
 | 22   | 北京   |
@@ -135,7 +137,8 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | 1    | 港澳台 |
 | -1   | 海外   |
 
-#### <span id="ispdef">运营商编号映射 </span>
+#### 运营商编号映射 [](id:ispdef)
+
 | 编号 | 运营商     |
 | ---- | ---------- |
 | 2    | 中国电信   |

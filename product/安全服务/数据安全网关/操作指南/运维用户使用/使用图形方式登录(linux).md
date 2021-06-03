@@ -22,3 +22,4 @@
 ![](https://main.qcloudimg.com/raw/c5a7cb91e6eb2d399318b4996d03c3d1.png)
 5. 确认配置信息无误后，单击【登录】，登录到目标资源后，即可对资源进行运维操作。
 ![](https://main.qcloudimg.com/raw/7a86fc23bcbab13e6960024c5fcd17b7.png)
+

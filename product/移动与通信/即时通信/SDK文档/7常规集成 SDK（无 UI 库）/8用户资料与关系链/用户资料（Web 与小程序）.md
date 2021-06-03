@@ -1,7 +1,7 @@
 ## 用户资料
 
 ### 获取我的个人资料
-获取个人资料，更多详情请参见 [Profile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Profile.html)。
+获取个人资料，更多详情请参见 [Profile](https://web.sdk.qcloud.com/im/doc/zh-cn//Profile.html)。
 
 >! v2.3.2版本开始支持自定义资料字段，使用前需要将 SDK 升级至v2.3.2或以上。
 
@@ -14,8 +14,8 @@ tim.getMyProfile();
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data`中获取个人信息。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data`中获取个人信息。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -55,8 +55,8 @@ tim.getUserProfile(options);
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data`中获取用户资料数组。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data`中获取用户资料数组。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -106,8 +106,8 @@ tim.updateMyProfile(options);
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data`中获取用户的新资料。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data`中获取用户的新资料。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -187,8 +187,8 @@ tim.getBlacklist();
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data`中获取黑名单列表。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data`中获取黑名单列表。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -229,8 +229,8 @@ tim.addToBlacklist(options);
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data`中获取黑名单列表。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data`中获取黑名单列表。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -266,8 +266,8 @@ tim.removeFromBlacklist(options);
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data`中获取从黑名单中成功移除的帐号列表。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data`中获取从黑名单中成功移除的帐号列表。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -279,3 +279,4 @@ result.then(function(imResponse) {
   console.warn('removeFromBlacklist error:', imError); // 将用户从黑名单中移除失败的相关信息
 });
 ```
+

@@ -15,7 +15,7 @@ FCM 通道是谷歌推出的系统级推送通道，在国外具备谷歌 Servic
 ```xml
 classpath 'com.google.gms:google-services:4.2.0'
 ```
->!如果使用低于4.2.0版本出现 `FCM Register error! java.lang.IllegalStateException: Default FirebaseApp is not initialized in this process com.qq.xg4all. Make sure to call FirebaseApp.initializeApp(Context) first.`，建议在 res/values 文件夹下的 string.xml， 加上 YOUR_GOOGLE_APP_ID。
+     >!如果使用低于4.2.0版本出现 `FCM Register error! java.lang.IllegalStateException: Default FirebaseApp is not initialized in this process com.qq.xg4all. Make sure to call FirebaseApp.initializeApp(Context) first.`，建议在 res/values 文件夹下的 string.xml， 加上 YOUR_GOOGLE_APP_ID。
 
   2. 在应用级的 build.gradle 文件中，添加依赖：
 	```xml
@@ -25,7 +25,7 @@ classpath 'com.google.gms:google-services:4.2.0'
 	 //在应用级的 gradle 文件的最后一行代码中新增并将 google-services.json 放进您应用 model 的根路径下
 	apply plugin: 'com.google.gms.google-services'
 	```
->!
+     >!
 >- FCM 推送 [VERSION] 为当前 SDK 版本号，版本号可在 [Android SDK 发布动态](https://cloud.tencent.com/document/product/548/44520) 查看。
 >- Google 配置 google-play-services（建议版本 17.0.0+，较低版本有可能出现无法注册 FCM 风险）。
 
@@ -42,4 +42,3 @@ V/TPush: [XGPushConfig] isUsedOtherPush:true
 I/TPush: [OtherPush] checkDevice pushClassNamecom.tencent.android.tpush.otherpush.fcm.impl.OtherPushImpl
 I/TPush: [XGPushManager] other push token is : dSJA5n4fSZ27YeDf2rFg1A:APA91bGiqSPCMZTuyup**********f1fBIahZKYkth2OoDpixDPQmEZkQ11fX06mw_1kEaW5-jFmT4YwlER4qfX66h_BIoUxOyj_tKqZSUg7oHigIKaOrDWmMQfMAqGoT8qSfg  other push type: fcm
 ```
-

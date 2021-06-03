@@ -16,7 +16,7 @@ CREATE INDEX 构造指定表上的索引。索引主要用于增强数据库性�
 
 索引的关键字段被指定为列名称，或者替换为括号中的表达式。如果索引方法支持多列索引，则可以指定多个字段。
 
-索引字段可以是从表行的一个或者多个列的值计算的表达式。 该功能可以基于基本数据的一些变换来获取对数据的快速访问。例如在 upper(col) 上计算的索引将允许子句 WHERE upper(col) = 'JIM' 来使用索引。
+索引字段可以是从表行的一个或者多个列的值计算的表达式。该功能可以基于基本数据的一些变换来获取对数据的快速访问。例如在 upper(col) 上计算的索引将允许子句 WHERE upper(col) = 'JIM' 来使用索引。
 
 数据库提供索引方法 B-tree 位图和 GiST。用户可以自定义自己的索引方法，但这是相当复杂的。
 
@@ -27,7 +27,6 @@ WHERE 子句中使用的表达式可能仅指基础表的列，但它可以使�
 索引定义中使用的所有函数和操作符必须是不可改变的。他们的结果必须取决于他们的参数，没有任何外界的影响（如另一个表的内容或参数值）。此限制可以确保索引的行为被很好的定义。要在索引表达式或 WHERE 子句中使用用户定义的函数，请记住在创建函数时标记函数 IMMUTABLE。
 
 ## 参数
-
 UNIQUE
 当创建索引并添加每个时间数据时，检查表中的重复值。重复条目将产生错误。唯一索引仅适用于 B 树索引。在数据库中，只有索引关键字与分发密钥（或者它的超集）相同时才允许使用唯一索引。在分区表上，唯一索引仅在单个分区中支持，而不是跨越所有分区。
 
@@ -77,43 +76,32 @@ bitmap 索引对于具有100到100000个不同值的列的效果最好。对于�
 
 ## 示例
 创建一个 B 树索引在 films 表的 title 列中：
-
 ```sql
 CREATE UNIQUE INDEX title_idx ON films (title);
 ```
-
 创建一个位图索引在 employee 表的 gender 列中：
-
 ```sql
 CREATE INDEX gender_bmp_idx ON employee USING bitmap 
 (gender);
 ```
-
 创建一个索引在表达式 lower（title）上，允许有效的区分大小写的搜索：
-
 ```sql
 CREATE INDEX lower_title_idx ON films ((lower(title)));
 ```
-
 使用非默认的填充因子创建一个索引：
-
 ```sql
 CREATE UNIQUE INDEX title_idx ON films (title) WITH 
 (fillfactor = 70);
 ```
-
 创建一个索引在 films 表的 code 列上，并且使索引驻留在表空间的索引空间中：
-
 ```sql
 CREATE INDEX code_idx ON films(code) TABLESPACE indexspace;
 ```
 
 ## 兼容性
-
 CREATE INDEX 是数据库的语言扩展。SQL 标准中没有索引规定。
 
 数据库不支持并发创建索引（CONCURRENTLY 关键字不支持）。
 
 ## 另见
-
 ALTER INDEX、DROP INDEX、CREATE TABLE、CREATE OPERATOR CLASS

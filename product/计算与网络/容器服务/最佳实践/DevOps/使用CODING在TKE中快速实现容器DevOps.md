@@ -41,7 +41,7 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops 服务，本文将介
 ![](https://main.qcloudimg.com/raw/2ace8e2476fea433581b712463b73a22.png)
 
 
-### 配置代码托管<span id="step2"></span>
+### 配置代码托管[](id:step2)
 
 在 Coding 团队主页面创建一个测试项目和测试代码仓库，创建步骤请参见 [创建项目并创建代码仓库](https://cloud.tencent.com/document/product/457/47834#.E5.88.9B.E5.BB.BA.E9.A1.B9.E7.9B.AE.E5.B9.B6.E5.88.9B.E5.BB.BA.E4.BB.A3.E7.A0.81.E4.BB.93.E5.BA.93.3Cspan-id.3D.22createproduct.22.3E.3C.2Fspan.3E)。关于 Coding 代码托管介绍请参见 [代码托管介绍](https://help.coding.net/docs/host/introduce.html )。
 
@@ -76,7 +76,7 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops 服务，本文将介
 ![](https://main.qcloudimg.com/raw/bd0f34e27589669f5fc01ed0e144e8ce.png)
 4. 在“部署控制台”页面，自定义选择 [需要配置的云账号](#one) 类型即可继续进行 [配置应用和流程](#two)、[关联项目和应用](#three) 及 [开始部署](#four) 等后续步骤。
 
-#### 配置云账号<span id="one"></span>
+#### 配置云账号[](id:one)
 
 如何选择云账号类型请参见 [云账号](https://help.coding.net/docs/cd/cloudaccount.html) 官方文档，添加配置部署云上资源的访问云账号信息，可以选择【腾讯云 TKE】或者【Kubernetes】类型的云账号，输入相关认证配置添加云账号，本文以选择【Kubernetes】为例介绍如何配置云账号。
 1. 在“基于 Kubernetes 的持续部署”页面，单击【立即配置】。
@@ -88,7 +88,7 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops 服务，本文将介
 
 
 
-#### 配置应用和流程<span id="two"></span>
+#### 配置应用和流程[](id:two)
 
 关于 Coding 应用与项目相关说明请参见 [应用与项目](https://help.coding.net/docs/cd/app-project.html) 和 [流程配置](https://help.coding.net/docs/cd/pipe/overview.html)，本文将介绍配置应用和流程过程中的关键配置项。
 1. 在创建应用时，需要勾选【 Kubernetes(TKE) 部署】方式，如下图所示：
@@ -149,11 +149,11 @@ spec:
 ```
 6. （可选）为部署流程的每个阶段配置自定义事件通知，可方便快捷获知部署流程执行情况。本文以配置“企业微信”通知方式，获取企业微信 Webook 机器人链接的方法可参见 [创建企业微信群机器人](https://help.coding.net/docs/project/open/wechat-robot.html#%E5%88%9B%E5%BB%BA%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%BE%A4%E6%9C%BA%E5%99%A8%E4%BA%BA)。
 
-#### 关联项目和应用<span id="three"></span>
+#### 关联项目和应用[](id:three)
 
 关联项目和应用配置可参见 [项目和应用关联](https://help.coding.net/docs/cd/app-project.html#%E5%BA%94%E7%94%A8%E4%B8%8E%E9%A1%B9%E7%9B%AE%E5%85%B3%E8%81%94)。
 
-#### 开始部署<span id="four"></span>
+#### 开始部署[](id:four)
 提单发布使用和配置请参见 [新建发布单](https://help.coding.net/docs/cd/app-project.html#%E6%96%B0%E5%BB%BA%E5%8F%91%E5%B8%83%E5%8D%95)。更多关于 Coding 持续部署的详细介绍请参见 [持续部署介绍](https://help.coding.net/docs/cd/overview.html)。
 
 

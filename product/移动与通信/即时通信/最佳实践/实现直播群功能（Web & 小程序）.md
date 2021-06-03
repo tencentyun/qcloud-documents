@@ -23,7 +23,7 @@
  ![](https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/product/im-new/css/img/scenes/function4.gif)
 
 ## 使用限制
-- 不支持 [撤回消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#revokeMessage)。
+- 不支持 [撤回消息](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#revokeMessage)。
 - 群主不可以退群，群主退群只能通过解散群组的方式。
 - 不支持移除群成员。
 
@@ -33,14 +33,14 @@
 - [群组系统](https://cloud.tencent.com/document/product/269/1502)
 - [SDK 下载](https://cloud.tencent.com/document/product/269/36887)
 - [更新日志（Web & 小程序）](https://cloud.tencent.com/document/product/269/38492)
-- [SDK 手册](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/TIM.html)
+- [SDK 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/TIM.html)
 - [集成 SDK（Web & 小程序）](https://cloud.tencent.com/document/product/269/37413)
 - [初始化与登录（Web & 小程序）](https://cloud.tencent.com/document/product/269/37416)
 - [消息收发（Web & 小程序）](https://cloud.tencent.com/document/product/269/37448)
 - [群组管理（Web & 小程序）](https://cloud.tencent.com/document/product/269/37459)
 
 ## 使用指南
-<span id="Step1"></span>
+[](id:Step1)
 ### 步骤1：创建应用
 
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
@@ -51,7 +51,7 @@
 3. 在【创建应用】对话框中输入您的应用名称，单击【确定】。创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。
 4. 记录该应用的 SDKAppID 信息。
 
-<span id="Step2"></span>
+[](id:Step2)
 ### 步骤2：创建 AVChatRoom
 您可以通过控制台创建群组，也可以通过调用 [创建群组 API](https://cloud.tencent.com/document/product/269/1615) 创建群组。本文以通过控制台创建为例。
 
@@ -62,7 +62,7 @@
 4. 单击【确定】，待群组创建成功后，记录其【群ID】（本文以`@TGS#aC72FIKG3`为例）。
 
 
-<span id="Step3"></span>
+[](id:Step3)
 ### 步骤3：集成 SDK
 您可以通过 NPM 或 Script 集成 SDK，推荐使用 NPM 集成。本文以使用 NPM 集成为例。
 
@@ -83,7 +83,7 @@ npm install tim-wx-sdk --save-dev
 npm config set registry http://r.cnpmjs.org/
 ```
 
-<span id="Step4"></span>
+[](id:Step4)
 ### 步骤4：创建 SDK 实例
 
 <pre><code><span class="hljs-comment">// 创建 SDK 实例，TIM.create() 方法对于同一个 SDKAppID 只会返回同一份实例</span>
@@ -91,7 +91,7 @@ npm config set registry http://r.cnpmjs.org/
   SDKAppID: <span class="hljs-number">0</span> <span class="hljs-comment">// 接入时需要将0替换为您的即时通信应用的 SDKAppID</span>
 }
 <span class="hljs-keyword">let</span> tim = TIM.create(options) <span class="hljs-comment">// SDK 实例通常用 tim 表示</span>
-<span class="hljs-comment">// 设置 SDK 日志输出级别，详细分级请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html?_ga=1.43970405.1562552652.1542703643#setLogLevel">setLogLevel 接口的说明</a></span>
+<span class="hljs-comment">// 设置 SDK 日志输出级别，详细分级请参考 <a href="https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html?_ga=1.43970405.1562552652.1542703643#setLogLevel">setLogLevel 接口的说明</a></span>
 tim.setLogLevel(<span class="hljs-number">0</span>) <span class="hljs-comment">// 普通级别，日志量较多，接入时建议使用</span>
 
 tim.<span class="hljs-keyword">on</span>(TIM.EVENT.SDK_READY, function (<span class="hljs-keyword">event</span>) {
@@ -106,10 +106,10 @@ tim.<span class="hljs-keyword">on</span>(TIM.EVENT.MESSAGE_RECEIVED, function(<s
   <span class="hljs-keyword">const</span> length = <span class="hljs-keyword">event</span>.data.<span class="hljs-function">length
   <span class="hljs-keyword">let</span> message
   <span class="hljs-title">for</span> (<span class="hljs-params"><span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; length; i++</span>)</span> {
-    <span class="hljs-comment">// Message 实例的详细数据结构请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html">Message</a></span>
+    <span class="hljs-comment">// Message 实例的详细数据结构请参考 <a href="https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html">Message</a></span>
     <span class="hljs-comment">// 其中 type 和 payload 属性需要重点关注</span>
     <span class="hljs-comment">// 从v2.6.0起，AVChatRoom 内的群聊消息，进群退群等群提示消息，增加了 nick（昵称） 和 avatar（头像URL） 属性，便于接入侧做体验更好的展示</span>
-    <span class="hljs-comment">// 前提您需要先调用 updateMyProfile 设置自己的 nick（昵称） 和 avatar（头像 URL），请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateMyProfile">updateMyProfile 接口的说明</a></span>
+    <span class="hljs-comment">// 前提您需要先调用 updateMyProfile 设置自己的 nick（昵称） 和 avatar（头像 URL），请参考 <a href="https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#updateMyProfile">updateMyProfile 接口的说明</a></span>
     message = <span class="hljs-keyword">event</span>.data[i]
     <span class="hljs-keyword">switch</span> (message.type) {
       <span class="hljs-keyword">case</span> TIM.TYPES.MSG_TEXT:
@@ -135,17 +135,17 @@ tim.<span class="hljs-keyword">on</span>(TIM.EVENT.MESSAGE_RECEIVED, function(<s
 })
 
 _handleTextMsg(message) {
-  <span class="hljs-comment">// 详细数据结构请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.TextPayload">TextPayload 接口的说明</a></span>
+  <span class="hljs-comment">// 详细数据结构请参考 <a href="https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html#.TextPayload">TextPayload 接口的说明</a></span>
   console.log(message.payload.text) <span class="hljs-comment">// 文本消息内容</span>
 }
 
 _handleCustomMsg(message) {
-  <span class="hljs-comment">// 详细数据结构请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.CustomPayload">CustomPayload 接口的说明</a></span>
+  <span class="hljs-comment">// 详细数据结构请参考 <a href="https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html#.CustomPayload">CustomPayload 接口的说明</a></span>
   console.log(message.payload)
 }
 
 _handleGroupTip(message) {
-  <span class="hljs-comment">// 详细数据结构请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupTipPayload">GroupTipPayload 接口的说明</a></span>
+  <span class="hljs-comment">// 详细数据结构请参考 <a href="https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html#.GroupTipPayload">GroupTipPayload 接口的说明</a></span>
   <span class="hljs-keyword">switch</span> (message.payload.operationType) {
     <span class="hljs-keyword">case</span> TIM.TYPES.GRP_TIP_MBR_JOIN: <span class="hljs-comment">// 有成员加群</span>
       <span class="hljs-keyword">break</span>
@@ -169,12 +169,12 @@ _handleGroupTip(message) {
 }
 
 _handleGroupSystemNotice(message) {
-  <span class="hljs-comment">// 详细数据结构请参考  <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload">GroupSystemNoticePayload 接口的说明</a></span>
+  <span class="hljs-comment">// 详细数据结构请参考  <a href="https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html#.GroupSystemNoticePayload">GroupSystemNoticePayload 接口的说明</a></span>
   console.log(message.payload.userDefinedField) <span class="hljs-comment">// 用户自定义字段。使用 RESTAPI 发送群系统通知时，可在该属性值中拿到自定义通知的内容。</span>
   <span class="hljs-comment">// 用 REST API 发送群系统通知请参考 <a href="https://cloud.tencent.com/document/product/269/1630">在群组中发送系统通知 API</a></span>
 }</code></pre>
 
-<span id="Step5"></span>
+[](id:Step5)
 ### 步骤5：登录 SDK
 
 ```javascript
@@ -186,9 +186,9 @@ promise.then(function(imResponse) {
 });
 ```
 
-<span id="Step6"></span>
+[](id:Step6)
 ### 步骤6：设置自己的昵称和头像
-2.6.2及以上版本 SDK，AVChatRoom 内的群聊消息和群提示消息（例如进群退群等），都增加了 nick（昵称） 和 avatar（头像URL） 属性，您可以调用接口 [updateMyProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateMyProfile) 设置自己的 nick（昵称） 和 avatar（头像URL）。
+2.6.2及以上版本 SDK，AVChatRoom 内的群聊消息和群提示消息（例如进群退群等），都增加了 nick（昵称） 和 avatar（头像URL） 属性，您可以调用接口 [updateMyProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#updateMyProfile) 设置自己的 nick（昵称） 和 avatar（头像URL）。
 
 ```javascript
 // 从v2.6.0起，AVChatRoom 内的群聊消息，进群退群等群提示消息，增加了 nick（昵称） 和 avatar（头像URL） 属性，便于接入侧做体验更好的展示，前提您需要先调用 updateMyProfile 设置个人资料。
@@ -204,7 +204,7 @@ promise.then(function(imResponse) {
 });
 ```
 
-<span id="Step7"></span>
+[](id:Step7)
 ### 步骤7：加入群组
 ```javascript
 // 匿名用户加入（无需登录，入群后仅能接收消息）
@@ -256,7 +256,7 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 
 ### 1. 自己发送的消息 `Message.nick` 和 `Message.avatar` 都是空的，该怎么处理才能在界面上正常展示昵称和头像？
 
-可以通过调用 [getMyProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMyProfile) 获取自己的昵称和头像。
+可以通过调用 [getMyProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMyProfile) 获取自己的昵称和头像。
 
 ### 2. 如何在直播群中实现禁言功能？
 
@@ -266,7 +266,7 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 
 可以将踢人功能通过自定义消息实现，自定义消息中需包含被踢者的 Members_Account，通过将该消息优先级设置为 High 避免因40条/秒消息限频后被后台抛弃，被踢者的 SDK 收到该消息后，调用 [退出群组](https://cloud.tencent.com/document/product/269/44498#.E7.BE.A4.E7.BB.84.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3) 接口即可在直播群中实现踢人功能。
 
-### 4. <span id="p4"></span>为什么在小程序/Web 端调用退出群组接口后，Android/iOS/PC 端会同步退群；但是 Android/iOS/PC 调用退出群组接口后，小程序/Web 端不会退出呢？
+### 4. [](id:p4)为什么在小程序/Web 端调用退出群组接口后，Android/iOS/PC 端会同步退群；但是 Android/iOS/PC 调用退出群组接口后，小程序/Web 端不会退出呢？
 
 因为小程序/Web 端支持用户以游客模式访问，所以当 Android/iOS/PC 退群后，小程序/Web 端不会主动触发退出群组操作。
 
@@ -300,6 +300,7 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 有的，且代码开源，详情请参考 [腾讯云 Web 直播互动组件](https://github.com/tencentyun/TWebLive)。
 您也可以直接扫码体验腾讯云 Web 直播互动组件：
 <img src="https://main.qcloudimg.com/raw/7ebc3e270add5ec6d62f6f8972c61249.png" width="150">
+
 
 
 

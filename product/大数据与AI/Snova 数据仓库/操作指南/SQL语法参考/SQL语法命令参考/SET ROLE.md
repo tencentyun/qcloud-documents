@@ -17,12 +17,11 @@ RESET ROLE
 NONE 和 RESET 形式把当前用户标识符重置为当前会话用户标识符。这些形式可以由任何用户执行。
 
 ## 参数
-
 SESSION
 指明命令作用于当前会话。这是默认值。
 
 LOCAL
-指明命令只作用于当前事务中。在 COMMIT 或者 ROLLBACK 之后，会话级设置继续恢复影响。注意 SET LOCAL 好像没有任何的影响，如果该命令执行在事务外时。
+指明命令只作用于当前事务中。在 COMMIT 或者 ROLLBACK 后，会话级设置继续恢复影响。注意 SET LOCAL 好像没有任何的影响，如果该命令执行在事务外时。
 
 rolename
 在会话中用来进行权限检查的有角色名。
@@ -39,7 +38,6 @@ RESET
 SET ROLE 的效果堪比 SET SESSION AUTHORIZATION，但是涉及的特权检查完全不同。还有 SET SESSION AUTHORIZATION 决定后来的 SET ROLE 命令可以使用哪些角色，不过用 SET ROLE 更改角色并不会改变后续 SET ROLE 能够使用的角色集。
 
 ## 示例
-
 ```sql
 SELECT SESSION_USER, CURRENT_USER;
  session_user | current_user 

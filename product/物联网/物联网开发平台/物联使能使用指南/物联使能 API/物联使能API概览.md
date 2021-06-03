@@ -8,7 +8,7 @@
 | [ServiceGetDeviceList](https://cloud.tencent.com/document/product/1081/50251) | 获取设备列表             |
 | [ServiceCallDeviceActionSync](https://cloud.tencent.com/document/product/1081/50252) | 同步调用设备行为         |
 | [ServiceCallDeviceActionAsync](https://cloud.tencent.com/document/product/1081/50253) | 异步调用设备行为         |
-| [ServiceControlDeviceData](https://cloud.tencent.com/document/product/1081/50254) | 对绑定的设备发起控制操作 |
+| [ServiceControlDeviceData](https://cloud.tencent.com/document/product/1081/50254) | 设置控制设备的属性数据 |
 
 ## 数据查询
 
@@ -36,3 +36,30 @@
 | [GetTopicRuleList](https://cloud.tencent.com/document/api/1081/50228) | 获取规则列表     |
 | [ModifyTopicRule](https://cloud.tencent.com/document/api/1081/50227) | 修改规则         |
 | [SearchTopicRule](https://cloud.tencent.com/document/api/1081/50226) | 搜索规则         |
+
+
+## 物联网安全保障服务
+
+### 服务领取
+
+| 接口名称                       | 接口功能               |
+| :----------------------------- | :--------------------- |
+| [ServiceCreateCustomer](https://cloud.tencent.com/document/product/1081/56660)      | 创建用户信息           |
+| [ServiceGetCustomerList](https://cloud.tencent.com/document/product/1081/56661)     | 获取用户信息列表       |
+| [ServiceCreateOrder](https://cloud.tencent.com/document/product/1081/56662)         | 创建订单               |
+| [ServiceGetOrderList](https://cloud.tencent.com/document/product/1081/56663)        | 查询订单列表           |
+| [ServiceGetInsurancePageURL](https://cloud.tencent.com/document/product/1081/56664) | 获取保险领取 H5 页面地址 |
+
+### **设备与用户绑定关系推送** 
+
+| 接口名称              | 接口功能               |
+| :-------------------- | :--------------------- |
+| [ServiceBindDevice](https://cloud.tencent.com/document/product/1081/56658) | 设备与用户绑定关系推送 |
+
+### 设备数据推送
+
+| 接口名称                     | 接口功能         |
+| :--------------------------- | :--------------- |
+| [ServiceReportDeviceData](https://cloud.tencent.com/document/product/1081/56665)  | 用于设备数据上报 |
+| [ServiceReportDeviceState](https://cloud.tencent.com/document/product/1081/56666) | 用于设备状态上报 |
+

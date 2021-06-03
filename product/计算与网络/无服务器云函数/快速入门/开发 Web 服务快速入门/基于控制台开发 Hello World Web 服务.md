@@ -63,15 +63,16 @@
 ![](https://main.qcloudimg.com/raw/a705ff2f65acbc7423cdf15fbb09121c.png)
 更多关于日志信息请参见 [函数日志](https://cloud.tencent.com/document/product/583/36143)。
 
-<span id="see"></span>
+[](id:see)
 #### 查看监控
 在已创建函数的详情页面，选择【监控信息】，即可查看函数调用次数/运行时间等情况。如下图所示：
 >!监控统计的粒度最小为1分钟。您需要等待1分钟后，才可查看当次的监控记录。
->
+
 ![](https://main.qcloudimg.com/raw/201c27811efcde8b67c6e2da28b7f462.png)
 更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686)。
 
-<sapn id="config"></span>
+
+[](id:config)
 #### 配置告警
 在已创建函数的详情页面，单击【前往新增告警】为云函数配置告警策略，对函数运行状态进行监控。如下图所示：
 ![](https://main.qcloudimg.com/raw/8f297a29cb80ee42552883884266e129.png)

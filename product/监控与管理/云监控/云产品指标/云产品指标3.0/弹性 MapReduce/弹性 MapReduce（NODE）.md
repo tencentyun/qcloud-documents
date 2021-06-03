@@ -45,8 +45,8 @@ Namespace=QCE/TXMR_NODE
 
 | 指标英文名                                    | 指标中文名                                | 单位     | 指标含义                                                     | 维度                                  |
 | --------------------------------------------- | ----------------------------------------- | -------- | ------------------------------------------------------------ | ------------------------------------- |
-| NodeNetworkTcp<br>ListenExtListendrops        | TCPLISTEN<br> 异常_ListenDrops            | 次/s     | 任何原因导致的丢弃传入连接（SYN 包）的次数                   | host4nodenetwork、<br>id4nodenetwork  |
-| NodeNetworkTcpListen<br>ExtListenoverflows    | TCPLISTEN<br> 异常_ListenOverflows        | 次/s     | 三次握手最后一步完成之后，Accept 队列超过上限的次数          | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcp<br>ListenExtListendrops        | TCPLISTEN<br>异常_ListenDrops            | 次/s     | 任何原因导致的丢弃传入连接（SYN 包）的次数                   | host4nodenetwork、<br>id4nodenetwork  |
+| NodeNetworkTcpListen<br>ExtListenoverflows    | TCPLISTEN<br>异常_ListenOverflows        | 次/s     | 三次握手最后一步完成之后，Accept 队列超过上限的次数          | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcpSyncookies<br>Syncookiesfailed  | TCPSyncookies_Syn<br/>cookiesFailed       | 次/s     | 收到携带无效 SYN Cookie 信息的包的个数                       | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcpSyncookies<br>Syncookiesrecv    | TCPSyncookies_Syn<br/>cookiesRecv         | 次/s     | 收到携带有效 SYN Cookie 信息的包的个数                       | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcpSyncookies<br>Syncookiessent    | TCPSyncookies_Syn<br/>cookiesSent         | 次/s     | 使用 SYN Cookie 发送的 SYN/ACK 包个数                        | host4nodenetwork、<br/>id4nodenetwork |
@@ -131,28 +131,29 @@ Namespace=QCE/TXMR_NODE
 
 ## 各维度对应参数总览
 
-| 参数名称                       | 维度名称            | 维度解释                      | 格式                                         |
-| ------------------------------ | ------------------- | ----------------------------- | -------------------------------------------- |
-| Instances.N.Dimensions.0.Name  | id4nodecpu          | EMR 实例 ID 的维度名称        | 输入 String 类型维度名称：id4nodecpu         |
-| Instances.N.Dimensions.0.Value | id4nodecpu          | EMR 实例具体 ID               | 输入具体实例 ID，例如：emr-abcdef88          |
-| Instances.N.Dimensions.1.Name  | host4nodecpu        | EMR 实例中节点 IP 的维度名称  | 输入String 类型维度名称：host4nodecpu        |
-| Instances.N.Dimensions.1.Name  | host4nodecpu        | EMR 实例中具体节点 IP         | 输入具体节点 IP ，例如：1.1.1.1              |
-| Instances.N.Dimensions.0.Name  | id4nodememory       | EMR  实例 ID 的维度名称       | 输入 String 类型维度名称：id4nodememory      |
-| Instances.N.Dimensions.0.Value | id4nodememory       | EMR  实例具体 ID              | 输入具体实例  ID，例如：emr-abcdef88         |
-| Instances.N.Dimensions.1.Name  | host4nodememory     | EMR  实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4nodememory     |
-| Instances.N.Dimensions.1.Name  | host4nodememory     | EMR  实例中具体节点 IP        | 输入具体节点  IP ，例如：1.1.1.1             |
-| Instances.N.Dimensions.0.Name  | id4nodenetwork      | EMR  实例 ID 的维度名称       | 输入 String 类型维度名称： id4nodenetwork    |
-| Instances.N.Dimensions.0.Value | id4nodenetwork      | EMR  实例具体 ID              | 输入具体实例 ID，例如：emr-abcdef88          |
-| Instances.N.Dimensions.1.Name  | host4nodenetwork    | EMR 实例中节点 IP 的维度名称  | 输入String 类型维度名称：host4nodenetwork    |
-| Instances.N.Dimensions.1.Name  | host4nodenetwork    | EMR 实例中具体节点 IP         | 输入具体节点  IP ，例如：1.1.1.1             |
-| Instances.N.Dimensions.0.Name  | id4nodefilehandle   | EMR 实例 ID 的维度名称        | 输入 String 类型维度名称：id4nodefilehandle  |
-| Instances.N.Dimensions.0.Value | id4nodefilehandle   | EMR 实例具体 ID               | 输入具体实例  ID，例如：emr-abcdef88         |
-| Instances.N.Dimensions.1.Name  | host4nodefilehandle | EMR 实例中节点 IP 的维度名称  | 输入String 类型维度名称：host4nodefilehandle |
-| Instances.N.Dimensions.1.Name  | host4nodefilehandle | EMR 实例中具体节点 IP         | 输入具体节点  IP ，例如：1.1.1.1             |
-| Instances.N.Dimensions.0.Name  | id4nodeprocess      | EMR 实例 ID 的维度名称        | 输入 String 类型维度名称： id4nodeprocess    |
-| Instances.N.Dimensions.0.Value | id4nodeprocess      | EMR 实例具体 ID               | 输入具体实例  ID，例如：emr-abcdef88         |
-| Instances.N.Dimensions.1.Name  | host4nodeprocess    | EMR 实例中节点 IP 的维度名称  | 输入String 类型维度名称：host4nodeprocess    |
-| Instances.N.Dimensions.1.Name  | host4nodeprocess    | EMR 实例中具体节点 IP         | 输入具体节点  IP ，例如：1.1.1.1             |
+| 参数名称                       | 维度名称            | 维度解释                      | 格式                                                         |
+| ------------------------------ | ------------------- | ----------------------------- | ------------------------------------------------------------ |
+| Instances.N.Dimensions.0.Name  | id4nodecpu          | EMR 实例 ID 的维度名称        | 输入 String 类型维度名称：id4nodecpu                         |
+| Instances.N.Dimensions.0.Value | id4nodecpu          | EMR 实例具体 ID               | 输入具体实例 ID，例如：emr-abcdef88                          |
+| Instances.N.Dimensions.1.Name  | host4nodecpu        | EMR 实例中节点 IP 的维度名称  | 输入String 类型维度名称：host4nodecpu                        |
+| Instances.N.Dimensions.1.Name  | host4nodecpu        | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | id4nodememory       | EMR  实例 ID 的维度名称       | 输入 String 类型维度名称：id4nodememory                      |
+| Instances.N.Dimensions.0.Value | id4nodememory       | EMR  实例具体 ID              | 输入具体实例  ID，例如：emr-abcdef88                         |
+| Instances.N.Dimensions.1.Name  | host4nodememory     | EMR  实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4nodememory                     |
+| Instances.N.Dimensions.1.Name  | host4nodememory     | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | id4nodenetwork      | EMR  实例 ID 的维度名称       | 输入 String 类型维度名称： id4nodenetwork                    |
+| Instances.N.Dimensions.0.Value | id4nodenetwork      | EMR  实例具体 ID              | 输入具体实例 ID，例如：emr-abcdef88                          |
+| Instances.N.Dimensions.1.Name  | host4nodenetwork    | EMR 实例中节点 IP 的维度名称  | 输入String 类型维度名称：host4nodenetwork                    |
+| Instances.N.Dimensions.1.Name  | host4nodenetwork    | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | id4nodefilehandle   | EMR 实例 ID 的维度名称        | 输入 String 类型维度名称：id4nodefilehandle                  |
+| Instances.N.Dimensions.0.Value | id4nodefilehandle   | EMR 实例具体 ID               | 输入具体实例  ID，例如：emr-abcdef88                         |
+| Instances.N.Dimensions.1.Name  | host4nodefilehandle | EMR 实例中节点 IP 的维度名称  | 输入String 类型维度名称：host4nodefilehandle                 |
+| Instances.N.Dimensions.1.Name  | host4nodefilehandle | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | id4nodeprocess      | EMR 实例 ID 的维度名称        | 输入 String 类型维度名称： id4nodeprocess                    |
+| Instances.N.Dimensions.0.Value | id4nodeprocess      | EMR 实例具体 ID               | 输入具体实例  ID，例如：emr-abcdef88                         |
+| Instances.N.Dimensions.1.Name  | host4nodeprocess    | EMR 实例中节点 IP 的维度名称  | 输入String 类型维度名称：host4nodeprocess                    |
+| Instances.N.Dimensions.1.Name  | host4nodeprocess    | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+
 
 ## 入参说明
 

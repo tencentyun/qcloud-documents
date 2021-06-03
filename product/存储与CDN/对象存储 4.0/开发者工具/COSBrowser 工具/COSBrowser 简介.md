@@ -25,19 +25,32 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
    </tr>
    <tr>
       <td>Linux</td>
-      <td>需带有图形界面并支持 <a href="https://appimage.org">AppImage</a> 格式</td>
+      <td>需带有图形界面并支持 <a href="https://appimage.org">AppImage</a> 格式<br>
+          注意：CentOS 启动客户端需在终端执行 <code>./cosbrowser.AppImage --no-sandbox</code></td>
       <td><a href="https://cos5.cloud.tencent.com/cosbrowser/cosbrowser-latest-linux.zip">Linux</a></td>
    </tr>
    <tr>
       <td rowspan=2>移动端</td>
       <td>Android</td>
       <td>Android 4.4以上</td>
-      <td><a href="https://sj.qq.com/myapp/detail.htm?apkName=com.qcloud.cos.client">Android</a></td>
+      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/cosbrowser-latest.apk">Android</a></td>
    </tr>
    <tr>
       <td>iOS</td>
       <td>iOS 11以上</td>
       <td><a href="https://apps.apple.com/cn/app/id1469323992">iOS</a></td>
+   </tr>
+   <tr>
+      <td>网页版</td>
+      <td>Web</td>
+      <td>Chrome/FireFox/Safari/IE10+等浏览器</td>
+      <td><a href="https://cosbrowser.cloud.tencent.com/web">Web</a></td>
+   </tr>
+   <tr>
+      <td>Uploader 插件</td>
+      <td>Web</td>
+      <td>Chrome浏览器</td>
+      <td><a href="https://chrome.google.com/webstore/detail/cosbrowser-uploader/mggpkimgmmdbdbakdkaebhjhgomcmlnd">应用商店</a>/<a href="https://cos5.cloud.tencent.com/cosbrowser/latest-chrome.zip">离线下载</a></td>
    </tr>
 </table>
 

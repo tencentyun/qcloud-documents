@@ -109,6 +109,8 @@
 | PeakThreadCount                               | 个       | 峰值线程数                                           |
 | ThreadCount                                   | 个       | 线程数量                                             |
 | DaemonThreadCount                             | 个       | 后台线程数量                                         |
+| RpcQueueTimeAvgTime      | ms   | RPC 平均延迟时间     |
+| RpcProcessingTimeAvgTime | ms   | RPC 请求平均处理时间 |
 
 ### HDFS-DataNode
 
@@ -205,6 +207,8 @@
 | read                                    | 次/s     | 读操作 QPS                                 |
 | FsyncNanosOps                           | 次/s     | Fsync 操作平均次数                         |
 | DataPacketOps                           | 次/s     | 包传输操作 QPS                              |
+| RpcQueueTimeAvgTime      | ms   | RPC 平均延迟时间     |
+| RpcProcessingTimeAvgTime | ms   | RPC 请求平均处理时间 |
 
 ### HDFS-Journal Node 
 
@@ -268,3 +272,8 @@
 | YGCT     | s        | Young GC 消耗时间                     |
 | FGCT     | s        | Full GC 消耗时间                      |
 | GCT      | s        | 垃圾回收时间消耗                      |
+
+
+
+
+

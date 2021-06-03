@@ -112,4 +112,3 @@
 2. 单击左侧导航栏中的【专用通道】。
 3. 选择专用通道 ID，进入详情页进行查看。
 ![](https://main.qcloudimg.com/raw/0e569c0f972281ac0902eb4b00fe530e.png)
-

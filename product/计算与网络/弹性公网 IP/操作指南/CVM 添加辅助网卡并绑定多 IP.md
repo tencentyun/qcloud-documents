@@ -6,12 +6,12 @@
 - 请确保您的辅助网卡绑定内网 IP 数在限额数内，具体限额请参见 [弹性网卡-使用限制](https://cloud.tencent.com/document/product/576/18527)。
 
 ## 操作步骤
-### <span id="add" />步骤一：添加辅助网卡
+### 步骤一：添加辅助网卡[](id:add)
 1. 登录 [CVM 控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=4)。
 2. 在实例列表中，单击您的 CVM ID，在详细信息页面选择【弹性网卡】。
 ![](https://main.qcloudimg.com/raw/44111f021a232564c8a9502ae51e3445.png)
 3. 在“弹性网卡”页面，单击【绑定弹性网卡】。
-4. 在弹出的“绑定弹性网卡”窗口中，选择待绑定的弹性网卡。若您未创建弹性网卡，请单击【新建弹性网卡并绑定】，填写名称，选择弹性网卡的所属子网后，选择分配的内网 IP （可自动分配也可手动填写），如需添加标签可展开【高级选项】进行添加。
+4. 在弹出的“绑定弹性网卡”窗口中，选择待绑定的弹性网卡。若您未创建弹性网卡，请单击【新建弹性网卡并绑定】，填写名称，选择弹性网卡的所属子网后，选择分配的内网 IP （可自动分配也可手动填写）。
 >?
 >- 若需分配多个 IP 请单击【增加一个辅助IP】。
 >- 若选择手动填写要分配的内网 IP，请确认填写的内网 IP 在所属子网网段内，且不属于系统保留 IP。
@@ -35,7 +35,7 @@
 - [Linux 云服务器](#Linux)
 - [Windows 云服务器](#Win)
 
-#### <span id="Linux" />Linux 云服务器
+#### Linux 云服务器[](id:Linux)
 如下操作以 CentOS 7 云服务器为例：
 1. 登录 [CVM 控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=4)。
 2. 在实例列表中单击您的 CVM ID，在详细信息页面，选择【弹性网卡】。
@@ -115,7 +115,7 @@ ip address
 ```
 ![](https://main.qcloudimg.com/raw/96250722974a05786034ca559fedec80.png)
 
-#### <span id="Win" />Windows 云服务器
+#### Windows 云服务器[](id:Win)
 如下操作以 Windows 2012 云服务器为例：
 1. 登录云服务器，具体操作请参见 [使用 RDP 文件登录 Windows 实例](https://cloud.tencent.com/document/product/213/5435)。
 2. <span id="step2" />执行如下步骤，查看云服务器辅助网卡的 IP 地址、子网掩码和默认网关和 DNS 服务器：

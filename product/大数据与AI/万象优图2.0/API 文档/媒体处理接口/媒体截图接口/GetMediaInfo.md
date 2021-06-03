@@ -13,31 +13,30 @@ Authorization: <Auth String>
 Content-Length: <length>
 ```
 
->?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/) 文档）
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）
 
 #### 请求头
 
-#### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
-#### 非公共头部
-该请求操作无特殊的请求头部信息。
+#### 请求参数
+
+参数说明如下：
+
+| 节点名称（关键字） | 父节点 | 描述                           | 类型   | 是否必选 |
+| :----------------- | :----- | :----------------------------- | :----- | :--- |
+| ci-process         | 无     | 操作类型，固定使用 videoinfo | String | 是   |
 
 #### 请求体
 该请求无请求体。
 
-参数的具体内容如下：
-
-| 节点名称（关键字） | 父节点 | 描述                           | 类型   | 必选 |
-| :----------------- | :----- | :----------------------------- | :----- | :--- |
-| ci-process         | 无     | 操作类型，固定使用 videoinfo | String | 是   |
 
 ## 响应
 
 #### 响应头
 
 #### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/) 文档。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。
 
 #### 特有响应头
 该响应无特殊的响应头。
@@ -138,7 +137,7 @@ Container 节点 Stream 的内容：
 | Audio | Response.MediaInfo.<br>Stream | 音频信息 |  Container |
 | Subtitle | Response.MediaInfo.<br>Stream | 字幕信息 |  Container |
 
-Container 节点 Format 的内容：
+Container 节点 Format 的内容（查询视频信息时，可能部分字段未返回）：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
@@ -151,7 +150,7 @@ Container 节点 Format 的内容：
 | Bitrate | Response.MediaInfo.<br>Format | 比特率，单位为 kbps |  Int |
 | Size | Response.MediaInfo.<br>Format | 大小，单位为 Byte |  Int |
 
-Container 节点 Video 的内容：
+Container 节点 Video 的内容（查询视频信息时，可能部分字段未返回）：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
@@ -162,9 +161,9 @@ Container 节点 Video 的内容：
 | CodecTagString | Response.MediaInfo.<br>Stream.Video | 编码标签名 |  String |
 | CodecTag | Response.MediaInfo.<br>Stream.Video | 编码标签 |  String |
 | Profile | Response.MediaInfo.<br>Stream.Video | 视频编码档位 |  String |
-| Height | Response.MediaInfo.<br>Stream.Video | 视频高 |  Int |
-| Width | Response.MediaInfo.<br>Stream.Video | 视频宽 | Int |
-| HasBFrame | Response.MediaInfo.<br>Stream.Video | 是否有B帧 |  Int |
+| Height | Response.MediaInfo.<br>Stream.Video | 视频高，单位 px |  Int |
+| Width | Response.MediaInfo.<br>Stream.Video | 视频宽，单位 px| Int |
+| HasBFrame | Response.MediaInfo.<br>Stream.Video | 是否有B帧。1表示有，0表示无 |  Int |
 | RefFrames | Response.MediaInfo.<br>Stream.Video | 视频编码的参考帧个数 |  Int |
 | Sar | Response.MediaInfo.<br>Stream.Video | 采样宽高比 |  String |
 | Dar | Response.MediaInfo.<br>Stream.Video | 显示宽高比 |  String |
@@ -180,7 +179,7 @@ Container 节点 Video 的内容：
 | NumFrames | Response.MediaInfo.<br>Stream.Video | 总帧数 |  Int |
 | Language | Response.MediaInfo.<br>Stream.Video | 语言 |  String |
 
-Container 节点 Audio 的内容：
+Container 节点 Audio 的内容（查询视频信息时，可能部分字段未返回）：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
@@ -205,10 +204,10 @@ Container 节点 Subtitle 的内容：
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
 | Index | Response.MediaInfo.<br>Stream.Subtitle | 该流的编号 |  Int |
-| Language | Response.MediaInfo.<br>Stream.Subtitle | 语言 |  String |
+| Language | Response.MediaInfo.<br>Stream.Subtitle | 语言，und 表示无查询结果 |  String |
 
 #### 错误码
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/) 文档。
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
 
 
 ## 实际案例

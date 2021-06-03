@@ -1,6 +1,8 @@
 ## 录制预处理回调 
 
-``` 
+
+<dx-codeblock>
+::: java java
 public interface VideoCustomProcessListener {
 /**
   * 在 OpenGL 线程中回调，在这里可以进行采集图像的二次处理
@@ -23,10 +25,12 @@ void onDetectFacePoints(float[] points);
   */
 void onTextureDestroyed();
 }
-```
+:::
+</dx-codeblock>
 
 ## 编辑预处理回调
-``` 
+<dx-codeblock>
+::: java java
 public interface TXVideoCustomProcessListener {
         /**
          * 在 OpenGL 线程中回调，在这里可以进行采集图像的二次处理
@@ -45,5 +49,5 @@ public interface TXVideoCustomProcessListener {
          */
         void onTextureDestroyed();
     }
-
-```
+:::
+</dx-codeblock>

@@ -242,7 +242,7 @@ Resources:
 
 ## 相关操作
 
-<span id="openCOS"></span>
+[](id:openCOS)
 ### 设置开启 COS 上传
 1. 选择左下角的<img src="https://main.qcloudimg.com/raw/20fd46098cf037eb003dc41f1f913313.png" style="margin:-3px 0px;"/> >【Settings】。如下图所示：
 ![](https://main.qcloudimg.com/raw/e9e1f63819d29d86d8f9cae9cbb9e31a.png)
@@ -250,12 +250,12 @@ Resources:
 ![](https://main.qcloudimg.com/raw/438d40222bd6fcc481c890c052bb6865.png)
 
 
-<span id="pythonpath"></span>
+[](id:pythonpath)
 ### 设置 Python path
 如果您有安装多个 Python 版本，可根据当前要调试的 runtime 将 Python 2 或 Python 3 的对应路径填入 Tencent-SCF 设置即可。如下图所示：
 ![](https://main.qcloudimg.com/raw/69e0a4b6652799c1c5069b977346b551.png)
 
-### 查看 API 网关触发器<span id="api"></span>
+### 查看 API 网关触发器[](id:api)
 如果您已为函数创建 API 网管触发器，可通过以下方式获取触发器的 serviceId：
 1. 登录 [SCF 控制台](https://console.cloud.tencent.com/scf/list)，在页面上方选择函数所在地域及命名空间。
 2. 在“函数服务”列表页面中，选择需查看信息的函数名。
@@ -264,6 +264,6 @@ Resources:
 
 
 
-## 欢迎交流<span id="welcome"></span>
+## 欢迎交流[](id:welcome)
 如果您对 Tencent Serverless 感兴趣，您可以加入QQ群（537539545）与我们交流。    
 ![Alt text](https://main.qcloudimg.com/raw/bc881547d1cd2043ecf1b286c70f7319.png)

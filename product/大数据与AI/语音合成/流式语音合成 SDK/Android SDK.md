@@ -6,10 +6,9 @@
 - 服务端 [API 文档](https://cloud.tencent.com/document/product/1073/37995)。
 
 ### 下载安装 SDK
-- 语音合成 Android SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/tts_sdk_android_v2.zip)。
-- 解压得到 tts-sdk-android 文件夹，即是示例代码工程，工程目录 app/libs 下的 aar 格式 SDK 包。
+- 语音合成 Android SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/tts_sdk_android_v1.4.0.zip)。
+- 解压后即是示例代码工程，工程目录 `libqcloudtts-demo/libs` 下的 aar 文件即 SDK 包。
 - 用 Android Studio 打开此工程查看语音合成示例代码。
-- 流式接口：实例代码参考 RealtimeTtsActivity 类，语音实时返回，支持不超过300中文字符或900英文字符，不支持暂停与恢复。
 - 长文本接口：实例代码参考 LongTextTtsActivity 类，支持长文本，支持播放暂停与恢复。
 
 ### 参数说明
@@ -20,9 +19,9 @@
 | secretId  | String  | 是   | 腾讯云安全凭证，[获取地址](https://console.cloud.tencent.com/cam/capi)                                              |
 | secretKey | String  | 是   | 腾讯云安全凭证，获取地址同上                                              |
 | sessionId | String  | 否   | 一次请求对应一个 SessionId，会原样返回                       |
-| projectId | String  | 否   | 项目 ID，用户自定义，默认为 0 ，[获取地址](https://console.cloud.tencent.com/project)                              |
+| projectId | String  | 否   | 项目 ID，用户自定义，默认为0，[获取地址](https://console.cloud.tencent.com/project) 
 | speed     | int | 否   | 语速，范围：[-2，2]，分别对应不同语速：0.6倍、0.8倍、1.0倍、1.2倍、1.5倍，默认为0 |
-| voiceType | int | 否   | tts音色，默认女声，亲和风格                                  |
+| voiceType | int | 否   | tts 音色，默认女声，亲和风格                                  |
 | language  | int | 否   | 主语言类型，默认中文                                         |
 
 
@@ -31,10 +30,10 @@
 
 ### 初始化 TtsController 示例
 
-构造 ttsController：长文本使用 LongTextTtsController；实时流式使用 RealtimeTtsController，2选1。
+通过 LongTextTtsController 构造 ttsController。
 
 ```
-TtsController mTtsController = new TtsController();
+LongTextTtsController mTtsController = new LongTextTtsController();
 ```
 
 在使用云 API 之前，请前往腾讯云 API 密钥页面申请安全凭证。安全凭证包括 SecretId 和 SecretKey。
@@ -105,7 +104,7 @@ mTtsController.setProjectId(0);
 ### 语音合成
 
 ```
-mTtsController.startTts(ttsText, mTtsExceptionHandler, new QCloudTTSPlayer.QCloudTTSPlayerCallback() {
+mTtsController.startTts(ttsText, mTtsExceptionHandler, new QCloudPlayerCallback() {
 
 	//播放开始
 	@Override
@@ -172,3 +171,5 @@ mTtsController.stop();
 ### 错误码
 
 请参考 [语音合成 API 文档](https://cloud.tencent.com/document/product/1073/37995)。
+
+

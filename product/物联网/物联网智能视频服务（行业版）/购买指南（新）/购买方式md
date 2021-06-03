@@ -1,0 +1,19 @@
+本文主要指导您如何使用物联网智能视频服务（行业版）相关计费功能。
+
+### 设备接入
+
+设备接入的具体操作，详情请参见 [设备管理](https://cloud.tencent.com/document/product/1361/52926)。
+
+>?若您首次使用物联网开发平台（行业版）进行【添加设备】时，若提示余额不足，则是由于产品的 [欠费机制](https://cloud.tencent.com/document/product/1361/52923) 将账号冻结，您只需对账号进行充值到大于等于6.0048元时即可解除冻结。
+>
+
+### 视频观看
+
+视频观看的具体操作，详情请参见 [视频监控](https://cloud.tencent.com/document/product/1361/52927)。 
+
+### 视频存储
+
+视频存储的具体情况，详情请参见 [存储回放](https://cloud.tencent.com/document/product/1361/52928)。 
+
+
+

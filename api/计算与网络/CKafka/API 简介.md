@@ -26,7 +26,7 @@
 用来控制分页的参数；Limit 为单次返回的最多条目数量，Offset 为偏移量。当相应结果是列表形式时，如果数量超过了 Limit 所限定的值，那么只返回 Limit 个值。
 例如，参数 Offset=0&Limit=20返回第0到19项，Offset=20&Limit=20返回第20到39项，Offset=40&Limit=20返回第40到59项，以此类推。
 	
-* topic.N（数组参数）<span id="topic"></span>
+* topic.N（数组参数）[](id:topic)
 同时输入多个参数的格式。当遇到形如这样的格式（String Array）时，那么该输入参数可以同时传多个，即该参数为数组参数，数组参数入参如下所示：
 topic.0=test1&topic.1=test2&topic.2=test3，以此类推（以下标0开始）。
 

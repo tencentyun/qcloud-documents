@@ -24,8 +24,6 @@
 
  
 
-
-
 #### 配置推送实例
 >?若当前账号没有实例，可前往 [CKafka](https://console.cloud.tencent.com/ckafka) 购买和创建实例。
 

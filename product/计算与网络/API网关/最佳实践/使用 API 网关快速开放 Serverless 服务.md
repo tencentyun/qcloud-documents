@@ -80,3 +80,4 @@ exports.main_handler = async(event, context, callback) => {
 
 ## 说明
 除了通过 API 网关提供的默认域名来访问搭建的站点之外，您可以将已有的自定义域名绑定到服务上。绑定之后，便可通过自定义域名来访问站点。详情可查看 [自定义域名配置](https://cloud.tencent.com/document/product/628/11791) 相关文档。
+

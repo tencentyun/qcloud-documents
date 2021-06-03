@@ -49,7 +49,7 @@ static void Listener () {
 在开发游戏过程中的大部分业务接口都位于 Room 对象中。由于每个玩家只能加入一个房间，在游戏生命周期中可以实例化一个 Room 对象进行接口调用：
 
 ```c#
-var room = new Room ();
+var room = new Room (null);
 ```
 
 实例化 Room 后，可以调用 getMyRoom 接口来检查玩家是否已经加房，适用于应用重启后需要恢复玩家状态的场景。
@@ -227,7 +227,7 @@ static void sendFrame () {
 // 广播：收到帧消息
 room.OnRecvFrame = eve => {
     RecvFrameBst bst = (RecvFrameBst) eve.Data;
-    Debug.Log ("帧广播", eve.Data);
+    Debug.LogFormat ("帧广播: {0}", eve.Data);
 };
 ```
 
@@ -247,3 +247,4 @@ room.OnStopFrameSync = eve => {
 	Debug.LogFormat ("停止帧同步: {0}", eve.Data);
 };
 ```
+

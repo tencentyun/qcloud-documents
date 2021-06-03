@@ -42,7 +42,7 @@ apt policy lxcfs
  - 如显示已安装的版本为 `2.0.8-0ubuntu1~16.04.2`，则 LXCFS 已升级，请执行 [情况2](#CaseTwo) 判断节点是否需要修复。
 
 
-#### 情况2：已升级 LXCFS 并重启节点<span id="CaseTwo"></span>
+#### 情况2：已升级 LXCFS 并重启节点[](id:CaseTwo)
 如果您的存量节点已升级 LXCFS，并已进行重启操作。请按照以下步骤判断该节点是否需要修复：
 1. 执行以下命令，查看 LXCFS 升级时间。
 ```
@@ -64,7 +64,7 @@ uptime -s
 - 在执行脚本修复的过程中，被修复的节点可能会短时间进入 NotReady 状态，但很快会恢复。在此期间该节点上运行的应用容器及其提供的服务不受影响。
 - 如果您在修复过程中遇到问题，可以拨打 95716 或 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1) 反馈给我们，我们将尽快为您核实处理。
 
-### 具体修复步骤<span id="repair"></span>
+### 具体修复步骤[](id:repair)
 1. 在需修复的节点上下载修复脚本，下载地址为：`https://lxcfs-1251707795.cos.ap-chengdu.myqcloud.com/upgrade-lxcfs.zip`。
 2. 执行以下命令，解压并设置运行权限。
 ```

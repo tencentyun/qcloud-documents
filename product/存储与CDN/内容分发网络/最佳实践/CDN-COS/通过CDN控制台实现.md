@@ -1,14 +1,11 @@
 本文详细描述了通过 CDN 加速 COS 的整体操作流程和具体的操作方法。
 
 ## 前提条件
-
 1. 完成腾讯云账号注册、实名认证。
 2. 创建 COS 存储桶，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
 
 ## 操作指南
-
 ### 添加域名
-
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧导航栏中，单击【域名管理】进入域名管理页面，单击【添加域名】。 ![img](https://main.qcloudimg.com/raw/3d2e458b232cdc89fafb546045a92bc1.png)
 
 ### 选择 COS 作为源站

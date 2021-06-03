@@ -4,7 +4,7 @@
  
 ## SDK 下载
 
-点播 iOS 超级播放器的项目地址是 [SuperPlayer_iOS](https://github.com/tencentyun/SuperPlayer_iOS)。
+云点播 iOS 超级播放器的项目地址是 [SuperPlayer_iOS](https://github.com/tencentyun/SuperPlayer_iOS)。
 
 ## 阅读对象
 
@@ -101,4 +101,5 @@ model.videoId.pSign = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTQwMDMy
 
 完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
 <img src="https://main.qcloudimg.com/raw/ee8557feb41a36d90e2b2f454b39e29a.png" width="150">
+
 

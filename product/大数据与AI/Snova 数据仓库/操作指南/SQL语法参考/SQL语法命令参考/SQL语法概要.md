@@ -868,7 +868,7 @@ CREATE [OR REPLACE] [TEMP | TEMPORARY] VIEW name
 ```
 
 ### 取消分配
-取消分配一个已经准备（预编译）的语句。
+取消分配一个已准备（预编译）的语句。
 
 ```sql
 DEALLOCATE [PREPARE] name

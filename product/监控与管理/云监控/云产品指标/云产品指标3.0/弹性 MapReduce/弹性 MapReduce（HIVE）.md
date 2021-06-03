@@ -54,7 +54,7 @@ Namespace=QCE/TXMR_HIVE
 
 | 指标英文名             | 指标名称 | 指标中文名       | 指标单位 | 指标含义                              | 维度                                          |
 | ---------------------- | -------- | ---------------- | -------- | ------------------------------------- | --------------------------------------------- |
-| HiveHcGcUtilGcCountYgc | YGC      | GC 次数_YGC       | 次       | Young GC 次数                         | host4hivehivewebhcat、<br>id4hivehivewebhcat  |
+| HiveHcGcUtilGcCountYgc | YGC      | GC 次数\_YGC       | 次       | Young GC 次数                         | host4hivehivewebhcat、<br>id4hivehivewebhcat  |
 | HiveHcGcUtilGcCountFgc | FGC      | GC 次数_FGC       | 次       | Full GC 次数                          | host4hivehivewebhcat、<br>id4hivehivewebhcat  |
 | HiveHcGcUtilGcTimeFgct | FGCT     | GC 时间_FGCT      | s        | Full GC 消耗时间                      | host4hivehivewebhcat、<br>id4hivehivewebhcat  |
 | HiveHcGcUtilGcTimeGct  | GCT      | GC 时间_FGCT      | s        | 垃圾回收时间消耗                      | host4hivehivewebhcat、<br/>id4hivehivewebhca  |
@@ -68,24 +68,24 @@ Namespace=QCE/TXMR_HIVE
 
 ## 各维度对应参数总览
 
-| 参数名称                       | 维度名称             | 维度解释                     | 格式                                          |
-| :----------------------------- | :------------------- | :--------------------------- | :-------------------------------------------- |
-| Instances.N.Dimensions.0.Name  | id4hivemetastore     | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hivemetastore    |
-| Instances.N.Dimensions.0.Value | id4hivemetastore     | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222     |
-| Instances.N.Dimensions.1.Name  | host4hivemetastore   | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4hivemetastore   |
-| Instances.N.Dimensions.1.Value | host4hivemetastore   | EMR 实例中具体节点 IP        | 输入具体节点 IP ，例如：1.1.1.1               |
-| Instances.N.Dimensions.0.Name  | id4hivehiveserver2   | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hivehiveserver2  |
-| Instances.N.Dimensions.0.Value | id4hivehiveserver2   | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222     |
-| Instances.N.Dimensions.1.Name  | host4hivehiveserver2 | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4hivehiveserver2 |
-| Instances.N.Dimensions.1.Value | host4hivehiveserver2 | EMR 实例中具体节点 IP        | 输入具体节点 IP ，例如：1.1.1.1               |
-| Instances.N.Dimensions.0.Name  | id4hivehivewebhcat   | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hivehivewebhcat  |
-| Instances.N.Dimensions.0.Value | id4hivehivewebhcat   | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222     |
-| Instances.N.Dimensions.1.Name  | host4hivehivewebhcat | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4hivehivewebhcat |
-| Instances.N.Dimensions.1.Value | host4hivehivewebhcat | EMR 实例中具体节点 IP        | 输入具体节点 IP ，例如：1.1.1.1               |
+| 参数名称                       | 维度名称             | 维度解释                     | 格式                                                         |
+| :----------------------------- | :------------------- | :--------------------------- | :----------------------------------------------------------- |
+| Instances.N.Dimensions.0.Name  | id4hivemetastore     | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hivemetastore                   |
+| Instances.N.Dimensions.0.Value | id4hivemetastore     | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222                    |
+| Instances.N.Dimensions.1.Name  | host4hivemetastore   | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4hivemetastore                  |
+| Instances.N.Dimensions.1.Value | host4hivemetastore   | EMR 实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | id4hivehiveserver2   | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hivehiveserver2                 |
+| Instances.N.Dimensions.0.Value | id4hivehiveserver2   | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222                    |
+| Instances.N.Dimensions.1.Name  | host4hivehiveserver2 | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4hivehiveserver2                |
+| Instances.N.Dimensions.1.Value | host4hivehiveserver2 | EMR 实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | id4hivehivewebhcat   | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hivehivewebhcat                 |
+| Instances.N.Dimensions.0.Value | id4hivehivewebhcat   | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222                    |
+| Instances.N.Dimensions.1.Name  | host4hivehivewebhcat | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4hivehivewebhcat                |
+| Instances.N.Dimensions.1.Value | host4hivehivewebhcat | EMR 实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 
 ## 入参说明
 
- 弹性 MapReduce（HIVE）支持以下三种维度组合的查询方式，三种入参取值如下： 
+弹性 MapReduce（HIVE）支持以下三种维度组合的查询方式，三种入参取值如下： 
 
 **1. 查询  HIVE-HiveMetaStore  的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_HIVE

@@ -1,0 +1,197 @@
+云点播针对长视频和视频加密场景，提供了 Android、iOS 和 Web 三端 [播放器 SDK](https://cloud.tencent.com/document/product/266/45543)。通过使用点播 SDK，您可以快速集成点播播放能力。如果点播超级播放器 SDK 无法满足您的定制化需求，您也可参照播放器 SDK 与点播后台的通信协议，实现自研播放器。下面将详细介绍播放器 SDK 与云点播后台的通信协议。
+
+## 协议
+请求以 HTTP Get 的方式发起，URL 为`https://playvideo.qcloud.com/{interface}/{version}/{appId}/{fileId}?psign=xxx`。
+
+### 域名
+* 主域名：`playvideo.qcloud.com`
+* 备份域名：`bkplayvideo.qcloud.com`
+
+### 请求字段
+#### path 字段
+
+| 字段含义 | 是否必填 | 字段取值 |
+| -- | -- | -- |
+| appId | 是 | 填写 appid（如果使用了子应用，则填 subappid）。 |
+| fileId | 是 | 要播放的视频文件 ID。 |
+| version | 是 | 固定填写 v4。 |
+| interface | 是 | 固定填写 getplayinfo。 |
+
+#### querystring 字段
+
+| 字段含义 | 是否必填 | 字段取值 |
+| -- | -- | -- |
+| psign | 否 | 超级播放器签名，填写方式请参考 [超级播放器签名文档](https://cloud.tencent.com/document/product/266/45554) 。 |
+
+### 应答字段
+
+| 参数名 | 类型 | 描述 |
+| -- | -- | -- |
+| code | Integer | 错误码，当 code 非0时表示错误。 |
+| message | String | 错误信息，当 code 非0时有值。 |
+| version | Integer | 当前返回的结果版本类型，取值固定为4。 |
+| warning | String | 警告信息，如未开防盗链时携带 psign 参数，则返回警告。 |
+| media | Object | 媒体信息，元素类型为 Media。
+
+#### Media 类型
+
+| 参数名 | 类型 | 描述 | 
+| -- | -- | -- |
+| basicInfo | Object | 视频基本信息，类型为 BasicInfo 类型。 |
+| streamingInfo | Object | 多码率视频信息，类型为 StreamingInfo 类型。 |
+| imageSpriteInfo | Object | 缩略图信息，主要用于实现播放器对视频的预览，类型为 ImageSpriteInfo 类型。 |
+| keyFrameDescInfo | Object | 视频打点信息，用于播放器在时间轴上的打点，类型为 KeyFrameDescInfo 类型。 |
+
+#### BasicInfo 类型
+
+| 参数名 | 类型 | 描述 | 
+| -- | -- | -- |
+| name | String | 视频名称。 |
+| size | Integer | 视频大小，单位：字节。 |
+| duration | Float | 视频时长，单位：秒。 |
+| description | String | 视频描述。 |
+| coverUrl | String | 视频封面。 |
+
+#### StreamingInfo 类型
+
+| 参数名 | 类型 | 描述 | 
+| -- | -- | -- |
+|plainOutput|String|未加密的输出，类型为 StreamingOutput。 |
+|drmOutput|Array|对视频做 DRM 加密后输出，类型为 StreamingOutput。 |
+|drmToken|String|播放 DRM 加密输出时，使用的 DRM Token。需要将该字段拼到 streamingOutput.url 中播放。 |
+
+#### StreamingOutput 类型
+
+| 参数名 | 类型 | 描述 | 
+| -- | -- | -- |
+| type | String | 自适应码流保护类型，目前取值有 plain 和 simpleAES。plain 表示不加密，simpleAES 表示 HLS 普通加密。 |
+| url | String | 播放 URL。 |
+| subStreams | Array | 子流信息，类型为 SubStreamInfo。 |
+
+#### SubStreamInfo 类型
+
+| 参数名 | 类型 | 描述 | 
+| -- | -- | -- |
+| type | String | 子流的类型，目前可能的取值仅有 video。 |
+| width | Integer | 子流视频的宽，单位：px。 |
+| height | Integer | 子流视频的高，单位：px。 |
+| resolutionName | String | 子流视频在播放器中展示的规格名。 |
+
+#### ImageSpriteInfo 类型
+
+| 参数名 | 类型 | 描述 | 
+| -- | -- | -- |
+| imageUrls | Array | 缩略图下载 URL 数组，类型为 String 。 |
+| webVttUrl | String | 缩略图 VTT 文件下载 URL 。 |
+
+### 播放
+#### 播放未加密输出
+如果请求返回的结果是未加密视频（即 streamingOutput.type 为 plain），直接使用 streamingOutput.url 的链接播放。
+
+#### 播放加密输出
+如果请求返回的结果是加密后的视频（即 streamingOutput.type 为 simpleAES），则需要将 streamingInfo.drmToken 拼接到 streamingOutput.url 的文件名中，生成链接播放。
+
+**拼接规则**：新文件名 = voddrm.token.{要拼接的 token}.{原文件名}
+
+例如，streamingOutput.url 是`http://125xxx167.vod2.myqcloud.com/xxx/xxx/xx.m3u8?t=5c08d9fa&us=someus&sign=xxx`，drmToken 是`JhbGciOxxxsInR5cCI6Ikp`。
+则播放的 URL 如下：
+`http://125xxx167.vod2.myqcloud.com/xxx/xxx/voddrm.token.JhbGciOxxxsInR5cCI6Ikp.xx.m3u8?t=5c08d9fa&us=someus&sign=xxx`。
+
+### 业务流程图
+#### 播放未加密视频流程图
+ 
+![](https://main.qcloudimg.com/raw/1818032649fe633c5eccbc5a2f9160bb.png)
+
+#### 播放加密视频流程图
+ 
+![](https://main.qcloudimg.com/raw/25a86c1738ca8fae84cd77b084b5308a.png)
+
+
+
+## 示例
+下面以播放一个视频的加密输出为例。
+
+### 请求
+`https://playvideo.qcloud.com/getplayinfo/v4/125xxx167/52858xxx74597?psign=0eef1a12dxxxf0f48ebf34b4`
+
+### 应答
+```json
+{
+    "code":0,
+    "message":"",
+    "requestId":"377d94185f0342c5b67b038501f54974",
+    "version":4,
+    "context":"",
+    "warning":"",
+    "media":{
+        "basicInfo":{
+            "name":"动物世界",
+            "size":26246026,
+            "duration":30.5,
+            "description":"来自CCTV的经典动物节目",
+            "coverUrl":"http://125xxx167.vod2.myqcloud.com/xxx/xxx/xx.jpg?t=5c08d9fa&amp;someus&amp;sign=xxx"
+        },
+        "streamingInfo":{
+            "plainOutput":{
+
+            },
+            "drmOutput":[
+                {
+                    "type":"simpleAes",
+                    "url":"http://125xxx167.vod2.myqcloud.com/xxx/xxx/xx.m3u8?t=5c08d9fa&amp;us=someus&amp;sign=xxx",
+                    "subStreams":[
+                        {
+                            "type":"video",
+                            "width":427,
+                            "height":240,
+                            "resolutionName":"流畅"
+                        },
+                        {
+                            "type":"video",
+                            "width":853,
+                            "height":480,
+                            "resolutionName":"标清"
+                        },
+                        {
+                            "type":"video",
+                            "width":1280,
+                            "height":720,
+                            "resolutionName":"高清"
+                        }
+                    ]
+                }
+            ],
+            "drmToken":"JhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9xxx",
+        },
+        "imageSpriteInfo":{
+            "imageUrls":[
+                "http://125xxx167.vod2.myqcloud.com/xxx/xxx/xx.jpg?t=5c08d9fa&amp;us=someus&amp;sign=xxx"
+            ],
+            "webVttUrl":"http://125xxx167.vod2.myqcloud.com/xxx/xxx/xx.vtt?t=5c08d9fa&amp;us=someus&amp;sign=xxx"
+        },
+        "keyFrameDescInfo":{
+            "keyFrameDescList":[
+                {
+                    "timeOffset":1.1,
+                    "content":"片头开始..."
+                },
+                {
+                    "timeOffset":100.2,
+                    "content":"即将结束..."
+                }
+            ]
+        }
+    }
+}
+```
+
+## 术语表
+| 名称 |含义 |
+| -- | -- |
+| 内容密钥 Key | 使用 SimpleAES 对视频加密后，在 m3u8 文件 EXT-X-KEY 标签中的 URI 中指定获取解密 Key 的地址，播放器播放时会实时获取 Key 后解密播放。为128字节二进制数据。 |
+
+
+## 调试建议
+建议采用以下步骤调试：
+1. 非加密播放。
+2. 加密播放。

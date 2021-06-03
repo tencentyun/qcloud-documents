@@ -2,7 +2,7 @@
 
 ## 功能说明
 
-大眼、瘦脸、动效贴纸、绿幕等特效功能，是基于优图实验室的人脸识别技术和天天 P 图的美妆技术为基础开发的特权功能，腾讯云小视频团队通过跟优图和 P 图团队合作，将这些特效深度整合到 RTMP SDK 的图像处理流程中，以实现更好的视频特效。
+大眼、瘦脸、动效贴纸、绿幕等特效功能，是基于优图实验室的 AI 识别技术和天天 P 图的美妆技术为基础开发的特权功能，腾讯云小视频团队通过跟优图和 P 图团队合作，将这些特效深度整合到 RTMP SDK 的图像处理流程中，以实现更好的视频特效。
 
 ## 接入流程
 
@@ -14,7 +14,7 @@
 
 ## 工程设置
 
-参见 [工程配置](https://cloud.tencent.com/document/product/584/11631)。 
+具体操作请参见 [工程配置](https://cloud.tencent.com/document/product/584/11631)。 
 
 ### 添加 SDK
 
@@ -39,15 +39,15 @@
 
 ### 导入 Licence 文件
 
-商用版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费30天的调试用 licence。
+商用版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费30天的调试用 Licence。
 得到 licence 后，您需要将其命名为 **YTFaceSDK.licence**，放到工程的 assets 目录下。
 >!
->- 每个 licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
+>- 每个 Licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
 >- YTFaceSDK.licence 的文件名固定，不可修改、且必须放在 assets 目录下。
->- iOS 和 Android 不需要重复申请 licence，一个 licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
+>- iOS 和 Android 不需要重复申请 licence，一个 Licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
 
 
-**从4.9版本开始，SDK 支持二合一的 licence, 这种方式不再需要 YTFaceSDK.licence, 在从商务同学处获取到 licence 对应的 key 和 url 后，设置方式和标准版 licence 设置方式相同。**
+**从4.9版本开始，SDK 支持二合一的 Licence，这种方式不再需要 YTFaceSDK.licence，在从商务同学处获取到 licence 对应的 key 和 url 后，设置方式和标准版 licence 设置方式相同。**
 
 ## 功能调用
 
@@ -212,7 +212,7 @@ packagingOptions {
 - 检查动态下发的 so 包个数是否存在下发不全的情况，通过`TXLiveBase.setLibraryPath(soPath);`设置 so 包地址。
 >!不可以一部分放在本地，一部分动态下发，只能全部动态下发或全部本地集成。
 - jar + so 方式解压后的资源分为`assets-static`和`assets-dynamic`两类，其中`assets-static`只能放在本地，不可以动态下发，`asset-dynamic`需要保证动态下发，跟 so 同一个目录下。
-- SDK6.8 以后，请不要人为通过系统的方法加载 so 包，SDK 内部会保证 so 包的加载顺序。
+- SDK 6.8 以后，请不要人为通过系统的方法加载 so 包，SDK 内部会保证 so 包的加载顺序。
 
 如果您出现以下问题，请按上述几点进行检查。
 

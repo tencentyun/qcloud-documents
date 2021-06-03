@@ -5,7 +5,7 @@
 
 ## 操作步骤
 
-<span id="ecc"></span>
+[](id:ecc)
 ### ECC 证书申请 CSR 
 1. 前往 [OpenSSL 官网](https://www.openssl.org/source/)，下载 openssl 并配置安装。
 2. 下载 [ecccsr 工具](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/ecccsr.zip) 并解压。
@@ -33,7 +33,7 @@ openssl req -batch -config openssl_user.cnf -key out.key -new -sha256 -out out.c
 openssl pkcs8 -topk8 -in out.key -nocrypt -out out_sk
 ```
 
-<span id="sm2"></span>
+[](id:sm2)
 ### SM2 证书申请 CSR
 1. 前往 [GmSSL 官网](http://gmssl.org/docs/quickstart.html)，下载 gmssl 并配置安装。 
 2. 下载 [sm2csr 工具](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/sm2csr.zip) 并解压。

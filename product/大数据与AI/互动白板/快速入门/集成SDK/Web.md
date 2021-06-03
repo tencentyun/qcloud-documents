@@ -25,7 +25,7 @@
 <!-- COS SDK -->
 <script src="https://res.qcloudtiw.com/board/third/cos/5.1.0/cos.min.js"></script>
 <!-- TEduBoard SDK -->
-<script src="https://res.qcloudtiw.com/board/2.5.1/TEduBoard.min.js"></script>
+<script src="https://res.qcloudtiw.com/board/2.6.0/TEduBoard.min.js"></script>
 ```
 
 如果您需要添加视频文件还需要添加以下代码：
@@ -34,12 +34,11 @@
 <script src="https://res.qcloudtiw.com/board/third/videojs/1.0.0/video.min.js"></script>
 ```
 
-> 目前互动白板中依赖 axios, cos，请使用 script:src 的方式加载，这样能够保证在全局访问到 axios 和 cos，不支持 import 的方式。
+目前互动白板中依赖 axios、cos，请使用 script:src 的方式加载，这样能够保证在全局访问到 axios 和 cos，不支持 import 的方式。
 
 ## 使用 TEduBoard SDK
 
 #### 1. 创建白板控制器
-
 
 ```
 var initParams = {
@@ -54,7 +53,7 @@ var teduBoard = new TEduBoard(initParams);
 
 #### 2. 监听白板关键事件
 
-> 使用 on 监听白板事件
+使用 on 监听白板事件
 
 ```
 // 监听白板错误事件
@@ -74,7 +73,9 @@ teduBoard.on(TEduBoard.EVENT.TEB_WARNING, (code, msg) => {
 
 白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
 
- - 监听事件 TEduBoard.EVENT.TEB_SYNCDATA
+监听事件 TEduBoard.EVENT.TEB_SYNCDATA
+
+>!因为 TIM 消息有限频，请将白板消息的优先级设置为最高，以保证白板信令消息不会被丢弃。
 
 ```
 // 1. 监听操作白板参数的数据，并将回调的数据通过 im 发送到接收者
@@ -82,10 +83,11 @@ teduBoard.on(TEduBoard.EVENT.TEB_SYNCDATA, data => {
   let message = this.tim.createCustomMessage({
     to: '课堂号',
     conversationType: window.TIM.TYPES.CONV_GROUP,
+    priority: TIM.TYPES.MSG_PRIORITY_HIGH,  // 因为im消息有限频，白板消息的优先级调整为最高
     payload: {
       data: JSON.stringify(data), 
       description: '',
-      extension: 'TXWhiteBoardExt'
+      extension: 'TXWhiteBoardExt' // 固定写法，各端会以extension: 'TXWhiteBoardExt'为标志作为白板信令
     }
   })
   this.tim.sendMessage(message).then(() => {
@@ -104,7 +106,7 @@ this.tim.on(window.TIM.EVENT.MESSAGE_RECEIVED, () => {
   messages.forEach((message) => {
     // 群组消息
     if (message.conversationType === window.TIM.TYPES.CONV_GROUP) {
-      if (message.to === '课堂号') { // 如果是当前群组
+      if (message.to === '课堂号') { // 如果是当前课堂，这里需要注意一定只能接受当前课堂群组的信令。如果用户加入多个im群组，恰巧这几个群组也在上课，白板信令则会多个课堂错乱，引发互动白板不能同步的异常行为。
         let elements = message.getElements();
         if (elements.length) {
           elements.forEach((element) => {

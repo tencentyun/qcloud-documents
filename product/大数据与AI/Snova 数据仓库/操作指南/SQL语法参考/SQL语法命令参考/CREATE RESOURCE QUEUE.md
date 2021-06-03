@@ -1,7 +1,6 @@
 定义一个新的资源队列。
 
 ## 概要
-
 ```sql
 CREATE RESOURCE QUEUE name WITH (queue_attribute=value [, ... ])
 ```
@@ -42,7 +41,6 @@ CREATE RESOURCE QUEUE name WITH (queue_attribute=value [, ... ])
 - 基于成本队列每个查询分配的默认内存量为：MEMORY_LIMIT * (query_cost / MAX_COST)。
 
 默认内存分配可以使用 statement_mem 服务器配置参数在每个查询的基础上被覆盖。前提是不超过 MEMORY_LIMIT 或 max_statement_mem。例如要为特定查询分配更多的内存。
-
 ```sql
 => SET statement_mem='2GB';
 => SELECT * FROM my_big_table WHERE column='value' ORDER BY id;
@@ -52,7 +50,6 @@ CREATE RESOURCE QUEUE name WITH (queue_attribute=value [, ... ])
 该 MEMORY_LIMIT 值对于用户所有的资源队列都不应该超过 Segment 主机上的物理内存。如果工作负载在多个队列中交错，内存分配可以重新拟定。但是，如果 Segment 主机在 gp_vmem_protect_limit 指定的内存限制被超的话，执行中查询可以被取消。
 
 ## 参数
-
 name
 资源队列的名字。
 
@@ -76,12 +73,10 @@ PRIORITY={MIN|LOW|MEDIUM|HIGH|MAX}
 
 ## 注意
 使用 gp_toolkit.gp_resqueue_status 系统视图查看限制设置和当前资源队列的状态：
-
 ```sql
 SELECT * from gp_toolkit.gp_resqueue_status WHERE 
   rsqname='queue_name';
 ```
-
 还有一个叫 pg_stat_resqueues 的系统视图，这显示了资源队列随时间的统计指标。但是为了使用该视图，用户必须启用 stats_queue_level 服务器配置参数。更多使用资源队列的信息请参阅“数据库管理指南”的“管理工作负载和资源”。
 
 CREATE RESOURCE QUEUE 不能再事务中运行。
@@ -89,51 +84,37 @@ CREATE RESOURCE QUEUE 不能再事务中运行。
 此外，在 EXPLAIN ANALYZE 命令执行期间执行的 SQL 命令被从资源队列排除。
 
 ## 示例
-
 创建一个活跃查询限制为20的资源队列：
-
 ```sql
 CREATE RESOURCE QUEUE myqueue WITH (ACTIVE_STATEMENTS=20);
 ```
-
 创建一个活跃查询限制为20的资源队列并且总内存限制为2000MB（在执行时，每个查询会被分配100MB端主机内存）：
-
 ```sql
 CREATE RESOURCE QUEUE myqueue WITH (ACTIVE_STATEMENTS=20, 
   MEMORY_LIMIT='2000MB');
 ```
-
 创建一个查询代价限制为3000.0的资源队列：
-
 ```sql
 CREATE RESOURCE QUEUE myqueue WITH (MAX_COST=3000.0);
 ```
-
 创建一个查询代价限制为310的资源队列（或者 30000000000.0）并且不允许复写。允许500以下的小查询立即运行：
-
 ```sql
 CREATE RESOURCE QUEUE myqueue WITH (MAX_COST=3e+10, 
   COST_OVERCOMMIT=FALSE, MIN_COST=500.0);
 ```
-
 创建一个带有活跃查询限制和查询代价限制的资源队列：
-
 ```sql
 CREATE RESOURCE QUEUE myqueue WITH (ACTIVE_STATEMENTS=30, 
   MAX_COST=5000.00);
 ```
-
 创建一个带有活跃查询限制为5并且有最大优先级设置的资源队列：
-
 ```sql
 CREATE RESOURCE QUEUE myqueue WITH (ACTIVE_STATEMENTS=5, 
   PRIORITY=MAX);
 ```
 
 ## 兼容性
-
 CREATE RESOURCE QUEUE 是数据库扩展，在 SQL 标准中没有资源队列和工作负载管理的规定。
 
 ## 另见
-
 ALTER ROLE、CREATE ROLE、ALTER RESOURCE QUEUE、DROP RESOURCE QUEUE

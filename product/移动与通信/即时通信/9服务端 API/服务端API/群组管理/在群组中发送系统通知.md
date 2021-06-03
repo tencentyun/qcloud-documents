@@ -47,11 +47,11 @@ https://console.tim.qq.com/v4/group_open_http_svc/send_group_system_notification
 ```
 
 - **指定接收群成员**
-用来向群中的指定的群成员下发系统消息，接收者在 ToMembers_Account 中设置，AVChatRoom(直播群) 不支持指定接收群成员。
+用来向群中的指定的群成员下发系统消息，接收者在 ToMembers_Account 中设置，AVChatRoom(直播群) 群类型仅支持全员下发，不支持指定群成员接收者。
 ```
 {
     "GroupId": "@TGS#2C5SZEAEF",
-    "ToMembers_Account": [ // 接收者群成员列表，不填或为空表示全员下发
+    "ToMembers_Account": [ // 接收者群成员列表，不填或为空表示全员下发，AVChatRoom 群类型仅支持全员下发，不支持指定群成员接收者。
         "peter",
         "leckie"
     ],

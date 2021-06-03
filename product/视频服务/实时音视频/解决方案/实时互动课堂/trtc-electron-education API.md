@@ -66,7 +66,7 @@ const EVENT = rtcClient.EVENT
 rtcClient.off(EVENT.MESSAGE_RECEIVED, onMessageReceived);
 ```
 
-<span id="createRoom"></span>
+[](id:createRoom)
 #### createRoom(params: CreateRoomParams)
 老师创建教室。  
 参数：
@@ -101,7 +101,7 @@ rtcClient.createRoom(params).then(() => {
 rtcClient.destroyRoom(classId)
 ```
 
-<span id="enterRoom"></span>
+[](id:enterRoom)
 #### enterRoom(params: EnterRoomParams)
 老师开始上课，学生进入教室，准备听课。
 参数：
@@ -140,7 +140,7 @@ rtcClient.exitRoom(role, classId);
 ```
 
 ### 举手操作环节函数
-<span id="startQuestionTime"></span>
+[](id:startQuestionTime)
 #### startQuestionTime(classId: number)
 老师开始问答时间，老师端广播通知，学生收到开始问答事件， 开启举手功能。
 参数：
@@ -154,7 +154,7 @@ rtcClient.exitRoom(role, classId);
 rtcClient.startQuestionTime(classId)
 ```
 
-<span id="raiseHand"></span>
+[](id:raiseHand)
 #### raiseHand()
 学生举手，学生发送举手通知，老师端收到学生举手通知。  
 参数：无
@@ -163,7 +163,7 @@ rtcClient.startQuestionTime(classId)
 rtcClient.raiseHand()
 ```
 
-<span id="inviteToPlatform"></span>
+[](id:inviteToPlatform)
 #### inviteToPlatform(userID: string)
 老师邀请学生上台回答，老师端选择举手列表里的学生 userID ，发送邀请通知，学生端收到邀请上台回答事件，受邀请的学生开麦。如果没有学生举手，老师直接点名回答，学生端收到邀请上台回答事件，被点名的学生开麦。
 参数：
@@ -178,7 +178,7 @@ rtcClient.inviteToPlatform(userID).then(() => {
 })
 ```
 
-<span id="finishAnswering"></span>
+[](id:finishAnswering)
 #### finishAnswering(userID: string)
 结束回答，老师端结束学生端回答，学生收到结束回答的通知，指定的学生停止连麦。
 参数：
@@ -207,7 +207,7 @@ rtcClient.stopQuestionTime(classId)
 ```
 
 ### 推拉流操作相关函数
-<span id="getScreenShareList"></span>
+[](id:getScreenShareList)
 #### getScreenShareList()
 获取屏幕分享窗口列表。
 参数：无
@@ -217,7 +217,7 @@ rtcClient.getScreenShareList();
 ```
 
 
-<span id="startScreenCapture"></span>
+[](id:startScreenCapture)
 #### startScreenCapture(source: SourceParam)
 选择分享屏幕，开始推流。
 参数：
@@ -242,7 +242,7 @@ rtcClient.startScreenCapture({
  })
 ```
 
-<span id="startRemoteView"></span>
+[](id:startRemoteView)
 #### startRemoteView(params: RemoteParams) 
 开始显示远端视频画面或屏幕分享画面。
 参数：
@@ -338,7 +338,7 @@ rtcClient.sendGroupCustomMessage(classId, JSON.stringify(params))
 ```
 
 ### 设备操作相关函数
-<span id="openCamera"></span>
+[](id:openCamera)
 #### openCamera(view: HTMLElement)
 打开摄像头。
 参数：
@@ -361,7 +361,7 @@ rtcClient.openCamera(domEle);
 rtcClient.closeCamera();
 ```
 
-<span id="getCameraList"></span>
+[](id:getCameraList)
 #### getCameraList()
 获取摄像头列表。
 参数：无
@@ -370,7 +370,7 @@ rtcClient.closeCamera();
 rtcClient.getCameraList()
 ```
 
-<span id="setCurrentCamera"></span>
+[](id:setCurrentCamera)
 #### setCurrentCamera(deviceId:string)
 设置摄像头，参数是从 getCameraDevicesList 中得到的设备 ID。
 参数：
@@ -384,7 +384,7 @@ rtcClient.getCameraList()
 rtcClient.setCurrentCamera(deviceId)
 ```
 
-<span id="openMicrophone"></span>
+[](id:openMicrophone)
 #### openMicrophone()
 打开麦克风。
 参数：无
@@ -393,7 +393,7 @@ rtcClient.setCurrentCamera(deviceId)
 rtcClient.openMicrophone();
 ```
 
-<span id="closeMicrophone"></span>
+[](id:closeMicrophone)
 #### closeMicrophone()
 关闭麦克风。
 参数：无
@@ -403,7 +403,7 @@ rtcClient.closeMicrophone();
 ```
 
 
-<span id="getMicrophoneList"></span>
+[](id:getMicrophoneList)
 #### getMicrophoneList()
 获取麦克风设备列表。  
 参数：无
@@ -424,7 +424,7 @@ rtcClient.getMicrophoneList()
 rtcClient.setCurrentMicDevice(micId)
 ```
 
-<span id="setBeautyStyle"></span>
+[](id:setBeautyStyle)
 #### setBeautyStyle(params: BeautyParams) 
 设置美颜、美白、红润效果级别。 
 参数：

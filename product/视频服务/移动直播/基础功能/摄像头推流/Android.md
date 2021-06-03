@@ -1,7 +1,7 @@
 ## 功能概述
 
 摄像头推流，是指采集手机摄像头的画面以及麦克风的声音，进行编码之后再推送到直播云平台上。腾讯云 LiteAVSDK 通过 TXLivePusher 接口提供摄像头推流能力，如下是 LiteAVSDK 的简单版 Demo 中演示摄像头推流的相关操作界面：
-![](https://main.qcloudimg.com/raw/2e38fc03bbd8a0963c880e468c38571a.jpg)
+![](https://main.qcloudimg.com/raw/52ee09ae4039d24f39e3cf8110e632c7.jpg)
 
 ## 特别说明
 
@@ -56,7 +56,7 @@ public class MApplication extends Application {
 // 一般情况下不需要修改 config 的默认配置   
  mLivePusher.setConfig(mLivePushConfig);    
 ```
-<span id="step4"></span>
+[](id:step4)
 ### 4. 开启摄像头预览  
 
 欲展示摄像头的预览画面，您需要先给 SDK 提供一个用于显示视频画面的`TXCloudVideoView`对象，由于`TXCloudVideoView`是继承自 Android 中的`FrameLayout`，所以您可以直接在 xml 文件中添加一个视频渲染控件：    
@@ -96,12 +96,10 @@ mLivePusher.stopCameraPreview(true); //如果已经启动了摄像头预览，�
 ```
 
 - **如何获取可用的推流 URL** 
-
->开通直播服务后，可以使用 [直播控制台 > 辅助工具 > 地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。 
->![](https://main.qcloudimg.com/raw/7110d39cdb464b789bd68301f4de7ebe.png)   
->
->- **返回 -5 的原因**    
->  如果 `startPusher` 接口返回 -5，则代表您的 License 校验失败了，请检查第2步“给 SDK 配置 License 授权”中的工作是否有问题。   
+开通直播服务后，可以使用 [【直播控制台】>【直播工具箱】>【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。 
+![](https://main.qcloudimg.com/raw/7110d39cdb464b789bd68301f4de7ebe.png)   
+- **返回 -5 的原因**    
+如果 `startPusher` 接口返回 -5，则代表您的 License 校验失败了，请检查第2步“给 SDK 配置 License 授权”中的工作是否有问题。   
 
 ### 6. 纯音频推流    
 
@@ -254,13 +252,13 @@ mLivePusher.pausePusher();
 mLivePusher.resumePusher(); 
 ```
 
->! SDK 支持在 App 切后台之后继续采集画面和声音，您只需不调用`pausePusher()`就可以达到这个效果，但这不利于保护主播的隐私。  
->   
->隐私模式可以通过在 App 界面上加一个切换按钮来让主播自主进入，也可以编写代码，让 App 在切后台时自动进入，目前 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo) 就采用了 App 切后台时自动进入隐私模式的交互方案，注释掉源码中对`pausePusher()`和`resumePusher()`的调用就可以关闭这个特性。 
->
->### 14. 背景混音和混响    
->
->![](https://main.qcloudimg.com/raw/e5c1b903cf5176f996a0b30dbb804032.jpg)   
+>! 
+>- SDK 支持在 App 切后台之后继续采集画面和声音，您只需不调用`pausePusher()`就可以达到这个效果，但这不利于保护主播的隐私。  
+>- 隐私模式可以通过在 App 界面上加一个切换按钮来让主播自主进入，也可以编写代码，让 App 在切后台时自动进入，目前 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo) 就采用了 App 切后台时自动进入隐私模式的交互方案，注释掉源码中对`pausePusher()`和`resumePusher()`的调用就可以关闭这个特性。 
+
+
+### 14. 背景混音和混响    
+![](https://main.qcloudimg.com/raw/e5c1b903cf5176f996a0b30dbb804032.jpg)   
 
 调用 TXLivePush 中的 BGM 相关接口可以实现背景混音功能。背景混音是指主播在直播时可以选取一首歌曲伴唱，歌曲会在主播的手机端播放出来，同时也会被混合到音视频流中被观众端听到，所以被称为“混音”。    
 
@@ -312,12 +310,10 @@ public interface ITXVideoRecordListener {
 ```
 
 >!  
->
 >1. 只有启动推流后才能开始录制，非推流状态下启动录制无效。 
 >2. 出于安装包体积的考虑，仅专业版和企业版两个版本的 LiteAVSDK 支持该功能，直播精简版仅定义了接口但并未实现。  
 >3. 录制过程中请勿动态切换分辨率和软硬编，会有很大概率导致生成的视频异常。 
 >4. 使用 TXLivePusher 录制视频会一定程度地降低推流性能，云直播服务也提供了云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。    
->
 
 ### 17. 主播端弱网提醒 
 手机连接 Wi-Fi 网络不一定就非常好，如果 Wi-Fi 信号差或者出口带宽很有限，可能网速不如4G，如果主播在推流时遇到网络很差的情况，需要有一个友好的提示，提示主播应当切换网络。    

@@ -49,14 +49,14 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnDetailStat
 | data.statType | String  | CDN 统计数据类型， 和输入的 statType 一致。                                  |
 | data.hostData | Array   | 每个域名的统计数据列表，请参见 [HostStatData](#p1)。                               |
 
-#### <span id = "p1"></span>HostStatData
+#### [](id:p1)HostStatData
 | 参数名称     | 类型   | 说明                                                                                                   |
 | ------------ | ------ | ------------------------------------------------------------------------------------------------------ |
 | host         | String | 域名。                                                                                                   |
 | domesticData | Array  | 国内 CDN 节点的统计数据明细，请参见 [StatData](#p2)。                                                   |
 | overseaData  | Array  | 海外 CDN 节点的统计数据明细，请参见 [StatData](#p2)。如果域名没有开通海外 CDN 加速，则不会返回这个数据。 |
 
-#### <span id = "p2"></span>StatData
+#### [](id:p2)StatData
 | 参数名称  | 类型    | 说明                      |
 | --------- | ------- | ------------------------- |
 | timeStamp | Integer | 数据所属时间，Unix 时间戳。 |
@@ -98,6 +98,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnDetailStat
 	}
 }
 ```
+
 
 
 

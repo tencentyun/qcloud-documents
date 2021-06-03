@@ -1,231 +1,87 @@
-
 ## 配置场景
 
-腾讯云 CDN 支持添加回源请求头部：
+腾讯云 CDN 支持增加回源请求头部：
 
 - 支持通过 X-Forward-For 头部携带真实客户端 IP 至源站。
 - 支持通过 X-Forward-Port 头部携带真实客户端端口至源站，用于源站侧分析。
 - 支持添加各类自定义头部。
 
+也支持设置和删除自定义回源请求头部。
+
 ## 配置指南
 
-### 配置约束
+### 查看配置
 
-- 自定义请求头部配置规则最多可配置10条。
-- 生效类型支持全部文件、文件类型、文件目录、指定文件路径四种模式，暂不支持正则匹配。
-- 若用户端发起请求中已存在头部信息，配置的 Request Header 在回源时会覆盖原有头部。
-- 多条规则头部设置重复时，优先级为从上到下从低到高，底部优先级高于顶部。
-- 自定义头部的 Key 值长度默认为1 - 100个字符，由数字0 - 9、字符a - z、A - Z，及特殊符 `-` 组成。
-- 自定义头部的 Value 长度为1 - 1000个字符，不支持中文。
-- 部分标准头部不支持自助添加，具体清单请看文档最后部分说明。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可在【回源配置】中看到回源 HTTP 请求头配置，默认情况下为关闭状态，无任何配置：
+![](https://main.qcloudimg.com/raw/9d5777902e46cdbe037a7ea9eb78d567.png)
 
-### 配置说明
+### 操作类型
 
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可在【回源配置】中看到回源 Request Header 配置，默认情况下为关闭状态，无任何配置：
-![](https://main.qcloudimg.com/raw/253c67e926455bd17f2cda79fa46d2ba.png)
-关闭状态下，可新增回源头部规则：
-![](https://main.qcloudimg.com/raw/895adcd7cebdb0d75bbde1c22244a2a5.png)
+| 操作类型 | 说明                                                         |
+| -------- | ------------------------------------------------------------ |
+| 设置     | 变更指定请求头部参数的取值为设置后的值。<br/>若设置的头部不存在，则会增加该头部。<br/>若回源请求头部参数已存在，则设置的请求头会覆盖原有头部且唯一。 |
+| 增加     | 增加指定的回源请求头部参数。<br/>若设置的头部已存在，则增加的请求头会覆盖原有头部且唯一。 |
+| 删除     | 删除指定的请求头参数。                                       |
+
+>!
+> - 底部优先级大于顶部 - 此相对位置的优先级仅限于同类型头部操作中，例如多条增加头部规则之间、多条删除头部规则之间或多条设置头部规则之间。
+> - 当不同的头部操作类型同时作用于同一个回源请求头参数的时候，按照操作类型的优先级来执行，顺序为：增加 > 删除 > 设置。例如：同时存在增加、删除和设置X-CDN头部的规则时，会先增加，再删除，最后再设置。
+
+### 头部参数
+
+| 头部参数       | 说明                                                         |
+| -------------- | ------------------------------------------------------------ |
+| X-Forward-For  | 用于携带用户端真实 IP 的头部。其值默认为 $client_ip 变量，不允许修改。 |
+| X-Forward-Port | 用于携带用户端真实端口的头部。其值默认为 $remote_port 变量，不允许修改。 |
+| 自定义头部     | 自定义头部的Key 值长度默认为1 - 100个字符，由数字0 - 9、字符a - z、A - Z，及特殊符 `-` 组成。<br>Value 长度为1 - 1000个字符，不支持中文。<br>部分标准头部不支持自助设置/增加/删除，具体清单请参见文档 [注意事项](#noice)。 |
 
 > !
-> 1. 用于携带用户端真实 IP 的头部为：X-Forward-For，其值默认为 $client_ip 变量，不允许修改。
-> 2. 用于携带用户端真实端口的头部为：X-Forward-Port，其值默认为 $remote_port 变量，不允许修改。
+> - 回源 HTTP 请求头配置规则最多可配置10条。
+> - 生效类型支持全部文件、文件类型、文件目录、指定文件路径四种模式，暂不支持正则匹配。
 
-规则添加完毕后，此时整体配置为关闭状态，不会生效：
-![](https://main.qcloudimg.com/raw/6d66d2ae51509aa787409ad4d0f301e1.png)
-可通过【调整优先级】按钮，调整规则上下顺序，如需发布至全网 CDN 节点，单击上方配置开关即可：
-![](https://main.qcloudimg.com/raw/f984682c540bdd219c85a3dd3e51d7ca.png)
+
 
 ## 配置示例
 
-若加速域名`cloud.tencent.com`的回源 Request Header 配置如下：
-![](https://main.qcloudimg.com/raw/18b181e351aaf4a176ebcb9656921986.png)
+若加速域名 `cloud.tencent.com` 的回源 HTTP 请求头配置如下：
+![](https://main.qcloudimg.com/raw/cd018a8767ffdbd57862db197af48141.png)
 若访问资源为：`http://cloud.tencent.com/test/test.mp4`
-1. 命中`*`规则，增加头部`X-Forward-For:$client_ip`头部，回源时将 $client_ip 替换为真实客户端 IP。
-2. 命中`.mp4`文件类型及`/test`路径，底部优先级大于顶部优先级，因此增加`x-cdn:Tencent`头部。
 
-## 注意事项
+1. 命中 `*` 规则，增加头部 `X-Forward-For:$client_ip` 头部，回源时将 $client_ip 替换为真实客户端 IP。
+2. 命中 `.mp4` 文件类型及/test路径，因是同一头部操作类型 - 增加，则底部优先级大于顶部，因此增加 `x-cdn:Tencent` 头部。
 
-以下标准头部暂时不支持添加回源 Request Header：
+## 注意事项[](id:noice)
 
-<table>
-<tbody><tr>
-<td>www-authenticate</td>
-<td>authorization</td>
-<td>proxy-authenticate</td>
-<td>proxy-authorization</td>
-</tr>
-<tr>
-<td>age</td>
-<td>cache-control</td>
-<td>clear-site-data</td>
-<td>expires</td>
-</tr>
-<tr>
-<td>pragma</td>
-<td>warning</td>
-<td>accept-ch</td>
-<td>accept-ch-lifetime</td>
-</tr>
-<tr>
-<td>early-data</td>
-<td>content-dpr</td>
-<td>dpr</td>
-<td>device-memory</td>
-</tr>
-<tr>
-<td>save-data</td>
-<td>viewport-width</td>
-<td>width</td>
-<td>last-modified</td>
-</tr>
-<tr>
-<td>etag</td>
-<td>if-match</td>
-<td>if-none-match</td>
-<td>if-modified-since</td>
-</tr>
-<tr>
-<td>if-unmodified-since</td>
-<td>vary</td>
-<td>connection</td>
-<td>keep-alive</td>
-</tr>
-<tr>
-<td>accept</td>
-<td>accept-charset</td>
-<td>expect</td>
-<td>max-forwards</td>
-</tr>
-<tr>
-<td>access-control-allow-origin</td>
-<td>access-control-max-age</td>
-<td>access-control-allow-headers</td>
-<td>access-control-allow-methods</td>
-</tr>
-<tr>
-<td>access-control-expose-headers</td>
-<td>access-control-allow-credentials</td>
-<td>access-control-request-headers</td>
-<td>access-control-request-method</td>
-</tr>
-<tr>
-<td>origin</td>
-<td>timing-allow-origin</td>
-<td>dnt</td>
-<td>tk</td>
-</tr>
-<tr>
-<td>content-disposition</td>
-<td>content-length</td>
-<td>content-type</td>
-<td>content-encoding</td>
-</tr>
-<tr>
-<td>content-language</td>
-<td>content-location</td>
-<td>forwarded</td>
-<td>x-forwarded-host</td>
-</tr>
-<tr>
-<td>x-forwarded-proto</td>
-<td>via</td>
-<td>from</td>
-<td>host</td>
-</tr>
-<tr>
-<td>referer</td>
-<td>referer-policy</td>
-<td>allow</td>
-<td>server</td>
-</tr>
-<tr>
-<td>accept-ranges</td>
-<td>range</td>
-<td>if-range</td>
-<td>content-range</td>
-</tr>
-<tr>
-<td>cross-origin-embedder-policy</td>
-<td>cross-origin-opener-policy</td>
-<td>cross-origin-resource-policy</td>
-<td>content-security-policy</td>
-</tr>
-<tr>
-<td>content-security-policy-report-only</td>
-<td>expect-ct</td>
-<td>feature-policy</td>
-<td>strict-transport-security</td>
-</tr>
-<tr>
-<td>upgrade-insecure-requests</td>
-<td>x-content-type-options</td>
-<td>x-download-options</td>
-<td>x-frame-options(xfo)</td>
-</tr>
-<tr>
-<td>x-permitted-cross-domain-policies</td>
-<td>x-powered-by</td>
-<td>x-xss-protection</td>
-<td>public-key-pins</td>
-</tr>
-<tr>
-<td>public-key-pins-report-only</td>
-<td>sec-fetch-site</td>
-<td>sec-fetch-mode</td>
-<td>sec-fetch-user</td>
-</tr>
-<tr>
-<td>sec-fetch-dest</td>
-<td>last-event-id</td>
-<td>nel</td>
-<td>ping-from</td>
-</tr>
-<tr>
-<td>ping-to</td>
-<td>report-to</td>
-<td>transfer-encoding</td>
-<td>te</td>
-</tr>
-<tr>
-<td>trailer</td>
-<td>sec-websocket-key</td>
-<td>sec-websocket-extensions</td>
-<td>sec-websocket-accept</td>
-</tr>
-<tr>
-<td>sec-websocket-protocol</td>
-<td>sec-websocket-version</td>
-<td>accept-push-policy</td>
-<td>accept-signature</td>
-</tr>
-<tr>
-<td>alt-svc</td>
-<td>date</td>
-<td>large-allocation</td>
-<td>link</td>
-</tr>
-<tr>
-<td>push-policy</td>
-<td>retry-after</td>
-<td>signature</td>
-<td>signed-headers</td>
-</tr>
-<tr>
-<td>server-timing</td>
-<td>service-worker-allowed</td>
-<td>sourcemap</td>
-<td>upgrade</td>
-</tr>
-<tr>
-<td>x-dns-prefetch-control</td>
-<td>x-firefox-spdy</td>
-<td>x-pingback</td>
-<td>x-requested-with</td>
-</tr>
-<tr>
-<td>x-robots-tag</td>
-<td>x-ua-compatible</td>
-<td>max-age</td>
-<td></td>
-</tr>
-</tbody></table>
+以下标准头部暂时不支持设置/增加/删除回源 HTTP 响应头：
+
+| www-authenticate              | authorization                    | proxy-authenticate             | proxy-authorization                 |
+| ----------------------------- | -------------------------------- | ------------------------------ | ----------------------------------- |
+| age                           | cache-control                    | clear-site-data                | expires                             |
+| pragma                        | warning                          | accept-ch                      | accept-ch-lifetime                  |
+| early-data                    | content-dpr                      | dpr                            | device-memory                       |
+| save-data                     | viewport-width                   | width                          | last-modified                       |
+| etag                          | if-match                         | if-none-match                  | if-modified-since                   |
+| if-unmodified-since           | vary                             | connection                     | keep-alive                          |
+| accept                        | accept-charset                   | expect                         | max-forwards                        |
+| access-control-allow-origin   | access-control-max-age           | access-control-allow-headers   | access-control-allow-methods        |
+| access-control-expose-headers | access-control-allow-credentials | access-control-request-headers | access-control-request-method       |
+| origin                        | timing-allow-origin              | dnt                            | tk                                  |
+| content-disposition           | content-length                   | content-type                   | content-encoding                    |
+| content-language              | content-location                 | forwarded                      | x-forwarded-host                    |
+| x-forwarded-proto             | via                              | from                           | host                                |
+| referer-policy                | allow                            | server                         | accept-ranges                       |
+| range                         | if-range                         | content-range                  | cross-origin-embedder-policy        |
+| cross-origin-opener-policy    | cross-origin-resource-policy     | content-security-policy        | content-security-policy-report-only |
+| expect-ct                     | feature-policy                   | strict-transport-security      | upgrade-insecure-requests           |
+| x-content-type-options        | x-download-options               | x-frame-options(xfo)           | x-permitted-cross-domain-policies   |
+| x-powered-by                  | x-xss-protection                 | public-key-pins                | public-key-pins-report-only         |
+| sec-fetch-site                | sec-fetch-mode                   | sec-fetch-user                 | sec-fetch-dest                      |
+| last-event-id                 | nel                              | ping-from                      | ping-to                             |
+| report-to                     | transfer-encoding                | te                             | trailer                             |
+| sec-websocket-key             | sec-websocket-extensions         | sec-websocket-accept           | sec-websocket-protocol              |
+| sec-websocket-version         | accept-push-policy               | accept-signature               | alt-svc                             |
+| date                          | large-allocation                 | link                           | push-policy                         |
+| retry-after                   | signature                        | signed-headers                 | server-timing                       |
+| service-worker-allowed        | sourcemap                        | upgrade                        | x-dns-prefetch-control              |
+| x-firefox-spdy                | x-pingback                       | x-requested-with               | x-robots-tag                        |
+| x-ua-compatible               | max-age                          |                                |                                     |

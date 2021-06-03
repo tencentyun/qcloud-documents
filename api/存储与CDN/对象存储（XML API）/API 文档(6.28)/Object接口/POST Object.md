@@ -5,6 +5,24 @@ POST Object 接口请求可以将本地不超过5GB的对象（Object）以网�
 > !
 > - POST Object 接口不使用 COS 对象存储统一的请求签名，而是拥有自己的签名要求，请参见本文档的 [签名保护](#id1) 及相关字段的描述。
 > - 如果试图添加已存在的同名对象且没有启用版本控制，则新上传的对象将覆盖原来的对象，成功时按照指定的返回方式正常返回。
+> 
+
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=PostObject&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
 
 #### 版本控制
 
@@ -21,6 +39,8 @@ Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Content-Type: multipart/form-data; boundary=Multipart Boundary
 Content-Length: Content Length
+
+
 
 [Multipart Form Data]
 ```
@@ -53,7 +73,7 @@ Content-Length: Content Length
 
 | 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述                                                         | 类型   | 是否必选 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | -------- |
-| acl                                                          | 定义对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**当前访问策略条目限制为1000条，如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum   | 否       |
+| acl                                                          | 定义对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum   | 否       |
 | x-cos-grant-read                                             | 赋予被授权者读取对象的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
 | x-cos-grant-read-acp                                         | 赋予被授权者读取对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
 | x-cos-grant-write-acp                                        | 赋予被授权者写入对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
@@ -252,7 +272,8 @@ c. 拼接签名有效时间，格式为`StartTimestamp;EndTimestamp`，即为 Ke
 
 #### 请求
 
-```shell
+<dx-codeblock>
+:::  shell
 POST / HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Thu, 29 Aug 2019 07:39:34 GMT
@@ -290,7 +311,8 @@ Content-Type: image/jpeg
 
 [Object Content]
 ------WebKitFormBoundaryZBPbaoYE2gqeB21N--
-```
+:::
+</dx-codeblock>
 
 #### 响应
 
@@ -311,7 +333,8 @@ x-cos-request-id: NWQ2NzgxMzZfMmViMDJhMDlfY2NjOF84NGQz****
 
 #### 请求
 
-```shell
+<dx-codeblock>
+:::  shell
 POST / HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Thu, 29 Aug 2019 07:39:34 GMT
@@ -373,7 +396,8 @@ Content-Type: image/jpeg
 
 [Object Content]
 ------WebKitFormBoundary9JtEhEGHSdx8Patg--
-```
+:::
+</dx-codeblock>
 
 #### 响应
 
@@ -394,7 +418,8 @@ x-cos-request-id: NWQ2NzgxMzdfM2NhZjJhMDlfMTQzYV84Nzhh****
 
 #### 请求
 
-```shell
+<dx-codeblock>
+:::  shell
 POST / HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Thu, 29 Aug 2019 07:39:35 GMT
@@ -436,7 +461,8 @@ Content-Type: image/jpeg
 
 [Object Content]
 ------WebKitFormBoundaryBVaHvBJQJnQrAxKY--
-```
+:::
+</dx-codeblock>
 
 #### 响应
 
@@ -458,7 +484,8 @@ x-cos-server-side-encryption: AES256
 
 #### 请求
 
-```shell
+<dx-codeblock>
+:::  shell
 POST / HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Thu, 29 Aug 2019 07:39:36 GMT
@@ -508,7 +535,8 @@ Content-Type: image/jpeg
 
 [Object Content]
 ------WebKitFormBoundaryYa6H7Gd4xuhlyfJb--
-```
+:::
+</dx-codeblock>
 
 #### 响应
 
@@ -531,7 +559,8 @@ x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
 
 #### 请求
 
-```shell
+<dx-codeblock>
+:::  shell
 POST / HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Thu, 29 Aug 2019 07:40:07 GMT
@@ -569,7 +598,8 @@ Content-Type: image/jpeg
 
 [Object Content]
 ------WebKitFormBoundaryJspR3QIUhGJLALwf--
-```
+:::
+</dx-codeblock>
 
 #### 响应
 
@@ -591,7 +621,8 @@ x-cos-version-id: MTg0NDUxNzcwMDkzMDE3NDQ0MDU
 
 #### 请求
 
-```shell
+<dx-codeblock>
+:::  shell
 POST / HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Thu, 29 Aug 2019 07:40:38 GMT
@@ -629,7 +660,8 @@ Content-Type: image/jpeg
 
 [Object Content]
 ------WebKitFormBoundaryX8hd2lxTMzIBk5Li--
-```
+:::
+</dx-codeblock>
 
 #### 响应
 
@@ -650,7 +682,8 @@ x-cos-request-id: NWQ2NzgxNzZfMjFjOTBiMDlfMWY3YTFfNjY2****
 
 #### 请求
 
-```shell
+<dx-codeblock>
+:::  shell
 POST / HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Thu, 29 Aug 2019 12:35:07 GMT
@@ -688,7 +721,8 @@ Content-Type: image/jpeg
 
 [Object Content]
 ------WebKitFormBoundaryHrAMWZO4BNyT0rca--
-```
+:::
+</dx-codeblock>
 
 #### 响应
 
@@ -709,7 +743,8 @@ x-cos-request-id: NWQ2N2M2N2NfNWZhZjJhMDlfNmUzMV84OTg4****
 
 #### 请求
 
-```shell
+<dx-codeblock>
+:::  shell
 POST / HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Thu, 29 Aug 2019 08:02:29 GMT
@@ -751,7 +786,8 @@ Content-Type: image/jpeg
 
 [Object Content]
 ------WebKitFormBoundaryJ0bRH1MwgMq5eu6H--
-```
+:::
+</dx-codeblock>
 
 #### 响应
 
@@ -772,7 +808,8 @@ x-cos-request-id: NWQ2Nzg2OTVfMTRiYjI0MDlfZGFkOV85MDA4****
 
 #### 请求
 
-```shell
+<dx-codeblock>
+:::  shell
 POST / HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Thu, 29 Aug 2019 08:04:29 GMT
@@ -814,7 +851,8 @@ Content-Type: image/jpeg
 
 [Object Content]
 ------WebKitFormBoundaryST9Mz8AGzCDphgJF--
-```
+:::
+</dx-codeblock>
 
 #### 响应
 

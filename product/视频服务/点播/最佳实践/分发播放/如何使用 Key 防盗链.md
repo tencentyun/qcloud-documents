@@ -31,7 +31,7 @@ Demo 基于云函数（SCF）搭建了一个 HTTP 服务，用于接收来自客
 
 ## 快速部署 Key 防盗链签名派发服务
 
-### 步骤1：准备腾讯云 CVM<span id="p1"></span>
+### 步骤1：准备腾讯云 CVM[](id:p1)
 
 部署脚本需要运行在一台腾讯云 CVM 上，要求如下：
 
@@ -46,14 +46,14 @@ Demo 基于云函数（SCF）搭建了一个 HTTP 服务，用于接收来自客
 >- Key 防盗链签名派发服务 Demo 本身并不依赖于 CVM，仅使用 CVM 来执行部署脚本。
 >- 如果您没有符合上述条件的腾讯云 CVM，也可以在其它带外网的 Linux（如 CentOS、Debian 等）或 Mac 机器上执行部署脚本，但需根据操作系统的区别修改脚本中的个别命令，具体修改方式请开发者自行搜索。
 
-### 步骤2：开通云点播并配置 Key 防盗链<span id="p2"></span>
+### 步骤2：开通云点播并配置 Key 防盗链[](id:p2)
 
 1. 参考 [快速入门 - 步骤1](https://cloud.tencent.com/document/product/266/8757#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.BC.80.E9.80.9A.E4.BA.91.E7.82.B9.E6.92.AD) 开通云点播服务。
 2. 开通完成后，参考 [设置防盗链](https://cloud.tencent.com/document/product/266/33469) 文档启用 Key 防盗链，并记录下防盗链 Key：
 ![](https://main.qcloudimg.com/raw/04d1a39b76fdb3bef5acebe57f3edb16.png)
 >!此处是开通 Key 防盗链，而非开通 Referer 防盗链。如果您同步开通了 Referer 防盗链，那么下文的测试方法有可能因为不符合 Referer 防盗链的要求而导致请求失败。
 
-### 步骤3：获取 API 密钥和 APPID<span id="p3"></span>
+### 步骤3：获取 API 密钥和 APPID[](id:p3)
 
 Key 防盗链签名派发服务 Demo 的部署和运行过程需要使用到开发者的 API 密钥（即 SecretId 和 SecretKey）和 APPID。
 
@@ -214,4 +214,5 @@ Key 防盗链签名派发云函数通过 API 网关对外提供接口，具体�
        }
 ```
 
+   
    

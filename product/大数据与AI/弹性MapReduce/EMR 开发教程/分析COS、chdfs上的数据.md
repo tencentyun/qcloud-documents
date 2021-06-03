@@ -1,9 +1,9 @@
 本节将基于腾讯云对象存储 COS 展示 Impala 更多使用方法，数据来源于直接插入数据、COS 数据。
 
 ## 开发准备
-1. 如果任务中需要访问腾讯云对象存储（COS），就需要在 COS 中先 [创建一个存储桶（Bucket）](https://cloud.tencent.com/document/product/436/13309)。如果任务中需要访问腾讯云 CHDFS，需要创建和挂载 CHDFS，具体可以参考 [创建 CHDFS](https://cloud.tencent.com/document/product/1105/37234) 和 [挂载 CHDFS](https://cloud.tencent.com/document/product/1105/36368)。确认您已经开通了腾讯云，并且创建了一个 EMR 集群。
-2. 在创建 EMR 集群的时候需要在软件配置界面选择 Impala 组件，并且在基础配置页面勾选“开启COS”，在下方填写自己的 SecretId 和 SecretKey。SecretId 和 SecretKey 可以在 [API 密钥管理界面](https://console.cloud.tencent.com/cam/capi) 查看。如果还没有密钥，请单击【新建密钥】建立一个新的密钥。
-3. Impala 等相关软件安装在路径 EMR 云服务器的`/usr/local/service/`路径下。
+1. 由于任务中需要访问腾讯云对象存储（COS），所以需要在 COS 中先 [创建一个存储桶（Bucket）](https://cloud.tencent.com/document/product/436/13309)。
+2. 确认您已开通腾讯云，且已创建一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Impala 组件，并且在基础配置页面开启对象存储的授权。
+3. Impala 等相关软件安装在路径 EMR 云服务器的 `/usr/local/service/` 路径下。
 
 ## 操作步骤
 登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)，可选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。

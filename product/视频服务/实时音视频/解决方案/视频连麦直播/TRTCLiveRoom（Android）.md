@@ -8,8 +8,8 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时直播组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 AVChatroom 实现直播聊天室的功能，同时，通过 IM 消息串联主播间的连麦流程。
 
-
-<h2 id="TRTCLiveRoom">TRTCLiveRoom API 概览</h2>
+[](id:TRTCLiveRoom)
+## TRTCLiveRoom API 概览
 
 ### SDK 基础函数
 
@@ -76,13 +76,13 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 | API | 描述 |
 |-----|-----|
-| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](#trtcaudioeffectmanagerapi)。|
+| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXAudioEffectManager__android.html#interfacecom_1_1tencent_1_1liteav_1_1audio_1_1TXAudioEffectManager)。|
 
 ### 美颜滤镜相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [getBeautyManager](#getbeautymanager) | 获取美颜管理对象 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。|
+| [getBeautyManager](#getbeautymanager) | 获取美颜管理对象 [TXBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。|
 
 ### 消息发送相关接口函数
 
@@ -146,7 +146,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 ## SDK 基础函数
 
-<span id="sharedInstance"></span>
+[](id:sharedInstance)
 ### sharedInstance
 
 获取 [TRTCLiveRoom](https://cloud.tencent.com/document/product/647/43182) 单例对象。
@@ -196,12 +196,15 @@ public abstract void setDelegateHandler(Handler handler);
 ### login
 
 登录。
-```java
+
+<dx-codeblock>
+::: java java
 public abstract void login(int sdkAppId,
  String userId, String userSig,
  TRTCLiveRoomDef.TRTCLiveRoomConfig config, 
  TRTCLiveRoomCallback.ActionCallback callback);
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -668,7 +671,7 @@ public abstract void muteAllRemoteAudio(boolean mute);
 ## 背景音乐音效相关接口函数
 ### getAudioEffectManager
 
-获取背景音乐音效管理对象 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
+获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
 ```java
 public abstract TXAudioEffectManager getAudioEffectManager();
 ```
@@ -677,7 +680,7 @@ public abstract TXAudioEffectManager getAudioEffectManager();
 ## 美颜滤镜相关接口函数
 ### getBeautyManager
 
-获取美颜管理对象 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。
+获取美颜管理对象 [TXBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。
 ```java
 public abstract TXBeautyManager getBeautyManager();
 ```
@@ -972,7 +975,7 @@ void onRecvRoomCustomMsg(String cmd, String message, TRTCLiveRoomDef.TRTCLiveUse
 | user | TRTCLiveUserInfo | 发送者用户信息。 |
 
    
-<span id="TRTCAudioEffectManager"></span>
+[](id:TRTCAudioEffectManager)
 ## TRTCAudioEffectManager
 ### playBGM
 
@@ -1080,7 +1083,7 @@ void setReverbType(int reverbType);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reverbType | int | 混响类型，详情请参见 `TRTCCloudDef` 中的 [TRTC_REVERB_TYPE](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#a60ecba31f49f70780e623d24bcfa1a7d) 定义。 |
+| reverbType | int | 混响类型，详情请参见 `TRTCCloudDef` 中的 [TRTC_REVERB_TYPE](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#a60ecba31f49f70780e623d24bcfa1a7d) 定义。 |
 
    
 
@@ -1095,7 +1098,7 @@ void setVoiceChangerType(int type);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| type | int | 混响类型，详情请参见 `TRTCCloudDef` 中的 [TRTC_VOICE_CHANGER_TYPE](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#a899e72b3e4a16288e6c2edfd779e3beb) 定义。 |
+| type | int | 混响类型，详情请参见 `TRTCCloudDef` 中的 [TRTC_VOICE_CHANGER_TYPE](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#a899e72b3e4a16288e6c2edfd779e3beb) 定义。 |
 
    
 

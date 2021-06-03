@@ -159,7 +159,7 @@ https://console.tim.qq.com/v4/openim/querystate?sdkappid=88888888&identifier=adm
 | 91000 |服务内部错误，请重试|
 
 ## 接口调试工具
-通过 [REST API 在线调试工具](https://29294-22989-29805-29810.cdn-go.cn/api-test.html#v4/im_open_login_svc/account_check) 调试本接口。
+通过 [REST API 在线调试工具](https://29294-22989-29805-29810.cdn-go.cn/api-test.html#v4/openim/querystate) 调试本接口。
 
 ## 参考
 

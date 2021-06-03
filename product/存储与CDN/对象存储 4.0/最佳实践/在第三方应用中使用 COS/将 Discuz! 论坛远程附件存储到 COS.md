@@ -14,9 +14,9 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
 	- 您也可以在 [腾讯云市场](https://market.cloud.tencent.com/) 中搜索购买已经预装 Discuz! 论坛程序的 CVM 镜像。
 2. 创建一个**公有读私有写**的存储桶，存储桶的地域建议与运行 Discuz! 论坛的 CVM 的地域相同，创建详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
 3. 在存储桶列表中找到刚刚创建的存储桶，并单击【配置管理】。
-   ![](https://main.qcloudimg.com/raw/e560b966482ea7bd418a5575ff0fd281.png)
-4. 单击左侧的【基础配置】，查看**访问域名**并记录。
-   ![](https://main.qcloudimg.com/raw/f98749d1f060c408530c87e4e2d2e8b4.png)
+![](https://main.qcloudimg.com/raw/6e011a00b4646f7d465056e9c88aa78c.png)
+4. 在左侧导航栏中，选择【概览】页签，查看**访问域名**并记录。
+![](https://main.qcloudimg.com/raw/e84d246bb9c44ac9647d4d0abae565b6.png)
 5. 在运行 Discuz! 论坛的 CVM 上，部署 COS FTP Server 工具，部署步骤可参见 [FTP Server 工具](https://cloud.tencent.com/document/product/436/7214)。
 	- 在配置 FTP Server 时，FTP Server 配置中的 masquerade_address 设置为 127.0.0.1 以保证该 FTP 服务仅能被本机访问。
 	- 您也可以使用独立的 CVM 单独部署 FTP Server，此时配置中的 masquerade_address 参数，您可依据实际情况配置为内网 IP 或外网 IP。

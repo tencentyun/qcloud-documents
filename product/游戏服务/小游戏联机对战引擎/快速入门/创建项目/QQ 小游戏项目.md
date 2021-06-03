@@ -1,3 +1,4 @@
+
 ## 操作场景
 
 以 [QQ 小程序开发者工具](https://q.qq.com/wiki/#_4-) 为例，本文介绍使用游戏联机对战引擎 MGOBE API 快速接入对战平台的方法，实现一个 MGOBE 的 Hello World 项目。
@@ -19,3 +20,4 @@
 
 
 >?其他平台具体步骤请参考： [Cocos Creator](https://docs.cocos.com/creator/manual/zh/getting-started/hello-world.html) 和 [LayaAir](https://ldc2.layabox.com/doc/?nav=zh-ts-1-0-2)。
+

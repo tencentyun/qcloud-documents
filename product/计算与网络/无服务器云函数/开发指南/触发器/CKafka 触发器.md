@@ -6,13 +6,13 @@ CKafka 触发器具有以下特点：
 - **同步调用**： CKafka 触发器使用同步调用类型来调用函数。有关调用类型的更多信息，请参见 [调用类型](https://cloud.tencent.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B)。
 >?
 >- 对于运行错误（含用户代码错误和 Runtime 错误），CKafka 触发器会按照您配置的重试次数进行重试。默认重试10000次。
->- 对于超限错误和系统错误，CKafka 触发器会采用指数退避的方式持续重试，直至成功为止。
+>- 对于系统错误，CKafka 触发器会采用指数退避的方式持续重试，直至成功为止。
 
 
 ## CKafka 触发器属性
 
 - **CKafka 实例**：配置连接的 CKafka 实例，仅支持选择同地域下的实例。
-- **Topic**：支持在 CKafka 实例中已经创建的 Topic。
+- **Topic**：支持在 CKafka 实例中已经创建的 Topic（仅支持未创建 ACL 策略的 Topic）。
 - **最大批量消息数**：在拉取并批量投递给当前云函数时的最大消息数，目前支持最高配置为10000。结合消息大小、写入速度等因素影响，每次触发云函数并投递的消息数量不一定能达到最大值，而是处在1 - 最大消息数之间的一个变动值。
 - **起始位置**：触发器消费消息的起始位置，默认从最新位置开始消费。支持最新、最开始、按指定时间点三种配置。
 - **重试次数**：函数发生运行错误（含用户代码错误和 Runtime 错误）时的最大重试次数。
@@ -44,7 +44,7 @@ CKafka 触发器具有以下特点：
     {
       "Ckafka": {
         "topic": "test-topic",
-        "partition":1,
+        "Partition":1,
         "offset":36,
         "msgKey": "None",
         "msgBody": "Hello from Ckafka!"
@@ -53,7 +53,7 @@ CKafka 触发器具有以下特点：
     {
       "Ckafka": {
         "topic": "test-topic",
-        "partition":1,
+        "Partition":1,
         "offset":37,
         "msgKey": "None",
         "msgBody": "Hello from Ckafka again!"

@@ -27,7 +27,7 @@ Ingress 类型同时还支持负载均衡，负载均衡后端容器节点需打
 1. 登录容器服务控制台，选择左侧导航栏中的 [Ingress](https://console.cloud.tencent.com/tke/lb)。
 2. 在 “Ingress” 管理页面上方，选择地域及需配置 Ingress 的集群，并单击【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/f99c3bf3c70ef6e7b7737e9572b7a9ae.png)
-3. <span id="step3"></span>Ingress 创建成功后，请将自有域名解析到该 Ingress 负载均衡器的 VIP，详情请参见 [快速添加域名解析](https://cloud.tencent.com/document/product/302/3446)。
+3. [](id:step3)Ingress 创建成功后，请将自有域名解析到该 Ingress 负载均衡器的 VIP，详情请参见 [快速添加域名解析](https://cloud.tencent.com/document/product/302/3446)。
 本示例使用 `www.qcloudccs.com` 解析到示例负载均衡。
 4. 在 Ingress 详情页，参考以下信息设置 Ingress 转发规则。如下图所示：
 ![](https://main.qcloudimg.com/raw/20fe676987e2a6516a896d63d135f2b1.png)

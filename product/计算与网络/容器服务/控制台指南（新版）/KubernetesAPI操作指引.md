@@ -135,7 +135,7 @@ curl --cert client-cert.pem --key client-key.pem -k $APISERVER/api/v1/namespaces
 
 
 ## 相关操作
-### 放通集群访问权限<span id="Authority"></span>
+### 放通集群访问权限[](id:Authority)
 若在执行 `curl` 命令时，出现如下所示错误，则说明需放通集群的 [访问权限](https://kubernetes.io/zh/docs/reference/access-authn-authz/rbac/)。
 ![](https://main.qcloudimg.com/raw/c50eca5e28b0cdbb4cf00a378a773205.png)
 您可通过以下两种方式进行授权操作：
