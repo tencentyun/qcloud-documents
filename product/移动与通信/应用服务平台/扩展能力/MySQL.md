@@ -18,7 +18,6 @@
 您可以通过 [云开发控制台](https://console.cloud.tencent.com/tcb/extensions)，来安装和管理该能力。
 
 > ! 
-
 - 微信小程序开发者请使用【其他登录方式】>【微信公众号登录】登录，选择关联的小程序账户登录。
 - QQ 小程序开发者可直接通过 QQ 小程序开发者 IDE【云开发】登录，也可以通过关联的腾讯云账户登录。
 
@@ -63,23 +62,25 @@ exports.main = async (event, context, callback) => {
 
 ### 云函数的运行机制
 
-云函数的运行机制，请参考 [深入理解云函数](https://cloud.tencent.com/document/product/876/41764)。
+云函数的运行机制，请参见 [深入理解云函数](https://cloud.tencent.com/document/product/876/41764)。
 
 ### 私有网络
 
-在云函数中，开发者如果需要访问腾讯云的云数据库等资源，推荐使用私有网络来确保数据及连接安全。关于私有网络、如何建立私有网络以及云函数加入私有网络的详细信息，请参考 [为云数据库 MySQL 创建私有网络](https://cloud.tencent.com/document/product/236/8468) 中的相关章节。
+在云函数中，开发者如果需要访问腾讯云的云数据库等资源，推荐使用私有网络来确保数据及连接安全。关于私有网络、如何建立私有网络以及云函数加入私有网络的详细信息，请参见 [为云数据库 MySQL 创建私有网络](https://cloud.tencent.com/document/product/236/8468) 中的相关章节。
 
-### 云函数并发数与 MySQL 连接数
+### 云函数并发数
 
 在 [云开发控制台-环境总览](https://console.cloud.tencent.com/tcb/env/overview) 中可以看到当前环境所允许的云函数并发数的最大值，最大并发数也是云函数的最大实例数。
 
-关于 MySQL 连接，推荐阅读 MySQL 官方博客的博文 [MySQL Connection Handling and Scaling](https://mysqlserverteam.com/mysql-connection-handling-and-scaling/)。
 
+### MySQL 连接数
 MySQL 连接数的相关参数配置，可以在 [云数据库 TencentDB](https://console.cloud.tencent.com/cdb) 控制台， 【MySQL】>【数据库管理】>【参数设置】中配置。
 
-在云函数中使用 MySQL，每个云函数实例与 MySQL Server 都会有连接，那么此云函数与 MySQL 的最大连接数是，单个实例的最大连接数 \* 实际运行的最大并发数；在配置 MySQL的max_connections 的时候，此参数应该大于使用此数据库的所有云函数的最大连接数之和。
+>?关于 MySQL 连接，推荐阅读 MySQL 官方博客的博文 [MySQL Connection Handling and Scaling](https://mysqlserverteam.com/mysql-connection-handling-and-scaling/)。
 
-因此，在云函数中使用 MySQL，建议您将使用到同一个数据库（不仅仅是同一张表）的所有读写 MySQL 的代码集中到一个云函数中，这样做有两个好处：
 
-- 云函数出现冷启动的概率比较低。
-- MySQL 的最大连接数较小。
+- 在云函数中使用 MySQL，每个云函数实例与 MySQL Server 都会有连接，那么此云函数与 MySQL 的最大连接数是：`单个实例的最大连接数 * 实际运行的最大并发数`。
+- 在配置 MySQL 的 `max_connections` 的时候，此参数应该大于使用此数据库的所有云函数的最大连接数之和。
+- 在云函数中使用 MySQL，建议您将使用到同一个数据库（不仅仅是同一张表）的所有读写 MySQL 的代码集中到一个云函数中，这样做有两个好处：
+ - 云函数出现冷启动的概率比较低。
+ - MySQL 的最大连接数较小。

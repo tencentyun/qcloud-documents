@@ -54,17 +54,18 @@ QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议
 
 ### 拉流测试
 
-您可以使用腾讯云 [TCPlayerDemo](https://imgcache.qq.com/open/qcloud/video/player/demo/player.html) 工具进行检验，具体步骤如下所述：
-
+您可以使用腾讯云 [TCPlayerDemo](https://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-test.html) 工具进行检验，具体步骤如下所述：
 > ? Chrome 浏览器支持 QUIC 协议请求，用 Chrome 浏览器结合腾讯云 TCPlayerDemo 可以验证播放是否已使用 QUIC 协议播放。
 
 1. 打开 Chrome 的 QUIC 开关。
    在 Chrome 浏览器地址栏输入 `chrome://flags/#enable-quic `，将开关设置成 Enabled，重启 Chrome 浏览器即可。
-![](https://main.qcloudimg.com/raw/b5aee3532ef918518206b607cc2d8f53.png)
-2. 打开 TCPlayerDemo，填入 HTTPS 的播放地址，单击【Load】开始播放。
-![](https://main.qcloudimg.com/raw/fec01a7a5d430c65a874ab564ee9f148.png)
+   ![](https://main.qcloudimg.com/raw/b5aee3532ef918518206b607cc2d8f53.png) 
+2. 打开 TCPlayerDemo，填入 HTTPS 的播放地址时建议使用 FLV 和 HLS 的拉流地址，RTMP 的地址只支持 Flash 播放。单击生成连接后，单击![](https://main.qcloudimg.com/raw/5886ad8b68619d7ba99268e0a4e24f2c.png)开始播放。
+![](https://main.qcloudimg.com/raw/a2e4d83ca259b97b4376875215015a22.png)
 3. 在 Chrome 的开发者工具中，选择【Network】标签页，可以看到请求的 protocol 是已经是 `http/2+quic/46`。
+![](https://main.qcloudimg.com/raw/e1e61b7ae544881b898ccd7aa116e8a4.png)
+
 > ? 
-> - 浏览器版本不同，QIUC的版本号可能稍有不同。
+> - 浏览器版本不同，QIUC 的版本号可能稍有不同。
 > - 如果 Protocol 字段默认不显示，可以在显示处单击右键勾选 Protocal 即可显示。
-![](https://main.qcloudimg.com/raw/ee21e41e7f61e87dccb2f2509ff7678d.png)
+> ![](https://main.qcloudimg.com/raw/ee21e41e7f61e87dccb2f2509ff7678d.png)

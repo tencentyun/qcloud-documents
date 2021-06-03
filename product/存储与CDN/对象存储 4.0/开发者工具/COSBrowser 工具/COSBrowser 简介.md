@@ -46,6 +46,12 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
       <td>Chrome/FireFox/Safari/IE10+等浏览器</td>
       <td><a href="https://cosbrowser.cloud.tencent.com/web">Web</a></td>
    </tr>
+   <tr>
+      <td>Uploader 插件</td>
+      <td>Web</td>
+      <td>Chrome浏览器</td>
+      <td><a href="https://chrome.google.com/webstore/detail/cosbrowser-uploader/mggpkimgmmdbdbakdkaebhjhgomcmlnd">应用商店</a>/<a href="https://cos5.cloud.tencent.com/cosbrowser/latest-chrome.zip">离线下载</a></td>
+   </tr>
 </table>
 
 ## 桌面端功能列表

@@ -12,15 +12,16 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 
 ## 配置说明
 ### 1. 设置 ResourceManager 启用 Capacity Scheduler
-标签调度无法单独使用，只能配合 Capacity Scheduler 使用。Yarn 使用 Capacity Scheduler 作为默认调度器，如果您现在正使用其他调度器，请先启动 Capacity Scheduler。在`${HADOOP_HOME}/etc/hadoop/yarn-site.xml`中设置：
+标签调度无法单独使用，只能配合 Capacity Scheduler 使用。Yarn 使用 Capacity Scheduler 作为默认调度器，如果您现在正使用其他调度器，请先启动 Capacity Scheduler。在 `${HADOOP_HOME}/etc/hadoop/yarn-site.xml` 中设置：
 ```
 <property>
 	<name>yarn.resourcemanager.scheduler.class</name>
 	<value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler</value>
 </property>
 ```
+
 ### 2. 配置 Capacity Scheduler 参数
-在`${HADOOP_HOME}/etc/hadoop/capacity-scheduler.xml`中设置`yarn.scheduler.capacity.root`是 Capacity Scheduler 预定义的根队列，其他队列均为根队列的子队列。所有队列以树的形式组织。`yarn.scheduler.capacity.<queue-path>.queues`用于设置 queue-path 路径下的子队列，使用逗号分隔。
+在 `${HADOOP_HOME}/etc/hadoop/capacity-scheduler.xml` 中设置 `yarn.scheduler.capacity.root` 是 Capacity Scheduler 预定义的根队列，其他队列均为根队列的子队列。所有队列以树的形式组织。`yarn.scheduler.capacity.<queue-path>.queues` 用于设置 queue-path 路径下的子队列，使用逗号分隔。
 
 **示例：**
 ![](https://main.qcloudimg.com/raw/6e0b2a4713f76cafeaf60533897e4266.png)
@@ -40,6 +41,7 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 </property>
 ```
 其他 Capacity Scheduler 配置请查询文档。
+
 ### 3. 设置 ResourceManager 启用 Node Label
 在`conf/yarn-site.xml`中设置。
 ```
@@ -57,9 +59,9 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 </property>
 ```
 >!
-1. 确保已创建`yarn.node-labels.fs-store.root-dir`，且 ResourceManager 有权访问。
-2. 若将节点标签保存在 RM 的本地文件系统，可使用`file://home/yarn/node-label`等路径。但是为了保证集群的高可用，避免 RM 宕机而丢失标签信息，建议将标签信息保存在 HDFS 上。
-3. 在 hadoop2.8.2 下需要配置`yarn.node-labels.configuration-type`配置项。
+1. 确保已创建 `yarn.node-labels.fs-store.root-dir`，且 ResourceManager 有权访问。
+2. 若将节点标签保存在 RM 的本地文件系统，可使用 `file://home/yarn/node-label` 等路径。但是为了保证集群的高可用，避免 RM 宕机而丢失标签信息，建议将标签信息保存在 HDFS 上。
+3. 在 hadoop2.8.2 下需要配置 `yarn.node-labels.configuration-type` 配置项。
 
 ### 4. 配置 Node Label
 在`etc/hadoop/capacity-scheduler.xml`中设置。
@@ -68,7 +70,7 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 |---------|---------| 
 | yarn.scheduler.capacity.`<queue-path>`.capacity | 设置队列可以访问属于 DEFAULT 分区的节点的百分比。**每个 parent 队列下直接子队列的 DEFAULT 容量总和必须等于100。** |  
 | yarn.scheduler.capacity.`<queue-path>`.accessible-node-labels  | 设置队列可以访问的特定标签列表，用逗号分隔，如“HBASE，STORM”意味着队列可以访问标签 HBASE 和 STORM。所有队列都可以在没有标签的情况下访问节点，如果不指定此字段，则将从其父字段继承。如果用户想限制队列仅访问没有标签的节点，该字段只需留空即可。  |
-| yarn.scheduler.capacity.`<queue-path>`.accessible-node-labels.`<label>`.capacity  | 设置队列可以访问属于`<label>`分区的节点百分比。注意，每个 parent 队列下直接子队列的`<label>`容量总和必须等于100，默认为0。  |
+| yarn.scheduler.capacity.`<queue-path>`.accessible-node-labels.`<label>`.capacity  | 设置队列可以访问属于`<label>`分区的节点百分比。**每个 parent 队列下直接子队列的`<label>`容量总和必须等于100，默认为0。**  |
 | yarn.scheduler.capacity.`<queue-path>`.accessible-node-labels.`<label>`.maximum-capacity  | 与 Capacity Scheduler 配置项 yarn.scheduler.capacity.`<queue-path>`.maximum-capacity 类似，它指定了`<queue-path>`在`<label>`分区的最大容量，默认为100。  |
 | yarn.scheduler.capacity.`<queue-path>`.default-node-label-expression  | 当资源请求未指定节点标签时，应用将被提交到该值对应的分区。默认情况下，该值为空，即应用程序将被分配没有标签的节点上的容器。  |
 

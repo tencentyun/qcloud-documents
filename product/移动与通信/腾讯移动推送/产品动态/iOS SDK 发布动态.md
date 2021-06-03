@@ -1,3 +1,27 @@
+## 2021年06月
+
+<table>
+ <tr>
+ <th width=20%>动态名称 </th>
+ <th width=44%>动态描述 </th>
+ <th width=16%>发布时间 </th>
+ <th width=20%>相关文档 </th>
+ </tr>
+ <td>SDK 1.3.2.1 版本发布 </td>
+ <td>  
+<li> 修复：Xcode 12.5下，引用 TPNSInAppMessage.framework 的兼容性问题
+<li> 修复：用户 iCloud 备份还原，两台设备具有同样 TPNS Token 问题
+<li> 优化：接入点切换后，原接入点日志不上报
+<li> 增加：新增手机号码绑定接口，用于普通短信及智能短信发送
+<li> 增加：Demo 演示了"用户允许协议"后才进行 Push 通知弹窗的方法
+<li> 增加：对 startXGWithAccessID 接口的错误调用，进行了日志提示
+<li> 增加：对第三方 SDK 对 appdelegate 的 hook 冲突，进行了日志提示
+<li> 删除：若干在生产环境下，不必要的日志提示</td>
+ <td>2021-06-01</td>
+ <td><ul  style="margin: 0;"><li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li><li><a href="https://cloud.tencent.com/document/product/548/56433">升级指南 </a></li></ul></td>
+ </tr>
+ </table>
+
 ## 2021年04月
 
 <table>
@@ -8,23 +32,29 @@
  <th width=20%>相关文档 </th>
  </tr>
  <tr>
+ <td>SDK 1.3.1.1 版本发布 </td>
+ <td>修复：GCDAsync 库可能导致的编译冲突 </td>
+ <td>2021-04-19 </td>
+ <td>-</li> </td>
+ </tr>
+ <tr>
  <td>SDK 1.3.1.0 版本发布 </td>
  <td>  
-<li>修复：TPNS自建通道和APNs通道的播放声音规则不一致问题。
-<li>修复：切换集群时，云控下发加密字段失效的问题。
-<li>修复：偶现的统计日志上报失败问题。
-<li>修复：覆盖消息功能，带thread-id的通知可能覆盖失败的问题。
-<li>优化：部分错误日志的提示文案。
-<li>优化：提高终端对TPNS Token的环境校验的准确性。
-<li>优化：自动补发在TPNS网络连接失败时设置的角标数。
-<li>优化："静默消息"的抵达上报更及时。
-<li>增加：查询标签功能。
-<li>增加：申请通知权限的回调。
-<li>增加：TPNS通道支持thread_id消息分组。
-<li> 增加：Demo新增全球集群切换的示例代码。
-<li>增加：TPNS网络连接的建连成功和断开回调。 </td>
+<li>修复：TPNS 自建通道和 APNs 通道的播放声音规则不一致问题
+<li>修复：切换集群时，云控下发加密字段失效的问题
+<li>修复：偶现的统计日志上报失败问题
+<li>修复：覆盖消息功能，带 thread-id 的通知可能覆盖失败的问题
+<li>优化：部分错误日志的提示文案
+<li>优化：提高终端对 TPNS Token 的环境校验的准确性
+<li>优化：自动补发在 TPNS 网络连接失败时设置的角标数
+<li>优化："静默消息"的抵达上报更及时
+<li>增加：查询标签功能
+<li>增加：申请通知权限的回调
+<li>增加：TPNS 通道支持 thread_id 消息分组
+<li> 增加：Demo 新增全球集群切换的示例代码
+<li>增加：TPNS 网络连接的建连成功和断开回调 </td>
  <td>2021-04-12 </td>
- <td> <a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载 </a> </li> </td>
+ <td>-</td>
  </tr>
  </table>
 
@@ -47,7 +77,7 @@
 <li> 增加：账号、标签、用户属性接口的参数检查逻辑和错误回调
 <li>删除：账号类型枚举，由业务自己定义 </td>
  <td>2021-01-25 </td>
- <td> <a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载 </a> </li> </td>
+ <td>-</li> </td>
  </tr>
  </table>
 

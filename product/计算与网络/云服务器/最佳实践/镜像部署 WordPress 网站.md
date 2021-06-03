@@ -10,17 +10,23 @@
 
 ### 步骤1：创建云服务器时使用 WordPress 镜像
 
->! 如果您想使用已购买的云服务器部署 WordPress，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择服务市场中对应的镜像完成环境部署。部分境外地域的云服务器暂不支持通过服务市场重装系统，建议您 [手动搭建 WordPress 个人站点](https://cloud.tencent.com/document/product/213/8044) 或者使用其他地域云服务器进行搭建。
->
+<dx-alert infotype="notice" title="">
+如果您想使用已购买的云服务器部署 WordPress，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择服务市场中对应的镜像完成环境部署。部分境外地域的云服务器暂不支持通过服务市场重装系统，建议您 [手动搭建 WordPress 个人站点](https://cloud.tencent.com/document/product/213/8044) 或者使用其他地域云服务器进行搭建。
+</dx-alert>
+
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
 2. 根据页面提示选择机型，并在 “镜像” 中单击【镜像市场】，选择【从镜像市场选择】。如下图所示：
->! 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
->
-![](https://main.qcloudimg.com/raw/f65014010e9d40e71b945a189ed574f2.png)
+<dx-alert infotype="notice" title="">
+部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
+</dx-alert>
+<img src="https://main.qcloudimg.com/raw/f65014010e9d40e71b945a189ed574f2.png">
 3. 在弹出的【镜像市场】对话框中，选择【建站系统】> 【WordPress博客平台】，单击【免费使用】。如下图所示：
-<img src="https://main.qcloudimg.com/raw/6a3645a1e4c5d3a51e6d917eca2a28ec.png" style="width: 88%;"></img>
-更多关于此镜像信息，请参见 [WordPress博客平台（CentOS 6.8 64位）](https://market.cloud.tencent.com/products/63)。
-4. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成 WordPress 建站系统的购买。
+<br>
+<img src="https://main.qcloudimg.com/raw/6a3645a1e4c5d3a51e6d917eca2a28ec.png" style="width: 88%;">
+<br>
+更多关于此镜像信息，请参见 <a href="https://market.cloud.tencent.com/products/63">WordPress博客平台（CentOS 6.8 64位）</a>。
+4. 在实例关联的安全组需添加放通80端口的入站规则，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)。
+存储介质、带宽等其他配置请根据实际需求选择，最终选择购买完成 WordPress 建站系统。
 
 ### 步骤2：访问获取权限的引导页面
 >? 不同的 WordPress 镜像，安装配置 WordPress 的操作步骤略有不同。具体操作请参见腾讯云市场提供的对应 WordPress 镜像商品详情页。

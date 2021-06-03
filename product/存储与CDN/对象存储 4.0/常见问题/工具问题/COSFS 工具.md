@@ -86,6 +86,12 @@ echo log-1250000000:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYY
 
 在 COSFS 挂载目录中，您能创建除`/`字符以外名称的文件。在类 Unix 系统上，`/`字符为目录分隔符，因此您无法在 COSFS 挂载目录中，创建包含`/`字符的文件。此外在创建包含特殊字符的文件时，您还需要避免特殊字符被 shell 使用，而导致创建文件失败。
 
+### COSFS 如何判断文件是否存在？
+
+在 COSFS 内部逻辑中，会以 Head 请求去判断父目录和文件是否存在。
+
+
+
 
 ## 故障排查
 
@@ -130,7 +136,7 @@ image/jpx                                       jpx jpf
 2. 检查账号是否配置正确。 
 3. 如果您使用 cp 命令进行拷贝，并且携带了 -p 或 -a 参数，建议您去掉该参数后执行该命令。
 
-确认以上配置正确，请打开机器 `/var/log/messages` 日志文件，找到 s3fs 相关的日志，日志可以帮助您定位问题原因。如果无法解决，请通过 [在线支持](https://cloud.tencent.com/online-service) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，协助您解决问题。
+确认以上配置正确，请打开机器 `/var/log/messages` 日志文件，找到 s3fs 相关的日志，日志可以帮助您定位问题原因。如果无法解决，请 [联系我们](https://cloud.tencent.com/document/product/436/37708)，协助您解决问题。
 
 ### 使用 /etc/fstab 设定 COSFS 开机自动挂载，但是执行 mount -a, 却报错 "wrong fs type, bad option，bad superblock on cosfs"？
 该错误通常是由于您的机器上缺乏 fuse 库所致，建议您执行下列命令安装 fuse 库：
@@ -195,7 +201,7 @@ ln -s /usr/local/util-linux-ng/bin/mount /bin
 挂载目录时间变为1970-01-01 08:00是正常的，当您卸载挂载点后，挂载目录的时间会恢复为挂载前的时间。
 
  ### 挂载目录能否为非空？
- 
+
 可以使用`-ononempty`参数挂载到非空目录，但不建议您挂载到非空目录，当挂载点中和原目录中存在相同路径的文件时，可能出现问题。
 
 ### 在 COSFS 的目录中执行 ls 命令，为什么命令返回需要很久的时间？
@@ -214,3 +220,28 @@ COSFS 读取和写入都经过磁盘中转，适用于要求 POSIX 语义访问 
 >! 文件读写产生的大量系统调用，伴随着大量的日志，会在一定程度影响 COSFS 读写性能，如果您对性能有较高要求，您可以指定 -odbglevel=warn 或更高的日志级别。
 >
 
+### 安装 COSFS RPM 包后，提示找不到 COSFS，怎么办？
+
+cosfs 安装路径为/usr/local/bin，如果提示找不到 cosfs，则可能是因为该路径不在 PATH 环境变量中，需先在 `~/.bashrc` 中添加一行配置：
+```shell
+export PATH=/usr/local/bin:$PATH
+```
+再执行命令：
+```shell
+source ~/.bashrc
+```
+
+### 安装 COSFS RPM 包时，提示 conflicts with file from package fuse-libs-\*，怎么办？
+
+安装 COSFS RPM 包时，增加选项`--force`：
+```shell
+rpm -ivh cosfs-1.0.19-centos7.0.x86_64.rpm --force
+```
+
+###  COSFS 授权某个目录只读之后，单独挂载对应的目录提示无权限？
+
+COSFS 需要有根目录的 GetBucket 权限，因此您需要加上根目录的 GetBucket 权限以及对应目录的读权限授权，这样可以列出其它目录但是没有操作权限。
+
+### 在 COSFS 的路径中执行 ls 命令，为什么命令返回需要很久的时间？
+
+在挂载目录中有很多文件的情况下，执行 ls 命令需要对目录中的每一个文件执行 HEAD 操作，因此会耗费较多时间读取目录系统后才会返回。建议您不要开启 IO hung，否则会导致不必要的重启。

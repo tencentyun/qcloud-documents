@@ -23,13 +23,16 @@
 </tr>
 </tr>
 </table>
+
+
  
 **小直播 App 展示**
  
 <img width="900" src="https://main.qcloudimg.com/raw/732c851eb9c25dd426e02e764a4c0bc1.png"/>
 
->!  下载安装“小直播”App，注册一个小直播账号即可开始体验。
->注册时需注意用户名可填写小写字母、数字和下划线，账号密码必须由8 - 16个字符组成。
+>!  
+>- 下载安装“小直播”App，注册一个小直播账号即可开始体验。
+>- 注册时需注意用户名**以字母开头**，可填写小写字母、数字和下划线；账号密码必须由8个 - 16个字符组成。
 
 
 ## 精简版 Demo
@@ -47,7 +50,7 @@
 </tr>
 <tr>
 <td>Android</td>
-<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/rtmpdemo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/f466ddf5fd9fb86d266f879b0728da4d.png);background-size: cover;margin:auto">
+<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/rtmpdemo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png);background-size: cover;margin:auto">
 </div></a></td>
 <td><a href="https://github.com/tencentyun/LiteAVProfessional_Android/tree/master/Demo">Github</a></td>
 </tr>
@@ -56,8 +59,7 @@
  
 **腾讯云工具包 App 展示**
  
-<img width="900" src="https://main.qcloudimg.com/raw/7f5440164eb5835b1fb2b67c3752fe2a.png"/>
-
+<img width="900" src="https://main.qcloudimg.com/raw/52ee09ae4039d24f39e3cf8110e632c7.jpg"/>
 
 ## 小程序 Demo
 除了 Native 版本的 Demo，我们还提供了微信小程序上的解决方案，打开“微信 > 发现 > 小程序”，搜索“腾讯视频云”即可体验。

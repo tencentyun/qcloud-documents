@@ -5,9 +5,7 @@
 2. 创建 COS 存储桶，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
 
 ## 操作指南
-
 ### 添加域名
-
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧导航栏中，单击【域名管理】进入域名管理页面，单击【添加域名】。 ![img](https://main.qcloudimg.com/raw/3d2e458b232cdc89fafb546045a92bc1.png)
 
 ### 选择 COS 作为源站

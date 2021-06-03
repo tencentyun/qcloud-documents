@@ -90,7 +90,6 @@ PHP 环境下的入参包括 $event 、$context。
 - zip
 - eio
 - protobuf
-- redis
 - Zend OPcache
 - mongodb
 - memcached 

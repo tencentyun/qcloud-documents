@@ -12,8 +12,8 @@
 
 ### 查看配置
 
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可在【回源配置】中看到回源 Request Header 配置，默认情况下为关闭状态，无任何配置：
-![img](https://main.qcloudimg.com/raw/59069be8821b2987df5d0b3eeaae55d0.png)
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可在【回源配置】中看到回源 HTTP 请求头配置，默认情况下为关闭状态，无任何配置：
+![](https://main.qcloudimg.com/raw/9d5777902e46cdbe037a7ea9eb78d567.png)
 
 ### 操作类型
 
@@ -36,15 +36,15 @@
 | 自定义头部     | 自定义头部的Key 值长度默认为1 - 100个字符，由数字0 - 9、字符a - z、A - Z，及特殊符 `-` 组成。<br>Value 长度为1 - 1000个字符，不支持中文。<br>部分标准头部不支持自助设置/增加/删除，具体清单请参见文档 [注意事项](#noice)。 |
 
 > !
-> - 回源 Request Header 配置规则最多可配置10条。
+> - 回源 HTTP 请求头配置规则最多可配置10条。
 > - 生效类型支持全部文件、文件类型、文件目录、指定文件路径四种模式，暂不支持正则匹配。
 
 
 
 ## 配置示例
 
-若加速域名 `cloud.tencent.com` 的回源 Request Header 配置如下：
-![img](https://main.qcloudimg.com/raw/6c02e4901530e26def6b7c51c8916b36.png)
+若加速域名 `cloud.tencent.com` 的回源 HTTP 请求头配置如下：
+![](https://main.qcloudimg.com/raw/cd018a8767ffdbd57862db197af48141.png)
 若访问资源为：`http://cloud.tencent.com/test/test.mp4`
 
 1. 命中 `*` 规则，增加头部 `X-Forward-For:$client_ip` 头部，回源时将 $client_ip 替换为真实客户端 IP。
@@ -52,7 +52,7 @@
 
 ## 注意事项[](id:noice)
 
-以下标准头部暂时不支持设置/增加/删除回源 Request Header：
+以下标准头部暂时不支持设置/增加/删除回源 HTTP 响应头：
 
 | www-authenticate              | authorization                    | proxy-authenticate             | proxy-authorization                 |
 | ----------------------------- | -------------------------------- | ------------------------------ | ----------------------------------- |
