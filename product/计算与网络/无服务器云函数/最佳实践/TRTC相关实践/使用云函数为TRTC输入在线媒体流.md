@@ -90,22 +90,22 @@ API 网关调用涉及的参数如下：
   	"Mode":"vod",
   	"UserSig": "eJwtzN0KgkAQBeB32dtCZqcd-6CbMMRYIrGiu6jcZAhL1NogevdMvxxxxxxxxxxxxxxxxxAIdENM*c27uLV*552dj6iNRQCiVGgdNfjtVFecilApABSg9OTTmXXFtOiciBIBBWy7xxxxxxxxRHbbjo-kFrN0UvOfuRH1tMyiDeLGcPu7ocxxxxxxxxxxx5uL7A0DEMb8_",
   	"Redis": false,
-  	"VideoSrc":"https://test-123456789.cos.ap-shanghai.myqcloud.com/video/1.mp4l"
+  	"VideoSrc":"https://test-123456789.cos.ap-shanghai.myqcloud.com/video/1.mp4"
   }
   ```
 
   ![](https://main.qcloudimg.com/raw/22f1e55b18e166d0b4ece52284847e09.png)
 
 2. 请求发送后会收到异步函数响应 “Async run task submitted”，此次函数的 RequstId 会通过 HTTP 头部信息中的 x-scf-reqid 返回。如下图所示：
-  ![](https://main.qcloudimg.com/raw/2659951b64f7bd81fe29bdd700fa6590.png)
+    ![](https://main.qcloudimg.com/raw/2659951b64f7bd81fe29bdd700fa6590.png)
 
 3. 在云函数控制台【[函数服务](https://console.cloud.tencent.com/scf/list)】页面中，单击上述 [创建云函数](#step01) 步骤中创建的云函数名称，进入“函数详情”页面。
 
 4. 在“函数详情”页面中选择【日志查询】页签，可以查看到打印出的推流日志信息。如下图所示：
-  ![](https://main.qcloudimg.com/raw/5dd0744da897f6fb117c10e8e0ed9b7a.jpeg)
+    ![](https://main.qcloudimg.com/raw/5dd0744da897f6fb117c10e8e0ed9b7a.jpeg)
 
 5. 切换至 [实时音视频控制台](https://console.cloud.tencent.com/trtc/monitor)，在“监控仪表盘”页面单击房间 ID，查看推流监控详情信息。如下图所示：
-  ![](https://main.qcloudimg.com/raw/b69e2c7f19e22bffbd49e0faf824f4ae.png)
+    ![](https://main.qcloudimg.com/raw/b69e2c7f19e22bffbd49e0faf824f4ae.png)
 
 6. 如需在推流过程中停止推流，可以调用 [终止异步函数接口](https://cloud.tencent.com/document/api/583/52500) InvokeRequestId 参数停止推流（**必须开启状态追踪**）。
     其中 InvokeRequestId 可从上述步骤2的响应头部信息 x-scf-reqid 中获取。
