@@ -131,11 +131,10 @@ ghost install
  3. **Enter your MySQL username**：输入数据库用户名，请输入 `root` 后按 **Enter**。
  4. **Enter your MySQL password**：输入数据库密码，请输入在 [设置 root 帐户密码](#sercet) 中已设置的密码后按 **Enter**。
  5. **Enter your database name**：输入 Ghost 使用的数据库，请输入在 [创建数据库](#database) 中已创建的 `ghost_data` 后按 **Enter** 。
- 6. **Do you wish to set up SSL?**：如需开启 HTTPS 访问，请输入 **Y**。
- 其余配置请结合实际情况，及页面提示完成。
- 完成设置后，界面下方会输出 Ghost 的管理员访问地址。
+ 6. **Do you wish to set up SSL?**：如需开启 HTTPS 访问，请输入 **Y** 后按 **Enter**。
+ 其余配置请结合实际情况及页面提示完成。完成设置后，界面下方会输出 Ghost 的管理员访问地址。
 4. 使用本地浏览器访问 Ghost 的管理员访问地址，开始个人博客配置。如下图所示：
->?若您已开启 HTTPS 访问，则可使用 `https://` 进行访问或博客配置操作。
+>?若您已开启 HTTPS 访问，则可使用 `https://` 进行访问或博客配置等操作。
 >
 单击【Create your account】开始创建管理员账户。
 ![](https://main.qcloudimg.com/raw/e2eeacd71eec4c27660eeb4797f83f2a.png)
