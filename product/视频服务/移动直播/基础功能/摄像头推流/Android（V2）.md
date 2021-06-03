@@ -94,7 +94,7 @@ mLivePusher.stopPush();
 
 [](id:step6)
 ### 6. 纯音频推流    
-如果您的直播场景是纯音频直播，不需要视频画面，那么您可以不执行 [第4步](#step4) 中的操作, 或者在调用 `startPush` 之前调用`stopCamera`接口即可。
+如果您的直播场景是纯音频直播，不需要视频画面，那么您可以不执行 [第4步](#step4) 中的操作，或者在调用 `startPush` 之前调用 `stopCamera` 接口即可。
 
 ```java     
 V2TXLivePusher mLivePusher = new V2TXLivePusherImpl(this, V2TXLiveDef.V2TXLiveMode.TXLiveMode_RTMP); //指定对应的直播协议为 RTMP
@@ -130,12 +130,21 @@ SDK 内置三种不同的磨皮算法，每种磨皮算法即对应一种美颜�
 </tr></table>
 
 美颜风格可以通过 TXBeautyManager 的 `setBeautyStyle` 接口设置：
-
-| 美颜风格 | 设置方式 | 接口说明 |
-|---------|---------|---------|
-| 美颜级别 | 通过 TXBeautyManager 的 `setBeautyLevel` 设置 | 取值范围0 - 9； 0表示关闭，1 - 9值越大，效果越明显 |
-| 美白级别 | 通过 TXBeautyManager 的 `setWhitenessLevel` 设置 | 取值范围0 - 9； 0表示关闭，1 - 9值越大，效果越明显 |
-| 红润级别 | 通过 TXBeautyManager 的 `setRuddyLevel` 设置 | 取值范围0 - 9； 0表示关闭，1 - 9值越大，效果越明显 |
+<table>
+<tr><th>美颜风格</th><th width=51%>设置方式</th><th>接口说明</th>
+</tr><tr>
+<td>美颜级别</td>
+<td>通过 TXBeautyManager 的 <code>setBeautyLevel</code> 设置</td>
+<td>取值范围0 - 9； 0表示关闭，1 - 9值越大，效果越明显</td>
+</tr><tr>
+<td>美白级别</td>
+<td>通过 TXBeautyManager 的 <code>setWhitenessLevel</code> 设置</td>
+<td>取值范围0 - 9； 0表示关闭，1 - 9值越大，效果越明显</td>
+</tr><tr>
+<td>红润级别</td>
+<td>通过 TXBeautyManager 的 <code>setRuddyLevel</code> 设置</td>
+<td>取值范围0 - 9； 0表示关闭，1 - 9值越大，效果越明显</td>
+</tr></table>
 
 [](id:step9)
 ### 9. 色彩滤镜效果   
@@ -213,10 +222,10 @@ public void onWarning(int code, String msg, Bundle extraInfo) {
 
 ## 事件处理
 
-### 1. 事件监听
+### 事件监听
 SDK 通过 [V2TXLivePusherObserver](http://doc.qcloudtrtc.com/group__V2TXLivePusherObserver__android.html) 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表请参见 [错误码表](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__android.html)。
 
-### 2. 错误通知
+### 错误通知
 SDK 发现部分严重问题，推流无法继续。
 
 | 事件 ID                              | 数值 | 含义说明                        |
@@ -229,7 +238,7 @@ SDK 发现部分严重问题，推流无法继续。
 | V2TXLIVE_ERROR_REQUEST_TIMEOUT       | -6   | 请求服务器超时                |
 | V2TXLIVE_ERROR_SERVER_PROCESS_FAILED | -7   | 服务器无法处理您的请求        |
 
-### 3. 警告事件
+### 警告事件
 SDK 发现部分警告问题，但 WARNING 级别的事件都会触发一些尝试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复。
 
 | 事件 ID                                       | 数值  | 含义说明                                                     |
