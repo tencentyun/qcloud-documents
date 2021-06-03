@@ -96,7 +96,7 @@ rm ~/Library/Caches/CocoaPods/search_index.json
 #### 1. 下载 SDK
 从 [Github](https://github.com/tencentyun/TIMSDK/tree/master/iOS/ImSDK) 下载最新版本 SDK。
 
-- ImSDK.framework 和 ImSDK_Smart.framework 是 IM SDK 的核心动态库文件。
+- ImSDK.framework 和 ImSDK_Plus.framework 是 IM SDK 的核心动态库文件。
 <table>
 <thead>
 <tr>
@@ -106,11 +106,11 @@ rm ~/Library/Caches/CocoaPods/search_index.json
 </thead>
 <tbody><tr>
 <td>ImSDK.framework</td>
-<td>标准版 IM 功能包</td>
+<td>基础版 IM 功能包</td>
 </tr>
 <tr>
-<td>ImSDK_Smart.framework</td>
-<td>精简版 IM 功能包</td>
+<td>ImSDK_Plus.framework</td>
+<td>增强版 IM 功能包</td>
 </tr>
 </tbody></table>
 - TXLiteAVSDK_UGC.framework 是腾讯云短视频（UGC）SDK，用于实现即时通信 IM 中的短视频收发能力，为可选组件。
@@ -147,23 +147,23 @@ rm ~/Library/Caches/CocoaPods/search_index.json
 #### 方式一
 在 Xcode > Build Setting > Header Search Paths 设置 SDK 头文件的路径，然后在项目需要使用 SDK API 的文件里，引入具体的头文件。
 
-- 如果使用标准版，请按照如下方式引用头文件：
+- 如果使用基础版，请按照如下方式引用头文件：
 ```
 #import "ImSDK.h"
 ```
-- 如果使用精简版，请按照如下方式引用头文件：
+- 如果使用增强版，请按照如下方式引用头文件：
 ```
-#import "ImSDK_Smart.h"
+#import "ImSDK_Plus.h"
 ```
 
 #### 方式二
  
 在项目需要使用 SDK API 的文件里，引入具体的头文件。
-- 如果使用标准版，请按照如下方式引用头文件：
+- 如果使用基础版，请按照如下方式引用头文件：
 ```
 #import <ImSDK/ImSDK.h>
 ```
-- 如果使用精简版，请按照如下方式引用头文件：
+- 如果使用增强版，请按照如下方式引用头文件：
 ```
-#import <ImSDK_Smart/ImSDK_Smart.h>
+#import <ImSDK_Smart/ImSDK_Plus.h>
 ```
