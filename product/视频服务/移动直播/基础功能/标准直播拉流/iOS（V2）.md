@@ -20,14 +20,14 @@
 
 ## 对接攻略
 [](id:step1)
-### step 1： 创建 Player
+### 步骤1：创建 Player
 视频云 SDK 中的 V2TXLivePlayer 模块负责实现直播播放功能。
 ```objectivec
 V2TXLivePlayer *_txLivePlayer = [[V2TXLivePlayer alloc] init];
 ```
 
 [](id:step2)
-### step 2：渲染 View
+### 步骤2：渲染 View
 接下来我们要给播放器的视频画面找个地方来显示，iOS 系统中使用 view 作为基本的界面渲染单位，所以您只需要准备一个 view 并调整好布局就可以了。
 
 ```objectivec
@@ -49,14 +49,14 @@ V2TXLivePlayer *_txLivePlayer = [[V2TXLivePlayer alloc] init];
 ```
 
 [](id:step3)
-### step 3： 启动播放
+### 步骤3： 启动播放
 ```objectivec
 NSString* url = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 [_txLivePlayer startPlay:url];
 ```
 
 [](id:step4)
-### step 4： 画面调整
+### 步骤4：画面调整
 
 - **setRenderFillMode：铺满 or 适应**
 <table>
@@ -88,7 +88,7 @@ NSString* url = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 ![](https://main.qcloudimg.com/raw/f3c65504a98c38857ff3e78bcb6c9ae9.jpg)
 
 [](id:step5)
-### step 5：暂停播放
+### 步骤5：暂停播放
 对于直播播放而言，并没有真正意义上的暂停，所谓的直播暂停，只是**画面冻结**和**关闭声音**，而云端的视频源还在不断地更新着，所以当您调用 resume 的时候，会从最新的时间点开始播放，这是和点播对比的最大不同点（点播播放器的暂停和继续与播放本地视频文件时的表现相同）。
 
 ```objectivec
@@ -101,7 +101,7 @@ NSString* url = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 ```
 
 [](id:step6)
-### step 6：结束播放
+### 步骤6：结束播放
 
 ```objectivec
 // 停止播放
@@ -109,7 +109,7 @@ NSString* url = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 ```
 
 [](id:step7)
-### step 7： 屏幕截图
+### 步骤7： 屏幕截图
 通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕通过 V2TXLivePlayerObserver 的 [onSnapshotComplete](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#a5754eb816b91fd0d0ac1559dd7884dad) 回调截屏图片，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 iOS 的系统 API 来实现。
 ![](https://main.qcloudimg.com/raw/d86e665e3fc709c07d170e2ab3e2a7ef.jpg)
 ```
@@ -164,7 +164,7 @@ NSString* url = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 //设置完成之后再启动播放
 ```
 
->? 更多关于卡顿和延迟优化的技术知识，请参见 [如何优化视频卡顿？](https://cloud.tencent.com/document/product/454/7946)
+>? 更多关于卡顿和延迟优化的技术知识，请参见 [如何优化视频卡顿？](https://cloud.tencent.com/document/product/454/56613?!preview&!editLang=zh)
 
 [](id:RealTimePlay)
 ## 超低延时播放
@@ -186,7 +186,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参见 **[价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)**。
 
 ## SDK 事件监听
-您可以为 V2TXLivePlayer 对象绑定一个 [V2TXLivePlayerObserver](http://doc.qcloudtrtc.com/group__V2TXLivePlayerObserver__ios.html)，之后 SDK 的内部状态信息例如播放器状态、播放音量回调、音视频首帧回调、统计数据、警告和错误信息等会通过对应的回调通知给您。
+您可以为 V2TXLivePlayer 对象绑定一个 [V2TXLivePlayerObserver](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html)，之后 SDK 的内部状态信息例如播放器状态、播放音量回调、音视频首帧回调、统计数据、警告和错误信息等会通过对应的回调通知给您。
 
 ### 定时触发的状态通知
 - [onStatisticsUpdate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusherObserver__ios.html#ae93683da9240a752e7b6d70d8e940cbc) 通知每2秒都会被触发一次，目的是实时反馈当前的播放器状态，它就像汽车的仪表盘，可以告知您目前 SDK 内部的一些具体情况，以便您能对当前网络状况和视频信息等有所了解。
@@ -214,7 +214,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 <td>videoBitrate</td>
 <td>音频码率（Kbps）</td>
 </tr></table>
-- [onPlayoutVolumeUpdate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#a5439ba0397be3943c6ebfb6083c27664) 播放器音量大小回调。这个回调仅当您调用 [enableVolumeEvaluation](http://doc.qcloudtrtc.com/group__V2TXLivePlayer__ios.html#aeed74080dd72e52b15475a54ca5fd86b) 开启播放音量大小提示之后才会工作。回调的时间间隔也会与您在设置 `enableVolumeEvaluation` 的参数 `intervalMs` 保持一致。
+- [onPlayoutVolumeUpdate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#a5439ba0397be3943c6ebfb6083c27664) 播放器音量大小回调。这个回调仅当您调用 [enableVolumeEvaluation](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayer__ios.html#aeed74080dd72e52b15475a54ca5fd86b) 开启播放音量大小提示之后才会工作。回调的时间间隔也会与您在设置 `enableVolumeEvaluation` 的参数 `intervalMs` 保持一致。
 
 ### 非定时触发的状态通知
 其余的回调仅仅在事件发生时才会抛出来。
