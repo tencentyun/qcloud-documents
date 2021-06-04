@@ -5,12 +5,10 @@
 2. 从 [腾讯云控制台](https://console.cloud.tencent.com/tts) 开通相应产品。
 3. 获取 SecretID、SecretKey。
 
-
 ## 获取安装
 安装 Java SDK 前，先获取安全凭证。在第一次使用 SDK 之前，用户首先需要在腾讯云控制台上申请安全凭证，安全凭证包括 SecretID 和 SecretKey，SecretID 是用于标识 API 调用者的身份，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥，SecretKey 必须严格保管，避免泄露。
 
-
-### 通过 Maven 安装
+#### 通过 Maven 安装
 从 maven 服务器下载最新版本 SDK：
 ```xml
 <dependency>
@@ -26,13 +24,13 @@
 - SpeechSynthesizer 语音合成器，通过客户端 speechClient.newSpeechSynthesizer 创建实例。
 - SpeechSynthesizerRequest 用于配置请求参数，可通过 SpeechSynthesizerRequest.initialize() 方法进行初始化。
 - SpeechSynthesizerResponse 请求响应。
-- SpeechSynthesizerListener 请求回调。包含 onMessage onComplete  onFail 回调方法。
+- SpeechSynthesizerListener 请求回调。包含 onMessage onComplete onFail 回调方法。
 
 ### SDK 使用说明
-1.创建 SpeechClient 实例。
-2.创建 SpeechSynthesisRequest，这里配置请求相关参数，具体参考官网 [请求参数](https://cloud.tencent.com/document/product/1073/34093) 。
-3.创建 SpeechSynthesizer 实例，该实例是语音识别的处理者。
-4.调用 SpeechSynthesizer 的 synthesis 方法开始发送语音数据。
+1. 创建 SpeechClient 实例。
+2. 创建 SpeechSynthesisRequest，这里配置请求相关参数，具体参考官网 [请求参数](https://cloud.tencent.com/document/product/1073/34093)。
+3. 创建 SpeechSynthesizer 实例，该实例是语音识别的处理者。
+4. 调用 SpeechSynthesizer 的 synthesis 方法开始发送语音数据。
 
 ## 示例
 #### [参考案例](https://github.com/TencentCloud/tencentcloud-speech-sdk-java-example)

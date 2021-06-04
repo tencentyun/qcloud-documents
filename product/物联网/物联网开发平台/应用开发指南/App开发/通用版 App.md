@@ -4,7 +4,7 @@
 
 ## 下载方式
 - **iOS**
-iOS 通用版 App 目前发布 Beta 版本，可以通过 [testflight](https://testflight.apple.com/join/edZbHRbv) 进行下载体验。
+iOS 通用版 App 目前发布 Beta 版本，可以通过 [testflight](https://testflight.apple.com/join/WSGfMi9A) 进行下载体验。
 >?您需要使用 iOS 系统手机访问上述链接。
 >
 

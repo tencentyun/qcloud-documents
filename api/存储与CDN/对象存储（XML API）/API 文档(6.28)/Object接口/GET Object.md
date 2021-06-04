@@ -5,6 +5,24 @@ GET Object 接口请求可以将 COS 存储桶中的对象（Object）下载至�
 > !
 >- 如果使用了 `response-*` 请求参数，那么该请求操作不支持匿名请求，必须携带签名。
 >- 当通过 COS 控制台 [设置回源](https://cloud.tencent.com/document/product/436/13310) ，但未开启**同步回源**时，需注意，COS 从用户配置的源站拉取数据时，发起 GET Object 请求将返回 302 并重定向到设置的回源地址（如果该回源地址是不受信任的，强烈建议在使用 SDK 或自行调用 API 时，不要直接跟随 302，而应该由业务后端验证回源地址的合法性后再去请求回源地址，否则可能产生 SSRF 等安全风险，例如回源到一个内网地址）。
+>
+
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=GetObject&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
 
 #### 版本控制
 

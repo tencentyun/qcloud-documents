@@ -49,7 +49,10 @@ openssl x509 -in apns-dev-cert.pem -inform pem -noout -text
 5. 查看证书环境及对应 Bundle id 看是否与应用匹配，如下图所示：
 ![](https://main.qcloudimg.com/raw/ba0e35a8bbd0e77022f26ad1dcca83ca.png)
 
+### 在 App 冷启动时点击通知， 为什么没有触发点击通知事件的回调？
 
+1. 请检查 TPNS SDK 的版本，如果是 V1.2.5.3 及之前的版本，建议更新至 V1.2.5.4 及之后的 SDK 版本。
+2. 请检查 TPNS SDK 的初始化方法调用时机，目前需要在 App 启动方法中的主线程中尽快调用，保证 TPNS SDK 第一时间被设置为通知中心的代理。
 
 ### 推送内容为空时，在 iOS 10系统版本及以下的设备无法弹出通知？
 
@@ -164,3 +167,24 @@ TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https:/
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo  fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 ```
 则可能会遇到此问题。您可以使用【覆盖】功能来实现已发送消息的处理。
+
+
+###  Xcode 调试提示“Error Domain=NSCocoaErrorDomain Code=1001 "APNS 请求 token 失败，如何处理？
+**问题描述**：
+Xcode 调试提示“Error Domain=NSCocoaErrorDomain Code=1001 "APNS请求token失败-->请依次按以下方法解决：优先使用4G网络并重启手机，若多次重启仍然不行，建议更换手机测试!" UserInfo={NSLocalizedDescription=APNS请求token失败-->请依次按以下方法解决：优先使用4G网络并重启手机，若多次重启仍然不行，建议更换手机测试!“，按照提示操作后问题还是存在。
+
+**排查思路**：
+1. 建议使用 TPNS SDK 的相关方法，避免与其他注册远程通知的方法同时运行。
+2. 建议修改 Xcode 编译的系统，改用 Legacy Build System 去编译，看是否存在类似静态库重复导入引起的类重复定义的问题，具体操作如下：
+	1. 在 Xcode 顶部菜单栏，单击【File】>【Project Settings】。
+	![](https://main.qcloudimg.com/raw/bec61fe573cfe656b426f2e76a6e7310.png)
+	2. 将【Build System】设置为【Legacy Build System】，单击【Done】。
+	![](https://main.qcloudimg.com/raw/e3ac972a5e6c6c7f8ebdab886c7f2342.png)
+	3. 重新编译。如果有编译错误针对修改。
+
+
+
+
+
+
+

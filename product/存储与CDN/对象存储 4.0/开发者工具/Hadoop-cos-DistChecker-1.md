@@ -9,7 +9,7 @@ Hadoop-cos-DistChecker 是一个校验迁移目录完整性的工具。用户在
 
 > !
 > - 如果是自建 Hadoop 集群，则 Hadoop-cos 依赖需要选择最新版本（GitHub release 版本为5.8.2以上）才能支持 CRC64 校验码的获取。
-> - 如果是使用腾讯云 EMR 套件，则2020年5月8日后创建的集群才包含该 Hadoop-cos 版本，早于这个时间创建的集群，请通过 [在线支持](https://cloud.tencent.com/online-service) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
+> - 如果是使用腾讯云 EMR 套件，则2020年5月8日后创建的集群才包含该 Hadoop-cos 版本，早于这个时间创建的集群，请 [联系我们](https://cloud.tencent.com/document/product/436/37708)。
 
 ## 使用说明
 

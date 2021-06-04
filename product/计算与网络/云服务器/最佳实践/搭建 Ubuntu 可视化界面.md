@@ -1,10 +1,6 @@
 ## 操作场景
 VNC（Virtual Network Console）是虚拟网络控制台的缩写。它是一款优秀的远程控制工具软件，由著名的 AT&T 的欧洲研究实验室开发的。VNC 是基于 UNIX 和 Linux 操作系统的开源软件，远程控制能力强大，高效实用，其性能可以和 Windows 和 MAC 中的任何远程控制软件媲美。本文档指导您如何在 Ubuntu 操作系统的云服务器中搭建可视化界面。
 
-## 示例软件版本
-本文搭建 Ubuntu 可视化界面的软件组成版本及说明如下：
-Linux：Linux 操作系统，本文以 Ubuntu Server 16.04.1 LTS 64位为例。
-
 ## 前提条件
 已购买操作系统为 Ubuntu 的 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
@@ -20,10 +16,19 @@ sudo su root
 ```
 apt-get update
 ```
-4. 执行以下命令，安装 VNC。
+4. 按照实际情况选择执行以下命令，安装 VNC。
+<dx-tabs>
+::: Ubuntu\s16.04/18.04
 ```
 apt-get install vnc4server
 ```
+:::
+::: Ubuntu\s20.04
+```
+apt-get install tightvncserver
+```
+:::
+</dx-tabs>
 5. <span id="step05"></span>执行以下命令，启动 VNC 服务，并设置 VNC 的密码。
 ```
 vncserver
@@ -34,10 +39,19 @@ vncserver
 ```
 sudo apt-get install x-window-system-core
 ```
-7. 执行以下命令，安装登录管理器。
+7. 按照实际情况选择执行以下命令，安装登录管理器。
+<dx-tabs>
+::: Ubuntu\s16.04/18.04
 ```
 sudo apt-get install gdm
 ```
+:::
+::: Ubuntu\s20.04
+```
+sudo apt-get install gdm3
+```
+:::
+</dx-tabs>
 8. 执行以下命令，安装 Ubuntu 的桌面。
 ```
 sudo apt-get install ubuntu-desktop

@@ -38,7 +38,7 @@ echo "hello world!"
 # If you set unschedulable when you create a node, 
 # after executing your initialization script, 
 # use the following command to make the node schedulable.
-node=`ifconfig eth0 | grep inet | awk '{print $2}' | tr -d "addr:"`
+node=`ps -ef|grep kubelet|grep -oE 'hostname-override=\S+'|cut -d"=" -f2`
 #echo ${node}
 kubectl uncordon ${node} --kubeconfig=/root/.kube/config
 ```

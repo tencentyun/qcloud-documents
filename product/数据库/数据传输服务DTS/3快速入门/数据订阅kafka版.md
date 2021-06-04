@@ -9,13 +9,11 @@
  - 云数据库 MariaDB 支持同步的版本：MariaDB 10.0.10、MariaDB 10.1.9、Percona 5.7.17。
  - TDSQL MySQL版 支持同步的版本：Percona 5.7.17、MySQL 8.0.18。
 - 已在源端实例中开启 binlog。
-- 已在源库创建好数据库`__tencentdb__`。
 - 已在源端实例中创建订阅帐号，需要帐号权限如下：REPLICATION CLIENT、REPLICATION SLAVE、PROCESS 和全部对象的 SELECT 权限。
 具体授权语句如下：
 ```
 create user ‘迁移账号’ IDENTIFIED BY '账号密码';
 grant SELECT, REPLICATION CLIENT,REPLICATION SLAVE,PROCESS on *.* to '迁移账号'@'%';
-grant ALL PRIVILEGES on `__tencentdb__`.* to '迁移账号'@'%';
 flush privileges;
 ```
 

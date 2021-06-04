@@ -8,6 +8,7 @@
 ``` Objective-C
 - (void)addDelegate:(id< TEduBoardDelegate >)delegate 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -23,6 +24,7 @@
 ``` Objective-C
 - (void)removeDelegate:(id< TEduBoardDelegate >)delegate 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -38,6 +40,7 @@
 ``` Objective-C
 - (instancetype)initWithAuthParam:(TEduBoardAuthParam *)authParam roomId:(UInt32)roomId initParam:(TEduBoardInitParam *)initParam 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -50,7 +53,7 @@
 使用腾讯云 IMSDK 进行实时数据同步时，只支持一个白板实例，创建多个白板实例可能导致涂鸦状态异常
 
 #### 介绍
-可用 initParam.timSync 指定是否使用腾讯云IMSDK进行实时数据同步 initParam.timSync == true 时，会尝试反射调用腾讯云 IMSDK 作为信令通道进行实时数据收发（只实现消息收发，初始化、进房等操作需要用户自行实现），目前仅支持 IMSDK 4.3.118 及以上版本 
+可用 initParam.timSync 指定是否使用腾讯云 IMSDK 进行实时数据同步 initParam.timSync == true 时，会尝试反射调用腾讯云 IMSDK 作为信令通道进行实时数据收发（只实现消息收发，初始化、进房等操作需要用户自行实现），目前仅支持 IMSDK 4.3.118 及以上版本 
 
 
 ### unInit
@@ -58,6 +61,7 @@
 ``` Objective-C
 - (void)unInit
 ```
+
 #### 警告
 调用反初始化接口后会释放内部资源，白板功能将失效。 
 
@@ -67,6 +71,7 @@
 ``` Objective-C
 - (TEView *)getBoardRenderView
 ```
+
 #### 返回
 白板渲染 View 
 
@@ -76,6 +81,7 @@
 ``` Objective-C
 - (void)addSyncData:(NSString *)data 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -91,6 +97,7 @@
 ``` Objective-C
 - (void)setDataSyncEnable:(BOOL)enable 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -106,6 +113,7 @@
 ``` Objective-C
 - (BOOL)isDataSyncEnable
 ```
+
 #### 返回
 是否开启数据同步，true 表示开启，false 表示关闭 
 
@@ -115,6 +123,7 @@
 ``` Objective-C
 - (uint64_t)getSyncTime
 ```
+
 #### 返回
 毫秒级同步时间戳 
 
@@ -124,6 +133,7 @@
 ``` Objective-C
 - (void)syncRemoteTime:(NSString *)userId timestamp:(uint64_t)timestamp 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -132,11 +142,37 @@
 | timestamp | uint64_t | 远端用户毫秒级同步时间戳  |
 
 
+### addBackupDomain:backup:priority:
+添加资源主备域名映射 主备域名均需包含协议类型(支持 http/https) 切换域名重试超时默认为5s多次调用此接口，可为统一主域名添加多个备用域名。如果备用域名已在列表中则不再添加 当主域名不可用时，SDK将按从前往后的顺序从列表中选择一个备用域名并重试，请务必将可用性高的域名添加到列表前面 
+``` Objective-C
+- (void)addBackupDomain:(NSString *)domain backup:(NSString *)backup priority:(NSInteger)priority 
+```
+
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| domain | NSString * | 主域名 (必填）  |
+| backup | NSString * | 备用域名 (必填)  |
+| priority | NSInteger | 优先级，备用域名优先级相同时，按添加的顺序决定优先级，添加越前优先级越高  |
+
+### removeBackupDomain:backup:
+删除资源主备域名映射 
+``` Objective-C
+- (void)removeBackupDomain:(NSString *)domain backup:(NSString *)backup 
+```
+
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| domain | NSString * | 主域名 (必填）  |
+| backup | NSString * | 备用域名 (必填)  |
+
 ### reset
 重置白板 
 ``` Objective-C
 - (void)reset
 ```
+
 #### 介绍
 调用该接口后将会删除所有的白板页和文件 
 
@@ -146,6 +182,7 @@
 ``` Objective-C
 + (NSString *)getVersion
 ```
+
 #### 返回
 NSString 版本号字符串 
 
@@ -158,6 +195,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setAccessibleUsers:(NSArray< NSString * > *)users 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -177,6 +215,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setDrawEnable:(BOOL)enable 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -192,6 +231,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (BOOL)isDrawEnable
 ```
+
 #### 返回
 是否允许涂鸦，true 表示白板可以涂鸦，false 表示白板不能涂鸦 
 
@@ -201,6 +241,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setGlobalBackgroundColor:(TEColor *)color 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -216,6 +257,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (TEColor *)getGlobalBackgroundColor
 ```
+
 #### 返回
 全局背景色 
 
@@ -225,6 +267,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setBackgroundColor:(TEColor *)color 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -240,6 +283,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (TEColor *)getBackgroundColor
 ```
+
 #### 返回
 当前白板页的背景色 
 
@@ -249,6 +293,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setBackgroundImage:(NSString *)url mode:(TEduBoardImageFitMode)mode 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -265,6 +310,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setBackgroundH5:(NSString *)url 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -280,6 +326,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setToolType:(TEduBoardToolType)type 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -292,6 +339,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (TEduBoardToolType)getToolType
 ```
+
 #### 返回
 正在使用的白板工具 
 
@@ -301,6 +349,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setBrushColor:(TEColor *)color 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -316,6 +365,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (TEColor *)getBrushColor
 ```
+
 #### 返回
 画笔颜色 
 
@@ -325,6 +375,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setBrushThin:(UInt32)thin 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -340,6 +391,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (UInt32)getBrushThin
 ```
+
 #### 返回
 画笔粗细 
 
@@ -349,6 +401,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setTextColor:(TEColor *)color 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -361,6 +414,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (TEColor *)getTextColor
 ```
+
 #### 返回
 文本颜色 
 
@@ -370,6 +424,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setTextStyle:(TEduBoardTextStyle)style 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -382,6 +437,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (TEduBoardTextStyle)getTextStyle
 ```
+
 #### 返回
 文本样式 
 
@@ -391,6 +447,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setTextSize:(UInt32)size 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -406,6 +463,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (UInt32)getTextSize
 ```
+
 #### 返回
 文本大小 
 
@@ -415,6 +473,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setLineStyle:(TEduBoardLineStyle *)style 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -427,6 +486,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (TEduBoardLineStyle *)getLineStyle
 ```
+
 #### 返回
 直线样式 
 
@@ -436,6 +496,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setOvalDrawMode:(TEduBoardOvalDrawMode)mode 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -448,9 +509,21 @@ NSString 版本号字符串
 ``` Objective-C
 - (TEduBoardOvalDrawMode)getOvalDrawMode
 ```
+
 #### 返回
 椭圆绘制模式 
 
+
+### setSystemCursorEnable:
+是否启用原生系统光标 
+``` Objective-C
+- (void)setSystemCursorEnable:(BOOL)enable 
+```
+
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | BOOL | 启用或禁用，默认禁用  |
 
 ### undo
 撤销当前白板页上一次动作 
@@ -481,6 +554,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)clearBackground:(BOOL)background andSelected:(BOOL)selected 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -497,12 +571,25 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setCursorIcon:(TEduBoardToolType)toolType cursorIcon:(TEduBoardCursorIcon *)cursorIcon 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | toolType | TEduBoardToolType | 要设置鼠标样式的白板工具类型  |
 | cursorIcon | TEduBoardCursorIcon * | 要设置的鼠标样式  |
+
+### setToolTypeTitle:style:
+设置画笔和激光笔工具提示语 
+``` Objective-C
+- (void)setToolTypeTitle:(NSString *)title style:(TEduBoardToolTypeTitleStyle *)style 
+```
+
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| title | NSString * | 提示语  |
+| style | TEduBoardToolTypeTitleStyle * | 如果为空，则使用默认样式  |
 
 
 
@@ -513,6 +600,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (NSString *)addBoardWithBackgroundImage:(NSString *)url 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -526,7 +614,7 @@ NSString 版本号字符串
 白板页会被添加到默认文件（文件 ID 为::DEFAULT)，自行上传的文件无法添加白板页
 
 #### 介绍
-返回值内存由SDK内部管理，用户不需要自己释放 
+返回值内存由 SDK 内部管理，用户不需要自己释放 
 
 
 ### deleteBoard:
@@ -534,6 +622,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)deleteBoard:(NSString *)boardId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -555,6 +644,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)nextStep
 ```
+
 #### 介绍
 每个 Step 对应 PPT 的一个动画效果，若当前没有未展示的动画效果，则该接口调用会导致向后翻页 
 
@@ -564,6 +654,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)preBoard
 ```
+
 #### 介绍
 若当前白板页为当前文件的第一页，则该接口调用无效 
 
@@ -573,6 +664,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)nextBoard
 ```
+
 #### 介绍
 若当前白板页为当前文件的最后一页，则该接口调用无效 
 
@@ -582,6 +674,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)gotoBoard:(NSString *)boardId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -597,6 +690,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)preBoard:(BOOL)resetStep 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -612,6 +706,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)nextBoard:(BOOL)resetStep 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -627,6 +722,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)gotoBoard:(NSString *)boardId resetStep:(BOOL)resetStep 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -643,6 +739,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (NSString *)getCurrentBoard
 ```
+
 #### 返回
 当前白板页 ID
 
@@ -655,6 +752,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (NSArray< NSString * > *)getBoardList
 ```
+
 #### 返回
 所有文件的白板列表 
 
@@ -664,6 +762,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setBoardRatio:(NSString *)ratio 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -679,6 +778,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (NSString *)getBoardRatio
 ```
+
 #### 返回
 白板宽高比，格式与 SetBoardRatio 接口参数格式一致 
 
@@ -688,6 +788,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setBoardScale:(UInt32)scale 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -703,6 +804,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (UInt32)getBoardScale
 ```
+
 #### 返回
 白板缩放比例，格式与 SetBoardScale 接口参数格式一致 
 
@@ -712,6 +814,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setBoardContentFitMode:(TEduBoardContentFitMode)mode 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -727,23 +830,24 @@ NSString 版本号字符串
 ``` Objective-C
 - (TEduBoardContentFitMode)getBoardContentFitMode
 ```
+
 #### 返回
 白板内容自适应模式 
 
 
 ### addImageElement:
 添加图片资源 
+此接口将被废弃，请使用 addElement 添加元素 
 ``` Objective-C
 - (void)addImageElement:(NSString *)url 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | url | NSString * | 【必填】图片地址  |
 
-#### 警告
-此接口将被废弃，请使用 addElement 添加元素 支持 png/jpg/gif/svg 格式的本地和网络图片，当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。上传进度回调 onTEBFileUploadProgress，上传结果回调 onTEBFileUploadStatus 
 
 
 ### addElement:type:
@@ -751,6 +855,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (NSString *)addElement:(NSString *)url type:(TEduBoardElementType)type 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -762,7 +867,23 @@ NSString 版本号字符串
 元素 ID 
 
 #### 警告
-（1）当 type = TEDU_BOARD_ELEMENT_IMAGE，支持 png、jpg、gif、svg 格式的本地和网络图片，当 url 是一个有效的本地文件地址时，该文件会被自动上传到 COS，上传进度回调 onTEBFileUploadStatus （2）当 type = TEDU_BOARD_ELEMENT_CUSTOM_GRAPH，仅支持网络 url，请与自定义图形工具 TEDU_BOARD_TOOL_TYPE_BOARD_CUSTOM_GRAPH 配合使用 
+1. 当 type = TEDU_BOARD_ELEMENT_IMAGE，支持 png、jpg、gif、svg 格式的本地和网络图片，当 url 是一个有效的本地文件地址时，该文件会被自动上传到 COS，上传进度回调 onTEBFileUploadStatus
+2. 当 type = TEDU_BOARD_ELEMENT_CUSTOM_GRAPH，仅支持网络 url，请与自定义图形工具 TEDU_BOARD_TOOL_TYPE_BOARD_CUSTOM_GRAPH 配合使用
+3. 当 type = TEDU_BOARD_ELEMENT_AUDIO 或 TEDU_BOARD_ELEMENT_GLOBAL_AUDIO，仅支持网络 url 
+
+### removeElement:
+删除白板元素 
+``` Objective-C
+- (BOOL)removeElement:(NSString *)elementId 
+```
+
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | NSString * | 元素 ID  |
+
+#### 返回
+删除是否成功 
 
 
 ### setNextTextInput:focus:
@@ -770,6 +891,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setNextTextInput:(NSString *)input focus:(BOOL)focus 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -783,6 +905,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setZoomCursorIcon:(TEduBoardCursorIcon *)zoomIn zoomOutCursorIcon:(TEduBoardCursorIcon *)zoomOut 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -799,6 +922,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)setHandwritingEnable:(BOOL)enable 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -814,6 +938,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (BOOL)isHandwritingEnable
 ```
+
 #### 返回
 是否开启笔锋 
 
@@ -823,6 +948,7 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)refresh
 ```
+
 #### 警告
 如果当前白板包含 PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
 
@@ -832,11 +958,16 @@ NSString 版本号字符串
 ``` Objective-C
 - (void)syncAndReload
 ```
+
 #### 警告
 Reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBInit 之外的所有回调。 
 
 #### 介绍
-接口用途：此接口主要用于网络恢复后，同步本地数据到远端，拉取远端数据到本地 调用时机：在网络恢复后调用 使用限制： （1）仅支持2.4.9及以上版本 （2）如果历史数据还没有加载完成，则不允许重复调用，否则回调告警 TEDU_BOARD_WARNING_ILLEGAL_OPERATION 
+- 接口用途：此接口主要用于网络恢复后，同步本地数据到远端，拉取远端数据到本地
+- 调用时机：在网络恢复后调用 
+- 使用限制：
+  1. 仅支持2.4.9及以上版本
+  2. 如果历史数据还没有加载完成，则不允许重复调用，否则回调告警 TEDU_BOARD_WARNING_ILLEGAL_OPERATION 
 
 
 ### snapshot:
@@ -844,11 +975,71 @@ Reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBI
 ``` Objective-C
 - (void)snapshot:(TEduBoardSnapshotInfo *)info 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | info | TEduBoardSnapshotInfo * | 快照信息  |
+
+### setScaleAnchor:yRatio:
+设置缩放锚点 
+``` Objective-C
+- (void)setScaleAnchor:(CGFloat)xRatio yRatio:(CGFloat)yRatio 
+```
+
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| xRatio | CGFloat | 距离白板左边位置，取值【0, 1】  |
+| yRatio | CGFloat | 距离白板顶部位置，取值【0, 1】  |
+
+### setRemoteCursorVisible:
+设置远端画笔在本地是否可见 
+``` Objective-C
+- (void)setRemoteCursorVisible:(BOOL)visible 
+```
+
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| visible | BOOL | 是否可见  |
+
+### setScaleToolRatio:
+设置缩放工具的缩放比例 
+``` Objective-C
+- (void)setScaleToolRatio:(NSInteger)scale 
+```
+
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| scale | NSInteger | 最小缩放步长  |
+
+### setEraseLayerLimit:
+设置橡皮擦单次擦除图层数量 
+``` Objective-C
+- (void)setEraseLayerLimit:(NSInteger)limit 
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| limit | NSInteger | 擦除图层数量，默认为0，即不限制图层数量  |
+
+
+### setEraseLayerType:
+限制橡皮擦可擦除的白板元素类型 
+``` Objective-C
+- (void)setEraseLayerType:(NSArray< NSNumber * > *)typeArr 
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| typeArr | NSArray< NSNumber * > * | 支持设置多个可擦除类型，整型数组  |
 
 
 
@@ -859,6 +1050,7 @@ Reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBI
 ``` Objective-C
 - (void)applyFileTranscode:(NSString *)path config:(TEduBoardTranscodeConfig *)config 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -878,6 +1070,7 @@ Reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBI
 ``` Objective-C
 - (void)getFileTranscodeProgress:(NSString *)taskId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -896,6 +1089,7 @@ Reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBI
 ``` Objective-C
 - (NSString *)addTranscodeFile:(TEduBoardTranscodeFileResult *)result needSwitch:(BOOL)needSwitch 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -921,6 +1115,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Objective-C
 - (void)deleteFile:(NSString *)fileId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -936,6 +1131,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Objective-C
 - (void)switchFile:(NSString *)fileId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -954,6 +1150,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Objective-C
 - (void)switchFile:(NSString *)fileId boardId:(NSString *)boardId stepIndex:(NSInteger)stepIndex 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -974,6 +1171,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Objective-C
 - (NSString *)getCurrentFile
 ```
+
 #### 返回
 当前文件 ID 
 
@@ -983,6 +1181,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Objective-C
 - (TEduBoardFileInfo *)getFileInfo:(NSString *)fileId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1001,6 +1200,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Objective-C
 - (NSArray< TEduBoardFileInfo * > *)getFileInfoList
 ```
+
 #### 返回
 文件信息列表 
 
@@ -1013,6 +1213,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Objective-C
 - (NSArray< NSString * > *)getFileBoardList:(NSString *)fileId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1031,6 +1232,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Objective-C
 - (NSArray *)getThumbnailImages:(NSString *)fileId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1043,12 +1245,28 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 #### 介绍
 用户在调用 rest api 请求转码时，需要带上 "thumbnail_resolution" 参数，开启缩略图功能，否则返回的缩略图 url 无效 
 
+### getBoardElementList:
+获取白板中所有元素 
+``` Objective-C
+- (NSArray< TEduBoardElementInfo * > *)getBoardElementList:(NSString *)boardId 
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| boardId | NSString * | 白板 ID，如果为空则获取当前白板所有元素  |
+
+#### 返回
+白板元素列表 
+
 
 ### clearFileDraws:
 清空指定文件的所有白板涂鸦 
 ``` Objective-C
 - (void)clearFileDraws:(NSString *)fileId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1061,6 +1279,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Objective-C
 - (NSString *)addVideoFile:(NSString *)url 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1082,6 +1301,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Objective-C
 - (void)showVideoControl:(BOOL)show 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1097,6 +1317,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Objective-C
 - (void)playVideo
 ```
+
 #### 警告
 只对当前文件有效
 
@@ -1109,6 +1330,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Objective-C
 - (void)pauseVideo
 ```
+
 #### 警告
 只对当前文件有效
 
@@ -1121,6 +1343,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Objective-C
 - (void)seekVideo:(CGFloat)time 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1139,6 +1362,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Objective-C
 - (void)setSyncVideoStatusEnable:(BOOL)enable 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1157,6 +1381,7 @@ play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认�
 ``` Objective-C
 - (void)startSyncVideoStatus:(NSInteger)interval 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1175,15 +1400,130 @@ play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认�
 ``` Objective-C
 - (void)stopSyncVideoStatus
 ```
+
 #### 警告
 只对当前文件有效 
 
+
+### setSyncAudioStatusEnable:
+是否同步本地音频操作到远端 
+``` Objective-C
+- (void)setSyncAudioStatusEnable:(BOOL)enable 
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | BOOL | 【必填】是否同步  |
+
+#### 警告
+全局控制项，对所有视频文件有效
+
+#### 介绍
+play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认为 true 一般情况下学生设置为 false，老师设置为 true 
+
+
+### enableAudioControl:
+是否启用音频控制面板 
+``` Objective-C
+- (void)enableAudioControl:(BOOL)enable 
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | BOOL | 启用或禁止  |
+
+#### 警告
+禁止控制面板后，不能通过界面交互方式操作音频元素 
+
+
+### playAudio:
+播放音频 
+``` Objective-C
+- (void)playAudio:(NSString *)elementId 
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | NSString * | 调用 addElement 方法返回的元素 ID |
+
+#### 介绍
+触发状态改变回调 onTEBAudioStatusChange 
+
+
+### pauseAudio:
+暂停音频 
+``` Objective-C
+- (void)pauseAudio:(NSString *)elementId 
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | NSString * | 调用 addElement 方法返回的元素 ID |
+
+#### 介绍
+触发状态改变回调 onTEBAudioStatusChange 
+
+
+### seekAudio:time:
+跳转 
+``` Objective-C
+- (void)seekAudio:(NSString *)elementId time:(CGFloat)time 
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | NSString * | 调用 addElement 方法返回的元素 ID  |
+| time | CGFloat | 播放进度，单位秒 |
+
+#### 介绍
+触发状态改变回调 onTEBAudioStatusChange 
+
+
+### setAudioVolume:volume:
+设置音量 
+``` Objective-C
+- (void)setAudioVolume:(NSString *)elementId volume:(CGFloat)volume 
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | NSString * | 调用 addElement 方法返回的元素 ID  |
+| volume | CGFloat | 音频音量，取值范围[0-1]  |
+
+
+### getAudioVolume:
+获取音量 
+``` Objective-C
+- (CGFloat)getAudioVolume:(NSString *)elementId 
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | NSString * | 调用 addElement 方法返回的元素 ID  |
+
+#### 返回
+当前音量，取值范围[0-1] 
 
 ### addH5File:
 添加 H5 页面 
 ``` Objective-C
 - (NSString *)addH5File:(NSString *)url 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1202,6 +1542,7 @@ play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认�
 ``` Objective-C
 - (NSString *)addImagesFile:(NSArray< NSString * > *)urls 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1209,7 +1550,7 @@ play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认�
 | urls | NSArray< NSString * > * | 要使用的背景图片 URL 列表，编码格式为 UTF8  |
 
 #### 返回
-新增加文件Id 
+新增加文件 ID 
 
 #### 警告
 当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 

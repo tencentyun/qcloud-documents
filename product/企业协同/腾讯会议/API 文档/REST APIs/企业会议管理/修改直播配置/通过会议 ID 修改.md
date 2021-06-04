@@ -58,7 +58,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 ## 示例
 #### 输入示例
 ```http
-PUT https://api.meeting.qq.com/v1/meetings/${meeting_id}/live_play/config
+PUT https://api.meeting.qq.com/v1/meetings/{meeting_id}/live_play/config
 
 {
     "userid": "test_userid",
@@ -69,9 +69,13 @@ PUT https://api.meeting.qq.com/v1/meetings/${meeting_id}/live_play/config
    	 "enable_live_password": true,
    	 "live_password": "654321",
    	 "enable_live_im": true,
-   	 "enable_live_replay": true
+   	 "enable_live_replay": true，
+     "live_watermark": {
+            "watermark_opt": 0
+        }
     }
 }
+
 ```
 
 #### 输出示例（失败时返回）
