@@ -104,19 +104,10 @@ mLivePlayer.resumeVideo();
 
 [](id:step6)
 ### 步骤6：结束播放
-结束播放时**记得销毁 view 控件**，尤其是在下次 startPlay 之前，否则会产生大量的内存泄露以及闪屏问题。
-同时，在退出播放界面时，记得一定要调用渲染 View 的 `onDestroy()` 函数，否则可能会产生内存泄露和 “`Receiver not registered`” 报警。
-
+结束播放非常简单，直接调用 `stopPlay` 即可。
 ```java
-@Override
-public void onDestroy() {
-    super.onDestroy();
-    mLivePlayer.stopPlay();  
-    mView.onDestroy(); 
-}
+mLivePlayer.stopPlay();  
 ```
-
-点播播放结束后，默认不清除最后一帧视频画面，如果想清除最后一帧画面，调用 `TXCloudVideoView` 的 `clearLastFrame` 设置为true。
 
 [](id:step7)
 ### 步骤7：屏幕截图
