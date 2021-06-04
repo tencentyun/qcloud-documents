@@ -12,9 +12,8 @@ HTTPS，是指超文本传输安全协议（Hypertext Transfer Protocol Secure�
 
 [](id:q4)
 ### 源站的 HTTPS 证书更新了，CDN 上需要同步更新吗？
-由您的回源方式决定：
-HTTP 回源：不需要。
-HTTPS 回源：源站更新证书，CDN 节点也需要同步更新。客户端到节点，节点到源站证书是需要一致的，否则会导致回源失败。
+不需要。
+
 
 [](id:q5)
 ### CDN 有没有方法让用户控制只允许 HTTPS 访问，禁止 HTTP 访问？
