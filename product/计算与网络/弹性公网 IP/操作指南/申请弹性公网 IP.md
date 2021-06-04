@@ -1,39 +1,5 @@
 弹性公网 IP（EIP）是可以独立购买和持有的公网 IP 地址资源，您可根据如下操作申请 EIP。
 
-## 费用说明
-申请 EIP 后，不同类型账户的费用说明如下：
-<table>
-<thead>
-<tr>
-<th>账户类型</th>
-<th align="center">计费模式</th>
-<th>计费说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>传统账户类型</td>
-<td align="center">-</td>
-<td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/51694" target="_blank">IP 资源费用</a>。</td>
-</tr>
-<tr>
-<td rowspan="4">标准账户类型</td>
-<td align="center">按流量</td>
-<td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/51694" target="_blank"> IP 资源费用</a>。</td>
-</tr>
- <tr>
-<td align="center">包月带宽</td>
-<td>EIP 不收取 IP 资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
-</tr> 
-<tr>
-<td align="center">按小时带宽</td>
-<td>EIP 不收取 IP 资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
-</tr>
-<tr>
-<td align="center">共享带宽包</td>
-<td>EIP 不收取 IP 资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
-</tr>
-</tbody></table>
-
 ## 前提条件
 若需创建计费模式为共享带宽包的 EIP，请先创建共享带宽包，详情请参见 [创建 IP 带宽包](https://cloud.tencent.com/document/product/684/39942)，一个 IP 带宽包可以加入多个 EIP。
 
@@ -145,10 +111,13 @@
 </dx-tabs>
 
 4. 单击【确定】，完成 EIP 的申请。
-5. 在列表中，即可查看已申请的 EIP，此时处于未绑定状态。
-> ?建议您及时为处于未绑定状态的 EIP 绑定云资源，保障 IP 资源的合理利用，节省 IP 资源费，IP 资源费按小时计费，精确到秒级，不足一小时，按闲置时间占比收取费用。
+5. 返回 EIP 列表页，可查看已申请的 EIP，此时处于未绑定状态。
+> ?IP 资源费按小时计费，精确到秒级，不足一小时，按闲置时间占比收取费用。建议您及时为处于未绑定状态的 EIP 绑定云资源，保障 IP 资源的合理利用，节省 IP 资源费。
 >
  ![](https://main.qcloudimg.com/raw/9492216f61d10704015dac0cf217bd01.png)
 
-## 后续步骤
-- 若需要为 EIP 绑定云资源，请参见 [EIP 绑定云资源](https://cloud.tencent.com/document/product/1199/41702)。
+## 后续操作
+若需要为 EIP 绑定云资源，请参见 [EIP 绑定云资源](https://cloud.tencent.com/document/product/1199/41702)。
+
+## 相关文档
+[计费概述](https://cloud.tencent.com/document/product/1199/41692)
