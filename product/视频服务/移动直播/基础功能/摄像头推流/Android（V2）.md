@@ -69,14 +69,16 @@ mLivePusher.startCamera(true);
 ### 5. 启动和结束推流  
 
 如果已经启动了摄像头预览，就可以调用 V2TXLivePusher 中的 [startPush](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#ab4f8adaa0616d54d6ed920e49377a08a) 接口开始推流。  
-```java 
+<dx-codeblock>
+::: java java
 //启动推流
 String rtmpURL = "rtmp://test.com/live/xxxxxx"; //此处填写您的 rtmp 推流地址  
 int ret = mLivePusher.startPush(rtmpURL.trim());  
 if (ret == V2TXLIVE_ERROR_INVALID_LICENSE) {    
     Log.i(TAG, "startRTMPPush: license 校验失败");  
 }       
-```
+:::
+</dx-codeblock>
 
 推流结束后，可以调用 V2TXLivePusher 中的 [stopPush](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#af07c1dcff91b43a2309665b8663ed530) 接口结束推流。
 ```java 
@@ -210,15 +212,16 @@ mLivePusher.setWatermark(BitmapFactory.decodeResource(getResources(),R.drawable.
 ### 15. 主播端弱网提醒 
 如果主播在推流时遇到网络很差的情况，需要有一个友好的提示，提示主播应当检查网络。    
 通过 V2TXLivePusherObserver 里的 [onWarning](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusherObserver__android.html#abd54414cbd5d52c096f9cc090cfe1fec) 可以捕获 **V2TXLIVE_WARNING_NETWORK_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。此时可以在 UI 上弹出一个“弱网提示”来强提醒主播检查网络。
-
-```java   
+<dx-codeblock>
+:::java java 
 @Override
 public void onWarning(int code, String msg, Bundle extraInfo) {
     if (code == V2TXLiveCode.V2TXLIVE_WARNING_NETWORK_BUSY) {
         showNetBusyTips(); // 显示网络繁忙的提示
     }
 } 
-```
+:::
+</dx-codeblock>
 
 ## 事件处理
 
