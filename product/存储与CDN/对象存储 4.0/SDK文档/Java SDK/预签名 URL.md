@@ -38,8 +38,9 @@ Request 成员说明：
 [//]: # (.cssg-snippet-get-presign-download-url)
 ```java
 // 初始化永久密钥信息
-String secretId = "COS_SECRETID";
-String secretKey = "COS_SECRETKEY";
+// SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+String secretId = "SECRETID";
+String secretKey = "SECRETKEY";
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 Region region = new Region("COS_REGION");
 ClientConfig clientConfig = new ClientConfig(region);
@@ -68,9 +69,9 @@ cosClient.shutdown();
 [//]: # (.cssg-snippet-get-presign-download-url-override-headers)
 ```java
 // 传入获取到的临时密钥 (tmpSecretId, tmpSecretKey, sessionToken)
-String tmpSecretId = "COS_SECRETID";
-String tmpSecretKey = "COS_SECRETKEY";
-String sessionToken = "COS_TOKEN";
+String tmpSecretId = "SECRETID";
+String tmpSecretKey = "SECRETKEY";
+String sessionToken = "TOKEN";
 COSCredentials cred = new BasicSessionCredentials(tmpSecretId, tmpSecretKey, sessionToken);
 // 设置 bucket 的区域, COS 地域的简称请参照 https://cloud.tencent.com/document/product/436/6224
 // clientConfig 中包含了设置 region, https(默认 http), 超时, 代理等 set 方法, 使用可参见源码或者常见问题 Java SDK 部分
@@ -187,8 +188,9 @@ public String buildAuthorizationStr(HttpMethodName methodName, String resouce_pa
 
 [//]: # (.cssg-snippet-get-authorization-for-upload)
 ```java
-String secretId = "COS_SECRETID";
-String secretKey = "COS_SECRETKEY";
+// SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+String secretId = "SECRETID";
+String secretKey = "SECRETKEY";
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 COSSigner signer = new COSSigner();
 //设置过期时间为1个小时
@@ -202,8 +204,9 @@ String sign = signer.buildAuthorizationStr(HttpMethodName.PUT, key, cred, expire
 
 [//]: # (.cssg-snippet-get-authorization-for-download)
 ```java
-String secretId = "COS_SECRETID";
-String secretKey = "COS_SECRETKEY";
+// SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+String secretId = "SECRETID";
+String secretKey = "SECRETKEY";
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 COSSigner signer = new COSSigner();
 // 设置过期时间为1个小时
@@ -217,8 +220,9 @@ String sign = signer.buildAuthorizationStr(HttpMethodName.GET, key, cred, expire
 
 [//]: # (.cssg-snippet-get-authorization-for-delete)
 ```java
-String secretId = "COS_SECRETID";
-String secretKey = "COS_SECRETKEY";
+// SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+String secretId = "SECRETID";
+String secretKey = "SECRETKEY";
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 COSSigner signer = new COSSigner();
 // 设置过期时间为1个小时
