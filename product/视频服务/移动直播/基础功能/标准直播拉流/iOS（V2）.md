@@ -43,9 +43,9 @@ V2TXLivePlayer *_txLivePlayer = [[V2TXLivePlayer alloc] init];
 **如何做动画？**
 针对 view 做动画是比较自由的，不过请注意此处动画所修改的目标属性应该是 transform 属性而不是 frame 属性。
 ```objectivec
-  [UIView animateWithDuration:0.5 animations:^{
-            _myView.transform = CGAffineTransformMakeScale(0.3, 0.3); //缩小1/3
-        }];
+[UIView animateWithDuration:0.5 animations:^{
+		_myView.transform = CGAffineTransformMakeScale(0.3, 0.3); //缩小1/3
+}];
 ```
 
 [](id:step3)
