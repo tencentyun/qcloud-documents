@@ -12,7 +12,7 @@ HTTPS，是指超文本传输安全协议（Hypertext Transfer Protocol Secure�
 
 [](id:q4)
 ### 源站的 HTTPS 证书更新了，CDN 上需要同步更新吗？
-不需要。
+不需要。源站的 HTTPS 证书更新后不会影响 CDN 上的 HTTPS 证书，当您在 CDN 上配置的 HTTPS 证书将要到期或者已经到期时，您才需要在 CDN 上更新 HTTPS 证书。
 
 
 [](id:q5)
