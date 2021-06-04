@@ -112,25 +112,22 @@ CreateObject("WScript.Shell").Run "cmd /c E:\AutoRclone\startup_rclone.bat",0
 
 您也可以通过使用第三方商业收费工具，将 COS 挂载到 Windows 服务器上映射为本地磁盘。如下操作以 TntDrive 工具为例。
 1. 下载和安装 TntDrive。
-2. 打开 TntDrive，单击【Account】>【Add New Account】，创建一个用户。
-![](https://main.qcloudimg.com/raw/3eeaa3d2f4f1329b11eaa6d1f6c736e6.png)
+2. 打开 TntDrive，单击【Account】>【Add New Account】，创建一个用户账号。
+![](https://main.qcloudimg.com/raw/90b4a262b11b6933f48b4922cad4fdc4.png)
 主要参数信息如下：
- - Account Name：自定义。
- - Account Type：选择【Amazon S3 Compatible Storage】。
- - REST Endpoint：填写存储桶所在的地域，例如广州地域的存储对象：cos.ap-guangzhou.myqcloud.com。
- - Access Key ID：填写 SecretId。
- - Secret Access Key：填写 API 密钥。
-3. 单击【Add New Account】。
+ - Account Name：自定义账号名称。
+ - Account Type：由于 COS 兼容 S3，因此该处可选择【Amazon S3 Compatible Storage】。
+ - REST Endpoint：填写存储桶所在的地域，例如存储桶位于广州地域，则填 cos.ap-guangzhou.myqcloud.com。
+ - Access Key ID：填写 SecretId。可在 [API 密钥管理](https://console.cloud.tencent.com/capi) 页面中创建和获取。
+ - Secret Access Key：填写 SecretKey。
+3. 单击【Add new account】。
 4. 在 TntDrive 界面，单击【Add New Mapped Drives】，创建一个 Mapped Drives。
+![](https://main.qcloudimg.com/raw/fa09500f96ba8e5c8144d39cd5471991.png)
 主要参数信息如下：
- - Amazon S3 Bucket：选择广州地域下的存储桶名称（一个桶独立映射为一个磁盘）。
- - Mapped drives letter：设置硬盘的盘符名称，请不要与本地的 C、D、E 盘等重复。
-5. 单击【Add New drive】。
-6. 在本地计算机的【我的电脑】中，即可找到该磁盘。
-如果想把所有的桶都映射到 Windows 服务器中，请重复以上步骤。
-
-
-
+ - Amazon S3 Bucket：输入存储桶路径，或选择存储桶名称。可单击右侧按钮选择存储桶。该处展示的是步骤2设置的广州地域下的存储桶。（一个存储桶独立映射为一个磁盘）。
+ - Mapped drives letter：设置磁盘的盘符名称，请不要与本地的 C、D、E 盘等重复。
+5. 确认以上信息单击【Add new drive】。
+6. 在本地计算机的【我的电脑】中，即可找到该磁盘。如果想把所有的存储桶都映射到 Windows 服务器中，请重复以上步骤。
 
 
 
