@@ -26,9 +26,9 @@ GME 分为两个部分，提供实时语音服务、语音消息及转文本服�
 #### 实时语音
 
 <dx-steps>
--<dx-tag-link link="#EnterRoom" tag="接口：EnterRoom">进入实时语音房间</dx-tag-link>
--<dx-tag-link link="#EnableMic" tag="接口：EnableMic">打开麦克风</dx-tag-link>
--<dx-tag-link link="#EnableSpeaker" tag="接口：EnableSpeaker">打开扬声器</dx-tag-link>
+-<dx-tag-link link="#EnterRoom" tag="接口：EnterRoom">加入实时语音房间</dx-tag-link>
+-<dx-tag-link link="#EnableMic" tag="接口：EnableMic">打开或关闭麦克风</dx-tag-link>
+-<dx-tag-link link="#EnableSpeaker" tag="接口：EnableSpeaker">打开或关闭扬声器</dx-tag-link>
 -<dx-tag-link link="#ExitRoom" tag="接口：ExitRoom">退出语音房间</dx-tag-link>
 </dx-steps>
 
@@ -42,7 +42,7 @@ GME 分为两个部分，提供实时语音服务、语音消息及转文本服�
 
 <dx-tag-link link="#Init" tag="接口：UnInit">反初始化 GME</dx-tag-link>
 
-## 参考 Demo 接入
+## 核心接口接入
 
 ### 1. 下载 Demo 
 
@@ -386,9 +386,9 @@ QAVSDK_AuthBuffer_GenAuthBuffer(atoi(SDKAPPID3RD), roomId, "10001", AUTHKEY,retA
 </dx-codeblock>
 
 
-## 实时语音
+## 实时语音接入
 
-###  [加入房间](id:EnterRoom)
+###  [1. 加入房间](id:EnterRoom)
 
 用生成的鉴权信息进房，会收到消息为 ITMG_MAIN_EVENT_TYPE_ENTER_ROOM 的回调。加入房间默认不打开麦克风及扬声器。返回值为 AV_OK 的时候代表成功。
 
@@ -432,11 +432,9 @@ context->EnterRoom(roomID, ITMG_ROOM_TYPE_STANDARD, (char*)retAuthBuff,bufferLen
 :::
 </dx-codeblock>
 
-### 加入房间事件回调
+#### 加入房间事件回调
 
-加入房间完成后会发送信息 ITMG_MAIN_EVENT_TYPE_ENTER_ROOM，在 OnEvent 函数中进行判断回调后处理。
-- 如果回调为成功，即此时进房成功，开始进行**计费**。
-- 如果本日通话总时长 < 700 分钟则免费。
+加入房间完成后会发送信息 ITMG_MAIN_EVENT_TYPE_ENTER_ROOM，在 OnEvent 函数中进行判断回调后处理。如果回调为成功，即此时进房成功，开始进行**计费**；如果本日通话总时长 < 700 分钟则免费。
 
 <dx-fold-block title="计费问题参考">
 [购买指南。](https://cloud.tencent.com/document/product/607/17808)
@@ -444,10 +442,8 @@ context->EnterRoom(roomID, ITMG_ROOM_TYPE_STANDARD, (char*)retAuthBuff,bufferLen
 [使用实时语音后，如果客户端掉线了，是否还会继续计费？](https://cloud.tencent.com/document/product/607/51459#.E4.BD.BF.E7.94.A8.E5.AE.9E.E6.97.B6.E8.AF.AD.E9.9F.B3.E5.90.8E.EF.BC.8C.E5.A6.82.E6.9E.9C.E5.AE.A2.E6.88.B7.E7.AB.AF.E6.8E.89.E7.BA.BF.E4.BA.86.EF.BC.8C.E6.98.AF.E5.90.A6.E8.BF.98.E4.BC.9A.E7.BB.A7.E7.BB.AD.E8.AE.A1.E8.B4.B9.EF.BC.9F)
 </dx-fold-block>
 
-#### 示例代码  
-
+- **示例代码**  
 回调处理相关参考代码，包括加入房间事件以及断网事件。
-
 <dx-codeblock>
 ::: Java Java
 //RealTimeVoiceActivity.java
@@ -505,22 +501,41 @@ public void OnEvent(ITMGContext.ITMG_MAIN_EVENT_TYPE type, Intent data) {
   }
   :::
   </dx-codeblock>
+- **错误码**
+<table>
+<thead>
+<tr>
+<th>错误码值</th>
+<th>原因及建议方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7006</td>
+<td>鉴权失败，原因如下：<ul><li>AppID 不存在或者错误</li><li>authbuff 鉴权错误</li><li>鉴权过期 </li><li>openId 不符合规范</li></ul></td>
+</tr>
+<tr>
+<td>7007</td>
+<td>已经在其它房间</td>
+</tr>
+<tr>
+<td>1001</td>
+<td>已经在进房过程中，然后又重复了此操作。建议在进房回调返回之前不要再调用进房接口</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>已经进房了在房间中，又调用一次进房接口</td>
+</tr>
+<tr>
+<td>1101</td>
+<td>确保已经初始化 SDK，确保 openId 是否符合规则，或者确保在同一线程调用接口，以及确保 Poll 接口正常调用</td>
+</tr>
+</tbody></table>
 
-#### 错误码
-
-| 错误码值 | 原因及建议方案                                               |
-| -------- | ------------------------------------------------------------ |
-| 7006     | 鉴权失败，原因如下：<li>AppID 不存在或者错误<li>authbuff 鉴权错误<li>鉴权过期 <li>openId 不符合规范 |
-| 7007     | 已经在其它房间                                             |
-| 1001     | 已经在进房过程中，然后又重复了此操作。建议在进房回调返回之前不要再调用进房接口 |
-| 1003     | 已经进房了在房间中，又调用一次进房接口                     |
-| 1101     | 确保已经初始化 SDK，确保 openId 是否符合规则，或者确保在同一线程调用接口，以及确保 Poll 接口正常调用 |
 
 
 
 
-
-### [开启或关闭麦克风](id:EnableMic)
+### [2. 开启或关闭麦克风](id:EnableMic)
 
 此接口用来开启关闭麦克风。加入房间默认不打开麦克风及扬声器。
 
@@ -540,7 +555,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->EnableMic(true);
 :::
 </dx-codeblock>
 
-### [开启或关闭扬声器](id:EnableSpeaker)
+### [3. 开启或关闭扬声器](id:EnableSpeaker)
 
 此接口用于开启关闭扬声器。
 
@@ -561,10 +576,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->EnableSpeaker(true);
 </dx-codeblock>
 
 
-
-
-
-### [退出房间](id:ExitRoom)
+### [4. 退出房间](id:ExitRoom)
 
 通过调用此接口可以退出所在房间。这是一个异步接口，返回值为 AV_OK 的时候代表异步投递成功。
 
@@ -586,12 +598,9 @@ context->ExitRoom();
 </dx-codeblock>
 
 
-### 退出房间回调
+#### 退出房间回调
 
-退出房间完成后会有回调，消息为 ITMG_MAIN_EVENT_TYPE_EXIT_ROOM。
-
-#### 示例代码  
-
+退出房间完成后会有回调，消息为 ITMG_MAIN_EVENT_TYPE_EXIT_ROOM。示例代码如下：
 <dx-codeblock>
 ::: Java Java
 //RealTimeVoiceActivity.java
@@ -630,10 +639,10 @@ switch (eventType) {
 
 
 
-## 语音消息
+## 语音消息接入
 
 
-### [鉴权初始化](id:ApplyPtt)
+### [1. 鉴权初始化](id:ApplyPtt)
 
 在初始化 SDK 之后调用鉴权初始化，authBuffer 的获取参见上文实时语音鉴权信息接口 genAuthBuffer。
 
@@ -673,11 +682,7 @@ ITMGContextGetInstance()->GetPTT()->ApplyPTTAuthbuffer(authBuffer,authBufferLen)
 :::
 </dx-codeblock>
 
-
-## 流式语音识别
-
-
-### [启动流式语音识别](id:StartRWSR)
+### [2. 启动流式语音识别](id:StartRWSR)
 
 此接口用于启动流式语音识别，同时在回调中会有实时的语音转文字返回，可以指定语言进行识别，也可以将语音中识别到的信息翻译成指定的语言返回。**停止录音调用 StopRecording**，停止之后才有回调。
 
@@ -729,7 +734,7 @@ ITMGContextGetInstance()->GetPTT()->StartRecordingWithStreamingRecognition(fileP
 :::
 </dx-codeblock>
 
-### 流式语音识别回调
+#### 流式语音识别回调
 
 启动流式语音识别后，需要在回调函数 OnEvent 中监听回调消息，事件消息分为 `ITMG_MAIN_EVNET_TYPE_PTT_STREAMINGRECOGNITION_COMPLETE` ，在停止录制并完成识别后才返回文字，相当于一段话说完才会返回识别的文字。
 
@@ -742,16 +747,7 @@ ITMGContextGetInstance()->GetPTT()->StartRecordingWithStreamingRecognition(fileP
 | file_path |             录音存放的本地地址              |
 | file_id   | 录音在后台的 url 地址，录音在服务器存放90天 |
 
-#### 错误码
-
-| 错误码 | 含义 | 处理方式 |
-| ------ | :--: | :------: |
-|32775	|流式语音转文本失败，但是录音成功	|调用 UploadRecordedFile 接口上传录音，再调用 SpeechToText 接口进行语音转文字操作
-|32777	|流式语音转文本失败，但是录音成功，上传成功	|返回的信息中有上传成功的后台 url 地址，调用 SpeechToText 接口进行语音转文字操作
-|32786  |流式语音转文本失败|在流式录制状态当中，请等待流式录制接口执行结果返回|
-
-#### 示例代码  
-
+- **示例代码**  
 <dx-codeblock>
 ::: Java Java
 //VoiceMessageRecognitionActivity.java
@@ -836,8 +832,35 @@ public void OnEvent(ITMGContext.ITMG_MAIN_EVENT_TYPE type, Intent data) {
   }
   :::
   </dx-codeblock>
+- **错误码**
+<table>
+<thead>
+<tr>
+<th>错误码</th>
+<th align="center">含义</th>
+<th align="center">处理方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>32775</td>
+<td align="center">流式语音转文本失败，但是录音成功</td>
+<td align="center">调用 UploadRecordedFile 接口上传录音，再调用 SpeechToText 接口进行语音转文字操作</td>
+</tr>
+<tr>
+<td>32777</td>
+<td align="center">流式语音转文本失败，但是录音成功，上传成功</td>
+<td align="center">返回的信息中有上传成功的后台 url 地址，调用 SpeechToText 接口进行语音转文字操作</td>
+</tr>
+<tr>
+<td>32786</td>
+<td align="center">流式语音转文本失败</td>
+<td align="center">在流式录制状态当中，请等待流式录制接口执行结果返回</td>
+</tr>
+</tbody></table>
 
-### [停止录音](id:Stop)
+
+
+### [3. 停止录音](id:Stop)
 
 此接口用于停止录音。此接口为异步接口，停止录音后会有录音完成回调，成功之后录音文件才可用。
 

@@ -254,6 +254,26 @@ if (msgType.integerValue == 1) {
 ```
 ![](https://main.qcloudimg.com/raw/f6ff84d3a50630bb4e8a0ab6fd090798.png)
 
+### 获取 "TPNS运行日志" 交互建议
+建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示"TPNS运行日志"，方便后续问题排查。
+
+效果如下图所示：
+![](https://main.qcloudimg.com/raw/8eaaba4bedf0a541ed7f077d2e374ca3.png)![](https://main.qcloudimg.com/raw/5c28586161aefb3c47c5cdb7e23ed57b.png)
+#### 示例代码
+```objective-c
+//获取 TPNS 生成的 Token
+[[XGPush defaultManager] uploadLogCompletionHandler:^(BOOL result, NSString * _Nullable errorMessage) {
+NSString *title = result ? NSLocalizedString(@"report_log_info", nil) : NSLocalizedString(@"failed", nil);
+if (result && errorMessage.length>0) {
+UIPasteboard *pasteboard = [UIPasteboardgeneralPasteboard];
+pasteboard.string = errorMessage;
+}
+[TPNSCommonMethodshowAlert:title message:errorMessage viewController:selfcompletion:nil];
+}];
+
+```
+
+
 ### 隐私协议声明建议
 
 您可在申请 App 权限使用时，使用以下内容声明授权的用途：
