@@ -14,25 +14,31 @@
 ![](https://main.qcloudimg.com/raw/a6bf96d7032c225e5567a6153e9edc12.jpg)
 
 1. 在 dependencies 中添加 LiteAVSDK 的依赖。
-```
+<dx-codeblock>
+:::  jar
 dependencies {
-    implementation 'com.tencent.liteavsdk:LiteAVSDK_Professional:latest.release'
+	implementation 'com.tencent.liteavsdk:LiteAVSDK_Professional:latest.release'
 }
-```
+::: 
+</dx-codeblock>
 或
-```
+<dx-codeblock>
+:::  jar
 dependencies {
-    implementation 'com.tencent.liteavsdk:LiteAVSDK_Professional:latest.release@aar'
+	implementation 'com.tencent.liteavsdk:LiteAVSDK_Professional:latest.release@aar'
 }
-```
+::: 
+</dx-codeblock>
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a）。
-```
+<dx-codeblock>
+:::  jar
 defaultConfig {
-     ndk {
-         abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
-     }
+	ndk {
+		abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+	}
 }
-```
+::: 
+</dx-codeblock>
 3. 单击![](https://main.qcloudimg.com/raw/d6b018054b535424bb23e42d33744d03.png) Sync Now 按钮同步 SDK，如果您的网络连接 mavenCentral 没有问题，很快 SDK 就会自动下载集成到工程里。
 
 ### 方法二：手动下载（aar）
@@ -69,23 +75,27 @@ defaultConfig {
   ![](https://main.qcloudimg.com/raw/d9b6339cb52fb85afda42de6001be337.png)
 3. 在 `app/build.gradle` 中，添加引用 jar 库的代码。
 ![](https://main.qcloudimg.com/raw/695520309d9a01b19ce2f50439a42890.png)      
-```
+<dx-codeblock>
+:::  jar
 dependencies{
-    implementation fileTree(dir:'libs',include:['*.jar'])
+	implementation fileTree(dir:'libs',include:['*.jar'])
 }
-```
+:::
+</dx-codeblock>
 4. 在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
   ![](https://main.qcloudimg.com/raw/6c68b846f6f7258ae4d96bc1d95d7816.png)
 5. 在 `app/build.gradle` 中，添加引用 so 库的代码。
   ![](https://main.qcloudimg.com/raw/e0f2f39c5f53a9fd5ca084febdd4e637.png)
 6. 在 `app/build.gradle` 的 defaultConfig 中，指定 App 使用的 CPU 架构(目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a)  。
-```
+<dx-codeblock>
+:::  jar
 defaultConfig {
     ndk {
         abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
     }
 }
-```
+:::
+</dx-codeblock>
 7. 单击 Sync Now 按钮同步 SDK，完成 LiteAVSDK 的集成工作。
 
 ## 配置 App 打包参数
