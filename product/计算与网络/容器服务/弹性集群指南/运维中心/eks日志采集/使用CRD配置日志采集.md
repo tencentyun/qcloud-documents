@@ -132,7 +132,8 @@ CRD 对 Pod 无侵入性，支持单行、多行、分隔符、完全正则、JS
 </dx-alert>
 5. [](id:index)单击【下一步】，选择日志提取模式。如下图所示：
 ![](https://main.qcloudimg.com/raw/0be038e165d1823f7fdfedc32ef054e4.png)
-<dx-fold-block title="<b>多类提取模式说明</b>">
+<dx-accordion>
+::: <b>多类提取模式说明</b>
 <table>
 <thead>
 <tr>
@@ -172,15 +173,18 @@ CRD 对 Pod 无侵入性，支持单行、多行、分隔符、完全正则、JS
 <td><a href="https://cloud.tencent.com/document/product/614/17420">分隔符格式</a></td>
 </tr>
 </tbody></table>
-</dx-fold-block>
-<dx-fold-block title="<b>正则表达式自动生成说明</b>">
+:::
+::: <b>正则表达式自动生成说明</b>
 [](id:auto)为方便您的使用，在选择**多行 - 完全正则**、**单行 - 完全正则**、**多行全文**的提取模式时，支持**根据日志样例自动生成正则表达式**。
 以**单行 - 完全正则**为例，使用步骤如下：
-![](https://main.qcloudimg.com/raw/a6818396ad433e6c4b295bd265153d7b.png)
-1. 单击【正则表达式自动生成】。
-2. 在“正则表达式自动生成”弹窗中，选中日志样例中需要提取的字段，填写 key 值。
-3. 单击【确认提取】，即可生成该字段对应的正则表达式，并自动填写提取结果。重复此操作，直至日志完全被提取完成。
-</dx-fold-block>
+1. 单击【正则表达式自动生成】。如下图所示：
+![](https://main.qcloudimg.com/raw/39e213dfe97361c49a425fbb9f81468f.png)
+2. 在“正则表达式自动生成”弹窗中，选中日志样例中需要提取的字段，填写 key 值。如下图所示：
+![](https://main.qcloudimg.com/raw/81767168c00c970435cc1d669c94dcba.png)
+3. 单击【确认提取】，即可生成该字段对应的正则表达式，并自动填写提取结果。重复此操作，直至日志完全被提取完成。如下图所示：
+![](https://main.qcloudimg.com/raw/dcb5744a546465142b0a7fd3e3944bd5.png)
+:::
+</dx-accordion>
 <dx-alert infotype="notice" title=""> 
 一个日志主题目前仅支持一个采集配置，请保证选用该日志主题的所有容器的日志都可以接受采用所选的日志解析方式。若在同一日志主题下新建了不同的采集配置，旧的采集配置会被覆盖。
 </dx-alert>
