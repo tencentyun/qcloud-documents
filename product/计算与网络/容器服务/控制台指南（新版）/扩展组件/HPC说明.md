@@ -21,8 +21,8 @@ HPC（HorizontalPodCronscaler）是一种可以对 K8s workload 副本数进行�
 
 ## HPC 功能
 
-- 支持设置“ 实例范围 ”（关联对象为 HPA） 或 “ 目标实例数量 ”（关联对象为 deployment 和 statefulset）。
-- 支持开关“ 例外时间 ”。例外时间的最小配置粒度是日期，支持设置多条。
+- 支持设置“实例范围”（关联对象为 HPA）或“目标实例数量”（关联对象为 deployment 和 statefulset）。
+- 支持开关“例外时间”。例外时间的最小配置粒度是日期，支持设置多条。
 - 支持设置定时任务是否只执行一次。
 
 
