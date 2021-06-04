@@ -83,7 +83,6 @@ if (ret == V2TXLIVE_ERROR_INVALID_LICENSE) {
 推流结束后，可以调用 V2TXLivePusher 中的 [stopPush](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#af07c1dcff91b43a2309665b8663ed530) 接口结束推流。
 ```java 
 //结束推流
-mLivePusher.stopCamera(); //如果已经启动了摄像头预览，请在结束推流时将其关闭
 mLivePusher.stopPush();
 ```
 >!如果已经启动了摄像头预览，请在结束推流时将其关闭。  
