@@ -46,7 +46,7 @@ mLivePusher.setWatermark(BitmapFactory.decodeResource(getResources(),R.drawable.
 
 [](id:step4)
 ### 步骤4：推荐的清晰度
-调用 V2TXLivePusher 中的`setVideoQuality`接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而`setVideoQuality`设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/56600?!preview&!editLang=zh)。
+调用 V2TXLivePusher 中的`setVideoQuality`接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而`setVideoQuality`设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/56600)。
 
 [](id:step5)
 ### 步骤5：提醒主播“网络不好”

@@ -166,25 +166,7 @@ NSString* url = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 
 >? 更多关于卡顿和延迟优化的技术知识，请参见 [如何优化视频卡顿？](https://cloud.tencent.com/document/product/454/56613?!preview&!editLang=zh)
 
-[](id:RealTimePlay)
-## 超低延时播放
-
-支持**400ms**左右的超低延迟播放是云直播播放器的一个特点，它可以用于一些对延时要求极为苛刻的场景，例如**远程夹娃娃**或者**主播连麦**等，关于这个特性，您需要知道：
-
-- **播放地址需要带防盗链**
-播放 URL 不能用普通的 CDN URL，必须要带防盗链签名和 bizid 参数，防盗链签名的计算方法请参见 [防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
-bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/live/domainmanage) 页面，在默认域名中出现的第一个数字即为 bizid，如图所示：
-![](https://main.qcloudimg.com/raw/59a26f25727430cc14c85c7dd8c5e231.png)
-如果您的防盗链地址为：
-`rtmp://domain/live/test?txTime=5c2acacc&amp;txSecret=b77e812107e1d8b8f247885a46e1bd34`。
-则加速流地址为：
-`rtmp://domain/live/test?txTime=5c2acacc&amp;txSecret=b77e812107e1d8b8f247885a46e1bd34&amp;bizid=2157`。
->? 防盗链计算默认使用推流防盗链 Key。
-- **该功能有并发播放限制**
-目前最多同时10路并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（例如连麦时只给主播使用，或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要高于 CDN 线路的价格）。
-- **该功能按播放时长收费**
-本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参见 **[价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)**。
-
+[](id:sdklisten)
 ## SDK 事件监听
 您可以为 V2TXLivePlayer 对象绑定一个 [V2TXLivePlayerObserver](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html)，之后 SDK 的内部状态信息例如播放器状态、播放音量回调、音视频首帧回调、统计数据、警告和错误信息等会通过对应的回调通知给您。
 

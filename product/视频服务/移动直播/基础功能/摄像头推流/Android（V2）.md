@@ -53,9 +53,9 @@ V2TXLivePusher mLivePusher = new V2TXLivePusherImpl(this, V2TXLiveDef.V2TXLiveMo
 1. 直接在 xml 文件中添加一个视频渲染控件：    
 ```xml  
 <com.tencent.rtmp.ui.TXCloudVideoView   
-							android:id="@+id/pusher_tx_cloud_view"  
-							android:layout_width="match_parent" 
-							android:layout_height="match_parent" /> 
+              android:id="@+id/pusher_tx_cloud_view"  
+              android:layout_width="match_parent" 
+              android:layout_height="match_parent" /> 
 ```
 2. 通过调用 V2TXLivePusher 中的`startCamera`接口开启当前手机摄像头的预览画面。 
 ```java     
@@ -83,7 +83,6 @@ if (ret == V2TXLIVE_ERROR_INVALID_LICENSE) {
 推流结束后，可以调用 V2TXLivePusher 中的 [stopPush](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#af07c1dcff91b43a2309665b8663ed530) 接口结束推流。
 ```java 
 //结束推流
-mLivePusher.stopCamera(); //如果已经启动了摄像头预览，请在结束推流时将其关闭
 mLivePusher.stopPush();
 ```
 >!如果已经启动了摄像头预览，请在结束推流时将其关闭。  
@@ -109,7 +108,7 @@ int ret = mLivePusher.startPush(rtmpURL.trim());
 
 [](id:step7)
 ### 7. 设定画面清晰度  
-调用 V2TXLivePusher 中的 [setVideoQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a2695806cb6c74ccce4b378d306ef0a02) 接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而 `setVideoQuality` 设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/56600?!preview&!editLang=zh)。
+调用 V2TXLivePusher 中的 [setVideoQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a2695806cb6c74ccce4b378d306ef0a02) 接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而 `setVideoQuality` 设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/56600)。
 
 [](id:step8)
 ### 8. 美颜美白和红润特效    
