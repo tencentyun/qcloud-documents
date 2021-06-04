@@ -35,13 +35,11 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 2. 添加 Maven 依赖项，只需在 Maven pom.xml 添加以下依赖项即可：
 
  >!版本号仅为示例，请在 [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 获取最新的版本号并替换。
-
 <pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.tencentcloudapi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>tencentcloud-sdk-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1.270<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><span class="hljs-comment">&lt;!-- 注：这里只是示例版本号，请获取并替换为 <a href="https://mvnrepository.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java">最新的版本号</a> --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1.282<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><span class="hljs-comment">&lt;!-- 注：这里只是示例版本号，请获取并替换为 <a href="https://mvnrepository.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java">最新的版本号</a>，注意不要使用4.0.11版本（非最新版本） --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
-
 3. 引用方法可参考 [示例代码](#example)。
 
 ### 通过源码包安装
