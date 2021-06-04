@@ -7,7 +7,7 @@ Logstash 的一个典型应用场景，就是消费 kafka 中的数据并且写�
 ![](https://main.qcloudimg.com/raw/b2f664a511a2ba7c603d832627b2b19b.png)
 ![](https://main.qcloudimg.com/raw/452adf2c3e9ecf7d11a92ccd7f76b791.png)
 
-在管道配置中，分别针对“input-kafka”和“output-elasticsearch”进行配置，一些关键的配置参数说明如下：
+在管道配置中，分别针对“input-beats”和“output-elasticsearch”进行配置，一些关键的配置参数说明如下：
 
 ### input-beats
 - host：logstash 要监听的 IP 地址，可设置为节点的 IP，默认为0.0.0.0

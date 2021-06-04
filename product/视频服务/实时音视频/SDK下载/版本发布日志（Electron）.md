@@ -1,3 +1,16 @@
+## Version 8.6.101 @ 2021.05.28
+
+**功能新增**
+- Windows & Mac：新增接口，支持屏幕分享时屏蔽应用窗口：[addExcludedShareWindow](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#addExcludedShareWindow)、[removeExcludedShareWindow](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#removeExcludedShareWindow)、[removeAllExcludedShareWindow](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#removeAllExcludedShareWindow)。
+- Windows & Mac：获取可共享的窗口列表接口 [getScreenCaptureSources](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#getScreenCaptureSources)，返回值列表元素新增 isMinimizeWindow 字段。
+- Windows & Mac：支持构造函数传入参数。
+
+**问题修复**
+- Windows：插件加载不支持中文路径问题。
+- Windows & Mac：修复 webgl context lost 问题。
+- Windows & Mac：开启双路编码，进入房间后，切换小画面视频流，本地显示的远端成员画面卡住问题。
+- Windows & Mac：在客户端进房拉流的时候出现远端成员画面先模糊一下，然后逐渐清晰问题。
+
 ## Version 8.4.1 @ 2021.03.26
 
 **功能新增**

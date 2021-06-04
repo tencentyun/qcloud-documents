@@ -12,8 +12,8 @@ GetMonitorData 接口常见报错 ：<font>**Unauthorized operation or the insta
 
 ### GetMonitorData 接口如何查询项目下所有实例的监控数据？
 GetMonitorData 接口限制说明：
-1. GetMonitorData 接口单次调用仅支持单种产品、单个指标，如果要跨产品类型查询，或跨指标查询，需要多次调用。
-2. GetMonitorData 接口单次调用支持查询多个实例，但不支持根据项目 ID 查询，需要填写明确的实例ID列表。
+- GetMonitorData 接口单次调用仅支持单种产品、单个指标，如果要跨产品类型查询，或跨指标查询，需要多次调用。
+- GetMonitorData 接口单次调用支持查询多个实例，但不支持根据项目 ID 查询，需要填写明确的实例 ID 列表。
 
 如果业务需要拉取某个项目下所有实例监控数据，可以参考以下两种方法：
 #### 方法一：

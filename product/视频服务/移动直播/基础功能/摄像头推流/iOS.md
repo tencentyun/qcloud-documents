@@ -1,6 +1,6 @@
 ## 功能概述
 摄像头推流，是指采集手机摄像头的画面以及麦克风的声音，进行编码之后再推送到直播云平台上。腾讯云 LiteAVSDK 通过 TXLivePusher 接口提供摄像头推流能力，如下是 LiteAVSDK 的简单版 Demo 中演示摄像头推流的相关操作界面：
-![](https://main.qcloudimg.com/raw/9ad8f513454a058635bbe572755303c6.jpg)
+![](https://main.qcloudimg.com/raw/39ee7f9e0e092d0adb9f1dff1077a482.png)
 
 ## 特别说明
 - **不绑定腾讯云**

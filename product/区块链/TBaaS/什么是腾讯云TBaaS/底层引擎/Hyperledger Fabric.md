@@ -55,7 +55,7 @@ Fabric 支持多种主流语言开发智能合约。在交易参与排序之前�
 
 Fabric 中，排序服务是模块化设计的，具备开发能力的用户可以对此进行重新设计和更换。
 
-在当前 Fabric 可用的版本中，对交易进行排序使用基于 Kafka 和 Zookerper 的 CFT 排序服务。随后的版本中，Fabric 将实现 etcd/Raft 中的 Raft 排序服务，以及完全分布式的 BFT 排序服务供用户选择。
+在当前 Fabric 可用的版本中，对交易进行排序使用基于 Kafka 和 Zookeeper 的 CFT 排序服务。随后的版本中，Fabric 将实现 etcd/Raft 中的 Raft 排序服务，以及完全分布式的 BFT 排序服务供用户选择。
 
 ## 系统框架
 ![](https://main.qcloudimg.com/raw/5e55a8ea8caf64bc38673754ba889b5f.jpg)

@@ -109,11 +109,11 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>加密算法</td>
-<td>加密算法支持 AES-128、AES-192、AES-256、3DES、DES</td>
+<td>加密算法支持 AES-128、AES-192、AES-256、3DES、DES、SM4</td>
 </tr>
 <tr>
 <td>认证算法</td>
-<td>身份认证算法，支持 MD5 和 SHA1</td>
+<td>身份认证算法，支持 MD5、SHA1、SHA256、SHA512</td>
 </tr>
 <tr>
 <td>协商模式</td>
@@ -144,11 +144,11 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>加密算法</td>
-<td>支持 3DES、AES-128、AES-192、AES-256</td>
+<td>加密算法支持 AES-128、AES-192、AES-256、3DES、DES、SM4</td>
 </tr>
 <tr>
 <td>认证算法</td>
-<td>支持 MD5 和 SHA1</td>
+<td>身份认证算法，支持 MD5、SHA1、SHA256、SHA512</td>
 </tr>
 <tr>
 <td>报文封装模式</td>

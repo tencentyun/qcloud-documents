@@ -320,7 +320,7 @@ iOS 自动播放受限，请参见 [自动播放受限处理建议](https://web.
 
 参考资料：
 
-- [TWebLive 接口手册](https://web.sdk.qcloud.com/component/tweblive/doc/zh-cn/TWebLive.html)
+- <a href="https://web.sdk.qcloud.com/component/tweblive/doc/zh-cn/TWebLive.html">TWebLive 接口手册</a>
 - [在线 Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html)
 
 ## 相关文档

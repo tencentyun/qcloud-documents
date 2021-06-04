@@ -6,7 +6,6 @@
 
 ## 快速开始
 ### Python 示例代码 1
-
 ```
 #!/usr/bin/python
 import pymongo
@@ -30,7 +29,6 @@ for i in content:
 ```
 
 ###  Python 示例代码 2
-
 ```
 #!/usr/bin/python
 import pymongo
@@ -49,7 +47,6 @@ for doc in db.somecoll.find({"somekey":"yiqihapi"}):
 ```
 
 输出：
-
 ```
 5734431e101e2f6d699b37ef
 {u'somekey': u'yiqihapi', u'_id': ObjectId('5734431e101e2f6d699b37ef')}

@@ -8,7 +8,7 @@ Logstash 实例的计费项包括节点机型和节点存储两部分，实例�
 
 ### 节点机型
 
-Logstash 实例 支持以下节点类型：
+Logstash 实例支持以下节点类型：
 
 <table>
   <tr>
@@ -255,7 +255,7 @@ Logstash 实例 支持以下节点类型：
   <tr>
     <td class="tg-0pky">LOGSTASH.S1.8XLARGE128</td>
     <td class="tg-0pky">48</td>
-    <td class="tg-0pky">196</td>
+    <td class="tg-0pky">96</td>
     <td class="tg-0pky">生产</td>
 			<td class="tg-0pky">6.87</td>
     <td class="tg-0pky">6.18</td>
@@ -281,7 +281,7 @@ Logstash 实例 支持以下节点类型：
   <tr>
     <td class="tg-llyw" colspan="1">北京/上海/广州/南京</td>
     <td class="tg-llyw" colspan="1">成都/重庆</td>
-		<td class="tg-llyw" colspan="1">上海/深圳金融</td>
+		<td class="tg-llyw" colspan="1">北京/上海/深圳金融</td>
     <td class="tg-llyw" colspan="1">中国香港</td>
     <td class="tg-llyw" colspan="1">新加坡</td>
     <td class="tg-llyw" colspan="1">泰国</td>
@@ -554,7 +554,7 @@ Logstash 实例 支持以下节点类型：
   <tr>
     <td class="tg-llyw" colspan="1">北京/上海/广州/南京</td>
     <td class="tg-llyw" colspan="1">成都/重庆</td>
-		<td class="tg-llyw" colspan="1">上海/深圳金融</td>
+		<td class="tg-llyw" colspan="1">北京/上海/深圳金融</td>
     <td class="tg-llyw" colspan="1">中国香港</td>
     <td class="tg-llyw" colspan="1">新加坡</td>
     <td class="tg-llyw" colspan="1">泰国</td>

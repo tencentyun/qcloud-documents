@@ -20,9 +20,8 @@ AAAA | BBBB | CCCC | DDDD
 Output = '''
 字段 | 类型 | 描述
 ------- | ------- | -------
-Code | String | 返回码。Success 表示失败，其余表示失败。
-Message | String | 中文错误信息。 
-EnglishMessage | String | 英文错误信息。 
+AAA | String | AAAA
+BBB | String | BBB。 
 '''
 
 ## 接口示例

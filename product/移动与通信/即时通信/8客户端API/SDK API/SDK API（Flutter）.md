@@ -1,3 +1,8 @@
+<dx-alert infotype="notice" title="温馨提示">
+即时通信 IM 为您准备了 Flutter 的 API 调用示例，您可以访问 [GitHub](https://github.com/tencentyun/imApiFlutterExample) 获取源码。扫描下方二维码即可体验 API 调用示例 Demo：
+![](https://main.qcloudimg.com/raw/4658a0d24c33f6ec42b07bc8e36234d9.png)
+</dx-alert infotype="notice" title="温馨提示">
+
 ## 初始化登录接口
 初始化并成功登录，是正常使用腾讯云 IM 服务的前提。
 
@@ -120,7 +125,7 @@
 | API | 描述 |
 |---------|---------|
 | [setFriendListener](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/setFriendListener.html) | 设置关系链的监听器，用于接收好友列表和黑名单的变更事件 |
-| [getFriendsInfo](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/getFriendsInfo.html) | 获取好友列表 |
+| [getFriendList](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/getFriendList.html) | 获取好友列表 |
 | [getFriendsInfo](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/getFriendsInfo.html) | 获取指定好友资料 |
 | [setFriendInfo](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/setFriendInfo.html) | 设置指定好友资料 |
 | [addFriend](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/addFriend.html) | 添加好友 |
@@ -137,4 +142,3 @@
 | [renameFriendGroup](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/renameFriendGroup.html) | 修改好友分组的名称 |
 | [addFriendsToFriendGroup](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/addFriendsToFriendGroup.html) | 添加好友到一个好友分组 |
 | [deleteFriendsFromFriendGroup](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/deleteFriendsFromFriendGroup.html) | 从好友分组中删除好友 |
-
