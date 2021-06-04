@@ -4,6 +4,14 @@
 
 HPC（HorizontalPodCronscaler）是一种可以对 K8s workload 副本数进行定时修改的自研组件，配合 HPC CRD 使用，最小支持秒级的定时任务。
 
+### 组件功能
+
+- 支持设置“实例范围”（关联对象为 HPA）或“目标实例数量”（关联对象为 deployment 和 statefulset）。
+- 支持开关“例外时间”。例外时间的最小配置粒度是日期，支持设置多条。
+- 支持设置定时任务是否只执行一次。
+
+
+
 ### 部署在集群内的 Kubernetes 对象
 
 在集群内部署 HPC , 将在集群内部署以下 Kubernetes 对象：
@@ -19,14 +27,10 @@ HPC（HorizontalPodCronscaler）是一种可以对 K8s workload 副本数进行�
 | hpc-manager                                            | ServiceAccount           | -                      | kube-system    |
 | tke-hpc-controller                                     | Deployment               | 100mCPU/pod、100Mi/pod | kube-system    |
 
-## HPC 功能
-
-- 支持设置“实例范围”（关联对象为 HPA）或“目标实例数量”（关联对象为 deployment 和 statefulset）。
-- 支持开关“例外时间”。例外时间的最小配置粒度是日期，支持设置多条。
-- 支持设置定时任务是否只执行一次。
 
 
-## HPC 限制条件
+
+## 限制条件
 
 #### 环境要求
 
