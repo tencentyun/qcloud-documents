@@ -26,6 +26,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://main.qcloudimg.com/raw/587d2e546abf2809d12023fe54639495.png)
 3. 进入添加 CC 防护规则页面，填写相应信息。
 ![](https://main.qcloudimg.com/raw/5dea6ce0d822bf3a14416e49b137e7eb.png)
+
 **配置项说明：**
 - 规则名称：CC 防护规则名称，50个字符以内。
 - 识别模式：支持 IP 和 SESSION 识别模式，默认为 IP，SESSION 模式需要提前设置 SESSION 位置信息。
