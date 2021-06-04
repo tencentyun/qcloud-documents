@@ -54,15 +54,16 @@ mLivePusher.setWatermark(BitmapFactory.decodeResource(getResources(),R.drawable.
 ![](https://main.qcloudimg.com/raw/ede09b70402bee1d88f86492226c6b46.png)  
 
 通过 V2TXLivePusherObserver 里的 [onWarning](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__android.html) 可以捕获 **V2TXLIVE_WARNING_NETWORK_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。此时就可以像上图一样在 UI 上弹出一个“弱网提示”。
-
-```objectiveC   
+<dx-codeblock>
+::: objectiveC objectiveC
 @Override
 public void onWarning(int code, String msg, Bundle extraInfo) {
     if (code == V2TXLiveCode.V2TXLIVE_WARNING_NETWORK_BUSY) {
         showNetBusyTips(); // 显示网络繁忙的提示
     }
 } 
-```
+:::
+</dx-codeblock>
 
 [](id:step6)
 ### 步骤6：横竖屏适配
