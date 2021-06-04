@@ -124,7 +124,7 @@
 | API | 描述 |
 |-----|-----|
 | [enableCustomVideoCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa29d36eaa707f6acf622e2f87f14b26a) | 启用视频自定义采集模式。 可以选择推送辅流、主画面视频流、小画面视频流。  |
-| [sendCustomVideoData](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a39b79b77e3795e918383e945e9513d35) | 向 SDK 投送自己采集的视频数据。 |
+| [sendCustomVideoData](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ad898c0d44a55b86af57de9854638193e) | 向 SDK 投送自己采集的视频数据。 |
 | [setLocalVideoProcessListener](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a0b565dc8c77df7fb826f0c45d8ad2d85) | 第三方美颜的视频数据回调。 |
 | [setLocalVideoRenderListener](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa3cbb7a501c3151d94473965e2538c7a) | 设置本地视频的自定义渲染回调。 |
 | [setRemoteVideoRenderListener](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a4fca6803d13e4c7ff00dcac2974637e4) | 设置远端视频的自定义渲染回调。 |
@@ -135,7 +135,6 @@
 | [setCapturedRawAudioFrameCallbackFormat](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a9047b34857b12d85688b3b3f1ca1c3f0) | 设置本地麦克风采集回调出来的 AudioFrame 格式。 |
 | [setLocalProcessedAudioFrameCallbackFormat](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ac0f65e13815edc05ebd765826a94e3dc) | 设置本地采集并经过音频模块前处理后的音频数据回调出来的 AudioFrame 格式。 |
 | [setMixedPlayAudioFrameCallbackFormat](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a98a2e38d75366fbc2c4da92fec5c0a30) | 设置送入扬声器播放的音频数据回调的 AudioFrame 格式。 |
-| [sendCustomVideoData](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ad898c0d44a55b86af57de9854638193e) | 向 SDK 投送自己采集的视频数据。 |
 | [enableMixExternalAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a7b7d3707d2ed8e8f1221faf73af49027) | 控制外部音频是否要混入推流和混入播放。 |
 | [mixExternalAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa411a035318c3a757c5d361d143c929d) | 向 SDK 投送音频数据。 |
 
@@ -229,6 +228,7 @@
 | [isCameraAutoFocusFaceModeSupported](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a23f25ffb81215a32517da78455459ff2) | 查询是否支持自动识别人脸位置，v8.0 版本弃用，请使用 TXDeviceManager 中的函数。 |
 | [TRTCViewMargin](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#adeb72b7f954af864743cdbeb283c534b) | 视图边距。 |
 | [enableCustomVideoCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a68187fc9a1656bb32cf825363745f7e7) | 启用视频自定义采集模式。 |
+| [sendCustomVideoData](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a39b79b77e3795e918383e945e9513d35) | 向 SDK 投送自己采集的视频数据。 |
 
 ### 播放背景音乐的回调接口
 
