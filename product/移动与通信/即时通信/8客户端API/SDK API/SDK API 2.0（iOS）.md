@@ -1,4 +1,4 @@
->!**新老版本 API 请勿混合使用**。
+﻿>!**新老版本 API 请勿混合使用**。
 
 ## 初始化登录接口
 初始化并成功登录，是正常使用腾讯云 IM 服务的前提。
@@ -7,10 +7,13 @@
 |---------|---------|
 | [initSDK](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a534a3f98ea1447984b5f0932fecfe194) | 初始化 |
 | [unInitSDK](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a286e5358ec4cd0a8f9c66f4d2d7d4544) | 反初始化 |
+| [getVersion](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#ae8281def98e669d701171ede7aa3c176) |获取版本号 |
+| [getServerTime](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a4adcf2642bcb706cd6cfe7e5c5f85f06) |获取服务器当前时间 |
 | [login](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a3237ea515b8a78e94a6579447ba282ee) | 登录 |
 | [logout](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#ab4233cb134d5c6125d0a2d2d83ec1afa) | 退出登录 |
+| [getLoginUser](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a78ca7f39bca860e46620f8f766508fb0) | 获取登录用户 |
 | [getLoginStatus](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#acfd2f6366780badf80ebf66d95550f89) | 获取登录状态 |
-| [getLoginUser](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a78ca7f39bca860e46620f8f766508fb0) | 获取当前登录用户 UserID |
+
 
 ## 简单消息收发接口
 如果您只需要使用文本和信令（即一段自定义buffer）消息，只需要使用这套简单消息收发接口即可。
@@ -66,9 +69,13 @@
 | [markC2CMessageAsRead](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#ad7d239caa69ec7da45f52d6bb02ee19c) | 设置单聊（C2C）消息已读 |
 | [markGroupMessageAsRead](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a40afaf1f06edd10c90d8d67fa98c2b14) | 设置群组消息已读 |
 | [deleteMessageFromLocalStorage](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a989a11c62ba2001a6a8360d6421d9dd3) | 删除本地消息 |
+| [deleteMessages](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#aff045afc14e69aa64bb3d95b65715513) | 删除本地及云端的消息 |
+| [clearC2CHistoryMessage](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a72590d34ab078e5260e1bf8c12cc6f83) | 清空单聊本地及云端的消息 |
+| [clearGroupHistoryMessage](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a63a5c058b2b12fd904f09afc7058ecb8) | 清空群聊本地及云端的消息 |
 | [insertGroupMessageToLocalStorage](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a941598ae3367267ce6bf8ec3d8dcb2eb) | 向群组消息列表中添加一条消息 |
 | [insertC2CMessageToLocalStorage](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a220423e265e3916e530814372799cf4f) | 向单聊消息列表中添加一条消息 |
 | [findMessages](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#abacfae1406f7d82241ec4e4a8072fa3e) | 根据 msgID 查找本地消息 |
+| [searchLocalMessages](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a749eade1ce83d6ee1d3f971257141e6c) | 搜索本地消息 |
 
 ## 群组相关接口
 腾讯云 IM SDK 支持四种预设的群组类型，每种类型都有其适用场景：
@@ -87,6 +94,7 @@
 | [dismissGroup](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#af6605dd9624849843938573ef05b5463) | 解散群组（仅群主和管理员可以解散） |
 | [getJoinedGroupList](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Group_08.html#ae12e170ad585eaa8fb9f080bdc3bf8b8) | 获取已经加入的群列表（不包括已加入的直播群） |
 | [getGroupsInfo](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Group_08.html#aeeffef844fd0948dda227620f0fac895) | 拉取群资料 |
+| [searchGroups](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Group_08.html#aa29694be71b0ff8ca31f04b557f35431) | 搜索群列表 |
 | [setGroupInfo](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Group_08.html#a13b25d1f491e18ab0ba953ffc2ca9e82) | 修改群资料 |
 | [ initGroupAttributes](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Group_08.html#a6d34074aa8ce1e8a6dc41ee53ff5963a) | 初始化群属性 |
 | [ setGroupAttributes](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Group_08.html#a60bbd75b35c42e823c9538b4be44e3ea) | 设置群属性 |
@@ -148,6 +156,7 @@
 | [getFriendList](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Friendship_08.html#a8d03aec2e3efd16b7942944c6cb30d0e) | 获取好友列表 |
 | [getFriendsInfo](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Friendship_08.html#a930bb2a8cd664a4037797970ce9fc0d8) | 获取指定好友资料 |
 | [setFriendInfo](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Friendship_08.html#a97409aaccf135d60344f002aca06e63e) | 设置指定好友资料 |
+| [searchFriends](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Friendship_08.html#aee1472e90ebbf114878ac98d84fcb85e) | 搜索好友列表 |
 | [addFriend](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Friendship_08.html#ae46b728a77d71e302e10b71ee6b0241e) | 添加好友 |
 | [deleteFromFriendList](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Friendship_08.html#a2786c60824ea6ec117429ef2b59630a1) | 删除好友 |
 | [checkFriend](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Friendship_08.html#a2add6bf5b1e2bc8c20bbc2a3f7e0b2f2) | 检查指定用户的好友关系 |
