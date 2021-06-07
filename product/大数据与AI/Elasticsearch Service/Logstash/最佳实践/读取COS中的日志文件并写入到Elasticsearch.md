@@ -4,7 +4,7 @@
 在“管道管理”页面，点击“新建管道”按钮，创建一个管道：
 ![](https://main.qcloudimg.com/raw/4c13071ced72ce67a44092064e14b77f.png)
 
-进入管道配置页面，点击“引用模板”按钮，同时引用“input-beats”和“output-elasticsearch”两个模板：
+进入管道配置页面，点击“引用模板”按钮，同时引用“input-s3”和“output-elasticsearch”两个模板：
 ![](https://main.qcloudimg.com/raw/d9f18aae57a8d6c995633b5d9bda3df6.png)
 ![](https://main.qcloudimg.com/raw/1ef5faa2cf275499b3e674b40aac8d1d.png)
 
