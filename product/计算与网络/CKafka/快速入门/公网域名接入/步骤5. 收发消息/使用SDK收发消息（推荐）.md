@@ -1,18 +1,18 @@
 ## 操作背景
 
-该任务以 Java 客户端为例指导您在公网环境下通过 SASL 接入点接入消息队列 CKafka 版并使用 PLAIN 机制收发消息。
+该任务以 Java 客户端为例指导您在公网网络环境下接入消息队列 CKafka 并收发消息。
 
 其他语言客户端请参考 [SDK文档](https://cloud.tencent.com/document/product/597/54816)。
 
 ## 前提条件
 
-- [安装1.8或以上版本 JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
-- [安装2.5或以上版本 Maven](http://maven.apache.org/download.cgi#)
-- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/javakafkademo)
+- [安装1.8或以上版本JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
+- [安装2.5或以上版本Maven](http://maven.apache.org/download.cgi#)
+- [下载Demo]()
 
 ## 操作步骤
 
-#### 步骤一：添加 Java 依赖库
+#### 步骤一：添加Java依赖库
 
 在pom.xml中添加以下依赖。
 
@@ -26,8 +26,9 @@
 
 #### 步骤二：准备配置
 
-1. 创建 JAAS 配置文件 ckafka_client_jaas.conf。
-```
+1. 创建JAAS配置文件ckafka_client_jaas.conf。
+
+```bash
 KafkaClient {
 org.apache.kafka.common.security.plain.PlainLoginModule required
 username="yourinstance#yourusername"
@@ -35,21 +36,32 @@ password="yourpassword";
 };
 ```
 
->?username 是`实例 ID` + `#` + `配置的用户名`，password 是配置的用户密码。
+> ?
+>
+> username 是`实例 ID` + `#` + `配置的用户名`，password 是配置的用户密码。
 
-2. 创建消息队列 Kafka 版配置文件 kafka.properties。
-```
-##SASL接入点，通过控制台获取。
-bootstrap.servers=xxxx
-##Topic，通过控制台创建。
-topic=xxxx
-##Consumer Group
-group.id=xxxx
-##JAAS配置文件。
+2. 创建消息队列 CKafka 配置文件kafka.properties。
+
+```bash
+## 配置接入网络，在控制台的实例详情页面接入方式模块的网络列复制。
+bootstrap.servers=xx.xx.xx.xx:xxxx
+## 配置Topic，在控制台上topic管理页面复制。
+topic=XXX
+## 配置Consumer Group，您可以自定义设置
+group.id=XXX
+##JAAS配置文件ckafka_client_jaas.conf的路径。
 java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
 ```
 
-3. 创建配置文件加载程序 CKafkaConfigurer.java。
+| 参数                                  | 说明                                                         |
+| ------------------------------------- | ------------------------------------------------------------ |
+| bootstrap.servers                     | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![](https://main.qcloudimg.com/raw/c5cf200a66f6dcf627d2ca6f1c747ecf.png) |
+| topic                                 | topic名称，您可以在控制台上【topic管理】页面复制。<br/>![](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
+| group.id                              | 您可以自定义设置，demo运行成功后可以在【Consumer Group】页面看到该消费者。 |
+| java.security.auth.login.config.plain | 填写JAAS配置文件ckafka_client_jaas.conf的路径。              |
+
+3. 创建配置文件加载程序CKafkaConfigurer.java。
+
 ```java
 public class CKafkaConfigurer {
 
@@ -82,9 +94,10 @@ public class CKafkaConfigurer {
 
 ```
 
-### 步骤三：发送消息
+#### 步骤三：发送消息
 
-1. 创建发送消息程序 **KafkaSaslProducerDemo.java。**
+1. 创建发送消息程序KafkaSaslProducerDemo.java。
+
    ```java
    public class KafkaSaslProducerDemo {
    
@@ -144,22 +157,24 @@ public class CKafkaConfigurer {
    }
    ```
 
-2. 编译并运行 KafkaSaslProducerDemo.java 发送消息。
+2. 编译并运行KafkaSaslProducerDemo.java发送消息。
 
-3. 运行结果（输出）。
+3. 运行结果(输出)。
+
 ```bash
 Produce ok:ckafka-topic-demo-0@198
 Produce ok:ckafka-topic-demo-0@199
 
 ```
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic管理】页面，选择对应的 topic ，点击【更多】>【消息查询】，查看刚刚发送的消息。
+4. 在CKafka控制台【topic管理】页面，选择对应的 topic ， 点击【更多】>【消息查询】，查看刚刚发送的消息。
+
 ![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
 
+#### 步骤四：消费消息
 
-### 步骤四：消费消息
+1. 创建Consumer订阅消息程序KafkaSaslConsumerDemo.java
 
-1. 单个 Consumer 订阅消息， 创建单 Consumer 订阅消息程序 KafkaSaslConsumerDemo.java
 ```java
 public class KafkaSaslConsumerDemo {
     public static void main(String args[]) {
@@ -219,15 +234,18 @@ public class KafkaSaslConsumerDemo {
 }
 ```
 
-2. 编译并运行 KafkaSaslConsumerDemo.java 消费消息。
+2. 编译并运行KafkaSaslConsumerDemo.java消费消息。
 
 3. 运行结果。
+
    ```bash
    Consume partition:0 offset:298
    Consume partition:0 offset:299
    
    ```
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 topic 名称，点击【查询详情】，查看消费详情。
+4. 在CKafka控制台【Consumer Group】页面，选择对应的消费组名称，在主题名称输入topic名称，点击【查询详情】，查看消费详情。
+
+
 ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)
 
