@@ -543,7 +543,7 @@ this.TRTC.on(EVENT.REMOTE_AUDIO_REMOVE, onRemoteAudioRemove)
 [](id:REMOTE_STATE_UPDATE)
 ### REMOTE_STATE_UPDATE
 
-远端的用户有音频上行移除。
+远端用户播放状态变更通知。
 
 ```javascript
 let onRemoteStateUpdate = function(event){
@@ -551,7 +551,7 @@ let onRemoteStateUpdate = function(event){
   const id = event.currentTarget.dataset.streamid
   const data = event.data // 这里是微信原生组件抛出的关于player的信息，若有需要您可以自主获取
 }
-this.TRTC.on(EVENT.REMOTE_AUDIO_REMOVE, onRemoteStateUpdate)
+this.TRTC.on(EVENT.REMOTE_STATE_UPDATE, onRemoteStateUpdate)
 ```
 
 [](id:LOCAL_NET_STATE_UPDATE)
