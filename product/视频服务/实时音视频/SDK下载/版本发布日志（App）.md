@@ -1,11 +1,11 @@
 ### Version 8.7 @ 2021.5.25
 **功能新增**
-- 全平台：增加外接音频设备的异常检测。您可以通过监听 onStatistics 回调 TRTCLocalStatistics 中的 audioCaptureState 来实时检测长时间静音、破音、异常间断问题。
+- 全平台：增加外接音频设备的异常检测。注册 onStatistics 回调后， 您可以用 [TRTCLocalStatistics](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCTypeDef__cplusplus.html#structtrtc_1_1TRTCLocalStatistics) 中的 audioCaptureState 来实时检测长时间静音、破音、异常间断问题。
 - Windows：自定义采集支持输入 RGBA 格式的视频数据。
 
 **质量优化**
 - 全平台：优化 bgm 资源管理，及时释放内存占用。
-- 全平台：推流端退后台暂停视频上行时，播放端能及时收到 onUserVideoAvailable(false) 的通知。
+- 全平台：推流端退后台暂停视频上行时，播放端能及时收到 [onUserVideoAvailable(false)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudCallback__cplusplus.html#a091f1c94ff1e2bc39c36e9d34285e87a) 的通知。
 - Mac：优化屏幕分享时鼠标捕捉的 CPU 和内存占用。
 
 **问题修复**
