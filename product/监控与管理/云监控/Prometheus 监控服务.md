@@ -1,6 +1,5 @@
 Prometheus 监控服务文档已迁移至新目录，下列为常用文档链接，如需快速访问请点击 [Prometheus 监控服务](https://cloud.tencent.com/document/product/1416)。
-
-
+<div>
 <style>
 .dxsize{width:300px;margin-bottom:20px}
 .hh{color:#00A4FF;left:600px;top:50%;font-size:20px}
@@ -100,5 +99,5 @@ Prometheus 监控服务文档已迁移至新目录，下列为常用文档链接
 :::
 </dx-accordion>
 </div>
-
+</div>
 </div>
