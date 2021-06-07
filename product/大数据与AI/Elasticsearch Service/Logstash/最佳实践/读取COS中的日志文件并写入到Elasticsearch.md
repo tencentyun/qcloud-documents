@@ -13,7 +13,7 @@
 ### input-s3
 - access\_key\_id：腾讯云账号的 API 密钥 ID
 - secret\_access\_key：腾讯云账号的 API 密钥 KEY
-* endpoint：COS 对象存储的访问地址，不通地域的地址不同，如广州地域为 `https://cos.ap-guangzhou.myqcloud.com`
+* endpoint：COS 对象存储的访问地址，不同地域的地址不同，如广州地域为 `https://cos.ap-guangzhou.myqcloud.com`
 * bucket：COS 对象存储的 bucket
 * region：COS 对象存储 bucket 所在的地域，如 ap-guangzhou
 * prefix：要读取的日志文件名称前缀
