@@ -1,4 +1,4 @@
-### Version 8.7 @ 2021.5.25
+## Version 8.7 @ 2021.5.25
 **功能新增**
 - 全平台：增加外接音频设备的异常检测。您可以通过监听 onStatistics 回调 TRTCLocalStatistics 中的 audioCaptureState 来实时检测长时间静音、破音、异常间断问题。
 - Windows：自定义采集支持输入 RGBA 格式的视频数据。
