@@ -153,7 +153,7 @@ UIImage *image = [UIImage imageWithContentsOfFile:path];
 
 [](id:step10)
 ### 10. 设备管理
-V2TXLivePusher 提供了一组 API 用户控制设备的的行为，您可通过 `getDeviceManager` 获取 TXDeviceManager 实例进一步进行设备管理，详细用法请参见 [TXDeviceManager API](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXDeviceManager__ios.html#interfaceTXDeviceManager)。
+V2TXLivePusher 提供了一组 API 用户控制设备的行为，您可通过 `getDeviceManager` 获取 TXDeviceManager 实例进一步进行设备管理，详细用法请参见 [TXDeviceManager API](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXDeviceManager__ios.html#interfaceTXDeviceManager)。
 ![](https://main.qcloudimg.com/raw/f071f9c5edf88e61b108a77946669d60.png)
 
 [](id:step11)
