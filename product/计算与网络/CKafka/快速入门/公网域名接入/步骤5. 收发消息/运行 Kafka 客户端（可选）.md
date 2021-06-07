@@ -46,54 +46,39 @@ java -version
 ### 步骤3：Kafka API 测试
 
 1. 在本地配置 ACL 策略。
-
    1. 在工具包 `./config` 目录下，在 producer.properties 和 consumer.properties 文件末尾添加以下内容：
-
       ```properties
       security.protocol=SASL_PLAINTEXT 
       sasl.mechanism=PLAIN
       ```
-
    2. 创建一个名为 ckafka_client_jaas.conf 的文件，内容如下：
-
       ```properties
       KafkaClient {
-          org.apache.kafka.common.security.plain.PlainLoginModule required
-          username="yourinstance#yourusername"
-          password="yourpassword";
+                 org.apache.kafka.common.security.plain.PlainLoginModule required
+                 username="yourinstance#yourusername"
+                 password="yourpassword";
       };
       ```
-
       >?username 是`实例 ID` + `#` + `刚配置的用户名`，password 是刚配置的用户密码。
-
    3. 在工具包 `./bin` 目录下，在 kafka-console-producer.sh 和 kafka-console-consumer.sh 文件起始部位增加对 JAAS 文件的路径的声明（必须是完整路径）：
-
       ```bash
       export KAFKA_OPTS="-Djava.security.auth.login.config=****/config/ckafka_client_jaas.conf"
       ```
 
 2. 通过 CLI 命令生产和消费消息，去到`./bin`目录下。
-
    1. 打开终端启动消费者。
-
       ```bash
       bash kafka-console-consumer.sh --bootstrap-server XXXX:port --topic XXXX --consumer.config ../config/consumer.properties
       ```
-
       >?
-      >
       >- broker-list：将 XXXX:port 替换成公网访问的域名与端口，在控制台实例详情页面的【接入方式】模块获取。
       >  ![](https://main.qcloudimg.com/raw/c5cf200a66f6dcf627d2ca6f1c747ecf.png)
       >- topic：将 XXXX替换成topic名称，在控制台【topic管理】页面获取。
-
    2. 另外开一个终端窗口启动生产者。
-
       ``` bash
       bash kafka-console-producer.sh --broker-list XXXX:port --topic XXXX --producer.config ../config/producer.properties
       ```
-
       >?
-      >
       >- broker-list：将 XXXX:port 替换成公网访问的域名与端口，在控制台实例详情页面的【接入方式】模块获取。
       >  ![](https://main.qcloudimg.com/raw/c5cf200a66f6dcf627d2ca6f1c747ecf.png)
       >- topic：将 XXXX替换成topic名称，在控制台【topic管理】页面获取。
