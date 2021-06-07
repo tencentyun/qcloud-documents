@@ -1,8 +1,6 @@
-﻿Prometheus 监控服务文档已迁移至新目录，下列为常用文档链接，如需快速访问请点击 [Prometheus 监控服务](https://cloud.tencent.com/document/product/1416)。
+Prometheus 监控服务文档已迁移至新目录，下列为常用文档链接，如需快速访问请点击 [Prometheus 监控服务](https://cloud.tencent.com/document/product/1416)。
 
-<html>
 
-<meta  charset="utf-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" >
 <style>
 .dxsize{width:300px;margin-bottom:20px}
 .hh{color:#00A4FF;left:600px;top:50%;font-size:20px}
@@ -40,7 +38,7 @@
         $(".easyui-accordion .panel-header").click();
     })
 </script>
-<body style="width:100%;height:100%">
+
 <table>
 <h2 style="position: relative; left:100px;"  class="segment2"><img class="rno-learning-path-icon" src="https://main.qcloudimg.com/raw/a8ce0e6a692a35724164d759f9bfa5d9/icon-understand.svg" alt="">初识</h2>
 <div class="dxsize segment ">
@@ -104,5 +102,3 @@
 </div>
 
 </div>
-</body>
-</html>
