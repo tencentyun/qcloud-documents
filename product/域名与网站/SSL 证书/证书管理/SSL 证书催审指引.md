@@ -22,7 +22,7 @@
     <td>支持</td>
     <td>支持</td>
     <td>-</td>
-    <td>不支持</td>
+    <td>支持</td>
     <td>支持</td>
     <td>支持</td>
   </tr>
@@ -46,11 +46,11 @@
   </tr>
   <tr>
     <td>GlobalSign</td>
-    <td>不支持</td>
+    <td>支持</td>
     <td>-</td>
     <td>-</td>
     <td>-</td>
-    <td>不支持</td>
+    <td>支持</td>
     <td>-</td>
   </tr>
   <tr>
