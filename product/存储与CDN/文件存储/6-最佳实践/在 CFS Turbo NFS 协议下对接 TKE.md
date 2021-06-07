@@ -73,5 +73,5 @@ kubectl create -f static-allinone.yaml
 kubectl get pod -n default -o wide
 ```
 返回如下结果，即表示创建成功。
-![](https://main.qcloudimg.com/raw/ad33c14b61fd22313dd299af0c4bdea6.png)
-若状态持续为 creating，即表示创建失败。您可在 TKE 控制台的事件中，查看失败原因。
+![](https://main.qcloudimg.com/raw/5e7014090522b1667afcc0b7d351fef9.png)
+若状态（STATUS）持续为 ContainerCreating，即表示创建失败。您可在 TKE 控制台的事件中，查看失败原因。
