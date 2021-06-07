@@ -2,7 +2,7 @@
 ### 组件介绍
 Nginx 可以用作反向代理、负载平衡器和 HTTP 缓存。Nginx-ingress 组件是使用 Nginx 作为反向代理和负载平衡器的 Kubernetes 的 Ingress 控制器。您可以部署 Nginx-ingress 组件，在集群中使用 Nginx-ingress。
 
-### 在集群内部署 Kubernetes 对象
+### 部署在集群内的 Kubernetes 对象
 在集群内部署 Nginx-ingress Add-on，将在集群内部署以下 Kubernetes 对象：
 
 | Kubernetes 对象名称        | 类型         | 默认占用资源 | 所属 Namespaces |

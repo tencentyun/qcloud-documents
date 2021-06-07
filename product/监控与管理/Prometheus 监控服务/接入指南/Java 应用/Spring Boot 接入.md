@@ -6,7 +6,7 @@
 
 ## 前提条件
 
-- 创建 [腾讯云容器服务—托管版集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)：在腾讯云容器服务中创建 Kubernetes 集群。
+- 创建 [腾讯云容器服务—托管版集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)：在腾讯云容器服务中创建 Kubernetes 集群。
 - [使用私有镜像仓库管理应用镜像](https://cloud.tencent.com/document/product/457/9117)。
 - 应用基于 Spring Boot 框架进行开发。
 
@@ -40,7 +40,7 @@
 
 编辑 `resources` 目录下的 `application.yml` 文件，修改 `actuator` 相关的配置来暴露 Prometheus 协议的指标数据。
 
-````
+```
 management:
   endpoints:
     web:
@@ -57,7 +57,7 @@ management:
     tags:
       # 必须加上对应的应用名，因为需要以应用的维度来查看对应的监控
       application: spring-boot-mvc-demo
-````
+```
 
 #### 步骤3：本地验证
 

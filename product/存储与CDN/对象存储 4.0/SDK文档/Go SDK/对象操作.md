@@ -42,7 +42,7 @@
 func (s *BucketService) Get(ctx context.Context, opt *BucketGetOptions) (*BucketGetResult, *Response, error)
 ```
 
-#### 请求示例
+#### 请求示例1：列出对象列表
 
 [//]: # (.cssg-snippet-get-bucket)
 ```go
@@ -56,15 +56,45 @@ if err != nil {
 }
 ```
 
+#### 请求示例2：列出目录下对象
+对象存储中本身是没有文件夹和目录的概念的，为了满足用户使用习惯，用户可通过分隔符/来模拟“文件夹”。
+[//]: # (.cssg-snippet-get-bucket2)
+```go
+    var marker string
+    opt := &cos.BucketGetOptions{
+        Prefix:  "folder/",  // prefix表示要删除的文件夹
+        Delimiter: "/",		 // deliter表示分隔符, 设置为/表示列出当前目录下的object, 设置为空表示列出所有的object
+        MaxKeys: 1000,       // 设置最大遍历出多少个对象, 一次listobject最大支持1000
+    }
+    isTruncated := true
+    for isTruncated {
+        opt.Marker = marker
+        v, _, err := c.Bucket.Get(context.Background(), opt)
+        if err != nil {
+            fmt.Println(err)
+            break
+        }
+        for _, content := range v.Contents {
+            fmt.Printf("Object: %v\n", content.Key)
+        }
+        // common prefix表示表示被delimiter截断的路径, 如delimter设置为/, common prefix则表示所有子目录的路径
+        for _, commonPrefix := range v.CommonPrefixes {
+            fmt.Printf("CommonPrefixes: %v\n", commonPrefix)
+        }
+        isTruncated = v.IsTruncated
+        marker = v.NextMarker
+}
+```
+
 #### 参数说明
 
 ```go
 type BucketGetOptions struct {
-	Prefix       string 
-	Delimiter    string 
-	EncodingType string 
-	Marker       string 
-	MaxKeys      int    
+    Prefix       string 
+    Delimiter    string 
+    EncodingType string 
+    Marker       string 
+    MaxKeys      int    
 }
 ```
 
@@ -80,16 +110,16 @@ type BucketGetOptions struct {
 
 ```go
 type BucketGetResult struct {
-	Name           string
-	Prefix         string 
-	Marker         string 
-	NextMarker     string 
-	Delimiter      string 
-	MaxKeys        int
-	IsTruncated    bool
-	Contents       []Object 
-	CommonPrefixes []string 
-	EncodingType   string   
+    Name           string
+    Prefix         string 
+    Marker         string 
+    NextMarker     string 
+    Delimiter      string 
+    MaxKeys        int
+    IsTruncated    bool
+    Contents       []Object 
+    CommonPrefixes []string 
+    EncodingType   string   
 }
 ```
 
@@ -247,8 +277,8 @@ func main() {
         b := &cos.BaseURL{BucketURL: u}
         c := cos.NewClient(b, &http.Client{
                 Transport: &cos.AuthorizationTransport{
-                        SecretID:  os.Getenv("COS_SECRETID"),
-                        SecretKey: os.Getenv("COS_SECRETKEY"),
+                        SecretID:  os.Getenv("SECRETID"),
+                        SecretKey: os.Getenv("SECRETKEY"),
                 },
         })
 	// 多线程批量上传文件
@@ -272,27 +302,27 @@ func main() {
 
 ```go
 type ObjectPutOptions struct {
-	*ACLHeaderOptions       
-	*ObjectPutHeaderOptions 
+    *ACLHeaderOptions       
+    *ObjectPutHeaderOptions 
 }
 type ACLHeaderOptions struct {
-	XCosACL              string                           
+    XCosACL              string                           
     XCosGrantRead        string
     XCosGrantWrite       string 
     XCosGrantFullControl string                                           
 } 
 type ObjectPutHeaderOptions struct {
-	CacheControl       string 
-	ContentDisposition string 
-	ContentEncoding    string 
-	ContentType        string 
-	ContentLength      int64  
-	Expires            string 
-	// 自定义的 x-cos-meta-* header
-	XCosMetaXXX        *http.Header 
-	XCosStorageClass   string      
-	XCosTrafficLimit   int
-	Listener           ProgressListener
+    CacheControl       string 
+    ContentDisposition string 
+    ContentEncoding    string 
+    ContentType        string 
+    ContentLength      int64  
+    Expires            string 
+    // 自定义的 x-cos-meta-* header
+    XCosMetaXXX        *http.Header 
+    XCosStorageClass   string      
+    XCosTrafficLimit   int
+    Listener           ProgressListener
 }
 ```
 
@@ -362,7 +392,7 @@ if err != nil {
 
 ```go
 type ObjectHeadOptions struct {
-	IfModifiedSince string 
+    IfModifiedSince string 
 }
 ```
 
@@ -452,8 +482,8 @@ func main() {
         b := &cos.BaseURL{BucketURL: u}
         c := cos.NewClient(b, &http.Client{
                 Transport: &cos.AuthorizationTransport{
-                        SecretID:  os.Getenv("COS_SECRETID"),
-                        SecretKey: os.Getenv("COS_SECRETKEY"),
+                        SecretID:  os.Getenv("SECRETID"),
+                        SecretKey: os.Getenv("SECRETKEY"),
                 },
         })
         keysCh := make(chan string, 2)
@@ -545,16 +575,16 @@ func main() {
 
 ```go
 type ObjectGetOptions struct {
-	ResponseContentType        string 
-	ResponseContentLanguage    string 
-	ResponseExpires            string 
-	ResponseCacheControl       string 
-	ResponseContentDisposition string 
-	ResponseContentEncoding    string 
-	Range                      string 
-	IfModifiedSince            string 
-	XCosTrafficLimit           int
-	Listener                   ProgressListener
+    ResponseContentType        string 
+    ResponseContentLanguage    string 
+    ResponseExpires            string 
+    ResponseCacheControl       string 
+    ResponseContentDisposition string 
+    ResponseContentEncoding    string 
+    Range                      string 
+    IfModifiedSince            string 
+    XCosTrafficLimit           int
+    Listener                   ProgressListener
 }
 ```
 
@@ -658,25 +688,25 @@ if err == nil {
 
 ```go
 type ObjectCopyOptions struct {
-	*ObjectCopyHeaderOptions 
-	*ACLHeaderOptions        
+    *ObjectCopyHeaderOptions 
+    *ACLHeaderOptions        
 }
 type ACLHeaderOptions struct {
-	XCosACL              string 
-	XCosGrantRead        string 
-	XCosGrantWrite       string 
-	XCosGrantFullControl string 
+    XCosACL              string 
+    XCosGrantRead        string 
+    XCosGrantWrite       string 
+    XCosGrantFullControl string 
 }
 type ObjectCopyHeaderOptions struct {
-	XCosMetadataDirective           string 
-	XCosCopySourceIfModifiedSince   string 
-	XCosCopySourceIfUnmodifiedSince string 
-	XCosCopySourceIfMatch           string 
-	XCosCopySourceIfNoneMatch       string 
-	XCosStorageClass                string 
-	// 自定义的 x-cos-meta-* header
-	XCosMetaXXX    				    *http.Header 
-	XCosCopySource 					string      
+    XCosMetadataDirective           string 
+    XCosCopySourceIfModifiedSince   string 
+    XCosCopySourceIfUnmodifiedSince string 
+    XCosCopySourceIfMatch           string 
+    XCosCopySourceIfNoneMatch       string 
+    XCosStorageClass                string 
+    // 自定义的 x-cos-meta-* header
+    XCosMetaXXX    				    *http.Header 
+    XCosCopySource 					string      
 }
 ```
 
@@ -846,12 +876,12 @@ type Object struct {
 ```go
 // ObjectDeleteMultiResult 保存 DeleteMulti 的结果
 type ObjectDeleteMultiResult struct {	
-	DeletedObjects []Object
-	Errors         []struct {
-		Key     string
-		Code    string
-		Message string
-	}
+    DeletedObjects []Object
+    Errors         []struct {
+		    Key     string
+		    Code    string
+		    Message string
+	   }
 }
 ```
 
@@ -966,12 +996,12 @@ if err != nil {
 
 ```go
 type ListMultipartUploadsOptions struct {
-	Delimiter      string
-	EncodingType   string
-	Prefix         string
-	MaxUploads     int
-	KeyMarker      string
-	UploadIDMarker string                                         
+    Delimiter      string
+    EncodingType   string
+    Prefix         string
+    MaxUploads     int
+    KeyMarker      string
+    UploadIDMarker string                                         
 }
 ```
 
@@ -982,7 +1012,7 @@ type ListMultipartUploadsOptions struct {
 | Prefix         | 限定返回的 Object key 必须以 Prefix 作为前缀。注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix | string | 否   |
 | MaxUploads     | 设置最大返回的 multipart 数量，合法取值从1到1000，默认1000   | int | 否   |
 | KeyMarker      | 与 upload-id-marker 一起使用：</li><li>当 upload-id-marker 未被指定时，ObjectName 字母顺序大于 key-marker 的条目将被列出</li><li>当 upload-id-marker 被指定时，ObjectName 字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadID 大于 upload-id-marker 的条目将被列出 | string | 否   |
-| UploadIDMarker | 与 key-marker 一起使用：</li><li>当 key-marker 未被指定时，upload-id-marker 将被忽略</li><li>当 key-marker 被指定时，ObjectName 字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadID 大于 upload-id-marker 的条目将被列出 | string | 否   |
+| UploadIDMarker | 与 key-marker 一起使用：</li><li>当 key-marker 未被指定时，upload-id-marker 将被忽略</li><li>当 key-marker 被指定时，ObjectName 字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadID 大于 upload-id-marker 的条目将被列出</li> | string | 否   |
 
 
 #### 返回结果说明
@@ -990,21 +1020,21 @@ type ListMultipartUploadsOptions struct {
 ```go
 // ListMultipartUploadsResult 保存 ListMultipartUploads 的结果
 type ListMultipartUploadsResult struct {
-	Bucket             string
-	EncodingType       string
-	KeyMarker          string
-	UploadIDMarker     string
+    Bucket             string
+    EncodingType       string
+    KeyMarker          string
+    UploadIDMarker     string
     NextKeyMarker      string
     NextUploadIDMarker string
     MaxUploads         int
     IsTruncated        bool
     Uploads            []struct {
-    	Key          string
-    	UploadID     string
-    	StorageClass string
-    	Initiator    *Initiator
-    	Owner        *Owner
-    	Initiated    string
+        Key          string
+        UploadID     string
+        StorageClass string
+        Initiator    *Initiator
+        Owner        *Owner
+        Initiated    string
     }
     Prefix         string
     Delimiter      string
@@ -1014,8 +1044,8 @@ type ListMultipartUploadsResult struct {
 type Initiator Owner
 // Owner 定义了 Bucket/Object's 拥有者
 type Owner struct {
-	ID          string
-	DisplayName string
+    ID          string
+    DisplayName string
 }
 ```
 
@@ -1051,8 +1081,8 @@ type Owner struct {
 - 分块上传对象： 初始化分块上传，上传分块，完成分块上传。
 - 删除已上传分块。
 
->?分块上传对象，您还可以使用 [高级接口](#.E9.AB.98.E7.BA.A7.E6.8E.A5.E5.8F.A3.EF.BC.88.E6.8E.A8.E8.8D.90.EF.BC.89) 上传（推荐）。
-
+>? 分块上传对象，您还可以使用 [高级接口](#.E9.AB.98.E7.BA.A7.E6.8E.A5.E5.8F.A3.EF.BC.88.E6.8E.A8.E8.8D.90.EF.BC.89) 上传（推荐）。
+>
 
 <span id="INIT_MULIT_UPLOAD"></span>
 ###  初始化分块上传 
@@ -1084,25 +1114,25 @@ UploadID = v.UploadID
 
 ```go
 type InitiateMultipartUploadOptions struct {
-	*ACLHeaderOptions       
-	*ObjectPutHeaderOptions 
+    *ACLHeaderOptions       
+    *ObjectPutHeaderOptions 
 }
 type ACLHeaderOptions struct {
-	XCosACL              string                           
-	XCosGrantRead        string
-	XCosGrantWrite       string 
-	XCosGrantFullControl string                                           
+    XCosACL              string                           
+    XCosGrantRead        string
+    XCosGrantWrite       string 
+    XCosGrantFullControl string                                           
 } 
 type ObjectPutHeaderOptions struct {
-	CacheControl       string 
-	ContentDisposition string 
-	ContentEncoding    string 
-	ContentType        string 
-	ContentLength      int64   
-	Expires            string 
-	// 自定义的 x-cos-meta-* header
-	XCosMetaXXX        *http.Header 
-	XCosStorageClass   string      
+    CacheControl       string 
+    ContentDisposition string 
+    ContentEncoding    string 
+    ContentType        string 
+    ContentLength      int64   
+    Expires            string 
+    // 自定义的 x-cos-meta-* header
+    XCosMetaXXX        *http.Header 
+    XCosStorageClass   string      
 }
 
 ```
@@ -1126,9 +1156,9 @@ type ObjectPutHeaderOptions struct {
 
 ```go
 type InitiateMultipartUploadResult struct {
-	Bucket   string
-	Key      string
-	UploadID string
+    Bucket   string
+    Key      string
+    UploadID string
 } 
 ```
 
@@ -1229,9 +1259,9 @@ if err != nil {
 
 ```go
 type ObjectListPartsOptions struct {
-	EncodingType     string
-	MaxParts         string
-	PartNumberMarker string                                      
+    EncodingType     string
+    MaxParts         string
+    PartNumberMarker string                                      
 }
 ```
 
@@ -1247,37 +1277,37 @@ type ObjectListPartsOptions struct {
 
 ```go
 type ObjectListPartsResult struct {
-	Bucket               string
-	EncodingType         string
-	Key                  string
-	UploadID             string
-	Initiator            *Initiator
-	Owner                *Owner
-	StorageClass         string
-	PartNumberMarker     string
-	NextPartNumberMarker string
-	MaxParts             string
-	IsTruncated          bool
-	Parts                []Object
+    Bucket               string
+    EncodingType         string
+    Key                  string
+    UploadID             string
+    Initiator            *Initiator
+    Owner                *Owner
+    StorageClass         string
+    PartNumberMarker     string
+    NextPartNumberMarker string
+    MaxParts             string
+    IsTruncated          bool
+    Parts                []Object
 }
 type Initiator struct {
-	UIN         string
-	ID          string
-	DisplayName string
+    UIN         string
+    ID          string
+    DisplayName string
 }
 type Owner struct {
-	UIN         string
-	ID          string
-	DisplayName string
+    UIN         string
+    ID          string
+    DisplayName string
 }
 type Object struct {
-	Key          string
-	ETag         string
-	Size         int
-	PartNumber   int
-	LastModified string
-	StorageClass string 
-	Owner        *Owner
+    Key          string
+    ETag         string
+    Size         int
+    PartNumber   int
+    LastModified string
+    StorageClass string 
+    Owner        *Owner
 }
 ```
 
@@ -1321,14 +1351,14 @@ uploadID := UploadID
 
 opt := &cos.CompleteMultipartUploadOptions{}
 opt.Parts = append(opt.Parts, cos.Object{
-	PartNumber: 1, ETag: PartETag},
+    PartNumber: 1, ETag: PartETag},
 )
 
 _, _, err := client.Object.CompleteMultipartUpload(
-	context.Background(), key, uploadID, opt,
+    context.Background(), key, uploadID, opt,
 )
 if err != nil {
-	panic(err)
+    panic(err)
 }
 ```
 
@@ -1336,11 +1366,11 @@ if err != nil {
 
 ```go
 type CompleteMultipartUploadOptions struct {
-	Parts   []Object 
+    Parts   []Object 
 }
 type Object struct { 
-	ETag         string 
-	PartNumber   int     
+    ETag         string 
+    PartNumber   int     
 }
 ```
 
@@ -1354,10 +1384,10 @@ type Object struct {
 
 ```go
 type CompleteMultipartUploadResult struct {
-	Location string
-	Bucket   string
-	Key      string
-	ETag     string
+    Location string
+    Bucket   string
+    Key      string
+    ETag     string
 }
 
 ```
@@ -1455,10 +1485,10 @@ type MultiUploadOptions struct {
 
 ```go
 type CompleteMultipartUploadResult struct {
-	Location string
-	Bucket   string
-	Key      string
-	ETag     string
+    Location string
+    Bucket   string
+    Key      string
+    ETag     string
 }
 
 ```
@@ -1521,7 +1551,7 @@ type MultiDownloadOptions struct {
 | PartSize       | 块大小，单位为 MB，如果用户不指定或者指定 partSize <= 0，由 Go SDK 自动切分    | int64    | 否   |
 | ThreadPoolSize | 线程池大小，默认为1                                          | int    | 否   |
 | CheckPoint     | 是否开启断点续传，默认为false                                | bool   | 否   |
-| CheckPointFile | 开启断点续传时，表示保存下载进度的文件路径，默认路径为 <filepath>.cosresumabletask，当下载完成后，该进度文件会被清理掉 | string   | 否   |
+| CheckPointFile | 开启断点续传时，表示保存下载进度的文件路径，默认路径为 &lt;filepath>.cosresumabletask，当下载完成后，该进度文件会被清理掉 | string   | 否   |
 
 #### 返回结果说明
 

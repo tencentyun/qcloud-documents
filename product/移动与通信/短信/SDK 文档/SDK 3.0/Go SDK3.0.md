@@ -40,98 +40,98 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 ```
 package main
-
+    
 import (
-	"encoding/json"
-	"fmt"
-
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
-	sms "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sms/v20210111" // 引入sms
+    "encoding/json"
+    "fmt"
+    
+    "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+    "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
+    "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
+    sms "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sms/v20210111" // 引入sms
 )
 
 func main() {
-	/* 必要步骤：
-	 * 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
-	 * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
-	 * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
-	 * 以免泄露密钥对危及你的财产安全。
-	 * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
-	credential := common.NewCredential(
-		// os.Getenv("TENCENTCLOUD_SECRET_ID"),
-		// os.Getenv("TENCENTCLOUD_SECRET_KEY"),
-		"xxx",
-		"xxx",
-	)
-	/* 非必要步骤:
-	 * 实例化一个客户端配置对象，可以指定超时时间等配置 */
-	cpf := profile.NewClientProfile()
+    /* 必要步骤：
+     * 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
+     * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
+     * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
+     * 以免泄露密钥对危及你的财产安全。
+     * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
+    credential := common.NewCredential(
+        // os.Getenv("TENCENTCLOUD_SECRET_ID"),
+        // os.Getenv("TENCENTCLOUD_SECRET_KEY"),
+        "xxx",
+        "xxx",
+    )
+    /* 非必要步骤:
+     * 实例化一个客户端配置对象，可以指定超时时间等配置 */
+    cpf := profile.NewClientProfile()
 
-	/* SDK默认使用POST方法。
-	 * 如果你一定要使用GET方法，可以在这里设置。GET方法无法处理一些较大的请求 */
-	cpf.HttpProfile.ReqMethod = "POST"
+    /* SDK默认使用POST方法。
+     * 如果你一定要使用GET方法，可以在这里设置。GET方法无法处理一些较大的请求 */
+    cpf.HttpProfile.ReqMethod = "POST"
 
-	/* SDK有默认的超时时间，非必要请不要进行调整
-	 * 如有需要请在代码中查阅以获取最新的默认值 */
-	// cpf.HttpProfile.ReqTimeout = 5
+    /* SDK有默认的超时时间，非必要请不要进行调整
+     * 如有需要请在代码中查阅以获取最新的默认值 */
+    // cpf.HttpProfile.ReqTimeout = 5
 
-	/* SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务
-	 * 则必须手动指定域名，例如sms的上海金融区域名： sms.ap-shanghai-fsi.tencentcloudapi.com */
-	cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
+    /* SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务
+     * 则必须手动指定域名，例如sms的上海金融区域名： sms.ap-shanghai-fsi.tencentcloudapi.com */
+    cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
 
-	/* SDK默认用TC3-HMAC-SHA256进行签名，非必要请不要修改这个字段 */
-	cpf.SignMethod = "HmacSHA1"
+    /* SDK默认用TC3-HMAC-SHA256进行签名，非必要请不要修改这个字段 */
+    cpf.SignMethod = "HmacSHA1"
 
-	/* 实例化要请求产品(以sms为例)的client对象
-	 * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
-	client, _ := sms.NewClient(credential, "ap-guangzhou", cpf)
+    /* 实例化要请求产品(以sms为例)的client对象
+     * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+    client, _ := sms.NewClient(credential, "ap-guangzhou", cpf)
 
-	/* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
-	 * 你可以直接查询SDK源码确定接口有哪些属性可以设置
-	 * 属性可能是基本类型，也可能引用了另一个数据结构
-	 * 推荐使用IDE进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明 */
-	request := sms.NewSendSmsRequest()
+    /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
+     * 你可以直接查询SDK源码确定接口有哪些属性可以设置
+     * 属性可能是基本类型，也可能引用了另一个数据结构
+     * 推荐使用IDE进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明 */
+    request := sms.NewSendSmsRequest()
 
-	/* 基本类型的设置:
-	 * SDK采用的是指针风格指定参数，即使对于基本类型你也需要用指针来对参数赋值。
-	 * SDK提供对基本类型的指针引用封装函数
-	 * 帮助链接：
-	 * 短信控制台: https://console.cloud.tencent.com/smsv2
-	 * sms helper: https://cloud.tencent.com/document/product/382/3773 */
+    /* 基本类型的设置:
+     * SDK采用的是指针风格指定参数，即使对于基本类型你也需要用指针来对参数赋值。
+     * SDK提供对基本类型的指针引用封装函数
+     * 帮助链接：
+     * 短信控制台: https://console.cloud.tencent.com/smsv2
+     * sms helper: https://cloud.tencent.com/document/product/382/3773 */
 
-	/* 短信应用ID: 短信SdkAppId在 [短信控制台] 添加应用后生成的实际SdkAppId，示例如1400006666 */
-	request.SmsSdkAppId = common.StringPtr("1400787878")
-	/* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台] 查看 */
-	request.SignName = common.StringPtr("xxx")
-	/* 国际/港澳台短信 SenderId: 国内短信填空，默认未开通，如需开通请联系 [sms helper] */
-	request.SenderId = common.StringPtr("xxx")
-	/* 用户的 session 内容: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */
-	request.SessionContext = common.StringPtr("xxx")
-	/* 短信码号扩展号: 默认未开通，如需开通请联系 [sms helper] */
-	request.ExtendCode = common.StringPtr("0")
-	/* 模板参数: 若无模板参数，则设置为空*/
-	request.TemplateParamSet = common.StringPtrs([]string{"0"})
-	/* 模板 ID: 必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台] 查看 */
-	request.TemplateId = common.StringPtr("449739")
-	/* 下发手机号码，采用 E.164 标准，+[国家或地区码][手机号]
-	 * 示例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号，最多不要超过200个手机号*/
-	request.PhoneNumberSet = common.StringPtrs([]string{"+8613711112222"})
+    /* 短信应用ID: 短信SdkAppId在 [短信控制台] 添加应用后生成的实际SdkAppId，示例如1400006666 */
+    request.SmsSdkAppId = common.StringPtr("1400787878")
+    /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台] 查看 */
+    request.SignName = common.StringPtr("xxx")
+    /* 国际/港澳台短信 SenderId: 国内短信填空，默认未开通，如需开通请联系 [sms helper] */
+    request.SenderId = common.StringPtr("xxx")
+    /* 用户的 session 内容: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */
+    request.SessionContext = common.StringPtr("xxx")
+    /* 短信码号扩展号: 默认未开通，如需开通请联系 [sms helper] */
+    request.ExtendCode = common.StringPtr("0")
+    /* 模板参数: 若无模板参数，则设置为空*/
+    request.TemplateParamSet = common.StringPtrs([]string{"0"})
+    /* 模板 ID: 必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台] 查看 */
+    request.TemplateId = common.StringPtr("449739")
+    /* 下发手机号码，采用 E.164 标准，+[国家或地区码][手机号]
+     * 示例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号，最多不要超过200个手机号*/
+    request.PhoneNumberSet = common.StringPtrs([]string{"+8613711112222"})
 
-	// 通过client对象调用想要访问的接口，需要传入请求对象
-	response, err := client.SendSms(request)
-	// 处理异常
-	if _, ok := err.(*errors.TencentCloudSDKError); ok {
-		fmt.Printf("An API error has returned: %s", err)
-		return
-	}
-	// 非SDK异常，直接失败。实际代码中可以加入其他的处理。
-	if err != nil {
-		panic(err)
-	}
-	b, _ := json.Marshal(response.Response)
-	// 打印返回的json字符串
-	fmt.Printf("%s", b)
+    // 通过client对象调用想要访问的接口，需要传入请求对象
+    response, err := client.SendSms(request)
+    // 处理异常
+    if _, ok := err.(*errors.TencentCloudSDKError); ok {
+        fmt.Printf("An API error has returned: %s", err)
+        return
+    }
+    // 非SDK异常，直接失败。实际代码中可以加入其他的处理。
+    if err != nil {
+        panic(err)
+    }
+    b, _ := json.Marshal(response.Response)
+    // 打印返回的json字符串
+    fmt.Printf("%s", b)
 }
 ```
 
@@ -139,86 +139,86 @@ func main() {
 
 ```
 package main
-
+    
 import (
-	"encoding/json"
-	"fmt"
-
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
-	sms "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sms/v20210111" // 引入sms
+    "encoding/json"
+    "fmt"
+    
+    "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+    "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
+    "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
+    sms "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sms/v20210111" // 引入sms
 )
 
 func main() {
-	/* 必要步骤：
-	 * 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
-	 * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
-	 * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
-	 * 以免泄露密钥对危及你的财产安全。
-	 * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
-	credential := common.NewCredential(
-		// os.Getenv("TENCENTCLOUD_SECRET_ID"),
-		// os.Getenv("TENCENTCLOUD_SECRET_KEY"),
-		"xxx",
-		"xxx",
-	)
-	/* 非必要步骤:
-	 * 实例化一个客户端配置对象，可以指定超时时间等配置 */
-	cpf := profile.NewClientProfile()
+    /* 必要步骤：
+     * 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
+     * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
+     * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
+     * 以免泄露密钥对危及你的财产安全。
+     * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
+    credential := common.NewCredential(
+        // os.Getenv("TENCENTCLOUD_SECRET_ID"),
+        // os.Getenv("TENCENTCLOUD_SECRET_KEY"),
+        "xxx",
+        "xxx",
+    )
+    /* 非必要步骤:
+     * 实例化一个客户端配置对象，可以指定超时时间等配置 */
+    cpf := profile.NewClientProfile()
 
-	/* SDK默认使用POST方法。
-	 * 如果你一定要使用GET方法，可以在这里设置。GET方法无法处理一些较大的请求 */
-	cpf.HttpProfile.ReqMethod = "POST"
+    /* SDK默认使用POST方法。
+     * 如果你一定要使用GET方法，可以在这里设置。GET方法无法处理一些较大的请求 */
+    cpf.HttpProfile.ReqMethod = "POST"
 
-	/* SDK有默认的超时时间，非必要请不要进行调整
-	 * 如有需要请在代码中查阅以获取最新的默认值 */
-	// cpf.HttpProfile.ReqTimeout = 5
+    /* SDK有默认的超时时间，非必要请不要进行调整
+     * 如有需要请在代码中查阅以获取最新的默认值 */
+    // cpf.HttpProfile.ReqTimeout = 5
 
-	/* SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务
-	 * 则必须手动指定域名，例如sms的上海金融区域名： sms.ap-shanghai-fsi.tencentcloudapi.com */
-	cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
+    /* SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务
+     * 则必须手动指定域名，例如sms的上海金融区域名： sms.ap-shanghai-fsi.tencentcloudapi.com */
+    cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
 
-	/* SDK默认用TC3-HMAC-SHA256进行签名
-	 * 非必要请不要修改这个字段 */
-	cpf.SignMethod = "HmacSHA1"
+    /* SDK默认用TC3-HMAC-SHA256进行签名
+     * 非必要请不要修改这个字段 */
+    cpf.SignMethod = "HmacSHA1"
 
-	/* 实例化要请求产品(以sms为例)的client对象
-	 * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
-	client, _ := sms.NewClient(credential, "ap-guangzhou", cpf)
+    /* 实例化要请求产品(以sms为例)的client对象
+     * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+    client, _ := sms.NewClient(credential, "ap-guangzhou", cpf)
 
-	/* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
-	 * 你可以直接查询SDK源码确定接口有哪些属性可以设置
-	 * 属性可能是基本类型，也可能引用了另一个数据结构
-	 * 推荐使用IDE进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明 */
-	request := sms.NewPullSmsSendStatusRequest()
+    /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
+     * 你可以直接查询SDK源码确定接口有哪些属性可以设置
+     * 属性可能是基本类型，也可能引用了另一个数据结构
+     * 推荐使用IDE进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明 */
+    request := sms.NewPullSmsSendStatusRequest()
 
-	/* 基本类型的设置:
-	 * SDK采用的是指针风格指定参数，即使对于基本类型你也需要用指针来对参数赋值。
-	 * SDK提供对基本类型的指针引用封装函数
-	 * 帮助链接：
-	 * 短信控制台: https://console.cloud.tencent.com/smsv2
-	 * sms helper: https://cloud.tencent.com/document/product/382/3773 */
+    /* 基本类型的设置:
+     * SDK采用的是指针风格指定参数，即使对于基本类型你也需要用指针来对参数赋值。
+     * SDK提供对基本类型的指针引用封装函数
+     * 帮助链接：
+     * 短信控制台: https://console.cloud.tencent.com/smsv2
+     * sms helper: https://cloud.tencent.com/document/product/382/3773 */
 
-	/* 短信应用ID: 短信SdkAppId在 [短信控制台] 添加应用后生成的实际SdkAppId，示例如1400006666 */
-	request.SmsSdkAppId = common.StringPtr("1400787878")
-	/* 拉取最大条数，最多100条 */
-	request.Limit = common.Uint64Ptr(10)
+    /* 短信应用ID: 短信SdkAppId在 [短信控制台] 添加应用后生成的实际SdkAppId，示例如1400006666 */
+    request.SmsSdkAppId = common.StringPtr("1400787878")
+    /* 拉取最大条数，最多100条 */
+    request.Limit = common.Uint64Ptr(10)
 
-	// 通过client对象调用想要访问的接口，需要传入请求对象
-	response, err := client.PullSmsSendStatus(request)
-	// 处理异常
-	if _, ok := err.(*errors.TencentCloudSDKError); ok {
-		fmt.Printf("An API error has returned: %s", err)
-		return
-	}
-	// 非SDK异常，直接失败。实际代码中可以加入其他的处理。
-	if err != nil {
-		panic(err)
-	}
-	b, _ := json.Marshal(response.Response)
-	// 打印返回的json字符串
-	fmt.Printf("%s", b)
+    // 通过client对象调用想要访问的接口，需要传入请求对象
+    response, err := client.PullSmsSendStatus(request)
+    // 处理异常
+    if _, ok := err.(*errors.TencentCloudSDKError); ok {
+        fmt.Printf("An API error has returned: %s", err)
+        return
+    }
+    // 非SDK异常，直接失败。实际代码中可以加入其他的处理。
+    if err != nil {
+        panic(err)
+    }
+    b, _ := json.Marshal(response.Response)
+    // 打印返回的json字符串
+    fmt.Printf("%s", b)
 }
 ```
 
@@ -226,184 +226,184 @@ func main() {
 
 ```
 package main
-
+    
 import (
-	"encoding/json"
-	"fmt"
-
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
-	sms "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sms/v20210111" // 引入sms
+    "encoding/json"
+    "fmt"
+    
+    "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+    "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
+    "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
+    sms "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sms/v20210111" // 引入sms
 )
 
 func main() {
-	/* 必要步骤：
-	 * 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
-	 * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
-	 * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
-	 * 以免泄露密钥对危及你的财产安全。
-	 * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
-	credential := common.NewCredential(
-		// os.Getenv("TENCENTCLOUD_SECRET_ID"),
-		// os.Getenv("TENCENTCLOUD_SECRET_KEY"),
-		"xxx",
-		"xxx",
-	)
-	/* 非必要步骤:
-	 * 实例化一个客户端配置对象，可以指定超时时间等配置 */
-	cpf := profile.NewClientProfile()
+    /* 必要步骤：
+     * 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
+     * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
+     * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
+     * 以免泄露密钥对危及你的财产安全。
+     * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
+    credential := common.NewCredential(
+        // os.Getenv("TENCENTCLOUD_SECRET_ID"),
+        // os.Getenv("TENCENTCLOUD_SECRET_KEY"),
+        "xxx",
+        "xxx",
+    )
+    /* 非必要步骤:
+     * 实例化一个客户端配置对象，可以指定超时时间等配置 */
+    cpf := profile.NewClientProfile()
 
-	/* SDK默认使用POST方法。
-	 * 如果你一定要使用GET方法，可以在这里设置。GET方法无法处理一些较大的请求 */
-	cpf.HttpProfile.ReqMethod = "POST"
+    /* SDK默认使用POST方法。
+     * 如果你一定要使用GET方法，可以在这里设置。GET方法无法处理一些较大的请求 */
+    cpf.HttpProfile.ReqMethod = "POST"
 
-	/* SDK有默认的超时时间，非必要请不要进行调整
-	 * 如有需要请在代码中查阅以获取最新的默认值 */
-	// cpf.HttpProfile.ReqTimeout = 5
+    /* SDK有默认的超时时间，非必要请不要进行调整
+     * 如有需要请在代码中查阅以获取最新的默认值 */
+    // cpf.HttpProfile.ReqTimeout = 5
 
-	/* SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务
-	 * 则必须手动指定域名，例如sms的上海金融区域名： sms.ap-shanghai-fsi.tencentcloudapi.com */
-	cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
+    /* SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务
+     * 则必须手动指定域名，例如sms的上海金融区域名： sms.ap-shanghai-fsi.tencentcloudapi.com */
+    cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
 
-	/* SDK默认用TC3-HMAC-SHA256进行签名
-	 * 非必要请不要修改这个字段 */
-	cpf.SignMethod = "HmacSHA1"
+    /* SDK默认用TC3-HMAC-SHA256进行签名
+     * 非必要请不要修改这个字段 */
+    cpf.SignMethod = "HmacSHA1"
 
-	/* 实例化要请求产品(以sms为例)的client对象
-	 * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
-	client, _ := sms.NewClient(credential, "ap-guangzhou", cpf)
+    /* 实例化要请求产品(以sms为例)的client对象
+     * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+    client, _ := sms.NewClient(credential, "ap-guangzhou", cpf)
 
-	/* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
-	 * 你可以直接查询SDK源码确定接口有哪些属性可以设置
-	 * 属性可能是基本类型，也可能引用了另一个数据结构
-	 * 推荐使用IDE进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明 */
-	request := sms.NewSendStatusStatisticsRequest()
+    /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
+     * 你可以直接查询SDK源码确定接口有哪些属性可以设置
+     * 属性可能是基本类型，也可能引用了另一个数据结构
+     * 推荐使用IDE进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明 */
+    request := sms.NewSendStatusStatisticsRequest()
 
-	/* 基本类型的设置:
-	 * SDK采用的是指针风格指定参数，即使对于基本类型你也需要用指针来对参数赋值。
-	 * SDK提供对基本类型的指针引用封装函数
-	 * 帮助链接：
-	 * 短信控制台: https://console.cloud.tencent.com/smsv2
-	 * sms helper: https://cloud.tencent.com/document/product/382/3773 */
+    /* 基本类型的设置:
+     * SDK采用的是指针风格指定参数，即使对于基本类型你也需要用指针来对参数赋值。
+     * SDK提供对基本类型的指针引用封装函数
+     * 帮助链接：
+     * 短信控制台: https://console.cloud.tencent.com/smsv2
+     * sms helper: https://cloud.tencent.com/document/product/382/3773 */
 
-	/* 短信应用ID: 短信SdkAppId在 [短信控制台] 添加应用后生成的实际SdkAppId，示例如1400006666 */
-	request.SmsSdkAppId = common.StringPtr("1400787878")
-	/* 拉取最大条数，最多100条 */
-	request.Limit = common.Uint64Ptr(10)
-	/* 偏移量 注：目前固定设置为0 */
-	request.Offset = common.Uint64Ptr(0)
-	/* 开始时间，yyyymmddhh 需要拉取的起始时间，精确到小时 */
-	request.BeginTime = common.StringPtr("2019122400")
-	/* 结束时间，yyyymmddhh 需要拉取的截止时间，精确到小时
-	 * 注：EndTime 必须大于 BeginTime */
-	request.EndTime = common.StringPtr("2019122523")
+    /* 短信应用ID: 短信SdkAppId在 [短信控制台] 添加应用后生成的实际SdkAppId，示例如1400006666 */
+    request.SmsSdkAppId = common.StringPtr("1400787878")
+    /* 拉取最大条数，最多100条 */
+    request.Limit = common.Uint64Ptr(10)
+    /* 偏移量 注：目前固定设置为0 */
+    request.Offset = common.Uint64Ptr(0)
+    /* 开始时间，yyyymmddhh 需要拉取的起始时间，精确到小时 */
+    request.BeginTime = common.StringPtr("2019122400")
+    /* 结束时间，yyyymmddhh 需要拉取的截止时间，精确到小时
+     * 注：EndTime 必须大于 BeginTime */
+    request.EndTime = common.StringPtr("2019122523")
 
-	// 通过client对象调用想要访问的接口，需要传入请求对象
-	response, err := client.SendStatusStatistics(request)
-	// 处理异常
-	if _, ok := err.(*errors.TencentCloudSDKError); ok {
-		fmt.Printf("An API error has returned: %s", err)
-		return
-	}
-	// 非SDK异常，直接失败。实际代码中可以加入其他的处理。
-	if err != nil {
-		panic(err)
-	}
-	b, _ := json.Marshal(response.Response)
-	// 打印返回的json字符串
-	fmt.Printf("%s", b)
+    // 通过client对象调用想要访问的接口，需要传入请求对象
+    response, err := client.SendStatusStatistics(request)
+    // 处理异常
+    if _, ok := err.(*errors.TencentCloudSDKError); ok {
+        fmt.Printf("An API error has returned: %s", err)
+        return
+    }
+    // 非SDK异常，直接失败。实际代码中可以加入其他的处理。
+    if err != nil {
+        panic(err)
+    }
+    b, _ := json.Marshal(response.Response)
+    // 打印返回的json字符串
+    fmt.Printf("%s", b)
 }
 ```
 
 ### 申请短信模板
 ```
 package main
-
+    
 import (
-	"encoding/json"
-	"fmt"
-
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
-	sms "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sms/v20210111" // 引入sms
+    "encoding/json"
+    "fmt"
+    
+    "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+    "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
+    "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
+    sms "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sms/v20210111" // 引入sms
 )
 
 func main() {
-	/* 必要步骤：
-	 * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
-	 * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
-	 * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-	 * CAM 密匙查询: https://console.cloud.tencent.com/cam/capi
-	 */
-	credential := common.NewCredential(
-		// os.Getenv("TENCENTCLOUD_SECRET_ID"),
-		// os.Getenv("TENCENTCLOUD_SECRET_KEY"),
-		"xxx",
-		"xxx",
-	)
-	/* 非必要步骤:
-	 * 实例化一个客户端配置对象，可以指定超时时间等配置 */
+    /* 必要步骤：
+     * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
+     * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
+     * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
+     * CAM 密匙查询: https://console.cloud.tencent.com/cam/capi
+     */
+    credential := common.NewCredential(
+        // os.Getenv("TENCENTCLOUD_SECRET_ID"),
+        // os.Getenv("TENCENTCLOUD_SECRET_KEY"),
+        "xxx",
+        "xxx",
+    )
+    /* 非必要步骤:
+     * 实例化一个客户端配置对象，可以指定超时时间等配置 */
 
-	cpf := profile.NewClientProfile()
+    cpf := profile.NewClientProfile()
 
-	/* SDK 默认使用 POST 方法
-	 * 如需使用 GET 方法，可以在此处设置，但 GET 方法无法处理较大的请求 */
-	cpf.HttpProfile.ReqMethod = "POST"
+    /* SDK 默认使用 POST 方法
+     * 如需使用 GET 方法，可以在此处设置，但 GET 方法无法处理较大的请求 */
+    cpf.HttpProfile.ReqMethod = "POST"
 
-	/* SDK 有默认的超时时间，非必要请不要进行调整
-	 * 如有需要请在代码中查阅以获取最新的默认值 */
-	// cpf.HttpProfile.ReqTimeout = 5
+    /* SDK 有默认的超时时间，非必要请不要进行调整
+     * 如有需要请在代码中查阅以获取最新的默认值 */
+    // cpf.HttpProfile.ReqTimeout = 5
 
-	/* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-	 * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
-	cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
+    /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
+     * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+    cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
 
-	/* SDK 默认用 TC3-HMAC-SHA256 进行签名，非必要请不要修改该字段 */
-	cpf.SignMethod = "HmacSHA1"
+    /* SDK 默认用 TC3-HMAC-SHA256 进行签名，非必要请不要修改该字段 */
+    cpf.SignMethod = "HmacSHA1"
 
-	/* 实例化 SMS 的 client 对象
-	 * 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量 */
-	client, _ := sms.NewClient(credential, "ap-guangzhou", cpf)
+    /* 实例化 SMS 的 client 对象
+     * 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量 */
+    client, _ := sms.NewClient(credential, "ap-guangzhou", cpf)
 
-	/* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
-	* 您可以直接查询 SDK 源码确定接口有哪些属性可以设置
-	 * 属性可能是基本类型，也可能引用了另一个数据结构
-	 * 推荐使用 IDE 进行开发，可以方便地跳转查阅各个接口和数据结构的文档说明 */
-	request := sms.NewAddSmsTemplateRequest()
-	/* 基本类型的设置:
-	 * SDK 采用的是指针风格指定参数，即使对于基本类型也需要用指针来对参数赋值。
-	 * SDK 提供对基本类型的指针引用封装函数
-	 * 帮助链接：
-	 * 短信控制台：https://console.cloud.tencent.com/smsv2
-	 * sms helper：https://cloud.tencent.com/document/product/382/3773
-	 */
-	/* 模板名称 */
-	request.TemplateName = common.StringPtr("腾讯云")
-	/* 模板内容 */
-	request.TemplateContent = common.StringPtr("{1}为您的登录验证码，请于{2}分钟内填写，如非本人操作，请忽略本短信。")
-	/* 短信类型：0表示普通短信, 1表示营销短信 */
-	request.SmsType = common.Uint64Ptr(0)
-	/* 是否国际/港澳台短信：
-	   0：表示国内短信
-	   1：表示国际/港澳台短信 */
-	request.International = common.Uint64Ptr(0)
-	/* 模板备注：例如申请原因，使用场景等 */
-	request.Remark = common.StringPtr("xxx")
-	// 通过 client 对象调用想要访问的接口，需要传入请求对象
-	response, err := client.AddSmsTemplate(request)
-	// 处理异常
-	if _, ok := err.(*errors.TencentCloudSDKError); ok {
-		fmt.Printf("An API error has returned: %s", err)
-		return
-	}
-	// 非 SDK 异常，直接失败。实际代码中可以加入其他的处理
-	if err != nil {
-		panic(err)
-	}
-	b, _ := json.Marshal(response.Response)
-	// 打印返回的 JSON 字符串
-	fmt.Printf("%s", b)
+    /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
+    * 您可以直接查询 SDK 源码确定接口有哪些属性可以设置
+     * 属性可能是基本类型，也可能引用了另一个数据结构
+     * 推荐使用 IDE 进行开发，可以方便地跳转查阅各个接口和数据结构的文档说明 */
+    request := sms.NewAddSmsTemplateRequest()
+    /* 基本类型的设置:
+     * SDK 采用的是指针风格指定参数，即使对于基本类型也需要用指针来对参数赋值。
+     * SDK 提供对基本类型的指针引用封装函数
+     * 帮助链接：
+     * 短信控制台：https://console.cloud.tencent.com/smsv2
+     * sms helper：https://cloud.tencent.com/document/product/382/3773
+     */
+    /* 模板名称 */
+    request.TemplateName = common.StringPtr("腾讯云")
+    /* 模板内容 */
+    request.TemplateContent = common.StringPtr("{1}为您的登录验证码，请于{2}分钟内填写，如非本人操作，请忽略本短信。")
+    /* 短信类型：0表示普通短信, 1表示营销短信 */
+    request.SmsType = common.Uint64Ptr(0)
+    /* 是否国际/港澳台短信：
+       0：表示国内短信
+       1：表示国际/港澳台短信 */
+    request.International = common.Uint64Ptr(0)
+    /* 模板备注：例如申请原因，使用场景等 */
+    request.Remark = common.StringPtr("xxx")
+    // 通过 client 对象调用想要访问的接口，需要传入请求对象
+    response, err := client.AddSmsTemplate(request)
+    // 处理异常
+    if _, ok := err.(*errors.TencentCloudSDKError); ok {
+        fmt.Printf("An API error has returned: %s", err)
+        return
+    }
+    // 非 SDK 异常，直接失败。实际代码中可以加入其他的处理
+    if err != nil {
+        panic(err)
+    }
+    b, _ := json.Marshal(response.Response)
+    // 打印返回的 JSON 字符串
+    fmt.Printf("%s", b)
 }
 ```

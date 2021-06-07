@@ -3,22 +3,26 @@ DataWay 语言是一门在 EIS 中用于对数据进行自定义转换与处理�
 
 ## 脚本结构
 - 完整的 DataWay 脚本符合语法定义的 Python3 代码段，其中包含入口函数定义 def dw_process(msg) ，例如：
+
 ```python
-def dw_process(msg):
-  sq = func(3)
-  val = {
-      'square': sq,
-      'data': msg.payload['realData'] + 1
-  }
-  return Entity.from_value(val, mime_type='application/json')
+def dw_process(msg):  
+    sq = func(3)
+    val = {        
+        'square': sq,        
+        'data': msg.payload['realData'] + 1
+    }
+    return Entity.from_value(val, mime_type='application/json')
+
 def func(x):
-  return x*x
+    return x*x
 ```
+
 - dw_process 入口函数仅接受一个参数 msg，该参数代表当前表达式需要处理的 EIS 消息，dw_process 的返回值即是表达式的返回值。
 - 内置的 Entity.from_value 函数用于为构造 Entity 类型的返回值，可以指定序列化参数，例如：mime_type、encoding 等。
 - 在 Set Payload 组件中输入上述表达式，假设该组件的输入消息为 json 结构的数据`{"realData": 123}`，经过 DataWay 表达式的计算，得到的输出结果如下：
+
 ```json
-{
+{    
     "square": 9,
     "data": 124
 }
@@ -90,27 +94,28 @@ DataWay 支持常见的运算符：算数运算符、比较运算符、赋值运
 | <<         | 右移运算符           | a >> 1 = 2 (0101 >> 1 = 0010)            |
 
 ### 条件及循环控制语句
-
-- DataWay 通过 if/elif/else 语句来进行条件控制。示例如下，通过判断 a 的值，返回不同的字符串：
+- DataWay 通过 if/elif/else 语句来进行条件控制。示例如下：通过判断 a 的值，返回不同的字符串：
+ 
 ```python
-def dw_process(msg):
-  a = 100
-  if a < 10:
-    return 'a is lower than 10'
-  elif a <= 100 and a >= 10:
-    return 'a is between 10 and 100'
-  else:
-    return 'a is bigger than 100'
+def dw_process(msg):  
+    a = 100
+    if a < 10:
+        return 'a is lower than 10'
+    elif a <= 100 and a >= 10:
+        return 'a is between 10 and 100'
+    else:
+        return 'a is bigger than 100'
 ```
 DataWay 表达式的运行结果为：`a is between 10 and 100`
-- DataWay 通过 for 循环进行循环控制。示例如下，通过 for 循环，得到 a 中元素的乘积：
+- DataWay 通过 for 循环进行循环控制。示例如下：通过 for 循环，得到 a 中元素的乘积：
+ 
 ```python
-def dw_process(msg):
-  a = [1, 2, 3, 4]
-  num = 1
-  for i in a:
-    num *= i
-  return num
+def dw_process(msg): 
+    a = [1, 2, 3, 4]
+    num = 1
+    for i in a:
+        num *= i
+    return num
 ```
 DataWay 表达式的运行结果为：`24`
 
@@ -118,35 +123,40 @@ DataWay 表达式的运行结果为：`24`
 
 - 在 DataWay 中，可以使用 def 关键词定义函数，后接函数名和参数名列表，以冒号“：”作为定义函数行的结尾，下一行默认缩进；最终以 return 语句结束函数，如果不带 return 则相当于返回 None。
 - 定义一个函数后，可以在另一个函数中调用执行。在 DataWay 中，默认的入口函数 dw_process 函数无需手工声明。如果想自定义函数，直接在 dw_process 入口函数下方定义即可。如下示例，定义一个函数 test() 用于对列表元素求和，并在 dw_process() 函数中调用，最终使用 return 语句返回结果。
+
 ```python
-def dw_process(msg):
-  a = [1, 2, 3, 4]
-  return add_list(a)
+def dw_process(msg): 
+    a = [1, 2, 3, 4]
+    return add_list(a)
 
 def add_list(alist):
-  sum = 0
-  for i in reversed(alist):
-     sum += i
-  return sum
+    sum = 0
+    for i in reversed(alist):
+        sum += i
+    return sum
 ```
+
 最终的输出结果为：`10`
 
 ### 模块调用
 
 DataWay 内置多个第三方模块，例如：time、json、math、base64、hmac、random、 hashlib、Crypto、socket、struct、decimal 和 datetime 等，使用时直接引用模块名即可，无需使用 import 关键字。具体的函数说明可参考 [DataWay 函数参考](https://cloud.tencent.com/document/product/1270/55568)。具体示例如下，接收一个 json 类型字符串，转换成一个 dict 字典：
+
 ```python
 def dw_process(msg):
-  jsonStr = '{"a": 1, "b": 2, "c": 3}'
-  jsonDict = json.loads(jsonStr)  # 转换成一个dict
-  num = 1
-  for k, v in jsonDict.items():   # 对dict进行遍历
-    num += math.pow(v, 2)
-  return num
+    jsonStr = '{"a": 1, "b": 2, "c": 3}'
+    jsonDict = json.loads(jsonStr)  # 转换成一个dict
+    num = 1
+    for k, v in jsonDict.items():   # 对dict进行遍历
+        num += math.pow(v, 2)
+    return num
 ```
+
 最终的输入结果为: `15.0`
 
 ### 注释
 DataWay 单行注释以`#`开头，多行注释则可以用多个`#` 号，或者`'''`和`"""`。举例如下，执行下面代码：
+
 ```python
 # Dataway 注释
 
@@ -162,10 +172,13 @@ Dataway 注释
 def dw_process(msg):
     return 'Dataway Hello World!'
 ```
+
 输出结果为：
+
 ```python
 Dataway Hello World!
 ```
+
 >!DataWay 提供语法检查功能，在编写代码时会进行实时语法检查，并给出错误提示。详细的 Python 语法说明可以参考 [Python 官方文档](https://docs.python.org/zh-cn/3.5/reference/index.html)。
 
 ## dw_process 入口函数
@@ -213,17 +226,21 @@ Message 类型是 DataWay 用于表示一条 EIS 消息的数据类型，其中�
 ## DataWay IDE 使用
 在 EIS 系统新建一个 Set Variable 组件，单击变量值文本框进入 DataWay 脚本编辑器，该编辑器提供语法检查、格式化、脚本调试、自动联想、代码高亮等类 IDE 功能。
 <img src="https://main.qcloudimg.com/raw/27cb6a575cbd1bdac914981679ff2bc2/ide-%E6%95%B4%E4%BD%93%E9%A1%B5%E9%9D%A2.png" alt="ide-整体页面" style="zoom: 50%;" />
+
 ### 语法检查
 在 DataWay IDE 中，能够实时对 DataWay 表达式进行语法检查，并通过强提示显示在 IDE 左侧和出错代码底部。当鼠标移动到错误提醒处，会有详细的错误信息说明。用户可以根据语法提示来对 DataWay 脚本进行修改，只有语法检查通过的代码才能够保存成功。
 <img src="https://main.qcloudimg.com/raw/46bc25019af93bcb6b73dba766468444/ide-%E8%AF%AD%E6%B3%95%E6%A3%80%E6%9F%A5.png" alt="ide-语法检查" style="zoom:50%;" />
+
 ### 格式化
 在 Dataway IDE 中，提供有格式化功能按钮。用户可以单击右上角格式化按钮，一键对 DataWay 代码格式化，以使代码更加简洁规范。
 <img src="https://main.qcloudimg.com/raw/4373c5f877489eb9d67f27d1247a0dc3/ide-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%89%8D.png" alt="ide-格式化前" style="zoom:50%;" />
  - 单击右上角格式化按钮后，格式化后的代码如下图：
 ![](https://main.qcloudimg.com/raw/f46937560a73d88ab0c32cd6d0823582/ide-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E.png)
+
 ### 脚本调试
 在 DataWay IDE 中，提供有 Debug 调试功能按钮。用户可以单击右上角“Debug”图标，在线对 DataWay 脚本进行调试。详细的使用方法可见 [DataWay 脚本调试](https://cloud.tencent.com/document/product/1270/55618)。
 ![](https://main.qcloudimg.com/raw/d59d57534cc3616ddc1a994530bf1d61/ide-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.png)
+
 ### 自动联想
 DataWay IDE 能够自动对流中已配置的 payload、vars、attrs 中的变量名进行联想，并展示在 IDE 右侧栏。例如：在 Set Variable 组件前已经创建了一个 Set Payload 和一个 Set Variable 组件，则右侧栏会展示出来，单击对应的联想值会自动加入到左侧编辑框中。
 ![](https://main.qcloudimg.com/raw/ae9a1410a37e2a9144e0f3520918c12f/ide-%E8%87%AA%E5%8A%A8%E8%81%94%E6%83%B3.png)

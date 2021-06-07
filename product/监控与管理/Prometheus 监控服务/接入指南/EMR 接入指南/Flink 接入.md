@@ -6,7 +6,7 @@
 ## 前提条件
 
 1. 购买的腾讯云弹性 MapReduce（以下简称 EMR）产品包含 Flink 组件，并在实例上跑 Flink 任务。
-2. 在 Prometheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)。
+2. 在 Prometheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)。
 
 
 ## 操作步骤
@@ -130,13 +130,11 @@ metrics.reporter.promgateway.password: token
 #### 安装 Flink PushGateway 插件
 
 官方包中的 push gateway 插件目前还不支持配置认证信息，但是托管服务需要认证才允许写入，建议使用我们提供的 jar 包。我们也向 flink 官方提交了支持认证的 PR。
-
 1. 为防止类冲突，如果已经使用 Flink 官方插件，需要先执行以下命令删除官方插件。
 ```plaintext
 cd /usr/local/service/flink/lib
 rm flink-metrics-prometheus*jar
-```
-2. 在【 [弹性 MapReduce 控制台](https://console.cloud.tencent.com/emr)】>【选择对应的“实例”】>【集群资源】>【资源管理】>【Master】页面，查看 Master 节点。
+```2. 在【 [弹性 MapReduce 控制台](https://console.cloud.tencent.com/emr)】>【选择对应的“实例”】>【集群资源】>【资源管理】>【Master】页面，查看 Master 节点。
 3. 单击实例 ID 跳转至 CVM 控制台，登录 CVM 执行以下命令安装插件。
 ```plaintext
 cd /usr/local/service/flink/lib

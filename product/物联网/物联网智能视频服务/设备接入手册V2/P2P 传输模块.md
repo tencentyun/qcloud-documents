@@ -13,6 +13,7 @@
 - iv_avt_p2p_exit：P2P 去初始化
 - iv_avt_p2p_set_buf_watermark：设置 P2P 的拥塞控制阈值
 - iv_avt_p2p_get_send_buf：获取 P2P 的缓存数据大小
+- iv_avt_p2p_get_send_status：获取 P2P 视频流传输通道的发包统计数据
 - p2p_handle_send_init_cb：直播或者回放时启动的回调
 - p2p_handle_send_get_cb：获取数据回调
 - p2p_handle_send_stop_cb：直播或者回放时停止的回调
@@ -121,6 +122,28 @@ size_t iv_avt_p2p_get_send_buf(void *handle);
 | 返回值    | 描述                 |
 | --------- | -------------------- | 
 | 大于等于0 | 获取缓存区数据的大小 |
+
+#### iv_avt_p2p_get_send_status
+
+**接口描述**
+获取相关 P2P 视频流传输通道的发包统计数据，例如发送速率。用于用户自定义的 P2P 链路拥塞控制，传入由 p2p_handle_send_init_cb 回调创建的视频通道句柄指针 handle。
+
+```
+iv_p2p_send_stats_s iv_avt_p2p_get_send_status(void *handle);
+```
+
+**返回值**
+
+| 返回值              | 描述         |
+| ------------------- | ------------ |
+| iv_p2p_send_stats_s | 发包统计数据 |
+
+**参数说明**
+
+| 参数名称 | 类型   | 描述             | 输入/输出 |
+| -------- | ------ | ---------------- | --------- |
+| handle   | void * | 数据传输通道句柄 | 输入      |
+
 
 
 
@@ -300,6 +323,7 @@ iv_cm_memory_s (*p2p_handle_command_cb)(const char *command, size_t cmd_len, con
 - iv_p2p_parm_s：音视频对讲初始化参数结构体
 - p2p_keep_alive_cfg：P2P 保活参数
 - iv_avt_event_e：事件类型枚举
+- iv_p2p_send_stats_s：P2P 发送状态参数
 
 #### iv_p2p_parm_s
 
@@ -395,13 +419,44 @@ typedef enum
 - 出现 `IV_AVT_EVENT_P2P_PEER_CONNECT_FAIL` 事件，表示连接 P2P 服务器失败，需要检查网络。
 - 出现 `IV_AVT_EVENT_P2P_PEER_ERROR` 事件，表示网络出现错误，需要检查网络。
 
+
+#### iv_p2p_send_stats_s
+
+**类型描述**
+P2P 发送状态参数
+
+```
+typedef struct {
+    uint32_t inst_net_rate;
+    uint32_t ave_sent_rate; 
+    uint64_t sum_sent_acked;
+} iv_p2p_send_stats_s;
+```
+
+**参数说明**
+
+| 成员名称       | 描述                                                         | 取值     |
+| -------------- | ------------------------------------------------------------ | -------- |
+| inst_net_rate  | 瞬时发送速率，随网速变化会有较大波动，单位：字节/秒          | uint32_t |
+| ave_sent_rate  | 过去一秒内累计发送并得到对端确认的数据，即平均发送速率，单位：字节/秒 | uint32_t |
+| sum_sent_acked | 累计发送并得到对端确认的数据， 单位：字节                    | uint64_t |
+
+>?
+>- 若出现 IV_AVT_EVENT_P2P_PEER_ADDR_CHANGED 事件，SDK 内部会进行重新协商，无需手动重启 P2P，但是如果用户主动修改设备端 IP 地址，P2P 通道可能恢复较慢，受 MQTT 保活时间影响，可以在 IP 地址修改后直接重新初始化接口，从而加快 P2P 通道恢复时间。
+>- 若出现 IV_AVT_EVENT_P2P_PEER_CONNECT_FAIL 事件，表示连接 P2P 服务器失败，需要检查网络。
+>- 若出现 IV_AVT_EVENT_P2P_PEER_ERROR 事件，表示网络出现错误，需要检查网络。
+
 ## 内存消耗
 
-P2P 在进行数据传输时，其内存消耗受拥塞控制 high_mark 、网络的传输速度 speed（单位：Bps）和发送数据的码率 rate（单位：Bps）这三个参数的共同限制。
-- 当 speed > n * rate 时：内存消耗 **memory = n × （rate / X）+ 120KB（X 约等于3.2）**
-- 当 speed < n * rate 时：内存消耗 **memory = n × high_mark + 120KB**
+设备在使用 P2P 发送数据时，其内存消耗与网络带宽（bandwidth）、传输的数据速率（rate）相关。
+- 当 bandwidth > rate 时：正常连接时内存消耗 **memory <= m × 150KB**。
+- 当 bandwidth <= rate 时：弱网情况下，SDK 内部缓存达到最大，其最大内存消耗
+ **memory =（n × 512 KB + 732 KB）× m**。
 
-其中，n 是码流通道数量，但这只是预估内存数量，当网络速度 speed 远远大于 `n × rate` 时，X 会更大，内存消耗会更少。
+其中，m 是设备连接的 App 数量，n 是一个 App 请求的接收数据通道数量，即设备端的数据发送通道数量。
+
+
+
 
 
 ## 示例代码

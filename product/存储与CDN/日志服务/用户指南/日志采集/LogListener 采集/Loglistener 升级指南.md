@@ -2,7 +2,9 @@
 
 为了更好的提供日志服务（Cloud Log Service，CLS）的日志采集服务，现支持 LogListener 自动升级与控制台手动升级功能。LogListener 采集端程序版本迭代更新之后，用户无需自主下载新版本安装包进行相关操作的手动升级，只需在控制台预设时间段指定机器组进行 LogListener 自动升级，或对目标机器实行一键手动升级即可。
 
->? LogListener 自动升级功能仅在 LogListener 2.5.0 及以上版本开始支持，为了更好的使用体验，建议 [前往安装/升级至最新版本](https://cloud.tencent.com/document/product/614/17414)。
+>? 
+> - LogListener 自动升级功能仅在 LogListener 2.5.0 及以上版本开始支持，为了更好的使用体验，建议 [前往安装/升级至最新版本](https://cloud.tencent.com/document/product/614/17414)。
+> - 自动升级功能需 Python2 支持，若采集机器上安装的是 Python3，升级过程将无法完整执行。
 >
 
 ## 操作步骤

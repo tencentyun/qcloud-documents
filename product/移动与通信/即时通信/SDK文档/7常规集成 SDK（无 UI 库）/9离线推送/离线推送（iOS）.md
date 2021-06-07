@@ -73,7 +73,7 @@
 
 ```
 V2TIMAPNSConfig *confg = [[V2TIMAPNSConfig alloc] init];
-// 企业证书 ID，上传证书到 IM 控制台后生成
+// 推送证书 ID，上传推送证书（p.12）到 IM 控制台后生成
 confg.businessID = businessID;
 // 苹果后台请求的  deviceToken
 confg.token = deviceToken;

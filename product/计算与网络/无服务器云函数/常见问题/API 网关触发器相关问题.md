@@ -3,7 +3,7 @@
 1. 检查函数及网关配置的超时时间，并尝试增加一定的网关超时时间。
 2. 可参见 [API 网关日志管理](https://cloud.tencent.com/document/product/628/19552) 配置日志，通过分析日志定位具体原因。
 
-### SCF 运行返回 "errno":403,"error":"Invalid scf response format. please check your scf response format." 怎么办？
+### SCF 运行返回 "error":403,"error":"Invalid scf response format. please check your scf response format." 怎么办？
 
 API 网关会将云函数的返回内容进行解析，并根据解析内容构造 HTTP 响应。通过使用集成响应，可以通过代码自主控制响应的状态码、headers、body 内容，可以实现自定义格式的内容响应，例如响应 XML、HTML、JSON 甚至 JS 内容。在使用集成响应时，需要按照 [API 网关触发器的集成响应返回数据结构](https://cloud.tencent.com/document/product/583/12513#apiStructure)，才可以被 API 网关成功解析，否则会出现 `{"errno":403,"error":"requestId xxx , Invalid scf response. expected scf response valid JSON."}` 错误信息。
 

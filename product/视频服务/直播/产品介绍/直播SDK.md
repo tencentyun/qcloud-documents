@@ -9,7 +9,7 @@
 移动直播提供了小直播 App、精简版 Demo 和小程序版 Demo，并提供相关源代码下载支持，具体请参见：
 
 - [小直播 App](https://cloud.tencent.com/document/product/454/6555#.E5.B0.8F.E7.9B.B4.E6.92.AD-app)
-- [精简版 Demo](https://cloud.tencent.com/document/product/454/6555#.E7.B2.BE.E7.AE.80.E7.89.88-demo)
+- [腾讯云工具包 App](https://cloud.tencent.com/document/product/454/6555#rtmpdemo)
 - [小程序 Demo](https://cloud.tencent.com/document/product/454/6555#.E5.B0.8F.E7.A8.8B.E5.BA.8F-demo)
 
 ### 了解更多

@@ -1,4 +1,9 @@
-TUIKit 组件在 4.8.50 版本之后基于 [TRTC](https://cloud.tencent.com/document/product/647/16788) 实现了单聊和群组的视频通话和语音通话功能， 并且实现了 iOS 和 Android 平台的互通，参考本文您只需要简单几步就可以快速集成。
+TUIKit 组件在 4.8.50 版本之后基于 [TRTC](https://cloud.tencent.com/document/product/647/16788) 实现了单聊和群组的视频通话和语音通话功能， 并且实现了 iOS 和 Android 平台的互通。需要注意的是不同的版本在集成方式上有一定的区别：
+>! 
+>- **4.8.50 ~ 5.1.60 版本**的TUIKit 组件默认集成了音视频通话 UI 组件和 [TRTC](https://cloud.tencent.com/document/product/647/16788) 音视频库，默认支持音视频通话相关功能。
+>- **5.4.666** 及之后的版本 TUIKit 组件默认不再集成音视频通话 UI 组件和 [TRTC](https://cloud.tencent.com/document/product/647/16788) 音视频库，音视频相关逻辑都移到了 TUIKitLive 组件里面。
+>- **TUIKit-Live 和 TUIKit 版本要一致，否则音视频通话功能会出现异常，无法正常使用。**
+
 <table style="text-align:center;vertical-align:middle;width: 400px">
   <tr>
     <th style="text-align:center;" width="180px"><b>视频通话<br></b></th>
@@ -10,10 +15,6 @@ TUIKit 组件在 4.8.50 版本之后基于 [TRTC](https://cloud.tencent.com/docu
 	 </tr>
 </table>
 
->!
->- TUIKit 4.8.50 之后的版本音视频通话直接集成在 TUIKit 组件中，并且基于新的信令方案设计。
->- TUIKit 4.8.50 之前的版本音视频通话集成在 iOS 端的 TUIKitDemo 示例中，**新老版本不互通，如果您已经使用之前版本的音视频通话，这里不建议升级，以免出现兼容性问题**。
-
 [](id:Step1)
 ## 步骤1：开通音视频服务
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) ，单击目标应用卡片，进入应用的基础配置页面。
@@ -23,10 +24,11 @@ TUIKit 组件在 4.8.50 版本之后基于 [TRTC](https://cloud.tencent.com/docu
 
 [](id:Step2)
 ## 步骤2：配置工程文件
-建议使用源码集成 TUIKit，以便于您修改源码满足自身的业务需求。
+建议使用源码集成 TUIKit 和 TUIKit-Live，以便于您修改源码满足自身的业务需求。
 
 ```
 implementation project(':tuikit')
+implementation project(':tuikit-live')
 ```
 
 [](id:Step3)
@@ -73,7 +75,7 @@ TUIKit.login(userID, userSig, new IUIKitCallBack() {
 	 </tr>
 </table>
 
-- 当用户**在线**收到通话邀请时，TUIKit 会自动展示通话接收 UI，用户可以选择同意或则拒绝通话。
+- 当用户**在线并且应用在前台时**收到通话邀请时，TUIKit 会自动展示通话接收 UI，用户可以选择同意或则拒绝通话。
 - 当用户**离线**收到通话邀请时，如需唤起 App 通话，就要使用到离线推送能力，离线推送的实现请参考 [步骤7](#Step7)。
 
 ## 步骤7：离线推送[](id:Step7)

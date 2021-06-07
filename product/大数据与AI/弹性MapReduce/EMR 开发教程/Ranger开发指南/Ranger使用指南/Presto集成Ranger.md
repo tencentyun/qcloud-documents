@@ -48,7 +48,7 @@ Web UI 地址链接跳转后，会提示输入用户名及密码，即在购买�
 <td>资源使用的用户名</td>
 </tr>
 <tr>
-<td>Passwrod</td>
+<td>Password</td>
 <td>是</td>
 <td>用户密码</td>
 </tr>
