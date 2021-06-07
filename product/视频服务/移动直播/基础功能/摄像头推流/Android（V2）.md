@@ -166,7 +166,7 @@ mLivePusher.getBeautyManager().setFilterStrength(0.5f);
 [](id:step10)
 ### 10. 设备管理
 
-V2TXLivePusher 提供了一组 API 用户控制设备的的行为。您通过 `getDeviceManager` 获取 TXDeviceManager 实例进一步进行设备管理，详细用法请参见 [TXDeviceManager API](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXDeviceManager__android.html)。
+V2TXLivePusher 提供了一组 API 用户控制设备的行为。您通过 `getDeviceManager` 获取 TXDeviceManager 实例进一步进行设备管理，详细用法请参见 [TXDeviceManager API](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXDeviceManager__android.html)。
 ![](https://main.qcloudimg.com/raw/ffebf9941de52db8ee1f9e52c073fe38.png)
 
 [](id:step11)
