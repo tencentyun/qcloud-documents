@@ -1,4 +1,3 @@
-
 ## 现象描述
 部署 SSL 证书后，使用 HTTPS 协议访问网站，浏览器地址栏中域名前显示<span ><img src="https://main.qcloudimg.com/raw/fd19301d82877dddfb19dbba29366b17.png" style="margin-bottom:-5px;"/></span>图标和 “不安全” 字样。单击<span ><img src="https://main.qcloudimg.com/raw/fd19301d82877dddfb19dbba29366b17.png" style="margin-bottom:-5px;"/></span>，将提示红字警告 “你与此网站之间建立的连接不安全”。如下图所示：
 ![](https://main.qcloudimg.com/raw/d0e139c4326a84444ab6fd2a68170440.png)
@@ -18,5 +17,5 @@
 ### 网页存在不安全因素
 可以将外链复制到 URL 中，并通过在 http 后添加 “s” 进行访问，测试此外链是否支持 https 协议的链接。
 - 若可以访问，请直接在代码中修改 http 为 https 的链接。
-- 若不可以访问，则可以下载该资源到本地服务器上，并修改资源路径指向到服务器上，并使用相对路径如 <img src=image/button.gif> 或者完整的 https 路径 <img src=https://***/image/button.gif>。
+- 若不可以访问，则可以下载该资源到本地服务器上，并修改资源路径指向到服务器上，并使用相对路径如 `image/button.gif` 或者完整的 https 路径如 `https://***/image/button.gif`。
 
