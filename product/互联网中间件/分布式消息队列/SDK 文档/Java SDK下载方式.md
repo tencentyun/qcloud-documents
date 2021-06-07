@@ -145,14 +145,12 @@ mvn help:effective-settings
 ## 安装 SDK
 
 1. 在您 Java 工程的 pom.xml 中添加以下依赖：
-<dx-codeblock>
-:::  xml
+``` xml
 <dependency>
-	<groupId>com.tencent.tdmq</groupId>
-	<artifactId>tdmq-client</artifactId>
-	<version>2.6.1</version>
+			<groupId>com.tencent.tdmq</groupId>
+			<artifactId>tdmq-client</artifactId>
+			<version>2.6.1</version>
 </dependency>
-:::
-</dx-codeblock>
+```
 2. 在 pom.xml 所在目录执行 `mvn clean package` 即可下载 TDMQ SDK。
 
