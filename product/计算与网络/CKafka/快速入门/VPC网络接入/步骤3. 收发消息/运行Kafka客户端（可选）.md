@@ -48,25 +48,19 @@ java -version
 通过 CLI 命令生产和消费消息，去到`./bin`目录下。
 
 1. 打开终端启动消费者。
-
    ```bash
    bash kafka-console-consumer.sh --bootstrap-server XXXX:port --topic XXXX --consumer.config ../config/consumer.properties
    ```
-
    >?
-   >
    >- 将 XXXX:port 替换成VPC网络访问的域名与端口，在控制台实例详情页面的【接入方式】模块获取。
    >  ![](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png)
    >- topic：将 XXXX替换成topic名称，在控制台【topic管理】页面获取。
 
 2. 另外开一个终端窗口启动生产者。
-
    ``` bash
    bash kafka-console-producer.sh --broker-list XXXX:port --topic XXXX --producer.config ../config/producer.properties
    ```
-
    >?
-   >
    >- 将 XXXX:port 替换成VPC网络访问的域名与端口，在控制台实例详情页面的【接入方式】模块获取。
    >  ![](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png)
    >- topic：将 XXXX替换成topic名称，在控制台【topic管理】页面获取。
@@ -79,7 +73,7 @@ java -version
    消费消息：
    ![](https://main.qcloudimg.com/raw/22860d730e70cfbe9eb5fcbca215d5a5.png)
 
-1. 在 CKafka 控制台消息查询页面，查询刚刚发送的消息内容。
+3. 在 CKafka 控制台消息查询页面，查询刚刚发送的消息内容。
    ![](https://main.qcloudimg.com/raw/cca4f62e86898eec49d8a9cde7ae9fa8.png)
     消息详情如下：
    ![](https://main.qcloudimg.com/raw/43b60e402b829faab71152274a097126.png)
