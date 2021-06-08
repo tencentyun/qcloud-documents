@@ -2,18 +2,22 @@
 HTTPDNS 的主要功能是为了有效避免由于运营商传统 LocalDns 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
 
 ## 2. 安装包结构
-压缩文件中包含 demo 工程，其中包含：
+SDK 最新版本包[下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSLibs)，SDK 开源[仓库地址](https://github.com/DNSPod/httpdns-sdk-ios)
 
 | 名称       | 适用说明           |
 | ------------- |-------------|
 | MSDKDns.xcframework | 适用 “Build Setting->C++ Language Dialect” 配置为 **“GNU++98”**，“Build Setting->C++ Standard Library” 为 **“libstdc++(GNU C++ standard library)”** 的工程。 |
 | MSDKDns_C11.xcframework | 适用于该两项配置分别为 **“GNU++11”** 和 **“libc++(LLVM C++ standard library with C++11 support)”** 的工程。 |
 
+
 ## 3. SDK 集成
 HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 - 通过 CocoaPods 集成。
 - 手动集成。
 
+手动集成可以参考案例
+- Objective-C Demo [下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSDemo)
+- Swift Demo [下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSSwiftDemo)
 ### 3.1 通过 CocoaPods 集成
 在工程的 Podfile 里面添加以下代码：
 ```
@@ -28,12 +32,12 @@ HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 
 ### 3.2 手动集成
 
-#### 3.2.1 已接入灯塔（Beacon）的业务
+#### 3.2.1 已接入灯塔（Beacon）的业务（可选）
 >?灯塔（beacon）SDK 是腾讯灯塔团队开发的用于移动应用统计分析的 SDK，HTTPDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
 >
 仅需引入位于 HTTPDNSLibs 目录下的 MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）即可。
 
-#### 3.2.2 未接入灯塔（Beacon）的业务
+#### 3.2.2 未接入灯塔（Beacon）的业务（可选）
 - 引入依赖库（位于 HTTPDNSLibs 目录下）：
 	- BeaconAPI_Base.framework
 	- MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）
@@ -100,10 +104,20 @@ struct DnsConfig {
  @return YES:设置成功 NO:设置失败
  */
 - (BOOL) initConfig:(DnsConfig *)config;
+
+/**
+ * 通过 Dictionary 配置，字段参考 DnsConfig 结构，用于兼容 swift 项目，解决 swift 项目中无法识别 DnsConfig 类型的问题
+ *
+ * @param config  配置
+ * @return YES：设置成功 NO：设置失败
+ */
+- (BOOL) initConfigWithDictionary:(NSDictionary *)config;
 ```
 #### 示例代码
 
 接口调用示例：
+
+a. Objective-C 项目中
 ```objc
 	DNSConfig *config = new DnsConfig();
 	config->dnsIp = @"HTTPDNS 服务器IP";
@@ -116,6 +130,16 @@ struct DnsConfig {
 	[[MSDKDns sharedInstance] initConfig: config];
 ```
 
+b. 在 Swift 项目中
+```swift
+let msdkDns = MSDKDns.sharedInstance() as? MSDKDns;
+msdkDns?.initConfig(with: [
+		"dnsIp": "HTTPDNS 服务器IP",
+		"dnsId": "dns授权id",
+		"dnsKey": "加密密钥",
+		"encryptType": 0, // 0 -> des，1 -> aes，2 -> https
+]);
+```
 ### 4.2 域名解析接口
 
 **获取 IP 共有以下四个接口，**引入头文件，调用相应接口即可。
