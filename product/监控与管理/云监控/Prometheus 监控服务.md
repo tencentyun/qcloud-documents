@@ -118,49 +118,44 @@
                 </dx-accordion>
             </div>
         </table>
-
-        <div>
-            <h2 style="position:absolute; left:650px;top:160px" class="segment3"><img class="rno-learning-path-icon"
-                                                                                      src="https://main.qcloudimg.com/raw/b2b7a7533e8f1dc7cfc9feb7c324d2f4/icon-practice.svg"
-                                                                                      alt="">入门</h2>
-            <div class="dxsize" style="position:absolute; left:550px;top:260px">
-                <dx-accordion>
-                    :::快速入门
-                    <li style="position: relative; left:15px;"><a
-                            href="https://cloud.tencent.com/document/product/1416/55778">快速使用
-                        Prometheus 监控服务</a></li>
-                    :::
-                </dx-accordion>
-            </div>
+        <h2 style="position:absolute; left:650px;top:160px" class="segment3"><img class="rno-learning-path-icon"
+                                                                                  src="https://main.qcloudimg.com/raw/b2b7a7533e8f1dc7cfc9feb7c324d2f4/icon-practice.svg"
+                                                                                  alt="">入门</h2>
+        <div class="dxsize" style="position:absolute; left:550px;top:260px">
+            <dx-accordion>
+                :::快速入门
+                <li style="position: relative; left:15px;"><a
+                        href="https://cloud.tencent.com/document/product/1416/55778">快速使用
+                    Prometheus 监控服务</a></li>
+                :::
+            </dx-accordion>
         </div>
-        <div>
-            <h2 style="position:absolute; left:650px;top:480px" class="segment3"><img class="rno-learning-path-icon"
-                                                                                      src="https://main.qcloudimg.com/raw/b1a5cb6f47635914808c4271683cad69.svg"
-                                                                                      alt="">操作</h2>
-            <div class="dxsize" style="position:absolute; left:550px;top:580px">
-                <dx-accordion>
-                    :::产品简介
-                    <li style="position: relative; left:15px;"><a
-                            href="https://cloud.tencent.com/document/product/1416/55982">创建实例</a>
-                    </li>
-                    <li style="position: relative; left:15px;"><a
-                            href="https://cloud.tencent.com/document/product/1416/55987">重置
-                        Grafana 密码</a></li>
-                    <li style="position: relative; left:15px;"><a
-                            href="https://cloud.tencent.com/document/product/1416/56009">新建告警策略</a>
-                    </li>
-                    <li style="position: relative; left:15px;"><a
-                            href="https://cloud.tencent.com/document/product/1416/55782">集成中心</a>
-                    </li>
-                    <li style="position: relative; left:15px;"><a
-                            href="https://cloud.tencent.com/document/product/1416/56022">策略授予</a>
-                    </li>
-                    <li style="position: relative; left:15px;"><a
-                            href="https://cloud.tencent.com/document/product/1416/56014">使用标签</a>
-                    </li>
-                    :::
-                </dx-accordion>
-            </div>
+        <h2 style="position:absolute; left:650px;top:480px" class="segment3"><img class="rno-learning-path-icon"
+                                                                                  src="https://main.qcloudimg.com/raw/b1a5cb6f47635914808c4271683cad69.svg"
+                                                                                  alt="">操作</h2>
+        <div class="dxsize" style="position:absolute; left:550px;top:580px">
+            <dx-accordion>
+                :::产品简介
+                <li style="position: relative; left:15px;"><a
+                        href="https://cloud.tencent.com/document/product/1416/55982">创建实例</a>
+                </li>
+                <li style="position: relative; left:15px;"><a
+                        href="https://cloud.tencent.com/document/product/1416/55987">重置
+                    Grafana 密码</a></li>
+                <li style="position: relative; left:15px;"><a
+                        href="https://cloud.tencent.com/document/product/1416/56009">新建告警策略</a>
+                </li>
+                <li style="position: relative; left:15px;"><a
+                        href="https://cloud.tencent.com/document/product/1416/55782">集成中心</a>
+                </li>
+                <li style="position: relative; left:15px;"><a
+                        href="https://cloud.tencent.com/document/product/1416/56022">策略授予</a>
+                </li>
+                <li style="position: relative; left:15px;"><a
+                        href="https://cloud.tencent.com/document/product/1416/56014">使用标签</a>
+                </li>
+                :::
+            </dx-accordion>
         </div>
     </div>
 </div>
