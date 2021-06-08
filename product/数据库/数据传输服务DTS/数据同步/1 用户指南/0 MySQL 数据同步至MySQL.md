@@ -9,24 +9,25 @@ GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO "迁移帐号"@"%";
 FLUSH PRIVILEGES;
 ```
 
-## 前置检查
-在数据同步任务启动前，需要进行前置检查，主要检查内容和检查点如下：
+## 同步检查项
+启动数据迁移任务前，需要进行前置检查，主要检查内容和检查点如下：
 
 | 检查内容                               | 检查点                                                       |
 | -------------------------------------- | ------------------------------------------------------------ |
-| 校验目标数据库 schema 和 table是否存在 | schema 和 table 必须提前创建好，如果没有创建好，则会报错     |
-| 校验当前用户是否拥有目标数据表权限     | 针对要同步的表，首先判断当前用户是否是该表的 owner（owner 拥有所有权限），如果不是，则查看 information\_schema.table\_privilege 表中的授权信息，必须保证拥有：Delete、Truncate、Insert、References、Select、Update、TRIGGER 的授权权限，否则会报错 |
-| 校验目标端磁盘空间是否充足             | 目标库的可用空间和源端需要的空间进行对比                     |
-| 校验源端数据库权限                     | 对源实例检查是否有权限：RELOAD、LOCK TABLES、REPLICATION CLIENT、REPLICATION SLAVE、SELECT |
-| 校验源端 MySQL connect\_timeout 参数   | 校验 MySQL 侧的 connect\_timeout 参数是否小于10，如果小于则会报错 |
-| 校验源端和目标端数据库连接             | 校验源MySQL 和目标MySQL是否能正确连接                        |
-| 校验源端和目标端数据库版本             | 检查是否满足版本要求，参见 [前提条件](#qttj) 第一点信息               |
-| 目标端权限检查                         | 目标云数据库 MySQL 的帐号需要具有如下权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE |
-| 校验源端优化参数                       | innodb\_stats\_on\_metadata 指标需要关闭                     |
-| 校验源端 binlog 参数                   | binlog\_format 须为 ROW；binlog\_row\_image 须为 FULL；log\_bin 须为 ON；gtid\_mode 须为ON |
-| 校验主键约束                           | 源端需要同步的表必须有主键                                   |
-| 校验源数据库编码                       | 源端必须是 utf8 或 utf8mb4                                   |
-| 校验 MySQL 表名大小写配置是否配置正确  | 校验 lower\_case\_table\_names 参数是否为0，如果为0则配置不正确 |
+| 连接数据库检查 | 源库和目标库网络能够连通     |
+| 周边检查     | 检查环境变量 innodb_stats_on_metadata=off |
+| 版本检查             | 源库和目标库 MySQL 版本必须为 5.5、5.6、5.7、8.0，且源库版本必须小于或等于目标库版本                     |
+| 部分实例参数检查                     | -table_row_format 不能为 Fixed <br> -源库和目标库 lower_case_table_names 变量必须一致 <br> -检查目标端 max_allowed_packet 参数，至少为4M <br> -源库变量 connect_timeout 必须大于10  |
+| 源端权限检查   | 同 [前提条件](#qttj) 的帐号权限   |
+| 目标端权限检查             | 目标云数据库 MySQL 的帐号需要具有如下权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE                        |
+| 目标实例内容冲突检测             | 如果"同名表处理策略"选择了"前置检查并报错"，则目标库不能有和源库冲突的库表，否则会报错。如果选择了”忽略并继续“，则无要求，同步表结构时遇到同名表会跳过               |
+| 目标实例空间检查                         | 如果选择了“数据初始化”，则目标库的空间大小须是源库待初始化库表空间的1.2倍以上。如果目标实例非腾讯云CDB，无法获取剩余空间，则不会检查，请用户自行保证剩余空间充足 |
+| Binlog 参数检查                       | -源端 binlog_format 变量必须为 ROW<br>-源端 log_bin 变量必须为 ON<br>-”冲突处理策略“选择”冲突覆盖“时，源端 binlog_row_image 变量必须为 FULL<br>-源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode<br>-不允许设置 do_db, ignore_db<br>-对于源实例为从库的情况，log_slave_updates 变量必须为 ON                     |
+| 外键依赖检查                   | -外键依赖只能是 no action 和 restrict 两种类型<br>-部分库表同步时，有外键依赖的表必须齐全 |
+| 视图检查                           | 只允许和同步目标 user@host 相同的 definer                                   |
+| 无主键表检查（阿里云）                       | MySQL 5.6 待同步表不能存在无主键表，MySQL 5.7 等其他版本不限制                                   |
+| 无主键表检查（AWS）                       | 待同步表不能存在无主键表                                   |
+| 其他警告项检查  | -检查源库和目标库的 max_allowed_packet，如果源库大于目标库，会有警告<br>-目标库的 max_allowed_packet 小于1GB，会有警告<br>-如果源库和目标库的字符集不一致，会有警告<br>-固定警告：提醒用户如果待同步表没有主键或者非空唯一键，有数据重复的风险 |
 
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
@@ -120,16 +121,18 @@ FLUSH PRIVILEGES;
 <td>初始化类型</td>
 <td><ul><li>结构初始化：同步任务执行时会先将源实例中表结构初始化到目标实例中<li>全量数据初始化：同步任务执行时会先将源实例中数据初始化到目标实例中<li>默认两者都勾上，可根据实际情况取消</td></tr>
 <tr>
-<td>已存在同名表</td><td>前置校验并报错：存在同名表则报错，流程不再继续忽略并继续执行：全量数据和增量数据直接追加目标实例的表中</td></tr>
+<td>已存在同名表</td>
+  <td><ul><li>前置校验并报错：存在同名表则报错，流程不再继续<li>忽略并继续执行：全量数据和增量数据直接追加目标实例的表中</td>
+  </tr>
 <tr>
 <td rowspan=2>数据同步选项</td>
 <td>冲突处理机制</td>
-<td><ul><li>冲突报错：在同步时发现表主键冲突，报错并结束数据同步<li>冲突忽略：在同步时发现表主键冲突，保留原主键记录，继续后续数据同步<li>冲突覆盖：在同步时发现表主键冲突，用新记录覆盖原主键记录</td></tr>
+<td><ul><li>冲突报错：在同步时发现表主键冲突，报错并暂停数据同步<li>冲突忽略：在同步时发现表主键冲突，保留原主键记录，继续后续数据同步<li>冲突覆盖：在同步时发现表主键冲突，用新记录覆盖原主键记录</td></tr>
 <tr>
 <td>同步操作类型</td><td>支持操作：Insert、Update、Delete、DDL</td></tr>
 <tr>
 <td rowspan=2>同步对象选项</td>
-<td>源实例库表对象</td><td>选择待同步的对象，支持库级别和表级别</td></tr>
+<td>源实例库表对象</td><td>选择待同步的对象，支持库级别和表及视图级别</td></tr>
 <tr>
 <td>已选对象</td><td>展示已选择的同步对象，支持库表映射</td></tr>
 </tbody></table>
