@@ -95,6 +95,20 @@ response = client.get_presigned_url(
 ```
 
 
+#### 临时秘钥请求示例
+
+[//]: # (.cssg-snippet-get-presign-download-sts-url)
+```python
+response = client.get_presigned_url(
+    Method='GET',
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    Params={
+        'x-cos-security-token': 'string'
+    }
+)
+```
+
 #### 方法原型
 
 ```
@@ -138,6 +152,21 @@ response = client.get_presigned_url(
 #### 功能说明
 获取预签名下载链接用于直接下载。
 
+
+#### 临时秘钥请求示例
+
+[//]: # (.cssg-snippet-get-presign-download-sts-url)
+```python
+response = client.get_presigned_download_url(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    Params={
+        'x-cos-security-token': 'string'
+    }
+)
+```
+
+
 #### 方法原型
 
 ```
@@ -152,8 +181,7 @@ response = client.get_presigned_download_url(
     Key='exampleobject',
     Expired=300,
     Headers={
-        'Content-Length': 'string',
-        'Content-MD5': 'string'
+        'Range': 'string'
     },
     Params={
         'param1': 'string',
