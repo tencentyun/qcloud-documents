@@ -12,7 +12,7 @@
 >- 如需要给二级域名进行配置证书，请您单独对该二级域名进行申请证书。
 >- 免费证书到期后如需继续使用证书，请重新申请并安装。
 >
-1. 登录 [SSL证书管理控制台](https://console.cloud.tencent.com/ssl)，选择【证书管理】>【证书列表】，单击【申请免费证书】。如下图所示：
+1. 登录 [SSL证书管理控制台](https://console.cloud.tencent.com/ssl)，进入 “我的证书” 管理页面，并单击【申请免费证书】。如下图所示：
 ![](https://main.qcloudimg.com/raw/7fb2560e501edab5c8ccc162a8ea5f18.png)
 2. 在弹出的【确认证书类型】窗口中，单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/b97b630532f223b5628e86577fd7f55a.png)
