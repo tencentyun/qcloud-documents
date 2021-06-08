@@ -2,7 +2,8 @@
 HTTPDNS 的主要功能是为了有效避免由于运营商传统 LocalDns 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
 
 ## 2. 安装包结构
-SDK 最新版本包[下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSLibs)，SDK 开源[仓库地址](https://github.com/DNSPod/httpdns-sdk-ios)
+- SDK 最新版本包 [下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSLibs)。
+- SDK 开源 [仓库地址](https://github.com/DNSPod/httpdns-sdk-ios)。
 
 | 名称       | 适用说明           |
 | ------------- |-------------|
@@ -15,9 +16,10 @@ HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 - 通过 CocoaPods 集成。
 - 手动集成。
 
-手动集成可以参考案例
-- Objective-C Demo [下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSDemo)
-- Swift Demo [下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSSwiftDemo)
+手动集成可以参考以下案例：
+- Objective-C Demo [下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSDemo)。
+- Swift Demo [下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSSwiftDemo)。
+
 ### 3.1 通过 CocoaPods 集成
 在工程的 Podfile 里面添加以下代码：
 ```
@@ -29,7 +31,7 @@ HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 保存并执行 `pod install`，再使用后缀为 `.xcworkspace` 的文件打开工程。
 
 >?关于 `CocoaPods` 的更多信息，请查看 [CocoaPods 官方网站](https://cocoapods.org/)。
-
+>
 ### 3.2 手动集成
 
 #### 3.2.1 已接入灯塔（Beacon）的业务（可选）
@@ -116,8 +118,7 @@ struct DnsConfig {
 #### 示例代码
 
 接口调用示例：
-
-a. Objective-C 项目中
+- 在 Objective-C 项目中。
 ```objc
 	DNSConfig *config = new DnsConfig();
 	config->dnsIp = @"HTTPDNS 服务器IP";
@@ -130,7 +131,7 @@ a. Objective-C 项目中
 	[[MSDKDns sharedInstance] initConfig: config];
 ```
 
-b. 在 Swift 项目中
+- 在 Swift 项目中。
 ```swift
 let msdkDns = MSDKDns.sharedInstance() as? MSDKDns;
 msdkDns?.initConfig(with: [
@@ -168,7 +169,7 @@ msdkDns?.initConfig(with: [
 >- 如 IPv4 地址为0，则直接使用 IPv6 地址连接。
 >- 如 IPv4 和 IPv6 地址都不为0，则由客户端决定优先使用哪个地址进行连接，但优先地址连接失败时应切换为另一个地址。 
 
-#### 同步解析接口: WGGetHostByName、WGGetHostByNames
+#### 同步解析接口：WGGetHostByName、WGGetHostByNames
 
 ##### 接口声明
 
@@ -221,7 +222,7 @@ if (ips && ips.count > 1) {
 	}
 }
 ```
-#### 异步解析接口: WGGetHostByNameAsync、WGGetHostByNamesAsync
+#### 异步解析接口：WGGetHostByNameAsync、WGGetHostByNamesAsync
 
 ##### 接口声明
 
