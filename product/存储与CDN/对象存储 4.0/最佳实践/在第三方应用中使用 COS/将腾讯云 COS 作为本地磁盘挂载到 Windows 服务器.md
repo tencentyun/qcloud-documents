@@ -2,7 +2,7 @@
 
 而对于喜欢使用 Windows 服务器的用户，使用 COSBrowser 工具大多只能当做网盘，对服务器上的直接使用程序或者操作并不友好。本文将介绍如何使存储价格低廉的对象存储挂载到 Windows 服务器上映射为本地磁盘。
 
->?本案例实践适用操作系统：Windows Server 2019数据中心版64位中文版。
+>?本案例实践适用于 Windows 7/Windows Server 2012 及以上版本操作系统。
 
 ## 下载与安装
 
@@ -40,11 +40,15 @@
  - Standard storage class 表示标准存储（STANDARD）
  - Infrequent access storage mode 表示低频存储（Standard_IA）
  - Archive storage mode 表示归档存储（ARCHIVE）
+ >?如需设置智能分层存储或者深度归档存储类型，请采用**修改配置文件**的方式，在配置文件中，将 storage_class 的值设置为 INTELLIGENT_TIERING 或 DEEP_ARCHIVE 即可。
 15. 执行到 `Edit advanced config? (y/n)` 时，按 **Enter**。
 16. 确认信息无误后，按 **Enter**。
 17. 输入**q**，完成配置。
 
-配置完成后，在 `C:\Users\用户名\.config\rclone` 文件夹下，即可看到一个名称为 rclone.conf 的文件，该文件就是 rclone 的配置文件。如果您想要修改 rclone 的配置，可直接对其进行修改。
+
+## 修改配置文件
+
+以上步骤配置完成后，在 `C:\Users\用户名\.config\rclone` 文件夹下，即可看到一个名称为 rclone.conf 的文件，该文件为 rclone 的配置文件。如果您想要修改 rclone 的配置，可直接对其进行修改。
 
 
 ## 挂载 COS 为本地磁盘

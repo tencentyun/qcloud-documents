@@ -30,22 +30,27 @@
 播放地址主要由播放前缀、播放域名（domain）、应用名称（AppName）、流名称（StreamName）、播放协议后缀、鉴权参数以及其他自定义参数组成。例如： 
 
 ``` 
-http://domain/AppName/StreamName.flv?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)  
-rtmp://domain/AppName/StreamName?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)  
-http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time) 
+webrtc://domain/AppName/StreamName?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)
+http://domain/AppName/StreamName.flv?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)
+rtmp://domain/AppName/StreamName?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)
+http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)
 ```
 
 - **播放前缀**  
 <table>
     <tr><th>播放协议</th><th>播放前缀</th><th>备注</th></tr>
-    <tr>
-        <td>RTMP</td>
-        <td><code>rtmp://</code> </td>
-        <td>不推荐，秒开效果差，不支持高并发</td>
+		<tr>
+        <td>WebRTC</td>
+        <td><code>webrtc://</code> </td>
+        <td>强烈推荐，秒开效果最好，支持超高并发。</td>
     </tr><tr>
         <td>HTTP-FLV </td>
         <td><code>http://</code> 或 <code>https://</code> </td>
         <td>推荐，秒开效果好，支持超高并发。</td>
+    </tr><tr>
+				<td>RTMP</td>
+        <td><code>rtmp://</code> </td>
+        <td>不推荐，秒开效果差，不支持高并发</td>
     </tr><tr>
         <td>HLS（m3u8）</td>
         <td><code>http://</code>  或 <code>https://</code> </td>

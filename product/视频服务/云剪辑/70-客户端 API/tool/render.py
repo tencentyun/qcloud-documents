@@ -101,6 +101,9 @@ for e in Examples:
 	exampleIndex += 1
 
 ## 渲染文档
+if len(Output.strip()) == 0:
+  Output = '>! 除公共返回字段外，该接口无其他返回字段。'
+
 docContent = docTemplate.substitute(
 	Action = Action,
 	Description = Description,

@@ -139,6 +139,13 @@ wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1
 - [Tencent Cloud Speech SDK for Python](https://github.com/TencentCloud/tencentcloud-speech-sdk-python)
 - [Tencent Cloud Speech SDK for JS](https://github.com/TencentCloud/tencentcloud-speech-sdk-js)
 
+### SDK 调用示例
+- [Golang 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-go/blob/master/examples/asrexample/asrexample.go) 
+- [Java 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-java-example/blob/main/src/main/java/com/tencentcloud/asr/SpeechRecognitionWebsocketExample.java) 
+- [C++ 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-cpp/blob/master/examples/asr_example.cpp) 
+- [Python 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-python/blob/master/examples/asr/asrexample.py) 
+- [JS 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/tree/main/examples)
+
 ## 错误码
 
 | 数值 | 说明 |

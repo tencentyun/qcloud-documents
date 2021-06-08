@@ -22,8 +22,7 @@ Until Successful 组件中可以配置子流，该组件的作用是对子流执
 
 ![image-20210325173738880](https://main.qcloudimg.com/raw/960b0d7b313bc08ab962f53bdf0451cd/image-20210325173738880.png)
 
-### 输入
-输入到子流中的 message 信息如下：
+### 输入到子流中的 message
 
 | message 属性 | 值                                            |
 | ----------- | --------------------------------------------- |

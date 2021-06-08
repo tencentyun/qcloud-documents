@@ -61,7 +61,7 @@
 
 ![](https://main.qcloudimg.com/raw/c48a4a97347ef161633cc8d968ddbdde/SFTP2.png)
 
-#### 输出参数
+#### 输出
 
 **组件输出的 message 信息如下：**
 
@@ -110,7 +110,7 @@
 
 ![](https://main.qcloudimg.com/raw/95db62b65d96f5efdb9e20c446c27543/SFTP3.png)
 
-#### 输出参数
+#### 输出
 
 **组件输出的 message 信息如下：**
 
@@ -152,7 +152,7 @@ SFTP 写文件操作，若执行成功则 payload 为空；若执行失败时输
 
 ![](https://main.qcloudimg.com/raw/d8022c887d81acbe12536912001a6a59/SFTP4.png)
 
-#### 输出参数
+#### 输出
 
 **组件输出的 message 信息如下：**
 
@@ -198,7 +198,8 @@ SFTP 删除文件操作若执行成功 payload 为空，若执行失败时输出
 
 ![](https://main.qcloudimg.com/raw/d5d17c2517f6c2d44d3a480b3cbc71e6/SFTP5.png)
 
-#### 输出参数
+#### 输出
+
 **组件输出的 message 信息如下：**
 
 | message 属性 | 值                                                           |
@@ -242,7 +243,7 @@ SFTP 复制文件操作若执行成功 payload 为空，若执行失败时输出
 
 ![](https://main.qcloudimg.com/raw/3f8e1c064c19b44e6725bb8a01c0eb62/SFTP6.png)
 
-#### 输出参数
+#### 输出
 
 **组件输出的 message 信息如下：**
 
@@ -288,7 +289,7 @@ SFTP 重命名文件操作若执行成功则 payload 为空，若执行失败时
 
 ![](https://main.qcloudimg.com/raw/a9bd8335c7e7d921242e50609757b2f2/SFTP7.png)
 
-#### 输出参数
+#### 输出
 
 **组件输出的 message 信息如下：**
 
@@ -339,10 +340,11 @@ SFTP 移动文件操作若执行成功 payload 为空，若执行失败时输出
 | 最大比特值           | int      | 文件 Size 过滤最大值                                           | 否       |        |
 | 文件校验时间间隔(秒) | int      | 文件大小校验等待时间（秒），以判断文件是否可读。在等待时间前后执行两次 sizecheck 文件大小检测。如果两次检测都返回相同的值，即 sizecheck 期间文件没有其他修改操作则可以读取该文件。（范围：0～60） | 否       | 0（s）  |
 | 时间戳使能           | bool     | 判断是否支持根据文件的修改或创建时间戳来判断触发流，缓存持久化记录上次轮询截止时间戳作为下次轮询起始判断时间。 | 否       | false  |
+| 时间戳状态标识          | String    | 当时间戳使能为 true 时，需设置非空值作为当前流 SFTP 组件时间戳状态缓存持久化的唯一识别标志。 | 否       |  |
 
-![](https://main.qcloudimg.com/raw/c149532fe2859a7c7303a71b7d0fe412/SFTP8.png)
+![](https://main.qcloudimg.com/raw/0e9e92d814da2bc7d377445abf171a24.png)
 
-#### 输出参数
+#### 输出
 
 **组件输出的 message 信息如下：**
 
@@ -398,7 +400,7 @@ SFTP 目录遍历操作若执行失败时输出消息 error 中会设置详细�
 
 ![](https://main.qcloudimg.com/raw/d07f18146ab670ec6d40b545805d795b/SFTP9.png)
 
-#### 输出参数
+#### 输出
 
 **组件输出的 message 信息如下：**
 

@@ -3,7 +3,7 @@
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2343-35187?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
    
     
-    
+     
 <h2 id="Smart">直播基础版（Smart）</h2>
  
 基础版仅包含直播推流（TXLivePusher）和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用移动直播相关功能的客户。 
@@ -154,7 +154,7 @@
     <td style="text-align:center">&#10003</td>
   </tr>
   <tr>
-    <td rowspan='3' style="text-align:center">直播播放</td>
+    <td rowspan='4' style="text-align:center">直播播放</td>
     <td style="text-align:center">RTMP 协议</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">-</td>
@@ -178,6 +178,15 @@
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
+    <td style="text-align:center">&#10003</td>
+    <td style="text-align:center">&#10003</td>
+  </tr>
+   <tr>
+    <td style="text-align:center">快直播（WebRTC 协议）</td>
+    <td style="text-align:center">-</td>
+    <td style="text-align:center">-</td>
+    <td style="text-align:center">-</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
   </tr>

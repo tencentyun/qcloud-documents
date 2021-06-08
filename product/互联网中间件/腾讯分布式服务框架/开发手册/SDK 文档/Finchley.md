@@ -1,6 +1,6 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
-## 1.29.0-Finchley-RELEASE（）
+## 1.29.0-Finchley-RELEASE（2020-05-07）
 ### 新特性
 - 微服务网关增加单元化功能。
 - 微服务网关增加 Dubbo 协议转换功能。
