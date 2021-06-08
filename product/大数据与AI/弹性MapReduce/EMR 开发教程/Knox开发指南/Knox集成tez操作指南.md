@@ -1,4 +1,4 @@
-本文主要介绍 Knox 集成 tez 的具体操作步骤，主要有安装 tomcat 和 tez-ui、新建 role、配置 timelineserver、配置 tez和启动服务6个步骤。其中，`172.**.**.9` 为主节点内网 IP，`159.**.**.70` 为主节点外网 IP，tez 版本为0.9.2版本。
+本文主要介绍 Knox 集成 tez 的具体操作步骤，主要有安装 tomcat 和 tez-ui、新建 role、配置 timelineserver、配置 tez和启动服务。其中，`172.**.**.9` 为主节点内网 IP，`159.**.**.70` 为主节点外网 IP，tez 版本为0.9.2版本。
 
 ## 安装 Tomcat 和 tez-ui 
 ```
