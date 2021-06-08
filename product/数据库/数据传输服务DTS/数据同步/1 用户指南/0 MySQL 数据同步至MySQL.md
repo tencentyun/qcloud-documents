@@ -1,5 +1,5 @@
 本文为您介绍使用数据传输服务 DTS 从 MySQL 数据库同步数据至 MySQL 数据库的过程。
-
+ 
 ## [前提条件](id:qttj)
 - 支持的数据库及版本请参见 [数据同步介绍](https://cloud.tencent.com/document/product/571/56513)。
 - 需要您在源端 MySQL 中创建迁移帐号，需要的帐号权限如下：
