@@ -161,9 +161,9 @@ public class MyStickyPartitioner implements Partitioner {
 
 每个 Consumer Group 可以包含多个 Consumer，并将参数 `group.id` 设置成相同的值，属于同一个 Consumer Group 的 Consumer 会负载消费订阅的 Topic。
 
-例如：Consumer Group A 订阅了 Topic A，并开启三个消费实例 C1、C2、C3，则发送到 Topic A 的每条消息最终只会传给 C1、C2、C3 的某一个。CKafka 默认会均匀地把消息传给各个消息实例，以做到消费负载均衡。
+例如：Consumer Group A 订阅了 Topic A，并开启三个消费实例 C1、C2、C3，则发送到 Topic A 的每条消息最终只会传给 C1、C2、C3 的某一个。CKafka 默认会均匀地把消息传给各个消费实例，以做到消费负载均衡。
 
-CKafka 负载消费的内部原理是：把订阅的Topic的分区，平均分配给各个Consumer。因此，Consumer 的个数不要大于分区的数量，否则会有消费实例分配不到任何分区而处于空跑状态。除了第一次启动上线之外，后续消费实例发生重启、增加、减少等变更时，都会触发一次负载均衡。
+CKafka 负载均衡的内部原理是：把订阅的Topic的分区，平均分配给各个Consumer。因此，Consumer 的个数不要大于分区的数量，否则会有消费实例分配不到任何分区而处于空跑状态。除了第一次启动上线之外，后续消费实例发生重启、增加、减少等变更时，都会触发一次负载均衡。
 
 ### 订阅关系
 
