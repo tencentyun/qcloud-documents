@@ -3,7 +3,7 @@
 Kubernetes-csi-tencentcloud COS 插件实现 CSI 的接口，可帮助您在容器集群中使用腾讯云对象存储 COS。
 
 
-### 在集群内部署 Kubernetes 对象
+### 部署在集群内的 Kubernetes 对象
 
 
 | Kubernetes 对象名称             | 类型                       | 默认占用资源 | 所属 Namespaces |

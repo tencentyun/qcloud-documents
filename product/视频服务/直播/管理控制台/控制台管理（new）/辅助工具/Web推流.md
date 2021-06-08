@@ -18,5 +18,5 @@
 ![](https://main.qcloudimg.com/raw/84d9678499c81ae77a714986010a0a61.png)
 4. 若您在【域名管理】中已添加播放域名，即可在下方查看对应生成的播放地址。其中，播放地址由以下4部分组成：
 ![](https://main.qcloudimg.com/raw/72989c8f55fe7f2ed596bd09882f5a09.png)
-支持 RTMP、FLV 和 HLS 协议，可以单击播放地址后的二维码，通过 [精简版 Demo](https://cloud.tencent.com/document/product/454/6555#.E7.B2.BE.E7.AE.80.E7.89.88-demo) 扫码查看播放地址：
+支持 RTMP、FLV 和 HLS 协议，可以单击播放地址后的二维码，通过 [腾讯云工具包 App](https://cloud.tencent.com/document/product/454/6555#rtmpdemo) 扫码查看播放地址：
 ![](https://main.qcloudimg.com/raw/431c2120c6460ba5953d6a1948f687a1.png)

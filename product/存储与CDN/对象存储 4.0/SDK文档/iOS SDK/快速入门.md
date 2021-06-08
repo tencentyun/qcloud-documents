@@ -162,11 +162,11 @@ COS 服务实例 `QCloudCOSXMLService` 跟 `QCloudCOSTransferMangerService` 建�
 
     QCloudCredential* credential = [QCloudCredential new];
     // 临时密钥 SecretId
-    credential.secretID = @"COS_SECRETID";
+    credential.secretID = @"SECRETID";
     // 临时密钥 SecretKey
-    credential.secretKey = @"COS_SECRETKEY";
+    credential.secretKey = @"SECRETKEY";
     // 临时密钥 Token
-    credential.token = @"COS_TOKEN";
+    credential.token = @"TOKEN";
     // 强烈建议返回服务器时间作为签名的开始时间
     // 用来避免由于用户手机本地时间偏差过大导致的签名不正确
     credential.startDate = [[[NSDateFormatter alloc] init] 
@@ -247,11 +247,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 
         let credential = QCloudCredential.init();
         // 临时密钥 SecretId
-        credential.secretID = "COS_SECRETID";
+        credential.secretID = "SECRETID";
         // 临时密钥 SecretKey
-        credential.secretKey = "COS_SECRETKEY";
+        credential.secretKey = "SECRETKEY";
         // 临时密钥 Token
-        credential.token = "COS_TOKEN";
+        credential.token = "TOKEN";
         // 强烈建议返回服务器时间作为签名的开始时间
         // 用来避免由于用户手机本地时间偏差过大导致的签名不正确
         credential.startDate = DateFormatter().date(from: "startTime");
@@ -306,8 +306,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 {
     
     QCloudCredential* credential = [QCloudCredential new];
-    credential.secretID = @"COS_SECRETID"; // 永久密钥 SecretId
-    credential.secretKey = @"COS_SECRETKEY"; // 永久密钥 SecretKey
+    //SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+    credential.secretID = @"SECRETID"; // 永久密钥 SecretId
+    credential.secretKey = @"SECRETKEY"; // 永久密钥 SecretKey
 
     // 使用永久密钥计算签名
     QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc] 
@@ -325,8 +326,9 @@ func signature(with fileds: QCloudSignatureFields!,
                 urlRequest urlRequst: NSMutableURLRequest!, 
                 compelete continueBlock: QCloudHTTPAuthentationContinueBlock!) {
     let credential = QCloudCredential.init();
-    credential.secretID = "COS_SECRETID"; // 永久密钥 SecretId
-    credential.secretKey = "COS_SECRETKEY"; // 永久密钥 SecretKey
+    //SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+    credential.secretID = "SECRETID"; // 永久密钥 SecretId
+    credential.secretKey = "SECRETKEY"; // 永久密钥 SecretKey
 
     // 使用永久密钥计算签名
     let auth = QCloudAuthentationV5Creator.init(credential: credential);
@@ -385,7 +387,7 @@ QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
 NSURL* url = [NSURL fileURLWithPath:@"文件的URL"];
 // 存储桶名称，格式为 BucketName-APPID
 put.bucket = @"examplebucket-1250000000";
-// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "dir1/object1"
+// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
 put.object = @"exampleobject";
 //需要上传的对象内容。可以传入NSData*或者NSURL*类型的变量
 put.body =  url;
@@ -417,7 +419,7 @@ put.body =  url;
 let put:QCloudCOSXMLUploadObjectRequest = QCloudCOSXMLUploadObjectRequest<AnyObject>();
 // 存储桶名称，格式为 BucketName-APPID
 put.bucket = "examplebucket-1250000000";
-// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "dir1/object1"
+// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
 put.object = "exampleobject";
 //需要上传的对象内容。可以传入NSData*或者NSURL*类型的变量
 put.body = NSURL.fileURL(withPath: "Local File Path") as AnyObject;
@@ -463,7 +465,7 @@ QCloudCOSXMLDownloadObjectRequest * request = [QCloudCOSXMLDownloadObjectRequest
     
 // 存储桶名称，格式为 BucketName-APPID
 request.bucket = @"examplebucket-1250000000";
-// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "dir1/object1"
+// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
 request.object = @"exampleobject";
 
 //设置下载的路径 URL，如果设置了，文件将会被下载到指定路径中

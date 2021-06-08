@@ -53,9 +53,9 @@ V2TXLivePusher mLivePusher = new V2TXLivePusherImpl(this, V2TXLiveDef.V2TXLiveMo
 1. 直接在 xml 文件中添加一个视频渲染控件：    
 ```xml  
 <com.tencent.rtmp.ui.TXCloudVideoView   
-							android:id="@+id/pusher_tx_cloud_view"  
-							android:layout_width="match_parent" 
-							android:layout_height="match_parent" /> 
+              android:id="@+id/pusher_tx_cloud_view"  
+              android:layout_width="match_parent" 
+              android:layout_height="match_parent" /> 
 ```
 2. 通过调用 V2TXLivePusher 中的`startCamera`接口开启当前手机摄像头的预览画面。 
 ```java     
@@ -83,7 +83,6 @@ if (ret == V2TXLIVE_ERROR_INVALID_LICENSE) {
 推流结束后，可以调用 V2TXLivePusher 中的 [stopPush](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#af07c1dcff91b43a2309665b8663ed530) 接口结束推流。
 ```java 
 //结束推流
-mLivePusher.stopCamera(); //如果已经启动了摄像头预览，请在结束推流时将其关闭
 mLivePusher.stopPush();
 ```
 >!如果已经启动了摄像头预览，请在结束推流时将其关闭。  
@@ -109,7 +108,7 @@ int ret = mLivePusher.startPush(rtmpURL.trim());
 
 [](id:step7)
 ### 7. 设定画面清晰度  
-调用 V2TXLivePusher 中的 [setVideoQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a2695806cb6c74ccce4b378d306ef0a02) 接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而 `setVideoQuality` 设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/56600?!preview&!editLang=zh)。
+调用 V2TXLivePusher 中的 [setVideoQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a2695806cb6c74ccce4b378d306ef0a02) 接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而 `setVideoQuality` 设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/56600)。
 
 [](id:step8)
 ### 8. 美颜美白和红润特效    
@@ -151,9 +150,9 @@ SDK 内置三种不同的磨皮算法，每种磨皮算法即对应一种美颜�
 [](id:step9)
 ### 9. 色彩滤镜效果   
 ![](https://main.qcloudimg.com/raw/0aaf20c77878ef137f2edb693ff79451.png)
-- 调用 V2TXLivePusher 中的 [getBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a3fdfeb3204581c27bbf1c8b5598714fb) 接口可以获取 [TXBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__ios.html#interfaceTXBeautyManager) 实例进一步设置美色彩滤镜效果。
+- 调用 V2TXLivePusher 中的 [getBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a3fdfeb3204581c27bbf1c8b5598714fb) 接口可以获取 [TXBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html) 实例进一步设置美色彩滤镜效果。
 - 调用 TXBeautyManager 的 `setFilter` 接口可以设置色彩滤镜效果。所谓色彩滤镜，是指一种将整个画面色调进行区域性调整的技术，例如将画面中的淡黄色区域淡化实现肤色亮白的效果，或者将整个画面的色彩调暖让视频的效果更加清新和温和。   
-- 调用TXBeautyManager 的 `setFilterStrength` 接口可以设定滤镜的浓度，设置的浓度越高，滤镜效果也就越明显。 
+- 调用 TXBeautyManager 的 `setFilterStrength` 接口可以设定滤镜的浓度，设置的浓度越高，滤镜效果也就越明显。 
 
 从手机 QQ 和 Now 直播的经验来看，单纯通过 TXBeautyManager 的 `setBeautyStyle` 调整美颜风格是不够的，只有将美颜风格和`setFilter`配合使用才能达到更加丰富的美颜效果。所以，我们的设计师团队提供了17种默认的色彩滤镜，并将其默认打包在了 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo) 中供您使用。 
 
@@ -167,7 +166,7 @@ mLivePusher.getBeautyManager().setFilterStrength(0.5f);
 [](id:step10)
 ### 10. 设备管理
 
-V2TXLivePusher 提供了一组 API 用户控制设备的的行为。您通过 `getDeviceManager` 获取 TXDeviceManager 实例进一步进行设备管理，详细用法请参见 [TXDeviceManager API](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXDeviceManager__android.html)。
+V2TXLivePusher 提供了一组 API 用户控制设备的行为。您通过 `getDeviceManager` 获取 TXDeviceManager 实例进一步进行设备管理，详细用法请参见 [TXDeviceManager API](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXDeviceManager__android.html)。
 ![](https://main.qcloudimg.com/raw/ffebf9941de52db8ee1f9e52c073fe38.png)
 
 [](id:step11)
