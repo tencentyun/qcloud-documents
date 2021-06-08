@@ -1,3 +1,17 @@
+## Version 8.7 @ 2021.5.25
+**功能新增**
+- 全平台：增加外接音频设备的异常检测。您可以通过监听 onStatistics 回调 TRTCLocalStatistics 中的 audioCaptureState 来实时检测长时间静音、破音、异常间断问题。
+- Windows：自定义采集支持输入 RGBA 格式的视频数据。
+
+**质量优化**
+- 全平台：优化 BGM 资源管理，及时释放内存占用。
+- 全平台：推流端退后台暂停视频上行时，播放端能及时收到 onUserVideoAvailable(false) 的通知。
+- Mac：优化屏幕分享时鼠标捕捉的 CPU 和内存占用。
+
+**问题修复**
+- Android ：修复 setRemoteViewFillMode 部分机型偶现不生效的问题。
+- iOS/Mac：修复停止自定义美颜时的内存资源释放问题。
+
 ## Version 8.6 @ 2021.05.08
 - 全平台：优化网络流控算法，进一步提升音视频传输质量。
 - 全平台：优化切换角色上下麦时音频播放的流畅度。

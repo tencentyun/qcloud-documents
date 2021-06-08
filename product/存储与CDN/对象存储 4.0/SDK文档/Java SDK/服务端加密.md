@@ -26,7 +26,10 @@ SDK 通过调用 `setServerSideEncryption`和`setMetadata`等方法来完成，�
 
 ```java
  // 初始化用户身份信息(secretId, secretKey)
- COSCredentials cred = new BasicCOSCredentials("COS_SECRETID", "COS_SECRETKEY");
+// SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+String secretId = "SECRETID";
+String secretKey = "SECRETKEY";
+ COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
  // 设置bucket的地域, COS地域的简称请参照 https://cloud.tencent.com/document/product/436/6224
  ClientConfig clientConfig = new ClientConfig(new Region("ap-guangzhou"));
 // 生成cos客户端
@@ -213,7 +216,10 @@ cosclient.shutdown();
 
 ```java
  // 初始化用户身份信息(secretId, secretKey)
- COSCredentials cred = new BasicCOSCredentials("COS_SECRETID", "COS_SECRETKEY");
+// SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+String secretId = "SECRETID";
+String secretKey = "SECRETKEY";
+ COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
  // 设置bucket的地域, COS地域的简称请参照 https://www.qcloud.com/document/product/436/6224
  ClientConfig clientConfig = new ClientConfig(new Region("ap-guangzhou"));
 // 要求https协议
