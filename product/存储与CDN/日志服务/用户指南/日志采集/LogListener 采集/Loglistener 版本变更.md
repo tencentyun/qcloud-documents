@@ -9,12 +9,12 @@
 
 <table>
 	<tr><th style="width: 10%;">版本号</th><th style="width: 11%;">变更类型</th><th>描述</th></tr>
-	<tr><td>v2.5.9</td><td>Bug 修复</td><td>修复资源限制策略。</td></tr>
-	<tr><td>v2.5.8</td><td>Bug 修复</td><td><ul  style="margin: 0;"><li>当移除一个目录软链接时，影响到其它指向相同目标的目录软链接的采集的问题。</li><li>当移除一个目录软链接并再次创建相同软链接后，目录下文件无法采集的问题。</li></ul></td></tr>
-	<tr><td>v2.5.7</td><td>Bug 修复</td><td><ul  style="margin: 0;"><li>当 filesize 大于2G时，会存在重复采集的问题（新引入）。</li><li>当文件数量特别多的时候，文件发生 rename 有可能会导致程序卡住。</li><li>文件采集监控中，某字段无法更新。</li></ul></td></tr>
-	<tr><td>v2.5.6</td><td>Bug 修复</td><td>修复特殊使用场景下，触发采集程序异常，停止工作的问题。</td></tr>
-	<tr><td>v2.5.5</td><td>体验优化</td><td><ul  style="margin: 0;"><li>文件采集元数据 checkpoint 优化，保证重启不丢数据。</li><li>支持资源限制可配置及超限处理，内存、CPU、带宽。</li></ul></td></tr>
-	<tr><td rowspan=3>v2.5.4</td><td>新功能</td><td>支持文件采集监控功能。</td></tr>
+	<tr><td><b>v2.5.9</b></td><td>Bug 修复</td><td>修复资源限制策略。</td></tr>
+	<tr><td><b>v2.5.8</b></td><td>Bug 修复</td><td><ul  style="margin: 0;"><li>当移除一个目录软链接时，影响到其它指向相同目标的目录软链接的采集的问题。</li><li>当移除一个目录软链接并再次创建相同软链接后，目录下文件无法采集的问题。</li></ul></td></tr>
+	<tr><td><b>v2.5.7</b></td><td>Bug 修复</td><td><ul  style="margin: 0;"><li>当 filesize 大于2G时，会存在重复采集的问题（新引入）。</li><li>当文件数量特别多的时候，文件发生 rename 有可能会导致程序卡住。</li><li>文件采集监控中，某字段无法更新。</li></ul></td></tr>
+	<tr><td><b>v2.5.6</b></td><td>Bug 修复</td><td>修复特殊使用场景下，触发采集程序异常，停止工作的问题。</td></tr>
+	<tr><td><b>v2.5.5</b></td><td>体验优化</td><td><ul  style="margin: 0;"><li>文件采集元数据 checkpoint 优化，保证重启不丢数据。</li><li>支持资源限制可配置及超限处理，内存、CPU、带宽。</li></ul></td></tr>
+	<tr><td rowspan=3><b>v2.5.4</b></td><td>新功能</td><td>支持文件采集监控功能。</td></tr>
 	<tr><td>体验优化</td><td>增强内存资源限制处理，当内存超限持续一段时间后，LogListener 自动加载。</td></tr>
 	<tr><td>Bug 修复</td><td><ul  style="margin: 0;"><li>修复正则处理异常时，无法拉取采集配置和采集业务阻塞的问题。</li><li>修复 inotify 事件队列溢出时，导致的漏采问题。</li><li>修复多文件同时进行 rename 操作时，可能导致部分文件重新采集的问题。</li><li>修复日志文件轮转时，可能导致的日志投递到非对应日志主题的问题。</li></ul></td></tr>
 	<tr><td><b>v2.5.3</b></td><td>Bug 修复</td><td>修复内存问题引发 LogListener 工作异常。</td></tr>
