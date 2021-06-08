@@ -30,7 +30,8 @@ vim ./config/configs.env
 ```
 vim /usr/local/service/knox/conf/topologies/emr.xml 
 ```
-第一处：在 emr.xml 配置文件中添加如下内容
+**修改 emr.xml 配置文件**
+第一处：添加内容如下
 ![](https://main.qcloudimg.com/raw/81c51a74c086002a9089ae2ca676865b.png)
 ```
 <param>
@@ -43,7 +44,7 @@ vim /usr/local/service/knox/conf/topologies/emr.xml
 </param>
 ```
 
-第二处：添加如下内容
+第二处：修改内容如下
 ![](https://main.qcloudimg.com/raw/f97bacdc69f9b28a34f4789dbf715991.png)
 ```
 <service>
