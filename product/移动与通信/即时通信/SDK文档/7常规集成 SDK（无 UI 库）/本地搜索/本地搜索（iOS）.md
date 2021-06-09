@@ -1,9 +1,8 @@
-从增强版5.4.666版本开始支持本地搜索。使用前需要购买旗舰版套餐包，详见[购买指引](https://cloud.tencent.com/document/product/269/32458)。
+从增强版5.4.666版本开始支持本地搜索。使用前需要购买旗舰版套餐包，请参见 [购买指引](https://cloud.tencent.com/document/product/269/32458)。
 
-## 效果展示
-使用搜索接口可以实现如下图的效果，界面主要分为三大部分，最上面是搜索好友，中间部分是搜索群组&群成员，最下面是搜索消息且按照会话分组。
-[下载安装应用](https://cloud.tencent.com/document/product/269/36852)即刻体验。
-
+## 功能展示
+搜索接口的界面分为以下部分，最上面是搜索好友，中间部分是搜索群组、群成员，最下面是搜索消息且按照会话分组。
+您可通过 [下载安装应用](https://cloud.tencent.com/document/product/269/36852) 即刻体验，其使用效果如下：
 ![](https://im.sdk.qcloud.com/tools/resource/search.gif)
 
 ## 对接指引
