@@ -44,6 +44,7 @@
 | [openCamera()](#opencamera())                                                                 | 启动摄像头         |
 | [closeCamera()](#closecamera())                                                               | 关闭摄像头         |
 | [setMicMute(isMute)](#setmicmute(ismute))                                                     | 设备麦克风是否静音 |
+| [setVideoQuality(profile)](#setvideoquality(profile)) | 设置视频质量|
 
 
 ## TRTCCalling 详解
@@ -331,8 +332,9 @@ trtcCalling.setMicMute(true) // 开启麦克风
 
 ####  setVideoQuality(profile) 
 设置视频质量。
->?  v0.8.0 及其之后版本，新增该方法。
-    此方法需在 call、groupCall、accept 之前设置，之后设置不生效。
+>?  
+>- v0.8.0 及其之后版本，新增该方法。
+>- 此方法需在 call、groupCall、accept 之前设置，之后设置不生效。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -344,7 +346,7 @@ trtcCalling.setVideoQuality('720p') // 设置视频质量为720p
 
 | 参数   | 类型    | 含义                                         |
 | ------ | ------- | -------------------------------------------- |
-| profile | String | <li/>480p: 640 x 480 <li/>720p: 1280 x 720  <li/>1080p: 1920 x 1080  |
+| profile | String | <li/>480p：640 × 480 <li/>720p：1280 × 720  <li/>1080p：1920 × 1080  |
 
 
 [](id:event)
