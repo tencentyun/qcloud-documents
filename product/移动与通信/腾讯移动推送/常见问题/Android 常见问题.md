@@ -1,3 +1,7 @@
+### TPNS SDK 支持鸿蒙系统的推送吗 ？
+
+鸿蒙系统完全兼容 Android SDK，推送功能可正常使用。
+
 ### 如何关闭 TPNS 的保活功能？
 
 如需关闭联合保活功能，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值：
