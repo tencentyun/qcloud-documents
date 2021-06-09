@@ -37,7 +37,7 @@ public void onError(String module, final int code, final String desc) {
 #### 步骤4：启动搜索界面
 启动 `SearchMainActivity` 即可。
 
-### 方案二、对接\sIM\sSDK\s搜索接口
+### 方案二、对接 IM SDK 搜索接口
 #### 步骤1：购买套餐包
 请单击前往 [购买旗舰版套餐包](https://cloud.tencent.com/document/product/269/32458)。
 #### 步骤2：集成增强版 IM SDK
