@@ -4,8 +4,8 @@
 - 支持的数据库及版本请参见 [数据同步介绍](https://cloud.tencent.com/document/product/571/56513)。
 - 需要您在源端 MySQL 中创建迁移帐号，需要的帐号权限如下：
 ```sql
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO "迁移帐号"@"%" IDENTIFIED BY "迁移密码";
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO "迁移帐号"@"%";
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';
 FLUSH PRIVILEGES;
 ```
 
