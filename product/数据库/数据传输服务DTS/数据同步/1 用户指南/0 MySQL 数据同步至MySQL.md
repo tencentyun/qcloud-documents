@@ -17,17 +17,17 @@ FLUSH PRIVILEGES;
 | 连接数据库检查 | 源库和目标库网络能够连通     |
 | 周边检查     | 检查环境变量 innodb_stats_on_metadata=off |
 | 版本检查             | 源库和目标库 MySQL 版本必须为 5.5、5.6、5.7、8.0，且源库版本必须小于或等于目标库版本                     |
-| 部分实例参数检查                     | -table_row_format 不能为 Fixed <br> -源库和目标库 lower_case_table_names 变量必须一致 <br> -检查目标端 max_allowed_packet 参数，至少为4M <br> -源库变量 connect_timeout 必须大于10  |
+| 部分实例参数检查                     | - table_row_format 不能为 Fixed <br> - 源库和目标库 lower_case_table_names 变量必须一致 <br> - 检查目标端 max_allowed_packet 参数，至少为4M <br> - 源库变量 connect_timeout 必须大于10  |
 | 源端权限检查   | 同 [前提条件](#qttj) 的帐号权限   |
 | 目标端权限检查             | 目标云数据库 MySQL 的帐号需要具有如下权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE                        |
-| 目标实例内容冲突检测             | 如果"同名表处理策略"选择了"前置检查并报错"，则目标库不能有和源库冲突的库表，否则会报错。如果选择了”忽略并继续“，则无要求，同步表结构时遇到同名表会跳过               |
-| 目标实例空间检查                         | 如果选择了“数据初始化”，则目标库的空间大小须是源库待初始化库表空间的1.2倍以上。如果目标实例非腾讯云CDB，无法获取剩余空间，则不会检查，请用户自行保证剩余空间充足 |
-| Binlog 参数检查                       | -源端 binlog_format 变量必须为 ROW<br>-源端 log_bin 变量必须为 ON<br>-”冲突处理策略“选择”冲突覆盖“时，源端 binlog_row_image 变量必须为 FULL<br>-源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode<br>-不允许设置 do_db, ignore_db<br>-对于源实例为从库的情况，log_slave_updates 变量必须为 ON                     |
-| 外键依赖检查                   | -外键依赖只能是 no action 和 restrict 两种类型<br>-部分库表同步时，有外键依赖的表必须齐全 |
+| 目标实例内容冲突检测             | - 如果“同名表处理策略”选择了“前置检查并报错”，则目标库不能有和源库冲突的库表，否则会报错<br>- 如果选择了“忽略并继续”，则无要求，同步表结构时遇到同名表会跳过               |
+| 目标实例空间检查                         | - 如果选择了“数据初始化”，则目标库的空间大小须是源库待初始化库表空间的1.2倍以上<br>- 如果目标实例非腾讯云 MySQL，无法获取剩余空间，则不会检查，请用户自行保证剩余空间充足 |
+| Binlog 参数检查                       | - 源端 binlog_format 变量必须为 ROW<br>- 源端 log_bin 变量必须为 ON<br>- “冲突处理策略”选择“冲突覆盖”时，源端 binlog_row_image 变量必须为 FULL<br>- 源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode<br>- 不允许设置 do_db、ignore_db<br>- 对于源实例为从库的情况，log_slave_updates 变量必须为 ON                     |
+| 外键依赖检查                   | - 外键依赖只能是 no action 和 restrict 两种类型<br>- 部分库表同步时，有外键依赖的表必须齐全 |
 | 视图检查                           | 只允许和同步目标 user@host 相同的 definer                                   |
-| 无主键表检查（阿里云）                       | MySQL 5.6 待同步表不能存在无主键表，MySQL 5.7 等其他版本不限制                                   |
+| 无主键表检查（阿里云）           | MySQL 5.6 待同步表不能存在无主键表，MySQL 5.7 等其他版本不限制                                   |
 | 无主键表检查（AWS）                       | 待同步表不能存在无主键表                                   |
-| 其他警告项检查  | -检查源库和目标库的 max_allowed_packet，如果源库大于目标库，会有警告<br>-目标库的 max_allowed_packet 小于1GB，会有警告<br>-如果源库和目标库的字符集不一致，会有警告<br>-固定警告：提醒用户如果待同步表没有主键或者非空唯一键，有数据重复的风险 |
+| 其他警告项检查  | - 检查源库和目标库的 max_allowed_packet，如果源库大于目标库，会有警告<br>- 目标库的 max_allowed_packet 小于1GB，会有警告<br>- 如果源库和目标库的字符集不一致，会有警告<br>- 固定警告：提醒用户如果待同步表没有主键或者非空唯一键，有数据重复的风险 |
 
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
