@@ -54,8 +54,7 @@ dependencies {
 
 #### 步骤3：调用搜索本地用户资料接口
 调用接口 [searchFriends](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMFriendshipManager.html#a815b7c4ff79f1441ee1416ff679eda6a) 可以搜索本地用户资料，支持搜索 [userID](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMFriendSearchParam.html#ae2ee7265c0c966aa5a4e5200bf40b7d2)、[nickName](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMFriendSearchParam.html#a1463093770c45df5fca39bdca9103980)、[remark](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMFriendSearchParam.html#a09a945c5cb71a13de5e32c80491363fd) 字段。效果如下：
-
-![](https://main.qcloudimg.com/raw/5893762059f650b682b23b482d028cf8.png)
+![](https://main.qcloudimg.com/raw/7a973cd30c63bed2c0a6745ddb8cf670.png)
 
 #### 步骤4：调用搜索本地群组和群成员接口
 
