@@ -6,17 +6,18 @@
 
 ![](https://im.sdk.qcloud.com/tools/resource/search.gif)
 
-## 如何对接
-### 方案一 对接 TUIKit 搜索源码
-#### 步骤一 购买套餐包
-[点击购买旗舰版套餐包](https://cloud.tencent.com/document/product/269/32458)
-#### 步骤二 下载源码
-[下载源码](https://github.com/tencentyun/TIMSDK)集成 tuikit module。TUIKit 从 5.4.666 版本开始支持本地搜索。
+## 对接指引
 
+<dx-tabs>
+::: 方案一、对接\sTUIKit\s搜索源码
+#### 步骤1：购买套餐包
+请单击前往 [购买旗舰版套餐包](https://cloud.tencent.com/document/product/269/32458)。
+#### 步骤2：下载源码
+[下载源码](https://github.com/tencentyun/TIMSDK) 集成 tuikit module。TUIKit 从 5.4.666 版本开始支持本地搜索。
 ```
 pod 'TXIMSDK_TUIKit_iOS', ~>'5.4.666'
 ```
-#### 步骤三 初始化 TUIKit 并登录
+#### 步骤3：初始化 TUIKit 并登录
 
 ```
 // 初始化
@@ -29,25 +30,24 @@ pod 'TXIMSDK_TUIKit_iOS', ~>'5.4.666'
 }];
 ```
 
-#### 步骤四 启动搜索界面
+#### 步骤4：启动搜索界面
 启动 `TUISearchViewController` 即可。
-
-### 方案二 对接 IM SDK 搜索接口
-#### 步骤一 购买套餐包
-[点击购买旗舰版套餐包](https://cloud.tencent.com/document/product/269/32458)
-#### 步骤二 集成增强版 IM SDK
+:::
+::: 方案二、对接\sIM\sSDK\s搜索接口
+#### 步骤1：购买套餐包
+请单击前往 [购买旗舰版套餐包](https://cloud.tencent.com/document/product/269/32458)。
+#### 步骤2：集成增强版 IM SDK
 从5.4.666版本开始支持本地搜索。
 
 ```
 pod 'TXIMSDK_Plus_iOS', ~>'5.4.666'
 ```
 
-#### 步骤三 调用搜索本地用户资料接口
+#### 步骤3：调用搜索本地用户资料接口
 调用接口 [searchFriends](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Friendship_08.html#aee1472e90ebbf114878ac98d84fcb85e) 可以搜索本地用户资料，支持搜索 [userID](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMFriendSearchParam.html#a7cdac10e1b445a630859473344b4ed54)、[nickName](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMFriendSearchParam.html#a6b5cf6d9a1e8bb080965b43a6a9dc096)、[remark](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMFriendSearchParam.html#a4d7d3fa58f199f65733f299360305728) 字段。效果如下：
+![](https://main.qcloudimg.com/raw/7a973cd30c63bed2c0a6745ddb8cf670.png)
 
-![](https://main.qcloudimg.com/raw/5893762059f650b682b23b482d028cf8.png)
-
-#### 步骤四 调用搜索本地群组和群成员接口
+#### 步骤4：调用搜索本地群组和群成员接口
 
 | 图1：搜索群组 | 图2：搜索更多群组 |
 |---------|---------|
@@ -59,7 +59,7 @@ pod 'TXIMSDK_Plus_iOS', ~>'5.4.666'
 - 如果设置 groupIDList == nil，代表搜索全部群中的群成员，返回的结果会按照 groupID 进行分类；
 - 如果设置 groupIDList != nil，代表搜索指定群中的群成员。
 
-#### 步骤五 调用搜索本地消息接口
+#### 步骤5：调用搜索本地消息接口
 在搜索框输入关键字可以调用 [searchLocalMessages](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a749eade1ce83d6ee1d3f971257141e6c) 搜索本地消息。根据搜索参数 [V2TIMMessageSearchParam](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMMessageSearchParam.html) 中的 [conversationID](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMMessageSearchParam.html#a89d34fa0d0d62e831c27ae2a75a37fac) 是否为 `nil`，分为两种情况：
 - 如果设置 conversationID == nil，代表搜索全部会话，返回的结果会按照消息所属的会话进行分类。
 - 如果设置 conversationID != nil，代表搜索指定会话。
@@ -203,4 +203,8 @@ NSInteger totalMessagePage = (totalMessageCount % 10 == 0) ? (totalMessageCount 
     [self searchMessage:++pageIndex];
 }
 ```
+:::
+</dx-tabs>
+
+
 
