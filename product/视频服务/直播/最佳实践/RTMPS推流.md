@@ -52,8 +52,8 @@ RTMPS 协议能够很好的解决 RTMP 安全问题。RTMPS 协议是经过 SSL 
 **使用 SSL 加密的 RTMPS 推流协议，需要推流域名配置证书，目前云直播默认推流域名已经配置了通用证书**。如果想使用自己的证书，必须更换端口。腾讯视频云多协议平台对 RTMPS 协议进行了优化，用户无需更换端口，可直接使用自己的证书，平台会自动根据域名去做适配，匹配到对应的证书。
 
 > ? 
-- 若您使用云直播通默认域名进行 RTMPS 推流，直接接入即可。
-- 若需要自有域名使用 RTMPS 推流，需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 提供域名和对应的证书。
+- 若您希望测试使用 RTMPS 推流，可以通过云直播默认推流域名进行接入。
+- 若需要通过自有域名使用 RTMPS 推流，需要 [提交工单]([提交工单](https://console.cloud.tencent.com/workorder/category)) 提供域名和对应的证书。
 
  
 [](id:rtmp_push)
