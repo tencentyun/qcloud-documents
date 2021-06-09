@@ -12,7 +12,7 @@
 #### 步骤1：购买套餐包
 请单击前往 [购买旗舰版套餐包](https://cloud.tencent.com/document/product/269/32458)。
 #### 步骤2：下载源码
-[下载源码](https://github.com/tencentyun/TIMSDK) 集成 tuikit module。TUIKit 从 5.4.666 版本开始支持本地搜索。
+[下载源码](https://github.com/tencentyun/TIMSDK) 集成 tuikit module。TUIKit 从5.4.666版本开始支持本地搜索。
 ```
 pod 'TXIMSDK_TUIKit_iOS', ~>'5.4.666'
 ```
