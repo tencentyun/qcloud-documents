@@ -28,7 +28,7 @@
 3. 检查目标 TencentDB 实例容量必须大于源实例。
 4. 在源 MySQL 数据库上创建迁移帐号（若有已授权可用于数据迁移的帐号，也可不创建）。
 ```  	
-        GRANT ALL PRIVILEGES ON *.* TO "迁移帐号"@"%" IDENTIFIED BY "迁移密码";
+        GRANT ALL PRIVILEGES ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
     		FLUSH PRIVILEGES;	
 ```
 5. 确认源库 MySQL 变量。
