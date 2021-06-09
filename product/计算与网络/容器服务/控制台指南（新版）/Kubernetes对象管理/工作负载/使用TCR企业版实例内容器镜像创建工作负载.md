@@ -4,7 +4,7 @@
 本文介绍如何在容器服务 TKE 中，使用容器镜像服务 TCR 内托管的私有镜像进行应用部署。
 
 ## 前提条件
-在使用 TCR 内托管的私有 镜像进行应用部署前，您需要完成以下准备工作：
+在使用 TCR 内托管的私有镜像进行应用部署前，您需要完成以下准备工作：
 - 已在 [容器镜像服务](https://console.cloud.tencent.com/tcr) 创建企业版实例。如尚未创建，请参考 [创建企业版实例](https://cloud.tencent.com/document/product/1141/40716) 完成创建。
 - 如果使用子账号进行操作，请参考 [企业版授权方案示例](https://cloud.tencent.com/document/product/1141/41417) 提前为子账号授予对应实例的操作权限。
 

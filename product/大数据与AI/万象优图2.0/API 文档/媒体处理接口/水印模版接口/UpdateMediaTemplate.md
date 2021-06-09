@@ -87,8 +87,8 @@ Container 类型 Image 的具体数据描述如下：
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
 | Url                 | Request.Watermark.<br/>Image | 水印图地址   | String    | 是   | 无  | <li>水印图片地址 <br/><li>如果水印图片为私有对象时，请携带签名信息 |
 | Mode                 | Request.Watermark.<br/>Image | 尺寸模式    | String    | 是   | 无   | <li>Original：原有尺寸 <br/><li>Proportion：按比例 <br/><li>Fixed：固定大小 |
-| Width                | Request.Watermark.<br/>Image | 宽         | String    | 否   | 无   | <li>当 Mode 为 Original，水印图宽 <br/><li>当 Mode 为 Proportion，单位为%，背景图值范围：[100 300]；前景图值范围：[1 100]<br/><li>当 Mode 为 Fixed，单位为 px，值范围：[8，4096]，若只设置 Width 时，按照视频原始比例计算 Height<br/> |
-| Height               | Request.Watermark.<br/>Image | 高         | String    | 否   | 无   | <li>当 Mode 为 Original，水印图高 <br/><li>当 Mode 为 Proportion，单位为%，背景图值范围：[100 300]；前景图值范围：[1 100]<br/><li>当 Mode 为 Fixed，单位为px，值范围：[128，4096]，若只设置 Height 时，按照视频原始比例计算 Width<br/>|
+| Width                | Request.Watermark.<br/>Image | 宽         | String    | 否   | 无   | <li>当 Mode 为 Original 时，不支持设置水印图宽度 <br/><li>当 Mode 为 Proportion，单位为%，背景图值范围：[100 300]；前景图值范围：[1 100]<br/><li>当 Mode 为 Fixed，单位为 px，值范围：[8，4096]，若只设置 Width 时，按照视频原始比例计算 Height<br/> |
+| Height               | Request.Watermark.<br/>Image | 高         | String    | 否   | 无   | <li>当 Mode 为 Original 时，不支持设置水印图高度 <br/><li>当 Mode 为 Proportion，单位为%，背景图值范围：[100 300]；前景图值范围：[1 100]<br/><li>当 Mode 为 Fixed，单位为px，值范围：[128，4096]，若只设置 Height 时，按照视频原始比例计算 Width<br/>|
 | Transparency         | Request.Watermark.<br/>Image | 透明度      | String    | 是   | 无   | 值范围：[0 100]，单位为% |
 | Background           | Request.Watermark.<br/>Image | 是否背景图   | String    | 否   | false   |  true、false |
 

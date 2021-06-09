@@ -65,7 +65,7 @@
 <th>地域</th><th>移动带宽包价格<br/>（单位：元/Mbps/月）</th><th>联通带宽包价格<br/>（单位：元/Mbps/月）</th><th>电信带宽包价格<br/>（单位：元/Mbps/月）</th>
 </tr>
 <tr>
-<td>上海</td><td>47</td><td>47</td><td>47</td>
+<td>广州、上海</td><td>47</td><td>47</td><td>47</td>
 </tr>
 <tr>
 <td>北京</td><td>44</td><td>44</td><td>44</td>
@@ -77,9 +77,6 @@
 <td>重庆</td><td>26</td><td>26</td><td>26</td>
 </tr>
 <tr>
-<tr>
-<td>广州</td><td>48</td><td>47</td><td>47</td>
-</tr>
 <td>南京</td><td>22</td><td>25</td><td>23</td>
 </tr>
 <tr>

@@ -1,6 +1,6 @@
 ## TWebLive 简介
 
-[TWebLive](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 即腾讯云 Web 直播互动组件，是腾讯云终端研发团队推出的一个新的 [SDK](https://www.npmjs.com/package/tweblive)，集成了 [腾讯云实时音视频 TRTC](https://cloud.tencent.com/product/trtc/)、[腾讯云即时通信 IM](https://cloud.tencent.com/product/im) 以及 [腾讯云超级播放器 TCPlayer](https://cloud.tencent.com/document/product/454/7503)，覆盖了 Web 直播互动场景常见的功能（如推流、开/关麦、开/关摄像头、微信分享观看、聊天点赞等），并封装了简单易用的 [API](https://web.sdk.qcloud.com/component/tweblive/doc/zh-cn/TWebLive.html)，接入后可快速实现 Web 端推流、拉流以及实时聊天互动功能。
+TWebLive 即腾讯云 Web 直播互动组件，是腾讯云终端研发团队推出的一个新的 SDK，集成了 腾讯云实时音视频 TRTC、腾讯云即时通信 IM 以及腾讯云超级播放器 TCPlayer，覆盖了 Web 直播互动场景常见的功能（如推流、开/关麦、开/关摄像头、微信分享观看、聊天点赞等），并封装了简单易用的 [API](https://web.sdk.qcloud.com/component/tweblive/doc/zh-cn/TWebLive.html)，接入后可快速实现 Web 端推流、拉流以及实时聊天互动功能。您可以进入 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 来体验。
 
 ![](https://web.sdk.qcloud.com/component/tweblive/assets/doc/demo-official-website.gif)
 
@@ -125,7 +125,7 @@ im.enterRoom('your roomID').then((imResponse) => {
 ## TWebLive 使用
 ### 注意事项
 - 实时音视频应用与 IM 应用的 SDKAppID 一致，才能复用账号与鉴权。
-- IM 应用针对文本消息，提供基础版本的 [安全打击](https://cloud.tencent.com/document/product/269/47170) 能力，如果希望使用自定义不雅词功能，可以单击【升级】或在 [购买页](https://buy.cloud.tencent.com/avc?position=1400399435) 购买【安全打击 - 专业版】服务。
+- IM 应用针对文本消息，提供基础版本的 [安全打击](https://cloud.tencent.com/document/product/269/47170) 能力，如果希望使用自定义不雅词功能，可以单击【升级】或在 [购买页](https://buy.cloud.tencent.com/avc?position=1400399435) 购买【安全打击 - 高级版】服务。
 - 本地计算 UserSig 的方式仅用于本地开发调试，请勿直接发布到线上，一旦 SECRETKEY 泄露，攻击者就可以盗用您的腾讯云流量。正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
 
@@ -282,7 +282,9 @@ Web 推流和 Web 低延时观看用到了 WebRTC 技术。
 ## 常见问题
 <dx-accordion>
 ::: 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
-TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。
+2019年08月之前创建的 TRTC 以及 IM 应用（SDKAppID）默认使用区分公钥和私钥的 ECDSA-SHA256 签名算法，强烈建议您升级至 HMAC-SHA256 签名算法使用密钥。
+- TRTC 升级方法请参见 [UserSig 相关问题](https://cloud.tencent.com/document/product/647/17275#.E6.9F.A5.E7.9C.8B.E5.AF.86.E9.92.A5.E6.97.B6.E5.8F.AA.E8.83.BD.E8.8E.B7.E5.8F.96.E5.85.AC.E9.92.A5.E5.92.8C.E7.A7.81.E9.92.A5.E4.BF.A1.E6.81.AF.EF.BC.8C.E8.A6.81.E5.A6.82.E4.BD.95.E8.8E.B7.E5.8F.96.E5.AF.86.E9.92.A5.EF.BC.9F)。
+- IM 升级方法请参见 [基本配置](https://cloud.tencent.com/document/product/269/32578#.E8.8E.B7.E5.8F.96.E5.AF.86.E9.92.A5)。
 :::
 ::: 出现客户端错误：“RtcError:\sno\svalid\sice\scandidate\sfound”该如何处理？
 出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验官网 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 检查配置是否生效。
@@ -310,7 +312,7 @@ iOS 自动播放受限，请参见 [自动播放受限处理建议](https://web.
 
 
 ## 结语
-本文为您介绍了腾讯云新的 Web 直播互动组件：TWebLive，通过接入此 [SDK](https://www.npmjs.com/package/tweblive)，开发者可以快速轻便地实现 Web 推流、Web 低延时观看、CDN 观看以及实时聊天互动（或弹幕）等功能，能够很好替换传统的 Flash 推流方案。
+本文为您介绍了腾讯云新的 Web 直播互动组件：TWebLive，通过接入此 SDK，开发者可以快速轻便地实现 Web 推流、Web 低延时观看、CDN 观看以及实时聊天互动（或弹幕）等功能，能够很好替换传统的 Flash 推流方案。
 
 同时，提供详细的接入方案和 [在线 Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 供您体验。目前 TWebLive 在主流的桌面浏览器上也有较好的支持，在移动端支持小程序的解决方案。
 
@@ -318,7 +320,7 @@ iOS 自动播放受限，请参见 [自动播放受限处理建议](https://web.
 
 参考资料：
 
-- [TWebLive 接口手册](https://web.sdk.qcloud.com/component/tweblive/doc/zh-cn/TWebLive.html)
+- <a href="https://web.sdk.qcloud.com/component/tweblive/doc/zh-cn/TWebLive.html">TWebLive 接口手册</a>
 - [在线 Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html)
 
 ## 相关文档

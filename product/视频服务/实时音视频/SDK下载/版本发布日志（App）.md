@@ -1,7 +1,31 @@
+## Version 8.7 @ 2021.5.25
+**功能新增**
+- 全平台：增加外接音频设备的异常检测。注册 onStatistics 回调后， 您可以用 [TRTCLocalStatistics](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCTypeDef__cplusplus.html#structtrtc_1_1TRTCLocalStatistics) 中的 audioCaptureState 来实时检测长时间静音、破音、异常间断问题。
+- Windows：自定义采集支持输入 RGBA 格式的视频数据。
+
+**质量优化**
+- 全平台：优化 BGM 资源管理，及时释放内存占用。
+- 全平台：推流端退后台暂停视频上行时，播放端能及时收到 [onUserVideoAvailable(false)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudCallback__cplusplus.html#a091f1c94ff1e2bc39c36e9d34285e87a) 的通知。
+- Mac：优化屏幕分享时鼠标捕捉的 CPU 和内存占用。
+
+**问题修复**
+- Android ：修复 setRemoteViewFillMode 部分机型偶现不生效的问题。
+- iOS&Mac：修复停止自定义美颜时的内存资源释放问题。
+
+## Version 8.6 @ 2021.05.08
+- 全平台：优化网络流控算法，进一步提升音视频传输质量。
+- 全平台：优化切换角色上下麦时音频播放的流畅度。
+- iOS&Mac&Windows：优化音频处理模块，提升了 SPEECH 模式和 DEFAULT 模式的语音质量。
+- iOS&Mac：优化自定义音频采集在高 CPU 场景下的适应性。
+- iOS&Android ：支持录屏视频通过辅路进行分享，对齐桌面端版本。
+- Mac：增加对苹果 M1 架构的原生支持。
+- Windows：优化内存分配逻辑，提高稳定性。
+
+
 ## Version 8.5 @ 2021.03.24
 **功能新增**
 -  Mac：优化屏幕分享功能，您可以在分享目标窗口的同时指定其他窗口一起分享出去，请参见 API [addIncludedShareWindow](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a2e101f0ff00c8752eea1fa9a1a432233)。
--  全平台：新增播片功能，您可以使用 TXVODPlayer 与 TRTCCloud 绑定，把点播正在播放的内容通过 TRTC 的辅路推流分享出去。
+-  全平台：新增播片功能，您可以使用 [TXVodPlayer](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#classcom_1_1tencent_1_1rtmp_1_1TXVodPlayer) 与 TRTCCloud 绑定，把点播正在播放的内容通过 TRTC 的辅路推流分享出去。
 -  全平台：新增辅路自定义采集，请参见 API [sendCustomVideoData](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#aeeff994b8a298fa4948a11225312f629)。
 -  全平台：新增自定义混音功能，您可以将自己的一路音轨混入 SDK 的音频处理流程中，SDK 会先将两路音轨混合后再一起发布出去，请参见 API [mixExternalAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#a6d04ce887009661a551e23c61d41571f)。
 -  全平台：支持指定纯视频混流，混流控制更灵活。
@@ -593,24 +617,3 @@
 - 采用全新的 Audio 模块，深度优化了各种网络情况下的声音质量 。
 - 支持大小流双路编码功能（推荐仅在 Windows 和 Mac 设备上开启） 。
 - 支持 CDN 转推和混流功能。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

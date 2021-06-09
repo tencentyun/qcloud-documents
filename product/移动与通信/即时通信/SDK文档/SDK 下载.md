@@ -82,7 +82,9 @@
 </tr>
 <tr>
 <td style="text-align:center">Unity  </td>
-<td style="text-align:center" colspan='3' >公测邀请中，获取资源请加 QQ 群：<a href="https://qm.qq.com/cgi-bin/qm/qr?k=fVHzwGDQ0Hb9Qtn0KzQx7tsChGnzO9vm&jump_from=webapi">764231117</a></td>
+<td style="text-align:center" ><a href="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/imsdk_v1.3.1.unitypackage.zip">ZIP</a></td>
+<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/54111">【客户端API】SDK API(Unity)</a></td>
+<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/56150">更新日志(Unity)</a><br>公测中，技术咨询请加 QQ 群：<a href="https://qm.qq.com/cgi-bin/qm/qr?k=fVHzwGDQ0Hb9Qtn0KzQx7tsChGnzO9vm&jump_from=webapi">764231117</a></td>
 </tr>
 </table>
 

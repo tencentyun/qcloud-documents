@@ -42,7 +42,7 @@
 | end_time | Integer | 当前一句话结果在整个音频流中的结束时间。 |
 | voice_text_str | String | 当前一句话文本结果，编码为 UTF8。 |
 | word_size | Integer | 当前一句话的词结果个数。 |
-| word_list | Word Array | 当前一句话的词列表，Word 结构体格式为：<br>word：String 类型，该词的内容；<br>start_time：Integer 类型，该词在整个音频流中的起始时间；<br>end_time：Integer 类型，该词在整个音频中的结束时间；<br>stable_flag：Integer 类型，该词的稳态结果，0表示该词在后续识别中可能发生变化，1表示该词在后续识别过程中不会变化。 |
+| word_list | Word Array | 当前一句话的词列表，Word 结构体格式为：<br>word：String 类型，该词的内容；<br>start_time：Integer 类型，该词在整个音频流中的起始时间；<br>end_time：Integer 类型，该词在整个音频流中的结束时间；<br>stable_flag：Integer 类型，该词的稳态结果，0表示该词在后续识别中可能发生变化，1表示该词在后续识别过程中不会变化。 |
 
 ### 握手阶段
 #### 请求格式
@@ -138,6 +138,13 @@ wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1
 - [Tencent Cloud Speech SDK for C++](https://github.com/TencentCloud/tencentcloud-speech-sdk-cpp)
 - [Tencent Cloud Speech SDK for Python](https://github.com/TencentCloud/tencentcloud-speech-sdk-python)
 - [Tencent Cloud Speech SDK for JS](https://github.com/TencentCloud/tencentcloud-speech-sdk-js)
+
+### SDK 调用示例
+- [Golang 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-go/blob/master/examples/asrexample/asrexample.go) 
+- [Java 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-java-example/blob/main/src/main/java/com/tencentcloud/asr/SpeechRecognitionWebsocketExample.java) 
+- [C++ 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-cpp/blob/master/examples/asr_example.cpp) 
+- [Python 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-python/blob/master/examples/asr/asrexample.py) 
+- [JS 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/tree/main/examples)
 
 ## 错误码
 

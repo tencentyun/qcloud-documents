@@ -31,9 +31,10 @@
 1. 根据您的实际业务需求，下载 SDK 及配套的 [Demo 源码](https://cloud.tencent.com/document/product/269/36887)。
 2. 下载完成后，双击打开 Package，默认全选并导入包资源到当前 Unity 项目。
 ![](https://main.qcloudimg.com/raw/c338ce838fff81841f85b06fd3dc5c6c.png)
-3. 打开源码 Assets/TIMCloud/Demo/ExampleEntry.cs，把 [步骤1](#step1) 获取的 SDKAppID，UserID，UserSig 填入。
-![](https://main.qcloudimg.com/raw/e52b615d507b761ee910aa1d74853949.png)
-
+3. 打开源码 Assets/TIMCloud/Demo/ExampleEntry.cs，把 [步骤1](#step1) 获取的 SDKAppID，UserID，UserSig 填入下图红框内，把 Config.key 所在行注释掉。
+![](https://main.qcloudimg.com/raw/e31692ae98503221f45ece41039ead92.png)
+4. ExampleEntry.cs 注释动态获取 userSig 逻辑（由于动态获取的配置稍微复杂，后续需要可以单独配置）。
+![](https://main.qcloudimg.com/raw/7a8ac734ac60a73caf6139fc0d1d250f.png)
 ## 步骤3：打包运行
 ### Android 平台
 1. 配置 Unity Editor，单击【File】>【Build Setting】，切换至 Android。

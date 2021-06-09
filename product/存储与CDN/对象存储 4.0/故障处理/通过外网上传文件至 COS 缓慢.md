@@ -50,18 +50,18 @@ coscmd probe -n 1 -s 20
 返回类似如下结果，分别得出平均速率（Average），最低速率（Min），最高速率（Max）。
 ![](https://main.qcloudimg.com/raw/2fcecb96df04acc6b0c32c120ccb3c39.png)
 5. 通过浏览器访问 [测速网](https://www.speedtest.cn/)，并结合 [步骤4](#step04) 检查客户端的网络带宽占用率是否达到上限。
- - 如果步骤4的速率低于客户端带宽速率，请联系 [在线客服](https://cloud.tencent.com/act/event/Online_service)。
+ - 如果步骤4的速率低于客户端带宽速率，请 [联系我们](https://cloud.tencent.com/document/product/436/37708)。
  - 如果步骤4的速率等于客户端带宽速率，且未达到运营商承诺的带宽，请联系运营商客服。
  - 如果步骤4的速率等于客户端带宽速率，且达到了运营商承诺的带宽，请执行 [步骤6](#step06)。
 6. <span id="step06"></span>检查是否存在国内客户端访问海外节点 bucket，或者存在海外客户端访问国内节点 bucket。
  - 是，建议使用 COS 的全球加速功能。详情请参阅 [腾讯云COS全球加速让全球用户加速访问](https://cloud.tencent.com/developer/article/1667036) 和 [利用COS全球加速的高效率传输实践](https://cloud.tencent.com/developer/article/1768085)。
- - 否，请联系 [在线客服](https://cloud.tencent.com/act/event/Online_service)。
+ - 否，请 [联系我们](https://cloud.tencent.com/document/product/436/37708)。
 
 <span id="ModifyCustomDomainNameResolution"></span>
 ### 修改自定义域名解析
 
 1. 检查自定义域名解析是否为 COS 域名。
- - 是，请联系 [在线客服](https://cloud.tencent.com/act/event/Online_service)。
+ - 是，请 [联系我们](https://cloud.tencent.com/document/product/436/37708)。
  常见的 COS 域名如下：
 ```
 XXX.cos.ap-beijing.myqcloud.com  （COS 默认域名）
@@ -83,7 +83,8 @@ XXX.w.kunlungr.com（aliyunCDN 默认域名）
 CosXmlConfig config = new CosXmlConfig.Builder()
 .SetConnectionTimeoutMs(60000) //设置连接超时时间，单位 毫秒 ，默认 45000ms
 .SetReadWriteTimeoutMs(40000) //设置读写超时时间，单位 毫秒 ，默认 45000ms
-.IsHttps(true) //设置默认 https 请求 .SetAppid(appid) //设置腾讯云账户的账户标识 APPID
+.IsHttps(true) //设置默认 https 请求 
+.SetAppid(appid) //设置腾讯云账户的账户标识 APPID
 .SetRegion(region) //设置一个默认的存储桶地域
 .SetHost("XXXXXX.com") //输入自定义域名
 .SetDebugLog(true) .Build(); //创建 CosXmlConfig 对象

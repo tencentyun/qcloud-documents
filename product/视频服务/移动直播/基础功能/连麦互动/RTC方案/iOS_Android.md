@@ -32,20 +32,20 @@
         </tr>
         <tr>
                 <td>
-									<div align=center>
-										<img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/anchor.gif">
-										</div>
-									</td>
+                  <div align=center>
+                    <img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/anchor.gif">
+                    </div>
+                  </td>
                 <td>
-									<div align=center>
-										<img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/link_audience.gif">
-										</div>
-								</td>
-								<td>
-									<div align=center>
-										<img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/others_audience.gif">
-										</div>
-								</td>
+                  <div align=center>
+                    <img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/link_audience.gif">
+                    </div>
+                </td>
+                <td>
+                  <div align=center>
+                    <img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/others_audience.gif">
+                    </div>
+                </td>
         </tr>
 </table>
 
@@ -54,12 +54,11 @@
 > =体验 Demo 功能时需要注意，由于超低延时直播的协议特性，目前RTC连麦方案并不支持：**同一台设备，使用相同的 streamid，一边推超低延时流，一边拉超低延时的流**。
 
 ## RTC 连麦方案如何接入
+移动直播 SDK 提供了新的 V2 接口：` V2TXLivePusher` （推流）、` V2TXLivePlayer` （拉流），用来帮助客户实现更加灵活、更低延时、更多人数的直播互动场景。开播端可以利用 V2 提供的 RTC 推流能力，默认情况下，观众端观看则可使用 CDN 方式进行拉流。 CDN 观看费用较低。如果观众端有连麦需求，连麦观众上麦后，可以从 CDN 切换到 RTC 进行观看，这样延时更低，互动效果更好。以下是相关步骤方便您快速接入：
 
-新版本的移动直播 SDK 提供了新的 V2 接⼝：` V2TXLivePusher ` (推流)、 `V2TXLivePlayer`  (拉流)，用来帮助客户实现**更加灵活、更低延时、更多人数**的直播互动场景，接下来将介绍基于 ` V2TXLivePusher ` 和 `V2TXLivePlayer` 组件如何快速实现观众连麦和主播 PK 等互动场景服务。
-
-[](id:RegistrationService)
+[](id:step1)
 ### 步骤1：服务开通 
-超低延时直播需要在开始接入前，先开通腾讯云 [**实时音视频**](https://cloud.tencent.com/document/product/647) 服务，具体步骤如下：
+RTC 连麦互动直播需要在开始接入前，先开通腾讯云 [**实时音视频**](https://cloud.tencent.com/document/product/647) 服务，具体步骤如下：
 
 1. 您需要 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 2. 登录实时音视频控制台，选择【[应用管理](https://console.cloud.tencent.com/trtc/app)】。
@@ -67,204 +66,248 @@
 ![](https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/blog/min.helloworld/21ef2f952c428c08cedfbef88ba16407.png)
 4. 创建成功后，单击右侧【应用信息】，查看应用对应的 `SDKAppID` 信息。
 5. 单击【快速上手】，加载完成后，记录出现的 **UserSig 的密钥**。
-
 > !
 > - 本文提到的生成 UserSig 的方案是在客户端代码中配置 UserSig，该UserSig 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此 **该方法仅适合本地跑通 Demo 和功能调试** 。
 > - 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
-> ?在服务开通后，建议先可以编译&体验一下腾讯云提供的 SimpleCode（一个极简的Demo），配合下文说明，方便您快速了解API的使用。
+> ?在服务开通后，建议先可以编译和体验一下腾讯云提供的 SimpleCode（一个极简的 Demo），配合下文说明，方便您快速了解 API 的使用。
 > - [Android](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SimpleDemo)
 > - [iOS](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SimpleDemo)
 
-### 步骤2：了解推拉流协议
-在直播场景中，不论是推流还是拉流都离不开对应的 URL，在超低延时直播中，URL 的示例如下：
+[](id:step2)
+### 步骤2：V2TXLivePusher RTC 推流
+#### URL 拼接
+具体的推流 URL字符串，需要开发者按照下方协议解析中的规则，在工程代码中自行拼接。URL 的示例如下：
 
-- **推流URL**
+**推流 URL**
 ```http
 trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxxx
-```
-- **拉流URL**
-```http
-trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx
 ```
 
 在上述的 URL 中，存在一些关键字段，关于其中关键字段的含义信息，详见下表：
 
 | 字段名称              | 字段含义                                                     |
 | --------------------- | ------------------------------------------------------------ |
-| **trtc://**           | 低延时推流URL的前缀字段                                      |
-| **cloud.tencent.com** | 低延时直播特定域名，**请勿修改**                             |
+| **trtc://**           | 互动直播推流 URL 的前缀字段                                  |
+| **cloud.tencent.com** | 互动直播特定域名，**请勿修改**                               |
 | **push**              | 标识位，表示推流                                             |
-| **play**              | 标识位，表示拉流                                             |
 | **sdkappid**          | 对应 [**服务开通**](#RegistrationService) 一节中生成的 SDKAppID |
 | **userId**            | 主播 ID，需要由开发者自定义                                  |
 | **usersig**           | 对应 [**服务开通**](#RegistrationService) 中获取的 UserSig 密钥 |
 
 
-### 步骤3：了解 V2TXLivePusher 推流
-
-#### URL 拼接
-具体的推流 URL字符串，需要开发者按照协议解析中的规则，在工程代码中自行拼接。
-
 #### 示例代码
-<dx-codeblock>
-::: Java
+
+```java
 // 创建⼀个 V2TXLivePusher 对象，并指定模式为 TXLiveMode_RTC；
 V2TXLivePusher pusher = new V2TXLivePusherImpl(this, V2TXLiveDef.V2TXLiveMode.TXLiveMode_RTC);
 pusher.setObserver(new MyPusherObserver());
 pusher.setRenderView(mSurfaceView);
 pusher.startCamera(true);
 pusher.startMicrophone();
-// 传⼊低延时协议推流地址，即可开始推流；
+// 传⼊互动直播RTC推流协议地址，即可开始推流；
 pusher.startPush("trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=finnguan&usersig=xxxxx");
-:::
-::: Objective-C
-// 创建⼀个 V2TXLivePusher 对象，并指定模式为 TXLiveMode_RTC；
-V2TXLivePusher *pusher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
-[pusher setObserver:self];
-[pusher setRenderView:videoView];
-[pusher startCamera:true];
-[pusher startMicrophone];
-// 传⼊低延时协议推流地址，即可开始推流；
-[pusher startPush:@"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=finnguan&usersig=xxxxx"];
-:::
-</dx-codeblock>
+```
 
 
-### 步骤4：了解 V2TXLivePlayer 播放
+### 步骤3：V2TXLivePlayer CDN 播放
 
 #### URL 拼接
-具体的播放 URL 字符串，需要开发者按照协议解析中的规则 + 推流的 URL，在工程代码中自行拼接。
+具体的播放 URL 字符串，需要开发者按照 `域名 + streamID`，在工程代码中自行拼接。
 
 #### 示例代码
-<dx-codeblock>
-::: Java
+```java
 // 创建⼀个 V2TXLivePlayer 对象；
 V2TXLivePlayer player = new V2TXLivePlayerImpl(mContext);
 player.setObserver(new MyPlayerObserver(playerView));
 player.setRenderView(mSurfaceView);
-// 传⼊低延时协议播放地址，即可开始播放；
-player.startPlay("trtc://cloud.tencent.com/play/streamid?sdkappid=1400188366&userId=A&usersig=xxx");
-:::
-::: Objective-C
-V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
-[player setObserver:self];
-[player setRenderView:videoView];
-[player startPlay:@"trtc://cloud.tencent.com/play/streamid?sdkappid=1400188366&userId=A&usersig=xxx"];
-:::
-</dx-codeblock>
+// 传⼊互动直播播放协议地址，即可开始播放；
+player.startPlay("https://3891.liveplay.myqcloud.com/live/streamid.flv");
+```
 
 
-### 步骤5：实现观众连麦
+### 步骤4：实现观众连麦
 ![](https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/blog/min.helloworld/24e495dd1a910f53069237ecdf28491e.jpg)
-1. 主播 A 开始直播，调用 `V2TXLivePusher` 开始主播 A 的推流。
-<dx-codeblock>
-::: Java
+#### 1. 主播 RTC 推流
+
+主播 A 开始推流，调用 `V2TXLivePusher`组件开始主播 A 的推流。
+
+```java
 V2TXLivePusher pusherA = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
 ...
+/**
+ * pushURLA= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
+ */
 pusherA.startPush(pushURLA);
-:::
-::: Objective-C
-V2TXLivePusher *pusherA = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
-...
-[pusherA startPush:pushURLA];
-:::
-</dx-codeblock>
-2. 所有观众观看主播 A 直播，调用 `V2TXLivePlayer` 开始播放主播 A 的流。
-<dx-codeblock>
-::: Java
+```
+
+#### 2. 观众 CDN 拉流
+
+所有观众观看主播 A 直播，调用 `V2TXLivePlayer` 开始播放主播 A 的流。
+
+```java
 V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
 ...
+/**
+ * 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
+ * playURLA= "http://3891.liveplay.myqcloud.com/live/streamidA.flv";
+ * playURLA= "http://3891.liveplay.myqcloud.com/live/streamidA.hls";
+ * playURLA= "webrtc://3891.liveplay.myqcloud.com/live/streamidA"
+ */
 playerA.startPlay(playURLA);
-:::
-::: Objective-C
-V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
+```
+
+
+#### 3. 观众发起连麦
+
+其中观众 B 调用 `V2TXLivePusher` 发起推流（后续会称呼为连麦观众B）。
+
+```java
+V2TXLivePusher pusherB = new V2TXLivePusherImpl(this,V2TXLiveMode.TXLiveMode_RTC);
 ...
-[player startPlay:playURLA];
-:::
-</dx-codeblock>
-3. **开始连麦**，其中观众 B 调用 `V2TXLivePusher` 发起推流（后续会称呼为连麦观众B）。
-<dx-codeblock>
-::: Java
-V2TXLivePusher pusherB = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
-...
+/*
+ * pushURLB= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=B&usersig=xxx";
+ */
 pusherB.startPush(pushURLB);
-:::
-::: Objective-C
-V2TXLivePusher *pusherB = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
-...
-[pusherB startPush:pushURLB];
-:::
-</dx-codeblock>
-4. **收到连麦消息后**，主播 A 调用 `V2TXLivePlayer` 开始播放**连麦观众B**的流，此时主播 A 和**连麦观众 B** 即可进入超低延时的实时互动场景中。
-<dx-codeblock>
-::: Java
+```
+
+#### 4. 进入连麦状态
+
+主播 A 调用 `V2TXLivePlayer` 使用RTC协议拉取放**连麦观众 B** 的流。
+
+```java
 V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
 ...
+/**
+ * playURLB= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx";
+ */
 playerB.startPlay(playURLB);
-:::
-::: Objective-C
-V2TXLivePlayer *playerB = [[V2TXLivePlayer alloc] init];
-...
-[playerB startPlay:playURLB];
-:::
-</dx-codeblock>
-5. **连麦成功后**，其他观众调用 `V2TXLivePlayer` 同时也开始播放**连麦观众 B** 的流。
+```
+同时，**连麦观众 B** 调用 `V2TXLivePlayer` 切换至 RTC 协议，开始播放主播 A 的流。
 
-### 步骤6：实现主播 PK
-1. 主播 A 开始直播，调用 `V2TXLivePusher` 开始主播 A 的推流。
+```java
+V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
+...
+/**
+ *playURLA= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
+ */
+playerA.startPlay(playURLA);
+```
+此时主播 A 和**连麦观众 B** 即可进入超低延时的实时互动场景中。
+
+
+#### 5. 连麦成功后，进行混流
+
+为了保证观众可以看到连麦观众B的画面，这里主播A需要发起一次混流操作。也就是将主播A自己和连麦观众B，混合成一路流。观众可以在一路流上看到主播和连麦观众进行互动。 A 调用 `setMixTranscodingConfig` 接口启动云端混流，调用时需要设置音频相关的参数，比如 音频采样率 `audioSampleRate`、音频码率 `audioBitrate` 和 声道数 `audioChannels` 等。如果您的业务场景中也包含视频，需同时设置视频相关的参数，比如视频宽度`videoWidth`、视频高度 `videoHeight`、视频码率 `videoBitrate`、视频帧率 `videoFramerate` 等。
+
+下面是示例代码：
+```java
+V2TXLiveDef.V2TXLiveTranscodingConfig config = new V2TXLiveDef.V2TXLiveTranscodingConfig();
+// 设置分辨率为 720 × 1280, 码率为 1500kbps，帧率为 20FPS
+config.videoWidth      = 720;
+config.videoHeight     = 1280;
+config.videoBitrate    = 1500;
+config.videoFramerate  = 20;
+config.videoGOP        = 2;
+config.audioSampleRate = 48000;
+config.audioBitrate    = 64;
+config.audioChannels   = 2;
+config.mixStreams      = new ArrayList<>();
+
+// 主播摄像头的画面位置
+V2TXLiveDef.V2TXLiveMixStream local = new V2TXLiveDef.V2TXLiveMixStream();
+local.userId   = "localUserId";
+local.streamId = null; // 本地画面不用填写 streamID，远程需要
+local.x        = 0;
+local.y        = 0;
+local.width    = videoWidth;
+local.height   = videoHeight;
+local.zOrder   = 0;   // zOrder 为 0 代表主播画面位于最底层
+config.mixStreams.add(local);
+
+// 连麦者的画面位置
+V2TXLiveDef.V2TXLiveMixStream remoteA = new V2TXLiveDef.V2TXLiveMixStream();
+remoteA.userId   = "remoteUserIdA";
+remoteA.streamId = "remoteStreamIdA"; // 本地画面不用填写 streamID，远程需要
+remoteA.x        = 400; //仅供参考
+remoteA.y        = 800; //仅供参考
+remoteA.width    = 180; //仅供参考
+remoteA.height   = 240; //仅供参考
+remoteA.zOrder   = 1;
+config.mixStreams.add(remoteA);
+
+// 连麦者的画面位置
+V2TXLiveDef.V2TXLiveMixStream remoteB = new V2TXLiveDef.V2TXLiveMixStream();
+remoteB.userId   = "remoteUserIdB";
+remoteB.streamId = "remoteStreamIdB"; // 本地画面不用填写 streamID，远程需要
+remoteB.x        = 400; //仅供参考
+remoteB.y        = 800; //仅供参考
+remoteB.width    = 180; //仅供参考
+remoteB.height   = 240; //仅供参考
+remoteB.zOrder   = 1;
+config.mixStreams.add(remoteB);
+
+// 发起云端混流
+pusher.setMixTranscodingConfig(config);
+```
+
+> ! 发起云端混流后，默认混流id，是发起混流者的id，如果需要指定流 ID，需要进行传入。
+
+这样其他其他观众在观看时，就可以看到 A，B 两个主播的连麦互动。
+
+### 步骤5：实现主播 PK
+1. 主播 A 开始推流，调用 `V2TXLivePusher` 组件开始主播 A 的推流。
 <dx-codeblock>
-::: Java
+::: java java
 V2TXLivePusher pusherA = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
 ...
+/**
+ * pushURLA= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
+ */
 pusherA.startPush(pushURLA);
 :::
-::: Objective-C
-V2TXLivePusher *pusherA = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
-...
-[pusherA startPush:pushURLA];
-:::
 </dx-codeblock>
-2. 主播 B 开始直播，调用 `V2TXLivePusher` 开始主播 B 的推流。
+2. 主播 B 开始推流，调用 `V2TXLivePusher`组件开始主播 B 的推流。
 <dx-codeblock>
-::: Java
+::: java java
 V2TXLivePusher pusherB = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
 ...
+/**
+ * pushURLB "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=B&usersig=xxx";
+ */
 pusherB.startPush(pushURLB);
 :::
-::: Objective-C
-V2TXLivePusher *pusherB = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
-...
-[pusherB startPush:pushURLB];
-:::
 </dx-codeblock>
-3. **开始 PK**，主播 A 和主播 B 分别调用 `V2TXLivePlayer` 开始播放对方的流，此时主播 A 和主播 B 即进入超低延时的实时互动场景中。
+3. **开始 PK**，主播 A 和主播 B 分别调用 `V2TXLivePlayer` 开始播放对方的流，此时主播 A 和主播 B 即进入 RTC 连麦互动直播场景中。
 <dx-codeblock>
-::: Java
+::: java java
 V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
 ...
+/**
+ * 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
+ * playURLA= "http://3891.liveplay.myqcloud.com/live/streamidB.flv";
+ * playURLA= "http://3891.liveplay.myqcloud.com/live/streamidB.hls";
+ * playURLA= "webrtc://3891.liveplay.myqcloud.com/live/streamidB"
+ */
 playerA.startPlay(playURLA);
 
 V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
 ...
+/**
+ * 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
+ * playURLB= "http://3891.liveplay.myqcloud.com/live/streamidA.flv";
+ * playURLB= "http://3891.liveplay.myqcloud.com/live/streamidA.hls";
+ * playURLB= "webrtc://3891.liveplay.myqcloud.com/live/streamidA"
+ */
 playerB.startPlay(playURLB);
 :::
-::: Objective-C
-V2TXLivePlayer *playerA = [[V2TXLivePlayer alloc] init];
-...
-[playerA startPlay:playURLA];
-
-V2TXLivePlayer *playerB = [[V2TXLivePlayer alloc] init];
-...
-[playerB startPlay:playURLB];
-:::
 </dx-codeblock>
-
 4. **PK 成功后**，主播 A 和主播 B 的观众各自调用 `V2TXLivePlayer` 开始播放另外一名主播的推流内容。
 
-> ?此处开发者可能会有疑问：貌似新的RTC连麦方案还需要我们自己维护一套房间&用户状态，这样不是更麻烦吗？是的，**没有更好的方案，只有更适合自己的方案**，我们也有考虑到这样的场景：
+> ? 此处开发者可能会有疑问：貌似新的RTC连麦方案还需要我们自己维护一套房间和用户状态，这样不是更麻烦吗？是的，**没有更好的方案，只有更适合自己的方案**，我们也有考虑到这样的场景：
 > - 如果对时延和并发要求并不高的场景，可以继续使用连麦互动的旧方案。
 > - 如果既想用到 V2 相关的接口，但是又不想维护一套单独的房间状态，可以尝试搭配 [腾讯云 IM SDK](https://cloud.tencent.com/document/product/269)，快速实现相关逻辑。
+
 
 [](id:price)
 ## RTC 连麦方案怎么计算费用

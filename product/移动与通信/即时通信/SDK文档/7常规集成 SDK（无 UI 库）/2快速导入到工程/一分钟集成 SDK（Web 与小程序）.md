@@ -26,7 +26,10 @@
 #### **Web 项目**
 ```javascript
 // IM Web SDK
-npm install tim-js-sdk --save
+// 从v2.11.0起，SDK 支持了 WebSocket，推荐接入
+npm install tim-js-sdk-ws --save
+// v2.10.2及以下版本，使用 HTTP
+// npm install tim-js-sdk --save
 // 发送图片、文件等消息需要腾讯云即时通信 IM 上传插件
 npm install tim-upload-plugin --save
 ```
@@ -38,7 +41,9 @@ npm install tim-upload-plugin --save
  
  在项目脚本里引入模块。
 ```
-import TIM from 'tim-js-sdk';
+// 从v2.11.0起，SDK 支持了 WebSocket，推荐接入
+import TIM from 'tim-js-sdk-ws';
+// import TIM from 'tim-js-sdk'; // HTTP 版本
 import TIMUploadPlugin from 'tim-upload-plugin';
 
 let options = {
@@ -47,7 +52,7 @@ let options = {
 // 创建 SDK 实例，`TIM.create()`方法对于同一个 `SDKAppID` 只会返回同一份实例
 let tim = TIM.create(options); // SDK 实例通常用 tim 表示
 
-// 设置 SDK 日志输出级别，详细分级请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setLogLevel">setLogLevel 接口的说明</a>
+// 设置 SDK 日志输出级别，详细分级请参见 <a href="https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#setLogLevel">setLogLevel 接口的说明</a>
 tim.setLogLevel(0); // 普通级别，日志量较多，接入时建议使用
 // tim.setLogLevel(1); // release 级别，SDK 输出关键信息，生产环境时建议使用
 
@@ -58,7 +63,10 @@ tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 #### **小程序项目**
 ```javascript
 // IM 小程序 SDK
-npm install tim-wx-sdk --save
+// 从v2.11.0起，SDK 支持了 WebSocket，推荐接入
+npm install tim-wx-sdk-ws --save
+// v2.10.2及以下版本，使用 HTTP
+// npm install tim-wx-sdk --save
 // 发送图片、文件等消息需要腾讯云 即时通信 IM 上传插件
 npm install tim-upload-plugin --save
 ```
@@ -70,7 +78,9 @@ npm install tim-upload-plugin --save
 
  在项目脚本里引入模块，并初始化。
 ```
-import TIM from 'tim-wx-sdk';
+// 从v2.11.0起，SDK 支持了 WebSocket，推荐接入
+import TIM from 'tim-wx-sdk-ws';
+// import TIM from 'tim-js-sdk'; // HTTP 版本
 import TIMUploadPlugin from 'tim-upload-plugin';
 
 let options = {
@@ -79,7 +89,7 @@ let options = {
 // 创建 SDK 实例，`TIM.create()`方法对于同一个 `SDKAppID` 只会返回同一份实例
 let tim = TIM.create(options); // SDK 实例通常用 tim 表示
 
-// 设置 SDK 日志输出级别，详细分级请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setLogLevel">setLogLevel 接口的说明</a>
+// 设置 SDK 日志输出级别，详细分级请参见 <a href="https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#setLogLevel">setLogLevel 接口的说明</a>
 tim.setLogLevel(0); // 普通级别，日志量较多，接入时建议使用
 // tim.setLogLevel(1); // release 级别，SDK 输出关键信息，生产环境时建议使用
 
@@ -87,7 +97,7 @@ tim.setLogLevel(0); // 普通级别，日志量较多，接入时建议使用
 tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 ```
 
-更详细的初始化流程和 API 使用介绍请参见 [SDK 初始化](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html)。
+更详细的初始化流程和 API 使用介绍请参见 [SDK 初始化](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html)。
 
 ### Script 集成
 在您的项目中使用 script 标签引入 SDK，并初始化。
@@ -113,14 +123,14 @@ tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 </script>
 ```
 
->?设置 SDK 日志输出级别，详细分级请参见 [setLogLevel 接口的说明](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setLogLevel)。
+>?设置 SDK 日志输出级别，详细分级请参见 [setLogLevel 接口的说明](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#setLogLevel)。
 
-更详细的初始化流程和 API 使用介绍请参见 [SDK 初始化](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html)。
+更详细的初始化流程和 API 使用介绍请参见 [SDK 初始化](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html)。
 
 ### 相关资源
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
-- [SDK 接口文档](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html)
-- [常见问题](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/tutorial-01-faq.html)
+- [SDK 接口文档](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html)
+- [常见问题](https://web.sdk.qcloud.com/im/doc/zh-cn//tutorial-01-faq.html)
 - [IM Web Demo](https://github.com/tencentyun/TIMSDK/tree/master/H5)
 - [腾讯云即时通信 IM 上传插件下载地址](https://www.npmjs.com/package/tim-upload-plugin)
 
@@ -131,6 +141,17 @@ tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 请在【微信公众平台】>【开发】>【开发设置】>【服务器域名】中进行域名配置：
 
 将以下域名添加到 **request 合法域名**：
+
+从v2.11.0起，SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
+
+| 域名 | 说明 |  是否必须 |
+|:-------:|---------|----|
+|`wss://wss.im.qcloud.com`| Web IM 业务域名 | 必须|
+|`wss://wss.tim.qq.com`| Web IM 业务域名 | 必须|
+|`https://web.sdk.qcloud.com`| Web IM 业务域名 | 必须|
+|`https://webim.tim.qq.com` | Web IM 业务域名 | 必须|
+
+v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
 
 | 域名 | 说明 |  是否必须 |
 |:-------:|---------|----|

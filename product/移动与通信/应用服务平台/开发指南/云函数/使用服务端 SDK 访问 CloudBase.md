@@ -19,10 +19,6 @@ exports.main = async (event, context) => {
 
 ## 初始化 SDK
 
-<dx-tabs>
-
-::: Node.js
-
 ```js
 const cloudbase = require("@cloudbase/node-sdk");
 const app = cloudbase.init({
@@ -30,15 +26,8 @@ const app = cloudbase.init({
 });
 ```
 
-:::
-
-</dx-tabs>
 
 ## 调用云数据库
-
-<dx-tabs>
-
-::: Node.js
 
 ```js
 const db = app.database();
@@ -47,15 +36,8 @@ exports.main = async (event, context) => {
 };
 ```
 
-:::
-
-</dx-tabs>
 
 ## 调用云存储
-
-<dx-tabs>
-
-::: Node.js
 
 ```js
 exports.main = async (event, context) => {
@@ -67,15 +49,7 @@ exports.main = async (event, context) => {
 };
 ```
 
-:::
-
-</dx-tabs>
-
 ## 调用其它云函数
-
-<dx-tabs>
-
-::: Node.js
 
 ```js
 exports.main = async (event, context) => {
@@ -89,9 +63,6 @@ exports.main = async (event, context) => {
 };
 ```
 
-:::
-
-</dx-tabs>
 
 ## 获取用户信息
 
@@ -121,8 +92,8 @@ const {
 从小程序端调用云函数时，开发者可以在云函数内使用 [wx-server-sdk](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/functions/wx-server-sdk.html) 提供的 [getWXContext](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-sdk-api/utils/Cloud.getWXContext.html) 方法获取到每次调用的上下文（`appid`、`openid` 等），无需维护复杂的鉴权机制，即可获取可信任的用户登录态（`openid`）。
 
 示例代码
-
-```js
+<dx-codeblock>
+:::  js
 // index.js
 const cloud = require("wx-server-sdk");
 exports.main = async (event, context) => {
@@ -135,7 +106,8 @@ exports.main = async (event, context) => {
     UNIONID
   };
 };
-```
+:::
+</dx-codeblock>
 
 :::
 </dx-tabs>

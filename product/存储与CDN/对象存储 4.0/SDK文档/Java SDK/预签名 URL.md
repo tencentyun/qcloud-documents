@@ -1,5 +1,7 @@
 ## 简介
 Java SDK 提供获取请求预签名 URL 和生成签名接口，可以分发给客户端，用于下载或者上传。如果您的文件是私有读权限，那么请注意预签名链接只有一定的有效期。
+生成的预签名 URL 包含协议名（HTTP或者HTTPS），该协议名与发起预签名请求的 COS 客户端设置的协议保持一致。
+具体使用请参见请求示例。
 
 ## 获取请求预签名 URL 
 
@@ -36,11 +38,14 @@ Request 成员说明：
 [//]: # (.cssg-snippet-get-presign-download-url)
 ```java
 // 初始化永久密钥信息
-String secretId = "COS_SECRETID";
-String secretKey = "COS_SECRETKEY";
+// SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+String secretId = "SECRETID";
+String secretKey = "SECRETKEY";
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 Region region = new Region("COS_REGION");
 ClientConfig clientConfig = new ClientConfig(region);
+// 如果要生成一个使用 https 协议的 URL，则设置此行，推荐设置。
+// clientConfig.setHttpProtocol(HttpProtocol.https);
 // 生成 cos 客户端。
 COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式
@@ -64,14 +69,16 @@ cosClient.shutdown();
 [//]: # (.cssg-snippet-get-presign-download-url-override-headers)
 ```java
 // 传入获取到的临时密钥 (tmpSecretId, tmpSecretKey, sessionToken)
-String tmpSecretId = "COS_SECRETID";
-String tmpSecretKey = "COS_SECRETKEY";
-String sessionToken = "COS_TOKEN";
+String tmpSecretId = "SECRETID";
+String tmpSecretKey = "SECRETKEY";
+String sessionToken = "TOKEN";
 COSCredentials cred = new BasicSessionCredentials(tmpSecretId, tmpSecretKey, sessionToken);
 // 设置 bucket 的区域, COS 地域的简称请参照 https://cloud.tencent.com/document/product/436/6224
 // clientConfig 中包含了设置 region, https(默认 http), 超时, 代理等 set 方法, 使用可参见源码或者常见问题 Java SDK 部分
 Region region = new Region("COS_REGION");
 ClientConfig clientConfig = new ClientConfig(region);
+// 如果要生成一个使用 https 协议的 URL，则设置此行，推荐设置。
+// clientConfig.setHttpProtocol(HttpProtocol.https);
 // 生成 cos 客户端
 COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶的命名格式为 BucketName-APPID 
@@ -181,8 +188,9 @@ public String buildAuthorizationStr(HttpMethodName methodName, String resouce_pa
 
 [//]: # (.cssg-snippet-get-authorization-for-upload)
 ```java
-String secretId = "COS_SECRETID";
-String secretKey = "COS_SECRETKEY";
+// SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+String secretId = "SECRETID";
+String secretKey = "SECRETKEY";
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 COSSigner signer = new COSSigner();
 //设置过期时间为1个小时
@@ -196,8 +204,9 @@ String sign = signer.buildAuthorizationStr(HttpMethodName.PUT, key, cred, expire
 
 [//]: # (.cssg-snippet-get-authorization-for-download)
 ```java
-String secretId = "COS_SECRETID";
-String secretKey = "COS_SECRETKEY";
+// SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+String secretId = "SECRETID";
+String secretKey = "SECRETKEY";
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 COSSigner signer = new COSSigner();
 // 设置过期时间为1个小时
@@ -211,8 +220,9 @@ String sign = signer.buildAuthorizationStr(HttpMethodName.GET, key, cred, expire
 
 [//]: # (.cssg-snippet-get-authorization-for-delete)
 ```java
-String secretId = "COS_SECRETID";
-String secretKey = "COS_SECRETKEY";
+// SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+String secretId = "SECRETID";
+String secretKey = "SECRETKEY";
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 COSSigner signer = new COSSigner();
 // 设置过期时间为1个小时
