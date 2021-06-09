@@ -27,7 +27,7 @@ RTMPS 协议能够很好的解决 RTMP 安全问题。RTMPS 协议是经过 SSL 
 <td>500ms-1s</td>
 <td>低延时、抗丢包</td>
 <td>OTT、跨区传输</td>
-<td></td>
+<td>-</td>
 </tr><tr>
 <td>WebRTC</td>
 <td>流媒体协议</td>
