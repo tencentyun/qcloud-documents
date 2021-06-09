@@ -87,7 +87,7 @@ RTMPS 使用的是 TCP 443 端口 ，使用 SSL 加密的 RTMPS 需要配置证�
 
  
 [](id:rtmp_play)
-## RTMPS 拉流
+## 直播拉流
 
 按照正常拉流播放流程操作即可，具体请参见 [直播播放](https://cloud.tencent.com/document/product/267/32733)。
 
