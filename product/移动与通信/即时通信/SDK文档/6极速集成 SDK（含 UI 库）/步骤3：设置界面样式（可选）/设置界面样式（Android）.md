@@ -322,7 +322,7 @@ inputLayout.disableSendPhotoAction(true);
 inputLayout.disableVideoRecordAction(true);
 ```
 
-#### 增加自定义的功能
+#### 增加自定义的功能（方式一）
 您可以自定义新增更多“+”面板的动作单元实现相应的功能。
 ![增加自定义的功能](https://main.qcloudimg.com/raw/727056dd0e975dbaea86927040b385ab.gif)
 本文以隐藏发送文件，增加一个动作单元且该动作单元会发送一条消息为例，示例代码如下：
@@ -336,9 +336,9 @@ inputLayout.disableSendFileAction(true);
 InputMoreActionUnit unit = new InputMoreActionUnit();
 unit.setIconResId(R.drawable.default_user_icon); // 设置单元的图标
 unit.setTitleId(R.string.profile); // 设置单元的文字标题
-unit.setOnClickListener(new View.OnClickListener() { // 定义点击事件
+unit.setOnClickListener(unit.new OnActionClickListener() { // 定义点击事件
     @Override
-    public void onClick(View v) {
+    public void onClick() {
         ToastUtil.toastShortMessage("自定义的更多功能");
         MessageInfo info = MessageInfoUtil.buildTextMessage("我是谁");
         layout.sendMessage(info, false);
@@ -348,6 +348,52 @@ unit.setOnClickListener(new View.OnClickListener() { // 定义点击事件
 inputLayout.addAction(unit);
 ```
 
+
+#### 增加自定义的功能（方式二 ，`5.4.666`版本新增）
+最终效果同方式1，示例代码如下（[也可以参考音视频通话功能的实现](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit-live/src/main/java/com/tencent/qcloud/tim/tuikit/live/helper/TUIKitLiveChatController.java)）：
+```java
+class CustomChatController implements TUIChatControllerListener {
+    // 每次点加号 “+” 按钮会调用此方法添加动作单元
+    @Override
+    public List<IBaseAction> onRegisterMoreActions() {
+        InputMoreActionUnit action = new InputMoreActionUnit() {
+            // 点击时触发的方法
+            @Override
+            public void onAction(String chatInfoId, int chatType) {
+                // 创建文本消息
+                MessageInfo info = MessageInfoUtil.buildTextMessage("我是谁");
+                IBaseMessageSender messageSender = TUIKitListenerManager.getInstance().getMessageSender();
+                if (messageSender != null) {
+                    // 发送消息
+                    messageSender.sendMessage(info, null, chatInfoId,
+                            chatType == V2TIMConversation.V2TIM_GROUP, false, new IUIKitCallBack() {
+                                @Override
+                                public void onSuccess(Object data) {
+                                    Log.i("CustomChatController", "send success");
+                                }
+
+                                @Override
+                                public void onError(String module, int errCode, String errMsg) {
+                                    Log.i("CustomChatController", "send failed");
+                                }
+                            });
+                }
+            }
+        };
+        action.setTitleId(R.string.profile);
+        action.setIconResId(R.drawable.default_user_icon);
+        List<IBaseAction> list = new ArrayList<>();
+        list.add(action);
+        return list;
+    }
+
+    ......
+
+}
+
+// 尽可能早地注册
+TUIKitListenerManager.getInstance().addChatListener(new CustomChatController());
+```
 
 #### 替换点击“+”的事件
 您可以自定义替换更多“+”面板的各个动作单元的功能。
