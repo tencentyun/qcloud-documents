@@ -135,9 +135,9 @@ Files 数组中每一项为 JSON Object，如下：
       "Mode": "02", 
       "UserSig": "eJwtzNEKgkAUBNB-2efQ3e3eUqG3tMCKJJEIIxxxxxxxxxxxxxxxhvmweLWzGlUxj0mLs1GXKVf3mgrq*GFUdUR0UQrAYWDyW6Y15cwTwDm4UkxF36iXpkq1joiSc9xxxxxxxxxxxxx-S*CZeOk9sHfnEhCwlUW*fE4oWusw3dULlJ7HoSJ2e6d9fM8Y98fxUAzWA__", 
       "CosConfig": {
-          "region": "ap-shanghai", 
-          "bucket": "test-123456789", 
-          "path": "/trtc"
+          "Region": "ap-shanghai", 
+          "Bucket": "test-123456789", 
+          "Path": "/trtc"
 		  }
 }
 ```
