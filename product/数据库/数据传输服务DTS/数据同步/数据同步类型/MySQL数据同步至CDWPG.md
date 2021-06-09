@@ -6,8 +6,8 @@ CDWPG 是腾讯云大数据数据仓库产品，通过 DTS 实现云数据库 My
 - 已 [创建云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433)，支持的 MySQL 版本：MySQL 5.6、MySQL 5.7。
 - 需要您在源端 MySQL 实例中创建迁移帐号，需要的帐号权限如下：
 ```
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO "迁移帐号"@"%" IDENTIFIED BY "迁移密码";
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO "迁移帐号"@"%";
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';
 FLUSH PRIVILEGES;
 ```
 - 已 [创建 CDWPG](https://cloud.tencent.com/document/product/878/31447)，支持的 CDWPG 版本：1.0.0。
