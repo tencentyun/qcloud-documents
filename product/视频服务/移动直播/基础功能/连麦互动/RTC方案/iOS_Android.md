@@ -32,20 +32,20 @@
         </tr>
         <tr>
                 <td>
-									<div align=center>
-										<img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/anchor.gif">
-										</div>
-									</td>
+                  <div align=center>
+                    <img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/anchor.gif">
+                    </div>
+                  </td>
                 <td>
-									<div align=center>
-										<img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/link_audience.gif">
-										</div>
-								</td>
-								<td>
-									<div align=center>
-										<img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/others_audience.gif">
-										</div>
-								</td>
+                  <div align=center>
+                    <img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/link_audience.gif">
+                    </div>
+                </td>
+                <td>
+                  <div align=center>
+                    <img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/others_audience.gif">
+                    </div>
+                </td>
         </tr>
 </table>
 

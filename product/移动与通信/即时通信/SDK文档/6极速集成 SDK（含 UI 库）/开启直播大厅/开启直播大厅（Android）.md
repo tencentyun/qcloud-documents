@@ -1,8 +1,5 @@
->? TUIKit 5.0.10 版本开始基于 TRTC 实现了支持直播功能的 TUIKit_live UI 组件。
+`TUIKit`组件在`5.0.10`以上版本开始支持直播大厅功能，并且支持 iOS 和 Android 平台的互通 ，直播大厅的实现需要额外集成`TUIKitLive`组件，请参考 [步骤2：配置工程文件](#step2) ，直播大厅界面请参考下图所示：
 
-在您的项目导入 TUIKit 后，仅需简单的几步就可以快速启用直播功能。如果您还没有导入 TUIKit ，请根据 [步骤2：导入TUIKit](#step2) 中的方式导入 `tuikit` 和 `tuiki-live`。
-
-TUIKit_live 直播UI组件集成后的直播效果：
 
 |              直播广场页               |              主播准备页               |              主播开播页               |
 | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: |
@@ -23,16 +20,16 @@ TUIKit_live 直播UI组件集成后的直播效果：
 建议使用源码集成 `tuikit` 和 `tuikit-live`，以便于您修改源码满足自身的业务需求。
 将 `tuikit` 和 `tuikit-live` 代码拷贝到自己项目中，在 `settings.gradle` 引入 `tuikit` 和 `tuikit-live module`，最后在自己项目中导入依赖。
 
-```
+```groovy
 implementation project(':tuikit')
 implementation project(':tuikit-live')
 ```
 
 ## 步骤3：初始化并登录 TUIKit[](id:step3)
 
-初始化 TUIKit 需要传入 [步骤1](#Step1) 生成的 SDKAppID，并调用 `login` 登录，其中 UserSig 生成的具体操作请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
+初始化`TUIKit`需要传入 [步骤1](#Step1) 生成的 SDKAppID，并调用 `login` 登录，其中 UserSig 生成的具体操作请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
-```
+```java
 TUIKitConfigs config = new ConfigHelper().getConfigs();
 TUIKit.init(this, SDKAPPID, config);
 TUIKit.login(userID, userSig, new IUIKitCallBack() {

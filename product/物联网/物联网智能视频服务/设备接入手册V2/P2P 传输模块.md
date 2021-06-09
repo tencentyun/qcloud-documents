@@ -448,11 +448,15 @@ typedef struct {
 
 ## 内存消耗
 
-P2P 在进行数据传输时，其内存消耗受拥塞控制 high_mark 、网络的传输速度 speed（单位：Bps）和发送数据的码率 rate（单位：Bps）这三个参数的共同限制。
-- 当 speed > n * rate 时：内存消耗 **memory = n × （rate / X）+ 120KB（X 约等于3.2）**
-- 当 speed < n * rate 时：内存消耗 **memory = n × high_mark + 120KB**
+设备在使用 P2P 发送数据时，其内存消耗与网络带宽（bandwidth）、传输的数据速率（rate）相关。
+- 当 bandwidth > rate 时：正常连接时内存消耗 **memory <= m × 150KB**。
+- 当 bandwidth <= rate 时：弱网情况下，SDK 内部缓存达到最大，其最大内存消耗
+ **memory =（n × 512 KB + 732 KB）× m**。
 
-其中，n 是码流通道数量，但这只是预估内存数量，当网络速度 speed 远远大于 `n × rate` 时，X 会更大，内存消耗会更少。
+其中，m 是设备连接的 App 数量，n 是一个 App 请求的接收数据通道数量，即设备端的数据发送通道数量。
+
+
+
 
 
 ## 示例代码

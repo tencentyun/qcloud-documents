@@ -14,8 +14,11 @@
 - **协议支持**
 TCPlayerLite 的视频播放能力本身不是网页代码实现的，而是靠浏览器支持，所以其兼容性不像我们想象的那么好，因此，**不是所有的手机浏览器都能有符合预期的表现**。一般用于网页直播的视频源地址是以 M3U8 结尾的地址，我们称其为 HLS (HTTP Live Streaming)，这是苹果推出的标准，目前各种手机浏览器产品对这种格式的兼容性也最好，但它有个问题：延迟比较大，一般是20s - 30s左右的延迟。
 
+对于 PC 浏览器，因为其目前还没有抛弃 Flash 控件，而 Flash 控件支持的视频源格式较多，并且浏览器上的 Flash 控件都是 Adobe 自己研发，所以兼容性很好。
+
 视频协议|用途|URL 地址格式|PC 浏览器|移动浏览器
 -----------|-----|-------------|-------------|----------------
+WebRTC|只适用直播|`webrtc://xxx.liveplay.myqcloud.com/live/xxx`|支持|支持 
 HLS（M3U8）|可用于直播|`http://xxx.liveplay.myqcloud.com/xxx.m3u8`|支持|支持
 HLS（M3U8）|可用于点播|`http://xxx.vod.myqcloud.com/xxx.m3u8`|支持|支持
 FLV|可用于直播|`http://xxx.liveplay.myqcloud.com/xxx.flv`|支持|不支持
@@ -23,7 +26,10 @@ FLV|可用于点播|`http://xxx.vod.myqcloud.com/xxx.flv`|支持|不支持
 RTMP|只适用直播|`rtmp://xxx.liveplay.myqcloud.com/live/xxx`|支持|不支持
 MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 
->! 播放 RTMP 格式的视频必须启用 Flash，目前浏览器默认禁用 Flash，需用户手动开启。
+
+>!
+> - 播放 RTMP 格式的视频必须启用 Flash，目前浏览器默认禁用 Flash，需用户手动开启。
+> - 在不支持 WebRTC 的浏览器环境，传入播放器的 WebRTC 地址会自动进行协议转换来更好的支持媒体播放，默认在移动端转换为 HLS，pc端转换为 FLV。
 
 **功能支持**
 
@@ -39,13 +45,14 @@ MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 ### Step1. 页面准备工作
 在需要播放视频的页面（PC 或 H5）中引入初始化脚本。
 ```
-<script src="https://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.3.js" charset="utf-8"></script>;
+<script src="https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.0/TcPlayer-2.4.0.js" charset="utf-8"></script>;
 ```
 
-如果在域名限制区域，可以引入以下链接：
+建议在使用播放器 SDK 的时候自行部署资源，[点击下载播放器资源](https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.0/TcPlayer-2.4.0.zip)。
 
+如果您部署的地址为 `aaa.xxx.ccc`，在合适的地方引入播放器脚本文件：
 ```
-<script src="https://cloudcache.tencent-cloud.com/open/qcloud/video/vcplayer/TcPlayer-2.3.3.js" charset="utf-8"></script>;
+<script src="aaa.xxx.ccc/TcPlayer-2.4.0.js"></script>
 ```
 
 >! 直接用本地网页无法调试，Web 播放器无法处理该情况下的跨域问题。
@@ -81,7 +88,7 @@ var player = new TcPlayer('id_test_video', {
 
 这段代码可以支持在 PC 及手机浏览器上播放 HLS（M3U8）协议的直播视频，虽然 HLS（M3U8）协议的视频兼容性不错，但部分 Android 手机依然不支持，其延迟较高，大约20秒以上的延迟。
 
-#### 3.2 PC 上实现更低延迟
+#### 3.2 实现更低延迟
 PC 浏览器支持 Flash，其 Javascript 代码如下：
 ```javascript
 var player =  new TcPlayer('id_test_video', {
@@ -93,14 +100,13 @@ var player =  new TcPlayer('id_test_video', {
 "height" : '320'//视频的显示高度，请尽量使用视频分辨率高度
 });
 ```
-这段代码中增加了 FLV 的播放地址，Web 播放器如果发现当前的浏览器是 PC 浏览器，会主动选择 FLV 链路，从而实现更低的延迟。前提条件是 FLV 和 HLS（M3U8）这两个地址都是可以出流的，如果您使用腾讯云的视频直播服务，则无需考虑，因为腾讯云的直播频道默认支持 FLV、RTMP 和 HLS（M3U8）播放协议。
+这段代码中增加了 FLV 的播放地址，Web 播放器如果发现当前的浏览器是 PC 浏览器，会主动选择 FLV 链路，从而实现更低的延迟。如果对延迟有更高的要求，可以使用 WebRTC 拉流地址，基于 WebRTC 的播放系统可以实现超低延迟（500ms），前提条件是拉流地址都是可以出流的，如果您使用腾讯云的视频直播服务，则无需考虑，因为腾讯云的直播频道默认支持 WebRTC、FLV、RTMP 和 HLS（M3U8）播放协议。
 
-#### 3.3 无法播放怎么办？
+#### 无法播放怎么办？
 如果您发现视频无法播放，可能存在如下原因：
 -  **原因一：视频源有问题**
 如果是直播 URL，则需要检查主播是否已经停止推流，可以用浮窗提示观众：“主播已经离开”。请参见 [直播推流](https://cloud.tencent.com/document/product/267/32732)。
 如果是点播 URL，则需要检查要播放的文件是否还存在于服务器上（如播放地址是否已经从点播系统移除）。
-
 - **原因二：本地网页调试**
 目前 TCPlayerLite 不支持本地网页调试（即通过`file://`协议打开视频播放的网页），因为浏览器有跨域安全限制，所以在 Windows 系统上放置一个 test.html 文件来进行测试是无法播放的，需要将其上传到服务器上进行测试。而前端工程师可以通过反向代理的方式，对线上页面进行本地代理以实现本地调试，这是主流的本地调试方法。
 
@@ -229,6 +235,9 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 | 13  | 直播已结束，请稍后再来。| RTMP 正常播放过程中触发事件（NetConnection.Connect.Closed）。<br>Flash 提示的错误。  |
 | 1001   | 网络错误，请检查网络配置或者播放链接是否正确。|  网络已断开（NetConnection.Connect.Closed）。<br>Flash 提示的错误。              |
 | 1002   | 获取视频失败，请检查播放链接是否有效。|  拉取播放文件失败（NetStream.Play.StreamNotFound），可能是服务器错误或者视频文件不存在。<br>Flash 提示的错误。     |
+| 2001 | 调用 WebRTC 接口失败 | 播放 WebRTC 时设置 sdp 失败提示的错误 |
+| 2002 | 调用拉流接口失败 | 播放 WebRTC 时调用拉流接口失败提示的错误 |
+| 2003 | 连接服务器失败，并且连接重试次数已超过设定值 | 播放 WebRTC 时提示的错误，可用于确定是否为停止推流状态 |
 | 2032   | 获取视频失败，请检查播放链接是否有效。|   Flash 提示的错误。              |
 | 2048   | 无法加载视频文件，跨域访问被拒绝。 | 请求 M3U8 文件失败，可能是网络错误或者跨域问题。<br>Flash 提示的错误。 |
 
@@ -246,6 +255,9 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 
 | 参数             | 类型     | 默认值   | 参数说明
 |-----------------|--------- |--------  |-------------------------------------------- |
+| webrtc | String | 无 | 原画 WebRTC 播放 URL。 <br> 示例： `webrtc://5664.liveplay.myqcloud.com/live/5664_harchar1` |
+| webrtc_hd | String | 无 | 高清 WebRTC 播放 URL。 <br> 示例： `webrtc://5664.liveplay.myqcloud.com/live/5664_harchar1_hd` |
+| webrtc_sd | String | 无 | 标清 WebRTC 播放 URL。 <br> 示例： `webrtc://5664.liveplay.myqcloud.com/live/5664_harchar1_sd` |
 | m3u8            | String   | 无       |  原画 M3U8 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535a.m3u8` |
 | m3u8_hd         | String   | 无       |  高清 M3U8 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8` |
 | m3u8_sd         | String   | 无       |  标清 M3U8 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8`  |
@@ -309,7 +321,7 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 ### ES Module
 TCPlayerLite 提供了 ES Module 版本，module name 为`TcPlayer`，下载地址：
 ```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-module-2.3.3.js
+https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.0/TcPlayer-module-2.4.0.js
 ```
 ### 开启优先 H5 播放模式
 TCPlayerLite 采用 H5`<video>`和 Flash 相结合的方式来进行视频播放，根据不同的播放环境，播放器会选择默认最合适的播放方案。
@@ -342,12 +354,13 @@ seeking
 seeked
 resize
 volumechange
+webrtcstatupdate
 ```
 >! 
 >- 如果通过系统控制栏进行全屏，将无法监听到 fullscreen 事件。
 >- Web 播放器的事件，依赖浏览器内置的解码器和 Flash 插件触发，Web 播放器仅透传事件。
 >- Web 播放器监听不到直播停止推流的事件，需要通过额外的接口来确认推流状态，请参见 [查询流状态](https://cloud.tencent.com/document/product/267/20470)。
-- Flash 模式下特有的事件：netStatus
+- Flash 模式下特有的事件：netStatus。
 >?由于 Flash 的黑盒特性以及 H5 视频播放标准在各个平台终端的实现不一致性，事件的触发方式和结果会有差异。
 
 在非自动播放的条件下，加载视频至待播放状态，移动端和 PC Flash 触发的事件区别。
@@ -376,16 +389,54 @@ volumechange
 ## 更新日志
 TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主版本介绍。
 
-| 日期       | 版本  | 更新内容                                                     |
-| :--------- | :---- | :----------------------------------------------------------- |
-| 2020.07.01  | 2.3.3 | 1. 修复 X5 环境下切换全屏时，事件派发异常的问题。 <br />2. 规避 hls 切换源时，相关事件触发时机很慢，导致封面显示异常的问题。 |
-| 2019.08.20 | 2.3.2 | 1. 修改默认 hls 版本为0.12.4。 <br />2. 修复其他已知问题。   |
-| 2019.04.26 | 2.3.1 | 1. 增加 fivConfig 参数。 <br />2. 默认加载 flv.1.5.js。 <br />3. 修复其他已知问题。 |
-| 2019.04.19 | 2.3.0 | 1. 增加部分功能参数选项。 <br />2. 参数 coverpic 改为 poster。 <br />3. destroy 销毁 flv.js 实例。<br />4. 修复其他已知问题。 |
-| 2018.12.17 | 2.2.3 | 1. 优化播放逻辑。 <br />2. 解决 iOS 微信没有播放事件触发的情况下，出现 loading 动画的问题。 <br />3. 修复其他已知问题。 |
-| 2018.05.03 | 2.2.2 | 1. 优化 loading 组件。 <br />2. 优化 Flash destroy 方法。 <br />3. 默认使用 H5 播放。 <br />4.修复已知问题。 |
-| 2017.12.20 | 2.2.1 | 1. 增加可配置清晰度文案功能。 <br />2.设置默认清晰度。 <br />3. 支持切换清晰度方法。 |
-| 2017.12.07 | 2.2.1 | 1. 增加 systemFullscreen 参数。<br />2. 增加 flashUrl 参数。 <br />3. 修复音量 Max 后进行静音切换的 UI 问题。 <br />4. 修复 iOS 11 微信下需要单击两次才能播放的问题。<br />5. 修复 safari 11 系统样式被遮挡的问题。 <br />6. 适配在 x5 内核会触发 seeking，但不会触发 seeked 的情况。 <br />7. 修复进度条拖拽到起始位置，设置 currentTime 失败的问题。 <br />8. 切换清晰度保持音量不变。 <br />9. 修复页面宽度为0，播放器宽度判断失败问题。 <br />10. destroy 方法增加完全销毁播放器节点。 |
-| 2017.06.30 | 2.2.0 | 1. 增加控制播放环境判断的参数： Flash、h5_flv、x5_player。 <br />2. 调整播放器初始化逻辑，优化错误提示效果。<br />3. 增加 flv.js 支持，在符合条件的情况下可以采用 flv.js 播放 FLV。 <br />4. 支持 x5-video-orientation 属性。 <br />5. 增加播放环境判断逻辑，可通过参数调整 H5 与 Flash 的优先级，以及是否启用 TBS 播放。 <br />6. 启用版本号发布方式，避免影响旧版本的使用者。<br />7. 优化事件触发的时间戳，统一为标准时间。<br />8. Bug 修复。 |
-| 2017.03.04 | 2.1.0 | 至2017.06.30，经历数次的迭代开发，逐步趋于稳定，目前文档的功能描述中，如果没有特殊说明，皆基于此版本。 |
-| 2016.12.28 | 2.0.0 | 首个版本。                                                   |
+<table>
+<tr><th>日期</th><th>版本</th><th>更新内容</th>
+</tr><tr>
+<td>2021.06.03</td>
+<td>2.4.0</td>
+<td><li>增加对快直播功能的支持。 </li><li>修复其他已知问题。</li></td>
+</tr><tr>
+<td>2020.07.01</td>
+<td>2.3.3</td>
+<td><li>修复 X5 环境下切换全屏时，事件派发异常的问题。</li><li>规避 hls 切换源时，相关事件触发时机很慢，导致封面显示异常的问题。</li></td>
+</tr><tr>
+<td>2019.08.20</td>
+<td>2.3.2</td>
+<td><li>修改默认 hls 版本为0.12.4。</li><li>修复其他已知问题。</li></td>
+</tr><tr>
+<td>2019.04.26</td>
+<td>2.3.1</td>
+<td><li>增加 fivConfig 参数。</li><li>默认加载 flv.1.5.js。</li><li>修复其他已知问题。</li></td>
+</tr><tr>
+<td>2019.04.19</td>
+<td>2.3.0</td>
+<td><li>增加部分功能参数选项。</li><li>参数 coverpic 改为 poster。</li><li>destroy 销毁 flv.js 实例。</li><li>修复其他已知问题。</li></td>
+</tr><tr>
+<td>2018.12.17</td>
+<td>2.2.3</td>
+<td><li>优化播放逻辑。</li><li>解决 iOS 微信没有播放事件触发的情况下，出现 loading 动画的问题。</li><li>修复其他已知问题。</li></td>
+</tr><tr>
+<td>2018.05.03</td>
+<td>2.2.2</td>
+<td><li>优化 loading 组件。 </li><li>优化 Flash destroy 方法。</li><li>默认使用 H5 播放。</li><li>修复已知问题。</li></td>
+</tr><tr>
+<td>2017.12.20</td>
+<td>2.2.1</td>
+<td><li>增加可配置清晰度文案功能。</li><li>设置默认清晰度。</li><li>支持切换清晰度方法。</li></td>
+</tr><tr>
+<td>2017.12.07</td>
+<td>2.2.1</td>
+<td><li>增加 systemFullscreen 参数。</li><li>增加 flashUrl 参数。</li><li>修复音量 Max 后进行静音切换的 UI 问题。 </li><li>修复 iOS 11 微信下需要单击两次才能播放的问题。</li><li>修复 safari 11 系统样式被遮挡的问题。</li><li>适配在 x5 内核会触发 seeking，但不会触发 seeked 的情况。</li><li>修复进度条拖拽到起始位置，设置 currentTime 失败的问题。 </li><li>切换清晰度保持音量不变。</li><li>修复页面宽度为0，播放器宽度判断失败问题。 </li><li>destroy 方法增加完全销毁播放器节点。</li></td>
+</tr><tr>
+<td>2017.06.30</td>
+<td>2.2.0</td>
+<td><li>增加控制播放环境判断的参数： Flash、h5_flv、x5_player。</li><li>调整播放器初始化逻辑，优化错误提示效果。</li><li>增加 flv.js 支持，在符合条件的情况下可以采用 flv.js 播放 FLV。</li><li>支持 x5-video-orientation 属性。</li><li>增加播放环境判断逻辑，可通过参数调整 H5 与 Flash 的优先级，以及是否启用 TBS 播放。</li><li>启用版本号发布方式，避免影响旧版本的使用者。</li><li>优化事件触发的时间戳，统一为标准时间。</li><li>Bug 修复。</li></td>
+</tr><tr>
+<td>2017.03.04</td>
+<td>2.1.0</td>
+<td>至2017.06.30，经历数次的迭代开发，逐步趋于稳定，目前文档的功能描述中，如果没有特殊说明，皆基于此版本。</td>
+</tr><tr>
+<td>2016.12.28</td>
+<td>2.0.0</td>
+<td>首个版本。</td>
+</tr></table>
