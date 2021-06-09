@@ -317,6 +317,23 @@ trtcCalling.setMicMute(true) // 开启麦克风
 | ------ | ------- | --------------------------------------------- |
 | isMute | Boolean | <li/>true：麦克风关闭 <li/> false：麦克风打开 |
 
+####  setVideoQuality(profile) 
+设置视频质量。
+>?  v0.8.0 及其之后版本，新增该方法。
+    此方法需在 call、groupCall、accept 之前设置，之后设置不生效。
+
+<dx-codeblock>
+::: javascript javascript
+trtcCalling.setVideoQuality('720p') // 设置视频质量为720p
+:::
+</dx-codeblock>
+
+参数如下表所示：
+
+| 参数   | 类型    | 含义                                         |
+| ------ | ------- | -------------------------------------------- |
+| profile | String | <li/>480p: 640 x 480 <li/>720p: 1280 x 720  <li/>1080p: 1920 x 1080  |
+
 [](id:event)
 ## TRTCCalling 事件表
 您可以参考如下代码监听 [TRTCCalling 组件事件](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/module-EVENT.html)：
