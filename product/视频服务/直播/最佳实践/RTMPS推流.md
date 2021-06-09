@@ -8,14 +8,59 @@ RTMPS 协议能够很好的解决 RTMP 安全问题。RTMPS 协议是经过 SSL 
 
 **各推流协议对比图：**
 
-| 协议    | 协议类型   | 传输方式 | 延时     | 协议特点         | 应用场景      | 腾讯优化方案         |
-| ------- | ---------- | -------- | -------- | ---------------- | ------------- | -------------------- |
-| RTMPS   | 流媒体协议 | TCP      | -        | 加密             | 加密场景      | 支持多域名多证书     |
-| SRT     | 流媒体协议 | UDP      | 500ms-1s | 低延时、抗丢包   | OTT、跨区传输 |                      |
-| WebRTC  | 流媒体协议 | RTP      | 200ms-1s | 低延时           | 音视频通话    | 优化秒开及卡顿快直播 |
-| GB28181 | 流媒体协议 | UDP/TCP  | -        | 国家统一标准     | 监控摄像头    | -                    |
-| RTSP    | 流媒体协议 | UDP      | 500ms-1s | 监控行业普适性高 | 监控摄像头    | -                    |
-| QUIC    | 流媒体协议 | UDP      | -        | 抗丢包，0rtt     | 浏览器访问    | 优化首帧传输         |
+<table>
+<thead>
+<tr>
+<th>协议</th><th width="14%">协议类型</th><th>传输方式</th><th width="13%">延时</th><th>协议特点</th><th>应用场景</th><th>腾讯优化方案</th>
+</tr><tr>
+<td>RTMPS</td>
+<td>流媒体协议</td>
+<td>TCP</td>
+<td>-</td>
+<td>加密</td>
+<td>加密场景</td>
+<td>支持多域名多证书</td>
+</tr><tr>
+<td>SRT</td>
+<td>流媒体协议</td>
+<td>UDP</td>
+<td>500ms-1s</td>
+<td>低延时、抗丢包</td>
+<td>OTT、跨区传输</td>
+<td></td>
+</tr><tr>
+<td>WebRTC</td>
+<td>流媒体协议</td>
+<td>RTP</td>
+<td>200ms-1s</td>
+<td>低延时</td>
+<td>音视频通话</td>
+<td>优化秒开及卡顿快直播</td>
+</tr><tr>
+<td>GB28181</td>
+<td>流媒体协议</td>
+<td>UDP/TCP</td>
+<td>-</td>
+<td>国家统一标准</td>
+<td>监控摄像头</td>
+<td>-</td>
+</tr><tr>
+<td>RTSP</td>
+<td>流媒体协议</td>
+<td>UDP</td>
+<td>500ms-1s</td>
+<td>监控行业普适性高</td>
+<td>监控摄像头</td>
+<td>-</td>
+</tr><tr>
+<td>QUIC</td>
+<td>流媒体协议</td>
+<td>UDP</td>
+<td>-</td>
+<td>抗丢包，0rtt</td>
+<td>浏览器访问</td>
+<td>优化首帧传输</td>
+</tr></table>
 
  
 
