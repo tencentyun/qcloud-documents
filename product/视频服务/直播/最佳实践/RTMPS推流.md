@@ -53,7 +53,7 @@ RTMPS 协议能够很好的解决 RTMP 安全问题。RTMPS 协议是经过 SSL 
 
 > ? 
 - 若您希望测试使用 RTMPS 推流，可以通过云直播默认推流域名进行接入。
-- 若需要通过自有域名使用 RTMPS 推流，需要 [提交工单]([提交工单](https://console.cloud.tencent.com/workorder/category)) 提供域名和对应的证书。
+- 若需要通过自有域名使用 RTMPS 推流，需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 提供域名和对应的证书。
 
  
 [](id:rtmp_push)
