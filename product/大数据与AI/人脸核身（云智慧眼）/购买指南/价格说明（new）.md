@@ -1,5 +1,7 @@
 本文将为您介绍腾讯云慧眼人脸核身服务下的各子产品的详细定价信息，如您需要了解各接入渠道的产品功能与计费标签对应关系，请查阅 [计费概述 ](https://cloud.tencent.com/document/product/1007/56803)文档。
 
+>?2021年6月22日前开通人脸核身服务的用户可查阅 [价格说明（旧）](https://cloud.tencent.com/document/product/1007/51350)。
+
 ## 免费额度
 
 首次开通服务的用户，我们将会赠送您一定的免费体验次数，开通服务后30分钟左右可在 [腾讯云人脸核身—控制台](https://console.cloud.tencent.com/faceid) 查看。
