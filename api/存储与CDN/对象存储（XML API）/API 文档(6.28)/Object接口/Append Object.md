@@ -4,7 +4,10 @@ Append Object 接口请求可以将一个对象以分块追加的方式上传至
 
 追加上传的对象，每个分块大小默认最小为4KB，最大为5GB，同时通过追加方式产生的对象大小不得超过5GB。如果 Position 的值和当前对象的长度不致，COS 将返回409错误。如果追加一个 normal 属性的文件，COS 将返回409 ObjectNotAppendable。
 
->!appendable 的对象不可以被复制，不参与版本管理，不参与生命周期管理，不可跨地域复制。
+>! 
+>- Appendable 的对象不可以被复制，不参与版本管理，不参与生命周期管理，不可跨地域复制。
+>- 使用 Append 接口进行追加上传时，COS 不会校验请求携带的存储类型，仅会以当前对象的存储类型为准。
+>- Append 接口不支持智能分层存储类型。
 
 ## 请求
 
@@ -25,7 +28,7 @@ Authorization: Auth String
 
 #### 公共头部
 
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见  [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 
