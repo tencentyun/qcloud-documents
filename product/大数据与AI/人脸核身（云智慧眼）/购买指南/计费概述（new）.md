@@ -175,9 +175,9 @@
 </table>
 
 
-### E 证通
+### E证通
 
-E 证通服务与计费标签对应关系说明如下，若您想了解详细定价信息请查阅 [价格说明](https://cloud.tencent.com/document/product/1007/56804) 文档。
+E证通服务与计费标签对应关系说明如下，若您想了解详细定价信息请查阅 [价格说明](https://cloud.tencent.com/document/product/1007/56804) 文档。
 
 <table>
     <tr>
@@ -187,10 +187,10 @@ E 证通服务与计费标签对应关系说明如下，若您想了解详细定
 			<th>支持的付费方式</th>
     </tr>
 			   <tr>
-                   <td ><a href="https://cloud.tencent.com/document/product/1007/54116">E 证通</a>
+                   <td ><a href="https://cloud.tencent.com/document/product/1007/54116">E证通</a>
 				</td>
 				<td>跟权威库比对</td>
-				<td>E 证通（权威库）</td>
+				<td>E证通（权威库）</td>
 		<td>后付费月结、预付费资源包</td> 
     </tr>
 </table>
