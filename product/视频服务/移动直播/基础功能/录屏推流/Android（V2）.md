@@ -20,7 +20,7 @@ V2TXLivePusher mLivePusher = new V2TXLivePusherImpl(context, V2TXLiveDef.V2TXLiv
 
 [](id:step2)
 ### 步骤2：启动推流
-经过 [步骤1](#step1) 和 [步骤2](#step2) 的准备之后，用下面这段代码就可以启动推流了：
+经过 [步骤1](#step1) 的准备之后，用下面这段代码就可以启动推流了：
 ```java
 String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 mLivePusher.startMicrophone();
