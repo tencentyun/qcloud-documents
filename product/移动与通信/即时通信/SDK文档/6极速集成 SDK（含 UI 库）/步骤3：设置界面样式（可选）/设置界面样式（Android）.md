@@ -10,7 +10,7 @@
 标题区除了本身作为 View 所具有的属性功能之外，还包含左、中、右三块区域，如下图所示：
 ![标题区结构](https://main.qcloudimg.com/raw/832fd209cbc6061b47ff5434740b210c.png)
 
-您可参见 [ITitleBarLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/base/ITitleBarLayout.html) 进行自定义修改。
+您可参见 [ITitleBarLayout](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/base/ITitleBarLayout.java) 进行自定义修改。
 例如，在 ConversationLayout 中，隐藏左边的 LeftGroup，设置中间的标题，隐藏右边的文本和图片按钮，代码如下：
 
 ```java
@@ -163,7 +163,7 @@ noticeLayout.setOnNoticeClickListener(new View.OnClickListener() {
 
 ### 修改消息区域 MessageLayout 样式
 
-MessageLayout 继承自 RecyclerView ，本文提供自定义修改聊天背景、气泡、文字、是否显示昵称等常见的用法，更多详情请参见 [IMessageProperties](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IMessageProperties.html)。
+MessageLayout 继承自 RecyclerView ，本文提供自定义修改聊天背景、气泡、文字、是否显示昵称等常见的用法，更多详情请参见 [IMessageProperties](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IMessageProperties.java)。
 ![消息区域](https://main.qcloudimg.com/raw/063933c9ace8f762695af5a75a70c4b8.png)
 
 #### 修改聊天背景
