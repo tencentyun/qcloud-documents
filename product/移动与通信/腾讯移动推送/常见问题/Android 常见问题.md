@@ -1,6 +1,3 @@
-### TPNS SDK 支持鸿蒙系统的推送吗 ？
-
-鸿蒙系统完全兼容 Android SDK，推送功能可正常使用。
 
 ### 如何关闭 TPNS 的保活功能？
 
@@ -23,6 +20,17 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 ```
 
 若控制台有以下日志打印，则表明联合保活功能已经关闭：`I/TPush: [ServiceUtil] disable pull up other app`。
+
+### 针对“用户同意隐私服务协议” 场景，开发者可以在AndroidManifest.xml 文件添加以下节点，应用首次安装启动时即不会自启推送服务，直到调用了推送服务注册接口`XGPushManager.registerPush()` 才会开启：
+
+```
+<meta-data
+android:name="XG_SERVICE_PULL_UP_OFF"
+android:value="true" />
+```
+### TPNS SDK 支持鸿蒙系统的推送吗 ？
+
+鸿蒙系统完全兼容 Android SDK，推送功能可正常使用。
 
 
 ### 厂商推送服务需要上架应用市场才可以开通吗？
