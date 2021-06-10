@@ -192,7 +192,7 @@ recorder.stop({
    RefText: 'about',
    load() {
      console.log('文件加载完成');
-   }
+   },
    success(res) {
      console.log(res); // 输出测评结果
    },

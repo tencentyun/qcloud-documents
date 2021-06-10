@@ -7,13 +7,6 @@ Prometheus 监控服务文档已迁移至新目录，下列为常用文档链接
  <li style="position: relative; left:15px;"><a href="https://cloud.tencent.com/document/product/1416/55771">应用场景</a></li>
 :::
 </dx-accordion>
-<dx-accordion>
-::: 购买指南
-<li style="position: relative; left:15px;"><a   href="https://cloud.tencent.com/document/product/1416/55777">产品定价</a></li>
-<li style="position: relative; left:15px;"><a href="https://cloud.tencent.com/document/product/1416/55772">计费概述</a></li>
- <li style="position: relative; left:15px;"><a href="https://cloud.tencent.com/document/product/1416/55773">购买方式</a></li>
-:::
-</dx-accordion>
 <h2  class="segment3"><img class="rno-learning-path-icon" src="https://main.qcloudimg.com/raw/b2b7a7533e8f1dc7cfc9feb7c324d2f4/icon-practice.svg" alt="">入门</h2>
 <dx-accordion>
 :::快速入门
