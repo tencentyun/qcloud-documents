@@ -10,7 +10,7 @@
 标题区除了本身作为 View 所具有的属性功能之外，还包含左、中、右三块区域，如下图所示：
 ![标题区结构](https://main.qcloudimg.com/raw/832fd209cbc6061b47ff5434740b210c.png)
 
-您可以参考 [ITitleBarLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/base/ITitleBarLayout.html) 进行自定义修改。
+您可参见 [ITitleBarLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/base/ITitleBarLayout.html) 进行自定义修改。
 例如，在 ConversationLayout 中，隐藏左边的 LeftGroup，设置中间的标题，隐藏右边的文本和图片按钮，代码如下：
 
 ```java
@@ -80,7 +80,7 @@ IM SDK 不做头像存储，需要集成者有头像存储接口获取头像 URL
 
 ```
 HashMap<String, Object> hashMap = new HashMap<>();
-// 头像，mIconUrl 就是您上传头像后的 URL，可以参考 Demo 中的随机头像作为示例
+// 头像，mIconUrl 就是您上传头像后的 URL，请参见 Demo 中的随机头像作为示例
 if (!TextUtils.isEmpty(mIconUrl)) {
    hashMap.put(TIMUserProfile.TIM_PROFILE_TYPE_KEY_FACEURL, mIconUrl);
 }
@@ -350,7 +350,7 @@ inputLayout.addAction(unit);
 
 
 #### 增加自定义的功能（方式二 ，`5.4.666`版本新增）
-最终效果同方式1，示例代码如下（[也可以参考音视频通话功能的实现](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit-live/src/main/java/com/tencent/qcloud/tim/tuikit/live/helper/TUIKitLiveChatController.java)）：
+最终效果同方式1，示例代码如下（[也可以参见音视频通话功能的实现](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit-live/src/main/java/com/tencent/qcloud/tim/tuikit/live/helper/TUIKitLiveChatController.java)）：
 ```java
 class CustomChatController implements TUIChatControllerListener {
     // 每次点加号 “+” 按钮会调用此方法添加动作单元
