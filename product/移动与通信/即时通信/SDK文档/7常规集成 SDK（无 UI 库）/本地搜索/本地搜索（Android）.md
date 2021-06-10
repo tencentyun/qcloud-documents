@@ -1,22 +1,20 @@
-从增强版5.4.666版本开始支持本地搜索。使用前需要购买旗舰版套餐包，详见[购买指引](https://cloud.tencent.com/document/product/269/32458)。
+从增强版5.4.666版本开始支持本地搜索。使用前需要购买旗舰版套餐包，请参见 [购买指引](https://cloud.tencent.com/document/product/269/32458)。
 
-## 效果展示
-使用搜索接口可以实现如下图的效果，界面主要分为三大部分，最上面是搜索好友，中间部分是搜索群组&群成员，最下面是搜索消息且按照会话分组。
-[下载安装应用](https://cloud.tencent.com/document/product/269/36852)即刻体验。
-
+## 功能展示
+搜索接口的界面分为以下部分，最上面是搜索好友，中间部分是搜索群组、群成员，最下面是搜索消息且按照会话分组。
+您可通过 [下载安装应用](https://cloud.tencent.com/document/product/269/36852) 即刻体验，其使用效果如下：
 ![](https://im.sdk.qcloud.com/tools/resource/search.gif)
 
-## 如何对接
-### 方案一 对接 TUIKit 搜索源码
-#### 步骤一 购买套餐包
-[点击购买旗舰版套餐包](https://cloud.tencent.com/document/product/269/32458)
-#### 步骤二 下载源码
-[下载源码](https://github.com/tencentyun/TIMSDK)集成 tuikit module。TUIKit 从 5.4.666 版本开始支持本地搜索。
-
+## 对接指引
+### 方案一、对接 TUIKit 搜索源码
+#### 步骤1：购买套餐包
+请单击前往 [购买旗舰版套餐包](https://cloud.tencent.com/document/product/269/32458)。
+#### 步骤2：下载源码
+[下载源码](https://github.com/tencentyun/TIMSDK) 集成 tuikit module。TUIKit 从5.4.666版本开始支持本地搜索。
 ```
 implementation project(':tuikit')
 ```
-#### 步骤三 初始化 TUIKit 并登录
+#### 步骤3：初始化 TUIKit 并登录
 
 ```
 // 初始化
@@ -36,13 +34,13 @@ public void onError(String module, final int code, final String desc) {
 });
 ```
 
-#### 步骤四 启动搜索界面
+#### 步骤4：启动搜索界面
 启动 `SearchMainActivity` 即可。
 
-### 方案二 对接 IM SDK 搜索接口
-#### 步骤一 购买套餐包
-[点击购买旗舰版套餐包](https://cloud.tencent.com/document/product/269/32458)
-#### 步骤二 集成增强版 IM SDK
+### 方案二、对接 IM SDK 搜索接口
+#### 步骤1：购买套餐包
+请单击前往 [购买旗舰版套餐包](https://cloud.tencent.com/document/product/269/32458)。
+#### 步骤2：集成增强版 IM SDK
 从5.4.666版本开始支持本地搜索。
 
 ```
@@ -51,12 +49,11 @@ dependencies {
 }
 ```
 
-#### 步骤三 调用搜索本地用户资料接口
+#### 步骤3：调用搜索本地用户资料接口
 调用接口 [searchFriends](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMFriendshipManager.html#a815b7c4ff79f1441ee1416ff679eda6a) 可以搜索本地用户资料，支持搜索 [userID](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMFriendSearchParam.html#ae2ee7265c0c966aa5a4e5200bf40b7d2)、[nickName](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMFriendSearchParam.html#a1463093770c45df5fca39bdca9103980)、[remark](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMFriendSearchParam.html#a09a945c5cb71a13de5e32c80491363fd) 字段。效果如下：
+![](https://main.qcloudimg.com/raw/7a973cd30c63bed2c0a6745ddb8cf670.png)
 
-![](https://main.qcloudimg.com/raw/5893762059f650b682b23b482d028cf8.png)
-
-#### 步骤四 调用搜索本地群组和群成员接口
+#### 步骤4：调用搜索本地群组和群成员接口
 
 | 图1：搜索群组 | 图2：搜索更多群组 |
 |---------|---------|
@@ -67,7 +64,7 @@ dependencies {
 - 如果设置 groupIDList == null，代表搜索全部群中的群成员，返回的结果会按照 groupID 进行分类；
 - 如果设置 groupIDList != null，代表搜索指定群中的群成员。
 
-#### 步骤五 调用搜索本地消息接口
+#### 步骤5：调用搜索本地消息接口
 在搜索框输入关键字可以调用 [searchLocalMessages](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a9364c8a0c6a0899b17c0a479b8ca848a) 搜索本地消息。根据搜索参数 [V2TIMMessageSearchParam](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageSearchParam.html) 中的 [conversationID](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageSearchParam.html#ad0beca2cedf96a08d1e44709c16105d7) 是否为 `null`，分为两种情况：
 - 如果设置 conversationID == null，代表搜索全部会话，返回的结果会按照消息所属的会话进行分类。
 - 如果设置 conversationID != null，代表搜索指定会话。
@@ -101,8 +98,6 @@ V2TIMManager.getMessageManager().searchLocalMessages(v2TIMMessageSearchParam, ne
     public void onSuccess(V2TIMMessageSearchResult v2TIMMessageSearchResult) {
         // 匹配到的消息所属的所有会话数量
         int totalCount = v2TIMMessageSearchResult.getTotalCount();
-			  // 每页展示数量为10条，计算总页数
-			  int totalPage = (totalCount % 10 == 0) ? (totalCount / 10) : (totalCount / 10 + 1);
         // 最近3个根据消息会话分类的信息
         List<V2TIMMessageSearchResultItem> resultItemList = v2TIMMessageSearchResult.getMessageSearchResultItems();
         for (V2TIMMessageSearchResultItem resultItem : resultItemList) {
@@ -149,6 +144,8 @@ private void searchConversation(int index) {
         public void onSuccess(V2TIMMessageSearchResult v2TIMMessageSearchResult) {
 					// 匹配到的消息所属的所有会话数量
 					int totalCount = v2TIMMessageSearchResult.getTotalCount();
+					// 每页展示数量为10条，计算总页数
+					int totalPage = (totalCount % 10 == 0) ? (totalCount / 10) : (totalCount / 10 + 1);
 					// 该页的根据消息会话分类的信息
 					List<V2TIMMessageSearchResultItem> resultItemList = v2TIMMessageSearchResult.getMessageSearchResultItems();
 					for (V2TIMMessageSearchResultItem resultItem : resultItemList) {
@@ -224,4 +221,3 @@ public void loadMore() {
     searchMessage(++pageIndex);
 }
 ```
-
