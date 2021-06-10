@@ -2,13 +2,9 @@
 ## 操作场景
 本文档提供关于 SDK 接入以及开启推送服务的示例代码。
 
-
-
 ## SDK 组成
 - doc 文件夹：移动推送 TPNS  macOS SDK 开发指南。
 - demo 文件夹：主要包含样例工程，移动推送 TPNS  SDK。
-
-
 
 ## 集成步骤
 1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【产品管理】。
@@ -22,15 +18,15 @@
 pod 'TPNS-macOS' 
 ```
  - **方式二：手动导入**
-进入控制台，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择 macOS 平台，在其操作栏下单击【下载】即可导入 。
-1. 打开 demo 目录下的 XG-Demo-macOS 文件夹，将 XG_SDK_Cloud_macOS.framework 及 XGMTACloud_macOS.framework 添加到工程。
-2. 在 Build Phases 下添加以下 Framework：
+进入控制台，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择 macOS 平台，在其操作栏下单击【下载】即可导入。
+    1. 打开 demo 目录下的 XG-Demo-macOS 文件夹，将 XG_SDK_Cloud_macOS.framework 及 XGMTACloud_macOS.framework 添加到工程。
+    2. 在 Build Phases 下添加以下 Framework：
 ```
  * XG_SDK_Cloud_macOS.framework
- * XGMTACloud_macOS.framework
- * UserNotifications.framework(10.14+)
+        * XGMTACloud_macOS.framework
+       * UserNotifications.framework(10.14+)
 ```
-3. 添加完成以后，`TARGETS->General->Frameworks,Libraries,and Embedded Content`选项下Embed选择Embed&Sign 如下图：
+    3. 添加完成以后，`TARGETS->General->Frameworks,Libraries,and Embedded Content`选项下Embed选择Embed&Sign 如下图：
 ![](https://main.qcloudimg.com/raw/f6d34ba35e5cb1dd54c9c2e1767c7891.png)
 
 ### 工程配置
@@ -39,12 +35,13 @@ pod 'TPNS-macOS'
 2. 在 `Build Settings->Other Linker Flags`添加编译参数 `-ObjC`。 
 ![](https://main.qcloudimg.com/raw/bb61982f2959bea32f43c1fd849f5e43.png)
 
->!如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
+>! 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
+>
 
 ### 接入样例
-调用启动移动推送 TPNS 的 API，并根据需要实现 XGPushDelegate 协议中的方法，开启推送服务
-   1. 启动移动推送 TPNS 服务，以下是在 AppDelegate 中做演示：
-		 ```objective-c
+调用启动移动推送 TPNS 的 API，并根据需要实现 XGPushDelegate 协议中的方法，开启推送服务。
+1. 启动移动推送 TPNS 服务，以下是在 AppDelegate 中做演示：
+```objective-c
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     /// 打开 Debug 模式，即可在终端查看详细的移动推送 TPNS Debug 信息，方便定位问题。
 //    [[XGPush defaultManager] setEnableDebug:YES];
@@ -59,11 +56,9 @@ pod 'TPNS-macOS'
         }
     }
 }
-		 ```
-		 
-   2. 在 `AppDelegate`中选择实现 `XGPushDelegate ` 协议中的方法：
-   
-	```objective-c
+```
+2. 在 `AppDelegate`中选择实现 `XGPushDelegate ` 协议中的方法：
+```objective-c
 /// 注册推送服务成功回调
 /// @param deviceToken APNs 生成的Device Token
 /// @param xgToken TPNS 生成的 Token，推送消息时需要使用此值。TPNS 维护此值与APNs 的 Device Token的映射关系
@@ -96,10 +91,7 @@ pod 'TPNS-macOS'
     }
     completionHandler();
 }
-	```
-
-
-
+```
 
 ### 观察日志
 
@@ -112,7 +104,6 @@ pod 'TPNS-macOS'
 ```
 
 <span id="QHToken"></span>
-
 ## 集成建议
 #### 获取 Token （非必选）
 建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
