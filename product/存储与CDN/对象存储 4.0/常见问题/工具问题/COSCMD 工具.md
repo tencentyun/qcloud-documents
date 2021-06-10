@@ -76,7 +76,7 @@ coscmd config -m 30
 
 ### COSCMD 上传文件时如何跳过已存在文件？
 
-COSCMD 上传时通过添加 -rs 参数跳过 md5 相同的文件。详情请参考 [COSCMD工具](https://cloud.tencent.com/document/product/436/10976#.E4.B8.8A.E4.BC.A0.E6.96.87.E4.BB.B6.E6.88.96.E6.96.87.E4.BB.B6.E5.A4.B9) 文档中的**上传文件或文件夹使用方法**。
+COSCMD 上传时通过添加 -rs 参数跳过 md5 相同的文件。详情请参考 [COSCMD工具](https://cloud.tencent.com/document/product/436/10976) 文档中的**上传文件或文件夹使用方法**。
 
 ### 使用 COSCMD 工具下载如何跳过相同文件？
 

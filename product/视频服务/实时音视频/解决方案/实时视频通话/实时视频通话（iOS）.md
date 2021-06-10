@@ -135,6 +135,7 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 [TRTCCalling shareInstance].imBusinessID = your business ID;
 [TRTCCalling shareInstance].deviceToken =  deviceToken;
 ```
+>?  imBusinessID 为进入 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 上传 APNs 证书后生成的，随后通过 AppDelegate 向苹果后台请求回调，即可返回对应的 deviceToken 值。具体操作请参见 [离线推送](https://cloud.tencent.com/document/product/269/9154)。
 2. 调用 `login(sdkAppID: UInt32, user: String, userSig: String, success: @escaping (() -> Void), failed: @escaping ((_ code: Int, _ message: String) -> Void))` 完成组件的登录，其中几个关键参数的填写请参考下表：
 <table>
 <tr><th>参数名</th><th>作用</th></tr>

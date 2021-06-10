@@ -1,5 +1,3 @@
->?当前 VPN 路由功能在灰度测试中，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
-
 ## 前提条件
 在配置 VPN 路由策略前，请确保已完成 VPN 网关、对端网关及 VPN 通道的配置。
 

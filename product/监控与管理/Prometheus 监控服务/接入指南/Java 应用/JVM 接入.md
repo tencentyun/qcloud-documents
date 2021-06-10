@@ -4,11 +4,11 @@
 
 本文以如何在容器服务上部署普通 Java 应用为例，介绍如何通过 Prometheus 监控服务监控其状态。
 
->?若已使用 Spring Boot 作为开发框架，请参见 [Spring Boot 接入](https://cloud.tencent.com/document/product/1416/56031)。
+>?若已使用 Spring Boot 作为开发框架，请参见 [Spring Boot 接入](https://cloud.tencent.com/document/product/248/49086)。
 
 ## 前提条件
 
-- 创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)。
+- 创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Ca-id.3D.22templatecreation.22.3E.3C.2Fa.3E)。
 - [使用私有镜像仓库管理应用镜像](https://cloud.tencent.com/document/product/457/9117)。
 
 ## 操作步骤
@@ -22,7 +22,8 @@
 
 在 `pom.xml` 文件中添加相关的 Maven 依赖项，试情况调整相应的版本，示例如下：
 
-```xml
+<dx-codeblock>
+::: xml 
 <dependency>
     <groupId>io.prometheus</groupId>
     <artifactId>simpleclient</artifactId>
@@ -33,7 +34,8 @@
     <artifactId>micrometer-registry-prometheus</artifactId>
     <version>1.1.7</version>
 </dependency>
-```
+:::
+</dx-codeblock>
 
 #### 步骤2：修改代码
 
@@ -94,35 +96,38 @@ public class Application {
 #### 步骤2：打包及上传镜像
 
 1. 在项目根目录下添加 `Dockerfile`，请根据实际项目进行修改。示例如下：
-
-  ```
+<dx-codeblock>
+:::  Dockerfile
   FROM openjdk:8-jdk
   WORKDIR /java-demo
   ADD target/java-demo-*.jar /java-demo/java-demo.jar
   CMD ["java","-jar","java-demo.jar"]
-  ```
-
+:::
+</dx-codeblock>
 2. 打包镜像，在项目根目录下运行如下命令，需要替换对应的 `namespace`/`ImageName`/`镜像版本号`。
-
-  ```bash
-  mvn clean package
+<dx-codeblock>
+:::  bash
+ mvn clean package
   docker build . -t ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
   docker push ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
-  ```
-  **示例如下：**
-  ```bash
-  mvn clean package
+:::
+</dx-codeblock>
+<b>示例如下：</b>
+<dx-codeblock>
+:::  bash
+ mvn clean package
   docker build . -t ccr.ccs.tencentyun.com/prom_spring_demo/java-demo:latest
   docker push ccr.ccs.tencentyun.com/prom_spring_demo/-demo:latest
-  ```
+:::
+</dx-codeblock>
 
 #### 步骤3：应用部署
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)，选择需要部署的容器集群。
 2. 通过【工作负载】>【Deployment】进入 `Deployment` 管理页面，选择对应的 `命名空间` 来进行部署服务，通过 YAML 来创建对应的 `Deployment`，YAML 配置如下。
->?如需通过控制台创建，请参见 [Spring Boot 接入](https://cloud.tencent.com/document/product/1416/56031)。
-
-``` yaml
+>?如需通过控制台创建，请参见 [Spring Boot 接入](https://cloud.tencent.com/document/product/248/49086)。
+<dx-codeblock>
+:::  yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -155,15 +160,16 @@ spec:
       restartPolicy: Always
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30
-```
+:::
+</dx-codeblock>
 
 #### 步骤4：添加采取任务
 
-1. 登录 [ Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
+1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
 2. 通过集成容器服务列表点击【集群 ID】进入到容器服务集成管理页面。
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
-
-```yaml
+<dx-codeblock>
+:::  yaml
   apiVersion: monitoring.coreos.com/v1
   kind: PodMonitor
   metadata:
@@ -180,7 +186,8 @@ spec:
     selector:
       matchLabels:
         k8s-app: java-demo
-```
+:::
+</dx-codeblock>
 
 #### 步骤5：查看监控
 

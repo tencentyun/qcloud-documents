@@ -1,16 +1,16 @@
  本文主要介绍如何快速跑通微信小程序版本的 TRTC Demo，您可以从 [Github](https://github.com/tencentyun/TRTCSDK) 上的 WXMini 目录下获取相关代码。Demo 中前三个功能项演示了三个不同的应用场景：
  
- - 语音聊天室：纯语音交互，支持多人互动语音聊天，以及混音、混响等声音特效功能。适合在线狼人杀、在线语音直播等社交类场景。
- - 双人通话：1v1视频通话，配合 [Web IM SDK](https://cloud.tencent.com/document/product/269/37411) 可以实现在线问诊，在线客服等需要面对面交流的沟通场景。
- - 多人会议：支持多路视频通话、大小画面和屏幕分享等围绕视频会议相关的高级功能，适用于远程培训、在线教育等场景。
+ - **语音聊天室**：纯语音交互，支持多人互动语音聊天，以及混音、混响等声音特效功能。适合在线狼人杀、在线语音直播等社交类场景。
+ - **双人通话**：1v1视频通话，配合 [Web IM SDK](https://cloud.tencent.com/document/product/269/37411) 可以实现在线问诊，在线客服等需要面对面交流的沟通场景。
+ - **多人会议**：支持多路视频通话、大小画面和屏幕分享等围绕视频会议相关的高级功能，适用于远程培训、在线教育等场景。
  
-![](https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/6517a8a927130474927628457cdc27be.jpeg)
+![](https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/6517a8a927130474927628457cdc27bee.jpeg)
 
 ## 环境要求
 
-- 微信 App iOS 最低版本要求：7.0.9
-- 微信 App Android 最低版本要求：7.0.8
-- 小程序基础库最低版本要求：2.10.0
+- 微信 App iOS 最低版本要求：7.0.9。
+- 微信 App Android 最低版本要求：7.0.8。
+- 小程序基础库最低版本要求：2.10.0。
 - 由于微信开发者工具不支持原生组件（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签），需要在真机上进行运行体验。
 
 ## 前提条件
@@ -84,30 +84,4 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 ### 2. 防火墙有什么限制？
 
-由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参考文档：[应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
-
-### 3. 调试时为什么要开启调试模式？
-
-开启调试后，可以略过把“request 合法域名”加入小程序白名单的操作，避免遇到登录失败，通话无法连接的问题。
-
-### 4.为什么出现黑屏/画面卡住？
-
-您可以检查小程序 Demo 左下方的控制面板，打开【调试模式】即可在界面上看到详细的推拉流信息，如果没有推拉流信息则表示未成功进房或 live-pusher，live-player 创建失败。
-![](https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/b370373d41217c2c0efca37ab87cc94a.jpeg)
-
-
-| 参数          | 含义                                                         |
-| ------------- | ------------------------------------------------------------ |
-| appVersion    | 微信版本号                                                   |
-| libVersion    | 基础库版本号                                                 |
-| template      | trtc-room 组件的 template                                      |
-| debug         | 是否开启推拉流的 debug 信息                                    |
-| userID        | 生成的用户 ID                                                 |
-| roomID        | 房间号                                                       |
-| camera        | 是否开启摄像头                                               |
-| mic           | 是否开启麦克风                                               |
-| switch camera | 摄像头位置（front / back）                                       |
-| Room          | 进房，退房，退房并返回上一界面操作                           |
-| user count    | 房间内人数以及 user 信息<br/>userID<br/>mainV：该用户是否有主路视频<br/>mainA：该用户是否有主路音频<br/>auxV：该用户是否有辅路视频 |
-| stream count  | 房间内流的数量以及流信息<br/>userID<br/>SubV：是否订阅此路流的视频<br />SubA：是否订阅此路流的音频 |
-
+由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。

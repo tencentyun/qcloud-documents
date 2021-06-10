@@ -50,7 +50,7 @@ data:
 目标副本计算：
 假设 100nodes/400cores 的集群中，按上述配置，nodesToReplicas 取2（100>2)，coresToReplicas 取3（64<400<512），二者取较大值3，最终 replica 为3。
 
-### 在集群内部署 Kubernetes 对象
+### 部署在集群内的 Kubernetes 对象
 
 | kubernets 对象名称 | 类型               | 请求资源                 | 所属 Namespace |
 | :----------------- | ------------------ | ------------------------ | -------------- |

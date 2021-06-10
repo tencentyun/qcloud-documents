@@ -159,7 +159,7 @@ startCamera(deviceId?: string): void;
 
 **参数**
 
-`deviceId`：摄像头设备 ID，可选参数，指定打开的摄像头设备。设备 ID 可通过 TXDeviceManager 中的方法 [getDevicesList](https://cloud.tencent.com/document/product/454/56501?!preview&!editLang=zh#getdeviceslist) 获取。
+`deviceId`：摄像头设备 ID，可选参数，指定打开的摄像头设备。设备 ID 可通过 TXDeviceManager 中的方法 [getDevicesList](https://cloud.tencent.com/document/product/454/56501#getdeviceslist) 获取。
 
 ---
 
@@ -183,7 +183,7 @@ startMicrophone(deviceId?: string): void;
 
 **参数**
 
-`deviceId`：麦克风设备 ID，可选参数，指定打开的麦克风设备。设备 ID 可通过 TXDeviceManager 中的方法 [getDevicesList](https://cloud.tencent.com/document/product/454/56501?!preview&!editLang=zh#getdeviceslist) 获取。
+`deviceId`：麦克风设备 ID，可选参数，指定打开的麦克风设备。设备 ID 可通过 TXDeviceManager 中的方法 [getDevicesList](https://cloud.tencent.com/document/product/454/56501#getdeviceslist) 获取。
 
 ---
 
@@ -296,7 +296,7 @@ getDeviceManager(): TXDeviceManager;
 
 **返回**
 
-`TXDeviceManager` 实例对象。具体参见 [TXDeviceManager](https://cloud.tencent.com/document/product/454/56501?!preview&!editLang=zh) 。
+`TXDeviceManager` 实例对象。具体参见 [TXDeviceManager](https://cloud.tencent.com/document/product/454/56501) 。
 
 ---
 
@@ -348,7 +348,7 @@ setObserver(observer: TXLivePusherObserver): void;
 
 **参数**
 
-`observer`：推流器的回调目标对象。具体请参见 [TXLivePusherObserver](https://cloud.tencent.com/document/product/454/56500?!preview&!editLang=zh)。
+`observer`：推流器的回调目标对象。具体请参见 [TXLivePusherObserver](https://cloud.tencent.com/document/product/454/56500)。
 
 ---
 
