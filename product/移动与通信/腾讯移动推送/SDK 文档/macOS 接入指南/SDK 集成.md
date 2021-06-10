@@ -7,11 +7,12 @@
 - demo 文件夹：主要包含样例工程，移动推送 TPNS  SDK。
 
 ## 集成步骤
+### 接入前准备
 1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【产品管理】。
 2. 进入产品管理页面，单击【新增产品】。
 3. 进入新增产品页面，填写产品名称、产品详情，选择产品分类，单击【确定】，即可完成产品新增。
 4. 产品创建完成后，选择左侧菜单【配置管理】>【基础配置】，在应用信息一栏中获取应用`AccessID` 和 `AccessKEY`。
-5. 导入 SDK：
+### 导入 SDK（二选一）
  - **方式一：Cocoapods 导入**
 通过 Cocoapods 下载地址：
 ``` 
@@ -19,14 +20,14 @@ pod 'TPNS-macOS'
 ```
  - **方式二：手动导入**
 进入控制台，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择 macOS 平台，在其操作栏下单击【下载】即可导入。
-    1. 打开 demo 目录下的 XG-Demo-macOS 文件夹，将 XG_SDK_Cloud_macOS.framework 及 XGMTACloud_macOS.framework 添加到工程。
-    2. 在 Build Phases 下添加以下 Framework：
+1. 打开 demo 目录下的 XG-Demo-macOS 文件夹，将 XG_SDK_Cloud_macOS.framework 及 XGMTACloud_macOS.framework 添加到工程。
+2. 在 Build Phases 下添加以下 Framework：
 ```
  * XG_SDK_Cloud_macOS.framework
         * XGMTACloud_macOS.framework
        * UserNotifications.framework(10.14+)
 ```
-    3. 添加完成以后，`TARGETS->General->Frameworks,Libraries,and Embedded Content`选项下Embed选择Embed&Sign 如下图：
+3. 添加完成以后，`TARGETS->General->Frameworks,Libraries,and Embedded Content`选项下Embed选择Embed&Sign 如下图：
 ![](https://main.qcloudimg.com/raw/f6d34ba35e5cb1dd54c9c2e1767c7891.png)
 
 ### 工程配置
