@@ -52,35 +52,46 @@ scrape_configs:
 :::
 </dx-codeblock>
 2. 创建 targets/cluster/masters/masters.yml，添加 master 的 IP 和 port：
-```plaintext
+<dx-codeblock>
+::: plaintext plaintext
  - targets:
   - "<TARGERTS_MASTER_IP>:<TARGERTS_MASTER_PORT>"
-```
+:::
+</dx-codeblock>
 3. 创建 targets/cluster/workers/workers.yml，添加 worker 的 IP 和 port：
-```plaintext
+<dx-codeblock>
+::: plaintext plaintext
  - targets:
   - "<TARGERTS_WORKER_IP>:<TARGERTS_WORKER_PORT>"
-```
+:::
+</dx-codeblock>
 4. 启动 Prometheus，其中 --web.listen-address 指定 Prometheus 监听地址，默认端口号 9090：
-```plaintext
+<dx-codeblock>
+::: plaintext plaintext
 nohup ./prometheus --config.file=prometheus.yml --web.listen-address="<LISTEN_IP>:<LISTEN_PORT>" > prometheus.log 2>&1 &
-```
+:::
+</dx-codeblock>
 5. 查看可视化界面：
-```plaintext
+<dx-codeblock>
+::: plaintext plaintext
 http://<PROMETHEUS_BI_IP>:<PROMETHEUS_BI_PORT>
-```
+:::
+</dx-codeblock>
 6. 查看机器实例：
-```plaintext
+<dx-codeblock>
+::: plaintext plaintext
 http://<PROMETHEUS_BI_IP>:<PROMETHEUS_BI_PORT>/targets
-```
-
+:::
+</dx-codeblock>
 
 ## 上报监控指标到腾讯云 Prometheus
 
 1. 按照安装指南中的指引，在 master 机器上安装 Promethus agent：
-```plaintext
+<dx-codeblock>
+::: plaintext plaintext
 wget https://rig-1258344699.cos.ap-guangzhou.myqcloud.com/prometheus-agent/agent_install && chmod +x agent_install && ./agent_install prom-12kqy0mw agent-grt164ii ap-guangzhou <secret_id> <secret_key>
-```
+:::
+</dx-codeblock>
 2. 配置 master 和 worker 的抓取任务：
 <dx-codeblock>
 ::: plaintext plaintext
