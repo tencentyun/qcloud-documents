@@ -29,7 +29,8 @@ curl <WORKER_IP>:<WOKER_PORT>/metrics/prometheus/
 ## 上报监控指标到自建 Prometheus
 
 1. 下载 Promethus 安装包并解压，修改 promethus.yml：
-```plaintext
+<dx-codeblock>
+::: plaintext plaintext
 # prometheus.yml
 global:
   scrape_interval:     10s
@@ -48,7 +49,8 @@ scrape_configs:
     - refresh_interval: 1m
       files:
       - "targets/cluster/workers/*.yml"
-```
+:::
+</dx-codeblock>
 2. 创建 targets/cluster/masters/masters.yml，添加 master 的 IP 和 port：
 ```plaintext
  - targets:
