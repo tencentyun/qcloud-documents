@@ -10,18 +10,18 @@
 		<td>认证方式</td>
 		<td>
 			<ul  style="margin: 0;">
-				<li>微信认证</li>
-				<li>QQ 认证</li>
-				<li>人脸识别认证</li>
+				<li><a href="https://cloud.tencent.com/document/product/378/56758">微信扫码认证</a></li>
+				<li><a href="https://cloud.tencent.com/document/product/378/56759">QQ 扫码认证</a></li>
+				<li><a href="https://cloud.tencent.com/document/product/378/56760">人脸识别认证</a></li>
 			</ul>
 		</td>
 		<td>
 			<ul  style="margin: 0;">
-				<li>微信公众号认证</li>
-				<li>企业法人微信扫码认证</li>
-				<li>企业法人人脸识别认证</li>
-				<li>腾讯云充值认证</li>
-				<li>企业对公打款认证</li>
+				<li><a href="https://cloud.tencent.com/document/product/378/56762">微信公众平台认证</a></li>
+				<li><a href="https://cloud.tencent.com/document/product/378/56765">企业法人微信扫码认证</a></li>
+				<li><a href="https://cloud.tencent.com/document/product/378/56766">企业法人人脸识别认证</a></li>
+				<li><a href="https://cloud.tencent.com/document/product/378/56763">腾讯云充值认证</a></li>
+				<li><a href="https://cloud.tencent.com/document/product/378/56764">企业对公打款认证</a></li>
 			</ul>
 		</td>
 	</tr>
@@ -39,7 +39,6 @@
 			</ul>
 		</td>
 	</tr>
-	<tr><td>操作指引</td><td><a href="https://cloud.tencent.com/document/product/378/56757">个人认证指引</a></td><td><a href="https://cloud.tencent.com/document/product/378/56761">企业认证指引</a></td></tr>
 </table>
 
 <dx-alert infotype="alarm" title="">

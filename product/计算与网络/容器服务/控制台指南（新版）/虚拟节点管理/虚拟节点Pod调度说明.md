@@ -87,6 +87,35 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 各型号支持的具体配置请参考 <a href="https://console.cloud.tencent.com/cvm/securitygroup" target="_blank">资源规格</a>。</td>
 <td>否。如果不填写则默认不强制指定 CPU 类型，会根据 <a href="https://cloud.tencent.com/document/product/457/44174" target="_blank">指定资源规格方法</a> 尽量匹配最合适的规格，若匹配到的规格 Intel 和 amd 均支持，则优先选择 Intel。</td>
 </tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/gpu-type</td>
+<td>Pod 所需的 GPU 资源型号，目前支持型号如下：
+<ul  class="params">
+<li>V100</li>
+<li>1/4*T4</li>
+<li>1/2*T4</li>
+<li>T4</li>
+<li>支持优先级顺序写法，如 “T4,V100” 表示优先创建 T4 资源 Pod，如果所选地域可用区 T4 资源不足，则会创建 V100 资源 Pod。</li>
+</ul>
+各型号支持的具体配置请参考 <a href="https://cloud.tencent.com/document/product/457/39808">资源规格</a>。</td>
+<td>如需 GPU，则此项为必填项。填写时，请确保为支持的 GPU 型号，否则会报错。</td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/retain-ip</td>
+<td>Pod 固定 IP，value 填写 <code>"true"</code> 开启此特性，开启特性的 Pod ，当 Pod 被销毁后，默认会保留这个 Pod 的IP 24小时。24小时内 Pod 重建，还能使用该IP。24小时以后，该IP有可能被其他pod抢占。</td>
+<td>否</td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/retain-ip-hours</td>
+<td>修改Pod 固定 IP的默认时长，value 填写数值，单位是小时。默认是24小时，最大可支持保留一年。</td>
+<td>否</td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/resolv-conf</td>
+<td> 容器解析域名时查询 DNS 服务器的 IP 地址列表。例如 <code>nameserver 8.8.8.8</code>。
+<br> 可通过 <code>kubectl edit node eklet-subnet-xxxx</code> 添加该 annotation。
+<br> 修改后调度到该虚拟节点的 Pod 默认全部采用该 DNS 配置。</td>
+<td>否</td>
 </tr>
 </tbody></table>
 
