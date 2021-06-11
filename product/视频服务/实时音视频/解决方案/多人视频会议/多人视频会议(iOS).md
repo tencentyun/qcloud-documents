@@ -26,16 +26,16 @@
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
+![](https://main.qcloudimg.com/raw/f588650274a85b74893ff96eb563d3b4.png)
 
 [](id:ui_step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `iOS/TRTCScenesDemo/TXLiteAVDemo/Debug/GenerateTestUserSig.h` 文件。
+2. 找到并打开 `iOS/TRTCScenesDemo/TRTCScenesDemo/debug/GenerateTestUserSig.h` 文件。
 3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
-<ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
-<li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
-<img src="https://main.qcloudimg.com/raw/6cebe7386e62a7a4ff336814f43d7025.png">
+  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
+  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
+    <img src="https://main.qcloudimg.com/raw/420034ad9767a8df101a37b2c668af6c.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -44,6 +44,8 @@
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
+
+[](id:ui_step4)
 ### 步骤4：运行 Demo
 使用 Xcode（11.0及以上的版本）打开源码工程 `iOS/TRTCScenesDemo/TXLiteAVDemo.xcworkspace`，单击【运行】即可开始调试本 Demo。
 
@@ -88,7 +90,7 @@ pod 'TXLiteAVSDK_TRTC'
 
 [](id:model.step2)
 ### 步骤2：配置权限
-在 info.plist 文件中需要添加 Privacy > Camera Usage Description， Privacy > Microphone Usage Description 申请摄像头和麦克风权限。
+在 info.plist 文件中需要添加 `Privacy > Camera Usage Description`， `Privacy > Microphone Usage Description` 申请摄像头和麦克风权限。
 
 [](id:model.step3)
 ### 步骤3：导入 TRTCMeeting 组件
