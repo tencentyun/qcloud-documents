@@ -58,6 +58,7 @@ allprojects {
 }
 ```
 7. 同步工程，编译运行。
+
 ## 初始化
 
 在 `Application` 的 `onCreate` 中初始化：
