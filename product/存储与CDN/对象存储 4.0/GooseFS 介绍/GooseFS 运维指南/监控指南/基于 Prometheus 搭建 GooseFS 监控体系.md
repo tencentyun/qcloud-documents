@@ -80,24 +80,28 @@ http://<PROMETHEUS_BI_IP>:<PROMETHEUS_BI_PORT>/targets
 wget https://rig-1258344699.cos.ap-guangzhou.myqcloud.com/prometheus-agent/agent_install && chmod +x agent_install && ./agent_install prom-12kqy0mw agent-grt164ii ap-guangzhou <secret_id> <secret_key>
 ```
 2. 配置 master 和 worker 的抓取任务：
-<pre><code class="language-plaintext">job_name: goosefs-masters
+<dx-codeblock>
+::: plaintext plaintext
+job_name: goosefs-masters
 honor_timestamps: true
 metrics_path: /metrics/prometheus
 scheme: http
 file_sd_configs:
-- files:
- - /usr/local/services/prometheus/targets/cluster/masters/*.yml
- refresh_interval: 1m
-job_name: goosefs-workers
-honor_timestamps: true
-metrics_path: /metrics/prometheus
-scheme: http
-file_sd_configs:
-- files:
- - /usr/local/services/prometheus/targets/cluster/workers/*.yml
- refresh_interval: 1
-</code></pre>
->! job_name 中没有空格，而单机的 Prometheus 的 job_name 中可以包含空格。
+	 - files:
+		- /usr/local/services/prometheus/targets/cluster/masters/*.yml
+		refresh_interval: 1m
+	job_name: goosefs-workers
+	honor_timestamps: true
+	metrics_path: /metrics/prometheus
+	scheme: http
+	file_sd_configs:
+	 - files:
+		- /usr/local/services/prometheus/targets/cluster/workers/*.yml
+		refresh_interval: 1
+:::
+</dx-codeblock>
+
+ >! job_name 中没有空格，而单机的 Prometheus 的 job_name 中可以包含空格。
 >
 
 ## 使用 Grafana 查看监控指标
