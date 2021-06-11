@@ -6,7 +6,7 @@
 
 ## 集成说明
 
->! `TUIKit` 现在只支持源码集成。
+ `TUIKit` 支持以 `module` 源码的方式集成。
 
 ### module 源码集成
 [TUIKit 源码下载地址](https://github.com/tencentyun/TIMSDK/tree/master/Android/tuikit)
@@ -25,7 +25,7 @@ dependencies {
     ......
 }
 ```
-4. 修改 `tuikit` 的 `build.gradle` 文件，替换其中的几个版本号为 `app` 的 `build.gradle` 中的版本号如：
+4. 修改 `tuikit` 的 `build.gradle` 文件，替换其中的几个版本号为 `app` 的 `build.gradle` 中的版本号，例如：
 ```groovy
 android {
     compileSdkVersion 30
