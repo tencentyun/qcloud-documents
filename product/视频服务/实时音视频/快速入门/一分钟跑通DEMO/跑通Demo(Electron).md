@@ -13,14 +13,14 @@
 
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 输入应用名称，例如 TestTRTC，单击【创建】。
-![](https://main.qcloudimg.com/raw/9b2db43594f4744b42ef74c94494ea8e.png)
+![](https://main.qcloudimg.com/raw/cb512f1610472588485a733b376b6e1f.png)
 
 [](id:step2)
 
 ### 步骤2：下载 SDK 和 Demo 源码
 1.根据实际业务需求下载 SDK 及配套的 Demo 源码。
 2.下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
+![](https://main.qcloudimg.com/raw/fae9eec00770540451fad93cb2720121.png)
 
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
@@ -31,7 +31,7 @@
 <ul>
  <li/>SDKAPPID：默认为0 ，请设置为实际的 SDKAppID。
  <li/>SECRETKEY：默认为空字符串 ，请设置为实际的密钥信息。</ul>
- <img src="https://main.qcloudimg.com/raw/514e5d216de1b724d2a360a59db66351.png">
+ <img src="https://main.qcloudimg.com/raw/eb2d98a3491ea8652f97ac30d3c46b06.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
