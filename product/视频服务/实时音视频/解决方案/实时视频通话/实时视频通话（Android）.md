@@ -32,7 +32,7 @@
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
+![](https://main.qcloudimg.com/raw/c4884da10fe7751953e91294ca95acb0.png)
 
 [](id:ui.step3)
 ### 步骤3：配置 Demo 工程文件
@@ -41,7 +41,7 @@
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
 <ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
-<img src="https://main.qcloudimg.com/raw/37e17ffd21fa30cc077721bec2ea7f6d.png">
+<img src="https://main.qcloudimg.com/raw/9dbb29d3e3403e2c15a3aa2bb6e20a04.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
