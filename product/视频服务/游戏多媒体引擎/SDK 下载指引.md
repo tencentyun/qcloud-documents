@@ -12,7 +12,7 @@
 
 下载 SDK 及 Demo 后，如果使用上有问题，您可参见 [Demo使用问题](https://cloud.tencent.com/document/product/607/51456)，或者 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系腾讯云工作人员。
 
->?下载的 Demo 代码中，需要替换您申请的 SDKAppid 和 Key 才可编译执行，例如 Unity Demo，需要修改 **UserConfig.cs** 代码文件。申请服务详情请参见 [语音服务开通指引](https://cloud.tencent.com/document/product/607/10782)。
+>?下载的 Demo 代码中，需要替换为您申请的 SDKAppid 和 Key 才可编译执行，例如 Unity Demo 需要修改 **UserConfig.cs** 代码文件。申请服务详情请参见 [语音服务开通指引](https://cloud.tencent.com/document/product/607/10782)。
 
 
 ## 版本更新
@@ -36,7 +36,7 @@ v2.8.2 正式版本更新如下：
 <li >性能优化，提升进房速度，提升 SDK 稳定性。</li>
 </ul ></td>
 <td>2021-06-11</td> 
-<td><a href="https://cloud.tencent.com/document/product/607/15210">实时语音接口</tr>
+<td><a href="https://cloud.tencent.com/document/product/607/15210">实时语音</tr>
 </tbody></table>
 
 
