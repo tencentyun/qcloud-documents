@@ -11,13 +11,13 @@
 ### module 源码集成
 [TUIKit 源码下载地址](https://github.com/tencentyun/TIMSDK/tree/master/Android/tuikit)
 
-1、从 `GitHub` 下载 `Demo` 源码，把其中的 `tuikit` 文件夹拷贝到自己的工程目录下，作为工程中的一个模块。
+1. 从 `GitHub` 下载 `Demo` 源码，把其中的 `tuikit` 文件夹拷贝到自己的工程目录下，作为工程中的一个模块。
 
-2、在 `settings.gradle` 中添加：
+2. 在 `settings.gradle` 中添加：
 ```groovy
 include ':tuikit'
 ```
-3、在 `APP` 的 `build.gradle` 中添加:
+3. 在 `APP` 的 `build.gradle` 中添加:
 ```groovy
 dependencies {
     implementation project(':tuikit')
@@ -25,7 +25,7 @@ dependencies {
     ......
 }
 ```
-4、修改 `tuikit` 的 `build.gradle` 文件，替换其中的几个版本号为 `app` 的 `build.gradle` 中的版本号如：
+4. 修改 `tuikit` 的 `build.gradle` 文件，替换其中的几个版本号为 `app` 的 `build.gradle` 中的版本号如：
 ```groovy
 android {
     compileSdkVersion 30
@@ -43,11 +43,11 @@ android {
 }
 ```
 
-5、在 `gradle.properties` 文件中加入下行，表示使用 `AndroidX` 中的类替换 `support` 中的类：
+5. 在 `gradle.properties` 文件中加入下行，表示使用 `AndroidX` 中的类替换 `support` 中的类：
 ```properties
 android.enableJetifier=true
 ```
-6、添加 `maven` 仓库，在 `root` 工程的 `build.gradle` 文件中添加：
+6. 添加 `maven` 仓库，在 `root` 工程的 `build.gradle` 文件中添加：
 ```properties
 allprojects {
     repositories {
@@ -57,7 +57,7 @@ allprojects {
     }
 }
 ```
-7、同步工程，编译运行。
+7. 同步工程，编译运行。
 ## 初始化
 
 在 `Application` 的 `onCreate` 中初始化：
