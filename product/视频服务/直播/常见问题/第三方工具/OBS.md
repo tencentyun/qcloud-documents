@@ -91,7 +91,7 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 3. 同时在左侧导航栏，选择【高级】，即可对【串流延迟】进行设置：
 ![](https://main.qcloudimg.com/raw/e1cd9e4c9e813a5706e1ef23f332c7d1.png)
 
-### 关于 B 帧
+### 关于去除 B 帧相关设置
 快直播 Web 方案**不支持 B 帧解码播放**，所以如果原始流存在 B 帧，则后台会自动进行转码去掉 B 帧，但这样会引入额外的转码延迟，并且会**产生转码费用**。建议尽量不推包含 B 帧的流，用户可以通过调整推流端软件（如 OBS）的视频编码参数来去除B帧。如果使用 OBS 推流，可以通过设置，关闭 B 帧。如下图：
 ![](https://main.qcloudimg.com/raw/4ce772a3f7b4aca2cf518d1da2367185.png)
 
