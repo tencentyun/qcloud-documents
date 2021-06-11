@@ -6,7 +6,7 @@
 在调用语音识别相关接口前，您需要进入 [语音识别控制台](https://console.cloud.tencent.com/asr)，进行实名认证和人脸认证，认证完成后，阅读《用户协议》后勾选“我已阅读并同意《用户协议》”，然后单击【立即开通】，即可一键开通**录音文件识别、实时语音识别、一句话识别、录音文件识别极速版、语音流异步识别服务接口**，如需开通营业执照核验或增值税发票核验功能，可前往官网页服务介绍页申请开通，审核通过后即可使用该服务。 
 ![](https://main.qcloudimg.com/raw/284e58e4eaed33b3ea9e290b0872f920.png)
 
-服务开通成功后，您将获得各项服务对应的免费调用额度，可在 [资源包管理页](https://console.cloud.tencent.com/asr/resourcebundle) 查看。同时您也可以在 [语音识别购买页](https://buy.cloud.tencent.com/asr) 中购买对应语音识别服务的资源包，若免费额度以及资源包调用次数耗尽，接口计费将自动转为后付费方式按月进行结算，具体计费标准可以查看语音识别的 [计费概述](https://cloud.tencent.com/document/product/1093/35686)。
+服务开通成功后，您将获得各项服务对应的免费调用额度，可在 [资源包管理页](https://console.cloud.tencent.com/asr/resourcebundle) 查看。同时您也可以在 [语音识别购买页](https://buy.cloud.tencent.com/asr) 中购买对应语音识别服务的资源包，若免费额度以及资源包调用次数耗尽，接口计费将自动转为后付费方式按月/日进行结算，具体计费标准可以查看语音识别的 [计费概述](https://cloud.tencent.com/document/product/1093/35686)。
 
 ### 调试语音识别接口
 语音识别服务开通成功后，进入语音识别 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=asr&Version=2019-06-14&Action=CreateAsyncRecognitionTask&SignVersion=) 在线接口调试页面，选择需要调用的接口，并填写**输入参数**。输入参数在 API 3.0 Explorer 界面的“参数说明”选项卡中可以查看对应接口输入参数的具体含义。
