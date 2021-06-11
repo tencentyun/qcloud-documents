@@ -87,17 +87,17 @@ honor_timestamps: true
 metrics_path: /metrics/prometheus
 scheme: http
 file_sd_configs:
-	 - files:
-		- /usr/local/services/prometheus/targets/cluster/masters/*.yml
-		refresh_interval: 1m
-	job_name: goosefs-workers
-	honor_timestamps: true
-	metrics_path: /metrics/prometheus
-	scheme: http
-	file_sd_configs:
-	 - files:
-		- /usr/local/services/prometheus/targets/cluster/workers/*.yml
-		refresh_interval: 1
+- files:
+  - /usr/local/services/prometheus/targets/cluster/masters/*.yml
+  refresh_interval: 1m
+job_name: goosefs-workers
+honor_timestamps: true
+metrics_path: /metrics/prometheus
+scheme: http
+file_sd_configs:
+- files:
+  - /usr/local/services/prometheus/targets/cluster/workers/*.yml
+  refresh_interval: 1
 :::
 </dx-codeblock>
 
