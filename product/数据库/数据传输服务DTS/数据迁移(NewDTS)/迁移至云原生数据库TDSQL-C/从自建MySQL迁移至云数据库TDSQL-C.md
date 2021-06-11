@@ -6,14 +6,14 @@
 - 源端自建 MySQL 支持数据库版本：MySQL 5.5、MySQL 5.6、MySQL 5.7。
 - 需要您在源端自建 MySQL 中创建迁移帐号，需要的帐号权限如下：
 ```
-CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
+CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW
-DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
-GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
+DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';  
+GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 ```
-- 部分库表迁移：`GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;`
-- 全实例迁移：`GRANT SELECT ON *.* TO ‘迁移帐号’;`
+- 部分库表迁移：`GRANT SELECT ON 待迁移的库.* TO '迁移帐号';`
+- 全实例迁移：`GRANT SELECT ON *.* TO '迁移帐号';`
 - 源端账号遵循最小权限原则，仅需要必要的权限。若用户迁移中使用的帐号超出 DTS 迁移所需的权限，DTS 会给出警告，且迁移无法开始。
 
 ## 注意事项

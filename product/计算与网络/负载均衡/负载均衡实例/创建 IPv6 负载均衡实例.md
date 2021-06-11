@@ -33,7 +33,7 @@ IPv6 负载均衡的架构如下图所示：
  - 运营商类型：BGP。
  - 网络：请务必选择已获取 IPv6 CIDR 的私有网络和子网。
 3. 在购买页选择各项配置后，单击【立即购买】，返回至 [负载均衡实例列表页](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，即可查看已购的 IPv6 负载均衡。
-![](https://main.qcloudimg.com/raw/b25a3156db7a73ffa1a3b835be0069e8.png)
+
 
 ### 步骤2：创建 IPv6 负载均衡监听器
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)，单击 IPv6 负载均衡实例 ID，进入详情页。

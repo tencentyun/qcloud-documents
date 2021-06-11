@@ -104,7 +104,7 @@
 <td style="text-align:center" rowspan='4' th width="155px">包含所有 IM 功能以及群里直播连麦语聊能力。</td>
 <td style="text-align:center" >Android</td>
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Android">Github(推荐)</a></td>
-<td style="text-align:center" rowspan='4' ><a href="https://web.sdk.qcloud.com/im/download/im-latest.zip">ZIP</a></td>
+<td style="text-align:center" rowspan='4' ><a href="https://im.sdk.qcloud.com/download/github/TIMSDK.zip">ZIP</a></td>
 <td style="text-align:left" rowspan='4'><a href="https://cloud.tencent.com/document/product/269/36838">【Demo入门】一分钟跑通Demo</a></td>
 </tr>
 <tr>

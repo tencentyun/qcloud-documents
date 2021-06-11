@@ -120,7 +120,9 @@
 <tr>
 <td><a href="#H">高性能计算集群</a></td>
 <td>
-	<a href="#HCCG5v">GPU 型 HCCG5v</a> 
+<ul style="margin-bottom: 0;">
+    <li><a href="#HCCIC5">高 IO 计算型 HCCIC5</a></li>
+	  <li><a href="#HCCG5v">GPU 型 HCCG5v</a></li>
 </ul>
 </td>
 <td>高性能计算集群以黑石物理服务器2.0为节点，通过 RDMA 互联，提供了高带宽和极低延迟的网络服务，能满足大规模高性能计算、人工智能、大数据推荐等应用的并行计算需求</td>
@@ -3620,7 +3622,7 @@
 													<p>处理器与内存配比为1:2，1:4</p>
 												</li>
 												<li>
-													<p>最高可支持28Gbps内网带宽，超高网络收发包能力，满足极高的内网传输需求</p>
+													<p>最高可支持29Gbps内网带宽，超高网络收发包能力，满足极高的内网传输需求</p>
 												</li>
 												<li>
 													<p>实例网络性能与规格对应，规格越高网络转发性能强，内网带宽上限越高</p>
@@ -4906,6 +4908,71 @@
 												<div>
 													<div class="paragraph">
 														<p>23.0</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>2.5GHz</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>-</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>S5.21XLARGE320</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>84</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>320</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>600万</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>160万</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>16</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>29.0</p>
 													</div>
 												</div>
 											</td>
@@ -14848,7 +14915,7 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 <p>800万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>48</p>
+<p>46</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>50</p>
@@ -18150,142 +18217,422 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 </tbody>
 </table>
 
+
 <div class="sect1">
-    <h2 id="H">高性能计算集群</h2>
-    <div class="sectionbody">
-        <div class="paragraph">
-            <p>高性能计算集群以黑石物理服务器2.0为节点，通过 RDMA 互联，提供了高带宽和极低延迟的网络服务，能满足大规模高性能计算、人工智能、大数据推荐等应用的并行计算需求。</p>
-            <blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
-</blockquote>
-        </div>
-        <div class="doc-table-wrap"><table class="tableblock frame-none grid-all spread custom-style">
-            <colgroup>
-                <col style="width: 100%;">
-            </colgroup>
-            <tbody>
-                <tr>
-                    <td class="tableblock halign-left valign-top">
-                        <div>
-                            <div class="sect2">
-                                <h3 id="HCCG5v">GPU 型 HCCG5v</h3>
-                                <div class="paragraph">
-																<p>GPU 型 HCCG5v 实例是最新一代的 GPU 型高性能计算实例，搭载 NVIDIA<sup>®</sup> Tesla<sup>®</sup> V100 GPU，并基于 NVMe SSD 实例存储，提供低延迟、超高 IOPS、高吞吐量的存储资源，性能强大。</p>
-                                </div>
-                                <div class="sect3">
-                                    <h4 id="_使用场景_20">使用场景</h4>
-                                    <div class="ulist">
-                                        <ul>
-                                            <li>
-                                                <p>大规模机器学习训练、大数据推荐</p>
-                                            </li>
-                                            <li>
-                                                <p>HPC 应用，例如计算金融、地震分析、分子建模、基因测序等</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="sect3">
-                                    <h4 id="_实例特点_20">实例特点</h4>
-                                    <div class="ulist">
-                                        <ul>
-                                            <li>
-																						<p>2.5GHz Intel<sup>®</sup> Xeon<sup>®</sup> Cascade Lake 处理器，计算性能稳定</p>
-                                            </li>
-                                            <li>
-                                                <p>搭载 NVIDIA<sup>®</sup> Tesla<sup>®</sup> V100 NVLink 32GB（15.7TFLOPS 单精度浮点计算，7.8TFLOPS 双精度浮点计算，125TFLOPS Tensor Core 深度学习加速，300GB/s NVLink）</p>
-                                            </li>
-																						<li>
-                                                <p>支持25Gbps内网带宽，1000万 PPS 网络收发包能力</p>
-                                            </li>
-																						<li>
-                                                <p>支持100Gbps的低延迟 RoCE V2网络，专用于高性能计算集群内通信</p>
-                                            </li>
-																						<li>
-                                                <p>采用 NVMe SSD 的实例存储，提供低延迟、极高的 IOPS</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="sect3">
-                                    <h4 id="__a_href_instancetype_回到顶部_a_20">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableblock halign-left valign-top">
-                        <div>
-                            <div class="doc-table-wrap"><table class="tableblock frame-all grid-all spread">
-                                <colgroup>
-                                    <col style="width: 10%;">
-                                    <col style="width: 8%;">
-                                    <col style="width: 10%;">
-                                    <col style="width: 12%;">
-                                    <col style="width: 10%;">
-                                    <col style="width: 10%;">
-                                    <col style="width: 10%;">
-                                    <col style="width: 30%;">
-                                </colgroup>
-                                <tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>规格</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>vCPU</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>内存
-（GB）</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>网络收发包（pps）（出+入）</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>队列数</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>内网带宽能力（Gbps）（出+入）</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>主频</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>备注</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>HCCG5v</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>96</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>384</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1000万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>16</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>25</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.5GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>8 × NVIDIA<sup>®</sup> Tesla<sup>®</sup> V100 GPU；4 × 2980GB本地 NVMe SSD 硬盘</p>
-</div></div></td>
-</tr>
-</tbody>
-</table></div></div>
-</td>
-</tr>
-</tbody>
-</table></div>
+	<h2 id="H">高性能计算集群</h2>
+	<div class="sectionbody">
+		<div class="paragraph">
+			<p>高性能计算集群以黑石物理服务器2.0为节点，通过 RDMA
+			互联，提供了高带宽和极低延迟的网络服务，能满足大规模高性能计算、人工智能、大数据推荐等应用的并行计算需求。</p>
+			<blockquote class="doc-tip">
+				<p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p>
+				<p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
+			</blockquote>
+		</div>
+		<div class="doc-table-wrap">
+			<table class="tableblock frame-none grid-all spread custom-style">
+				<colgroup>
+					<col style="width: 100%;" />
+				</colgroup>
+				<tbody>
+					<tr>
+						<td class="tableblock halign-left valign-top">
+							<div>
+								<div class="sect2">
+									<h3 id="HCCIC5">高 IO 计算型 HCCIC5</h3>
+									<div class="paragraph">
+										<p>高 IO 计算型 HCCIC5 实例是最新一代的高主频计算型高性能计算实例，搭载3.2GHz基准主频CPU，具有最高单核计算性能，并基于 NVMe SSD 实例存储，提供低延迟、超高 IOPS 的存储资源。适合批处理、传统高性能计算应用和大型游戏服务器等计算密集型应用。</p>
+									</div>
+									<div class="sect3">
+										<h4 id="_使用场景_20">使用场景</h4>
+										<div class="ulist">
+											<ul>
+												<li>
+												<p>大规模高性能计算应用</p>
+												</li>
+												<li>
+													<p>HPC 应用，例如地震分析、分子建模、基因测序、气象分析等</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="sect3">
+										<h4 id="_实例特点_20">实例特点</h4>
+										<div class="ulist">
+											<ul>
+												<li>
+												<p>3.2GHz Intel<sup>®</sup> Xeon<sup>®</sup> Cascade Lake 处理器，睿频3.7GHz</p>
+												</li>
+												<li>
+													<p>支持25Gbps内网带宽，1000万 PPS 网络收发包能力</p>
+												</li>
+												<li>
+													<p>支持100Gbps的低延迟 RoCE V2网络，专用于高性能计算集群内通信</p>
+												</li>
+												<li>
+													<p>采用 NVMe SSD 的实例存储，提供低延迟、极高的 IOPS</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="sect3">
+										<h4 id="__a_href_instancetype_回到顶部_a_20">   
+										<a href="#INSTANCETYPE">回到顶部</a></h4>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="tableblock halign-left valign-top">
+							<div>
+								<div class="doc-table-wrap">
+									<table class="tableblock frame-all grid-all spread">
+										<colgroup>
+											<col style="width: 10%;" />
+											<col style="width: 8%;" />
+											<col style="width: 10%;" />
+											<col style="width: 12%;" />
+											<col style="width: 10%;" />
+											<col style="width: 10%;" />
+											<col style="width: 10%;" />
+											<col style="width: 30%;" />
+										</colgroup>
+										<tbody>
+											<tr>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>规格</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>vCPU</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>内存 （GB）</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>网络收发包（pps）（出+入）</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>队列数</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>内网带宽能力（Gbps）（出+入）</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>主频</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>备注</p>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>HCCIC5</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>64</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>384</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>1000万</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>16</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>25</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>3.2GHz</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>2 × 3570GB本地 NVMe SSD 硬盘</p>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
+		<div class="doc-table-wrap">
+			<table class="tableblock frame-none grid-all spread custom-style">
+				<colgroup>
+					<col style="width: 100%;" />
+				</colgroup>
+				<tbody>
+					<tr>
+						<td class="tableblock halign-left valign-top">
+							<div>
+								<div class="sect2">
+									<h3 id="HCCG5v">GPU 型 HCCG5v</h3>
+									<div class="paragraph">
+										<p>GPU 型 HCCG5v 实例是最新一代的 GPU 型高性能计算实例，搭载 NVIDIA
+										<sup>®</sup> Tesla
+										<sup>®</sup> V100 GPU，并基于 NVMe SSD 实例存储，提供低延迟、超高
+										IOPS、高吞吐量的存储资源，性能强大。</p>
+									</div>
+									<div class="sect3">
+										<h4 id="_使用场景_20">使用场景</h4>
+										<div class="ulist">
+											<ul>
+												<li>
+													<p>大规模机器学习训练、大数据推荐</p>
+												</li>
+												<li>
+													<p>HPC 应用，例如计算金融、地震分析、分子建模、基因测序等</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="sect3">
+										<h4 id="_实例特点_20">实例特点</h4>
+										<div class="ulist">
+											<ul>
+												<li>
+													<p>2.5GHz Intel
+													<sup>®</sup> Xeon
+													<sup>®</sup> Cascade Lake 处理器，计算性能稳定</p>
+												</li>
+												<li>
+													<p>搭载 NVIDIA
+													<sup>®</sup> Tesla
+													<sup>®</sup> V100 NVLink 32GB（15.7TFLOPS 单精度浮点计算，7.8TFLOPS
+													双精度浮点计算，125TFLOPS Tensor Core 深度学习加速，300GB/s NVLink）</p>
+												</li>
+												<li>
+													<p>支持25Gbps内网带宽，1000万 PPS 网络收发包能力</p>
+												</li>
+												<li>
+													<p>支持100Gbps的低延迟 RoCE V2网络，专用于高性能计算集群内通信</p>
+												</li>
+												<li>
+													<p>采用 NVMe SSD 的实例存储，提供低延迟、极高的 IOPS</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="sect3">
+										<h4 id="__a_href_instancetype_回到顶部_a_20">   
+										<a href="#INSTANCETYPE">回到顶部</a></h4>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="tableblock halign-left valign-top">
+							<div>
+								<div class="doc-table-wrap">
+									<table class="tableblock frame-all grid-all spread">
+										<colgroup>
+											<col style="width: 10%;" />
+											<col style="width: 8%;" />
+											<col style="width: 10%;" />
+											<col style="width: 12%;" />
+											<col style="width: 10%;" />
+											<col style="width: 10%;" />
+											<col style="width: 10%;" />
+											<col style="width: 30%;" />
+										</colgroup>
+										<tbody>
+											<tr>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>规格</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>vCPU</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>内存 （GB）</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>网络收发包（pps）（出+入）</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>队列数</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>内网带宽能力（Gbps）（出+入）</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>主频</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>备注</p>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>HCCG5v</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>96</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>384</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>1000万</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>16</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>25</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>2.5GHz</p>
+														</div>
+													</div>
+												</td>
+												<td class="tableblock halign-left valign-top">
+													<div>
+														<div class="paragraph">
+															<p>8 × NVIDIA
+															<sup>®</sup> Tesla
+															<sup>®</sup> V100 GPU；4 × 2980GB本地 NVMe SSD 硬盘</p>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>

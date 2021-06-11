@@ -9,18 +9,18 @@
 - 需要您在源端实例中创建迁移帐号。
   - “整个实例”迁移，需要的帐号权限如下：
 ```
-CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
-GRANT SELECT ON *.* TO ‘迁移帐号’;
+CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';  
+GRANT SELECT ON *.* TO '迁移帐号';
 ```
   - “指定对象”迁移，需要的帐号权限如下：
 ```
-CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
-GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
-GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;
+CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';  
+GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
+GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 ```
 
 ## 注意事项

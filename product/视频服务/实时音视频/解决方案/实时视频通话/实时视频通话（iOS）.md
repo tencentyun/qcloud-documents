@@ -33,7 +33,7 @@
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
+![](https://main.qcloudimg.com/raw/f588650274a85b74893ff96eb563d3b4.png)
 
 [](id:ui.step3)
 
@@ -43,7 +43,7 @@
 3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
 <ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
-<img src="https://main.qcloudimg.com/raw/73c4227a4f4eb737f2cb495181df52fe.png">
+<img src="https://main.qcloudimg.com/raw/7b5796533a98437c5ca5b0ceaf0b2362.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -135,6 +135,7 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 [TRTCCalling shareInstance].imBusinessID = your business ID;
 [TRTCCalling shareInstance].deviceToken =  deviceToken;
 ```
+>?  imBusinessID 为进入 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 上传 APNs 证书后生成的，随后通过 AppDelegate 向苹果后台请求回调，即可返回对应的 deviceToken 值。具体操作请参见 [离线推送](https://cloud.tencent.com/document/product/269/9154)。
 2. 调用 `login(sdkAppID: UInt32, user: String, userSig: String, success: @escaping (() -> Void), failed: @escaping ((_ code: Int, _ message: String) -> Void))` 完成组件的登录，其中几个关键参数的填写请参考下表：
 <table>
 <tr><th>参数名</th><th>作用</th></tr>
