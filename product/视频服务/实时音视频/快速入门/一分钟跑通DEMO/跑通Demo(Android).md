@@ -27,7 +27,7 @@
 ### 步骤3：配置 Demo 工程文件
 
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `LiteAVSDK_TRTC_Android版本号/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
+2. 找到并打开 `Android/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
 	<ul>
 	<li/>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
