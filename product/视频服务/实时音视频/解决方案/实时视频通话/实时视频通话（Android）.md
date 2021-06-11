@@ -39,9 +39,10 @@
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
 2. 找到并打开 `Android/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
-<ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
-<li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
-<img src="https://main.qcloudimg.com/raw/9dbb29d3e3403e2c15a3aa2bb6e20a04.png">
+	<ul>
+	<li/>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
+	<li/>SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。</ul>
+ <img src="https://main.qcloudimg.com/raw/e0a9669ded728bfe74ef98902d9407ec.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
