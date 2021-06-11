@@ -54,8 +54,8 @@
         <td><a href="https://cloud.tencent.com/document/product/302/3468#.E8.AE.B0.E5.BD.95.E5.80.BC.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F">记录值</a></td>
         <td>需指向的域名，填写腾讯云控制台【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】域名对应的 CNAME 值</td>
         <td>在【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】里查看对应域名分配的未配置 CNAME，复制填至【记录值】。填写格式为：<ul style="margin:0">
-				<li/><code><b style="color:red;">xxxx</b>.liveplay.myqcloud.com</code>
-				<li/><code><b style="color:red;">xxxx</b>.tlivecdn.myqcloud.com</code>
+				<li/><code><b style="color:red;">xxxx</b>.liveplay.com</code>
+				<li/><code><b style="color:red;">xxxx</b>.tlivecdn.com</code>
 				</ul></td>
     </tr>
     <tr>
