@@ -100,6 +100,16 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 各型号支持的具体配置请参考 <a href="https://cloud.tencent.com/document/product/457/39808">资源规格</a>。</td>
 <td>如需 GPU，则此项为必填项。填写时，请确保为支持的 GPU 型号，否则会报错。</td>
 </tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/retain-ip</td>
+<td>Pod 固定 IP，value 填写 <code>"true"</code> 开启此特性，开启特性的 Pod ，当 Pod 被销毁后，默认会保留这个 Pod 的IP 24小时。24小时内 Pod 重建，还能使用该IP。24小时以后，该IP有可能被其他pod抢占。</td>
+<td>否</td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/retain-ip-hours</td>
+<td>修改Pod 固定 IP的默认时长，value 填写数值，单位是小时。默认是24小时，最大可支持保留一年。</td>
+<td>否</td>
+</tr>
 </tbody></table>
 
 
