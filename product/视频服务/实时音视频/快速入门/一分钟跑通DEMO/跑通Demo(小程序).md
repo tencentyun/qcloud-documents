@@ -21,13 +21,13 @@
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 输入应用名称，例如 TestTRTC，单击【创建】。
-![](https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/9b2db43594f4744b42ef74c94494ea8e.png)
+![](https://main.qcloudimg.com/raw/d6c9d22a758c63ecc3b859b4a7f32839.png)
 
 [](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/3b115019ddfd0866108ed1add30810d8.png)
+![](https://main.qcloudimg.com/raw/ab5f9abefad7f60255cc0077d96445fe.png)
 
 
 [](id:step3)
@@ -37,7 +37,7 @@
 3. 设置`GenerateTestUserSig.js`文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-  <img src="https://main.qcloudimg.com/raw/bf4e96ecc305b7d4eee5ec677a52b6a2.png">
+  <img src="https://main.qcloudimg.com/raw/4002c5b27f821455c368225557c5a028.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -50,20 +50,20 @@
 - 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
 - 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
 - 符合类目要求的小程序，需要在【[微信公众平台](https://mp.weixin.qq.com)】>【开发】>【接口设置】中自助开通该组件权限，如下图所示：
- ![](https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/ad87091aaae2db6ad412136297886c15.png)
+![](https://main.qcloudimg.com/raw/dc6d3c9102bd81443cb27b9810c8e981.png)
 
 ### 步骤5：编译运行
 1. 打开微信开发者工具，选择【小程序】，单击新建图标，选择【导入项目】。
 2. 填写您微信小程序的 AppID，单击【导入】。
  >!此处应输入您微信小程序的 AppID，而非 SDKAppID。
  >
- ![](https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/b4eefa2896672e132f827fea79a2608b.jpeg)   
+![](https://main.qcloudimg.com/raw/a06f3651a1399eabaa802a607b9a9cf8.png) 
 3. 单击【预览】，生成二维码，通过手机微信扫码二维码即可进入小程序。
 
 >! 
 >- 小程序 &lt;live-player&gt; 和 &lt;live-pusher&gt; 标签需要在手机微信上才能使用，微信开发者工具上无法使用。
 >- 为了小程序能够使用腾讯云房间管理服务，您需要在手机微信上开启调试功能：手机微信扫码二维码后，单击右上角【...】>【打开调试】。
-![](https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/9ae12892a437c25c2317fb62f7f851ba.png)
+![](https://main.qcloudimg.com/raw/ba85130b18cac0f713994a3a5feb2e83.png)
 
 
 ## 常见问题
@@ -76,11 +76,11 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
  2. 在左侧导航栏选择【应用管理】，单击目标应用所在行的【应用信息】。
  3. 选择【快速上手】页签，单击【第二步 获取签发UserSig的密钥】区域的【点此升级】、【非对称式加密】或【HMAC-SHA256】。
   - 升级：
-   ![](https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/69bd0957c99e6a6764368d7f13c6a257.png)
+![](https://main.qcloudimg.com/raw/6d09db9663d8ca6b46f2ae3ab95cfa4b.png)
   - 切换回老版本算法 ECDSA-SHA256：
-   ![](https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/f89c00f4a98f3493ecc1fe89bea02230.png)
+![](https://main.qcloudimg.com/raw/786e763bcc67ea982ecae1aa16035c40.png)
   - 切换为新版本算法 HMAC-SHA256：
-   ![](https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/b0412153935704abc9e286868ad8a916.png)
+![](https://main.qcloudimg.com/raw/23e06303e03c277ed3c5824e9e15ab75.png)
 
 ### 2. 防火墙有什么限制？
 
