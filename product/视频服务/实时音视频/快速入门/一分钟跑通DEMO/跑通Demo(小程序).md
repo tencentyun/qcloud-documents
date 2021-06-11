@@ -33,8 +33,8 @@
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开`./debug/GenerateTestUserSig.js`文件。
-3. 设置`GenerateTestUserSig.js`文件中的相关参数：
+2. 找到并打开 `./debug/GenerateTestUserSig.js` 文件。
+3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
   <img src="https://main.qcloudimg.com/raw/4002c5b27f821455c368225557c5a028.png">
