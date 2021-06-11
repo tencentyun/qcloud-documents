@@ -86,17 +86,17 @@ honor_timestamps: true
 metrics_path: /metrics/prometheus
 scheme: http
 file_sd_configs:
-- files:
-  - /usr/local/services/prometheus/targets/cluster/masters/*.yml
-  refresh_interval: 1m
-job_name: goosefs-workers
-honor_timestamps: true
-metrics_path: /metrics/prometheus
-scheme: http
-file_sd_configs:
-- files:
-  - /usr/local/services/prometheus/targets/cluster/workers/*.yml
-  refresh_interval: 1
+	 - files:
+		- /usr/local/services/prometheus/targets/cluster/masters/*.yml
+		refresh_interval: 1m
+	job_name: goosefs-workers
+	honor_timestamps: true
+	metrics_path: /metrics/prometheus
+	scheme: http
+	file_sd_configs:
+	 - files:
+		- /usr/local/services/prometheus/targets/cluster/workers/*.yml
+		refresh_interval: 1
 ```
  >! job_name 中没有空格，而单机的 Prometheus 的 job_name 中可以包含空格。
 >
@@ -107,7 +107,7 @@ file_sd_configs:
 ```plaintext
 nohup ./bin/grafana-server web > grafana.log 2>&1 &
 ```
-2. 打开登录页面 http://<GRAFANA_BI_IP>:<GRAFANA_BI_PORT>，Grafana 的默认端口为 3000，username 和 password 都是 admin，首次登录后可修改密码。
+2. 打开登录页面 `http://<GRAFANA_BI_IP>:<GRAFANA_BI_PORT>`，Grafana 的默认端口为 3000，username 和 password 都是 admin，首次登录后可修改密码。
 3. 进入页面后，添加 Prometheus 的 Datasource：
 ```plaintext
 <PROMETHEUS_BI_IP>:<PROMETHEUS_BI_PORT>
