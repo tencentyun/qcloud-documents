@@ -27,7 +27,7 @@ var url = cos.getObjectUrl({
 | Key     | 对象键（Object 的名称），对象在存储桶中的唯一标识，详情请参见 [对象概述](https://cloud.tencent.com/document/product/436/13324) | String  | 是   |
 | Sign    | 是否返回带有签名的 Url，默认为 true                          | Boolean | 否   |
 | Protocol    | http协议还是https协议，默认为 http:                          | string | 否   |
-| Domain    | 存储桶访问域名，默认为 {Bucket}.cos.{Region}.myqcloud.com     | string | 否   |
+| Domain    | 存储桶访问域名，默认为 {BucketName-APPID}.cos.{Region}.myqcloud.com     | string | 否   |
 | Method  | 操作方法，例如 GET，POST，DELETE，HEAD 等 HTTP 方法，默认为 GET | String  | 否   |
 | Query   | 参与签名计算的 query 参数对象                                | Object  | 否   |
 | Headers | 参与签名计算的 header 参数对象                               | Object  | 否   |
