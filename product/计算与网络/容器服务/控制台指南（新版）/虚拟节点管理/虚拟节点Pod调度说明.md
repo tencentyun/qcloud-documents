@@ -115,7 +115,7 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 <td> 容器解析域名时查询 DNS 服务器的 IP 地址列表。例如 <code>nameserver 8.8.8.8</code>。
 <br> 可通过 <code>kubectl edit node eklet-subnet-xxxx</code> 添加该 annotation。
 <br> 修改后调度到该虚拟节点的 Pod 默认全部采用该 DNS 配置。</td>
-<td>否。</td>
+<td>否</td>
 </tr>
 </tbody></table>
 
