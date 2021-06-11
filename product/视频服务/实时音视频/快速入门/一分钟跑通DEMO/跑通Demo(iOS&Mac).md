@@ -24,13 +24,13 @@
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `iOS/TRTCScenesDemo/TRTCScenesDemo/debug/GenerateTestUserSig.h 或 Mac/TRTCDemo/TRTC/GenerateTestUserSig.h` 文件：
+2. 找到并打开 `GenerateTestUserSig.h` 文件：
  <table><tr>
 <th nowrap="nowrap">适用平台</th><th nowrap="nowrap">文件相对路径</th></tr>
 <tr>
-<td>iOS</td><td>iOS/TRTCScenesDemo/TXLiteAVDemo/Debug/GenerateTestUserSig.h</td>
+<td>iOS</td><td>iOS/TRTCScenesDemo/TRTCScenesDemo/debug/GenerateTestUserSig.h</td>
 </tr><tr>
-<td>Mac</td><td>Mac/OCDemo/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
+<td>Mac</td><td>Mac/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
 </tr></table>
 3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
