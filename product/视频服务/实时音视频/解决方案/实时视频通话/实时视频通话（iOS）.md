@@ -39,11 +39,11 @@
 
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `iOS/TRTCScenesDemo/TXLiteAVDemo/Debug/GenerateTestUserSig.h` 文件。
+2. 找到并打开 `iOS/TRTCScenesDemo/TRTCScenesDemo/debug/GenerateTestUserSig.h` 文件。
 3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
-<ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
-<li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
-<img src="https://main.qcloudimg.com/raw/7b5796533a98437c5ca5b0ceaf0b2362.png">
+  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
+  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
+    <img src="https://main.qcloudimg.com/raw/420034ad9767a8df101a37b2c668af6c.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 

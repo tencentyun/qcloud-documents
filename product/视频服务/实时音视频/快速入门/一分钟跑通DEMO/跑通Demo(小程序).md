@@ -33,8 +33,8 @@
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开`./debug/GenerateTestUserSig.js`文件。
-3. 设置`GenerateTestUserSig.js`文件中的相关参数：
+2. 找到并打开 `./debug/GenerateTestUserSig.js` 文件。
+3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
   <img src="https://main.qcloudimg.com/raw/4002c5b27f821455c368225557c5a028.png">
@@ -49,7 +49,7 @@
 出于政策和合规的考虑，微信暂未放开所有小程序对实时音视频功能（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签）的支持：
 - 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
 - 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
-- 符合类目要求的小程序，需要在【[微信公众平台](https://mp.weixin.qq.com)】>【开发】>【接口设置】中自助开通该组件权限，如下图所示：
+- 符合类目要求的小程序，需要在【[微信公众平台](https://mp.weixin.qq.com)】>【开发】>【开发管理】>【接口设置】中自助开通该组件权限，如下图所示：
 ![](https://main.qcloudimg.com/raw/dc6d3c9102bd81443cb27b9810c8e981.png)
 
 ### 步骤5：编译运行
