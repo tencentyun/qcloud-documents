@@ -70,6 +70,8 @@ try:
 
     # 实例化一个http选项，可选的，没有特殊需求可以跳过。
     httpProfile = HttpProfile()
+    # 如果需要指定proxy访问接口，可以按照如下方式初始化hp
+    # httpProfile = HttpProfile(proxy="http://用户名:密码@代理IP:代理端口")
     httpProfile.reqMethod = "POST"  # post请求(默认为post请求)
     httpProfile.reqTimeout = 30    # 请求超时时间，单位为秒(默认60秒)
     httpProfile.endpoint = "sms.tencentcloudapi.com"  # 指定接入地域域名(默认就近接入)
@@ -157,6 +159,8 @@ try:
 
     # 实例化一个http选项，可选的，没有特殊需求可以跳过。
     httpProfile = HttpProfile()
+    # 如果需要指定proxy访问接口，可以按照如下方式初始化hp
+    # httpProfile = HttpProfile(proxy="http://用户名:密码@代理IP:代理端口")
     httpProfile.reqMethod = "POST"  # post请求(默认为post请求)
     httpProfile.reqTimeout = 30    # 请求超时时间，单位为秒(默认60秒)
     httpProfile.endpoint = "sms.tencentcloudapi.com"  # 指定接入地域域名(默认就近接入)
@@ -230,6 +234,8 @@ try:
 
     # 实例化一个http选项，可选的，没有特殊需求可以跳过。
     httpProfile = HttpProfile()
+    # 如果需要指定proxy访问接口，可以按照如下方式初始化hp
+    # httpProfile = HttpProfile(proxy="http://用户名:密码@代理IP:代理端口")
     httpProfile.reqMethod = "POST"  # post请求(默认为post请求)
     httpProfile.reqTimeout = 30    # 请求超时时间，单位为秒(默认60秒)
     httpProfile.endpoint = "sms.tencentcloudapi.com"  # 指定接入地域域名(默认就近接入)
@@ -308,6 +314,8 @@ try:
 
     # 实例化一个 http 选项，可选，无特殊需求时可以跳过
     httpProfile = HttpProfile()
+    # 如果需要指定proxy访问接口，可以按照如下方式初始化hp
+    # httpProfile = HttpProfile(proxy="http://用户名:密码@代理IP:代理端口")
     httpProfile.reqMethod = "POST"  # POST 请求（默认为 POST 请求）
     httpProfile.reqTimeout = 30    # 请求超时时间，单位为秒（默认60秒）
     httpProfile.endpoint = "sms.tencentcloudapi.com"  # 指定接入地域域名（默认就近接入）
@@ -359,3 +367,22 @@ try:
 except TencentCloudSDKException as err:
     print(err)
 ```
+
+## 常见问题
+<dx-accordion>
+::: 证书问题
+在 Mac 操作系统安装 Python 3.6 或以上版本时，可能会遇到证书错误：`Error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1056).`。
+
+这是因为在 Mac 操作系统下，Python 不再使用系统默认的证书，且本身也不提供证书。在进行 HTTPS 请求时，需要使用`certifi`库提供的证书，但 SDK 不支持指定，所以只能使用`sudo "/Applications/Python 3.6/Install Certificates.command"`命令安装证书才能解决此问题。
+
+虽然 Python 2 版本不应该有上述问题，但在个别用户环境上可能也会存在类似的情况，同样可以通过`sudo /Applications/Python 2.7/Install Certificates.command`解决。
+:::
+::: 代理设置
+如果是有代理的环境下，可通过以下两种方式设置代理：
+
+- 在初始化 HttpProfile 时指定 proxy，参考 [example](https://github.com/TencentCloud/tencentcloud-sdk-python/blob/master/examples/cvm/v20170312/describe_zones.py)。
+- 需要设置系统环境变量`https_proxy`。
+
+否则可能无法正常调用，抛出连接超时的异常。
+:::
+</dx-accordion>
