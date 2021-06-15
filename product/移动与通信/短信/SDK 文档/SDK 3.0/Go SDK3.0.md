@@ -105,11 +105,11 @@ func main() {
     /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台] 查看 */
     request.SignName = common.StringPtr("xxx")
     /* 国际/港澳台短信 SenderId: 国内短信填空，默认未开通，如需开通请联系 [sms helper] */
-    request.SenderId = common.StringPtr("xxx")
+    request.SenderId = common.StringPtr("")
     /* 用户的 session 内容: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */
     request.SessionContext = common.StringPtr("xxx")
     /* 短信码号扩展号: 默认未开通，如需开通请联系 [sms helper] */
-    request.ExtendCode = common.StringPtr("0")
+    request.ExtendCode = common.StringPtr("")
     /* 模板参数: 若无模板参数，则设置为空*/
     request.TemplateParamSet = common.StringPtrs([]string{"0"})
     /* 模板 ID: 必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台] 查看 */
@@ -407,3 +407,32 @@ func main() {
     fmt.Printf("%s", b)
 }
 ```
+
+## 常见问题
+<dx-accordion>
+::: 代理设置
+如有代理的环境下，需要设置系统环境变量 `https_proxy` ，否则可能无法正常调用，抛出连接超时的异常现象。
+:::
+::: 开启\sDNS\s缓存
+当前 GO SDK 总是会去请求 DNS 服务器，而没有使用到 nscd 的缓存，可以通过导出环境变量`GODEBUG=netdns=cgo`，或者`go build`编译时指定参数`-tags 'netcgo'`控制读取 nscd 缓存。
+:::
+::: 忽略服务器证书校验
+虽然使用 SDK 调用公有云服务时，必须校验服务器证书，以识别他人伪装的服务器，确保请求的安全。但某些极端情况下，例如测试时，您可能会需要忽略自签名的服务器证书。以下是其中一种可能的方法：
+
+```
+import "crypto/tls"
+...
+    client, _ := cvm.NewClient(credential, regions.Guangzhou, cpf)
+    tr := &http.Transport{
+        TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+    }
+    client.WithHttpTransport(tr)
+...
+```
+
+>!除非您知道自己在进行何种操作，并明白由此带来的风险，否则不要尝试关闭服务器证书校验。
+:::
+::: import\s导包失败
+例如报错：`imported and not used: "os"`，说明“ os ”这个包并未在代码中使用到，去掉即可。
+:::
+</dx-accordion>
