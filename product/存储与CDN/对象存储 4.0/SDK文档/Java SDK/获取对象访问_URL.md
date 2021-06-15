@@ -52,7 +52,7 @@ String versionId = "xxxyyyzzz111222333";
 System.out.println(cosclient.getObjectUrl(bucketName, key, versionId));
 ```
 
-### 请求示例3: 获取指定域名的访问 URL
+#### 请求示例3: 获取指定域名的访问 URL
 
 ```java
 // getObjectUrl 不需要验证身份信息
