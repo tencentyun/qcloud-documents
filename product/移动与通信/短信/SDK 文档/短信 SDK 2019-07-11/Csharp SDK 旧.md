@@ -95,7 +95,7 @@ namespace TencentCloudExamples
                * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
                 httpProfile.Endpoint = "sms.tencentcloudapi.com";
                 // 代理服务器，当您的环境下有代理服务器时设定
-                httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
+                // httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
 
                 clientProfile.HttpProfile = httpProfile;
                 /* 实例化 SMS 的 client 对象
@@ -200,7 +200,7 @@ namespace TencentCloudExamples
                * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
                 httpProfile.Endpoint = "sms.tencentcloudapi.com";
                 // 代理服务器，当您的环境下有代理服务器时设定
-                httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
+                // httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
 
                 clientProfile.HttpProfile = httpProfile;
                 /* 实例化 SMS 的 client 对象
@@ -225,7 +225,7 @@ namespace TencentCloudExamples
                 /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，可登录 [短信控制台] 查看签名信息 */
                 req.Sign = "xxx";
                 /* 短信码号扩展号: 默认未开通，如需开通请联系 [sms helper] */
-                req.ExtendCode = "x";
+                req.ExtendCode = "";
                 /* 国际/港澳台短信 senderid: 国内短信填空，默认未开通，如需开通请联系 [sms helper] */
                 req.SenderId = "";
                 /* 用户的 session 内容: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */
@@ -311,7 +311,7 @@ namespace TencentCloudExamples
                * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
                 httpProfile.Endpoint = "sms.tencentcloudapi.com";
                 // 代理服务器，当您的环境下有代理服务器时设定
-                httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
+                // httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
 
                 clientProfile.HttpProfile = httpProfile;
                /* 实例化 SMS 的 client 对象
@@ -405,7 +405,7 @@ namespace TencentCloudExamples
                * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
                 httpProfile.Endpoint = "sms.tencentcloudapi.com";
                 // 代理服务器，当您的环境下有代理服务器时设定
-                httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
+                // httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
 
                 clientProfile.HttpProfile = httpProfile;
                 /* 实例化 SMS 的 client 对象
@@ -454,3 +454,22 @@ namespace TencentCloudExamples
     }
 }
 ```
+
+## 常见问题
+<dx-accordion>
+::: 代理设置
+若在代理的环境下使用 SDK 进行接口调用，则需设置系统环境变量`https_proxy`（已在示例代码中体现），否则可能出现无法正常调用、抛出连接超时异常的现象。
+:::
+::: 同步调用与异步调用
+新版本 SDK 中同时提供了异步接口和同步接口，同步接口统一在异步接口之后添加了`Sync`后缀，在上述代码中已有样例。
+
+
+>!在示例中由于是控制台应用程序，因此可以使用同步方式调用异步接口，即`ConfigureAwait(false).GetAwaiter().GetResult()`。在开发 ASP 应用程序，或者 Windows Forms 应用程序时，UI 控件的响应方法中，不能使用同步方式调用异步接口，否则会造成界面停止响应。
+>解决办法：将 UI 控件的响应方法改为异步，同时要注意同步上下文。另外，由于异步调用立即返回控制权给用户，很容易造成用户多次点击，或者用户进行了一些不期望的操作，程序中应注意此类问题。源码可以参考项目中的 WindowsFormsDemo 项目。
+
+源码可以参考：[腾讯云社区专栏文章](https://cloud.tencent.com/developer/article/1395819)
+:::
+::: 依赖版本
+SDK 依赖的 FluentClient 使用的是3.2版本，但这个包目前发布了4.0版本且不兼容低版本，在 nuget 中升级此包到4.0版本会导致无法调用或调用失败等问题。
+:::
+</dx-accordion>
