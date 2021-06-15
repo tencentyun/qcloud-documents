@@ -193,14 +193,13 @@ chmod 640 /etc/passwd-cosfs
 将密钥文件中配置的存储桶挂载到指定目录，可以使用如下命令行：
 
 ```shell
-cosfs <BucketName-APPID> <MountPoint> -ourl=<CosDomainName> -odbglevel=info -oallow_other
+cosfs <BucketName-APPID> <MountPoint> -ourl=cos.<Region>.myqcloud.com -odbglevel=info -oallow_other
 ```
 其中：
 - &lt;MountPoint&gt; 为本地挂载目录（例如`/mnt`）。
-- &lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为`http://cos.<Region>.myqcloud.com` （适用于 XML API，请勿在该参数中携带存储桶名称），其中 &lt;Region&gt; 为地域简称， 例如 ap-guangzhou 、 eu-frankfurt 等。更多地域简称信息，请参见 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
-- -odbglevel 指定日志级别。
+- &lt;Region&gt; 为地域简称， 例如 ap-guangzhou 、 eu-frankfurt 等。更多地域简称信息，请参见 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
+- -odbglevel 指定日志级别，默认为crit，可选值为crit、error、warn、info、debug。
 - -oallow_other 允许非挂载用户访问挂载文件夹。
-
 
 **示例：**
 
