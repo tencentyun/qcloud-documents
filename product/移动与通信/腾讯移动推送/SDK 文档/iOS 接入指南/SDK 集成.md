@@ -7,6 +7,10 @@
 - demo 文件夹：包含样例工程，腾讯移动推送 SDK（仅包含 OC demo，Swift Demo 请前往 [腾讯工蜂](https://git.code.tencent.com/tpns/XG-Demo-Swift) 进行下载）。 
 
 ## SDK 集成
+
+### SDK 合规性说明
+
+请务必按照 iOS 合规指南在《隐私政策》中增加 TPNS 相关说明，并且在用户同意《隐私政策》后再初始化TPNS SDK，避免您的 App 被监管部门通报或下架。
 ### 接入前准备
 1. 接入 SDK 之前，请前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241)。
    ![](https://main.qcloudimg.com/raw/29089bca0d0378db21e2df69930346fe.png)
