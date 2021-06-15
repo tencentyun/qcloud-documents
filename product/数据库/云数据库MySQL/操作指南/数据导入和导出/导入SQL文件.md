@@ -4,7 +4,7 @@
 >?云数据库 MySQL 仅双节点、三节点实例支持导入 SQL 文件功能。
 
 ## 操作步骤
-1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)，在实例列表，单击实例名或“操作”列的【管理】，进入实例管理页面。
+1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)，在实例列表，单击实例 ID 或“操作”列的【管理】，进入实例管理页面。
 2. 在实例管理页面，选择【数据库管理】>【数据库列表】页，单击【数据导入】。
 ![](https://main.qcloudimg.com/raw/b8257c189e66e503f89632fb5dcfc9a4.png)
 3. 在弹出的页面，单击【新增文件】导入文件，上传完成后，单击【下一步】。
