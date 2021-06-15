@@ -13,4 +13,4 @@ DDoS 高防支持智能 AI 防护功能，开启 AI 防护后，DDoS 高防将�
 5. 在“配置 AI 防护”弹窗中，单击开关按钮开启 AI 防护后，单击【确定】。
 ![](https://main.qcloudimg.com/raw/e4ae25644fcaf4b772cccc4a1d60b5f4.png)
 6. 新建完成后， AI 防护列表将新增一条 AI 防护规则，可以在右侧操作列，单击【配置】，可以修改 AI 防护规则。
-![](https://main.qcloudimg.com/raw/8d43182b94bb827cf98a7d63cec7ae65.png)
+![](https://main.qcloudimg.com/raw/a1af33e5f92279f704ef6019e22c7e92.png)
