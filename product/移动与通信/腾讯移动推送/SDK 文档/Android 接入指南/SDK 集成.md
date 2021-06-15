@@ -4,6 +4,10 @@ Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供�
 
 ## SDK 集成（二选一）
 
+### SDK 合规性说明
+
+在您接入 SDK 之前请务必按照 Android 合规指南在《隐私政策》中增加 TPNS 相关说明，避免您的 App 被监管部门通报或下架。
+
 ### AndroidStudio Gradle 自动集成
 
 #### 操作步骤
