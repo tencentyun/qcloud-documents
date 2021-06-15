@@ -1,4 +1,4 @@
-
+## 简介
 
 本文档提供移动推送 TPNS  iOS 应用快速接入指引。使用本地工具无代码集成，一键为您的 iOS 应用配置推送功能。
 
@@ -7,7 +7,7 @@
 
 ## 接入前准备
 
-### 创建iOS平台应用
+### 创建 iOS 平台应用
 
 1. 接入 SDK 之前，需要您前往 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详情请参见 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
    ![](https://main.qcloudimg.com/raw/a6f7bd9a751cde939069d8ef2c3e5e12.png)
