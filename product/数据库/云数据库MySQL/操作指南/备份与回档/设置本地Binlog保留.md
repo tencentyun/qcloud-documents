@@ -13,7 +13,7 @@ binlog 在上传至 COS 前，会暂存于实例磁盘，从而导致磁盘使�
 >每60秒检查一次本地 binlog 日志，如果检查到 binlog 开始时间或占用空间不符合设定的保留规则时，会加入到待删除队列。删除队列中的 binlog 会按照时间排序，从最早的 binlog 开始逐一删除，直至清空待删除队列。
 
 ## 操作步骤
-1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)，在实例列表页，单击实例名，进入实例管理页面。
+1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)，在实例列表页，单击实例 ID，进入实例管理页面。
 2. 在实例管理页面，选择【备份恢复】页，单击【本地Binlog设置】。
 3. 在弹出的对话框，填写需要保留的时长以及空间使用率，确认无误后，单击【确定】。
 ![](https://main.qcloudimg.com/raw/b89530c6ef7975102afd5f3a1072636e.png)
