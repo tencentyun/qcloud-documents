@@ -1,3 +1,20 @@
+## 2021年6月
+
+<table>
+<tr>
+    <th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+</tr>
+    <tr>
+        <td>SDK 1.0.5.0版本发布</td>
+        <td><li> 优化自建通道</li><li>优化数据统计</li><li>修复已知问题</li></td>
+        <td>2021-06-16</td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></td>
+    </tr>
+</table>
+
 ## 2020年4月
 
 <table>
