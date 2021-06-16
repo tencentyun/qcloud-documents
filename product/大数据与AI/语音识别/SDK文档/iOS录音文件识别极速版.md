@@ -19,9 +19,7 @@
 ### 工程配置
 
 在工程` info.plist` 添加以下设置：
-
 1. **设置 NSAppTransportSecurity 策略，添加如下内容：**
-
 ```objective-c
   <key>NSAppTransportSecurity</key>
   <dict>
@@ -41,14 +39,11 @@
 	</dict>
     </dict>
 ```
-
 2. **申请系统麦克风权限，添加如下内容：**
-
 ```objective-c
    <key>NSMicrophoneUsageDescription</key>
    <string>需要使用了的麦克风采集音频</string>
 ```
-
 3. **在工程中添加依赖库，在 build Phases Link Binary With Libraries 中添加以下库：**
    + AVFoundation.framework
    + AudioToolbox.framework
