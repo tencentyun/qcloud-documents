@@ -76,7 +76,7 @@ tar -xzvf coscmd-packages.tar.gz
 pip install coscmd --no-index -f coscmd-packages
 ```
 
-## 初次使用
+## 配置参数
 
 ### 查看 help 选项
 
@@ -144,7 +144,7 @@ optional arguments:
 coscmd upload -h  //查看 upload 命令使用方法
 ```
 
-### 编写配置文件
+### 生成配置文件
 
 COSCMD 工具在运行前会首先从配置文件中读取运行时所需的必要信息，COSCMD 会默认从`~/.cos.conf`中读取配置项。
 
