@@ -182,8 +182,8 @@ lib/TRTCLiveRoom/model/
 
 ![](https://main.qcloudimg.com/raw/70320746e332252cddbb842e280c95a5.png)
 
-[](id:model.step8)
-### 观众与主播连麦上下麦
+[](id:model.step7)
+### 步骤7：观众与主播连麦上下麦
 
 1. 观众端调用 `requestJoinAnchor` 向主播端发起连麦请求。
 2. 主播端会收到 `TRTCLiveRoomDelegate#onRequestJoinAnchor`（即有观众请求与您连麦）的事件通知。
