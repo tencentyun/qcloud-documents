@@ -8,9 +8,7 @@ iOS SDK 接入请观看视频：
 ### 使用须知
 - QCloudSDK 支持 **iOS 9.0** 及以上版本。
 - 录音文件识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
-- 从控制台获取 AppID、SecretID、SecretKey、ProjectId。
-- 运行 Demo 必须设置 AppID、SecretID、SecretKey、ProjectId。
-- 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretID 与 SecretKey。
+- 运行 Demo 必须设置 AppID、SecretID、SecretKey、ProjectId，可在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
 
 ### SDK 导入
 下载并解压 iOS SDK 压缩包，压缩包中包含 Sample Code 和 QCloudSDK。
