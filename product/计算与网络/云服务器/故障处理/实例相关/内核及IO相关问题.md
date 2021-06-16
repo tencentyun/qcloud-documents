@@ -2,20 +2,10 @@
 
 ## 内核问题定位及处理
 
-### 内核 hung_task
-**故障现象**：实例卡顿，无法使用 SSH 或 VNC 登录。
-**可能原因**：磁盘 IO 高或者内核 bug 等导致。
-**处理步骤**：如果实例有频繁的 IO 操作，需评估是否减少 IO 读写或者置换更高性能的硬盘。其他情况则建议 [提交工单](https://console.cloud.tencent.com/workorder/category) 进一步定位及处理。
-
-### 内核 panic
-**故障现象**：实例异常重启。
-**可能原因**：内核 bug 导致的内核 panic 重启。
-**处理步骤**：若频繁出现，则建议 [提交工单](https://console.cloud.tencent.com/workorder/category) 进一步定位及处理。
-
-### 内核软死锁
-**故障现象**：实例卡顿，无法使用 SSH 或 VNC 登录。
+### 内核 hung_task/panic/软死锁
+**故障现象**：内核相关故障，可能导致机器无法登录或异常重启
 **可能原因**：内核 bug 等原因导致。
-**处理步骤**：若频繁出现，则建议 [提交工单](https://console.cloud.tencent.com/workorder/category) 进一步定位及处理。
+**处理步骤**：内核相关问题排查及处理步骤较复杂，建议 [提交工单](https://console.cloud.tencent.com/workorder/category) 进一步定位及处理。
 
 
 ## 硬盘问题定位及处理
