@@ -155,6 +155,62 @@ COS Java SDK 旧版本仅支持例如125开头的 APPID，如果您使用的是 
 
 COS Java SDK 本身不支持计算本地文件的 crc64，需要您在业务侧自行实现，您可以参考 [Java issues](https://github.com/tencentyun/cos-java-sdk-v5/issues/63) 寻求答案。
 
+### Java SDK 校验 COS 返回的 CRC64 是 21 位的怎么和本地计算的 CRC64 对比？
+
+由于 Java 的 Long 只能支持 20 位数字，可以参考以下的对比方案：
+
+```java
+CRC64 localCRC = new CRC64();
+// 计算本地的 crc64
+localCRC.update();
+//...
+
+// 把 COS 返回的 CRC 变成 Long
+cosCRC = crc64ToLong(strCOSCRC);
+
+// 比较
+if (cosCRC == localCRC.getValue()) {
+   xxx
+}
+
+// 用来将 COS 返回的 CRC64 转化成 1 个 Java 里的 Long
+long crc64ToLong(String crc64) {
+   if (crc64.charAt(0) == '-') {
+       return negativeCrc64ToLong(crc64);
+   } else {
+       return positiveCrc64ToLong(crc64);
+   }
+}
+
+long positiveCrc64ToLong(String strCrc64) {
+   BigInteger crc64 = new BigInteger(strCrc64);
+   BigInteger maxLong = new BigInteger(Long.toString(Long.MAX_VALUE));
+
+   int maxCnt = 0;
+
+   while (crc64.compareTo(maxLong) > 0) {
+       crc64 = crc64.subtract(maxLong);
+       maxCnt++;
+   }
+
+   return crc64.longValue() + Long.MAX_VALUE * maxCnt;
+}
+
+long negativeCrc64ToLong(String strCrc64) {
+   BigInteger crc64 = new BigInteger(strCrc64);
+   BigInteger minLong = new BigInteger(Long.toString(Long.MIN_VALUE));
+
+   int minCnt = 0;
+
+   while (crc64.compareTo(minLong) < 0) {
+       crc64 = crc64.subtract(minLong);
+       minCnt++;
+   }
+
+   return crc64.longValue() + Long.MIN_VALUE * minCnt;
+}
+```
+
 ### Java SDK 能否使用长连接?
 
 Java SDK 默认使用长连接。
