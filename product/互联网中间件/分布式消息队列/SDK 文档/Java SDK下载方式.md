@@ -142,7 +142,7 @@ java -version
 </activeProfiles>
 ```
 
-[setting.xml 样例文件下载>>](https://main.qcloudimg.com/raw/0e3c73b64c4ec64ae9b16d1a347db462/settings.xml)（鼠标右键另存为链接）
+[setting.xml 样例文件下载>>](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/tdmq-doc/settings.xml)（鼠标右键另存为链接）
 
 #### 3.2 验证配置是否成功
 
@@ -162,11 +162,13 @@ mvn help:effective-settings
 ## 安装 SDK
 
 1. 在您 Java 工程的 pom.xml 中添加以下依赖：
-``` xml
+
+  ```xml
 <dependency>
-			<groupId>com.tencent.tdmq</groupId>
-			<artifactId>tdmq-client</artifactId>
-			<version>2.6.1</version>
+    <groupid>com.tencent.tdmq</groupid>
+    <artifactid>tdmq-client</artifactid>
+    <version>2.6.1</version>
 </dependency>
-```
+  ```
+
 2. 在 pom.xml 所在目录执行 `mvn clean package` 即可下载 TDMQ SDK。
