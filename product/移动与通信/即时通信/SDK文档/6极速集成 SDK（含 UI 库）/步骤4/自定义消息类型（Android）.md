@@ -3,7 +3,7 @@
 
 
 ## 基本消息类型
-`TUIKit` 基本消息类型请参见 [MessageInfo.java](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/message/MessageInfo.html)。
+`TUIKit` 基本消息类型请参见 [MessageInfo.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/message/MessageInfo.java)。
 <table>
      <tr>
          <th width="20%" style="text-align:center">消息类型</th>  

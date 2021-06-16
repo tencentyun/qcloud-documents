@@ -3,9 +3,8 @@
 - Xcode 10 及以上
 - iOS 8.0 及以上
 >?更多实操教学视频请参见：[极速集成 TUIKit（iOS）](https://cloud.tencent.com/edu/learning/course-3130-56699)。
+
 ## 集成说明
-
-
 ### CocoaPods 集成（推荐）
 
 TUIKit 支持 CocoaPods 方式和手动集成两种方式。我们推荐使用 CocoaPods 方式集成，以便随时更新至最新版本。

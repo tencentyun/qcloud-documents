@@ -10,7 +10,7 @@
 >- 目前仅 MongoDB 3.2 版本实例支持物理备份。
 
 ## 自动备份
-1. 登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)，在实例列表，单击实例名，进入实例管理页面。
+1. 登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)，在实例列表，单击实例 ID，进入实例管理页面。
 2. 在实例管理页面，选择【备份与回档】>【自动备份设置】页，单击【编辑】。
 3. 选择备份参数，单击【保存】。参数说明如下：
 <table>
@@ -28,7 +28,7 @@
 </tbody></table>
 
 ## 手动备份
-1. 登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)，在实例列表，单击实例名，进入实例管理页面。
+1. 登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)，在实例列表，单击实例 ID，进入实例管理页面。
 2. 在实例管理页面的右上角，单击【手动备份】。
 3. 在弹出的对话框，添加备注信息，单击【确定】。
 
