@@ -20,7 +20,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 | ----------------------------------------------- | ------------------------ |
 | [sharedInstance](#sharedinstance)               | 获取单例对象。           |
 | [destroySharedInstance](#destroysharedinstance) | 销毁单例对象。           |
-| [registerListener](#registerListener)           | 设置事件回调。           |
+| [registerListener](#registerlistener)           | 设置事件回调。           |
 | [unRegisterListener](#unregisterlistener)       | 设置事件回调所在的线程。 |
 | [login](#login)                                 | 登录。                   |
 | [logout](#logout)                               | 登出。                   |
@@ -150,7 +150,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 ### sharedInstance
 
-获取 [TRTCLiveRoom](https://cloud.tencent.com/document/product/647/43182) 单例对象。
+获取 [TRTCLiveRoom](https://cloud.tencent.com/document/product/647/57388) 单例对象。
 
 ```java
  static Future<TRTCLiveRoom> sharedInstance()
@@ -158,7 +158,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 ### destroySharedInstance
 
-销毁 [TRTCLiveRoom](https://cloud.tencent.com/document/product/647/43182) 单例对象。
+销毁 [TRTCLiveRoom](https://cloud.tencent.com/document/product/647/57388) 单例对象。
 
 >?销毁实例后，外部缓存的 TRTCLiveRoom 实例无法再使用，需要重新调用 [sharedInstance](#sharedinstance) 获取新实例。
 
@@ -168,7 +168,7 @@ static void destroySharedInstance()
 
 ### registerListener
 
-[TRTCLiveRoom](https://cloud.tencent.com/document/product/647/43182) 事件回调，您可以通过 TRTCLiveRoomDelegate 获得 [TRTCLiveRoom](https://cloud.tencent.com/document/product/647/43182) 的各种状态通知。
+[TRTCLiveRoom](https://cloud.tencent.com/document/product/647/57388) 事件回调，您可以通过 TRTCLiveRoomDelegate 获得 [TRTCLiveRoom](https://cloud.tencent.com/document/product/647/57388) 的各种状态通知。
 
 ```java
 void registerListener(VoiceListenerFunc func);
@@ -402,8 +402,8 @@ Future<void> startPlay(String userId, int viewId);
 | viewId | int    | 视频view的回调id。 |
 
 - **普通观看场景：**
-	- 若直播间列表已包含主播端的 userId 信息，观众端可以直接在 `enterRoom()` 成功后调用 `startPlay(userId)` 播放主播的画面。
-	- 若在进房前暂未获取主播的 userId，观众端在进房后会收到 `TRTCLiveRoomDelegate` 中的 `onAnchorEnter(userId)` 的事件回调，该回调中携带主播的 userId 信息，再调用 `startPlay(userId)` 即可播放主播的画面。
+    - 若直播间列表已包含主播端的 userId 信息，观众端可以直接在 `enterRoom()` 成功后调用 `startPlay(userId)` 播放主播的画面。
+    - 若在进房前暂未获取主播的 userId，观众端在进房后会收到 `TRTCLiveRoomDelegate` 中的 `onAnchorEnter(userId)` 的事件回调，该回调中携带主播的 userId 信息，再调用 `startPlay(userId)` 即可播放主播的画面。
 
 - **直播连麦场景：**
 发起连麦后，主播会收到来自 `TRTCLiveRoomDelegate` 中的 `onAnchorEnter(userId)` 回调，此时使用回调中的 userId 调用 `startPlay(userId)` 即可播放连麦画面。
@@ -743,8 +743,8 @@ Future<ActionCallback> sendRoomCustomMsg(String cmd, String message);
 | 参数       | 类型   | 含义            |
 | ---------- | ------ | --------------- |
 | userId     | String | 新进房主播 ID。 |
-| userName   | String | 用户昵称        |
-| userAvatar | String | 用户头像地址    |
+| userName   | String | 用户昵称。        |
+| userAvatar | String | 用户头像地址。    |
 
 ### onAnchorExit
 
