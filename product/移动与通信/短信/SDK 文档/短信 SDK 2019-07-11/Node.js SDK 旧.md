@@ -318,3 +318,10 @@ client.SendStatusStatistics(params, function (err, response) {
   console.log(response)
 })
 ```
+
+## 常见问题
+<dx-accordion>
+::: 代理设置
+如有代理的环境下，需要设置系统环境变量 `https_proxy` ，否则可能无法正常调用，抛出连接超时的异常现象。
+:::
+</dx-accordion>
