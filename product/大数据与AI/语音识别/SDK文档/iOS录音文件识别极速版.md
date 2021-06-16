@@ -1,8 +1,11 @@
 ## 开发准备  
+
 ### SDK 获取
+
 录音文件识别的 iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_IOS_v2.6.0.zip )。
 
 ### 使用须知
+
 - QCloudSDK 支持 **iOS 9.0** 及以上版本。
 - 录音文件识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
 - 从控制台获取 AppID、SecretID、SecretKey、ProjectId。
@@ -10,11 +13,15 @@
 - 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretID 与 SecretKey。
 
 ### SDK 导入
+
 下载并解压 iOS SDK 压缩包，压缩包中包含 Sample Code 和 QCloudSDK。
 
 ### 工程配置
+
 在工程` info.plist` 添加以下设置：
+
 1. **设置 NSAppTransportSecurity 策略，添加如下内容：**
+
 ```objective-c
   <key>NSAppTransportSecurity</key>
   <dict>
@@ -34,11 +41,14 @@
 	</dict>
     </dict>
 ```
+
 2. **申请系统麦克风权限，添加如下内容：**
+
 ```objective-c
    <key>NSMicrophoneUsageDescription</key>
    <string>需要使用了的麦克风采集音频</string>
 ```
+
 3. **在工程中添加依赖库，在 build Phases Link Binary With Libraries 中添加以下库：**
    + AVFoundation.framework
    + AudioToolbox.framework
@@ -50,25 +60,28 @@
 ![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
 
 ### 类说明
+
 #### QCloudFlashFileRecognizer 初始化说明
-QCloudFlashFileRecognizer 是录音文件极速版入口类
+
+**QCloudFlashFileRecognizer** 是录音文件极速版入口类
+
 ```objective-c
 /**
- * 通过 appId secretId secretKey 初始化
- * @param appid     腾讯云 appId
- * @param secretId  腾讯云 secretId
- * @param secretKey 腾讯云 secretKey
- */
+  通过 appId secretId secretKey 初始化
+  @param appid     腾讯云 appId
+  @param secretId  腾讯云 secretId
+  @param secretKey 腾讯云 secretKey
+ **/
 - (instancetype)initWithAppId:(NSString *)appid secretId:(NSString *)secretId secretKey:(NSString *)secretKey;
 
 /** 
- * 通过 appId 临时secretId 临时secretKey token 初始化 
- * 详见 https://cloud.tencent.com/document/product/598/33416
- * @param appid     腾讯云 appId
- * @param secretId  腾讯云 临时secretId
- * @param secretKey 腾讯云 临时secretKey
- * @param token 腾讯云 token
- */
+  通过 appId 临时secretId 临时secretKey token 初始化 
+  详见 https://cloud.tencent.com/document/product/598/33416
+  @param appid     腾讯云 appId
+  @param secretId  腾讯云 临时secretId
+  @param secretKey 腾讯云 临时secretKey
+  @param token 腾讯云 token
+ **/
 - (instancetype)initWithAppId:(NSString *)appid secretId:(NSString *)secretId secretKey:(NSString *)secretKey token:(NSString *)token;
 ```
 
@@ -101,17 +114,20 @@ QCloudFlashFileRecognizer 是录音文件极速版入口类
 ```
 
 ## 示例
+
 ### 1. 创建 QCloudFlashFileRecognizer 实例 
+
 ```objective-c
   QCloudFlashFileRecognizer *recognizer = [[QCloudFlashFileRecognizer alloc] initWithAppId:appId 
-  								        secretId:secretId 
-								       secretKey:secretKey];
+  								        secretId:secretId secretKey:secretKey];
   //设置 delegate，相关回调方法见 QCloudFlashFileRecognizerDelegate 定义
  recognizer.delegate = self;
 ```
 
 ### 2. 实现此 [QCloudFlashFileRecognizerDelegate](#QCloudFlashFileRecognizerDelegate) 协议方法
+
 ### 3. 调用方式示例
+
 ```objective-c
  (void)recognizeWithAudioData {
     QCloudFlashFileRecognizeParams *params = [QCloudFlashFileRecognizeParams defaultRequestParams];
@@ -135,4 +151,3 @@ QCloudFlashFileRecognizer 是录音文件极速版入口类
     [_recognizer recognize:params];
 }
 ```
-
