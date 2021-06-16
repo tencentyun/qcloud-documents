@@ -142,7 +142,9 @@ java -version
 </activeProfiles>
 ```
 
-[setting.xml 样例文件下载>>](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/tdmq-doc/settings.xml)（鼠标右键另存为链接）
+[setting.xml 样例文件下载 >>](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/tdmq-doc/settings.xml)（鼠标右键另存为链接）
+
+
 
 #### 3.2 验证配置是否成功
 
@@ -165,9 +167,9 @@ mvn help:effective-settings
 
   ```xml
 <dependency>
-    <groupid>com.tencent.tdmq</groupid>
-    <artifactid>tdmq-client</artifactid>
-    <version>2.6.1</version>
+					<groupid>com.tencent.tdmq</groupid>
+					<artifactid>tdmq-client</artifactid>
+					<version>2.6.1</version>
 </dependency>
   ```
 
