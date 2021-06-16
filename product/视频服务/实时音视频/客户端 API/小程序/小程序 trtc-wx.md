@@ -319,7 +319,7 @@ this.getPlayerInstance().stop() // 停止这个player的播放
 
 ## 更多高级特性
 
-&lt;live-pusher&gt; 和 &lt;live-player&gt; 不仅仅具有原生标签所通用的标签属性，还具有相应 context 的能力，在每个标签 context 中都会有很多的 SDK 开放能力提供，trtc-wx 已经为您创建了相关的 context 对象，您只需要获取相应的 Instance 实例，就可以调用这些方法，参数的传递也是兼容微信原生方法的。
+&lt;live-pusher&gt; 和 &lt;live-player&gt; 不仅具有原生标签所通用的标签属性，还具有相应 context 的能力，在每个标签 context 中都会有很多的 SDK 开放能力提供，trtc-wx 已经为您创建了相关的 context 对象，您只需要获取相应的 Instance 实例，就可以调用这些方法，参数的传递也是兼容微信原生方法的。
 
 [](id:pusherInstance)
 ### pusherInstance
@@ -543,7 +543,7 @@ this.TRTC.on(EVENT.REMOTE_AUDIO_REMOVE, onRemoteAudioRemove)
 [](id:REMOTE_STATE_UPDATE)
 ### REMOTE_STATE_UPDATE
 
-远端的用户有音频上行移除。
+远端用户播放状态变更通知。
 
 ```javascript
 let onRemoteStateUpdate = function(event){
@@ -551,7 +551,7 @@ let onRemoteStateUpdate = function(event){
   const id = event.currentTarget.dataset.streamid
   const data = event.data // 这里是微信原生组件抛出的关于player的信息，若有需要您可以自主获取
 }
-this.TRTC.on(EVENT.REMOTE_AUDIO_REMOVE, onRemoteStateUpdate)
+this.TRTC.on(EVENT.REMOTE_STATE_UPDATE, onRemoteStateUpdate)
 ```
 
 [](id:LOCAL_NET_STATE_UPDATE)

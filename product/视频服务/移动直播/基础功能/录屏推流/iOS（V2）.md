@@ -1,6 +1,6 @@
 ## 概述
 
-录屏功能是 iOS 10 新推出的特性，苹果在 iOS 9 的 ReplayKit 保存录屏视频的基础上，增加了视频流实时直播功能，官方介绍见 [Go Live with ReplayKit](http://devstreaming.apple.com/videos/wwdc/2016/601nsio90cd7ylwimk9/601/601_go_live_with_replaykit.pdf)。iOS 11 增强为 [ReplayKit2](https://developer.apple.com/videos/play/wwdc2017/606/)，进一步提升了 Replaykit 的易用性和通用性，并且可以对整个手机实现屏幕录制，并非只是支持 ReplayKit 功能，因此录屏推流建议直接使用 iOS 11 的 ReplayKit2 屏幕录制方式。系统录屏采用的是扩展方式，扩展程序有单独的进程，iOS 系统为了保证系统流畅，给扩展程序的资源相对较少，扩展程序内存占用过大也会被 Kill 掉。腾讯云 LiteAV SDK 在原有直播的高质量、低延迟的基础上，进一步降低系统消耗，保证了扩展程序稳定。
+录屏功能是 iOS 10 新推出的特性，苹果在 iOS 9 的 ReplayKit 保存录屏视频的基础上，增加了视频流实时直播功能，官方介绍见 [Go Live with ReplayKit](https://developer.apple.com/videos/play/wwdc2016/601/)。iOS 11 增强为 [ReplayKit2](https://developer.apple.com/videos/play/wwdc2017/606/)，进一步提升了 Replaykit 的易用性和通用性，并且可以对整个手机实现屏幕录制，并非只是支持 ReplayKit 功能，因此录屏推流建议直接使用 iOS 11 的 ReplayKit2 屏幕录制方式。系统录屏采用的是扩展方式，扩展程序有单独的进程，iOS 系统为了保证系统流畅，给扩展程序的资源相对较少，扩展程序内存占用过大也会被 Kill 掉。腾讯云 LiteAV SDK 在原有直播的高质量、低延迟的基础上，进一步降低系统消耗，保证了扩展程序稳定。
 
 >!本文主要介绍 iOS 11 的 ReplayKit2 录屏使用 SDK 推流的方法，涉及 SDK 的使用介绍同样适用于其它方式的自定义推流。更详细的使用可参考 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) 里 ReplaykitUpload 文件夹的示例代码。
 
@@ -30,7 +30,7 @@ Xcode 9 及以上的版本，手机也必须升级至 iOS 11 以上，否则模�
 配置好 Product Name。单击【Finish】后可以看到，工程多了所输 Product Name 的目录，目录下有个系统自动生成的 SampleHandler 类，这个类负责录屏的相关处理。
 
 ### 导入 LiteAV SDK
-直播扩展需要导入 TXLiteAVSDK.framework。扩展导入 framework 的方式和主 App 导入方式相同，SDK 的系统依赖库也没有区别。具体请参见腾讯云官网 [工程配置（iOS）](https://cloud.tencent.com/document/product/454/56588?!preview&!editLang=zh)。
+直播扩展需要导入 TXLiteAVSDK.framework。扩展导入 framework 的方式和主 App 导入方式相同，SDK 的系统依赖库也没有区别。具体请参见腾讯云官网 [工程配置（iOS）](https://cloud.tencent.com/document/product/454/56588)。
 
 
 ## 对接流程
@@ -270,7 +270,7 @@ static void onDarwinReplayKit2PushStart(CFNotificationCenterRef center,
 </dx-codeblock>
 
 ## 常见问题
-ReplayKit2 屏幕录制在 iOS 11 新推出功能，比较少官方文档并且存在着一些问题每个版本的系统都在不断修复完善中。以下是一些使用中的常见现象或问题：
+ReplayKit2 屏幕录制在 iOS 11 新推出功能，相关的官方文档比较少，且存在着一些问题，使得每个版本的系统都在不断修复完善中。以下是一些使用中的常见现象或问题：
 
 1. **屏幕录制何时自动会停止？**
 系统在锁屏或有电话打入时，会自动停止屏幕录制，此时 SampleHandler 里的 broadcastFinished 函数会被调用，可在此函数发通知提示用户。
@@ -279,4 +279,4 @@ ReplayKit2 屏幕录制在 iOS 11 新推出功能，比较少官方文档并且�
 通常是因为设置的推流分辨率过高时在做横竖屏切换过程中容易出现。ReplayKit2 的直播扩展目前是有50M的内存使用限制，超过此限制系统会直接杀死扩展进程，因此 ReplayKit2 上建议推流分辨率不高于720P。
 
 3. **iPhoneX 手机的兼容性与画面变形问题？**
-iPhoneX 手机因为有刘海，屏幕采集的画面分辨率不是 9:16，如果设了推流输出分辨率为 9:16 的比例如高清里是为 960 × 540 的分辨率，这时因为源分辨率不是 9:16 的，推出去的画面就会稍有变形。建议设置分辨率时根据屏幕分辨率比例来设置，拉流端用 AspectFit 显示模式 iPhoneX 的屏幕采集推流会有黑边是正常现象，AspectFill 看画面会不全。
+iPhoneX 手机因为有刘海，屏幕采集的画面分辨率不是 9:16。如果设了推流输出分辨率为 9:16 的比例，如高清里是为 960 × 540 的分辨率，这时因为源分辨率不是 9:16 的，推出去的画面就会稍有变形。建议设置分辨率时根据屏幕分辨率比例来设置，拉流端用 AspectFit 显示模式 iPhoneX 的屏幕采集推流会有黑边是正常现象，AspectFill 看画面会不全。

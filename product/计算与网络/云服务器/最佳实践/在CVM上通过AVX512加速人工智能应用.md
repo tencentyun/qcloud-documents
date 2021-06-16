@@ -1,5 +1,6 @@
 ## 操作场景
-腾讯云第五代次实例 S5、M5、C4、IT5、D3 全面采用第二代智能英特尔<sup>®</sup>至强<sup>®</sup>可扩展处理器 Cascade Lake，搭配 Intel Advanced Vector Extension (AVX-512) 指令集，提供高性能深度学习能力。本文以 S5、M5 实例为例，介绍如何在 CVM 上通过 AVX512 加速人工智能应用。
+腾讯云第五代次实例 S5、M5、C4、IT5、D3 全面采用第二代智能英特尔<sup>®</sup>至强<sup>®</sup>可扩展处理器 Cascade Lake，基于英特尔<sup>®</sup> DL Boost 为推理应用程序提供了显着的性能提升，将深度学习推理的理论峰值加速提高4倍。引入的 AVX-512 指令集促进了数据并行性的提高，为 AI 和深度学习应用程序提供了5.7倍的性能。
+本文以 S5、M5 实例为例，介绍如何在 CVM 上通过 AVX512 加速人工智能应用。
 
 ## 选型推荐[](id:RecommendedSelection)
 云服务器的多种实例规格可用于多种应用开发，其中 [标准型 S5](https://cloud.tencent.com/document/product/213/11518#S5) 及 [内存型 M5](https://cloud.tencent.com/document/product/213/11518#M5) 适用于机器学习或深度学习。这些实例配备了第二代 Intel<sup>®</sup> Xeon<sup>®</sup> 处理器，适配 Intel<sup>®</sup> DL boost 学习能力。推荐配置如下表：
@@ -52,20 +53,24 @@ TensorFlow\* 是用于大规模机器学习及深度学习的热门框架之一�
 ```
 pip install intel-tensorflow
 ```
-3. 执行以下命令，获取系统的物理核个数。
+
+#### 设置运行时优化参数
+选择运行时参数优化方式。通常会使用以下两种运行接口，从而采取不同的优化设置。您可结合实际需求选择，更多参数优化配置说明请参见 [General Best Practices for Intel<sup>®</sup> Optimization for TensorFlow](https://github.com/IntelAI/models/blob/master/docs/general/tensorflow/GeneralBestPractices.md)。
+ - **Batch inference**：设置 BatchSize >1，并测量每秒可以处理的输入张量总数。通常情况下，Batch Inference 方式可以通过使用同一个 CPU socket 上的所有物理核心来实现最佳性能。
+ - **On-line Inference**（也称为实时推断）：设置 BS = 1，并测量处理单个输入张量（即一批大小为1）所需时间的度量。在实时推理方案中，可以通过多实例并发运行来获取最佳的 throughput。
+
+操作步骤如下：
+1. 执行以下命令，获取系统的物理核个数。
 ```
 lscpu | grep "Core(s) per socket" | cut -d':' -f2 | xargs
 ```
-4. 选择运行时参数优化方式。通常会使用以下两种运行接口，从而采取不同的优化设置。您可结合实际需求选择，更多参数优化配置说明请参见 [General Best Practices for Intel<sup>®</sup> Optimization for TensorFlow](https://github.com/IntelAI/models/blob/master/docs/general/tensorflow/GeneralBestPractices.md)。
- - **Batch inference**：设置 BatchSize >1，并测量每秒可以处理的输入张量总数。通常情况下，Batch Inference 方式可以通过使用同一个 CPU socket 上的所有物理核心来实现最佳性能。
- - **On-line Inference**（也称为实时推断）：设置 BS = 1，并测量处理单个输入张量（即一批大小为1）所需时间的度量。在实时推理方案中，可以通过多实例并发运行来获取最佳的 throughput。
-5. 设置优化参数，可通过以下方式优化运行参数：
+2. 设置优化参数，可通过以下方式优化运行参数：
  - 设置环境运行参数。在环境变量文件中，添加以下配置：
 ``` 
 export OMP_NUM_THREADS=physicalcores
 export KMP_AFFINITY="granularity=fine,verbose,compact,1,0"
 export KMP_BLOCKTIME=1
-exportKMP_SETTINGS=1
+export KMP_SETTINGS=1
 ```
  - 在代码中增加环境变化设置。在运行的 Python 代码中，加入以下环境变化配置：
 ```
@@ -99,7 +104,8 @@ https://download.pytorch.org/whl/torch_stable.html
 ```
 
 #### 运行 PyTorch* 深度学习模型的推理及训练优化建议
-- 运行 CNN 类型的模型推理，建议使用 `to_mkldnn()` 进行加速。示例代码如下：
+
+- 运行 CNN 类型的模型推理时，可在 PyTorch 上使用 intel mkl 加速库来获取性能提升。示例代码如下：
 ```
 from torch.utils import mkldnn
 ...
@@ -107,8 +113,8 @@ net = mkldnn.to_mkldnn(net)
 ...
 output = net(data.to_mkldnn())
 ```
-- 推理及训练都可使用 jemalloc 来进行性能优化，详情请参见 [jemalloc](https://github.com/jemalloc/jemalloc/wiki) 及 [示例代码](https://github.com/mingfeima/op_bench-py/blob/master/run.sh)。
-- 多 socket 的分布式训练示例，详情请参见 [示例代码](https://github.com/mingfeima/pssp/blob/master/pssp-transformer/dist_train_cpu.sh)。
+- 推理及训练都可使用 jemalloc 来进行性能优化。jemalloc 是一个通用的 `malloc(3)` 实现，强调避免碎片化和可扩展的并发支持，旨在为系统提供的内存分配器。jemalloc 提供了许多超出标准分配器功能的内省、内存管理和调整功能。详情请参见 [jemalloc](https://github.com/jemalloc/jemalloc/wiki) 及 [示例代码](https://github.com/mingfeima/op_bench-py/blob/master/run.sh)。
+- 关于多 socket 的分布式训练，详情请参见 [PSSP-Transformer 的分布式 CPU 训练脚本](https://github.com/mingfeima/pssp/blob/master/pssp-transformer/dist_train_cpu.sh)。
 :::
 ::: 示例3：使用\sIntel<sup>®</sup>AI\s量化工具加速
 #### 支持版本

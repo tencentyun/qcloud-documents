@@ -32,5 +32,5 @@ TDMQ 2.7.1及以上版本的集群已支持 Pulsar 社区版 Python SDK。本文
 :::
 </dx-codeblock>
 
-关于 Pulsar 社区版 Python SDK 各种功能的使用方式，请参考 [Pulsar官方文档](http://pulsar.apache.org/docs/en/client-libraries-go/)。
+关于 Pulsar 社区版 Python SDK 各种功能的使用方式，请参考 [Pulsar官方文档](http://pulsar.apache.org/docs/zh-CN/client-libraries-python/)。
 

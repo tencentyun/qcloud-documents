@@ -82,24 +82,11 @@ GPU 云服务器支持部分 Linux 公共镜像通过后台自动安装 GPU 驱�
         </thead>
         <tbody>
             <tr>
-                <td rowspan="5">418.126.02</td>
-                <td>10.1.105</td> 
-                <td>7.5.0</td>
-                <td rowspan="2">CentOS 7.x<br>Ubuntu 18.04及以上</td>
-                <td rowspan="4">GN10Xp<br>GN10X<br>GN8<br>GN7<br>GN6S</td>
-            </tr>
-            <tr>
-                <td>10.0.130</td> 
-                <td>7.5.0<br>7.4.2<br>7.3.1</td>
-            </tr>
-            <tr>
-                <td>9.2.148</td> 
-                <td>7.5.0<br>7.4.2<br>7.3.1<br>7.1.4</td>
-                <td rowspan="2">CentOS 7.x<br</td>
-            </tr>
-            <tr>
-                <td>9.0.176</td> 
-                <td>7.5.0<br>7.4.2<br>7.3.1<br>7.1.4<br>7.0.5</td>
+                <td >450.102.04</td>
+                <td>11.0.3</td>
+                <td>8.1.0<br>8.0.5</td> 
+                <td>CentOS 7.x<br>Ubuntu 18.04及以上</td>
+                <td>GT4<br>GN10Xp<br>GN10X<br>GN8<br>GN7<br>GN6S</td>
             </tr>
         </tbody>
 </table>

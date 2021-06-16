@@ -20,8 +20,8 @@
     >- 如该域名未添加过 DNSSEC 记录，添加记录时，参数信息请您至**域名解析商**处获取。
     >- 如您的域名在 [DNSPod 控制台](https://console.dnspod.cn/dns) 进行解析，参数信息您可以通过 [域名系统安全扩展（DNSSEC）配置指南（DNSPod）](https://docs.dnspod.cn/p/7c0da849-3160-493c-bd52-b31da391aebc/) 获取。
     >
-    ![](https://main.qcloudimg.com/raw/835a0e9bbc97601287f6613c75d56c45.png)
-		- **关键标签**：用于标识域名的 DNSSEC 记录，请填写小于 65536 的整数值。
+		![](https://main.qcloudimg.com/raw/512da6a34aadf279605f931bbb66b4ef.png)
+		- **关键标签**：用于标识域名的 DNSSEC 记录，请填写小于65536的整数值。
 		- **加密算法**：选择生成签名的加密算法。
 		- **摘要类型**：选择构建摘要的算法类型。
 		- **摘要**：填写从域名解析商处获取到的摘要内容。

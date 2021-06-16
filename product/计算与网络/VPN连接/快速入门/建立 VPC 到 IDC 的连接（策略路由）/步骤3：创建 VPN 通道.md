@@ -6,7 +6,7 @@
 3. 选择对应的地域和私有网络，如示例中的**广州**和`TomVPC`，单击【+新建】。
  ![](https://main.qcloudimg.com/raw/736f88fd2bbf5e75033d77fcf372586f.png)
 4. 输入通道名称（如：TomVPNConn），选择 VPN 网关`TomVPNGw`与对端网关`TomVPNUserGw`，并输入预共享密钥（如：`123456`），单击【下一步】。
-![](https://main.qcloudimg.com/raw/0cb99e940e537500f4c3c8ca16cb535c.png)
+![](https://main.qcloudimg.com/raw/a327c4ee48f770c78e5d7e2f25e1f6cd.png)
 5. 输入 SPD 策略来限制本端哪些网段和对端哪些网段通信，在本例中本端网段即为子网 A 的网段`192.168.1.0/24`，对端网段为`10.0.1.0/24`，单击【下一步】。
 ![](https://main.qcloudimg.com/raw/0e9c6f49beb02c8db1b8dc2f0456431b.png)
 6. （可选）配置 IKE 参数，如果不需要高级配置，可直接单击【下一步】。

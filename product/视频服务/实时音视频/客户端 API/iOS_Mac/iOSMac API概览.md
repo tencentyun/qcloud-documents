@@ -68,7 +68,7 @@
 
 | API | 描述 |
 |-----|-----|
-| [startLocalAudio](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a3177329bc84e94727a1be97563800beb) | 开启本地音频的采集和上行。 |
+| [startLocalAudio](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#acd85c726c425eda7cac82cba0f83a465) | 开启本地音频的采集和上行。 |
 | [stopLocalAudio](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#ab78601c38f1b872b03b662e6856be84c) | 关闭本地音频的采集和上行。 |
 | [muteLocalAudio](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a4ada386a75d8042a432da05fde5552d9) | 静音/取消静音本地的音频。 |
 | [muteRemoteAudio](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#afede3cc79a8d68994857b410fb5572d2) | 静音/取消静音指定的远端用户的声音。 |

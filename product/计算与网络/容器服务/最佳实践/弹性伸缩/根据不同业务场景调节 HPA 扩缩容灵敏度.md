@@ -49,8 +49,9 @@ spec:
     behavior: # 重要
       scaleUp:
         policies:
-        - type: percent
-          value: 900%
+        - type: Percent
+          value: 900
+          periodSeconds: 15
 ```
 
 示例表示扩容时立即新增当前9倍数量的副本数，即立即扩容到当前10倍的 Pod 数量，最大不超过 `maxReplicas` 的限制。

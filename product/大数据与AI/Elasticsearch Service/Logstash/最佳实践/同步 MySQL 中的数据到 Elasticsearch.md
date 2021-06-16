@@ -100,6 +100,8 @@ input {
     statement => "select * from newTable0 where id > :sql_last_value"
     use_column_value => true
     tracking_column => "id"
+    schedule => "* * * * *"
+    last_run_metadata_path => "/usr/local/service/logstash/temp/jdbc-sql_last_value.yml"
     type => "jdbc"
   }
 }

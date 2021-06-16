@@ -1,4 +1,5 @@
-如果您的项目已经导入了 TUIKit，群直播入口默认已经集成，群直播效果如下：
+﻿TUIKit 组件在 5.0.10 以上版本开始支持群直播功能，并且支持 iOS 和 Android 平台的互通 ，群直播的实现需要额外集成 [TUIKitLive 组件](#step2) ，群直播界面请参考下图所示：
+
 <table>
 <tr><td  style="border-color:white">
 <video width="320" height="640" src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/video/startGroupLive.mp4" controls  muted></video>
@@ -21,14 +22,33 @@
 >?系统将为您在 [实时音视频控制台](https://console.cloud.tencent.com/trtc) 创建一个与当前 IM 应用相同 SDKAppID 的实时音视频应用，二者帐号与鉴权可复用。
 
 [](id:step2)
-## 步骤2：初始化 TUIKit 
+## 步骤2：集成 TUIKitLive 组件
+
+1. 在 podfile 文件中添加以下内容。
+ ```
+pod 'TXIMSDK_TUIKit_live_iOS'                 // 默认集成了 TXLiteAVSDK_TRTC 音视频库
+// pod 'TXIMSDK_TUIKit_live_iOS_Professional' // 默认集成了 TXLiteAVSDK_Professional 音视频库
+```
+腾讯云的 [音视频库](https://cloud.tencent.com/document/product/647/32689) 不能同时集成，会有符号冲突，如果您使用了非 [TRTC](https://cloud.tencent.com/document/product/647/32689#TRTC) 版本的音视频库，建议先去掉，然后 pod 集成 `TXIMSDK_TUIKit_iOS_Professional` 版本，该版本依赖的 [LiteAV_Professional](https://cloud.tencent.com/document/product/647/32689#.E4.B8.93.E4.B8.9A.E7.89.88.EF.BC.88professional.EF.BC.89) 音视频库包含了音视频的所有基础能力。
+
+2. 执行以下命令，下载第三方库至当前工程。
+```
+pod install
+```
+ 如果无法安装 TUIKit 最新版本，执行以下命令更新本地的 CocoaPods 仓库列表。
+```
+ pod repo update
+```
+
+[](id:step3)
+## 步骤3：初始化 TUIKit 
 初始化 TUIKit 需要传入 [步骤1](#Step1) 生成的 SDKAppID（如果您的项目已经集成了 TUIKit，请跳过此步骤）。
 ```
 [[TUIKit sharedInstance] setupWithAppId:SDKAppID];
 ```
 
-[](id:step3)
-## 步骤3：登录 TUIKit
+[](id:step4)
+## 步骤4：登录 TUIKit
 如果未登录 IM，需要先通过 TUIKit 提供的 `login` 接口登录，其中 UserSig 生成的具体操作请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)（如果已经集成了 TUIKit，请跳过此步骤）。
 
 ```
@@ -39,11 +59,11 @@
 }];
 ```
 
-[](id:step4)
-## 步骤4：打开/关闭群直播
-TUIKitLive 中已经默认打开了群直播，如果您不需要集成群直播，可在通过 TUIKit 配置关闭群直播入口即可，代码如下：
+[](id:step5)
+## 步骤5：打开/关闭群直播
+TUIKitLive 中已经默认打开了群直播，如果您不需要开启群直播，可在通过 ``TUIKitLive.h`` 中的 ``enableGroupLiveEntry`` 属性变量关闭群直播入口，代码如下：
 
 ```
-// enableGroupLiveEntry	true：开启；false：关闭	默认：true
-[TUIKit sharedInstance].config.enableGroupLiveEntry = YES;
+// enableGroupLiveEntry	YES：开启；NO：关闭	默认：YES
+[TUIKitLive shareInstance].enableGroupLiveEntry = YES;
 ```

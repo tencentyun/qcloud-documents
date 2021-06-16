@@ -100,6 +100,6 @@ model.videoId.pSign = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTQwMDMy
 ## 更多功能
 
 完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
-<img src="https://main.qcloudimg.com/raw/ee8557feb41a36d90e2b2f454b39e29a.png" width="150">
+<img src="https://main.qcloudimg.com/raw/12c7da97cc910eda673cb19b66fc7cb3.png" width="150">
 
 

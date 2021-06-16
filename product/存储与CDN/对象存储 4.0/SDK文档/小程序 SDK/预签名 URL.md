@@ -21,9 +21,10 @@ COS.getAuthorization 方法用于计算鉴权凭证（Authorization），用以�
 
 [//]: # (.cssg-snippet-get-authorization)
 ```js
+// SECRETID 和 SECRETKEY请登录 https://console.cloud.tencent.com/cam/capi 进行查看和管理
 var Authorization = COS.getAuthorization({
-    SecretId: 'COS_SECRETID',
-    SecretKey: 'COS_SECRETKEY',
+    SecretId: 'SECRETID',
+    SecretKey: 'SECRETKEY',
     Method: 'get',
     Key: 'picture.jpg',
     Expires: 60,
