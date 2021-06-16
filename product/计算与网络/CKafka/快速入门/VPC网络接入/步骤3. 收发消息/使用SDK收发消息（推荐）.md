@@ -16,7 +16,7 @@
 
 在 pom.xml 中添加以下依赖。
 
-```java
+```xml
 <dependency>
     <groupId>org.apache.kafka</groupId>
     <artifactId>kafka-clients</artifactId>
@@ -43,9 +43,9 @@ group.id=XXX
 | topic             | topic名称，您可以在控制台上【topic管理】页面复制。<br/>![](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
 | group.id          | 您可以自定义设置，demo运行成功后可以在【Consumer Group】页面看到该消费者。 |
 
-2. 创建配置文件加载程序CKafkaConfigurer.java。 
+2. 创建配置文件加载程序 CKafkaConfigurer.java。 
 
-```java
+```
 public class CKafkaConfigurer {
 
     private static Properties properties;
@@ -140,7 +140,7 @@ Produce ok:ckafka-topic-demo-0@199
 
 ### 步骤四：消费消息
 
-1. 创建Consumer 订阅消息程序 CKafkaConsumerDemo.java。
+1. 创建 Consumer 订阅消息程序 CKafkaConsumerDemo.java。
 
 ```java
 public class CKafkaConsumerDemo {

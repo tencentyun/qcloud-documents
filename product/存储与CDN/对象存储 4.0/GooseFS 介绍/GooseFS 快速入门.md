@@ -7,7 +7,7 @@
 在使用 GooseFS 之前，您还需要准备以下工作：
 
 1. 在对象存储 COS 服务上创建一个存储桶以作为远端存储，操作指引请参见 [对象存储快速入门](https://cloud.tencent.com/document/product/436/38484)。
-2. 安装 [JAVA 8 或者更高的版本](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
+2. 安装 [Java 8 或者更高的版本](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
 3. 安装 [SSH](https://www.ssh.com/ssh/)，确保能通过 SSH 连接到 LocalHost，并远程登录。
 
 ## 下载并配置 GooseFS
@@ -18,7 +18,7 @@
 tar-xzf goosefs-1.0.0-bin.tar.gz
 cd goosefs-1.0.0
 ```
-3. 解压后，GooseFS 安装包的源文件和 JAVA 二进制文件均会存储在 goosefs-1.0.0 的文件夹下，本指南中通过`${GOOSEFS_HOME}`引用。
+3. 解压后，GooseFS 安装包的源文件和 Java 二进制文件均会存储在 goosefs-1.0.0 的文件夹下，本指南中通过`${GOOSEFS_HOME}`引用。
 4. 在`${GOOSEFS_HOME}/conf`的目录下创建`conf/goosefs-site.properties`的配置文件，可以使用内置的配置模板：
 ```plaintext
 $ cp conf/goosefs-site.properties.template conf/goosefs-site.properties

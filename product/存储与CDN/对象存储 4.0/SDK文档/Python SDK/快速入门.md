@@ -59,8 +59,8 @@ import logging
 
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
-secret_id = 'COS_SECRETID'      # 替换为用户的 secretId
-secret_key = 'COS_SECRETKEY'      # 替换为用户的 secretKey
+secret_id = 'SECRETID'      # 替换为用户的 secretId(登录访问管理控制台获取)
+secret_key = 'SECRETKEY'      # 替换为用户的 secretKey(登录访问管理控制台获取)
 region = 'COS_REGION'     # 替换为用户的 Region
 token = None                # 使用临时密钥需要传入 Token，默认为空，可不填
 scheme = 'https'            # 指定使用 http/https 协议来访问 COS，默认为 https，可不填
@@ -79,8 +79,8 @@ client = CosS3Client(config)
 ```python
 # APPID 已在配置中移除,请在参数 Bucket 中带上 APPID。Bucket 由 BucketName-APPID 组成
 # 1. 设置用户配置, 包括 secretId，secretKey 以及 Region
-secret_id = 'COS_SECRETID'      # 替换为用户的 secretId
-secret_key = 'COS_SECRETKEY'      # 替换为用户的 secretKey
+secret_id = 'SECRETID'      # 替换为用户的 secretId(登录访问管理控制台获取)
+secret_key = 'SECRETKEY'      # 替换为用户的 secretKey(登录访问管理控制台获取)
 region = 'COS_REGION'     # 替换为用户的 Region
 proxies = {
     'http': '127.0.0.1:80', # 替换为用户的 HTTP代理地址
@@ -98,11 +98,27 @@ client = CosS3Client(config)
 ```python
 # APPID 已在配置中移除,请在参数 Bucket 中带上 APPID。Bucket 由 BucketName-APPID 组成
 # 1. 设置用户配置, 包括 secretId，secretKey 以及 Region
-secret_id = 'COS_SECRETID'      # 替换为用户的 secretId
-secret_key = 'COS_SECRETKEY'      # 替换为用户的 secretKey
+secret_id = 'SECRETID'      # 替换为用户的 secretId(登录访问管理控制台获取)
+secret_key = 'SECRETKEY'      # 替换为用户的 secretKey(登录访问管理控制台获取)
 region = 'COS_REGION'     # 替换为用户的 Region
 endpoint = 'cos.accelerate.myqcloud.com' # 替换为用户的 endpoint
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Endpoint=endpoint)
+# 2. 获取客户端对象
+client = CosS3Client(config)
+# 参照下文的描述。或者参照 Demo 程序，详见 https://github.com/tencentyun/cos-python-sdk-v5/blob/master/qcloud_cos/demo.py
+```
+
+设置自定义域名:
+```python
+# APPID 已在配置中移除，请在参数 Bucket 中带上 APPID。Bucket 由 BucketName-APPID 组成
+# 1. 设置用户配置, 包括 secretId，secretKey 以及 Region
+secret_id = 'SECRETID'      # 替换为用户的 secretId(登录访问管理控制台获取)
+secret_key = 'SECRETKEY'      # 替换为用户的 secretKey(登录访问管理控制台获取)
+region = 'COS_REGION'     # 替换为用户的 Region
+
+# domain 设置用户自定义域名
+domain = 'user-define.example.com'
+config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Domain=domain)
 # 2. 获取客户端对象
 client = CosS3Client(config)
 # 参照下文的描述。或者参照 Demo 程序，详见 https://github.com/tencentyun/cos-python-sdk-v5/blob/master/qcloud_cos/demo.py
@@ -112,8 +128,8 @@ client = CosS3Client(config)
 ```python
 # APPID 已在配置中移除，请在参数 Bucket 中带上 APPID。Bucket 由 BucketName-APPID 组成
 # 1. 设置用户配置, 包括 secretId，secretKey 以及 Region
-secret_id = 'COS_SECRETID'      # 替换为用户的 secretId
-secret_key = 'COS_SECRETKEY'      # 替换为用户的 secretKey
+secret_id = 'SECRETID'      # 替换为用户的 secretId(登录访问管理控制台获取)
+secret_key = 'SECRETKEY'      # 替换为用户的 secretKey(登录访问管理控制台获取)
 region = 'COS_REGION'     # 替换为用户的 Region
 
 # domain 自定义域名，通常不用设置，如果使用全球加速域名，则设置成对应的域名，例如 examplebucket-1250000000.cos.accelerate.myqcloud.com，
@@ -124,7 +140,6 @@ config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Doma
 client = CosS3Client(config)
 # 参照下文的描述。或者参照 Demo 程序，详见 https://github.com/tencentyun/cos-python-sdk-v5/blob/master/qcloud_cos/demo.py
 ```
-
 
 ### 创建存储桶
 

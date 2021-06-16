@@ -17,8 +17,6 @@ log4j.additivity.AUDIT_LOG=false
 ...
 ```
 
-
-
 下文将详细介绍 GooseFS 的日志配置：
 
 ## 1. **日志存储位置**
@@ -108,66 +106,42 @@ $  goosefs logLevel --logName=goosefs.underfs.hdfs.HdfsUnderFileSystem --target=
 GooseFS 还支持 GC 事件日志，FUSE 接口日志，RPC 调用日志，UFS 操作日志，日志分割等高级配置。以下会介绍部分常用高级配置的使用方式。
 
 - **GC 事件日志**
-
 将 GC 事件日志记录在 .out 文件， 可以通过在 conf/allulxio-env.sh 中添加如下配置：
-
 ```plaintext
 GOOSEFS_JAVA_OPTS+=" -XX:+PrintGCDetails -XX:+PrintTenuringDistribution -XX:+PrintGCTimeStamps"
 ```
-
-GOOSEFS_JAVA_OPTS 代表收集所有 GooseFS 节点的 GC 事件日志，也可以通过指定 GOOSEFS_Master_JAVA_OPTS 和 GOOSEFS_Worker_JAVA_OPTS 来分别指定收集 Master 和 Worker上的日志。
-
+ GOOSEFS_JAVA_OPTS 代表收集所有 GooseFS 节点的 GC 事件日志，也可以通过指定 GOOSEFS_Master_JAVA_OPTS 和 GOOSEFS_Worker_JAVA_OPTS 来分别指定收集 Master 和 Worker上的日志。
 - **FUSE 接口日志**
-
 可以在 conf/log4j.properties 文件中启用记录 FUSE 日志：
-
 ```plaintext
 goosefs.logger.goosefs.fuse.GoosefsFuseFileSystem=DEBUG
 ```
-
-启用后 FUSE 接口日志可以在 /logs/fuse.log 查看。 
-
+ 启用后 FUSE 接口日志可以在 /logs/fuse.log 查看。 
 - **启用 RPC 调用日志**
-
 可以在 conf/log4j.properties 文件中启用记录 RPC 调用日志，RPC 调用日志有两种日志类型，其一是客户端发送的 RPC 请求日志，其二为 Master节点发送的请求日志，两种类型日志的配置方式存在差别。
-
 log4j.properties 文件中记录客户端发送的 RPC 请求日志的配置如下：
-
-
 ```plaintext
 log4j.logger.goosefs.client.file.FileSystemMasterClient=DEBUG # 文件级别的 RPC 请求日志
 log34j.logger.goosefs.client.block.BlockSystemMasterClient=DEBUG # Block 级别的 RPC 请求日志
 ```
-
-
-可以通过 logLevel 指令来配置日志 Master 节点发送的 RPC 请求日志：
-
+ 可以通过 logLevel 指令来配置日志 Master 节点发送的 RPC 请求日志：
 ```plaintext
 $ goosefs logLevel \--logName=goosefs.master.file.FileSystemMasterClientServiceHandler \--target master --level=DEBUG # 文件级别的 RPC 请求日志
 $ goosefs logLevel \--logName=goosefs.master.block.BlockSystemMasterClientServiceHandler \--target master --level=DEBUG # 文件级别的 RPC 请求日志
 ```
-
-
 - **UFS 操作日志**
-
 GooseFS 也支持采集对底层存储系统 UFS 的操作日志。启用 UFS 操作日志收集可以通过在 log4j.properties 文件中添加配置项或者通过 logLevel 指令进行操作。以 logLevel 指令为例：
-
 ```plaintext
 $ goosefs logLevel \--logName=goosefs.underfs.UnderFileSystemWithLogging \--target master --level=DEBUG # 记录 master 节点对 UFS的操作日志
 $ goosefs logLevel \--logName=goosefs.underfs.UnderFileSystemWithLogging \--target workers --level=DEBUG # 记录 worker 节点对 UFS的操作日志
 ```
-
-
 - **分割日志**
-
 GooseFS 支持将指定类型日志存储在指定存储路径，如果将所有日志都记录在 .log 文件，可能存在以下问题：
+ - 当集群规模大，吞吐量较多时，master.log 或者 worker.log 文件可能变得异常庞大，或者触发日志滚存产生大量日志文件。
+ - 日志信息较多，不利于针对性分析某些类型日志。
+ - 大量日志存储在本地节点，占用空间。
 
-- 当集群规模大，吞吐量较多时，master.log 或者 worker.log 文件可能变得异常庞大，或者触发日志滚存产生大量日志文件。
-- 日志信息较多，不利于针对性分析某些类型日志。
-- 大量日志存储在本地节点，占用空间。
-
-因此业务可以根据需要在 log4j.properties 文件中添加配置项对日志进行分割，将指定类型日志存储至指定文件路径，如下示例展示了将 StateLockManager 这类型的日志存储在 statelock.log 中：
-
+ 因此业务可以根据需要在 log4j.properties 文件中添加配置项对日志进行分割，将指定类型日志存储至指定文件路径，如下示例展示了将 StateLockManager 这类型的日志存储在 statelock.log 中：
 ```plaintext
 log4j.category.goosefs.master.StateLockManager=DEBUG, State_LOCK_LOGGER
 log4j.additivity.goosefs.master.StateLockManager=false
@@ -178,12 +152,8 @@ log4j.appender.State_LOCK_LOGGER.MaxBackupIndex=100
 log4j.appender.State_LOCK_LOGGER.layout=org.apache.log4j.PatternLayout
 log4j.appender.State_LOCK_LOGGER.layout.ConversionPattern=%d{ISO8601} %-5p %c{1} - %m%
 ```
-
-
 - **筛选日志**
-
-GooseFS 支持按照一定的条件筛选并记录日志，而不是全量记录所有日志。比如在进行性能测试时需要记录 RPC 调用日志，但业务侧并不需要记录所有 RPC 调用日志，只需要记录某些延迟较高的日志即可，此时可以通过在 log4j.properties 文件中添加配置项添加日志筛选条件即可，如下示例分别展示了筛选 RPC 调用延迟超过 200ms 的请求和 FUSE 调用超过 1s 的请求：
-
+GooseFS 支持按照一定的条件筛选并记录日志，而不是全量记录所有日志。例如在进行性能测试时需要记录 RPC 调用日志，但业务侧并不需要记录所有 RPC 调用日志，只需要记录某些延迟较高的日志即可，此时可以通过在 log4j.properties 文件中添加配置项添加日志筛选条件即可，如下示例分别展示了筛选 RPC 调用延迟超过 200ms 的请求和 FUSE 调用超过 1s 的请求：
 ```plaintext
 goosefs.user.logging.threshold=200ms
 goosefs.fuse.logging.threshold=1s
