@@ -2,11 +2,12 @@
 
 本文档提供获取对象访问 URL 的代码示例。
 
-### 获取对象访问URL
+### 获取对象访问 URL
 
 #### 功能说明
 
-查询对象访问的URL，该接口不会判断对象是否真实存在
+查询对象访问的 URL，该接口不会判断对象是否真实存在。
+
 #### 使用示例
 
 [//]: # (.cssg-snippet-get-presign-download-url)
@@ -18,15 +19,16 @@ var url = cos.getObjectUrl({
     Sign: false,    /* 获取不带签名的对象URL */
 });
 ```
+
 #### 参数说明
 
-| 参数名  | 参数描述                                                     | 类型    | 必填 |
+| 参数名  | 参数描述                                                     | 类型    | 是否必填 |
 | ------- | ------------------------------------------------------------ | ------- | ---- |
 | Bucket  | 存储桶的名称，命名规则为 BucketName-APPID，此处填写的存储桶名称必须为此格式 | String  | 是   |
 | Region  | 存储桶所在地域，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) | String  | 是   |
 | Key     | 对象键（Object 的名称），对象在存储桶中的唯一标识，详情请参见 [对象概述](https://cloud.tencent.com/document/product/436/13324) | String  | 是   |
 | Sign    | 是否返回带有签名的 Url，默认为 true                          | Boolean | 否   |
-| Protocol    | 可选填为`http:`或`https:`，默认为`http:`（带冒号）                         | string | 否   |
+| Protocol    | 可选填为`http:`或`https:`，默认为`http:`（带冒号）                          | string | 否   |
 | Domain    | 存储桶访问域名，默认为 {BucketName-APPID}.cos.{Region}.myqcloud.com     | string | 否   |
 | Method  | 操作方法，例如 GET，POST，DELETE，HEAD 等 HTTP 方法，默认为 GET | String  | 否   |
 | Query   | 参与签名计算的 query 参数对象                                | Object  | 否   |
