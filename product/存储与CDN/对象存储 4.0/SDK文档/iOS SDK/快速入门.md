@@ -24,9 +24,10 @@
 pod 'QCloudCOSXML'
 ```
 
-#### 关闭灯塔上报功能（适用于5.8.3及以上版本）
+#### 关闭腾讯灯塔上报功能（适用于5.8.3及以上版本）
 
-为了持续跟踪和优化 SDK 的质量，给您带来更好的使用体验，我们在 SDK 中引入了灯塔上报 SDK。
+为了持续跟踪和优化 SDK 的质量，给您带来更好的使用体验，我们在 SDK 中引入了[腾讯灯塔](https://beacon.qq.com) SDK。
+>? 腾讯灯塔只对COS侧的请求性能进行监控，不会上报业务侧的数据。
 
 若是想关闭该功能，在您工程的 `Podfile` 文件中使用：
 
@@ -36,7 +37,7 @@ pod 'QCloudCOSXML/Slim'
 
 #### 精简版 SDK
 
-如果您仅仅使用到上传和下载功能，并且对 SDK 体积要求较高，可以使用我们的精简版 SDK。精简版不带有 mta 功能。
+如果您仅仅使用到上传和下载功能，并且对 SDK 体积要求较高，可以使用我们的精简版 SDK。
 
 精简版 SDK 是通过 Cocoapods 的 Subspec 功能实现的，因此目前只支持通过自动集成的方式。在您工程的 `Podfile` 文件中使用：
 
@@ -167,12 +168,10 @@ COS 服务实例 `QCloudCOSXMLService` 跟 `QCloudCOSTransferMangerService` 建�
     credential.secretKey = @"SECRETKEY";
     // 临时密钥 Token
     credential.token = @"TOKEN";
-    // 强烈建议返回服务器时间作为签名的开始时间
-    // 用来避免由于用户手机本地时间偏差过大导致的签名不正确
-    credential.startDate = [[[NSDateFormatter alloc] init] 
-        dateFromString:@"startTime"]; // 单位是秒
-    credential.experationDate = [[[NSDateFormatter alloc] init] 
-        dateFromString:@"expiredTime"];
+    /** 强烈建议返回服务器时间作为签名的开始时间, 用来避免由于用户手机本地时间偏差过大导致的签名不正确(参数startTime和expiredTime单位为秒)
+    */
+    credential.startDate = [NSDate dateWithTimeIntervalSince1970:startTime]; // 单位是秒
+    credential.experationDate = [NSDate dateWithTimeIntervalSince1970:expiredTime]];// 单位是秒
 
     QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc]
         initWithCredential:credential];
@@ -252,11 +251,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
         credential.secretKey = "SECRETKEY";
         // 临时密钥 Token
         credential.token = "TOKEN";
-        // 强烈建议返回服务器时间作为签名的开始时间
-        // 用来避免由于用户手机本地时间偏差过大导致的签名不正确
-        credential.startDate = DateFormatter().date(from: "startTime");
-        // 这里返回的时间单位是秒
-        credential.experationDate = DateFormatter().date(from: "expiredTime");
+        /** 强烈建议返回服务器时间作为签名的开始时间, 用来避免由于用户手机本地时间偏差过大导致的签名不正确(参数startTime和expiredTime单位为秒)
+        */
+        credential.startDate = Date.init(timeIntervalSince1970: TimeInterval(startTime)!) DateFormatter().date(from: "startTime");
+        credential.experationDate = Date.init(timeIntervalSince1970: TimeInterval(expiredTime)!) 
 
         let auth = QCloudAuthentationV5Creator.init(credential: credential);
         continueBlock(auth,nil);
