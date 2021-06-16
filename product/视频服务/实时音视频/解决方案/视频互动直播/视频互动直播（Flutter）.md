@@ -214,16 +214,16 @@ lib/TRTCLiveRoom/model/
   即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
 <dx-codeblock>
 ::: dart dart
-  // 发送端：发送文本消息
-  trtcVoiceRoom.sendRoomTextMsg("Hello Word!");
-
+// 发送端：发送文本消息
+trtcLiveCloud.sendRoomTextMsg("Hello Word!");
+   
 // 接收端：监听文本消息
-onVoiceListener(type, param) async {
-    switch (type) {
-      case TRTCChatSalonDelegate.onRecvRoomTextMsg:
-            //收到群文本消息，可以用作文本聊天室
-        break;
-    }
+onListenerFunc(type, params) async {
+  switch (type) {
+    case TRTCLiveRoomDelegate.onRecvRoomTextMsg:
+          //收到群文本消息，可以用作文本聊天室
+      break;
+  }
 }
 :::
 </dx-codeblock>
