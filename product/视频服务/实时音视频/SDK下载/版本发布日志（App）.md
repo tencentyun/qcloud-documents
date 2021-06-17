@@ -4,13 +4,13 @@
 - Windows：自定义采集支持输入 RGBA 格式的视频数据。
 
 **质量优化**
-- 全平台：优化 BGM 资源管理，及时释放内存占用。
+- 全平台：优化 bgm 资源管理，及时释放内存占用。
 - 全平台：推流端退后台暂停视频上行时，播放端能及时收到 [onUserVideoAvailable(false)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudCallback__cplusplus.html#a091f1c94ff1e2bc39c36e9d34285e87a) 的通知。
 - Mac：优化屏幕分享时鼠标捕捉的 CPU 和内存占用。
 
 **问题修复**
 - Android ：修复 setRemoteViewFillMode 部分机型偶现不生效的问题。
-- iOS&Mac：修复停止自定义美颜时的内存资源释放问题。
+- iOS/Mac：修复停止自定义美颜时的内存资源释放问题。
 
 ## Version 8.6 @ 2021.05.08
 - 全平台：优化网络流控算法，进一步提升音视频传输质量。
