@@ -4,7 +4,7 @@
 - Windows：自定义采集支持输入 RGBA 格式的视频数据。
 
 **质量优化**
-- 全平台：优化 bgm 资源管理，及时释放内存占用。
+- 全平台：优化 BGM 资源管理，及时释放内存占用。
 - 全平台：推流端退后台暂停视频上行时，播放端能及时收到 [onUserVideoAvailable(false)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudCallback__cplusplus.html#a091f1c94ff1e2bc39c36e9d34285e87a) 的通知。
 - Mac：优化屏幕分享时鼠标捕捉的 CPU 和内存占用。
 
