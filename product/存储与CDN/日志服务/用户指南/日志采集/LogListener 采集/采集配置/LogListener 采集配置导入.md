@@ -18,7 +18,7 @@ LogListener 采集配置是指 LogListener 采集服务器在进行日志采集�
 5. 单击左上角【导入配置规则】。
 ![image-20210603175204014](https://main.qcloudimg.com/raw/e67c53745011efd30cb5e8d915b283a1.png)
 6. 在弹出浮窗显示配置规则列表窗口，选择目标日志主题的配置规则，单击【确定】即可导入当前日志主题的采集配置中。
-![image-20210603175247344](https://main.qcloudimg.com/raw/d8887584745b25b44b416e045d8edd30.png)
+![](https://main.qcloudimg.com/raw/543c04f4efeddd530f672894982fcca0.png)
 >?
 > - 列表默认展示当前地域所有日志主题支持跨地域日志主题配置规则导入。
 > - 未配置采集路径的日志主题不可导入当前日志主题采集配置规则中。
