@@ -18,38 +18,6 @@
 - **降低使用成本**
 从接入层到计算层到存储层，全部使用 Serverless 资源，真正做到按量计费，弹性伸缩，极大节省成本。
 
- 示例：以一个个人博客网站为例，设定日访问量100、1GB文件存储、1GB数据库存储，每月费用如下：
-<table>
-<thead>
-<tr>
-<th>计费项</th>
-<th>费用说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>API 网关</td>
-<td>调用次数：100 ÷ 10000 × 0.06 × 30 = 0.018元/月<br>出流量：100 ÷ 30 ÷ 1024 ÷ 1024 × 0.8 × 30 = 0.068元/月</td>
-</tr>
-<tr>
-<td>SCF 云函数</td>
-<td>SCF 调用次数：100 × 30=3000次/月 免费额度内，不产生费用<br>SCF 资源使用费用：30 × 1000 × 100 × 30 = 90GBs/月 免费额度内，不产生费用</td>
-</tr>
-<tr>
-<td>CFS 存储费用（月费用）</td>
-<td>1 × 0.35 = 0.35元/月</td>
-</tr>
-<tr>
-<td><nobr>Serverless MySQL 数据库</nobr></td>
-<td>存储费用：1 × 0.00485元/GB/小时 × 24 × 30=3.49元/月<br> 计算费用：100 × 0.000095 × 30 = 0.285元/月</td>
-</tr>
-<tr>
-<td colspan="2" style="text-align:center;">费用合计：0.018 + 0.068 + 0.35 + 3.49 + 0.285 = 4.211元</td>
-</tr>
-</tbody></table>
-   对比可以发现，与传统自建方案对比，Serverless Wordpress 使用成本极大降低。
-
-
-
 - **部署步骤简单**
 通过 Serverless Wordpress 组件，只需几行 yml 文件配置，即可快速完成 Wordpress 应用部署，极大降低部署门槛。
 >?新用户第一次部署 Wordpress 应用，即可获得 **30元 TDSQL-C**和**5元 CFS 文件存储**代金券，欢迎免费体验。
@@ -148,3 +116,56 @@ wpServerFaas:
 :::
 </dx-codeblock>
 部署成功后，点击 `apigw` 部分输出 url，根据指引完成账号密码配置，即可开始使用您的 Wordpress 应用。
+
+## 常见问题
+1. 权限问题导致部署失败？
+
+   主账号/子账号都需要确认一下权限：
+
+   确认角色：**SCF_QcsRole、SLS_QcsRole、CODING_QcsRole**
+
+   确认权限：
+
+   SCF_QcsRole 有 **CFSFullAccess**
+
+   CODING_QCSRole 有 **QcloudSLSFullAccess、QcloudSSLFullAccess、QcloudAccessForCODINGRole**
+
+   子账号还需要确认
+
+   账号本身有 **SLS、SCF、CFS、CynosDB、CODING** 使用权限
+
+
+2. 绑定自定义域名后，显示报错 {"message":"There is no api match env_mapping '\/'"}？
+在网关控制台修改一下自定义映射，修改如图：
+![](https://main.qcloudimg.com/raw/b6bbb75df052e307e8abb4e82e500c3b.png)
+
+
+3. 如何通过修改 php.ini 修改上传文件大小限制?
+
+   步骤一：修改layer 代码, etc 文件夹中的 php.ini 文件移到 etc/php.d 文件夹，也可以直接使用 https://github.com/serverless-components/tencent-wordpress/blob/master/src/fixtures/layer/wp-layer.zip
+
+   重新打包上传 layer 时，注意打包层级结构，只打包父文件夹下的文件，否则会出现函数初始化失败：
+![](https://main.qcloudimg.com/raw/2d8aa490a0aaa8ea87e3d8a795a22cda.png)
+
+
+   步骤二：修改 wp-server-xxx 函数的 bootstrap 代码为
+   ```
+   #!/bin/bash
+   export PATH="/opt/bin:$PATH"
+   export LD_LIBRARY_PATH=/opt/lib/:$LD_LIBRARY_PATH
+   export PHP_INI_SCAN_DIR=/opt/etc/php.d
+   php -d extension_dir=/opt/lib/php/modules/ sl_handler.php 1>&2
+   ```
+
+
+4. 报错 "event too large"?
+
+   函数目前只支持最大 **6MB** 的事件上传，超过该大小文件不支持上传；
+
+   目前 API 网关 base 64 转码会把用户本身代码大小扩大 1.5 倍左右，因此上传的文件大小，不建议超过 3.5 MB
+
+
+5. 如何修改 Wordpress 根目录文件？
+
+   目前文件挂载在 CFS 上，无法直接修改，建议通过安装 File Manager 插件管理根目录文件
+
