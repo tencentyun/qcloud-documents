@@ -16,18 +16,33 @@
 
 ### 增强版人脸核身价格说明
 
+<style>
+table th:nth-of-type(1) {
+width: 22%;        
+}
+table th:nth-of-type(2) {
+width: 15%;        
+}
+table th:nth-of-type(3) {
+width:20%;        
+}
+table th:nth-of-type(4) {
+width: 25%;        
+}
+</style>
+
 增强版人脸核身服务详细定价如下，如需购买资源包，请单击 [购买资源包](https://buy.cloud.tencent.com/iai_faceid)。
 
 <table>
     <tr>
-        <td rowspan=2>产品名称</td>
-        <td>后付费</td>
-        <td colspan=2>预付费</td>
+        <th rowspan=2>产品名称</th>
+        <th>后付费</th>
+        <th colspan=2><center>预付费</center></th>
     </tr>
     <tr>
-        <td>单价</td>
-        <td>资源包规格</td>
-        <td>资源包价格</td>
+        <th>单价</th>
+        <th>资源包规格</th>
+        <th>资源包价格</th>
     </tr>
     <tr>
         <td rowspan=6>增强版人脸核身（权威库）-微信</td>
@@ -142,14 +157,14 @@
 
 <table>
     <tr>
-        <td rowspan=2>产品名称</td>
-        <td>后付费</td>
-        <td colspan=2>预付费</td>
+        <th rowspan=2>产品名称</th>
+        <th>后付费</th>
+        <th colspan=2><center>预付费</center></th>
     </tr>
     <tr>
-        <td>单价</td>
-        <td>资源包规格</td>
-        <td>资源包价格</td>
+        <th>单价</th>
+        <th>资源包规格</th>
+        <th>资源包价格</th>
     </tr>
     <tr>
         <td rowspan=6>基础版人脸核身（权威库）</td>
@@ -212,15 +227,15 @@
 
 <table>
     <tr>
-        <td rowspan=2>产品名称</td>
-        <td colspan=2>后付费</td>
-        <td colspan=2>预付费</td>
+        <th rowspan=2>产品名称</th>
+        <th colspan=2><center>后付费</center></th>
+        <th colspan=2><center>预付费</center></th>
     </tr>
     <tr>        
-        <td>月接口调用量</td>
-        <td>单价</td>
-        <td>资源包规格</td>
-        <td>资源包价格</td>
+        <th>月接口调用量</th>
+        <th>单价</td>
+        <th>资源包规格</th>
+        <th>资源包价格</th>
     </tr>
     <tr>
         <td rowspan=6>身份信息核验</td>
@@ -367,14 +382,14 @@ E证通服务的后付费价格定价为1.5元/次，并提供不同规格预付
 
 <table>
     <tr>
-        <td rowspan=2>产品名称</td>
-        <td>后付费</td>
-        <td colspan=2>预付费</td>
+        <th rowspan=2>产品名称</th>
+        <th>后付费</th>
+        <th colspan=2><center>预付费</center></th>
     </tr>
     <tr>
-        <td>单价</td>
-        <td>资源包规格</td>
-        <td>资源包价格</td>
+        <th>单价</th>
+        <th>资源包规格</th>
+        <th>资源包价格</th>
     </tr>
     <tr>
         <td rowspan=6>E证通（权威库）</td>
