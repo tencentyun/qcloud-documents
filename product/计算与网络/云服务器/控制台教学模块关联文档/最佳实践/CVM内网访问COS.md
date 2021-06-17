@@ -1,5 +1,5 @@
 
-本文介绍云服务器 CVM 访问对象存储 COS 时默认使用的访问方式及内网访问的判断方法，并提供了连通性测试示例。您可参考本文进一步了解 CVM 访问 COS 相关信息。
+本文介绍云服务器 CVM 访问对象存储 COS 时使用的访问方式及内网访问的判断方法，并提供了连通性测试示例。您可参考本文进一步了解 CVM 访问 COS 相关信息。
 
 ## 访问方式说明
 如果您在腾讯云内部署了服务用于访问 COS，不同地域访问方式有以下区别：
@@ -25,6 +25,6 @@ nslookup examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
 ![](https://main.qcloudimg.com/raw/49a7d7429ec2a96d271f6a63926286ea.png)
 
 ## 测试连通性
-提供外网访问 COS、同地域 CVM（基础网络）访问 COS 及 同地域 CVM（VPC 网络）访问 COS 示例，详情请参见 [测试连通性](https://cloud.tencent.com/document/product/436/31315#.E6.B5.8B.E8.AF.95.E8.BF.9E.E9.80.9A.E6.80.A7)。
+提供外网访问 COS、同地域 CVM（基础网络）访问 COS 及同地域 CVM（VPC 网络）访问 COS 示例，详情请参见 [测试连通性](https://cloud.tencent.com/document/product/436/31315#.E6.B5.8B.E8.AF.95.E8.BF.9E.E9.80.9A.E6.80.A7)。
 
 
