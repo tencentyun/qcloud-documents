@@ -16,13 +16,28 @@
 
 ### 增强版人脸核身价格说明
 
+<style>
+table th:nth-of-type(1) {
+width: 22%;        
+}
+table th:nth-of-type(2) {
+width: 15%;        
+}
+table th:nth-of-type(3) {
+width:20%;        
+}
+table th:nth-of-type(4) {
+width: 25%;        
+}
+</style>
+
 增强版人脸核身服务详细定价如下，如需购买资源包，请单击 [购买资源包](https://buy.cloud.tencent.com/iai_faceid)。
 
 <table>
     <tr>
         <th rowspan=2>产品名称</th>
         <th>后付费</th>
-        <th colspan=2>预付费</th>
+        <th colspan=2><center>预付费</center></th>
     </tr>
     <tr>
         <th>单价</th>
@@ -144,7 +159,7 @@
     <tr>
         <th rowspan=2>产品名称</th>
         <th>后付费</th>
-        <th colspan=2>预付费</th>
+        <th colspan=2><center>预付费</center></th>
     </tr>
     <tr>
         <th>单价</th>
@@ -213,8 +228,8 @@
 <table>
     <tr>
         <th rowspan=2>产品名称</th>
-        <th colspan=2>后付费</th>
-        <th colspan=2>预付费</th>
+        <th colspan=2><center>后付费</center></th>
+        <th colspan=2><center>预付费</center></th>
     </tr>
     <tr>        
         <th>月接口调用量</th>
@@ -369,7 +384,7 @@ E证通服务的后付费价格定价为1.5元/次，并提供不同规格预付
     <tr>
         <th rowspan=2>产品名称</th>
         <th>后付费</th>
-        <th colspan=2>预付费</th>
+        <th colspan=2><center>预付费</center></th>
     </tr>
     <tr>
         <th>单价</th>
