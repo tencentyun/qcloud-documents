@@ -11,6 +11,8 @@ UserSig 的计算原理如下图所示，其本质就是对 SDKAppID、UserID、
 usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire + 
                                  base64(userid + sdkappid + currtime + expire)))
 ```
+其中，`curtime` 为当前系统的时间，`expire` 为签名过期的时间。
+
 [](id:Key)
 ### 如何获取密钥？
 
