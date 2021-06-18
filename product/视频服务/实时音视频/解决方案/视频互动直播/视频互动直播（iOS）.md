@@ -28,7 +28,7 @@
 1. 根据实际业务需求下载 SDK 及配套的 App 源码。
 2. 下载完成后，单击【已下载，下一步】。
 
-![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
+![](https://main.qcloudimg.com/raw/f588650274a85b74893ff96eb563d3b4.png)
 
 [](id:ui.step3)
 ### 步骤3：配置 App 工程文件
