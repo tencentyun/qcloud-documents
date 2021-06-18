@@ -56,9 +56,9 @@
 >! 体验应用至少需要两台设备。
 
 ### 用户 A
-1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**），如图示：
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 <img src="https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png" width="320"/>
-2. 输入要拨打的用户名，点击搜索，如下图示：
+2. 输入要拨打的用户名，单击搜索，如下图示：
 <img src="https://main.qcloudimg.com/raw/c041695fd0fe8cd36833b982d0bf7740.png" width="320"/>
 3. 单击【呼叫】，选择拨打【视频通话】（**请确保被叫方保持在应用内，否则可能会拨打失败**）。
 <img src="https://main.qcloudimg.com/raw/450e50dd4bb58e2950d6574ab88715e2.png" width="320"/>
