@@ -1,5 +1,5 @@
 ## 操作场景
-WebRDP 作为腾讯云推荐登录您 Windows 云服务器的标准登录方式，本文介绍如何通过该方式登录 Windows 实例。
+本文介绍如何使用标准登录方式（WebRDP）登录 Windows 实例。 
 
 ## 适用本地操作系统
 Windows，Linux 和 Mac OS 都可以使用 WebRDP 方式登录云服务器。
@@ -27,7 +27,6 @@ Windows，Linux 和 Mac OS 都可以使用 WebRDP 方式登录云服务器。
  - **端口**：默认为3389，可请按需填写。
  - **用户名**：Windows 实例用户名默认为 `Administrator`，可请按需填写。
  - **登录密码**：填写已从 [前提条件](#Prerequisites) 步骤中获取的登录密码。
-5. 单击【登录】即可登录 Windows 实例。登录成功则出现类似如下图所示界面：
->?本文以登录操作系统为 Windows Server 2016 数据中心版64位中文版的云服务器为例，其他版本 Windows 系统界面可能与下图有一定区别。
->
+5. 单击【登录】即可登录 Windows 实例。
+本文以登录操作系统为 Windows Server 2016 数据中心版64位中文版的云服务器为例，登录成功则出现类似如下图所示界面：
 ![](https://main.qcloudimg.com/raw/a68deed91b8d73db1e6b2f931c6689c1.png)
