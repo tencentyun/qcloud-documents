@@ -5,7 +5,7 @@
 ### 1. 下载
 进入 [Python 官方网站](https://www.python.org/downloads/)，根据自己使用的操作系统，选择下载合适的安装包。
 
->! Python 官方已经与2020年1月1日停止了对 Python2 的维护，建议安装使用 Python3。
+>! Python 官方已于2020年1月1日停止了对 Python2 的维护，建议安装使用 Python3。
 
 ### 2. 安装
 下载安装包后，根据安装包的引导即可完成 Python 开发环境的安装。
