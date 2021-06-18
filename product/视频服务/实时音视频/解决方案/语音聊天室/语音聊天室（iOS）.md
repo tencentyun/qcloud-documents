@@ -77,12 +77,12 @@
 <img src="https://main.qcloudimg.com/raw/64f768ee15bf0772361a8e7d63a35193.png" width="320"/>
 2. 单击【创建房间】，如下图示：
 <img src="https://main.qcloudimg.com/raw/a487f5731e5c88bb1bf42686f0254464.png" width="320"/>
-2. 输入房间主题，单击【开始交谈】；
+2. 输入房间主题，单击【开始交谈】。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 <img src="https://main.qcloudimg.com/raw/4ca3d3b7314d19255cfda322f9eff5f1.png" width="320"/>
-2. 输入用户 A 创建的房间号，单击【加入房间】。<br>
+2. 输入用户 A 创建的房间号，单击【进入房间】。<br>
 <img src="https://main.qcloudimg.com/raw/035eff1dff4afe3e7bc0c003cf0ec4c4.png" width="320"/>
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
