@@ -62,7 +62,6 @@
 | ------------------------------------------------------ | ------------------------------------ | ------------------------------------------------------------ |
 | 对 select * 语法的支持                                 | 支持                                 | select * from  table_a;                                      |
 | 条件字段等值匹配                                       | 支持                                 | select col1 from  table_a where col2=1;                      |
-| 条件字段模糊匹配                                       | 只支持完全匹配及从左边完全匹配的情况 | select col1 from  table_a where col3 like 'bbb%';            |
 | 条件字段范围查询                                       | 不支持                               | select col1 from  table_a where col1 > 'aaa' and col2 < 3;   |
 | 条件字段带函数                                         | 不支持                               | select col1 from  table_a where substr(col1,0,2) = 'aa';     |
 | 条件字段带 in                                          | 支持                                 | select col1 from  table_a where col1 in ('a',b','c');        |
