@@ -10,7 +10,7 @@
 4. 单击开发者工具上方的【Network】。
 ![](https://main.qcloudimg.com/raw/0a201a890f54bfabc4267e9c86c89338.png)
 5. 在需要下载的文件名右侧，单击【下载】，并在开发者工具页面中输入要下载的文件名进行过滤，选择文件，单击【Headers】，在 **Response Headers** 区域中获取 RequestId 信息。
-![](https://main.qcloudimg.com/raw/1a97264c5238b43b52c941109f8946b7.png)
+![](https://main.qcloudimg.com/raw/f5e5453f257fbd86a38d2c8508c968bd.png)
 
 ## 访问文件失败时获取
 
