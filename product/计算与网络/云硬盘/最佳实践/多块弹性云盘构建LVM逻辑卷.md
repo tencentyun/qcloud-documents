@@ -70,7 +70,7 @@ mkfs.ext3 /dev/lvm_demo0/lv_0
 ```
 2. 执行以下命令，挂载文件系统。
 ```
-mount /dev/lvm_demo0/lv_0 vg0
+mount /dev/lvm_demo0/lv_0 /vg0
 ```
 挂载成功则如下图所示：
 ![](https://main.qcloudimg.com/raw/2a7701636c2604d67e0743de4f9a6af1.png)
