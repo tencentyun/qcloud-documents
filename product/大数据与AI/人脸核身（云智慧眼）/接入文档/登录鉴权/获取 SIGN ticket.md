@@ -40,4 +40,4 @@ https://idasc.webank.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=
 >- expire_in 为 SIGN ticket 的最大生存时间，单位：秒，合作伙伴在**判定有效期时以此为准**。
 >- expire_time 为 SIGN ticket 失效的绝对时间，由于各服务器时间差异，不能以此作为有效期的判定依据，只作为展示使用。
 >- access_token 失效时，该 access_token 生成的 ticket 都失效。
->- tickets只有一个。
+>- tickets 只有一个。
