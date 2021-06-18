@@ -83,7 +83,7 @@
 <img src="https://main.qcloudimg.com/raw/da47658a199fc295ccf7447a91b117b7.png" width="320"/>
 
 
-## 房间状态监听&PK列表接入
+## 房间状态监听&PK 列表接入
 房间状态可使用 `LiveRoomManager` 进行监听，如下：
 ```
 LiveRoomManager.getInstance().addCallback(new LiveRoomManager.RoomCallback() {
