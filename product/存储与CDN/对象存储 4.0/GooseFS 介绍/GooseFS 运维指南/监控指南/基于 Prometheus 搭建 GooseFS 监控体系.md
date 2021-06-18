@@ -26,98 +26,82 @@ curl <WORKER_IP>:<WOKER_PORT>/metrics/prometheus/
 ...
 ```
 
-<h2>上报监控指标到自建 Prometheus</h2>
+## 上报监控指标到自建 Prometheus
 
 1. 下载 Promethus 安装包并解压，修改 promethus.yml：
-<dx-codeblock>
-::: plaintext plaintext
-# prometheus.yml
-global:
-  scrape_interval:     10s
-  evaluation_interval: 10s
+<pre class="rno-code-pre"><code class="language-plaintext">
+	# prometheus.yml
+	global:
+		scrape_interval:     10s
+		evaluation_interval: 10s
 
-scrape_configs:
-  - job_name: 'goosefs masters'
-    metrics_path: /metrics/prometheus
-    file_sd_configs:
-    - refresh_interval: 1m
-      files:
-      - "targets/cluster/masters/*.yml"
-  - job_name: 'goosefs workers'
-    metrics_path: /metrics/prometheus
-    file_sd_configs:
-    - refresh_interval: 1m
-      files:
-      - "targets/cluster/workers/*.yml"
-:::
-</dx-codeblock>
+	scrape_configs:
+		- job_name: 'goosefs masters'
+			metrics_path: /metrics/prometheus
+			file_sd_configs:
+			- refresh_interval: 1m
+				files:
+				- "targets/cluster/masters/*.yml"
+		- job_name: 'goosefs workers'
+			metrics_path: /metrics/prometheus
+			file_sd_configs:
+			- refresh_interval: 1m
+				files:
+				- "targets/cluster/workers/*.yml"
+</code></pre>
 2. 创建 targets/cluster/masters/masters.yml，添加 master 的 IP 和 port：
-<dx-codeblock>
-::: plaintext plaintext
- - targets:
-  - "<TARGERTS_MASTER_IP>:<TARGERTS_MASTER_PORT>"
-:::
-</dx-codeblock>
+<pre class="rno-code-pre"><code class="language-plaintext">
+	 - targets:
+		- "&lt;TARGERTS_MASTER_IP>:&lt;TARGERTS_MASTER_PORT>"
+</code></pre>
 3. 创建 targets/cluster/workers/workers.yml，添加 worker 的 IP 和 port：
-<dx-codeblock>
-::: plaintext plaintext
- - targets:
-  - "<TARGERTS_WORKER_IP>:<TARGERTS_WORKER_PORT>"
-:::
-</dx-codeblock>
+<pre class="rno-code-pre"><code class="language-plaintext">
+	 - targets:
+		- "&lt;TARGERTS_WORKER_IP>:&lt;TARGERTS_WORKER_PORT>"
+</code></pre>
 4. 启动 Prometheus，其中 --web.listen-address 指定 Prometheus 监听地址，默认端口号 9090：
-<dx-codeblock>
-::: plaintext plaintext
-nohup ./prometheus --config.file=prometheus.yml --web.listen-address="<LISTEN_IP>:<LISTEN_PORT>" > prometheus.log 2>&1 &
-:::
-</dx-codeblock>
+<pre class="rno-code-pre"><code class="language-plaintext">
+nohup ./prometheus --config.file=prometheus.yml --web.listen-address="&lt;LISTEN_IP>:&lt;LISTEN_PORT>" > prometheus.log 2>&1 &
+</code></pre>
 5. 查看可视化界面：
-<dx-codeblock>
-::: plaintext plaintext
+``` plaintext
 http://<PROMETHEUS_BI_IP>:<PROMETHEUS_BI_PORT>
-:::
-</dx-codeblock>
+```
 6. 查看机器实例：
-<dx-codeblock>
-::: plaintext plaintext
+``` plaintext
 http://<PROMETHEUS_BI_IP>:<PROMETHEUS_BI_PORT>/targets
-:::
-</dx-codeblock>
+```
 
-<h2>上报监控指标到腾讯云 Prometheus</h2>
+## 上报监控指标到腾讯云 Prometheus
 
 1. 按照安装指南中的指引，在 master 机器上安装 Promethus agent：
-<dx-codeblock>
-::: plaintext plaintext
-wget https://rig-1258344699.cos.ap-guangzhou.myqcloud.com/prometheus-agent/agent_install && chmod +x agent_install && ./agent_install prom-12kqy0mw agent-grt164ii ap-guangzhou <secret_id> <secret_key>
-:::
-</dx-codeblock>
+<pre class="rno-code-pre"><code class="language-plaintext">
+wget https://rig-1258344699.cos.ap-guangzhou.myqcloud.com/prometheus-agent/agent_install && chmod +x agent_install && ./agent_install prom-12kqy0mw agent-grt164ii ap-guangzhou &lt;secret_id> &lt;secret_key>
+</code></pre>
 2. 配置 master 和 worker 的抓取任务：
-<dx-codeblock>
-::: plaintext plaintext
-job_name: goosefs-masters
-honor_timestamps: true
-metrics_path: /metrics/prometheus
-scheme: http
-file_sd_configs:
-- files:
-  - /usr/local/services/prometheus/targets/cluster/masters/*.yml
-  refresh_interval: 1m
-job_name: goosefs-workers
-honor_timestamps: true
-metrics_path: /metrics/prometheus
-scheme: http
-file_sd_configs:
-- files:
-  - /usr/local/services/prometheus/targets/cluster/workers/*.yml
-  refresh_interval: 1
-:::
-</dx-codeblock>
+<pre class="rno-code-pre"><code class="language-plaintext">
+	job_name: goosefs-masters
+	honor_timestamps: true
+	metrics_path: /metrics/prometheus
+	scheme: http
+	file_sd_configs:
+	- files:
+		- /usr/local/services/prometheus/targets/cluster/masters/*.yml
+		refresh_interval: 1m
+	job_name: goosefs-workers
+	honor_timestamps: true
+	metrics_path: /metrics/prometheus
+	scheme: http
+	file_sd_configs:
+	- files:
+		- /usr/local/services/prometheus/targets/cluster/workers/*.yml
+		refresh_interval: 1
+</code></pre>
 
  >! job_name 中没有空格，而单机的 Prometheus 的 job_name 中可以包含空格。
 >
 
-<h2>使用 Grafana 查看监控指标</h2>
+## 使用 Grafana 查看监控指标
 
 1. 启动 Grafana：
 ```plaintext
