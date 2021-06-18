@@ -53,230 +53,230 @@ spec:
 ## 日志解析格式
 <dx-tabs>
 ::: 单行全文格式
-单行日志日志是指一行日志内容为一条完整的。服务在采集的时候，将使用换行记录日志作为一条完整的结束记录。为了统一结构化管理，每条日志都存在一个默认的键值`__CONTENT__`，但数据数据不再进行结构化处理，也不会进行日志记录，属性的时间由采集日志的时间确定。详情参见[单文本行格式](https: //cloud.tencent.com/document/product/614/17421)。
+单行全文日志是指一行日志内容为一条完整的日志。日志服务在采集的时候，将使用换行符 `\n` 来作为一条日志日志的结束符。为了统一结构化管理，每条日志都会存在一个默认的键值 `__CONTENT__`，但日志数据本身不再进行日志结构化处理，也不会提取日志字段，日志属性的时间项由日志采集的时间决定。详情请参见 [单行文本格式](https://cloud.tencent.com/document/product/614/17421)。
 
 假设一条日志原始数据为：
-``
-2019 年 1 月 22 日星期二 12:08:15 已安装：libjpeg-turbo-static-1.2.90-6.el7.x86_64
-``
+```
+Tue Jan 22 12:08:15 CST 2019 Installed: libjpeg-turbo-static-1.2.90-6.el7.x86_64
+```
 LogConfig 配置参考示例如下：
-``
-api版本：cls.cloud.tencent.com/v1
-种类：日志配置
-规格：
-   cls详细信息：
-     主题 ID：xxxxxx-xx-xx-xx-xxxxxxxx
-     #单行日志
-     日志类型：minimalist_log
-``
-采集到日志服务的数据为
-``
-__CONTENT__：Tue Jan 22 12:08:15 CST 2019 安装：libjpeg-turbo-static-1.2.90-6.el7.x86_64
-``
+```
+apiVersion: cls.cloud.tencent.com/v1
+kind: LogConfig
+spec:
+   clsDetail:
+     topicId: xxxxxx-xx-xx-xx-xxxxxxxx
+     # 单行日志
+     logType: minimalist_log
+```
+采集到日志服务的数据为：
+```
+__CONTENT__:Tue Jan 22 12:08:15 CST 2019 Installed: libjpeg-turbo-static-1.2.90-6.el7.x86_64
+```
 :::
 ::: 多行全文格式
-是指一条完整的日志数据可能跨多行（例如 Java 堆栈跟踪）。采用首正则以何种方式进行匹配，当某行日志匹配作为引进设置的正则表达式，即为一条日志的开头和下一行首选项，则该条记录的结束选集出现多行还将设置一个默认的键值`__CONTENT__`，但数据不进行结构化处理，也不会进行日志记录，属性的时间由采集日志的时间确定。详情参见[多文本行格式](https) ://cloud.tencent.com/document/product/614/17422)。
+多行全文日志是指一条完整的日志数据可能跨占多行（例如 Java stacktrace）。该情况下无法使用换行符 `\n` 作为日志的结束标识符，为了使日志系统明确区分每条日志，采用首行正则的方式进行匹配，当某行日志匹配预先设置的正则表达式，即为一条日志的开头，而下一行首出现则作为该条日志的结束标识符。多行全文也会设置一个默认的键值 `__CONTENT__`，但日志数据本身不再进行日志结构化处理，也不会提取日志字段，日志属性的时间项由日志采集的时间决定。详情请参见 [多行文本格式](https://cloud.tencent.com/document/product/614/17422)。
 
 假设一条多行日志原始数据为：
-<dx-代码块>
-：：： 日志
-2019-12-15 17:13:06,043 [main] 错误 com.test.logging.FooFactory：
+<dx-codeblock>
+:::  log
+2019-12-15 17:13:06,043 [main] ERROR com.test.logging.FooFactory:
 java.lang.NullPointerException
-     在 com.test.logging.FooFactory.createFoo(FooFactory.java:15)
-     在 com.test.logging.FooFactoryTest.test(FooFactoryTest.java:11)
+     at com.test.logging.FooFactory.createFoo(FooFactory.java:15)
+     at com.test.logging.FooFactoryTest.test(FooFactoryTest.java:11)
 :::
 </dx-codeblock>
-LogConfig配置的参考如下：
-<dx-代码块>
-::: yaml
-api版本：cls.cloud.tencent.com/v1
-种类：日志配置
-规格： 
-   cls详细信息： 
-     主题 ID：xxxxxx-xx-xx-xx-xxxxxxxx
+LogConfig 配置的参考如下：
+<dx-codeblock>
+:::  yaml
+apiVersion: cls.cloud.tencent.com/v1
+kind: LogConfig
+spec: 
+   clsDetail: 
+     topicId: xxxxxx-xx-xx-xx-xxxxxxxx
      #多行日志
-     日志类型：multiline_log
-     提取规则： 
-       #日志以时间开头的行才被日期认为是新一条的开头，否则就可以添加换行符\n并添加到当前日志的结尾
-       开始正则表达式：\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2},\d{3}\s.+
+     logType: multiline_log
+     extractRule: 
+       #只有以日期时间开头的行才被认为是新一条日志的开头，否则就添加换行符\n并追加到当前日志的尾部
+       beginningRegex: \d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2},\d{3}\s.+
 :::
 </dx-codeblock>
-采集到日志服务的数据为
-<dx-代码块>
-：：： 日志
-\_\_CONTENT__:2019-12-15 17:13:06,043 [main] 错误 com.test.logging.FooFactory:\njava.lang.NullPointerException\n 在 com.test.logging.FooFactory.createFoo(FooFactory.java: 15)\n 在 com.test.logging.FooFactoryTest.test(FooFactoryTest.java:11)
+采集到日志服务的数据为：
+<dx-codeblock>
+:::  log
+\_\_CONTENT__:2019-12-15 17:13:06,043 [main] ERROR com.test.logging.FooFactory:\njava.lang.NullPointerException\n    at com.test.logging.FooFactory.createFoo(FooFactory.java:15)\n    at com.test.logging.FooFactoryTest.test(FooFactoryTest.java:11)
 :::
 </dx-codeblock>
 :::
 ::: 单行-完全正则格式
-正则通常会处理完整的结构化日志，指将一条完整的日志按正则方式提取出多个关键值的日志解析模式。详情请参阅[完全正则格式](https://cloud.tencent.com/文档/产品/614/32817)。
+完全正则格式通常用来处理结构化的日志，指将一条完整日志按正则方式提取多个 key-value 的日志解析模式。详情请参见  [完全正则格式](https://cloud.tencent.com/document/product/614/32817)。
 假设一条日志原始数据为：
-<dx-代码块>
-：：： 日志
-10.135.46.111 - - [22/Jan/2019:19:19:30 +0800] "GET /my/course/1 HTTP/1.1" 127.0.0.1 200 782 9703 "http://127.0.0.1/course/explore ?filter%5Btype%5D=all&filter%5Bprice%5D=all&filter%5BcurrentLevelId%5D=all&orderBy=studentNum" "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.04" 0.354
+<dx-codeblock>
+:::  log
+10.135.46.111 - - [22/Jan/2019:19:19:30 +0800] "GET /my/course/1 HTTP/1.1" 127.0.0.1 200 782 9703 "http://127.0.0.1/course/explore?filter%5Btype%5D=all&filter%5Bprice%5D=all&filter%5BcurrentLevelId%5D=all&orderBy=studentNum" "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0"  0.354 0.354
 :::
 </dx-codeblock>
-LogConfig配置的参考如下：
-<dx-代码块>
-::: yaml
-api版本：cls.cloud.tencent.com/v1
-种类：日志配置
-规格： 
-   cls详细信息： 
-     主题 ID：xxxxxx-xx-xx-xx-xxxxxxxx
-     #完全正则格式
-     日志类型：fullregex_log
-     提取规则： 
-       #正则表达式，会根据()开发组导出对应的值
-       logRegex: (\S+)[^\[]+(\[[^:]+:\d+:\d+:\d+\s\S+)\s"(\w+)\s(\S+)\s( [^"]+)"\s(\S+)\s(\d+)\s(\d+)\s(\d+)\s"([^"]+)"\s"([^"] +)"\s+(\S+)\s(\S+).*
-       开始正则表达式：(\S+)[^\[]+(\[[^:]+:\d+:\d+:\d+\s\S+)\s"(\w+)\s(\S+)\s( [^"]+)"\s(\S+)\s(\d+)\s(\d+)\s(\d+)\s"([^"]+)"\s"([^"] +)"\s+(\S+)\s(\S+).*
-       # 提取的键列表，与提取的值的一一对应
-       键：['remote_addr','time_local','request_method','request_url','http_protocol','http_host','status','request_length','body_bytes_sent','http_referer','http_user_agent','request_time' ,'upstream_response_time']
+LogConfig 配置的参考如下：
+<dx-codeblock>
+:::  yaml
+apiVersion: cls.cloud.tencent.com/v1
+kind: LogConfig
+spec: 
+   clsDetail: 
+     topicId: xxxxxx-xx-xx-xx-xxxxxxxx
+     # 完全正则格式
+     logType: fullregex_log
+     extractRule: 
+       # 正则表达式，会根据()捕获组提取对应的value
+       logRegex: (\S+)[^\[]+(\[[^:]+:\d+:\d+:\d+\s\S+)\s"(\w+)\s(\S+)\s([^"]+)"\s(\S+)\s(\d+)\s(\d+)\s(\d+)\s"([^"]+)"\s"([^"]+)"\s+(\S+)\s(\S+).*
+       beginningRegex: (\S+)[^\[]+(\[[^:]+:\d+:\d+:\d+\s\S+)\s"(\w+)\s(\S+)\s([^"]+)"\s(\S+)\s(\d+)\s(\d+)\s(\d+)\s"([^"]+)"\s"([^"]+)"\s+(\S+)\s(\S+).*
+       # 提取的key列表，与提取的value的一一对应
+       keys:   ['remote_addr','time_local','request_method','request_url','http_protocol','http_host','status','request_length','body_bytes_sent','http_referer','http_user_agent','request_time','upstream_response_time']
 :::
 </dx-codeblock>
-采集到日志服务的数据为
-<dx-代码块>
-：：： 日志
+采集到日志服务的数据为：
+<dx-codeblock>
+:::  log
 body_bytes_sent: 9703
 http_host: 127.0.0.1 
 http_protocol: HTTP/1.1
 http_referer: http://127.0.0.1/course/explore?filter%5Btype%5D=all&filter%5Bprice%5D=all&filter%5BcurrentLevelId%5D=all&orderBy=studentNum
 http_user_agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0
-远程地址：10.135.46.111 
-请求长度：782
-请求方法：获取
-请求时间：0.354
+remote_addr: 10.135.46.111 
+request_length: 782
+request_method: GET
+request_time: 0.354
 request_url: /my/course/1
-状态：200
+status: 200
 time_local: [22/Jan/2019:19:19:30 +0800]
-上游响应时间：0.354
+upstream_response_time: 0.354
 :::
 </dx-codeblock>
 :::
 ::: 多行-完全正则格式
-多行日志-完全正则模式适用于日志中的一个完整的数据跨占多行（例如Java程序日志），可正则表达式提取为多个键值键值的日志解析模式。 key-value，请参阅多行全文格式进行配置。详情请参阅[多行-完全正则格式](https://cloud.tencent.com/document/product/614/52366)。
+多行-完全正则模式适用于日志文本中一条完整的日志数据跨占多行（例如 Java 程序日志），可按正则表达式提取为多个 key-value 键值的日志解析模式。若不需要提取 key-value，请参阅多行全文格式进行配置。详情请参见  [多行-完全正则格式](https://cloud.tencent.com/document/product/614/52366)。
 
 假设一条日志原始数据为：
-<dx-代码块>
-：：： 日志
-[2018-10-01T10:30:01,000] [INFO] java.lang.Exception：发生异常
-   在 TestPrintStackTrace.f(TestPrintStackTrace.java:3)
-   在 TestPrintStackTrace.g(TestPrintStackTrace.java:7)
-   在 TestPrintStackTrace.main(TestPrintStackTrace.java:16)
+<dx-codeblock>
+:::  log
+[2018-10-01T10:30:01,000] [INFO] java.lang.Exception: exception happened
+   at TestPrintStackTrace.f(TestPrintStackTrace.java:3)
+   at TestPrintStackTrace.g(TestPrintStackTrace.java:7)
+   at TestPrintStackTrace.main(TestPrintStackTrace.java:16)
 :::
 </dx-codeblock>
-LogConfig配置的参考如下：
-<dx-代码块>
-::: yaml
-api版本：cls.cloud.tencent.com/v1
-种类：日志配置
-规格： 
-  cls详细信息： 
-    主题 ID：xxxxxx-xx-xx-xx-xxxxxxxx
+LogConfig 配置的参考如下：
+<dx-codeblock>
+:::  yaml
+apiVersion: cls.cloud.tencent.com/v1
+kind: LogConfig
+spec: 
+  clsDetail: 
+    topicId: xxxxxx-xx-xx-xx-xxxxxxxx
 		#多行-完全正则格式
-		日志类型：multiline_fullregex_log
-		提取规则： 
-      #行首完全正则表达式，只有以日期时间开头的行才被认为是新一条日志的大纲，否则就可以添加换行符\n并添加到当前日志的结尾
-			开始正则表达式：\[\d+-\d+-\w+:\d+:\d+,\d+\]\s\[\w+\]\s.*
-      #正则表达式，会根据()组导出对应的值
+		logType: multiline_fullregex_log
+		extractRule: 
+      #行首完全正则表达式，只有以日期时间开头的行才被认为是新一条日志的开头，否则就添加换行符\n并追加到当前日志的尾部
+			beginningRegex: \[\d+-\d+-\w+:\d+:\d+,\d+\]\s\[\w+\]\s.*
+      #正则表达式，会根据()捕获组提取对应的value
       logRegex: \[(\d+-\d+-\w+:\d+:\d+,\d+)\]\s\[(\w+)\]\s(.*)
-			# 提取的密钥列表，与提取的值的一对应
-			键： 
-      - 时间 
-      - 等级 
-      - 味精 
+			# 提取的 key 列表，与提取的 value 的一一对应
+			keys: 
+      - time 
+      - level 
+      - msg 
 :::
 </dx-codeblock>
-可知提取的密钥，采集到日志服务的数据为：
-<dx-代码块>
-：：： 日志
-时间： 2018-10-01T10:30:01,000`
-级别： INFO`
-msg：java.lang.Exception: 发生异常
-   在 TestPrintStackTrace.f(TestPrintStackTrace.java:3)
-   在 TestPrintStackTrace.g(TestPrintStackTrace.java:7)
-   在 TestPrintStackTrace.main(TestPrintStackTrace.java:16)
+根据提取的 key，采集到日志服务的数据为：
+<dx-codeblock>
+:::  log
+time： 2018-10-01T10:30:01,000`
+level： INFO`
+msg：java.lang.Exception: exception happened
+   at TestPrintStackTrace.f(TestPrintStackTrace.java:3)
+   at TestPrintStackTrace.g(TestPrintStackTrace.java:7)
+   at TestPrintStackTrace.main(TestPrintStackTrace.java:16)
 :::
 </dx-codeblock>
 :::
 ::: JSON\s格式
-JSON 格式日志会自动提取首层的关键对应名称。首层的价值应该是对应的字段值，以方式将整条进行结构化，每条完整的以换行符`\n`为结束说明。详情请参阅[JSON格式](https://cloud.tencent.com/document/product/614/17419)。
+JSON 格式日志会自动提取首层的 key 作为对应字段名。首层的 value 作为对应的字段值，以该方式将整条日志进行结构化处理，每条完整的日志以换行符 `\n` 为结束标识符。详情请参见  [JSON 格式](https://cloud.tencent.com/document/product/614/17419)。
 
 假设一条 JSON 日志原始数据为：
-<dx-代码块>
-：：： 日志
-{"remote_ip":"10.135.46.111","time_local":"22/Jan/2019:19:19:34 +0800","body_sent":23,"responsetime":0.232,"upstreamtime":"0.232" ,"upstreamhost":"unix:/tmp/php-cgi.sock","http_host":"127.0.0.1","method":"POST","url":"/event/dispatch","re​​quest" :"POST /event/dispatch HTTP/1.1","xff":"-","re​​ferer":"http://127.0.0.1/my/course/4","agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0","re​​sponse_code":"200"}
+<dx-codeblock>
+:::  log
+{"remote_ip":"10.135.46.111","time_local":"22/Jan/2019:19:19:34 +0800","body_sent":23,"responsetime":0.232,"upstreamtime":"0.232","upstreamhost":"unix:/tmp/php-cgi.sock","http_host":"127.0.0.1","method":"POST","url":"/event/dispatch","request":"POST /event/dispatch HTTP/1.1","xff":"-","referer":"http://127.0.0.1/my/course/4","agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0","response_code":"200"}
 :::
 </dx-codeblock>
-LogConfig配置的参考如下：
-<dx-代码块>
-：：： 日志
-api版本：cls.cloud.tencent.com/v1
-种类：日志配置
-规格：
-   cls详细信息：
-     主题 ID：xxxxxx-xx-xx-xx-xxxxxxxx
-     #JSON格式日志
-     日志类型：json_log
+LogConfig 配置的参考如下：
+<dx-codeblock>
+:::  log
+apiVersion: cls.cloud.tencent.com/v1
+kind: LogConfig
+spec:
+   clsDetail:
+     topicId: xxxxxx-xx-xx-xx-xxxxxxxx
+     # JSON格式日志
+     logType: json_log
 :::
 </dx-codeblock>
-采集到日志服务的数据为
-<dx-代码块>
-：：： 日志
-代理: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0
+采集到日志服务的数据为：
+<dx-codeblock>
+:::  log
+agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0
 body_sent: 23
 http_host: 127.0.0.1
-方法：POST
-推荐人：http://127.0.0.1/my/course/4
-远程 IP：10.135.46.111
-请求：POST /event/dispatch HTTP/1.1
-响应代码：200
-响应时间：0.232
+method: POST
+referer: http://127.0.0.1/my/course/4
+remote_ip: 10.135.46.111
+request: POST /event/dispatch HTTP/1.1
+response_code: 200
+responsetime: 0.232
 time_local: 22/Jan/2019:19:19:34 +0800
-上游主机：unix:/tmp/php-cgi.sock
-上行时间：0.232
-网址：/事件/调度
-xff：-
+upstreamhost: unix:/tmp/php-cgi.sock
+upstreamtime: 0.232
+url: /event/dispatch
+xff: -
 :::
 </dx-codeblock>
 :::
-::: 删除符格式
-是指一条数据可以根据指定的不良事件将整条消息进行结构化处理，每条完整以换行符\n`为结束符日志。 ，你需要每个单独的字段定义唯一的密钥。详情请参见[同意协议格式](https://cloud.tencent.com/document/product/614/17420)。
+::: 分隔符格式
+分隔符日志是指一条日志数据可以根据指定的分隔符将整条日志进行结构化处理，每条完整的日志以换行符 `\n` 为结束标识符。日志服务在进行分隔符格式日志处理时，您需要为每个分开的字段定义唯一的 key。详情请参见 [分隔符格式](https://cloud.tencent.com/document/product/614/17420)。
 
-假想的日志为：
-<dx-代码块>
-：：： 日志
-10.20.20.10 ::: [Tue Jan 22 14:49:45 CST 2019 +0800] ::: GET /online/sample HTTP/1.1 ::: 127.0.0.1 ::: 200 ::: 647 ::: 35 : :: http://127.0.0.1/
+假设原始日志为：
+<dx-codeblock>
+:::  log
+10.20.20.10 ::: [Tue Jan 22 14:49:45 CST 2019 +0800] ::: GET /online/sample HTTP/1.1 ::: 127.0.0.1 ::: 200 ::: 647 ::: 35 ::: http://127.0.0.1/
 :::
 </dx-codeblock>
-LogConfig配置的参考如下：
-<dx-代码块>
-::: yaml
-api版本：cls.cloud.tencent.com/v1
-种类：日志配置
-规格： 
-   cls详细信息： 
-     主题 ID：xxxxxx-xx-xx-xx-xxxxxxxx
-     #伤害符
-     日志类型：delimiter_log
-     提取规则： 
-       #伤害符
-       分隔符：':::'
-       #提取的关键列表，与被分割的字段一对应
-       键：['IP','time','request','host','status','length','bytes','referer']
+LogConfig 配置的参考如下：
+<dx-codeblock>
+:::  yaml
+apiVersion: cls.cloud.tencent.com/v1
+kind: LogConfig
+spec: 
+   clsDetail: 
+     topicId: xxxxxx-xx-xx-xx-xxxxxxxx
+     #分隔符日志
+     logType: delimiter_log
+     extractRule: 
+       #分隔符
+       delimiter: ':::'
+       #提取的key列表，与被分割的字段一一对应
+       keys: ['IP','time','request','host','status','length','bytes','referer']
 :::
 </dx-codeblock>
-采集到日志服务的数据为
-<dx-代码块>
-：：： 日志
-IP：10.20.20.10 
-字节：35
-主机：127.0.0.1 
-长度：647
-推荐人：http://127.0.0.1/
-请求：GET /online/sample HTTP/1.1
-状态：200
-时间：[2019 年 1 月 22 日星期二 14:49:45 CST +0800]
+采集到日志服务的数据为：
+<dx-codeblock>
+:::  log
+IP: 10.20.20.10 
+bytes: 35
+host: 127.0.0.1 
+length: 647
+referer: http://127.0.0.1/
+request: GET /online/sample HTTP/1.1
+status: 200
+time: [Tue Jan 22 14:49:45 CST 2019 +0800]
 :::
 </dx-codeblock>
 :::
@@ -417,4 +417,3 @@ spec:
 </td>
 	</tr>
 </table>
-
