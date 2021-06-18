@@ -76,7 +76,7 @@
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 <img src="https://main.qcloudimg.com/raw/e39abca80039bd3b80e0f2d1a01d3e70.png" width="320"/>
-2. 输入用户 A 创建的房间号，单击【加入房间】。<br>
+2. 输入用户 A 创建的房间号，单击【进入房间】。<br>
 <img src="https://main.qcloudimg.com/raw/001b8a308569733850b1eb0969ac9220.png" width="320"/>
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
