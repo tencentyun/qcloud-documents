@@ -68,6 +68,10 @@ lvcreate -L 8G -n lv_0 lvm_demo0
 ```
 mkfs.ext3 /dev/lvm_demo0/lv_0
 ```
+2. 执行以下命令，创建挂载节点目录 `/vg0`。
+```
+mkdir /vg0
+```
 2. 执行以下命令，挂载文件系统。
 ```
 mount /dev/lvm_demo0/lv_0 /vg0
