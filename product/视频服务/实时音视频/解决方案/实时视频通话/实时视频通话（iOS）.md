@@ -64,7 +64,7 @@
 <img src="https://main.qcloudimg.com/raw/48c8c7346136d3beca6d280a6ffababa.png" width="320"/>
 
 ### 用户 B
-1. 输入用户名(**请确保用户名唯一性，不能与其他用户重复**)，如图示：
+1. 输入用户名(**请确保用户名唯一性，不能与其他用户重复**)并登录，如图示：
 <img src="https://main.qcloudimg.com/raw/4ca3d3b7314d19255cfda322f9eff5f1.png" width="320"/>
 2. 进入主页，等待接听来电。
 
