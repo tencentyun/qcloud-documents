@@ -54,10 +54,9 @@
 >! 体验应用至少需要两台设备。
 
 ### 用户 A
-1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**），如图示：
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 <img src="https://main.qcloudimg.com/raw/64f768ee15bf0772361a8e7d63a35193.png" width="320"/>
-2. 输入要拨打的用户名，点击搜索，如下图示：
-![]()
+2. 输入要拨打的用户名，单击搜索，如下图示：
 <img src="https://main.qcloudimg.com/raw/94f105f177ea852f946d91f1325926d2.png" width="320"/>
 3. 单击【呼叫】，选择拨打【语音通话】（**请确保被叫方保持在应用内，否则可能会拨打失败**）。
 <img src="https://main.qcloudimg.com/raw/48c8c7346136d3beca6d280a6ffababa.png" width="320"/>
