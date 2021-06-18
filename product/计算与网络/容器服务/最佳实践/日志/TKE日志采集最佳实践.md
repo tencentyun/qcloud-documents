@@ -19,7 +19,7 @@ TKE 集群开启日志采集后，tke-log-agent 作为 DaemonSet 部署在每个
 3. 业务无需关注日志轮转，容器运行时会对日志进行存储和自动轮转，避免因个别 Pod 日志量大将磁盘写满。
 4. 无需关注日志文件路径，可以使用较统一的采集规则，用更少的采集规则数量覆盖更多的工作负载，减少运维复杂度。
 
-采集配置示例如下图所示，如何配置请参见 [采集容器标准输出日志](https://cloud.tencent.com/document/product/457/36771#.E9.87.87.E9.9B.86.E5.AE.B9.E5.99.A8.E6.A0.87.E5.87.86.E8.BE.93.E5.87.BA.E6.97.A5.E5.BF.97)。
+采集配置示例如下图所示，如何配置请参见 [采集容器标准输出日志](https://cloud.tencent.com/document/product/457/36771#.E9.85.8D.E7.BD.AE.E6.97.A5.E5.BF.97.E8.A7.84.E5.88.99)。
 <img style="width:70%" src="https://main.qcloudimg.com/raw/adcdcd8414e493f60d02a0536d11f19c.png">
 
 ### 采集容器内的文件
@@ -30,7 +30,7 @@ TKE 集群开启日志采集后，tke-log-agent 作为 DaemonSet 部署在每个
 日志文件会落盘到对应 volume 类型的后端存储，通常用 emptydir。容器停止后日志会被清理，运行期间日志文件会落盘到宿主机的 `/var/lib/kubelet` 路径下，此路径通常没有单独挂盘，即会使用系统盘。由于使用了日志采集功能，有统一存储的能力，不推荐再挂载其它持久化存储来存日志文件（例如云硬盘 CBS、对象存储 COS 或共享存储 CFS）。
 
 
-大部分开源日志采集器需给 Pod 日志文件路径挂载 volume 后才可采集，而 TKE 的日志采集无需挂载。若将日志输出到容器内的文件，则无需关注是否挂载 volume。采集配置示例如下图所示，如何配置请参见 [采集容器内文件日志](https://cloud.tencent.com/document/product/457/36771#.E9.87.87.E9.9B.86.E5.AE.B9.E5.99.A8.E5.86.85.E6.96.87.E4.BB.B6.E6.97.A5.E5.BF.97)。
+大部分开源日志采集器需给 Pod 日志文件路径挂载 volume 后才可采集，而 TKE 的日志采集无需挂载。若将日志输出到容器内的文件，则无需关注是否挂载 volume。采集配置示例如下图所示，如何配置请参见 [采集容器内文件日志](https://cloud.tencent.com/document/product/457/36771#.E9.85.8D.E7.BD.AE.E6.97.A5.E5.BF.97.E8.A7.84.E5.88.99)。
 <img style="width:70%" src="https://main.qcloudimg.com/raw/cd58e8a4e206888dcd07a50dcd217607.png">
 
 ### 采集宿主机上的文件
@@ -42,7 +42,7 @@ TKE 集群开启日志采集后，tke-log-agent 作为 DaemonSet 部署在每个
 通常业务用的日志框架会按照一定时间周期自动进行日志轮转，一般是按天轮转，并自动为旧日志文件进行重命名，加上时间戳后缀。如果采集规则里使用了 <code>*</code> 为通配符匹配日志文件名，则可能发生重复采集。日志框架对日志文件重命名后，采集器则会认为匹配到了新写入的日志文件，就又对其进行采集一次。
 >?通常情况下不会发生重复采集，若日志框架会对日志进行自动轮转，建议采集规则不要使用通配符 <code>*</code> 来匹配日志文件。
 >
-采集配置示例如下图所示，如何配置请参见 [采集节点文件日志](https://cloud.tencent.com/document/product/457/36771#.E9.87.87.E9.9B.86.E8.8A.82.E7.82.B9.E6.96.87.E4.BB.B6.E6.97.A5.E5.BF.97)。
+采集配置示例如下图所示，如何配置请参见 [采集节点文件日志](https://cloud.tencent.com/document/product/457/36771#.E9.85.8D.E7.BD.AE.E6.97.A5.E5.BF.97.E8.A7.84.E5.88.99)。
 <img style="width:70%" src="https://main.qcloudimg.com/raw/d4a658f3e769d0e369f10883e4f4d2b0.png">
 
 ## 日志输出
