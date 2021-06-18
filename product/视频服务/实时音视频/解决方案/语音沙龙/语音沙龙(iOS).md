@@ -1,6 +1,6 @@
 ## 效果展示
 
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验语音沙龙的能力，包括语音聊天、上下麦、低延时语音互动等 TRTC 在语音聊天场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验语音沙龙的能力，包括语音聊天、上下麦、低延时语音互动等 TRTC 在语音聊天场景下的相关能力。
 
 <table>
      <tr>
@@ -8,17 +8,17 @@
          <th>听众麦位操作</th>  
      </tr>
 <tr>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/chatsalon_anchor.gif" style="max-height:700px"></td>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/chatsalon_audicence.gif" style="max-height:700px"></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/chatsalon_anchor.gif"/ style="max-height:700px;"></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/chatsalon_audicence.gif"/  style="max-height:700px;"></td>
 </tr>
 </table>
 
 
-如需快速接入语音沙龙功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCChatSalon 组件并实现自定义 UI 界面。
+如需快速接入语音沙龙功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TUIChatSalon 组件并实现自定义 UI 界面。
 
 [](id:DemoUI)
 
-## 复用 Demo 的 UI 界面
+## 复用 App 的 UI 界面
 
 [](id:ui.step1)
 
@@ -33,50 +33,72 @@
 
 [](id:ui.step2)
 
-### 步骤2：下载 SDK 和 Demo 源码
-1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+### 步骤2：下载 SDK 和 App 源码
+1. 根据实际业务需求下载 SDK 及配套的 App 源码。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/f588650274a85b74893ff96eb563d3b4.png)
+![](https://main.qcloudimg.com/raw/991440ebf152f78d96ba9769aa69d8d7.png)
 
 [](id:ui.step3)
-### 步骤3：配置 Demo 工程文件
+### 步骤3：配置 App 工程文件
+
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `iOS/TRTCScenesDemo/TRTCScenesDemo/debug/GenerateTestUserSig.h` 文件。
-3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
-  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
-  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-    <img src="https://main.qcloudimg.com/raw/420034ad9767a8df101a37b2c668af6c.png">
+2. 找到并打开 `TUIChatSalon/Debug/GenerateTestUserSig.swift` 文件。
+3. 设置 `GenerateTestUserSig.swift` 文件中的相关参数：
+<ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
+<li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
+<img src="https://main.qcloudimg.com/raw/adb7a596acda92d41aee235c441f2623.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
 >!
->- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
+>- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 [](id:ui.step4)
 
-### 步骤4：运行 Demo
+### 步骤4：运行 App
 
-使用 Xcode（11.0及以上的版本）打开源码工程 `iOS/TRTCScenesDemo/TXLiteAVDemo.xcworkspace`，单击【运行】即可开始调试本 Demo。
+使用 Xcode（11.0及以上的版本）打开源码工程 `TUIChatSalon/TUIChatSalonApp.xcworkspace`，单击【运行】即可开始调试本 App。
 
 [](id:ui.step5)
 
-### 步骤5：修改 Demo 源代码
+### 步骤5：修改 App 源代码
 
-源码中的 TRTCChatSalonDemo 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码以及涉及界面相关的逻辑，如下表格列出了各个 swift 文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
+源码中的 `Source` 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码以及涉及界面相关的逻辑，如下表格列出了各个 swift 文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
 
 | 文件或文件夹                      | 功能描述                             |
 | --------------------------------- | ------------------------------------ |
-| NetworkRoomManager                | 业务后台交互相关。                   |
+| TRTCChatSalonEnteryControl.swift  | 该文件包含所有 ViewController 的初始化获取方法，您可以通过该实例，快速获取 ViewController 对象。                 |
 | TRTCCreateChatSalonViewController | 创建房间页面逻辑。                   |
-| TRTCChatSalonListViewController   | 列表页面逻辑。                       |
 | TRTCChatSalonViewController       | 主房间页面，包括房主和听众两种界面。 |
+
+## 体验应用
+>! 体验应用至少需要两台设备。
+
+### 用户 A
+
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+<img src="https://main.qcloudimg.com/raw/64f768ee15bf0772361a8e7d63a35193.png" width="320"/>
+2. 单击【创建房间】，如下图示：
+<img src="https://main.qcloudimg.com/raw/38f5f3103c02b45a638329363abde733.png" width="320"/>
+3. 输入房间主题，单击【开始交谈】。
+
+### 用户 B
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+<img src="https://main.qcloudimg.com/raw/7ec04d178cd8a7e44fdae3fafc16ba89.png" width="320"/>
+2. 输入用户 A 创建的房间号，单击【进入房间】。<br>
+<img src="https://main.qcloudimg.com/raw/0c52f062e07eca3c81c30d7936a1d800.png" width="320"/>
+
+>! 房间号在用户 A 的房间顶部查看，如下图示：
+<img src="https://main.qcloudimg.com/raw/e894917b1fdae18ab815c95d788e38f9.png" width="320"/>
+
+
 
 [](id:model)
 
 ## 实现自定义 UI 界面
 
-[源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCChatSalonDemo) 中的 trtcchatsalondemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCChatSalon，您可以在`TRTCChatSalon.h`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+[源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCChatSalonDemo) 中的 `Source` 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCChatSalon，您可以在`TRTCChatSalon.h`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/fcf694c8550664623414604d14ffcd94.png)
 
 [](id:model.step1)
@@ -110,9 +132,17 @@ pod 'TXLiteAVSDK_TRTC'
 
 [](id:model.step3)
 
-### 步骤3：导入 TRTCChatSalon 组件
+### 步骤3：导入 TUIChatSalon 组件
 
-拷贝 `iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCChatSalonDemo/model` 目录中的所有文件到您的项目中。
+#### 通过cocoapods导入组件
+1. 将工程目录下的 `Source`、`Resources`、`TXAppBasic` 文件夹、`TUIChatSalon.podspec` 文件拷贝到您的工程目录下。
+2. 在您的 `Podfile` 文件中添加以下依赖。之后执行`pod install` 命令，完成导入。
+
+```
+ pod 'TXAppBasic', :path => "TXAppBasic/"
+ pod 'TXLiteAVSDK_TRTC'
+ pod 'TUIChatSalon', :path => "./", :subspecs => ["TRTC"] 
+```
 
 
 [](id:model.step4)
@@ -212,7 +242,7 @@ func onAnchorEnterSeat(user: ChatSalonUserInfo) {
 
 1. 听众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 听众端向业务后台获取最新的语音沙龙房间列表。
- >?Demo 中的语音沙龙列表仅做演示使用，语音沙龙列表的业务逻辑千差万别，腾讯云暂不提供语音沙龙列表的管理服务，请自行管理您的语音沙龙列表。
+ >?App 中的语音沙龙列表仅做演示使用，语音沙龙列表的业务逻辑千差万别，腾讯云暂不提供语音沙龙列表的管理服务，请自行管理您的语音沙龙列表。
 3. 听众端调用 `getRoomInfoList` 获取房间的详细信息，该信息是在房主端调用 `createRoom` 创建语音沙龙时设置的简单描述信息。
  >!如果您的语音沙龙列表包含了足够全面的信息，可跳过调用 `getRoomInfoList` 相关步骤。
 4. 听众选择一个语音沙龙，调用 `enterRoom` 并传入房间号即可进入该房间。
