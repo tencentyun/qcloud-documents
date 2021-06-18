@@ -18,7 +18,7 @@
 ### 步骤2：下载 SDK 和 App 源码
 1. 根据实际业务需求下载 SDK 及配套的 App 源码。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
+![](https://main.qcloudimg.com/raw/f588650274a85b74893ff96eb563d3b4.png)
 
 [](id:ui.step3)
 ### 步骤3：配置 App 工程文件
@@ -56,13 +56,13 @@
 ### 用户 A
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 <img src="https://main.qcloudimg.com/raw/64f768ee15bf0772361a8e7d63a35193.png" width="320"/>
-2. 输入要拨打的用户名，单击搜索，如下图示：
+2. 输入要拨打的用户名，单击【搜索】，如下图示：
 <img src="https://main.qcloudimg.com/raw/94f105f177ea852f946d91f1325926d2.png" width="320"/>
 3. 单击【呼叫】，选择拨打【语音通话】（**请确保被叫方保持在应用内，否则可能会拨打失败**）。
 <img src="https://main.qcloudimg.com/raw/48c8c7346136d3beca6d280a6ffababa.png" width="320"/>
 
 ### 用户 B
-1. 输入用户名(**请确保用户名唯一性，不能与其他用户重复**)并登录，如图示：
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 <img src="https://main.qcloudimg.com/raw/4ca3d3b7314d19255cfda322f9eff5f1.png" width="320"/>
 2. 进入主页，等待接听来电。
 
