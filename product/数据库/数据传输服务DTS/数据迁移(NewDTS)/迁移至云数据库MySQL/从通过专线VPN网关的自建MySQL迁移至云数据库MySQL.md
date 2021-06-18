@@ -54,7 +54,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 | 目标实例内容冲突检测 | 目标库不能有和源库冲突的库表                                 |
 | 目标实例空间检查     | 目标库的空间大小须是源库待迁移库表空间的1.2倍以上 |
 | Binlog 参数检查       | - 源端 binlog_format 变量必须为 ROW<br>- 源端 log_bin 变量必须为 ON<br>- 源端 binlog_row_image 变量必须为 FULL<br>- 源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode<br>- 不允许设置 do_db, ignore_db<br>- 对于源实例为从库的情况，log_slave_updates 变量必须为 ON |
-| 外键依赖检查         | 外键依赖只能是 no action 和 restrict 两种类型<br>部分库表迁移时，有外键依赖的表必须齐全 |
+| 外键依赖检查         | - 外键依赖只能是 no action 和 restrict 两种类型<br>- 部分库表迁移时，有外键依赖的表必须齐全 |
 | 视图检查             | 只允许和迁移目标 user@host 相同的 definer                       |
 | 其他警告项检查       | - 检查源库和目标库的 max_allowed_packet，如果源库大于目标库，会有警告<br>- 目标库的 max_allowed_packet 小于1GB，会有警告<br>- 如果源库和目标库的字符集不一致，会有警告<br>- 对于全量迁移（没有增量），发警告告知用户这种全量迁移没有锁，不保证数据一致 |
 
