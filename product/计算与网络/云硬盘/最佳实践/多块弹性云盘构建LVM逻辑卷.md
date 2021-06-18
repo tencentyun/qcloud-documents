@@ -73,7 +73,7 @@ mkfs.ext3 /dev/lvm_demo0/lv_0
 mount /dev/lvm_demo0/lv_0 /vg0
 ```
 挂载成功则如下图所示：
-![](https://main.qcloudimg.com/raw/2a7701636c2604d67e0743de4f9a6af1.png)
+![](https://main.qcloudimg.com/raw/34af8440192a1fa74f85ea44b6354194.png)
 
 ### 步骤 5 动态扩展逻辑卷及文件系统大小
 >!仅当 VG 容量有剩余时，LV 容量可动态扩展。扩展 LV 容量后，需一并扩展创建在该 LV 上的文件系统的大小。
