@@ -1,7 +1,7 @@
 ## 操作场景
 该任务指导您通过 TSF 控制台查看 JVM 进程监控详情。
 >!
->- JVM 监控能力依赖实例上安装的探针。如您发现 JVM 监控不可用（2020年9月2日前导入集群的节点默认没有携带可以支持 JVM 监控的探针），针对虚拟机部署的业务，可以通过重新导入集群或重新安装 Agent 来使用 JVM 监控能力。针对容器部署的业务，则需要在 Dockerfile 中增加 JVM 监控组件 `TencentCloudJvmMonitor-1.1.1`（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.1.1-RELEASE.jar)）。容器部署详细操作请参考 [制作容器镜像](https://cloud.tencent.com/document/product/649/50610)。
+>- JVM 监控能力依赖实例上安装的探针。如您发现 JVM 监控不可用（2020年9月2日前导入集群的节点默认没有携带可以支持 JVM 监控的探针），针对虚拟机部署的业务，可以通过重新导入集群或重新安装 Agent 来使用 JVM 监控能力。针对容器部署的业务，则需要在 Dockerfile 中增加 JVM 监控组件 `TencentCloudJvmMonitor-1.1.2`（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.1.2-RELEASE.jar)）。容器部署详细操作请参考 [制作容器镜像](https://cloud.tencent.com/document/product/649/50610)。
 >- 如果您在使用时遇到问题，请参考 [JVM 监控常见问题](https://cloud.tencent.com/document/product/649/42891)。
 
 
