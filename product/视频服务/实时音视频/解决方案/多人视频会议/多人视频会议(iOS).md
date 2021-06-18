@@ -72,7 +72,7 @@
 ### 用户 B
 1. 输入用户名（请确保用户名唯一性，不能与其他用户重复）并登录，如图示：
 <img src="https://main.qcloudimg.com/raw/4ca3d3b7314d19255cfda322f9eff5f1.png" width="320"/>
-2. 输入用户 A 创建的会议号，单击【加入会议】。<br>
+2. 输入用户 A 创建的会议号，单击【进入会议】。<br>
 <img src="https://main.qcloudimg.com/raw/e3a8a60a5a7ed81d0534c2044eb90b81.png" width="320"/>
 
 [](id:model)
