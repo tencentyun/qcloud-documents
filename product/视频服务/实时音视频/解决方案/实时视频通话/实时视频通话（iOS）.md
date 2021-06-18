@@ -1,27 +1,13 @@
-## 效果展示
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验实时视频通话的效果。
 
-<table>
-<tr>
-   <th>主动呼叫</th>
-   <th>被叫接听</th>
- </tr>
-<tr>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-call.gif"/></td>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-recv.gif"/></td>
-</tr>
-</table>
+如需快速实现视频的通话功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TUICalling 组件并实现自定义 UI 界面。
 
-
-如需快速实现视频的通话功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCCalling 组件并实现自定义 UI 界面。
-
->! 我们之前提供了 TRTCVideoCall 组件，旧版本组件已经移动到 [组件仓库](https://github.com/tencentyun/LiteAVClassic) 中。TRTCCalling 组件使用了 IM 信令的接口，将不再与旧组件兼容。
+>! 我们之前提供了 TRTCVideoCall 组件，旧版本组件已经移动到 [组件仓库](https://github.com/tencentyun/LiteAVClassic) 中。TUICalling 组件使用了 IM 信令的接口，将不再与旧组件兼容。
 
 [](id:ui)
-
-## 复用 Demo 的 UI 界面
+## 复用 App 的 UI 界面
 
 [](id:ui.step1)
-
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 输入应用名称，例如 `TestVideoCall` ，单击【创建】。
@@ -30,57 +16,68 @@
 
 
 [](id:ui.step2)
-### 步骤2：下载 SDK 和 Demo 源码
-1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+### 步骤2：下载 SDK 和 App 源码
+1. 根据实际业务需求下载 [SDK](https://cloud.tencent.com/document/product/647/32689) 及 [App 源码](https://github.com/tencentyun/TUICalling)。
 2. 下载完成后，单击【已下载，下一步】。
 ![](https://main.qcloudimg.com/raw/f588650274a85b74893ff96eb563d3b4.png)
 
 [](id:ui.step3)
-
-### 步骤3：配置 Demo 工程文件
+### 步骤3：配置 App 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `iOS/TRTCScenesDemo/TRTCScenesDemo/debug/GenerateTestUserSig.h` 文件。
-3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
-  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
-  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-    <img src="https://main.qcloudimg.com/raw/420034ad9767a8df101a37b2c668af6c.png">
+2. 找到并打开 `TUICalling/Debug/GenerateTestUserSig.swift` 文件。
+3. 设置 `GenerateTestUserSig.swift` 文件中的相关参数：
+<ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
+<li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
+<img src="https://main.qcloudimg.com/raw/a226f5713e06e014515debd5a701fb63.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
 >!
->- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
+>- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 [](id:ui.step4)
+### 步骤4：运行 App
 
-### 步骤4：运行 Demo
-
-使用 Xcode（11.0及以上的版本）打开源码工程 `iOS/TRTCScenesDemo/TXLiteAVDemo.xcworkspace`，单击【运行】即可开始调试本 Demo。
+使用 Xcode（11.0及以上的版本）打开源码工程 `TUICalling/TUICallingApp.xcworkspace`，单击【运行】即可开始调试本 App。
 
 [](id:ui.step5)
+### 步骤5：修改 App 源代码
 
-### 步骤5：修改 Demo 源代码
-
-源码文件夹 `TRTCCallingDemo` 中包含两个子文件夹 ui 和 model，其中 ui 文件夹中均为界面代码：
+源码文件夹 `Source` 中包含两个子文件夹 ui 和 model，其中 ui 文件夹中均为界面代码：
 
 |              文件或文件夹              | 功能描述                                                 |
 | ------------------------------------ | ------------------------------------------------------- |
 |  TRTCCallingVideoViewController.swift  | 展示视频通话的主界面，通话的接听和拒绝在这个界面中完成。 |
 |  TRTCCallingAudioViewController.swift  | 展示语音通话的主界面，通话的接听和拒绝在这个界面中完成。 |
-| TRTCCallingContactViewController.swift | 用于展示搜索联系人的界面。                               |
+
+
+## 体验应用（**体验应用至少需要两台设备**）
+
+### 用户 A
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**），如图示：
+<img src="https://main.qcloudimg.com/raw/64f768ee15bf0772361a8e7d63a35193.png" width="320"/>
+2. 输入要拨打的用户名，点击搜索，如下图示：
+![]()
+<img src="https://main.qcloudimg.com/raw/94f105f177ea852f946d91f1325926d2.png" width="320"/>
+3. 单击【呼叫】，选择拨打【视频通话】（**请确保被叫方保持在应用内，否则可能会拨打失败**）。
+<img src="https://main.qcloudimg.com/raw/48c8c7346136d3beca6d280a6ffababa.png" width="320"/>
+
+### 用户 B
+1. 输入用户名(**请确保用户名唯一性，不能与其他用户重复**)，如图示：
+<img src="https://main.qcloudimg.com/raw/4ca3d3b7314d19255cfda322f9eff5f1.png" width="320"/>
+2. 进入主页，等待接听来电。
 
 
 [](id:model)
-
 ## 实现自定义 UI 界面
 
-[源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCCallingDemo) 文件夹 `TRTCCallingDemo` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCCalling，您可以在  `TRTCCalling.h`  文件中看到该组件提供的接口函数。
+[源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCCallingDemo) 文件夹 `Source` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCCalling，您可以在  `TRTCCalling.h`  文件中看到该组件提供的接口函数。
 ![](https://main.qcloudimg.com/raw/36220937e8689dac4499ce9f2f187889.png)
 
 您可以使用开源组件 TRTCCalling 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。
 
 [](id:model.step1)
-
 ### 步骤1：集成 SDK
 
 通话组件 TRTCCalling 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
@@ -112,22 +109,25 @@ pod 'TXLiteAVSDK_TRTC'
 </table>
 
 [](id:model.step2)
-
 ### 步骤2：配置权限
 
 在 info.plist 文件中需要添加 `Privacy - Camera Usage Description`， `Privacy - Microphone Usage Description` 申请摄像头和麦克风权限。
 
 [](id:model.step3)
+### 步骤3：导入 TUICalling 组件
 
-### 步骤3：导入 TRTCCalling 组件
+#### 通过cocoapods导入组件
+1. 将工程目录下的`Source`、`Resources`、`TXAppBasic`文件夹，`TUICalling.podspec`文件拷贝到您的工程目录下。
+2. 在您的`Podfile`文件中添加以下依赖。之后执行`pod install` 命令，完成导入。
 
-拷贝以下目录中的所有文件到您的项目中：
 ```
-iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model 
+ pod 'TXAppBasic', :path => "TXAppBasic/"
+ pod 'TXLiteAVSDK_TRTC'
+ pod 'TUICalling', :path => "./", :subspecs => ["TRTC"] 
 ```
+
 
 [](id:model.step4)
-
 ### 步骤4：初始化并登录组件
 
 1. 设置推送相关信息。
@@ -162,7 +162,6 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 
 
 [](id:model.step5)
-
 ### 步骤5：实现 1v1 通话
 
 1. 发起方：调用 `TRTCCalling` 的 `call(userId, callType)` ，`userId` 参数为用户 ID， `callType` 参数为通话类型，参数传入`CallType_Video`，就能够发起视频通话的请求。
@@ -194,7 +193,7 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
   } else {
     [[TRTCCalling shareInstance] stopRemoteView:uid]; // 停止渲染画面
   }
-}
+  }
 
 // 3.调用组件的其他功能函数发起通话或挂断等
 // 注意：必须在登录后才可以正常调用
@@ -208,7 +207,6 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 </dx-codeblock>
 
 [](id:model.step6)
-
 ### 步骤6：实现多人通话
 
 1. 发起方：多人视频/语音通话需要调用 `TRTCCalling ` 中的 `groupCall()` 函数，并传入用户列表（userIdList）、群组 IM ID（groupId）、通话类型（callType），其中 userIdList 为必填参数，groupId 为选填参数，`callType` 为视屏类型`CallType_Video`。
@@ -237,7 +235,6 @@ NSArray *callList = @[];
 </dx-codeblock>
 
 [](id:offline)
-
 ### 步骤7：实现离线接听
 
 >?如果您的业务定位是在线客服等不需要离线接听功能的场景，那么完成上述 [步骤1](#model.step1) - [步骤6](#model.step6) 的对接即可。但如果您的业务定位是社交场景，建议实现离线接听。
