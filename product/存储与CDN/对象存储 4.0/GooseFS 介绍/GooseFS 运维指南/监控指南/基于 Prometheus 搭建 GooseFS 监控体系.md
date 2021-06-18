@@ -26,7 +26,7 @@ curl <WORKER_IP>:<WOKER_PORT>/metrics/prometheus/
 ...
 ```
 
-## 上报监控指标到自建 Prometheus
+<h2>上报监控指标到自建 Prometheus</h2>
 
 1. 下载 Promethus 安装包并解压，修改 promethus.yml：
 <dx-codeblock>
@@ -84,7 +84,7 @@ http://<PROMETHEUS_BI_IP>:<PROMETHEUS_BI_PORT>/targets
 :::
 </dx-codeblock>
 
-## 上报监控指标到腾讯云 Prometheus
+<h2>上报监控指标到腾讯云 Prometheus</h2>
 
 1. 按照安装指南中的指引，在 master 机器上安装 Promethus agent：
 <dx-codeblock>
@@ -117,7 +117,7 @@ file_sd_configs:
  >! job_name 中没有空格，而单机的 Prometheus 的 job_name 中可以包含空格。
 >
 
-## 使用 Grafana 查看监控指标
+<h2>使用 Grafana 查看监控指标</h2>
 
 1. 启动 Grafana：
 ```plaintext
