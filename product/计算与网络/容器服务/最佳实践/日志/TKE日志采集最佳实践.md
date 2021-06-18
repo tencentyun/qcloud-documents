@@ -60,41 +60,57 @@ TKE 日志采集与云上的 CLS 日志服务集成，日志数据也将统一�
 TKE 支持单行文本、JSON、分隔符、多行文本和完全正则5种提取模式。如下图所示：
 ![](https://main.qcloudimg.com/raw/46dfb1fddbddfaa3aad085ffa0ff86f4.png)
 
-#### JSON  模式 
+
+<dx-tabs>
+::: JSON\s模式
 选择 “JSON 模式”需日志本身是以 JSON 格式输出的，推荐选择该模式。JSON 格式本身已将日志结构化，CLS 可以提取 JSON 的 key 作为字段名，value 作为对应的字段值，不再需要根据业务日志输出格式配置复杂的匹配规则。日志示例如下：
 ```
 {"remote_ip":"10.135.46.111","time_local":"22/Jan/2019:19:19:34 +0800","body_sent":23,"responsetime":0.232,"upstreamtime":"0.232","upstreamhost":"unix:/tmp/php-cgi.sock","http_host":"127.0.0.1","method":"POST","url":"/event/dispatch","request":"POST /event/dispatch HTTP/1.1","xff":"-","referer":"http://127.0.0.1/my/course/4","agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0","response_code":"200"}
 ```
-
-#### 分隔符及完全正则模式
-如果日志内容是以固定格式输出的单行文本，则考虑使用“分隔符”或“完全正则”提取模式：
-- “分隔符”适用简单格式，日志中每个字段值都以固定的字符串分隔开。例如，用 `:::` 隔开，某一条日志内容为：
-```
-10.20.20.10 ::: [Tue Jan 22 14:49:45 CST 2019 +0800] ::: GET /online/sample HTTP/1.1 ::: 127.0.0.1 ::: 200 ::: 647 ::: 35 ::: http://127.0.0.1/
-```
-则可以配置 `:::` 自定义分隔符，并且为每个字段按顺序配置字段名。如下图所示：
-![](https://main.qcloudimg.com/raw/958a71bdee32a7346fd88646a2cbecbf.png)
-- “完全正则”适用复杂格式，使用正则表达式来匹配日志的格式。例如日志内容为：
-```
-10.135.46.111 - - [22/Jan/2019:19:19:30 +0800] "GET /my/course/1 HTTP/1.1" 127.0.0.1 200 782 9703 "http://127.0.0.1/course/explore?filter%5Btype%5D=all&filter%5Bprice%5D=all&filter%5BcurrentLevelId%5D=all&orderBy=studentNum" "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0"  0.354 0.354
-```
-则正则表达式就可以设置为：
-```
-(\S+)[^\[]+(\[[^:]+:\d+:\d+:\d+\s\S+)\s"(\w+)\s(\S+)\s([^"]+)"\s(\S+)\s(\d+)\s(\d+)\s(\d+)\s"([^"]+)"\s"([^"]+)"\s+(\S+)\s(\S+).*
-```
-CLS 会使用 `()` 捕获组来区分每个字段，还需要为每个字段设置字段名。如下图所示：
-![](https://main.qcloudimg.com/raw/fa23705c9d715ae2609405f10669a5e3.png)
-
-#### 单行文本及多行文本模式
+:::
+::: 单行文本及多行文本模式
 如果日志没有固定的输出格式，则考虑使用“单行文本”或“多行文本”的提取模式。使用这两种模式，不会对日志内容本身进行结构化处理及提取日志字段，每条日志的时间戳固定由日志采集的时间决定，检索时仅能进行简单的模糊查询。两种模式的区别在于日志内容为单行还是多行：
  - 单行：无需设置任何匹配条件，每行为一条单独的日志。
  - 多行：需设置首行正则表达式，即匹配每条日志第一行的正则。当某行日志匹配上预先设置的首行正则表达式，即认为是一条日志的开头，而下一个行首出现作为该条日志的结束标识符。假设多行日志内容是：
-```
+<dx-codeblock>
+:::  log
 10.20.20.10 - - [Tue Jan 22 14:24:03 CST 2019 +0800] GET /online/sample HTTP/1.1 127.0.0.1 200 628 35 http://127.0.0.1/group/1 
 Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0 0.310 0.310
-```
-则首行正则表达式就可以设置为：`\d+\.\d+\.\d+\.\d+\s-\s.*`。如下图所示：
+:::
+</dx-codeblock>则首行正则表达式就可以设置为：`\d+\.\d+\.\d+\.\d+\s-\s.*`。如下图所示：
 ![](https://main.qcloudimg.com/raw/20d59a46cee1651a4fcd0643eb878976.png)
+:::
+::: 分隔符及完全正则模式
+如果日志内容是以固定格式输出的单行文本，则考虑使用“分隔符”或“完全正则”提取模式：
+- “分隔符”适用简单格式，日志中每个字段值都以固定的字符串分隔开。例如，用 `:::` 隔开，某一条日志内容为：
+<dx-codeblock>
+:::  log
+10.20.20.10 ::: [Tue Jan 22 14:49:45 CST 2019 +0800] ::: GET /online/sample HTTP/1.1 ::: 127.0.0.1 ::: 200 ::: 647 ::: 35 ::: http://127.0.0.1/
+:::
+</dx-codeblock>则可以配置 `:::` 自定义分隔符，并且为每个字段按顺序配置字段名。如下图所示：
+![](https://main.qcloudimg.com/raw/958a71bdee32a7346fd88646a2cbecbf.png)
+- “完全正则”适用复杂格式，使用正则表达式来匹配日志的格式。例如日志内容为：
+<dx-codeblock>
+:::  log
+10.135.46.111 - - [22/Jan/2019:19:19:30 +0800] "GET /my/course/1 HTTP/1.1" 127.0.0.1 200 782 9703 "http://127.0.0.1/course/explore?filter%5Btype%5D=all&filter%5Bprice%5D=all&filter%5BcurrentLevelId%5D=all&orderBy=studentNum" "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0"  0.354 0.354
+:::
+</dx-codeblock>则正则表达式就可以设置为：
+<dx-codeblock>
+:::  log
+(\S+)[^\[]+(\[[^:]+:\d+:\d+:\d+\s\S+)\s"(\w+)\s(\S+)\s([^"]+)"\s(\S+)\s(\d+)\s(\d+)\s(\d+)\s"([^"]+)"\s"([^"]+)"\s+(\S+)\s(\S+).*
+:::
+</dx-codeblock>CLS 会使用 `()` 捕获组来区分每个字段，还需要为每个字段设置字段名。如下图所示：
+<img src="https://main.qcloudimg.com/raw/fa23705c9d715ae2609405f10669a5e3.png">
+:::
+</dx-tabs>
+
+
+
+
+
+
+
+
 
 ### 配置过滤内容
 可选择过滤无需使用的日志信息，降低成本。
@@ -102,7 +118,7 @@ Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0 0.310 
 <img style="width:70%" src="https://main.qcloudimg.com/raw/ec8a53187b3068c7b0fda3c73ce3abbe.png">
 - 若使用“单行文本”和“多行文本”的提取模式，由于日志内容没有进行结构化处理，无法指定字段来过滤，通常直接使用正则来对要保留的完整日志内容进行模糊匹配。如下图所示：
 >!匹配内容需使用正则而不是完整匹配。例如，需仅保留 `a.test.com` 域名的日志，匹配的表达式应为 `a\.test\.com` 而不是 `a.test.com`。
-
+>
 <img style="width:70%" src="https://main.qcloudimg.com/raw/4dc0a910bfbc2b9aa302108f514bc724.png">
 
 ### 自定义日志时间戳
@@ -113,7 +129,7 @@ Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0 0.310 
 
 <img style="width:70%" src="https://main.qcloudimg.com/raw/8699955609c5237c6d9379d05bef961d.png"></img>
 
-<br>更多时间格式配置信息请参见 [配置时间格式](https://cloud.tencent.com/document/product/614/38614)。
+更多时间格式配置信息请参见 [配置时间格式](https://cloud.tencent.com/document/product/614/38614)。
 
 
 
@@ -123,8 +139,8 @@ Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0 0.310 
 ![](https://main.qcloudimg.com/raw/b4635a9c0956c6d3f43ac555e4284110.png)
 - 键值索引。索引结构化处理过的日志内容，可以指定日志字段进行检索。如下图所示：
 <img style="width:70%" src="https://main.qcloudimg.com/raw/049e9da5c98be0dcfa4ddf2df81df941.png"></img>
-- 元字段索引。上报日志时额外自动附加的一些字段。例如 pod 名称、namespace 等，方便检索时指定这些字段进行检索。如下图所示：<br>
-<img style="width:70%" src="https://main.qcloudimg.com/raw/6dd367f57c2bc34f2f56cd639c685a31.png"></img>
+- 元字段索引。上报日志时额外自动附加的一些字段。例如 pod 名称、namespace 等，方便检索时指定这些字段进行检索。如下图所示：
+<img style="width:70%" src="https://main.qcloudimg.com/raw/6dd367f57c2bc34f2f56cd639c685a31.png"></img><br>
 
 查询示例如下图所示：
 <img style="width:70%" src="https://main.qcloudimg.com/raw/1099e600a88bb47371e0a9274ba5c302.png">
