@@ -3,7 +3,7 @@
 >?
 >- 本文仅适用于 TKE 集群。
 >- 关于 TKE 集群如何启用日志采集及其基础用法，请参见 [日志采集](https://cloud.tencent.com/document/product/457/36771)。
->
+
 
 ## 技术架构
 TKE 集群开启日志采集后，tke-log-agent 作为 DaemonSet 部署在每个节点上。会根据采集规则采集节点上容器的日志，并上报至日志服务 CLS，由 CLS 进行统一存储、检索与分析。示意图如下：
@@ -102,7 +102,7 @@ Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0 0.310 
 <img style="width:70%" src="https://main.qcloudimg.com/raw/ec8a53187b3068c7b0fda3c73ce3abbe.png">
 - 若使用“单行文本”和“多行文本”的提取模式，由于日志内容没有进行结构化处理，无法指定字段来过滤，通常直接使用正则来对要保留的完整日志内容进行模糊匹配。如下图所示：
 >!匹配内容需使用正则而不是完整匹配。例如，需仅保留 `a.test.com` 域名的日志，匹配的表达式应为 `a\.test\.com` 而不是 `a.test.com`。
->
+
 <img style="width:70%" src="https://main.qcloudimg.com/raw/4dc0a910bfbc2b9aa302108f514bc724.png">
 
 ### 自定义日志时间戳
@@ -110,9 +110,10 @@ Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0 0.310 
 
 “单行文本”和“多行文本”提取模式不会对日志内容进行结构化处理，无字段可指定为时间戳，即不支持此功能。其他提取模式均支持此功能，需关闭“使用采集时间”、选取需作为时间戳的字段名称并配置时间格式。例如，使用日志的 `time` 字段作为时间戳，其中一条日志 `time` 的值为 `2020-09-22 18:18:18`，时间格式即可设置为 `%Y-%m-%d %H:%M:%S`。如下图所示：
 >!日志服务时间戳目前支持精确到秒，若业务日志的时间戳字段精确到毫秒，则将无法使用自定义时间戳，只能使用默认的采集时间作为时间戳。
->
+
 <img style="width:70%" src="https://main.qcloudimg.com/raw/8699955609c5237c6d9379d05bef961d.png"></img>
-更多时间格式配置信息请参见 [配置时间格式](https://cloud.tencent.com/document/product/614/38614)。
+
+<br>更多时间格式配置信息请参见 [配置时间格式](https://cloud.tencent.com/document/product/614/38614)。
 
 
 
@@ -122,7 +123,7 @@ Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0 0.310 
 ![](https://main.qcloudimg.com/raw/b4635a9c0956c6d3f43ac555e4284110.png)
 - 键值索引。索引结构化处理过的日志内容，可以指定日志字段进行检索。如下图所示：
 <img style="width:70%" src="https://main.qcloudimg.com/raw/049e9da5c98be0dcfa4ddf2df81df941.png"></img>
-- 元字段索引。上报日志时额外自动附加的一些字段。例如 pod 名称、namespace 等，方便检索时指定这些字段进行检索。如下图所示：
+- 元字段索引。上报日志时额外自动附加的一些字段。例如 pod 名称、namespace 等，方便检索时指定这些字段进行检索。如下图所示：<br>
 <img style="width:70%" src="https://main.qcloudimg.com/raw/6dd367f57c2bc34f2f56cd639c685a31.png"></img>
 
 查询示例如下图所示：
