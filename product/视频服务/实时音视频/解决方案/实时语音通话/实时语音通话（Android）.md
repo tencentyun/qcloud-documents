@@ -59,7 +59,7 @@
 
 ### 用户 A
 
-1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**），如图示：
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 <img src="https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png" width="320"/>
 2. 输入要拨打的用户名，点击搜索，如下图示：
 <img src="https://main.qcloudimg.com/raw/c041695fd0fe8cd36833b982d0bf7740.png" width="320"/>
