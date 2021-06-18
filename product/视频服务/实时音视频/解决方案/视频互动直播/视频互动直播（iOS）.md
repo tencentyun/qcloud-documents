@@ -85,7 +85,7 @@
 <img src="https://main.qcloudimg.com/raw/a7451278e3067523669e5877e122ae83.png" width="320"/>
 
 
-## 房间状态监听&PK列表接入
+## 房间状态监听&PK 列表接入
 房间状态可使用 `TRTCLiveRoom` 进行监听，如下：
 ```
 //////////////////////////////////////////////////////////
@@ -162,7 +162,7 @@ pod 'TXLiteAVSDK_TRTC'
 
 [](id:model.step3)
 ### 步骤3：导入 TUILiveRoom 组件
-#### 通过cocoapods导入组件
+#### 通过 cocoapods 导入组件
 1. 将工程目录下的`Source`、`Resources`、`TCBeautyKit`、`TXAppBasic`文件夹，`TUILiveRoom.podspec`文件拷贝到您的工程目录下。
 2. 在您的`Podfile`文件中添加以下依赖。之后执行`pod install` 命令，完成导入。
 
