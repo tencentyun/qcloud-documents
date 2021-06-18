@@ -188,12 +188,6 @@ func main() {
 		// 使用 Kafka 消费分组机制时，消费者超时时间。当 Broker 在该时间内没有收到消费者的心跳时，认为该消费者故障失败，Broker
 		// 发起重新 Rebalance 过程。目前该值的配置必须在 Broker 配置group.min.session.timeout.ms=6000和group.max.session.timeout.ms=300000 之间
 		"session.timeout.ms": 10000,
-		// "group.min.session.timeout.ms": 60000,
-		// "group.max.session.timeout.ms": 300000,
-		//  客户端请求超时时间，如果超过这个时间没有收到应答，则请求超时失败
-		"request.timeout.ms": 305000,
-		// 设置客户端内部重试间隔。
-		"reconnect.backoff.max.ms": 3000,
 	})
 
 	if err != nil {
