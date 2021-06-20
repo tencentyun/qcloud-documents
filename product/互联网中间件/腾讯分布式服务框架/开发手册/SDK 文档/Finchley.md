@@ -89,7 +89,7 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
 
 ## 1.23.9-Finchley-RELEASE（2021-06-21）
 ### 优化
-网关支持适配特殊url，比如用户请求url无论是/echo还是/echo/还是/echo\，网关统一会当/echo处理
+服务发现增加零实例保护
 
 ### 版本建议
 支持向后兼容，建议全量升级。
