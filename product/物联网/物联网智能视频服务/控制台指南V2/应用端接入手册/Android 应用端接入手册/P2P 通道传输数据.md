@@ -465,13 +465,16 @@ const char *delegateHttpFlv(const char *id);
 </tr>
 </tbody></table>
 - 示例代码
-```
+<dx-codeblock>
+:::  Java
 char url[128] = { 0 };
 /* 组合请求url */
 snprintf(url, sizeof(url), "%s%s", delegateHttpFlv($id), "ipc.flv?action=live");
 /* 设置url到播放器 */
 setUrl2Player(url);
-```
+:::
+</dx-codeblock>
+
 
 ### 步骤6：发送语音对讲数据
 
@@ -630,7 +633,8 @@ int stopSendService(const char *id, void *req);
 </tr>
 </tbody></table>
 - 示例代码
-```
+<dx-codeblock>
+:::  Java
 /* 启动语音发送服务 */
 void *req = runSendService($id, NULL, true);
 /* 循环发送 */
@@ -640,7 +644,9 @@ while (1) {
 }
 /* 停止发送服务 */
 stopSendService(id, req);
-```
+:::
+</dx-codeblock>
+
 
 ### 步骤7：P2P 通道传输自定义数据
 
@@ -844,9 +850,12 @@ void stopService(const char *id);
 </tr>
 </tbody></table>
 - 示例代码
-  ```
+<dx-codeblock>
+:::  Java
  stopService($id);
-  ```
+:::
+</dx-codeblock>
+
 
 ### 步骤9：控制类消息回调
 
@@ -854,22 +863,8 @@ void stopService(const char *id);
 
 详情请参见 [控制类消息通知回调](#test21)。
 - 示例代码
-```
-char* _msg_notify(const char *id, XP2PType type, const char* msg) {
-    if (type == XP2PTypeClose) {
-      //p2p通道正常关闭
-      //回调中应避免耗时操作
-      //多路p2p传输场景需根据回传的`id`判断对应的p2p通道,以做相应处理
-    }
-}
-```
-
-#### P2P 通道错误断开回调
-
-
-详情请参见 [控制类消息通知回调](#test21)。
-- 示例代码
-```
+<dx-codeblock>
+:::  Java
 char* _msg_notify(const char *id, XP2PType type, const char* msg) {
     if (type == XP2PTypeDisconnect) {
       //p2p通道错误断开
@@ -877,28 +872,51 @@ char* _msg_notify(const char *id, XP2PType type, const char* msg) {
       //多路p2p传输场景需根据回传的`id`判断对应的p2p通道,以做相应处理
     }
 }
-```
+:::
+</dx-codeblock>
+
+#### P2P 通道错误断开回调
+
+
+详情请参见 [控制类消息通知回调](#test21)。
+- 示例代码
+<dx-codeblock>
+:::  Java
+char* _msg_notify(const char *id, XP2PType type, const char* msg) {
+    if (type == XP2PTypeDisconnect) {
+      //p2p通道错误断开
+      //回调中应避免耗时操作
+      //多路p2p传输场景需根据回传的`id`判断对应的p2p通道,以做相应处理
+    }
+}
+:::
+</dx-codeblock>
+
 
 #### 日志保存
 
 
 详情请参见 [控制类消息通知回调](#test21)。
 - 示例代码
-```
+<dx-codeblock>
+:::  Java
 char* _msg_notify(const char *id, XP2PType type, const char* msg) {
-    if (type == XP2PTypeLog) {
-      //save or print log
+    if (type == XP2PTypeDisconnect) {
+      //p2p通道错误断开
+      //回调中应避免耗时操作
       //多路p2p传输场景需根据回传的`id`判断对应的p2p通道,以做相应处理
     }
 }
-```
+:::
+</dx-codeblock>
 
 #### P2P 探测失败
 
 
 详情请参见 [控制类消息通知回调](#test21)。
 - 示例代码
-```
+<dx-codeblock>
+:::  Java
 bool p2pReady = false;
 bool p2pError = false;
 char* _msg_notify(const char *id, XP2PType type, const char* msg) {
@@ -941,14 +959,17 @@ START:
     stopAvRecvService($id, NULL);
     stopService($id);
 }
-```
+:::
+</dx-codeblock>
+
 
 ####  P2P 探测成功
 
 
 详情请参见 [控制类消息通知回调](#test21)。
 - 示例代码
-```
+<dx-codeblock>
+:::  Java
 bool p2pReady = false;
 bool p2pError = false;
 char* _msg_notify(const char *id, XP2PType type, const char* msg) {
@@ -991,7 +1012,10 @@ START:
     stopAvRecvService($id, NULL);
     stopService($id);
 }
-```
+:::
+</dx-codeblock>
+
+
 
 ## aar 库调用方法
 
@@ -1257,13 +1281,16 @@ public static void setCallback(XP2PCallback cb)
 </tr>
 </tbody></table>
 - 示例代码
-```
+<dx-codeblock>
+:::  Java
 class VideoActivity : XP2PCallback {
 	...
 	XP2P.setCallback(this)
     ...
 }
-```
+:::
+</dx-codeblock>
+
 
 ### 步骤3：P2P 通道初始化
 
@@ -1321,14 +1348,17 @@ public static void startServiceWithXp2pInfo(String id, String product_id, String
 </tr>
 </tbody></table>
 - 示例代码
-```
+<dx-codeblock>
+:::  Java
 /* 从自建后台获取xp2p info */
 String xp2p_info = getXP2PInfo(...)
 /* 设置回调 */
 XP2P.setCallback(this)
 /* 初始化p2p */
 XP2P.startServiceWithXp2pInfo($id, $product_id, $device_name, xp2p_info)
-```
+:::
+</dx-codeblock>
+
 
 ### 步骤4：P2P 通道传输音视频裸流
 
@@ -1430,7 +1460,8 @@ public static int stopAvRecvService(String id, byte[] req)
 </tr>
 </tbody></table>
 - 示例代码
-```
+<dx-codeblock>
+:::  Java
 /* 设置回调函数 */
 XP2P.setCallback(this)
 /* 开始请求数据 */
@@ -1444,7 +1475,9 @@ override fun avDataRecvHandle(id: String?, data: ByteArray?, len: Int)
 }
 /* 停止接收 */
 XP2P.stopAvRecvService($id, null)
-```
+:::
+</dx-codeblock>
+
 
 ###  步骤5：接收 FLV 音视频流并使用 ijkplayer 播放
 
@@ -1488,7 +1521,8 @@ public static String delegateHttpFlv(String id)
 </tr>
 </tbody></table>
 - 示例代码
-```
+<dx-codeblock>
+:::  Java
 /* 加密方式观看直播(action=live)，回放(action=playback) */
 val url = XP2P.delegateHttpFlv($id) + "ipc.flv?action=live"
 /* 非加密方式观看直播(action=live)，回放(action=playback) */
@@ -1497,7 +1531,8 @@ val url = XP2P.delegateHttpFlv($id) + "ipc.flv?action=live&crypto=false"
 mPlayer.dataSource = url
 mPlayer.prepareAsync()
 mPlayer.start()
-```
+:::
+</dx-codeblock>
 
 ###  步骤6：发送语音对讲数据
 
@@ -1649,7 +1684,8 @@ public static int stopSendService(String id, byte[] req)
 </tr>
 </tbody></table>
 - 示例代码
-```
+<dx-codeblock>
+:::  Java
 /* 开启语音发送服务 */
 XP2P.runSendService($id, "", true)
 while(!stop) {
@@ -1659,7 +1695,9 @@ while(!stop) {
 }
 /* 发送完成后停止服务 */
 XP2P.stopSendService($id, null)
-```
+:::
+</dx-codeblock>
+
 
 ### 步骤7：P2P 通道传输自定义数据
 
@@ -1723,11 +1761,14 @@ public static String postCommandRequestSync(String id, byte[] command, long cmd_
 </tr>
 </tbody></table>
 - 示例代码
-```
+<dx-codeblock>
+:::  Java
 val cmd = "action=inner_define&amp;cmd=xxx".toByteArray()
 val ret = XP2P.postCommandRequestSync($id, cmd, cmd.size.toLong(), 2*1000*1000)
 L.e("--------ret:----$ret--\n")
-```
+:::
+</dx-codeblock>
+
 
 #### 异步方式发送自定义数据
 
@@ -1783,7 +1824,8 @@ public static int postCommandRequestWithAsync(String id, byte[] command, long cm
 </tr>
 </tbody></table>
 - 示例代码
-```
+<dx-codeblock>
+:::  Java
 /* 设置回调 */
 XP2P.setCallback(this)
 val cmd = "action=user_define&amp;cmd=xxx".toByteArray()
@@ -1792,7 +1834,9 @@ override fun commandRequest(id: String?, msg: String?, len: Int)
 {
 	//处理回复消息
 }
-```
+:::
+</dx-codeblock>
+
 
 ### 步骤8：主动关闭 P2P 通道
 
@@ -1832,13 +1876,16 @@ public static void stopService(String id)
 </tr>
 </tbody></table>
 - 示例代码
-```
+<dx-codeblock>
+:::  Java
 override fun onDestroy() {
       super.onDestroy()
       mPlayer.release()
       XP2P.stopService($id)
 }
-```
+:::
+</dx-codeblock>
+
 
 
 
