@@ -65,6 +65,7 @@ make install
 ```
 2. 修改 nginx.conf。
 ```
+
 vi /etc/nginx/nginx.conf
 ```
 修改如下红色部分：
@@ -80,7 +81,7 @@ fastcgi buffers 4 64k;
 fastcgi busy_buffers_size 128k;
 fastcgi temp_file_write_size 128k;
 <font color="red">
-set_real_ip_from IP地址;   //IP 地址为 WAF 防护域名的回源 IP 地址，可以在 <a href="https://console.cloud.tencent.com/guanjia/waf/config">Web应用防火墙控制台</a>，防护配置域名列表中的回源 IP 地址中查看。
+set_real_ip_from IP地址;   //IP 地址为 WAF 防护域名的回源 IP 地址，可以在 <a href="https://console.cloud.tencent.com/guanjia/waf/config">Web应用防火墙控制台</a>，域名接入列表中的回源 IP 地址中查看。
 real_ip_header X-Forwarded-For;
  </font>
 </pre>
