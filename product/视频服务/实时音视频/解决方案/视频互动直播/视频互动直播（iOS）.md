@@ -55,16 +55,17 @@
 
 | 文件或文件夹 | 功能描述 |
 |:-------:|:--------|
-| Anchor | 主播端相关 UI 的实现代码。 | 
-| Audience | 观众端相关 UI 的实现代码。 | 
-| ChatRoom | 文字聊天室以及弹幕消息的 UI 实现代码。 | 
-| Common | 可复用的一些 UI 组件的实现代码。 | 
-| StatusView | 状态浮层，会覆盖在视频画面上面，用于显示日志信息和视频加载动画。 | 
-| LiveRoomMainViewController.swift | 视频互动直播主页面 UI。 | 
+| Anchor | 主播端相关 UI 的实现代码。 |
+| Audience | 观众端相关 UI 的实现代码。 |
+| ChatRoom | 文字聊天室以及弹幕消息的 UI 实现代码。 |
+| Common | 可复用的一些 UI 组件的实现代码。 |
+| StatusView | 状态浮层，会覆盖在视频画面上面，用于显示日志信息和视频加载动画。 |
+| LiveRoomMainViewController.swift | 视频互动直播主页面 UI。 |
 
 
 [](id:model)
 ## 体验应用
+
 >! 体验应用至少需要两台设备。
 
 ### 用户 A
@@ -87,6 +88,7 @@
 
 ## 房间状态监听&PK 列表接入
 房间状态可使用 `TRTCLiveRoom` 进行监听，如下：
+
 ```
 //////////////////////////////////////////////////////////
 //
@@ -133,7 +135,7 @@ NS_SWIFT_NAME(getRoomInfos(roomIDs:callback:));
 
 ## 实现自定义 UI 界面
 
-[源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCLiveRoomDemo) 中的 `Source` 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCLiveRoom，您可以在`TRTCLiveRoom.swift` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+[源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCLiveRoomDemo) 中的 `Source` 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCLiveRoom，您可以在 `TRTCLiveRoom.swift` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/b0c39e5b7ce3a6b1decb1fbbf7ec4ff1.png)
 
 
@@ -162,7 +164,7 @@ pod 'TXLiteAVSDK_TRTC'
 
 [](id:model.step3)
 ### 步骤3：导入 TUILiveRoom 组件
-#### 通过 cocoapods 导入组件
+#### 通过cocoapods导入组件
 1. 将工程目录下的`Source`、`Resources`、`TCBeautyKit`、`TXAppBasic`文件夹，`TUILiveRoom.podspec`文件拷贝到您的工程目录下。
 2. 在您的`Podfile`文件中添加以下依赖。之后执行`pod install` 命令，完成导入。
 
@@ -227,16 +229,15 @@ mLiveRoom.login(SDKAPPID, userID, userSig, config) { (code, error) in
 
 [](id:model.step5)
 ### 步骤5：主播端开播
-1. 主播执行 [步骤四](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
+1. 主播执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 主播在开播前可先调用 `startCameraPreview` 开启摄像头预览，界面上可以配置美颜调节按钮调用，通过 `getBeautyManager` 进行美颜设置。
- >?非企业版 SDK 不支持变脸和贴图挂件功能。
+ >?非企业版 SDK 不支持变脸和贴图挂件等高级美颜功能。
 3. 主播调整美颜效果后，可以调用 `createRoom` 创建新的直播间。
-4. 主播调用 `startPublish` 开始推流。如需支持 CDN 观看，请在 login 时传入的 `TRTCLiveRoomConfig` 参数中指定 `useCDNFirst` 和 `CDNPlayDomain` 并在 `startPublish` 时指定直播拉流用的 streamID。
+4. 主播调用 `startPublish `开始推流。如需支持 CDN 观看，请在 login 时传入的 `TRTCLiveRoomConfig` 参数中指定 `useCDNFirst` 和 `CDNPlayDomain` 并在 `startPublish` 时指定直播拉流用的 streamID。
 
 ![](https://main.qcloudimg.com/raw/754450346c831a792a0cc7a06b2c7d31.png)
 
-<dx-codeblock>
-::: swift swift
+```swift
 // 1.主播设置昵称和头像
 mLiveRoom.setSelfProfile(name: "A", avatarURL: "faceUrl", callback: nil)
 
@@ -255,25 +256,25 @@ mLiveRoom.createRoom(roomID: 123456789, roomParam: param) { [weak self] (code, e
 		self?.mLiveRoom.startPublish(streamID: mSelfUserId + "_stream", callback: nil)
 	}
 }
-:::
-</dx-codeblock>
+```
 
 
 [](id:model.step6)
 ### 步骤6：观众端观看
-1. 观众端执行 [步骤四](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
+1. 观众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 观众端向业务后台获取最新的直播房间列表。
  >?App 中的直播间列表仅做演示使用，直播间列表的业务逻辑千差万别，腾讯云暂不提供直播间列表的管理服务，请自行管理您的直播间列表。
 3. 观众端调用 `getRoomInfos` 获取房间的详细信息，该信息是在主播端调用 `createRoom` 创建直播间时设置的简单描述信息。
- >!如果您的直播间列表包含了足够全面的信息，可跳过调用 `getRoomInfos` 相关步骤。
-4. 观众选择一个直播间，调用 `enterRoom` 并传入房间号即可进入该房间。
+ >!如果您的直播间列表包含了足够全面的信息，可跳过调用`getRoomInfos`相关步骤。
+4. 观众选择一个直播间，调用`enterRoom`并传入房间号即可进入该房间。
 5.  调用 `startPlay` 并传入主播的 userId 开始播放。
  - 若直播间列表已包含主播端的 userId 信息，观众端可直接调用 `startPlay` 并传入主播的 userId 即可开始播放。
  - 若在进房前暂未获取主播的 userId，观众端在进房后会收到主播 `onAnchorEnter` 的事件回调，该回调中携带主播的 userId 信息，调用 `startPlay` 即可播放。 
 
+
 ![](https://main.qcloudimg.com/raw/70320746e332252cddbb842e280c95a5.png)
-<dx-codeblock>
-::: swift swift
+
+```swift
 // 1.假定您从业务后台获取房间列表为 roomList
 var roomList: [UInt32] = GetRoomList()
 
@@ -292,8 +293,7 @@ public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoom, onAnchorEnter userID: Str
 	// 5.观众播放主播画面
 	mliveRoom.startPlay(userID: userID, view: renderView, callback: nil) 
 }
-:::
-</dx-codeblock>
+```
 
 
 [](id:model.step7)
@@ -308,8 +308,7 @@ public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoom, onAnchorEnter userID: Str
 
 ![](https://main.qcloudimg.com/raw/743009e16a89eb6ff8d708b4564d8a91.png)
 
-<dx-codeblock>
-::: swift swift
+```swift
 // 观众端：
 // 1.观众端发起连麦请求
 mliveRoom.requestJoinAnchor(reason: mSelfUserId + "请求和您连麦", responseCallback: { [weak self] (agreed, reason) in 
@@ -333,21 +332,20 @@ public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoom, onAnchorEnter userID: Str
 	// 7.主播播放观众画面
 	mliveRoom.startPlay(userID: userID, view: view, callback: nil)
 }
-:::
-</dx-codeblock>
+```
 
 [](id:model.step8)
 ### 步骤8：主播与主播 PK
-1. 主播 A 调用 `requestRoomPK` 向主播 B 发起 PK 请求。
-2. 主播 B 会收到 `TRTCLiveRoomDelegate onRequestRoomPK` 回调通知。
-3. 主播 B 调用 `responseRoomPK`决定是否接受主播 A 的 PK 请求。
+1. 主播 A 调用 `requestRoomPK `向主播 B 发起 PK 请求。
+2. 主播 B 会收到 `TRTCLiveRoomDelegate onRequestRoomPK `回调通知。
+3. 主播 B 调用 `responseRoomPK` 决定是否接受主播 A 的 PK 请求。
 4. 主播 B 接受主播 A 的请求，等待 `TRTCLiveRoomDelegate onAnchorEnter` 通知，调用 `startPlay` 显示主播 A。
 5. 主播 A 收到 `responseCallback` 回调通知，PK 请求是否被同意。
 6. 主播 A 请求被同意，等待 `TRTCLiveRoomDelegate onAnchorEnter` 通知，调用 `startPlay` 显示主播 B。
 
 ![](https://main.qcloudimg.com/raw/8e3868af20a2cd4f968b673da107e227.png)
-<dx-codeblock>
-::: swift swift
+
+```swift
 // 主播 A:
 // 主播 A 创建12345的房间
 mLiveRoom.createRoom(roomID: 12345, roomParam: param, callback: nil)
@@ -379,15 +377,13 @@ public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoom, onAnchorEnter userID: Str
 	// 4.主播 B 收到主播 A 进房的通知，播放主播 A 的画面
 	mLiveRoom.startPlay(userID: userID, view: view, callback: callback)
 }
-:::
-</dx-codeblock>
+```
 
 [](id:model.step9)
 ### 步骤9：实现文字聊天和弹幕消息
-- 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
+- 通过 `sendRoomTextMsg` 可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到 `onRecvRoomTextMsg `回调。
 即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
-<dx-codeblock>
-::: swift swift
+```swift
 // 发送端：发送文本消息
 mLiveRoom.sendRoomTextMsg(message: "Hello Word!", callback: callback)
 // 接收端：监听文本消息
@@ -395,12 +391,10 @@ mLiveRoom.delegate = self
 public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoom, onRecvRoomTextMsg message: String, fromUser user: TRTCLiveUserInfo) {
 	debugPrint("收到来自\(user.userName)的文本消息:\(message)")
 }
-:::
-</dx-codeblock>
-- 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主播和观众均可以收到`onRecvRoomCustomMsg`回调。
+```
+- 通过 `sendRoomCustomMsg` 可以发送自定义（信令）的消息，所有在该房间内的主播和观众均可以收到 `onRecvRoomCustomMsg `回调。
  自定义消息常用于传输自定义信令，例如用于点赞消息的发送和广播。
-<dx-codeblock>
-::: swift swift
+```swift
 // 发送端：您可以通过自定义Cmd来区分弹幕和点赞消息
 // eg:"CMD_DANMU"表示弹幕消息，"CMD_LIKE"表示点赞消息
 mLiveRoom.sendRoomCustomMsg(command: "CMD_DANMU", message: "Hello world", callback: nil)
@@ -416,5 +410,4 @@ public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoom, onRecvRoomCustomMsg comma
 		debugPrint("\(user.userName)给您点了个赞！")
 	}
 }
-:::
-</dx-codeblock>
+```
