@@ -1027,14 +1027,16 @@ START:
 
 - 接口描述
   媒体流数据通知。该回调用于返回以裸流方式传输的媒体流数据。
-```
+<dx-codeblock>
+:::  Java
 fun avDataRecvHandle(id: String?, data: ByteArray?, len: Int)
 {
 	//媒体流数据接收
 	//回调中应避免耗时操作
 	//多路p2p传输场景需根据回传的`id`判断对应的p2p通道,以做相应处理
 }
-```
+:::
+</dx-codeblock>
 - 参数说明
 <table>
 <thead>
@@ -1082,14 +1084,16 @@ fun avDataRecvHandle(id: String?, data: ByteArray?, len: Int)
 
 - 接口描述
   信令消息通知。该回调用于返回以异步方式发送的信令请求结果。
-```
+<dx-codeblock>
+:::  Java
 fun commandRequest(id: String?, msg: String?)
 {
 	//信令消息通知
 	//回调中应避免耗时操作
 	//多路p2p传输场景需根据回传的`id`判断对应的p2p通道,以做相应处理
 }
-```
+:::
+</dx-codeblock>
 - 参数说明
 <table>
 <thead>
@@ -1131,7 +1135,8 @@ fun commandRequest(id: String?, msg: String?)
 
 - 接口描述
   P2P 通道错误断开。该回调用于通知 P2P 连接异常状况。
-```
+<dx-codeblock>
+:::  Java
 private var isXp2pDisconnect: Boolean = false
 private var isXp2pDetectReady: Boolean = false
 private var isXp2pDetectError: Boolean = false
@@ -1150,7 +1155,8 @@ fun xp2pEventNotify(id: String?, msg: String?, event: Int)
         isXp2pDetectError = true
     }
 }
-```
+:::
+</dx-codeblock>
 - 参数说明
 <table>
 <thead>
@@ -1192,14 +1198,16 @@ fun xp2pEventNotify(id: String?, msg: String?, event: Int)
 
 - 接口描述
  P2P 通道正常关闭回调。该回调用于通知媒体流传输完成。
-```
+<dx-codeblock>
+:::  Java
 fun avDataCloseHandle(id: String?, msg: String?, errorCode: Int)
 {
 	//p2p通道正常关闭
 	//回调中应避免耗时操作
 	//多路p2p传输场景需根据回传的`id`判断对应的p2p通道,以做相应处理
 }
-```
+:::
+</dx-codeblock>
 - 参数说明
 <table>
 <thead>
@@ -1246,10 +1254,12 @@ fun avDataCloseHandle(id: String?, msg: String?, errorCode: Int)
 ### 步骤2：设置用户回调
 
 - 接口描述
-  设置用户回调函数。媒体流数据和控制类消息通过设置的回调函数返回。
-```
+  设置用户回调函数。媒体流数据和控制类消息通过设置的回调函数返回。	
+<dx-codeblock>
+:::  Java
 public static void setCallback(XP2PCallback cb)
-```
+:::
+</dx-codeblock>
 - 参数说明
 <table>
 <thead>
@@ -1296,9 +1306,11 @@ class VideoActivity : XP2PCallback {
 
 - 接口描述
   初始化 XP2P 服务。
-```
+<dx-codeblock>
+:::  Java
 public static void startServiceWithXp2pInfo(String id, String product_id, String device_name, String xp2p_info)
-```
+:::
+</dx-codeblock>
 - 参数说明
 <table>
 <thead>
@@ -1366,9 +1378,11 @@ XP2P.startServiceWithXp2pInfo($id, $product_id, $device_name, xp2p_info)
 
 - 接口描述
   向 camera 设备请求媒体流，异步回调方式。
-```
+<dx-codeblock>
+:::  Java
 public static void startAvRecvService(String id, String params, boolean crypto)
-```
+:::
+</dx-codeblock>
 - 参数说明
 <table>
 <thead>
@@ -1416,9 +1430,11 @@ public static void startAvRecvService(String id, String params, boolean crypto)
 
 - 接口描述
   停止裸流接收，并关闭接收服务。
-```
+<dx-codeblock>
+:::  Java
 public static int stopAvRecvService(String id, byte[] req)
-```
+:::
+</dx-codeblock>
 - 参数说明
 <table>
 <thead>
@@ -1483,9 +1499,11 @@ XP2P.stopAvRecvService($id, null)
 
 - 接口描述
   获取本地代理 url。用于播放器直接通过 url 获取数据进行播放。
-```
+<dx-codeblock>
+:::  Java
 public static String delegateHttpFlv(String id)
-```
+:::
+</dx-codeblock>
 - 参数说明
 <table>
 <thead>
@@ -1540,9 +1558,11 @@ mPlayer.start()
 
 - 接口描述
   启动向 camera 设备发送语音或自定义数据服务。异步非阻塞方式。
-```
+<dx-codeblock>
+:::  Java
 public static void runSendService(String id, String params, boolean crypto)
-```
+:::
+</dx-codeblock>
 - 参数说明
 <table>
 <thead>
@@ -1590,9 +1610,11 @@ public static void runSendService(String id, String params, boolean crypto)
 
 - 描述
   向 amera 备发送语音或自定义数据。
-```
+<dx-codeblock>
+:::  Java
 public static int dataSend(String id, byte[] data, int len)
-```
+:::
+</dx-codeblock>
 - 参数说明
 <table>
 <thead>
@@ -1640,9 +1662,11 @@ public static int dataSend(String id, byte[] data, int len)
 
 - 接口描述
   向 camera 设备发送语音或自定义数据。
-```
+<dx-codeblock>
+:::  Java
 public static int stopSendService(String id, byte[] req)
-```
+:::
+</dx-codeblock>
 - 参数说明
 <table>
 <thead>
@@ -1705,9 +1729,11 @@ XP2P.stopSendService($id, null)
 
 - 接口描述
   发送信令消息给 camera 设备并等待回复。同步阻塞方式。
-```
+<dx-codeblock>
+:::  Java
 public static String postCommandRequestSync(String id, byte[] command, long cmd_len, long timeout_us)
-```
+:::
+</dx-codeblock>
 - 参数说明
 <table>
 <thead>
@@ -1774,9 +1800,11 @@ L.e("--------ret:----$ret--\n")
 
 - 接口描述
   发送信令消息给 camera 设备，不用等待回复。异步非阻塞方式。
-```
+<dx-codeblock>
+:::  Java
 public static int postCommandRequestWithAsync(String id, byte[] command, long cmd_len)
-```
+:::
+</dx-codeblock>
 - 参数说明
 <table>
 <thead>
@@ -1841,10 +1869,12 @@ override fun commandRequest(id: String?, msg: String?, len: Int)
 ### 步骤8：主动关闭 P2P 通道
 
 - 接口描述
-  停止 XP2P 服务。
-```
+  停止 XP2P 服务。	
+<dx-codeblock>
+:::  Java
 public static void stopService(String id)
-```
+:::
+</dx-codeblock>
 - 参数说明
 <table>
 <thead>
