@@ -36,6 +36,7 @@
 ![](https://main.qcloudimg.com/raw/c4884da10fe7751953e91294ca95acb0.png)
 
 [](id:ui.step3)
+
 ### 步骤3：配置 App 工程文件
 
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
@@ -87,7 +88,6 @@
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
 <img src="https://main.qcloudimg.com/raw/4a3e66a9a01f446fd4d2fe0b39b16a2c.png" width="320"/>
-
 
 
 [](id:model)
