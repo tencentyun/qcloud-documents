@@ -97,7 +97,8 @@
 
 **方法一：通过 Maven 仓库依赖**
 1. 在 dependencies 中添加 TRTC SDK 和 IM SDK 的依赖。
-```
+<dx-codeblock>
+::: android 
 dependencies {
 	complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
     complie 'com.tencent.imsdk:imsdk:latest.release'
@@ -105,7 +106,8 @@ dependencies {
 	// 由于我们使用到了 gson 解析，所以还需要依赖 google 的 Gson
     complie 'com.google.code.gson:gson:latest.release'
 }
-```
+:::
+</dx-codeblock>
 >?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
 ```
