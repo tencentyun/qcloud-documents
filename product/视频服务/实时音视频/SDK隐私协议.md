@@ -256,7 +256,21 @@
 <td>收集 Windows 设备的主板硬件厂商</td>
 <td>收集设备主板厂商，用以匹配更适合的编解码策略，以获得更优质的音视频体验</td>
 </tr></table>
-
+- **MacOS 系统权限申请表**
+<table>
+<tr><th>权限名称</th><th>用途字符串</th><th>权限含义</th><th>申请原因</th></tr>
+<tr>
+<td>Camera<br>（相机）</td>
+<td>NSCameraUsageDescription<br>（摄像头）</td>
+<td>允许应用访问设备摄像头。为了保护用户隐私，在 iOS 10.0或之后链接的 iOS 应用程序以及访问设备摄像头的 iOS 应用程序必须静态声明这样做的意图</td>
+<td>用于采集摄像头画面，与其他使用者进行交互</td>
+</tr>
+<tr>
+<td>Microphone<br>（麦克风）</td>
+<td>NSMicrophoneUsageDescription<br>（麦克风）</td>
+<td>允许应用访问设备麦克风。为了保护用户隐私，iOS 10.0上或之后链接的 iOS 应用程序访问设备的任何麦克风，必须静态声明这样做的意图</td>
+<td>用于采集用户声音，与其他使用者进行交互</td>
+</tr></table>
 
 
 ##  八、如何处理儿童个人信息 
