@@ -50,7 +50,7 @@
 
 [](id:ui.step4)
 ### 步骤4：运行 App
-使用 Android Studio（3.5以上的版本）打开源码工程 `TUIVoiceRoom`，单击【运行】即可开始调试本 App。
+使用 Android Studio（3.5以上的版本）打开源码工程`TUIVoiceRoom`，单击【运行】即可开始调试本 App。
 
 [](id:ui.step5)
 ### 步骤5：修改 App 源代码
@@ -61,7 +61,6 @@
 | base | UI 使用的基础类。 |
 | room | 主房间页面，包括房主和听众两种界面。 |
 | widget | 通用控件。 |
-
 
 ## 体验应用
 >! 体验应用至少需要两台设备。
@@ -82,8 +81,8 @@
 >! 房间号在用户 A 的房间顶部查看，如下图示：
 <img src="https://main.qcloudimg.com/raw/7192f40724b2ccda79f4b735ffcf5f66.png" width="320"/>
 
-
 [](id:model)
+
 ## 实现自定义 UI 界面
 
 [源码](https://github.com/tencentyun/TRTCSDK/tree/master/Android/Source/src/main/java/com/tencent/liteav/trtcvoiceroom) 中的 Source 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在`TRTCVoiceRoom.java`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
@@ -320,16 +319,16 @@ public void onAnchorEnterSeat(TRTCVoiceRoomDef.UserInfo userInfo) {
 
 <dx-tabs>
 ::: 房主端
-1. `pickSeat` 传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
-2. `kickSeat` 传入对应麦位后，可以踢人下麦，房间内所有成员会收到 `onSeatListChange` 和`onAnchorLeaveSeat`的事件通知。
-3. `muteSeat` 传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
+1. `pickSeat `传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat `的事件通知。
+2. `kickSeat` 传入对应麦位后，可以踢人下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
+3. `muteSeat`传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
 4. `closeSeat` 传入对应麦位后，可以封禁/解禁某个麦位，封禁后听众端将不能再上麦，房间内所有成员会收到 `onSeatListChange` 和 `onSeatClose` 的事件通知。
 ![](https://main.qcloudimg.com/raw/78a1d790bf994786f5beac8b97660000.png)
 
 :::
 ::: 听众端
-1. `enterSeat`传入对应的麦位后，可以进行上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
-2. `leaveSeat`主动下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
+1. `enterSeat` 传入对应的麦位后，可以进行上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat `的事件通知。
+2. `leaveSeat` 主动下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
 
 ![](https://main.qcloudimg.com/raw/356fddebf48c7a4ef918104e8f6e64eb.png)
 
@@ -425,10 +424,10 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
 </dx-codeblock>
 :::
 ::: 房主邀请听众上麦
-1. 房主端调用 `sendInvitation` 传入听众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
+1. 房主端调用 `sendInvitation ` 传入听众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
 2. 听众端收到 `onReceiveNewInvitation` 的事件通知，此时 UI 可以弹窗并询问听众是否同意上麦。
 3. 听众选择同意后，调用 `acceptInvitation` 并传入 inviteId。
-4. 房主端收到 `onInviteeAccepted` 的事件通知，调用 `pickSeat` 抱听众上麦。
+4. 房主端收到 `onInviteeAccepted` 的事件通知，调用`pickSeat`抱听众上麦。
 
 ![](https://main.qcloudimg.com/raw/9a22e5d5f4be720775091bfd3ffef48a.png)
 
@@ -465,20 +464,20 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
 ### 步骤9：实现文字聊天和弹幕消息
 - 通过 `sendRoomTextMsg` 可以发送普通的文本消息，所有在该房间内的主播和听众均可以收到 `onRecvRoomTextMsg` 回调。
  即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
- <dx-codeblock>
- ::: java java
- // 发送端：发送文本消息
- mTRTCVoiceRoom.sendRoomTextMsg("Hello Word!", null);
- // 接收端：监听文本消息
- mTRTCVoiceRoom.setDelegate(new TRTCVoiceRoomDelegate() {
+  <dx-codeblock>
+  ::: java java
+  // 发送端：发送文本消息
+  mTRTCVoiceRoom.sendRoomTextMsg("Hello Word!", null);
+  // 接收端：监听文本消息
+  mTRTCVoiceRoom.setDelegate(new TRTCVoiceRoomDelegate() {
     @Override
     public void onRecvRoomTextMsg(String message, TRTCVoiceRoomDef.UserInfo userInfo) {
         Log.d(TAG, "收到来自" + userInfo.userName + "的消息:" + message);
     }
- });
- :::
- </dx-codeblock>
-- 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主播和听众均可以收到`onRecvRoomCustomMsg`回调。
+  });
+  :::
+  </dx-codeblock>
+- 通过 `sendRoomCustomMsg` 可以发送自定义（信令）的消息，所有在该房间内的主播和听众均可以收到 `onRecvRoomCustomMsg` 回调。
 自定义消息常用于传输自定义信令，例如用于点赞消息的发送和广播。
 <dx-codeblock>
 ::: java java
