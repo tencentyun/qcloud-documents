@@ -117,8 +117,7 @@ pod 'TXLiteAVSDK_TRTC'
 
 [](id:model.step3)
 ### 步骤3：导入 TUICalling 组件
-
-#### 通过cocoapods导入组件
+**通过 cocoapods 导入组件**，具体操作如下：
 1. 将工程目录下的`Source`、`Resources`、`TXAppBasic`文件夹，`TUICalling.podspec`文件拷贝到您的工程目录下。
 2. 在您的`Podfile`文件中添加以下依赖。之后执行`pod install` 命令，完成导入。
 
