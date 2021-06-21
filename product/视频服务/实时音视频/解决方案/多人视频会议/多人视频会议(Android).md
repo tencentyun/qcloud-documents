@@ -38,7 +38,7 @@
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
 <ul style="margin:0"><li/>SDKAPPID：默认为占位符（PLACEHOLDER），请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为占位符（PLACEHOLDER），请设置为实际的密钥信息。</ul>
-<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/sdkappid_secretkey.png">
+<img src="https://main.qcloudimg.com/raw/09a7c2e06bb792e1c3d651a61aff4000.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -73,19 +73,17 @@
 > ! 体验应用至少需要两台设备。
 
 ### 用户 A
-
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-   ![img](https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png)
+<img src="https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png" width="320"/>
 2. 输入会议号，单击【进入会议】，如下图示：
-   ![img](https://main.qcloudimg.com/raw/c4c428815eba76fbac38eb7d0eb669e3.png)
+<img src="https://main.qcloudimg.com/raw/c4c428815eba76fbac38eb7d0eb669e3.png" width="320"/>
 3. 输入房间主题，单击【开始交谈】。
 
 ### 用户 B
-
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-   ![img](https://main.qcloudimg.com/raw/e39abca80039bd3b80e0f2d1a01d3e70.png)
-2. 输入用户 A 创建的会议号，单击【进入会议】。
-   ![img](https://main.qcloudimg.com/raw/c4c428815eba76fbac38eb7d0eb669e3.png)
+<img src="https://main.qcloudimg.com/raw/e39abca80039bd3b80e0f2d1a01d3e70.png" width="320"/>
+2. 输入用户 A 创建的会议号，单击【进入会议】。<br>
+<img src="https://main.qcloudimg.com/raw/c4c428815eba76fbac38eb7d0eb669e3.png" width="320"/>
 
 [](id:model)
 ## 实现自定义 UI 界面
