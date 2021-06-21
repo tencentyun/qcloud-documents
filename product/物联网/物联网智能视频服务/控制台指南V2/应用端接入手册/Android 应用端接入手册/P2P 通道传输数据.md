@@ -716,7 +716,8 @@ int postCommandRequestSync(const char *id, const unsigned char *command, size_t 
 </tr>
 </tbody></table>
 - 示例代码
-```
+<dx-codeblock>
+:::  Java
 unsigned char *buf = NULL;
 size_t len = 0;
 /* 接收的数据填充在buf中，buf内存由SDK内部申请外部释放 */
@@ -727,7 +728,8 @@ if (rc != 0) {
 }
 /* 释放内存 */
 delete buf;
-```
+:::
+</dx-codeblock>
 
 #### 异步方式发送自定义数据
 
@@ -783,7 +785,8 @@ int postCommandRequestWithAsync(const char *id, const unsigned char *command, si
 </tr>
 </tbody></table>
 - 示例代码
-```
+<dx-codeblock>
+:::  Java
 /* 设置消息接收回调 */
 setUserCallbackToXp2p(_av_data_recv, _msg_notify);
 int rc = postCommandRequestWithAsync($id, "action=user_define&cmd=xxx", sizeof(action=user_define&cmd=custom_cmd));
@@ -799,10 +802,12 @@ char* _msg_notify(const char *id, XP2PType type, const char* msg) {
       //多路p2p传输场景需根据回传的`id`判断对应的p2p通道,以做相应处理
     }
 }
-```
+:::
+</dx-codeblock>
+
 
 ### 步骤8：主动关闭 P2P 通道
-#### 111
+
 - 接口描述
   停止 XP2P 服务。
 ```
