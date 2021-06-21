@@ -1,10 +1,23 @@
+## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验实时视频通话的效果。
+<table>
+<tr>
+   <th>主动呼叫</th>
+   <th>被叫接听</th>
+ </tr>
+<tr>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/video1.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/video2.gif"/></td>
+</tr>
+</table>
+
 
 如需快速实现视频的通话功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TUICalling 组件并实现自定义 UI 界面。
 
 >! 我们之前提供了 TRTCVideoCall 组件，旧版本组件已经移动到 [组件仓库](https://github.com/tencentyun/LiteAVClassic) 中。TUICalling 组件使用了 IM 信令的接口，将不再与旧组件兼容。
 
 [](id:ui)
+
 ## 复用 App 的 UI 界面
 
 [](id:ui.step1)
@@ -19,6 +32,7 @@
 ### 步骤2：下载 SDK 和 App 源码
 1. 根据实际业务需求下载 [SDK](https://cloud.tencent.com/document/product/647/32689) 及 [App 源码](https://github.com/tencentyun/TUICalling)。
 2. 下载完成后，单击【已下载，下一步】。
+
 ![](https://main.qcloudimg.com/raw/f588650274a85b74893ff96eb563d3b4.png)
 
 [](id:ui.step3)
@@ -29,6 +43,7 @@
 <ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
 <img src="https://main.qcloudimg.com/raw/a226f5713e06e014515debd5a701fb63.png">
+
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -53,6 +68,7 @@
 
 
 ## 体验应用
+
 >! 体验应用至少需要两台设备。
 
 ### 用户 A
@@ -116,9 +132,10 @@ pod 'TXLiteAVSDK_TRTC'
 [](id:model.step3)
 ### 步骤3：导入 TUICalling 组件
 
-#### 通过cocoapods导入组件
-1. 将工程目录下的`Source`、`Resources`、`TXAppBasic`文件夹，`TUICalling.podspec`文件拷贝到您的工程目录下。
-2. 在您的`Podfile`文件中添加以下依赖。之后执行`pod install` 命令，完成导入。
+**通过 cocoapods 导入组件**，具体步骤如下：
+
+1. 将工程目录下的`Source`、`Resources`、`TXAppBasic` 文件夹，`TUICalling.podspec `文件拷贝到您的工程目录下。
+2. 在您的`Podfile`文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
 
 ```
  pod 'TXAppBasic', :path => "TXAppBasic/"
@@ -209,14 +226,14 @@ pod 'TXLiteAVSDK_TRTC'
 [](id:model.step6)
 ### 步骤6：实现多人通话
 
-1. 发起方：多人视频/语音通话需要调用 `TRTCCalling ` 中的 `groupCall()` 函数，并传入用户列表（userIdList）、群组 IM ID（groupId）、通话类型（callType），其中 userIdList 为必填参数，groupId 为选填参数，`callType` 为视屏类型`CallType_Video`。
+1. 发起方：多人视频/语音通话需要调用 `TRTCCalling ` 中的 `groupCall()` 函数，并传入用户列表（userIdList）、群组 IM ID（groupId）、通话类型（callType），其中 userIdList 为必填参数，groupId 为选填参数，`callType` 为视屏类型 `CallType_Video`。
 2. 接收端：通过名为 `onInvited()` 回调能够接收到此呼叫请求，其中参数列表就是发起方填入的参数列表，`callType` 参数为通话类型，您可以通过此参数启动相应的界面。
 3. 接收端：收到回调后可以调用 `accept()` 方法接听此次通话，也可以选择用 `reject()` 方法拒绝通话。
 4. 如果超过一定时间（默认30s）没有回复，接收方会收到 `onCallingTimeOut()` 的回调，发起方会收到 `onNoResp()` 回调。通话发起方在多个接收均未应答时 `hangup()` ，每个接收方均会收到 `onCallingCancel()` 回调。
 5. 如果需要离开当前多人通话可以调用 `hangup()` 方法。
 6. 如果通话中有用户中途加入或离开，那么其他用户均会接收到 `onUserEnter()` 或  `onUserLeave()` 回调。
 
->?接口 `groupCall:type:groupID:` 中的 `groupID` 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息的信令消息是通过群 ID 发送出去的，这种消息广播方式比较简单可靠。如果不填写，那么 `TRTCalling` 组件会采用单发消息逐一通知。
+>?接口 `groupCall:type:groupID:` 中的 `groupID` 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息的信令消息是通过群 ID 发送出去的，这种消息广播方式比较简单可靠。如果不填写，那么 TRTCalling 组件会采用单发消息逐一通知。
 
 <dx-codeblock>
 ::: Objective-C Objective-C
