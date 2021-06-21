@@ -7,7 +7,7 @@
  - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
  - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 - 您的云服务器实例已购买公网 IP，且已在实例关联的安全组中放通来源为 WebRDP 代理 IP 的远程登录端口（默认为3389）。
- - 如通过快速配置购买云服务器，则默认已开通。
+ - 如通过快速配置购买云服务器，则默认已放通。
  - 如通过自定义配置购买云服务器，则可参考 [允许 RDP 远程连接 Windows 云服务器](https://cloud.tencent.com/document/product/213/34601#.E5.9C.BA.E6.99.AF.E4.BA.8C.EF.BC.9A.E5.85.81.E8.AE.B8-rdp-.E8.BF.9C.E7.A8.8B.E8.BF.9E.E6.8E.A5-windows-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8) 手动放通。
 
 
