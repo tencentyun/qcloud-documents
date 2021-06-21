@@ -27,7 +27,7 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
     <img src="https://main.qcloudimg.com/raw/8d9f681aa6f50ba7d38deccd6a5991d2.png" width="50%" /><br>
 <table>
 <tr>
-<th>名称</th>
+<th width="12%">参数名称</th>
 <th>描述</th>
 </tr>
 <tr>
@@ -60,7 +60,7 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
     <img src="https://main.qcloudimg.com/raw/e5aef758db5cd125180c01790bfbc918.png" width="50%" /><br>
 <table>
 <tr>
-<th>参数名称</th>
+<th width="12%">参数名称</th>
 <th>描述</th>
 </tr>
 <tr>
