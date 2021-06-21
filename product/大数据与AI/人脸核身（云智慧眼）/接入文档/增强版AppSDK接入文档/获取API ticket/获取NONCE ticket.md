@@ -1,4 +1,4 @@
-﻿## 注意事项
+## 注意事项
 - **前置条件：**确保 Access Token 已经正常获取，获取方式见 Access Token 获取。
 - NONCE ticket 是合作方 前端包含 App 和 H5 等 生成签名鉴权参数之一，启动 H5 或 SDK 人脸核身。
 - API ticket 的 NONCE 类型，其有效期为 120秒，且一次性有效, 即每次启动 SDK 刷脸都要重新请求 NONCE ticket。
