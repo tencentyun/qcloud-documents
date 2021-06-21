@@ -44,7 +44,8 @@ https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/access_token?app_id=xxx&s
 
 ```
 {
-"code":"0","msg":" 请求成功 ", 
+"code":"0",
+"msg":" 请求成功 ", 
 "transactionTime":"20151022043831", 
 "access_token":"accessToken_string", 
 "expire_time":"20151022043831",
