@@ -36,6 +36,7 @@
 ### 步骤2：下载 SDK 和 App 源码
 1. 根据实际业务需求下载 SDK 及配套的 App 源码。
 2. 下载完成后，单击【已下载，下一步】。
+
 ![](https://main.qcloudimg.com/raw/991440ebf152f78d96ba9769aa69d8d7.png)
 
 [](id:ui.step3)
@@ -98,7 +99,7 @@
 
 ## 实现自定义 UI 界面
 
-[源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCChatSalonDemo) 中的 `Source` 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCChatSalon，您可以在`TRTCChatSalon.h`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+[源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCChatSalonDemo) 中的 `Source` 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCChatSalon，您可以在 `TRTCChatSalon.h` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/fcf694c8550664623414604d14ffcd94.png)
 
 [](id:model.step1)
@@ -135,8 +136,8 @@ pod 'TXLiteAVSDK_TRTC'
 ### 步骤3：导入 TUIChatSalon 组件
 
 #### 通过cocoapods导入组件
-1. 将工程目录下的 `Source`、`Resources`、`TXAppBasic` 文件夹、`TUIChatSalon.podspec` 文件拷贝到您的工程目录下。
-2. 在您的 `Podfile` 文件中添加以下依赖。之后执行`pod install` 命令，完成导入。
+1. 将工程目录下的 `Source`、`Resources`、`TXAppBasic `文件夹、`TUIChatSalon.podspec `文件拷贝到您的工程目录下。
+2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
 
 ```
  pod 'TXAppBasic', :path => "TXAppBasic/"
