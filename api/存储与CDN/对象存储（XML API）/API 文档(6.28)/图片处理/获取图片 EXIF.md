@@ -24,7 +24,17 @@ download_url?exif
 
 
 ## 实际案例
+#### 请求案例1：公有读
 ```plaintext
 http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?exif
 ```
 
+#### 请求案例2：私有读、携带签名
+
+获取方式同上，仅增加签名部分，并与获取参数以“&"连接，示例如下：
+
+```plaintext
+http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?q-sign-algorithm=<signature>&exif
+```
+
+ > ? `<signature>`为签名部分，获取方式请参考 [请求签名](https://cloud.tencent.com/document/product/436/7778)。
