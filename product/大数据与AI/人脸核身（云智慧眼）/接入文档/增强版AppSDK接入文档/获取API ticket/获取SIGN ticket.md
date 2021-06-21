@@ -6,7 +6,7 @@
  - 获取新的之后立即使用最新的，旧的有一分钟的并存期。
 
 ## 请求
-- 请求 URL：`https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket`
+- 请求 URL：`https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket`
 - 请求方法：`GET`
 - 请求参数：
 <table><tbody>
@@ -19,7 +19,7 @@
 
 - **请求示例：**
 ```
-https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=SIGN&version=1.0.0
+https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket?app_id=xxx&access_token=
 ```
 
 ## 响应
