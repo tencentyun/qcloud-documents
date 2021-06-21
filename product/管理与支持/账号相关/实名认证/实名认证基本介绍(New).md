@@ -1,4 +1,6 @@
-腾讯云账号实名认证分为个人实名认证和企业实名认证，下文将为您介绍个人认证和企业认证的区别。
+腾讯云账号实名认证分为个人实名认证和企业实名认证，以下视频及文档将为您介绍个人认证和企业认证的区别。
+
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3441-60612?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 账号归属区别
 
