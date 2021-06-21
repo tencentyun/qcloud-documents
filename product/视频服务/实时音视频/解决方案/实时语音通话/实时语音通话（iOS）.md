@@ -1,4 +1,12 @@
+## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验实时语音通话的效果。
+<table>
+<tr>   <th>主动呼叫</th>   <th>被叫接听</th> </tr>
+<tr>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/audio1.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/audio2.gif"/></td>
+</tr></table>
+
 
 如需快速实现语音通话功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TRTCCalling 组件并实现自定义 UI 界面。
 
@@ -27,7 +35,7 @@
 3. 设置 `GenerateTestUserSig.swift` 文件中的相关参数：
 <ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
-<img src="https://main.qcloudimg.com/raw/adb7a596acda92d41aee235c441f2623.png">
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/sdkappid_secretkey_ios.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -51,6 +59,7 @@
 |  TRTCCallingAudioViewController.swift | 展示语音通话的主界面，通话的接听和拒绝在这个界面中完成。 |
 
 ## 体验应用
+
 >! 体验应用至少需要两台设备。
 
 ### 用户 A
@@ -65,6 +74,8 @@
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 <img src="https://main.qcloudimg.com/raw/4ca3d3b7314d19255cfda322f9eff5f1.png" width="320"/>
 2. 进入主页，等待接听来电。
+
+
 
 [](id:model)
 ## 实现自定义 UI 界面
@@ -107,7 +118,7 @@ pod 'TXLiteAVSDK_TRTC'
 [](id:model.step3)
 ### 步骤3：导入 TUICalling 组件
 
-#### 通过 cocoapods 导入组件
+#### 通过cocoapods导入组件
 1. 将工程目录下的`Source`、`Resources`、`TXAppBasic`文件夹，`TUICalling.podspec`文件拷贝到您的工程目录下。
 2. 在您的`Podfile`文件中添加以下依赖。之后执行`pod install` 命令，完成导入。
 
