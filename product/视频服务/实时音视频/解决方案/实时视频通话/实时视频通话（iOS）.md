@@ -43,7 +43,6 @@
 <ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
 <img src="https://main.qcloudimg.com/raw/a226f5713e06e014515debd5a701fb63.png">
-
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -136,7 +135,6 @@ pod 'TXLiteAVSDK_TRTC'
 
 1. 将工程目录下的`Source`、`Resources`、`TXAppBasic` 文件夹，`TUICalling.podspec `文件拷贝到您的工程目录下。
 2. 在您的`Podfile`文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
-
 ```
  pod 'TXAppBasic', :path => "TXAppBasic/"
  pod 'TXLiteAVSDK_TRTC'
@@ -204,12 +202,12 @@ pod 'TXLiteAVSDK_TRTC'
 // 2.观看对方的画面
 // 由于 A 打开了摄像头，B 接受通话后会收到 onUserVideoAvailable(A, true) 回调
 - (void)onUserVideoAvailable:(NSString *)uid available:(BOOL)available {
-  if (available) {
-    UIView* renderView =[[UIView alloc] init];
-    [[TRTCCalling shareInstance] startRemoteView:uid view:renderView]; // 就可以看到对方的画面了
-  } else {
-    [[TRTCCalling shareInstance] stopRemoteView:uid]; // 停止渲染画面
-  }
+		if (available) {
+			UIView* renderView =[[UIView alloc] init];
+			[[TRTCCalling shareInstance] startRemoteView:uid view:renderView]; // 就可以看到对方的画面了
+		} else {
+			[[TRTCCalling shareInstance] stopRemoteView:uid]; // 停止渲染画面
+		}
   }
 
 // 3.调用组件的其他功能函数发起通话或挂断等
