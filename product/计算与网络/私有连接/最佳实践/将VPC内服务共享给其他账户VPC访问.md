@@ -26,12 +26,6 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
 2. 在左侧导航栏单击【私有连接】>【终端节点服务】。
 3. 单击【新建】，在弹出的新建终端节点服务界面，配置相关参数。
   <img src="https://main.qcloudimg.com/raw/f71f06ee845d5c751ac206e927914e72.png" width="50%" /><br>
-参数说明如下：
- + 服务名称：自定义终端节点服务的名称。
- + 所在地域：终端服务节点所在地域。
- + 所属网络：选择所属 VPC，本例选择 VPC2。
- + 负载均衡：选择 VPC 下已创建的负载均衡，本例选择 VPC2 中已创建好的 CLB 实例。
- + 自动接受：指定终端节点服务是否自动接受终端节点发起的连接请求，默认为否，此处和白名单策略结合使用，本例保持为否，即跨账号访问，当选择否，不自动接受时，需将服务使用方账号添加在白名单中，且服务提供方接受连接后，方可接通。
 <table>
 <tr>
 <th width="12%">参数名称</th>
@@ -125,5 +119,5 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
  <img src="https://main.qcloudimg.com/raw/fcbaf4d6631f9204fcc755853aa54c5e.png" width="70%" /><br>
  获取 CLB 的 VPORT：
  <img src="https://main.qcloudimg.com/raw/922dc796b2d687354a355ab6fe845437.png" width="70%" /><br>
-	如果出现如下信息，表示已连接：
+	如果出现如下信息，表示已连接：</br>
 <img src="https://main.qcloudimg.com/raw/0f9d7c4d166e1f91b67a6ea4158156fc.png" width="50%" />
