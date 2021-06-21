@@ -1,5 +1,18 @@
+## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验实时视频通话的效果。
+<table>
+<tr>
+   <th>主动呼叫</th>
+   <th>被叫接听</th>
+ </tr>
+<tr>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/video1.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/video2.gif"/></td>
+</tr>
+</table>
+
 如需快速实现视频通话功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TRTCCalling 组件并实现自定义 UI 界面。
+
 >! 我们之前提供了 TRTCVideoCall 组件，旧版本组件已经移动到 [组件仓库](https://github.com/tencentyun/LiteAVClassic) 中。TRTCCalling 组件使用了 IM 信令的接口，将不再与旧组件兼容。
 
 [](id:ui)
@@ -19,6 +32,7 @@
 ### 步骤2：下载 SDK 和 App 源码
 1. 根据实际业务需求下载 [SDK](https://cloud.tencent.com/document/product/647/32689) 及 [App 源码](https://github.com/tencentyun/TUICalling)。
 2. 下载完成后，单击【已下载，下一步】。
+
 ![](https://main.qcloudimg.com/raw/c4884da10fe7751953e91294ca95acb0.png)
 
 [](id:ui.step3)
@@ -60,13 +74,14 @@
 <img src="https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png" width="320"/>
 2. 输入要拨打的用户名，单击搜索，如下图示：
 <img src="https://main.qcloudimg.com/raw/c041695fd0fe8cd36833b982d0bf7740.png" width="320"/>
-3. 单击【呼叫】，选择拨打【视频通话】（**请确保被叫方保持在应用内，否则可能会拨打失败**）。
+3. 单击【呼叫】，选择拨打【视频通话】（**请确保被叫方保持在应用内，否则可能会拨打失败**）。<br>
 <img src="https://main.qcloudimg.com/raw/450e50dd4bb58e2950d6574ab88715e2.png" width="320"/>
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 <img src="https://main.qcloudimg.com/raw/e39abca80039bd3b80e0f2d1a01d3e70.png" width="320"/>
 2. 进入主页，等待接听来电。
+
 
 
 [](id:model)
@@ -82,34 +97,37 @@
 
 音视频通话组件 TRTCCalling 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
-**方法一：通过 Maven 仓库依赖**
+#### 方法一：通过 Maven 仓库依赖
 
 1. 在 dependencies 中添加 TRTCSDK 和 IMSDK 的依赖。
-
-```
+<dx-codeblock>
+::: java java
 dependencies {
-  complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
+    complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
     complie 'com.tencent.imsdk:imsdk:latest.release'
 
-  // 由于我们使用到了 gson 解析，所以还需要依赖 google 的 Gson
+    // 由于我们使用到了 gson 解析，所以还需要依赖 google 的 Gson
     complie 'com.google.code.gson:gson:latest.release'
 }
-```
->?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
+:::
+</dx-codeblock>
 
+	>?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
-```
+<dx-codeblock>
+::: java java
 defaultConfig {
-    ndk {
-        abiFilters "armeabi-v7a"
-    }
+      ndk {
+            abiFilters "armeabi-v7a"
+      }
 }
-```
+:::
+</dx-codeblock>
 3. 单击【Sync Now】同步 SDK。
 >?若您的网络连接 jcenter 没有问题，SDK 会自动下载集成到工程里。
 
 
-**方法二：通过本地 AAR 依赖**
+#### 方法二：通过本地 AAR 依赖
 如果您的开发环境访问 Maven 仓库较慢，可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
 
 | SDK      | 下载页面                                                     | 集成指引                                                     |
@@ -184,10 +202,10 @@ sCall.login(1400000123, "userA", "xxxx", new ActionCallback());
 
 ### 步骤5：实现 1v1 视频通话
 
-1. 发起方：调用 `TRTCCalling` 的 `call()` 方法发起通话的请求, 并传入用户 ID（userid）和通话类型（type），通话类型参数传入`TYPE_VIDEO_CALL`。
-2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的事件通知，回调中 `callType` 的参数是发起方填写的通话类型，您可以通过此参数启动相应的界面，如果希望接收方在不处于登录状态时也能收到通话请求，请参考 [离线接听](#model.offline)。
+1. 发起方：调用 TRTCCalling 的 `call()` 方法发起通话的请求, 并传入用户 ID（userid）和通话类型（type），通话类型参数传入`TYPE_VIDEO_CALL`。
+2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的事件通知，回调中 `callType` 的参数是发起方填写的通话类型，您可以通过此参数启动相应的界面，如果希望接收方在不处于登录状态时也能收到通话请求，请参见 [离线接听](#model.offline)。
 3. 接收方：如果希望接听电话，接收方可以调用 `accept()` 函数，并同时调用 `openCamera()` 函数打开自己本地的摄像头。接收方也可以调用 `reject()` 拒绝此次通话。
-4. 当双方的音视频通道建立完成后，通话的双方都会接收到名为  `onUserVideoAvailable()` 的事件通知，表示对方的视频画面已经拿到。此时双方用户均可以调用`startRemoteView()` 展示远端的视频画面。远端的声音默认是自动播放的。
+4. 当双方的音视频通道建立完成后，通话的双方都会接收到名为  `onUserVideoAvailable()` 的事件通知，表示对方的视频画面已经拿到。此时双方用户均可以调用 `startRemoteView()` 展示远端的视频画面。远端的声音默认是自动播放的。
 
 
 <dx-codeblock>
