@@ -29,7 +29,8 @@
 ### 步骤2：下载 SDK 和 App 源码
 1. 根据实际业务需求下载 SDK 及配套的 App 源码。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
+
+![](https://main.qcloudimg.com/raw/c4884da10fe7751953e91294ca95acb0.png)
 
 [](id:ui.step3)
 ### 步骤3：配置 App 工程文件
@@ -60,7 +61,7 @@
 | TRTCCreateVoiceRoomViewController | 创建语音聊天室页面逻辑。 |
 | TRTCVoiceRoomViewController | 主房间页面，包括房主和听众两种界面。 |
 
-每个 `TRTC'XXXX'ViewController` 文件夹下均包含 `ViewController`、`RootView` 和 `ViewModel`，各个文件的作用如下表所示：
+每个 `TRTC'XXXX'ViewController` 文件夹下均包含 `ViewController`、`RootView `和 `ViewModel`，各个文件的作用如下表所示：
 
 | 文件 | 功能描述 |
 |:-------:|:--------|
@@ -115,13 +116,13 @@ pod 'TXLiteAVSDK_TRTC'
 
 [](id:model.step2)
 ### 步骤2：配置权限
-在 info.plist 文件中需要添加 Privacy > Camera Usage Description， Privacy > Microphone Usage Description 申请麦克风权限。
+在 info.plist 文件中需要添加 `Privacy > Camera Usage Description`， `Privacy > Microphone Usage Description` 申请麦克风权限。
 
 [](id:model.step3)
 ### 步骤3：导入 TUIVoiceRoom 组件
-#### 通过 cocoapods 导入组件
-1. 将工程目录下的`Source`、`Resources`、`TXAppBasic`文件夹，`TUIVoiceRoom.podspec`文件拷贝到您的工程目录下。
-2. 在您的`Podfile`文件中添加以下依赖。之后执行`pod install` 命令，完成导入。
+#### 通过cocoapods导入组件
+1. 将工程目录下的 `Source`、`Resources`、`TXAppBasic `文件夹、`TUIVoiceRoom.podspec `文件拷贝到您的工程目录下。
+2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
 
 ```
  pod 'TXAppBasic', :path => "TXAppBasic/"
@@ -176,14 +177,14 @@ self.vocieRoom.login(sdkAppId: sdkAppID, userId: userId, userSig: userSig) { [we
 [](id:model.step5)
 ### 步骤5：房主端开播
 1. 房主执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
-2. 房主调用`createRoom`创建新的语音聊天室，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
+2. 房主调用 `createRoom` 创建新的语音聊天室，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
 3. 房主创建房间成功后，调用 `enterSeat` 进入座位。
 4. 房主收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 5. 房主还会收到麦位表有成员进入的 `onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
 
 ![](https://main.qcloudimg.com/raw/178d40c1ae247fbf7d5171dc4cee1a5a.png)
 
-**示例代码**：
+示例代码：
 
 ```swift
 // 1.房主设置昵称和头像
@@ -237,14 +238,17 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 1. 听众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 听众端向业务后台获取最新的语音聊天室房间列表。
  >?App 中的语音聊天室列表仅做演示使用，语音聊天室列表的业务逻辑千差万别，腾讯云暂不提供语音聊天室列表的管理服务，请自行管理您的语音聊天室列表。
-3. 听众端调用 `getRoomInfoList` 获取房间的详细信息，该信息是在房主端调用`createRoom`创建语音聊天室时设置的简单描述信息。
+3. 听众端调用 `getRoomInfoList` 获取房间的详细信息，该信息是在房主端调用 `createRoom` 创建语音聊天室时设置的简单描述信息。
  >!如果您的语音聊天室列表包含了足够全面的信息，可跳过调用 `getRoomInfoList` 相关步骤。
 4. 听众选择一个语音聊天室，调用 `enterRoom` 并传入房间号即可进入该房间。
 5. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
 6. 进房后会收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 7. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
 
+
 ![](https://main.qcloudimg.com/raw/78fd2cc28f7f336de6fa58248b28cc14.png)
+
+
 <dx-codeblock>
 ::: Swift Swift
 // 1.听众设置昵称和头像
@@ -289,15 +293,15 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 ### 步骤7：麦位管理
 <dx-tabs>
 ::: 房主端
-1. `pickSeat` 传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
-2. `kickSeat` 传入对应麦位后，可以踢人下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
-3. `muteSeat` 传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
-4. `closeSeat` 传入对应麦位后，可以封禁/解禁某个麦位，封禁后听众端将不能再上麦，房间内所有成员会收到`onSeatListChange`和 `onSeatClose` 的事件通知。
+1. `pickSeat` 传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat `的事件通知。
+2. `kickSeat`传入对应麦位后，可以踢人下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
+3. `muteSeat`传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
+4. `closeSeat `传入对应麦位后，可以封禁/解禁某个麦位，封禁后听众端将不能再上麦，房间内所有成员会收到 `onSeatListChange` 和`onSeatClose` 的事件通知。
 ![](https://main.qcloudimg.com/raw/78a1d790bf994786f5beac8b97660000.png)
 :::
 ::: 听众端
-1. `enterSeat`传入对应的麦位后，可以进行上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
-2. `leaveSeat`主动下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
+1. `enterSeat `传入对应的麦位后，可以进行上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat `的事件通知。
+2. `leaveSeat `主动下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
 
 ![](https://main.qcloudimg.com/raw/356fddebf48c7a4ef918104e8f6e64eb.png)
 
@@ -345,10 +349,10 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 如果您的 App 需要对方同意才能进行下一步操作的业务流程，那么邀请信令可以提供相应支持。
 <dx-tabs>
 ::: 听众主动申请上麦
-1. 听众端调用`sendInvitation`传入房主的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
-2. 房主端收到`onReceiveNewInvitation`的事件通知，此时 UI 可以弹窗并询问房主是否同意。
-3. 房主选择同意后，调用`acceptInvitation`并传入 inviteId。
-4. 听众端收到`onInviteeAccepted`的事件通知，调用`enterSeat`进行上麦。
+1. 听众端调用 `sendInvitation` 传入房主的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
+2. 房主端收到 `onReceiveNewInvitation` 的事件通知，此时 UI 可以弹窗并询问房主是否同意。
+3. 房主选择同意后，调用 `acceptInvitation` 并传入 inviteId。
+4. 听众端收到 `onInviteeAccepted` 的事件通知，调用`enterSeat`进行上麦。
 
 ![](https://main.qcloudimg.com/raw/9419f9ae95c89b3bedb0839846e7565c.png)
 
@@ -380,10 +384,10 @@ func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, co
 </dx-codeblock>
 :::
 ::: 房主邀请听众上麦
-1. 房主端调用`sendInvitation`传入听众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
-2. 听众端收到`onReceiveNewInvitation`的事件通知，此时 UI 可以弹窗并询问听众是否同意上麦。
-3. 听众选择同意后，调用`acceptInvitation`并传入 inviteId。
-4. 房主端收到`onInviteeAccepted`的事件通知，调用`pickSeat`抱听众上麦。
+1. 房主端调用 `sendInvitation `传入听众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
+2. 听众端收到 `onReceiveNewInvitation `的事件通知，此时 UI 可以弹窗并询问听众是否同意上麦。
+3. 听众选择同意后，调用 `acceptInvitation` 并传入 inviteId。
+4. 房主端收到 `onInviteeAccepted` 的事件通知，调用 `pickSeat` 抱听众上麦。
 
 ![](https://main.qcloudimg.com/raw/9a22e5d5f4be720775091bfd3ffef48a.png)
 
@@ -420,13 +424,14 @@ func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, co
 
 [](id:model.step9)
 ### 步骤9：实现文字聊天和弹幕消息
-- 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和听众均可以收到`onRecvRoomTextMsg`回调。
-即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
-<dx-codeblock>
-::: Swift Swift
-// 发送端：发送文本消息
-self.voiceRoom.sendRoomTextMsg(message: message) { (code, message) in
+- 通过 `sendRoomTextMsg` 可以发送普通的文本消息，所有在该房间内的主播和听众均可以收到 `onRecvRoomTextMsg` 回调。
+  即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
+  <dx-codeblock>
+  ::: Swift Swift
+  // 发送端：发送文本消息
+  self.voiceRoom.sendRoomTextMsg(message: message) { (code, message) in
          
+
 }
 // 接收端：监听文本消息
 func onRecvRoomTextMsg(message: String, userInfo: VoiceRoomUserInfo) {
@@ -434,23 +439,23 @@ func onRecvRoomTextMsg(message: String, userInfo: VoiceRoomUserInfo) {
 }
 :::
 </dx-codeblock>
-- 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主播和听众均可以收到`onRecvRoomCustomMsg`回调。
+- 通过 `sendRoomCustomMsg `可以发送自定义（信令）的消息，所有在该房间内的主播和听众均可以收到 `onRecvRoomCustomMsg` 回调。
  自定义消息常用于传输自定义信令，例如用于点赞消息的发送和广播。
-<dx-codeblock>
-::: Swift Swift
-// 例如：发送端：您可以通过自定义Cmd来区分弹幕和点赞消息
-// eg:"CMD_DANMU"表示弹幕消息，"CMD_LIKE"表示点赞消息
-self.vocieRoom.sendRoomCustomMsg(cmd: “CMD_DANMU”, message: "hello world", callback: nil)
-self.voiceRoom.sendRoomCustomMsg(cmd: "CMD_LIKE", message: "", callback: nil)
-// 接收端：监听自定义消息
-func onRecvRoomCustomMsg(cmd: String, message: String, userInfo: VoiceRoomUserInfo) {
+  <dx-codeblock>
+  ::: Swift Swift
+  // 例如：发送端：您可以通过自定义Cmd来区分弹幕和点赞消息
+  // eg:"CMD_DANMU"表示弹幕消息，"CMD_LIKE"表示点赞消息
+  self.vocieRoom.sendRoomCustomMsg(cmd: “CMD_DANMU”, message: "hello world", callback: nil)
+  self.voiceRoom.sendRoomCustomMsg(cmd: "CMD_LIKE", message: "", callback: nil)
+  // 接收端：监听自定义消息
+  func onRecvRoomCustomMsg(cmd: String, message: String, userInfo: VoiceRoomUserInfo) {
     if cmd == "CMD_DANMU" {
         // 收到弹幕消息
     }
     if cmd == "CMD_LIKE" {
         // 收到点赞消息
     }
-}
-:::
-</dx-codeblock>
+  }
+  :::
+  </dx-codeblock>
 
