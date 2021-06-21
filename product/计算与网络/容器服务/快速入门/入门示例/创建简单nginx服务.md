@@ -65,5 +65,4 @@
 ![](https://main.qcloudimg.com/raw/156e6d3b804e6b214ef7600fee4fa9c1.png)
 
 ### 更多 Nginx 设置
-- 可查看 [使用腾讯云容器服务来构建简单 web service ](https://cloud.tencent.com/community/article/223421)。
-- 若容器创建失败，可查看 [事件常见问题](https://cloud.tencent.com/document/product/457/8187)。
+若容器创建失败，可查看 [事件常见问题](https://cloud.tencent.com/document/product/457/8187)。

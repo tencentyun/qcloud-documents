@@ -10,7 +10,7 @@
 		<td>认证方式</td>
 		<td>
 			<ul  style="margin: 0;">
-				<li><a href="https://cloud.tencent.com/document/product/378/56758">微信扫码认证</a></li>
+				<li><a href="https://cloud.tencent.com/document/product/378/56757">微信扫码认证</a></li>
 				<li><a href="https://cloud.tencent.com/document/product/378/56759">QQ 扫码认证</a></li>
 				<li><a href="https://cloud.tencent.com/document/product/378/56760">人脸识别认证</a></li>
 			</ul>

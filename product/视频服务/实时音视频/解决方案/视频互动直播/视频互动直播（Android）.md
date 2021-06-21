@@ -1,5 +1,5 @@
 ## 效果展示
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验互动直播的能力效果，包括互动连麦、主播 PK、低延时观看、弹幕聊天等 TRTC 在互动直播场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验互动直播的能力效果，包括互动连麦、主播 PK、低延时观看、弹幕聊天等 TRTC 在互动直播场景下的相关能力。
 
 
 <table>
@@ -12,10 +12,10 @@
 </table>
 
 
-如需快速接入视频互动直播功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCLiveRoom 组件并实现自定义 UI 界面。
+如需快速接入视频互动直播功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TRTCLiveRoom 组件并实现自定义 UI 界面。
 
 [](id:DemoUI)
-## 复用 Demo 的 UI 界面
+## 复用 App 的 UI 界面
 
 [](id:ui.step1)
 ### 步骤1：创建新的应用
@@ -26,46 +26,113 @@
 
 
 [](id:ui.step2)
-### 步骤2：下载 SDK 和 Demo 源码
-1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+### 步骤2：下载 SDK 和 App 源码
+1. 根据实际业务需求下载 [SDK](https://cloud.tencent.com/document/product/647/32689) 及 [App 源码](https://github.com/tencentyun/TUILiveRoom)。
 2. 下载完成后，单击【已下载，下一步】。
+
 ![](https://main.qcloudimg.com/raw/991440ebf152f78d96ba9769aa69d8d7.png)
 
 [](id:ui.step3)
-### 步骤3：配置 Demo 工程文件
+### 步骤3：配置 App 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `Android/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
+2. 找到并打开 `Android/Debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
-	<ul>
-	<li/>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
-	<li/>SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。</ul>
- <img src="https://main.qcloudimg.com/raw/e0a9669ded728bfe74ef98902d9407ec.png">
+<ul style="margin:0"><li/>SDKAPPID：默认为占位符（PLACEHOLDER），请设置为实际的 SDKAppID。
+<li/>SECRETKEY：默认为占位符（PLACEHOLDER），请设置为实际的密钥信息。</ul>
+<img src="https://main.qcloudimg.com/raw/09a7c2e06bb792e1c3d651a61aff4000.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
->!本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
+>!本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
 >正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 [](id:ui.step4)
-### 步骤4：运行 Demo
-使用 Android Studio（3.5以上的版本）打开源码工程 `TRTCScenesDemo`，单击【运行】即可开始调试本 Demo。
+### 步骤4：运行 App
+使用 Android Studio（3.5以上的版本）打开源码工程 `TUILiveRoom`，单击【运行】即可开始调试本 App。
 
 [](id:ui.step5)
-### 步骤5：修改 Demo 源代码
-源码中的 trtcliveroomdemo 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码，如下表格列出了各个文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
+### 步骤5：修改 App 源代码
+源码中的 Source 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码，如下表格列出了各个文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
 
 | 文件或文件夹 | 功能描述 |
 |:-------:|:--------|
 | anchor | 主播端相关 UI 的实现代码。 |
 | audience | 观众端相关 UI 的实现代码。 |
 | common | 通用的 UI 组件实现代码。 |
-| liveroomlist | 房间列表页实现代码。 |
 | widget | 通用控件。 |
+
+
+
+## 体验应用
+>! 体验应用至少需要两台设备。
+
+### 用户 A
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+<img src="https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png" width="320"/>
+2. 进入后，单击【创建房间】，如下图示：
+<img src="https://main.qcloudimg.com/raw/0f86a3a46403bd1b106d96691fce92c9.png" width="320"/>
+3. 输入房间名称，单击【开始直播】。
+
+### 用户 B
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**），如下图示：
+<img src="https://main.qcloudimg.com/raw/e39abca80039bd3b80e0f2d1a01d3e70.png" width="320"/>
+2. 输入用户 A 创建的房间号，单击进入房间，如下图示：
+<img src="https://main.qcloudimg.com/raw/7439f305fd52a5f314b5140caa1babc4.png" width="320"/>
+
+	>! 房间号在用户 A 的房间顶部查看，如下图示：
+<img src="https://main.qcloudimg.com/raw/da47658a199fc295ccf7447a91b117b7.png" width="320"/>
+
+
+## 房间状态监听&PK 列表接入
+房间状态可使用 `LiveRoomManager` 进行监听，如下：
+```
+LiveRoomManager.getInstance().addCallback(new LiveRoomManager.RoomCallback() {
+    /**
+     * 房间创建
+     * @param roomId
+     * @param callback  用于通知内部处理的结果
+     */
+    @Override
+    public void onRoomCreate(int roomId, final LiveRoomManager.ActionCallback callback) {
+        // doSomething
+    }
+
+    /**
+     * 房间销毁
+     * @param roomId
+     * @param callback  用于通知内部处理的结果
+     */
+    @Override
+    public void onRoomDestroy(int roomId, final LiveRoomManager.ActionCallback callback) {
+        // doSomething
+    }
+
+    /**
+     * 获取房间列表
+     * @param callback
+     */
+    @Override
+    public void onGetRoomIdList(final LiveRoomManager.GetCallback callback) {
+        // 获取房间列表，需自行维护，用于用户之间的 PK
+        if(callback != null) {
+            if(success) {
+                // 回调成功，传入房间列表
+                callback.onSuccess(roomList);
+            } else {
+                // 房间列表获取失败
+                callback.onError(code, message);
+            }
+        }
+    }
+});
+```
+采用 Callback 方式进行回调是为了方便用户接入，例如获取房间列表可能需要进行异步操作，采用 Callback 方式将更加灵活。
+
 
 [](id:model)
 ## 实现自定义 UI 界面
 
-[源码](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCScenesDemo/trtcliveroomdemo/src/main/java/com/tencent/liteav/liveroom) 中的 trtcliveroomdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCLiveRoom，您可以在`TRTCLiveRoom.java` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+[源码](https://github.com/tencentyun/TUILiveRoom/tree/master/Android/Source/src/main/java/com/tencent/liteav/liveroom) 中的 Source 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCLiveRoom，您可以在`TRTCLiveRoom.java` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/b0c39e5b7ce3a6b1decb1fbbf7ec4ff1.png)
 
 [](id:model.step1)
@@ -144,8 +211,8 @@ src/main/java/com/tencent/liteav/liveroom/model
 
 [](id:model.step4)
 ### 步骤4：创建并登录组件
-1. 调用`sharedInstance`接口可以创建一个 TRTCLiveRoom 组件的实例对象。
-2. 创建一个`TRTCLiveRoomConfig`对象，该对象可以设置  useCDNFirst 和 CDNPlayDomain 属性：
+1. 调用 `sharedInstance` 接口可以创建一个 TRTCLiveRoom 组件的实例对象。
+2. 创建一个 `TRTCLiveRoomConfig` 对象，该对象可以设置  useCDNFirst 和 CDNPlayDomain 属性：
  - useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。
  - CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会生效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】页面中进行设置。
 3. 调用 `login` 函数完成组件的登录，请参考下表填写关键参数：
@@ -199,12 +266,12 @@ mLiveRoom.login(SDKAPPID, userId, userSig, config,
 
 [](id:model.step5)
 ### 步骤5：主播端开播
-1. 主播执行 [步骤四](#model.step4) 登录后，可以调用`setSelfProfile`设置自己的昵称和头像。
-2. 主播在开播前可先调用`startCameraPreview`开启摄像头预览，界面上可以配置美颜调节按钮调用，通过`getBeautyManager`进行美颜设置。
+1. 主播执行 [步骤四](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
+2. 主播在开播前可先调用 `startCameraPreview` 开启摄像头预览，界面上可以配置美颜调节按钮调用，通过 `getBeautyManager` 进行美颜设置。
  >?非企业版 SDK 不支持变脸和贴图挂件功能。
  >
 3. 主播调整美颜效果后，可以调用`createRoom`创建新的直播间。
-4. 主播调用`startPublish`开始推流。如需支持 CDN 观看，请在 login 时传入的`TRTCLiveRoomConfig`参数中指定`useCDNFirst`和`CDNPlayDomain`并在`startPublish`时指定直播拉流用的 streamID。
+4. 主播调用`startPublish`开始推流。如需支持 CDN 观看，请在 login 时传入的 `TRTCLiveRoomConfig` 参数中指定 `useCDNFirst` 和 `CDNPlayDomain` 并在 `startPublish` 时指定直播拉流用的 streamID。
 
 ![](https://main.qcloudimg.com/raw/754450346c831a792a0cc7a06b2c7d31.png)
 
@@ -237,16 +304,15 @@ mLiveRoom.createRoom(123456789, param, new TRTCLiveRoomCallback.ActionCallback()
 
 [](id:model.step6)
 ### 步骤6：观众端观看
-1. 观众端执行 [步骤四](#model.step4) 登录后，可以调用`setSelfProfile`设置自己的昵称和头像。
+1. 观众端执行 [步骤四](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 观众端向业务后台获取最新的直播房间列表。
- >?Demo 中的直播间列表仅做演示使用，直播间列表的业务逻辑千差万别，腾讯云暂不提供直播间列表的管理服务，请自行管理您的直播间列表。
- >
-3. 观众端调用`getRoomInfos`获取房间的详细信息，该信息是在主播端调用`createRoom`创建直播间时设置的简单描述信息。
- >!如果您的直播间列表包含了足够全面的信息，可跳过调用`getRoomInfos`相关步骤。
-4. 观众选择一个直播间，调用`enterRoom`并传入房间号即可进入该房间。
-5. 调用`startPlay`并传入主播的 userId 开始播放。
- - 若直播间列表已包含主播端的 userId 信息，观众端可直接调用`startPlay`并传入主播的 userId 即可开始播放。
- - 若在进房前暂未获取主播的 userId，观众端在进房后会收到主播`onAnchorEnter`的事件回调，该回调中携带主播的 userId 信息，调用`startPlay`即可播放。 
+ >?App 中的直播间列表仅做演示使用，直播间列表的业务逻辑千差万别，腾讯云暂不提供直播间列表的管理服务，请自行管理您的直播间列表。
+3. 观众端调用 `getRoomInfos` 获取房间的详细信息，该信息是在主播端调用 `createRoom` 创建直播间时设置的简单描述信息。
+ >!如果您的直播间列表包含了足够全面的信息，可跳过调用 `getRoomInfos` 相关步骤。
+4. 观众选择一个直播间，调用 `enterRoom` 并传入房间号即可进入该房间。
+5. 调用 `startPlay` 并传入主播的 userId 开始播放。
+ - 若直播间列表已包含主播端的 userId 信息，观众端可直接调用 `startPlay` 并传入主播的 userId 即可开始播放。
+ - 若在进房前暂未获取主播的 userId，观众端在进房后会收到主播 `onAnchorEnter` 的事件回调，该回调中携带主播的 userId 信息，调用 `startPlay` 即可播放。 
 
 ![](https://main.qcloudimg.com/raw/70320746e332252cddbb842e280c95a5.png)
 
@@ -281,11 +347,11 @@ mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
 
 [](id:model.step7)
 ### 步骤7：观众与主播连麦
-1. 观众端调用`requestJoinAnchor`向主播端发起连麦请求。
+1. 观众端调用 `requestJoinAnchor` 向主播端发起连麦请求。
 2. 主播端会收到 `TRTCLiveRoomDelegate#onRequestJoinAnchor`（即有观众请求与您连麦）的事件通知。
-3. 主播端可以通过调用`responseJoinAnchor`决定是否接受来自观众端的连麦请求。
-4. 观众端会收到`TRTCLiveRoomDelegate#responseCallback`事件通知，该通知会携带来自主播端的处理结果。
-5. 如果主播同意连麦请求，观众端可调用`startCameraPreview`开启本地摄像头，随后调用`startPublish`启动观众端的推流。
+3. 主播端可以通过调用 `responseJoinAnchor` 决定是否接受来自观众端的连麦请求。
+4. 观众端会收到 `TRTCLiveRoomDelegate#responseCallback` 事件通知，该通知会携带来自主播端的处理结果。
+5. 如果主播同意连麦请求，观众端可调用 `startCameraPreview` 开启本地摄像头，随后调用 `startPublish` 启动观众端的推流。
 6. 主播端会在观众端启动通知后收到 `TRTCLiveRoomDelegate#onAnchorEnter` （即另一路音视频流已到来）通知，该通知会携带观众端的 userId。
 7. 主播端调用`startPlay`即可看到连麦观众的画面。
 
@@ -332,12 +398,12 @@ mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
 
 [](id:model.step8)
 ### 步骤8：主播与主播 PK
-1. 主播 A 调用`requestRoomPK`向主播 B 发起 PK 请求。
-2. 主播 B 会收到`TRTCLiveRoomDelegate onRequestRoomPK`回调通知。
+1. 主播 A 调用 `requestRoomPK` 向主播 B 发起 PK 请求。
+2. 主播 B 会收到 `TRTCLiveRoomDelegate onRequestRoomPK` 回调通知。
 3. 主播 B 调用`responseRoomPK`决定是否接受主播 A 的 PK 请求。
-4. 主播 B 接受主播 A 的要求，等待`TRTCLiveRoomDelegate onAnchorEnter`通知，调用`startPlay`显示主播 A。
-5. 主播 A 收到`responseCallback`回调通知，PK 请求是否被同意。
-6. 主播 A 请求被同意，等待`TRTCLiveRoomDelegate onAnchorEnter`通知，调用`startPlay`显示主播 B。
+4. 主播 B 接受主播 A 的要求，等待 `TRTCLiveRoomDelegate onAnchorEnter` 通知，调用 `startPlay` 显示主播 A。
+5. 主播 A 收到 `responseCallback` 回调通知，PK 请求是否被同意。
+6. 主播 A 请求被同意，等待 `TRTCLiveRoomDelegate onAnchorEnter` 通知，调用 `startPlay` 显示主播 B。
 
 ![](https://main.qcloudimg.com/raw/8e3868af20a2cd4f968b673da107e227.png)
 
@@ -392,7 +458,7 @@ mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
 
 [](id:model.step9)
 ### 步骤9：实现文字聊天和弹幕消息
-- 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
+- 通过 `sendRoomTextMsg` 可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到 `onRecvRoomTextMsg` 回调。
  即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
 <dx-codeblock>
 ::: java java
@@ -408,7 +474,7 @@ mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
 });
 :::
 </dx-codeblock>
-- 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主播和观众均可以收到`onRecvRoomCustomMsg`回调。
+- 通过 `sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主播和观众均可以收到 `onRecvRoomCustomMsg` 回调。
 自定义消息常用于传输自定义信令，例如用于点赞消息的发送和广播。
 <dx-codeblock>
 ::: java java// 发送端：您可以通过自定义 Cmd 来区分弹幕和点赞消息

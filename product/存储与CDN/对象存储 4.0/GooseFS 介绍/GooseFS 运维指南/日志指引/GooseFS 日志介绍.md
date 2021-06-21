@@ -75,7 +75,7 @@ log4j.rootLogger=DEBUG, ${goosefs.logger.type}, ${goosefs.remote.logger.type}
 log4j.logger.goosefs.client.file.GooseFSFileInStream=DEBUG
 ```
 
-在一些特定的场景下，用户可能需要在集群运行过程中修改日志参数，此时可以通过在命令行中输入 logLevel 相关的指令进行调整。如下为 logLevl 支持的配置：
+在一些特定的场景下，用户可能需要在集群运行过程中修改日志参数，此时可以通过在命令行中输入 logLevel 相关的指令进行调整。如下为 logLevel 支持的配置：
 
 ```plaintext
 $ goosefs logLevel

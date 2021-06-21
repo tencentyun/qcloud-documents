@@ -1,6 +1,6 @@
 ## 效果展示
 
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验语音沙龙的能力，包括语音聊天、上下麦、低延时语音互动等 TRTC 在语音聊天场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验语音沙龙的能力，包括语音聊天、上下麦、低延时语音互动等 TRTC 在语音聊天场景下的相关能力。
 
 <table>
      <tr>
@@ -14,10 +14,10 @@
 </table>
 
 
-如需快速接入语音沙龙功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCChatSalon 组件并实现自定义 UI 界面。
+如需快速接入语音沙龙功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TRTCChatSalon 组件并实现自定义 UI 界面。
 
 [](id:DemoUI)
-## 复用 Demo 的 UI 界面
+## 复用 App 的 UI 界面
 
 [](id:ui.step1)
 ### 步骤1：创建新的应用
@@ -29,53 +29,76 @@
 
 
 [](id:ui.step2)
-### 步骤2：下载 SDK 和 Demo 源码
-1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+### 步骤2：下载 SDK 和 App 源码
+1. 根据实际业务需求下载 [SDK](https://cloud.tencent.com/document/product/647/32689) 及 [App 源码](https://github.com/tencentyun/TUIChatSalon)。
 2. 下载完成后，单击【已下载，下一步】。
+
 ![](https://main.qcloudimg.com/raw/c4884da10fe7751953e91294ca95acb0.png)
 
 [](id:ui.step3)
+### 步骤3：配置 App 工程文件
 
-### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `Android/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
+2. 找到并打开 `Android/Debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
-	<ul>
-	<li/>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
-	<li/>SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。</ul>
- <img src="https://main.qcloudimg.com/raw/e0a9669ded728bfe74ef98902d9407ec.png">
+<ul style="margin:0"><li/>SDKAPPID：默认为占位符（PLACEHOLDER），请设置为实际的 SDKAppID。
+<li/>SECRETKEY：默认为占位符（PLACEHOLDER），请设置为实际的密钥信息。</ul>
+<img src="https://main.qcloudimg.com/raw/09a7c2e06bb792e1c3d651a61aff4000.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
 
 >!
->- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
+>- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 [](id:ui.step4)
-### 步骤4：运行 Demo
-使用 Android Studio（3.5以上的版本）打开源码工程 `TRTCScenesDemo`，单击【运行】即可开始调试本 Demo。
+### 步骤4：运行 App
+使用 Android Studio（3.5以上的版本）打开源码工程 `TUIChatSalon`，单击【运行】即可开始调试本 App。
 
 [](id:ui.step5)
-### 步骤5：修改 Demo 源代码
-源码中的 trtcchatsalondemo 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码，如下表格列出了各个文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
+### 步骤5：修改 App 源代码
+源码中的 Source 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码，如下表格列出了各个文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
 
 | 文件或文件夹 | 功能描述                             |
 | ------------ | ------------------------------------ |
 | base         | UI 使用的基础类。                    |
-| list         | 列表页和创建房间页。                 |
+| list         | 创建房间页。                 |
 | room         | 主房间页面，包括房主和听众两种界面。 |
 | widget       | 通用控件。                           |
 
+
+## 体验应用
+>! 体验应用至少需要两台设备。
+
+### 用户 A
+
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+<img src="https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png" width="320"/>
+2. 进入后，单击【创建房间】，如下图示：
+<img src="https://main.qcloudimg.com/raw/1a56b06671c6958a83b748450c93d6a6.png" width="320"/>
+3. 输入房间主题，单击【开始交谈】。
+
+### 用户 B
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+<img src="https://main.qcloudimg.com/raw/e39abca80039bd3b80e0f2d1a01d3e70.png" width="320"/>
+2. 输入用户 A 创建的房间号，单击【进入房间】。<br>
+<img src="https://main.qcloudimg.com/raw/13044a0114489869be65c57e90f362bf.png" width="320"/>
+
+>! 房间号在用户 A 的房间顶部查看，如下图示：
+<img src="https://main.qcloudimg.com/raw/4a3e66a9a01f446fd4d2fe0b39b16a2c.png" width="320"/>
+
+
+
 [](id:model)
 ## 实现自定义 UI 界面
-[源码](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCScenesDemo/trtcchatsalondemo/src/main/java/com/tencent/liteav/trtcchatsalon) 中的 trtcchatsalondemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCChatSalon，您可以在 `TRTCChatSalon.java` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+[源码](https://github.com/tencentyun/TRTCSDK/tree/master/Android/Source/src/main/java/com/tencent/liteav/trtcchatsalon) 中的 Source 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCChatSalon，您可以在 `TRTCChatSalon.java` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/fcf694c8550664623414604d14ffcd94.png)
 
 [](id:model.step1)
 ### 步骤1：集成 SDK
 
-语音沙龙组件 trtcchatsalondemo 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
+语音沙龙组件 Source 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 [](id:model.step1_m1)
 #### 方法一：通过 Maven 仓库依赖
@@ -145,7 +168,7 @@ defaultConfig {
 ### 步骤3：导入 TRTCChatSalon 组件
 拷贝以下目录中的所有文件到您的项目中：
 ```
-trtcchatsalondemo/src/main/java/com/tencent/liteav/trtcchatsalon/model
+Source/src/main/java/com/tencent/liteav/trtcchatsalon/model
 ```
 
 [](id:model.step4)
@@ -234,7 +257,7 @@ public void onAnchorEnterSeat(TRTCChatSalonDef.UserInfo userInfo) {
 
 1. 听众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 听众端向业务后台获取最新的语音沙龙房间列表。
- >?Demo 中的语音沙龙列表仅做演示使用，语音沙龙列表的业务逻辑千差万别，腾讯云暂不提供语音沙龙列表的管理服务，请自行管理您的语音沙龙列表。
+ >?App 中的语音沙龙列表仅做演示使用，语音沙龙列表的业务逻辑千差万别，腾讯云暂不提供语音沙龙列表的管理服务，请自行管理您的语音沙龙列表。
 3. 听众端调用 `getRoomInfoList` 获取房间的详细信息，该信息是在房主端调用 `createRoom` 创建语音沙龙时设置的简单描述信息。
 >!如果您的语音沙龙列表包含了足够全面的信息，可跳过调用 `getRoomInfoList` 相关步骤。
 4. 听众选择一个语音沙龙，调用 `enterRoom` 并传入房间号即可进入该房间。

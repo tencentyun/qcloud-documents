@@ -1,5 +1,5 @@
 ## 效果展示
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验语音聊天室的能力，包括麦位管理、低延时语音互动、文字聊天等 TRTC 在语音聊天场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验语音聊天室的能力，包括麦位管理、低延时语音互动、文字聊天等 TRTC 在语音聊天场景下的相关能力。
 <table>
      <tr>
          <th>房主麦位操作</th>  
@@ -11,10 +11,10 @@
 </tr>
 </table>
 
-如需快速接入语音聊天室功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCVoiceRoom 组件并实现自定义 UI 界面。
+如需快速接入语音聊天室功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TUIVoiceRoom 组件并实现自定义 UI 界面。
 
 [](id:DemoUI)
-## 复用 Demo 的 UI 界面
+## 复用 App 的 UI 界面
 
 [](id:ui.step1)
 ### 步骤1：创建新的应用
@@ -26,53 +26,71 @@
 
 
 [](id:ui.step2)
-### 步骤2：下载 SDK 和 Demo 源码
-1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+### 步骤2：下载 SDK 和 App 源码
+1. 根据实际业务需求下载 SDK 及配套的 App 源码。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/f588650274a85b74893ff96eb563d3b4.png)
+![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
 
 [](id:ui.step3)
-### 步骤3：配置 Demo 工程文件
+### 步骤3：配置 App 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `iOS/TRTCScenesDemo/TRTCScenesDemo/debug/GenerateTestUserSig.h` 文件。
-3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
-  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
-  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-    <img src="https://main.qcloudimg.com/raw/420034ad9767a8df101a37b2c668af6c.png">
+2. 找到并打开 `TUIVoiceRoom/Debug/GenerateTestUserSig.swift` 文件。
+3. 设置 `GenerateTestUserSig.swift` 文件中的相关参数：
+<ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
+<li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
+<img src="https://main.qcloudimg.com/raw/adb7a596acda92d41aee235c441f2623.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
 >!
->- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
+>- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 [](id:ui.step4)
-### 步骤4：运行 Demo
-使用 Xcode（11.0及以上的版本）打开源码工程 `iOS/TRTCScenesDemo/TXLiteAVDemo.xcworkspace`，单击【运行】即可开始调试本 Demo。
+### 步骤4：运行 App
+使用 Xcode（11.0及以上的版本）打开源码工程 `TUIVoiceRoom/TUIVoiceRoomApp.xcworkspace`，单击【运行】即可开始调试本 App。
 
 [](id:ui.step5)
-### 步骤5：修改 Demo 源代码
-源码中的 TRTCVoiceRoomDemo 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码以及涉及界面相关的逻辑，如下表格列出了各个 swift 文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
+### 步骤5：修改 App 源代码
+源码中的 `Source` 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码以及涉及界面相关的逻辑，如下表格列出了各个 swift 文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
 
 | 文件或文件夹 | 功能描述 |
 |:-------:|:--------|
-|TRTCVoiceRoomEnteryController|该文件包含所有 ViewController 的初始化获取方法，您可以通过该实例，快速获取 ViewController 对象。|
-| NetworkRoomManager | 业务后台交互相关。 |
+|TRTCVoiceRoomEnteryControl.swift|该文件包含所有 ViewController 的初始化获取方法，您可以通过该实例，快速获取 ViewController 对象。|
 | TRTCCreateVoiceRoomViewController | 创建语音聊天室页面逻辑。 |
-| TRTCVoiceRoomListViewController | 列表页面逻辑。 |
 | TRTCVoiceRoomViewController | 主房间页面，包括房主和听众两种界面。 |
 
-每个`TRTC'XXXX'ViewController`文件夹下均包含`ViewController`、`RootView`和`ViewModel`，各个文件的作用如下表所示：
+每个 `TRTC'XXXX'ViewController` 文件夹下均包含 `ViewController`、`RootView` 和 `ViewModel`，各个文件的作用如下表所示：
 
 | 文件 | 功能描述 |
 |:-------:|:--------|
-| ViewController | 页面控制器，负责页面路由工作，以及 RootView 和 ViweModel 的绑定工作。 |
-| RootView | 视图，所有的视图布局。 |
-| ViewModel | 视图控制器，负责响应视图交互，返回视图响应状态。 |
+| ViewController.swift | 页面控制器，负责页面路由工作，以及 RootView 和 ViweModel 的绑定工作。 |
+| RootView.swift | 视图，所有的视图布局。 |
+| ViewModel.swift | 视图控制器，负责响应视图交互，返回视图响应状态。 |
+
+## 体验应用
+>! 体验应用至少需要两台设备。
+
+### 用户 A
+
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+<img src="https://main.qcloudimg.com/raw/64f768ee15bf0772361a8e7d63a35193.png" width="320"/>
+2. 单击【创建房间】，如下图示：
+<img src="https://main.qcloudimg.com/raw/a487f5731e5c88bb1bf42686f0254464.png" width="320"/>
+2. 输入房间主题，单击【开始交谈】。
+
+### 用户 B
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+<img src="https://main.qcloudimg.com/raw/4ca3d3b7314d19255cfda322f9eff5f1.png" width="320"/>
+2. 输入用户 A 创建的房间号，单击【进入房间】。<br>
+<img src="https://main.qcloudimg.com/raw/035eff1dff4afe3e7bc0c003cf0ec4c4.png" width="320"/>
+
+>! 房间号在用户 A 的房间顶部查看，如下图示：
+<img src="https://main.qcloudimg.com/raw/375b092c527232b1a6aaa53e91f54ab7.png" width="320"/>
 
 [](id:model)
 ## 实现自定义 UI 界面
-[源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCVoiceRoomDemo) 中的 TRTCVoiceRoomDemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在`TRTCVoiceRoom.swift`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+[源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCVoiceRoomDemo) 中的 `Source` 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在 `TRTCVoiceRoom.swift` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/0ebcbb27843bf03a790a945a8c92d560.png)
 
 
@@ -100,14 +118,22 @@ pod 'TXLiteAVSDK_TRTC'
 在 info.plist 文件中需要添加 Privacy > Camera Usage Description， Privacy > Microphone Usage Description 申请麦克风权限。
 
 [](id:model.step3)
-### 步骤3：导入 TRTCVoiceRoom 组件
-拷贝`iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCVoiceRoomDemo/model`目录中的所有文件到您的项目中。
+### 步骤3：导入 TUIVoiceRoom 组件
+#### 通过 cocoapods 导入组件
+1. 将工程目录下的`Source`、`Resources`、`TXAppBasic`文件夹，`TUIVoiceRoom.podspec`文件拷贝到您的工程目录下。
+2. 在您的`Podfile`文件中添加以下依赖。之后执行`pod install` 命令，完成导入。
+
+```
+ pod 'TXAppBasic', :path => "TXAppBasic/"
+ pod 'TXLiteAVSDK_TRTC'
+ pod 'TUIVoiceRoom', :path => "./", :subspecs => ["TRTC"] 
+```
 
 [](id:model.step4)
 ### 步骤4：创建并登录组件
-1. 调用 TRTCVoiceRoom 的`sharedInstance`类方法可以创建一个遵守 TRTCVoiceRoom 协议的实例对象。也可以使用调用`shared`类方法，获取 TRTCVoiceRoomImp实例对象直接使用，二者在 TRTCVoiceRoom 的接口使用上没有任何区别。
-2. 调用`setDelegate`函数注册组件的事件回调通知。
-3. 调用`login`函数完成组件的登录，请参考下表填写关键参数：
+1. 调用 TRTCVoiceRoom 的 `sharedInstance` 类方法可以创建一个遵守 TRTCVoiceRoom 协议的实例对象。也可以使用调用 `shared` 类方法，获取 TRTCVoiceRoomImp 实例对象直接使用，二者在 TRTCVoiceRoom 的接口使用上没有任何区别。
+2. 调用 `setDelegate` 函数注册组件的事件回调通知。
+3. 调用 `login` 函数完成组件的登录，请参考下表填写关键参数：
 <table>    
 <tr><th>参数名</th><th>作用</th></tr><tr>
 <td>sdkAppId</td>
@@ -149,15 +175,15 @@ self.vocieRoom.login(sdkAppId: sdkAppID, userId: userId, userSig: userSig) { [we
 
 [](id:model.step5)
 ### 步骤5：房主端开播
-1. 房主执行 [步骤4](#model.step4) 登录后，可以调用`setSelfProfile`设置自己的昵称和头像。
+1. 房主执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 房主调用`createRoom`创建新的语音聊天室，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
-3. 房主创建房间成功后，调用`enterSeat`进入座位。
-4. 房主收到组件的`onSeatListChange`麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
-5. 房主还会收到麦位表有成员进入的`onAnchorEnterSeat`的事件通知，此时会自动打开麦克风采集。
+3. 房主创建房间成功后，调用 `enterSeat` 进入座位。
+4. 房主收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
+5. 房主还会收到麦位表有成员进入的 `onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
 
 ![](https://main.qcloudimg.com/raw/178d40c1ae247fbf7d5171dc4cee1a5a.png)
 
-示例代码：
+**示例代码**：
 
 ```swift
 // 1.房主设置昵称和头像
@@ -208,20 +234,17 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 
 [](id:model.step6)
 ### 步骤6：听众端观看
-1. 听众端执行 [步骤4](#model.step4) 登录后，可以调用`setSelfProfile`设置自己的昵称和头像。
+1. 听众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 听众端向业务后台获取最新的语音聊天室房间列表。
- >?Demo 中的语音聊天室列表仅做演示使用，语音聊天室列表的业务逻辑千差万别，腾讯云暂不提供语音聊天室列表的管理服务，请自行管理您的语音聊天室列表。
-3. 听众端调用`getRoomInfoList`获取房间的详细信息，该信息是在房主端调用`createRoom`创建语音聊天室时设置的简单描述信息。
- >!如果您的语音聊天室列表包含了足够全面的信息，可跳过调用`getRoomInfoList`相关步骤。
-4. 听众选择一个语音聊天室，调用`enterRoom`并传入房间号即可进入该房间。
-5. 进房后会收到组件的`onRoomInfoChange`房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
-6. 进房后会收到组件的`onSeatListChange`麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
-7. 进房后还会收到麦位表有主播进入的`onAnchorEnterSeat`的事件通知。
-
+ >?App 中的语音聊天室列表仅做演示使用，语音聊天室列表的业务逻辑千差万别，腾讯云暂不提供语音聊天室列表的管理服务，请自行管理您的语音聊天室列表。
+3. 听众端调用 `getRoomInfoList` 获取房间的详细信息，该信息是在房主端调用`createRoom`创建语音聊天室时设置的简单描述信息。
+ >!如果您的语音聊天室列表包含了足够全面的信息，可跳过调用 `getRoomInfoList` 相关步骤。
+4. 听众选择一个语音聊天室，调用 `enterRoom` 并传入房间号即可进入该房间。
+5. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
+6. 进房后会收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
+7. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
 
 ![](https://main.qcloudimg.com/raw/78fd2cc28f7f336de6fa58248b28cc14.png)
-
-
 <dx-codeblock>
 ::: Swift Swift
 // 1.听众设置昵称和头像
@@ -266,10 +289,10 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 ### 步骤7：麦位管理
 <dx-tabs>
 ::: 房主端
-1. `pickSeat`传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
-2. `kickSeat`传入对应麦位后，可以踢人下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
-3. `muteSeat`传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
-4. `closeSeat`传入对应麦位后，可以封禁/解禁某个麦位，封禁后听众端将不能再上麦，房间内所有成员会收到`onSeatListChange`和`onSeatClose`的事件通知。
+1. `pickSeat` 传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
+2. `kickSeat` 传入对应麦位后，可以踢人下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
+3. `muteSeat` 传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
+4. `closeSeat` 传入对应麦位后，可以封禁/解禁某个麦位，封禁后听众端将不能再上麦，房间内所有成员会收到`onSeatListChange`和 `onSeatClose` 的事件通知。
 ![](https://main.qcloudimg.com/raw/78a1d790bf994786f5beac8b97660000.png)
 :::
 ::: 听众端
