@@ -7,7 +7,7 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
 
 ## 场景示例
 本文以下图业务场景为例。某公司业务部署在 VPC2，现需要将该业务共享给公司内其他部门的其他账户访问。为避免公网访问带来的潜在安全风险，使用腾讯云私有连接 Private Link 来实现 VPC1 到 VPC2 的安全内网访问方案。
-![](https://main.qcloudimg.com/raw/79017c9a4f8b58c596722cecc26f02fd.png)
+![](https://main.qcloudimg.com/raw/7a1df80ea37f7d576d4b3abada1d3347.png)
 
 ## 前提条件
 + 您已注册腾讯云账号，并已创建服务提供方 VPC2 和服务使用方 VPC1。
