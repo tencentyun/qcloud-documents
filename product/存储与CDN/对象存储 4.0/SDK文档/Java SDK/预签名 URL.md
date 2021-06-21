@@ -83,7 +83,7 @@ String bucketName = "examplebucket-1250000000";
 String key = "exampleobject";
 GeneratePresignedUrlRequest req =
         new GeneratePresignedUrlRequest(bucketName, key, HttpMethodName.GET);
-// 设置签名过期时间为很久远的时间，比如这里的 3000年12月31日
+// 设置签名过期时间为很久远的时间，例如这里的 3000年12月31日
 Date expirationDate = new Date(3000, 12, 31);
 req.setExpiration(expirationDate);
 URL url = cosClient.generatePresignedUrl(req);
