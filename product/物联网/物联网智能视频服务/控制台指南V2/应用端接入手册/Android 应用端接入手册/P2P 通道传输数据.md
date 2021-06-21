@@ -802,7 +802,7 @@ char* _msg_notify(const char *id, XP2PType type, const char* msg) {
 ```
 
 ### 步骤8：主动关闭 P2P 通道
-
+#### 111
 - 接口描述
   停止 XP2P 服务。
 ```
