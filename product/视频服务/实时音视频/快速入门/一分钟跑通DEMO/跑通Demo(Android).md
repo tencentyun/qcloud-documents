@@ -2,8 +2,8 @@
 
 ## 环境要求
 - 最低兼容 Android 4.1（SDK API Level 16），建议使用 Android 5.0 （SDK API Level 21）及以上版本。
-- Android Studio 3.5及以上版本。
-- App 要求 Android 4.1及以上设备。
+- Android Studio 3.5 及以上版本。
+- App 要求 Android 4.1 及以上设备。
 
 ## 前提条件
 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
@@ -31,10 +31,9 @@
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
 2. 找到并打开 `LiteAVSDK_TRTC_Android版本号/TRTC-API-Example/Debug/src/main/java/com/tencent/trtc/debug/GenerateTestUserSig.java` 文件。
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
-	<ul>
-	<li/>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
+	<ul><li/>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
 	<li/>SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。</ul>
- <img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/sdkappid_secretkey.png">
+	<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/sdkappid_secretkey.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -54,11 +53,11 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
  2. 在左侧导航栏选择【应用管理】，单击目标应用所在行的【应用信息】。
  3. 选择【快速上手】页签，单击【第二步 获取签发UserSig的密钥】区域的【点此升级】、【非对称式加密】或【HMAC-SHA256】。
   - 升级：
-   ![](https://main.qcloudimg.com/raw/69bd0957c99e6a6764368d7f13c6a257.png)
+      ![](https://main.qcloudimg.com/raw/69bd0957c99e6a6764368d7f13c6a257.png)
   - 切换回老版本算法 ECDSA-SHA256：
-   ![](https://main.qcloudimg.com/raw/f89c00f4a98f3493ecc1fe89bea02230.png)
+      ![](https://main.qcloudimg.com/raw/f89c00f4a98f3493ecc1fe89bea02230.png)
   - 切换为新版本算法 HMAC-SHA256：
-   ![](https://main.qcloudimg.com/raw/b0412153935704abc9e286868ad8a916.png)
+      ![](https://main.qcloudimg.com/raw/b0412153935704abc9e286868ad8a916.png)
 
 ### 2. 两台手机同时运行 App，为什么看不到彼此的画面？
 请确保两台手机在运行 App 时使用的是不同的 UserID，TRTC 不支持同一个 UserID （除非 SDKAppID 不同）在两个终端同时使用。
@@ -66,4 +65,3 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 ### 3. 防火墙有什么限制？
 由于 SDK 使用 UDP 协议进行音视频传输，所以在对 UDP 有拦截的办公网络下无法使用。如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399) 排查并解决。
- 

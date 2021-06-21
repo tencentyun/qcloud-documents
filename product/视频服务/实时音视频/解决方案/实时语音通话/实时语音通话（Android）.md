@@ -1,5 +1,15 @@
+## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验实时语音通话的效果。
-
+<table>
+<tr>
+   <th>主动呼叫</th>
+   <th>被叫接听</th>
+ </tr>
+<tr>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/audio1.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/audio2.gif"/></td>
+</tr>
+</table>
 
 如需快速实现语音通话功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TRTCCalling 组件并实现自定义 UI 界面。
 
@@ -20,6 +30,7 @@
 ### 步骤2：下载 SDK 和 App 源码
 1. 根据实际业务需求下载 [SDK](https://cloud.tencent.com/document/product/647/32689) 及 [App 源码](https://github.com/tencentyun/TUICalling)。
 2. 下载完成后，单击【已下载，下一步】。
+
 ![](https://main.qcloudimg.com/raw/991440ebf152f78d96ba9769aa69d8d7.png)
 
 [](id:ui.step3)
@@ -52,7 +63,6 @@
 | TRTCAudioCallActivity.java       | 展示语音通话的主界面，通话的接听和拒绝就是在这个界面中完成的。 |
 | audiolayout                      | 用于通话过程中用户画面的渲染和排布逻辑。                     |
 
-
 ## 体验应用
 
 >! 体验应用至少需要两台设备。
@@ -61,11 +71,10 @@
 
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 <img src="https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png" width="320"/>
-2. 输入要拨打的用户名，点击搜索，如下图示：
+2. 输入要拨打的用户名，单击【搜索】，如下图示：
 <img src="https://main.qcloudimg.com/raw/c041695fd0fe8cd36833b982d0bf7740.png" width="320"/>
-3. 单击【呼叫】，选择拨打【语音通话】（**请确保被叫方保持在应用内，否则可能会拨打失败**）。
+3. 单击【呼叫】，选择拨打【语音通话】（**请确保被叫方保持在应用内，否则可能会拨打失败**）。<br>
 <img src="https://main.qcloudimg.com/raw/450e50dd4bb58e2950d6574ab88715e2.png" width="320"/>
-
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
@@ -87,9 +96,7 @@
 音视频通话组件 TRTCCalling  依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 **方法一：通过 Maven 仓库依赖**
-
 1. 在 dependencies 中添加 TRTC SDK 和 IM SDK 的依赖。
-
 ```
 dependencies {
 	complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
@@ -100,9 +107,7 @@ dependencies {
 }
 ```
 >?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
-
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
-
 ```
 defaultConfig {
     ndk {
@@ -110,7 +115,6 @@ defaultConfig {
     }
 }
 ```
-
 3. 单击【Sync Now】同步 SDK。
 >?若您的网络连接 jcenter 没有问题，SDK 会自动下载集成到工程里。
 
@@ -192,8 +196,8 @@ sCall.login(1400000123, "userA", "xxxx", new ActionCallback());
 [](id:model.step5)
 ### 步骤5：实现1v1语音通话
 
-1. 发起方：调用 `TRTCCalling` 的 `call()` 方法发起通话的请求, 并传入用户 ID（userid）和通话类型（type），通话类型参数传入`TYPE_AUDIO_CALL`。
-2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的事件通知。如果希望接收方在不处于登录状态时也能收到通话请求，请参考 [离线接听](#model.offline)。
+1. 发起方：调用 TRTCCalling 的 `call()` 方法发起通话的请求, 并传入用户 ID（userid）和通话类型（type），通话类型参数传入`TYPE_AUDIO_CALL`。
+2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的事件通知。如果希望接收方在不处于登录状态时也能收到通话请求，请参见 [离线接听](#model.offline)。
 3. 接收方：如果希望接听通话，接收方可以调用 `accept()`函数，或者调用 `reject()` 拒绝此次通话。
 4. 当双方的音视频通道建立完成后，通话的双方都会接收到名为  `onUserEnter()` 的事件通知，此时说明双方已经进入通话。
 
@@ -220,7 +224,7 @@ sCall.login(sdkappid, "aaa", usersig, new ActionCallback() {
 [](id:model.step6)
 ### 步骤6：实现多人语音通话
 
-1. 发起方：多人视频通话需要调用 `TRTCCalling` 中的 `groupCall()` 函数，并传入用户列表（userIdList）、通话类型（type）、 IM 群组 ID（groupId），其中 userIdList 为必填参数，通话类型为必填参数传入`TYPE_AUDIO_CALL`， groupId 为选填参数。
+1. 发起方：多人视频通话需要调用 TRTCCalling 中的 `groupCall()` 函数，并传入用户列表（userIdList）、通话类型（type）、 IM 群组 ID（groupId），其中 userIdList 为必填参数，通话类型为必填参数传入`TYPE_AUDIO_CALL`， groupId 为选填参数。
 2. 接收端：通过 `onInvited()` 事件通知能够接收到此次请求。
 3. 接收端：收到事件通知后可以调用 `accept()` 方法接听此次通话，也可以选择用 `reject()` 方法拒绝通话。
 4. 如果超过一定时间（默认30s）没有回复，接收方会收到 `onCallingTimeOut()` 的事件通知，发起方会收到 `onNoResp(String userId)` 事件通知。通话发起方在多个接收均未应答时 `hangup()` ， 每个接收方均会收到 `onCallingCancel()` 事件通知。

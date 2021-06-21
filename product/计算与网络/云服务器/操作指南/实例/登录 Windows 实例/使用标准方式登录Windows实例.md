@@ -1,17 +1,14 @@
 ## 操作场景
 本文介绍如何使用标准登录方式（WebRDP）登录 Windows 实例。 
 
-## 适用本地操作系统
-Windows，Linux 和 Mac OS 都可以使用 WebRDP 方式登录云服务器。
-
 ## 前提条件[](id:Prerequisites)
 
 - 已获取远程登录 Windows 实例需要使用实例的管理员帐号和对应的密码。
  - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
  - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
-- 您的云服务器实例已购买公网 IP，且该实例已在关联安全组中开通云服务器实例的远程登录端口（默认为3389）。
+- 您的云服务器实例已购买公网 IP，且已在实例关联的安全组中放通来源为 WebRDP 代理 IP 的远程登录端口（默认为3389）。
  - 如通过快速配置购买云服务器，则默认已开通。
- - 如通过自定义配置购买云服务器，则可通过 [自助诊断](https://console.cloud.tencent.com/workorder/check) 工具检测是否已开通。
+ - 如通过自定义配置购买云服务器，则可通过 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740) 手动放通。
 
 
 ## 操作步骤
