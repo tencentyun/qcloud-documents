@@ -38,7 +38,7 @@
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)，在实例列表中找到您刚购买的云服务器，在右侧操作栏中单击【登录】。
 ![](https://main.qcloudimg.com/raw/25d5fed7a99dda8a738490b2f89f3044.jpg)
 2. 参考 [使用标准方式登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/5435)，登录云服务器。
-3. 输入云服务器的用户名和密码，即可正常登录。登录成功后将打开 Windows 云服务器界面，如下图所示：
+登录成功后将打开 Windows 云服务器界面，如下图所示：
 ![](https://main.qcloudimg.com/raw/5a524210acd13624af7263b6de3aea54.png)
 
 ## 下一步操作：使用云服务器
