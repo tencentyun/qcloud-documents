@@ -43,7 +43,7 @@ $ goosefs format
 ```plaintext
 $ ./bin/goosefs-start.sh local SudoMount
 ```
-该命令执行完毕后，可以访问 http://localhost:19999 和 http://localhost:30000 ，分别查看  Master 和 Worker 的运行状态。
+该命令执行完毕后，可以访问 http://localhost:9201 和 http://localhost:9204 ，分别查看  Master 和 Worker 的运行状态。
 
 ## 使用 GooseFS 挂载对象存储 COS
 1. 创建一个命名空间 Namespace 并挂载对象存储 COS ：
@@ -131,12 +131,12 @@ DBNAME.TABLENAME: testdb.web_page (
 PARTITIONED BY (
 )
 LOCATION (
-   gfs://172.16.16.22:19998/myNamespace/3000/web_page
+   gfs://172.16.16.22:9200/myNamespace/3000/web_page
 )
 PARTITION LIST (
    {
    partitionName: web_page
-   location: gfs://172.16.16.22:19998/myNamespace/3000/web_page
+   location: gfs://172.16.16.22:9200/myNamespace/3000/web_page
    }
 )
 ```
