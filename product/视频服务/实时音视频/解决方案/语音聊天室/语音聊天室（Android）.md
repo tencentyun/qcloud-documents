@@ -67,19 +67,19 @@
 
 ### 用户 A
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/6189f448b11a80d28fc5c18d5dab7762.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/a0c73f6904ac152a84cdf4d619171fc4.png" width="320"/>
 2. 单击【创建房间】，如下图示：
-<img src="https://main.qcloudimg.com/raw/2273209ab88435be27c77bb5a6931607.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/a29f2ea0a5bbcd777cddfe22003acbb5.png" width="320"/>
 3. 输入房间主题，单击【开始交谈】。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/bb47f0d517f8734e8360b2d9ef79093f.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/94fcd741becbcfe4cca97778e180e4ca.png" width="320"/>
 2. 输入用户 A 创建的房间号，单击【进入房间】。<br>
-<img src="https://main.qcloudimg.com/raw/daea94615322dd53fea683fd20fdf42d.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/6f9a910770a84aefaa8a08e4043d8a6c.png" width="320"/>
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
-<img src="https://main.qcloudimg.com/raw/7acc310fdaddf99c41e04afe4be69c59.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/7192f40724b2ccda79f4b735ffcf5f66.png" width="320"/>
 
 [](id:model)
 
@@ -94,22 +94,27 @@
 
 **方法一：通过 Maven 仓库依赖**
 1. 在 dependencies 中添加 TRTCSDK 和 IMSDK 的依赖。
-```
+<dx-codeblock>
+::: java java
 dependencies {
        complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
        complie 'com.tencent.imsdk:imsdk:latest.release'
        compile 'com.google.code.gson:gson:2.3.1'
 }
-```
->?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
+:::
+</dx-codeblock>
+
+	>?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
-```
+<dx-codeblock>
+::: java java
 defaultConfig {
       ndk {
           abiFilters "armeabi-v7a"
       }
 }
-```
+:::
+</dx-codeblock>
 3. 单击【Sync Now】，自动下载 SDK 并集成到工程里。
 
 **方法二：通过本地 AAR 依赖**
@@ -135,7 +140,8 @@ defaultConfig {
 [](id:model.step2)
 ### 步骤2：配置权限及混淆规则
 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请读取存储权限）：
-```
+<dx-codeblock>
+::: java java
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -145,19 +151,24 @@ defaultConfig {
 <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-```
+:::
+</dx-codeblock>
 
 在 proguard-rules.pro 文件，将 SDK 相关类加入不混淆名单：
-```
+<dx-codeblock>
+::: java java
 -keep class com.tencent.** { *; }
-```
+:::
+</dx-codeblock>
 
 [](id:model.step3)
 ### 步骤3：导入 TRTCVoiceRoom 组件
 拷贝以下目录中的所有文件到您的项目中：
-```
+<dx-codeblock>
+::: java java
 Source/src/main/java/com/tencent/liteav/trtcvoiceroom/model
-```
+:::
+</dx-codeblock>
 
 [](id:model.step4)
 ### 步骤4：创建并登录组件
@@ -500,4 +511,3 @@ mTRTCVoiceRoom.setDelegate(new TRTCVoiceRoomDelegate() {
 });
 :::
 </dx-codeblock>
-
