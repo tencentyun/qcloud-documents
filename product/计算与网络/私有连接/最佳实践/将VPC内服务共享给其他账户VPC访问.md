@@ -25,7 +25,7 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=16)。
 2. 在左侧导航栏单击【私有连接】>【终端节点服务】。
 3. 单击【新建】，在弹出的新建终端节点服务界面，配置相关参数。
-  <img src="https://main.qcloudimg.com/raw/f71f06ee845d5c751ac206e927914e72.png" width="50%" /><br>
+  <img src="https://main.qcloudimg.com/raw/81f0dcb26080e4db4bed7a5dce0d933d.png" width="50%" /><br>
 <table>
 <tr>
 <th width="12%">参数名称</th>
@@ -116,7 +116,7 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
      >?如果服务器没有安装 telnet，请先执行 `yum install telnet` 安装 telnet。
      >
 	获取终端节点 VIP：
- <img src="https://main.qcloudimg.com/raw/fcbaf4d6631f9204fcc755853aa54c5e.png" width="70%" /><br>
+ <img src="https://main.qcloudimg.com/raw/c5b0783c0c4117820b9fff25fee38dcb.png" width="70%" /><br>
  获取 CLB 的 VPORT：
  <img src="https://main.qcloudimg.com/raw/922dc796b2d687354a355ab6fe845437.png" width="70%" /><br>
 	如果出现如下信息，表示已连接：</br>
