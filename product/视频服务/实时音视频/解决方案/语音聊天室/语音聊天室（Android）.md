@@ -67,19 +67,19 @@
 
 ### 用户 A
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/6189f448b11a80d28fc5c18d5dab7762.png" width="320"/>
 2. 单击【创建房间】，如下图示：
-<img src="https://main.qcloudimg.com/raw/a29f2ea0a5bbcd777cddfe22003acbb5.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/2273209ab88435be27c77bb5a6931607.png" width="320"/>
 3. 输入房间主题，单击【开始交谈】。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/e39abca80039bd3b80e0f2d1a01d3e70.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/bb47f0d517f8734e8360b2d9ef79093f.png" width="320"/>
 2. 输入用户 A 创建的房间号，单击【进入房间】。<br>
-<img src="https://main.qcloudimg.com/raw/001b8a308569733850b1eb0969ac9220.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/daea94615322dd53fea683fd20fdf42d.png" width="320"/>
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
-<img src="https://main.qcloudimg.com/raw/7192f40724b2ccda79f4b735ffcf5f66.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/7acc310fdaddf99c41e04afe4be69c59.png" width="320"/>
 
 [](id:model)
 
