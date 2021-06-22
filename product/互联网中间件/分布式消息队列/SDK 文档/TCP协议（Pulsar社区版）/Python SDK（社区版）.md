@@ -14,7 +14,7 @@ TDMQ 2.7.1及以上版本的集群已支持 Pulsar 社区版 Python SDK。本文
 
 1. 按照 [Pulsar 官方文档](http://pulsar.apache.org/docs/zh-CN/client-libraries-python/) 在您客户端所在的环境中安装 Python Client。
    ```sh
-   $ pip install pulsar-client==2.8.0
+   $ pip install pulsar-client==2.7.1
    ```
 
 2. 在创建 consumer 或 producer 的代码中，配置准备好的接入地址和密钥。
