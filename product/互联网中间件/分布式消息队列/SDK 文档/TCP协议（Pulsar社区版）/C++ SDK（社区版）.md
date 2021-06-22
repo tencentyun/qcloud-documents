@@ -20,7 +20,7 @@ TDMQ 2.7.1及以上版本的集群已支持 Pulsar 社区版 C++ SDK。本文介
 
 2. 在创建 client 的代码中，配置准备好的接入地址和密钥，下面展示一个生产消息的示例。
 <dx-codeblock>
-:::  c++
+::: c++
   
 #include <pulsar/Client.h>
 
@@ -34,15 +34,15 @@ pulsar::Client client("http://***", config); //替换成接入地址
 Producer producer;
 Result result = client.createProducer("persistent://pulsar-****/default/mytopic", producer);
 if (result != ResultOk) {
-    LOG_ERROR("Error creating producer: " << result);
-    return -1;
+				LOG_ERROR("Error creating producer: " << result);
+				return -1;
 }
 
 //发送消息
 for (int i = 0; i < 10; i++){
-    Message msg = MessageBuilder().setContent("my-message").build();
-    Result res = producer.send(msg);
-    LOG_INFO("Message sent: " << res);
+				Message msg = MessageBuilder().setContent("my-message").build();
+				Result res = producer.send(msg);
+				LOG_INFO("Message sent: " << res);
 }
 
 //关闭客户端（长时间不使用一定要记得关闭客户端，及时回收连接池资源）
