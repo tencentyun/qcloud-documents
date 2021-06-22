@@ -68,26 +68,26 @@
 
 ### 用户 A
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/5c5ec933aa1c4a9ebe614209ba8d3a04.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/a0c73f6904ac152a84cdf4d619171fc4.png" width="320"/>
 2. 进入后，单击【创建房间】，如下图示：
-<img src="https://main.qcloudimg.com/raw/358ea089e886664aa4bf343b5224c9c0.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/0f86a3a46403bd1b106d96691fce92c9.png" width="320"/>
 3. 输入房间名称，单击【开始直播】。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**），如下图示：
-<img src="https://main.qcloudimg.com/raw/e84a1746743b31c9c445fe4e590aeb9f.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/94fcd741becbcfe4cca97778e180e4ca.png" width="320"/>
 2. 输入用户 A 创建的房间号，单击进入房间，如下图示：
-<img src="https://main.qcloudimg.com/raw/f82e3bfd861d14a90d0998a83313a3cb.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/ed912e973f04f208a5dacb9139f01234.png" width="320"/>
 
 	>! 房间号在用户 A 的房间顶部查看，如下图示：
-<img src="https://main.qcloudimg.com/raw/da47658a199fc295ccf7447a91b117b7.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/27ae2f5036cf9ec20b48a2eeb46273a1.png" width="320"/>
 
 
 
 ## 房间状态监听&PK 列表接入
 房间状态可使用 `LiveRoomManager` 进行监听，如下：
-
-```
+<dx-codeblock>
+::: java java
 LiveRoomManager.getInstance().addCallback(new LiveRoomManager.RoomCallback() {
     /**
      * 房间创建
@@ -127,7 +127,8 @@ LiveRoomManager.getInstance().addCallback(new LiveRoomManager.RoomCallback() {
         }
     }
 });
-```
+:::
+</dx-codeblock>
 采用 Callback 方式进行回调是为了方便用户接入，例如获取房间列表可能需要进行异步操作，采用 Callback 方式将更加灵活。
 
 
@@ -139,25 +140,29 @@ LiveRoomManager.getInstance().addCallback(new LiveRoomManager.RoomCallback() {
 
 [](id:model.step1)
 ### 步骤1：集成 SDK
-视频通话组件 TRTCLiveRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
+视频互动直播组件 TRTCLiveRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 **方法一：通过 Maven 仓库依赖**
 1. 在 dependencies 中添加 TRTCSDK 和 IMSDK 的依赖。
-```
+<dx-codeblock>
+::: java java
 dependencies {
-       complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
-       complie 'com.tencent.imsdk:imsdk:latest.release'
+       compile "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
+       compile 'com.tencent.imsdk:imsdk:latest.release'
 }
-```
+:::
+</dx-codeblock>
 >?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
-```
+<dx-codeblock>
+::: java java
 defaultConfig {
       ndk {
           abiFilters "armeabi-v7a"
       }
 }
-```
+:::
+</dx-codeblock>
 3. 单击【Sync Now】，自动下载 SDK 并集成到工程里。
 
 **方法二：通过本地 AAR 依赖**
@@ -183,7 +188,8 @@ defaultConfig {
 [](id:model.step2)
 ### 步骤2：配置权限及混淆规则
 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请相机、读取存储权限）：
-```
+<dx-codeblock>
+::: java java
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -196,19 +202,24 @@ defaultConfig {
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-feature android:name="android.hardware.camera"/>
 <uses-feature android:name="android.hardware.camera.autofocus" />
-```
+:::
+</dx-codeblock>
 
 在 proguard-rules.pro 文件，将 SDK 相关类加入不混淆名单：
-```
+<dx-codeblock>
+::: java java
 -keep class com.tencent.** { *; }
-```
+:::
+</dx-codeblock>
 
 [](id:model.step3)
 ### 步骤3：导入 TRTCLiveRoom 组件
 拷贝以下目录中的所有文件到您的项目中：
-```
+<dx-codeblock>
+::: java java
 src/main/java/com/tencent/liteav/liveroom/model
-```
+:::
+</dx-codeblock>
 
 [](id:model.step4)
 ### 步骤4：创建并登录组件
@@ -236,7 +247,7 @@ src/main/java/com/tencent/liteav/liveroom/model
 </tr>
 <tr>
 <td>config</td>
-<td>全局配置信息，请在登录时初始化，登录之后不可变更。<ul style="margin:0;">
+<td>全局配置信息，请在登录时初始化，登录之后不可变更。<ul style="margin:0;">
 <li>useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。</li>
 <li>CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会生效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】页面中进行设置。</li>
 </ul></td>
@@ -497,4 +508,3 @@ mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
 });
 :::
 </dx-codeblock>
-
