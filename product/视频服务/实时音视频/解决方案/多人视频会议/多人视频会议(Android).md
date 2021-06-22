@@ -44,7 +44,6 @@
 
 
 >!
->
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
@@ -74,16 +73,17 @@
 
 ### 用户 A
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/1e290a5b692e9a05a12689b6c94157a6.png" width="320"/>
 2. 输入会议号，单击【进入会议】，如下图示：
-<img src="https://main.qcloudimg.com/raw/c4c428815eba76fbac38eb7d0eb669e3.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/ae1d1739a1c159f7b3a8234f9e980923.png" width="320"/>
 3. 输入房间主题，单击【开始交谈】。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/e39abca80039bd3b80e0f2d1a01d3e70.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/443a10f513be70c5992561d9028b7567.png" width="320"/>
 2. 输入用户 A 创建的会议号，单击【进入会议】。<br>
-<img src="https://main.qcloudimg.com/raw/c4c428815eba76fbac38eb7d0eb669e3.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/6eb4a91573c8ebf8f4c3c956e05ff6e0.png" width="320"/>
+
 
 [](id:model)
 ## 实现自定义 UI 界面
