@@ -1,5 +1,5 @@
 
-本文档主要提供 GooseFS 快速部署、调试的相关指引，提供在本地机器上部署 GooseFS ，并将对象存储 COS 作为远端存储的步骤指引，具体步骤请见下。
+本文档主要提供 GooseFS 快速部署、调试的相关指引，提供在本地机器上部署 GooseFS ，并将对象存储 COS 作为远端存储的步骤指引，具体步骤如下：
 
 
 ## 前提条件
@@ -34,42 +34,38 @@ $ echo"goosefs.master.hostname=localhost">> conf/goosefs-site.properties
 ```plaintext
 $ goosefs validateEnv local
 ```
- >?使用该命令可以查看 GooseFS 的运行情况。
+ >? 使用该命令可以查看 GooseFS 的运行情况。
+ >
 2. 启用 GooseFS 之前对 GooseFS 进行格式化，该命令将清除 GooseFS 的日志和 `worker`存储目录下的内容：
 ```plaintext
 $ goosefs format
 ```
-3. 使用如下指令可以启用 GooseFS，在系统默认配置下，GooseFS 会启动一个  Master  和一个  Worker ：
+3. 使用如下指令可以启用 GooseFS，在系统默认配置下，GooseFS 会启动一个  Master 和一个 Worker：
 ```plaintext
 $ ./bin/goosefs-start.sh local SudoMount
 ```
 该命令执行完毕后，可以访问 http://localhost:9201 和 http://localhost:9204 ，分别查看  Master 和 Worker 的运行状态。
 
 ## 使用 GooseFS 挂载对象存储 COS
-1. 创建一个命名空间 Namespace 并挂载对象存储 COS ：
-
+1. 创建一个命名空间 Namespace 并挂载对象存储 COS：
 ```plaintext
 $ goosefs ns create myNamespace cosn://bucketName-125xxxxxx/ 3TB
 --option fs.cosn.userinfo.secretId=AKIDxxxxxxxxxxxxxx \
 --option fs.cosn.userinfo.secretKey=xxxxxxxxxxxxxxxxx \
 --option fs.cosn.bucket.region=ap-guangzhou \
 ```
-
->!在创建 Namespace 的时候必须指定 –-option 参数，并且指定 Hadoop-COS（COSN）所有必选参数，具体的必选参数可参考 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884)。创建 Namespace 的时候，如果没有指定读写策略（rPolicy/wPolicy），默认会使用配置文件中指定的 read/write type，或使用默认值（CACHE/CACHE_THROUGH）。
-
+>! 在创建 Namespace 时必须指定 –-option 参数，并且指定 Hadoop-COS（COSN）所有必选参数，具体的必选参数可参考 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884)。创建 Namespace 时，如果没有指定读写策略（rPolicy/wPolicy），默认会使用配置文件中指定的 read/write type，或使用默认值（CACHE/CACHE_THROUGH）。
+>
 2. 挂载成功后，可以通过 ls 指令列出集群中创建的所有 namespace，如下指令所示：
-
 ```plaintext
 $ goosefs ns list
 namespace	      mountPoint	       ufsPath                     	 creationTime                wPolicy      	rPolicy	     TTL	   ttlAction
 myNamespace    /myNamespace   cosn://bucketName-125xxxxxx/3TB  03-11-2021 11:43:06:239      CACHE_THROUGH   CACHE        -1      DELETE
 ```
-
 3. 如果只需要了解指定 namespace 的详细信息，可以通过如下指令实现：
-
 ```plaintext
 $ goosefs ns stat myNamespace
- 
+
 NamespaceStatus{name=myNamespace, path=/myNamespace, ttlTime=-1, ttlAction=DELETE, ufsPath=cosn://bucketName-125xxxxxx/3TB, creationTimeMs=1615434186076, lastModificationTimeMs=1615436308143, lastAccessTimeMs=1615436308143, persistenceState=PERSISTED, mountPoint=true, mountId=4948824396519771065, acl=user::rwx,group::rwx,other::rwx, defaultAcl=, owner=user1, group=user1, mode=511, writePolicy=CACHE_THROUGH, readPolicy=CACHE}
 ```
 
@@ -98,19 +94,17 @@ NamespaceStatus{name=myNamespace, path=/myNamespace, ttlTime=-1, ttlAction=DELET
 
 ## 使用 GooseFS 预热 Table 中的数据
 
-1. GooseFS 支持将 Hive Table 中的数据预热dao  GooseFS中，在预热之前需要先将相关的 DB 关联到 GooseFS 上，相关指令如下：
+1. GooseFS 支持将 Hive Table 中的数据预热到  GooseFS 中，在预热之前需要先将相关的 DB 关联到 GooseFS 上，相关指令如下：
 ```plaintext
 $ goosefs table attachdb --db test_db hive thrift://
 172.16.16.22:7004 test_for_demo
 ```
-
->!指令中的 thrift 需要填写实际的 Hive Metastore 的地址。
-
+>! 指令中的 thrift 需要填写实际的 Hive Metastore 的地址。
+>
 2. 添加完 DB 后，可以通过 ls 指令查看当前关联的 DB 和 Table 的信息：
-
 ```plaintext
 $ goosefs table ls test_db web_page
- 
+
 OWNER: hadoop
 DBNAME.TABLENAME: testdb.web_page (
    wp_web_page_sk bigint,
@@ -140,14 +134,13 @@ PARTITION LIST (
    }
 )
 ```
-
 3. 通过 load 指令预热 Table 中的数据：
 ```plaintext
 $ goosefs table load test_db web_page
 Asynchronous job submitted successfully, jobId: 1615966078836
 ```
 
-预热 Table 中的数据是一个异步任务，因此会返回一个任务 ID。可以通过 goosefs job stat <Job Id> 指令查看预热作业的执行进度。当状态为"COMPLETED"后，则整个预热过程完成。
+预热 Table 中的数据是一个异步任务，因此会返回一个任务 ID。可以通过 goosefs job stat &lt;Job Id> 指令查看预热作业的执行进度。当状态为 "COMPLETED" 后，则整个预热过程完成。
 
 ## 使用 GooseFS 进行文件上传和下载操作
 
@@ -155,7 +148,7 @@ Asynchronous job submitted successfully, jobId: 1615966078836
 ```plaintext
 $ goosefs fs
 ```
-2. 可以通过`ls`指令列出 GooseFS 中的文件，以下示例展示如何列出根目录下的所有文件：
+2. 可以通过 `ls` 指令列出 GooseFS 中的文件，以下示例展示如何列出根目录下的所有文件：
 ```plaintext
 $ goosefs fs ls /
 ```
@@ -166,7 +159,7 @@ Copied LICENSE to /LICENSE
 $ goosefs fs ls /LICENSE
 -rw-r--r--  hadoop         supergroup               20798       NOT_PERSISTED 03-26-2021 16:49:37:215   0% /LICENSE
 ```
-4. 可以通过`cat`命令查看文件内容：
+4. 可以通过 `cat` 命令查看文件内容：
 ```plaintext
 $ goosefs fs cat /LICENSE                                                                         
 Apache License
@@ -175,7 +168,7 @@ http://www.apache.org/licenses/
 TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 ...
 ```
-5. GooseFS 默认使用本地磁盘作为底层文件系统，默认文件系统路径为`./underFSStorage`，可以通过`persist`指令将文件持久化存储到本地文件系统中：
+5. GooseFS 默认使用本地磁盘作为底层文件系统，默认文件系统路径为 `./underFSStorage`，可以通过 `persist` 指令将文件持久化存储到本地文件系统中：
 ```plaintext
 $ goosefs fs persist /LICENSE
 persisted file /LICENSE with size 26847
@@ -183,12 +176,12 @@ persisted file /LICENSE with size 26847
 
 ## 使用 GooseFS 加速文件上传和下载操作
 
-1. 检查文件存储状态，确认文件是否已被缓存。文件状态`PERSISTED`代表文件已在内存中，文件状态`NOT_PERSISTED`则代表文件不在内存中：
+1. 检查文件存储状态，确认文件是否已被缓存。文件状态 `PERSISTED` 代表文件已在内存中，文件状态 `NOT_PERSISTED` 则代表文件不在内存中：
 ```plaintext
 $ goosefs fs ls /data/cos/sample_tweets_150m.csv
 -r-x------ staff  staff 157046046 NOT_PERSISTED 01-09-2018 16:35:01:002   0% /data/cos/sample_tweets_150m.csv
 ```
-2. 统计文件中有多少单词“tencent”，并计算操作耗时：
+2. 统计文件中有多少单词 “tencent”，并计算操作耗时：
 ```plaintext
 $ time goosefs fs cat /data/s3/sample_tweets_150m.csv | grep-c kitten
 889
