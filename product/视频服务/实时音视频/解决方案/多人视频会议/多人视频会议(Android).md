@@ -305,7 +305,10 @@ trtcMeeting.setDelegate(new TRTCMeetingDelegate() {
         android:name="com.tencent.rtmp.video.TXScreenCapture$TXScreenCaptureAssistantActivity"
         android:theme="@android:style/Theme.Translucent" />
 </application>
-
+:::
+</dx-codeblock>
+<dx-codeblock>
+::: java java
 // 2.在您的界面中申请悬浮窗的权限
 if (Build.VERSION.SDK_INT >= 23) {
     if (!Settings.canDrawOverlays(getApplicationContext())) {
