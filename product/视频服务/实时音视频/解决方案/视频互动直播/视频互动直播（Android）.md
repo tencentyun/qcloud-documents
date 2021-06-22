@@ -68,16 +68,16 @@
 
 ### 用户 A
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/5c5ec933aa1c4a9ebe614209ba8d3a04.png" width="320"/>
 2. 进入后，单击【创建房间】，如下图示：
-<img src="https://main.qcloudimg.com/raw/0f86a3a46403bd1b106d96691fce92c9.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/358ea089e886664aa4bf343b5224c9c0.png" width="320"/>
 3. 输入房间名称，单击【开始直播】。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**），如下图示：
-<img src="https://main.qcloudimg.com/raw/e39abca80039bd3b80e0f2d1a01d3e70.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/e84a1746743b31c9c445fe4e590aeb9f.png" width="320"/>
 2. 输入用户 A 创建的房间号，单击进入房间，如下图示：
-<img src="https://main.qcloudimg.com/raw/7439f305fd52a5f314b5140caa1babc4.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/f82e3bfd861d14a90d0998a83313a3cb.png" width="320"/>
 
 	>! 房间号在用户 A 的房间顶部查看，如下图示：
 <img src="https://main.qcloudimg.com/raw/da47658a199fc295ccf7447a91b117b7.png" width="320"/>
