@@ -25,13 +25,14 @@ https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket?app_id=xxx&acc
 
 ```
 {
-"code":"0",
-"msg":" 请 求 成 功 ",
-"transactionTime":"20151022044027",
-"tickets":[
-{"value":"ticket_string",
-"expire_in":"120"， 
-"expire_time":"20151022044027"}
+  "code":"0",
+  "msg":" 请求成功 ",
+  "transactionTime":"20151022044027",
+  "tickets":[
+{
+  "value":"ticket_string",
+  "expire_in":"120"， 
+  "expire_time":"20151022044027"}
 ]
 ｝
 ```
