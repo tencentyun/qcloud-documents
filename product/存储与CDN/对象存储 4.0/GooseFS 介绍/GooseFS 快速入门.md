@@ -12,10 +12,10 @@
 
 ## 下载并配置 GooseFS
 
-1. 从官方 Github 下载 GooseFS 安装包到本地。
+1. 从官方仓库下载 GooseFS 安装包到本地。
 2. 按照如下命令对安装包进行解压。
 ```plaintext
-tar-xzf goosefs-1.0.0-bin.tar.gz
+tar -zxvf goosefs-1.0.0-bin.tar.gz
 cd goosefs-1.0.0
 ```
 3. 解压后，GooseFS 安装包的源文件和 Java 二进制文件均会存储在 goosefs-1.0.0 的文件夹下，本指南中通过`${GOOSEFS_HOME}`引用。
@@ -61,7 +61,8 @@ $ goosefs ns create myNamespace cosn://bucketName-125xxxxxx/ 3TB
 
 ```plaintext
 $ goosefs ns list
-myNamespace    /myNamespace   cosn://bucketName-125xxxxxx/3TB  CACHE_THROUGH      CACHE        -1      DELETE
+namespace	      mountPoint	       ufsPath                     	 creationTime                wPolicy      	rPolicy	     TTL	   ttlAction
+myNamespace    /myNamespace   cosn://bucketName-125xxxxxx/3TB  03-11-2021 11:43:06:239      CACHE_THROUGH   CACHE        -1      DELETE
 ```
 
 3. 如果只需要了解指定 namespace 的详细信息，可以通过如下指令实现：
@@ -74,25 +75,25 @@ NamespaceStatus{name=myNamespace, path=/myNamespace, ttlTime=-1, ttlAction=DELET
 
 元数据中记录的信息包括如下内容：
 
-| 序号 | 参数                   |
-| ---- | ---------------------- |
-| 1    | name                   |
-| 2    | path                   |
-| 3    | ttlTime                |
-| 4    | ttlAction              |
-| 5    | ufsPath                |
-| 6    | creationTimeMs         |
-| 7    | lastModificationTimeMs |
-| 8    | persistenceState       |
-| 9    | mountPoint             |
-| 10   | mountId                |
-| 11   | acl                    |
-| 12   | defaultAcl             |
-| 13   | owner                  |
-| 14   | group                  |
-| 15   | mode                   |
-| 16   | writePolicy            |
-| 17   | readPolicy             |
+| 序号 | 参数                   | 描述 |
+| ---- | ---------------------- | ----- |
+| 1    | name                   | namespace 的名字 |
+| 2    | path                   | namespace 在 GooseFS 中的路径 |
+| 3    | ttlTime                | namespace 下目录和文件的 ttl 周期 |
+| 4    | ttlAction              | namespace 下目录和文件的 ttl 处理动作，有两种处理动作：FREE 和 DELETE，默认是 FREE |
+| 5    | ufsPath                | namespace 在 ufs 上的挂载路径 |
+| 6    | creationTimeMs         | namespace 的创建时间，单位是毫秒 |
+| 7    | lastModificationTimeMs | namespace 下目录和文件的最后修改时间，单位是毫秒 |
+| 8    | persistenceState       | namespace 的持久化状态 |
+| 9    | mountPoint             | namespace 是否是一个挂载点，始终为true |
+| 10   | mountId                | namespace 挂载点id |
+| 11   | acl                    | namespace 的访问控制列表 |
+| 12   | defaultAcl             | namespace 的默认访问控制列表 |
+| 13   | owner                  | namespace 的 owner |
+| 14   | group                  | namespace 的 owner 所属的group |
+| 15   | mode                   | namespace 的 POSIX 权限 |
+| 16   | writePolicy            | namespace 的 写策略 |
+| 17   | readPolicy             | namespace 的 读策略 |
 
 
 ## 使用 GooseFS 预热 Table 中的数据
