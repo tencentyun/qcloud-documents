@@ -2,7 +2,7 @@
 
 ##  so 库调用方法
 
-### 步骤1：用户回调
+### 用户回调
 
 #### 媒体流数据接收回调
 
@@ -124,7 +124,7 @@ typedef const char* (*msg_handle_t)(const char *id, XP2PType type, const char* m
 </tr>
 </tbody></table>
 
-### [步骤2：设置用户回调](id:test211)
+### [设置用户回调](id:test211)
 
 - 接口描述
   设置用户回调函数。媒体流数据和控制类消息通过设置的回调函数返回。
@@ -222,7 +222,7 @@ setUserCallbackToXp2p(_av_data_recv, _msg_notify);
 </dx-codeblock>
 
 
-### 步骤3：P2P 通道初始化
+### P2P 通道初始化
 
 - 接口描述
   初始化 XP2P 服务。
@@ -296,7 +296,7 @@ startServiceWithXp2pInfo($id, $product_id, $device_name, xp2p_info);
 </dx-codeblock>
 
 
-### 步骤4：P2P 通道传输音视频裸流
+### P2P 通道传输音视频裸流
 
 #### 启动裸流接收服务
 
@@ -423,7 +423,7 @@ stopAvRecvService($id, req);
 </dx-codeblock>
 
 
-### 步骤5：接收 FLV 音视频流并使用 ijkplayer 播放
+### 接收 FLV 音视频流并使用 ijkplayer 播放
 
 - 接口描述
  获取本地代理 url。用于播放器直接通过 url 获取数据进行播放。
@@ -476,7 +476,7 @@ setUrl2Player(url);
 </dx-codeblock>
 
 
-### 步骤6：发送语音对讲数据
+### 发送语音对讲数据
 
 #### 启动语音发送服务
 - 接口描述
@@ -648,7 +648,7 @@ stopSendService(id, req);
 </dx-codeblock>
 
 
-### 步骤7：P2P 通道传输自定义数据
+### P2P 通道传输自定义数据
 
 #### 同步方式发送自定义数据
 
@@ -812,7 +812,7 @@ char* _msg_notify(const char *id, XP2PType type, const char* msg) {
 </dx-codeblock>
 
 
-### 步骤8：主动关闭 P2P 通道
+### 主动关闭 P2P 通道
 
 - 接口描述
   停止 XP2P 服务。
@@ -857,7 +857,7 @@ void stopService(const char *id);
 </dx-codeblock>
 
 
-### 步骤9：控制类消息回调
+### 控制类消息回调
 
 #### P2P 通道关闭回调
 
@@ -1021,7 +1021,7 @@ START:
 
 接口详细说明请参见 [VideoSDK 接口说明](https://github.com/tencentyun/iot-link-android/blob/master/sdk/video-link-android/doc/VideoSDK接口说明.md)
 
-###  步骤1：用户回调
+###  用户回调
 
 #### 媒体流数据接收回调
 
@@ -1251,7 +1251,7 @@ fun avDataCloseHandle(id: String?, msg: String?, errorCode: Int)
 </tr>
 </tbody></table>
 
-### 步骤2：设置用户回调
+### 设置用户回调
 
 - 接口描述
   设置用户回调函数。媒体流数据和控制类消息通过设置的回调函数返回。	
@@ -1302,7 +1302,7 @@ class VideoActivity : XP2PCallback {
 </dx-codeblock>
 
 
-### 步骤3：P2P 通道初始化
+### P2P 通道初始化
 
 - 接口描述
   初始化 XP2P 服务。
@@ -1372,7 +1372,7 @@ XP2P.startServiceWithXp2pInfo($id, $product_id, $device_name, xp2p_info)
 </dx-codeblock>
 
 
-### 步骤4：P2P 通道传输音视频裸流
+### P2P 通道传输音视频裸流
 
 ####  启动裸流接收服务
 
@@ -1495,7 +1495,7 @@ XP2P.stopAvRecvService($id, null)
 </dx-codeblock>
 
 
-###  步骤5：接收 FLV 音视频流并使用 ijkplayer 播放
+###  接收 FLV 音视频流并使用 ijkplayer 播放
 
 - 接口描述
   获取本地代理 url。用于播放器直接通过 url 获取数据进行播放。
@@ -1552,7 +1552,7 @@ mPlayer.start()
 :::
 </dx-codeblock>
 
-###  步骤6：发送语音对讲数据
+###  发送语音对讲数据
 
 #### 启动语音发送服务
 
@@ -1723,7 +1723,7 @@ XP2P.stopSendService($id, null)
 </dx-codeblock>
 
 
-### 步骤7：P2P 通道传输自定义数据
+### P2P 通道传输自定义数据
 
 #### 同步方式发送自定义数据
 
@@ -1866,7 +1866,7 @@ override fun commandRequest(id: String?, msg: String?, len: Int)
 </dx-codeblock>
 
 
-### 步骤8：主动关闭 P2P 通道
+### 主动关闭 P2P 通道
 
 - 接口描述
   停止 XP2P 服务。	
