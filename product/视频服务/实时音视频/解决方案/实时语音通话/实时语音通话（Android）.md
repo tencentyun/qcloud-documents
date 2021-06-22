@@ -70,15 +70,15 @@
 ### 用户 A
 
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png" width="320"/>
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/user_a.png" width="320"/>
 2. 输入要拨打的用户名，单击【搜索】，如下图示：
-<img src="https://main.qcloudimg.com/raw/c041695fd0fe8cd36833b982d0bf7740.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/04cd9cbf36adc8d2edc416b29b0570e0.png" width="320"/>
 3. 单击【呼叫】，选择拨打【语音通话】（**请确保被叫方保持在应用内，否则可能会拨打失败**）。<br>
-<img src="https://main.qcloudimg.com/raw/450e50dd4bb58e2950d6574ab88715e2.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/2c45bffba7889397d92252be25f18485.png" width="320"/>
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/e39abca80039bd3b80e0f2d1a01d3e70.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/1580c7bb863c1276fb2551f4558f6b24.png" width="320"/>
 2. 进入主页，等待接听来电。
 
 
