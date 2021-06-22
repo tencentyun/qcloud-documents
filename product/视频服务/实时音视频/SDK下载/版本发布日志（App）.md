@@ -1,17 +1,17 @@
 ## Version 8.8 @ 2021.06.21
 
-功能新增
-1. Android & Mac & iOS：支持外部接管音频播放，请参考 API: enableCustomAudioRendering。
+**功能新增**
+Android&Mac&iOS：支持外部接管音频播放，请参见 API enableCustomAudioRendering。
 
-质量优化
-1. 全平台：优化 mixExternalAudioFrame 易用性，不再需要您完美地控制调用时机。
-1. Mac：降低屏幕分享开启鼠标捕捉时 CPU 的开销。
-1. Windows：优化 AGC 声音增益效果，更快更及时地进行调整。
-1. Windows：优化启用窗口过滤时屏幕分享的性能开销。
+**质量优化**
+- 全平台：优化 mixExternalAudioFrame 易用性，不再需要您完美地控制调用时机。
+- Mac：降低屏幕分享开启鼠标捕捉时 CPU 的开销。
+- Windows：优化 AGC 声音增益效果，更快更及时地进行调整。
+- Windows：优化启用窗口过滤时屏幕分享的性能开销。
 
-问题修复
-1. iOS：修复播放 aac 格式本地音频文件总时长不准的问题。
-1. Android：修复部分机型切换后台时播放声音卡顿的问题。
+**问题修复**
+- iOS：修复播放 AAC 格式本地音频文件总时长不准的问题。
+- Android：修复部分机型切换后台时播放声音卡顿的问题。
 
 ## Version 8.7 @ 2021.5.25
 **功能新增**
