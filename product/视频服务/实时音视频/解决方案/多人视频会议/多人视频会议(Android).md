@@ -44,6 +44,7 @@
 
 
 >!
+>
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
@@ -73,17 +74,16 @@
 
 ### 用户 A
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/1e290a5b692e9a05a12689b6c94157a6.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/a0c73f6904ac152a84cdf4d619171fc4.png" width="320"/>
 2. 输入会议号，单击【进入会议】，如下图示：
-<img src="https://main.qcloudimg.com/raw/ae1d1739a1c159f7b3a8234f9e980923.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/f8edfe6e6427323ffd702b6ef7c7cb0a.png" width="320"/>
 3. 输入房间主题，单击【开始交谈】。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/443a10f513be70c5992561d9028b7567.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/94fcd741becbcfe4cca97778e180e4ca.png" width="320"/>
 2. 输入用户 A 创建的会议号，单击【进入会议】。<br>
-<img src="https://main.qcloudimg.com/raw/6eb4a91573c8ebf8f4c3c956e05ff6e0.png" width="320"/>
-
+<img src="https://main.qcloudimg.com/raw/f8edfe6e6427323ffd702b6ef7c7cb0a.png" width="320"/>
 
 [](id:model)
 ## 实现自定义 UI 界面
@@ -97,21 +97,25 @@
 
 **方法一：通过 Maven 仓库依赖**
 1. 在 dependencies 中添加 TRTCSDK 和 IMSDK 的依赖。
-```
+<dx-codeblock>
+::: java java
 dependencies {
        compile "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
        compile 'com.tencent.imsdk:imsdk:latest.release'
 }
-```
+:::
+</dx-codeblock>
 >?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
-```
+<dx-codeblock>
+::: java java
 defaultConfig {
       ndk {
           abiFilters "armeabi-v7a"
       }
 }
-```
+:::
+</dx-codeblock>
 3. 单击【Sync Now】，自动下载 SDK 并集成到工程里。
 
 **方法二：通过本地 AAR 依赖**
@@ -137,7 +141,8 @@ defaultConfig {
 [](id:model.step2)
 ### 步骤2：配置权限及混淆规则
 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请相机、读取存储权限）：
-```
+<dx-codeblock>
+::: java java
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -150,19 +155,24 @@ defaultConfig {
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-feature android:name="android.hardware.camera"/>
 <uses-feature android:name="android.hardware.camera.autofocus" />
-```
+:::
+</dx-codeblock>
 
 在 proguard-rules.pro 文件，将 SDK 相关类加入不混淆名单：
-```
+<dx-codeblock>
+::: java java
 -keep class com.tencent.** { *; }
-```
+:::
+</dx-codeblock>
 
 [](id:model.step3)
 ### 步骤3：导入 TRTCMeeting 组件
 拷贝以下目录中的所有文件到您的项目中：
-```
+<dx-codeblock>
+::: java java
 src/main/java/com/tencent/liteav/meeting/model
-```
+:::
+</dx-codeblock>
 
 [](id:model.step4)
 ### 步骤4：创建并登录组件
@@ -286,7 +296,8 @@ trtcMeeting.setDelegate(new TRTCMeetingDelegate() {
 2. 调用 startScreenCapture，传入编码参数和录屏过程中的悬浮窗即可实现屏幕分享功能，具体信息请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58)。
 3. 会议中其他成员会收到 onUserVideoAvailable 的事件通知。
 >! 屏幕分享和摄像头采集是两个互斥的操作，如果需要打开屏幕分享功能，请先调用 stopCameraPreview 关闭摄像头采集。
-```
+<dx-codeblock>
+::: java java
 // 1.在 AndroidManifest.xml 文件中添加 SDK 录屏功能的 activity 和权限
 <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 <application>
@@ -333,7 +344,8 @@ private void startScreenCapture() {
         mTRTCMeeting.stopCameraPreview();
         mTRTCMeeting.startScreenCapture(encParams, params);
 }
-```
+:::
+</dx-codeblock>
 
 [](id:model.step8)
 ### 步骤8：实现文字聊天和禁言消息
