@@ -71,15 +71,15 @@
 
 ### 用户 A
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png" width="320"/>
-2. 输入要拨打的用户名，单击搜索，如下图示：
-<img src="https://main.qcloudimg.com/raw/c041695fd0fe8cd36833b982d0bf7740.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/a0c73f6904ac152a84cdf4d619171fc4.png" width="320"/>
+2. 输入要拨打的 userId，单击搜索，如下图示：
+<img src="https://main.qcloudimg.com/raw/61edd11a23197ebce26e91863f9fef63.png" width="320"/>
 3. 单击【呼叫】，选择拨打【视频通话】（**请确保被叫方保持在应用内，否则可能会拨打失败**）。<br>
 <img src="https://main.qcloudimg.com/raw/450e50dd4bb58e2950d6574ab88715e2.png" width="320"/>
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/e39abca80039bd3b80e0f2d1a01d3e70.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/94fcd741becbcfe4cca97778e180e4ca.png" width="320"/>
 2. 进入主页，等待接听来电。
 
 
@@ -103,11 +103,11 @@
 <dx-codeblock>
 ::: java java
 dependencies {
-    complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
-    complie 'com.tencent.imsdk:imsdk:latest.release'
+    compile "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
+    compile 'com.tencent.imsdk:imsdk:latest.release'
 
     // 由于我们使用到了 gson 解析，所以还需要依赖 google 的 Gson
-    complie 'com.google.code.gson:gson:latest.release'
+    compile 'com.google.code.gson:gson:latest.release'
 }
 :::
 </dx-codeblock>
@@ -210,11 +210,11 @@ sCall.login(1400000123, "userA", "xxxx", new ActionCallback());
 
 <dx-codeblock>
 ::: java java
-//1. 初始化组件
+// 1. 初始化组件
 TRTCCalling sCall = TRTCCallingImpl.sharedInstance(context);
-//2. 注册监听器
+// 2. 注册监听器
 sCall.addDelegate(new TRTCCallingDelegate() {
-    //...省略一些监听代码
+    // ...省略一些监听代码
     public void onInvited(String sponsor, final List<String> userIdList, boolean isFromGroup, int callType) {
         // 收到来自 sponsor 发过来的通话请求，此处代码选择接听，您也可以调用 reject() 拒绝之。
         sCall.accept();
@@ -236,10 +236,10 @@ sCall.addDelegate(new TRTCCallingDelegate() {
     }
 });
 
-//3. 完成组件的登录，登录成功后才可以调用组件的其他功能函数
+// 3. 完成组件的登录，登录成功后才可以调用组件的其他功能函数
 sCall.login(sdkappid, "aaa", usersig, new ActionCallback() {
     public void onSuccess() {
-        //4. 此处为实例代码：我们在组件登录成功后即打开摄像头并呼叫用户“aaa”
+        // 4. 此处为实例代码：我们在组件登录成功后即打开摄像头并呼叫用户“aaa”
         TXCloudVideoView localView = new TXCloudVideoView(mContext);
         mParentView.add(localView);
         sCall.openCamera(true, localView);
@@ -271,7 +271,7 @@ callList.add("ccc");
 callList.add("ddd");
 // 如果您不是在一个 IM 群里发起的, groupId 可以传一个空串；
 sCall.groupCall(callList, TRTCCalling.TYPE_VIDEO_CALL, "");
-//打开自己的摄像头
+// 打开自己的摄像头
 TXCloudVideoView localView = new TXCloudVideoView(mContext);
 mParentView.add(localView);
 sCall.openCamera(true, txCloudVideoView);

@@ -2,7 +2,7 @@
 ### 什么是 UserSig？
 
 UserSig 是腾讯云设计的一种安全保护签名，目的是为了阻止恶意攻击者盗用您的云服务使用权。
-目前，腾讯云的实时音视频（TRTC）、即时通信（IM）以及移动直播（MLVB）等服务都采用了该套安全保护机制。要使用这些服务，您都需要在相应 SDK 的初始化或登录函数中提供 SDKAppID，UserID 和 UserSig 三个关键信息。
+目前，腾讯云的实时音视频（TRTC）、即时通信（IM）以及移动直播（MLVB）等服务都采用了该套安全保护机制。要使用这些服务，您需要在相应 SDK 的初始化或登录函数中提供 SDKAppID，UserID 和 UserSig 三个关键信息。
 其中 SDKAppID 用于标识您的应用，UserID 用于标识您的用户，而 UserSig 则是基于前两者计算出的安全签名，它由 **HMAC SHA256** 加密算法计算得出。只要攻击者不能伪造 UserSig，就无法盗用您的云服务流量。
 UserSig 的计算原理如下图所示，其本质就是对 SDKAppID、UserID、ExpireTime 等关键信息进行了一次哈希加密：
 ```Cpp
@@ -11,7 +11,7 @@ UserSig 的计算原理如下图所示，其本质就是对 SDKAppID、UserID、
 usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire + 
                                  base64(userid + sdkappid + currtime + expire)))
 ```
-其中，`curtime` 为当前系统的时间，`expire` 为签名过期的时间。
+其中，`currtime` 为当前系统的时间，`expire` 为签名过期的时间。
 
 [](id:Key)
 
@@ -44,9 +44,9 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 |   适用平台   |                                                                       文件源码链接                                                                       |                                         文件相对路径                                         |
 | :----------: | :------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: |
-| iOS | [Github](https://github.com/tencentyun/TUICalling/blob/master/iOS/Debug/GenerateTestUserSig.h) | iOS/TUICalling/TXLiteAVDemo/Debug/GenerateTestUserSig.h |
+| iOS | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTC-API-Example-OC/Debug/GenerateTestUserSig.h) | iOS/TRTC-API-Example-OC/Debug/GenerateTestUserSig.h |
 | Mac | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/Mac/OCDemo/TRTCDemo/TRTC/GenerateTestUserSig.h) | Mac/OCDemo/TRTCDemo/TRTC/GenerateTestUserSig.h |
-| Android | [Github](https://github.com/tencentyun/TUICalling/blob/master/Android/Debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java) | Android/TUICalling/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java |
+| Android | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTC-API-Example/Debug/src/main/java/com/tencent/trtc/debug/GenerateTestUserSig.java) | Android/TRTC-API-Example/Debug/src/main/java/com/tencent/trtc/debug/GenerateTestUserSig.java |
 | Windows(C++) | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/DuilibDemo/GenerateTestUserSig.h) |                           Windows/DuilibDemo/GenerateTestUserSig.h |
 | Windows(C#)  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/CSharpDemo/GenerateTestUserSig.cs) |                          Windows/CSharpDemo/GenerateTestUserSig.cs |
 |  桌面浏览器  | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/Web/TRTCSimpleDemo/js/debug/GenerateTestUserSig.js) | Web/TRTCSimpleDemo/js/debug/GenerateTestUserSig.js |

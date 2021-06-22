@@ -70,15 +70,15 @@
 ### 用户 A
 
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/a0c73f6904ac152a84cdf4d619171fc4.png" width="320"/>
 2. 输入要拨打的用户名，单击【搜索】，如下图示：
-<img src="https://main.qcloudimg.com/raw/c041695fd0fe8cd36833b982d0bf7740.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/61edd11a23197ebce26e91863f9fef63.png" width="320"/>
 3. 单击【呼叫】，选择拨打【语音通话】（**请确保被叫方保持在应用内，否则可能会拨打失败**）。<br>
 <img src="https://main.qcloudimg.com/raw/450e50dd4bb58e2950d6574ab88715e2.png" width="320"/>
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/e39abca80039bd3b80e0f2d1a01d3e70.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/94fcd741becbcfe4cca97778e180e4ca.png" width="320"/>
 2. 进入主页，等待接听来电。
 
 
@@ -100,23 +100,25 @@
 <dx-codeblock>
 ::: android 
 dependencies {
-	complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
-    complie 'com.tencent.imsdk:imsdk:latest.release'
+	compile "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
+	compile 'com.tencent.imsdk:imsdk:latest.release'
 
 	// 由于我们使用到了 gson 解析，所以还需要依赖 google 的 Gson
-    complie 'com.google.code.gson:gson:latest.release'
+	compile 'com.google.code.gson:gson:latest.release'
 }
 :::
 </dx-codeblock>
 >?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
-```
+<dx-codeblock>
+::: android 
 defaultConfig {
     ndk {
         abiFilters "armeabi-v7a"
     }
 }
-```
+:::
+</dx-codeblock>
 3. 单击【Sync Now】同步 SDK。
 >?若您的网络连接 jcenter 没有问题，SDK 会自动下载集成到工程里。
 
@@ -135,7 +137,8 @@ defaultConfig {
 
 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请相机、读取存储权限）：
 
-```
+<dx-codeblock>
+::: android 
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -148,22 +151,27 @@ defaultConfig {
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-feature android:name="android.hardware.camera"/>
 <uses-feature android:name="android.hardware.camera.autofocus" />
-```
+:::
+</dx-codeblock>
 
 在 proguard-rules.pro 文件，将 SDK 相关类加入不混淆名单：
 
-```
+<dx-codeblock>
+::: android 
 -keep class com.tencent.** { *; }
-```
+:::
+</dx-codeblock>
 
 [](id:model.step3)
 ### 步骤3：导入 TRTCCalling 组件
 
 拷贝以下目录中的所有文件到您的项目中：
 
-```
+<dx-codeblock>
+::: android 
 Source/src/main/java/com/tencent/liteav/trtccalling/model 
-```
+:::
+</dx-codeblock>
 
 [](id:model.step4)
 ### 步骤4：初始化并登录组件
@@ -226,7 +234,7 @@ sCall.login(sdkappid, "aaa", usersig, new ActionCallback() {
 [](id:model.step6)
 ### 步骤6：实现多人语音通话
 
-1. 发起方：多人视频通话需要调用 TRTCCalling 中的 `groupCall()` 函数，并传入用户列表（userIdList）、通话类型（type）、 IM 群组 ID（groupId），其中 userIdList 为必填参数，通话类型为必填参数传入`TYPE_AUDIO_CALL`， groupId 为选填参数。
+1. 发起方：多人语音通话需要调用 TRTCCalling 中的 `groupCall()` 函数，并传入用户列表（userIdList）、通话类型（type）、 IM 群组 ID（groupId），其中 userIdList 为必填参数，通话类型为必填参数传入`TYPE_AUDIO_CALL`， groupId 为选填参数。
 2. 接收端：通过 `onInvited()` 事件通知能够接收到此次请求。
 3. 接收端：收到事件通知后可以调用 `accept()` 方法接听此次通话，也可以选择用 `reject()` 方法拒绝通话。
 4. 如果超过一定时间（默认30s）没有回复，接收方会收到 `onCallingTimeOut()` 的事件通知，发起方会收到 `onNoResp(String userId)` 事件通知。通话发起方在多个接收均未应答时 `hangup()` ， 每个接收方均会收到 `onCallingCancel()` 事件通知。
