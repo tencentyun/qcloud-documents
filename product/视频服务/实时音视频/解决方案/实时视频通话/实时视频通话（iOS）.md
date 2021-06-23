@@ -116,7 +116,7 @@
 <tr>
 <td>TRTC SDK</td>
 <td><a href="https://cloud.tencent.com/document/product/647/32689">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/647/32175">集成文档</a></td>
+<td><a href="https://cloud.tencent.com/document/product/647/32173">集成文档</a></td>
 </tr>
 <tr>
 <td>IM SDK</td>
