@@ -147,7 +147,7 @@ Container 类型 Operation 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点            | 描述                                          | 类型      | 是否必选 |
 | ------------------ | ----------------- | --------------------------------------------- | --------- | -------- |
-| DocProcess         | Request.Operation | 当 Tag 为 DocProcess 时有效，指定该任务的参数 | Container | 否       |
+| DocProcess         | Request.Operation | 当 Tag 为 DocProcess 时有效，指定该任务的参数 | Container | 是       |
 | Output             | Request.Operation | 结果输出地址                                  | Container | 是       |
 
 
