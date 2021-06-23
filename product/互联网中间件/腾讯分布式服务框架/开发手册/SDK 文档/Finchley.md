@@ -8,7 +8,7 @@
 - 支持服务监听触发回调
 
 ### 优化
-- consul 异常时，sleep，避免一直刷日志
+- consul 异常时，避免一直刷日志
 - 增加 tsf launcher 
   
 ### Bug 修复
@@ -93,9 +93,13 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
 
 支持向后兼容，建议全量升级。
 
-## 1.23.9-Finchley-RELEASE（2021-06-21）
+## 1.23.9-Finchley-RELEASE（2021-06-23）
+### Bug 修复
+- 修改scg metrics duration异常问题
+
 ### 优化
-服务发现增加零实例保护
+- 服务发现增加零实例保护
+- consul 异常时，避免一直刷日志
 
 ### 版本建议
 支持向后兼容，建议全量升级。
