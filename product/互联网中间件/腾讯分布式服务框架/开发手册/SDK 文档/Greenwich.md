@@ -20,6 +20,7 @@
 - spring-cloud-tsf-sleuth：修复未发布分组时，网关没法作为组件显示成蓝色logo的bug。
 - spring-cloud-tsf-swagger：修复 IgnoreGatewayApi 注解导致的潜在空指针异常。
 - spring-cloud-tsf-consul-discovery：修复被调方实例不存在时不断打印异常日志的问题。
+- 修复 Feign 在指定 URL 的模式下无法请求的问题
 
 ### 版本建议
 支持向后兼容，建议全量升级。
