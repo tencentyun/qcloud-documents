@@ -37,7 +37,7 @@
 <tbody><tr>
 <td align="left">香港
 </td>
-<td align="left">588</td>
+<td align="left">580</td>
 </tr>
 </tbody></table>
 
