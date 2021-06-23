@@ -118,7 +118,7 @@ Files 数组中每一项为 JSON Object，如下：
 
 1. 登录实时音视频控制台，选择左侧导航栏中的【开发辅助】>【[快速跑通 Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 填写 Demo 名称，单击【创建】完成应用创建。您可以根据自己的客户端选择模板试运行，例如 [跑通Demo(桌面浏览器)](https://cloud.tencent.com/document/product/647/32398)。
-  ![](https://main.qcloudimg.com/raw/f5126148ae72c78d761a0be0c94710d3.jpg)
+    ![](https://main.qcloudimg.com/raw/f5126148ae72c78d761a0be0c94710d3.jpg)
 
 
 
@@ -143,14 +143,14 @@ Files 数组中每一项为 JSON Object，如下：
 ```
 如下图所示：
 ![](https://main.qcloudimg.com/raw/62beb93a0b40b037df60fe4dfa87cc8f.png)
-3. 请求发送后会收到异步函数响应 “Async run task submitted”，此次函数的 RequstId 会通过 HTTP 头部信息中的 x-scf-reqid 返回。如下图所示：
+3. 请求发送后会收到异步函数响应 “Async run task submitted”，此函数的 RequstId 会通过 HTTP 头部信息中的 x-scf-reqid 返回。如下图所示：
     ![](https://main.qcloudimg.com/raw/2659951b64f7bd81fe29bdd700fa6590.png)
 4. 在云函数控制台【[函数服务](https://console.cloud.tencent.com/scf/list)】页面中，单击上述 [创建云函数](#step01) 步骤中创建的云函数名称，进入“函数详情”页面。
 5. 在“函数详情”页面中选择【日志查询】页签，可以查看到打印出的录制日志信息。如下图所示：
-    ![](https://main.qcloudimg.com/raw/5dd0744da897f6fb117c10e8e0ed9b7a.jpeg)
+    ![](https://main.qcloudimg.com/raw/f25bb1797b204302df3d8bb5e69d51c6.png)
 6. 切换至 [实时音视频控制台](https://console.cloud.tencent.com/trtc/monitor)，在“监控仪表盘”页面单击房间 ID，查看所有在房间中的用户，其中一个观众就是我们的录制观众。如下图所示：
 ![](https://main.qcloudimg.com/raw/94a7213d459a2bf23ea4ae82f85cd718.png)
-7. 如需在录制过程中停止录制，可以调用 [移除用户接口](https://cloud.tencent.com/document/api/647/40496) 或者（[移除用户（字符串房间号）接口](https://cloud.tencent.com/document/product/647/50426)）将用户移出房间。
+7. 如需在录制过程中停止录制，可以调用 [移除用户接口](https://cloud.tencent.com/document/api/647/40496) 或者 [移除用户（字符串房间号）接口](https://cloud.tencent.com/document/product/647/50426) 将用户移出房间。
 
 
 

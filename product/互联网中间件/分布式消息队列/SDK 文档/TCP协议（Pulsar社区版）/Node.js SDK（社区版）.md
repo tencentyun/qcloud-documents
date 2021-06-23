@@ -26,7 +26,7 @@ TDMQ 2.7.1及以上版本的集群已支持 Pulsar 社区版 Node.js SDK。本�
    (async () => {
      const client = new Pulsar.Client({
        serviceUrl: 'http://*', //更换为接入地址（控制台集群管理页完整复制）
-       Authentication:    pulsar.NewAuthenticationToken("eyJh**"), //更换为密钥
+       authentication:    Pulsar.NewAuthenticationToken("eyJh**"), //更换为密钥
      });
    
      await client.close();

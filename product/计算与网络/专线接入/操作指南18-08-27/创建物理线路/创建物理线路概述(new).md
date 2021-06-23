@@ -62,8 +62,8 @@
 
 | 场景一 | 操作|
 |---------|---------|
-| IDC 与腾讯云接入点在同一机房 | 在腾讯云控制台申请物理专线，具体操作请参见 [申请物理专线](https://cloud.tencent.com/document/product/216/19244)。同时，您需要联系符合[《专线接入审核标准》](https://cloud.tencent.com/document/product/216/45875)的运营商进行需求沟通。 |
-| IDC 与腾讯云接入点不在同一机房| 在腾讯云控制台申请物理专线，具体操作请参见[ 申请物理专线](https://cloud.tencent.com/document/product/216/19244)。 |
+| IDC 与腾讯云接入点不在同一机房 | 在腾讯云控制台申请物理专线，具体操作请参见 [申请物理专线](https://cloud.tencent.com/document/product/216/19244)。同时，您需要联系符合[《专线接入审核标准》](https://cloud.tencent.com/document/product/216/45875)的运营商进行需求沟通。 |
+| IDC 与腾讯云接入点在同一机房| 在腾讯云控制台申请物理专线，具体操作请参见[ 申请物理专线](https://cloud.tencent.com/document/product/216/19244)。 |
 
 ## 专线建设[](id:Railwayconstruction)
 - 本地 IDC 与腾讯云接入点不同机房

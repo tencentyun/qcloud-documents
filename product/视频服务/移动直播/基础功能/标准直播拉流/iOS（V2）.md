@@ -191,10 +191,10 @@ NSString* url = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 <td>帧率（fps）</td>
 </tr><tr>
 <td>audioBitrate</td>
-<td>视频码率（Kbps）</td>
+<td>音频码率（Kbps）</td>
 </tr><tr>
 <td>videoBitrate</td>
-<td>音频码率（Kbps）</td>
+<td>视频码率（Kbps）</td>
 </tr></table>
 - [onPlayoutVolumeUpdate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#a5439ba0397be3943c6ebfb6083c27664) 播放器音量大小回调。这个回调仅当您调用 [enableVolumeEvaluation](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayer__ios.html#aeed74080dd72e52b15475a54ca5fd86b) 开启播放音量大小提示之后才会工作。回调的时间间隔也会与您在设置 `enableVolumeEvaluation` 的参数 `intervalMs` 保持一致。
 

@@ -143,7 +143,7 @@ public class SendSms
             String sessionContext = "xxx";
             req.setSessionContext(sessionContext);
 
-            /* 短信码号扩展号: 默认未开通，如需开通请联系 [sms helper] */
+            /* 短信号码扩展号: 默认未开通，如需开通请联系 [sms helper] */
             String extendCode = "";
             req.setExtendCode(extendCode);
 

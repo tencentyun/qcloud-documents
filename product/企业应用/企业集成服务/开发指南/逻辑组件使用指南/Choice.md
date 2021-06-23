@@ -43,7 +43,7 @@ Choice 属于流控类组件，输出的 message 是具体执行的子流生成�
 - 当 score 大于等于90时，level 为”A“。
 - 当 score 大于等于80，小于90时，level 为”B“。
 - 当 score 大于等于60，小于80时，level 为”C“。
-- 当 score 为60时，level 为“D”。
+- 当 score 小于60时，level 为“D”。
 
 **操作步骤：**
 1. 添加 Choice 组件。
