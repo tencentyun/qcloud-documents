@@ -1,10 +1,8 @@
 显示一个运行时参数的值。
 
 ## 概要
-
 ```sql
 SHOW configuration_parameter
- 
 SHOW ALL
 ```
 
@@ -21,13 +19,10 @@ ALL
 
 ## 示例
 显示参数 search_path 的当前设置：
-
 ```sql
 SHOW search_path;
 ```
-
 显示所有配置参数的当前的值：
-
 ```sql
 SHOW ALL;
 ```

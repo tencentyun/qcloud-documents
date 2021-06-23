@@ -11,19 +11,19 @@
 4. 在“组件管理”页面，单击【新建】，进入“新建组件”页面。
 5. 勾选【COS（腾讯云对象存储）】并单击完成即可。
 
-### 创建访问密钥<span id="CreatAccessKey"></span>
+### 创建访问密钥[](id:CreatAccessKey)
 >!
 > - 为避免主账号密钥泄露造成您的云上资产损失，建议您参照[ 最佳实践 ](https://cloud.tencent.com/document/product/598/10592)停止使用主账号登录控制台或者使用主账号密钥访问云 API，并使用已授予相关管理权限的子账号/协作者进行相关资源操作。
 > - 本文以已授予访问管理相关权限的子用户创建或查看访问密钥为例，关于如何创建子用户并实现访问管理权限请参考文档[ 自定义创建子用户](https://cloud.tencent.com/document/product/598/13674)。
 > 
-1. 使用子账号用户登录[ 访问管理控制台 ](https://console.cloud.tencent.com/cam/overview)，单击左侧导航栏中的【访问管理】>【API密钥管理】，进入 “API密钥管理”管理界面。
+1. 使用子账号用户登录[ 访问管理控制台 ](https://console.cloud.tencent.com/cam/overview)，单击左侧导航栏中的【访问密钥】>【API密钥管理】，进入 “API密钥管理”管理界面。
 2. 单击【新建密钥】等待新建完成即可。
 >?
 >- 一个子用户最多可以创建两个 API 密钥。
 >- API 密钥是构建腾讯云 API 请求的重要凭证，为了您的财产和服务安全，请妥善保存和定期更换密钥。当您更换密钥后，请及时删除旧密钥。
 
 
-### 创建存储桶<span id="CreatBucket"></span>
+### 创建存储桶[](id:CreatBucket)
 >!根据相关法规和政策要求，使用腾讯云对象存储服务前需要完成[ 实名认证](https://console.cloud.tencent.com/developer/auth)。
 >
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)，单击左侧导航中【存储桶列表】，进入“存储桶列表”页面。
@@ -42,7 +42,7 @@
 3. 确认信息无误后单击【确定】即可。创建完成后，即可在存储桶列表中进行查看。
 
 
-### 获取存储桶子目录<span id="getPath"></span>
+### 获取存储桶子目录[](id:getPath)
 
 1. 在“存储桶列表”页面，选择已创建的存储桶名称，进入该存储桶名称的详情页。
 2. 在存储桶详情页面，选择需要挂载的子文件夹，进入该文件夹详情页。在页面右上角获取子目录路径 `/costest`。如下图所示：
@@ -56,7 +56,7 @@
 
 ### 通过控制台使用对象存储
 
-#### 创建可以访问对象存储的 Secret<span id="StepOne"></span>
+#### 创建可以访问对象存储的 Secret[](id:StepOne)
 
 1. 单击左侧导航栏中的【集群】，进入集群管理界面。
 2. 选择目标集群 ID，进入集群详情页面。
@@ -72,7 +72,7 @@
 5. 单击【创建 Secret】即可。
 
 
-#### 创建支持 COS-CSI 动态配置的 PV <span id="StepTwo"></span>
+#### 创建支持 COS-CSI 动态配置的 PV [](id:StepTwo)
 >!本步骤需使用存储桶，若当前地域无可用存储桶，则请参考 [创建存储桶](#CreatBucket) 进行创建。
 >
 1. 在目标集群详情页面，选择左侧菜单栏中的【存储】>【PersistentVolume】，进入 “PersistentVolume” 页面。
@@ -92,7 +92,7 @@
 3. 单击【创建PersistentVolume】即可。
 
 
-#### 创建 PVC 绑定 PV<span id="StepThree"></span>
+#### 创建 PVC 绑定 PV[](id:StepThree)
 >!请勿绑定状态为 Bound 的 PV。
 >
 1. 在目标集群详情页，选择左侧菜单栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 页面。
@@ -116,14 +116,14 @@
       - **数据卷名称**：自定义，本文以 `cos-vol` 为例。
       - **选择 PVC**：选择已在[ 步骤3 ](#StepThree)中创建的 PVC，本文以选择 `cos-pvc` 为例。
 	- **实例内容器**：单击【添加挂载点】，进行挂载点设置。
-      - **数据卷**：选择为该步骤中所添加的数据卷 “cbs-vol”。
+      - **数据卷**：选择为该步骤中所添加的数据卷 “cos-vol”。
       - **目标路径**：填写目标路径，本文以 `/cache` 为例。
       - **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如，`./data` 或 `data`。
 3. 单击【创建Workload】即可。
 
 ### 通过 YAML 文件使用对象存储
 
-#### 创建可以访问对象存储的 Secret<span id="StepOne"></span>
+#### 创建可以访问对象存储的 Secret[](id:StepOne)
 
 可通过 YAML 创建可以访问对象存储的 Secret，模版如下：
 ```yaml
@@ -131,45 +131,45 @@ apiVersion: v1
 kind: Secret
 type: Opaque
 metadata:
-  name: cos-secret
-  # Replaced by your secret namespace.
-  namespace: kube-system
+   name: cos-secret
+   # Replaced by your secret namespace.
+   namespace: kube-system
 data:
-  # Replaced by your temporary secret file content. You can generate a temporary secret key with these docs:
-  # Note: The value must be encoded by base64.
-  SecretId: VWVEJxRk5Fb0JGbDA4M...(base64 encode)
-  SecretKey: Qa3p4ZTVCMFlQek...(base64 encode)
+   # Replaced by your temporary secret file content. You can generate a temporary secret key with these docs:
+   # Note: The value must be encoded by base64.
+   SecretId: VWVEJxRk5Fb0JGbDA4M...(base64 encode)
+   SecretKey: Qa3p4ZTVCMFlQek...(base64 encode)
 ```
 
-#### 创建支持 COS-CSI 动态配置的 PV<span id="StepTwo"></span>
+#### 创建支持 COS-CSI 动态配置的 PV[](id:StepTwo)
 可通过 YAML 创建 PV 以支持 COS-CSI 动态配置，模版如下：
 ```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: "cos-pv"
+   name: "cos-pv"
 spec:
-  accessModes:
-  - ReadWriteMany
-  capacity:
-    storage: 1Gi
-  csi:
-    driver: com.tencent.cloud.csi.cosfs
-    # Specify a unique volumeHandle like bucket name.(this value must different from other pv's volumeHandle)
-    volumeHandle: xxx
-    volumeAttributes:
-      # Replaced by the url of your region.
-      url: "http://cos.ap-guangzhou.myqcloud.com"
-      # Replaced by the bucket name you want to use.
-      bucket: "testbucket-1010101010"
-      # You can specify sub-directory of bucket in cosfs command in here.
-	  path: /costest
-      # You can specify any other options used by the cosfs command in here.
-      #additional_args: "-oallow_other"
-    nodePublishSecretRef:
-      # Replaced by the name and namespace of your secret.
-      name: cos-secret
-      namespace: kube-system
+   accessModes:
+   - ReadWriteMany
+   capacity:
+     storage: 1Gi
+   csi:
+     driver: com.tencent.cloud.csi.cosfs
+     # Specify a unique volumeHandle like bucket name.(this value must different from other pv's volumeHandle)
+     volumeHandle: xxx
+     volumeAttributes:
+       # Replaced by the url of your region.
+       url: "http://cos.ap-guangzhou.myqcloud.com"
+       # Replaced by the bucket name you want to use.
+       bucket: "testbucket-1010101010"
+       # You can specify sub-directory of bucket in cosfs command in here.
+       path: /costest
+       # You can specify any other options used by the cosfs command in here.
+       #additional_args: "-oallow_other"
+     nodePublishSecretRef:
+       # Replaced by the name and namespace of your secret.
+       name: cos-secret
+       namespace: kube-system
 ```
 
 #### 创建 PVC 绑定 PV
@@ -179,17 +179,17 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-    name: cos-pvc
+   name: cos-pvc
 spec:
-  accessModes:
-  - ReadWriteMany
-  resources:
-    requests:
-      storage: 1Gi
-  # You can specify the pv name manually or just let kubernetes to bind the pv and pvc.
-  # volumeName: cos-pv
-  # Currently cos only supports static provisioning, the StorageClass name should be empty.
-  storageClassName: ""
+   accessModes:
+   - ReadWriteMany
+   resources:
+     requests:
+       storage: 1Gi
+   # You can specify the pv name manually or just let kubernetes to bind the pv and pvc.
+   # volumeName: cos-pv
+   # Currently cos only supports static provisioning, the StorageClass name should be empty.
+   storageClassName: ""
 ```
 
 #### 创建 Pod 使用 PVC
@@ -198,24 +198,24 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-    name: pod-cos
+   name: pod-cos
 spec:
-  containers:
-  - name: pod-cos
-    command: ["tail", "-f", "/etc/hosts"]
-    image: "centos:latest"
-    volumeMounts:
-    - mountPath: /data
-      name: cos
-    resources:
-      requests:
-        memory: "128Mi"
-        cpu: "0.1"
-  volumes:
-  - name: cos
-    persistentVolumeClaim:
-      # Replaced by your pvc name.
-      claimName: cos-pvc
+   containers:
+   - name: pod-cos
+     command: ["tail", "-f", "/etc/hosts"]
+     image: "centos:latest"
+     volumeMounts:
+     - mountPath: /data
+       name: cos
+     resources:
+       requests:
+         memory: "128Mi"
+         cpu: "0.1"
+   volumes:
+   - name: cos
+     persistentVolumeClaim:
+       # Replaced by your pvc name.
+       claimName: cos-pvc
 ```
 
 ## 相关信息

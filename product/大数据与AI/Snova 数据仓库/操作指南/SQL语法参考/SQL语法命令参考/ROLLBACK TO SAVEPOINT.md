@@ -6,12 +6,9 @@ ROLLBACK [WORK | TRANSACTION] TO [SAVEPOINT] savepoint_name
 ```
 
 ## 描述
-回滚在该保存点被建立之后执行的所有命令。该保存点保持有效并且可以再次回滚到它（如果需要）。
-
-ROLLBACK TO SAVEPOINT 隐式地销毁在所提及的保存点之后建立的所有保存点。
+回滚在该保存点被建立后执行的所有命令。该保存点保持有效并且可以再次回滚到它（如果需要）。ROLLBACK TO SAVEPOINT 隐式地销毁在所提及的保存点之后建立的所有保存点。
 
 ## 参数
-
 WORK
 TRANSACTION
 可选关键词。他们没有任何影响。
@@ -20,9 +17,7 @@ savepoint_name
 要回滚到的保存点名称。
 
 ## 注解
-使用 RELEASE SAVEPOINT 销毁一个保存点而丢弃在它建立之后被执行的命令的效果。
-
-指定一个没有被建立的保存点是一种错误。
+使用 RELEASE SAVEPOINT 销毁一个保存点而丢弃在它建立之后被执行的命令的效果。指定一个没有被建立的保存点是一种错误。
 
 相对于保存点，游标有一点非事务的行为。在保存点被回滚时，任何在该保存点内被打开的游标将会被关闭。如果一个先前打开的游标在一个保存点内被 FETCH 命令影响，而该保存点后来又被回滚，那么该游标将保持 FETCH 使它指向的位置（即由 FETCH 导致的游标动作不会被回滚）。
 
@@ -33,9 +28,7 @@ savepoint_name
 ```sql
 ROLLBACK TO SAVEPOINT my_savepoint;
 ```
-
 游标位置不会受保存点回滚的影响：
-
 ```sql
 BEGIN;
 DECLARE foo CURSOR FOR SELECT 1 UNION SELECT 2;

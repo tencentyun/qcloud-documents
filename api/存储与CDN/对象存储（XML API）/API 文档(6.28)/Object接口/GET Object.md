@@ -2,7 +2,27 @@
 
 GET Object 接口请求可以将 COS 存储桶中的对象（Object）下载至本地。该 API 的请求者需要对目标对象有读取权限，或者目标对象向所有人开放了读取权限（公有读）。
 
-> ? 如果使用了 response-* 请求参数，那么该请求操作不支持匿名请求，必须携带签名。
+> !
+>- 如果使用了 `response-*` 请求参数，那么该请求操作不支持匿名请求，必须携带签名。
+>- 当通过 COS 控制台 [设置回源](https://cloud.tencent.com/document/product/436/13310) ，但未开启**同步回源**时，需注意，COS 从用户配置的源站拉取数据时，发起 GET Object 请求将返回 302 并重定向到设置的回源地址（如果该回源地址是不受信任的，强烈建议在使用 SDK 或自行调用 API 时，不要直接跟随 302，而应该由业务后端验证回源地址的合法性后再去请求回源地址，否则可能产生 SSRF 等安全风险，例如回源到一个内网地址）。
+>
+
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=GetObject&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
 
 #### 版本控制
 
@@ -124,6 +144,8 @@ Server: tencent-cos
 x-cos-hash-crc64ecma: 16749565679157681890
 x-cos-request-id: NWU5MDNkZDRfZDgyNzVkNjRfN2Q5M18xOWVi****
 
+
+
 [Object Content]
 ```
 
@@ -155,6 +177,8 @@ Last-Modified: Fri, 10 Apr 2020 09:35:05 GMT
 Server: tencent-cos
 x-cos-hash-crc64ecma: 16749565679157681890
 x-cos-request-id: NWU5MDNkZDVfNjZjODJhMDlfMTY2MDdfMThm****
+
+
 
 [Object Content]
 ```
@@ -210,13 +234,15 @@ Date: Wed, 29 Jul 2020 06:51:50 GMT
 Server: tencent-cos
 x-cos-request-id: NWYyMTFjODZfOGRjOTJhMDlfMmIyMWVfOTJl****
 
+
+
 <?xml version='1.0' encoding='utf-8' ?>
 <Error>
-	<Code>PreconditionFailed</Code>
-	<Message>Precondition not match.</Message>
-	<Resource>examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobject</Resource>
-	<RequestId>NWYyMTFjODZfOGRjOTJhMDlfMmIyMWVfOTJl****</RequestId>
-	<TraceId>OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODc0OWRkZjk0ZDM1NmI1M2E2MTRlY2MzZDhmNmI5MWI1OTdjMDczODYwZjM5YTU3ZmZmOWI5MmY4NjkxY2I3MGNiNjkyOWZiNzUxZjg5MGY2OWU4NmI0YWMwNTlhNTExYWU=</TraceId>
+			<Code>PreconditionFailed</Code>
+			<Message>Precondition not match.</Message>
+			<Resource>examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobject</Resource>
+			<RequestId>NWYyMTFjODZfOGRjOTJhMDlfMmIyMWVfOTJl****</RequestId>
+			<TraceId>OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODc0OWRkZjk0ZDM1NmI1M2E2MTRlY2MzZDhmNmI5MWI1OTdjMDczODYwZjM5YTU3ZmZmOWI5MmY4NjkxY2I3MGNiNjkyOWZiNzUxZjg5MGY2OWU4NmI0YWMwNTlhNTExYWU=</TraceId>
 </Error>
 ```
 
@@ -247,6 +273,8 @@ Server: tencent-cos
 x-cos-hash-crc64ecma: 16749565679157681890
 x-cos-request-id: NWU5MDNlMDBfMzdiMDJhMDlfYTgyNl8xNjA2****
 x-cos-server-side-encryption: AES256
+
+
 
 [Object Content]
 ```
@@ -279,6 +307,8 @@ x-cos-hash-crc64ecma: 16749565679157681890
 x-cos-request-id: NWU5MDNlMGJfZGEyNzVkNjRfZDgxY18xYTBj****
 x-cos-server-side-encryption: cos/kms
 x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
+
+
 
 [Object Content]
 ```
@@ -315,6 +345,8 @@ x-cos-request-id: NWU5MDNlMTdfNzBiODJhMDlfZTVmMV8xNDAy****
 x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
 
+
+
 [Object Content]
 ```
 
@@ -346,6 +378,8 @@ x-cos-hash-crc64ecma: 11596229263574363878
 x-cos-request-id: NWU5MDY2Y2FfMzFiYjBiMDlfMjE2NzVfMTgz****
 x-cos-version-id: MTg0NDUxNTc1NTE5MTc1NjM4MDA
 
+
+
 [Object Content Version 2]
 ```
 
@@ -376,6 +410,8 @@ Server: tencent-cos
 x-cos-hash-crc64ecma: 16749565679157681890
 x-cos-request-id: NWU5MDNlMmRfNzBiODJhMDlfZTYwZl8xM2Fh****
 x-cos-version-id: MTg0NDUxNTc1NjIzMTQ1MDAwODg
+
+
 
 [Object Content]
 ```
@@ -409,6 +445,8 @@ Server: tencent-cos
 x-cos-hash-crc64ecma: 16749565679157681890
 x-cos-request-id: NWU5MDY3NjVfY2VjODJhMDlfOWVlZl8xNmMy****
 
+
+
 Content
 ```
 
@@ -437,13 +475,15 @@ Server: tencent-cos
 x-cos-request-id: NWUwNGEwMjRfZDcyNzVkNjRfNjZlM183Zjcx****
 x-cos-storage-class: ARCHIVE
 
+
+
 <?xml version='1.0' encoding='utf-8' ?>
 <Error>
-	<Code>InvalidObjectState</Code>
-	<Message>The operation is not valid for the object storage class.</Message>
-	<Resource>examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobject</Resource>
-	<RequestId>NWUwNGEwMjRfZDcyNzVkNjRfNjZlM183Zjcx****</RequestId>
-	<TraceId>OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODc0OWRkZjk0ZDM1NmI1M2E2MTRlY2MzZDhmNmI5MWI1OTBjNjIyOGVlZmJlNDg4NDQ1MzAzMjA2ZDg4OGQ3MDhlMjIzYjI1ZWUwODY5YjdlMTBjY2EwNTgyZWMyMjc0Mjc=</TraceId>
+			<Code>InvalidObjectState</Code>
+			<Message>The operation is not valid for the object storage class.</Message>
+			<Resource>examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobject</Resource>
+			<RequestId>NWUwNGEwMjRfZDcyNzVkNjRfNjZlM183Zjcx****</RequestId>
+			<TraceId>OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODc0OWRkZjk0ZDM1NmI1M2E2MTRlY2MzZDhmNmI5MWI1OTBjNjIyOGVlZmJlNDg4NDQ1MzAzMjA2ZDg4OGQ3MDhlMjIzYjI1ZWUwODY5YjdlMTBjY2EwNTgyZWMyMjc0Mjc=</TraceId>
 </Error>
 ```
 

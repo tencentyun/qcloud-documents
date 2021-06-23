@@ -5,6 +5,10 @@ COS 触发器具有以下特点：
 - **Push 模型**：COS 会监控指定的 Bucket 动作（事件类型）并调用相关函数，将事件数据推送给 SCF 函数。在推模型中使用 Bucket 通知来保存 COS 的事件源映射。
 - **异步调用**：COS 始终使用异步调用类型来调用函数，结果不会返回给调用方。有关调用类型的更多信息，请参阅 [调用类型](https://cloud.tencent.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B)。
 
+
+
+
+
 ## COS 触发器属性
 
 - COS Bucket（必选）：配置的 COS Bucket，仅支持选择同地域下的 COS 存储桶。
@@ -36,6 +40,11 @@ COS 触发器具有以下特点：
 - 当使用前后缀过滤规则时，为了保证同一个 Bucket 触发事件的唯一性，需要注意同一 Bucket 无法使用重叠前缀、重叠后缀或前缀和后缀的重叠组合为相同的事件类型定义筛选规则。例如，当您给函数 A 配置了 test Bucket 的 “Created: * ” 和前缀过滤为 “Log” 的事件触发，那么该 test Bucket下就不能再创建 “Created: * ” 和前缀过滤为 “Lo” 的事件触发。
 
 - 目前 COS 触发器仅支持同地域 COS Bucket 事件触发，即广州区创建的 SCF 函数，在配置 COS 触发器时，仅支持选择广州区（华南）的 COS Bucket。如果您想要使用特定地域的 COS Bucket 事件来触发 SCF 函数，可以通过在对应地域下创建函数来实现。
+
+- COS 触发器有 SCF 侧和 COS 侧两个维度限制：
+ - SCF 侧限制：云函数仅支持单函数绑定10个 COS 触发器。 
+ - COS 侧限制：单函数的相同事件和前后缀规则可以支持触发3个函数，单个 COS 存储桶可绑定的规则上限为10个。
+
 
 ## COS 触发器的事件消息结构
 
@@ -98,3 +107,5 @@ COS 触发器具有以下特点：
 ```
 https://github.com/tencentyun/scf-demo-java/blob/master/src/main/java/example/Cos.java
 ```
+
+

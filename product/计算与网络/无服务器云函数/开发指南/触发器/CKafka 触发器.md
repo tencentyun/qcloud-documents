@@ -6,7 +6,7 @@ CKafka 触发器具有以下特点：
 - **同步调用**： CKafka 触发器使用同步调用类型来调用函数。有关调用类型的更多信息，请参见 [调用类型](https://cloud.tencent.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B)。
 >?
 >- 对于运行错误（含用户代码错误和 Runtime 错误），CKafka 触发器会按照您配置的重试次数进行重试。默认重试10000次。
->- 对于超限错误和系统错误，CKafka 触发器会采用指数退避的方式持续重试，直至成功为止。
+>- 对于系统错误，CKafka 触发器会采用指数退避的方式持续重试，直至成功为止。
 
 
 ## CKafka 触发器属性
@@ -44,7 +44,7 @@ CKafka 触发器具有以下特点：
     {
       "Ckafka": {
         "topic": "test-topic",
-        "partition":1,
+        "Partition":1,
         "offset":36,
         "msgKey": "None",
         "msgBody": "Hello from Ckafka!"
@@ -53,7 +53,7 @@ CKafka 触发器具有以下特点：
     {
       "Ckafka": {
         "topic": "test-topic",
-        "partition":1,
+        "Partition":1,
         "offset":37,
         "msgKey": "None",
         "msgBody": "Hello from Ckafka again!"

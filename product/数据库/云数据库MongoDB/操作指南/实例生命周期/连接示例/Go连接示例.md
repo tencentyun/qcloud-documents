@@ -22,4 +22,4 @@ url := service.GetMgoURL(reqPara.Ip, reqPara.User, reqPara.Password, reqPara.Por
 ```
 
 ## MongoDB Go 驱动示例代码
-示例代码请参见 [官方文档](https://www.mongodb.com/blog/search/golang%20quickstart)。
+示例代码请参见 [官方文档](https://www.mongodb.com/blog/post/quick-start-golang--mongodb--starting-and-setup)。

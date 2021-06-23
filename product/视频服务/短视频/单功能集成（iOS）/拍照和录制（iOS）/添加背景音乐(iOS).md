@@ -1,5 +1,7 @@
 ## 录制添加 BGM 
-```objc
+
+<dx-codeblock>
+::: ios 
 //获取 recorder 对象
 TXUGCRecord *recorder =  [TXUGCRecord shareInstance]；
 
@@ -36,9 +38,12 @@ TXUGCRecord *recorder =  [TXUGCRecord shareInstance]；
 // setBGMVolume 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小
 // volume: 音量大小，1为正常音量，建议值为0-2，如果需要调大背景音量可以设置更大的值
 [recorder setBGMVolume:1.0];
-```
+:::
+</dx-codeblock>
+
 ## 编辑添加 BGM
-```objc
+<dx-codeblock>
+::: ios 
 //初始化编辑器
 TXPreviewParam *param = [[TXPreviewParam alloc] init];
 param.videoView = videoView;
@@ -63,5 +68,7 @@ ugcEdit = [[TXVideoEditer alloc] initWithPreview:param];
 
 //设置 BGM 声音大小
 [ugcEdit setBGMVolume:1.0];
-```
+:::
+</dx-codeblock>
+
 BGM 设置完之后，当启动编辑器预览，BGM 就会根据设置的参数播放，当启动编辑器生成，BGM 也会按照设置的参数合成到生成的视频中。

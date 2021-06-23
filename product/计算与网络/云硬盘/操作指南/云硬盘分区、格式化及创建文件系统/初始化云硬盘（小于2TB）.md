@@ -10,20 +10,20 @@
 - 格式化数据盘会将数据全部清空，请确保数据盘中没有数据或已备份重要数据。
 - 为避免服务发生异常，格式化前请确保云服务器已停止对外服务。
 
-## 操作步骤
+## 操作步骤[](id:Steps)
 
-<span id="Windows2008"></span>
-### 初始化云硬盘（Windows）
+<dx-tabs>
+::: 初始化云硬盘（Windows） [](id:Windows2008)
 >?本文将以 Windows Server 2012 R2 操作系统为例，不同操作系统的格式化操作可能不同，本文仅供参考。
 >
 1. [登录 Windows 云服务器](https://cloud.tencent.com/document/product/213/5435)。
-2. 在云服务器桌面，右键单击左下角的<img src="https://main.qcloudimg.com/raw/3d815ac1c196b47b2eea7c3a516c3d88.png" style="margin:-6px 0px">。
+2. 在云服务器桌面，右键单击左下角的 <img src="https://main.qcloudimg.com/raw/3d815ac1c196b47b2eea7c3a516c3d88.png" style="margin:-6px 0px">。
 3. 在弹出的菜单中，选择【磁盘管理】打开“磁盘管理”窗口。如下图所示：
 ![](https://main.qcloudimg.com/raw/fcf4fe5cafbbf4e3a52db750a4c3e2e2.png)
 >?若新增磁盘处于脱机状态（如上图），需要先执行 [步骤4](#online) 联机后再执行 [步骤5](#initialize) 进行初始化。否则直接执行 [步骤5](#initialize) 进行初始化。
-4. <span id="online"></span>在右侧窗格中出现磁盘列表，右键单击磁盘1区域，在菜单列表中选择【联机】，进行联机。联机后，磁盘1由【脱机】状态变为【没有初始化】。如下图所示：
+4. [](id:online)在右侧窗格中出现磁盘列表，右键单击磁盘1区域，在菜单列表中选择【联机】，进行联机。联机后，磁盘1由【脱机】状态变为【没有初始化】。如下图所示：
 ![](https://main.qcloudimg.com/raw/4d3c952ca5ffdd3b1a4874191c33dc8c.png)
-5. <span id="initialize"></span>右键单击磁盘1区域，在菜单列表中选择【初始化磁盘】。如下图所示：
+5. [](id:initialize)右键单击磁盘1区域，在菜单列表中选择【初始化磁盘】。如下图所示：
 ![](https://main.qcloudimg.com/raw/e20181dc979f1b018baba0ccaa0c5291.png)
 6. 在【初始化磁盘】对话框中显示需要初始化的磁盘，选中【MBR（主启动记录）】或【GPT（GUID 分区表）】，单击【确定】。如下图所示：
 >!磁盘投入使用后再切换磁盘分区形式，磁盘上的原有数据将会清除，因此请根据实际需求合理选择分区形式。
@@ -41,29 +41,25 @@
 ![](https://main.qcloudimg.com/raw/148e9db3163df781b0832df1da25059f.png)
   初始化成功后，进入【计算机】界面可以查看到新磁盘。
 ![](https://main.qcloudimg.com/raw/05261659e6d9eed38da84a933c20ba12.png)
-
-<span id="Linux"></span>
-### 初始化云硬盘（Linux）
-
+:::
+::: 初始化云硬盘（Linux） [](id:Linux)
 请根据您实际使用场景选择初始化方式：
 - 若整块硬盘只呈现为一个独立的分区（即不存在多个逻辑盘，如 vdb1 和 vdb2 ），强烈推荐您不使用分区，直接 [在裸设备上构建文件系统](#CreateFileSystemOnBareDevice)。
 - 若整块硬盘需要呈现为多个逻辑分区（即存在多个逻辑盘），则您需要先进行分区操作，再 [在分区上构建文件系统](#CreateFileSystemOnPartition)。
 
-<span id="CreateFileSystemOnBareDevice"></span>
-#### 在裸设备上构建文件系统
+
+### 在裸设备上构建文件系统 [](id:CreateFileSystemOnBareDevice)
 
 1. [登录 Linux 云服务器](https://cloud.tencent.com/document/product/213/5436)。
 2. 以 root 用户执行以下命令，查看磁盘名称。
- ```
-fdisk -l
 ```
- 回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda” 是系统盘，“/dev/vdb” 是新增数据盘。
+fdisk -l
+``` 回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda” 是系统盘，“/dev/vdb” 是新增数据盘。
  ![](https://main.qcloudimg.com/raw/aad842b12fec3ca583790bff609c9fb7.png)
 3. 执行以下命令，对 “/dev/vdb” 裸设备直接创建文件系统格式。
 ```
 mkfs -t <文件系统格式> /dev/vdb
-```
-不同文件系统支持的分区大小不同，请根据实际需求合理选择文件系统。以设置文件系统为 `EXT4` 为例：
+``` 不同文件系统支持的分区大小不同，请根据实际需求合理选择文件系统。以设置文件系统为 `EXT4` 为例：
 ```
 mkfs -t ext4 /dev/vdb
 ```
@@ -71,16 +67,14 @@ mkfs -t ext4 /dev/vdb
 4. 执行以下命令，新建挂载点。
 ```
 mkdir <挂载点>
-```
-以新建挂载点 `/data` 为例：
+``` 以新建挂载点 `/data` 为例：
 ```
 mkdir /data
 ```
 5. 执行以下命令，将新建分区挂载至新建的挂载点。
 ```
 mount /dev/vdb <挂载点>
-```
-以新建挂载点 `/data` 为例：
+``` 以新建挂载点 `/data` 为例：
 ```
 mount /dev/vdb /data
 ```
@@ -100,17 +94,17 @@ df -TH
  <tr>
      <td nowrap="nowrap">使用弹性云硬盘的软链接<b>（推荐）</b></td>
      <td><b>优点</b>：每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。</br><b>缺点</b>：只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td>
-		 <td nowrap="nowrap">执行以下命令，查看弹性云硬盘的软链接。</br><pre>ls -l /dev/disk/by-id</pre></td>
+		 <td nowrap="nowrap">执行以下命令，查看弹性云硬盘的软链接。</br><pre style="color:white;">ls -l /dev/disk/by-id</pre></td>
 	</tr>
 	<tr>
 	   <td nowrap="nowrap">使用文件系统的 UUID</td>
 		 <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。</br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
-		 <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre>blkid /dev/vdb</pre></td>
+		 <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre style="color:white;">blkid /dev/vdb</pre></td>
   </tr>
 	<tr>
 	   <td nowrap="nowrap">使用设备名称</td>     
 		 <td>可能会因设备名称变化而导致自动挂载设置失效。</br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td>
-		 <td nowrap="nowrap">执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td>
+		 <td nowrap="nowrap">执行以下命令，查看设备名称。</br><pre style="color:white;">fdisk -l</pre></td>
  </tr>
 </table>
 8. 执行以下命令，备份 `/etc/fstab`  文件。以备份到  /home 目录下为例：
@@ -123,8 +117,9 @@ vi /etc/fstab
 ```
 10. 按 **i**，进入编辑模式。
 11. 将光标移至文件末尾，按 **Enter**，添加如下内容。
-```
-<设备信息> <挂载点> <文件系统格式> <文件系统安装选项> <文件系统转储频率> <启动时的文件系统检查顺序>
+```plaintext
+<设备信息> <挂载点> <文件系统格式> <文件系统安装选项> <文件系统转储频率> 
+<启动时的文件系统检查顺序>
 ```
  - **（推荐）**以使用弹性云硬盘的软链接自动挂载为例，结合前文示例则添加：
 ```
@@ -143,31 +138,27 @@ UUID=d489ca1c-5057-4536-81cb-ceb2847f9954 /data  ext4 defaults     0   0
 13. 执行以下命令，检查 **/etc/fstab** 文件是否写入成功。
 ```
 mount -a 
-```
-如果运行通过则说明文件写入成功，新建的文件系统会在操作系统启动时自动挂载。
+``` 如果运行通过则说明文件写入成功，新建的文件系统会在操作系统启动时自动挂载。
 
-<span id="CreateFileSystemOnPartition"></span>
-#### 在分区上构建文件系统
 
->?本操作将以在 CentOS 7.5 操作系统中使用 fdisk 分区工具将数据盘 `/dev/vdb`设置为主分区，分区形式默认设置为 MBR，文件系统设置为 EXT4 格式，挂载在`/data/newpart`下，并设置开机启动自动挂载为例，不同操作系统的格式化操作可能不同，本文仅供参考。
+### 在分区上构建文件系统 [](id:CreateFileSystemOnPartition)
+
+>?本操作将以在 CentOS 7.5 操作系统中使用 fdisk 分区工具将数据盘 `/dev/vdb` 设置为主分区，分区形式默认设置为 MBR，文件系统设置为 EXT4 格式，挂载在 `/data/newpart` 下，并设置开机启动自动挂载为例，不同操作系统的格式化操作可能不同，本文仅供参考。
 >
 
 1. [登录 Linux 云服务器](https://cloud.tencent.com/document/product/213/5436)。
 2. 以 root 用户执行以下命令，查看磁盘名称。
  ```
 fdisk -l
-```
- 回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda” 是系统盘，“/dev/vdb” 是新增数据盘。
- ![](https://main.qcloudimg.com/raw/aad842b12fec3ca583790bff609c9fb7.png)
+```  回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda” 是系统盘，“/dev/vdb” 是新增数据盘。
+![](https://main.qcloudimg.com/raw/aad842b12fec3ca583790bff609c9fb7.png)
 3. 执行以下命令，进入 fdisk 分区工具，开始对新增数据盘执行分区操作。
  ```
 fdisk <新增数据盘>
+```  以新挂载的数据盘 `/dev/vdb` 为例：
 ```
- 以新挂载的数据盘`/dev/vdb`为例：
- ```
 fdisk /dev/vdb
-```
- 回显信息类似如下图：
+```  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/db1fe212e2559ac635c52e5e397e7531.png)
 4. 输入`n`，按 **Enter**，开始新建分区。
  回显信息类似如下图：
@@ -175,7 +166,7 @@ fdisk /dev/vdb
  表示磁盘有两种分区类型：
   - 【p】表示主要分区。
   - 【e】表示延伸分区。
-5. 以创建一个主要分区为例，输入`p`，按 **Enter**，开始创建一个主分区。
+5. 以创建一个主要分区为例，输入 `p`，按 **Enter**，开始创建一个主分区。
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/efb65b60631d95e9b0213e6fd6125bbb.png)
  【Partition number】表示主分区编号，可以选择1-4。
@@ -191,55 +182,48 @@ fdisk /dev/vdb
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/ad3a6459a6eaf154aed578b37dfc89d0.png)
  表示分区完成，即为60GB的数据盘新建了1个分区。
-9. 输入`p`，按 **Enter**，查看新建分区的详细信息。
+9. 输入 `p`，按 **Enter**，查看新建分区的详细信息。
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/98427c11e0a181e02eb23a95fc1e908c.png)
  表示新建分区`/dev/vdb1`的详细信息。
-
->?若上述分区操作有误，请输入`q`，退出 fdisk 分区工具，之前的分区结果将不会被保留。
-
+>?若上述分区操作有误，请输入 `q`，退出 fdisk 分区工具，之前的分区结果将不会被保留。
+>
 10. 输入`w`，按 **Enter**，将分区结果写入分区表中。
  回显信息类似如下图，表示分区创建完成。
  ![](https://main.qcloudimg.com/raw/7011369be260150fcddf272b4a4ab2fa.png)
 11. 执行以下命令，将新的分区表变更同步至操作系统。
- ```
+```
 partprobe
 ```
 12. 执行以下命令，将新建分区文件系统设置为系统所需格式。
  ```
 mkfs -t <文件系统格式> /dev/vdb1
-```
- 不同文件系统支持的分区大小不同，请根据实际需求合理选择文件系统。以设置文件系统为 EXT4 为例：
+``` 不同文件系统支持的分区大小不同，请根据实际需求合理选择文件系统。以设置文件系统为 EXT4 为例：
  ```
 mkfs -t ext4 /dev/vdb1
-```
- 回显信息类似如下图：
- ![](https://main.qcloudimg.com/raw/6de097cea77634f8847816dd795292a7.png)
- 格式化需要等待一段时间，请观察系统运行状态，不要退出。
+``` 回显信息类似如下图：
+![](https://main.qcloudimg.com/raw/6de097cea77634f8847816dd795292a7.png)
+格式化需要等待一段时间，请观察系统运行状态，不要退出。
 13. 执行以下命令，新建挂载点。
  ```
 mkdir <挂载点>
-```
- 以新建挂载点`/data/newpart`为例：
+```  以新建挂载点 `/data/newpart` 为例：
  ```
 mkdir /data/newpart
 ```
 14. 执行以下命令，将新建分区挂载至新建的挂载点。
  ```
 mount /dev/vdb1 <挂载点>
+```  以新建挂载点 `/data/newpart` 为例：
 ```
- 以新建挂载点`/data/newpart`为例：
- ```
 mount /dev/vdb1 /data/newpart
 ```
 15. 执行以下命令，查看挂载结果。
- ```
-df -TH
 ```
- 回显信息类似如下图：
+df -TH
+```  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/b7e5501fed8d7d648b48dc66685baf94.png)
- 表示新建分区`/dev/vdb1`已挂载至`/data/newpart`。
- 
+ 表示新建分区 `/dev/vdb1` 已挂载至 `/data/newpart`。
 >?若无需设置开机自动挂载磁盘，则跳过后续步骤。
 >
 16. 确认挂载方式并获取对应信息。
@@ -253,17 +237,17 @@ df -TH
 	   <tr>      
          <td nowrap="nowrap">使用弹性云硬盘的软链接<b>（推荐）</b></td>   
 	       <td><b>优点</b>：每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。<br><b>缺点</b>：只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td>
-	       <td nowrap="nowrap">执行以下命令，查看弹性云硬盘的软链接。</br><pre>ls -l /dev/disk/by-id</pre></td>
+	       <td nowrap="nowrap">执行以下命令，查看弹性云硬盘的软链接。</br><pre style="color:white;">ls -l /dev/disk/by-id</pre></td>
      </tr> 
 	   <tr>      
          <td nowrap="nowrap">使用文件系统的 UUID</td>   
 	       <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。<br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
-	       <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre>blkid /dev/vdb1</pre></td>
+	       <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre style="color:white;">blkid /dev/vdb1</pre></td>
      </tr> 
 	   <tr>      
          <td nowrap="nowrap">使用设备名称</td>   
 	       <td>可能会因设备名称变化而导致自动挂载设置失效。<br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td>
-	       <td>执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td>
+	       <td>执行以下命令，查看设备名称。</br><pre style="color:white;">fdisk -l</pre></td>
      </tr> 
 </table>
 17. 执行以下命令，备份 `/etc/fstab 文件`。以备份到 /home 目录下为例：
@@ -276,8 +260,9 @@ vi /etc/fstab
 ```
 19. 按 **i**，进入编辑模式。 
 20. 将光标移至文件末尾，按 **Enter**，添加如下内容。
- ```
-<设备信息> <挂载点> <文件系统格式> <文件系统安装选项> <文件系统转储频率> <启动时的文件系统检查顺序>
+```plaintext
+<设备信息> <挂载点> <文件系统格式> <文件系统安装选项> <文件系统转储频率> 
+<启动时的文件系统检查顺序>
 ```
  - **（推荐）**以使用弹性云硬盘的软链接自动挂载为例，结合前文示例则添加：
  ```
@@ -293,11 +278,14 @@ UUID=d489ca1c-5057-4536-81cb-ceb2847f9954 /data/newpart   ext4 defaults     0   
 ```
 20. 按 **Esc**，输入 **:wq**，按 **Enter**。
  保存设置并退出编辑器。
-21. 执行以下命令，检查`/etc/fstab`文件是否写入成功。
+21. 执行以下命令，检查 `/etc/fstab` 文件是否写入成功。
 ```
  mount -a 
-```
-如果运行通过则说明文件写入成功，新建的文件系统会在操作系统启动时自动挂载。
+``` 如果运行通过则说明文件写入成功，新建的文件系统会在操作系统启动时自动挂载。
+:::
+</dx-tabs>
+
+
 
 ## 相关操作
 [初始化云硬盘（大于等于2TB）](https://cloud.tencent.com/document/product/362/6735)

@@ -8,7 +8,7 @@
 
 ### 创建文本消息
 
-创建文本消息的接口，此接口返回一个消息实例，可以在需要发送文本消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
+创建文本消息的接口，此接口返回一个消息实例，可以在需要发送文本消息时调用 [发送消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#sendMessage) 接口发送消息实例。
 
 **接口名**
 
@@ -61,13 +61,13 @@ promise.then(function(imResponse) {
 
 **返回**
 
-消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
+消息实例 [Message](https://web.sdk.qcloud.com/im/doc/zh-cn//Message.html)。
 
 
 
 ### 创建图片消息
 
-创建图片消息的接口，此接口返回一个消息实例，可以在需要发送图片消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
+创建图片消息的接口，此接口返回一个消息实例，可以在需要发送图片消息时调用 [发送消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#sendMessage) 接口发送消息实例。
 
 >! v2.3.1版本开始支持传入 File 对象，使用前需要将 SDK 升级至v2.3.1或以上。
 
@@ -187,12 +187,12 @@ wx.chooseImage({
 
 **返回**
 
-消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
+消息实例 [Message](https://web.sdk.qcloud.com/im/doc/zh-cn//Message.html)。
 
 
 ### 创建音频消息
 
-创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。 目前 createAudioMessage 只支持在微信小程序环境使用。 
+创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#sendMessage) 接口发送消息。 目前 createAudioMessage 只支持在微信小程序环境使用。 
 
 **接口**
 
@@ -267,11 +267,11 @@ recorderManager.start(recordOptions);</code></pre>
 
 **返回**
 
-消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
+消息实例 [Message](https://web.sdk.qcloud.com/im/doc/zh-cn//Message.html)。
 
 ### 创建文件消息
 
-创建文件消息的接口，此接口返回一个消息实例，可以在需要发送文件消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
+创建文件消息的接口，此接口返回一个消息实例，可以在需要发送文件消息时调用 [发送消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#sendMessage) 接口发送消息实例。
 
 >!
 >! v2.3.1版本开始支持传入 File 对象，使用前需要将 SDK 升级至v2.3.1或以上。
@@ -366,14 +366,14 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 
 **返回**
 
-消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
+消息实例 [Message](https://web.sdk.qcloud.com/im/doc/zh-cn//Message.html)。
 
 
 
 
 ### 创建自定义消息
 
-创建自定义消息实例的接口，此接口返回一个消息实例，可以在需要发送自定义消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
+创建自定义消息实例的接口，此接口返回一个消息实例，可以在需要发送自定义消息时调用 [发送消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#sendMessage) 接口发送消息实例。
 当 SDK 提供的能力不能满足您的需求时，可以使用自定义消息进行个性化定制，例如投骰子功能。
 
 **接口**
@@ -435,12 +435,12 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 
 **返回**
 
-消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
+消息实例 [Message](https://web.sdk.qcloud.com/im/doc/zh-cn//Message.html)。
 
 
 ### 创建视频消息
 
-创建视频消息实例的接口，此接口返回一个消息实例，可以在需要发送视频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
+创建视频消息实例的接口，此接口返回一个消息实例，可以在需要发送视频消息时调用 [发送消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#sendMessage) 接口发送消息。
 
 >!
 >- 使用该接口前，需要将SDK版本升级至v2.2.0或以上。
@@ -527,11 +527,11 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 
 **返回**
 
-消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
+消息实例 [Message](https://web.sdk.qcloud.com/im/doc/zh-cn//Message.html)。
 
 ### 创建表情消息
 
-创建表情消息实例的接口，此接口返回一个消息实例，可以在需要发送表情消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
+创建表情消息实例的接口，此接口返回一个消息实例，可以在需要发送表情消息时调用 [发送消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#sendMessage) 接口发送消息。
 
 >!使用该接口前，需要将 SDK 版本升级至v2.3.1或以上。
 
@@ -588,27 +588,27 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 
 **返回**
 
-消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
+消息实例 [Message](https://web.sdk.qcloud.com/im/doc/zh-cn//Message.html)。
 
 
 ### 发送消息
 
 发送消息的接口，需先调用下列的创建消息实例的接口获取消息实例后，再调用该接口发送消息实例。
 
-- [创建文本消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createTextMessage)
-- [创建图片消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createImageMessage)
-- [创建音频消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createAudioMessage)
-- [创建视频消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createVideoMessage)
-- [创建自定义消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createCustomMessage)
-- [创建表情消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFaceVMessage)
-- [创建文件消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage)
+- [创建文本消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#createTextMessage)
+- [创建图片消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#createImageMessage)
+- [创建音频消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#createAudioMessage)
+- [创建视频消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#createVideoMessage)
+- [创建自定义消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#createCustomMessage)
+- [创建表情消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#createFaceVMessage)
+- [创建文件消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#createFileMessage)
 
 >!调用该接口发送消息实例，需要 SDK 处于 ready 状态，否则将无法发送消息实例。SDK 状态，可通过监听以下事件得到：
-- [TIM.EVENT.SDK_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_READY)：SDK 处于 ready 状态时触发。
-- [TIM.EVENT.SDK_NOT_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_NOT_READY)：SDK 处于 not ready 状态时触发。
+- [TIM.EVENT.SDK_READY](https://web.sdk.qcloud.com/im/doc/zh-cn//module-EVENT.html#.SDK_READY)：SDK 处于 ready 状态时触发。
+- [TIM.EVENT.SDK_NOT_READY](https://web.sdk.qcloud.com/im/doc/zh-cn//module-EVENT.html#.SDK_NOT_READY)：SDK 处于 not ready 状态时触发。
 
-接收推送的单聊、群聊、群提示、群系统通知的新消息，需监听事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)。
-本实例发送的消息，不会触发事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)。同帐号从其他端（或通过 REST API）发送的消息，会触发事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED), 离线推送仅适用于终端（Android 或 iOS)，Web 和 微信小程序不支持。 
+接收推送的单聊、群聊、群提示、群系统通知的新消息，需监听事件 [TIM.EVENT.MESSAGE_RECEIVED](https://web.sdk.qcloud.com/im/doc/zh-cn//module-EVENT.html#.MESSAGE_RECEIVED)。
+本实例发送的消息，不会触发事件 [TIM.EVENT.MESSAGE_RECEIVED](https://web.sdk.qcloud.com/im/doc/zh-cn//module-EVENT.html#.MESSAGE_RECEIVED)。同帐号从其他端（或通过 REST API）发送的消息，会触发事件 [TIM.EVENT.MESSAGE_RECEIVED](https://web.sdk.qcloud.com/im/doc/zh-cn//module-EVENT.html#.MESSAGE_RECEIVED), 离线推送仅适用于终端（Android 或 iOS)，Web 和 微信小程序不支持。 
 
 **接口**
 
@@ -681,7 +681,7 @@ tim.sendMessage(options)
 >!
 >- 使用该接口前，需要将 SDK 版本升级至v2.4.0或以上。
 >- 消息可撤回时间默认为2分钟。可通过 [控制台](https://console.cloud.tencent.com/im-detail/login-message) 调整消息可撤回时间。
->- 被撤回的消息，可以调用 [getMessageList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMessageList) 接口从单聊或者群聊消息漫游中拉取到。接入侧需根据消息对象的 isRevoked 属性妥善处理被撤回消息的展示。例如，单聊会话内可展示为 "对方撤回了一条消息"，群聊会话内可展示为 "张三撤回了一条消息"。
+>- 被撤回的消息，可以调用 [getMessageList](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#getMessageList) 接口从单聊或者群聊消息漫游中拉取到。接入侧需根据消息对象的 isRevoked 属性妥善处理被撤回消息的展示。例如，单聊会话内可展示为 "对方撤回了一条消息"，群聊会话内可展示为 "张三撤回了一条消息"。
 >- 可使用 REST API [撤回单聊消息](https://cloud.tencent.com/document/product/269/38980) 或 [撤回群聊消息](https://cloud.tencent.com/document/product/269/12341)。
 
 **接口**
@@ -779,8 +779,8 @@ promise.then(function(imResponse) {
 
 该接口返回 `Promise` 对象：
 
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 
 
@@ -788,7 +788,7 @@ promise.then(function(imResponse) {
 
 ### 接收消息
 
-请参考 [接收消息事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)。
+请参考 [接收消息事件](https://web.sdk.qcloud.com/im/doc/zh-cn//module-EVENT.html#.MESSAGE_RECEIVED)。
 
 接受消息的接口，接收消息需要通过事件监听实现：
 
@@ -945,7 +945,7 @@ function parseGroupTipContent (payload) {
 
 ### 获取某会话的消息列表 
 
-请参考 [Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)。
+请参考 [Conversation](https://web.sdk.qcloud.com/im/doc/zh-cn//Conversation.html)。
 
 分页拉取指定会话的消息列表的接口，当用户进入会话首次渲染消息列表或者用户“下拉查看更多消息”时，需调用该接口。
 
@@ -997,8 +997,8 @@ promise.then(function(imResponse) {
 
 该接口返回 `Promise` 对象：
 
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 ### 将会话设置为已读
 
@@ -1040,7 +1040,7 @@ tim.setMessageRead({conversationID: 'C2Cexample'});
 获取会话列表的接口，该接口拉取最近的100条会话，当需要刷新会话列表时调用该接口。
 
 >!
->- 该接口获取的会话列表中的资料是不完整的（仅包括头像、昵称等，能够满足会话列表的渲染需求），若要查询详细会话资料，请参考 [getConversationProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getConversationProfile)。
+>- 该接口获取的会话列表中的资料是不完整的（仅包括头像、昵称等，能够满足会话列表的渲染需求），若要查询详细会话资料，请参考 [getConversationProfile](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#getConversationProfile)。
 >- 会话保存时长跟会话最后一条消息保存时间一致，消息默认保存7天，即会话默认保存7天。 
 
 **接口**
@@ -1067,8 +1067,8 @@ promise.then(function(imResponse) {
 
 该接口返回 `Promise` 对象：
 
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 
 
@@ -1108,8 +1108,8 @@ promise.then(function(imResponse) {
 
 该接口返回 `Promise` 对象：
 
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 
 
@@ -1149,5 +1149,5 @@ promise.then(function(imResponse) {
 
 该接口返回 `Promise` 对象：
 
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。

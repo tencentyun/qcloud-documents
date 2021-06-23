@@ -2,7 +2,26 @@
 
 COS 支持为已存在的 Bucket 设置标签（Tag）。PUT Bucket tagging 接口用于为存储桶设置键值对作为存储桶标签，可以协助您管理已有的存储桶资源，并通过标签进行成本管理。
 
-> !目前存储桶标签功能最多支持一个存储桶下设置50个不同的标签。
+>! 目前存储桶标签功能最多支持一个存储桶下设置50个不同的标签。
+>
+
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=PutBucketTagging&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 ## 请求
 
@@ -49,11 +68,11 @@ Content-Type: application/xml
 
 具体的数据描述如下：
 
-| 节点名称（关键字） | 父节点             | 描述                                                         | 类型       | 必选 |
+| 节点名称（关键字） | 父节点             | 描述                                                         | 类型       | 是否必选 |
 | ------------------ | ------------------ | ------------------------------------------------------------ | ---------- | ---- |
 | Tagging            | 无                 | 标签集合                                                     | Container  | 是   |
 | TagSet             | Tagging            | 标签集合                                                     | Container  | 是   |
-| Tag                | Tagging.TagSet     | 标签集合，最多支持10个标签                                 | Containers | 是   |
+| Tag                | Tagging.TagSet     | 标签集合，最多支持50个标签                                 | Containers | 是   |
 | Key                | Tagging.TagSet.Tag | 标签的 Key，长度不超过128字节, 支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线 | String     | 是   |
 | Value              | Tagging.TagSet.Tag | 标签的 Value，长度不超过256字节, 支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线 | String     | 是   |
 
@@ -86,6 +105,8 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDrbAYjEBqqdEconpFi8NPFsOjrnX4****&q
 Content-MD5: LIbd5t5HLPhuNWYkP6qHcQ==
 Content-Length: 127
 Content-Type: application/xml
+
+
 
 <Tagging>
     <TagSet>

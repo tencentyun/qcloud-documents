@@ -44,7 +44,7 @@ metadata:
 ```
 
 
-## 相关操作<span id="annotation"></span>
+## 相关操作[](id:annotation)
 
 为 Nginx 类型 Ingress 对象可配置注解，详情可参见 [官方文档](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/)。
 

@@ -56,8 +56,9 @@ export PATH=$PATH:/usr/local/erlang/bin
 ### 安装 RabbitMQ Server
 1. 执行以下命令，下载 RabbitMQ Server 安装包。
 ```
-wget -P /root "https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.9/rabbitmq-server-3.6.9-1.el7.noarch.rpm"
+wget https://github.com/rabbitmq/rabbitmq-server/releases/download/rabbitmq_v3_6_9/rabbitmq-server-3.6.9-1.el7.noarch.rpm
 ```
+本文以 RabbitMQ 3.6.9 版本为例，且使用 RabbitMQ 官网提供的下载地址，若出现下载链接失效等错误或需要其他 RabbitMQ 版本时，可前往 [rabbitmq-server](https://github.com/rabbitmq/rabbitmq-server/releases) 获取更多安装信息。
 10. 执行以下命令，导入签名密钥。
 ```
 rpm --import https://www.rabbitmq.com/rabbitmq-release-signing-key.asc

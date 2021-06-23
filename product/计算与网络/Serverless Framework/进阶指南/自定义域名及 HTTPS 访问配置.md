@@ -19,28 +19,27 @@
 
 component: website
 name: myWebsite
-org: test
 app: websiteApp
 stage: dev
 
 inputs:
-  src:
-    src: ./public
-    index: index.html
-    error: index.html
-  region: ap-guangzhou
-  bucketName: my-hexo-bucket
-  protocol: https
-  # 新增的 CDN 自定义域名配置
-  hosts:
-    - host: www.example.com # 希望配置的自定义域名
-      https:
-        switch: on
-        http2: off
-        certInfo:
-          certId: 'abc'
-          # certificate: 'xxx'
-          # privateKey: 'xxx'
+   src:
+     src: ./public
+     index: index.html
+     error: index.html
+   region: ap-guangzhou
+   bucketName: my-hexo-bucket
+   protocol: https
+   # 新增的 CDN 自定义域名配置
+   hosts:
+     - host: www.example.com # 希望配置的自定义域名
+       https:
+         switch: on
+         http2: off
+         certInfo:
+           certId: 'abc'
+           # certificate: 'xxx'
+           # privateKey: 'xxx'
 
 ```
 [查看完整配置项说明 >>](https://github.com/serverless-components/tencent-website/blob/master/docs/configure.md)
@@ -54,12 +53,12 @@ inputs:
 ```bash
 $ sls deploy 
   
-  myWebsite: 
-    url:  https://my-hexo-bucket-1250000000.cos-website.ap-guangzhou.myqcloud.com
-    env: 
-    host: 
-      - https://www.example.com (CNAME: www.example.com.cdn.dnsv1.com）
-  17s › myWebsite › done
+    myWebsite: 
+      url:  https://my-hexo-bucket-1250000000.cos-website.ap-guangzhou.myqcloud.com
+      env: 
+      host: 
+        - https://www.example.com (CNAME: www.example.com.cdn.dnsv1.com）
+    17s › myWebsite › done
 ```
 ### 添加 CNAME
 部署完成后，在命令行的输出中可以查看到一个以 `.cdn.dnsv1.com` 为后缀的 CNAME 域名。参考 [CNAME 配置文档](https://cloud.tencent.com/document/product/228/3121)，在 DNS 服务商处设置好对应的 CNAME 并生效后，即可访问自定义 HTTPS 域名。
@@ -72,29 +71,28 @@ $ sls deploy
 
 component: apigateway # (必填) 组件名称，此处为 apigateway
 name: restApi # (必填) 实例名称
-org: orgDemo # (可选) 用于记录组织信息，默认值为您的腾讯云账户 appid
 app: appDemo # (可选) 该应用名称
 stage: dev # (可选) 用于区分环境信息，默认值为 dev
 
 inputs:
-  region: ap-shanghai
-  protocols:
-    - http
-    - https
-  serviceName: serverless
-  environment: release
-  customDomain:
-    - domain: www.example.com
-      # 如要添加https，需先行在腾讯云-SSL证书进行认证获取cettificateId
-      certificateId: abcdefg
-      protocols:
-        - http
-        - https
-  endpoints:
-    - path: /users
-      method: POST
-      function:
-        functionName: myFunction # 网关所连接函数名
+   region: ap-shanghai
+   protocols:
+     - http
+     - https
+   serviceName: serverless
+   environment: release
+   customDomains:
+     - domain: www.example.com
+       # 如要添加https，需先行在腾讯云-SSL证书进行认证获取cettificateId
+       certificateId: abcdefg
+       protocols:
+         - http
+         - https
+   endpoints:
+     - path: /users
+       method: POST
+       function:
+         functionName: myFunction # 网关所连接函数名
         
 ```
 [查看完整配置项说明>>](https://github.com/serverless-components/tencent-apigateway/blob/master/docs/configure.md)
@@ -105,22 +103,25 @@ inputs:
 
 ```bash
 $ sls deploy 
-  restApi: 
-    protocols: 
-      - http
-      - https
-    subDomain:     service-lqhc88sr-1250000000.sh.apigw.tencentcs.com
-    environment:   release
-    region:        ap-shanghai
-    serviceId:     service-lqhc88sr
-    apis: 
-      - 
-        path:   /users
-        method: POST
-        apiId:  api-e902tx1q
-    customDomains: 
-      - www.example.com (CNAME: service-lqhc88sr-1250000000.sh.apigw.tencentcs.com) 
-  8s › restApi › done
+    restApi: 
+      protocols: 
+        - http
+        - https
+      subDomain:     service-lqhc88sr-1250000000.sh.apigw.tencentcs.com
+      environment:   release
+      region:        ap-shanghai
+      serviceId:     service-lqhc88sr
+      apis: 
+        - 
+          path:   /users
+          method: POST
+          apiId:  api-e902tx1q
+      customDomains: 
+        - www.example.com (CNAME: service-lqhc88sr-1250000000.sh.apigw.tencentcs.com) 
+    8s › restApi › done
 ```
 ### 添加 CNAME 记录
 部署完成后，在命令行的输出中可以查看到一个以 `.apigw.tencentcs.com` 为后缀的 CNAME 域名。参考 [添加 CNAME 记录](https://cloud.tencent.com/document/product/302/3450)，在 DNS 服务商处设置好对应的 CNAME 并生效后，即可访问自定义 HTTPS 域名。
+
+
+

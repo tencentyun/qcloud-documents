@@ -33,7 +33,6 @@ new_table
 
 ## 示例
 创建一个新表 films_recent 由表 films 的最近项构成：
-
 ```sql
 SELECT * INTO films_recent FROM films WHERE date_prod >= 
 '2016-01-01';

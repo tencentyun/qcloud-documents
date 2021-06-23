@@ -125,8 +125,8 @@ Container 类型 Video 的具体数据描述如下：
 | Codec                      | Request.ConcatTemplate.<br/>Video | 编解码格式             | String | 否   |   H.264 | H.264                                          |
 | Width                      | Request.ConcatTemplate.<br/>Video | 宽                    | String | 否   | 视频原始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照视频原始比例计算 Height |
 | Height                     | Request.ConcatTemplate.<br/>Video | 高                    | String | 否   | 视频原始高度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照视频原始比例计算 Width |
-| Fps                        | Request.ConcatTemplate.<br/>Video | 帧率                  | String | 否   | 无 | <li>值范围：(0，60]<br><li>单位：fps |
-| Bitrate                    | Request.ConcatTemplate.<br/>Video | 视频输出文件的码率      | String | 否   |  无           | <li>值范围：[10，50000]<br/><li>单位：Kbps                     |
+| Fps                        | Request.ConcatTemplate.<br/>Video | 帧率                  | String | 否   | 视频原始帧率 | <li>值范围：(0，60]<br><li>单位：fps |
+| Bitrate                    | Request.ConcatTemplate.<br/>Video | 视频输出文件的码率      | String | 否   |  视频原始码率           | <li>值范围：[10，50000]<br/><li>单位：Kbps    </li>                 |
 | Remove                     | Request.ConcatTemplate.<br/>Video | 是否删除视频流         | String | 否   | false        | 取值 true、false
 
 ## 响应
@@ -210,6 +210,8 @@ Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
 
+
+
 <Request>
    <Tag>Concat</Tag>
    <Name>TemplateName</Name>
@@ -252,6 +254,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+
+
 
 <Response>
     <Template>

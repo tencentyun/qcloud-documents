@@ -19,14 +19,14 @@
 
 ## 操作步骤
 
-<span id="addGPUNodesatCluster"></span>
+[](id:addGPUNodesatCluster)
 ### 在集群中添加 GPU 节点
 
 添加 GPU 节点有以下两种方法：
 - [新建 GPU 云服务器](#createGPUServer)
 - [添加已有 GPU 云服务器](#addGPUServer)
 
-<span id="createGPUServer"></span>
+[](id:createGPUServer)
 #### 新建 GPU 云服务器
 
 1. 在左侧导航栏中，单击【[集群](https://console.cloud.tencent.com/tke2/cluster?rid=4)】，进入 “集群管理” 页面。
@@ -36,7 +36,7 @@
 4. 按照页面提示逐步操作，完成创建。
  >? 在进行 “云服务器配置” 时，TKE 将自动根据选择的机型进行 GPU 的驱动安装等初始流程，您无需关心基础镜像。 
 
-<span id="addGPUServer"></span>
+[](id:addGPUServer)
 #### 添加已有 GPU 云服务器
 
 1. 在左侧导航栏中，单击【[集群](https://console.cloud.tencent.com/tke2/cluster?rid=4)】，进入 “集群管理” 页面。
@@ -46,14 +46,14 @@
 4. 按照页面提示逐步操作，完成添加。
  >? 在进行 “云服务器配置” 时，TKE 将自动根据选择的机型进行 GPU 的驱动安装等初始流程，您无需关心基础镜像。
 
-<span id="createGPUServiceContainer"></span>
+[](id:createGPUServiceContainer)
 ### 创建 GPU 服务的容器
 
 创建 GPU 服务的容器有以下两种方法：
 - [通过控制台方式创建](#consoleCreate)
 - [通过应用或 Kubectl 命令创建](#appOrKubectlCreate)
 
-<span id="consoleCreate"></span>
+[](id:consoleCreate)
 #### 通过控制台方式创建
 
 1. 在左侧导航栏中，单击【[集群](https://console.cloud.tencent.com/tke2/cluster?rid=4)】，进入 “集群管理” 页面。
@@ -65,7 +65,7 @@
 ![](https://main.qcloudimg.com/raw/8f0fa686061fbc11a1d1abf11107a03d.png)
 6. 单击【创建Workload】，完成创建。
 
-<span id="appOrKubectlCreate"></span>
+[](id:appOrKubectlCreate)
 #### 通过应用或 Kubectl 命令创建
 
 您可以通过应用或 Kubectl 命令创建，在 YAML 文件中添加 GPU 字段。如下图所示：

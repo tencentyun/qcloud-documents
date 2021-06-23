@@ -10,8 +10,8 @@
 - 需要能够连接到 Maven。
 
 
-## 接入步骤
-### 1. 引入 DTF SDK
+
+## 引入 DTF SDK
 
 通过以下方式引入 Spring Cloud 版本的 DTF SDK。
 
@@ -26,7 +26,7 @@
 >?version 填写 Release Note 中最新版本的即可。
 
 
-### 2. 客户端配置
+## 客户端配置
 
 在客户端中，支持以下配置自定义：
 
@@ -52,7 +52,7 @@ dtf:
 
 
 
-### 3. 启用分布式事务服务
+## 启用分布式事务服务
 
 在 @SpringBootApplication 注解处增加 `@EnableDtf` 注解来启用分布式事务服务。
 
@@ -71,7 +71,7 @@ public class OrderApplication {
 
 
 
-### 4. 开启主事务
+## 开启主事务
 
 通过以下注解开启主事务。
 主事务通常在入口 Controller 处开启。一般建议标记在**实现类**上。注解所在的方法所在的类需要注入为 Bean。
@@ -96,7 +96,7 @@ public Boolean order(@RequestBody Order order) {
 
 
 
-### 5. 开启 Saga 分支事务[](id:step5)
+## 开启 Saga 分支事务[](id:step5)
 
 通过以下注解开启分支事务。
 >?
@@ -113,11 +113,11 @@ public boolean order(Long txId, Long branchId, Order order);
 | 参数             | 数据类型 | 必填 | 默认值                                     | 描述                           |
 | ---------------- | -------- | ---- | ------------------------------------------ | ------------------------------ |
 | name             | String   | 否   | @DtfSaga 方法名+方法签名 Hash                | 分支事务名称，请在同一事务分组 |
-| compensateClass  | String   | 否   | @DtfSaga 注解所在 Class                      | compensate 操作类名             |
+| compensateClass  | String   | 否   | @DtfSaga 注解所在 Class                      | compensate 操作类名，建议填写 beanname            |
 | compensateMethod | String   | 否   | execute 前缀 + @DtfSaga 注解方法名首字母大写 | compensate 操作方法名           |
 
 
-### 6. Compensate 操作
+## Compensate 操作
 
 一个分支事务中，需要包含 Execute 和 Compensate 两个部分。可以使用 [步骤5](#step5) 中的默认值简化配置。
 
@@ -147,9 +147,9 @@ public interface IOrderService {
 ```
 
 
-### 7. 远程请求
+## 远程请求
 
-#### 方式一：使用 RestTemplate + Spring MVC 切点
+### 方式一：使用 RestTemplate + Spring MVC 切点
 
 使用 RestTemplate 访问下游服务（也使用了 DTF SDK）的 Controller。DTF SDK 框架托管了全局事务传递的处理。
 
@@ -162,7 +162,7 @@ public RestTemplate restTemplate() {
 }
 ```
 
-####  方式二：使用 Feign
+###  方式二：使用 Feign
 
 需要引入 openfeign 依赖：
 ```xml
@@ -182,7 +182,7 @@ public interface PaymentProxy {
 
 ```
 
-#### 方式三：自行处理
+### 方式三：自行处理
 
 - **上游处理**：
 需要从上下文中提取 `txId`、`groupId`、`lastBranchId` 三个内容传递到下游。
@@ -204,23 +204,70 @@ ClientConstant.HTTP_HEADER.LAST_BRANCH_ID: lastBranchId
 DtfContextHolder.set(new DtfContext(txId, lastBranchId, groupId));
 ```
 
-### 8. 与 TSF 结合使用
+## 与 TSF 结合使用
 
-直接正常使用 TSF 即可，引入依赖。
+引入依赖后（注意 SDK 版本），直接正常使用 TSF 即可。
 
->?目前仅支持 G 版本 TSF SDK。
+
+### 使用方式
+目前支持 Greenwich（G）和 Finchley（F）版本的 TSF SDK。您可以单击以下页签，查看对应的使用方式。
+<dx-tabs>
+::: G&nbsp;版本&nbsp;TSF&nbsp;SDK&nbsp;使用方式
+``` xml
+<!-- TSF 启动器 -->
+<dependency>
+    <groupId>com.tencent.tsf</groupId>
+    <artifactId>spring-cloud-tsf-starter</artifactId>
+    <version>1.23.0-Greenwich-RELEASE</version>
+</dependency>
+```
+:::
+::: F&nbsp;版本&nbsp;TSF&nbsp;SDK&nbsp;使用方式
+>!需要再排除 DTF 中的一些依赖。
 
 ```xml
 <!-- TSF 启动器 -->
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-starter</artifactId>
+    <version>1.23.5-Finchley-RELEASE</version>
+</dependency>
+<!-- Spring Boot DTF -->
+<dependency>
+        <groupId>com.tencent.cloud</groupId>
+        <artifactId>spring-boot-dtf</artifactId>
+        <version>${dtf.version}</version>
+        <exclusions>
+                <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-context</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-aspects</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>io.github.openfeign</groupId>
+                        <artifactId>feign-core</artifactId>
+                </exclusion>
+        </exclusions>
 </dependency>
 ```
+:::
+</dx-tabs>
 
-启用 TSF：
 
-```java
+### 启用 TSF
+<dx-codeblock>
+:::  java
 @SpringBootApplication
 @EnableDtf
 @EnableTsf
@@ -230,4 +277,6 @@ public class OrderApplication {
         SpringApplication.run(OrderApplication.class, args);
     }
 }
-```
+:::
+</dx-codeblock>
+

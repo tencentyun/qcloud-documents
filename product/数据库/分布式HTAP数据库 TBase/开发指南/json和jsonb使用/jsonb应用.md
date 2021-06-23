@@ -7,7 +7,6 @@ CREATE TABLE
 postgres=# 
 ```
 
-
 ## 插入数据
 ```
 postgres=# insert into t_jsonb values(1,'{"col1":1,"col2":"tbase"}');
@@ -22,7 +21,6 @@ postgres=# select * from t_jsonb;
   2 | {"col1": 1, "col2": "tbase", "col3": "pgxz"}
 (2 rows)
 ```
-
 
 jsonb 插入时会移除重复的键，如下所示：
 ```

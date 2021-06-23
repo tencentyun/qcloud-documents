@@ -13,7 +13,7 @@ Kubernetes 提供 Kubectl 命令行工具用于操作集群，Kubectl 使用 Kub
 
 
 - 已创建 [TKE](https://cloud.tencent.com/document/product/457/32189) 或 [EKS](https://cloud.tencent.com/document/product/457/39813) 集群。
-- 已在需要管理多集群的设备上安装 [kubectl](https://kubernetes.io/zh/docs/tasks/tools/install-kubectl/) 命令行工具。
+- 已在需要管理多集群的设备上安装 [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) 命令行工具。
 
 
 ## 操作步骤
@@ -28,7 +28,7 @@ Kubernetes 提供 Kubectl 命令行工具用于操作集群，Kubectl 使用 Kub
 创建 TKE 或 EKS 集群后，请按照以下 [TKE](#tke) 或 [EKS](#eks) 获取集群访问凭证步骤获取访问凭证：
 
 
-<span id="tke"></span>
+[](id:tke)
 
 #### TKE 集群获取集群访问凭证
 
@@ -40,7 +40,7 @@ Kubernetes 提供 Kubectl 命令行工具用于操作集群，Kubectl 使用 Kub
 5. 单击右侧的【下载】，下载 Kubeconfig。
 
 
-<span id="eks"></span>
+[](id:eks)
 
 #### EKS 集群获取集群访问凭证
 

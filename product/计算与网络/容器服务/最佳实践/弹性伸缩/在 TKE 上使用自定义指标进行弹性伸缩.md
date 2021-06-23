@@ -16,7 +16,7 @@ prometheus-adapter 支持以上两种API，在实际环境中，使用 Custom Me
 ## 操作步骤
 
 
-<span id="example"></span>
+[](id:example)
 
 ### 暴露监控指标
 
@@ -120,7 +120,7 @@ spec:
 您可以通过 [Promtheus 采集规则](#way1) 或 [ServiceMonitor](#way2) 配置 Promtheus 采集业务暴露的监控指标。
 
 
-<span id="way1"></span>
+[](id:way1)
 
 #### 方式1：配置 Promtheus 采集规则
 
@@ -144,7 +144,7 @@ spec:
 			regex: http
 ```
 
-<span id="way2"></span>
+[](id:way2)
 
 #### 方式2：配置 ServiceMonitor
 
@@ -175,20 +175,22 @@ sum(rate(http_requests_total[2m])) by (pod)
 2. 将其转换为 prometheus-adapter 的配置，创建 `values.yaml`，内容如下：
 ```yaml
 rules:
-		default: false
-		custom:
-		- seriesQuery: 'httpserver_requests_total'
-		  resources:
-			template: <<.Resource>>
-		  name:
-			matches: "httpserver_requests_total"
-			as: "httpserver_requests_qps" # PromQL 计算出来的 QPS 指标
-		  metricsQuery: sum(rate(<<.Series>>{<<.LabelMatchers>>}[1m])) by (<<.GroupBy>>)
+      default: false
+      custom:
+      - seriesQuery: 'httpserver_requests_total'
+        resources:
+          template: <<.Resource>>
+        name:
+          matches: "httpserver_requests_total"
+          as: "httpserver_requests_qps" # PromQL 计算出来的 QPS 指标
+        metricsQuery: sum(rate(<<.Series>>{<<.LabelMatchers>>}[1m])) by (<<.GroupBy>>)
 prometheus:
-		url: http://prometheus.monitoring.svc.cluster.local # 替换 Prometheus API 的地址 (不写端口)
-		port: 9090u
+      url: http://prometheus.monitoring.svc.cluster.local # 替换 Prometheus API 的地址 (不写端口)
+      port: 9090
 ```
-3. 执行以下 Helm 命令安装 prometheus-adapter。示例如下：
+3. 执行以下 Helm 命令安装 prometheus-adapter，示例如下：
+>! 安装前需要删除 TKE 已经注册的 Custom Metrics API，删除命令如下：
+> `kubectl delete apiservice v1beta1.custom.metrics.k8s.io`
 ```bash
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update

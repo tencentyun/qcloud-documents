@@ -1,7 +1,7 @@
 ## 功能概述
 
 摄像头推流，是指采集手机摄像头的画面以及麦克风的声音，进行编码之后再推送到直播云平台上。腾讯云 LiteAVSDK 通过 TXLivePusher 接口提供摄像头推流能力，如下是 LiteAVSDK 的简单版 Demo 中演示摄像头推流的相关操作界面：
-![](https://main.qcloudimg.com/raw/2e38fc03bbd8a0963c880e468c38571a.jpg)
+![](https://main.qcloudimg.com/raw/52ee09ae4039d24f39e3cf8110e632c7.jpg)
 
 ## 特别说明
 
@@ -96,7 +96,7 @@ mLivePusher.stopCameraPreview(true); //如果已经启动了摄像头预览，�
 ```
 
 - **如何获取可用的推流 URL** 
-开通直播服务后，可以使用 [直播控制台 > 辅助工具 > 地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。 
+开通直播服务后，可以使用 [【直播控制台】>【直播工具箱】>【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。 
 ![](https://main.qcloudimg.com/raw/7110d39cdb464b789bd68301f4de7ebe.png)   
 - **返回 -5 的原因**    
 如果 `startPusher` 接口返回 -5，则代表您的 License 校验失败了，请检查第2步“给 SDK 配置 License 授权”中的工作是否有问题。   

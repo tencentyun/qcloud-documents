@@ -24,7 +24,7 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 
 3. 打开命令控制台，运行以下命令：
 ```bash
-go get -u "github.com/TencentCloud/tdmq-go-client@v0.3.0-beta.1"
+go get -u "github.com/TencentCloud/tdmq-go-client@v0.3.0-beta.3"
 ```
 
 
@@ -48,9 +48,9 @@ module example/godemo
 
 go 1.12
 
-require github.com/TencentCloud/tdmq-go-client v0.3.0-beta.2 
+require github.com/TencentCloud/tdmq-go-client v0.3.0-beta.3 
 ```
- 上述 v0.3.0-beta.2 是 Go SDK 的版本，云上资源环境中下载的依赖文件压缩包也需要是同样的版本。
+ 上述 v0.3.0-beta.3 是 Go SDK 的版本，云上资源环境中下载的依赖文件压缩包也需要是同样的版本。
 
 2. 创建 producer.go 和 consumer.go 测试 Demo 文件。
 	- producer.go 代码内容如下，其中 `ListenerName` 即 `custom:` 拼接路由 ID（NetModel），路由 ID 可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】的接入点列表查看并复制，`NewAuthenticationToken` 即角色密钥，可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】页面复制。
@@ -70,7 +70,7 @@ func main() {
     client, err := pulsar.NewClient(pulsar.ClientOptions{
         URL:            "pulsar://*.*.*.*:6000",
         ListenerName:   "custom:1300*****0/vpc-******/subnet-********",
-        Authentication: pulsar.NewAuthenticationToken(),
+        Authentication: pulsar.NewAuthenticationToken("eyJh****"),
     })
     if err != nil {
         log.Fatal(err)
@@ -120,7 +120,7 @@ func main() {
     client, err := pulsar.NewClient(pulsar.ClientOptions{
         URL:       	"pulsar://10.*.*.*:6000",//更换为接入点地址
         ListenerName:	"custom:1300*****0/vpc-******/subnet-********",
-        Authentication: NewAuthenticationToken("eyJh****"),
+        Authentication: pulsar.NewAuthenticationToken("eyJh****"),
     })
     if err != nil {
         log.Fatal(err)

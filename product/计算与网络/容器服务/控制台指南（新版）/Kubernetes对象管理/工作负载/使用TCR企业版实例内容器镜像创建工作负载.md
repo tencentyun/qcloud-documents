@@ -4,7 +4,7 @@
 本文介绍如何在容器服务 TKE 中，使用容器镜像服务 TCR 内托管的私有镜像进行应用部署。
 
 ## 前提条件
-在使用 TCR 内托管的私有 镜像进行应用部署前，您需要完成以下准备工作：
+在使用 TCR 内托管的私有镜像进行应用部署前，您需要完成以下准备工作：
 - 已在 [容器镜像服务](https://console.cloud.tencent.com/tcr) 创建企业版实例。如尚未创建，请参考 [创建企业版实例](https://cloud.tencent.com/document/product/1141/40716) 完成创建。
 - 如果使用子账号进行操作，请参考 [企业版授权方案示例](https://cloud.tencent.com/document/product/1141/41417) 提前为子账号授予对应实例的操作权限。
 
@@ -36,7 +36,7 @@ docker push demo-tcr.tencentcloudcr.com/docker/getting-started:latest
 ```
 推送成功后，即可前往控制台的 “[镜像仓库](https://console.cloud.tencent.com/tcr/repository)” 页面，选择仓库名进入详情页面查看。
 
-### 配置 TKE 集群访问 TCR 实例<span id="deployTKE"></span>
+### 配置 TKE 集群访问 TCR 实例[](id:deployTKE)
 TCR 企业版实例支持网络访问控制，默认拒绝全部来源的外部访问。您可根据 TKE 集群的网络配置，选择通过公网或内网访问指定实例，拉取容器镜像。若 TKE 集群与 TCR 实例部署在同一地域，建议通过内网访问方式拉取容器镜像，可提升拉取速度，并节约公网流量成本。
 #### 使用 TCR 扩展组件进行快速配置（推荐）
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
@@ -75,7 +75,7 @@ echo '172.21.17.69 demo.tencentcloudcr.com' >> /etc/hosts
 `172.21.17.69` 及 `demo.tencentcloudcr.com` 请替换为您实际使用的内网解析 IP 及 TCR 实例域名。
 
 
-#### 2. 配置访问凭证<span id="issued"></span>
+#### 2. 配置访问凭证[](id:issued)
 新建命名空间时参考以下步骤，下发访问凭证：
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2. 在“集群管理”页面，选择集群 ID，进入集群详情页。
@@ -86,7 +86,7 @@ echo '172.21.17.69 demo.tencentcloudcr.com' >> /etc/hosts
 	创建完成后，该实例的访问凭证将自动下发至该命名空间。可选择左侧的【配置管理】>【Secret】，进入 “Secret” 页面即可查看该访问凭证。例如 `1000090225xx-tcr-m3ut3qxx-dockercfg`。其中，`1000090225xx` 为创建命名空间的子账号 UIN，`tcr-m3ut3qxx` 为所选实例的实例 ID。
 
 参考以下步骤，向已有命名空间下发访问凭证：
-1. <span id="loginInfo"></span>参考 [获取实例访问凭证](https://cloud.tencent.com/document/product/1141/41829)，获取用户名及密码。
+1. [](id:loginInfo)参考 [获取实例访问凭证](https://cloud.tencent.com/document/product/1141/41829)，获取用户名及密码。
 2. 在集群详情页，选择左侧的【配置管理】>【Secret】，进入 “Secret” 页面。
 3. 在 “Secret” 页面单击【新建】进入“新建Secret” 页面，参考以下信息下发访问凭证。如下图所示：
 	![](https://main.qcloudimg.com/raw/3521ba5ef8437b52586411eb505d344a.png)

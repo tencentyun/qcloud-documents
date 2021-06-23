@@ -118,7 +118,6 @@ DATE_ADD( date_part, quantity, timestamp )
 DATE_ADD(year, 5, `2010-01-01T`)                -- 2015-01-01
 DATE_ADD(month, 1, `2010T`)                     -- 2010-02T 
 DATE_ADD(month, 13, `2010T`)                    -- 2011-02T
-DATE_ADD(day, -1, `2017-01-10T`)                -- 2017-01-09 
 DATE_ADD(hour, 1, `2017T`)                      -- 2017-01-01T01:00-00:00
 DATE_ADD(hour, 1, `2017-01-02T03:04Z`)          -- 2017-01-02T04:04Z
 DATE_ADD(minute, 1, `2017-01-02T03:04:05.006Z`) -- 2017-01-02T03:05:05.006Z

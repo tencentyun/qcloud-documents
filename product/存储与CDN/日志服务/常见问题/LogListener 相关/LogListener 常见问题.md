@@ -18,7 +18,7 @@ LogListener 低于2.3.0版本不支持监听软连接方式的日志文件和 NF
 
 ### LogListener 初始化的时候是否可以自动加入机器组？
 
-标识机器组机支持, 参考文档 [配置标识机器组](https://cloud.tencent.com/document/product/614/17412#.E9.85.8D.E7.BD.AE.E6.9C.BA.E5.99.A8.E6.A0.87.E8.AF.86.E6.9C.BA.E5.99.A8.E7.BB.84)。
+标识机器组机支持, 参考文档 [管理机器组](https://cloud.tencent.com/document/product/614/17412)。
 
 ### LogListener 日志上传策略是什么？
 
@@ -37,7 +37,7 @@ LogListener 低于2.3.0版本不支持监听软连接方式的日志文件和 NF
 
 ### 服务器更换 IP 地址后，LogListener 应该如何适配？
 
-- 若服务器通过机器标识绑定机器组，用户无需变更 LogListener 配置。若服务器 IP 需要频繁变更，建议用户使用 [机器标识](https://cloud.tencent.com/document/product/614/17412#.E9.85.8D.E7.BD.AE.E6.9C.BA.E5.99.A8.E6.A0.87.E8.AF.86.E6.9C.BA.E5.99.A8.E7.BB.84) 配置机器组。
+- 若服务器通过机器标识绑定机器组，用户无需变更 LogListener 配置。若服务器 IP 需要频繁变更，建议用户使用 [机器标识](https://cloud.tencent.com/document/product/614/17412#.E9.80.9A.E8.BF.87.E9.85.8D.E7.BD.AE.E6.9C.BA.E5.99.A8.E6.A0.87.E8.AF.86.E5.88.9B.E5.BB.BA.E6.9C.BA.E5.99.A8.E7.BB.84) 配置机器组。
 - 若服务器通过 IP 地址绑定机器组，用户需要完成以下配置变更：
   a. 修改配置文件中 group_ip 选项，填入变更后的 IP 地址，例如：
 ```shell

@@ -72,6 +72,9 @@ tccli cvm DescribeInstances --cli-input-json file:///home/test.json
 
 
 ## 更多命令
-- `tccli help`：查看支持的产品
-- `tccli cvm help`（以 CVM 举例）：查看产品支持的接口
-- `tccli cbs DescribeDisks help`（以 CBS 产品的 DescribeDisks 接口为例）： 查看接口支持的参数
+- `tccli help`
+查看支持的产品。您也可以在 [产品简介](https://cloud.tencent.com/document/product/440/6176) 文档中查看。
+- `tccli cvm help`
+以 CVM 为例，查看产品支持的接口。
+- `tccli cbs DescribeDisks help`
+以 CBS 中的 DescribeDisks 接口为例，查看接口支持的参数。具体的参数说明和 API 的相关信息可以在腾讯云官网查看对应的 API 文档。

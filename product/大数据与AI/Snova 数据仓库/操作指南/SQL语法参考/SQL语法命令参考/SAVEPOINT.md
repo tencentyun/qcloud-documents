@@ -1,29 +1,24 @@
 在当前事务中定义一个新的保存点。
 
 ## 概要
-
 ```sql
 SAVEPOINT savepoint_name
 ```
 
 ## 描述
-SAVEPOINT 在当前事务中建立一个新保存点。
-
-保存点是事务内的一种特殊标记，它允许所有在它被建立之后执行的命令被回滚，把该事务的状态恢复到它处于保存点时的样子。
+SAVEPOINT 在当前事务中建立一个新保存点。保存点是事务内的一种特殊标记，它允许所有在它被建立之后执行的命令被回滚，把该事务的状态恢复到它处于保存点时的样子。
 
 ## 参数
-savepoint_name
-新保存点的名字。
+savepoint_name：新保存点的名字。
 
 ## 注解
 使用 **ROLLBACK TO SAVEPOINT** 回滚到一个保存点。 
-使用 **RELEASE SAVEPOINT** 销毁一个保存点，但保持在它被建立之后执行的命令的效果。
+使用 **RELEASE SAVEPOINT** 销毁一个保存点，但保持在它被建立后执行的命令的效果。
 
 保存点只能在一个事务块内建立。可以在一个事务内定义多个保存点。
 
 ## 示例
-要建立一个保存点并且后来撤销在它建立之后执行的所有命令的效果：
-
+要建立一个保存点并且后来撤销在它建立后执行的所有命令的效果：
 ```sql
 BEGIN;
     INSERT INTO table1 VALUES (1);
@@ -33,11 +28,7 @@ BEGIN;
     INSERT INTO table1 VALUES (3);
 COMMIT;
 ```
-
-上面的事务将插入值1和3，但不会插入2。
-
-要建立并且稍后销毁一个保存点：
-
+上面的事务将插入值1和3，但不会插入2。要建立并且稍后销毁一个保存点：
 ```sql
 BEGIN;
     INSERT INTO table1 VALUES (3);
@@ -46,7 +37,6 @@ BEGIN;
     RELEASE SAVEPOINT my_savepoint;
 COMMIT;
 ```
-
 上面的事务将插入3和4。
 
 ## 兼容性

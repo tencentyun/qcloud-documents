@@ -87,3 +87,5 @@ containers:
 
 `json`：使用标准的 [RFC 6902 JSON patch](https://tools.ietf.org/html/rfc6902) 更新 manifest。
 `merge`：使用 [RFC 7386 JSON Merge Patch](https://tools.ietf.org/html/rfc7386) 更新 manifest。
+
+

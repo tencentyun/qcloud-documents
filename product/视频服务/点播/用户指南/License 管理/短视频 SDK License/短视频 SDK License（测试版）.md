@@ -1,6 +1,6 @@
 短视频 SDK License 用于激活短视频 SDK 的使用权限，用户可以在控制台申请测试版短视频 License 或续期、查看等操作。更多详细的短视频 SDK 功能说明，请参见 [短视频 UGSV](https://cloud.tencent.com/document/product/584/9366)。
 ## 申请测试版 License
-您可以申请测试版 License 免费体验各项功能，其使用权限对应正式版短视频 SDK License 中的基础版。首次申请试用14天，可免费续期一次，合计28天。请参见 [点播流量资源包与正式版短视频 SDK License 版本对应表。](https://cloud.tencent.com/document/product/266/33149#.E7.9F.AD.E8.A7.86.E9.A2.91-sdk-license)申请步骤如下：
+您可以申请测试版 License 免费体验各项功能，其使用权限对应正式版短视频 SDK License 中的基础版。首次申请试用14天，可免费续期一次，合计28天。请参见 [点播流量资源包与正式版短视频 SDK License 版本对应表。](https://cloud.tencent.com/document/product/266/33149#.E7.9F.AD.E8.A7.86.E9.A2.91-sdk-license.3Ca-id.3D.22license.22.3E.3C.2Fa.3E)申请步骤如下：
 
 ### 步骤1：创建测试 License
 1. 进入 [云点播控制台](https://console.cloud.tencent.com/vod/license)，左侧菜单中选择 【License 管理】 >【[短视频 SDK License](https://console.cloud.tencent.com/vod/license/video)】。

@@ -101,7 +101,7 @@ GET Bucket inventory 接口用于查询存储桶中用户的清单任务信息�
 #### 方法原型
 
 ```
-public Guzzle\Service\Resource\Model GutBucketInventory(array $args = array());
+public Guzzle\Service\Resource\Model GetBucketInventory(array $args = array());
 
 ```
 

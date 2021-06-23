@@ -62,7 +62,6 @@ $ sls deploy
 <dx-codeblock>
 :::  yml
 # serverless.yml
-org: orgDemo
 app: appDemo
 stage: dev
 component: cynosdb

@@ -11,9 +11,8 @@ GSE Local 是一个命令行工具，可启动托管服务 GSE 的独立版本�
 
 
 
-
-
 ## 设置 GSE Local
+
 
 GSE Local 可以在 Windows、Linux 和 Mac上运行，并可用于任何 GSE 支持的语言。本地调试工具安装包如下：
 - [下载 Windows 本地调试工具](https://gselocal-1301007756.cos.ap-nanjing.myqcloud.com/gse-local/gselocal-master-windows-amd64.exe)
@@ -21,6 +20,8 @@ GSE Local 可以在 Windows、Linux 和 Mac上运行，并可用于任何 GSE �
 - [下载 Mac 本地调试工具](https://gselocal-1301007756.cos.ap-nanjing.myqcloud.com/gse-local/gselocal-master-darwin-amd64)
 
 
+>?以下示例代码适用于 Linux 和 macos 操作系统，在 Windows 操作系统下执行 curl 命令时推荐使用 gitbash 命令行工具。
+>
 
 <span id="test"></span>
 ## 测试游戏服务器

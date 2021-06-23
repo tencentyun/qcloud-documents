@@ -28,7 +28,7 @@ Secret 可用于存储密码、令牌、密钥等敏感信息，降低直接对�
 6. 单击【创建 Secret】，即可完成创建。
 
 ### 使用 Secret
-#### 方式一：数据卷使用 Secret 类型<span id="Volume"></span>
+#### 方式一：数据卷使用 Secret 类型[](id:Volume)
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2. 选择需要部署 Workload 的集群 ID，进入待部署 Workload 的集群管理页面。
 3. 在【工作负载】下，任意选择 Workload 类型，进入对应的信息页面。
@@ -46,7 +46,7 @@ Secret 可用于存储密码、令牌、密钥等敏感信息，降低直接对�
  - **Items**：当选择【指定部分 Key】选项时，可以通过添加 Item 向特定路径挂载，如挂载点是 `/data/config`，子路径是 `dev`，最终会存储在 `/data/config/dev` 下。
 8. 单击【创建Workload】，完成创建。
 
-#### 方式二：环境变量中使用 Secret 类型<span id="Environment"></span>
+#### 方式二：环境变量中使用 Secret 类型[](id:Environment)
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2. 单击需要部署 Workload 的集群 ID，进入待部署 Workload 的集群管理页面。
 3. 在【工作负载】下，任意选择 Workload 类型，进入对应的信息页面。
@@ -59,7 +59,7 @@ Secret 可用于存储密码、令牌、密钥等敏感信息，降低直接对�
 ![](https://main.qcloudimg.com/raw/5ae67cf051ed20a4c1e509c3f7ac6fb9.png)
 7. 单击【创建Workload】，完成创建。
 
-#### 方法三：使用第三方镜像仓库时引用<span id="ThirdRepository"></span>
+#### 方法三：使用第三方镜像仓库时引用[](id:ThirdRepository)
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2. 选择需要部署 Workload 的集群 ID，进入待部署 Workload 的集群管理页面。
 3. 在【工作负载】下，任意选择 Workload 类型，进入对应的信息页面。
@@ -84,7 +84,7 @@ Secret 可用于存储密码、令牌、密钥等敏感信息，降低直接对�
 
 ### 创建 Secret
 
-#### 方式一：通过指定文件创建 Secret<span id="SpecifyFile"></span>
+#### 方式一：通过指定文件创建 Secret[](id:SpecifyFile)
 1. 依次执行以下命令，获取 Pod 的用户名和密码。
 ```shell
 $ echo -n 'username' > ./username.txt
@@ -100,7 +100,7 @@ secret "testSecret" created
 kubectl describe secrets/ test-secret
 ```
 
-#### 方式二：YAML 文件手动创建<span id="YamlManual"></span>
+#### 方式二：YAML 文件手动创建[](id:YamlManual)
 
 >? 通过 YAML 手动创建 Secret，需提前将 Secret 的 data 进行  Base64 编码。
 
@@ -117,7 +117,7 @@ data:
 
 ### 使用 Secret
 
-#### 方式一： 数据卷使用 Secret 类型<span id="KubectlVolume"></span>
+#### 方式一： 数据卷使用 Secret 类型[](id:KubectlVolume)
 
 YAML 示例如下：
 ```Yaml
@@ -143,7 +143,7 @@ apiVersion: v1
    restartPolicy: Never
 ```
 
-#### 方式二： 环境变量中使用 Secret 类型<span id="KubectlEnvironment"></span>
+#### 方式二： 环境变量中使用 Secret 类型[](id:KubectlEnvironment)
 
 YAML 示例如下：
 ```Yaml
@@ -164,7 +164,7 @@ apiVersion: v1
    restartPolicy: Never
 ```
 
-#### 方法三：使用第三方镜像仓库时引用<span id="KubectlThirdRepository"></span>
+#### 方法三：使用第三方镜像仓库时引用[](id:KubectlThirdRepository)
 
 YAML 示例如下：
 ```Yaml

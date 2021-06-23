@@ -14,7 +14,7 @@
 
 ## 应用内分享
 
-应用内分享的方案非常简单，只需要调用 TRTC SDK 提供的接口 [startScreenCaptureInApp](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a5dbd40c4ad65152e85591c8535b4ee90) 并传入编码参数`TRTCVideoEncParam` 即可。该参数可以设置为 nil，此时 SDK 会沿用开始屏幕分享之前的编码参数。
+应用内分享的方案非常简单，只需要调用 TRTC SDK 提供的接口 [startScreenCaptureInApp](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a16d30ca3f89863da2581ff3872bf31f0) 并传入编码参数`TRTCVideoEncParam` 即可。该参数可以设置为 nil，此时 SDK 会沿用开始屏幕分享之前的编码参数。
 
 我们推荐的用于 iOS 屏幕分享的编码参数是：
 
@@ -33,23 +33,30 @@
 ## 跨应用分享
 
 ### 示例代码
-我们在 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCSimpleDemo/) 中的 **Screen** 目录下放置了一份跨应用分享的示例代码，其包含如下一些文件：
+我们在 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTC-API-Example-OC) 中的 **ScreenShare** 目录下放置了一份跨应用分享的示例代码，其包含如下一些文件：
 
 ```
-├─ TRTCSimpleDemo              // TRTC 精简化 Demo
-|  ├─ Screen                   // 演示跨应用屏幕分享功能
-|  |  ├─ RTC                   // 演示 TRTC 以通话模式运行的示例代码，该模式下无角色的概念
-|  |  |  ├─ TXReplayKit_Screen // 录屏进程 Broadcast Upload Extension 代码详见步骤2
-|  |  |  |  ├─ SampleHandler.swift // 用于接收来自系统的录屏数据
-|  |  |  |  ├─ Info.plist                          
-|  |  |  |  ├─ TXReplayKit_Screen.entitlements //用于设置进程间通信的 AppGroup 信息
-|  |  |  
-|  |  ├─ ScreenEntranceViewController.swift    // 功能入口界面
-|  |  ├─ ScreenViewController.swift            // 录屏状态显示界面
-|  |  ├─ TRTCBroadcastExtensionLauncher.swift  // 用于唤起系统录屏的辅助代码
+├─ TRTC-API-Example-OC              // TRTC API Example 
+|  ├─ Basic                   // 演示跨应用屏幕分享功能
+|  |  ├─ ScreenShare                   // 演示跨应用屏幕分享功能
+|  |  |  ├── ScreenAnchorViewController.h
+|  |  |  ├── ScreenAnchorViewController.m       // 主播录屏状态显示界面
+|  |  |  ├── ScreenAnchorViewController.xib
+|  |  |  ├── ScreenAudienceViewController.h
+|  |  |  ├── ScreenAudienceViewController.m     // 观众观看录播界面
+|  |  |  ├── ScreenAudienceViewController.xib
+|  |  |  ├── ScreenEntranceViewController.h
+|  |  |  ├── ScreenEntranceViewController.m     // 功能入口界面
+|  |  |  ├── ScreenEntranceViewController.xib
+|  |  |  ├── TRTCBroadcastExtensionLauncher.h
+|  |  |  ├── TRTCBroadcastExtensionLauncher.m   // 用于唤起系统录屏的辅助代码
+|  |  |  ├── TXReplayKit_Screen   // 录屏进程 Broadcast Upload Extension 代码详见步骤2
+|  |  |  │   ├── Info.plist
+|  |  |  │   ├── SampleHandler.h
+|  |  |  │   └── SampleHandler.m                // 用于接收来自系统的录屏数据
 ```
 
-您可以通过 [README](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCSimpleDemo/README.md) 中的指引跑通该示例 Demo。
+您可以通过 [README](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTC-API-Example-OC/README.md) 中的指引跑通该示例 Demo。
 
 
 ### 对接步骤
@@ -166,11 +173,11 @@ iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以�
 [](id:receive)
 #### 步骤3：对接主 App 端的接收逻辑
 按照如下步骤，对接主 App 端的接收逻辑。也就是在用户触发屏幕分享之前，要让主 App 处于“等待”状态，以便随时接收来自 Broadcast Upload Extension 进程的录屏数据。
-1. 确保 TRTCCloud 已经关闭了摄像头采集，如果尚未关闭，请调用 [stopLocalPreview](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a01ee967e3180a5e2fc0e37e9e99e85b3) 关闭摄像头采集。
-2. 调用 [startScreenCaptureByReplaykit:appGroup:](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a92330045ce479f3b5e5c6b366731c7ff) 方法，并传入 [步骤1](#createGroup) 中设置的 AppGroup，让 SDK 进入“等待”状态。
+1. 确保 TRTCCloud 已经关闭了摄像头采集，如果尚未关闭，请调用 [stopLocalPreview](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a01ee967e3180a5e2fc0e37e9e99e85b3) 关闭摄像头采集。
+2. 调用 [startScreenCaptureByReplaykit:appGroup:](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a92330045ce479f3b5e5c6b366731c7ff) 方法，并传入 [步骤1](#createGroup) 中设置的 AppGroup，让 SDK 进入“等待”状态。
 3. 等待用户触发屏幕分享。如果不实现 [步骤4](#launch) 中的“触发按钮”，屏幕分享就需要用户在 iOS 系统的控制中心，通过长按录屏按钮来触发，这一操作步骤如下图所示：
 ![](https://main.qcloudimg.com/raw/4082c8bcc7f41328a17f7ede78577bd9.png)
-4. 通过调用 [stopScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8ea0235691fc9cde0a64833249230bb) 接口可以随时中止屏幕分享。
+4. 通过调用 [stopScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#aa8ea0235691fc9cde0a64833249230bb) 接口可以随时中止屏幕分享。
  
 <dx-codeblock>
 ::: iOS object-c
@@ -202,7 +209,7 @@ iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以�
 截止到 [步骤3](#receive) ，我们的屏幕分享还必须要用户从控制中心中长按录屏按钮来手动启动。您可通过下述方法实现类似腾讯会议的单击按钮即可触发的效果：
 ![](https://main.qcloudimg.com/raw/4a759043c613a558400cce8b539fd7d9.png)
 
-1. 在 [Demo](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCSimpleDemo/Screen) 中寻找 `TRTCBroadcastExtensionLauncher` 这个类，并将其加入到您的工程中。
+1. 在 [Demo](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTC-API-Example-OC/Basic/ScreenShare) 中寻找 `TRTCBroadcastExtensionLauncher` 这个类，并将其加入到您的工程中。
 2. 在您的界面上放置一个按钮，并在按钮的响应函数中调用 `TRTCBroadcastExtensionLauncher` 中的 `launch` 函数，就可以唤起屏幕分享功能了。
 ```
 // 自定义按钮响应方法
@@ -218,12 +225,12 @@ iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以�
 
 ## 观看屏幕分享
 - **观看 Mac / Windows 屏幕分享**
-  当房间里有一个 Mac / Windows 用户启动了屏幕分享，会通过辅流进行分享。房间里的其他用户会通过 TRTCCloudDelegate 中的 [onUserSubStreamAvailable](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a15be39bb902bf917321b26701e961286) 事件获得这个通知。
-  希望观看屏幕分享的用户可以通过 [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ae029514645970e7d32470cf1c7aca716) 接口来启动渲染远端用户辅流画面。
+  当房间里有一个 Mac / Windows 用户启动了屏幕分享，会通过辅流进行分享。房间里的其他用户会通过 TRTCCloudDelegate 中的 [onUserSubStreamAvailable](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloudCallback__csharp.html#a15be39bb902bf917321b26701e961286) 事件获得这个通知。
+  希望观看屏幕分享的用户可以通过 [startRemoteSubStreamView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__csharp.html#ae029514645970e7d32470cf1c7aca716) 接口来启动渲染远端用户辅流画面。
 
 - **观看 Android / iOS 屏幕分享**
-  若用户通过 Android / iOS 进行屏幕分享，会通过主流进行分享。房间里的其他用户会通过 TRTCCloudDelegate 中的 [onUserVideoAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a533d6ea3982a922dd6c0f3d05af4ce80) 事件获得这个通知。
-  希望观看屏幕分享的用户可以通过 [startRemoteView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af85283710ba6071e9fd77cc485baed49) 接口来启动渲染远端用户主流画面。
+  若用户通过 Android / iOS 进行屏幕分享，会通过主流进行分享。房间里的其他用户会通过 TRTCCloudDelegate 中的 [onUserVideoAvailable](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#a533d6ea3982a922dd6c0f3d05af4ce80) 事件获得这个通知。
+  希望观看屏幕分享的用户可以通过 [startRemoteView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#af85283710ba6071e9fd77cc485baed49) 接口来启动渲染远端用户主流画面。
 
 
 

@@ -3,32 +3,26 @@ Android SDK 接入请观看视频：
 
 ## 接入准备
 ### SDK 获取
-一句话识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sentence/QCloudOneSentenceSDK_Android.zip)
+一句话识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_2.6.0.zip)。
 
 ### 接入须知
-+ 开发者在调用前请先查看一句话识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的使用要求和使用步骤。  
-+ 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为 **Android 4.0.3** 及其以上版本。
+- 开发者在调用前请先查看一句话识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的使用要求和使用步骤。  
+- 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为 **Android 4.0.3** 及其以上版本。
 
 ### 开发环境
-1）**添加一句话识别 SDK aar**
-
-将 **qcloudasrsdk\_1.0\_release.aar** 放在 libs 目录下，在 App 的 build.gradle 文件中添加以下代码。
-
+1. **添加一句话识别 SDK aar**
+将 **speech_release.aar** 放在 libs 目录下，在 App 的 build.gradle 文件中添加以下代码。
 ```
-  implementation(name: 'qcloudasrsdk_2.0_release', ext: 'aar')
+  implementation(name: 'speech_release', ext: 'aar')
 ```
-
-2）**添加其他依赖，在 App 的 build.gradle 文件中添加以下代码**。
-
+2. **添加其他依赖，在 App 的 build.gradle 文件中添加以下代码**。
 ```
  implementation 'com.google.code.gson:gson:2.8.5'
- implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
+ implementation 'com.squareup.okhttp3:okhttp:4.2.2'
  implementation 'com.squareup.okio:okio:1.11.0'
  implementation 'org.slf4j:slf4j-api:1.7.25'
 ```
-
-3）**在 AndroidManifest.xml 添加如下权限**：
-
+3. **在 AndroidManifest.xml 添加如下权限**：
 ```
 < uses-permission android:name="android.permission.RECORD_AUDIO"/>
 < uses-permission android:name="android.permission.INTERNET"/>
@@ -37,32 +31,29 @@ Android SDK 接入请观看视频：
 < uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 < uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 ```
+4. **在 AndroidManifest.xml 声明如下 service：**
+```
+<!--<service android:name=".service.MyIntentService"/>-->
+<service android:name="com.tencent.cloud.qcloudasrsdk.recorder.service.QCloudAudioMp3RecoderService" />
+```
 
 ## 快速接入
-
 ### 开发流程及接入示例
-
-1）**创建 QCloudOneSentenceRecognizer 示例**
-
+1. **创建 QCloudOneSentenceRecognizer 示例**
 ```
 QCloudOneSentenceRecognizer recognizer = new QCloudOneSentenceRecognizer(this, appid, secretId, secretKey);
 ```
-2）**设置识别结果回调**
-
+2. **设置识别结果回调**
 ```
 recognizer.setCallback(this);
 ```
-3）**调用示例**
-
-+ **通过语音 URL 调用**
-
+3. **调用示例**
+ - **通过语音 URL 调用**
 ```
 String audioUrl = "https://img.soulapp.cn/audio/2019-07-22/9ed1a797-93b5-4268-be6d-5660cc3e894e.mp3";
 recognizer.recognize(audioUrl, QCloudAudioFormat.QCloudAudioFormatMp3, QCloudAudioFrequence.QCloudAudioFrequence16k);
 ```
-
-+ **通过语音数据调用**
-
+ - **通过语音数据调用**
 ```
 AssetManager am = getResources().getAssets();
 InputStream is = am.open("onesentence.mp3");
@@ -71,16 +62,13 @@ byte[] audioData = new byte[length];
 is.read(audioData);
 recognizer.recognize(audioData, QCloudAudioFormat.QCloudAudioFormatMp3, QCloudAudioFrequence.QCloudAudioFrequence16k);
 ```
-
-+ **通过 SDK 内置录音器**
-
+ - **通过 SDK 内置录音器**
 ```
 recognizer.recognizeWithRecorder();
 ```
 
 ### 关键类说明
-**QCloudOneSentenceRecognizer** :一句话识别入口类
-
+**QCloudOneSentenceRecognizer**：一句话识别入口类
 ```
 /**
  * 初始化方法，关于 AppId, SecretId, SecretKey 的获取见一句话识别接口说明中的使用步骤
@@ -117,8 +105,7 @@ public void recognize(QCloudOneSentenceRecognitionParams params) throws Exceptio
 public void recognizeWithRecorder() throws Exception;
 ```
 
-**QCloudOneSentenceRecognizerListener** : 开始录音、结束录音以及识别结果回调
-
+**QCloudOneSentenceRecognizerListener**：开始录音、结束录音以及识别结果回调
 ```
 public interface QCloudOneSentenceRecognizerListener {
  /**

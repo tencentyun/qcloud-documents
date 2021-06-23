@@ -1,14 +1,14 @@
 ## 操作场景
 该任务指导您通过 TSF 控制台查看 JVM 进程监控详情。
 >!
->- JVM 监控能力依赖实例上安装的探针。如您发现 JVM 监控不可用（2020年9月2日前导入集群的节点默认没有携带可以支持 JVM 监控的探针），针对虚拟机部署的业务，可以通过重新导入集群或重新安装 Agent 来使用 JVM 监控能力。针对容器部署的业务，则需要在 Dockerfile 中增加 JVM 监控组件 `TencentCloudJvmMonitor-1.1.0`（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.1.0-RELEASE.jar)）。容器部署详细操作请参考 [制作容器镜像](https://cloud.tencent.com/document/product/649/50610)。
+>- JVM 监控能力依赖实例上安装的探针。如您发现 JVM 监控不可用（2020年9月2日前导入集群的节点默认没有携带可以支持 JVM 监控的探针），针对虚拟机部署的业务，可以通过重新导入集群或重新安装 Agent 来使用 JVM 监控能力。针对容器部署的业务，则需要在 Dockerfile 中增加 JVM 监控组件 `TencentCloudJvmMonitor-1.1.2`（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.1.2-RELEASE.jar)）。容器部署详细操作请参考 [制作容器镜像](https://cloud.tencent.com/document/product/649/50610)。
 >- 如果您在使用时遇到问题，请参考 [JVM 监控常见问题](https://cloud.tencent.com/document/product/649/42891)。
 
 
 ## 操作步骤
 ### 进入实例监控详情页
 1. 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf/index)。 
-2. 在左侧菜单栏中，单击运维中心分类下的【监控】>【JVM 监控】。
+2. 在左侧菜单栏中，单击运维中心分类下的【JVM 监控】。
 3. 在 JVM 监控的查询条件中，选择查询条件后，单击【查询】，符合条件的实例列表将会呈列在实例列表中。
  - 命名空间：选择您所需要查询的服务所在的命名空间
  - 服务：选择您所需要查询的服务
@@ -59,7 +59,7 @@ JVM 监控概览：
 
 
 #### 死锁检测
-在【线程详情】卡片中，但击【死锁检测】tab 卡片页中的【检测死锁】，实时检测当前进程中存在的死锁线程
+在【线程详情】卡片中，单击【死锁检测】tab 卡片页中的【检测死锁】，实时检测当前进程中存在的死锁线程
 ![](https://main.qcloudimg.com/raw/a699eb4518f1b6bf24ab6a2ee8dc06ea.jpg)
 >?死锁检测目前的实现，是可以打印互相死锁的线程栈；多个线程等待同一个死锁的情况下，并不能检测出全部的死锁线程，只能找到死锁的根源；建议修复死锁后，重复检测以确认不出现嵌套死锁。
 

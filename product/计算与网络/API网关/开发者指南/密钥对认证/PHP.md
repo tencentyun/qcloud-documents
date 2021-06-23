@@ -22,27 +22,27 @@
 <?php
 
 $dateTime = gmdate("D, d M Y H:i:s T");
-$SecretId = 'your SecretId'; // 密钥对的 SecretId
-$SecretKey = 'your SecretKey'; // 密钥对的 SecretKey
-$srcStr = "date: ".$dateTime."\n"."source: "."xxxxxx"; // 签名水印值，可填写任意值
+$SecretId = 'your SecretId'; # 密钥对的 SecretId
+$SecretKey = 'your SecretKey'; # 密钥对的 SecretKey
+$srcStr = "date: ".$dateTime."\n"."source: "."xxxxxx"; # 签名水印值，可填写任意值
 $Authen = 'hmac id="'.$SecretId.'", algorithm="hmac-sha1", headers="date source", signature="';
 $signStr = base64_encode(hash_hmac('sha1', $srcStr, $SecretKey, true));
-//echo $signStr;
+# echo $signStr;
 $Authen = $Authen.$signStr."\"";
 echo $Authen;
-#echo '</br>';
+# echo '</br>';
 
-$url = 'http://service-xxxxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com/release/yousa'; // 用户 API 的访问路径
+$url = 'http://service-xxxxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com/release/yousa'; # 用户 API 的访问路径
 $headers = array( 
-	'Host:service-xxxxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com', // 用户 API 所在服务的域名
+	'Host:service-xxxxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com', # 用户 API 所在服务的域名
 	'Accept:text/html, */*; q=0.01',
 	'Source: xxxxxx',
 	'Date: '.$dateTime,
 	'Authorization: '.$Authen,
 	'X-Requested-With: XMLHttpRequest',
-	'Accept-Encoding: gzip, deflate, sdch',
+	# 'Accept-Encoding: gzip, deflate, sdch',
 	
-	// 如果是微服务 API，Header 中需要添加'X-NameSpace-Code'、'X-MicroService-Name'两个字段，通用 API 不需要添加。
+	# 如果是微服务 API，Header 中需要添加'X-NameSpace-Code'、'X-MicroService-Name'两个字段，通用 API 不需要添加。
 	'X-NameSpace-Code: testmic',
 	'X-MicroService-Name: provider-demo'
 );
@@ -58,7 +58,7 @@ $data = curl_exec($ch);
 if (curl_errno($ch)) { 
 	print "Error: " . curl_error($ch); 
 } else { 
-	// Show me the result 
+	# Show me the result 
 	var_dump($data); 
 	curl_close($ch); 
 } 

@@ -47,7 +47,7 @@ systemctl start php-fpm
 3. <span id="step3"></span>执行以下命令，设定 root 帐户密码及基础配置，使 root 用户可以访问数据库。
 >!
 >- 针对首次登录 MariaDB 前执行以下命令进入用户密码及基础设置。
->- 首次提示输入 root 密码后按 **Enter** 直接进入 root 密码设置步骤，设置 root 密码时界面默认不显示，并再次输入确认。通过界面上的提示完成基础配置。
+>- 首次提示输入 root 密码后按 **Enter** 直接进入 root 密码设置步骤，设置 root 密码时界面默认不显示。其他基础配置请按界面的提示依次完成。
 > 
 ```
 mysql_secure_installation

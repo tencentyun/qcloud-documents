@@ -4,8 +4,8 @@
 
 | 平台 | 更新时间 | 版本 | SDK下载|文档|
 |---------|---------|---------|---------|---------|
-| 微信小游戏/QQ 小游戏/字节小游戏/百度小游戏<br>/OPPO 小游戏/vivo 小游戏/H5 小游戏（JavaScript） | 2021/01/06 |v1.3.8 | [下载](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/js_sdk/MGOBE_v1.3.8.zip) |<li>[快速入门](https://cloud.tencent.com/document/product/1038/33299)<br><li>  [JS SDK 使用流程](https://cloud.tencent.com/document/product/1038/33315) |
-| Unity SDK 更新 |  2021/01/06 |v1.3.2 | [下载](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/cs_sdk/Unity.Mgobe.package.unitypackage)  | <li>[C# SDK 使用流程](https://cloud.tencent.com/document/product/1038/45334) <br><li> [Unity 游戏项目](https://cloud.tencent.com/document/product/1038/45333) |
+| 微信小游戏/QQ 小游戏/字节小游戏/百度小游戏<br>/OPPO 小游戏/vivo 小游戏/H5 小游戏（JavaScript） | 2021/02/05 |v1.3.9 | [下载](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/js_sdk/MGOBE_v1.3.9.zip) |<li>[快速入门](https://cloud.tencent.com/document/product/1038/33299)<br><li>  [JS SDK 使用流程](https://cloud.tencent.com/document/product/1038/33315) |
+| Unity SDK 更新 |  2021/03/03 |v1.3.3 | [下载](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/cs_sdk/Unity.Mgobe.package.unitypackage)  | <li>[C# SDK 使用流程](https://cloud.tencent.com/document/product/1038/45334) <br><li> [Unity 游戏项目](https://cloud.tencent.com/document/product/1038/45333) |
 
 
 

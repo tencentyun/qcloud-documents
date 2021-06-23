@@ -1,4 +1,4 @@
-1. 在添加数据源首页单击【Mongo 数据库】，进入新建页面。新建的页面如下：
+1. 登录 [商业智能分析控制台](https://console.cloud.tencent.com/bi)，在添加数据源首页单击【Mongo 数据库】，进入新建页面。新建的页面如下：
    ![](https://main.qcloudimg.com/raw/b277fe6cb82415a7c3ef401430cd2734.png)
 2. 填写相应的 Mongo 数据库连接信息。
 <table>

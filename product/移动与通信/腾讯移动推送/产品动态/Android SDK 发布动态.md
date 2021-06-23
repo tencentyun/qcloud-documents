@@ -1,3 +1,41 @@
+## 2021年05月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.2.5.0 版本发布</td><td><li> 新增：新增标签查询接口
+<li>  新增：新增手机号码绑定接口，用于普通短信及智能短信发送
+<li>  新增：推送服务长连接支持 SSL 加密通信
+<li>  新增：账号绑定接口升级，新增多种预设账号类型
+<li>  修复：“清除全部通知”接口兼容清除小米厂商推送通知（MIUI 11 及以下版本小米设备）
+<li>  修复：支持荣耀手机应用角标展示</td>
+        <td>2021-05-26</td><td><li> 由于 Jcenter 下线，您可能遇到 SDK 依赖拉取问题，请参考 <a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a> 配置依赖仓库镜像源</li>
+<li> 新增的标签查询接口，需要注意在继承 <code>XGPushBaseReceiver</code> 的实现类中增加实现方法 <code>onQueryTagsResult</code></li><li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</li></li></td>
+    </tr>
+<tr>
+</table>
+
+## 2021年02月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.2.3.1 版本发布</td><td>修复：修复华为禁用组件逻辑错误</td>
+        <td>2021-02-04</td><td>-</td>
+    </tr>
+<tr>
+</table>
+
 ## 2021年01月
    <table>
 <tr>
@@ -6,11 +44,20 @@
     <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
+        <td>SDK 1.2.3.0 版本发布</td>
+<td><li>优化：网络通讯协议支持消息二次加密处理
+<li>优化：终端账号、标签、属性设置接口简化
+<li>新增：通知回调携带 traceId、templateId 字段
+<li>新增：支持新荣耀手机角标逻辑
+<li>修复：检查网络连接状态时偶发的 ANR 问题</td>
+        <td>2021-01-27</td>
+        <td>-</td>
+    </tr>
 <tr>
         <td>SDK 1.2.2.4 版本发布</td>
 <td><li>修复：FCM 通知 intent 字符串内特殊字符处理问题<li>修复：其他已知问题</td>
         <td>2021-01-18</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
+        <td>-</a></td>
     </tr>
 </table>
 
@@ -147,9 +194,9 @@
 </tr>
     <tr>
         <td>SDK 1.1.5.4 版本发布</td>
-        <td><li> 网络连接优化</li> <li> 增加账号类型</li> <li> 安全告警修复</li> <li> 兼容信鸽平台版本升级</li><li>获取 QIMEI 信息的功能</li> </td>
+        <td><li> 网络连接优化</li> <li> 增加账号类型</li> <li> 安全告警修复</li> <li> 兼容信鸽平台版本升级</li><li>获取 QIMEI 信息的功能</li><li>增加关闭联合保活功能</li></td>
         <td>2020-03-06</td>
-        <td><a href="https://cloud.tencent.com/document/product/548/41609#.E6.B3.A8.E9.94.80.E4.BF.A1.E9.B8.BD.E5.B9.B3.E5.8F.B0.E6.8E.A8.E9.80.81.E6.9C.8D.E5.8A.A1">注销信鸽平台推送服务</a></td>
+        <td>-</td>
     </tr>
 </table>
 

@@ -60,7 +60,6 @@ docs: [ { _id: 567a1bf26773935b3ff0b42a, a: 1, something: 'yy' } ]
 ```
 
 ## Node.js mongoose 连接示例
-
 ```
 var dbUri = "mongodb://" + user + ":" + password + "@" + host + ":" + port + "/" + dbName;
 var opts = {

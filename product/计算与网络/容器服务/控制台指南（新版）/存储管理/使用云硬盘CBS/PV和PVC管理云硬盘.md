@@ -14,11 +14,11 @@
 
 ### 控制台操作指引
 
-#### 通过控制台创建 StorageClass<span id="create"></span>
+#### 通过控制台创建 StorageClass[](id:create)
 由于静态创建云硬盘类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [创建 StorageClass](https://cloud.tencent.com/document/product/457/44239#create) 完成创建。
 
 
-#### 静态创建 PV<span id="pv"></span>
+#### 静态创建 PV[](id:pv)
 >? 静态创建 PV 适用于已有存量云盘，并在集群内使用的场景。
 >
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
@@ -42,7 +42,7 @@
 
 
 
-#### 创建 PVC<span id="createPVC2"></span>
+#### 创建 PVC[](id:createPVC2)
 1. 在集群详情页，选择左侧菜单栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/df6c4f1d31510fdcfa6cf9d914e8f382.png)
 2. 选择【新建】进入 “新建PersistentVolumeClaim” 页面，参考以下信息进行创建。如下图所示：
@@ -79,49 +79,49 @@
        - **目标路径**：填写目标路径，本文以 `/cache` 为例。
        - **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如，`/data` 或 `/test.txt`。
 4. 单击【创建Workload】即可完成创建。
- > ! 如使用 PVC 挂载模式，则数据卷只能挂载到一台 Node 主机上。
+ > ! 如使用 CBS 的 PVC 挂载模式，则数据卷只能挂载到一台 Node 主机上。
 
 ### Kubectl 操作指引
 
 您可通过以下 YAML 示例文件，使用 Kubectl 进行创建操作。
 
 
-#### （可选）创建 PV<span id="createPV"></span>
+#### （可选）创建 PV[](id:createPV)
 
 可以通过已有云硬盘创建 PV，也可以直接 [创建 PVC](#createPVC) ，系统将自动创建对应的 PV。YAML 文件示例如下：
 ```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nginx-pv
+   name: nginx-pv
 spec:
-  capacity:
-    storage: 10Gi
-  accessModes:
-    - ReadWriteOnce
-  qcloudCbs:
-      cbsDiskId: disk-xxxxxxx ## 指定已有的CBS id
-      fsType: ext4
-  storageClassName: cbs
+   capacity:
+     storage: 10Gi
+   accessModes:
+     - ReadWriteOnce
+   qcloudCbs:
+       cbsDiskId: disk-xxxxxxx ## 指定已有的CBS id
+       fsType: ext4
+   storageClassName: cbs
 ```
 
 
 
-#### 创建 PVC<span id="createPVC"></span>
+#### 创建 PVC[](id:createPVC)
 
 若未 [创建 PV](#createPV)，则在创建 PVC 时，系统将自动创建对应的 PV。YAML 文件示例如下：
 ```yaml
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: nginx-pv-claim
+   name: nginx-pv-claim
 spec:
-  storageClassName: cbs
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
+   storageClassName: cbs
+   accessModes:
+     - ReadWriteOnce
+   resources:
+     requests:
+       storage: 10Gi
 ```
 - 普通云盘大小必须是10的倍数，最小为10GB。
 - 高性能云硬盘最小为50GB。
@@ -134,26 +134,26 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+   name: nginx-deployment
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      qcloud-app: nginx-deployment
-  template:
-    metadata:
-      labels:
-        qcloud-app: nginx-deployment
-    spec:
-      containers:
-      - image: nginx
-        imagePullPolicy: Always
-        name: nginx
-        volumeMounts:
-        - mountPath: "/opt/"
-          name: pvc-test
-      volumes:
-      - name: pvc-test
-        persistentVolumeClaim:
-          claimName: nginx-pv-claim # 已经创建好的 PVC
+   replicas: 1
+   selector:
+     matchLabels:
+       qcloud-app: nginx-deployment
+   template:
+     metadata:
+       labels:
+         qcloud-app: nginx-deployment
+     spec:
+       containers:
+       - image: nginx
+         imagePullPolicy: Always
+         name: nginx
+         volumeMounts:
+         - mountPath: "/opt/"
+           name: pvc-test
+       volumes:
+       - name: pvc-test
+         persistentVolumeClaim:
+           claimName: nginx-pv-claim # 已经创建好的 PVC
 ```

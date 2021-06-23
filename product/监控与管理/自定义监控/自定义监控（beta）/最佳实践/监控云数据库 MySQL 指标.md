@@ -1,5 +1,4 @@
-> !新版自定义监控已灰度上线，如需使用可进入 [申请页面](https://cloud.tencent.com/apply/p/4v84kyrkl0g) 申请体验。
-> 若在使用过程中遇到任何问题，您可以加入自定义监控交流 QQ 群（793979710）进行咨询，我们将竭诚为您服务！
+> !新版自定义监控开正在开发中，目前自定义监控暂不支持申请使用。
 
 本文介绍如何使用 Shell 命令+SDK 方式上报云数据库 MySQL 的指标至自定义监控，查看指标并配置告警。
 
@@ -169,4 +168,5 @@ APPID：125xxxxxxx
 | 异常连接数    | Aborted_connects              | 次   |
 | 行锁等待时间  | Innodb_row_lock_current_waits | 秒   |
 | MySQL 运行时间 | MySQL_uptime                  | 秒   |
+
 

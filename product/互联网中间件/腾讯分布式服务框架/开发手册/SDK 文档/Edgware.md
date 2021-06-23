@@ -2,6 +2,21 @@
 
 >!2020年5月19日起，TSF 主要支持 Greenwich 和 Finchley 版本的功能更新，Edgware 版本主要进行缺陷修复，建议您优先使用 Finchley和 Greenwich 版本（[社区 Edgware 版本](https://spring.io/blog/2019/05/29/spring-cloud-edgware-sr6-released) 于2019年8月停止更新）。
 
+## 1.21.5-Edgware-RELEASE（2021-02-07）
+### Bug 修复
+- 处理 Spring 组件开源漏洞风险，升级 Spring Framework 到4.3.29版本。
+- spring-cloud-tsf-core 修复与 spring-boot-devtools 的冲突。
+- 修复多个限流规则时，全局限流无法关闭的问题。
+- 修复路由关闭问题。
+- 修复网关多个命名空间时 consul index 混用导致第一次跨命名空间调用加载慢的问题。
+- 修复分布式配置下发 spring.application.name 时，无法上报 swagger 问题。
+- 修复服务治理时 API PATH 标签匹配 PATH 参数失败问题。
+- 修复泳道规则内存可见性 Bug。
+
+### 优化
+- 心跳请求增加重试。
+- 解析 input stream 失败只是打 warn 日志，不抛异常
+
 ## 1.21.4-Edgware-RELEASE（2020-08-20）
 ### Bug 修复
 - 修复 MySQL 调用链数据对多数据源支持。

@@ -9,7 +9,7 @@
 - Node.js 10.0.0 版本及以上。
 - 从 [腾讯云控制台](https://console.cloud.tencent.com/) 开通相应产品。
 - 获取安全凭证。安全凭证包括 SecretID 和 SecretKey 两个部分。SecretID 是用于标识 API 调用者的身份，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥。请前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取，如下图所示：
-![](https://main.qcloudimg.com/raw/83c7610394b1a0423d1601ea7e956594.png)
+![](https://main.qcloudimg.com/raw/e1a08030cdea91edcc2c650c2c2292f0.png)
 >!**您的安全凭证代表您的账号身份和所拥有的权限，等同于您的登录密码，SecretKey 必须严格保管，避免泄露。**
 - 获取调用地址。调用地址（endpoint）一般形式为`\*.tencentcloudapi.com`，产品的调用地址有一定区别，如云服务器 CVM 的调用地址为 `cvm.tencentcloudapi.com`，具体调用地址可参见对应产品的 [API文档](https://cloud.tencent.com/document/api)。
 
@@ -24,6 +24,9 @@
 npm install tencentcloud-sdk-nodejs --save
 ```
 2. 在您的代码中引用对应模块代码，可参考下文使用 SDK 示例。
+>?
+>- 如上引用方式会将腾讯云所有产品 SDK 下载到本地，可以将`tencentcloud-sdk-nodejs`换成`tencentcloud-sdk-nodejs-cvm/cbs/vpc`等，即可引用特定产品的 SDK，代码中可将`require("tencentcloud-sdk-nodejs")`改为 `require("tencentcloud-sdk-nodejs-cvm/cbs/vpc")`，其余不变，可参考示例，可大大节省存储空间。
+>- 更多 SDK 支持的云产品，请参见 [云产品名列表](https://cloud.tencent.com/document/product/494/42698#.E6.94.AF.E6.8C.81-sdk-3.0.E7.89.88.E6.9C.AC.E7.9A.84.E4.BA.91.E4.BA.A7.E5.93.81.E5.88.97.E8.A1.A8)。
 
 ### 方式二：通过源码包安装
 

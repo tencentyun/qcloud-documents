@@ -2,7 +2,7 @@
 
 ## 前提条件
 - 已在 Windows10 系统上安装 Outlook 客户端。
-- 已 [申请购买邮件（S/MIME）证书](https://cloud.tencent.com/apply/p/cn69mmv599k)。
+- 已 [申请购买邮件（S/MIME）证书](https://da.do/6g0p)。
 
 
 ## 操作步骤

@@ -221,24 +221,24 @@ Namespace=QCE/TXMR_YARN
 
 ## 各维度对应参数总览
 
-| 参数名称                       | 维度名称                  | 维度解释                      | 格式                                                |
-| ------------------------------ | ------------------------- | ----------------------------- | --------------------------------------------------- |
-| Instances.N.Dimensions.0.Name  | id4yarnoverview           | EMR 实例 ID 的维度名称        | 输入  String 类型维度名称：id4yarnoverview          |
-| Instances.N.Dimensions.0.Value | id4yarnoverview           | EMR  实例具体 ID              | 输入  EMR 具体实例 ID，例如 ：emr-mm8bs222          |
-| Instances.N.Dimensions.1.Name  | host4yarnoverview         | EMR  实例中节点 IP 的维度名称 | 输入String  类型维度名称：host4yarnoverview         |
-| Instances.N.Dimensions.1.Value | host4yarnoverview         | EMR  实例中具体节点 IP        | 输入具体节点  IP ，例如：1.1.1.1                    |
-| Instances.N.Dimensions.0.Name  | id4yarnresourcemanager    | EMR 实例 ID 的维度名称        | 输入 String  类型维度名称：id4yarnresourcemanager   |
-| Instances.N.Dimensions.0.Value | id4yarnresourcemanager    | EMR 实例具体 ID               | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222          |
-| Instances.N.Dimensions.1.Name  | host4yarnresourcemanager  | EMR 实例中节点 IP 的维度名称  | 输入String  类型维度名称：host4yarnresourcemanager  |
-| Instances.N.Dimensions.1.Value | host4yarnresourcemanager  | EMR 实例中具体节点 IP         | 输入具体节点 IP ，例如：1.1.1.1                     |
-| Instances.N.Dimensions.0.Name  | id4yarnjobhistoryserver   | EMR  实例 ID 的维度名称       | 输入 String  类型维度名称：id4yarnjobhistoryserver  |
-| Instances.N.Dimensions.0.Value | id4yarnjobhistoryserver   | EMR  实例具体 ID              | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222          |
-| Instances.N.Dimensions.1.Name  | host4yarnjobhistoryserver | EMR  实例中节点 IP 的维度名称 | 输入String  类型维度名称：host4yarnjobhistoryserver |
-| Instances.N.Dimensions.1.Value | host4yarnjobhistoryserver | EMR  实例中具体节点 IP        | 输入具体节点 IP ，例如：1.1.1.1                     |
-| Instances.N.Dimensions.0.Name  | id4yarnnodemanager        | EMR 实例 ID 的维度名称        | 输入 String  类型维度名称：id4yarnnodemanager       |
-| Instances.N.Dimensions.0.Value | id4yarnnodemanager        | EMR 实例具体 ID               | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222          |
-| Instances.N.Dimensions.1.Name  | host4yarnnodemanager      | EMR 实例中节点 IP 的维度名称  | 输入String  类型维度名称：host4yarnnodemanager      |
-| Instances.N.Dimensions.1.Value | host4yarnnodemanager      | EMR 实例中具体节点 IP         | 输入具体节点 IP ，例如：1.1.1.                      |
+| 参数名称                       | 维度名称                  | 维度解释                      | 格式                                                         |
+| ------------------------------ | ------------------------- | ----------------------------- | ------------------------------------------------------------ |
+| Instances.N.Dimensions.0.Name  | id4yarnoverview           | EMR 实例 ID 的维度名称        | 输入  String 类型维度名称：id4yarnoverview                   |
+| Instances.N.Dimensions.0.Value | id4yarnoverview           | EMR  实例具体 ID              | 输入  EMR 具体实例 ID，例如 ：emr-mm8bs222                   |
+| Instances.N.Dimensions.1.Name  | host4yarnoverview         | EMR  实例中节点 IP 的维度名称 | 输入String  类型维度名称：host4yarnoverview                  |
+| Instances.N.Dimensions.1.Value | host4yarnoverview         | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | id4yarnresourcemanager    | EMR 实例 ID 的维度名称        | 输入 String  类型维度名称：id4yarnresourcemanager            |
+| Instances.N.Dimensions.0.Value | id4yarnresourcemanager    | EMR 实例具体 ID               | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222                   |
+| Instances.N.Dimensions.1.Name  | host4yarnresourcemanager  | EMR 实例中节点 IP 的维度名称  | 输入String  类型维度名称：host4yarnresourcemanager           |
+| Instances.N.Dimensions.1.Value | host4yarnresourcemanager  | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | id4yarnjobhistoryserver   | EMR  实例 ID 的维度名称       | 输入 String  类型维度名称：id4yarnjobhistoryserver           |
+| Instances.N.Dimensions.0.Value | id4yarnjobhistoryserver   | EMR  实例具体 ID              | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222                   |
+| Instances.N.Dimensions.1.Name  | host4yarnjobhistoryserver | EMR  实例中节点 IP 的维度名称 | 输入String  类型维度名称：host4yarnjobhistoryserver          |
+| Instances.N.Dimensions.1.Value | host4yarnjobhistoryserver | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | id4yarnnodemanager        | EMR 实例 ID 的维度名称        | 输入 String  类型维度名称：id4yarnnodemanager                |
+| Instances.N.Dimensions.0.Value | id4yarnnodemanager        | EMR 实例具体 ID               | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222                   |
+| Instances.N.Dimensions.1.Name  | host4yarnnodemanager      | EMR 实例中节点 IP 的维度名称  | 输入String  类型维度名称：host4yarnnodemanager               |
+| Instances.N.Dimensions.1.Value | host4yarnnodemanager      | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 
 ## 入参说明
 
@@ -275,3 +275,5 @@ Namespace=QCE/TXMR_YARN
 &Instances.N.Dimensions.0.Value=EMR 实例 ID 
 &Instances.N.Dimensions.1.Name=host4yarnnodemanager
 &Instances.N.Dimensions.1.Value=EMR实例中具体节点 IP 
+
+

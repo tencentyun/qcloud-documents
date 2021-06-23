@@ -1,7 +1,7 @@
 ## 效果展示
 <table>
 <tr><th>主动呼叫</th><th>呼叫接听</th></tr>
-<tr><td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/videocall/group-call.gif"/></td><td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/videocall/group-recv.gif"/></td>
+<tr><td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-call.gif"/></td><td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-recv.gif"/></td>
 </tr></table>
 
 
@@ -26,7 +26,7 @@
 
 ### 步骤2：下载 SDK 和 Demo 源码
 
-1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS)】跳转至 Github（或单击【[ZIP](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
+1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS)】跳转至 Github（或单击【[ZIP](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_iOS_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
    ![](https://main.qcloudimg.com/raw/716b5af9207ad2b11835dec4e2d15da0.png)
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
 

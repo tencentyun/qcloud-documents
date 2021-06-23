@@ -12,7 +12,9 @@
 8. 停止录制。
 9. 停止播放 BGM。
 
-```objc
+
+<dx-codeblock>
+::: ios objc
 //开启画面预览
 recorder = [TXUGCRecord shareInstance];
 [recorder startCameraCustom:param preview:preview];
@@ -73,4 +75,5 @@ TXUGCPartsManager *partsManager = recorder.partsManager;
 
 //合成所有片段视频
 [partsManager joinAllParts: videoOutputPath complete:complete];
-```
+:::
+</dx-codeblock>

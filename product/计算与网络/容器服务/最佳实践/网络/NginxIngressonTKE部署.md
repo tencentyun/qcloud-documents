@@ -16,7 +16,7 @@ Nginx Ingress 有以下两种实现方式，本文重点对 Kubernetes 开源社
 2. [Daemonset + HostNetwork + LB](#step2)：使用 hostNetwork 性能好，但需要手动维护 CLB 和 Nginx Ingress 节点，也无法实现自动扩缩容，不太建议用此方案。
 3. [Deployment + LB 直通 Pod](#step3)：性能好，而且不需要手动维护 CLB，是理想解决方案。但在此方案中需要集群支持 VPC-CNI，如果已有集群本身用的 VPC-CNI 网络插件，或者用的 Global Router 网络插件并开启了 VPC-CNI 的支持（两种模式混用），建议使用此方案。
 
-## 方案1： Deployment + LB<span id="step1"></span>
+## 方案1： Deployment + LB[](id:step1)
 
 在 TKE 上部署 Nginx Ingress 最简单的方式是将 Nginx Ingress Controller 以 Deployment 的方式部署，并且为其创建 LoadBalancer 类型的 Service（自动创建负载均衡 CLB 或绑定已有 CLB），使 CLB 接收外部流量，再转发到 Nginx Ingress 内部。如下图所示：
 <img style="width:450px" src="https://main.qcloudimg.com/raw/337cf2fa30cb27f89eed438b0458d557.png" data-nonescope="true">
@@ -29,7 +29,7 @@ kubectl create ns nginx-ingress
 kubectl apply -f https://raw.githubusercontent.com/TencentCloudContainerTeam/manifest/master/nginx-ingress/nginx-ingress-deployment.yaml -n nginx-ingress
 ```
 
-## 方案2： Daemonset + HostNetwork + LB<span id="step2"></span>
+## 方案2： Daemonset + HostNetwork + LB[](id:step2)
 
 在方案1中，流量会经过一层 NodePort，会多一层转发。因此存在以下问题：
 - 转发路径较长，流量到 NodePort 后会再经过 Kubernetes 内部 LB，通过 Iptables 或 IPVS 转发到 Nginx，会增加网络耗时。
@@ -54,7 +54,7 @@ kubectl apply -f https://raw.githubusercontent.com/TencentCloudContainerTeam/man
 ```
 3. 手动创建 CLB，及创建80和443端口的 TCP 监听器，分别绑定已部署 Nginx Ingress 节点的80和443端口。
 
-## 方案3：Deployment + LB 直通 Pod<span id="step3"></span>
+## 方案3：Deployment + LB 直通 Pod[](id:step3)
 
 方案2相比方案1更有优势，但仍存在以下问题：
 - 提高了手动维护 CLB 和 Nginx Ingress 节点的运维成本。
@@ -120,7 +120,7 @@ metadata:
 
 
 
-### 如何创建 Ingress?<span id="ingress"></span>
+### 如何创建 Ingress?[](id:ingress)
 当您在 TKE 上自行部署 Nginx Ingress，需使用 Nginx Ingress 管理 Ingress 时，在容器服务控制台上无法创建 Ingress 时，可通过 YAML 的方式来创建 Ingress 并且需要给每个 Ingress 都指定 Ingress Class 的 annotation。请参考以下代码：
 ```
 apiVersion: networking.k8s.io/v1beta1

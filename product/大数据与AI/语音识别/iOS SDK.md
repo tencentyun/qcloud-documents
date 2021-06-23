@@ -2,23 +2,16 @@ iOS SDK 接入请观看视频：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1692-20714?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 接入准备
-
 ### SDK 获取
-
-一句话识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sentence/QCloudSDK_iOS.zip)。
+一句话识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_IOS_v2.6.0.zip)。
 
 ### 接入须知
-
-+ 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308) ，了解接口的**使用要求**和**使用步骤**。
-+ 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等），且系统为 **iOS 9.0**及以上版本。
-
+- 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的**使用要求**和**使用步骤**。
+- 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等），且系统为 **iOS 9.0**及以上版本。
 
 ### 开发环境
-
 在工程` info.plist` 添加以下设置：
-
 + **设置 NSAppTransportSecurity 策略，添加如下内容：**
-
 ```objective-c
   <key>NSAppTransportSecurity</key>
   <dict>
@@ -38,16 +31,12 @@ iOS SDK 接入请观看视频：
 	</dict>
     </dict>
 ```
-
 + **申请系统麦克风权限，添加如下内容：**
-
 ```objective-c
    <key>NSMicrophoneUsageDescription</key>
    <string>需要使用了的麦克风采集音频</string>
 ```
-
 + **在工程中添加依赖库，在建阶段链接二进制与库中添加以下库：**
-
    + AVFoundation.framework
    + AudioToolbox.framework
    + QCloudSDK.framework
@@ -57,13 +46,9 @@ iOS SDK 接入请观看视频：
 添加完如下图所示：
 ![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
 
-
 ## 快速接入
-
 ### 开发流程及接入示例
-
-1）**创建 QCloudSentenceRecognizer 实例** 
-
+1. **创建 QCloudSentenceRecognizer 实例** 
 ```objective-c
   QCloudSentenceRecognizer *recognizer = [[QCloudSentenceRecognizer alloc] initWithAppId:appId 
   									        secretId:secretId 
@@ -71,12 +56,9 @@ iOS SDK 接入请观看视频：
   //设置delegate，相关回调方法见QCloudOneSentenceRecognizerDelegate定义
  recognizer.delegate = self;
 ```
-2）**实现此 QCloudSentenceRecognizerDelegate 协议方法**
-
-3）**调用示例**
-
-+ **a. 通过语音 URL 调用**
-
+2. **实现此 [QCloudSentenceRecognizerDelegate](#QCloudSentenceRecognizerDelegate) 协议方法**
+3. **调用示例**
+ + **通过语音 URL 调用**
 ```objective-c
 - (void)recognizeWithUrl {
 //语音数据url
@@ -85,9 +67,7 @@ NSString *url = @"https://asr-audio-1256237915.cos.ap-shanghai.myqcloud.com/30s.
   [_recognizer recoginizeWithUrl:url voiceFormat:kQCloudVoiceFormatWAV frequence:kQCloudEngSerViceType16k];
 }
 ```
-
-+ **b. 通过语音数据调用**
-
+ + **通过语音数据调用**
 ```objective-c
 - (void)recognizeWithAudioData {
    //语音数据
@@ -97,9 +77,7 @@ NSString *url = @"https://asr-audio-1256237915.cos.ap-shanghai.myqcloud.com/30s.
    [_recognizer recoginizeWithData:audioData voiceFormat:kQCloudVoiceFormatWAV frequence:kQCloudEngSerViceType16k];
 }
 ```
-
-+ **c. 通过指定参数调用**
-
+ + **通过指定参数调用**
 ```objective-c
 - (void)recognizeWithParams {
    NSString *url = @"https://asr-audio-1256237915.cos.ap-shanghai.myqcloud.com/30s.wav";
@@ -116,20 +94,15 @@ NSString *url = @"https://asr-audio-1256237915.cos.ap-shanghai.myqcloud.com/30s.
    [_recognizer recognizeWithParams:params];
 }
 ```
-
-+ **d. 通过 SDK 内置录音器调用**
-
+ - **通过 SDK 内置录音器调用**
 ```objective-c
 - (void)recognizeWithRecorder {
    [_recognizer startRecognizeWithRecorder];
 }
 ```
 
-
-
 ### 主要接口类说明
-**QCloudSentenceRecognizer 初始化说明**
-
+#### QCloudSentenceRecognizer 初始化说明
 QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方法。
 
 ```objective-c
@@ -147,8 +120,7 @@ QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方�
 - (instancetype)initWithAppId:(NSString *)appid secretId:(NSString *)secretId secretKey:(NSString *)secretKey;
 ```
 
-**QCloudConfig 初始化方法说明**
-
+#### QCloudConfig 初始化方法说明
 参考一句话识别接口说明中的使用步骤，获取 AppID、SecretID 和 SecretKey。
 
 ```objective-c
@@ -165,10 +137,8 @@ QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方�
                     projectId:(NSString *)projectId;
 ```
 
-**QCloudSentenceRecognizerDelegate 说明**
-
+#### QCloudSentenceRecognizerDelegate 协议说明[](id:QCloudSentenceRecognizerDelegate)
 此 delegate 为一句话识别相关回调，调用者需要实现此 delegate 获取识别结果、开始录音、结束录音事件。
-
 ```objective-c
 @protocol QCloudSentenceRecognizerDelegate <NSObject>
 @required
@@ -191,11 +161,8 @@ QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方�
 /**
  * 录音音量实时回调用
  * @param recognizer 识别器实例
- * @param volume 声音音量，取值范围（-40-0)
+ * @param volume 声音音量，取值范围（-40-0）
  */
 - (void)oneSentenceRecognizerDidUpdateVolume:(QCloudSentenceRecognizer *)recognizer volume:(float)volume;
 @end
 ```
-
-
-

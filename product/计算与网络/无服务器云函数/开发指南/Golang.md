@@ -6,8 +6,8 @@
 
 Golang 函数形态一般如下所示：
 
-```golang
-
+<dx-codeblock>
+:::  golang
 package main
 
 import (
@@ -32,9 +32,8 @@ func main() {
 	// Make the handler available for Remote Procedure Call by Cloud Function
 	cloudfunction.Start(hello)
 }
-
-    
-```
+:::
+</dx-codeblock>
 
 代码开发时，请注意以下几点：
 
@@ -58,7 +57,7 @@ func main() {
 
 入口函数为通过 cloudfunction.Start 来启动的函数，通常通过入口函数来处理实际业务。入口函数的入参和返回值都需要根据一定的规范编写。
 
-#### 入参<span id="Participation"></span>
+#### 入参[](id:Participation)
 
 入口函数可以带有0 - 2个入参，例如：
 
@@ -78,7 +77,7 @@ func hello(ctx context.Context, event DefineEvent)
 >! 部分触发器传递的入参事件结构目前已有一部分已定义，可直接使用。您可通过 [cloud event 定义](https://github.com/tencentyun/scf-go-lib/tree/master/events) 获取 golang 的库并使用。通过在代码中引用 `import "github.com/tencentyun/scf-go-lib/events"` 来直接使用。如果使用过程中发现问题，可以通过 [提交 issue ](https://github.com/tencentyun/scf-go-lib/issues/new) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 说明。
 
 
-#### 返回值<span id="ReturnValue"></span>
+#### 返回值[](id:ReturnValue)
 
 入口函数可以带有0 - 2个返回值，例如：
 
@@ -105,7 +104,7 @@ func hello()(string, error)
 
 Golang 环境的云函数，仅支持 zip 包上传，您可以选择使用本地上传 zip 包或通过 COS 对象存储引用 zip 包。zip 包内包含的应该是编译后的可执行二进制文件。
 
-Golang 编译可以在任意平台上通过制定 OS 及 ARCH 完成跨平台的编译，因此在 Linux，Windows 或 MacOS 下都可以进行编译。
+Golang 编译可以在任意平台上通过指定 OS 及 ARCH 完成跨平台的编译，因此在 Linux，Windows 或 MacOS 下都可以进行编译。
 
 - 在 Linux 或 MacOS 的终端通过如下方法完成编译及打包：
 ```
@@ -142,6 +141,6 @@ Golang 开发语言仅支持通过使用 本地 zip 文件上传、COS 上传等
 
 ## 更多指引
 您可参考以下文档，使用相关功能：
-- [使用 SCF 连接数据库](<https://cloud.tencent.com/document/product/583/38012>)
-- [网络配置管理](<https://cloud.tencent.com/document/product/583/38202>)
-- [角色与授权](<https://cloud.tencent.com/document/product/583/32389>)
+- [使用 SCF 连接数据库](https://cloud.tencent.com/document/product/583/38012)
+- [网络配置管理](https://cloud.tencent.com/document/product/583/38202)
+- [角色与授权](https://cloud.tencent.com/document/product/583/32389)

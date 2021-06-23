@@ -93,7 +93,7 @@ spec:
 ```
 
 #### 使用
-1. <span id="step1"></span>执行以下命令，设置升级镜像和一次性参数。
+1. [](id:step1)执行以下命令，设置升级镜像和一次性参数。
 ```
 $ cat example/patch.yaml
 template:

@@ -3,7 +3,6 @@ table th:nth-of-type(1) { width:16%; }
 table th:nth-of-type(2){ width:84%; } 
 </style>
 
-
 本文详细描述了通过 CDN 控制台实现 CDN 加速 CVM 的整体操作流程和具体操作方法。
 
 ## 前提条件

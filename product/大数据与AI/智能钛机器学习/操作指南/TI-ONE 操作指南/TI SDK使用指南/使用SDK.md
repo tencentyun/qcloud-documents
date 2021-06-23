@@ -138,7 +138,6 @@ GPU 算力（V100）
 | TI.GN10X.18XLARGE320.8xV100 |
 
 - `train_volume_size`：int 附加的云硬盘大小，单位 GB。
-
 - `entry_point`：str 训练任务的执行入口点名称。例如下面的代码路径中，mnist.py 为训练任务执行入口点，而 np_convert.py 和 image_convert.py 分别为依赖的代码。
 
 ```
@@ -149,7 +148,6 @@ GPU 算力（V100）
 ```
 
 - `source_dir`：str 训练任务的代码路径，将会统一压缩代码路径上传至用户 COS 中。
-
 - `hyperparameters`：dict 超级参数，将传递到训练容器中。
 - `train_max_run`：int 最大运行时间，单位秒，超过设定时间若训练未完成，TI 会终止训练任务（默认值：24 * 60 * 60）。
 - `input_mode`：输入类型，默认 File。

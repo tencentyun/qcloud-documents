@@ -5,7 +5,7 @@ StatefulSet 主要用于管理有状态的应用，创建的 Pod 拥有根据规
 ## StatefulSet 控制台操作指引
 
 
-### 创建 StatefulSet<span id="createStatefulSet"></span>
+### 创建 StatefulSet[](id:createStatefulSet)
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2. 单击需要创建 StatefulSet 的集群 ID，进入待创建 StatefulSet 的集群管理页面。
 3. 选择【工作负载】>【StatefulSet】，进入 StatefulSet 管理页面。如下图所示：
@@ -50,7 +50,7 @@ StatefulSet 主要用于管理有状态的应用，创建的 Pod 拥有根据规
 ## Kubectl 操作 StatefulSet 指引
 
 
-### YAML 示例<span id="YAMLSample"></span>
+### YAML 示例[](id:YAMLSample)
 
 ```Yaml
 apiVersion: v1

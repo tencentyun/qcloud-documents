@@ -41,7 +41,7 @@ kubectl create -f kibana.yaml
 Logstash 是开源的日志分析处理程序，能够从多种源采集转换数据，例如 Syslog、Filebeat、Kafka 等，并支持将数据发送到 Elasticsearch。
 本示例搭建的 Logstash 默认从配置的 Kafka 中读取数据并将其发送至已部署的 Elasticsearch 服务。
 1. 登录 [TKE 控制台](https://console.cloud.tencent.com/tke2)，单击已部署 Elasticsearch + Kibana 的集群，进入集群 Deployment 页面。
-2. <span id="step2"></span>选择【服务】>【Service】，进入 Service 详情页，即可查看已创建 Elasticsearch 的服务 IP。如下图所示：
+2. [](id:step2)选择【服务】>【Service】，进入 Service 详情页，即可查看已创建 Elasticsearch 的服务 IP。如下图所示：
 ![](https://main.qcloudimg.com/raw/f9671468af487a04b6e5871b5d968a71.png)
 3. 依次执行以下命令，修改 `/tmp/kubernetes-elasticsearch/logstash-config.yaml`。
 ```

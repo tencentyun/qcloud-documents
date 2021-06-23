@@ -1,5 +1,4 @@
 
-
 Real Time-Thread（以下简称 RT-Thread）是一个嵌入式实时多线程操作系统，C SDK 支持以 [软件包](https://github.com/tencentyun/tencent-cloud-iot-package-for-rtthread) 的形式应用到 RT-Thread 操作系统，本文向您介绍如何使用 RT-Thread 快速接入腾讯云物联网开发平台。
 
 ## 操作步骤

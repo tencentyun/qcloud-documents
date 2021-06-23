@@ -44,6 +44,7 @@
 | [openCamera()](#opencamera())                                                                 | 启动摄像头         |
 | [closeCamera()](#closecamera())                                                               | 关闭摄像头         |
 | [setMicMute(isMute)](#setmicmute(ismute))                                                     | 设备麦克风是否静音 |
+| [setVideoQuality(profile)](#setvideoquality(profile)) | 设置视频质量|
 
 
 ## TRTCCalling 详解
@@ -179,8 +180,8 @@ trtcCalling.groupCall({userIDList, type, groupID})
 
 <dx-codeblock>
 ::: javascript javascript
-import TrtcCalling from 'trtc-calling-js';
-trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
+import TRTCCalling from 'trtc-calling-js';
+trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
   trtcCalling.accept({inviteID, roomID, callType})
 })
@@ -202,8 +203,8 @@ trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 
 <dx-codeblock>
 ::: javascript javascript
-import TrtcCalling from 'trtc-calling-js';
-trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
+import TRTCCalling from 'trtc-calling-js';
+trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
   trtcCalling.reject({inviteID, isBusy, callType})
 })
@@ -329,20 +330,38 @@ trtcCalling.setMicMute(true) // 开启麦克风
 | ------ | ------- | -------------------------------------------- |
 | isMute | Boolean | <li/>true: 麦克风关闭 <li/>false: 麦克风打开 |
 
+####  setVideoQuality(profile) 
+设置视频质量。
+>?  
+>- v0.8.0 及其之后版本，新增该方法。
+>- 此方法需在 call、groupCall、accept 之前设置，之后设置不生效。
+
+<dx-codeblock>
+::: javascript javascript
+trtcCalling.setVideoQuality('720p') // 设置视频质量为720p
+:::
+</dx-codeblock>
+
+参数如下表所示：
+
+| 参数   | 类型    | 含义                                         |
+| ------ | ------- | -------------------------------------------- |
+| profile | String | <li/>480p：640 × 480 <li/>720p：1280 × 720  <li/>1080p：1920 × 1080  |
+
 
 [](id:event)
 ## TRTCCalling 事件表
 
-您可以参考如下代码捕获来自 TRTCCalling 组件的各种事件：
+您可以参考如下代码监听 [TRTCCalling 组件事件](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/module-EVENT.html)：
 
 <dx-codeblock>
 ::: javascript javascript
-import TrtcCalling from 'trtc-calling-js';
+import TRTCCalling from 'trtc-calling-js';
 // etc
 function handleInviteeReject({userID}) {
 
 }
-trtcCalling.on(TrtcCalling.EVENT.REJECT, handleInviteeReject)
+trtcCalling.on(TRTCCalling.EVENT.REJECT, handleInviteeReject)
 :::
 </dx-codeblock>
 
@@ -489,7 +508,7 @@ function handleInviteeReject({userID}) {
 
 <dx-codeblock>
 ::: javascript javascript
-function handleNoResponse({userID}) {
+function handleNoResponse({userID, userIDList}) {
 
 }
 :::
@@ -497,9 +516,10 @@ function handleNoResponse({userID}) {
 
 参数如下表所示：
 
-| 参数   | 类型   | 含义    |
-| ------ | ------ | ------- |
-| userID | String | 用户 ID |
+| 参数       | 类型   | 含义         |
+| ---------- | ------ | ------------ |
+| userID     | String | 用户 ID      |
+| userIDList | Array  | 超时用户列表 |
 
 #### LINE_BUSY
 
@@ -574,7 +594,7 @@ function handleCallTimeout() {
 
 <dx-codeblock>
 ::: javascript javascript
-import TrtcCalling from 'trtc-calling-js';
+import TRTCCalling from 'trtc-calling-js';
 let onError = function(error) {
   console.log(error)
 };

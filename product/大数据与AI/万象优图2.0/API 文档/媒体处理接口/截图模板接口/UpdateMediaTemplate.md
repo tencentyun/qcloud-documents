@@ -60,12 +60,12 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Mode                | Request.Snapshot | 截图模式 | String    | 是   | Interval | <li>值范围：{Interval, Average}<br/><li>Interval 表示间隔模式 Average 表示平均模式<br/><li> Interval 模式：Start，TimeInterval，Count 参数<br/>生效。当设置 Count，未设置 TimeInterval 时，表示<br/>截取所有帧，共 Count 张图片<br/><li>Average 模式：Start，Count 参数生效。表示<br/>从 Start 开始到视频结束，按平均间隔截取共 Count 张图片|
-| Start                | Request.Snapshot | 开始时间 | String    | 是   | 0 | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
-| TimeInterval         | Request.Snapshot | 截图频率 | String    | 否   | 无  | <li>(0 3600] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
+| Mode                | Request.Snapshot | 截图模式 | String    | 是   | Interval | <li>值范围：{Interval, Average}</li><li>Interval 表示间隔模式 Average 表示平均模式</li><li> Interval 模式：Start，TimeInterval，Count 参数<br/>生效。当设置 Count，未设置 TimeInterval 时，表示<br/>截取所有帧，共 Count 张图片</li><li>Average 模式：Start，Count 参数生效。表示<br/>从 Start 开始到视频结束，按平均间隔截取共 Count 张图片</li>|
+| Start                | Request.Snapshot | 开始时间 | String    | 是   | 0 | <li>[0 视频时长] </li><li>单位为秒 </li><li>支持 float 格式，执行精度精确到毫秒 |
+| TimeInterval         | Request.Snapshot | 截图时间间隔 | String    | 否   | 无  | <li>(0 3600] </li><li>单位为秒 </li><li>支持 float 格式，执行精度精确到毫秒</li> |
 | Count                | Request.Snapshot | 截图数量 | String    | 是   | 无  | (0 10000] |
-| Width                | Request.Snapshot | 宽 | String    | 否   |  视频原<br/>始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照视频原始比例计算 Height<br/> |
-| Height                | Request.Snapshot | 高 | String    | 否  | 视频原<br/>始高度  | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照视频原始比例计算 Width<br/> |
+| Width                | Request.Snapshot | 宽 | String    | 否   |  视频原<br/>始宽度 | <li>值范围：[128，4096]</li><li>单位：px</li><li>若只设置 Width 时，按照视频原始比例计算 Height</li> |
+| Height                | Request.Snapshot | 高 | String    | 否  | 视频原<br/>始高度  | <li>值范围：[128，4096]</li><li>单位：px</li><li>若只设置 Height 时，按照视频原始比例计算 Width</li>|
 
 
 ## 响应
@@ -130,6 +130,8 @@ Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
 
+
+
 <Request>
    <Tag>Snapshot</Tag>
    <Name>TemplateName</Name>
@@ -154,6 +156,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+
+
 
 <Response>
     <Template>

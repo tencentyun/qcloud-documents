@@ -1,0 +1,307 @@
+事件模式是事件总线 EventBridge 用来过滤相关事件的模式定义。事件总线 EventBridge 通过事件模式过滤事件并将事件路由到事件目标，事件模式必须和匹配的事件具有相同的结构。本文介绍事件模式的常用类型。
+
+## 注意事项
+
+事件模式匹配的原则如下：
+
+- 事件必须包含事件模式中列出的所有字段名，且事件模式里的字段名必须和事件中的字段名具有相同嵌套结构。
+- 事件模式是逐个字符精确匹配的 ，需注意大小写，匹配过程中不会对字符串进行任何标准化的操作。
+- 要匹配的值遵循 JSON 规则：用引号引起来的字符串、数字以及不带引号的关键字 true、false 和 null。
+
+## 指定值及 OR 和 AND 模式
+
+您可以指定某个字段的值进行匹配，对比值在 JSON 阵列中，以 [ ] 包围。 [ ] 内值为 OR，KEY 匹配为 AND。
+以 COS 数据为例，接收到的事件如下：
+
+<dx-codeblock>
+:::  json
+{
+	"specversion": "0",
+	"id": "13a3f42d-7258-4ada-da6d-023a333b4662",
+	"type": "cos:created:object",
+	"source": "cos.cloud.tencent",
+	"subjuect": "qcs::cos:ap-guangzhou:uid1250000000:bucketname",
+	"time": "1615430559146",
+	"region": "ap-guangzhou",
+	"datacontenttype": "application/json;charset=utf-8",
+	"resource": [
+		"qcs::eb:ap-guangzhou:uid1250000000:eventbusid/eventruleid"
+	],
+	"data": {
+		"name": "taborchen",
+		"scope": 100
+	}
+}
+:::
+</dx-codeblock>
+
+
+指定 data 字段的 name 值，可以被正常触发的规则如下：
+
+
+<dx-codeblock>
+:::  json
+{
+	"data": {
+		"name": [
+			"taborchen"
+		]
+	}
+}
+:::
+</dx-codeblock>
+
+
+## 前缀匹配
+
+您可以对比事件来源中的前缀进行键值匹配，例如 { "prefix": "2021-10-02" }。
+
+以 COS 数据为例，接收到的事件如下：
+
+
+<dx-codeblock>
+:::  json
+{
+	"specversion": "0",
+	"id": "13a3f42d-7258-4ada-da6d-023a333b4662",
+	"type": "cos:created:object",
+	"source": "cos.cloud.tencent",
+	"subjuect": "qcs::cos:ap-guangzhou:uid1250000000:bucketname",
+	"time": "1615430559146",
+	"region": "ap-guangzhou",
+	"datacontenttype": "application/json;charset=utf-8",
+	"resource": [
+		"qcs::eb:ap-guangzhou:uid1250000000:eventbusid/eventruleid"
+	],
+	"data": {
+		"name": "taborchen",
+		"scope": 100
+	}
+}
+:::
+</dx-codeblock>
+
+
+
+指定 data 字段的 name 的前缀匹配值，可以被正常触发的规则如下：
+
+
+<dx-codeblock>
+:::  json
+{
+   "data":{
+      "name":[
+         {
+            "prefix":"ta"
+         }
+      ]
+   }
+}
+:::
+</dx-codeblock>
+
+
+
+## 除外匹配
+
+您可以指定某个字段除了提供的值之外的任何值进行匹配，例如 { "anything-but": "initializing" }。
+
+以 COS 数据为例，接收到的事件如下：
+
+
+<dx-codeblock>
+:::  json
+{
+   "specversion":"0",
+   "id":"13a3f42d-7258-4ada-da6d-023a333b4662",
+   "type":"cos:created:object",
+   "source":"cos.cloud.tencent",
+   "subjuect":"qcs::cos:ap-guangzhou:uid1250000000:bucketname",
+   "time":"1615430559146",
+   "region":"ap-guangzhou",
+   "datacontenttype": "application/json;charset=utf-8",
+   "resource":[
+    "qcs::eb:ap-guangzhou:uid1250000000:eventbusid/eventruleid"
+   ],
+   "data":{
+      "name":"taborchen",
+      "scope":100
+   }
+}
+:::
+</dx-codeblock>
+
+
+
+指定 data 字段的 name 的前缀匹配值，可以被正常触发的规则如下：
+
+<dx-codeblock>
+:::  json
+{
+	"data": {
+		"name": [{
+			"anything-but": ["tabor1"]
+		}]
+	}
+}
+:::
+</dx-codeblock>
+
+
+
+指定 data 字段的 name 的前缀匹配值，不可以被正常触发的规则如下：
+
+
+<dx-codeblock>
+:::  json
+{
+	"data": {
+		"name": [{
+			"anything-but": ["taborchen"]
+		}]
+	}
+}
+:::
+</dx-codeblock>
+
+
+## 数值匹配
+
+您可以指定某个字段的数值或范围，例如 { "numeric": [ ">", 0, "<=", 5 ] }。
+
+以 COS 数据为例，接收到的事件如下：
+
+
+<dx-codeblock>
+:::  json
+{
+	"specversion": "0",
+	"id": "13a3f42d-7258-4ada-da6d-023a333b4662",
+	"type": "cos:created:object",
+	"source": "cos.cloud.tencent",
+	"subjuect": "qcs::cos:ap-guangzhou:uid1250000000:bucketname",
+	"time": "1615430559146",
+	"region": "ap-guangzhou",
+	"datacontenttype": "application/json;charset=utf-8",
+	"resource": [
+		"qcs::eb:ap-guangzhou:uid1250000000:eventbusid/eventruleid"
+	],
+	"data": {
+		"name": "taborchen",
+		"scope": 100,
+		"scope2": 100
+	}
+}
+:::
+</dx-codeblock>
+
+
+指定 data 字段的 scope 的前缀匹配值大于0小于等于100，值匹配可以被正常触发的规则如下：
+
+```plaintext
+{
+    "data":{
+        "scope":[
+            {
+                "numeric":[
+                    ">",
+                    0,
+                    "<=",
+                    100
+                ]
+            }
+        ]
+    }
+}
+```
+
+
+
+
+指定 data 字段的 scope 的前缀匹配值大于0小于100，不可以被正常触发的规则如下：
+
+```plaintext
+{
+    "data":{
+        "scope":[
+            {
+                "numeric":[
+                    ">",
+                    0,
+                    "<",
+                    100
+                ]
+            }
+        ]
+    }
+}
+```
+
+
+
+
+## IP 地址匹配
+
+您可以指定 data 中字段的 IP 地址。例如，以下示例事件模式中只匹配 a 为10.0.0.0/24的事件：{ "cidr": "10.0.0.0/24" }。
+
+以 COS 数据为例，接收到的事件如下：
+
+
+<dx-codeblock>
+:::  json
+{
+	"specversion": "0",
+	"id": "13a3f42d-7258-4ada-da6d-023a333b4662",
+	"type": "cos:created:object",
+	"source": "cos.cloud.tencent",
+	"subjuect": "qcs::cos:ap-guangzhou:uid1250000000:bucketname",
+	"time": "1615430559146",
+	"region": "ap-guangzhou",
+	"datacontenttype": "application/json;charset=utf-8",
+	"resource": [
+		"qcs::eb:ap-guangzhou:uid1250000000:eventbusid/eventruleid"
+	],
+	"data": {
+		"name": "taborchen",
+		"scope": 100,
+		"source-ip": "10.0.0.123"
+	}
+}
+:::
+</dx-codeblock>
+
+
+
+指定 data 字段的 scope 的前缀匹配值大于0小于等于100，值匹配可以被正常触发的规则如下：
+
+
+<dx-codeblock>
+:::  json
+{
+	"data": {
+		"source-ip": [{
+			"cidr": "10.0.0.0/24"
+		}]
+	}
+}
+:::
+</dx-codeblock>
+
+
+## 更多说明
+
+- 进行模式匹配时，null 值和空字符串不等同。用于匹配空字符串的模式不会匹配到 null 值。
+- 所有匹配模式可被嵌套使用，如下示例，同时嵌套除外匹配与前缀匹配。
+  <dx-codeblock>
+  :::  json
+  {
+  "data": {
+  	"name": [{
+  		"anything-but": {
+  			"prefix": "init"
+  		}
+  	}]
+  }
+  }
+  :::
+  </dx-codeblock>

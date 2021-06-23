@@ -13,28 +13,22 @@ Re-enter KDC database master key to verify: <Type it again>
 ```
 
 ## 添加 principal
-使用 kadmin.local 添加 principal。
 ```
-kadmin.local
-kadmin.local:  add_principlal -k /etc/krb5.keytab test-server/host@EXAMPLE.COM
-Entry for principal test-server/host@EXAMPLE.COM with kvno 2, encryption type aes256-cts-hmac-sha1-96 added to keytab WRFILE:/etc/krb5.keytab.
-Entry for principal test-server/host@EXAMPLE.COM with kvno 2, encryption type arcfour-hmac added to keytab WRFILE:/etc/krb5.keytab.
-Entry for principal test-server/host@EXAMPLE.COM with kvno 2, encryption type des3-cbc-sha1 added to keytab WRFILE:/etc/krb5.keytab.
-Entry for principal test-server/host@EXAMPLE.COM with kvno 2, encryption type des-cbc-crc added to keytab WRFILE:/etc/krb5.keytab.
+ kadmin.local
+ kadmin.local: add_principal -pw testpassword test/host@EXAMPLE.COM
+
+ WARNING: no policy specified fortest/host@EXAMPLE.COM; defaulting to no policy
+ Principal "test/host@EXAMPLE.COM" created.
 ```
 
-## 创建密钥表文件
+## 生成密钥表文件
 ```
-kadmin.local
-kadmin.local:  add_principlal -k /etc/krb5.keytab test-client/host@EXAMPLE.COM
-Entry for principal test-client/host@EXAMPLE.COM with kvno 2, encryption type aes256-cts-hmac-sha1-96 added to keytab WRFILE:/etc/krb5.keytab.
-Entry for principal test-client/host@EXAMPLE.COM with kvno 2, encryption type arcfour-hmac added to keytab WRFILE:/etc/krb5.keytab.
-Entry for principal test-client/host@EXAMPLE.COM with kvno 2, encryption type des3-cbc-sha1 added to keytab WRFILE:/etc/krb5.keytab.
-Entry for principal test-client/host@EXAMPLE.COM with kvno 2, encryption type des-cbc-crc added to keytab WRFILE:/etc/krb5.keytab.
-kadmin.local:  q
-```
+ kadmin.local
+ kadmin.local: ktadd -k /var/krb5kdc/test.keytab test/host@EXAMPLE.COM
 
-这里，我们创建了两个新的用户：test-server/host@EXAMPLE.COM 和 test-client/host@EXAMPLE.COM，并且将这两个用户的密钥放置到 /etc/krb5.keytab 文件中。
+ Entry for principal test/host@EXAMPLE.COM with kvno 2, encryption type des3-cbc-sha1 added to keytab WRFILE:/var/krb5kdc/test.keytab.
+```
+ 这里，我们创建了新的用户：test/host@EXAMPLE.COM ，并且将这个用户的密钥放置到 /var/krb5kdc/test.keytab 文件中。
 
 ## 启动 kdc
 ```

@@ -10,7 +10,7 @@ ServiceGroup 可以便捷地在共属同一个集群的不同机房或区域中�
 
 ServiceGroup 针对此场景设计，用户仅需使用 ServiceGroup 提供的 DeploymentGrid 和 ServiceGrid 两种 ECK 自研 Kubernetes 资源，即可方便地将服务分别部署到这些节点组中，并进行服务流量管控，同时还可保证各区域服务数量及容灾。
 
-### 整体架构<span id="OverallStructure"></span>
+### 整体架构[](id:OverallStructure)
 
 ServiceGroup 整体架构示意图如下：
 ![img](https://main.qcloudimg.com/raw/63a72957d094f247f694f9e3f3c69034.png)
@@ -46,14 +46,14 @@ ServiceGroup 整体架构示意图如下：
 DeploymentGrid 的格式与 Deployment 类似，`deployment-template` 字段为原先 Deployment 中的 `template` 字段，其中较为特殊的 `gridUniqKey` 字段指明了节点分组的 label 的 key 值。示例如下：
 
 ```
-apiVersion: tkeedge.io/v1
+apiVersion: superedge.io/v1
 kind: DeploymentGrid
 metadata:
-  name:
-  namespace:
+    name:
+    namespace:
 spec:
-  gridUniqKey: <NodeLabel Key>
-  <deployment-template>
+    gridUniqKey: <NodeLabel Key>
+    <deployment-template>
 ```
 
 #### ServiceGrid
@@ -61,18 +61,18 @@ spec:
 ServiceGrid 的格式与 Service 类似，`service-template` 字段为原先 Service 中的 `template` 字段，其中较为特殊的 `gridUniqKey` 字段指明了节点分组的 label 的 key 值。示例如下：
 
 ```
-apiVersion: tkeedge.io/v1
+apiVersion: superedge.io/v1
 kind: ServiceGrid
 metadata:
-  name:
-  namespace:
+    name:
+    namespace:
 spec:
-  gridUniqKey: <NodeLabel Key>
-  <service-template>
+    gridUniqKey: <NodeLabel Key>
+    <service-template>
 ```
 
 
-## 常规方案<span id="rule"></span>
+## 常规方案[](id:rule)
 
 ### 方案1：将服务限制在一个节点内
 ![img](https://main.qcloudimg.com/raw/fd24574574aff2e247684a755038bb5b.jpg)
@@ -94,7 +94,7 @@ spec:
 
 > ! 服务在不同站点名字不同，因而服务之间不能简单地通过服务名 A 和 B 来调用，而是在 site-1中用 Svc-A-1、Svc-B-1，在 site-2中用 Svc-A-2、Svc-B-2。对于借助 Kubernetes DNS 实现微服务的业务极为不友好。
 
-### 方案痛点<span id="defect"></span>
+### 方案痛点[](id:defect)
 - **Kubernetes 本身不具备针对该场景的方案**
 	- **众多地域部署问题。**
 	通常一个边缘集群会管理多个边缘站点，每个边缘站点内有一个或多个计算资源。中心云场景是一些大地域的中心机房，而一个小城市会有一个边缘机房，因此边缘地域多于中心云场景地域。在原生 Kubernetes 中，Pod 的创建难以指定，除非使用节点亲和性针对每个地域进行部署。以多地域且需要每个地域部署多个服务的 Deployment 为例，在各个 Deployment 的名称和 selector 不相同的情况下，多地域意味着需要上百个对应的不同 name、selector、pod labels 以及亲和性的部署 yaml，仅编写 yaml 文件工作量就非常巨大。

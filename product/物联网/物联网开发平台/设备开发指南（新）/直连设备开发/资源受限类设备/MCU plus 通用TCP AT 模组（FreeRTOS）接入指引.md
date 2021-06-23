@@ -58,7 +58,7 @@ cmake ..
 
 请先参见 [C SDK 移植接入指引](https://cloud.tencent.com/document/product/1081/48366) 进行移植。
 
-对于网络相关的 HAL 接口，通过本文编译选项已选择 SDK 提供的 `AT_Socket` 框架，SDK 将会调用 `network_at_tcp.c` 的 `at_socket` 接口，`at_socket` 层不需要移植，需要实现 AT 串口驱动及AT模组驱动，AT模组驱动只需要实现 AT 框架中`at_device`的驱动结构体 `at_device_op_t`的驱动接口即可，可以参照`at_device`目录下的已支持的模组。
+对于网络相关的 HAL 接口，通过本文编译选项已选择 SDK 提供的 `AT_Socket` 框架，SDK 将会调用 `network_at_tcp.c` 的 `AT_socket` 接口，`AT_socket` 层不需要移植，需要实现 AT 串口驱动及AT模组驱动，AT模组驱动只需要实现 AT 框架中`AT_device`的驱动结构体 `AT_device_op_t`的驱动接口即可，可以参照`AT_device`目录下的已支持的模组。
 >?目前 SDK 针对物联网使用较广的 Wi-Fi 模组 ESP8266 提供了底层接口实现，供移植到其他通讯模组时作为参考。
 
 ### 业务逻辑开发

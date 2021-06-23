@@ -5,14 +5,12 @@ Kubernetes-csi-tencentloud CFS 插件实现 CSI 的接口，可帮助您在容�
 
 > ! 1.12 集群需要修改 kubelet 配置，增加 `\--feature-gates=KubeletPluginsWatcher=false\`。
 
-### 在集群内部署 Kubernetes 对象
+### 部署在集群内的 Kubernetes 对象
 
 | kubernetes对象名称             | 类型                       | 默认占用资源 | 所属Namespaces |
 | -------------------------- | ------------------------ | ------ | ------------ |
-| csi-attacher-cfsplugin  | StatefulSet | -      | -            |kube-system 
 | csi-provisioner-cfsplugin         | StatefulSet       | -      | kube-system             |
 | csi-nodeplugin-cfsplugin         | DaemonSet              | -      | kube-system            |
-| csi-attacher-cfsplugin	          | Service           | -      | kube-system       |
 | csi-provisioner-cfsplugin | Service              | 1C2G   | kube-system      |
 
 ## 使用场景

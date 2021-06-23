@@ -2,7 +2,7 @@
 
 代码示例：[React](https://github.com/TencentCloudBase/cloudbase-templates/tree/master/react-app)
 
-## 第 1 步：初始化项目
+## 步骤1：初始化项目
 
 使用 [create-react-app](https://zh-hans.reactjs.org/docs/create-a-new-react-app.html) 命令行初始化一个项目：
 
@@ -10,7 +10,7 @@
 npx create-react-app react-app
 ```
 
-## 第 2 步：发布项目
+## 步骤2：发布项目
 
 安装并登录 CloudBase Framework，在项目根目录下运行：
 

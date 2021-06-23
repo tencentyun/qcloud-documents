@@ -104,3 +104,9 @@ SDK 只支持续传沙盒中的文件，如需使用断点续传的功能，请�
 1. 初始化`QCloudServiceConfiguration *config = [QCloudServiceConfiguration new]`
 2. 设置 config 的`timeoutInterval`属性即可，例如`设置 config 的.timeoutInterval = 30;`
 
+
+### COS iOS SDK 出现 crash，该如何处理？
+
+请检查当前版本是否为最新版本，若是旧版本建议您升级到最新的 SDK 版本。最新版本 iOS SDK 请参见 [qcloud-sdk-ios](https://github.com/tencentyun/qcloud-sdk-ios) 。
+
+

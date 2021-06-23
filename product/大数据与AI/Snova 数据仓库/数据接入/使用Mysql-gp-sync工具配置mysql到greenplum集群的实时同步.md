@@ -1,17 +1,16 @@
 ## 背景说明
-目前现网 CDWPG 集群需要实时同步来自 mysql 的数据变更，这里提供一个实时同步工具。
-- 此工具是根据 [Sync MySQL data into elasticsearch](https://github.com/siddontang/go-mysql-elasticsearch) 和 [Sync MySQL data into elasticsearch or postgresql](https://github.com/frainmeng/go-mysql-elasticsearch) 的 mysql 开源工具修改扩展而来，可支持根据 mysql 数据库的 bin_log 实时同步 DML 变更到对应的 CDWPG 集群中。
-- 此工具仅支持一个 mysql 源和一个 CDWPG 集群之间的同步，目前仅支持表粒度的同步，并且无法同步表 DDL 结构变更，在开启实时同步前需要预先在 CDWPG 集群迁移历史数据。
+目前云数据仓库 PostgreSQL 集群需要实时同步来自 mysql 的数据变更，这里提供一个实时同步工具。
+- 此工具是根据 [Sync MySQL data into elasticsearch](https://github.com/siddontang/go-mysql-elasticsearch) 和 [Sync MySQL data into elasticsearch or postgresql](https://github.com/frainmeng/go-mysql-elasticsearch) 的 mysql 开源工具修改扩展而来，可支持根据 mysql 数据库的 bin_log 实时同步 DML 变更到对应的云数据仓库 PostgreSQL 集群中。
+- 此工具仅支持一个 mysql 源和一个云数据仓库 PostgreSQL 集群之间的同步，目前仅支持表粒度的同步，并且无法同步表 DDL 结构变更，在开启实时同步前需要预先在云数据仓库 PostgreSQL 集群迁移历史数据。
 
 #### 工具下载
-
-[mysql-gp-sync.zip](https://packagedown-online-1256722404.cos.ap-guangzhou.myqcloud.com/sync/mysql-gp-sync-1.1.0.zip)
+[mysql-gp-sync.zip](https://packagedown-online-1256722404.cos.ap-guangzhou.myqcloud.com/sync/mysql-gp-sync-1.2.1.zip)
 
 #### 实时同步限制
 - 需同步的 mysql 表必须包含主键。
 - 暂不支持同步 mysql 表前缀索引。
 - 暂不支持同步 DDL 操作。
-- 暂时只能支持一个 MySQL 集群和一个 CDWPG 集群的同步。
+- 暂时只能支持一个 MySQL 集群和一个云数据仓库 PostgreSQL 集群的同步。
 
 ## 部署实时同步步骤
 **建议的同步方式：**
@@ -19,7 +18,7 @@
 ```
 show master status;
 ```
-2. 在 CDWPG 集群上创建需要迁移的表，使用 datax 工具进行批量导入。
+2. 在云数据仓库 PostgreSQL 集群上创建需要迁移的表，使用 datax 工具进行批量导入。
 3. 配置 binlog 的 pos 信息，然后部署启动 mysql-gp-sync 服务。
 
 ## 同步前 mysql 数据库配置
@@ -39,7 +38,7 @@ mysql_user = "root"
 mysql_pass = "123456"
 mysql_charset = "utf8"
 
-# 目的端 CDWPG 连接配置
+# 目的端云数据仓库 PostgreSQL 连接配置
 pg_host = "139.155.20.126"
 pg_port = 5432
 pg_user = "gpadmin"
@@ -131,7 +130,6 @@ bin_pos = 708735
 >!如果不配置该文件，会从头开始进行同步，每次同步后服务会更新该文件信息。
 
 ## 启动和停止 mysql-gp-sync
-
 启动服务进程，在命令行文件夹中执行：
 ```
 ./start.sh
@@ -142,7 +140,6 @@ bin_pos = 708735
 ```
 
 ## 服务定时监控重启
-
 服务进程可能由于一些故障原因而重启，为了能够降低人工处理的复杂度，可通过配置 crontab 来进行自动进程监控重启，配置示例如下：
 ```
 crontab -e
@@ -151,8 +148,4 @@ crontab -e
 ```
 
 ## 日志查错
-
-在部署路径中有一个 sync.log 文件会实时打印程序执行的步骤，当进程出错退出时，可用于定位问题。
-
-
-
+在部署路径中有一个 sync.log 文件会实时打印程序执行的步骤，当进程出错退出时，可用于定位问题，日志中 ERROR 等级日志用于错误定位，如果定位有困难可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询。

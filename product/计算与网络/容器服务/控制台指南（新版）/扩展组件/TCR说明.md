@@ -7,7 +7,7 @@ TCR Addon 是容器镜像服务 TCR 推出的容器镜像内网免密拉取的�
 - Kubernetes 的 `controller manager` 组件的启动参数需要包含 `authentication-kubeconfig` 和 `authorization-kubeconfig`（TKE v.12.x 默认启用）。
 
 
-### 在 Kubernetes 集群创建的资源
+### 部署在集群内的 Kubernetes 对象
 
 | 名称                                           | 类型                           | 资源量                 | Namespace            |
 | ---------------------------------------------- | ------------------------------ | ---------------------- | -------------------- |
@@ -81,7 +81,7 @@ Kubernetes 集群拉取镜像时将通过节点网络访问 TCR，当通过公�
 
 
 ## 相关信息
-### 参数说明<span id="ParameterDescription"></span>
+### 参数说明[](id:ParameterDescription)
 
 - **关联实例**：当前集群需要使用的 TCR 企业版实例，插件将自动为当前集群配置该 Registry 实例的访问凭证及内网域名解析。
 - **免密拉取配置**：

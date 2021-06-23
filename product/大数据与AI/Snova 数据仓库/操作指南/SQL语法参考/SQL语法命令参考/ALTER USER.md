@@ -1,17 +1,12 @@
 更改数据库用户（角色）的定义。
 
 ## 概要
-
 ```sql
 ALTER USER name RENAME TO newname
- 
 ALTER USER name SET config_parameter {TO | =} {value | DEFAULT}
- 
 ALTER USER name RESET config_parameter
- 
 ALTER USER name [ [WITH] option [ ... ] ]
 ```
-
 其中 option can be：
 
 ```sql

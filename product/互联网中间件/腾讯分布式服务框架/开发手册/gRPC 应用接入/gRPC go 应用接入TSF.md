@@ -1,21 +1,21 @@
 ## 操作场景
-TSF 为用户现存的 gRPC 应用提供了 Go 语言 SDK 插件，gRPC 应用可通过依赖 Go package 的方式接入该项服务。
-本文档介绍 gRPC 应用从接入TSF 到部署应用的操作方法及相关注意事项。
+TSF 为用户现存的 go Grpc  应用提供了 Go 语言 SDK 插件， go Grpc  应用可通过依赖 Go package 的方式接入该项服务。
+本文档介绍 go Grpc  应用从接入TSF 到部署应用的操作方法及相关注意事项。
 
 
 ## 功能特性
 - 自动集成 TSF 平台治理能力：分布式远程配置、远程日志、分布式调用链追踪、监控、服务鉴权、服务路由、全链路灰度发布、API 自动上报（全局限流、熔断暂不支持）。
-- Server 同时支持 gRPC 和 HTTP 双协议，可以被 Spring Cloud 服务调用。
+- Server 同时支持 go Grpc  和 HTTP 双协议，可以被 Spring Cloud 服务调用。
 - 改动小，集成 SDK 成本低。
 
->?目前只支持 Go 语言。您也可以通过 GitHub 查看 [gRPC 接入 TSF](https://github.com/tencentyun/tsf-go/blob/master/doc/GRPC.md) 的最新文档。
+>?目前只支持 Go 语言。您也可以通过 GitHub 查看 [go Grpc 接入 TSF](https://github.com/tencentyun/tsf-go/blob/master/doc/GRPC.md) 的最新文档。
 
 ## 快速上手
 ### Server 端
 
 #### 1. 生成 *.pb.go 文件
 `protoc --go_out=plugins=grpc:. *.proto`
->?详细说明请参考 [gRPC Go 教程](https://cloud.tencent.com/document/product/1165/46154)。 
+>?详细说明请参考 [go Grpc  教程](https://cloud.tencent.com/document/product/1165/46154)。 
 
 #### 2. 引入 TSF 的 package
 `import "github.com/tencentyun/tsf-go/pkg/grpc/server"`	
@@ -29,10 +29,10 @@ if err != nil {
 	panic(err)
 }
 ```
-- 您需将代码中的 `provider-demo` 替换成实际的 gRPC serviceName。
+- 您需将代码中的 `provider-demo` 替换成实际的 go Grpc  serviceName。
 - 如果配置文件中不指定端口则默认为8080，也可以通过 tsf_service_port 环境或者启动参数来指定，其他的可指定的配置参考`pkg/sys/env/env.go`中定义的 Key。
 
->?通过 TSF 启动的 gRPC server 除了 gRPC 协议同时还支持 HTTP1.1+JSON（可以被 Spring Cloud 服务调用），此时 HTTP 的 path 为 /&lt;package_name.service_name&gt;/&lt;method&gt;，例如 `curl -v -X POST --data '{"name":"grpc world"}' 127.0.0.1:8080/tsf.test.helloworld.Greeter/SayHello`。
+>?通过 TSF 启动的 go Grpc  server 除了 go Grpc  协议同时还支持 HTTP1.1+JSON（可以被 Spring Cloud 服务调用），此时 HTTP 的 path 为 /&lt;package_name.service_name&gt;/&lt;method&gt;，例如 `curl -v -X POST --data '{"name":"grpc world"}' 127.0.0.1:8080/tsf.test.helloworld.Greeter/SayHello`。
 如需禁用该功能可以注入环境变量或启动参数：tsf_disable_grpc_http=true。
 
 ### Client 端
@@ -43,7 +43,7 @@ if err != nil {
 #### 2. 引入 TSF 的 package
 `import "github.com/tencentyun/tsf-go/pkg/grpc/client"`	
 
-#### 3. 生成 gRPC client stub
+#### 3. 生成 go Grpc  client stub
 ```
 ctx, cancel := context.WithTimeout(context.Background(), time.Second*3)
 defer cancel()

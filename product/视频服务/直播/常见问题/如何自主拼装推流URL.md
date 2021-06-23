@@ -1,10 +1,13 @@
-### 前提条件
+## 注意事项
+[创建转码模板](https://cloud.tencent.com/document/product/267/20385) 并与**播放域名**进行 [绑定](https://cloud.tencent.com/document/product/267/20385#related) 后，转码配置后的直播流，需将播放地址的 StreamName 拼接为 `StreamName_转码模板名称`，更多详情请参见  [播放配置](https://cloud.tencent.com/document/product/267/32831#.E6.92.AD.E6.94.BE.E5.9C.B0.E5.9D.80)。
+
+## 前提条件
 - 已注册腾讯云账号，并开通 [腾讯云直播服务](https://cloud.tencent.com/product/lvb)。
 - 已在 [域名注册](https://dnspod.cloud.tencent.com/?from=qcloudProductDns) 申请域名，并备案成功。
 - 已在【云直播控制台】>【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】中添加推流/播放域名，并 CNAME 成功。详细操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
 
 [](id:push)
-### 拼装推流 URL
+## 拼装推流 URL
 实际产品中，当直播间较多时，您不可能为每一个主播手工创建推流和播放 URL，您可通过服务器**自行拼装**推流和播放地址，只要符合腾讯云标准规范的 URL 就可以用来推流，如下是一条标准的推流 URL，它由四个部分组成：
 ![](https://main.qcloudimg.com/raw/095b7c120b62ac8a171603d4fff67cb2.png)
 - **Domain**
@@ -23,26 +26,31 @@
 用以防止攻击者伪造您的后台生成推流 URL，计算方法参见 [最佳实践-防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
 
 [](id:play)
-### 拼装播放 URL
+## 拼装播放 URL
 播放地址主要由播放前缀、播放域名（domain）、应用名称（AppName）、流名称（StreamName）、播放协议后缀、鉴权参数以及其他自定义参数组成。例如： 
 
 ``` 
-http://domain/AppName/StreamName.flv?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)  
-rtmp://domain/AppName/StreamName?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)  
-http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time) 
+webrtc://domain/AppName/StreamName?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)
+http://domain/AppName/StreamName.flv?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)
+rtmp://domain/AppName/StreamName?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)
+http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)
 ```
 
 - **播放前缀**  
 <table>
     <tr><th>播放协议</th><th>播放前缀</th><th>备注</th></tr>
-    <tr>
-        <td>RTMP</td>
-        <td><code>rtmp://</code> </td>
-        <td>不推荐，秒开效果差，不支持高并发</td>
+		<tr>
+        <td>WebRTC</td>
+        <td><code>webrtc://</code> </td>
+        <td>强烈推荐，秒开效果最好，支持超高并发。</td>
     </tr><tr>
         <td>HTTP-FLV </td>
         <td><code>http://</code> 或 <code>https://</code> </td>
         <td>推荐，秒开效果好，支持超高并发。</td>
+    </tr><tr>
+				<td>RTMP</td>
+        <td><code>rtmp://</code> </td>
+        <td>不推荐，秒开效果差，不支持高并发</td>
     </tr><tr>
         <td>HLS（m3u8）</td>
         <td><code>http://</code>  或 <code>https://</code> </td>
@@ -63,10 +71,7 @@ http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txT
 
 
 [](id:push_code)
-### 查看推流示例代码
+## 查看推流示例代码
 进入【云直播控制台】>[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，选中事先配置的推流域名，【管理】>【推流配置】页面下半部分有【推流地址示例代码】（PHP 和 Java 两个版本）演示如何生成防盗链地址。更多详情操作请参见 [推流配置](https://cloud.tencent.com/document/product/267/32833#.E6.8E.A8.E6.B5.81.E5.9C.B0.E5.9D.80.E7.A4.BA.E4.BE.8B.E4.BB.A3.E7.A0.81)。
 
-
-[](id:acc)
-### 拼接 ACC 地址
 

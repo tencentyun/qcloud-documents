@@ -13,11 +13,13 @@
 
 ## 使用限制
 - 在 Service 复用场景下，单个负载均衡管理的监听器数量不能超过10个。
-- 在 Service 复用场景下，只能使用用户自行创建的负载均衡。因为容器服务 TKE 集群创建的负载均衡在被复用的情况下，负载均衡资源可能因为无法释放而导致泄漏。如果需要使用当前 TKE 创建的负载均衡资源进行复用，可以删除该负载均衡上的 `tke-createdBy-flag = yes` 标签。
+- 在 Service 复用场景下，只能使用用户自行创建的负载均衡。因为容器服务 TKE 集群创建的负载均衡在被复用的情况下，负载均衡资源可能因为无法释放而导致泄漏。
+- 如果需要使用当前 TKE 创建的负载均衡资源进行复用，可以在当前 Service 添加 `service.kubernetes.io/tke-existed-lbid` 注解，并删除该负载均衡上的 tke-createdBy-flag = yes 标签。
+>! 使用当前 TKE 创建的负载均衡资源进行复用后，因为缺少了标签，该 CLB 的生命周期将不由 TKE 侧控制，需要自行管理，请谨慎操作。
 
 
 ## 操作步骤
-1. <span id="Step1"></span>参考 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)，创建集群所在 VPC 下的公网或内网类型的负载均衡。
+1. [](id:Step1)参考 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)，创建集群所在 VPC 下的公网或内网类型的负载均衡。
 2. 参考 [创建 Deployment](https://cloud.tencent.com/document/product/457/31705#.E5.88.9B.E5.BB.BA-deployment) 或 [创建 Service](https://cloud.tencent.com/document/product/457/45489#.E5.88.9B.E5.BB.BA-service)，创建 Loadbalancer 类型的 Service，选择【使用已有】负载均衡，并选择 [步骤1](#Step1) 中创建的负载均衡实例。如下图所示：
 ![](https://main.qcloudimg.com/raw/055d05c1b455e7aad1c43b5de85d4f65.png)
 3. 重复步骤2，即可完成通过多个 Service 复用相同负载均衡器 CLB。

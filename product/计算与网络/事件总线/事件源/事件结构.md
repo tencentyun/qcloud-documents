@@ -1,0 +1,53 @@
+事件是状态变化的数据记录。本文介绍事件总线 EventBridge 的事件参数详情。
+
+事件源发布事件到事件总线 EventBridge 需要按照 CloudEvents 规范。了解 CloudEvents 规范的更多信息，请参见 [CloudEvents 1.0](https://github.com/cloudevents/spec/blob/v1.0/spec.md?spm=a2c4g.11186623.2.2.749c6781ZcKk8R&file=spec.md)。
+
+以下是事件源发布到事件总线 EventBridge 的示例结构：
+
+
+<dx-codeblock>
+:::  json
+{
+   "specversion":"0",
+   "id":"13a3f42d-7258-4ada-da6d-023a333b4662",
+   "type":"cos:created:object",
+   "source":"cos.cloud.tencent",
+   "subjuect":"qcs::cos:ap-guangzhou:uid1250000000:bucketname",
+   "time":"1615430559146",
+   "region":"ap-guangzhou",
+   "datacontenttype": "application/json;charset=utf-8",
+   "data":{
+      $data_value
+   }
+}
+:::
+</dx-codeblock>
+
+
+
+
+事件涉及的参数如下说明：
+
+| 字段            | 描述                                                         | 字符串类型 |
+| --------------- | ------------------------------------------------------------ | ---------- |
+| specversion     | 事件结构体版本（cloudevents 遵循版本，目前为1.0.2）。        | String     |
+| id              | PUT Event 返回的 ID 信息。                                   | String     |
+| type            | PUT Event 输入的事件类型。云服务默认写 COS:Created:PostObject，用 “:” 分割类型字段。 | String     |
+| source          | 事件来源（云服务事件必传此参数，为 subjuect 的缩写 ）。云服务默认为 `xxx.cloud.tencent`。 | String     |
+| subjuect        | 事件来源详情可自定义，云服务默认使用 QCS 描述，例如 `qcs::dts:ap-guangzhou:appid/uin:xxx`。 | String     |
+| timer           | 发生事件的时间，0时区毫秒时间戳，例如1615430559146。         | Timestamp  |
+| datacontenttype | 数据类型申明。                                               | String     |
+| region          | 地域信息。                                                   | String     |
+| data            | PUT Event 输入的事件详情。                                   | String     |
+
+
+
+事件源发布到事件总线 EventBridge 的事件有以下两种类型：
+
+- **腾讯云服务事件**
+  腾讯云服务作为事件源自动接入事件总线 EventBridge。
+- **自定义应用事件**
+  您的应用作为事件源接入时，需要配置应用使用 API/SDK 接入事件总线 EventBridge。
+  
+  
+  

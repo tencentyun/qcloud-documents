@@ -55,7 +55,7 @@ Content-Type: application/xml
         <Channels>4</Channels>
     </Audio>
     <TransConfig>
-        <AdjDarMethod>rescale</AdjDarMethod>
+        <AdjDarMethod>scale</AdjDarMethod>
         <IsCheckReso>false</IsCheckReso>
         <ResoAdjMethod>1</ResoAdjMethod>
     </TransConfig>
@@ -74,15 +74,15 @@ Content-Type: application/xml
 
 Container 类型 Request 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
-| ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Tag                | Request | 模板类型：Transcode                                    | String    | 是   |
-| Name               | Request | 模板名称仅支持中文、英文、数字、_、-和*                    | String    | 是   |
-| Container          | Request | 容器格式                                               | Container | 是   |
-| Video              | Request | 视频信息                                               | Container | 否   |
-| TimeInterval       | Request | 时间区间                                               | Container | 否   |
-| Audio              | Request | 音频信息                                               | Container | 否   |
-| TransConfig        | Request | 转码配置                                               | Container | 否   |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 限制 |
+| ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |----|
+| Tag                | Request | 模板类型：Transcode                                    | String    | 是   | 无 |
+| Name               | Request | 模板名称 仅支持中文、英文、数字、_、-和*                    | String    | 是   | 无 |
+| Container          | Request | 容器格式                                               | Container | 是   | 无 |
+| Video              | Request | 视频信息                                               | Container | 否   | 不传 Video，相当于删除视频信息 |
+| TimeInterval       | Request | 时间区间                                               | Container | 否   | 无 |
+| Audio              | Request | 音频信息                                               | Container | 否   | 不传 Audio，相当于删除音频信息 |
+| TransConfig        | Request | 转码配置                                               | Container | 否   | 无 |
 
 Container 类型 Container 的具体数据描述如下：
 
@@ -100,12 +100,15 @@ Container 类型 Video 的具体数据描述如下：
 | Fps                        | Request.Video | 帧率                  | String | 否   | 视频原<br/>始帧率 |  <li>值范围：(0，60]<br> <li>单位：fps<br> <li>帧率超过60时，设置为60<br/>用户可以设置 fps，如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率 |
 | Remove                     | Request.Video | 是否删除视频流        | String | 否   | false        | true、false                                               |
 | Profile                    | Request.Video | 编码级别              | String | 否   | high         |  <li>支持 baseline、main、high<br/> <li>baseline：适合移动设备<br/> <li>main：适合标准分辨率设备<br/> <li>high：适合高分辨率设备<br/> <li>仅H.264支持此参数 |
-| Bitrate                    | Request.Video | 视频输出文件的码率    | String | 否   |  无           |  <li>值范围：[10，50000]<br/> <li>单位：Kbps                     |
-| Crf                        | Request.Video | 码率-质量控制因子     | String | 否   | 26           |  <li>值范围：[0，51]<br/> <li>如果设置了 Crf，则 Bitrate 的设置失效 |
-| Gop                        | Request.Video | 关键帧间最大帧数      | String | 否   |  无            | 值范围：[0，100000]                                          |
+| Bitrate                    | Request.Video | 视频输出文件的码率    | String | 否   |  视频原始码率           |  <li>值范围：[10，50000]<br/> <li>单位：Kbps                     |
+| Crf                        | Request.Video | 码率-质量控制因子     | String | 否   | 空           |  <li>值范围：[0，51]<br/> <li>如果设置了 Crf，则 Bitrate 的设置失效 <br/> <li>默认为不设置 Crf  |
+| Gop                        | Request.Video | 关键帧间最大帧数      | String | 否   |  空            | <li>值范围：[0，100000]  <br/> <li>默认不设置 Gop                                        |
 | Preset                     | Request.Video | 视频算法器预置        | String | 否   | medium       |  <li>仅H.264支持该参数<br/> <li>取值 veryfast、fast、medium、slow、slower |
-| Bufsize                    | Request.Video | 缓冲区大小            | String | 否   | 0            |  <li>值范围：[1000，128000]<br/> <li>单位：Kb<br/> <li>默认值为0表示不使用 buf |
-| Maxrate                    | Request.Video | 视频码率峰值          | String | 否   | 0            |  <li>值范围：[10，50000]<br/> <li>单位：Kbps<br/> <li>默认值0表示不使用此参数 |
+| Bufsize                    | Request.Video | 缓冲区大小            | String | 否   | 0            |  <li>值范围：[1000，128000]<br/> <li>单位：Kb<br/> <li>默认值为0，表示不使用缓冲区 |
+| Maxrate                    | Request.Video | 视频码率峰值          | String | 否   | 0            |  <li>值范围：[10，50000]<br/> <li>单位：Kbps<br/> <li>默认值为0，表示不使用此参数 |
+| HlsTsTime                  | Request.Video | hls分片时间          | String | 否   | 5            | <li>(0 视频时长] <br/><li>单位为秒 |
+| Pixfmt                     | Request.Video | 视频颜色格式          | String | 否   | yuv420p          | 支持 yuv420p、yuv422p、yuv444p、yuvj420p、yuvj422p、yuvj444p |
+| LongShortMode              | Request.Video | 长短边自适应          | String | 否   | false        | true、false
 
 Container 类型 TimeInterval 的具体数据描述如下：
 
@@ -128,13 +131,17 @@ Container 类型 TransConfig 的具体数据描述如下：
 
 | 节点名称（关键字）    | 父节点              | 描述             | 类型   | 必选 | 默认值 | 限制                                                         |
 | --------------------- | ------------------- | ---------------- | ------ | ---- | ------ | ------------------------------------------------------------ |
-| AdjDarMethod          | Request.TransConfig | 分辨率调整方式   | String | 否   | none   |  <li>取值 scale、crop、pad、none<br/> <li>当输出视频的宽高比与原视频不等时，需要此参数进行执行调整方式 |
+| AdjDarMethod          | Request.TransConfig | 分辨率调整方式   | String | 否   | none   |  <li>取值 scale、crop、pad、none<br/> <li>当输出视频的宽高比与原视频不等时，根据此参数做分辨率的相应调整 |
 | IsCheckReso           | Request.TransConfig | 是否检查分辨率   | String | 否   | false  |  <li>true、false <br/> <li>当为 false 时，按照配置参数转码 |
 | ResoAdjMethod         | Request.TransConfig | 分辨率调整方式   | String | 否   | 0      |  <li>取值0、1；0 表示使用原视频分辨率；1表示返回转码失败<br/> <li>当 IsCheckReso 为 true 时生效 |
 | IsCheckVideoBitrate   | Request.TransConfig | 是否检查视频码率 | String | 否   | false  |  <li>true、false <br/> <li>当为 false 时，按照配置参数转码 |
 | VideoBitrateAdjMethod | Request.TransConfig | 视频码率调整方式 | String | 否   | 0      |  <li>取值0、1；0 表示使用原视频码率；1表示返回转码失败<br/> <li>当 IsCheckVideoBitrate 为 true 时生效 |
 | IsCheckAudioBitrate   | Request.TransConfig | 是否检查音频码率 | String | 否   | false  |  <li>true、false <br/> <li>当为 false 时，按照配置参数转码<br/> |
 | AudioBitrateAdjMethod | Request.TransConfig | 音频码率调整方式 | String | 否   | 0      |  <li>取值0、1；0 表示使用原音频码率；1表示返回转码失败<br/> <li>当 IsCheckAudioBitrate 为 true 时生效 |
+
+AdjDarMethod 参数图示：
+
+![](https://main.qcloudimg.com/raw/3436731be8c1caa5ffd565b2c44b9643.png)
 
 ## 响应
 
@@ -149,7 +156,7 @@ Container 类型 TransConfig 的具体数据描述如下：
 <Response>
     <Template>
         <Tag>Transcode</Tag>
-        <TemplateId></TemplateId>
+        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
         <Name>TemplateName</Name>
         <Container>
             <Format>mp4</Format>
@@ -175,7 +182,7 @@ Container 类型 TransConfig 的具体数据描述如下：
             <Channels>4</Channels>
         </Audio>
         <TransConfig>
-            <AdjDarMethod>rescale</AdjDarMethod>
+            <AdjDarMethod>scale</AdjDarMethod>
             <IsCheckReso>false</IsCheckReso>
             <ResoAdjMethod>1</ResoAdjMethod>
         </TransConfig>
@@ -199,9 +206,9 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
-| TemplateId         | Response | 模版 ID                                                      | String    |
-| Name               | Response | 模版名字                                                     | String    |
-| Tag                | Response | 模版类型，Transcode                                          | String    |
+| TemplateId         | Response | 模板 ID                                                      | String    |
+| Name               | Response | 模板名字                                                     | String    |
+| Tag                | Response | 模板类型，Transcode                                          | String    |
 | UpdateTime         | Response | 更新时间                                                     | String    |
 | TimeInterval       | Response | 同请求体中 Request.TimeInterval | Container |
 | Container          | Response | 同请求体中 Request.Container    | Container |
@@ -219,10 +226,12 @@ Container 节点 Response 的内容：
 
 ```shell
 PUT /template/<TemplateId> HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
+
+
 
 <Request>
     <Tag>Transcode</Tag>
@@ -251,7 +260,7 @@ Content-Type: application/xml
         <Channels>4</Channels>
     </Audio>
     <TransConfig>
-        <AdjDarMethod>rescale</AdjDarMethod>
+        <AdjDarMethod>scale</AdjDarMethod>
         <IsCheckReso>false</IsCheckReso>
         <ResoAdjMethod>1</ResoAdjMethod>
     </TransConfig>
@@ -271,12 +280,14 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+
+
 
 <Response>
     <Template>
         <Tag>Transcode</Tag>
-        <TemplateId></TemplateId>
+        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
         <Name>TemplateName</Name>
         <Container>
             <Format>mp4</Format>
@@ -302,7 +313,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
             <Channels>4</Channels>
         </Audio>
         <TransConfig>
-            <AdjDarMethod>rescale</AdjDarMethod>
+            <AdjDarMethod>scale</AdjDarMethod>
             <IsCheckReso>false</IsCheckReso>
             <ResoAdjMethod>1</ResoAdjMethod>
         </TransConfig>

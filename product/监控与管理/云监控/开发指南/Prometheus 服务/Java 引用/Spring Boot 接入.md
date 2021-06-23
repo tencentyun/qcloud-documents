@@ -6,19 +6,25 @@
 
 ## 前提条件
 
-- 创建 [腾讯云容器服务—托管版集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)：在腾讯云容器服务中创建 Kubernetes 集群。
+- 创建 [腾讯云容器服务—托管版集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)：在腾讯云容器服务中创建 Kubernetes 集群。
 - [使用私有镜像仓库管理应用镜像](https://cloud.tencent.com/document/product/457/9117)。
 - 应用基于 Spring Boot 框架进行开发。
 
 ## 操作步骤
 
-> ?Spring Boot 已提供 actuator 组件来对应用进行监控，简化了开发的使用成本，所以这里直接使用 actuator 为 Spring Boot 应用进行监控埋点，基于 Spring Boot 2.0 及以上的版本，低版本会有配置上的差别需要注意。
+> !Spring Boot 已提供 actuator 组件来对应用进行监控，简化了开发的使用成本，所以这里直接使用 actuator 为 Spring Boot 应用进行监控埋点，基于 Spring Boot 2.0 及以上的版本，低版本会有配置上的差别需要注意。
+>**若您使用spring boot 1.5 接入，接入时和2.0会有一定区别，需要注意如下几点：**
+1. 访问 `prometheus metrics` 的地址和2.0不一样，1.5默认的是`/prometues`，即`http://localhost:8080/prometheus`。
+2. 若报401错误则表示没有权限(Whitelabel Error Page)，1.5默认对 `management` 接口加了安全控制，需要修改 `management.security.enabled=false`。
+3. 若项目中用 `bootstrap.yml` 来配置参数，在 `bootstrap.yml` 中需改 `management` 不启作用，需要在 `application.yml` 中修改，原因： spring boot 启动加载顺序有关。
+4. `metric common tag` 不能通过 `yml` 来添加，只有通过代码加一个 `bean` 的方式添加，详细信息可参见 [spring boot 1.5 接入](https://micrometer.io/docs/ref/spring/1.5)。
 
 ### 修改应用的依赖及配置
 
 #### 步骤1：修改 pom 依赖 
 
 项目中已经引用 `spring-boot-starter-web` 的基础上，在 `pom.xml` 文件中添加 `actuator/prometheus` Maven 依赖项。
+
 ```xml
 <dependency>
   <groupId>org.springframework.boot</groupId>
@@ -33,7 +39,8 @@
 #### 步骤2：修改配置
 
 编辑 `resources` 目录下的 `application.yml` 文件，修改 `actuator` 相关的配置来暴露 Prometheus 协议的指标数据。
-```
+
+````
 management:
   endpoints:
     web:
@@ -50,7 +57,7 @@ management:
     tags:
       # 必须加上对应的应用名，因为需要以应用的维度来查看对应的监控
       application: spring-boot-mvc-demo
-```
+````
 
 #### 步骤3：本地验证
 
@@ -96,29 +103,29 @@ docker push ccr.ccs.tencentyun.com/prom_spring_demo/spring-boot-demo:latest
 单击【服务与路由】>【Service】，进入 Service 管理页面，选择对应的命名空间来调整 Service Yaml 配置，如下图：
 ![](https://main.qcloudimg.com/raw/fab7f044fdc658a7608214d86eed740e.png)
 配置示例如下：
-  ```
+
+```yaml
   apiVersion: v1
   kind: Service
   metadata:
-    # 可以根据实际情况添加对应的 labels
-    labels:
-      k8sapp: spring-mvc-demo
-    name: spring-mvc-demo
-    namespace: spring-demo
+     labels: # 可以根据实际情况添加对应的 labels
+       k8sapp: spring-mvc-demo
+     name: spring-mvc-demo
+     namespace: spring-demo
   spec:
-    ports:
-    - name: 8080-8080-tcp  # ServiceMonitor 抓取任务中 port 对应的值
-      port: 8080
-      protocol: TCP
-      targetPort: 8080
-    selector:
-      k8s-app: spring-mvc-demo
-      qcloud-app: spring-mvc-demo
-    sessionAffinity: None
-    type: ClusterIP
-  status:
-    loadBalancer: {}
-  ```
+     ports:
+     - name: 8080-8080-tcp  # ServiceMonitor 抓取任务中 port 对应的值
+       port: 8080
+       protocol: TCP
+       targetPort: 8080
+     selector:
+       k8s-app: spring-mvc-demo
+       qcloud-app: spring-mvc-demo
+     sessionAffinity: None
+     type: ClusterIP
+   status:
+     loadBalancer: {}
+```
 
 #### 步骤4：添加采取任务
 
@@ -126,30 +133,24 @@ docker push ccr.ccs.tencentyun.com/prom_spring_demo/spring-boot-demo:latest
 2. 单击集成容器服务列表中的【集群 ID】，进入到容器服务集成管理页面。
 3. 通过服务发现添加 Service Monitor，目前支持基于 Labels 发现对应的目标实例地址，所以可以对一些服务添加特定的 K8S Labels，配置之后在 Labels 下的服务都将被 Prometheus 服务自动识别出来，不需要再为每个服务一一添加采取任务。以该例子介绍，配置信息如下：
 > ?这里需要注意的是 `port` 的取值为 `service yaml` 配置文件里的 `spec/ports/name` 对应的值。
->
-```
-apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
-metadata:
-	# 填写一个唯一名称
-	name: spring-mvc-demo
-	# namespace固定，不要修改
-	namespace: cm-prometheus
-spec:
-	endpoints:
-	- interval: 30s
-		# 填写service yaml中Prometheus Exporter对应的Port的Name
-		port: 8080-8080-tcp
-		# 填写Prometheus Exporter对应的Path的值，不填默认/metrics
-		path: /actuator/prometheus
-	# 选择要监控service所在的namespace
-	namespaceSelector:
-		matchNames:
-		- spring-demo 
-	# 填写要监控service的Label值，以定位目标service
-	selector:
-		matchLabels:
-			k8sapp: spring-mvc-demo 
+
+```yaml
+  apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    name: spring-mvc-demo # 填写一个唯一名称
+    namespace: cm-prometheus # namespace固定，不要修改
+  spec:
+    endpoints:
+    - interval: 30s
+      port: 8080-8080-tcp # 填写service yaml中Prometheus Exporter对应的Port的Name
+      path: /actuator/prometheus  # 填写Prometheus Exporter对应的Path的值，不填默认/metrics
+    namespaceSelector:  # 选择要监控service所在的namespace
+      matchNames:
+      - spring-demo 
+    selector: # 填写要监控service的Label值，以定位目标service
+      matchLabels:
+        k8sapp: spring-mvc-demo 
 ```
 
 #### 步骤5：查看监控

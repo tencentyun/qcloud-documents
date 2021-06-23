@@ -201,7 +201,7 @@ VYapc9EYdoZLzGx0CglRW4N6kuhzZWNyZXRJZD1BS0lEZk5xMzl6dG5tYW1tVzBMOXFvZERia25hUjdZ
 ### 上传签名派发服务代码解读
 
 1. `main_handler()`为入口函数。
-2. 调用`parse_conf_file()`，从`config.json`文件中读取配置信息。配置项说明如下（详细参数请参见 [客户端上传签名参数](https://cloud.tencent.com/document/product/266/9221#.3Cspan-id-.3D.22p2.22.3E.3C.2Fspan.3E.E7.AD.BE.E5.90.8D.E5.8F.82.E6.95.B0.E8.AF.B4.E6.98.8E)）：
+2. 调用`parse_conf_file()`，从`config.json`文件中读取配置信息。配置项说明如下（详细参数请参见 [客户端上传签名参数](https://cloud.tencent.com/document/product/266/9221#.3Ca-id.3D.22p2.22.3E.3C.2Fa.3E.E7.AD.BE.E5.90.8D.E5.8F.82.E6.95.B0.E8.AF.B4.E6.98.8E)）：
 <table>
 <thead>
 <tr>

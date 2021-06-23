@@ -27,7 +27,6 @@ touch serverless.yml
 
 component: apigateway # (必填) 组件名称，此处为 apigateway
 name: apigwDemo # (必填) 实例名称
-org: orgDemo # (可选) 用于记录组织信息，默认值为您的腾讯云账户 appid
 app: appDemo # (可选) 该 next.js 应用名称
 stage: dev # (可选) 用于区分环境信息，默认值是 dev
 
@@ -87,4 +86,6 @@ TENCENT_SECRET_KEY=123
 >?
 >- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 >- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
+>
+
 

@@ -10,7 +10,7 @@ Filebeat 是一个轻量级开源日志文件数据搜集器，作为 agent 安�
 1. **安装** 
 Filebeat 安装介绍请参见 [该地址](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)。
 2. **配置** 
-Filebeat 的配置采用 yaml 格式文件，主要配置为全局配置、输入配置、输出配置，下节会给出使用样例。
+Filebeat 的配置采用 YAML 格式文件，主要配置为全局配置、输入配置、输出配置，下节会给出使用样例。
 3. **启动**
 Filebeat 启动时可以指定配置文件路径，若不指定则默认使用 filebeat.yml。
 

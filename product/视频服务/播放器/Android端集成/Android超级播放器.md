@@ -15,14 +15,17 @@ Android 播放器 SDK 完全免费开源，不对播放地址来源做限制，�
 1. 下载 SDK + Demo 开发包，下载地址请参见：[SDK 下载 - Android](https://cloud.tencent.com/document/product/881/20205)。
 2. 导入`SDK/LiteAVSDK_XXX.aar`以及`Demo/superplayerkit`这个 module 复制到工程中。
 3. 在`app/build.gradle`中添加依赖：
-```java
+<dx-codeblock>
+::: java java
 compile(name: 'LiteAVSDK_Player_7.4.9211', ext: 'aar')
 compile project(':superplayerkit')
 // 超级播放器弹幕集成的第三方库
 compile 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
-```
+:::
+</dx-codeblock>
 4. 在项目`build.gradle`中添加：
-```
+<dx-codeblock>
+::: java java
 ...
 allprojects {
     repositories {
@@ -33,8 +36,9 @@ allprojects {
     }
 }
 ...
-```
-5. 权限声明
+:::
+</dx-codeblock>
+5. 权限声明。
 ```java
 <!--网络权限-->
 <uses-permission android:name="android.permission.INTERNET" />
@@ -52,7 +56,8 @@ allprojects {
 
 播放器主类为`SuperPlayerView`，创建后即可播放视频。
 
-```java
+<dx-codeblock>
+::: java java
 mSuperPlayerView = findViewById(R.id.main_super_player_view);
 
 SuperPlayerModel model = new SuperPlayerModel();
@@ -60,7 +65,8 @@ SuperPlayerModel model = new SuperPlayerModel();
 model.url = "http://200024424.vod.myqcloud.com/200024424_709ae516bdf811e6ad39991f76a4df69.f20.mp4";
 
 mSuperPlayerView.playWithModel(model);
-```
+:::
+</dx-codeblock>
 
 运行代码，可以看到视频在手机上播放，并且界面上大部分功能都处于可用状态。
 ![](https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png)
@@ -69,17 +75,18 @@ mSuperPlayerView.playWithModel(model);
 
 上面的示例代码只有一种清晰度，如果要添加多个清晰度，以直播为例：
 
-在云直播控制台 [创建转码模板](https://cloud.tencent.com/document/product/267/20385) 后，播放域名 [绑定转码模板](https://cloud.tencent.com/document/product/267/32834)，然后在原 StreamName（流 id）的基础上加上"\_模板名称"，重新生成播放地址，即可播放指定的码率或分辨率的直播流，详情请参见 [直播转码](https://cloud.tencent.com/document/product/267/32736#.E8.BD.AC.E7.A0.81.E5.8F.82.E6.95.B0.E8.AE.BE.E7.BD.AE.E4.BD.BF.E7.94.A8.E6.96.B9.E6.B3.95)。
+打开 [直播控制台](https://console.cloud.tencent.com/live/livemanage)，找到需要播放的直播流，进入详情。
+![](https://main.qcloudimg.com/raw/e7502f092eaabdafbca1450427eef5a9.png)
 
 例如，您有不同清晰度、不同格式的播放地址。推荐使用 FLV 地址播放，代码如下：
 
 ```java
 SuperPlayerModel model = new SuperPlayerModel();
 model.multiURLs = new ArrayList<>();
-model.multiURLs.add(new SuperPlayerModel.SuperPlayerURL("http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/e1ab85305285890781763144364/v.f10.mp4", "流畅"));
-model.multiURLs.add(new SuperPlayerModel.SuperPlayerURL("http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/e1ab85305285890781763144364/v.f20.mp4", "标清"));
-model.multiURLs.add(new SuperPlayerModel.SuperPlayerURL("http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/e1ab85305285890781763144364/v.f30.mp4", "高清"));
-model.playDefaultIndex = 1;// 默认播放标清
+model.multiURLs.add(new SuperPlayerModel.SuperPlayerURL("http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e_550.flv", "标清"));
+model.multiURLs.add(new SuperPlayerModel.SuperPlayerURL("http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e_900.flv", "高清"));
+model.multiURLs.add(new SuperPlayerModel.SuperPlayerURL("http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e.flv", "超清"));
+model.playDefaultIndex = 1;// 默认播放高清
 
 mSuperPlayerView.playWithModel(model);
 ```

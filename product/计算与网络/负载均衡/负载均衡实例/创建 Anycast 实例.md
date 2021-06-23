@@ -30,8 +30,9 @@ Anycast 发布域是加速 IP 地址发布的地点，即 Anycast CLB 的 VIP �
 
 >?
 >- Anycast CLB 由 Anycast EIP 绑定内网负载均衡来提供 Anycast 能力。
->- Anycast EIP 支持绑定内网负载均衡，不支持绑定传统型内网负载均衡。
+>- Anycast EIP 支持绑定内网负载均衡，不支持绑定传统型内网负载均衡，不支持绑定基础网络负载均衡。
 >
+
 ## Anycast CLB 使用场景
 ### 多地同服
 游戏客户希望多个地域玩家在同一区内（或者企业在各地的分公司希望使用同一个数据中心），可以把后端服务部署在一个地域（如广州），购买一个广州地域的 Anycast CLB，根据需要选择发布域，多地玩家（或员工）将就近接入，并访问同一套后端服务。
@@ -45,6 +46,7 @@ Anycast CLB 在游戏加速中的应用也非常广泛，游戏请求就近接�
 ## 操作指南
 ### 前提条件
 本功能内测中，操作前请确保您的 [内测申请](https://cloud.tencent.com/apply/p/47mdddtoc56) 已通过。
+
 ### 操作步骤
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在左侧导航栏中，单击 【[弹性公网IP ](https://console.cloud.tencent.com/cvm/eip2)】，进入 “弹性公网IP” 管理页面。
@@ -54,3 +56,5 @@ Anycast CLB 在游戏加速中的应用也非常广泛，游戏请求就近接�
 ![](https://main.qcloudimg.com/raw/46cb52e7a76c8c2e7eeb0a70641e0d4e.png)
 5. 内网负载均衡绑定加速 IP 后，该负载均衡即可提供 Anycast 负载均衡服务。更多负载均衡配置请参见 [负载均衡监听器概述](https://cloud.tencent.com/document/product/214/6151)。
 ![](https://main.qcloudimg.com/raw/dae5e2248aede6d523e7de28afbed0d5.png)
+
+
