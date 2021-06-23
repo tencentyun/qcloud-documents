@@ -28,7 +28,7 @@
   </tr>
   <tr>
     <td>已封禁</td>
-    <td>该域名已被举报封禁，如有问题，可加入咨询 <a href="https://cloud.tencent.com/document/product/242/57608#DNSPod">DNSPod 官方用户群</a>。</td>
+    <td>该域名已被举报封禁，如有问题，可加入 <a href="https://cloud.tencent.com/document/product/242/57608#DNSPod">DNSPod 官方用户群</a> 进行咨询。</td>
   </tr>
 </tbody>
 </table>
