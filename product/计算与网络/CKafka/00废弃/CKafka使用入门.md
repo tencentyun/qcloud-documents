@@ -1,6 +1,6 @@
 ## 查看 CKafka 实例，创建 topic
 
-申请通过后，您的 CKafka 控制台中会展示 CKafka 实例，单击实例信息可以查看实例详情。包括地域、内网 VIP、端口等信息。
+申请通过后，您的 CKafka 控制台中会展示 CKafka 实例，单击实例信息可以查看实例详情。包括地域、内网 VIP、端口等信息。  
 
 ![](https://mc.qcloudimg.com/static/img/fd6e90a028316b0ff8c960a81170dbbe/1.png)
 ![](https://main.qcloudimg.com/raw/d4d33971683792a1f97d0a2f5b8ec8c1.png)
