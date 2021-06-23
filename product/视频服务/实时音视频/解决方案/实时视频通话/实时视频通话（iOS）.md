@@ -32,7 +32,7 @@
 
 [](id:ui.step2)
 ### 步骤2：下载 App 源码
-1. 点击进入 [TUICalling](https://github.com/tencentyun/TUICalling)，Clone 或者下载源码。
+单击进入 [TUICalling](https://github.com/tencentyun/TUICalling)，Clone 或者下载源码。
 
 [](id:ui.step3)
 ### 步骤3：配置 App 工程文件
