@@ -20,17 +20,17 @@
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 输入应用名称，例如  `TestVoiceRoom`  ，单击【创建】。
+3. 单击【已下载，下一步】，跳过此步骤。
+
+![](https://main.qcloudimg.com/raw/f588650274a85b74893ff96eb563d3b4.png)
 
 >?本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 
 
 [](id:ui.step2)
-### 步骤2：下载 SDK 和 App 源码
-1. 根据实际业务需求下载 SDK 及配套的 App 源码。
-2. 下载完成后，单击【已下载，下一步】。
-
-![](https://main.qcloudimg.com/raw/c4884da10fe7751953e91294ca95acb0.png)
+### 步骤2：下载 App 源码
+1. 点击进入 [TUIVoiceRoom](https://github.com/tencentyun/TUIVoiceRoom)，Clone 或者下载源码。
 
 [](id:ui.step3)
 ### 步骤3：配置 App 工程文件
