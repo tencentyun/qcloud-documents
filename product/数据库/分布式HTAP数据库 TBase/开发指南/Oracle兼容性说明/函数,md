@@ -675,103 +675,104 @@ DUMP(expr[,return_fmt[,start_position][,length]])
 Typ=96 Len=3 [CharacterSet=ZHS16GBK]: 61,62,63
 ```
 - typ 表示当前 expr 值的类型，类型查询 `sql：select typname from pg_type where oid=?`；
-Oracle与TBase中类型对比如下：
-    Oracle TypeTBase Type
-    CODE TYP  CODE TYP
-    ----- ---------------------------- ----------------
-    1  VARCHAR2 781 varchar2
-    2  NUMBER   1700number
-    8  LONG  不支持
-    12 DATE   1082date
-    23 RAW   不支持
-    24 LONG RAW 不支持
-    69 ROWID 4657rowid
-    96 CHAR  1042bpchar
-    112CLOB   11905   clob
-    113BLOB   11904   blob
-    114BFILE   不支持
-    180TIMESTAMP1114timestamp
-    181TIMESTAMP WITH TIMEZONE1184timestamptz
-    182INTERVAL YEAR TO MONTH 1186interval
-    183INTERVAL DAY TO SECOND 1186interval
-    208UROWID不支持
-    231TIMESTAMP WITH LOCAL TIMEZONE 不支持
-2、Len表示占用的字节数；这里字节数和Oracle的可能会有差异；
-3、具体的存储值。返回的数值就是TBase在自己内部的存储形式。对于非汉字的普通字符串，可以理解为就是它的ASCII码。
+Oracle 与 TBase 中类型对比如下：
+
+|  Oracle|  Type|  TBase|  Type |  
+|  -----|  -------------- |  --------------|  ----------------|  
+|  1  |  VARCHAR2   |  781   |  varchar2  |  
+|  2  |  NUMBER   |    1700  |  number  |  
+|  8  |  LONG   |   不支持  |    |  
+|  12  |  DATE     |  1082  |  date  |  
+|  23  |  RAW    |   不支持  |    |  
+|  24  |  LONG RAW   |  不支持  |    |  
+|  69  |  ROWID   |  4657rowid  |  
+|  96  |  CHAR   |   1042bpchar  |  
+|  112  |  CLOB    |   11905    |   clob  |  
+|  113  |  BLOB    |   11904     |  blob  |  
+|  114  |  BFILE    |   不支持  |  
+|  180  |  TIMESTAMP  |  1114  |  timestamp  |  
+|  181  |  TIMESTAMP WITH TIMEZONE1184  |  timestamptz  |  
+|  182  |  INTERVAL YEAR TO MONTH   |  1186  |  interval  |  
+|  183  |  INTERVAL DAY TO SECOND  |   1186  |  interval  |  
+|  208  |  UROWID  |  不支持  |    |  
+|  231  |  TIMESTAMP WITH LOCAL TIMEZONE   |  不支持  |    |  
+
+- Len 表示占用的字节数，这里字节数和 Oracle 的可能会有差异。
+- 具体的存储值。返回的数值就是 TDSQL PostgreSQL版 在自己内部的存储形式。对于非汉字的普通字符串，可以理解为就是它的 ASCII 码。
 
 #### 示例
 ```
 postgres=# select dump('abc') from dual;
-      dump   
-    ---------------------------------
-     Typ=25 Len=7: 28,0,0,0,97,98,99
-    (1 row)
-    postgres=# select dump('abc',16) from dual;
-      dump   
-    ---------------------------------
-     Typ=25 Len=7: 1c,0,0,0,61,62,63
-    (1 row)
-    postgres=# select dump('abc',1016) from dual;
-       dump
-    ---------------------------------------------------
-     Typ=25 Len=7 CharacterSet=UTF8: 1c,0,0,0,61,62,63
-    (1 row)
-    postgres=# select dump('abc',17,2,2) from dual;
-       dump
-    -------------------
-     Typ=25 Len=7: ?,?
-    (1 row)
-    postgres=# select dump('a=?5') from dual;
-    dump
-    ------------------------------------
-     Typ=25 Len=8: 32,0,0,0,97,61,63,53
-    (1 row)
-    postgres=# select chr(97),chr(61),chr(63),chr(53) from dual;
-     chr | chr | chr | chr 
-    -----+-----+-----+-----
-     a   | =   | ?   | 5
-    (1 row)
-    postgres=# select ascii('a'),ascii('='),ascii('?'),ascii('5') from dual;
-     ascii | ascii | ascii | ascii 
-    -------+-------+-------+-------
-    97 |61 |63 |53
-    (1 row)
+  dump   
+---------------------------------
+  Typ=25 Len=7: 28,0,0,0,97,98,99
+(1 row)
+postgres=# select dump('abc',16) from dual;
+  dump   
+---------------------------------
+  Typ=25 Len=7: 1c,0,0,0,61,62,63
+(1 row)
+postgres=# select dump('abc',1016) from dual;
+  dump
+---------------------------------------------------
+  Typ=25 Len=7 CharacterSet=UTF8: 1c,0,0,0,61,62,63
+(1 row)
+postgres=# select dump('abc',17,2,2) from dual;
+  dump
+-------------------
+  Typ=25 Len=7: ?,?
+(1 row)
+postgres=# select dump('a=?5') from dual;
+  dump
+------------------------------------
+  Typ=25 Len=8: 32,0,0,0,97,61,63,53
+(1 row)
+postgres=# select chr(97),chr(61),chr(63),chr(53) from dual;
+  chr | chr | chr | chr 
+-----+-----+-----+-----
+  a   | =   | ?   | 5
+(1 row)
+postgres=# select ascii('a'),ascii('='),ascii('?'),ascii('5') from dual;
+  ascii | ascii | ascii | ascii 
+-------+-------+-------+-------
+  97 |61 |63 |53
+(1 row)
 ```
 
 ## XML
 ### EXTRACTVALUE
-EXTRACTVALUE函数将XMLType实例和XPath表达式作为参数，并返回结果节点的标量值。
+EXTRACTVALUE 函数将 XMLType 实例和 XPath 表达式作为参数，并返回结果节点的标量值。
 
 #### 语法
 ```
 EXTRACTVALUE
-       (XMLType_instance, XPath_string
-     [, namespace_string ]
-       )
+    (XMLType_instance, XPath_string
+  [, namespace_string ]
+    )
 ```
     
 #### 示例
 ```
 create table temp (
-      name varchar2(200),
-      age number,
-      temp_clob CLOB
-      );
-      insert into temp values('aaa',32,'<AAA>
-    	<BBB id = "b1"/>
-    	<BBB id = "b2">
-    	hello
-    </BBB>
-    	<BBB name = "bbb"/>
-    	<BBB/>
-    </AAA>');
+   name varchar2(200),
+   age number,
+   temp_clob CLOB
+   );
+   insert into temp values('aaa',32,'<AAA>
+   <BBB id = "b1"/>
+   <BBB id = "b2">
+   hello
+</BBB>
+   <BBB name = "bbb"/>
+   <BBB/>
+</AAA>');
     
-    select extractvalue(xmltype(a.temp_clob),'/AAA/BBB[@id="b2"]') from temp a;
+select extractvalue(xmltype(a.temp_clob),'/AAA/BBB[@id="b2"]') from temp a;
 ```
 
 ## 转换
 ### TO_CLOB
-TBase V5兼容Oracle的TO_CLOB函数，将字符串、数字转换为clob类型。
+TDSQL PostgreSQL版 兼容 Oracle 的 TO_CLOB 函数，将字符串、数字转换为 clob 类型。
 
 #### 语法
 ```
@@ -781,28 +782,28 @@ TO_CLOB( { string | numeric | clob })
 #### 示例
 ```
 postgres=#  select to_clob('tbase'),dump(to_clob('tbase')) from dual;
-     to_clob |dump 
-    ---------+---------------------------------------------
-     tbase   | Typ=11899 Len=9: 36,0,0,0,116,98,97,115,101
-    (1 row)
-    postgres=#  select to_clob(112233),dump(to_clob(112233)) from dual;
-     to_clob | dump 
-    ---------+----------------------------------------------
-     112233  | Typ=11899 Len=10: 40,0,0,0,49,49,50,50,51,51
-    (1 row)
-    postgres=# select typname from pg_type where oid=11899;
-     typname 
-    ---------
-     clob
-    (1 row)
+  to_clob |dump 
+---------+---------------------------------------------
+  tbase   | Typ=11899 Len=9: 36,0,0,0,116,98,97,115,101
+(1 row)
+postgres=#  select to_clob(112233),dump(to_clob(112233)) from dual;
+  to_clob | dump 
+---------+----------------------------------------------
+  112233  | Typ=11899 Len=10: 40,0,0,0,49,49,50,50,51,51
+(1 row)
+postgres=# select typname from pg_type where oid=11899;
+  typname 
+---------
+  clob
+(1 row)
 ```
-确认函数输出类型11899对应clob。
+确认函数输出类型11899对应 clob。
 
 ### ROWIDTOCHAR
-Oracle中ROWIDTOCHAR函数转换rowid为varchar2类型。TBase V5兼容该函数，返回类型为text。
+Oracle 中 ROWIDTOCHAR 函数转换 rowid 为 varchar2 类型。TDSQL PostgreSQL版 兼容该函数，返回类型为 text。
 
 #### 使用限制
-参数必须为rowid类型，或符合rowid要求的varchar、varchar2、text类型。
+参数必须为 rowid 类型，或符合 rowid 要求的 varchar、varchar2、text 类型。
 
 #### 语法
 ```
@@ -812,34 +813,32 @@ ROWIDTOCHAR(rowid)
 #### 示例
 ```
 postgres=# select rowid,ROWIDTOCHAR(rowid),dump(ROWIDTOCHAR(rowid)) from t_rowid;
-    rowid | rowidtochar  |  dump  
-    ----------------------+----------------------+----------------------------------------------------------------------------------------
-     XPK3fw==AQAAAAAAAAA= | XPK3fw==AQAAAAAAAAA= | Typ=25 Len=24: 96,0,0,0,88,80,75,51,102,119,61,61,65,81,65,65,65,65,65,65,65,65,65,61
-     XPK3fw==AgAAAAAAAAA= | XPK3fw==AgAAAAAAAAA= | Typ=25 Len=24: 96,0,0,0,88,80,75,51,102,119,61,61,65,103,65,65,65,65,65,65,65,65,65,61
-    (2 rows)
-    postgres=# select typname from pg_type where oid=25;
-     typname 
-    ---------
-     text
-    (1 row)
-    确认函数输出类型25对应text。
+  rowid | rowidtochar  |  dump  
+----------------------+----------------------+-----------------------------------
+  XPK3fw==AQAAAAAAAAA= | XPK3fw==AQAAAAAAAAA= | Typ=25 Len=24: 96,0,0,0,88,80,75,51,102,119,61,61,65,81,65,65,65,65,65,65,65,65,65,61
+  XPK3fw==AgAAAAAAAAA= | XPK3fw==AgAAAAAAAAA= | Typ=25 Len=24: 96,0,0,0,88,80,75,51,102,119,61,61,65,103,65,65,65,65,65,65,65,65,65,61
+(2 rows)
+postgres=# select typname from pg_type where oid=25;
+  typname 
+---------
+  text
+(1 row)
+确认函数输出类型25对应 text
     
-    入参为字符串也可以。
-    postgres=# select ROWIDTOCHAR('XPK3fw==AQAAAAAAAAA=');
-     rowidtochar  
-    ----------------------
-     XPK3fw==AQAAAAAAAAA=
-    (1 row)
+入参为字符串也可以
+postgres=# select ROWIDTOCHAR('XPK3fw==AQAAAAAAAAA=');
+  rowidtochar  
+----------------------
+  XPK3fw==AQAAAAAAAAA=
+(1 row)
 ```
     
-
 ### CHARTOROWID
-Oracle中CHARTOROWID函数转换varchar2类型为rowid值,c1,字符串，长度为18的字符串，字符串必须符合rowid格式，ROWID：数据表中行的全局唯一地址,ROWID详解
-https://blog.csdn.net/chiclewu/article/details/25782619
-TBase V5中 rowid长度为20位。
+Oracle 中 CHARTOROWID 函数转换 varchar2 类型为 rowid 值,c1,字符串，长度为18的字符串，字符串必须符合 rowid 格式，ROWID：数据表中行的全局唯一地址，[ROWID 详解](https://blog.csdn.net/chiclewu/article/details/25782619)。
+TDSQL PostgreSQL版 中 rowid 长度为20位。
 
 #### 使用限制
-1、参数为字符串，用长度必须为20，字符只能为数字、大小写字母、=组合。
+参数为字符串，用长度必须为20，字符只能为数字、大小写字母、=组合。
 
 #### 语法
 ```
@@ -848,37 +847,36 @@ CHARTOROWID( { varchar | text })
     
 #### 示例
 ```
-测试表t_rowid中查看已有rowid：
-    postgres=# select rowid,* from t_rowid;
-    rowid | f1 |  f2  
-    ----------------------+----+------
-     XPK3fw==AQAAAAAAAAA= |  1 | ONE
-     XPK3fw==AgAAAAAAAAA= |  2 | TWO1
-    (2 rows)
+测试表 t_rowid 中查看已有 rowid
+postgres=# select rowid,* from t_rowid;
+  rowid | f1 |  f2  
+----------------------+----+------
+  XPK3fw==AQAAAAAAAAA= |  1 | ONE
+  XPK3fw==AgAAAAAAAAA= |  2 | TWO1
+(2 rows)
     
-    确认CHARTOROWID函数调用，及函数输出类型
-    postgres=# select CHARTOROWID('XPK3fw==AQAAAAAAAAA='),
-    dump(CHARTOROWID('XPK3fw==AQAAAAAAAAA=')) from dual;;
-     chartorowid  |  dump   
-    ----------------------+-------------------------------------------------
-     XPK3fw==AQAAAAAAAAA= | Typ=4657 Len=12: 1,0,0,0,0,0,0,0,92,242,183,127
-    (1 row)
+确认 CHARTOROWID 函数调用，及函数输出类型
+postgres=# select CHARTOROWID('XPK3fw==AQAAAAAAAAA='),
+dump(CHARTOROWID('XPK3fw==AQAAAAAAAAA=')) from dual;;
+  chartorowid  |  dump   
+----------------------+-------------------------------------------------
+  XPK3fw==AQAAAAAAAAA= | Typ=4657 Len=12: 1,0,0,0,0,0,0,0,92,242,183,127
+(1 row)
     
-    postgres=# select typname from pg_type where oid=4657;
-     typname 
-    ---------
-     rowid
-    (1 row)
-    postgres=# 
-
-类型4657对应rowid。
+postgres=# select typname from pg_type where oid=4657;
+  typname 
+---------
+  rowid
+(1 row)
+postgres=# 
+类型4657对应 rowid
 ```
     
 ### TO_CHAR(十进制，'xxx') 转换为16进制
-TO_CHAR通常用来将日期、数字转换为字符串，但Oracle中还有一种用途，可以用来将十进制转换为16进制。
+TO_CHAR 通常用来将日期、数字转换为字符串，但 Oracle 中还有一种用途，可以用来将十进制转换为16进制。
 
 #### 使用限制
-需要开启Oracle兼容性，即enable_oracle_compatible为on。
+需要开启 Oracle 兼容性，即 enable_oracle_compatible 为 on。
 
 #### 语法
 ```
@@ -887,36 +885,35 @@ TO_CHAR( {numeric | string } , 'xxx' )
     
 #### 示例
 ```
- postgres=# select to_char('255','xxx') from dual;  
-     to_char 
-    ---------
-     ff
-    (1 row)
+postgres=# select to_char('255','xxx') from dual;  
+  to_char 
+---------
+  ff
+(1 row)
     
-    postgres=# select to_char(255,'xxx') from dual;  
-     to_char 
-    ---------
-     ff
-    (1 row)
-    postgres=# select ltrim(to_char(to_char(sysdate,'yyyy'),'xxxx')) FROM dual;
-     ltrim 
-    -------
-     7e5
-    (1 row)
+postgres=# select to_char(255,'xxx') from dual;  
+  to_char 
+---------
+  ff
+(1 row)
+postgres=# select ltrim(to_char(to_char(sysdate,'yyyy'),'xxxx')) FROM dual;
+  ltrim 
+-------
+  7e5
+(1 row)
     
-    包含字符不符合报错：
-    postgres=# select CHARTOROWID('XPK3fw==AQAAAAAAAA-=') from dual;;
-    ERROR:  invalid symbol "-" while decoding base64 sequence
+包含字符不符合报错：
+postgres=# select CHARTOROWID('XPK3fw==AQAAAAAAAA-=') from dual;;
+ERROR:  invalid symbol "-" while decoding base64 sequence
     
-    长度不符合报错：
-    postgres=# select CHARTOROWID('XPK3fw==AQAAAAAAAAa==') from dual;;
-    ERROR:  invalid argument string length
+长度不符合报错：
+postgres=# select CHARTOROWID('XPK3fw==AQAAAAAAAAa==') from dual;;
+ERROR:  invalid argument string length
 ```
    
-
 ## 大对象
 ### EMPTY_BLOB
-TBase V5兼容Oracle的EMPTY_BLOB函数，用于初始化BLOB字段，然后再使用输出流向字段中写数据。
+TDSQL PostgreSQL版 兼容 Oracle 的 EMPTY_BLOB 函数，用于初始化 BLOB 字段，然后再使用输出流向字段中写数据。
 
 #### 语法
 ```
@@ -926,21 +923,20 @@ EMPTY_BLOB()
 #### 示例
 ```
 postgres=# create table t_empty_blob (f1 int,f2 blob);
-    CREATE TABLE
-    postgres=# insert into t_empty_blob values (1,empty_blob());
-    INSERT 0 1
-    postgres=# update t_empty_blob set f2='TBase V5' where f1=1;
-    UPDATE 1
-    postgres=# select * from t_empty_blob ;
-     f1 |f2
-    ----+----------
-      1 | \x5442617365205635
-    (1 row)
+CREATE TABLE
+postgres=# insert into t_empty_blob values (1,empty_blob());
+INSERT 0 1
+postgres=# update t_empty_blob set f2='TBase V5' where f1=1;
+UPDATE 1
+postgres=# select * from t_empty_blob ;
+  f1 |f2
+----+----------
+  1 | \x5442617365205635
+(1 row)
 ```
    
-
 ### EMPTY_CLOB
-TBase V5兼容Oracle的EMPTY_CLOB函数，用于初始化CLOB字段，然后再使用输出流向字段中写数据。
+TDSQL PostgreSQL版 兼容 Oracle 的 EMPTY_CLOB 函数，用于初始化 CLOB 字段，然后再使用输出流向字段中写数据。
 
 #### 语法
 ```
@@ -950,16 +946,15 @@ EMPTY_CLOB()
 #### 示例
 ```
 postgres=# create table t_empty_clob (f1 int,f2 clob);
-    CREATE TABLE
-    postgres=# insert into t_empty_clob values (1,empty_clob());
-    INSERT 0 1
-    postgres=# update t_empty_clob set f2='TBase V5' where f1=1;
-    UPDATE 1
-    postgres=# select * from t_empty_clob ;
-     f1 |f2
-    ----+----------
-      1 | TBase V5
-    (1 row)
+CREATE TABLE
+postgres=# insert into t_empty_clob values (1,empty_clob());
+INSERT 0 1
+postgres=# update t_empty_clob set f2='TBase V5' where f1=1;
+UPDATE 1
+postgres=# select * from t_empty_clob ;
+  f1 |f2
+----+----------
+  1 | TBase V5
+(1 row)
 ```
     
-
