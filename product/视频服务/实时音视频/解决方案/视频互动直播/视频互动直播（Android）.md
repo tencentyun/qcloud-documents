@@ -29,7 +29,7 @@
 
 [](id:ui.step2)
 ### 步骤2：下载 App 源码
-1. 点击进入 [TUILiveRoom](https://github.com/tencentyun/TUILiveRoom)，Clone 或者下载源码。
+单击进入 [TUILiveRoom](https://github.com/tencentyun/TUILiveRoom)，Clone 或者下载源码。
 
 
 [](id:ui.step3)
