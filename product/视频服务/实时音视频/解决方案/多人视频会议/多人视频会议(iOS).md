@@ -25,7 +25,7 @@
 
 [](id:ui_step2)
 ### 步骤2：下载 App 源码
-1. 点击进入 [TUIMeeting](https://github.com/tencentyun/TUIMeeting)，Clone 或者下载源码。
+单击进入 [TUIMeeting](https://github.com/tencentyun/TUIMeeting)，Clone 或者下载源码。
 
 [](id:ui_step3)
 ### 步骤3：配置 App 工程文件
