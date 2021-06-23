@@ -1,5 +1,5 @@
 ## 操作场景
-该任务指导您通过 CKafka 控制台，在已有实例下创建和查看 Topic。
+该任务指导您通过 CKafka 控制台，在已有实例下创建和查看 Topic。  
 
 Topic（主题）是某一种分类的名字，消息在 Topic 中可以被存储和发布。CKafka 对外使用 Topic 的概念，生产者往 Topic 中写消息，消费者从 Topic 中读消息。为了做到水平扩展，一个 Topic 实际是由多个 [Partition（分区）](https://cloud.tencent.com/document/product/597/32544#F)组成，遇到瓶颈时，可以通过增加 Partition 的数量进行横向扩容。
 
