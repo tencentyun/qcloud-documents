@@ -4,7 +4,7 @@ __功能__
  
 腾讯云直播播放器的参数配置模块。 
 
-__介绍__
+__介绍__ 
 
 主要负责 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34762) 对应的参数设置，其中绝大多数设置项在播放开始之后再设置是无效的。
 
