@@ -21,6 +21,19 @@ https://idasc.webank.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=
 ```
 
 ## 响应
+
+**响应参数**
+
+| 参数            | 类型   | 说明                                                         |
+| --------------- | ------ | ------------------------------------------------------------ |
+| code            | String | 0：成功 非0：失败 详情请参见 [SaaS 服务错误码](https://cloud.tencent.com/document/product/1007/47912) |
+| msg             | String | 请求结果描述                                                 |
+| transactionTime | String | 调用接口的时间                                               |
+| tickets         | list   | ticket 返回数组                                               |
+| value           | String | ticket 的值                                                   |
+| expire_time     | String | ticket 失效的绝对时间                                         |
+| expire_in       | int    | ticket 的最大生存时间                                         |
+
 **响应示例：**
 ```
 {
