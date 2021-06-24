@@ -6,15 +6,14 @@
 
 - [安装 GCC](https://gcc.gnu.org/install/)
 - [安装 Node.js](https://nodejs.org/en/download/)
-- [下载demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/nodejskafkademo)
+- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/nodejskafkademo)
 
 ## 操作步骤
 
 ### 准备工作
 
-1. 将下载的demo中的nodejskafkademo上传至linux服务器
-
-2. 登陆linux服务器，进入nodejskafkademo目录。
+1. 将下载的 Demo中的nodejskafkademo 上传至 linux 服务器。
+2. 登录 Linux 服务器，进入 nodejskafkademo 目录。
 
 ### 步骤一：安装 C++ 依赖库
 
@@ -47,6 +46,7 @@
    yum install librdkafka-devel
    ```
 
+
 ### 步骤二：安装 Node.js 依赖库
 
 1. 执行以下命令为预处理器指定 OpenSSL 头文件路径。
@@ -67,6 +67,7 @@
    npm install i --unsafe-perm node-rdkafka
    ```
 
+
 ### 步骤三：准备配置
 
 创建消息队列 CKafka 配置文件 setting.js。
@@ -83,13 +84,12 @@ module.exports = {
 | ----------------- | ------------------------------------------------------------ |
 | bootstrap_servers | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
 | topic_name        | Topic名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
-| group_id          | 您可以自定义设置，demo运行成功后可以在【Consumer Group】页面看到该消费者。 |
+| group_id          | 您可以自定义设置，Demo 运行成功后可以在【Consumer Group】页面看到该消费者。 |
 
 ### 步骤四：发送消息
 
 1. 编写生产消息程序 producer.js。
-
-```nginx
+```
 const Kafka = require('node-rdkafka');
       const config = require('./setting');
       console.log("features:" + Kafka.features);
@@ -176,8 +176,7 @@ const Kafka = require('node-rdkafka');
 ### 步骤五：订阅消息
 
 1. 创建消费消息程序 consumer.js。
-
-```nginx
+```
 const Kafka = require('node-rdkafka');
       const config = require('./setting');
       console.log(Kafka.features);
@@ -235,5 +234,5 @@ const Kafka = require('node-rdkafka');
 3. 查看运行结果
    ![](https://main.qcloudimg.com/raw/deecbf58c00e07531b4ea703c4046b46.png)
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)【Consumer Group】页面，选择对应的消费组，在主题名称输入 topic 名称，单击【查询详情】，查看消费详情。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)【Consumer Group】页面，选择对应的消费组，在主题名称输入 topic 名称，点击【查询详情】，查看消费详情。
    ![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)
