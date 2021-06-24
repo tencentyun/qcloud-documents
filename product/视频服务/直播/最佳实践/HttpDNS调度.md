@@ -28,24 +28,19 @@
 
 
 ### 2. 拼接下行播放 URL
-- HTTP：包含 FLV 以及 HLS 的播放协议，这里的 server_ip 为**请求下行接入点 IP** 中获取到的 IP，play_domain 代表播放域名，则 HTTP 的播放 URL 拼接如下：
-
+- **HTTP**：包含 FLV 以及 HLS 的播放协议，这里的 server_ip 为**请求下行接入点 IP** 中获取到的 IP，play_domain 代表播放域名，则 HTTP 的播放 URL 拼接如下：
 ```
 http://server_ip/play_domain/live/streamname.flv?xxxxxxxxxx
 http://server_ip/play_domain/live/ streamname.m3u8?xxxxxxxxxx
 http://server_ip/play_domain/live/ streamname -123.ts?xxxxxxxxxx
 ```
-
-- HTTPS：包含 FLV 以及 HLS 的播放协议，这里的 server_ip 为**请求下行接入点 IP** 中获取到的 IP，play_domain 代表播放域名，HTTPS 的拼接规则依赖于播放器逻辑，**要求在 TCP 建立连接的目标 IP 为 HttpDNS 调度的 server_ip**，具体请求的播放 URL 需要是常规的播放请求：
-
+- **HTTPS**：包含 FLV 以及 HLS 的播放协议，这里的 server_ip 为**请求下行接入点 IP** 中获取到的 IP，play_domain 代表播放域名，HTTPS 的拼接规则依赖于播放器逻辑，**要求在 TCP 建立连接的目标 IP 为 HttpDNS 调度的 server_ip**，具体请求的播放 URL 需要是常规的播放请求：
 ```java
 https://server_ip/play_domain/live/ streamname.flv?xxxxxxxxxx
 https://server_ip/play_domain/live/ streamname.m3u8?xxxxxxxxxx
 https://server_ip/play_domain/live/ streamname -123.ts?xxxxxxxxxx
 ```
-
-- RTMP：这里的 server_ip 为**请求下行接入点 IP** 中获取到的 IP，play_domain 代表播放域名，则 RTMP 的播放 URL 拼接如下：
-
+- **RTMP**：这里的 server_ip 为**请求下行接入点 IP** 中获取到的 IP，play_domain 代表播放域名，则 RTMP 的播放 URL 拼接如下：
 ```
 rtmp://server_ip/play_domain/live/ streamname?xxxxxxxxxx
 ```
