@@ -24,7 +24,7 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=16)。
 2. 在左侧导航栏单击【私有连接】>【终端节点服务】。
 3. 单击【新建】，在弹出的新建终端节点服务界面，配置相关参数。
-    <img src="https://main.qcloudimg.com/raw/8d9f681aa6f50ba7d38deccd6a5991d2.png" width="50%" /><br>
+    <img src="https://main.qcloudimg.com/raw/ca3c8b893bdd15975b85a23d78db9805.png" width="50%" /></br>
 <table>
 <tr>
 <th width="12%">参数名称</th>
@@ -57,7 +57,7 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
 ### 步骤2：服务使用方创建终端节点
 1. 单击左侧导航栏单击【终端节点】。
 2. 单击【新建】，在弹出的新建终端节点界面，配置相关参数。
-    <img src="https://main.qcloudimg.com/raw/e5aef758db5cd125180c01790bfbc918.png" width="50%" /><br>
+    <img src="https://main.qcloudimg.com/raw/24cb315ff0ef57647686e498d0ab2e31.png" width="50%" /><br>
 <table>
 <tr>
 <th width="12%">参数名称</th>
@@ -94,12 +94,13 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
 </table>
 <img src="https://main.qcloudimg.com/raw/8a7c0a80da4686295ca7571794767b35.png" width="50%" />
 3. 完成参数配置后，单击【确定】，当前终端节点的连接状态为【待接受】。
-   <img src="https://main.qcloudimg.com/raw/fa7a3e799defcf32ae99d8729ff10f2c.png" width="80%" />
+   <img src="https://main.qcloudimg.com/raw/81154a54e227c00995da4e770619e5b2.png" width="80%" />
+
 
 ### 步骤3：创建云联网并关联跨地域 VPC
 1. 登录 [云联网控制台](https://console.cloud.tencent.com/vpc/ccn)。
 2. 单击【新建】创建云联网实例，关联跨地域 VPC1 和 VPC3，单击【确定】，即可实现 VPC1 和 VPC3 的互联。
-    ![](https://main.qcloudimg.com/raw/5fc1062443ca2d127e7c849c8d5545ba.png)
+![](https://main.qcloudimg.com/raw/17e03652899379f8a1b143d8839791b5.png)
 >?更多详细内容，请参见 [云联网快速入门](https://cloud.tencent.com/document/product/877/18763)。
 >
 
@@ -110,7 +111,7 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
      >?如果服务器没有安装 telnet，请先执行 `yum install telnet` 安装 telnet。
      >
 	获取终端节点VIP：
- <img src="https://main.qcloudimg.com/raw/8d241c0eff1464074ca85491b475f645.png" width="70%" /><br>
+ <img src="https://main.qcloudimg.com/raw/d21dc32174c18fc67e4f549c44b86086.png" width="70%" /><br>
    获取CLB的VPORT：
  <img src="https://main.qcloudimg.com/raw/922dc796b2d687354a355ab6fe845437.png" width="70%" /><br>
   返回如下信息，表示访问成功：

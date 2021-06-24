@@ -21,7 +21,7 @@
 1. 根据实际业务需求下载 SDK 及配套的 TRTC-API-Example 源码。
 2. 下载完成后，单击【已下载，下一步】。
 
-![](https://main.qcloudimg.com/raw/99b61d22efb5ed9e6bb6c37805fbae9c.png)
+![](https://main.qcloudimg.com/raw/991440ebf152f78d96ba9769aa69d8d7.png)
 
 [](id:step3)
 ### 步骤3：配置 TRTC-API-Example 工程文件
@@ -30,7 +30,7 @@
 3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-  <img src="https://main.qcloudimg.com/raw/5bf1ab24801a8b90ded28887cc997e63.png">
+<img src="https://main.qcloudimg.com/raw/0f2dcf7189d07670343bc8ab9f9697e6.png"/>
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -38,8 +38,11 @@
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 TRTC-API-Example 和功能调试**。
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
+[](id:step4)
 ### 步骤4：编译运行
-1. 使用 XCode（11.0及以上的版本）打开源码目录下的 `TRTC-API-Example-OC.xcworkspace` 工程，编译并运行 `TRTC-API-Example` 工程即可。
+使用 XCode（11.0及以上的版本）打开源码目录下的 TRTC-API-Example-OC.xcworkspace 工程，编译并运行 TRTC-API-Example 工程即可。
+
+
 ## 常见问题
 ### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
 TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#Old)，如已升级，您按需切换为新旧算法。
@@ -49,15 +52,15 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
  2. 在左侧导航栏选择【应用管理】，单击目标应用所在行的【应用信息】。
  3. 选择【快速上手】页签，单击【第二步 获取签发UserSig的密钥】区域的【点此升级】、【非对称式加密】或【HMAC-SHA256】。
   - 升级：
-      ![](https://main.qcloudimg.com/raw/69bd0957c99e6a6764368d7f13c6a257.png)
+   ![](https://main.qcloudimg.com/raw/69bd0957c99e6a6764368d7f13c6a257.png)
   - 切换回老版本算法 ECDSA-SHA256：
-      ![](https://main.qcloudimg.com/raw/f89c00f4a98f3493ecc1fe89bea02230.png)
+   ![](https://main.qcloudimg.com/raw/f89c00f4a98f3493ecc1fe89bea02230.png)
   - 切换为新版本算法 HMAC-SHA256：
-      ![](https://main.qcloudimg.com/raw/b0412153935704abc9e286868ad8a916.png)
+   ![](https://main.qcloudimg.com/raw/b0412153935704abc9e286868ad8a916.png)
 
 #### 2. 两台手机同时运行工程，为什么看不到彼此的画面？
 请确保两台手机在运行工程时使用的是不同的 UserID，TRTC 不支持同一个 UserID （除非 SDKAppID 不同）在两个终端同时使用。
-<img src="https://main.qcloudimg.com/raw/63ffdf5a5523825b90c8c0033f35d983.png" width="320"/>
+![](https://main.qcloudimg.com/raw/51b2a802be9130b15c79686a7ebd13a9.png)
 
 #### 3. 防火墙有什么限制？
 由于 SDK 使用 UDP 协议进行音视频传输，所以在对 UDP 有拦截的办公网络下无法使用。如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399) 排查并解决。

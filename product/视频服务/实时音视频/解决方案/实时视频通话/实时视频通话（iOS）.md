@@ -24,16 +24,15 @@
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 输入应用名称，例如 `TestVideoCall` ，单击【创建】。
+3. 单击【已下载，下一步】，跳过此步骤。
 
+![](https://main.qcloudimg.com/raw/f588650274a85b74893ff96eb563d3b4.png)
 >!本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 
 [](id:ui.step2)
-### 步骤2：下载 SDK 和 App 源码
-1. 根据实际业务需求下载 [SDK](https://cloud.tencent.com/document/product/647/32689) 及 [App 源码](https://github.com/tencentyun/TUICalling)。
-2. 下载完成后，单击【已下载，下一步】。
-
-![](https://main.qcloudimg.com/raw/f588650274a85b74893ff96eb563d3b4.png)
+### 步骤2：下载 App 源码
+单击进入 [TUICalling](https://github.com/tencentyun/TUICalling)，Clone 或者下载源码。
 
 [](id:ui.step3)
 ### 步骤3：配置 App 工程文件
@@ -43,7 +42,6 @@
 <ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
 <img src="https://main.qcloudimg.com/raw/a226f5713e06e014515debd5a701fb63.png">
-
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -68,27 +66,26 @@
 
 
 ## 体验应用
-
 >! 体验应用至少需要两台设备。
 
 ### 用户 A
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/64f768ee15bf0772361a8e7d63a35193.png" width="320"/>
+![](https://main.qcloudimg.com/raw/aacadc7ee6d1267f334fd1d155dcf415.png)
 2. 输入要拨打的用户名，单击【搜索】，如下图示：
-<img src="https://main.qcloudimg.com/raw/94f105f177ea852f946d91f1325926d2.png" width="320"/>
+![](https://main.qcloudimg.com/raw/f3d2976b053d5233e26e9b93fa8af959.png)
 3. 单击【呼叫】，选择拨打【视频通话】（**请确保被叫方保持在应用内，否则可能会拨打失败**）。
-<img src="https://main.qcloudimg.com/raw/48c8c7346136d3beca6d280a6ffababa.png" width="320"/>
+![](https://main.qcloudimg.com/raw/1758cbd381a0efe45cfabbdf69cdcf30.png)
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/4ca3d3b7314d19255cfda322f9eff5f1.png" width="320"/>
+![](https://main.qcloudimg.com/raw/9ac6eb6a300a8f401389008c411f5ed8.png)
 2. 进入主页，等待接听来电。
 
 
 [](id:model)
 ## 实现自定义 UI 界面
 
-[源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCCallingDemo) 文件夹 `Source` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCCalling，您可以在  `TRTCCalling.h`  文件中看到该组件提供的接口函数。
+[源码](https://github.com/tencentyun/TUICalling) 文件夹 `Source` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCCalling，您可以在  `TRTCCalling.h`  文件中看到该组件提供的接口函数。
 ![](https://main.qcloudimg.com/raw/36220937e8689dac4499ce9f2f187889.png)
 
 您可以使用开源组件 TRTCCalling 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。
@@ -99,10 +96,13 @@
 通话组件 TRTCCalling 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 - **方法一：通过 cocoapods 仓库依赖**
-```
-pod 'TXIMSDK_iOS'
-pod 'TXLiteAVSDK_TRTC'
-```
+<dx-codeblock>
+::: swift
+ pod 'TXIMSDK_iOS'
+ pod 'TXLiteAVSDK_TRTC' 
+:::
+</dx-codeblock>
+
 >?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
 - **方法二：通过本地依赖**
 如果您的开发环境访问 cocoapods 仓库较慢，可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
@@ -115,7 +115,7 @@ pod 'TXLiteAVSDK_TRTC'
 <tr>
 <td>TRTC SDK</td>
 <td><a href="https://cloud.tencent.com/document/product/647/32689">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/647/32175">集成文档</a></td>
+<td><a href="https://cloud.tencent.com/document/product/647/32173">集成文档</a></td>
 </tr>
 <tr>
 <td>IM SDK</td>
@@ -131,28 +131,30 @@ pod 'TXLiteAVSDK_TRTC'
 
 [](id:model.step3)
 ### 步骤3：导入 TUICalling 组件
-
 **通过 cocoapods 导入组件**，具体步骤如下：
+1. 将工程目录下的 `Source`、`Resources`、`TXAppBasic` 文件夹，`TUICalling.podspec` 文件拷贝到您的工程目录下。
+2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
 
-1. 将工程目录下的`Source`、`Resources`、`TXAppBasic` 文件夹，`TUICalling.podspec `文件拷贝到您的工程目录下。
-2. 在您的`Podfile`文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
-
-```
+<dx-codeblock>
+::: swift
  pod 'TXAppBasic', :path => "TXAppBasic/"
  pod 'TXLiteAVSDK_TRTC'
  pod 'TUICalling', :path => "./", :subspecs => ["TRTC"] 
-```
-
+:::
+</dx-codeblock>
 
 [](id:model.step4)
 ### 步骤4：初始化并登录组件
 
 1. 设置推送相关信息。
-```
-[TRTCCalling shareInstance].imBusinessID = your business ID;
-[TRTCCalling shareInstance].deviceToken =  deviceToken;
-```
->?  imBusinessID 为进入 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 上传 APNs 证书后生成的，随后通过 AppDelegate 向苹果后台请求回调，即可返回对应的 deviceToken 值。具体操作请参见 [离线推送](https://cloud.tencent.com/document/product/269/9154)。
+<dx-codeblock>
+::: swift
+ [TRTCCalling shareInstance].imBusinessID = your business ID;
+ [TRTCCalling shareInstance].deviceToken =  deviceToken;
+:::
+</dx-codeblock>
+
+	>?  imBusinessID 为进入 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 上传 APNs 证书后生成的，随后通过 AppDelegate 向苹果后台请求回调，即可返回对应的 deviceToken 值。具体操作请参见 [离线推送](https://cloud.tencent.com/document/product/269/9154)。
 2. 调用 `login(sdkAppID: UInt32, user: String, userSig: String, success: @escaping (() -> Void), failed: @escaping ((_ code: Int, _ message: String) -> Void))` 完成组件的登录，其中几个关键参数的填写请参考下表：
 <table>
 <tr><th>参数名</th><th>作用</th></tr>
@@ -210,7 +212,7 @@ pod 'TXLiteAVSDK_TRTC'
   } else {
     [[TRTCCalling shareInstance] stopRemoteView:uid]; // 停止渲染画面
   }
-  }
+}
 
 // 3.调用组件的其他功能函数发起通话或挂断等
 // 注意：必须在登录后才可以正常调用
@@ -226,14 +228,14 @@ pod 'TXLiteAVSDK_TRTC'
 [](id:model.step6)
 ### 步骤6：实现多人通话
 
-1. 发起方：多人视频/语音通话需要调用 `TRTCCalling ` 中的 `groupCall()` 函数，并传入用户列表（userIdList）、群组 IM ID（groupId）、通话类型（callType），其中 userIdList 为必填参数，groupId 为选填参数，`callType` 为视屏类型 `CallType_Video`。
+1. 发起方：多人视频/语音通话需要调用 `TRTCCalling ` 中的 `groupCall()` 函数，并传入用户列表（userIdList）、群组 IM ID（groupId）、通话类型（callType），其中 userIdList 为必填参数，groupId 为选填参数，`callType` 为视屏类型`CallType_Video`。
 2. 接收端：通过名为 `onInvited()` 回调能够接收到此呼叫请求，其中参数列表就是发起方填入的参数列表，`callType` 参数为通话类型，您可以通过此参数启动相应的界面。
 3. 接收端：收到回调后可以调用 `accept()` 方法接听此次通话，也可以选择用 `reject()` 方法拒绝通话。
 4. 如果超过一定时间（默认30s）没有回复，接收方会收到 `onCallingTimeOut()` 的回调，发起方会收到 `onNoResp()` 回调。通话发起方在多个接收均未应答时 `hangup()` ，每个接收方均会收到 `onCallingCancel()` 回调。
 5. 如果需要离开当前多人通话可以调用 `hangup()` 方法。
 6. 如果通话中有用户中途加入或离开，那么其他用户均会接收到 `onUserEnter()` 或  `onUserLeave()` 回调。
 
->?接口 `groupCall:type:groupID:` 中的 `groupID` 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息的信令消息是通过群 ID 发送出去的，这种消息广播方式比较简单可靠。如果不填写，那么 TRTCalling 组件会采用单发消息逐一通知。
+>?接口 `groupCall:type:groupID:` 中的 `groupID` 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息的信令消息是通过群 ID 发送出去的，这种消息广播方式比较简单可靠。如果不填写，那么 `TRTCalling` 组件会采用单发消息逐一通知。
 
 <dx-codeblock>
 ::: Objective-C Objective-C

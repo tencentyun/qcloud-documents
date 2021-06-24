@@ -20,17 +20,16 @@
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 输入应用名称，例如  `TestVoiceRoom`  ，单击【创建】。
+3. 单击【已下载，下一步】，跳过此步骤。
 
+![](https://main.qcloudimg.com/raw/c4884da10fe7751953e91294ca95acb0.png)
 >!本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 
 
 [](id:ui.step2)
-### 步骤2：下载 SDK 和 App 源码
-1. 根据实际业务需求下载 [SDK](https://cloud.tencent.com/document/product/647/32689) 及 [App 源码](https://github.com/tencentyun/TUIVoiceRoom)。
-2. 下载完成后，单击【已下载，下一步】。
-
-![](https://main.qcloudimg.com/raw/c4884da10fe7751953e91294ca95acb0.png)
+### 步骤2：下载 App 源码
+单击进入 [TUIVoiceRoom](https://github.com/tencentyun/TUIVoiceRoom)，Clone 或者下载源码。
 
 [](id:ui.step3)
 ### 步骤3：配置 App 工程文件
@@ -67,16 +66,16 @@
 
 ### 用户 A
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/a0c73f6904ac152a84cdf4d619171fc4.png" width="320"/>
 2. 单击【创建房间】，如下图示：
 <img src="https://main.qcloudimg.com/raw/a29f2ea0a5bbcd777cddfe22003acbb5.png" width="320"/>
 3. 输入房间主题，单击【开始交谈】。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/e39abca80039bd3b80e0f2d1a01d3e70.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/94fcd741becbcfe4cca97778e180e4ca.png" width="320"/>
 2. 输入用户 A 创建的房间号，单击【进入房间】。<br>
-<img src="https://main.qcloudimg.com/raw/001b8a308569733850b1eb0969ac9220.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/6f9a910770a84aefaa8a08e4043d8a6c.png" width="320"/>
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
 <img src="https://main.qcloudimg.com/raw/7192f40724b2ccda79f4b735ffcf5f66.png" width="320"/>
@@ -85,7 +84,7 @@
 
 ## 实现自定义 UI 界面
 
-[源码](https://github.com/tencentyun/TRTCSDK/tree/master/Android/Source/src/main/java/com/tencent/liteav/trtcvoiceroom) 中的 Source 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在`TRTCVoiceRoom.java`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+[源码](https://github.com/tencentyun/TUIVoiceRoom/tree/main/Android/Source/src/main/java/com/tencent/liteav/trtcvoiceroom) 中的 Source 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在`TRTCVoiceRoom.java`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/0ebcbb27843bf03a790a945a8c92d560.png)
 
 [](id:model.step1)
@@ -94,22 +93,27 @@
 
 **方法一：通过 Maven 仓库依赖**
 1. 在 dependencies 中添加 TRTCSDK 和 IMSDK 的依赖。
-```
+<dx-codeblock>
+::: java java
 dependencies {
        complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
        complie 'com.tencent.imsdk:imsdk:latest.release'
        compile 'com.google.code.gson:gson:2.3.1'
 }
-```
->?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
+:::
+</dx-codeblock>
+
+	>?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
-```
+<dx-codeblock>
+::: java java
 defaultConfig {
       ndk {
           abiFilters "armeabi-v7a"
       }
 }
-```
+:::
+</dx-codeblock>
 3. 单击【Sync Now】，自动下载 SDK 并集成到工程里。
 
 **方法二：通过本地 AAR 依赖**
@@ -135,7 +139,8 @@ defaultConfig {
 [](id:model.step2)
 ### 步骤2：配置权限及混淆规则
 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请读取存储权限）：
-```
+<dx-codeblock>
+::: java java
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -145,19 +150,24 @@ defaultConfig {
 <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-```
+:::
+</dx-codeblock>
 
 在 proguard-rules.pro 文件，将 SDK 相关类加入不混淆名单：
-```
+<dx-codeblock>
+::: java java
 -keep class com.tencent.** { *; }
-```
+:::
+</dx-codeblock>
 
 [](id:model.step3)
 ### 步骤3：导入 TRTCVoiceRoom 组件
 拷贝以下目录中的所有文件到您的项目中：
-```
+<dx-codeblock>
+::: java java
 Source/src/main/java/com/tencent/liteav/trtcvoiceroom/model
-```
+:::
+</dx-codeblock>
 
 [](id:model.step4)
 ### 步骤4：创建并登录组件
@@ -500,4 +510,3 @@ mTRTCVoiceRoom.setDelegate(new TRTCVoiceRoomDelegate() {
 });
 :::
 </dx-codeblock>
-

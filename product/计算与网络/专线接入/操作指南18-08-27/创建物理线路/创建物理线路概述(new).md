@@ -22,8 +22,10 @@
 - **端口**：您可以根据实际需要选择光口或者电口。
   - 光口：即用来连接光纤线缆的物理接口。腾讯云提供1G、10G、100G三种端口规格的光口。
   - 电口：即服务器和网络中对 RJ45 等各种双绞线接口的统称，即普通网线。腾讯云提供千兆电口（10/100/1000BASE-T），适用于低带宽的场景。
-  
->?100G端口需要提[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
+>?
+>- 100G端口需要提[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
+>- 物理专线建设时，请确保 IDC 侧接口模块规格与腾讯云侧接口模块规格保持一致。
+>
 <table>
   <tr>
 	<th colspan="2">端口类型</th>
@@ -62,8 +64,8 @@
 
 | 场景一 | 操作|
 |---------|---------|
-| IDC 与腾讯云接入点在同一机房 | 在腾讯云控制台申请物理专线，具体操作请参见 [申请物理专线](https://cloud.tencent.com/document/product/216/19244)。同时，您需要联系符合[《专线接入审核标准》](https://cloud.tencent.com/document/product/216/45875)的运营商进行需求沟通。 |
-| IDC 与腾讯云接入点不在同一机房| 在腾讯云控制台申请物理专线，具体操作请参见[ 申请物理专线](https://cloud.tencent.com/document/product/216/19244)。 |
+| IDC 与腾讯云接入点不在同一机房 | 在腾讯云控制台申请物理专线，具体操作请参见 [申请物理专线](https://cloud.tencent.com/document/product/216/19244)。同时，您需要联系符合[《专线接入审核标准》](https://cloud.tencent.com/document/product/216/45875)的运营商进行需求沟通。 |
+| IDC 与腾讯云接入点在同一机房| 在腾讯云控制台申请物理专线，具体操作请参见[ 申请物理专线](https://cloud.tencent.com/document/product/216/19244)。 |
 
 ## 专线建设[](id:Railwayconstruction)
 - 本地 IDC 与腾讯云接入点不同机房

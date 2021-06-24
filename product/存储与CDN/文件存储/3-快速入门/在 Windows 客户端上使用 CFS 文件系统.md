@@ -48,7 +48,7 @@
 #### 1. 开启 NFS 服务
 
 挂载前，请确保系统已经启动 NFS 服务。
-1.1 选择【控制面板】>【程序】>【打开或关闭 Windows 功能】>【服务器角色】页签中勾选【NFS server】。
+1.1 选择【控制面板】>【程序】>【打开或关闭 Windows 功能】>【服务器角色】页签中勾选【Server for NFS】。
 <img src="https://mc.qcloudimg.com/static/img/eaeed922e9d1f673e47137d80a88fa70/image.png" width="80%">
 1.2 选择【控制面板】>【程序】>【打开或关闭 Windows 功能】>【特性】页签中勾选【NFS 客户端】，勾选【NFS 客户端】即可开启 Windows NFS 客户端服务。
 <img src="https://mc.qcloudimg.com/static/img/4f9d7ac7b877ceffc5bc2b1d7c050a24/image.png" width="80%">

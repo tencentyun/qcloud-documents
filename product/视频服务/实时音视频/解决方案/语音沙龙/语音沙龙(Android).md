@@ -23,19 +23,19 @@
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 输入应用名称，例如  `TestChatSalon`  ，单击【创建】。
+3. 单击【已下载，下一步】，跳过此步骤。
 
+![](https://main.qcloudimg.com/raw/c4884da10fe7751953e91294ca95acb0.png)
 >!本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 
 
 [](id:ui.step2)
-### 步骤2：下载 SDK 和 App 源码
-1. 根据实际业务需求下载 [SDK](https://cloud.tencent.com/document/product/647/32689) 及 [App 源码](https://github.com/tencentyun/TUIChatSalon)。
-2. 下载完成后，单击【已下载，下一步】。
-
-![](https://main.qcloudimg.com/raw/c4884da10fe7751953e91294ca95acb0.png)
+### 步骤2：下载 App 源码
+单击进入 [TUIChatSalon](https://github.com/tencentyun/TUIChatSalon)，Clone 或者下载源码。
 
 [](id:ui.step3)
+
 ### 步骤3：配置 App 工程文件
 
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
@@ -74,25 +74,24 @@
 ### 用户 A
 
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/8295052d4cd42f0387bced09f8e145d9.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/a0c73f6904ac152a84cdf4d619171fc4.png" width="320"/>
 2. 进入后，单击【创建房间】，如下图示：
 <img src="https://main.qcloudimg.com/raw/1a56b06671c6958a83b748450c93d6a6.png" width="320"/>
 3. 输入房间主题，单击【开始交谈】。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/e39abca80039bd3b80e0f2d1a01d3e70.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/94fcd741becbcfe4cca97778e180e4ca.png" width="320"/>
 2. 输入用户 A 创建的房间号，单击【进入房间】。<br>
-<img src="https://main.qcloudimg.com/raw/13044a0114489869be65c57e90f362bf.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/ae041395a8488725f405819491646f99.png" width="320"/>
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
 <img src="https://main.qcloudimg.com/raw/4a3e66a9a01f446fd4d2fe0b39b16a2c.png" width="320"/>
 
 
-
 [](id:model)
 ## 实现自定义 UI 界面
-[源码](https://github.com/tencentyun/TRTCSDK/tree/master/Android/Source/src/main/java/com/tencent/liteav/trtcchatsalon) 中的 Source 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCChatSalon，您可以在 `TRTCChatSalon.java` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+[源码](https://github.com/tencentyun/TUIChatSalon/tree/main/Android/Source/src/main/java/com/tencent/liteav/trtcchatsalon) 中的 Source 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCChatSalon，您可以在 `TRTCChatSalon.java` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/fcf694c8550664623414604d14ffcd94.png)
 
 [](id:model.step1)
@@ -103,22 +102,26 @@
 [](id:model.step1_m1)
 #### 方法一：通过 Maven 仓库依赖
 1. 在 dependencies 中添加 TRTCSDK 和 IMSDK 的依赖。
-```
+<dx-codeblock>
+::: java java
 dependencies {
        complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
        complie 'com.tencent.imsdk:imsdk:latest.release'
        compile 'com.google.code.gson:gson:2.3.1'
 }
-```
+:::
+</dx-codeblock>
 >?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
-```
+<dx-codeblock>
+::: java java
 defaultConfig {
       ndk {
           abiFilters "armeabi-v7a"
       }
 }
-```
+:::
+</dx-codeblock>
 3. 单击【Sync Now】，自动下载 SDK 并集成到工程里。
 
 [](id:model.step1_m2)
@@ -146,7 +149,8 @@ defaultConfig {
 
 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态读取存储权限）：
 
-```
+<dx-codeblock>
+::: java java
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -156,20 +160,25 @@ defaultConfig {
 <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-```
+:::
+</dx-codeblock>
 
 在 proguard-rules.pro 文件，将 SDK 相关类加入不混淆名单：
 
-```
+<dx-codeblock>
+::: java java
 -keep class com.tencent.** { *; }
-```
+:::
+</dx-codeblock>
 
 [](id:model.step3)
 ### 步骤3：导入 TRTCChatSalon 组件
 拷贝以下目录中的所有文件到您的项目中：
-```
+<dx-codeblock>
+::: java java
 Source/src/main/java/com/tencent/liteav/trtcchatsalon/model
-```
+:::
+</dx-codeblock>
 
 [](id:model.step4)
 ### 步骤4：创建并登录组件
@@ -312,7 +321,6 @@ public void onAnchorEnterSeat(TRTCChatSalonDef.UserInfo userInfo) {
 </dx-codeblock>
 
 [](id:model.step7)
-
 ### 步骤7：上下麦
 
 <dx-tabs>
@@ -483,4 +491,3 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
   });
   :::
   </dx-codeblock>
-

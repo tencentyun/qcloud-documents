@@ -40,7 +40,7 @@ API 网关调用涉及的参数如下：
 | UserId    | String    | 是   | 录制用户 ID，用于在一个 TRTC 应用中唯一标识一个用户。        |
 | UserSig   | String    | 是   | 录制用户签名，用于对一个用户进行登录鉴权认证。               |
 | CosConfig | cosConfig | 是   | COS 存储配置。用于存储录制文件。                              |
-| Callback  | String    | 否   | 录制结束后后的回调地址，并使用 POST 方式进行回调。             |
+| Callback  | String    | 否   | 录制结束后的回调地址，并使用 POST 方式进行回调。             |
 | Mode      | String    | 否   | <li>10：混流音频，默认模式。输出 MP3 格式。<br><li>11：混流视频。输出 MP4 格式。<br><li>12：混流音视频，输出 MP4 格式。 |
 | IsReserve | Boolean   | 否   | <li>false，主播退出房间，自动删除混流中的流。<br><li>true，主播退出房间，混流任务中将以最后一帧画面和静音补全流。默认值为 true。 |
 

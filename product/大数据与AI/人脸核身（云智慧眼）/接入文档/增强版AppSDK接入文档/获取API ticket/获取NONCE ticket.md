@@ -9,11 +9,11 @@
 - 请求参数：
 <table><tbody>
 <tr><th >参数</th><th >说明</th><th >类型</th><th><nobr>长度（字节）</nobr></th><th >是否必填</th></tr>
-<tr><td >app_id</td><td>业务流程唯一标识，即 wbappid，可参考<a href="https://cloud.tencent.com/document/product/1007/49634"> 获取 WBappid</a>  指引在人脸核身控制台内申请</td><td >字符串</td><td >8</td><td >是</td></tr>
-<tr><td >access_token</td><td >请根据 <a href='https://cloud.tencent.com/document/product/1007/37304'>Access Token 获取</a> 指引进行获取</td><td >字符串</td><td>64</td><td >是</td></tr>
-<tr><td >type</td><td >ticket 类型，默认值：NONCE（必须大写）</td><td >字符串</td><td >20</td><td >是</td></tr>
-<tr><td >version</td><td >版本号</td><td >字符串</td><td >20</td><td >是</td></tr>
-<tr><td>user_id</td><td >当前使用用户的唯一标识，需合作伙伴自行定义<br/><strong>注意：合作伙伴必须保证 user_id 的全局唯一性，不要带有特殊字符</strong></td><td>字符串</td><td>30</td><td>是</td></tr>
+<tr><td >app_id</td><td>业务流程唯一标识，即 wbappid，可参考<a href="https://cloud.tencent.com/document/product/1007/49634"> 获取 WBappid</a>  指引在人脸核身控制台内申请</td><td >String</td><td >8</td><td >是</td></tr>
+<tr><td >access_token</td><td >请根据 <a href='https://cloud.tencent.com/document/product/1007/37304'>Access Token 获取</a> 指引进行获取</td><td >String</td><td>64</td><td >是</td></tr>
+<tr><td >type</td><td >ticket 类型，默认值：NONCE（必须大写）</td><td >String</td><td >20</td><td >是</td></tr>
+<tr><td >version</td><td >版本号</td><td >String</td><td >20</td><td >是</td></tr>
+<tr><td>user_id</td><td >当前使用用户的唯一标识，需合作伙伴自行定义<br/><strong>注意：合作伙伴必须保证 user_id 的全局唯一性，不要带有特殊字符</strong></td><td>String</td><td>30</td><td>是</td></tr>
 </tbody></table>
 - **请求示例：**
 ```
@@ -25,13 +25,14 @@ https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket?app_id=xxx&acc
 
 ```
 {
-"code":"0",
-"msg":" 请 求 成 功 ",
-"transactionTime":"20151022044027",
-"tickets":[
-{"value":"ticket_string",
-"expire_in":"120"， 
-"expire_time":"20151022044027"}
+  "code":"0",
+  "msg":" 请求成功 ",
+  "transactionTime":"20151022044027",
+  "tickets":[
+{
+  "value":"ticket_string",
+  "expire_in":"120"， 
+  "expire_time":"20151022044027"}
 ]
 ｝
 ```
