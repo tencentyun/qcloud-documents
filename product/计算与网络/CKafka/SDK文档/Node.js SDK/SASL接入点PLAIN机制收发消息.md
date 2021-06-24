@@ -7,7 +7,7 @@
 - [安装 GCC](https://gcc.gnu.org/install/)
 - [安装 Node.js](https://nodejs.org/en/download/)
 - [配置 ACL 策略](https://cloud.tencent.com/document/product/597/31528)
-- [下载demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/nodejskafkademo)
+- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/nodejskafkademo)
 
 ## 操作步骤
 
@@ -21,7 +21,7 @@
 
 2. 创建 yum 源配置文件 confluent.repo。
 
-   ```bash
+   ```
    [Confluent.dist]
    name=Confluent repository (dist)
    baseurl=https://packages.confluent.io/rpm/5.1/7
@@ -240,5 +240,5 @@ module.exports = {
 3. 查看运行结果。
    ![](https://main.qcloudimg.com/raw/deecbf58c00e07531b4ea703c4046b46.png)
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 topic 名称，点击【查询详情】，查看消费详情。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 topic 名称，单击【查询详情】，查看消费详情。
    ![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)
