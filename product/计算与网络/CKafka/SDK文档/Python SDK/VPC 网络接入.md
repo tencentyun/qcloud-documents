@@ -23,7 +23,8 @@ pip install kafka-python
 ### 步骤二：生产消息
 
 1. 修改生产消息程序 producer.py 中配置参数。
-	```python
+
+```python
 #coding:utf8
 from kafka import KafkaProducer
 
@@ -44,10 +45,8 @@ producer.close()
 | topic_name        | Topic 名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
 
 2. 编译并运行 producer.py。
-
 3. 查看运行结果。
-   ![](https://main.qcloudimg.com/raw/312d264676c655838e398ab9fa03b491.png)
-	 
+![](https://main.qcloudimg.com/raw/312d264676c655838e398ab9fa03b491.png) 
 4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic管理】页面，选择对应的 Topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
 	![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
 
