@@ -1,20 +1,19 @@
 ## 操作场景
 
-该任务以 C++ 客户端为例指导您使用VPC网络接入消息队列 CKafka 并收发消息。
+该任务以 C++ 客户端为例指导您使用 VPC 网络接入消息队列 CKafka 并收发消息。
 
 ## 前提条件
 
 - [安装 GCC](https://gcc.gnu.org/install/)
 
-- [下载demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/cppkafkademo)
+- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/cppkafkademo)
 
 ## 操作步骤
 
 ### 步骤一：安装 C/C++ 依赖库
 
-1. 将下载的demo中的cppkafkademo上传至linux服务器，
-
-2. 登陆linux服务器，安装 [librdkafka](https://github.com/edenhill/librdkafka#installation)。
+1. 将下载的 Demo 中的 cppkafkademo 上传至 Linux 服务器。
+2. 登录 Linux 服务器，安装 [librdkafka](https://github.com/edenhill/librdkafka#installation)。
 
 ### 步骤二：发送消息
 
@@ -343,7 +342,7 @@ gcc -lrdkafka ./producer.c -o producer
 运行结果如下：
 <img src="https://main.qcloudimg.com/raw/a7a4a02e8636045b7aeb852f47270059.png" width="500px">
 
-4. 在 Ckafka 控制台【topic 管理】页面，选择对应的 Topic，点击【更多】>【消息查询】，查看刚刚发送的消息。
+4. 在 Ckafka 控制台【topic 管理】页面，选择对应的 Topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
    ![](https://main.qcloudimg.com/raw/7d5143969f3f1c799420cf7a388f3a6d.png)
 
 
