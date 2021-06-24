@@ -19,6 +19,7 @@
 pip install kafka-python
 ```
 
+
 ### 步骤二：生产消息
 
 1. 修改生产消息程序 producer.py 中配置参数。
@@ -49,6 +50,8 @@ producer.close()
 
 4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic管理】页面，选择对应的 Topic ， 点击【更多】>【消息查询】，查看刚刚发送的消息。
    ![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
+
+
 
 
 ### 步骤三：消费消息
