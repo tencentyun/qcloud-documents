@@ -1,5 +1,5 @@
 ## 操作场景
-腾讯云第五代实例 S5、M5、C4、IT5、D3 全面采用第二代智能英特尔<sup>®</sup>至强<sup>®</sup>可扩展处理器 Cascade Lake。提供了更多的指令集和特性，可用于加速人工智能的应用，同时集成的大量硬件增强技术，其中 AVX-512（高级矢量扩展） ，能够为 AI 推理过程提供强劲的并行计算能力，使用户获得更好的深度学习效果。
+腾讯云第五代实例 S5、M5、C4、IT5、D3 全面采用第二代智能英特尔<sup>®</sup>至强<sup>®</sup>可扩展处理器 Cascade Lake。提供了更多的指令集和特性，可用于加速人工智能的应用，同时集成的大量硬件增强技术，其中 AVX-512（高级矢量扩展）能够为 AI 推理过程提供强劲的并行计算能力，使用户获得更好的深度学习效果。
 
 本文以 S5、M5 实例为例，介绍如何在 CVM 上通过 AVX512 加速人工智能应用。
 
@@ -525,9 +525,9 @@ bash run_benchmark.sh --input_model=./lpot_resnet50_v1.pb
 ::: 示例4：使用\sIntel<sup>®</sup>\sDistribution\sof\sOpenVINO™\sToolkit\s进行推理加速
 Intel<sup>®</sup> Distribution of OpenVINO™ Toolkit 是一个可以加快计算机视觉及其他深度学习应用部署的工具套件，它能够支持英特尔平台的各种加速器（包括 CPU、GPU、FPGA 以及 Movidius 的 VPU）来进行深度学习，同时能直接支持异构硬件的执行。
 
-Intel<sup>®</sup> Distribution of OpenVINO™ Toolkit 能够优化通过 TensorFlow* 、PyTorch* 等训练的模型, 它包括模型优化器、推理引擎、Open Model Zoo、训练后优化工具（Post-training Optimization Tool）等一整套部署工具，其中：
+Intel<sup>®</sup> Distribution of OpenVINO™ Toolkit 能够优化通过 TensorFlow\* 、PyTorch\* 等训练的模型, 它包括模型优化器、推理引擎、Open Model Zoo、训练后优化工具（Post-training Optimization Tool）等一整套部署工具，其中：
 
-- **模型优化器（Model optimizer）**：将 Caffe*、TensorFlow* 、PyTorch* 和 Mxnet* 等多种框架训练的模型转换为中间表示（IR）。
+- **模型优化器（Model optimizer）**：将 Caffe\*、TensorFlow\* 、PyTorch\* 和 Mxnet\* 等多种框架训练的模型转换为中间表示（IR）。
 - **推理引擎（Inference Engine）**：将转换后的 IR 放在 CPU、GPU、FPGA 和 VPU 等硬件上执行，自动调用硬件的加速套件实现推理性能的加速。
 
 您可前往 [Intel<sup>®</sup> Distribution of OpenVINO™ Toolkit 官网](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html) 或查阅 [在线文档](https://docs.openvinotoolkit.org/latest/index.html) 了解更多信息。
