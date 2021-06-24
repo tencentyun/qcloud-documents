@@ -1,22 +1,24 @@
 ## 操作场景
 
-该任务指导您如何在 VPC 环境下使用 PHP SDK 接入消息队列 CKafka 的 SASL 接入点并收发消息。
+该任务以 PHP 客户端为例指导您使用VPC网络接入消息队列 CKafka 并收发消息。
 
 ## 前提条件
 
 - [安装 librdkafka](https://github.com/edenhill/librdkafka/)
 - [安装 PHP 5.6 或以上版本](https://www.php.net/manual/en/install.php)
 - [安装 PEAR](https://pear.php.net/manual/en/installation.getting.php)
-- [配置 ACL 策略](https://cloud.tencent.com/document/product/597/31528)
+- [下载demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/phpkafkademo)
 
 ## 操作步骤
 
 ### 步骤一：添加 Rdkafka 扩展
 
 1. 在 [rdkafka 官方页面](http://pecl.php.net/package/rdkafka) 查找最新的 rdkafka php 扩展包版本。
+
    >?不同版本的包对 php 版本要求不同，这里仅以 4.1.2 为示例。
 
-2. 安装 rdkafka 扩展。
+2. 登录linux服务器，安装 rdkafka 扩展。
+
    ```bash
    wget --no-check-certificate https://pecl.php.net/get/rdkafka-4.1.2.tgz
    pear install rdkafka-4.1.2.tgz
@@ -29,36 +31,29 @@
 
 ### 步骤二：准备配置
 
-创建配置文件 ckafkasetting.php。
+1. 将下载的demo中的phpkafkademo上传至linux服务器。
+2. 登录linux服务器，进入phpkafkademo目录，修改 CKafkaSetting.php配置文件。
+
 ```php
 <?php
 return [
     'bootstrap_servers' => 'bootstrap_servers1:port,bootstrap_servers2:port',
     'topic_name' => 'topic_name',
     'group_id' => 'php-demo',
-    'ckafka_instance_id' => 'ckafka_instance_id',
-    'sasl_username' => 'username',
-    'sasl_password' => 'password'
 ];
-
 ```
 
-| 参数               | 描述                                                         |
-| ------------------ | ------------------------------------------------------------ |
-| bootstrap_servers  | SASL 接入点，在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的实例详情页面的【基本信息】>【接入方式】获取 |
-| topic_name         | Topic 名称，在 CKafka 控制台实例详情页面的【topic管理】创建和获取 |
-| group_id           | 消费者的组 Id，根据业务需求自定义                            |
-| ckafka_instance_id | 实例 ID，实例 ID 在 CKafka 控制台的实例详情页面的基本信息获取     |
-| sasl_username      | 用户名，用户在【用户管理】创建用户时设置                     |
-| sasl_password      | 用户密码，在 CKafka 控制台实例详情页面的【用户管理】创建用户时设置 |
-
-
+| 参数              | 描述                                                         |
+| ----------------- | ------------------------------------------------------------ |
+| bootstrap_servers | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
+| topic_name        | Topic名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
+| group_id          | 消费者的组 Id，您可以自定义设置，demo运行成功后可以在【Consumer Group】页面看到该消费者。 |
 
 ### 步骤三：发送消息
 
 1. 编写生产消息程序 Producer.php。
-<dx-codeblock>
-:::  php
+
+  ```php
 <?php
 
 $setting = require __DIR__ . '/CKafkaSetting.php';
@@ -66,16 +61,6 @@ $setting = require __DIR__ . '/CKafkaSetting.php';
 $conf = new RdKafka\Conf();
 // 设置入口服务，请通过控制台获取对应的服务地址。
 $conf->set('bootstrap.servers', $setting['bootstrap_servers']);
-// ---------- 启用 SASL 验证时需要设置 ----------
-// SASL 验证机制类型默认选用 PLAIN
-$conf->set('sasl.mechanism', 'PLAIN');
-// 设置用户名：实例 ID + # + 【用户管理】中配置的用户名
-$conf->set('sasl.username', $setting['ckafka_instance_id'] . '#' . $setting['sasl_username']);
-// 设置密码：【用户管理】中配置的密码
-$conf->set('sasl.password', $setting['sasl_password']);
-// 在本地配置 ACL 策略。
-$conf->set('security.protocol', 'SASL_PLAINTEXT');
-// ---------- 启用 SASL 验证时需要设置 ----------
 // Kafka producer 的 ack 有 3 种机制，分别说明如下：
 // -1 或 all：Broker 在 leader 收到数据并同步给所有 ISR 中的 follower 后，才应答给 Producer 继续发送下一条（批）消息。
 // 这种配置提供了最高的数据可靠性，只要有一个已同步的副本存活就不会有消息丢失。注意：这种配置不能确保所有的副本读写入该数据才返回，
@@ -120,55 +105,54 @@ while ($producer->getOutQLen() > 0) {
 }
 
 echo "【Producer】消息发送成功\n";
-
-:::
-</dx-codeblock>
-
+  ```
 
 
 2. 运行 Producer.php 发送消息。
+
 ```bash
 php Producer.php
 ```
 
-3. 查看运行结果。
+3. 查看运行结果，示例如下。
+
   ```bash
-  >【Producer】发送消息：message=RdKafka\Message::__set_state(array(
-  >   'err' => 0,
-  >   'topic_name' => 'topic_name',
-  >   'timestamp' => 1618800895159,
-  >   'partition' => 0,
-  >   'payload' => 'Message 0',
-  >   'len' => 9,
-  >   'key' => NULL,
-  >   'offset' => 0,
-  >   'headers' => NULL,
-  >))
-  >【Producer】发送消息：message=RdKafka\Message::__set_state(array(
-  >   'err' => 0,
-  >   'topic_name' => 'topic_name',
-  >   'timestamp' => 1618800895159,
-  >   'partition' => 0,
-  >   'payload' => 'Message 1',
-  >   'len' => 9,
-  >   'key' => NULL,
-  >   'offset' => 1,
-  >   'headers' => NULL,
-  >))
-  
-  ...
-  
-  >【Producer】消息发送成功
+>【Producer】发送消息：message=RdKafka\Message::__set_state(array(
+>   'err' => 0,
+>   'topic_name' => 'topic_name',
+>   'timestamp' => 1618800895159,
+>   'partition' => 0,
+>   'payload' => 'Message 0',
+>   'len' => 9,
+>   'key' => NULL,
+>   'offset' => 0,
+>   'headers' => NULL,
+>))
+>【Producer】发送消息：message=RdKafka\Message::__set_state(array(
+>   'err' => 0,
+>   'topic_name' => 'topic_name',
+>   'timestamp' => 1618800895159,
+>   'partition' => 0,
+>   'payload' => 'Message 1',
+>   'len' => 9,
+>   'key' => NULL,
+>   'offset' => 1,
+>   'headers' => NULL,
+>))
+
+...
+
+>【Producer】消息发送成功
   ```
 
-  4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic 管理】页面，选择对应的 topic，点击【更多】>【消息查询】，查看刚刚发送的消息。
- ![](https://main.qcloudimg.com/raw/99e5dba05efc4b48692c74749f131571.png)
+    4. 在  [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic 管理】页面，选择对应的 Topic，点击【更多】>【消息查询】，查看刚刚发送的消息。
+       ![](https://main.qcloudimg.com/raw/99e5dba05efc4b48692c74749f131571.png)
 
 ### 步骤四：消费消息
 
 1. 编写消息订阅消费程序 Consumer.php。
-<dx-codeblock>
-:::  php
+
+  ```php
 <?php
 
 $setting = require __DIR__ . '/CKafkaSetting.php';
@@ -177,16 +161,6 @@ $conf = new RdKafka\Conf();
 $conf->set('group.id', $setting['group_id']);
 // 设置入口服务，请通过控制台获取对应的服务地址。
 $conf->set('bootstrap.servers', $setting['bootstrap_servers']);
-// ---------- 启用 SASL 验证时需要设置 ----------
-// SASL 验证机制类型默认选用 PLAIN
-$conf->set('sasl.mechanism', 'PLAIN');
-// 设置用户名：实例 ID + # + 【用户管理】中配置的用户名
-$conf->set('sasl.username', $setting['ckafka_instance_id'] . '#' . $setting['sasl_username']);
-// 设置密码：【用户管理】中配置的密码
-$conf->set('sasl.password', $setting['sasl_password']);
-// 在本地配置 ACL 策略。
-$conf->set('security.protocol', 'SASL_PLAINTEXT');
-// ---------- 启用 SASL 验证时需要设置 ----------
 // 使用 Kafka 消费分组机制时，消费者超时时间。当 Broker 在该时间内没有收到消费者的心跳时，
 // 认为该消费者故障失败，Broker 发起重新 Rebalance 过程。
 $conf->set('session.timeout.ms', 10000);
@@ -225,16 +199,16 @@ while ($isConsuming) {
             break;
     }
 }
-:::
-</dx-codeblock>
-
+  ```
 
 2. 运行 Consumer.php 消费消息。
+
 ```bash
 php Consumer.php
 ```
 
 3. 查看运行结果。
+
   ```bash
   >【消费者】接收到消息：RdKafka\Message::__set_state(array(
   >   'err' => 0,
@@ -263,5 +237,5 @@ php Consumer.php
 
   ```
 
-  4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费者组名称，在主题名称输入 topic 名称，点击【查询详情】查看消费详情。
-![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)
+    4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费者组名称，在主题名称输入 topic 名称，点击【查询详情】查看消费详情。
+       ![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)

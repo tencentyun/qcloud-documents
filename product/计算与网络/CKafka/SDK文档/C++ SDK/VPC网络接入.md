@@ -1,34 +1,22 @@
 ## 操作场景
 
-该任务指导您使用 C/C++ 客户端在 VPC 环境下通过 SASL 接入点接入 CKafka 并使用 PLAIN 机制收发消息。
+该任务以 C++ 客户端为例指导您使用VPC网络接入消息队列 CKafka 并收发消息。
 
 ## 前提条件
 
 - [安装 GCC](https://gcc.gnu.org/install/)
-- [配置 ACL 策略](https://cloud.tencent.com/document/product/597/31528)
+
+- [下载demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/cppkafkademo)
 
 ## 操作步骤
 
 ### 步骤一：安装 C/C++ 依赖库
 
-[安装 librdkafka](https://github.com/edenhill/librdkafka#installation)
+1. 将下载的demo中的cppkafkademo上传至linux服务器，
 
+2. 登陆linux服务器，安装 [librdkafka](https://github.com/edenhill/librdkafka#installation)。
 
-
-### 步骤二：安装 SSL/SASL依赖
-<dx-codeblock>
-:::  shell script
-yum install openssl openssl-devel
-yum install cyrus-sasl{,-plain}
-:::
-</dx-codeblock>
-
-
-
-
-
-
-### 步骤三：发送消息
+### 步骤二：发送消息
 
 1. 创建 producer.c 文件。
 
@@ -179,10 +167,10 @@ int main (int argc, char **argv) {
     /* Tencent Cloud recommended configuration parameters
       * https://cloud.tencent.com/document/product/597/30203
       */
-    if(rd_kafka_conf_set(conf,"debug","all",errstr,sizeof(errstr))!= RD_KAFKA_CONF_OK) {  // 注意 线上环境需要谨慎评估开启debug。
-        fprintf(stderr,"%s\n",errstr);
-        return 1;
-    }
+    //if(rd_kafka_conf_set(conf,"debug","none",errstr,sizeof(errstr))!= RD_KAFKA_CONF_OK) {  // 注意 线上环境需要谨慎评估开启debug。
+        //fprintf(stderr,"%s\n",errstr);
+        //return 1;
+    //}
 
     if(rd_kafka_conf_set(conf,"acks","1",errstr,sizeof(errstr)) != RD_KAFKA_CONF_OK) {
         fprintf(stderr,"%s\n",errstr);
@@ -335,34 +323,32 @@ int main (int argc, char **argv) {
 }
 ```
 
-2. 执行以下命令编译 producer.c。 
+2.  执行以下命令编译 producer.c。 
 
- ```
+```
 gcc -lrdkafka ./producer.c -o producer
 ```
 
-3. 执行以下命令发送消息。
+3.  执行以下命令发送消息。
 
- ```
-./produce <broker> <topic> <username> <password>  
+```
+./produce <broker> <topic> 
 ```
 
 | **参数** | **描述**                                                     |
 | :------- | ------------------------------------------------------------ |
-| broker   | 接入点信息，您可在 Ckafka 控制台的实例配置信息或者接入方式中获取接入点信息。 |
-| topic    | Topic 名称，您可在 Ckafka 控制台的【topic 管理】中获取主题名称信息。   |
-| username | sasl_plaintext 接入方式的用户名称，您可在 Ckafka 控制台的用户管理信息中获取用户名称，注意配置用户名称时，需要添加实例 ID 作为前缀 ，格式为 `${instanceId}#username`。 |
-| password | sasl_plaintext 接入方式下的用户接入密码。                     |
+| broker   | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
+| topic    | Topic名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
 
 运行结果如下：
-<img src="https://main.qcloudimg.com/raw/a7a4a02e8636045b7aeb852f47270059.png" width="600px">
+<img src="https://main.qcloudimg.com/raw/a7a4a02e8636045b7aeb852f47270059.png" width="500px">
 
-  4. 在 [Ckafka 控制台](https://console.cloud.tencent.com/ckafka)【topic 管理】页面，选择对应的 topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
-<img src="https://main.qcloudimg.com/raw/3224bd16d182ca02d3ce4e65e172b540.png" width="700px">
+4. 在 Ckafka 控制台【topic 管理】页面，选择对应的 Topic，点击【更多】>【消息查询】，查看刚刚发送的消息。
+   ![](https://main.qcloudimg.com/raw/7d5143969f3f1c799420cf7a388f3a6d.png)
 
 
 
-### 步骤四：消费消息
+### 步骤三：消费消息
 
 1. 创建 consumer.c 文件。
 
@@ -393,7 +379,7 @@ gcc -lrdkafka ./producer.c -o producer
  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
-*/
+ */
 
 /**
  * Simple high-level balanced Apache Kafka consumer
@@ -405,28 +391,32 @@ gcc -lrdkafka ./producer.c -o producer
 #include <signal.h>
 #include <string.h>
 #include <ctype.h>
+
+
 #include <librdkafka/rdkafka.h>
 
 
 static volatile sig_atomic_t run = 1;
-    
+
 /**
-* @brief Signal termination of program 
-*/
+ * @brief Signal termination of program
+ */
 static void stop (int sig) {
     run = 0;
 }
-    
+
+
+
 /**
  * @returns 1 if all bytes are printable, else 0.
-*/
+ */
 static int is_printable (const char *buf, size_t size) {
     size_t i;
-    
+
     for (i = 0 ; i < size ; i++)
-            if (!isprint((int)buf[i]))
-                    return 0;
-    
+        if (!isprint((int)buf[i]))
+            return 0;
+
     return 1;
 }
 
@@ -436,81 +426,77 @@ int main (int argc, char **argv) {
     rd_kafka_conf_t *conf;   /* Temporary configuration object */
     rd_kafka_resp_err_t err; /* librdkafka API error code */
     char errstr[512];        /* librdkafka API error reporting buffer */
-    const char * user;	 	 /*Argument: sasl username*/
-    const char * password;   /*Argument: sasl password*/
     const char *brokers;     /* Argument: broker list */
     const char *groupid;     /* Argument: Consumer group id */
     char **topics;           /* Argument: list of topics to subscribe to */
     int topic_cnt;           /* Number of topics to subscribe to */
     rd_kafka_topic_partition_list_t *subscription; /* Subscribed topics */
     int i;
-    
+
     /*
-    * Argument validation
-    */
-    if (argc < 6) {
+     * Argument validation
+     */
+    if (argc < 4) {
         fprintf(stderr,
                 "%% Usage: "
-                "%s <broker> <group.id> <username> <password> <topic1> <topic2>..\n",
+                "%s <broker> <group.id> <topic1> <topic2>..\n",
                 argv[0]);
         return 1;
     }
-    
+
     brokers   = argv[1];
     groupid   = argv[2];
-    user      = argv[3];
-    password  = argv[4];
-    topics    = &argv[5];
-    topic_cnt = argc - 5;
+    topics    = &argv[3];
+    topic_cnt = argc - 3;
 
 
     /*
-    * Create Kafka client configuration place-holder
-    */
+     * Create Kafka client configuration place-holder
+     */
     conf = rd_kafka_conf_new();
-    
+
     /* Set bootstrap broker(s) as a comma-separated list of
-    * host or host:port (default port 9092).
-    * librdkafka will use the bootstrap brokers to acquire the full
-    * set of brokers from the cluster. */
+     * host or host:port (default port 9092).
+     * librdkafka will use the bootstrap brokers to acquire the full
+     * set of brokers from the cluster. */
     if (rd_kafka_conf_set(conf, "bootstrap.servers", brokers,
-            errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+                          errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
         fprintf(stderr, "%s\n", errstr);
         rd_kafka_conf_destroy(conf);
         return 1;
     }
-    
+
     /* Set the consumer group id.
-    * All consumers sharing the same group id will join the same
-    * group, and the subscribed topic' partitions will be assigned
-    * according to the partition.assignment.strategy
-    * (consumer config property) to the consumers in the group. */
+     * All consumers sharing the same group id will join the same
+     * group, and the subscribed topic' partitions will be assigned
+     * according to the partition.assignment.strategy
+     * (consumer config property) to the consumers in the group. */
     if (rd_kafka_conf_set(conf, "group.id", groupid,
-                              errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+                          errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
         fprintf(stderr, "%s\n", errstr);
         rd_kafka_conf_destroy(conf);
         return 1;
     }
-    
+
     /* If there is no previously committed offset for a partition
-    * the auto.offset.reset strategy will be used to decide where
-    * in the partition to start fetching messages.
-    * By setting this to earliest the consumer will read all messages
-    * in the partition if there was no previously committed offset. */
+     * the auto.offset.reset strategy will be used to decide where
+     * in the partition to start fetching messages.
+     * By setting this to earliest the consumer will read all messages
+     * in the partition if there was no previously committed offset. */
     if (rd_kafka_conf_set(conf, "auto.offset.reset", "earliest",
-                              errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+                          errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
         fprintf(stderr, "%s\n", errstr);
         rd_kafka_conf_destroy(conf);
         return 1;
     }
-    /* Tencent Cloud recommended configuration parameters 
-    * https://cloud.tencent.com/document/product/597/30203 
-    */
+    /* Tencent Cloud recommended configuration parameters
+      * https://cloud.tencent.com/document/product/597/30203
+      */
     if(rd_kafka_conf_set(conf,"debug","all",errstr,sizeof(errstr))!= RD_KAFKA_CONF_OK) {
         fprintf(stderr,"%s\n",errstr);
-    	return 1;
+        return 1;
     }
-    
+
     if(rd_kafka_conf_set(conf,"session.timeout.ms","10000",errstr,sizeof(errstr)) != RD_KAFKA_CONF_OK) {
         fprintf(stderr,"%s\n",errstr);
         return 1;
@@ -519,50 +505,33 @@ int main (int argc, char **argv) {
         fprintf(stderr,"%s\n",errstr);
         return 1;
     }
-    
-    /*Set sasl config*/
-    if(rd_kafka_conf_set(conf,"security.protocol","sasl_plaintext",errstr,sizeof(errstr)) !=RD_KAFKA_CONF_OK) {
-        fprintf(stderr,"%s\n",errstr);
-        return 1;
-    }
-    if(rd_kafka_conf_set(conf, "sasl.mechanisms", "PLAIN", errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
-        fprintf(stderr,"%s\n",errstr);
-        return 1;
-    }
-    if(rd_kafka_conf_set(conf,"sasl.username",user,errstr,sizeof(errstr)) !=RD_KAFKA_CONF_OK) {
-        fprintf(stderr,"%s\n",errstr);
-        return 1;
-    }			
-    if(rd_kafka_conf_set(conf,"sasl.password",password,errstr,sizeof(errstr)) !=RD_KAFKA_CONF_OK) {
-        fprintf(stderr,"%s\n",errstr);
-        return 1;
-    }		
+
     /*
-    * Create consumer instance.
-    *
-    * NOTE: rd_kafka_new() takes ownership of the conf object
-    *       and the application must not reference it again after
-    *       this call.
-    */
+     * Create consumer instance.
+     *
+     * NOTE: rd_kafka_new() takes ownership of the conf object
+     *       and the application must not reference it again after
+     *       this call.
+     */
     rk = rd_kafka_new(RD_KAFKA_CONSUMER, conf, errstr, sizeof(errstr));
     if (!rk) {
         fprintf(stderr,
                 "%% Failed to create new consumer: %s\n", errstr);
         return 1;
     }
-    
+
     conf = NULL; /* Configuration object is now owned, and freed,
                       * by the rd_kafka_t instance. */
 
 
     /* Redirect all messages from per-partition queues to
-    * the main queue so that messages can be consumed with one
-    * call from all assigned partitions.
-    *
-    * The alternative is to poll the main queue (for events)
-    * and each partition queue separately, which requires setting
-    * up a rebalance callback and keeping track of the assignment:
-    * but that is more complex and typically not recommended. */
+     * the main queue so that messages can be consumed with one
+     * call from all assigned partitions.
+     *
+     * The alternative is to poll the main queue (for events)
+     * and each partition queue separately, which requires setting
+     * up a rebalance callback and keeping track of the assignment:
+     * but that is more complex and typically not recommended. */
     rd_kafka_poll_set_consumer(rk);
 
 
@@ -570,11 +539,11 @@ int main (int argc, char **argv) {
     subscription = rd_kafka_topic_partition_list_new(topic_cnt);
     for (i = 0 ; i < topic_cnt ; i++)
         rd_kafka_topic_partition_list_add(subscription,
-                                                  topics[i],
-                                                  /* the partition is ignored
-                                                   * by subscribe() */
-                                                  RD_KAFKA_PARTITION_UA);
-    
+                                          topics[i],
+                /* the partition is ignored
+                 * by subscribe() */
+                                          RD_KAFKA_PARTITION_UA);
+
     /* Subscribe to the list of topics */
     err = rd_kafka_subscribe(rk, subscription);
     if (err) {
@@ -585,67 +554,67 @@ int main (int argc, char **argv) {
         rd_kafka_destroy(rk);
         return 1;
     }
-    
+
     fprintf(stderr,
-                "%% Subscribed to %d topic(s), "
-                "waiting for rebalance and messages...\n",
-                subscription->cnt);
-    
+            "%% Subscribed to %d topic(s), "
+            "waiting for rebalance and messages...\n",
+            subscription->cnt);
+
     rd_kafka_topic_partition_list_destroy(subscription);
 
 
     /* Signal handler for clean shutdown */
     signal(SIGINT, stop);
-    
+
     /* Subscribing to topics will trigger a group rebalance
-    * which may take some time to finish, but there is no need
-    * for the application to handle this idle period in a special way
-    * since a rebalance may happen at any time.
-    * Start polling for messages. */
-    
+     * which may take some time to finish, but there is no need
+     * for the application to handle this idle period in a special way
+     * since a rebalance may happen at any time.
+     * Start polling for messages. */
+
     while (run) {
         rd_kafka_message_t *rkm;
-    
+
         rkm = rd_kafka_consumer_poll(rk, 100);
         if (!rkm)
             continue; /* Timeout: no message within 100ms,
-            *  try again. This short timeout allows
-            *  checking for `run` at frequent intervals.
-            */
-    
-            /* consumer_poll() will return either a proper message
-            * or a consumer error (rkm->err is set). */
-            if (rkm->err) {
-                /* Consumer errors are generally to be considered
-                * informational as the consumer will automatically
-                * try to recover from all types of errors. */
-                fprintf(stderr,
-                        "%% Consumer error: %s\n",
-                        rd_kafka_message_errstr(rkm));
-                rd_kafka_message_destroy(rkm);
-                continue;
-            }
-    
-            /* Proper message. */
-            printf("Message on %s [%"PRId32"] at offset %"PRId64":\n",
-                    rd_kafka_topic_name(rkm->rkt), rkm->partition,
-                    rkm->offset);
-    
-            /* Print the message key. */
-            if (rkm->key && is_printable(rkm->key, rkm->key_len))
-                printf(" Key: %.*s\n",
-                        (int)rkm->key_len, (const char *)rkm->key);
-            else if (rkm->key)
-                printf(" Key: (%d bytes)\n", (int)rkm->key_len);
-    
-           /* Print the message value/payload. */
-           if (rkm->payload && is_printable(rkm->payload, rkm->len))
-                    printf(" Value: %.*s\n",
-                            (int)rkm->len, (const char *)rkm->payload);
-           else if (rkm->payload)
-               printf(" Value: (%d bytes)\n", (int)rkm->len);
-    
-           rd_kafka_message_destroy(rkm);
+                                   *  try again. This short timeout allows
+                                   *  checking for `run` at frequent intervals.
+                                   */
+
+        /* consumer_poll() will return either a proper message
+         * or a consumer error (rkm->err is set). */
+        if (rkm->err) {
+            /* Consumer errors are generally to be considered
+             * informational as the consumer will automatically
+             * try to recover from all types of errors. */
+            fprintf(stderr,
+                    "%% Consumer error: %s\n",
+                    rd_kafka_message_errstr(rkm));
+            rd_kafka_message_destroy(rkm);
+            continue;
+        }
+
+        /* Proper message. */
+        printf("Message on %s [%"PRId32"] at offset %"PRId64":\n",
+                rd_kafka_topic_name(rkm->rkt), rkm->partition,
+                rkm->offset);
+
+        /* Print the message key. */
+        if (rkm->key && is_printable(rkm->key, rkm->key_len))
+            printf(" Key: %.*s\n",
+                   (int)rkm->key_len, (const char *)rkm->key);
+        else if (rkm->key)
+            printf(" Key: (%d bytes)\n", (int)rkm->key_len);
+
+        /* Print the message value/payload. */
+        if (rkm->payload && is_printable(rkm->payload, rkm->len))
+            printf(" Value: %.*s\n",
+                   (int)rkm->len, (const char *)rkm->payload);
+        else if (rkm->payload)
+            printf(" Value: (%d bytes)\n", (int)rkm->len);
+
+        rd_kafka_message_destroy(rkm);
     }
 
 
@@ -656,10 +625,9 @@ int main (int argc, char **argv) {
 
     /* Destroy the consumer */
     rd_kafka_destroy(rk);
-    
+
     return 0;
 }
-    
 ```
 
 2. 执行以下命令编译 consumer.c。 
@@ -668,22 +636,21 @@ int main (int argc, char **argv) {
 gcc -lrdkafka ./consumer.c -o consumer
 ```
 
-3. 执行以下命令发送消息。
+3.  执行以下命令发送消息。
 
-```
-./consumer <broker> <group.id> <username> <password> <topic1> <topic2>.. 
+```   
+./consumer <broker> <group.id> <topic1> <topic2>.. 
 ```
 
 | **参数**        | **描述**                                                     |
 | :-------------- | ------------------------------------------------------------ |
-| broker          | 接入点信息，您可在 Ckafka 控制台的实例配置信息或者接入方式中获取接入点信息。 |
-| group.id        | 消费分组名称，建议您设置有意义的消费分组名称。               |
-| username        | sasl_plaintext 接入方式的用户名称，您可在 Ckafka 控制台的用户管理信息中获取用户名称，注意配置用户名称时，需要添加实例Id作为前缀 ，格式为 `${instanceId}#username`。 |
-| password        | sasl_plaintext 接入方式下的用户接入密码。                     |
-| topic1 topic2.. | Topic 名称，您可在 Ckafka 控制台的【topic管理】中获取主题名称信息。   |
+| broker          | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
+| group.id        | 消费分组名称，您可以自定义设置，demo运行成功后可以在【Consumer Group】页面看到该消费者。 |
+| topic1 topic2.. | Topic名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
 
 运行结果如下：
 <img src="https://main.qcloudimg.com/raw/e131edb96559186eeba25beb26994a2e.png" width="700px">
 
-4. 在 [Ckafka 控制台](https://console.cloud.tencent.com/ckafka)【Consumer Group】页面，选择对应的消费者组名称，在主题名称输入 topic 名称，单击【查询详情】查看消费详情。
-![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)
+4. 在 CKafka 控制台【Consumer Group】页面，选择对应的消费者组，在主题名称输入 Topic 名称，单击【查询详情】查看消费详情。
+   ![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)
+

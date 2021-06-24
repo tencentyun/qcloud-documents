@@ -1,23 +1,26 @@
 ## 操作场景
 
-该任务指导您在 VPC 环境下使用 Node.js SDK 接入 CKafka 的 SASL 接入点并使用 PLAIN 机制并收发消息。
+该任务以 Node.js 客户端为例指导您使用公网网络接入消息队列 CKafka 并收发消息。
 
 ## 前提条件
 
 - [安装 GCC](https://gcc.gnu.org/install/)
 - [安装 Node.js](https://nodejs.org/en/download/)
 - [配置 ACL 策略](https://cloud.tencent.com/document/product/597/31528)
+- [下载demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/nodejskafkademo)
 
 ## 操作步骤
 
 ### 步骤一：安装 C++ 依赖库
 
 1. 执行以下命令切换到 yum 源配置目录 `/etc/yum.repos.d/`。
+
    ```bash
    cd /etc/yum.repos.d/
    ```
 
 2. 创建 yum 源配置文件 confluent.repo。
+
    ```bash
    [Confluent.dist]
    name=Confluent repository (dist)
@@ -34,6 +37,7 @@
    ```
 
 3. 执行以下命令安装 C++ 依赖库。
+
    ```bash
    yum install librdkafka-devel
    ```
@@ -41,16 +45,19 @@
 ### 步骤二：安装 Node.js 依赖库
 
 1. 执行以下命令为预处理器指定 OpenSSL 头文件路径。
+
    ```bash
    export CPPFLAGS=-I/usr/local/opt/openssl/include
    ```
 
 2. 执行以下命令为连接器指定 OpenSSL 库路径。
+
    ```bash
    export LDFLAGS=-L/usr/local/opt/openssl/lib
    ```
 
 3. 执行以下命令安装 Node.js 依赖库。
+
    ```bash
    npm install i --unsafe-perm node-rdkafka
    ```
@@ -58,6 +65,7 @@
 ### 步骤三：准备配置
 
 创建消息队列 CKafka 配置文件 setting.js。
+
 ```js
 module.exports = {
     'sasl_plain_username': 'ckafka-xxxxxxx#ckafkademo',
@@ -80,13 +88,13 @@ module.exports = {
 ### 步骤四：发送消息
 
 1. 编写生产消息程序 producer.js
-<dx-codeblock>
-:::  js
-const Kafka = require('node-rdkafka');
+   <dx-codeblock>
+   :::  js
+   const Kafka = require('node-rdkafka');
    const config = require('./setting');
    console.log("features:" + Kafka.features);
    console.log(Kafka.librdkafkaVersion);
-   
+
    var producer = new Kafka.Producer({
        'api.version.request': 'true',
        'bootstrap.servers': config['bootstrap_servers'],
@@ -97,19 +105,19 @@ const Kafka = require('node-rdkafka');
        'sasl.username' : config['sasl_plain_username'],
        'sasl.password' : config['sasl_plain_password']
    });
-   
+
    var connected = false
-   
+
    producer.setPollInterval(100);
-   
+
    producer.connect();
-   
+
    producer.on('ready', function() {
    connected = true
    console.log("connect ok")
-   
+
    });
-   
+
    function produce() {
    try {
        producer.produce(
@@ -123,20 +131,20 @@ const Kafka = require('node-rdkafka');
        console.error(err);
    }
    }
-   
+
    producer.on("disconnected", function() {
    connected = false;
    producer.connect();
    })
-   
+
    producer.on('event.log', function(event) {
        console.log("event.log", event);
    });
-   
+
    producer.on("error", function(error) {
        console.log("error:" + error);
    });
-   
+
    producer.on('delivery-report', function(err, report) {
        console.log("delivery-report: producer ok");
    });
@@ -144,13 +152,14 @@ const Kafka = require('node-rdkafka');
    producer.on('event.error', function(err) {
        console.error('event.error:' + err);
    })
-   
+
    setInterval(produce,1000,"Interval");
-:::
-</dx-codeblock>
+   :::
+   </dx-codeblock>
 
 
 2. 执行以下命令发送消息。
+
    ```bash
    node producer.js
    ```
@@ -164,16 +173,16 @@ const Kafka = require('node-rdkafka');
 ### 步骤五：订阅消息
 
 1. 创建消费消息程序consumer.js。
-<dx-codeblock>
-:::  js
- consumer.on('event.log', function(event) {
+   <dx-codeblock>
+   :::  js
+    consumer.on('event.log', function(event) {
        console.log("event.log", event);
    });
-   
+
    consumer.on('error', function(error) {
        console.log("error:" + error);
    });
-   
+
    consumer.on('event', function(event) {
            console.log("event:" + event);
    });const Kafka = require('node-rdkafka');
@@ -181,7 +190,7 @@ const Kafka = require('node-rdkafka');
    console.log(Kafka.features);
    console.log(Kafka.librdkafkaVersion);
    console.log(config)
-   
+
    var consumer = new Kafka.KafkaConsumer({
        'api.version.request': 'true',
        'bootstrap.servers': config['bootstrap_servers'],
@@ -194,35 +203,36 @@ const Kafka = require('node-rdkafka');
        'sasl.password' : config['sasl_plain_password'],
        'group.id' : config['group_id']
    });
-   
+
    consumer.connect();
-   
+
    consumer.on('ready', function() {
    console.log("connect ok");
    consumer.subscribe([config['topic_name']]);
    consumer.consume();
    })
-   
+
    consumer.on('data', function(data) {
    console.log(data);
    });
-   
+
    consumer.on('event.log', function(event) {
        console.log("event.log", event);
    });
-   
+
    consumer.on('error', function(error) {
        console.log("error:" + error);
    });
-   
+
    consumer.on('event', function(event) {
            console.log("event:" + event);
    });
-:::
-</dx-codeblock>
+   :::
+   </dx-codeblock>
 
 
 2. 执行以下命令消费消息。
+
    ```bash
    node consumer.js
    ```
