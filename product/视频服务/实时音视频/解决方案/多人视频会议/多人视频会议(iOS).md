@@ -34,7 +34,7 @@
 3. 设置 `GenerateTestUserSig.swift` 文件中的相关参数：
 <ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
-<img src="https://camo.githubusercontent.com/7993d03297752d0c560f8eb1f99c427911762ef31da3e7eff2960c5bbe8021af/68747470733a2f2f6d61696e2e71636c6f7564696d672e636f6d2f7261772f61646237613539366163646139326434316165653233356334343166323632332e706e67">
+<img src="https://main.qcloudimg.com/raw/0f2dcf7189d07670343bc8ab9f9697e6.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
