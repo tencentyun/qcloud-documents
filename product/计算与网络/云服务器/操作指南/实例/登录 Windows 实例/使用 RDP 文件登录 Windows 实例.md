@@ -4,6 +4,9 @@
 
 RDP 是 Remote Desktop Protocol 的缩写，是微软开发的一个多通道的协议，帮助您的本地计算机连上远程计算机。RDP 作为腾讯云推荐登录您 Windows 云服务器的方式。本文介绍如何使用 RDP 文件登录 Windows 实例。
 
+>! 目前 Windows 实例已支持标准登录方式（WebRDP），该方式不区分本地机器操作系统，可通过控制台直接登录。如需使用请 [提交申请]()，登录方法介绍请参见 [使用标准方式登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/57778)。
+>
+
 ## 适用本地操作系统
 Windows，Linux 和 Mac OS 都可以使用 RDP 方式登录云服务器。
 
