@@ -12,13 +12,13 @@
 
 ## 下载并配置 GooseFS
 
-1. 从官方仓库下载 GooseFS 安装包到本地。官方仓库下载链接：[goosefs-1.0.0-bin.tar.gz](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs/goosefs-1.0.0-bin.tar.gz)
-2. 按照如下命令对安装包进行解压。
+1. 从官方仓库下载 GooseFS 安装包到本地。官方仓库下载链接：[goosefs-1.0.0-bin.tar.gz](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs/goosefs-1.0.0-bin.tar.gz)；
+2. 按照如下命令对安装包进行解压；
 ```plaintext
 tar -zxvf goosefs-1.0.0-bin.tar.gz
 cd goosefs-1.0.0
 ```
-3. 解压后，GooseFS 安装包的源文件和 Java 二进制文件均会存储在 goosefs-1.0.0 的文件夹下，本指南中通过`${GOOSEFS_HOME}`引用。
+3. 解压后，得到goosefs-1.0.0，这就是 GooseFS 的主目录了。下文将以 `$GOOSEFS_HOME` 代指该目录的绝对路径；
 4. 在`${GOOSEFS_HOME}/conf`的目录下创建`conf/goosefs-site.properties`的配置文件，可以使用内置的配置模板：
 ```plaintext
 $ cp conf/goosefs-site.properties.template conf/goosefs-site.properties
@@ -30,11 +30,10 @@ $ echo"goosefs.master.hostname=localhost">> conf/goosefs-site.properties
 
 ## 启用 GooseFS 
 
-1. 启用 GooseFS 之前建议先进行系统环境检查，确保 GooseFS 可以在本地环境中正确运行：
+1. 启用 GooseFS 之前可以先进行系统环境检查，确保 GooseFS 可以在本地环境中正确运行：
 ```plaintext
 $ goosefs validateEnv local
 ```
- >? 使用该命令可以查看 GooseFS 的运行情况。
  >
 2. 启用 GooseFS 之前对 GooseFS 进行格式化，该命令将清除 GooseFS 的日志和 `worker`存储目录下的内容：
 ```plaintext
@@ -46,24 +45,31 @@ $ ./bin/goosefs-start.sh local SudoMount
 ```
 该命令执行完毕后，可以访问 http://localhost:9201 和 http://localhost:9204 ，分别查看  Master 和 Worker 的运行状态。
 
-## 使用 GooseFS 挂载对象存储 COS
-1. 创建一个命名空间 Namespace 并挂载对象存储 COS：
-```plaintext
-$ goosefs ns create myNamespace cosn://bucketName-125xxxxxx/ 3TB
---option fs.cosn.userinfo.secretId=AKIDxxxxxxxxxxxxxx \
---option fs.cosn.userinfo.secretKey=xxxxxxxxxxxxxxxxx \
---option fs.cosn.bucket.region=ap-guangzhou \
+## 使用 GooseFS 挂载对象存储 COS 或 腾讯云HDFS（CHDFS）
+1. 创建一个命名空间 namespace 并挂载对象存储 COS：
+```shell
+$ goosefs ns create myNamespace cosn://bucketName-1250000000/3TB \
+--secret fs.cosn.userinfo.secretId=AKXXXXXXXXXXX \
+--secret fs.cosn.userinfo.secretKey=XXXXXXXXXXXX \
+--attribute fs.cosn.bucket.region=ap-xxx \
 ```
->! 在创建 Namespace 时必须指定 –-option 参数，并且指定 Hadoop-COS（COSN）所有必选参数，具体的必选参数可参考 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884)。创建 Namespace 时，如果没有指定读写策略（rPolicy/wPolicy），默认会使用配置文件中指定的 read/write type，或使用默认值（CACHE/CACHE_THROUGH）。
+>! 在创建挂载 COSN 的 namespace 时必须使用 `–-secret` 参数指定访问密钥，并且使用 `--attribute` 指定 Hadoop-COS（COSN）所有必选参数，具体的必选参数可参考 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884)。创建 Namespace 时，如果没有指定读写策略（rPolicy/wPolicy），默认会使用配置文件中指定的 read/write type，或使用默认值（CACHE/CACHE_THROUGH）。
 >
-2. 挂载成功后，可以通过 ls 指令列出集群中创建的所有 namespace，如下指令所示：
+同理，也可以创建一个命名空间 namespace 用于挂载腾讯云 HDFS：
+```shell
+goosefs ns create MyNamespaceCHDFS ofs://xxxxx-xxxx.chdfs.ap-guangzhou.myqcloud.com/3TB \
+--attribute fs.user.appid=1250000000
+--attribute fs.ofs.tmp.cache.dir=/tmp/chdfs
+```
+2. 创建成功后，可以通过 ls 指令列出集群中创建的所有 namespace，如下指令所示：
 ```plaintext
 $ goosefs ns list
 namespace	      mountPoint	       ufsPath                     	 creationTime                wPolicy      	rPolicy	     TTL	   ttlAction
 myNamespace    /myNamespace   cosn://bucketName-125xxxxxx/3TB  03-11-2021 11:43:06:239      CACHE_THROUGH   CACHE        -1      DELETE
+myNamespaceCHDFS /myNamespaceCHDFS ofs://xxxxx-xxxx.chdfs.ap-guangzhou.myqcloud.com/3TB 03-11-2021 11:45:12:336 CACHE_THROUGH   CACHE  -1  DELETE
 ```
 3. 如果只需要了解指定 namespace 的详细信息，可以通过如下指令实现：
-```plaintext
+```shell
 $ goosefs ns stat myNamespace
 
 NamespaceStatus{name=myNamespace, path=/myNamespace, ttlTime=-1, ttlAction=DELETE, ufsPath=cosn://bucketName-125xxxxxx/3TB, creationTimeMs=1615434186076, lastModificationTimeMs=1615436308143, lastAccessTimeMs=1615436308143, persistenceState=PERSISTED, mountPoint=true, mountId=4948824396519771065, acl=user::rwx,group::rwx,other::rwx, defaultAcl=, owner=user1, group=user1, mode=511, writePolicy=CACHE_THROUGH, readPolicy=CACHE}
@@ -95,7 +101,7 @@ NamespaceStatus{name=myNamespace, path=/myNamespace, ttlTime=-1, ttlAction=DELET
 ## 使用 GooseFS 预热 Table 中的数据
 
 1. GooseFS 支持将 Hive Table 中的数据预热到  GooseFS 中，在预热之前需要先将相关的 DB 关联到 GooseFS 上，相关指令如下：
-```plaintext
+```shell
 $ goosefs table attachdb --db test_db hive thrift://
 172.16.16.22:7004 test_for_demo
 ```
@@ -145,22 +151,22 @@ Asynchronous job submitted successfully, jobId: 1615966078836
 ## 使用 GooseFS 进行文件上传和下载操作
 
 1. GooseFS 支持绝大部分文件系统操作指令，可以通过以下命令来查询当前支持的命令列表：
-```plaintext
+```shell
 $ goosefs fs
 ```
 2. 可以通过 `ls` 指令列出 GooseFS 中的文件，以下示例展示如何列出根目录下的所有文件：
-```plaintext
+```shell
 $ goosefs fs ls /
 ```
 3. 可以通过`copyFromLocal`指令将数据从本地拷贝到 GooseFS 中：
-```plaintext
+```shell
 $ goosefs fs copyFromLocal LICENSE /LICENSE
 Copied LICENSE to /LICENSE
 $ goosefs fs ls /LICENSE
 -rw-r--r--  hadoop         supergroup               20798       NOT_PERSISTED 03-26-2021 16:49:37:215   0% /LICENSE
 ```
 4. 可以通过 `cat` 命令查看文件内容：
-```plaintext
+```shell
 $ goosefs fs cat /LICENSE                                                                         
 Apache License
 Version 2.0, January 2004
@@ -177,12 +183,12 @@ persisted file /LICENSE with size 26847
 ## 使用 GooseFS 加速文件上传和下载操作
 
 1. 检查文件存储状态，确认文件是否已被缓存。文件状态 `PERSISTED` 代表文件已在内存中，文件状态 `NOT_PERSISTED` 则代表文件不在内存中：
-```plaintext
+```shell
 $ goosefs fs ls /data/cos/sample_tweets_150m.csv
 -r-x------ staff  staff 157046046 NOT_PERSISTED 01-09-2018 16:35:01:002   0% /data/cos/sample_tweets_150m.csv
 ```
 2. 统计文件中有多少单词 “tencent”，并计算操作耗时：
-```plaintext
+```shell
 $ time goosefs fs cat /data/s3/sample_tweets_150m.csv | grep-c kitten
 889
 real	0m22.857s
@@ -190,7 +196,7 @@ user	0m7.557s
 sys	0m1.181s
 ```
 3. 将该数据缓存到内存中可以有效提升查询速度，详细示例如下：
-```plaintext
+```shell
 $ goosefs fs ls /data/cos/sample_tweets_150m.csv
 -r-x------ staff  staff 157046046 PERSISTED 01-09-2018 16:35:01:002   0% /data/cos/sample_tweets_150m.csv
 $ time goosefs fs cat /data/s3/sample_tweets_150m.csv | grep-c kitten
@@ -205,7 +211,7 @@ sys	    0m0.243s
 ## 关闭 GooseFS
 
 通过如下指令可以关闭 GooseFS：
-```plaintext
+```shell
 $ ./bin/goosefs-stop.sh local
 ```
 
