@@ -6,7 +6,7 @@
 
 - [安装 GCC](https://gcc.gnu.org/install/)
 - [安装 Node.js](https://nodejs.org/en/download/)
-- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/nodejskafkademo)
+- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/nodejskafkademo/VPC)
 
 ## 操作步骤
 
@@ -170,7 +170,7 @@ const Kafka = require('node-rdkafka');
 3. 查看运行结果。
    ![](https://main.qcloudimg.com/raw/195f4aee06ba86755407b4a75812c256.png)
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)【topic管理】页面，选择对应的 topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)【topic管理】页面，选择对应的 Topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
    ![](https://main.qcloudimg.com/raw/e20a0809942f90e0efd5fd1f217574b0.png)
 
 ### 步骤五：订阅消息
@@ -234,5 +234,5 @@ const Kafka = require('node-rdkafka');
 3. 查看运行结果
    ![](https://main.qcloudimg.com/raw/deecbf58c00e07531b4ea703c4046b46.png)
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)【Consumer Group】页面，选择对应的消费组，在主题名称输入 topic 名称，点击【查询详情】，查看消费详情。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)【Consumer Group】页面，选择对应的消费组，在主题名称输入 Topic 名称，单击【查询详情】，查看消费详情。
    ![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)
