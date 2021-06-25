@@ -12,7 +12,7 @@
 
 ## 下载并配置 GooseFS
 
-1. 从官方仓库下载 GooseFS 安装包到本地。
+1. 从官方仓库下载 GooseFS 安装包到本地。官方仓库下载链接：[goosefs-1.0.0-bin.tar.gz](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs/goosefs-1.0.0-bin.tar.gz)
 2. 按照如下命令对安装包进行解压。
 ```plaintext
 tar -zxvf goosefs-1.0.0-bin.tar.gz
