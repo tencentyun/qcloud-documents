@@ -5,14 +5,14 @@
 ## 前提条件
 
 - [安装 Go](https://golang.org/dl/)
-- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/gokafkademo)
+- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/gokafkademo/VPC)
 
 ## 操作步骤
 
 ### 步骤一：准备配置
 
 1. 将下载的 Demo 中的 gokafkademo 上传至 Linux 服务器。
-2. 登录 Linux 系统，进入 gokafkademo 目录，执行以下命令添加依赖库。
+2. 登录 Linux 服务器，进入 gokafkademo 目录，执行以下命令添加依赖库。
 
 ```bash
 go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
@@ -179,10 +179,10 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
 
 3. 查看运行结果，示例如下。
 ```bash
-  Message on test[0]@628: Confluent-Kafka
-  Message on test[0]@629: Golang Client Message
+Message on test[0]@628: Confluent-Kafka
+Message on test[0]@629: Golang Client Message
 ```
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费组名称，在主题名称输入topic名称，单击【查询详情】，查看消费详情。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 Topic 名称，单击【查询详情】，查看消费详情。
    ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)
 
