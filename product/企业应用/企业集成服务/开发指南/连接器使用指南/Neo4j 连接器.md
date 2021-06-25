@@ -182,7 +182,7 @@ def dw_process(msg):
 ![image-20210521110242528](https://main.qcloudimg.com/raw/b12aeeb32ddca750a62b46e36b0f36ed/neo22.png)
 
 :::
-::: 执行 CQL 语句
+::: 执行CQL语句
 #### 参数配置
 
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
@@ -222,6 +222,3 @@ def dw_process(msg):
 
 :::
 </dx-tabs>
-
-
-
