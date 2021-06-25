@@ -18,7 +18,7 @@
 tar -zxvf goosefs-1.0.0-bin.tar.gz
 cd goosefs-1.0.0
 ```
-3. 解压后，得到goosefs-1.0.0，这就是 GooseFS 的主目录了。下文将以 `$GOOSEFS_HOME` 代指该目录的绝对路径；
+3. 解压后，得到goosefs-1.0.0，这就是 GooseFS 的主目录了。下文将以 `${GOOSEFS_HOME}` 代指该目录的绝对路径；
 4. 在`${GOOSEFS_HOME}/conf`的目录下创建`conf/goosefs-site.properties`的配置文件，可以使用内置的配置模板：
 ```plaintext
 $ cp conf/goosefs-site.properties.template conf/goosefs-site.properties
