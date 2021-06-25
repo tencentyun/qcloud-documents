@@ -1,7 +1,7 @@
 ## 简介
 [Neo4j](https://neo4j.com/) 数据库是开源的高性能 NOSQL 图形数据库，图数据库用来解决现有关系数据库的局限性，图模型明确地列出数据节点之间的依赖关系，可以简单快速地检索难以在关系系统中建模的复杂层次结构。Neo4j 数据库适合处理复杂关系，应用在欺诈检测、推荐系统、社交网络图、身份和访问管理等领域。
 
-Neo4j 设计 CQL（Cypher Query Language）查询语言，Neo4j 通过 CQL 可以进行 Neo4j 数据库的增删改查等相关操作，[CQL 的语法](https://neo4j.com/docs/cypher-manual/current/introduction/quering-updating-administering/) 类似于 SQL，简单易读。
+Neo4j 设计 CQL（Cypher Query Language）查询语言，Neo4j 通过 CQL 可以进行 Neo4j 数据库的增删改查等相关操作，[CQL](https://neo4j.com/docs/cypher-manual/current/introduction/quering-updating-administering/) 的语法类似于 SQL，简单易读。
 
 iPaaS Neo4j 连接器可连接第三方 Neo4j 数据库系统并执行节点的增删改查和 CQL 操作。用户通过连接器配置来配置数据库的连接参数，配置成功后便可执行对应的数据库操作。
 
