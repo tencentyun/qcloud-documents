@@ -217,11 +217,11 @@ typedef void (^OcrSDKKitProcessSucceedBlock)(id _Nonnull resultInfo, UIImage *re
 typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullable reserved);
 ```
 
-> **Tips：**用户取消文字识别退出会在 OcrSDKKitProcessFailedBlock 回调
->
-> domain: "OcrSdk.UserCancelOcr" - code: 200101
->
-> NSLocalizedDescription : "用户主动停止文字识别"
+
+>?
+> 用户取消文字识别退出会在 OcrSDKKitProcessFailedBlock 回调
+> - domain: "OcrSdk.UserCancelOcr" - code: 200101
+> - NSLocalizedDescription : "用户主动停止文字识别"
 
 
 身份证正面请求返回 resultInfo 结果示例：
@@ -365,7 +365,7 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
 }
 ```
 
-行驶证主页和副页请求结果返回resultInfo结果示例：
+行驶证主页和副页请求结果返回 resultInfo 结果示例：
 
 ```json
 {
@@ -395,7 +395,7 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
 }
 ```
 
-驾驶证主页和副页请求结果返回resultInfo结果示例：
+驾驶证主页和副页请求结果返回 resultInfo 结果示例：
 
 ```json
 {
