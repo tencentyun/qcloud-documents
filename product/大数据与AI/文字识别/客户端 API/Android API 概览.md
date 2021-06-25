@@ -123,11 +123,11 @@ public <T extends OcrResult> void startProcessOcrResultEntity(Activity activity,
 | Activity                                                    | activity                | 启动 OCR 默认界面的当前界面 Activity 对象                    |
 | [OcrType](#OcrType)                                         | ocrType                 | 启动的 OCR 识别类型                                          |
 | [CustomConfigUi](#CustomConfigUi)                           | customConfigUi          | 启动默认界面时候传入的界面配置参数，如需完全使用默认配置，可传入 null |
-| Class < T >                                                 | entity                  | OCR识别结果的实体类                                          |
+| Class < T >                                                 | entity                  | OCR 识别结果的实体类                                          |
 | [ISdkOcrEntityResultListener](#ISdkOcrEntityResultListener) | ocrEntityResultListener | 用于接收 OCR 识别结果的回调对象                              |
 | < T > extends OcrResult                                     | < T >                   | OCR 识别识别结果 OcrResult 的子类型                          |
 
-OCR识别结果的实体类，OCR识别识别结果OcrResult的子类型包括：
+OCR 识别结果的实体类，OCR 识别识别结果 OcrResult 的子类型包括：
 
 [IdCardOcrResult](#IdCardOcrResult)、[BankCardOcrResult](#BankCardOcrResult)、[BusinessCardOcrResult](#BusinessCardOcrResult)、[MalaysiaIdCardOcrResult](#MalaysiaIdCardOcrResult)、[VinOcrResult](#VinOcrResult)、[CarLicensePlateResult](#CarLicensePlateResult)、[DriverLicenseCardResult](#DriverLicenseCardResult)、[VehicleLicenseCardResult](#VehicleLicenseCardResult)
 
@@ -174,7 +174,7 @@ OcrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支�
 | OcrType.BankCardOCR             | 银行卡正面识别模式     | [BankCardOcrResult](#BankCardOcrResult)               |
 | OcrType.BusinessCardOCR         | 名片卡正面识别模式     | [BusinessCardOcrResult](#BusinessCardOcrResult)       |
 | OcrType.MLIdCardOCR             | 马来西亚身份证识别模式 | [MalaysiaIdCardOcrResult](#MalaysiaIdCardOcrResult)   |
-| OcrType.VinOCR                  | 车辆的VIN识别模式      | [VinOcrResult](#VinOcrResult)                         |
+| OcrType.VinOCR                  | 车辆的 VIN 识别模式      | [VinOcrResult](#VinOcrResult)                         |
 | OcrType.LicensePlateOCR         | 车辆的车牌识别模式     | [CarLicensePlateResult](#CarLicensePlateResult)       |
 | OcrType.DriverLicenseOCR_FRONT  | 驾驶证主页识别模式     | [DriverLicenseCardResult](#DriverLicenseCardResult)   |
 | OcrType.DriverLicenseOCR_BACK   | 驾驶证副页识别模式     | [DriverLicenseCardResult](#DriverLicenseCardResult)   |
@@ -294,11 +294,11 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 
 ### [VinOcrResult](id:VinOcrResult)
 
-车辆的VIN的识别的结果实体对象
+车辆的 VIN 的识别的结果实体对象
 
 | 类型   | 名称 | 含义        |
 | ------ | ---- | ----------- |
-| String | vin  | 车辆的VIN码 |
+| String | vin  | 车辆的 VIN 码 |
 
 
 
@@ -546,7 +546,7 @@ public interface ISDKKitResultListener {
   }
 ```
 
-车辆的VIN返回response结果示例：
+车辆的 VIN 返回 response 结果示例：
 
 ```json
 {
@@ -557,7 +557,7 @@ public interface ISDKKitResultListener {
 }
 ```
 
-车辆的车牌返回response结果示例：
+车辆的车牌返回 response 结果示例：
 
 ```json
 {
