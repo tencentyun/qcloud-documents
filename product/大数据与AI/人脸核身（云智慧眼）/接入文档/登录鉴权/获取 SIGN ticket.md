@@ -37,14 +37,14 @@ https://idasc.webank.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=
 **响应示例：**
 ```
 {
-	"code": "0",
-	"msg": "请求成功",
-	"transactionTime": "20151022044027",
-	"tickets": [
+	  "code": "0",
+	  "msg": "请求成功",
+	  "transactionTime": "20151022044027",
+	  "tickets": [
 		{
-			"value": "ticket_string",
-			"expire_in": "3600",
-			"expire_time": "20151022044027"
+			 "value": "ticket_string",
+			 "expire_in": "3600",
+			 "expire_time": "20151022044027"
 		}
 	]
 }
