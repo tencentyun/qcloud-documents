@@ -185,7 +185,7 @@ Intel<sup>®</sup> 低精度优化工具实现框架示意图如下：
 
 #### 工作流程
 Intel<sup>®</sup> 低精度优化工具工作流程示意图如下：
-![](https://main.qcloudimg.com/raw/0db4a04fd5dd17ce738df5125f640bcb.png)
+![](https://main.qcloudimg.com/raw/acbc366d69819b443064ba5df58608fc.png)
 
 #### 量化模型性能与精度示例
 
