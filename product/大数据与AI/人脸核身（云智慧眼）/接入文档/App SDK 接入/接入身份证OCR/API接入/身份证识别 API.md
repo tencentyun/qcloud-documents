@@ -43,26 +43,26 @@
 **人像面响应示例：**
 ```
 {
-  "code":"0",
-  "msg":"请求成功",
-  "bizSeqNo":"21062120001184493117265207455389",
-  "result":{
-	     "bizSeqNo":"21062120001184493117265207455389",
-	     "transactionTime":"20210621172652",
-	     "ocrId":"54805d89208da5bac41b72fd6ca1be82",
-	     "orderNo":"1rjh4xez2vn4706nvb9x273812n21136",
-	     "name":"xxx",
-	     "sex":"男",
-	     "nation":"汉",
-	     "birth":"19881001",
-	     "address":"xxxxxxxxxxxxx",
-	     "idcard":"xxxxxxxxxxxxxxxxxx",
-	     "warning":"00000000",
-	     "sign":"2E5A4268DB6B347DF34194D903A6927B8C454AAF",
-	     "clarity":"64",
-	     "multiWarning":"00000000",
-	     "retry":"1",
-	     "success":false
+    "code":"0",
+    "msg":"请求成功",
+    "bizSeqNo":"21062120001184493117265207455389",
+    "result":{
+	       "bizSeqNo":"21062120001184493117265207455389",
+	       "transactionTime":"20210621172652",
+	       "ocrId":"54805d89208da5bac41b72fd6ca1be82",
+	       "orderNo":"1rjh4xez2vn4706nvb9x273812n21136",
+	       "name":"xxx",
+	       "sex":"男",
+	       "nation":"汉",
+	       "birth":"19881001",
+	       "address":"xxxxxxxxxxxxx",
+	       "idcard":"xxxxxxxxxxxxxxxxxx",
+	       "warning":"00000000",
+	       "sign":"2E5A4268DB6B347DF34194D903A6927B8C454AAF",
+	       "clarity":"64",
+	       "multiWarning":"00000000",
+	       "retry":"1",
+	       "success":false
 	 },
 	 "transactionTime":"20210621172652"
 	 }
