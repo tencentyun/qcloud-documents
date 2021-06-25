@@ -1,4 +1,4 @@
-腾讯云对象存储 COS 除了提供多种 API 接口，还提供了丰富多样的 SDK 供开发者使用，详情请参阅下表：
+腾讯云对象存储 COS 除了提供多种 API 接口，还提供了丰富多样的 SDK 供开发者使用，下表展示了 COS 所支持的 SDK 和对应的快速入门文档指引，开发者们可查看对应的 SDK 快速入门文档，完成 SDK 下载、安装、初始化等操作。
 
 | SDK            | 接入文档                                     |
 | ------------- | --------------------------------------- |
@@ -14,6 +14,11 @@
 | PHP SDK       | [PHP SDK 快速入门](https://cloud.tencent.com/document/product/436/12266)   |
 | Python SDK       | [Python SDK 快速入门](https://cloud.tencent.com/document/product/436/12269)   |
 | 小程序 SDK     |  [小程序 SDK 快速入门](https://cloud.tencent.com/document/product/436/31953)       |
+
+
+<span id="upgrade"></span>
+
+## 升级到 XML 版本 SDK
 
 如果您之前使用的是历史版本（JSON 版本），建议您查看对应 SDK 的升级文档，升级到 XML SDK。XML 版本不仅在架构、可用性和安全性上有了非常大的提升，而且在易用性、健壮性和传输性能上也做了非常大的改进。
 
