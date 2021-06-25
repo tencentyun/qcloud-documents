@@ -45,7 +45,7 @@ $ ./bin/goosefs-start.sh local SudoMount
 ```
 该命令执行完毕后，可以访问 http://localhost:9201 和 http://localhost:9204 ，分别查看  Master 和 Worker 的运行状态。
 
-## 使用 GooseFS 挂载对象存储 COS 或 腾讯云HDFS（CHDFS）
+## 使用 GooseFS 挂载对象存储 COS（COSN） 或 腾讯云HDFS（CHDFS）
 1. 创建一个命名空间 namespace 并挂载对象存储 COS：
 ```shell
 $ goosefs ns create myNamespace cosn://bucketName-1250000000/3TB \
