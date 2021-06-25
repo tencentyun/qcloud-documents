@@ -1,12 +1,12 @@
 ## 操作背景
 
-该任务以 Python 客户端为例指导您使用VPC网络接入消息队列 CKafka 并收发消息。
+该任务以 Python 客户端为例指导您使用 VPC 网络接入消息队列 CKafka 并收发消息。
 
 ## 前提条件
 
 - [安装 Python](https://www.python.org/downloads/)
 - [安装 pip](https://pip-cn.readthedocs.io/en/latest/installing.html)
-- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/pythonkafkademo/default)
+- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/pythonkafkademo/VPC)
 
 ## 操作步骤
 
@@ -82,5 +82,5 @@ for message in consumer:
 3. 查看运行结果。
    ![](https://main.qcloudimg.com/raw/479f3b14e67a5f50f9d49781ab4df39f.png)
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 topic 名称，单击【查询详情】，查看消费详情。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 Topic 名称，单击【查询详情】，查看消费详情。
    ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)
