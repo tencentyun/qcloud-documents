@@ -55,11 +55,11 @@ https://idasc.webank.com/api/oauth2/access_token?app_id=xxx&secret=xxx&grant_typ
 **响应示例：**
 ```
 {
-"code":"0","msg":"请求成功",
-"transactionTime":"20151022043831",
-"access_token":"accessToken_string",
-"expire_time":"20151022043831",
-"expire_in":"7200"
+  "code":"0","msg":"请求成功",
+  "transactionTime":"20151022043831",
+  "access_token":"accessToken_string",
+  "expire_time":"20151022043831",
+  "expire_in":"7200"
 }
 ```
 >!
