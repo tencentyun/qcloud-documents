@@ -15,7 +15,6 @@
 SDK 中包含了以下 framework 库以及资源文件：
 
 - **OcrSDKKit.framework** - OCR 对外接口、页面设置及网络请求库
-- **TXYComm.framework**- 公共库
 - **YtSDKKit.framework** - 边缘检测逻辑
 - **YTImageRefiner_pub.framework** - 图片解析
 - **tiny_opencv2.framework** - opencv 库
@@ -33,7 +32,6 @@ SDK 中包含了以下 framework 库以及资源文件：
 1. 将 ocr Framework、系统 Framework 库以及 bundle 文件都添加至项目中。
 ```
 ├── OcrSDKKit.framework
-├── TXYComm.framework
 ├── YtSDKKit.framework
 ├── YTImageRefiner_pub.framework
 ├── tiny_opencv2.framework
@@ -144,11 +142,15 @@ OCR SDK 支持使用临时密钥接口，使用临时密钥的好处主要有以
 | OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 |
 | OcrType.LicensePlateOCR | 汽车车牌识别模式       |
 | OcrType.VinOCR          | 汽车 VIN 码识别模式      |
+| OcrType.VehicleLicenseOCR_FRONT | 行驶证主页识别模式 |
+| OcrType.VehicleLicenseOCR_BACK | 行驶证副页识别模式 |
+| OcrType.DriverLicenseOCR_FRONT | 驾驶证主页识别模式 |
+| OcrType.DriverLicenseOCR_BACK | 驾驶证副页识别模式 |
 
 
 
 ### 常见错误
 
-1. 当提示 **requsetConfigDict is nil**，检查下是不是在进入 SDK 时，执行了 [OcrSDKKit cleanInstance] 把密钥和配置设置清除了。
-2. SDK 页面依托于 UIWindow，所以需要再 AppDelegate.h 中添加 <strong>@property (**nonatomic**, **strong**) UIWindow * window;</strong>
-3. 当出现进入 SDK 黑屏，打印日志 **Application tried to push a nil view controller on target....**，原因是 self.storyboard 等于 nil，可以参考 demo，在调用 SDK 页面的 ViewController 手动加载 xib 页面，然后调用 SDK 进入识别页面。
+1. 当提示**requsetConfigDict is nil**，检查下是不是在进入 SDK 时，执行了 [OcrSDKKit cleanInstance] 把密钥和配置设置清除了。
+2. SDK 页面依托于 UIWindow，所以需要再 AppDelegate.h 中添加 **@property (**nonatomic**, **strong**) UIWindow * window;**。
+3. 当出现进入 SDK 黑屏，添加设置**Other Linker Flags**添加 **-ObjC**。打印日志 **Application tried to push a nil view controller on target....**，原因是 self.storyboard 等于 nil，可以参考 demo，在调用 SDK 页面的 ViewController 手动加载 xib 页面，然后调用 SDK 进入识别页面。

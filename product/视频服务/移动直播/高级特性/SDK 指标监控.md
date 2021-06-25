@@ -3,7 +3,7 @@
 SDK 的各项监控指标可以从 TXLivePushListener 和 TXLivePlayListener 的回调中获取。
 
 ## TXLivePushListener
-
+ 
 ### 1. 如何获取推流的状态数据？
 TXLivePushListener 的 [onNetStatus](https://cloud.tencent.com/document/product/454/34757#onnetstatus) 回调，会每隔1秒 - 2秒会将 SDK 内部的状态指标同步出来，其中如下指标比较有意义：
 ![](https://main.qcloudimg.com/raw/fcd384fc96c9f1144df513cf7231641e.png)

@@ -1,6 +1,5 @@
 ## 操作场景
-
-本文档以 Windows Server 2012 操作系统为例，指导您如何制作 Windows 镜像。
+本文以 Windows Server 2012 操作系统为例，指引您如何制作 Windows 镜像。若使用其他版本 Windows Server 操作系统，也可参考本文进行镜像制作。
 
 ## 操作步骤
 
@@ -9,6 +8,7 @@
 制作系统盘镜像导出时，需要进行以下检查：
 >? 如果您是通过数据盘镜像导出，则可以跳过此操作。
 >
+
 #### 检查 OS 分区和启动方式
 
 1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: 0;">，打开 Windows PowerShell 窗口。
@@ -56,8 +56,7 @@ bootmenupolicy          Standard
 
 1. 打开【控制面板】>【程序和功能】，并在搜索栏中搜索 Virtio。
  - 若返回结果如下图示，则表示已安装了 Virtio 驱动。
-![image](https://main.qcloudimg.com/raw/de738e8549cb0f090f53038104ae3428.jpg
-)
+![](https://main.qcloudimg.com/raw/d8b0c17385de25bd41cdfcd291008f5c.png)
  - 若没有安装 Virtio 驱动，则需要手动安装。
     - Microsoft Windows Server 2008 R2（标准版、数据中心版、企业版）、Microsoft Windows Server 2012 R2（标准版）、Microsoft Windows Server 2016（数据中心版）、Microsoft Windows Server 2019（数据中心版）请下载腾讯云定制版 Virtio。下载地址如下，请对应实际网络环境下载：
       -  公网下载地址：`http://mirrors.tencent.com/install/windows/virtio_64_1.0.9.exe`
@@ -99,11 +98,11 @@ bootmenupolicy          Standard
 >? 当您未停止服务直接制作镜像或者其它原因，可能导致制作出的镜像文件系统有误，因此建议您在制作镜像后检查是否无误。
 >
 当镜像格式和当前平台支持的格式一致时，您可以直接打开镜像检查文件系统。 例如，Windows 平台可以直接附加 vhd 格式镜像，Linux 平台可以使用 qemu-nbd 打开 qcow2 格式镜像，Xen 平台可以直接启用 vhd 文件。
-以 Linux 平台为例：
-```
-modprobe nbd
-qemu-nbd -c /dev/nbd0 xxxx.qcow2
-mount /dev/nbd0p1 /mnt
-```
-如果 qcow2 镜像的第一个分区导出时文件系统被破坏，mount 时将会报错。
-此外，您还可以在上传镜像前，先启动云服务器测试镜像文件是否可以使用。
+
+本文以 Windows 平台为例，通过“磁盘管理”中的“附加 VHD”，查看 vhd 格式镜像。步骤如下：
+1. 在操作系统界面，右键单击 <img src="https://main.qcloudimg.com/raw/3d815ac1c196b47b2eea7c3a516c3d88.png" style="margin:-4px 0px">，并在弹出菜单中选择【计算机管理】。
+2. 选择【存储】>【磁盘管理】，进入磁盘管理界面。
+3. 在窗口上方选择【操作】>【附加 VHD】。如下图所示：
+![](https://main.qcloudimg.com/raw/447f09239201bfccd8adf62bd804c13e.png)
+出现如下图所示结果，表示已成功制作镜像。
+![](https://main.qcloudimg.com/raw/8a487604cfccb0bf34caad4cc75b3b15.png)

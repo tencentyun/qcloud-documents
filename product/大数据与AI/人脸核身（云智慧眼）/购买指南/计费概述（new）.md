@@ -1,4 +1,4 @@
->?本文描述的计费标签适用于2021年6月22日后开通人脸核身服务的客户，如您需要查看2021年6月22日前的计费标签，请查看[计费概述（旧）](https://cloud.tencent.com/document/product/1007/31005)。
+>?本文描述的计费标签适用于自2021年6月22日起开通人脸核身服务的客户，如您需要查看2021年6月22日前的计费标签，请查看 [计费概述（旧）](https://cloud.tencent.com/document/product/1007/31005)。
 
 ## 计费方式
 腾讯云人脸核身按调用量计费，调用结果及其对应收费关系请参考 [计费错误码](https://cloud.tencent.com/document/product/1007/48021)。
@@ -38,7 +38,7 @@
 			 <td>后付费月结、预付费资源包</td> 
 			  </tr>
 			   <tr>
-                   <td rowspan =2><a href="https://cloud.tencent.com/document/product/1007/35866">增强版 App SDK</a>
+                   <td rowspan =2><a href="https://cloud.tencent.com/document/product/1007/57617">增强版 App SDK</a>
 				</td>
 				<td>跟权威库比对</td>
 				<td>增强版人脸核身（权威库）-App</td>
@@ -63,7 +63,7 @@
     </tr>
     <tr>
         <td rowspan =2>
-				<li><a href="https://cloud.tencent.com/document/product/1007/42656">微信普通 H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35883">独立 H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35893">PC H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35866">App SDK</a></li>
+				<li><a href="https://cloud.tencent.com/document/product/1007/42656">微信普通 H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35883">独立 H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35893">PC H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35866">基础版App SDK</a></li>
 				</td>
 				<td>跟权威库比对</td>
 			 <td>基础版人脸核身（权威库）</td>

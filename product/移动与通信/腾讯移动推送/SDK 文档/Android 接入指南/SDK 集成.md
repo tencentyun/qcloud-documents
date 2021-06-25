@@ -2,6 +2,9 @@
 
 Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供给开发者的接口，本文将提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式。
 
+>! 为了避免您的 App 被监管部门通报或下架，请您在接入 SDK 之前务必按照 [Android 合规指南](https://cloud.tencent.com/document/product/548/57361) 在《隐私政策》中增加 TPNS 相关说明，并且在用户同意《隐私政策》后再初始化 TPNS SDK。
+>
+
 ## SDK 集成（二选一）
 
 ### AndroidStudio Gradle 自动集成
@@ -298,6 +301,7 @@ XGPushConfig.enableDebug(this,true);
 
 
 ### Token 注册
+
 
 ```java
 XGPushManager.registerPush(this, new XGIOperateCallback() {
