@@ -203,7 +203,7 @@ $ time goosefs fs cat /data/s3/sample_tweets_150m.csv | grep-c kitten
 889
 real	0m1.917s
 user	0m2.306s
-sys	    0m0.243s
+sys	 0m0.243s
 ```
 
 可见，系统处理延迟从1.181s减少到了0.243s，得到了10倍的提升。
