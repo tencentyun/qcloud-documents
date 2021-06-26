@@ -1,59 +1,60 @@
 
-本文档主要提供 GooseFS 快速部署、调试的相关指引，提供在本地机器上部署 GooseFS ，并将对象存储 COS 作为远端存储的步骤指引，具体步骤如下：
+本文档主要提供 GooseFS 快速部署、调试的相关指引，提供在本地机器上部署 GooseFS，并将对象存储（Cloud Object Storage，COS）作为远端存储的步骤指引，具体步骤如下：
 
 
 ## 前提条件
 
 在使用 GooseFS 之前，您还需要准备以下工作：
 
-1. 在对象存储 COS 服务上创建一个存储桶以作为远端存储，操作指引请参见 [对象存储快速入门](https://cloud.tencent.com/document/product/436/38484)。
+1. 在 COS 服务上创建一个存储桶以作为远端存储，操作指引请参见 [控制台快速入门](https://cloud.tencent.com/document/product/436/38484)。
 2. 安装 [Java 8 或者更高的版本](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
 3. 安装 [SSH](https://www.ssh.com/ssh/)，确保能通过 SSH 连接到 LocalHost，并远程登录。
 
 ## 下载并配置 GooseFS
 
-1. 从官方仓库下载 GooseFS 安装包到本地。官方仓库下载链接：[goosefs-1.0.0-bin.tar.gz](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs/goosefs-1.0.0-bin.tar.gz)；
-2. 按照如下命令对安装包进行解压；
+1. 从官方仓库下载 GooseFS 安装包到本地。官方仓库下载链接：[goosefs-1.0.0-bin.tar.gz](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs/goosefs-1.0.0-bin.tar.gz)。
+2. 执行如下指令，对安装包进行解压。
 ```plaintext
 tar -zxvf goosefs-1.0.0-bin.tar.gz
 cd goosefs-1.0.0
 ```
-3. 解压后，得到goosefs-1.0.0，这就是 GooseFS 的主目录了。下文将以 `${GOOSEFS_HOME}` 代指该目录的绝对路径；
-4. 在`${GOOSEFS_HOME}/conf`的目录下创建`conf/goosefs-site.properties`的配置文件，可以使用内置的配置模板：
+ 解压后，得到 goosefs-1.0.0，即 GooseFS 的主目录。下文将以 `${GOOSEFS_HOME}` 代指该目录的绝对路径。
+3. 在 `${GOOSEFS_HOME}/conf` 的目录下，创建 `conf/goosefs-site.properties` 的配置文件，可以使用内置的配置模板：
 ```plaintext
 $ cp conf/goosefs-site.properties.template conf/goosefs-site.properties
 ```
-5. 在配置文件`conf/goosefs-site.properties`中，将 goosefs.master.hostname 设置为`localhost`：
+4. 在配置文件 `conf/goosefs-site.properties` 中，将 goosefs.master.hostname 设置为`localhost`：
 ```plaintext
 $ echo"goosefs.master.hostname=localhost">> conf/goosefs-site.properties
 ```
 
 ## 启用 GooseFS 
 
-1. 启用 GooseFS 之前可以先进行系统环境检查，确保 GooseFS 可以在本地环境中正确运行：
+1. 启用 GooseFS 前，检查系统环境，确保 GooseFS 可以在本地环境中正确运行：
 ```plaintext
 $ goosefs validateEnv local
 ```
- >
-2. 启用 GooseFS 之前对 GooseFS 进行格式化，该命令将清除 GooseFS 的日志和 `worker`存储目录下的内容：
+2. 启用 GooseFS 前，执行如下指令，对 GooseFS 进行格式化。该命令将清除 GooseFS 的日志和 `worker` 存储目录下的内容：
 ```plaintext
 $ goosefs format
 ```
-3. 使用如下指令可以启用 GooseFS，在系统默认配置下，GooseFS 会启动一个  Master 和一个 Worker：
+3. 执行如下指令，启用 GooseFS。在系统默认配置下，GooseFS 会启动一个  Master 和一个 Worker。
 ```plaintext
 $ ./bin/goosefs-start.sh local SudoMount
 ```
-该命令执行完毕后，可以访问 http://localhost:9201 和 http://localhost:9204 ，分别查看  Master 和 Worker 的运行状态。
+ 该命令执行完毕后，可以访问 http://localhost:9201 和 http://localhost:9204，分别查看  Master 和 Worker 的运行状态。
 
-## 使用 GooseFS 挂载对象存储 COS（COSN） 或 腾讯云HDFS（CHDFS）
-1. 创建一个命名空间 namespace 并挂载对象存储 COS：
+## 使用 GooseFS 挂载 COS（COSN） 或腾讯云 HDFS（CHDFS）
+1. 创建一个命名空间 namespace 并挂载 COS：
 ```shell
 $ goosefs ns create myNamespace cosn://bucketName-1250000000/3TB \
 --secret fs.cosn.userinfo.secretId=AKXXXXXXXXXXX \
 --secret fs.cosn.userinfo.secretKey=XXXXXXXXXXXX \
 --attribute fs.cosn.bucket.region=ap-xxx \
 ```
->! 在创建挂载 COSN 的 namespace 时必须使用 `–-secret` 参数指定访问密钥，并且使用 `--attribute` 指定 Hadoop-COS（COSN）所有必选参数，具体的必选参数可参考 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884)。创建 Namespace 时，如果没有指定读写策略（rPolicy/wPolicy），默认会使用配置文件中指定的 read/write type，或使用默认值（CACHE/CACHE_THROUGH）。
+ >! 
+> - 创建挂载 COSN 的 namespace 时，必须使用 `–-secret` 参数指定访问密钥，并且使用 `--attribute` 指定 Hadoop-COS（COSN）所有必选参数，具体的必选参数可参考 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884)。
+> - 创建 Namespace 时，如果没有指定读写策略（rPolicy/wPolicy），默认会使用配置文件中指定的 read/write type，或使用默认值（CACHE/CACHE_THROUGH）。
 >
 同理，也可以创建一个命名空间 namespace 用于挂载腾讯云 HDFS：
 ```shell
@@ -61,14 +62,14 @@ goosefs ns create MyNamespaceCHDFS ofs://xxxxx-xxxx.chdfs.ap-guangzhou.myqcloud.
 --attribute fs.user.appid=1250000000
 --attribute fs.ofs.tmp.cache.dir=/tmp/chdfs
 ```
-2. 创建成功后，可以通过 ls 指令列出集群中创建的所有 namespace，如下指令所示：
+2. 创建成功后，可以通过 ls 指令列出集群中创建的所有 namespace：
 ```plaintext
 $ goosefs ns list
 namespace	      mountPoint	       ufsPath                     	 creationTime                wPolicy      	rPolicy	     TTL	   ttlAction
 myNamespace    /myNamespace   cosn://bucketName-125xxxxxx/3TB  03-11-2021 11:43:06:239      CACHE_THROUGH   CACHE        -1      DELETE
 myNamespaceCHDFS /myNamespaceCHDFS ofs://xxxxx-xxxx.chdfs.ap-guangzhou.myqcloud.com/3TB 03-11-2021 11:45:12:336 CACHE_THROUGH   CACHE  -1  DELETE
 ```
-3. 如果只需要了解指定 namespace 的详细信息，可以通过如下指令实现：
+3. 执行如下指令，指定 namespace 的详细信息。
 ```shell
 $ goosefs ns stat myNamespace
 
@@ -87,12 +88,12 @@ NamespaceStatus{name=myNamespace, path=/myNamespace, ttlTime=-1, ttlAction=DELET
 | 6    | creationTimeMs         | namespace 的创建时间，单位是毫秒 |
 | 7    | lastModificationTimeMs | namespace 下目录和文件的最后修改时间，单位是毫秒 |
 | 8    | persistenceState       | namespace 的持久化状态 |
-| 9    | mountPoint             | namespace 是否是一个挂载点，始终为true |
-| 10   | mountId                | namespace 挂载点id |
+| 9    | mountPoint             | namespace 是否是一个挂载点，始终为 true |
+| 10   | mountId                | namespace 挂载点 ID |
 | 11   | acl                    | namespace 的访问控制列表 |
 | 12   | defaultAcl             | namespace 的默认访问控制列表 |
 | 13   | owner                  | namespace 的 owner |
-| 14   | group                  | namespace 的 owner 所属的group |
+| 14   | group                  | namespace 的 owner 所属的 group |
 | 15   | mode                   | namespace 的 POSIX 权限 |
 | 16   | writePolicy            | namespace 的 写策略 |
 | 17   | readPolicy             | namespace 的 读策略 |
@@ -105,7 +106,7 @@ NamespaceStatus{name=myNamespace, path=/myNamespace, ttlTime=-1, ttlAction=DELET
 $ goosefs table attachdb --db test_db hive thrift://
 172.16.16.22:7004 test_for_demo
 ```
->! 指令中的 thrift 需要填写实际的 Hive Metastore 的地址。
+ >! 指令中的 thrift 需要填写实际的 Hive Metastore 的地址。
 >
 2. 添加完 DB 后，可以通过 ls 指令查看当前关联的 DB 和 Table 的信息：
 ```plaintext
@@ -145,8 +146,7 @@ PARTITION LIST (
 $ goosefs table load test_db web_page
 Asynchronous job submitted successfully, jobId: 1615966078836
 ```
-
-预热 Table 中的数据是一个异步任务，因此会返回一个任务 ID。可以通过 goosefs job stat &lt;Job Id> 指令查看预热作业的执行进度。当状态为 "COMPLETED" 后，则整个预热过程完成。
+ 预热 Table 中的数据是一个异步任务，因此会返回一个任务 ID。可以通过 goosefs job stat &lt;Job Id> 指令查看预热作业的执行进度。当状态为 "COMPLETED" 后，则整个预热过程完成。
 
 ## 使用 GooseFS 进行文件上传和下载操作
 
@@ -205,8 +205,7 @@ real	0m1.917s
 user	0m2.306s
 sys	 0m0.243s
 ```
-
-可见，系统处理延迟从1.181s减少到了0.243s，得到了10倍的提升。
+ 可见，系统处理延迟从1.181s减少到了0.243s，得到了10倍的提升。
 
 ## 关闭 GooseFS
 
