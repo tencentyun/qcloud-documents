@@ -7,7 +7,7 @@
 使用 hexo 命令行初始化一个项目：
 
 ```sh
-npx hexo init hexo-hello-world
+npm hexo init hexo-hello-world
 ```
 
 ## 步骤2：发布项目
