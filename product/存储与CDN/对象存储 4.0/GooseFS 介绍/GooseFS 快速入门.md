@@ -13,33 +13,33 @@
 ## 下载并配置 GooseFS
 
 1. 从官方仓库下载 GooseFS 安装包到本地。官方仓库下载链接：[goosefs-1.0.0-bin.tar.gz](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs/goosefs-1.0.0-bin.tar.gz)。
-2. 执行如下指令，对安装包进行解压。
-```plaintext
+2. 执行如下命令，对安装包进行解压。
+```shell
 tar -zxvf goosefs-1.0.0-bin.tar.gz
 cd goosefs-1.0.0
 ```
  解压后，得到 goosefs-1.0.0，即 GooseFS 的主目录。下文将以 `${GOOSEFS_HOME}` 代指该目录的绝对路径。
 3. 在 `${GOOSEFS_HOME}/conf` 的目录下，创建 `conf/goosefs-site.properties` 的配置文件，可以使用内置的配置模板：
-```plaintext
+```shell
 $ cp conf/goosefs-site.properties.template conf/goosefs-site.properties
 ```
 4. 在配置文件 `conf/goosefs-site.properties` 中，将 goosefs.master.hostname 设置为`localhost`：
-```plaintext
+```shell
 $ echo"goosefs.master.hostname=localhost">> conf/goosefs-site.properties
 ```
 
 ## 启用 GooseFS 
 
 1. 启用 GooseFS 前，检查系统环境，确保 GooseFS 可以在本地环境中正确运行：
-```plaintext
+```shell
 $ goosefs validateEnv local
 ```
-2. 启用 GooseFS 前，执行如下指令，对 GooseFS 进行格式化。该命令将清除 GooseFS 的日志和 `worker` 存储目录下的内容：
-```plaintext
+2. 启用 GooseFS 前，执行如下命令，对 GooseFS 进行格式化。该命令将清除 GooseFS 的日志和 `worker` 存储目录下的内容：
+```shell
 $ goosefs format
 ```
-3. 执行如下指令，启用 GooseFS。在系统默认配置下，GooseFS 会启动一个  Master 和一个 Worker。
-```plaintext
+3. 执行如下命令，启用 GooseFS。在系统默认配置下，GooseFS 会启动一个  Master 和一个 Worker。
+```shell
 $ ./bin/goosefs-start.sh local SudoMount
 ```
  该命令执行完毕后，可以访问 http://localhost:9201 和 http://localhost:9204，分别查看  Master 和 Worker 的运行状态。
@@ -62,14 +62,14 @@ goosefs ns create MyNamespaceCHDFS ofs://xxxxx-xxxx.chdfs.ap-guangzhou.myqcloud.
 --attribute fs.user.appid=1250000000
 --attribute fs.ofs.tmp.cache.dir=/tmp/chdfs
 ```
-2. 创建成功后，可以通过 ls 指令列出集群中创建的所有 namespace：
-```plaintext
+2. 创建成功后，可以通过 ns list 命令列出集群中创建的所有 namespace：
+```shell
 $ goosefs ns list
 namespace	      mountPoint	       ufsPath                     	 creationTime                wPolicy      	rPolicy	     TTL	   ttlAction
 myNamespace    /myNamespace   cosn://bucketName-125xxxxxx/3TB  03-11-2021 11:43:06:239      CACHE_THROUGH   CACHE        -1      DELETE
 myNamespaceCHDFS /myNamespaceCHDFS ofs://xxxxx-xxxx.chdfs.ap-guangzhou.myqcloud.com/3TB 03-11-2021 11:45:12:336 CACHE_THROUGH   CACHE  -1  DELETE
 ```
-3. 执行如下指令，指定 namespace 的详细信息。
+3. 执行如下命令，指定 namespace 的详细信息。
 ```shell
 $ goosefs ns stat myNamespace
 
@@ -109,7 +109,7 @@ $ goosefs table attachdb --db test_db hive thrift://
  >! 指令中的 thrift 需要填写实际的 Hive Metastore 的地址。
 >
 2. 添加完 DB 后，可以通过 ls 指令查看当前关联的 DB 和 Table 的信息：
-```plaintext
+```shell
 $ goosefs table ls test_db web_page
 
 OWNER: hadoop
@@ -141,20 +141,20 @@ PARTITION LIST (
    }
 )
 ```
-3. 通过 load 指令预热 Table 中的数据：
-```plaintext
+3. 通过 load 命令预热 Table 中的数据：
+```shell
 $ goosefs table load test_db web_page
 Asynchronous job submitted successfully, jobId: 1615966078836
 ```
- 预热 Table 中的数据是一个异步任务，因此会返回一个任务 ID。可以通过 goosefs job stat &lt;Job Id> 指令查看预热作业的执行进度。当状态为 "COMPLETED" 后，则整个预热过程完成。
+ 预热 Table 中的数据是一个异步任务，因此会返回一个任务 ID。可以通过 goosefs job stat &lt;Job Id> 命令查看预热作业的执行进度。当状态为 "COMPLETED" 后，则整个预热过程完成。
 
 ## 使用 GooseFS 进行文件上传和下载操作
 
-1. GooseFS 支持绝大部分文件系统操作指令，可以通过以下命令来查询当前支持的命令列表：
+1. GooseFS 支持绝大部分文件系统操作命令，可以通过以下命令来查询当前支持的命令列表：
 ```shell
 $ goosefs fs
 ```
-2. 可以通过 `ls` 指令列出 GooseFS 中的文件，以下示例展示如何列出根目录下的所有文件：
+2. 可以通过 `ls` 命令列出 GooseFS 中的文件，以下示例展示如何列出根目录下的所有文件：
 ```shell
 $ goosefs fs ls /
 ```
@@ -175,7 +175,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 ...
 ```
 5. GooseFS 默认使用本地磁盘作为底层文件系统，默认文件系统路径为 `./underFSStorage`，可以通过 `persist` 指令将文件持久化存储到本地文件系统中：
-```plaintext
+```shell
 $ goosefs fs persist /LICENSE
 persisted file /LICENSE with size 26847
 ```
