@@ -12,10 +12,9 @@ Channel 位于 Source 和 Sink 之间，用于缓存进来的 events，当 Sink 
 Sink 负责将 events 传输到下一跳或最终目的，成功完成后将 events 从 Channel 移除。
 
 ## 使用指南
-
 ### 使用准备
 - 已创建一个 EMR 集群。[创建 EMR 集群](https://cloud.tencent.com/document/product/589/10981) 时需要在软件配置界面选择 flume 组件。
-- flume 安装在 EMR 云服务器（core 节点和 task 节点）的`/usr/local/service/flume`路径下；master 节点的安装路径是 `/usr/local/service/apps/`。
+- flume 安装在 EMR 云服务器（core 节点和 task 节点）的 `/usr/local/service/flume` 路径下；master 节点的安装路径是  `/usr/local/service/apps/`。
 
 ### 配置 Flume 
 进入 `/usr/local/service/flume` 文件夹，并创建 example.conf 文件。
