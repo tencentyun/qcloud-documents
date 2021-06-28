@@ -63,29 +63,29 @@ this.oral.setListener(new TAIOralEvaluationListener() {
 ```
 public interface TAIOralEvaluationListener{
     /**
-	    * 数据回调
-		  * @param data 音频数据
-		  * @param result 结果
-		  * @param error 错误信息
+	       * 数据回调
+		    * @param data 音频数据
+		    * @param result 结果
+		    * @param error 错误信息
 		 */
     void onEvaluationData(TAIOralEvaluationData data, TAIOralEvaluationRet result, TAIError error);
     /**
-		   * 数据回调
-		   * @brief 最终评测结果
-		   * @param data 音频数据
-		   * @param result 结果
-		   * @param error 错误信息
+		     * 数据回调
+		     * @brief 最终评测结果
+		     * @param data 音频数据
+		     * @param result 结果
+		     * @param error 错误信息
 		*/
     void onFinalEvaluationData(TAIOralEvaluationData data, TAIOralEvaluationRet result, TAIError error);
     /**
-		   * 静音检测回调
-		   * 必须在 setRecorderParam 中开启 vad。检测到静音内部不会停止录制，业务层可以根据此回调主动停止录制或提示用户
+		     * 静音检测回调
+		     * 必须在 setRecorderParam 中开启 vad。检测到静音内部不会停止录制，业务层可以根据此回调主动停止录制或提示用户
 		*/
     void onEndOfSpeech();
     /**
-		   * 音量分贝变化
-		   * @param volume 分贝大小
-		   * 必须在 setRecorderParam 中开启 vad。volum 范围【0-20】
+		     * 音量分贝变化
+		     * @param volume 分贝大小
+		     * 必须在 setRecorderParam 中开启 vad。volum 范围【0-20】
 		*/
     void onVolumeChanged(int volume);
 }
