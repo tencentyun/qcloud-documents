@@ -38,6 +38,7 @@ MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 |设置封面|&#10003;|&#10003;|&#10003;|&#10003;|&#10003;|&#10003;|&#10003;|&#10003;|&#10003;|&#10003;|&#10003;|
 |多清晰度支持|&#10003;|&#10003;|&#10003;|&#10003;|×|×|×|×|×|×|&#10003;|
 |定制错误提示语|&#10003;|&#10003;|&#10003;|&#10003;|&#10003;|×|×|×|×|×|&#10003;|
+|快直播|&#10003;|&#10003;|&#10003;|&#10003;|&#10003;|&#10003;|&#10003;|&#10003;|&#10003;|&#10003;|×|
 
 
 ## 对接攻略
@@ -45,14 +46,14 @@ MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 ### Step1. 页面准备工作
 在需要播放视频的页面（PC 或 H5）中引入初始化脚本。
 ```
-<script src="https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.0/TcPlayer-2.4.0.js" charset="utf-8"></script>;
+<script src="https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.1/TcPlayer-2.4.1.js" charset="utf-8"></script>;
 ```
 
-建议在使用播放器 SDK 的时候自行部署资源，[点击下载播放器资源](https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.0/TcPlayer-2.4.0.zip)。
+建议在使用播放器 SDK 的时候自行部署资源，[点击下载播放器资源](https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.1/TcPlayer-2.4.1.zip)。
 
 如果您部署的地址为 `aaa.xxx.ccc`，在合适的地方引入播放器脚本文件：
 ```
-<script src="aaa.xxx.ccc/TcPlayer-2.4.0.js"></script>
+<script src="aaa.xxx.ccc/TcPlayer-2.4.1.js"></script>
 ```
 
 >! 直接用本地网页无法调试，Web 播放器无法处理该情况下的跨域问题。
@@ -293,6 +294,11 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 | preload           | String | 'auto'   | 配置 video 标签的 preload 属性，只有部分浏览器生效[v2.3.0+]。|
 | hlsConfig         | Object | 无       | hls.js 初始化配置项[v2.3.0+]。|
 | flvConfig         | Object | 无       | flv.js 初始化配置项[v2.3.1+]。|
+| webrtcConfig      | Object | 无       | webrtc 初始化配置项[v2.4.1+]。<br>支持通过 streamType 指定拉流类型，默认拉取音视频，可选单独拉取视频或单独拉取音频，streamType 可选属性：<br>- auto: 拉取视频和音频<br>- video: 仅拉取视频流<br>- audio: 仅拉取音频流<br> 示例: webrtcConfig: { streamType: 'video' }|
+
+>! 
+>- WebRTC 快直播播放地址支持两种格式，除 `webrtc://domain/AppName/StreamName?txSecret=XXX&txTime=XXX` 以外，还支持 `http://domain/AppName/StreamName.sdp?txSecret=XXX&txTime=XXX` 格式的播放地址，但是需要配置播放域名 CNAME 到 `overseas-webrtc.liveplay.myqcloud.com` 。
+>- 由于 Web 浏览器目前不支持标准 WebRTC 协议携带 B 帧播放，如果原始流存在 B 帧，则后台会自动进行转码去掉 B 帧，这样会引入额外的转码延迟，并产生转码费用。建议尽量不推包含 B 帧的流，移动直播 SDK，IOS 不支持引入 B 帧，安卓如果不开启 B 帧设置，默认是没有带 B 帧。如果使用 OBS 推流，可以通过设置，关闭 B 帧。
 
 ## 实例方法列表
 播放器实例支持的方法，如下所示：
@@ -321,7 +327,7 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 ### ES Module
 TCPlayerLite 提供了 ES Module 版本，module name 为`TcPlayer`，下载地址：
 ```
-https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.0/TcPlayer-module-2.4.0.js
+https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.1/TcPlayer-module-2.4.1.js
 ```
 ### 开启优先 H5 播放模式
 TCPlayerLite 采用 H5`<video>`和 Flash 相结合的方式来进行视频播放，根据不同的播放环境，播放器会选择默认最合适的播放方案。
@@ -355,6 +361,9 @@ seeked
 resize
 volumechange
 webrtcstatupdate
+webrtcwaitstart
+webrtcwaitend
+webrtcstop
 ```
 >! 
 >- 如果通过系统控制栏进行全屏，将无法监听到 fullscreen 事件。
@@ -391,6 +400,10 @@ TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主�
 
 <table>
 <tr><th>日期</th><th>版本</th><th>更新内容</th>
+</tr><tr>
+<td>2020.06.25</td>
+<td>2.4.1</td>
+<td><li>新增支持 v1 信令的 WebRTC 的流地址。</li><li>增加 webrtcConfig 参数。</li><li>增加 WebRTC 卡顿、卡顿结束、推流结束事件。</li></td>
 </tr><tr>
 <td>2021.06.03</td>
 <td>2.4.0</td>
