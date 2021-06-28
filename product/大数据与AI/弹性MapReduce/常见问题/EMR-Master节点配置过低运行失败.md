@@ -1,8 +1,10 @@
 ### EMR-Master 节点配置过低运行失败怎么处理？
 #### 问题现象
 由于 Master 节点配置过低，导致在该节点提交 hive/spark 作业报错或者直接被 kill。
+
 #### 原因分析
 Master 的内存不足导致其他应用 OOM 被 kill。
+
 #### 解决方案
 1. EMR 的 Master 节点由于部署了太多的业务，通常都会成为整个集群瓶颈，而 Master 节点无法扩容，只能考虑升配，升配步骤如下：
  - 首先确定客户集群中 standby namenode 所在节点。
@@ -103,7 +105,7 @@ hdfs dfsadmin -fs 10.0.0.9(standby节点IP):4007 -safemode leave 离开安全模
    </tr>
    <tr>
       <td>HDFS(Namenode)</td>
-      <td>堆内存最小内存 = 250 * 文件数量 + 290 * 目录数量 + 368 * 块数量</td>
+      <td>堆内存最小内存 = 250 × 文件数量 + 290 × 目录数量 + 368 × 块数量</td>
    </tr>
    <tr>
       <td>YARN(Resourcemaneger) </td>
@@ -115,7 +117,7 @@ hdfs dfsadmin -fs 10.0.0.9(standby节点IP):4007 -safemode leave 离开安全模
    </tr>
    <tr>
       <td>Hbase(Hmaster)</td>
-      <td>master 仅接收 DDL 请求和做负载均衡，默认 1g 一般够用 </td>
+      <td>master 仅接收 DDL 请求和做负载均衡，默认1g一般够用 </td>
    </tr>
    <tr>
       <td>Presto(Coordinator)</td>
