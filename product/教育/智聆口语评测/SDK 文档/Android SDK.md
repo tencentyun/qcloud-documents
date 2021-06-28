@@ -328,7 +328,7 @@ public String getStringToSign(long timestamp);
 
 | 参数      | 类型   | 说明                                                         |
 | :-------- | :----- | :----------------------------------------------------------- |
-| Code      | Int    | 返回错误码0：成功1：参数错误2：json解析错误3：http请求错误4：服务器错误详细错误信息请查看desc参数 |
+| Code      | Int    | 返回错误码0：成功1：参数错误2：json 解析错误3：http 请求错误4：服务器错误详细错误信息请查看 desc 参数 |
 | desc      | String | 详细错误描述                                                 |
-| requestId | String | 请求ID，用于定位错误信息                                     |
+| requestId | String | 请求 ID，用于定位错误信息                                     |
 
