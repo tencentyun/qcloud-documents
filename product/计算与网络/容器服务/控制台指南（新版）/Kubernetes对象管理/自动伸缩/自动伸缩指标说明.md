@@ -298,7 +298,7 @@
 </table>
 
 
-## 通过 YAML 编辑和创建 HPA 
+## 通过 YAML 创建和编辑 HPA 
 您可以通过 YAML 文件创建和编辑 HPA 。以下为配置文件的示例，该文件定义了一条名称为 example 的 HPA ，CPU 使用量为1时触发 HPA  ，实例范围为1 - 2。
 
 >! TKE 同样兼容原生的 Resource 类型。

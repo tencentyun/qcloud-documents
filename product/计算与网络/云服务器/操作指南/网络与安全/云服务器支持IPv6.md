@@ -8,7 +8,7 @@
 
 1. 在开始使用腾讯云产品前，您需要先 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F)。
 2. 目前仅支持如下地域开通弹性公网 IPv6、IPv6 负载均衡、IPv6 私有网络：
-广州、深圳金融、上海、上海金融、南京、北京、成都、香港、新加坡、弗吉尼亚。其中，针对地域为**深圳金融**、**上海金融**的金融行业监管要求定制的合规专区，需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请使用专区。
+广州、深圳金融、上海、上海金融、南京、北京、成都、香港、新加坡、弗吉尼亚。如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
 3. IPv6 地址为 GUA 地址，每个 VPC 分配1个`/56`的 IPv6 CIDR，每个子网分配1个`/64`的 IPv6 CIDR，每个弹性网卡分配1个 IPv6 地址。
 4. 主网卡、辅助网卡均支持申请 IPv6 地址。想要了解更多云服务器和弹性网卡的关系，请参见 [弹性网卡](https://cloud.tencent.com/document/product/576) 产品文档。
 5. 黑石物理服务器2.0不支持在创建实例时配置 IPv6 地址。如需在黑石物理服务器2.0配置此功能，请在创建黑石物理服务器2.0实例后，前往弹性网卡 IPv6 控制台进行开通。详情请参见 [管理 IPv6 公网](https://cloud.tencent.com/document/product/1142/38141)。

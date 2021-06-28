@@ -5,6 +5,16 @@
 </thead>
 <tbody>
 <tr>
+    <td>2021-05-14</td>	
+    <td>v1.18.4-tke.9</td>	
+    <td><ul class="params">
+<li>移植 <a href="https://github.com/kubernetes/kubernetes/pull/93370" rel="nofollow">pr93370</a>，支持 CronJobControllerV2。（kube-controller-manager）</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/100376" rel="nofollow">pr100376</a>，开启 HTTP/2 健康检查，避免连接丢失后无法恢复的问题。（kube-apiserver，kube-controller-manager，kube-scheduler，kubelet，kube-proxy，kubectl）</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/100317" rel="nofollow">pr100317</a>，修复 CVE-2021-25735 节点更新可能绕过 Validating Admission Webhook 的问题。（kube-apiserver）</li>
+<li>从 TKE 集群扩容到 EKS 支持 ComputeResource 和 EKS ClusterIP 及 HPA。（kube-controller-manager，kube-scheduler）</li>
+</ul></td>
+</tr>
+<tr>
     <td>2021-04-02</td>	
     <td>v1.18.4-tke.8</td>	
     <td><ul class="params">
@@ -97,6 +107,21 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr>
+    <td>2021-05-24</td>	
+    <td>v1.16.3-tke.17</td>	
+    <td><ul class="params">
+<li>移植 <a href="https://github.com/kubernetes/kubernetes/pull/93370" rel="nofollow">pr93370</a>，支持 CronJobControllerV2。（kube-controller-manager）</li>
+<li>从 TKE 集群扩容到 EKS 支持保留本地副本数。（kube-scheduler） </li>
+	        </ul></td>
+</tr>	
+<tr>
+    <td>2021-05-06</td>	
+    <td>v1.16.3-tke.16</td>	
+    <td><ul class="params">
+<li>更新以镜像方式运行 kube-proxy 时的启动方式，自动适配所在节点的 iptables 运行模式，以支持默认使用 nf_tables 模式运行 iptables 的操作系统。</li>
+	        </ul></td>
+</tr>	
 <tr>
     <td>2021-04-14</td>	
     <td>v1.16.3-tke.15</td>	
@@ -205,6 +230,11 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr>
+    <td>2021-05-06</td>	
+    <td>v1.14.3-tke.22</td>	
+    <td>更新以镜像方式运行 kube-proxy 时的启动方式，自动适配所在节点的 iptables 运行模式，以支持默认使用 nf_tables 模式运行 iptables 的操作系统。</td>
+</tr>	
 <tr>
     <td>2021-04-14</td>	
     <td>v1.14.3-tke.21</td>	
@@ -333,6 +363,11 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr>
+    <td>2021-05-06</td>	
+    <td>v1.12.4-tke.28</td>	
+    <td>更新以镜像方式运行 kube-proxy 时的启动方式，自动适配所在节点的 iptables 运行模式，以支持默认使用 nf_tables 模式运行 iptables 的操作系统。</td>
+</tr>	
 <tr>
     <td>2020-12-28</td>	
     <td>v1.12.4-tke.27</td>	
@@ -473,6 +508,11 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr>
+    <td>2021-05-06</td>	
+    <td>v1.10.5-tke.20</td>	 
+    <td>更新以镜像方式运行 kube-proxy 时的启动方式，自动适配所在节点的 iptables 运行模式，以支持默认使用 nf_tables 模式运行 iptables 的操作系统。</td>
+<tr>
 <tr>
     <td>2020-06-10</td>	
     <td>v1.10.5-tke.19</td>	 

@@ -25,8 +25,8 @@ func (s *ObjectService) GetPresignedURL(ctx context.Context, httpMethod, name, a
 
 [//]: # (.cssg-snippet-get-presign-upload-url)
 ```go
-ak := "COS_SECRETID"
-sk := "COS_SECRETKEY"
+ak := "SECRETID"
+sk := "SECRETKEY"
 
 name := "exampleobject"
 ctx := context.Background()
@@ -61,8 +61,8 @@ if err != nil {
 
 [//]: # (.cssg-snippet-get-presign-download-url)
 ```go
-ak := "COS_SECRETID"
-sk := "COS_SECRETKEY"
+ak := "SECRETID"
+sk := "SECRETKEY"
 name := "exampleobject"
 ctx := context.Background()
 // 1. 通过普通方式下载对象
@@ -99,8 +99,8 @@ type URLToken struct {
 
 func main() {
 	// 替换成您的临时密钥
-	tak := os.Getenv("COS_SECRETID")
-	tsk := os.Getenv("COS_SECRETKEY")
+	tak := os.Getenv("SECRETID")
+	tsk := os.Getenv("SECRETKEY")
 	token := &URLToken{
 		SessionToken: "<token>",
 	}

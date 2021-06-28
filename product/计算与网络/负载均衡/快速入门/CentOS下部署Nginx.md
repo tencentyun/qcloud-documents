@@ -29,7 +29,7 @@ vim /usr/share/nginx/html/index.html
 Hello nginx , This is rs-1!
 URL is index.html
 ```
-![](https://main.qcloudimg.com/raw/02e833dd08a6873d5d015f4531d24645.png)
+    ![](https://main.qcloudimg.com/raw/02e833dd08a6873d5d015f4531d24645.png)
    3. 按 “Esc”，输入`:wq` 保存编辑。
 4. 负载均衡（原“应用型负载均衡”）可以根据后端服务器的路径来进行请求转发，在`/image`路径下部署静态页面，相关操作如下：
    1. 依次执行如下命令，新建目录 `image` 并进入该目录：
@@ -47,7 +47,6 @@ Hello nginx , This is rs-1!
 URL is image/index.html
 ```
    4. 按 “Esc”，输入`:wq `保存编辑。
- 
 >!Nginx 的默认端口是`80`，如果想修改端口请修改配置文件并重启 Nginx。
 
 ## 验证 Nginx 服务

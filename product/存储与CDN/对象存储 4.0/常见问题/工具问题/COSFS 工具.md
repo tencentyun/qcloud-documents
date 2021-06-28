@@ -86,6 +86,12 @@ echo log-1250000000:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYY
 
 在 COSFS 挂载目录中，您能创建除`/`字符以外名称的文件。在类 Unix 系统上，`/`字符为目录分隔符，因此您无法在 COSFS 挂载目录中，创建包含`/`字符的文件。此外在创建包含特殊字符的文件时，您还需要避免特殊字符被 shell 使用，而导致创建文件失败。
 
+### COSFS 如何判断文件是否存在？
+
+在 COSFS 内部逻辑中，会以 Head 请求去判断父目录和文件是否存在。
+
+
+
 
 ## 故障排查
 
@@ -232,3 +238,10 @@ source ~/.bashrc
 rpm -ivh cosfs-1.0.19-centos7.0.x86_64.rpm --force
 ```
 
+###  COSFS 授权某个目录只读之后，单独挂载对应的目录提示无权限？
+
+COSFS 需要有根目录的 GetBucket 权限，因此您需要加上根目录的 GetBucket 权限以及对应目录的读权限授权，这样可以列出其它目录但是没有操作权限。
+
+### 在 COSFS 的路径中执行 ls 命令，为什么命令返回需要很久的时间？
+
+在挂载目录中有很多文件的情况下，执行 ls 命令需要对目录中的每一个文件执行 HEAD 操作，因此会耗费较多时间读取目录系统后才会返回。建议您不要开启 IO hung，否则会导致不必要的重启。

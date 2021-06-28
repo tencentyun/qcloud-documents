@@ -1,6 +1,6 @@
 ## 简介
 
-本文档提供关于对象的简单操作、分块操作等其他操作相关的 API 概览以及 SDK 示例代码。
+本文档提供关于对象的简单操作、分块操作和其他操作的 API 概览以及 SDK 示例代码。
 
 **简单操作**
 
@@ -84,7 +84,7 @@ cos_status_t *cos_list_object(const cos_request_options_t *options,
 | error_msg  | 错误码描述  | String |
 | req_id     | 请求消息 ID | String |
 
-#### 示例
+#### 示例1：查询对象列表
 
 ```cpp
 cos_pool_t *p = NULL;
@@ -124,6 +124,65 @@ if (cos_status_is_ok(s)) {
 
 //销毁内存池
 cos_pool_destroy(p); 
+```
+
+#### 示例2：列出目录下的对象
+
+对象存储中本身是没有文件夹和目录的概念的，为了满足用户使用习惯，用户可通过分隔符/来模拟“文件夹”。
+
+```c
+cos_pool_t *p = NULL;
+int is_cname = 0;
+cos_status_t *s = NULL;
+cos_request_options_t *options = NULL;
+cos_string_t bucket;
+cos_table_t *resp_headers;
+int is_truncated = 1;
+cos_string_t marker;
+  
+cos_pool_create(&p, NULL);
+options = cos_request_options_create(p);
+options->config = cos_config_create(options->pool);
+cos_str_set(&options->config->endpoint, TEST_COS_ENDPOINT);
+cos_str_set(&options->config->access_key_id, TEST_ACCESS_KEY_ID);
+cos_str_set(&options->config->access_key_secret, TEST_ACCESS_KEY_SECRET);
+cos_str_set(&options->config->appid, TEST_APPID);
+options->config->is_cname = is_cname;
+options->ctl = cos_http_controller_create(options->pool, 0);
+cos_str_set(&bucket, TEST_BUCKET_NAME);
+  
+//list object (get bucket)
+cos_list_object_params_t *list_params = NULL;
+list_params = cos_create_list_object_params(p);
+// prefix表示列出的object的key以prefix开始
+cos_str_set(&list_params->prefix, "folder/");
+// deliter表示分隔符, 设置为/表示列出当前目录下的object, 设置为空表示列出所有的object
+cos_str_set(&list_params->delimiter, "/");
+// 设置最大遍历出多少个对象, 一次listobject最大支持1000
+list_params->max_ret = 1000;
+cos_str_set(&marker, "");
+while (is_truncated) {
+    list_params->marker = marker;
+    s = cos_list_object(options, &bucket, list_params, &resp_headers);
+    if (!cos_status_is_ok(s)) {
+        printf("list object failed, req_id:%s\n", s->req_id);
+        break;
+    }
+    // list_params->object_list 返回列出的object对象。
+    cos_list_object_content_t *content = NULL;
+    cos_list_for_each_entry(cos_list_object_content_t, content, &list_params->object_list, node) {
+        printf("object: %s\n", content->key.data);
+    }
+    // list_params->common_prefix_list 表示被delimiter截断的路径, 如delimter设置为/, common prefix则表示所有子目录的路径
+    cos_list_object_common_prefix_t *common_prefix = NULL;
+    cos_list_for_each_entry(cos_list_object_common_prefix_t, common_prefix, &list_params->common_prefix_list, node) {
+        printf("common prefix: %s\n", common_prefix->prefix.data);
+    }
+
+	is_truncated = list_params->truncated;
+	marker = list_params->next_marker;
+}    
+cos_pool_destroy(p);
 ```
 
 ### 简单上传对象
@@ -1799,7 +1858,7 @@ cos_pool_destroy(p);
 
 #### 功能说明
 
-上传接口根据用户文件的长度，自动切分数据， 降低用户的使用门槛，用户无需关心分块上传的每个步骤， 且可以对分块上传未完成的文件会进行断点续传。 
+上传接口根据用户文件的长度，自动切分数据， 降低用户的使用门槛，用户无需关心分块上传的每个步骤， 且可以对分块上传未完成的文件会进行断点续传，分块大小默认 1048576（1MB），可通过 part_size 参数调整。 
 
 #### 方法原型
 
@@ -1827,7 +1886,7 @@ cos_status_t *cos_resumable_upload_file(cos_request_options_t *options,
 | headers           | COS 请求附加头域                                             | Struct   |
 | params            | COS 请求操作参数                                             | Struct   |
 | clt_params        | 上传对象控制参数                                             | Struct   |
-| part_size         | 块大小，单位为 bytes，如果用户指定的 part_size 小于 1048576（1 MB）， 由 C SDK 自动切分 | Int      |
+| part_size         | 块大小，单位为 bytes，如果用户指定的 part_size 小于1048576（1MB）， 由 C SDK 自动切分, 分块大小默认1048576（1MB），如果分块数超过10000，则根据文件大小调整 | Int      |
 | thread_num        | 线程池大小，默认为1                                          | Int      |
 | enable_checkpoint | 是否使能断点续传                                             | Int      |
 | checkpoint_path   | 当使能断点续传时，表示保存上传进度的文件路径，默认路径为`<filepath>.cp`，其中 filepath 为 Object 本地文件名称 | String   |
@@ -1892,7 +1951,7 @@ cos_pool_destroy(p);
 
 #### 功能说明
 
-分块下载接口根据用户对象的长度，自动使用 Range 下载数据，实现并发下载。 
+分块下载接口根据用户对象的长度，自动使用 Range 下载数据，实现并发下载，分块大小默认1048576（1MB），可通过 part_size 参数调整。
 
 #### 方法原型
 
@@ -1918,7 +1977,7 @@ cos_status_t *cos_resumable_download_file(cos_request_options_t *options,
 | headers           | COS 请求附加头域                                             | Struct   |
 | params            | COS 请求操作参数                                             | Struct   |
 | clt_params        | 下载对象控制参数                                             | Struct   |
-| part_size         | 块大小，单位为 bytes，如果用户指定的 part_size 小于 1048576（1 MB），由 C SDK 自动切分 | Int      |
+| part_size         | 块大小，单位为 bytes，如果用户指定的 part_size 小于4194304（4MB），则按4194304（4MB）处理 | Int      |
 | thread_num        | 线程池大小，默认为1                                          | Int      |
 | enable_checkpoint | 是否使能断点续传                                             | Int      |
 | checkpoint_path   | 当使能断点续传时，表示保存上传进度的文件路径，默认路径为`<filepath>.cp`，其中 filepath 为 Object 本地文件名称 | String   |

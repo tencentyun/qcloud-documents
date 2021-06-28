@@ -16,7 +16,7 @@
 > - 为避免主账号密钥泄露造成您的云上资产损失，建议您参照[ 最佳实践 ](https://cloud.tencent.com/document/product/598/10592)停止使用主账号登录控制台或者使用主账号密钥访问云 API，并使用已授予相关管理权限的子账号/协作者进行相关资源操作。
 > - 本文以已授予访问管理相关权限的子用户创建或查看访问密钥为例，关于如何创建子用户并实现访问管理权限请参考文档[ 自定义创建子用户](https://cloud.tencent.com/document/product/598/13674)。
 > 
-1. 使用子账号用户登录[ 访问管理控制台 ](https://console.cloud.tencent.com/cam/overview)，单击左侧导航栏中的【访问管理】>【API密钥管理】，进入 “API密钥管理”管理界面。
+1. 使用子账号用户登录[ 访问管理控制台 ](https://console.cloud.tencent.com/cam/overview)，单击左侧导航栏中的【访问密钥】>【API密钥管理】，进入 “API密钥管理”管理界面。
 2. 单击【新建密钥】等待新建完成即可。
 >?
 >- 一个子用户最多可以创建两个 API 密钥。
@@ -163,7 +163,7 @@ spec:
        # Replaced by the bucket name you want to use.
        bucket: "testbucket-1010101010"
        # You can specify sub-directory of bucket in cosfs command in here.
-	          path: /costest
+       path: /costest
        # You can specify any other options used by the cosfs command in here.
        #additional_args: "-oallow_other"
      nodePublishSecretRef:

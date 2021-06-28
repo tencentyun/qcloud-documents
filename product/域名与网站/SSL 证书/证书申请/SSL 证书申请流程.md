@@ -6,9 +6,11 @@
 
 ### 步骤1：购买证书
 1. 登录腾讯云  [SSL 证书控制台](https://console.cloud.tencent.com/ssl) ，进入 “证书列表” 管理页面，单击【购买证书】。如下图所示：
->?您也可以在腾讯云 [SSL 证书购买页](https://buy.cloud.tencent.com/ssl?fromSource=ssl) 进行购买。
+>?
+>- 您也可以在腾讯云 [SSL 证书购买页](https://buy.cloud.tencent.com/ssl?fromSource=ssl) 进行购买。
+>- 如您对证书种类以及品牌不熟悉，可单击【快速配置】，选择系统为您推荐的证书，更快速购买证书。
 >
-![](https://main.qcloudimg.com/raw/3e64ed23a9077844c797551dbc65485f.png)
+![](https://main.qcloudimg.com/raw/f7a50b9ebe05a5d01eed80075591c641.png)
 2. 选择您需要的证书种类、证书品牌、域名类型以及证书年限等。具体操作请参考 [购买流程](https://cloud.tencent.com/document/product/400/7995)。
 
 ### 步骤2：提交资料验证

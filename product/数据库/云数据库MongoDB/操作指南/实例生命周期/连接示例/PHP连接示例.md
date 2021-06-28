@@ -2,17 +2,15 @@
 ### 相关说明
 云数据库 MongoDB 默认提供 rwuser 和 mongouser 两个用户名，分别支持 MONGODB-CR 和 SCRAM-SHA-1 两种认证方式，对于这两种认证方式，连接 URI 需要做不同的处理，具体参见 [连接实例](https://cloud.tencent.com/document/product/240/7092)。
 
-在 PHP 里，有 [两套驱动](https://docs.mongodb.com/ecosystem/drivers/php/) 可用于连接操作 MongoDB 数据库，它们分别是：
-- mongodb（[PHP 官网文档](http://php.net/manual/en/set.mongodb.php)）- MongoDB 官方推荐 mongodb 驱动，但需要 PHP 5.4 以上版本。
-- mongo（[PHP 官网文档](http://php.net/manual/en/book.mongo.php)）- mongo 比较旧，但也可以用，如果要用请选择 1.6 版本。
+在 PHP 里，有驱动可用于连接操作 MongoDB 数据库：mongodb（[PHP 官网文档](http://php.net/manual/en/set.mongodb.php)）- MongoDB 官方推荐 mongodb 驱动，但需要 PHP 5.4 以上版本。
 
-下面分别用上述两个驱动演示连接云数据库 MongoDB 并进行读写。
+下面用上述驱动演示连接云数据库 MongoDB 并进行读写。
 
 ### 使用 mongodb 驱动
 mongodb 安装方法参考 [官方安装步骤](http://php.net/manual/zh/mongodb.installation.php)。
 **mongodb 驱动可以用 MONGODB-CR 和 SCRAM-SHA-1 两种认证方式**，具体参见 [连接实例](https://cloud.tencent.com/doc/product/240/3563)。
 
-示例代码:
+示例代码：
 ```
 <?php
 // 拼接连接 URI
@@ -61,41 +59,6 @@ stdClass Object
 )
 ```
 
-
-### 使用 mongo 驱动
-**mongo 驱动只支持 MONGODB-CR 认证**，对应的只能用 rwuser 进行连接，具体参见 [连接实例](https://cloud.tencent.com/document/product/240/7092)。
-
-示例代码:
-
-```
-<?php
-// 推荐使用 URI 的方式连接，两种 URI 任选其一
-$uri = "mongodb://rwuser:thepasswordA1@10.66.187.127:27017/admin?authMechanism=MONGODB-CR";
-$uri = "mongodb://rwuser:thepasswordA1@10.66.187.127:27017/?authMechanism=MONGODB-CR&authSource=admin";
-$connection = new MongoClient($uri);
-
-/*
-// 或者这样也可以
-$connection = new MongoClient("mongodb://10.66.116.103:27017/admin",
-    array(
-        "username" => "rwuser",
-        "password" => "password",
-        "authMechanism" => "MONGODB-CR"
-    )
-);
-*/
-$db = $connection->tsdb;
-$collection = $db->table1;
-
-$q = array(
-    'id' => 1,
-    'test1' => 'xxx',
-    'ss' => 'xxxxxxxx',
-);
-$collection->save($q);
-$one = $collection->findOne();
-var_dump($one);
-```
 
 ### 推荐使用 PHPLIB 库（基于 mongodb 驱动封装）
 使用 mongodb 驱动推荐搭配 [PHPLIB](http://php.net/manual/zh/mongodb.tutorial.library.php) 使用，[查看相关文档](http://mongodb.github.io/mongo-php-library/tutorial/crud/)。

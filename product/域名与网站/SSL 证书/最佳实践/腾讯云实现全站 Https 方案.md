@@ -12,16 +12,17 @@
 >
 1. 单击【已签发】页签，选择您需要部署的证书，并单击【证书详情】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2dce1ac04efd170c9b7f2b55b6a07ffd.png)
-2. 进入 “证书详情” 管理页面，单击【一键部署】，根据项目和地区筛选 CLB 实例，且只能选择一个实例。如下图所示：
+2. 进入 “证书详情” 管理页面，单击【一键部署】，根据项目和地区筛选 CLB 实例。如下图所示：
 >!目前不支持华南地区-深圳金融。
 >
-![](https://main.qcloudimg.com/raw/ee23a8c2078ffbc39dba538fc007dedf.png)
-3. 单击【确定】，跳转到 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)，进入实例【基本信息】页面。
-4. 选择【监听器管理】页签。
-5. 在【HTTP/HTTPS 监听器】中单击【新建】，弹出【创建监听器】弹窗。
-6. 将【监听协议端口】切换到 HTTPS，服务器证书为已选中的证书，然后完成剩余的基本配置。如下图所示：
-![](https://main.qcloudimg.com/raw/6beb94b001fb5ead265e4fff72b6674f.png)
-7. 继续完成创建监听器的其他配置，即可实现负载均衡的 HTTPS。
+![](https://main.qcloudimg.com/raw/9032f32c9b014ed7ec3c39e693d8e7f4.png)
+3. 在弹出的 “选择部署类型” 窗口中，选择【负载均衡】，选择资源实例以及监听器资源。如下图所示：
+>?如您的负载均衡（CLB）资源未创建监听器资源，可参考 [添加监听器](https://cloud.tencent.com/document/product/400/6502#add) 进行操作。
+>
+![](https://main.qcloudimg.com/raw/3f0213b7d3036d15f73bb17fe2b5bc76.png)
+4. 单击【确定】，即可操作成功。如下图所示：
+![](https://main.qcloudimg.com/raw/bd60fa42c113da309e99545d060939d7.png)
+
 
 ### 部署证书到 CDN
  >!

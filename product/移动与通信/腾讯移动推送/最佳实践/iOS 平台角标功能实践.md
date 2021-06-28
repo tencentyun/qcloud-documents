@@ -52,7 +52,6 @@ NSLog(@"notifications count:%d.",notifications.count);
 3. 建议使用**自定义角标数**方案，方法如下：
 通过[ API 创建 ](https://cloud.tencent.com/document/product/548/39064#ios-.E9.80.9A.E7.9F.A5.E6.B6.88.E6.81.AF)推送时，直接设置应用角标数badge_type >= 0，自定义角标数字为总消息数。如总消息数为10，则设置badge_type = 10。
 
-
 ## 问题答疑
 #### 如何只清空角标数，但是在通知中心保留推送通知？
 ```
@@ -68,6 +67,29 @@ NSLog(@"notifications count:%d.",notifications.count);
         clearEpisodeNotification.applicationIconBadgeNumber = -1;
         [[UIApplication sharedApplication] scheduleLocalNotification:clearEpisodeNotification];
     }
+}
+```
+#### 如何设置角标数，但是在通知中心保留推送通知？
+```
+#define APNS_IS_IOS11_LATER ([UIDevice currentDevice].systemVersion.floatValue >= 11.0f)
+//在appIcon上推送角标数量逻辑，但是在系统通知栏保留推送通知的方法
++ (void)resetBageNumber:(int) number{
+/// 如果是非0数，直接设置
+if(number){
+[XGPush defaultManager].xgApplicationBadgeNumber = number;
+return;
+}
+/// 如果是0，则通过如下逻辑设置
+if(APNS_IS_IOS11_LATER){
+//iOS 11后，直接设置badgeNumber = -1就生效了
+[UIApplication sharedApplication].applicationIconBadgeNumber = -1;
+}else{
+UILocalNotification *clearEpisodeNotification = [[UILocalNotificationalloc] init];
+clearEpisodeNotification.fireDate = [NSDatedateWithTimeIntervalSinceNow:(0.3)];
+clearEpisodeNotification.timeZone = [NSTimeZonedefaultTimeZone];
+clearEpisodeNotification.applicationIconBadgeNumber = -1;
+[[UIApplication sharedApplication] scheduleLocalNotification:clearEpisodeNotification];
+}
 }
 ```
 
@@ -111,4 +133,66 @@ NSLog(@"notifications count:%d.",notifications.count);
 
 #### 通过[ API 创建推送](https://cloud.tencent.com/document/product/548/39064#ios-.E9.80.9A.E7.9F.A5.E6.B6.88.E6.81.AF) 时，如何让角标数不变？
 badge_type = -1：角标数字不变。
+#### 如何查询App的角标修改方法的函数堆栈？
+可以通过hook系统类UIApplication的setApplicationIconBadgeNumber:方法打印函数调用堆栈，从而发现调用者信息，代码如下：
+UIApplication+ApplicationIconBadgeNumber.h文件
+``` 
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface UIApplication (ApplicationIconBadgeNumber)
+
+@end
+
+NS_ASSUME_NONNULL_END
+
+```
+UIApplication+ApplicationIconBadgeNumber.m文件
+```
+#import "UIApplication+ApplicationIconBadgeNumber.h"
+#import <objc/runtime.h>
+
+@implementation UIApplication (ApplicationIconBadgeNumber)
+
+//load类方法(当某个类的代码被读到内存后调用)
++ (void)load
+{
+SEL origSel = @selector(setApplicationIconBadgeNumber:);
+SEL swizSel = @selector(swiz_setApplicationIconBadgeNumber:);
+[UIApplication swizzleMethods:[self class] originalSelector:origSel swizzledSelector:swizSel];
+}
+
+//交换两个方法的实现
++ (void)swizzleMethods:(Class)class originalSelector:(SEL)origSel swizzledSelector:(SEL)swizSel
+{
+Method origMethod = class_getInstanceMethod(class, origSel);
+Method swizMethod = class_getInstanceMethod(class, swizSel);
+BOOL didAddMethod = class_addMethod(class, origSel, method_getImplementation(swizMethod), method_getTypeEncoding(swizMethod));
+if (didAddMethod){
+class_replaceMethod(class, swizSel, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
+}else{
+method_exchangeImplementations(origMethod, swizMethod);
+}
+}
+
+/// hook设置角标
+- (void)swiz_setApplicationIconBadgeNumber:(NSInteger)number
+{
+NSLog(@"调用了swiz_setApplicationIconBadgeNumber方法");
+/// 打印当前函数调用堆栈
+NSArray *syms = [NSThread  callStackSymbols];
+for(int i = 0 ; i < [syms count]; i++){
+NSLog(@"<%@ %p> %@ - caller: %@ ", [self class], self, NSStringFromSelector(_cmd),[syms objectAtIndex:i]);
+}
+//执行这句的时候跳转到setApplicationIconBadgeNumber方法中
+[self swiz_setApplicationIconBadgeNumber:number];
+}
+
+@end
+
+```
+将上面的两个文件加入到自己的工程中使用。
+下图是加入到TPNS Demo示例：
+![](https://main.qcloudimg.com/raw/b079a5fbbd9b0c9f174e841db692330d.png)
 

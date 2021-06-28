@@ -2,7 +2,7 @@
 
 ## 实例列表页
 在 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例列表页可查看实例相关信息，以及管理实例。
-![](https://main.qcloudimg.com/raw/aa66740c2c646c82db14cc316c32169d.png)
+![](https://main.qcloudimg.com/raw/f4baf638c4f58335e0ee9754f8d4c426.png)
 
 | 功能 | 介绍 | 
 |---------|---------|

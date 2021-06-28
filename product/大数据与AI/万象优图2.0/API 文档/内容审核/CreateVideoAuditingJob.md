@@ -143,7 +143,7 @@ Content-Type: application/xml
     <Snapshot>
         <Mode>Interval</Mode>
         <Start>0.5</Start>
-        <TimeInterval>100.5</TimeInterval>
+        <TimeInterval>50</TimeInterval>
         <Count>100</Count>
     </Snapshot>
     <Callback>http://callback.com/</Callback>

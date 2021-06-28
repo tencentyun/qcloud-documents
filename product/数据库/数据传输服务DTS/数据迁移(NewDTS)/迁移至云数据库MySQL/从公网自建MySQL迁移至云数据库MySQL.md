@@ -1,26 +1,25 @@
 本文主要介绍通过 DTS 数据迁移功能从公网自建 MySQL 迁移数据至腾讯云数据库 MySQL。DTS 支持结构迁移、全量数据迁移以及增量数据迁移，可以实现在不停服的情况下，平滑迁移数据到腾讯云数据库 MySQL。
 
 ## [前提条件](id:qttj)
-- 已 [创建云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433)，支持版本：MySQL 5.5、MySQL 5.6、MySQL 5.7。
+- 已 [创建云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433)，支持版本：MySQL 5.5、MySQL 5.6、MySQL 5.7、MySQL 8.0。
 - 需要您在目标端 MySQL 中创建迁移帐号，需要帐号权限：待迁移对象的全部读写权限。
-- 待迁移源端自建 MySQL，支持版本：MySQL 5.5、MySQL 5.6、MySQL 5.7。
+- 待迁移源端自建 MySQL，支持版本：MySQL 5.5、MySQL 5.6、MySQL 5.7、MySQL 8.0。
 - 需要您在源端实例中创建迁移帐号。
   - “整个实例”迁移，需要的帐号权限如下：
-  ```
-CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
-GRANT SELECT ON *.* TO ‘迁移帐号’;
-  ```
+```
+CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';  
+GRANT SELECT ON *.* TO '迁移帐号';
+```
   - “指定对象”迁移，需要的帐号权限如下：
-  ```
-CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
-GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
-GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;
-  ```
-
+```
+CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';  
+GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
+GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
+```
 
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行迁移。
@@ -47,16 +46,16 @@ GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;
 | -------------------- | ------------------------------------------------------------ |
 | 连接数据库检查           | 源库和目标库网络能够连通                                     |
 | 周边检查             | 检查环境变量 innodb_stats_on_metadata=off                     |
-| 版本检查             | 源库和目标库 MySQL 版本必须为 5.5、5.6、5.7，且源库版本必须小于或等于目标库版本 |
-| 部分实例参数检查     | table_row_format 不能为 Fixed<br>源库和目标库 lower_case_table_names 变量必须一致<br>检查目标端 max_allowed_packet 参数，至少为4M<br>源库变量 connect_timeout 必须大于10 |
+| 版本检查             | 源库和目标库 MySQL 版本必须为 5.5、5.6、5.7、8.0，且源库版本必须小于或等于目标库版本 |
+| 部分实例参数检查     | - table_row_format 不能为 Fixed<br>- 源库和目标库 lower_case_table_names 变量必须一致<br>- 检查目标端 max_allowed_packet 参数，至少为4M<br>- 源库变量 connect_timeout 必须大于10 |
 | 源端权限检查       | 同 [前提条件](#qttj) 的帐号权限                                     |
 | 目标端权限检查     | 目标云数据库 MySQL 的帐号需要具有如下权限：ALTER,  ALTER ROUTINE,  CREATE,  CREATE ROUTINE,  CREATE TEMPORARY TABLES,  CREATE USER,  CREATE VIEW,  DELETE,  DROP,  EVENT,  EXECUTE,  INDEX,  INSERT,  LOCK TABLES,  PROCESS,  REFERENCES,  RELOAD,  SELECT,  SHOW DATABASES,  SHOW VIEW,  TRIGGER,  UPDATE |
 | 目标实例内容冲突检测 | 目标库不能有和源库冲突的库表                                 |
 | 目标实例空间检查     | 目标库的空间大小须是源库待迁移库表空间的1.2倍以上 |
-| Binlog 参数检查       | 源端 binlog_format 变量必须为 ROW<br>源端 log_bin 变量必须为 ON<br>源端 binlog_row_image 变量必须为 FULL<br>源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode<br>不允许设置 do_db, ignore_db<br>对于源实例为从库的情况，log_slave_updates 变量必须为 ON |
-| 外键依赖检查         | 外键依赖只能是 no action 和 restrict 两种类型<br>部分库表迁移时，有外键依赖的表必须齐全 |
+| Binlog 参数检查       | - 源端 binlog_format 变量必须为 ROW<br>- 源端 log_bin 变量必须为 ON<br>- 源端 binlog_row_image 变量必须为 FULL<br>- 源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode<br>- 不允许设置 do_db, ignore_db<br>- 对于源实例为从库的情况，log_slave_updates 变量必须为 ON |
+| 外键依赖检查         | - 外键依赖只能是 no action 和 restrict 两种类型<br>- 部分库表迁移时，有外键依赖的表必须齐全 |
 | 视图检查             | 只允许和迁移目标 user@host 相同的 definer                       |
-| 其他警告项检查       | 检查源库和目标库的 max_allowed_packet，如果源库大于目标库，会有警告<br>目标库的 max_allowed_packet 小于1GB，会有警告<br>如果源库和目标库的字符集不一致，会有警告<br>对于全量迁移（没有增量），发警告告知用户这种全量迁移没有锁，不保证数据一致 |
+| 其他警告项检查       | - 检查源库和目标库的 max_allowed_packet，如果源库大于目标库，会有警告<br>- 目标库的 max_allowed_packet 小于1GB，会有警告<br>- 如果源库和目标库的字符集不一致，会有警告<br>- 对于全量迁移（没有增量），发警告告知用户这种全量迁移没有锁，不保证数据一致 |
 
 ## 操作步骤
 1. 登录 [DTS 数据迁移控制台](https://console.cloud.tencent.com/dts/migration?rid=8&page=1&pagesize=20)，单击【新建迁移任务】，进入新建迁移任务页面。

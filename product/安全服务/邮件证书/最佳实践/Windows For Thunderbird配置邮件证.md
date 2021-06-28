@@ -18,14 +18,13 @@
 1. 打开 Thunderbird 客户端，在需要配置的邮箱账户上方，单击鼠标右键，并单击【设置】。
 ![](https://main.qcloudimg.com/raw/ff6ce309d0b32eb4232223dfe3f133d2.png)
 2. 在设置的左侧导航中，单击【端到端加密】，并在“端到端加密”页面，单击【管理 S/MIME 证书】。
-![](https://main.qcloudimg.com/raw/ba8cab0d5497b81a902b675224afcdcb.png)
+![](https://main.qcloudimg.com/raw/a668b9f99051d68915537e89d60f1564.png)
 3. 在证书管理器窗口，单击【导入】，在资源管理器中，选择对应证书并输入 [步骤1](#step1) 中设置的密码。
 ![](https://main.qcloudimg.com/raw/82cea23ea74c6f68246e831ff02bb705.png)
 4. 单击【确定】，证书导入成功。
 ![](https://main.qcloudimg.com/raw/12e79a2a60b1c9eb7247098c1406385f.png)
 5. 分别选择邮箱的“个人数字签名证书”及“个人加密证书”，并单击【确定】即可完成设置。
-![](https://main.qcloudimg.com/raw/f9a25801e2043aae35ec42a323c34d76.png)
-
+![](https://main.qcloudimg.com/raw/ed9595561fe4416fd5a4b08a5f314c80.png)
 
 ### 步骤3：发送邮件
 

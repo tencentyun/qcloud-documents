@@ -6,15 +6,23 @@
 
 <table>
 <tr>
-<th>协议类型</th><th>SDK 语言</th>
-</tr>
-<tr>
-<td>TCP 协议（Pulsar 社区版）</td>
-<td><li><a href="https://cloud.tencent.com/document/product/1179/48552">Java SDK</a></li><li><a href="http://pulsar.apache.org/docs/en/client-libraries-go/"> Go SDK</a></li></td>
-</tr>
-<tr>
-<td>TCP 协议（腾讯云版，仅限存量客户使用）</td>
-<td><li><a href="https://cloud.tencent.com/document/product/1179/44832">Java SDK</a></li><li><a href="https://cloud.tencent.com/document/product/1179/44831">Go SDK</a></li></td>
+<th width="50%">协议类型</th><th width="50%">SDK 语言</th>
+</tr><tr>
+<td rowspan="5">TCP 协议（Pulsar 社区版）</td>
+<td><a href="https://cloud.tencent.com/document/product/1179/54642"> Go SDK</a></td>
+</tr><tr>
+<td><a href="https://cloud.tencent.com/document/product/1179/48552">Java SDK</a></td>
+</tr><tr>
+<td><a href="https://cloud.tencent.com/document/product/1179/56490"> C++ SDK</a></td>
+</tr><tr>
+<td><a href="https://cloud.tencent.com/document/product/1179/56491"> Python SDK</a></td>
+</tr><tr>
+<td><a href="https://cloud.tencent.com/document/product/1179/56492"> Node.js SDK</a></td>
+</tr><tr>
+<td rowspan="2">TCP 协议（腾讯云版，仅限存量客户使用）</td>
+<td><a href="https://cloud.tencent.com/document/product/1179/44831">Go SDK</a></td>
+</tr><tr>
+<td><a href="https://cloud.tencent.com/document/product/1179/44832">Java SDK</a></td>
 </tr>
 </table>
 
