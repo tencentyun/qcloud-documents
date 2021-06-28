@@ -65,10 +65,10 @@ this.oral.setListener(new TAIOralEvaluationListener() {
 ```
 public interface TAIOralEvaluationListener{
     /**
-	      * 数据回调
-	      * @param data 音频数据
-	      * @param result 结果
-	      * @param error 错误信息
+	          * 数据回调
+	          * @param data 音频数据
+	          * @param result 结果
+	          * @param error 错误信息
 		 */
     void onEvaluationData(TAIOralEvaluationData data, TAIOralEvaluationRet result, TAIError error);
     /**
