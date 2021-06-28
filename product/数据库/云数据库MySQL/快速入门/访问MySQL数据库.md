@@ -8,7 +8,7 @@
 ## 连接方式
 连接云数据库 MySQL 的方式如下：
 - **内网地址连接**：通过内网地址连接云数据库 MySQL，使用云服务器 CVM 直接连接云数据库的内网地址，这种连接方式使用内网高速网络，延迟低。
- - 云服务器和数据库须是同一个[ VPC](https://cloud.tencent.com/document/product/215/20046) 内（保障同一个地域），或同在基础网络内。
+ - 云服务器和数据库须是同一账号，且同一个[ VPC](https://cloud.tencent.com/document/product/215/20046) 内（保障同一个地域），或同在基础网络内。
  - 内网地址系统默认提供，可在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例列表或实例详情页查看。
 >?对于不同的 VPC 下（包括同账号/不同账号，同地域/不同地域）的云服务器和数据库，内网连接方式请参见 [云联网](https://cloud.tencent.com/document/product/877)。
 >
