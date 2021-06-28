@@ -12,7 +12,7 @@
 
 ### 准备工作
 
-1. 将下载的 Demo中的nodejskafkademo 上传至 linux 服务器。
+1. 将下载的 Demo中的nodejskafkademo 上传至 Linux 服务器。
 2. 登录 Linux 服务器，进入 nodejskafkademo 目录。
 
 ### 步骤一：安装 C++ 依赖库
