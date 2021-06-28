@@ -9,7 +9,7 @@ TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，�
 ![](https://main.qcloudimg.com/raw/6efe6bbf20ee512bcc05587f3efeb97d.jpg)
 
 ### 2. 集成 demo 示例
-下载地址：`https://github.com/TencentCloud/tencentcloud-sdk-android-soe`
+[下载 SDK](https://github.com/TencentCloud/tencentcloud-sdk-android-soe) 地址。
 获取密钥（ 密钥获取⽅式⻅下⽂） 后到
 `tencentcloud-sdk-androidsoe/TAIDemo/app/src/main/java/com/tencent/taidemo/PrivateInfo.java` 
 根据需要填写 AppId、secretId、secretKey、soeAppId 和 hcmAppId（token 不需要填写）。
@@ -59,32 +59,33 @@ this.oral.setListener(new TAIOralEvaluationListener() {
 
 >!请在开始录制音频前设置回调函数，您将通过 TAIOralEvaluationListener 接口中的 onEvaluationData 函数获取语音评测结果和错误信息。
 
+
 ```
 public interface TAIOralEvaluationListener{
     /**
-		* 数据回调
-		* @param data 音频数据
-		* @param result 结果
-		* @param error 错误信息
-		*/
+	    * 数据回调
+		  * @param data 音频数据
+		  * @param result 结果
+		  * @param error 错误信息
+		 */
     void onEvaluationData(TAIOralEvaluationData data, TAIOralEvaluationRet result, TAIError error);
     /**
-		* 数据回调
-		* @brief 最终评测结果
-		* @param data 音频数据
-		* @param result 结果
-		* @param error 错误信息
+		   * 数据回调
+		   * @brief 最终评测结果
+		   * @param data 音频数据
+		   * @param result 结果
+		   * @param error 错误信息
 		*/
     void onFinalEvaluationData(TAIOralEvaluationData data, TAIOralEvaluationRet result, TAIError error);
     /**
-		* 静音检测回调
-		* 必须在 setRecorderParam 中开启 vad。检测到静音内部不会停止录制，业务层可以根据此回调主动停止录制或提示用户
+		   * 静音检测回调
+		   * 必须在 setRecorderParam 中开启 vad。检测到静音内部不会停止录制，业务层可以根据此回调主动停止录制或提示用户
 		*/
     void onEndOfSpeech();
     /**
-		* 音量分贝变化
-		* @param volume 分贝大小
-		* 必须在 setRecorderParam 中开启 vad。volum 范围【0-20】
+		   * 音量分贝变化
+		   * @param volume 分贝大小
+		   * 必须在 setRecorderParam 中开启 vad。volum 范围【0-20】
 		*/
     void onVolumeChanged(int volume);
 }
@@ -109,11 +110,11 @@ this.oral.setRecorderParam(recordParam);
 当检测到静音或者录音分贝变化时，通过 TAIOralEvaluationListenner 通知上层。
 ```
 //检测到静音
-@Overridepublicvoid onEndOfSpeech() {     
+@Override public void onEndOfSpeech() {     
     //这里可以根据业务逻辑处理，如停止录音或提示用户 
 }  
     //音量发生变化
-publicvoid onVolumeChanged(finalint volume) {     
+public void onVolumeChanged(finalint volume) {     
     //回调录音分贝大小[0-120] 
 }
 ```
@@ -123,7 +124,7 @@ publicvoid onVolumeChanged(finalint volume) {
 **4.1.1 初始化并设置相应参数**
 初始化 TAIOraEvaluation 对象，并通过实例化对象 param 设置评测文本、客户 ID、密码等信息，详细参数信息请查看下文参数说明。
 ```java
-//1.初始化参数
+//初始化参数
 TAIOralEvaluationParam param = new TAIOralEvaluationParam();
 param.context = this;
 param.appId = "";
@@ -132,18 +133,17 @@ param.workMode = TAIOralEvaluationWorkMode.ONCE;
 param.evalMode = TAIOralEvaluationEvalMode.SENTENCE;
 param.storageMode = TAIOralEvaluationStorageMode.DISABLE;
 param.serverType = TAIOralEvaluationServerType.ENGLISH;
-param.fileType = TAIOralEvaluationFileType.MP3;//只支持mp3
+param.fileType = TAIOralEvaluationFileType.MP3;
 param.scoreCoeff = 1.0;
 param.refText = "";
 param.secretId = "";
 param.secretKey = "";
-});
 ```
 
 **4.1.2 开始录制**
 调用 startRecordAndEvaluation（）方法传入步骤4.1.1中设置的 param 参数，并设置回调函数，即可开始录制。
 ```
-//2.开始录制
+//开始录制
 this.oral.startRecordAndEvaluation(param, new TAIOralEvaluationCallback() {
     @Override
     public void onResult(final TAIError error) {
@@ -154,18 +154,19 @@ this.oral.startRecordAndEvaluation(param, new TAIOralEvaluationCallback() {
 
 **4.1.3 结束录制**
 ```
-//3.结束录制
+//结束录制
 this.oral.stopRecordAndEvaluation(new TAIOralEvaluationCallback() {
     @Override
     public void onResult(final TAIError error) {
         //结果返回
     }
+});
 ```
 
 #### 4.2 外部录制（SDK 外部录制音频数据作为 API 调用参数）
 上传外部录制音频数据时，调用 oralEvaluation() 方法，传入实例化后的 TAIOralEvaluationParam 对象及 TAIoralEvationData 对象，并设置回调函数获取错误信息。
 ```java
-//1.初始化参数
+//初始化参数
 TAIOralEvaluationParam param = new TAIOralEvaluationParam();
 param.context = this;
 param.appId = "";
@@ -174,12 +175,12 @@ param.workMode = TAIOralEvaluationWorkMode.ONCE;
 param.evalMode = TAIOralEvaluationEvalMode.SENTENCE;
 param.storageMode = TAIOralEvaluationStorageMode.DISABLE;
 param.serverType = TAIOralEvaluationServerType.ENGLISH;
-param.fileType = TAIOralEvaluationFileType.MP3;//只支持mp3
+param.fileType = TAIOralEvaluationFileType.MP3;
 param.scoreCoeff = 1.0;
 param.refText = "hello guagua";
 param.secretId = "";
 param.secretKey = "";
-//2.传输数据
+//传输数据
 try{
     InputStream is = getAssets().open("hello_guagua.mp3");
     byte[] buffer = new byte[is.available()];
@@ -250,7 +251,7 @@ public String getStringToSign(long timestamp);
 | signature          | String                       | 外部签名：必填 | 仅在使用外部签名时需要设置此参数，详细获取方式请查看上述5.签名 |
 | timestamp          | Long                         | 外部签名：必填 | 秒级时间戳                                                   |
 | soeAppId           | String                       | 否             | 业务应用 ID，与账号应用 AppID 无关，是用来方便客户管理服务的参数 |
-| sessionId          | String                       | 是             | 一次批改唯一标识                                             |
+| sessionId          | String                       | 是             | 一次评测唯一标识                                             |
 | workMode           | TAIOralEvaluationWorkMode    | 是             | 语音输入模式，用于设置是否流式分片传输，推荐使用流式分片传输 |
 | evalMode           | TAIOralEvaluationEvalMode    | 是             | 评测模式                                                     |
 | isFixOn            | Boolean                      | 是             | 用于设置是否开启单词映射                                     |
@@ -275,19 +276,19 @@ public String getStringToSign(long timestamp);
 
 #### TAIOralEvaluationData 参数说明：
 
-| 参数|类型|说明 |
-|---|---|---|
-|seqId|NSInteger|分片序列号|
-|bEnd|BOOL|是否最后一个分片|
-|audio|NSData|音频数据|
-| length |	Long	|音频数据长度|
+| 参数   | 类型    | 说明             |
+| :----- | :------ | :--------------- |
+| seqId  | Int     | 分片序列号       |
+| bEnd   | Boolean | 是否最后一个分片 |
+| audio  | byte[]  | 音频数据         |
+| length | Long    | 音频数据长度     |
 
 ### 返回结果参数
 #### TAIOralEvaluationRet 参数说明：
 
 | 参数|类型|说明 |
 |---|---|---|
-|sessionId|String|一次批改唯一标识|
+|sessionId|String|一次评测唯一标识|
 |pronAccuracy|Double|发音精准度，取值范围[-1, 100]，当取-1时指完全不匹配|
 |pronFluency|Double|发音流利度，取值范围[0, 1]，当为词模式时，取值无意义|
 |pronCompletion|Double|发音完整度，取值范围[0, 1]，当为词模式时，取值无意义|
@@ -301,8 +302,8 @@ public String getStringToSign(long timestamp);
 
 | 参数           | 类型    | 说明                                                    |
 | :------------- | :------ | :------------------------------------------------------ |
-| beginTime      | Int     | 当前单词语音起始时间点，单位为ms                        |
-| endTime        | Int     | 当前单词语音终止时间点，单位为ms                        |
+| beginTime      | Int     | 当前单词语音起始时间点，单位为 ms                        |
+| endTime        | Int     | 当前单词语音终止时间点，单位为 ms                        |
 | pronAccuracy   | Double  | 音素发音准确度，取值范围[-1, 100]，当取-1时指完全不匹配 |
 | detectedStress | Boolean | 当前音速是否检测为重音                                  |
 | phone          | String  | 用户实际发音音素                                        |
@@ -328,7 +329,7 @@ public String getStringToSign(long timestamp);
 
 | 参数      | 类型   | 说明                                                         |
 | :-------- | :----- | :----------------------------------------------------------- |
-| Code      | Int    | 返回错误码0：成功1：参数错误2：json 解析错误3：http 请求错误4：服务器错误详细错误信息请查看 desc 参数 |
+| Code      | Int    | 返回错误码<br>0：成功<br>1：参数错误<br>2：json 解析错误<br>3：http 请求错误<br>4：服务器错误详细错误信息请查看 desc 参数 |
 | desc      | String | 详细错误描述                                                 |
-| requestId | String | 请求 ID，用于定位错误信息                                     |
+| requestId | String | 请求 ID，用于订单唯一标识                                   |
 
