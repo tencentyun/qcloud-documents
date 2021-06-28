@@ -48,13 +48,14 @@ Unity SDK 已同时集成 Windows、Mac、Android、iOS 平台架构。
 禁止设置 Project Setting 中的 Audio 模块。
 </dx-alert>
 
-如果设置为下图这种模式，Unity 播放音效会因为在 iOS 上设置硬件缓存区受影响，表现为音效被打断。如图所示。
+若按照下图进行配置，则 Unity 播放音效会因为在 iOS 上设置硬件缓存区受影响，表现为音效被打断。如图所示。
 <img src="https://main.qcloudimg.com/raw/0b1c09af7f42e39081cca1718baaede3.png"  width="40%" /></img>
 
 ## MacOS 平台使用操作
 
-如果是在 MacOS 10.15.x 版本使用 Unity 集成 GME SDK，执行运行操作时会有报错，显示文件已损坏，原因为 `com.apple.quarantine` 属性导致，则最直接的解决方案是删除 `com.apple.quarantine` 属性，具体操作步骤如下。
+若在 MacOS 10.15.x 版本使用 Unity 集成 GME SDK，执行运行操作时报错显示文件已损坏，原因为 `com.apple.quarantine` 属性导致。
 <img src="https://main.qcloudimg.com/raw/29aa9b69f32c13ffe3c6db4559c9ff17.png"  width="30%" /></img>
+最直接的解决方案是删除 `com.apple.quarantine` 属性，具体操作步骤如下。
 1. 通过终端执行 cd 命令快速定位到工程中的文件夹下：`Unity_OpenSDK_Audio/Assets/Plugins/`。
 2. 执行以下命令。
 ```
