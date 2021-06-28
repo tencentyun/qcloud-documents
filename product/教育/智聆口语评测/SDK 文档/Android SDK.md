@@ -89,7 +89,7 @@ public interface TAIOralEvaluationListener{
 ```
 
 
-### 3. 录制音频
+### 3. 静音设置
 #### 3.1 初始化TAIRecorderParam对象，并配置相关参数
 请在开始调用 startRecordAndEvaluation() 函数前设置 TAIRecorderParam 参数，静音检测您可以通过 vadEnable 参数打开，并通过 vadInterval 参数设置静音检测时间间隔。
 ```
