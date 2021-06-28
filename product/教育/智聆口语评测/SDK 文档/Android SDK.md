@@ -60,13 +60,15 @@ this.oral.setListener(new TAIOralEvaluationListener() {
 >!请在开始录制音频前设置回调函数，您将通过 TAIOralEvaluationListener 接口中的 onEvaluationData 函数获取语音评测结果和错误信息。
 
 
+
+
 ```
 public interface TAIOralEvaluationListener{
     /**
-	       * 数据回调
-		    * @param data 音频数据
-		    * @param result 结果
-		    * @param error 错误信息
+	      * 数据回调
+	      * @param data 音频数据
+	      * @param result 结果
+	      * @param error 错误信息
 		 */
     void onEvaluationData(TAIOralEvaluationData data, TAIOralEvaluationRet result, TAIError error);
     /**
