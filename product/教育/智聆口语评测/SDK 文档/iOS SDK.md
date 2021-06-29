@@ -10,7 +10,7 @@ TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，�
 ### 2. 集成 demo 示例
 [下载 SDK](https://github.com/TencentCloud/tencentcloud-sdk-ios-soe) 地址。
 获取密钥（ 密钥获取⽅式⻅下⽂） 后到 TAIDemo/TAIDemo/PrivateInfo.m 根据需要填写 appId、secretId、secretKey、soeAppId 和hcmAppId（token 无需填写）。
-![](https://main.qcloudimg.com/raw/af0d45abca15d5fe3796c85627b3af87.png)
+![](https://main.qcloudimg.com/raw/c9d27bfaa226bc2e513666c635b21d94.png)
 
 ## SDK 集成准备
 ###  1. 添加第三方库依赖
