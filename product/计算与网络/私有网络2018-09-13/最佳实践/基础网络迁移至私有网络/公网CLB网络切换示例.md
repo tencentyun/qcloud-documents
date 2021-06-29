@@ -2,7 +2,7 @@
 >?本示例仅供参考，实际迁移的场景可能较示例更复杂，请在迁移前仔细评估影响，谨慎地制定迁移方案。
 
 ### 迁移示例
-基础网络中使用了 CLB、CVM、MySQL、Redis 产品。其中公网 CLB 绑定了两台云服务器 CVM1 和 CVM2 作为后端服务器，CVM1 和 CVM2 上部署了应用服务，应用服务会访问后端的云数据库服务 Rdeis 和 MySQL。
+基础网络中使用了 DNS、CLB、CVM、MySQL、Redis 产品。DNS 中访问域名映射为基础网络公网 CLB VIP，其中公网 CLB 绑定了两台云服务器 CVM1 和 CVM2 作为后端服务器，CVM1 和 CVM2 上部署了应用服务，应用服务会访问后端的云数据库服务 Rdeis 和 MySQL。
 迁移要求：要求业务平滑切换至私有网络。
 ![](https://main.qcloudimg.com/raw/47306535fde541d174012cfa762ba746.png)
 
