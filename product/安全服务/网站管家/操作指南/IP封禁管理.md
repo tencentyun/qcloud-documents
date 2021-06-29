@@ -5,7 +5,7 @@
 - 情报 IP 封禁：自动阻断腾讯安全基于大数据分析和威胁情报研究发现的恶意 IP 访问请求。
 
 ## 前提条件
-- 您已经 [购买 Web 应用防火墙套餐](https://buy.cloud.tencent.com/buy/wsm)，完成防护域名添加，域名处于正常防护状态。
+- 您已经 [购买 Web 应用防火墙套餐](https://buy.cloud.tencent.com/buy/waf)，完成防护域名添加，域名处于正常防护状态。
 - 情报 IP 封禁当前处于灰度阶段，如需试用请 [联系我们](https://cloud.tencent.com/act/event/connect-service) 进行开通。在灰度期间您可以免费使用，正式发布后，将按官网公布刊例价正常收取费用。
 
 ## 操作步骤
