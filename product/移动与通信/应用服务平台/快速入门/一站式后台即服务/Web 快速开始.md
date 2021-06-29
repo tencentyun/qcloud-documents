@@ -48,16 +48,18 @@ mkdir my-cloudbase-app && cd my-cloudbase-app && touch index.html && touch cloud
       });
       app
         .auth()
-        .signInAnonymously()
+        .anonymousAuthProvider()
+        .signIn()
         .then(() => {
-          alert("登录云开发成功！");
+            alert("登录云开发成功！");
         });
     </script>
   </head>
   <body>
     Hello Cloudbase!
   </body>
-</html>:::
+</html>
+:::
 </dx-codeblock>
 
 - 以下是 `cloudbaserc.json` 的内容：
