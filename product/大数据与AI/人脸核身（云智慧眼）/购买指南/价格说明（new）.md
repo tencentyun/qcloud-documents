@@ -11,8 +11,7 @@
 ## 价格说明
 
 腾讯云慧眼人脸核身服务分为增强版人脸核身、基础版人脸核身、实名信息核验和E证通服务，详细定价信息如下。
-
-> ?关于资源包的扣减，当天购买发货的资源包可抵扣当天00:00之后的调用量。即：您在2021年2月14日14:30购买的资源包可以扣减2021年2月14日00:00之后的调用量。
+>?关于资源包的扣减，当天购买发货的资源包可抵扣当天00:00之后的调用量。即：您在2021年2月14日14:30购买的资源包可以扣减2021年2月14日00:00之后的调用量。
 
 ### 增强版人脸核身价格说明
 
@@ -35,7 +34,7 @@ width: 25%;
 
 <table>
     <tr>
-        <th rowspan=2>产品名称</th>
+        <th rowspan=2>计费标签</th>
         <th>后付费</th>
         <th colspan=2><center>预付费</center></th>
     </tr>
@@ -157,7 +156,7 @@ width: 25%;
 
 <table>
     <tr>
-        <th rowspan=2>产品名称</th>
+        <th rowspan=2>计费标签</th>
         <th>后付费</th>
         <th colspan=2><center>预付费</center></th>
     </tr>
@@ -227,7 +226,7 @@ width: 25%;
 
 <table>
     <tr>
-        <th rowspan=2>产品名称</th>
+        <th rowspan=2>计费标签</th>
         <th colspan=2><center>后付费</center></th>
         <th colspan=2><center>预付费</center></th>
     </tr>
@@ -382,7 +381,7 @@ E证通服务的后付费价格定价为1.5元/次，并提供不同规格预付
 
 <table>
     <tr>
-        <th rowspan=2>产品名称</th>
+        <th rowspan=2>计费标签</th>
         <th>后付费</th>
         <th colspan=2><center>预付费</center></th>
     </tr>
