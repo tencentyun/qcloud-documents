@@ -14,7 +14,7 @@
 
 ## 注意事项
 + 推荐使用单播方式进行 VRRP 通信。
-+ 推荐使用 Keepalived（**1.2.24版本及以上**），keepalived 高可用软件需要支持发送 ARP 报文。
++ 推荐使用 Keepalived（**1.2.24版本及以上**）。
 + 确保已经配置以下 garp 相关参数。因为 keepalived 依赖 ARP 报文更新 IP 信息，如果缺少以下参数，会导致某些场景下，主设备不发送 ARP 导致通信异常。
 	```plaintext
 	garp_master_delay 1
