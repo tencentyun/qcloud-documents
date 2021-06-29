@@ -1,4 +1,4 @@
->?人脸核身产品于2021年6月22日发布增强版人脸核身产品，本次升级给人脸核身产品的计费标签带来的变化如下：
+>?人脸核身产品于2021年6月22日进行了产品升级，本次升级给人脸核身产品的计费标签带来的变化如下：
 - 6月22日之前开通人脸核身的用户
 **后付费计费标签**及计费方式不变，详细参考 [计费概述(旧)](https://cloud.tencent.com/document/product/1007/31005) 文档，**预付费计费标签**自2021年6月22日起统一遵守本文中的计费标签逻辑。
 - 6月22日之后开通人脸核身的用户
@@ -19,14 +19,14 @@
 ## 接入渠道与计费标签
 
 ### 增强版人脸核身
-增强版人脸核身接入渠道与计费标签对应关系说明如下，若您想了解详细定价信息请查阅 [价格说明](https://cloud.tencent.com/document/product/1007/56804) 文档。
+增强版人脸核身接入渠道与计费标签对应关系说明如下：
 
 <table>
     <tr>
         <th>接入渠道</th>
 				<th>比对库源</th>
         <th>计费标签</th>
-			<th>支持的付费方式</th>
+			<th>定价明细</th>
     </tr>
     <tr>
         <td rowspan =2>
@@ -34,36 +34,36 @@
 				</td>
 				<td>跟权威库比对</td>
 			 <td>增强版人脸核身（权威库）-微信</td>
-			 	<td>后付费月结、预付费资源包</td>        
+			 	<td>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>        
     </tr>
 		   <tr>
 			 <td>跟上传照片比对</td>
 			 <td>增强版人脸核身（自传照片）-微信</td>
-			 <td>后付费月结、预付费资源包</td> 
+			 <td>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
 			  </tr>
 			   <tr>
                    <td rowspan =2><a href="https://cloud.tencent.com/document/product/1007/57617">增强版 App SDK</a>
 				</td>
 				<td>跟权威库比对</td>
 				<td>增强版人脸核身（权威库）-App</td>
-		<td>后付费月结、预付费资源包</td> 
+		<td>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
     </tr>
 		   <tr>
 	 <td>跟上传照片比对</td><td>增强版人脸核身（自传照片）-App</td>
-			 	<td>后付费月结、预付费资源包</td> 
+			 	<td>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
 			  </tr>
 </table>
 
 ### 基础版人脸核身
 
-基础版人脸核身接入渠道与计费标签对应关系说明如下，若您想了解详细定价信息请查阅 [价格说明](https://cloud.tencent.com/document/product/1007/56804) 文档。
+基础版人脸核身接入渠道与计费标签对应关系说明如下：
 
 <table>
     <tr>
         <th>接入渠道</th>
 				<th>比对库源</th>
         <th>计费标签</th>
-			<th>支持的付费方式</th>
+			<th>定价明细</th>
     </tr>
     <tr>
         <td rowspan =2>
@@ -71,33 +71,33 @@
 				</td>
 				<td>跟权威库比对</td>
 			 <td>基础版人脸核身（权威库）</td>
-			 	<td>后付费月结、预付费资源包</td>       
+			 	<td>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.9F.BA.E7.A1.80.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>       
     </tr>
 		   <tr>
 			 <td>跟上传照片比对</td>
 			 <td>基础版人脸核身（自传照片）</td>
-			 <td>后付费月结、预付费资源包</td> 
+			 <td>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.9F.BA.E7.A1.80.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
 			  </tr>
 			   <tr>
                    <td><a href="https://cloud.tencent.com/document/product/1007/31818">活体人脸核身 API</a>
 				</td>
 				<td>跟权威库比对</td><td>基础版人脸核身（权威库）</td>
-						 	<td>后付费月结、预付费资源包</td> 
+						 	<td>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.9F.BA.E7.A1.80.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
     </tr>
 		   <tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/31820">照片人脸核身 API</a></td>
 			 <td>跟权威库比对</td><td>基础版人脸核身（权威库）</td>
-			 	<td>后付费月结、预付费资源包</td> 
+			 	<td>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.9F.BA.E7.A1.80.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
 			  </tr>
     <tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/31819">活体人脸比对 API</a></td><td>跟上传照片比对</td>
 			 <td>基础版人脸核身（自传照片）</td>
-			 	<td>后付费月结、预付费资源包</td> 
+			 	<td>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.9F.BA.E7.A1.80.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
 			  </tr>
 				    <tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/47276">身份证人像照片验真 API</a></td><td>跟权威库比对</td>
 			 <td>基础版人脸核身（权威库）</td>
-			 	<td>后付费月结、预付费资源包</td> 
+			 	<td>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.9F.BA.E7.A1.80.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
 			  </tr>
 </table>
 
@@ -113,68 +113,50 @@
     <tr>
         <th> API 接口</th>
         <th>计费标签</th>
-			<th>是否支持预付费</th>
-		 <th>是否支持后付费</th>
+			<th>定价明细</th>
     </tr>	 
 				 <tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/33188">身份信息认证</a></td>
-			 <td rowspan =4>身份证信息核验</td>
-			 	<td>是</td> 
-				<td>是</td>
+			 <td rowspan =3>身份证信息核验</td>
+			 			 	<td rowspan =3>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
 			  </tr>
 				<tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/37980">身份证识别及信息核验</a></td>
-			 	<td>是</td> 
-				<td>是</td>
 			  </tr>
-	<tr>
 		<tr>
 		<td><a href="https://cloud.tencent.com/document/product/1007/51441">微信实名认证授权</a></td>
-			 	<td>是</td> 
-				<td>是</td>
 			  </tr>	
+								 <tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/35776">银行卡二要素</a></td>
 			 <td rowspan =3>银行卡信息核验</td>
-			 	<td>是</td> 
-				<td>是</td>
+<td rowspan =3>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
 			  </tr>
 				 <tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/33848">银行卡三要素</a></td>
-			 <td>是</td>
-			 <td>是</td>
 			  </tr>
 				<tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/35775">银行卡四要素</a></td>
-			 <td>是</td>
-			 <td>是</td>
 			  </tr>
 				<tr>
 				 <td><a href="https://cloud.tencent.com/document/product/1007/39765">手机号三要素核验</a></td>
 			 <td rowspan =2>手机号信息核验</td>
-			 <td>是</td>
-			 <td>是</td>
+<td rowspan =2>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
 			  </tr>
 			 <tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/50364">手机号二要素核验</a></td>
-			 <td>是</td>
-			 <td>是</td>
 			  </tr>
 				<tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/40546">手机号在网时长核验</a></td>
 			  <td rowspan =2>手机号在网时长/状态查询</td>
-			 <td>否</td>
-			 <td>是</td>
+<td rowspan =2>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
 			  </tr>
 			 <tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/40545">手机号状态查询</a></td>
-			 <td>否</td>
-			 <td>是</td>
 			  </tr>
 				<tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/47837">银行卡基础信息查询</a></td>
 			 <td>增值服务</td>
-			<td>否</td>
-			<td>是</td>
+<td>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
 			  </tr>
 </table>
 
@@ -195,7 +177,7 @@ E证通服务与计费标签对应关系说明如下，若您想了解详细定�
 				</td>
 				<td>跟权威库比对</td>
 				<td>E证通（权威库）</td>
-		<td>后付费月结、预付费资源包</td> 
+<td>定价信息请查阅<a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
     </tr>
 </table>
 
