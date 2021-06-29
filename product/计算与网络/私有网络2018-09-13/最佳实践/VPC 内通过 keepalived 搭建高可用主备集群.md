@@ -1,4 +1,3 @@
-
 本文将介绍如何在腾讯云 VPC 内通过 keepalived 软件 + [高可用虚拟 IP (HAVIP)](https://cloud.tencent.com/document/product/215/36691) 搭建高可用主备集群。
 >?目前 HAVIP 产品处于灰度优化中，切换的时延在10s左右，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/azh0w1qoavk)。
 >
@@ -92,7 +91,7 @@ HAVIP-01 和 HAVIP-02 在本例中将被配置成“等权重节点”，即 sta
    }
    vrrp_script checkhaproxy
    {
-       script "/etc/keepalived/do_sth.sh"
+        script "/etc/keepalived/do_sth.sh"         # 检测业务进程是否运行正常。其中“do_sth.sh”文件为用户自定义的业务进程检测脚本，请根据业务需要来执行，执行时“do_sth.sh”更换为实际的脚本名称。
         interval 5
    }
    vrrp_instance VI_1 {
