@@ -3,6 +3,8 @@
 2. **绑定和配置**
 此处与传统模式配置一样，由后端机器声明和协商哪一设备绑定创建的 HAVIP。您只要在对应的配置文件中指定 virtual IP为 HAVIP。
 在群集管理器里，将刚才创建的 HAVIP 配置进去。
+>?Windows Server Failover Cluster 高可用软件需要支持发送 ARP 报文。
+>
  ![1](https://main.qcloudimg.com/raw/a0acdf01959474bfd9fb3aa685e4c97a.png)
 3. **验证**
 等待配置完成后，直接切换节点进行测试。
