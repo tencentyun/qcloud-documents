@@ -328,7 +328,7 @@ TPNS register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 
 您可以通过在 Application.onCreate 内调用如下方法，来关闭这些日常运行日志在控制台的输出打印：
 ```java
-    new XGPushConfig.Build(context).setLogLevel(Log.ERROR);
+new XGPushConfig.Build(context).setLogLevel(Log.ERROR);
 ```
 
 ## 代码混淆
