@@ -6,7 +6,7 @@ TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，�
 
 ## 总体流程
 ### 1. 流程图
-![](https://main.qcloudimg.com/raw/adc1d339f5892577db7ab2c701ab8b06.jpg)
+<img src="https://main.qcloudimg.com/raw/adc1d339f5892577db7ab2c701ab8b06.jpg" style="zoom:50%;" />
 
 ### 2. 集成 demo 示例
 [下载 SDK](https://github.com/TencentCloud/tencentcloud-sdk-android-soe) 地址。
