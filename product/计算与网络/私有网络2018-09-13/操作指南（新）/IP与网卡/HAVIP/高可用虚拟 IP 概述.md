@@ -2,7 +2,7 @@
 >?
 >- 目前 HAVIP 产品处于灰度优化中，切换的时延在10s左右，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/azh0w1qoavk)。
 >- 为保证主备集群云服务器的高可用性，强烈建议通过 [置放群组](https://cloud.tencent.com/document/product/213/15486) 将不同云服务器分配到不同的宿主机上，更多关于置放群组的信息，请参考 [置放群组](https://cloud.tencent.com/document/product/213/15486)。
->- keepalived 高可用软件需要支持发送 ARP 报文。
+>- 高可用软件需要支持发送 ARP 报文。
 >
 
 ## 特点介绍
