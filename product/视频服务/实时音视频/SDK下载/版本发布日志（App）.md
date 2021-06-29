@@ -1,7 +1,7 @@
 ## Version 8.8 @ 2021.06.21
 
 **功能新增**
-Android&Mac&iOS：支持外部接管音频播放，请参见 API enableCustomAudioRendering。
+Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAudioRendering](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#addb4c87719393cd4c4765d66a8cd9803)。
 
 **质量优化**
 - 全平台：优化 mixExternalAudioFrame 易用性，不再需要您完美地控制调用时机。

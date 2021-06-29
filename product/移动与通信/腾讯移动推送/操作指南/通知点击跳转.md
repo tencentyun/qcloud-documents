@@ -199,7 +199,9 @@
 
 ### 客户端获取参数
 
-1. 在您跳转指定的页面 onCreate 方法里，添加如下代码：
+1. 在您跳转指定的 activity 页面 onCreate 方法里，添加如下代码：
+>! 如您的 activity 页面为应用常驻页面，即配置了启动模式 launchMode 为 singleTop 或 singleTask，推送点击的 intent 内容将通过activity 页面的 onNewIntent 方法触发，请同时在 onNewIntent 方法内也进行一次参数获取。
+>
 ```java
 Uri uri = getIntent().getData();
 if (uri != null) {                

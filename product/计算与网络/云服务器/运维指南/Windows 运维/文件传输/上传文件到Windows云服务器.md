@@ -25,10 +25,12 @@
 6. 在弹出的【本地设备和资源】窗口中，选择【驱动器】模块，勾选需要上传到 Windows 云服务器的文件所在的本地硬盘，单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/ed51f0181d2c964ff96323a9ff957203.png)
 7. 本地配置完成后，单击【连接】，远程登录 Windows 云服务器。
-8. 在 Windows 云服务器中，单击【开始】>【计算机】，即可以看到挂载到云服务器上的本地硬盘。如下图所示：
-![](https://main.qcloudimg.com/raw/8e59dbca8d7cc7293669bf7adaf8985a.png)
+8. 在 Windows 云服务器中，选择 <img src="https://main.qcloudimg.com/raw/ef8fb18be7880d8b48ce402b973f22dc.png" style="margin:-3px 0px">，在打开的窗口中单击【此电脑】，即可以看到挂载到云服务器上的本地硬盘。如下图所示：
+>?该步骤 Windows 云服务器操作系统以 Windows Server 2016 为例，根据操作系统的不同，详细操作步骤略有区别。
+>
+![](https://main.qcloudimg.com/raw/bde1ac63a3a49e773d25e5df850897dd.png)
 9. 双击打开已挂载的本地硬盘，并将需要拷贝的本地文件复制到 Windows 云服务器的其他硬盘中，即完成文件上传操作。
-例如，将本地硬盘（E）中的 A 文件复制到 Windows 云服务器的 C: 盘中。
+例如，将本地硬盘（F）中的 A 文件复制到 Windows 云服务器的 C: 盘中。
 
 ### 下载文件
 如需将 Windows 云服务器中的文件下载至本地计算机，也可以参照上传文件的操作，将所需文件从 Windows 云服务器中复制到挂载的本地硬盘中，即可完成文件下载操作。

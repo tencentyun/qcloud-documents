@@ -1,23 +1,22 @@
 ## 操作场景
 
-该任务以 PHP 客户端为例指导您使用VPC网络接入消息队列 CKafka 并收发消息。
+该任务以 PHP 客户端为例指导您使用 VPC 网络接入消息队列 CKafka 并收发消息。
 
 ## 前提条件
 
 - [安装 librdkafka](https://github.com/edenhill/librdkafka/)
 - [安装 PHP 5.6 或以上版本](https://www.php.net/manual/en/install.php)
 - [安装 PEAR](https://pear.php.net/manual/en/installation.getting.php)
-- [下载demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/phpkafkademo)
+- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/phpkafkademo/VPC)
 
 ## 操作步骤
 
 ### 步骤一：添加 Rdkafka 扩展
 
 1. 在 [rdkafka 官方页面](http://pecl.php.net/package/rdkafka) 查找最新的 rdkafka php 扩展包版本。
+   >?不同版本的包对 PHP 版本要求不同，这里仅以 4.1.2 为示例。
 
-   >?不同版本的包对 php 版本要求不同，这里仅以 4.1.2 为示例。
-
-2. 登录linux服务器，安装 rdkafka 扩展。
+2. 登录 Linux 服务器，安装 rdkafka 扩展。
 
    ```bash
    wget --no-check-certificate https://pecl.php.net/get/rdkafka-4.1.2.tgz
@@ -29,11 +28,12 @@
    echo 'extension=rdkafka.so' >> /etc/php.ini
    ```
 
+
+
 ### 步骤二：准备配置
 
-1. 将下载的demo中的phpkafkademo上传至linux服务器。
-2. 登录linux服务器，进入phpkafkademo目录，修改 CKafkaSetting.php配置文件。
-
+1. 将下载的 Demo 中的 phpkafkademo 上传至 Linux 服务器。
+2. 登录 Linux 服务器，进入 phpkafkademo 目录，修改 CKafkaSetting.php 配置文件。
 ```php
 <?php
 return [
@@ -46,8 +46,10 @@ return [
 | 参数              | 描述                                                         |
 | ----------------- | ------------------------------------------------------------ |
 | bootstrap_servers | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
-| topic_name        | Topic名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
-| group_id          | 消费者的组 Id，您可以自定义设置，demo运行成功后可以在【Consumer Group】页面看到该消费者。 |
+| topic_name        | Topic 名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
+| group_id          | 消费者的组 ID，您可以自定义设置，Demo 运行成功后可以在【Consumer Group】页面看到该消费者。 |
+
+
 
 ### 步骤三：发送消息
 
@@ -109,13 +111,11 @@ echo "【Producer】消息发送成功\n";
 
 
 2. 运行 Producer.php 发送消息。
-
 ```bash
 php Producer.php
 ```
 
 3. 查看运行结果，示例如下。
-
   ```bash
 >【Producer】发送消息：message=RdKafka\Message::__set_state(array(
 >   'err' => 0,
@@ -145,8 +145,10 @@ php Producer.php
 >【Producer】消息发送成功
   ```
 
-    4. 在  [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic 管理】页面，选择对应的 Topic，点击【更多】>【消息查询】，查看刚刚发送的消息。
-       ![](https://main.qcloudimg.com/raw/99e5dba05efc4b48692c74749f131571.png)
+4. 在  [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic 管理】页面，选择对应的 Topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
+![](https://main.qcloudimg.com/raw/f83d6cd8112ef371572b93a8c1575192.png)
+
+
 
 ### 步骤四：消费消息
 
@@ -202,13 +204,11 @@ while ($isConsuming) {
   ```
 
 2. 运行 Consumer.php 消费消息。
-
 ```bash
 php Consumer.php
 ```
 
 3. 查看运行结果。
-
   ```bash
   >【消费者】接收到消息：RdKafka\Message::__set_state(array(
   >   'err' => 0,
@@ -234,8 +234,7 @@ php Consumer.php
   >))
   
   ...
-
   ```
 
-    4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费者组名称，在主题名称输入 topic 名称，点击【查询详情】查看消费详情。
-       ![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费者组名称，在主题名称输入 Topic 名称，单击【查询详情】查看消费详情。
+![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)

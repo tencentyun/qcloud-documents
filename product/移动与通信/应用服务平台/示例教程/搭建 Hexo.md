@@ -67,7 +67,7 @@ Hexo g
 ![](https://main.qcloudimg.com/raw/8d2308d3afe74030237f03545d9371fc.png)
 3. 执行如下命令，将 Hexo 部署到云开发静态托管中（需要将 EnvID 替换为 [步骤2](#step2.3) 中您创建的环境 ID）。
 ```plaintext
-cloudbase hosting:deploy public -e [EnvID]
+cloudbase hosting deploy public -e [EnvID]
 ```
 ![](https://main.qcloudimg.com/raw/0bf195a98476e103199bdfeefd375945.png)
 

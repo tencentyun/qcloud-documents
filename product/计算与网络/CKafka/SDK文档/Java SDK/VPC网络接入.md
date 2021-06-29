@@ -6,18 +6,15 @@
 
 - [安装1.8或以上版本 JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [安装2.5或以上版本 Maven](http://maven.apache.org/download.cgi#)
-- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/javakafkademo)
+- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/javakafkademo/VPC)
 
 ## 操作步骤
 
 ### 步骤一：准备配置
 
-1. 将下载的demo中的javakafkademo上传至linux服务器。
-
-2. 登陆linux服务器，进入javakafkademo目录，并配置相关参数。
-
-   1. 在 pom.xml 中添加以下依赖。
-
+1. 将下载的 Demo 中的 javakafkademo 上传至 Linux 服务器。
+2. 登录 Linux 服务器，进入 javakafkademo 目录，并配置相关参数。
+  2.1 在 pom.xml 中添加以下依赖。
       ```xml
       <dependency>
           <groupId>org.apache.kafka</groupId>
@@ -25,9 +22,7 @@
           <version>0.10.2.2</version>
       </dependency>
       ```
-
-   2. 创建消息队列 CKafka配置文件 kafka.properties。
-
+   2.2 创建消息队列 CKafka 配置文件 kafka.properties。
       ```bash
       ## 配置接入网络，在控制台的实例详情页面接入方式模块的网络列复制。
       bootstrap.servers=ckafka-xxxxxxxxxxxxxxxxx
@@ -36,16 +31,14 @@
       ## 配置Consumer Group，您可以自定义设置
       group.id=XXX
       ```
+| 参数              | 说明                                                         |
+| ----------------- | ------------------------------------------------------------ |
+| bootstrap.servers | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
+| topic             | Topic 名称，您可以在控制台上【topic管理】页面复制。<br/>![](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
+| group.id          | 您可以自定义设置，demo运行成功后可以在【Consumer Group】页面看到该消费者。 |
 
-      | 参数              | 说明                                                         |
-      | ----------------- | ------------------------------------------------------------ |
-      | bootstrap.servers | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
-      | topic             | topic名称，您可以在控制台上【topic管理】页面复制。<br/>![](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
-      | group.id          | 您可以自定义设置，demo运行成功后可以在【Consumer Group】页面看到该消费者。 |
-
-   3. 创建配置文件加载程序 CKafkaConfigurer.java。 
-
-      ```java
+2.3 创建配置文件加载程序 CKafkaConfigurer.java。 
+      ```
       public class CKafkaConfigurer {
       
           private static Properties properties;
@@ -64,8 +57,7 @@
               properties = kafkaProperties;
               return kafkaProperties;
           }
-      }
-      
+      }    
       ```
 
 
@@ -126,23 +118,19 @@ public class CKafkaProducerDemo {
     }
 }
 ```
-
 2. 编译并运行 CKafkaProducerDemo.java 发送消息。
 3. 运行结果。
-
 ```bash
 Produce ok:ckafka-topic-demo-0@198
 Produce ok:ckafka-topic-demo-0@199
 ```
-
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic管理】页面，选择对应的 topic ，点击【更多】>【消息查询】，查看刚刚发送的消息。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic管理】页面，选择对应的 Topic ，单击【更多】>【消息查询】，查看刚刚发送的消息。
    ![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
 
 
 ### 步骤三：消费消息
 
 1. 创建 Consumer 订阅消息程序 CKafkaConsumerDemo.java。
-
 ```java
 public class CKafkaConsumerDemo {
 
@@ -197,14 +185,11 @@ public class CKafkaConsumerDemo {
     }
 }
 ```
-
-2. 编译并运行CKafkaConsumerDemo.java 消费消息。
+2. 编译并运行 CKafkaConsumerDemo.java 消费消息。
 3. 运行结果。
-
 ```bash
 Consume partition:0 offset:298
 Consume partition:0 offset:299
 ```
-
-4. 在  [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 topic 名称，点击【查询详情】，查看消费详情。
+4. 在  [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 Topic 名称，单击【查询详情】，查看消费详情。
    ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)
