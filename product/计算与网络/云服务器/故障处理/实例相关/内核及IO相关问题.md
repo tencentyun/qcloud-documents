@@ -14,7 +14,7 @@ hung task 机制通过内核线程 khungtaskd 实现，khungtaskd 监控 TASK_UN
 
 
 #### 内核软死锁 soft lockup
-soft lockup 指 CPU 被内核代码占据以至于无法执行其他进程。检测 soft lockup 的原理是给每个 CPU 分配一个定时执行的内核线程 [watchdog/x]，如果该线程在一定周期内（默认为`2*kernel.watchdog_thresh`，3.10内核 `kernel.watchdog_thresh` 默认为10秒）没有得到执行则表明发生了 soft lockup。
+soft lockup 指 CPU 被内核代码占据以至于无法执行其他进程。检测 soft lockup 的原理是给每个 CPU 分配一个定时执行的内核线程 [watchdog/x]，如果该线程在一定周期内（默认为`2*kernel.watchdog_thresh`，3.10内核 `kernel.watchdog_thresh` 默认为10秒）没有得到执行，则表明发生了 soft lockup。
 
 如果配置了 `kernel.softlockup_panic=1`，则会触发内核 panic 重启机器。
 
