@@ -13,7 +13,7 @@ TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，�
 获取密钥（ 密钥获取⽅式⻅下⽂） 后到
 `tencentcloud-sdk-androidsoe/TAIDemo/app/src/main/java/com/tencent/taidemo/PrivateInfo.java` 
 根据需要填写 AppId、secretId、secretKey、soeAppId 和 hcmAppId（token 不需要填写）。
-![](https://main.qcloudimg.com/raw/debde8363db000e62a72ba4ff26df9e2.png)
+![](https://main.qcloudimg.com/raw/ce5b479bbcb7497b46d630f266c6a28c.jpg)
 
 
 
@@ -59,39 +59,17 @@ this.oral.setListener(new TAIOralEvaluationListener() {
 
 >!请在开始录制音频前设置回调函数，您将通过 TAIOralEvaluationListener 接口中的 onEvaluationData 函数获取语音评测结果和错误信息。
 
-
-
-
-```
+<dx-codeblock>
+::: java java
 public interface TAIOralEvaluationListener{
-    /**
-	          * 数据回调
-	          * @param data 音频数据
-	          * @param result 结果
-	          * @param error 错误信息
-		 */
     void onEvaluationData(TAIOralEvaluationData data, TAIOralEvaluationRet result, TAIError error);
-    /**
-		     * 数据回调
-		     * @brief 最终评测结果
-		     * @param data 音频数据
-		     * @param result 结果
-		     * @param error 错误信息
-		*/
     void onFinalEvaluationData(TAIOralEvaluationData data, TAIOralEvaluationRet result, TAIError error);
-    /**
-		     * 静音检测回调
-		     * 必须在 setRecorderParam 中开启 vad。检测到静音内部不会停止录制，业务层可以根据此回调主动停止录制或提示用户
-		*/
     void onEndOfSpeech();
-    /**
-		     * 音量分贝变化
-		     * @param volume 分贝大小
-		     * 必须在 setRecorderParam 中开启 vad。volum 范围【0-20】
-		*/
     void onVolumeChanged(int volume);
 }
-```
+:::
+</dx-codeblock>
+
 
 
 ### 3. 静音设置
