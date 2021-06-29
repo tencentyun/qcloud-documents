@@ -169,7 +169,7 @@ mvn help:effective-settings
 <dependency>
 					<groupId>com.tencent.tdmq</groupId>
 					<artifactId>tdmq-client</artifactId>
-					<version>2.6.1</version>
+					<version>2.6.0</version>
 </dependency>
   ```
 
