@@ -137,9 +137,9 @@ spec:
    template:
      metadata:
        annotations:
-         eks.tke.cloud.tencent.com/cpu: "2"
+         eks.tke.cloud.tencent.com/cpu: "4"
          eks.tke.cloud.tencent.com/gpu-count: "1"
-         eks.tke.cloud.tencent.com/gpu-type: 1/4*V100
+         eks.tke.cloud.tencent.com/gpu-type: 1/4*T4
          eks.tke.cloud.tencent.com/mem: 10Gi
          eks.tke.cloud.tencent.com/security-group-id: "sg-dxxxxxx5,sg-zxxxxxxu"
          eks.tke.cloud.tencent.com/role-name: "cam-role-name"
