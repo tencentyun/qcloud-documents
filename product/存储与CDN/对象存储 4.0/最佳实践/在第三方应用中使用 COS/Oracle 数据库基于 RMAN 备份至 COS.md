@@ -24,7 +24,7 @@ java -jar osbws_install.jar -AWSID <SecretId> -AWSKey <SecretKey> -walletDir $OR
 ```
 java -jar osbws_install.jar -AWSID AKIDxxxx -AWSKey XXXX -walletDir $ORACLE_HOME/osbws_wallet -libDir $ORACLE_HOME/lib -location ap-guangzhou -awsEndPoint cos.ap-guangzhou.myqcloud.com
 ```
-oracle12以上的版本中自带了 osb 模块，如果安装时长时间 download 无反应，建议在官网下载最新 osb 模块进行安装，或使用代理服务器进行安装。
+Oracle 12以上的版本中自带了 osb 模块，如果安装时长时间 download 无反应，建议在官网下载最新 osb 模块进行安装，或使用代理服务器进行安装。
 
 
 
@@ -64,7 +64,7 @@ oracle12以上的版本中自带了 osb 模块，如果安装时长时间 downlo
 	allocate channel ch1 type
 	sbt parms='SBT_LIBRARY=/u01/app/oracle/product/11.2.0/dbhome_1/lib/libcos.so,
 	SBT_PARMS=(OSB_WS_PFILE=/u01/app/oracle/product/11.2.0/dbhome_1/dbs/cosorcl.ora)';
-	restore controlfile from '**ORACLE_1880733115_20190507_5_1007656283_1_1.conf**';
+	restore controlfile from 'ORACLE_1880733115_20190507_5_1007656283_1_1.conf';
 	release channel ch1;
 	}
 	```
@@ -75,17 +75,18 @@ oracle12以上的版本中自带了 osb 模块，如果安装时长时间 downlo
 	allocate channel ch1 type
 	sbt parms='SBT_LIBRARY=/u01/app/oracle/product/11.2.0/dbhome_1/lib/libcos.so,
 	SBT_PARMS=(OSB_WS_PFILE=/u01/app/oracle/product/11.2.0/dbhome_1/dbs/cosorcl.ora)';
-	restore database from tag='**TAG20190507T163102**';
-	recover database from tag='**TAG20190507T163102**';
+	restore database from tag='TAG20190507T163102';
+	recover database from tag='TAG20190507T163102';
 	release channel ch1;
 	}
 	```
-	其中 **TAG20190507T163102** 的 tag 值相当于每个备份的 ID 号，通过 list backup 获取，需要确保与前面恢复的控制文件是一致的，即是句柄为“**ORACLE_1880733115_20190507_5_1007656283_1_1.conf**”备份文件的tag；其中标红（非加粗）的部分与数据库名有关，根据实际值进行修改；与备份时一致。
+	其中 **TAG20190507T163102** 的 tag 值相当于每个备份的 ID 号，通过 list backup 获取，需要确保与前面恢复的控制文件是一致的，即是句柄为“ORACLE_1880733115_20190507_5_1007656283_1_1.conf”备份文件的 tag；其中`lib/libcos.so`和`cosorcl.ora`部分与数据库名有关，可根据实际值进行修改，与备份时一致。
 5. 打开数据库，即可看到从 COS 上恢复的数据。
 
 
 
 ## 修改 RMAN 并发配置
+
 >?RMAN 默认无并发，需要手动修改。
 
 登录 rman，修改并发参数配置，此处以并发数15为例：
