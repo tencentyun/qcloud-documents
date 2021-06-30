@@ -25,18 +25,7 @@ soft lockup 指 CPU 被内核代码占据以至于无法执行其他进程。检
 - 内核出现了软死锁 soft lockup 且配置了 `kernel.softlockup_panic=1`。
 - 触发了内核 bug。
 
-
 ### 处理步骤
-- `kernel.hung_task_panic` 配置方法如下：
-```
-echo "kernel.hung_task_panic=1" >> /etc/sysct.conf
-sysctl -p
-```
-- `softlockup_panic` 配置方法如下：
-```
-echo "kernel.softlockup_panic=1" >> /etc/sysctl.conf
-sysctl -p 
-```
 内核相关问题排查及处理步骤较复杂，建议 [提交工单](https://console.cloud.tencent.com/workorder/category) 进一步定位及处理。
 
 
