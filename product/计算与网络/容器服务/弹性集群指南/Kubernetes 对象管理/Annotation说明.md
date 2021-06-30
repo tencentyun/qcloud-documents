@@ -94,18 +94,18 @@
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/eip-attributes</td>
-<td>表明该 Workload 的 Pod 需要关联 EIP，值为" "时表明采用EIP默认配置创建。 ""内可填写 EIP 云API 参数 json，实现自定义配置。例如annotation的值为'{"InternetMaxBandwidthOut":2}'即为使用2M的带宽</td>
-<td>否</td>
+<td>表明该 Workload 的 Pod 需要关联 EIP，值为" "时表明采用 EIP 默认配置创建。 ""内可填写 EIP 云 API 参数 json，实现自定义配置。例如 annotation 的值为 '{"InternetMaxBandwidthOut":2}' 即为使用2M的带宽。</td>
+<td>否 </td>
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/eip-claim-delete-policy</td>
-<td>pod删除后，eip是否自动回收，“Never”不回收，默认回收</td>
-<td>否</td>
+<td> Pod 删除后，EIP 是否自动回收，“Never” 不回收，默认回收。</td>
+<td>否 </td>
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/eip-injection</td>
-<td>值为"true"时，表明会在pod内暴露 eip ip信息. 在pod内使用ip addr命令可以查看到eip的地址</td>
-<td>否</td>
+<td>值为 "true" 时，表明会在 Pod 内暴露 EIP 的 IP 信息。在 Pod 内使用 ip addr 命令可以查看到 EIP 的地址。</td>
+<td>否 </td>
 </tr>
 </tbody></table>
 
