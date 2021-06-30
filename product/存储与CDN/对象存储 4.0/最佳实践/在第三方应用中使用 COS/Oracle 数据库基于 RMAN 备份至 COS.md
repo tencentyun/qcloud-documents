@@ -1,3 +1,5 @@
+## 简介
+
 对象存储（Cloud Object Storage，COS）海量容量无上限，自动沉降归档存储类型和深度归档存储类型，媲美磁带的成本，特别适合备份归档场景。
 
 当前，越来越多客户选择备份上云；而 Oracle 备份模块实现了和对象存储 COS 的对接，基于 COS 来实现低成本的数据库备份和恢复成为优选。
@@ -7,6 +9,7 @@
 Oracle 的 Oracle Secure Backup Cloud Module 模块，是 Oracle Secure Backup（OSB） 产品家族的一员，实现与对象存储 COS 的对接，将 Oracle 数据库备份上云，直接备份到腾讯云存储COS；Oracle Secure Backup Cloud Module 模块并与 RMAN 功能实现整合，用户可以自定义 RMAN 脚本，高效将 Oracle 数据库直接备份到腾讯云 COS。
 
 Oracle 9i 或以上版本，支持 Oracle Secure Backup Cloud Module，详见 [Oracle 官方文档](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/rcmrf/oracle-secure-backup-osb-cloud-module.html#GUID-6FCF4FD8-861C-4D52-BB41-32E6EF03789F)。
+
 
 ## 安装 OSB
 
@@ -23,10 +26,12 @@ java -jar osbws_install.jar -AWSID AKIDxxxx -AWSKey XXXX -walletDir $ORACLE_HOME
 ```
 oracle12以上的版本中自带了 osb 模块，如果安装时长时间 download 无反应，建议在官网下载最新 osb 模块进行安装，或使用代理服务器进行安装。
 
+
+
 ## RMAN 进行数据库备份到 COS
 
-1. 首先登录数据库，连接 RMAN，连接命令：`rman target / `。
-2. 接着执行如下命令，将数据库备份到 COS 存储桶，其中标红的部分与数据库名有关，根据实际值进行修改。
+1. 登录数据库，连接 RMAN，连接命令：`rman target / `。
+2. 执行如下命令，将数据库备份到 COS 存储桶，其中标红的部分与数据库名有关，根据实际值进行修改。
 ```
 run {
 allocate channel ch1 type
@@ -38,6 +43,8 @@ backup channel=ch1 spfile format='ora_%d_%I_%T_%s_%t_%c_%p.spf' ;
 release channel ch1;
 }
 ```
+
+
 
 ## RMAN 从 COS 恢复数据库
 
@@ -82,7 +89,8 @@ release channel ch1;
 
 
 
-## RMAN 默认无并发，需要手动修改
+## 修改 RMAN 并发配置
+>?RMAN 默认无并发，需要手动修改。
 
 登录 rman，修改并发参数配置，此处以并发数15为例：
 
