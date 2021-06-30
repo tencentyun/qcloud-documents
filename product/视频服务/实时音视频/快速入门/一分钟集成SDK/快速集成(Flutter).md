@@ -43,6 +43,8 @@ dependencies:
 <string>授权摄像头权限才能正常视频通话</string>
 <key>NSMicrophoneUsageDescription</key>
 <string>授权麦克风权限才能正常语音通话</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>App需要您的同意,才能访问相册</string>
 ```
 2. 需要在 `macos/Runner/*.entitlements` 文件中添加`com.apple.security.network.client` 、 `com.apple.security.network.server`
 添加后如下图所示：
