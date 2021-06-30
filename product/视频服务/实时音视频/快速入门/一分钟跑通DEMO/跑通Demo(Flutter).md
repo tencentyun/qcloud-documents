@@ -87,5 +87,5 @@ TRTC 的日志默认压缩加密，后缀为 `.xlog`。地址如下：
     2. 将 `tools:replace="android:label"` 加入到 application 中。
 ![图示](https://main.qcloudimg.com/raw/7a37917112831488423c1744f370c883.png)
 
->? 更多常见问题参考[文档](https://cloud.tencent.com/document/product/647/51623)。
+>? 更多常见问题，请参见 [Flutter 相关问题](https://cloud.tencent.com/document/product/647/51623)。
 
