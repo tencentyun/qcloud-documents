@@ -32,17 +32,17 @@ oracle12以上的版本中自带了 osb 模块，如果安装时长时间 downlo
 
 1. 登录数据库，连接 RMAN，连接命令：`rman target / `。
 2. 执行如下命令，将数据库备份到 COS 存储桶，其中标红的部分与数据库名有关，根据实际值进行修改。
-```
-run {
-allocate channel ch1 type
-sbt parms='SBT_LIBRARY=/u01/app/oracle/product/11.2.0/dbhome_1/lib/libcos.so,
-SBT_PARMS=(OSB_WS_PFILE=/u01/app/oracle/product/11.2.0/dbhome_1/dbs/cosorcl.ora)';
-backup channel=ch1 database format='ora_%d_%I_%T_%s_%t_%c_%p.dbf' plus archivelog;
-backup channel=ch1  current controlfile  format='%d_%I_%T_%s_%t_%c_%p.conf';
-backup channel=ch1 spfile format='ora_%d_%I_%T_%s_%t_%c_%p.spf' ;
-release channel ch1;
-}
-```
+	```
+	run {
+	allocate channel ch1 type
+	sbt parms='SBT_LIBRARY=/u01/app/oracle/product/11.2.0/dbhome_1/lib/libcos.so,
+	SBT_PARMS=(OSB_WS_PFILE=/u01/app/oracle/product/11.2.0/dbhome_1/dbs/cosorcl.ora)';
+	backup channel=ch1 database format='ora_%d_%I_%T_%s_%t_%c_%p.dbf' plus archivelog;
+	backup channel=ch1  current controlfile  format='%d_%I_%T_%s_%t_%c_%p.conf';
+	backup channel=ch1 spfile format='ora_%d_%I_%T_%s_%t_%c_%p.spf' ;
+	release channel ch1;
+	}
+	```
 
 
 
@@ -53,38 +53,34 @@ release channel ch1;
 	```
 	shutdown immediate;
 	```
-
 	- 执行命令使数据库至 nomount 状态：
 	```
 	startup nomount;
 	```
-
 2. 选择要恢复的备份文件，通过 rman 命令 list backup 列举出所有的备份文件，记录下所选备份问卷的句柄 Handle 名称和标记 TAG 值。
 3. 关联备份问卷，执行如下 restore 命令，关联句柄为“ORACLE_1880733115_20190507_5_1007656283_1_1.conf”的备份文件，通过 list backup 获取；其中`lib/libcos.so`和`cosorcl.ora`部分与数据库名有关，可根据实际值进行修改，与备份时一致。
-```
-run {
-allocate channel ch1 type
-sbt parms='SBT_LIBRARY=/u01/app/oracle/product/11.2.0/dbhome_1/lib/libcos.so,
-SBT_PARMS=(OSB_WS_PFILE=/u01/app/oracle/product/11.2.0/dbhome_1/dbs/cosorcl.ora)';
-restore controlfile from '**ORACLE_1880733115_20190507_5_1007656283_1_1.conf**';
-release channel ch1;
-}
-```
-
+	```
+	run {
+	allocate channel ch1 type
+	sbt parms='SBT_LIBRARY=/u01/app/oracle/product/11.2.0/dbhome_1/lib/libcos.so,
+	SBT_PARMS=(OSB_WS_PFILE=/u01/app/oracle/product/11.2.0/dbhome_1/dbs/cosorcl.ora)';
+	restore controlfile from '**ORACLE_1880733115_20190507_5_1007656283_1_1.conf**';
+	release channel ch1;
+	}
+	```
 4. 切换数据库至 mount 状态 alter database mount。执行如下 restore 命令：
-```
-run {
+	```
+	run {
 
-allocate channel ch1 type
-sbt parms='SBT_LIBRARY=/u01/app/oracle/product/11.2.0/dbhome_1/lib/libcos.so,
-SBT_PARMS=(OSB_WS_PFILE=/u01/app/oracle/product/11.2.0/dbhome_1/dbs/cosorcl.ora)';
-restore database from tag='**TAG20190507T163102**';
-recover database from tag='**TAG20190507T163102**';
-release channel ch1;
-}
-```
-其中 **TAG20190507T163102** 的 tag 值相当于每个备份的 ID 号，通过 list backup 获取，需要确保与前面恢复的控制文件是一致的，即是句柄为“**ORACLE_1880733115_20190507_5_1007656283_1_1.conf**”备份文件的tag；其中标红（非加粗）的部分与数据库名有关，根据实际值进行修改；与备份时一致。
-
+	allocate channel ch1 type
+	sbt parms='SBT_LIBRARY=/u01/app/oracle/product/11.2.0/dbhome_1/lib/libcos.so,
+	SBT_PARMS=(OSB_WS_PFILE=/u01/app/oracle/product/11.2.0/dbhome_1/dbs/cosorcl.ora)';
+	restore database from tag='**TAG20190507T163102**';
+	recover database from tag='**TAG20190507T163102**';
+	release channel ch1;
+	}
+	```
+	其中 **TAG20190507T163102** 的 tag 值相当于每个备份的 ID 号，通过 list backup 获取，需要确保与前面恢复的控制文件是一致的，即是句柄为“**ORACLE_1880733115_20190507_5_1007656283_1_1.conf**”备份文件的tag；其中标红（非加粗）的部分与数据库名有关，根据实际值进行修改；与备份时一致。
 5. 打开数据库，即可看到从 COS 上恢复的数据。
 
 
@@ -93,14 +89,15 @@ release channel ch1;
 >?RMAN 默认无并发，需要手动修改。
 
 登录 rman，修改并发参数配置，此处以并发数15为例：
+	```
+	run {
+	configure channel device type sbt parms='SBT_LIBRARY=/u01/app/oracle/product/11.2.0/dbhome_1/lib/libcos.so ENV=(OSB_WS_PFILE=/u01/app/oracle/product/11.2.0/dbhome_1/dbs/cosorcl.ora)';
+	configure default device type to SBT;
+	configure device type SBT parallelism 15;
+	}
+	```
 
-```
-run {
-configure channel device type sbt parms='SBT_LIBRARY=/u01/app/oracle/product/11.2.0/dbhome_1/lib/libcos.so ENV=(OSB_WS_PFILE=/u01/app/oracle/product/11.2.0/dbhome_1/dbs/cosorcl.ora)';
-configure default device type to SBT;
-configure device type SBT parallelism 15;
-}
-```
+
 
 ## 相关参考
 
