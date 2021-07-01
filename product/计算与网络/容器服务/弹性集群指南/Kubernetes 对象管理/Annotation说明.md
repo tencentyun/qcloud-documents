@@ -94,7 +94,7 @@
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/eip-attributes</td>
-<td>表明该 Workload 的 Pod 需要关联 EIP，值为" "时表明采用 EIP 默认配置创建。 ""内可填写 EIP 云 API 参数 json，实现自定义配置。例如 annotation 的值为 '{"InternetMaxBandwidthOut":2}' 即为使用2M的带宽。</td>
+<td>表明该 Workload 的 Pod 需要关联 EIP，值为 "" 时表明采用 EIP 默认配置创建。"" 内可填写 EIP 云 API 参数 json，实现自定义配置。例如 annotation 的值为 '{"InternetMaxBandwidthOut":2}' 即为使用2M的带宽。</td>
 <td>否 </td>
 </tr>
 <tr>
