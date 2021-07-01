@@ -185,7 +185,7 @@ Dataway Hello World!
 - dw_process 是 DataWay 的主入口函数，其作用相当于 C/C++语言中的 main 函数。
 - dw_process 仅接受一个类型为 [Message](#message-explain) 的参数，而其返回值就是该 DataWay 表达式最终的输出值。
 - 作为 EIS 数据处理流程的一个环节，dw_process 函数的返回值目前支持的类型有：str/None/bool/float/int/list/dict/Entity/MultiMap/FormDataParts/Message 等。
-- 关于 DataWay 中数据类型及返回值的详细介绍，可参考 DataWay 类型系统 [DataWay 数据类型系统](#dataway-types)。
+- 关于 DataWay 中数据类型及返回值的详细介绍，可参考 [DataWay 数据类型系统](#dataway-types)。
 
 ## <span id='dataway-types'></span>DataWay 数据类型系统
 
