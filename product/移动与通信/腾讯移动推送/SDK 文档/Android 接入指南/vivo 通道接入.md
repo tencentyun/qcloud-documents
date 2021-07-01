@@ -99,3 +99,19 @@ I/TPush: [PushServiceBroadcastHandler] >> bind OtherPushToken success ack with [
 ```
 
 >?混淆规则需要放在 App 项目级别的 proguard-rules.pro 文件中。
+
+
+## 常见问题排查
+
+### vivo推送注册错误码查询方法
+
+若观察到如下类似日志则说明vivo厂商通道注册失败，开发者可以通过以下方式获取华为推送注册错误码：
+```
+[OtherPushClient] handleUpdateToken other push token is :  other push type: vivo
+```
+
+推送服务 debug 模式下，过滤关键字“OtherPush”或“HMSSDK” ，查看相关返回码日志(例如`[OtherPushVivoImpl] vivoPush Register or UnRegister fail, code = 10003`)，并前往[厂商通道注册失败排查指南](https://cloud.tencent.com/document/product/548/45659)查找对应原因，获取解决办法。
+
+### 推送vivo响应失败code:10045，是什么原因？
+
+应用审核中不可发送正式消息，请前往vivo平台确认推送权限审核进度。
