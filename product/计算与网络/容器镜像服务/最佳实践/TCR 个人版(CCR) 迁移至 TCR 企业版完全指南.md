@@ -34,7 +34,7 @@
 执行如下命令，下载迁移专用容器镜像：
 
 ```bash
-docker pull http://ccr.ccs.tencentyun.com/tcrimages/image-transfer:ccr2tcr
+docker pull ccr.ccs.tencentyun.com/tcrimages/image-transfer:ccr2tcr
 ```
 
 执行如下命令，查看该工具使用说明：
