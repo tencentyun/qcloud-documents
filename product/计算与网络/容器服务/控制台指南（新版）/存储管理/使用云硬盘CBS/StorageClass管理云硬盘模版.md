@@ -57,7 +57,7 @@
 >- 系统不允许在不指定 StorageClass 的情况下同时选择不指定 PersistVolume。
 >- 不指定 PersistentVolume。详情请参见 [查看 PV 和 PVC 的绑定规则](https://cloud.tencent.com/document/product/457/47014)。
 > 
-   - **云盘类型**：根据所选的 StorageClass 展示所选的云盘类型为【高性能云硬盘】或【SSD云硬盘】。
+   - **云盘类型**：根据所选的 StorageClass 展示所选的云盘类型为【高性能云硬盘】、【SSD云硬盘】和【增强型SSD云硬盘】。
    - **容量**：在不指定 PersistentVolume 时，需提供期望的云硬盘容量。
    - **费用**：根据上述参数计算创建对应云盘的所需费用，详情参考 [计费模式](https://cloud.tencent.com/document/product/362/32361)。
 4. 单击【创建PersistentVolumeClaim】，即可完成创建。
@@ -96,7 +96,7 @@ metadata:
 provisioner: cloud.tencent.com/qcloud-cbs ## TKE 集群自带的 provisioner
 parameters:
    type: CLOUD_PREMIUM
-  # 支持 CLOUD_BASIC,CLOUD_PREMIUM,CLOUD_SSD  如果不识别则当做 CLOUD_BASIC
+  # 支持 CLOUD_PREMIUM,CLOUD_SSD,CLOUD_HSSD  如果不识别则当做 CLOUD_PREMIUM
   # renewflag: NOTIFY_AND_AUTO_RENEW
   # renewflag为云硬盘的续费模式，NOTIFY_AND_AUTO_RENEW模式支持通知过期且按月自动续费，NOTIFY_AND_MANUAL_RENEW模式支持通知过期但不支持自动续费，DISABLE_NOTIFY_AND_MANUAL_RENEW模式支持不通知过期也不自动续费。不指定该字段则默认为NOTIFY_AND_MANUAL_RENEW模式。
   # paymode: PREPAID
@@ -110,7 +110,7 @@ parameters:
 <th>参数</th> <th>描述</th>
 </tr>
 <tr>
-<td>type</td> <td>StorageClass 的类型，包括 <code>CLOUD_BASIC</code>、<code>CLOUD_PREMIUM</code> 和 <code>CLOUD_SSD</code>。</td>
+<td>type</td> <td>云硬盘类型，包括 <code>CLOUD_PREMIUM</code>、<code>CLOUD_SSD</code> 和 <code>CLOUD_HSSD</code>。</td>
 </tr>
 <tr>
 <td>zone</td> <td>用于指定可用区。如果指定，则云硬盘将创建到此可用区。如果不指定，则拉取所有 Node 的可用区信息，进行随机选取。 腾讯云各地域标识符请参见 <a href="https://cloud.tencent.com/document/product/213/6091">地域和可用区</a>。</td>
