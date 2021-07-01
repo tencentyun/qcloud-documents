@@ -109,7 +109,7 @@ RAK LoRa 环境监测套件接入到物联网开发平台，通过物联网开�
 #### 创建测试设备
 
 在设备调试页面中，单击【新建设备】，设备名为 RAK7205_1。
-- DevEUI：每一个设备有一个唯一的身份识别地址，DevEUI 为 60c5a8fffe75fefe，如下图所示：
+- DevEUI：每一个设备有一个唯一的身份识别地址，DevEUI 为 60c5a8fff****efe，如下图所示：
 ![](https://main.qcloudimg.com/raw/5825a5253f36d0bbf071f8cc0399d678.png)
 - AppKey：设备的密钥。本例中填写 6fbdbb37b8c0dbd82af4e93f****4177，用户可以填写为其他值。
 ![](https://main.qcloudimg.com/raw/f5d7801a5cf2f9a0c0dbd1e16a39cbab.png)
