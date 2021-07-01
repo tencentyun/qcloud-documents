@@ -36,7 +36,7 @@
 </tbody></table>
 - 请求示例
 ```
-https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/access_token?app_id=xxx&secret=xxx&
+https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/access_token?app_id=xxx&secret=xxx&grant_type=client_credential&version=1.0.0
 ```
 
 ## 响应
