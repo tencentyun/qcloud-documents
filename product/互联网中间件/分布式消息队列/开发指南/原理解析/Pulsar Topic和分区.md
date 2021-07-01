@@ -1,6 +1,6 @@
 ## Apache Pulsar 架构
 
-Apache Pulsar 是一个发布-订阅模型的消息系统，由 Broker、Apache BookKeeper,、Producer、Consumer 等组件组成。
+Apache Pulsar 是一个发布-订阅模型的消息系统，由 Broker、Apache BookKeeper、Producer、Consumer 等组件组成。
 
 ![](https://main.qcloudimg.com/raw/f71d23920b92ca8b093cd22ae21913a4.svg)
 
