@@ -48,7 +48,7 @@ dependencies:
 ```
 2. 需要在 `macos/Runner/*.entitlements` 文件中添加`com.apple.security.network.client` 、 `com.apple.security.network.server`
 添加后如下图所示：
-![](https://imgcache.qq.com/operation/dianshi/other/server.1cb594abff48e6a9e0e006fec47ea8ed1d2f1229.png)
+![](https://main.qcloudimg.com/raw/13f3eab720ec1da03b149db1a7240d6d.png)
 3. 单击 Link Binary with Libraries 项展开，单击底下的+号图标去添加依赖库。
 ![](https://main.qcloudimg.com/raw/17046154417930f9d31b6452782df55d.jpg)
 4. 添加其所需依赖库：`libbz2.1.0.tbd` 。
