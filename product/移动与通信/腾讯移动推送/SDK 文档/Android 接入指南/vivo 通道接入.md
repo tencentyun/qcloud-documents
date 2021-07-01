@@ -104,7 +104,7 @@ I/TPush: [PushServiceBroadcastHandler] >> bind OtherPushToken success ack with [
 
 ### vivo 推送注册错误码查询方法
 
-若观察到如下类似日志则说明 vivo 厂商通道注册失败，开发者可以通过以下方式获取华为推送注册错误码：
+若观察到如下类似日志则说明 vivo 厂商通道注册失败，开发者可以通过以下方式获取 vivo 推送注册错误码：
 ```
 [OtherPushClient] handleUpdateToken other push token is :  other push type: vivo
 ```
