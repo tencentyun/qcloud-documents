@@ -1,6 +1,8 @@
 尊敬的腾讯云用户，您好！
 
-为了提升产品体验，避免存量版本历史遗留问题影响您的业务，建议您尽快将 LogListener 版本实例升级至2.5.0以上。请 [立即升级](https://cloud.tencent.com/document/product/614/17414)，登录 [日志服务控制台](https://console.cloud.tencent.com/cls/hosts)，体验日志服务更多新功能。
+为了提升产品体验，避免存量版本历史遗留问题影响您的业务，建议您尽快将 LogListener 版本实例 [升级至2.5.0以上](https://cloud.tencent.com/document/product/614/17414)。
+
+登录 [日志服务控制台](https://console.cloud.tencent.com/cls/hosts)，体验日志服务更多新功能。
 
 
 LogListener 版本支持新功能如下：
