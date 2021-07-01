@@ -29,8 +29,8 @@ TDMQ Pulsar 客户端（以下简称 PulsarClient ）是应用程序连接到 TD
 假设有1000个业务对象在同时生产消息，并不是要创建1000个 Producer，只要是向同一个 Topic 进行投递，每个应用节点可以先统一使用一个 Producer 来进行生产（单例模式），往往单个 Producer 就能吃满单个应用节点的硬件配置。
 
 以下给出一段 Java 消息生产的代码示例。
-
-```java
+<dx-codeblock>
+:::  java
 //从配置文件中获取 serviceURL 接入地址、Token 密钥、Topic 全名和 Subscription 名称（均可从控制台复制）
 @Value("${tdmq.serviceUrl}")
 private String serviceUrl;
@@ -53,11 +53,13 @@ public void init() throws Exception {
             .topic(topic)
             .create();
 }
-```
+:::
+</dx-codeblock>
+
 
 在实际生产消息的业务逻辑中直接引用 `producer` 完成消息的发送。
-
-```java
+<dx-codeblock>
+:::  java
 //在实际生产消息的业务逻辑中直接引用，注意 Producer 通过范式声明的 Schema 类型要和传入对象匹配
 public void onProduce(Producer<String> producer){
     //添加业务逻辑
@@ -93,11 +95,13 @@ public void onProduceAsync(Producer<String> producer){
         }
     }));
 }
-```
+:::
+</dx-codeblock>
+
 
 当一个生产者长时间不使用时需要调用 close 方法关闭，以避免占用资源；当一个客户端实例长时间不使用时，同样需要调用 close 方法关闭，以避免连接池被占满。
-
-```java
+<dx-codeblock>
+:::  java
 public void destroy(){
     if (producer != null) {
         producer.close();
@@ -106,8 +110,8 @@ public void destroy(){
         pulsarClient.close();
     }
 }
-```
-
+:::
+</dx-codeblock>
 
 
 ### 消费者
@@ -121,8 +125,8 @@ public void destroy(){
 - 使用多线程消费，即使复用一个 consumer 对象，消息的顺序也将无法得到保证。
 
 以下给出一个 Java 基于 Spring boot 框架用线程池进行多线程消费的完整代码示例。
-
-```java
+<dx-codeblock>
+:::  java
 import org.apache.pulsar.client.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -249,7 +253,10 @@ public class ConsumerService implements Runnable {
         }
     }
 }
-```
+:::
+</dx-codeblock>
+
+
 
 
 
