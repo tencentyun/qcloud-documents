@@ -15,7 +15,7 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 ### 开通权限
 使用 OPPO 企业开发者帐号，登录 [OPPO 开发平台](https://open.oppomobile.com/)，在【管理中心】>【应用服务平台】>【移动应用列表】>【选择应用】>【开发服务】>【推送服务】中完成 OPPO PUSH 权限申请。
 ![](https://main.qcloudimg.com/raw/11f429ba46161b1cea16c233cebc5627.png)
-
+>? 通知栏推送权限申请需要应用在 OPPO 软件商店上架才可通过，且主营业务不为借贷类的应用。
 
 ### 获取密钥
 >?仅开发者帐号（主帐号）可查看。
@@ -131,3 +131,18 @@ I/TPush: [PushServiceBroadcastHandler] >> bind OtherPushToken success ack with [
 ```
 
 >?混淆规则需要放在 App 项目级别的 proguard-rules.pro 文件中。
+
+## 常见问题排查
+
+### OPPO 推送注册错误码查询方法
+
+若观察到如下类似日志则说明 OPPO 厂商通道注册失败，开发者可以通过以下方式获取华为推送注册错误码：
+```
+[OtherPushClient] handleUpdateToken other push token is :  other push type: OPPO
+```
+
+推送服务 debug 模式下，过滤关键字“OtherPush”或“HMSSDK” ，查看相关返回码日志(例如`[OtherPushOppoImpl] OppoPush Register failed, code=14, msg=INVALID_APP_KEY`)，并前往[厂商通道注册失败排查指南](https://cloud.tencent.com/document/product/548/45659)查找对应原因，获取解决办法。
+
+### 推送 OPPO 响应失败code:30，是什么原因？
+
+应用审核中不可发送正式消息，请前往 OPPO 平台确认推送权限审核进度。
