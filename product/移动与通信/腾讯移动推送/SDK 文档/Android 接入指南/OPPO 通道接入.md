@@ -142,7 +142,7 @@ I/TPush: [PushServiceBroadcastHandler] >> bind OtherPushToken success ack with [
 [OtherPushClient] handleUpdateToken other push token is :  other push type: OPPO
 ```
 
-推送服务 debug 模式下，过滤关键字 “OtherPush” 或 “HMSSDK” ，查看相关返回码日志（例如 `[OtherPushOppoImpl] OppoPush Register failed, code=14, msg=INVALID_APP_KEY`），并前往 [厂商通道注册失败排查指南](https://cloud.tencent.com/document/product/548/45659) 查找对应原因，获取解决办法。
+推送服务 debug 模式下，过滤关键字 “OtherPush”，查看相关返回码日志（例如 `[OtherPushOppoImpl] OppoPush Register failed, code=14, msg=INVALID_APP_KEY`），并前往 [厂商通道注册失败排查指南](https://cloud.tencent.com/document/product/548/45659) 查找对应原因，获取解决办法。
 
 ### 推送 OPPO 响应失败 code:30，是什么原因？
 
