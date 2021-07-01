@@ -67,11 +67,11 @@
 </tr>
 </tbody></table>
 3. 完成以上设置后即可单击红色的【Live】按键开始推流。
-4. 当【LIve】按钮变成白色就说明推流成功，即可将视频流推送到设置的推流地址中。
+4. 当【LIVE】按钮变成白色就说明推流成功，即可将视频流推送到设置的推流地址中。
 ![](https://main.qcloudimg.com/raw/e5efed214c114b51004aa798c89282c0.png)
 
 
->? 若您需要进行更多设置，可参考 [Insta360 相机拍摄进阶说明](https://onlinemanual.insta360.com/pro2/zh-cn/live/production/1)。
+>? 若您需要进行更多设置，请参见 [Insta360 相机拍摄进阶说明](https://onlinemanual.insta360.com/pro2/zh-cn/live/production/1)。
 
 [](id:step2)
 ### 步骤2：直播播放
