@@ -5,7 +5,7 @@ EXIF（Exchangeable Image File）全称为可交换图像文件，可记录数�
 >! 如图片无 exif 信息，将返回`{"error" : "no exif data"}`。
 >
 
-## 接口形式
+## 接口示例
 
 ```
 download_url?exif
