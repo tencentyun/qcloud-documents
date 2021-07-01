@@ -15,7 +15,7 @@
 4. 单击【域名信息】页签，选择您需要进行验证的域名，并单击【查看验证】。如下图所示：
 ![](https://main.qcloudimg.com/raw/96bff23854fa29b95d544dc60656274a.png)
 5. 在 “验证域名” 页面中，请根据页面提示，并在规定时间内添加解析记录。如下图所示：
-![](https://main.qcloudimg.com/raw/c8e092e26b06a30557a7a3dde82be09f.png)
+![](https://main.qcloudimg.com/raw/0bc82dd6a9d3d27bd8bda99942d18563.png)
 
 ### 步骤2：添加解析记录
 >!以下操作仅针对域名对应的域名解析商在腾讯云的情况下，若不在腾讯云，请您到域名对应的域名解析商处进行解析。
