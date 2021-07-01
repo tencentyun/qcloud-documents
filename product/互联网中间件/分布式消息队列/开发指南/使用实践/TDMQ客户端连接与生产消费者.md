@@ -123,7 +123,6 @@ public void destroy(){
 以下给出一个 Java 基于 Spring boot 框架用线程池进行多线程消费的完整代码示例。
 
 ```java
-import lombok.extern.slf4j.Slf4j;
 import org.apache.pulsar.client.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -139,7 +138,6 @@ import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-@Slf4j
 @Service
 public class ConsumerService implements Runnable {
 
