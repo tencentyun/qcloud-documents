@@ -106,10 +106,10 @@ file_sd_configs:
 ```plaintext
 nohup ./bin/grafana-server web > grafana.log 2>&1 &
 ```
-2. 打开登录页面 `http://<GRAFANA_BI_IP>:<GRAFANA_BI_PORT>`，Grafana 的默认端口为 3000，username 和 password 都是 admin，首次登录后可修改密码。
+2. 打开登录页面 http://&lt;GRAFANA_IP&gt;:&lt;GRAFANA_PORT&gt;，Grafana 的默认端口为 3000，username 和 password 都是 admin，首次登录后可修改密码。
 3. 进入页面后，添加 Prometheus 的 Datasource：
 ```plaintext
-<PROMETHEUS_BI_IP>:<PROMETHEUS_BI_PORT>
+<PROMETHEUS_IP>:<PROMETHEUS_PORT>
 ```
 4. 导入 Goosefs 的 Grafana 模板，选择 json 导入（[点此下载 json](https://cos-data-lake-release-1253960454.file.myqcloud.com/goosefs/grafana/goosefs-grafana-dashboard.json)），并选择上面创建的 Datasource。
 >! 云上 Prometheus 购买时需设置密码，云上 Grafana 的可视化监控界面配置和上面类似，注意 job_name 需要配置成一致。
