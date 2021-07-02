@@ -1,19 +1,15 @@
 ## 概述
 
-[CosN 工具](https://cloud.tencent.com/document/product/436/6884) 是基于腾讯云对象存储 COS 提供的标准的 Hadoop 文件系统实现，可以为 Hadoop、Spark 以及 Tez 等大数据计算框架集成 COS 提供支持。用户可使用实现了 Hadoop 文件系统接口的 CosN 插件，读写存储在 COS 上的数据。对于已经使用 CosN 工具访问 COS 的用户，GooseFS 提供了一种客户端路径映射方式，让用户可以在不修改当前 Hive table 定义的前提下，仍然能够使用 CosN scheme 访问 GooseFs，该特性方便用户在不修改已有表定义的前提下，对 GooseFs 的功能和性能进行对比测试。
+[CosN 工具](https://cloud.tencent.com/document/product/436/6884) 是基于腾讯云对象存储（Cloud Object Storage，COS）提供的标准的 Hadoop 文件系统实现，可以为 Hadoop、Spark 以及 Tez 等大数据计算框架集成 COS 提供支持。用户可使用实现了 Hadoop 文件系统接口的 CosN 插件，读写存储在 COS 上的数据。对于已经使用 CosN 工具访问 COS 的用户，GooseFS 提供了一种客户端路径映射方式，让用户可以在不修改当前 Hive table 定义的前提下，仍然能够使用 CosN scheme 访问 GooseFs，该特性方便用户在不修改已有表定义的前提下，对 GooseFs 的功能和性能进行对比测试。
 
 CosN Schema 和 GooseFS Schema 的映射说明如下：
 
 假设 Namespace warehouse 对应的 UFS 路径为 `cosn://examplebucket-1250000000/data/warehouse/`，则 CosN 到 GooseFS 的路径映射关系如下：
-
 ```plaintext
 cosn://examplebucket-1250000000/data/warehouse -> /warehouse/
 cosn://examplebucket-1250000000/data/warehouse/folder/test.txt ->/warehouse/folder/test.txt
-
 ```
-
 GooseFS 到 CosN 的路径映射关系如下：
-
 ```plaintext
 /warehouse ->cosn://examplebucket-1250000000/data/warehouse/
 /warehouse/ -> cosn://examplebucket-1250000000/data/warehouse/
@@ -22,30 +18,29 @@ GooseFS 到 CosN 的路径映射关系如下：
  
 CosN Scheme 访问 GooseFS 特性，通过在客户端维持 GooseFS 路径和底层文件系统 CosN 路径之间的映射关系，并将 CosN 路径的请求转换为 GooseFS 的请求。映射关系周期性刷新，您可以通过修改 GooseFS 配置文件 goosefs-site.properties 中的配置项 goosefs.client.namespace.refresh.interval 调整刷新间隔，默认值为 60s。
 
+>! 如果访问的 CosN 路径无法转换为 GooseFS 路径，对应的 Hadoop API 调用会抛出异常。
+>
 
->!如果访问的 CosN 路径无法转换为 GooseFS 路径，对应的 Hadoop API 调用会抛出异常。
-
-## **操作示例**
+## 操作示例
 
 该示例演示了 Hadoop 命令行以及 Hive 中，如何使用 Schema gfs:// 和 Schema cosn://  访问 GooseFS。操作流程如下：
 
-### 1. **准备数据和计算集群**
+### 1. 准备数据和计算集群
 
 - 参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档，创建一个测试用途的存储桶。
 - 参考 [创建文件夹](https://cloud.tencent.com/document/product/436/13329) 文档，在存储桶根路径下创建一个名为 ml-100k 的文件夹。
 - 从 [Grouplens](https://grouplens.org/datasets/movielens/100k/) 下载 ml-100k 数据集，并将文件 u.user 上传到 `<存储桶根路径>/ml-100k`下。
 - 参考 EMR 指引文档，购买一个 EMR 集群并配置 HIVE 组件。
 
-### 2. **环境配置**
+### 2. 环境配置
 
-- 将 GooseFS 的客户端 jar 包 goosefs-1.0.0-client.jar 放入 share/hadoop/common/lib/ 目录下：
+1. 将 GooseFS 的客户端 jar 包（goosefs-1.0.0-client.jar）放入 share/hadoop/common/lib/ 目录下：
 ```plaintext
  cp goosefs-1.0.0-client.jar  hadoop/share/hadoop/common/lib/
 ```
->!配置 jar 包的变更操作，需同步到集群上所有节点。
-
-- 修改 Hadoop 配置文件 etc/hadoop/core-site.xml，指定 GooseFS 的实现类：
-
+ >! 配置 jar 包的变更操作，需同步到集群上所有节点。
+>
+2. 修改 Hadoop 配置文件 etc/hadoop/core-site.xml，指定 GooseFS 的实现类：
 ```plaintext
 <property>
   <name>fs.AbstractFileSystem.gfs.impl</name>
@@ -56,29 +51,21 @@ CosN Scheme 访问 GooseFS 特性，通过在客户端维持 GooseFS 路径和�
   <value>com.qcloud.cos.goosefs.hadoop.FileSystem</value>
 </property>
 ```
-
-以上步骤配置完成后，执行如下 Hadoop 命令，检查是否能够通过 gfs:// Scheme 访问 GooseFS，其中 &lt;MASTER_IP> 为 Master 节点的 ip：
-
+3. 执行如下 Hadoop 命令，检查是否能够通过 gfs:// Scheme 访问 GooseFS，其中 &lt;MASTER_IP> 为 Master 节点的 IP：
 ```plaintext
 hadoop fs -ls gfs://<MASTER_IP>:9200/
 ```
-
-
-- 将 GooseFS 的客户端 jar 包放到 Hive 的 auxlib 目录下，使得 Hive 能加载到 GooseFS Client 包：
-
+4.将 GooseFS 的客户端 jar 包放到 Hive 的 auxlib 目录下，使得 Hive 能加载到 GooseFS Client 包：
 ```plaintext
 cp goosefs-1.0.0-client.jar  hive/auxlib/
 ```
-
-- 执行如下命令，创建 UFS Scheme 为 CosN 的 Namespace，并列出 Namespace，您可将该命令中的 examplebucket-1250000000 替换为你的 COS 存储桶，SecretId 和 SecretKey 替换为您的密钥信息：
-
+5. 执行如下命令，创建 UFS Scheme 为 CosN 的 Namespace，并列出 Namespace。您可将该命令中的 examplebucket-1250000000 替换为你的 COS 存储桶，SecretId 和 SecretKey 替换为您的密钥信息：
 ```plaintext
 goosefs ns create ml-100k cosn://examplebucket-1250000000/ml-100k  --secret fs.cosn.userinfo.secretId=SecretId --secret fs.cosn.userinfo.secretKey=SecretKey--attribute fs.cosn.bucket.region=ap-guangzhou --attribute fs.cosn.credentials.provider=org.apache.hadoop.fs.auth.SimpleCredentialProvider
 goosefs ns ls
 ```
 
-
-### 3. **创建 GooseFS Schema 表和查询数据**
+### 3. 创建 GooseFS Schema 表和查询数据
 
 通过如下指令执行：
 
@@ -101,7 +88,7 @@ select sum(age) from u_user_gfs;
 ```
 
 
-### 4. **创建 CosN Schema 表和查询数据**
+### 4. 创建 CosN Schema 表和查询数据
 
 通过如下指令执行：
 
