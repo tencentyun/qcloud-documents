@@ -50,6 +50,7 @@ ClientConfig clientConfig = new ClientConfig(region);
 COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式
 String bucketName = "examplebucket-1250000000";
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
 String key = "exampleobject";
 GeneratePresignedUrlRequest req =
         new GeneratePresignedUrlRequest(bucketName, key, HttpMethodName.GET);
@@ -80,6 +81,7 @@ ClientConfig clientConfig = new ClientConfig(region);
 COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式
 String bucketName = "examplebucket-1250000000";
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
 String key = "exampleobject";
 GeneratePresignedUrlRequest req =
         new GeneratePresignedUrlRequest(bucketName, key, HttpMethodName.GET);
@@ -112,6 +114,7 @@ ClientConfig clientConfig = new ClientConfig(region);
 COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶的命名格式为 BucketName-APPID 
 String bucketName = "examplebucket-1250000000";
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
 String key = "exampleobject";
 GeneratePresignedUrlRequest req =
         new GeneratePresignedUrlRequest(bucketName, key, HttpMethodName.GET);
@@ -119,6 +122,7 @@ GeneratePresignedUrlRequest req =
 ResponseHeaderOverrides responseHeaders = new ResponseHeaderOverrides();
 String responseContentType = "image/x-icon";
 String responseContentLanguage = "zh-CN";
+// 设置返回头部里包含文件名信息
 String responseContentDispositon = "filename=\"exampleobject\"";
 String responseCacheControl = "no-cache";
 String cacheExpireStr =
@@ -154,6 +158,7 @@ COSClient cosClient = new COSClient(cred, clientConfig);
 // bucket 名需包含 appid
 String bucketName = "examplebucket-1250000000";
 
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
 String key = "exampleobject";
 GeneratePresignedUrlRequest req =
         new GeneratePresignedUrlRequest(bucketName, key, HttpMethodName.GET);
@@ -170,6 +175,7 @@ cosClient.shutdown();
 ```java
 // 存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式
 String bucketName = "examplebucket-1250000000";
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
 String key = "exampleobject";
 // 设置签名过期时间(可选), 若未进行设置, 则默认使用 ClientConfig 中的签名过期时间(1小时)
 // 这里设置签名在半个小时后过期
@@ -225,7 +231,8 @@ COSSigner signer = new COSSigner();
 //设置过期时间为1个小时
 Date expiredTime = new Date(System.currentTimeMillis() + 3600L * 1000L);
 // 要签名的 key, 生成的签名只能用于对应此 key 的上传
-String key = "/exampleobject";
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
+String key = "exampleobject";
 String sign = signer.buildAuthorizationStr(HttpMethodName.PUT, key, cred, expiredTime);
 ```
 
@@ -241,7 +248,8 @@ COSSigner signer = new COSSigner();
 // 设置过期时间为1个小时
 Date expiredTime = new Date(System.currentTimeMillis() + 3600L * 1000L);
 // 要签名的 key, 生成的签名只能用于对应此 key 的下载
-String key = "/exampleobject";
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
+String key = "exampleobject";
 String sign = signer.buildAuthorizationStr(HttpMethodName.GET, key, cred, expiredTime);
 ```
 
@@ -257,6 +265,7 @@ COSSigner signer = new COSSigner();
 // 设置过期时间为1个小时
 Date expiredTime = new Date(System.currentTimeMillis() + 3600L * 1000L);
 // 要签名的 key, 生成的签名只能用于对应此 key 的删除
-String key = "/exampleobject";
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
+String key = "exampleobject";
 String sign = signer.buildAuthorizationStr(HttpMethodName.DELETE, key, cred, expiredTime);
 ```
