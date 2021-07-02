@@ -25,9 +25,9 @@
       <td style="text-align:center">
 Linux / MacOS 
 </td>
-      <td style="text-align:center"><a href="https://github.com/tencentyun/LiteAVProfessional_iOS"><dx-codeblock>
+      <td ><dx-codeblock>
 ::: 1 go
-set GOPROXY=https://mirrors.tencent.com/go/
+export GOPROXY=https://mirrors.tencent.com/go/
 :::
 </dx-codeblock></a></td>
 </tr>
@@ -35,7 +35,7 @@ set GOPROXY=https://mirrors.tencent.com/go/
       <td style="text-align:center">
 Windows
 </td>
-      <td style="text-align:center"><a href="https://github.com/tencentyun/LiteAVProfessional_iOS"><dx-codeblock>
+      <td><dx-codeblock>
 ::: 1 go
 set GOPROXY=https://mirrors.tencent.com/go/
 :::
@@ -55,7 +55,7 @@ v1.0.170后可以按照产品下载，您只需下载基础包和对应的产品
 	    <tr>
     <td style="text-align:center" rowspan= "2">按需安装（推荐）</td>
     <td style="text-align:center">安装公共基础包</td>
-    <td style="text-align:center"><dx-codeblock>
+    <td><dx-codeblock>
 ::: 1 bash
 go get -v github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common@latest
 :::
@@ -63,7 +63,7 @@ go get -v github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common@latest
   </tr>
 	   <tr>
     <td style="text-align:center">安装对应的产品包（如 CVM）</td>
-    <td style="text-align:center"><dx-codeblock>
+    <td ><dx-codeblock>
 ::: 1 bash
 go get -v github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm@latest
 :::
@@ -72,7 +72,7 @@ go get -v github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm@latest
 		   <tr>
     <td style="text-align:center">全部安装</td>
     <td style="text-align:center">一次性下载腾讯云所有产品的包</td>
-		    <td style="text-align:center"><dx-codeblock>
+		    <td><dx-codeblock>
 ::: 1 bash
 go get -v github.com/tencentcloud/tencentcloud-sdk-go@latest
 :::
@@ -95,29 +95,29 @@ go get -v github.com/tencentcloud/tencentcloud-sdk-go@latest
 package main
 
 import (
-	"fmt"
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
-	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions"
-	cvm "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm/v20170312"
+     "fmt"
+     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
+     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
+     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions"
+     cvm "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm/v20170312"
 )
 
 func main() {
-	credential := common.NewCredential("secretId", "secretKey")
-	client, _ := cvm.NewClient(credential, regions.Guangzhou, profile.NewClientProfile())
+     credential := common.NewCredential("secretId", "secretKey")
+     client, _ := cvm.NewClient(credential, regions.Guangzhou, profile.NewClientProfile())
 
-	request := cvm.NewDescribeInstancesRequest()
-	response, err := client.DescribeInstances(request)
+     request := cvm.NewDescribeInstancesRequest()
+     response, err := client.DescribeInstances(request)
 
-	if _, ok := err.(*errors.TencentCloudSDKError); ok {
-		fmt.Printf("An API error has returned: %s", err)
-		return
-	}
-	if err != nil {
-		panic(err)
-	}
-	fmt.Printf("%s\n", response.ToJsonString())
+     if _, ok := err.(*errors.TencentCloudSDKError); ok {
+          fmt.Printf("An API error has returned: %s", err)
+          return
+     }
+     if err != nil {
+          panic(err)
+     }
+     fmt.Printf("%s\n", response.ToJsonString())
 }
 ```
 :::
@@ -126,87 +126,84 @@ func main() {
 package main
 
 import (
-        "fmt"
-
-        "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
-        "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
-        "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
-        "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions"
-        cvm "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm/v20170312"
+     "fmt"
+     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
+     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
+     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions"
+     cvm "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm/v20170312"
 )
 
 func main() {
-        // 必要步骤：
-        // 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
-        // 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
-        // 以免泄露密钥对危及你的财产安全。
-        credential := common.NewCredential("secretId", "secretKey")
+     // 必要步骤：
+     // 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
+     // 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
+     // 以免泄露密钥对危及你的财产安全。
+     credential := common.NewCredential("secretId", "secretKey")
 
-        // 非必要步骤
-        // 实例化一个客户端配置对象，可以指定超时时间等配置
-        cpf := profile.NewClientProfile()
-        // SDK默认使用POST方法。
-        // 如果你一定要使用GET方法，可以在这里设置。GET方法无法处理一些较大的请求。
-        // 如非必要请不要修改默认设置。
-        cpf.HttpProfile.ReqMethod = "POST"
-        // SDK有默认的超时时间，如非必要请不要修改默认设置。
-        // 如有需要请在代码中查阅以获取最新的默认值。
-        cpf.HttpProfile.ReqTimeout = 30
-        // SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务，
-        // 则必须手动指定域名，例如云服务器的上海金融区域名： cvm.ap-shanghai-fsi.tencentcloudapi.com
-        cpf.HttpProfile.Endpoint = "cvm.tencentcloudapi.com"
-        // SDK默认用TC3-HMAC-SHA256进行签名，它更安全但是会轻微降低性能。
-        // 如非必要请不要修改默认设置。
-        cpf.SignMethod = "TC3-HMAC-SHA256"
-        // SDK 默认用 zh-CN 调用返回中文。此外还可以设置 en-US 返回全英文。
-        // 但大部分产品或接口并不支持全英文的返回。
-        // 如非必要请不要修改默认设置。
-        cpf.Language = "en-US"
-        //打印日志，默认是false
-        // cpf.Debug = true
+     // 非必要步骤
+     // 实例化一个客户端配置对象，可以指定超时时间等配置
+     cpf := profile.NewClientProfile()
+     // SDK默认使用POST方法。
+     // 如果你一定要使用GET方法，可以在这里设置。GET方法无法处理一些较大的请求。
+     // 如非必要请不要修改默认设置。
+     cpf.HttpProfile.ReqMethod = "POST"
+     // SDK有默认的超时时间，如非必要请不要修改默认设置。
+     // 如有需要请在代码中查阅以获取最新的默认值。
+     cpf.HttpProfile.ReqTimeout = 30
+     // SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务，
+     // 则必须手动指定域名，例如云服务器的上海金融区域名： cvm.ap-shanghai-fsi.tencentcloudapi.com
+     cpf.HttpProfile.Endpoint = "cvm.tencentcloudapi.com"
+     // SDK默认用TC3-HMAC-SHA256进行签名，它更安全但是会轻微降低性能。
+     // 如非必要请不要修改默认设置。
+     cpf.SignMethod = "TC3-HMAC-SHA256"
+     // SDK 默认用 zh-CN 调用返回中文。此外还可以设置 en-US 返回全英文。
+     // 但大部分产品或接口并不支持全英文的返回。
+     // 如非必要请不要修改默认设置。
+     cpf.Language = "en-US"
+     //打印日志，默认是false
+     // cpf.Debug = true
+     // 实例化要请求产品(以cvm为例)的client对象
+     // 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量
+     client, _ := cvm.NewClient(credential, regions.Guangzhou, cpf)
+     // 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
+     // 你可以直接查询SDK源码确定DescribeInstancesRequest有哪些属性可以设置，
+     // 属性可能是基本类型，也可能引用了另一个数据结构。
+     // 推荐使用IDE进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明。
+     request := cvm.NewDescribeInstancesRequest()
 
+     // 基本类型的设置。
+     // 此接口允许设置返回的实例数量。此处指定为只返回一个。
+     // SDK采用的是指针风格指定参数，即使对于基本类型你也需要用指针来对参数赋值。
+     // SDK提供对基本类型的指针引用封装函数
+     request.Limit = common.Int64Ptr(1)
 
-        // 实例化要请求产品(以cvm为例)的client对象
-        // 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量
-        client, _ := cvm.NewClient(credential, regions.Guangzhou, cpf)
-        // 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
-        // 你可以直接查询SDK源码确定DescribeInstancesRequest有哪些属性可以设置，
-        // 属性可能是基本类型，也可能引用了另一个数据结构。
-        // 推荐使用IDE进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明。
-        request := cvm.NewDescribeInstancesRequest()
+     // 数组类型的设置。
+     // 此接口允许指定实例 ID 进行过滤，但是由于和接下来要演示的 Filter 参数冲突，先注释掉。
+     // request.InstanceIds = common.StringPtrs([]string{"ins-r8hr2upy"})
 
-        // 基本类型的设置。
-        // 此接口允许设置返回的实例数量。此处指定为只返回一个。
-        // SDK采用的是指针风格指定参数，即使对于基本类型你也需要用指针来对参数赋值。
-        // SDK提供对基本类型的指针引用封装函数
-        request.Limit = common.Int64Ptr(1)
+     // 复杂对象的设置。
+     // 在这个接口中，Filters是数组，数组的元素是复杂对象Filter，Filter的成员Values是string数组。
+     request.Filters = []*cvm.Filter{
+         &cvm.Filter{
+          Name: common.StringPtr("zone"),
+          Values: common.StringPtrs([]string{"ap-guangzhou-1"}),
+         },
+     }
 
-        // 数组类型的设置。
-        // 此接口允许指定实例 ID 进行过滤，但是由于和接下来要演示的 Filter 参数冲突，先注释掉。
-        // request.InstanceIds = common.StringPtrs([]string{"ins-r8hr2upy"})
-
-        // 复杂对象的设置。
-        // 在这个接口中，Filters是数组，数组的元素是复杂对象Filter，Filter的成员Values是string数组。
-        request.Filters = []*cvm.Filter{
-            &cvm.Filter{
-                Name: common.StringPtr("zone"),
-                Values: common.StringPtrs([]string{"ap-guangzhou-1"}),
-            },
-        }
-
-        // 通过client对象调用想要访问的接口，需要传入请求对象
-        response, err := client.DescribeInstances(request)
-        // 处理异常
-        if _, ok := err.(*errors.TencentCloudSDKError); ok {
-            fmt.Printf("An API error has returned: %s", err)
-            return
-        }
-        // 非SDK异常，直接失败。实际代码中可以加入其他的处理。
-        if err != nil {
-            panic(err)
-        }
-        // 打印返回的json字符串
-        fmt.Printf("%s\n", response.ToJsonString())
+     // 通过client对象调用想要访问的接口，需要传入请求对象
+     response, err := client.DescribeInstances(request)
+     // 处理异常
+     if _, ok := err.(*errors.TencentCloudSDKError); ok {
+         fmt.Printf("An API error has returned: %s", err)
+         return
+     }
+     // 非SDK异常，直接失败。实际代码中可以加入其他的处理。
+     if err != nil {
+         panic(err)
+     }
+     // 打印返回的json字符串
+     fmt.Printf("%s\n", response.ToJsonString())
 }
 ```
 :::
@@ -308,15 +305,15 @@ import "crypto/tls"
 // Handling errors
 response, err := client.DescribeInstances(request)
 if terr, ok := err.(*errors.TencentCloudSDKError); ok {
-    code :=terr.GetCode()
-    if code == cvm.FAILEDOPERATION_ILLEGALTAGKEY{
-        fmt.Printf("Handling error: FailedOperation.IllegalTagKey,%s", err)
-    }else if code == cvm.UNAUTHORIZEDOPERATION{
-        fmt.Printf("Handling error: UnauthorizedOperation,%s", err)
-    }else{
-        fmt.Printf("An API error has returned: %s", err)
-    }
-    return
+      code :=terr.GetCode()
+      if code == cvm.FAILEDOPERATION_ILLEGALTAGKEY{
+          fmt.Printf("Handling error: FailedOperation.IllegalTagKey,%s", err)
+      }else if code == cvm.UNAUTHORIZEDOPERATION{
+          fmt.Printf("Handling error: UnauthorizedOperation,%s", err)
+      }else{
+          fmt.Printf("An API error has returned: %s", err)
+      }
+      return
 }
 ...
 ```
@@ -366,7 +363,7 @@ func (c *Client) DescribeInstances(request *DescribeInstancesRequest) (response 
 
 
 
-## 常见问题
+## Common Request
 从 `v1.0.189`开始，腾讯云 GO SDK 支持使用 `泛用型的API调用方式(Common Request)` 进行请求。您只需安装 `common` 包, 即可向任何产品发起调用。
 
 **注意，您必须明确知道您调用的接口所需参数，否则可能会调用失败。**
@@ -377,60 +374,64 @@ func (c *Client) DescribeInstances(request *DescribeInstancesRequest) (response 
 package main
 
 import (
-    "fmt"
-    "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
-    tchttp "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/http"
-    "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
-    "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions"
-    "os"
+      "fmt"
+      "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+      tchttp "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/http"
+      "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
+      "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions"
+      "os"
 )
 
 // 目前只支持 签名v3+POST
 func main() {
-    credential := common.NewCredential(
-        os.Getenv("TENCENTCLOUD_SECRET_ID"),
-        os.Getenv("TENCENTCLOUD_SECRET_KEY"))
-    cpf := profile.NewClientProfile()
-    cpf.HttpProfile.Endpoint = "cvm.tencentcloudapi.com"
-    cpf.HttpProfile.ReqMethod = "POST"
-    //创建common client
-    client := common.NewCommonClient(credential, regions.Guangzhou, cpf)
+      credential := common.NewCredential(
+          os.Getenv("TENCENTCLOUD_SECRET_ID"),
+          os.Getenv("TENCENTCLOUD_SECRET_KEY"))
+      cpf := profile.NewClientProfile()
+      cpf.HttpProfile.Endpoint = "cvm.tencentcloudapi.com"
+      cpf.HttpProfile.ReqMethod = "POST"
+      //创建common client
+      client := common.NewCommonClient(credential, regions.Guangzhou, cpf)
 
-    // 创建common request，依次传入产品名、产品版本、接口名称
-    request := tchttp.NewCommonRequest("cvm", "2017-03-12", "DescribeZones")
+      // 创建common request，依次传入产品名、产品版本、接口名称
+      request := tchttp.NewCommonRequest("cvm", "2017-03-12", "DescribeZones")
 
-    // 自定义请求参数:
-    // SetActionParameters 函数支持三种数据类型的入参：
-    // 1. map[string]interface{}
-    // body:=map[string]interface{}{
-    // "InstanceId":"crs-xxx",
-    // "SpanType":2,
-    // }
-    body:= map[string]interface{}{}
+      // 自定义请求参数:
+      // SetActionParameters 函数支持三种数据类型的入参：
+      // 1. map[string]interface{}
+      // body:=map[string]interface{}{
+      // "InstanceId":"crs-xxx",
+      // "SpanType":2,
+      // }
+      body:= map[string]interface{}{}
 
-    // // 2. string
-    // bodyStr := `{}`
+      // // 2. string
+      // bodyStr := `{}`
 
-    // // 3. []byte
-    // bodyBytes := []byte(bodyStr)
+      // // 3. []byte
+      // bodyBytes := []byte(bodyStr)
 
-    // 设置action所需的请求数据
-    err := request.SetActionParameters(body)
-    if err != nil {
-        return
-    }
+      // 设置action所需的请求数据
+      err := request.SetActionParameters(body)
+      if err != nil {
+          return
+      }
 
-    //创建common response
-    response := tchttp.NewCommonResponse()
+      //创建common response
+      response := tchttp.NewCommonResponse()
 
-    //发送请求
-    err = client.Send(request, response)
-    if err != nil {
-        fmt.Printf("fail to invoke api: %v \n", err)
-    }
+      //发送请求
+      err = client.Send(request, response)
+      if err != nil {
+          fmt.Printf("fail to invoke api: %v \n", err)
+      }
 
-    // 获取响应结果
-    fmt.Println(string(response.GetBody()))
+      // 获取响应结果
+      fmt.Println(string(response.GetBody()))
 }
 
 ```
+
+## 常见问题
+### import 导包失败
+例如报错：`imported and not used: "os"`，说明“ os ”这个包并未在代码中使用到，去掉即可。
