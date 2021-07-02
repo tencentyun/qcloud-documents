@@ -39,4 +39,4 @@
 6. 待私有网络运行正常后，释放基础网络下留存的公网 CLB、CVM 资源，结束迁移。
  >?云数据库的原基础网络 IP 过期后将自动释放。
  >
- ![](https://main.qcloudimg.com/raw/6b39dc9ed6ac24d7a5092399dddf1660.png)
+![](https://main.qcloudimg.com/raw/2f22ab531342bae572bc2b5a7b2aace0.png)
