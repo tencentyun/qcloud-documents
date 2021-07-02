@@ -143,8 +143,8 @@ hadoop fs -ls  cosn://examplebucket-1250000000/ml-100k/
 Found 1 items
 -rw-rw-rw-   0 hadoop hadoop      22628 2021-07-02 15:27 cosn://examplebucket-1250000000/ml-100k/u.user
  
-hadoop fs -ls cosn://yongqing-guangzhou-test-1253960454/unknow-path
-ls: Failed to convert ufs path cosn://yongqing-guangzhou-test-1253960454/unknow-path to GooseFs path, check if namespace mounted 
+hadoop fs -ls cosn://examplebucket-1250000000/unknow-path
+ls: Failed to convert ufs path cosn://examplebucket-1250000000/unknow-path to GooseFs path, check if namespace mounted 
 ```
 
 重新执行 Hive 查询语句：
