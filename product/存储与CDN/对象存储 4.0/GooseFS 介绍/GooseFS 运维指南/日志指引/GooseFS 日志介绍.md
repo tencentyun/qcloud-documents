@@ -110,7 +110,7 @@ GOOSEFS_JAVA_OPTS+=" -XX:+PrintGCDetails -XX:+PrintTenuringDistribution -XX:+Pri
 ```plaintext
 goosefs.logger.com.qcloud.cos.goosefs.fuse.GoosefsFuseFileSystem=DEBUG
 ```
- 启用后 FUSE 接口日志可以在 /logs/fuse.log 查看。 
+ 启用后 FUSE 接口日志可以在 logs/fuse.log 查看。 
 - **启用 RPC 调用日志**
 GooseFS 支持在 conf/log4j.properties 配置文件中，配置 Client 端或 Master 端的 RPC 调用日志。
 可以通过在 log4j.properties 文件中，配置客户端输出 RPC 请求日志：
