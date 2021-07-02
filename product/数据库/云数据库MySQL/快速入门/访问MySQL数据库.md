@@ -76,8 +76,15 @@ mysql -h hostname -P port -u username -p
 下图中以`show databases;`为例：
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 
+## 附录1：无法连接实例问题
+若遇到无法连接实例相关问题，建议您使用 [一键连接检查工具](https://cloud.tencent.com/document/product/236/33206) 进行排查，根据检查报告提示，在 [无法连接实例](https://cloud.tencent.com/document/product/236/44754) 查找相应解决方案。
 
-## [附录1：开启外网连接地址](id:waiwang)
+## 附录2：网络连通性验证方法
+建议您使用 telnet 命令来快速排查和定位网络连通性问题，请参见 [telnet 命令](https://cloud.tencent.com/document/product/236/34375#.E8.A7.A3.E5.86.B3.E6.96.B9.E6.A1.88)。
+
+若 telnet 验证云数据库网络访问正常后，如在云服务器上通过命令行登录云数据库报错，请参见 [连接实例相关问题](https://cloud.tencent.com/document/product/236/11278#sytyzysjk)。
+
+## [附录3：开启外网连接地址](id:waiwang)
 1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb/ )，在实例列表中，单击实例名或“操作”列的【管理】，进入实例详情页面。
 2. 在实例详情页下的“外网地址”处，单击【开启】。
 >?若有外网地址和外网端口信息，说明已开启外网地址。
@@ -87,12 +94,3 @@ mysql -h hostname -P port -u username -p
 >?
 >- 开启成功后，即可在基本信息中查看到外网地址。
 >- 通过开关可以关闭外网连接权限，重新开启外网，域名对应的外网地址不变。
-
-## 附录2：网络连通性验证方法
-建议您使用 telnet 命令来快速排查和定位网络连通性问题，请参见 [telnet 命令](https://cloud.tencent.com/document/product/236/34375#.E8.A7.A3.E5.86.B3.E6.96.B9.E6.A1.88)。
-
-若 telnet 验证云数据库网络访问正常后，如在云服务器上通过命令行登录云数据库报错，请参见 [连接实例相关问题](https://cloud.tencent.com/document/product/236/11278#sytyzysjk)。
-
-## 附录3：无法连接实例问题
-若遇到无法连接实例相关问题，建议您使用 [一键连接检查工具](https://cloud.tencent.com/document/product/236/33206) 进行排查，根据检查报告提示，在 [解决无法连接实例问题](https://cloud.tencent.com/document/product/236/44754) 查找相应解决方案。
-
