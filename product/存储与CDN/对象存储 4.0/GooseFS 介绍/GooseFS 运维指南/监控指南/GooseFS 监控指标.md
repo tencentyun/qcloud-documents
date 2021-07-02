@@ -2,7 +2,7 @@
 
 Goosefs 监控指标记录了客户端、集群、Master 节点、 Worker 节点、进程的运行状态。
 
-1. 按照统计维度，监控指标可以分成以下4大类：
+1. 按照统计维度，监控指标可以分成以下四大类：
  - **Gauge**：记录一个事件的瞬时数值，该数值可增可减，一般用来反映系统运行状态。
  - **Meter**：统计事件频率，即固定时间周期内事件的发生次数，如每分钟、每5分钟，每15分钟内的请求数。
  - **Counter**：统计事件发生的总次数，与 Gauge 不同的点在于该数值只增不减，一般用来记录访问请求次数等数据。
@@ -11,7 +11,7 @@ Goosefs 监控指标记录了客户端、集群、Master 节点、 Worker 节点
 >!更多监控指标分类可参见 [Metrics Library 文档](https://metrics.dropwizard.io/3.1.0/getting-started)。GooseFS 目前提供的监控指标只有上述4种类型。
 >
 
-2. 按照数据采集来源，监控指标可以分为以下 2 大类：
+2. 按照数据采集来源，监控指标可以分为以下两大类：
  - **集群状态指标**：集群状态指标包括了 Cluster、Master 和 Worker 维度的监控数据，这些监控指标可以反应整个集群及集群下的每个节点的运行状态。这类指标的记录格式如下：
 ```plaintext
 Master.[metricName].[tag1].[tag2]...
@@ -55,7 +55,6 @@ Cluster 级别的监控指标列表如下：
 | Cluster.RootUfsCapacityTotal         | GAUGE        | Total capacity of the GooseFS root UFS in bytes              |
 | Cluster.RootUfsCapacityUsed          | GAUGE        | Used capacity of the GooseFS root UFS in bytes               |
 | Cluster.Workers                      | GAUGE        | Total number of active workers inside the cluster            |
-
 
 
 ## Master 监控指标
@@ -128,7 +127,6 @@ Master 监控指标有两大类，其一是默认指标，Master 运行过程中
 | Master.                      | TIMER        | The duration statistics of RPC calls exposed on leading master |
 
 
-
 ## Worker 监控指标
 
 Worker 监控指标有两大类，其一是默认指标，Worker 运行过程中会默认记录这些指标；其二是动态监控指标。默认的 Worker 监控指标如下：
@@ -170,13 +168,10 @@ Worker 监控指标有两大类，其一是默认指标，Worker 运行过程中
 
 动态监控指标如下：
 
-
-
 | **指标名称**               | **指标类型** | **指标描述**                                                 |
 | -------------------------- | ------------ | ------------------------------------------------------------ |
 | Worker.UfsSessionCount-Ufs | GAUGE        | The total number of currently opened UFS sessions to connect to the given |
 | Worker.                    | TIMER        | The duration statistics of RPC calls exposed on workers      |
-
 
 
 ## 客户端监控指标
@@ -225,7 +220,6 @@ Worker 监控指标有两大类，其一是默认指标，Worker 运行过程中
 | Client.CacheStorePutTimeout             | COUNTER      | Number of timeouts when writing new pages to page store.     |
 | Client.CacheStoreThreadsRejected        | COUNTER      | Number of rejection of I/O threads on submitting tasks to thread pool, likely due to unresponsive local file system. |
 | Client.CacheUnremovableFiles            | COUNTER      | Amount of bytes unusable managed by the client cache.        |
-
 
 
 ## 进程监控指标
