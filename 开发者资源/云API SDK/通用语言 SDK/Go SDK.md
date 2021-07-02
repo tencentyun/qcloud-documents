@@ -286,11 +286,11 @@ cpf.Debug = true
 ```
 import "crypto/tls"
 ...
-    client, _ := cvm.NewClient(credential, regions.Guangzhou, cpf)
-    tr := &http.Transport{
-        TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
-    }
-    client.WithHttpTransport(tr)
+      client, _ := cvm.NewClient(credential, regions.Guangzhou, cpf)
+      tr := &http.Transport{
+          TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+      }
+      client.WithHttpTransport(tr)
 ...
 ```
 
