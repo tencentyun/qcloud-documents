@@ -34,13 +34,13 @@ CosN Scheme 访问 GooseFS 特性，通过在客户端维持 GooseFS 路径和�
 
 ### 2. 环境配置
 
-1. 将 GooseFS 的客户端 jar 包（goosefs-1.0.0-client.jar）放入 share/hadoop/common/lib/ 目录下：
+i. 将 GooseFS 的客户端 jar 包（goosefs-1.0.0-client.jar）放入 share/hadoop/common/lib/ 目录下：
 ```plaintext
  cp goosefs-1.0.0-client.jar  hadoop/share/hadoop/common/lib/
 ```
  >! 配置变更和添加 jar 包，需同步到集群上所有节点。
  >
-2. 修改 Hadoop 配置文件 etc/hadoop/core-site.xml，指定 GooseFS 的实现类：
+ii. 修改 Hadoop 配置文件 etc/hadoop/core-site.xml，指定 GooseFS 的实现类：
 ```plaintext
 <property>
   <name>fs.AbstractFileSystem.gfs.impl</name>
@@ -51,15 +51,15 @@ CosN Scheme 访问 GooseFS 特性，通过在客户端维持 GooseFS 路径和�
   <value>com.qcloud.cos.goosefs.hadoop.FileSystem</value>
 </property>
 ```
-3. 执行如下 Hadoop 命令，检查是否能够通过 gfs:// Scheme 访问 GooseFS，其中 &lt;MASTER_IP> 为 Master 节点的 IP：
+iii. 执行如下 Hadoop 命令，检查是否能够通过 gfs:// Scheme 访问 GooseFS，其中 &lt;MASTER_IP> 为 Master 节点的 IP：
 ```plaintext
 hadoop fs -ls gfs://<MASTER_IP>:9200/
 ```
-4.将 GooseFS 的客户端 jar 包放到 Hive 的 auxlib 目录下，使得 Hive 能加载到 GooseFS Client 包：
+iv. 将 GooseFS 的客户端 jar 包放到 Hive 的 auxlib 目录下，使得 Hive 能加载到 GooseFS Client 包：
 ```plaintext
 cp goosefs-1.0.0-client.jar  hive/auxlib/
 ```
-5. 执行如下命令，创建 UFS Scheme 为 CosN 的 Namespace，并列出 Namespace。您可将该命令中的 examplebucket-1250000000 替换为你的 COS 存储桶，SecretId 和 SecretKey 替换为您的密钥信息：
+v. 执行如下命令，创建 UFS Scheme 为 CosN 的 Namespace，并列出 Namespace。您可将该命令中的 examplebucket-1250000000 替换为你的 COS 存储桶，SecretId 和 SecretKey 替换为您的密钥信息：
 ```plaintext
 goosefs ns create ml-100k cosn://examplebucket-1250000000/ml-100k  --secret fs.cosn.userinfo.secretId=SecretId --secret fs.cosn.userinfo.secretKey=SecretKey--attribute fs.cosn.bucket.region=ap-guangzhou --attribute fs.cosn.credentials.provider=org.apache.hadoop.fs.auth.SimpleCredentialProvider
 goosefs ns ls
@@ -107,7 +107,7 @@ LOCATION 'cosn://examplebucket-1250000000/ml-100k';
 select sum(age) from u_user_cosn;
 ```
 
-### 5. **修改 CosN 的实现为 GooseFS 的兼容实现**
+### 5. 修改 CosN 的实现为 GooseFS 的兼容实现
 
 修改 hadoop/etc/hadoop/core-site.xml：
 
