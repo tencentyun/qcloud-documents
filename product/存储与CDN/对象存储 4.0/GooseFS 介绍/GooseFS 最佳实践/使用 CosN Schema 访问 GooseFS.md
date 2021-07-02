@@ -9,6 +9,7 @@ CosN Schema 和 GooseFS Schema 的映射说明如下：
 ```plaintext
 cosn://examplebucket-1250000000/data/warehouse -> /warehouse/
 cosn://examplebucket-1250000000/data/warehouse/folder/test.txt ->/warehouse/folder/test.txt
+
 ```
 
 GooseFS 到 CosN 的路径映射关系如下：
@@ -20,6 +21,7 @@ GooseFS 到 CosN 的路径映射关系如下：
 ```
  
 CosN Scheme 访问 GooseFS 特性，通过在客户端维持 GooseFS 路径和底层文件系统 CosN 路径之间的映射关系，并将 CosN 路径的请求转换为 GooseFS 的请求。映射关系周期性刷新，您可以通过修改 GooseFS 配置文件 goosefs-site.properties 中的配置项 goosefs.client.namespace.refresh.interval 调整刷新间隔，默认值为 60s。
+
 
 >!如果访问的 CosN 路径无法转换为 GooseFS 路径，对应的 Hadoop API 调用会抛出异常。
 
@@ -40,7 +42,7 @@ CosN Scheme 访问 GooseFS 特性，通过在客户端维持 GooseFS 路径和�
 ```plaintext
  cp goosefs-1.0.0-client.jar  hadoop/share/hadoop/common/lib/
 ```
-   >!配置 jar 包的变更操作，需同步到集群上所有节点。
+>!配置 jar 包的变更操作，需同步到集群上所有节点。
 
 - 修改 Hadoop 配置文件 etc/hadoop/core-site.xml，指定 GooseFS 的实现类：
 

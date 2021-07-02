@@ -1,0 +1,50 @@
+﻿
+ 本文将为您介绍如何使用Skywalking 协议上报 Java 应用数据。
+
+<span id="before"></span>
+## 前提条件
+
+- 打开 [SkyWalking](https://archive.apache.org/dist/skywalking/8.5.0/)下载页面，下载 SkyWalking8.5.0 版本，并将解压后的 Agent 文件夹放至 Java 进程有访问权限的目录。
+
+- 插件均放置在 /plugins 目录中。在启动阶段将新的插件放进该目录，即可令插件生效。将插件从该目录删除，即可令其失效。另外，日志文件默认输出到/logs目录中。
+
+## 接入步骤
+
+### 步骤一：获取接入点和 Token
+在 [应用性能观测控制台](https://console.cloud.tencent.com/apm)>【应用监控】>【应用列表】，单击【添加应用】，在添加应用列 Java 语言与 SkyWalking 的数据采集方式。
+在探针部署步骤获取您的接入点和 Token，如下图所示：
+![](https://main.qcloudimg.com/raw/59b54bc48f1c114fd5b39057a3b8e1cb.png)
+
+
+### 步骤二：下载 Skywalking
+- 若您已经使用了 SkyWalking，可跳过本步骤。
+- 若您还未使用 SkyWalking，建议 [下载最新版本](http://skywalking.apache.org/downloads/?spm=a2c4g.11186623.2.12.65355968AbUoDc)，下载方式参考 [前提条件](#before)。
+
+### 步骤三：打开config/agent.config文件，配置接入点、 Token和自定义服务名称
+
+```
+collector.backend_service=<接入点>
+agent.authentication=<Token>
+agent.service_name=<上报的服务名称>
+```
+
+### 步骤四：根据应用的运行环境，选择相应的方法来指定SkyWalking Agent的路径
+
+ - Linux Tomcat 7/Tomcat 8
+   在 `tomcat/bin/catalina.sh`  第一行添加以下内容：
+
+```
+CATALINA_OPTS="$CATALINA_OPTS -javaagent:<skywalking-agent-path>"; export CATALINA_OPTS
+```
+
+- JAR File 或 Spring Boot
+  在应用程序的启动命令行中添加 -javaagent 参数，参数内容如下：
+
+```
+java -javaagent:<skywalking-agent-path> -jar yourApp.jar
+```
+
+### 步骤五：重新启动应用
+
+完成上述部署步骤后，根据 [Skywalking 官网指导](https://github.com/apache/skywalking/blob/v8.2.0/docs/en/setup/service-agent/java-agent/README.md#install-javaagent-faqs) 重新启动应用即可。
+
