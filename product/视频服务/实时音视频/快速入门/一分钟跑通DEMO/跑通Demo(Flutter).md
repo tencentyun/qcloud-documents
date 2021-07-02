@@ -28,7 +28,7 @@
 
 [](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+1. 根据实际业务需求下载 SDK 及配套的 [Demo](https://github.com/tencentyun/TRTCFlutterScenesDemo) 源码。
 2. 下载完成后，单击【已下载，下一步】。
 ![](https://main.qcloudimg.com/raw/161e5be8b3c148cae5c324e3ef8e3953.png)
 
