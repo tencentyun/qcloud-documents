@@ -30,33 +30,33 @@ curl <WORKER_IP>:<WOKER_PORT>/metrics/prometheus/
 
 1. 下载 Promethus 安装包并解压，修改 promethus.yml：
 <pre class="rno-code-pre"><code class="language-plaintext">
-	# prometheus.yml
-	global:
-		scrape_interval:     10s
-		evaluation_interval: 10s
-	scrape_configs:
-		- job_name: 'goosefs masters'
-			metrics_path: /metrics/prometheus
-			file_sd_configs:
-			- refresh_interval: 1m
-			files:
-			- "targets/cluster/masters/*.yml"
-		- job_name: 'goosefs workers'
-			metrics_path: /metrics/prometheus
-			file_sd_configs:
-			- refresh_interval: 1m
-			files:
-			- "targets/cluster/workers/*.yml"
+# prometheus.yml
+global:
+	scrape_interval:     10s
+	evaluation_interval: 10s
+scrape_configs:
+	- job_name: 'goosefs masters'
+		metrics_path: /metrics/prometheus
+		file_sd_configs:
+		- refresh_interval: 1m
+		files:
+		- "targets/cluster/masters/*.yml"
+	- job_name: 'goosefs workers'
+		metrics_path: /metrics/prometheus
+		file_sd_configs:
+		- refresh_interval: 1m
+		files:
+		- "targets/cluster/workers/*.yml"
 </code></pre>
 2. 创建 targets/cluster/masters/masters.yml，添加 master 的 IP 和 port：
 <pre class="rno-code-pre"><code class="language-plaintext">
-	- targets:
-		- "&lt;TARGERTS_MASTER_IP>:&lt;TARGERTS_MASTER_PORT>"
+ - targets:
+	- "&lt;TARGERTS_MASTER_IP>:&lt;TARGERTS_MASTER_PORT>"
 </code></pre>
 3. 创建 targets/cluster/workers/workers.yml，添加 worker 的 IP 和 port：
 <pre class="rno-code-pre"><code class="language-plaintext">
-	- targets:
-		- "&lt;TARGERTS_WORKER_IP>:&lt;TARGERTS_WORKER_PORT>"
+ - targets:
+	- "&lt;TARGERTS_WORKER_IP>:&lt;TARGERTS_WORKER_PORT>"
 </code></pre>
 4. 启动 Prometheus，其中 --web.listen-address 指定 Prometheus 监听地址，默认端口号 9090：
 <pre class="rno-code-pre"><code class="language-plaintext">
@@ -79,22 +79,22 @@ wget https://rig-1258344699.cos.ap-guangzhou.myqcloud.com/prometheus-agent/agent
 </code></pre>
 2. 配置 master 和 worker 的抓取任务：
 <pre class="rno-code-pre"><code class="language-plaintext">
-	job_name: goosefs-masters
-	honor_timestamps: true
-	metrics_path: /metrics/prometheus
-	scheme: http
-	file_sd_configs:
-	- files:
-		- /usr/local/services/prometheus/targets/cluster/masters/*.yml
-		refresh_interval: 1m
-	job_name: goosefs-workers
-	honor_timestamps: true
-	metrics_path: /metrics/prometheus
-	scheme: http
-	file_sd_configs:
-	- files:
-		- /usr/local/services/prometheus/targets/cluster/workers/*.yml
-		refresh_interval: 1m
+ job_name: goosefs-masters
+ honor_timestamps: true
+ metrics_path: /metrics/prometheus
+ scheme: http
+ file_sd_configs:
+ - files:
+	- /usr/local/services/prometheus/targets/cluster/masters/*.yml
+	refresh_interval: 1m
+job_name: goosefs-workers
+honor_timestamps: true
+metrics_path: /metrics/prometheus
+scheme: http
+file_sd_configs:
+ - files:
+	- /usr/local/services/prometheus/targets/cluster/workers/*.yml
+	refresh_interval: 1m
 </code></pre>
 
  >! job_name 中没有空格，而单机的 Prometheus 的 job_name 中可以包含空格。
