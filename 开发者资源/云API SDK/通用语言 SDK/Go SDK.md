@@ -5,7 +5,7 @@
 
 ## 依赖环境
 
-* Go 1.9 版本及以上（如使用go mod需要 Go 1.14），并设置好 GOPATH 等必须的环境变量。
+* Go 1.9 版本及以上（如使用 go mod 需要 Go 1.14），并设置好 GOPATH 等必须的环境变量。
 * 获取安全凭证。安全凭证包含 SecretId 及 SecretKey 两部分。SecretId 用于标识 API 调用者的身份，SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取，如下图所示：
 ![](https://main.qcloudimg.com/raw/f7a5f34f3957048ab31e7452ed9e8bee.png)
 >!**您的安全凭证代表您的账号身份和所拥有的权限，等同于您的登录密码，切勿泄露他人。**
