@@ -8,7 +8,6 @@
 + CVM1 和 CVM2 上部署了应用服务，应用服务会访问后端的云数据库服务 Rdeis 和 MySQL。
 
 **迁移要求**：业务平滑切换至私有网络。
-![](https://main.qcloudimg.com/raw/002cb87199d38ffa70edabd296b9c6f2.png)
 
 ### 迁移流程
 <dx-steps>
@@ -22,6 +21,7 @@
 
 ### 迁移步骤
 1. 参见 [创建私有网络](https://cloud.tencent.com/document/product/215/36515) 创建 VPC 网络环境。
+![](https://main.qcloudimg.com/raw/ef2cbed4956063a439b14fc469fbec59.png)
 2. 参见 [更换 MySQL 的网络](https://cloud.tencent.com/document/product/236/35671) 和 [更换 Redis 的网络](https://cloud.tencent.com/document/product/239/30910?from=10680#.E6.9B.B4.E6.8D.A2-redis-.E7.BD.91.E7.BB.9C) 切换数据库网络。
 >?云数据库在网络切换时连接不中断，且切换后同时保持原基础网络和私有网络 IP，可确保迁移过程中不停服。在原有基础网络的访问的最长保持时间内，请完成其他产品的迁移。
 >
