@@ -251,7 +251,6 @@ if (msgType.integerValue == 1) {
 
 #### 示例代码
 ```objective-c
-//获取 TPNS 生成的 Token
 [[XGPushTokenManager defaultTokenManager] xgTokenString];
 ```
 ![](https://main.qcloudimg.com/raw/f6ff84d3a50630bb4e8a0ab6fd090798.png)
