@@ -9,7 +9,7 @@ Go2sky 是 Golang 提供给开发者实现 SkyWalking agent 探针的包，可�
 ![](https://main.qcloudimg.com/raw/0508900d69104621f66092f34ffcb7d8.png)
 
 ### 步骤2：上报应用数据
-通过 Skywalking 协议上报 Go 应用数据
+通过 Skywalking 协议上报 Go 应用数据：
 1. 接入埋点。
 参见 [Go2Sky 文档](https://github.com/SkyAPM/go2sky)，自行对 Go 的跨服务调用埋点。 Go 语言应用在使用 Skywalking 上报数据时有一定改造成本，您需要改造少量业务代码以完成接入埋点。
 2. 修改上报配置。
