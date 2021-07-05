@@ -3,7 +3,7 @@
 **新增**
 
 - [deleteMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessage)，支持删除消息。
-- 同步会话列表时支持 `lastMessage` 为被撤回消息的情况
+- 同步会话列表时支持 `lastMessage` 为被撤回消息的情况。
 - [getGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMemberList) 支持拉取 `joinTime`（入群时间）。
 
 **修复**
