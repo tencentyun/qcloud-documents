@@ -27,7 +27,7 @@ agent.service_name=<上报的服务名称>
 ```
 
 ### 步骤4：选择相应方法指定插件路径
-根据应用的运行环境，选择相应的方法来指定 SkyWalking Agent 的路径
+根据应用的运行环境，选择相应的方法来指定 SkyWalking Agent 的路径。
  - Linux Tomcat 7/Tomcat 8
    在 `tomcat/bin/catalina.sh`  第一行添加以下内容：
 	<dx-codeblock>
