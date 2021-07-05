@@ -5,7 +5,7 @@ Go2sky 是 Golang 提供给开发者实现 SkyWalking agent 探针的包，可�
 
 ### 步骤1：获取接入点和 Token
 
-在 [【应用性能监控控制台】](https://console.cloud.tencent.com/apm/monitor/team)>【应用监控】>【应用列表】中，单击【接入服务】，选择 Go 语言与 Skywalking 的数据采集方式。您可在下方的获取接入点和 Token 中找到私网接入点与您的个人 Token。
+进入 [【应用性能监控控制台】](https://console.cloud.tencent.com/apm/monitor/team) >【应用监控】>【应用列表】页面，单击【接入服务】，选择 Go 语言与 Skywalking 的数据采集方式。您可在下方的获取接入点和 Token 中找到私网接入点与您的个人 Token。
 ![](https://main.qcloudimg.com/raw/0508900d69104621f66092f34ffcb7d8.png)
 
 ### 步骤2：通过 Skywalking 协议上报应用数据
