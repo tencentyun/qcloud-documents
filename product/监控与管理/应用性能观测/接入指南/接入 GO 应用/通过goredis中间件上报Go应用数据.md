@@ -1,4 +1,4 @@
-本文将为您介绍如何使用 gin Jaeger中间件上报Go应用数据
+本文将为您介绍如何使用 go redis 中间件上报Go应用数据
 
 ## 操作步骤
 
@@ -19,6 +19,7 @@
 </dx-codeblock>
 
 ### 步骤3：选择上报端类型上报应用数据
+选择上报端类型，通过 go redis 中间件上报 Go 应用数据：
 #### 客户端
 
 1. 引入 `opentracing-contrib/goredis` 埋点依赖。
