@@ -1,6 +1,6 @@
 ## 现象描述
-使用 VNC 登录云服务器时，输入正确的密码无法登录，并在稍后出现报错信息 “Hint：Caps Lock on”。如下图所示：
-![](https://main.qcloudimg.com/raw/345dfc1dbe0c44d8836c94b6637ef4b0.png)
+使用 VNC 登录云服务器时，输入正确的密码无法登录，会卡在如下图所示界面，稍后会再次提示需要输入账号。
+![](https://main.qcloudimg.com/raw/13b30f4ccfc97afd0e704e2e5c600047.png)
 且使用 SSH 远程登录时，会出现报错信息 “Permission denied,please try again.”。如下图所示：
 ![](https://main.qcloudimg.com/raw/db09e73d2a057fb8b297ffd31bf67b62.png)
 
