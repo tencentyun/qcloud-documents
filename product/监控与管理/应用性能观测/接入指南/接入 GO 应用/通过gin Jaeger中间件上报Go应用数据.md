@@ -19,7 +19,7 @@
 </dx-codeblock>
 
 ### 步骤3：选择上报端类型上报应用数据
-
+选择上报端类型，通过 gin Jaeger 中间件上报 Go 应用数据：
 #### 服务端
 1. 在服务端侧引入 `opentracing-contrib/go-gin` 依赖
  - 依赖路径： `github.com/opentracing-contrib/go-gin`
