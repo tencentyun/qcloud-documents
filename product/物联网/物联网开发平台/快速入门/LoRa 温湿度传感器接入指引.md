@@ -45,7 +45,8 @@
 - 第1字节：温度。
 - 第2字节：相对湿度。
 - 第3、4字节：表示上报周期（单位秒）。
-- 设备下行数据为2字节：上报周期（单位秒）。
+
+设备下行数据为2字节：上报周期（单位秒）。
 
 #### 数据解析脚本
 上行数据解析的脚本主函数为 RawToProtocol，其带有 fPort、bytes 两个入参：
@@ -116,13 +117,13 @@ function ProtocolToRaw(obj) {
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择上文 “控制台操作 LoRa 节点” 中对应的项目。
 2. 在左侧工具列表中，选择【网络管理】>【LoRa 网关管理】。
 3. 进入 LoRa 网关管理页面，选择【社区网络】>【添加网关】。
-![](https://main.qcloudimg.com/raw/92cf582c64511029e9d8086c28cba3e6.png)
+![](https://main.qcloudimg.com/raw/13aef97fa1e940e2e95cf839ee849c14.jpg)
 4. 在新建网关页面，填写网关基本信息。
     - 网关名称：本示例中填写 GW1。
     - GwEUI：为网关唯一 ID。本例中根据 ST NUCLEO LoRa GW 背部的 MAC 地址，将6字节 MAC 地址的中间补足 0xffff。  
 ![](https://main.qcloudimg.com/raw/4942c0663367a38f5ef090c62fcba5b3.png)
     - 是否公开：选择“是”，表示社区开发者可在社区网络查看该网关，并可通过这个网关进行 LoRa 节点接入；选择“否”，则仅用户自己能查看该网关。
-![](https://main.qcloudimg.com/raw/8fa4b51d45f3de44ba9bdde5262aaa05.png)
+![](https://main.qcloudimg.com/raw/db456fdbd41f0f667655eec4065f397a.jpg)
 5. 网关新建成功后，您可在网关列表页查看“GW1”。
 
 

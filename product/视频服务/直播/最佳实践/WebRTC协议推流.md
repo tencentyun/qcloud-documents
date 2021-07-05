@@ -18,7 +18,7 @@ TXLivePusher 推流 SDK 主要用于视频云的快直播（超低延迟直播�
 
 除此以外，浏览器采集音视频画面的功能在移动端支持较差，例如移动端浏览器不支持屏幕录制，iOS 14.3及以上版本才支持获取用户摄像头设备。因此推流 SDK 主要适用于桌面端浏览器，目前最新版本的 chrome、Firefox 和 Safari 浏览器都是支持快直播推流的。
 
-移动端建议使用 [移动直播 SDK](https://cloud.tencent.com/document/product/454/7879) 进行推流。
+移动端建议使用 [移动直播 SDK](https://cloud.tencent.com/document/product/454/56591) 进行推流。
 
 ## 对接攻略
 
@@ -78,6 +78,16 @@ livePusher.startMicrophone();
 ```javascript
 livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
 ```
+	>?推流之前要保证已经采集到了音视频流，否则推流接口会调用失败。如果要实现采集到音视频流之后自动推流，可以通过回调事件通知，当收到采集首帧成功的通知后，再进行推流。
+><dx-codeblock>
+::: javascript javascript
+livePusher.setObserver({
+  onCaptureFirstVideoFrame: function() {
+          livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
+  }
+});
+:::
+</dx-codeblock>
 6. **停止快直播推流**。
 ```javascript
 livePusher.stopPush();

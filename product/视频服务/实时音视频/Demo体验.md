@@ -31,12 +31,12 @@
 </div>
 </td>
 <td>
-<input type="button" value="视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/latest/official-demo/index.html')" /><br><br>
+<input type="button" value="视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html')" /><br><br>
 <input type="button" value="互动直播" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html')" />
 </td>
 <td>
-<a onclick="window.open('https://www.pgyer.com/KP03')" value="Flutter_ios_版">
-	<button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/6d4d839ef8050cd3839b86f98bd7c35f.png);background-size: cover;">
+<a onclick="window.open('https://www.pgyer.com/TtEk')" value="Flutter_ios_版">
+	<button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/a3b7ef0199988c33850eeeb186c8d26f.png);background-size: cover;">
 </button>
 </a>
 <br>

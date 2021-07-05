@@ -104,7 +104,7 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
  * @param debug 是否开启 debug 日志，true 为打开，false 为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  */
-MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp debug, timeout);
+MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp, debug, timeout);
 ```
 
 #### 自选加密方式（DesHttp, AesHttp, Https）
@@ -122,7 +122,7 @@ MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dns
  * @param channel 设置 channel，可选：DesHttp（默认）, AesHttp, Https
  * @param token 腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于 HTTPS 校验
  */
-MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp debug, timeout, channel, token);
+MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp, debug, timeout, channel, token);
 ```
 
 ### 接口调用
@@ -152,6 +152,36 @@ String ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
  * @return 域名对应的解析 IP 结果集合
  */
 Ipset ips = MSDKDnsResolver.getInstance().getAddrsByName(domain);
+
+
+//  异步回调，注意所有异步请求需配合异步回调使用
+MSDKDnsResolver.getInstance().setHttpDnsResponseObserver(new HttpDnsResponseObserver() {
+    @Override
+    public void onHttpDnsResponse(String tag, String domain, Object ipResultSemicolonSep) {
+        long elapse = (System.currentTimeMillis() - Long.parseLong(tag));
+        String lookedUpResult = "[[getAddrByNameAsync]]:ASYNC:::" + ipResultSemicolonSep +
+                ", domain:" + domain +  ", tag:" + tag +
+                ", elapse:" + elapse;
+    }
+});
+
+/**
+ * HTTPDNS 异步解析接口（需配合异步回调使用）
+ * 首先查询缓存，若存在则返回结果，若不存在则进行异步域名解析请求
+ * 解析完成会在异步回调返回最新解析结果
+ * @param domain 域名（如www.qq.com）
+ */
+MSDKDnsResolver.getInstance()
+    .getAddrByNameAsync(hostname, String.valueOf(System.currentTimeMillis()))
+
+/**
+ * HTTPDNS 异步解析接口（批量查询，需配合异步回调使用）
+ * 首先查询缓存，若存在则返回结果，若不存在则进行同步域名解析请求
+ * 解析完成会在异步回调返回最新解析结果
+ * @param domain 支持多域名，域名以“,”分割，例如：qq.com,baidu.com
+ */
+MSDKDnsResolver.getInstance()
+    .getAddrsByNameAsync(hostname, String.valueOf(System.currentTimeMillis()))
 ```
 
 ### 接入验证

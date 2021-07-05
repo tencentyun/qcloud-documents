@@ -4,8 +4,8 @@
 - 支持的数据库及版本请参见 [数据同步介绍](https://cloud.tencent.com/document/product/571/56513)。
 - 需要您在源端 MySQL 中创建迁移帐号，需要的帐号权限如下：
 ```sql
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO "迁移帐号"@"%" IDENTIFIED BY "迁移密码";
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO "迁移帐号"@"%";
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';
 FLUSH PRIVILEGES;
 ```
 
@@ -46,11 +46,11 @@ FLUSH PRIVILEGES;
 <tbody><tr>
 <td>计费模式</td><td>支持包年包月和按量计费。目前免费，将来开始计费前1个月会通过邮件和站内信方式提前通知用户</td></tr>
 <tr>
-<td>源实例类型</td><td>选择 MySQL（包括云数据库 MySQL 及自建 MySQL）或 TDSQL-C MySQL</td></tr>
+<td>源实例类型</td><td>选择 MySQL（包括云数据库 MySQL 及自建 MySQL）</td></tr>
 <tr>
 <td>源实例地域</td><td>选择源实例所在地域</td></tr>
 <tr>
-<td>目的实例类型</td><td>选择 MySQL（包括云数据库 MySQL 及自建 MySQL）或 TDSQL-C MySQL</td></tr>
+<td>目的实例类型</td><td>选择 MySQL（包括云数据库 MySQL 及自建 MySQL）</td></tr>
 <tr>
 <td>目的实例地域</td><td>选择目的实例所在地域</td></tr>
 <tr>

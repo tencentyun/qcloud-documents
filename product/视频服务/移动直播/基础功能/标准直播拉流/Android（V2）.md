@@ -15,7 +15,7 @@
 |HLS(m3u8) |手机浏览器支持度高 |延迟非常高 |10s - 30s |
 |WebRTC |延迟最低 |需集成 SDK 才能播放 |< 1s |
 
-
+>?标准直播与快直播计费价格不同，更多计费详情请参见 [标准直播计费](https://cloud.tencent.com/document/product/267/34175) 和 [快直播计费](https://cloud.tencent.com/document/product/267/39136)。
 
 
 ## 特别说明
@@ -192,10 +192,10 @@ mLivePlayer.setCacheParams(5.0f, 5.0f);
 <td>帧率（fps）</td>
 </tr><tr>
 <td>audioBitrate</td>
-<td>视频码率（Kbps）</td>
+<td>音频码率（Kbps）</td>
 </tr><tr>
 <td>videoBitrate</td>
-<td>音频码率（Kbps）</td>
+<td> 视频码率（Kbps）</td>
 </tr></table>
 - [onPlayoutVolumeUpdate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#a57fc000bf5e935f7253fa94e1750359e) 播放器音量大小回调。这个回调仅当您调用 [enableVolumeEvaluation](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayer__android.html#aaa893a96eff34a7ba660441f7597d6d8) 开启播放音量大小提示之后才会工作。回调的时间间隔也会与您在设置 `enableVolumeEvaluation` 的参数 `intervalMs` 保持一致。
 

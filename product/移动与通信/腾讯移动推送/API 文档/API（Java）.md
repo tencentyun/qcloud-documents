@@ -256,3 +256,15 @@ ret_code 含义可参考 [服务端错误码](https://cloud.tencent.com/document
 
 #### 接口返回错误码1008007，参数校验失败如何解决？
 请参考 [推送示例](https://cloud.tencent.com/document/product/548/39064#ios-.E5.8D.95.E8.AE.BE.E5.A4.87.E6.8E.A8.E9.80.81.E8.AF.B7.E6.B1.82.E6.B6.88.E6.81.AF)，检查参数填写是否缺失或字段类型填写有误。
+
+#### 是否有其它开发语言的 SDK ？
+更多服务端 SDK 可前往 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面获取。
+
+#### 推送接口返回`Peer certificate cannot be authenticated with given CA certificates`，如何解决？
+
+此问题原因是ca证书过期，进入证书目录，通过 openssl 命令进行查看到期时间：
+
+```
+# openssl x509 -in signed.crt -noout -dates
+```
+`signed.crt` 修改为您自己服务端上的证书名称。

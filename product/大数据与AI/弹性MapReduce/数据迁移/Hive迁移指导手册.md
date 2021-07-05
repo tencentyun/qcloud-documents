@@ -62,7 +62,7 @@ mysql> SELECT DB_LOCATION_URI from DBS;
     <value>hdfs://HDFS2648</value>  
 </property> 
 ```
-`/usr/hive/warehouse` 为 Hive 表在 HDFS 中的默认存储路径，也是 `hive-site.xml` 中`hive.metastore.warehouse.dir` 指定的值。所以我们需要修改源 hive 元数据 sql 文件中的 SDS.LOCATION 和 DBS.DB_LOCATION_URI 两个字段。确保被导入的 Hive 元数据库中的这两个字段使用的是正确的路径。可使用如下 sed 命令批量修改 sql 文件。
+`/usr/hive/warehouse` 为 Hive 表在 HDFS 中的默认存储路径，也是 `hive-site.xml` 中 `hive.metastore.warehouse.dir` 指定的值。所以我们需要修改源 hive 元数据 sql 文件中的 SDS.LOCATION 和 DBS.DB_LOCATION_URI 两个字段。确保被导入的 Hive 元数据库中的这两个字段使用的是正确的路径。可使用如下 sed 命令批量修改 sql 文件。
 ```
 替换ip：sed -i 's/oldcluster-ip:4007/newcluster-ip:4007/g' hivemetastore-src.sql  
 替换defaultFS：sed -i 's/old-defaultFS/new-defaultFS/g' hivemetastore-src.sql  
@@ -95,7 +95,7 @@ mysql -hX.X.X.X -uroot -pXXXX hivemetastore < hivemetastore-src.sql
 ```
 hive --service version 
 ```
-hive 的升级脚本存放在`/usr/local/service/hive/scripts/metastore/upgrade/mysql/`目录下。
+hive 的升级脚本存放在 `/usr/local/service/hive/scripts/metastore/upgrade/mysql/` 目录下。
 hive 不支持跨版本升级，例如 hive 从1.2升级到2.3.0需要依次执行：
 ```
 upgrade-1.2.0-to-2.0.0.mysql.sql -> upgrade-2.0.0-to-2.1.0.mysql.sql -> upgrade-2.1.0-to-2.2.0.mysql.sql -> upgrade-2.2.0-to-2.3.0.mysql.sql
@@ -128,5 +128,3 @@ mysql> UPDATE TABLE_PARAMS set PARAM_VALUE  = '172.17.64.98,172.17.64.112,172.17
 ```
 10. 启动目标 Hive 服务 MetaStore、HiveServer2、WebHcataLog。
 11. 最后可通过简单的 Hive sql 查询进行验证。
-
- 

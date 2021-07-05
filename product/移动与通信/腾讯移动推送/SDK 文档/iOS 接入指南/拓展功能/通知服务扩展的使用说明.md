@@ -41,7 +41,7 @@ end
 3. 在 SDK 下载管理页面，选择 iOS 平台 ，单击【下载】。
 4. 解压缩 SDK 包，并依次打开 demo > sdk > XGPushStatistics > extension 目录，获取 `XGExtension.h` 及 `libXGExtension.a` 文件。
 5. 将获取到的 `XGExtension.h`及 `libXGExtension.a` 文件添加至通知扩展 Target：
- - 添加系统库：libz.tbd, libsqlite3.tbd
+ - 添加系统库：libz.tbd
  - TPNS 扩展库：libXGExtension.a
 
 集成后的目录结构如下：
