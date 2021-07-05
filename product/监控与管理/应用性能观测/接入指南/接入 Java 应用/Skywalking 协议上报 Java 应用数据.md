@@ -2,13 +2,13 @@
 
 ## 前提条件[](id:before)
 
-- 打开 [SkyWalking](https://archive.apache.org/dist/skywalking/8.5.0/)下载页面，下载 SkyWalking8.5.0 版本，并将解压后的 Agent 文件夹放至 Java 进程有访问权限的目录。
+- 打开 [SkyWalking](https://archive.apache.org/dist/skywalking/8.5.0/) 下载页面，下载 SkyWalking8.5.0 版本，并将解压后的 Agent 文件夹放至 Java 进程有访问权限的目录。
 - 插件均放置在 /plugins 目录中。在启动阶段将新的插件放进该目录，即可令插件生效。将插件从该目录删除，即可令其失效。另外，日志文件默认输出到 /logs 目录中。
 
 ## 接入步骤
 
 ### 步骤1：获取接入点和 Token
-进入 [应用性能观测控制台](https://console.cloud.tencent.com/apm) >【应用监控】>【应用列表】页面，单击【添加应用】，在添加应用列 Java 语言与 SkyWalking 的数据采集方式。
+进入 [应用性能观测控制台](https://console.cloud.tencent.com/apm)【应用监控】>【应用列表】页面，单击【添加应用】，在添加应用列 Java 语言与 SkyWalking 的数据采集方式。
 在探针部署步骤获取您的接入点和 Token，如下图所示：
 ![](https://main.qcloudimg.com/raw/3eeb686b483976a44046a24a7e9aa1f4.png)
 
@@ -18,7 +18,7 @@
 - 若您还未使用 SkyWalking，建议 [下载最新版本](http://skywalking.apache.org/downloads/?spm=a2c4g.11186623.2.12.65355968AbUoDc)，下载方式参见 [前提条件](#before)。
 
 ### 步骤3：配置相应参数及名称
-打开config/agent.config文件，配置接入点、 Token和自定义服务名称
+打开 config/agent.config 文件，配置接入点、 Token 和自定义服务名称
 
 ```
 collector.backend_service=<接入点>
