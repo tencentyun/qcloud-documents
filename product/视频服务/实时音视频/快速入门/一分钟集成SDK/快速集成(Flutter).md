@@ -67,7 +67,7 @@ dependencies:
 :::
 
 ::: Windows\s端
-1. 启用 windows 支持：`flutter config --enable-windows-desktop`。
+1. 启用 Windows 支持：`flutter config --enable-windows-desktop`。
 2. `flutter run -d windows`。
 :::
 </dx-tabs>
