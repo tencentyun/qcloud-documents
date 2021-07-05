@@ -6,7 +6,7 @@
 
 进入 [应用性能观测控制台](https://console.cloud.tencent.com/apm) >【应用监控】>【应用列表】，单击【添加应用】页面，在添加应用列 GO 语言与 gin Jaeger 中间组件的数据采集方式。
 在探针部署步骤获取您的接入点和 Token，如下图所示：
-![](https://main.qcloudimg.com/raw/59b54bc48f1c114fd5b39057a3b8e1cb.png)
+![](https://main.qcloudimg.com/raw/13bce6f706d121ccb5d1b097b5869034.png)
 
 ### 步骤2：安装 Jaeger Agent
 
