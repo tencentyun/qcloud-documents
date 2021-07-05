@@ -1,44 +1,43 @@
-﻿
 本文将为您介绍如何使用 Jaeger 原始SDK上报 Go 应用数据。
+
 ## 操作步骤
-### 步骤一：获取接入点和Token
+### 步骤1：获取接入点和 Token
 
 在 [应用性能观测控制台](https://console.cloud.tencent.com/apm)>【应用监控】>【应用列表】，单击【添加应用】，在添加应用列 GO 语言与 Jaeger 原始 SDK 的数据采集方式。
 在探针部署步骤获取您的接入点和 Token，如下图所示：
-![](https://main.qcloudimg.com/raw/59b54bc48f1c114fd5b39057a3b8e1cb.png)
+![](https://main.qcloudimg.com/raw/143fbe0facdf33390e122f25b44b1fe8.png)
 
-### 步骤二：安装 Jaeger Agent
+### 步骤2：安装 Jaeger Agent
 
-1.下载 [Jaeger Agent](https://github.com/jaegertracing/jaeger/releases/tag/v1.22.0)。
+1. 下载 [Jaeger Agent](https://github.com/jaegertracing/jaeger/releases/tag/v1.22.0)。
 2. 执行下列命令启动 Agent 。
-
-```
+<dx-codeblock>
+:::  shell
  shell nohup ./jaeger-agent --reporter.grpc.host-port={{collectorRPCHostPort}} --jaeger.tags=token={{token}}
-```
+:::
+</dx-codeblock>
 
-### 步骤三：通过 Jaeger 原始 SDK 上报数据
+### 步骤3：通过 Jaeger 原始 SDK 上报数据
 
-1.客户端侧由于需要模拟HTTP请求，引入opentracing-contrib/go-stdlib/nethttp依赖
-
-- 依赖路径：github.com/opentracing-contrib/go-stdlib/nethttp
-- 版本要求： >= v1.0.0
-
-2.配置 jaeger，创建Trace对象。示例如下：
-
-```
+1. 客户端侧由于需要模拟 HTTP 请求，引入 `opentracing-contrib/go-stdlib/nethttp` 依赖
+- 依赖路径：`github.com/opentracing-contrib/go-stdlib/nethttp`
+- 版本要求： ≥ `dv1.0.0`
+2. 配置 Jaeger，创建 Trace 对象。示例如下：
+<dx-codeblock>
+:::  GO
 tracer, _ := trace.NewJaegerTracer(clientServerName)
-```
-
-3.构建 span 并把 span 放入 conext 中，示例如下：
-
-```
+:::
+</dx-codeblock>
+3. 构建 span 并把 span 放入 conext 中，示例如下：
+<dx-codeblock>
+:::  GO
 span := tracer.StartSpan("CallDemoServer") //构建span
 ctx := opentracing.ContextWithSpan(context.Background(), span) //将span的引用放入conext中
-```
-
-4.构建带 tracer 的 Request 请求，示例如下：
-
-```
+:::
+</dx-codeblock>
+4. 构建带 tracer 的 Request 请求，示例如下：
+<dx-codeblock>
+:::  GO
 //构建http的请求
 req, err := http.NewRequest(
 		http.MethodGet,
@@ -48,23 +47,22 @@ req, err := http.NewRequest(
 req = req.WithContext(ctx)
 //构建带tracer的请求
 req, ht := nethttp.TraceRequest(tracer, req)
-```
-
-
-5.发起HTTP请求，并获得返回结果。
-
-```
+:::
+</dx-codeblock>
+5. 发起 HTTP 请求，并获得返回结果。
+<dx-codeblock>
+:::  GO
 httpClient := &http.Client{Transport: &nethttp.Transport{}} //初始化http客户端
 res, err := httpClient.Do(req)
 //..省略err判断
 body, err := ioutil.ReadAll(res.Body)
 //..省略err判断
 log.Printf(" %s recevice: %s\n", clientServerName, string(body))
-```
-
+:::
+</dx-codeblock>
 完整代码如下：
-
-```
+<dx-codeblock>
+:::  GO
 package gindemo
 
 import (
@@ -122,6 +120,5 @@ func StartClient() {
 	}
 	log.Printf(" %s recevice: %s\n", clientServerName, string(body))
 }
-
-
-```
+:::
+</dx-codeblock>
