@@ -408,7 +408,7 @@ TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主�
 <table>
 <tr><th>日期</th><th>版本</th><th>更新内容</th>
 </tr><tr>
-<td>2020.06.25</td>
+<td>2021.06.25</td>
 <td>2.4.1</td>
 <td><li>新增支持 v1 信令的 WebRTC 的流地址。</li><li>增加 webrtcConfig 参数。</li><li>增加 WebRTC 卡顿、卡顿结束、推流结束事件。</li></td>
 </tr><tr>

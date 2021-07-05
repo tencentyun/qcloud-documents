@@ -142,7 +142,7 @@ Files 数组中每一项为 JSON Object，如下：
 ```
 如下图所示：    
 ![](https://main.qcloudimg.com/raw/16eb02ddacdfd704364fad85a2edf7e0.png)
-3. 请求发送后会收到异步函数响应 “Async run task submitted”，此函数的 RequstId 会通过 HTTP 头部信息中的 x-scf-reqid 返回。如下图所示：
+3. 请求发送后会收到异步函数响应 “Async run task submitted”，此函数的 RequestId 会通过 HTTP 头部信息中的 x-scf-reqid 返回。如下图所示：
 ![](https://main.qcloudimg.com/raw/2659951b64f7bd81fe29bdd700fa6590.png)
 4. 在云函数控制台【[函数服务](https://console.cloud.tencent.com/scf/list)】页面中，单击上述 [创建云函数](#step01) 步骤中创建的云函数名称，进入“函数详情”页面。
 5. 在“函数详情”页面中选择【日志查询】页签，可以查看到打印出的录制日志信息。如下图所示：

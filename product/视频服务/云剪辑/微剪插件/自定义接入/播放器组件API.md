@@ -44,7 +44,7 @@
 | allowSetVolumn       | Boolean  | false                                                        | 是否需要调整视频原声音量                                     | 否   |
 | enableTapPause       | Boolean  | false                                                        | 是否启用点击暂停                                             | 否   |
 | enablePauseIcon      | Boolean  | true                                                         | 是否显示暂停按钮                                             | 否   |
-| enableClipEdit      | Boolean  | true                                                         | 是否启用编辑控件，编辑控件详见 [编辑控件](#Plugin)                        | 否   |
+| enableClipEdit      | Boolean  | true                                                         | 是否启用编辑控件，编辑控件请参见 [编辑控件](#Plugin)                        | 否   |
 | preloadFilter        | Boolean  | true                                                         | 是否启用滤镜预加载                                           | 否   |
 | preloadFilterKeys    | Array    | ['key1', 'key2']                                             | 需要提前加载的滤镜                                           | 否   |
 | filters(1.7.0版本废弃，使用initPlugin方法统一注入)     | Array    | [{<br />key: 'lujing',<br />name: '滤镜'<br />src: 'wxfile://xxxxx'<br />}] | 定制化 effect 列表                                           | 否   |
@@ -62,8 +62,9 @@
 | bindtexttouchstart   | Function | -                                                            | 文字开始触摸(v1.4.0后废弃)                                   | 否   |
 | bindtexttouchend     | Function | -                                                            | 文字触摸结束(v1.4.0后废弃)                                   | 否   |
 | bindtexttouchmove    | Function | -                                                            | 文字移动(v1.4.0后废弃)                                       | 否   |
-| bindclipedit    | Function | 详见 [编辑控件](#Plugin)                                                     |clip 位移、旋转、缩放                                   | 否   |
-| bindclipoperation   | Function | 详见 [编辑控件](#Plugin)                                                     |编辑控件按钮点击                                 | 否   |
+| bindclipedit    | Function | 请参见 [编辑控件](#Plugin)                                                     |clip 位移、旋转、缩放                                   | 否   |
+| bindclipoperation   | Function | 请参见 [编辑控件](#Plugin)                                                     |编辑控件按钮点击                                 | 否   |
+| bindmaskedit | Function | |蒙版参数变化回调，请参见 [蒙版控件](#Mask)|否|
 
 ### 方法说明
 
@@ -87,18 +88,20 @@
 | downloadEffect| String（特效 key 值）| -       | 异步方法，预下载 alpha 类型特效的资源       |
 | setCoverImage| -| -       | 异步方法，设置封面（seek 到您需要截取封面的位置再调用此方法）       |
 | getCoverImage| -| Object (path, width, height)       | 获取封面信息，如果没有先 setCoverImage，则自动获取第一帧的画面       |
+| showMaskControl | - | - | 播放器进入蒙版编辑状态，请参见 [蒙版控件](#Mask) |
+| hideMaskControl | - | - | 播放器关闭蒙版编辑状态，请参见 [蒙版控件](#Mask) |
 
 播放器围绕 Tracks 和 Clips 进行视频渲染， 前文数据结构详细介绍了 Tracks 和 Clips 直接的关系。接下来，我们一起来看一下如何对播放器进行渲染。
 
 >?
 >- 定制滤镜目前只支持 LUT 图滤镜，由于小程序下载文件的限制，LUT 图需要先 downloadFile 到本地。
 >- 定制特效需要传入特效的片元着色器，详情见 [自定义特效和滤镜](https://cloud.tencent.com/document/product/1156/48621)。
->- v1.4.0之后支持贴纸渲染，贴纸和文字的位移和缩放，详见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440) 和 [编辑控件](#Plugin)。
+>- v1.4.0之后支持贴纸渲染，贴纸和文字的位移和缩放，请参见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440) 和 [编辑控件](#Plugin)。
 
 
 
-
-### 编辑控件[](id:Plugin)
+[](id:Plugin)
+### 编辑控件
 微剪播放器内置了编辑控件支持贴纸、文字等元素的位移、缩放和旋转。
 - 贴纸和文字类型的 Clip 内置编辑控件的支持，单击即可激活。
 - 控件有四个按钮：删除（左上角），修改（右上角），缩放旋转（右下角）和编辑时间段（左下角）。其中缩放旋转为播放器内部完全实现的功能，其余三个按钮只提供回调函数，供开发者自行定制功能交互。
@@ -114,7 +117,7 @@
 	bindclipedit="handleClipEdit"
 ><wj-player>
 ```
-2. 编写回调函数
+2. 编写回调函数：
 <dx-codeblock>
 ::: javascript javascript
 Page({
@@ -153,13 +156,13 @@ Page({
 </dx-codeblock>
 
 ##### 点击其他按钮
-1. 绑定事件回调
+1. 绑定事件回调：
 ```
 <wj-player
 	bindclipoperation="handleClipOperation"
 ><wj-player>
 ```
-2. 处理回调数据
+2. 处理回调数据：
 <dx-codeblock>
 ::: javascript javascript
 handleClipOperation(e) {
@@ -222,3 +225,63 @@ let editableImage = new global['wj-types'].Clip({
 ```
 
 >! 主轨道的视图元素不要开启 editable 功能，否则会导致渲染异常。
+
+[](id:Mask)
+### 蒙版控件
+v2.1.0 微剪新增蒙版功能，播放器内置蒙版编辑功能。内置蒙版如下：
+
+| 蒙版 | key |
+| -- | -- |
+| 线性蒙版 | linear |
+| 镜面蒙版 | mirror |
+| 圆形蒙版 | circle |
+| 矩形蒙版 | rect   |
+| 星形蒙版 | star   |
+| 爱心蒙版 | heart  |
+
+#### 使用 
+1. 给某个Clip添加蒙版类型的`operation`
+```
+let clip = ...
+clip.operations = [
+  {
+    {
+          // 蒙版类型, v2.1.0新增
+          key: "mirror",  // key为效果的唯一标识
+          type: "mask", // 标记操作类型
+          id: "my-mask-operation", // id
+        }
+  }
+]
+```
+更新数据到播放器，蒙版即生效。
+
+2. 开启播放器的蒙版编辑
+需要编辑蒙版的情况下，调用，即可在播放器内编辑蒙版。
+```
+this.player.showMaskControl()
+```
+蒙版变化后会由回调返回，用户可以接收修改后的蒙版参数并更新到对应`operation`的`params`中。
+wxml:
+```
+<wj-player
+  bindmaskedit="handleMaskEdit"
+>
+</wj-player>
+
+```
+
+js:
+```
+Component({
+  handleMaskEdit(e) {
+    let {clipId, trackId, params} = e.detail
+    // 找到对应的clip更新operation.params
+  }
+})
+```
+3. 关闭播放器的蒙版编辑
+需要编辑蒙版的情况下，调用，即可在播放器内编辑蒙版。
+```
+this.player.hideMaskControl()
+```

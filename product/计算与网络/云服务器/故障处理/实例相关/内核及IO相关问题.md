@@ -2,10 +2,31 @@
 
 ## 内核问题定位及处理
 
-### 内核 hung_task/panic/软死锁
-**故障现象**：内核相关故障，可能导致机器无法登录或异常重启
-**可能原因**：内核 bug 等原因导致。
-**处理步骤**：内核相关问题排查及处理步骤较复杂，建议 [提交工单](https://console.cloud.tencent.com/workorder/category) 进一步定位及处理。
+### 故障现象
+内核相关故障，可能导致机器无法登录或异常重启
+
+### 可能原因
+#### 内核 hung_task
+hung task 机制通过内核线程 khungtaskd 实现，khungtaskd 监控 TASK_UNINTERRUPTIBLE 状态的进程。如果在 `kernel.hung_task_timeout_secs`（默认120秒）周期内一直处于 D 状态，则会打印 hung task 进程的堆栈信息。
+
+如果配置 `kernel.hung_task_panic=1`，则会触发内核 panic 重启机器。
+
+
+
+#### 内核软死锁 soft lockup
+soft lockup 指 CPU 被内核代码占据以至于无法执行其他进程。检测 soft lockup 的原理是给每个 CPU 分配一个定时执行的内核线程 [watchdog/x]，如果该线程在一定周期内（默认为`2*kernel.watchdog_thresh`，3.10内核 `kernel.watchdog_thresh` 默认为10秒）没有得到执行，则表明发生了 soft lockup。
+
+如果配置了 `kernel.softlockup_panic=1`，则会触发内核 panic 重启机器。
+
+
+#### 内核 panic
+内核异常 crash 导致机器异常重启，常见的内核 panic 场景如下：
+- 内核出现了 hung_task 且配置了 `kernel.hung_task_panic=1`。
+- 内核出现了软死锁 soft lockup 且配置了 `kernel.softlockup_panic=1`。
+- 触发了内核 bug。
+
+### 处理步骤
+内核相关问题排查及处理步骤较复杂，建议 [提交工单](https://console.cloud.tencent.com/workorder/category) 进一步定位及处理。
 
 
 ## 硬盘问题定位及处理
