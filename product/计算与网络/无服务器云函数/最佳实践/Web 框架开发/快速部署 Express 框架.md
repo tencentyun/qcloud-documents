@@ -1,61 +1,59 @@
-## 操作场景
-本文档指导您如何通过 Web 函数，快速迁移本地的 Express 服务上云。
+本篇文档将为您指导，如何通过 Web Function，将您的本地 Express 项目快速部署到云端。
 
+### 模版部署 -- 一键部署 Express 项目
+1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的【函数服务】。
+2. 在主界面上方选择期望创建函数的地域，并单击【新建】，进入函数创建流程。
 
-## 前提条件
-- 在使用腾讯云容器服务之前，您需要 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F) 并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
-- 本地已安装 Nodejs 环境，请参见 [官方文档](https://nodejs.org/zh-cn/download/)。
+3. 选择使用【模版创建】来新建函数，在搜索框里筛选 `WebFunc`，筛选所有 Web 函数模版，选择 `Express 框架模版`，点击“下一步”。如下图所示：
+![](https://main.qcloudimg.com/raw/10cb2b9714ee259475f1b67813a53570.png)
+4. 在“配置”页面，您可以查看模版项目的具体配置信息并进行修改。
+5. 单击【完成】，即可创建函数。
+函数创建完成后，您可在“函数管理”页面，查看 Web 函数的基本信息，并通过 API 网关生成的访问路径 URL 进行访问，查看您部署的 Express 项目
+![](https://main.qcloudimg.com/raw/d17b4eed35144ba019429a114601cb9a.png)
 
-## 操作步骤
-
-### 本地开发
-
-#### 初始化 Express 项目（可选）
-本地执行以下命令，快速创建一个 Express 项目。项目详情请参见 [Expressjs 项目官方文档](https://expressjs.com/en/starter/generator.html)。
+### 自定义部署 -- 快速迁移本地项目上云
+#### 本地开发
+1. 首先，在确保您的本地已安装 Node.js 运行环境后，安装 Express 框架和express-generator 脚手架，初始化您的 Express 示例项目
 ```shell
-npx express-generator
+npm install express --save
+npm install express-generator --save
+express WebApp
 ```
- 如果您的本地已有项目，可跳过此步骤。
- 
-#### 安装依赖包
-执行以下命令，进入您的项目目录，并安装相关依赖包。
-```shell
-cd <Project-Folder>
+
+2. 进入项目目录，安装依赖包
+```
+cd WebApp
 npm install
 ```
 
-#### 本地运行项目
-- 对于 MacOS or Linux 环境，执行以下命令：
+3. 安装完成后，本地直接启动，在浏览器里访问 `http://localhost:3000`，即可在本地完成Express 示例项目的访问
 ```
-DEBUG=myapp:* npm start
-```
-- 对于 Windows 环境，执行以下命令：
-```
-set DEBUG=myapp:* & npm start
+npm start
 ```
 
-运行后，访问 http://localhost:3000/ ，即可在本地查看您的项目。
+#### 部署上云
 
-### 云端部署
-1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏的【函数服务】。
-2. 在主界面上方选择期望创建函数的地域，并单击【新建】，进入函数创建流程。
-3. 在“新建函数”页面，选择【自定义创建】，并填写函数基础配置。
- - **函数类型**：选择 “Web 函数”。
- - **函数名称**：填写您自己的函数名称。
- - **地域**：填写您的函数部署地域，默认为广州。
- - **运行环境**：选择 “Nodejs 12.16”。
- - **部署方式**：选择“代码部署”，上传您的本地项目。
- <dx-alert infotype="notice" title="">
-上传本地项目前，您需要将项目中的监听端口改为`9000`，否则函数无法正常运行。
-</dx-alert>
-4. 在"高级配置"中，配置启动命令文件。您可以选择 SCF 为您提供的默认 Express 框架模版，也可以基于您的实际项目情况，编写您自己的启动命令。
-5. 在"触发器配置"中，触发器目前只支持 API 网关触发，将自动按照默认配置创建触发器。
-6. 单击【完成】，即可创建函数。
+接下来，我们对已初始化的项目进行简单修改，使其可以通过 Web Function 快速部署，此处项目改造通常分为两步：
 
+- 修改监听地址与端口，改为 `0.0.0.0:9000`
+- 新增 `scf_bootstrap` 启动文件
 
+具体步骤如下：
+1. 已知在 Express 示例项目中，通过 `./bin/www` 设置监听地址与端口，打开该文件可以发现，我们可以通过环境变量，设置指定监听端口，否则将自动监听 `3000`
+![](https://main.qcloudimg.com/raw/a32fd560e9a6e58e6a1f6a46356324e6.png)
+2. 接下来，在项目根目录下新建 `scf_bootstrap` 启动文件，在里面配置环境变量，并指定服务启动命令
+```shell
+#!/bin/bash
+export PORT=9000
+npm run start
+```
+创建完成后，注意修改您的可执行文件权限，默认需要 `777` 或 `755` 权限才可以正常启动
+```
+chmod 777 scf_bootstrap
+```
+3. 本地配置完成后，执行启动文件，确保您的服务可以本地正常启动，接下来，登陆腾讯云云函数控制台，新建 Web 函数以部署您的 Express 项目：
+![](https://main.qcloudimg.com/raw/a4535e25ce752c3e78fd23e60a6c4744.png)
 
-
-### 函数管理
-
-函数创建完成后，您可在“函数管理”页面，查看函数的基本信息，并通过 API 网关生成的访问路径 URL 进行访问。
-
+#### 开发管理
+部署完成后，即可在 SCF 控制台快速访问并测试您的 Web 服务，并且体验云函数多项特色功能如层绑定、日志管理等，享受 Serverless 架构带来的低成本、弹性扩缩容等优势。
+![](https://main.qcloudimg.com/raw/2fe04528bf2e33c04ffea558d423ffa1.png)
