@@ -13,9 +13,9 @@
 单击下载 [Jaeger Client](https://github.com/jaegertracing/jaeger-client-cpp?spm=a2c63.p38356.879954.9.4e9d6e24pPRWHz)。
 
 
-###  步骤3：通过 Jaeger 协议上报 C++ 应用数据
-
-1. 配置 jaeger，创建 Trace 对象，示例如下：
+###  步骤3：上报 C++ 应用数据
+通过 Jaeger 协议上报 C++ 应用数据：
+1. 配置 Jaeger，创建 Trace 对象，示例如下：
 <dx-codeblock>
 :::  c ++
 void setUpTracer(const char* configFilePath)
