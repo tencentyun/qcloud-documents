@@ -2,7 +2,7 @@
 ## 操作场景
 本文档将指导您在证书管理控制台申请证书或新增域名资料时，并且域名验证方式为自动 DNS 验证，如何进行域名验证操作。
 
->!自动 DNS 验证方式仅支持自动审核的国际标准证书。详情请参见 [支持自动审核的国际标准证书](https://cloud.tencent.com/document/product/400/52953#certificate)。
+>!自动 DNS 验证方式仅支持多年期的国际标准证书。详情请参见 [支持多年期的国际标准证书](https://cloud.tencent.com/document/product/400/52953#multiyear)。
 >
 
 ## 操作步骤
