@@ -1,5 +1,4 @@
-﻿
-Go2sky 是 Golang 提供给开发者实现 SkyWalking agent 探针的包，可以通过它来实现向 SkyWalking Collector上报数据。本文将为您介绍如何使用 Skywalking 协议上报Go应用数据
+Go2sky 是 Golang 提供给开发者实现 SkyWalking agent 探针的包，可以通过它来实现向 SkyWalking Collector上报数据。本文将为您介绍如何使用 Skywalking 协议上报 Go 应用数据。
 
 
 ## 操作流程
@@ -7,40 +6,37 @@ Go2sky 是 Golang 提供给开发者实现 SkyWalking agent 探针的包，可�
 ### 步骤一：获取接入点和 Token
 
 在 [【应用性能监控控制台】](https://console.cloud.tencent.com/apm/monitor/team)>【应用监控】>【应用列表】中，单击【接入服务】，选择 Go 语言与 Skywalking 的数据采集方式。您可在下方的获取接入点和 Token 中找到私网接入点与您的个人 Token。
-![](https://main.qcloudimg.com/raw/a339ba8cdec88dafd695972bbd9303af.png)
+![](https://main.qcloudimg.com/raw/0508900d69104621f66092f34ffcb7d8.png)
 
 ### 步骤二：通过 Skywalking 协议上报Go应用数据
 
-1.接入埋点
-
-参考 [Go2Sky 文档](https://github.com/SkyAPM/go2sky)，自行对 Go 的跨服务调用埋点。 Go 语言应用在使用 Skywalking 上报数据时有一定改造成本，您需要改造少量业务代码以完成接入埋点。
-
-2.修改上报配置
-
+1. 接入埋点。
+参见 [Go2Sky 文档](https://github.com/SkyAPM/go2sky)，自行对 Go 的跨服务调用埋点。 Go 语言应用在使用 Skywalking 上报数据时有一定改造成本，您需要改造少量业务代码以完成接入埋点。
+2. 修改上报配置。
 将 reporter 的 serverAddr 修改为 APM 的接入点，将 reporter 的 auth 修改为 Token。
+3. 重启服务，开始上报数据。
+4. 接入验证。
 
-3.重启服务，开始上报数据
-
-4.接入验证
-
-向应用发送请求，在收到响应后，在应用性能监控控制台查看调用数据。 您可以在1分钟内通过【链路追踪】>>【[调用查询](https://console.cloud.tencent.com/apm/monitor/span)】查找调用详情。监控曲线与统计数据将在1分钟后开始正常显示。
+向应用发送请求，在收到响应后，在应用性能监控控制台查看调用数据。 您可以在1分钟内通过【链路追踪】>【[调用查询](https://console.cloud.tencent.com/apm/monitor/span)】查找调用详情。监控曲线与统计数据将在1分钟后开始正常显示。
 
 ## Go2Sky 改造示例
 
 以下是基于 Go2Sky 的 Demo 改造示例，您可根据实际情况进行修改。
 
-1. 在 NewGRPCReporter 的时设置上报地址和 Authentication（上报地址与 Token 的获取方式参考 [步骤1](https://git.woa.com/taw/go-skywalking-taw-simple-demo/blob/master/README.md#step1)）。
-
-```
+1. 在 NewGRPCReporter 的时设置上报地址和 Authentication（上报地址与 Token 的获取方式参见 [步骤1](https://git.woa.com/taw/go-skywalking-taw-simple-demo/blob/master/README.md#step1)）。
+<dx-codeblock>
+:::  go
 report, err = reporter.NewGRPCReporter(
 "ap-guangzhou.tencentservicewatcher.com:11800",
 reporter.WithAuthentication("tsw_site@xxxxxxxxxx"))
-```
-> !请根据控制台给出的私网接入点和 Token 进行改造。
-
-2.进行 Server 端配置，Demo 如下：
-
-```go
+:::
+</dx-codeblock>
+<dx-alert infotype="notice" title="">
+请根据控制台给出的私网接入点和 Token 进行改造。
+</dx-alert>
+2. 进行 Server 端配置，Demo 如下：
+<dx-codeblock>
+:::  go
 package main
 import (
 "flag"
@@ -79,8 +75,8 @@ var err error
 */
 report, err = reporter.NewGRPCReporter(
 oapServer,
-reporter.WithAuthentication("c944279f910baee6d2e102817270696f"))
-//c944279f910baee6d2e102817270696f 需替换成您的 Token
+reporter.WithAuthentication("c944279f910baee6d2e1028172xxxxxx"))
+//c944279f910baee6d2e1028172xxxxxx 需替换成您的 Token
 //report, err = reporter.NewLogReporter()
 if err != nil {
 log.Fatalf("crate grpc reporter error: %v \n", err)
@@ -98,4 +94,5 @@ log.Fatalf("crate tracer error: %v \n", err)
 
 gin.SetMode(gin.ReleaseMode)
 r := gin.New()
-```
+:::
+</dx-codeblock>
