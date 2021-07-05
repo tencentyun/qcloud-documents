@@ -145,6 +145,7 @@ this.TRTC.createPusher({'frontCamera': 'back'})
 | userID   | String | -      | 必填，您进房的 userID                                        |
 | userSig  | String | -      | 必填，您服务器签发的 userSig                                 |
 | roomID   | Number | -      | 必填，您要进入的房间号，如该房间不存在，系统会为您自动创建   |
+| strRoomID   | String | -      | 选填，您要进入的字符串房间号，如填写该参数，将优先进入字符串房间   |
 | scene    | String | 'rtc'  | 选填，必填参数，使用场景：<li>rtc：实时通话，采用优质线路，同一房间中的人数不应超过300人。</li><li>live：直播模式，采用混合线路，支持单一房间十万人在线（同时上麦的人数应控制在50人以内）</li> |
 
 >! 
