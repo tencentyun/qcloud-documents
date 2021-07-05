@@ -17,8 +17,8 @@
 :::
 </dx-codeblock>
 
-### 步骤3：通过 Jaeger 原始 SDK 上报数据
-
+### 步骤3：上报数据
+通过 Jaeger 原始 SDK 上报数据：
 1. 客户端侧由于需要模拟 HTTP 请求，引入 `opentracing-contrib/go-stdlib/nethttp` 依赖
  - 依赖路径：`github.com/opentracing-contrib/go-stdlib/nethttp`
  - 版本要求： ≥ `dv1.0.0`
