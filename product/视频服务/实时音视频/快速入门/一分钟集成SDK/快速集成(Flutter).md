@@ -66,7 +66,7 @@ dependencies:
 ![图示](https://main.qcloudimg.com/raw/7a37917112831488423c1744f370c883.png)
 :::
 
-::: windows\s端
+::: Windows\s端
 1. 启用 windows 支持：`flutter config --enable-windows-desktop`。
 2. `flutter run -d windows`。
 :::
