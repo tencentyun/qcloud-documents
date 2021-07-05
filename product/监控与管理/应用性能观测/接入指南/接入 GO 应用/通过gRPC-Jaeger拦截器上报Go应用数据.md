@@ -1,32 +1,31 @@
-﻿本文将为您介绍如何使用 gRPC-Jaeger 拦截器上报 Go 应用数据。
+本文将为您介绍如何使用 gRPC-Jaeger 拦截器上报 Go 应用数据。
 
 ## 操作步骤
 
-### 步骤一：获取接入点和Token
+### 步骤1：获取接入点和Token
 
 在 [应用性能观测控制台](https://console.cloud.tencent.com/apm)>【应用监控】>【应用列表】，单击【添加应用】，在添加应用列 GO 语言与 gRPC-Jaeger 的数据采集方式。
 在探针部署步骤获取您的接入点和 Token，如下图所示：
-![](https://main.qcloudimg.com/raw/59b54bc48f1c114fd5b39057a3b8e1cb.png)
+![](https://main.qcloudimg.com/raw/3a12a1104285f98fd1366d0c71f27846.png)
 
-### 步骤二：安装 Jaeger Agent
+### 步骤2：安装 Jaeger Agent
 
-1.下载 [Jaeger Agent](https://github.com/jaegertracing/jaeger/releases/tag/v1.22.0)。
-2.执行下列命令启动 Agent 。
-
-```
+1. 下载 [Jaeger Agent](https://github.com/jaegertracing/jaeger/releases/tag/v1.22.0)。
+2. 执行下列命令启动 Agent 。
+<dx-codeblock>
+:::  shell
  shell nohup ./jaeger-agent --reporter.grpc.host-port={{collectorRPCHostPort}} --jaeger.tags=token={{token}}
-```
+:::
+</dx-codeblock>
 
-
-### 步骤三：选择上报端类型，通过  gRPC-Jaeger 拦截器上报 Go 应用数据
+### 步骤3：选择上报端类型上报应用数据
 #### 服务端
-1.在服务端侧引入 opentracing-contrib/go-grpc 埋点依赖。
-- 依赖路径： github.com/opentracing-contrib/go-grpc
-- 版本要求： >= v0.0.0-20210225150812-73cb765af46e
-
-2.配置 jaeger，创建Trace对象。示例如下：
-
-```
+1. 在服务端侧引入 `opentracing-contrib/go-grpc` 埋点依赖。
+ - 依赖路径： `github.com/opentracing-contrib/go-grpc`
+ - 版本要求： ≥ `v0.0.0-20210225150812-73cb765af46e`
+2. 配置 Jaeger，创建 Trace 对象。示例如下：
+<dx-codeblock>
+:::  Go
 tracer, closer := trace.NewJaegerTracer("demo-service")
 	cfg := &jaegerConfig.Configuration{
 		ServiceName: clientServiceName,    //对其发起请求的的调用链，服务名称
@@ -42,26 +41,27 @@ tracer, closer := trace.NewJaegerTracer("demo-service")
 	}
 
 tracer, closer, err := cfg.NewTracer(jaegerConfig.Logger(jaeger.StdLogger)) //根据配置得到tracer
-```
-
-3.配置拦截器。
-
-```
+:::
+</dx-codeblock>
+3. 配置拦截器。
+<dx-codeblock>
+:::  shell
 s := grpc.NewServer(grpc.UnaryInterceptor(otgrpc.OpenTracingServerInterceptor(tracer)))
-```
-
-4.启动 Server 服务。
-```
+:::
+</dx-codeblock>
+4. 启动 Server 服务。
+<dx-codeblock>
+:::  Go
 // 在gRPC服务器处注册我们的服务
 pb.RegisterHelloTraceServer(s, &server{})
 if err := s.Serve(lis); err != nil {
    log.Fatalf("failed to serve: %v", err)
 }
-```
-
+:::
+</dx-codeblock>
 完整代码如下：
-
-```
+<dx-codeblock>
+:::  Go
 package grpcdemo
 
 import (
@@ -107,35 +107,32 @@ func StartServer() {
 		log.Fatalf("failed to serve: %v", err)
 	}
 }
-```
+:::
+</dx-codeblock>
 
 #### 客户端
 
-1.客户端侧由于需要模拟HTTP请求，引入opentracing-contrib/go-stdlib/nethttp依赖
-
-- 依赖路径：github.com/opentracing-contrib/go-stdlib/nethttp
-- 版本要求： >= v1.0.0
-
-2.配置 jaeger，创建Trace对象。
-
-```
+1. 客户端侧由于需要模拟 HTTP 请求，引入 `opentracing-contrib/go-stdlib/nethttp` 依赖
+ - 依赖路径：`github.com/opentracing-contrib/go-stdlib/nethttp`
+ - 版本要求： ≥ `v1.0.0`
+2. 配置 Jaeger，创建 Trace 对象。
+<dx-codeblock>
+:::  shell
 tracer, closer := trace.NewJaegerTracer(clientServiceName)
-```
-
-3.建立连接，配置拦截器。
-
-```
+:::
+</dx-codeblock>
+3. 建立连接，配置拦截器。
+<dx-codeblock>
+:::  Go
 // 向服务端建立连接，配置拦截器
 conn, err := grpc.Dial(serverAddress, grpc.WithInsecure(), grpc.WithBlock(),
 		grpc.WithUnaryInterceptor(otgrpc.OpenTracingClientInterceptor(tracer)))
-```
-
-4.进行 gRPC 调用，验证是否接入成功。
-
-
+:::
+</dx-codeblock>
+4. 进行 gRPC 调用，验证是否接入成功。
 完整代码如下：
-
-```
+<dx-codeblock>
+:::  Go
 package grpcdemo
 
 import (
@@ -179,5 +176,6 @@ func StartClient() {
 	log.Printf("RPC Client receive: %s", r.GetMessage())
 }
 
-```
+:::
+</dx-codeblock>
 
