@@ -2,7 +2,7 @@
 
 ## 操作步骤
 
-### 步骤1：获取接入点和Token
+### 步骤1：获取接入点和 Token
 
 进入 [应用性能观测控制台](https://console.cloud.tencent.com/apm) >【应用监控】>【应用列表】页面，单击【添加应用】，在添加应用列 GO 语言与 gRPC-Jaeger 的数据采集方式。
 在探针部署步骤获取您的接入点和 Token，如下图所示：
@@ -19,6 +19,7 @@
 </dx-codeblock>
 
 ### 步骤3：选择上报端类型上报应用数据
+选择上报端类型，通过  gRPC-Jaeger 拦截器上报 Go 应用数据：
 #### 服务端
 1. 在服务端侧引入 `opentracing-contrib/go-grpc` 埋点依赖。
  - 依赖路径： `github.com/opentracing-contrib/go-grpc`
