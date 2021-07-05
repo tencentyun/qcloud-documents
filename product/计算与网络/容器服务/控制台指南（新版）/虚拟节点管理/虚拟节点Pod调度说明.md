@@ -144,7 +144,7 @@ metadata:
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/retain-ip</td>
-<td>Pod 固定 IP，value 填写 <code>"true"</code> 开启此特性，开启特性的 Pod ，当 Pod 被销毁后，默认会保留这个 Pod 的IP 24小时。24小时内 Pod 重建，还能使用该IP。24小时以后，该IP有可能被其他pod抢占。</td>
+<td>Pod 固定 IP，value 填写 <code>"true"</code> 开启此特性，开启特性的 Pod ，当 Pod 被销毁后，默认会保留这个 Pod 的 IP 24小时。24小时内 Pod 重建，还能使用该 IP。24小时以后，该IP有可能被其他 Pod 抢占。</td>
 <td>否</td>
 </tr>
 <tr>
