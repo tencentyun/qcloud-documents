@@ -5,7 +5,7 @@
 ## 前提条件
 
 为了通过下面的步骤快速理解该业务场景，需要做好以下准备工作：
-- 申请 [物联网开发平台服务](https://console.cloud.tencent.com/iotexplorer)，详情请参见 [购买指南](https://cloud.tencent.com/document/product/1081/34731)。
+- 申请 [物联网开发平台服务](https://console.cloud.tencent.com/iotexplorer)，详情请参见 [购买指南](https://cloud.tencent.com/document/product/1081/51938)。
 - 准备 TencentOS-tiny 官方 EVB_MX_Plus 开发板以及一个 ESP8266 Wi-Fi 模组。
 
 ## 控制台操作
