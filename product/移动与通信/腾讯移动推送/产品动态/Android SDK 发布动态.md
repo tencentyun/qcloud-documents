@@ -1,5 +1,6 @@
 
 ## 2021年07月
+
 <table>
 	<tr>
 		<th width=20%>动态名称</th>
@@ -14,12 +15,13 @@
 <li>  优化：优化日活，启动上报
 <li>  优化：SDK 日志放置在隐藏目录下
 <li>  优化：默认关闭联合保活，如需开启请参考 Android 常见问题文档
-		<li>  修复：修复 ipv6 请求失败</td>
+		<li>  修复：修复 IPv6 请求失败</td>
         <td>2021-07-06</td><td>
-<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</li></li></td>
+<a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></td>
     </tr>
 <tr>
 </table>
+
 ## 2021年05月
 
 <table>
