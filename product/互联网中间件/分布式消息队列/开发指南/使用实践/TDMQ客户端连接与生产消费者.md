@@ -144,7 +144,7 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class ConsumerService implements Runnable {
 
-    //从配置文件中获取serviceURL接入地址、Token密钥、Topic全名和Subscription名称（均可从控制台复制）
+    //从配置文件中获取 serviceURL 接入地址、Token 密钥、Topic 全名和 Subscription 名称（均可从控制台复制）
     @Value("${tdmq.serviceUrl}")
     private String serviceUrl;
     @Value("${tdmq.token}")
