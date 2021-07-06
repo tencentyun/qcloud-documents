@@ -20,9 +20,9 @@ API 监控为您提供 HTTP Code 成功率、API 请求耗时等调用情况监�
 ![](https://main.qcloudimg.com/raw/467ce76fb4c9fdddb2d64ca877755dec.png)
 
 ###  TOP 视图
-- API 请求 TOP 视图。按接口耗时排序展示 API 请求情况，最多可展示 1000个 API。
-- HTTP Status Code 40x TOP 视图：按 HTTP Status Code 40x 错误数排序展示，最多可展示 1000个 API。
-- HTTP Status Code 50x TOP 视图：按 HTTP Status Code 50x 错误数排序展示，最多可展示 1000个 API。
+- API 请求 TOP 视图。按接口耗时排序展示 API 请求情况，最多可展示1000个 API。
+- HTTP Status Code 40x TOP 视图：按 HTTP Status Code 40x 错误数排序展示，最多可展示1000个 API。
+- HTTP Status Code 50x TOP 视图：按 HTTP Status Code 50x 错误数排序展示，最多可展示1000个 API。
 ![](https://main.qcloudimg.com/raw/5c2419b94cebd5d61e0a1252bd9de8af.png)
 
 #### 网络/平台视图
