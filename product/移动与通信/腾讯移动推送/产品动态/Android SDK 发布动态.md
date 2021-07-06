@@ -16,8 +16,9 @@
 <li>  优化：SDK 日志放置在隐藏目录下
 <li>  优化：默认关闭联合保活，如需开启请参考 Android 常见问题文档
 		<li>  修复：修复 IPv6 请求失败</td>
-        <td>2021-07-06</td><td>
-<a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></td>
+        <td>2021-07-06</td><td><li>
+<a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
+<li><a href="https://cloud.tencent.com/document/product/548/36674">Android 常见问题</a></li></td>
     </tr>
 <tr>
 </table>
