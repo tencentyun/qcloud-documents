@@ -12,21 +12,21 @@ CREATE TABLE `Data-Input` (
     `id` bigint,
     `request_method` varchar(80),
     `response` varchar(80),
-    PRIMARY KEY (`id`) NOT ENFORCED -- 如果想做到数据去重的操作，则需要指定PK，按照主键来区分不同的数据
+    PRIMARY KEY (`id`) NOT ENFORCED	-- 如果想做到数据去重的操作，则需要指定PK，按照主键来区分不同的数据
 ) WITH (
-	'connector' = 'cmq', 					    -- 必须为 'cmq'
-    'hosts' = 'http://cmq-nameserver-vpc-gz.api.tencentyun.com',    -- cmq所在地域的nameServer
-    'queue' = 'queue_name',					    -- cmq的队列名
-    'secret-id' = 'xxxx',			                    -- 账号secretId
-    'secret-key' = 'xxxx',                                          -- 账号secretKey
-    'sign-method' = 'HmacSHA1',                                     -- 签名的方式
-    'format' = 'json',                                              -- 定义数据格式（JSON 格式）
-    'json.fail-on-missing-field' = 'false',                         -- 如果设置为 false, 则遇到缺失字段不会报错。
-    'json.ignore-parse-errors' = 'true'                             -- 如果设置为 true，则忽略任何解析报错。
-    'batch-size' = '16',                                            -- 批量消费消息的个数
-    'request-timeout' = '5000ms',                                   -- 请求的超时时间
-    'polling-wait-timeout'= '10s',                                  -- 获取不到数据情况下的等待时间
-    'key-alive-timeout'= '5min'                                     -- 含primary key的消息，CMQ去重的有效时间
+	'connector' = 'cmq',			-- 必须为 'cmq'
+    'hosts' = 'http://cmq-nameserver-vpc-gz.api.tencentyun.com',	-- cmq所在地域的nameServer
+    'queue' = 'queue_name',			-- cmq的队列名
+    'secret-id' = 'xxxx',			-- 账号secretId
+    'secret-key' = 'xxxx',          -- 账号secretKey
+    'sign-method' = 'HmacSHA1',     -- 签名的方式
+    'format' = 'json',              -- 定义数据格式（JSON 格式）
+    'json.fail-on-missing-field' = 'false',	-- 如果设置为 false, 则遇到缺失字段不会报错。
+    'json.ignore-parse-errors' = 'true'   	-- 如果设置为 true，则忽略任何解析报错。
+    'batch-size' = '16',            -- 批量消费消息的个数
+    'request-timeout' = '5000ms',  	-- 请求的超时时间
+    'polling-wait-timeout'= '10s', 	-- 获取不到数据情况下的等待时间
+    'key-alive-timeout'= '5min'    	-- 含primary key的消息，CMQ去重的有效时间
 );
 ```
 
@@ -39,17 +39,17 @@ CREATE TABLE `Data-Input` (
     `response` varchar(80),
     PRIMARY KEY (`id`) NOT ENFORCED -- 如果想做到数据去重的操作，则需要指定PK，按照这个主键来区分不同的数据
 ) WITH (
-	'connector' = 'cmq', 					    -- 必须为 'cmq'
-    'hosts' = 'http://cmq-nameserver-vpc-gz.api.tencentyun.com',    -- cmq所在地域的nameServer
-    'queue' = 'queue_name',					    -- cmq的队列名
-    'secret-id' = 'xxxx',			                    -- 账号secretId
-    'secret-key' = 'xxxx',                                          -- 账号secretKey
-    'sign-method' = 'HmacSHA1',                                     -- 签名的方式
-    'format' = 'csv',                                               -- 定义数据格式（CSV 格式）
-    'batch-size' = '16',                                            -- 批量消费消息的个数/批量发送消息的个数
-    'request-timeout' = '5000ms',                                   -- 请求的超时时间
-    'polling-wait-timeout'= '10s',                                  -- 获取不到数据情况下的等待时间
-    'key-alive-timeout'= '5min'                                     -- 含primary key的消息，CMQ去重的有效时间
+	'connector' = 'cmq', 			-- 必须为 'cmq'
+    'hosts' = 'http://cmq-nameserver-vpc-gz.api.tencentyun.com',	-- cmq所在地域的nameServer
+    'queue' = 'queue_name',			-- cmq的队列名
+    'secret-id' = 'xxxx',			-- 账号secretId
+    'secret-key' = 'xxxx',          -- 账号secretKey
+    'sign-method' = 'HmacSHA1',     -- 签名的方式
+    'format' = 'csv',               -- 定义数据格式（CSV 格式）
+    'batch-size' = '16',            -- 批量消费消息的个数/批量发送消息的个数
+    'request-timeout' = '5000ms',   -- 请求的超时时间
+    'polling-wait-timeout'= '10s',  -- 获取不到数据情况下的等待时间
+    'key-alive-timeout'= '5min'     -- 含primary key的消息，CMQ去重的有效时间
 );
 ```
 
@@ -63,19 +63,19 @@ CREATE TABLE `Data-Input` (
     `request_method` varchar(80),
     `response` varchar(80)
 ) WITH (
-	'connector' = 'cmq', 					    -- 必须为 'cmq'
+	'connector' = 'cmq', 						-- 必须为 'cmq'
     'hosts' = 'http://cmq-nameserver-vpc-gz.api.tencentyun.com',    -- cmq所在地域的nameServer
-    'queue' = 'queue_name',					    -- cmq的队列名
-    'secret-id' = 'xxxx',			                    -- 账号secretId
-    'secret-key' = 'xxxx',                                          -- 账号secretKey
-    'sign-method' = 'HmacSHA1',                                     -- 签名的方式
-    'format' = 'json',                                              -- 定义数据格式（JSON 格式）
-    'json.fail-on-missing-field' = 'false',                         -- 如果设置为 false, 则遇到缺失字段不会报错。
-    'json.ignore-parse-errors' = 'true'                             -- 如果设置为 true，则忽略任何解析报错。
-    'batch-size' = '16',                                            -- 批量发送消息的个数
-    'request-timeout' = '5000ms',                                   -- 请求的超时时间
-    'retry-times' = '3',                                            -- 发送消息的重试次数
-    'max-block-timeout' = '0s'                                      -- 批量发送数据的最大等待时间
+    'queue' = 'queue_name',						-- cmq的队列名
+    'secret-id' = 'xxxx',						-- 账号secretId
+    'secret-key' = 'xxxx',         				-- 账号secretKey
+    'sign-method' = 'HmacSHA1',     			-- 签名的方式
+    'format' = 'json',             				-- 定义数据格式（JSON 格式）
+    'json.fail-on-missing-field' = 'false',		-- 如果设置为 false, 则遇到缺失字段不会报错。
+    'json.ignore-parse-errors' = 'true'         -- 如果设置为 true，则忽略任何解析报错。
+    'batch-size' = '16',                        -- 批量发送消息的个数
+    'request-timeout' = '5000ms',               -- 请求的超时时间
+    'retry-times' = '3',                        -- 发送消息的重试次数
+    'max-block-timeout' = '0s'                  -- 批量发送数据的最大等待时间
 );
 ```
 
@@ -90,14 +90,14 @@ CREATE TABLE `Data-Input` (
 	'connector' = 'cmq', 					    -- 必须为 'cmq'
     'hosts' = 'http://cmq-nameserver-vpc-gz.api.tencentyun.com',    -- cmq所在地域的nameServer
     'queue' = 'queue_name',					    -- cmq的队列名
-    'secret-id' = 'xxxx',			                    -- 账号secretId
-    'secret-key' = 'xxxx',                                          -- 账号secretKey
-    'sign-method' = 'HmacSHA1',                                     -- 签名的方式
-    'format' = 'csv',                                               -- 定义数据格式（CSV 格式）
-    'batch-size' = '16',                                            -- 批量发送消息的个数
-    'request-timeout' = '5000ms',                                   -- 请求的超时时间
-    'retry-times' = '3',                                            -- 发送消息的重试次数
-    'max-block-timeout' = '0s'                                      -- 批量发送数据的最大等待时间
+    'secret-id' = 'xxxx',			            -- 账号secretId
+    'secret-key' = 'xxxx',                      -- 账号secretKey
+    'sign-method' = 'HmacSHA1',                 -- 签名的方式
+    'format' = 'csv',                           -- 定义数据格式（CSV 格式）
+    'batch-size' = '16',                       	-- 批量发送消息的个数
+    'request-timeout' = '5000ms',               -- 请求的超时时间
+    'retry-times' = '3',                        -- 发送消息的重试次数
+    'max-block-timeout' = '0s'                  -- 批量发送数据的最大等待时间
 );
 ```
 
