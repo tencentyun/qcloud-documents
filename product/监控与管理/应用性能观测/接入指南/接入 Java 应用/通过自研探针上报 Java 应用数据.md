@@ -20,19 +20,16 @@
 unzip tapm-agent-java-x.x.x.zip -d /path/to/appserver/
 ```
 >?“`/path/to/appserver`” 为示例路径，请用户根据自身不同的环境修改正确的目录。
-
 2. 修改解压 tapm 目录下的 tapm.properties 文件。
 需修改文件中的 license_key、app_name 和 collector.addresses 两个配置项，否则探针无法进行数据采集也无法启动探针。其他配置项，可根据实际需要进行配置。
 	- **license_key**：填写在 [应用性能观测控制台](https://console.cloud.tencent.com/apm) 接入应用时获取的 token。与您的应用性能观测账号关联。探针采集到的数据，会上传到该 LicenseKey 绑定的账号下。
 	- **app_name**：自定义应用名称，建议配置为应用的业务名称。
 	- **collector.addresses**：填写在 [应用性能观测控制台](https://console.cloud.tencent.com/apm) 接入应用时获取的接入点。例如 tapm.ap-guangzhou.api.tencentyun.com:80。
-
 3. 在 tapm 目录下执行以下命令自动安装探针。
 ```plaintext
 cd /path/to/appserver/tapm
 java -jar tapm-agent-java.jar install
 ```
-
 4. 启动或重启应用服务器。
 5. 登录应用性能观测控制台查看性能数据。
 重启5分钟后，当您的 Java 应用服务有 HTTP 请求进入，性能数据将发送到应用性能观测系统。
@@ -41,7 +38,7 @@ java -jar tapm-agent-java.jar install
 :::
 ::: Windows
 
-1.  打开 tapm-agent-java-x.x.x.zip。
+1.  打开 `tapm-agent-java-x.x.x.zip`。
 
 2.  拷贝 tapm 目录到您的应用服务器的根目录。
 
@@ -67,7 +64,7 @@ java -jar tapm-agent-java.jar install
 
 >?如果在几分钟之内，无任何应用性能数据，请确保以下信息是否正确：
 > - 请按照以上步骤重新查看是否安装正确、目录是否正确、启动脚本是否正确。
-> - 请检查 tapm.properties 中的 license_key 是否与您在应用性能观测控制台的 token 一致。
+> - 请检查 `tapm.properties` 中的 `license_key` 是否与您在应用性能观测控制台的 token 一致。
 
 
 
