@@ -5,7 +5,7 @@
 
 进入 [应用性能观测控制台](https://console.cloud.tencent.com/apm)【应用监控】>【应用列表】页面，单击【接入应用】，在添加应用列 GO 语言与 Jaeger 原始 SDK 的数据采集方式。
 在选择接入方式步骤获取您的接入点和 Token，如下图所示：
-![](https://main.qcloudimg.com/raw/143fbe0facdf33390e122f25b44b1fe8.png)
+![](https://main.qcloudimg.com/raw/d7d94913947d31edf70e85c6462c6bac.png)
 
 ### 步骤2：安装 Jaeger Agent
 
