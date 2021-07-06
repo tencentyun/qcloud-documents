@@ -17,14 +17,13 @@ API 监控为您提供 HTTP Code 成功率、API 请求耗时等调用情况监�
 
 ### 页面分析
 该页面展示各页面接口平均耗时情况。
-![](https://main.qcloudimg.com/raw/83aca4b6b1a9f02a0fb71935cd83ba3c.png)
+![](https://main.qcloudimg.com/raw/467ce76fb4c9fdddb2d64ca877755dec.png)
 
 ###  TOP 视图
 - API 请求 TOP 视图。按接口耗时排序展示 API 请求情况，最多可展示 1000个 API。
 - HTTP Status Code 40x TOP 视图：按 HTTP Status Code 40x 错误数排序展示，最多可展示 1000个 API。
 - HTTP Status Code 50x TOP 视图：按 HTTP Status Code 50x 错误数排序展示，最多可展示 1000个 API。
-
-![](https://main.qcloudimg.com/raw/3dd39b6203e70c73c297c150a7a7310d.png)
+![](https://main.qcloudimg.com/raw/5c2419b94cebd5d61e0a1252bd9de8af.png)
 
 #### 网络/平台视图
 - 您可以将鼠标悬浮在饼图中或在右侧的列表中查看详细数据。
@@ -39,7 +38,7 @@ API 监控为您提供 HTTP Code 成功率、API 请求耗时等调用情况监�
 ### ISP 视图
 - 您可以将鼠标悬浮在饼图中或在右侧的列表中查看详细数据。
 - 单击上方的图例可取消或展示对应的数据。
-![](https://main.qcloudimg.com/raw/8d3c9224317d6eb1c2a4089e4025887b.png)
+![](https://main.qcloudimg.com/raw/ba7ec19072ff21d992ce8ff5da82dd75.png)
 
 ### 地区视图
 - 您可以将鼠标悬浮在地图中或在右侧的列表中查看详细数据。
