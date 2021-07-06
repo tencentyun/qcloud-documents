@@ -59,7 +59,7 @@ $ goosefs ns create myNamespace cosn://bucketName-1250000000/3TB \
 同理，也可以创建一个命名空间 namespace 用于挂载腾讯云 HDFS：
 ```shell
 goosefs ns create MyNamespaceCHDFS ofs://xxxxx-xxxx.chdfs.ap-guangzhou.myqcloud.com/3TB \
---attribute fs.user.appid=1250000000
+--attribute fs.ofs.user.appid=1250000000
 --attribute fs.ofs.tmp.cache.dir=/tmp/chdfs
 ```
 2. 创建成功后，可以通过 `list` 命令列出集群中创建的所有 namespace：
