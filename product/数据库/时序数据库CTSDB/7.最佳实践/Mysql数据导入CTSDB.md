@@ -100,7 +100,7 @@ go-mysql-elasticsearch 是一款开源的高性能的 MySQL 数据同步 Elastic
 	# force flush the pending requests if we don't have enough items >= bulk_size
 	flush_bulk_time = "200ms"
 	# Ignore table without primary key
-	skip_no_pk_table = true  # 这里需要注意，go-mysql-elasticsearch会
+	skip_no_pk_table = true
 	# MySQL data source
 	[[source]]
 	schema = "mysql_es"
@@ -128,9 +128,9 @@ go-mysql-elasticsearch 是一款开源的高性能的 MySQL 数据同步 Elastic
     2018/05/31 21:43:44 INFO  save position (mysql-bin.000002, 194296)
 ```
 
-这里需要注意 ，由于 go-mysql-elasticsearch 需要利用 binlog，而且 binlog 一定要变成 row-based format 格式，同时需要用到 canal 组件来同步数据（canal 模拟 mysql slave 的交互协议，伪装自己为 mysql slave，向 mysql master 发送 dump 协议），因此在 Mysql 必须配置如下参数： 
+这里需要注意 ，由于 go-mysql-elasticsearch 需要利用 binlog，而且 binlog 一定要变成 row-based format 格式，因此在 Mysql 必须配置如下参数： 
 ```
-    # 以下参数需要配置，否则必踩坑
+    # binlog参数必须要配置如下：
     log_bin=mysql-bin
     binlog_format = ROW
     server-id=1
