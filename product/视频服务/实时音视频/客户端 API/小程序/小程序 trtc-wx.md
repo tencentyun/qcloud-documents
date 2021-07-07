@@ -178,7 +178,7 @@ enterRoom(options) {
           enableCamera: true, // 进房默认开启视频上行
         }),
     }, () => {
-        this.TRTC.getPusherInstance.start() // 开始进行推流
+        this.TRTC.getPusherInstance().start() // 开始进行推流
     })
 },
 ```
