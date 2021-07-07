@@ -5,7 +5,7 @@
 - **每次用户登录时必须重新获取 NONCE ticket。**
 
 ## 请求
-- **请求 URL：**`https://idasc.webank.com/api/oauth2/access_token`
+- **请求 URL：**`https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/access_token`
 - **请求方法**：`GET`
 - **请求参数：**
 <table><tbody>
@@ -37,7 +37,7 @@
 </tbody></table>
 - **请求示例：**
 ```
-https://idasc.webank.com/api/oauth2/access_token?app_id=xxx&secret=xxx&grant_type=client_credential&version=1.0.0
+https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/access_token?app_id=xxx&secret=xxx&grant_type=client_credential&version=1.0.0
 ```
 
 ## 响应
