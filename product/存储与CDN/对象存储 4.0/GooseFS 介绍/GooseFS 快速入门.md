@@ -28,7 +28,7 @@ $ cp conf/goosefs-site.properties.template conf/goosefs-site.properties
 $ echo"goosefs.master.hostname=localhost">> conf/goosefs-site.properties
 ```
 
-## 启用 GooseFS 
+## 启用 GooseFS
 
 1. 启用 GooseFS 前，检查系统环境，确保 GooseFS 可以在本地环境中正确运行：
 ```shell
@@ -45,6 +45,64 @@ $ ./bin/goosefs-start.sh local SudoMount
  该命令执行完毕后，可以访问 http://localhost:9201 和 http://localhost:9204，分别查看  Master 和 Worker 的运行状态。
 
 ## 使用 GooseFS 挂载 COS（COSN） 或腾讯云 HDFS（CHDFS）
+
+如果 GooseFS 需要挂载 COS（COSN） 或腾讯云 HDFS（CHDFS）到 GooseFS 的根路径上，则需要先在 `conf/core-site.xml` 配置中指定 COSN 或 CHDFS 的必须配置，其中包括但不限于：`fs.cosn.impl` 、 `fs.AbstractFileSystem.cosn.impl` 以及 `fs.cosn.userinfo.secretId` 和 `fs.cosn.userinfo.secretKey` 等，如下所示：
+
+```xml
+
+<!-- COSN related configurations -->
+<property>
+  <name>fs.cosn.impl</name>
+  <value>org.apache.hadoop.fs.CosFileSystem</value>
+</property>
+
+<property>
+   <name>fs.AbstractFileSystem.cosn.impl</name>
+   <value>com.qcloud.cos.goosefs.CosN</value>
+</property>
+
+<property>
+    <name>fs.cosn.userinfo.secretId</name>
+    <value></value>
+</property>
+
+<property>
+    <name>fs.cosn.userinfo.secretKey</name>
+    <value></value>
+</property>
+
+<property>
+    <name>fs.cosn.bucket.region</name>
+    <value></value>
+</property>
+
+<!-- CHDFS related configurations -->
+<property>
+   <name>fs.AbstractFileSystem.ofs.impl</name>
+   <value>com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter</value>
+</property>
+<property>
+   <name>fs.ofs.impl</name>
+   <value>com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter</value>
+</property>
+<property>
+   <name>fs.ofs.tmp.cache.dir</name>
+   <value>/data/chdfs_tmp_cache</value>
+</property>
+<!--appId-->      
+<property>
+   <name>fs.ofs.user.appid</name>
+   <value>1250000000</value>
+</property>
+
+```
+
+COSN 的完整配置可参考：[Hadoop-COS](https://cloud.tencent.com/document/product/436/6884)；
+
+CHDFS 的完整配置可参考：[挂载CHDFS](https://cloud.tencent.com/document/product/1105/36368)。
+
+下面介绍一下通过创建 Namespace 来挂载 COS 或 CHDFS 的方法和步骤。
+
 1. 创建一个命名空间 namespace 并挂载 COS：
 ```shell
 $ goosefs ns create myNamespace cosn://bucketName-1250000000/3TB \
