@@ -36,7 +36,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | API | 描述 |
 | --- | --- |
 | [createTextMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createTextMessage) | 创建文本消息。 |
-| [createTextAtMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createTextAtMessage) 创建可以附带 @ 提醒功能的文本消息。 |
+| [createTextAtMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createTextAtMessage) |创建可以附带 @ 提醒功能的文本消息。 |
 | [createImageMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createImageMessage) | 创建图片消息。 |
 | [createAudioMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createAudioMessage) | 创建音频消息。 |
 | [createVideoMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createVideoMessage) | 创建视频消息。 |
