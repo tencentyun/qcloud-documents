@@ -76,7 +76,7 @@ Cloudreve 应用镜像已集成宝塔 Linux 面板，您可利用宝塔面板可
 ![](https://main.qcloudimg.com/raw/60f0f6af7d4e2d085b142593349903fb.png)
 
 ### 使用宝塔 Linux 面板管理 Mariadb 数据库
-在宝塔 Linux 面板中，选择左侧导航栏中的【数据库】。进入“数据库管理”页面，如下图所示：
+在宝塔 Linux 面板中，选择左侧导航栏中的【数据库】，进入“数据库管理”页面。如下图所示：
 在此页面中，您可进行一键修改数据库密码、一键备份及更改 IP 权限等操作。
 ![](https://main.qcloudimg.com/raw/937f11d9c357bcfa9ab86e18132d9088.png)
 
