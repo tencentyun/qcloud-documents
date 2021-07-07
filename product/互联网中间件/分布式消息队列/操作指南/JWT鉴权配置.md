@@ -13,18 +13,23 @@ TDMQ Pulsar 版提供和原生 Pulsar 一样的 JWT 鉴权方式，用户可以�
 ::: 2.7.1版本及以上集群接入示例
 ```  java
 PulsarClient client = PulsarClient.builder()
-     .serviceUrl("http://*") //接入地址，在【集群管理】操作栏接入地址处复制
-     .authentication(AuthenticationFactory.token("eyJh****")) //替换成角色密钥，位于【角色管理】页面
+     //接入地址，在【集群管理】操作栏接入地址处复制
+     .serviceUrl("http://*") 
+		//替换成角色密钥，位于【角色管理】页面
+     .authentication(AuthenticationFactory.token("eyJh****")) 
      .build();
 ```
 :::
 ::: 2.6.1版本集群接入示例
 ```  java
 PulsarClient client = PulsarClient.builder()
-     .serviceUrl("pulsar://*.*.*.*:6000/") //接入地址，在集群管理-接入点列表完整复制
-     .authentication(AuthenticationFactory.token("eyJh****")) //替换成角色密钥，位于【角色管理】页面
-     .listenerName("custom:1********0/vpc-******/subnet-********") //custom:替换成路由ID，位于集群管理-接入点列表
-     .build();
+      //接入地址，在集群管理-接入点列表完整复制
+		 .serviceUrl("pulsar://*.*.*.*:6000/")
+		 //替换成角色密钥，位于【角色管理】页面
+      .authentication(AuthenticationFactory.token("eyJh****")) 
+		 //custom:替换成路由ID，位于集群管理-接入点列表
+      .listenerName("custom:1********0/vpc-******/subnet-********")
+      .build();
 ```
 :::
 </dx-tabs>
@@ -40,17 +45,22 @@ PulsarClient client = PulsarClient.builder()
 ::: 2.7.1版本及以上集群接入示例
 ```  go
 client, err := NewClient(ClientOptions{
-     URL:            "http://*",  //接入地址，在集群管理-接入点列表完整复制
-     Authentication: NewAuthenticationToken("eyJh****"),  //替换成角色密钥，位于【角色管理】页面
+      //接入地址，在集群管理-接入点列表完整复制
+		 URL:            "http://*",  
+		 //替换成角色密钥，位于【角色管理】页面
+      Authentication: NewAuthenticationToken("eyJh****"),  
 })
 ```
 :::
 ::: 2.6.1版本集群接入示例
 ```  go
 client, err := NewClient(ClientOptions{
-     URL:            "pulsar://*.*.*.*:6000",  //接入地址，在集群管理-接入点列表完整复制
-     Authentication: NewAuthenticationToken("eyJh****"),  //替换成角色密钥，位于【角色管理】页面
-     ListenerName:   "custom:1300*****0/vpc-******/subnet-********",  //custom:替换成路由ID，位于集群管理-接入点列表
+      //接入地址，在集群管理-接入点列表完整复制
+		 URL:            "pulsar://*.*.*.*:6000",  
+		 //替换成角色密钥，位于【角色管理】页面
+      Authentication: NewAuthenticationToken("eyJh****"),  
+		 //custom:替换成路由ID，位于集群管理-接入点列表
+      ListenerName:   "custom:1300*****0/vpc-******/subnet-********",  
 })
 ```
 :::
