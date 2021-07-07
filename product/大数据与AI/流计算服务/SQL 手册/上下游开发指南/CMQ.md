@@ -22,7 +22,7 @@ CREATE TABLE `Data-Input` (
     'sign-method' = 'HmacSHA1',        -- 签名的方式
     'format' = 'json',                 -- 定义数据格式（JSON 格式）
     'json.fail-on-missing-field' = 'false',	 -- 如果设置为 false, 则遇到缺失字段不会报错。
-    'json.ignore-parse-errors' = 'true'   	 -- 如果设置为 true，则忽略任何解析报错。
+    'json.ignore-parse-errors' = 'true',   	 -- 如果设置为 true，则忽略任何解析报错。
     'batch-size' = '16',               -- 批量消费消息的个数
     'request-timeout' = '5000ms',  	-- 请求的超时时间
     'polling-wait-timeout'= '10s', 	-- 获取不到数据情况下的等待时间
