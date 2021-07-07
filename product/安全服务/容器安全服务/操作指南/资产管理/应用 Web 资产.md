@@ -2,6 +2,7 @@
 ![](https://main.qcloudimg.com/raw/b31a3c27b2df55269ec79f2ee9e527a2.png)
 
 ## 查看Web 服务
+### 操作步骤
 1. 登录 [容器安全服务控制台](https://console.cloud.tencent.com/tcss)，在左侧导航中，单击【资产管理】，进入资产管理页面。
 2. 在资产管理页面，单击“Web 服务总数”进入Web 服务列表页面，可查看全部进程资产列表。
 ![](https://main.qcloudimg.com/raw/7918f2b0988e78068a5603b026ff3ec9.png)
@@ -21,6 +22,7 @@
 ![](https://main.qcloudimg.com/raw/52e2ec906f195e3af8df8252114113b0.png)
 
 ## 查看运行应用
+### 操作步骤
 1. 登录 [容器安全服务控制台](https://console.cloud.tencent.com/tcss)，在左侧导航中，单击【资产管理】，进入资产管理页面。
 2. 在资产管理页面，单击“运行应用总数”，进入运行应用务列表页面，可查看全部运行应用列表。
 ![](https://main.qcloudimg.com/raw/bf5ed26679ec8cf2c4e0c41b7c2ce0a2.png)
@@ -37,6 +39,7 @@
 ![](https://main.qcloudimg.com/raw/77c7f4d42f13ad95ce9e546ffc47289e.png)
 
 ## 数据库应用
+### 操作步骤
 1. 登录 [容器安全服务控制台](https://console.cloud.tencent.com/tcss)，在左侧导航中，单击【资产管理】，进入资产管理页面。
 2. 在资产管理页面，单击“数据库应用总数”，进入运行应用务列表页面，可查看全部数据库应用资产列表。
 ![](https://main.qcloudimg.com/raw/f9f589ce7f72f855e5fd3690d9912145.png)
