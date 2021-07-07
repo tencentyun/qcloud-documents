@@ -65,6 +65,21 @@
 >- 为了小程序能够使用腾讯云房间管理服务，您需要在手机微信上开启调试功能：手机微信扫码二维码后，单击右上角【...】>【打开调试】。
 ![](https://main.qcloudimg.com/raw/ba85130b18cac0f713994a3a5feb2e83.png)
 
+[](id:online)
+## 上线/部署到正式环境
+- 请申请域名并做备案。
+- 请将服务端代码部署到申请的服务器上。
+- 请将以下域名配置到小程序控制台 request 合法域名里：
+<table>
+<tr><th>域名</th><th>说明</th></tr>
+<tr>
+<td><code>https://cloud.tencent.com</code></td>
+<td>推流域名</td>
+</tr><tr>
+<td><code>https://yun.tim.qq.com</code></td>
+<td>业务域名</td>
+</tr></table>
+
 
 ## 常见问题
 
