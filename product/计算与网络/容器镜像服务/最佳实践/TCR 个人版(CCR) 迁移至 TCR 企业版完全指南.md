@@ -101,7 +101,7 @@ docker run --network=host --rm ccr.ccs.tencentyun.com/tcrimages/image-transfer:c
 
 #### 多实例规划
 
-可根据实际业务需要，在多个地域内创建一个或多个实例，并配置同步复制策略，并使用自定义域名统一管理实例访问地址。详情可参见 [TCR 企业版实例同步](https://cloud.tencent.com/document/product/1141/52095)， [TCR 企业版实例复制](https://cloud.tencent.com/document/product/1141/52095)，[从自建 Harbor 同步镜像到 TCR 企业版](https://cloud.tencent.com/document/product/1141/52095)。
+可根据实际业务需要，在多个地域内创建一个或多个实例，并配置同步复制策略，并使用自定义域名统一管理实例访问地址。详情可参见 [TCR 企业版实例同步](https://cloud.tencent.com/document/product/1141/41945)， [TCR 企业版实例复制](https://cloud.tencent.com/document/product/1141/52095)，[从自建 Harbor 同步镜像到 TCR 企业版](https://cloud.tencent.com/document/product/1141/44970)。
 
 #### 安全合规
 
