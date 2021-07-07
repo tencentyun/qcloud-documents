@@ -2,7 +2,7 @@
 
 合作方后台服务上送 sign、请求参数到身份证识别后台服务。
 ## 请求
-- **请求 URL：**https://ida.webank.com/api/paas/bankcardocrapp?orderNo=xxx
+- **请求 URL：**https://miniprogram-kyc.tencentcloudapi.com/api/paas/bankcardocrapp?orderNo=xxx
 >!为方便查询耗时，该请求 url 后面请拼接 orderNo 订单号参数。
 
 - **请求方法：**POST
