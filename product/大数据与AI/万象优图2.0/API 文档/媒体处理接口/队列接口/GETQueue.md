@@ -16,7 +16,8 @@ Content-Type: application/xml
 
 ```
 
-> ?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>
 
 #### 请求头
 
@@ -134,11 +135,11 @@ Container 节点 NotifyConfig 的内容：
 | Url                | Response.QueueList.NotifyConfig | 回调地址                          | String |
 | State              | Response.QueueList.NotifyConfig | 开关状态，On 或者 Off             | String |
 | Type               | Response.QueueList.NotifyConfig | 回调类型，Url                     | String |
-| Event              | Response.QueueList.NotifyConfig | 触发回调的事件，TransCodingFinish | String |
+| Event              | Response.QueueList.NotifyConfig | 任务完成：TaskFinish；工作流完成：WorkflowFinish | String |
 
 
 
-该响应体返回为 **application/xml** 数据，当指定queueIds时包含完整节点数据的内容展示如下：
+该响应体返回为 **application/xml** 数据，当指定 queueIds 时包含完整节点数据的内容展示如下：
 
 ```shell
 <Response>
@@ -184,19 +185,17 @@ Container 节点 NonExistPIDs 的内容：
 
 ## 实际案例
 
-### 获取队列列表
-
-#### 请求
+#### 请求1：获取队列列表
 
 ```shell
 GET /queue?queueIds=A,B,C HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
-Host:examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
 ```
 
-#### 响应
+#### 响应1
 
 ```shell
 HTTP/1.1 200 OK
@@ -224,20 +223,20 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 </Response>
 ```
 
-### 获取特定队列信息
 
-#### 请求
+
+#### 请求2：获取特定队列信息
 
 ```shell
 GET /queue?page_size=10&page_number=1 HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
-Host:examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
 
 ```
 
-#### 响应
+#### 响应2
 
 ```shell
 HTTP/1.1 200 OK
