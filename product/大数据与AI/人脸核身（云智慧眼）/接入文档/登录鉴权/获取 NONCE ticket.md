@@ -4,7 +4,7 @@
 - API ticket 的 NONCE 类型，其有效期为120秒，且一次性有效，即每次启动 SDK 刷脸都要重新请求 NONCE ticket。
 
 ## 请求
-- **请求 URL：**`miniprogram-kyc.tencentcloudapi.com/api/oauth2/access_token`
+- **请求 URL：**`https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket`
 - **请求方法**：GET
 - **请求参数：**
 <table><tbody>
