@@ -7,7 +7,7 @@
  - **如果未按照上述做定时刷新，可能导致鉴权不通过，影响人脸服务正常调用。**   
 
 ## 请求
-- **请求 URL：**`https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/access_token`
+- **请求 URL：**`https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket`
 - **请求方法**：GET
 - **请求参数：**
 <table><tbody>
