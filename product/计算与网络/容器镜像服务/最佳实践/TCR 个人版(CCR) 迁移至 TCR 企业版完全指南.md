@@ -73,13 +73,13 @@ docker run --network=host --rm ccr.ccs.tencentyun.com/tcrimages/image-transfer:c
 
 #### 访问地址切换
 
-进入集群或弹性集群的详情页，选择左侧的”工作负载“，并选择新建/更新工作负载，在“实例内容器“中选择/填写镜像地址，或直接修改 YAML 中 **image** 参数。如下图所示：
+进入集群或弹性集群的详情页，选择左侧的“工作负载”，并选择新建/更新工作负载，在“实例内容器”中选择/填写镜像地址，或直接修改 YAML 中 **image** 参数。如下图所示：
 ![](https://main.qcloudimg.com/raw/d061990930dd2fa64ef22e32e523309e.png)
 - 个人版地址：默认为 `ccr.ccs.tencentyun.com/namespace/repo:tag`，默认地域服务覆盖除中国香港以外的其他国内可用地域，如北京、上海、广州等，中国香港前缀域名为 hkccr。不支持多级路径。
 - 企业版地址：可自定义实例名 `user-define`，例如 `user-define.tencentcloudcr.com/namespace/repo:tag`。支持自定义域名，例如 `xxx-company.com/namespace/repo:tag`。支持多级路径，镜像地址可为 `xxx-company.com/ns/sub01/sub02/repo:tag`。
 
 #### 访问凭证切换
-进入集群或弹性集群的详情页，选择左侧的”工作负载“，并选择新建/更新工作负载，在“镜像访问凭证“中切换访问凭证，或直接修改 YAML 中 **imagePullSecret** 参数。如下图所示：
+进入集群或弹性集群的详情页，选择左侧的“工作负载”，并选择新建/更新工作负载，在“镜像访问凭证“中切换访问凭证，或直接修改 YAML 中 **imagePullSecret** 参数。如下图所示：
 ![](https://main.qcloudimg.com/raw/709e7c6eae63262e252dd74fce504ddf.png)
 - 个人版访问凭证：新建命名空间默认会下发个人版访问凭证，即 **qcloudregistrykey**，选择该凭证即可。
 - 企业版访问凭证：
