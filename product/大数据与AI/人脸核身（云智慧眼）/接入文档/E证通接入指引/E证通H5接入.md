@@ -1,4 +1,4 @@
-﻿本文为您描述如何接入E证通小程序，接入相关指引连接如下：
+本文为您描述如何接入E证通H5，接入相关指引连接如下：
 1. [开通E证通](https://cloud.tencent.com/document/product/1007/56642)
 2. [申请商户 ID](#spang)
 3. [获取 EidToken](#eidtoken)
@@ -14,9 +14,8 @@
 1.1 登录腾讯云慧眼 [人脸核身控制台](https://console.cloud.tencent.com/faceid)，单击【自助接入】>【E证通服务】>【申请商户 ID】
 ![](https://main.qcloudimg.com/raw/ee9d314f001f83023b36145271fce756.png)
 1.2 填写完相关申请信息，单击【提交】，审核时间需要3-5天，请您耐心等待。
-![](https://main.qcloudimg.com/raw/50e63898acf72bfd5410bbd36beb7822.png)
+![](https://main.qcloudimg.com/raw/14565c77b200b1be75664b33fc6a84b9.png)
 1.3 审核通过后，可以在自助接入列表页，查看商户 ID，后续需要使用商户 ID 获取E证通服务流程唯一标识 EidToken。 
-![](https://main.qcloudimg.com/raw/1db60ea7451f8b5490c7e24d608504d1.png)
 
 [](id:eidtoken)
 ## 2. 获取 EidToken 和 URL
