@@ -5,13 +5,13 @@
 - 已创建 [云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433) 实例，数据同步支持的源数据库版本为：MySQL 5.6、MySQL 5.7。
 - 已创建 [TDSQL PostgreSQL版](https://cloud.tencent.com/document/product/1129/39893) 或 [TDSQL-A PostgreSQL版](https://cloud.tencent.com/document/product/1378/54472) 实例。
 - 需要在源端 MySQL 实例中创建迁移帐号，需要的帐号权限包括 `RELOAD`、`LOCK TABLES`、`REPLICATION CLIENT`、`REPLICATION SLAVE`、`SELECT`，获取权限的方式如下：
-```sql
+```
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';
 FLUSH PRIVILEGES;
 ```
 - 需要在目标端 TDSQL PostgreSQL版 或 TDSQL-A PostgreSQL版 实例中创建迁移帐号，需要的帐号权限包括：`DELETE`、`TRUNCATE`、`INSERT`、`REFERENCES`、`SELECT`、`UPDATE`、`TRIGGER`。
-```sql
+```
 GRANT DELETE, TRUNCATE, INSERT, REFERENCES, SELECT, UPDATE, TRIGGER ON ALL TABLES IN SCHEMA schema_name TO user_name（迁移账号）;
 ```
 
