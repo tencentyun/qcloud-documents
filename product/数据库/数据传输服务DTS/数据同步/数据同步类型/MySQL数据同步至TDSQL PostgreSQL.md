@@ -1,5 +1,5 @@
 
-本文为您介绍使用 DTS 数据同步功能从云数据库 MySQL 同步数据至腾讯云企业级分布式数据库 TDSQL PostgreSQL版 及 TDSQL-A PostgreSQL版 的操作指导。
+本文为您介绍如何使用 DTS 数据同步功能将云数据库 MySQL 同步数据至腾讯云企业级分布式数据库 TDSQL PostgreSQL版 及 TDSQL-A PostgreSQL版。
 
 ## 前提条件
 - 已创建 [云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433) 实例，数据同步支持的源数据库版本为：MySQL 5.6、MySQL 5.7。
