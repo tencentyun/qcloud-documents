@@ -89,14 +89,18 @@ nohup java
 ::: Eureka
 <dx-codeblock>
 :::  plaintext
-
+java 
+-Deureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/ 
+-jar [jar包名称]
 :::
 </dx-codeblock>
 :::
 ::: Zookeeper
 <dx-codeblock>
 :::  plaintext
-
+java 
+-Dspring.cloud.zookeeper.connect-string=[TSE Zookeeper注册中心IP]:[TSE Zookeeper注册中心端口] 
+-jar [jar包名称]
 :::
 </dx-codeblock>
 :::
