@@ -96,14 +96,14 @@ Container 类型 Transcode 的具体数据描述如下：
 | Audio              | Response.JobsDetail.Operation.Transcode | 同创建转码模板 CreateMediaTemplate 接口中的 Request.Audio       | Container | 
 | TransConfig        | Response.JobsDetail.Operation.Transcode | 同创建转码模板 CreateMediaTemplate 接口中的 Request.TransConfig | Container | 
 
-Container 类型 RemoveWatermark 的具体数据描述如下：
+Container 类型 Watermark 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                                        | 描述                           | 类型   | 
 | ------------------ | :-------------------------------------------- | ------------------------------ | ------ | 
-| Dx                 | Response.JobsDetail.Operation.RemoveWatermark | 距离左上角原点 x 偏移，范围为[1, 4096] | string |
-| Dy                 | Response.JobsDetail.Operation.RemoveWatermark | 距离左上角原点 y 偏移，范围为[1, 4096] | string | 
-| Width              | Response.JobsDetail.Operation.RemoveWatermark | 宽，范围为[1, 4096]                  | string | 
-| Height             | Response.JobsDetail.Operation.RemoveWatermark | 高，范围为[1, 4096]                  | string | 
+| Dx                 | Response.JobsDetail.Operation.Watermark | 距离左上角原点 x 偏移，范围为[1, 4096] | string |
+| Dy                 | Response.JobsDetail.Operation.Watermark | 距离左上角原点 y 偏移，范围为[1, 4096] | string | 
+| Width              | Response.JobsDetail.Operation.Watermark | 宽，范围为[1, 4096]                  | string | 
+| Height             | Response.JobsDetail.Operation.Watermark | 高，范围为[1, 4096]                  | string | 
 
 Container 类型 Output 的具体数据描述如下：
 
