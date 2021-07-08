@@ -92,7 +92,6 @@ Container 类型 Operation 的具体数据描述如下：
 | ------------------- | ----------------------------- | ------------------------------------------------------------ | --------- | 
 | Transcode           | Response.JobsDetail.Operation | 指定转码模板参数                                             | Container | 
 | Watermark           | Response.JobsDetail.Operation | 指定水印模板参数，同创建水印模板 CreateMediaTemplate 接口的 Request.Watermark | Container | 
-| RemoveWatermark     | Response.JobsDetail.Operation | 指定去除水印参数                                             | Container | 
 | TemplateId          | Response.JobsDetail.Operation | 指定的模板 ID                                                 | String    | 
 | WatermarkTemplateId | Response.JobsDetail.Operation | 指定的水印模板 ID，可以传多个水印模板 ID                       | String    | 
 | Output              | Response.JobsDetail.Operation | 结果输出地址                                                 | Container | 
