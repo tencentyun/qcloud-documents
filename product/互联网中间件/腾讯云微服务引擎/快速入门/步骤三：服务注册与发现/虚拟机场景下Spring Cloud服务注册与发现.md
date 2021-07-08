@@ -113,7 +113,7 @@ nohup java
 
 ### 步骤3：验证服务发现
 
-登录 tse-consul-consumer-demo 工程 Jar 文件上传的 CVM 实例，运行以下命令：
+登录Spring Cloud 应用工程 Jar 文件上传的 CVM 实例，运行以下命令：
 
 <dx-codeblock>
 :::  plaintext
@@ -124,6 +124,6 @@ curl 127.0.0.1:18084/ping-provider/test
 若出现以下返回结果，则证明服务发现成功。
 <dx-codeblock>
 :::  plaintext
-request param: test, response from consul-demo-provider
+request param: test, response from [应用名]
 :::
 </dx-codeblock>
