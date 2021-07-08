@@ -75,7 +75,8 @@ spring:
 
 4.2 设置注册中心地址参数并运行服务。
 登录至工程 Jar 文件上传的 CVM 实例中，运行以下命令：
-
+<dx-tabs>
+::: Consul 
 <dx-codeblock>
 :::  plaintext
 nohup java 
@@ -84,6 +85,24 @@ nohup java
 -jar [jar包名称] &
 :::
 </dx-codeblock>
+:::
+::: Eureka
+<dx-codeblock>
+:::  plaintext
+
+:::
+</dx-codeblock>
+:::
+::: Zookeeper
+<dx-codeblock>
+:::  plaintext
+
+:::
+</dx-codeblock>
+:::
+</dx-tabs>
+
+
 
 
 ### 步骤2：验证服务注册
