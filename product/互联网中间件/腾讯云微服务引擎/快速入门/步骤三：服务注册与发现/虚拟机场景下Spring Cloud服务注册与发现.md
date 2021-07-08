@@ -5,6 +5,11 @@
 ## 操作步骤
 ### 步骤1：服务部署
 #### 1. 准备Spring Cloud 应用
+
+您需要下载我们提供的Spring Cloud 应用demo，快速完成快速入门教程。
+
+[Demo 代码仓库 >>](https://github.com/tencentyun/tse-simple-demo)
+
 Spring Cloud 应用使用如下的配置接入 Consul / Eureka /Zookeeper 注册中心：
 >?
 >- 您可以点击以下页签，查看对应配置。
@@ -54,9 +59,6 @@ spring:
 
 
 
-您可以下载我们提供的demo，快速完成快速入门教程。
-
-[Demo 代码仓库 >>](https://github.com/tencentyun/tse-simple-demo)
 
 
 
@@ -80,8 +82,8 @@ spring:
 <dx-codeblock>
 :::  plaintext
 nohup java 
--Dspring.cloud.consul.host=[TSE Consul注册中心IP] 
--Dspring.cloud.consul.port=[TSE Consul注册中心端口] 
+-Dspring.cloud.consul.host=[TSE-Consul注册中心IP] 
+-Dspring.cloud.consul.port=8500
 -jar [jar包名称] &
 :::
 </dx-codeblock>
@@ -89,18 +91,18 @@ nohup java
 ::: Eureka
 <dx-codeblock>
 :::  plaintext
-java 
--Deureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/ 
--jar [jar包名称]
+nohup java 
+-Deureka.client.serviceUrl.defaultZone=http://[TSE-Eureka注册中心IP]:8761/eureka/ 
+-jar [jar包名称] &
 :::
 </dx-codeblock>
 :::
 ::: Zookeeper
 <dx-codeblock>
 :::  plaintext
-java 
--Dspring.cloud.zookeeper.connect-string=[TSE Zookeeper注册中心IP]:[TSE Zookeeper注册中心端口] 
--jar [jar包名称]
+nohup java 
+-Dspring.cloud.zookeeper.connect-string=[TSE-Zookeeper注册中心IP]:2181 
+-jar [jar包名称] &
 :::
 </dx-codeblock>
 :::
