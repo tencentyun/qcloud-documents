@@ -1,10 +1,9 @@
-# Git 平台支持
 
-CloudBase Webify 目前支持以下三种代码托管平台：
+Web 应用托管目前支持以下三种代码托管平台：
 
 - Github
 - Gitlab
-- Gitee码云
+- Gitee 码云
 
 ## 自动部署
 
