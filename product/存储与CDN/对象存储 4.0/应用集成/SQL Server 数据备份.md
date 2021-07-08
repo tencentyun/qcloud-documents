@@ -17,7 +17,7 @@ SQL Server 数据备份是腾讯云对象存储（Cloud Object Storage，COS）�
 >! 如果您尚未开通云函数服务，请前往 [云函数控制台](https://console.cloud.tencent.com/scf) 开通云函数服务，按照提示完成服务授权即可。
 >
 5. 在弹出的窗口中，配置如下信息：
-![](https://main.qcloudimg.com/raw/46fab26ee1056da4523ef9d5e6e0c0c6.png)
+![](https://main.qcloudimg.com/raw/c0bfa86fbce604891e7dd0a4c7ba9a0d.png)
  - **函数名称**：作为函数的唯一标识名称，创建后不可修改。您可以在 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 上查看该函数。
  - **关联存储桶**：存储 SQL Server 备份文件的存储桶。
  - **触发器周期**：SQL Server 数据备份函数通过定时触发器来触发备份转存操作，触发周期支持每天、每周及自定义周期。
@@ -26,7 +26,7 @@ SQL Server 数据备份是腾讯云对象存储（Cloud Object Storage，COS）�
  - **投递路径**：备份文件的投递路径前缀，不填写则默认保存在存储桶根路径。
  - **SCF 授权**：SQL Server 数据备份需要授权云函数从您的 SQL Server 备份中读取数据库实例及其备份文件，并将备份文件转存至您指定的存储桶中。因此需要添加此授权。
 6. 添加配置后，单击【确认】，即可看到函数已添加完成。
-![](https://main.qcloudimg.com/raw/a5b709e3d94050234745763e3a123b1e.png)
+![](https://main.qcloudimg.com/raw/864d9c513e8dd173b6c08cb8027a70e7.png)
 您可以对新创建的函数进行如下操作：
  - 单击【查看日志】，查看 SQL Server 数据备份的历史运行情况。当备份出现报错时，您还可以通过单击【查看日志】，快速跳转到云函数控制台查看日志错误详情。
  - 单击【编辑】，修改 SQL Server 数据备份规则。
