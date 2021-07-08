@@ -244,7 +244,9 @@ https://docs.qq.com/sheet/DUFdnQ0JJTlZiemtU
 
 ## 自动化部署
 
-[mall-demo程序包](https://github.com/supergunme/tsf-test)中的deploy 脚本支持自动上传和部署一个新的应用到现有的集群中，默认选择集群中可用实例中的第一个实例机器部署应用。
+当应用非常多，不希望使用控制台逐个部署怎么办呢？ 或者已经使用了jenkins、travis等工具，如何对接到TSF平台上呢？我们可以参考下面的操作来进行实践。
+
+[mall-demo程序包](https://github.com/supergunme/tsf-test)中的deploy.py脚本支持自动上传和部署一个新的应用到现有的集群中，默认选择集群中可用实例中的第一个实例机器部署应用。
 
 1. 在deploy目录下的deploy.py文件中配置secret_id，secret_key，clusterId 和 namespace 等参数。
 
