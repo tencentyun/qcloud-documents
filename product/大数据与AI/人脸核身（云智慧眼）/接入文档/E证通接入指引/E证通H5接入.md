@@ -16,7 +16,6 @@
 1.2 填写完相关申请信息，单击【提交】，审核时间需要3-5天，请您耐心等待。
 ![](https://main.qcloudimg.com/raw/14565c77b200b1be75664b33fc6a84b9.png)
 1.3 审核通过后，可以在自助接入列表页，查看商户 ID，后续需要使用商户 ID 获取E证通服务流程唯一标识 EidToken。 
-![](https://main.qcloudimg.com/raw/1db60ea7451f8b5490c7e24d608504d1.png)
 
 [](id:eidtoken)
 ## 2. 获取 EidToken 和 URL
