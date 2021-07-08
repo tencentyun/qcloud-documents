@@ -1,7 +1,7 @@
 ## 操作场景
 
 
-本文将为您指导如何通过 `SCF Web Function`，快速部署您的 Flask 业务上云。
+本文将为您指导如何通过 SCF Web Function，快速部署您的 Flask 业务上云。
 
 
 
@@ -11,11 +11,11 @@
 
 1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的【函数服务】。
 2. 在主界面上方选择期望创建函数的地域，并单击【新建】，进入函数创建流程。
-3. 选择使用【模版创建】来新建函数，在搜索框里筛选 `WebFunc`，筛选所有 Web 函数模版，选择【Flask 框架模版】，并单击【下一步】。如下图所示：
+3. 选择使用【模版创建】来新建函数，在搜索框里输入 `WebFunc` 筛选所有 Web 函数模版，选择【Flask 框架模版】并单击【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/75e0b81b90ccd94fbd6afc016957a416.png)
 4. 在“配置”页面，您可以查看模版项目的具体配置信息并进行修改。
 5. 单击【完成】即可创建函数。函数创建完成后，您可在“函数管理”页面，查看 Web 函数的基本信息。
-6. 您可以通过 API 网关生成的访问路径 URL 进行访问，查看您部署的 Flask 项目。单击左侧菜单栏中的【触发管理】，查看访问路径。如下图所示：
+6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Flask 项目。单击左侧菜单栏中的【触发管理】，查看访问路径。如下图所示：
 ![](https://main.qcloudimg.com/raw/0f11b58bdcff56598230144bb6b7be1b.png)
 7. 单击访问路径 URL，即可访问服务 Flask 项目。如下图所示：
 ![](https://main.qcloudimg.com/raw/fd6c71feeddd7f84cfdb0a974f9c794a.png)
@@ -79,7 +79,7 @@ werkzeug==0.16.0
 pip install -r requirements.txt
 ```
 2. **修改监听地址与端口**
-在 Web 函数内，限制了监听端口必须为**9000**，因此需要修改监听地址端口，修改为 `0.0.0.0:9000`，如下图所示：
+在 Web 函数内，限制了监听端口必须为**9000**，因此需要修改监听地址端口为 `0.0.0.0:9000`，如下图所示：
 ![](https://main.qcloudimg.com/raw/ea0a28fae8c9ab16dbe447bfe883aafe.png)
 >?您也可以在 `scf_bootstrap` 中，通过环境变量配置监听端口。
 3. **新增 `scf_bootstrap` 启动文件**
@@ -104,13 +104,13 @@ chmod 777 scf_bootstrap
 </dx-codeblock>
 5. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的【函数服务】。
 6. 在主界面上方选择期望创建函数的地域，并单击【新建】，进入函数创建流程。
-7. 选择使用【自定义创建】来新建函数，根据页面提示配置相关选项。如下图所示：
+7. 选择【自定义创建】新建函数，根据页面提示配置相关选项。如下图所示：
+![](https://main.qcloudimg.com/raw/e86d6b23487ae5f73cbf3ea643ab6ac2.png)
 	- **函数类型**：选择 “Web 函数”。
 	- **函数名称**：填写您自己的函数名称。
 	- **地域**：填写您的函数部署地域，例如成都。
 	- **部署方式**：选择“代码部署”，上传您的本地项目。
 	- **运行环境**：选择 “Python3.6”。
-![](https://main.qcloudimg.com/raw/e86d6b23487ae5f73cbf3ea643ab6ac2.png)
 8. 单击【完成】完成 Flask 项目的部署。
 
 
