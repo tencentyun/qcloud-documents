@@ -13,8 +13,7 @@ Authorization: <Auth String>
 
 ```
 
->? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
->
+>?uthorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
 #### 请求头
@@ -54,7 +53,48 @@ Container 节点 Response 的内容：
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
 | JobsDetail | Response | 任务的详细信息，同CreateMediaJobs 接口的 Response.JobsDetail 节点 |  Container |
-| NonExistJobIds | Response | 查询的ID中不存在的任务，所有任务都存在时不返回 |  String |
+| NonExistJobIds | Response | 查询的 ID 中不存在任务，所有任务都存在时不返回 |  String |
+
+Container 节点 JobsDetail 的内容：
+
+| 节点名称（关键字） | 父节点              | 描述                                                         | 类型      |
+| :----------------- | :------------------ | :----------------------------------------------------------- | :-------- |
+| Code               | Response.JobsDetail | 错误码，只有 State 为 Failed 时有意义                           | String    |
+| Message            | Response.JobsDetail | 错误描述，只有 State 为 Failed 时有意义                         | String    |
+| JobId              | Response.JobsDetail | 新创建任务的 ID                                               | String    |
+| Tag                | Response.JobsDetail | 新创建任务的 Tag：VoiceSeparate                               | String    |
+| State              | Response.JobsDetail | 任务的状态，值为 Submitted、Running、Success、Failed、Pause、Cancel其中一个 | String    |
+| CreationTime       | Response.JobsDetail | 任务的创建时间                                               | String    |
+| StartTime          | Response.JobsDetail | 任务的开始时间                                               | String    |
+| EndTime            | Response.JobsDetail | 任务的结束时间                                               | String    |
+| QueueId            | Response.JobsDetail | 任务所属的队列 ID                                             | String    |
+| Input              | Response.JobsDetail | 该任务的输入资源地址                                         | Container |
+| Operation          | Response.JobsDetail | 该任务的规则                                                 | Container |
+
+Container 节点 Operation 的内容：
+
+| 节点名称（关键字） | 父节点                        | 描述                             | 类型      |
+| :----------------- | :---------------------------- | :------------------------------- | :-------- |
+| TemplateId         | Response.JobsDetail.Operation | 任务的模板 ID                     | String    |
+| Output             | Response.JobsDetail.Operation | 文件的输出地址                   | Container |
+| VoiceSeparate      | Response.JobsDetail.Operation | 指定转码模板参数 | Container |
+
+Operation  类型 VoiceSeparate 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                      | 描述                                                         | 类型      | 
+| ------------------ | :------------------------------------------ | ------------------------------------------------------------ | --------- | 
+| AudioMode          | Response.JobsDetail.Operation.VoiceSeparate | 同创建人声分离模板 CreateMediaTemplate 接口中的 Request.AudioMode | Container | 
+| AudioConfig        | Response.JobsDetail.Operation.VoiceSeparate | 同创建人声分离模板 CreateMediaTemplate 接口中的 Request.AudioConfig | Container | 
+
+Operation  类型 Output 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                 | 描述                                           | 类型   | 
+| ------------------ | -------------------------------------- | ---------------------------------------------- | ------ | 
+| Region             | Response.JobsDetail.Operation.Output   | 存储桶的地域                                 | String | 
+| Bucket             | Response.JobsDetail.Operation.Output   | 存储结果的存储桶                               | String | 
+| Object             | Response.JobsDetail.Operation.Output   | 背景音结果文件的名称，不能与 AuObject 同时为空。 | String | 
+| AuObject           | Response.JobsDetail.Operation.AuObject | 人声结果文件的名称，不能与 Object 同时为空。     | String | 
+
 
 #### 错误码
 
