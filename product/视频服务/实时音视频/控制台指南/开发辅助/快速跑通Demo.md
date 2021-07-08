@@ -15,7 +15,7 @@
 ### 步骤2：下载源码
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/5bf1ab24801a8b90ded28887cc997e63.png)
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:step3)
 ### 步骤3：修改配置
@@ -23,7 +23,7 @@
 2. 找到并打开相应的文件，将生成的 SDKAppID 和密钥粘贴到指定的位置。
 3. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 
-![](https://main.qcloudimg.com/raw/e0a9669ded728bfe74ef98902d9407ec.png)
+![](https://main.qcloudimg.com/raw/cd048ee7c1be18473aea008e0de8d99e.png)
 >!密钥为敏感信息，请注意保密，不要泄露。
 
 [](id:step4)
