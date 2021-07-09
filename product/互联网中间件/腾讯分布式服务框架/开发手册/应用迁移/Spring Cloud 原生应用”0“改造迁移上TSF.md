@@ -101,7 +101,10 @@ TSF 支持原生Spring Cloud应用无侵入接入，无需改造即可直接接�
 
 3. 进入每个项目的src/main/resource目录，根据已经部署的容器所有的云服务器地址，修改application.yml文件中的连接信息。
 
-   > ?若在本地安装调试可以忽略本步骤，即在本地安装docker和所有基础组件，在本地启动Spring Cloud调试。
+<dx-alert infotype="explain" title="">
+若在本地安装调试可以忽略本步骤，即在本地安装docker和所有基础组件，在本地启动Spring Cloud调试。
+</dx-alert>
+
 
    ```yml
    # mysql中替换localhost为内网IP
@@ -167,8 +170,8 @@ TSF 支持原生Spring Cloud应用无侵入接入，无需改造即可直接接�
 
 5. 在部署组页面，单击【新建部署组】，填写部署组信息。
 
-   - 集群：选择**3.1步骤**中创建的集群
-   - 日志配置项：选择**步骤3.2**中创建的日志配置项
+   - 集群：选择**2.1步骤**中创建的集群
+   - 日志配置项：选择**步骤2.2**中创建的日志配置项
 
    ![](https://main.qcloudimg.com/raw/a7ef5d0003109f2d33e3e1c9f275c610.png)
 
