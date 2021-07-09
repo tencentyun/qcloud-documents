@@ -1,23 +1,21 @@
 ## 操作场景
 
-本文以provider-demo和consumer-demo两个工程为例为你介绍 TSF 应用配置http2的操作方法。
+本文以 provider-demo 和 consumer-demo 两个工程为例为你介绍 TSF 应用配置 http2 的操作方法。
 
 ## 前提条件
 
 - [安装1.8或以上版本 JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
+- [下载 TSF Demo 工程](https://github.com/tencentyun/tsf-simple-demo)（springboot 版本2.0+，tomcat 版本8.5+）
 
-- [下载TSF Demo工程](https://github.com/tencentyun/tsf-simple-demo)（springboot版本2.0+，tomcat版本8.5+）
-
-  推荐使用1.29.0-Finchley-RELEASE
-
-  本文springboot-2.0.9.RELEASE和tomcat-8.5.56为例
+>?
+>- 推荐使用 1.29.0-Finchley-RELEASE。
+>- 本文 springboot-2.0.9.RELEASE 和 tomcat-8.5.56 为例。
 
 ## 操作步骤
 
-### 步骤1. 制作SSL证书
+### 步骤1. 制作 SSL 证书
 
-通过JDK自带的keytool执行以下命令：
-
+通过 JDK 自带的 keytool 执行以下命令：
 ```
 keytool -genkey -alias tomcat -keyalg RSA -keystore ./keystore.jks -storepass 123456
 ```
@@ -26,25 +24,22 @@ keytool -genkey -alias tomcat -keyalg RSA -keystore ./keystore.jks -storepass 12
 
 ![](https://main.qcloudimg.com/raw/a78ceb180f5beeeefceaf5cc8f7f145d.png)
 
-### 步骤2. 改造provider-demo工程
+### 步骤2. 改造 provider-demo 工程
 
-1. 复制jks证书文件到provider-demo工程的resources目录下。
-
+1. 复制 jks 证书文件到 provider-demo 工程的 resources 目录下。
    ![](https://main.qcloudimg.com/raw/66eab4a26d592ac445f7811ef3180c51.png)
 
-2. 修改spring配置文件，在bootstrap.yaml文件中增加如下配置。
-
+2. 修改 spring 配置文件，在bootstrap.yaml 文件中增加如下配置。
    ![](https://main.qcloudimg.com/raw/3388d561b13a8608f59867002d271d15.png)
-
    ```
    server.http2.enabled=true
    server.ssl.key-store=classpath:keystore.jks
    server.ssl.key-store-password: 123456
    ```
 
-3. 启动provider-demo，浏览器访问：https://127.0.0.1:18081/echo/1
+3. 启动 provider-demo，浏览器访问 `https://127.0.0.1:18081/echo/1`。
 
-   Chrome可能会提示“您的连接不是私密连接”
+   Chrome 可能会提示“您的连接不是私密连接”。
 
    ![](https://main.qcloudimg.com/raw/d07ba3c8235b2e44b3b44f574c1dc6f2.png)
 
@@ -52,25 +47,27 @@ keytool -genkey -alias tomcat -keyalg RSA -keystore ./keystore.jks -storepass 12
 
    ![](https://main.qcloudimg.com/raw/39f3092e0a5aca02c677d1823ac4a5a8.png)
 
-   打开Console，Protocol的值为h2表示配置成功。
+   打开 Console，Protocol 的值为 h2 表示配置成功。
 
    ![](https://main.qcloudimg.com/raw/db41e627bddf59714f0a2a9b24a0cd10.png)
 
 参考资料：
 
-- Spring配置http2文档：[howto-configure-http2](https://docs.spring.io/spring-boot/docs/2.0.9.RELEASE/reference/html/howto-embedded-web-servers.html#howto-configure-http2)
-- Tomcat版本差异文档：[whichversion](https://tomcat.apache.org/whichversion.html)
+- Spring 配置 http2 文档：[howto-configure-http2](https://docs.spring.io/spring-boot/docs/2.0.9.RELEASE/reference/html/howto-embedded-web-servers.html#howto-configure-http2)
+- Tomcat 版本差异文档：[whichversion](https://tomcat.apache.org/whichversion.html)
 
-4. 开启http访问端口（可选）。
 
-   由于此时只能通过https方式访问，可加入Tomcat配置开放新端口来支持http访问。
+4. 开启 http 访问端口（可选）。
 
-   1. 在启动类中增加Bean。
+   由于此时只能通过 https 方式访问，可加入 Tomcat 配置开放新端口来支持 http 访问。
+
+   1. 在启动类中增加 Bean。
 
       ![](https://main.qcloudimg.com/raw/fe830bb9b76e9f720f550b2deb36d537.png)
-
-      ```java
-      package com.tsf.demo.provider;
+			
+	<dx-codeblock>
+:::  java
+package com.tsf.demo.provider;
       
       import org.apache.catalina.connector.Connector;
       import org.springframework.beans.factory.annotation.Value;
@@ -108,9 +105,11 @@ keytool -genkey -alias tomcat -keyalg RSA -keystore ./keystore.jks -storepass 12
               SpringApplication.run(ProviderApplication.class, args);
           }
       }
-      ```
+:::
+</dx-codeblock>
 
-   2. 在Bootstrap.yml配置文件中增加自定义配置。
+
+   2. 在 Bootstrap.yml 配置文件中增加自定义配置。
 
       ![](https://main.qcloudimg.com/raw/2b20dc9d883f60b20d54e7a678790ffc.png)
 
@@ -118,17 +117,17 @@ keytool -genkey -alias tomcat -keyalg RSA -keystore ./keystore.jks -storepass 12
       http.port=18082
       ```
 
-   3. 重启provider-demo，浏览器访问：http://127.0.0.1:18082/echo/1
+   3. 重启 provider-demo，浏览器访问 `http://127.0.0.1:18082/echo/1`。
 
       ![](https://main.qcloudimg.com/raw/83e3dbc87c97a7a352649bcd353bdcab.png)
 
-      此时provider-demo完成支持https和http（通过不同端口访问），其中https访问时使用http2协议
+      此时 provider-demo 完成支持 https 和 http（通过不同端口访问），其中 https 访问时使用 http2 协议。
 
-      参考资料：Spring配置Tomcat代码示例：[SampleTomcatTwoConnectorsApplication.java](https://github.com/spring-projects/spring-boot/blob/2.0.x/spring-boot-samples/spring-boot-sample-tomcat-multi-connectors/src/main/java/sample/tomcat/multiconnector/SampleTomcatTwoConnectorsApplication.java)
+      参考资料：Spring 配置 Tomcat 代码示例：[SampleTomcatTwoConnectorsApplication.java](https://github.com/spring-projects/spring-boot/blob/2.0.x/spring-boot-samples/spring-boot-sample-tomcat-multi-connectors/src/main/java/sample/tomcat/multiconnector/SampleTomcatTwoConnectorsApplication.java)。
 
-### 步骤3. 改造consumer-demo工程
+### 步骤3. 改造 consumer-demo 工程
 
-1. proxy中的@FeignClient注解需指定https方式访问。
+1. proxy 中的 @FeignClient 注解需指定 https 方式访问。
 
    ![](https://main.qcloudimg.com/raw/4554291f032b27e8ee24f4df9053cf3e.png)
 
@@ -136,7 +135,7 @@ keytool -genkey -alias tomcat -keyalg RSA -keystore ./keystore.jks -storepass 12
    @FeignClient(name = "https://provider-demo")
    ```
 
-2. RestTemplate同理。
+2. RestTemplate 同理。
 
    ![](https://main.qcloudimg.com/raw/eaf4814c2decf8498b94c0c93639a4e2.png)
 
@@ -144,22 +143,21 @@ keytool -genkey -alias tomcat -keyalg RSA -keystore ./keystore.jks -storepass 12
    restTemplate.getForObject("https://provider-demo/echo/" + str, String.class);
    ```
 
-3. 通过注入不同的bean选择是否使用SSL证书认证（以下步骤二选一）：
+3. 通过注入不同的 bean 选择是否使用SSL证书认证（以下步骤二选一）：
+<dx-tabs>
+::: 使用\sSSL\s证书认证访问方式
+1. 复制 jks 证书文件到 consumer-demo 工程的 resources 目录。
 
-   使用SSL证书认证访问方式
+2. spring 配置文件中增加自定义配置。
 
-   1. 复制 jks 证书文件到consumer-demo工程的resources目录。
+![](https://main.qcloudimg.com/raw/2b4dc0ff2bdf0450c9b15dfda813219f.png)
 
-   2. spring配置文件中增加自定义配置。
+```
+test-ssl-config.key-store=classpath:keystore.jks
+test-ssl-config.key-store-password: 123456
+```
 
-      ![](https://main.qcloudimg.com/raw/2b4dc0ff2bdf0450c9b15dfda813219f.png)
-
-      ```
-      test-ssl-config.key-store=classpath:keystore.jks
-      test-ssl-config.key-store-password: 123456
-      ```
-
-   3. 修改bean（restTemplate、feignClient）
+   3. 修改 bean（restTemplate、feignClient）
 
       ![](https://main.qcloudimg.com/raw/b0040bbe54b7d424024390cc7226e31f.png)
 
@@ -257,17 +255,23 @@ keytool -genkey -alias tomcat -keyalg RSA -keystore ./keystore.jks -storepass 12
       }
       ```
 
-
-忽略SSL认证方式
-
-只需要修改bean（restTemplate、feignClient）
+:::
+::: 忽略\sSSL\s认证方式
+只需要修改 bean（restTemplate、feignClient）
 
 ![](https://main.qcloudimg.com/raw/38fea9d1e171a179c0d3970a4170bdfc.png)
 
 ![](https://main.qcloudimg.com/raw/06d8f50f8eb461e6c7795071f5a04c9e.png)
 
-注：与第一种方式的差异在getSSLSocket()方法
 
+
+<dx-alert infotype="explain" title="">
+与第一种方式的差异在 getSSLSocket() 方法。
+</dx-alert>
+
+
+<dx-codeblock>
+:::  java
 ```java
 package com.tsf.demo.consumer;
 
@@ -354,14 +358,24 @@ public class ConsumerApplication {
 		}
 }
 ```
+:::
+</dx-codeblock>
+
+
+
+:::
+</dx-tabs>
+
+
+
 
 4. 验证结果。
 
-   启动consumer-demo，浏览器访问：http://127.0.0.1:18083/echo-feign/123。
+   启动 consumer-demo，浏览器访问 `http://127.0.0.1:18083/echo-feign/123`。
 
    ![](https://main.qcloudimg.com/raw/9d99349686a686cbb1bf1202356bc318.png)
 
-   浏览器访问：http://127.0.0.1:18083/echo-rest/123。
+   浏览器访问 `http://127.0.0.1:18083/echo-rest/123`。
 
    ![](https://main.qcloudimg.com/raw/4242479b5f87c0399e0c60ec866b67f2.png)
 
