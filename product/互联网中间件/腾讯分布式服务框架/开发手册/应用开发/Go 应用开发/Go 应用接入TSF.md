@@ -1,12 +1,12 @@
-TSF-Go基于轻量级 Go 微服务框架[Kratos](https://github.com/go-kratos/kratos)为用户现存的 Go 应用提供了接入TSF 治理平台的能力。本文档介绍 Go 应用从接入TSF 到部署应用的操作方法及相关注意事项。
+TSF-Go 基于轻量级 Go 微服务框架 [Kratos](https://github.com/go-kratos/kratos) 为用户现存的 Go 应用提供了接入TSF 治理平台的能力。本文档介绍 Go 应用从接入TSF 到部署应用的操作方法及相关注意事项。
 
 ## 功能特性
 
-- 自动集成 TSF 平台治理能力：分布式远程配置，远程日志，分布式调用链追踪，监控，服务鉴权，服务路由，全链路灰度发布，API 自动上报。
-- 同时支持 gRPC 和 HTTP 协议，并可以和JAVA Spring Cloud 服务互相调用。
-- 开放性高，丰富的Middlewares、Options可以自定义组件。
-- 一切围绕 Protobuf 定义Service、Interface、Error、Validating、Swagger json等。
-- 拥抱开源规范，Trace，Validate，API Definition等都直接使用开源规范和协议。
+- 自动集成 TSF 平台治理能力：分布式远程配置、远程日志、分布式调用链追踪、监控、服务鉴权、服务路由、全链路灰度发布、API 自动上报。
+- 同时支持 gRPC 和 HTTP 协议，并可以和 Java Spring Cloud 服务互相调用。
+- 开放性高，丰富的 Middlewares、Options 可以自定义组件。
+- 一切围绕 Protobuf 定义 Service、Interface、Error、Validating、Swagger json 等。
+- 拥抱开源规范、Trace、Validate、API Definition 等都直接使用开源规范和协议。
 - 支持私有化部署。
 
 ## 安装依赖
@@ -15,9 +15,9 @@ TSF-Go基于轻量级 Go 微服务框架[Kratos](https://github.com/go-kratos/kr
 
 请根据自己使用的操作系统，优先选择对应的包管理工具安装，如：
 
-- linux下用yum或apt等安装
-- macOS通过brew安装
-- windows通过下载可执行程序或者其他安装程序来安装
+- Linux 下用 yum或 apt 等安装
+- macOS 通过 brew 安装
+- Windows 通过下载可执行程序或者其他安装程序来安装
 
 #### 2. 安装 protoc-gen-xxx
 
@@ -29,7 +29,7 @@ go get -u github.com/go-kratos/kratos/cmd/protoc-gen-go-http
 
 ## 服务端开发
 
-#### 1. 通过protobuf定义服务接口
+#### 1. 通过 protobuf 定义服务接口
 
 ```protobuf
 syntax = "proto3";
@@ -61,20 +61,20 @@ message HelloReply {
 }
 ```
 
-如上，这里我们定义了一个Greeter服务，这个服务里面有个SayHello方法，接收一个包含msg字符串的HelloRequest参数，返回HelloReply数据。
+如上，这里我们定义了一个Greeter服务，这个服务里面有个 SayHello 方法，接收一个包含 msg 字符串的 HelloRequest 参数，返回 HelloReply 数据。
 这里需要注意以下几点：
 
-- syntax必须是proto3，tsf go都是基于proto3通信的。
-- package后面必须有option go_package="github.com/tencentyun/tsf-go/examples/helloworld/proto";指明您的pb.go生成文件的git存放地址，协议与服务分离，方便其他人直接引用
-- 编写protobuf时必须遵循[谷歌官方规范](https://developers.google.com/protocol-buffers/docs/style)。
+- syntax 必须是 proto3，tsf go 都是基于 proto3 通信的。
+- package 后面必须有 option go_package="github.com/tencentyun/tsf-go/examples/helloworld/proto";指明您的pb.go生成文件的git存放地址，协议与服务分离，方便其他人直接引用
+- 编写 protobuf 时必须遵循 [谷歌官方规范](https://developers.google.com/protocol-buffers/docs/style)。
 
-#### 2. 生成服务端桩代码xxx.pb.go代码
+#### 2. 生成服务端桩代码 xxx.pb.go 代码
 
 通过protoc命令生成服务代码(grpc协议)
 `protoc --proto_path=. --proto_path=./third_party
 --go_out=paths=source_relative:. --go-grpc_out=paths=source_relative:. *.proto`
 
-#### 3. 编写service实现层代码
+#### 3. 编写 service 实现层代码
 
 ```go
 import	pb "github.com/tencentyun/tsf-go/examples/helloworld/proto"
@@ -90,7 +90,7 @@ func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloRe
 }
 ```
 
-#### 4. 编写server(grpc协议)启动入口main.go
+#### 4. 编写 server(grpc协议) 启动入口 main.go
 
 ```go
 import  pb "github.com/tencentyun/tsf-go/examples/helloworld/proto"
@@ -133,10 +133,10 @@ func main() {
 
 #### 5. 服务启动
 
-- 参考[轻量级服务注册中心](https://cloud.tencent.com/document/product/649/16618)搭建并启动一个本地轻量级consul注册中心；如果暂时不想启动服务注册直接调试，则可以在第4步骤中传入`tsf.EnableReigstry(false)`即：`opts = append(opts, tsf.AppOptions(tsf.EnableReigstry(false))...)`
-- 执行`go run main.go`即可启动server
+- 参考 [轻量级服务注册中心](https://cloud.tencent.com/document/product/649/16618) 搭建并启动一个本地轻量级 consul 注册中心；如果暂时不想启动服务注册直接调试，则可以在第4步骤中传入 `tsf.EnableReigstry(false)` 即：`opts = append(opts, tsf.AppOptions(tsf.EnableReigstry(false))...)`
+- 执行 `go run main.go` 即可启动 server。
 
-## 客户端开发（gRPC协议）
+## 客户端开发（gRPC 协议）
 
 #### 1. 编写客户端代码
 
@@ -168,13 +168,13 @@ func main() {
 
 #### 2.启动客户端
 
-执行`go run main.go`即可启动客户端。
+执行 `go run main.go` 即可启动客户端。
 
-## 部署至腾讯云TSF治理平台
+## 部署至腾讯云 TSF 治理平台
 
-#### 1. 在TSF上创建应用和镜像仓库
+#### 1. 在 TSF 上创建应用和镜像仓库
 
-参考文档[应用管理](https://cloud.tencent.com/document/product/649/56145)创建应用并开通镜像仓库。
+参考文档 [应用管理](https://cloud.tencent.com/document/product/649/56145) 创建应用并开通镜像仓库。
 
 #### 2. 编写 Dockerfile
 
@@ -223,7 +223,7 @@ docker push ccr.ccs.tencentyun.com/tsf_xxx/provider:1.0
 
 #### 5. 部署应用
 
-参考文档[部署组管理](https://cloud.tencent.com/document/product/649/15525)
+参考文档 [部署组管理](https://cloud.tencent.com/document/product/649/15525)。
 
 ## 更多文档
 
