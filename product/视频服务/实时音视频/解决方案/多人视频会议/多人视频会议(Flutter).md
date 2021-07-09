@@ -88,22 +88,6 @@
 | TRTCMeetingMemberList.dart | 参会人员列表界面 |
 | TRTCMeetingSetting.dart | 视频会议相关参数设置界面 |
 
-## 体验应用
-### 用户 A
-
-1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/a0c73f6904ac152a84cdf4d619171fc4.png" width=320px>
-2. 输入会议号，单击【进入会议】，如下图示：<br>
-<img src="https://main.qcloudimg.com/raw/f8edfe6e6427323ffd702b6ef7c7cb0a.png" width=320px>
-
-
-
-### 用户 B
-1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/94fcd741becbcfe4cca97778e180e4ca.png" width=320px>
-2. 输入用户 A 创建的会议号，单击【进入会议】。<br>
-<img src="https://main.qcloudimg.com/raw/f8edfe6e6427323ffd702b6ef7c7cb0a.png" width=320px>
-
 [](id:model)
 ## 实现自定义 UI 界面
 
