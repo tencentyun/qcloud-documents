@@ -146,14 +146,14 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 ## SDK 基础接口
 ### sharedInstance
 
-获取 [TRTCMeeting](https://cloud.tencent.com/document/product/647/45667) 单例对象。
+获取 [TRTCMeeting](https://cloud.tencent.com/document/product/647/58405) 单例对象。
 ```dart
 static Future<TRTCMeeting> sharedInstance();
 ```
 
 ### destroySharedInstance
 
-销毁 [TRTCMeeting](https://cloud.tencent.com/document/product/647/45667) 单例对象。
+销毁 [TRTCMeeting](https://cloud.tencent.com/document/product/647/58405) 单例对象。
 ```dart
 static void destroySharedInstance();
 ```
@@ -161,7 +161,7 @@ static void destroySharedInstance();
 
 ### registerListener
 
-设置事件监听，您可以通过 TRTCMeetingDelegate 获得 [TRTCMeeting](https://cloud.tencent.com/document/product/647/45667) 的各种状态通知。
+设置事件监听，您可以通过 TRTCMeetingDelegate 获得 [TRTCMeeting](https://cloud.tencent.com/document/product/647/58405) 的各种状态通知。
 ```dart
 void registerListener(MeetingListenerFunc func);
 ```
