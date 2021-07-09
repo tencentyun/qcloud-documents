@@ -21,8 +21,8 @@ SaaS 型 WAF 通过为防护域名分配 CNAME，修改网站的 DNS 解析记�
  - **选择证书：**请选择已成功申请的证书。
 >? 选择的证书需与【填写域名】对应。单域名对应相同域名名称的单域名证书，通配符域名对应相同域名名称的通配符证书，多域名则选择包含该域名名称的多域名证书。
  - **源站地址：**请根据您的实际需求选择【IP】与【域名】。
- - **IP**：请输入需要防护网站的真实 IP 源站地址，即源站的公网 IP 地址。
- - **域名**：请输入需要防护网站的真实源站域名。
+    - **IP**：请输入需要防护网站的真实 IP 源站地址，即源站的公网 IP 地址。
+    - **域名**：请输入需要防护网站的真实源站域名。
  - **强制 HTTPS：**开启该功能，浏览器端的每个 HTTP 请求都会被跳转成 HTTPS 请求。例如，当浏览器使用 HTTP 协议访问 `http://cloud.tencent.com ` 时，将返回302状态码重定向到 HTTPS 协议访问 `https://cloud.tencent.com`。
  - **回源协议：**	开启该功能，腾讯云将使用 HTTP 协议访问源站。例如，当浏览器使用 HTTP 或 HTTPS 协议访问 `cloud.tencent.com` 时，无论 HTTP 或 HTTPS 协议都将使用 HTTP 协议访问源站。
  - **回源端口：**请根据您的实际需求选择回源端口。默认情况下支持443与8443，若您开启回源协议，则为80与8080。
@@ -41,7 +41,7 @@ SaaS 型 WAF 通过为防护域名分配 CNAME，修改网站的 DNS 解析记�
 <dx-alert infotype="explain" title="">
 若您的域名解析已在 DNSPod DNS 解析进行托管，可直接一键添加 CNAME 记录。
 </dx-alert>
-1. 在 "一键 HTTPS" 管理页面，查看您需要进行配置 CNAME 记录的实例，单击<span ><img src="https://main.qcloudimg.com/raw/f5894edcb2045215d93c7c20ad8c1b0b.png" style="margin-bottom:-5px;"/></span>图标。如下图所示：
+1. 在 "一键 HTTPS" 管理页面，查看您需要进行配置 CNAME 记录的实例，单击<span ><img src="https://main.qcloudimg.com/raw/f5894edcb2045215d93c7c20ad8c1b0b.png" style="margin-bottom:-5px;"/></span>。如下图所示：
 ![](https://main.qcloudimg.com/raw/29802e182d7b4ea87573c07df81ec119.png)
 2. 在弹出的 “温馨提示” 窗口中，单击【确定】。即可添加记录。如下图所示：
 ![](https://main.qcloudimg.com/raw/c0efc2dc88bb465e19f3b58e960f7c1e.png)
