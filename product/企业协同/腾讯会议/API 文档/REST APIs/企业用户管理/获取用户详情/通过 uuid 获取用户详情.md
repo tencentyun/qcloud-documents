@@ -21,7 +21,7 @@ https://api.meeting.qq.com/v1/users?uuid={uuid}
 | 参数名称    | 参数类型 | 参数描述                   |
 | ----------- | -------- | -------------------------- |
 | username    | String   | 用户昵称。                   |
-| update_time | String   | 更新时间。                   |
+| update_time | String   | 更新时间，格式：yyyy-MM-dd HH:mm:ss。                 |
 | status      | String   | 用户状态：<br>1：正常<br>2：注销<br>3：未激活<br>4：禁用 |
 | email       | String   | 邮箱地址。                   |
 | phone       | String   | 手机号码。                   |
