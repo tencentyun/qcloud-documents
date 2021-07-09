@@ -257,102 +257,103 @@ keytool -genkey -alias tomcat -keyalg RSA -keystore ./keystore.jks -storepass 12
       }
       ```
 
-      忽略SSL认证方式
 
-      只需要修改bean（restTemplate、feignClient）
+忽略SSL认证方式
 
-      ![](https://main.qcloudimg.com/raw/38fea9d1e171a179c0d3970a4170bdfc.png)
+只需要修改bean（restTemplate、feignClient）
 
-      ![](https://main.qcloudimg.com/raw/06d8f50f8eb461e6c7795071f5a04c9e.png)
+![](https://main.qcloudimg.com/raw/38fea9d1e171a179c0d3970a4170bdfc.png)
 
-      注：与第一种方式的差异在getSSLSocket()方法
+![](https://main.qcloudimg.com/raw/06d8f50f8eb461e6c7795071f5a04c9e.png)
 
-      ```java
-      package com.tsf.demo.consumer;
-      
-      import feign.Client;
-      import org.apache.http.conn.ssl.NoopHostnameVerifier;
-      import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-      import org.apache.http.impl.client.CloseableHttpClient;
-      import org.apache.http.impl.client.HttpClients;
-      import org.springframework.boot.SpringApplication;
-      import org.springframework.boot.autoconfigure.SpringBootApplication;
-      import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-      import org.springframework.cloud.netflix.ribbon.SpringClientFactory;
-      import org.springframework.cloud.openfeign.EnableFeignClients;
-      import org.springframework.cloud.openfeign.ribbon.CachingSpringLoadBalancerFactory;
-      import org.springframework.cloud.openfeign.ribbon.LoadBalancerFeignClient;
-      import org.springframework.context.annotation.Bean;
-      import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-      import org.springframework.tsf.annotation.EnableTsf;
-      import org.springframework.web.client.AsyncRestTemplate;
-      import org.springframework.web.client.RestTemplate;
-      
-      import javax.net.ssl.*;
-      import java.security.*;
-      import java.security.cert.X509Certificate;
-      
-      @SpringBootApplication
-      @EnableFeignClients // 使用Feign微服务调用时请启用
-      @EnableTsf
-      public class ConsumerApplication {
-      
-          @LoadBalanced
-          @Bean
-          public RestTemplate restTemplate() {
-              SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(getSSLSocket(),
-                      new String[]{"TLSv1"},
-                      null,
-                      NoopHostnameVerifier.INSTANCE);
-              CloseableHttpClient httpClient = HttpClients.custom()
-                      .setSSLSocketFactory(csf)
-                      .build();
-              HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
-              requestFactory.setHttpClient(httpClient);
-              return new RestTemplate(requestFactory);
-          }
-      
-          @Bean
-          public Client feignClient(CachingSpringLoadBalancerFactory cachingFactory, SpringClientFactory clientFactory) {
-              return new LoadBalancerFeignClient(
-                  new Client.Default(getSSLSocket().getSocketFactory(), (hostname, session) -> true), cachingFactory, clientFactory
-              );
-          }
-      
-          public static SSLContext getSSLSocket() {
-              SSLContext sslContext = null;
-              try {
-                  sslContext = SSLContext.getInstance("TLS");
-                  X509TrustManager tm = new X509TrustManager() {
-                      @Override
-                      public void checkClientTrusted(X509Certificate[] chain, String authType) {}
-      
-                      @Override
-                      public void checkServerTrusted(X509Certificate[] chain, String authType) {}
-      
-                      @Override
-                      public X509Certificate[] getAcceptedIssuers() {
-                          return null;
-                      }
-                  };
-                  sslContext.init(null, new TrustManager[]{tm}, null);
-              } catch (NoSuchAlgorithmException | KeyManagementException e) {
-                  e.printStackTrace();
-              }
-              return sslContext;
-          }
-      
-          @LoadBalanced
-          @Bean
-          public AsyncRestTemplate asyncRestTemplate() {
-              return new AsyncRestTemplate();
-          }
-      
-          public static void main(String[] args) {
-              SpringApplication.run(ConsumerApplication.class, args);
-          }
-      }
-      ```
+注：与第一种方式的差异在getSSLSocket()方法
+
+```java
+package com.tsf.demo.consumer;
+
+import feign.Client;
+import org.apache.http.conn.ssl.NoopHostnameVerifier;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.netflix.ribbon.SpringClientFactory;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.openfeign.ribbon.CachingSpringLoadBalancerFactory;
+import org.springframework.cloud.openfeign.ribbon.LoadBalancerFeignClient;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.tsf.annotation.EnableTsf;
+import org.springframework.web.client.AsyncRestTemplate;
+import org.springframework.web.client.RestTemplate;
+
+import javax.net.ssl.*;
+import java.security.*;
+import java.security.cert.X509Certificate;
+
+@SpringBootApplication
+@EnableFeignClients // 使用Feign微服务调用时请启用
+@EnableTsf
+public class ConsumerApplication {
+
+		@LoadBalanced
+		@Bean
+		public RestTemplate restTemplate() {
+				SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(getSSLSocket(),
+								new String[]{"TLSv1"},
+								null,
+								NoopHostnameVerifier.INSTANCE);
+				CloseableHttpClient httpClient = HttpClients.custom()
+								.setSSLSocketFactory(csf)
+								.build();
+				HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
+				requestFactory.setHttpClient(httpClient);
+				return new RestTemplate(requestFactory);
+		}
+
+		@Bean
+		public Client feignClient(CachingSpringLoadBalancerFactory cachingFactory, SpringClientFactory clientFactory) {
+				return new LoadBalancerFeignClient(
+						new Client.Default(getSSLSocket().getSocketFactory(), (hostname, session) -> true), cachingFactory, clientFactory
+				);
+		}
+
+		public static SSLContext getSSLSocket() {
+				SSLContext sslContext = null;
+				try {
+						sslContext = SSLContext.getInstance("TLS");
+						X509TrustManager tm = new X509TrustManager() {
+								@Override
+								public void checkClientTrusted(X509Certificate[] chain, String authType) {}
+
+								@Override
+								public void checkServerTrusted(X509Certificate[] chain, String authType) {}
+
+								@Override
+								public X509Certificate[] getAcceptedIssuers() {
+										return null;
+								}
+						};
+						sslContext.init(null, new TrustManager[]{tm}, null);
+				} catch (NoSuchAlgorithmException | KeyManagementException e) {
+						e.printStackTrace();
+				}
+				return sslContext;
+		}
+
+		@LoadBalanced
+		@Bean
+		public AsyncRestTemplate asyncRestTemplate() {
+				return new AsyncRestTemplate();
+		}
+
+		public static void main(String[] args) {
+				SpringApplication.run(ConsumerApplication.class, args);
+		}
+}
+```
 
 4. 验证结果。
 
