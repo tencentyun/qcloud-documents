@@ -12,7 +12,7 @@
 进入 [应用性能观测控制台](https://console.cloud.tencent.com/apm)【资源管理】页面，单击【新建】即可创建业务系统。
 >!业务系统创建成功之后，我们会为您自动分配上报 Token。
 
-### 获取接入点和Token
+### 获取接入点和 Token
 进入 [应用性能观测控制台](https://console.cloud.tencent.com/apm)【应用监控】>【应用列表】页面，单击【添加应用】，在添加应用列 Java 语言与 SkyWalking 的数据采集方式。
 在应用接入步骤获取您的接入点和 Token，如下图所示：
 ![](https://main.qcloudimg.com/raw/d7d94913947d31edf70e85c6462c6bac.png)
@@ -32,7 +32,7 @@ agent.service_name=<上报的服务名称>
 CATALINA_OPTS="$CATALINA_OPTS -javaagent:<skywalking-agent-path>"; export CATALINA_OPTS
 ```
  - JAR File 或 Spring Boot
-  在应用程序的启动命令行中添加 -javaagent 参数，参数内容如下：
+    在应用程序的启动命令行中添加 -javaagent 参数，参数内容如下：
 ```
 java -javaagent:<skywalking-agent-path> -jar yourApp.jar
 ```
