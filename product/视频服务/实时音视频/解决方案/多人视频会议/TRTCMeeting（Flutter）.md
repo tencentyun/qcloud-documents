@@ -14,13 +14,13 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | API | 描述 |
 |-----|-----|
-| [sharedInstance](#sharedInstance) | 获取单例对象。|
+| [sharedInstance](#sharedinstance) | 获取单例对象。|
 | [destroySharedInstance](#destroysharedinstance) | 销毁单例对象。|
 | [registerListener](#registerlistener) | 设置事件监听。|
 | [unRegisterListener](#unregisterlistener) | 销毁事件监听。|
 | [login](#login) | 登录。|
 | [logout](#logout) | 登出。|
-| [setSelfProfile](#setSelfProfile) | 修改个人信息。|
+| [setSelfProfile](#setselfprofile) | 修改个人信息。|
 
 ### 会议房间相关接口
 
@@ -30,7 +30,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | [destroyMeeting](#destroymeeting) | 销毁会议房间（主持人调用）。|
 | [enterMeeting](#entermeeting) | 进入会议房间（参会成员调用）。|
 | [leaveMeeting](#leavemeeting) | 离开会议房间（参会成员调用）。|
-| [getUserInfoList](#getuserinfoList) | 获取房间内所有的人员列表，enterMeeting()成功后调用才有效。|
+| [getUserInfoList](#getuserinfolist) | 获取房间内所有的人员列表，enterMeeting()成功后调用才有效。|
 | [getUserInfo](#getuserinfo) | 获取房间内指定人员的详细信息，enterMeeting()成功后调用才有效。|
 
 ### 远端用户相关接口
@@ -100,7 +100,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 |-----|-----|
 | [onError](#onerror) | 错误回调。|
 | [onWarning](#onwarning) | 警告回调。|
-| [onKickedOffline](#onKickedoffline) | 其他用户登录了同一账号，被踢下线。|
+| [onKickedOffline](#onkickedoffline) | 其他用户登录了同一账号，被踢下线。|
 
 ### 会议房间事件回调
 
@@ -131,7 +131,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | API | 描述 |
 |-----|-----|
-| [onRecvRoomTextMsg](#onrecvroomtextMsg) | 收到文本消息的回调。|
+| [onRecvRoomTextMsg](#onrecvroomtextmsg) | 收到文本消息的回调。|
 | [onRecvRoomCustomMsg](#onrecvroomcustommsg) | 收到自定义消息的回调。|
 
 ### 录屏事件回调
@@ -720,7 +720,7 @@ Future<ActionCallback> sendRoomCustomMsg(String cmd, String message);
 | localQuality | TRTCCloudDef.TRTCQuality | 上行网络质量。|
 | remoteQuality | List&lt;TRTCCloudDef.TRTCQuality&gt; | 下行网络质量。|
 
-### onNetworkQuality
+### onUserVolumeUpdate
 
 用户通话音量回调。
 
