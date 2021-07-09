@@ -1,4 +1,3 @@
-
 本文档主要提供 GooseFS 快速部署、调试的相关指引，提供在本地机器上部署 GooseFS，并将对象存储（Cloud Object Storage，COS）作为远端存储的步骤指引，具体步骤如下：
 
 
