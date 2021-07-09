@@ -1,4 +1,3 @@
-
 使用 TKE 部署 GooseFS 需要借助 [开源组件 Fluid](https://github.com/fluid-cloudnative/fluid) 部署，TKE 应用市场已上架。部署包括两步：
 
 1. 通过 [Fluid helm chart](https://console.cloud.tencent.com/tke2/market/detail?chart=fluid&project=qcloud-stable&clusterType=tke) 部署 controller。
@@ -27,7 +26,8 @@
 [root@master01 run]# export KUBECONFIG=xxx/cls-xxx-config (从tke控制台页面，下载集群凭证到某个目录）
 ```
 
->!集群 API Server 开启外网访问权限。
+>! 集群 API Server 开启外网访问权限。
+>
 
 ### 2. 创建 UFS 数据集 Dataset（COS 为例）
 
