@@ -50,7 +50,7 @@ GET https://api.meeting.qq.com/v1/users/9527
 {
     "area": "86",
     "update_time": "2020-04-21 18:01:29",
-    "phone": "",
+    "phone": "13000000000",
     "user_id": "9527",
     "email": "",
     "username": "testusername",
