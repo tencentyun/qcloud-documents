@@ -1,18 +1,21 @@
 
-本文为您介绍使用 DTS 数据同步功能从云数据库 MySQL 同步数据至腾讯云企业级分布式数据库 TDSQL PostgreSQL版 及 TDSQL-A PostgreSQL版 的操作指导。
+本文为您介绍如何使用 DTS 数据同步功能将云数据库 MySQL 同步数据至腾讯云企业级分布式数据库 TDSQL PostgreSQL版 及 TDSQL-A PostgreSQL版。
 
 ## 前提条件
 - 已创建 [云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433) 实例，数据同步支持的源数据库版本为：MySQL 5.6、MySQL 5.7。
 - 已创建 [TDSQL PostgreSQL版](https://cloud.tencent.com/document/product/1129/39893) 或 [TDSQL-A PostgreSQL版](https://cloud.tencent.com/document/product/1378/54472) 实例。
 - 需要在源端 MySQL 实例中创建迁移帐号，需要的帐号权限包括 `RELOAD`、`LOCK TABLES`、`REPLICATION CLIENT`、`REPLICATION SLAVE`、`SELECT`，获取权限的方式如下：
 ```
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
+GRANT RELOAD, LOCK TABLES, REPLICATION CLIENT, REPLICATION SLAVE, SELECT 
+ON *.* TO '迁移帐号'@'%' 
+IDENTIFIED BY '迁移密码';
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';
 FLUSH PRIVILEGES;
 ```
-- 需要在目标端 TDSQL PostgreSQL版 或 TDSQL-A PostgreSQL版 实例中创建迁移帐号，需要的帐号权限包括：`DELETE`、`TRUNCATE`、`INSERT`、`REFERENCES`、`SELECT`、`UPDATE`、`TRIGGER`。
+- 需要在目标端 TDSQL PostgreSQL版 或 TDSQL-A PostgreSQL版 实例中创建迁移帐号，需要的帐号权限包括：`DELETE`、`TRUNCATE`、`INSERT`、`REFERENCES`、`SELECT`、`UPDATE`、`TRIGGER`，获取权限的方式如下：
 ```
-GRANT DELETE, TRUNCATE, INSERT, REFERENCES, SELECT, UPDATE, TRIGGER ON ALL TABLES IN SCHEMA schema_name TO user_name（迁移账号）;
+GRANT DELETE, TRUNCATE, INSERT, REFERENCES, SELECT, UPDATE, TRIGGER 
+ON ALL TABLES IN SCHEMA schema_name TO user_name（迁移账号）;
 ```
 
 ## 注意事项 
@@ -27,10 +30,10 @@ GRANT DELETE, TRUNCATE, INSERT, REFERENCES, SELECT, UPDATE, TRIGGER ON ALL TABLE
 - 当前仅支持源端数据库同步表的 DML 操作, 不支持 DDL 相关操作。
 
 ## 操作限制
-同步过程中请不要进行如下操作，否则会导致数据同步任务失败。
-- 不要修改、删除源数据库和目标数据库中用户信息（包括用户名、密码和权限）和端口号。
-- 不要在源库写入 Binlog 格式为 Statement 的数据。
-- 不要在源库上执行清除 Binlog 的操作。
+同步过程中请勿进行如下操作，否则会导致数据同步任务失败。
+- 请勿修改、删除源数据库和目标数据库中用户信息（包括用户名、密码和权限）和端口号。
+- 请勿在源库写入 Binlog 格式为 Statement 的数据。
+- 请勿在源库上执行清除 Binlog 的操作。
 
 ## 支持的 SQL 操作
 | 操作类型 | 支持同步的 SQL 操作               |
@@ -51,19 +54,19 @@ GRANT DELETE, TRUNCATE, INSERT, REFERENCES, SELECT, UPDATE, TRIGGER ON ALL TABLE
 <li>源库编码是 utf8 或 utf8mb4 编码。</li>
 <li>实例参数要求：
 <ul>
-<li>innodb_stats_on_metadata 变量须置为 OFF。</li>
-<li>源库 lower_case_table_names 参数须置为0。</li>
-<li>源库变量 connect_timeout 须大于10。</li>
-<li>建议开启 skip-name-resolve，减少连接超时的可能性。</li>
+<li>参数 innodb_stats_on_metadata 须置为 OFF。</li>
+<li>参数 lower_case_table_names 须置为0。</li>
+<li>参数 connect_timeout 须大于10。</li>
+<li>建议将参数 skip-name-resolve 置为 ON，减少连接超时的可能性。</li>
 </ul></li>
 <li>Binlog 参数要求：
 <ul>
-<li>源库 log_bin 变量须置为 ON。</li>
-<li>源库 binlog_format 变量须置为 ROW。</li>
-<li>源库 binlog_row_image 变量须置为 FULL。</li>
-<li>MySQL 5.6 及以上版本源库 gtid_mode 变量不为 ON 时会报 WARNING，建议打开 gtid_mode。</li>
+<li>参数 log_bin 须置为 ON。</li>
+<li>参数 binlog_format 须置为 ROW。</li>
+<li>参数 binlog_row_image 须置为 FULL。</li>
+<li>MySQL 5.6 及以上版本源库参数 gtid_mode 不为 ON 时会出现 WARNING 提示，建议将参数 gtid_mode 置为 ON。</li>
 <li>不允许设置 do_db, ignore_db 过滤条件。</li>
-<li>源实例为从库时，log_slave_updates 变量须置为 ON。</li>
+<li>源实例为从库时，参数 log_slave_updates 须置为 ON。</li>
 </ul></li>
 <li>外键依赖：
 <ul>
@@ -87,17 +90,17 @@ GRANT DELETE, TRUNCATE, INSERT, REFERENCES, SELECT, UPDATE, TRIGGER ON ALL TABLE
 本文介绍的同步功能相关事项既适应于 TDSQL PostgreSQL版，也适应于 TDSQL-A PostgreSQL版，现以 TDSQL-A PostgreSQL版 为例对操作步骤进行说明。
 
 1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/dts)，选择相应配置，单击【立即购买】。
-  - 计费模式：支持包年包月和按量计费，目前免费，后续计费会通过邮件和站内信方式提前1个月通知用户。
+  - 计费模式：支持“包年包月”和“按量计费”模式，当前阶段免费，后续计费会通过邮件和站内信方式提前1个月通知用户。
   - 源实例类型：目前仅支持 MySQL。
   - 源实例地域：选择后不支持再次修改，请选择源实例所在的地域。
   - 目标实例类型：支持 TDSQL PostgreSQL版、TDSQL-A PostgreSQL版。
   - 目标实例地域：选择后不支持再次修改，请选择目标实例所在的地域。
   - 同步任务规格：目前只支持标准版。
 ![](https://main.qcloudimg.com/raw/a8886c3db61f91c584b668a275718fcd.png)
-2. 在弹出的对话框，确认无误后，单击【立即购买】，返回数据同步列表，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
+2. 确认弹出对话框中的信息，确认无误后，单击【立即购买】，返回数据同步列表，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 ![](https://main.qcloudimg.com/raw/a04a3a73d5c7f60db8322d4ab191943c.png)
 3. 在 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，单击“操作”列的【配置】，进入配置同步任务页面。
-4. 在配置同步任务页面，配置源端实例、帐号密码，配置目标端实例、帐号和密码，测试连通性后，单击【下一步】。
+4. 在配置同步任务页面，配置源端实例、帐号及密码，配置目标端实例、帐号及密码，测试连通性后，单击【下一步】。
   - 任务名称：DTS 会自动生成一个任务名称，用户可以根据实际情况进行设置。
   - 运行模式：支持立即执行和定时执行。
   - 源实例类型：选择的云数据库实例类型，不可修改。
@@ -129,7 +132,7 @@ GRANT DELETE, TRUNCATE, INSERT, REFERENCES, SELECT, UPDATE, TRIGGER ON ALL TABLE
 7. 返回数据同步任务列表，任务开始进入“运行中”状态。
 >?停止任务，则直接关闭任务，请您确保数据同步完成后再关闭任务。
 >
-![](https://main.qcloudimg.com/raw/8a15f383ac0310682241f5e9bbdb32fe.png)
+![](https://main.qcloudimg.com/raw/4f7e5d83a8100adb48bdaed2b55bb8cc.png)
 8. （可选）您可以单击任务名，进入任务详情页，查看任务初始化状态和监控数据。
 ![](https://main.qcloudimg.com/raw/4e5726065558e7e0181e7a2f24effd5e.png)
 

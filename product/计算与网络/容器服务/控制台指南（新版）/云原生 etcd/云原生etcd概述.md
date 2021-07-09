@@ -2,7 +2,7 @@
 
 腾讯云云原生 etcd（Tencent Etcd Service，TES）是针对云原生服务场景进行优化的 etcd 托管解决方案，由腾讯云容器团队提供，全面支持开源的 etcd 分布式存储能力，为用户提供高可靠、高性能、免运维的云原生 etcd 服务。
 
->?云原生 etcd 服务目前正在内测中 ，内测阶段 etcd 服务将以白名单形式开放。若需要部署测试生产级业务，请通过腾讯云助手或 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通 etcd 服务。
+>?云原生 etcd 服务目前正在内测中，内测阶段 etcd 服务将以白名单形式开放。若需要部署测试生产级业务，请通过腾讯云助手或 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通 etcd 服务。
 
 ### 应用场景
 

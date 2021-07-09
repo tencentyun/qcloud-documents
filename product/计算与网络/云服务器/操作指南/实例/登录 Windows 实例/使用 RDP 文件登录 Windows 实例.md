@@ -1,6 +1,4 @@
->! 
->目前 Windows 实例已支持标准登录方式（WebRDP），您可通过控制台一键登录 Windows 实例，无需下载本地登录客户端。
-该功能目前处于内测阶段，如需使用请 [提交申请](https://cloud.tencent.com/apply/p/w7210z1bd9g)，登录方法介绍请参见 [使用标准方式登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/57778)。
+>! 目前 Windows 实例登录方式已更新为**标准登录方式（WebRDP）**，您可通过控制台一键登录 Windows 实例，无需下载本地登录客户端。登录方法介绍请参见 [使用标准方式登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/57778)。
 >
 
 ## 操作场景
