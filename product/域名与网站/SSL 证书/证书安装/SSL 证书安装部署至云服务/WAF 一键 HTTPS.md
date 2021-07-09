@@ -8,6 +8,11 @@ SaaS 型 WAF 通过为防护域名分配 CNAME，修改网站的 DNS 解析记�
 已在 [证书管理控制台](https://console.cloud.tencent.com/ssl) 申请颁发 SSL 证书。
 
 
+## 限制说明
+- SSL 证书默认开通 WAF 小微版。支持1个二级域名、3个子域名、50 QPS。
+>! www 子域名占用一个子域名名额，例如 `www.tencent.com` 。
+- 若您一键 HTTPS 域名已使用腾讯云 CDN 或 CLB ，则无法使用一键 HTTPS 功能。
+
 ## 操作指南
 ### 步骤1：添加一键 HTTPS 域名
 1. 登录 [证书管理控制台](https://console.cloud.tencent.com/ssl)，并单击左侧菜单栏【一键 HTTPS】，进入 【一键 HTTPS】管理页面。
@@ -17,9 +22,14 @@ SaaS 型 WAF 通过为防护域名分配 CNAME，修改网站的 DNS 解析记�
 ![](https://main.qcloudimg.com/raw/e327528f08706299fef120e04c993099.png)
 3. 在弹出的 “一键添加” 窗口中，配置相关信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/5e8f1474ff34ca297f5ccf9f7ae57e6a.png)
- - **填写域名：**请输入您需要进行一键 HTTPS 的域名，支持通配符域名。
+ - **填写域名：**请输入您需要进行一键 HTTPS 的域名。
+<dx-alert infotype="explain" title="">
+ 填写的域名需要在工信部完成备案，否则将无法进行接入。详情请参见：[备案概述](https://cloud.tencent.com/document/product/243/18907)。
+</dx-alert>
  - **选择证书：**请选择已成功申请的证书。
->? 选择的证书需与【填写域名】对应。单域名对应相同域名名称的单域名证书，通配符域名对应相同域名名称的通配符证书，多域名则选择包含该域名名称的多域名证书。
+<dx-alert infotype="explain" title="">
+选择的证书需与【填写域名】填写的域名对应。例如，填写的域名为 `cloud.tencent.com`，则选择绑定域名为 `cloud.tencent.com` 的证书。
+</dx-alert>
  - **源站地址：**请根据您的实际需求选择【IP】与【域名】。
     - **IP**：请输入需要防护网站的真实 IP 源站地址，即源站的公网 IP 地址。
     - **域名**：请输入需要防护网站的真实源站域名。
