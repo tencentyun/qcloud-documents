@@ -24,7 +24,7 @@ SaaS 型 WAF 通过为防护域名分配 CNAME，修改网站的 DNS 解析记�
 ![](https://main.qcloudimg.com/raw/5e8f1474ff34ca297f5ccf9f7ae57e6a.png)
  - **填写域名：**请输入您需要进行一键 HTTPS 的域名。
 <dx-alert infotype="explain" title="">
- 填写的域名需要在工信部完成备案，否则将无法进行接入。详情请参见：[备案概述](https://cloud.tencent.com/document/product/243/18907)。
+ 填写的域名需要在工信部完成备案，否则将无法进行接入。详情请参见 [备案概述](https://cloud.tencent.com/document/product/243/18907)。
 </dx-alert>
  - **选择证书：**请选择已成功申请的证书。
 <dx-alert infotype="explain" title="">
