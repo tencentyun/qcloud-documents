@@ -65,7 +65,7 @@ message HelloReply {
 这里需要注意以下几点：
 
 - syntax必须是proto3，tsf go都是基于proto3通信的。
-- package后面必须有option go_package="github.com/tencentyun/tsf-go/examples/helloworld/proto";指明你的pb.go生成文件的git存放地址，协议与服务分离，方便其他人直接引用
+- package后面必须有option go_package="github.com/tencentyun/tsf-go/examples/helloworld/proto";指明您的pb.go生成文件的git存放地址，协议与服务分离，方便其他人直接引用
 - 编写protobuf时必须遵循[谷歌官方规范](https://developers.google.com/protocol-buffers/docs/style)。
 
 #### 2. 生成服务端桩代码xxx.pb.go代码
@@ -244,4 +244,4 @@ docker push ccr.ccs.tencentyun.com/tsf_xxx/provider:1.0
 - [log](https://github.com/tencentyun/tsf-go/blob/master/examples/log)
 - [error](https://github.com/tencentyun/tsf-go/blob/master/examples/error)
 - [tracing](https://github.com/tencentyun/tsf-go/blob/master/examples/tracing)
-- [breaker](
+- [breaker](https://github.com/tencentyun/tsf-go/tree/master/examples/breaker)
