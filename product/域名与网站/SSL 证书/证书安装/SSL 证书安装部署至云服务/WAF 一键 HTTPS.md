@@ -1,7 +1,7 @@
 
 ## 概述
 一键 HTTPS 是 SSL 证书结合腾讯云 Web 应用防火墙（WAF）服务开发的快速部署 WAF 的 HTTPS 功能。使用该功能，您可以快捷在 [证书管理控制台](https://console.cloud.tencent.com/https) 将您申请到的 SSL 证书接入部署至腾讯云 Web 应用防火墙（WAF）提供的 SaaS 型 WAF 域名接入服务。
-SaaS 型 WAF 通过为防护域名分配 CNAME，修改网站的 DNS 解析记录，将网站收到的 Web 请求转发给 WAF，从而对网站进行安全防护。具体详情参见 [Web 应用防火墙产品概述](https://cloud.tencent.com/document/product/627/17470)。
+SaaS 型 WAF 通过为防护域名分配 CNAME，修改网站的 DNS 解析记录，将网站收到的 Web 请求转发给 WAF，从而对网站进行安全防护。详情请参见 [Web 应用防火墙产品概述](https://cloud.tencent.com/document/product/627/17470)。
 本文将指导您如何在 [证书管理控制台](https://console.cloud.tencent.com/https) 一键添加 WAF 接入域名并配置 HTTPS。
 
 ## 前提条件
@@ -33,10 +33,22 @@ SaaS 型 WAF 通过为防护域名分配 CNAME，修改网站的 DNS 解析记�
 
 >?
 >- 添加一键 HTTPS 域名后，还需配置对应的 CNAME 记录后，接入才可正常生效。
->- 配置 CNAME 记录步骤以腾讯云配置 CNAME 记录为例，若您的一键 HTTPS 域名未在 DNSPod 解析解析托管，具体操作请咨询您的域名解析商或将域名托管至 DNSPod DNS 解析后，再进行配置 CNAME 记录。详情请参见 [域名托管至 DNSPod DNS 解析](https://docs.dnspod.cn/dns/60b99ba0e90008112f815bde/)。
->
+>- 配置 CNAME 记录步骤以腾讯云配置 CNAME 记录为例，若您的一键 HTTPS 域名解析未在 DNSPod DNS 解析托管，具体操作请咨询您的域名解析商或将域名托管至 DNSPod DNS 解析后，再进行配置 CNAME 记录。详情请参见 [域名托管至 DNSPod DNS 解析](https://docs.dnspod.cn/dns/60b99ba0e90008112f815bde/)。
+
+<dx-tabs>
+::: 一键添加\sCNAME\s记录
+
+<dx-alert infotype="explain" title="">
+若您的域名解析已在 DNSPod DNS 解析进行托管，可直接一键添加 CNAME 记录。
+</dx-alert>
+1. 在 "一键 HTTPS" 管理页面，查看您需要进行配置 CNAME 记录的实例，单击<span ><img src="https://main.qcloudimg.com/raw/f5894edcb2045215d93c7c20ad8c1b0b.png" style="margin-bottom:-5px;"/></span>图标。如下图所示：
+![](https://main.qcloudimg.com/raw/29802e182d7b4ea87573c07df81ec119.png)
+2. 在弹出的 “温馨提示” 窗口中，单击【确定】。即可添加记录。如下图所示：
+![](https://main.qcloudimg.com/raw/c0efc2dc88bb465e19f3b58e960f7c1e.png)
+:::
+::: 手动添加\sCNAME\s记录
 1. 登录  [DNSPod 管理控制台](https://console.dnspod.cn/dns/list)。
-2. 在 “我的域名” 中，选择需要进行一键 HTTPS 域名，单击对应域名，即可进入该域名的【记录管理】页面。如下图所示：
+2. 在 “我的域名” 中，选择需要配置记录的一键 HTTPS 域名，单击域名名称，即可进入该域名的【记录管理】页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/3888e10fc99f01d0cbb0058411f0e662.png)
 3. 单击【添加记录】，填写记录信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/489791e8d992b47ed300e30899050c67.png)
@@ -49,10 +61,15 @@ SaaS 型 WAF 通过为防护域名分配 CNAME，修改网站的 DNS 解析记�
 为0 - 100的整数。
  - **MX 优先级**：不需要填写。
  - **TTL**：为缓存时间，数值越小，修改记录各地生效时间越快，默认为600秒。
-4. 单击【确定】，完成添加。
+4. 单击【确定】，即可添加记录。
 5. 完成添加后，请耐心等待解析生效，解析生效后即可接入成功。
->?一般情况下，解析生效时间与您设置 TTL 值相同。
->
+<dx-alert infotype="explain" title="">
+一般情况下，解析生效时间与您设置 TTL 值相同。
+</dx-alert>
+:::
+</dx-tabs>
+
+
 
 
 
