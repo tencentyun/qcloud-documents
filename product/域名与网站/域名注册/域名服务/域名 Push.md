@@ -12,14 +12,18 @@
 ![](https://main.qcloudimg.com/raw/00ed80828a3fac170fd7ea58a1c3af26.png)
  - **选择域名：**请输入需要 Push 的域名，每行一个，最多支持4000个。例如 dnspod.cn、tencent.com。
  - **Push 接收账号：**请输入转移接收方的账号 ID 并单击【确认】。
- >?您可以通过 **[账号信息](https://console.cloud.tencent.com/developer) > 基本资料 > 账号 ID** 获取账号 ID，该账号 ID 是用户在腾讯云的唯一账号标识。
+<dx-alert infotype="explain" title="">
+您可以通过 **[账号信息](https://console.cloud.tencent.com/developer) > 基本资料 > 账号 ID** 获取账号 ID，该账号 ID 是用户在腾讯云的唯一账号标识。
+</dx-alert>
  - **Push 类型：**若选择【免费转移】，Push 接收账号将免费接收转移域名。
->?暂不支持带价 Push。
->
+<dx-alert infotype="explain" title="">
+暂不支持带价 Push。
+</dx-alert>
  - **重置 DNS 解析：**重置 DNS 解析将会清除域名所有解析数据，该操作无法撤回，如域名已有线上业务，请勿选择该项。
  - **转移锁定：**如您需将域名转出腾讯云，请您在发起域名 Push 时，**请勿勾选**【开启 “60天禁止转移注册商锁定期”】，否则转入域名后60天内不能转出。
- >?根据国际互联网域名与地址管理机构（ICANN）的 [转让政策规定](https://www.icann.org/resources/pages/transfer-policy-2017-05-23-zh?spm=a2c4g.11186623.2.16.22f94fbaXuTGlM)，修改域名信息过程中勾选【开启 "60天禁止转移注册商锁定期"】，60天内将禁止域名从当前接入商转出。
- >
+<dx-alert infotype="explain" title="">
+根据国际互联网域名与地址管理机构（ICANN）的 [转让政策规定](https://www.icann.org/resources/pages/transfer-policy-2017-05-23-zh?spm=a2c4g.11186623.2.16.22f94fbaXuTGlM)，修改域名信息过程中勾选【开启 "60天禁止转移注册商锁定期"】，60天内将禁止域名从当前接入商转出。
+</dx-alert>
  - **附言：**接收方接收之前可看到的附言，输入内容在200字符内。
 4. 单击【下一步】，在弹出的 “身份验证” 窗口中，获取并填写短信验证码，并单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/baab6a00f06feaf18930d93f1ef29f4d.png)
