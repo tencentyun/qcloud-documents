@@ -2,7 +2,7 @@
 
 TSF 支持原生Spring Cloud应用无侵入接入，无需改造即可直接接入TSF，享受服务注册与发现、服务治理、应用监控和调用链跟踪等功能。
 
-本文档以一个商城系统做示例，为您介绍将原生Spring Cloud应用迁移到TSF的方法。
+本文档以一个[开源商城系统](https://github.com/macrozheng/mall-swarm)做示例，为您介绍将原生Spring Cloud应用迁移到TSF的方法。
 
 该系统由以下几部分组成：
 
@@ -20,16 +20,37 @@ TSF 支持原生Spring Cloud应用无侵入接入，无需改造即可直接接�
 
 **环境配置建议**
 
-> ?以下配置仅做建议，具体以您的实际业务需求为主。
+>?以下配置仅做建议，具体以您的实际业务需求为主。
 
 - 开发环境：指含有mall demo程序源码的计算环境。
-
 - 部署环境：指购买的腾讯云主机，并且运用TSF服务部署商城系统的环境。
 
-![](https://main.qcloudimg.com/raw/c8ae4ba6bbe131803dfa31143bef0a28.png)
 
-【腾讯文档】原生应用迁移环境表格
-https://docs.qq.com/sheet/DUFdnQ0JJTlZiemtU
+
+<table>
+<thead>
+<tr>
+<th>环境</th>
+<th>环境分类</th>
+<th>配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>开发环境</td>
+<td>-</td>
+<td>CPU: 4核<br> 内存：8GB <br>网络：50Mbps</td>
+</tr>
+<tr>
+<td rowspan="2">部署环境</td>
+<td>中间件部署服务器</td>
+<td>配置：1台云主机<br> CPU：4核<br> 内存：8GB<br> 网络：50Mbps</td>
+</tr>
+<tr>
+<td>微服务部署服务器</td>
+<td>配置：每个服务1台云主机<br> CPU：1核<br> 内存：2GB<br> 网络：20Mbps，按量计费<br> 磁盘：50GB</td>
+<td></td>
+</tr>
+</tbody></table>
 
 
 
@@ -39,7 +60,7 @@ https://docs.qq.com/sheet/DUFdnQ0JJTlZiemtU
 
 2. 安装 [Docker](https://docs.docker.com/engine/install/) 和 [Docker Compose](https://docs.docker.com/compose/install/)。
 
-3. 下载[mall-demo程序包](https://github.com/supergunme/tsf-test)，并将其上传到云服务器中。
+3. 下载[mall-demo程序包](https://github.com/supergunme/tsf-demo-public)，并将其上传到云服务器中。
 
 4. 进入tsf-test-master/document/docker目录，执行如下命令，等待下载和容器拉起完成。
 
@@ -70,7 +91,7 @@ https://docs.qq.com/sheet/DUFdnQ0JJTlZiemtU
 
 **操作步骤**
 
-1. 下载[mall-demo程序包](https://github.com/supergunme/tsf-test)到本地。
+1. 下载[mall-demo程序包](https://github.com/supergunme/tsf-demo-public)到本地。
 
 2. 在tsf-test/根目录下执行如下命令，进行依赖初始化，耗时根据网速可能不同。
 
@@ -103,7 +124,7 @@ https://docs.qq.com/sheet/DUFdnQ0JJTlZiemtU
    mvn clean package -DskipTests
    ```
 
-5. 在target目录下，可看到生成的jar程序包。
+6. 在target目录下，可看到生成的jar程序包。
 
    ```
    需上传jar包本地路径
@@ -147,7 +168,6 @@ https://docs.qq.com/sheet/DUFdnQ0JJTlZiemtU
 5. 在部署组页面，单击【新建部署组】，填写部署组信息。
 
    - 集群：选择**3.1步骤**中创建的集群
-
    - 日志配置项：选择**步骤3.2**中创建的日志配置项
 
    ![](https://main.qcloudimg.com/raw/a7ef5d0003109f2d33e3e1c9f275c610.png)
@@ -172,7 +192,7 @@ https://docs.qq.com/sheet/DUFdnQ0JJTlZiemtU
 
 ## 部署结果验证
 
-###  步骤1. 验证服务依赖功能
+### 步骤1. 验证服务依赖功能
 
 通过部署前端页面，验证服务依赖功能
 
@@ -196,6 +216,7 @@ https://docs.qq.com/sheet/DUFdnQ0JJTlZiemtU
 
    ```
    npm run dev
+   
    ```
 
 6. 访问前端页面，地址：http://中间件服务器的外网IP: 8090，体验服务。
@@ -216,13 +237,15 @@ https://docs.qq.com/sheet/DUFdnQ0JJTlZiemtU
 
 场景：用户频繁访问拉取商品列表接口。
 
-需求：保证核心服务 mall - admin 被每秒中最多被请求50次。
+需求：保证核心服务 mall - admin 被每秒中最多被请求20次。
 
 规则配置：在TSF控制台服务治理页面找到 mall-admin 服务，进入服务详情页面，配置服务限流规则。
 
-![](https://main.qcloudimg.com/raw/1e9f1242f88abb91a89591a46c183bf1.png)
+![](https://main.qcloudimg.com/raw/d491cc4119bcdd37c087ddf9fda3e8dc.png)
 
 效果验证：
+
+![](https://main.qcloudimg.com/raw/b6dccb2c4d676276f3fafb7e017cbeaa.png)
 
 **2.2 验证服务鉴权功能**
 
@@ -246,9 +269,10 @@ https://docs.qq.com/sheet/DUFdnQ0JJTlZiemtU
 
 当应用非常多，不希望使用控制台逐个部署怎么办呢？ 或者已经使用了jenkins、travis等工具，如何对接到TSF平台上呢？我们可以参考下面的操作来进行实践。
 
-[mall-demo程序包](https://github.com/supergunme/tsf-test)中的deploy.py脚本支持自动上传和部署一个新的应用到现有的集群中，默认选择集群中可用实例中的第一个实例机器部署应用。
+[mall-demo程序包](https://github.com/supergunme/tsf-demo-public)中的deploy.py脚本支持自动上传和部署一个新的应用到现有的集群中，默认选择集群中可用实例中的第一个实例机器部署应用。
 
 1. 在deploy目录下的deploy.py文件中配置secret_id，secret_key，clusterId 和 namespace 等参数。
+
 
    | 参数                     | 说明                                                         |
    | ------------------------ | ------------------------------------------------------------ |
@@ -264,6 +288,7 @@ https://docs.qq.com/sheet/DUFdnQ0JJTlZiemtU
 
 ```yml
 - ./scripts/deploy.py mall-demo/target/mall-demo-1.0-SNAPSHOT.jar "test" "1234567890"
+
 ```
 
 3. 提交commit，并且推送到远程分支，自动触发Travis CI 流程。Travis 流程执行成功。 ![img](https://docimg9.docs.qq.com/image/TW3jCWU5fGlMpRWatIeVEw?w=1910&h=392)        
@@ -272,7 +297,7 @@ https://docs.qq.com/sheet/DUFdnQ0JJTlZiemtU
 
    ![](https://main.qcloudimg.com/raw/e4d39fa30528aba0082fcd3662db13e1.png)
 
-   ![](https://main.qcloudimg.com/raw/beadf42016d1dd3d523a8f3af7bcf96a.png)
+   ![](https://main.qcloudimg.com/raw/00477da2c48dea7bd8846b7879bccc70.png)
 
-   ![](https://main.qcloudimg.com/raw/570b49ff4f362ffef5fe258f541fabce.png)
+   ![](https://main.qcloudimg.com/raw/020211db71395d5db182515880ec1f06.png)
 
