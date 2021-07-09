@@ -6,10 +6,6 @@
 https://api.meeting.qq.com/v1/users?uuid={uuid}
 ```
 
-
-
-
-
 ## 输入参数
 
 以下请求参数列表仅列出了接口请求参数，HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](https://cloud.tencent.com/document/product/1095/42413#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)。
@@ -50,7 +46,7 @@ GET https://api.meeting.qq.com/v1/users?uuid=WM4Fs4Th56ogU13JiK
 {
     "area": "86",
     "update_time": "2020-04-21 18:01:29",
-    "phone": "",
+    "phone": "13000000000",
     "user_id": "9527",
     "email": "",
     "username": "testusername",
