@@ -2,7 +2,7 @@
 SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [短信 API](https://cloud.tencent.com/document/product/382/38764)。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，错误码相同以及返回包格式相同等优点。
 >!
 >- 发送短信相关接口
->一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：[3012203387](https://main.qcloudimg.com/raw/e674a37df984126f53ab9cbf4b9a168a.html)）。
+>一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系 [腾讯云短信小助手](https://tccc.qcloud.com/web/im/index.html#/chat?webAppId=8fa15978f85cb41f7e2ea36920cb3ae1&title=Sms)。
 >- 签名、正文模板相关接口
 >个人认证用户不支持使用签名、正文模板相关接口，只能通过短信控制台 [管理短信签名](https://cloud.tencent.com/document/product/382/37794) 和 [管理短信正文模板](https://cloud.tencent.com/document/product/382/37795)。如需使用该类接口，请将 “个人认证” 变更为 “企业认证”，具体操作请参见 [实名认证变更指引](https://cloud.tencent.com/document/product/378/34075)。
 
@@ -30,6 +30,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
  - UNIX 环境：执行以下命令安装。
 ```
 curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
 ```
 2. 添加依赖。
 ```
@@ -76,6 +77,8 @@ try {
 
     // 实例化一个 http 选项，可选，无特殊需求时可以跳过
     $httpProfile = new HttpProfile();
+    // 配置代理
+    // $httpProfile->setProxy("https://ip:port");
     $httpProfile->setReqMethod("GET");  // POST 请求（默认为 POST 请求）
     $httpProfile->setReqTimeout(30);    // 请求超时时间，单位为秒（默认60秒）
     $httpProfile->setEndpoint("sms.tencentcloudapi.com");  // 指定接入地域域名（默认就近接入）
@@ -154,6 +157,8 @@ try {
 
     // 实例化一个 http 选项，可选，无特殊需求时可以跳过
     $httpProfile = new HttpProfile();
+    // 配置代理
+    // $httpProfile->setProxy("https://ip:port");
     $httpProfile->setReqMethod("GET");  // POST 请求（默认为 POST 请求）
     $httpProfile->setReqTimeout(30);    // 请求超时时间，单位为秒（默认60秒）
     $httpProfile->setEndpoint("sms.tencentcloudapi.com");  // 指定接入地域域名（默认就近接入）
@@ -181,12 +186,12 @@ try {
     /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，可登录 [短信控制台] 查看签名信息 */
     $req->Sign = "xxx";
     /* 短信码号扩展号: 默认未开通，如需开通请联系 [sms helper] */
-    $req->ExtendCode = "0";
+    $req->ExtendCode = "";
     /* 下发手机号码，采用 e.164 标准，+[国家或地区码][手机号]
 	   * 例如+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号，最多不要超过200个手机号*/
     $req->PhoneNumberSet = array("+8613711112222", "+8613711333222", "+8613711144422");
     /* 国际/港澳台短信 senderid: 国内短信填空，默认未开通，如需开通请联系 [sms helper] */
-    $req->SenderId = "xxx";
+    $req->SenderId = "";
     /* 用户的 session 内容: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */
     $req->SessionContext = "xxx";
     /* 模板 ID: 必须填写已审核通过的模板 ID。可登录 [短信控制台] 查看模板 ID */
@@ -238,6 +243,8 @@ try {
 
     // 实例化一个 http 选项，可选，无特殊需求时可以跳过
     $httpProfile = new HttpProfile();
+    // 配置代理
+    // $httpProfile->setProxy("https://ip:port");
     $httpProfile->setReqMethod("GET");  // POST 请求（默认为 POST 请求）
     $httpProfile->setReqTimeout(30);    // 请求超时时间，单位为秒（默认60秒）
     $httpProfile->setEndpoint("sms.tencentcloudapi.com");  // 指定接入地域域名（默认就近接入）
@@ -309,6 +316,8 @@ try {
 
     // 实例化一个 http 选项，可选，无特殊需求时可以跳过
     $httpProfile = new HttpProfile();
+    // 配置代理
+    // $httpProfile->setProxy("https://ip:port");
     $httpProfile->setReqMethod("GET");  // POST 请求（默认为 POST 请求）
     $httpProfile->setReqTimeout(30);    // 请求超时时间，单位为秒（默认60秒）
     $httpProfile->setEndpoint("sms.tencentcloudapi.com");  // 指定接入地域域名（默认就近接入）
@@ -358,7 +367,28 @@ catch(TencentCloudSDKException $e) {
 ```
 
 ## 常见问题[](id:point)
-### 代理
+<dx-accordion>
+::: 证书问题
+如果您的 PHP 环境证书有问题，可能会遇到报错，类似于`cURL error 60: See http://curl.haxx.se/libcurl/c/libcurl-errors.html`，请尝试按以下步骤解决：
+
+1. 到 https://curl.haxx.se/ca/cacert.pem 下载证书文件`cacert.pem`，将其保存到 PHP 安装路径下。
+2. 编辑`php.ini`文件，删除`curl.cainfo`配置项前的分号注释符（;），值设置为保存的证书文件`cacert.pem`的绝对路径。
+3. 重启依赖 PHP 的服务。
+:::
+::: php_curl\s扩展
+此 SDK 依赖的 GuzzleHttp 需要开启 php_curl 扩展，查看环境上的 php.ini 环境确认是否已启用，例如在 Linux 环境下，PHP 7.1 版本，托管在 apache 下的服务，可以打开 /etc/php/7.1/apache2/php.ini，查看 extension=php_curl.dll 配置项是否已被注释，请删除此项配置前的注释符并重启 apache。
+:::
+::: Web\s访问异常
+命令行下执行正常，但是放在 Web 服务器执行则报错：
+
+`cURL error 0: The cURL request was retried 3 times and did not succeed. The most likely reason for the failure is that cURL was unable to rewind the body of the request and subsequent retries resulted in the same error. Turn on the debug option to see what went wrong. See https://bugs.php.net/bug.php?id=47204 for more information. (see http://curl.haxx.se/libcurl/c/libcurl-errors.html)`
+
+此问题出现情况不一。可以运行`php -r "echo sys_get_temp_dir();"`，打印系统默认临时目录绝对路径，然后在`php.ini`配置`sys_temp_dir`为这个值，尝试是否能解决。
+:::
+::: 源码安装问题
+为了支持部分源码安装的需要，我们将依赖的包文件放在 vendor 目录中，又考虑到不能造成对 composer 的不兼容，github 不得不设置禁止导出 vendor 目录，造成必须使用`git clone`命令才能拿到 vendor 目录的情况，对一些不熟悉 github 的用户造成了困扰。从3.0.188版本开始，我们暂时移除了源码安装，必须使用 composer 安装 SDK 和依赖的包。
+:::
+::: 代理设置
 在有代理的环境下，需要设置系统环境变量`https_proxy`，否则可能无法正常调用，抛出连接超时的异常。
 或使用 GuzzleHttp 代理配置：
 ```php
@@ -369,20 +399,6 @@ $httpProfile->setProxy('https://ip:port');
 
 $clientProfile = new ClientProfile();
 $clientProfile->setHttpProfile($httpProfile);
-
-$client = new OcrClient($cred, 'ap-beijing', $this->clientProfile);
 ```
-
-### 证书问题
-如果 PHP 环境证书有问题，遇到类似`cURL error 60: See http://curl.haxx.se/libcurl/c/libcurl-errors.html`报错，请尝试参照以下步骤解决：
-1. 下载证书文件 [cacert.pem](https://curl.haxx.se/ca/cacert.pem)，将其保存到 PHP 安装路径下。
-2. 编辑`php.ini`文件，删除`curl.cainfo`配置项前的分号注释符（;），值设置为保存的证书文件`cacert.pem`的绝对路径。
-3. 重启依赖 PHP 的服务。
-
-### php_curl 扩展
-SDK 依赖的 GuzzleHttp 需要开启 php_curl 扩展，查看环境上的`php.ini`环境确认是否已启用。
-例如，在 Linux 环境下，PHP 7.1 版本，托管在 apache 下的服务，可以打开`/etc/php/7.1/apache2/php.ini`中查看`extension=php_curl.dll`配置项是否被注释，请删除该项配置前的注释符并重启 apache。
-
-### Web 访问异常
-命令行下执行正常，但是放在 Web 服务器执行则报错：cURL error 0: The cURL request was retried 3 times and did not succeed. The most likely reason for the failure is that cURL was unable to rewind the body of the request and subsequent retries resulted in the same error. Turn on the debug option to see what went wrong. See https://bugs.php.net/bug.php?id=47204 for more information. (see http://curl.haxx.se/libcurl/c/libcurl-errors.html)。
-此问题出现情况不一，可以运行 `php -r "echo sys_get_temp_dir();"` 打印系统默认临时目录绝对路径，然后在`php.ini`配置`sys_temp_dir`为打印出的路径，尝试是否能解决。
+:::
+</dx-accordion>

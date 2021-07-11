@@ -19,7 +19,7 @@
 >- 重启数据库有几率失败，这是正常现象，如果重启时间超过10分钟建议 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询。
 
 ## 实例管理页
-云数据库 PostgreSQL 初始化完成后，在 [实例列表](https://console.cloud.tencent.com/pgsql) 单击实例名或“操作”列的【管理】，可以进入实例管理页面。您可以进行实例详情查看、实例监控、数据库管理等操作。
+云数据库 PostgreSQL 创建完成后，在 [实例列表](https://console.cloud.tencent.com/pgsql) 单击实例名或“操作”列的【管理】，可以进入实例管理页面。您可以进行实例详情查看、实例监控、数据库管理等操作。
 ![](https://main.qcloudimg.com/raw/33b2f22f24deddd1d9602e064c7b1a9a.png)
 
 ### 实例详情

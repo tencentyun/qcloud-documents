@@ -19,7 +19,8 @@
 本文以在腾讯云、阿里云、百度云、DNSPod、万网、新网配置 CNAME 域名解析为例。操作步骤仅供参考，如与实际配置不符，请以各自 DNS 服务商的信息为准。域名 CNAME 设置完成后，您可根据 [验证 CNAME 是否生效](#check) 所述方法验证域名是否已 CNAME 成功。
 
 
-### 腾讯云设置方法[](id:tencent)
+[](id:tencent)
+### 腾讯云设置方法
 若您的 DNS 服务商为腾讯云，您可根据如下步骤添加 CNAME 记录。
 
 1. 登录 [域名服务控制台](https://console.cloud.tencent.com/domain)。
@@ -53,8 +54,8 @@
         <td><a href="https://cloud.tencent.com/document/product/302/3468#.E8.AE.B0.E5.BD.95.E5.80.BC.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F">记录值</a></td>
         <td>需指向的域名，填写腾讯云控制台【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】域名对应的 CNAME 值</td>
         <td>在【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】里查看对应域名分配的未配置 CNAME，复制填至【记录值】。填写格式为：<ul style="margin:0">
-				<li/><code><b style="color:red;">xxxx</b>.liveplay.myqcloud.com</code>
-				<li/><code><b style="color:red;">xxxx</b>.livepush.myqcloud.com</code>
+				<li/><code><b style="color:red;">xxxx</b>.liveplay.com</code>
+				<li/><code><b style="color:red;">xxxx</b>.tlivecdn.com</code>
 				</ul></td>
     </tr>
     <tr>
@@ -70,7 +71,8 @@
 >- 更多域名解析记录相关问题，请参见 [主机记录和记录值](https://cloud.tencent.com/document/product/302/3468)。
 >- 域名解析各种记录类型之间是有优先级差异的，在主机记录相同的情况下，同一条线路有几种不同的记录类型不能共存，否则将会提示冲突。CNAME 记录与除 CNAME 记录以外的任何记录类型都冲突，需要先删除掉其他记录，再进行配置。详情请参见 [为什么添加解析记录的时候提示 "记录有冲突" ](https://cloud.tencent.com/document/product/302/3468#.E4.B8.BA.E4.BB.80.E4.B9.88.E6.B7.BB.E5.8A.A0.E8.A7.A3.E6.9E.90.E8.AE.B0.E5.BD.95.E7.9A.84.E6.97.B6.E5.80.99.E6.8F.90.E7.A4.BA-.26quot.3B.E8.AE.B0.E5.BD.95.E6.9C.89.E5.86.B2.E7.AA.81.26quot.3B-.EF.BC.9F)。
 
-### 阿里云设置方法[](id:ali)
+[](id:ali)
+### 阿里云设置方法
 若您的 DNS 服务商为阿里云，且已完成域名备案，可参考下述步骤进行 CNAME 设置。
 
 1.  登录阿里云控制台，进入【云解析DNS】>[【域名解析】](https://dns.console.aliyun.com/#/dns/domainList)。
@@ -86,8 +88,8 @@
 ![](https://main.qcloudimg.com/raw/8c9d4b75c7f863c1b40fc8cf59160b45.png)
 
 
-
-### 百度云设置方法[](id:baidu)
+[](id:baidu)
+### 百度云设置方法
 若您的域名服务商为百度云，您可通过如下步骤添加 CNAME 记录。
 1. 登录百度云控制台，选择[【域名管理】](https://console.bce.baidu.com/bcd/?_=1550137564099#/bcd/manage/list)，进入域名管理列表页。
 2. 选择云直播添加的域名，在操作列单击【解析】进入 DNS 解析页面。
@@ -100,8 +102,8 @@
 4. 单击【确定】提交即可。
 ![](https://main.qcloudimg.com/raw/a021aaa59e562ad76757d19c2b675621.png)
 
-
-### DNSPod 设置方法[](id:dnspod)
+[](id:dnspod)
+### DNSPod 设置方法
 若您的 DNS 服务商为 DNSPod，您可通过如下步骤添加 CNAME 记录。
 1. 登录 [DNSPod 域名服务控制台](https://console.dnspod.cn/dns/list)。
 2. 在列表中，找到需要添加 CNAME 记录的域名所在行，单击对应域名名称，跳转至“添加记录”界面。
@@ -114,7 +116,9 @@
   6. TTL 不需要填写，添加时系统会自动生成，默认为600秒（TTL 为缓存时间，数值越小，修改记录各地生效时间越快）。
 ![](https://main.qcloudimg.com/raw/ee19f4ea9269c340d8622a945e86fb87.png)
 
-### 万网设置方法[](id:wwwnet)
+
+[](id:wwwnet)
+### 万网设置方法
 若您的 DNS 服务商为万网，您可通过如下步骤添加 CNAME 记录。
 
 1. 登录万网会员中心。
@@ -126,14 +130,14 @@
 6. 填写完成后，单击【保存】，完成解析设置。
 
 
-
-### 新网设置方法[](id:xinnet)
+[](id:xinnet)
+### 新网设置方法
 若您的 DNS 服务商为新网，您可通过**设置别名（CNAME 记录）**添加 CNAME 记录。
 别名记录允许将多个名字映射到同一台计算机。通常用于同时提供 WWW 和 MAIL 服务的计算机。例如，有一台计算机名为`host.mydomain.com`（A记录）。它同时提供 WWW 和 MAIL 服务，为了便于用户访问服务。可以为该计算机设置两个别名（CNAME）：WWW 和 MAIL 。如下图：
 ![](https://main.qcloudimg.com/raw/48a5cb7a7301e49edb85edbc19e1bcbd.png)
 
-
-## 验证 CNAME 是否生效[](id:check)
+[](id:check)
+## 验证 CNAME 是否生效
 不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您可通过以下方式查询 CNAME 是否配置生效。
 - **方法1：**进入云直播控制台的【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】查询后缀为`.myqcloud.com`的域名状态符号是否变成![](https://main.qcloudimg.com/raw/0fc346399ae095d69113d4944e511a20.png)表明 CNAME 已成功。
 ![](https://main.qcloudimg.com/raw/b5150f5442f48a38bf9a972a84f43122.png)

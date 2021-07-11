@@ -1,6 +1,8 @@
 ## 简介
 本文档提供关于 SDK 接入以及开启推送服务的示例代码（SDK 版本：V1.0+ 版本）。
 
+>! 为了避免您的 App 被监管部门通报或下架，请您在接入 SDK 之前务必按照 [iOS 合规指南](https://cloud.tencent.com/document/product/548/57362) 在《隐私政策》中增加 TPNS 相关说明，并且在用户同意《隐私政策》后再初始化 TPNS SDK。
+>
 
 ## SDK 组成
 - doc 文件夹：腾讯移动推送 iOS SDK 开发指南。
@@ -253,6 +255,25 @@ if (msgType.integerValue == 1) {
 [[XGPushTokenManager defaultTokenManager] xgTokenString];
 ```
 ![](https://main.qcloudimg.com/raw/f6ff84d3a50630bb4e8a0ab6fd090798.png)
+
+### 获取 "TPNS运行日志" 交互建议
+建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示"TPNS运行日志"，方便后续问题排查。
+
+效果如下图所示：
+![](https://main.qcloudimg.com/raw/8eaaba4bedf0a541ed7f077d2e374ca3.png)![](https://main.qcloudimg.com/raw/5c28586161aefb3c47c5cdb7e23ed57b.png)
+#### 示例代码
+```objective-c
+[[XGPush defaultManager] uploadLogCompletionHandler:^(BOOL result, NSString * _Nullable errorMessage) {
+NSString *title = result ? NSLocalizedString(@"report_log_info", nil) : NSLocalizedString(@"failed", nil);
+if (result && errorMessage.length>0) {
+UIPasteboard *pasteboard = [UIPasteboardgeneralPasteboard];
+pasteboard.string = errorMessage;
+}
+[TPNSCommonMethodshowAlert:title message:errorMessage viewController:selfcompletion:nil];
+}];
+
+```
+
 
 ### 隐私协议声明建议
 

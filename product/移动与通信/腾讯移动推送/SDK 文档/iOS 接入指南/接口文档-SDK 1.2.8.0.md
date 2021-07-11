@@ -167,7 +167,7 @@ NSString *account = @"account";
 #### 示例代码
 
 ```Objective-C
-[[XGPushTokenManager defaultTokenManager] upsertPhoneNumber:@"13712345678"];;
+[[XGPushTokenManager defaultTokenManager] upsertPhoneNumber:@"+8613712345678"];;
 
 ```
 

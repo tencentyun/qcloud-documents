@@ -1,4 +1,4 @@
-在 TUIChatController 中，每一条消息在内部都是存储为 TUIMessageCellData 或子类对象，当滑动消息列表时，再将 TUIMessageCellData 转换为 TUIMessageCell 用于显示。
+﻿在 TUIChatController 中，每一条消息在内部都是存储为 TUIMessageCellData 或子类对象，当滑动消息列表时，再将 TUIMessageCellData 转换为 TUIMessageCell 用于显示。
 您可以通过设置 TUIChatController 回调 delegate，控制具体的 TUIMessageCell 实例，从而达到定制消息的目的。
 ![](https://main.qcloudimg.com/raw/77082a09b210baae30e41ce35e07af6b.png)
 以上图红色线框中的超链接自定义消息为例，TUIKit 内部没有实现此类效果，您只需在 TUIMessageCell 的 container 里添加两个 UILabel ，即可快速实现显示效果。本文将详细介绍实现过程：
@@ -101,12 +101,13 @@ TUIMessageCellData 需要计算出显示内容的大小，以便 TUIChatControll
 - (id)init
 {
 	self = [super init];
+	// 添加监听
+	[[TUIKitListenerManager sharedInstance] addChatControllerListener:self];
 	// 初始化
 	chat = [[TUIChatController alloc] initWithConversation:conversationData]; // conversationData 为当前会话数据，包括 groupID、userID 等，可以在会话列表获取
-    [self addChildViewController:chat]; // 将聊天界面加到内部
-    chat.delegate = self;	// 设置回调
-    // 配置导航条
-    ...
+ [self addChildViewController:chat]; // 将聊天界面加到内部
+ // 配置导航条
+ ...
     
     return self;
 }

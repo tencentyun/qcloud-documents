@@ -14,23 +14,28 @@ TDMQ 2.7.1及以上版本的集群已支持 Pulsar 社区版 Python SDK。本文
 
 1. 按照 [Pulsar 官方文档](http://pulsar.apache.org/docs/zh-CN/client-libraries-python/) 在您客户端所在的环境中安装 Python Client。
    ```sh
-   $ pip install pulsar-client==2.7.2
+   $ pip install pulsar-client==2.7.1
    ```
 
 2. 在创建 consumer 或 producer 的代码中，配置准备好的接入地址和密钥。
 <dx-codeblock>
 :::p
-   import pulsar
-   client = pulsar.Client('http://*','pulsar.NewAuthenticationToken("eyJh**")')  # 更换为接入地址（控制台集群管理页完整复制）和密钥
-   
-   producer = client.create_producer('my-topic)
-   
-   for i in range(10):
-       producer.send(('Hello-%d' % i).encode('utf-8'))
-   
-   client.close()
+from pulsar import Client, AuthenticationToken
+
+# 创建客户端
+client = Client(‘http://***’
+                authentication=AuthenticationToken('eyJh****’)) # 更换为接入地址（控制台集群管理页完整复制）和密钥
+
+# 新增一个生产者（单个client下可以创建多个生产者，请尽量复用）
+producer = client.create_producer('persistent://pulsar-****/default/mytopic')
+
+for i in range(10):
+    producer.send((‘Message-%d’ % i).encode('utf-8'))
+
+# 关闭客户端（长时间不使用一定要记得关闭客户端，及时回收连接池资源）
+client.close()
 :::
 </dx-codeblock>
 
-关于 Pulsar 社区版 Python SDK 各种功能的使用方式，请参考 [Pulsar官方文档](http://pulsar.apache.org/docs/en/client-libraries-go/)。
+关于 Pulsar 社区版 Python SDK 各种功能的使用方式，请参考 [Pulsar官方文档](http://pulsar.apache.org/docs/zh-CN/client-libraries-python/)。
 

@@ -15,7 +15,7 @@
 ![](https://main.qcloudimg.com/raw/cec2458173b2b16318b14422c96eee26.png)
 
 ### 步骤2：配置监听器
-在 TCP/UDP 监听器下，单击【新建】，在弹出框中配置 TCP 监听器。
+在 TCP/UDP/TCP SSL 监听器下，单击【新建】，在弹出框中配置 TCP 监听器。
 #### 1. 基本配置
 <table>
 <thead>

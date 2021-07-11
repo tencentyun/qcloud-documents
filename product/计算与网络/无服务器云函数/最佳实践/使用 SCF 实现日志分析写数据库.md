@@ -12,7 +12,7 @@
 
 [](id:step02)
 ### 创建 MySQL 云数据库
-1. 参考 [购买方式](https://cloud.tencent.com/document/product/236/5160) 创建一个 MySQL 云数据库。由于数据库需要付费购买，您可以选择在北京地域购买 [云数据库 MySQL 入门机型](https://cloud.tencent.com/act/event/cdbbasic.html)。
+1. 参考 [购买方式](https://cloud.tencent.com/document/product/236/5160) 创建一个 MySQL 云数据库。由于数据库需要付费购买，您可以选择在北京地域购买云数据库 MySQL 入门机型。
 2. 购买完成后，给数据库添加可访问的用户名和密码，并创建新库 `mason_demo`。
 
 [](id:step03)

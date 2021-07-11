@@ -2,7 +2,7 @@
 
 [&lt;mlvb-live-room&gt;](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/components/mlvb-live-room) 组件包含如下属性：
 
-| 属性      | 类型    | 值           | 说明       |
+| 属性      | 类型    | 值           | 说明       | 
 |:---------:|:---------:|:---------:|--------------|
 | template  | String  | 'float'  | 必要，标识组件使用的界面模版。 |
 | roomID    | String  | 自定义               | 可选，房间号（role = audience 时，roomID 不能为空）。    |

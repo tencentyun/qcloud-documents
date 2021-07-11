@@ -35,7 +35,7 @@ Spark Streaming 将连续数据抽象成 DStream（Discretized Stream），而 D
 在实例下创建一个 Topic（参考 [创建 Topic](https://cloud.tencent.com/document/product/597/40415)）。
 ![](https://main.qcloudimg.com/raw/175cc4f3defcb58ef5e7166d07b929f5.png)
 内网 IP 与端口：是生产消费需要用到的 bootstrap-server。
-这里创建了一个名为 spark_test 的 Topic，接下来将以该 Topic 为例介绍如何生产消费。
+这里创建了一个名为 test 的 Topic，接下来将以该 Topic 为例介绍如何生产消费。
 
 ### 云服务器环境
 **Centos6.8 系统**

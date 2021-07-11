@@ -18,7 +18,7 @@ $cosClient = new Qcloud\Cos\Client(
             'secretKey' => $secretKey)));
 ### 简单上传预签名
 try {
-    $signedUrl = $cosClient->getPresignetUrl('putObject', array(
+    $signedUrl = $cosClient->getPreSignedUrl('putObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
         'Body' => 'string' //可为空或任意字符串
@@ -32,7 +32,7 @@ try {
 
 ### 分块上传预签名
 try {
-    $signedUrl = $cosClient->getPresignetUrl('uploadPart', array(
+    $signedUrl = $cosClient->getPreSignedUrl('uploadPart', array(
             'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
             'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
             'UploadId' => 'string',
@@ -61,7 +61,7 @@ $cosClient = new Qcloud\Cos\Client(
             'secretKey' => $secretKey)));
 ### 简单下载预签名
 try {
-    $signedUrl = $cosClient->getPresignetUrl('getObject', array(
+    $signedUrl = $cosClient->getPreSignedUrl('getObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
         ), '+10 minutes'); //签名的有效时间
@@ -104,7 +104,7 @@ $cosClient = new Qcloud\Cos\Client(
             'token' => $tmpToken)));
 ### 简单上传预签名
 try {
-    $signedUrl = $cosClient->getPresignetUrl('putObject', array(
+    $signedUrl = $cosClient->getPreSignedUrl('putObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
         'Body' => 'string'), '+10 minutes'); //签名的有效时间
@@ -117,7 +117,7 @@ try {
 
 ### 分块上传预签名
 try {
-    $signedUrl = $cosClient->getPresignetUrl('uploadPart', array(
+    $signedUrl = $cosClient->getPreSignedUrl('uploadPart', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
         'UploadId' => '',
@@ -148,7 +148,7 @@ $cosClient = new Qcloud\Cos\Client(
             'token' => $tmpToken)));
 ### 简单下载预签名
 try {
-    $signedUrl = $cosClient->getPresignetUrl('getObject', array(
+    $signedUrl = $cosClient->getPreSignedUrl('getObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject" //对象在存储桶中的位置，即对象键
     ), '+10 minutes'); //签名的有效时间

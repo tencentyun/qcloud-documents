@@ -62,7 +62,6 @@
 | ------------------------------------------------------ | ------------------------------------ | ------------------------------------------------------------ |
 | 对 select * 语法的支持                                 | 支持                                 | select * from  table_a;                                      |
 | 条件字段等值匹配                                       | 支持                                 | select col1 from  table_a where col2=1;                      |
-| 条件字段模糊匹配                                       | 只支持完全匹配及从左边完全匹配的情况 | select col1 from  table_a where col3 like 'bbb%';            |
 | 条件字段范围查询                                       | 不支持                               | select col1 from  table_a where col1 > 'aaa' and col2 < 3;   |
 | 条件字段带函数                                         | 不支持                               | select col1 from  table_a where substr(col1,0,2) = 'aa';     |
 | 条件字段带 in                                          | 支持                                 | select col1 from  table_a where col1 in ('a',b','c');        |
@@ -76,7 +75,7 @@
 | 子查询-策略配置在子查询条件字段上                      | 支持                                 | select t.col4 from  table_a a join (select col2,col3,col4 from table_b) t on a.col1=t.col3 where  t.col2='ddd' |
 | 子查询-结果集中带有子查询字段，且配置了策略            | 支持                                 | select t.col4 from  table_a a join (select col2,col3,col4 from table_b) t on a.col1=t.col3 where  t.col2='ddd' |
 | 对 exist 关键字的支持                                  | 支持                                 | select col1,col2,col3  from table_a where exists (select 1 from table_b where col3 = table_a.col1) |
-| 对 group by 语法的支持                                 | 支持                                 | select col1, col2  from table_a group by col1,col2 where col3 = 'bbb' |
+| 对 group by 语法的支持                                 | 支持                                 | select col1, col2 from table_a where col3 = 'bbb' group by col1,col2 |
 | 对数字类型的分组函数                                   | 不支持                               | select  sum(col2),avg(col2),min(col2),max(col2) from table_a where col1='aaa' |
 | 对 order by 的支持                                     | 只支持非加密字段的排序               | select * from table_a order by id desc                       |
 | 临时表                                                 | 支持                                 | select * from (select table1.col1,table1.col2,table1.col3,table2.id,table2.col4 from table1,table2 where table1.col1 = table2.col1 ) tmp |

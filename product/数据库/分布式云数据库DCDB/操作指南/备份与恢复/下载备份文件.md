@@ -3,8 +3,8 @@
 用户可通过 TDSQL MySQL版 控制台下载云数据库的冷备数据、binlog。
 
 ## 操作步骤
-1. 登录 [TDSQL MySQL版 控制台](https://console.cloud.tencent.com/dcdb)，单击实例名或“操作”列的【管理】，进入实例管理页面。
-2. 选择【分片管理】页，单击分片 ID，进入分片管理页面。
+1. 登录 [TDSQL MySQL版 控制台](https://console.cloud.tencent.com/dcdb)，单击实例 ID 或“操作”列的【管理】，进入实例管理页面。
+2. 在实例管理页面，选择【分片管理】页，单击分片 ID，进入分片管理页面。
 3. 选择【冷备列表】或【Binlog 列表】，在“操作”列单击【下载】。
 3. 在弹出的下载对话框，提供 VPC 网络地址，单击【复制】获取地址。
 >?

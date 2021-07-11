@@ -1,5 +1,6 @@
 ## 操作场景
 若您在腾讯云购买的证书相应私钥不再安全或者无需再使用 SSL 证书时，您可以在腾讯云申请吊销 SSL 证书操作。
+
 <table>
 <tr>
 <th>证书类型</th>
@@ -21,6 +22,8 @@
 已登录 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl)。
 
 ## 操作步骤
+>?申请 SSL 证书绑定的域名已过期并被删除的情况下，如需吊销该证书，并涉及相关解析操作，请您进入 [在线客服](https://cloud.tencent.com/online-service?from=ticket-transform) 咨询，会有技术人员帮助您处理。
+>
 ### 选择证书吊销
 1. 进入 “我的证书” 管理页面，选择需要进行吊销的证书，单击【更多】>【吊销】。如下图所示：
 ![](https://main.qcloudimg.com/raw/ad626d36e72cfa9834765ce63b9480b6.png)

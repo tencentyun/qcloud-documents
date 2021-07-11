@@ -4,7 +4,7 @@
 
 
 ## 操作步骤
-1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)，单击实例名进入实例详情页，单击右上角的【回档】。
+1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)，单击实例 ID 进入实例详情页，单击右上角的【回档】。
 2. 在弹出的回档对话框，设置需要回档的数据库、回档时间、是否覆盖原库，单击【下一步】。
 >!
 >- 回档目前仅支持在本实例进行，可以选择覆盖原库或生成一份复制库。

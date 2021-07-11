@@ -220,7 +220,21 @@ cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
 >- 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferUploadObject.java) 查看。
 >- 上传之后，您可以用同样的 Key 生成文件下载链接，具体使用方法见 **生成预签名链接** 文档。但注意如果您的文件是私有读权限，那么下载链接只有一定的有效期。
 
-#### 示例代码五: 上传暂停、继续与取消
+#### 示例代码五: 设置智能分块阈值
+
+`TransferManager` 默认对大于或等于2M的文件自动进行分块上传，可以通过如下代码修改分块阈值：
+
+```
+TransferConfig transferConfig = new TransferConfig.Builder()
+	.setDivisionForUpload(2 * 1024 * 1024) // 设置大于等于 2M 的文件进行分块上传 
+	.build();
+	
+TransferManager transferManager = new TransferManager(cosXmlService,
+        transferConfig);	
+```
+
+
+#### 示例代码六: 上传暂停、继续与取消
 
 对于上传任务，可以通过以下方式暂停：
 
@@ -250,7 +264,7 @@ cosxmlUploadTask.cancel();
 >?
 >- 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferUploadObject.java) 查看。
 
-#### 示例代码六: 批量上传
+#### 示例代码七: 批量上传
 
 [//]: # (.cssg-snippet-transfer-batch-upload-objects)
 ```java
@@ -288,7 +302,7 @@ for (File file : files) {
 }
 ```
 
-#### 示例代码七：创建目录
+#### 示例代码八：创建目录
 
 [//]: # (.cssg-snippet-create-directory)
 ```java
@@ -747,7 +761,7 @@ cosXmlService.listMultiUploadsAsync(listMultiUploadsRequest,
 初始化 Multipart Upload 上传操作，获取对应的 uploadId（Initiate Multipart Upload）。
 
 #### 示例代码
-
+g
 [//]: # (.cssg-snippet-init-multi-upload)
 ```java
 String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
@@ -759,7 +773,7 @@ cosXmlService.initMultipartUploadAsync(initMultipartUploadRequest,
         new CosXmlResultListener() {
     @Override
     public void onSuccess(CosXmlRequest cosXmlRequest, CosXmlResult result) {
-        // 分片上传的 uploadId
+        // 分块上传的 uploadId
         uploadId = ((InitMultipartUploadResult) result)
                 .initMultipartUpload.uploadId;
     }

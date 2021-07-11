@@ -6,7 +6,7 @@
 ### 快速接入
 >!小程序插件 CaptchaAppId 仅限小程序插件接入方式使用，请勿使用在 Web 前端接入。
 
-以下代码为图形验证功能的前段接入示例代码，根据应用场景，以此作为参考完成 Web 前端的接入。
+以下代码为图形验证功能的前端接入示例代码，根据应用场景，以此作为参考完成 Web 前端的接入。
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web 前端接入示例</title>
-    <!-- 验证码程序依赖(必须) -->
+    <!-- 验证码程序依赖(必须)。请勿修改以下程序依赖，如使用本地缓存，或通过其他手段规避加载，会影响程序的正常使用。 -->
     <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
 </head>
 

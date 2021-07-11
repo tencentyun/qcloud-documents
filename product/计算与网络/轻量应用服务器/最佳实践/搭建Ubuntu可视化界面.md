@@ -48,10 +48,19 @@ sudo apt-get install ubuntu-desktop
 ```
 sudo apt-get install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
 ```
-9. 执行以下命令，打开 VNC 配置文件。
+9. 按照实际情况选择执行以下命令，打开 VNC 配置文件。
+<dx-tabs>
+::: Ubuntu\s18.04
 ```
-sudo vi ~/.vnc/xstartup
+lighthouse@VM-xx-x-ubuntu:~$ sudo vi ~/.vnc/xstartup
 ```
+:::
+::: Ubuntu\s20.04
+```
+lighthouse@VM-xx-x-ubuntu:~$ sudo vi ../../root/.vnc/xstartup
+```
+:::
+</dx-tabs>
 10. 按 **i** 切换至编辑模式，并将配置文件修改为如下内容。
 ```
 #!/bin/sh

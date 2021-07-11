@@ -11,7 +11,7 @@
 <th>证书安装方式</th>
 </tr>
 <tr>
-<td rowspan="9">国际标准证书</td>
+<td rowspan="9">国际标准证书（RSA/ECC）</td>
 <td rowspan="7">Linux 系统</td>
 <td> <a href="https://cloud.tencent.com/document/product/400/50874">宝塔面板 SSL 证书安装</a></td>
 </tr>
@@ -39,7 +39,7 @@
 <td><a href="https://cloud.tencent.com/document/product/400/47358">Weblogic 服务器证书安装</a></td>
 </tr>
 <tr>
-<td rowspan="3">国密标准证书</td>
+<td rowspan="3">国密标准证书（SM2）</td>
 <td rowspan="2">Linux 系统</td>
 <td><a href="https://cloud.tencent.com/document/product/400/47359">Apache 服务器国密证书安装</a></td>
 </tr>

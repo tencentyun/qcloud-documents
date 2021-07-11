@@ -30,8 +30,8 @@ func main() {
     b := &cos.BaseURL{BucketURL: u}
     c := cos.NewClient(b, &http.Client{
             Transport: &cos.AuthorizationTransport{
-                    SecretID:  os.Getenv("COS_SECRETID"),
-                    SecretKey: os.Getenv("COS_SECRETKEY"),
+                    SecretID:  os.Getenv("SECRETID"),
+                    SecretKey: os.Getenv("SECRETKEY"),
                     Transport: &debug.DebugRequestTransport{
                             RequestHeader: true,
                             // Notice when put a large file and set need the request body, might happend out of memory error.
@@ -103,8 +103,8 @@ func main() {
     b := &cos.BaseURL{BucketURL: u}
     c := cos.NewClient(b, &http.Client{
             Transport: &cos.AuthorizationTransport{
-                    SecretID:  os.Getenv("COS_SECRETID"),
-                    SecretKey: os.Getenv("COS_SECRETKEY"),
+                    SecretID:  os.Getenv("SECRETID"),
+                    SecretKey: os.Getenv("SECRETKEY"),
                     Transport: &debug.DebugRequestTransport{
                             RequestHeader: true,
                             // Notice when put a large file and set need the request body, might happend out of memory error.

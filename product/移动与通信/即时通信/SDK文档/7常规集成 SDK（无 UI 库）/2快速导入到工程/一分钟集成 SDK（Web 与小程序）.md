@@ -26,6 +26,7 @@
 #### **Web 项目**
 ```javascript
 // IM Web SDK
+// 从v2.11.2起，SDK 支持了 WebSocket，推荐接入；v2.10.2及以下版本，使用 HTTP
 npm install tim-js-sdk --save
 // 发送图片、文件等消息需要腾讯云即时通信 IM 上传插件
 npm install tim-upload-plugin --save
@@ -38,6 +39,7 @@ npm install tim-upload-plugin --save
  
  在项目脚本里引入模块。
 ```
+// 从v2.11.2起，SDK 支持了 WebSocket，推荐接入；v2.10.2及以下版本，使用 HTTP
 import TIM from 'tim-js-sdk';
 import TIMUploadPlugin from 'tim-upload-plugin';
 
@@ -58,6 +60,7 @@ tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 #### **小程序项目**
 ```javascript
 // IM 小程序 SDK
+// 从v2.11.2起，SDK 支持了 WebSocket，推荐接入；v2.10.2及以下版本，使用 HTTP
 npm install tim-wx-sdk --save
 // 发送图片、文件等消息需要腾讯云 即时通信 IM 上传插件
 npm install tim-upload-plugin --save
@@ -70,6 +73,7 @@ npm install tim-upload-plugin --save
 
  在项目脚本里引入模块，并初始化。
 ```
+// 从v2.11.2起，SDK 支持了 WebSocket，推荐接入；v2.10.2及以下版本，使用 HTTP
 import TIM from 'tim-wx-sdk';
 import TIMUploadPlugin from 'tim-upload-plugin';
 
@@ -131,6 +135,17 @@ tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 请在【微信公众平台】>【开发】>【开发设置】>【服务器域名】中进行域名配置：
 
 将以下域名添加到 **request 合法域名**：
+
+从v2.11.2起，SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
+
+| 域名 | 说明 |  是否必须 |
+|:-------:|---------|----|
+|`wss://wss.im.qcloud.com`| Web IM 业务域名 | 必须|
+|`wss://wss.tim.qq.com`| Web IM 业务域名 | 必须|
+|`https://web.sdk.qcloud.com`| Web IM 业务域名 | 必须|
+|`https://webim.tim.qq.com` | Web IM 业务域名 | 必须|
+
+v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
 
 | 域名 | 说明 |  是否必须 |
 |:-------:|---------|----|

@@ -67,7 +67,7 @@ Hexo g
 ![](https://main.qcloudimg.com/raw/8d2308d3afe74030237f03545d9371fc.png)
 3. 执行如下命令，将 Hexo 部署到云开发静态托管中（需要将 EnvID 替换为 [步骤2](#step2.3) 中您创建的环境 ID）。
 ```plaintext
-cloudbase hosting:deploy public -e [EnvID]
+cloudbase hosting deploy public -e [EnvID]
 ```
 ![](https://main.qcloudimg.com/raw/0bf195a98476e103199bdfeefd375945.png)
 
@@ -79,3 +79,52 @@ cloudbase hosting:deploy public -e [EnvID]
 3. 在浏览器中输入该链接并回车，即可打开线上部署好的 Hexo 博客。
    ![](https://main.qcloudimg.com/raw/590b7ee62174aa74f0119ac4775c6362.png)
 
+
+## 步骤6：实现自动化部署（可选）
+本文中的自动化部署使用 Github Action 的持续集成服务，实现每一次博客更新后，就自动部署到云开发静态网站托管服务上。
+
+### 项目部署
+
+假设您的项目之前已经存放在 Github 仓库中，您需要将项目下 `public` 目录生成的静态网站代码部署到云开发的静态网站托管的根目录下。
+
+
+1. 配置 Github Actions 文件。
+进入项目 Github 文件夹中，在【Actions】标签页内配置 Github Actions 文件 `.github/workflows/main.yml`。
+![](https://main.qcloudimg.com/raw/81e2a748d5f3992998ee16e7d5379090.png)
+请参考以下配置进行修改：
+<dx-codeblock>
+:::  yaml
+on: [push] # push 代码时触发
+jobs: 
+    deploy: 
+        runs-on: ubuntu-latest
+        name: Tencent Cloudbase Github Action Example
+        steps: 
+        - name: Checkout
+          uses: actions/checkout@v2
+        # 使用云开发 Github Action 部署
+        - name: Deploy static to Tencent CloudBase
+          id: deployStatic
+          uses: TencentCloudBase/cloudbase-action@v1.1.1
+          with: 
+            # 云开发的访问密钥 secretId 和 secretKey
+            secretId: ${{ secrets.SECRET_ID }}
+            secretKey: ${{ secrets.SECRET_KEY }}
+            # 云开发的环境id
+            envId: ${{ secrets.ENV_ID }}
+            # Github 项目静态文件的路径
+            staticSrcPath: public
+:::
+</dx-codeblock>
+
+ - 配置中主要用到云开发 Github Action 扩展 <b>TencentCloudBase/cloudbase-action@v1.1.1</b> 来部署静态文件，请检查该扩展是否为 [最新版本](https://github.com/TencentCloudBase/cloudbase-action)，否则可能会在自动部署中出现错误。
+ - `staticSrcPath` 填写静态网站构建产生的目录 `public`，如需将静态资源部署到云端的某个子目录而非根目录，可以再配置一个参数 `staticDestPath: ./public`。
+2. 配置腾讯云**密钥信息**及云开发**环境 ID** 。
+前往项目 Github 文件夹的【 Settings】标签页，在项目的【Secrets】中配置 [准备工作](#preparation) 步骤获取的 `SECRET_ID`、`SECRET_KEY`、`ENV_ID`。
+![](https://main.qcloudimg.com/raw/8b2adcfb183707a7c8551c73555d36c1.png)
+3. 自动部署。
+配置完后即可提交代码体验自动部署，在每次 `git push` 命令完成后，`Actions` 都会自动运行，将项目的静态资源部署到您的云开发静态托管环境中，部署成功之后即可通过云开发提供的 [默认域名](https://console.cloud.tencent.com/tcb/hosting/index) 访问来您的网站。
+![](https://main.qcloudimg.com/raw/d4528f2cf413b02e4c48b7b3e438b0db.png)
+
+### 更多扩展玩法
+云开发 [Tencent CloudBase Github Action](https://github.com/marketplace/actions/tencent-cloudbase-github-action) 扩展可将 Github 项目自动部署到云开发环境，目前支持静态托管功能，后续将支持其他资源的部署，可以将 Node.js 、 Java、PHP 等语言开发的服务端项目一键部署到云开发，来获得 Serverless 化的动态网站服务，或者自动化部署带有数据库、前端、后端的全栈应用。

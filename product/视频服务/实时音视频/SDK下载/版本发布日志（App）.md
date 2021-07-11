@@ -1,3 +1,32 @@
+## Version 8.8 @ 2021.06.21
+
+**功能新增**
+Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAudioRendering](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#addb4c87719393cd4c4765d66a8cd9803)。
+
+**质量优化**
+- 全平台：优化 mixExternalAudioFrame 易用性，不再需要您完美地控制调用时机。
+- Mac：降低屏幕分享开启鼠标捕捉时 CPU 的开销。
+- Windows：优化 AGC 声音增益效果，更快更及时地进行调整。
+- Windows：优化启用窗口过滤时屏幕分享的性能开销。
+
+**问题修复**
+- iOS：修复播放 AAC 格式本地音频文件总时长不准的问题。
+- Android：修复部分机型切换后台时播放声音卡顿的问题。
+
+## Version 8.7 @ 2021.5.25
+**功能新增**
+- 全平台：增加外接音频设备的异常检测。注册 onStatistics 回调后， 您可以用 [TRTCLocalStatistics](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCTypeDef__cplusplus.html#structtrtc_1_1TRTCLocalStatistics) 中的 audioCaptureState 来实时检测长时间静音、破音、异常间断问题。
+- Windows：自定义采集支持输入 RGBA 格式的视频数据。
+
+**质量优化**
+- 全平台：优化 BGM 资源管理，及时释放内存占用。
+- 全平台：推流端退后台暂停视频上行时，播放端能及时收到 [onUserVideoAvailable(false)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudCallback__cplusplus.html#a091f1c94ff1e2bc39c36e9d34285e87a) 的通知。
+- Mac：优化屏幕分享时鼠标捕捉的 CPU 和内存占用。
+
+**问题修复**
+- Android ：修复 setRemoteViewFillMode 部分机型偶现不生效的问题。
+- iOS/Mac：修复停止自定义美颜时的内存资源释放问题。
+
 ## Version 8.6 @ 2021.05.08
 - 全平台：优化网络流控算法，进一步提升音视频传输质量。
 - 全平台：优化切换角色上下麦时音频播放的流畅度。

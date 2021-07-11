@@ -1,4 +1,4 @@
-Logstash 的一个典型应用场景，就是消费 kafka 中的数据并且写入到 Elasticsearch，使用腾讯云的 Logstash 产品，可以通过简单的配置快速地完成这一过程。
+Logstash 的一个典型应用场景，就是接收 filebeat 发送过来的数据然后写入到 Elasticsearch，使用腾讯云的 Logstash 产品，可以通过简单的配置快速地完成这一过程。
 
 ## 创建管道
 登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，选择需要操作的实例，单击实例【ID/名称】，进入实例基本信息页面。切换到“管道管理”页签，单击【新建管道】，创建一个管道。

@@ -1,13 +1,9 @@
-
 数据万象可为用户提供多种基础图片处理功能，满足您各类图片场景的需求，目前支持的基础图片处理功能请见 [功能概览](https://cloud.tencent.com/document/product/460/53155) 。
 
 >?
 > - 您可使用 API 接口实现下载时处理，同时数据万象提供 [管道操作符](https://cloud.tencent.com/document/product/460/15293) 服务实现对图片按顺序进行多种处理。
-> - 基础图片处理目前提供10TB/月的免费额度，超出部分则按照正常收费，详情请查看 [计费与定价](https://cloud.tencent.com/document/product/460/6970#.E5.9F.BA.E7.A1.80.E5.9B.BE.E7.89.87.E5.A4.84.E7.90.86.E8.B4.B9.E7.94.A8) 文档。
-
-
-
-
+> - 基础图片处理目前提供10TB/月的免费额度，超出部分则按照正常收费，详情请查看 [图片处理费用](https://cloud.tencent.com/document/product/460/58117) 文档。
+> 
 
 ## 使用方法
 

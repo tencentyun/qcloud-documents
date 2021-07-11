@@ -161,22 +161,22 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 ### 步骤1：创建新的应用
 1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 输入应用名称，例如 TestTRTC，单击【创建】。
-![](https://main.qcloudimg.com/raw/9b2db43594f4744b42ef74c94494ea8e.png)
+![](https://main.qcloudimg.com/raw/2317abf917468bced2fbdb759a2d34a1.png)
 
 [](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `Web/TRTCSimpleDemo/js/debug/GenerateTestUserSig.js` 文件。
+2. 找到并打开 `Web/js/debug/GenerateTestUserSig.js` 文件。
 3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-	<img src="https://main.qcloudimg.com/raw/4c55667af4fc19b7cfd4f8e34cebcc18.png">
+	<img src="https://main.qcloudimg.com/raw/99c0bf40a7b6267c5c398336a97f3335.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 

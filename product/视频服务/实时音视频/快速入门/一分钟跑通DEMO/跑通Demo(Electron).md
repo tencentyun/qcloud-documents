@@ -13,27 +13,30 @@
 
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 输入应用名称，例如 TestTRTC，单击【创建】。
-![](https://main.qcloudimg.com/raw/9b2db43594f4744b42ef74c94494ea8e.png)
+![](https://main.qcloudimg.com/raw/cb512f1610472588485a733b376b6e1f.png)
 
 [](id:step2)
 
 ### 步骤2：下载 SDK 和 Demo 源码
 1.根据实际业务需求下载 SDK 及配套的 Demo 源码。
 2.下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到 `TRTCSDK/Electron/TRTCSimpleDemo/` 目录，此为 **项目目录**，下文中提到的[](id:projectFolder)“项目目录”，指的即是 `TRTCSDK/Electron/TRTCSimpleDemo/` 目录。
-2.  找到项目目录中的 `debug/gen-test-user-sig.js` 文件，并打开。
-3.  设置 `gen-test-user-sig.js` 文件中的相关参数：
+2. 找到并打开 `Electron/js/GenerateTestUserSig.js` 文件。
+3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
 <ul>
  <li/>SDKAPPID：默认为0 ，请设置为实际的 SDKAppID。
  <li/>SECRETKEY：默认为空字符串 ，请设置为实际的密钥信息。</ul>
- <img src="https://main.qcloudimg.com/raw/514e5d216de1b724d2a360a59db66351.png">
+ <img src="https://main.qcloudimg.com/raw/c3e8d8bfe0dba5130bcf0d20b6df0778.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
+
+>!
+>- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
+>- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 **文件目录说明：**
 ```bash

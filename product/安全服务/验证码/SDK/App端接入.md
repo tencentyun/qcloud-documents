@@ -88,7 +88,7 @@ webview.loadUrl("https://x.x.x/x/");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web 前端接入示例</title>
-    <!-- 验证码程序依赖(必须) -->
+    <!-- 验证码程序依赖(必须)。请勿修改以下程序依赖，如使用本地缓存，或通过其他手段规避加载，会影响程序的正常使用。 -->
     <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
 </head>
 

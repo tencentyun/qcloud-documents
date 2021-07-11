@@ -20,7 +20,7 @@ __介绍__
 - IM SDK：使用 IM SDK 的 AVChatroom 用于实现直播聊天室的功能，同时，主播间的连麦流程也是依靠 IM 消息串联起来的。
 
 
-参考文档：[直播连麦](https://cloud.tencent.com/document/product/454/14606)。
+参见文档：[直播连麦](https://cloud.tencent.com/document/product/454/14606)。
 
 
 
