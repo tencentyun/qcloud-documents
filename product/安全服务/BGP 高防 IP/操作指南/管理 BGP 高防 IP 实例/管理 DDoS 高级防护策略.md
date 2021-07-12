@@ -89,7 +89,9 @@ TCP/UDP 防护端口最多可以配置5个端口段；不同端口段不可以�
 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【DDoS 高防 IP】>【防护配置】。在【DDoS 高级防护策略】页签，单击目标策略所在行的【绑定资源】。
 
 - 绑定资源：在弹出的【绑定资源】对话框中，根据实际业务需求勾选一个或多个资源，单击【确定】。
-- 解绑资源：在弹出的【绑定资源】对话框中，根据实际业务需求单击【已选择】区域中已选资源右侧的<img src="https://main.qcloudimg.com/raw/f452deeefbca4c66f34b7db71ec0daca.png"  style="margin:0;">，单击【确定】。
+- 解绑资源：在弹出的【绑定资源】对话框中，根据实际业务需求单击【已选择】区域中已选资源右侧的![](https://main.qcloudimg.com/raw/d4f4b6f7c3b0e488a0efbf8a0bee0f78.png)，单击【确定】。
+
+
 ![解绑资源](https://main.qcloudimg.com/raw/156a2cfa944ec7493cd4d0966ac303e7.png)
 
 ##  **客户端接入水印**
