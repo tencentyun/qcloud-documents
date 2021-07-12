@@ -67,7 +67,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 </tr>
 <tr>
-<td>桌面版 QQ 浏览器（极速内核）</td>
+<td>桌面版 QQ 浏览器<br>（极速内核）</td>
 <td>10.4+</td>
 <td>支持</td>
 <td>支持</td>
@@ -186,7 +186,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 </tr>
 <tr>
-<td>微信内嵌网页（TBS 内核）</td>
+<td>微信内嵌网页<br>（TBS 内核）</td>
 <td>-</td>
 <td>支持</td>
 <td>支持</td>
@@ -194,7 +194,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 </tr>
 <tr>
-<td>微信内嵌网页（XWEB 内核）</td>
+<td>微信内嵌网页<br>（XWEB 内核）</td>
 <td>-</td>
 <td>支持</td>
 <td>支持</td>
