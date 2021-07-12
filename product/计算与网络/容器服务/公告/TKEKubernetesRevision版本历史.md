@@ -18,7 +18,7 @@
 <li>kube-scheduler 支持混合云扩容到 EKS 时，保留固定数目的本地副本。（kube-scheduler）</li>
 <li>支持 cbs csi migration。（kube-controller-manager，kubelet）</li>
 <li>合并 pr93260，解决 AWS Credential Provider 导致节点启动变慢的问题。（kubelet）</li>
-<li>为调度器增加命令行参数 eks-config-namespace：指定扩容 eks 相关配置所在的 namespace。</li>
+<li>为调度器增加命令行参数 eks-config-namespace：指定扩容 eks 相关配置所在的 namespace。（kube-scheduler）</li>
 <li> TKE支持混合云节点。（kube-controller-manager）</li></td></tr>
   </tbody>
 </table>
