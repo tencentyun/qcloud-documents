@@ -65,7 +65,7 @@ Java 语言 SDK，底层通过 C 实现算法，通过 jni 封装后，作为本
 
 - 返回值：接口返回 DataKeyManager 对象。
   - 当接口返回值正常，表示初始化成功。
-  - 抛异常，代表初始化失败。
+  - 当接口返回值抛异常，代表初始化失败。
 > ! 初始化 keyManager 对象方法：
 >- EncryptSdk.createKeyManager（List<MasterKey> masterKey, KeyCache keyCache,String secretId, String secretKey）。
 >- masterKey:主密钥的集合，最多5个主密钥。
