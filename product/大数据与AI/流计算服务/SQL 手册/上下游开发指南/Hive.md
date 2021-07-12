@@ -86,9 +86,9 @@ hdfs-site.xml
 ### 在任务中使用配置 jar
 Flink SQL 任务作业参数中选择：
 1. 内置 Connector flink-connector-hive-${version}.jar，其中 version 为 Hive 对应的版本。
-2. 引用程序包里面选择 Hive 连接配置 jar 包。（该 jar 包为通过“获取 Hive 连接配置 jar 包”步骤制作出来的 hive-xxx.jar，然后在程序包管理上传后可使用）。
+2. 引用程序包里面选择 Hive 连接配置 jar 包（该 jar 包为通过“获取 Hive 连接配置 jar 包”步骤制作出来的 hive-xxx.jar，然后在程序包管理上传后可使用）。
 
 >! 请确保您使用的 Hive connector 和 Hive 集群是同一个版本。
 
 ### 注意事项
-若分区不可见，发现分区信息，参考命令：`msck repair table hive_table_xxx;`
+若分区不可见，发现分区信息，参考命令：`msck repair table hive_table_xxx;`。
