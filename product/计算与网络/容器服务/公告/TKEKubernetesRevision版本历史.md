@@ -5,21 +5,21 @@
   </thead>
   <tbody>
     <tr><td>2021-06-21 </td><td> v1.20.6-tke.2</td><td>默认开启 CSIMigration 及 CSIMigrationQcloudCbs，以 CSI 方式挂载 CBS 盘。</td></tr>
-    <tr><td> 2021-05-25   </td><td> v1.20.6-tke.1</td><td><li>revert pr63066，修复 LB 健康检查与 IPVS 的问题。（kube-proxy）
-<li>合并 pr90260，修复 containerd 集群网络监控缺失问题。（kubelet）
-<li>ubuntu16下 lxcfs 升级造成  Pod  退出问题修复。（kubelet）
-<li>合并 pr72914，修复删除 Pod 后立即创建并调度到同一个节点可能导致无法挂载成功的问题。（kube-controller-manager）
-<li>解决在 CentOS 下创建容器会导致 cgroup 泄露的问题。（kubelet）
-<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/98262" rel="nofollow">pr98262</a>，支持 kube-controller-manager 动态调整日志级别。（kube-controller-manager）
-<li>合并 pr97752，修复 describe deployment 时 NewReplicaSet 显示为的问题。（kubectl）
-<li>合并 pr94833，修复当 Pod 镜像有多个 tag 时，status 中镜像 tag 不匹配的问题。（kubelet）
-<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/100060" rel="nofollow">pr100060</a>，自动删除孤儿 Pod 遗留的 volume 目录。（kubelet）
-<li>kube-controller-manager 支持虚拟节点。（kube-controller-manager）
-<li>kube-scheduler 支持混合云扩容到 EKS 时，保留固定数目的本地副本。（kube-scheduler）
-<li>支持 cbs csi migration。（kube-controller-manager，kubelet）
-<li>合并 pr93260，解决 AWS Credential Provider 导致节点启动变慢的问题。（kubelet）
-<li>为调度器增加命令行参数 eks-config-namespace：指定扩容 eks 相关配置所在的 namespace。
-<li> TKE支持混合云节点。（kube-controller-manager）</td></tr>
+    <tr><td> 2021-05-25   </td><td> v1.20.6-tke.1</td><td><li>revert pr63066，修复 LB 健康检查与 IPVS 的问题。（kube-proxy）</li>
+<li>合并 pr90260，修复 containerd 集群网络监控缺失问题。（kubelet）</li>
+<li>ubuntu16下 lxcfs 升级造成  Pod  退出问题修复。（kubelet）</li>
+<li>合并 pr72914，修复删除 Pod 后立即创建并调度到同一个节点可能导致无法挂载成功的问题。（kube-controller-manager）</li>
+<li>解决在 CentOS 下创建容器会导致 cgroup 泄露的问题。（kubelet）</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/98262" rel="nofollow">pr98262</a>，支持 kube-controller-manager 动态调整日志级别。（kube-controller-manager）</li>
+<li>合并 pr97752，修复 describe deployment 时 NewReplicaSet 显示为的问题。（kubectl）</li>
+<li>合并 pr94833，修复当 Pod 镜像有多个 tag 时，status 中镜像 tag 不匹配的问题。（kubelet）</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/100060" rel="nofollow">pr100060</a>，自动删除孤儿 Pod 遗留的 volume 目录。（kubelet）</li>
+<li>kube-controller-manager 支持虚拟节点。（kube-controller-manager）</li>
+<li>kube-scheduler 支持混合云扩容到 EKS 时，保留固定数目的本地副本。（kube-scheduler）</li>
+<li>支持 cbs csi migration。（kube-controller-manager，kubelet）</li>
+<li>合并 pr93260，解决 AWS Credential Provider 导致节点启动变慢的问题。（kubelet）</li>
+<li>为调度器增加命令行参数 eks-config-namespace：指定扩容 eks 相关配置所在的 namespace。</li>
+<li> TKE支持混合云节点。（kube-controller-manager）</li></td></tr>
   </tbody>
 </table>
 
@@ -34,7 +34,7 @@
     <td>2021-06-05</td>	
     <td>v1.18.4-tke.11</td>	
     <td><ul class="params">
-<li>TKE 支持混合云节点。（kube-controller-manager）</li>
+TKE 支持混合云节点。（kube-controller-manager）
 </ul></td>
 </tr>
 <tr>
