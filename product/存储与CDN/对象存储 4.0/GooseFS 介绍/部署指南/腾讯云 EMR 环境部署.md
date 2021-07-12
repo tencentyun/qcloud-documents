@@ -2,7 +2,7 @@
 
 下文将针对未集成 GooseFS 的腾讯云 EMR 存量集群，介绍如何部署配置 GooseFS 的 EMR 环境。
 
-首先，参照集群模式部署运行章节的内容，选择生产环境合适的部署架构，完成集群部署。
+首先，参照 [集群模式部署运行](https://cloud.tencent.com/document/product/436/57224#.E9.9B.86.E7.BE.A4.E6.A8.A1.E5.BC.8F.E9.83.A8.E7.BD.B2.E8.BF.90.E8.A1.8C) 章节的内容，选择生产环境合适的部署架构，完成集群部署。
 其次，针对 EMR 支持组件进行配置，本文以 Hadoop MapReduce、Spark 以及 Flink 对 GooseFS 的支持来讲解。
 
 ## Hadoop MapReduce 支持
