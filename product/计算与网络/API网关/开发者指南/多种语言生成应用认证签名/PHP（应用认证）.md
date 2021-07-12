@@ -22,7 +22,8 @@
 ## 示例代码[](id:示例代码)
 
 ### JSON 请求方式示例代码
-```php
+<dx-codeblock>
+:::  php
 <?php
 
 /**
@@ -121,10 +122,14 @@ if (curl_errno($ch)) {
     var_dump($data);
     curl_close($ch);
 }
-```
+:::
+</dx-codeblock>
+
+
 
 ### form 请求方式示例代码
-```php
+<dx-codeblock>
+:::  php
 <?php
 
 
@@ -228,4 +233,7 @@ if (curl_errno($ch)) {
     var_dump($data);
     curl_close($ch);
 }
-```
+:::
+</dx-codeblock>
+
+
