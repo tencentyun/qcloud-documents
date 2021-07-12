@@ -294,7 +294,7 @@ this.setData({  playerList: this.TRTC.setPlayerAttributes({    muteAudio: false,
 
 ### getPusherInstance()
 
-获取 pusher 的推流实例，调用挂载在实例上的相关方法，具体请参见 [playerInstance](#playerInstance)。
+获取 pusher 的推流实例，调用挂载在实例上的相关方法，具体请参见 [pusherInstance](#pusherinstance)。
 
 #### 参数：
 
