@@ -152,7 +152,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 </tr>
 <tr>
-<td>iOS</td>
+<td>iOS 12.1.4+ </td>
 <td>企业微信内嵌网页</td>
 <td>-</td>
 <td>支持</td>
