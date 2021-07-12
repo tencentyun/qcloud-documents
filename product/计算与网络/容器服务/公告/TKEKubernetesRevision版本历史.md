@@ -30,6 +30,13 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+	<tr>
+    <td>2021-06-05</td>	
+    <td>v1.18.4-tke.11</td>	
+    <td><ul class="params">
+<li>TKE 支持混合云节点。（kube-controller-manager）</li>
+</ul></td>
+</tr>
 <tr>
     <td>2021-05-14</td>	
     <td>v1.18.4-tke.9</td>	
