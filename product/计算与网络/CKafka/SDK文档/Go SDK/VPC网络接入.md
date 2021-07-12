@@ -46,17 +46,17 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
    ```go
    package main
    import (
-   "fmt"
-   "gokafkademo/config"
-   "log"
-   "strings"
+   		"fmt"
+   		"gokafkademo/config"
+   		"log"
+   		"strings"
        "github.com/confluentinc/confluent-kafka-go/kafka"
    )
    func main() {
-       cfg, err := config.ParseConfig("../../config/kafka.json")
-   if err != nil {
-       log.Fatal(err)
-   }
+       cfg, err := config.ParseConfig("../config/kafka.json")
+   		if err != nil {
+       		log.Fatal(err)
+   		}
        p, err := kafka.NewProducer(&kafka.ConfigMap{
        // 设置接入点，请通过控制台获取对应Topic的接入点。
        "bootstrap.servers": strings.Join(cfg.Servers, ","),
@@ -70,42 +70,45 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
        "socket.timeout.ms": 6000,
        // 设置客户端内部重试间隔。
        "reconnect.backoff.max.ms": 3000,
-   })
-   if err != nil {
-       log.Fatal(err)
-   }
+   		})
+   		if err != nil {
+       		log.Fatal(err)
+   		}
        defer p.Close()
        // 产生的消息 传递至报告处理程序
-   go func() {
-       for e := range p.Events() {
-           switch ev := e.(type) {
-           case *kafka.Message:
-               if ev.TopicPartition.Error != nil {
-                   fmt.Printf("Delivery failed: %v\n", ev.TopicPartition)
-               } else {
-                   fmt.Printf("Delivered message to %v\n", ev.TopicPartition)
-               }
-           }
-       }
-   }()
+   		go func() {
+       		for e := range p.Events() {
+           		switch ev := e.(type) {
+           		case *kafka.Message:
+               		if ev.TopicPartition.Error != nil {
+                   		fmt.Printf("Delivery failed: %v\n", ev.TopicPartition)
+                 	} else {
+                     fmt.Printf("Delivered message to %v\n",ev.TopicPartition)
+               		}
+           		}
+       		}
+   		}()
        // 异步发送消息
-   topic := cfg.Topic[0]
-   for _, word := range []string{"Confluent-Kafka", "Golang Client Message"} {
-       _ = p.Produce(&kafka.Message{
-           TopicPartition: kafka.TopicPartition{Topic: &topic, Partition: kafka.PartitionAny},
-           Value:          []byte(word),
-       }, nil)
-   }
+   		topic := cfg.Topic[0]
+   		for _, word := range []string{"Confluent-Kafka", "Golang Client Message"} {
+       		_ = p.Produce(&kafka.Message{
+           		TopicPartition: kafka.TopicPartition{Topic: &topic, Partition: 		kafka.PartitionAny},
+           		Value:          []byte(word),
+       		}, nil)
+   		}
        // 等待消息传递
-   p.Flush(10 * 1000)
+   		p.Flush(10 * 1000)
+   }
    ```
 
 2. 编译并运行程序发送消息。
+
    ```go
    go run main.go
    ```
 
 3. 查看运行结果，示例如下。
+
    ```go
    Delivered message to test[0]@628
    Delivered message to test[0]@629
@@ -132,7 +135,7 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
   
   func main() {
   
-      cfg, err := config.ParseConfig("../../config/kafka.json")
+      cfg, err := config.ParseConfig("../config/kafka.json")
       if err != nil {
           log.Fatal(err)
       }
@@ -173,11 +176,13 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
 ```
 
 2. 编译并运行程序消费消息。
+
 ```bash
   go run main.go
 ```
 
 3. 查看运行结果，示例如下。
+
 ```bash
 Message on test[0]@628: Confluent-Kafka
 Message on test[0]@629: Golang Client Message
@@ -185,4 +190,3 @@ Message on test[0]@629: Golang Client Message
 
 4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 Topic 名称，单击【查询详情】，查看消费详情。
    ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)
-
