@@ -34,28 +34,28 @@
 
 - @return string sorted query string
   */
-  function sortQueryParameters($queryStr) {
-  if (is_null($queryStr) || empty($queryStr)) {
-      return "";
-  }
+function sortQueryParameters($queryStr) {
+if (is_null($queryStr) || empty($queryStr)) {
+		return "";
+}
 
-  parse_str($queryStr, $arr);
-  if (empty($arr)) {
-      return "";
-  }
-  ksort($arr);
+parse_str($queryStr, $arr);
+if (empty($arr)) {
+		return "";
+}
+ksort($arr);
 
-  $sortedQueryArr = array();
-  foreach($arr as $k => $v) {
-      $tmp = $k;
-      if (!empty($v)) {
-          $tmp .= ("=" . $v);
-      }
-      array_push($sortedQueryArr, $tmp);
-  }
+$sortedQueryArr = array();
+foreach($arr as $k => $v) {
+		$tmp = $k;
+		if (!empty($v)) {
+				$tmp .= ("=" . $v);
+		}
+		array_push($sortedQueryArr, $tmp);
+	}
 
-  return join('&', $sortedQueryArr);
-  }
+	return join('&', $sortedQueryArr);
+}
 
 // ==========================================================
 // Note: Update the customized variables based on your API
