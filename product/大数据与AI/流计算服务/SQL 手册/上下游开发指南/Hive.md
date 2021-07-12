@@ -90,5 +90,5 @@ Flink SQL 任务作业参数中选择：
 
 >! 请确保您使用的 Hive connector 和 Hive 集群是同一个版本。
 
-### 注意事项
+## 注意事项
 若分区不可见，发现分区信息，参考命令：`msck repair table hive_table_xxx;`。
