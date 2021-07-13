@@ -6,7 +6,7 @@
 
 - 已 [创建文件系统及挂载点](https://cloud.tencent.com/document/product/582/9132)。
 - 已在云联网内的某个 VPC 下 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
-- 需要和存储通信的计算实例，已双向放通云联网内Turbo所在VPC全部IP地址的988端口
+- 需要和存储通信的计算实例，且已双向放通云联网内 Turbo 所在 VPC 全部 IP 地址的988端口。
 
 ## 操作步骤
 
