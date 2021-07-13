@@ -158,8 +158,8 @@ sdk.requestApi('AppGetFamilyDeviceList', { FamilyId: 'default' })
 
 ## 设备配网
 
-SDK 目前支持 softAP 和 SmartConfig 和 simpleConfig 和 AirKiss 这四种方式进行设备配网。这四种配网方式是以**插件**的方式按需引入的，这里为了方便大家理解，下图是设计思路，可以看出这4个插件的依赖关系
-![](https://main.qcloudimg.com/raw/b903c4270d9442edf79588958addf5e9.jpg)
+SDK 目前支持 softAP、SmartConfig、simpleConfig、AirKiss、BLE-Combo 这五种方式进行设备配网。这五种配网方式是以**插件**的方式按需引入的，这里为了方便大家理解，下图是设计思路，可以看出这5个插件的依赖关系
+![](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/shuaisguo/1626153001706.png)
 
 通过4步可以运行插件，以`SoftAp`为例，其余的配网方式步骤一样，后面关于配网步骤和参数说明会具体阐述。
 
@@ -182,11 +182,11 @@ sdk.requestApi('AppCreateDeviceBindToken')
 :::
 </dx-codeblock>
 
-4. 运行插件，`plugin` 注册时的名称分别为：`wifiConfSoftAp` 、`wifiConfSmartConfig` 、`wifiConfSmartConfig` 、`wifiConfAirKiss`。
+4. 运行插件，`plugin` 注册时的名称分别为：`wifiConfSoftAp` 、`wifiConfSmartConfig` 、`wifiConfSmartConfig` 、`wifiConfAirKiss` 、`wifiConfBleCombo`。
 <dx-codeblock>
 :::  JavaScript
 /** 
- * pluginNames: wifiConfSoftAp | wifiConfSmartConfig | wifiConfSimpleConfig | wifiConfAirKiss
+ * pluginNames: wifiConfSoftAp | wifiConfSmartConfig | wifiConfSimpleConfig | wifiConfAirKiss | wifiConfBleCombo
 */
 sdk.plugins['wifiConfSoftAp'].start({
     wifiConfToken: bindDeviceToken,
@@ -778,6 +778,188 @@ module.exports = AirKissConfigure;
 | UDP_ERROR         | UDP 通道发生错误，可能的原因其一如上（中途网络被切走，导致设备和手机无法通信造成超时），其二是 Wi-Fi 切换之后，底层 UDP 还未切换，会发包失败；自动处理方式：延迟2s之后重新配网 |
 | UDP_SEND_MSG_FAIL | 同上两种处理方式                                                         |
 
+### 蓝牙辅助配网
+
+关于 蓝牙辅助方式配网的流程，请参见 [蓝牙辅助配网开发](https://cloud.tencent.com/document/product/1081/48408)。一键配网的配网流程图文版本如下：
+![oneKeyConfigure](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/shuaisguo/1626140396147.28.13.png)
+腾讯连连中一键配网的页面交互流程如下，也给出来作为参考。
+![bleComboConfigureWeapp](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/shuaisguo/1626152826404.gif)
+
+
+<span id="deviceAdapter"></span>
+### DeviceAdapter
+
+如上所述，在配网之前，我们需要先发现设备，然后与设备建立蓝牙连接，并获得一个 DeviceAdapter 实例，来实现和蓝牙设备的通信。这个过程可以通过 BlueToothAdapter 完成。整个流程如下：
+
+#### 1. 创建一个 bluetoothAdapter
+
+bluetoothAdapter 可以用来搜索设备，连接到设备。代码如下：
+
+```ts
+import { BleComboDeviceAdapter, StandardBleComboDeviceAdapter, BlueToothAdapter } from 'qcloud-iotexplorer-appdev-plugin-wificonf-blecombo';
+
+export const blueToothAdapter = new BlueToothAdapter({
+  deviceAdapters: [
+    StandardBleComboDeviceAdapter,
+    // BleComboDeviceAdapter, 如果是BluFi方式配网，可以使用 BleComboDeviceAdapter 这个deviceAdapter
+  ],
+});
+```
+在实例化 blueToothAdapter时，我们需要传入想要支持设备的 DeviceAdapter。目前插件内置了两种`DeviceAdapter`:
+
+- BleComboDeviceAdapter: 支持通过[BluFi协议](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/api-guides/blufi.html)进行蓝牙辅助配网
+- StandardBleComboDeviceAdapter: 支持通过[LLSync协议](https://github.com/tencentyun/qcloud-iot-explorer-BLE-sdk-embedded/blob/master/docs/LLSync%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%85%A5%E5%8D%8F%E8%AE%AE.pdf)进行蓝牙辅助配网
+
+#### 2. 获取蓝牙设备列表
+
+通过 `blueToothAdapter.startSearch` 方法，我们可以发现设备，获得设备列表。
+
+```ts
+  await blueToothAdapter.startSearch({
+    ignoreDeviceIds,
+    serviceIds,
+    ignoreServiceIds,
+    onError: (error) => {
+      console.log('----error', error);
+      // 搜索设备出错
+      blueToothAdapter.stopSearch();
+    },
+    onSearch: (devices) => {
+      console.log('searched devices', devices);
+      if (devices.length > 0) {
+        console.log('找到设备', devices); // 此时可以在页面上展示
+      }
+    },
+    timeout: 1.4 * 15 * 1000,
+  });
+```
+在上面的 onSearch 回调函数中，我们可以获得搜寻到的设备列表，这时可以将设备列表展示到页面上，供用户选择要连接哪个设备。此后可以调用`blueToothAdapter.stopSearch()`来结束搜索。
+
+#### 3. 连接设备
+
+用户从上面获取到的设备中选择一个，并发起连接操作时，可以调用 `blueToothAdapter.connectDevice` 方法进行连接。连接成功后会返回一个 deviceAdapter，可以用来向连接的设备发送Wi-Fi，token等数据。
+
+```ts
+try {
+  // device参数是上一步获取的devices中的某一个item
+  const deviceAdapter = await blueToothAdapter.connectDevice(device);
+
+  if (!deviceAdapter) {
+    throw {
+      code: 'CONNECT_ERROR',
+    };
+  }
+} catch (err) {
+  console.error('连接到设备出错');
+}
+```
+在上面三步完成之后，我们已经通过蓝牙连接到了设备，并获得了可以更设备通信的 deviceAdapter，接下来就可以正式进行配网了。
+
+#### bleComboOpts 配网参数
+
+| 参数名         | 参数描述                                                     | 类型                                                  | 必填 |
+| -------------- | ------------------------------------------------------------ | ----------------------------------------------------- | ---- |
+| wifiConfToken  | Wi-Fi 设备配网 Token，从后台接口 [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044) 获取 | string                                                | 是   |
+| targetWifiInfo | 目标 Wi-Fi 信息，需要设备去连接的 Wi-Fi 的信息               | WifiInfo                                              | 是   |
+| familyId       | 家庭 ID，默认为：'default'，即用户默认家庭 ID                | 'default' \| string                                   | 否   |
+| roomId         | 房间ID，默认为：''，即用户默认房间 ID                        | '' \| string                                          | 否   |
+| onProgress     | <li>code：步骤代码，详见 [配网步骤](#BleCombo) 小节<li>msg：步骤描述，自行从`WifiConfStepDesp`拿code取<li>detail：步骤详情，根据每个步骤不同而不同 | ({ code: WifiConfStepCode, detail?: object }) => void | 否   |
+| onError        | 配网失败时触发<li>code：错误代码，详见 [错误码](#blecombo_error_code) 小节<li>msg：错误描述，自行从`WifiConfErrorMsg`拿code取<li>detail：错误详情 | ({ code: WifiConfErrorCode, detail }) => void         | 是   |
+| onComplete     | 配网完成后触发                                               | () => void                                            | 是   |
+| deviceAdapter        | 用于和设备进行蓝牙通信的设备适配器实例，连接蓝牙之后获得，详见[DeviceAdapter](#deviceAdapter) | DeviceAdapter                                                | 是   |
+| bleComboProto   | 使用的蓝牙配网协议，目前支持ESP官方和LLsync两种协议 | 'BLE_COMBO_ESP' / 'BLE_COMBO_LLSYNC'                                                | 否   |
+
+#### WifiInfo 数据结构
+
+| 属性名   | 属性描述      | 类型   | 必填 |
+| -------- | ------------- | ------ | ---- |
+| SSID     | Wi-Fi 的 SSID | string | 是   |
+| password | Wi-Fi 的 密码 | string | 是   |
+
+#### 示例代码
+
+```javascript
+  // 这里可以进行一些UI进度更新操作
+  const onStepChange = (progress) => {
+    console.log(progress);
+  }
+
+  // 这里是配网进行过程中的回调函数
+  const onProgress = (data) => {
+    console.info(data.code, data.detail);
+    switch (data.code) {
+      case WifiConfStepCode.PROTOCOL_START: // 开始配网
+        onStepChange(1);
+        break;
+      case WifiConfStepCode.PROTOCOL_SUCCESS: // 设备联网成功，设备可以访问互联网
+        onStepChange(2);
+        break;
+      case WifiConfStepCode.BLE_SEND_TOKEN_SUCCESS: // 发送token到设备成功，设备开始连接云端
+        onStepChange(3);
+        break;
+      case WifiConfStepCode.WIFI_CONF_SUCCESS: // 配网成功
+        onStepChange(4);
+        break;
+    }
+  };
+
+  const onComplete = ({ productId, deviceName }) => {
+    // 配网成功后，可以拿到设备的 productId 和 设备名称
+    console.log('配网成功', productId, deviceName);
+  };
+
+  const onError = async ({ code, detail }) => {
+    console.error('配网出错', code, detail);
+  };
+
+  const config = {
+    wifiConfToken, // 用于设备连接云端的token
+    targetWifiInfo: { // 用于设备联网的wifi信息，由用户填入
+      SSID: '你的Wi-Fi名称';
+      password: '你的Wi-Fi密码';
+      BSSID: '';
+    },
+    bleComboProto: 'BLE_COMBO_ESP' // 可传 'BLE_COMBO_ESP' | 'BLE_COMBO_LLSYNC'
+    deviceAdapter, // 由连接设备之后获得
+
+    familyId: 'default',
+    roomId,
+
+    onProgress, // 用来更新页面的进度条
+    onError,
+    OnComplete,
+  }
+
+  // 开始执行配网逻辑 go!
+  sdk.plugins['wifiConfBleCombo'].start(config);
+```
+
+<span id="BleCombo"></span>
+
+#### 配网状态码
+
+`sdk.plugins['wifiConfBleCombo'].start(bleComboOpts)` 配网过程中，每执行完一个步骤就会触发一次 `onProgress` 回调，入参为：`{ code, detail }` 形式。
+
+| 步骤                                                | 描述                                                         |
+| --------------------------------------------------- | ------------------------------------------------------------ |
+| WifiConfStepCode.PROTOCOL_START                    | 开始配网                                                     |
+| WifiConfStepCode.PROTOCOL_SUCCESS                  | 设备联网成功，设备可以访问互联网                                |
+| WifiConfStepCode.BLE_SEND_TOKEN_START              | 开始发送token到设备，用于连接云端                               |
+| WifiConfStepCode.BLE_SEND_TOKEN_SUCCESS            | 发送token到设备成功，设备开始连接云端                             |
+| WifiConfStepCode.WIFI_CONF_SUCCESS                 | 配网成功                                                      |
+
+<span id="blecombo_error_code"></span>
+
+#### 蓝牙辅助配网错误码
+
+在 `onError`回调函数中，我们可以拿到配网失败的错误码。
+
+| CODE                                               | 描述                                                         |
+| --------------------------------------------------- | ------------------------------------------------------------ |
+| PROTOCOL_FAIL                     | 设备连接失败                                                 |
+| BLE_SEND_TOKEN_ERROR                 | 发送token到设备失败                                |
+| WIFI_CONF_FAIL            | 配网失败                            |
+
 
 <span id="moduleLog"></span>
 
@@ -1119,3 +1301,4 @@ export function AirKissConfigure({
   });
 }
 ```
+
