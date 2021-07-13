@@ -1,5 +1,5 @@
 TSF-Go 基于轻量级 Go 微服务框架 [Kratos](https://github.com/go-kratos/kratos) 为用户现存的 Go 应用提供了接入TSF 治理平台的能力。本文档介绍 Go 应用从接入TSF 到部署应用的操作方法及相关注意事项。
->?您也可以通过 [SDK文档](https://github.com/tencentyun/tsf-go) 查看 TSF Go 最新使用说明。
+>?您也可以通过 [SDK 文档](https://github.com/tencentyun/tsf-go) 查看 TSF Go 最新使用说明。
 
 ## 功能特性
 
