@@ -31,7 +31,7 @@ f**ace_shape.ref、ULSGPUAssets.bin、authsdk.bundle、 ULSFaceTrackerAssets.bun
 ![](https://main.qcloudimg.com/raw/24a1005a94b091559cf364d9176691a6.png)
 
 ### 2.  添加需要的编译选项
-在 TARGETS-Build Settings-Other Linker Flags 中添加`-ObjC` 。
+在 TARGETS-Build Settings-Other Linker Flags 中添加 -ObjC。
 - C++ Language Dialect 设置为 C++11 [-std=c++11]
 - C++ Standard Library 设置为 libc++
 - bitCode 设置为 NO
