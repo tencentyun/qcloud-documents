@@ -2,9 +2,14 @@
 
  Service 是 Kubernetes 暴露应用程序到集群外的一种机制与抽象，您可以通过 Serivce 访问集群内的应用程序。
 
-默认情况下 Service 在协议上支持：
-- Cluster IP 和 NodePort 模式下可以支持 TCP/UDP 协议，并支持混合使用。
-- LoadBalancer 模式下支持 TCP 或 UDP 协议，不支持混合使用。
+> 注意：
+> 在[直连场景](https://cloud.tencent.com/document/product/457/41897)下接入，使用扩展协议时没有任何限制，支持 TCP 和 UDP 协议混用。
+> 
+> 非直连场景下不支持混用。在 NodePort 场景下接入，使用扩展协议时会受到 NodePort 端口暴露协议的转发限制。
+> 
+> 当 NodePort 声明为 TCP 时，端口可以使用扩展协议的能力，将负载均衡的协议改成 TCP_SSL、HTTP、HTTPS。
+> 
+> 当 NodePort 声明为 UDP 时，端口可以使用扩展协议的能力，将负载均衡的协议改成 UDP、QUIC。
 
 
 
