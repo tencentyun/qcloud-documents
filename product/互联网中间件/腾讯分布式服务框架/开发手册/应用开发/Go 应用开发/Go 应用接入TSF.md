@@ -1,4 +1,5 @@
 TSF-Go 基于轻量级 Go 微服务框架 [Kratos](https://github.com/go-kratos/kratos) 为用户现存的 Go 应用提供了接入TSF 治理平台的能力。本文档介绍 Go 应用从接入TSF 到部署应用的操作方法及相关注意事项。
+>?您也可以通过 [SDK文档](https://github.com/tencentyun/tsf-go) 查看 TSF Go 最新使用说明。
 
 ## 功能特性
 
@@ -90,7 +91,7 @@ func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloRe
 }
 ```
 
-#### 4. 编写 server(grpc协议) 启动入口 main.go
+#### 4. 编写 server(grpc 协议) 启动入口 main.go
 
 ```go
 import  pb "github.com/tencentyun/tsf-go/examples/helloworld/proto"
@@ -227,9 +228,9 @@ docker push ccr.ccs.tencentyun.com/tsf_xxx/provider:1.0
 
 ## 更多文档
 
-- [HTTP Restful开发](https://github.com/tencentyun/tsf-go/blob/master/docs/HTTP.md)
-- [TSF远程配置](https://github.com/tencentyun/tsf-go/blob/master/docs/Config.md)
-- [Swagger API上报]()
+- [HTTP Restful 开发](https://github.com/tencentyun/tsf-go/blob/master/docs/HTTP.md)
+- [TSF 远程配置](https://github.com/tencentyun/tsf-go/blob/master/docs/Config.md)
+- [Swagger API 上报](https://github.com/tencentyun/tsf-go/blob/master/docs/Swagger.md)
 - [错误定义](https://github.com/tencentyun/tsf-go/blob/master/docs/Error.md)
 - [分布式调用链追踪](https://github.com/tencentyun/tsf-go/blob/master/docs/Trace.md)
 - [自定义标签](https://github.com/tencentyun/tsf-go/blob/master/docs/Metadata.md)
