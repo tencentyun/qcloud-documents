@@ -150,7 +150,7 @@ CosDistCp Counters
 ### 统计待迁移的文件大小分布信息
 以参数 `--printStatsOnly` 和 `--statsRange=VALUE` 执行命令，输出待迁移文件的大小分布信息：
 ```plaintext
-hadoop jar cos-distcp-1.6-3.1.0.jar --src /wookie/data --dest cosn://yongqing-guangzhou-test-1253960454/wookie/data --printStatsOnly  --statsRange=0,1mb,10mb,100mb,1gb,10gb,inf
+hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --printStatsOnly  --statsRange=0,1mb,10mb,100mb,1gb,10gb,inf
 
 Copy File Distribution Statistics:
 Total File Count: 4
@@ -343,7 +343,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 hadoop jar cos-distcp-${version}.jar  --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --promPort=9028
 ```
 下载示例 [Grafana Dashboard](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/COSDistcp-Grafana-Dashboard.json) 并导入，Grafana 展示如下
-![COSDistcp-Grafana](https://main.qcloudimg.com/raw/a5eb4c66c52b3fb09cafc5d4196e9d22.png)
+![COSDistcp-Grafana](https://main.qcloudimg.com/raw/f7275b63598f4d9446e429a8198567f9.png)
 
 
 ### 拷贝文件失败时告警
@@ -378,7 +378,7 @@ export alarmSecretKey=SECRET-KEY
 export alarmRegion=ap-guangzhou
 export alarmModule=module
 export alarmPolicyId=cm-xxx
-hadoop jar cos-distcp-1.4-2.8.5.jar \
+hadoop jar cos-distcp-${version}.jar \
 -Dfs.cosn.credentials.provider=org.apache.hadoop.fs.auth.SimpleCredentialProvider \
 -Dfs.cosn.userinfo.secretId=SECRET-ID \
 -Dfs.cosn.userinfo.secretKey=SECRET-KEY \
