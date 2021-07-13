@@ -44,10 +44,8 @@ Java 语言 SDK，底层通过 C 实现算法，通过 jni 封装后，作为本
 >!
 > - 需注意 SecretId 和 SecretKey 的保密存储： 腾讯云接口认证主要依靠 SecretID 和 SecretKey，SecretID 和 SecretKey 是用户的唯一认证凭证。
 >- 业务系统需要该凭证调用腾讯云接口。
-> - 需注意 SecretID 和 SecretKey 的权限控制：
-> - 建议使用子账号，根据业务需要进行接口授权的方式管控风险。
->  - 需注意 domainName 的设置：
->  - 如果 domainName 入参为""，则从环境变量 TENCENT_SDK_DOMAIN 中读取值，反之，则以入参为准。
+> - 需注意 SecretID 和 SecretKey 的权限控制：建议使用子账号，根据业务需要进行接口授权的方式管控风险。
+> - 需注意 domainName 的设置：如果 domainName 入参为""，则从环境变量 TENCENT_SDK_DOMAIN 中读取值，反之，则以入参为准。
 
 ## KMS加密方式的接口说明
 ### EncryptSdk.createKeyManager
@@ -65,7 +63,8 @@ Java 语言 SDK，底层通过 C 实现算法，通过 jni 封装后，作为本
 
 - 返回值：接口返回 DataKeyManager 对象。
   - 当接口返回值正常，表示初始化成功。
-  - 抛异常，代表初始化失败。
+  - 当接口返回值抛异常，代表初始化失败。
+
 > ! 初始化 keyManager 对象方法：
 >- EncryptSdk.createKeyManager（List<MasterKey> masterKey, KeyCache keyCache,String secretId, String secretKey）。
 >- masterKey:主密钥的集合，最多5个主密钥。
@@ -192,7 +191,7 @@ Java 语言 SDK，底层通过 C 实现算法，通过 jni 封装后，作为本
 
 | 参数名称      | 必选 | 类型   | 描述              |
 | ------------- | ---- | ------ | ----------------- |
-| pemPubKeyInfo | 是   | byte[] | pem格式的公钥信息 |
+| pemPubKeyInfo | 是   | byte[] | pem 格式的公钥信息 |
 
 - 返回值：接口返回一个包含转换后的公钥内容的字节数组。
   - 当接口返回值正常，代表转换成功。

@@ -165,7 +165,7 @@ width: 18%;
 | [移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379) | 操作级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/379/45155) |
 | [腾讯企业邮](https://cloud.tencent.com/product/exmail)       | 操作级   | &#10003; | -                | -        | -                                                            |
 | [私有域解析](https://cloud.tencent.com/document/product/1338) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1338/51643) |
-| [DNSPod](https://cloud.tencent.com/document/product/1427)    | 资源级   | _        | _                | _        | [访问管理指南](https://docs.dnspod.cn/dns/60a76ee0e4a9cb2bbdbfc47f/) |
+| [DNSPod](https://docs.dnspod.cn/)    | 资源级   | _        | _                | _        | [访问管理指南](https://docs.dnspod.cn/dns/60a76ee0e4a9cb2bbdbfc47f/) |
 
 ## 网络安全 
 
