@@ -90,7 +90,7 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp
 
 [](id:step6)
 ### 6. 纯音频推流
-如果您的直播场景是纯音频直播，不需要视频画面，那么您可以不执行 [第4步](#step4) 中的操作，或者在调用 `startPush` 之前调用 `stopCamera` 接口即可。
+如果您的直播场景是纯音频直播，不需要视频画面，那么您可以不执行 [第4步](#step4) 中的操作，或者在调用 `startPush` 之前不调用 `startCamera` 接口即可。
 ```objectivec
 V2TXLivePusher *_pusher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTMP]; 
 NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    
