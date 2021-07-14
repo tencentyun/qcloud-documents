@@ -42,8 +42,8 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
 ### 步骤二：发送消息
 
 1. 编写生产消息程序。
-
-   ```go
+<dx-codeblock>
+:::  go
    package main
    import (
    		"fmt"
@@ -99,16 +99,16 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
        // 等待消息传递
    		p.Flush(10 * 1000)
    }
-   ```
+:::
+</dx-codeblock>
 
+  
 2. 编译并运行程序发送消息。
-
    ```go
    go run main.go
    ```
 
 3. 查看运行结果，示例如下。
-
    ```go
    Delivered message to test[0]@628
    Delivered message to test[0]@629
@@ -120,8 +120,8 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
 ### 步骤三：消费消息
 
 1. 编写消费消息程序。。
-
-```go
+<dx-codeblock>
+:::  go
   package main
   
   import (
@@ -173,20 +173,19 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
   
       c.Close()
   }
-```
+:::
+</dx-codeblock>
 
 2. 编译并运行程序消费消息。
-
-```bash
-  go run main.go
-```
+	```bash
+		go run main.go
+	```
 
 3. 查看运行结果，示例如下。
-
-```bash
-Message on test[0]@628: Confluent-Kafka
-Message on test[0]@629: Golang Client Message
-```
+	```bash
+	Message on test[0]@628: Confluent-Kafka
+	Message on test[0]@629: Golang Client Message
+	```
 
 4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 Topic 名称，单击【查询详情】，查看消费详情。
    ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)
