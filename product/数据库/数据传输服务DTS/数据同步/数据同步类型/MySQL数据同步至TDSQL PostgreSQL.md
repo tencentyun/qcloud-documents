@@ -137,4 +137,3 @@ ON ALL TABLES IN SCHEMA schema_name TO user_name（迁移账号）;
 ![](https://main.qcloudimg.com/raw/4e5726065558e7e0181e7a2f24effd5e.png)
 
 
-
