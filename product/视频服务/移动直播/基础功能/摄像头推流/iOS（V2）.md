@@ -90,7 +90,7 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp
 
 [](id:step6)
 ### 6. 纯音频推流
-如果您的直播场景是纯音频直播，不需要视频画面，那么您可以不执行 [第4步](#step4) 中的操作，或者在调用 `startPush` 之前调用 `stopCamera` 接口即可。
+如果您的直播场景是纯音频直播，不需要视频画面，那么您可以不执行 [第4步](#step4) 中的操作，或者在调用 `startPush` 之前不调用 `startCamera` 接口即可。
 ```objectivec
 V2TXLivePusher *_pusher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTMP]; 
 NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    
@@ -158,7 +158,7 @@ V2TXLivePusher 提供了一组 API 用户控制设备的行为，您可通过 `g
 
 [](id:step11)
 ### 11. 观众端的镜像效果
-通过调用 V2TXLivePusher 的 [setRenderMirror](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#adf4cd57c705a1022d6730fd722f8dab5) 可以改变摄像头的镜像方式，继而影响观众端观看到的镜像效果。之所以说是观众端的镜像效果，是因为当主播在使用前置摄像头直播时，默认情况下自己看到的画面会被 SDK 反。
+通过调用 V2TXLivePusher 的 [setRenderMirror](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#adf4cd57c705a1022d6730fd722f8dab5) 可以改变摄像头的镜像方式，继而影响观众端观看到的镜像效果。之所以说是观众端的镜像效果，是因为当主播在使用前置摄像头直播时，默认情况下自己看到的画面会被 SDK 反转。
 ![](https://main.qcloudimg.com/raw/48cb3e6a39e968f3707fc956c062632a.png)
 
 [](id:step12)

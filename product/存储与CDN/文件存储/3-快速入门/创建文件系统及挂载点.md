@@ -44,17 +44,17 @@
     </tr>
     <tr align="center" >
         <td>容量上限</td>
-        <td>0-160TiB</td>
-        <td>40TiB-100PiB</td>
-        <td>0-10PiB</td>
-        <td>20TiB-100PiB</td>
+        <td>0 - 160TiB</td>
+        <td>40TiB - 100PiB</td>
+        <td>0 - 10PiB</td>
+        <td>20TiB - 100PiB</td>
     </tr>
     <tr align="center" >
         <td>带宽(MiB/S)</td>
-        <td>100+存储量GiB*0.1</td>
-        <td>存储量GiB*0.1</td>
-        <td>200+存储量GiB*0.2</td>
-        <td>存储量GiB*0.2</td>
+        <td>100 + 存储量 GiB * 0.1</td>
+        <td>存储量 GiB * 0.1</td>
+        <td>200 + 存储量 GiB * 0.2</td>
+        <td>存储量 GiB * 0.2</td>
     </tr>
     <tr align="center" >
         <td>延迟</td>
@@ -101,7 +101,7 @@
 ### 4. 创建文件系统及挂载点
 
 1. 单击【创建】。
-2. 在弹出创建文件系统窗口中，配置如下信息。
+2. 在弹出创建文件系统窗口中，配置如下信息：
 <table>
   <tr>
     <th nowrap="nowrap">字段</th>
@@ -138,11 +138,11 @@
   </tr>
 	 <tr>
     <td>云联网</td>
-    <td>仅 Turbo 系列需填写云联网，需选择一个现有云联网或新创建一个。详细用途可参考<a href="https://cloud.tencent.com/product/ccn">云联网介绍</a> 
+    <td>仅 Turbo 系列需填写云联网，需选择一个现有云联网或新创建一个。详细用途可参考 <a href="https://cloud.tencent.com/product/ccn">云联网介绍</a>。 
   </tr>
 	<tr>
     <td>网段</td>
-    <td>仅 Turbo 系列需填写网段，此项的目的是为 Turbo 相关组件预留IP地址段。需保证所选网段和希望与 Turbo 做信息通讯的云上其他实例的地址段不冲突，同时为保证 IP 地址的数量，掩码范围需在16-24位之间。
+    <td>仅 Turbo 系列需填写网段，此项的目的是为 Turbo 相关组件预留IP地址段。需保证所选网段和希望与 Turbo 做信息通讯的云上其他实例的地址段不冲突，同时为保证 IP 地址的数量，掩码范围需在16-24位之间。示例：10.0.0.0/24
     </td>
 	 </tr>
 	<tr>

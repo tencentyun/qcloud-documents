@@ -78,6 +78,16 @@ livePusher.startMicrophone();
 ```javascript
 livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
 ```
+	>?推流之前要保证已经采集到了音视频流，否则推流接口会调用失败。如果要实现采集到音视频流之后自动推流，可以通过回调事件通知，当收到采集首帧成功的通知后，再进行推流。
+><dx-codeblock>
+::: javascript javascript
+livePusher.setObserver({
+  onCaptureFirstVideoFrame: function() {
+          livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
+  }
+});
+:::
+</dx-codeblock>
 6. **停止快直播推流**。
 ```javascript
 livePusher.stopPush();

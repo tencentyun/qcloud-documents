@@ -15,7 +15,7 @@
 |HLS(m3u8) |手机浏览器支持度高 |延迟非常高 |10s - 30s |
 |WebRTC |延迟最低 |需集成 SDK 才能播放 |< 1s |
 
-
+>?标准直播与快直播计费价格不同，更多计费详情请参见 [标准直播计费](https://cloud.tencent.com/document/product/267/34175) 和 [快直播计费](https://cloud.tencent.com/document/product/267/39136)。
 
 
 ## 特别说明
@@ -129,7 +129,7 @@ private class MyPlayerObserver extends V2TXLivePlayerObserver  {
 
 [](id:Delay)
 ## 延时调节
-腾讯云 SDK 的直播播放（LVB）功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场、游戏以及混合场景。
+腾讯云 SDK 的云直播播放功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场、游戏以及混合场景。
 
 - **三种模式的特性对比**
 <table>

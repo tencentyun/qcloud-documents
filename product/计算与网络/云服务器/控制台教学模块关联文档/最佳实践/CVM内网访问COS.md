@@ -28,3 +28,7 @@ nslookup examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
 提供外网访问 COS、同地域 CVM（基础网络）访问 COS 及同地域 CVM（VPC 网络）访问 COS 示例，详情请参见 [测试连通性](https://cloud.tencent.com/document/product/436/31315#.E6.B5.8B.E8.AF.95.E8.BF.9E.E9.80.9A.E6.80.A7)。
 
 
+## 相关操作
+- [将 COS 作为本地磁盘挂载到 Windows 服务器](https://cloud.tencent.com/document/product/436/55241)
+- [将 WordPress 远程附件存储到 COS](https://cloud.tencent.com/document/product/436/41153)
+- [将 Discuz! 论坛远程附件存储到 COS](https://cloud.tencent.com/document/product/436/40605)

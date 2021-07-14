@@ -91,7 +91,7 @@ metadata:
 调度到虚拟节点上的 Pod 可以通过在 yaml 中定义 `template annotation` 的方式，实现为 Pod 绑定安全组、分配资源等能力。配置方法见下表：
 
 >!
->- 如果不指定安全组，则 Pod 会默认绑定节点池指定的安全组。请确保安全组的网络策略不影响该 Pod 正常工作，例如，Pod 启用 80 端口提供服务，请放通入方向 80 端口的访问。。
+>- 如果不指定安全组，则 Pod 会默认绑定节点池指定的安全组。请确保安全组的网络策略不影响该 Pod 正常工作，例如，Pod 启用 80 端口提供服务，请放通入方向 80 端口的访问。
 >- 如需分配 CPU 资源，则必须同时填写 `cpu` 和 `mem` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 CPU 规格。另外，可以通过 `cpu-type` 指定分配 intel 或 amd CPU，其中 amd 具备更高的性价比，详情请参考 [产品定价](https://cloud.tencent.com/document/product/457/39806)。 
 
 
@@ -144,13 +144,28 @@ metadata:
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/retain-ip</td>
-<td>Pod 固定 IP，value 填写 <code>"true"</code> 开启此特性，开启特性的 Pod ，当 Pod 被销毁后，默认会保留这个 Pod 的IP 24小时。24小时内 Pod 重建，还能使用该IP。24小时以后，该IP有可能被其他pod抢占。</td>
+<td>Pod 固定 IP，value 填写 <code>"true"</code> 开启此特性，开启特性的 Pod ，当 Pod 被销毁后，默认会保留这个 Pod 的 IP 24小时。24小时内 Pod 重建，还能使用该 IP。24小时以后，该IP有可能被其他 Pod 抢占。</td>
 <td>否</td>
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/retain-ip-hours</td>
-<td>修改Pod 固定 IP的默认时长，value 填写数值，单位是小时。默认是24小时，最大可支持保留一年。</td>
+<td>修改 Pod 固定 IP 的默认时长，value 填写数值，单位是小时。默认是24小时，最大可支持保留一年。</td>
 <td>否</td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/eip-attributes</td>
+<td>表明该 Workload 的 Pod 需要关联 EIP，值为 "" 时表明采用 EIP 默认配置创建。"" 内可填写 EIP 云 API 参数 json，实现自定义配置。例如 annotation 的值为 '{"InternetMaxBandwidthOut":2}' 即为使用2M的带宽。</td>
+<td>否 </td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/eip-claim-delete-policy</td>
+<td> Pod 删除后，EIP 是否自动回收，“Never” 不回收，默认回收。</td>
+<td>否 </td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/eip-injection</td>
+<td>值为 "true" 时，表明会在 Pod 内暴露 EIP 的 IP 信息。在 Pod 内使用 ip addr 命令可以查看到 EIP 的地址。</td>
+<td>否 </td>
 </tr>
 </tbody></table>
 

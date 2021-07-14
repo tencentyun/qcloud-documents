@@ -4,7 +4,7 @@
 - API ticket 的 NONCE 类型，其有效期为120秒，且一次性有效，即每次启动 SDK 刷脸都要重新请求 NONCE ticket。
 
 ## 请求
-- **请求 URL：**`https://idasc.webank.com/api/oauth2/api_ticket`
+- **请求 URL：**`https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket`
 - **请求方法**：GET
 - **请求参数：**
 <table><tbody>
@@ -17,12 +17,12 @@
 </tbody></table>
 - **请求示例：**
 ```
-https://idasc.webank.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=NONCE&version=1.0.0&user_id=xxx
+https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=NONCE&version=1.0.0&user_id=xxx
 ```
 
 ## 响应
 
-**响应参数**
+**响应参数：**
 
 | 参数            | 类型   | 说明                                                         |
 | --------------- | ------ | ------------------------------------------------------------ |
@@ -37,14 +37,16 @@ https://idasc.webank.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=
 **响应示例：**
 ```
 {
-	"code": "0",
-	"msg": "请求成功",
-	"transactionTime": "20151022044027",
-	"tickets": [{
-		"value": "ticket_string",
-		"expire_in": "120",
-		"expire_time": "20151022044027"
-	}]
+	  "code": "0",
+	  "msg": "请求成功",
+	  "transactionTime": "20151022044027",
+	  "tickets": [
+		{
+			  "value": "ticket_string",
+			  "expire_in": "120",
+			  "expire_time": "20151022044027"
+		}
+	]
 }
 ```
 >!

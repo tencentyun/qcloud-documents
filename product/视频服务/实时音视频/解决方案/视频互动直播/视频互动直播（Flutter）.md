@@ -20,7 +20,7 @@
 
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
 2. 下载完成后，单击【已下载，下一步】。
-   ![](https://main.qcloudimg.com/raw/991440ebf152f78d96ba9769aa69d8d7.png)
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:ui.step3)
 ### 步骤3：配置 Demo 工程文件
@@ -30,7 +30,7 @@
 3. 设置 `GenerateTestUserSig.dart` 文件中的相关参数：
 <ul style="margin:0"><li/>SDKAPPID：默认为PLACEHOLDER，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为PLACEHOLDER，请设置为实际的密钥信息。</ul>
-<img src="https://main.qcloudimg.com/raw/96326351d696d6eb8600b5822dcc8992.png">
+<img src="https://main.qcloudimg.com/raw/fba60aa9a44a94455fe31b809433cfa4.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 

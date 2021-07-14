@@ -14,7 +14,7 @@ EMR 支持将 E-MapReduce Druid 集群作为单独的集群类型，主要基于
 如果您需要将索引数据存放在另外一个单独的 Hadoop 集群的 HDFS 上（生产环境推荐这种方式），则首先需要设置两个集群的连通性。具体步骤如下：
 1. 确保 Druid 集群和 Hadoop 集群能够正常通信。
 两个集群在同一个 VPC 下，或两个集群在不同 VPC，但两个 VPC 之间能够正常通信（如通过云联网或者对等连接）。
-2. 在 E-MapReduce Druid 集群的每个节点的 `/usr/local/service/druid/conf/druid/_common` 路径下，放置一份     Hadoop 集群中 `/usr/local/service/hadoop/etc/hadoop` 路径下的 core-site.xml、hdfs-site.xml、yarn-site.xml、mapred-site.xml 文件。
+2. 在 E-MapReduce Druid 集群的每个节点的 `/usr/local/service/druid/conf/druid/_common` 路径下，放置一份 Hadoop 集群中 `/usr/local/service/hadoop/etc/hadoop` 路径下的 core-site.xml、hdfs-site.xml、yarn-site.xml、mapred-site.xml 文件。
 >!Druid 集群由于自带 Hadoop 集群，因此 Druid 路径下已经提前创建了上述文件的相关软链接，需要先删除，再拷贝另一个 Hadoop 集群的配置过来。同时需要确保文件权限正确，能被 hadoop 用户正常访问。
 3. 在 Druid 配置管理中修改 common.runtime.properties 配置文件。修改完成后，保存配置并重启 Druid 集群相关服务。
  - druid.storage.type：默认为 hdfs，无需修改
