@@ -135,3 +135,4 @@ ON ALL TABLES IN SCHEMA schema_name TO user_name（迁移账号）;
 ![](https://main.qcloudimg.com/raw/4f7e5d83a8100adb48bdaed2b55bb8cc.png)
 8. （可选）您可以单击任务名，进入任务详情页，查看任务初始化状态和监控数据。
 ![](https://main.qcloudimg.com/raw/4e5726065558e7e0181e7a2f24effd5e.png)
+
