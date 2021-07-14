@@ -57,14 +57,14 @@ liveroom.pause();
 
 // Page.wxml 文件
 <mlvb-live-room id="id_liveroom"
-	roomID="{{roomID}}"
-	roomName="{{roomName}}"
-	template="float"
-	beauty="{{beauty}}"
-	muted="{{muted}}"
+		roomID="{{roomID}}"
+		roomName="{{roomName}}"
+		template="float"
+		beauty="{{beauty}}"
+		muted="{{muted}}"
     role="{{role}}"
-	debug="{{debug}}"
-	bindRoomEvent="onRoomEvent">
+		debug="{{debug}}"
+		bindRoomEvent="onRoomEvent">
 </mlvb-live-room>
 
 
