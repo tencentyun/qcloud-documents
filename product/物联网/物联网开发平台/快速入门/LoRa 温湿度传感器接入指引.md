@@ -102,13 +102,16 @@ function ProtocolToRaw(obj) {
 
 - 下行消息
 模拟测试数据如下，将其填入设备下行数据的编辑框中：
-```json
+<dx-codeblock>
+:::  JSON
 {
 	"params": {
 		"period": 15
 	}
 }
-```
+:::
+</dx-codeblock>
+
 ![](https://main.qcloudimg.com/raw/55fb6d32d23f3f3a26e01316c7c2025c.png)
 
 
@@ -210,7 +213,7 @@ Uplink UDP Connected
 #### Step 2. 代码修改
 1. 请先修改`\examples\LoRaWAN\lora_demo.c.`。
 ```c
-tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39aaaaad204a72");
+tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39a****d204a72");
 ```
 填入节点相应的 DevEUI 和 AppKEY，可从 LoRa 节点开发板背面贴纸上获取。
 2. 修改`\devices\rhf76_lora\RHF76.h`。
@@ -261,15 +264,20 @@ tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39aaaaad204a72"
 1. 当 LoRa 节点 成功连接到物联网开发平台后，您可在控制台【设备调试】列表，单击【调试】，进入在线调试。
 2. 将“上报周期”设置为15秒，单击【发送】。
 3. 查看 LoRa 节点的串口日志，可查看已成功接收到下发的数据。
- >?
+<dx-alert infotype="explain" title="">
  - 由于本示例中 LoRa 节点是 LoRaWAN Class A 类设备，这类设备不会立即下发数据，需要在有数据上行后，服务器才会向该设备下行数据。
  - 因此在 LoRa 节点上报数据之后，才能查看下发的周期调整命令。
+ </dx-alert>
 
 LoRa 节点的串口会显示如下日志，表示成功下发了指令到设备端。
-```
+<dx-codeblock>
+:::  Java
 rhf76_incoming_data_process 4: 0F00
 len: 2
 data[0]: 15
 data[1]: 0
 report_period: 15
-```
+:::
+</dx-codeblock>
+
+
