@@ -18,9 +18,11 @@
 3. 在“事件集详情”页事件连接器配置项中单击【添加】，如下图所示：
 ![](https://main.qcloudimg.com/raw/becfdcc055c2eb05638e662454f9d2cb.jpg)
 4. 根据页面提示填写相关信息，如下图所示：
-	![](https://main.qcloudimg.com/raw/6ebf21bd3fce8ffe4f158de8017f6a81.png)
+![](https://main.qcloudimg.com/raw/78a2510dc65b8dbf435e18a9dad9bf2d.png)
   其中**连接器类型**选择【消息队列（Kafka）】连接器，其余配置项按照提示填写。
-  > 注意：目前只支持云上 Ckafka 实例投递，请确认您的 Ckafka 实例没有配置用户名密码等信息，否则连接器可能无法成功获取消息。
+<dx-alert infotype="notice" title="">
+目前只支持云上 Ckafka 实例投递，请确认您的 Ckafka 实例没有配置用户名密码等信息，否则连接器可能无法成功获取消息。
+</dx-alert>
 5. 单击【确定】完成创建。
 6. 选择左侧导航栏中的【事件规则】。
 7. 在“事件规则”顶部选框，选择与之前创建一致的事件集信息，并单击【新建事件规则】，如下图所示：
@@ -59,9 +61,9 @@
 
 | 参数             | 描述                                                         |
 | ---------------- | ------------------------------------------------------------ |
-| topic            | Ckafka 投递Topic     |
-| Partition | 事件源所在分区，一个 Topic 可以包含一个或者多个 Partition，CKafka 以 Partition 作为分配单位                                                   |
-| offset        | 消费分组，指定消费区域                                         |
+| topic            | Ckafka 投递 Topic。     |
+| Partition | 事件源所在分区，一个 Topic 可以包含一个或者多个 Partition，CKafka 以 Partition 作为分配单位。                                                   |
+| offset        | 消费分组，指定消费区域。                                      |
 | msgKey            | Ckafka 消息 Key。                                               |
 | msgBody          | Ckafka 消息体。                                                |
 
