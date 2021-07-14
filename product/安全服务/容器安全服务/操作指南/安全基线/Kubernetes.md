@@ -49,9 +49,9 @@ Kubernetes 页面基于 CIS Kubernetes Benchmark 标准展示 K8S 资产的基�
 ![](https://main.qcloudimg.com/raw/ef00b3ca988e983a3c7431bc5bfad558.png)
 3. 在安全基线 Kubernetes 页面，单击左上角的类型下拉框，按类型对 Kubernetes 资产进行筛选。
 ![](https://main.qcloudimg.com/raw/e4bebd2c178960f5aed6f8861fc71702.png)
-·4. 在安全基线 Kubernetes 页面，单击左上角的威胁等级下拉框，按威胁等级对 Kubernetes 资产进行筛选。
+4. 在安全基线 Kubernetes 页面，单击左上角的威胁等级下拉框，按威胁等级对 Kubernetes 资产进行筛选。
 ![](https://main.qcloudimg.com/raw/fa546b8f0d32caf590f283c813b9aaac.png)
-5.在安全基线 Kubernetes 页面，单击操作栏右侧![](https://main.qcloudimg.com/raw/84b6cc4d2eabf9ed7fc0bea43503bb1d.png)图标，即可刷新事件列表。
+5. 在安全基线 Kubernetes 页面，单击操作栏右侧![](https://main.qcloudimg.com/raw/84b6cc4d2eabf9ed7fc0bea43503bb1d.png)图标，即可刷新事件列表。
 
 ### 重新检测主机资产
 1. 登录 [容器安全服务控制台](https://console.cloud.tencent.com/tcss)，在左侧导航中，单击【安全基线】>【Kubernetes】，进入安全基线 Kubernetes 页面。
