@@ -1,3 +1,4 @@
+
 本文为您介绍如何使用 DTS 数据同步功能将云数据库 MySQL 同步数据至腾讯云企业级分布式数据库 TDSQL PostgreSQL版 及 TDSQL-A PostgreSQL版。
 
 ## 前提条件
@@ -130,7 +131,6 @@ ON ALL TABLES IN SCHEMA schema_name TO user_name（迁移账号）;
 ![](https://main.qcloudimg.com/raw/ab3e60e1bc90a11c9529458281615b6b.png)
 7. 返回数据同步任务列表，任务开始进入“运行中”状态。
 >?停止任务，则直接关闭任务，请您确保数据同步完成后再关闭任务。
->
->![](https://main.qcloudimg.com/raw/4f7e5d83a8100adb48bdaed2b55bb8cc.png)
+![](https://main.qcloudimg.com/raw/4f7e5d83a8100adb48bdaed2b55bb8cc.png)
 8. （可选）您可以单击任务名，进入任务详情页，查看任务初始化状态和监控数据。
 ![](https://main.qcloudimg.com/raw/4e5726065558e7e0181e7a2f24effd5e.png)
