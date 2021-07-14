@@ -40,12 +40,12 @@ MySQL 数据备份是腾讯云对象存储（Cloud Object Storage，COS）基于
 
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)。
 2. 在左侧导航中，选择【存储桶列表】，单击需要设置 MySQL 数据备份的存储桶，进入存储桶管理页。
-3. 单击左侧的【函数计算】，并找到**MySQL 数据备份函数**配置项。
+3. 单击左侧的【函数计算】，并找到 **MySQL 备份函数**配置项。
 >! 如果您尚未开通云函数服务，请前往 [云函数控制台](https://console.cloud.tencent.com/scf) 开通云函数服务，按照提示完成服务授权即可。
 >
 4. 单击【添加函数】。
 5. 在弹出的窗口中，配置如下信息：
-![](https://main.qcloudimg.com/raw/53f6c8dcde411fd81127957dcee0a88a.png)
+![](https://main.qcloudimg.com/raw/596f5789b2beacec2595adadf46ceaeb.png)
  - **函数名称**：作为函数的唯一标识名称，创建后不可修改。您可以在 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 上查看该函数。
  - **触发器周期**：MySQL 数据备份函数通过定时触发器来触发备份转存操作，触发周期支持每天、每周及自定义周期。
  - **Cron 表达式**：当触发器周期设置为自定义时，可通过 Cron 指定具体的触发周期规则。Cron 当前以 UTC +8 中国标准时间（China Standard Time）运行，即北京时间。详细配置策略请参见 [Cron 相关文档](https://cloud.tencent.com/document/product/583/9708#cron-.E8.A1.A8.E8.BE.BE.E5.BC.8F)。

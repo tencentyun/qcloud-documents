@@ -15,6 +15,7 @@
 ### 步骤一：添加 Python 依赖库
 
 执行以下命令安装：
+
 ```bash
 pip install kafka-python
 ```
@@ -27,7 +28,7 @@ pip install kafka-python
 ```python
 #coding:utf8
 from kafka import KafkaProducer
-
+import json
 producer = KafkaProducer(
    bootstrap_servers = ['$domainName:$port'],
    api_version = (0,10,0)
@@ -46,9 +47,9 @@ producer.close()
 
 2. 编译并运行 producer.py。
 3. 查看运行结果。
-![](https://main.qcloudimg.com/raw/312d264676c655838e398ab9fa03b491.png) 
+   ![](https://main.qcloudimg.com/raw/312d264676c655838e398ab9fa03b491.png) 
 4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic管理】页面，选择对应的 Topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
-	![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
+   ![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
 
 
 
@@ -56,6 +57,7 @@ producer.close()
 ### 步骤三：消费消息
 
 1. 修改消费消息程序 consumer.py 中配置参数。
+
 ```python
 #coding:utf8
 from kafka import KafkaConsumer

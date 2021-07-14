@@ -1,7 +1,7 @@
 >!如果因自身业务需要对 OCR 识别的影像文件进行存储或其他用途，请合作方务必自行保存订单号，通过订单号拉取 OCR 识别的影像文件是唯一方式。
 
 合作方后台服务上送 sign、请求参数到身份证识别后台服务。
-- **请求 URL：**https://ida.webank.com/api/paas/idcardocrapp?orderNo=xxx
+- **请求 URL：**https://miniprogram-kyc.tencentcloudapi.com/api/paas/idcardocrapp?orderNo=xxx
 >!为方便查询耗时，该请求 url 后面请拼接 orderNo 订单号参数。
 
 - **请求方法：**POST

@@ -1,8 +1,33 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
+
+## 1.29.0-Greenwich-RELEASE（2021-06-23）
+### 新特性
+- 微服务网关增加单元化功能。
+- spring-cloud-tsf-sleuth: 新增 cmq-tcp-client 和 cmq-http-client 调用支持。
+
+### 优化
+- 优化和开源 spring cloud consul 依赖的冲突。
+- actuator 依赖改为 optional。
+- spring-cloud-tsf-sleuth：优化 getProperties 性能。
+- spring-cloud-tsf-sleuth：监控数据添加 http method 和 path template。
+- spring-cloud-tsf-ratelimit：优化限流的 httpclient。
+  
+### Bug 修复
+- spring-cloud-tsf-logger：修复自定义日志格式没有服务名的问题。
+- spring-cloud-tsf-sleuth：修复调用链获取 IP 偶现获取不到问题。
+- spring-cloud-tsf-sleuth：修改 scg metrics duration 异常问题。
+- spring-cloud-tsf-sleuth：修复未发布分组时，网关没法作为组件显示成蓝色 logo 的 Bug。
+- spring-cloud-tsf-swagger：修复 IgnoreGatewayApi 注解导致的潜在空指针异常。
+- spring-cloud-tsf-consul-discovery：修复被调方实例不存在时不断打印异常日志的问题。
+- 修复 Feign 在指定 URL 的模式下无法请求的问题。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
 ## 1.26.2-Greenwich-RELEASE（2021-04-25）
 ### 优化
-支持通过配置 `-Dspring.cloud.consul.enabled=false` 关闭连接 consul ，适配单元测试场景时的启动
+支持通过配置 `-Dspring.cloud.consul.enabled=false` 关闭连接 consul ，适配单元测试场景时的启动。
 
 ### 版本建议
 支持向后兼容，建议全量升级。
@@ -59,6 +84,17 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
   
 ### 版本建议
 
+支持向后兼容，建议全量升级。
+
+## 1.23.9-Greenwich-RELEASE（2021-06-11）
+### 新特性
+- 支持服务监听触发回调。
+
+### 优化
+- 服务发现增加零实例保护。
+- consul 异常时，避免一直刷日志。
+
+### 版本建议
 支持向后兼容，建议全量升级。
 
 ## 1.23.8-Greenwich-RELEASE（2021-02-07）

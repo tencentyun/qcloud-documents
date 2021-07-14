@@ -5,7 +5,7 @@
 2. 选择相应的地域，勾选需要修改续费的专用宿主机实例，并单击【续费】。
 ![](https://main.qcloudimg.com/raw/b0425845fdc10f1c05caa1477fb63241.png)
 3. 在续费弹窗中，选择需要续费的时间，并单击【确定】。
-![](https://main.qcloudimg.com/raw/40cf2c54bc0f26435b8fbd9c1e351da3.png)
+![](https://main.qcloudimg.com/raw/715e02e870df0da150933831bd7ea020.png)
 4. 进行支付后则完成了对 CDH 实例的续费操作。
 
 ## 通过续费管理页续费包年包月 CDH 实例

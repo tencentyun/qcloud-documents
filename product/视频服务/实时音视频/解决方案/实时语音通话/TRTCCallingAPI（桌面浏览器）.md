@@ -1,6 +1,6 @@
 ## TRTCCalling 简介
 
-[TRTCCalling](https://www.npmjs.com/package/trtc-calling-js) 组件是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持1v1和多人视频/语音通话。具体的实现过程请参见 [实时语音通话（桌面浏览器）](https://cloud.tencent.com/document/product/647/49795)。
+[TRTCCalling](https://www.npmjs.com/package/trtc-calling-js) 组件是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持1v1和多人视频/语音通话。具体的实现过程请参见 [实时语音通话（Web）](https://cloud.tencent.com/document/product/647/49795)。
 
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频通话组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。

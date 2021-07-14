@@ -5,18 +5,18 @@ TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，�
 
 ## 总体流程
 ### 1. 流程图
-![](https://main.qcloudimg.com/raw/13a3eed20c919b48b3c2583cf8df1845.jpg)
+![](https://main.qcloudimg.com/raw/adc1d339f5892577db7ab2c701ab8b06.jpg)
 
-### 集成 demo 示例
-下载地址：https://github.com/TencentCloud/tencentcloud-sdk-ios-soe
+### 2. 集成 demo 示例
+[下载 SDK](https://github.com/TencentCloud/tencentcloud-sdk-ios-soe) 地址。
 获取密钥（ 密钥获取⽅式⻅下⽂） 后到 TAIDemo/TAIDemo/PrivateInfo.m 根据需要填写 appId、secretId、secretKey、soeAppId 和hcmAppId（token 无需填写）。
-![](https://main.qcloudimg.com/raw/af0d45abca15d5fe3796c85627b3af87.png)
+![](https://main.qcloudimg.com/raw/c9d27bfaa226bc2e513666c635b21d94.png)
 
 ## SDK 集成准备
-####  1. 添加第三方库依赖
+###  1. 添加第三方库依赖
 第三方库 lame.framework 的主要目的是为了实现文件类型转换。本 SDK 依赖第三方库为 lame.framework，您只需将 SDK 和 lame.framework 直接引入项目中即可。
 
-#### 2. 获取密钥
+### 2. 获取密钥
 SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在【[访问管理](https://console.cloud.tencent.com/cam/overview)】>【访问密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】中获取该凭证。
 ![](https://main.qcloudimg.com/raw/273b67bc4d38af6cb9999e9f4663d268.png)
 
@@ -47,7 +47,8 @@ self.oralEvaluation.delegate = self;
 #### 3.1 初始化 TAIRecorderParam 对象，并设置相应参数
 请在开始调用 startRecordAndEvaluation（）函数前设置 TAIRecorderParam 参数，静音检测您可以通过 vadEnable 参数打开，并通过 vadInterval 参数设置静音检测时间间隔。
 ```
-TAIRecorderParam *recordParam = [[TAIRecorderParam alloc] init]; recordParam.fragEnable = YES; 
+TAIRecorderParam *recordParam = [[TAIRecorderParam alloc] init]; 
+recordParam.fragEnable = YES; 
 recordParam.fragSize = 1024; 
 recordParam.vadEnable = YES; 
 recordParam.vadInterval = 5000; 
@@ -82,7 +83,8 @@ param.workMode = TAIOralEvaluationWorkMode_Once;
 param.evalMode = TAIOralEvaluationEvalMode_Sentence; 
 param.storageMode = TAIOralEvaluationStorageMode_Disable; 
 param.serverType = TAIOralEvaluationServerType_English; 
-param.scoreCoeff = 1.0; param.fileType = TAIOralEvaluationFileType_Mp3; 
+param.scoreCoeff = 1.0; 
+param.fileType = TAIOralEvaluationFileType_Mp3; 
 param.refText = @""; 
 param.secretId = @""; 
 param.secretKey = @"";
@@ -98,7 +100,8 @@ param.secretKey = @"";
 
 **4.1.3 结束录制**
 ```
-[self.oralEvaluation stopRecordAndEvaluation:^(TAIError *error) {     //结果返回 
+[self.oralEvaluation stopRecordAndEvaluation:^(TAIError *error) {    
+//结果返回 
 }];
 ```
 
@@ -119,12 +122,15 @@ param.refText = @"hello guagua";
 param.secretId = @""; 
 param.secretKey = @"";  
 
+
 NSString *mp3Path = [[NSBundlemainBundle] pathForResource:@"hello_guagua"ofType:@"mp3"]; 
 TAIOralEvaluationData *data = [[TAIOralEvaluationData alloc] init]; 
 data.seqId = 1; 
 data.bEnd = YES; 
 data.audio = [NSDatadataWithContentsOfFile:mp3Path]; 
 __weak typeof(self) ws = self;    
+
+
 //评测结束后是否重置AVAudioSession  true:重置  false:否 
 [self.oralEvaluation resetAvAudioSession:true];    
 
@@ -181,7 +187,7 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 | signature          | NSString                     | 外部签名：必填 | 仅在使用外部签名时需要设置此参数，详细获取方式请查看上述5.签名 |
 | timestamp          | NSInteger                    | 外部签名：必填 | 秒级时间戳                                                   |
 | soeAppId           | NSString                     | 否             | 业务应用 ID                                                   |
-| sessionId          | NSString                     | 是             | 一次批改唯一标识                                             |
+| sessionId          | NSString                     | 是             | 一次评测唯一标识                                             |
 | workMode           | TAIOralEvaluationWorkMode    | 是             | 传输方式                                                     |
 | evalMode           | TAIOralEvaluationEvalMode    | 是             | 评测模式                                                     |
 | isFixOn            | Bool                         | 是             | 用于设置是否开启单词映射                                     |
@@ -218,7 +224,7 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 
 | 参数            | 类型                                    | 说明                                                         |
 | :-------------- | :-------------------------------------- | :----------------------------------------------------------- |
-| sessionId       | NSString                                | 一次批改唯一标识                                             |
+| sessionId       | NSString                                | 一次评测唯一标识                                             |
 | pronAccuracy    | Float                                   | 发音精准度，取值范围[-1, 100]，当取-1时指完全不匹配          |
 | pronFluency     | Float                                   | 发音流利度，取值范围[0, 1]，当为词模式时，取值无意义         |
 | pronCompletion  | Float                                   | 发音完整度，取值范围[0, 1]，当为词模式时，取值无意义         |
@@ -259,7 +265,7 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 | :-------- | :--------- | :----------------------------------------------------------- |
 | Code      | TAIErrCode | 返回错误码<br>0：成功<br>1：参数错误<br>2：json 解析错误<br>3：http 请求错误<br>4：服务器错误详细错误信息请查看 desc 参数 |
 | desc      | NSString   | 详细错误描述                                                 |
-| requestId | NSString   | 请求 ID，用于定位错误信息                                     |
+| requestId | NSString   | 请求 ID，用于订单唯一标识                                   |
 
 
 

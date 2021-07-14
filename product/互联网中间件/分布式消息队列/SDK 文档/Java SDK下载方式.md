@@ -167,9 +167,9 @@ mvn help:effective-settings
 
   ```xml
 <dependency>
-					<groupid>com.tencent.tdmq</groupid>
-					<artifactid>tdmq-client</artifactid>
-					<version>2.6.1</version>
+					<groupId>com.tencent.tdmq</groupId>
+					<artifactId>tdmq-client</artifactId>
+					<version>2.6.0</version>
 </dependency>
   ```
 

@@ -1,4 +1,5 @@
 Phoenix 引擎支持使用 SQL 进数据查询，一些常见操作如下：
+
 - 创建表
 ```sql
 0: jdbc:phoenix:> CREATE TABLE IF NOT EXISTS TEST (
@@ -21,4 +22,4 @@ Phoenix 引擎支持使用 SQL 进数据查询，一些常见操作如下：
 0: jdbc:phoenix:>DROP TABLE IF EXISTS TEST;
 ```
 
-更多操作及说明，请参考 [社区文档](http://phoenix.apache.org/language/index.html)。
+更多操作及说明，可参考 [社区文档](http://phoenix.apache.org/language/index.html)。

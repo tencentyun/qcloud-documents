@@ -70,6 +70,7 @@
 
 | 功能说明               | 接口                                                         |
 | ---------------------- | ------------------------------------------------------------ |
+|获取 App 中的所有群组|[v4/group_open_http_svc/get_appid_group_list](https://cloud.tencent.com/document/product/269/1614)|
 | 创建群组               | [v4/group_open_http_svc/create_group](https://cloud.tencent.com/document/product/269/1615) |
 | 获取群详细资料       | [v4/group_open_http_svc/get_group_info](https://cloud.tencent.com/document/product/269/1616) |
 | 获取群成员详细资料     | [v4/group_open_http_svc/get_group_member_info](https://cloud.tencent.com/document/product/269/1617) |
