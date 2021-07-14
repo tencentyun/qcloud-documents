@@ -56,7 +56,8 @@
 脚本主函数的出参为产品数据模版协议格式的对象。
 
 在上行数据解析部分，javascript 示例代码如下：
-```javascript
+<dx-codeblock>
+:::  javascript
 function RawToProtocol(fPort, bytes) {
     var data = {
         "method": "report",
@@ -68,16 +69,17 @@ function RawToProtocol(fPort, bytes) {
     data.params.period = bytes[2] | (bytes[3] << 8);
     return data;
 }
-```
+:::
+</dx-codeblock>
 
 下行数据解析的脚本主函数为 ProtocolToRaw，其入参为产品数据模版协议格式的对象，其出参为至少3个字节的数组：
-
 - 第1字节：下发给设备的 LoRaWAN 协议数据的 FPort 字段。
 - 第2字节：bytes 为下发给设备的 LoRaWAN 协议数据的 MType（0表示 Unconfirmed Data Down，1表示 Confirmed Data Down）。
 - 第3字节：开始为下发给设备的 LoRaWAN 协议数据的 FRMPayload 字段。
 
 在下行数据解析部分，javascript 示例代码如下：
-```javascript
+<dx-codeblock>
+:::  JavaScript
 function ProtocolToRaw(obj) {
     var data = new Array();
     data[0] = 5;// fport=5
@@ -86,7 +88,9 @@ function ProtocolToRaw(obj) {
     data[3] = (obj.params.period >> 8) & 0x00FF;
     return data;
 }
-```
+:::
+</dx-codeblock>
+
 ![](https://main.qcloudimg.com/raw/83318c5e53ecd928ee960ba4a20ca63c.png)
 
 #### 脚本模拟测试
