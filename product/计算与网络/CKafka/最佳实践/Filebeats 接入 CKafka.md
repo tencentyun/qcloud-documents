@@ -60,7 +60,7 @@ output.kafka:
 </dx-codeblock>
 
 
-### 步骤4：Filebeat发送消息
+### 步骤4：Filebeat 发送消息
 
 1. 执行如下命令启动客户端。
 	```
