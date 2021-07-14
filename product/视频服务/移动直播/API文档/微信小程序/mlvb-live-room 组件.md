@@ -62,6 +62,7 @@ liveroom.pause();
 	template="float"
 	beauty="{{beauty}}"
 	muted="{{muted}}"
+    role="{{role}}"
 	debug="{{debug}}"
 	bindRoomEvent="onRoomEvent">
 </mlvb-live-room>
@@ -71,6 +72,7 @@ liveroom.pause();
 Page({
     data: {
     	//...
+        role: 'anchor', // 角色视您的业务场景而定
         roomID: '',
         roomName: '',
         beauty: 3,
