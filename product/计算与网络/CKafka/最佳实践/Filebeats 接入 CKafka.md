@@ -4,35 +4,30 @@ Beats 有多种采集器，您可以根据自身的需求下载对应的采集�
 
 ## 前提条件
 
-- 下载并安装Filebeat。参见[Download Filebeat](https://www.elastic.co/guide/en/logstash/7.6/installing-logstash.html)。
-- 下载并安装JDK 8。参见[Download JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
-- 已[创建 CKafka 实例](https://cloud.tencent.com/document/product/597/53207)。
+- 下载并安装 Filebeat（参见 [Download Filebeat](https://www.elastic.co/guide/en/logstash/7.6/installing-logstash.html)）
+- 下载并安装JDK 8（参见 [Download JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)）
+- 已 [创建 CKafka 实例](https://cloud.tencent.com/document/product/597/53207)
 
 ## 操作步骤
 
-### 步骤1. 获取 CKafka 实例接入地址
+### 步骤1：获取 CKafka 实例接入地址
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
-
 2. 在左侧导航栏选择【实例列表】，单击实例的“ID”，进入实例基本信息页面。
-
 3. 在实例的基本信息页面的【接入方式】模块，可获取实例的接入地址。
-
    ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
 
-### 步骤2. 创建 Topic
+### 步骤2：创建 Topic
 
 1. 在实例基本信息页面，选择顶部【Topic管理】页签。
+2. 在 Topic 管理页面，单击【新建】，创建一个名为 test 的 Topic。
+	 ![](https://main.qcloudimg.com/raw/adc18f407be9ff1a1e195891b82031c5.png)
 
-2. 在Topic管理页面，单击【新建】，创建一个名为test的 Topic。
+### 步骤3：准备配置文件
 
-   ![](https://main.qcloudimg.com/raw/3576875138eb4447622571433312907f.png)
-
-### 步骤3. 准备配置文件
-
-进入filebeat的安装目录，创建配置监控文件filebeat.yml。
-
-```yaml
+进入 Filebeat 的安装目录，创建配置监控文件 filebeat.yml。
+<dx-codeblock>
+:::  yaml
 #======= Filebeat prospectors ==========
 filebeat.prospectors:
 
@@ -61,37 +56,41 @@ output.kafka:
   # SASL 需要配置下列信息，如果不需要则下面两个选项可不配置
   username: "yourinstance#yourusername"  //username 需要拼接实例ID和用户名
   password: "yourpassword"
-```
+:::
+</dx-codeblock>
 
-### 步骤4. Filebeat发送消息
+
+### 步骤4：Filebeat发送消息
 
 1. 执行如下命令启动客户端。
-   `sudo ./filebeat -e -c filebeat.yml `
+	```
+	sudo ./filebeat -e -c filebeat.yml 
+	```
 2. 为监控文件增加数据（示例为写入监听的 testlog 文件）。
-
-```
-echo ckafka1 >> testlog
-echo ckafka2 >> testlog
-echo ckafka3 >> testlog
-```
+	```
+	echo ckafka1 >> testlog
+	echo ckafka2 >> testlog
+	echo ckafka3 >> testlog
+	```
 
 3. 开启 Consumer 消费对应的 Topic，获得以下数据。
-
-```
-{"@timestamp":"2017-09-29T10:01:27.936Z","beat":{"hostname":"10.193.9.26","name":"10.193.9.26","version":"5.6.2"},"input_type":"log","message":"ckafka1","offset":500,"source":"/data/ryanyyang/hcmq/beats/filebeat-5.6.2-linux-x86_64/testlog","type":"log"}
-{"@timestamp":"2017-09-29T10:01:30.936Z","beat":{"hostname":"10.193.9.26","name":"10.193.9.26","version":"5.6.2"},"input_type":"log","message":"ckafka2","offset":508,"source":"/data/ryanyyang/hcmq/beats/filebeat-5.6.2-linux-x86_64/testlog","type":"log"}
-{"@timestamp":"2017-09-29T10:01:33.937Z","beat":{"hostname":"10.193.9.26","name":"10.193.9.26","version":"5.6.2"},"input_type":"log","message":"ckafka3","offset":516,"source":"/data/ryanyyang/hcmq/beats/filebeat-5.6.2-linux-x86_64/testlog","type":"log"}
-```
+	```
+	{"@timestamp":"2017-09-29T10:01:27.936Z","beat":{"hostname":"10.193.9.26","name":"10.193.9.26","version":"5.6.2"},"input_type":"log","message":"ckafka1","offset":500,"source":"/data/ryanyyang/hcmq/beats/filebeat-5.6.2-linux-x86_64/testlog","type":"log"}
+	{"@timestamp":"2017-09-29T10:01:30.936Z","beat":{"hostname":"10.193.9.26","name":"10.193.9.26","version":"5.6.2"},"input_type":"log","message":"ckafka2","offset":508,"source":"/data/ryanyyang/hcmq/beats/filebeat-5.6.2-linux-x86_64/testlog","type":"log"}
+	{"@timestamp":"2017-09-29T10:01:33.937Z","beat":{"hostname":"10.193.9.26","name":"10.193.9.26","version":"5.6.2"},"input_type":"log","message":"ckafka3","offset":516,"source":"/data/ryanyyang/hcmq/beats/filebeat-5.6.2-linux-x86_64/testlog","type":"log"}
+	```
 
 ### SASL/PLAINTEXT 模式
 
 如果您需要进行 SALS/PLAINTEXT 配置，则需要配置用户名与密码。 在 Kafka 配置区域新增加 username 和 password 配置即可。
-
-```yaml
+<dx-codeblock>
+:::  yaml
  # SASL 需要配置下列信息，如果不需要则下面两个选项可不配置
   username: "yourinstance#yourusername"  //username 需要拼接实例ID和用户名
   password: "yourpassword"
-```
+:::
+</dx-codeblock>
+
 
 ## 常见问题
 
@@ -116,9 +115,11 @@ echo ckafka3 >> testlog
 例如：6.5.x 默认支持 Kafka 的版本是 0.9、0.10、1.1.0、2.0.0，而 5.6.x 默认支持的是0.8.2.0。
 
 您需要检查配置文件中的版本配置：
-
-```yaml
+<dx-codeblock>
+:::  yaml
 output.kafka:
   version:0.10.2 // 根据不同 CKafka 实例开源版本配置
-```
+:::
+</dx-codeblock>
+
 
