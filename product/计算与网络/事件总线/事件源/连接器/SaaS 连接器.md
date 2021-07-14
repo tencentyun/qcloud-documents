@@ -20,12 +20,14 @@
 ![](https://main.qcloudimg.com/raw/becfdcc055c2eb05638e662454f9d2cb.jpg)
 4. **连接器类型**选择【SaaS】连接器，如图：
 	![](https://main.qcloudimg.com/raw/83382ef7880263015af1a81f02675dc6.png)
-5. 进入 [EIS 控制台](https://console.cloud.tencent.com/eis/project)，依次选择您的项目与应用，进入应用详情页进行配置
-> 注意：如果是子账号，可能需要管理员权限才可以进行更多操作，请在 EIS 控制台左侧“成员管理”处配置。
+5. 进入 [EIS 控制台](https://console.cloud.tencent.com/eis/project)，依次选择您的项目与应用，进入应用详情页进行配置。
+<dx-alert infotype="notice" title="">
+如果是子账号，需要管理员权限才可以进行更多操作，请在 EIS 控制台左侧“成员管理”处配置。
+</dx-alert>
 - 选择项目
 ![](https://main.qcloudimg.com/raw/b86123f1e07227c332b169a05448b977.png)
 - 选择或创建应用
-![](https://main.qcloudimg.com/raw/6304e8bb4d543562d4bbcf258ae5a346.png)
+![](https://main.qcloudimg.com/raw/34704fbc676d880d2b0a72b11497da85.png)
 - 进入应用详情页，选择对应流
 ![](https://main.qcloudimg.com/raw/278e0aac540f8b28136f74fba09721f8.png)
 

@@ -207,7 +207,7 @@ Future<ActionCallback> setSelfProfile(String userName, String avatarURL);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| name | String | 用户昵称。|
+| userName | String | 用户昵称。|
 | avatarURL | String | 用户头像地址。|
 
 ## 会议房间相关接口

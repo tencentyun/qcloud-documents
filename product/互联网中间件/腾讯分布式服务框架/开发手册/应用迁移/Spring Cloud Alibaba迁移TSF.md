@@ -47,6 +47,12 @@
 					<version><!-- 调整为 SDK 版本号 --></version>
 	</dependency>
 	```
+ <dx-alert infotype="explain" title="">
+SDK 版本请参考 [SDK 文档](https://cloud.tencent.com/document/product/649/49320)。
+</dx-alert>
+
+
+
 
 ### 步骤2：配置调整
 
