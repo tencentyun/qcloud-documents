@@ -21,7 +21,7 @@ TencentOS-kernel 提供了4.14和5.4两个版本，详情请参见 [TencentOS-ke
 <table>
   <tr>
 	<th>发布时间</th>
-	<th>镜像版本</th>
+	<th style="width:30%">镜像版本</th>
 	<th>版本说明</th>
 	<th>发布地域</th>
   </tr>
