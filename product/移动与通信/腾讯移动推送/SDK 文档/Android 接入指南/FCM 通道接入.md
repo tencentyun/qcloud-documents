@@ -5,7 +5,7 @@ FCM 通道是谷歌推出的系统级推送通道，在国外具备谷歌 Servic
 
 ## 操作步骤
 ### 获取密钥
-进入 FireBase 官网，注册应用信息。在 【Firebase 项目】>【选择具体的项目应用】>【设置】>【云消息传递】获取到的 FCM 应用推送【服务器密钥】，并配置到【[移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)】>【配置管理】>【基础配置】>【FCM 官方推送通道】栏目中。
+进入 [FireBase 官网](https://firebase.google.com/?hl=zh-cn)，注册应用信息。在 【Firebase 项目】>【选择具体的项目应用】>【设置】>【云消息传递】获取到的 FCM 应用推送【服务器密钥】，并配置到【[移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)】>【配置管理】>【基础配置】>【FCM 官方推送通道】栏目中。
 ![](https://main.qcloudimg.com/raw/d82c9dd04fe986ffc35a57e30eefce4f.png)
 ### 配置内容
 1. 配置 google-services.json 文件。如图所示：
