@@ -52,10 +52,10 @@ COSDistCp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 |       --workerNumber=VALUE       | 指定拷贝线程数，COSDistCp 在每个拷贝进程中创建该参数大小的拷贝线程池<br>示例：--workerNumber=4 |   4    |    否    |
 |      --filesPerMapper=VALUE      | 指定每个 Mapper 输入文件的行数<br>示例：--filesPerMapper=10000 | 500000 |    否    |
 |        --groupBy=PATTERN         | 指定正则表达式对文件进行聚合</br>示例：--groupBy='.\*group-input/(\d+)-(\d+).\*' |   无   |    否    |
-|        --targetSize=VALUE        | 指定目标文件的大小，单位:MB，与--groupBy一起使用</br>示例：--targetSize=10 |   无   |    否    |
-|       --outputCodec=VALUE        | 指定输出文件的压缩方式，可选 gzip、lzo、snappy、none 和 keep, 其中：<br> 1. keep 保持原有文件的压缩方式<br>2. none 则根据文件后缀对文件进行解压</br>示例：--outputCodec=gzip |  keep  |    否    |
+|        --targetSize=VALUE        | 指定目标文件的大小，单位：MB，与 --groupBy 一起使用</br>示例：--targetSize=10 |   无   |    否    |
+|       --outputCodec=VALUE        | 指定输出文件的压缩方式，可选 gzip、lzo、snappy、none 和 keep，其中：</br> 1. keep 保持原有文件的压缩方式<br>2. none 则根据文件后缀对文件进行解压</br>示例：--outputCodec=gzip |  keep  |    否    |
 |        --deleteOnSuccess         | 指定源文件拷贝到目标目录成功时，立即删除源文件</br>示例：--deleteOnSuccess | false  |    否    |
-| --multipartUploadChunkSize=VALUE | 指定 Hadoop-COS 插件传输文件到 COS 时分块的大小，COS 支持的最大分块数为 10000，您可根据文件大小，调整分块大小，单位：MB，默认为8MB<br>示例：--multipartUploadChunkSize=20 |  8MB   |    否    |
+| --multipartUploadChunkSize=VALUE | 指定 Hadoop-COS 插件传输文件到 COS 时分块的大小，COS 支持的最大分块数为 10000，您可根据文件大小，调整分块大小，单位：MB，默认为8MB</br>示例：--multipartUploadChunkSize=20 |  8MB   |    否    |
 |    --cosServerSideEncryption     | 指定文件上传到 COS 时，使用 SSE-COS 作为加解密算法</br>示例：--cosServerSideEncryption | false  |    否    |
 |      --outputManifest=VALUE      | 指定拷贝完成的时候，在目标目录下生成本次拷贝到目标文件信息列表（GZIP 压缩）</br>示例：--outputManifest=manifest.gz |   无   |    否    |
 |    --requirePreviousManifest     | 要求指定 --previousManifest=VALUE 参数，以进行增量拷贝</br>示例：--requirePreviousManifest | false  |    否    |
@@ -64,23 +64,23 @@ COSDistCp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 |       --storageClass=VALUE       | 指定对象存储类型，可选值为 STANDARD、STANDARD_IA、ARCHIVE、DEEP_ARCHIVE、INTELLIGENT_TIERING，关于更多支持的存储类型和介绍，请参见 [存储类型概述](https://cloud.tencent.com/document/product/436/33417) |   无   |    否    |
 |    --srcPrefixesFile=LOCATION    | 指定本地文件，该文件中每行包含一个需要拷贝的源目录</br>示例：--srcPrefixesFile=file:///data/migrate-folders.txt |   无   |    否    |
 |         --skipMode=MODE          | 拷贝文件前，校验源文件和目标文件是否相同，相同则跳过，可选 none（不校验）、length （长度）、checksum（CRC值）和 length-checksum（长度 + CRC 值）</br>示例：--skipMode=length |  length-checksum  |    否    |
-|         --checkMode=MODE         | 当文件拷贝完成的时候，校验源文件和目标文件是否相同，不同则停止拷贝，可选none（不校验）、 length （长度）、checksum（CRC值）和 length-checksum（长度 + CRC 值）<br/>示例：--checkMode=length-checksum |  length-checksum  |    否    |
-|         --diffMode=MODE          | 指定获取差异文件列表的准则，可选 length （长度）、checksum（CRC值）和 length-checksum（长度 + CRC 值）</br>示例：--diffMode=length-checksum |   无   |    否    |
+|         --checkMode=MODE         | 当文件拷贝完成的时候，校验源文件和目标文件是否相同，不同则停止拷贝，可选 none（不校验）、 length （长度）、checksum（CRC值）和 length-checksum（长度 + CRC 值）<br/>示例：--checkMode=length-checksum |  length-checksum  |    否    |
+|         --diffMode=MODE          | 指定获取差异文件列表的准则，可选 length （长度）、checksum（CRC 值）和 length-checksum（长度 + CRC 值）</br>示例：--diffMode=length-checksum |   无   |    否    |
 |      --diffOutput=LOCATION       | 指定差异文件列表的输出目录，该输出目录必须为空<br/>示例：--diffOutput=/diff-output |   无   |    否    |
 |      --cosChecksumType=TYPE      | 指定 Hadoop-COS 插件使用的 CRC 算法，可选值为 CRC32C 和 CRC64<br/>示例：--cosChecksumType=CRC32C | CRC32C |    否    |
 |      --preserveStatus=VALUE      | 指定是否将源文件的 user、group、permission、xattr 和 timestamps 元信息拷贝到目标文件，可选值为 ugpxt（即为 user、group、permission、xattr 和 timestamps 的英文首字母）<br/>示例：--preserveStatus=ugpt |   无   |    否    |
 |      --ignoreSrcMiss      | 忽略存在于文件清单中，但操作时不存在的文件 |   false   | 否       |
 |      --promGatewayAddress=VALUE      | 指定 MapReduce 任务运行的 Counter 数据推送到的 Prometheus PushGateway 地址和端口 |   无   |    否    |
-|      --promGatewayDeleteOnFinish=VALUE   | 指定任务完成时，删除 Prometheus PushGateway 中 JobName 的指标集合，<br>示例：--promGatewayDeleteOnFinish=true | true    |    否   |
-|      --promGatewayJobName=VALUE      | 指定上报给 Prometheus PushGateway 的 JobName <br>示例：--promGatewayJobName=cos-distcp-hive-backup           |   无   |    否    |
-|      --promCollectInterval=VALUE      | 指定收集 MapReduce 任务 Counter 信息的间隔，单位：ms <br>示例：--promCollectInterval=5000            |   5000   |    否    |
+|      --promGatewayDeleteOnFinish=VALUE   | 指定任务完成时，删除 Prometheus PushGateway 中 JobName 的指标集合</br>示例：--promGatewayDeleteOnFinish=true | true    |    否   |
+|      --promGatewayJobName=VALUE      | 指定上报给 Prometheus PushGateway 的 JobName </br>示例：--promGatewayJobName=cos-distcp-hive-backup           |   无   |    否    |
+|      --promCollectInterval=VALUE      | 指定收集 MapReduce 任务 Counter 信息的间隔，单位：ms </br>示例：--promCollectInterval=5000            |   5000   |    否    |
 |      --promPort=VALUE      | 指定将 Prometheus 指标暴露给外部的 Server 端口 <br>示例：--promPort=9028            |   无   |    否    |
-|      --enableDynamicStrategy      | 指定开启任务动态分配策略，使迁移速度快的任务迁移更多的文件 <br>示例：--enableDynamicStrategy            |   false   |    否    |
-|      --splitRatio=VALUE      | 指定 Dynamic Strategy 的切分比例，splitRatio 值越大，则任务粒度越小<br>示例：--splitRatio=8            |   8   |    否    |
-|      --localTemp=VALUE      | 指定 Dynamic Strategy 生成的任务信息文件所在的本地文件夹<br>示例：--localTemp=/tmp            |   /tmp   |    否    |
-|      --taskFilesCopyThreadNum=VALUE      | 指定 Dynamic Strategy 任务信息文件拷贝到 HDFS 上的并发度 <br>示例：--taskFilesCopyThreadNum=32            |   32   |    否    |
-|      --statsRange=VALUE      | 指定统计的区间范围<br>示例：---statsRange=0,1mb,10mb,100mb,1gb,10gb,inf   |   0,1mb,10mb,100mb,1gb,10gb,inf   |    否    |
-|      --printStatsOnly      | 只统计待迁移文件大小的分布信息，不迁移数据<br>示例：--printStatsOnly            |   无   |    否    |
+|      --enableDynamicStrategy      | 指定开启任务动态分配策略，使迁移速度快的任务迁移更多的文件 </br>示例：--enableDynamicStrategy            |   false   |    否    |
+|      --splitRatio=VALUE      | 指定 Dynamic Strategy 的切分比例，splitRatio 值越大，则任务粒度越小</br>示例：--splitRatio=8            |   8   |    否    |
+|      --localTemp=VALUE      | 指定 Dynamic Strategy 生成的任务信息文件所在的本地文件夹</br>示例：--localTemp=/tmp            |   /tmp   |    否    |
+|      --taskFilesCopyThreadNum=VALUE      | 指定 Dynamic Strategy 任务信息文件拷贝到 HDFS 上的并发度 </br>示例：--taskFilesCopyThreadNum=32            |   32   |    否    |
+|      --statsRange=VALUE      | 指定统计的区间范围</br>示例：---statsRange=0,1mb,10mb,100mb,1gb,10gb,inf   |   0,1mb,10mb,100mb,1gb,10gb,inf   |    否    |
+|      --printStatsOnly      | 只统计待迁移文件大小的分布信息，不迁移数据</br>示例：--printStatsOnly            |   无   |    否    |
 
 
 ## 使用示例
@@ -119,7 +119,7 @@ grep -v '"comment":"SRC_MISS"' failed-manifest |gzip > failed-manifest.gz
 hadoop  jar cos-distcp-${version}.jar --taskNumber=20 --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --previousManifest=file:///usr/local/service/hadoop/failed-manifest.gz --copyFromManifest
 ```
 
-通过如下的命令，获取 MapReduce 任务的日志，确定文件拷贝失败的原因，其中 application_1610615435237_0021 为应用 ID：
+通过如下命令，获取 MapReduce 任务的日志，确定文件拷贝失败的原因，其中 application_1610615435237_0021 为应用 ID：
 ```plaintext
 yarn logs -applicationId application_1610615435237_0021 > application_1610615435237_0021.log
 ```
@@ -196,7 +196,8 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse/ --dest cosn://exampl
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --deleteOnSuccess
 ```
 
->!指定该选项后每迁移完一个文件，立即删除对应的源文件，并非整个迁移完成后，再删除源文件，请谨慎使用。
+>! 指定该选项后每迁移完一个文件，立即删除对应的源文件，并非整个迁移完成后，再删除源文件，请谨慎使用。
+>
 
 ### 限制单文件读取带宽
 
@@ -249,6 +250,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse/logs --dest cosn://ex
 ```
 
 >! 其中除 keep 选项外，皆会先对文件先解压，随后转换为目标压缩类型。因此，除 keep 选项外，可能会由于压缩参数等不一致，导致目标文件和源文件不一致，但解压后的文件一致。
+>
 
 ### 多目录同步
 
@@ -277,7 +279,8 @@ hadoop jar  cos-distcp-${version}.jar --src /data/warehouse  --srcPrefixesFile f
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest  cosn://examplebucket-1250000000/data/warehouse/ --outputManifest=manifest.gz --previousManifest= cosn://examplebucket-1250000000/data/warehouse/manifest-2020-01-10.gz
 ```
 
->!上述命令的增量迁移，只能同步文件大小变化的文件，无法同步文件内容发生变化的文件。如果文件内容可能发生变化，请参考 --diffMode 使用示例，根据文件的 CRC 确定文件发生变化的文件列表。
+>! 上述命令的增量迁移，只能同步文件大小变化的文件，无法同步文件内容发生变化的文件。如果文件内容可能发生变化，请参考 --diffMode 使用示例，根据文件的 CRC 确定文件发生变化的文件列表。
+>
 
 ### 根据 CRC 获取差异文件列表和增量迁移
 
@@ -293,7 +296,8 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest  cosn://exampl
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --diffMode=length-checksum --diffOutput=/tmp/diff-output
 ```
 
->!如果目标文件系统为 COS，且源文件系统的 CRC 算法与之不同，则 COSDistCp 会拉取源文件计算新的 CRC，以进行相同 CRC 算法值的对比。
+>! 如果目标文件系统为 COS，且源文件系统的 CRC 算法与之不同，则 COSDistCp 会拉取源文件计算新的 CRC，以进行相同 CRC 算法值的对比。
+>
 
 以上命令执行成功后，会在 HDFS 的 `/tmp/diff-output` 目录下，生成差异文件列表，以下类型的源文件信息包含在输出中：
 
