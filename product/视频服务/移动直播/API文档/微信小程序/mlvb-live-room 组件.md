@@ -62,7 +62,7 @@ liveroom.pause();
 		template="float"
 		beauty="{{beauty}}"
 		muted="{{muted}}"
-    role="{{role}}"
+		role="{{role}}"
 		debug="{{debug}}"
 		bindRoomEvent="onRoomEvent">
 </mlvb-live-room>
