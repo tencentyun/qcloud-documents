@@ -95,19 +95,17 @@ function ProtocolToRaw(obj) {
 
 #### 脚本模拟测试
 您也可使用数据解析页面下方的模拟调试工具，如需开发更多的功能，请使用以下模拟脚本。
-
 - 上行消息
 设备原始数据为 0x11451E00，我们将其转化为数组，即上行模拟数据为：[17,69,30,0]，填入设备上行数据的编辑框中。单击【运行】，即可在模拟调试界面右侧查看结果。
 ![](https://main.qcloudimg.com/raw/5acd842a170a06f68610629715d238d7.png)
-
 - 下行消息
 模拟测试数据如下，将其填入设备下行数据的编辑框中：
 <dx-codeblock>
 :::  JSON
 {
-	"params": {
-		"period": 15
-	}
+  "params": {
+    "period": 15
+  }
 }
 :::
 </dx-codeblock>
@@ -268,16 +266,12 @@ tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39a****d204a72"
  - 由于本示例中 LoRa 节点是 LoRaWAN Class A 类设备，这类设备不会立即下发数据，需要在有数据上行后，服务器才会向该设备下行数据。
  - 因此在 LoRa 节点上报数据之后，才能查看下发的周期调整命令。
  </dx-alert>
-
 LoRa 节点的串口会显示如下日志，表示成功下发了指令到设备端。
-<dx-codeblock>
-:::  Java
+```
 rhf76_incoming_data_process 4: 0F00
 len: 2
 data[0]: 15
 data[1]: 0
 report_period: 15
-:::
-</dx-codeblock>
 
-
+```
