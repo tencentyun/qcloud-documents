@@ -65,7 +65,6 @@
 | sourceConfigList[].url  | sourceList 配置文件的 URL                                    | String  | 否       |
 
 ## 函数响应结果示例
-
 ```plaintext
 {
   code: 0,
@@ -94,7 +93,6 @@
 ### 案例一：简单案例
 
 #### 参数配置
-
 ```plaintext
 {
   "bucket": "examplebucket-1250000000",
@@ -127,8 +125,6 @@ mypack.zip
 ### 案例二：源文件路径扁平化
 
 #### 参数配置
-
-
 ```plaintext
 {
   "bucket": "examplebucket-1250000000",
@@ -162,7 +158,6 @@ mypack.zip
 ### 案例三：源文件路径重命名
 
 #### 参数配置
-
 ```plaintext
 {
   "bucket": "examplebucket-1250000000",
@@ -199,7 +194,6 @@ mypack.zip
 ### 案例四：源文件路径重命名 + 扁平化
 
 #### 参数配置
-
 ```plaintext
 {
   "bucket": "examplebucket-1250000000",
