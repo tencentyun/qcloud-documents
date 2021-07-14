@@ -193,7 +193,7 @@ chmod 640 /etc/passwd-cosfs
 将密钥文件中配置的存储桶挂载到指定目录，可以使用如下命令行：
 
 ```shell
-cosfs <BucketName-APPID> <MountPoint> -ourl=cos.<Region>.myqcloud.com -odbglevel=info -oallow_other
+cosfs <BucketName-APPID> <MountPoint> -ourl=http://cos.<Region>.myqcloud.com -odbglevel=info -oallow_other
 ```
 其中：
 - &lt;MountPoint&gt; 为本地挂载目录（例如`/mnt`）。
