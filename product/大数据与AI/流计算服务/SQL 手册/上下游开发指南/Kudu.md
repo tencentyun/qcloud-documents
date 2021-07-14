@@ -79,7 +79,7 @@ CREATE TABLE `Data_Output` (
 | kudu.ignore-duplicate    | 否   | false  | 是否忽略重复数据                                           |
 
 ## 注意事项
-1. 若需要使用 Impala查询 Kudu 数据库的表时，需确认是否已经创建了对应的外表。
+1. 若需要使用 Impala 查询 Kudu 数据库的表时，需确认是否已经创建了对应的外表。
 2. 非 Impala-shell 创建的表，默认在 Impala 中没有对应的外表，需创建对应的 Kudu 外表才能查到记录。
-3. Kudu 作为 Oceanus 的 Sink 端时，若 Kudu 中该表不存在，则会在 kudu 中创建对应的内表。
+3. Kudu 作为 Oceanus 的 Sink 端时，若 Kudu 中该表不存在，则会在 Kudu 中创建对应的内表。
 
