@@ -13,6 +13,45 @@ TencentOS Server 适用于下列场景：
 - TencentOS Server 2用户态软件包保持与最新版 CentOS 7兼容，即 CentOS 7版本的软件包可以直接在 TencentOS Server 2.4 中使用。
 - TencentOS Server 3用户态软件包保持与最新版 RHEL 8兼容，即 RHEL 8版本的软件包可以直接在 TencentOS Server 3.1 中使用。
 
+### 系统服务与优化配置
+
+#### 系统服务
+
+- `tlinux-irqaffinity`：TencentOS Server 自动中断分配服务。
+- `tlinux-bootlocal`：TencentOS Server bootlocal 服务，开机自动执行 `/etc/rc.d/boot.local`。
+
+#### 系统工具
+
+`tencent-tools`：tos（简称 t）命令，用于系统管理。支持的参数如下：
+
+```bash
+tos version 2.2
+Usage:
+	tos TencentOS Server System Management Toolset
+	tos -u|-U| update [rpm_name]	Update the system 
+	tos -i|-I| install rpm_name	install rpms
+	tos -s|-S| show			Show the system version
+	tos -c|-C| check [rpm_name]	Check the modified rpms
+	tos -f yum | fix yum		Fix yum problems
+	tos -f dns | fix dns		Fix DNS problems
+	tos -a|-A | analyze		Analyze the system performance 
+	tos set dns			Set DNS
+	tos set irq			Set irqaffinity, restart irqaffinity service
+	tos -cu| check-update		Check available package updates
+	tos -b|-B| backup [ reboot ]	Backup the system online, or reboot to backup 
+	tos -r|-R| recover|reinstall	Recover or Reinstall the system
+	tos -h|-H| help			Show this usage
+	tos -v|-V| version		Show the script version
+```
+
+#### 系统配置
+
+- **pam**：密码复杂度增强。
+- **`/etc/bashrc` 修改**：优化 bash 显示。
+- **`/etc/hosts`**：添加 TENCENT64 及 TENCENT64.site。
+- **`/root/.bashrc`**：优化配置。
+
+
 ### TencentOS Server 内核
 TencentOS-kernel 提供了4.14和5.4两个版本，详情请参见 [TencentOS-kernel](https://github.com/Tencent/TencentOS-kernel)。
 
