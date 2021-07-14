@@ -1,5 +1,23 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+## 1.32.0-Finchley-RELEASE（2020-06-21）
+### 新特性
+- 支持微服务网关可扩展性。支持使用 TSF 网关 SDK 的同时，自定义网关路由策略、支持 websocket、支持跨域等原生网关能力。
+- Oauth 插件支持第三方鉴权地址为微服务 API 的能力。
+- 支持原生网关使用熔断治理的能力。
+- 支持服务监听触发回调。
+
+### 优化
+- consul 异常时，避免一直刷日志。
+- 增加 tsf launcher。 
+  
+### Bug 修复
+- 修复 Feign 在指定 URL 的模式下无法请求的问题。
+- 修改scg metrics duration异常问题
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
 ## 1.29.0-Finchley-RELEASE（2020-05-07）
 ### 新特性
 - 微服务网关增加单元化功能。
@@ -73,6 +91,24 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
  
 ### 版本建议
 
+支持向后兼容，建议全量升级。
+
+## 1.23.9-Finchley-RELEASE（2021-06-23）
+### Bug 修复
+修改 scg metrics duration 异常问题。
+
+### 优化
+- 服务发现增加零实例保护。
+- consul 异常时，避免一直刷日志。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.23.8-Finchley-RELEASE（2021-04-13）
+### 优化
+网关支持适配特殊 url。例如：用户请求 url 是 `/echo`、`/echo/`、`/echo\` 时，网关统一会当 `/echo` 处理。
+
+### 版本建议
 支持向后兼容，建议全量升级。
 
 ## 1.23.7-Finchley-RELEASE（2021-02-02）

@@ -1,12 +1,12 @@
 ## 操作背景
 
-该任务以 Python 客户端为例指导您使用VPC网络接入消息队列 CKafka 并收发消息。
+该任务以 Python 客户端为例指导您使用 VPC 网络接入消息队列 CKafka 并收发消息。
 
 ## 前提条件
 
 - [安装 Python](https://www.python.org/downloads/)
 - [安装 pip](https://pip-cn.readthedocs.io/en/latest/installing.html)
-- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/pythonkafkademo/default)
+- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/pythonkafkademo/VPC)
 
 ## 操作步骤
 
@@ -15,6 +15,7 @@
 ### 步骤一：添加 Python 依赖库
 
 执行以下命令安装：
+
 ```bash
 pip install kafka-python
 ```
@@ -27,7 +28,7 @@ pip install kafka-python
 ```python
 #coding:utf8
 from kafka import KafkaProducer
-
+import json
 producer = KafkaProducer(
    bootstrap_servers = ['$domainName:$port'],
    api_version = (0,10,0)
@@ -46,9 +47,9 @@ producer.close()
 
 2. 编译并运行 producer.py。
 3. 查看运行结果。
-![](https://main.qcloudimg.com/raw/312d264676c655838e398ab9fa03b491.png) 
+   ![](https://main.qcloudimg.com/raw/312d264676c655838e398ab9fa03b491.png) 
 4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic管理】页面，选择对应的 Topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
-	![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
+   ![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
 
 
 
@@ -56,6 +57,7 @@ producer.close()
 ### 步骤三：消费消息
 
 1. 修改消费消息程序 consumer.py 中配置参数。
+
 ```python
 #coding:utf8
 from kafka import KafkaConsumer
@@ -82,5 +84,5 @@ for message in consumer:
 3. 查看运行结果。
    ![](https://main.qcloudimg.com/raw/479f3b14e67a5f50f9d49781ab4df39f.png)
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 topic 名称，单击【查询详情】，查看消费详情。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 Topic 名称，单击【查询详情】，查看消费详情。
    ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)

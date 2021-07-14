@@ -7,7 +7,7 @@
 - [安装 librdkafka](https://github.com/edenhill/librdkafka/)
 - [安装 PHP 5.6 或以上版本](https://www.php.net/manual/en/install.php)
 - [安装 PEAR](https://pear.php.net/manual/en/installation.getting.php)
-- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/phpkafkademo)
+- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/phpkafkademo/VPC)
 
 ## 操作步骤
 
@@ -46,8 +46,8 @@ return [
 | 参数              | 描述                                                         |
 | ----------------- | ------------------------------------------------------------ |
 | bootstrap_servers | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
-| topic_name        | Topic名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
-| group_id          | 消费者的组 Id，您可以自定义设置，demo运行成功后可以在【Consumer Group】页面看到该消费者。 |
+| topic_name        | Topic 名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
+| group_id          | 消费者的组 ID，您可以自定义设置，Demo 运行成功后可以在【Consumer Group】页面看到该消费者。 |
 
 
 
@@ -236,5 +236,5 @@ php Consumer.php
   ...
   ```
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费者组名称，在主题名称输入 topic 名称，单击【查询详情】查看消费详情。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费者组名称，在主题名称输入 Topic 名称，单击【查询详情】查看消费详情。
 ![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)

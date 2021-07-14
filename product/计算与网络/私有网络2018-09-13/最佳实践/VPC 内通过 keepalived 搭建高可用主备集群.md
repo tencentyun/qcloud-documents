@@ -1,4 +1,3 @@
-
 本文将介绍如何在腾讯云 VPC 内通过 keepalived 软件 + [高可用虚拟 IP (HAVIP)](https://cloud.tencent.com/document/product/215/36691) 搭建高可用主备集群。
 >?目前 HAVIP 产品处于灰度优化中，切换的时延在10s左右，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/azh0w1qoavk)。
 >
@@ -17,10 +16,10 @@
 + 推荐使用单播方式进行 VRRP 通信。
 + 推荐使用 Keepalived（**1.2.24版本及以上**）。
 + 确保已经配置以下 garp 相关参数。因为 keepalived 依赖 ARP 报文更新 IP 信息，如果缺少以下参数，会导致某些场景下，主设备不发送 ARP 导致通信异常。
- ```plaintext
-garp_master_delay 1
-garp_master_refresh 5
-```
+	```plaintext
+	garp_master_delay 1
+	garp_master_refresh 5
+	```
 + 确保同一 VPC 下的每个主备集群需要配置不同的 vrrp router id。
 + 确定没有采用 strict 模式，即需要删除“vrrp_strict” 配置。
 + 控制单个网卡上配置的 VIP 数量，建议目前在单个网卡绑定的高可用虚拟 IP 数量不超过5个。如果需要使用多个虚拟 IP，建议在 keepalived 配置文件的 global_defs 段落添加或修改配置 “vrrp_garp_master_repeat 1”。
@@ -92,7 +91,7 @@ HAVIP-01 和 HAVIP-02 在本例中将被配置成“等权重节点”，即 sta
    }
    vrrp_script checkhaproxy
    {
-       script "/etc/keepalived/do_sth.sh"
+        script "/etc/keepalived/do_sth.sh"   # 检测业务进程是否运行正常。其中“do_sth.sh”文件为用户自定义的业务进程检测脚本，请根据业务需要来执行，执行时“do_sth.sh”更换为实际的脚本名称。
         interval 5
    }
    vrrp_instance VI_1 {

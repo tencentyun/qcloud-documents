@@ -10,7 +10,7 @@
 
 ### Android 端OCR SDK 介绍
 
-SDK提供的文件为 [OCR_Android_SDK_V1.0.7](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.7-3/OCR_Android_SDK_V1.0.7.zip)，该文件封装了 OCR 识别终端能力。目前包括了身份证识别、银行卡识别以及名片识别。
+SDK提供的文件为 [OCR_Android_SDK_V1.0.8](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.8/sdk/OCR_Android_SDK_V1.0.8.zip)，该文件封装了 OCR 识别终端能力。目前包括了身份证识别、银行卡识别、名片识别、车辆Vin码识别、车牌识别、驾驶证识别以及行驶证识别。
 
 
 
@@ -142,6 +142,10 @@ OcrSDKKit.getInstance().startProcessOcrResultEntity(OcrTypeIdCardActivity.this,
 | OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 | MalaysiaIdCardOcrResult |
 | OcrType.VinOCR | 车辆的 VIN 识别模式 | VinOcrResult |
 | OcrType.LicensePlateOCR | 车辆的车牌识别模式 | CarLicensePlateResult |
+| OcrType.DriverLicenseOCR_FRONT | 驾驶证主页识别模式 | DriverLicenseCardResult |
+| OcrType.DriverLicenseOCR_BACK | 驾驶证副页识别模式 | DriverLicenseCardResult |
+| OcrType.VehicleLicenseOCR_FRONT | 行驶证主页识别模式 | VehicleLicenseCardResult |
+| OcrType.VehicleLicenseOCR_BACK | 行驶证副页识别模式 | VehicleLicenseCardResult |
 
 
 

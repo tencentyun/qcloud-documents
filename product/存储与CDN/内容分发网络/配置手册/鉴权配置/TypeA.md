@@ -2,6 +2,8 @@
 **访问 URL 格式**
 `http://DomainName/Filename?sign=timestamp-rand-uid-md5hash`
 
+>! 访问 URL 中不能包含中文。
+
 **算法说明**
 - timestamp：十进制（UNIX 时间戳）。
 - rand：随机字符串，0 - 100位随机字符串，由大小写字母与数字组成。

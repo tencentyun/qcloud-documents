@@ -26,7 +26,7 @@
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/fae9eec00770540451fad93cb2720121.png)
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:ui.step3)
 ### 步骤3：配置 Demo 工程文件
@@ -36,7 +36,7 @@
 <ul>
  <li/>SDKAPPID：默认为0 ，请设置为实际的 SDKAppID。
  <li/>SECRETKEY：默认为空字符串 ，请设置为实际的密钥信息。</ul>
- <img src="https://main.qcloudimg.com/raw/eb2d98a3491ea8652f97ac30d3c46b06.png">
+ <img src="https://main.qcloudimg.com/raw/c8ed13a3bc40c8b5d676e933adc402f9.png"/>
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -57,7 +57,7 @@ yarn dev
 yarn package
 ```
 
->!
+>! 
 - 安装依赖过程中，如遇到 Electron 下载慢甚至卡住不动等问题，您可以参考 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668) 文档解决。
 - 只能使用 Mac 打包 Mac 包，使用 Windows 电脑打包 Windows 包。
 
