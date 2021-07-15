@@ -87,20 +87,20 @@ a1.sinks.k1.kafka.producer.acks = 1
 <dx-tabs>
 :::使用\sCKafka\s作为\sSink
 
-### 步骤1：获取 CKafka 实例接入地址
+#### 步骤1：获取 CKafka 实例接入地址
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏选择【实例列表】，单击实例的“ID”，进入实例基本信息页面。
 3. 在实例的基本信息页面的【接入方式】模块，可获取实例的接入地址。
    ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
 
 
-### 步骤2：创建 Topic
+#### 步骤2：创建 Topic
 1. 在实例基本信息页面，选择顶部【Topic管理】页签。
 2. 在Topic管理页面，单击【新建】，创建一个名为 flume_test 的 Topic。
    ![](https://main.qcloudimg.com/raw/63f4119691d504bb759a11fbded9e4b0.png)
 
 
-### 步骤3：配置 Flume 
+#### 步骤3：配置 Flume 
 1. 下载 [Apache Flume 工具包并解压](http://flume.apache.org/download.html) 。
 2. 编写配置文件 flume-kafka-sink.properties，以下是一个简单的 Demo（配置在解压目录的 conf 文件夹下），若无特殊要求则将自己的实例 IP 与 Topic 替换到配置文件当中即可。本例使用的 source 为 tail -F flume-test ，即文件中新增的信息。
    ![](https://mc.qcloudimg.com/static/img/daf5063d3c2c74eddb93f729eb6feb5b/55.png)
@@ -125,7 +125,7 @@ a1.sinks.k1.kafka.producer.acks = 1
 
 :::使用\sCKafka\s作为\sSource
 
-### 步骤1：获取 CKafka 实例接入地址
+#### 步骤1：获取 CKafka 实例接入地址
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏选择【实例列表】，单击实例的“ID”，进入实例基本信息页面。
@@ -133,14 +133,14 @@ a1.sinks.k1.kafka.producer.acks = 1
    ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
 
 
-### 步骤2：创建 Topic
+#### 步骤2：创建 Topic
 
 1. 在实例基本信息页面，选择顶部【Topic管理】页签。
 2. 在 Topic 管理页面，单击【新建】，创建一个名为 flume_test 的 Topic。
    ![](https://main.qcloudimg.com/raw/63f4119691d504bb759a11fbded9e4b0.png)
 
 
-### 步骤3：配置 Flume
+#### 步骤3：配置 Flume
 
 1. 下载 [Apache Flume 工具包并解压](http://flume.apache.org/download.html) 。
 2. 编写配置文件 flume-kafka-source.properties，以下是一个简单的 Demo（配置在解压目录的 conf 文件夹下）。若无特殊要求则将自己的实例 IP 与 Topic 替换到配置文件当中即可。此处使用的 sink 为 logger。
