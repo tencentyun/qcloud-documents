@@ -44,7 +44,7 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 2. 在 Topic 管理页面，单击【新建】，创建一个名为 logstash_test 的 Topic。
    ![](https://main.qcloudimg.com/raw/76ca78b4058d40510ecd81c9cf40e5b5.png)
 
-### 步骤3. 接入 CKafka
+### 步骤3：接入 CKafka
 
 >?您可以点击以下页签，查看 CKafka 作为 inputs 或者 outputs 接入的具体步骤。
 
