@@ -35,7 +35,7 @@
 >?由于 IPv6 地址目前还不支持自动下发到网卡，因此从在控制台获取 IPv6 地址后，您还需要登录云服务器，将 IPv6 地址配置到云服务器的网卡上。
 >
 1. 登录 [云服务器购买页](https://buy.cloud.tencent.com/cvm?tab=cvm)。
-2. 在自定义设置页面，完成云服务器各种配置操作，具体操作请参见 [快速搭建IPv4私有网络](https://cloud.tencent.com/document/product/215/30716#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E8.B4.AD.E4.B9.B0.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8)。
+2. 在自定义设置页面，完成云服务器各种配置操作，具体操作请参见 [快速搭建 IPv4 私有网络](https://cloud.tencent.com/document/product/215/30716#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E8.B4.AD.E4.B9.B0.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8)。
 >!在选择机型时，请注意如下参数：
  - 地域：北京、上海、广州、上海金融、深圳金融、成都、南京、香港、新加坡、弗吉尼亚。
  - 网络：选择 [步骤一](#step1) 中 VPC 和[ 步骤二](#step2) 中的子网。
