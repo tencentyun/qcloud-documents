@@ -42,8 +42,8 @@
 | [closeCamera()](#closecamera())                                                               | 关闭摄像头         |
 | [setMicMute(isMute)](#setmicmute(ismute))                                                     | 设备麦克风是否静音 |
 | [setVideoQuality(profile)](#setvideoquality(profile) ) |   设置视频质量 |
-| [switchToAudioCall()](#switchToAudioCall()) | 视频通话切换语音通话|
-| [switchToVideoCall()](#switchToVideoCall()) | 语音通话切换视频通话|
+| [switchToAudioCall()](#switchtoaudiocall()) | 视频通话切换语音通话|
+| [switchToVideoCall()](#switchtovideocall()) | 语音通话切换视频通话|
 
 ## TRTCCalling 详解
 
@@ -141,7 +141,7 @@ trtcCalling.call({userID, type, timeout})
 | ------- | ------ | ------------------------ |
 | userID  | String | 被邀请方 userID          |
 | type    | Number | 1：语音通话，2：视频通话 |
-| timeout | Number | 0为不超时, 单位 s(秒)    |
+| timeout | Number | 0为不超时, 单位 s（秒）    |
 
 
 
@@ -338,11 +338,11 @@ trtcCalling.setVideoQuality('720p') // 设置视频质量为720p
 | profile | String | <li/>480p：640 × 480 <li/>720p：1280 × 720  <li/>1080p：1920 × 1080  |
 
 ####  switchToAudioCall() 
-视频通话切换语音通话
+视频通话切换语音通话。
 >?  
 >- v0.10.0 及其之后版本，新增该方法。
 >- 仅支持1v1通话过程中使用。
->- 失败监听 ERROR 事件，code: 60001。
+>- 失败监听 ERROR 事件，code：60001。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -351,11 +351,11 @@ trtcCalling.switchToAudioCall() // 视频通话切换语音通话
 </dx-codeblock>
 
 ####  switchToVideoCall() 
-语音通话切换视频通话
+语音通话切换视频通话。
 >?  
 >- v0.10.0 及其之后版本，新增该方法。
 >- 仅支持1v1通话过程中使用。
->- 失败监听 ERROR 事件，code: 60002。
+>- 失败监听 ERROR 事件，code：60002。
 
 <dx-codeblock>
 ::: javascript javascript
