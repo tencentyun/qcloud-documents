@@ -7,8 +7,8 @@
   </tr>
   <tr align="center">
      <td>版本</td>
-        <td style="text-align:center">SDK（8.8.10257）@2021.06.18</td>
-        <td style="text-align:center">SDK（8.8.10254）@2021.06.18</td>
+        <td style="text-align:center">SDK（8.9.10361）@2021.07.15</td>
+        <td style="text-align:center">SDK（8.9.10349）@2021.07.15</td>
   </tr>
   <tr align="center">
     <td>小窗播放</td>
