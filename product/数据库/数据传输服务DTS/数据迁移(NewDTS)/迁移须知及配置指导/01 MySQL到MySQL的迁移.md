@@ -29,7 +29,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 ## 应用限制
 - 只支持迁移基础表和视图，不支持迁移函数、触发器、存储过程等对象。
 - 不支持迁移系统库表和用户信息，包括 `information_schema`， `sys`， `performance_schema`，`__cdb_recycle_bin__`， `__recycle_bin__`， `__tencentdb__`， `mysql`。迁移完成后，如果需要调用目标库的视图、存储过程或函数，则要对调用者授予读写权限。 
-- 在结构迁移时，DTS 会将视图、存储过程或函数中的 `SQL SECURITY` 属性由 `DEFINER` 转换为 `INVOKER`。
+- 在导出视图结构时，DTS 会将视图、存储过程或函数中的 `DEFINER` 转换为 `INVOKER`。
 - 源端如果是非 GTID 实例，DTS 不支持源端 HA 切换，一旦源端 MySQL 发生切换可能会导致 DTS 增量同步中断。
 - 只支持迁移 InnoDB、MySIAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行迁移。
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
