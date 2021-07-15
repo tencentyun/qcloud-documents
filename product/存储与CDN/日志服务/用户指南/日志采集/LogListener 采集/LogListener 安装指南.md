@@ -24,7 +24,7 @@ LogListener 最新版本下载地址：[公网下载 LogListener](https://mirror
 wget https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.1.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.1.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.1/tools && ./loglistener.sh install
 ```
 - 内网环境下，操作命令如下：
-```
+```plaintext
 wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.1.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.1.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.1/tools && ./loglistener.sh install
 ```
 
