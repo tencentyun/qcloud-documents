@@ -42,8 +42,8 @@ CLB 负载均衡发送到云函数的请求处理方式，和云函数响应给 
     "X-Real-IP": "9.43.175.219",
     "X-Forwarded-For": "9.43.175.xx"  
  
-    "X-clb-stgw-vip": "121.23.21.xx",  
-    "X-Forwarded-Port": "xx",  
+    "X-Vip": "121.23.21.xx",  
+    "X-Vport": "xx",  
     "X-Uri": "/scf_location",  
     "X-Method": "POST"    
     "X-Real-Port": "44347",  
@@ -66,9 +66,9 @@ CLB 负载均衡发送到云函数的请求处理方式，和云函数响应给 
 | X-Real-IP | 客户端IP地址 |   
 | X-Forward-For | 经过的代理IP地址 |
 | X-Real-Port | 记录在 API 网关中配置过的 Path 参数以及实际取值。（可选，CLB 个性化配置） |
-| X-clb-stgw-vip | CLB 负载均衡的 VIP 地址（可选，CLB 个性化配置） |
-| X-Forwarded-Port | CLB 负载均衡的 Vport（可选，CLB 个性化配置）  |
-| X-Uri | 请求 CLB 负载均衡的 PATH（可选，CLB 个性化配置） |
+| X-Vip | CLB 负载均衡的 VIP 地址（可选，CLB 个性化配置） |
+| X-Vport | CLB 负载均衡的 Vport（可选，CLB 个性化配置）  |
+| X-Url | 请求 CLB 负载均衡的 PATH（可选，CLB 个性化配置） |
 | X-Method |请求  CLB 负载均衡的 method（可选，CLB 个性化配置） |
 
 >! 
