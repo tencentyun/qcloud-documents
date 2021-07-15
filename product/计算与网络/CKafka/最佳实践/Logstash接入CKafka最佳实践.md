@@ -27,8 +27,8 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 
 ### 准备工作
 
-- 下载并安装Logstash，参考 [Download Logstash](https://www.elastic.co/guide/en/logstash/7.6/installing-logstash.html?spm=a2c4g.11186623.2.10.7d625287CKP6MX)。
-- 下载并安装JDK 8，参考 [Download JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
+- 下载并安装 Logstash，参考 [Download Logstash](https://www.elastic.co/guide/en/logstash/7.6/installing-logstash.html?spm=a2c4g.11186623.2.10.7d625287CKP6MX)。
+- 下载并安装 JDK 8，参考 [Download JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
 - 已 [创建 CKafka 实例](https://cloud.tencent.com/document/product/597/53207)。
 
 ### 步骤1：获取 CKafka 实例接入地址
@@ -44,7 +44,7 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 2. 在 Topic 管理页面，单击【新建】，创建一个名为 logstash_test 的 Topic。
    ![](https://main.qcloudimg.com/raw/76ca78b4058d40510ecd81c9cf40e5b5.png)
 
-### 步骤3. 接入CKafka
+### 步骤3. 接入 CKafka
 
 >?您可以点击以下页签，查看 CKafka 作为 inputs 或者 outputs 接入的具体步骤。
 
@@ -54,7 +54,7 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 1. 执行 `bin/logstash-plugin list`，查看已经支持的插件是否含有 logstash-input-kafka。
    ![](https://mc.qcloudimg.com/static/img/c5c876ea5ae5ce75307a5e307357e622/input1.png)
 
-2. 在.bin/目录下编写配置文件 input.conf。
+2. 在 .bin/ 目录下编写配置文件 input.conf。
    此处将标准输出作为数据终点，将 Kafka 作为数据来源。
    ```bash
    input {
@@ -83,7 +83,7 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 
 :::outputs\s接入
 
-1. 执行 `bin/logstash-plugin list` ，查看已经支持的插件是否含有 logstash-output-kafka。
+1. 执行 `bin/logstash-plugin list`，查看已经支持的插件是否含有 logstash-output-kafka。
    ![](https://mc.qcloudimg.com/static/img/c5c876ea5ae5ce75307a5e307357e622/77.png)
 
 2. 在.bin/目录下编写配置文件 output.conf。
