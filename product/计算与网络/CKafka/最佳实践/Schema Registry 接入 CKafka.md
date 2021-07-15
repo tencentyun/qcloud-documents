@@ -5,53 +5,47 @@ CKafka 提供了数据共用一个 Schema 的方法：将 Schema 中的内容注
 
 ## 前提条件
 
-- 下载[Download JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
-- 下载[Confluent oss 4.1.1 ](http://packages.confluent.io/archive/4.1/confluent-oss-4.1.1-2.11.tar.gz)。
+- 下载 [Download JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
+- 下载 [Confluent oss 4.1.1](http://packages.confluent.io/archive/4.1/confluent-oss-4.1.1-2.11.tar.gz)。
 - 已 [创建实例](https://cloud.tencent.com/document/product/597/53207)。
 
 ## 操作步骤
 
-### 步骤1. 获取实例接入地址并开启自动创建Topic
+### 步骤1：获取实例接入地址并开启自动创建 Topic
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
-
 2. 在左侧导航栏选择【实例列表】，单击实例的“ID”，进入实例基本信息页面。
-
 3. 在实例的基本信息页面的【接入方式】模块，可获取实例的接入地址。
-
    ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
-
 4. 在【自动创建 Topic】模块开启自动创建 Topic。
+>?启动 oss 会创建 schemas 主题，所以实例中需要开启自动创建主题。
 
-   > ?启动 oss 会创建 schemas 主题，所以实例中需要开启自动创建主题。
 
-### 步骤2. 准备Confluent配置
+### 步骤2：准备 Confluent 配置
 
 1. 修改 oss 配置文件中的 server 地址等信息。
-
    配置信息如下：
-
    ```
    kafkastore.bootstrap.servers=PLAINTEXT://xxxx
    kafkastore.topic=schemas
    debug=true
    ```
 
-   > ?bootstrap.servers：接入网络，在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的实例详情页面【接入方式】模块的网络列复制。
-   >
-   > ![](https://main.qcloudimg.com/raw/9b07b993e6a6008ea1532cb01831fee9.png)
+	<dx-alert infotype="explain" title="">
+	bootstrap.servers：接入网络，在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的实例详情页面【接入方式】模块的网络列复制。
+	![](https://main.qcloudimg.com/raw/9b07b993e6a6008ea1532cb01831fee9.png)
+	</dx-alert>
+
 
 2. 执行如下命令启动 Schema Registry。
-
    ```
    bin/schema-registry-start etc/schema-registry/schema-registry.properties
    ```
-
    运行结果如下：
-
    ![](https://main.qcloudimg.com/raw/289772a734dcf0657e9f540555641598.png)
 
-### 步骤3. 收发消息
+
+### 步骤3：收发消息
 
 现有 schema 文件，其中内容如下： 
 
@@ -67,18 +61,18 @@ CKafka 提供了数据共用一个 Schema 的方法：将 Schema 中的内容注
 }
 ```
 
-1. 注册 schema 到对应 Topic（注册 Topic 名为 test）
+1. 注册 schema 到对应 Topic（注册 Topic 名为 test）。
    下面的脚本是直接在 Schema Registry 部署的环境中使用 curl 命令调用对应 API 实现注册的一个示例：
 
-```xml
-curl -X POST -H "Content-Type: application/vnd.schemaregistry.v1+json" \
---data '{"schema": "{\"type\": \"record\", \"name\": \"User\", \"fields\": [{\"name\": \"id\", \"type\": \"int\"}, {\"name\": \"name\",  \"type\": \"string\"}, {\"name\": \"age\", \"type\": \"int\"}]}"}' \
-http://127.0.0.1:8081/subjects/test/versions
-```
+	```xml
+	curl -X POST -H "Content-Type: application/vnd.schemaregistry.v1+json" \
+	--data '{"schema": "{\"type\": \"record\", \"name\": \"User\", \"fields\": [{\"name\": \"id\", \"type\": \"int\"}, {\"name\": \"name\",  \"type\": \"string\"}, {\"name\": \"age\", \"type\": \"int\"}]}"}' \
+	http://127.0.0.1:8081/subjects/test/versions
+	```
 
 2. Kafka Producer 发送数据：
-
-```java
+<dx-codeblock>
+:::  java
 package schemaTest;
 import java.util.Properties;
 import java.util.Random;
@@ -121,14 +115,16 @@ public class SchemaProduce {
 	        producer.close();
 	    }
 }
-```
+:::
+</dx-codeblock>
+
 
 运行一段时间后，在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic管理】页面，选择对应的 Topic ，单击【更多】>【消息查询】，查看刚刚发送的消息。
 ![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
 
 3. Kafka Consumer 消费数据：
-
-```java
+<dx-codeblock>
+:::  java
 package schemaTest;
 import java.util.Collections;
 import java.util.Properties;
@@ -163,7 +159,9 @@ public class SchemaProduce {
         }
     }
 }
-```
+:::
+</dx-codeblock>
+
 
 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择 schema消费组名称，在主题名称输入 Topic 名称，单击【查询详情】，查看消费详情。
 ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)
