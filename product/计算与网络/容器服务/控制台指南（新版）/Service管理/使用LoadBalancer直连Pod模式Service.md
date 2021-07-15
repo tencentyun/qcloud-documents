@@ -21,6 +21,7 @@
 - 直连模式 Service 使用的工作负载需使用 VPC-CNI 弹性网卡模式。
 - 满足 CLB 本身绑定弹性网卡的功能限制，详情请参见 [绑定弹性网卡](https://cloud.tencent.com/document/product/214/36538)。
 - 开启直连 Pod 模式的工作负载更新时，将会根据 CLB 的健康检查状态进行滚动更新，会对更新速度造成一定影响。
+- 不支持 HostNetwork 类型的工作负载。
 
 ### 操作步骤
 
