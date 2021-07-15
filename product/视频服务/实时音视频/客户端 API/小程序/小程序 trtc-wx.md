@@ -490,7 +490,7 @@ this.TRTC.on(EVENT.LOCAL_LEAVE, onLocalLeave)
 [](id:KICKED_OUT)
 ### KICKED_OUT
 
-本地离开房间后的回调。
+服务端踢人或房间被解散退房后的回调。
 
 <dx-codeblock>
 ::: javascript javascript
