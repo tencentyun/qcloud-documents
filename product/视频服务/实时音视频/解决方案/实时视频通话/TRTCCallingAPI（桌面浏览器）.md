@@ -355,7 +355,7 @@ trtcCalling.setVideoQuality('720p') // 设置视频质量为720p
 >?  
 >- v0.10.0 及其之后版本，新增该方法。
 >- 仅支持1v1通话过程中使用。
->- 失败监听 ERROR 事件，code: 60001。
+>- 失败监听 ERROR 事件，code：60001。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -368,7 +368,7 @@ trtcCalling.switchToAudioCall() // 视频通话切换语音通话
 >?  
 >- v0.10.0 及其之后版本，新增该方法。
 >- 仅支持1v1通话过程中使用。
->- 失败监听 ERROR 事件，code: 60002。
+>- 失败监听 ERROR 事件，code：60002。
 
 <dx-codeblock>
 ::: javascript javascript
