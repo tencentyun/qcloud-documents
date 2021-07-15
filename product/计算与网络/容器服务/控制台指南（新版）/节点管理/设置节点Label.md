@@ -4,9 +4,10 @@
 
 ## 使用限制
 
-- \*kubernetes\* 和 \*qcloud\* 相关标签禁用编辑和删除。
-- \*kubernetes\* 和 \*qcloud\* 标签为保留键，不支持添加。
-- 当前仅支持单个节点设置 Label，不支持批量设置。
+<li> \*kubernetes\* 和 \*qcloud\* 相关标签禁用编辑和删除。</li>
+<li> \*kubernetes\* 和 \*qcloud\* 标签为保留键，不支持添加。</li>
+<li> 当前仅支持单个节点设置 Label，不支持批量设置。</li>
+
 
 ## 操作步骤
 
@@ -31,14 +32,13 @@ kubectl label nodes <node-name> <label-key>=<label-value>
 kubectl get nodes --show-labels
 ```
 返回类似如下信息：
-<dx-code>
-```
+<dx-codeblock>
+::: shell
 NAME           STATUS    ROLES     AGE       VERSION         LABELS
 172.17.124.5   Ready     <none>    12d       v1.10.5-tke.3   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=QCLOUD,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=sh,failure-domain.beta.kubernetes.io/zone=200001,kubernetes.io/hostname=172.17.124.5
 172.17.124.8   Ready     <none>    12d       v1.10.5-tke.3   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=QCLOUD,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=sh,failure-domain.beta.kubernetes.io/zone=200001,kubernetes.io/hostname=172.17.124.8
-```
-</dx-code>
-
+:::
+</dx-codeblock>
 
 :::
 </dx-tabs>
