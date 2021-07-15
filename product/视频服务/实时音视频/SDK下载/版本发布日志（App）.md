@@ -1,3 +1,26 @@
+## Version 8.9 @ 2021.07.15
+
+**功能新增**
+- Android：自定义渲染支持指定外部 GLContext，可以更灵活使用 OpenGL 环境。
+- Windows：采集系统播放声音（startSystemAudioLoopback）时支持指定扬声器设备。
+- Windows：支持 NVIDIA 平台硬编码，提升推流性能表现。
+- 全平台：新增云代理支持，针对企业防火墙内部的环境，安全配置更友好。
+- 全平台：接口 muteLocalVideo 和 muteRemoteVideoStream 增加对流类型的支持。
+- 全平台：统计状态回调 onStatistics 新增对本地网关延迟的统计 gatewayRtt，用于判断用户到 WiFi 路由器的网络质量。
+- 全平台：音频录制接口 startAudioRecording 支持录制成更多的音频格式。
+
+**质量优化**
+- 全平台：优化某些场景下的声音播放出现颤抖的问题。
+- Android：优化画面秒开速度。
+- Android：升级音频前处理算法，通话声音更清晰。
+
+**问题修复**
+- Windows：修复 VODPlayer 播片推流时本地录制音频文件会有重音的问题。
+- Windows：修复高 DPI 环境下并启用过滤窗口时部分场景 crash 的问题。
+- iOS：修复外录屏辅路推流设置横屏无效的问题。
+- iOS：修复只开启远端自定义渲染并指定使用 RGBA 格式数据时的内存泄漏问题。
+- 全平台：修复偶现进房失败问题。
+
 ## Version 8.8 @ 2021.06.21
 
 **功能新增**

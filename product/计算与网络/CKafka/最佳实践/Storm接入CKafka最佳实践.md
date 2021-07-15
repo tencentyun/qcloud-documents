@@ -24,35 +24,30 @@ Storm 可以把 CKafka 作为`spout`，消费数据进行处理；也可以作�
 
 ## 前提条件
 
-- 下载并安装JDK 8。具体操作，请参见[Download JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
-- 下载并安装Storm，参考[Apache Storm downloads](http://storm.apache.org/downloads.html)。
-- 已[创建 CKafka 实例](https://cloud.tencent.com/document/product/597/53207)。
+- 下载并安装 JDK 8。具体操作，请参见 [Download JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
+- 下载并安装 Storm，参考 [Apache Storm downloads](http://storm.apache.org/downloads.html)。
+- 已 [创建 CKafka 实例](https://cloud.tencent.com/document/product/597/53207)。
 
 ## 操作步骤
 
-### 步骤1. 获取 CKafka 实例接入地址
+### 步骤1：获取 CKafka 实例接入地址
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
-
 2. 在左侧导航栏选择【实例列表】，单击实例的“ID”，进入实例基本信息页面。
-
 3. 在实例的基本信息页面的【接入方式】模块，可获取实例的接入地址。
-
    ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
 
-### 步骤2. 创建 Topic
+### 步骤2：创建 Topic
 
 1. 在实例基本信息页面，选择顶部【Topic管理】页签。
-
-2. 在Topic管理页面，单击【新建】，创建一个 Topic。
-
+2. 在 Topic 管理页面，单击【新建】，创建一个 Topic。
    ![](https://main.qcloudimg.com/raw/f3ea93d866767a3a26dd80b0a8d5ad8f.png)
 
-### 步骤3. 添加 Maven 依赖
+### 步骤3：添加 Maven 依赖
 
 pom.xml 配置如下：
-
-```xml
+<dx-codeblock>
+:::  xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>storm</groupId>
@@ -127,16 +122,18 @@ pom.xml 配置如下：
         </plugins>
     </build>
 </project>
-```
+:::
+</dx-codeblock>
 
 
-### 步骤4. 生产消息
+
+### 步骤4：生产消息
 
 #### 使用 spout/bolt
 
 topology 代码：
-
-```java
+<dx-codeblock>
+:::  java
 //TopologyKafkaProducerSpout.java
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
@@ -195,11 +192,13 @@ public class TopologyKafkaProducerSpout {
 
     }
 }
-```
+:::
+</dx-codeblock>
+
 
 创建一个顺序生成消息的 spout 类：
-
-```java
+<dx-codeblock>
+:::  java
 import org.apache.storm.spout.SpoutOutputCollector;
 import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.OutputFieldsDeclarer;
@@ -232,13 +231,13 @@ public class SerialSentenceSpout extends BaseRichSpout {
         outputFieldsDeclarer.declare(new Fields("sentence"));
     }
 }
-```
+:::
+</dx-codeblock>
 
 
-
-为`tuple`加上 key、message 两个字段，当 key 为 null 时，生产的消息均匀分配到各个 partition，指定了 key 后将按照 key 值 hash 到特定 partition 上：
-
-```java
+为 `tuple` 加上 key、message 两个字段，当 key 为 null 时，生产的消息均匀分配到各个 partition，指定了 key 后将按照 key 值 hash 到特定 partition 上：
+<dx-codeblock>
+:::  java
 //AddMessageKeyBolt.java
 import org.apache.storm.topology.BasicOutputCollector;
 import org.apache.storm.topology.OutputFieldsDeclarer;
@@ -264,13 +263,15 @@ public class AddMessageKeyBolt extends BaseBasicBolt {
         outputFieldsDeclarer.declare(new Fields("key", "message"));
     }
 }
-```
+:::
+</dx-codeblock>
+
 
 #### 使用 trident
 
-使用 trident 类生成 topology
-
-```java
+使用 trident 类生成 topology：
+<dx-codeblock>
+:::  java
 //TopologyKafkaProducerTrident.java
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
@@ -344,11 +345,13 @@ public class TopologyKafkaProducerTrident {
         }
     }
 }
-```
+:::
+</dx-codeblock>
+
 
 创建一个批量生成消息的 spout 类：
-
-```java
+<dx-codeblock>
+:::  java
 //TridentSerialSentenceSpout.java
 import org.apache.storm.Config;
 import org.apache.storm.task.TopologyContext;
@@ -404,15 +407,16 @@ public class TridentSerialSentenceSpout implements IBatchSpout {
         return new Fields("sentence");
     }
 }
-```
+:::
+</dx-codeblock>
 
 
 
-### 步骤5. 消费消息
+### 步骤5：消费消息
 
 #### 使用 spout/bolt
-
-```java
+<dx-codeblock>
+:::  java
 //TopologyKafkaConsumerSpout.java
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.storm.Config;
@@ -502,11 +506,13 @@ public class TopologyKafkaConsumerSpout {
         }
     }
 }
-```
+:::
+</dx-codeblock>
+
 
 #### 使用 trident
-
-```java
+<dx-codeblock>
+:::  java
 //TopologyKafkaConsumerTrident.java
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.storm.Config;
@@ -581,9 +587,11 @@ public class TopologyKafkaConsumerTrident {
         }
     }
 }
-```
+:::
+</dx-codeblock>
 
-### 步骤6. 提交 Storm
+
+### 步骤6：提交 Storm
 
 使用 mvn package 编译后，可以提交到本地集群进行 debug 测试，也可以提交到正式集群进行运行。
 

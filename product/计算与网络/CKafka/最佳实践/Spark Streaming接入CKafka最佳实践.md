@@ -24,27 +24,22 @@ Spark Streaming 将连续数据抽象成 DStream（Discretized Stream），而 D
 
 ## 操作步骤
 
-### 步骤1. 获取 CKafka 实例接入地址
+### 步骤1：获取 CKafka 实例接入地址
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
-
 2. 在左侧导航栏选择【实例列表】，单击实例的“ID”，进入实例基本信息页面。
-
 3. 在实例的基本信息页面的【接入方式】模块，可获取实例的接入地址，接入地址是生产消费需要用到的 bootstrap-server。
-
    ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
 
-### 步骤2. 创建 Topic
+### 步骤2：创建 Topic
 
 1. 在实例基本信息页面，选择顶部【Topic管理】页签。
-
-2. 在Topic管理页面，单击【新建】，创建一个名为test的 Topic，接下来将以该 Topic 为例介绍如何生产消费。
-
+2. 在 Topic 管理页面，单击【新建】，创建一个名为 test 的 Topic，接下来将以该 Topic 为例介绍如何生产消费。
    ![](https://main.qcloudimg.com/raw/3576875138eb4447622571433312907f.png)
 
 
 
-### 步骤3. 准备云服务器环境
+### 步骤3：准备云服务器环境
 
 **Centos6.8 系统**
 
@@ -57,16 +52,16 @@ Spark Streaming 将连续数据抽象成 DStream（Discretized Stream），而 D
 | ssh      | CentOS 默认安装 |
 | Java     | 1.8             |
 
-具体安装步骤参考[配置环境]()。
+具体安装步骤参考 [配置环境](#配置环境)。
 
-### 步骤4. 对接CKafka
+### 步骤4：对接 CKafka
 
 <dx-tabs>
 :::向\sCKafka\s中生产消息
 
 目前 CKafka 支持 0.9.0.x、0.10.0.x、0.10.1.x、0.10.2.x 版本。这里使用 0.10.2.1 版本的 Kafka 依赖。
 
-1. 在`build.sbt`添加依赖：
+1. 在 `build.sbt` 添加依赖：
 
 ```scala
 name := "Producer Example"
@@ -75,7 +70,7 @@ scalaVersion := "2.11.8"
 libraryDependencies += "org.apache.kafka" % "kafka-clients" % "0.10.2.1"
 ```
 
-2. 配置`producer_example.scala`：
+2. 配置 `producer_example.scala`：
    <dx-codeblock>
    :::  scala
    import java.util.Properties
@@ -100,6 +95,7 @@ libraryDependencies += "org.apache.kafka" % "kafka-clients" % "0.10.2.1"
    :::
    </dx-codeblock>
 
+
 更多有关 ProducerRecord 的用法请参考 [ProducerRecord](https://kafka.apache.org/0100/javadoc/org/apache/kafka/clients/producer/ProducerRecord.html) 文档。
 
 :::
@@ -110,7 +106,7 @@ libraryDependencies += "org.apache.kafka" % "kafka-clients" % "0.10.2.1"
 
 #### DirectStream
 
-1. 在`build.sbt`添加依赖：
+1. 在 `build.sbt` 添加依赖：
 
 ```scala
 name := "Consumer Example"
@@ -121,7 +117,7 @@ libraryDependencies += "org.apache.spark" %% "spark-streaming" % "2.1.0"
 libraryDependencies += "org.apache.spark" %% "spark-streaming-kafka-0-10" % "2.1.0"
 ```
 
-2. 配置`DirectStream_example.scala`：
+2. 配置 `DirectStream_example.scala`：
 
 ```scala
 import org.apache.kafka.clients.consumer.ConsumerRecord
@@ -187,6 +183,7 @@ object Kafka {
 }
 ```
 
+
 #### RDD
 
 1. 配置`build.sbt`（配置同上，[单击查看](#build.sbt)）。
@@ -235,31 +232,28 @@ object Kafka {
 }
 ```
 
-更多`kafkaParams`用法参考 [kafkaParams](http://kafka.apache.org/documentation.html#newconsumerconfigs) 文档。
+更多 `kafkaParams` 用法参考 [kafkaParams](http://kafka.apache.org/documentation.html#newconsumerconfigs) 文档。
 
 :::
 
 </dx-tabs>
 
-### 配置环境
+### 配置环境[](id:配置环境)
 
 #### 安装 sbt
 
 1. 在 [sbt 官网](http://www.scala-sbt.org/download.html) 上下载 sbt 包。
 2. 解压后在 sbt 的目录下创建一个 sbt_run.sh 脚本并增加可执行权限，脚本内容如下：
-
 ```bash
 #!/bin/bash
 SBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
 java $SBT_OPTS -jar `dirname $0`/bin/sbt-launch.jar "$@"
 ```
-
  ```bash
 chmod u+x ./sbt_run.sh
  ```
-
+ 
 3. 执行以下命令。
-
 ```bash
 ./sbt-run.sh sbt-version
 ```
@@ -270,16 +264,13 @@ chmod u+x ./sbt_run.sh
 
 1. 下载 [protobuf](https://github.com/google/protobuf/releases) 相应版本。
 2. 解压后进入目录。
-
 ```bash
 ./configure
 make && make install
 ```
-
  需要预先安装 gcc-g++，执行中可能需要 root 权限。
 
 3. 重新登录，在命令行中输入下述内容。
-
 ```bash
 protoc --version
 ```
@@ -290,13 +281,11 @@ protoc --version
 
 1. 访问 [Hadoop 官网](http://hadoop.apache.org/releases.html) 下载所需要的版本。
 2. 增加 Hadoop 用户。
-
 ```bash
 useradd -m hadoop -s /bin/bash
 ```
 
 3. 增加管理员权限。
-
 ```bash
 visudo
 ```
@@ -305,13 +294,11 @@ visudo
    `hadoop ALL=(ALL) ALL`
    保存退出。
 5. 使用 Hadoop 进行操作。
-
 ```bash
 su hadoop
 ```
 
 6. SSH 无密码登录。
-
 ```bash
 cd ~/.ssh/                     # 若没有该目录，请先执行一次ssh localhost
 ssh-keygen -t rsa              # 会有提示，都按回车就可以
@@ -320,58 +307,59 @@ chmod 600 ./authorized_keys    # 修改文件权限
 ```
 
 7. 安装 Java。
-
 ```bash
 sudo yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel
 ```
 
 8. 配置 ${JAVA_HOME}。
-
 ```bash
 vim /etc/profile
 ```
-
  在文末加上下述内容：
-
 ```vim
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre
 export PATH=$PATH:$JAVA_HOME
 ```
-
  根据安装情况修改对应路径。
 
 9. 解压 Hadoop，进入目录。
-
 ```bash
 ./bin/hadoop version
 ```
-
  若能显示版本信息说明能正常运行。
 
 10. 配置单机伪分布式（可根据需要搭建不同形式的集群）。
-
 ```bash
 vim /etc/profile
 ```
-
  在文末加上下述内容：
-
 ```vim
 export HADOOP_HOME=/usr/local/hadoop
 export PATH=$HADOOP_HOME/bin:$PATH
 ```
-
  根据安装情况修改对应路径。
 
-11. 修改`/etc/hadoop/core-site.xml`。
+11. 修改 `/etc/hadoop/core-site.xml`。
+<dx-codeblock>
+:::  xml
+<configuration>    
+	<property>       
+		<name>hadoop.tmp.dir</name>       
+		<value>file:/usr/local/hadoop/tmp</value>
+		<description>Abase for other temporary directories.</description>
+	</property>    
+	<property>        
+		<name>fs.defaultFS</name>
+		<value>hdfs://localhost:9000</value> 
+	</property>
+</configuration>
+:::
+</dx-codeblock>
 
-```xml
-<configuration>    <property>        <name>hadoop.tmp.dir</name>        <value>file:/usr/local/hadoop/tmp</value>        <description>Abase for other temporary directories.</description>    </property>    <property>        <name>fs.defaultFS</name>        <value>hdfs://localhost:9000</value>    </property></configuration>
-```
 
-12. 修改`/etc/hadoop/hdfs-site.xml`。
-
-```xml
+12. 修改 `/etc/hadoop/hdfs-site.xml`。
+<dx-codeblock>
+:::  xml
 <configuration>
     <property>
         <name>dfs.replication</name>
@@ -386,54 +374,46 @@ export PATH=$HADOOP_HOME/bin:$PATH
         <value>file:/usr/local/hadoop/tmp/dfs/data</value>
     </property>
 </configuration>
-```
+:::
+</dx-codeblock>
 
-13. 修改`/etc/hadoop/hadoop-env.sh`中的 JAVA_HOME 为Java 的路径。
 
+13. 修改 `/etc/hadoop/hadoop-env.sh` 中的 JAVA_HOME 为 Java 的路径。
 ```vim
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre
 ```
 
 14. 执行 NameNode 格式化。
-
 ```bash
 ./bin/hdfs namenode -format
 ```
-
  显示`Exitting with status 0`则表示成功。
 
 15. 启动 Hadoop。
-
 ```bash
 ./sbin/start-dfs.sh
 ```
-
-成功启动会存在`NameNode`进程，`DataNode`进程，`SecondaryNameNode`进程。
+成功启动会存在 `NameNode` 进程，`DataNode` 进程，`SecondaryNameNode` 进程。
 
 #### 安装 Spark
 
 访问 [Spark 官网](http://spark.apache.org/downloads.html) 下载所需要的版本。
 因为之前安装了 Hadoop，所以选择使用 *Pre-build with user-provided Apache Hadoop*。
-**本示例同样使用`hadoop`用户进行操作**。
+>?本示例同样使用 `hadoop` 用户进行操作。
 
 1. 解压进入目录。
 2. 修改配置文件。
-
 ```bash
 cp ./conf/spark-env.sh.template ./conf/spark-env.sh
 vim ./conf/spark-env.sh
 ```
-
  在第一行添加下述内容：
-
 ```vim
 export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
 ```
-
  根据 hadoop 安装情况修改路径。
 
 3. 运行示例。
-
 ```bash
 bin/run-example SparkPi
 ```

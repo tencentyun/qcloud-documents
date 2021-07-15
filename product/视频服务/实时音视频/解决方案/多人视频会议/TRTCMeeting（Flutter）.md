@@ -463,7 +463,7 @@ Future<void> setLocalViewMirror(bool isMirror);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| isMirror | boolean | 是否开启镜像预览模式。|
+| isMirror | boolean | 是否开启镜像预览模式，true：开启；false：不开启。|
 
 ## 本地音频操作接口
 ### startMicrophone

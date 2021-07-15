@@ -3,7 +3,7 @@ TRTC 是腾讯云 LiteAV 系列产品之一，由于 LiteAV 体系的 SDK 都使
 以下视频将为您介绍各个版本 SDK 的功能差别：   
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2497-42188?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
  
-  
+   
 <h2 id="TRTC">精简版（TRTC）</h2>  
 精简版仅包含 TRTC 和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用 TRTC 相关功能的客户。
  

@@ -27,41 +27,35 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 
 ### 准备工作
 
-- 下载并安装Logstash，参考[Download Logstash](https://www.elastic.co/guide/en/logstash/7.6/installing-logstash.html?spm=a2c4g.11186623.2.10.7d625287CKP6MX)。
-- 下载并安装JDK 8，参考[Download JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
-- 已[创建 CKafka 实例](https://cloud.tencent.com/document/product/597/53207)。
+- 下载并安装 Logstash，参考 [Download Logstash](https://www.elastic.co/guide/en/logstash/7.6/installing-logstash.html?spm=a2c4g.11186623.2.10.7d625287CKP6MX)。
+- 下载并安装 JDK 8，参考 [Download JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
+- 已 [创建 CKafka 实例](https://cloud.tencent.com/document/product/597/53207)。
 
-### 步骤1. 获取 CKafka 实例接入地址
+### 步骤1：获取 CKafka 实例接入地址
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
-
 2. 在左侧导航栏选择【实例列表】，单击实例的“ID”，进入实例基本信息页面。
-
 3. 在实例的基本信息页面的【接入方式】模块，可获取实例的接入地址。
-
    ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
 
-### 步骤2. 创建 Topic
+### 步骤2：创建 Topic
 
 1. 在实例基本信息页面，选择顶部【Topic管理】页签。
-
-2. 在Topic管理页面，单击【新建】，创建一个名为logstash_test的 Topic。
-
+2. 在 Topic 管理页面，单击【新建】，创建一个名为 logstash_test 的 Topic。
    ![](https://main.qcloudimg.com/raw/76ca78b4058d40510ecd81c9cf40e5b5.png)
 
-### 步骤3. 接入CKafka
+### 步骤3：接入 CKafka
 
-> ?您可以点击以下页签，查看CKafka作为 inputs 或者 outputs 接入的具体步骤。
+>?您可以点击以下页签，查看 CKafka 作为 inputs 或者 outputs 接入的具体步骤。
 
 <dx-tabs>
 :::inputs\s接入
 
-1. 执行`bin/logstash-plugin list`，查看已经支持的插件是否含有 logstash-input-kafka。
+1. 执行 `bin/logstash-plugin list`，查看已经支持的插件是否含有 logstash-input-kafka。
    ![](https://mc.qcloudimg.com/static/img/c5c876ea5ae5ce75307a5e307357e622/input1.png)
 
-2. 在.bin/目录下编写配置文件 input.conf。
+2. 在 .bin/ 目录下编写配置文件 input.conf。
    此处将标准输出作为数据终点，将 Kafka 作为数据来源。
-
    ```bash
    input {
        kafka {
@@ -76,15 +70,12 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
        stdout{codec=>rubydebug}
    }
    ```
-
 3. 执行以下命令启动 Logstash，进行消息消费。
-
    ```
    ./logstash -f input.conf
    ```
-
-   返回结果如下：
-
+   
+	 返回结果如下：
    ![](https://mc.qcloudimg.com/static/img/5c58f08f2fd0fff052cab655d00d4133/input3.png)
    可以看到刚才 Topic 中的数据被消费出来。
 
@@ -92,7 +83,7 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 
 :::outputs\s接入
 
-1. 执行`bin/logstash-plugin list` ，查看已经支持的插件是否含有 logstash-output-kafka。
+1. 执行 `bin/logstash-plugin list`，查看已经支持的插件是否含有 logstash-output-kafka。
    ![](https://mc.qcloudimg.com/static/img/c5c876ea5ae5ce75307a5e307357e622/77.png)
 
 2. 在.bin/目录下编写配置文件 output.conf。
@@ -118,8 +109,8 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
    ```bash
    ./logstash -f output.conf
    ```
-
-   ![](https://mc.qcloudimg.com/static/img/c95bbc69c3f0ca36fa42efbb911b0a36/99.png)
+   
+	  ![](https://mc.qcloudimg.com/static/img/c95bbc69c3f0ca36fa42efbb911b0a36/99.png)
 
 4. 启动CKafka消费者，检验上一步的生产数据。
    ![](https://mc.qcloudimg.com/static/img/ae85758a90a497235a90511770f959d2/10.png)

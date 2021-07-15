@@ -4,7 +4,7 @@
 - **填写一个 Topic 名字**
 例如 `${productId}/house_monitor/thermometer`，即可将满足规则的消息转发到这个 Topic。
 - **填写带变量的 Topic 名字**
-例如 `${procductId}/${house}/device`，其中用 `${}` 括起来的 `house` 就代表一个变量名，这个变量名是 SELECT 语句中选取出来的字段内容。
+例如 `${productId}/${house}/device`，其中用 `${}` 括起来的 `house` 就代表一个变量名，这个变量名是 SELECT 语句中选取出来的字段内容。
 
 ## 示例说明
 该示例主要说明带变量的转发 Topic 是如何生效的。假设定义了一条规则，示例如下：
