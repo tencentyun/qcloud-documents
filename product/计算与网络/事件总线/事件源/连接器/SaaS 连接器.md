@@ -40,7 +40,9 @@
 :::
 ::: 连接器配置
 在“编辑连接器配置”中，填写配置信息。
-![](https://main.qcloudimg.com/raw/ddb90456b96d2144f5496d9ba26256a4.png)
+![](https://main.qcloudimg.com/raw/83d431a090397494eb6e0a74746f08ca.png)
+- **事件集ID**：填入您的投递事件集
+- **事件列表**：自定义填写，选择要送给事件集的消息内容
 :::
 </dx-tabs>
 12. 单击【发布】，完成 SaaS 连接器的创建与配置。
