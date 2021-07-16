@@ -69,9 +69,9 @@ const adapter = new TcAdapter('player-container-id', {
 | 参数名    | 类型                  | 描述                                             |
 | --------- | --------------------- | ------------------------------------------------ |
 | appID     | String                | 点播账号的 appID                                 |
-| fileID    | String                | 要播放的视频fileId                               |
+| fileID    | String                | 要播放的视频 fileId                               |
 | psign     | String                | 超级播放器签名                                   |
-| hlsConfig | HlsConfig             | hls相关设置，可使用hls.js支持的任意参数          |
+| hlsConfig | HlsConfig             | hls相关设置，可使用 hls.js 支持的任意参数          |
 | callback  | TcAdapterCallBack | 初始化完成回调，可以在此方法之后获取视频基本信息 |
 
 >?TcAdapter 底层基于 hls.js 实现，可以通过 HlsConfig 接收 hls.js 支持的任意参数，用于对播放行为的精细调整。
