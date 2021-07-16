@@ -70,20 +70,24 @@ Container 类型 Request 的具体数据描述如下：
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
 | Tag                | Request | 模板类型：Snapshot                                    | String    | 是   |
 | Name               | Request | 模板名称仅支持中文、英文、数字、_、-和*                   | String    | 是   |
-| Snapshot           | Request | 截图                                                  | Container | 否   |
+| Snapshot           | Request | 截图                                                  | Container | 是   |
 
 
 Container 类型 Snapshot 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Mode                | Request.Snapshot | 截图模式 | String    | 是   | Interval | <li>值范围：{Interval, Average}</li><li>Interval 表示间隔模式 Average 表示平均模式</li><li> Interval 模式：Start，TimeInterval，<br/>Count 参数生效。当设置 Count，未设置 TimeInterval 时，<br/>表示截取所有帧，共 Count 张图片</li><li>Average 模式：Start，Count 参数生效。表示<br/>从 Start 开始到视频结束，按平均间隔截取共 Count 张图片</li>|
-| Start                | Request.Snapshot | 开始时间 | String    | 是   | 0 | <li>[0 视频时长] </li><li>单位为秒 </li><li>支持 float 格式，执行精度精确到毫秒</li> |
+| Mode                | Request.Snapshot | 截图模式 | String    | 否   | Interval | <li>值范围：{Interval, Average}</li><li>Interval 表示间隔模式 Average 表示平均模式</li><li> Interval 模式：Start，TimeInterval，<br/>Count 参数生效。当设置 Count，未设置 TimeInterval 时，<br/>表示截取所有帧，共 Count 张图片</li><li>Average 模式：Start，Count 参数生效。表示<br/>从 Start 开始到视频结束，按平均间隔截取共 Count 张图片</li>|
+| Start                | Request.Snapshot | 开始时间 | String    | 否   | 0 | <li>[0 视频时长] </li><li>单位为秒 </li><li>支持 float 格式，执行精度精确到毫秒</li> |
 | TimeInterval         | Request.Snapshot | 截图时间间隔 | String    | 否   | 无  | <li>(0 3600] </li><li>单位为秒 </li><li>支持 float 格式，执行精度精确到毫秒</li> |
 | Count                | Request.Snapshot | 截图数量 | String    | 是   | 无  | (0 10000] |
 | Width                | Request.Snapshot | 宽 | String    | 否   |  视频原<br/>始宽度 | <li>值范围：[128，4096]</li><li>单位：px</li><li>若只设置 Width 时，按照视频原始比例计算 Height </li>|
 | Height                | Request.Snapshot | 高 | String    | 否  | 视频原<br/>始高度  | <li>值范围：[128，4096]</li><li>单位：px</li><li>若只设置 Height 时，按照视频原始比例计算 Width</li> |
-
+| CIParam              | Request.Snapshot | 截图图片处理参数  | String    | 否   | 无  | 1. [参考文档](https://cloud.tencent.com/document/product/460/36540) <br/> 2. 例如: imageMogr2/format/png |
+| IsCheckCount              | Request.Snapshot | 是否强制检查截图个数 | String    | 否   | false  | 使用自定义间隔模式截图时，视频时长不够截取 Count 个截图，可以转为平均截图模式截取 Count 个截图 |
+| IsCheckBlack              | Request.Snapshot | 是否开启黑屏检测 | String    | 否   | false  | true/false |
+| BlackLevel           | TemplateList.Snapshot | 截图黑屏检测参数  | String    | 否   | 空  | 1.当 IsCheckBlack=true 时有效<br/>2. 值参考范围为[30, 100]，表示黑色像素的占比值，值越小，黑色占比越小。<br/> 3. Start>0：参数设置无效，不过滤黑屏；<br/> 4. Start =0：参数有效，截帧的开始时间为第一帧非黑屏开始  |
+| PixelBlackThreshold  | TemplateList.Snapshot | 截图黑屏检测参数  | String    | 否   | 空  | 1. 当 IsCheckBlack=true 时有效<br/>2. 判断像素点是否为黑色点的阈值，取值范围为[0, 255]  |
 
 ## 响应
 
@@ -120,7 +124,7 @@ Container 类型 Snapshot 的具体数据描述如下：
 | :----------------- | :----- | :----------------------------------------------------- | :-------- |
 | Response           | 无     | 保存结果的容器 | Container |
 
-Container节点Response的内容：
+Container节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
