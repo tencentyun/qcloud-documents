@@ -4,7 +4,7 @@
 
 ## SDK下载
 
-超级播放器 Adapter SDK 和 Demo 项目下载地址[TXCPlayerAdapterSDK_Android](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip)。 
+超级播放器 Adapter SDK 和 Demo 项目下载地址是 [TXCPlayerAdapterSDK_Android](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip)。 
 
 ## 阅读对象
 
@@ -12,13 +12,13 @@
 
 ## 集成指引
 
-集成 SDK，拷贝TXCPlayerAdapter-release-1.0.0.aar 到 libs目录，添加依赖项：
+集成 SDK，拷贝 TXCPlayerAdapter-release-1.0.0.aar 到 libs目录，添加依赖项：
 
 ```groovy
 implementation(name:'TXCPlayerAdapter-release-1.0.0', ext:'aar')
 ```
 
-添加混淆脚本
+添加混淆脚本：
 
 ```xml
 -keep class com.tencent.** { *; }
@@ -36,7 +36,7 @@ fileId 一般是在视频上传后，由服务器返回：
 2. 服务端视频上传，在 [确认上传](https://cloud.tencent.com/document/product/266/9757) 的通知中包含对应的 fileId。
 
 
-如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件。点开后在右侧视频详情中，可以看到相关参数。
+如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件。单击后在右侧视频详情中，可以看到相关参数。
 
 ```java
 //psign 即超级播放器签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
