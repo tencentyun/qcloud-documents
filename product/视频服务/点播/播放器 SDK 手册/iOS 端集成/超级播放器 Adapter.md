@@ -1,10 +1,10 @@
 ## 产品概述
 
-超级播放器 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开放的对接云 PAAS 资源的播放器插件，常用于有自定义播放器功能需求的用户。超级播放器SDK套件通过 fileId + pSign 向腾讯云视频后台请求播放信息，SDK对返回的视频数据解密后进行播放，保护视频信息安全。
+超级播放器 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开放的对接云 PAAS 资源的播放器插件，常用于有自定义播放器功能需求的用户。超级播放器SDK套件通过 fileId + pSign 向腾讯云视频后台请求播放信息，SDK 对返回的视频数据解密后进行播放，保护视频信息安全。
 
 ## SDK下载
 
-超级播放器 Adapter SDK和Demo项目下载地址[TXCPlayerAdapterSDK_iOS](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_iOS.zip)。 
+超级播放器 Adapter SDK和Demo项目下载地址是 [TXCPlayerAdapterSDK_iOS](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_iOS.zip)。 
 
 ## 阅读对象
 
@@ -13,7 +13,7 @@
 ## 集成指引
 
 - **环境要求**
-  需要配置支持http请求，配置方式：在项目的info.plist文件中添加App Transport Security Settings->Allow Arbitrary Loads设置为YES。
+  需要配置支持 http 请求，配置方式：在项目的 info.plist 文件中添加 App Transport Security Settings->Allow Arbitrary Loads 设置为 YES。
 
 - **组件依赖**
 
@@ -82,13 +82,13 @@ id<ITXCPlayerAssistorProtocol> assistor = [TXCPlayerAdapter createPlayerAssistor
 
 
 
-## SDK接口列表
+## SDK 接口列表
 
-#### 初始化Adatper
+#### 初始化 Adatper
 
 **说明**
 
-初始化Adapter，单例。
+初始化 Adapter，单例。
 
 **接口**
 
@@ -102,7 +102,7 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 
 
-#### 销毁Adatper
+#### 销毁 Adatper
 
 **说明**
 
@@ -120,7 +120,7 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 **说明**
 
-通过播放器辅助类可以获取播放fileId相关信息以及处理DRM加密接口等。
+通过播放器辅助类可以获取播放 fileId 相关信息以及处理 DRM 加密接口等。
 
 **接口**
 
@@ -174,7 +174,7 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 **说明**
 
-获取视频信息， 必须是在id<ITXCPlayerAssistorProtocol>.requestVideoInfo回调之后才生效。
+获取视频信息， 必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
 
 **接口**
 
@@ -200,7 +200,7 @@ TXCVideoBasicInfo：参数如下
 
 **说明**
 
-获取视频流信息列表，必须是在id<ITXCPlayerAssistorProtocol>.requestVideoInfo回调之后才生效。
+获取视频流信息列表，必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
 
 **接口**
 
@@ -230,7 +230,7 @@ TXCSubStreamInfo
 
 **说明**
 
-获取视频关键帧打点信息，必须是在id<ITXCPlayerAssistorProtocol>.requestVideoInfo回调之后才生效。
+获取视频关键帧打点信息，必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
 
 **接口**
 
@@ -253,7 +253,7 @@ TXCKeyFrameDescInfo
 
 **说明**
 
-获取缩略图信息，必须是在id<ITXCPlayerAssistorProtocol>.requestVideoInfo回调之后才生效。
+获取缩略图信息，必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
 
 **接口**
 
