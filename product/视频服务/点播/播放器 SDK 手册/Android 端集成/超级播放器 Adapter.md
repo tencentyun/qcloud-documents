@@ -1,19 +1,10 @@
-本页文档所描述功能，在 SDK 版本中支持情况如下：
-
-|          | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | ------------- | ------------ | ---------- | -------------- | ------------ | ------ |
-| 支持情况 | -             | -            | -          | -              | √            | √      |
-| SDK 下载  | 下载          | 下载         | 下载       | 下载           | 下载         | 下载   |
-
-不同版本 SDK 包含的更多能力可以参见 [这里](https://tcloud-doc.isd.com/document/product/1449/56978?!preview&!editLang=zh)。
-
 ## 产品概述
 
-超级播放器SDK套件通过 fileId+pSign，向腾讯云视频后台请求播放信息，SDK对返回的视频数据解密后进行播放，保护视频信息安全。
+超级播放器 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开放的对接云 PAAS 资源的播放器插件，常用于有自定义播放器功能需求的用户。超级播放器SDK套件通过 fileId + pSign 向腾讯云视频后台请求播放信息，SDK对返回的视频数据解密后进行播放，保护视频信息安全。
 
 ## SDK下载
 
-超级播放器 Adapter SDK 和 Demo 项目下载地址是 [TXCPlayerAdapterSDK_Android](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip)。 
+超级播放器 Adapter SDK和Demo项目下载地址[TXCPlayerAdapterSDK_Android](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip)。 
 
 ## 阅读对象
 
@@ -21,12 +12,14 @@
 
 ## 集成指引
 
-1. 集成 SDK，拷贝 TXCPlayerAdapter-release-1.0.0.aar 到 libs目录，添加依赖项：
+集成SDK，拷贝TXCPlayerAdapter-release-1.0.0.aar 到 libs目录，添加依赖项：
+
 ```groovy
 implementation(name:'TXCPlayerAdapter-release-1.0.0', ext:'aar')
 ```
 
-1. 添加混淆脚本：
+添加混淆脚本
+
 ```xml
 -keep class com.tencent.** { *; }
 ```
@@ -43,7 +36,7 @@ fileId 一般是在视频上传后，由服务器返回：
 2. 服务端视频上传，在 [确认上传](https://cloud.tencent.com/document/product/266/9757) 的通知中包含对应的 fileId。
 
 
-如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件。单击后在右侧视频详情中，可以看到相关参数。
+如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件。点开后在右侧视频详情中，可以看到相关参数。
 
 ```java
 //psign 即超级播放器签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
@@ -106,13 +99,13 @@ TXCPlayerAdapter.destroy();
 
 
 
-## SDK 接口列表
+## SDK接口列表
 
-#### 初始化 TXCPlayerAdatper
+#### 初始化TXCPlayerAdatper
 
 **说明**
 
-初始化 Adapter，每次
+初始化Adapter，每次
 
 **接口**
 
@@ -126,7 +119,7 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 
 
-#### 销毁 TXCPlayerAdatper
+#### 销毁TXCPlayerAdatper
 
 **说明**
 
