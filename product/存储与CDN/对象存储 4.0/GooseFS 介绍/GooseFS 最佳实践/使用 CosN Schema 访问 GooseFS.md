@@ -1,6 +1,6 @@
 ## 概述
 
-[CosN 工具](https://cloud.tencent.com/document/product/436/6884) 是基于腾讯云对象存储（Cloud Object Storage，COS）提供的标准的 Hadoop 文件系统实现，可以为 Hadoop、Spark 以及 Tez 等大数据计算框架集成 COS 提供支持。用户可使用实现了 Hadoop 文件系统接口的 CosN 插件，读写存储在 COS 上的数据。对于已经使用 CosN 工具访问 COS 的用户，GooseFS 提供了一种客户端路径映射方式，让用户可以在不修改当前 Hive table 定义的前提下，仍然能够使用 CosN scheme 访问 GooseFS，该特性方便用户在不修改已有表定义的前提下，对 GooseFS 的功能和性能进行对比测试。
+[CosN 工具](https://cloud.tencent.com/document/product/436/6884) 是基于腾讯云对象存储（Cloud Object Storage，COS）提供的标准的 Hadoop 文件系统实现，可以为 Hadoop、Spark 以及 Tez 等大数据计算框架集成 COS 提供支持。用户可使用实现了 Hadoop 文件系统接口的 CosN 插件，读写存储在 COS 上的数据。对于已经使用 CosN 工具访问 COS 的用户，GooseFS 提供了一种客户端路径映射方式，让用户可以在不修改当前 Hive table 定义的前提下，仍然能够使用 CosN scheme 访问 GooseFS，该特性方便用户在不修改已有表定义的前提下，对 GooseFS 的功能和性能进行对比测试。对于云 HDFS 用户（CHDFS），也可以通过修改配置，实现使用 OFS Scheme 访问 GooseFS 的目的。
 
 CosN Schema 和 GooseFS Schema 的映射说明如下：
 
@@ -15,15 +15,14 @@ GooseFS 到 CosN 的路径映射关系如下：
 /warehouse/ -> cosn://examplebucket-1250000000/data/warehouse/
 /warehouse/folder/test.txt -> cosn://examplebucket-1250000000/data/warehouse/folder/test.txt
 ```
- 
+
 CosN Scheme 访问 GooseFS 特性，通过在客户端维持 GooseFS 路径和底层文件系统 CosN 路径之间的映射关系，并将 CosN 路径的请求转换为 GooseFS 的请求。映射关系周期性刷新，您可以通过修改 GooseFS 配置文件 goosefs-site.properties 中的配置项 goosefs.client.namespace.refresh.interval 调整刷新间隔，默认值为 60s。
 
 >! 如果访问的 CosN 路径无法转换为 GooseFS 路径，对应的 Hadoop API 调用会抛出异常。
->
 
 ## 操作示例
 
-该示例演示了 Hadoop 命令行以及 Hive 中，如何使用 Schema gfs:// 和 Schema cosn://  访问 GooseFS。操作流程如下：
+该示例演示了 Hadoop 命令行以及 Hive 中，如何使用 gfs://、 cosn://、ofs:// 三种 Schema 访问 GooseFS。操作流程如下：
 
 ### 1. 准备数据和计算集群
 
@@ -62,6 +61,11 @@ cp goosefs-1.0.0-client.jar  hive/auxlib/
 v. 执行如下命令，创建 UFS Scheme 为 CosN 的 Namespace，并列出 Namespace。您可将该命令中的 examplebucket-1250000000 替换为你的 COS 存储桶，SecretId 和 SecretKey 替换为您的密钥信息：
 ```plaintext
 goosefs ns create ml-100k cosn://examplebucket-1250000000/ml-100k  --secret fs.cosn.userinfo.secretId=SecretId --secret fs.cosn.userinfo.secretKey=SecretKey--attribute fs.cosn.bucket.region=ap-guangzhou --attribute fs.cosn.credentials.provider=org.apache.hadoop.fs.auth.SimpleCredentialProvider
+goosefs ns ls
+```
+vi. 执行命令，创建 UFS Scheme 为 OFS 的 Namespace，并列出 Namespace。您可将该命令中的 instance-id 替换为您的 CHDFS 实例，1250000000 替换为您的 APPID：
+```plaintext
+goosefs ns create ofs-test  ofs://instance-id.chdfs.ap-guangzhou.myqcloud.com/ofs-test --attribute fs.ofs.userinfo.appid=1250000000
 goosefs ns ls
 ```
 
@@ -138,4 +142,57 @@ ls: Failed to convert ufs path cosn://examplebucket-1250000000/unknow-path to Go
 
 ```plaintext
 select sum(age) from u_user_cosn;
+```
+
+### 6. 创建 OFS Schema 表和查询数据
+
+通过如下命令执行：
+
+```plaintext
+CREATE TABLE u_user_ofs (
+userid INT,
+age INT,
+gender CHAR(1),
+occupation STRING,
+zipcode STRING)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '|'
+STORED AS TEXTFILE
+LOCATION 'ofs://instance-id.chdfs.ap-guangzhou.myqcloud.com/ofs-test/';
+
+select sum(age) from u_user_ofs;
+```
+
+### 7. 修改 OFS 的实现为 GooseFS 的兼容实现
+
+修改 hadoop/etc/hadoop/core-site.xml：
+
+```plaintext
+<property>
+    <name>fs.AbstractFileSystem.ofs.impl</name>
+    <value>com.qcloud.cos.goosefs.hadoop.CHDFSDelegateFS</value>
+</property>
+<property>
+    <name>fs.ofs.impl</name>
+    <value>com.qcloud.cos.goosefs.hadoop.CHDFSHadoopFileSystem</value>
+</property>
+
+```
+
+执行 Hadoop 命令，如果路径无法转换为 GooseFS 中的路径，则输出结果中会包含报错信息：
+
+```plaintext
+hadoop fs -ls  ofs://instance-id.chdfs.ap-guangzhou.myqcloud.com/ofs-test/
+
+Found 1 items
+-rw-r--r--   0 hadoop hadoop      22628 2021-07-15 15:56 ofs://instance-id.chdfs.ap-guangzhou.myqcloud.com/ofs-test/u.user
+ 
+hadoop fs -ls  ofs://instance-id.chdfs.ap-guangzhou.myqcloud.com/unknown-path
+ls: Failed to convert ufs path ofs://instance-id.chdfs.ap-guangzhou.myqcloud.com/unknown-path to GooseFs path, check if namespace mounted
+```
+
+重新执行 Hive 查询语句：
+
+```plaintext
+select sum(age) from u_user_ofs;
 ```
