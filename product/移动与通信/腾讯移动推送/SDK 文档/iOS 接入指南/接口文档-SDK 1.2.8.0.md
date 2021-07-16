@@ -140,6 +140,7 @@ accountsDict：账号字典。
 > - 需要使用字典类型，key 为账号类型，value 为账号，示例：@{@(accountType):@"account"}。
 > - Objective-C的写法 : @{@(0):@"account0",@(1):@"account1"}；Swift的写法：[NSNumber(0):@"account0",NSNumber(1):@"account1"]。
 > - 更多 accountType 请参照 SDK Demo 包内的 XGPushTokenAccountType 枚举或 [账号类型取值表](https://cloud.tencent.com/document/product/548/56434)。
+> - TPNS 控制台「账号推送」仅支持账号类型取值为0的账号ID，其它类型的账号ID可通过[REST API](https://cloud.tencent.com/document/product/548/39064#.E5.8F.AF.E9.80.89.E5.8F.82.E6.95.B0)进行推送。
 
 #### 示例代码
 
