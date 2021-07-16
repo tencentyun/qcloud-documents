@@ -80,7 +80,7 @@ lscpu | grep "Core(s) per socket" | cut -d':' -f2 | xargs
  export TF_NUM_INTEROP_THREADS=1
  export TF_ENABLE_MKL_NATIVE_FORMAT=0
 ```
- - 在代码中增加环境变化设置。在运行的 Python 代码中，加入以下环境变化配置：
+ - 在代码中增加环境变量设置。在运行的 Python 代码中，加入以下环境变量配置：
 ```
 import os
 os.environ["KMP_BLOCKTIME"] = "1"
