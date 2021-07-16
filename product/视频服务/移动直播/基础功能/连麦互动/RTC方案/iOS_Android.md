@@ -95,9 +95,9 @@ trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 | **trtc://**           | 互动直播推流 URL 的前缀字段                                  |
 | **cloud.tencent.com** | 互动直播特定域名，**请勿修改**                               |
 | **push**              | 标识位，表示推流                                             |
-| **sdkappid**          | 对应 [**服务开通**](#RegistrationService) 一节中生成的 SDKAppID |
+| **sdkappid**          | 对应 [服务开通](#step1) 一节中生成的 SDKAppID |
 | **userId**            | 主播 ID，需要由开发者自定义                                  |
-| **usersig**           | 对应 [**服务开通**](#RegistrationService) 中获取的 UserSig 密钥 |
+| **usersig**           | 对应 [服务开通](#step1) 中获取的 UserSig 密钥 |
 
 
 #### 示例代码
@@ -255,7 +255,7 @@ config.mixStreams.add(remoteB);
 pusher.setMixTranscodingConfig(config);
 ```
 
-> ! 发起云端混流后，默认混流id，是发起混流者的id，如果需要指定流 ID，需要进行传入。
+> ! 发起云端混流后，默认混流 ID，是发起混流者的 ID，如果需要指定流 ID，需要进行传入。
 
 这样其他其他观众在观看时，就可以看到 A，B 两个主播的连麦互动。
 
