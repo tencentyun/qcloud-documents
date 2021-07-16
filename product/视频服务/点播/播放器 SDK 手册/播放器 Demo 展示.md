@@ -23,25 +23,11 @@ Web 端播放器支持 PC 端和移动端的浏览器视频播放，丰富灵活
 腾讯云工具包 App 是腾讯云音视频开发的集多款产品及功能于一身的最佳体验方案。在【腾讯云工具包】&gt;【播放器 Player】&gt;【超级播放器】中，同时包含了超级播放器的基础播放和点播播放两种播放模式的完整功能，您可根据自身需求选择相应功能进行体验。
 #### 获取移动端 Demo 
 
-<table>
-<tr>
-<th>平台</th>
-<th>Demo 体验</th>
-<th>源码地址</th>
-</tr>
-<tr>
-<td>iOS </td>
-<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1132521667?mt=8')"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/a8e35dc29848dd4d0f8dd5132c4e0417.png);background-size: cover;">
-</button></a></td>
-<td> <a href="https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo">Github</a></td>
-</tr>
-<tr>
-<td>Android </td>
-<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/xiaozhibo.apk')"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/5c1e87af3696235d65d2d4c0701000d1.png);background-size: cover;">
-</button></a></td>
-<td> <a href="https://github.com/tencentyun/LiteAVProfessional_Android/tree/master/Demo">Github</a></td>
-</tr>
-</table>
+|平台|Demo体验|源码地址|
+|:--|:--|:--
+|iOS|-|[Github](https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo)|
+|Android|-|[Github](https://github.com/tencentyun/LiteAVProfessional_Android/tree/master/Demo)|
+|Flutter|-|-|
 
 #### 移动端超级播放器 Demo展示
 ![](https://main.qcloudimg.com/raw/b6b1609b5fb9e77f9ceb0dcbcef7757d.png)
