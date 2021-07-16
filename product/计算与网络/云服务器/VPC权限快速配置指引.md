@@ -3,20 +3,20 @@
 - **方式1**：采用预设策略进行授权，授予用户 QcloudVPCReadOnlyAccess-私有网络 VPC 只读访问权限。
 - **方式2**：采用预设策略进行授权，授予用户 QcloudVPCFullAccess-私有网络 VPC 全读写访问权限。
 主账号默认拥有以上预设策略，您可单击策略名称以查看策略详情。
-- **方式3**：若方式1即方式2所授予的“预设策略”不符合您的需求，则可以通过新建“自定义策略”对本次涉及到的接口进行授权,配置方式请参见 [方式3：新建自定义策略](#type3)。如需了解更多自定义策略信息，则请参考 [创建自定义策略](https://cloud.tencent.com/document/product/598/37739)。
+- **方式3**：若方式1即方式2所授予的“预设策略”不符合您的需求，则可以通过新建“自定义策略”对本次涉及到的接口进行授权，配置方式请参见 [方式3：新建自定义策略](#type3)。如需了解更多自定义策略信息，则请参考 [创建自定义策略](https://cloud.tencent.com/document/product/598/37739)。
 
 ## 操作步骤
 
 ### 方式1： 授予用户私有网络 VPC 只读访问权限
 1. 登录访问管理控制台，选择左侧导航栏的【[策略](https://console.cloud.tencent.com/cam/policy)】。
-2. 选择列表上方的【预设策略】，在右上角的搜索框内输入 `QcloudVPCReadOnlyAccess` 后，单击 <img src="https://main.qcloudimg.com/raw/bc0a065148f0e50a739e17f4f238ae37.png" style="margin:-3px 0px">。
+2. 选择列表上方的【预设策略】，在右上角的搜索框内输入 `QcloudVPCReadOnlyAccess` 后，单击 <img src="https://main.qcloudimg.com/raw/bc0a065148f0e50a739e17f4f238ae37.png" style="margin:-3px 0px"> 进行搜索。
 3. 单击 `QcloudVPCReadOnlyAccess` 所在行右侧的【关联用户/组】。如下图所示：
 ![](https://main.qcloudimg.com/raw/4e92e7a1f1266b7e9d5901a3bd3205ad.png)
 4. 在弹出的“关联用户/用户组”窗口中，勾选需添加的用户，并单击【确定】即可完成授权。
 
 ### 方式2： 授予用户私有网络 VPC 全读写访问权限
 1. 登录访问管理控制台，选择左侧导航栏的【[策略](https://console.cloud.tencent.com/cam/policy)】。
-2. 选择列表上方的【预设策略】，在右上角的搜索框内输入 `QcloudVPCFullAccess` 后，单击 <img src="https://main.qcloudimg.com/raw/bc0a065148f0e50a739e17f4f238ae37.png" style="margin:-3px 0px">。
+2. 选择列表上方的【预设策略】，在右上角的搜索框内输入 `QcloudVPCFullAccess` 后，单击 <img src="https://main.qcloudimg.com/raw/bc0a065148f0e50a739e17f4f238ae37.png" style="margin:-3px 0px"> 进行搜索。
 3. 单击 `QcloudVPCFullAccess` 所在行右侧的【关联用户/组】。如下图所示：
 ![](https://main.qcloudimg.com/raw/3785b599b78659f23da6e8ec66d66007.png)
 4. 在弹出的“关联用户/用户组”窗口中，勾选需添加的用户，并单击【确定】即可完成授权。
