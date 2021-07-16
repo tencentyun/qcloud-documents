@@ -2,7 +2,7 @@
 
 
 
-## 集成SDK
+## 集成 SDK[](id:guide)
 
 TcAdapter 提供以下两种集成方式：
 
@@ -26,7 +26,7 @@ import TcAdapter from 'tcadapter';
 :::
 </dx-tabs>
 
-## 放置播放器容器
+## 放置播放器容器[](id:container)
 
 在需要展示播放器的页面加入容器，TcAdapter 仅需要承载播放视频的容器，播放样式和自定义功能可由第三方播放器或使用者自行实现。
 
@@ -37,7 +37,7 @@ import TcAdapter from 'tcadapter';
 
 
 
-## 使用 SDK
+## 使用 SDK[](id:useSDK)
 
 #### 检测当前环境是否支持 TcAdapter
 
@@ -78,7 +78,7 @@ const adapter = new TcAdapter('player-container-id', {
 
 
 
-#### 获取视频的基本信息
+#### 获取视频的基本信息[](id:basicInfo)
 
 **说明**
 
@@ -103,7 +103,7 @@ VideoBasicInfo：参数如下
 
 
 
-#### 获取视频流信息
+#### 获取视频流信息[](id:streamInfo)
 
 **说明**
 
@@ -134,7 +134,7 @@ SubStreamInfo
 
 
 
-#### 获取关键帧打点信息
+#### 获取关键帧打点信息[](id:keyframe)
 
 **说明**
 
@@ -155,7 +155,7 @@ KeyFrameDescInfo
 
 
 
-#### 获取缩略图信息
+#### 获取缩略图信息[](id:thumbnail)
 
 **说明**
 
@@ -176,7 +176,7 @@ ImageSpriteInfo
 
 
 
-#### 监听事件
+#### 监听事件[](id:monitor)
 
 **说明**：播放器可以通过初始化返回的对象进行事件监听，示例：
 
@@ -196,7 +196,7 @@ adapter.on(TcAdapter.TcAdapterEvents.Error, function(error) {
 | ERROR | 出现错误时触发，可从回调参数中查看失败具体原因 |
 
 
-#### 获取 Hls 实例
+#### 获取 Hls 实例[](id:hls)
 
 **说明**：adapter 底层基于 hls.js 实现，可以通过 adapter 实例访问到 hls 实例以及实例上的属性和方法，用于实现对播放流程的精细控制
 
@@ -211,7 +211,7 @@ adapter.on('hlsready', () => {
 
 
 
-#### 例1：在 React 中使用 TcAdapter 
+#### 例1：在 React 中使用 TcAdapter [](id:example1)
 
 >?参见示例：[tcadapter-combine-video](https://github.com/tcplayer/tcadapter-combine-video)。
 
@@ -260,7 +260,7 @@ export default App;
 
 ```
 
-#### 例2: tcadapter 与 videojs 结合
+#### 例2: tcadapter 与 videojs 结合[](id:example2)
 
 >?参见示例：[tcadapter-combine-videojs](https://github.com/tcplayer/tcadapter-combine-videojs)。
 
