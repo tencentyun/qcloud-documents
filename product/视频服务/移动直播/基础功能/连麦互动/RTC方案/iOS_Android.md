@@ -547,7 +547,7 @@ RTC 连麦互动直播服务后付费有 [日结](#daily) 和 [月结](#monthly)
 #### 1. 为什么使用 `V2TXLivePusher&V2TXLivePlayer` 接口时，同一台设备不支持使用相同 streamid 同时推流和拉流，而 `TXLivePusher&TXLivePlayer` 可以支持？
 是的，目前 `V2TXLivePusher&V2TXLivePlayer` 是 [腾讯云 TRTC](https://cloud.tencent.com/document/product/647/45151) 协议实现，其基于 UDP 的超低延时的私有协议暂时还不支持同一台设备使用相同的 streamid 进行通信，同时考虑到用户的使用场景，所以暂时并未支持，后续会酌情考虑此问题的优化。
 
-#### 2. [**服务开通**](#RegistrationService) 章节中生成参数都是什么意思呢？
+#### 2. [**服务开通**](#step1) 章节中生成参数都是什么意思呢？
 SDKAppID 用于标识您的应用，UserID 用于标识您的用户，而 UserSig 则是基于前两者计算出的安全签名，它由 **HMAC SHA256** 加密算法计算得出。只要攻击者不能伪造 UserSig，就无法盗用您的云服务流量。UserSig 的计算原理如下图所示，其本质就是对 SDKAppID、UserID、ExpireTime 等关键信息进行了一次哈希加密：
 ```Cpp
 //UserSig 计算公式，其中 secretkey 为计算 usersig 用的加密密钥
