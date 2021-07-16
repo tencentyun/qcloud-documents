@@ -1,7 +1,9 @@
 ## 现场采集功能概述
 在 Oceanus 平台上，Flink 的 JobManager 和 TaskManager 运行在独立的容器（Pod）中。当 TaskManager 或 JobManager 的 Pod 遇到问题退出后，崩溃现场随时也会被即时清理，给故障定位带来了困难。
 
-目前作业运行期间所有 JobManager、TaskManager 的日志都会采集到用户日志服务（CLS），并支持在控制台查看和检索日志（具体操作可参考 [查看作业日志信息](https://cloud.tencent.com/document/product/849/48288)）。除日志外，现场还包括 OOM Dump 文件、JVM 崩溃日志、程序在运行期间写入的其他文件等，这些对于问题的定位非常有用。
+目前作业运行期间所有 JobManager、TaskManager 的日志都会采集到用户日志服务（CLS），并支持在控制台查看和检索日志（具体操作可参考 [查看作业日志信息](https://cloud.tencent.com/document/product/849/48288)）。
+
+除日志外，现场还包括 OOM Dump 文件、JVM 崩溃日志、程序在运行期间写入的其他文件等，这些对于问题的定位非常有用。
 
 因此，我们提供了 Pod 现场采集功能，用户为某个作业开启该功能后，每当该作业的 Flink TaskManager 和 JobManager 正常或异常结束，其日志目录（`/opt/flink/log`）下的所有文件都会被打包上传到集群绑定的 COS 存储桶中，以供用户分析。
 
