@@ -1,19 +1,10 @@
-本页文档所描述功能，在 SDK 版本中支持情况如下：
-
-|          | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | ------------- | ------------ | ---------- | -------------- | ------------ | ------ |
-| 支持情况 | -             | -            | -          | -              | √            | √      |
-| SDK 下载  | 下载          | 下载         | 下载       | 下载           | 下载         | 下载   |
-
-不同版本 SDK 包含的更多能力可以参见 [这里](https://tcloud-doc.isd.com/document/product/1449/56978?!preview&!editLang=zh)。
-
 ## 产品概述
 
-超级播放器 SDK 套件通过 fileId+pSign，向腾讯云视频后台请求播放信息，SDK 对返回的视频数据解密后进行播放，保护视频信息安全。
+超级播放器 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开放的对接云 PAAS 资源的播放器插件，常用于有自定义播放器功能需求的用户。超级播放器SDK套件通过 fileId + pSign 向腾讯云视频后台请求播放信息，SDK对返回的视频数据解密后进行播放，保护视频信息安全。
 
 ## SDK下载
 
-超级播放器 Adapter SDK 和 Demo 项目下载地址是 [TXCPlayerAdapterSDK_iOS](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_iOS.zip)。 
+超级播放器 Adapter SDK和Demo项目下载地址[TXCPlayerAdapterSDK_iOS](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_iOS.zip)。 
 
 ## 阅读对象
 
@@ -43,7 +34,7 @@ fileId 一般是在视频上传后，由服务器返回：
 2. 服务端视频上传，在 [确认上传](https://cloud.tencent.com/document/product/266/9757) 的通知中包含对应的 fileId。
 
 
-如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件。单击后在右侧视频详情中，可以看到相关参数。
+如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件。点开后在右侧视频详情中，可以看到相关参数。
 
 ```objective-c
 NSInteger appId; ////appid 在腾讯云点播申请
@@ -83,7 +74,7 @@ id<ITXCPlayerAssistorProtocol> assistor = [TXCPlayerAdapter createPlayerAssistor
 }
 ```
 
-使用完后销毁 Player
+使用完后销毁Player
 
 ```objective-c
 [TXCPlayerAdapter destroy];
@@ -91,13 +82,13 @@ id<ITXCPlayerAssistorProtocol> assistor = [TXCPlayerAdapter createPlayerAssistor
 
 
 
-## SDK 接口列表
+## SDK接口列表
 
-#### 初始化 Adatper
+#### 初始化Adatper
 
 **说明**
 
-初始化 Adapter，单例。
+初始化Adapter，单例。
 
 **接口**
 
@@ -111,11 +102,11 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 
 
-#### 销毁 Adatper
+#### 销毁Adatper
 
 **说明**
 
-销毁 Adapter，当程序退出后调用。
+销毁Adapter，当程序退出后调用。
 
 **接口**
 
@@ -129,7 +120,7 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 **说明**
 
-通过播放器辅助类可以获取播放 fileId 相关信息以及处理 DRM 加密接口等。
+通过播放器辅助类可以获取播放fileId相关信息以及处理DRM加密接口等。
 
 **接口**
 
@@ -142,7 +133,7 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 | 参数名 | 类型   | 描述               |
 | :----- | :----- | :----------------- |
-| fileId | String | 要播放的视频 fileId |
+| fileId | String | 要播放的视频fileId |
 | pSign  | String | 超级播放器签名     |
 
 #### 请求视频播放信息
@@ -183,7 +174,7 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 **说明**
 
-获取视频信息， 必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
+获取视频信息， 必须是在id<ITXCPlayerAssistorProtocol>.requestVideoInfo回调之后才生效。
 
 **接口**
 
@@ -209,7 +200,7 @@ TXCVideoBasicInfo：参数如下
 
 **说明**
 
-获取视频流信息列表，必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
+获取视频流信息列表，必须是在id<ITXCPlayerAssistorProtocol>.requestVideoInfo回调之后才生效。
 
 **接口**
 
@@ -239,7 +230,7 @@ TXCSubStreamInfo
 
 **说明**
 
-获取视频关键帧打点信息，必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
+获取视频关键帧打点信息，必须是在id<ITXCPlayerAssistorProtocol>.requestVideoInfo回调之后才生效。
 
 **接口**
 
@@ -262,7 +253,7 @@ TXCKeyFrameDescInfo
 
 **说明**
 
-获取缩略图信息，必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
+获取缩略图信息，必须是在id<ITXCPlayerAssistorProtocol>.requestVideoInfo回调之后才生效。
 
 **接口**
 
