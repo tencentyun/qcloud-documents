@@ -1,18 +1,18 @@
-## 数据目录管理能力概述
+## Table 管理能力概述
 
-GooseFS 数据目录管理能力用于管理结构化数据，为 SparkSQL、Hive、Presto 等上层计算应用提供数据库表管理能力，目前底层支持对接 Hive MetaStore。数据目录管理能力能够帮助各类 SQL 引擎读取指定的数据内容，能够有效提升大数据场景下对数据的访问效率。
+GooseFS Table 管理能力用于管理结构化数据，为 SparkSQL、Hive、Presto 等上层计算应用提供数据库表管理能力，目前底层支持对接 Hive MetaStore。Table 管理能力能够帮助各类 SQL 引擎读取指定的数据内容，能够有效提升大数据场景下对数据的访问效率。
 
 ![](https://main.qcloudimg.com/raw/e35a2c0320da700c3af72deefece71f5.png)          
 
-GooseFS 数据目录管理能力目前主要支持了以下特性：
+GooseFS Table 管理能力目前主要支持了以下特性：
 
 - 元数据层面的描述能力。GooseFS Catalog 提供源自远程元数据服务（Hive MetaStore）的元数据缓存服务，针对 SparkSQL，Hive，SQL Presto 等 SQL 引擎做查询时，可以根据 GooseFS Catalog 中的元数据缓存服务来确定读取数据大小、目标数据位置以及数据结构，具备与 Hive MetaStroe 相同的能力表现。
 - 表级数据预缓存能力。GooseFS Catalog 能够感知数据表和数据存储路径的对应关系，进而可以提供 Table 级别以及 Table Partition 级别的缓存预热能力，帮助用户提前按照表结构缓存数据，极大提高访问性能。
 - 跨存储服务的统一元数据服务。通过 GooseFS Catalog 运行上层计算应用，可以同时对不同的底层存储系统提供访问加速能力。同时 GooseFS Catalog 可以提供跨越存储服务的统一元数据查询能力，只需要一个 GooseFS 客户端开启 Catalog 功能，即可查询不同存储系统，例如 HDFS、COS、CHDFS 中的数据。
 
-## 使用 GooseFS 数据目录管理能力
+## 使用 GooseFS Table 管理能力
 
-GooseFS 数据目录管理能力通过 goosefs table 指令集实现，提供了 DB 的绑定和解绑、查询 DB 信息、查询表信息、数据加载、数据淘汰等能力。GooseFS 数据目录管理指令集如下所示：
+GooseFS Table 管理能力通过 goosefs table 指令集实现，提供了 DB 的绑定和解绑、查询 DB 信息、查询表信息、数据加载、数据淘汰等能力。GooseFS Table 管理指令集如下所示：
 
 ```plaintext
 $ goosefs table
