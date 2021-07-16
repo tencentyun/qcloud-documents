@@ -2,7 +2,7 @@
 
 超级播放器 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开放的对接云 PAAS 资源的播放器插件，常用于有自定义播放器功能需求的用户。超级播放器SDK套件通过 fileId + pSign 向腾讯云视频后台请求播放信息，SDK 对返回的视频数据解密后进行播放，保护视频信息安全。
 
-## SDK下载
+## SDK下载[](id:sdkDownload)
 
 超级播放器 Adapter SDK 和 Demo 项目下载地址是 [TXCPlayerAdapterSDK_Android](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip)。 
 
@@ -10,7 +10,7 @@
 
 本文档部分内容为腾讯云专属能力，使用前请开通 [腾讯云](https://cloud.tencent.com) 相关服务，未注册用户可注册账号 [免费试用](https://cloud.tencent.com/login)。
 
-## 集成指引
+## 集成指引[](id:guide)
 
 集成 SDK，拷贝 TXCPlayerAdapter-release-1.0.0.aar 到 libs目录，添加依赖项：
 
@@ -26,7 +26,7 @@ implementation(name:'TXCPlayerAdapter-release-1.0.0', ext:'aar')
 
 
 
-### 使用播放器
+### 使用播放器[](id:usePlayer)
 
 变量声明，播放器主类为 `ITXCPlayerAssistor`，创建后即可播放视频。
 
@@ -99,13 +99,13 @@ TXCPlayerAdapter.destroy();
 
 
 
-## SDK接口列表
+## SDK 接口列表[](id:sdkList)
 
 #### 初始化 TXCPlayerAdatper
 
 **说明**
 
-初始化Adapter，每次
+初始化 Adapter，每次
 
 **接口**
 
@@ -123,7 +123,7 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 **说明**
 
-销毁Adapter，当程序退出后调用。
+销毁 Adapter，当程序退出后调用。
 
 **接口**
 
@@ -291,7 +291,7 @@ TCXImageSpriteInfo
 | imageUrls | List   | 缩略图下载 URL 数组，类型为 String 。 |
 | webVttUrl | String | 缩略图 VTT 文件下载 URL 。            |
 
-## 更多功能
+## 更多功能[](id:moreFeature)
 
 完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
 <img src="https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png" width="150">
