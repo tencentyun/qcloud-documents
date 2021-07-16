@@ -1,10 +1,10 @@
 ## 产品概述
 
-超级播放器 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开放的对接云 PAAS 资源的播放器插件，常用于有自定义播放器功能需求的用户。超级播放器SDK套件通过 fileId + pSign 向腾讯云视频后台请求播放信息，SDK对返回的视频数据解密后进行播放，保护视频信息安全。
+超级播放器 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开放的对接云 PAAS 资源的播放器插件，常用于有自定义播放器功能需求的用户。超级播放器SDK套件通过 fileId + pSign 向腾讯云视频后台请求播放信息，SDK 对返回的视频数据解密后进行播放，保护视频信息安全。
 
 ## SDK下载
 
-超级播放器 Adapter SDK和Demo项目下载地址[TXCPlayerAdapterSDK_Android](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip)。 
+超级播放器 Adapter SDK 和 Demo 项目下载地址[TXCPlayerAdapterSDK_Android](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip)。 
 
 ## 阅读对象
 
@@ -12,7 +12,7 @@
 
 ## 集成指引
 
-集成SDK，拷贝TXCPlayerAdapter-release-1.0.0.aar 到 libs目录，添加依赖项：
+集成 SDK，拷贝TXCPlayerAdapter-release-1.0.0.aar 到 libs目录，添加依赖项：
 
 ```groovy
 implementation(name:'TXCPlayerAdapter-release-1.0.0', ext:'aar')
@@ -91,7 +91,7 @@ mPlayerAssistor.requestVideoInfo(new ITXCRequestVideoInfoCallback() {
 });
 ```
 
-使用完后销毁Player
+使用完后销毁 Player
 
 ```java
 TXCPlayerAdapter.destroy();
@@ -101,7 +101,7 @@ TXCPlayerAdapter.destroy();
 
 ## SDK接口列表
 
-#### 初始化TXCPlayerAdatper
+#### 初始化 TXCPlayerAdatper
 
 **说明**
 
@@ -119,7 +119,7 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 
 
-#### 销毁TXCPlayerAdatper
+#### 销毁 TXCPlayerAdatper
 
 **说明**
 
@@ -137,7 +137,7 @@ TXCPlayerAdapter.destroy();
 
 **说明**
 
-通过播放器辅助类可以获取播放fileId相关信息以及处理DRM加密接口等。
+通过播放器辅助类可以获取播放 fileId 相关信息以及处理 DRM 加密接口等。
 
 **接口**
 
@@ -194,7 +194,7 @@ playerAssistor.requestVideoInfo(ITXCRequestVideoInfoCallback callback);
 
 **说明**
 
-获取视频信息， 必须是在playerAssistor.requestPlayInfo回调之后才生效。
+获取视频信息， 必须是在 playerAssistor.requestPlayInfo 回调之后才生效。
 
 **接口**
 
@@ -219,7 +219,7 @@ TXCVideoBasicInfo：参数如下
 
 **说明**
 
-获取视频流信息列表，必须是在playerAssistor.requestPlayInfo回调之后才生效。
+获取视频流信息列表，必须是在 playerAssistor.requestPlayInfo 回调之后才生效。
 
 **接口**
 
@@ -251,7 +251,7 @@ SubStreamInfo
 
 **说明**
 
-获取视频关键帧打点信息，必须是在playerAssistor.requestPlayInfo回调之后才生效。
+获取视频关键帧打点信息，必须是在 playerAssistor.requestPlayInfo 回调之后才生效。
 
 **接口**
 
@@ -274,7 +274,7 @@ TXCKeyFrameDescInfo
 
 **说明**
 
-获取缩略图信息，必须是在playerAssistor.requestPlayInfo回调之后才生效。
+获取缩略图信息，必须是在 playerAssistor.requestPlayInfo 回调之后才生效。
 
 **接口**
 
