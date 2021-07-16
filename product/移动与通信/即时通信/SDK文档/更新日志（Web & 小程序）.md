@@ -1,3 +1,23 @@
+>?[【有奖问卷】7月31日截至！即时通信 IM Web & 小程序端 TUIKit 需求调研，单击立即参与 >>](https://wj.qq.com/s2/8750536/987c)
+
+### 2.12.0 @2021.7.5
+
+**新增**
+
+- [deleteMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessage)，支持删除消息。
+- 同步会话列表时支持 `lastMessage` 为被撤回消息的情况。
+- [getGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMemberList) 支持拉取 `joinTime`（入群时间）。
+
+**修复**
+被设置 admin 和取消 admin 后群提示消息的 `nick` 错误。
+
+
+### 2.11.2 @2021.6.16
+
+**新增**
+
+- 支持 WebSocket，[升级指引](https://web.sdk.qcloud.com/im/doc/zh-cn/tutorial-02-upgradeguideline.html)。
+- 支持 uni-app 发送图片、视频等文件类消息。
 
 
 ### 2.10.2 @2021.4.27

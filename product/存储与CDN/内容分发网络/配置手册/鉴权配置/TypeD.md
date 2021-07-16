@@ -2,6 +2,10 @@
 **访问 URL 格式**
 `http://DomainName/FileName?sign=md5hash&t=timestamp`
 
+>! 访问 URL 中不能包含中文。
+
+
+
 **算法说明**
 - timestamp：十进制 / 十六进制（UNIX 时间戳）可选。
 - md5hash：MD5（自定义密钥 + 文件路径 + timestamp）。

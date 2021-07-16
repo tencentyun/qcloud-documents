@@ -10,6 +10,14 @@
 ![](https://main.qcloudimg.com/raw/386c06636b522fbd0f85714acf73209b.png)
 >!录屏推流功能仅11.0以上系统可体验。
 
+## 示例代码
+针对开发者的接入反馈的高频问题，腾讯云提供有更加简洁的 API-Example 工程，方便开发者可以快速的了解相关 API 的使用，欢迎使用。
+
+| 所属平台 |                         GitHub 地址                          |
+| :------: | :----------------------------------------------------------: |
+|   iOS    | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example) |
+| Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) |
+
 #### 使用步骤
 1. 打开控制中心，长按屏幕录制按钮，选择【视频云工具包】。
 2. 打开【视频云工具包】>【推流演示（录屏推流）】，输入推流地址或单击【New】自动获取推流地址，单击【开始推流】。

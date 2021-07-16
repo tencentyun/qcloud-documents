@@ -1,7 +1,7 @@
 >!如果因自身业务需要对 OCR 识别的影像文件进行存储或其他用途，请合作方务必自行保存订单号，通过订单号拉取 OCR 识别的影像文件是唯一方式。
 
 合作方后台服务上送 sign、请求参数到身份证识别后台服务。
-- **请求 URL：**https://ida.webank.com/api/paas/idcardocrapp?orderNo=xxx
+- **请求 URL：**https://miniprogram-kyc.tencentcloudapi.com/api/paas/idcardocrapp?orderNo=xxx
 >!为方便查询耗时，该请求 url 后面请拼接 orderNo 订单号参数。
 
 - **请求方法：**POST
@@ -36,36 +36,62 @@
 |address	| String	| 身份证识别结果：地址<br>如果用户没有正确上传人像面，则没有该字段|
 |authority	| String	| 身份证识别结果：签发机关<br>如果用户没有正确上传国徽面，则没有该字段|
 |validDate	| String	| 身份证识别结果：有效日期<br>如果用户没有正确上传国徽面，则没有该字段|
-|multiWarning	| String	| 正面多重告警码，详情请参见 [身份证 OCR 错误码](https://cloud.tencent.com/document/product/1007/47902)|
+|multiWarning	| String	| 多重告警码，详情请参见 [身份证 OCR 错误码](https://cloud.tencent.com/document/product/1007/47902)|
 |clarity	| String	| 图片清晰度|
 
-**响应示例：**
+#### 响应示例：
+**人像面响应示例：**
 ```
 {
-    "code": "0",
-    "msg": "请求成功",
-    "bizSeqNo": "19112020001015300a17301200020263",
-    "result": {
-        "bizSeqNo": "19112020001015300a17301200020263",
-        "transactionTime": "20191120173015",
-        "ocrId": "15ad08ddd9c55157ffd1040a18412266",
-        "orderNo": "order19959248596551",
-        "name": "***",
-        "sex": "男",
-        "nation": "汉",
-        "birth": "19880731",
-        "address": "*****",
-        "idcard": "***",
-        "warning": "00000000",
-        "sign": "5060AD347D015D8FD7DAC034977B28137204E8E6",
-        "clarity": "78",
-        "multiWarning": "00000000",
-        "retry": "1",
-        "success": false
-    },
-    "transactionTime": "20191120173015"
-}
+    "code":"0",
+    "msg":"请求成功",
+    "bizSeqNo":"21062120001184493117265207455389",
+    "result":{
+	       "bizSeqNo":"21062120001184493117265207455389",
+	       "transactionTime":"20210621172652",
+	       "ocrId":"54805d89208da5bac41b72fd6ca1be82",
+	       "orderNo":"1rjh4xez2vn4706nvb9x273812n21136",
+	       "name":"xxx",
+	       "sex":"男",
+	       "nation":"汉",
+	       "birth":"19881001",
+	       "address":"xxxxxxxxxxxxx",
+	       "idcard":"xxxxxxxxxxxxxxxxxx",
+	       "warning":"00000000",
+	       "sign":"2E5A4268DB6B347DF34194D903A6927B8C454AAF",
+	       "clarity":"64",
+	       "multiWarning":"00000000",
+	       "retry":"1",
+	       "success":false
+	 },
+	 "transactionTime":"20210621172652"
+	 }
 ```
+
+**国徽面响应示例：**
+```
+{
+    "code":"0",
+    "msg":"请求成功",
+    "bizSeqNo":"21062120001184438417304507864378",
+    "result":{
+          "bizSeqNo":"21062120001184438417304507864378",
+	         "transactionTime":"20210621173045",
+	         "ocrId":"d1e4111f858413e92784ddbdd5f03f35",
+	         "orderNo":"h1jw98k72ffe3de249qmf1723673v31v",
+	         "validDate":"20190128-20390128",
+	         "authority":"xxxxxx",
+	         "warning":"00000000",
+	         "sign":"1CCE440E241085898B41ECE87E01E6A9D15F74F6",
+	         "clarity":"72",
+	         "multiWarning":"00000000",
+	         "retry":"1",
+	         "success":false
+	 },
+	 "transactionTime":"20210621173045"
+	 }
+```
+
 
 >?success：false 无意义，合作伙伴可忽略，无需处理。
 

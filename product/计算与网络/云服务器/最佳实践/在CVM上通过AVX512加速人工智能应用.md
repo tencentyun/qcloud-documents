@@ -80,7 +80,7 @@ lscpu | grep "Core(s) per socket" | cut -d':' -f2 | xargs
  export TF_NUM_INTEROP_THREADS=1
  export TF_ENABLE_MKL_NATIVE_FORMAT=0
 ```
- - 在代码中增加环境变化设置。在运行的 Python 代码中，加入以下环境变化配置：
+ - 在代码中增加环境变量设置。在运行的 Python 代码中，加入以下环境变量配置：
 ```
 import os
 os.environ["KMP_BLOCKTIME"] = "1"
@@ -185,7 +185,7 @@ Intel<sup>®</sup> 低精度优化工具实现框架示意图如下：
 
 #### 工作流程
 Intel<sup>®</sup> 低精度优化工具工作流程示意图如下：
-![](https://main.qcloudimg.com/raw/0db4a04fd5dd17ce738df5125f640bcb.png)
+![](https://main.qcloudimg.com/raw/acbc366d69819b443064ba5df58608fc.png)
 
 #### 量化模型性能与精度示例
 

@@ -1,3 +1,5 @@
+
+
 多 AZ（Available Zone）是指由 [腾讯云对象存储](https://cloud.tencent.com/product/cos) 推出的多 AZ 存储架构，这一存储架构能够为用户数据提供数据中心级别的容灾能力。
 
 客户数据分散存储在城市中多个不同的数据中心，当某个数据中心因为自然灾害、断电等极端情况导致整体故障时，多 AZ 存储架构依然可以为客户提供稳定可靠的存储服务。
@@ -38,13 +40,12 @@
 </tr>
 <tr>
 <td>支持的地域</td>
-<td>广州、北京</td>
-<td>所有地域，详见 <a href="https://cloud.tencent.com/document/product/436/6224">地域和访问域名</a> 文档</td>
+<td colspan=2>请参见 <a href="https://cloud.tencent.com/document/product/436/33417#.E5.AD.98.E5.82.A8.E7.B1.BB.E5.9E.8B.E5.AF.B9.E6.AF.94">存储类型概述</a> 文档</td>
 </tr>
 <tr>
 <td nowrap="nowrap">支持的存储类型</td>
-<td>标准（MAZ_STANDARD）<br>低频（MAZ_STANDARD_IA）</td>
-<td>标准（STANDARD）<br>低频（STANDARD_IA）<br>归档（ARCHIVE）</td>
+<td>标准存储（多 AZ）（MAZ_STANDARD）<br>低频存储（多 AZ）（MAZ_STANDARD_IA）<br>智能分层存储存储（多 AZ）（MAZ_INTELLIGENT_TIERING）</td>
+<td>标准存储（STANDARD）<br>低频存储（STANDARD_IA）<br>归档存储（ARCHIVE）<br>深度归档存储（DEEP_ARCHIVE）<br>智能分层存储存储（INTELLIGENT_TIERING）</td>
 </tr>
 </tbody></table>
 
@@ -59,14 +60,14 @@
 
 > ?
 > - 存储桶多 AZ 配置开启后，无法进行修改，请谨慎配置；原先已创建的存储桶默认未开启多 AZ 配置，仅新创建的存储桶可以开启。
-> - 开启多 AZ 配置的存储桶，仅支持上传标准存储（多 AZ）和低频存储（多 AZ）类型。归档存储（多 AZ）类型后续将会支持。
+> - 开启多 AZ 配置的存储桶，可支持上传标准存储（多 AZ）和低频存储（多 AZ）类型，归档存储（多 AZ）类型后续将会支持。若同时存储桶还开启了智能分层配置，则还可上传智能分层存储（多 AZ）类型。
 > - 如果您希望将存量数据存储于多 AZ 存储桶中，可以新建一个开启多 AZ 配置的存储桶，同时使用 COS Batch 的批量复制功能，将存量存储桶中的文件批量复制到新存储桶中。COS Batch 的使用指引，可参见 [批量处理](https://cloud.tencent.com/document/product/436/38605) 操作文档。
 
 ## 使用限制
 
-目前对象存储 COS 仅支持上传标准存储（多 AZ）和低频存储（多 AZ）类型，因此涉及存储类型变更相关的功能同样存在限制，相关功能限制说明如下：
+目前对象存储 COS 可支持上传标准存储（多 AZ）、低频存储（多 AZ）类型、智能分层存储（多 AZ）类型，因此涉及存储类型变更相关的功能同样存在限制，相关功能限制说明如下：
 
-- 存储类型限制：当前仅支持标准存储（多 AZ）和低频存储（多 AZ）类型。归档存储（多 AZ）类型后续将会支持。
+- 存储类型限制：当前仅支持标准存储（多 AZ）和低频存储（多 AZ）类型。归档存储（多 AZ）类型后续将会支持。若同时存储桶还开启了智能分层配置，则还可上传智能分层存储（多 AZ）类型。
 - 操作限制：当前仅支持对象的上传、下载和删除操作；支持对象复制到多 AZ 的存储桶，不支持复制到单 AZ 的存储桶。
 - 生命周期限制：当前仅支持对象的过期删除，不支持将多 AZ 存储类型沉降为单 AZ 存储类型。
 - 跨地域复制限制：不支持将多 AZ 存储类型复制为单 AZ 存储类型。

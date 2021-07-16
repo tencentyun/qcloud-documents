@@ -23,7 +23,7 @@
 1. 根据实际业务需求下载 SDK 及 TRTC-API-Example 源码。
 2. 下载完成后，单击【已下载，下一步】。
 
-![](https://main.qcloudimg.com/raw/991440ebf152f78d96ba9769aa69d8d7.png)
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:step3)
 ### 步骤3：配置 TRTC-API-Example 工程文件
