@@ -1,24 +1,24 @@
 ## 产品概述
 
-超级播放器 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开放的对接云 PAAS 资源的播放器插件，常用于有自定义播放器功能需求的用户。超级播放器SDK套件通过 fileId + pSign 向腾讯云视频后台请求播放信息，SDK对返回的视频数据解密后进行播放，保护视频信息安全。
+超级播放器 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开放的对接云 PAAS 资源的播放器插件，常用于有自定义播放器功能需求的用户。超级播放器SDK套件通过 fileId + pSign 向腾讯云视频后台请求播放信息，SDK 对返回的视频数据解密后进行播放，保护视频信息安全。
 
-## SDK下载
+## SDK下载[](id:sdkDownload)
 
-超级播放器 Adapter SDK和Demo项目下载地址[TXCPlayerAdapterSDK_Android](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip)。 
+超级播放器 Adapter SDK 和 Demo 项目下载地址是 [TXCPlayerAdapterSDK_Android](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip)。 
 
 ## 阅读对象
 
 本文档部分内容为腾讯云专属能力，使用前请开通 [腾讯云](https://cloud.tencent.com) 相关服务，未注册用户可注册账号 [免费试用](https://cloud.tencent.com/login)。
 
-## 集成指引
+## 集成指引[](id:guide)
 
-集成SDK，拷贝TXCPlayerAdapter-release-1.0.0.aar 到 libs目录，添加依赖项：
+集成 SDK，拷贝 TXCPlayerAdapter-release-1.0.0.aar 到 libs目录，添加依赖项：
 
 ```groovy
 implementation(name:'TXCPlayerAdapter-release-1.0.0', ext:'aar')
 ```
 
-添加混淆脚本
+添加混淆脚本：
 
 ```xml
 -keep class com.tencent.** { *; }
@@ -26,7 +26,7 @@ implementation(name:'TXCPlayerAdapter-release-1.0.0', ext:'aar')
 
 
 
-### 使用播放器
+### 使用播放器[](id:usePlayer)
 
 变量声明，播放器主类为 `ITXCPlayerAssistor`，创建后即可播放视频。
 
@@ -36,7 +36,7 @@ fileId 一般是在视频上传后，由服务器返回：
 2. 服务端视频上传，在 [确认上传](https://cloud.tencent.com/document/product/266/9757) 的通知中包含对应的 fileId。
 
 
-如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件。点开后在右侧视频详情中，可以看到相关参数。
+如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件。单击后在右侧视频详情中，可以看到相关参数。
 
 ```java
 //psign 即超级播放器签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
@@ -91,7 +91,7 @@ mPlayerAssistor.requestVideoInfo(new ITXCRequestVideoInfoCallback() {
 });
 ```
 
-使用完后销毁Player
+使用完后销毁 Player
 
 ```java
 TXCPlayerAdapter.destroy();
@@ -99,13 +99,13 @@ TXCPlayerAdapter.destroy();
 
 
 
-## SDK接口列表
+## SDK 接口列表[](id:sdkList)
 
-#### 初始化TXCPlayerAdatper
+#### 初始化 TXCPlayerAdatper
 
 **说明**
 
-初始化Adapter，每次
+初始化 Adapter，每次
 
 **接口**
 
@@ -119,11 +119,11 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 
 
-#### 销毁TXCPlayerAdatper
+#### 销毁 TXCPlayerAdatper
 
 **说明**
 
-销毁Adapter，当程序退出后调用。
+销毁 Adapter，当程序退出后调用。
 
 **接口**
 
@@ -137,7 +137,7 @@ TXCPlayerAdapter.destroy();
 
 **说明**
 
-通过播放器辅助类可以获取播放fileId相关信息以及处理DRM加密接口等。
+通过播放器辅助类可以获取播放 fileId 相关信息以及处理 DRM 加密接口等。
 
 **接口**
 
@@ -194,7 +194,7 @@ playerAssistor.requestVideoInfo(ITXCRequestVideoInfoCallback callback);
 
 **说明**
 
-获取视频信息， 必须是在playerAssistor.requestPlayInfo回调之后才生效。
+获取视频信息， 必须是在 playerAssistor.requestPlayInfo 回调之后才生效。
 
 **接口**
 
@@ -219,7 +219,7 @@ TXCVideoBasicInfo：参数如下
 
 **说明**
 
-获取视频流信息列表，必须是在playerAssistor.requestPlayInfo回调之后才生效。
+获取视频流信息列表，必须是在 playerAssistor.requestPlayInfo 回调之后才生效。
 
 **接口**
 
@@ -251,7 +251,7 @@ SubStreamInfo
 
 **说明**
 
-获取视频关键帧打点信息，必须是在playerAssistor.requestPlayInfo回调之后才生效。
+获取视频关键帧打点信息，必须是在 playerAssistor.requestPlayInfo 回调之后才生效。
 
 **接口**
 
@@ -274,7 +274,7 @@ TXCKeyFrameDescInfo
 
 **说明**
 
-获取缩略图信息，必须是在playerAssistor.requestPlayInfo回调之后才生效。
+获取缩略图信息，必须是在 playerAssistor.requestPlayInfo 回调之后才生效。
 
 **接口**
 
@@ -291,7 +291,7 @@ TCXImageSpriteInfo
 | imageUrls | List   | 缩略图下载 URL 数组，类型为 String 。 |
 | webVttUrl | String | 缩略图 VTT 文件下载 URL 。            |
 
-## 更多功能
+## 更多功能[](id:moreFeature)
 
 完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
 <img src="https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png" width="150">

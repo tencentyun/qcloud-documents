@@ -24,7 +24,7 @@ env.java.opts.taskmanager: -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/opt
 ```
 如果您还需要使用 Java Flight Recorder 采集 JVM 启动后一段时间的运行情况，还可以添加如下参数（duration 参数可以自行修改为希望采集的时长）：
 
-```
+```yaml
 env.java.opts.taskmanager: -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/opt/flink/log/taskmanager.hprof -XX:ErrorFile=/opt/flink/log/taskmanager.err -XX:+FlightRecorder -XX:StartFlightRecording=duration=400s,filename=/opt/flink/log/taskmanager.jfr
 ```
 
