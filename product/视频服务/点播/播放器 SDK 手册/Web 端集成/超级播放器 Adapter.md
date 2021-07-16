@@ -28,7 +28,7 @@ import TcAdapter from 'tcadapter';
 
 ## 放置播放器容器
 
-在需要展示播放器的页面加入容器，TcAdapter 仅需要承载播放视频的容器，播放样式和自定义功能可由第三方播放器或使用者自行实现
+在需要展示播放器的页面加入容器，TcAdapter 仅需要承载播放视频的容器，播放样式和自定义功能可由第三方播放器或使用者自行实现。
 
 ```javascript
 <video id="player-container-id">
