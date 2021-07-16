@@ -442,6 +442,7 @@ const EVENT = this.TRTC.EVENT
 | :-------------------------------------------------------- | :--------------------------------------------------------- |
 | [LOCAL_JOIN](#LOCAL_JOIN)                                 | 成功进入房间                                               |
 | [LOCAL_LEAVE](#LOCAL_LEAVE)                               | 成功离开房间                                               |
+| [KICKED_OUT](#KICKED_OUT)                               | 服务端踢人或房间被解散退房                                               |
 | [REMOTE_USER_JOIN](#REMOTE_USER_JOIN)                     | 远端用户进入房间时触发                                     |
 | [REMOTE_USER_LEAVE](#REMOTE_USER_LEAVE)                   | 远端用户退出房间时触发                                     |
 | [REMOTE_VIDEO_ADD](#REMOTE_VIDEO_ADD)                     | 远端视频流添加事件，当远端用户发布视频流后会收到该通知     |
@@ -483,6 +484,20 @@ let onLocalLeave = function(event){
   console.log('本地退房成功')
 }
 this.TRTC.on(EVENT.LOCAL_LEAVE, onLocalLeave)
+:::
+</dx-codeblock>
+
+[](id:KICKED_OUT)
+### KICKED_OUT
+
+服务端踢人或房间被解散退房后的回调。
+
+<dx-codeblock>
+::: javascript javascript
+let onKickedout = function(event){
+  console.log('被服务端踢出或房间被解散')
+}
+this.TRTC.on(EVENT.KICKED_OUT, onKickedout)
 :::
 </dx-codeblock>
 

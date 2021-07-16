@@ -221,7 +221,7 @@ mysql> show master status;
 5. 重新执行校验任务。
 
 ### 修改 log_slave_updates 参数
-在主从复用结构中，从库开启 `log-bin` 参数，直接在从库操作数据时，可以记录在 binlog 中，但是从库从主库上复制数据时，不能记录在 binlog 中，所以从库做为其他从库的主库时，需要打开 `log_slave_updates` 参数。 
+在主从复用结构中，从库开启 `log-bin` 参数，直接在从库操作数据时，可以记录在 binlog 中，但是从库从主库上复制数据时，不能记录在 binlog 中，所以从库作为其他从库的主库时，需要打开 `log_slave_updates` 参数。 
 1. 登录 MySQL 源数据库。
 2. 修改 `log_slave_updates` 参数为`1`。
 ```
