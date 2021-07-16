@@ -27,7 +27,9 @@ CREATE TABLE random_source (
 ## Logger Sink
 Logger Sink 是腾讯云 Oceanus 提供的一个自定义 Logger 示例，它可以将最终的结果数据写入 TaskManager 的日志文件中，后续可以通过 Flink UI 或者控制台的日志面板查看这些日志的输出。
 
-使用 Logger Sink 前，需要先 [下载 JAR 包](https://github.com/tencentyun/flink-hello-world/releases)，**如果您希望自定义输出逻辑，也可以自行修改并编译构建程序包**。将下载的 JAR 包上传到程序包（具体操作可参考 [程序包管理](https://cloud.tencent.com/document/product/849/48295)），然后在 SQL 作业中引用该程序包（具体操作可参考 [开发 SQL 作业](https://cloud.tencent.com/document/product/849/48287)）。
+1. 使用 Logger Sink 前，需要先 [下载 JAR 包](https://github.com/tencentyun/flink-hello-world/releases)，**如果您希望自定义输出逻辑，也可以自行修改并编译构建程序包**。
+2. 将下载的 JAR 包上传到程序包，具体可参考 [程序包管理](https://cloud.tencent.com/document/product/849/48295)。
+3. 在 SQL 作业中引用该程序包，具体可参考 [开发 SQL 作业](https://cloud.tencent.com/document/product/849/48287)。
 
 下面是 Logger Sink 的一个示例：
 
