@@ -1,0 +1,40 @@
+腾讯云播放器 Demo 提供完整的产品级交互界面和业务源码，开发者可基于 Demo 体验播放器各项功能，有助于快速匹配和实现业务需求，节约开发时间和成本。本文将提供超级播放器分别在web端和移动端的体验 Demo。
+
+## Web 端播放器 Demo
+Web 端播放器支持 PC 端和移动端的浏览器视频播放，丰富灵活的接口可帮助用户快速与自有 Web 应用集成。针对超级播放器的基础播放和点播播放两种播放模式，腾讯云分别提供了其对应的 Web 端视频播放器，您可根据自身需求进行体验。
+### 获取Demo
+单击下表中 Demo 体验内容进入示例页面，在页面鼠标右键单击选择【查看网页源代码】，可查看 Demo 示例源码。
+
+| 播放器类型       | Demo 体验                                                                                                        |
+| ----------- | ------------------------------------------------------------------------------------------------------------- |
+| 超级播放器 - 基础播放 | [Web端超级播放器 - 基础播放 Demo](https://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-test.html)             |
+| 超级播放器 - 点播播放 | [Web端超级播放器 - 点播播放 Demo](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-base.html) |
+
+### Demo 展示
+Web 端超级播放器 Demo
+![](https://main.qcloudimg.com/raw/e4b8edb05ab7ce9e2122301fd07b5ac0.png)
+
+## 移动端播放器 Demo
+腾讯云工具包 App 是腾讯云音视频开发的集多款产品及功能于一身的最佳体验方案。在【腾讯云工具包】>【播放器 Player】>【超级播放器】中，同时包含了超级播放器的基础播放和点播播放两种播放模式的完整功能，您可根据自身需求选择相应功能进行体验。
+<table>
+<tr>
+<th>平台</th>
+<th>Demo 体验</th>
+<th>源码地址</th>
+</tr>
+<tr>
+<td>iOS </td>
+<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1132521667?mt=8')"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/a8e35dc29848dd4d0f8dd5132c4e0417.png);background-size: cover;">
+</button></a></td>
+<td> <a href="https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo">Github</a></td>
+</tr>
+<tr>
+<td>Android </td>
+<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/xiaozhibo.apk')"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/5c1e87af3696235d65d2d4c0701000d1.png);background-size: cover;">
+</button></a></td>
+<td> <a href="https://github.com/tencentyun/LiteAVProfessional_Android/tree/master/Demo">Github</a></td>
+</tr>
+</table>
+
+### Demo 展示
+![](https://main.qcloudimg.com/raw/b6b1609b5fb9e77f9ceb0dcbcef7757d.png)
