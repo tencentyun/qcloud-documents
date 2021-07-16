@@ -20,8 +20,14 @@ flink.kubernetes.diagnosis-collection-enabled: true
 
 如果您需要在 Flink TaskManager 发生 OOM（内存溢出）错误时，能将堆内存 Dump 采集并进行后续分析，可以在高级参数中增加如下内容：
 ```yaml
-env.java.taskmanager.opts: -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/opt/flink/log/taskmanager.hprof -XX:ErrorFile=/opt/flink/log/taskmanager.err
+env.java.opts.taskmanager: -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/opt/flink/log/taskmanager.hprof -XX:ErrorFile=/opt/flink/log/taskmanager.err
 ```
+如果您还需要使用 Java Flight Recorder 采集 JVM 启动后一段时间的运行情况，还可以添加如下参数（duration 参数可以自行修改为希望采集的时长）：
+
+```
+env.java.opts.taskmanager: -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/opt/flink/log/taskmanager.hprof -XX:ErrorFile=/opt/flink/log/taskmanager.err -XX:+FlightRecorder -XX:StartFlightRecording=duration=400s,filename=/opt/flink/log/taskmanager.jfr
+```
+
 
 ## 查看采集文件
 所有采集的 Pod 现场文件，会自动打包并上传到集群绑定的 COS 存储桶的 `/oceanus-diagnosis/` 目录下，目录结构为：
