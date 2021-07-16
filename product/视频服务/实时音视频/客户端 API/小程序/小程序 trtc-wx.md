@@ -419,7 +419,7 @@ playerInstance 是 trtc-wx 为您管理的 &lt;live-player&gt; 的实例。
 | objectFit             | String  | fillCrop | 填充模式，可选值有 contain，fillCrop                         |
 | minCache              | Number  | 1        | 最小缓冲区，单位：s                                          |
 | maxCache              | Number  | 2        | 最大缓冲区，单位：s                                          |
-| soundMode             | String  | speaker  | 是否支持双手滑动调整摄像头焦距                               |
+| soundMode             | String  | speaker  | 声音输出方式，speaker：扬声器，ear：听筒 （通话音量模式下听筒才有效，对应 RTC 模式）                 |
 | enableRecvMessage     | Boolean | false    | 是否接收 SEI 消息                                            |
 | autoPauseIfNavigate   | Boolean | true     | 当跳转到其它小程序页面时，是否自动暂停本页面的实时音视频播放 |
 | autoPauseIfOpenNative | Boolean | true     | 当跳转到其它微信原生页面时，是否自动暂停本页面的实时音视频播放 |
