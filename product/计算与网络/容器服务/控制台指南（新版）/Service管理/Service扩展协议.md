@@ -32,7 +32,7 @@
 ### 注解名称
 `service.cloud.tencent.com/specify-protocol`
 
-### 扩展的协议注解示例
+### 扩展协议注解示例
 
 <dx-tabs>
 ::: TCP_SSL 示例
@@ -75,7 +75,7 @@
 
 
 
-### 扩展的协议使用说明
+### 扩展协议使用说明
 <dx-tabs>
 ::: 扩展协议YAML使用说明
 ```yaml
