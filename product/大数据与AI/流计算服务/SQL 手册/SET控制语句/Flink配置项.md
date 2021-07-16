@@ -16,7 +16,7 @@ SET 配置项 = '参数值';
 针对 GROUP BY 和 JOIN 等大状态的语句，Flink 提供了 [Idle State Retention Time 机制](https://cloud.tencent.com/developer/article/1452854)，用户可以通过设置状态的最短保留时间和最长保留时间，避免状态的无限制增长造成作业崩溃（OOM）。例如，下面的语句指定了状态的最短保留时间是5小时，最长保留时间是6小时，Flink 会在这两个时间点之间自行选择状态的清理时机。
 > ! 
 >- 状态的最短保留时间和最长保留时间之间的差值必须大于5分钟，否则 Flink 会报错并忽略该设置。
->- 时间单位的写法遵循 Flink 配置的规范，例如可以写10min、也可以写 3h、3hour、7day、7d 等。数值和单位之间的空格为可选项。
+>- 时间单位的写法遵循 Flink 配置的规范，例如可以写10min、也可以写3h、3hour、7day、7d等。数值和单位之间的空格为可选项。
 
 ```sql
 SET execution.min-idle-state-retention = '5 h';
