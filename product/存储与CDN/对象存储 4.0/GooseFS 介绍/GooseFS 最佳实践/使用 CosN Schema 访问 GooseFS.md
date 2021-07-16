@@ -16,7 +16,7 @@ GooseFS 到 CosN 的路径映射关系如下：
 /warehouse/folder/test.txt -> cosn://examplebucket-1250000000/data/warehouse/folder/test.txt
 ```
 
-CosN Scheme 访问 GooseFS 特性，通过在客户端维持 GooseFS 路径和底层文件系统 CosN 路径之间的映射关系，并将 CosN 路径的请求转换为 GooseFS 的请求。映射关系周期性刷新，您可以通过修改 GooseFS 配置文件 goosefs-site.properties 中的配置项 goosefs.client.namespace.refresh.interval 调整刷新间隔，默认值为 60s。
+CosN Scheme 访问 GooseFS 特性，通过在客户端维持 GooseFS 路径和底层文件系统 CosN 路径之间的映射关系，并将 CosN 路径的请求转换为 GooseFS 的请求。映射关系周期性刷新，您可以通过修改 GooseFS 配置文件 goosefs-site.properties 中的配置项 goosefs.client.namespace.refresh.interval 调整刷新间隔，默认值为60s。
 
 >! 如果访问的 CosN 路径无法转换为 GooseFS 路径，对应的 Hadoop API 调用会抛出异常。
 
@@ -37,8 +37,9 @@ i. 将 GooseFS 的客户端 jar 包（goosefs-1.0.0-client.jar）放入 share/ha
 ```plaintext
  cp goosefs-1.0.0-client.jar  hadoop/share/hadoop/common/lib/
 ```
- >! 配置变更和添加 jar 包，需同步到集群上所有节点。
- >
+<dx-alert infotype="notice" title="">
+配置变更和添加 jar 包，需同步到集群上所有节点。
+</dx-alert>
 ii. 修改 Hadoop 配置文件 etc/hadoop/core-site.xml，指定 GooseFS 的实现类：
 ```plaintext
 <property>
@@ -117,13 +118,13 @@ select sum(age) from u_user_cosn;
 
 ```plaintext
  <property>
-        <name>fs.AbstractFileSystem.cosn.impl</name>
-        <value>com.qcloud.cos.goosefs.hadoop.CosN</value>
-    </property>
-    <property>
-        <name>fs.cosn.impl</name>
-        <value>com.qcloud.cos.goosefs.hadoop.CosNFileSystem</value>
-    </property>
+     <name>fs.AbstractFileSystem.cosn.impl</name>
+     <value>com.qcloud.cos.goosefs.hadoop.CosN</value>
+</property>
+<property>
+     <name>fs.cosn.impl</name>
+     <value>com.qcloud.cos.goosefs.hadoop.CosNFileSystem</value>
+</property>
 ```
 
 执行 Hadoop 命令，如果路径无法转换为 GooseFS 中的路径，命令的输出中会包含报错信息：
@@ -169,14 +170,13 @@ select sum(age) from u_user_ofs;
 
 ```plaintext
 <property>
-    <name>fs.AbstractFileSystem.ofs.impl</name>
-    <value>com.qcloud.cos.goosefs.hadoop.CHDFSDelegateFS</value>
+     <name>fs.AbstractFileSystem.ofs.impl</name>
+     <value>com.qcloud.cos.goosefs.hadoop.CHDFSDelegateFS</value>
 </property>
 <property>
-    <name>fs.ofs.impl</name>
-    <value>com.qcloud.cos.goosefs.hadoop.CHDFSHadoopFileSystem</value>
+     <name>fs.ofs.impl</name>
+     <value>com.qcloud.cos.goosefs.hadoop.CHDFSHadoopFileSystem</value>
 </property>
-
 ```
 
 执行 Hadoop 命令，如果路径无法转换为 GooseFS 中的路径，则输出结果中会包含报错信息：
