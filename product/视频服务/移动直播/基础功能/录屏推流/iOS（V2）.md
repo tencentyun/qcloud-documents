@@ -10,6 +10,14 @@
 ![](https://main.qcloudimg.com/raw/386c06636b522fbd0f85714acf73209b.png)
 >!录屏推流功能仅11.0以上系统可体验。
 
+## 示例代码
+针对开发者的接入反馈的高频问题，腾讯云提供有更加简洁的 API-Example 工程，方便开发者可以快速的了解相关 API 的使用，欢迎使用。
+
+| 所属平台 |                         GitHub 地址                          |
+| :------: | :----------------------------------------------------------: |
+|   iOS    | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example) |
+| Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) |
+
 #### 使用步骤
 1. 打开控制中心，长按屏幕录制按钮，选择【视频云工具包】。
 2. 打开【视频云工具包】>【推流演示（录屏推流）】，输入推流地址或单击【New】自动获取推流地址，单击【开始推流】。
@@ -217,14 +225,18 @@ ReplayKit2 录屏只唤起 upload 直播扩展，直播扩展不能进行 UI 操
 
 #### 2. 进程间的通知 CFNotificationCenter
 扩展与宿主 App 之间还经常需要实时的交互处理，本地通知需要用户点击横幅才能触发代码处理，因此不能通过本地通知的方式。而 NSNotificationCenter 不能跨进程，因此可以利用 CFNotificationCenter 在宿主 App 与扩展之前通知发送，但此通知不能通过其中的 userInfo 字段进行数据传递，需要通过配置 App Group 方式使用 NSUserDefault 进行数据传递（也可以使用剪贴板，但剪贴板有时不能实时在进程间获取数据，需要加些延迟规避），如主 App 在获取好推流 URL 等后，通知扩展可以进行推流时，可通过 CFNotificationCenter 进行通知发送直播扩展开始推流：
-
 <dx-codeblock>
-::: code  CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(),kDarvinNotificationNamePushStart,NULL,nil,YES);
-
-```
+::: code 
+CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(),
+									kDarvinNotificationNamePushStart,
+									NULL,
+									nil,
+									YES);
+:::
+</dx-codeblock>
 扩展中可通过监听此开始推流通知，由于此通知是在 CF 层，需要通过 NSNotificationCenter 发送到 Cocoa 类层方便处理：
-
-```
+<dx-codeblock>
+::: code 
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
                                     (__bridge const void *)(self),
                                     onDarwinReplayKit2PushStart,

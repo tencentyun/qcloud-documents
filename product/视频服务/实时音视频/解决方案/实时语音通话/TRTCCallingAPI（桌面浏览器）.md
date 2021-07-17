@@ -1,6 +1,6 @@
 ## TRTCCalling 简介
 
-[TRTCCalling](https://www.npmjs.com/package/trtc-calling-js) 组件是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持1v1和多人视频/语音通话。具体的实现过程请参见 [实时语音通话（桌面浏览器）](https://cloud.tencent.com/document/product/647/49795)。
+[TRTCCalling](https://www.npmjs.com/package/trtc-calling-js) 组件是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持1v1和多人视频/语音通话。具体的实现过程请参见 [实时语音通话（Web）](https://cloud.tencent.com/document/product/647/49795)。
 
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频通话组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
@@ -42,7 +42,8 @@
 | [closeCamera()](#closecamera())                                                               | 关闭摄像头         |
 | [setMicMute(isMute)](#setmicmute(ismute))                                                     | 设备麦克风是否静音 |
 | [setVideoQuality(profile)](#setvideoquality(profile) ) |   设置视频质量 |
-
+| [switchToAudioCall()](#switchtoaudiocall()) | 视频通话切换语音通话|
+| [switchToVideoCall()](#switchtovideocall()) | 语音通话切换视频通话|
 
 ## TRTCCalling 详解
 
@@ -140,7 +141,7 @@ trtcCalling.call({userID, type, timeout})
 | ------- | ------ | ------------------------ |
 | userID  | String | 被邀请方 userID          |
 | type    | Number | 1：语音通话，2：视频通话 |
-| timeout | Number | 0为不超时, 单位 s(秒)    |
+| timeout | Number | 0为不超时, 单位 s（秒）    |
 
 
 
@@ -335,6 +336,33 @@ trtcCalling.setVideoQuality('720p') // 设置视频质量为720p
 | 参数   | 类型    | 含义                                         |
 | ------ | ------- | -------------------------------------------- |
 | profile | String | <li/>480p：640 × 480 <li/>720p：1280 × 720  <li/>1080p：1920 × 1080  |
+
+####  switchToAudioCall() 
+视频通话切换语音通话。
+>?  
+>- v0.10.0 及其之后版本，新增该方法。
+>- 仅支持1v1通话过程中使用。
+>- 失败监听 ERROR 事件，code：60001。
+
+<dx-codeblock>
+::: javascript javascript
+trtcCalling.switchToAudioCall() // 视频通话切换语音通话
+:::
+</dx-codeblock>
+
+####  switchToVideoCall() 
+语音通话切换视频通话。
+>?  
+>- v0.10.0 及其之后版本，新增该方法。
+>- 仅支持1v1通话过程中使用。
+>- 失败监听 ERROR 事件，code：60002。
+
+<dx-codeblock>
+::: javascript javascript
+trtcCalling.switchToVideoCall() // 语音通话切换视频通话
+:::
+</dx-codeblock>
+
 
 [](id:event)
 ## TRTCCalling 事件表
@@ -574,6 +602,13 @@ let onError = function(error) {
 trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 :::
 </dx-codeblock>
+
+#### Error code 码
+| code      | 错误类型    | 含义                        |
+| --------- | ----------- | ----------------------------- |
+| 60001     | 方法调用失败  | switchToAudioCall 调用失败   ｜
+| 60002     | 方法调用失败  | switchToVideoCall 调用失败   ｜
+
 
 ## 常见问题
 #### 为什么拨打不通，或者被踢下线？

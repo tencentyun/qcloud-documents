@@ -1,3 +1,4 @@
+>?[【有奖问卷】7月31日截至！即时通信 IM Web & 小程序端 TUIKit 需求调研，单击立即参与 >>](https://wj.qq.com/s2/8750536/987c)
 
 以下视频将帮助您快速了解 Web 和小程序端 SDK API：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2298-33477?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>

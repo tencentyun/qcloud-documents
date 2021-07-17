@@ -52,7 +52,7 @@ public final String getVersion()
 
 
 
-#### [initWithConfig()](id:initWithConfig)
+#### [initWithConfig()](id:initWithConfig())
 
 ```java
 public void initWithConfig(Context context, OcrSDKConfig config)
