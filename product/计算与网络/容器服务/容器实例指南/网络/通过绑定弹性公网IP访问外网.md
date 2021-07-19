@@ -21,7 +21,7 @@
 
 
 
-1. 登录 [容器实例控制台]()，进入弹性容器实例页面。
+1. 登录 [容器实例控制台](https://console.cloud.tencent.com/tke2/eksci)，进入弹性容器实例页面。
 2. 单击【新建实例】，如下图所示：
 ![](https://main.qcloudimg.com/raw/4e76f7ed424a9e8ca35af5d77f295fe5.png)
 2. 根据实际需求，设置容器实例的参数，详情请参见 [创建容器实例](https://cloud-doc.isd.com/document/product/457/57341#step2)。完成后，单击【下一步】。
