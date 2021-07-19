@@ -21,7 +21,8 @@ Redis 的慢日志分析与 MySQL 和 TDSQL-C 不同，Redis 慢日志分别统�
 ![](https://main.qcloudimg.com/raw/333ef53b03b74842d9f6d1e8f0fc72ce.png)
  - proxy 级别慢日志：
 ![](https://main.qcloudimg.com/raw/dff5cb10b23027af7fc8bcc20865fe3f.png)
-3. 在慢日志统计模块，单击您要定位的时间点，会同步定位当前时间产生的慢日志信息，和具体耗时情况。
+3. 图表日志联动。
+在慢日志统计模块，单击您要定位的时间点，会同步定位当前时间产生的慢日志信息，和具体耗时情况。
 ![](https://main.qcloudimg.com/raw/8d0596fc23190dffd3371d15a4c3374b.png)
 4. 在慢日志分析页，单击右上角的【监控详情】，可以添加多个时间段，多个监控指标进行对比。
 ![](https://main.qcloudimg.com/raw/2c8b8f1be41ed82699aa8f1ef31f3124.png)
