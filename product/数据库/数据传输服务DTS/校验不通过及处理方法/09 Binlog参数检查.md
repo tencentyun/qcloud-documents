@@ -4,7 +4,7 @@
 - `log_bin` 变量必须设置为 `ON`。
 - `binlog_format` 变量必须设置为 `ROW`。
 - `binlog_row_image` 必须设置为 `FULL`。
-- 如果源数据库为 MySQL 5.6 及以上版本，`gtid_mode` 只支持设置为 `ON` 和 `OFF`，建议将 `gtid_mode` 设置为 `ON`，设置为 `OFF` 会报警告。
+- 如果源数据库为 MySQL 5.6 及以上版本，`gtid_mode` 只支持设置为 `ON` 和 `OFF`，建议将 `gtid_mode` 设置为 `ON`，设置为 `OFF` 会报警告，设置为 `ON_PERMISSIVE` 和 `OFF_PERMISSIVE` 会报错。
 - `server_id` 参数需要手动设置，且值不能设置为0。
 - 不允许设置 `do_db`，`ignore_db`。
 - 对于源实例为从库的情况，`log_slave_updates` 变量必须设置为 `ON`。
@@ -59,7 +59,7 @@ mysql> show variables like '%log_bin%';
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
 ```
 binlog_format = ROW
-```  
+```
 3. 查看参数修改是否生效。
 ```
 show variables like "%binlog_format%";
@@ -90,7 +90,7 @@ mysql> show variables like '%binlog_format%';
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
 ```
 binlog_row_image = FULL
-```  
+```
 3. 确认参数修改是否生效。
 ```
 show variables like "%binlog_row_image%";
@@ -124,11 +124,11 @@ GTID 是 MySQL 5.6 的新特性，所以 MySQL 5.6 及之后版本存在此问�
 2. 在主从复制结构两边都设置 `gtid_mode = OFF_PERMISSIVE`。
 ```
 set global gtid_mode = OFF_PERMISSIVE;
-``` 
+```
 3. 在主从复制结构两边都设置 `gtid_mode = ON_PERMISSIVE`。
 ```
 set global gtid_mode = ON_PERMISSIVE;
-```   
+```
 4. 在各个实例节点上执行如下命令，检查匿名事务是否消耗完毕，参数值为`0`则代表消耗完毕。
 ```
 show variables like "%ONGOING_ANONYMOUS_TRANSACTION_COUNT%";
