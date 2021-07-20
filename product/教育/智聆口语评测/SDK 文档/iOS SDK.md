@@ -220,25 +220,38 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 ### 返回结果参数
 
 
-**TAIOralEvaluationRet 参数说明：**
+#### TAIOralEvaluationRet 参数说明：
 
 | 参数            | 类型                                    | 说明                                                         |
-| :-------------- | :-------------------------------------- | :----------------------------------------------------------- |
-| sessionId       | NSString                                | 一次评测唯一标识                                             |
+| :-------------- | :-------------------------------------- | :-------------------------------- |
+| sessionId       | NSString                                |    语音段唯一标识                                    |
+| requestId      	| NSString	|   唯一请求 ID，每次请求都会返回  |
 | pronAccuracy    | Float                                   | 发音精准度，取值范围[-1, 100]，当取-1时指完全不匹配          |
 | pronFluency     | Float                                   | 发音流利度，取值范围[0, 1]，当为词模式时，取值无意义         |
 | pronCompletion  | Float                                   | 发音完整度，取值范围[0, 1]，当为词模式时，取值无意义         |
 | audioUrl        | NSString                                | 保存语音音频文件的下载地址（TAIOralEvaluationStorageMode.Enable 有效） |
-| words           | NSArray<taioralevaluationword/*>        | 详细发音评估结果                                             |
+| words           | NSArray<taioralevaluationword/*>        | 单词详细发音评估结果                                             |
 | SuggestedScore  | Float                                   | 建议评分，取值范围[0,100]                                    |
-| sentenceInfoSet | NSArray<TAIOralEvaluationSentenceInfo/*> | 断句中间结果                                                 |
+| sentenceInfoSet | NSArray<TAIOralEvaluationSentenceInfo/*> | 断句中间结果，待用户发音完全结束后，系统会给出一个综合所有句子的整体结果  |
 
-**TAIOralEvaluationPhoneInfo 参数说明：**
+#### SentenceInfoSet 参数说明：
+
+| 参数           | 类型                             | 说明                                                      |
+| -------------- | -------------------------------- | --------------------------------------------------------- |
+| sentenceId     | Int                              | 句子序号                                                  |
+| words          | NSArray<taioralevaluationword *> | 单词粒度详细发音评估结果                                  |
+| pronAccuracy   | Float                            | 音素发音准确度，取值范围[-1,   100]，当取-1时指完全不匹配 |
+| pronFluency    | Float                            | 单词发音流利度，取值范围[0,   1]                          |
+| pronCompletion | BOOL                             | 发音完整度，取值范围[0,   1]，当为词模式时，取值无意义    |
+| suggestScore   | Float                            | 建议评分，取值范围[0,100]                                 |
+
+
+#### TAIOralEvaluationPhoneInfo 参数说明：
 
 | 参数           | 类型     | 说明                                                    |
 | :------------- | :------- | :------------------------------------------------------ |
-| beginTime      | Int      | 当前单词语音起始时间点，单位为 ms                        |
-| endTime        | Int      | 当前单词语音终止时间点，单位为 ms                        |
+| beginTime      | Int      | 当前音素语音起始时间点，单位为 ms                        |
+| endTime        | Int      | 当前音素语音终止时间点，单位为 ms                        |
 | pronAccuracy   | Float    | 音素发音准确度，取值范围[-1, 100]，当取-1时指完全不匹配 |
 | detectedStress | BOOL     | 当前音素是否检测为重音                                  |
 | phone          | NSString | 用户实际发音音素                                        |
@@ -246,7 +259,7 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 | rLetter        | NSString | 音素对应的字母                                          |
 | referencePhone | NSString | 参考音素，在单词诊断模式下，代表标准音素                |
 
-**TAIOralEvaluationWord 参数说明：**
+#### AIOralEvaluationWord 参数说明：
 
 | 参数|类型|说明 |
 |---|---|---|
@@ -256,10 +269,10 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 | pronFluency | Float | 单词发音流利度，取值范围[0, 1] |
 | word|NSString | 当前词 |
 | matchTag | Int | 当前词与输入语句的匹配情况，0：匹配单词、1：新增单词、2：缺少单词 |
-| phoneInfos	|	NSArray<TAIOralEvaluationPhoneInfo/*> | 音节评估详情 |
+| phoneInfos	|	NSArray<TAIOralEvaluationPhoneInfo/*> | 音节评估详情<br> 注：在 EvalMode 为2，3，5时此参数为空 |
 | referenceWord | NSString | 读音评估对应的单词 |
 
-**TAIError 参数说明：**
+#### TAIError 参数说明：
 
 | 参数      | 类型       | 说明                                                         |
 | :-------- | :--------- | :----------------------------------------------------------- |
