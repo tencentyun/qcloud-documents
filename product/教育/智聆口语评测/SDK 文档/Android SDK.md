@@ -277,7 +277,31 @@ public String getStringToSign(long timestamp);
 |words|List<TAIOralEvaluationWord>|单词详细发音评估结果|
 |SuggestedScore | Double |  建议评分，取值范围[0,100] |
 |sentenceInfoSet |List<TAIOralEvaluationWord>| 断句中间结果，待用户发音完全结束后，系统会给出一个综合所有句子的整体结果 |
+	
 
+#### TAIOralEvaluationWord 参数说明：
+
+| 参数|类型|说明 |
+|---|---|---|
+|beginTime|Int|当前单词语音起始时间点，单位为ms|
+|endTime|Int|当前单词语音终止时间点，单位为ms|
+|pronAccuracy|Double|单词发音准确度，取值范围[-1, 100]，当取-1时指完全不匹配|
+|pronFluency|Double|单词发音流利度，取值范围[0, 1]|
+|word|String|当前词|
+|matchTag|Int|当前词与输入语句的匹配情况，0：匹配单词、1：新增单词、2：缺少单词|
+|phoneInfos	|List|	音素评估详情 <br>注：在 EvalMode 为2，3，5时此参数为空 |
+|referenceWord	| String |	读音评估对应的单词 |
+
+#### SentenceInfoSet 参数说明：
+
+| 参数           | 类型    | 说明                                                      |
+| -------------- | ------- | --------------------------------------------------------- |
+| sentenceId     | Int     | 句子序号                                                  |
+| words          | List    | 单词粒度详细发音评估结果                                  |
+| pronAccuracy   | Double  | 音素发音准确度，取值范围[-1,   100]，当取-1时指完全不匹配 |
+| pronFluency    | Double  | 单词发音流利度，取值范围[0,   1]                          |
+| pronCompletion | Boolean | 发音完整度，取值范围[0,   1]，当为词模式时，取值无意义    |
+| suggestScore   | Double  | 建议评分，取值范围[0,100]                                 |
 	
 #### TAIOralEvaluationPhoneInfo 参数说明：
 
@@ -292,29 +316,7 @@ public String getStringToSign(long timestamp);
 | rLetter        | String  | 音素对应的字母                                          |
 | referencePhone | String  | 参考音素，在单词诊断模式下，代表标准音素                |
 
-#### SentenceInfoSet 参数说明：
 
-| 参数           | 类型    | 说明                                                      |
-| -------------- | ------- | --------------------------------------------------------- |
-| sentenceId     | Int     | 句子序号                                                  |
-| words          | List    | 单词粒度详细发音评估结果                                  |
-| pronAccuracy   | Double  | 音素发音准确度，取值范围[-1,   100]，当取-1时指完全不匹配 |
-| pronFluency    | Double  | 单词发音流利度，取值范围[0,   1]                          |
-| pronCompletion | Boolean | 发音完整度，取值范围[0,   1]，当为词模式时，取值无意义    |
-| suggestScore   | Double  | 建议评分，取值范围[0,100]                                 |
-
-#### TAIOralEvaluationWord 参数说明：
-
-| 参数|类型|说明 |
-|---|---|---|
-|beginTime|Int|当前单词语音起始时间点，单位为ms|
-|endTime|Int|当前单词语音终止时间点，单位为ms|
-|pronAccuracy|Double|单词发音准确度，取值范围[-1, 100]，当取-1时指完全不匹配|
-|pronFluency|Double|单词发音流利度，取值范围[0, 1]|
-|word|String|当前词|
-|matchTag|Int|当前词与输入语句的匹配情况，0：匹配单词、1：新增单词、2：缺少单词|
-|phoneInfos	|List|	音素评估详情 <br>注：在 EvalMode 为2，3，5时此参数为空 |
-|referenceWord	| String |	读音评估对应的单词 |
 
 #### TAIError 参数说明：
 
