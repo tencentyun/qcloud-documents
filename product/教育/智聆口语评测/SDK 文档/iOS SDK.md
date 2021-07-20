@@ -234,6 +234,20 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 | SuggestedScore  | Float                                   | 建议评分，取值范围[0,100]                                    |
 | sentenceInfoSet | NSArray<TAIOralEvaluationSentenceInfo/*> | 断句中间结果，待用户发音完全结束后，系统会给出一个综合所有句子的整体结果  |
 
+
+#### AIOralEvaluationWord 参数说明：
+
+| 参数|类型|说明 |
+|---|---|---|
+| beginTime|Int | 当前单词语音起始时间点，单位为 ms |
+| endTime|Int | 当前单词语音终止时间点，单位为 ms |
+| pronAccuracy | Float | 单词发音准确度，取值范围[-1, 100]，当取-1时指完全不匹配 |
+| pronFluency | Float | 单词发音流利度，取值范围[0, 1] |
+| word|NSString | 当前词 |
+| matchTag | Int | 当前词与输入语句的匹配情况，0：匹配单词、1：新增单词、2：缺少单词 |
+| phoneInfos	|	NSArray<TAIOralEvaluationPhoneInfo/*> | 音节评估详情<br> 注：在 EvalMode 为2，3，5时此参数为空 |
+| referenceWord | NSString | 读音评估对应的单词 |
+
 #### SentenceInfoSet 参数说明：
 
 | 参数           | 类型                             | 说明                                                      |
@@ -259,18 +273,6 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 | rLetter        | NSString | 音素对应的字母                                          |
 | referencePhone | NSString | 参考音素，在单词诊断模式下，代表标准音素                |
 
-#### AIOralEvaluationWord 参数说明：
-
-| 参数|类型|说明 |
-|---|---|---|
-| beginTime|Int | 当前单词语音起始时间点，单位为 ms |
-| endTime|Int | 当前单词语音终止时间点，单位为 ms |
-| pronAccuracy | Float | 单词发音准确度，取值范围[-1, 100]，当取-1时指完全不匹配 |
-| pronFluency | Float | 单词发音流利度，取值范围[0, 1] |
-| word|NSString | 当前词 |
-| matchTag | Int | 当前词与输入语句的匹配情况，0：匹配单词、1：新增单词、2：缺少单词 |
-| phoneInfos	|	NSArray<TAIOralEvaluationPhoneInfo/*> | 音节评估详情<br> 注：在 EvalMode 为2，3，5时此参数为空 |
-| referenceWord | NSString | 读音评估对应的单词 |
 
 #### TAIError 参数说明：
 
