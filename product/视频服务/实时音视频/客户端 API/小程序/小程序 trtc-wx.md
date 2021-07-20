@@ -419,7 +419,7 @@ playerInstance 是 trtc-wx 为您管理的 &lt;live-player&gt; 的实例。
 | objectFit             | String  | fillCrop | 填充模式，可选值有 contain，fillCrop                         |
 | minCache              | Number  | 1        | 最小缓冲区，单位：s                                          |
 | maxCache              | Number  | 2        | 最大缓冲区，单位：s                                          |
-| soundMode             | String  | speaker  | 是否支持双手滑动调整摄像头焦距                               |
+| soundMode             | String  | speaker  | 声音输出方式，speaker：扬声器，ear：听筒 （通话音量模式下听筒才有效，对应 RTC 模式）                 |
 | enableRecvMessage     | Boolean | false    | 是否接收 SEI 消息                                            |
 | autoPauseIfNavigate   | Boolean | true     | 当跳转到其它小程序页面时，是否自动暂停本页面的实时音视频播放 |
 | autoPauseIfOpenNative | Boolean | true     | 当跳转到其它微信原生页面时，是否自动暂停本页面的实时音视频播放 |
@@ -442,6 +442,7 @@ const EVENT = this.TRTC.EVENT
 | :-------------------------------------------------------- | :--------------------------------------------------------- |
 | [LOCAL_JOIN](#LOCAL_JOIN)                                 | 成功进入房间                                               |
 | [LOCAL_LEAVE](#LOCAL_LEAVE)                               | 成功离开房间                                               |
+| [KICKED_OUT](#KICKED_OUT)                               | 服务端踢人或房间被解散退房                                               |
 | [REMOTE_USER_JOIN](#REMOTE_USER_JOIN)                     | 远端用户进入房间时触发                                     |
 | [REMOTE_USER_LEAVE](#REMOTE_USER_LEAVE)                   | 远端用户退出房间时触发                                     |
 | [REMOTE_VIDEO_ADD](#REMOTE_VIDEO_ADD)                     | 远端视频流添加事件，当远端用户发布视频流后会收到该通知     |
@@ -483,6 +484,20 @@ let onLocalLeave = function(event){
   console.log('本地退房成功')
 }
 this.TRTC.on(EVENT.LOCAL_LEAVE, onLocalLeave)
+:::
+</dx-codeblock>
+
+[](id:KICKED_OUT)
+### KICKED_OUT
+
+服务端踢人或房间被解散退房后的回调。
+
+<dx-codeblock>
+::: javascript javascript
+let onKickedout = function(event){
+  console.log('被服务端踢出或房间被解散')
+}
+this.TRTC.on(EVENT.KICKED_OUT, onKickedout)
 :::
 </dx-codeblock>
 

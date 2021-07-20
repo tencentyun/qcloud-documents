@@ -16,16 +16,16 @@ LogListener 仅支持64位 Linux 操作系统环境（暂不支持 Windows），
 
 ### 1. 下载安装 LogListener
 
-LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.1.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.1.tar.gz)
+LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.2.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.2.tar.gz)
 
 以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`loglistener/tools`，执行安装命令 。
 - 公网环境下，操作命令如下：
 ```plaintext
-wget https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.1.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.1.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.1/tools && ./loglistener.sh install
+wget https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.2.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.2.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.2/tools && ./loglistener.sh install
 ```
 - 内网环境下，操作命令如下：
-```
-wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.1.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.1.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.1/tools && ./loglistener.sh install
+```plaintext
+wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.2.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.2.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.2/tools && ./loglistener.sh install
 ```
 
 ### 2. 初始化 LogListener

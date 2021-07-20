@@ -32,7 +32,7 @@
 - [跑通 Demo（iOS&Mac）](https://cloud.tencent.com/document/product/647/32396)
 - [跑通 Demo（Android）](https://cloud.tencent.com/document/product/647/32166)
 - [跑通 Demo（Windows）](https://cloud.tencent.com/document/product/647/32397)
-- [跑通 Demo（桌面浏览器）](https://cloud.tencent.com/document/product/647/32398)
+- [跑通 Demo（Web）](https://cloud.tencent.com/document/product/647/32398)
 - [跑通 Demo（Electron）](https://cloud.tencent.com/document/product/647/38548)
 - [跑通 Demo（小程序）](https://cloud.tencent.com/document/product/647/32399)
 - [跑通 Demo（Flutter）](https://cloud.tencent.com/document/product/647/51601)

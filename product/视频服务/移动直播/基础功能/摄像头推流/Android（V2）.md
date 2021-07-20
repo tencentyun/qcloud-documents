@@ -11,18 +11,20 @@
 | :------: | :----------------------------------------------------------: | :-------------------------: |
 |   iOS    | [Github](https://github.com/tencentyun/LiteAVProfessional_iOS/blob/master/Demo/TXLiteAVDemo/LivePusherDemo/CameraPushDemo/CameraPushViewController.m) | CameraPushViewController.m  |
 | Android  | [Github](https://github.com/tencentyun/LiteAVProfessional_Android/blob/master/Demo/livepusherdemo/src/main/java/com/tencent/liteav/demo/livepusher/camerapush/ui/CameraPushMainActivity.java) | CameraPushMainActivity.java |
-
+>?除上述示例外，针对开发者的接入反馈的高频问题，腾讯云提供有更加简洁的 API-Example 工程，方便开发者可以快速的了解相关 API 的使用，欢迎使用。
+>- iOS：[MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)
+>- Android：[MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example)
 
 ## 功能对接
 
 [](id:step1)
 ### 1. 下载 SDK 开发包
 
-[下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/454/7877) 将 SDK 嵌入您的 App 工程中。
+[下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/454/56589) 将 SDK 嵌入您的 App 工程中。
 
 [](id:step2)
 ### 2. 给 SDK 配置 License 授权
-单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 License，您会获得两个字符串：其中一个字符串是 licenseURL，另一个字符串是解密 key。
+单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 License，您会获得两个字符串：其中一个字符串是 licenceURL ，另一个字符串是解密 licenceKey。
 在您的 App 调用企业版 SDK 相关功能之前（建议在 Application类中）进行如下设置：
 ```java
 public class MApplication extends Application {

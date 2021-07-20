@@ -56,7 +56,8 @@
 脚本主函数的出参为产品数据模版协议格式的对象。
 
 在上行数据解析部分，javascript 示例代码如下：
-```javascript
+<dx-codeblock>
+:::  javascript
 function RawToProtocol(fPort, bytes) {
     var data = {
         "method": "report",
@@ -68,16 +69,17 @@ function RawToProtocol(fPort, bytes) {
     data.params.period = bytes[2] | (bytes[3] << 8);
     return data;
 }
-```
+:::
+</dx-codeblock>
 
 下行数据解析的脚本主函数为 ProtocolToRaw，其入参为产品数据模版协议格式的对象，其出参为至少3个字节的数组：
-
 - 第1字节：下发给设备的 LoRaWAN 协议数据的 FPort 字段。
 - 第2字节：bytes 为下发给设备的 LoRaWAN 协议数据的 MType（0表示 Unconfirmed Data Down，1表示 Confirmed Data Down）。
 - 第3字节：开始为下发给设备的 LoRaWAN 协议数据的 FRMPayload 字段。
 
 在下行数据解析部分，javascript 示例代码如下：
-```javascript
+<dx-codeblock>
+:::  JavaScript
 function ProtocolToRaw(obj) {
     var data = new Array();
     data[0] = 5;// fport=5
@@ -86,25 +88,28 @@ function ProtocolToRaw(obj) {
     data[3] = (obj.params.period >> 8) & 0x00FF;
     return data;
 }
-```
+:::
+</dx-codeblock>
+
 ![](https://main.qcloudimg.com/raw/83318c5e53ecd928ee960ba4a20ca63c.png)
 
 #### 脚本模拟测试
 您也可使用数据解析页面下方的模拟调试工具，如需开发更多的功能，请使用以下模拟脚本。
-
 - 上行消息
 设备原始数据为 0x11451E00，我们将其转化为数组，即上行模拟数据为：[17,69,30,0]，填入设备上行数据的编辑框中。单击【运行】，即可在模拟调试界面右侧查看结果。
 ![](https://main.qcloudimg.com/raw/5acd842a170a06f68610629715d238d7.png)
-
 - 下行消息
 模拟测试数据如下，将其填入设备下行数据的编辑框中：
-```json
+<dx-codeblock>
+:::  JSON
 {
-	"params": {
-		"period": 15
-	}
+  "params": {
+    "period": 15
+  }
 }
-```
+:::
+</dx-codeblock>
+
 ![](https://main.qcloudimg.com/raw/55fb6d32d23f3f3a26e01316c7c2025c.png)
 
 
@@ -206,7 +211,7 @@ Uplink UDP Connected
 #### Step 2. 代码修改
 1. 请先修改`\examples\LoRaWAN\lora_demo.c.`。
 ```c
-tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39aaaaad204a72");
+tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39a****d204a72");
 ```
 填入节点相应的 DevEUI 和 AppKEY，可从 LoRa 节点开发板背面贴纸上获取。
 2. 修改`\devices\rhf76_lora\RHF76.h`。
@@ -257,10 +262,10 @@ tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39aaaaad204a72"
 1. 当 LoRa 节点 成功连接到物联网开发平台后，您可在控制台【设备调试】列表，单击【调试】，进入在线调试。
 2. 将“上报周期”设置为15秒，单击【发送】。
 3. 查看 LoRa 节点的串口日志，可查看已成功接收到下发的数据。
- >?
+<dx-alert infotype="explain" title="">
  - 由于本示例中 LoRa 节点是 LoRaWAN Class A 类设备，这类设备不会立即下发数据，需要在有数据上行后，服务器才会向该设备下行数据。
  - 因此在 LoRa 节点上报数据之后，才能查看下发的周期调整命令。
-
+ </dx-alert>
 LoRa 节点的串口会显示如下日志，表示成功下发了指令到设备端。
 ```
 rhf76_incoming_data_process 4: 0F00
@@ -268,4 +273,5 @@ len: 2
 data[0]: 15
 data[1]: 0
 report_period: 15
+
 ```

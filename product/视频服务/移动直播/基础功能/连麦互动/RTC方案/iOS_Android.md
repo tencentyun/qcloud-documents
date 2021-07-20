@@ -21,6 +21,10 @@
 | Android | <img width="150" src="https://main.qcloudimg.com/raw/bff0cfca4585c448f308b339a6c17c1c.png"> | [Github](https://github.com/tencentyun/LiteAVProfessional_Android) | [Demo/livelinkmicdemonew](https://github.com/tencentyun/LiteAVProfessional_Android/tree/master/Demo/livelinkmicdemonew) |
 | iOS     | <img width="150" src="https://main.qcloudimg.com/raw/83973196cc1fc9972320182eb283d406.png"> | [Github](https://github.com/tencentyun/LiteAVProfessional_iOS) | [Demo/TXLiteAVDemo/LiveLinkMicDemoNew](https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo/TXLiteAVDemo/LiveLinkMicDemoNew) |
 
+>?除上述示例外，针对开发者的接入反馈的高频问题，腾讯云提供有更加简洁的 API-Example 工程，方便开发者可以快速的了解相关 API 的使用，欢迎使用。
+>- iOS：[MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)
+>- Android：[MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example)
+
 
 
 ### 体验说明
@@ -91,9 +95,9 @@ trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 | **trtc://**           | 互动直播推流 URL 的前缀字段                                  |
 | **cloud.tencent.com** | 互动直播特定域名，**请勿修改**                               |
 | **push**              | 标识位，表示推流                                             |
-| **sdkappid**          | 对应 [**服务开通**](#RegistrationService) 一节中生成的 SDKAppID |
+| **sdkappid**          | 对应 [服务开通](#step1) 一节中生成的 SDKAppID |
 | **userId**            | 主播 ID，需要由开发者自定义                                  |
-| **usersig**           | 对应 [**服务开通**](#RegistrationService) 中获取的 UserSig 密钥 |
+| **usersig**           | 对应 [服务开通](#step1) 中获取的 UserSig 密钥 |
 
 
 #### 示例代码
@@ -251,7 +255,7 @@ config.mixStreams.add(remoteB);
 pusher.setMixTranscodingConfig(config);
 ```
 
-> ! 发起云端混流后，默认混流id，是发起混流者的id，如果需要指定流 ID，需要进行传入。
+> ! 发起云端混流后，默认混流 ID，是发起混流者的 ID，如果需要指定流 ID，需要进行传入。
 
 这样其他其他观众在观看时，就可以看到 A，B 两个主播的连麦互动。
 
@@ -543,7 +547,7 @@ RTC 连麦互动直播服务后付费有 [日结](#daily) 和 [月结](#monthly)
 #### 1. 为什么使用 `V2TXLivePusher&V2TXLivePlayer` 接口时，同一台设备不支持使用相同 streamid 同时推流和拉流，而 `TXLivePusher&TXLivePlayer` 可以支持？
 是的，目前 `V2TXLivePusher&V2TXLivePlayer` 是 [腾讯云 TRTC](https://cloud.tencent.com/document/product/647/45151) 协议实现，其基于 UDP 的超低延时的私有协议暂时还不支持同一台设备使用相同的 streamid 进行通信，同时考虑到用户的使用场景，所以暂时并未支持，后续会酌情考虑此问题的优化。
 
-#### 2. [**服务开通**](#RegistrationService) 章节中生成参数都是什么意思呢？
+#### 2. [**服务开通**](#step1) 章节中生成参数都是什么意思呢？
 SDKAppID 用于标识您的应用，UserID 用于标识您的用户，而 UserSig 则是基于前两者计算出的安全签名，它由 **HMAC SHA256** 加密算法计算得出。只要攻击者不能伪造 UserSig，就无法盗用您的云服务流量。UserSig 的计算原理如下图所示，其本质就是对 SDKAppID、UserID、ExpireTime 等关键信息进行了一次哈希加密：
 ```Cpp
 //UserSig 计算公式，其中 secretkey 为计算 usersig 用的加密密钥
