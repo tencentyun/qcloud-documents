@@ -124,16 +124,16 @@ Container 类型 Snapshot 的具体数据描述如下：
 | :----------------- | :----- | :----------------------------------------------------- | :-------- |
 | Response           | 无     | 保存结果的容器 | Container |
 
-Container节点 Response 的内容：
+Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
-| Tag                | Response | 模版类型，Snapshot                                           | String    |
-| Name               | Response | 模版名字                                                     | String    |
-| TemplateId         | Response | 模版 ID                                                      | String    |
+| Tag                | Response | 模板类型，Snapshot                                           | String    |
+| Name               | Response | 模板名字                                                     | String    |
+| TemplateId         | Response | 模板 ID                                                      | String    |
 | UpdateTime         | Response | 更新时间                                                     | String    |
 | CreateTime         | Response | 创建时间                                                     | String    |
-| Snapshot           | Response | 其详细的模版参数，同上述请求体部分 Snapshot 说明 | Container |
+| Snapshot           | Response | 其详细的模板参数，同上述请求体部分 Snapshot 说明 | Container |
 
 
 #### 错误码
@@ -146,8 +146,8 @@ Container节点 Response 的内容：
 
 ```shell
 POST /template HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
 
