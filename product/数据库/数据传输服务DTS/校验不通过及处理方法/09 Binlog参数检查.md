@@ -4,7 +4,7 @@
 - `log_bin` 变量必须设置为 `ON`。
 - `binlog_format` 变量必须设置为 `ROW`。
 - `binlog_row_image` 必须设置为 `FULL`。
-- 如果源数据库为 MySQL 5.6 及以上版本，`gtid_mode` 只支持设置为 `ON` 和 `OFF`，建议将 `gtid_mode` 设置为 `ON`，设置为 `OFF` 会报警告，设置为`ON_PERMISSIVE`和`OFF_PERMISSIVE`会报错。
+- 如果源数据库为 MySQL 5.6 及以上版本，`gtid_mode` 只支持设置为 `ON` 和 `OFF`，建议将 `gtid_mode` 设置为 `ON`，设置为 `OFF` 会报警告，设置为 `ON_PERMISSIVE` 和 `OFF_PERMISSIVE` 会报错。
 - `server_id` 参数需要手动设置，且值不能设置为0。
 - 不允许设置 `do_db`，`ignore_db`。
 - 对于源实例为从库的情况，`log_slave_updates` 变量必须设置为 `ON`。
