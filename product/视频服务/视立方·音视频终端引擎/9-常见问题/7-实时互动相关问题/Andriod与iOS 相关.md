@@ -68,9 +68,4 @@
 可以。[Version 7.6 版本](https://cloud.tencent.com/document/product/647/32689) 开始支持一个用户进入多个房间了。
 
 
-[](id:que16)
-
-
-
-
 
