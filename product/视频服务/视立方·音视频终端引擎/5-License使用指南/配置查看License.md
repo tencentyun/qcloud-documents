@@ -16,10 +16,7 @@
 TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 ```
 
-> 注意：
->
-> 使用美颜特效功能时，License 设置方法如上，但工程需要额外进行配置，具体操作请参见：
->
+> !使用美颜特效功能时，License 设置方法如上，但工程需要额外进行配置，具体操作请参见：
 > - [直播美颜特效（iOS）](https://cloud.tencent.com/document/product/1449/57132?!editLang=zh&!preview)
 > - [直播美颜特效（Android）](https://cloud.tencent.com/document/product/1449/57134?!editLang=zh&!preview)
 
