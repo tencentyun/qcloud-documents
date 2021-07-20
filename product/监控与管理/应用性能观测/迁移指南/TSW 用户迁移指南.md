@@ -59,6 +59,6 @@ java -javaagent:<skywalking-agent-path> -jar yourApp.jar
 
 添加小助手微信（微信号：hitherecm ），回复 “APM” ，小助手将会拉您进入微信交流群。
 直接扫描以下二维码，添加小助手微信，小助手将会拉您进入微信交流群。
-<img src="https://main.qcloudimg.com/raw/c20740abb44f5cdf8de337879b658366.jpg" style="width: 30%"></img>
+<img src="https://main.qcloudimg.com/raw/c20740abb44f5cdf8de337879b658366.jpg" style="width: 20%"></img>
 </dx-alert>
 
