@@ -60,13 +60,13 @@ Content-Type: application/xml
 
 具体数据描述如下：
 
-| 节点名称（关键字） | 父节点 | 描述           | 类型      | 必选 |
+| 节点名称（关键字） | 父节点 | 描述           | 类型      | 是否必选 |
 | ------------------ | ------ | -------------- | --------- | ---- |
 | Request            | 无     | 保存请求的容器 | Container | 是   |
 
 Container 类型 Request 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
 | Tag                | Request | 模板类型：Snapshot                                    | String    | 是   |
 | Name               | Request | 模板名称仅支持中文、英文、数字、_、-和*                   | String    | 是   |
@@ -75,7 +75,7 @@ Container 类型 Request 的具体数据描述如下：
 
 Container 类型 Snapshot 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
 | Mode                | Request.Snapshot | 截图模式 | String    | 否   | Interval | <li>值范围：{Interval, Average}</li><li>Interval 表示间隔模式 Average 表示平均模式</li><li> Interval 模式：Start，TimeInterval，<br/>Count 参数生效。当设置 Count，未设置 TimeInterval 时，<br/>表示截取所有帧，共 Count 张图片</li><li>Average 模式：Start，Count 参数生效。表示<br/>从 Start 开始到视频结束，按平均间隔截取共 Count 张图片</li>|
 | Start                | Request.Snapshot | 开始时间 | String    | 否   | 0 | <li>[0 视频时长] </li><li>单位为秒 </li><li>支持 float 格式，执行精度精确到毫秒</li> |
