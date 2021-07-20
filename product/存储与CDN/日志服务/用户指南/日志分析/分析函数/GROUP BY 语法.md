@@ -32,11 +32,11 @@ GROUP BY语法支持按照列名、别名或序号进行分组，详细说明如
 ```
 * | SELECT date_trunc('minute', cast(__TIMESTAMP__ as timestamp)) AS dt, count(*) AS pv GROUP BY dt ORDER BY dt limit 10                             
 ```
-__TIMESTAMP__ 字段为日志服务中的保留字段，表示时间列。**dt**为 date_trunc('minute', cast(__TIMESTAMP__ as timestamp)) 的别名。date_trunc() 函数的更多信息，请参见 [时间截断函数](https://cloud.tencent.com/document/product/614/44065)。
+\_\_TIMESTAMP\_\_ 字段为日志服务中的保留字段，表示时间列。**dt**为 date_trunc('minute', cast(\_\_TIMESTAMP\_\_ as timestamp)) 的别名。date_trunc() 函数的更多信息，请参见 [时间截断函数](https://cloud.tencent.com/document/product/614/44065)。
 ![image-20210718230110351](https://main.qcloudimg.com/raw/b4e1afcc9b64191e76600d190fd61922.png)
 >?
 > - limit 10表示最多获取10行结果。如果不使用 LIMIT 语法，则默认获取100行结果。
-> - 在索引配置中，当您开启任意字段的统计功能后，日志服务会自动开启 __TIMESTAMP__ 字段的统计功能。
+> - 在索引配置中，当您开启任意字段的统计功能后，日志服务会自动开启 \_\_TIMESTAMP\_\_ 字段的统计功能。
 > 
 - 按照每5分钟的时间粒度，计算 PV。
 因为 date_trunc() 函数只能按照固定时间间隔统计。如果您需要按照自定义的时间进行统计分析，请按照数学取模方法进行分组。
