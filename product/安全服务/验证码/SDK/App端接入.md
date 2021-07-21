@@ -1,7 +1,6 @@
-本文将为您介绍 App（iOS 和 Android）如何通过 Web 前端 H5 方式接入验证码。
 ## 前提条件
-接入验证码前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret。注册完成后，您可以在控制台的基础配置中，查看 AppID 以及 AppSecret。
->!小程序插件 AppID 仅限 [小程序插件接入方式](https://cloud.tencent.com/document/product/1110/49319) 使用，请勿使用在 Web 前端接入。
+接入验证码前，进入[图形验证](https://console.cloud.tencent.com/captcha/graphical)  页完成新建验证。可在【验证列表】查看 验证码接入所需的 CaptchaAppId 及 AppSecretKey。
+![](https://main.qcloudimg.com/raw/a15105526bbcf8c0b51b5cdafeefb92c.png)
 
 ## 接入步骤
 以下为 App 端接入流程，适用于每次都需要进行人机验证的场景（如登录、注册、下发短信、活动等），App（iOS 和 Android） 皆使用 Web 前端 H5 方式进行接入。
@@ -28,55 +27,55 @@ import android.webkit.WebChromeClient;
 3. 在 Activity 的布局文件中，添加 WebView 组件。
 ```
 <WebView
-	 android:id="@+id/webview"
-     android:layout_height="match_parent"
-     android:layout_width="match_parent"
+android:id="@+id/webview"
+android:layout_height="match_parent"
+android:layout_width="match_parent"
 />
 ```
 4. 在项目的工程中，添加自定义 JavascriptInterface 文件，并定义一个方法用来获取相关数据。
 ```
 import android.webkit.JavascriptInterface;
 public class JsBridge {
-     @JavascriptInterface
-     public void getData(String data) {
-         System.out.println(data);
-     }
- }
+@JavascriptInterface
+public void getData(String data) {
+System.out.println(data);
+}
+}
 ```
 5. 在 Activity 文件中，加载相关 H5 业务页面。
 ```
- public class MainActivity extends AppCompatActivity {
-     private WebView webview;
-	 private WebSettings webSettings;
-	 
-     @Override
-     protected void onCreate(Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
-         setContentView(R.layout.activity_main);
-         initView();
-     }
-	 
-     private void initView() {
-         webview = (WebView) findViewById(R.id.webview);
-		 webSettings = webview.getSettings();
-         webSettings.setUseWideViewPort(true);
-         webSettings.setLoadWithOverviewMode(true);
-         // 禁用缓存
-         webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
-         webview.setWebViewClient(new WebViewClient(){
-             @Override
-             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                 view.loadUrl(url);
-                 return true;
-             }
-         });
-         // 开启js支持
-         webSettings.setJavaScriptEnabled(true);
-         webview.addJavascriptInterface(new JsBridge(), "jsBridge");
-		 // 也可以加载本地html(webView.loadUrl("file:///android_asset/xxx.html"))
-         webview.loadUrl("https://x.x.x/x/");
-     }
- }
+public class MainActivity extends AppCompatActivity {
+private WebView webview;
+private WebSettings webSettings;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+initView();
+}
+
+private void initView() {
+webview = (WebView) findViewById(R.id.webview);
+webSettings = webview.getSettings();
+webSettings.setUseWideViewPort(true);
+webSettings.setLoadWithOverviewMode(true);
+// 禁用缓存
+webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+webview.setWebViewClient(new WebViewClient(){
+@Override
+public boolean shouldOverrideUrlLoading(WebView view, String url) {
+view.loadUrl(url);
+return true;
+}
+});
+// 开启js支持
+webSettings.setJavaScriptEnabled(true);
+webview.addJavascriptInterface(new JsBridge(), "jsBridge");
+// 也可以加载本地html(webView.loadUrl("file:///android_asset/xxx.html"))
+webview.loadUrl("https://x.x.x/x/");
+}
+}
 ```
 6. 在 H5 业务页面中，集成验证码 SDK，并通过 JS 调用 SDK 获取验证码相关数据，最后使用 JSBridge 传回数据给具体业务端。
 >!如需隐藏验证码帮助按钮等功能，请参见 [Web 前端接入](https://cloud.tencent.com/document/product/1110/36841) 文档。
@@ -86,26 +85,46 @@ public class JsBridge {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo</title>
-</head>
+    <title>Web 前端接入示例</title>
+    <!-- 验证码程序依赖(必须)。请勿修改以下程序依赖，如使用本地缓存，或通过其他手段规避加载，会影响程序的正常使用。 -->
     <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-<body>    
+</head>
+
+<body>
+    <!--点击此元素会自动激活验证码, 此例使用的button元素, 也可以使用div、span等-->
+    <!--id :            (不可变) 元素的 ID, 值必须是 'TencentCaptcha'-->
+    <!--data-appid :    (必须) 验证码CaptchaAppId, 从腾讯云的验证码控制台中获取, 验证码控制台页面内【图形验证】>【验证列表】进行查看 。如果未新建验证，请根据业务需求选择适合的验证渠道、验证场景进行新建-->
+    <!--data-cbfn :     (必须) 回调函数名, 函数名要与 data-cbfn 相同-->
+    <!--data-biz-state :(可选) 业务自定义透传参数, 会在回调函数内获取到 （res.bizState）-->
+    <button id="TencentCaptcha" data-appid="你的验证码CaptchaAppId" data-cbfn="callbackName" data-biz-state="data-biz-state"
+        type="button">验证</button>
 </body>
+
 <script>
-    var captcha = new TencentCaptcha('appId', function(res) {
-        /* callback */
-                if(res && res.ret === 0) {
-                        // 获取票据、随机数并调用App端注入的方法传入票据、随机数，进行后台票据校验
-						var result = { randstr:res.randstr, ticket:res.ticket };
-					    window.jsBridge.getData(JSON.stringify(result));
-                }
-    });
-    captcha.show(); // 显示验证码
+    // 回调函数需要放在全局对象window下
+    window.callbackName = function (res) {
+        // 返回结果
+        // ret         Int       验证结果，0：验证成功。2：用户主动关闭验证码。
+        // ticket	  String	验证成功的票据，当且仅当 ret = 0 时 ticket 有值。
+        // CaptchaAppId	   String	验证码应用ID。
+        // bizState	Any	   自定义透传参数。
+        // randstr	 String	本次验证的随机串，请求后台接口时需带上。
+        console.log('callback:', res);
+
+
+        // res（用户主动关闭验证码）= {ret: 2, ticket: null}
+        // res（验证成功） = {ret: 0, ticket: "String", randstr: "String"}
+        if (res.ret === 0) {
+                // 获取票据、随机数并调用App端注入的方法传入票据、随机数，进行后台票据校验
+                var result = { randstr:res.randstr, ticket:res.ticket };
+                window.jsBridge.getData(JSON.stringify(result));
+        }
+    }
 </script>
 </html>
 ```
-
 
 
 ### iOS 接入
@@ -122,38 +141,35 @@ public class JsBridge {
 2. 创建 WebView 并渲染。
 ```
 -(WKWebView *)webView{
-    if(_webView == nil){    
-        //创建网页配置对象
-        WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
-        // 创建设置对象
-        WKPreferences *preference = [[WKPreferences alloc]init];
-        //设置是否支持 javaScript 默认是支持的
-        preference.javaScriptEnabled = YES;
-        // 在 iOS 上默认为 NO，表示是否允许不经过用户交互由 javaScript 自动打开窗口
-        preference.javaScriptCanOpenWindowsAutomatically = YES;
-        config.preferences = preference;      
-        //这个类主要用来做 native 与 JavaScript 的交互管理
-        WKUserContentController * wkUController = [[WKUserContentController alloc] init];
-        //注册一个name为jsToOcNoPrams的js方法 设置处理接收JS方法的对象
-        [wkUController addScriptMessageHandler:self  name:@"jsToOcNoPrams"];
-        [wkUController addScriptMessageHandler:self  name:@"jsToOcWithPrams"]; 
-        config.userContentController = wkUController;
-        //用于进行 JavaScript 注入
-        WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jSString injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
-        [config.userContentController addUserScript:wkUScript];       
-        _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) configuration:config];
-        // UI 代理
-        _webView.UIDelegate = self;
-        // 导航代理
-        _webView.navigationDelegate = self;        
-        //此处即需要渲染的网页
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"JStoOC.html" ofType:nil];
-        NSString *htmlString = [[NSString alloc]initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-        [_webView loadHTMLString:htmlString baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];       
-    }
-    return _webView;
+if(_webView == nil){    
+    //创建网页配置对象
+    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+    // 创建设置对象
+    WKPreferences *preference = [[WKPreferences alloc]init];
+    //设置是否支持 javaScript 默认是支持的
+    preference.javaScriptEnabled = YES;
+    // 在 iOS 上默认为 NO，表示是否允许不经过用户交互由 javaScript 自动打开窗口
+    preference.javaScriptCanOpenWindowsAutomatically = YES;
+    config.preferences = preference;      
+    //这个类主要用来做 native 与 JavaScript 的交互管理
+    WKUserContentController * wkUController = [[WKUserContentController alloc] init];
+    //注册一个name为jsToOcNoPrams的js方法 设置处理接收JS方法的对象
+    [wkUController addScriptMessageHandler:self  name:@"jsToOcNoPrams"];
+    [wkUController addScriptMessageHandler:self  name:@"jsToOcWithPrams"]; 
+    config.userContentController = wkUController;     
+    _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) configuration:config];
+    // UI 代理
+    _webView.UIDelegate = self;
+    // 导航代理
+    _webView.navigationDelegate = self;        
+    //此处即需要渲染的网页
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"JStoOC.html" ofType:nil];
+    NSString *htmlString = [[NSString alloc]initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    [_webView loadHTMLString:htmlString baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];       
 }
-    [self.view addSubview:self.webView];
+return _webView;
+}
+[self.view addSubview:self.webView];
 ```
 3. 代理方法，处理一些响应事件。
 ```
@@ -162,18 +178,18 @@ public class JsBridge {
 }
 // 页面加载失败时调用
 -(void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
-    [self.progressView setProgress:0.0f animated:NO];
+[self.progressView setProgress:0.0f animated:NO];
 }
 // 当内容开始返回时调用
 -(void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
 }
 // 页面加载完成之后调用
 -(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    [self getCookie];
+[self getCookie];
 }
 //提交发生错误时调用
 -(void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
-    [self.progressView setProgress:0.0f animated:NO];
+[self.progressView setProgress:0.0f animated:NO];
 }
 // 接收到服务器跳转请求即服务重定向时之后调用
 -(void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(WKNavigation *)navigation {
@@ -184,7 +200,7 @@ public class JsBridge {
 <p style="text-align:center"> <button id="btn2" type = "button" onclick = "jsToOcFunction()"> JS调用OC：带参数  </button> </p>
 function jsToOcFunction()
 {
-    window.webkit.messageHandlers.jsToOcWithPrams.postMessage({"params":"res.randstr"});
+window.webkit.messageHandlers.jsToOcWithPrams.postMessage({"params":"res.randstr"});
 }
 ```
 5. 将渲染好的 WebView 展示在视图上，调用验证码服务，将数据传给客户端。
@@ -192,17 +208,17 @@ function jsToOcFunction()
 >
 ```
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
-    此处message.body即传给客户端的json数据 
-    //用message.body获得JS传出的参数体
-    NSDictionary * parameter = message.body;
-    //JS调用OC
-    if([message.name isEqualToString:@"jsToOcWithPrams"]){
-    //在此处客户端得到js透传数据  并对数据进行后续操作
-    parameter[@"params"]
-    }
+此处message.body即传给客户端的json数据
+//用message.body获得JS传出的参数体
+NSDictionary * parameter = message.body;
+//JS调用OC
+if([message.name isEqualToString:@"jsToOcWithPrams"]){
+//在此处客户端得到js透传数据 并对数据进行后续操作
+parameter[@"params"]
+}
 }
 ```
+>!验证码客户端接入完成后，验证码后台需二次核查验证码票据结果，请进行 [后台 API 接入](https://console.cloud.tencent.com/api/explorer?Product=captcha&Version=2019-07-22&Action=DescribeCaptchaResult&SignVersion=) 操作，确保验证安全性。更多详情请参见 [核查验证码票据文档](https://cloud.tencent.com/document/product/1110/36926) 。
 
-
-## 后续步骤
-至此，验证码客户端接入已完成，验证码后台需二次核查验证码票据结果，您需要进行后台 API 接入，即 [核查验证码票据结果](https://cloud.tencent.com/document/product/1110/36926) 操作，确保验证安全性。
+## 更多信息
+您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击【快速咨询】，了解更多详细信息。

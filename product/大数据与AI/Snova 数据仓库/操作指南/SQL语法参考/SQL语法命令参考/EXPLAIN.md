@@ -1,7 +1,6 @@
 显示一个语句的查询计划。
 
 ## 概要
-
 ```sql
 EXPLAIN [ANALYZE] [VERBOSE] statement
 ```
@@ -10,6 +9,7 @@ EXPLAIN [ANALYZE] [VERBOSE] statement
 EXPLAIN 显示计划器为提供的语句所生成的查询计划。查询计划是一颗节点计划树。在计划中的每个节点代表了一个操作，例如表扫描、连接、聚集或者是一个排序操作。
 
 因为每个节点直接向它上面的节点提供行结果，所以计划应该从下往上进行阅读。最底层的节点通常是一些表扫描操作（顺序扫描、索引扫描或者是位图扫描）。
+
 如果查询要求连接、聚集或者排序（或者其他在原始行上的操作），那么需要在扫描节点增加这些操作的节点。计划最顶层的节点通常是的 motion 节点（重分布、显式重分布、广播或者聚集 motion）。这些操作符代表了在查询处理期间在分片示例之间移动行数据。
 
 EXPLAIN 的输出是树中每个节点有一行，显示基本的节点类型，紧接着是由计划器为执行该计划节点时的代价评估：
@@ -20,7 +20,7 @@ EXPLAIN 的输出是树中每个节点有一行，显示基本的节点类型，
 
 EXPLAIN ANALYZE 导致该语句被实际执行，而不仅是被计划。EXPLAIN ANALYZE 计划显示实际的结果以及计划器的评估。这个对于看是否计划器评估接近实际的情况非常有用。除了显示在 EXPLAIN 计划中的信息，EXPLAIN ANALYZE 还要外加显示下面的信息：
 - 总的花费在执行该查询的时间间隔（以毫秒为单位）。
-- 在一个计划节点操作中涉及到的*workers*（Segment）的数量。只有返回行的 Segment 被计入。
+- 在一个计划节点操作中涉及到的 *workers*（Segment）的数量。只有返回行的 Segment 被计入。
 - 一个操作中输出最多行的 Segment 返回的最大行数。如果多个 Segment 输出了相同数量的行数，取 *time to end* 最长的那个 Segment。
 - 在一个操作中输出最多行的 Segment 的 ID。
 - 对于相关的操作，该操作使用的 work_mem。如果 work_mem 不足以在内存中执行操作，计划将显示有多少数据溢出到磁盘上以及对于使用工作内存最少的执行 Segment 要求了多少趟对数据的处理。例如：
@@ -55,7 +55,6 @@ parameter
 
 ## 示例
 为展示如何阅读一个 EXPLAIN 查询计划，以下展示的一个简单查询的例子：
-
 ```sql
 EXPLAIN SELECT * FROM names WHERE name = 'Joelle';
                      QUERY PLAN
@@ -65,7 +64,6 @@ Gather Motion 2:1 (slice1) (cost=0.00..20.88 rows=1 width=13)
    -> Seq Scan on 'names' (cost=0.00..20.88 rows=1 width=13)
          Filter: name::text ~~ 'Joelle'::text
 ```
-
 如果我们从下往上阅读该计划，查询优化器开始于顺序扫描表 names。**WHERE 子句作为一个过滤条件被应用。这意味着一个扫描操作要检验扫描中的每一行是否满足该条件，同时返回那些满足条件的行。**
 
 扫描操作的结果将向上传递到一个 *gather motion* 操作。在数据库中，*gather motion* 是 Segment 向上传递行到 Master 的时机。

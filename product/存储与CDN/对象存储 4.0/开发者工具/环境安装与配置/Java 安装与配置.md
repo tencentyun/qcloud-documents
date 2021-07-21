@@ -1,14 +1,18 @@
 JDK 是 Java 软件开发工具包，本文以 JDK 1.7 和 1.8 版本为例，分别介绍了在 Windows 和 Linux 系统下， JDK 的安装与环境配置过程。
 
 ## Windows
+
 #### 1.下载 JDK
+
 进入 [Oracle 官方网站](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 下载合适的 JDK 版本。
+
 #### 2. 安装
-根据提示一步步安装，安装过程中可以自定义安装目录（默认安装到 C 盘），例如我们选择的安装目录为：
-`D:\Program Files\Java\jdk1.8.0_31`
-`D:\Program Files\Java\jre1.8.0_31`
+
+根据提示一步步安装，安装过程中可以自定义安装目录（默认安装到 C 盘），例如我们选择的安装目录为：`D:\Program Files\Java\jdk1.8.0_31`和`D:\Program Files\Java\jre1.8.0_31`。
 ![本地同步工具1](//mc.qcloudimg.com/static/img/0652f9759c4f7fa7e61aa406ca1ad822/image.png)
+
 #### 3. 配置
+
 安装完成后，右键单击【计算机】> 【属性】>【高级系统设置】>【环境变量】>【系统变量】>【新建】，分别配置软件。
 变量名(N)：**JAVA_HOME**   
 变量值(V)：`D:\Program Files\Java\jdk1.8.0_31`（请根据您的实际安装路径进行配置）。
@@ -19,6 +23,7 @@ JDK 是 Java 软件开发工具包，本文以 JDK 1.7 和 1.8 版本为例，�
 变量名(N)：**Path**
 变量值(V)：`%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;`
 ![本地同步工具4](//mc.qcloudimg.com/static/img/5ee8cc105d52f9052cc49251ce88ed9a/image.png)
+
 #### 4. 测试
 测试配置是否成功：单击【开始】（或快捷键：Win+R）>【运行】（输入 cmd）>【确定】（或按 Enter 键），输入命令 javac 并回车。若出现如下图所示信息，则说明环境变量配置成功。
 ![本地同步工具5](//mc.qcloudimg.com/static/img/83f8417d6f540c20182267acba29f2ad/image.png)
@@ -28,9 +33,10 @@ JDK 是 Java 软件开发工具包，本文以 JDK 1.7 和 1.8 版本为例，�
 
 #### 1.下载 JDK
 进入 [Oracle 官方网站](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 下载合适的 JDK 版本，准备安装。
->!这里需要下载 Linux 版本。这里以 jdk-8u151-linux-x64.tar.gz 为例，您下载的文件可能不是这个版本，这没关系，只要后缀（.tar.gz）一致即可。
+>!下面以 jdk-8u151-linux-x64.tar.gz 为例，如果您下载的是其他版本，请注意文件后缀为 .tar.gz 即可。
 
 #### 2. 创建目录 
+
 执行如下命令，在 /usr/ 目录下创建 java 目录。
 ```shell
 mkdir /usr/java
@@ -39,24 +45,26 @@ cd /usr/java
 将下载的文件 jdk-8u151-linux-x64.tar.gz 复制到 /usr/java/ 目录下。 
 
 #### 3. 解压 JDK
+
 执行如下命令，解压文件。
 ```shell
 tar -zxvf jdk-8u151-linux-x64.tar.gz 
 ```
 
 #### 4. 设置环境变量
+
 编辑 /etc/profile 文件，在 profile 文件中添加如下内容并保存：
 ```shell
 set java environment
-JAVA_HOME=/usr/java/jdk1.8.0_151        
+JAVA_HOME=/usr/java/jdk1.8.0_151        
 JRE_HOME=/usr/java/jdk1.8.0_151/jre     
 CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
 PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
 export JAVA_HOME JRE_HOME CLASS_PATH PATH 
 ```
->!其中 JAVA_HOME， JRE_HOME 请根据自己的实际安装路径及 JDK 版本配置。
+>!其中 JAVA_HOME，JRE_HOME 请根据自己的实际安装路径及 JDK 版本配置。
 
-使修改生效：
+使之修改生效，执行如下：
 ```shell
 source /etc/profile 
 ```
@@ -66,6 +74,7 @@ source /etc/profile
 ```sh
 java -version
 ```
+
 若显示 Java 版本信息，则说明 JDK 安装成功：
 ```shell
 java version "1.8.0_151"

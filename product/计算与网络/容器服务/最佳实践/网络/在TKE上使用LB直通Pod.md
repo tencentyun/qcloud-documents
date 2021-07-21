@@ -1,8 +1,8 @@
 ## 概述
 
-Kubernetes 官方提供了 NodePort 类型的 Service，即给所有节点开通一个相同端口用于暴露该 Service。大多云上负载均衡 （Cloud Load Balancer，CLB） 类型 Service 的传统实现也都是基于 NodePort。即 CLB 后端绑定各节点的 NodePort，CLB 接收外界流量，转发到其中一个节点的 NodePort 上，再通过 Kubernetes 内部的 CLB，使用 iptables 或 ipvs 转发到 Pod。示意图如下：
+Kubernetes 官方提供了 NodePort 类型的 Service，即给所有节点开通一个相同端口用于暴露该 Service。大多云上负载均衡 （Cloud Load Balancer，CLB） 类型 Service 的传统实现也都是基于 NodePort。即 CLB 后端绑定各节点的 NodePort，CLB 接收外界流量，转发到其中一个节点的 NodePort 上，再通过 Kubernetes 内部的负载均衡，使用 iptables 或 ipvs 转发到 Pod。示意图如下：
 <img style="width:80%" src="https://main.qcloudimg.com/raw/dd6fa146520ca178ab17bc94e7f0fb1f.png" data-nonescope="true">
-容器服务 TKE 使用相同的方式实现默认 CLB 类型 Service 与 Ingress，但目前还支持 CLB 直通 Pod 的方式，即 CLB  后端直接绑定 Pod IP + Port，不绑定节点的 NortPort。示意图如下：
+容器服务 TKE 使用相同的方式实现默认 CLB 类型 Service 与 Ingress，但目前还支持 CLB 直通 Pod 的方式，即 CLB  后端直接绑定 Pod IP + Port，不绑定节点的 NodePort。示意图如下：
 <img style="width:35%" src="https://main.qcloudimg.com/raw/26a46cfd9e9687ec455260028b19353f.png" data-nonescope="true">
 
 
@@ -36,7 +36,7 @@ CLB 直接绑定 Pod 时检查 Pod 是否 Ready，需查看 Pod 是否 Running�
 目前 CLB 直通 Pod 的实现基于弹性网卡，暂不支持普通的网络模式。
 
 ## 操作步骤
-### 确认是否开启弹性网卡<span id="ElasticNetworkCard"></span>
+### 确认是否开启弹性网卡[](id:ElasticNetworkCard)
 请对应您的实际情况，按照以下步骤进行操作：
 - 若您在创建集群时，“容器网络插件”选择为【VPC-CNI】，则创建的 Pod 已默认使用了弹性网卡，请跳过此步骤。
 - 若您在创建集群时，“容器网络插件”选择为【Global Router】后开启了 VPC-CNI 支持。则为两种模式混用，创建的 Pod 默认不适用弹性网卡，需使用 YAML 创建工作负载，为 Pod 指定 `tke.cloud.tencent.com/networks: tke-route-eni` 该 annotation 来声明使用弹性网卡，并为其中一个容器添加例如 `tke.cloud.tencent.com/eni-ip: "1"`  的 requests 与 limits。YAML 示例如下：

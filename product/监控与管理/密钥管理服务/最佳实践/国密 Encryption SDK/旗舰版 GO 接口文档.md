@@ -23,7 +23,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 | KmsServiceError      | KMS 服务未开通        |
 | UserEditionError     | KMS 未升级为旗舰版    |
 
-## 初始化SDK接口
+## 初始化 SDK 接口
 
 ### InitSdk
 - 功能描述：检验用户是否已开通 KMS 旗舰版服务。
@@ -55,16 +55,25 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 <td>string</td>
 <td>云账号 API 密钥 Key 值</td>
 </tr>
+<tr>
+<td>domainName</td>
+<td>是</td>
+<td>string</td>			
+<td>域名信息字符串</td>
+</tr>
+
 </tbody></table>
+
 - 返回值：接口返回 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示初始化成功。
   - 当接口返回值为非nil，代表初始化失败， 详情请参见 [错误码](#test)。
- 
->!
->  - 需注意 SecretId 和 SecretKey 的保密存储：腾讯云接口认证主要依靠 SecretID 和 SecretKey，SecretID 和 SecretKey 是用户的唯一认证凭证。业务系统需要该凭证调用腾讯云接口。
->  - 需注意 SecretID 和 SecretKey 的权限控制：建议使用子账号，根据业务需要进行接口授权的方式管控风险。
 
-## KMS加密方式的接口说明
+>!
+> - 需注意 SecretId 和 SecretKey 的保密存储：腾讯云接口认证主要依靠 SecretID 和 SecretKey，SecretID 和 SecretKey 是用户的唯一认证凭证。业务系统需要该凭证调用腾讯云接口。
+> - 需注意 SecretID 和 SecretKey 的权限控制：建议使用子账号，根据业务需要进行接口授权的方式管控风险。
+> - 需注意 domainName 的设置：如果domainName入参为""，则从环境变量TENCENT_SDK_DOMAIN中读取值，反之，则以入参为准。
+
+## KMS 加密方式的接口说明
 
 ### NewMasterKey
 
@@ -201,7 +210,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
   - 当接口返回值为 nil，表示初始化成功。
   - 当接口返回值为非 nil，代表初始化失败， 详情请参见 [错误码](#test)。
 
-#### Encrypt
+### Encrypt
 
 - 功能描述：使用 KMS 平台创建的 DataKey，进行本地数据加密。
 - 输入参数：
@@ -304,14 +313,14 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 
 | 枚举值                       | 数值 | 说明                            |
 | ---------------------------- | ---- | ------------------------------- |
-| C.SM4_CBC_128_WITH_SIGNATURE | 1    | 使用 SM3 HAC 签名的 SM4 CBC模式     |
-| C.SM4_CBC_128                | 2    | 不使用签名的SM4 CBC模式加密     |
-| C.SM4_GCM_128_WITH_SIGNATURE | 3    | 使用 SM3 HAC 签名的 SM4 GCM 模式     |
-| C.SM4_GCM_128                | 4    | 不使用签名的 SM4 GCM 模式加密算法 |
-| C.SM4_CTR_128_WITH_SIGNATURE | 5    | 使用 SM3HAC 签名的 SM4 CTR 模式     |
-| C.SM4_CTR_128                | 6    | 不使用签名的 SM4 CTR 模式         |
-| C.SM4_ECB_128_WITH_SIGNATURE | 7    | 使用 SM3 HAC 签名的 SM4 ECB 模式     |
-| C.SM4_ECB_128                | 8    | 不使用签名的 SM4 ECB 模式         |
+| SM4_CBC_128_WITH_SIGNATURE | 1    | 使用 SM3 HAC 签名的 SM4 CBC模式     |
+| SM4_CBC_128                | 2    | 不使用签名的SM4 CBC模式加密     |
+| SM4_GCM_128_WITH_SIGNATURE | 3    | 使用 SM3 HAC 签名的 SM4 GCM 模式     |
+| SM4_GCM_128                | 4    | 不使用签名的 SM4 GCM 模式加密算法 |
+| SM4_CTR_128_WITH_SIGNATURE | 5    | 使用 SM3HAC 签名的 SM4 CTR 模式     |
+| SM4_CTR_128                | 6    | 不使用签名的 SM4 CTR 模式         |
+| SM4_ECB_128_WITH_SIGNATURE | 7    | 使用 SM3 HAC 签名的 SM4 ECB 模式     |
+| SM4_ECB_128                | 8    | 不使用签名的 SM4 ECB 模式         |
 
 <span id="test6"></span>
 ### C.EncryptedDataKey 结构体说明
@@ -359,14 +368,14 @@ import (
 
 func ECBEnAndDeWithSignTest(){
     masterKeys := make([]byte, 1024)
-	NewMasterKey(masterKeys,"ap-guangzhou","replace-with-****keyid")
-	AddMasterKey(masterKeys,"ap-shanghai","replace-with-****keyid")
+	NewMasterKey(masterKeys,"ap-guangzhou","replace-with-realkeyid")
+	AddMasterKey(masterKeys,"ap-shanghai","replace-with-realkeyid")
 	
 	f := &C.struct_KeyManager{}
 	header_en := &C.struct_MsgHead{}
 	header_de := &C.struct_MsgHead{}
 
-	error := InitKeyManager(f,string(masterKeys),0,0,0,"replace-with-real-secretId"," replace-with-real-****etKey ")
+	error := InitKeyManager(f,string(masterKeys),0,0,0,"replace-with-real-secretId"," replace-with-real-secretKey ")
 	if ( nil != error ){
 		fmt.Println(error.Error())
 		return 
@@ -390,7 +399,7 @@ func ECBEnAndDeWithSignTest(){
 }
 
 func main() {
-    error := InitSdk("ap-guangzhou","replace-with-real-secretId","replace-with-real-****etKey ")
+    error := InitSdk("ap-guangzhou","replace-with-real-secretId","replace-with-real-secretKey ","kms.tencentcloudapi.com")
     if(nil != error){
         fmt.Println(error.Eoor())
         return
@@ -406,6 +415,14 @@ func main() {
 
 原生加密方式对应的服务也需要升级为旗舰版，与 KMS 密钥保护方式相比，原生加密方式需要用户自己生成加密密钥进行加解密，由用户保证密钥的安全性。出于安全与合规的考虑，建议用户使用 KMS 密钥保护方式。
 >?其中CTR模式加密没有填充，其他的模式加密采用 PKCS#7 标准进行填充。
+
+### Sm2GetKey
+
+- 功能描述：使用SM2算法生成密钥对。
+- 输入参数：无需填充输入参数。
+- 返回值：接口返回三个内容，两个字节数组（分别是生成的公钥值、私钥值）和一个EncryptSDKError类型结构体，具体请查看开头说明。
+  - 当接口返回的结构体信息为nil，表示获取密钥对成功；
+  - 非nil，代表获取失败，具体查看结构体中的错误码Code和错误信息Message。
 
 ### Sm2Sign
 
@@ -545,6 +562,64 @@ func main() {
   - 当接口返回值为 nil，表示解密成功，解密后的明文内容在返回。
   - 当接口返回值为非 nil，表示解密失败， 详情请参见 [错误码](#test)。
 
+### Sm2PemChangeToPubkey
+
+- 功能描述：对pem格式的公钥内容进行转换。
+- 输入参数：
+
+| 参数名称      | 必选 | 类型   | 描述              |
+| ------------- | ---- | ------ | ----------------- |
+| pemPubKeyInfo | 是   | []byte | pem格式的公钥信息 |
+
+- 返回值：接口返回两个内容，一个字符数组和一个EncryptSDKError类型结构体，具体请查看开头说明。
+  - 当接口返回的结构体信息为nil，代表转换成功，转换后的公钥内容在返回的字节数组中；
+  - 非nil，代表转换失败，具体查看结构体中的错误码Code和错误信息Message。
+
+### HashForSM3WithSM2
+
+- 功能描述：使用 **Sm2GetKey** 接口生成的公钥，并基于SM3算法生成信息摘要。
+- 输入参数：
+
+| 参数名称 | 必选 | 类型   | 描述                           |
+| -------- | ---- | ------ | ------------------------------ |
+| msg      | 是   | []byte | 原文数据                       |
+| pubKey   | 是   | []byte | 公钥内容，数据长度固定为64字节 |
+| id       | 是   | []byte | id值                           |
+
+- 返回值：接口返回两个内容，一个字节数组和一个EncryptSDKError类型结构体，具体请查看开头说明。
+  - 当接口返回的结构体信息为nil，代表摘要生成成功，生成的摘要内容在返回的字节数组中；
+  - 非nil，代表摘要生成失败，具体查看结构体中的错误码Code和错误信息Message。
+
+### Sm2SignWithDigest
+
+- 功能描述：使用本地生成的消息摘要生成签名
+- 输入参数：
+
+| 参数名称 | 必选 | 类型   | 描述                                     |
+| -------- | ---- | ------ | ---------------------------------------- |
+| pubKey   | 是   | []byte | 公钥内容，数据长度固定为64字节           |
+| priKey   | 是   | []byte | 私钥内容，数据长度固定为32字节           |
+| digest   | 是   | []byte | **HashForSM3WithSM2** 生成的摘要信息内容 |
+
+- 返回值：接口返回两个内容，一个字节数组和一个EncryptSDKError类型结构体，具体请查看开头说明。
+  - 当接口返回的结构体信息为nil，代表签名成功，生成的签名内容在返回的字节数组中；
+  - 非nil，代表摘要签名失败，具体查看结构体中的错误码Code和错误信息Message。
+
+### Sm2VerifyWithDigest
+
+- 功能描述：通过生成的摘要内容进行验签。
+- 输入参数：
+
+| 参数名称 | 必选 | 类型   | 描述                                     |
+| -------- | ---- | ------ | ---------------------------------------- |
+| pubKey   | 是   | []byte | 公钥内容，数据长度固定为64字节           |
+| sig      | 是   | []byte | 签名的内容                               |
+| digest   | 是   | []byte | **HashForSM3WithSM2** 生成的摘要信息内容 |
+
+- 返回值：接口返回一个EncryptSDKError类型结构体，具体请查看开头说明。
+  - 当接口返回的结构体信息为nil，代表验签成功；
+  - 非nil，代表摘要验签失败，具体查看结构体中的错误码Code和错误信息Message。
+
 ### Sm3Hmac
 
 -	功能描述：使用 SM3 哈希运算 Hmac 计算。
@@ -575,6 +650,18 @@ func main() {
   - 当接口返回值为 nil，表示 Hmac 计算成功，Hmac 内容在返回的字符数组中。
   - 当接口返回值为非 nil，表示Hmac计算失败， 详情请参见 [错误码](#test)。
 
+### Sm3Digest
+
+-	功能描述：使用SM3生成摘要。
+-	输入参数：
+
+| 参数名称 | 必选 | 类型   | 描述     |
+| -------- | ---- | ------ | -------- |
+| msg      | 是   | []byte | 原文数据 |
+
+- 返回值：接口返回两个内容，一个字节数组和一个EncryptSDKError类型结构体，具体请查看开头说明。
+  - 当接口返回的结构体信息为nil，代表生成摘要成功，生成的摘要内容在返回的字节数组中；
+  - 非nil，代表生成摘要失败，具体查看结构体中的错误码Code和错误信息Message。
 
 ### Sm4CbcEncrypt/Sm4CtrEncrypt
 
@@ -599,15 +686,16 @@ func main() {
 <td>Key</td>
 <td>是</td>
 <td>[]byte</td>
-<td>用户自定义的SM4密钥，长度固定为128位(16字节)</td>
+<td>用户自定义的SM4密钥，长度固定为128位(16字节)，不能设置为空</td>
 </tr>
 <tr>
 <td>iv</td>
 <td>是</td>
 <td>[]byte</td>
-<td>初始化向量，固定为128位(16字节)</td>
+<td>初始化向量，固定为128位(16字节)，不能设置为空</td>
 </tr>
 </tbody></table>
+
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示加密成功，加密后的密文内容在返回的字符数组中。
   - 当接口返回值为非 nil，表示加密失败， 详情请参见 [错误码](#test)。
@@ -636,15 +724,16 @@ func main() {
 <td>key</td>
 <td>是</td>
 <td>[]byte</td>
-<td>用户自定义的 SM4 密钥，长度固定为128位(16字节)</td>
+<td>用户自定义的 SM4 密钥，长度固定为128位(16字节)，不能设置为空</td>
 </tr>
 <tr>
 <td>iv</td>
 <td>是</td>
 <td>[]byte</td>
-<td>初始化向量，固定为128位(16字节)</td>
+<td>初始化向量，固定为128位(16字节)，不能设置为空</td>
 </tr>
 </tbody></table>
+
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示解密成功，解密后的明文内容在返回的字符数组中。
   - 当接口返回值为非 nil，表示解密失败， 详情请参见 [错误码](#test)。
@@ -673,9 +762,10 @@ func main() {
 <td>key</td>
 <td>是</td>
 <td>[]byte</td>
-<td>用户自定义的 SM4 密钥，长度固定为128位(16字节)</td>
+<td>用户自定义的 SM4 密钥，长度固定为128位(16字节)，不能设置为空</td>
 </tr>
 </tbody></table>
+
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示加密成功，加密后的密文内容在返回的字符数组中。
   - 当接口返回值为非 nil，表示加密失败， 详情请参见 [错误码](#test)。
@@ -704,9 +794,10 @@ func main() {
 <td>key</td>
 <td>是</td>
 <td>[]byte</td>
-<td>用户自定义的SM4密钥，长度固定为128位(16字节)</td>
+<td>用户自定义的SM4密钥，长度固定为128位(16字节)，不能设置为空</td>
 </tr>
 </tbody></table>
+
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示解密成功，解密后的密文内容在返回的字符数组中。
   - 当接口返回值为非 nil，表示解密失败， 详情请参见 [错误码](#test)。
@@ -735,13 +826,13 @@ func main() {
 <td>key</td>
 <td>是</td>
 <td>[]byte</td>
-<td>用户自定义的 SM4 密钥，长度固定为128位(16字节)</td>
+<td>用户自定义的 SM4 密钥，长度固定为128位(16字节)，不能设置为空</td>
 </tr>
 <tr>
 <td>iv</td>
 <td>是</td>
 <td>[]byte</td>
-<td>初始化向量</td>
+<td>初始化向量，不能设置为空</td>
 </tr>
 <tr>
 <td>aad</td>
@@ -756,6 +847,7 @@ func main() {
 <td>tag 值，即校验码</td>
 </tr>
 </tbody></table>
+
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示加密成功，加密后的密文内容在返回的字符数组中。
   - 当接口返回值为非 nil，表示加密失败， 详情请参见 [错误码](#test)。
@@ -783,13 +875,13 @@ func main() {
 <td>key</td>
 <td>是</td>
 <td>[]byte</td>
-<td>用户自定义的 SM4 密钥，长度固定为128位(16字节)</td>
+<td>用户自定义的 SM4 密钥，长度固定为128位(16字节)，不能设置为空</td>
 </tr>
 <tr>
 <td>iv</td>
 <td>是</td>
 <td>[]byte</td>
-<td>初始化向量</td>
+<td>初始化向量，不能设置为空</td>
 </tr>
 <tr>
 <td>aad</td>
@@ -804,6 +896,7 @@ func main() {
 <td>tag 值，即校验码</td>
 </tr>
 </tbody></table>
+
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示解密成功，解密后的明文内容在解密后的字符数组中。
   - 当接口返回值为非 nil，表示解密失败， 详情请参见 [错误码](#test)。
@@ -837,7 +930,7 @@ func Sm4EcbTest(){
 }
 
 func main(){
-	error := InitSdk("ap-guangzhou","replace-with-real-secretId","replace-with-real-****etKey")
+	error := InitSdk("ap-guangzhou","replace-with-real-secretId","replace-with-real-secret","kms.tencentcloudapi.com")
 	if (nil != error){
 		fmt.Println("InitSdk err",error.Error())
 		return 

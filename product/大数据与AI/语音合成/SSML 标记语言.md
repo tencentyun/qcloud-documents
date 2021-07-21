@@ -1,29 +1,10 @@
-## TTS 支持 SSML
+SSML 是一种基于 XML 的语音合成标记语言。使用 SSML 可以更加准确、具体的定义合成音频的效果。
+>? 
+>- 腾讯云语音合成服务的 SSML 实现，基于 [W3C](https://www.w3.org/TR/speech-synthesis/) 的语音合成标记语言版本1.1。
+>- 目前只有中文合成支持 SSML 功能。
 
-### 概述
-SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加准确、具体的定义合成音频的效果。
->? 腾讯云语音合成服务的 SSML 实现基于 [W3C](https://www.w3.org/TR/speech-synthesis/) 的语音合成标记语言版本1.1。
-
-### 使用方式
->? • 目前只有中文合成支持 SSML 功能。
-> • 语音合成服务支持的 SSML 标签请见下文，`<speak>` 标签内的未定义标签不合成，XML 格式错误可能导致停止该 `<speak>` 标签的合成。
-> • 语音合成的 SSML 功能支持多个 `<speak>` 标签闭合嵌套于文本之中。如：
-
-
-```
-<speak>她叫<say-as interpret-as="name">任盈盈</say-as>。
-她的电话号码是<say-as interpret-as="telephone">+86-15188888888</say-as>。
-她今年<say-as interpret-as="cardinal">22</say-as>岁了。
-她有一个快递，单号是<say-as interpret-as="digits">5648234514237588</say-as>。
-她的地址是<say-as interpret-as="address">深南大道10000号3单元304</say-as>。
-</speak>再补充一下，<speak>
-她的用户名是<say-as interpret-as="characters">b888_uαβγ</say-as>。
-</speak>
-```
-
+## 使用方式
 将带标签的文本作为 text 参数值，上传至语音合成服务，发送给语音合成服务的请求内容如下：
-
-
 ```
 {
  "Action" : "TextToVoice",
@@ -39,146 +20,196 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
  "Speed" : 0,
  "Text" : "<speak>电话号码是<say-as interpret-as=\"telephone\">4008110510</say-as>。</speak>",
  "Timestamp" : 1603184636,
- "VoiceType" : 1000,
+ "VoiceType" : 1002,
  "Volume" : 5
 }
 ```
 
-### 标签
-`<speak>`
+语音合成支持的 SSML [标签](#jump)。其中 `<speak>` 标签中的未定义标签不合成，且 XML 格式错误可能会导致`<speak>` 标签的合成停止。
 
-- 描述
+语音合成的 SSML 功能支持多个 `<speak>` 标签闭合嵌套于文本之中。例如：
+```
+<speak>她叫<say-as interpret-as="name">任盈盈</say-as>。
+她的电话号码是<say-as interpret-as="telephone">+86-15188888888</say-as>。
+她今年<say-as interpret-as="cardinal">22</say-as>岁了。
+她有一个快递，单号是<say-as interpret-as="digits">5648234514237588</say-as>。
+她的地址是<say-as interpret-as="address">深南大道10000号3单元304</say-as>。
+</speak>再补充一下，<speak>
+她的用户名是<say-as interpret-as="characters">b888_uαβγ</say-as>。
+</speak>
+```
 
+[](id:jump)
+## 标签
+### &lt;speak&gt;
+#### 描述
 ```
 <speak>标签是所有待支持SSML标签的根节点。一切需要调用SSML标签的文本都要包含在“<speak></speak>”中。speak标签不支持属性。
 ```
 
-- 语法
-
-
+#### 语法
 ```
 <speak>需要调用SSML标签的文本</speak>
 ```
 
-- 标签关系
-`<speak>` 标签可以包含文本和以下标签：
- - `<break>`
- - `<phoneme>`
- - `<say-as>`
- - `<sub>`
+#### 标签关系
+`<speak>` 标签可以包含文本和以下标签：`<break>`、`<phoneme>`、`<say-as>`、`<sub>`。
 
-- 示例
-
-
+#### 示例
 ```
 <speak>需要调用SSML标签的文本。</speak>
 ```
-
 音频效果：[SSML-speak1.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/SSML-speak1.wav)
 
-`<sub>`
-
-- 描述
+### &lt;sub&gt;
+#### 描述
 使用别名替换标签内文本。
 
-- 语法
-
+#### 语法
 ```
 <sub alias="别名">文本</sub>
 ```
 
-- 属性
+#### 属性
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>属性类型</th>
+<th>属性值</th>
+<th>是否必选</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>alias</td>
+<td>String</td>
+<td>替换后的内容</td>
+<td>是</td>
+<td>用于替换标签内的文本。</td>
+</tr>
+</tbody></table>
 
-
-| 属性名称 | 属性类型 | 属性值 | 是否必选 | 描述 |
-|---------|---------|---------|---------|---------|
-| alias | String | 替换后的内容 | 是 | 用于替换标签内的文本。 |
-
-- 标签关系
+#### 标签关系
 标签仅包括文本。
 
-- 示例
-
+#### 示例
 ```
 <speak><sub alias="语音合成">TTS</sub></speak>
 ```
-
 音频效果：[SSML-sub.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/SSML-sub.wav)
 
-`<break>`
-
-- 描述
+### &lt;break&gt;
+#### 描述
 用于在文本中插入停顿，该标签是可选标签。
 
-- 语法
-
+#### 语法
 ```
 <break time="string"/>
 ```
 
-- 属性
+#### 属性
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>属性类型</th>
+<th>属性值</th>
+<th>是否必选</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>time</td>
+<td>String</td>
+<td>[number]s/[number]ms</td>
+<td>是</td>
+<td>以秒/毫秒为单位设置停顿的时长 （如“2s“、“50ms”）。[number]s：以秒为单位，[number]取值范围为[1, 10]的整数。[number]ms：以毫秒为单位，[number]取值范围为[50, 10000]的整数。</td>
+</tr>
+</tbody></table>
 
-| 属性名称 | 属性类型 | 属性值 | 是否必选 | 描述 |
-|---------|---------|---------|---------|---------|
-| time | String | [number]s/[number]ms | 是 | 以秒/毫秒为单位设置停顿的时长 （如“2s“、“50ms”）。[number]s：以秒为单位，[number]取值范围为[1, 10]的整数。[number]ms：以毫秒为单位，[number]取值范围为[50, 10000]的整数。 |
-
-- 标签关系
+#### 标签关系
 `<break>`是空标签，不能包含任何标签。
 
-- 示例
-
+#### 示例
 ```
 <speak>请闭上眼睛休息一下<break time="500ms"/>好了，请睁开眼睛。</speak>
 ```
 
-
-`<phoneme>`
-
-- 描述
+### &lt;phoneme&gt;
+#### 描述
 用于控制标签内文本的读音，该标签是可选标签。
 
-- 语法
-
+#### 语法
 ```
 <phoneme alphabet="py" ph="拼音串">文本</phoneme>
 ```
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>属性类型</th>
+<th>属性值</th>
+<th>是否必选</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>alphabet</td>
+<td>String</td>
+<td>py</td>
+<td>是</td>
+<td>“py”表示拼音。</td>
+</tr>
+<tr>
+<td>ph</td>
+<td>String</td>
+<td>标签内文本对应的拼音串</td>
+<td>是</td>
+<td>拼音用法的赋值规范：<br>- 字与字的拼音用空格分隔，拼音的数目必须与字数相等。<br>- 每个拼音由发音和音调组成，音调为1~5的数字编号，其中“5”表示轻声。</td>
+</tr>
+</tbody></table>
 
-| 属性名称 | 属性类型 | 属性值 | 是否必选 | 描述 |
-|---------|---------|---------|---------|---------|
-| alphabet | String | py | 是 | “py”表示拼音。 |
-| ph | String | 标签内文本对应的拼音串 | 是 | 拼音用法的赋值规范：<br>- 字与字的拼音用空格分隔，拼音的数目必须与字数相等。<br>- 每个拼音由发音和音调组成，音调为1~5的数字编号，其中“5”表示轻声。 |
-
-- 标签关系
+#### 标签关系
 `<phoneme>`标签仅包括文本。
 
-- 示例
-
-
+#### 示例
 ```
 <speak>
 现状是各地的经济水平是<phoneme alphabet="py" ph="cen1 ci1 bu4 qi2">参差不齐</phoneme>的。需要缩小较弱地域和较强地域的<phoneme alphabet="py" ph="cha1 ju4">差距</phoneme>。要做好这个<phoneme alphabet="py" ph="chai1 shi4">差事</phoneme>可不容易啊。
 </speak>
 ```
-
 音频效果：[SSML-phoneme.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/SSML-phoneme.wav)
 
-`<say-as>`
-
-- 描述
+### &lt;say-as&gt;
+#### 描述
 用于指示出标签内文本的信息类型，进而按照该类型的默认发音方式发音。
 
-- 语法
-
+#### 语法
 ```
 <say-as interpret-as="string">文本</say-as>
 ```
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>属性类型</th>
+<th>属性值</th>
+<th>是否必选</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>interpret-as</td>
+<td>String</td>
+<td>cardinal/digits/telephone/name/address/<br>id/characters/punctuation/<br>date/time/currency/measure</td>
+<td>是</td>
+<td>指示出标签内文本的信息类型：<br>• cardinal：按整数或小数发音。<br>• digits：按数字发音。<br>• telephone：按电话号码常用方式发音。<br>• name：按人名发音。<br>• address：按地址发音。<br>• id：适用于账户名、昵称等。<br>• characters：将标签内的文本按字符一一读出。<br>• punctuation：将标签内的文本按标点符号的方式读出来。<br>• date：按日期发音。<br>• time：按时间发音。<br>• currency：按金额发音。<br>• measure：按计量单位发音。</td>
+</tr>
+</tbody></table>
 
-| 属性名称 | 属性类型 | 属性值 | 是否必选 | 描述 |
-|---------|---------|---------|---------|---------|
-| interpret-as | String | cardinal/digits/telephone/name/address/<br>id/characters/punctuation/<br>date/time/currency/measure | 是 | 指示出标签内文本的信息类型：<br>• cardinal：按整数或小数发音。<br>• digits：按数字发音。<br>• telephone：按电话号码常用方式发音。<br>• name：按人名发音。<br>• address：按地址发音。<br>• id：适用于账户名、昵称等。<br>• characters：将标签内的文本按字符一一读出。<br>• punctuation：将标签内的文本按标点符号的方式读出来。<br>• date：按日期发音。<br>• time：按时间发音。<br>• currency：按金额发音。<br>• measure：按计量单位发音。 |
-
-- 各`<say-as>`类型支持范围
- • cardinal
+#### 各 &lt;say-as&gt;类型支持范围
+- cardinal
  <table>
 <tr>
 <th>格式</th>
@@ -228,7 +259,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td>负八十八点零零一</td>
 </tr>
 </table>
- • digits
+- digits
  <table>
 <tr>
 <th>格式</th>
@@ -243,7 +274,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td>对数字串的长度没有特殊限制。<br>建议不超过20位，且当数字串超过10位时，每个数字后插入停顿。</td>
 </tr>
 </table>
- • telephone
+- telephone
  <table>
 <tr>
 <th>格式</th>
@@ -351,7 +382,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td rowspan="5">国家代码+区号+座机号</td>
 <td>86-010-33878528</td>
 <td>八六 零幺零 三三八七</td>
-<td rowspan="5">支持国家代码：86、 (86)、+86、(+86)、0086。并统一读为“八六”。</td>
+<td rowspan="5">支持国家代码：86、(86)、+86、(+86)、0086。并统一读为“八六”。</td>
 </tr>
 <tr>
 <td>(86)10-33878528</td>
@@ -395,7 +426,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td rowspan="3">手机号</td>
 <td>151 8828 1075</td>
 <td>幺五幺八八二八 幺零七五</td>
-<td rowspan="3">支持11位手机号，支持3-3-5,3-4-4两种数字分隔方式</td>
+<td rowspan="3">支持11位手机号，支持3-3-5、3-4-4两种数字分隔方式</td>
 </tr>
 <tr>
 <td>151-882-81075</td>
@@ -427,7 +458,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td rowspan="5">服务号</td>
 <td>110</td>
 <td>幺幺零</td>
-<td rowspan="5">- 支持常用的服务号如110。<br>- 支持以400/800开头的10位服务号，支持以“3-3-4”的数字分隔方式。<br>- 支持以12530/17951/12593开头的16位号码。</td>
+<td rowspan="5"><ul><li/>支持常用的服务号如110。<li/>支持以400/800开头的10位服务号，支持以“3-3-4”的数字分隔方式。<br><li/>支持以12530/17951/12593开头的16位号码。</ul></td>
 </tr>
 <tr>
 <td>95566</td>
@@ -452,7 +483,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td>支持“数字串+分隔符（左右括号、-）”方式。</td>
 </tr>
 </table>
- • address
+- address
  <table>
 <tr>
 <th>格式</th>
@@ -483,7 +514,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td>高新中三道幺五幺弄十九号</td>
 </tr>
 </table>
- • id
+- id
  <table>
 <tr>
 <th>格式</th>
@@ -506,7 +537,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td>A I D E M O</td>
 </tr>
 </table>
- • characters
+- characters
  <table>
 <tr>
 <th>格式</th>
@@ -550,7 +581,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td>阿尔法 贝塔 伽玛</td>
 </tr>
 </table>
- • punctuation
+- punctuation
  <table>
 <tr>
 <th>格式</th>
@@ -590,7 +621,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td>左方括号 反斜线 右方括号 脱字符 下划线</td>
 </tr>
 </table>
- • date
+- date
  <table>
 <tr>
 <th>格式</th>
@@ -602,8 +633,8 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td rowspan="6">xx年</td>
 <td>71年</td>
 <td>七一年</td>
-<td rowspan="6">支持2位和4位年份。其中：<br>- 2位年份支持60年~99年、00年~09年、10年~19年。
-<br>- 4位年份支持1000年~1999年、2000年~2099年。
+<td rowspan="6">支持2位和4位年份。其中：<ul><li>2位年份支持60年~99年、00年~09年、10年~19年。
+<li>4位年份支持1000年~1999年、2000年~2099年。</ul>
 </td>
 </tr>
 <tr>
@@ -767,7 +798,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td>仅支持4位的年份，仅支持“/”作为日期的分隔符，仅支持”月/日/年”的书写方式。</td>
 </tr>
 </table>
- • time
+- time
  <table>
 <tr>
 <th>格式</th>
@@ -838,7 +869,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td rowspan="18">时间缩写</td>
 <td>5:00am</td>
 <td>凌晨五点</td>
-<td rowspan="18">当缩写为am时，小时在[0,5]范围内读作凌晨；<br>当单位为am，小时在[6,11]范围内读作上午。<br>当缩写为pm，小时为12时读作中午；<br>当单位为pm，小时在[1,5]范围内读作下午；小时在[6,11]范围内读作晚上。</td>
+<td rowspan="18">当缩写为 am 时，小时在[0,5]范围内读作凌晨；<br>当单位为 am 时，小时在[6,11]范围内读作上午。<br>当缩写为 pm 时，小时为12时读作中午；<br>当单位为 pm 时，小时在[1,5]范围内读作下午；小时在[6,11]范围内读作晚上。</td>
 </tr>
 <tr>
 <td>5:30am</td>
@@ -909,7 +940,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td>中午十二点二十分十二秒</td>
 </tr>
 </table>
- • currency
+- currency
  <table>
 <tr>
 <th>格式</th>
@@ -921,7 +952,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td rowspan="5">数字+金额标识符</td>
 <td>12.00RMB</td>
 <td>十二人民币</td>
-<td rowspan="5">支持AUD(澳元) 、CAD（加元）、 HKD（港币）、JPY（日元）、USD（美元）、CHF（瑞士法郎）、NOK（挪威克朗）、SEK（瑞典克朗）、GBP（英镑）、 RMB（人民币）、CNY（元）和EUR（欧元）。<br>支持的数字格式包括：整数、小数以及以逗号分隔的国际写法。</td>
+<td rowspan="5">支持 AUD（澳元） 、CAD（加元）、 HKD（港币）、JPY（日元）、USD（美元）、CHF（瑞士法郎）、NOK（挪威克朗）、SEK（瑞典克朗）、GBP（英镑）、 RMB（人民币）、CNY（元）和 EUR（欧元）。<br>支持的数字格式包括：整数、小数以及以逗号分隔的国际写法。</td>
 </tr>
 <tr>
 <td>12.50RMB</td>
@@ -943,7 +974,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td rowspan="6">金额标识符+数字</td>
 <td>$12</td>
 <td>十二美元</td>
-<td rowspan="6">支持 CAD（加元）、 $（美元）、 $（美元）、Fr（法郎）、kr（丹麦克朗）、 £（英镑）、¥（元）￥（元）和 €（欧元）。<br>支持的数字格式包括：整数、小数以及以逗号分隔的国际写法。</td>
+<td rowspan="6">支持 CAD（加元）、$（美元）、$（美元）、Fr（法郎）、kr（丹麦克朗）、£（英镑）、¥（元）￥（元）和 €（欧元）。<br>支持的数字格式包括：整数、小数以及以逗号分隔的国际写法。</td>
 </tr>
 <tr>
 <td>$12.00</td>
@@ -1000,7 +1031,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td>一万两千</td>
 </tr>
 </table>
- • measure
+- measure
  <table>
 <tr>
 <th>格式</th>
@@ -1100,119 +1131,441 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 </tr>
 </table>
 
-其中`<say-as>`常见符号读法如下表所示。
+#### &lt;say-as&gt; 常见符号读法
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>读法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>!</td>
+<td>叹号</td>
+</tr>
+<tr>
+<td>“</td>
+<td>双引号</td>
+</tr>
+<tr>
+<td>#</td>
+<td>井号</td>
+</tr>
+<tr>
+<td>$</td>
+<td>dollar</td>
+</tr>
+<tr>
+<td>%</td>
+<td>百分号</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>and</td>
+</tr>
+<tr>
+<td>‘</td>
+<td>单引号</td>
+</tr>
+<tr>
+<td>(</td>
+<td>左括号</td>
+</tr>
+<tr>
+<td>)</td>
+<td>右括号</td>
+</tr>
+<tr>
+<td>*</td>
+<td>星</td>
+</tr>
+<tr>
+<td>+</td>
+<td>加</td>
+</tr>
+<tr>
+<td>,</td>
+<td>逗号</td>
+</tr>
+<tr>
+<td>-</td>
+<td>杠</td>
+</tr>
+<tr>
+<td>.</td>
+<td>点</td>
+</tr>
+<tr>
+<td>/</td>
+<td>斜杠</td>
+</tr>
+<tr>
+<td>:</td>
+<td>零冒号</td>
+</tr>
+<tr>
+<td>;</td>
+<td>分号</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>=</td>
+<td>等号</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>?</td>
+<td>问号</td>
+</tr>
+<tr>
+<td>@</td>
+<td>at</td>
+</tr>
+<tr>
+<td>[</td>
+<td>左方括号</td>
+</tr>
+<tr>
+<td>\</td>
+<td>反斜线</td>
+</tr>
+<tr>
+<td>]</td>
+<td>右方括号</td>
+</tr>
+<tr>
+<td>^</td>
+<td>脱字符</td>
+</tr>
+<tr>
+<td>_</td>
+<td>下划线</td>
+</tr>
+<tr>
+<td>`</td>
+<td>反引号</td>
+</tr>
+<tr>
+<td>{</td>
+<td>左花括号</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>}</td>
+<td>右花括号</td>
+</tr>
+<tr>
+<td>~</td>
+<td>波浪线</td>
+</tr>
+<tr>
+<td>！</td>
+<td>叹号</td>
+</tr>
+<tr>
+<td>“</td>
+<td>左双引号</td>
+</tr>
+<tr>
+<td>”</td>
+<td>右双引号</td>
+</tr>
+<tr>
+<td>‘</td>
+<td>左单引号</td>
+</tr>
+<tr>
+<td>’</td>
+<td>右单引号</td>
+</tr>
+<tr>
+<td>（</td>
+<td>左括号</td>
+</tr>
+<tr>
+<td>）</td>
+<td>右括号</td>
+</tr>
+<tr>
+<td>，</td>
+<td>逗号</td>
+</tr>
+<tr>
+<td>。</td>
+<td>句号</td>
+</tr>
+<tr>
+<td>—</td>
+<td>杠</td>
+</tr>
+<tr>
+<td>：</td>
+<td>冒号</td>
+</tr>
+<tr>
+<td>；</td>
+<td>分号</td>
+</tr>
+<tr>
+<td>？</td>
+<td>问号</td>
+</tr>
+<tr>
+<td>、</td>
+<td>顿号</td>
+</tr>
+<tr>
+<td>…</td>
+<td>省略号</td>
+</tr>
+<tr>
+<td>……</td>
+<td>省略号</td>
+</tr>
+<tr>
+<td>《</td>
+<td>左书名号</td>
+</tr>
+<tr>
+<td>》</td>
+<td>右书名号</td>
+</tr>
+<tr>
+<td>￥</td>
+<td>人民币符号</td>
+</tr>
+<tr>
+<td>≥</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>≤</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>≠</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>≈</td>
+<td>约等于</td>
+</tr>
+<tr>
+<td>±</td>
+<td>加减</td>
+</tr>
+<tr>
+<td>×</td>
+<td>乘</td>
+</tr>
+<tr>
+<td>π</td>
+<td>派</td>
+</tr>
+<tr>
+<td>Α</td>
+<td>阿尔法</td>
+</tr>
+<tr>
+<td>Β</td>
+<td>贝塔</td>
+</tr>
+<tr>
+<td>Γ</td>
+<td>伽玛</td>
+</tr>
+<tr>
+<td>Δ</td>
+<td>德尔塔</td>
+</tr>
+<tr>
+<td>Ε</td>
+<td>艾普西龙</td>
+</tr>
+<tr>
+<td>Ζ</td>
+<td>捷塔</td>
+</tr>
+<tr>
+<td>Ε</td>
+<td>依塔</td>
+</tr>
+<tr>
+<td>Θ</td>
+<td>西塔</td>
+</tr>
+<tr>
+<td>Ι</td>
+<td>艾欧塔</td>
+</tr>
+<tr>
+<td>Κ</td>
+<td>喀帕</td>
+</tr>
+<tr>
+<td>∧</td>
+<td>拉姆达</td>
+</tr>
+<tr>
+<td>Μ</td>
+<td>缪</td>
+</tr>
+<tr>
+<td>Ν</td>
+<td>拗</td>
+</tr>
+<tr>
+<td>Ξ</td>
+<td>克西</td>
+</tr>
+<tr>
+<td>Ο</td>
+<td>欧麦克轮</td>
+</tr>
+<tr>
+<td>∏</td>
+<td>派</td>
+</tr>
+<tr>
+<td>Ρ</td>
+<td>柔</td>
+</tr>
+<tr>
+<td>∑</td>
+<td>西格玛</td>
+</tr>
+<tr>
+<td>Τ</td>
+<td>套</td>
+</tr>
+<tr>
+<td>Υ</td>
+<td>宇普西龙</td>
+</tr>
+<tr>
+<td>Φ</td>
+<td>fai</td>
+</tr>
+<tr>
+<td>Χ</td>
+<td>器</td>
+</tr>
+<tr>
+<td>Ψ</td>
+<td>普赛</td>
+</tr>
+<tr>
+<td>Ω</td>
+<td>欧米伽</td>
+</tr>
+<tr>
+<td>α</td>
+<td>阿尔法</td>
+</tr>
+<tr>
+<td>β</td>
+<td>贝塔</td>
+</tr>
+<tr>
+<td>γ</td>
+<td>伽玛</td>
+</tr>
+<tr>
+<td>δ</td>
+<td>德尔塔</td>
+</tr>
+<tr>
+<td>ε</td>
+<td>艾普西龙</td>
+</tr>
+<tr>
+<td>ζ</td>
+<td>捷塔</td>
+</tr>
+<tr>
+<td>η</td>
+<td>依塔</td>
+</tr>
+<tr>
+<td>θ</td>
+<td>西塔</td>
+</tr>
+<tr>
+<td>ι</td>
+<td>艾欧塔</td>
+</tr>
+<tr>
+<td>κ</td>
+<td>喀帕</td>
+</tr>
+<tr>
+<td>λ</td>
+<td>拉姆达</td>
+</tr>
+<tr>
+<td>μ</td>
+<td>缪</td>
+</tr>
+<tr>
+<td>ν</td>
+<td>拗</td>
+</tr>
+<tr>
+<td>ξ</td>
+<td>克西</td>
+</tr>
+<tr>
+<td>ο</td>
+<td>欧麦克轮</td>
+</tr>
+<tr>
+<td>π</td>
+<td>派</td>
+</tr>
+<tr>
+<td>ρ</td>
+<td>柔</td>
+</tr>
+<tr>
+<td>σ</td>
+<td>西格玛</td>
+</tr>
+<tr>
+<td>τ</td>
+<td>套</td>
+</tr>
+<tr>
+<td>υ</td>
+<td>宇普西龙</td>
+</tr>
+<tr>
+<td>φ</td>
+<td>fai</td>
+</tr>
+<tr>
+<td>χ</td>
+<td>器</td>
+</tr>
+<tr>
+<td>ψ</td>
+<td>普赛</td>
+</tr>
+<tr>
+<td>ω</td>
+<td>欧米伽</td>
+</tr>
+</tbody></table>
 
-| 符号 | 读法 |
-|---------|---------|
-| ! | 叹号 |
-| “ | 双引号 |
-| # | 井号 |
-| $ | dollar |
-| % | 百分号 |
-| & | and |
-| ‘ | 单引号 |
-| ( | 左括号 |
-| ) | 右括号 |
-| * | 星 |
-| + | 加 |
-| , | 逗号 |
-| - | 杠 |
-| . | 点 |
-| / | 斜杠 |
-| : | 零冒号 |
-| ; | 分号 |
-| < | 小于 |
-| = | 等号 |
-| > | 大于 |
-| ? | 问号 |
-| @ | at |
-| [ | 左方括号 |
-| \ | 反斜线 |
-| ] | 右方括号 |
-| ^ | 脱字符 |
-| _ | 下划线 |
-| ` | 反引号 |
-| { | 左花括号 |
-| | | 竖线 |
-| } | 右花括号 |
-| ~ | 波浪线 |
-| ！ | 叹号 |
-| “ | 左双引号 |
-| ” | 右双引号 |
-| ‘ | 左单引号 |
-| ’ | 右单引号 |
-| （ | 左括号 |
-| ） | 右括号 |
-| ， | 逗号 |
-| 。 | 句号 |
-| — | 杠 |
-| ： | 冒号 |
-| ； | 分号 |
-| ？ | 问号 |
-| 、 | 顿号 |
-| … | 省略号 |
-| …… | 省略号 |
-| 《 | 左书名号 |
-| 》 | 右书名号 |
-| ￥ | 人民币符号 |
-| ≥ | 大于等于 |
-| ≤ | 小于等于 |
-| ≠ | 不等于 |
-| ≈ | 约等于 |
-| ± | 加减 |
-| × | 乘 |
-| π | 派 |
-| Α | 阿尔法 |
-| Β | 贝塔 |
-| Γ | 伽玛 |
-| Δ | 德尔塔 |
-| Ε | 艾普西龙 |
-| Ζ | 捷塔 |
-| Ε | 依塔 |
-| Θ | 西塔 |
-| Ι | 艾欧塔 |
-| Κ | 喀帕 |
-| ∧ | 拉姆达 |
-| Μ | 缪 |
-| Ν | 拗 |
-| Ξ | 克西 |
-| Ο | 欧麦克轮 |
-| ∏ | 派 |
-| Ρ | 柔 |
-| ∑ | 西格玛 |
-| Τ | 套 |
-| Υ | 宇普西龙 |
-| Φ | fai |
-| Χ | 器 |
-| Ψ | 普赛 |
-| Ω | 欧米伽 |
-| α | 阿尔法 |
-| β | 贝塔 |
-| γ | 伽玛 |
-| δ | 德尔塔 |
-| ε | 艾普西龙 |
-| ζ | 捷塔 |
-| η | 依塔 |
-| θ | 西塔 |
-| ι | 艾欧塔 |
-| κ | 喀帕 |
-| λ | 拉姆达 |
-| μ | 缪 |
-| ν | 拗 |
-| ξ | 克西 |
-| ο | 欧麦克轮 |
-| π | 派 |
-| ρ | 柔 |
-| σ | 西格玛 |
-| τ | 套 |
-| υ | 宇普西龙 |
-| φ | fai |
-| χ | 器 |
-| ψ | 普赛 |
-| ω | 欧米伽 |
-
-`<say-as>`常见计量单位如下表所示。
-
+#### &lt;say-as&gt; 常见计量单位
 <table>
 <tr>
 <th>格式</th>
@@ -1222,7 +1575,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <tr>
 <td rowspan="9">缩写</td>
 <td>长度</td>
-<td>nm（纳米）、μm（微米）、 mm（毫米）、cm（厘米）、m（米）、km（千米）、ft（英尺）、in（英寸）</td>
+<td>nm（纳米）、μm（微米）、mm（毫米）、cm（厘米）、m（米）、km（千米）、ft（英尺）、in（英寸）</td>
 </tr>
 <tr>
 <td>面积</td>
@@ -1258,155 +1611,92 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 </tr>
 </table>
 
-
-- 标签关系
+#### 标签关系
 `<say-as>`标签仅包括文本。
 
-- 示例
- • cardinal
- 
-
+#### 示例
+- cardinal
 ```
 <speak>
  <say-as interpret-as="cardinal">12345</say-as>
 </speak>
 ```
-
 音频效果：[say-as-cardinal.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/say-as-cardinal.wav)
-
- • digits
- 
-
+- digits
 ```
 <speak>
 <say-as interpret-as="digits">12345</say-as>
 </speak>
 ```
-
 音频效果：[say-as-digits.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/say-as-digits.wav)
-
- • telephone
- 
-
+- telephone
 ```
 <speak>
   <say-as interpret-as="telephone">12345</say-as>
 </speak>
 ```
-
 音频效果：[say-as-telephone.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/say-as-telephone.wav)
-
- • name
- 
- 
-
+- name
 ```
 <speak>
   她的曾用名是<say-as interpret-as="name">曾小凡</say-as>
 </speak>
 ```
-
 音频效果：[say-as-name.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/say-as-name.wav)
-
-
- • address
-
-
+- address
 ```
 <speak>
   <say-as interpret-as="address">深南大道10000号1号楼3单元304</say-as>
 </speak>
 ```
-
 音频效果：[say-as-address.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/say-as-address.wav)
-
- • id
- 
- 
-
+- id
 ```
 <speak>
   我的用户名是<say-as interpret-as="id">tencent_8858</say-as>
 </speak>
 ```
-
 音频效果：[say-as-id.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/say-as-id.wav)
-
- • characters
- 
- 
-
+- characters
 ```
 <speak>
   希腊字母<say-as interpret-as="characters">αβ</say-as>
 </speak>
 ```
-
 音频效果：[say-as-characters.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/say-as-characters.wav)
-
- • punctuation
-
-
+- punctuation
 ```
 <speak>
   我最常用的标点是<say-as interpret-as="punctuation">，</say-as>
 </speak>
 ```
-
 音频效果：[say-as-punctuation.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/say-as-punctuation.wav)
-
- • date
- 
- 
-
+- date
 ```
 <speak>
   <say-as interpret-as="date">2020-10-10</say-as>
 </speak>
 ```
-
 音频效果：[say-as-date.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/say-as-date.wav)
-
- • time
- 
- 
-
+- time
 ```
 <speak>
   <say-as interpret-as="time">5:30am</say-as>
 </speak>
 ```
-
 音频效果：[SSML-say-as_time.mp3](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/say-as-time.wav)
-
- • currency
- 
- 
-
+- currency
 ```
 <speak>
   <say-as interpret-as="currency">15,000.00RMB</say-as>
 </speak>
 ```
-
 音频效果：[say-as-currency.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/say-as-currency.wav)
-
- • measure
- 
- 
-
+- measure
 ```
 <speak>
   <say-as interpret-as="measure">100m²15cm²</say-as>
 </speak>
 ```
-
 音频效果：[say-as-measure.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/say-as-measure.wav)
-
-
-
-
-
-
-
 

@@ -1,4 +1,4 @@
-<span id="配置推送"></span>
+[](id:配置推送)
 
 ## 配置离线推送
 
@@ -7,18 +7,18 @@
 1. [申请 APNs 证书](#ApplyForCertificate)。
 2. [上传证书到 IM 控制台](#UploadCertificate)。
 3. 在 App 每次登录时，向苹果获取 [deviceToken](#DeviceToken)。
-4. 调用 [setAPNS](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07APNS_08.html#a73bf19c0c019e5e27ec441bc753daa9e) 接口将其上报到 IM 后台。
+4. 调用 [setAPNS](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07APNS_08.html#a73bf19c0c019e5e27ec441bc753daa9e) 接口将其上报到 IM 后台。
 
 配置过 APNs 的 App ，当其切到后台或者被用户 Kill 之后，腾讯云就可以通过苹果的 APNs 后台对该设备进行离线消息推送，详细推送原理请参见 [Apple Push Notification Service](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)。
 >!对于已经退出登录（主动登出或者被踢下线）的用户，不会收到任何消息通知。
 
-<span id ="ApplyForCertificate"></span>
+[](id:ApplyForCertificate)
 
 ### 步骤1：申请 APNs 证书
 
 申请 APNs 证书的具体操作步骤请参见 [Apple 推送证书申请](https://cloud.tencent.com/document/product/269/3898)。
 
-<span id ="UploadCertificate"></span>
+[](id:UploadCertificate)
 
 ### 步骤2：上传证书到控制台
 
@@ -33,7 +33,7 @@
  >- 上传的 p12 证书必须是自己申请的真实有效的证书。
 5. 待推送证书信息生成后，记录证书的 ID。
 
-<span id ="DeviceToken"></span>
+[](id:DeviceToken)
 
 ### 步骤3：App 向苹果后台请求 DeviceToken
 
@@ -46,15 +46,15 @@
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
     {
         [[UIApplication sharedApplication] registerUserNotificationSettings:
-				[UIUserNotificationSettings settingsForTypes:
-				(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge)
-				categories:nil]];
+                [UIUserNotificationSettings settingsForTypes:
+                (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge)
+                categories:nil]];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
     }
     else
     {
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-				(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
+                (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
     }
 }
 //在 AppDelegate 的回调中会返回 deviceToken，需要在登录后上报给腾讯云后台
@@ -65,15 +65,15 @@
 }
 ```
 
-<span id ="uploadDeviceToken"></span>
+[](id:uploadDeviceToken)
 
 ### 步骤4：登录 IM SDK 后上传 Token 到腾讯云
 
-在 IM SDK 登录成功后，就可以调用 [setAPNS](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07APNS_08.html#a73bf19c0c019e5e27ec441bc753daa9e) 接口，将 [步骤3](#DeviceToken) 中获取的 DeviceToken 上传到腾讯云后台，实例代码如下：
+在 IM SDK 登录成功后，就可以调用 [setAPNS](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07APNS_08.html#a73bf19c0c019e5e27ec441bc753daa9e) 接口，将 [步骤3](#DeviceToken) 中获取的 DeviceToken 上传到腾讯云后台，实例代码如下：
 
 ```
 V2TIMAPNSConfig *confg = [[V2TIMAPNSConfig alloc] init];
-// 企业证书 ID，上传证书到 IM 控制台后生成
+// 推送证书 ID，上传推送证书（p.12）到 IM 控制台后生成
 confg.businessID = businessID;
 // 苹果后台请求的  deviceToken
 confg.token = deviceToken;
@@ -116,7 +116,7 @@ APNs 推送内容部分由消息体中各个 `Elem` 内容组成，不同 `Elem`
 | 语音 Elem   | 显示`[语音]`                                                 |
 | 文件 Elem   | 显示`[文件]`                                                 |
 | 图片 Elem   | 显示`[图片]`                                                 |
-| 自定义 Elem | 显示发送消息时设置的 [desc](http://doc.qcloudtrtc.com/im/interfaceV2TIMOfflinePushInfo.html#aca3d09a4807ffc6486d556c055605c41) 的字段，如果 `desc` 不设置，则不进行推送 |
+| 自定义 Elem | 显示发送消息时设置的 [desc](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMOfflinePushInfo.html#aca3d09a4807ffc6486d556c055605c41) 的字段，如果 `desc` 不设置，则不进行推送 |
 
 
 ### 多 App 互通
@@ -126,15 +126,15 @@ APNs 推送内容部分由消息体中各个 `Elem` 内容组成，不同 `Elem`
 
 ## 自定义 iOS 推送提示音
 
-请在调用  [sendMessage](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Message_08.html#a681947465d6ab718da40f7f983740a21) 发送消息的时候设置 [offlinePushInfo](http://doc.qcloudtrtc.com/im/interfaceV2TIMOfflinePushInfo.html) 的`iOSSound`字段， `iOSSound` 传语音文件名（带后缀），语音文件需要链接进 Xcode 工程。
+请在调用  [sendMessage](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a3694cd507a21c7cfdf7dfafdb0959e56) 发送消息的时候设置 [offlinePushInfo](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMOfflinePushInfo.html) 的`iOSSound`字段， `iOSSound` 传语音文件名（带后缀），语音文件需要链接进 Xcode 工程。
 
 ## 自定义离线推送展示
 
-请在调用  [sendMessage](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Message_08.html#a681947465d6ab718da40f7f983740a21) 发送消息的时候设置  [offlinePushInfo](http://doc.qcloudtrtc.com/im/interfaceV2TIMOfflinePushInfo.html) 的`title` 和 `desc`字段，其中 `title` 设置后，会在默认的推送内容上多展示 `title` 内容，`desc` 设置后，推送内容会变成 `desc` 内容。
+请在调用  [sendMessage](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a3694cd507a21c7cfdf7dfafdb0959e56) 发送消息的时候设置  [offlinePushInfo](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMOfflinePushInfo.html) 的`title` 和 `desc`字段，其中 `title` 设置后，会在默认的推送内容上多展示 `title` 内容，`desc` 设置后，推送内容会变成 `desc` 内容。
 
 ## 自定义离线推送点击跳转逻辑
 
-请在调用  [sendMessage](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Message_08.html#a681947465d6ab718da40f7f983740a21) 发送消息的时候设置  [offlinePushInfo](http://doc.qcloudtrtc.com/im/interfaceV2TIMOfflinePushInfo.html) 的`ext` 字段，当用户收到离线推送启动 APP 的时候，可以在 `AppDelegate -> didReceiveRemoteNotification` 系统回调获取到 `ext` 字段，然后根据 `ext` 字段内容跳转到指定的 UI 界面。
+请在调用  [sendMessage](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a3694cd507a21c7cfdf7dfafdb0959e56) 发送消息的时候设置  [offlinePushInfo](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMOfflinePushInfo.html) 的`ext` 字段，当用户收到离线推送启动 APP 的时候，可以在 `AppDelegate -> didReceiveRemoteNotification` 系统回调获取到 `ext` 字段，然后根据 `ext` 字段内容跳转到指定的 UI 界面。
 
 本文以 “denny 给 vinson 发送消息” 的场景为例。
 
@@ -174,5 +174,5 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandl
 
 ### 自定义消息为什么收不到离线推送？
 
-自定义消息的离线推送和普通消息不太一样，自定义消息的内容我们无法解析，不能确定推送的内容，所以默认不推送，如果您有推送需求，需要您在 [sendMessage](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Message_08.html#a681947465d6ab718da40f7f983740a21) 的时候设置  [offlinePushInfo](http://doc.qcloudtrtc.com/im/interfaceV2TIMOfflinePushInfo.html) 的 `desc`字段，推送的时候会默认展示 `desc` 信息。
+自定义消息的离线推送和普通消息不太一样，自定义消息的内容我们无法解析，不能确定推送的内容，所以默认不推送，如果您有推送需求，需要您在 [sendMessage](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a3694cd507a21c7cfdf7dfafdb0959e56) 的时候设置  [offlinePushInfo](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMOfflinePushInfo.html) 的 `desc`字段，推送的时候会默认展示 `desc` 信息。
 

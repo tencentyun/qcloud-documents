@@ -1,28 +1,29 @@
 ## 操作场景
 Discuz! Q 是全球成熟度最高、覆盖率最大的社区论坛软件系统之一。腾讯云轻量应用服务器 Lighthouse 提供 Discuz! Q 应用镜像，其中已集成宝塔 Linux 面板、MySQL、Nginx 和 PHP 软件，您可以使用它构建移动端社区。
->?Discuz! Q 应用镜像底层基于 CentOS 7.6 64位操作系统。实例创建完成后将会自动下载并安装最新版的 Discuz! Q 软件。
-
+>?
+>- Discuz! Q 应用镜像底层基于 CentOS 7.6 64位操作系统。
+>- 轻量应用服务器实例创建完成后，将会自动下载并安装最新版的 Discuz! Q 软件。您无需进行 Discuz! Q 初始化等安装操作，可参考文档步骤，获取管理员帐号及密码并进行登录。
 
 ## 操作步骤
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。
 2. 单击【新建】，进入轻量应用服务器购买页面。如下图所示：
-![](https://main.qcloudimg.com/raw/020b125b26d6f790592cdf115a2f361c.png)
+![](https://main.qcloudimg.com/raw/06f26e8e88c53d5cd5cb6f772364b7e7.png)
 	- **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
 	- **镜像**：选择 “Discuz! Q v1.0” 应用镜像。
 	- **实例套餐**：按照所需的服务器配置（CPU、内存、系统盘、峰值带宽、每月流量），选择一种实例套餐。
-	- **实例名称**：自定义实例名称，若不填则默认使用所选镜像名称。批量创建实例时，连续命名后缀数字自动升序。例如，填入名称为 LH，数量选择3，则创建的3个实例名称为 LH1、LH2、LH3。
+	- **实例名称**：自定义实例名称，若不填则默认使用“镜像名称+四位随机字符”。批量创建实例时，连续命名后缀数字自动升序。例如，填入名称为 LH，数量选择3，则创建的3个实例名称为 LH1、LH2、LH3。
 	- **购买时长**：默认1个月。
 	- **购买数量**：默认1台。
 3. 单击【立即购买】，并根据页面提示提交订单完成支付，返回轻量应用服务器控制台。
 4. 待实例创建完成后，在服务器列表中，选择并进入该实例的详情页。
 您可以在此页面查看 Discuz! Q 应用的各项配置信息。
 5. 选择【应用管理】页签，进入应用管理详情页。
-6. <span id="Step6"></span>在“应用内软件信息”栏中，单击<img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png">，复制获取 Discuz! Q 的管理员帐户密码的命令。
+6. [](id:Step6)在“应用内软件信息”栏中，单击<img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png">，复制获取 Discuz! Q 的管理员帐户密码的命令。
 7. 在“应用内软件信息”栏中，单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/f98e022191f1fcb49698fa2db2f519ff.png)
-8. <span id="Step8"></span>在弹出的登录窗口中，粘贴 [步骤6](#Step6) 复制的管理员密码，按 **Enter**。
+8. [](id:Step8)在弹出的登录窗口中，粘贴 [步骤6](#Step6) 复制的管理员密码，按 **Enter**。
 如下图所示即可获取 Discuz! Q 管理员账号（admin）和对应的密码，请妥善保管并记录。
-![](https://main.qcloudimg.com/raw/1a809d9ca378835675299e37a1c9cebd.png)
+![](https://main.qcloudimg.com/raw/b0e81edfcb7da408504343dc98622556.png)
 9. 关闭登录窗口，并返回该实例的应用管理详情页。
 10. 在“应用内软件信息”栏中，单击 Discuz! Q 的【后台访问地址】。如下图所示：
 ![](https://main.qcloudimg.com/raw/bd7302b9dd9f100dbab7a2d87aa41345.png)
@@ -47,7 +48,16 @@ Discuz! Q 是全球成熟度最高、覆盖率最大的社区论坛软件系统�
 在 Discuz! Q 实例的应用管理详情页，您除了可以查看 Discuz! Q 的配置信息，还可以查看其他配置信息。例如宝塔Linux面板登录信息、 MySQL 数据库管理员密码、实例中各个软件的安装路径等。如下图所示：
 ![](https://main.qcloudimg.com/raw/46dfb1a9fdbbc8191e697744b8a04103.png)
 
-### 安装 SSL 证书
+### 域名与 DNS 解析设置
+您可以给自己的 Discuz! Q 论坛设定一个单独的域名。用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。有些用户搭建网站仅用于学习，那么可使用 IP 直接访问网站，但不推荐这样操作。
+
+如果您已有域名或者想要通过域名来访问您的网站，请参考以下步骤：
+1. 通过腾讯云 [购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)，具体操作请参考 [域名注册](https://cloud.tencent.com/document/product/242/9595)。
+2. 进行 [网站备案](https://cloud.tencent.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。
+域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云免费进行备案，审核时长请参考 [备案审核](https://cloud.tencent.com/document/product/243/19650)。
+3. 通过腾讯云 [DNS解析 DNSPod](https://cloud.tencent.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。具体操作请参考 [A 记录](https://cloud.tencent.com/document/product/302/3449)，将域名指向一个 IP 地址（外网地址）。
+
+### 开启 HTTPS 访问
 您可通过以下方式，为您的实例安装 SSL 证书：
 - 方式1：Discuz! Q 实例创建完成后，使用实例中内置的宝塔 Linux 面板安装 SSL 证书。详情可参考宝塔 Linux 面板官方文档。
 - 方式2：可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 Discuz! Q 实例安装 SSL 证书并开启 HTTPS 访问。

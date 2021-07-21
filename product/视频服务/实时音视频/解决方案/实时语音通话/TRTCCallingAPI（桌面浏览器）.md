@@ -1,6 +1,6 @@
 ## TRTCCalling 简介
 
-[TRTCCalling](https://www.npmjs.com/package/trtc-calling-js) 组件是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持1v1和多人视频/语音通话。具体的实现过程请参见 [实时语音通话（桌面浏览器）](https://cloud.tencent.com/document/product/647/49795)。
+[TRTCCalling](https://www.npmjs.com/package/trtc-calling-js) 组件是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持1v1和多人视频/语音通话。具体的实现过程请参见 [实时语音通话（Web）](https://cloud.tencent.com/document/product/647/49795)。
 
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频通话组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
@@ -41,7 +41,9 @@
 | [openCamera()](#opencamera())                                                                 | 启动摄像头         |
 | [closeCamera()](#closecamera())                                                               | 关闭摄像头         |
 | [setMicMute(isMute)](#setmicmute(ismute))                                                     | 设备麦克风是否静音 |
-
+| [setVideoQuality(profile)](#setvideoquality(profile) ) |   设置视频质量 |
+| [switchToAudioCall()](#switchtoaudiocall()) | 视频通话切换语音通话|
+| [switchToVideoCall()](#switchtovideocall()) | 语音通话切换视频通话|
 
 ## TRTCCalling 详解
 
@@ -139,7 +141,7 @@ trtcCalling.call({userID, type, timeout})
 | ------- | ------ | ------------------------ |
 | userID  | String | 被邀请方 userID          |
 | type    | Number | 1：语音通话，2：视频通话 |
-| timeout | Number | 0为不超时, 单位 s(秒)    |
+| timeout | Number | 0为不超时, 单位 s（秒）    |
 
 
 
@@ -167,8 +169,8 @@ trtcCalling.groupCall({userIDList, type, groupID})
 
 <dx-codeblock>
 :::  javascript javascript
-import TrtcCalling from 'trtc-calling-js';
-trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
+import TRTCCalling from 'trtc-calling-js';
+trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
   trtcCalling.accept({inviteID, roomID, callType})
 })
@@ -189,8 +191,8 @@ trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 
 <dx-codeblock>
 :::  javascript javascript
-import TrtcCalling from 'trtc-calling-js';
-trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
+import TRTCCalling from 'trtc-calling-js';
+trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
   trtcCalling.reject({inviteID, isBusy, callType})
 })
@@ -317,18 +319,63 @@ trtcCalling.setMicMute(true) // 开启麦克风
 | ------ | ------- | --------------------------------------------- |
 | isMute | Boolean | <li/>true：麦克风关闭 <li/> false：麦克风打开 |
 
-<span id="event"></span>
+####  setVideoQuality(profile) 
+设置视频质量。
+>? 
+- v0.8.0 及其之后版本，新增该方法。
+- 此方法需在 call、groupCall、accept 之前设置，之后设置不生效。
+
+<dx-codeblock>
+::: javascript javascript
+trtcCalling.setVideoQuality('720p') // 设置视频质量为720p
+:::
+</dx-codeblock>
+
+参数如下表所示：
+
+| 参数   | 类型    | 含义                                         |
+| ------ | ------- | -------------------------------------------- |
+| profile | String | <li/>480p：640 × 480 <li/>720p：1280 × 720  <li/>1080p：1920 × 1080  |
+
+####  switchToAudioCall() 
+视频通话切换语音通话。
+>?  
+>- v0.10.0 及其之后版本，新增该方法。
+>- 仅支持1v1通话过程中使用。
+>- 失败监听 ERROR 事件，code：60001。
+
+<dx-codeblock>
+::: javascript javascript
+trtcCalling.switchToAudioCall() // 视频通话切换语音通话
+:::
+</dx-codeblock>
+
+####  switchToVideoCall() 
+语音通话切换视频通话。
+>?  
+>- v0.10.0 及其之后版本，新增该方法。
+>- 仅支持1v1通话过程中使用。
+>- 失败监听 ERROR 事件，code：60002。
+
+<dx-codeblock>
+::: javascript javascript
+trtcCalling.switchToVideoCall() // 语音通话切换视频通话
+:::
+</dx-codeblock>
+
+
+[](id:event)
 ## TRTCCalling 事件表
-您可以参考如下代码捕获来自 TRTCCalling 组件的各种事件：
+您可以参考如下代码监听 [TRTCCalling 组件事件](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/module-EVENT.html)：
 
 <dx-codeblock>
 :::  javascript javascript
-import TrtcCalling from 'trtc-calling-js';
+import TRTCCalling from 'trtc-calling-js';
 // etc
 function handleInviteeReject({userID}) {
 
 }
-trtcCalling.on(TrtcCalling.EVENT.REJECT, handleInviteeReject)
+trtcCalling.on(TRTCCalling.EVENT.REJECT, handleInviteeReject)
 :::
 </dx-codeblock>
 
@@ -465,7 +512,7 @@ function handleInviteeReject({userID}) {
 
 <dx-codeblock>
 :::  javascript javascript
-function handleNoResponse({userID}) {
+function handleNoResponse({userID, userIDList}) {
 
 }
 :::
@@ -473,9 +520,10 @@ function handleNoResponse({userID}) {
 
 参数如下表所示：
 
-| 参数   | 类型   | 含义    |
-| ------ | ------ | ------- |
-| userID | String | 用户 ID |
+| 参数       | 类型   | 含义         |
+| ---------- | ------ | ------------ |
+| userID     | String | 用户 ID      |
+| userIDList | Array  | 超时用户列表 |
 
 #### LINE_BUSY
 被邀请方正在通话中，忙线。
@@ -547,13 +595,20 @@ function handleCallTimeout() {
 
 <dx-codeblock>
 :::  javascript javascript
-import TrtcCalling from 'trtc-calling-js';
+import TRTCCalling from 'trtc-calling-js';
 let onError = function(error) {
   console.log(error)
 };
 trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 :::
 </dx-codeblock>
+
+#### Error code 码
+| code      | 错误类型    | 含义                        |
+| --------- | ----------- | ----------------------------- |
+| 60001     | 方法调用失败  | switchToAudioCall 调用失败   ｜
+| 60002     | 方法调用失败  | switchToVideoCall 调用失败   ｜
+
 
 ## 常见问题
 #### 为什么拨打不通，或者被踢下线？

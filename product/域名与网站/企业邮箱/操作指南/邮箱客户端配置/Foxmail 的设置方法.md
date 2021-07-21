@@ -3,7 +3,7 @@
 开通企业邮箱后，您可以在 Windows 或 Mac 系统安装并使用 Foxmail 客户端进行邮件收发。本文将指导您如何在 Windows 与 Mac 系统中设置 Foxmail 客户端。
 
 ## 前提条件
-目前仅 foxmail 7.2.11 版本支持微信扫码和手机验证码新建腾讯企业邮，您可以在 [Foxmail 官网](https://www.foxmail.com/) 下载最新版本，也可以在 Foxmail 客户端上直接更新。
+目前仅 Foxmail 7.2.11 版本支持微信扫码和手机验证码新建腾讯企业邮，您可以在 [Foxmail 官网](https://www.foxmail.com/) 下载最新版本，也可以在 Foxmail 客户端上直接更新。
 
 ## 操作步骤
 ### Windows 系统设置 Foxmail 客户端
@@ -37,7 +37,7 @@ Windows 版本的 Foxmail 客户端支持微信扫码、手机验证码、账号
 
 
 ### MAC 系统设置 Foxmail 客户端
-MAC 版本的 foxmail 客户端支持自动配置与手动配置两种方式新建腾讯企业邮。
+MAC 版本的 Foxmail 客户端支持自动配置与手动配置两种方式新建腾讯企业邮。
 
 #### 方式1：自动配置
 >!自动配置企业邮箱将默认使用 IMAP 服务器接收类型，如您需 POP3 服务器为接收类型请使用 [手动配置方式](#byhand)。

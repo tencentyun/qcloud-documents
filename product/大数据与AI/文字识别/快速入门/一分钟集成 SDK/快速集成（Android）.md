@@ -10,7 +10,7 @@
 
 ### Android 端OCR SDK 介绍
 
-SDK提供的文件为 **OcrSDKv1.0.2-alpha.aar** (具体版本号以官网下载为准)，该文件封装了 OCR 识别终端能力。目前包括了身份证识别、银行卡识别以及名片识别。
+SDK提供的文件为 [OCR_Android_SDK_V1.0.8](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.8/sdk/OCR_Android_SDK_V1.0.8.zip)，该文件封装了 OCR 识别终端能力。目前包括了身份证识别、银行卡识别、名片识别、车辆Vin码识别、车牌识别、驾驶证识别以及行驶证识别。
 
 
 
@@ -22,20 +22,18 @@ SDK提供的文件为 **OcrSDKv1.0.2-alpha.aar** (具体版本号以官网下载
 
 ### 接入步骤
 
-1. 将 **OcrSDKv1.0.2-alpha.aar** 添加到您工程目录的 libs 目录下。![](https://main.qcloudimg.com/raw/817e191497ae168a2f9890e5d85ce936.png)
+1. 将 **OcrSDKv1.0.2-alpha.aar** 添加到您工程目录的 libs 目录下。
+![](https://main.qcloudimg.com/raw/817e191497ae168a2f9890e5d85ce936.png)
 
 2. 在您工程的 **build.gradle** 中进行如下配置：
- ```groovy
+```groovy
 dependencies {
   // 依赖腾讯云的 OcrSDK 的 aar
   implementation files('libs/OcrSDKv1.0.2-alpha.aar')
-  
-  // OCR SDK 依赖 xlog 组件需要添加引用
-  implementation 'com.tencent.mars:mars-xlog:1.2.3'
   // OCR SDK 返回实体对象需要的依赖
   implementation 'com.google.code.gson:gson:2.8.5'
 }
- ```
+```
 
 3. 同时需要在 AndroidManifest.xml 文件中进行必要的权限声明
 ```xml
@@ -53,7 +51,7 @@ dependencies {
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 ```
 
-   对于需要兼容 Android 6.0 以上的用户，以上权限除了需要在 AndroidManifest.xml 文件中声明权以外，还需使用代码动态申请权限。
+对于需要兼容 Android 6.0 以上的用户，以上权限除了需要在 AndroidManifest.xml 文件中声明权以外，还需使用代码动态申请权限。
 
 
 
@@ -61,7 +59,7 @@ dependencies {
 
 #### SDK 初始化：
 
-  使用 OCR SDK 之前需要进行初始化，您可以按照您的需求设置默认值。
+使用 OCR SDK 之前需要进行初始化，您可以按照您的需求设置默认值。
 
 ```java
 // 启动参数配置
@@ -142,12 +140,18 @@ OcrSDKKit.getInstance().startProcessOcrResultEntity(OcrTypeIdCardActivity.this,
 | OcrType.BankCardOCR     | 银行卡正面识别模式     | BankCardOcrResult       |
 | OcrType.BusinessCardOCR | 名片卡正面识别模式     | BusinessCardOcrResult   |
 | OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 | MalaysiaIdCardOcrResult |
+| OcrType.VinOCR | 车辆的 VIN 识别模式 | VinOcrResult |
+| OcrType.LicensePlateOCR | 车辆的车牌识别模式 | CarLicensePlateResult |
+| OcrType.DriverLicenseOCR_FRONT | 驾驶证主页识别模式 | DriverLicenseCardResult |
+| OcrType.DriverLicenseOCR_BACK | 驾驶证副页识别模式 | DriverLicenseCardResult |
+| OcrType.VehicleLicenseOCR_FRONT | 行驶证主页识别模式 | VehicleLicenseCardResult |
+| OcrType.VehicleLicenseOCR_BACK | 行驶证副页识别模式 | VehicleLicenseCardResult |
 
 
 
 #### SDK 版本号获取：
 
-  OCR SDK 提供了直接获取 SDK 版本号的接口，您可以调用此接口获取。
+OCR SDK 提供了直接获取 SDK 版本号的接口，您可以调用此接口获取。
 
 ```java
 OcrSDKKit.getInstance().getVersion()
@@ -157,7 +161,7 @@ OcrSDKKit.getInstance().getVersion()
 
 #### SDK 资源释放：
 
-  在您 App 退出使用或者需要重启加载 OCR 功能的时候，可以调用 SDK 资源释放接口。
+在您 App 退出使用或者需要重启加载 OCR 功能的时候，可以调用 SDK 资源释放接口。
 
 ```java
 @Override
@@ -173,39 +177,22 @@ protected void onDestroy() {
 
 ### 混淆规则配置
 
-  如果您的应用开启了混淆功能，为确保 SDK 的正常使用，请把以下部分添加到您的混淆文件中。
-
+如果您的应用开启了混淆功能，为确保 SDK 的正常使用，请把以下部分添加到您的混淆文件中。
 ```java
 #保留自定义的 OcrSDKKit 类和类成员不被混淆
 -keep class com.tencent.ocr.sdk.** {*;}
 
 #第三方 jar 包不被混淆
 -keep class com.tencent.youtu.** {*;}
--keep class com.tencent.mars.xlog.** {*;}
+
 ```
 
-​	
+
 
 ### 常见问题
 
-1. 如同时集成慧眼 SDK，出现 **More than one file was found with OS independent path 'lib/armeabi-v7a/libopencv_world.so'.** 的问题。
-
-​	主要是 OCR SDK 和慧眼 SDK 都添加了 libopencv_world.so 这个库，解决办法可以在 build.gradle 中添加如下配置：
-
-```groovy
-android {
-		...
-		    // 过滤重复定义 so 的问题
-    packagingOptions{
-        pickFirst 'lib/armeabi-v7a/libopencv_world.so'
-    }
-}
-```
-
-2. 如同时集成智能扫码 SDK，出现 **More than one file was found with OS independent path 'lib/armeabi-v7a/libc++_shared.so'.** 的问题。
-
-主要是由于智能扫码和 xlog 中 native 库冲突了，解决方法可以在 build.gradle 中添加如下配置：
-
+1. 如同时集成其余 SDK，出现 **More than one file was found with OS independent path 'lib/armeabi-v7a/libc++_shared.so'.**  的问题。
+主要是 OCR SDK 和其余 SDK 都添加了 `libc++_shared.so` 这个库，解决办法可以在 build.gradle 中添加如下配置：
 ```groovy
 android {
 		...
@@ -216,10 +203,18 @@ android {
 }
 ```
 
+2. 如果集成方使用了 AndResGuard 的混淆工具，可以添加混淆配置：
+```groovy
+// for OCR SDK
+"R.string.ocr_*",
+"R.string.rst_*",
+"R.string.net_*",
+"R.string.msg_*",
+
+```
+
 3. 集成 OCR SDK 后如果出现 **Invoke-customs are only supported starting with Android O (--min-api 26)** 错误？
-
 需要在 build.gradle 中添加如下配置：
-
 ```groovy
 // java 版本支持1.8
 compileOptions {

@@ -228,4 +228,4 @@ SELECT c2, sum(c1) FROM cos_tbl GROUP BY c2;
 ```
 
 ## 使用经验
-对于 COS 外表的使用盲点，以及一些技巧可以参见云+社区文章 [CDWPG 云数仓 COS 使用经验](https://cloud.tencent.com/developer/article/1359016)。
+对于 COS 外表的使用盲点，以及一些技巧可以参见云+社区文章 [云数据仓库 PostgreSQL COS 使用经验](https://cloud.tencent.com/developer/article/1359016)。

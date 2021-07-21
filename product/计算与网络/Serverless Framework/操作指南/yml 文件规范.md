@@ -6,7 +6,6 @@ Serverless Framework 通过项目配置文件 `serverless.yml` 完成应用的�
 
 ```yml
 #应用组织信息（可选）
-org: '' # 组织名称。留空则则使用默认值为用户 APPID
 app: '' # 应用名称。留空则默认取当前组件的实例名称为app名称。
 stage: '' # 环境名称。默认值是 dev。建议使用 ${env.STAGE} 变量定义环境名称
 

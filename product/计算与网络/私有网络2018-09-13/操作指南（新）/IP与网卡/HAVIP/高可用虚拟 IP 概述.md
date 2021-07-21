@@ -2,6 +2,7 @@
 >?
 >- 目前 HAVIP 产品处于灰度优化中，切换的时延在10s左右，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/azh0w1qoavk)。
 >- 为保证主备集群云服务器的高可用性，强烈建议通过 [置放群组](https://cloud.tencent.com/document/product/213/15486) 将不同云服务器分配到不同的宿主机上，更多关于置放群组的信息，请参考 [置放群组](https://cloud.tencent.com/document/product/213/15486)。
+>- 高可用软件需要支持发送 ARP 报文。
 >
 
 ## 特点介绍
@@ -14,6 +15,8 @@
 + 在传统物理网络中，可以通过 keepalived 的 VRRP 协议协商主备状态。其原理为：主设备周期性发送免费 ARP 报文刷新上联交换机的 MAC 表或终端 ARP 表，触发 VIP 迁移到主设备上。
 + 在私有网络 VPC 中，同样通过在云服务器中部署 Keepalived 来实现高可用主备集群。与物理网络不同的是，出于安全考虑（如 ARP 欺骗等），通常不支持云服务器通过 ARP 宣告普通内网 IP，该 VIP 必须为从腾讯云申请的高可用虚拟 IP (HAVIP) ，且该 VIP 具有子网属性，只能在同一子网下的机器间宣告绑定。
 >?Keepalived 是基于 VRRP 协议的一款高可用软件，Keepalived 配置通过 keepalived.conf 文件完成。
+>
+
 
 高可用虚拟 IP 的架构如下图所示。
 ![](https://main.qcloudimg.com/raw/6cf7f99f1cfad6a26da8b4734035b97b.png)
@@ -28,7 +31,7 @@
 - **负载均衡的 HA**
   用户自己部署负载均衡时，一般业务架构是：负载均衡之间做 HA，后端机器做集群。因此部署负载均衡的两台服务器间要部署 HA，用 HAVIP 作为 virtual IP。
 - **关系型数据库主备**
-  两台数据库之间 keepalived 或 Windows Server Failover Cluster，需要 HAVIP 作为 virtual IP。详细操作请参见 [最佳实践-用 HAVIP+Keepallved 搭建高可用主备集群 ](https://cloud.tencent.com/document/product/215/20186)和 [最佳实践-用 HAVIP + Windows Server Failover Cluster 搭建高可用 DB](https://cloud.tencent.com/document/product/215/20187) 。
+  两台数据库之间通过 keepalived 或 Windows Server Failover Cluster 搭建高可用主备集群，需要 HAVIP 作为 virtual IP。详细操作请参见 [最佳实践-用 HAVIP+Keepallved 搭建高可用主备集群 ](https://cloud.tencent.com/document/product/215/20186)和 [最佳实践-用 HAVIP + Windows Server Failover Cluster 搭建高可用 DB](https://cloud.tencent.com/document/product/215/20187) 。
 
 
 ## 常见问题

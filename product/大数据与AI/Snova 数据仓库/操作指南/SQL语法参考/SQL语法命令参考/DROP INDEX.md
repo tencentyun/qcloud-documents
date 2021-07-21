@@ -1,7 +1,6 @@
 删除一个索引。
 
 ## 概要
-
 ```sql
 DROP INDEX [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 ```
@@ -10,7 +9,6 @@ DROP INDEX [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 DROP INDEX 从数据库系统上删除一个存在的索引。要执行这个命令用户必须是索引的拥有者。
 
 ## 参数
-
 IF EXISTS
 如果索引不存在，不会抛出错误。这种情况下会发出通知。
 
@@ -24,9 +22,7 @@ RESTRICT
 如果有任何对象依赖于该索引，则拒绝删除该对象（默认）。
 
 ## 示例
-
 删除索引 title_idx：
-
 ```sql
 DROP INDEX title_idx;
 ```

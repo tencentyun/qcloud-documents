@@ -1,16 +1,15 @@
-本文主要为您介绍 DMC 新版控制台的新建库表、库管理、实例监控、实例会话、表数据可视化编辑等功能。
->?如需使用数据库实时监控、InnoDB 锁等待管理等功能，可在 DMC 导航栏右上角单击【返回旧版】，可前往旧版 DMC 控制台。
+本文主要为您介绍 DMC 控制台的新建库表、库管理、实例监控、实例会话、表数据可视化编辑等功能。
 
 ## 新建库表
 1. 登录 [DMC 控制台](https://bj-dmc.cloud.tencent.com/v2/qcloudLogin/login)，在导航栏选择【新建】>【新建库】>【新建数据库】或【新建】>【新建表】。
-![](https://main.qcloudimg.com/raw/2e7d5ffdeb7b527d4dde3246b24dd04b.png)
-2. 在弹出的对话框，用户可以对新建的库表进行配置，配置完成后单击【提交】。
+![](https://main.qcloudimg.com/raw/2b658b1dbfe8a997481fd777e3886413.png)
+2. 在弹出的对话框，对新建的库表进行相关配置。
 >?字符集、排序规则介绍可参见 [MySQL 官方文档](https://dev.mysql.com/doc/)。
 >
  - 新建库对话框：
-![](https://main.qcloudimg.com/raw/43a11a0dcd4da77bc45a6d686cc86617.png)
+![](https://main.qcloudimg.com/raw/1e235d6d79732444adaeb6efb6bf7dfc.png)
  - 新建表对话框：
-![](https://main.qcloudimg.com/raw/2cb0348e7929c14dce28928e32a830c0.png)
+![](https://main.qcloudimg.com/raw/6815a20c6e92943b229cfe5d18ed0c46.png)
 
 ## 库管理
 登录 [DMC 控制台](https://bj-dmc.cloud.tencent.com/v2/qcloudLogin/login)，在导航栏单击【库管理】，进入数据库管理页面，用户可新建、编辑、删除数据库。
@@ -36,5 +35,5 @@ DMC 提供 kill 会话的功能，方便用户对会话进行管理。
 ![](https://main.qcloudimg.com/raw/f499d283976127a5a678ed160d5a6d22.png)
 
 ## 表数据可视化编辑
-新版 DMC for MySQL 增加了对数据增删改的支持。用户可在左侧栏单击“数据表”，对表数据进行批量的增、删、改操作，修改完成后，在“快捷操作”栏单击【确定】预览本次修改的 SQL 语句，二次确认后将批量执行修改。
+DMC for MySQL 增加了对数据增删改的支持。用户可在左侧栏单击“数据表”，对表数据进行批量的增、删、改操作，修改完成后，在“快捷操作”栏单击【确定】预览本次修改的 SQL 语句，二次确认后将批量执行修改。
 ![](https://main.qcloudimg.com/raw/4488c0191fbbd19b221af38a0daffc76.png)

@@ -14,10 +14,10 @@
 4. 在“集群详情页”，选择【组件管理】>【新建】，进入【新建组件】页面。
 5. 在“新建组件”页面，勾选【CFS（腾讯云文件存储）】并单击【完成】即可。
 
-### 通过控制台创建 StorageClass<span id="createStorageClass"></span>
+### 通过控制台创建 StorageClass[](id:createStorageClass)
 由于静态创建文件存储类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [通过控制台创建 StorageClass](https://cloud.tencent.com/document/product/457/44235#.E6.8E.A7.E5.88.B6.E5.8F.B0.E6.93.8D.E4.BD.9C.E6.8C.87.E5.BC.95) 完成创建。
 
-### 创建文件存储<span id="createCFS"></span>
+### 创建文件存储[](id:createCFS)
 1. 登录[ 文件存储控制台](https://console.cloud.tencent.com/cfs/fs?rid=1)，进入“文件系统”页面。
 2. 单击【新建】，在弹出的“创建文件系统”窗口中，参考以下信息进行设置。如下图所示：
 ![](https://main.qcloudimg.com/raw/27e35d96a2978626231f2f81743451e7.png)
@@ -27,7 +27,7 @@
 	- **存储类型**：提供【标准存储】和【性能存储】两种类型，不同可用区支持类型有一定差异，详情请参见[ 可用地域](https://cloud.tencent.com/document/product/582/43623)。
 	- **文件服务协议**：选择文件系统的协议类型，【NFS】或【CIFS/SMB】。
 		- NFS 协议：更适合于 Linux/Unix 客户端。
-		- CIFS/SMB 协议：更适合于 Windows 客户端。该协议已于 2020 年 9 月 1日正式商用，详情请参见 [CIFS/SMB 商用说明](https://cloud.tencent.com/document/product/582/9553#cifs.2Fsmb-.E5.95.86.E7.94.A8.E8.AF.B4.E6.98.8E)。
+		- CIFS/SMB 协议：更适合于 Windows 客户端。
 	- **客户端类型**：选择需要访问文件系统的客户端类型，云服务器（含容器、批量计算）或黑石服务器。 由于云服务器和黑石主机分别属于不同的网络，系统会根据您的客户端类型分配该文件系统到指定网络中。
 	- **网络类型**：选择【私有网络】，以实现私有网络下云服务器对文件系统的共享。
 	- **选择网络**：需确保与使用该文件系统的集群处于同一私有网络下。
@@ -39,7 +39,7 @@
 
 
 
-### 获取文件系统子目录<span id="getPath"></span>
+### 获取文件系统子目录[](id:getPath)
 1. 在“文件系统”页面，单击需获取子目标路径的文件系统 ID，进入该文件系统详情页。
 2. 选择【挂载点信息】页签，从 “Linux下挂载” 获取该文件系统子目录路径 `/subfolder`。如下图所示：
 ![](https://main.qcloudimg.com/raw/78949f471b9b57b2ee10fc3652bad017.png)
@@ -51,7 +51,7 @@
 ## 操作步骤
 
 
-### 静态创建 PV<span id="pv"></span>
+### 静态创建 PV[](id:pv)
 >? 静态创建 PV 适用于已有存量的文件存储，并在集群内使用的场景。
 >
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
@@ -74,7 +74,7 @@
 
 
 
-### 创建 PVC<span id="createPVC2"></span>
+### 创建 PVC[](id:createPVC2)
 1.  在目标集群详情页，选择左侧菜单栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/1e33ff549656ade2836b91bb5d718201.png)
 2. 选择【新建】进入“新建PersistentVolumeClaim” 页面，参考以下信息设置 PVC 关键参数。如下图所示：
@@ -85,6 +85,7 @@
    - **读写权限**：文件存储仅支持多机读写。
    - **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#createStorageClass) 步骤中创建的 `cfs-storageclass` 为例。
    >?
+   >
    >- PVC 和 PV 会绑定在同一个 StorageClass 下。
 >- 不指定意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
 > 
@@ -110,4 +111,5 @@
        - **目标路径**：填写目标路径，本文以 `/cache` 为例。
        - **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如， `/data` 或 `/test.txt`。
 3. 单击【创建Workload】，完成创建。
- > ! 如使用 PVC 挂载模式，则数据卷只能挂载到一台 Node 主机上。
+ >! 如使用 CFS 的 PVC 挂载模式，数据卷支持挂载到多台 Node 主机上。
+

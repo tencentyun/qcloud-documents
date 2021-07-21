@@ -47,7 +47,6 @@
 
    
 
-
 ## 查看设备概况
 
 1. 在 [SD-WAN 接入服务实例列表](https://console.cloud.tencent.com/sas/edge) 中，单击目标实例 ID。

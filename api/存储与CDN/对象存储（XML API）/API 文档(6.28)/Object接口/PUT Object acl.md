@@ -6,6 +6,23 @@ PUT Object acl 接口用来写入对象的访问控制列表（ACL），您可�
 > - PUT Object acl 是一个覆盖操作，传入新的 ACL 将覆盖原有 ACL。
 > - 仅可对腾讯云 CAM 主账号或匿名用户授予权限，如需授予子用户或用户组权限请使用 [PUT Bucket policy](https://cloud.tencent.com/document/product/436/8282) 接口。有关 ACL 的详细说明，请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752)。
 > - 该 API 的请求者需要对指定对象有写入 ACL 权限。
+> 
+
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=PutObjectAcl&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
 
 ## 请求
 
@@ -62,25 +79,26 @@ Authorization: Auth String
 
 ```shell
 <AccessControlPolicy>
-	<Owner>
-		<ID>string</ID>
-	</Owner>
-	<AccessControlList>
-		<Grant>
-			<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
-				<URI>string</URI>
-			</Grantee>
-			<Permission>Enum</Permission>
-		</Grant>
-		<Grant>
-			<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+			<Owner>
 				<ID>string</ID>
-			</Grantee>
-			<Permission>Enum</Permission>
-		</Grant>
-	</AccessControlList>
+			</Owner>
+			<AccessControlList>
+				<Grant>
+					<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+						<URI>string</URI>
+					</Grantee>
+					<Permission>Enum</Permission>
+				</Grant>
+				<Grant>
+					<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+						<ID>string</ID>
+					</Grantee>
+					<Permission>Enum</Permission>
+				</Grant>
+			</AccessControlList>
 </AccessControlPolicy>
 ```
+
 
 具体的节点描述如下：
 
@@ -105,21 +123,21 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| Grant | AccessControlPolicy.AccessControlList | 单个授权信息，一个 AccessControlList 最多只能拥有100条 Grant | Container | 是 |
+| Grant | AccessControlPolicy.<br>AccessControlList | 单个授权信息，一个 AccessControlList 最多只能拥有100条 Grant | Container | 是 |
 
 **Container 节点 AccessControlPolicy.AccessControlList.Grant 的内容：**
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者信息，`xsi:type`可指定为 Group 或 CanonicalUser，当指定为 Group 时子节点包括且仅允许包括 URI，当指定为 CanonicalUser 时子节点包括且仅允许包括 ID | Container | 是 |
-| Permission | AccessControlPolicy.AccessControlList.Grant | 授予的权限信息，枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E6.93.8D.E4.BD.9C-permission) 文档中对象的操作部分，例如 READ，FULL_CONTROL 等 | Enum | 是 |
+| Grantee | AccessControlPolicy.<br>AccessControlList.Grant | 被授权者信息，`xsi:type`可指定为 Group 或 CanonicalUser，当指定为 Group 时子节点包括且仅允许包括 URI，当指定为 CanonicalUser 时子节点包括且仅允许包括 ID | Container | 是 |
+| Permission | AccessControlPolicy.<br>AccessControlList.Grant | 授予的权限信息，枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E6.93.8D.E4.BD.9C-permission) 文档中对象的操作部分，例如 READ，FULL_CONTROL 等 | Enum | 是 |
 
 **Container 节点 AccessControlPolicy.AccessControlList.Grant.Grantee 的内容：**
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| URI | AccessControlPolicy.AccessControlList.Grant.Grantee | 预设用户组，请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E8.BA.AB.E4.BB.BD-grantee) 文档中预设用户组部分<br>例如`http://cam.qcloud.com/groups/global/AllUsers`或`http://cam.qcloud.com/groups/global/AuthenticatedUsers` | string | 当 Grantee 的`xsi:type`指定为 Group 时，必选 |
-| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 被授权者的完整 ID，格式为`qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`<br>例如`qcs::cam::uin/100000000001:uin/100000000001` | string | 当 Grantee 的`xsi:type`指定为 CanonicalUser 时，必选 |
+| URI | AccessControlPolicy.<br>AccessControlList.Grant.Grantee | 预设用户组，请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E8.BA.AB.E4.BB.BD-grantee) 文档中预设用户组部分<br>例如`http://cam.qcloud.com/groups/global/AllUsers`或`http://cam.qcloud.com/groups/global/AuthenticatedUsers` | string | 当 Grantee 的`xsi:type`指定为 Group 时，必选 |
+| ID | AccessControlPolicy.<br>AccessControlList.Grant.Grantee | 被授权者的完整 ID，格式为`qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`<br>例如`qcs::cam::uin/100000000001:uin/100000000001` | string | 当 Grantee 的`xsi:type`指定为 CanonicalUser 时，必选 |
 
 ## 响应
 

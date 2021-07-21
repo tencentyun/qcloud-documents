@@ -1,0 +1,41 @@
+## 1. Linux 环境以 root 或 user_00 用户启动游戏程序
+目前 GSE 在 Linux 环境下默认使用 root 用户启动游戏进程，如果用户需要以非 root 用户启动游戏进程，需要进行以下配置：
+
+1. 在游戏生成包的根目录添加文件 gse.yaml，即在游戏服务器舰队实例上解压后的路径为 /local/game/gse.yaml；  
+2. gse.yaml 文件内容如下，表示在用户组 users 中新增用户 user_00（目前暂不支持配置其他用户及用户组）；
+```
+User: user_00:users
+```
+生成包中成功放置 gse.yaml 文件后，GSE 将使用 user_00:users 启动游戏进程，并将 /local/game 路径下所有文件的用户及用户组设置为 user_00:users
+
+	示例如下图所示：
+![](https://main.qcloudimg.com/raw/c39326e6328dac93964f6d3e6da5efad.png)
+
+## 2. Linux环境游戏进程启动前执行 install.sh
+在游戏进程启动之前，用户可能需要在 CVM 实例上安装一些软件或配置一些环境变量等，具体操作步骤如下：
+
+1. 用户新建 install.sh 脚本，将游戏进程启动前的操作写入 install.sh 中；  
+2. 将 install.sh 放置到游戏生成包的根目录下，即在游戏服务器舰队实例上解压后的路径为 /local/game/install.sh。
+
+## 3. Java语言开发的游戏进程启动配置
+Linux 环境下启动 Java 程序的命令如：java -jar XXXX.jar，为确保 Java 语言开发的游戏进程正确启动，需要做以下配置：
+
+1. 编写 install.sh 脚本
+
+		#!/bin/bash
+
+		# 安装JDK 1.8环境 -y 表示 answer yes for all questions
+		yum install java-1.8.0-openjdk.x86_64 -y
+		# 将java命令软链到 /local/game 路径下
+		ln -s /usr/bin/java /local/game/java
+
+2. 将 install.sh 脚本放置到游戏生成包的根目录下，即在游戏服务器舰队实例上解压后的路径为 /local/game/install.sh。
+3. 创建游戏服务器舰队时，启动路径填写 /local/game/java，启动参数填写 -jar 用户指定的 jar 包。
+![](https://main.qcloudimg.com/raw/4bd297141914431440f69cb4d1393aee.png)
+
+4. 游戏进程成功启动后，/local/game 路径内容示意如下：
+![](https://main.qcloudimg.com/raw/637aebe468e921d845baeb88fa21688c.png)
+
+
+
+

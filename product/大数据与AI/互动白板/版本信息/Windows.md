@@ -1,6 +1,106 @@
-### 2.5.5.155 @ 2020.11.09
-* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.5.155.zip)
+### 2.6.0.201 @ 2021-05-07
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.0.201.zip)
+- 重要特性：
+    1. 支持最新的转码方案，具体请看[新文档转码](../开发指南/新文档转码/快速接入.md)
+- 新增接口
+    1. 新增限制橡皮擦单次擦除图层数量接口(SetEraseLayerLimit)
+    2. 新增限制橡皮擦可擦除的数据类型接口(SetEraseLayerType)
+- 新增初始化参数
+    1. syncFps：信令同步频率
+- 优化：
+    1. 涂鸦绘制性能优化
+    2. 涂鸦旋转移动性能优化
+    3. 激光笔移动性能优化
+    4. 激光笔多端同步效果优化
+    5. PPT、图片元素加载
+    6. 涂鸦超出白板区域时框选范围错误
+    7. 优化白板渲染时的重排、重绘操作
+- Bug 修复
+    1. 截图时文本元素被iframe元素遮挡
+    2. 直线碰撞检测计算错误
+    3. 其他若干已知问题
 
+### 2.5.7.195 @ 2021-04-07
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.5.7.195.zip)
+- 枚举值调整
+    1. 调整 TEDU_BOARD_ERROR_PATH_INVALID 枚举值
+    2. 调整 TEDU_BOARD_ERROR_WRITE_ERROR 枚举值
+    3. 调整 TEDU_BOARD_WARNING_TRTC_INVALID 枚举值
+    4. 新增 TEDU_BOARD_WARNING_GRAFFITI_LOST 枚举值
+    5. 新增 TEDU_BOARD_WARNING_CUSTOM_GRAPH_URL_NON_EXISTS 枚举值
+
+### 2.5.7.193 @ 2021-04-02
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.5.7.193.zip)
+- 新增接口
+    1. 新增设置文件缩放接口(SetFileScale)
+    2. 新增获取文件缩放接口(GetFileScale)
+    3. 新增限制橡皮擦单次点击擦除图层数量接口(SetEraseLayerLimit)
+
+### 2.5.7.191 @ 2021-02-25
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.5.7.191.zip)
+- Bug 修复
+    1. 白板每次创建时重新注册 IM 消息回调，避免 IM 重新初始化导致收不到白板消息
+
+### 2.5.7.187 @ 2021-02-22
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.5.7.187.zip)
+- 新增接口
+    1. 增加清理白板 SDK 环境接口（ClearTEduBoardSDKEnv）
+
+### 2.5.7.185 @ 2021-02-02
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.5.7.185.zip)
+- 新增接口
+    1. 增加移动白板接口(SetScaleAnchor)
+    2. 增加是否在画线过程中显示远端画笔接口(SetRemoteCursorVisible)
+    3. 音频元素-设置音量大小(SetAudioVolume)
+    4. 音频元素-获取音量大小(GetAudioVolume)
+    5. 增加设置缩放工具的缩放比例(SetScaleToolRatio)
+    6. 增加添加资源主备域名映射(AddBackupDomain)
+    7. 增加删除资源主备域名映射(RemoveBackupDomain)
+- 新增事件
+    1. 删除元素事件(onTEBRemoveElement)
+- 新增初始化参数：
+    1. 增加初始化参数，关闭移动工具的缩放功能(enableScaleTool)
+- 优化
+    1. 添加H5 PPT, 图片元素(imageElement)/图片文件(imagesFile)，背景图片，视频等资源支持指定主备 Url，需要配合增加备用域名接口使用
+    2. 静态 PPT 翻页交互效果优化
+    3. 调整点选框样式
+    4. 激光笔功能性能优化
+- Bug 修复
+    1. 图片旋转后缩放比例不对的问题
+    2. Chrome 88版本纵向滚动条缺失
+    3. 滚动条触发异常滚动问题
+    4. 添加自定义元素时点选框范围错误
+    5. 文本工具相关问题
+    6. 其他若干已知问题
+
+### 2.5.6.183 @ 2021-01-27
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.5.6.183.zip)
+- Bug 修复
+    - 修复偶现丢失收到的笔画问题
+
+### 2.5.6.177 @ 2020-12-16
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.5.6.177.zip)
+- 新增接口：
+    - 增加是否启用原生系统光标接口 SetSystemCursorEnable
+        - 开启该功能后画笔图标和激光笔图标将使用系统的光标样式来实现，画笔图标和激光笔图标在本地会有一丢丢的流畅度提升。
+        - 开启该功能后会出现画笔图标和涂鸦有一点延迟现象，属于正常现象。
+        - 开启该功能 Mac 端在一些情况下会导致光标变成默认的鼠标指针，如消息弹窗等行为，属于正常现象。
+    - 增加设置画笔和激光笔工具的提示语接口 SetToolTypeTitle
+    - 支持音频元素
+        - 新增音频 AddElement
+        - 播放音频 PlayAudio
+        - 暂停音频 PauseAudio
+        - 跳转进度 SeekAudio
+        - 是否启用音频控制面板 EnableAudioControl
+- 新增特性：
+    - 点选和框选工具合并
+    - 激光笔和画笔支持多人
+    - 集成新的日志模块，支持日志上报，优化日志格式
+- 体验优化：
+    - 选择工具，橡皮擦选中精度优化。
+
+### 2.5.5.155 @ 2020.11.09
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.5.155.zip)
 - 新增特性：
     - 新增文字工具预设文本内容
     - 优化白板缩放工具，支持鼠标滚轮缩放，焦点缩放，按 shift 键缩小交互方式
@@ -11,8 +111,7 @@
     - 修复偶现画笔不消失的 bug
 
 ### 2.5.4.152 @ 2020.10.15
-* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.4.152.zip)
-
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.4.152.zip)
 - 新增工具类型
     - 新增正圆，正方形工具类，同时支持椭圆工具和矩形工具按 shift 键画正圆和正方形
 - 优化
@@ -22,8 +121,7 @@
     - 修复已知问题
 
 ### 2.5.3.134 @ 2020.08.31
-* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.3.134.zip)
-
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.3.134.zip)
 - 新增回调
     - 新增视频状态回调 TEDU_BOARD_VIDEO_STATUS_WAITING 和 TEDU_BOARD_VIDEO_STATUS_PLAYING
 - Bug 修复
@@ -36,14 +134,12 @@
     - 日志上报相关优化
     
 ### 2.5.2.132 @2020.08.07
-* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.2.132.zip)
-
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.2.132.zip)
 - 新增回调
     - 新增 H5PPT 状态回调 onTEBH5PPTStatusChanged
     
 ### 2.5.1.123 @2020.07.27
-* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.1.123.zip)
-
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.1.123.zip)
 - 功能支持
     - 图片元素支持任意角度旋转和八个方向的缩放
 - 接口优化
@@ -53,12 +149,11 @@
 - 接口变更
     - addTranscodeFile 增加参数 needSwitch，表示添加文件后是否切换到该文件
 - 内核升级
-    - 升级CEF版本到83.5.0+gbf03589
-    - 升级Chromium内核到83.0.4103.106
+    - 升级 CEF 版本到83.5.0+gbf03589
+    - 升级 Chromium 内核到83.0.4103.106
 
 ### 2.5.0.119 @2020.07.2
-* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.0.119.zip)
-
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.0.119.zip)
 - 功能变更
     - addVideoFile/addTranscodeFile/addImagesFile 添加已存在文件，返回该文件 ID
     - 统一各个平台视频播放控制栏的界面
@@ -70,16 +165,14 @@
 - 性能优化
 
 ### 2.4.9.118 @2020.06.15
-* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.4.9.118.zip)
-
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.4.9.118.zip)
 - 新增接口
     - 初始化参数新增 windowBackgroundColor 用于设置非白板区域背景色
 - BUG 修复
     - AddTranscodeFile 接口超时时间改为2000毫秒缓解添加文件超时问题
 
 ### 2.4.9.115 @2020.06.10
-* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.4.9.115.zip)
-
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.4.9.115.zip)
 - 新增接口
     - 新增白板同步和刷新接口 SyncAndReload
     - 新增白板快照接口 Snapshot
@@ -95,8 +188,7 @@
     - 适配IM 4.8.10版本枚举值变化导致消息收发异常问题
 
 ### 2.4.8.108 @2020.05.21
-* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.4.8.108.zip)
-
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.4.8.108.zip)
 - 新增接口
     - 新增 refresh 接口刷新当前白板
 - 新增回调
@@ -111,8 +203,7 @@
     - 修复激光笔跳变问题
 
 ### 2.4.7.106 @2020.04.30
-* [点击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.4.7.106.zip)
-
+- [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.4.7.106.zip)
 - BUG 修复
     - 修复 IM 信令每次都重复发送一条问题
 - 性能优化
@@ -265,7 +356,7 @@
 - 笔迹优化（铅笔工具曲线平滑）
 - 支持禁止数据同步（不将本地数据同步到远端）
 - 橡皮擦工具支持滑动擦除
-- 添加的 H5PPT 已存在时抛出警告
+- 添加的 H5 PPT 已存在时抛出警告
 - 支持独立设置每个白板宽高比
 - 支持白板缩放及拖动查看
 

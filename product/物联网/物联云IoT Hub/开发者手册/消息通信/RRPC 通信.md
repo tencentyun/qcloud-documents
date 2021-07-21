@@ -126,3 +126,5 @@ DBG|2020-08-04 00:07:36|mqtt_client_publish.c|qcloud_iot_mqtt_publish(340): publ
 观察服务器的响应结果，可以看到已经收到了 RRPC 应答消息。`MessageId`为\*\*\*，`Payload`经过`base64`编码后为****，其与客户端实际应答消息经过`base64`编码后一致。可以确认收到了应答消息。
 ![](https://main.qcloudimg.com/raw/4ace5de4a2c348054665c8aed16135e2.png)
 
+
+

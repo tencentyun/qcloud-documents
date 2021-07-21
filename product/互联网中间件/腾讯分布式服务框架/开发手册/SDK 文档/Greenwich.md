@@ -1,5 +1,37 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
+
+## 1.29.0-Greenwich-RELEASE（2021-06-23）
+### 新特性
+- 微服务网关增加单元化功能。
+- spring-cloud-tsf-sleuth: 新增 cmq-tcp-client 和 cmq-http-client 调用支持。
+
+### 优化
+- 优化和开源 spring cloud consul 依赖的冲突。
+- actuator 依赖改为 optional。
+- spring-cloud-tsf-sleuth：优化 getProperties 性能。
+- spring-cloud-tsf-sleuth：监控数据添加 http method 和 path template。
+- spring-cloud-tsf-ratelimit：优化限流的 httpclient。
+  
+### Bug 修复
+- spring-cloud-tsf-logger：修复自定义日志格式没有服务名的问题。
+- spring-cloud-tsf-sleuth：修复调用链获取 IP 偶现获取不到问题。
+- spring-cloud-tsf-sleuth：修改 scg metrics duration 异常问题。
+- spring-cloud-tsf-sleuth：修复未发布分组时，网关没法作为组件显示成蓝色 logo 的 Bug。
+- spring-cloud-tsf-swagger：修复 IgnoreGatewayApi 注解导致的潜在空指针异常。
+- spring-cloud-tsf-consul-discovery：修复被调方实例不存在时不断打印异常日志的问题。
+- 修复 Feign 在指定 URL 的模式下无法请求的问题。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.26.2-Greenwich-RELEASE（2021-04-25）
+### 优化
+支持通过配置 `-Dspring.cloud.consul.enabled=false` 关闭连接 consul ，适配单元测试场景时的启动。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
 ## 1.26.1-Greenwich-RELEASE（2020-12-31）
 ### 优化
 spring-cloud-tsf-sleuth 新增 CMQ 调用支持。
@@ -28,9 +60,9 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
 
 ### Bug 修复
 
-- spring-cloud-tsf-ratelimit：修复当只有一个限流规则时，限流规则关闭不生效的问题。
+- spring-cloud-tsf-ratelimit：修复多个限流规则时，全局限流无法关闭的问题。
 - spring-cloud-tsf-route：修复当只有一个路由规则时，路由规则关闭不生效的问题。
-- spring-cloud-tsf-lane：优化泳道规则生效逻辑。
+- spring-cloud-tsf-lane：修复泳道规则内存可见性 Bug。
 
 ### 版本建议
 
@@ -50,6 +82,52 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
 - spring-cloud-tsf-core：
   增加线程上下文接口，在父亲线程中塞入线程局部变量后，子线程不论是线程池反复使用还是一次性使用都能正确继承父线程局部变量。
   
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.9-Greenwich-RELEASE（2021-06-11）
+### 新特性
+- 支持服务监听触发回调。
+
+### 优化
+- 服务发现增加零实例保护。
+- consul 异常时，避免一直刷日志。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.23.8-Greenwich-RELEASE（2021-02-07）
+
+### Bug 修复
+修复 msgw-scg 依赖 actuator 缺失导致启动失败的问题。
+
+### 优化
+- spring-cloud-tsf-fault-tolerance 和 spring-cloud-tsf-circuitbreaker 对 zuul 的依赖改为 optional。
+- spring-cloud-tsf-route 对 actuator 依赖改为 optional。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.7-Greenwich-RELEASE（2021-01-25）
+
+### Bug 修复
+- 修复服务治理时 API PATH 标签匹配 PATH 参数失败问题。
+- 修复当存在多个限流规则的时候，全局限流规则开启后，无法删除的问题。
+- 修复泳道规则内存可见性 Bug。
+- 修复路由关闭问题。
+- 修复分布式配置下发 spring.application.name 时，无法上报 swagger 问题。
+- 修复本地加密配置不能被正确解密的问题。 
+- 修复网关多个命名空间时 consul index 混用导致第一次跨命名空间调用加载慢的问题。
+- 修复 Spring Framework 反射型文件下载漏洞。
+- 解决和 spring-boot-devtools 的冲突。
+
+### 优化
+- actuator 依赖改为 optional。
+- TTL 单独超时时间，并增加重试。
+- 优化 spring-cloud-tsf-sleuth 的 getProperties 性能。
+
 ### 版本建议
 
 支持向后兼容，建议全量升级。

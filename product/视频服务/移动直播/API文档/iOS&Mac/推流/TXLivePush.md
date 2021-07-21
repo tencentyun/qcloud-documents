@@ -267,7 +267,7 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 
 ### toggleTorch
 
-打开后置摄像头旁边的闪关灯。
+打开后置摄像头旁边的闪光灯。
 ```
 - (BOOL)toggleTorch:(BOOL)bEnable 
 ```

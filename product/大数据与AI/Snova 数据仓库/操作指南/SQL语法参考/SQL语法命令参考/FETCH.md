@@ -1,13 +1,10 @@
 使用游标从查询中检索行。
 
 ## 概要
-
 ```sql
 FETCH [ forward_direction { FROM | IN } ] cursorname
 ```
-
 其中 forward_direction 可以为空或者为下列之一：
-
 ```sql
     NEXT
     FIRST
@@ -85,21 +82,15 @@ ABSOLUTE 取行并不比用相对移动快多少，底层实现都必须遍历�
 DECLARE 用来定义一个游标。使用 MOVE 可以改变游标的位置而不检索数据。
 
 ## 示例
-
 开始一个事务：
-
 ```sql
 BEGIN;
 ```
-
 建立一个游标：
-
 ```sql
 DECLARE mycursor CURSOR FOR SELECT * FROM films;
 ```
-
 在游标 mycursor 中获取前五行：
-
 ```sql
 FETCH FORWARD 5 FROM mycursor;
  code  |          title          | did | date_prod  |   kind   |  len
@@ -110,16 +101,12 @@ FETCH FORWARD 5 FROM mycursor;
  P_301 | Vertigo                 | 103 | 1958-11-14 | Action   | 02:08
  P_302 | Becket                  | 103 | 1964-02-03 | Drama    | 02:28
 ```
-
 关闭游标并结束事务：
-
 ```sql
 CLOSE mycursor;
 COMMIT;
 ```
-
 修改表 films 的游标 c_films 指向的当前位置的行的 kind 列的值：
-
 ```sql
 UPDATE films SET kind = 'Dramatic' WHERE CURRENT OF c_films;
 ```
@@ -129,7 +116,7 @@ SQL 标准只在嵌入式 SQL 和模块中使用游标。数据库允许游标�
 
 这里描述的 FETCH 变体返回数据时就好像数据是一个 SELECT 结果，而不是被放在主变量中。除这一点之外，FETCH 完全向上兼容于 SQL 标准。
 
-涉及 FORWARD 形式的 FETCH ，以及形式 FETCH count 和 FETCHALL（其中 FORWARD 是隐式的）都是数据库扩展。不支持 BACKWARD。
+涉及 FORWARD 形式的 FETCH，以及形式 FETCH count 和 FETCHALL（其中 FORWARD 是隐式的）都是数据库扩展。不支持 BACKWARD。
 
 SQL 标准只允许 FROM 在游标名之前。使用 IN 的选项是一种扩展。
 

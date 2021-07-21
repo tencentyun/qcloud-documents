@@ -1,8 +1,13 @@
-
+## 简介
 
 本文档提供移动推送 TPNS  iOS 应用快速接入指引。使用本地工具无代码集成，一键为您的 iOS 应用配置推送功能。
 
+>! 为了避免您的 App 被监管部门通报或下架，请您在接入 SDK 之前务必按照 [iOS 合规指南](https://cloud.tencent.com/document/product/548/57362) 在《隐私政策》中增加 TPNS 相关说明，并且在用户同意《隐私政策》后再初始化 TPNS SDK。 
+>
+
 ## 接入前准备
+
+### 创建 iOS 平台应用
 
 1. 接入 SDK 之前，需要您前往 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详情请参见 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
    ![](https://main.qcloudimg.com/raw/a6f7bd9a751cde939069d8ef2c3e5e12.png)
@@ -55,10 +60,22 @@
 ### 配置项6 - 通知服务扩展插件
 
 通知服务扩展插件：主要用于统计推送数据的触达率以及实现富媒体推送等功能。
+- 若您的 `Xcode` 选择是**自动签名**，则 `Xcode` 会在苹果开发者平台为您的通知扩展插件生成描述文件（Provisioning File）。
+- 若您的 `Xcode` 选择是**手动签名**，则需要到苹果开发者平台手动生成描述文件（Provisioning File），否则将导致应用程序无法安装到真机调试，操作步骤如下：
 
+
+1. 前往 [苹果开发者平台](https://developer.apple.com/account/resources/identifiers/list) 为通知服务扩展插件申请 `Bundle Identifier`。
+>?`Bundle Identifier` 命名规则 (主tartget Bundle Identifier).TPNSService。
+2. 申请包含 `Bundle Identifier` 的描述文件。
+![](https://main.qcloudimg.com/raw/62cffd22ab74e0505abc54e61787e0a4.png)
+3. 将扩展插件的 `Bundle Identifier` 指定为上述申请的 `Bundle Identifier` 并将 `Provisioning Profile` 指定为上述申请的描述文件。
+![](https://main.qcloudimg.com/raw/eb8edae0c798ac9434c930eba3178fa8.png)
 > ?
 >- 若您是**初次集成 TPNS**，建议同时勾选5和6，否则无法获取推送抵达数据且无法下发富媒体推送。
 >- 您可以单独集成配置项5或者6，也可以同时集成5和6，请根据您的项目情况自行选择。
+
+
+
 
 ### 进行 TPNS SDK 集成
 

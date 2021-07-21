@@ -5,7 +5,7 @@
 
 - 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629) 。
 - 进入 [文字识别控制台](https://console.cloud.tencent.com/ocr/general)，即可开通相应服务，并在 [账号中心](https://console.cloud.tencent.com/cam/capi) 获取 API 密钥。
-- 并将 OcrDemo 文件下载到本地。
+- 并将 [OcrDemo](https://github.com/TencentCloud/tc-ocr-sdk/tree/master/MiniProgram/OcrDemo) 文件下载到本地。
 
 
 ### 环境要求
@@ -43,6 +43,6 @@ module.exports = {
 
 
 
-#### 步骤3:编译运行
+#### 步骤4:编译运行
 
 完成配置之后，选择您的运行机器（模拟器&真机）。

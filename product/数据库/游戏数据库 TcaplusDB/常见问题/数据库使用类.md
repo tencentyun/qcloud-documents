@@ -1,0 +1,134 @@
+
+- [如何获取某个响应包错误码的含义？](#42)
+- [TcaplusDB 的乐观锁原理和使用方法？](#44)
+- [list 表的使用场景及注意事项？](#45)
+- [insert、update、replace 有什么区别？](#46)
+- [如何获取某个表的记录数目?](#47)
+- [TcaplusDB 支持遍历操作吗](#48)
+- [TcaplusDB 支持部分字段更新吗？能只是获取部分字段吗？](#49)
+- [TcaplusDB 对单个主键连续操作是保序的吗？](#50)
+- [TcaplusDB 支持表定义变更吗？](#51)
+- [怎么判断响应包分包是否已经结束？](#54)
+- [GetRecordCount 与 GetRecordMatchCount 的区别？](#55)
+- [TcaplusDB 有透传的字段吗？](#56)
+- [SetResultFlag 的作用？](#57)
+- [increase 操作可以一次对多个 普通字段进行 increase 操作吗？如果 主键字段不存在的场景呢？](#58)
+- [TcaplusDB 在读取记录时，有哪些省流量的方法？](#60)
+- [TcaplusDB 支持回档吗？ 支持的回档粒度如何？](#64)
+- [TcaplusDB 按照部分 key 查询（索引）的效率怎么样？](#70)
+- [TcaplusDB API 的超时机制是什么？it is timeout 错误什么意思？](#75)
+- [TcaplusDB API 的 SendRequest、OnUpdate、ReceiveResponse 函数具体的作用是什么？](#76)
+- [TcaplusDB 如何实现字段全局自增的功能？](#77)
+- [关于部分 key 查询（索引）定义有哪些规则？](#78)
+- [单个表 id 和 name 互查怎么实现？](#79)
+- [tcaplus_client 支持二级字段及以上字段显示吗？](#83)
+- [TcaplusDB 表变更时，需要注意什么？](#86)
+- [TcaplusDB 表定义时需要注意什么？](#87)
+
+
+### [如何获取某个响应包错误码的含义？](id:42)
+推荐您在代码里采用在 gameserver 里调用函数`TcapErrCode::TcapErrCodeInit`和`TcapErrCode::GetErrStr`函数来获取错误码，也可以本地搜索 TcaplusDB API 的头文件。
+
+### [TcaplusDB 的乐观锁原理和使用方法？](id:44)
+举个抢火车票例子：
+1. 100个人去抢同一张火车票，此时火车票的记录版本号是10，100个人 get 时，都是记录版本号为10。然后这100个人拿着记录版本号为10来抢火车票。
+2. 100个人来对这张火车票进行写操作，因为写操作后记录版本号++，对于单个 key 的操作，tcapsvr 工作线程是排队的，第一个人抢到了火车票，此时火车票的记录版本号为11了，而剩余的99个人来抢时，拿着的记录版本号还是10。
+3. tcapsvr 在处理这99个人的写请求时，全部报错了，因为 tcapsvr 端的记录的版本号和请求里的版本号不一致导致的，并发时的原则：
+ - N个请求，只是需要第一个请求成功，剩余的N - 1个请求失败，则采用版本保护规则。
+ - N个请求，需要N个请求全部执行完毕，则不需要版本保护规则，TcaplusDB 这边对同一个 key 的操作。
+ 
+排队执行调用函数`SetCheckDataVersionPolicy`，其值包括：
+ - `CHECKDATAVERSION_AUTOINCREASE`：检测记录版本号，只有当该版本号与服务器端的版本号相同时，该版本号才会自增 。
+ - `NOCHECKDATAVERSION_OVERWRITE`：不检测记录版本号，强制把客户端的记录版本号写入到服务器中。
+ - `NOCHECKDATAVERSION_AUTOINCREASE`：不检测记录版本号，将服务器端的版本号自增。
+ - 默认类型为`CHECKDATAVERSION_AUTOINCREASE`，推荐您使用。
+
+### [list 表的使用场景及注意事项？](id:45)
+凡是存在1：N的使用场景，N < 1024时，优先考虑 list 表，例如存储玩家最近的100封邮件、最近的100场战斗记录等，list 表支持按照队头插入、队尾淘汰，队尾插入、队头淘汰，支持按照插入时间排序的 Top N 操作，单个 key 下的单元个数可以通过表变更修改大，因为需要兼容旧数据不能修改小。采用 listgetall 可以获取单个 key 下总的记录数目，推荐按照 offset 自己维护，limit 等于一定阈值的方式获取数据，listreplace、listdelete、listdeletebatch 时需要指定正确的 index。listaddafter 时需要指定单个 key 下的元素单元个数满时淘汰的规则，调用 SetListShiftFlag 函数设置所以 list 表有2个增加方向，2个获取方向，就是4种可能：
+1. A、B、C、D、E，按照 offset = 正数，limit = 2 拉取就是A、B，C、D，E。
+2. A、B、C、D、E，按照 offset = 负数，limit = 2 拉取就是D、E，B、C，A。
+3. E、D、C、B、A，按照 offset = 正数，limit = 2 拉取就是E、D，C、B，A。
+4. E、D、C、B、A，按照 offset = 负数，limit = 2 拉取就是B、A，D、C，E。
+
+另外，调用`GetRecordMatchCount`可以获取记录的总数。
+
+### [insert、update、replace 有什么区别？](id:46)
+insert 操作，当 key 不存在时会进行插入，当 key 存在时，会返回错误码：`TcapErrCode::SVR_ERR_FAIL_RECORD_EXIST`。
+replace 操作，当 key 不存在会进行插入，当 key 存在时，如果采用了乐观锁，则根据乐观锁的结果执行不同的操作，成功则进行替换，失败则返回错误码：`TcapErrCode::SVR_ERR_FAIL_INVALID_VERSION；`如果没有采用乐观锁，直接替换。
+update 操作，当 key 存在，如果采用了乐观锁，则根据乐观锁的结果执行不同的操作，成功则进行更新，失败则返回错误码：`TcapErrCode::SVR_ERR_FAIL_INVALID_VERSION`，如果没有采用乐观锁，直接更新；如果key不存在时，则返回错误码：`TcapErrCode::TXHDB_ERR_RECORD_NOT_EXIST`。
+
+### [如何获取某个表的记录数目？](id:47)
+TcaplusDB API 接口里有 count 命令字，如果采用 tcaplus_client 可以采用 count 表名命令获取表的记录数目。
+
+### [TcaplusDB 支持遍历操作吗？](id:48)
+TcaplusDB 支持遍历操作，包括 generic 表、list 表的遍历操作，遍历时注意设置从 tcapsvr slave 上遍历数据（从 tcapsvr slave 上遍历数据，不会影响 tcapsvr master 对外提供服务），即接口：`SetOnlyReadFromSlave(bool flag)`。
+
+### [TcaplusDB 支持部分字段更新吗？能只是获取部分字段吗？](id:49)
+TcaplusDB 支持部分字段更新，推荐更新记录、获取记录时，显式的调用接口`SetFieldNames(IN const char* field_name[], IN const unsigned field_count)`确定本次读写操作的字段，减少无效字段的带来的网络流量开销。
+
+### [TcaplusDB 对单个主键连续操作是保序的吗？](id:50)
+对于同一个 gameserver，同一个主键的操作保序，不同主键的操作不保序。对于不同的 gameserver ，都不保序。
+
+### [TcaplusDB 支持表定义变更吗？](id:51)
+TcaplusDB 支持表定义变更，如果简单的增加普通字段、修改宏请采用表变更操作；其余的场景，需要动态修改表结构，即采用数据迁移 + 日志流水方式实现表定义变更，请 [提交工单](https://console.cloud.tencent.com/workorder/category)  选择“其他腾讯云产品”申请。
+
+### [怎么判断响应包分包是否已经结束？](id:54)
+遍历，请按照 state 判断遍历是否结束，即接口 GetState，其余分包场景，请根据函数`HaveMoreResPkgs`判断分包是否结束。
+
+### [GetRecordCount 与 GetRecordMatchCount 的区别？](id:55)
+一次请求可能有N次响应回包，如果有多次回包，则 GetRecordCount 是指本次响应包里的记录条数，GetRecordMatchCount 指存在 tcapsvr（存储层）端的数据记录（单个 key 总的记录条数）。
+
+### [TcaplusDB 有透传的字段吗？](id:56)
+TcaplusDB 的 CS 协议分为 Head、Body 两部分，Head 里 UserBuff（最大1KB）、AsyncID、Sequence 都是透传的字段，请您根据实际需要使用。
+
+### [SetResultFlag 的作用？](id:57)
+写操作时，响应包里支持返回记录，读操作调用该函数无效，具体的 result_flag 值含义如下：
+0表示：只需返回操作执行成功与否，不需要返回 value 字段。
+1表示：返回与请求字段一致的数据。
+2表示：须返回变更记录的所有字段最新数据。
+3表示：须返回变更记录的所有字段旧数据。
+
+SetResultFlagForSuccess 接口可以设置成功场景下，返回的数据情况；SetResultFlagForFail 接口可以设置在失败场景下，返回的数据情况。
+
+### [increase 操作可以一次对多个普通字段进行 increase 操作吗？如果主键字段不存在的场景呢？](id:58)
+increase 操作可以一次对多个 普通字段进行 increase 操作，需要 gameserver 传递的请求里对多个字段都进行了赋值，如果某个 key 不存在时，再进行 increase 操作，此时可以通过函数 SetAddableIncreaseFlag 设置；如果 key 不存在时，插入该 key 并进行 increase 操作，该 key 的非 increase 字段不会实际存储，在读取该条记录时非 increase 字段会采用默认值；如果 key 存在，则直接会执行 increase 操作。
+
+### [TcaplusDB 在读取记录时，有哪些省流量的方法？](id:60)
+TcaplusDB 读取记录时，支持在固定时间内记录没有变化则不返回 value 字段、记录版本号没有变化则不返回 value 字段，具体的见函数 SetFlags 函数。
+
+### [TcaplusDB 支持回档吗？ 支持的回档粒度如何？](id:64)
+TcaplusDB 支持回档，包括全区全服、单张表、千亿条记录回档N条记录，支持冷备时间回档（最近的凌晨01：05：00）、精确时间回档（秒级别）、模糊回档（您指定回档的规则），精确时间回档的速度请参照300GB数据、200GBUlog流水，耗时2小时左右，回档的原理，冷备时间回档即替换引擎文件，精确时间回档，将冷备的引擎文件 + 执行Ulog流水，执行到需要回档的时间点即可，基于 key 的回档需要您配合，先对这些 key 封号，TcaplusDB 回档完毕后，再对这些 key 解封。
+
+### [TcaplusDB 按照部分 key 查询（索引）的效率怎么样？](id:70)
+推荐在业务场景1：N（N > 1024）下使用部分 key（索引）查询，单个索引键下的主键个数 = 10GB/单条记录主键的大小，单次读写索引操作耗时100ms左右（单条索引键下有10w+以上的数据记录）。
+
+### [TcaplusDB API 的超时机制是什么？it is timeout 错误什么意思？](id:75)
+TcaplusDB API 对每个请求分配个 ID，发送成功后，将 ID 压入判断超时数据结构里，如果该请求的响应包回来后，则从数据结构里删除该 ID，如果在3秒内该请求的响应包还没有被应用层处理，则会显示打印错误日志，关键字包括 it is timeout，此时需要看下 gameserver 是否被阻塞，可能是 tcaproxy（接入层）在向 gameserver 端回包时丢包，可能是响应包已经到达了 gameserver 端，但是 gameserver 端没有及时处理
+TcaplusDB 推荐您自己实现超时机制，这样可以对超时的请求进行重试等处理。
+
+### [TcaplusDB API 的 SendRequest、OnUpdate、ReceiveResponse 函数具体的作用是什么？](id:76)
+SendRequest 发送请求，本次的发送请求可能已经发送到网络上，也可能被压在 gameserver 与某个 tcaproxy（接入层）的发送通道里；ReceiveResponse 是从本地接收队列里获取响应包；OnUpdate 是负责将发送队列的请求发送到网络和从网络接收响应包到接收队列。在消息驱动编程模式下，OnUpdate 调用推荐的调用频率是1ms一次。
+
+### [TcaplusDB 如何实现字段全局自增的功能？](id:77)
+您需要定义单张表，设置单个 key，单个 value 字段类型设置为 int64_t（多个 value 字段可以实现计数器数组），多个 gameserver 可以并发对单个 key 进行 increase 操作（不需要设置版本保护规则），并且得到本次返回的 increase 结果，则该次 increase 的结果是全局自增的。
+
+### [关于部分 key 查询（索引）定义有哪些规则？](id:78)
+索引键必须是主键的一部分，索引键必须包含分表因子，索引键不能是主键。
+
+### [单个表 id 和 name 互查怎么实现？](id:79)
+采用第三个 key 字段 x 作为分表因子，在 id 和 x、name 和 x 上建立索引实现该功能，例如存储玩家信息时，可以加上玩家的省份地址，即主键是 uin、name、省份地址，索引键是 uin、省份地址，name、省份地址。
+
+### [tcaplus_client 支持二级字段及以上字段显示吗？](id:83)
+是支持的，请执行 help select，查看 select * into a.xml 的使用方法。
+
+### [TcaplusDB 表变更时，需要注意什么？](id:86)
+1. 只能增加新字段，不能修改原有字段类型、名称，更不能删除原有字段，如果需要修改这些，请采用动态修改表结构技术方案。
+2. value 字段中的数组或字符串类型可以加长度，但不能减短。如果需要修改这些，请采用动态修改表结构技术方案。
+3. 新增字段对应的 version 要在原有版本号上加1，相应地整个 xml 文件的版本号（文件最上面定义的）也要加1（与新加出来的字段版本号一致）。需要先对 TcaplusDB 的表做变更，再对 gameserver 端的表做变更。您如果需要动态修改表结构，TcaplusDB 是支持的，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 选择“其他腾讯云产品”申请。
+
+### [TcaplusDB 表定义时需要注意什么？](id:87)
+1. count 字段的需要增加 refer 字段。
+2. 分表因子需要高度离散。
+3. 索引键不能和主键一样。
+
+

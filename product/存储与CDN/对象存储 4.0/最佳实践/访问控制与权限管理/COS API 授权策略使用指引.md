@@ -833,7 +833,7 @@ API 接口为 DELETE Multiple Objects，若授予其操作权限，则策略的`
       "action": [
         "name/cos:HeadObject",
         "name/cos:GetObject",
-        "name/cos:ListObject",
+        "name/cos:GetBucket",
         "name/cos:OptionsObject"
       ],
       "effect": "allow",

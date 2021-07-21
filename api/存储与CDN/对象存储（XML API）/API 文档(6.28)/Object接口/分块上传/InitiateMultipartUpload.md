@@ -2,6 +2,22 @@
 
 Initiate Multipart Upload 接口请求实现初始化分块上传，成功执行此请求后将返回 UploadId，用于后续的 Upload Part 请求。
 
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=InitiateMultipartUpload&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
 ## 请求
 
 #### 请求示例
@@ -72,15 +88,13 @@ Authorization: Auth String
 请求成功，返回 **application/xml** 数据，包含分块上传初始化信息。
 
 
-<dx-codeblock>
-:::  xml
+```
 <InitiateMultipartUploadResult>
-	<Bucket>string</Bucket>
-	<Key>string</Key>
-	<UploadId>string</UploadId>
+       <Bucket>string</Bucket>
+       <Key>string</Key>
+       <UploadId>string</UploadId>
 </InitiateMultipartUploadResult>
-:::
-</dx-codeblock>
+```
 
 具体的节点描述如下：
 

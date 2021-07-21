@@ -84,30 +84,38 @@ SAML 示例如下：
 ```
 
 在 SAML 断言的  AttributeStatement 元素中，必须包含以下腾讯云要求的 Attribute 元素：
+
 1.  Name 属性值为 https://cloud.tencent.com/SAML/Attributes/Role 的 Attribute 元素，该元素为必选，可以有多个。其包含的 AttributeValue 元素取值代表允许当前用户扮演的角色，取值的格式是由角色描述与身份提供商描述组合而成的，中间用英文逗号（,）隔开。
+
   > ? 如果是多个，当使用控制台登录时，将会在界面上列出所有角色供用户选择。
-  > 
-以下是一个 Role Attribute 元素示例：
+  >
+  > 以下是一个 Role Attribute 元素示例：
+
 ```
 <Attribute Name="https://cloud.tencent.com/SAML/Attributes/Role">      
   <AttributeValue>qcs::cam::uin/{AccountID}:roleName/{RoleName1},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName1}</AttributeValue>
   <AttributeValue>qcs::cam::uin/{AccountID}:roleName/{RoleName2},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName2}</AttributeValue>
 </Attribute>               
-  ```
+```
+
 如果是同一个身份提供商，也可以合并为一条，不同角色 ARN 之间使用英文分号（;） 隔开。
+
 ```
 <Attribute Name="https://cloud.tencent.com/SAML/Attributes/Role">       
 <AttributeValue>qcs::cam::uin/{AccountID}:roleName/{RoleName1};qcs::cam::uin/{AccountID}:roleName/{RoleName2},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}</AttributeValue>
 </Attribute>                            
-  ```
+```
+
 > ? 在 Role 源属性中 {AccountID}，{RoleName} ，{ProviderName} 分别替换内容下：
+
  - {AccountID} 替换为您的腾讯云主帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
  - {RoleName}替换您在腾讯云为身份提供商所创建的角色名称（单击查看如何在腾讯云 [为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.88.9B.E5.BB.BA)），角色名称可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看。
  - {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往 [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。 
 
-2. Name 属性值为 https://cloud.tencent.com/SAML/Attributes/RoleSessionName 的 Attribute 元素，该元素为必选且只能有一个。该字段由用户自定义，长度不超过32个字符。以下是一个 RoleSessionName Attribute 元素示例：
+2. Name 属性值为 https://cloud.tencent.com/SAML/Attributes/RoleSessionName 的 Attribute 元素，该元素为必选且只能有一个。该字段由用户自定义，长度不超过32个字符。以下是一个 RoleSessionName Attribute 元素示例。该示例中，“userName”可替换成您的自定义信息。
+
 ```
 <Attribute Name="https://cloud.tencent.com/SAML/Attributes/RoleSessionName">
 <AttributeValue>userName</AttributeValue>
 </Attribute>                   
-  ```
+```

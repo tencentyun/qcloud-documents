@@ -80,7 +80,7 @@ $ nginx-prometheus-exporter -nginx.scrape-uri http://<nginx>:8080/nginx_status
 
 #### 配置 Prometheus 的抓取 Job
 
-1. Nginx Prometheus Exporter 正常运行后，执行以下命令，将 Job 添加到 Prometheus 的抓取任务中。
+1. Nginx Prometheus Exporter 正常运行后，修改 Nginx 的配置文件，将 Job 添加到 Prometheus 的抓取任务中。
 ```bash
 ...
      - job_name: 'nginx_exporter'

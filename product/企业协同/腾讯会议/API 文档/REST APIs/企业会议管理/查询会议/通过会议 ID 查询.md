@@ -39,10 +39,11 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |need_password   |Boolean | 非会议创建者是否需要密码入会。<br>非会议创建者查询会议，且存在会议密码，则字段为 true；其他情况，字段不返回。  |
 |status|String|当前会议状态：<br>1. MEETING_STATE_INVALID：<br> 非法或未知的会议状态，错误状态。<br>  2. MEETING_STATE_INIT：<br> 会议待开始。会议预定到预定结束时间前，会议尚无人进会。<br>  3. MEETING_STATE_CANCELLED：<br> 会议已取消。主持人主动取消会议，待开始的会议才能取消，且取消的会议无法再进入。<br> 4. MEETING_STATE_STARTED：<br> 会议已开始。会议中有人则表示会议进行中。<br>5. MEETING_STATE_ENDED：<br> 会议已删除。会议已过预定结束时间且尚无人进会时，主持人删除会议，已删除的会议无法再进入。<br>6. MEETING_STATE_NULL：<br> 会议无状态。会议已过预定结束时间，会议尚无人进会。<br>7. MEETING_STATE_RECYCLED：<br> 会议已回收。会议已过预定开始时间30天，则会议号将被后台回收，无法再进入。|
 |type   |Integer  | 会议类型：<br>0：预约会议类型<br>1：快速会议类型   |
-|hosts   |用户对象数组  | 会议主持人列表（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
-|current_hosts  |用户对象数组  | 会议当前主持人列表（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
-|current_co_hosts  |用户对象数组  | 会议联席主持人列表（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
-|participants  |用户对象数组 |邀请的参会者（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。 |
+|join_url   |String  | 加入会议 URL。  |
+|hosts   |用户对象数组  |指定主持人列表，仅商业版和企业版可指定主持人。|
+|current_hosts  |用户对象数组  | 会议当前主持人列表。|
+|current_co_hosts  |用户对象数组  | 联席主持人列表。|
+|participants  |用户对象数组 |邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段。 |
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。  |
 |settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
@@ -54,6 +55,10 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | current_sub_meeting_id | String         | 当前子会议 ID（进行中 / 即将开始）。     |
 | enable_live | Boolean      | 是否开启直播（会议创建人才有权限查询）。   |
 | live_config | 直播信息对象 | 会议的直播配置（会议创建人才有权限查询）。 |
+|enable_doc_upload_permission    | Boolean       | 是否允许成员上传文档，默认为允许。                                                     |
+|guests   | Guest数组     | 会议嘉宾列表（会议创建人才有权限查询）。                                                 |
+|has_vote   | Boolean     | 是否有投票（会议创建人和主持人才有权限查询）。                                                     |
+
 
 <span id="settings"></span>
 
@@ -75,7 +80,11 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | allow_in_before_host            | Bool     | 允许成员在主持人进会前加入会议。                               |
 | auto_in_waiting_room            | Bool     | 开启等候室。                                                   |
 | allow_screen_shared_watermark   | Bool     | 开启屏幕共享水印。                                             |
+| water_mark_type | Integer | 水印样式，默认为单排：<br> 0：单排<br>  1：多排<br>  |
 | only_allow_enterprise_user_join | Bool     | 是否仅企业内部成员可入会。 <br>true：仅企业内部用户可入会 <br>false：所有人可入会 |
+| auto_record_type | String     | 自动录制类型，仅客户端2.7及以上版本生效。<br>none：禁用 <br>local：本地录制 <br>cloud：云录制<br> |
+|participant_join_auto_record  | boolean | 当有参会成员入会时立即开启云录制，默认值为 false 关闭，关闭时，主持人入会自动开启云录制；当设置为开启时，则有参会成员入会自动开启云录制。<br>说明：<br><li>该参数必须 auto_record_type 设置为“cloud”时才生效，该参数依赖企业账户设置，当企业强制锁定后，该参数必须与企业配置保持一致。<li>仅客户端2.7及以上版本生效。 |
+|enable_host_pause_auto_record | boolean | 允许主持人暂停或者停止云录制，默认值为 true 开启，开启时，主持人允许暂停和停止云录制；当设置为关闭时，则主持人不允许暂停和关闭云录制。<br>说明：<br><li>该参数必须将 auto_record_type 设置为“cloud”时才生效，该参数依赖企业账户设置，当企业强制锁定后，该参数必须与企业配置保持一致。<li>仅客户端2.7及以上版本生效。 |
 
 **子会议对象**
 
@@ -105,6 +114,25 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | enable_live_im     | Boolean  | 是否开启直播互动。 |
 | enable_live_replay | Boolean  | 是否开启直播回放。 |
 | live_addr          | string   | 直播观看地址。     |
+| live_watermark   | object  |直播水印对象信息。     |
+
+
+**直播水印信息 live_watermark_info**
+
+| **参数名称**  | **必选** | **参数类型** | **参数描述**                              |
+| ------------- | -------- | ------------ | ----------------------------------------- |
+| watermark_opt | 否       | integer      | 水印选项，默认为0。<br> 0：默认水印<br> 1：无水印 |
+
+
+**会议嘉宾 Guest 对象**
+
+| 参数名称     | 参数类型 | 参数描述                                           |
+| ------------ |-------- | -------------------------------------------------- |
+| area         |  String   | 国家/地区代码（例如：中国传86，不是+86，也不是0086）。 |
+| phone_number | String   | 手机号。                                             |
+| guest_name   |  String   | 嘉宾名称。                                          |
+
+
 
 ## 示例
 #### 输入示例
@@ -156,11 +184,25 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
             "live_password":"654321",
             "enable_live_im":true,
             "enable_live_replay":true,
-            "live_addr":"https://meeting.tencent.com/l/xxxx"
-        }    
+            "live_addr":"https://meeting.tencent.com/l/xxxx",
+            "live_watermark":{
+                "watermark_opt":0
+            }
+        },
+        "meeting_room_info":[
+            {"meeting_room_id":"133195"}
+        ],
+        "guests":[
+            {
+                "area":"86",
+                "phone_number":"xxxxxxxxx",
+                "guest_name":"xxxx"
+            }
+        ]   
     }  
   ]
 }
+
 ```
 #### 输出示例（周期性会议）
 ```plaintext

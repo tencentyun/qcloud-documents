@@ -1,63 +1,75 @@
 本文主要介绍如何快速运行腾讯云 TRTC Demo（Windows）。
 
 ## 环境要求
-**Windows（C++）开发环境**
+### Windows（C++）开发环境
 - Microsoft Visual Studio 2015及以上版本，推荐使用 Microsoft Visual Studio 2015 
 - Windows SDK 8.0及以上版本，推荐使用 Windows SDK 8.1
 
-**Windows（C#）开发环境**
+### Windows（C#）开发环境
 - Microsoft Visual Studio 2015及以上版本，推荐使用 Microsoft Visual Studio 2017
 - .Net Framework 4.0及以上版本，推荐使用 .Net Framework 4.0
+
+### Windows（QT）开发环境
+- Microsoft Visual Studio 2015 及以上版本，推荐使⽤ Microsoft Visual Studio 2015。
+- 下载并安装 [.vsix](https://download.qt.io/official_releases/vsaddin/) 插件⽂件，官⽹上找对应插件版本安装即可。
+- 打开 VS 并在⼯具栏找到 `QT VS Tools -> Qt Options -> Qt Versions`，add 添加我们⾃⼰的 Qt 编译器 msvc。
+- 需要将 `SDK/CPlusPlus/Win32/lib` 下的所有的 `.dll` ⽂件拷⻉到⼯程⽬录下的 `debug` / `release` ⽂件夹下。
+>! `debug/release` ⽂件夹均是在 VS 上的环境配置完后⾃动⽣成。
 
 ## 前提条件
 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 
 ## 操作步骤
-<span id="step1"></span>
+[](id:step1)
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 单击【立即开始】，输入应用名称，例如`TestTRTC`，单击【创建应用】。
+2. 输入应用名称，例如 TestTRTC，单击【创建】。
+![](https://main.qcloudimg.com/raw/4d9667d94623f7871efb5159d4ee8f8f.png)
 
-<span id="step2"></span>
+[](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows)】跳转至 Github（或单击【[ZIP](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip?_ga=1.195966252.185644906.1567570704)】），下载相关 SDK 及配套的 Demo 源码。
- ![](https://main.qcloudimg.com/raw/7370ad1bdef9e4eed84dda7df2a29956.png)
-2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
+1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+2. 下载完成后，单击【已下载，下一步】。
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
-<span id="step3"></span>
+[](id:step3)
 ### 步骤3：配置 Demo 工程文件
-1. 解压 [步骤2](#step2) 中下载的源码包。
-2. 找到并打开`GenerateTestUserSig`文件：
+1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
+2. 找到并打开 `GenerateTestUserSig` 文件：
  <table>
      <tr>
          <th nowrap="nowrap">适用平台</th>  
          <th nowrap="nowrap">文件相对路径</th>  
      </tr>
-	 <tr>      
+   <tr>      
          <td>Windows(C++)</td>   
-	     <td>Windows/DuilibDemo/GenerateTestUserSig.h</td>   
+       <td>Windows/DuilibDemo/GenerateTestUserSig.h</td>   
      </tr> 
-	 <tr>
-	     <td>Windows(C#)</td>   
-	     <td>Windows/CSharpDemo/GenerateTestUserSig.cs</td>
+   <tr>
+       <td>Windows(C#)</td>   
+       <td>Windows/CSharpDemo/GenerateTestUserSig.cs</td>
      </tr> 
  </table>
-3. 设置`GenerateTestUserSig.js`文件中的相关参数：
+3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-	<img src="https://main.qcloudimg.com/raw/f28b968c02e8f26fe02c7ff6907239cb.png">
-4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
-5. 单击【关闭指引，进入控制台管理应用】。
+  <img src="https://main.qcloudimg.com/raw/3e83f6ed266617afbe637edc51eb0543.png">
+4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
+5. 编译完成后，单击【回到控制台概览】即可。
 
->!本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
->正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
+>!
+>- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
+>- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
+[](id:step4)
 ### 步骤4：编译运行
-- **Windows（C++）**
+- **Windows（C++）：**
 使用 Visual Studio（建议 VS2015）打开源码目录下的`DuilibDemo\TRTCDuilibDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
-
-- **Windows（C#）**
+- **Windows（C#）：**
 使用 Visual Studio（建议 VS2017）打开源码目录下的`CSharpDemo\TRTCCSharpDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
+- **Windows（QT）：** 
+使⽤ Visual Studio（建议 VS2015 或以上）打开源码⽬录下的
+QTDemo\QTDemo.pro⼯程⽂件，编译并运⾏ QTDemo ⼯程即可。
 
 ## 常见问题
 
@@ -80,4 +92,4 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 ![](https://main.qcloudimg.com/raw/75fdf7f6b27066620bffb08c5322c979.png)
 
 ### 3. 防火墙有什么限制？
-由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参考文档：[应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
+由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。

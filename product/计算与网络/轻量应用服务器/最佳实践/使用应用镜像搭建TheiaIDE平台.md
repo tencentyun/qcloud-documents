@@ -5,11 +5,11 @@ Theia IDE 是一套构建基于 Web 的云端 IDE 的开源框架，是一个可
 ## 操作步骤
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
 2. 单击【新建】，进入轻量应用服务器购买页面。如下图所示：
-![](https://main.qcloudimg.com/raw/9c4f0ff07438dd392dec703aed750120.png)
+![](https://main.qcloudimg.com/raw/fd85176938cd4ecc29d65389fe5ad1bf.png)
 	- **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，则地域选择 “广州”。
 	- **镜像**：选择 “Theia IDE 1.5.0” 应用镜像。
 	- **实例套餐**：按照所需的服务器配置（CPU、内存、系统盘、带宽或峰值带宽、每月流量），选择一种实例套餐。
-	- **实例名称**：自定义实例名称，若不填则默认使用所选镜像名称。批量创建实例时，连续命名后缀数字自动升序。例如，填入名称为 LH，数量选择3，则创建的3个实例名称为 LH1、LH2、LH3。
+	- **实例名称**：自定义实例名称，若不填则默认使用“镜像名称+四位随机字符”。批量创建实例时，连续命名后缀数字自动升序。例如，填入名称为 LH，数量选择3，则创建的3个实例名称为 LH1、LH2、LH3。
 	- **购买时长**：默认1个月。
 	- **购买数量**：默认1台。
 3. 单击【立即购买】，并根据页面提示提交订单完成支付，返回轻量应用服务器控制台。
@@ -139,7 +139,7 @@ Theia IDE 是一套构建基于 Web 的云端 IDE 的开源框架，是一个可
 </ol>
 </ul>
 
-### 安装 SSL 证书
+### 开启 HTTPS 访问
 可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 Theia IDE 实例安装 SSL 证书并开启 HTTPS 访问。
 >!Theia IDE 实例无需修改 `/usr/local/lighthouse/softwares/nginx/conf/nginx.conf` 配置文件，仅需修改 `/usr/local/lighthouse/softwares/nginx/conf/include/theia.conf` 配置文件即可。
 >

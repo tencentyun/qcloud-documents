@@ -1,6 +1,6 @@
 >?
 >- IPv6 负载均衡内测中，如需使用，请提 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=0&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB&step=1)。
->- 支持创建 IPv6 负载均衡的地域请参见 [购买指南](https://cloud.tencent.com/document/product/1142/38129)。
+>- 目前仅支持如下地域开通 IPv6 负载均衡：广州、深圳金融、上海、上海金融、南京、北京、成都、香港、新加坡、弗吉尼亚。其中，针对地域为**深圳金融**、**上海金融**的金融行业监管要求定制的合规专区，需提交 [工单申请](https://console.cloud.tencent.com/workorder/category) 使用专区。
 - IPv6 负载均衡不支持传统型负载均衡。
 - IPv6 负载均衡支持获取客户端 IPv6 源地址。四层 IPv6 负载均衡支持直接获取客户端 IPv6 源地址，七层 IPv6 负载均衡支持通过 HTTP 的 X-Forwarded-For 头域获取客户端 IPv6 源地址。
 - 当前 IPv6 负载均衡是纯公网负载均衡，相同 VPC 的客户端无法通过内网访问该 IPv6 负载均衡。
@@ -33,7 +33,7 @@ IPv6 负载均衡的架构如下图所示：
  - 运营商类型：BGP。
  - 网络：请务必选择已获取 IPv6 CIDR 的私有网络和子网。
 3. 在购买页选择各项配置后，单击【立即购买】，返回至 [负载均衡实例列表页](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，即可查看已购的 IPv6 负载均衡。
-![](https://main.qcloudimg.com/raw/b25a3156db7a73ffa1a3b835be0069e8.png)
+
 
 ### 步骤2：创建 IPv6 负载均衡监听器
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)，单击 IPv6 负载均衡实例 ID，进入详情页。

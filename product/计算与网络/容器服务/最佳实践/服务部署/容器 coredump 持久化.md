@@ -13,7 +13,6 @@
 # 在节点上执行
 echo "/tmp/cores/core.%h.%e.%p.%t" > /proc/sys/kernel/core_pattern
 ``` 
-
  主要参数信息如下：
  - **%h**：主机名（在 Pod 内主机名即 Pod 的名称），推荐。
  - **%e**：程序文件名，推荐。
@@ -33,9 +32,9 @@ echo "/tmp/cores/core.%h.%e.%p.%t" > /proc/sys/kernel/core_pattern
 
 ### 创建存储桶
 
-登录 [对象存储控制台](https://console.cloud.tencent.com/cos5/bucket)，手动创建 COS 存储桶，用于存储容器 coredump 生成的 core 文件，本文以创建自定义名称为 coredump 的存储桶为例。具体操作步骤请参见 [创建存储桶](https://cloud.tencent.com/document/product/457/44232#.E5.88.9B.E5.BB.BA.E5.AD.98.E5.82.A8.E6.A1.B6.3Cspan-id.3D.22creatbucket.22.3E.3C.2Fspan.3E)。
+登录 [对象存储控制台](https://console.cloud.tencent.com/cos5/bucket)，手动创建 COS 存储桶，用于存储容器 coredump 生成的 core 文件，本文以创建自定义名称为 coredump 的存储桶为例。具体操作步骤请参见 [创建存储桶](https://cloud.tencent.com/document/product/457/44232#.E5.88.9B.E5.BB.BA.E5.AD.98.E5.82.A8.E6.A1.B6.3Ca-id.3D.22creatbucket.22.3E.3C.2Fa.3E)。
 
-### 创建 Secret<span id="secret"></span>
+### 创建 Secret[](id:secret)
 可通过以下3种方式创建可以访问对象存储的 Secret，请按需选择：
 - 若通过控制台使用对象存储，可参见 [创建可以访问对象存储的 Secret](https://cloud.tencent.com/document/product/457/44232#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E4.BD.BF.E7.94.A8.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8)。
 - 若通过 YAML 文件使用对象存储，可参见 [创建可以访问对象存储的 Secret](https://cloud.tencent.com/document/product/457/44232#.E9.80.9A.E8.BF.87-yaml-.E6.96.87.E4.BB.B6.E4.BD.BF.E7.94.A8.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8)。
@@ -48,7 +47,7 @@ kubectl create secret generic cos-secret -n kube-system  --from-literal=SecretId
 ### 创建 PV 和 PVC
 
 使用 COS 插件需要手动创建 PV 和创建 PVC，并完成绑定。
-#### 创建 PV<span id="pv"></span>
+#### 创建 PV[](id:pv)
 1. 在目标集群详情页面，选择左侧菜单栏中的【存储】>【PersistentVolume】，进入 “PersistentVolume” 页面。
 2. 单击【新建】进入“新建PersistentVolume” 页面，参考以下信息创建 PV。如下图所示：
 ![](https://main.qcloudimg.com/raw/d2301b77ad197f86f9131656d5e5339b.png)
@@ -60,7 +59,7 @@ kubectl create secret generic cos-secret -n kube-system  --from-literal=SecretId
 3. 单击【创建PersistentVolume】即可。
 
 
-#### 创建 PVC<span id="pvc"></span>
+#### 创建 PVC[](id:pvc)
 1. 在目标集群详情页，选择左侧菜单栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 页面。
 2. 单击【新建】进入“新建PersistentVolumeClaim” 页面，参考以下信息创建 PVC。如下图所示：
 ![](https://main.qcloudimg.com/raw/b8e1a09f37a34264a8b251c0362d43a8.png)

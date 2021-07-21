@@ -1,4 +1,3 @@
-
 ## Linux（Ubuntu）环境
 
 >?本文演示使用 Ubuntu 的版本为16.04。

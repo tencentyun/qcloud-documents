@@ -26,19 +26,19 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 
 ## 步骤3：创建存储桶
 
-1. 单击左上角的【添加桶】。
+1. 登录成功后，在工具界面中单击左上方的【添加桶】。
 2. 在弹出的窗口中，输入存储桶信息。
- - 名称：存储桶名称，此处我们输入 examplebucket。
- - 所属地域：存储桶存放地域，选择与您最近的一个地区，例如我在 “深圳”，地域可以选择 “广州”。
- - 访问权限：存储桶访问权限，此处我们选择“私有读写”。
-![](https://main.qcloudimg.com/raw/bb6520123783e7398a7848e8c0330d18.jpg)
+ - 名称：自定义存储桶名称，此处我们输入 examplebucket。
+ - 所属地域：指存储桶的所属地域，选择与您最近的一个地区，例如我在 “深圳”，地域可以选择 “广州”。
+ - 访问权限：指存储桶的访问权限，此处我们选择“私有读写”。
+![](https://main.qcloudimg.com/raw/1a3f4d103f53e495a9e46f5882258c46.png)
 3. 单击【确定】，即可创建存储桶。
 
 
 ## 步骤4：上传对象
 
-1. 单击步骤4创建的存储桶名称，进入存储桶管理页。
-2. 选择【上传】>【选择文件】，选择需要上传至存储桶的文件，例如 exampleobjext.txt。
+1. 单击步骤3刚创建的存储桶，进入存储桶管理页。
+2. 选择【上传】>【选择文件】，选择需要上传至存储桶的本地文件，例如 exampleobjext.txt。
 3. 单击【上传】，即可将 exampleobjext.txt 上传至存储桶。
 
 
@@ -61,8 +61,6 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 3. 单击【立即下载】， COSBrowser 工具将按照您的选择下载文件。
 
 
-
-
 ## 步骤6：分享对象
 
 存在 COS 中的每个文件均可通过特定的链接来进行访问，若文件是私有读权限，则可通过请求临时签名的方式生成带有时效的临时访问链接。以下是生成对象链接的两种方式：
@@ -79,21 +77,18 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 
 1. 单击 COSBrowser 工具右上角的<img src="https://main.qcloudimg.com/raw/b3de2bc7284b5aaba9b4f9af6c408205.jpg" style="margin:0;">，切换到列表视图（若已是在列表视图下，则无需进行此步骤）。
 1. 在文件右侧的操作栏下，单击【**...**】，在下拉菜单中，单击【分享】。
-![](https://main.qcloudimg.com/raw/0866f3ee75a68082ff767205e6796b11.jpg)
+![](https://main.qcloudimg.com/raw/7d168f33452645d934215639179a2097.png)
 2. 在弹出的自定义复制链接窗口中，配置文件链接。此处文件为私有读写权限，则需要选择【复制带签名的临时链接....】，链接在指定的时间内有效。
 ![](https://main.qcloudimg.com/raw/e8317ff57b37391f2bcc0dfe88aabacc.jpg)
 3. 单击【复制】，复制临时文件链接。您即可通过该链接访问文件。
-
-
 
 ## 更多功能
 
 除以上功能外，COSBrowser 还拥有其它更丰富的功能，例如修改存储桶访问权限，文件预览等，详情请参见 [桌面端功能列表](https://cloud.tencent.com/document/product/436/11366#.E6.A1.8C.E9.9D.A2.E7.AB.AF.E5.8A.9F.E8.83.BD.E5.88.97.E8.A1.A8) 文档。
 
-
 ## 遇到问题？
 
-非常抱歉您在使用时遇到问题，您可以通过 [智能客服](https://cloud.tencent.com/act/event/smarty-service?from=smarty-service) 及时寻找答案或通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 的方式联系我们。
+非常抱歉您在使用时遇到问题，您可以 [联系我们](https://cloud.tencent.com/document/product/436/37708)。
 
 ## 相关文档
 
@@ -101,7 +96,4 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 
 - [COSBrowser 简介](https://cloud.tencent.com/document/product/436/11366)
 - [移动端使用说明](https://cloud.tencent.com/document/product/436/38105)
-
-
-
 

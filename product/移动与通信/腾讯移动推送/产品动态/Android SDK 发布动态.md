@@ -1,20 +1,91 @@
 
-## 2020年12月
+## 2021年07月
 
 <table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.2.6.0 版本发布</td><td><li> 新增：接口调用 API 支持限频
+<li>  新增：FCM 前台通知、TPNS 本地通知支持通知渠道配置
+<li>  优化：优化长连接重连策略
+<li>  优化：优化日活，启动上报
+<li>  优化：SDK 日志放置在隐藏目录下
+<li>  优化：默认关闭联合保活，如需开启请参考 Android 常见问题文档
+		<li>  修复：修复 IPv6 请求失败</td>
+        <td>2021-07-06</td><td><li>
+<a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
+<li><a href="https://cloud.tencent.com/document/product/548/36674">Android 常见问题</a></li></td>
+    </tr>
+<tr>
+</table>
+
+## 2021年05月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.2.5.0 版本发布</td><td><li> 新增：新增标签查询接口
+<li>  新增：新增手机号码绑定接口，用于普通短信及智能短信发送
+<li>  新增：推送服务长连接支持 SSL 加密通信
+<li>  新增：账号绑定接口升级，新增多种预设账号类型
+<li>  修复：“清除全部通知”接口兼容清除小米厂商推送通知（MIUI 11 及以下版本小米设备）
+<li>  修复：支持荣耀手机应用角标展示</td>
+        <td>2021-05-26</td><td><li> 由于 Jcenter 下线，您可能遇到 SDK 依赖拉取问题，请参考 <a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a> 配置依赖仓库镜像源</li>
+<li> 新增的标签查询接口，需要注意在继承 <code>XGPushBaseReceiver</code> 的实现类中增加实现方法 <code>onQueryTagsResult</code></li></td>
+    </tr>
+<tr>
+</table>
+
+## 2021年02月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.2.3.1 版本发布</td><td>修复：修复华为禁用组件逻辑错误</td>
+        <td>2021-02-04</td><td>-</td>
+    </tr>
+<tr>
+</table>
+
+## 2021年01月
+   <table>
 <tr>
     <th width=20%>动态名称</th>
     <th width=44%>动态描述</th>
     <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
-        <tr>
-        <td>SDK 1.2.2.1 版本发布</td>
-				<td>修复：解决 Intent 跳转组件权限漏洞，TpnsActivity 修改为非导出</td>
-        <td>2020-12-10</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
+        <td>SDK 1.2.3.0 版本发布</td>
+<td><li>优化：网络通讯协议支持消息二次加密处理
+<li>优化：终端账号、标签、属性设置接口简化
+<li>新增：通知回调携带 traceId、templateId 字段
+<li>新增：支持新荣耀手机角标逻辑
+<li>修复：检查网络连接状态时偶发的 ANR 问题</td>
+        <td>2021-01-27</td>
+        <td>-</td>
+    </tr>
+<tr>
+        <td>SDK 1.2.2.4 版本发布</td>
+<td><li>修复：FCM 通知 intent 字符串内特殊字符处理问题<li>修复：其他已知问题</td>
+        <td>2021-01-18</td>
+        <td>-</a></td>
     </tr>
 </table>
+
 
 
 ## 2020年11月
@@ -39,11 +110,6 @@
         <td>-</td>
     </tr>
 </table>
-
-
-
-
-
 
 
 ## 2020年10月
@@ -103,8 +169,8 @@
        <td><li> 支持统计厂商通道通知点击事件 </li> <li> 丰富通知自定义样式</li> <li> 升级 OPPO 推送 SDK V2.1.0</li> </td>
         <td>2020-06-23</td>
         <td>此版本较旧版本有包名变更，请注意参考最新<a href="https://cloud.tencent.com/document/product/548/36652"> 集成文档 </a>变更相关配置：
-<li>自动集成：注意混淆配置；</li>
-<li>手动集成：注意 so 文件、manifest 文件、混淆配置。</li></td>
+<li>自动集成：注意混淆配置</li>
+<li>手动集成：注意 so 文件、manifest 文件、混淆配置</li></td>
     </tr>
     <tr>
         <td>SDK 1.1.6.3 版本发布</td>
@@ -153,9 +219,9 @@
 </tr>
     <tr>
         <td>SDK 1.1.5.4 版本发布</td>
-        <td><li> 网络连接优化</li> <li> 增加账号类型</li> <li> 安全告警修复</li> <li> 兼容信鸽平台版本升级</li><li>获取QIMEI信息的功能</li> </td>
+        <td><li> 网络连接优化</li> <li> 增加账号类型</li> <li> 安全告警修复</li> <li> 兼容信鸽平台版本升级</li><li>获取 QIMEI 信息的功能</li><li>增加关闭联合保活功能</li></td>
         <td>2020-03-06</td>
-        <td><a href="https://cloud.tencent.com/document/product/548/41609#.E6.B3.A8.E9.94.80.E4.BF.A1.E9.B8.BD.E5.B9.B3.E5.8F.B0.E6.8E.A8.E9.80.81.E6.9C.8D.E5.8A.A1">注销信鸽平台推送服务</a></td>
+        <td>-</td>
     </tr>
 </table>
 

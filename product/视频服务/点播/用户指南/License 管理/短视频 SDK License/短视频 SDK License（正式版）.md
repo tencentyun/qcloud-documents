@@ -15,7 +15,7 @@
 
 
 ## 新增短视频 License
-您可通过购买点播流量资源包即可获赠短视频 SDK License（一年授权使用）。请参见 [点播流量资源包与短视频 SDK License 版本对应表](https://cloud.tencent.com/document/product/266/33149#.E7.9F.AD.E8.A7.86.E9.A2.91-sdk-license)。
+您可通过购买点播流量资源包即可获赠短视频 SDK License（一年授权使用）。请参见 [点播流量资源包与短视频 SDK License 版本对应表](https://cloud.tencent.com/document/product/266/33149#.E7.9F.AD.E8.A7.86.E9.A2.91-sdk-license.3Ca-id.3D.22license.22.3E.3C.2Fa.3E)。
 
 ### 步骤1：添加短视频 License
 1. 进入 [短视频 License](https://console.cloud.tencent.com/vod/license) ，单击【新增 License】，进入短视频 License 新增页。
@@ -43,7 +43,7 @@
 若用户需要进行续期，续期流量资源包200TB的有效期为2019.07.02 - 2020.07.01，其赠送的短视频 SDK License 基础版有效期为2019.07.02 - 2020.07.01。
 
 ## 升级正式版 License
-目前仅支持短视频 License 由精简版升级至基础版，升级后的 License 为对应的资源包所赠送的 License 规格。请参见 [点播流量资源包与短视频 SDK License 版本对应表](https://cloud.tencent.com/document/product/266/33149#.E7.9F.AD.E8.A7.86.E9.A2.91-sdk-license)。
+目前仅支持短视频 License 由精简版升级至基础版，升级后的 License 为对应的资源包所赠送的 License 规格。请参见 [点播流量资源包与短视频 SDK License 版本对应表](https://cloud.tencent.com/document/product/266/33149#.E7.9F.AD.E8.A7.86.E9.A2.91-sdk-license.3Ca-id.3D.22license.22.3E.3C.2Fa.3E)。
 
 **示例**
 若用户已购买流量资源包10TB（默认赠送短视频 License 精简版），如需从精简版 License 升级至基础版 License，则控制台需要存在50TB或200TB流量资源包以满足升级条件。

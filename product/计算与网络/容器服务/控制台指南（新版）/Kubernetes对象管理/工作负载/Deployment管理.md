@@ -4,7 +4,7 @@ Deployment 声明了 Pod 的模板和控制 Pod 的运行策略，适用于部�
 
 ## Deployment 控制台操作指引
 
-<span id="creatDeployment"></span>
+[](id:creatDeployment)
 ### 创建 Deployment
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2. 单击需要创建 Deployment 的集群 ID，进入待创建 Deployment 的集群管理页面。如下图所示：
@@ -68,7 +68,7 @@ Deployment 声明了 Pod 的模板和控制 Pod 的运行策略，适用于部�
 
 ## Kubectl 操作 Deployment 指引
 
-### YAML 示例<span id="YAMLSample"></span>
+### YAML 示例[](id:YAMLSample)
 ```Yaml
 apiVersion: apps/v1beta2
 kind: Deployment
@@ -131,7 +131,7 @@ ng               1         1         1            1           42m
 - Recreate 更新策略为先销毁全部 Pod，再重新创建 Deployment。
 - RollingUpdate 更新策略为滚动更新策略，逐个更新 Deployment 的 Pod。RollingUpdate 还支持暂停、设置更新时间间隔等。
 
-<span id="Method1"></span>
+[](id:Method1)
 #### 方法一
 
 执行以下命令，更新 Deployment。
@@ -140,7 +140,7 @@ kubectl edit  deployment/[name]
 ```
 此方法适用于简单的调试验证，不建议在生产环境中直接使用。您可以通过此方法更新任意的 Deployment 参数。
 
-<span id="Method2"></span>
+[](id:Method2)
 #### 方法二
 
 执行以下命令，更新指定容器的镜像。
@@ -149,7 +149,7 @@ kubectl set image deployment/[name] [containerName]=[image:tag]
 ```
 建议保持 Deployment 的其他参数不变，业务更新时，仅更新容器镜像。
 
-<span id="Method3"></span>
+[](id:Method3)
 #### 方法三
 
 执行以下命令，滚动更新指定资源。

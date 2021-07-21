@@ -38,7 +38,6 @@ mkdir VPC && cd VPC
 <dx-codeblock>
 :::  yml
 #serverless.yml
-org: mysql-app
 app: mysql-app
 stage: dev
 component: vpc # (required) name of the component. In that case, it's vpc.
@@ -59,7 +58,6 @@ inputs:
 <dx-codeblock>
 :::  yml
 # serverless.yml 
-org: mysql-app
 app: mysql-app
 stage: dev
 component: cynosdb
@@ -105,7 +103,6 @@ npm install mysql2
 4. 完成业务代码编写和依赖安装后，创建 `serverless.yml` 文件，示例文件如下：
 <dx-codeblock>
 :::  yml
-org: mysql-app
 app: mysql-app
 stage: dev
 component: scf
@@ -147,7 +144,7 @@ sls deploy
 ```
  >?
 >- 部署时需要扫码授权，如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
->- 如果是子账号，请参考 [子账号权限配置](https://cloud.tencent.com/document/product/1154/43006#.E5.AD.90.E8.B4.A6.E5.8F.B7.E6.9D.83.E9.99.90.E9.85.8D.E7.BD.AE) 完成授权。
+>- 如果是子账号，请参考 [子账号权限配置](https://cloud.tencent.com/document/product/1154/43006#.E5.AD.90.E8.B4.A6.E5.8F.B7.E6.9D.83.E9.99.90.E9.85.8D.E7.BD.AE.3Ca-id.3D.22rightsprofile.22.3E.3C.2Fa.3E) 完成授权。
 
  返回结果如下所示，即为部署成功。
 <dx-codeblock>

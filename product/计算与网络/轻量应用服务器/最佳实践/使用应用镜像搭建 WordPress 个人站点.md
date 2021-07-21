@@ -1,19 +1,20 @@
 ## 操作场景
 
 WordPress 是全球最流行的开源的博客和内容管理网站的建站平台，具备使用简单、功能强大、灵活可扩展的特点，提供丰富的主题插件。腾讯云轻量应用服务器 Lighthouse 提供 WordPress 应用镜像，您可以使用它快速搭建博客、企业官网、电商、论坛等各类网站。
-
 >? WordPress 应用镜像底层基于 CentOS 7.6 64位操作系统。
 >
+
+同时，轻量应用服务器还提供了 WordPress 插件版镜像，其中已预置 Nginx、MariaDB、PHP 软件，并集成腾讯云验证码、CDN、对象存储、图片内容安全、文本内容安全和短信等插件。您可在购买实例时选择 WorsPress 插件版作为镜像。插件使用方法请参见 [腾讯云开源应用插件中心](https://openapp.qq.com/docs/)。
 
 ## 操作步骤
 
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。
 2. 单击【新建】，进入轻量应用服务器购买页面。
-![](https://main.qcloudimg.com/raw/0794c486c1e9c775cb8b648b34c210cb.png)
+![](https://main.qcloudimg.com/raw/4539ca6328679a622eccdae0029300ee.png)
  - **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
  - **镜像**：选择 “WordPress 5.4.2” 应用镜像。
  - **实例套餐**：按照所需的服务器配置（CPU、内存、系统盘、峰值带宽、每月流量），选择一种实例套餐。
- - **实例名称**：自定义实例名称，若不填则默认使用所选镜像名称。批量创建实例时，连续命名后缀数字自动升序。例如，填入名称为 LH，数量选择3，则创建的3个实例名称为 LH1、LH2、LH3。
+ - **实例名称**：自定义实例名称，若不填则默认使用“镜像名称+四位随机字符”。批量创建实例时，连续命名后缀数字自动升序。例如，填入名称为 LH，数量选择3，则创建的3个实例名称为 LH1、LH2、LH3。
  - **购买时长**：默认1个月。
  - **购买数量**：默认1台。
 3. 单击【立即购买】，并根据页面提示提交订单完成支付。
@@ -63,5 +64,5 @@ WordPress 是全球最流行的开源的博客和内容管理网站的建站平�
 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云免费进行备案，审核时长请参考 [备案审核](https://cloud.tencent.com/document/product/243/19650)。
 3. 通过腾讯云 [DNS解析 DNSPod](https://cloud.tencent.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。具体操作请参考 [A 记录](https://cloud.tencent.com/document/product/302/3449)，将域名指向一个 IP 地址（外网地址）。
 
-### 安装 SSL 证书
+### 开启 HTTPS 访问
 可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 WordPress 实例安装 SSL 证书并开启 HTTPS 访问。

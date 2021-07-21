@@ -2,8 +2,11 @@
 **访问 URL 格式**
 `http://DomainName/timestamp/md5hash/FileName`
 
+>! 访问 URL 中不能包含中文。
+
+
 **算法说明**
-- timestamp：时间戳，格式为 YYYYMMDDHHMM。
+- timestamp：格式为 YYYYMMDDHHMM。
 - md5hash：MD5（自定义密钥 + timestamp + 文件路径）。
 
 **请求示例**
@@ -15,13 +18,13 @@
 
 ### 参数说明
 TypeB 所需配置如下：
-![](https://main.qcloudimg.com/raw/9e3fa51db2df1ef439e7e04ef70dec3c.png)
+![](https://main.qcloudimg.com/raw/441063186fa0c0d2e4ed2480dc940d28.png)
 **自定义鉴权密钥：**由6 - 40位大小写字母、数字构成，密钥需要严格保密，仅用户端与服务端知晓。
-**自定义有效时间：**通过请求路径中 timestamp 值，加上配置的有效时间，与当前时间进行对比，判定请求是否过期，若过期则直接返回403，有效时间单位为秒。
+**自定义有效时间：**通过请求路径中 timestamp 值，加上配置的有效时间，与当前时间进行对比，判定请求是否过期，若过期则直接返回403，有效时间单位为秒，最大可设置为630720000秒。
 
 ### 生效对象
 配置好密钥、参数名及过期时间后，可按需指定鉴权对象，支持以下三种模式：
-![](https://main.qcloudimg.com/raw/1952a0ac13633a87d4b676e52bf2eb10.png)
+![](https://main.qcloudimg.com/raw/a366e4c7069060810c83a92ab1c5a3b3.png)
 - 支持指定域名下所有文件均需要鉴权校验。
 - 支持指定类型文件不做鉴权，其他均需要做鉴权校验。
 - 支持指定类型文件做鉴权校验。

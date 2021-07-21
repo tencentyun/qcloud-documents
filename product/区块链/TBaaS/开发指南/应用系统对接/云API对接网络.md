@@ -96,7 +96,7 @@ private static InvokeRequest getInvokeRequest() {
 
 Go SDK 集成方法： [Tencent Cloud SDK 3.0 for Go](https://github.com/TencentCloud/tencentcloud-sdk-go)
 以下代码示例为不同步骤的代码编写：
-1. 导入基础包，并配置参数。<span id="step1"></span>
+1. 导入基础包，并配置参数。[](id:step1)
 
 ```go
 import (

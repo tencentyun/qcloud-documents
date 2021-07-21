@@ -1,4 +1,5 @@
 
+
 本文档以 Unity Editor 2019.3 版本为例，指导开发者在 Unity 项目中快速接入游戏联机对战引擎 MGOBE 。
 
 ## 版本支持
@@ -37,7 +38,8 @@ using com.unity.mgobe;
 
 ### 调用 API 
 1. 在 main.cs 中输入以下代码，完成 SDK 初始化，获得 room 实例。
-```
+<dx-codeblock>
+:::  Java
 GameInfoPara gameInfo = new GameInfoPara {
 		// 替换 为控制台上的“游戏ID”
 		GameId = "xxxxxxxxxx",
@@ -68,10 +70,12 @@ Listener.Init (gameInfo, config, (ResponseEvent eve) => {
 		// 初始化广播回调事件
 		// ...
 });
-```
+:::
+</dx-codeblock>
 
 2. 修改初始化回调函数，调用 room 对象的查询房间接口（getRoomDetail），即可验证是否成功接入对战平台。示例代码如下所示：
-```
+<dx-codeblock>
+:::  Java
 // 初始化监听器 Listener
 Listener.Init (gameInfo, config, (ResponseEvent eve) => {
 		if (eve.Code == 0) {
@@ -100,6 +104,9 @@ Listener.Init (gameInfo, config, (ResponseEvent eve) => {
 		// 初始化广播回调事件
 		// ...
 });
-```
+:::
+</dx-codeblock>
+
+
 
 3. 编译并运行项目，控制台中输出“查询成功”信息即表示接入成功。

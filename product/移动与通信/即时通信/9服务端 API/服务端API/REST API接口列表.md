@@ -63,13 +63,14 @@
 | 校验黑名单 | [v4/sns/black_list_check](https://cloud.tencent.com/document/product/269/3725) |
 | 添加分组 | [v4/sns/group_add](https://cloud.tencent.com/document/product/269/10107) |
 | 删除分组 | [v4/sns/group_delete](https://cloud.tencent.com/document/product/269/10108) |
-
+|拉取分组|[v4/sns/group_get](https://cloud.tencent.com/document/product/269/54763)|
 
 
 ## 群组管理
 
 | 功能说明               | 接口                                                         |
 | ---------------------- | ------------------------------------------------------------ |
+|获取 App 中的所有群组|[v4/group_open_http_svc/get_appid_group_list](https://cloud.tencent.com/document/product/269/1614)|
 | 创建群组               | [v4/group_open_http_svc/create_group](https://cloud.tencent.com/document/product/269/1615) |
 | 获取群详细资料       | [v4/group_open_http_svc/get_group_info](https://cloud.tencent.com/document/product/269/1616) |
 | 获取群成员详细资料     | [v4/group_open_http_svc/get_group_member_info](https://cloud.tencent.com/document/product/269/1617) |
@@ -93,7 +94,6 @@
 | 删除指定用户发送的消息 | [v4/group_open_http_svc/delete_group_msg_by_sender](https://cloud.tencent.com/document/product/269/2359) |
 | 拉取群历史消息         | [v4/group_open_http_svc/group_msg_get_simple](https://cloud.tencent.com/document/product/269/2738) |
 |获取直播群在线人数|[v4/group_open_http_svc/get_online_member_num](https://cloud.tencent.com/document/product/269/49180)|
-|查询用户在群组中的身份|[v4/group_open_http_svc/get_role_in_group](https://cloud.tencent.com/document/product/269/1626)|
 
 ## 全局禁言管理
 | 功能说明 |接口 |

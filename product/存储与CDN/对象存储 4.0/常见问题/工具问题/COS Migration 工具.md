@@ -33,4 +33,26 @@
 ### 如何修改日志级别？
 修改文件 src/main/resources/log4j.properties，把 log4j.rootLogger 的值复制为对应的日志级别，如 DEBUG、INFO、ERROR。
 
-如遇其他问题，请您尝试重新运行迁移工具。若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [提交工单](https://console.cloud.tencent.com/workorder/category)。
+### 在 Linux 环境下，报 /tmp/librocksdbjnixxx.so: ELF file OS ABI invalid 的错误，该如何处理？
+在 Linux 环境下，工具需要 IFUNC 支持，请检查并确保运行环境的 binutils 版本大于 2.20。
+
+如遇其他问题，请您尝试重新运行迁移工具。若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [联系我们](https://cloud.tencent.com/document/product/436/37708)。
+
+
+### 使用 COS Migration 迁移第三方数据到腾讯云，需要本地拉取数据吗？
+
+COS Migration 可以直接将第三方源地址数据快速迁移至 COS 中，不需要本地拉取数据。详情请参见 [COS Migration 工具](https://cloud.tencent.com/document/product/436/15392) 文档。
+
+目前支持的迁移类型如下：
+
+| migrateType       | 描述                          |
+| :---------------- | :---------------------------- |
+| migrateLocal      | 从本地迁移至 COS              |
+| migrateAws        | 从 AWS S3 迁移至 COS          |
+| migrateAli        | 从阿里 OSS 迁移至 COS         |
+| migrateQiniu      | 从七牛迁移至 COS              |
+| migrateUrl        | 下载 URL 迁移到 COS           |
+| migrateBucketCopy | 从源 Bucket 复制到目标 Bucket |
+| migrateUpyun      | 从又拍云迁移到 COS            |
+
+

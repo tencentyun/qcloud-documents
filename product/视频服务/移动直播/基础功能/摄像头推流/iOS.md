@@ -1,6 +1,6 @@
 ## 功能概述
 摄像头推流，是指采集手机摄像头的画面以及麦克风的声音，进行编码之后再推送到直播云平台上。腾讯云 LiteAVSDK 通过 TXLivePusher 接口提供摄像头推流能力，如下是 LiteAVSDK 的简单版 Demo 中演示摄像头推流的相关操作界面：
-![](https://main.qcloudimg.com/raw/9ad8f513454a058635bbe572755303c6.jpg)
+![](https://main.qcloudimg.com/raw/39ee7f9e0e092d0adb9f1dff1077a482.png)
 
 ## 特别说明
 - **不绑定腾讯云**
@@ -22,7 +22,7 @@
 ### 1. 下载 SDK 开发包
 [下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/454/7876) 将 SDK 嵌入您的 App 工程中。
 
-<span id="step2"></span>
+[](id:step2)
 ### 2. 给 SDK 配置 License 授权
 单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用的 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
 
@@ -51,7 +51,7 @@
  TXLivePush *_pusher = [[TXLivePush alloc] initWithConfig: _config]; // config 参数不能为空
 ```
 
-<span id="step4"></span>
+[](id:step4)
 ### 4. 开启摄像头预览
 调用 [TXLivePush](https://cloud.tencent.com/document/product/454/34755) 中的`startPreview`接口可以开启当前手机的摄像头预览。您需要为`startPreview` 接口提供一个用于显示视频画面的 view 对象。
 
@@ -141,14 +141,16 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";
 从手机 QQ 和 Now 直播的经验来看，单纯通过`setBeautyStyle`调整磨皮效果是不够的，只有将美颜效果和`setFilter`配合使用才能达到更加多变的美颜效果。所以，我们的设计师团队提供了17种默认的色彩滤镜，并将其默认打包在 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) 中供您使用。
 ![](https://main.qcloudimg.com/raw/ef097190798fc104d8fec9cc40a13bf8.png)
 
-```objectivec
+<dx-codeblock>
+::: objectivec objectivec
 NSString * path = [[NSBundle mainBundle] pathForResource:@"FilterResource" ofType:@"bundle"];
 path = [path stringByAppendingPathComponent:lookupFileName];
 
 UIImage *image = [UIImage imageWithContentsOfFile:path];
 [_pusher setFilter:image];
 [_pusher setSpecialRatio:0.5f];
-```
+:::
+</dx-codeblock>
 
 ### 10. 控制摄像头
 TXLivePush 提供了一组 API 用户控制摄像头的行为：
@@ -172,7 +174,8 @@ TXLivePush 默认推出的是竖屏分辨率的视频画面，如果希望推出
 1. 设置 TXLivePushConfig 中的`homeOrientation`接口可以改变观众端看到的视频画面宽高比方向。
 2. 调用 TXLivePush 中的`setRenderRotation`接口可以改变主播端的视频画面的渲染方向。
 
-```objectivec
+<dx-codeblock>
+::: objectivec objectivec
 // 如果希望竖屏推流（HOME 键在下），这是 SDK 的默认行为
 _config.homeOrientation = HOME_ORIENTATION_DOWN;
 [_pusher setConfig:_config];
@@ -182,7 +185,8 @@ _config.homeOrientation = HOME_ORIENTATION_DOWN;
 _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 [_pusher setConfig:_config];
 [_pusher setRenderRotation:90];
-```
+:::
+</dx-codeblock>
 
 ### 13. 隐私模式（垫片推流）
 
@@ -190,13 +194,12 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 
 该功能也常用于 App 被切到后台时：在 iOS 系统中，当 App 切到后台以后，操作系统不再允许该 App 继续采集摄像头画面。 此时就可以通过调用`pausePush`进入垫片状态。因为对于大多数直播 CDN 而言，如果超过一定时间（腾讯云目前为70s）不推视频数据，服务器就会断开当前的推流链接，所以在 App 切到后台后进入垫片模式是很有必要的。
 ![](https://main.qcloudimg.com/raw/bdc0e50690ff8d721d924d9570fc682f.jpg)
-
 - **step1: 开启 XCode 中的 Background 模式**
 ![](https://main.qcloudimg.com/raw/8aeeee0ec6b5294cecf5dadd3e32f075.jpg)
-
 - **step2: 设置 TXLivePushConfig 中的相关参数**
 在开始推流前，使用 LivePushConfig 的`pauseImg`、`pauseFps`和`pauseTime`接口可以设置垫片推流的详细参数：
-```objectivec
+<dx-codeblock>
+::: objectivec objectivec
     TXLivePushConfig *_config = [[TXLivePushConfig alloc] init];
     // 设置后台推流持续时长，单位秒，默认300秒。
     _config.pauseTime = 300;
@@ -206,12 +209,12 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
     _config.pauseImg = [UIImage imageNamed:@"pause_publish.jpg"];
         
     TXLivePush *_pusher = [[TXLivePush alloc] initWithConfig: _config]; 
-```
-
+:::
+</dx-codeblock>
 - **step3: 监听 App 的前后台切换事件**
 如果 App 在切到后台后就被 iOS 系统彻底休眠掉，SDK 将无法继续推流，观众端就会看到主播画面进入黑屏或者冻屏状态。您可以使用下面的代码让 App 在切到后台后还可再跑几分钟。
-
-```objectivec
+<dx-codeblock>
+::: objectivec objectivec
 // 注册应用监听事件
  NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
 [center addObserver:self selector:@selector(willResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
@@ -230,7 +233,8 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
     _inBackground = NO;
     // 其他唤醒业务逻辑
 }
-```
+:::
+</dx-codeblock>
 
 >! 请注意调用顺序：startPush => ( pausePush => resumePush ) => stopPush，错误的调用顺序会导致 SDK 表现异常，因此使用成员变量对执行顺序进行保护是很有必要的。
 

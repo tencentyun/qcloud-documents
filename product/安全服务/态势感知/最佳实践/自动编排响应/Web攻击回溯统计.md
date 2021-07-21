@@ -11,8 +11,8 @@
 下图为 WAF 巡检报表剧本的响应图谱，右侧为图谱每个节点的节点类型、节点描述、输入参数及输出参数等信息。
 ![](https://main.qcloudimg.com/raw/fe98006fb24a8a22605c8c3b4b6250ca.png)
 ## 前提条件
-- 自动编排响应是安全运营中心 [高级版功能](https://buy.cloud.tencent.com/soc)， 该功能正在内测试用中，您可通过 [申请内测](https://cloud.tencent.com/apply/p/c4604u3g0ir) 进行使用。
-- 使用 WAF 巡检报表剧本需先开通 [Web 应用防火墙](https://buy.cloud.tencent.com/buy/wsm) 服务。
+- 自动编排响应功能目前正在试用中，获得内测邀请的用户可获得免费试用资格，您可通过 [申请内测](https://cloud.tencent.com/apply/p/w5svog9t1nj) 进行使用。
+- 使用 WAF 巡检报表剧本需先开通 [Web 应用防火墙](https://buy.cloud.tencent.com/buy/waf) 服务。
 
 
 ## 操作步骤

@@ -69,5 +69,3 @@ yum install -y gcc-c++
 若最后出现完成对话框，则表示安装成功。如下图所示：
 ![](https://main.qcloudimg.com/raw/22bd8237582f4552d3cce662f58ebf2a.png)
 
-
-

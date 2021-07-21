@@ -16,7 +16,7 @@
 | X-TC-Version    | String   | 否       | 应用 App 的版本号，建议设置，以便灰度和查找问题。通过设置该字段，API 会把该版本信息传递给会议后台, 以控制一些和 App 版本有关的特性。 |
 | AccessToken      | String   | 是       | OAuth2.0 鉴权成功后返回的 token 信息。                            |
 | OpenId          | String   | 是       | OAuth2.0 鉴权成功后的用户信息。                                 |
-| X-TC-Registered | Integer  | 否       | 非必填字段，表示是否启用了腾讯会议的企业用户管理功能。请求头不带该字段或者该字段值为0，表示未启用企业用户管理功能。用户使用未注册的 userid 创建的会议，在会议客户端中无法看到会议列表，但可以正常使用会议短链接或会议号加入会议。<br>以下两种场景，请求头必须带该字段且值为1:<br><li>企业用户通过 SSO 接入腾讯会议账号体系；<br><li>企业用户通过腾讯会议企业用户管理创建用户。 |
+| X-TC-Registered | Integer  | 是     | 启用账户通讯录，默认传入值为1，创建的会议可出现在用户的会议列表中。<br>启用账户通讯录说明：<br>1. 通过 SSO 接入腾讯会议账号体系。<br>2. 通过调用接口创建企业用户。<br>3. 通过企业管理后台添加或批量导入企业用户。 |
 
 >!构造请求头的时候，需注意自定义字段名的大小写。签名验证以及服务器端读取字段值时对大小写敏感。
 
@@ -84,7 +84,7 @@ https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/access_token
 | --------- | ---- | -------- | ------------- |
 | sdk_id    | 是   | string   | OAuth 应用 ID。   |
 | secret    | 是   | string   | OAuth 应用密钥。 |
-| auth_code | 是   | string   | 授权码。        |
+| auth_code | 是   | string   | 授权码，有效期五分钟。        |
 
 #### 输出参数
 

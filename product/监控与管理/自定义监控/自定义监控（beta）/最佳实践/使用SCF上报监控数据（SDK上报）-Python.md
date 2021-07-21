@@ -1,6 +1,4 @@
-
-> !新版自定义监控已灰度上线，如需使用可进入 [申请页面](https://cloud.tencent.com/apply/p/4v84kyrkl0g) 申请体验。
-> 若在使用过程中遇到任何问题，您可以加入自定义监控交流 QQ 群（793979710）进行咨询，我们将竭诚为您服务！
+> !新版自定义监控开正在开发中，目前自定义监控暂不支持申请使用。
 
 ## 简介
 
@@ -146,3 +144,4 @@ drwxr-xr-x  2 root root    4096 Dec 16 20:40 tencentcloud_sdk_python-3.0.113.dis
 ### 步骤8：配置告警
 
 详细的告警配置步骤请参见 [配置告警策略](https://cloud.tencent.com/document/product/397/40223)。
+

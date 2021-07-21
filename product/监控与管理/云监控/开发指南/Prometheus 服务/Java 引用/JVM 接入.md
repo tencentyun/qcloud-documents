@@ -8,7 +8,7 @@
 
 ## 前提条件
 
-- 创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)。
+- 创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)。
 - [使用私有镜像仓库管理应用镜像](https://cloud.tencent.com/document/product/457/9117)。
 
 ## 操作步骤
@@ -21,6 +21,7 @@
 #### 步骤1：修改 pom 依赖 
 
 在 `pom.xml` 文件中添加相关的 Maven 依赖项，试情况调整相应的版本，示例如下：
+
 ```xml
 <dependency>
     <groupId>io.prometheus</groupId>
@@ -37,6 +38,7 @@
 #### 步骤2：修改代码
 
 在项目启动时，添加相应的监控配置，同时 micrometer 也提供了部分常用的监控数据采集，具体在 `io.micrometer.core.instrument.binder` 包下，可以按实际情况添加。示例如下：
+
 ````java
 public class Application {
     // 作为全局变量，可以在自定义监控中使用
@@ -92,13 +94,16 @@ public class Application {
 #### 步骤2：打包及上传镜像
 
 1. 在项目根目录下添加 `Dockerfile`，请根据实际项目进行修改。示例如下：
+
   ```
   FROM openjdk:8-jdk
   WORKDIR /java-demo
   ADD target/java-demo-*.jar /java-demo/java-demo.jar
   CMD ["java","-jar","java-demo.jar"]
   ```
+
 2. 打包镜像，在项目根目录下运行如下命令，需要替换对应的 `namespace`/`ImageName`/`镜像版本号`。
+
   ```bash
   mvn clean package
   docker build . -t ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
@@ -116,23 +121,24 @@ public class Application {
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)，选择需要部署的容器集群。
 2. 通过【工作负载】>【Deployment】进入 `Deployment` 管理页面，选择对应的 `命名空间` 来进行部署服务，通过 YAML 来创建对应的 `Deployment`，YAML 配置如下。
 >?如需通过控制台创建，请参见 [Spring Boot 接入](https://cloud.tencent.com/document/product/248/49086)。
+
 ``` yaml
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    k8s-app: java-demo
-  name: java-demo
-  namespace: spring-demo
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
+    labels:
       k8s-app: java-demo
-  template:
-    metadata:
-      labels:
+    name: java-demo
+    namespace: spring-demo
+spec:
+    replicas: 1
+    selector:
+      matchLabels:
         k8s-app: java-demo
+    template:
+      metadata:
+        labels:
+          k8s-app: java-demo
     spec:
       containers:
       - image: ccr.ccs.tencentyun.com/prom_spring_demo/java-demo
@@ -156,23 +162,24 @@ spec:
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
 2. 通过集成容器服务列表点击【集群 ID】进入到容器服务集成管理页面。
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
+
 ```yaml
-apiVersion: monitoring.coreos.com/v1
-kind: PodMonitor
-metadata:
-      name: java-demo
-      namespace: cm-prometheus
-spec:
-      namespaceSelector:
-        matchNames:
-        - spring-demo
-      podMetricsEndpoints:
-      - interval: 30s
-       path: /metrics
-       port: metric-port
-     selector:
-       matchLabels:
-         k8s-app: java-demo
+  apiVersion: monitoring.coreos.com/v1
+  kind: PodMonitor
+  metadata:
+    name: java-demo
+    namespace: cm-prometheus
+  spec:
+    namespaceSelector:
+      matchNames:
+      - java-demo
+    podMetricsEndpoints:
+    - interval: 30s
+      path: /metrics
+      port: metric-port
+    selector:
+      matchLabels:
+        k8s-app: java-demo
 ```
 
 #### 步骤5：查看监控

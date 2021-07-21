@@ -1,4 +1,3 @@
-
 对于云数据库 MySQL 实例，您可以通过 [控制台](https://console.cloud.tencent.com/cdb) 修改主实例的参数。其中对于某些重要参数而言，使用不恰当的修改方式会导致灾备实例异常或数据不一致，本文将介绍如下重要参数修改后的影响。
 
 ### lower_case_table_names

@@ -11,7 +11,16 @@ LogListener 仅支持64位 Linux 操作系统环境（暂不支持 Windows），
 | Debian（64位）                                               | Debian_8.2_64位、Debian_9.0_64位                             |
 | openSUSE（64位）                                             | openSUSE_42.3_64位                                           |
 
+## 支持功能
 
+LogListener 版本支持新功能如下：
+
+| LogListener 版本 | 支持功能                    | 功能说明                                                     | 相关文档                                                     |
+| --------------- | --------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| v2.5.4          | 支持 LogListener 服务日志功能 | LogListener 服务日志功能支持记录 LogListener 端运行状态和采集监控的日志数据并配置可视化视图，提供重要指标数据。 | [LogListener 服务日志](https://cloud.tencent.com/document/product/614/55281) |
+| v2.5.2          | 支持上传解析失败日志        | 所有解析失败的日志，均以 LogParseFailure 作为键名称（Key），原始日志内容作为值（Value）进行上传。 | -                                                            |
+| v2.5.0          | 支持 LogListener 自动升级功能 | 支持用户在控制台预设时间段指定机器组进行 agent 自动升级，也可对目标机器实行手动升级。 | [LogListener 升级指南](https://cloud.tencent.com/document/product/614/55468) |
+| v2.4.5          | 支持多行-完全正则采集模式   | LogListener 采集配置规则新增【多行-完全正则】提取模式采集日志。 | [完全正则（多行）](https://cloud.tencent.com/document/product/614/52366) |
 
 
 
@@ -19,11 +28,16 @@ LogListener 仅支持64位 Linux 操作系统环境（暂不支持 Windows），
 
 ### 1. 下载安装 LogListener
 
-LogListener 最新版本下载地址： [下载 LogListener](https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-linux-x64-2.4.4.tar.gz)
+LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.2.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.2.tar.gz)
 
-以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`loglistener/tools`，执行安装命令 。该操作命令如下：
-```shell
-wget https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-linux-x64-2.4.4.tar.gz && tar -zxvf loglistener-linux-x64-2.4.4.tar.gz -C /usr/local && cd /usr/local/loglistener-2.4.4/tools && ./loglistener.sh install
+以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`loglistener/tools`，执行安装命令 。
+- 公网环境下，操作命令如下：
+```plaintext
+wget https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.2.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.2.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.2/tools && ./loglistener.sh install
+```
+- 内网环境下，操作命令如下：
+```plaintext
+wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.2.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.2.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.2/tools && ./loglistener.sh install
 ```
 
 ### 2. 初始化 LogListener
@@ -53,20 +67,22 @@ wget https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-lin
 
 如果需要通过外网方式访问服务域名，需要显式设置网络参数`internet`，执行如下命令：
 
-```shell
+```plaintext
 ./loglistener.sh init -secretid AKIDPEtPyKabfW8Z3Uspdz83xxxxxxxxxxxx -secretkey whHwQfjdLnzzCE1jIf0xxxxxxxxxxxx -region ap-xxxxxx -network internet
 ```
 
 ![](https://main.qcloudimg.com/raw/653ebe0400dca5b21b3e25d01f93cb5b.png)
 > ?
- - 建议使用协作者密钥，需要主账号授权协作者于日志服务的读写权限。
- - region 为您所使用的日志服务区域，而非您的业务机器所处的区域。
- - 云服务器与日志集同地域的情况下，建议使用内网方式访问服务域名。云服务器与日志集在不同地域的情况下，建议使用外网方式访问服务域名。
+> - 若主账号已授权协作者日志服务的读写权限，建议使用协作者密钥。
+> - region 为您所使用的日志服务区域，而非您的业务机器所处的区域。
+> - 云服务器与日志集同地域的情况下，建议使用内网方式访问服务域名。云服务器与日志集在不同地域的情况下，建议使用外网方式访问服务域名。
+> - 关于日志采集权限详情，可参考 [授权子账号对 CLS 某个日志主题具有日志采集权限](https://cloud.tencent.com/document/product/614/50498) 文档。
+> 
 
 ### 3. 启动 LogListener
 
 成功安装后，执行 LogListener 启动命令：
-```shell
+```plaintext
 /etc/init.d/loglistenerd start
 ```
 ![](https://main.qcloudimg.com/raw/184d6cc3308206b14288372da59a99a0.png)
@@ -77,25 +93,25 @@ wget https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-lin
 
 ### 1. 查看 LogListener 版本
 
-```shell
+```plaintext
 /etc/init.d/loglistenerd -v
 ```
 
 ### 2. 查看 LogListener 帮助文档
 
-```shell
+```plaintext
 /etc/init.d/loglistenerd -h
 ```
 
 ### 3. LogListener 进程管理
 
-```shell
+```plaintext
 /etc/init.d/loglistenerd (start|restart|stop) # 启动、重启、停止
 ```
 
 ### 4. 查看 LogListener 进程状态
 
-```shell
+```plaintext
 /etc/init.d/loglistenerd status
 ```
 
@@ -104,7 +120,7 @@ LogListener 正常情况会运行两个进程：
 
 ### 5. 检查 LogListener 心跳及配置
 
-```shell
+```plaintext
 /etc/init.d/loglistenerd check
 ```
 
@@ -115,7 +131,7 @@ LogListener 正常情况会运行两个进程：
 
 以管理员权限执行 `loglistener/tools` 目录下的卸载命令：
 
-```shell
+```plaintext
 ./loglistener.sh uninstall
 ```
 
@@ -125,20 +141,24 @@ LogListener 正常情况会运行两个进程：
 
 1. 使用停止命令停止运行旧版本的 LogListener。
 2. 备份旧版本中的断点文件目录（`loglistener/data`）。例如，将旧版的断点文件备份至`/tmp/loglistener-backup`目录下。
-
-```shell
+<dx-codeblock>
+:::  plaintext
 cp -r loglistener-2.2.3/data /tmp/loglistener-backup/
-```
-
+:::
+</dx-codeblock>
 3. 使用卸载命令卸载旧版本的 LogListener。
 4. 下载最新版本的 LogListener，并使用相关命令安装和初始化新版本 LogListener。
-5. 复制所备份的断点文件目录（步骤2）到新版本 LogListener 目录下。例如：
-
-```shell
+5. 复制所备份的断点文件目录（步骤2）到新版本 LogListener 目录下。
+```plaintext
+cp -r /tmp/loglistener-backup/data loglistener-<version>/
+```
+ 请根据实际情况替换 `<version>`，例如：
+```plaintext
 cp -r /tmp/loglistener-backup/data loglistener-2.2.8/
 ```
-
 6. 使用启动命令启动运行新版本 LogListener。
+
+
 
 #### 不复用断点文件（可能会重复采集日志）：
 

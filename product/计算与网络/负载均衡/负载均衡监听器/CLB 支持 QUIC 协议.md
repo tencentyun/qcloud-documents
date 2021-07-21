@@ -14,8 +14,7 @@ CLB 开启 QUIC 后，客户端可以和 CLB 之间建立 QUIC 连接，当二�
 - 当前支持 QUIC 的地域为：北京、上海及孟买。
 - 当前仅公网负载均衡的七层 HTTPS 监听器支持 QUIC 协议。
 
-<span id="making"></span>
-## 操作步骤
+## 操作步骤[](id:making)
 1. 根据需求创建负载均衡实例，详情请参见 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)。
 >?在创建负载均衡实例时，创建地域选择“北京”、“上海”或“孟买”，网络类型选择“公网”。
 2. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，在左侧导航栏，单击【实例管理】。
@@ -30,11 +29,11 @@ CLB 开启 QUIC 后，客户端可以和 CLB 之间建立 QUIC 连接，当二�
 ![](https://main.qcloudimg.com/raw/9fdb02a7a98cddbf6eafa1c95c36b93a.png)
 7. 在“创建转发规则”页面，打开 QUIC 协议，创建七层规则，并填写相关字段后，单击【下一步】，即可完成基本配置。
 >?
->- 当前在一个 HTTPS 监听器中，只能对一个域名开启 QUIC 协议。
->- 创建新的 HTTPS 监听器时，支持开启 QUIC 协议，创建完后，QUIC 协议可以自由开关。若创建 HTTPS 监听器时未开启 QUIC 协议，则创建后不支持开启。
+>- 创建新的 HTTPS 转发规则时，支持开启 QUIC 协议。创建完成后，QUIC 协议可以自由开启或关闭。若创建 HTTPS 转发规则时未开启 QUIC 协议，则创建后不支持开启。
 >- QUIC 使用 UDP 协议，会占用 CLB 的 UDP 端口，即 HTTPS 监听器开启 QUIC 协议后，自动占用对应的 UDP 端口和 TCP 端口。例如，当 HTTPS:443 监听器开启 QUIC 协议后，该规则会同时占用 TCP:443 和 UDP:443 端口，因此您不能再创建 TCP:443 和 UDP:443 监听器。
 >
 ![](https://main.qcloudimg.com/raw/53dae3e54d774586d7e3ac31d7431b6c.png)
 
 ## 后续操作
 填写完基本配置后，可继续完成 [健康检查](https://cloud.tencent.com/document/product/214/6097) 和 [会话保持](https://cloud.tencent.com/document/product/214/6154) 的相关操作。
+

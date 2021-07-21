@@ -6,7 +6,7 @@ DeScheduler 是容器服务 TKE 基于 Kubernetes 原生社区 [DeScheduler](htt
 
 
 
-### 在集群内部署 Kubernetes 对象
+### 部署在集群内的 Kubernetes 对象
 
 | Kubernetes 对象名称  | 类型               |                   请求资源                   | 所属 Namespace |
 | :----------------- | :----------------- | :------------------------------------------ | ------------- |
@@ -70,7 +70,7 @@ DeScheduler  基于 [社区版本 Descheduler](https://github.com/kubernetes-sig
 ### 依赖部署[](id:DeScheduler)
 
 DeScheduler 组件依赖于 Node 当前和过去一段时间的真实负载情况来进行调度决策，需要通过 Prometheus 等监控组件获取系统 Node 真实负载信息。在使用 DeScheduler 组件之前，您可以采用自建 Prometheus 监控或采用 TKE 云原生监控。
-<span id="rules"></span>
+[](id:rules)
 <dx-tabs>
 ::: 自建\sPrometheus\s监控服务
 #### 部署 node-exporter 和 Prometheus

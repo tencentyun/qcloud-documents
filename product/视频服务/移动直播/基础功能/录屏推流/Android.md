@@ -14,7 +14,7 @@
 
 
 ## 对接攻略
-<span id="step_1"></span>
+[](id:step_1)
 ### 步骤 1：添加 Activity
 
 在 manifest 文件中粘贴如下 activity（若项目代码中存在则不需要添加）。
@@ -24,7 +24,7 @@
     android:theme="@android:style/Theme.Translucent"/>
 ```
 
-<span id="step_2"></span>
+[](id:step_2)
 ### 步骤 2：创建 Pusher 对象
 创建一个 **TXLivePusher** 对象，我们后面主要用它来完成推流工作。
 
@@ -55,7 +55,6 @@ mLivePusher.startScreenCapture();
 要实现这样功能，您可以按如下步骤进行对接：
 - **4.1) 设置 pauseImg**
 在开始推流前，使用 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771) 的 setPauseImg 接口设置一张等待图片，例如“主播把画面切走一会儿...”。
-
 - **4.2) 隐私模式开关**
 在用于工具条的悬浮窗口上增加一个用于开关隐私模式的按钮，打开隐私模式的响应逻辑为对 TXLivePusher##pausePush 接口函数的调用，关闭隐私模式的响应逻辑为对 [TXLivePusher##resumePush](https://cloud.tencent.com/document/product/454/34772#resumepusher) 接口函数的调用。
 ```java
@@ -132,7 +131,7 @@ _config.audioChannels   = 1;
 ```
 之后，调用 **sendCustomPCMData** 向 SDK 塞入您自己的 PCM 数据即可。
 
-<span id="step10"></span>
+[](id:step10)
 ### 步骤 10：事件处理
 ####  事件监听
 RTMP SDK 通过 [ITXLivePushListener](https://cloud.tencent.com/document/product/454/34770) 代理来监听推流相关的事件，注意 ITXLivePushListener  只能监听得到 PUSH_前缀的推流事件。
@@ -161,11 +160,9 @@ SDK 发现了一些严重问题，推流无法继续了，例如，用户禁用�
 
 ####  警告事件 
 SDK 发现了一些问题，但这并不意味着无法解决，很多 WARNING 都会触发一些重试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复，所以，千万不要“小题大做”。
-
-- PUSH_WARNING_NET_BUSY
+- **PUSH_WARNING_NET_BUSY**
 主播网络不给力，如果您需要 UI 提示，这个 WARNING 相对比较有用（[步骤10](#step10)）。
-
-- PUSH_WARNING_SERVER_DISCONNECT
+- **PUSH_WARNING_SERVER_DISCONNECT**
 推流请求被后台拒绝了，会触发有限次数的重试逻辑，有可能可以在某一次重试中推流成功。但实际上，大部分场景中都是推流地址里的 txSecret 计算错了，或者被其他人占用了测试地址，所以这个 WARNING 对您的调试帮助意义更大。
 
 | 事件ID                 |    数值  |  含义说明                    |   

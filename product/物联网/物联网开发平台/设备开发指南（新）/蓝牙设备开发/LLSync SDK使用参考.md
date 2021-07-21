@@ -1,4 +1,5 @@
 
+
 LLSync SDK 提供 LLSync 协议接入方案，打通了 `BLE 设备-App-物联网开发平台` 或 `BLE 设备-网关设备-物联网开发平台` 的数据链路，方便用户将 BLE 设备快速接入物联网开发平台。用户可以在物联网开发平台创建产品，通过云 API 下发数据模版操作来控制 BLE 设备。
 
 ## SDK获取
@@ -23,24 +24,20 @@ qcloud_iot_explorer_ble
   ├─config                            # 配置文件
   ├─docs                              # 协议文档
   ├─inc                               # 外部头文件
-  ├─samples                           # 参考实现源码
-  │   ├─data_template                 # 数据模版源文件，用户根据需求实现
-  │   ├─hal                 					# HAL移植层适配
   ├─scripts                           # 脚本目录
-  │   ├─interpret_json_dt             # json文本转换C代码
-  │       ├─config                    # ini文件
+  │   ├─interpret_json_dt             # json 文本转换 C 代码
+  │       ├─config                    # ini 文件
   │       ├─src                       # 脚本文件
-  │           ├─dt_fixed_content      # C代码中的固定内容，无需转换生成
-  │   ├─code_extract             	 # 例程代码抽取
-  └─src                               # LLSync核心代码，用户一般无需修改
-      ├─core                          # LLSync源码
+  │           ├─dt_fixed_content      # C 代码中的固定内容，无需转换生成
+  └─src                               # LLSync 核心代码，用户一般无需修改
+      ├─core                          # LLSync 源码
       ├─internal_inc                  # 内部头文件
       └─utils                         # 通用组件
 ```
 
 ## 移植指引
 
-请参见 [LLSync SDK 接入指引](https://cloud.tencent.com/document/product/1081/48398)
+请参见 [LLSync SDK 接入指引](https://cloud.tencent.com/document/product/1081/48398)。
 
 
 

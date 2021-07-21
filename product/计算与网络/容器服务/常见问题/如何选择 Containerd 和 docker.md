@@ -19,7 +19,7 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命
 | 下载镜像     | docker pull    | crictl pull     |
 | 上传镜像     | docker push     | 无               |
 | 删除本地镜像   | docker rmi     | crictl rmi      |
-| 查看镜像详情   | docker inspect IMAGE-ID | crictl inspecti IMAGE-ID |
+| 查看镜像详情   | docker inspect IMAGE-ID | crictl inspect IMAGE-ID |
 
 
 
@@ -123,5 +123,7 @@ Kubelet 不会做 stream proxy，只会做重定向。即 Kubelet 会将 contain
 |:-------- |:---------------------------------------- |:---------------------------------------------------------------------------------------------------------------- |
 | 谁负责调用 CNI | Kubelet 内部的 docker-shim                    | Containerd 内置的 cri-plugin（containerd 1.1 以后）                                                                        |
 | 如何配置 CNI  | Kubelet 参数 <code>--cni-bin-dir</code> 和 <code>--cni-conf-dir</code> | Containerd 配置文件（toml）：<br> <code>[plugins.cri.cni]</code><br>    <code>bin\_dir = "/opt/cni/bin"</code><br>    <code>conf\_dir = "/etc/cni/net.d"</code> |
+
+
 
 

@@ -50,11 +50,17 @@ O = default
 OU = websever
 CN = webserver.default.svc
 
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = webserver.default.svc
+
 [ v3_ext ]
 authorityKeyIdentifier=keyid,issuer:always
 basicConstraints=CA:FALSE
 keyUsage=keyEncipherment,dataEncipherment
 extendedKeyUsage=serverAuth,clientAuth
+subjectAltName=@alt_names
 ```
 5. 执行以下命令，基于配置文件 `csr.conf` 生成证书签名请求。
 ```bash
@@ -91,13 +97,13 @@ cat <<EOF | kubectl apply -f -
 apiVersion: certificates.k8s.io/v1beta1
 kind: CertificateSigningRequest
 metadata:
-  name: ${USERNAME}
+   name: ${USERNAME}
 spec:
-  request: $(cat ${USERNAME}.csr | base64 | tr -d '\n')
-  usages:
-  - digital signature
-  - key encipherment
-  - server auth
+   request: $(cat ${USERNAME}.csr | base64 | tr -d '\n')
+   usages:
+   - digital signature
+   - key encipherment
+   - server auth
 EOF
 # 证书审批允许信任
 kubectl certificate approve ${USERNAME}
@@ -117,7 +123,7 @@ kubectl get csr ${USERNAME} -o jsonpath={.status.certificate} > ${USERNAME}.crt
 cat ca.crt | base64 --wrap=0 
 ```
  - 若颁发证书使用方法2，集群的根证书即为 `caBundle` 字段内容。获取步骤如下：
-    1. 登录容器服务控制台，祖安则左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster?rid=1)】。
+    1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster?rid=1)】。
     2. 在“集群管理”页面，选择集群 ID。
     3. 在集群详情页面，选择左侧的【基本信息】。
     4. 从“基本信息”页面的“集群APIServer信息”模块的 “Kubeconfig” 中的 `clusters.cluster[].certificate-authority-data` 字段进行获取，该字段已进行 `base64` 编码，无需再进行处理。

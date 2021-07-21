@@ -14,12 +14,12 @@ Authorization: <Auth String>
 
 ```
 
->? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/) 文档）。
+>? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
 #### 请求头
 
-此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
 #### 请求体
 该请求无请求体。
@@ -27,22 +27,22 @@ Authorization: <Auth String>
 #### 请求参数
 参数的具体内容如下：
 
-|节点名称（关键字）|父节点|描述|类型|必选|
+|节点名称（关键字）|父节点|描述|类型|是否必选|
 |:---|:-- |:--|:--|:--|
 |queueId|无|拉取该队列 ID 下的任务|String|是|
-| tag |无| 任务的Tag：Transcode | String |是|
+| tag |无| 任务 的Tag：Transcode | String |是|
 | orderByTime |无| Desc 或者 Asc。默认为 Desc | String |否|
 | nextToken |无| 请求的上下文，用于翻页。上次返回的值 | String |否|
 | size |无| 拉取的最大任务数。默认为10。最大为100 | Integer |否|
-| states |无| 拉取该状态的任务，以,分割支持多状态 <br> All，Submitted，Running，Success，Failed，Pause，Cancel。默认为 All | String |否|
-| startCreationTime |无| 拉取创建时间大于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z` | String |否|
-| endCreationTime |无| 拉取创建时间小于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z` | String |否|
+| states |无| 拉取该状态的任务，以`,`分割，支持多状态：All、Submitted、Running、Success、Failed、Pause、Cancel。默认为 All | String |否|
+| startCreationTime |无| 拉取创建时间大于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z`，示例：2001-01-01T00:00:00+0800 | String |否|
+| endCreationTime |无| 拉取创建时间小于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z`，示例：2001-01-01T23:59:59+0800    | String |否|
 
 ## 响应
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/) 文档。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。
 
 #### 响应体
 
@@ -66,12 +66,60 @@ Container 节点 Response 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| JobsDetail | Response | 任务的详细信息，同 CreateMediaJobs <br/>接口中的 Response.JobsDetail 节点 |  Container |
+| JobsDetail | Response | 任务的详细信息，同 [CreateMediaJobs](https://cloud.tencent.com/document/product/460/48233) <br/>接口中的 Response.JobsDetail 节点 |  Container |
 | NextToken | Response | 翻页的上下文 Token |  String |
+
+Container 节点 JobsDetail 的内容：
+
+| 节点名称（关键字） | 父节点              | 描述                                                         | 类型      |
+| :----------------- | :------------------ | :----------------------------------------------------------- | :-------- |
+| Code               | Response.JobsDetail | 错误码，只有 State 为 Failed 时有意义                           | String    |
+| Message            | Response.JobsDetail | 错误描述，只有 State 为 Failed 时有意义                         | String    |
+| JobId              | Response.JobsDetail | 新创建任务的 ID                                               | String    |
+| Tag                | Response.JobsDetail | 新创建任务的 Tag：Transcode                                   | String    |
+| State              | Response.JobsDetail | 任务的状态，值为 Submitted、Running、Success、Failed、Pause、Cancel 其中一个 | String    |
+| CreationTime       | Response.JobsDetail | 任务的创建时间                                               | String    |
+| StartTime          | Response.JobsDetail | 任务的开始时间                                               | String    |
+| EndTime            | Response.JobsDetail | 任务的结束时间                                               | String    |
+| QueueId            | Response.JobsDetail | 任务所属的队列 ID                                             | String    |
+| Input              | Response.JobsDetail | 该任务的输入资源地址                                         | Container |
+| Operation          | Response.JobsDetail | 该任务的规则                                                 | Container |
+
+
+Container 类型 Operation 的具体数据描述如下：
+
+| 节点名称（关键字）  | 父节点                        | 描述                                                         | 类型      | 
+| ------------------- | ----------------------------- | ------------------------------------------------------------ | --------- | 
+| Transcode           | Response.JobsDetail.Operation | 指定转码模板参数                                             | Container | 
+| Watermark           | Response.JobsDetail.Operation | 指定水印模板参数，同创建水印模板 CreateMediaTemplate 接口的 Request.Watermark | Container | 
+| TemplateId          | Response.JobsDetail.Operation | 指定的模板 ID                                                 | String    | 
+| WatermarkTemplateId | Response.JobsDetail.Operation | 指定的水印模板 ID，可以传多个水印模板 ID                       | String    | 
+| Output              | Response.JobsDetail.Operation | 结果输出地址                                                 | Container | 
+
+>!优先使用 TemplateId，无 TemplateId 时使用对应任务类型的参数。
+
+Container 类型 Transcode 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                  | 描述                                                         | 类型      | 
+| ------------------ | :-------------------------------------- | ------------------------------------------------------------ | --------- | 
+| Container          | Response.JobsDetail.Operation.Transcode | 同创建转码模板 CreateMediaTemplate 接口中的 Request.Container   | Container | 
+| Video              | Response.JobsDetail.Operation.Transcode | 同创建转码模板 CreateMediaTemplate 接口中的 Request.Video       | Container | 
+| TimeInterval       | Response.JobsDetail.Operation.Transcode | 同创建转码模板 CreateMediaTemplate 接口中的 Request.TimeInterval | Container | 
+| Audio              | Response.JobsDetail.Operation.Transcode | 同创建转码模板 CreateMediaTemplate 接口中的 Request.Audio       | Container | 
+| TransConfig        | Response.JobsDetail.Operation.Transcode | 同创建转码模板 CreateMediaTemplate 接口中的 Request.TransConfig | Container | 
+
+
+Container 类型 Output 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                | 描述             | 类型   | 
+| ------------------ | ------------------------------------- | ---------------- | ------ |
+| Region             | Response.JobsDetail.Operation.Output  | 存储桶的地域     | String | 
+| Bucket             | Response.JobsDetail.Operation.Output  | 存储结果的存储桶 | String | 
+| Object             | Response.JobsDetail.Operationn.Output | 结果文件的名称 | String | 
 
 #### 错误码
 
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/) 文档。
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
 
 ## 实际案例
 

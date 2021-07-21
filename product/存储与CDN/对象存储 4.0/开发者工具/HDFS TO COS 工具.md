@@ -50,27 +50,29 @@ JDK 1.7或1.8。
 若未指定 --decompress_har 参数，默认按照普通的 HDFS 目录进行拷贝，即 .har 目录下的 index 和 masterindex 等文件原样拷贝。
 
 ### 目录信息
+
 ```shell
 conf : 配置文件, 用于存放 core-site.xml 和 cos_info.conf
 log  : 日志目录
 src  : Java 源程序
 dep  : 编译生成的可运行的 JAR 包
 ```
+
 ## 问题与帮助
 #### 关于配置信息
 请确保填写的配置信息正确，包括存储桶（Bucket）、地域（Region）以及 API 密钥信息，其中，存储桶的名字，由用户自定义字符串和系统生成 APPID 数字串由中划线连接而成，例如 examplebucket-1250000000。并保证机器的时间和北京时间一致（相差1分钟左右是正常的），如果相差较大，请重新设置机器时间。
 
-#### 关于 DateNode
-请保证对于 DateNode，拷贝程序所在的机器也可以连接。NameNode 有外网 IP 可以连接，但获取的 block 所在的 DateNode 机器是内网 IP，是无法直接连接上的。因此建议同步程序放在 Hadoop 的某个节点上执行，保证对 NameNode 和 DateNode 皆可访问。
+#### 关于 DataNode
+请保证对于 DataNode，拷贝程序所在的机器也可以连接。NameNode 有外网 IP 可以连接，但获取的 block 所在的 DateNode 机器是内网 IP，是无法直接连接上的。因此建议同步程序放在 Hadoop 的某个节点上执行，保证对 NameNode 和 DataNode 皆可访问。
 
 #### 关于权限
-请使用 Hadoop 命令下载文件，检查是否正常， 再使用同步工具同步 Hadoop 上的数据支持。
+请使用 Hadoop 命令下载文件，检查是否正常，再使用同步工具同步 Hadoop 上的数据支持。
 
 #### 关于文件覆盖
-对于 COS 上已存在的文件， 默认进行重传覆盖。除非用户明确的指定 -skip_if_len_match，当文件长度一致时则跳过上传。
+对于 COS 上已存在的文件，默认进行重传覆盖。除非用户明确的指定 -skip_if_len_match，当文件长度一致时，则跳过上传。
 
 #### 关于 cos path
- cos path 默认为是目录， 最终从 HDFS 上拷贝的文件都会存放在该目录下。
+cos path 默认为是目录，最终从 HDFS 上拷贝的文件都会存放在该目录下。
 
 
 #### 关于从腾讯云 EMR HDFS 拷贝数据

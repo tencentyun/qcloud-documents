@@ -1,4 +1,4 @@
-TOP N 排名意为从研究对象中得到所需的N个数据，并从排序列表中选取最大或最小的 N 个数据。
+TOP N 排名意为从研究对象中得到所需的 N 个数据，并从排序列表中选取最大或最小的 N 个数据。
 
 ## 1. 添加组件
 从右侧组件窗格中，拖拽<img src="https://main.qcloudimg.com/raw/7535cbbb12ca85a0ad09515a0f70f6a1.png"  style="margin:0;">柱状图图表组件到编辑区。

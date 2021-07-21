@@ -1,22 +1,22 @@
 弹性公网 IP 是可以独立购买和持有的公网 IP 地址，因此腾讯云会收取 IP 资源费用。
 
->?EIP 未绑定云资源时仅收取 IP 资源费用。EIP 绑定云资源后仅收取公网网络费用，请参见 [公网网络费用](https://cloud.tencent.com/document/product/1199/51693)。
->
+>? EIP 未绑定云资源时仅收取 IP 资源费用。EIP 绑定云资源后仅收取公网网络费用，请参见 [公网网络费用](https://cloud.tencent.com/document/product/1199/51693)。
 
 ## 计费模式
 IP 资源费用的计费周期为按小时收费，付费模式为后付费。
-![](https://main.qcloudimg.com/raw/a52c516727c2a0028dcd80b56e1e1ab8.png)
 - IP 资源费用从申请 EIP 开始计费，绑定云资源时暂停计费，解绑云资源时恢复计费，释放 EIP 时停止计费。
 - 计费时长精确到秒，每小时对前一小时产生的费用进行一次结算并扣费，不足一小时的按时间占比（即计费秒数 / 3600秒）计费。
 - 若在同一计费周期内，多次解绑和绑定云资源，则计费时长为累计未绑定云资源的时长。
+![](https://main.qcloudimg.com/raw/a52c516727c2a0028dcd80b56e1e1ab8.png)
 
 ## 计费公式
-IP 资源费用 = 弹性公网 IP 所在地域闲置价格 × 计费时长
+IP 资源费用 = 弹性公网 IP 所在地域的单价 × 计费时长
 
 ## 计费价格
+>?IP 资源费用不区分线路类型，不论是常规、加速、精品 BGP IP 或静态单线 IP 线路类型，IP 资源费用的价格都是一致的。
 <table>
    <tr><th>地域</th><th>价格（元/小时）</th></tr>
-   <tr><td>中国大陆地区、法兰克福、首尔</td><td>0.20</td></tr>
+   <tr><td>中国大陆地区、雅加达、首尔、法兰克福</td><td>0.20</td></tr>
    <tr><td>中国香港、新加坡</td><td>0.30</td></tr>
    <tr><td>多伦多、弗吉尼亚、硅谷、曼谷、莫斯科、东京、孟买</td><td>0.25</td></tr>
 </table>
@@ -30,4 +30,3 @@ IP 资源费用 = 弹性公网 IP 所在地域闲置价格 × 计费时长
 ## 相关文档
 - [计费概述](https://cloud.tencent.com/document/product/1199/41692)
 - [公网网络费用](https://cloud.tencent.com/document/product/1199/51693)
-- [账户类型](https://cloud.tencent.com/document/product/1199/49090)

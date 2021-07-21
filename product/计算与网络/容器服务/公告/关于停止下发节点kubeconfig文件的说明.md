@@ -12,7 +12,7 @@
 
 
 
-## 问题影响及处理措施<span id="QA"></span>
+## 问题影响及处理措施[](id:QA)
 
 #### 问题现象
 如用户习惯使用如下命令进行 TKE 集群登录节点进行 Kubectl 操作，命令及报错信息如下：
@@ -29,7 +29,9 @@ error: You must be logged in to the server (Unauthorized)
 #### 处理措施
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 获取当前使用账号的凭证信息 Kubeconfig 文件，请参见 [获取凭证](https://cloud.tencent.com/document/product/457/46105#.E8.8E.B7.E5.8F.96.E5.87.AD.E8.AF.81)。
-3. 获取 Kubeconfig 文件后，可以选择开启内网访问，也可直接使用 Kubernetes 的 service IP。在集群详情页面中，选择左侧的【服务与路由】>【Service】获取 default 命名空间下 Kubernetes 的 service IP。将 Kubeconfig 文件中 clusters.cluster.server 字段替换为 https://\<`IP`\>:443 即可。
+3. 获取 Kubeconfig 文件后，可以选择开启内网访问，也可直接使用 Kubernetes 的 service IP。
+ - 开启内网访问：在集群详情页面中，选择左侧的【基本信息】，在“集群APIServer信息”中开启内网访问，并根据提示信息进行操作。
+ - 使用 Kubernetes 的 service IP：在集群详情页面中，选择左侧的【服务与路由】>【Service】获取 default 命名空间下 Kubernetes 的 service IP。将 Kubeconfig 文件中 clusters.cluster.server 字段替换为 https://\<`IP`\>:443 即可。
 4. 拷贝 Kubeconfig 文件内容到新节点上的 `$HOME/.kube/config` 下。
 5. 访问 Kubeconfig 集群，使用 `kubectl get nodes` 测试是否连通。
 

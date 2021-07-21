@@ -1,7 +1,7 @@
 ## 操作场景
 宝塔 Linux 面板（BT-Panel）是一款简单好用的服务器运维面板，支持一键 LAMP、LNMP、集群、监控、网站、FTP、数据库、JAVA 等100多项服务器管理功能，能够极大提升运维管理效率。本文指导您如何在轻量应用服务器上安装和使用宝塔 Linux 面板。
 
->? 宝塔 Linux 面板应用镜像底层基于 CentOS 7.6 64位操作系统。
+>!宝塔 Linux 面板（BT-Panel）目前已下线，您可使用宝塔 Linux 面板 7.5.2 腾讯云专享版。专享版覆盖普通版所有功能，还默认集成腾讯云对象存储、文件存储、内容分发网络和 DNS 解析插件。详情请参见 [使用宝塔 Linux 面板腾讯云专享版管理服务器](https://cloud.tencent.com/document/product/1207/54078)。
 >
 
 ## 操作步骤
@@ -50,7 +50,7 @@
 ![](https://main.qcloudimg.com/raw/9d93b13f71eafa1898f68f5003e0447f.png)
 
 随后您可以参考 [快速添加域名解析](https://cloud.tencent.com/document/product/302/3446) 将域名解析到对应的轻量应用服务器 IP 地址，即可通过域名来访问您新创建的网站。
->? 如您使用的轻量应用服务器位于中国大陆地域，请参考 [如何快速备案您的网站](https://cloud.tencent.com/document/product/243/39038) 进行网站备案。
+>? 如您使用的轻量应用服务器位于中国内地地域，请参考 [如何快速备案您的网站](https://cloud.tencent.com/document/product/243/39038) 进行网站备案。
 >
 
 

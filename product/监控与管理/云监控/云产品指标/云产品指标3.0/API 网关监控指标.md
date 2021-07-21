@@ -7,7 +7,7 @@ Namespace=QCE/APIGATEWAY
 | 指标英文名 | 指标中文名   | 指标含义                                                     | 计算方式                     | 单位 |
 | ------------- | ------------------------------------------------------------ | ---------------------------- | ---- | ---- |
 | NumOfReq | 请求数        | 经过 API 网关的请求数量                                        | 按照所选择的时间粒度统计求和 | 次   |
-| SucceReq | 有效调用次数  | 经过 API 网关的有效调用请求数量	 | 按照所选择的时间粒度统计求和                           |   次   |
+| SuccReq | 有效调用次数  | 经过 API 网关的有效调用请求数量	 | 按照所选择的时间粒度统计求和                           |   次   |
 | OutTraffic | 外网出流量    | API 网关所发出的公网数据包的流量	 | 按照所选择的时间粒度统计求和                           |  MB    |
 | InTraffic | 内网出流量    | API 网关所发出的内网数据包的流量                              | 按照所选择的时间粒度统计求和 | MB   |
 | ResponseTime | 响应时间      | API 网关对请求作出响应的时间                                  | 按照所选择的时间粒度的平均值 | ms   |
@@ -32,7 +32,7 @@ Namespace=QCE/APIGATEWAY
 | Instances.N.Dimensions.2.Name  | apiid/key       | APIid 或者 SecretKey 的维度名称 | 输入 String 类型维度名称：apiid/key        |
 | Instances.N.Dimensions.2.Value | apiid/secretid  | 具体的 APIid 或者 SecretId      | 输入具体的 APIid 或者 SecretId          |
 
-<span id="weidu">
+[](id:weidu)
 
 ## 维度说明
 

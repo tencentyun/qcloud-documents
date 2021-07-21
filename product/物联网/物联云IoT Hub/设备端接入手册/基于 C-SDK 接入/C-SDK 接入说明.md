@@ -1,6 +1,4 @@
 
-
-
 为保证安全，物联网平台会验证每个接入设备的合法性，为此提供了多种认证方式，满足不同的使用场景及各种资源的设备接入。您可以观看以下视频了解腾讯云物联网通信设备接入说明。
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2896-54332?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 

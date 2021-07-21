@@ -60,3 +60,4 @@ VPC 间规则提供有多张访问控制列表，每张访问控制列表对应�
 - 如需在云防火墙控制台对互联网边界的入向与出向流量进行管控，请参见 [互联网边界规则](https://cloud.tencent.com/document/product/1132/46932)。
 - 如需在云防火墙控制台对 NAT 边界的入向与出向流量进行管控，请参见 [NAT 边界规则](https://cloud.tencent.com/document/product/1132/46933)。
 - 如需了解云防火墙的访问控制功能的特殊应用场景，请参见 [特殊应用场景](https://cloud.tencent.com/document/product/1132/46935)。
+- 如遇到 VPC 间规则相关问题，可参见 [VPC 间防火墙](https://cloud.tencent.com/document/product/1132/56869) 文档。

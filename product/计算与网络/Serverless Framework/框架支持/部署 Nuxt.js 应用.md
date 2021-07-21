@@ -16,7 +16,7 @@
 ## 迁移前提
 
 - 已经 [安装 Serverless Framework 1.67.2](https://cloud.tencent.com/document/product/1154/42990) 以上版本。
-- 已经[注册腾讯云账号](https://cloud.tencent.com/document/product/378/17985)并完成[实名认证](https://cloud.tencent.com/document/product/378/10495)。
+- 已经 [注册腾讯云账号](https://cloud.tencent.com/document/product/378/17985) 并完成 [实名认证](https://cloud.tencent.com/document/product/378/10495)。
 
 >?如果您的账号为**腾讯云子账号**，请首先联系主账号，参考 [账号和权限配置](https://cloud.tencent.com/document/product/1154/43006) 进行授权。
 
@@ -33,14 +33,14 @@ Nuxt.js 组件将在腾讯云账号中使用到如下 Serverless 服务：
 >?以下步骤主要针对命令行部署操作，控制台部署请参考 [控制台部署指南](https://cloud.tencent.com/document/product/1154/50957)。
 
 ### 1. 初始化 Nuxt.js 模版项目（可选）
-如果您本地并没有 Next.js 项目，可通过以下指令快速新建一个 Next.js 项目模版（本地已有项目可跳过该步骤）：
+如果您本地并没有 Nuxt.js 项目，可通过以下指令快速新建一个 Nuxt.js 项目模版（本地已有项目可跳过该步骤）：
 ```
 serverless init nuxtjs-starter --name example
 cd example
 ```
 
 ### 2. 修改入口函数代码（可选）
-如果项目使用了自定义 Node.js 服务，例如 express 或者 koa 框架，您需要对入口文件 sls.js（或 app.js）做出改造，导出对应框架 app（未使用可跳过该步骤）, 点此查看 [改造模版](#1)。
+如果项目使用了自定义 Node.js 服务，例如 Express 或者 Koa 框架，您需要对入口文件 sls.js（或 app.js）做出改造，导出对应框架 app（未使用可跳过该步骤）, 点此查看 [改造模版](#1)。
 
 ### 3. 项目构建
 ```
@@ -85,8 +85,8 @@ $ serverless info
 ## 项目迁移改造模版
 
 - Express 模版
-
-```js
+<dx-codeblock>
+:::  js
 const express = require('express')
 const { loadNuxt } = require('nuxt')
 
@@ -114,10 +114,13 @@ async function createServer() {
 }
 
 module.exports = createServer
-```
+:::
+</dx-codeblock>
+
 
 - Koa 模版
-```js
+<dx-codeblock>
+:::  js
 const Koa = require('koa')
 const { loadNuxt } = require('nuxt')
 
@@ -141,9 +144,11 @@ async function createServer() {
 }
 
 module.exports = createServer
-```
+:::
+</dx-codeblock>
 
-### 自定义监控
+
+## 自定义监控
 
 >?目前仅支持自定义 Express 服务的项目。
 

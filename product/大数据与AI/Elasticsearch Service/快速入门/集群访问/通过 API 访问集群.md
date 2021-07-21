@@ -19,7 +19,7 @@ Elasticsearch 提供了功能全面的 RESTful API 与集群交互，详情请�
 可通过 curl 的方式测试访问集群，不支持通过 ping 的方式测试连通性。
 
 ### 测试服务是否可访问
->?对于已开启 [ES 集群用户登录认证](https://cloud.tencent.com/document/product/845/42868) 的集群，登录时需要用户名和密码认证，具体规则为`curl action -u user:password host ...`，需要将 user、password 替换为自己实际的用户名和密码。
+>?对于已开启 [ES 集群用户登录认证](https://cloud.tencent.com/document/product/845/42868) 的集群，登录时需要用户名和密码认证，具体规则为`curl action -u user:password host ...`，需要将 user、password 替换为自己实际的用户名和密码，将 host 替换为自己的 IP。
 >
 下面将以内网地址访问来演示各访问操作。
 

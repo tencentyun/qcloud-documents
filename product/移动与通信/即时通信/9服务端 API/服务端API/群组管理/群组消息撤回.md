@@ -84,8 +84,8 @@ https://console.tim.qq.com/v4/group_open_http_svc/group_msg_recall?sdkappid=8888
 | ErrorCode|	Integer	|错误码，0表示成功，非0表示失败 |
 | ErrorInfo | String | 错误信息  |
 | RecallRetList | Array | 消息撤回请求的详细结果  |
-| MsgSeq | String | 单个被撤回消息的 seq  |
-| RetCode | String | 单个消息的被撤回结果：0表示成功；其它表示失败，参考下文错误码说明  |
+| MsgSeq | Integer | 单个被撤回消息的 seq  |
+| RetCode | Integer | 单个消息的被撤回结果：0表示成功；其它表示失败，参考下文错误码说明  |
 
 
 ## 错误码说明

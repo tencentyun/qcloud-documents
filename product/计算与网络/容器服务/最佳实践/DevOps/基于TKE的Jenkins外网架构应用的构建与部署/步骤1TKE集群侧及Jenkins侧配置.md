@@ -1,7 +1,7 @@
 ## TKE 集群侧配置
 此步骤中介绍了开启集群访问入口，以及获取配置 Jenkins 时所需的集群访问地址、token 及集群 CA 证书信息。
 
-### 获取集群凭证<span id="proof"></span>
+### 获取集群凭证[](id:proof)
 1. 登录 [TKE 控制台](https://console.cloud.tencent.com/tke2) 并单击左侧导航栏中的【集群】，进入集群管理界面。
 2. 选择目标集群所在行右侧的【更多】>【查看集群凭证】，进入集群基本信息页。
 3. 在“集群APIServer信息”中，执行以下操作。如下图所示：
@@ -10,7 +10,7 @@
    2. 开启内网访问，需配置子网为 Jenkins Master 和 TKE node 共同的 VPC 子网。
 
 
-### 获取集群 CA 证书<span id="getCA"></span>
+### 获取集群 CA 证书[](id:getCA)
 1. 参考 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)，登录目标集群的 node 节点。
 2. 执行以下命令，查看集群 CA 证书。
 ```
@@ -66,7 +66,7 @@ cat /etc/hosts
 ![](https://main.qcloudimg.com/raw/78bcd4551ee5bd35bc92ea4ec5aca93e.png)
 4. 其他配置项保持默认状态，并单击页面下方的【保存】。
 
-### 添加 TKE 集群 token<span id="addToken"></span>
+### 添加 TKE 集群 token[](id:addToken)
 1. 登录 Jenkins 后台，选择左侧导航栏中的【凭据】>【系统】。
 2. 在打开的“系统”面板中，选择【全局凭据 (unrestricted)】。如下图所示：
 ![](https://main.qcloudimg.com/raw/bb761bc624d5e60462a57607ff6f88aa.png)
@@ -80,7 +80,7 @@ cat /etc/hosts
 3. 单击【确定】即可添加，添加成功后该凭据将显示在凭据列表中。如下图所示：
 !![](https://main.qcloudimg.com/raw/7f5e00bb12c27c7efc085c8c94b5dc71.png)
 
-### 添加 gitlab 认证<span id="addGitlab"></span>
+### 添加 gitlab 认证[](id:addGitlab)
 1. 在“全局凭据 (unrestricted)”页中，单击左侧菜单栏中的【添加凭据】，并根据以下提示设置凭据基本信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/ce8f9e2ca7f8d87d96c23f889ff72450.png)
  - **类型**：选择【Username with password】。
@@ -91,7 +91,7 @@ cat /etc/hosts
  - **描述**：填写该凭据相关信息，该内容将被显示为凭据名称及描述信息，本文以 `gitlab-password` 为例。
 2. 单击【确定】即可添加成功。
 
-### 配置 slave pod 模板<span id="PodTemplates"></span>
+### 配置 slave pod 模板[](id:PodTemplates)
 1. 登录 Jenkins 后台，选择左侧导航栏中的【系统管理】。
 2. 在打开的“管理Jenkins” 面板中，单击【系统配置】。
 3. 在“系统配置”面板最下方，选择“云”模块下的【新增一个云】>【Kubernetes】。如下图所示：
@@ -110,7 +110,7 @@ cat /etc/hosts
  - **名称**：自定义，本文以 `jnlp-agent` 为例。
  - **标签列表**：定义标签名称，构建时可根据该标签选择 Pod ，本文以 `jnlp-agent` 为例。
   - **用法**：选择【尽可能的使用这个节点】。
-6. <span id="ContainerTemplate"></span>在“容器列表”中，选择【添加容器】>【Container Template】，设置以下容器相关信息。如下图所示：
+6. [](id:ContainerTemplate)在“容器列表”中，选择【添加容器】>【Container Template】，设置以下容器相关信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/6a5e619f36709cc9af76ee555ee8e984.png)
     - **名称**：自定义容器名称，本文以 `jnlp-agent` 为例。
     - **Docker 镜像**：输入镜像地址 `jenkins/jnlp-slave:alpine`。

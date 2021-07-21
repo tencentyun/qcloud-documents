@@ -1,6 +1,10 @@
 ## 功能介绍
 GTID 模式下复制支持 create as select、create/drop temporary table，同时更新事务表和非事务表等语句。
 
+## 支持版本
+- 内核版本 MySQL 5.7 20190203 及以上
+- 内核版本 MySQL 5.6 20190203 及以上
+
 ## 适用场景
 该功能适用于需要对 GTID 的功能限制进行适当破除需求的场景。
 

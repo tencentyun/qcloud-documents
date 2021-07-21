@@ -34,7 +34,7 @@ inputs:
       - .env
   region: ap-guangzhou
   runtime: Nodejs10.15
-  funcitonName: ${name}-${stage}-${app} #云函数名称
+  functionName: ${name}-${stage}-${app} #云函数名称
   apigatewayConf:
     protocols:
       - http

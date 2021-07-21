@@ -1,6 +1,6 @@
 Apache Thrift 是一个跨平台、跨语言的开发框架，提供多语言的编译功能，并提供多种服务器工作模式。用户通过 Thrift 的 IDL（接口描述语言）来描述接口函数及数据类型，然后通过 Thrift 的编译环境生成各种语言类型的接口文件，用来进行可扩展且跨语言的服务的开发。
 
-它结合了功能强大的软件堆栈和代码生成引擎，以构建在 C++、Java、Go、Python、PHP、Ruby、Erlang、Perl、Haskell、C#、Cocoa、JavaScript、Node.js、Smalltalk 和 OCaml 这些编程语言间无缝结合的、高效的服务。
+它结合了功能强大的软件堆栈和代码生成引擎，以构建在 C++、Java、Go、Python、PHP、Ruby、Erlang、Perl、Haskell、C#、Cocoa、JavaScript、Node.js、Smalltalk 和 OCaml 编程语言间无缝结合的、高效的服务。
 
 Thrift server 是 HBase 中的一种服务，主要用于对多语言 API 的支持。基于 Apache Thrift 开发。Thrift API 依赖于客户端和服务器进程。本节将以 Python 为例子，说明如何通过 Thrift 利用 Python 编程来使用 Hbase。
 
@@ -40,6 +40,9 @@ EMR 集群中 Hbase 默认集成了 Thrift，并在 Master1（外网 IP 节点�
 4711 ThriftServer
 ```
 可见 Thrift Server 已经在后台运行。我们可以直接使用 Python 编程来操作 Hbase。
+
+### 负载均衡
+HA 集群有两个 master 节点，两个节点默认都启动了 Thrift Server。若需要实现负载均衡，客户端代码需要自定义策略将请求分散到两台 Thrift Server 上，这两台 Thrift Server 是完全独立的，之间没通信。
 
 ### 准备数据
 使用 Hbase Shell 在 Hbase 中新建一个表，如果您使用过 EMR 的 Hbase 并且创建过自己的表，那么该步骤可以略过：

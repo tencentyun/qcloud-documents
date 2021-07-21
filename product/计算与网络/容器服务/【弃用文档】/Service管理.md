@@ -1,4 +1,4 @@
-## 简介<span id="Introduction"></span>
+## 简介[](id:Introduction)
 Service 定义访问后端 Pod 的访问方式，并提供固定的虚拟访问 IP。您可以在 Service 中通过设置来访问后端的 Pod，不同访问方式的服务可提供不同网络能力。
 腾讯云容器服务（TKE）提供以下四种服务访问方式：
 
@@ -50,7 +50,7 @@ Service 定义访问后端 Pod 的访问方式，并提供固定的虚拟访问 
 一般情况下，4层负载均衡（LB）会绑定多台 Node 作为 real server（rs） ，使用时需要限制 client 和 rs 不能存在于同一台云服务器上，否则会有一定概率导致报文回环出不去。
 当 Pod 去访问 LB 时，Pod 就是源 IP，当其传输到内网时 LB 也不会做 snat 处理将源 IP 转化成 Node IP，那么 LB 收到报文也就不能判断是从哪个 Node 发送的，LB 的避免回环策略也就不会生效，所有的 rs 都可能被转发。当转发到 client 所在的 Node 上时，LB 就无法收到回包，从而导致访问不通。
 
-## 注意事项<span id="annotations"></span>
+## 注意事项[](id:annotations)
 - 确保您的容器业务不和 CVM 业务共用一个 CLB。
 - 不支持您在 CLB 控制台操作 TKE 管理的 CLB 的监听器和后端绑定的服务器，您的更改会被 TKE 自动覆盖。
 - 使用已有的 CLB 时：
@@ -93,7 +93,7 @@ Service 定义访问后端 Pod 的访问方式，并提供固定的虚拟访问 
 
 ## Kubectl 操作 Service 指引
 
-<span id="YAMLSample"></span>
+[](id:YAMLSample)
 ### YAML 示例
 ```Yaml
 kind: Service

@@ -64,6 +64,8 @@
 完成安装后，在控制面板中查看驱动是否安装正确。如下图所示：
 ![](https://main.qcloudimg.com/raw/b29c6b952a9f8fa339ea8a791c217de7.png)
 3. 使用远程桌面连接方式登录 GPU 实例，详情请参见 [使用远程桌面连接登录 Windows 实例](https://cloud.tencent.com/document/product/213/35703)。
+>?微软的远程桌面不支持使用 GPU 的 3D 硬件加速能力，如需使用则请安装第三方桌面协议软件，并通过对应客户端连接实例，使用 GPU 图形图像加速能力。
+>
 5. 在 GPU 实例中，右键单击桌面或者单击任务栏的右下角<image src="https://main.qcloudimg.com/raw/6ebb7cb48331add50a978ad34d5ede07.png" style="margin:-3px 0px"/>，打开 NVIDIA Control Panel。
 6. 选择【管理许可证】，配置 License 服务器的 IP 地址和端口号，并确保 License 服务器的 IP 地址可以被访问，以及端口号已设置为开放状态。例如，将 License 服务器的 IP 地址配置为公网 IP 或者在同一个 VPC 内的内网地址，配置的 IP 地址可以被用户正常访问，且端口号已设置为开放状态。如下图所示：
 ![](https://main.qcloudimg.com/raw/ecc9a4e31e9b70256cbc2237ee68c6bf.png)

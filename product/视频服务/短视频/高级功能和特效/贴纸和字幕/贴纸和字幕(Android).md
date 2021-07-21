@@ -1,6 +1,8 @@
 ## 静态贴纸 
 设置静态贴纸的方法：
-```
+
+<dx-codeblock>
+::: android java
 public void setPasterList(List pasterList);
 
 // TXPaster 的参数如下：
@@ -10,12 +12,13 @@ public final static class TXPaster {
     public long startTime;                                    // 贴纸起始时间(ms)
     public long endTime;                                      // 贴纸结束时间(ms)
 }
+:::
+</dx-codeblock>
 
-```
 ## 动态贴纸
 设置动态贴纸的方法：
-
-```
+<dx-codeblock>
+::: android java
 public void setAnimatedPasterList(List animatedPasterList);
 
 // TXAnimatedPaster 的参数如下：
@@ -26,10 +29,12 @@ public final static class TXAnimatedPaster {
     public long endTime;                                      // 动态贴纸结束时间(ms)
     public float rotation;
 }
-```
-Demo示例：
+:::
+</dx-codeblock>
 
-```
+Demo示例：
+<dx-codeblock>
+::: android java
 List animatedPasterList = new ArrayList<>();
 List pasterList = new ArrayList<>();
 for (int i = 0; i < mTCLayerViewGroup.getChildCount(); i++) {
@@ -67,13 +72,18 @@ for (int i = 0; i < mTCLayerViewGroup.getChildCount(); i++) {
 
 mTXVideoEditer.setAnimatedPasterList(animatedPasterList);  //设置动态贴纸
 mTXVideoEditer.setPasterList(pasterList);                  //设置静态贴纸
-```
+:::
+</dx-codeblock>
+
+
 ## 自定义动态贴纸
 动态贴纸的本质是：将**一串图片**，按照**一定的顺序**以及**时间间隔**，插入到视频画面中去，形成一个动态贴纸的效果。
 
 #### 封装格式
 以 Demo 中一个动态贴纸为例：
-```
+
+<dx-codeblock>
+::: android java
 {
   "name":"glass",                        // 贴纸名称
   "count":6,                             // 贴纸数量
@@ -90,7 +100,9 @@ mTXVideoEditer.setPasterList(pasterList);                  //设置静态贴纸
                  {"picture":"glass5"}
                ]
 }
-```
+:::
+</dx-codeblock>
+
 SDK 内部将获取到该动态贴纸对应的 config.json，并且按照 json 中定义的格式进行动态贴纸的展示。
 
 >?该封装格式为 SDK 内部强制性要求，请严格按照该格式描述动态贴纸。
@@ -100,7 +112,8 @@ SDK 内部将获取到该动态贴纸对应的 config.json，并且按照 json �
 您可以为视频设置气泡字幕，我们支持对每一帧视频添加字幕，每个字幕您也可以设置视频作用的起始时间和结束时间。所有的字幕组成了一个字幕列表， 您可以把字幕列表传给 SDK 内部，SDK 会自动在合适的时间对视频和字幕做叠加。
 
 设置气泡字幕的方法为：
-```
+<dx-codeblock>
+::: android java
 public void setSubtitleList(List subtitleList);
 
 //TXSubtitle 的参数如下：
@@ -116,7 +129,8 @@ public final static class TXRect {
         public float y;
         public float width;
 }
-```
+:::
+</dx-codeblock>
 
 - titleImage：表示字幕图片，如果上层使用的是 TextView 之类的控件，请先把控件转成 Bitmap，具体方法可以参照 demo 的示例代码。
 - frame：表示字幕的 frame，注意这个 frame 是相对于渲染 view（initWithPreview 时候传入的 view）的 frame，具体可以参照 demo 的示例代码。
@@ -126,7 +140,8 @@ public final static class TXRect {
 因为字幕的 UI 逻辑比较复杂，我们已经在 demo 层有一整套的实现方法，推荐客户直接参考 demo 实现， 可以大大降低您的接入成本。
 
 Demo 示例：
-```
+<dx-codeblock>
+::: android java
 mSubtitleList.clear();
 for (int i = 0; i < mWordInfoList.size(); i++) {
     TCWordOperationView view = mOperationViewGroup.getOperationView(i);
@@ -142,7 +157,9 @@ for (int i = 0; i < mWordInfoList.size(); i++) {
     mSubtitleList.add(subTitle);
 }
 mTXVideoEditer.setSubtitleList(mSubtitleList); // 设置字幕列表
-```
+:::
+</dx-codeblock>
+
 ### 2.自定义气泡字幕？
 **气泡字幕所需要的参数**
 * 文字区域大小： top、left、right、bottom
@@ -154,7 +171,8 @@ mTXVideoEditer.setSubtitleList(mSubtitleList); // 设置字幕列表
 #### 封装格式
 由于气泡字幕中携带参数较多，我们建议您可以在 Demo 层封装相关的参数。如腾讯云 Demo 中使用的 json 格式封装。
 
-```
+<dx-codeblock>
+::: android java
 {
   "name":"boom",     // 气泡字幕名称
   "width": 376,      // 宽度
@@ -165,7 +183,9 @@ mTXVideoEditer.setSubtitleList(mSubtitleList); // 设置字幕列表
   "textBottom":123,  // 文字区域下边距
   "textSize":40      // 字体大小
 }
-```
+:::
+</dx-codeblock>
+
 >?该封装格式用户可以自行决定，非 SDK 强制性要求。
 
 #### 字幕过长

@@ -1,20 +1,17 @@
 丢弃会话状态。
 
 ## 概要
-
 ```sql
 DISCARD { ALL | PLANS | TEMPORARY | TEMP }
 ```
 
 ## 描述
-
 DISCARD 释放与数据库会话相关联的内部资源，这些资源通常在会话结束时释放。
 DISCARD TEMP 删除在当前会话中创建的所有临时表。
 DISCARD PLANS 释放所有内部缓存的查询计划。
 DISCARD ALL 重置会话到原始状态，丢弃临时资源并重置会话本地配置更改。
 
 ## 参数
-
 TEMPORARY, TEMP
 删除所有在当前会话中创建的临时表。
 

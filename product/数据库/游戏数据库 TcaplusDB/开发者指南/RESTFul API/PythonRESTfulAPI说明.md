@@ -1,3 +1,4 @@
+
 本 SDK 是基于 RESTful API 封装的一个 Python 语言 SDK，用于进行 TcaplusDB PB 表的增删查改操作。
 
 ## 准备工作
@@ -7,7 +8,6 @@
 ### 2. 创建 CVM 实例
 - 创建一台 CVM 实例来运行 SDK 示例程序，配置建议为2核4GB、硬盘50GB，该 CVM 需创建在 TcaplusDB 实例所在 VPC 网络中。
 - 通过 [SDK 下载](https://cloud.tencent.com/document/product/596/31925) Python RESTful API SDK 安装包。
-
 
 ## 使用步骤
 1. 通过指定 endpoint、access_id、access_passwd 参数创建 TcaplusRestClient 的对象 client。
@@ -149,6 +149,4 @@ def PartkeyGetRecord(self, index_keys, index_name, select_fields=[], custom_head
 ```
 从上面响应包来看，设置了 limit 和 offset 的结果返回条数和设定 limit 大小保持一致。
 如果用户想获取全量的索引数据，则可根据响应包中的`RemainNum`和`TotalNum`这两个标识来判断数据是否获取完全。
-
-
 

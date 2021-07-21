@@ -1,3 +1,10 @@
+本文为您介绍创建初始化实例后，通过内网或外网地址来连接 MySQL 实例。
+
+## 准备工作
+- 准备已初始化好的 MySQL 实例，请参见 [初始化 MySQL 实例](https://cloud.tencent.com/document/product/236/3128)。
+- 准备好数据库帐号并授权允许访问 MySQL 的 IP，请参见 [创建帐号](https://cloud.tencent.com/document/product/236/35794)、[修改授权访问的主机地址](https://cloud.tencent.com/document/product/236/35796)，您也可以直接使用 root 帐号。
+- 配置云服务器 CVM 和 MySQL 的安全组出入站规则，来限制允许访问 MySQL 的 IP，请参见 [管理云数据库安全组](https://cloud.tencent.com/document/product/236/9537)。
+
 ## 连接方式
 连接云数据库 MySQL 的方式如下：
 - **内网地址连接**：通过内网地址连接云数据库 MySQL，使用云服务器 CVM 直接连接云数据库的内网地址，这种连接方式使用内网高速网络，延迟低。
@@ -6,7 +13,7 @@
 >?对于不同的 VPC 下（包括同账号/不同账号，同地域/不同地域）的云服务器和数据库，内网连接方式请参见 [云联网](https://cloud.tencent.com/document/product/877)。
 >
 - **外网地址连接**：无法通过内网连接时，可通过外网地址连接云数据库 MySQL。外网地址需 [手动开启](#waiwang)，可在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页查看，不需要时也可关闭。
- - 仅广州、上海、北京、成都、重庆、南京、中国香港、新加坡、首尔、东京、硅谷、法兰克福的实例支持开启外网连接地址。
+ - 广州、上海、北京、成都、重庆、南京、中国香港、新加坡、首尔、东京、硅谷、法兰克福地域的主实例，支持开启外网连接地址。只读实例支持开启外网的地域，请以控制台为准。
  - 开启外网地址，会使您的数据库服务暴露在公网上，可能导致数据库被入侵或攻击。建议您使用内网连接数据库。 
  - 云数据库外网连接适用于开发或辅助管理数据库，不建议正式业务连接使用，因为可能存在不可控因素会导致外网连接不可用（例如 DDOS 攻击、突发大流量访问等）。
 
@@ -69,8 +76,15 @@ mysql -h hostname -P port -u username -p
 下图中以`show databases;`为例：
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 
+## 附录1：无法连接实例问题
+若遇到无法连接实例相关问题，建议您使用 [一键连接检查工具](https://cloud.tencent.com/document/product/236/33206) 进行排查，根据检查报告提示，在 [无法连接实例](https://cloud.tencent.com/document/product/236/44754) 查找相应解决方案。
 
-## [附录1：开启外网连接地址](id:waiwang)
+## 附录2：网络连通性验证方法
+建议您使用 telnet 命令来快速排查和定位网络连通性问题，请参见 [telnet 命令](https://cloud.tencent.com/document/product/236/34375#.E8.A7.A3.E5.86.B3.E6.96.B9.E6.A1.88)。
+
+若 telnet 验证云数据库网络访问正常后，如在云服务器上通过命令行登录云数据库报错，请参见 [连接实例相关问题](https://cloud.tencent.com/document/product/236/11278#sytyzysjk)。
+
+## [附录3：开启外网连接地址](id:waiwang)
 1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb/ )，在实例列表中，单击实例名或“操作”列的【管理】，进入实例详情页面。
 2. 在实例详情页下的“外网地址”处，单击【开启】。
 >?若有外网地址和外网端口信息，说明已开启外网地址。
@@ -80,12 +94,3 @@ mysql -h hostname -P port -u username -p
 >?
 >- 开启成功后，即可在基本信息中查看到外网地址。
 >- 通过开关可以关闭外网连接权限，重新开启外网，域名对应的外网地址不变。
-
-## 附录2：网络连通性验证方法
-建议您使用 telnet 命令来快速排查和定位网络连通性问题，请参见 [telnet 命令](https://cloud.tencent.com/document/product/236/34375#.E8.A7.A3.E5.86.B3.E6.96.B9.E6.A1.88)。
-
-若 telnet 验证云数据库网络访问正常后，如在云服务器上通过命令行登录云数据库报错，请参见 [连接实例相关问题](https://cloud.tencent.com/document/product/236/11278#sytyzysjk)。
-
-## 附录3：无法连接实例问题
-若遇到无法连接实例相关问题，建议您使用 [一键连接检查工具](https://cloud.tencent.com/document/product/236/33206) 进行排查，根据检查报告提示，在 [解决无法连接实例问题](https://cloud.tencent.com/document/product/236/44754) 查找相应解决方案。
-

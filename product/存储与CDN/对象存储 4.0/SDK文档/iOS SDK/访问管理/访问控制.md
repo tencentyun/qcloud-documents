@@ -163,7 +163,7 @@ QCloudCOSXMLService.defaultCOSXML().getBucketACL(getBucketACLReq)
 ```objective-c
 QCloudPutObjectACLRequest* request = [QCloudPutObjectACLRequest new];
 
-// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "dir1/object1"
+// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
 request.object = @"exampleobject";
 
 // 存储桶名称，格式为 BucketName-APPID
@@ -198,7 +198,7 @@ let putObjectACl = QCloudPutObjectACLRequest.init();
 // 存储桶名称，格式为 BucketName-APPID
 putObjectACl.bucket = "examplebucket-1250000000";
 
-// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "dir1/object1"
+// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
 putObjectACl.object = "exampleobject";
 let grantString = "id=\"100000000001\"";
 
@@ -233,7 +233,7 @@ QCloudCOSXMLService.defaultCOSXML().putObjectACL(putObjectACl);
 ```objective-c
 QCloudGetObjectACLRequest *request = [QCloudGetObjectACLRequest new];
 
-// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "dir1/object1"
+// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
 request.object = @"exampleobject";
 
 // 存储桶名称，格式为 BucketName-APPID
@@ -263,7 +263,7 @@ let getObjectACL = QCloudGetObjectACLRequest.init();
 // 存储桶名称，格式为 BucketName-APPID
 getObjectACL.bucket = "examplebucket-1250000000";
 
-// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "dir1/object1"
+// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
 getObjectACL.object = "exampleobject";
 getObjectACL.setFinish { (result, error) in
     if let result = result {

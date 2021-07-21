@@ -1,134 +1,143 @@
 ## 效果展示
-
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验实时语音通话的效果。
 <table>
 <tr>
    <th>主动呼叫</th>
-   <th>呼叫接听</th>
+   <th>被叫接听</th>
  </tr>
 <tr>
-<td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/audiocall/call.gif"/></td>
-<td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/audiocall/recv.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/audio1.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/audio2.gif"/></td>
 </tr>
 </table>
 
-如需快速实现语音通话功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCCalling 组件并实现自定义 UI 界面。
+如需快速实现语音通话功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TRTCCalling 组件并实现自定义 UI 界面。
 
 >! 我们之前提供了 TRTCAudioCall 组件，旧版本组件已经移动到 [组件仓库](https://github.com/tencentyun/LiteAVClassic) 中。TRTCCalling 组件使用了 IM 信令的接口，将不再与旧组件兼容。
 
-<span id="ui"> </span>
+[](id:ui)
 
-## 复用 Demo 的 UI 界面
+## 复用 App 的 UI 界面
 
-<span id="ui.step1"></span>
-
+[](id:ui.step1)
 ### 步骤1：创建新的应用
-
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 单击【立即开始】，输入应用名称，例如 `TestAudioCall` ，单击【创建应用】。
+2. 输入应用名称，例如 TestAudioCall ，单击【创建】。
+3. 单击【已下载，下一步】，跳过此步骤。
 
->! 本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
+>! 本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
-<span id="ui.step2"></span>
+[](id:ui.step2)
+### 步骤2：下载 App 源码
+单击进入 [TUICalling](https://github.com/tencentyun/TUICalling)，Clone 或者下载源码。
 
-### 步骤2：下载 SDK 和 Demo 源码
-
-1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android)】跳转至 Github（或单击【[ZIP](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
-   ![](https://main.qcloudimg.com/raw/c3067ef0d7244bfdd3bc31eef191c5fc.png)
-2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
-
-<span id="ui.step3"></span>
-
-### 步骤3：配置 Demo 工程文件
-
-1. 解压 [步骤2](#ui.step2) 中下载的源码包。
-2. 找到并打开 `Android/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
+[](id:ui.step3)
+### 步骤3：配置 App 工程文件
+1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
+2. 找到并打开 `Android/Debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
-   - SDKAPPID：默认为0，请设置为实际的 SDKAppID。
-   - SECRETKEY：默认为空字符串，请设置为实际的密钥信息。
-
-![](https://main.qcloudimg.com/raw/75e76cc2708c8569bfabf01386c1f5c1.png)
-
-4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
-5. 单击【关闭指引，进入控制台管理应用】。
+<ul style="margin:0"><li/>SDKAPPID：默认为占位符（PLACEHOLDER），请设置为实际的 SDKAppID。
+<li/>SECRETKEY：默认为占位符（PLACEHOLDER），请设置为实际的密钥信息。</ul>
+<img src="https://main.qcloudimg.com/raw/f9b23b8632058a75b78d1f6fdcdca7da.png">
+4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
+5. 编译完成后，单击【回到控制台概览】即可。
 
 >!
->- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
+>- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
-<span id="ui.step4"></span>
+[](id:ui.step4)
+### 步骤4：运行 App
 
-### 步骤4：运行 Demo
+使用 Android Studio（3.5 以上的版本）打开源码工程 `TUICalling`，单击【运行】即可开始调试本 App。
 
-使用 Android Studio（3.5 以上的版本）打开源码工程 `TRTCDemo`，单击【运行】即可开始调试本 Demo。
+[](id:ui.step5)
+### 步骤5：修改 App 源代码
 
-<span id="ui.step5"></span>
-
-### 步骤5：修改 Demo 源代码
-
-源码文件夹 `trtccallingdemo` 中包含两个子文件夹 ui 和 model，其中 ui 文件夹中均为界面代码：
+源码文件夹 `Source` 中包含两个子文件夹 ui 和 model，其中 ui 文件夹中均为界面代码：
 
 | 文件或文件夹                     | 功能描述                                                     |
 | -------------------------------- | ------------------------------------------------------------ |
 | TRTCAudioCallActivity.java       | 展示语音通话的主界面，通话的接听和拒绝就是在这个界面中完成的。 |
-| TRTCCallingEntranceActivity.java | 用于展示选择联系人的界面，可以通过此界面搜索已注册用户，发起通话。 |
 | audiolayout                      | 用于通话过程中用户画面的渲染和排布逻辑。                     |
 
-<span id="model"> </span>
+## 体验应用
 
+>! 体验应用至少需要两台设备。
+
+### 用户 A
+
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+<img src="https://main.qcloudimg.com/raw/a0c73f6904ac152a84cdf4d619171fc4.png" width="320"/>
+2. 输入要拨打的用户名，单击【搜索】，如下图示：
+<img src="https://main.qcloudimg.com/raw/61edd11a23197ebce26e91863f9fef63.png" width="320"/>
+3. 单击【呼叫】，选择拨打【语音通话】（**请确保被叫方保持在应用内，否则可能会拨打失败**）。<br>
+<img src="https://main.qcloudimg.com/raw/450e50dd4bb58e2950d6574ab88715e2.png" width="320"/>
+
+### 用户 B
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+<img src="https://main.qcloudimg.com/raw/94fcd741becbcfe4cca97778e180e4ca.png" width="320"/>
+2. 进入主页，等待接听来电。
+
+
+[](id:model)
 ## 实现自定义 UI 界面
 
-[源码](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCScenesDemo/trtccallingdemo/src/main/java/com/tencent/liteav/trtccalling) 文件夹 `trtccallingdemo` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCCalling，您可以在  `TRTCCalling.java`  文件中看到该组件提供的接口函数。
+[源码](https://github.com/tencentyun/TUICalling/tree/main/Android/Source/src/main/java/com/tencent/liteav/trtccalling) 文件夹 `Source` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCCalling，您可以在  `TRTCCalling.java`  文件中看到该组件提供的接口函数。
 ![](https://main.qcloudimg.com/raw/36220937e8689dac4499ce9f2f187889.png)
 
 您可以使用开源组件 TRTCCalling 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。
 
-<span id="model.step1"> </span>
-
+[](id:model.step1)
 ### 步骤1：集成 SDK
 
 音视频通话组件 TRTCCalling  依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 **方法一：通过 Maven 仓库依赖**
-
 1. 在 dependencies 中添加 TRTC SDK 和 IM SDK 的依赖。
-```
+<dx-codeblock>
+::: android 
 dependencies {
-	complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
-    complie 'com.tencent.imsdk:imsdk:latest.release'
+	compile "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
+	compile 'com.tencent.imsdk:imsdk:latest.release'
 
 	// 由于我们使用到了 gson 解析，所以还需要依赖 google 的 Gson
-    complie 'com.google.code.gson:gson:latest.release'
+	compile 'com.google.code.gson:gson:latest.release'
 }
-```
+:::
+</dx-codeblock>
 >?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
-
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
-```
+<dx-codeblock>
+::: android 
 defaultConfig {
     ndk {
         abiFilters "armeabi-v7a"
     }
 }
-```
+:::
+</dx-codeblock>
 3. 单击【Sync Now】同步 SDK。
 >?若您的网络连接 jcenter 没有问题，SDK 会自动下载集成到工程里。
 
 
 **方法二：通过本地 AAR 依赖**
-如果您的开发环境访问 maven 仓库较慢，可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
+如果您的开发环境访问 Maven 仓库较慢，可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
 
 | SDK      | 下载页面                                                     | 集成指引                                                     |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | TRTC SDK | [DOWNLOAD](https://cloud.tencent.com/document/product/647/32689) | [集成文档](https://cloud.tencent.com/document/product/647/32175) |
 | IM SDK   | [DOWNLOAD](https://cloud.tencent.com/document/product/269/36887) | [集成文档](https://cloud.tencent.com/document/product/269/32679) |
 
-<span id="model.step2"> </span>
+[](id:model.step2)
 
 ### 步骤2：配置权限及混淆规则
 
 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请相机、读取存储权限）：
 
-```
+<dx-codeblock>
+::: android 
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -141,26 +150,29 @@ defaultConfig {
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-feature android:name="android.hardware.camera"/>
 <uses-feature android:name="android.hardware.camera.autofocus" />
-```
+:::
+</dx-codeblock>
 
 在 proguard-rules.pro 文件，将 SDK 相关类加入不混淆名单：
 
-```
+<dx-codeblock>
+::: android 
 -keep class com.tencent.** { *; }
-```
+:::
+</dx-codeblock>
 
-<span id="model.step3"> </span>
-
+[](id:model.step3)
 ### 步骤3：导入 TRTCCalling 组件
 
 拷贝以下目录中的所有文件到您的项目中：
 
-```
-trtccallingdemo/src/main/java/com/tencent/liteav/trtccalling/model 
-```
+<dx-codeblock>
+::: android 
+Source/src/main/java/com/tencent/liteav/trtccalling/model 
+:::
+</dx-codeblock>
 
-<span id="model.step4"> </span>
-
+[](id:model.step4)
 ### 步骤4：初始化并登录组件
 
 1. 调用 `TRTCCallingImpl.sharedInstance(context)` 获取组件实例。
@@ -190,12 +202,11 @@ sCall.login(1400000123, "userA", "xxxx", new ActionCallback());
 </pre>
 
 
-<span id="model.step5"> </span>
-
+[](id:model.step5)
 ### 步骤5：实现1v1语音通话
 
-1. 发起方：调用 `TRTCCalling` 的 `call()` 方法发起通话的请求, 并传入用户 ID（userid）和通话类型（type），通话类型参数传入`TYPE_AUDIO_CALL`。
-2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的事件通知。如果希望接收方在不处于登录状态时也能收到通话请求，请参考 [离线接听](#model.offline)。
+1. 发起方：调用 TRTCCalling 的 `call()` 方法发起通话的请求, 并传入用户 ID（userid）和通话类型（type），通话类型参数传入`TYPE_AUDIO_CALL`。
+2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的事件通知。如果希望接收方在不处于登录状态时也能收到通话请求，请参见 [离线接听](#model.offline)。
 3. 接收方：如果希望接听通话，接收方可以调用 `accept()`函数，或者调用 `reject()` 拒绝此次通话。
 4. 当双方的音视频通道建立完成后，通话的双方都会接收到名为  `onUserEnter()` 的事件通知，此时说明双方已经进入通话。
 
@@ -219,11 +230,10 @@ sCall.login(sdkappid, "aaa", usersig, new ActionCallback() {
 });
 ```
 
-<span id="model.step6"> </span>
-
+[](id:model.step6)
 ### 步骤6：实现多人语音通话
 
-1. 发起方：多人视频通话需要调用 `TRTCCalling` 中的 `groupCall()` 函数，并传入用户列表（userIdList）、通话类型（type）、 IM 群组 ID（groupId），其中 userIdList 为必填参数，通话类型为必填参数传入`TYPE_AUDIO_CALL`， groupId 为选填参数。
+1. 发起方：多人语音通话需要调用 TRTCCalling 中的 `groupCall()` 函数，并传入用户列表（userIdList）、通话类型（type）、 IM 群组 ID（groupId），其中 userIdList 为必填参数，通话类型为必填参数传入`TYPE_AUDIO_CALL`， groupId 为选填参数。
 2. 接收端：通过 `onInvited()` 事件通知能够接收到此次请求。
 3. 接收端：收到事件通知后可以调用 `accept()` 方法接听此次通话，也可以选择用 `reject()` 方法拒绝通话。
 4. 如果超过一定时间（默认30s）没有回复，接收方会收到 `onCallingTimeOut()` 的事件通知，发起方会收到 `onNoResp(String userId)` 事件通知。通话发起方在多个接收均未应答时 `hangup()` ， 每个接收方均会收到 `onCallingCancel()` 事件通知。
@@ -243,8 +253,7 @@ callList.add("ddd");
 sCall.groupCall(callList, TRTCCalling.TYPE_AUDIO_CALL, "");
 ```
 
-<span id="model.offline"> </span>
-
+[](id:model.offline)
 ### 步骤7：实现离线接听
 
 >?如果您的业务定位是在线客服等不需要离线接听功能的场景，那么完成上述 [步骤1](#model.step1) - [步骤6](#model.step6) 的对接即可。但如果您的业务定位是社交场景，建议实现离线接听。
@@ -254,8 +263,7 @@ IM SDK 支持离线推送，但是 Android 端各个手机厂商均有各自的�
 1. 申请对应厂商的推送渠道需要的证书等，并将其配置到即时通信 IM 控制台中，按照推送要求增加证书和 ID 等，详细的操作步骤请参见 [即时通信 IM > 离线推送（Android） ](https://cloud.tencent.com/document/product/269/44516)。
 2. 目前在 TRTCCallingImpl 的 sendModel 信令发送函数中已经集成了离线发送的函数，当配置好 App 的离线推送后，消息就可实现离线推送。
 
-<span id="api"> </span>
-
+[](id:api)
 ## 组件 API 列表
 
 TRTCCalling 组件的 API 接口列表如下：

@@ -1,84 +1,48 @@
-国密 Encryption SDK 目前支持仅 **Linux** 系统的 C 语言和 Go 语言。其中 Go 语言 SDK，底层使用 C 来实现，上层通过 cgo 封装后，提供接口供 Go 语言调用。本文档以 C 语言作为代码示例，介绍如何接入使用国密 Encryption SDK，其他语言可以参考 SDK 包中具体的示例代码。
+国密 Encryption SDK 目前支持 **Linux** 和 **Windows** 系统的 C 语言、 Go 语言、Python2 和 Python3 语言。
+其中 Go 语言 SDK，底层使用 C 语言来实现，上层通过 cgo 封装后，提供接口供 Go 语言调用；而 Python 语言 SDK，底层也是使用 C 语言来实现，上层通过 ctypes 封装后，提供接口供 Python 语言调用。
+
+本文档以 C 语言作为代码示例，介绍如何接入使用国密 Encryption SDK，其他语言可以参考SDK包中具体的示例代码。
 
 ## 环境依赖
-- 开发环境仅支持 glibc 2.12 及其以上版本。
 - Linux 系统支持情况，已经在下述平台验证：
-<table>
-<thead>
-<tr>
-<th width="45%">系统版本</th>
-<th width="20%">位数</th>
-<th width="25%">支持情况</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Tencent Linux release 2.4（Final）</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 7.8</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 7.7</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 7.6</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 7.5</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 7.4</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 7.3</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 7.2</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 6.9</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 6.8</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>Debian 9.0</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>Ubuntu Server 16.04.1 LTS</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>Ubuntu Server 14.04.1 LTS</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-</tbody></table>
 
-SDK 基于 OpenSSL1.0 改造，在 OpenSSL1.1 以上版本运行会有兼容性问题，后续版本会兼容高版本的 OpenSSL。
+| 系统版本                            | 位数 | 支持情况 |
+| ----------------------------------- | ---- | -------- |
+| Tencent Linux release 2.4（Final）  | 64   | 支持     |
+| CentOS 8.2                          | 64   | 支持     |
+| CentOS 8.0                          | 64   | 支持     |
+| CentOS 7.8                          | 64   | 支持     |
+| CentOS 7.7                          | 64   | 支持     |
+| CentOS 7.6                          | 64   | 支持     |
+| CentOS 7.5                          | 64   | 支持     |
+| CentOS 7.4                          | 64   | 支持     |
+| CentOS 7.3                          | 64   | 支持     |
+| CentOS 7.2                          | 64   | 支持     |
+| CentOS 6.9                          | 64   | 支持     |
+| CentOS 6.8                          | 64   | 支持     |
+| Debian 9.0                          | 64   | 支持     |
+| Ubuntu Server 20.04.1 LTS           | 64   | 支持     |
+| Ubuntu Server 18.04.1 LTS           | 64   | 支持     |
+| Ubuntu Server 16.04.1 LTS           | 64   | 支持     |
+| Ubuntu Server 14.04.1 LTS           | 64   | 支持     |
+| CoreOS 1745.5.0                     | 64   | 支持     |
+| Debian 10.2                         | 64   | 支持     |
+| Debian 8.2                          | 64   | 支持     |
+| openSUSE Leap 15.1                  | 64   | 支持     |
+| openSUSE 42.3                       | 64   | 支持     |
+| SUSE Linux Enterprise Server 12 SP3 | 64   | 支持     |
+
+>! Linux开发环境仅支持 glibc 2.12 及其以上版本
+
+- Windows 系统支持情况，已经在下述平台验证：
+
+| 系统版本                                     | 位数 | 支持情况 |
+| -------------------------------------------- | ---- | -------- |
+| Windows Server 2019 数据中心版 64位 中文版   | 64   | 支持     |
+| Windows Server 2016 数据中心版 64位中文版    | 64   | 支持     |
+| Windows Server 2012 R2 数据中心版 64位中文版 | 64   | 支持     |
+
+- SDK 基于 OpenSSL1.1.1 改造。
 
 ## 接入指引
 
@@ -99,22 +63,23 @@ SDK 基于 OpenSSL1.0 改造，在 OpenSSL1.1 以上版本运行会有兼容性�
   - **Ubuntu**
   ```
 	sudo apt-get install libcurl4-openssl-dev
-	```
+  ```
   - **CentOS**
   ```
     yum install libcurl-devel
- ```
+  ```
 2. 将下载的 tar 包解压到本地，进入 src 目录。
-3. 执行 setenv.sh，配置环境变量。setenv.sh 包含的操作指令如下：
+3. 编辑 setenv.sh，配置环境变量。setenv.sh 包含的操作指令如下：
 ```
  export LD_LIBRARY_PATH=../lib:../lib/proto
  export OPENSSL_ENGINES=../lib/engines-1.1
 ```
-4. 修改 `src`路径下的 `demo_kms_pro.c` 和 `demo_original.c`文件。国密 Encryption SDK 支持基于 KMS 的密钥保护（`demo_kms_pro.c`）和原生加密（`demo_original.c`）的两种加密方式，两种模式的差异请参见 [接口文档](https://cloud.tencent.com/document/product/573/49527)，用户根据需要修改其中一个即可，参数替换如下：
+4. 环境变量配置完成后保存，执行source ./setenv.sh，使配置生效。
+5. 修改 `src`路径下的 `demo_kms_pro.c` 和 `demo_original.c`文件。国密 Encryption SDK 支持基于 KMS 的密钥保护（`demo_kms_pro.c`）和原生加密（`demo_original.c`）的两种加密方式，两种模式的差异请参见 [接口文档](https://cloud.tencent.com/document/product/573/49527)，用户根据需要修改其中一个即可，参数替换如下：
      - 使用主账号登录[ API 密钥管理控制台 ](https://console.cloud.tencent.com/cam/capi)获取您的 secretId 和 secretKey，并替换为文件中对应的 "replace-with-real-secretId"、"replace-with-real-secretKey" 字符串。
      - 将 [步骤2](#test2) 创建的主密钥 ID 替换文件中的 "replace-with-realkeyid" 字符串。
-5. 编译 `src`路径下的 `make` 文件。
-6. 运行可执行文件。
+6. 编译 `src`路径下的 `make` 文件。
+7. 运行可执行文件。
 >!使用正确的 secretId、secretKey 和主密钥 ID ，Demo 才可以正常运行。
 
 ## C SDK KMS 示例 
@@ -219,19 +184,22 @@ int main()
         unsigned char plaintext[128];
         char region[128];
         char masterKeys[1024];
+        char domainName[128];
 
         memset(plaintext,0,sizeof(plaintext));
         memset(region,0,sizeof(region));
         memset(masterKeys,0,sizeof(masterKeys));
+        memset(domainName,0,sizeof(domainName));
         
         struct KeyManager keymanager;
 
         strcpy(region,"ap-guangzhou");
+        strcpy(domainName,"kms.tencentcloudapi.com");
         strcpy(keymanager.secretId,"replace-with-real-secretId");
         strcpy(keymanager.secretKey,"replace-with-real-secretKey");
         strcpy(plaintext,"abcdefg123456789abcdefg123456789abcdefg");
 
-        i_ret = InitSdk(region,keymanager.secretId,keymanager.secretKey);
+        i_ret = InitSdk(region,keymanager.secretId,keymanager.secretKey,domainName);
         if ( 0 != i_ret )
         {
                 printf("InitSdk error\n");

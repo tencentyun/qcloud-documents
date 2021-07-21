@@ -1,0 +1,17 @@
+
+[安全组](https://cloud.tencent.com/document/product/213/12452) 是一种有状态的包含过滤功能的虚拟防火墙，用于设置单台或多台云数据库的网络访问控制，是腾讯云提供的重要的网络安全隔离手段。安全组是一个逻辑上的分组，您可以将同一地域内具有相同网络安全隔离需求的云数据库实例加到同一个安全组内。云数据库与云服务器等共享安全组列表，安全组内基于规则匹配，具体规则与限制请参见 安全组详细说明。
+
+>?由于云数据库没有主动出站流量，因此出站规则对云数据库不生效。
+
+## 配置安全组
+1. 登录 [TDSQL-A  PostgreSQL版 控制台](https://console.cloud.tencent.com/tdsqla/tdapg)，在实例列表，单击实例 ID，进入实例管理页面。
+2. 在实例管理页面，选择【安全组】页，单击【配置安全组】。
+![](https://main.qcloudimg.com/raw/9ca243d120eba0f8014e8019ffc31fba.png)
+3. 在弹出的对话框，选择需要绑定的安全组，单击【确定】，即可完成安全组绑定云数据库的操作。
+![](https://main.qcloudimg.com/raw/a378eaca264b6b1bffeeda0234247386.png)
+4. 安全组配置成功后，可在安全组页面下方查看新安全组信息。
+
+## 删除安全组
+1. 登录 [TDSQL-A  PostgreSQL版 控制台](https://console.cloud.tencent.com/tdsqla/tdapg)，在实例列表，单击实例 ID，进入实例管理页面。
+2. 在实例管理页面，选择【安全组】页，单击“操作”列的<img src="https://main.qcloudimg.com/raw/5ee603dd3dcf82d92cf230cb64ddbe8e.png"  style="margin:0;">，删除安全组同时删除规则。
+![](https://main.qcloudimg.com/raw/697fd5f994d31a92c4f89fcca58811e7.png)

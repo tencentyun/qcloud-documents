@@ -1,10 +1,71 @@
-### SSL 证书支持绑定 IP 的证书有那些？
-- 证书种类：企业型（OV）。
-- 证书品牌：TrustAsia （亚洲诚信）。
-- 域名类型：单域名与多域名，均支持绑定 IP。
+腾讯云支持绑定 IP 的 SSL 证书请参考下表：
 
->!
-> - 绑定的 IP 须为公网 IP。
-> - 使用绑定 IP 的证书，不支持应用在 IE11 以下版本的浏览器中。
-
-
+<table>
+<thead>
+  <tr>
+    <th>证书品牌</th>
+    <th>企业型<br>（OV）</th>
+    <th>企业型专业版<br>（OV Pro）</th>
+    <th>域名型<br>（DV）</th>
+    <th>域名型免费版<br>（DV）</th>
+    <th>增强型<br>（EV）</th>
+    <th>增强型专业版<br>（EV Pro）</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>SecureSite</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
+    <td>不支持</td>
+    <td>不支持</td>
+    <td>不支持</td>
+    <td>不支持</td>
+  </tr>
+  <tr>
+    <td>GeoTrust</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>不支持</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>TrustAsia</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
+    <td>-</td>
+    <td>不支持</td>
+    <td>-</td>
+    <td>不支持</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>GlobalSign</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>不支持</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Wotrus</td>
+    <td>不支持</td>
+    <td>-</td>
+    <td>不支持</td>
+    <td>-</td>
+    <td>不支持</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>DNSPod </td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
+    <td>-</td>
+  </tr>
+</tbody>
+</table>

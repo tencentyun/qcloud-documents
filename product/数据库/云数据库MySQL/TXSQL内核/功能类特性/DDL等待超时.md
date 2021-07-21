@@ -1,6 +1,9 @@
 ## 功能介绍
 DDL 等待超时功能支持在获得 MDL 元数据锁前则 DDL 操作等待超时。
 
+## 支持版本
+内核版本 MySQL 5.7 20171130 及以上
+
 ## 适用场景
 该功能适用于线上 ALTER TABLE 操作时，可能会系统正常运行的场景。
 
@@ -22,3 +25,4 @@ if it has to wait for a metadata lock;
                                                                                 
 WAIT [n]: n is the wait time in seconds for a metadata lock before the DDL  
 returns and raises error message;          
+

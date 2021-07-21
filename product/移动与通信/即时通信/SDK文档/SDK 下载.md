@@ -1,181 +1,150 @@
-您可以根据不同使用平台下载对应的即时通信 IM SDK，Demo 运行说明请参见 [一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)。
-
->?推荐使用 Github 下载 Demo 源码、TUIKit 源码以及 SDK，当 Github 访问较慢时，您可以使用 Gitee 下载或者直接下载 Zip 包。
-
-## 标准版
+您可以在这里下载最新的即时通信 IM SDK 以及 Demo 源码。
+## SDK 下载[](id:TLS)
 <table>
-	<tr>
-		<th align="center">所属平台</th>  
-		<th nowrap="nowrap" align="center">ZIP 包下载 </th>  
-		<th nowrap="nowrap" align="center">Github 下载（推荐）</th>  
-		<th align="center">Gitee 下载</th>  
-		<th nowrap="nowrap" align="center">极速集成指引<br>（含 UI 库）</th> 
-		<th nowrap="nowrap" align="center">常规集成指引<br>（无 UI 库）</th>  
-	</tr>
-	<tr>      
-		<td align="center">Android</td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkDownload',{'platform':'android'})" href="https://github-1252463788.cos.ap-shanghai.myqcloud.com/imsdk/TIMSDK.zip">ZIP</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'android'})" href="https://github.com/tencentyun/TIMSDK/">Github</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'android'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Android">Gitee</a></td>
-		<td align="center"><a href="https://cloud.tencent.com/document/product/269/37059">DOC</a></td>
-		<td align="center"><a href="https://cloud.tencent.com/document/product/269/32679">DOC</a></td>
-	</tr> 
-	<tr>      
-		<td align="center">iOS</td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkDownload',{'platform':'ios'})" href="https://github-1252463788.cos.ap-shanghai.myqcloud.com/imsdk/TIMSDK.zip">ZIP</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'ios'})" href="https://github.com/tencentyun/TIMSDK/">Github</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'ios'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/iOS">Gitee</a></td>
-		<td align="center"><a href="https://cloud.tencent.com/document/product/269/37060">DOC</a></td>
-		<td align="center"><a href="https://cloud.tencent.com/document/product/269/32675">DOC</a></td>
-	</tr> 
-	<tr>      
-		<td align="center">Mac</td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkDownload',{'platform':'mac'})" href="https://github-1252463788.cos.ap-shanghai.myqcloud.com/imsdk/TIMSDK.zip">ZIP</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'mac'})" href="https://github.com/tencentyun/TIMSDK/">Github</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'mac'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Mac">Gitee</a></td>
-		<td align="center">-</td>
-		<td align="center"><a href="https://cloud.tencent.com/document/product/269/32676">DOC</a></td>
-	</tr> 
-	<tr>      
-		<td align="center">Windows</td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkDownload',{'platform':'windows'})" href="https://github-1252463788.cos.ap-shanghai.myqcloud.com/imsdk/TIMSDK.zip">ZIP</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'windows'})" href="https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Windows">Github</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'windows'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/cross-platform/Windows">Gitee</a></td>
-		<td align="center">-</td>
-		<td align="center"><a href="https://cloud.tencent.com/document/product/269/33489">DOC</a></td>
-	</tr>
-	<tr>
-		<td align="center">Web</td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkDownload',{'platform':'web'})" href="https://github-1252463788.cos.ap-shanghai.myqcloud.com/imsdk/TIMSDK.zip">ZIP</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'web'})" href="https://github.com/tencentyun/TIMSDK/">Github</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'web'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/H5">Gitee</a></td>
-		<td align="center">-</td>
-		<td align="center"><a href="https://cloud.tencent.com/document/product/269/37413">DOC</a></td>
-	</tr>
-	<tr>
-		<td nowrap="nowrap" align="center">微信小程序</td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkDownload',{'platform':'wxmini'})" href="https://github-1252463788.cos.ap-shanghai.myqcloud.com/imsdk/TIMSDK.zip">ZIP</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'wxmini'})" href="https://github.com/tencentyun/TIMSDK/">Github</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'wxmini'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/WXMini">Gitee</a></td>
-		<td align="center">-</td>
-		<td align="center"><a href="https://cloud.tencent.com/document/product/269/37413">DOC</a></td>
-	</tr> 
+<tr>
+<th width="94px" style="text-align:center" >终端 SDK</td>
+ <th width="0px" style="text-align:center" colspan='2' >下载地址</td>
+<th width="0px"  style="text-align:center">集成指引文档</td>
+<th width="175px" style="text-align:center">更新日志</td>
+</tr>
+<tr>
+<td style="text-align:center">Android  </td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Android/SDK#https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/restructure/android/5.1.131/imsdk-smart-5.1.131.aar">Gitee</a></td>
+<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/37059">【极速集成】导入TUIKit (Android)</a><br><a href="https://cloud.tencent.com/document/product/269/32679">【常规集成】快速导入到工程 (Android)</a></td>
+<td style="text-align:center" rowspan='4'><a href="https://cloud.tencent.com/document/product/269/1606">更新日志(终端)</a> </td>
+</tr>
+<tr>
+<td style="text-align:center">iOS  </td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/iOS/ImSDK">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/iOS/ImSDK">Gitee</a></td>
+<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/37060">【极速集成】导入TUIKit (iOS)</a><br><a href="https://cloud.tencent.com/document/product/269/32675">【常规集成】快速导入到工程  (iOS)</a></td>
+</tr>
+<tr>
+<td style="text-align:center">Mac  </td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Mac/ImSDK">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Mac/ImSDK">Gitee</a></td>
+<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/32676">【常规集成】快速导入到工程 (Mac)</a></td>
+</tr>
+<tr>
+<td style="text-align:center">Windows  </td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Windows">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/cross-platform/Windows">Gitee</a></td>
+<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/33489">【常规集成】快速导入到工程 (Windows)</a></td>
+</tr>
 </table>
 
-## 精简版
+
+
+
 <table>
-	<tr>
-		<th align="center">所属平台</th>  
-		<th nowrap="nowrap" align="center">ZIP 包下载 </th>  
-		<th nowrap="nowrap" align="center">Github 下载（推荐）</th>  
-		<th align="center">Gitee 下载</th>  
-		<th nowrap="nowrap" align="center">集成指引<br></th>  
-	</tr>
-	<tr>      
-		<td align="center">Android</td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkDownload',{'platform':'smart_android'})" href="https://github-1252463788.cos.ap-shanghai.myqcloud.com/imsdk/TIMSDK.zip">ZIP</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'smart_android'})" href="https://github.com/tencentyun/TIMSDK/">Github</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'smart_android'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Android">Gitee</a></td>
-		<td align="center"><a href="https://cloud.tencent.com/document/product/269/32679">DOC</a></td>
-	</tr> 
-	<tr>      
-		<td align="center">iOS</td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkDownload',{'platform':'smart_ios'})" href="https://github-1252463788.cos.ap-shanghai.myqcloud.com/imsdk/TIMSDK.zip">ZIP</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'smart_ios'})" href="https://github.com/tencentyun/TIMSDK/">Github</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'smart_ios'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/iOS">Gitee</a></td>
-		<td align="center"><a href="https://cloud.tencent.com/document/product/269/32675">DOC</a></td>
-	</tr> 
-		<tr>      
-		<td align="center">Flutter</td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'flutter_zip'})" href="https://pub.dev/documentation/tencent_im_sdk_plugin/latest/">Zip</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'flutter_github'})" href="https://github.com/tencentyun/TencentIMFlutterDemo/tree/master">Github</a></td>
-		<td align="center">-</td>
-		<td align="center">-</td>
-	</tr> 
+<tr>
+<th width="94px" style="text-align:center" >Web SDK</td>
+ <th width="182px" style="text-align:center" colspan='3' >下载地址</td>
+<th width="0px"  style="text-align:center">集成指引文档</td>
+<th width="175px" style="text-align:center">更新日志</td>
+</tr>
+<tr>
+<td style="text-align:center">Web & H5  </td>
+<td style="text-align:center" ><a href="https://www.npmjs.com/package/tim-js-sdk">NPM (推荐)</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/H5/sdk">Github</a></td>
+<td style="text-align:left" rowspan='3' ><a href="https://web.sdk.qcloud.com/im/download/im-latest.zip">ZIP</a></td>
+<td style="text-align:center" rowspan='2'><a href="https://cloud.tencent.com/document/product/269/37413">【常规集成】快速导入到工程</a> </td>
+<td style="text-align:center" rowspan='3'><a href="https://cloud.tencent.com/document/product/269/38492">更新日志(Web & 小程序)</a> </td>
+</tr>
+<tr>
+<td style="text-align:center">小程序 </td>
+<td style="text-align:center" ><a href="https://www.npmjs.com/package/tim-wx-sdk">NPM (推荐)</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/WXMini/sdk">Github</a></td>
+</tr>
+<tr>
+<td style="text-align:center">Web SDK 上传插件  </td>
+<td style="text-align:center" ><a href="https://www.npmjs.com/package/tim-upload-plugin">NPM (推荐)</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/H5/sdk">Github</a></td>
+<td style="text-align:center" >-</td>
+</tr>
 </table>
 
-<script>
-  var _mtac = {};
-  	(function() {
-  		var mta = document.createElement("script");
-  		mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
-  		mta.setAttribute("name", "MTAH5");
-  		mta.setAttribute("sid", "500729087");
-  		mta.setAttribute("cid", "500729088");
-  		var s = document.getElementsByTagName("script")[0];
-  		s.parentNode.insertBefore(mta, s);
-  	})();
-</script>
 
-## 标准版与精简版差异对比
->- SDK 从5.0版本开始新增精简版，原有版本称为标准版。
->- 精简版与标准版同时支持<a href="https://cloud.tencent.com/document/product/269/44498"> V2 API</a>，在接口能力上完全一致。
->- 精简版不再支持旧版 API，标准版继续支持旧版 API。
->- 在 SDK 体积和安装包增量上，精简版与标准版相比有大幅度缩减。
->- 精简版目前支持 Android 和 iOS 两个平台，后续会逐步增加对 Windows 和 Mac 平台的支持。
->- 如果您没有接入过旧版 API，建议您直接使用<a href="https://cloud.tencent.com/document/product/269/44498"> V2 API</a>，选择精简版 SDK。
->- 如果您已经接入了旧版 API，推荐您升级到<a href="https://cloud.tencent.com/document/product/269/44498"> V2 API</a>，逐步切换到精简版 SDK。
 
-### SDK 体积大小对比
 <table>
-  <tr>
-    <th width="100px" style="text-align:center">平台</th>
-    <th width="160px" style="text-align:center">对比项</th>
-    <th width="100px" style="text-align:center">标准版</th>
-    <th width="100px" style="text-align:center">精简版</th>
-  </tr>
-  <tr>
-    <td style="text-align:center">Android</td>
-    <td style="text-align:center">aar 大小</td>
-    <td style="text-align:center">7.8 MB</td>
-    <td style="text-align:center">3.1 MB</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">iOS</td>
-    <td style="text-align:center">framework 大小</td>
-    <td style="text-align:center">57.7 MB</td>
-    <td style="text-align:center">11.2 MB</td>
-  </tr>
+<tr>
+<th width="94px" style="text-align:center" >框架 SDK</td>
+ <th width="0px" style="text-align:center" >下载地址</td>
+<th width="307px"  style="text-align:center">参考文档</td>
+<th width="175px" style="text-align:center">更新日志</td>
+</tr>
+<tr>
+<td style="text-align:center">Flutter  </td>
+<td style="text-align:center" ><a href="https://pub.dev/packages/tencent_im_sdk_plugin">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/51940">【客户端API】SDK API(Flutter)</a></td>
+<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/52049">更新日志(开源框架)</a></td>
+</tr>
+<tr>
+<td style="text-align:center">Unity  </td>
+<td style="text-align:center" ><a href="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/imsdk_v1.3.1.unitypackage.zip">ZIP</a></td>
+<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/54111">【客户端API】SDK API(Unity)</a></td>
+<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/56150">更新日志(Unity)</a><br>公测中，技术咨询请加 QQ 群：<a href="https://qm.qq.com/cgi-bin/qm/qr?k=fVHzwGDQ0Hb9Qtn0KzQx7tsChGnzO9vm&jump_from=webapi">764231117</a></td>
+</tr>
 </table>
 
-### App 体积增量对比
+
+## Demo 及解决方案下载
+即时通信 IM Demo 演示了各个场景下的 IM 功能，您可 [前往安装](https://cloud.tencent.com/document/product/269/36852) 并体验不同平台、不同使用场景下的 Demo。
 <table>
-  <tr>
-    <th width="100px" style="text-align:center">平台</th>
-    <th width="160px" style="text-align:center">架构</th>
-    <th width="100px" style="text-align:center">标准版</th>
-    <th width="100px" style="text-align:center">精简版</th>
-  </tr>
-  <tr>
-    <td rowspan='2' style="text-align:center"> apk 增量</td>
-    <td style="text-align:center">armeabi-v7a</td>
-    <td style="text-align:center">3.2 MB</td>
-    <td style="text-align:center">1.1 MB</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">arm64-v8a</td>
-    <td style="text-align:center">5.2 MB</td>
-    <td style="text-align:center">1.7 MB</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">ipa 增量</td>
-    <td style="text-align:center">arm64</td>
-    <td style="text-align:center">2.1 MB</td>
-    <td style="text-align:center">1.1 MB</td>
-  </tr>
+<tr>
+<th width="94px" style="text-align:center" >类别</td>
+ <th width="0px" style="text-align:center" >介绍</td>
+<th width="0px"  style="text-align:center">所属平台</td>
+<th width="220px" style="text-align:center" colspan='2'>下载方式</td>
+<th width="175px" style="text-align:center">参考文档</td>
+</tr>
+<tr>
+<td style="text-align:center" rowspan='4'>即时通信 IM Demo  </td>
+<td style="text-align:center" rowspan='4' th width="155px">包含所有 IM 功能以及群里直播连麦语聊能力。</td>
+<td style="text-align:center" >Android</td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Android">Github(推荐)</a></td>
+<td style="text-align:center" rowspan='4' ><a href="https://im.sdk.qcloud.com/download/github/TIMSDK.zip">ZIP</a></td>
+<td style="text-align:left" rowspan='4'><a href="https://cloud.tencent.com/document/product/269/36838">【Demo入门】一分钟跑通Demo</a></td>
+</tr>
+<tr>
+<td style="text-align:center" >iOS</td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/iOS">Github(推荐)</a></td>
+</tr>
+<tr>
+<td style="text-align:center" >Web</td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/H5">Github(推荐)</a></td>
+</tr>
+<tr>
+<td style="text-align:center" >微信小程序</td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/WXMini">Github(推荐)</a></td>
+</tr>
+<tr>
+<td style="text-align:center" >IM Demo (Flutter)  </td>
+<td style="text-align:center" >包含 IM 主要功能。</td>
+<td style="text-align:center" >Flutter</td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TencentIMFlutterDemo/tree/master">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://upload-dianshi-1255598498.cos.ap-guangzhou.myqcloud.com/nodir/TencentImSDKPlugin-1610442889170.zip">ZIP</a></td>
+<td style="text-align:left" >参考 github README</td>
+</tr>
+<tr>
+<td style="text-align:center" >直播电商 Demo  </td>
+<td style="text-align:center" >包含弹幕、优惠券、购物车等直播电商能力。</td>
+<td style="text-align:center" >微信小程序</td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TencentIMDemos">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://im-demos-1256635546.cos.ap-guangzhou.myqcloud.com/TencentIMDemos-master.zip">ZIP</a></td>
+<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/44932">【最佳实践】 小程序直播带货</a><br><a href="https://cloud.tencent.com/document/product/269/44527">【最佳实践】小程序直播SDK API</a></td>
+</tr>
+<tr>
+<td style="text-align:center" >直播互动 Demo  </td>
+<td style="text-align:center" >包含直播发起以及观看方点赞互动等能力。</td>
+<td style="text-align:center" >H5 及 Web</td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TWebLive">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://web.sdk.qcloud.com/component/tweblive/download/TWebLive-demo.zip">ZIP</a></td>
+<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/47959">【Demo 入门】 一分钟跑通直播互动组件</a><br><a href="https://cloud.tencent.com/document/product/269/47954">【最佳实践】Web 直播互动组件</a></td>
+</tr>
 </table>
-
-[](id:TLS)
-## 解决方案
-
-| 类别 | 所属平台   | Github 下载地址                        | ZIP 下载地址| 集成指引       |
-| ---------- | ---------- | ------------------------------------- |-| -------------- |
-| 直播电商 | 微信小程序 | [Github](https://github.com/tencentyun/TencentIMDemos) |[ZIP](https://im-demos-1256635546.cos.ap-guangzhou.myqcloud.com/TencentIMDemos-master.zip)| [场景实践 - 小程序直播带货](https://cloud.tencent.com/document/product/269/44932) |
-|直播互动| H5 及 Web | [Github](https://github.com/tencentyun/TWebLive)| [ZIP](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/TWebLive-demo.zip?_ga=1.23181178.1931537.1590743323)| [场景实践 - 微信 H5 直播互动](https://cloud.tencent.com/document/product/269/45036) |
 
 ## 相关文档
 - [价格说明](https://cloud.tencent.com/document/product/269/11673)
 - [折扣活动](https://cloud.tencent.com/document/product/269/46181)
-
-
-

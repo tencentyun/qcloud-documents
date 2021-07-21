@@ -8,6 +8,7 @@
 ``` Objective-C
 - (void)onTEBError:(TEduBoardErrorCode)code msg:(NSString *)msg 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -21,6 +22,7 @@
 ``` Objective-C
 - (void)onTEBWarning:(TEduBoardWarningCode)code msg:(NSString *)msg 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -37,6 +39,7 @@
 ``` Objective-C
 - (void)onTEBInit
 ```
+
 #### 介绍
 收到该回调后表示白板已处于可正常工作状态（此时白板为空白白板，历史数据尚未拉取到） 
 
@@ -52,6 +55,7 @@
 ``` Objective-C
 - (void)onTEBSyncData:(NSString *)data 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -67,6 +71,7 @@
 ``` Objective-C
 - (void)onTEBUndoStatusChanged:(BOOL)canUndo 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -79,6 +84,7 @@
 ``` Objective-C
 - (void)onTEBRedoStatusChanged:(BOOL)canRedo 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -94,6 +100,7 @@
 ``` Objective-C
 - (void)onTEBImageStatusChanged:(NSString *)boardId url:(NSString *)url status:(TEduBoardImageStatus)status 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -108,6 +115,7 @@
 ``` Objective-C
 - (void)onTEBSetBackgroundImage:(NSString *)url 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -120,17 +128,17 @@
 
 ### onTEBAddImageElement:
 添加图片元素回调 
+此接口将被废弃，请使用 addElement 添加元素
 ``` Objective-C
 - (void)onTEBAddImageElement:(NSString *)url 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | url | NSString * | 调用 addImageElement 时传入的 URL  |
 
-#### 警告
-此接口将被废弃，请使用 addElement 添加元素，并监听 onTEBAddElement 回调 只有本地调用 addImageElement 时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来 
 
 
 ### onTEBAddElement:url:
@@ -138,6 +146,7 @@
 ``` Objective-C
 - (void)onTEBAddElement:(NSString *)elementId url:(NSString *)url 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -148,12 +157,28 @@
 #### 介绍
 只有本地调用 addElement 时会收到该回调 收到该回调表示元素添加成功，并且显示出来 
 
+### onTEBRemoveElement:
+删除元素回调 
+``` Objective-C
+- (void)onTEBRemoveElement:(NSArray *)elementIds 
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementIds | NSArray * | 删除的元素 IDs |
+
+#### 介绍
+只有本地调用 addElement 时会收到该回调 收到该回调表示元素添加成功，并且显示出来 
+
 
 ### onTEBBackgroundH5StatusChanged:url:status:
 设置白板背景 H5 状态改变回调 
 ``` Objective-C
 - (void)onTEBBackgroundH5StatusChanged:(NSString *)boardId url:(NSString *)url status:(TEduBoardBackgroundH5Status)status 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -171,6 +196,7 @@
 ``` Objective-C
 - (void)onTEBAddBoard:(NSArray *)boardIds fileId:(NSString *)fileId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -184,6 +210,7 @@
 ``` Objective-C
 - (void)onTEBDeleteBoard:(NSArray *)boardIds fileId:(NSString *)fileId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -197,6 +224,7 @@
 ``` Objective-C
 - (void)onTEBGotoBoard:(NSString *)boardId fileId:(NSString *)fileId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -210,6 +238,7 @@
 ``` Objective-C
 - (void)onTEBGotoStep:(uint32_t)currentStep totalStep:(uint32_t)totalStep 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -223,6 +252,7 @@
 ``` Objective-C
 - (void)onTEBRectSelected
 ```
+
 #### 介绍
 只有框选中涂鸦或图片元素后触发回调 
 
@@ -238,6 +268,7 @@
 ``` Objective-C
 - (void)onTEBSnapshot:(NSString *)path errorCode:(TEduBoardErrorCode)code errorMsg:(NSString *)msg 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -255,6 +286,7 @@
 ``` Objective-C
 - (void)onTEBFileTranscodeProgress:(TEduBoardTranscodeFileResult *)result path:(NSString *)path errorCode:(NSString *)errorCode errorMsg:(NSString *)errorMsg 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -270,6 +302,7 @@
 ``` Objective-C
 - (void)onTEBAddTranscodeFile:(NSString *)fileId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -285,6 +318,7 @@
 ``` Objective-C
 - (void)onTEBDeleteFile:(NSString *)fileId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -297,6 +331,7 @@
 ``` Objective-C
 - (void)onTEBSwitchFile:(NSString *)fileId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -309,6 +344,7 @@
 ``` Objective-C
 - (void)onTEBFileUploadProgress:(NSString *)path currentBytes:(int)currentBytes totalBytes:(int)totalBytes uploadSpeed:(int)uploadSpeed percent:(float)percent 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -325,6 +361,7 @@
 ``` Objective-C
 - (void)onTEBFileUploadStatus:(NSString *)path status:(TEduBoardUploadStatus)status errorCode:(int)errorCode errorMsg:(NSString *)errorMsg 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -340,6 +377,7 @@ H5 文件状态回调
 ``` Objective-C
 - (void)onTEBH5FileStatusChanged:(NSString *)fileId status:(TEduBoardH5FileStatus)status 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -353,6 +391,7 @@ H5 文件状态回调
 ``` Objective-C
 - (void)onTEBVideoStatusChanged:(NSString *)fileId status:(TEduBoardVideoStatus)status progress:(CGFloat)progress duration:(CGFloat)duration 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -363,11 +402,27 @@ H5 文件状态回调
 | duration | CGFloat | 总时长（秒）（仅支持 mp4 格式）  |
 
 
+### onTEBAudioStatusChanged:status:progress:duration:
+音频文件状态回调 
+``` Objective-C
+- (void)onTEBAudioStatusChanged:(NSString *)elementId status:(TEduBoardAudioStatus)status progress:(CGFloat)progress duration:(CGFloat)duration 
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | NSString * | 元素 ID  |
+| status | TEduBoardAudioStatus | 文件状态  |
+| progress | CGFloat | 当前进度（秒）  |
+| duration | CGFloat | 总时长（秒）  |
+
 ### onTEBAddImagesFile:
 增加批量图片文件回调 
 ``` Objective-C
 - (void)onTEBAddImagesFile:(NSString *)fileId 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -383,6 +438,7 @@ H5PPT 文件状态改变回调
 ``` Objective-C
 - (void)onTEBH5PPTStatusChanged:(NSString *)fileId status:(TEduBoardH5PPTStatus)status message:(NSString *)message 
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |

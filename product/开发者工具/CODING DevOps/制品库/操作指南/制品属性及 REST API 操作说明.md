@@ -4,7 +4,7 @@
 
 1. 登录 [CODING 控制台](https://console.cloud.tencent.com/coding)，单击【立即使用】进入 CODING 使用页面。
 2. 单击页面右上角的 <img src ="https://main.qcloudimg.com/raw/d94a8e60dd3a41d0af07d72ae0e9d70e.png" style ="margin:0">，进入项目列表页面，单击项目图标进入目标项目。
-3. 单击左侧菜单栏的【制品库】，进入制品库功能页面。
+3. 单击左侧菜单栏的【制品管理】，进入制品库功能页面。
 
 ## 功能介绍
 
@@ -127,7 +127,7 @@ $URL 参数说明
 
 | 参数        | 说明                                                         |
 | :---------- | ------------------------------------------------------------ |
-| teamGK      | 团队域名，如: `codingcorp.coding.net` 的 `teamGK`  为  `codingcorp` |
+| teamGK      | 团队域名，例如：`codingcorp.coding.net` 的 `teamGK`  为  `codingcorp` |
 | projectName | 项目名称                                                     |
 | repoName    | 制品仓库名称                                                 |
 | pkgName     | 制品包名称                                                   |
@@ -207,50 +207,33 @@ body 参数说明
 			 -H "Content-Type: application/json" \
 			 -d '{"properties":[{"name":"demo.name","value":"demo value"}]}' \
 			 -X POST $URL
-	```
-支持同时新增多个制品属性：
-
+	```支持同时新增多个制品属性：
 	```bash
 	curl -u 项目令牌:密码 \
 			 -H "Content-Type: application/json" \
 			 -d '{"properties":[{"name":"demo.name","value":"demo value"},{"name":"demo.name2","value":"demo value2"}]}' \
 			 -X POST $URL
-	```
-	
-	示例：
-	![新增制品属性示例](https://main.qcloudimg.com/raw/556fe58637903bfac7c553be91796699.png)
-
-
-
+	```示例：
+![新增制品属性示例](https://main.qcloudimg.com/raw/556fe58637903bfac7c553be91796699.png)
 2. **查询制品属性**
-
 	```bash
 	curl -u 项目令牌:密码 $URL
-	```
-
-	示例：
-
-	![制品属性查询示例](https://main.qcloudimg.com/raw/708ab2076d21ee415ca9a1f7743bbc88.png)
-
+	```示例：
+![制品属性查询示例](https://main.qcloudimg.com/raw/708ab2076d21ee415ca9a1f7743bbc88.png)
 3. **修改制品属性**
-
 	```bash
 	curl -u 项目令牌:密码 \
 			 -H "Content-Type: application/json" \
 			 -d '{"properties":[{"name":"demo.name","value":"new demo value"}]}' \
 			 -X PUT $URL
-	```
-支持同时修改多个制品属性：
-
+	```支持同时修改多个制品属性：
 	```bash
 	curl -u 项目令牌:密码 \
 			 -H "Content-Type: application/json" \
 			 -d '{"properties":[{"name":"demo.name","value":"new demo value"},{"name":"demo.name2","value":"new demo value2"}]}' \
 			 -X PUT $URL
-	```
-	示例：
-	![img](https://main.qcloudimg.com/raw/dfbbba77b1f3612f0cfd8a24bd0b9757.png)
-
+	```示例：
+![img](https://main.qcloudimg.com/raw/dfbbba77b1f3612f0cfd8a24bd0b9757.png)
 4. **删除制品属性**
 
 	```bash
@@ -258,23 +241,18 @@ body 参数说明
 			 -H "Content-Type: application/json" \
 			 -d '{"names":["demo.name"]}' \
 			 -X DELETE $URL
-	```
-支持同时删除多个制品属性，指定想要删除的制品属性名称即可：
-
+	```支持同时删除多个制品属性，指定想要删除的制品属性名称即可：
 	```bash
 	curl -u 项目令牌:密码 \
 			 -H "Content-Type: application/json" \
 			 -d '{"names":["demo.name","demo.name2","demo.name3"]}' \
 			 -X DELETE $URL
-	```
-示例：
+	```示例：
 ![删除制品属性示例](https://main.qcloudimg.com/raw/8d13742699fff712c8e279f22ae47719.png)
 返回 code 为 0 即表示操作成功
-
 	```json
 	{"code":0}
 
-	```
-
-	若不为 0 则表示操作有误，可根据提示来进行调整，例：
+	```	若不为 0 则表示操作有误，可根据提示来进行调整，例：
 ![删除失败示例](https://main.qcloudimg.com/raw/0967a2dbdaf2649fcbca48c0c6be01cc.png)
+

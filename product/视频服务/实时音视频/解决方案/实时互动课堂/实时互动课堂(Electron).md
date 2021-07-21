@@ -1,61 +1,48 @@
-
 ## Demo 体验
-<table style="text-align:center;vertical-align:middle;width: 300px">
-  <tr>
-    <th width="150px">Mac OS</th>
-    <th width="150px">Windows</th>
-  </tr>
-  <tr>
-<td>
-		<a href="https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo-1.1.0.dmg" >
-		<span style="width:125px;height: 125px;background-image:url(https://main.qcloudimg.com/raw/d03160ca4e5342a96464aaba1de97923.png);background-size: cover;display:block;">
-</span></a></td>
-<td>
-<a href="https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo%20Setup%201.1.0.exe">
-<span style="width:125px;height: 125px;background-image:url(https://main.qcloudimg.com/raw/d03160ca4e5342a96464aaba1de97923.png);background-size: cover;display:block;">
-</span></a></td>
-  </tr>
-</table>
+<input type="button" value="Windows 版" style="height: 30px;width: 150px;min-width: 24px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;white-space: nowrap;margin-right:10px;"  onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education/TRTC_Education_Demo%20Setup%201.1.0.exe')" />
 
-
-
+<input type="button" value="MacOS 版" style="height: 30px;width: 150px;margin-top: 5px;min-width: 24px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;white-space: nowrap;" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education/TRTC_Education_Demo-1.1.0.dmg')" />
 
 ## 效果展示
 您可以下载安装我们的 Demo 体验实时互动课堂的能力效果，包括语音、视频、屏幕分享等上课方式，还封装了老师开始问答、学生举手、老师邀请学生上台回答、结束回答等相关能力。
 
-- 教师端
- ![](https://main.qcloudimg.com/raw/35d33cb6003bd3575ee6bbfb0cbe6450.png)
-- 学生端
- ![](https://main.qcloudimg.com/raw/30e62d5c96c1ba31fc24c113ecfdb395.png)
+<table>
+<tr><th>教师端</th><th>学生端</th><tr>
+<tr><td><img src="https://main.qcloudimg.com/raw/35d33cb6003bd3575ee6bbfb0cbe6450.png"/></td><td><img src="https://main.qcloudimg.com/raw/30e62d5c96c1ba31fc24c113ecfdb395.png"/></td><tr>
+</table>
 
 如需快速实现实时互动课堂功能，可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 [trtc-electron-education](https://cloud.tencent.com/document/product/647/45466) 组件并实现自定义 UI 界面。
 
 ## 复用 Demo 的 UI 界面
+[](id:ui.step1)
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 单击【立即开始】，输入应用名称，例如 `TestEduDemo` ，单击【创建应用】。
+2. 输入应用名称，例如  `TestEduDemo`，单击【创建】。
 
 >?本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 
-
-<span id="ui.step2"></span>
+[](id:ui.step2)
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Electron/TRTCScenesDemo/TRTCEducation)】跳转至 Github，下载相关 SDK 及配套的 Demo 源码。
-2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
+1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+2. 下载完成后，单击【已下载，下一步】。
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
+[](id:ui.step3)
 ### 步骤3：配置 Demo 工程文件
-1. 解压 [步骤2](#ui.step2) 中下载的源码包。
-2. 找到并打开 `TRTCEducation/app/debug/GenerateTestUserSig.js` 文件。
+1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
+2. 找到并打开 `Electron/js/GenerateTestUserSig.js` 文件。
 3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
-  <ul style="margin:0;"><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
-  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-  <img src="https://main.qcloudimg.com/raw/1732ea2401af6111b41259a78b5330a4.png">
-4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
-5. 单击【关闭指引，进入控制台管理应用】。
+<ul>
+ <li/>SDKAPPID：默认为0 ，请设置为实际的 SDKAppID。
+ <li/>SECRETKEY：默认为空字符串 ，请设置为实际的密钥信息。</ul>
+ <img src="https://main.qcloudimg.com/raw/c8ed13a3bc40c8b5d676e933adc402f9.png"/>
+4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
+5. 编译完成后，单击【回到控制台概览】即可。
 
->!本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
->正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
+>!
+>- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
+>- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 ### 步骤4：运行 Demo
 
@@ -70,7 +57,7 @@ yarn dev
 yarn package
 ```
 
->!
+>! 
 - 安装依赖过程中，如遇到 Electron 下载慢甚至卡住不动等问题，您可以参考 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668) 文档解决。
 - 只能使用 Mac 打包 Mac 包，使用 Windows 电脑打包 Windows 包。
 
@@ -152,7 +139,7 @@ rtcClient.openCamera(domEle)
 ```typescript
 const screenList = rtcClient.getScreenShareList()
 ```
-b. 调用组件的 [startScreenCapture](https://cloud.tencent.com/document/product/647/45466#startScreenCapture) 开始推屏幕分享的流。
+ b. 调用组件的 [startScreenCapture](https://cloud.tencent.com/document/product/647/45466#startScreenCapture) 开始推屏幕分享的流。
 ```typescript
 rtcClient.startScreenCapture({
       type,// 采集源类型

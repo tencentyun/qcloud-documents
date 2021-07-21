@@ -1,65 +1,22 @@
+数据万象可为用户提供多种基础图片处理功能，满足您各类图片场景的需求，目前支持的基础图片处理功能请见 [功能概览](https://cloud.tencent.com/document/product/460/53155) 。
 
-数据万象可为用户提供多种基础图片处理功能，满足您各类图片场景的需求，目前支持的基础图片处理功能请见下表：
+>?
+> - 您可使用 API 接口实现下载时处理，同时数据万象提供 [管道操作符](https://cloud.tencent.com/document/product/460/15293) 服务实现对图片按顺序进行多种处理。
+> - 基础图片处理目前提供10TB/月的免费额度，超出部分则按照正常收费，详情请查看 [图片处理费用](https://cloud.tencent.com/document/product/460/58117) 文档。
+> 
 
-<table>
-   <tr>
-      <th>功能</td>
-      <th>说明</td>
-   </tr>
-   <tr>
-      <td><a href="https://cloud.tencent.com/document/product/460/36540">缩放</a></td>
-      <td>等比缩放、设定目标宽高缩放等多种方式</td>
-   </tr>
-   <tr>
-      <td><a href="https://cloud.tencent.com/document/product/460/36541">裁剪</a></td>
-      <td>普通裁剪、缩放裁剪、内切圆、人脸智能裁剪</td>
-   </tr>
-   <tr>
-      <td><a href="https://cloud.tencent.com/document/product/460/36542">旋转</a></td>
-      <td>自适应旋转、普通旋转</td>
-   </tr>
-   <tr>
-      <td><a href="https://cloud.tencent.com/document/product/460/36543">格式转换</a></td>
-      <td>格式转换、GIF 格式优化、渐进显示</td>
-   </tr>
-   <tr>
-      <td><a href="https://cloud.tencent.com/document/product/460/36544">质量变换</a></td>
-      <td>针对 JPG 和 WEBP 图片进行质量变换</td>
-   </tr>
-   <tr>
-      <td><a href="https://cloud.tencent.com/document/product/460/36545">高斯模糊</a></td>
-      <td>对图片进行模糊处理</td>
-   </tr>
-   <tr>
-      <td><a href="https://cloud.tencent.com/document/product/460/36546">锐化</a></td>
-      <td>对图片进行锐化处理</td>
-   </tr>
-   <tr>
-      <td>添加水印</td>
-      <td><a href="https://cloud.tencent.com/document/product/460/6930">图片水印</a>、<a href="https://cloud.tencent.com/document/product/460/6951">文字水印</a></td>
-   </tr>
-   <tr>
-      <td>获取图片信息</td>
-      <td><a href="https://cloud.tencent.com/document/product/460/6927">基本信息</a>、<a href="https://cloud.tencent.com/document/product/460/6926">EXIF 信息</a>、<a href="https://cloud.tencent.com/document/product/460/6928">主色调</a></td>
-   </tr>
-   <tr>
-      <td><a href="https://cloud.tencent.com/document/product/460/36547">去除元信息</a></td>
-      <td>包括 EXIF 信息</td>
-   </tr>
-   <tr>
-      <td><a href="https://cloud.tencent.com/document/product/460/6929">快速缩略模板</a></td>
-      <td>快速实现图片格式转换、缩略、剪裁等功能，生成缩略图</td>
-   </tr>
-   <tr>
-      <td><a href="https://cloud.tencent.com/document/product/460/46823">样式设置</a></td>
-      <td>设置图片的样式，方便管理不同需求的图片</td>
-   </tr>
- </table>  
+## 使用方法
 
- 
+#### 使用数据万象控制台
 
+您可以使用数据万象控制台进行图片处理设置，详情请参见 [基础处理](https://cloud.tencent.com/document/product/460/46823)。
 
- >?
- >
- >- 您可使用 API 接口实现下载时处理，同时数据万象提供 [管道操作符](https://cloud.tencent.com/document/product/460/15293) 服务实现对图片按顺序进行多种处理。
- >- 基础图片处理目前提供10TB/月的免费额度，超出部分则按照正常收费，详情请查看 [计费与定价](https://cloud.tencent.com/document/product/460/6970#.E5.9F.BA.E7.A1.80.E5.9B.BE.E7.89.87.E5.A4.84.E7.90.86.E8.B4.B9.E7.94.A8) 文档。
+#### 使用 REST API
+
+您可以通过数据万象提供的 API 进行图片处理设置，详情请参见 [基础图片处理](https://cloud.tencent.com/document/product/460/6924) API 文档。
+
+## 限制说明
+
+- 支持格式：目前支持处理 JPG、BMP、GIF、PNG、WEBP 格式，并且支持 HEIF 格式的解码和处理。
+- 体积限制：处理图片原图大小不超过20MB、宽高不超过30000像素且总像素不超过2.5亿像素，处理结果图宽高设置不超过9999像素；针对动图，原图宽 x 高 x 帧数不超过2.5亿像素。
+- 动图帧数限制：GIF 帧数限制为300帧。

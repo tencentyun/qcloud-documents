@@ -44,7 +44,7 @@
   <tr align="center">
     <td style="text-align:center;vertical-align:middle;">Android</td>
     <td style="text-align:center;vertical-align:middle;">4.5</td>
-		<td style="text-align:center;vertical-align:middle;"><a href="http://dldir1.qq.com/hudongzhibo/xiaozhibo/xiaozhibo.apk">Click to install</a></td>
+		<td style="text-align:center;vertical-align:middle;"><a href="https://dldir1.qq.com/hudongzhibo/liteav/xiaozhibo.apk">Click to install</a></td>
 		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/1cb8096aef77bf9a16dba52476b322f6/image.png" /></td>
   </tr>
 </table>

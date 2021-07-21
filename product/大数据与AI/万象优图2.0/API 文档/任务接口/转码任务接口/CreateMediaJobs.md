@@ -17,12 +17,13 @@ Content-Type: application/xml
 <body>
 ```
 
->? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/) 文档）。
+>? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>
 
 
 #### 请求头
 
-此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
 #### 请求体
 该请求操作的实现需要有如下请求体。
@@ -42,46 +43,49 @@ Content-Type: application/xml
     </Output>
   </Operation>
   <QueueId></QueueId>
+  <CallBack></CallBack>
 </Request>
 ```
 
 具体的数据描述如下：
 
-| 节点名称（关键字） | 父节点 | 描述           | 类型      | 必选 |
+| 节点名称（关键字） | 父节点 | 描述           | 类型      | 是否必选 |
 | ------------------ | ------ | -------------- | --------- | ---- |
 | Request            | 无     | 保存请求的容器 | Container | 是   |
 
 Container 类型 Request 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Tag                | Request | 创建任务的Tag：Transcode                                | String    | 是   |
+| Tag                | Request | 创建任务的Tag：Transcode（转码）、Animation（动图）、SmartCover（智能封面）、Snapshot（截图）、Concat（拼接）                                | String    | 是   |
 | Input              | Request | 待操作的媒体信息                                         | Container | 是   |
-| Operation          | Request | 操作规则                                                | Container | 是   |
+| Operation          | Request | 操作规则，支持对单个文件执行多个不同任务，最多可填写6个                                                | Container | 是   |
 | QueueId            | Request | 任务所在的队列 ID                                         | String    | 是   |
+| CallBack           | Request | 回调地址                 | String    | 是   |
 
 Container 类型 Input 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点        | 描述            | 类型   | 必选 |
+| 节点名称（关键字） | 父节点        | 描述            | 类型   | 是否必选 |
 | ------------------ | ------------- | --------------- | ------ | ---- |
-| Object             | Request.Input | 媒体文件的名字 | String | 是   |
+| Object             | Request.Input | 媒体文件名 | String | 是   |
 
 Container 类型 Operation 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 必选 |
+| 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- |
 | Transcode                    | Request.Operation | 指定转码模板参数                                                        | Container | 否   |
 | Watermark                    | Request.Operation | 指定水印模板参数，同创建水印模板 CreateMediaTemplate <br/>接口的 Request.Watermark  | Container | 否   |
 | RemoveWatermark              | Request.Operation | 指定去除水印参数                                                         | Container | 否   |
-| TemplateId                   | Request.Operation | 指定的模版 ID                                                            | String    | 否   |
-| WatermarkTemplateId          | Request.Operation | 指定的水印模版 ID，可以传多个水印模板 ID                                      | String    | 否   |
+| TemplateId                   | Request.Operation | 指定的模板 ID                                        | String    | 否   |
+| WatermarkTemplateId          | Request.Operation | 指定的水印模板 ID，可以传多个水印模板 ID                                      | String    | 否   |
 | Output                       | Request.Operation | 结果输出地址                                                            | Container | 是   |
 
->!优先使用 TemplateId，无 TemplateId 时使用对应任务类型的参数。
+>! 优先使用 TemplateId，无 TemplateId 时使用对应任务类型的参数。
+>
 
 Container 类型 Transcode 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                      | 描述                                   | 类型      | 必选 |
+| 节点名称（关键字） | 父节点                      | 描述                                   | 类型      | 是否必选 |
 | ------------------ | :-------------------------- | -------------------------------------- | --------- | ---- |
 | Container          | Request.Operation.Transcode | 同创建转码模板 CreateMediaTemplate <br/>接口中的 Request.Container    | Container | 否   |
 | Video              | Request.Operation.Transcode | 同创建转码模板 CreateMediaTemplate <br/>接口中的 Request.Video        | Container | 否   |
@@ -93,18 +97,18 @@ Container 类型 RemoveWatermark 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                      | 描述                                   | 类型      | 必选 |
 | ------------------ | :-------------------------- | -------------------------------------- | --------- | ---- |
-| Dx                 | Request.Operation.RemoveWatermark |  距离左上角原点 x 偏移，[1, 4096]   | string | 是   |
-| Dy                 | Request.Operation.RemoveWatermark |  距离左上角原点 y 偏移，[1, 4096]   | string | 是   |
-| Width              | Request.Operation.RemoveWatermark |  宽，[1, 4096]                 | string | 是   |
-| Height             | Request.Operation.RemoveWatermark |  高，[1, 4096]                 | string | 是   |
+| Dx                 | Request.Operation.RemoveWatermark |  距离左上角原点 x 偏移，范围为[1, 4096]   | string | 是   |
+| Dy                 | Request.Operation.RemoveWatermark |  距离左上角原点 y 偏移，范围为[1, 4096]   | string | 是   |
+| Width              | Request.Operation.RemoveWatermark |  宽，范围为[1, 4096]                 | string | 是   |
+| Height             | Request.Operation.RemoveWatermark |  高，范围为[1, 4096]                 | string | 是   |
 
 Container 类型 Output 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                   | 描述                                                         | 类型   | 必选 |
+| 节点名称（关键字） | 父节点                   | 描述                                                         | 类型   | 是否必选 |
 | ------------------ | ------------------------ | ------------------------------------------------------------ | ------ | ---- |
-| Region             | Request.Operation.Output | 存储桶的园区                                                 | String | 是   |
+| Region             | Request.Operation.Output | 存储桶的地域                                                | String | 是   |
 | Bucket             | Request.Operation.Output | 存储结果的存储桶                                              | String | 是   |
-| Object             | Request.Operation.Output | 结果文件的名字                                              | String | 是   |
+| Object             | Request.Operation.Output | 输出结果的文件名                                             | String | 是   |
 
 
 
@@ -112,7 +116,7 @@ Container 类型 Output 的具体数据描述如下：
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/) 文档。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。
 
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
@@ -168,13 +172,14 @@ Container 节点 JobsDetail 的内容：
 | Code | Response.JobsDetail | 错误码，只有 State 为 Failed 时有意义 |  String |
 | Message | Response.JobsDetail | 错误描述，只有 State 为 Failed 时有意义 |  String |
 | JobId | Response.JobsDetail | 新创建任务的 ID |  String |
-| Tag | Response.JobsDetail | 新创建任务的 Tag：Transcode | String |
+| Tag | Response.JobsDetail | 新创建任务的 Tag：Transcode（转码）、Animation（动图）、SmartCover（智能封面）、Snapshot（截图）、Concat（拼接） | String |
 | State | Response.JobsDetail | 任务的状态，为 Submitted、Running、Success、Failed、Pause、Cancel 其中一个 |  String |
 | CreationTime | Response.JobsDetail | 任务的创建时间 |  String |
+| StartTime | Response.JobsDetail | 任务的开始时间 |  String |
 | EndTime | Response.JobsDetail | 任务的结束时间 |  String |
 | QueueId | Response.JobsDetail | 任务所属的队列 ID |  String |
 | Input | Response.JobsDetail | 该任务的输入资源地址 |  Container |
-| Operation | Response.JobsDetail | 该任务的规则 |  Container |
+| Operation | Response.JobsDetail | 该任务的规则，支持对单个文件执行多个不同任务，最多可填写6个 |  Container |
 
 Container 节点 Input 的内容：
 同请求中的 Request.Input 节点。
@@ -195,20 +200,20 @@ Container 节点 MediaInfo 的内容：
 
 #### 错误码
 
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/) 文档。
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
 
 ## 实际案例
 
-**使用转码模版 ID**
-
-#### 请求
+#### 请求1：使用转码模板 ID
 
 ```shell
 POST /jobs HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
+
+
 
 <Request>
   <Tag>Transcode</Tag>
@@ -222,7 +227,7 @@ Content-Type: application/xml
     <WatermarkTemplateId>t1318c5f428d474afba1797f84091cbe24</WatermarkTemplateId>
     <Output>
         <Region>ap-beijing</Region>
-        <Bucket>abc-1250000000</Bucket>
+        <Bucket>examplebucket-1250000000</Bucket>
         <Object>test-trans.mkv</Object>
     </Output>
     <RemoveWatermark>
@@ -233,10 +238,11 @@ Content-Type: application/xml
     </RemoveWatermark>
   </Operation>
   <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
+  <CallBack>https://www.callback.com</CallBack>
 </Request>
 ```
 
-#### 响应
+#### 响应1
 
 ```shell
 HTTP/1.1 200 OK
@@ -245,7 +251,9 @@ Content-Length: 230
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+
+
 
 <Response>
   <JobsDetail>
@@ -267,7 +275,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
         <WatermarkTemplateId>t1318c5f428d474afba1797f84091cbe24</WatermarkTemplateId>
         <Output>
             <Region>ap-beijing</Region>
-            <Bucket>abc-1250000000</Bucket>
+            <Bucket>examplebucket-1250000000</Bucket>
             <Object>test-trans.mkv</Object>
         </Output>
         <RemoveWatermark>
@@ -283,16 +291,18 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
 
 
 
-**使用转码处理参数**
 
-#### 请求
+
+#### 请求2：使用转码处理参数
 
 ```shell
 POST /jobs HTTP/1.1
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
+
+
 
 <Request>
   <Tag>Transcode</Tag>
@@ -359,7 +369,7 @@ Content-Type: application/xml
         <StartTime>0</StartTime>
         <EndTime>100.5</EndTime>
         <Image>
-            <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/shuiyin_2.png</Url>
+            <Url>http://examplebucket-1250000000.ci.ap-beijing.myqcloud.com/shuiyin_2.png</Url>
             <Mode>Proportion</Mode>
             <Width>10</Width>
             <Height>10</Height>
@@ -368,15 +378,16 @@ Content-Type: application/xml
     </Watermark>
     <Output>
       <Region>ap-beijing</Region>
-      <Bucket>abc-1250000000</Bucket>
+      <Bucket>examplebucket-1250000000</Bucket>
       <Object>test-trans.gif</Object>
     </Output>
   </Operation>
   <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
+  <CallBack>https://www.callback.com</CallBack>
 </Request>
 ```
 
-#### 响应
+#### 响应2
 
 ```shell
 HTTP/1.1 200 OK
@@ -385,7 +396,9 @@ Content-Length: 230
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+
+
 
 <Response>
   <JobsDetail>
@@ -394,6 +407,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
     <JobId>jabcxxxxfeipplsdfwe</JobId>
     <State>Submitted</State>
     <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
+    <StartTime></StartTime>
     <EndTime></EndTime>
     <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
     <Tag>Transcode</Tag>
@@ -460,7 +474,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
             <StartTime>0</StartTime>
             <EndTime>100.5</EndTime>
             <Image>
-                <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/shuiyin_2.png</Url>
+                <Url>http://examplebucket-1250000000.ci.ap-beijing.myqcloud.com/shuiyin_2.png</Url>
                 <Mode>Proportion</Mode>
                 <Width>10</Width>
                 <Height>10</Height>
@@ -469,7 +483,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
         </Watermark>
         <Output>
             <Region>ap-beijing</Region>
-            <Bucket>abc-1250000000</Bucket>
+            <Bucket>examplebucket-1250000000</Bucket>
             <Object>test-trans.mp4</Object>
         </Output>
     </Operation>

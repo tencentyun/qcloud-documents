@@ -188,8 +188,7 @@ public function delete($table_group_id, $table_name, array $record, $ReturnValue
 ```
 
 
-<span id = "dsyff"></span>
-## demo.php 使用方法
+## [demo.php 使用方法](id:dsyff)
 为方便用户快速体验 TcaplusDB SDK 功能， 目前所有接口已经封闭成函数统一放在 demo.php，共8个函数，可以按需执行对应的函数，只需要注释其它函数即可，执行命令如下：
 ```
 php -f  "demo.php"

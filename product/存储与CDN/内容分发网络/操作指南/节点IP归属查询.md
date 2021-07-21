@@ -1,4 +1,3 @@
-
 ## 功能介绍
 内容分发网络（CDN）为您提供了 IP 归属查询工具，您可以通过此工具查询指定的 IP 是否为腾讯云 CDN 全球加速节点，以及 IP 所在加速服务区域、省份及运营商信息。
 ## 适用场景
@@ -8,7 +7,7 @@
 
 ## 操作指南
 ### 查询方式
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧目录的【诊断工具】>【IP 归属查询】，进入功能页。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧目录的【节点查询】，进入功能页。
 ![](https://main.qcloudimg.com/raw/2cef9ef14588bf79841e072d5eecc04a.png)
 ### 使用约束
 - 在文本框中输入多条需要验证的 IP 地址，一行一个。
@@ -23,8 +22,7 @@
 ### IP 归属于中国境外
 ![](https://main.qcloudimg.com/raw/df019c3d710a6a206e1eefa90338403d.png)
 ### IPv6 归属查询
->! IPv6 加速目前处于申请内测阶段，如有 IPv6 加速需求，可单击 [提交申请](https://cloud.tencent.com/apply/p/own2eu41dg8)。
->
+
 ![](https://main.qcloudimg.com/raw/d6489b1f3f74ae740873f50a2fd42c3b.png)
 
 

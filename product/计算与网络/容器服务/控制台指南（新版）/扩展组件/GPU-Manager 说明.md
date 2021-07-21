@@ -8,9 +8,9 @@ GPU Manager 提供一个 All-in-One 的 GPU 管理器，基于 Kubernetes Device
 ### 组件功能
 - **拓扑分配**：提供基于 GPU 拓扑分配功能，当用户分配超过1张 GPU 卡的应用，可以选择拓扑连接最快的方式分配 GPU 设备。
 - **GPU 共享**：允许用户提交小于1张卡资源的任务，并提供 QoS 保证。
-- **应用 GPU 指标的查询**：用户可以访问主机端口（默认为 5678）的 `/metrics` 路径，可以为 Prometheus 提供 GPU 指标的收集功能，访问 `/usage` 路径可以进行可读性的容器状况查询。
+- **应用 GPU 指标的查询**：用户可以访问主机端口（默认为 5678）的 `/metric` 路径，可以为 Prometheus 提供 GPU 指标的收集功能，访问 `/usage` 路径可以进行可读性的容器状况查询。
 
-### 部署在集群内 kubernetes 对象
+### 部署在集群内的 Kubernetes 对象
 
 
 | Kubernetes 对象名称        | 类型         | 建议预留资源 | 所属 Namespaces |

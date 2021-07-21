@@ -3,7 +3,7 @@
 ## 前提条件
 - kdc 服务已搭建成功。
 - Hadoop 相关的 principals 已创建完成。
-- keytab 文件分发到了各台服务器上（假设 keytab 文件路径为`/var/krb5kdc/emr.keytab`）。
+- keytab 文件分发到了各台服务器上（假设 keytab 文件路径为 `/var/krb5kdc/emr.keytab`）。
 
 ## Hadoop 接入 kerberos
 Hadoop 主要包含 HDFS 与 Yarn 服务，需要分别修改这两部分配置并重启服务进程。

@@ -1,6 +1,6 @@
 
 ## 接口描述
-**描述**：通过会议 ID 修改直播配置信息。
+**描述**：通过会议 ID 修改直播配置信息，目前暂不支持 OAuth2.0 鉴权访问。
 **调用方式**：PUT
 **接口请求域名**：
 ```plaintext
@@ -21,14 +21,21 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 
 #### 直播配置对象
 
-| 参数名称             | 参数类型 | 参数描述         |
-| -------------------- | -------- | ---------------- |
-| live_subject         | String   | 直播主题。         |
-| live_summary         | String   | 直播简介。         |
-| enable_live_password |Boolean   | 是否开启直播密码。 |
-| live_password        | string   | 直播密码。         |
-| enable_live_im       | Boolean  | 是否开启直播互动。 |
-| enable_live_replay   | Boolean  | 是否开启直播回放。 |
+| 参数名称             | 必选 |参数类型 | 参数描述         |
+| -------------------- | -------- | -------- | ---------------- |
+| live_subject         | 否| String   | 直播主题。         |
+| live_summary         | 否|String   | 直播简介。         |
+| enable_live_password |否|Boolean   | 是否开启直播密码。<br>true：开启<br>false：不开启 |
+| live_password        |否|String   | 直播密码，当设置开启直播密码时，该参数必填。         |
+| enable_live_im       | 否|Boolean  | 是否开启直播互动。<br>true：开启<br>false：不开启 |
+| enable_live_replay   | 否|Boolean  | 是否开启直播回放。<br>true：开启<br>false：不开启 |
+| live_watermark   | 否|object  |直播水印对象信息。     |
+
+**直播水印信息 live_watermark_info**
+
+| **参数名称**  |  **必选** |**参数类型** | **参数描述**                              |
+| ------------- | ------------ | ------------ | ----------------------------------------- |
+| watermark_opt |否| integer      | 水印选项，默认为0。<br> 0：默认水印<br> 1：无水印 |
 
 ## 输出参数
 无输出参数，则成功返回空消息体，失败返回 [错误码](https://cloud.tencent.com/document/product/1095/43704) 和错误信息。
@@ -51,7 +58,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 ## 示例
 #### 输入示例
 ```http
-PUT https://api.meeting.qq.com/v1/meetings/${meeting_id}/live_play/config
+PUT https://api.meeting.qq.com/v1/meetings/{meeting_id}/live_play/config
 
 {
     "userid": "test_userid",
@@ -62,9 +69,13 @@ PUT https://api.meeting.qq.com/v1/meetings/${meeting_id}/live_play/config
    	 "enable_live_password": true,
    	 "live_password": "654321",
    	 "enable_live_im": true,
-   	 "enable_live_replay": true
+   	 "enable_live_replay": true，
+     "live_watermark": {
+            "watermark_opt": 0
+        }
     }
 }
+
 ```
 
 #### 输出示例（失败时返回）

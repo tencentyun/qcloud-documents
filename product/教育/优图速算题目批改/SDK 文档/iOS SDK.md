@@ -32,7 +32,6 @@ param.secretKey = @"";
 }];
 ```
 
-
 ### 3. 签名
 SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/api/598/13895) 或者 SDK 外部签名返回到客户端。
 - 内部签名：SDK 内部通过 SecretId 和 SecretKey 计算签名，用户无需关心签名细节。

@@ -66,7 +66,7 @@ https://github.com/TencentServerless/scf_vscode_demo1.git
 ![](https://main.qcloudimg.com/raw/30cd6a9c4ce2c70cebfd0e1316781594.png)        
 
 
-<span id="create"></span>
+[](id:create)
 #### 源码创建函数
 1. 请前往 [活动包下载地址](https://github.com/TencentServerless/scf_vscode_demo1.git )，选择【Clone or download】>【Download ZIP】。如下图所示：
 ![](https://main.qcloudimg.com/raw/c960496a9f897256383b7962763caa26.png)

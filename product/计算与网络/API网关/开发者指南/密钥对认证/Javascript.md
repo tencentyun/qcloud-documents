@@ -28,7 +28,7 @@ used...
 */
 var nowDate = new Date(); 
 
-var dateTime = nowDate.toGMTString();
+var dateTime = nowDate.toUTCString();
 //dateTime = "Mon, 19 Mar 2018 12:00:44 GMT"
 var SecretId = 'your SecretId'; // 密钥对的 SecretId
 var SecretKey = 'your SecretKey'; // 密钥对的 SecretKey

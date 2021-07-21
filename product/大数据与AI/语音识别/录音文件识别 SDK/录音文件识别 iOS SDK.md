@@ -2,25 +2,18 @@ iOS SDK 接入请观看视频：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1692-12774?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 开发准备  
-
 ### SDK 获取
-
-录音文件识别的 iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/record/QCloudSDK_iOS.zip)
+录音文件识别的 iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_IOS_v2.6.0.zip)。
 
 ### 使用须知
-
-+ QCloudSDK 支持 **iOS 9.0** 及以上版本。
-+ 录音文件识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
-+ 从控制台获取 AppID、SecretID、SecretKey、ProjectId 。
-+ 运行 Demo 必须设置 AppID、SecretID、SecretKey、ProjectId 。
-+ 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) ，获取 AppID、SecretID 与 SecretKey 。
+- QCloudSDK 支持 **iOS 9.0** 及以上版本。
+- 录音文件识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
+- 运行 Demo 必须设置 AppID、SecretID、SecretKey、ProjectId，可在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
 
 ### SDK 导入
-
-iOS SDK 压缩包名称为：QCloudSDK_v2.0.7.zip，压缩包中包含 Sample Code 和 QCloudSDK 。
+下载并解压 iOS SDK 压缩包，压缩包中包含 Sample Code 和 QCloudSDK。
 
 ### 工程配置
-
 在工程` info.plist` 添加以下设置：
 1. **设置 NSAppTransportSecurity 策略，添加如下内容：**
 ```objective-c
@@ -58,8 +51,7 @@ iOS SDK 压缩包名称为：QCloudSDK_v2.0.7.zip，压缩包中包含 Sample Co
 ![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
 
 ### 类说明
-
-**QCloudFileRecognizer 初始化说明**
+#### QCloudFileRecognizer 初始化说明
 **QCloudFileRecognizer** 是一句话识别入口类，提供两种初始化方法。
 ```objective-c
 /**
@@ -76,8 +68,9 @@ iOS SDK 压缩包名称为：QCloudSDK_v2.0.7.zip，压缩包中包含 Sample Co
  */
 - (instancetype)initWithAppId:(NSString *)appid secretId:(NSString *)secretId secretKey:(NSString *)secretKey;
 ```
-**QCloudConfig 初始化方法说明**
-腾讯云 AppId，腾讯云 secretId，腾讯云 secretKey，腾讯云 projectId 从控制台获取。
+
+#### QCloudConfig 初始化方法说明
+腾讯云 AppId、腾讯云 secretId、腾讯云 secretKey、腾讯云 projectId 从控制台获取。
 ```objective-c
 /**
  * 初始化方法
@@ -92,7 +85,7 @@ iOS SDK 压缩包名称为：QCloudSDK_v2.0.7.zip，压缩包中包含 Sample Co
                     projectId:(NSString *)projectId;
 ```
 
-**<div id="QCloudFileRecognizerDelegate">QCloudFileRecognizerDelegate 协议说明</div>**
+#### QCloudFileRecognizerDelegate 协议说明[](id:QCloudFileRecognizerDelegate)
 此 delegate 为录音文件识别相关回调，调用者需要实现此 delegate 获取识别结果、开始录音、结束录音事件。
 ```objective-c
 @protocol QCloudFileRecognizerDelegate <NSObject>
@@ -118,8 +111,9 @@ iOS SDK 压缩包名称为：QCloudSDK_v2.0.7.zip，压缩包中包含 Sample Co
 - (void)fileRecognizer:(QCloudFileRecognizer *_Nullable)recognizer requestId:(NSInteger)requestId error:(nullable NSError *)error resultData:(nullable NSDictionary *)resultData;
 @end
 ```
+
 ## 示例
-### 1. **创建 QCloudFileRecognizer 实例** 
+### 1. 创建 QCloudFileRecognizer 实例 
 ```objective-c
   QCloudFileRecognizer *recognizer = [[QCloudFileRecognizer alloc] initWithAppId:appId 
   								        secretId:secretId 
@@ -128,8 +122,7 @@ iOS SDK 压缩包名称为：QCloudSDK_v2.0.7.zip，压缩包中包含 Sample Co
  recognizer.delegate = self;
 ```
 ### 2. 实现此 [QCloudFileRecognizerDelegate](#QCloudFileRecognizerDelegate) 协议方法
-### 3. **调用方式示例**
-
+### 3. 调用方式示例
 + ##### 通过语音 url 调用
 ```objective-c
  (void)recognizeWithUrl {

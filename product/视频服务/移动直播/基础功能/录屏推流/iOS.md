@@ -1,7 +1,7 @@
 
 ## 概述
 
-录屏功能是 iOS 10 新推出的特性，苹果在 iOS 9 的 ReplayKit 保存录屏视频的基础上，增加了视频流实时直播功能，官方介绍见 [Go Live with ReplayKit](http://devstreaming.apple.com/videos/wwdc/2016/601nsio90cd7ylwimk9/601/601_go_live_with_replaykit.pdf)。iOS 11 增强为 [ReplayKit2](https://developer.apple.com/videos/play/wwdc2017/606/)，进一步提升了 Replaykit 的易用性和通用性，并且可以对整个手机实现屏幕录制，并非只是支持 ReplayKit 功能，因此录屏推流建议直接使用 iOS 11 的 ReplayKit2 屏幕录制方式。系统录屏采用的是扩展方式，扩展程序有单独的进程，iOS 系统为了保证系统流畅，给扩展程序的资源相对较少，扩展程序内存占用过大也会被 Kill 掉。腾讯云 LiteAV SDK 在原有直播的高质量、低延迟的基础上，进一步降低系统消耗，保证了扩展程序稳定。
+录屏功能是 iOS 10 新推出的特性，苹果在 iOS 9 的 ReplayKit 保存录屏视频的基础上，增加了视频流实时直播功能。iOS 11 增强为 [ReplayKit2](https://developer.apple.com/videos/play/wwdc2017/606/)，进一步提升了 Replaykit 的易用性和通用性，并且可以对整个手机实现屏幕录制，并非只是支持 ReplayKit 功能，因此录屏推流建议直接使用 iOS 11 的 ReplayKit2 屏幕录制方式。系统录屏采用的是扩展方式，扩展程序有单独的进程，iOS 系统为了保证系统流畅，给扩展程序的资源相对较少，扩展程序内存占用过大也会被 Kill 掉。腾讯云 LiteAV SDK 在原有直播的高质量、低延迟的基础上，进一步降低系统消耗，保证了扩展程序稳定。
 
 >!本文主要介绍 iOS 11 的 ReplayKit2 录屏使用 SDK 推流的方法，涉及 SDK 的使用介绍同样适用于其它方式的自定义推流。更详细的使用可参考 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) 里 ReplaykitUpload 文件夹的示例代码。
 
@@ -13,9 +13,9 @@
 
 使用步骤：
 1. 打开控制中心，长按屏幕录制按钮，选择【视频云工具包】。
-2. 打开【视频云工具包】>【录屏直播】，输入推流地址或单击【New】自动获取推流地址，单击【开始推流】。
+2. 打开【视频云工具包】>【推流演示（录屏推流）】，输入推流地址或单击【New】自动获取推流地址，单击【开始推流】。
 
-![](https://main.qcloudimg.com/raw/24bb380c6d9a747db4305b3f3edb1b5e.png)
+![](https://main.qcloudimg.com/raw/822ccd7c5acbcbf25e8fb148a6db74d7.png)
 
 推流设置成功后，顶部通知栏会提示推流开始，此时您可以在其它设备上看到该手机的屏幕画面。单击手机状态栏的红条，即可停止推流。
 
@@ -66,15 +66,15 @@ static NSString *s_rtmpUrl;
     config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE; //自定义音频模式
     config.audioSampleRate = AUDIO_SAMPLE_RATE_44100;   //系统录屏的音频采样率为44100
     config.audioChannels   = 1;
-		
-		//config.autoSampleBufferSize = YES;
-		config.autoSampleBufferSize = NO;
-		config.sampleBufferSize = CGSizeMake(544， 960);
+        
+        //config.autoSampleBufferSize = YES;
+        config.autoSampleBufferSize = NO;
+        config.sampleBufferSize = CGSizeMake(544， 960);
     config.homeOrientation = HOME_ORIENTATION_DOWN;
     
     s_txLivePublisher = [[TXLivePush alloc] initWithConfig:config];
     s_txLivePublisher.delegate = self;
-	//[s_txLivePublisher startPush:s_rtmpUrl];
+    //[s_txLivePublisher startPush:s_rtmpUrl];
 }
 
 ```
@@ -92,10 +92,10 @@ static NSString *s_rtmpUrl;
 ```objective-c
   static NSString* s_resolution; //SD(标清), HD(高清), FHD(超清)
   static BOOL s_landScape; //YES:横屏， NO:竖屏
-	
+    
   CGSize screenSize = [[UIScreen mainScreen] currentMode].size;
     config.autoSampleBufferSize = NO;
-		config.homeOrientation = HOME_ORIENTATION_DOWN;
+        config.homeOrientation = HOME_ORIENTATION_DOWN;
 
     if ([s_resolution isEqualToString:@"SD"]) { //标清
         config.sampleBufferSize = CGSizeMake(368, (uint)(360 * screenSize.height / screenSize.width));
@@ -143,7 +143,7 @@ Replaykit 会将音频和视频都以回调的方式传给`-[SampleHandler proce
         {
                 if (!CMSampleBufferIsValid(sampleBuffer))
                     return;
-			//保存一帧在 startPush 时发送,防止推流启动后或切换横竖屏因无画面数据而推流不成功
+            //保存一帧在 startPush 时发送,防止推流启动后或切换横竖屏因无画面数据而推流不成功
                 if (s_lastSampleBuffer) {
                     CFRelease(s_lastSampleBuffer);
                     s_lastSampleBuffer = NULL;
@@ -271,7 +271,8 @@ SDK 事件监听需要设置`TXLivePush`的 delegate 属性，该 delegate 遵�
 结束推流后，直播扩展进程可能会被系统回收，所以需要在此处做好清理工作。
 
 
-### <span id="accessory">附: 扩展与宿主 App 之间的通信与数据传递方式参考</span>
+[](id:accessory)
+### 附: 扩展与宿主 App 之间的通信与数据传递方式参考
 ReplayKit2 录屏只唤起 upload 直播扩展，直播扩展不能进行 UI 操作，也不适于做复杂的业务逻辑，因此通常宿主 App 负责鉴权及其它业务逻辑，直播扩展只负责进行屏幕的音画采集与推流发送，扩展就经常需要与宿主 App 之间进行数据传递与通信。
 
 **1. 发本地通知**
@@ -323,7 +324,7 @@ ReplayKit2 录屏只唤起 upload 直播扩展，直播扩展不能进行 UI 操
                                     kDarvinNotificationNamePushStart,
                                     NULL,
                                     CFNotificationSuspensionBehaviorDeliverImmediately);
-																		
+                                                                        
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleReplayKit2PushStartNotification:) name:@"Cocoa_ReplayKit2_Push_Start" object:nil];
 
 
@@ -361,7 +362,7 @@ static void onDarwinReplayKit2PushStart(CFNotificationCenterRef center,
 ```
 
 ## 常见问题
-ReplayKit2 屏幕录制在 iOS 11 新推出功能，比较少官方文档并且存在着一些问题每个版本的系统都在不断修复完善中。以下是一些使用中的常见现象或问题：
+ReplayKit2 屏幕录制在 iOS 11 新推出功能，比较少官方文档，并且存在着一些问题每个版本的系统都在不断修复完善中。以下是一些使用中的常见现象或问题：
 1. **系统有声音在播放但观众端无法听到声音？**
 系统在做屏幕音频采集时，在从 home 界面切到有声音播放的 App 时才会采集声音，从有声音播放的 App 切换到无声音播放的 App 时，即使原 App 还在播放声音系统也不会进行音频采集，此时需要从 home 界面重新进入到有声音播放的 App 时系统才会重新采集。
 

@@ -11,8 +11,7 @@ SDK 版本判断方法如下：
 
 若数据订阅 SDK 版本为2.8.0及以下，请执行 [步骤2](#Step2)。
 
-<span id="Step2"></span>
-## 步骤2：升级 SDK 版本
+## [步骤2：升级 SDK 版本](id:Step2)
 1. 在 [数据订阅 SDK](https://cloud.tencent.com/document/product/571/8776#.E6.95.B0.E6.8D.AE.E8.AE.A2.E9.98.85-sdk-.E4.B8.8B.E8.BD.BD) 下载最新的 SDK 版本，并替换2.8.0及以下版本的数据订阅 SDK。
 2. 替换数据订阅 SDK 版本后，参考如下代码中“程序改动点”， 增加设置订阅 channel 所属 region 的一行代码即可。
 

@@ -34,7 +34,7 @@
 
 Web 上传 Demo 部署在 SCF 上，并由 API 网关提供服务入口。为了方便开发者搭建服务，我们提供了快捷部署脚本，使用方法如下。
 
-### 步骤1：准备腾讯云 CVM<span id="p1"></span>
+### 步骤1：准备腾讯云 CVM[](id:p1)
 
 部署脚本需要运行在一台腾讯云 CVM 上，要求如下：
 
@@ -53,7 +53,7 @@ Web 上传 Demo 部署在 SCF 上，并由 API 网关提供服务入口。为了
 
 请参考 [快速入门 - 步骤1](https://cloud.tencent.com/document/product/266/8757#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.BC.80.E9.80.9A.E4.BA.91.E7.82.B9.E6.92.AD) 开通云点播服务。
 
-### 步骤3：获取 API 密钥和 APPID<span id="p3"></span>
+### 步骤3：获取 API 密钥和 APPID[](id:p3)
 
 Web 上传 Demo 服务的部署和运行过程需要使用到开发者的 API 密钥（即 SecretId 和 SecretKey）和 APPID。
 - 如果还未创建过密钥，请参见 [创建密钥文档](https://cloud.tencent.com/document/product/598/40488#.E5.88.9B.E5.BB.BA.E4.B8.BB.E8.B4.A6.E5.8F.B7-api-.E5.AF.86.E9.92.A5) 生成新的 API 密钥；如果已创建过密钥，请参见 [查看密钥文档](https://cloud.tencent.com/document/product/598/40488#.E6.9F.A5.E7.9C.8B.E4.B8.BB.E8.B4.A6.E5.8F.B7-api-.E5.AF.86.E9.92.A5) 获取 API 密钥。
@@ -85,7 +85,7 @@ ubuntu@VM-69-2-ubuntu:~$ export SECRET_ID=AKxxxxxxxxxxxxxxxxxxxxxxx; export SECR
 [2020-04-25 23:03:53]请在浏览器访问以下地址进行体验：https://service-xxxxxxxx-125xxxxxxx.gz.apigw.tencentcs.com/release/web_upload_html
 ```
 
-<span id="p4"></span>复制输出日志中的 Web 页面地址（示例中的`https://service-xxxxxxxx-125xxxxxxx.gz.apigw.tencentcs.com/release/web_upload_html`）。
+[](id:p4)复制输出日志中的 Web 页面地址（示例中的`https://service-xxxxxxxx-125xxxxxxx.gz.apigw.tencentcs.com/release/web_upload_html`）。
 
 > !如果输出日志中出现如下所示的警告，一般是由于 CVM 无法立即解析刚部署好的服务域名，可尝试忽略该警告。
 >```
@@ -120,7 +120,7 @@ ubuntu@VM-69-2-ubuntu:~$ export SECRET_ID=AKxxxxxxxxxxxxxxxxxxxxxxx; export SECR
 | 上传页面     | web_upload_html | HTTP GET  | HTML 页面 |
 | 上传签名派发 | ugc_upload_sign | HTTP POST | 上传签名  |
 
-#### 上传页面<span id="p6"></span>
+#### 上传页面[](id:p6)
 
 您可以访问 [SCF 服务列表](https://console.cloud.tencent.com/scf/list) 来查看上传页面服务的详细信息：
 <img src="https://main.qcloudimg.com/raw/8480a9211c7d7cecebd105bb211858db.png" width="750">
@@ -201,7 +201,7 @@ VYapc9EYdoZLzGx0CglRW4N6kuhzZWNyZXRJZD1BS0lEZk5xMzl6dG5tYW1tVzBMOXFvZERia25hUjdZ
 ### 上传签名派发服务代码解读
 
 1. `main_handler()`为入口函数。
-2. 调用`parse_conf_file()`，从`config.json`文件中读取配置信息。配置项说明如下（详细参数请参见 [客户端上传签名参数](https://cloud.tencent.com/document/product/266/9221#.3Cspan-id-.3D.22p2.22.3E.3C.2Fspan.3E.E7.AD.BE.E5.90.8D.E5.8F.82.E6.95.B0.E8.AF.B4.E6.98.8E)）：
+2. 调用`parse_conf_file()`，从`config.json`文件中读取配置信息。配置项说明如下（详细参数请参见 [客户端上传签名参数](https://cloud.tencent.com/document/product/266/9221#.3Ca-id.3D.22p2.22.3E.3C.2Fa.3E.E7.AD.BE.E5.90.8D.E5.8F.82.E6.95.B0.E8.AF.B4.E6.98.8E)）：
 <table>
 <thead>
 <tr>

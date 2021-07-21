@@ -16,8 +16,9 @@
 ```dockerfile
 FROM centos:7
 RUN echo "ip_resolve=4" >> /etc/yum.conf
-#安装 KonaJDK 
-RUN yum update -y && yum install -y ./java-8-konajdk.rpm
+#安装 KonaJDK
+ADD ./java-8-konajdk.rpm /java-8-konajdk.rpm
+RUN yum update -y && yum install -y java-8-konajdk.rpm
 
 # 设置时区。这对于日志、调用链等功能能否在 TSF 控制台被检索到非常重要。
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
@@ -36,15 +37,17 @@ CMD ["sh", "-ec", "exec java ${JAVA_OPTS} -Xshare:off -jar ${jar}"]
 
 **2. 使用 JVM 监控功能**
 
-如果您希望使用 [JVM 监控](https://cloud.tencent.com/document/product/649/42872) 功能，则需要在 Dockerfile 中增加 JVM 监控组件 `TencentCloudJvmMonitor-1.1.0`（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.1.0-RELEASE.jar)），然后在 CMD 命令中启动该组件。
+如果您希望使用 [JVM 监控](https://cloud.tencent.com/document/product/649/55599) 功能，则需要在 Dockerfile 中增加 JVM 监控组件 `TencentCloudJvmMonitor-1.1.2`（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.1.2-RELEASE.jar)），然后在 CMD 命令中启动该组件。
 
 >!将 Spring Cloud 应用 JAR 包和 JVM 监控组件放在同级目录下，并在该目录下编写 Dockerfile。
 
 ```dockerfile
 FROM centos:7
 RUN echo "ip_resolve=4" >> /etc/yum.conf
-#安装 KonaJDK 
-RUN yum update -y && yum install -y ./java-8-konajdk.rpm
+#安装 KonaJDK
+ADD ./java-8-konajdk.rpm /java-8-konajdk.rpm
+RUN yum update -y && yum install -y java-8-konajdk.rpm
+
 # 设置时区。这对于日志、调用链等功能能否在 TSF 控制台被检索到非常重要。
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/timezone
@@ -56,7 +59,7 @@ COPY ${jar} ${workdir}
 WORKDIR ${workdir}
 
 # JVM 监控组件要和您的 Dockerfile 位于同一级目录，并创建 JVM 监控数据采集目录 
-ENV agentjar TencentCloudJvmMonitor-1.1.0-RELEASE.jar
+ENV agentjar TencentCloudJvmMonitor-1.1.2-RELEASE.jar
 # 若容器的基础版本为 非 gnu-libc 版本，如 Alpine，请添加如下语句
 # RUN ln -sf /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2
 COPY ${agentjar} ${workdir}
@@ -71,13 +74,14 @@ CMD ["sh", "-ec", "exec java -Xloggc:/data/tsf_apm/monitor/jvm-metrics/gclog.log
 
 **3. 使用文件配置**
 
-如果您希望使用 TSF [文件配置](https://cloud.tencent.com/document/product/649/30825) 功能，则需要在 Dockerfile 中增加文件配置组件 `tsf-consul-template-docker.tar.gz`（[下载地址](https://main.qcloudimg.com/raw/fa79996a5c995c35b9f948742df4d9d8/tsf-consul-template-docker.tar.gz)），然后在 CMD 启动命令中启动该组件。
+如果您希望使用 TSF [文件配置](https://cloud.tencent.com/document/product/649/30825) 功能，则需要在 Dockerfile 中增加文件配置组件 `tsf-consul-template-docker.tar.gz`（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/spring%20cloud%20demo/tsf-consul-template-docker.tar.gz)），然后在 CMD 启动命令中启动该组件。
 
 ```dockerfile
 FROM centos:7
 RUN echo "ip_resolve=4" >> /etc/yum.conf
 #安装 KonaJDK 
-RUN yum update -y && yum install -y ./java-8-konajdk.rpm
+ADD ./java-8-konajdk.rpm /java-8-konajdk.rpm
+RUN yum update -y && yum install -y java-8-konajdk.rpm
 
 # 设置时区。这对于日志、调用链等功能能否在 TSF 控制台被检索到非常重要。
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime

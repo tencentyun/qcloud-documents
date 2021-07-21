@@ -1,6 +1,7 @@
-**录制变声混响：**
+#### 录制变声混响：
 
-```
+<dx-codeblock>
+::: android
 // 设置混响
 // TXRecordCommon.VIDOE_REVERB_TYPE_0 关闭混响
 // TXRecordCommon.VIDOE_REVERB_TYPE_1 KTV
@@ -25,6 +26,7 @@ mTXCameraRecord.setReverb(TXRecordCommon.VIDOE_REVERB_TYPE_1);
 // TXRecordCommon.VIDOE_VOICECHANGER_TYPE_10 重机械
 // TXRecordCommon.VIDOE_VOICECHANGER_TYPE_11 空灵
 mTXCameraRecord.setVoiceChangerType(TXRecordCommon.VIDOE_VOICECHANGER_TYPE_1);
-```
+:::
+</dx-codeblock>
 
 >?变声混响只针对录制人声有效，针对 BGM 无效。

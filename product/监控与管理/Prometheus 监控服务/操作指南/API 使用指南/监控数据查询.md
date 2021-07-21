@@ -1,0 +1,93 @@
+## 操作场景
+
+当我们有数据查询需求时，可以通过查询 API 请求监控数据。
+
+## APPID/Token 获取方式
+
+托管 Prometheus API 使用需要通过 `APPID` + `Token` 的方式进行鉴权访问。
+
+* [APPID 获取地址](https://console.cloud.tencent.com/developer)。
+* `Token` 从对应 Prometheus 实例的基本信息中获取。
+
+## 查询 API 接口
+
+```
+GET /api/v1/query
+POST /api/v1/query
+```
+
+## 查询参数
+
+* query=	&lt;string&gt;: Prometheus：查询表达式。
+* time=	&lt;rfc3339 | unix_timestamp&gt;： 时间戳， 可选。
+* timeout=	&lt;duration&gt;：检测超时时间， 可选。 默认由 `-query.timeout` 参数指定。
+
+## 简单查询示例
+
+我们可以使用下面的例子进行 API 数据查询，查询服务地址和认证信息可以在相应实例控制台查看：
+
+```
+curl -u "appid:token" 'http://IP:PORT/api/v1/query?query=up'
+```
+
+如果返回状态码为 401 请检查认证信息是否正确。
+
+```
+< HTTP/1.1 401 Unauthorized
+< Content-Length: 0
+```
+
+## 范围查询
+
+```
+GET /api/v1/query_range
+POST /api/v1/query_range
+```
+
+根据时间范围查询我们需要的数据是我们面临的最多的场景，这时我们我们需要用到 `/api/v1/query_range` 接口，示例如下：
+
+```
+$ curl -u "appid:token" 'http://IP:PORT/api/v1/query_range?query=up&start=2015-07-01T20:10:30.781Z&end=2015-07-01T20:11:00.781Z&step=15s'
+{
+   "status" : "success",
+   "data" : {
+      "resultType" : "matrix",
+      "result" : [
+         {
+            "metric" : {
+               "__name__" : "up",
+               "job" : "prometheus",
+               "instance" : "localhost:9090"
+            },
+            "values" : [
+               [ 1435781430.781, "1" ],
+               [ 1435781445.781, "1" ],
+               [ 1435781460.781, "1" ]
+            ]
+         },
+         {
+            "metric" : {
+               "__name__" : "up",
+               "job" : "node",
+               "instance" : "localhost:9091"
+            },
+            "values" : [
+               [ 1435781430.781, "0" ],
+               [ 1435781445.781, "0" ],
+               [ 1435781460.781, "1" ]
+            ]
+         }
+      ]
+   }
+}
+```
+
+## 自建 Grafana 添加数据源
+
+我们可以通过自己部署的 Grafana 添加托管的 Prometheus 为数据源，方便我们在自己的 Grafana 中查看数据，前提是需要保证它们在同一 VPC 内，保证网络是可以互相访问的。
+
+开启 BasicAuth 认证方法，并填写相应的认证信息即可，如下图配置。
+
+![](https://main.qcloudimg.com/raw/a76ccafa5a72a77f79bb4e82de49170a.jpg)
+
+

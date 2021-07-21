@@ -1,3 +1,5 @@
+
+
 ## 1. 接口描述
 接口请求域名： `iot.cloud.tencent.com/api/exploreropen/tokenapi`
 本接口（AppCreateDeviceBindToken）用于生成 Wi-Fi 配网任务的随机 Token。
