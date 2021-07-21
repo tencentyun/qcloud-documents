@@ -45,6 +45,11 @@ stringData:
   fs.cosn.userinfo.secretId:xxx
 ```
 
+```shell
+创建secret
+[root@master01 ~]# kubectl apply  -f secret.yaml
+secret/mysecret created
+```
 
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
@@ -59,7 +64,7 @@ spec:
       fs.cosn.bucket.region: ap-beijing
       fs.cosn.impl: org.apache.hadoop.fs.CosFileSystem
       fs.AbstractFileSystem.cosn.impl: org.apache.hadoop.fs.CosN
-      fs.cos.app.id: "your appid"
+      fs.cos.app.id: "${your appid}"
     encryptOptions:
       - name: fs.cosn.userinfo.secretKey
         valueFrom:
@@ -69,6 +74,8 @@ spec:
       - name: fs.cosn.userinfo.secretId
         valueFrom:
           secretKeyRef:
+            name: mysecret
+            key: fs.cosn.userinfo.secretId
 ```
 
 ```shell
@@ -100,8 +107,8 @@ spec:
     replicas: 1
   goosefsVersion:
     imagePullPolicy: Always
-    image: {img_uri}
-    imageTag: {tag}
+    image: ${img_uri}
+    imageTag: ${tag}
   tieredstore:
     levels:
       - mediumtype: MEM
@@ -131,8 +138,8 @@ spec:
         cpu: 8
   fuse:
     imagePullPolicy: Always
-    image: {fuse_uri}
-    imageTag: {tag_num}
+    image: ${fuse_uri}
+    imageTag: ${tag_num}
     env:
       MAX_IDLE_THREADS: "32"
     jvmOptions:
