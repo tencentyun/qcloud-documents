@@ -59,7 +59,7 @@ Spark Streaming 将连续数据抽象成 DStream（Discretized Stream），而 D
 <dx-tabs>
 :::向\sCKafka\s中生产消息
 
-目前 CKafka 支持 0.9.0.x、0.10.0.x、0.10.1.x、0.10.2.x 版本。这里使用 0.10.2.1 版本的 Kafka 依赖。
+这里使用 0.10.2.1 版本的 Kafka 依赖。
 
 1. 在 `build.sbt` 添加依赖：
 

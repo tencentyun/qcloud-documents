@@ -162,7 +162,7 @@ The request timed out in 30000ms.Please confirm your http server have enabled li
 - 仅支持同地域同地域（Region）下私有镜像仓库的镜像读取。
 
 #### 容器内文件读写权限
-- 默认 `/tmp` 可读可写，建议输出文件时选择 `/tmp`，其它目录的读写权限由镜像文件系统控制。
+- 默认 `/tmp` 可读可写，建议输出文件时选择 `/tmp`。
 - 避免使用其他用户的存在限制访问或执行的文件。
 - 容器内文件可写层存储空间限制为512M。
 

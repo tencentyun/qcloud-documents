@@ -1,10 +1,19 @@
-# TcAdapter 使用文档说明
+本页文档所描述功能，在 SDK 版本中支持情况如下：
+
+|          | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
+| -------- | ------------- | ------------ | ---------- | -------------- | ------------ | ------ |
+| 支持情况 | -             | -            | -          | -              | √            | -      |
+| SDK 下载  | 下载          | 下载         | 下载       | 下载           | 下载         | 下载   |
+
+不同版本 SDK 包含的更多能力可以参见 [这里](https://tcloud-doc.isd.com/document/product/1449/56978?!preview&!editLang=zh)。
+
+## 产品概述
 
 本文档是介绍腾讯云视立方 Web TcAdapter，它可以帮助腾讯云客户通过灵活的接口，快速实现第三方播放器与云点播能力的结合，实现视频播放功能。TcAdapter 支持获取视频基本信息、视频流信息、关键帧与缩略图信息等，支持私有加密，本文档适合有一定 Javascript 语言基础的开发人员阅读。
 
 
 
-## 1. 集成SDK
+## 集成SDK
 
 TcAdapter 提供以下两种集成方式：
 
@@ -28,7 +37,7 @@ import TcAdapter from 'tcadapter';
 
 
 
-## 2. 放置播放器容器
+## 放置播放器容器
 
 在需要展示播放器的页面加入容器，TcAdapter 仅需要承载播放视频的容器，播放样式和自定义功能可由第三方播放器或使用者自行实现
 
@@ -39,7 +48,7 @@ import TcAdapter from 'tcadapter';
 
 
 
-## 3. 使用sdk
+## 使用 SDK
 
 #### 检测当前环境是否支持TcAdapter
 
@@ -49,11 +58,11 @@ TcAdapter.isSupported();
 
 
 
-#### 初始化Adapter, 创建Adapter实例
+#### 初始化Adapter，创建Adapter实例
 
 **说明**
 
-初始化Adapter，初始化过程会请求腾讯云点播服务器，获取视频文件信息
+初始化 Adapter，初始化过程会请求腾讯云点播服务器，获取视频文件信息。
 
 **接口**
 
@@ -76,7 +85,7 @@ const adapter = new TcAdapter('player-container-id', {
 | hlsConfig | HlsConfig             | hls相关设置，可使用hls.js支持的任意参数          |
 | callback  | TcAdapterCallBack | 初始化完成回调，可以在此方法之后获取视频基本信息 |
 
-> 注：TcAdapter 底层基于 hls.js 实现，可以通过 HlsConfig 接收 hls.js 支持的任意参数，用于对播放行为的精细调整。
+>?TcAdapter 底层基于 hls.js 实现，可以通过 HlsConfig 接收 hls.js 支持的任意参数，用于对播放行为的精细调整。
 
 
 
@@ -200,7 +209,7 @@ adapter.on(TcAdapter.TcAdapterEvents.Error, function(error) {
 
 #### 获取 Hls 实例
 
-**说明**：adapter底层基于 hls.js 实现，可以通过 adapter 实例访问到 hls 实例以及实例上的属性和方法，用于实现对播放流程的精细控制
+**说明**：adapter 底层基于 hls.js 实现，可以通过 adapter 实例访问到 hls 实例以及实例上的属性和方法，用于实现对播放流程的精细控制。
 
 ```javascript
 adapter.on('hlsready', () => {
@@ -209,13 +218,13 @@ adapter.on('hlsready', () => {
 })
 ```
 
-> 参考链接：https://github.com/video-dev/hls.js/
+>?参见 [hls.js](https://github.com/video-dev/hls.js/) 链接。
 
-
-
-#### 例1：在 React 中使用 TcAdapter 
-
-> 查看示例：https://github.com/tcplayer/tcadapter-combine-video
+<dx-tabs>
+::: 示例1：在\sReact\s中使用\sTcAdapter 
+<dx-alert infotype="explain" title="">
+参阅更多 [示例](https://github.com/tcplayer/tcadapter-combine-video)。
+</dx-alert>
 
 ```javascript
 import { useEffect, useRef } from 'react';
@@ -261,11 +270,11 @@ function App() {
 export default App;
 
 ```
-
-#### 例2: tcadapter 与 videojs 结合
-
-> 查看示例：https://github.com/tcplayer/tcadapter-combine-videojs
-
+:::
+::: 示例2:\stcadapter\s与\svideojs\s结合
+<dx-alert infotype="explain" title="">
+参阅更多 [示例](https://github.com/tcplayer/tcadapter-combine-videojs)。
+</dx-alert>
 ```javascript
 // 1. videojs 播放 hls 会使用 @videojs/http-streaming，所以我们开发一套使用 tcadapter 播放的策略覆盖原有逻辑（也可以直接修改 @videojs/http-streaming 内部逻辑）
 
@@ -364,3 +373,7 @@ mountHlsProvider();
 export default Adapter;
 
 ```
+:::
+</dx-tabs>
+
+

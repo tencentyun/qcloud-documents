@@ -30,8 +30,10 @@
 
 ## 申请 Edge 设备
 1. 登录 [SD-WAN 接入服务控制台](https://console.cloud.tencent.com/sas/edge)，并在 “Edge 设备”页面上方，单击【新建】。
-2. 在“新建 EDGE” 对话框中，编辑 Edge 名称、并选择带宽峰值、带宽时长、申请数量等申请信息，并填写收货信息，填写完后，单击【确定】。
-![](https://main.qcloudimg.com/raw/1813ea942315e8134c84e07e97e7765e.png)
+2. 在【新建Edge】页签中，填写设备名称，选择硬件规格等信息。
+![](https://main.qcloudimg.com/raw/0fc9270402447ad91f0b54a167eea902.png)
+3. 单击下一步，选择申请数量并填写收货信息后单击【确定】。
+![](https://main.qcloudimg.com/raw/5326248cff7f9cbc8ff617da952eff74.png)
 
 ## 安装 Edge 设备
 收到 Edge 设备后，您需要安装 Edge 设备以将本地分支接入腾讯云网络。

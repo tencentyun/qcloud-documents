@@ -7,9 +7,9 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 | API                                                 | 功能描述                |
 | --------------------------------------------------- | :---------------------- |
 | [sharedInstance()](#shareInstance)                  | 创建 OcrSDKKit 的单例     |
-| [clearInstance()](#clearInstance())                 | 主动释放资源            |
+| [clearInstance()](#clearInstance)                 | 主动释放资源            |
 | [getVersion()](#getVersion())                       | 获取当前 SDK 的版本号信息 |
-| [loadSDKConfig](#loadSDKConfig())                   | 初始化 SDK 配置信息       |
+| [loadSDKConfig](#loadSDKConfig)                   | 初始化 SDK 配置信息       |
 | [updateFederationToken()](#updateFederationToken()) | 主动更新临时密钥        |
 | [startProcessOcr()](#startProcessOcr())             | 启动 OCR 识别             |
 

@@ -1,19 +1,19 @@
 ## 产品概述
 
-超级播放器 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开放的对接云 PAAS 资源的播放器插件，常用于有自定义播放器功能需求的用户。超级播放器SDK套件通过 fileId + pSign 向腾讯云视频后台请求播放信息，SDK对返回的视频数据解密后进行播放，保护视频信息安全。
+超级播放器 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开放的对接云 PAAS 资源的播放器插件，常用于有自定义播放器功能需求的用户。超级播放器SDK套件通过 fileId + pSign 向腾讯云视频后台请求播放信息，SDK 对返回的视频数据解密后进行播放，保护视频信息安全。
 
-## SDK下载
+## SDK下载[](id:sdkDownload)
 
-超级播放器 Adapter SDK和Demo项目下载地址[TXCPlayerAdapterSDK_iOS](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_iOS.zip)。 
+超级播放器 Adapter SDK和Demo项目下载地址是 [TXCPlayerAdapterSDK_iOS](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_iOS.zip)。 
 
 ## 阅读对象
 
 本文档部分内容为腾讯云专属能力，使用前请开通 [腾讯云](https://cloud.tencent.com) 相关服务，未注册用户可注册账号 [免费试用](https://cloud.tencent.com/login)。
 
-## 集成指引
+## 集成指引[](id:guide)
 
 - **环境要求**
-  需要配置支持http请求，配置方式：在项目的info.plist文件中添加App Transport Security Settings->Allow Arbitrary Loads设置为YES。
+  需要配置支持 http 请求，配置方式：在项目的 info.plist 文件中添加 App Transport Security Settings->Allow Arbitrary Loads 设置为 YES。
 
 - **组件依赖**
 
@@ -45,7 +45,7 @@ NSString *pSign = self.pSignTextView.text;
 TXCPlayerAdapter *adapter = [TXCPlayerAdapter shareAdapterWithAppId:appId];
 ```
 
-请求视频信息和播放
+请求视频信息和播放：
 
 ```objective-c
 id<ITXCPlayerAssistorProtocol> assistor = [TXCPlayerAdapter createPlayerAssistorWithFileId:fileId pSign:pSign];
@@ -74,7 +74,7 @@ id<ITXCPlayerAssistorProtocol> assistor = [TXCPlayerAdapter createPlayerAssistor
 }
 ```
 
-使用完后销毁Player
+使用完后销毁 Player：
 
 ```objective-c
 [TXCPlayerAdapter destroy];
@@ -82,13 +82,13 @@ id<ITXCPlayerAssistorProtocol> assistor = [TXCPlayerAdapter createPlayerAssistor
 
 
 
-## SDK接口列表
+## SDK 接口列表 [](id:sdkList)
 
-#### 初始化Adatper
+#### 初始化 Adatper
 
 **说明**
 
-初始化Adapter，单例。
+初始化 Adapter，单例。
 
 **接口**
 
@@ -102,7 +102,7 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 
 
-#### 销毁Adatper
+#### 销毁 Adatper
 
 **说明**
 
@@ -120,7 +120,7 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 **说明**
 
-通过播放器辅助类可以获取播放fileId相关信息以及处理DRM加密接口等。
+通过播放器辅助类可以获取播放 fileId 相关信息以及处理 DRM 加密接口等。
 
 **接口**
 
@@ -174,7 +174,7 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 **说明**
 
-获取视频信息， 必须是在id<ITXCPlayerAssistorProtocol>.requestVideoInfo回调之后才生效。
+获取视频信息， 必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
 
 **接口**
 
@@ -200,7 +200,7 @@ TXCVideoBasicInfo：参数如下
 
 **说明**
 
-获取视频流信息列表，必须是在id<ITXCPlayerAssistorProtocol>.requestVideoInfo回调之后才生效。
+获取视频流信息列表，必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
 
 **接口**
 
@@ -230,7 +230,7 @@ TXCSubStreamInfo
 
 **说明**
 
-获取视频关键帧打点信息，必须是在id<ITXCPlayerAssistorProtocol>.requestVideoInfo回调之后才生效。
+获取视频关键帧打点信息，必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
 
 **接口**
 
@@ -253,7 +253,7 @@ TXCKeyFrameDescInfo
 
 **说明**
 
-获取缩略图信息，必须是在id<ITXCPlayerAssistorProtocol>.requestVideoInfo回调之后才生效。
+获取缩略图信息，必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
 
 **接口**
 
@@ -270,7 +270,7 @@ TCXImageSpriteInfo
 | imageUrls | List   | 缩略图下载 URL 数组，类型为 String 。 |
 | webVttUrl | String | 缩略图 VTT 文件下载 URL 。            |
 
-## 更多功能
+## 更多功能[](id:morefeature)
 
 完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
 <img src="https://main.qcloudimg.com/raw/12c7da97cc910eda673cb19b66fc7cb3.png" width="150">

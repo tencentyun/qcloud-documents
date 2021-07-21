@@ -1,6 +1,6 @@
 ## 操作场景
 本文指导您搭建一个具有 IPv6 CIDR 的云服务器，并为弹性网卡开启 IPv6，实现 IPv6 的内外网通信。
->? 目前弹性公网 IPv6 处于内测中，如有需求，[请提交申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
+>? 目前弹性公网 IPv6 处于内测中，如有需求，[请提交申请](https://cloud.tencent.com/apply/p/a9k0gialqhj)。
 >
 
 

@@ -1,4 +1,3 @@
-﻿
 ## 概述
 应用性能观测（APM）继承了 TAPM 协议，您只需要简单修改上报信息，即可完成从 TAPM 到 APM 的迁移。
 整个过程预计耗时10分钟。
@@ -51,4 +50,15 @@ app_name=<上报的服务名称>
    -  拓展了语言支持以及协议兼容
    -  架构优化，更稳定的性能
    </dx-alert>
+
+
+
+
+<dx-alert infotype="explain" title="">
+如迁移过程中有任何疑问，您可通过以下方式加入微信交流群：
+
+添加小助手微信（微信号：hitherecm ），回复 “APM” ，小助手将会拉您进入微信交流群。
+直接扫描以下二维码，添加小助手微信，小助手将会拉您进入微信交流群。
+<img src="https://main.qcloudimg.com/raw/c20740abb44f5cdf8de337879b658366.jpg" style="width: 20%"></img>
+</dx-alert>
 

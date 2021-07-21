@@ -3,15 +3,16 @@
 首先检查是否开启了慢日志记录，使用 root 帐号登录到自建数据库实例上执行如下命令：
 ```
 mysql> show variables like 'slow%';
-+---------------------+-----------------------------------------+
-| Variable_name        | Value                                          |
 +---------------------+----------------------------------------+
-| slow_launch_time     | 2                                              |
-| slow_query_log       | ON                                             |
-| slow_query_log_file | /data/mysql/VM_83_217_centos-slow.log   |
+| Variable_name       | Value                                  |
++---------------------+----------------------------------------+
+| slow_launch_time    | 2                                      |
+| slow_query_log      | ON                                     |
+| slow_query_log_file | /data/mysql/VM_83_217_centos-slow.log  |
 +---------------------+----------------------------------------+
 ```
-如上，若 `slow_query_log` 一项的值为 ON，说明已经开启；若为 OFF，需要执行如下命令开启慢日志记录：
+
+如上，若 `slow_query_log` 一项的值为 `ON`，说明已经开启；若为 `OFF`，需要执行如下命令开启慢日志记录：
 ```
 mysql> set global slow_query_log='ON';
 ```
@@ -27,20 +28,22 @@ slow_query_log=ON
 首先在数据库实例上执行 `show variables like 'slow%'` 命令，查看慢日志记录文件所在位置：
 ```
 mysql> show variables like 'slow%';
-+---------------------+-----------------------------------------+
-| Variable_name        | Value                                          |
-+---------------------+----------------------------------------+
-| slow_launch_time     | 2                                              |
-| slow_query_log       | ON                                             |
-| slow_query_log_file | /data/mysql/VM_83_217_centos-slow.log   |
-+---------------------+----------------------------------------+
++----------------------+----------------------------------------+
+| Variable_name        | Value                                  |
++----------------------+----------------------------------------+
+| slow_launch_time     | 2                                      |
+| slow_query_log       | ON                                     |
+| slow_query_log_file  | /data/mysql/VM_83_217_centos-slow.log  |
++----------------------+----------------------------------------+
 ```
+
 `slow_query_log_file`的值即为慢日志文件所在位置，需要将其上层目录修改为可访问权限，对于该 log 文件需要设置为可读权限：
+
 ```
-# 对于上面的慢日志文件，其上层目录分别为 /data/mysql 和 /data，需要依次设置权限
 root@xxx ~ # chmod 755 /data
+对于上面的慢日志文件，其上层目录分别为 /data/mysql 和 /data，需要依次设置权限
 root@xxx ~ # chmod 755 /data/mysql
-# 然后该日志文件需要设置为可读
+然后该日志文件需要设置为可读
 root@xxx ~ # chmod 644 /data/mysql/VM_83_217_centos-slow.log
 ```
 

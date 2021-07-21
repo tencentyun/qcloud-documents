@@ -53,9 +53,9 @@ TensorFlow\* 是用于大规模机器学习及深度学习的热门框架之一�
 #### 部署 TensorFlow\* 框架
 1. 在云服务器中，安装 Python。本文以 Python 3.7 为例。
 2. 执行以下命令，安装 Intel<sup>®</sup> 优化的 TensorFlow\* 版本 intel-tensorflow。
->?建议使用**2.4.0及以上版本**，以获得最新的功能与优化。
->
-```
+<dx-alert infotype="explain" title="">
+建议使用**2.4.0及以上版本**，以获得最新的功能与优化。
+</dx-alert> ```
 pip install intel-tensorflow
 ```
 
