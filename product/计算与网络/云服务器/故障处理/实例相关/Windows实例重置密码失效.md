@@ -11,11 +11,11 @@ Windows 云服务器实例在安装了第三方安全软件后，重置实例密
 >?以下操作步骤以 Windows server 2012 R2 为例。
 >
 1. 参考 [使用标准方式登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/57778)，登录目标 Windows 实例。
-2. 对应实际安装的第三方安全软件，恢复 `cloudbase-init` 组件。
+2. 对应实际安装的第三方安全软件，恢复并设置 `cloudbase-init` 组件。
 
 <dx-tabs>
 ::: 360安全卫士
-360安全卫士安装完成后，会定期扫描系统，如果扫描到 `cloudbase-init` 组件，则会认为其高风险，将其隔离。请参考以下步骤进行恢复：
+360安全卫士安装完成后，会定期扫描系统，如果扫描到 `cloudbase-init` 组件，则会认为其高风险，将其隔离。请参考以下步骤进行恢复组件，并设置为信任文件：
 1. 打开360安全卫士，选择【木马查杀】>【恢复区】。如下图所示：
 ![](https://main.qcloudimg.com/raw/cfc16c35c1eafbf4938f5ef4711cf0ee.png)
 2. 在弹出的“安全操作中心”窗口中，勾选文件并单击【恢复所选】。
