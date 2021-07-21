@@ -46,12 +46,11 @@ stringData:
 ```
 
 ```shell
-创建secret
 [root@master01 ~]# kubectl apply  -f secret.yaml
 secret/mysecret created
 ```
 
-创建Dataset：
+创建Dataset.yaml：
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
