@@ -11,6 +11,18 @@ LogListener 仅支持64位 Linux 操作系统环境（暂不支持 Windows），
 | Debian（64位）                                               | Debian_8.2_64位、Debian_9.0_64位                             |
 | openSUSE（64位）                                             | openSUSE_42.3_64位                                           |
 
+## 支持功能
+
+LogListener 版本支持新功能如下：
+
+| LogListener 版本 | 支持功能                    | 功能说明                                                     | 相关文档                                                     |
+| --------------- | --------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| v2.5.4          | 支持 LogListener 服务日志功能 | LogListener 服务日志功能支持记录 LogListener 端运行状态和采集监控的日志数据并配置可视化视图，提供重要指标数据。 | [LogListener 服务日志](https://cloud.tencent.com/document/product/614/55281) |
+| v2.5.2          | 支持上传解析失败日志        | 所有解析失败的日志，均以 LogParseFailure 作为键名称（Key），原始日志内容作为值（Value）进行上传。 | -                                                            |
+| v2.5.0          | 支持 LogListener 自动升级功能 | 支持用户在控制台预设时间段指定机器组进行 agent 自动升级，也可对目标机器实行手动升级。 | [LogListener 升级指南](https://cloud.tencent.com/document/product/614/55468) |
+| v2.4.5          | 支持多行-完全正则采集模式   | LogListener 采集配置规则新增【多行-完全正则】提取模式采集日志。 | [完全正则（多行）](https://cloud.tencent.com/document/product/614/52366) |
+
+
 
 ## 安装启动
 
