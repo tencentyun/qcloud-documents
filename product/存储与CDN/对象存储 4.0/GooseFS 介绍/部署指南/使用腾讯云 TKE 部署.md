@@ -45,7 +45,13 @@ stringData:
   fs.cosn.userinfo.secretId:xxx
 ```
 
+输出结果如下：
+```shell
+[root@master01 ~]# kubectl apply  -f secret.yaml
+secret/mysecret created
+```
 
+创建 Dataset.yaml：
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
@@ -59,7 +65,7 @@ spec:
       fs.cosn.bucket.region: ap-beijing
       fs.cosn.impl: org.apache.hadoop.fs.CosFileSystem
       fs.AbstractFileSystem.cosn.impl: org.apache.hadoop.fs.CosN
-      fs.cos.app.id: "your appid"
+      fs.cos.app.id: "${your appid}"
     encryptOptions:
       - name: fs.cosn.userinfo.secretKey
         valueFrom:
@@ -69,10 +75,12 @@ spec:
       - name: fs.cosn.userinfo.secretId
         valueFrom:
           secretKeyRef:
+            name: mysecret
+            key: fs.cosn.userinfo.secretId
 ```
 
+输出结果如下：
 ```shell
-创建Dataset
 [root@master01 run]# kubectl apply -f dataset.yaml 
 dataset.data.fluid.io/slice1 created
 ```
@@ -100,8 +108,8 @@ spec:
     replicas: 1
   goosefsVersion:
     imagePullPolicy: Always
-    image: {img_uri}
-    imageTag: {tag}
+    image: ${img_uri}
+    imageTag: ${tag}
   tieredstore:
     levels:
       - mediumtype: MEM
@@ -131,8 +139,8 @@ spec:
         cpu: 8
   fuse:
     imagePullPolicy: Always
-    image: {fuse_uri}
-    imageTag: {tag_num}
+    image: ${fuse_uri}
+    imageTag: ${tag_num}
     env:
       MAX_IDLE_THREADS: "32"
     jvmOptions:
@@ -249,4 +257,3 @@ Defaulting container name to goosefs-master.
 [root@VM-2-40-tlinux goosefs-1.0.0-SNAPSHOT-noUI-noHelm]# goosefs fs ls /slice1/a/
              12       PERSISTED 06-25-2021 16:45:11:809 100% /slice1/a/1.xt
 ```
-
