@@ -39,8 +39,7 @@ GROUP BY语法支持按照列名、别名或序号进行分组，详细说明如
 > - 在索引配置中，当您开启任意字段的统计功能后，日志服务会自动开启 \_\_TIMESTAMP\_\_ 字段的统计功能。
 > 
 - 按照每5分钟的时间粒度，计算 PV。
-因为 date_trunc() 函数只能按照固定时间间隔统计。如果您需要按照自定义的时间进行统计分析，请按照数学取模方法进行分组。
-例如，下述语句中表示按照每5分钟的时间粒度进行取模对齐。
+因为 date_trunc() 函数只能按照固定时间间隔统计。例如，下述语句中表示按照每5分钟的时间粒度进行取模对齐。
 ```
 * | SELECT histogram(cast(__TIMESTAMP__ as timestamp),interval 5 minute) as dt, count(*) as pv,count(distinct(remote_addr)) as uv group by dt order by dt
 ```
