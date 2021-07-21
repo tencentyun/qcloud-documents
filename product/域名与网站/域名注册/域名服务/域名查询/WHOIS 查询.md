@@ -17,3 +17,4 @@
  - **到期日期**：为保障您的域名能正常运行，域名在到期之前会通过邮件或短信提醒您进行续费。具体续费操作请参考 [域名续费](https://cloud.tencent.com/document/product/242/9644)。
  - **域名状态**：域名存在多种状态，例如，您在注册域名后未在规定时间进行实名认证，注册局将暂停解析（Serverhold）。更多域名状态请参考 [域名状态相关](https://cloud.tencent.com/document/product/242/7924) 进行了解。
  - **DNS 服务器**：使用不同套餐版本的解析分别为不同集群，每种集群对应的 DNS 地址是不同的。具体请参考 [DNS节点分布说明](https://cloud.tencent.com/document/product/302/9070)。
+
