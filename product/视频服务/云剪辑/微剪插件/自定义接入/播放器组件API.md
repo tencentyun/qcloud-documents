@@ -21,7 +21,7 @@
 ```
 2. 引入组件：
 ```html
-  <wj-player
+<wj-player
       class="player" 
       id="my-player" 
       mode="default"
@@ -32,36 +32,37 @@
       bindswipeToRight="swipeToRight"
       bindswipeToLeft="swipeToLeft"
       bindtimeupdate="timeupdate"
-      bindended="playerEnd"></wj-player>
+      bindended="playerEnd">
+</wj-player>
 ```
 
 ### 属性说明
 
-| 属性名               | 类型     | 默认值                                                       | 说明                                                         | 必填 |
-| -------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
+| 属性名               | 类型     | 默认值     | 说明       | 必填 |
+| -------------------- | -------- | ---------------------- | ---------------------- | ---- |
 | containerStyleConfig | Object   | `{height: 1334, width: 750}`                                 | 播放器的尺寸                                                 | 否   |
-| mode                 | String   | default                                                      | <li />default：video 模式<li />offscreen：decoder offscreen 模式（导出模式），推荐直接使用 `wj-export` 组件 | 否   |
-| allowSetVolumn       | Boolean  | false                                                        | 是否需要调整视频原声音量                                     | 否   |
-| enableTapPause       | Boolean  | false                                                        | 是否启用点击暂停                                             | 否   |
-| enablePauseIcon      | Boolean  | true                                                         | 是否显示暂停按钮                                             | 否   |
-| enableClipEdit      | Boolean  | true                                                         | 是否启用编辑控件，编辑控件请参见 [编辑控件](#Plugin)                        | 否   |
-| preloadFilter        | Boolean  | true                                                         | 是否启用滤镜预加载                                           | 否   |
+| mode                 | String   | default    | <li />default：video 模式<li />offscreen：decoder offscreen 模式（导出模式），推荐直接使用 `wj-export` 组件 | 否   |
+| allowSetVolumn       | Boolean  | false      | 是否需要调整视频原声音量                                     | 否   |
+| enableTapPause       | Boolean  | false      | 是否启用点击暂停                                             | 否   |
+| enablePauseIcon      | Boolean  | true       | 是否显示暂停按钮                                             | 否   |
+| enableClipEdit      | Boolean  | true       | 是否启用编辑控件，编辑控件请参见 [编辑控件](#Plugin)                        | 否   |
+| preloadFilter        | Boolean  | true       | 是否启用滤镜预加载                                           | 否   |
 | preloadFilterKeys    | Array    | ['key1', 'key2']                                             | 需要提前加载的滤镜                                           | 否   |
 | filters(1.7.0版本废弃，使用initPlugin方法统一注入)     | Array    | [{<br />key: 'lujing',<br />name: '滤镜'<br />src: 'wxfile://xxxxx'<br />}] | 定制化 effect 列表                                           | 否   |
 | effects(1.7.0版本废弃，使用initPlugin方法统一注入)              | Array    | [{<br />name: EffectName,<br />fragment: Shader 代码字符串<br />}] | 定制化 shader 列表                                           | 否   |
-| status               | String   | playing                                                      | 初始播放状态                                                 | 否   |
-| bindready            | Function | -                                                            | 播放器初始化完成回调                                         | 否   |
-| bindplay             | Function | -                                                            | 播放器开始播放                                               | 否   |
-| bindpaused           | Function | -                                                            | 播放器暂停回调                                               | 否   |
-| bindwaiting          | Function | -                                                            | 播放器加载中的回调                                           | 否   |
-| bindloadcomplete     | Function | -                                                            | 播放器所有 Clip 加载完毕时触发                               | 否   |
-| binddataupdated      | Function | -                                                            | 播放器 updateData 完成时触发<br />e.detail = [Tracks]        | 否   |
-| bindtimeupdate       | Function | -                                                            | 播放进度变化时触发<br />e.detail = time                      | 否   |
-| bindtapped           | Function | -                                                            | 播放器点击                                                   | 否   |
-| bindended            | Function | -                                                            | 播放完成                                                     | 否   |
-| bindtexttouchstart   | Function | -                                                            | 文字开始触摸(v1.4.0后废弃)                                   | 否   |
-| bindtexttouchend     | Function | -                                                            | 文字触摸结束(v1.4.0后废弃)                                   | 否   |
-| bindtexttouchmove    | Function | -                                                            | 文字移动(v1.4.0后废弃)                                       | 否   |
+| status               | String   | playing    | 初始播放状态                                                 | 否   |
+| bindready            | Function | -                 | 播放器初始化完成回调                                         | 否   |
+| bindplay             | Function | -                 | 播放器开始播放                                               | 否   |
+| bindpaused           | Function | -                 | 播放器暂停回调                                               | 否   |
+| bindwaiting          | Function | -                 | 播放器加载中的回调                                           | 否   |
+| bindloadcomplete     | Function | -                 | 播放器所有 Clip 加载完毕时触发                               | 否   |
+| binddataupdated      | Function | -                 | 播放器 updateData 完成时触发<br />e.detail = [Tracks]        | 否   |
+| bindtimeupdate       | Function | -                 | 播放进度变化时触发<br />e.detail = time                      | 否   |
+| bindtapped           | Function | -                 | 播放器点击                                                   | 否   |
+| bindended            | Function | -                 | 播放完成                                                     | 否   |
+| bindtexttouchstart   | Function | -                 | 文字开始触摸(v1.4.0后废弃)                                   | 否   |
+| bindtexttouchend     | Function | -                 | 文字触摸结束(v1.4.0后废弃)                                   | 否   |
+| bindtexttouchmove    | Function | -                 | 文字移动(v1.4.0后废弃)                                       | 否   |
 | bindclipedit    | Function | 请参见 [编辑控件](#Plugin)                                                     |clip 位移、旋转、缩放                                   | 否   |
 | bindclipoperation   | Function | 请参见 [编辑控件](#Plugin)                                                     |编辑控件按钮点击                                 | 否   |
 | bindmaskedit | Function | |蒙版参数变化回调，请参见 [蒙版控件](#Mask)|否|
@@ -105,6 +106,7 @@
 微剪播放器内置了编辑控件支持贴纸、文字等元素的位移、缩放和旋转。
 - 贴纸和文字类型的 Clip 内置编辑控件的支持，单击即可激活。
 - 控件有四个按钮：删除（左上角），修改（右上角），缩放旋转（右下角）和编辑时间段（左下角）。其中缩放旋转为播放器内部完全实现的功能，其余三个按钮只提供回调函数，供开发者自行定制功能交互。
+
 <img src="https://imgcache.qq.com/operation/dianshi/other/WechatIMG68.44d03f21ce477b7877850803a5a7d3f72a90bdd9.jpeg" width=400/>
 
 
@@ -115,7 +117,7 @@
 ```
 <wj-player
 	bindclipedit="handleClipEdit"
-><wj-player>
+></wj-player>
 ```
 2. 编写回调函数：
 <dx-codeblock>
@@ -160,7 +162,7 @@ Page({
 ```
 <wj-player
 	bindclipoperation="handleClipOperation"
-><wj-player>
+></wj-player>
 ```
 2. 处理回调数据：
 <dx-codeblock>
@@ -240,7 +242,7 @@ v2.1.0 微剪新增蒙版功能，播放器内置蒙版编辑功能。内置蒙�
 | 爱心蒙版 | heart  |
 
 #### 使用 
-1. 给某个Clip添加蒙版类型的`operation`
+1. 给某个 Clip 添加蒙版类型的`operation`。
 ```
 let clip = ...
 clip.operations = [
@@ -262,22 +264,19 @@ clip.operations = [
 this.player.showMaskControl()
 ```
 蒙版变化后会由回调返回，用户可以接收修改后的蒙版参数并更新到对应`operation`的`params`中。
-wxml:
+wxml：
 ```
 <wj-player
-  bindmaskedit="handleMaskEdit"
->
-</wj-player>
-
+			bindmaskedit="handleMaskEdit"
+></wj-player>
 ```
-
-js:
+js：
 ```
 Component({
-  handleMaskEdit(e) {
-    let {clipId, trackId, params} = e.detail
-    // 找到对应的clip更新operation.params
-  }
+		handleMaskEdit(e) {
+			let {clipId, trackId, params} = e.detail
+			// 找到对应的clip更新operation.params
+		}
 })
 ```
 3. 关闭播放器的蒙版编辑
