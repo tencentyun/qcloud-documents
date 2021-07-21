@@ -250,7 +250,7 @@ public interface IOrderService {
 
 ## 远程请求时传递分布式事务上下文
 
-使用`RestTemplate`或`FeginClient`时，DTF 框架支持自动化的分布式事务上下文传递。
+使用`RestTemplate`或`FeignClient`时，DTF 框架支持自动化的分布式事务上下文传递。
 
 如果使用了其他的通信框架，也可以**手动处理分布式事务上下文**。
 
@@ -270,9 +270,9 @@ DTF-Last-Branch-ID: ${LastBranchId}
 
 ```
 
-### 主调 - FeginClient
+### 主调 - FeignClient
 
-使用`FeginClient`访问下游服务时，DTF 框架自动注入了 TxFeignInterceptor，向请求头中装载分布式事务上下文信息。
+使用`FeignClient`访问下游服务时，DTF 框架自动注入了 TxFeignInterceptor，向请求头中装载分布式事务上下文信息。
 
 需要引入 feign 依赖：
 
@@ -327,7 +327,7 @@ DTF-Last-Branch-ID: ${LastBranchId}
 
 目前支持 Greenwich（G）和 Finchley（F）版本的 TSF SDK。您可以单击以下页签，查看对应的使用方式。
 <dx-tabs>
-::: G&nbsp;版本&nbsp;TSF&nbsp;SDK&nbsp;使用方式
+::: G\s版本\sTSF\sSDK\s使用方式
 
 ```xml
 <!-- TSF 启动器 -->
@@ -339,9 +339,14 @@ DTF-Last-Branch-ID: ${LastBranchId}
 ```
 
 :::
-::: F&nbsp;版本&nbsp;TSF&nbsp;SDK&nbsp;使用方式
+::: F\s版本\sTSF\sSDK\s使用方式
 
-> !需要再排除 DTF 中的一些依赖。
+
+
+<dx-alert infotype="notice" title="">
+需要再排除 DTF 中的一些依赖。
+</dx-alert>
+
 
 ```xml
 <!-- TSF 启动器 -->
