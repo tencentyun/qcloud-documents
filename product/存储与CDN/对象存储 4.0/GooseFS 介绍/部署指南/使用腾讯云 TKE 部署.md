@@ -31,7 +31,7 @@
 
 ### 2. 创建 UFS 数据集 Dataset（COS 为例）
 
-先创建 secret.yaml 用于加密， 模版如下：
+先创建 secret.yaml 用于加密，模版如下：
 
 ```yaml
 apiVersion: v1
