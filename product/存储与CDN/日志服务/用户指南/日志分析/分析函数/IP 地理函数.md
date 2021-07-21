@@ -10,7 +10,7 @@ IP 地理函数可用于判断 IP 地址属于内网还是外网，也可用于�
 
 | 函数名称                 | 说明                                                         | 示例                                |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------- |
-| ip_to_domain(KEY)        | 判断目标 IP 地址是内网地址还是外网地址。内网则返回 intranet，外网则返回 internet，非法 ip 则返回invalid。 | * \| SELECT ip_to_domain(ip)        |
+| ip_to_domain(KEY)        | 判断目标 IP 地址是内网地址还是外网地址。内网则返回 intranet，外网则返回 internet，非法 ip 则返回 invalid。 | * \| SELECT ip_to_domain(ip)        |
 | ip_to_country(KEY)       | 分析目标 IP 地址所属国家或地区。返回结果为国家或地区的中文名称。 | * \| SELECT ip_to_country(ip)       |
 | ip_to_country_code(KEY)  | 分析目标 IP 地址所属国家或地区的代码。返回结果为国家或地区的代码。 | * \|SELECT ip_to_country_code(ip)   |
 | ip_to_country_geo(KEY)   | 分析目标 IP 地址所属国家或地区的经纬度。返回结果为国家或地区的纬度，经度信息。 | * \|SELECT ip_to_country_geo(ip)    |
@@ -19,8 +19,8 @@ IP 地理函数可用于判断 IP 地址属于内网还是外网，也可用于�
 | ip_to_province_geo(KEY)  | 分析目标 IP 地址所属省份的经纬度。返回结果为省份的纬度，经度信息。 | * \| SELECT ip_to_province_geo(ip)  |
 | ip_to_city(KEY)          | 分析目标 IP 地址所属城市。返回结果为城市的中文名称。           | * \| SELECT ip_to_city(ip)          |
 | ip_to_city_code(KEY)     | 分析目标 IP 地址所属城市的代码。返回结果为城市的行政区划代码。 | * \| SELECT ip_to_city_code(ip)     |
-| ip_to_geo(KEY)           | 分析目标 IP 地址所在位置的经纬度。返回结果为IP地址的纬度，经度信息。 | * \| SELECT ip_to_geo(ip)           |
-| ip_to_city_geo(KEY)      | 分析目标 IP 地址所在城市的经纬度。返回结果为IP地址的纬度，经度信息。 | * \| SELECT ip_to_city_geo(ip)      |
+| ip_to_geo(KEY)           | 分析目标 IP 地址所在位置的经纬度。返回结果为 IP 地址的纬度，经度信息。 | * \| SELECT ip_to_geo(ip)           |
+| ip_to_city_geo(KEY)      | 分析目标 IP 地址所在城市的经纬度。返回结果为 IP 地址的纬度，经度信息。 | * \| SELECT ip_to_city_geo(ip)      |
 | ip_to_provider(KEY)      | 分析目标 IP 地址对应的网络运营商，返回结果为网络运营商名称。   | * \| SELECT ip_to_provider(ip)      |
 
 ## IP 网段函数
