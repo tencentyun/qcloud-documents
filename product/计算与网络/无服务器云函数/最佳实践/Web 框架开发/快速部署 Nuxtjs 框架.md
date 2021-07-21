@@ -23,6 +23,9 @@
 ![](https://main.qcloudimg.com/raw/d20d687ee0b7eae89f94324e4c5c723f.png)
 
 
+> 说明：由于 Nuxtjs 框架每次部署前需要重新构建，请确保本地更新代码并且重新 `build` 之后再部署
+
+
 ### 自定义部署 -- 快速迁移本地项目上云
 
 
