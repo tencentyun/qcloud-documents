@@ -51,6 +51,7 @@ stringData:
 secret/mysecret created
 ```
 
+创建Dataset：
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
@@ -79,7 +80,6 @@ spec:
 ```
 
 ```shell
-创建Dataset
 [root@master01 run]# kubectl apply -f dataset.yaml 
 dataset.data.fluid.io/slice1 created
 ```
