@@ -1,133 +1,133 @@
-## 操作场景
+## 简介
 
-本文介绍如何在 [弹性容器服务 EKS](https://cloud.tencent.com/document/product/457/57338) 中拉取 TCR 企业版实例内的容器镜像，并创建工作负载。
+域名重定向，是指当用户通过浏览器访问某个 URL 时，Web 服务器被设置自动跳转到另外一个 URL。
+
+## 应用场景
+
+- 网站支持 HTTP 和 HTTPS，例如：http://tencent.com 和 https://tencent.com 需要访问到同一个 Web 服务
+- 网站更换过域名，例如：https://tengxun.com 换成 https://tencent.com，两个域名访问到同一个 Web 服务
+- 网站部分内容做过调整，原始 URL 已经无法访问，可以重定向到一个新的提供服务的 URL 上
+
+>!
+> 1. 当用户使用了重定向后，会多一条下面的注解，这条注解表明Ingress 的转发规则由 TKE 管理，后期不能被删除和修改，否者会和 CLB 侧设置的重定向规则冲突。`ingress.cloud.tencent.com/rewrite-support: "true"`
+> 2. 假设用字母表示域名地址。若 A 已经重定向至 B，则 A 不能再重定向至 C（除非先删除老的重定向关系，再建立新的重定向关系）；B 不能重定向至任何其它地址；A 也不能重定向到 A。
 
 
-## 前提条件
+两种使用方式：
+- **自动重定向说明**：用户需要先创建出一个 HTTPS:443 监听器，并在其下创建转发规则。通过调用本接口，系统会自动创建出一个 HTTP:80 监听器（如果之前不存在），并在其下创建转发规则，与 HTTPS:443 监听器下的域名等各种配置对应。
+- **手动重定向说明**：用户手动配置原访问地址和重定向地址，系统自动将原访问地址的请求重定向至对应路径的目的地址。同一域名下可以配置多条路径作为重定向策略，实现 HTTP 和 HTTPS 之间请求的自动跳转。
 
-
-在使用容器镜像服务 TCR 企业版内托管的私有镜像进行应用部署前，您需要完成以下准备工作：
-
-- 已成功 [购买企业版实例](https://cloud.tencent.com/document/product/1141/51110)。
-- 已成功 [创建 EKS 集群](https://cloud.tencent.com/document/product/457/39813)。
-- 如使用子账号进行操作，请参见 [企业版授权方案示例](https://cloud.tencent.com/document/product/1141/41417) 提前为子账号授予对应实例的操作权限。
 
 
 
 ## 操作步骤
 
-### 准备容器镜像
 
+Ingress 支持通过控制台和 YAML 两种方式进行重定向，具体步骤如下：
 
-#### 步骤1：创建命名空间
-
-新建的 TCR 企业版实例内无默认命名空间，且无法通过推送镜像自动创建。请参见 [创建命名空间](https://cloud.tencent.com/document/product/1141/41803#.E5.88.9B.E5.BB.BA.E5.91.BD.E5.90.8D.E7.A9.BA.E9.97.B4) 按需完成创建。
-
-
-建议命名空间名使用项目或团队名，本文以 `docker` 为例。创建成功后如下图所示：
-![](https://main.qcloudimg.com/raw/9fc8509e27ae62915804070f725f75fa.png)        
-
-
-
-#### 步骤2：创建镜像仓库（可选）
-
-
-容器镜像托管在具体的镜像仓库内，请参见 [创建镜像仓库](https://cloud.tencent.com/document/product/1141/41811#.E5.88.9B.E5.BB.BA.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93) 按需完成创建。镜像仓库名称请设置为期望部署的容器镜像名称，本文以 `getting-started` 为例。创建成功后如下图所示：
-![](https://main.qcloudimg.com/raw/663965fe8382ce2bf900d10318c16e56.png)       
->? 通过 `docker cli` 或其他镜像工具，例如 jenkins 推送镜像至企业版实例内时，若镜像仓库不存在，将会自动创建，无需提前手动创建。
-
-
-
-#### 步骤3：推送容器镜像
-
-
-
-1. 您可通过 `docker cli` 或其他镜像构建工具（例如 jenkins）推送镜像至指定镜像仓库内，本文以 `docker cli` 为例。此步骤需要您使用一台安装有 Docker 的云服务器或物理机，并确保访问的客户端已在 [配置网络访问策略](https://cloud.tencent.com/document/product/1141/41836) 定义的公网或内网允许访问范围内。
-2. 参考 [获取实例访问凭证](https://cloud.tencent.com/document/product/1141/41829) 获取登录指令，并进行 Docker Login。
-3. 登录成功后，您可在本地构建新的容器镜像或从 DockerHub 上获取一个公开镜像用于测试。
-本文以 DockerHub 官方的 Nginx 最新镜像为例，在命令行工具中依次执行以下指令，即可推送该镜像。请将 demo-tcr、docker 及 getting-started 依次替换为您实际创建的实例名称、命名空间名称及镜像仓库名。
-<dx-codeblock>
-:::  sh
-docker tag getting-started:latest demo-tcr.tencentcloudcr.com/docker/getting-started:latest
+<dx-tabs>
+::: 控制台方式
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
+2. 在“集群管理”页面，选择需修改 Ingress 的集群 ID。
+3. 在集群详情页，选择左侧【服务与路由】>【Ingress】。如下图所示：
+   ![](https://main.qcloudimg.com/raw/69e9c55ea644144ea5848c98b9d0462a.png)
+4. 单击【新建】，在“新建 Ingress”页面中，注意“重定向”的选择：
+   - **无**：不使用重定向规则。
+   - **手动**：会在“转发配置”下面出现一栏“重定向转发配置”。
+     - “转发配置”里面填写的方式和普通 Ingress 的转发配置一样，后端是某个服务。
+     - “重定向转发配置”里面填写的方式和普通 Ingress 的转发配置一样，但后端是某个“转发配置”里的某条路径。
+       ![](https://main.qcloudimg.com/raw/7f045376ed79348b2cc67e9042c23f98.png)
+   - **自动**：仅对“转发配置”里的协议为“HTTPS”的路径生效，都将自动生成一个“HTTP”的路径，路径完全一样，只有协议不一样。“HTTP”的路径的转发规则自动重定向到“HTTPS”的路径。
+     ![](https://main.qcloudimg.com/raw/372ed3c7e0d63f07fb54decf943cf3bd.png)
 :::
-</dx-codeblock>
-<dx-codeblock>
-:::  sh
-docker push demo-tcr.tencentcloudcr.com/docker/getting-started:latest
+::: YAML\s方式
+#### 自动重定向：HTTP 重定向到 HTTPS
+
+注意：仅对 HTTPS 协议的转发规则生效
+Ingress YAML 中配置注解：`ingress.cloud.tencent.com/auto-rewrite: true`
+配置该注解之后，转发路径种的所有 HTTPS 监听器中存在的七层转发规则都将被对应到 HTTP 监听器中作为重定向规则。域名与路径路径都保持一致。
+
+#### 手动重定向
+
+需要增加一个annotation ，修改一个annotation：
+
+- 增加的 annotation：`ingress.cloud.tencent.com/rewrite-support: "true"`    # 表示允许重定向
+- 修改的 annotation：
+  ```yaml
+  # 原注解 格式：
+  {
+   "host": "<domain>",
+   "path": "<path>",
+   "backend": {
+     "serviceName": "<service name>",
+     "servicePort": "<service port>"
+   }
+  }
+  
+	
+  # 新注解格式：
+  {
+    "host": "<domain>",
+    "path": "<path>",
+    "backend": {
+      "serviceName": "<service name>",
+      "servicePort": "<service port>"
+    },
+    "rewrite": {
+      "port": "<rewrite-port>",
+      "host": "<rewrite-domain>",
+      "path": "<rewrite-path>"
+    }
+  }
+  ```
+
+  ### 举例
+
+  需求：某服务之前是通过 `121.4.25.44/path2` 进行访问，后来发布了一个新版本，想通过`121.4.25.44/v2/path2` 访问。
+
+  - 增加一条 annotation：`ingress.cloud.tencent.com/rewrite-support: "true"`    # 允许重定向
+  - 修改原 annotation：`kubernetes.io/ingress.http-rules: '[{"path":"/path1","backend":{"serviceName":"path1","servicePort":"80"}},{"path":"/path2","backend":{"serviceName":"path2","servicePort":"80"}},{"path":"/v1/path1","rewrite":{"port":80,"path":"/path1"}},{"path":"/v2/path2","rewrite":{"port":80,"path":"/path2"}}]'   # 把 /v1/path1 替换为 /path1  80端口；把 /v2/path2 替换为 /path2 80端口。注意：host可以省略`
+
+  修改后的 YAML：
+
+  ```yaml
+  apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    annotations:
+      description: test
+      ingress.cloud.tencent.com/rewrite-support: "true"
+      kubernetes.io/ingress.class: qcloud
+      kubernetes.io/ingress.http-rules: '[{"path":"/path1","backend":{"serviceName":"path1","servicePort":"80"}},{"path":"/path2","backend":{"serviceName":"path2","servicePort":"80"}},{"path":"/v1/path1","rewrite":{"port":80,"path":"/path1"}},{"path":"/v2/path2","rewrite":{"port":80,"path":"/path2"}}]'
+      kubernetes.io/ingress.https-rules: "null"
+      kubernetes.io/ingress.rule-mix: "true"
+    name: test
+    namespace: default
+  spec:
+    rules:
+    - http:
+        paths:
+        - backend:
+            serviceName: path1
+            servicePort: 80
+          path: /path1
+          pathType: ImplementationSpecific
+    - http:
+        paths:
+        - backend:
+            serviceName: path2
+            servicePort: 80
+          path: /path2
+          pathType: ImplementationSpecific
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 121.4.25.44
+  ```
+完整 Ingress Annotation 说明请[参考](https://cloud.tencent.com/document/product/457/56112)
 :::
-</dx-codeblock>
-4. 推送成功后，即可前往控制台的 [镜像仓库](https://console.cloud.tencent.com/tcr/repository) 页面，选择仓库名并进入详情页面查看。
+</dx-tabs>
 
 
 
 
-
-
-### 配置 EKS 集群访问 TCR 实例
-
-
-
-为保护您的数据安全，TCR 和 EKS 初始默认拒绝全部公网及内网访问。在准备将 TCR 的镜像部署至 EKS 之前，请首先进行网络访问策略配置。
-
-
-
-TCR 企业版实例支持网络访问控制，您可根据 EKS 集群的网络配置，选择通过公网或内网访问指定实例，拉取容器镜像。若 EKS 集群与 TCR 实例部署在同一地域，建议通过内网访问方式拉取容器镜像，该方式可提升拉取速度，并节约公网流量成本。
-
-下文将介绍通过内网访问的方式，若要通过外网访问，请参见 [通过 NAT 网关访问外网](https://cloud.tencent.com/document/product/457/48710)。
-
-
-
-
-
-
-#### 步骤1：在 TCR 实例中关联集群 VPC
-
-
-
-为保障用户数据安全，新建的 TCR 实例默认拒绝全部来源的访问。为允许指定 EKS 集群可访问 TCR 实例拉取镜像，需将集群所在的 VPC 关联至 TCR 实例，并配置相应的内网域名解析。
-
-
-
-1. [新建内网访问链路](https://cloud.tencent.com/document/product/1141/41838#.E6.96.B0.E5.BB.BA.E8.AE.BF.E9.97.AE.E9.93.BE.E8.B7.AF)。
-2. [配置域名内网解析](https://cloud.tencent.com/document/product/1141/41838#.E7.AE.A1.E7.90.86.E5.86.85.E7.BD.91.E8.A7.A3.E6.9E.90)。
-
-
-
-
-
-#### 步骤2：获取 TCR 实例访问凭证
-
-
-
-从 TCR 实例中拉取容器镜像需要首先使用凭证信息登录至实例。请参见 [获取实例访问凭证](https://cloud.tencent.com/document/product/1141/41829)，保存该实例的长期访问凭证，用于之后配置部署 TCR 镜像。
-
-
-
-
-
-### 使用 TCR 实例内容器镜像创建工作负载
-
-
-
-1. 登录容器服务控制台，选择左侧导航栏中的【[弹性容器-弹性集群](https://console.cloud.tencent.com/tke2/ecluster?rid=19)】。
-2. 选择需要创建工作负载的集群 ID，进入集群详情页。
-3. 在集群详情页面，选择左侧【工作负载】>【Deployment】。
-4. 进入“Deployment” 页面，并单击【新建】。
-5. 进入“新建Workload” 页面，参考以下主要的参数信息，创建工作负载。
-	- **命名空间**：根据需要选择集群的命名空间。
-	- **实例内容器**：
-		- **镜像**：单击【选择镜像】，并在弹出的“选择镜像”窗口中，选择【容器镜像服务 企业版】，再根据需要选择地域、实例和镜像仓库。如下图所示：
-	![](https://main.qcloudimg.com/raw/4aa3e009714aba2521e0a889cac71a47.png)    
-	- **镜像版本**：选择好镜像后，单击【选择镜像版本】，在弹出的“选择镜像版本”窗口中，根据需要选择该镜像仓库的某个版本。若不选择则默认为latest。
-	- **镜像访问凭证**：单击【添加镜像访问凭证】，下拉框中选择【使用新的访问凭证】。如下图所示：
-	![](https://main.qcloudimg.com/raw/14f917f3e79b80822605f7f40be93c94.png)      
-	单击【设置访问凭证信息】，在弹出的“新建镜像访问凭证”窗口中，正确填写该镜像的仓库域名、用户名和密码。
-	- **仓库域名**：登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的【镜像仓库】，即可获得所需镜像的仓库地址。
-	- **用户名**：单击控制台右上角的 [账号信息](https://console.cloud.tencent.com/developer)，账号ID即为用户名。
-	- **密码**：在 步骤2：获取 TCR 实例访问凭证 中获取的访问凭证即为密码。
-	- **访问设置（Service）**：用户在 Kubernetes 中可以部署各种容器，其中一部分是通过 HTTP、HTTPS 协议对外提供七层网络服务，另一部分是通过 TCP、UDP 协议提供四层网络服务。而 Kubernetes 定义的 Service 资源就是用来管理集群中四层网络的服务访问。参考以下主要的参数信息，完成访问设置。
-		- **Service**：勾选【启用】。
-		- **服务访问方式**：选择【VPC内网访问】。
-6. 完成其他参数设置后，单击【创建Workload】，查看该工作负载的部署进度。
-部署成功后，可在 “Deployment” 页面查看该工作负载的“运行/期望Pod数量”为“1/1”。如下图所示：
-![](https://main.qcloudimg.com/raw/c2508150d4243cf4de8415d3a6ecc190.png)   
