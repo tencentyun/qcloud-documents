@@ -14,8 +14,8 @@ CDN 对应的加速域名关闭忽略参数的功能，则每个不同的 URL �
 
 ## 处理步骤
 1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择【域名管理】找到对应的域名配置， 查看【缓存配置】>【缓存键规则配置】的“忽略参数”项。
-![](https://main.qcloudimg.com/raw/a1d55e9e76febf5eb5b4671ac088e15c.png)
+![](https://main.qcloudimg.com/raw/53ceba436ae110bd0dafef8bad72ceff.png)
 [](id:step2)
 2. 在【缓存键规则配置】对应规则的操作栏，单击【修改】，在弹出的“修改规则”框关闭忽略参数功能，然后单击【保存】。
-![](https://main.qcloudimg.com/raw/292cd75b54fc6bca0a5803f45957d971.png)
+![](https://main.qcloudimg.com/raw/f866bc80c384bc6daca649dbeb006fdb.png)
 >?CDN 也提供了保留指定参数的忽略功能， 用户可以根据实际的业务需求选择使用。具体用法可参见 [缓存键规则配置](https://cloud.tencent.com/document/product/228/47671)。
