@@ -31,9 +31,7 @@
 
 ### 2. 创建 UFS 数据集 Dataset（COS 为例）
 
-dataset.yaml 模板如下：
-
-先创建 secret.yaml 用于加密：
+先创建 secret.yaml 用于加密， 模版如下：
 
 ```yaml
 apiVersion: v1
@@ -45,13 +43,13 @@ stringData:
   fs.cosn.userinfo.secretId:xxx
 ```
 
-输出结果如下：
+创建secret：
 ```shell
 [root@master01 ~]# kubectl apply  -f secret.yaml
 secret/mysecret created
 ```
 
-创建 Dataset.yaml：
+dataset.yaml 模版如下：
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
@@ -79,7 +77,7 @@ spec:
             key: fs.cosn.userinfo.secretId
 ```
 
-输出结果如下：
+创建 dataset
 ```shell
 [root@master01 run]# kubectl apply -f dataset.yaml 
 dataset.data.fluid.io/slice1 created
@@ -257,3 +255,4 @@ Defaulting container name to goosefs-master.
 [root@VM-2-40-tlinux goosefs-1.0.0-SNAPSHOT-noUI-noHelm]# goosefs fs ls /slice1/a/
              12       PERSISTED 06-25-2021 16:45:11:809 100% /slice1/a/1.xt
 ```
+
