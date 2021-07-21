@@ -324,11 +324,9 @@ DTF-Last-Branch-ID: ${LastBranchId}
 引入依赖后（注意 SDK 版本），直接正常使用 TSF 即可。
 
 ### 使用方式
-
 目前支持 Greenwich（G）和 Finchley（F）版本的 TSF SDK。您可以单击以下页签，查看对应的使用方式。
 <dx-tabs>
 ::: G\s版本\sTSF\sSDK\s使用方式
-
 ```xml
 <!-- TSF 启动器 -->
 <dependency>
@@ -337,17 +335,11 @@ DTF-Last-Branch-ID: ${LastBranchId}
     <version>1.23.0-Greenwich-RELEASE</version>
 </dependency>
 ```
-
 :::
 ::: F\s版本\sTSF\sSDK\s使用方式
-
-
-
 <dx-alert infotype="notice" title="">
 需要再排除 DTF 中的一些依赖。
 </dx-alert>
-
-
 ```xml
 <!-- TSF 启动器 -->
 <dependency>
@@ -384,12 +376,14 @@ DTF-Last-Branch-ID: ${LastBranchId}
         </exclusions>
 </dependency>
 ```
-
 :::
 </dx-tabs>
 
-### 启用 TSF
 
+
+
+
+### 启用 TSF
 <dx-codeblock>
 :::  java
 @SpringBootApplication
