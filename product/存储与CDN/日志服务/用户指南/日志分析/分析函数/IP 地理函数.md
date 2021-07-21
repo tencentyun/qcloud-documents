@@ -55,6 +55,7 @@ IP 地理函数可用于判断 IP 地址属于内网还是外网，也可用于�
 * | SELECT ip_to_province(ip) AS province, count(*) as PV GROUP BY province ORDER BY PV desc LIMIT 10
 ```
 ![image-20210718035905064](https://main.qcloudimg.com/raw/6a421629bcd8ca24e2e9923dc6396011.png)
+![](https://main.qcloudimg.com/raw/1b4b4e09667cc6798105d183efbea2db.png)
 如果上述结果中包含了内网请求，且您希望过滤这部分请求，可参考如下查询和分析语句。
 ```
 * | SELECT ip_to_province(ip) AS province, count(*) as PV where ip_to_domain(ip)!='intranet' GROUP BY province ORDER BY PV desc LIMIT 10
