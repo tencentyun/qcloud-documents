@@ -31,9 +31,7 @@
 
 ### 2. 创建 UFS 数据集 Dataset（COS 为例）
 
-dataset.yaml 模板如下：
-
-先创建 secret.yaml 用于加密：
+先创建 secret.yaml 用于加密， 模版如下：
 
 ```yaml
 apiVersion: v1
@@ -45,12 +43,13 @@ stringData:
   fs.cosn.userinfo.secretId:xxx
 ```
 
+创建secret：
 ```shell
 [root@master01 ~]# kubectl apply  -f secret.yaml
 secret/mysecret created
 ```
 
-创建Dataset.yaml：
+dataset.yaml 模版如下：
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
@@ -78,6 +77,7 @@ spec:
             key: fs.cosn.userinfo.secretId
 ```
 
+创建 dataset
 ```shell
 [root@master01 run]# kubectl apply -f dataset.yaml 
 dataset.data.fluid.io/slice1 created
