@@ -50,7 +50,7 @@ CREATE TABLE clickhouse (
 );
 ```
 
->! 一定要定义 pk 和申明 table.collapsing.field 字段，才会启动此功能。对应的 ClickHouse 建表语句，请参考 [常见问题](#ID)。
+>! 一定要定义 pk 和申明 table.collapsing.field 字段，才会启动该功能。对应的 ClickHouse 建表语句，请参考 [常见问题](#ID)。
 
 ##  WITH 参数
 
