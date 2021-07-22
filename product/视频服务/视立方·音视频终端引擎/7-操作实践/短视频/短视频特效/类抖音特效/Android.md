@@ -33,7 +33,7 @@ public void stopEffect(int type, long endTime);
 :::
 </dx-codeblock>
 
-参数说明：@param type：滤镜特效的类型，在常量 TXVideoEditConstants 中有定义：
+参数说明：@param type 是滤镜特效的类型，在常量 TXVideoEditConstants 中有定义：
 ``` 
 public static final int TXEffectType_SOUL_OUT = 0;                    //滤镜效果1
 public static final int TXEffectType_SPLIT_SCREEN = 1;                //滤镜效果2
@@ -58,7 +58,7 @@ public void deleteAllEffect();
 
 ### Demo 示例
 
-在1s - 2s之间应用第一种滤镜特效；在3s - 4s之间应用第2种滤镜特效；删除3s - 4s设置的滤镜特效。
+在1s - 2s之间应用第一种滤镜特效，在3s - 4s之间应用第2种滤镜特效，删除3s - 4s设置的滤镜特效。
 
 ```
 //在1-2s之间应用第一种滤镜特效
