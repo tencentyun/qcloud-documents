@@ -59,7 +59,6 @@ service.cloud.tencent.com/cross-region-id: "ap-guangzhou"
 service.kubernetes.io/tke-existed-lbid: "lb-342wppll"
 :::
 </dx-codeblock>
-
 #### 示例4 
 annotation 在 Service YMAL 中的写法如下所示：
 <dx-codeblock>
