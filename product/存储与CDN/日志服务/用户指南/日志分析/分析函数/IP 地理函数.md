@@ -1,5 +1,9 @@
 IP 地理函数可用于判断 IP 地址属于内网还是外网，也可用于分析 IP 地址所属的国家、省份、城市。本文介绍 IP 地理函数的基本语法及示例。
 
+>? 当前 CLS 函数仅支持重庆地域使用。其他地域如有需要，请 [提交工单](https://console.cloud.tencent.com/workorder/category)。
+>
+
+
 ## IP 地址函数
 
 >?
