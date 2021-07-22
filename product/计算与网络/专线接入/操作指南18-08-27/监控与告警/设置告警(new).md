@@ -28,8 +28,9 @@
  >
  ![](https://main.qcloudimg.com/raw/77b1d40b9d112384a1bd9fcba60ebc79.png)
        - 勾选事件告警，则需选择具体事件，例如物理专线 Down。如果需要添加新的事件告警，请单击“添加事件”，事件详情请参见[ 告警事件说明](https://cloud.tencent.com/document/product/216/48582#gjsj)。
- >? 若需配置多条告警事件，则单击【添加】进行配置。
- >
+<dx-alert infotype="explain" title="">
+若需配置多条告警事件，则单击【添加】进行配置。
+</dx-alert>
 4. 配置告警通知。
 告警通知接收人配置在通知模版中，如果使用现有模板，请单击“选择模版”，选中已有的模板；如果新建模版，请单击“新建模板”，并依据界面提示完成创建。
 ![](https://main.qcloudimg.com/raw/c6da6b52b02ac77c8a55f7482ff7ed2b.png)
