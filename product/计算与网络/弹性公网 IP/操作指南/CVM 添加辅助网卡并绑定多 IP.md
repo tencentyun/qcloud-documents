@@ -107,7 +107,8 @@
 4. 登录云服务器，具体操作请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。执行如下命令，查看需配置（未显示 IP）的网卡信息，如图所示，需配置的网卡名称为 `eth1`：
 ```
 ip addr
-```![](https://main.qcloudimg.com/raw/37c65397f52bce5702edb4b594bf708a.png)
+```
+![](https://main.qcloudimg.com/raw/37c65397f52bce5702edb4b594bf708a.png)
 5. 执行如下命令，进入`/etc/sysconfig/network-scripts/`文件夹：
 ```
 cd /etc/sysconfig/network-scripts/
@@ -133,7 +134,8 @@ NETMASK0=255.255.255.0 # 此处填写步骤三中所记录的子网掩码，请�
 IPADDR1=10.0.0.8 # 此处填写步骤一：添加辅助网卡中手动填写的辅助 IP，请根据实际填写
 NETMASK1=255.255.255.0 # 此处填写步骤三中所记录的子网掩码，请根据实际填写
  #GATEWAY='192.168.1.1'  # 因为 eth0 文件定义了网关，这里不再写网关，避免网关冲突，请根据实际填写
-```修改后，示例如下：
+```
+修改后，示例如下：
 ![](https://main.qcloudimg.com/raw/14c849d0031c859e2f65abc1f7862d02.png)
   4. 修改后保存配置文件并退出（在 vim 的末行模式下按 “Esc”，输入 “`wq!`” 并回车）。
 7. 输入如下命令重启网络服务。
