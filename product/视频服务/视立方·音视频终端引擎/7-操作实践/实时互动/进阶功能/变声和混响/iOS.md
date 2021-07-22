@@ -8,7 +8,7 @@
 
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
 
-**录制变声混响：**
+## 录制变声混响
 
 <dx-codeblock>
 ::: ios 
