@@ -26,19 +26,21 @@
 3. 在排查异常访问后，您可以对业务逻辑进行优化，例如，优化高复杂度的命令、优化热点 Key、优化短连接、关闭 AOF。如果仍不能解决问题，您可以考虑升级实例。
 
 ### [实例升级](id:slsj)
-#### 扩容实例（读负载过大场景）
-1. 登录 [Redis 控制台](https://console.cloud.tencent.com/redis)，在实例列表，选择“操作”列的【配置变更】>【增加分片】或【增加副本】。
->?
->- 根据您的业务情况选择增加分片或增加副本。
->- 标准架构需升级为集群架构后方可增加分片，升级请参见 [升级实例架构](https://cloud.tencent.com/document/product/239/46458)。
->- 每分片能提供的 QPS 为8W - 10W，请按需增加。
+#### 读负载过大场景
+1. 登录 [Redis 控制台](https://console.cloud.tencent.com/redis)，在实例列表，选择“操作”列的【配置变更】>【增加副本】。
+>?每分片能提供的 QPS 为8W - 10W，请按需增加。
 >
 ![](https://main.qcloudimg.com/raw/740453d3b1bf2ca22c601aa819b2db21.png)
 2. 在弹出的配置变更对话框，选择需更改的配置，单击【确定】。
 3. 返回实例列表，待实例状态变更为“运行中”，即可正常使用。
 
-#### 升级架构（写负载过大场景）
+#### 写负载过大场景
+- **集群架构**
+登录 [Redis 控制台](https://console.cloud.tencent.com/redis)，在实例列表，选择“操作”列的【配置变更】>【增加分片】。
+
+- **标准架构**
 通过升级为集群版提升 CPU 处理能力，升级集群前需要检测兼容性，请参见 [标准架构迁移集群架构检查](https://cloud.tencent.com/document/product/239/43697)。
-1. 登录 [Redis 控制台](https://console.cloud.tencent.com/redis)，在实例列表，单击实例 ID，进入实例详情页面。
-2. 在实例详情页的“规格信息处”，单击【架构升级】。
+ 1. 登录 [Redis 控制台](https://console.cloud.tencent.com/redis)，在实例列表，单击实例 ID，进入实例详情页面。
+ 2. 在实例详情页的“规格信息处”，单击【架构升级】。
 ![](https://main.qcloudimg.com/raw/75b2e8010b3420f9c31244bb3fa26ee6.png)
+ 3. 升级集群架构后，返回实例列表，选择“操作”列的【配置变更】>【增加分片】。
