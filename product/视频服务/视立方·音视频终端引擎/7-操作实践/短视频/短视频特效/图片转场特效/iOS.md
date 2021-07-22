@@ -1,4 +1,7 @@
- ## SDK 版本
+腾讯云视立方短视频 UGSV SDK 在4.7版本后增加了图片编辑功能，用户可以选择自己喜欢的图片，添加转场动画、BGM、贴纸等效果。  
+
+
+## SDK 版本
 本页文档所描述功能，在 SDK 版本中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 纯播放 Player | 全功能 |
@@ -9,10 +12,7 @@
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
 
 
-
-腾讯云视立方短视频 UGSV SDK 在4.7版本后增加了图片编辑功能，用户可以选择自己喜欢的图片，添加转场动画、BGM、贴纸等效果。  
-
-### 接口函数
+## 接口函数
 
 
 <dx-codeblock>
