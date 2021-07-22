@@ -47,7 +47,7 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 
 
 #### 安装步骤
-1. 在集群中设置即将部署 Nginx 的节点的 Lable，设置步骤可参见 [设置节点 Label](https://cloud.tencent.com/document/product/457/32768)。
+1. 在集群中设置即将部署 Nginx 的节点的 Label，设置步骤可参见 [设置节点 Label](https://cloud.tencent.com/document/product/457/32768)。
 2. 在集群中 [安装 NginxIngress 组件](#Nginx-ingress)。
 3. 在新建的 Nginx Ingress 组件详情页，单击【新增Nginx Ingress实例】（一个集群内可以同时存在多个 Nginx）。
 4. 在弹出的窗口中，选择部署选项中的【自定义Deployment+HPA 部署】，并按需设置其他参数。如下图所示：
