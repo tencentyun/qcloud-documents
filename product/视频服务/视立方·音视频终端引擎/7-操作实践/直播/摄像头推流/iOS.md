@@ -82,12 +82,11 @@
 [](id:step5)
 ### 5. 启动和结束推流
 如果已经通过`startCamera`接口启动了摄像头预览，就可以调用 V2TXLivePusher 中的 [startPush](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a33b38f236a439e7d848606acb68cc087) 接口开始推流。
-​```objectivec 
+```objectivec 
 //启动推流
 NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp 推流地址
 [_pusher startPush:rtmpUrl];
 ```
-
 推流结束后，可以调用 V2TXLivePusher 中的 [stopPush](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a7332411d6264bc743b0b2bae0b8a73ae) 接口结束推流。
 ```objectivec
 //结束推流
@@ -95,7 +94,7 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp
 ```
 >! 如果已经启动了摄像头预览，请在结束推流时将其关闭。  
 
--  **如何获取可用的推流 URL？**
+-  **获取可用的推流 URL**
 开通直播服务后，可以使用【直播控制台】>【辅助工具】> [【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 ![](https://main.qcloudimg.com/raw/0ec9d83f340454c287d96f83eec3a3e4.png)
 - **返回 V2TXLIVE_ERROR_INVALID_LICENSE 的原因**    
@@ -230,8 +229,8 @@ V2TXLivePusher 默认推出的是竖屏分辨率的视频画面，如果希望�
         }
     });
       }
-      :::
-      </dx-codeblock>
+:::
+</dx-codeblock>
 
 
 ## 事件处理
