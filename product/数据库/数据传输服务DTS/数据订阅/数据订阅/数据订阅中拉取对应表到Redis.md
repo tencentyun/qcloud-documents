@@ -76,7 +76,7 @@ yum install java-1.8.0-openjdk-devel
 
 
 ##  编译操作与检验
-1.  使用javac命令进行编译。
+1.  使用 javac 命令进行编译。
 ```
 [root@VM_71_10_centos ~]# javac -classpath binlogsdk-2.6.0-release.jar:jedis-2.9.0.jar -encoding UTF-8 RedisDemo.java 
 ```
