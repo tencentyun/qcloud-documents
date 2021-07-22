@@ -16,7 +16,7 @@
 
 ## 功能体验
 
-体验 iOS 录屏可以单击安装 [腾讯云视立方APP](https://itunes.apple.com/cn/app/%E8%A7%86%E9%A2%91%E4%BA%91%E5%B7%A5%E5%85%B7%E5%8C%85/id1152295397?mt=8) 或通过扫码进行安装。
+体验 iOS 录屏可以单击安装 [腾讯云视立方 App](https://itunes.apple.com/cn/app/%E8%A7%86%E9%A2%91%E4%BA%91%E5%B7%A5%E5%85%B7%E5%8C%85/id1152295397?mt=8) 或通过扫码进行安装。
 ![](https://main.qcloudimg.com/raw/386c06636b522fbd0f85714acf73209b.png)
 >!录屏推流功能仅11.0以上系统可体验。
 
