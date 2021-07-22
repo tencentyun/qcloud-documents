@@ -1,3 +1,5 @@
+腾讯云视立方短视频 UGSV SDK 在4.9版本后增加了图片编辑功能，用户可以选择自己喜欢的图片，添加转场动画、BGM、贴纸等效果。 
+
 ## SDK 版本
 本页文档所描述功能，在 SDK 版本中支持情况如下：
 
@@ -6,13 +8,9 @@
 | 支持情况 | -  | -  | &#10003;  | -  | -  | &#10003;  |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。 
 
-
-
-腾讯云视立方短视频 UGSV SDK 在4.9版本后增加了图片编辑功能，用户可以选择自己喜欢的图片，添加转场动画、BGM、贴纸等效果。  
-
-### 接口函数
+## 接口函数
 
 <dx-codeblock>
 ::: java java
