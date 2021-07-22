@@ -2,8 +2,10 @@
 
 COS 触发器具有以下特点：
 
-- **Push 模型**：COS 会监控指定的 Bucket 动作（事件类型）并调用相关函数，将事件数据推送给 SCF 函数。在推模型中使用 Bucket 通知来保存 COS 的事件源映射。
-- **异步调用**：COS 始终使用异步调用类型来调用函数，结果不会返回给调用方。有关调用类型的更多信息，请参阅 [调用类型](https://cloud.tencent.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B)。
+- **Push 模型**
+COS 会监控指定的 Bucket 动作（事件类型）并调用相关函数，将事件数据推送给 SCF 函数。在推模型中使用 Bucket 通知来保存 COS 的事件源映射。
+- **异步调用**
+COS 始终使用异步调用类型来调用函数，结果不会返回给调用方。有关调用类型的更多信息，请参阅 [调用类型](https://cloud.tencent.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B)。
 
 
 
@@ -13,23 +15,62 @@ COS 触发器具有以下特点：
 
 - COS Bucket（必选）：配置的 COS Bucket，仅支持选择同地域下的 COS 存储桶。
 - 事件类型（必选）：支持 “文件上传” 和 “文件删除”、以及更细粒度的上传和删除事件，具体事件类型见下表。事件类型决定了触发器何时触发云函数，例如选择 “文件上传” 时，会在该 COS Bucket 中有文件上传时触发该函数。
-
-|    事件类型    | 描述 |
-| ---------- | --- |
-| `cos:ObjectCreated:*`         |  以下提到的所有上传事件均可触发云函数。 |
-| `cos:ObjectCreated:Put`       |  使用 Put Object 接口创建文件时触发云函数。 |
-| `cos:ObjectCreated:Post`      |  使用 Post Object 接口创建文件时触发云函数。  |
-| `cos:ObjectCreated:Copy`      |  使用 Put Object - Copy 接口创建文件时触发云函数。  |
-| `cos:ObjectCreated:CompleteMultipartUpload` |  使用 CompleteMultipartUpload 接口创建文件时触发云函数。  |
-| `cos:ObjectCreated:Origin` | 通过 [COS 回源](https://cloud.tencent.com/document/product/436/13310) 创建对象时触发云函数。 |
-| `cos:ObjectCreated:Replication` | 通过跨区域复制创建对象时触发云函数。 |
-| `cos:ObjectRemove:*`          | 以下提到的所有删除事件均可触发云函数。 |
-| `cos:ObjectRemove:Delete`     | 在未开启版本管理的 Bucket 下使用 Delete Object 接口删除的 Object，或者使用 versionid 删除指定版本的 Object 时触发云函数。  |
-| `cos:ObjectRemove:DeleteMarkerCreated` | 在开启或者暂停版本管理的 Bucket 下使用 Delete Object 接口删除的 Object 时触发云函数。|
-| `cos:ObjectRestore:Post` | 创建了归档恢复的任务时触发云函数。 |
-| `cos:ObjectRestore:Completed` | 完成归档恢复任务时触发云函数。 |
-
-
+<table>
+<thead>
+<tr>
+<th>事件类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>cos:ObjectCreated:*</code></td>
+<td>以下提到的所有上传事件均可触发云函数。</td>
+</tr>
+<tr>
+<td><code>cos:ObjectCreated:Put</code></td>
+<td>使用 Put Object 接口创建文件时触发云函数。</td>
+</tr>
+<tr>
+<td><code>cos:ObjectCreated:Post</code></td>
+<td>使用 Post Object 接口创建文件时触发云函数。</td>
+</tr>
+<tr>
+<td><code>cos:ObjectCreated:Copy</code></td>
+<td>使用 Put Object - Copy 接口创建文件时触发云函数。</td>
+</tr>
+<tr>
+<td><code>cos:ObjectCreated:CompleteMultipartUpload</code></td>
+<td>使用 CompleteMultipartUpload 接口创建文件时触发云函数。</td>
+</tr>
+<tr>
+<td><code>cos:ObjectCreated:Origin</code></td>
+<td>通过 <a href="https://cloud.tencent.com/document/product/436/13310">COS 回源</a> 创建对象时触发云函数。</td>
+</tr>
+<tr>
+<td><code>cos:ObjectCreated:Replication</code></td>
+<td>通过跨区域复制创建对象时触发云函数。</td>
+</tr>
+<tr>
+<td><code>cos:ObjectRemove:*</code></td>
+<td>以下提到的所有删除事件均可触发云函数。</td>
+</tr>
+<tr>
+<td><code>cos:ObjectRemove:Delete</code></td>
+<td>在未开启版本管理的 Bucket 下使用 Delete Object 接口删除的 Object，或者使用 versionid 删除指定版本的 Object 时触发云函数。</td>
+</tr>
+<tr>
+<td><code>cos:ObjectRemove:DeleteMarkerCreated</code></td>
+<td>在开启或者暂停版本管理的 Bucket 下使用 Delete Object 接口删除的 Object 时触发云函数。</td>
+</tr>
+<tr>
+<td><code>cos:ObjectRestore:Post</code></td>
+<td>创建了归档恢复的任务时触发云函数。</td>
+</tr>
+<tr>
+<td><code>cos:ObjectRestore:Completed</code></td>
+<td>完成归档恢复任务时触发云函数。</td>
+</tr>
+</tbody></table>
 - 前缀过滤（可选）：前缀过滤通常用于过滤指定目录下的文件事件。例如，前缀过滤为 `test/`，则仅 `test/` 目录下的文件事件才可以触发函数，`hello/` 目录下的文件事件不触发函数。
 - 后缀过滤（可选）：后缀过滤通常用于过滤指定类型或后缀的文件事件。例如，后缀过滤为 `.jpg`，则仅 `.jpg` 结尾的文件的事件才可以触发函数，`.png` 结尾的文件事件不触发函数。
 
