@@ -5,12 +5,12 @@
 
 ## 应用场景
 
-- 网站支持 HTTP 和 HTTPS，例如，`http://tencent.com` 和 `https://tencent.com` 需要访问到同一个 Web 服务。
-- 网站更换过域名，例如，`https://tengxun.com` 换成 `https://tencent.com`，两个域名访问到同一个 Web 服务。
+- 网站支持 HTTP 和 HTTPS，例如 `http://tencent.com` 和 `https://tencent.com` 需要访问到同一个 Web 服务。
+- 网站更换过域名，例如 `https://tengxun.com` 换成 `https://tencent.com`，两个域名访问到同一个 Web 服务。
 - 网站部分内容做过调整，原始 URL 已经无法访问，可以重定向到一个新的提供服务的 URL 上。
 
 >!
-> - 当用户使用重定向后，将会多出如下一条注解，该注解表明 Ingress 的转发规则由 TKE 管理，后期不能被删除和修改，否者将和 CLB 侧设置的重定向规则冲突。
+> - 当用户使用重定向后，将会多出如下一条注解，该注解表明 Ingress 的转发规则由 TKE 管理，后期不能被删除和修改，否则将和 CLB 侧设置的重定向规则冲突。
 ```sh
 ingress.cloud.tencent.com/rewrite-support: "true"
 ```
@@ -58,7 +58,7 @@ Ingress 支持通过控制台和 YAML 两种方式进行重定向，具体步骤
 在 Ingress YAML 中配置如下注解：
 <dx-codeblock>
 :::  sh
-ingress.cloud.tencent.com/auto-rewrite: true
+ingress.cloud.tencent.com/auto-rewrite: "true"
 :::
 </dx-codeblock>
 配置该注解之后，转发路径种的所有 HTTPS 监听器中存在的七层转发规则都将被对应到 HTTP 监听器中作为重定向规则。域名与路径路径都保持一致。
