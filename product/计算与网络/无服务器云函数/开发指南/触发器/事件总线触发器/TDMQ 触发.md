@@ -1,30 +1,35 @@
+
+
+
+
 通过 [EventBridge 事件总线](https://cloud.tencent.com/document/product/1359/56077)，用户可以编写云函数来处理 TDMQ 消息队列中收取到的消息。云函数后台模块可以作为消费者消费 TDMQ 中的消息，并将消息传递给云函数，本篇文档将为您指导，云函数如何通过 EventBridge 事件总线触发器，接收并消费来自 TDMQ 的产品事件。
 
 ## 创建步骤
-### 1. 创建函数
-在云函数“新建”页面，完成您的函数代码上传与部署。
->! 注意：目前 TDMQ 只支持北京、上海、广州地域
 
-![](https://main.qcloudimg.com/raw/f3c1461afc4892119b77e288b833b337.png)
+### 步骤1：创建函数
+登录 [Serverless控制台](https://console.cloud.tencent.com/scf/list-create?rid=1&ns=default)，在新建函数页面，完成您的函数代码上传与部署。详情可参见 [使用控制台创建一个事件函数](https://cloud.tencent.com/document/product/583/37509)。
+
+>! 目前 TDMQ 只支持北京、上海、广州地域。
+
+
 
 此处以 helloworld 模版为例，创建空函数项目：
-![](https://main.qcloudimg.com/raw/df26f36b4aa2696f33650e65d75336b2.png)
+![](https://main.qcloudimg.com/raw/6332a17c6782b4774801ebefa4348b49.png)
 
-### 2. 配置触发器
+### 步骤2：配置触发器
 选择【TDMQ 触发】后，按照指引，依次选择您的 TDMQ 集群、主题等信息，指定触发事件源，消费位置：
-![](https://main.qcloudimg.com/raw/784e20afb9ac1fecf4ef06bdc9c666ba.png)
+![](https://main.qcloudimg.com/raw/73295485d347e1a169c04378f62b0f47.png)
 
-### 3. 管理触发器
-创建完成后，在“触发器管理”页面可以看到创建的触发器信息，点击进入事件总线控制台，即可完成事件集、事件源等信息管理，详情请参考[事件总线产品文档](https://cloud.tencent.com/document/product/1359/56077)
-
-![](https://main.qcloudimg.com/raw/e20d4e12d1123dfb349e423ad2bce787.png)
+### 步骤3：管理触发器
+创建完成后，在“触发器管理”页面可以看到创建的触发器信息，点击进入事件总线控制台，即可完成事件集、事件源等信息管理，详情请参考 [事件总线产品文档](https://cloud.tencent.com/document/product/1359/56077)。
+![](https://main.qcloudimg.com/raw/067b4b46ad9cfee9bfe43d839506398a.png)
 
 给指定 TDMQ 消息队列发送信息，即可看到函数被正常调用：
-
-![](https://main.qcloudimg.com/raw/c9b44a244263222ae2e430b4f2102972.png)
+![](https://main.qcloudimg.com/raw/d63a450acc3931ef2d35125b882e3e9c.png)
 
 ## 事件结构
-```json
+<dx-codeblock>
+:::  json
 {
    {
     "specversion": "0",
@@ -46,7 +51,9 @@
 					"msgBody": "Hello from TDMQ!"
     }
 }
-```
+:::
+</dx-codeblock>
+
 
 参数说明如下：
 
