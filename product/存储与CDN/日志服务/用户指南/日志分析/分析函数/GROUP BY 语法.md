@@ -2,6 +2,9 @@
 
 GROUP BY 语法用于结合聚合函数，根据一个或多个列对分析结果进行分组。
 
+>? 当前 CLS 函数仅支持重庆地域使用。其他地域如有需要，请 [提交工单](https://console.cloud.tencent.com/workorder/category)。
+>
+
 ## 语法格式
 
 ```
