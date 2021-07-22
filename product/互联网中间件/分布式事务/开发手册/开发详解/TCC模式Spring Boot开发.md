@@ -25,8 +25,8 @@ TCC 事务，也可以理解为手动事务。需要用户提供 Try、Confirm�
 
 ```
 <dependency>
-	<groupId>com.tencent.cloud</groupId>
-	<artifactId>spring-boot-dtf-druid</artifactId>
+<groupId>com.tencent.cloud</groupId>
+<artifactId>spring-boot-dtf-druid</artifactId>
 </dependency>  
 ```
 
@@ -84,7 +84,7 @@ public class OrderApplication {
 }
 ```
 
-> ?通常建议同时启用本地事务管理`@EnableTransactionManagement`。
+>?通常建议同时启用本地事务管理`@EnableTransactionManagement`。
 
 ## 主事务管理
 
@@ -231,7 +231,7 @@ public interface IOrderService {
 | confirmMethod | String                       | 否   | confirm 前缀 + @DtfTcc 注解方法名首字母大写 | Confirm 操作方法名                                   |
 | cancelClass   | String                       | 否   | @DtfTcc 注解所在 Class                      | Cancel 操作类名，建议填写 beanname                   |
 | cancelMethod  | String                       | 否   | Cancel 前缀 + @DtfTcc 注解方法名首字母大写  | Cancel 操作方法名                                    |
-| rollbackFor   | Class<? extends Throwable>[] | 否   | {}                                          | 分支事务在识别到以下异常时回滚主事务，未配置时不回滚 |
+| rollbackFor   | Class &lt;? extends Throwable&gt;[] | 否   | {}                                          | 分支事务在识别到以下异常时回滚主事务，未配置时不回滚 |
 
 在上面的例子中：
 
@@ -298,7 +298,7 @@ DTF-Last-Branch-ID: ${LastBranchId}
 
 ### 主调 - 手动处理
 
-可以参考 [Spring Free开发指导](https://cloud.tencent.com/document/product/1224/45970) 中的**远程请求时传递分布式事务上下文**章节。
+可以参考 [Spring Free 开发指导](https://cloud.tencent.com/document/product/1224/45970) 中的**远程请求时传递分布式事务上下文**章节。
 
 ### 被调 - Spring MVC - Controller
 
@@ -340,6 +340,7 @@ DTF-Last-Branch-ID: ${LastBranchId}
 <dx-alert infotype="notice" title="">
 需要再排除 DTF 中的一些依赖。
 </dx-alert>
+
 ```xml
 <!-- TSF 启动器 -->
 <dependency>
