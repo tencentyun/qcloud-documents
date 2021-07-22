@@ -1,3 +1,5 @@
+本文档是介绍腾讯云视立方 Web TcAdapter，它可以帮助腾讯云客户通过灵活的接口，快速实现第三方播放器与云点播能力的结合，实现视频播放功能。TcAdapter 支持获取视频基本信息、视频流信息、关键帧与缩略图信息等，支持私有加密，本文档适合有一定 Javascript 语言基础的开发人员阅读。
+
 ## SDK 版本
 本页文档所描述功能，在 SDK 版本中支持情况如下：
 
@@ -7,10 +9,6 @@
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
 
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
-
-## 概览
-
-本文档是介绍腾讯云视立方 Web TcAdapter，它可以帮助腾讯云客户通过灵活的接口，快速实现第三方播放器与云点播能力的结合，实现视频播放功能。TcAdapter 支持获取视频基本信息、视频流信息、关键帧与缩略图信息等，支持私有加密，本文档适合有一定 Javascript 语言基础的开发人员阅读。
 
 ## SDK 集成
 
@@ -128,7 +126,7 @@ SubStreamInfo 参数如下：[](id:SubStreamInfo)
 | type           | String | 子流的类型，目前可能的取值仅有 video |
 | width          | Int    | 子流视频的宽，单位：px               |
 | height         | Int    | 子流视频的高，单位：px               |
-| resolutionName | String | 子流视频在播放器中展示的规格名。     |
+| resolutionName | String | 子流视频在播放器中展示的规格名     |
 
 ### 获取关键帧打点信息
 
