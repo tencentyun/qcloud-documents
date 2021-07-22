@@ -1,6 +1,6 @@
 ## 简介
 
-使用 CLB 型 Ingress 时，默认是在当前集群所在 VPC 内的随机可用区生成 CLB。现目前 TKE 的 CLB Ingress 已支持指定可用区、甚至是其他地域的可用区。本文将为您介绍如何通过控制台和 YAML 两种方式为 CLB Ingress 跨域绑定和指定可用区。
+使用 CLB 型 Ingress 时，默认是在当前集群所在 VPC 内的随机可用区生成 CLB。现目前 TKE 的 CLB Ingress 已支持指定可用区、包括其他地域的可用区。本文将为您介绍如何通过控制台和 YAML 两种方式为 CLB Ingress 跨域绑定和指定可用区。
 
 
 
@@ -8,6 +8,7 @@
 
 - 需要支持 CLB 的跨地域接入或跨 VPC 接入，即 CLB 所在的 VPC 和当前集群所在的 VPC 不在同一 VPC 内。
 - 需要指定 CLB 的可用区已实现资源的统一管理。
+
 >?
 > 1. 如需使用非本集群所在 VPC 的 CLB，需先通过 [云联网](https://cloud.tencent.com/document/product/877/18752) 打通当前集群 VPC 和 CLB 所在的 VPC。
 > 2. 在确保 VPC 已经打通之后，请 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 申请使用该功能。
