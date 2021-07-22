@@ -47,7 +47,6 @@ public final static class TXAnimatedPaster {
 </dx-codeblock>
 
 [](id:animated_demo)
-
 ### Demo 示例
 
 <dx-codeblock>
@@ -120,7 +119,7 @@ mTXVideoEditer.setPasterList(pasterList);                  //设置静态贴纸
 :::
 </dx-codeblock>
 
-SDK 内部将获取到该动态贴纸对应的 config.json，并且按照 json 中定义的格式进行动态贴纸的展示。
+SDK 内部将获取到该动态贴纸对应的 `config.json`，并且按照 JSON 中定义的格式进行动态贴纸的展示。
 
 >?该封装格式为 SDK 内部强制性要求，请严格按照该格式描述动态贴纸。
 
@@ -150,15 +149,16 @@ public final static class TXRect {
 :::
 </dx-codeblock>
 
-- titleImage：表示字幕图片，如果上层使用的是 TextView 之类的控件，请先把控件转成 Bitmap，具体方法可以参照 [Demo](#List_demo) 的示例代码。
-- frame：表示字幕的 frame，注意这个 frame 是相对于渲染 view（initWithPreview 时候传入的 view）的 frame，具体可以参照 Demo 的示例代码。
-- startTime：字幕作用的起始时间。
-- endTime：字幕作用的结束时间。
+| 参数 | 说明 | 
+|---------|---------|
+| titleImage | 表示字幕图片，如果上层使用的是 TextView 之类的控件，请先把控件转成 Bitmap，具体方法可以参照 [Demo](#List_demo) 的示例代码。  | 
+| frame | 表示字幕的 frame，注意这个 frame 是相对于渲染 view（initWithPreview 时候传入的 view）的 frame，具体可以参照 Demo 的示例代码。 | 
+| startTime | 字幕作用的起始时间。   | 
+| endTime | 字幕作用的结束时间。   | 
 
-因为字幕的 UI 逻辑比较复杂，我们已经在 demo 层有一整套的实现方法，推荐客户直接参考 Demo 实现， 可以大大降低您的接入成本。
+因为字幕的 UI 逻辑比较复杂，我们已经在 Demo 层有一整套的实现方法，推荐客户直接参考 [Demo](https://cloud.tencent.com/document/product/1449/56977?!preview&!editLang=zh) 实现， 可以大大降低您的接入成本。
 
 [](id:List_demo)
-
 #### Demo 示例
 
 <dx-codeblock>
@@ -191,7 +191,7 @@ mTXVideoEditer.setSubtitleList(mSubtitleList); // 设置字幕列表
 >?以上单位均为 px。
 
 #### 封装格式
-由于气泡字幕中携带参数较多，建议您在 Demo 层封装相关的参数。如腾讯云 Demo 中使用的 json 格式封装。
+由于气泡字幕中携带参数较多，建议您在 Demo 层封装相关的参数。如腾讯云 Demo 中使用的 JSON 格式封装。
 
 <dx-codeblock>
 ::: android java
@@ -211,6 +211,5 @@ mTXVideoEditer.setSubtitleList(mSubtitleList); // 设置字幕列表
 >?该封装格式用户可以自行决定，非 SDK 强制性要求。
 
 #### 字幕过长
-
-我们的 Demo 提供了一个自动排版的控件，在当前字体大小下，且字幕过长时，控件将自动缩小字号，直到能够恰好放下所有字幕文字为止。使用该控件即可**实现字幕若输入过长情况下，通过排版使字幕与气泡美观地合并。**
+我们的 [Demo](https://cloud.tencent.com/document/product/1449/56977?!preview&!editLang=zh) 提供了一个自动排版的控件，在当前字体大小下，且字幕过长时，控件将自动缩小字号，直到能够恰好放下所有字幕文字为止。使用该控件即可**实现字幕若输入过长情况下，通过排版使字幕与气泡美观地合并。**
 您也可以修改相关控件源代码，来满足自身的业务要求。 
