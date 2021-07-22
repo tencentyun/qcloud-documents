@@ -7,94 +7,94 @@
 <table>
 <thead>
 <tr style="text-align:center">
-<th colspan=2>功能模块</th>
-<th>基础直播<br>Smart</th>
-<th>互动直播<br>Live</th>
-<th>短视频<br>UGSV</th>
-<th>音视频通话<br>TRTC</th>
-<th>播放器<br>Player</th>
-<th>全功能</th>
+<th colspan="2" width=25%>功能模块</th>
+<th style="text-align:center">基础直播<br>Smart</th>
+<th style="text-align:center">互动直播<br>Live</th>
+<th style="text-align:center">短视频<br>UGSV</th>
+<th style="text-align:center">音视频通话<br>TRTC</th>
+<th style="text-align:center">播放器<br>Player</th>
+<th style="text-align:center">全功能</th>
 </tr>
 </thead>
 <tbody><tr>
-<td colspan=2>SDK 下载</td>
-<td><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive">下载</td>
-<td><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive">下载</td>
-<td><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo">下载</td>
-<td><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=video">下载</td>
-<td><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=player">下载</td>
-<td><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart">下载</td>
+<td colspan="2">SDK 下载</td>
+<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive" target="_blank">下载</a></td>
+<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive" target="_blank">下载</a></td>
+<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo" target="_blank">下载</a></td>
+<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=video" target="_blank">下载</a></td>
+<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=player" target="_blank">下载</a></td>
+<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart" target="_blank">下载</a></td>
 </tr>
 <tr>
-<td colspan=2>应用场景</td>
+<td colspan="2">应用场景</td>
 <td>标准直播</td>
-<td><li>视频拍摄<li>连麦互动<li>在线教育<li>低延时互动</td>
-<td><li>视频拍摄<li>特效制作<br><li>发布观看</td>
-<td><li>多人音视频<li>语聊房</td>
-<td><li>直播观看<li>短视频观看<li>长视频观看</td>
+<td><li>视频拍摄</li><li>连麦互动</li><li>在线教育</li><li>低延时互动</li></td>
+<td><li>视频拍摄</li><li>特效制作<br></li><li>发布观看</li></td>
+<td><li>多人音视频</li><li>语聊房</li></td>
+<td><li>直播观看</li><li>短视频观看</li><li>长视频观看</li></td>
 <td>覆盖所有场景</td>
 </tr>
 <tr>
-<td colspan=2>Demo</td>
-<td colspan=6 style="text-align:center"><a href="https://tcloud-doc.isd.com/document/product/1449/56977">腾讯云视立方 Demo</td>
+<td colspan="2">Demo</td>
+<td colspan="6" style="text-align:center"><a href="https://tcloud-doc.isd.com/document/product/1449/56977" target="_blank">腾讯云视立方 Demo</a></td>
 </tr>
 <tr>
-<td rowspan=2>直播推流</td>
+<td rowspan="2" width=10%>直播推流</td>
 <td>主播开播</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>&#10003;</td>
+<td style="text-align:center">&#10003;</td>
+<td style="text-align:center">&#10003;</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">&#10003;</td>
 </tr>
 <tr>
-<td>主播观众连麦/主播跨房PK</td>
-<td>-</td>
-<td>&#10003;</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>&#10003;</td>
+<td>主播观众连麦/主播跨房 PK</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">&#10003;</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">&#10003;</td>
 </tr>
 <tr>
 <td>短视频</td>
 <td>视频录制编辑/视频上传发布</td>
-<td>-</td>
-<td>-</td>
-<td>&#10003;</td>
-<td>-</td>
-<td>-</td>
-<td>&#10003;</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">&#10003;</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">&#10003;</td>
 </tr>
 <tr>
-<td rowspan=2>播放器</td>
+<td rowspan="2">播放器</td>
 <td>直播观看</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
-<td>-</td>
-<td>-</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
+<td style="text-align:center">&#10003;</td>
+<td style="text-align:center">&#10003;</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">&#10003;</td>
+<td style="text-align:center">&#10003;</td>
 </tr>
 <tr>
 <td>点播观看</td>
-<td>-</td>
-<td>-</td>
-<td>&#10003;</td>
-<td>-</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">&#10003;</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">&#10003;</td>
+<td style="text-align:center">&#10003;</td>
 </tr>
 <tr>
 <td>实时互动</td>
 <td>音视频通话</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>&#10003;</td>
-<td>-</td>
-<td>&#10003;</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">&#10003;</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">&#10003;</td>
 </tr>
 </tbody></table>
 
