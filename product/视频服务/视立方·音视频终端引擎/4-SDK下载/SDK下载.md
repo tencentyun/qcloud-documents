@@ -7,7 +7,7 @@
 <table>
 <thead>
 <tr style="text-align:center">
-<th colspan="2" width=25%>功能模块</th>
+<th colspan="2" width="25%">功能模块</th>
 <th style="text-align:center">基础直播<br>Smart</th>
 <th style="text-align:center">互动直播<br>Live</th>
 <th style="text-align:center">短视频<br>UGSV</th>
@@ -39,7 +39,7 @@
 <td colspan="6" style="text-align:center"><a href="https://tcloud-doc.isd.com/document/product/1449/56977" target="_blank">腾讯云视立方 Demo</a></td>
 </tr>
 <tr>
-<td rowspan="2" width=10%>直播推流</td>
+<td rowspan="2" width="10%">直播推流</td>
 <td>主播开播</td>
 <td style="text-align:center">&#10003;</td>
 <td style="text-align:center">&#10003;</td>
