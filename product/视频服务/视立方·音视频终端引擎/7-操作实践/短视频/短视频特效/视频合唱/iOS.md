@@ -1,3 +1,4 @@
+本篇教程向大家介绍如何从零开始完成合唱的基础功能。
 ## SDK 版本
 本页文档所描述功能，在 SDK 版本中支持情况如下：
 
@@ -7,10 +8,6 @@
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
 
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
-
-
-
-本篇教程向大家介绍如何从零开始完成合唱的基础功能。
 
 ## 过程简介
 
@@ -29,7 +26,7 @@ Privacy - Camera Usage Description
 > ? 该配置项可自定义，例如"录制视频"。
 2. **配置一个简单的录制界面**：打开 `Main.storyboard`，拖进去两个 UIView，配置宽度为 superview 的0.5倍，长宽比16:9。
    ![ ](https://main.qcloudimg.com/raw/757835bb36355f7e702a364d9740eb1e.png)
-   3. **加上进度条**：在 `ViewController.m` 中设置 IBOutlet 绑定界面，并设置好按钮的 IBAction。因为录制好后还要跳转到预览界面，还需要一个导航。单击黄色 VC 图标，在菜单栏依次进入【Editor】>【Embeded In】，单击【Navigation Controller】给 ViewController 套一层 Navigation Controller。完成基本 UI 的搭建。
+3. **加上进度条**：在 `ViewController.m` 中设置 IBOutlet 绑定界面，并设置好按钮的 IBAction。因为录制好后还要跳转到预览界面，还需要一个导航。单击黄色 VC 图标，在菜单栏依次进入【Editor】>【Embeded In】，单击【Navigation Controller】给 ViewController 套一层 Navigation Controller。完成基本 UI 的搭建。
       ![ ](https://main.qcloudimg.com/raw/cbdc197ae0ac5856413efb956dd5893d.png)
 
 
@@ -259,4 +256,4 @@ Privacy - Camera Usage Description
 :::
 </dx-codeblock>  
 
-至此就完成了全部合唱的基础功能，功能更加丰富的示例可以参考 [小视频源码](https://cloud.tencent.com/document/product/584/9366#.E5.85.A8.E5.8A.9F.E8.83.BD.E5.B0.8F.E8.A7.86.E9.A2.91-app.EF.BC.88demo.EF.BC.89.E6.BA.90.E4.BB.A3.E7.A0.81)。
+至此就完成了全部合唱的基础功能，功能更加丰富的示例请参见 [小视频源码](https://cloud.tencent.com/document/product/584/9366#.E5.85.A8.E5.8A.9F.E8.83.BD.E5.B0.8F.E8.A7.86.E9.A2.91-app.EF.BC.88demo.EF.BC.89.E6.BA.90.E4.BB.A3.E7.A0.81)。
