@@ -57,6 +57,13 @@ service.cloud.tencent.com/cross-vpc-id: "vpc-646vhcjj"
 :::  yaml
 service.cloud.tencent.com/cross-region-id: "ap-guangzhou" 
 service.kubernetes.io/tke-existed-lbid: "lb-342wppll"
+:::
+</dx-codeblock>
+
+#### 示例4 
+annotation 在 Service YMAL 中的写法如下所示：
+<dx-codeblock>
+:::  yaml
 # 创建异地接入的负载均衡
 apiVersion: v1
 kind: Service
