@@ -1,14 +1,12 @@
 <table>
   <tr>
     <th style="text-align:center;" width="180px"><b>Android/iOS<br></b>使用浏览器扫码</th>
-    <th style="text-align:center;" width="180px"><b>Flutter</b></th>
     <th style="text-align:center;" width="180px"><b>小程序</b></th>
     <th style="text-align:center;" width="180px"><b>小程序直播电商场景</b></th>
     <th style="text-align:center;" width="180px"><b>Web</b></th>
   </tr>
   <tr>
     <td><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/e225271f575b3ddb660d1fc9ec7947e9.png"  /></td>
-    <td><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/4dca99a243498c180a1bb274b229919a.png" /></td>
     <td><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/d705f9bd3ec330c34329e1763c8added.png" /></td>
     <td><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/f8f2140b89e536ead4a410fea7eee5fd.png" /></td>
     <td style="text-align:center">
