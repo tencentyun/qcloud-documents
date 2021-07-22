@@ -6,8 +6,8 @@
 ## 应用场景
 
 - 网站支持 HTTP 和 HTTPS，例如 `http://tencent.com` 和 `https://tencent.com` 需要访问到同一个 Web 服务。
-- 网站更换过域名，例如 `https://tengxun.com` 换成 `https://tencent.com`，两个域名访问到同一个 Web 服务。
-- 网站部分内容做过调整，原始 URL 已经无法访问，可以重定向到一个新的提供服务的 URL 上。
+- 网站更换过域名，例如 `https://tengxun.com` 更换为 `https://tencent.com`，两个域名访问到同一个 Web 服务。
+- 网站部分内容做过调整，原始 URL 已经无法访问，可以重定向到一个新的提供服务的 URL。
 
 
 <dx-alert infotype="notice" title="">
@@ -20,7 +20,7 @@ ingress.cloud.tencent.com/rewrite-support: "true"
 - 假设用字母表示域名地址，若 A 已经重定向至 B，则：
   - A 不能再重定向至 C（除非先删除旧的重定向关系，再建立新的重定向关系）。
   - B 不能重定向至任何其他地址。
-  - A 也不能重定向到 A。
+  - A 不能重定向到 A。
 </dx-alert>
 
 
