@@ -67,8 +67,7 @@ TXVideoEditConstants.TXVideoInfo info = TXVideoInfoReader.getInstance().getVideo
 
 <dx-tabs>
 ::: 快速导入生成精准缩略图
-
-#### 调用接口：
+**调用接口：**
 
 ```
 /**
@@ -86,7 +85,7 @@ public void getThumbnail(int count, int width, int height, boolean fast, TXThumb
 - 快速出图：输出的缩略图速度比较快，但是与视频对应不精准，传入参数 true。
 - 精准出图：输出的缩略图与视频时间点精准对应，但是在高分辨率上速度慢一些，传入参数 false。
 
-#### 完整示例：
+**完整示例：**
 
 ```
 mTXVideoEditer.getThumbnail(TCVideoEditerWrapper.mThumbnailCount, 100, 100, false, mThumbnailListener);
@@ -247,7 +246,7 @@ void setFilter(Bitmap leftBitmap, float leftIntensity, Bitmap rightBitmap, float
 ::: 设置全局水印
 您可以为视频设置水印图片，并且可以指定图片的位置。
 
-#### 设置水印的方法：
+#### 设置水印方法：
 ```
 public void setWaterMark(Bitmap waterMark, TXVideoEditConstants.TXRect rect);
 ```
