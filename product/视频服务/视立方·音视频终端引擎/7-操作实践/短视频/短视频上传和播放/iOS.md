@@ -80,5 +80,5 @@ _ugcPublish.delegate = self;                                 // 设置 TXVideoPu
 
 ### 4. 播放视频
 
-[第3步](#step3) 上传成功后，会返回视频的 fileId，播放地址 url，封面 url。用 [点播播放器](https://cloud.tencent.com/document/product/584/9372) 可以直接传入 fileId 播放，或者 url 播放。
+[第3步](#step3) 上传成功后，会返回视频的 fileId，播放地址 URL，封面 url。用 [点播播放器](https://cloud.tencent.com/document/product/584/9372) 可以直接传入 fileId 播放，或者 URL 播放。
 
