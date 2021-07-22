@@ -4,7 +4,7 @@
 
 
 
-## 安装 NginxIngress 组件[](id:Nginx-ingress">
+## 安装 NginxIngress 组件[](id:Nginx-ingress)
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
@@ -41,7 +41,7 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 
 
 
-### 通过 Deployment + HPA 形式并指定调度规则部署[](id:Deployment+HPA">
+### 通过 Deployment + HPA 形式并指定调度规则部署[](id:Deployment+HPA)
 使用 Deployment + HPA 的形式部署 Nginx-ingress，您可以根据业务需要配置污点和容忍将 Nginx 和业务 Pod 分散部署。同时搭配 HPA，可设置 Nginx 根据 CPU / 内存等指标进行弹性伸缩。部署架构如下图所示：
 ![](https://main.qcloudimg.com/raw/5147b2ffbbf056bb1ef468780a3c4669.png)
 
