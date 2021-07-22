@@ -6,7 +6,7 @@ __功能__
 
 __介绍__
 
-基于腾讯云直播（LVB）、点播（VOD） 和即时通信（IM）三大 PAAS 服务组合而成，支持：
+基于腾讯云直播、点播（VOD） 和即时通信（IM）三大 PAAS 服务组合而成，支持：
 
 - 主播创建新的直播间开播，观众进入直播间观看。
 - 主播和观众进行视频连麦互动。
@@ -23,12 +23,12 @@ __介绍__
 请参见 [直播连麦（LiveRoom）](https://cloud.tencent.com/document/product/454/14606)。
 
 
-  
+
 ## SDK 基础函数
 
 ### delegate
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 事件回调，您可以通过 MLVBLiveRoomDelegate 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 的各种状态通知。
+MLVBLiveRoom 事件回调，您可以通过 MLVBLiveRoomDelegate 获得 MLVBLiveRoom 的各种状态通知。
 
 ```
 @property (nonatomic, weak) id< MLVBLiveRoomDelegate > delegate
@@ -50,7 +50,7 @@ __介绍__
 
 ### sharedInstance
 
-获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 单例对象。
+获取 MLVBLiveRoom 单例对象。
 
 ```
 + (instancetype)sharedInstance
@@ -58,7 +58,7 @@ __介绍__
 
 __返回__
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 实例。
+MLVBLiveRoom 实例。
 
 >?可以调用 MLVBLiveRoom destroySharedInstance 销毁单例对象。
 
@@ -66,13 +66,13 @@ __返回__
 
 ### destorySharedInstance
 
-销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 单例对象。
+销毁 MLVBLiveRoom 单例对象。
 
 ```
 + (void)destorySharedInstance
 ```
 
->?销毁实例后，外部缓存的 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 实例不能再使用，需要重新调用 [sharedInstance](https://cloud.tencent.com/document/product/454/34763#sharedinstance) 获取新实例。
+>?销毁实例后，外部缓存的 MLVBLiveRoom 实例不能再使用，需要重新调用 [sharedInstance](https://cloud.tencent.com/document/product/454/34763#sharedinstance) 获取新实例。
 
 ***
 
@@ -117,6 +117,7 @@ __参数__
 | --------- | ---------- | ---------- |
 | userName  | NSString * | 昵称。     |
 | avatarURL | NSString * | 头像地址。 |
+| completion | (void(^)(int code, NSString *msg)) | 修改结果回调。 |
 
 ***
 
@@ -738,8 +739,7 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 
 ```
 
->通过美颜管理，您可以使用以下功能：
->
+>? 通过美颜管理，您可以使用以下功能：
 >- 设置”美颜风格”、”美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
 >- 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”。
 >- 设置人脸挂件（素材）等动态效果。
@@ -1050,6 +1050,4 @@ YES：成功；NO：失败。
 ```
 - (void)showVideoDebugLog:(BOOL)isShow 
 ```
-
-***
 

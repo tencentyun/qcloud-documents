@@ -5,7 +5,7 @@ Redis 部分命令的使用可能会导致服务不稳定、或者数据误删�
 
 ## 操作步骤
 ### 禁用命令
-1. 登录 [Redis 控制台](https://console.cloud.tencent.com/redis)，在实例列表，单击实例名，进入实例管理页面。
+1. 登录 [Redis 控制台](https://console.cloud.tencent.com/redis)，在实例列表，单击实例 ID，进入实例管理页面。
 2. 在实例管理页面，选择【参数配置】>【可修改参数】页，在`disable-command-list`参数行，可配置禁用命令名单。
 >?
 >- 支持禁用的命令包括 flushall、flushdb、keys、hgetall、eval、evalsha、script，云数据库 Redis 从2019年01月01日起新购的实例默认不禁用以上命令。

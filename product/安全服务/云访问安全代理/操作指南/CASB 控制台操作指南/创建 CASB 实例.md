@@ -1,6 +1,6 @@
 本文档将指导您如何使用云访问安全代理（CASB）控制台。
 ## 前提条件
-- 需已 [购买开通 CASB 实例](https://cloud.tencent.com/document/product/1303/48148)。
+- 需已 [购买开通 CASB 实例](https://cloud.tencent.com/document/product/1303/53298)。
 - 需已开通密钥管理系统（KMS）服务并完成 KMS 对云访问安全代理服务的角色授权，详情请参见 [使用 KMS 加密并授权](https://cloud.tencent.com/document/product/1303/48491)。
 
 ## 操作步骤
@@ -36,7 +36,7 @@
 	- **数据库实例数**：由版本提供实例数与扩展实例数组成。
 	- **自动续费**：用户可设置自动续费或关闭自动续费，关闭自动续费的实例到期后，将会被系统自动回收。
 	- **状态**：实例发货后，实例处于未初始化状态，单击账户设置【初始化】发起初始化操作，操作需要3分钟 - 10分钟，初始化完成后，实例处于正常服务状态。
-	- **私有网络及所属子网**：可更换需要部署 CASB 加密服务的私有网络和子网，选择用于部署 CASB 服务的 VPC 环境，用户必须同一个 VPC 环境下，才能登录到 [CASB 管理平台](https://cloud.tencent.com/document/product/1303/48548)。
+	- **私有网络及所属子网**：可更换需要部署 CASB 加密服务的私有网络和子网，选择用于部署 CASB 服务的 VPC 环境，用户必须处于同一个 VPC 环境下，才能登录到 [CASB 管理平台](https://cloud.tencent.com/document/product/1303/48548)。
 
 ### 步骤四：设置安全组
 1. 基本信息设置完成后，在 [实例列表](https://console.cloud.tencent.com/casb) 左侧操作栏，单击 ID/名称处的“实例名”，进入“基本信息”页面。

@@ -4,7 +4,7 @@
 
 Node-Problem-Detector-Plus 是 Kubernetes 集群节点的健康监测组件。在容器服务 TKE 环境中以 DaemonSet 方式运行，帮助用户实时检测节点上的各种异常情况，并将检测结果报告给上游的 Kube-apiserver。
 
-### 在 Kubernetes 集群创建的资源
+### 部署在集群内的 Kubernetes 对象
 
 
 

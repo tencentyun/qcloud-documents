@@ -12,18 +12,18 @@
 
 [](id:ui.step2)
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+1. 根据实际业务需求下载 SDK 及配套的 [Demo 源码](https://github.com/tencentyun/TRTCFlutterScenesDemo)。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:ui.step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `/lib/debug/GenerateTestUserSig.dart` 文件。
+2. 找到并打开 `/example/lib/debug/GenerateTestUserSig.dart` 文件。
 3. 设置 `GenerateTestUserSig.dart` 文件中的相关参数：
-<ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
-<li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
-<img src="https://main.qcloudimg.com/raw/31b265429e66a899acccb875a8c17ad6.png">
+<ul><li/>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
+	<li/>SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。</ul>
+	<img src="https://main.qcloudimg.com/raw/fba60aa9a44a94455fe31b809433cfa4.png"/>
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 >!
@@ -51,7 +51,7 @@
 
 [](id:ui.step5)
 ### 步骤5：修改 Demo 源代码
-源码文件夹 `TRTCCallingDemo` 中包含两个子文件夹 ui 和 model，其中 ui 文件夹中均为界面代码：
+[源码](https://github.com/tencentyun/TRTCFlutterScenesDemo) 文件夹 `TRTCCallingDemo` 中包含两个子文件夹 ui 和 model，其中 ui 文件夹中均为界面代码：
 
 | 文件或文件夹            | 功能描述                                                     |
 | ----------------------- | ------------------------------------------------------------ |
@@ -60,7 +60,7 @@
 
 [](id:model)
 ## 实现自定义 UI 界面
-[源码](https://github.com/c1avie/TRTCScenesDemo) 文件夹 `TRTCCallingDemo` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCCalling，您可以在  `TRTCCalling.dart`  文件中看到该组件提供的接口函数。
+[源码](https://github.com/tencentyun/TRTCFlutterScenesDemo) 文件夹 `TRTCCallingDemo` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCCalling，您可以在  `TRTCCalling.dart`  文件中看到该组件提供的接口函数。
 ![](https://main.qcloudimg.com/raw/36220937e8689dac4499ce9f2f187889.png)
 
 您可以使用开源组件 TRTCCalling 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。
@@ -137,7 +137,7 @@ sCall.login(1400000123, "userA", "xxxx");
 
 [](id:model.offline)
 ### 步骤6：实现离线接听
-离线接听暂不支持，计划在6月中旬支持。
+离线接听暂不支持，计划在7月中旬支持。
 
 [](id:api)
 ## 组件 API 列表

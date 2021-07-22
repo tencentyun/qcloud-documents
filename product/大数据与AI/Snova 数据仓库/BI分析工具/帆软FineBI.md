@@ -13,7 +13,7 @@
 3. 选择【管理系统】>【数据连接】>【数据连接管理】，单击【新建数据连接】，在【所有】选项下选择 **Pivotal Greenplum Database**，如下图所示：
 ![](https://main.qcloudimg.com/raw/da800bbe37235d73cc75d371961f4944.png)
 4. 填写数据库连接信息，如下图所示：
- - 【驱动】：选择`org.postgresql.driver`。
+ - 【驱动】：选择`org.postgresql.Driver`。
  - 【数据库名称】：云数据仓库 PostgreSQL 如果没有创建数据库，默认使用 postgres。
  - 【主机】：需要提前将本机的 IP 加入云数据仓库 PostgreSQL 的白名单中，否则将会返回带有"no pg_hba.conf entry"的错误信息。
 ![](https://main.qcloudimg.com/raw/bffe77f0f93ed390ac19c000d0b9c61c.png)

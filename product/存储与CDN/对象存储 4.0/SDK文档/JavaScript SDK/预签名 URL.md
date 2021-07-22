@@ -21,9 +21,10 @@ COS.getAuthorization 方法用于计算鉴权凭证（Authorization），用以�
 
 [//]: # (.cssg-snippet-get-authorization)
 ```js
+// SECRETID 和 SECRETKEY请登录 https://console.cloud.tencent.com/cam/capi 进行查看和管理
 var Authorization = COS.getAuthorization({
-    SecretId: 'COS_SECRETID',
-    SecretKey: 'COS_SECRETKEY',
+    SecretId: 'SECRETID',
+    SecretKey: 'SECRETKEY',
     Method: 'get',
     Key: 'exampleobject',
     Expires: 60,
@@ -159,6 +160,8 @@ cos.getObjectUrl({
 | Region  | 存储桶所在地域，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) | String  | 是   |
 | Key     | 对象键（Object 的名称），对象在存储桶中的唯一标识，**如果请求操作是对文件的，则为文件名，且为必须参数**。如果操作是对于存储桶，则为空 | String  | 是   |
 | Sign    | 是否返回带有签名的 Url，默认为 true                          | Boolean | 否   |
+| Protocol    | 可选填为`http:`或`https:`，默认为`http:`（带冒号）                    | String | 否   |
+| Domain    | 存储桶访问域名，默认为 {BucketName-APPID}.cos.{Region}.myqcloud.com     | String | 否   |
 | Method  | 操作方法，例如 GET，POST，DELETE，HEAD 等 HTTP 方法，默认为 GET | String  | 否   |
 | Query   | 参与签名计算的 query 参数对象                                | Object  | 否   |
 | Headers | 参与签名计算的 header 参数对象                               | Object  | 否   |

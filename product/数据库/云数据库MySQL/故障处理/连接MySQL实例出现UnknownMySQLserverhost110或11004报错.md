@@ -9,10 +9,14 @@
 检查实例的外网地址是否已开启、输入是否正确。
 
 ## 处理步骤
-1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)，在实例列表，找到目标实例，单击实例名，进入实例详情页面。
+1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)，在实例列表，找到目标实例，单击实例 ID，进入实例详情页面。
 2. 在实例详情页的“外网地址”处，检查外网地址是否开启。
  - 若是，请执行 [步骤3](#step3)。
  - 若否，请单击“外网地址”处的【开启】开启外网地址，然后执行 [步骤3](#step3)。
+ >?
+ >- 若有外网地址和外网端口信息，说明已开启外网地址。
+ >- 外网地址开启限制，请参见 [连接实例](https://cloud.tencent.com/document/product/236/3130#.E8.BF.9E.E6.8E.A5.E6.96.B9.E5.BC.8F)。
+ >
 ![](https://main.qcloudimg.com/raw/6742476528c9d66e7a375e249848ecdb.png)
 3. [](id:step3)检查客户端输入的外网地址与实例的外网地址是否一致。
  - 若是，请执行 [步骤4](#step4)。

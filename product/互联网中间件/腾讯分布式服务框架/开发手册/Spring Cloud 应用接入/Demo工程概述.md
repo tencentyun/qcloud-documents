@@ -16,71 +16,82 @@
 
 `tsf-simple-demo`的工程目录如下：
 
-```
-|- consumer-demo：服务消费者
-|- provider-demo：服务提供者
-|- scg-demo：基于开源 Spring Cloud Gateway 的微服务网关示例（不适用于 Edgware 版本 ）
-|- zuul-demo：基于开源 Zuul 的微服务网关示例
-|- cmq-producer-demo：CMQ 消息队列消息生产者示例
-|- cmq-consumer-demo：CMQ 消息队列消息消费者示例
-|- kafka-demo：Kafka 消息队列示例，包含了消息消费者和生产者 
-|- mongodb-demo：调用 MongoDB 的微服务示例
-|- mysql-demo：调用 MySQL 的微服务示例
-|- redis-demo：调用 Redis 的微服务示例
-|- msgw-demo：基于 TSF SDK 的微服务网关示例
-|- pom.xml
-```
+| 工程名称	   |  工程说明   |
+| ----------    |  ----------  |
+| consumer-demo	            | TSF 微服务治理服务消费者 | 
+| provider-demo	              | TSF 微服务治理服务提供者 | 
+| msgw-demo	                  | 基于 TSF Spring Cloud MS Gateway 网关示例 | 
+| opensource-zuul-demo	 | 基于开源 Zuul 的微服务网关示例 | 
+| opensource-scg-demo	    | 基于开源 Spring Cloud Gateway 的微服务网关示例 | 
+| rocketmq-producer	         | 支持 RocketMQ 消息队列调用链的消息生产者示例 | 
+| rocketmq-consumer	        | 支持 RocketMQ 消息队列调用链的消息消费者示例 | 
+| kafka-demo	                   | 支持 Kafka 调用链的示例，包含了消息消费者和生产者 |
+| mongodb-demo	             | 支持 MongoDB 调用链的微服务示例 | 
+| mysql-demo                  	| 支持 MySQL 调用链的微服务示例 |
+| redis-demo	                   |支持 Redis 调用链的微服务示例 |
+| task-schedule-demo       	| TCT 分布式任务调度示例 |
 
 pom.xml 中定义了工程需要的依赖包（以下以基于 Spring Cloud Finchley 版本 SDK 举例说明）：
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-
-	<parent>
-		<groupId>com.tencent.tsf</groupId>
-		<artifactId>spring-cloud-tsf-dependencies</artifactId>
-		<version>1.23.0-Finchley-RELEASE</version>
-	</parent>
-
-	<groupId>com.tencent.tsf</groupId>
-	<artifactId>tsf-demo</artifactId>
-	<version>1.23.0-Finchley-RELEASE</version>
-	<packaging>pom</packaging>
-
-	<modules>
-		<module>provider-demo</module>
-		<module>consumer-demo</module>
-		<module>zuul-demo</module>
-		<module>mysql-demo</module>
-		<module>redis-demo</module>
-		<module>mongodb-demo</module>
-		<module>kafka-demo</module>
-		<module>scg-demo</module>
-		<module>msgw-demo</module>
-		<module>task-schedule-demo</module>
-        <module>rocketmq-demo</module>
-    </modules>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-	</properties>
+			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+			<modelVersion>4.0.0</modelVersion>
 
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+
+			<parent>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-dependencies</artifactId>
+				<version><!-- 调整为 SDK 长期维护（LTS）版本号 --></version>
+			</parent>
+
+
+
+			<groupId>com.tencent.tsf</groupId>
+			<artifactId>tsf-demo</artifactId>
+			<version><!-- 调整为 SDK 长期维护（LTS）版本号 --></version>
+			<packaging>pom</packaging>
+
+
+
+			<modules>
+				<module>provider-demo</module>
+				<module>consumer-demo</module>
+				<module>opensource-zuul-demo</module>
+				<module>rocketmq-demo</module>
+				<module>mysql-demo</module>
+				<module>redis-demo</module>
+				<module>mongodb-demo</module>
+				<module>kafka-demo</module>
+				<module>msgw-demo</module>
+				<module>opensource-scg-demo</module>
+			</modules>
+
+
+
+			<properties>
+				<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+				<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+				<java.version>1.8</java.version>
+			</properties>
+
+
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
 </project>
 
+
 ```
+
+
 
 其中 parent 描述了不同微服务 demo 共同的 TSF 依赖。
 
@@ -88,7 +99,7 @@ pom.xml 中定义了工程需要的依赖包（以下以基于 Spring Cloud Finc
 <parent>
         <groupId>com.tencent.tsf</groupId>
         <artifactId>spring-cloud-tsf-dependencies</artifactId>
-        <version><!-- 调整为 SDK 最新版本号 --></version>
+        <version><!-- 调整为 SDK 长期维护（LTS）版本号 --></version>
 </parent>
 ```
 
@@ -103,7 +114,7 @@ pom.xml 中定义了工程需要的依赖包（以下以基于 Spring Cloud Finc
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-starter</artifactId>
-    <version><!-- 调整为 SDK 最新版本号 --></version>
+    <version><!-- 调整为 SDK 长期维护（LTS）版本号 --></version>
 </dependency>
 ```
 `spring-cloud-tsf-starter` 中包含了服务注册发现、服务路由、服务鉴权、服务限流、服务熔断、服务容错、服务监控、分布式配置、调用链功能。

@@ -78,7 +78,6 @@ webview.loadUrl("https://x.x.x/x/");
 }
 ```
 6. 在 H5 业务页面中，集成验证码 SDK，并通过 JS 调用 SDK 获取验证码相关数据，最后使用 JSBridge 传回数据给具体业务端。
-
 >!如需隐藏验证码帮助按钮等功能，请参见 [Web 前端接入](https://cloud.tencent.com/document/product/1110/36841) 文档。
 >
 ```
@@ -89,7 +88,7 @@ webview.loadUrl("https://x.x.x/x/");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web 前端接入示例</title>
-    <!-- 验证码程序依赖(必须) -->
+    <!-- 验证码程序依赖(必须)。请勿修改以下程序依赖，如使用本地缓存，或通过其他手段规避加载，会影响程序的正常使用。 -->
     <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
 </head>
 

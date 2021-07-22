@@ -48,10 +48,19 @@ sudo apt-get install ubuntu-desktop
 ```
 sudo apt-get install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
 ```
-9. 执行以下命令，打开 VNC 配置文件。
+9. 按照实际情况选择执行以下命令，打开 VNC 配置文件。
+<dx-tabs>
+::: Ubuntu\s18.04
 ```
-sudo vi ~/.vnc/xstartup
+lighthouse@VM-xx-x-ubuntu:~$ sudo vi ~/.vnc/xstartup
 ```
+:::
+::: Ubuntu\s20.04
+```
+lighthouse@VM-xx-x-ubuntu:~$ sudo vi ../../root/.vnc/xstartup
+```
+:::
+</dx-tabs>
 10. 按 **i** 切换至编辑模式，并将配置文件修改为如下内容。
 ```
 #!/bin/sh
@@ -80,12 +89,16 @@ sudo vncserver :1 #生成新的会话
 15. 在弹出的提示框中，单击【Continue】。
 16. 输入 [步骤4](#step04) 设置的 VNC 的密码，单击【OK】。
 >?如出现连接超时报错信息，则请检查网络是否联通，防火墙规则是否放通。其中，防火墙需规则放通 VNC Server 所监听的5901端口，即需在“入站规则”中添加放通协议端口为 `TCP:5901` 的规则，具体操作请参见 [管理防火墙](https://cloud.tencent.com/document/product/1207/44577)。
+>
 
-
-
-
-
-
-
-
-
+## 相关问题
+### 出现 `Could not open location 'file:///root/Desktop'` 错误信息
+由于图形化界面按照模板统一进行搭建，可能无法对应实例上的文件。若出现类似 `Could not open location 'file:///root/Desktop'` 报错信息，请根据以下步骤创建对应文件：
+1. 执行以下命令，切换为 root 用户。
+```shell
+sudo su root
+```
+2. 进入报错信息中提示的路径，并创建对应文件即可。例如：
+```shell
+root@VM-12-4-ubuntu:~# mkdir Desktop
+```

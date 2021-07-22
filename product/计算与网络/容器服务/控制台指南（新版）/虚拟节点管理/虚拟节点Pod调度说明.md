@@ -42,6 +42,48 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 调度到虚拟节点上的 Pod 拥有与云服务器完全一致的安全隔离性。Pod 在腾讯云底层物理服务器上调度创建，创建时会通过虚拟化技术保证 Pod 间的资源隔离。
 
 
+
+
+## 虚拟节点 annotation 说明
+弹性容器服务 EKS 支持虚拟节点特性，您可通过在 yaml 中定义 annotation 的方式，实现自定义 DNS 等能力，具体如下：
+
+<table>
+<thead>
+<tr>
+<th width="20%">Annotation Key</th>
+<th width="40%">Annotation Value 及描述</th>
+<th width="40%">是否必填</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eks.tke.cloud.tencent.com/resolv-conf</td>
+<td> 容器解析域名时查询 DNS 服务器的 IP 地址列表。例如 <code>nameserver 8.8.8.8</code>。
+<br> 可通过 <code>kubectl edit node eklet-subnet-xxxx</code> 添加该 annotation。
+<br> 修改后调度到该虚拟节点的 Pod 默认全部采用该 DNS 配置。</td>
+<td>否。</td>
+</tr>
+</tr>
+</tbody></table>
+
+#### 示例
+以下为虚拟节点自定义 DNS 配置的示例：
+
+```
+apiVersion: v1
+kind: Node
+metadata:
+    annotations:
+      eks.tke.cloud.tencent.com/resolv-conf：|
+	   	nameserver 4.4.4.4
+        nameserver 8.8.8.8
+    
+	
+```
+
+
+
+
 ## 调度说明
 
 #### 特殊配置
@@ -49,7 +91,7 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 调度到虚拟节点上的 Pod 可以通过在 yaml 中定义 `template annotation` 的方式，实现为 Pod 绑定安全组、分配资源等能力。配置方法见下表：
 
 >!
->- 如果不指定安全组，则 Pod 会默认绑定节点池指定的安全组。请确保安全组的网络策略不影响该 Pod 正常工作，例如，Pod 启用 80 端口提供服务，请放通入方向 80 端口的访问。。
+>- 如果不指定安全组，则 Pod 会默认绑定节点池指定的安全组。请确保安全组的网络策略不影响该 Pod 正常工作，例如，Pod 启用 80 端口提供服务，请放通入方向 80 端口的访问。
 >- 如需分配 CPU 资源，则必须同时填写 `cpu` 和 `mem` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 CPU 规格。另外，可以通过 `cpu-type` 指定分配 intel 或 amd CPU，其中 amd 具备更高的性价比，详情请参考 [产品定价](https://cloud.tencent.com/document/product/457/39806)。 
 
 
@@ -87,12 +129,50 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 各型号支持的具体配置请参考 <a href="https://console.cloud.tencent.com/cvm/securitygroup" target="_blank">资源规格</a>。</td>
 <td>否。如果不填写则默认不强制指定 CPU 类型，会根据 <a href="https://cloud.tencent.com/document/product/457/44174" target="_blank">指定资源规格方法</a> 尽量匹配最合适的规格，若匹配到的规格 Intel 和 amd 均支持，则优先选择 Intel。</td>
 </tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/gpu-type</td>
+<td>Pod 所需的 GPU 资源型号，目前支持型号如下：
+<ul  class="params">
+<li>V100</li>
+<li>1/4*T4</li>
+<li>1/2*T4</li>
+<li>T4</li>
+<li>支持优先级顺序写法，如 “T4,V100” 表示优先创建 T4 资源 Pod，如果所选地域可用区 T4 资源不足，则会创建 V100 资源 Pod。</li>
+</ul>
+各型号支持的具体配置请参考 <a href="https://cloud.tencent.com/document/product/457/39808">资源规格</a>。</td>
+<td>如需 GPU，则此项为必填项。填写时，请确保为支持的 GPU 型号，否则会报错。</td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/retain-ip</td>
+<td>Pod 固定 IP，value 填写 <code>"true"</code> 开启此特性，开启特性的 Pod ，当 Pod 被销毁后，默认会保留这个 Pod 的 IP 24小时。24小时内 Pod 重建，还能使用该 IP。24小时以后，该IP有可能被其他 Pod 抢占。<b>仅对 statefulset、rawpod 生效。</b></td>
+<td>否</td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/retain-ip-hours</td>
+<td>修改 Pod 固定 IP 的默认时长，value 填写数值，单位是小时。默认是24小时，最大可支持保留一年。<b>仅对 statefulset、rawpod 生效。</b></td>
+<td>否</td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/eip-attributes</td>
+<td>表明该 Workload 的 Pod 需要关联 EIP，值为 "" 时表明采用 EIP 默认配置创建。"" 内可填写 EIP 云 API 参数 json，实现自定义配置。例如 annotation 的值为 '{"InternetMaxBandwidthOut":2}' 即为使用2M的带宽。</td>
+<td>否 </td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/eip-claim-delete-policy</td>
+<td> Pod 删除后，EIP 是否自动回收，“Never” 不回收，默认回收。</td>
+<td>否 </td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/eip-injection</td>
+<td>值为 "true" 时，表明会在 Pod 内暴露 EIP 的 IP 信息。在 Pod 内使用 ip addr 命令可以查看到 EIP 的地址。</td>
+<td>否 </td>
 </tr>
 </tbody></table>
 
 
 
 示例请参考 [Annotation 说明](https://cloud.tencent.com/document/product/457/44173)。
+
 
 #### Workload 限制
 
@@ -116,6 +196,9 @@ DaemonSet 类型工作负载的 Pod 不会调度到虚拟节点上。
 - 指定了 hostIP 配置的 Pod 默认会把 Pod IP 作为 hostIP。
 - 如果开启了反亲和性特性，同工作负载 Pod 仅会在虚拟节点上创建一个。
 - 如果容器日志存储在指定的节点文件中，也是通过节点文件进行的日志采集，则无法采集虚拟节点上的 pod 日志。
+
+
+
 
 
 

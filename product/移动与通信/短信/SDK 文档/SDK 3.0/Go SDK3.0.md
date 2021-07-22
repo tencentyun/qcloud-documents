@@ -1,7 +1,7 @@
 SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [短信 API](https://cloud.tencent.com/document/product/382/52077)。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，错误码相同以及返回包格式相同等优点。
 >!
 >- 发送短信相关接口
->一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：[3012203387](https://main.qcloudimg.com/raw/e674a37df984126f53ab9cbf4b9a168a.html)）。
+>一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系 [腾讯云短信小助手](https://tccc.qcloud.com/web/im/index.html#/chat?webAppId=8fa15978f85cb41f7e2ea36920cb3ae1&title=Sms)。
 >- 签名、正文模板相关接口
 >个人认证用户不支持使用签名、正文模板相关接口，只能通过短信控制台 [管理短信签名](https://cloud.tencent.com/document/product/382/37794) 和 [管理短信正文模板](https://cloud.tencent.com/document/product/382/37795)。如需使用该类接口，请将 “个人认证” 变更为 “企业认证”，具体操作请参见 [实名认证变更指引](https://cloud.tencent.com/document/product/378/34075)。
 
@@ -105,11 +105,11 @@ func main() {
     /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台] 查看 */
     request.SignName = common.StringPtr("xxx")
     /* 国际/港澳台短信 SenderId: 国内短信填空，默认未开通，如需开通请联系 [sms helper] */
-    request.SenderId = common.StringPtr("xxx")
+    request.SenderId = common.StringPtr("")
     /* 用户的 session 内容: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */
     request.SessionContext = common.StringPtr("xxx")
     /* 短信码号扩展号: 默认未开通，如需开通请联系 [sms helper] */
-    request.ExtendCode = common.StringPtr("0")
+    request.ExtendCode = common.StringPtr("")
     /* 模板参数: 若无模板参数，则设置为空*/
     request.TemplateParamSet = common.StringPtrs([]string{"0"})
     /* 模板 ID: 必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台] 查看 */
@@ -407,3 +407,32 @@ func main() {
     fmt.Printf("%s", b)
 }
 ```
+
+## 常见问题
+<dx-accordion>
+::: 代理设置
+如有代理的环境下，需要设置系统环境变量 `https_proxy` ，否则可能无法正常调用，抛出连接超时的异常现象。
+:::
+::: 开启\sDNS\s缓存
+当前 GO SDK 总是会去请求 DNS 服务器，而没有使用到 nscd 的缓存，可以通过导出环境变量`GODEBUG=netdns=cgo`，或者`go build`编译时指定参数`-tags 'netcgo'`控制读取 nscd 缓存。
+:::
+::: 忽略服务器证书校验
+虽然使用 SDK 调用公有云服务时，必须校验服务器证书，以识别他人伪装的服务器，确保请求的安全。但某些极端情况下，例如测试时，您可能会需要忽略自签名的服务器证书。以下是其中一种可能的方法：
+
+```
+import "crypto/tls"
+...
+    client, _ := cvm.NewClient(credential, regions.Guangzhou, cpf)
+    tr := &http.Transport{
+        TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+    }
+    client.WithHttpTransport(tr)
+...
+```
+
+>!除非您知道自己在进行何种操作，并明白由此带来的风险，否则不要尝试关闭服务器证书校验。
+:::
+::: import\s导包失败
+例如报错：`imported and not used: "os"`，说明“ os ”这个包并未在代码中使用到，去掉即可。
+:::
+</dx-accordion>

@@ -40,10 +40,10 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |status|String|当前会议状态：<br>1. MEETING_STATE_INVALID：<br> 非法或未知的会议状态，错误状态。<br>  2. MEETING_STATE_INIT：<br> 会议待开始。会议预定到预定结束时间前，会议尚无人进会。<br>  3. MEETING_STATE_CANCELLED：<br> 会议已取消。主持人主动取消会议，待开始的会议才能取消，且取消的会议无法再进入。<br> 4. MEETING_STATE_STARTED：<br> 会议已开始。会议中有人则表示会议进行中。<br>5. MEETING_STATE_ENDED：<br> 会议已删除。会议已过预定结束时间且尚无人进会时，主持人删除会议，已删除的会议无法再进入。<br>6. MEETING_STATE_NULL：<br> 会议无状态。会议已过预定结束时间，会议尚无人进会。<br>7. MEETING_STATE_RECYCLED：<br> 会议已回收。会议已过预定开始时间30天，则会议号将被后台回收，无法再进入。|
 |type   |Integer  | 会议类型：<br>0：预约会议类型<br>1：快速会议类型   |
 |join_url   |String  | 加入会议 URL。  |
-|hosts   |用户对象数组  | 会议指定主持人列表（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>注意：仅腾讯会议商业版和企业版可指定主持人。|
-|current_hosts  |用户对象数组  | 会议当前主持人列表（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
-|current_co_hosts  |用户对象数组  | 会议联席主持人列表（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
-|participants  |用户对象数组 |邀请的参会者（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>注意：仅腾讯会议商业版和企业版可邀请参会用户。 |
+|hosts   |用户对象数组  |指定主持人列表，仅商业版和企业版可指定主持人。|
+|current_hosts  |用户对象数组  | 会议当前主持人列表。|
+|current_co_hosts  |用户对象数组  | 联席主持人列表。|
+|participants  |用户对象数组 |邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段。 |
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。  |
 |settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|

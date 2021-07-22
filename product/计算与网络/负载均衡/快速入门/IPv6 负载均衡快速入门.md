@@ -40,7 +40,6 @@ vim  /etc/nginx/nginx.conf
  - 运营商类型：BGP。
  - 网络：请务必选择已获取 IPv6 CIDR 的私有网络和子网。
 3. 在购买页选择各项配置后，单击【立即购买】。
-![](https://main.qcloudimg.com/raw/b25a3156db7a73ffa1a3b835be0069e8.png)
 4. 在“CLB 实例列表”页，选择对应的地域即可看到新建的实例。
 ![](https://main.qcloudimg.com/raw/c3c1422a41460f7a0badb6eef9e751f2.png)
 

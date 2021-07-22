@@ -49,7 +49,7 @@ yum install percona-xtrabackup
 ```
 
 ### 下载备份
-在 [MariaDB 控制台](https://console.cloud.tencent.com/mariadb)，单击实例名进入实例管理页，在【备份与恢复】页获取备份下载地址。
+在 [MariaDB 控制台](https://console.cloud.tencent.com/mariadb)，单击实例 ID 进入实例管理页，在【备份与恢复】页获取备份下载地址。
 下载命令示例：
 ```
 wget  --content-disposition 'http://1x.2xx.0.27:8083/2/noshard1/set_1464144850_587/1464552298xxxxxxxx'

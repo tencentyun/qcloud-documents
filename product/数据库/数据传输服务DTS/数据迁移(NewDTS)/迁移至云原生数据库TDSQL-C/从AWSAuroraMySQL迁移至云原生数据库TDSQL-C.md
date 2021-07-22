@@ -7,14 +7,14 @@
 - 待迁移源端 AWS Aurora MySQL 能够通过公网访问，需要将 AWS Aurora MySQL 网络与安全配置中公开可用性功能设置为是。
 - 需要您在源端 AWS RDS MySQL 中创建迁移帐号，需要的帐号权限如下：
 ```
-CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
+CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW
-DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
-GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
+DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';  
+GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 ```
-- 部分库表迁移：`GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;`
-- 全实例迁移：`GRANT SELECT ON *.* TO ‘迁移帐号’;`
+- 部分库表迁移：`GRANT SELECT ON 待迁移的库.* TO '迁移帐号';`
+- 全实例迁移：`GRANT SELECT ON *.* TO '迁移帐号';`
 
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行迁移。

@@ -22,7 +22,7 @@ Windows
 <dx-tabs>
 ::: 使用密码登录[](id:passwordLogin)
 1. 下载 Windows 远程登录软件，即 PuTTY。
-PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+<div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe" target="_blank" style="color: white; font-size:16px;">点此获取 PuTTY</a></div>
 2. 双击【putty.exe】，打开 PuTTY 客户端。
 3. 在 PuTTY Configuration 窗口中，输入以下内容。如下图所示：
 ![](https://main.qcloudimg.com/raw/7ac87da9721ef7d64fe8cac81a3dab33.png)
@@ -40,11 +40,11 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 登录完成后，命令提示符左侧将显示当前登录云服务器的信息。
 :::
 ::: 使用密钥登录[](id:keyLogin)
-1. 下载 Windows 远程登录软件，即 PuTTy。
-请分别下载 putty.exe 和 puttygen.exe 软件，PuTTy 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)。
+1. 下载 Windows 远程登录软件，即 PuTTy。请分别下载 putty.exe 和 puttygen.exe 软件，获取方式：
+<div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;margin:5px;"><a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe" target="_blank" style="color: white; font-size:16px;">点此获取 PuTTY</a></div><div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;margin:5px;"><a href="https://the.earth.li/~sgtatham/putty/latest/w64/puttygen.exe" target="_blank" style="color: white; font-size:16px;">点此获取 PuTTYgen</a></div>
 2. 双击【puttygen.exe】，打开 PuTTy Key 客户端。
-3. 单击【Load】，选择并打开已下载的私钥存储路径。如下图所示：
-例如，选择并打开文件名为 david 的私钥文件。
+3. 单击【Load】，选择并打开已下载的私钥存储路径。私钥已在创建时下载并由您个人保管，详情请参见 [管理 SSH 密钥](https://cloud.tencent.com/document/product/213/16691)。
+例如，选择并打开文件名为 david 的私钥文件。如下图所示：
 ![](https://main.qcloudimg.com/raw/0110ba722331fb2892a8e6822ec3f709.png)
 4. <span id="Step4"></span>在 PuTTY Key Generator 窗口中，输入密钥名，并设置 PuTTY 用于加密私钥的密码（可选）。设置完成后单击【Save private key】。如下图所示：
 ![](https://main.qcloudimg.com/raw/58a250d3f3d1b78eff3edaab64cd01c0.png)

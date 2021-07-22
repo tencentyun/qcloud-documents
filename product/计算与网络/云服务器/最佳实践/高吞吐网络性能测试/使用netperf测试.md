@@ -97,9 +97,7 @@ sar -n DEV 1
 
 ## 操作步骤
 ### 准备测试环境
-1. 准备3台测试机器，配置如下：
-  - 镜像：
-  - 规格：
+1. 准备3台测试机器，请参见 [自定义配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/10517) 购买测试机器。本文测试机器使用 CentOS 8.2 操作系统。
 2. 依次登录测试机器，并执行以下命令安装 netperf 工具。如何登录云服务器，请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 ```
 yum install -y sysstat wget tar automake make gcc 
@@ -171,7 +169,7 @@ count=$1
 for ((i=1;i<=count;i++))
 do
     echo "Instance:$i-------"
-    # 下方命令可以粘贴上方运行参数表格中的命令
+    # 下方命令可以替换为测试场景表格中的命令
     # -H 后填写服务器 IP 地址;
     # -l 后为测试时间，为了防止 netperf 提前结束，因此时间设为 10000;
     netperf -t UDP_STREAM -H <server ip> -l 10000 -- -m 64 -R 1 &

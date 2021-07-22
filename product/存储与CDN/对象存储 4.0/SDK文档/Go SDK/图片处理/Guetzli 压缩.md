@@ -31,8 +31,8 @@ cu, _ := url.Parse("http://examplebucket-1250000000.pic.ap-guangzhou.myqcloud.co
 b := &cos.BaseURL{BucketURL: u, CIURL: cu}
 c := cos.NewClient(b, &http.Client{
 	Transport: &cos.AuthorizationTransport{
-		SecretID:  os.Getenv("COS_SECRETID"),
-		SecretKey: os.Getenv("COS_SECRETKEY"),
+		SecretID:  os.Getenv("SECRETID"),
+		SecretKey: os.Getenv("SECRETKEY"),
 	},
 })
 
@@ -61,8 +61,8 @@ cu, _ := url.Parse("http://examplebucket-1250000000.pic.ap-guangzhou.myqcloud.co
 b := &cos.BaseURL{BucketURL: u, CIURL: cu}
 c := cos.NewClient(b, &http.Client{
 	Transport: &cos.AuthorizationTransport{
-		SecretID:  os.Getenv("COS_SECRETID"),
-		SecretKey: os.Getenv("COS_SECRETKEY"),
+		SecretID:  os.Getenv("SECRETID"),
+		SecretKey: os.Getenv("SECRETKEY"),
 	},
 })
 
@@ -103,8 +103,8 @@ cu, _ := url.Parse("http://examplebucket-1250000000.pic.ap-guangzhou.myqcloud.co
 b := &cos.BaseURL{BucketURL: u, CIURL: cu}
 c := cos.NewClient(b, &http.Client{
 	Transport: &cos.AuthorizationTransport{
-		SecretID:  os.Getenv("COS_SECRETID"),
-		SecretKey: os.Getenv("COS_SECRETKEY"),
+		SecretID:  os.Getenv("SECRETID"),
+		SecretKey: os.Getenv("SECRETKEY"),
 	},
 })
 

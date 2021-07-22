@@ -3,7 +3,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 >!
 >
 >- 发送短信相关接口
->  一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：[3012203387](https://main.qcloudimg.com/raw/e674a37df984126f53ab9cbf4b9a168a.html)）。
+>  一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系 [腾讯云短信小助手](https://tccc.qcloud.com/web/im/index.html#/chat?webAppId=8fa15978f85cb41f7e2ea36920cb3ae1&title=Sms)。
 >- 签名、正文模板相关接口
 >  个人认证用户不支持使用签名、正文模板相关接口，只能通过短信控制台 [管理短信签名](https://cloud.tencent.com/document/product/382/37794) 和 [管理短信正文模板](https://cloud.tencent.com/document/product/382/37795)。如需使用该类接口，请将 “个人认证” 变更为 “企业认证”，具体操作请参见 [实名认证变更指引](https://cloud.tencent.com/document/product/378/34075)。
 
@@ -39,7 +39,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 <pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.tencentcloudapi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>tencentcloud-sdk-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1.62<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><span class="hljs-comment">&lt;!-- 注：这里只是示例版本号，请获取并替换为 <a href="https://mvnrepository.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java">最新的版本号</a> --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1.270<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><span class="hljs-comment">&lt;!-- 注：这里只是示例版本号（可直接使用），可获取并替换为 <a href="https://mvnrepository.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java">最新的版本号</a>，注意不要使用4.0.x版本（非最新版本） --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
 
 3. 引用方法可参考 [示例代码](#example)。
@@ -95,8 +95,8 @@ public class AddSmsTemplate
             // 实例化一个 http 选项，可选，无特殊需求时可以跳过
             HttpProfile httpProfile = new HttpProfile();
             // 设置代理
-            httpProfile.setProxyHost("host");
-            httpProfile.setProxyPort(port);
+            // httpProfile.setProxyHost("真实代理ip");
+            // httpProfile.setProxyPort(真实代理端口);
             /* SDK 默认使用 POST 方法
              * 如需使用 GET 方法，可以在此处设置，但 GET 方法无法处理较大的请求 */
             httpProfile.setReqMethod("POST");
@@ -206,8 +206,8 @@ public class SendSms
             // 实例化一个 http 选项，可选，无特殊需求时可以跳过
             HttpProfile httpProfile = new HttpProfile();
             // 设置代理
-            httpProfile.setProxyHost("host");
-            httpProfile.setProxyPort(port);
+            // httpProfile.setProxyHost("真实代理ip");
+            // httpProfile.setProxyPort(真实代理端口);
             /* SDK 默认使用 POST 方法。
              * 如需使用 GET 方法，可以在此处设置，但 GET 方法无法处理较大的请求 */
             httpProfile.setReqMethod("POST");
@@ -250,7 +250,7 @@ public class SendSms
             req.setSign(sign);
 
             /* 国际/港澳台短信 senderid: 国内短信填空，默认未开通，如需开通请联系 [sms helper] */
-            String senderid = "xxx";
+            String senderid = "";
             req.setSenderId(senderid);
 
             /* 用户的 session 内容: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */
@@ -258,7 +258,7 @@ public class SendSms
             req.setSessionContext(session);
 
             /* 短信码号扩展号: 默认未开通，如需开通请联系 [sms helper] */
-            String extendcode = "xxx";
+            String extendcode = "";
             req.setExtendCode(extendcode);
 
             /* 模板 ID: 必须填写已审核通过的模板 ID，可登录 [短信控制台] 查看模板 ID */
@@ -329,8 +329,8 @@ public class PullSmsSendStatus {
             // 实例化一个 http 选项，可选，无特殊需求时可以跳过。
             HttpProfile httpProfile = new HttpProfile();
             // 设置代理
-            httpProfile.setProxyHost("host");
-            httpProfile.setProxyPort(port);
+            // httpProfile.setProxyHost("真实代理ip");
+            // httpProfile.setProxyPort(真实代理端口);
             /* SDK 默认使用 POST 方法。
              * 如需使用 GET 方法，可以在此处设置，但 GET 方法无法处理较大的请求 */
             httpProfile.setReqMethod("POST");
@@ -425,8 +425,8 @@ public class SendStatusStatistics {
             // 实例化一个 http 选项，可选，无特殊需求时可以跳过
             HttpProfile httpProfile = new HttpProfile();
             // 设置代理
-            httpProfile.setProxyHost("host");
-            httpProfile.setProxyPort(port);
+            // httpProfile.setProxyHost("真实代理ip");
+            // httpProfile.setProxyPort(真实代理端口);
             /* SDK 默认使用 POST 方法。
              * 如需使用 GET 方法，可以在此处设置，但 GET 方法无法处理较大的请求 */
             httpProfile.setReqMethod("POST");
@@ -493,3 +493,43 @@ public class SendStatusStatistics {
     }
 }
 ```
+
+## 常见问题
+<dx-accordion>
+::: 更新仓库\spom.xml\s文件里面的依赖失败
+可能是因为本机配置了代理，而工具在更新时未进行代理的配置导致，按照上文在命令端更新依赖，如果还是失败，这时候需要看是否因为网络不通还是防火墙拦截。
+:::
+::: 运行示例失败
+`[TencentCloudSDKException]message:java.net.ConnectException-Connection timed out: connect requestId:`这里需要排查：是否本机配置了代理，而未在代码中加入代理，代理的加入可参考上文的 [代理配置](#p3)。
+:::
+::: 版本升级
+请注意，从3.0.x版本升级到3.1.x版本有兼容性问题，对于 Integer 字段的使用修改为了 Long 类型，需要重新编译项目。
+:::
+::: 依赖冲突
+目前，SDK 依赖 okhttp 2.5.0，如果和其他依赖 okhttp3 的包混用时，有可能会报错：如`Exception in thread "main" java.lang.NoSuchMethodError: okio.BufferedSource.rangeEquals(JLokio/ByteString;)Z`。
+
+原因是 okhttp3 依赖 okio 1.12.0，而 okhttp 依赖 okio 1.6.0，maven 在解析依赖时的规则是路径最短优先和顺序优先，所以如果 SDK 在 pom.xml 依赖中先被声明，则 okio 1.6.0 会被使用，从而报错。
+
+在 SDK 没有升级到 okhttp3 前的解决办法：
+1. 在 pom.xml 中明确指定依赖 okio 1.12.0 版本（注意可能有其他包需要用到更高的版本，变通下取最高版本即可）。
+2. 将 SDK 放在依赖的最后（注意如果此前已经编译过，则需要先删除掉 maven 缓存的 okhttp 包），以同时使用依赖 okhttp3 的 CMQ SDK 为例，形如（注意变通版本号）： 
+```xml
+    <dependency>
+      <groupId>com.qcloud</groupId>
+      <artifactId>cmq-http-client</artifactId>
+      <version>1.0.7</version>
+    </dependency>
+    <dependency>
+      <groupId>com.tencentcloudapi</groupId>
+      <artifactId>tencentcloud-sdk-java</artifactId>
+      <version>3.1.59</version>
+    </dependency>
+```
+:::
+::: 证书问题
+证书问题通常是客户端环境配置错误导致的。SDK 没有对证书进行操作，依赖的是 Java 运行环境本身的处理。出现证书问题后，可以使用`-Djavax.net.debug=ssl`开启详细日志辅助判断。
+
+有用户报告使用 IBM JDK 1.8 出现证书报错：`javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_failure`，使用 Oracle JDK 后问题消失。
+
+:::
+</dx-accordion>

@@ -24,7 +24,7 @@ HTTPS 协议是由 SSL + HTTP 协议构建的可进行加密传输和身份认�
 <td>腾讯云托管证书</td>
 <td>证书列表：选择在腾讯云 <a href="https://console.cloud.tencent.com/ssl">SSL 证书服务</a> 中已经上传的证书。</td>
 </tr></table>
-<img src="https://main.qcloudimg.com/raw/2f38a79d4c4ccdbf0e14153a1b9b6603.png"></img>
+<img src="https://main.qcloudimg.com/raw/a5a0cc8789d2f8303c334c8ab3a24261.png"></img>
 
 #### 证书说明：
 [CA](https://cloud.tencent.com/document/product/400/18504#354) 提供的证书包括 Apache、IIS、Nginx 以及 Tomcat。**云直播的加密服务使用 Nginx，故配置需选择 Nginx 文件中的内容**。 

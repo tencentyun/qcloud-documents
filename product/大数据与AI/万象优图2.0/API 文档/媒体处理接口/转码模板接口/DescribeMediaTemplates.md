@@ -114,7 +114,7 @@ Container 节点 Response 的内容：
 | PageSize           | Response | 每页个数，同请求中的 pageSize   | Int       |
 | TemplateList       | Response | 模板数组                       | Container |
 
-Container节点TemplateList的内容：
+Container节点 TemplateList 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
@@ -127,7 +127,7 @@ Container节点TemplateList的内容：
 | CreateTime         | Response.TemplateList | 创建时间                                                     | String    |
 | TransTpl           | Response.TemplateList | 详细的模板参数                                                | Container |
 
-Container节点TransTpl的内容：
+Container节点 TransTpl 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述     | 类型      |
 | :----------------- | :----------------------------- | :------- | :-------- |
@@ -191,6 +191,10 @@ TransTpl 节点 TransConfig 的具体数据描述如下：
 | VideoBitrateAdjMethod | Response.TemplateList.<br/>TransTpl.TransConfig | 视频码率调整方式 | String | 否   | 0      | <li>取值0、1；0 表示使用原视频码率；1表示返回转码失败<br/><li>当 IsCheckVideoBitrate 为 true 时生效 |
 | IsCheckAudioBitrate   | Response.TemplateList.<br/>TransTpl.TransConfig | 是否检查音频码率 | String | 否   | false  | <li>true、false <br/><li>当为 false 时，按照配置参数转码<br/> |
 | AudioBitrateAdjMethod | Response.TemplateList.<br/>TransTpl.TransConfig | 音频码率调整方式 | String | 否   | 0      | <li>取值0、1；0 表示使用原音频码率；1表示返回转码失败<br/><li>当 IsCheckAudioBitrate 为 true 时生效 |
+
+AdjDarMethod 参数图示：
+
+![](https://main.qcloudimg.com/raw/3436731be8c1caa5ffd565b2c44b9643.png)
 
 
 #### 错误码

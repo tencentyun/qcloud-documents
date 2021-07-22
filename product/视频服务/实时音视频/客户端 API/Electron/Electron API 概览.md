@@ -171,6 +171,9 @@ subscribeEvents(this.rtcCloud);
 | [stopScreenCapture](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#stopScreenCapture) | 停止屏幕分享。 |
 | [setSubStreamEncoderParam](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setSubStreamEncoderParam) | 设置辅流（屏幕分享）的编码器参数。 |
 | [setSubStreamMixVolume](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setSubStreamMixVolume) | 设置辅流（屏幕分享）的混音音量大小。 |
+| [addExcludedShareWindow](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#addExcludedShareWindow) | 将指定窗口加入屏幕分享的排除列表中，加入排除列表中的窗口不会被分享出去。|
+| [removeExcludedShareWindow](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#removeExcludedShareWindow) | 将指定窗口从屏幕分享的排除列表中移除。|
+| [removeAllExcludedShareWindow](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#removeAllExcludedShareWindow) | 将所有窗口从屏幕分享的排除列表中移除。|
 
 
 ### 自定义消息发送

@@ -12,7 +12,7 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 
 >!
 >- COS Migration 的编码格式只支持 UTF-8 格式。
->- 使用该工具上传同名文件，会覆盖较旧的同名文件，不支持校对是否存在同名文件的功能。
+>- 使用该工具上传同名文件，默认会覆盖较旧的同名文件，需要额外设置以跳过同名文件。
 
 ## 使用环境
 #### 系统环境
@@ -28,20 +28,20 @@ Windows、Linux 和 macOS 系统。
 
 ### 2. 解压缩工具包
 #### Windows
- 解压并保存到某个目录，例如
-<pre>
+解压并保存到某个目录，例如：
+```plaintext
 C:\Users\Administrator\Downloads\cos_migrate
-</pre>
+```
 
 #### Linux
-解压并保存到某个目录
-<pre>
+解压并保存到某个目录：
+```plaintext
 unzip cos_migrate_tool_v5-master.zip && cd cos_migrate_tool_v5-master
-</pre>
+```
 
 #### 迁移工具结构
 正确解压后的 COS Migration 工具目录结构如下所示：
-<pre>
+```plaintext
 COS_Migrate_tool
 |——conf  #配置文件所在目录
 |   |——config.ini  #迁移配置文件
@@ -55,7 +55,7 @@ COS_Migrate_tool
 |——README  #说明文档
 |——start_migrate.sh  #Linux 下迁移启动脚本
 |——start_migrate.bat #Windows 下迁移启动脚本
-</pre>
+```
 
 >?
  - db 目录主要记录工具迁移成功的文件标识，每次迁移任务会优先对比 db 中的记录，若当前文件标识已被记录，则会跳过当前文件，否则进行文件迁移。
@@ -66,9 +66,10 @@ COS_Migrate_tool
 
 #### 3.1 配置迁移类型
 type 表示迁移类型，用户根据迁移需求填写对应的标识。例如，需要将本地数据迁移至 COS，则`[migrateType]`的配置内容是`type=migrateLocal`。
-<pre>[migrateType]
+```plaintext
+[migrateType]
 type=migrateLocal
-</pre>
+```
 
 目前支持的迁移类型如下：
 
@@ -84,7 +85,7 @@ type=migrateLocal
 
 #### 3.2 配置迁移任务
 用户根据实际的迁移需求进行相关配置，主要包括迁移至目标 COS 信息配置及迁移任务相关配置。
-<pre>
+```plaintext
 # 迁移工具的公共配置分节，包含了需要迁移到目标 COS 的账户信息。
 [common]
 secretId=COS_SECRETID
@@ -102,8 +103,10 @@ entireFileMd5Attached=on
 daemonMode=off
 daemonModeInterVal=60
 executeTimeWindow=00:00,24:00
-encryptionType=sse-cos
-</pre>
+outputFinishedFileFolder=./result
+resume=false
+skipSamePath=false
+```
 
 | 名称 | 描述 |默认值|
 | ------| ------ |----- |
@@ -122,7 +125,9 @@ encryptionType=sse-cos
 | daemonMode|是否启用 daemon 模式：on 表示开启，off 表示关闭。daemon 表示程序会循环不停的去执行同步，每一轮同步的间隔由 daemonModeInterVal 参数设置|off|
 | daemonModeInterVal|表示每一轮同步结束后，多久进行下一轮同步，单位为秒 |60|
 | executeTimeWindow|执行时间窗口，时刻粒度为分钟，该参数定义迁移工具每天执行的时间段。例如：<br>参数 03:30,21:00，表示在凌晨 03:30 到晚上 21:00 之间执行任务，其他时间则会进入休眠状态，休眠态暂停迁移并会保留迁移进度, 直到下一个时间窗口自动继续执行|00:00,24:00|
-| encryptionType  |  表示使用 sse-cos 服务端加密    |     默认不填，需要服务端加密时填写       |
+| outputFinishedFileFolder  | 这个目录保存迁移成功的结果，结果文件会按照日期命名，例如`./result/2021-05-27.out`，其中./result 为已创建的目录。文件内容每一行的格式为：绝对路径\t文件大小\t最后修改时间。设置为空，则不输出结果。| ./result |
+| resume | 是否接着最后一次运行的结果，继续往下遍历源的文件列表。默认从头开始。 | false |
+| skipSamePath | 如果 COS 上已经有相同的文件名，是否直接跳过。默认不跳过，即覆盖原有文件。| false |
 
 #### 3.3 配置数据源信息
 根据`[migrateType]`的迁移类型配置相应的分节。例如`[migrateType]`的配置内容是`type=migrateLocal`, 则用户只需配置`[migrateLocal]`分节即可。
@@ -130,24 +135,25 @@ encryptionType=sse-cos
 **3.3.1 配置本地数据源 migrateLocal**
 
 若从本地迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-<pre>
+```plaintext
 # 从本地迁移到 COS 配置分节
 [migrateLocal]
 localPath=E:\\code\\java\\workspace\\cos_migrate_tool\\test_data
 excludes=
 ignoreModifiedTimeLessThanSeconds=
-</pre>
+```
 
 | 配置项 | 描述 |
 | ------| ------ |
-|localPath|本地目录，要求格式为绝对路径：<br><li>Linux 下分隔符为单斜杠，例如`/a/b/c` <br><li>Windows 下分隔符为两个反斜杠，例如`E:\\a\\b\\c`|
+|localPath|本地目录，要求格式为绝对路径：<ul  style="margin: 0;"><li>Linux 下分隔符为单斜杠，例如`/a/b/c` </li><li>Windows 下分隔符为两个反斜杠，例如`E:\\a\\b\\c`</li></ul>|
 |excludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
 |ignoreModifiedTimeLessThanSeconds| 排除更新时间与当前时间相差不足一定时间段的文件，单位为秒，默认不设置，表示不根据 lastmodified 时间进行筛选，适用于客户在更新文件的同时又在运行迁移工具，并要求不把正在更新的文件迁移上传到 COS，例如设置为300，表示只上传更新了5分钟以上的文件|
 
 **3.3.2 配置阿里 OSS 数据源 migrateAli**
 
 若从阿里云 OSS 迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-<pre># 从阿里 OSS 迁移到 COS 配置分节
+```plaintext
+# 从阿里 OSS 迁移到 COS 配置分节
 [migrateAli]
 bucket=bucket-aliyun
 accessKeyId=yourAccessKeyId
@@ -156,7 +162,7 @@ endPoint= oss-cn-hangzhou.aliyuncs.com
 prefix=
 proxyHost=
 proxyPort=
-</pre>
+```
 
 | 配置项 | 描述 |
 | ------| ------ |
@@ -171,7 +177,8 @@ proxyPort=
 **3.3.3 配置 AWS 数据源 migrateAws**
 
 若从 AWS 迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-<pre># 从 AWS 迁移到 COS 配置分节
+```plaintext
+# 从 AWS 迁移到 COS 配置分节
 [migrateAws]
 bucket=bucket-aws
 accessKeyId=AccessKeyId
@@ -180,7 +187,7 @@ endPoint=s3.us-east-1.amazonaws.com
 prefix=
 proxyHost=
 proxyPort=
-</pre>
+```
 
 | 配置项 | 描述 |
 | ------| ------ |
@@ -196,7 +203,8 @@ proxyPort=
 **3.3.4 配置七牛数据源 migrateQiniu**
 
 若从七牛迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-<pre># 从七牛迁移到COS配置分节
+```plaintext
+# 从七牛迁移到COS配置分节
 [migrateQiniu]
 bucket=bucket-qiniu
 accessKeyId=AccessKey
@@ -205,7 +213,7 @@ endPoint=www.bkt.clouddn.com
 prefix=
 proxyHost=
 proxyPort=
-</pre>
+```
 
 | 配置项 | 描述 |
 | ------| ------ |
@@ -221,15 +229,15 @@ proxyPort=
 **3.3.5 配置 URL 列表数据源 migrateUrl**
 
 若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-<pre>
+```plaintext
 # 从 URL 列表下载迁移到 COS 配置分节
 [migrateUrl]
 urllistPath=D:\\folder\\urllist.txt
-</pre>
+```
      
 | 配置项 | 描述 |
 | ------| ------ |
-|urllistPath|URL 列表的地址，内容为 URL 文本，一行一条 URL 原始地址（例如`http://aaa.bbb.com/yyy/zzz.txt`，无需添加任何双引号或其他符号）。URL 列表的地址要求为绝对路径：<br><li>Linux 下分隔符为单斜杠，例如`/a/b/c.txt` <br><li>Windows  下分隔符为两个反斜杠，例如`E:\\a\\b\\c.txt`<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移|
+|urllistPath|URL 列表的地址，内容为 URL 文本，一行一条 URL 原始地址（例如`http://aaa.bbb.com/yyy/zzz.txt`，无需添加任何双引号或其他符号）。URL 列表的地址要求为绝对路径：<ul  style="margin: 0;"><li>Linux 下分隔符为单斜杠，例如`/a/b/c.txt` </li><li>Windows  下分隔符为两个反斜杠，例如`E:\\a\\b\\c.txt`<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移</li></ul>|
 
  
 **3.3.6 配置 Bucket 相互复制 migrateBucketCopy**
@@ -237,7 +245,7 @@ urllistPath=D:\\folder\\urllist.txt
 若从 COS 的一个指定 Bucket 迁移至另一个 Bucket，则进行该部分配置，具体配置项及说明如下：
 >!发起迁移的账号，需具备源读权限、目的写权限。
 
-<pre>
+```plaintext
 # 从源 Bucket 迁移到目标 Bucket 配置分节
 [migrateBucketCopy]
 srcRegion=ap-shanghai
@@ -245,7 +253,7 @@ srcBucketName=examplebucket-1250000000
 srcSecretId=COS_SECRETID
 srcSecretKey=COS_SECRETKEY
 srcCosPath=/
-</pre>
+```
 
 | 配置项 | 描述 |
 | ------| ------ |
@@ -258,7 +266,7 @@ srcCosPath=/
 **3.3.7 配置又拍云数据源 migrateUpyun**
 若从又拍云迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 
-```
+```plaintext
 [migrateUpyun]
 # 从又拍迁移
 bucket=xxx
@@ -288,19 +296,20 @@ proxyPort=
 
 #### Linux
 1.从 config.ini 配置文件读入配置，运行命令为：
-<pre>
+```plaintext
 sh start_migrate.sh
-</pre>
+```
 2.部分参数从命令行读入配置，运行命令为：
-<pre>
+```plaintext
 sh start_migrate.sh -Dcommon.cosPath=/savepoint0403_10/
-</pre>
+```
 
 >?
 > - 工具支持配置项读取方式有两种：命令行读取或配置文件读取。
 > - 命令行优先级高于配置文件，即相同配置选项会优先采用命令行里的参数。
 > - 命令行中读取配置项的形式方便用户同时运行不同的迁移任务，但前提是两次任务中的关键配置项不完全一样，例如 Bucket 名称，COS 路径，要迁移的源路径等。因为不同的迁移任务写入的是不同的 db 目录，可以保证并发迁移。请参照前文中的工具结构中的 db 信息。
 > - 配置项的形式为 **-D{sectionName}.{sectionKey}={sectionValue}** 的形式。其中 sectionName 是配置文件的分节名称，sectionKey 表示分节中配置项名称，sectionValue 表示分节中配置项值。如设置要迁移到的 COS 路径，则以 **-Dcommon.cosPath=/bbb/ddd** 表示。
+> 
 
 ## 迁移机制及流程
 ### 迁移机制原理

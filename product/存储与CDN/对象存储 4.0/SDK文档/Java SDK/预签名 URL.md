@@ -1,6 +1,6 @@
 ## 简介
 Java SDK 提供获取请求预签名 URL 和生成签名接口，可以分发给客户端，用于下载或者上传。如果您的文件是私有读权限，那么请注意预签名链接只有一定的有效期。
-生成的预签名 URL 包含协议名（HTTP或者HTTPS），该协议名与发起预签名请求的 COS 客户端设置的协议保持一致。
+生成的预签名 URL 包含协议名（HTTP 或者 HTTPS），该协议名与发起预签名请求的对象存储（Cloud Object Storage，COS）客户端设置的协议保持一致。
 具体使用请参见请求示例。
 
 ## 获取请求预签名 URL 
@@ -38,8 +38,9 @@ Request 成员说明：
 [//]: # (.cssg-snippet-get-presign-download-url)
 ```java
 // 初始化永久密钥信息
-String secretId = "COS_SECRETID";
-String secretKey = "COS_SECRETKEY";
+// SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+String secretId = "SECRETID";
+String secretKey = "SECRETKEY";
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 Region region = new Region("COS_REGION");
 ClientConfig clientConfig = new ClientConfig(region);
@@ -49,6 +50,7 @@ ClientConfig clientConfig = new ClientConfig(region);
 COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式
 String bucketName = "examplebucket-1250000000";
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
 String key = "exampleobject";
 GeneratePresignedUrlRequest req =
         new GeneratePresignedUrlRequest(bucketName, key, HttpMethodName.GET);
@@ -63,14 +65,44 @@ cosClient.shutdown();
 
 #### 示例2
 
+使用永久密钥生成一个永不过期的带签名的下载链接，示例代码如下：
+
+```java
+// 初始化永久密钥信息
+// SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+String secretId = "SECRETID";
+String secretKey = "SECRETKEY";
+COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
+Region region = new Region("COS_REGION");
+ClientConfig clientConfig = new ClientConfig(region);
+// 如果要生成一个使用 https 协议的 URL，则设置此行，推荐设置。
+// clientConfig.setHttpProtocol(HttpProtocol.https);
+// 生成 cos 客户端。
+COSClient cosClient = new COSClient(cred, clientConfig);
+// 存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式
+String bucketName = "examplebucket-1250000000";
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
+String key = "exampleobject";
+GeneratePresignedUrlRequest req =
+        new GeneratePresignedUrlRequest(bucketName, key, HttpMethodName.GET);
+// 设置签名过期时间为很久远的时间，例如这里的 3000年12月31日
+Date expirationDate = new Date(3000, 12, 31);
+req.setExpiration(expirationDate);
+URL url = cosClient.generatePresignedUrl(req);
+System.out.println(url.toString());
+cosClient.shutdown();
+```
+
+#### 示例3
+
 使用临时密钥生成一个带签名的下载链接，并设置覆盖要返回的一些公共头部（例如 content-type，content-language），示例代码如下：
 
 [//]: # (.cssg-snippet-get-presign-download-url-override-headers)
 ```java
 // 传入获取到的临时密钥 (tmpSecretId, tmpSecretKey, sessionToken)
-String tmpSecretId = "COS_SECRETID";
-String tmpSecretKey = "COS_SECRETKEY";
-String sessionToken = "COS_TOKEN";
+String tmpSecretId = "SECRETID";
+String tmpSecretKey = "SECRETKEY";
+String sessionToken = "TOKEN";
 COSCredentials cred = new BasicSessionCredentials(tmpSecretId, tmpSecretKey, sessionToken);
 // 设置 bucket 的区域, COS 地域的简称请参照 https://cloud.tencent.com/document/product/436/6224
 // clientConfig 中包含了设置 region, https(默认 http), 超时, 代理等 set 方法, 使用可参见源码或者常见问题 Java SDK 部分
@@ -82,6 +114,7 @@ ClientConfig clientConfig = new ClientConfig(region);
 COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶的命名格式为 BucketName-APPID 
 String bucketName = "examplebucket-1250000000";
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
 String key = "exampleobject";
 GeneratePresignedUrlRequest req =
         new GeneratePresignedUrlRequest(bucketName, key, HttpMethodName.GET);
@@ -89,6 +122,7 @@ GeneratePresignedUrlRequest req =
 ResponseHeaderOverrides responseHeaders = new ResponseHeaderOverrides();
 String responseContentType = "image/x-icon";
 String responseContentLanguage = "zh-CN";
+// 设置返回头部里包含文件名信息
 String responseContentDispositon = "filename=\"exampleobject\"";
 String responseCacheControl = "no-cache";
 String cacheExpireStr =
@@ -108,7 +142,7 @@ System.out.println(url.toString());
 cosClient.shutdown();
 ```
 
-#### 示例3
+#### 示例4
 
 生成公有读 Bucket（匿名可读），不需要签名的链接，示例代码如下：
 
@@ -124,6 +158,7 @@ COSClient cosClient = new COSClient(cred, clientConfig);
 // bucket 名需包含 appid
 String bucketName = "examplebucket-1250000000";
 
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
 String key = "exampleobject";
 GeneratePresignedUrlRequest req =
         new GeneratePresignedUrlRequest(bucketName, key, HttpMethodName.GET);
@@ -132,7 +167,7 @@ System.out.println(url.toString());
 cosClient.shutdown();
 ```
 
-#### 示例4
+#### 示例5
 
 生成一些预签名的上传链接，可直接分发给客户端进行文件的上传，示例代码如下：
 
@@ -140,6 +175,7 @@ cosClient.shutdown();
 ```java
 // 存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式
 String bucketName = "examplebucket-1250000000";
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
 String key = "exampleobject";
 // 设置签名过期时间(可选), 若未进行设置, 则默认使用 ClientConfig 中的签名过期时间(1小时)
 // 这里设置签名在半个小时后过期
@@ -187,14 +223,16 @@ public String buildAuthorizationStr(HttpMethodName methodName, String resouce_pa
 
 [//]: # (.cssg-snippet-get-authorization-for-upload)
 ```java
-String secretId = "COS_SECRETID";
-String secretKey = "COS_SECRETKEY";
+// SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+String secretId = "SECRETID";
+String secretKey = "SECRETKEY";
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 COSSigner signer = new COSSigner();
 //设置过期时间为1个小时
 Date expiredTime = new Date(System.currentTimeMillis() + 3600L * 1000L);
 // 要签名的 key, 生成的签名只能用于对应此 key 的上传
-String key = "/exampleobject";
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
+String key = "exampleobject";
 String sign = signer.buildAuthorizationStr(HttpMethodName.PUT, key, cred, expiredTime);
 ```
 
@@ -202,14 +240,16 @@ String sign = signer.buildAuthorizationStr(HttpMethodName.PUT, key, cred, expire
 
 [//]: # (.cssg-snippet-get-authorization-for-download)
 ```java
-String secretId = "COS_SECRETID";
-String secretKey = "COS_SECRETKEY";
+// SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+String secretId = "SECRETID";
+String secretKey = "SECRETKEY";
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 COSSigner signer = new COSSigner();
 // 设置过期时间为1个小时
 Date expiredTime = new Date(System.currentTimeMillis() + 3600L * 1000L);
 // 要签名的 key, 生成的签名只能用于对应此 key 的下载
-String key = "/exampleobject";
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
+String key = "exampleobject";
 String sign = signer.buildAuthorizationStr(HttpMethodName.GET, key, cred, expiredTime);
 ```
 
@@ -217,13 +257,15 @@ String sign = signer.buildAuthorizationStr(HttpMethodName.GET, key, cred, expire
 
 [//]: # (.cssg-snippet-get-authorization-for-delete)
 ```java
-String secretId = "COS_SECRETID";
-String secretKey = "COS_SECRETKEY";
+// SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
+String secretId = "SECRETID";
+String secretKey = "SECRETKEY";
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 COSSigner signer = new COSSigner();
 // 设置过期时间为1个小时
 Date expiredTime = new Date(System.currentTimeMillis() + 3600L * 1000L);
 // 要签名的 key, 生成的签名只能用于对应此 key 的删除
-String key = "/exampleobject";
+// 此处的key为对象键，对象键是对象在存储桶内的唯一标识
+String key = "exampleobject";
 String sign = signer.buildAuthorizationStr(HttpMethodName.DELETE, key, cred, expiredTime);
 ```

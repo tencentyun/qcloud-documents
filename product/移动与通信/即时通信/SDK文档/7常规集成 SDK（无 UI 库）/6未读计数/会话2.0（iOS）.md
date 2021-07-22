@@ -106,10 +106,10 @@ IM SDK 会在登录成功后、用户上线后、以及断线重连后，自动�
 
 ```
 
-## 获取所有会话的未读消息总数（仅精简版 5.3.425 以上版本支持）
+## 获取所有会话的未读消息总数（仅精简版 5.3.425 及以上版本支持）
 调用 [getTotalUnreadMessageCount](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Conversation_08.html#a8459f8be316e10808fd3aa39a1ebc3f5)  接口可以获取所有会话的未读消息总数。您不用再遍历会话列表，把单个会话的未读数相加，才能得到未读总数。当会话的未读总数发生变更的时候，SDK 会主动向您的 App 回调  [onTotalUnreadMessageCountChanged](https://im.sdk.qcloud.com/doc/zh-cn/protocolV2TIMConversationListener-p.html#ab254716e0edb04a0192fb56d27b611e4) ，把最新的未读总数通知给您。
 
-## 置顶会话（仅精简版 5.3.425 以上版本支持）
+## 置顶会话（仅精简版 5.3.425 及以上版本支持）
 会话置顶指的是把特定的好友或者群会话固定在会话列表的最前面，新版本 SDK 增加了主动设置或者取消会话置顶的接口  [pinConversation](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Conversation_08.html#adc50026943585a0aa37ac8856b6b43bb) ，同时支持漫游和多端同步。
 会话对象 [V2TIMConversation](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMConversation.html)  新增了 [isPinned](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMConversation.html#aa3c3bc1113ce3052493288abecc45222) 接口，用于判断会话的置顶状态。当会话的置顶状态发生变更的时候，SDK 会向您的 App 回调 [onConversationChanged](https://im.sdk.qcloud.com/doc/zh-cn/protocolV2TIMConversationListener-p.html#a371039feea8aa04047bd3ebcf8d12931)。
 

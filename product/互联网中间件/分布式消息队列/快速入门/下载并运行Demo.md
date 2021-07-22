@@ -1,6 +1,6 @@
 ## 操作场景
 
-该任务指导您在购买TDMQ服务和腾讯云服务器后，下载demo并进行简单的测试，了解运行一个客户端的操作步骤。
+该任务指导您在购买TDMQ服务和腾讯云服务器后，下载 Demo 并进行简单的测试，了解运行一个客户端的操作步骤。
 
 ## 前提条件
 
@@ -9,39 +9,79 @@
 
 ## 操作步骤
 
-1. 下载 Demo（[Demo下载地址](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-java-client%20V1.0.zip)），并配置相关参数。
+1. 下载 Demo（[Demo下载地址](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo.zip)），并配置相关参数。
 
    **添加 Maven 依赖**
    按照 [Pulsar 官方文档](http://pulsar.apache.org/docs/en/client-libraries-java/) 添加 Maven 依赖。
 <dx-codeblock>
 :::  xml
-   <!-- in your <properties> block -->
-   <pulsar.version>2.6.1</pulsar.version>
-   <!-- in your <dependencies> block -->
-   <dependency>
-       <groupId>org.apache.pulsar</groupId>
-       <artifactId>pulsar-client</artifactId>
-       <version>${pulsar.version}</version>
-   </dependency>
+```xml
+<!-- in your <properties> block -->
+<pulsar.version>2.7.1</pulsar.version>
+<!-- in your <dependencies> block -->
+<dependency>
+			<groupId>org.apache.pulsar</groupId>
+			<artifactId>pulsar-client</artifactId>
+			<version>${pulsar.version}</version>
+</dependency>
+```
 :::
 </dx-codeblock>
 
-   **创建 Client**
-   ```java
-   PulsarClient client = PulsarClient.builder()
-           .serviceUrl("pulsar://**.**.**.**:****/")//ip:port 替换成路由IP，位于【集群管理】接入点列表
-           .listenerName("custom:pulsar-****/vpc-****/subnet-****")//custom:替换成路由ID，位于【集群管理】接入点列表
-           .authentication(AuthenticationFactory.token("eyJr****"))//替换成角色密钥，位于【角色管理】页面
-           .build();
-   System.out.println(">> pulsar client created.");
-   ```
-	- serviceUrl 即路由地址，可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】接入点页面查看并复制
-	- listenerName 即 “custom:” 拼接路由ID（NetModel），路由ID可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】接入点页面查看并复制。
-	![](https://main.qcloudimg.com/raw/23c9244cc34e43501d118c43d20c9fb3.png)
-	- token 即角色的密钥，角色密钥可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】中复制。
-![](https://main.qcloudimg.com/raw/75c27171af47a3d35247cf3e17e7aa67.png)
-	>!密钥泄露很可能导致您的数据泄露，请妥善保管您的密钥。
+   **创建 Client**	 
+<dx-tabs>
+::: 2.7.1版本及以上集群接入示例
+<dx-codeblock>
+:::  java
+PulsarClient client = PulsarClient.builder()
+    .serviceUrl("http://*")//【集群管理】接入地址处复制
+    .authentication(AuthenticationFactory.token("eyJr****"))//替换成角色密钥，位于【角色管理】页面
+    .build();
+System.out.println(">> pulsar client created.");
+:::
+</dx-codeblock>
+
+- serviceUrl 即接入地址，可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】页面查看并复制。
+
+  ![](https://main.qcloudimg.com/raw/a1bbc4b3857903e04f16fc46d9194c57.png)
+
+- token 即角色的密钥，角色密钥可以在【角色管理】中复制。
+
  
+<dx-alert infotype="notice" title="">
+密钥泄露很可能导致您的数据泄露，请妥善保管您的密钥。
+</dx-alert>
+
+
+:::
+::: 2.6.1版本集群接入示例
+
+<dx-codeblock>
+:::  java
+PulsarClient client = PulsarClient.builder()
+    .serviceUrl("pulsar://...:6000/")//接入地址到集群管理-接入点列表完整复制
+    .listenerName("custom:pulsar-****/vpc-****/subnet-****")//custom:替换成路由ID，位于【集群管理】接入点列表
+    .authentication(AuthenticationFactory.token("eyJr****"))//替换成角色密钥，位于【角色管理】页面
+    .build();
+System.out.println(">> pulsar client created.");
+:::
+</dx-codeblock>
+
+- serviceUrl 即接入地址，可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】接入点页面查看并复制。
+
+- listenerName即 “custom:” 拼接路由ID（NetModel），路由ID可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】接入点页面查看并复制。
+  ![](https://main.qcloudimg.com/raw/521d7585bb872e8150fc0277da1fe894.png)
+
+- token 即角色的密钥，角色密钥可以在【角色管理】中复制。
+
+
+
+<dx-alert infotype="notice" title="">
+密钥泄露很可能导致您的数据泄露，请妥善保管您的密钥。
+</dx-alert>
+:::
+</dx-tabs>
+
  **创建消费者进程**
    ```java
    Consumer<byte[]> consumer = client.newConsumer()
@@ -52,10 +92,13 @@
                    .subscribe();
            System.out.println(">> pulsar consumer created.");
    ```
-   > ?
-   >- Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
-   > ![](https://main.qcloudimg.com/raw/a2e32b311b825df9798b8c98df7c3416.png)
-   >- subscriptionName需要写入订阅名，可在【消费管理】界面查看。
+ <dx-alert infotype="explain" title="">
+- Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
+![](https://main.qcloudimg.com/raw/a2e32b311b825df9798b8c98df7c3416.png)
+- subscriptionName需要写入订阅名，可在【消费管理】界面查看。
+</dx-alert>
+
+
 
    **创建生产者进程**
    ```java
@@ -64,7 +107,13 @@
                    .create();
            System.out.println(">> pulsar producer created.");
    ```
-   > ?Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
+
+
+<dx-alert infotype="explain" title="">
+Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
+</dx-alert>
+
+
 
    **生产消息**
    ```java
@@ -94,11 +143,11 @@
    执行命令 `java -jar tdmq-demo-1.0.0.jar`，运行 Demo，可查看运行日志。
    ![](https://main.qcloudimg.com/raw/cd31ccff67fe1f5fa926e383151c5aae.png)
 
-5. 登录[TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，依次点击【Topic管理】>【Topic名称】进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
+5. 登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，依次点击【Topic管理】>【Topic名称】进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
 
    ![](https://main.qcloudimg.com/raw/da7ce2bc5ac606c91982efecdb3b53bb.png)
 
-6. 进入[【消息查询】](https://console.cloud.tencent.com/tdmq/message)页面，可查看 Demo 运行后的消息轨迹。
+6. 进入【[消息查询](https://console.cloud.tencent.com/tdmq/message)】页面，可查看 Demo 运行后的消息轨迹。
 ![](https://main.qcloudimg.com/raw/d5e09b9c789749b28182b62a501797ca.png)
 消息轨迹如下：
 ![](https://main.qcloudimg.com/raw/eaa0125f6dcd7675e367c4e3e069c915.png)

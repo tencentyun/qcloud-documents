@@ -7,8 +7,7 @@ Dynamic Scheduler 是容器服务 TKE 基于 Kubernetes 原生 Kube-scheduler Ex
 
 
 
-### 在集群内部署 Kubernetes 对象
-
+### 部署在集群内的 Kubernetes 对象
 
 | Kubernetes 对象名称        | 类型               |                   请求资源                   | 所属 Namespace |
 | :----------------------- | :----------------- | :------------------------------------------| ------------- |

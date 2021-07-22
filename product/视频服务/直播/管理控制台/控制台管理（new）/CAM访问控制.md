@@ -37,6 +37,8 @@
 	- 若需使用实时日志，需授权 [QcloudCamFullAccess](https://console.cloud.tencent.com/cam/policy/detail/596169&QcloudCamFullAccess&2) （用户与权限（CAM）全读写访问权限策略）。
 2. 添加自定义策略：进入策略页面，单击【新建自定义策略】，选择【按策略生成器创建】，详细请参见 [自定义策略](https://cloud.tencent.com/document/product/598/10601)。
 
+>? 目前云直播部分接口已支持资源级授权，具体接口可参见 [API 鉴权规则](https://cloud.tencent.com/document/product/267/58612)。
+
 **例如**：
 若需将【添加证书】接口授权给子用户，且仅可用于指定域名，按照下述步骤配置：
 1. 新建允许访问此接口的域名级策略，进入策略生成器创建策略页面。

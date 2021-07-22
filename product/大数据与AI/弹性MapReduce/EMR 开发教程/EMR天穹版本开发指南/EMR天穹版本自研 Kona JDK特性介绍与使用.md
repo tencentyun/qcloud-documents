@@ -3,7 +3,7 @@
 默认开启。可在启动参数中添加 `-XX:-UseOWSTTaskTerminator` 关闭。
 
 ### 原理
-GC 并行线程通过 Work Stealing 进行负载均衡，减少 GC 停顿时间。原有 Work Stealing 算法中所有空闲 GC 线程都会频繁尝试 work stealing，造成 CPU 资源浪费，新算法采用一个 master 线程监控是否进行 work stealing 并在适当时机唤醒其它空闲 GC 线程，极大减少 CPU 资源浪费和进程间的 CPU 资源竞争。OWST 在 OpenJDK 社区版本12以后支持，大数据 Hibench 测试有最多30%的性能提升，平均提升8%。
+GC 并行线程通过 Work Stealing 进行负载均衡，减少 GC 停顿时间。原有 Work Stealing 算法中所有空闲 GC 线程都会频繁尝试 work stealing，造成 CPU 资源浪费，新算法采用一个 master 线程监控是否进行 work stealing 并在适当时机唤醒其它空闲 GC 线程，极大减少 CPU 资源浪费和进程间的 CPU 资源竞争。OWST 在 OpenJDK 社区版本12以后支持，大数据 Hibench 测试性能提升最多有30%，平均提升8%。
 
 ## CMS FullGC 并行化
 ### 开启方式

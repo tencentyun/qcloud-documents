@@ -1,9 +1,52 @@
+## TKE kubernetes 1.20.6 revisions
+<table>
+  <thead>
+    <tr><th> 时间         </th><th> 版本                 </th><th> 更新内容                           </th></tr>
+  </thead>
+  <tbody>
+    <tr><td>2021-06-21 </td><td> v1.20.6-tke.2</td><td>默认开启 CSIMigration 及 CSIMigrationQcloudCbs，以 CSI 方式挂载 CBS 盘。</td></tr>
+    <tr><td> 2021-05-25   </td><td> v1.20.6-tke.1</td><td><li>revert pr63066，修复 LB 健康检查与 IPVS 的问题。（kube-proxy）</li>
+<li>合并 pr90260，修复 containerd 集群网络监控缺失问题。（kubelet）</li>
+<li>ubuntu16下 lxcfs 升级造成  Pod  退出问题修复。（kubelet）</li>
+<li>合并 pr72914，修复删除 Pod 后立即创建并调度到同一个节点可能导致无法挂载成功的问题。（kube-controller-manager）</li>
+<li>解决在 CentOS 下创建容器会导致 cgroup 泄露的问题。（kubelet）</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/98262" rel="nofollow">pr98262</a>，支持 kube-controller-manager 动态调整日志级别。（kube-controller-manager）</li>
+<li>合并 pr97752，修复 describe deployment 时 NewReplicaSet 显示为的问题。（kubectl）</li>
+<li>合并 pr94833，修复当 Pod 镜像有多个 tag 时，status 中镜像 tag 不匹配的问题。（kubelet）</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/100060" rel="nofollow">pr100060</a>，自动删除孤儿 Pod 遗留的 volume 目录。（kubelet）</li>
+<li>kube-controller-manager 支持虚拟节点。（kube-controller-manager）</li>
+<li>kube-scheduler 支持混合云扩容到 EKS 时，保留固定数目的本地副本。（kube-scheduler）</li>
+<li>支持 cbs csi migration。（kube-controller-manager，kubelet）</li>
+<li>合并 pr93260，解决 AWS Credential Provider 导致节点启动变慢的问题。（kubelet）</li>
+<li>为调度器增加命令行参数 eks-config-namespace：指定扩容 eks 相关配置所在的 namespace。（kube-scheduler）</li>
+<li> TKE支持混合云节点。（kube-controller-manager）</li></td></tr>
+  </tbody>
+</table>
+
+
 ## TKE kubernetes 1.18.4 revisions
 
 <table><thead>
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+	<tr>
+    <td>2021-06-05</td>	
+    <td>v1.18.4-tke.11</td>	
+    <td><ul class="params">
+TKE 支持混合云节点。（kube-controller-manager）
+</ul></td>
+</tr>
+<tr>
+    <td>2021-05-14</td>	
+    <td>v1.18.4-tke.9</td>	
+    <td><ul class="params">
+<li>移植 <a href="https://github.com/kubernetes/kubernetes/pull/93370" rel="nofollow">pr93370</a>，支持 CronJobControllerV2。（kube-controller-manager）</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/100376" rel="nofollow">pr100376</a>，开启 HTTP/2 健康检查，避免连接丢失后无法恢复的问题。（kube-apiserver，kube-controller-manager，kube-scheduler，kubelet，kube-proxy，kubectl）</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/100317" rel="nofollow">pr100317</a>，修复 CVE-2021-25735 节点更新可能绕过 Validating Admission Webhook 的问题。（kube-apiserver）</li>
+<li>从 TKE 集群扩容到 EKS 支持 ComputeResource 和 EKS ClusterIP 及 HPA。（kube-controller-manager，kube-scheduler）</li>
+</ul></td>
+</tr>
 <tr>
     <td>2021-04-02</td>	
     <td>v1.18.4-tke.8</td>	
@@ -97,6 +140,21 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr>
+    <td>2021-05-24</td>	
+    <td>v1.16.3-tke.17</td>	
+    <td><ul class="params">
+<li>移植 <a href="https://github.com/kubernetes/kubernetes/pull/93370" rel="nofollow">pr93370</a>，支持 CronJobControllerV2。（kube-controller-manager）</li>
+<li>从 TKE 集群扩容到 EKS 支持保留本地副本数。（kube-scheduler） </li>
+	        </ul></td>
+</tr>	
+<tr>
+    <td>2021-05-06</td>	
+    <td>v1.16.3-tke.16</td>	
+    <td><ul class="params">
+<li>更新以镜像方式运行 kube-proxy 时的启动方式，自动适配所在节点的 iptables 运行模式，以支持默认使用 nf_tables 模式运行 iptables 的操作系统。</li>
+	        </ul></td>
+</tr>	
 <tr>
     <td>2021-04-14</td>	
     <td>v1.16.3-tke.15</td>	
@@ -205,6 +263,11 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr>
+    <td>2021-05-06</td>	
+    <td>v1.14.3-tke.22</td>	
+    <td>更新以镜像方式运行 kube-proxy 时的启动方式，自动适配所在节点的 iptables 运行模式，以支持默认使用 nf_tables 模式运行 iptables 的操作系统。</td>
+</tr>	
 <tr>
     <td>2021-04-14</td>	
     <td>v1.14.3-tke.21</td>	
@@ -333,6 +396,11 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr>
+    <td>2021-05-06</td>	
+    <td>v1.12.4-tke.28</td>	
+    <td>更新以镜像方式运行 kube-proxy 时的启动方式，自动适配所在节点的 iptables 运行模式，以支持默认使用 nf_tables 模式运行 iptables 的操作系统。</td>
+</tr>	
 <tr>
     <td>2020-12-28</td>	
     <td>v1.12.4-tke.27</td>	
@@ -473,6 +541,11 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr>
+    <td>2021-05-06</td>	
+    <td>v1.10.5-tke.20</td>	 
+    <td>更新以镜像方式运行 kube-proxy 时的启动方式，自动适配所在节点的 iptables 运行模式，以支持默认使用 nf_tables 模式运行 iptables 的操作系统。</td>
+<tr>
 <tr>
     <td>2020-06-10</td>	
     <td>v1.10.5-tke.19</td>	 

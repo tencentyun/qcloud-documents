@@ -9,7 +9,7 @@ RO 组是只读实例的集合，一个 RO 组共享一个地址，同时还可�
 
 ## 操作步骤
 ### 创建只读实例 RO 组
-1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb/ )，在实例列表，单击实例名或“操作”列的【管理】，进入实例管理页。
+1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb/ )，在实例列表，单击实例 ID 或“操作”列的【管理】，进入实例管理页。
 2. 在实例详情页，单击“实例架构图”中的【添加只读实例】，或在只读实例页，单击【新建】，进入购买页。
 ![](https://main.qcloudimg.com/raw/44922c9b3eae70a5b2e0b01e7f0eb5e5.png)
 3. 在购买页，选择只读实例的相应配置，确认无误后，单击【立即购买】。

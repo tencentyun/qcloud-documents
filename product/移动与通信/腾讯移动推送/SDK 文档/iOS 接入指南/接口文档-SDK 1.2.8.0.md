@@ -2,8 +2,8 @@
 
 本文档中账号功能、标签功能及用户属性功能适用于 **SDK 1.2.9.0或更高版本**，**1.2.7.2**及之前版本请参见 [接口文档](https://cloud.tencent.com/document/product/548/36668)。
 
-
 ## 启动腾讯移动推送服务
+
 以下为设备注册相关接口方法，若需了解调用时机及调用原理，可查看 [设备注册流程](https://cloud.tencent.com/document/product/548/36662#.E8.AE.BE.E5.A4.87.E6.B3.A8.E5.86.8C.E6.B5.81.E7.A8.8B)。
 
 #### 接口说明
@@ -22,8 +22,7 @@
 - accessKey：通过前台申请的 AccessKey。
 - Delegate：回调对象。 
 
->! 接口所需参数必须要正确填写，否则腾讯移动推送服务将不能正确为应用推送消息。
->
+> ! 接口所需参数必须要正确填写，否则腾讯移动推送服务将不能正确为应用推送消息。
 
 #### 示例代码
 
@@ -32,6 +31,7 @@
 ```
 
 ## 终止腾讯移动推送服务
+
 以下为设备注册相关接口方法，若需了解调用时机及调用原理，可查看 [设备反注册流程](https://cloud.tencent.com/document/product/548/36662#.E8.AE.BE.E5.A4.87.E5.8F.8D.E6.B3.A8.E5.86.8C.E6.B5.81.E7.A8.8B)。
 
 #### 接口说明
@@ -103,6 +103,7 @@ SDK 1.3.1.0 新增，通知弹窗授权的结果会走此回调。
 
 ```objective-c
 - (void)xgPushDidRequestNotificationPermission:(bool)isEnable error:(nullable NSError *)error;
+
 ```
 
 #### 返回参数说明
@@ -111,35 +112,36 @@ SDK 1.3.1.0 新增，通知弹窗授权的结果会走此回调。
 - error：错误信息，若 error 为 nil，则获取弹窗结果成功。
 
 ## 账号功能
+
 以下为账号相关接口方法，若需了解调用时机及调用原理，可查看 [账号相关流程](https://cloud.tencent.com/document/product/548/36662#.E8.B4.A6.E5.8F.B7.E7.9B.B8.E5.85.B3.E6.B5.81.E7.A8.8B)。
+
 ### 添加账号
+
 #### 接口说明
 
 若原来没有该类型账号，则添加；若原来有，则覆盖。（TPNS SDK1.2.9.0+ 新增）
+
 ```Objective-C
 - (void)upsertAccountsByDict:(nonnull NSDictionary<NSNumber *, NSString *> *)accountsDict;
+
 ```
 
->? 此接口应该在 xgPushDidRegisteredDeviceToken:error: 返回正确之后被调用。
->
+> ? 此接口应该在 xgPushDidRegisteredDeviceToken:error: 返回正确之后被调用。
 
 
 
 #### 参数说明 
 
-
 accountsDict：账号字典。
 
->?
->- 账号类型和账号名称一起作为联合主键。
->- 需要使用字典类型，key 为账号类型，value 为账号，示例：@{@(accountType):@"account"}。
->- Objective-C的写法 : @{@(0):@"account0",@(1):@"account1"}；Swift的写法：[NSNumber(0):@"account0",NSNumber(1):@"account1"]。
->- 更多 accountType 请参照 SDK Demo 包内的 XGPushTokenAccountType 枚举。
->- 目前仅支持下发账号类型为 UNKNOWN 的推送，其他账号类型的推送近期将会上线，敬请期待。
-
+> ?
+> - 账号类型和账号名称一起作为联合主键。
+> - 需要使用字典类型，key 为账号类型，value 为账号，示例：@{@(accountType):@"account"}。
+> - Objective-C的写法 : @{@(0):@"account0",@(1):@"account1"}；Swift的写法：[NSNumber(0):@"account0",NSNumber(1):@"account1"]。
+> - 更多 accountType 请参照 SDK Demo 包内的 XGPushTokenAccountType 枚举或 [账号类型取值表](https://cloud.tencent.com/document/product/548/56434)。
+> - TPNS 控制台「账号推送」仅支持账号类型取值为0的账号 ID，其他类型的账号 ID 可通过 [REST API](https://cloud.tencent.com/document/product/548/39064#.E5.8F.AF.E9.80.89.E5.8F.82.E6.95.B0) 进行推送。
 
 #### 示例代码
-
 
 ```Objective-C
 XGPushTokenAccountType accountType = XGPushTokenAccountTypeUNKNOWN;
@@ -147,31 +149,54 @@ NSString *account = @"account";
 [[XGPushTokenManager defaultTokenManager] upsertAccountsByDict:@{ @(accountType):account }];
 ```
 
+### 添加手机号
+
+#### 接口说明
+
+添加或更新用户手机号，等于调用`upsertAccountsByDict:@{@(1002):@"具体手机号"}`。
+
+```objective-c
+/// @note TPNS SDK1.3.2.0+
+- (void)upsertPhoneNumber:(nonnull NSString *)phoneNumber;
+```
+
+#### 参数说明
+
+- phoneNumber：E.164标准，格式为+[国家或地区码][手机号],例如+8613711112222。SDK内部加密传输。
+
+#### 示例代码
+
+```Objective-C
+[[XGPushTokenManager defaultTokenManager] upsertPhoneNumber:@"+8613712345678"];;
+
+```
+
+> ! 1.此接口应该在xgPushDidRegisteredDeviceToken:error:返回正确之后被调用
+> 2.如需要删除手机号，调用`delAccountsByKeys:[[NSSet alloc] initWithObjects:@(1002), nil]`
 
 ### 删除账号
+
 #### 接口说明
 
 接口说明：删除指定账号类型下的所有账号。（TPNS SDK1.2.9.0+ 新增）
 
 ```Objective-C
 - (void)delAccountsByKeys:(nonnull NSSet<NSNumber *> *)accountsKeys;
+
 ```
 
->?此接口应该在 xgPushDidRegisteredDeviceToken:error: 返回正确之后被调用。
-
+> ?此接口应该在 xgPushDidRegisteredDeviceToken:error: 返回正确之后被调用。
 
 #### 参数说明 
 
-
 - accountsKeys：账号类型组成的集合。
 
->?
->- 使用集合且 key 是固定要求。
->- 更多 accountType 请参照 SDK 包内 XGPush.h 文件中的 XGPushTokenAccountType 枚举。
-
+> ?
+>
+> - 使用集合且 key 是固定要求。
+> - 更多 accountType 请参照 SDK 包内 XGPush.h 文件中的 XGPushTokenAccountType 枚举。
 
 #### 示例代码
-
 
 ```Objective-C
 XGPushTokenAccountType accountType = XGPushTokenAccountTypeUNKNOWN;
@@ -179,6 +204,7 @@ XGPushTokenAccountType accountType = XGPushTokenAccountTypeUNKNOWN;
 NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 
 [[XGPushTokenManager defaultTokenManager] delAccountsByKeys:accountsKeys];
+
 ```
 
 ### 清除账号
@@ -189,6 +215,7 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 
 ```Objective-C
 - (void)clearAccounts;
+
 ```
 
 > ?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
@@ -197,9 +224,13 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 
 ```Objective-C
 [[XGPushTokenManager defaultTokenManager] clearAccounts];
+
 ```
+
 ## 标签功能
+
 以下为标签相关接口方法，若需了解调用时机及调用原理，可查看 [标签相关流程](https://cloud.tencent.com/document/product/548/36662#.E6.A0.87.E7.AD.BE.E7.9B.B8.E5.85.B3.E6.B5.81.E7.A8.8B)。
+
 ### 绑定/解绑标签
 
 #### 接口说明
@@ -209,9 +240,11 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 ```Objective-C
 - (void)appendTags:(nonnull NSArray<NSString *> *)tags
 - (void)delTags:(nonnull NSArray<NSString *> *)tags
+
 ```
 
 > ?
+>
 > - 此接口为追加方式。
 > - 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用
 > - 单个应用最多可以有10000个自定义 tag， 每个设备 Token 最多可绑定100个自定义 tag，如需提高该限制，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，每个自定义 tag 可绑定的设备 Token 数量无限制。
@@ -220,7 +253,7 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 
 tags：标签数组。
 
->? 标签操作 tags 为标签字符串数组（标签字符串不允许有空格或者是 tab 字符）。
+> ? 标签操作 tags 为标签字符串数组（标签字符串不允许有空格或者是 tab 字符）。
 
 #### 示例代码
 
@@ -230,6 +263,7 @@ tags：标签数组。
 
 //解绑标签
 [[XGPushTokenManager defaultTokenManager] delTags:@[ tagStr ]];
+
 ```
 
 
@@ -242,9 +276,11 @@ tags：标签数组。
 
 ```Objective-C
 - (void)clearAndAppendTags:(nonnull NSArray<NSString *> *)tags
+
 ```
 
 > ?
+>
 > - 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
 > - 此接口会将当前 Token 对应的旧有的标签全部替换为当前的标签。
 
@@ -252,7 +288,7 @@ tags：标签数组。
 
 tags：标签数组。
 
->? 标签操作 tags 为标签字符串数组（标签字符串不允许有空格或者是 tab 字符）。
+> ? 标签操作 tags 为标签字符串数组（标签字符串不允许有空格或者是 tab 字符）。
 
 
 
@@ -260,6 +296,7 @@ tags：标签数组。
 
 ```Objective-C
 [[XGPushTokenManager defaultTokenManager] clearAndAppendTags:@[ tagStr ]];
+
 ```
 
 ### 清除全部标签
@@ -270,14 +307,16 @@ tags：标签数组。
 
 ```Objective-C
 - (void)clearTags
+
 ```
 
->? 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+> ? 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
 
 #### 示例代码
 
 ```Objective-C
 [[XGPushTokenManager defaultTokenManager] clearTags];
+
 ```
 
 ### 查询标签
@@ -288,6 +327,7 @@ SDK 1.3.1.0 新增，查询设备绑定的标签。
 
 ```Objective-C
 - (void)queryTags:(NSUInteger)offset limit:(NSUInteger)limit;
+
 ```
 
 > ?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
@@ -301,6 +341,7 @@ SDK 1.3.1.0 新增，查询设备绑定的标签。
 
 ```Objective-C
  [[XGPushTokenManager defaultTokenManager] queryTags:0 limit:100];
+
 ```
 
 ### 查询标签的回调
@@ -311,6 +352,7 @@ SDK 1.3.1.0 新增，查询标签的结果会走此回调。
 
 ```objective-c
 - (void)xgPushDidQueryTags:(nullable NSArray<NSString *> *)tags totalCount:(NSUInteger)totalCount error:(nullable NSError *)error;
+
 ```
 
 #### 返回参数说明
@@ -320,7 +362,9 @@ SDK 1.3.1.0 新增，查询标签的结果会走此回调。
 - error：错误信息，若 error 为 nil，则查询成功。
 
 ## 用户属性功能
+
 以下为用户属性相关接口方法，若需了解调用时机及调用原理，可查看 [用户属性相关流程](https://cloud.tencent.com/document/product/548/36662#.E7.94.A8.E6.88.B7.E5.B1.9E.E6.80.A7.E7.9B.B8.E5.85.B3.E6.B5.81.E7.A8.8B)。
+
 ### 新增用户属性
 
 #### 接口说明
@@ -329,6 +373,7 @@ SDK 1.3.1.0 新增，查询标签的结果会走此回调。
 
 ```Objective-C
 - (void)upsertAttributes:(nonnull NSDictionary<NSString *,NSString *> *)attributes
+
 ```
 
 > ?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
@@ -338,6 +383,7 @@ SDK 1.3.1.0 新增，查询标签的结果会走此回调。
 attributes：用户属性字符串字典，字符串不允许有空格或者是 tab 字符。
 
 > ? 
+>
 > - 需要先在管理台配置用户属性的键，才能操作成功。
 > - key，value 长度都限制50个字符以内。
 > - 需要使用字典且 key 是固定要求。
@@ -348,6 +394,7 @@ attributes：用户属性字符串字典，字符串不允许有空格或者是 
 
 ```Objective-C
 [[XGPushTokenManager defaultTokenManager] upsertAttributes:attributes];
+
 ```
 
 ### 删除用户属性
@@ -358,6 +405,7 @@ attributes：用户属性字符串字典，字符串不允许有空格或者是 
 
 ```Objective-C
 - (void)delAttributes:(nonnull NSSet<NSString *> *)attributeKeys
+
 ```
 
 > ?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
@@ -372,6 +420,7 @@ attributeKeys：用户属性 key 组成的集合，字符串不允许有空格�
 
 ```Objective-C
 [[XGPushTokenManager defaultTokenManager] delAttributes:attributeKeys];
+
 ```
 
 ### 清空已有用户属性
@@ -382,6 +431,7 @@ attributeKeys：用户属性 key 组成的集合，字符串不允许有空格�
 
 ```Objective-C
 - (void)clearAttributes;
+
 ```
 
 > ?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
@@ -390,6 +440,7 @@ attributeKeys：用户属性 key 组成的集合，字符串不允许有空格�
 
 ```Objective-C
 [[XGPushTokenManager defaultTokenManager] clearAttributes];
+
 ```
 
 ### 更新用户属性
@@ -402,6 +453,7 @@ attributeKeys：用户属性 key 组成的集合，字符串不允许有空格�
 
 ```Objective-C
 - (void)clearAndAppendAttributes:(nonnull NSDictionary<NSString *,NSString *> *)attributes
+
 ```
 
 > ?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
@@ -410,6 +462,7 @@ attributeKeys：用户属性 key 组成的集合，字符串不允许有空格�
 
 ```Objective-C
 [[XGPushTokenManager defaultTokenManager] clearAndAppendAttributes:attributes];
+
 ```
 
 ## 角标功能
@@ -422,6 +475,7 @@ attributeKeys：用户属性 key 组成的集合，字符串不允许有空格�
 
 ```objective-c
 - (void)setBadge:(NSInteger)badgeNumber;
+
 ```
 
 #### 参数说明
@@ -431,6 +485,7 @@ badgeNumber：应用的角标数。
 > ! 当本地应用角标设置后需调用此接口同步角标值到 TPNS 服务器，并在下次推送时生效，此接口必须在 TPNS 注册成功后调用（xgPushDidRegisteredDeviceToken）。
 
 #### 示例代码
+
 ```Objective-C
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     /// 每次启动 App 应用角标清零（本地应用角标设置需要在主线程执行）
@@ -446,6 +501,7 @@ badgeNumber：应用的角标数。
         [[XGPush defaultManager] setBadge:0];
     }
 }
+
 ```
 
 
@@ -458,6 +514,7 @@ badgeNumber：应用的角标数。
 
 ```objective-c
 - (void)deviceNotificationIsAllowed:(nonnull void (^)(BOOL isAllowed))handler;
+
 ```
 
 #### 参数说明
@@ -470,6 +527,7 @@ handler：查询结果的返回方法。
 [[XGPush defaultManager] deviceNotificationIsAllowed:^(BOOL isAllowed) {
         <#code#>
     }];
+
 ```
 
 ## 查询 SDK 版本
@@ -480,12 +538,14 @@ handler：查询结果的返回方法。
 
 ```objective-c
 - (nonnull NSString *)sdkVersion;
+
 ```
 
 #### 示例代码
 
 ```objective-c
 [[XGPush defaultManager] sdkVersion];
+
 ```
 
 ## 日志上报接口
@@ -497,6 +557,7 @@ handler：查询结果的返回方法。
 ```
 /// @note TPNS SDK1.2.4.1+
 - (void)uploadLogCompletionHandler:(nullable void(^)(BOOL result,  NSString * _Nullable errorMessage))handler;
+
 ```
 
 #### 参数说明
@@ -508,8 +569,8 @@ handler：查询结果的返回方法。
 
 ```
 [[XGPush defaultManager] uploadLogCompletionHandler:nil];
-```
 
+```
 
 ## TPNS 日志托管
 
@@ -525,6 +586,7 @@ logInfo：日志信息。
 
 ```
 - (void)xgPushLog:(nullable NSString *)logInfo;
+
 ```
 
 ## 自定义通知栏消息行为
@@ -537,6 +599,7 @@ logInfo：日志信息。
 
 ```objective-c
 + (nullable id)actionWithIdentifier:(nonnull NSString *)identifier title:(nonnull NSString *)title options:(XGNotificationActionOptions)options;
+
 ```
 
 #### 参数说明
@@ -549,9 +612,10 @@ logInfo：日志信息。
 
 ```objective-c
 XGNotificationAction *action1 = [XGNotificationAction actionWithIdentifier:@"xgaction001" title:@"xgAction1" options:XGNotificationActionOptionNone];
+
 ```
 
->! 通知栏带有点击事件的特性，只有在 iOS8.0+ 以上支持，iOS 7.x or earlier 的版本，此方法返回空。
+> ! 通知栏带有点击事件的特性，只有在 iOS8.0+ 以上支持，iOS 7.x or earlier 的版本，此方法返回空。
 
 ### 创建分类对象
 
@@ -561,6 +625,7 @@ XGNotificationAction *action1 = [XGNotificationAction actionWithIdentifier:@"xga
 
 ```objective-c
 + (nullable id)categoryWithIdentifier:(nonnull NSString *)identifier actions:(nullable NSArray<id> *)actions intentIdentifiers:(nullable NSArray<NSString *> *)intentIdentifiers options:(XGNotificationCategoryOptions)options
+
 ```
 
 #### 参数说明
@@ -570,7 +635,7 @@ XGNotificationAction *action1 = [XGNotificationAction actionWithIdentifier:@"xga
 - intentIdentifiers：用以表明可以通过 Siri 识别的标识。
 - options：分类的特性。
 
->! 通知栏带有点击事件的特性，只有在 iOS8+ 以上支持，iOS 8 or earlier的版本，此方法返回空。
+> ! 通知栏带有点击事件的特性，只有在 iOS8+ 以上支持，iOS 8 or earlier的版本，此方法返回空。
 
 #### 示例代码
 
@@ -602,5 +667,3 @@ XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificat
 ## 本地推送
 
 本地推送相关功能请参见 [苹果开发者文档](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SchedulingandHandlingLocalNotifications.html#//apple_ref/doc/uid/TP40008194-CH5-SW1)。
-
-

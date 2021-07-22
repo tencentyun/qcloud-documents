@@ -52,7 +52,7 @@ public final String getVersion()
 
 
 
-#### [initWithConfig()](id:initWithConfig)
+#### [initWithConfig()](id:initWithConfig())
 
 ```java
 public void initWithConfig(Context context, OcrSDKConfig config)
@@ -123,9 +123,13 @@ public <T extends OcrResult> void startProcessOcrResultEntity(Activity activity,
 | Activity                                                    | activity                | 启动 OCR 默认界面的当前界面 Activity 对象                    |
 | [OcrType](#OcrType)                                         | ocrType                 | 启动的 OCR 识别类型                                          |
 | [CustomConfigUi](#CustomConfigUi)                           | customConfigUi          | 启动默认界面时候传入的界面配置参数，如需完全使用默认配置，可传入 null |
-| Class < T >                                                 | entity                  | 目前支持的结果实体包括[IdCardOcrResult](#IdCardOcrResult)、[BankCardOcrResult](#BankCardOcrResult)、[BusinessCardOcrResult](#BusinessCardOcrResult)、[MalaysiaIdCardOcrResult](#MalaysiaIdCardOcrResult)、[VinOcrResult](#VinOcrResult)、[CarLicensePlateResult](#CarLicensePlateResult) |
+| Class < T >                                                 | entity                  | OCR 识别结果的实体类                                          |
 | [ISdkOcrEntityResultListener](#ISdkOcrEntityResultListener) | ocrEntityResultListener | 用于接收 OCR 识别结果的回调对象                              |
-| < T > extends OcrResult                                     | < T >                   | OCR 识别识别结果 OcrResult 的子类型[IdCardOcrResult](#IdCardOcrResult)、[BankCardOcrResult](#BankCardOcrResult)、[BusinessCardOcrResult](#BusinessCardOcrResult)、[MalaysiaIdCardOcrResult](#MalaysiaIdCardOcrResult)、[VinOcrResult](#VinOcrResult)、[CarLicensePlateResult](#CarLicensePlateResult) |
+| < T > extends OcrResult                                     | < T >                   | OCR 识别识别结果 OcrResult 的子类型                          |
+
+OCR 识别结果的实体类，OCR 识别识别结果 OcrResult 的子类型包括：
+
+[IdCardOcrResult](#IdCardOcrResult)、[BankCardOcrResult](#BankCardOcrResult)、[BusinessCardOcrResult](#BusinessCardOcrResult)、[MalaysiaIdCardOcrResult](#MalaysiaIdCardOcrResult)、[VinOcrResult](#VinOcrResult)、[CarLicensePlateResult](#CarLicensePlateResult)、[DriverLicenseCardResult](#DriverLicenseCardResult)、[VehicleLicenseCardResult](#VehicleLicenseCardResult)
 
 
 
@@ -163,15 +167,20 @@ OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类
 
 OcrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支持业务类型的种类，大致如下：
 
-| OcrType类型             | 代表含义               | 对应结果实体类                                      |
-| ----------------------- | ---------------------- | --------------------------------------------------- |
-| OcrType.IDCardOCR_FRONT | 身份证人像面识别模式   | [IdCardOcrResult](#IdCardOcrResult)                 |
-| OcrType.IDCardOCR_BACK  | 身份证国徽面识别模式   | [IdCardOcrResult](#IdCardOcrResult)                 |
-| OcrType.BankCardOCR     | 银行卡正面识别模式     | [BankCardOcrResult](#BankCardOcrResult)             |
-| OcrType.BusinessCardOCR | 名片卡正面识别模式     | [BusinessCardOcrResult](#BusinessCardOcrResult)     |
-| OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 | [MalaysiaIdCardOcrResult](#MalaysiaIdCardOcrResult) |
-| OcrType.VinOCR          | 车辆的VIN识别模式      | [VinOcrResult](#VinOcrResult)                       |
-| OcrType.LicensePlateOCR | 车辆的车牌识别模式     | [CarLicensePlateResult](#CarLicensePlateResult)     |
+| OcrType类型                     | 代表含义               | 对应结果实体类                                        |
+| ------------------------------- | ---------------------- | ----------------------------------------------------- |
+| OcrType.IDCardOCR_FRONT         | 身份证人像面识别模式   | [IdCardOcrResult](#IdCardOcrResult)                   |
+| OcrType.IDCardOCR_BACK          | 身份证国徽面识别模式   | [IdCardOcrResult](#IdCardOcrResult)                   |
+| OcrType.BankCardOCR             | 银行卡正面识别模式     | [BankCardOcrResult](#BankCardOcrResult)               |
+| OcrType.BusinessCardOCR         | 名片卡正面识别模式     | [BusinessCardOcrResult](#BusinessCardOcrResult)       |
+| OcrType.MLIdCardOCR             | 马来西亚身份证识别模式 | [MalaysiaIdCardOcrResult](#MalaysiaIdCardOcrResult)   |
+| OcrType.VinOCR                  | 车辆的 VIN 识别模式      | [VinOcrResult](#VinOcrResult)                         |
+| OcrType.LicensePlateOCR         | 车辆的车牌识别模式     | [CarLicensePlateResult](#CarLicensePlateResult)       |
+| OcrType.DriverLicenseOCR_FRONT  | 驾驶证主页识别模式     | [DriverLicenseCardResult](#DriverLicenseCardResult)   |
+| OcrType.DriverLicenseOCR_BACK   | 驾驶证副页识别模式     | [DriverLicenseCardResult](#DriverLicenseCardResult)   |
+| OcrType.VehicleLicenseOCR_FRONT | 行驶证主页识别模式     | [VehicleLicenseCardResult](#VehicleLicenseCardResult) |
+| OcrType.VehicleLicenseOCR_BACK  | 行驶证副页识别模式     | [VehicleLicenseCardResult](#VehicleLicenseCardResult) |
+
 
 
 ### OcrModeType
@@ -190,20 +199,21 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 
 此为用户自定义 UI 的配置类，当前支持配置的属性如下表所示，可以通过 javabean set 的方式设置。
 
-| 类型    | 名称                   | 含义                                                       |
-| ------- | ---------------------- | ---------------------------------------------------------- |
-| boolean | isShowTitleBar         | 设置是否显示默认界面的标题栏                               |
-| String  | titleBarText           | 设置标题栏显示的文字内容                                   |
-| int     | titleColor             | 设置标题栏背景颜色（0xFFFFFF类型）                         |
+| 类型    | 名称                   | 含义                                                         |
+| ------- | ---------------------- | ------------------------------------------------------------ |
+| boolean | isShowTitleBar         | 设置是否显示默认界面的标题栏                                 |
+| String  | titleBarText           | 设置标题栏显示的文字内容                                     |
+| int     | titleColor             | 设置标题栏背景颜色（0xFFFFFF类型）                           |
 | String  | remindDialogText       | 设置提醒 dialog 信息文字内容                                 |
 | int     | remindConfirmColor     | 设置提醒 dialog 中确认按钮（切换模式）的颜色（0xFFFFFF类型） |
-| int     | cardFrameColor         | 设置卡片预览框四角选中时的颜色（0xFFFFFF类型）             |
-| int     | successRemindTextColor | 设置自定捕捉或拍摄成功后，提示的文字颜色（0xFFFFFF类型）   |
-| int     | imageSelectResId       | 设置默认界面中图库中图片选择的图标资源 id                   |
-| int     | lightImageOnResId      | 设置默认界面打开闪光灯的图标资源 id                         |
-| int     | lightImageOffResId     | 设置默认界面关闭闪光灯的图标资源 id                         |
-| int     | takePicturesResId      | 设置默认界面主动拍照按钮的图标资源 id                       |
-| boolean | isRemoveAlbum          | 设置默认界面是否现实相册选取按钮，默认为显示               |
+| int     | cardFrameColor         | 设置卡片预览框四角选中时的颜色（0xFFFFFF类型）               |
+| int     | successRemindTextColor | 设置自定捕捉或拍摄成功后，提示的文字颜色（0xFFFFFF类型）     |
+| int     | imageSelectResId       | 设置默认界面中图库中图片选择的图标资源 id                    |
+| int     | lightImageOnResId      | 设置默认界面打开闪光灯的图标资源 id                          |
+| int     | lightImageOffResId     | 设置默认界面关闭闪光灯的图标资源 id                          |
+| int     | takePicturesResId      | 设置默认界面主动拍照按钮的图标资源 id                        |
+| boolean | isRemoveAlbum          | 设置默认界面是否现实相册选取按钮，默认为显示                 |
+| boolean | isLandscape            | 设置默认界面为横屏模式，默认false                            |
 
 
 
@@ -225,16 +235,21 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 | String | advancedInfo | 扩展字段内容 [参考官网](https://cloud.tencent.com/document/product/866/33524) |
 
 
+
 ### [BankCardOcrResult](id:BankCardOcrResult)
 
 银行卡 OCR 识别的结果实体对象
 
 | 类型   | 名称      | 含义     |
 | ------ | --------- | -------- |
-| String | bankInfo  | 银行信息 |
-| String | cardNo    | 银行卡号 |
-| String | validDate | 有效日期 |
-| String | requestId | 请求 id   |
+| String | bankInfo       | 银行信息                   |
+| String | cardNo         | 银行卡号                   |
+| String | validDate      | 有效日期                   |
+| String | requestId      | 请求id                     |
+| String | cardType       | 银行卡类型                 |
+| String | cardName       | 银行卡名称                 |
+| String | borderCutImage | 切片图片数据，取不到为null |
+| String | cardNoImage | 卡号图片数据，取不到为null |
 
 
 
@@ -279,11 +294,11 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 
 ### [VinOcrResult](id:VinOcrResult)
 
-车辆的VIN的识别的结果实体对象
+车辆的 VIN 的识别的结果实体对象
 
 | 类型   | 名称 | 含义        |
 | ------ | ---- | ----------- |
-| String | vin  | 车辆的VIN码 |
+| String | vin  | 车辆的 VIN 码 |
 
 
 
@@ -307,6 +322,84 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 | int  | y      | 左上角y的坐标 |
 | int  | width  | 宽度          |
 | int  | height | 高度          |
+
+
+
+### [DriverLicenseCardResult](id:DriverLicenseCardResult)
+
+驾驶证识别的结果实体类
+
+| 类型            | 名称              | 含义             |
+| --------------- | ----------------- | ---------------- |
+| String          | name              | 姓名             |
+| String          | sex               | 性别             |
+| String          | nationality       | 国籍             |
+| String          | address           | 地址             |
+| String          | dateOfBirth       | 出生日期         |
+| String          | dateOfFirstIssue  | 初次领证日期     |
+| String          | classType         | 准驾车类型       |
+| String          | startDate         | 有效期开始的时间 |
+| String          | endDate           | 有效期截止日期   |
+| String          | cardCode          | 证件号           |
+| String          | archivesCode      | 档案编号         |
+| String          | record            | 记录             |
+| String          | issuingAuthority  | 发证单位         |
+| List< Integer > | recognizeWarnCode | 识别的警告码列表 |
+| List< String >  | recognizeWarnMsg  | 识别的警告码说明 |
+
+
+
+### [VehicleLicenseCardResult](id:VehicleLicenseCardResult)
+
+行驶证识别的结果实体类
+
+| 类型                                  | 名称              | 含义                       |
+| ------------------------------------- | ----------------- | -------------------------- |
+| [VehicleFrontInfo](#VehicleFrontInfo) | vehicleFrontInfo  | 行驶证的主页信息           |
+| [VehicleBackInfo](#VehicleBackInfo)   | vehicleBackInfo   | 行驶证的副页信息           |
+| List< Integer >                       | recognizeWarnCode | 识别的Code告警码列表和释义 |
+| List< String >                        | recognizeWarnMsg  | 识别的警告码说明           |
+
+
+
+### [VehicleFrontInfo](id:VehicleFrontInfo)
+
+行驶证的主页的识别结果实体类
+
+| 类型   | 名称         | 含义         |
+| ------ | ------------ | ------------ |
+| String | plateNo      | 号牌号码     |
+| String | vehicleType  | 车辆类型     |
+| String | owner        | 所有人       |
+| String | address      | 住址         |
+| String | useCharacter | 使用性质     |
+| String | model        | 品牌型号     |
+| String | vin          | 车辆识别代号 |
+| String | engineNo     | 发动机编号   |
+| String | registerDate | 注册日期     |
+| String | IssueDate    | 发证日期     |
+| String | seal         | 印章         |
+
+
+
+### [VehicleBackInfo](id:VehicleBackInfo)
+
+行驶证副页的识别结果实体类
+
+| 类型   | 名称           | 含义         |
+| ------ | -------------- | ------------ |
+| String | plateNo        | 号牌号码     |
+| String | fileNo         | 档案编号     |
+| String | allowNum       | 核定人数     |
+| String | totalMass      | 总质量       |
+| String | curbWeight     | 整备质量     |
+| String | loadQuality    | 核定载的质量 |
+| String | externalSize   | 外廓尺寸     |
+| String | marks          | 备注         |
+| String | record         | 检验记录     |
+| String | totalQuasiMass | 总牵引质量   |
+
+
 
 
 
@@ -375,11 +468,18 @@ public interface ISDKKitResultListener {
 
 ```json
 {
-    "CardNo": "6225760088888888",
     "BankInfo": "招商银行(03080000)",
-    "ValidDate": "08/2022",
-    "RequestId": "46ab2e62-11e3-4d04-9fab-0abe18e7c927"
- }
+    "ValidDate": "07/2023",
+    "CardType": "贷记卡",
+    "CardName": "招商银行信用卡",
+    "BorderCutImage": null,
+    "CardNoImage": null,
+    "WarningCode": [
+      -9110
+    ],
+    "CardNo": "6225768888888888",
+    "RequestId": "68f8fcbf-6004-0111a-ac18-6f1a9308fs100mab"
+  }
 ```
 
 名片请求结果返回 response 结果示例：
@@ -446,7 +546,7 @@ public interface ISDKKitResultListener {
   }
 ```
 
-车辆的VIN返回response结果示例：
+车辆的 VIN 返回 response 结果示例：
 
 ```json
 {
@@ -457,7 +557,7 @@ public interface ISDKKitResultListener {
 }
 ```
 
-车辆的车牌返回response结果示例：
+车辆的车牌返回 response 结果示例：
 
 ```json
 {
@@ -473,6 +573,88 @@ public interface ISDKKitResultListener {
     "RequestId": "210103d3-db06-4691-abe0-c0853aae606b"
   }
 }
+```
+
+驾驶证识别的response结果示例：
+
+```json
+{
+    "Name": "李明",
+    "Sex": "男",
+    "Nationality": "中国",
+    "Address": "上海市徐汇区田林路397号腾云大厦6F",
+    "DateOfBirth": "1987-01-01",
+    "IssuingAuthority": "上海市公安局交通警察总队",
+    "DateOfFirstIssue": "2011-10-01",
+    "Class": "C1",
+    "StartDate": "2011-10-01",
+    "EndDate": "2017-10-01",
+    "CardCode": "440524198701010014",
+    "ArchivesCode": "",
+    "Record": "",
+    "RecognizeWarnCode": [
+      -9106
+    ],
+    "RecognizeWarnMsg": [
+      "WARN_DRIVER_LICENSE_PS_CARD"
+    ],
+    "RequestId": "4ba2958b-e7cf-41c2-aafe-fdc985307f63"
+  }
+```
+
+行驶证识别主页识别的response结果示例：
+
+```json
+{
+    "FrontInfo": {
+      "PlateNo": "沪AA1234",
+      "VehicleType": "小型轿车",
+      "Owner": "李明",
+      "Address": "上海市徐汇区田林路397号腾云大厦6F",
+      "UseCharacter": "非营运",
+      "Model": "别克牌SGM7151LAAA",
+      "Vin": "ABCDEFGH123456789",
+      "EngineNo": "8B54321",
+      "RegisterDate": "2011-10-10",
+      "IssueDate": "",
+      "Seal": "上海市公安局交通警寨总队"
+    },
+    "BackInfo": null,
+    "RecognizeWarnCode": [
+      -9106
+    ],
+    "RecognizeWarnMsg": [
+      "WARN_DRIVER_LICENSE_PS_CARD"
+    ],
+    "RequestId": "820916b4-b391-40a8-9203-7ae87e3f1954"
+  }
+```
+
+行驶证识别副页识别的response结果示例：
+
+```json
+{
+    "FrontInfo": null,
+    "BackInfo": {
+      "PlateNo": "皖AC4L50",
+      "FileNo": "A00-00476807",
+      "AllowNum": "5人",
+      "TotalMass": "1837kg",
+      "CurbWeight": "1431kg",
+      "LoadQuality": "--",
+      "ExternalSize": "4620×1780×1498mm",
+      "TotalQuasiMass": "--",
+      "Marks": "",
+      "Record": "检验有效期至2015年11月皖A(4S)"
+    },
+    "RecognizeWarnCode": [
+      -9106
+    ],
+    "RecognizeWarnMsg": [
+      "WARN_DRIVER_LICENSE_PS_CARD"
+    ],
+    "RequestId": "e2ebfaa0-19d3-4d2b-9ed8-7c7c21eb2b74"
+  }
 ```
 
 对于返回的错误码以及错误信息，可以参考 [错误码](https://cloud.tencent.com/document/product/866/33528) 。

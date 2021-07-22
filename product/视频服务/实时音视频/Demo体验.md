@@ -19,10 +19,11 @@
 </tr>
 </table>
 
+
 ## 跨平台 Demo
 <table>
 <tr>
-<th>微信小程序</th><th>桌面浏览器</th><th>Flutter </th><th>Electron</th>
+<th>微信小程序</th><th>Web</th><th>Flutter </th><th>Electron</th>
 </tr>
 <tr>
 </div></a></td>
@@ -30,18 +31,22 @@
 </div>
 </td>
 <td>
-<input type="button" value="视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/latest/official-demo/index.html')" /><br><br>
+<input type="button" value="视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html')" /><br><br>
 <input type="button" value="互动直播" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html')" />
 </td>
 <td>
-<a onclick="window.open('https://www.pgyer.com/KP03')"><button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/8f16c874f74a3eee60919c65e1184efc.png);background-size: cover;">
-</button></a><br>
-<a onclick="window.open('https://comm.qq.com/im_demo_download/trtc_flutter_demo.apk')"><button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/f53741b9ad7567c475841e68cc65dbc3.png);background-size: cover;">
-</button></a>
-</td>
+<a onclick="window.open('https://www.pgyer.com/TtEk')" value="Flutter_ios_版">
+	<button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/a3b7ef0199988c33850eeeb186c8d26f.png);background-size: cover;">
+</button>
+</a>
+<br>
+<a onclick="window.open('https://comm.qq.com/im_demo_download/trtc_flutter_demo.apk')" value="Flutter_android_版"> 
+	<button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/f53741b9ad7567c475841e68cc65dbc3.png);background-size: cover;">
+</button>
+</a></td>
 <td>
 <input type="button" value="Windows 版" class="inbuttom"  onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education/TRTC_Education_Demo%20Setup%201.1.0.exe')" /><br><br>
-<input type="button" value="MacOS 版" class="inbuttom" onclick="window.open('https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/TRTC-EDUCATION-DEMO-1.2.0.dmg')" /></td>
+<input type="button" value="MacOS 版" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education/TRTC_Education_Demo-1.1.0.dmg')" /></td>
 </tr>
 </table>
 
@@ -72,7 +77,7 @@
 ::: macOS
 ![](https://imgcache.qq.com/operation/dianshi/other/macOS.cd7d6d7e8a7fcc388ec27e41c6952b8615ce9d34.gif)
 :::
-::: 桌面浏览器
+::: Web
 ![](https://imgcache.qq.com/operation/dianshi/other/058ffcf5-60f0-430c-96c7-e1760b93e444.fdd0f2c10a8242dadbf99108a48a59124124b437.gif)
 :::
 ::: 小程序
@@ -125,7 +130,7 @@
 </tr>
 </table>
 :::
-::: 桌面浏览器
+::: Web
 ![](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/doc-assets/demo-official-website.gif)
 :::
 </dx-tabs>

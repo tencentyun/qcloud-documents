@@ -1,12 +1,11 @@
-
-### IIS 下设置 https 主机名灰色无法编辑怎么办？
-在安装证书时，若您使用 IIS 管理器进行安装，将 pfx 证书文件导入后，在添加网站绑定域名过程中，类型选择为 “https” 时，出现主机名显示无法编辑的情况，您可以通过以下步骤解决该问题。
-
-#### 场景
-在 IIS 设置中，选择 https，选择相应的 SSL 证书，主机名无法填写。如下图所示：
+## 现象描述
+使用 IIS 管理器进行安装证书时，将 pfx 证书文件导入后，在添加网站绑定域名过程中，类型选择为 “https” 时，主机名显示无法编辑。如下图所示：
 ![](https://main.qcloudimg.com/raw/b109991fe1a8191d6e0d86618f9a1548.png)
 
-####  解决办法
+## 可能原因
+Windows Server 2008不支持该操作，需要修改对应文件。
+
+##  解决办法
 1. 请按路径 `C:\Windows\system32\inetsrv\config\applicationHost.config` 打开 `applicationHost.config` 文件。
 2. 修改内容如下：
 >?
