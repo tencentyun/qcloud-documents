@@ -1,3 +1,4 @@
+本篇教程向大家介绍如何完成合唱的基础功能。
 ## SDK 版本
 本页文档所描述功能，在 SDK 版本中支持情况如下：
 
@@ -9,9 +10,6 @@
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
 
 
-
-本篇教程向大家介绍如何完成合唱的基础功能。
-
 ## 过程简介
 
 1. 在界面上放两个 View, 一个用来播放，一个用来录制。
@@ -22,7 +20,7 @@
 
 ## 界面搭建
 
-在录制界面 TCVideoRecordActivity 的 activity_video_record.xml 中创建两个 view，左半边是录制界面，右半边是播放界面。
+在录制界面 TCVideoRecordActivity 的 `activity_video_record.xml` 中创建两个 view，左半边是录制界面，右半边是播放界面。
 ![](https://main.qcloudimg.com/raw/db388cf497615ac5f1ab58238a765e93.png)
 
 ## 代码部分
