@@ -2,6 +2,9 @@
 
 ORDER BY 语法用于根据指定的列名对查询和分析结果表示排序。
 
+>? 当前 CLS 函数仅支持重庆地域使用。其他地域如有需要，请 [提交工单](https://console.cloud.tencent.com/workorder/category)。
+>
+
 ## 语法格式
 
 ```
