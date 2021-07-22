@@ -2,6 +2,9 @@
 
 LIMIT 语法用于限制输出结果的行数。
 
+>? 当前 CLS 函数仅支持重庆地域使用。其他地域如有需要，请 [提交工单](https://console.cloud.tencent.com/workorder/category)。
+>
+
 ## 语法格式
 
 日志服务支持以下一种 LIMIT 语法格式。
