@@ -19,7 +19,9 @@
  4. 选择以下任意一种方式设置告警触发条件。
     - 使用现有模板
  勾选“选择模板”，在下拉列表中选择配置好的模板。
- >?若您没有告警规则模板，请单击【新增触发条件模板】进行配置，具体配置请参见 [配置触发条件模板](https://cloud.tencent.com/document/product/248/18474) 。若新建的模板没有显示，请单击右侧的【刷新】。
+ <dx-alert infotype="explain" title="">
+若您没有告警规则模板，请单击【新增触发条件模板】进行配置，具体配置请参见 [配置触发条件模板](https://cloud.tencent.com/document/product/248/18474) 。若新建的模板没有显示，请单击右侧的【刷新】。
+</dx-alert>
     - 手动配置
   选择“手动配置”后，请按需配置“指标告警”和“事件告警”。
        - 设置触发条件，如果需要新建指标，请单击“添加指标”。指标详情请参见 [告警指标说明](https://cloud.tencent.com/document/product/216/48582#gjzb)。
@@ -27,7 +29,7 @@
  >? 若需配置多条告警触发条件，则单击【添加】进行配置。当有多条触发条件时，请根据实际选择满足所有条件或任意条件时触发告警。
  >
  ![](https://main.qcloudimg.com/raw/77b1d40b9d112384a1bd9fcba60ebc79.png)
-       - 勾选事件告警，则需选择具体事件，例如物理专线 Down。如果需要添加新的事件告警，请单击“添加事件”，事件详情请参见[ 告警事件说明](https://cloud.tencent.com/document/product/216/48582#gjsj)。
+       - 选择具体事件，例如物理专线 Down。如果需要添加新的事件告警，请单击“添加事件”，事件详情请参见[ 告警事件说明](https://cloud.tencent.com/document/product/216/48582#gjsj)。
 <dx-alert infotype="explain" title="">
 若需配置多条告警事件，则单击【添加】进行配置。
 </dx-alert>
