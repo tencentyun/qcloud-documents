@@ -44,7 +44,7 @@ Authorization: Auth String
 
 具体的数据描述如下：
 
-节点名称（关键字）|父节点|描述|类型|必选
+节点名称（关键字）|父节点|描述|类型|是否必选
 ---|---|---|---|---
 LocationConstraint|无|说明 Bucket 所在地域，枚举值参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档，如：ap-beijing、ap-hongkong、eu-frankfurt 等|string|是
 
