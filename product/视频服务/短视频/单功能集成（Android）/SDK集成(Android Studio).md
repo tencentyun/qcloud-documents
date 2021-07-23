@@ -295,7 +295,7 @@ public class DemoApplication extends Application {
 <application
 	android:name=".DemoApplication"
 	 ...
-</application>
+></application>
 ```
 **步骤7**：短视频模块的调用。
 在 activity_main.xml 中建立三个 Button。
