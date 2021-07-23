@@ -10,21 +10,22 @@
 ### 方法一：自动加载（aar）
 LiteAVSDK 已经发布到 jcenter 库，您可以通过配置 gradle 自动下载更新。
 只需要用 Android Studio 打开需要集成 SDK 的工程，然后通过简单的三个步骤修改`app/build.gradle`文件，就可以完成 SDK 集成：
-![](https://main.qcloudimg.com/raw/eb6bcb3cb1dff43f459245ed9045e685.png)
+![](https://main.qcloudimg.com/raw/e78498d82e59986ebeea24570d79bfb6.png)
 
-1. 在 dependencies 中添加 LiteAVSDK 的依赖。
+1. 打开 app 下的 build.gradle。
+2. 在 dependencies 中添加 LiteAVSDK 的依赖。
 ```
 dependencies {
-			 implementation 'com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release'
+			 implementation 'com.tencent.liteav:LiteAVSDK_Smart:latest.release'
 }
 ```
 或
 ```
 dependencies {
-			 implementation 'com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release@aar'
+			 implementation 'com.tencent.liteav:LiteAVSDK_Smart:latest.release@aar'
 }
 ```
-2. 在 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a）。
+3. 在 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a）。
 <dx-codeblock>
 ::: 指定App 
 defaultConfig {
@@ -34,7 +35,7 @@ defaultConfig {
 }
 :::
 </dx-codeblock>
-3. 单击![](https://main.qcloudimg.com/raw/d6b018054b535424bb23e42d33744d03.png) Sync Now 按钮同步 SDK，如果您的网络连接 jcenter 没有问题，很快 SDK 就会自动下载集成到工程里。
+4. 单击![](https://main.qcloudimg.com/raw/d6b018054b535424bb23e42d33744d03.png) Sync Now 按钮同步 SDK，如果您的网络连接 jcenter 没有问题，很快 SDK 就会自动下载集成到工程里。
 
 ### 方法二：手动下载（aar）
 如果您的网络连接 jcenter 有问题，也可以手动下载 SDK 集成到工程里：
