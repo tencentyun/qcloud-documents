@@ -37,6 +37,8 @@ TDMQ 支持资源级授权，您可以指定子账号拥有特定资源的接口
 | DescribeClusterDetail         | 获取集群详细信息                   | cluster          | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
 | DescribeBindClusters          | 获取专享集群列表                   | cluster          | qcs::tdmq:${region}:uin/${uin}:cluster/${cluster}            |
 | DescribeClusters              | 获取集群列表                       | cluster          | qcs::tdmq:${region}:uin/${uin}:cluster/${cluster}            |
+| ModifyCluster                 | 修改集群                           | cluster          | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
+| DeleteCluster                 | 删除集群                           | cluster          | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
 | CreateRole                    | 新增角色                           | cluster          | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
 | DeleteRoles                   | 角色删除                           | cluster          | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
 | CreateEnvironment             | 创建环境                           | cluster          | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
@@ -64,6 +66,12 @@ TDMQ 支持资源级授权，您可以指定子账号拥有特定资源的接口
 | ModifyRole                    | 角色修改                           | role             | qcs::tdmq:${region}:uin/${uin}:role/${clusterId}/${roleName} |
 | DescribeRoles                 | 获取角色列表                       | role             | qcs::tdmq:${region}:uin/${uin}:role/${clusterId}/${roleName} |
 
+## 不支持资源级授权的 API 列表
+
+| API名称       | API描述  |
+| ------------- | -------- |
+| CreateCluster | 创建集群 |
+
 ## 授权方案示例
 
 ### 全读写策略
@@ -90,16 +98,16 @@ TDMQ 支持资源级授权，您可以指定子账号拥有特定资源的接口
 3. 在策略列表中，单击【新建自定义策略】。
 
 4. 在选择创建策略方式的弹窗中，选择【按策略生成器创建】，填写策略信息。
-	 ![](https://main.qcloudimg.com/raw/ab7d5f98cb74fd2ff019d85642c5008b.png)
+   ![](https://main.qcloudimg.com/raw/ab7d5f98cb74fd2ff019d85642c5008b.png)
 
 
-   | 参数              | 说明                                                         |
-   | ----------------- | ------------------------------------------------------------ |
-   | 效果（Effect）    | 选择**允许**                                                 |
-   | 服务（Service）   | 选择**消息队列TDMQ  (tdmq)**                                 |
-   | 操作（Action）    | 选择**读操作**                                               |
-   | 资源（Resource）  | 选择**特定资源**，点击【添加自定义资源六段式】<li>地域：选择资源所在地域</li><li>账户：系统自动填充</li><li>资源前缀：topic</li><li>填写您要授权的 Topic 名称</li> |
-   | 条件（Condition） | 仅当请求来自指定IP地址范围内时才允许访问指定操作             |
+| 参数              | 说明                                                         |
+| ----------------- | ------------------------------------------------------------ |
+| 效果（Effect）    | 选择**允许**                                                 |
+| 服务（Service）   | 选择**消息队列TDMQ  (tdmq)**                                 |
+| 操作（Action）    | 选择**读操作**                                               |
+| 资源（Resource）  | 选择**特定资源**，点击【添加自定义资源六段式】<li>地域：选择资源所在地域</li><li>账户：系统自动填充</li><li>资源前缀：topic</li><li>填写您要授权的 Topic 名称</li> |
+| 条件（Condition） | 仅当请求来自指定IP地址范围内时才允许访问指定操作             |
 
 5. 单击【下一步】，填写策略名称和描述，选择您要关联的用户/用户组。
 
