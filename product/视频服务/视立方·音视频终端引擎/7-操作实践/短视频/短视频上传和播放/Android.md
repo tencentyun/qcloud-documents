@@ -26,7 +26,7 @@
 - 发布短视频时，请务必正确传递 Signature 字段，否则会发布失败。
 
 ## 对接攻略
-![](https://main.qcloudimg.com/raw/676df8dffa0e4b34b696ac4681ce7fd7.png)
+![](https://main.qcloudimg.com/raw/bbad8084d65a3ad14cd5d089978b6628.png)
 
 请参见 [Android 上传 SDK](https://cloud.tencent.com/document/product/266/9539) 来接入短视频上传功能。
 
