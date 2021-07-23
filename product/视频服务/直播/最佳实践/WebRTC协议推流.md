@@ -80,25 +80,7 @@ livePusher.startMicrophone();
 5. 传入腾讯云快直播推流地址，**开始推流**。
 推流地址的格式参考 [腾讯云标准直播 URL](https://cloud.tencent.com/document/product/267/32720) ，只需要将 RTMP 推流地址前面的 `rtmp://` 替换成 `webrtc://` 即可。
 ```javascript
-let hasVideo = false;
-  let hasAudio = false;
-  let isPush = false;
-  livePusher.setObserver({
-    onCaptureFirstAudioFrame: function() {
-      hasAudio = true;
-      if (hasVideo && !isPush) {
-        isPush = true;
-        livePusher.startPush('XXX')
-      }
-    },
-    onCaptureFirstVideoFrame: function() {
-      hasVideo = true;
-      if (hasAudio && !isPush) {
-        isPush = true;
-        livePusher.startPush('XXX')
-      }
-    }
-  });
+livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
 ```
 	>?推流之前要保证已经采集到了音视频流，否则推流接口会调用失败，如果要实现采集到音视频流之后自动推流，可以通过回调事件通知，当收到采集首帧成功的通知后，再进行推流。如果同时采集了视频流和音频流，需要在视频首帧和音频首帧的采集成功回调通知都收到后再发起推流。
 >```javascript
