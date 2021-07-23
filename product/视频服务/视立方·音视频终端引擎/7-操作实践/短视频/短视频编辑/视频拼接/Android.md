@@ -14,9 +14,7 @@
 
 视频拼接器具有比较复杂的交互逻辑，这也决定了其 UI 复杂度很高，所以我们比较推荐复用 SDK 开发包中的 UI 源码。 videojoiner 目录包含短视频拼接器的 UI 源码。
 
-<p style="color:red">换图 </p>
-
-![](https://main.qcloudimg.com/raw/4f4404b7a83e31d039d7f74a63f871d8.png)
+![](https://main.qcloudimg.com/raw/2d8dbe98de51ac097810ea6941e415eb.png)
 
 - TCVideoJoinerActivity 用于实现上图中的视频拼接列表，支持上下拖拽调整顺序。
 - TCVideoJoinerPreviewActivity 用于预览拼接后的视频观看效果。
