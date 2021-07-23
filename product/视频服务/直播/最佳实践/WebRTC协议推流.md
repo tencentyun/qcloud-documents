@@ -77,8 +77,8 @@ livePusher.startCamera();
 // 打开麦克风
 livePusher.startMicrophone();
 ```
-5. 传入腾讯云快直播推流地址，**开始推流**。
-推流地址的格式参考 [腾讯云标准直播 URL](https://cloud.tencent.com/document/product/267/32720) ，只需要将 RTMP 推流地址前面的 `rtmp://` 替换成 `webrtc://` 即可。
+5. **开始推流**。
+传入腾讯云快直播推流地址，开始推流。推流地址的格式参考 [腾讯云标准直播 URL](https://cloud.tencent.com/document/product/267/32720) ，只需要将 RTMP 推流地址前面的 `rtmp://` 替换成 `webrtc://` 即可。
 ```javascript
 livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
 ```
