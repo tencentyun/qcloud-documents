@@ -27,7 +27,7 @@
 </tr>
 <tr>
 <td rowspan= 5>写接口</td>
-<td><a href="https://cloud.tencent.com/document/api/214/40459">DeleteVpnGatewayRoutes</a></td>
+<td><a href="https://cloud.tencent.com/document/api/215/57677">DeleteVpnGatewayRoutes</a></td>
 <td>删除 VPN 网关路由
 </td>
 </tr>
