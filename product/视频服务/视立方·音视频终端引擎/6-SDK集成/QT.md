@@ -1,3 +1,6 @@
+本文主要介绍如何快速地将腾讯云视立方 SDK（QT 的 Mac 和 Windows 版本）集成到您的项目中，只要按照如下步骤进行配置，就可以快速完成 SDK 的集成工作。
+
+## SDK 版本
 本页文档所描述功能，在 SDK 版本中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 纯播放 Player | 全功能 |
@@ -6,8 +9,6 @@
 | SDK 下载 <div style="width: 90px"/>  | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
 
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
-
-本文主要介绍如何快速地将腾讯云视立方 SDK（QT 的 Mac 和 Windows 版本）集成到您的项目中，只要按照如下步骤进行配置，就可以快速完成 SDK 的集成工作。
 
 ## Mac 端集成
 ### 开发环境要求
