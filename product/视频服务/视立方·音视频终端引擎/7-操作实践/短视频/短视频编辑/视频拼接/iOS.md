@@ -13,10 +13,7 @@
 ## 复用现有 UI
 
 视频拼接器具有比较复杂的交互逻辑，这也决定了其 UI 复杂度很高，所以我们比较推荐复用 SDK 开发包中的 UI 源码。VideoJoiner 目录包含短视频拼接器的 UI 源码。 
-
-<p style="color:red">换图 </p>
-
-![](https://main.qcloudimg.com/raw/0a80a008f55815a60f77420e190f075b.jpg)
+![](https://main.qcloudimg.com/raw/5073d3b8b50e38857d87a1527ede6c65.png)
 
 - **VideoJoinerController**：用于实现上图中的视频拼接列表，支持上下拖拽调整顺序。
 - **VideoJoinerCell**：用于实现拼接列表中的每一个视频片段。
