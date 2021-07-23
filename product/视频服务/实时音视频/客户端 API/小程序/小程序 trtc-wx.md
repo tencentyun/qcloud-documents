@@ -717,7 +717,7 @@ this.TRTC.on(EVENT.BGM_PLAY_COMPLETE, onBgmPlayComplete)
 [](id:ERROR)
 ### ERROR
 
-BGM 播放完成。
+本地推流出现错误、渲染错误事件等。
 
 <dx-codeblock>
 ::: javascript javascript
