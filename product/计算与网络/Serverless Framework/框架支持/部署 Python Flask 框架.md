@@ -41,7 +41,7 @@ stage: dev
 
 inputs:
   src:
-    hook: 'pip install -r requirements.txt -t ./'
+    hook: 'pip install -r requirements.txt -t ./'    
     dist: ./
     exclude:
       - .env
@@ -54,7 +54,11 @@ inputs:
     environment: release
 ```
 
->? 在部署的时候，可以在 yml 中配置相关的 hook 指令，完成依赖安装等操作。dist 为部署的目录路径，./ 表示根目录下的所有项目都会打包上传。
+>? 
+>- `hook: 'pip install -r requirements.txt -t ./' `   
+>在部署的时候，可以在 yml 中配置相关的 hook 指令，完成依赖安装等操作。
+>- `dist: ./`
+>dist 为部署的目录路径，./ 表示根目录下的所有项目都会打包上传。
 
 ### 4. 应用部署
 通过 `sls deploy` 命令进行部署，并可以添加 --debug 参数查看部署过程中的信息。
