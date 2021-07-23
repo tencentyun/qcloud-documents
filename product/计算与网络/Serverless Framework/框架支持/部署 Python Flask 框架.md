@@ -36,7 +36,7 @@ touch serverless.yml
 ```yml
 #serverless.yml
 component: flask
-name: flashDemo
+name: flaskdemo
 stage: dev
 
 inputs:
