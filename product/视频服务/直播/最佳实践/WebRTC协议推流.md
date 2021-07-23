@@ -55,6 +55,10 @@ var livePusher = new TXLivePusher();
 ```javascript
 livePusher.setRenderView('id_local_video');
 ```
+>?调用 `setRenderView` 生成的 video 元素默认有声音，如果需要静音的话，可以直接获取 video 元素进行操作。
+>```javascript
+document.getElementById('id_local_video').getElementsByTagName('video')[0].muted = true;
+```
 3. **设置音视频质量：**
 采集音视频流之前，先进行音视频质量设置，如果预设的质量参数不满足需求，可以单独进行自定义设置。
 ```javascript
@@ -76,17 +80,48 @@ livePusher.startMicrophone();
 5. 传入腾讯云快直播推流地址，**开始推流**。
 推流地址的格式参考 [腾讯云标准直播 URL](https://cloud.tencent.com/document/product/267/32720) ，只需要将 RTMP 推流地址前面的 `rtmp://` 替换成 `webrtc://` 即可。
 ```javascript
-livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
+let hasVideo = false;
+  let hasAudio = false;
+  let isPush = false;
+  livePusher.setObserver({
+    onCaptureFirstAudioFrame: function() {
+      hasAudio = true;
+      if (hasVideo && !isPush) {
+        isPush = true;
+        livePusher.startPush('XXX')
+      }
+    },
+    onCaptureFirstVideoFrame: function() {
+      hasVideo = true;
+      if (hasAudio && !isPush) {
+        isPush = true;
+        livePusher.startPush('XXX')
+      }
+    }
+  });
 ```
-	>?推流之前要保证已经采集到了音视频流，否则推流接口会调用失败。如果要实现采集到音视频流之后自动推流，可以通过回调事件通知，当收到采集首帧成功的通知后，再进行推流。
-><dx-codeblock>
-::: javascript javascript
+	>?推流之前要保证已经采集到了音视频流，否则推流接口会调用失败，如果要实现采集到音视频流之后自动推流，可以通过回调事件通知，当收到采集首帧成功的通知后，再进行推流。如果同时采集了视频流和音频流，需要在视频首帧和音频首帧的采集成功回调通知都收到后再发起推流。
+>```javascript
+var hasVideo = false;
+var hasAudio = false;
+var isPush = false;
 livePusher.setObserver({
-  onCaptureFirstVideoFrame: function() {
-          livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
-  }
+		onCaptureFirstAudioFrame: function() {
+			hasAudio = true;
+			if (hasVideo && !isPush) {
+				isPush = true;
+				livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
+			}
+		},
+		onCaptureFirstVideoFrame: function() {
+			hasVideo = true;
+			if (hasAudio && !isPush) {
+				isPush = true;
+				livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
+			}
+		}
 });
-:::
+```
 </dx-codeblock>
 6. **停止快直播推流**。
 ```javascript
