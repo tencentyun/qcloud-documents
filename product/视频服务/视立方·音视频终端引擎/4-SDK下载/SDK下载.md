@@ -4,7 +4,7 @@
 
 ![](https://main.qcloudimg.com/raw/d25df8358ea718b6781779081c90e5fd.png)
 
-<table>
+<table id="download">
 <thead>
 <tr style="text-align:center">
 <th colspan="2" width="25%">功能模块</th>
