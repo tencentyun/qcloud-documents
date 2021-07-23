@@ -24,10 +24,7 @@
 - 发布短视频时，请务必保证正确传递 Signature 字段，否则会发布失败。
 
 ## 对接攻略
-
-<p style="color:red">换图 </p>
-
-![](https://main.qcloudimg.com/raw/b3023cee1814e777e8458aa9b1047cbb.png)
+![](https://main.qcloudimg.com/raw/34cf62c826be3fe846b71091a35c0522.png)
 
 [](id:step1)
 
