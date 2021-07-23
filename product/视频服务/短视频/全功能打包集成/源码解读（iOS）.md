@@ -14,8 +14,8 @@
 ### 帐号模块
 - 帐号模块负责处理用户登录/注册，以及登录缓存的逻辑。
 - 如果您已经有自己的帐号体系，可以直接替换该模块。
-- 账号模块的 UI 逻辑分为`XiaoShiPin/AppViewControllers/Account`及`XiaoShiPin/AppViewControllers/AccountInfo`，前者涉及登录的 UI 模块，后者涉及登录后的资料处理 UI 模块。
-- 账号模块的业务逻辑可以在`XiaoShiPin/Model`下查看。
+- 账号模块的 UI 逻辑分为 `XiaoShiPin/AppViewControllers/Account` 及 `XiaoShiPin/AppViewControllers/AccountInfo`，前者涉及登录的 UI 模块，后者涉及登录后的资料处理 UI 模块。
+- 账号模块的业务逻辑可以在 `XiaoShiPin/Model` 下查看。
 
 [](id:board)
 ### 主界面和列表管理
@@ -39,7 +39,7 @@
 播放模块主要包括：短视频预加载、播放、缓存、分享等功能。
 
 #### 相关代码
-`/XiaoShiPin/AppViewControllers/VideoPlayer`目录下，主要处理播放相关的业务逻辑，包含 UI 和业务逻辑。
+`/XiaoShiPin/AppViewControllers/VideoPlayer` 目录下，主要处理播放相关的业务逻辑，包含 UI 和业务逻辑。
 
 [](id:record)
 ### 录制模块
@@ -55,7 +55,7 @@
 编辑模块主要包括：短视频裁剪、BGM、滤镜风格、特效、动态贴纸、静态贴纸等。
 
 #### 相关代码
-`UGCKit/Source/Edit`目录下可以找到编辑相关的所有逻辑。
+`UGCKit/Source/Edit` 目录下可以找到编辑相关的所有逻辑。
 
 [](id:pod)
 ### 发布模块
@@ -63,7 +63,7 @@
 发布模块主要包括：短视频发布。
 
 #### 相关代码
-`XiaoShiPin/AppViewController/Publish`目录下可以找到发布相关的所有逻辑。
+`XiaoShiPin/AppViewController/Publish` 目录下可以找到发布相关的所有逻辑。
 
 [](id:file)
 ### 资料模块
@@ -75,7 +75,7 @@
 - 其他模块也可以通过资料模块获取，修改用户资料。
 	
 #### 相关代码
-`XiaoShiPin/AppViewController/AccountInfo`目录下可以找到用户资料相关的所有逻辑。
+`XiaoShiPin/AppViewController/AccountInfo` 目录下可以找到用户资料相关的所有逻辑。
 
 
 
