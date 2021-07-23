@@ -5,7 +5,7 @@
 
 ## 前提条件
 
-已安装 [Nginx-ingress](https://cloud.tencent.com/document/product/457/50503#.E5.AE.89.E8.A3.85-nginxingress-.E7.BB.84.E4.BB.B6.3Cspan-id.3D.22nginx-ingress.22.3E.3C.2Fspan.3E) 扩展组件。
+已安装 [Nginx-ingress](https://cloud.tencent.com/document/product/457/50503) 扩展组件。
 
 
 ## 操作步骤
