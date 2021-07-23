@@ -197,7 +197,7 @@ var player = new TcPlayer('id_test_video', {
 
 
 #### 5.3 实现用例
-使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：[分辨率切换](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-clarity.html)
+使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现，请参见 [分辨率切换](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-clarity.html)。
 正常情况将看到如下效果：
 ![](https://main.qcloudimg.com/raw/99c05e75f0d417df33942d18dad2f509.jpg)
 >!
