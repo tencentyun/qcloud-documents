@@ -4,7 +4,7 @@
 |   版本类型  | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能                                                       |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | - | - | - | - | - | &#10003; |
-| SDK 下载 | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载  <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
 
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
 
