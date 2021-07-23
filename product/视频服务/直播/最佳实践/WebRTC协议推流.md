@@ -124,18 +124,18 @@ SDK 提供静态方法用于检测浏览器对于 WebRTC 的兼容性。
 <dx-codeblock>
 ::: javascript javascript
 TXLivePusher.checkSupport().then(function(data) {  
-		// 是否支持WebRTC  
-		if (data.isWebRTCSupported) {    
-			console.log('WebRTC Support');  
-		} else {    
-			console.log('WebRTC Not Support');  
-		}  
-		// 是否支持H264编码  
-		if (data.isH264EncodeSupported) {    
-			console.log('H264 Encode Support');  
-		} else {    
-			console.log('H264 Encode Not Support');  
-		}
+	// 是否支持WebRTC  
+	if (data.isWebRTCSupported) {    
+		console.log('WebRTC Support');  
+	} else {    
+		console.log('WebRTC Not Support');  
+	}  
+	// 是否支持H264编码  
+	if (data.isH264EncodeSupported) {    
+		console.log('H264 Encode Support');  
+	} else {    
+		console.log('H264 Encode Not Support');  
+	}
 });
 :::
 </dx-codeblock>
@@ -169,9 +169,9 @@ SDK 提供了设备管理实例帮助用户进行获取设备列表、切换设�
 var deviceManager = livePusher.getDeviceManager();
 // 获取设备列表
 deviceManager.getDevicesList().then(function(data) {
-data.forEach(function(device) {
-		console.log(device.deviceId, device.deviceName);  
-	});
+	data.forEach(function(device) {
+			console.log(device.deviceId, device.deviceName);  
+		});
 });
 // 切换摄像头设备
 deviceManager.switchCamera('camera_device_id');
