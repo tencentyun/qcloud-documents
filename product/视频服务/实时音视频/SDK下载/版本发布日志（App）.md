@@ -1,6 +1,6 @@
 ## Version 8.9 @ 2021.07.15
 
-**功能新增**
+**功能新增** 
 - Android：自定义渲染支持指定外部 GLContext，可以更灵活使用 OpenGL 环境。
 - Windows：采集系统播放声音（startSystemAudioLoopback）时支持指定扬声器设备。
 - Windows：支持 NVIDIA 平台硬编码，提升推流性能表现。
