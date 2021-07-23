@@ -170,7 +170,7 @@ var deviceManager = livePusher.getDeviceManager();
 // 获取设备列表
 deviceManager.getDevicesList().then(function(data) {
 	data.forEach(function(device) {
-			console.log(device.deviceId, device.deviceName);  
+		console.log(device.deviceId, device.deviceName);  
 	});
 });
 // 切换摄像头设备
