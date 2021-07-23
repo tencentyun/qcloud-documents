@@ -1,7 +1,7 @@
 
 ## 现象描述
 - 现象1：收到 CPU 使用率过高的告警信息：
-![](https://main.qcloudimg.com/raw/342e0f5daddb826615152bd793684665.png)
+![](https://main.qcloudimg.com/raw/42aee922019672adc5e3064174362177.png)
 - 现象2：CPU 使用率的监控指标高。
 - 现象3：整体吞吐量变小、响应速度变慢。
 
