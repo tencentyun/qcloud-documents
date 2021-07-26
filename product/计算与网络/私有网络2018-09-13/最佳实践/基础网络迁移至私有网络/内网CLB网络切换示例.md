@@ -26,8 +26,8 @@
 ### 迁移步骤
 1. 参见 [创建私有网络](https://cloud.tencent.com/document/product/215/36515) 创建 VPC 网络。
 2. 参见 [更换 MySQL 的网络](https://cloud.tencent.com/document/product/236/35671) 切换云数据库网络。
-    >?云数据库在网络切换时连接不中断，且切换后同时保持原基础网络和 VPC  IP，可确保迁移过程中不停服。
-    >
+>?云数据库在网络切换时连接不中断，且切换后同时保持原基础网络和 VPC  IP，可确保迁移过程中不停服。
+>
 ![](https://main.qcloudimg.com/raw/7f51057acb0d56e40351217bad32993c.png)
 3. 配置 [终端连接 ]()服务，使得 VPC 内 CVM 客户端可以访问基础网络内网 CLB 服务。
      ![](https://main.qcloudimg.com/raw/cf97a576438ee48dc5ee9aac08c33d91.png)
