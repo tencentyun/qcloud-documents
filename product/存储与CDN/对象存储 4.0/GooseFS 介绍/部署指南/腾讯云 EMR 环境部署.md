@@ -58,6 +58,13 @@ spark.hadoop.fs.AbstractFileSystem.gfs.impl com.qcloud.cos.goosefs.hadoop.GooseF
 >! Flink 访问 GooseFS 时，必须指定 master 和 port。
 >
 
+## Presto 集成 Hive 支持
+当 hive table 的 location 设置为 goosefs 后，需要配置 GooseFs 的 client 依赖包 到 presto 基于 hive-hadoop 依赖的 plugin 中。 即将 goosefs-client 包放置在 ${PRESTO_HOME}/plugin/hive-hadoop2/ 目录下。
+腾讯云 EMR 集群中 ${PRESTO_HOME} 一般为 `/usr/local/service/presto`
+
+>! 如上操作需要配置到presto的每个节点上
+> 
+
 ## Hive、Impala、HBase、Sqoop 以及 Oozie 支持
 
 当配置 Hadoop MapReduce 的环境支持以后，Hive、Impala、HBase 等组件无需单独配置支持，即可正常使用。
