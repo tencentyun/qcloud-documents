@@ -84,7 +84,7 @@ HTTPDNS ⾮企业版仅提供基础的域名解析服务，以下功能特性均
 
 ## 迁移指引
 ### 步骤1：开通移动解析HTTPDNS
-详细操作请参见：[开通移动解析HTTPDNS](https://cloud.tencent.com/document/product/379/54577)。
+详细操作请参见：[开通移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/54577)。
 
 ### 步骤2：添加域名
 详细操作请参见：[添加域名](https://cloud.tencent.com/document/product/379/54588)。
