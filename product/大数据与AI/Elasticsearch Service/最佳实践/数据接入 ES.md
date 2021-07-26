@@ -13,7 +13,7 @@ wget https://artifacts.elastic.co/downloads/logstash/logstash-5.6.4.tar.gz
 tar xvf logstash-5.6.4.tar.gz
 yum install java-1.8.0-openjdk  java-1.8.0-openjdk-devel -y
 ```
->?请注意 logstash 版本，建议与 Elasticsearch 版本保持一致。
+>! logstash 版本建议与 Elasticsearch 版本保持一致。
 2. 根据数据源类型自定义配置文件`*.conf`，配置文件内容可参考 [数据源配置文件说明](https://cloud.tencent.com/document/product/845/17343#.E9.85.8D.E7.BD.AE.E6.96.87.E4.BB.B6.E8.AF.B4.E6.98.8E)。
 3. 执行 logstash。
 ```
