@@ -14,8 +14,8 @@
 | ------------------------------------------------------------ | ------------------------------------------- |
 | [startCameraSimple](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXUGCRecord__ios.html#a915a26f27fd043c9c3c4e52f9dd05f3f) | 开始画面预览                                |
 | [startCameraCustom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXUGCRecord__ios.html#ac8ee6db04ab5058797f1b3f68a56160b) | 开始画面预览                                |
-| [setVideoResolution](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXUGCRecord__ios.html#a01023a47d639aca64ae8f0ae16f3ce86) | 切换视频录制分辨率,startCamera 之后调用有效 |
-| [setVideoRenderMode](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXUGCRecord__ios.html#af15edcca37fcca57c047bbefa4ca8b9d) | 设置视频渲染模式,startCamera 之后调用有效   |
+| [setVideoResolution](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXUGCRecord__ios.html#a01023a47d639aca64ae8f0ae16f3ce86) | 切换视频录制分辨率，startCamera 之后调用有效 |
+| [setVideoRenderMode](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXUGCRecord__ios.html#af15edcca37fcca57c047bbefa4ca8b9d) | 设置视频渲染模式，startCamera 之后调用有效   |
 | [setVideoBitrate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXUGCRecord__ios.html#a3f296f3b19e1d30e749b9b27302a50db) | 切换视频录制码率                            |
 | [setZoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXUGCRecord__ios.html#a9777fe95f7830746c1ba6b10446c37a0) | 调整焦距，startCamera 之后调用有效          |
 | [switchCamera](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXUGCRecord__ios.html#a8dedd99f945a42c1845313605c50aa61) | 切换前后摄像头，startCamera 之后调用有效    |
