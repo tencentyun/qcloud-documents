@@ -45,7 +45,7 @@ kind: Service
 apiVersion: v1
 metadata:
     annotations:
-  	service.cloud.tencent.com/direct-access: true ##开启直连 Pod 模式
+  	service.cloud.tencent.com/direct-access: "true" ##开启直连 Pod 模式
     name: my-service
 spec:
     selector:
@@ -156,7 +156,7 @@ kind: Service
 apiVersion: v1
 metadata:
     annotations:
-	  service.cloud.tencent.com/direct-access: true ##开启直连 Pod 模式
+	  service.cloud.tencent.com/direct-access: "true" ##开启直连 Pod 模式
     name: my-service
 spec:
     selector:
