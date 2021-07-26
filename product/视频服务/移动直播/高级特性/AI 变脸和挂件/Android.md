@@ -3,7 +3,7 @@
 ![](https://main.qcloudimg.com/raw/82924e0c29ee2caee9749dca9fb62e9e.jpg)
 
 ## 接入准备
-
+ 
 ### 1. 申请企业版 License 
 
 登录腾讯云，进入 [美颜特效服务开通申请页](https://cloud.tencent.com/product/x-magic)，如实填写相关信息并完成申请。
