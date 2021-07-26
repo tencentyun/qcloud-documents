@@ -53,10 +53,10 @@
 | FGCT                          | s     | Full GC 消耗时间                                        |
 | GCT                           | s     | 垃圾回收时间消耗                                        |
 | YGCT                          | s     | Young GC 消耗时间                                       |
-| S0                            | %     | Survivor 0区内存使用占比                                |
+| S0                            | %     | Survivor 0 区内存使用占比                                |
 | E                             | %     | Eden 区内存使用占比                                     |
 | CCS                           | %     | Compressed class space 区内存使用占比                   |
-| S1                            | %     | Survivor 1区内存使用占比                                |
+| S1                            | %     | Survivor 1 区内存使用占比                                |
 | O                             | %     | Old 区内存使用占比                                      |
 | M                             | %     | Metaspace 区内存使用占比                                |
 | MemNonHeapUsedM               | MB    | JVM 当前已经使用的 NonHeapMemory 的数量                 |
@@ -79,6 +79,3 @@
 | BlocksEvicted                 | 个    | worker 中逐出的块总数                                    |
 | BlocksLost                    | 个    | worker 中丢失的数据块总数                                |
 | BlocksPromoted                | 个    | worker 中的任何一个数据块移动到新层的总次数              |
-
- 
-
