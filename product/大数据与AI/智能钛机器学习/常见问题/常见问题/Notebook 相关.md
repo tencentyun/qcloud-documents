@@ -7,7 +7,7 @@
 - 针对内存溢出，建议减小 batch size，数据分批读内存。
 
 ###  停止 Notebook 实例失败，长时间停止不成功，该怎么办？
-如遇此种情况，可多次刷新页面，查看 Notebook 实例状态，若长时间停止不成功，请及时联系  [售后在线咨询](https://cloud.tencent.com/online-service?from=connect-us)。
+如遇此种情况，可多次刷新页面，查看 Notebook 实例状态，若长时间停止不成功，请及时联系  [售后在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 进行处理。
 
 ###  运行中的 Notebook 支持修改相关配置信息吗？
 支持的，但需要先停止 Notebook ，修改保存后，再重新启动。
