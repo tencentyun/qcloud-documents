@@ -12,6 +12,7 @@
 
 
 
+
 #### 卷快照（Volume Snapshot）功能进入 Beta 阶段
 VolumeSnapshotDataSource 默认开启。详情请参阅 [releasing CSI volume snapshots to beta](https://kubernetes.io/blog/2019/12/09/kubernetes-1-17-feature-cis-volume-snapshot-beta/)。
 
