@@ -9,7 +9,7 @@
 
 ## 操作步骤
 
-1. 下载 Demo（[Demo下载地址](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo.zip)），并配置相关参数。
+1. 下载 Demo（[Demo下载地址](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-java-client%20V1.0.zip)），并配置相关参数。
 
    **添加 Maven 依赖**
    按照 [Pulsar 官方文档](http://pulsar.apache.org/docs/en/client-libraries-java/) 添加 Maven 依赖。
@@ -20,9 +20,9 @@
 <pulsar.version>2.7.1</pulsar.version>
 <!-- in your <dependencies> block -->
 <dependency>
-			<groupId>org.apache.pulsar</groupId>
-			<artifactId>pulsar-client</artifactId>
-			<version>${pulsar.version}</version>
+	<groupId>org.apache.pulsar</groupId>
+	<artifactId>pulsar-client</artifactId>
+	<version>${pulsar.version}</version>
 </dependency>
 ```
 :::
