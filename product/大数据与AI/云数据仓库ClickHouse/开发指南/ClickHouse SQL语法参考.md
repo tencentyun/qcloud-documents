@@ -125,6 +125,7 @@ ClickHouse 支持整数、浮点数、字符型、日期、枚举值、数组等
 </tr>
 </table>
 
+>?
 - 可以使用 UInt8 来存储布尔类型，将取值限制为0或1。
 - [其他数据类型官方文档](https://clickhouse.tech/)。
 
@@ -305,13 +306,13 @@ ClickHouse 函数有两种类型：常规函数和聚合函数，区别是常规
 
 ### 聚合函数
 
-| 函数名称                                                     | 用途                                                         | 使用场景                                                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| count                                                        | 统计行数或者非 NULL 值个数                                   | count(expr)、COUNT(DISTINCT expr)、count()、count(*)         |
+| 函数名称                                                     | 用途                                                         | 使用场景                         |
+| ------------------------------------------------------------ | ---------------------------- | ---------------------------------- |
+| count                                                        | 统计行数或者非 NULL 值个数                                   | count(expr)、COUNT(DISTINCT expr)、count()、count(\*)         |
 | [any(x)](https://clickhouse.tech/docs/en/query_language/agg_functions/reference/#agg_function-any) | 返回第一个遇到的值，结果不确定                               | any(column)                                                  |
 | [anyHeavy(x)](https://clickhouse.tech/docs/en/query_language/agg_functions/reference/#anyheavyx) | 基于 heavy hitters 算法，返回经常出现的值。通常结果不确定    | anyHeavy(column)                                             |
 | [anyLast(x)](https://clickhouse.tech/docs/en/query_language/agg_functions/reference/#anylastx) | 返回最后一个遇到的值，结果不确定                             | anyLast(column)                                              |
-| [groupBitAnd](https://clickhouse.tech/docs/en/query_language/agg_functions/reference/#groupbitand) | 按位与                                                       | groupBitAnd(expr)                                            |
+| [groupBitAnd](https://clickhouse.tech/docs/en/query_language/agg_functions/reference/#groupbitand)|按位与| groupBitAnd(expr)          |
 | [groupBitOr](https://clickhouse.tech/docs/en/query_language/agg_functions/reference/#groupbitor) | 按位或                                                       | groupBitOr(expr)                                             |
 | [groupBitXor](https://clickhouse.tech/docs/en/query_language/agg_functions/reference/#groupbitxor) | 按位异或                                                     | groupBitXor(expr)                                            |
 | [groupBitmap](https://clickhouse.tech/docs/en/query_language/agg_functions/reference/#groupbitmap) | 求基数（cardinality）                                        | groupBitmap(expr)                                            |
