@@ -48,5 +48,5 @@ Replica 均匀分布到整个集群，Replica 的算法如下：
 消息队列 CKafka 在 ZooKeeper 中动态维护了一个 ISR（in-sync replicas），ISR 里的所有 Replica 都跟上了 Leader。只有 ISR 里的成员才有被选为 Leader 的可能。
 - 假设 ISR 中 f + 1个 Replica，一个 Partition 能在保证不丢失已 commit 的消息的前提下
 容忍 f 个 Replica 的失败。
-- 共有 2f + 1个 Replica（包含 Leader 和 Follower），commit 之前必须保证有 f + 1个
+- 假设共有 2f + 1个 Replica（包含 Leader 和 Follower），commit 之前必须保证有 f + 1个
  Replica 复制完消息，为了保证正确选出新的 Leader，fail 的 Replica 不能超过 f 个。
