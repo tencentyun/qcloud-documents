@@ -31,7 +31,7 @@ HTTPDNS ⾮企业版仅提供基础的域名解析服务，以下功能特性均
     <td>通过 SDK 实现快速接入，可兼容 IOS/Android 多平台移动应⽤。<br></td>
   </tr>
   <tr>
-    <td>DES、AES、HTTPS 数据加密</td>
+    <td>DES、AES、HTTPS <br>数据加密</td>
     <td>使⽤ DES、AES 、HTTPS 加密，可以防⽌明⽂请求在传输过程中被恶意篡改。<br></td>
   </tr>
   <tr>
