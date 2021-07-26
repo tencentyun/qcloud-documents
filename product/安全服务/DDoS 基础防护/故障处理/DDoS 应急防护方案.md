@@ -25,9 +25,11 @@
 
 ## 指导说明
 1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/unblock/list)，在左侧导航中，选择【自助解封】>【解封操作】，进入解封操作页面。
-2. 在解封操作页面，选择被封堵的 IP，单击【申请应急服务】。
+2. 在解封操作页面，选择被封堵的 IP，单击【申请应急服务】,弹出应急服务申请弹窗。
 ![](https://main.qcloudimg.com/raw/2558336fdcfd33d7cc4fa8b2c7728272.png)
-3. 
+3. 在应急服务申请弹窗，填写相关信息，单击【确定】提交信息单，既进入审核状态中。
+![](https://main.qcloudimg.com/raw/694201caa741337f6f5185d2fb56c87a.png)
+4. 
 
 
 
