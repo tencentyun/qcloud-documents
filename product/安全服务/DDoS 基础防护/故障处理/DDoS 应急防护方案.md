@@ -20,17 +20,14 @@
 单击前往[ 一天应急服务申请页面](https://console.cloud.tencent.com/ddos/unblock/list)。
 >?此入口于2021年07月18日开放。
 
-### 获取途径
-等待申请审核通过后，您可以在 DDoS 高防包服务售卖页面开通免费的一天应急版本（**购买时长**配置为1天），单击前往[ DDoS 高防包售卖页面](https://buy.cloud.tencent.com/antiddos#/native) 查看，确认开通一天应急服务后，服务将立即生效。
 
-## 指导说明
+### 操作步骤
 1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/unblock/list)，在左侧导航中，选择【自助解封】>【解封操作】，进入解封操作页面。
 2. 在解封操作页面，选择被封堵的 IP，单击【申请应急服务】,弹出应急服务申请弹窗。
 ![](https://main.qcloudimg.com/raw/2558336fdcfd33d7cc4fa8b2c7728272.png)
 3. 在应急服务申请弹窗，填写相关信息，单击【确定】提交信息单，既进入审核状态中。
-![](https://main.qcloudimg.com/raw/694201caa741337f6f5185d2fb56c87a.png)
-4. 
-
+![](https://main.qcloudimg.com/raw/289f202825619054c0b86baaba0b160c.png)
+4. 等待申请审核通过后，高防资源会有自动发放，需登录[ DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/antiddos-native/overview/ddos)，进行绑定高防资源，具体操作可参考 [快速入门](https://cloud.tencent.com/document/product/1021/43898)。
 
 
 ## 长期防护服务
