@@ -43,7 +43,7 @@
 
 | API                                                          | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [startRecord](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXUGCRecord__android.html#abd7692290a3855e606f4c2303ff2a19e) | 开始视频录制，SDK 内部会自动生成视频路经和视频封面，在 TXVideoRecordListener 里面返回 |
+| [startRecord](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXUGCRecord__android.html#abd7692290a3855e606f4c2303ff2a19e) | 开始视频录制，SDK 内部会自动生成视频路经和视频封面，在 [ITXVideoRecordListener](#itxvideorecordlistener) 里面返回 |
 | [startRecord](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXUGCRecord__android.html#ac10931870767702b8103da24a4336da3) | 开始视频录制                                                 |
 | [startRecord](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXUGCRecord__android.html#a91a872a1b48867bea52c12288ee860b1) | 开始视频录制                                                 |
 | [stopRecord](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXUGCRecord__android.html#a13313c5410c2a10a704b991f28141e6e) | 停止视频录制                                                 |
