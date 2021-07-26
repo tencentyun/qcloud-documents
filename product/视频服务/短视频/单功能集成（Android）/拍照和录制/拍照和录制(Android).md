@@ -6,7 +6,7 @@
 | ---------------------- | ---------------------------------------------- |
 | TXUGCRecord            | 实现视频的录制功能                             | 
 | TXUGCPartsManager      | 视频片段管理类，用于视频的多段录制，回删等     |
-| ITXVideoRecordListener | 录制回调                                       |
+| ITXVideoRecordListener | 录制回调                                       | 
 | TXRecordCommon         | 基本参数定义，包括了视频录制回调及发布回调接口 |
 
 ## 使用说明
