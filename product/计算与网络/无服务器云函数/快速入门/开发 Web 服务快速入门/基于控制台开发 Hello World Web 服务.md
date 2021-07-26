@@ -123,4 +123,4 @@
 
 
 ## 遇到问题？
-非常抱歉您在使用时出现问题，您可以咨询 [在线客服](https://cloud.tencent.com/act/event/Online_service) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 来寻求帮助。
+非常抱歉您在使用时出现问题，您可以通过 [在线咨询](https://cloud.tencent.com/act/event/Online_service) 来寻求帮助。
