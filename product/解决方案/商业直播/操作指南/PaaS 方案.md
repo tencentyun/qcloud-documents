@@ -10,7 +10,7 @@
 3. 开通小程序·云直播服务后，登录 [云直播控制台](https://console.cloud.tencent.com/live)，在【域名管理】中添加小程序直播域名，然后 [自助拼接直播地址](https://cloud.tencent.com/document/product/267/32720)。
 4. 下载并安装最新版本的 [微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，使用小程序绑定的微信号扫码登录开发者工具。
    ![](https://main.qcloudimg.com/raw/366e52aa9cc84949271b87a4678da636.png)
-
+ 
 ## 引入插件代码
 在小程序中引入插件代码，可参考 [demo 源码](https://bizlive-1258550678.cos.ap-chengdu.myqcloud.com/plugin-demo.zip)。使用插件前需在小程序工程的`app.json`中声明要使用的插件，例如：
 ```
