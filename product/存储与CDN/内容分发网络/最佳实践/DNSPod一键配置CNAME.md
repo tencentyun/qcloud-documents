@@ -24,9 +24,9 @@
 
 #### 配置 CNAME
 
-在 CDN 控制台 [域名管理](https://console.cloud.tencent.com/cdn/domains) 页找到对应的加速域名，鼠标悬浮在 CNAME 上，即可看到相关提示，点击【一键配置】设置 CNAME
+在 CDN 控制台 [域名管理](https://console.cloud.tencent.com/cdn/domains) 页找到对应的加速域名，鼠标悬浮在 CNAME 上，即可看到相关提示，单击【一键配置】设置 CNAME。
 
->!请确保当前账号有对应域名的解析权限
+>!请确保当前账号有对应域名的解析权限：
 - 若为子账号，请联系主账号授权。
 - 若为协作者，请联系主账号 [域名共享](https://docs.dnspod.cn/dns/5f2d4664e8320f1a740d9cc1/)。
 
