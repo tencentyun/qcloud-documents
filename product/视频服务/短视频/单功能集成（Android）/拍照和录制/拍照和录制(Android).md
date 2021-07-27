@@ -185,7 +185,7 @@ mTXCameraRecord.setAspectRatio(TXRecordCommon.VIDEO_ASPECT_RATIO_9_16);
 // TXRecordCommon.RECORD_SPEED_NORMAL(标准) 
 // TXRecordCommon.RECORD_SPEED_FAST(快速) 
 // TXRecordCommon.RECORD_SPEED_FASTEST(极快速) 
-mTXCameraRecord.setRecordSpeed(VIDEO_RECORD_SPEED_NOMAL);
+mTXCameraRecord.setRecordSpeed(VIDEO_RECORD_SPEED_NORMAL);
 ```
 ### 3. 声音设置
 
