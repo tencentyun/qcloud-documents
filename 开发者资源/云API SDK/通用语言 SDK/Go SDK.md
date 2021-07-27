@@ -43,9 +43,11 @@ set GOPROXY=https://mirrors.tencent.com/go/
 </tr>
 </table>
 
-
 v1.0.170后可以按照产品下载，您只需下载基础包和对应的产品包（如 CVM）即可，不需要下载全部的产品，从而加快您构建镜像或者编译的速度。当然您也可以按照之前的方式一次性下载腾讯云所有产品的包。
-
+>?
+>- [按需安装方式](#fullInstallation)：仅支持使用 **Go Modules** 模式进行依赖管理，即环境变量 `GO111MODULE=auto`或者`GO111MODULE=on`，并且在您的项目中执行了 `go mod init xxx`。如果您使用 GOPATH，请参见：[全部安装方式](#fullInstallation)。
+>- [全部安装方式](#fullInstallation)：支持 GOPATH 和 Go Modules。
+[](id:fullInstallation)
 <table>
    <tr>
       <th width="0px" style="text-align:center">安装方式</td>
@@ -57,7 +59,7 @@ v1.0.170后可以按照产品下载，您只需下载基础包和对应的产品
     <td style="text-align:center">安装公共基础包</td>
     <td><dx-codeblock>
 ::: 1 bash
-go get -v github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common@latest
+go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
 :::
 </dx-codeblock></td>
   </tr>
@@ -65,7 +67,7 @@ go get -v github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common@latest
     <td style="text-align:center">安装对应的产品包（如 CVM）</td>
     <td ><dx-codeblock>
 ::: 1 bash
-go get -v github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm@latest
+go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm
 :::
 </dx-codeblock></td>
   </tr>
@@ -74,7 +76,7 @@ go get -v github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm@latest
     <td style="text-align:center">一次性下载腾讯云所有产品的包</td>
 		    <td><dx-codeblock>
 ::: 1 bash
-go get -v github.com/tencentcloud/tencentcloud-sdk-go@latest
+go get -v -u github.com/tencentcloud/tencentcloud-sdk-go
 :::
 </dx-codeblock></td>
 </tr>
@@ -237,8 +239,7 @@ cpf.HttpProfile.ReqMethod = "POST"
 
 ### 超时时间
 
-SDK有默认的超时时间，如非必要请不要修改默认设置。
-如有需要请在代码中查阅以获取最新的默认值。  
+SDK有默认的超时时间，如非必要请不要修改默认设置。如有需要请在代码中查阅以获取最新的默认值。  
 单位：秒
 
 ```go
@@ -247,8 +248,7 @@ cpf.HttpProfile.ReqTimeout = 30
 
 ### 指定域名
 
-SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务，
-则必须手动指定域名，例如云服务器的上海金融区域名： cvm.ap-shanghai-fsi.tencentcloudapi.com
+SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务，则必须手动指定域名，例如云服务器的上海金融区域名： cvm.ap-shanghai-fsi.tencentcloudapi.com
 
 ```go
 cpf.HttpProfile.Endpoint = "cvm.tencentcloudapi.com"
@@ -366,71 +366,70 @@ func (c *Client) DescribeInstances(request *DescribeInstancesRequest) (response 
 ## Common Request
 从 `v1.0.189`开始，腾讯云 GO SDK 支持使用 `泛用型的API调用方式(Common Request)` 进行请求。您只需安装 `common` 包, 即可向任何产品发起调用。
 
-**注意，您必须明确知道您调用的接口所需参数，否则可能会调用失败。**
+>?您必须明确知道您调用的接口所需参数，否则可能会调用失败。
 
-例如：
+目前仅支持使用 POST 方式，且签名方法必须使用 签名方法 v3。详细使用请参阅示例：[使用 Common Request 进行调用](https://github.com/TencentCloud/tencentcloud-sdk-go/blob/master/examples/common/common_request.go)。
 
-```go
+### 网络错误重试
+
+当发生临时网络错误或超时时，SDK可以被配置为自动重试。默认不开启。通过 `ClientProfile` 配置重试次数和重试间隔时间。
+
+>?通过反射检查 `Request` 结构体是否存在 `ClientToken` 字段，存在该字段则认为是幂等请求。幂等请求才会在网络错误时自动重试，非幂等请求会抛出异常，防止请求多次重放造成结果不一致。
+
+```golang
 package main
 
 import (
-      "fmt"
-      "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
-      tchttp "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/http"
-      "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
-      "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions"
-      "os"
+	     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+	     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
+	     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions"
+	     cvm "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm/v20170312"
 )
 
-// 目前只支持 签名v3+POST
 func main() {
-      credential := common.NewCredential(
-          os.Getenv("TENCENTCLOUD_SECRET_ID"),
-          os.Getenv("TENCENTCLOUD_SECRET_KEY"))
-      cpf := profile.NewClientProfile()
-      cpf.HttpProfile.Endpoint = "cvm.tencentcloudapi.com"
-      cpf.HttpProfile.ReqMethod = "POST"
-      //创建common client
-      client := common.NewCommonClient(credential, regions.Guangzhou, cpf)
+	     credential := common.NewCredential("secretId", "secretKey")
+	     prof := profile.NewClientProfile()
+	     prof.NetworkFailureMaxRetries = 3                               // 定义最大重试次数
+	     prof.NetworkFailureRetryDuration = profile.ExponentialBackoff   // 定义重试建个时间
+	     client, _ := cvm.NewClient(credential, regions.Guangzhou, prof)
 
-      // 创建common request，依次传入产品名、产品版本、接口名称
-      request := tchttp.NewCommonRequest("cvm", "2017-03-12", "DescribeZones")
-
-      // 自定义请求参数:
-      // SetActionParameters 函数支持三种数据类型的入参：
-      // 1. map[string]interface{}
-      // body:=map[string]interface{}{
-      // "InstanceId":"crs-xxx",
-      // "SpanType":2,
-      // }
-      body:= map[string]interface{}{}
-
-      // // 2. string
-      // bodyStr := `{}`
-
-      // // 3. []byte
-      // bodyBytes := []byte(bodyStr)
-
-      // 设置action所需的请求数据
-      err := request.SetActionParameters(body)
-      if err != nil {
-          return
-      }
-
-      //创建common response
-      response := tchttp.NewCommonResponse()
-
-      //发送请求
-      err = client.Send(request, response)
-      if err != nil {
-          fmt.Printf("fail to invoke api: %v \n", err)
-      }
-
-      // 获取响应结果
-      fmt.Println(string(response.GetBody()))
+	// ...
 }
-
 ```
+更多用法请参见 [测试文件](https://github.com/TencentCloud/tencentcloud-sdk-go/tree/master/tencentcloud/common/netretry_test.go)。
+
+### 限频重试
+
+当发生 API 限频时，SDK 可以被配置为自动重试。默认不开启。通过 `ClientProfile` 配置重试次数和重试间隔时间。
+
+```golang
+package main
+
+import (
+	     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+	     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
+	     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions"
+	     cvm "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm/v20170312"
+)
+
+func main() {
+	     credential := common.NewCredential("secretId", "secretKey")
+	     prof := profile.NewClientProfile()
+	     prof.RateLimitExceededMaxRetries = 3                               // 定义最大重试次数
+	     prof.RateLimitExceededRetryDuration = profile.ExponentialBackoff   // 定义重试建个时间
+	     client, _ := cvm.NewClient(credential, regions.Guangzhou, prof)
+
+	// ...
+}
+```
+
+更多用法请参见 [测试文件](https://github.com/TencentCloud/tencentcloud-sdk-go/tree/master/tencentcloud/common/ratelimitretry_test.go)。
+
+### 幂等标识符
+
+当网络超时重试或限频重试开启时，会自动向请求中注入 `ClientToken` 参数（如果请求存在`ClientToken`字段且为空）。当用户手动指定 `ClientToken` 时，会跳过注入流程。
+
+>?注入的 `ClientToken` 在 `100000/s` 并发量以下提供全局唯一性。
 
 ## 常见问题
 ### import 导包失败
