@@ -45,8 +45,8 @@ set GOPROXY=https://mirrors.tencent.com/go/
 
 v1.0.170后可以按照产品下载，您只需下载基础包和对应的产品包（如 CVM）即可，不需要下载全部的产品，从而加快您构建镜像或者编译的速度。当然您也可以按照之前的方式一次性下载腾讯云所有产品的包。
 >?
->- [按需安装方式](#fullInstallation)：仅支持使用 **Go Modules** 模式进行依赖管理，即环境变量 `GO111MODULE=auto`或者`GO111MODULE=on`，并且在您的项目中执行了 `go mod init xxx`。如果您使用 GOPATH，请参见：[全部安装方式](#fullInstallation)。
->- [全部安装方式](#fullInstallation)：支持 GOPATH 和 Go Modules。
+>- 按需安装方式：仅支持使用 **Go Modules** 模式进行依赖管理，即环境变量 `GO111MODULE=auto`或者`GO111MODULE=on`，并且在您的项目中执行了 `go mod init xxx`。如果您使用 GOPATH，请参见：[全部安装方式](#fullInstallation)。
+>- 全部安装方式：支持 GOPATH 和 Go Modules。
 [](id:fullInstallation)
 <table>
    <tr>
