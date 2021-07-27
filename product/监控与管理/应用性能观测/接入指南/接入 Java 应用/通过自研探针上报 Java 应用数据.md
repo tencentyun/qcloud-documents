@@ -20,8 +20,7 @@
 :::  plaintext
 unzip tapm-agent-java-x.x.x.zip -d /path/to/appserver/
 :::
-</dx-codeblock>
-<dx-alert infotype="explain" title="">
+</dx-codeblock><dx-alert infotype="explain" title="">
 “`/path/to/appserver`” 为示例路径，请用户根据自身不同的环境修改正确的目录。
 例如: 应用服务器的根目录为： /path/to/tomcat，则解压后tapm所处目录为： /path/to/tomcat。
 </dx-alert>
