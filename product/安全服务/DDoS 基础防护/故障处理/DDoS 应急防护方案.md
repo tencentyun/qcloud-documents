@@ -28,7 +28,8 @@
 ![](https://main.qcloudimg.com/raw/2558336fdcfd33d7cc4fa8b2c7728272.png)
 3. 在应急服务申请弹窗，填写相关信息，单击【确定】提交信息单，既进入审核状态中。
 ![](https://main.qcloudimg.com/raw/458221cb87a5b732a6f954851e39378e.png)
-4. 审核通过后将获得一天免费试用防护资源，进入[ 管理防护对象](https://cloud.tencent.com/document/product/1021/43906)，进行对需要解封的云资产进行防护绑定。云资产首次绑定高防包将自动解封。 回到【解封操作】时，状态如下：
+4. 审核通过后将获得一天免费试用防护资源，进入[ 管理防护对象](https://cloud.tencent.com/document/product/1021/43906)，进行对需要解封的云资产进行防护绑定。云资产首次绑定高防包将自动解封。
+5. 回到【解封操作】时，状态如下：
 ![](https://main.qcloudimg.com/raw/06871c47e74b912083ae03192e3da54c.png)
 
 
