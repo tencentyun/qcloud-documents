@@ -25,5 +25,5 @@ blufi 蓝牙辅助方式配网及设备绑定的示例流程图如下：
 8. 如果设备成功上报了 Token，物联网后台服务已确认 Token 有效性，小程序会提示配网完成，设备添加成功。
 
 ### ESP32 使用 蓝牙辅助 配网接口
-配网协议在 ESP32 设备端的参考代码，请参见 GitHub 工程 [qcloud-iot-esp-wifi](https://github.com/espressif/esp-qcloud/tree/master/src/provisioning)。
+配网协议在 ESP32 设备端的参考代码，请参见 GitHub 工程 [esp-qcloud](https://github.com/espressif/esp-qcloud/tree/master/src/provisioning)。
 
