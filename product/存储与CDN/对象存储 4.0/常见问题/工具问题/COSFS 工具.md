@@ -91,6 +91,9 @@ echo log-1250000000:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYY
 在 COSFS 内部逻辑中，会以 Head 请求去判断父目录和文件是否存在。
 
 
+### COSFS 如何查看已使用的存储容量？
+COSFS 不支持直接查看已使用的存储容量。如果您想要统计 COS 存储桶的存储量，对于数据量较小的场景，请登录 COS 控制台进行查看；对于数据量大的场景，请使用 [清单](https://cloud.tencent.com/document/product/436/33703) 功能。
+
 
 
 ## 故障排查
@@ -241,5 +244,16 @@ rpm -ivh cosfs-1.0.19-centos7.0.x86_64.rpm --force
 ###  COSFS 授权某个目录只读之后，单独挂载对应的目录提示无权限？
 
 COSFS 需要有根目录的 GetBucket 权限，因此您需要加上根目录的 GetBucket 权限以及对应目录的读权限授权，这样可以列出其它目录但是没有操作权限。
+
+
+### 为什么执行 df 显示 COSFS 的 Size 和 Avaliable 为256T？
+COS 存储桶的空间是无限大的，这里的 Avaliable 为256T，仅作为展示 df 结果，实际上 COS 存储桶能存储的数据量远不止256T。
+
+### 为什么执行 df 显示 COSFS 的 Used 为0？
+COSFS 不占用本地存储空间，为了兼容 df 等工具，COSFS 显示的 Size Used Avaliable 都不是真实值。
+
+### 为什么执行 df -i 显示 Inode/IUsed/IFree 都为0？
+COSFS 不是基于硬盘的文件系统，所以不会有 inode。
+
 
 

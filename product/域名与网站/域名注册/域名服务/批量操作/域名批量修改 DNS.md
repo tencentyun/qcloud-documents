@@ -43,3 +43,4 @@
 2. 选择【操作任务】>【DNS 修改】，并单击【查看详情】，即可查看您的域名 DNS 修改结果。如下图所示：
 ![](https://main.qcloudimg.com/raw/6f542f26a7df2a5085b5780ebc2a96c0.png)
 
+

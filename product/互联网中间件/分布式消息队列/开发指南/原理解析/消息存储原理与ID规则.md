@@ -23,12 +23,12 @@ Ledger 只是一个逻辑概念，是数据的一种逻辑组装维度，并没�
 
 Pulsar 中的消息数据以 ledger 的形式存储在 BookKeeper 集群的 bookie 存储节点上。Ledger 是一个只追加的数据结构，并且只有一个写入器，这个写入器负责多个 bookie 的写入。Ledger 的条目会被复制到多个 bookie 中，同时会写入相关的数据来保证数据的一致性。
 
-Bookeeper 需要保存的数据包括：
+ BookKeeper 需要保存的数据包括：
 
 
 - **Journals**
   - journals 文件里存储了 BookKeeper 的事务日志，在任何针对 ledger 的更新发生前，都会先将这个更新的描述信息持久化到这个 journal 文件中。
-  - Bookeeper 提供有单独的 sync 线程根据当前 journal 文件的大小来作 journal 文件的 rolling。
+  -  BookKeeper 提供有单独的 sync 线程根据当前 journal 文件的大小来作 journal 文件的 rolling。
 
 - **EntryLogFile**
   - 存储真正数据的文件，来自不同 ledger 的 entry 数据先缓存在内存buffer中，然后批量flush到EntryLogFile中。
@@ -42,7 +42,7 @@ Bookeeper 需要保存的数据包括：
 ![](https://main.qcloudimg.com/raw/56f41fb00bcda3cfd9ef88e6d7cc61f7.png)
 
 **Entry 数据写入**
-1. 数据首先会同时写入 Journal（写入 Journal 的数据会实时落到磁盘）和 Memtable（读写缓存） 。
+1. 数据首先会同时写入 Journal（写入 Journal 的数据会实时落到磁盘）和 Memtable（读写缓存）。
 2. 写入 Memtable 之后，对写入请求进行响应。
 3. Memtable 写满之后，会 flush 到 Entry Logger 和 Index cache，Entry Logger 中保存数据，Index cache 中保存数据的索引信息，
 4. 后台线程将 Entry Logger 和 Index cache 数据落到磁盘。
