@@ -16,3 +16,5 @@
 | 启用跨地域过期对等连接 | [EnableVpcPeeringConnectionEx](https://cloud.tencent.com/doc/api/245/4808) | 启用跨地域过期对等连接。 |
 | 查询对等连接      | [DescribeVpcPeeringConnections](https://cloud.tencent.com/doc/api/245/2101) | 查询对等连接。      |
 
+
+
