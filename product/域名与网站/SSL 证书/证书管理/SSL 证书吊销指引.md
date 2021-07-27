@@ -23,7 +23,7 @@
 <tr><td>腾讯云 SSL 证书吊销功能仅支持在腾讯云进行签发的证书，上传的第三方证书不支持吊销。</td></tr>
 <tr><td rowspan="3">非 Wotrus 品牌国际标准证书与 DNSPod 品牌国密标准（SM2）证书</td><td>有效期30天之内，状态为待续费状态证书不能进行吊销操作。</td></tr>
 <tr><td>重颁发后的订单不能进行吊销操作。如需吊销，需吊销原订单，重颁发订单与原订单将一同自动吊销。</td></tr>
-<tr><td>签发时间在2020年3月25日前暂无法使用自主吊销功能，如需吊销请通过 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a> 进行处理。</td></tr>
+<tr><td>签发时间在2020年3月25日前暂无法使用自主吊销功能，如需吊销请通过 <a href="https://cloud.tencent.com/online-service?from=connect-us">在线咨询</a> 联系客服进行处理。</td></tr>
 </table>
 
 ## 前提条件

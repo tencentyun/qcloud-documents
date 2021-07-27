@@ -1,20 +1,32 @@
+本页文档所描述功能，在 SDK 版本中支持情况如下：
+
+|          | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
+| -------- | ------------- | ------------ | ---------- | -------------- | ------------ | ------ |
+| 支持情况 | -             | -            | -          | -              | √            | -      |
+| SDK 下载  | 下载          | 下载         | 下载       | 下载           | 下载         | 下载   |
+
+不同版本 SDK 包含的更多能力可以参见 [这里](https://tcloud-doc.isd.com/document/product/1449/56978?!preview&!editLang=zh)。
+
+## 产品概述
+
 本文档是介绍腾讯云视立方 Web TcAdapter，它可以帮助腾讯云客户通过灵活的接口，快速实现第三方播放器与云点播能力的结合，实现视频播放功能。TcAdapter 支持获取视频基本信息、视频流信息、关键帧与缩略图信息等，支持私有加密，本文档适合有一定 Javascript 语言基础的开发人员阅读。
 
 
 
-## 集成 SDK[](id:guide)
+## 集成SDK
 
 TcAdapter 提供以下两种集成方式：
 
-<dx-tabs>
-::: cdn\s集成
+#### 1. cdn 集成
+
 在需要播放视频的页面中引入初始化脚本，脚本会在全局下暴露 TcAdapter 变量。
 
 ```javascript
 <script src="https://cloudcache.tencentcs.com/qcloud/video/dist/tcadapter.1.0.0.min.js"></script>
 ```
-:::
-::: npm\s集成
+
+#### 2. npm 集成
+
 ```javascript
 // npm install
 npm install --save tcadapter
@@ -23,12 +35,11 @@ npm install --save tcadapter
 import TcAdapter from 'tcadapter';
 ```
 
-:::
-</dx-tabs>
 
-## 放置播放器容器[](id:container)
 
-在需要展示播放器的页面加入容器，TcAdapter 仅需要承载播放视频的容器，播放样式和自定义功能可由第三方播放器或使用者自行实现。
+## 放置播放器容器
+
+在需要展示播放器的页面加入容器，TcAdapter 仅需要承载播放视频的容器，播放样式和自定义功能可由第三方播放器或使用者自行实现
 
 ```javascript
 <video id="player-container-id">
@@ -37,9 +48,9 @@ import TcAdapter from 'tcadapter';
 
 
 
-## 使用 SDK[](id:useSDK)
+## 使用 SDK
 
-#### 检测当前环境是否支持 TcAdapter
+#### 检测当前环境是否支持TcAdapter
 
 ```javascript
 TcAdapter.isSupported();
@@ -47,7 +58,7 @@ TcAdapter.isSupported();
 
 
 
-#### 初始化 Adapter, 创建 Adapter 实例
+#### 初始化Adapter，创建Adapter实例
 
 **说明**
 
@@ -69,20 +80,20 @@ const adapter = new TcAdapter('player-container-id', {
 | 参数名    | 类型                  | 描述                                             |
 | --------- | --------------------- | ------------------------------------------------ |
 | appID     | String                | 点播账号的 appID                                 |
-| fileID    | String                | 要播放的视频 fileId                               |
+| fileID    | String                | 要播放的视频fileId                               |
 | psign     | String                | 超级播放器签名                                   |
-| hlsConfig | HlsConfig             | hls相关设置，可使用 hls.js 支持的任意参数          |
+| hlsConfig | HlsConfig             | hls相关设置，可使用hls.js支持的任意参数          |
 | callback  | TcAdapterCallBack | 初始化完成回调，可以在此方法之后获取视频基本信息 |
 
 >?TcAdapter 底层基于 hls.js 实现，可以通过 HlsConfig 接收 hls.js 支持的任意参数，用于对播放行为的精细调整。
 
 
 
-#### 获取视频的基本信息[](id:basicInfo)
+#### 获取视频的基本信息
 
 **说明**
 
-获取视频信息，必须是在初始化之后才生效。
+获取视频信息， 必须是在初始化之后才生效。
 
 **接口**
 
@@ -103,7 +114,7 @@ VideoBasicInfo：参数如下
 
 
 
-#### 获取视频流信息[](id:streamInfo)
+#### 获取视频流信息
 
 **说明**
 
@@ -134,7 +145,7 @@ SubStreamInfo
 
 
 
-#### 获取关键帧打点信息[](id:keyframe)
+#### 获取关键帧打点信息
 
 **说明**
 
@@ -155,7 +166,7 @@ KeyFrameDescInfo
 
 
 
-#### 获取缩略图信息[](id:thumbnail)
+#### 获取缩略图信息
 
 **说明**
 
@@ -171,12 +182,12 @@ ImageSpriteInfo
 
 | 参数名    | 类型   | 描述                                  |
 | --------- | ------ | ------------------------------------- |
-| imageUrls | List   | 缩略图下载 URL 数组，类型为 String。 |
-| webVttUrl | String | 缩略图 VTT 文件下载 URL。            |
+| imageUrls | List   | 缩略图下载 URL 数组，类型为 String 。 |
+| webVttUrl | String | 缩略图 VTT 文件下载 URL 。            |
 
 
 
-#### 监听事件[](id:monitor)
+#### 监听事件
 
 **说明**：播放器可以通过初始化返回的对象进行事件监听，示例：
 
@@ -187,7 +198,7 @@ adapter.on(TcAdapter.TcAdapterEvents.Error, function(error) {
 });
 ```
 
-其中 type 为事件类型，支持的事件包括 hls 原生的事件以及以下事件，可从 TcAdapter.TcAdapterEvents 中访问到事件名称：
+其中 type 为事件类型，支持的事件包括hls原生的事件以及以下事件，可从 TcAdapter.TcAdapterEvents 中访问到事件名称：
 
 | 名称           | 介绍                                                         |
 | :------------- | :----------------------------------------------------------- |
@@ -196,9 +207,9 @@ adapter.on(TcAdapter.TcAdapterEvents.Error, function(error) {
 | ERROR | 出现错误时触发，可从回调参数中查看失败具体原因 |
 
 
-#### 获取 Hls 实例[](id:hls)
+#### 获取 Hls 实例
 
-**说明**：adapter 底层基于 hls.js 实现，可以通过 adapter 实例访问到 hls 实例以及实例上的属性和方法，用于实现对播放流程的精细控制
+**说明**：adapter 底层基于 hls.js 实现，可以通过 adapter 实例访问到 hls 实例以及实例上的属性和方法，用于实现对播放流程的精细控制。
 
 ```javascript
 adapter.on('hlsready', () => {
@@ -207,13 +218,13 @@ adapter.on('hlsready', () => {
 })
 ```
 
->?更多详细介绍，请参见：[hls.js](https://github.com/video-dev/hls.js/)。
+>?参见 [hls.js](https://github.com/video-dev/hls.js/) 链接。
 
-
-
-#### 例1：在 React 中使用 TcAdapter [](id:example1)
-
->?参见示例：[tcadapter-combine-video](https://github.com/tcplayer/tcadapter-combine-video)。
+<dx-tabs>
+::: 示例1：在\sReact\s中使用\sTcAdapter 
+<dx-alert infotype="explain" title="">
+参阅更多 [示例](https://github.com/tcplayer/tcadapter-combine-video)。
+</dx-alert>
 
 ```javascript
 import { useEffect, useRef } from 'react';
@@ -259,11 +270,11 @@ function App() {
 export default App;
 
 ```
-
-#### 例2: tcadapter 与 videojs 结合[](id:example2)
-
->?参见示例：[tcadapter-combine-videojs](https://github.com/tcplayer/tcadapter-combine-videojs)。
-
+:::
+::: 示例2:\stcadapter\s与\svideojs\s结合
+<dx-alert infotype="explain" title="">
+参阅更多 [示例](https://github.com/tcplayer/tcadapter-combine-videojs)。
+</dx-alert>
 ```javascript
 // 1. videojs 播放 hls 会使用 @videojs/http-streaming，所以我们开发一套使用 tcadapter 播放的策略覆盖原有逻辑（也可以直接修改 @videojs/http-streaming 内部逻辑）
 
@@ -362,3 +373,7 @@ mountHlsProvider();
 export default Adapter;
 
 ```
+:::
+</dx-tabs>
+
+
