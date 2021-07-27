@@ -1,3 +1,4 @@
+
 Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 ### constructor

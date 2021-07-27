@@ -370,6 +370,7 @@ func (c *Client) DescribeInstances(request *DescribeInstancesRequest) (response 
 
 目前仅支持使用 POST 方式，且签名方法必须使用 签名方法 v3。详细使用请参阅示例：[使用 Common Request 进行调用](https://github.com/TencentCloud/tencentcloud-sdk-go/blob/master/examples/common/common_request.go)。
 
+## 请求重试
 ### 网络错误重试
 
 当发生临时网络错误或超时时，SDK 可以被配置为自动重试。默认不开启。通过 `ClientProfile` 配置重试次数和重试间隔时间。

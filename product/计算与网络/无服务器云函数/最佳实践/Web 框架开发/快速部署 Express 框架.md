@@ -3,6 +3,9 @@
 
 本文将为您指导如何通过 Web Function，将您的本地 Express 项目快速部署到云端。
 
+## 前提条件
+- 在使用腾讯云云函数服务之前，您需要 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F) 并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+> 本文档主要介绍控制台部署方案，您也可以通过命令行完成部署，请参考具体操作请参考[产品文档](https://cloud.tencent.com/document/product/583/58183)
 
 ## 操作步骤
 
