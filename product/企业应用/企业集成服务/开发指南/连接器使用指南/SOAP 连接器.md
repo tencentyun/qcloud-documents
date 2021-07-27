@@ -14,11 +14,11 @@
 ::: 通用配置
 | 参数             | 数据类型 | 描述                                                   | 是否必填 | 默认值  |
 | ---------------- | -------- | ------------------------------------------------------ | -------- | ------- |
-| WSDL Location    | string   | Web 服务的 WSDL URL 链接                                  | 是       |         |
-| WSDL 文件  | string   | Web 服务的 WSDL 文件                                  | 否       |         |
+| WSDL Location    | string   | Web 服务的 WSDL URL 链接                                  | 是       |    -     |
+| WSDL 文件  | string   | Web 服务的 WSDL 文件                                  | 否       |     -    |
 | 使用 WSDL URL    | bool   | 是否使用 WSDL URL 链接进行分析                        | 否       |  true       |
-| Service          | string   | Web 服务的 serviceName，通过 WSDL 文件获取                 | 是       |         |
-| Port             | string   | Web 服务的 portName，通过 WSDL 文件获取                    | 是       |         |
+| Service          | string   | Web 服务的 serviceName，通过 WSDL 文件获取                 | 是       |    -     |
+| Port             | string   | Web 服务的 portName，通过 WSDL 文件获取                    | 是       |    -     |
 | 协议版本         | enum     | SOAP 协议版本：soap1.1、soap1.2                         | 否       | soap1.1 |
 | 编码方式         | string   | SOAP Message 编码方式：UTF-8、UTF-16、ASCII、ISO-8859-1 | 否       | UTF-8   |
 | 请求超时时间（秒） | int      | SOAP请求超时时间（秒）（范围：0～300）                   | 否       | 60（s） |
@@ -42,19 +42,19 @@ SOAP 请求操作如下：
 
 | 参数                     | 数据类型 | 描述                                                         | 是否必填 | 默认值       |
 | ------------------------ | -------- | ------------------------------------------------------------ | -------- | ------------ |
-| 接口名称                 | string   | 请求 operation                                                | 是       |              |
-| 请求体                   | string   | SOAP Message body，只支持表达式输入                          | 是     |              |
-| 请求头                   | string   | SOAP Message headers，只支持表达式输入                       | 是       |              |
+| 接口名称                 | string   | 请求 operation                                                | 是       |    -          |
+| 请求体                   | string   | SOAP Message body，只支持表达式输入                          | 是     |     -         |
+| 请求头                   | string   | SOAP Message headers，只支持表达式输入                       | 是       |     -         |
 | Web Service Security 使能 | bool     | 是否通过可视化输入参数增加 Web Service Security 身份认证请求头 | 否       | false        |
 | WsseMustUnderstand 属性   | bool     | 请求接收者是否必须认可该请求头                               | 否       | true         |
-| UsernameTokenId 属性      | string   | Web Service Security 身份认证请求头 wsse:UsernameToken wsu:Id 属性值 | 否       |              |
-| 用户名                   | string   | Web Service Security身份认证请求头 wsse:Username 属性值        | 否       |              |
-| 密码                     | string   | Web Service Security身份认证请求头 wsse:Password 属性值        | 否       |              |
+| UsernameTokenId 属性      | string   | Web Service Security 身份认证请求头 wsse:UsernameToken wsu:Id 属性值 | 否       |       -       |
+| 用户名                   | string   | Web Service Security身份认证请求头 wsse:Username 属性值        | 否       |      -        |
+| 密码                     | string   | Web Service Security身份认证请求头 wsse:Password 属性值        | 否       |      -        |
 | 密码类型属性             | enum     | Web Service Security身份认证请求头 wsse:Password <br>Type类型：PasswordText、PasswordDigest | 否       | PasswordText |
 | 增加随机数属性           | bool     | 是否使用自动生成的随机数作为 wsse:Nonce 属性值                 | 否       | false        |
-| 用户自定义随机数         | string   | 用户自定义输入 Web Service Security 身份认证请求头 wsse:Nonce 属性值，此时增加随机数属性参数需设置为 false | 否       |              |
+| 用户自定义随机数         | string   | 用户自定义输入 Web Service Security 身份认证请求头 wsse:Nonce 属性值，此时增加随机数属性参数需设置为 false | 否       |  -            |
 | 增加创建时间属性         | bool     | 是否使用自动生成的创建时间作为 wsu:Created 属性值              | 否       | false        |
-| 用户自定义创建时间       | string   | 用户自定义输入 Web Service Security 身份认证请求头 wsu:Created 属性值，此时增加创建时间属性参数需设置为 false | 否       |              |
+| 用户自定义创建时间       | string   | 用户自定义输入 Web Service Security 身份认证请求头 wsu:Created 属性值，此时增加创建时间属性参数需设置为 false | 否       |   -           |
 
 ![](https://main.qcloudimg.com/raw/762833d4322e1b3f92640e3dcfad496a.png)
 
