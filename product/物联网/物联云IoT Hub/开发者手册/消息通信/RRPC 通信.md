@@ -24,7 +24,7 @@
 3. 设备端接收到消息之后截取请求消息 Topic 中云端下发的 processID，设备将应答消息 Topic 的 processID 设置为截取的 processID，并向应答消息 Topic 发布设备的返回消息 。
 4. 物联网通信平台接收到设备端返回消息之后，根据 processID 对消息进行匹配并将设备返回消息发送给服务器。
 
->! **RRPC 请求4s超时**，即4s内设备端没有应答就认为请求超时。
+>! **RRPC 请求10s超时**，即10s内设备端没有应答就认为请求超时。
 
 流程示意图如下：
 ![image.png](https://main.qcloudimg.com/raw/1e83a60cb7b6438ebb5927b7237b77ba.png)
