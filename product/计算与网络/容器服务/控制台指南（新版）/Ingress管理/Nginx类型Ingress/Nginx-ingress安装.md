@@ -15,14 +15,14 @@
 
 ## 安装方式
 您可以根据不同的业务场景需求，使用以下几种安装方案在容器服务 TKE 中安装 Nginx-ingress。
-- [通过 DaementSet 形式在指定节点池部署](#DaementSet)
+- [通过 DaemonSet 形式在指定节点池部署](#DaemonSet)
 - [通过 Deployment + HPA 形式并指定调度规则部署](#Deployment+HPA)
 - [Nginx 前端接入 LB 部署方式](#LB)
 
 
 
 
-### 通过 DaementSet 形式在指定节点池部署（推荐）[](id:DaementSet)
+### 通过 DaemonSet 形式在指定节点池部署（推荐）[](id:DaemonSet)
 
 Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务部署在相同的节点内。推荐您使用指定的节点池来部署 Nginx-ingress。部署架构如下图所示：
 ![](https://main.qcloudimg.com/raw/217e17c24988adbd643cec9b7af2a56c.png)
