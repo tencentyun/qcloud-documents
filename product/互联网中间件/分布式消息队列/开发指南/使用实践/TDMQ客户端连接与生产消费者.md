@@ -138,7 +138,6 @@ import javax.annotation.PreDestroy;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -158,7 +157,8 @@ public class ConsumerService implements Runnable {
     private volatile boolean start = false;
     private PulsarClient pulsarClient;
     private Consumer<String> consumer;
-    private Thread dispatcherThread;
+    private static final int corePoolSize = 10;
+    private static final int maximumPoolSize = 10;
 
     private ExecutorService executor;
     private static final Logger logger = LoggerFactory.getLogger(ConsumerService.class);
@@ -174,14 +174,9 @@ public class ConsumerService implements Runnable {
                 //.subscriptionType(SubscriptionType.Shared)
                 .subscriptionName(subscription)
                 .subscribe();
-        executor = new ThreadPoolExecutor(10, 10, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(100),
+        executor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(100),
                 new ThreadPoolExecutor.AbortPolicy());
         start = true;
-        //如果要求具备顺序性，则用单线程进行消费，dispatcherThread 为单线程消费示例
-        //dispatcherThread = new Thread(this, "tdmq-dispatcher");
-        //dispatcherThread.setDaemon(false);
-        //dispatcherThread.setUncaughtExceptionHandler((t, e) -> logger.error("tdmq consumer uncaught error", e));
-        //dispatcherThread.start();
     }
 
     @PreDestroy
@@ -201,17 +196,20 @@ public class ConsumerService implements Runnable {
     @Override
     public void run() {
         logger.info("tdmq consumer started...");
-        while (start) {
-            //一定要用在循环中用 try catch 包括消息的业务处理流程（onConsume 方法），否则可能出现业务卡住影响消费却无法感知
-            try {
-                Message<String> message = consumer.receive();
-                if (message == null) {
-                    continue;
+        for (int i = 0; i < maximumPoolSize; i++) {
+            executor.submit(() -> {
+                while (start) {
+                    try {
+                        Message<String> message = consumer.receive();
+                        if (message == null) {
+                            continue;
+                        }
+                        onConsumer(message);
+                    } catch (Exception e) {
+                        logger.warn("tdmq consumer business error", e);
+                    }
                 }
-                onConsumer(message);
-            } catch (Exception e) {
-                logger.warn("tdmq consumer business error", e);
-            }
+            });
         }
         logger.info("tdmq consumer stopped...");
     }
@@ -223,33 +221,16 @@ public class ConsumerService implements Runnable {
      * @return return true: 消息ack  return false: 消息nack
      * @throws Exception 消息nack
      */
-    private void onConsumer(Message<String> message) throws Exception {
-    //    单线程业务逻辑处理，直接在 dispatcherThread 中处理，严格保证消息顺序性
-    //    System.out.println(Thread.currentThread().getName()+" - message receive: " + message.getValue());
-    //    try {
-    //        Thread.sleep(1000);//模拟业务逻辑处理
-    //        tryAck(message);
-    //    }catch (Exception exception){
-    //        tryNack(message);
-    //        logger.error(Thread.currentThread().getName() + " - message processing failed：" + message.getValue());
-    //    }
-
-        //多线程业务逻辑处理,消息之间局部顺序不保证
+    private void onConsumer(Message<String> message) {
+        //业务逻辑,延时类操作
         try {
-            executor.submit(() -> {
-                //业务逻辑,延时类操作
-                try {
-                    System.out.println(Thread.currentThread().getName() + " - message receive: " + message.getValue());
-                    Thread.sleep(1000);//模拟业务逻辑处理
-                    consumer.acknowledge(message);
-                    logger.info(Thread.currentThread().getName() + " - message processing succeed：" + message.getValue());
-                } catch (Exception exception) {
-                    consumer.negativeAcknowledge(message);
-                    logger.error(Thread.currentThread().getName() + " - message processing failed：" + message.getValue());
-                }
-            });
-        } catch (RejectedExecutionException e) {
-            logger.error("Thread pool is exhausted! message={}", message.getValue());
+            System.out.println(Thread.currentThread().getName() + " - message receive: " + message.getValue());
+            Thread.sleep(1000);//模拟业务逻辑处理
+            consumer.acknowledge(message);
+            logger.info(Thread.currentThread().getName() + " - message processing succeed：" + message.getValue());
+        } catch (Exception exception) {
+            consumer.negativeAcknowledge(message);
+            logger.error(Thread.currentThread().getName() + " - message processing failed：" + message.getValue());
         }
     }
 }

@@ -1,4 +1,4 @@
-ts over SRT 推流通过 **SRT 协议**直接传输包含音视频数据的 ts 流，下行复用了现有直播系统。TS over SRT 已作为 Haivision 硬件及 OBS 的推流格式标准。
+TS over SRT 推流通过 **SRT 协议**直接传输包含音视频数据的 ts 流，下行复用了现有直播系统。TS over SRT 已作为 Haivision 硬件及 OBS 的推流格式标准。
 此种模式下，SRT 服务器会解析负载（TS），并转封装为 RTMP 协议，转推到后端 RTMP 服务器。
 ![](https://main.qcloudimg.com/raw/5ceb4e1d0d3a2e1f07bb601d17d04eb5.png)
 

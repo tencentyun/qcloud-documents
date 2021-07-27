@@ -16,12 +16,10 @@ Topic 是 TDMQ 中的核心概念。Topic 通常用来对系统生产的各类�
 1. 登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，在左侧导航栏单击【Topic 管理】。
 2. 在 Topic 管理页面，单击【新建】，弹出新建 Topic 的对话框。
 3. 在新建 Topic 对话框中，填写以下信息：
-
  - Topic 名称：只能包含字母、数字、“-”及“_”
  - 类型：选择消息类型，包括：普通、全局顺序、局部顺序（关于消息类型的说明，请参考 [消息类型](https://cloud.tencent.com/document/product/1179/44833)）
  - 分区数：全局顺序只有1个分区，其他为1-128个分区
  - 说明：填写 Topic 的说明信息，不超过128字符
-
 4. 单击【保存】，在 Topic 列表中即可看见创建好的 Topic。
    ![](https://main.qcloudimg.com/raw/3a53fe8fa4ae2e0e1307b8fccf2afc8f.png)
 
@@ -47,15 +45,12 @@ TDMQ 控制台支持手动发送消息，在控制台进行相应的操作即可
 ### 新增订阅
 
 TDMQ 控制台支持手动创建订阅，在控制台进行相应的操作后即可完成订阅的创建。
-
 1. 在【[Topic 管理](https://console.cloud.tencent.com/tdmq/topic)】中，找到需要创建订阅的 Topic ，单击操作列中的【新增订阅】。
 2. 在弹出的对话框中输入订阅的名称和说明。
-
  - 订阅名称：只能包含字母、数字、“-”及“_”
  - 自动创建重试&死信队列：可以选择是否创建重试和死信 Topic
  - 说明：不超过128字符
    ![](https://main.qcloudimg.com/raw/bc07c3f60f26b9e5521ec127cb171bea.png)
-
 3. 单击【提交】完成创建。
    创建后可通过单击操作列的【查看订阅】，查看订阅了该 Topic 的订阅，即可在列表中看到刚刚创建的订阅。
 
@@ -68,5 +63,5 @@ TDMQ 控制台支持手动创建订阅，在控制台进行相应的操作后即
 
 >!删除了 Topic 之后也会清除该 Topic 下积累的未消费消息，请谨慎执行。
 
-1.  在【[Topic 管理](https://console.cloud.tencent.com/tdmq/topic)】中，找到需要删除的 Topic ，单击操作列中的【删除】，或者勾选多个 Topic 之后单击 Topic 列表顶部的【删除】。
-2.  在弹出的提示框中，单击【提交】，完成删除。
+1. 在【[Topic 管理](https://console.cloud.tencent.com/tdmq/topic)】中，找到需要删除的 Topic ，单击操作列中的【删除】，或者勾选多个 Topic 之后单击 Topic 列表顶部的【删除】。
+2. 在弹出的提示框中，单击【提交】，完成删除。

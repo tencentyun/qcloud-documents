@@ -1,6 +1,6 @@
 当云联网与专线网关关联时，需为云联网配置下一跳为专线网关、目的端为 IDC 网段的路由策略，才可以实现网络通信。配置云联网路由策略有自定义手动填写（静态）和自动学习传递自动学习（BGP）两种方式，详情请参见[ 路由概述](https://cloud.tencent.com/document/product/877/38801)。本文将介绍如何在专线网关上配置 IDC 网段实现云联网路由传递。
 ## 升级说明
-专线网关添加发送网段（即 IDC 网段）功能于2020年05月19日进行灰度发布，灰度发布周期为30天。在新版使用过程中遇到问题请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
+专线网关添加发送网段（即 IDC 网段）功能于2020年07月8日进行灰度发布，灰度发布周期为30天。在新版使用过程中遇到问题请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
 变更内容：
 优化界面交互，便捷操作，提升用户可操作性、易用性。
 ## 背景信息
@@ -36,25 +36,31 @@
    1. （可选）在【发布规则】区域选择云联网实例。
       当前专线网关未配云联网或者更换云联网情况下可执行本步骤。
 	![](https://main.qcloudimg.com/raw/f50623ebd48351c081b5ea4ca7b21bde.png)
-   >?发布方式系统自动填充，默认【自定义】方式，如果需要【自动传递】方式请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
-   >
+	<dx-alert infotype="explain" title="">
+发布方式系统自动填充，默认【自定义】方式，如果需要【自动传递】方式请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
+</dx-alert>
    2. 在【网段详情】页面的【自定义】页签中单击【新建】，并填写发往云联网的网关信息，然后单击【保存】。
 	  ![](https://main.qcloudimg.com/raw/296ba61bf58e98f1496026909e74b994.png)
 		单击【保存】后，专项网关将配置的 IDC 网段发送给云联网。
-   >?发布的 IDC 网段数须小于等于100个。如需超额请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
+<dx-alert infotype="explain" title="">
+发布的 IDC 网段数须小于等于100个。如需超额请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
+</dx-alert>
+
 :::
 ::: 自动传递方式
 即原BGP模式。如需使用请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
    1. （可选）在【发布规则】区域选择云联网实例。
       当前专线网关未配云联网或者更换云联网情况下可执行本步骤。
 	![](https://main.qcloudimg.com/raw/8b4156d0ee5f0ff6233abb01f6d651da.png)
-   >?
-  > - 开启本功能后系统勾选【自动传递】。如果有自定义使用场景，请勾选【自定义】进行配置。
-  > - 自定义模式和自动传递模式二者只能生效其一。
-	>
+<dx-alert infotype="explain" title="">
+- 开启本功能后系统勾选【自动传递】。如果有自定义使用场景，请勾选【自定义】进行配置。
+- 自定义模式和自动传递模式二者只能生效其一。
+</dx-alert>
    2. 配置 IDC 网段。
      在【自动传递】方式下专线网关自动学习 IDC 网段信息，无须配置。![](https://main.qcloudimg.com/raw/b3070526cb406520ec6bf83447a9754e.png)
-		>?更新时间存在一分钟延时，若当前 IDC 网段有更新，请手动刷新页面。
+		 <dx-alert infotype="explain" title="">
+更新时间存在一分钟延时，若当前 IDC 网段有更新，请手动刷新页面。
+</dx-alert>
      :::
      ::: 模式切换须知
      发送网关的 IDC 网段到云联网的两种方式支持互相切换。

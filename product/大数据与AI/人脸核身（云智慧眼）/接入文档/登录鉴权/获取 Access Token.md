@@ -1,10 +1,11 @@
 ## 注意事项
 - 所有场景默认采用 UTF-8 编码。
-- Access Token 必须缓存在磁盘并定时刷新，建议每20分钟请求新的 Access Token，原 Access Token 2小时（7200秒）失效，获取之后请立即使用最新的 Access Token。
-- 每次用户登录时必须重新获取 ticket。
+- **Access Token 必须缓存在磁盘，并定时刷新，且不能并发刷新，建议每20分钟请求新的 Access Token，获取之后立即使用最新的 Access Token。旧的只有一分钟的并存期。**
+- **如果未按照上述做定时刷新，可能导致鉴权不通过，影响人脸服务正常调用。**
+- **每次用户登录时必须重新获取 NONCE ticket。**
 
 ## 请求
-- **请求 URL：**`https://idasc.webank.com/api/oauth2/access_token`
+- **请求 URL：**`https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/access_token`
 - **请求方法**：`GET`
 - **请求参数：**
 <table><tbody>
@@ -36,7 +37,7 @@
 </tbody></table>
 - **请求示例：**
 ```
-https://idasc.webank.com/api/oauth2/access_token?app_id=xxx&secret=xxx&grant_type=client_credential&version=1.0.0
+https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/access_token?app_id=xxx&secret=xxx&grant_type=client_credential&version=1.0.0
 ```
 
 ## 响应

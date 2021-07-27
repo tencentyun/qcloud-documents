@@ -15,8 +15,8 @@
 <tbody>
   <tr>
     <td>SecureSite</td>
-    <td>不支持</td>
-    <td>不支持</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
     <td>不支持</td>
     <td>不支持</td>
     <td>不支持</td>
@@ -24,7 +24,7 @@
   </tr>
   <tr>
     <td>GeoTrust</td>
-    <td>不支持</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
     <td>-</td>
     <td>-</td>
     <td>-</td>
@@ -33,7 +33,7 @@
   </tr>
   <tr>
     <td>TrustAsia</td>
-    <td>支持</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
     <td>-</td>
     <td>不支持</td>
     <td>-</td>
@@ -42,7 +42,7 @@
   </tr>
   <tr>
     <td>GlobalSign</td>
-    <td>不支持</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
     <td>-</td>
     <td>-</td>
     <td>-</td>
@@ -60,11 +60,11 @@
   </tr>
   <tr>
     <td>DNSPod </td>
-    <td>支持</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
     <td>-</td>
     <td>-</td>
     <td>-</td>
-    <td>支持</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
     <td>-</td>
   </tr>
 </tbody>

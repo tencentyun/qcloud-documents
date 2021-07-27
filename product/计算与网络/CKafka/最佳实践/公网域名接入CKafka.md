@@ -6,24 +6,18 @@
 ## 前提条件
 
 已 [创建实例](https://cloud.tencent.com/document/product/597/53207)。
-
-已[创建Topic](https://cloud.tencent.com/document/product/597/20247)。
+已 [创建 Topic](https://cloud.tencent.com/document/product/597/20247)。
 
 ## 操作步骤
 
 ### 创建公网路由
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
-
 2. 在左侧导航栏选择【实例列表】，单击目标实例 ID，进入实例基本信息页面。
-
 3. 在实例基本信息页面，单击【接入方式】模块的【添加路由策略】。
-
    - 路由类型：公网域名接入
    - 接入方式：目前只支持 SASL_PLAINTEXT
-
   ![](https://main.qcloudimg.com/raw/65be6a54e2a2abcf1cd5c3b1507dca7d.png)
-
 3. 单击【提交】，接入方式下将显示该路由策略。
    ![](https://main.qcloudimg.com/raw/642337483d8e59cbdc55cb96e81faf4b.png)
 
@@ -33,11 +27,8 @@
 ### 创建用户
 
 1. 在实例基本信息页面，选择顶部的【用户管理】页签。
-
 2. 在用户管理页面，单击【新建】，填写用户名和密码，创建一个用户。
-
   ![](https://main.qcloudimg.com/raw/971325c47e11c07ee728f82b50d54a7b.png)
-
 3. 单击【提交】，新增的用户将显示在用户管理列表中。
    ![](https://main.qcloudimg.com/raw/c427790899d8ff8e0d4d8f88ddd126fe.png)
 
@@ -115,9 +106,7 @@ Properties props = new Properties();
 ```
 
 >?除了使用 properties 添加 sasl.jaas.config 配置的方式，您也可以通过 System.setProperty 或 -D 的方式传入。
->
 >- System.setProperty("java.security.auth.login.config", "/etc/ckafka_client_jaas.conf");
->
 >- `ckafka_client_jaas.conf` 文件的内容如下：
 
 ```java
