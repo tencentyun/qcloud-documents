@@ -25,47 +25,5 @@ blufi 蓝牙辅助方式配网及设备绑定的示例流程图如下：
 8. 如果设备成功上报了 Token，物联网后台服务已确认 Token 有效性，小程序会提示配网完成，设备添加成功。
 
 ### ESP32 使用 蓝牙辅助 配网接口
-配网协议在 ESP32 设备端的参考代码，请参见 GitHub 工程 [qcloud-iot-esp-wifi](https://github.com/tencentyun/qcloud-iot-esp-wifi)。
+配网协议在 ESP32 设备端的参考代码，请参见 GitHub 工程 [qcloud-iot-esp-wifi](https://github.com/espressif/esp-qcloud/tree/master/src/provisioning)。
 
-#### 配网代码示例
-在 qcloud-iot-esp32-demo/main/wifi_config 目录下，提供了蓝牙辅助配网在 ESP32 上面的参考实现，用户可以使用 qcloud-iot-esp32-demo 工程进行体验。
-
-#### 使用示例
-配网接口说明请查看 wifi_config/qcloud_wifi_config.h，可以按照下面方式使用：
-```c
-int ret = start_ble_combo();
-if (ret) {
-    Log_e("start wifi config failed: %d", ret);
-} else {
-    /* max waiting: 150 * 2000ms */
-    int wait_cnt = 150;
-    do {
-        Log_d("waiting for wifi config result...");
-        HAL_SleepMs(2000);
-        wifi_connected = is_wifi_config_successful();
-		token_check_status = is_token_config_successful();
-    } while (!wifi_connected && wait_cnt--);
-}
-
-if (wifi_connected && token_check_status)
-{
-	setup_sntp();
-	Log_i("WiFi is ready, to do Qcloud IoT demo");
-	Log_d("timestamp now:%d", HAL_Timer_current_sec());
-	qcloud_iot_explorer_demo(CONFIG_DEMO_EXAMPLE_SELECT);
-} 
-
-```
-
-#### 代码设计说明
-配网代码将核心逻辑与平台相关底层操作分离，便于移植到不同的硬件设备上。
-
-| 代码 | 设计说明 |
-|---------|---------|
-| `qcloud_wifi_config.c` | 配网相关接口实现，包括 UDP 服务及 MQTT 连接及 Token 上报，主要依赖腾讯云物联网 C-SDK 及 FreeRTOS/lwIP 运行环境。 |
-|`wifi_config_esp.c`|设备硬件 Wi-Fi 操作相关接口实现，依赖于 ESP8266 RTOS，当使用其他硬件平台时，需要进行移植适配。|
-|`wifi_config_error_handle.c`|设备错误日志处理，主要依赖于 FreeRTOS。|
-|`wifi_config_log_handle.c`|设备配网日志收集和上报，主要依赖于 FreeRTOS。|
-
-#### 配网代码示例及移植指引
-配网协议的设备端代码，详情请参见 [配网代码说明和移植指引](https://github.com/tencentyun/qcloud-iot-esp-wifi)。
