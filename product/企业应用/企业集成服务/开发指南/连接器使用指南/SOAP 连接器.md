@@ -43,8 +43,8 @@ SOAP 请求操作如下：
 | 参数                     | 数据类型 | 描述                                                         | 是否必填 | 默认值       |
 | ------------------------ | -------- | ------------------------------------------------------------ | -------- | ------------ |
 | 接口名称                 | string   | 请求 operation                                                | 是       |              |
-| 请求体                   | string   | SOAP Message body，只支持表达式输入                          | 否       |              |
-| 请求头                   | string   | SOAP Message headers，只支持表达式输入                       | 否       |              |
+| 请求体                   | string   | SOAP Message body，只支持表达式输入                          | 是     |              |
+| 请求头                   | string   | SOAP Message headers，只支持表达式输入                       | 是       |              |
 | Web Service Security 使能 | bool     | 是否通过可视化输入参数增加 Web Service Security 身份认证请求头 | 否       | false        |
 | WsseMustUnderstand 属性   | bool     | 请求接收者是否必须认可该请求头                               | 否       | true         |
 | UsernameTokenId 属性      | string   | Web Service Security 身份认证请求头 wsse:UsernameToken wsu:Id 属性值 | 否       |              |
