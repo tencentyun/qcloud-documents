@@ -18,13 +18,16 @@ tar -zxvf goosefs-1.0.0-bin.tar.gz
 cd goosefs-1.0.0
 ```
  解压后，得到 goosefs-1.0.0，即 GooseFS 的主目录。下文将以 `${GOOSEFS_HOME}` 代指该目录的绝对路径。
-3. 在 `${GOOSEFS_HOME}/conf` 的目录下，创建 `conf/goosefs-site.properties` 的配置文件，可以使用内置的配置模板：
+ 
+3. 在 `/etc/goosefs/conf` 目录下，创建 `goosefs-site.properties` 配置文件，在 ${GOOSEFS_HOME}/conf 目录下存在一个内置的配置模板，可以作为您的配置参考：
 ```shell
-$ cp conf/goosefs-site.properties.template conf/goosefs-site.properties
+$ cp conf/goosefs-site.properties.template /etc/goosefs/conf/goosefs-site.properties
 ```
-4. 在配置文件 `conf/goosefs-site.properties` 中，将 goosefs.master.hostname 设置为`localhost`：
+注意，如果您没有 /etc/ 目录下的文件创建权限，您可以在个人的 HOME 目录 ~/.goosefs 下，创建配置文件。
+
+4. 在配置文件 `goosefs-site.properties` 中，将 goosefs.master.hostname 设置为`localhost`：
 ```shell
-$ echo"goosefs.master.hostname=localhost">> conf/goosefs-site.properties
+$ echo"goosefs.master.hostname=localhost">> goosefs-site.properties
 ```
 
 ## 启用 GooseFS
