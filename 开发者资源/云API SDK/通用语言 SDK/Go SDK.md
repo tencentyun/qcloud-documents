@@ -372,13 +372,12 @@ func (c *Client) DescribeInstances(request *DescribeInstancesRequest) (response 
 
 ### 网络错误重试
 
-当发生临时网络错误或超时时，SDK可以被配置为自动重试。默认不开启。通过 `ClientProfile` 配置重试次数和重试间隔时间。
+当发生临时网络错误或超时时，SDK 可以被配置为自动重试。默认不开启。通过 `ClientProfile` 配置重试次数和重试间隔时间。
 
 >?通过反射检查 `Request` 结构体是否存在 `ClientToken` 字段，存在该字段则认为是幂等请求。幂等请求才会在网络错误时自动重试，非幂等请求会抛出异常，防止请求多次重放造成结果不一致。
 
 ```golang
 package main
-
 import (
 	     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
 	     "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
