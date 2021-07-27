@@ -489,7 +489,65 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMCustomElemExt | string | 读写 | 后台推送对应的 ext 字段 |
 | kTIMCustomElemSound | string | 读写 | 自定义声音 |
 
->?自定义消息是指当内置的消息类型无法满足特殊需求，开发者可以自定义消息格式，内容全部由开发者定义，IM SDK 只负责透传。
+>?自定义消息是指当内置的消息类型无法满足特殊需求，开发者可以自定义消息格式，`kTIMCustomElemData` 可以存储二进制信息（必须转换成 String，JSON 不支持二进制传输） 内容全部由开发者定义，IM SDK 只负责透传。
+
+
+
+使用  kTIMCustomElemData  发送二进制数据
+
+```c++
+// base16 的编码 ----- 示例代码仅供参考
+std::string string_to_hex(const char *pBuffer, const int length) {
+    std::string in(pBuffer, length);
+    std::stringstream ss;
+    ss << std::hex << std::setfill('0');
+    for (size_t i = 0; in.length() > i; ++i) {
+        ss << std::setw(2) << static_cast<unsigned int>(static_cast<unsigned char>(in[i]));
+    }
+    return ss.str(); 
+}
+
+// 获取二进制代码
+std::string filename = local_cache_path + "/test.png";
+std::ifstream istream(filename, std::ios::binary);
+istream.seekg(0, std::ios::end);
+uint32_t length = istream.tellg();
+istream.seekg(0, std::ios::beg);
+char *pBuffer = (char*)malloc(len);
+istream.read(buffer, len);
+std::string  base16string = string_to_hex(std::string(buffer, length));
+
+// 组装 JSON
+json::Object json_element;
+json_element[kTIMElemType] = kTIMElem_Custom;
+json_element[kTIMCustomElemData] = base16string.c_str();
+json_element[kTIMCustomElemDesc] = "description";
+json_element_array.push_back(json_element);
+```
+
+ 使用 kTIMCustomElemData  接收二进制数据
+
+```c++
+// base16 的解码 ----- 示例代码仅供参考
+std::string hex_to_string(const std::string& in) {
+    std::string output;
+    size_t cnt = in.length() / 2;
+    for (size_t i = 0; cnt > i; ++i) {
+        uint32_t s = 0;
+        std::stringstream ss;
+        ss << std::hex << in.substr(i * 2, 2);
+        ss >> s;
+
+        output.push_back(static_cast<unsigned char>(s));
+    }
+    return output;
+}
+
+// 解析 JOSN
+std::string content = hex_to_string(json_element[kTIMCustomElemData]);
+const char* pBuffer = content.c_str();
+int length = content.size();
+```
 
 
 ### FileElem
@@ -1467,5 +1525,4 @@ UUID 类型。
 | kTIMFriendshipCheckFriendTypeResultRelation | uint [TIMFriendCheckRelation](#timfriendcheckrelation) | 只读 | 检测成功时返回的二者之间的关系 |
 | kTIMFriendshipCheckFriendTypeResultCode | int [错误码](https://cloud.tencent.com/document/product/269/1671) | 只读 | 检测的结果 |
 | kTIMFriendshipCheckFriendTypeResultDesc | string | 只读 | 检测好友失败的描述信息 |
-
 
