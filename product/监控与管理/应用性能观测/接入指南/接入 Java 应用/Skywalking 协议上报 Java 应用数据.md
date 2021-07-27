@@ -18,7 +18,7 @@
 - 若您还未使用 SkyWalking，建议 [下载最新版本](http://skywalking.apache.org/downloads/?spm=a2c4g.11186623.2.12.65355968AbUoDc)，下载方式参见 [前提条件](#before)。
 
 ### 步骤3：配置相应参数及名称
-打开 config/agent.config 文件，配置接入点、 Token 和自定义服务名称。
+打开 agent/config/agent.config 文件，配置接入点、 Token 和自定义服务名称。
 
 ```
 collector.backend_service=<接入点>
