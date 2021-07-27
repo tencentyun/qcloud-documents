@@ -1,7 +1,7 @@
 BOT概览展示了网站业务的爬虫请求监控数据和防爬规则的防护效果数据。
 
 ## 前提条件
-您已经购买[ Web 应用防火墙套餐](https://buy.cloud.tencent.com/buy/waf)，完成防护域名添加，域名处于正常防护状态，并且完成域名 BOT 检测功能开通。
+已购买[ Web 应用防火墙套餐](https://buy.cloud.tencent.com/buy/waf)，完成防护域名添加，域名处于正常防护状态，并且域名 BOT 检测功能已开通。
 >? 
 >- 只有 WAF 企业版和旗舰版支持 BOT 行为管理，高级版用户建议升级到企业版或旗舰版。
 >- 完成 WAF 域名接入，并开启 WAF 防护开关。
@@ -22,4 +22,11 @@ BOT概览展示了网站业务的爬虫请求监控数据和防爬规则的防�
  - 公开类型：展示公开类型的 BOT 数量，单击“数字”，可跳转至动态行为分析，跟踪公开类型的 BOT 的行为。
 4.  在 BOT 请求流量类型模块，展示在对应的时间点 BOT 的分布情况。
 ![](https://main.qcloudimg.com/raw/eaeacd48f5bf3ce0c6b76d35e9b406ef.png)
-5. 
+5. BOT 请求量域名TOP5 统计：展示在总体流量中，BOT 请求量 TOP5 的域名。单击可跳转到BOT 报表详情页面。
+![](https://main.qcloudimg.com/raw/e5340b2348c87323596def5eede4f661.png)
+6. BOT 请求量URL TOP5 统计：展示在总体流量中，BOT 请求量 TOP5 的URL。单击可跳转到BOT 报表详情页面。
+![](https://main.qcloudimg.com/raw/f8cdaf80dc715e644a2870003db406a5.png)
+7. BOT 流量占比：展示在总体流量中，各类型的 BOT 的占比。
+![](https://main.qcloudimg.com/raw/d79b8e6521ac58c70f6f254d4b023c29.png)
+8. BOT 动作占比：展示在总体流量中，对所有 BOT 的动作的占比。
+![](https://main.qcloudimg.com/raw/f09de88f84eca5c87b103264f18fe7ed.png)
