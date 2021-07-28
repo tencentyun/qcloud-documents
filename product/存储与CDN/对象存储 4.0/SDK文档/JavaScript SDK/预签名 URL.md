@@ -13,7 +13,8 @@ COS XML API 的请求里，私有资源操作都需要鉴权凭证 Authorization
 
 COS.getAuthorization 方法用于计算鉴权凭证（Authorization），用以验证请求合法性的签名信息。
 
-> !该方法推荐只在前端调试时使用，项目上线不推荐使用前端计算签名的方法，有暴露密钥的风险。
+>! 该方法推荐只在前端调试时使用，项目上线不推荐使用前端计算签名的方法，有暴露密钥的风险。
+>
 
 #### 使用示例
 
@@ -125,7 +126,7 @@ cos.getObjectUrl({
 
 ### 上传请求示例
 
-示例一：获取预签名 Put Object 上传 Url。
+示例一：获取预签名 Put Object 上传 Url
 
 [//]: # (.cssg-snippet-get-presign-upload-url)
 ```js
