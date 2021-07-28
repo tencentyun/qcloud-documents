@@ -30,18 +30,23 @@
 
 #### 本地开发
 
-1. 参考 Laravel [官网文档](https://laravel.com/docs/8.x#getting-started-on-macos) 在本地环境，完成 Laravel 的开发环境搭建。
+1. 参考 [Laravel](https://laravel.com/docs/8.x#getting-started-on-macos) 官方文档，在本地环境中完成 Laravel 的开发环境搭建。
 2. 在本地创建 Laravel 示例项目。进入项目目录下，执行以下命令，初始化 Laravel 示例应用：
-```shell
+<dx-codeblock>
+:::  sh
 composer create-project --prefer-dist laravel/laravel blog
-```
+:::
+</dx-codeblock>
 3. 执行以下命令，在本地启动示例项目。示例如下：
-```shell
+<dx-codeblock>
+:::  sh
 $ php artisan serve --host 0.0.0.0 --port 9000
    Laravel development server started: <http://0.0.0.0:9000>
    [Wed Jul  7 11:22:05 2021] 127.0.0.1:54350 [200]: /favicon.ico
-```
-4. 打开浏览器访问 `http://0.0.0.0:9000`，即可在本地完成 Laravel 示例项目的访问。
+:::
+</dx-codeblock>
+4. 打开浏览器访问 `http://0.0.0.0:9000`，即可在本地完成 Laravel 示例项目的访问。如下图所示：
+![](https://main.qcloudimg.com/raw/38c23a62b4ad72f777f9469af7c60c49.png)
 
 
 
@@ -81,7 +86,7 @@ export APP_STORAGE=/tmp/storage
 mkdir -p /tmp/storage/framework/views
 ```
 3. **修改监听地址与端口**
-在 Web 函数内，限制了监听端口必须为**9000**，因此需要在 `scf_bootstrap` 中通过以下命令指定监听端口：
+在 Web 函数内，限制了监听端口必须为`9000`，因此需要在 `scf_bootstrap` 中通过以下命令指定监听端口：
 ```sh
 /var/lang/php7/bin/php artisan serve --host 0.0.0.0 --port 9000
 ```
@@ -92,14 +97,14 @@ mkdir -p /tmp/storage/framework/views
 	1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的【函数服务】。
 	2. 在主界面上方选择期望创建函数的地域，并单击【新建】，进入函数创建流程。
 	3. 选择【自定义创建】新建函数，根据页面提示配置相关选项。如下图所示：
-	![](https://main.qcloudimg.com/raw/b1b672ad7e46218e66232430a68a830e.png)
+	![](https://main.qcloudimg.com/raw/783db24ab94568c430e84a3dae99f84d.png)
 		- **函数类型**：选择 “Web 函数”。
 		- **函数名称**：填写您自己的函数名称。
 		- **地域**：填写您的函数部署地域，例如成都。
 		- **部署方式**：选择“代码部署”，上传您的本地项目。
-		- **运行环境**：选择 “Python3.6”。
-	4. 部署完成后，单击生成的 URL，即可访问您的 Laravel 应用。
-
+		- **运行环境**：选择 “Php7”。
+	4. 部署完成后，单击生成的 URL，即可访问您的 Laravel 应用。如下图所示：
+![](https://main.qcloudimg.com/raw/a30df3d4ef68cc608bd01871f23bfba0.png)
 
 
 
