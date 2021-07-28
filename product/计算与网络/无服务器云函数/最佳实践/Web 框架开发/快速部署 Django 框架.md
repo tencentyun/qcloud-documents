@@ -28,7 +28,7 @@
 
 #### 本地开发
 
-1. 执行以下命令，确认您本地的环境已安装好 Flask。
+1. 执行以下命令，确认您本地的环境已安装好 Django。
 ```shell
 python -m pip install Django
 ```
