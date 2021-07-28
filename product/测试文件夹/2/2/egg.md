@@ -23,7 +23,7 @@
 6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Egg 项目。单击左侧菜单栏中的【触发管理】，查看访问路径。如下图所示：
 ![](https://main.qcloudimg.com/raw/31e9dc19d9f9281193648e213eb768e1.png)
 7. 单击访问路径 URL，即可访问服务 Egg 项目。如下图所示：
-![](https://main.qcloudimg.com/raw/b9b7f3e8236451dad150ed3605de7ccf.png)
+![](https://main.qcloudimg.com/raw/cbe882be3adedb3880a3f0026dbc82c9.png)
 
 
 
@@ -62,7 +62,7 @@ open http://localhost:7001
 - 新增 `scf_bootstrap` 启动文件。
 
 具体步骤如下：
-1. 在项目根目录下新建 `scf_bootstrap` 启动文件，在该文件添加如下内容（用于配置环境变量和启动服务，此处仅为示例，具体操作请以您实际业务场景来调整）：
+1. 在项目根目录下新建 `scf_bootstrap` 启动文件，在该文件添加如下内容（用于配置环境变量和启动服务，此处仅为示例，具体操作请以您实际业务场景进行调整）：
 <dx-codeblock>
 :::  sh
 #!/var/lang/node12/bin/node
