@@ -65,17 +65,18 @@
 
 ## 常见问题
 
-### 支持的平台
-目前支持iOS和Android两个平台，另外Windows和Mac版正在开发中，敬请期待
+### 支持哪些平台？
+目前支持 iOS 和 Android 两个平台，另外 Windows 和 Mac 版正在开发中，敬请期待。
+
 ### Android 单击 Build And Run 报错找不到可用设备？
 确保设备没被其他资源占用，或单击 Build 生成 apk 包，再拖动进模拟器里运行。
 
 ### iOS 第一次运行报错？
 按照上面的 Demo 运行配置后，如果报错，可以单击【Product】>【Clean】，清除产物后重新 Build，或者关闭 Xcode 重新打开再次 Build。
-### 2019.04版Unity，iOS平台报错
+### 2019.04版 Unity，iOS 平台报错？
 `Library/PackageCache/com.unity.collab-proxy@1.3.9/Editor/UserInterface/Bootstrap.cs(23,20): error CS0117: 'Collab' does not contain a definition for 'ShowChangesWindow'`
-解决方法：在Editor工具栏Window > Package Manager下把Unity Collaborate降级到1.2.16
+在 Editor 工具栏单击【Window】>【Package Manager】，将 Unity Collaborate 降级到1.2.16。
 
-### 2019.04版Unity，iOS平台报错
+### 2019.04版 Unity，iOS 平台报错？
 `Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Editor/TMP_PackageUtilities.cs(453,84): error CS0103: The name 'VersionControlSettings' does not exist in the current context`
-解决办法：打开源码，把`|| VersionControlSettings.mode != "Visible Meta Files"`这部分代码删除
+打开源码，把`|| VersionControlSettings.mode != "Visible Meta Files"`这部分代码删除即可。
