@@ -1,6 +1,6 @@
 本文介绍 URL 函数的语法及示例。
 
->? 当前 CLS 函数仅支持重庆地域使用。其他地域如有需要，请 [提交工单](https://console.cloud.tencent.com/workorder/category)。
+>? 当前日志服务已支持大部分地域使用 CLS 函数。北京、上海、广州、南京地域如有需要，请 [提交工单](https://console.cloud.tencent.com/workorder/category)。
 >
 
 ## 语法格式
