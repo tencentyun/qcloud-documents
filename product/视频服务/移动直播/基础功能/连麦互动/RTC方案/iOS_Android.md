@@ -207,9 +207,10 @@ playerA.startPlay(playURLA);
 
 #### 5. 连麦成功后，进行混流
 
-为了保证观众可以看到连麦观众B的画面，这里主播A需要发起一次混流操作。也就是将主播A自己和连麦观众B，混合成一路流。观众可以在一路流上看到主播和连麦观众进行互动。 A 调用 `setMixTranscodingConfig` 接口启动云端混流，调用时需要设置音频相关的参数，比如 音频采样率 `audioSampleRate`、音频码率 `audioBitrate` 和 声道数 `audioChannels` 等。如果您的业务场景中也包含视频，需同时设置视频相关的参数，比如视频宽度`videoWidth`、视频高度 `videoHeight`、视频码率 `videoBitrate`、视频帧率 `videoFramerate` 等。
+为了保证观众可以看到连麦观众B的画面，这里主播 A 需要发起一次混流操作。也就是将主播A自己和连麦观众 B，混合成一路流。观众可以在一路流上看到主播和连麦观众进行互动。 A 调用 setMixTranscodingConfig 接口启动云端混流，调用时需要设置音频相关的参数，例如 `音频采样率 audioSampleRate`、`音频码率 audioBitrate` 和 `声道数 audioChannels` 等。
+如果您的业务场景中也包含视频，需同时设置视频相关的参数，例如 `视频宽度 videoWidth`、`视频高度 videoHeight`、`视频码率 videoBitrate`、`视频帧率 videoFramerate` 等。
 
-下面是示例代码：
+**示例代码**：
 ```java
 V2TXLiveDef.V2TXLiveTranscodingConfig config = new V2TXLiveDef.V2TXLiveTranscodingConfig();
 // 设置分辨率为 720 × 1280, 码率为 1500kbps，帧率为 20FPS
@@ -313,7 +314,7 @@ playerB.startPlay(playURLB);
 </dx-codeblock>
 4. **PK 成功后**，主播 A 和主播 B 的观众各自调用 `V2TXLivePlayer` 开始播放另外一名主播的推流内容。
 
-> ? 此处开发者可能会有疑问：貌似新的RTC连麦方案还需要我们自己维护一套房间和用户状态，这样不是更麻烦吗？是的，**没有更好的方案，只有更适合自己的方案**，我们也有考虑到这样的场景：
+> ? 此处开发者可能会有疑问：貌似新的 RTC 连麦方案还需要我们自己维护一套房间和用户状态，这样不是更麻烦吗？是的，**没有更好的方案，只有更适合自己的方案**，我们也有考虑到这样的场景：
 > - 如果对时延和并发要求并不高的场景，可以继续使用连麦互动的旧方案。
 > - 如果既想用到 V2 相关的接口，但是又不想维护一套单独的房间状态，可以尝试搭配 [腾讯云 IM SDK](https://cloud.tencent.com/document/product/269)，快速实现相关逻辑。
 
@@ -570,5 +571,5 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 #### 5. RTC连麦方案的时延性有可以参考的数据吗？
 新的 RTC 连麦方案中，主播连麦的延时 < 200ms，主播和观众的延时在 100ms - 1000ms。
 
-#### 6. RTC 推流成功后，使用CDN拉流一直提示404；
-检查一下是否有开启实时音视频服务的旁路直播功能，基本原理是RTC协议推流后，如果需要使用CDN播放，RTC会在后台服务中旁路流信息到CDN上；
+#### 6. RTC 推流成功后，使用 CDN 拉流一直提示404？
+检查一下是否有开启实时音视频服务的旁路直播功能，基本原理是 RTC 协议推流后，如果需要使用 CDN 播放，RTC会在后台服务中旁路流信息到 CDN 上。
