@@ -167,7 +167,7 @@ cos.getObjectUrl({
 | Protocol    | 可选填为`http:`或`https:`，默认为`http:`（带冒号）                         | String | 否   |
 | Domain    | 存储桶访问域名，默认为 {BucketName-APPID}.cos.{Region}.myqcloud.com     | String | 否   |
 | Method  | 操作方法，如 get，post，delete， head 等 HTTP 方法，默认为 get | String  | 否   |
-| Query   | 参与签名计算的 query 参数对象                                | Object  | 否   |
+| Query   | 参与签名计算的 query 参数对象，{key: 'val'} 的格式                                | Object  | 否   |
 | Headers | 参与签名计算的 header 参数对象                               | Object  | 否   |
 | Expires | 签名几秒后失效，默认为900秒                                  | Number  | 否   |
 
