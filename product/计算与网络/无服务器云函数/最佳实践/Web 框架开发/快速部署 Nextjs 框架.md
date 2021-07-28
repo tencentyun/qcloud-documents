@@ -3,9 +3,17 @@
 本文将为您指导如何通过 Web Function，将您的本地 Next.js SSR 项目快速部署到云端。
 
 
+
+>?本文档主要介绍控制台部署方案，您也可以通过命令行完成部署，详情请参见 [命令行部署 Web 函数](https://cloud.tencent.com/document/product/583/58183)。
+
+
+
 ## 前提条件
-- 在使用腾讯云云函数服务之前，您需要 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F) 并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
-> 本文档主要介绍控制台部署方案，您也可以通过命令行完成部署，请参考具体操作请参考[产品文档](https://cloud.tencent.com/document/product/583/58183)
+
+在使用腾讯云云函数服务之前，您需要 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F) 并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+
+
+
 
 ## 操作步骤
 
@@ -14,15 +22,14 @@
 1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的【函数服务】。
 2. 在主界面上方选择期望创建函数的地域，并单击【新建】，进入函数创建流程。
 3. 选择使用【模版创建】来新建函数，在搜索框里输入 `webfunc` 筛选函数模版，选择【Next.js 框架模版】并单击【下一步】。如下图所示：
-![](https://main.qcloudimg.com/raw/589abb33e0140d96e10f3ca0094c881b.png)
+![](https://main.qcloudimg.com/raw/bfaf9cf6e08135ba5a34650c1e93eb25.png)
 4. 在“配置”页面，您可以查看模版项目的具体配置信息并进行修改。
 5. 单击【完成】即可创建函数。函数创建完成后，您可在“函数管理”页面，查看 Web 函数的基本信息。
 6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Next.js 项目。单击左侧菜单栏中的【触发管理】，查看访问路径。如下图所示：
-![](https://main.qcloudimg.com/raw/7687790fe50d4ad93f51cf6a13fbd770.png)
+![](https://main.qcloudimg.com/raw/ceb1e9969e298e059da451d6b3d5f864.png)
 7. 单击访问路径 URL，即可访问服务 Next.js 项目。如下图所示：
-![](https://main.qcloudimg.com/raw/08850522bb5c19b2adf73032001b4bf6.png)
-
-> 说明：由于 Nextjs 框架每次部署前需要重新构建，请确保本地更新代码并且重新 `build` 之后再部署
+![](https://main.qcloudimg.com/raw/54c75165400e9ce84e49cb2f9edc1faf.png)
+>?由于 Nextjs 框架每次部署前需要重新构建，请确保本地更新代码并且重新 `build` 之后再进行部署。
 
 
 ### 自定义部署 -- 快速迁移本地项目上云
@@ -35,17 +42,16 @@
 #### 本地开发
 
 1. 参考 [Next.js](https://nextjs.org/docs) 官方文档，安装并初始化您的 Next.js 项目：
-
 ```sh
 npx create-next-app
 ```
-
 2. 在根目录下，执行以下命令在本地直接启动服务。
 ```shell
 cd my-app && npm run dev
 ```
-3. 打开浏览器访问 `http://localhost:3000`，即可在本地完成 Next.js 示例项目的访问。
+3. 打开浏览器访问 `http://localhost:3000`，即可在本地完成 Next.js 示例项目的访问。如下图所示：
 ![](https://main.qcloudimg.com/raw/6f6248b229b0af261e82395f0cefd227.png)
+
 
 #### 部署上云
 
@@ -56,20 +62,23 @@ cd my-app && npm run dev
 
 具体步骤如下：
 1. 在项目根目录下新建 `scf_bootstrap` 启动文件，在该文件添加如下内容（用于启动服务并指定启动端口）：
-```sh
+<dx-codeblock>
+:::  sh
 #!/var/lang/node12/bin/node
-
 const { nextStart } = require('next/dist/cli/next-start');
 nextStart([ '--port', '9000', '--hostname', '0.0.0.0' ])
-```
->! 说明：
-> 1. 此处仅为示例启动文件，具体请根据您的业务场景进行调整
-> 2. 示例使用的是云函数标准 node 环境路径，本地调试时，注意修改成您的本地路径
-
+:::
+</dx-codeblock>
+<dx-alert infotype="notice" title="">
+- 此处仅为示例启动文件，具体请根据您的业务场景进行调整。
+- 示例使用的是云函数标准 Node 环境路径，本地调试时，需修改成您的本地路径。
+</dx-alert>
 2. 新建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可正常启动。示例如下：
-```sh
+<dx-codeblock>
+:::  sh
 chmod 777 scf_bootstrap
-```
+:::
+</dx-codeblock>
 3. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的【函数服务】。
 4. 在主界面上方选择期望创建函数的地域，并单击【新建】，进入函数创建流程。
 5. 选择【自定义创建】新建函数，根据页面提示配置相关选项。如下图所示：
@@ -82,6 +91,7 @@ chmod 777 scf_bootstrap
 	- **提交方法**：选择“本地上传文件夹”。
 	- **函数代码**：选择函数代码在本地的具体文件夹。
 6. 单击【完成】完成 Next.js 项目的部署。
+
 
 
 
