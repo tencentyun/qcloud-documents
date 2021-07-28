@@ -1,4 +1,3 @@
 ### CKafka 是否支持公网访问？
-当前 CKafka 默认内网传输，由于公网访问会涉及延时、网络环境和安全性等问题，不建议客户长期开启公网传输。
-如果有临时公网传输需求建议 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系客户经理评估。
+当前 CKafka 默认内网传输，如需通过公网访问，需要单独开通一条公网路由，具体操作参考[添加路由策略](https://cloud.tencent.com/document/product/597/36348)，公网带宽目前最多支持1MB/s，由于公网访问会涉及延时、网络环境和安全性等问题，不建议客户长期开启公网传输。
 
