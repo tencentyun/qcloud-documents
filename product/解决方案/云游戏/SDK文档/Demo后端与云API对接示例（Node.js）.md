@@ -5,65 +5,47 @@
 `cloudapi.js` 是 Node.js 版的云 API 调用实例，自行安装 Node.js 运行环境。将 `cloudapi.js` 中的 SecretId 和 SecretKey，替换成您的腾讯云帐号下的 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 信息。
 
 **cloudapi.js 示例代码如下：**
+
+
 <dx-codeblock>
 ::: JavaScript JavaScript
 var express = require('express');
 var router = express.Router();
-var uuid = require('uuid');
-// 导入对应产品模块的client models。
+// import client models
 var tencentcloud = require('tencentcloud-sdk-nodejs');
 const GsClient = tencentcloud.gs.v20191118.Client;
 
-// 腾讯云API密钥，可以在控制台创建, https://console.cloud.tencent.com/cam/capi
+// tencent cloud api secret id and key, could be found here: https://console.cloud.tencent.com/cam/capi
 var secretId = 'your secretId';
 var secretKey = 'your secretKey';
 
-// 实例化要请求产品的client对象。profile可选。
+// tencent cloud api client profile
 const client = new GsClient({
     credential: {
       secretId,
       secretKey,
     },
-    region: "ap-shanghai",// 调用区域，可以就近改为ap-guangzhou、ap-chengdu、ap-beijing
+    region: "ap-shanghai",// api region, for example: ap-shanghai, ap-guangzhou, ap-chengdu, ap-beijing
     profile: {
-      signMethod: "TC3-HMAC-SHA256",// 签名算法
+      signMethod: "TC3-HMAC-SHA256",// signature algorithm
       httpProfile: {
         reqMethod: "POST",
-        reqTimeout: 30,// 请求超时
+        reqTimeout: 30,
       },
     },
-})
+});
 
-var jsonParser = function(req, res, next) {
-    var arr = '';
-    req.on('data', buff => {
-        arr += buff;
-    });
-    req.on('end', _ => {
-        req.body = JSON.parse(arr);
-        next();
-    });
-}
-
-var rawParser = function(req, res, next) {
-    var arr = '';
-    req.on('data', buff => {
-        arr += buff;
-    });
-    req.on('end', () => {
-        req.body = arr;
-        next();
-    });
-}
-
-var getClientIp = function(req) {
-    return req.headers['x-forwarded-for'] ||
+// support forward proxy
+var getClientIp = (req) => {
+    var ips = req.headers['x-forwarded-for'] ||
         req.headers['x-real-ip'] || 
         req.connection.remoteAddress ||
         req.socket.remoteAddress ||
         req.connection.socket.remoteAddress;
-}
+    return ips?ips.split(',')[0].trim();
+};
 
+// API for get client WAN ip
 router.get('/get_wan_ip', function(req, res, next){
     var clientIp = getClientIp(req).replace(/::ffff:/, '');
     var data = JSON.stringify({cip: clientIp});
@@ -71,48 +53,52 @@ router.get('/get_wan_ip', function(req, res, next){
     res.end(body);
 });
 
-router.post('/try_lock', jsonParser, function(req, res, next){
+// try to lock an instance
+router.post('/TryLockWorker', (req, res, next) => {
     var clientInfo = req.body;
-    clientInfo.RequestID = uuid.v4();
+    
 
     client.TrylockWorker(clientInfo).then((response) => {
-        // 请求正常返回，打印response对象
+        // normally
         console.log(response);
         res.json({code:0, data: response});
     },
     (err) => {
+        // error
         console.log(err);
         res.json({code:-1, data: err});
     });
 
 });
 
-router.post('/get_signature', jsonParser, function(req, res, next) {
+// connect to locked instance
+router.post('/CreateSession', (req, res, next) => {
     var clientInfo = req.body;
-    clientInfo.RequestID = uuid.v4();
 
     client.CreateSession(clientInfo).then((response) => {
-        // 请求正常返回，打印response对象
+        // normally
         console.log(response);
         res.json({code:0, data: response});
     },
     (err) => {
+        // error
         console.log(err);
         res.json({code:-1, data: err});
     });
 
 });
 
-router.post('/stopgame', jsonParser, function(req, res, next) {
+// release instance
+router.post('/StopGame', (req, res, next) => {
     var clientInfo = req.body;
-    clientInfo.RequestID = uuid.v4();
 
     client.StopGame(clientInfo).then((response) => {
-        // 请求正常返回，打印response对象
+        // normally
         console.log(response);
         res.json({code:0, data: response});
     },
     (err) => {
+        // error
         console.log(err);
         res.json({code:-1, data: err});
     });
@@ -123,6 +109,8 @@ router.post('/stopgame', jsonParser, function(req, res, next) {
 module.exports = router;
 :::
 </dx-codeblock>
+
+
 
 
 
