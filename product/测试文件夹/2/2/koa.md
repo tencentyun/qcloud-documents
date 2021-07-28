@@ -7,6 +7,7 @@
 
 
 ## 前提条件
+
 在使用腾讯云云函数服务之前，您需要 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F) 并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 
 
@@ -23,7 +24,7 @@
 6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Koa 项目。单击左侧菜单栏中的【触发管理】，查看访问路径。如下图所示：
 ![](https://main.qcloudimg.com/raw/c724c2fe052235c27dcc1a3cd17230c1.png)
 7. 单击访问路径 URL，即可访问服务 Koa 项目。如下图所示：
-![](https://main.qcloudimg.com/raw/4609e42e209b7368d27136e13d79b30f.png)
+![](https://main.qcloudimg.com/raw/44a7c67e3ddf49af40a368d893979f28.png)
 
 
 ### 自定义部署 -- 快速迁移本地项目上云
