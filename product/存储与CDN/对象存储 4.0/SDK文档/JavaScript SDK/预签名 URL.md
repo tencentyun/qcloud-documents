@@ -36,7 +36,7 @@ var Authorization = COS.getAuthorization({
 
 #### 参数说明
 
-| 参数名    | 参数描述                                                     | 类型   | 必填 |
+| 参数名    | 参数描述                                                     | 类型   | 是否必填 |
 | --------- | ------------------------------------------------------------ | ------ | ---- |
 | SecretId  | 用户的 SecretId                                              | String | 是   |
 | SecretKey | 用户的 SecretKey                                             | String | 是   |
@@ -155,7 +155,7 @@ cos.getObjectUrl({
 
 #### 参数说明
 
-| 参数名  | 参数描述                                                     | 类型    | 必填 |
+| 参数名  | 参数描述                                                     | 类型    | 是否必填 |
 | ------- | ------------------------------------------------------------ | ------- | ---- |
 | Bucket  | 存储桶的名称，命名规则为 BucketName-APPID，此处填写的存储桶名称必须为此格式 | String  | 是   |
 | Region  | 存储桶所在地域，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) | String  | 是   |
