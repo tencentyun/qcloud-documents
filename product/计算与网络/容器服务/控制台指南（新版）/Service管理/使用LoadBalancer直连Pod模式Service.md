@@ -129,7 +129,7 @@ Kubernetes 集群提供了服务注册的机制，只需要将您的服务以 `M
    2. 将集群所在 VPC 添加至已创建的云联网实例中。
    3. 将容器网段注册到云联网，在集群的“基本信息”页面中开启云联网。
 ![](https://main.qcloudimg.com/raw/e9c44e7cb6ba38bc1ab34ea1f4d91cef.png)
- - **您可 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%20TKE&step=1) 进行申请。**此方式缺少云联网的 IP 校验功能，不推荐使用。
+ - **您可 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 进行申请。**此方式缺少云联网的 IP 校验功能，不推荐使用。
 
 
 ### 操作步骤

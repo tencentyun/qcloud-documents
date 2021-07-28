@@ -16,9 +16,9 @@ Pod 的规格配置是容器运行时可用资源和使用服务计费的依据�
 
 #### 申请提升配额操作指引
 
-1. 请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1)，选择【人工支持】或者【其他问题】>【立即创建】，进入创建工单信息填写页面。
+1. 请 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us)，选择【人工支持】或者【其他问题】>【立即创建】，进入创建工单信息填写页面。
 2. 在问题描述中填写“期望提升集群虚拟节点 Pod 配额”，注明目标地区及目标配额，并按照页面提示填写您可用的手机号等信息。
-3. 填写完成后，单击【提交工单】即可。
+3. 填写完成后，单击【在线咨询】即可。
 
 ## Pod 说明
 

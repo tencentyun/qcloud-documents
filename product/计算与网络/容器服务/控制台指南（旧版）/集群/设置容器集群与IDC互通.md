@@ -11,7 +11,7 @@
 2. [申请通道](https://cloud.tencent.com/document/product/216/19250)
 3. [创建专线网关](https://cloud.tencent.com/document/product/216/19256)
 4. 验证容器节点与 IDC 互通。（**请保证本步骤验证通过**）
-6. 准备地域，appId，集群 Id，vpcId，专线网关 Id 等信息，[提交工单](https://console.cloud.tencent.com/workorder/category) 打通容器网络。
+6. 准备地域，appId，集群 Id，vpcId，专线网关 Id 等信息，[在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 打通容器网络。
 7. 若 IDC 使用的是 BGP 协议，容器网段路由将自动同步。若是其他协议，需在 IDC 内配置访问容器网段下一跳路由到专线网关。
 8. 验证容器与 IDC 互通。
 
