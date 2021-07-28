@@ -2,7 +2,7 @@
 
 本文将为您指导如何通过 Web Function，将您的本地 Egg 项目快速部署到云端。
 
->?本文档主要介绍控制台部署方案，您也可以通过命令行完成部署，请参考具体操作请参考 [命令行部署 Web 函数](https://cloud.tencent.com/document/product/583/58183)。
+>?本文档主要介绍控制台部署方案，您也可以通过命令行完成部署，详情请参见 [命令行部署 Web 函数](https://cloud.tencent.com/document/product/583/58183)。
 
 
 
