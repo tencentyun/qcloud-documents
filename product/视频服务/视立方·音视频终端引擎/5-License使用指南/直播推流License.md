@@ -10,7 +10,7 @@
 1. 登录 [视立方控制台]()，单击【创建测试License 】。
 ![](https://main.qcloudimg.com/raw/11f0a5770a347054652e50773392661b.png)
 2. 根据实际需求填写 `App Name`、`Package Name` 和 `Bundle ID`，勾选功能模块【直播推流】，单击【确定】。
-![](https://main.qcloudimg.com/raw/cc3c2c51e90cc064dfd34675c0152439.png)
+![](https://main.qcloudimg.com/raw/be5726e65e25afa95ea730f37a6eafab.png)
 3. 测试版 License 成功创建后，页面会显示生成的 License 信息。在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。
 ![](https://main.qcloudimg.com/raw/a607509d59a4e244bd4cd2dfd13b6781.png)
 
