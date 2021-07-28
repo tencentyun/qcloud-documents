@@ -6,8 +6,8 @@ PHP SDK 提供获取请求预签名 URL 接口，请求示例如下。
 ### 上传请求示例
 [//]: # (.cssg-snippet-get-presign-upload-url)
 ```php
-$secretId = "COS_SECRETID"; //替换为您的永久密钥 SecretId
-$secretKey = "COS_SECRETKEY"; //替换为您的永久密钥 SecretKey
+$secretId = "SECRETID"; //替换为您的永久密钥 SecretId
+$secretKey = "SECRETKEY"; //替换为您的永久密钥 SecretKey
 $region = "ap-beijing"; //设置一个默认的存储桶地域
 $cosClient = new Qcloud\Cos\Client(
     array(
@@ -49,8 +49,8 @@ try {
 ### 下载请求示例
 [//]: # (.cssg-snippet-get-presign-download-url)
 ```php
-$secretId = "COS_SECRETID"; //替换为您的永久密钥 SecretId
-$secretKey = "COS_SECRETKEY"; //替换为您的永久密钥 SecretKey
+$secretId = "SECRETID"; //替换为您的永久密钥 SecretId
+$secretKey = "SECRETKEY"; //替换为您的永久密钥 SecretKey
 $region = "ap-beijing"; //设置一个默认的存储桶地域
 $cosClient = new Qcloud\Cos\Client(
     array(
@@ -90,8 +90,8 @@ try {
 ### 上传请求示例
 [//]: # (.cssg-snippet-get-presign-sts-upload-url)
 ```php
-$tmpSecretId = "COS_SECRETID"; //替换为您的临时密钥 SecretId
-$tmpSecretKey = "COS_SECRETKEY"; //替换为您的临时密钥 SecretKey
+$tmpSecretId = "SECRETID"; //替换为您的临时密钥 SecretId
+$tmpSecretKey = "SECRETKEY"; //替换为您的临时密钥 SecretKey
 $tmpToken = "COS_TOKEN"; //替换为您的临时密钥 token
 $region = "ap-beijing"; //设置一个默认的存储桶地域
 $cosClient = new Qcloud\Cos\Client(
@@ -134,8 +134,8 @@ try {
 ### 下载请求示例
 [//]: # (.cssg-snippet-get-presign-sts-download-url)
 ```php
-$tmpSecretId = "COS_SECRETID"; //替换为您的临时密钥 SecretId
-$tmpSecretKey = "COS_SECRETKEY"; //替换为您的临时密钥 SecretKey
+$tmpSecretId = "SECRETID"; //替换为您的临时密钥 SecretId
+$tmpSecretKey = "SECRETKEY"; //替换为您的临时密钥 SecretKey
 $tmpToken = "COS_TOKEN"; //替换为您的临时密钥 token
 $region = "ap-beijing"; //设置一个默认的存储桶地域
 $cosClient = new Qcloud\Cos\Client(
