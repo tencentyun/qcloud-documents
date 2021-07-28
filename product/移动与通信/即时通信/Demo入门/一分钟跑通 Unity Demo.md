@@ -74,9 +74,9 @@
 ### iOS 第一次运行报错？
 按照上面的 Demo 运行配置后，如果报错，可以单击【Product】>【Clean】，清除产物后重新 Build，或者关闭 Xcode 重新打开再次 Build。
 ### 2019.04版 Unity，iOS 平台报错？
-`Library/PackageCache/com.unity.collab-proxy@1.3.9/Editor/UserInterface/Bootstrap.cs(23,20): error CS0117: 'Collab' does not contain a definition for 'ShowChangesWindow'`
+Library/PackageCache/com.unity.collab-proxy@1.3.9/Editor/UserInterface/Bootstrap.cs(23,20): error CS0117: 'Collab' does not contain a definition for 'ShowChangesWindow'
 在 Editor 工具栏单击【Window】>【Package Manager】，将 Unity Collaborate 降级到1.2.16。
 
 ### 2019.04版 Unity，iOS 平台报错？
-`Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Editor/TMP_PackageUtilities.cs(453,84): error CS0103: The name 'VersionControlSettings' does not exist in the current context`
+Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Editor/TMP_PackageUtilities.cs(453,84): error CS0103: The name 'VersionControlSettings' does not exist in the current context
 打开源码，把`|| VersionControlSettings.mode != "Visible Meta Files"`这部分代码删除即可。
