@@ -21,9 +21,9 @@
 4. 在“配置”页面，您可以查看模版项目的具体配置信息并进行修改。
 5. 单击【完成】即可创建函数。函数创建完成后，您可在“函数管理”页面，查看 Web 函数的基本信息。
 6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Egg 项目。单击左侧菜单栏中的【触发管理】，查看访问路径。如下图所示：
-![](https://main.qcloudimg.com/raw/7687790fe50d4ad93f51cf6a13fbd770.png)
+![](https://main.qcloudimg.com/raw/31e9dc19d9f9281193648e213eb768e1.png)
 7. 单击访问路径 URL，即可访问服务 Egg 项目。如下图所示：
-![](https://main.qcloudimg.com/raw/34cffcca8981ad1d207ee7fc4d32bd53.png)
+![](https://main.qcloudimg.com/raw/b9b7f3e8236451dad150ed3605de7ccf.png)
 
 
 
