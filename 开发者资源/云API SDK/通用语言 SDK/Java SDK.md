@@ -277,7 +277,7 @@ logger.info("hello world");
 
 从 3.1.310 版本开始腾讯云 Java SDK 支持重试请求。对于每一个请求，您可以设置重试次数，如果接口请求未成功，就进行重试，直到请求成功或者达到重试次数为止。待设置的重试次数最大为10，最小为0，每次重试失败需要睡眠1秒钟。
 
-详细使用请参阅示例：[使用 retry 进行重试请求](./examples/common/retry/Retry.java)
+详细使用请参阅示例：[使用 retry 进行重试请求](./examples/common/retry/Retry.java)。
 
 ## 凭证管理
 
