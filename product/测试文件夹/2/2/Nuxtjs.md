@@ -18,11 +18,11 @@
 1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的【函数服务】。
 2. 在主界面上方选择期望创建函数的地域，并单击【新建】，进入函数创建流程。
 3. 选择使用【模版创建】来新建函数，在搜索框里输入 `webfunc` 筛选函数模版，选择【Nuxt.js 框架模版】并单击【下一步】。如下图所示：
-![](https://main.qcloudimg.com/raw/dfec4ca92cd5688ae5559ca0728feeab.png)
+![](https://main.qcloudimg.com/raw/15b248e387a532365fb28a3ed7042c92.png)
 4. 在“配置”页面，您可以查看模版项目的具体配置信息并进行修改。
 5. 单击【完成】即可创建函数。函数创建完成后，您可在“函数管理”页面，查看 Web 函数的基本信息。
 6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Nuxt.js 项目。单击左侧菜单栏中的【触发管理】，查看访问路径。如下图所示：
-![](https://main.qcloudimg.com/raw/7687790fe50d4ad93f51cf6a13fbd770.png)
+![](https://main.qcloudimg.com/raw/5315ddaee2114fdeb2a4ddd2b9ee6c9d.png)
 7. 单击访问路径 URL，即可访问服务 Nuxt.js 项目。如下图所示：
 ![](https://main.qcloudimg.com/raw/d20d687ee0b7eae89f94324e4c5c723f.png)
 >?由于 Nuxtjs 框架每次部署前需要重新构建，请确保本地更新代码并且重新 `build` 之后再进行部署。
@@ -71,7 +71,7 @@ require("@nuxt/cli")
 </dx-codeblock>
 <dx-alert infotype="notice" title="">
 - 此处仅为示例启动文件，具体请根据您的业务场景进行调整。
-- 示例使用的是云函数标准 node 环境路径，本地调试时，注意修改成您的本地路径。
+- 示例使用的是云函数标准 node 环境路径，本地调试时，需修改成您的本地路径。
 </dx-alert>
 2. 新建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可正常启动。示例如下：
 <dx-codeblock>
@@ -96,4 +96,4 @@ chmod 777 scf_bootstrap
 
 #### 开发管理
 部署完成后，即可在 SCF 控制台快速访问并测试您的 Web 服务，并且体验云函数多项特色功能，例如层绑定、日志管理等，享受 Serverless 架构带来的低成本、弹性扩缩容等优势。
-![](https://main.qcloudimg.com/raw/ef6e554b01b717a5008e98016a73918f.png)
+
