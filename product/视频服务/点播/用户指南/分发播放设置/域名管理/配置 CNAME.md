@@ -34,6 +34,9 @@
 ![](https://main.qcloudimg.com/raw/2e93d51c7fe8502670475d71bbfb20cb.png)
 
 ## 验证 CNAME 是否生效
-不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您也可以通过命令行中的 PING 命令来查询 CNAME 是否生效，如果 PING 到后缀为`.dsa.sp.spcdntip.com`或`.dsa.p23.tc.cdntip.com`的域名，表示域名 CNAME 已生效。
-![](https://main.qcloudimg.com/raw/e089136ab0e4d4acd12064af7c8c7a1f.png)
-![](https://main.qcloudimg.com/raw/635eb4d1b85602323d19c22629c12013.png)
+不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您可以通过以下方式查询 CNAME 是否配置生效。
+- 方式一：【开始】→【运行】→输入 CMD 并回车，输入 PING 命令来查询 CNAME 是否生效，如果返回的解析结果与该域名的CNAME值一致，则CNAME已配置生效。
+![](https://main.qcloudimg.com/raw/96d1733a11d2ef09ebdbd8759245b7f5.png)
+- 方法二：【开始】→【运行】→输入 cmd 并回车，输入 nslookup 命令来查询 CNAME 是否生效，如果返回的解析结果与该域名的 CNAME 值一致，则 CNAME 已配置生效。
+- 方法三：Linux/Mac 系统下，通过 dig 命令查看，命令格式为：dig 自有域名 。若第一行显示解析到 CNAME 域名，表明 CNAME 已配置成功。
+
