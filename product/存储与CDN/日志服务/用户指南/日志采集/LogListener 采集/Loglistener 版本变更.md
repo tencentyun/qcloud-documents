@@ -25,7 +25,7 @@
 	<tr><td>体验优化</td><td>增强内存资源限制处理，当内存超限持续一段时间后，LogListener 自动加载。</td></tr>
 	<tr><td><b>v2.5.3</b></td><td>性能优化</td><td>优化内存问题引发 LogListener 工作异常。</td></tr>
 	<tr><td rowspan=2><b>v2.5.2</b></td><td>新功能</td><td>支持解析失败日志上传需求。</td></tr>
-	<tr><td>体验优化</td><td>修复黑名单 bug，黑名单 FILE 模式支持通配符过滤。</td></tr>
+	<tr><td>体验优化</td><td>优化黑名单功能，黑名单 FILE 模式支持通配符过滤。</td></tr>
 	<tr><td><b>v2.5.1</b></td><td>体验优化</td><td>优化当采集文件找不到断点元数据时的处理。</td></tr>
 	<tr><td><b>v2.5.0</b></td><td>新功能</td><td><ul  style="margin: 0;"><li>支持 LogListener 自动升级。</li><li>支持在 Ubuntu 系统下，LogListener 自启动。</li></ul></td></tr>
 	<tr><td><b>v2.4.6</b></td><td>体验优化</td><td><ul  style="margin: 0;"><li>变更采集配置时，清理相关配置 cache 的数据残留。</li><li>修复处理软链接的 IN_DELETE 事件时，影响其他指向此 realpath 文件的软链接文件采集的问题。</li><li>优化同一源文件同时使用文件软链接和目录软连接进行采集功能。</li></ul></td></tr>
