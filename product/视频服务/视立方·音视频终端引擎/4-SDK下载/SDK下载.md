@@ -1,9 +1,6 @@
 腾讯云视立方·音视频终端引擎包含**基础直播 Smart、互动直播 Live、短视频 UGSV、音视频通话 TRTC、播放器 Player 和全功能 ALL**六个版本，各版本基于**主播开播、主播观众连麦/主播跨房 PK、视频录制编辑/视频上传发布、直播观看、点播观看和音视频通话**六个功能模块。腾讯云视立方基于用户的使用场景推荐版本，且版本可自由增删功能模块，按需勾选，自定义组合，简单快速地集成版本能力至您的终端业务。
 
 ## 各版本差异对照表
-
-![](https://main.qcloudimg.com/raw/d25df8358ea718b6781779081c90e5fd.png)
-
 <table id="download">
 <thead>
 <tr style="text-align:center">
@@ -97,6 +94,8 @@
 <td style="text-align:center">&#10003;</td>
 </tr>
 </tbody></table>
+
+![](https://main.qcloudimg.com/raw/c66c686dc45dcfc64ecfe5df809b5a29.png)
 
 ## 版本说明
 
