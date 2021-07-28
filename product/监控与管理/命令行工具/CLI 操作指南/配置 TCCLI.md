@@ -74,5 +74,14 @@ $ tccli cvm DescribeZones --profile test
 	export TENCENTCLOUD_SECRET_KEY=Gu5t9xGARNpq86cd98joQYCN3*******
 	export TENCENTCLOUD_REGION=ap-guangzhou
 	```
+5.您可以配置https代理，让tccli通过代理调用API
+```bash
+# 在Linux/Unix和macOS中执行如下类似命令配置环境变量
+export https_proxy=http://192.168.1.1:1111
+export https_proxy=http://myproxy.com:1111
 
-    
+# 在Windows的终端中执行如下类似命令配置环境变量
+setx http_proxy=http://192.168.1.1:1111
+set  http_proxy=http://myproxy.com:1111
+# setx表示设置永久环境变量，设置后重启终端生效
+```

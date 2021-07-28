@@ -82,6 +82,7 @@ RenewInstances                       ResetInstancesPassword               RunIns
 --filter                    --InstanceName              --secretKey                 
 [root@VM_33_50_centos ~]# tccli cvm RunInstances --Placement 
 ```
+也可以将该命令加入环境变量（`/etc/profile`）中，使自动补全功能一直有效。
 
 ## 配置 TCCLI
 1. 在命令行中执行以下命令，进入交互模式快配置。
@@ -135,6 +136,17 @@ tccli configure
  $ tccli configure list --profile test
  # 在调用接口时指定账户（以 cvm DescribeZones 接口为例）。
  $ tccli cvm DescribeZones --profile test
+```
+4.您可以配置https代理，让tccli通过代理调用API
+```bash
+# 在Linux/Unix和macOS中执行如下类似命令配置环境变量
+export https_proxy=http://192.168.1.1:1111
+export https_proxy=http://myproxy.com:1111
+
+# 在Windows的终端中执行如下类似命令配置环境变量
+setx http_proxy=http://192.168.1.1:1111
+set  http_proxy=http://myproxy.com:1111
+# setx表示设置永久环境变量，设置后重启终端生效
 ```
 
 ## 使用 TCCLI
