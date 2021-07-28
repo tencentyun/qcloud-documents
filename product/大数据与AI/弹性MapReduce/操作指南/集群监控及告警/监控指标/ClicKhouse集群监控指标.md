@@ -34,7 +34,7 @@
 | fetch                      | 个   | 从副本收集的数据块数量                 |
 | send                       | 个   | 发送到副本的数量块数量                 |
 | check                      | 个   | 检查一致性的数据块数量                 |
-| revision                   | 个   | server 的修改                           |
+| revision                   | 个   | server 的修改                       |
 | version                    | 1    | 版本号                                 |
 | waitingRead                | 个   | 等待读表的读写锁的线程数量             |
 | waitingWrite               | 个   | 等待写表的读写锁的线程数量             |

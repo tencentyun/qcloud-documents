@@ -263,7 +263,6 @@ if (msgType.integerValue == 1) {
 ![](https://main.qcloudimg.com/raw/8eaaba4bedf0a541ed7f077d2e374ca3.png)![](https://main.qcloudimg.com/raw/5c28586161aefb3c47c5cdb7e23ed57b.png)
 #### 示例代码
 ```objective-c
-//获取 TPNS 生成的 Token
 [[XGPush defaultManager] uploadLogCompletionHandler:^(BOOL result, NSString * _Nullable errorMessage) {
 NSString *title = result ? NSLocalizedString(@"report_log_info", nil) : NSLocalizedString(@"failed", nil);
 if (result && errorMessage.length>0) {

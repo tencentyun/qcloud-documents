@@ -221,3 +221,13 @@ public void loadMore() {
     searchMessage(++pageIndex);
 }
 ```
+
+## 常见问题
+### 1、如何搜索自定义消息
+需要使用接口 [createCustomMessage (byte[] data, String description, byte[] extension)](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a313b1ea616f082f535946c83edd2cc7f) 来创建并发送，把需要搜索的文本放到 `description` 参数中。而使用接口 [createCustomMessage (byte[] data)](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a5c2495d4b7ecd66e5636aeb865c17efd) 创建的自定义消息由于本地保存的是参数传的二进制数据流，因此无法被搜索到。
+如果您配置了离线推送功能，参数 `description` 设置后，自定义消息也会有离线推送且通知栏展示该参数内容。如果不需要离线推送可以用发消息接口 [sendMessage](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a28e01403acd422e53e999f21ec064795) 的参数 [V2TIMOfflinePushInfo](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html) 中的 [disablePush](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a5d0ea30668513f45eda447875528b9c7) 来控制；如果推送的通知栏内容不想展示为被搜索的文本，可以用参数  [V2TIMOfflinePushInfo](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html) 中的 [setDesc](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a78c8e202aa4e0859468ce40bde6fd602) 来另外设置推送内容。
+
+### 2、如何搜索富媒体消息
+富媒体消息包含文件、图片、语音、视频消息。
+对于文件类消息，创建时可以设置 `fileName` 参数，作为被搜索的内容，如果 `fileName` 不设置则会从 `filePath` 提取文件名，并且都会保存到本地和服务器。
+而图片、语音、视频消息目前只会从 `filePath` 提取文件名保存在本地，不会存服务器。后续版本会优化，把从 `filePath` 提取的文件名也存到服务器中。

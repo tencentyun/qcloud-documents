@@ -428,8 +428,8 @@ Available for download!
 ```
 
 ### Form-Data 的构造和使用
-- 使用 Entity.from_bytes 方法，则 Dataway 对输入的 str/bytes 类型最终解析成一个 [FormDataParts](#formdataparts) 数据结构。
-- 使用 Entity.from_value 构造方法，支持 Entity、Formdata、list/dict 输入类型，并最终解析成一个 [FormDataParts](#formdataparts) 数据结构。
+- 使用 Entity.from_bytes 方法，则 Dataway 对输入的 str/bytes 类型最终解析成一个 FormDataParts 数据结构。
+- 使用 Entity.from_value 构造方法，支持 Entity、Formdata、list/dict 输入类型，并最终解析成一个 FormDataParts 数据结构。
 >! 
 >- 如果为 Entity 类型，则会首先判断 Entity['^mime_type'] 是否为 multipart/form-data。如果为是，直接返回该 Entity；否则将报错。
  - 如果为 FormdataParts 类型（即上文提到的 map+ 数组结构），则直接赋值给 Entity。

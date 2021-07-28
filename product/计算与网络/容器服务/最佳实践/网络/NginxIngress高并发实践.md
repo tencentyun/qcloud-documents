@@ -102,7 +102,7 @@ Nginx 针对 client 和 upstream 的 keepalive 连接，具备 keepalive_request
 
 ### 调高 keepalive 最大空闲连接数
 
-Nginx 针对 upstream 可配置参数 keepalive。该参数为最大空闲连接数，默认值为32。在高并发环境下将产生大量请求和连接，而实际生产环境中请求并不是完全均匀，有些建立的连接可能会短暂空闲，在空闲连接数多了之后关闭空闲连接，将可能导致 Nginx 与 upstream 频繁断连和建连，引发 TIME_WAIT 飙升。
+Nginx 针对 upstream 可配置参数 keepalive。该参数为最大空闲连接数，默认值为320。在高并发环境下将产生大量请求和连接，而实际生产环境中请求并不是完全均匀，有些建立的连接可能会短暂空闲，在空闲连接数多了之后关闭空闲连接，将可能导致 Nginx 与 upstream 频繁断连和建连，引发 TIME_WAIT 飙升。
 在高并发环境下，建议将 keepalive 值配置为1000，详情请参见 [upstream-keepalive-connections](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#upstream-keepalive-connections)。
 
 ### 调高单个 worker 最大连接数
@@ -122,7 +122,7 @@ data:
   # nginx 与 client 保持的一个长连接能处理的请求数量，默认100，高并发场景建议调高。
   # 参考: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#keep-alive-requests
   keep-alive-requests: "10000"
-  # nginx 与 upstream 保持长连接的最大空闲连接数 (不是最大连接数)，默认 32，在高并发下场景下调大，避免频繁建联导致 TIME_WAIT 飙升。
+  # nginx 与 upstream 保持长连接的最大空闲连接数 (不是最大连接数)，默认 320，在高并发下场景下调大，避免频繁建联导致 TIME_WAIT 飙升。
   # 参考: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#upstream-keepalive-connections
   upstream-keepalive-connections: "200"
   # 每个 worker 进程可以打开的最大连接数，默认 16384。

@@ -4,7 +4,7 @@
 >! 短视频 License 无法解锁移动直播相关功能。
 
 
-[](id:que2)
+[](id:que2) 
 ### 移动直播 License 有单独购买入口吗？
 不支持单独购买。
 - 移动直播基础版 SDK License ：需购买云直播10TB及以上 [流量资源包](https://cloud.tencent.com/document/product/267/34174) 获取一年使用授权。

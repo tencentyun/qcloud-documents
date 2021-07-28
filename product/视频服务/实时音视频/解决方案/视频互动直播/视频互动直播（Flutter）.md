@@ -20,7 +20,7 @@
 
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
 2. 下载完成后，单击【已下载，下一步】。
-   ![](https://main.qcloudimg.com/raw/991440ebf152f78d96ba9769aa69d8d7.png)
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:ui.step3)
 ### 步骤3：配置 Demo 工程文件
@@ -30,7 +30,7 @@
 3. 设置 `GenerateTestUserSig.dart` 文件中的相关参数：
 <ul style="margin:0"><li/>SDKAPPID：默认为PLACEHOLDER，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为PLACEHOLDER，请设置为实际的密钥信息。</ul>
-<img src="https://main.qcloudimg.com/raw/96326351d696d6eb8600b5822dcc8992.png">
+<img src="https://main.qcloudimg.com/raw/fba60aa9a44a94455fe31b809433cfa4.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -214,16 +214,16 @@ lib/TRTCLiveRoom/model/
   即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
 <dx-codeblock>
 ::: dart dart
-  // 发送端：发送文本消息
-  trtcVoiceRoom.sendRoomTextMsg("Hello Word!");
-
+// 发送端：发送文本消息
+trtcLiveCloud.sendRoomTextMsg("Hello Word!");
+   
 // 接收端：监听文本消息
-onVoiceListener(type, param) async {
-    switch (type) {
-      case TRTCChatSalonDelegate.onRecvRoomTextMsg:
-            //收到群文本消息，可以用作文本聊天室
-        break;
-    }
+onListenerFunc(type, params) async {
+  switch (type) {
+    case TRTCLiveRoomDelegate.onRecvRoomTextMsg:
+          //收到群文本消息，可以用作文本聊天室
+      break;
+  }
 }
 :::
 </dx-codeblock>

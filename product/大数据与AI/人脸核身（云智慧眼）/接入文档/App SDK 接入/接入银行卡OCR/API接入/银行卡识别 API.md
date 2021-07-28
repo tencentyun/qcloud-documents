@@ -2,7 +2,7 @@
 
 合作方后台服务上送 sign、请求参数到身份证识别后台服务。
 ## 请求
-- **请求 URL：**https://ida.webank.com/api/paas/bankcardocrapp?orderNo=xxx
+- **请求 URL：**https://miniprogram-kyc.tencentcloudapi.com/api/paas/bankcardocrapp?orderNo=xxx
 >!为方便查询耗时，该请求 url 后面请拼接 orderNo 订单号参数。
 
 - **请求方法：**POST
@@ -33,6 +33,28 @@
 | bankcardNoPhoto   | Base64 String | 银行卡识别结果：银行卡卡号照片                      |
 |multiWarningCode | String | 多重告警码，含义请参考 [银行卡 OCR 错误码](https://cloud.tencent.com/document/product/1007/47903) |
 | clarity       | String | 图片清晰度                |
+
+**响应示例：**
+```
+{
+   "code":"0",
+   "msg":"请求成功",
+   "bizSeqNo":"21062120001184436317400509484816",
+   "result":{
+         "bizSeqNo":"21062120001184436317400509484816",
+         "transactionTime":"20210621174006",
+         "orderNo":"bankcardPic5923ab9a3bc34488b51",
+         "bankcardNo":"xxxxxxxxxxxxxxxxxxx",
+         "bankcardValidDate":"12/2024",
+         "warningCode":"0",
+         "bankcardNoPhoto":"xxx",
+         "multiWarningCode":"0",
+         "clarity":"79",
+         "success":false
+},
+"transactionTime":"20210621174006"
+}
+```
 
 >?success：false 无意义，合作伙伴可忽略，无需处理。
 

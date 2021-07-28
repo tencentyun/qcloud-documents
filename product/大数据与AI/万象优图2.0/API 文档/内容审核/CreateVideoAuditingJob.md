@@ -14,6 +14,8 @@ Authorization: <Auth String>
 Content-Length: <length>
 Content-Type: application/xml
 
+
+
 <body>
 ```
 
@@ -29,18 +31,19 @@ Content-Type: application/xml
 
 ```plaintext
 <Request>
-  <Input>
-    <Object></Object>
-  </Input>
-  <Conf>
-    <DetectType>Porn,Terrorism,Politics,Ads</DetectType>
-    <Snapshot>
-        <Mode>Interval</Mode>
-        <TimeInterval></TimeInterval>
-        <Count></Count>
-    </Snapshot>
-    <Callback></Callback>
-  </Conf>
+    <Input>
+         <Object></Object>
+    </Input>
+    <Conf>
+      <DetectType>Porn,Terrorism,Politics,Ads</DetectType>
+      <Snapshot>
+           <Mode>Interval</Mode>
+           <TimeInterval></TimeInterval>
+          <Count></Count>
+      </Snapshot>
+      <Callback></Callback>
+			<BizType></BizType>
+    </Conf>
 </Request>
 ```
 
@@ -70,6 +73,7 @@ Container 类型 Conf 的具体数据描述如下：
 | DetectType         | Request.Conf | 审核类型  涉黄 Porn、涉暴恐 Terrorism、政治敏感 Politics、广告 Ads，可以审核多种类型 | string    | 是       |
 | Snapshot           | Request.Conf | 截帧配置                                                     | Container | 是       |
 | Callback           | Request.Conf | 回调地址，以`http://`或者`https://`开头的地址                  | string    | 否       |
+| BizType	  |  Request.Conf	| 审核策略，不带审核策略时使用默认策略|	string	|否|
 
 Container 类型 Snapshot 的具体数据描述如下：
 
@@ -91,11 +95,11 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 ```plaintext
 <Response>
-  <JobsDetail>
-    <JobId></JobId>
-    <State></State>
-    <CreationTime></CreationTime>
-  </JobsDetail>
+    <JobsDetail>
+      <JobId></JobId>
+      <State></State>
+      <CreationTime></CreationTime>
+    </JobsDetail>
 </Response>
 ```
 
@@ -134,20 +138,22 @@ Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
 
+
+
 <Request>
-  <Input>
-    <Object>a.mp4</Object>
-  </Input>
-  <Conf>
-    <DetectType>Porn,Terrorism,Politics,Ads</DetectType>
-    <Snapshot>
-        <Mode>Interval</Mode>
-        <Start>0.5</Start>
-        <TimeInterval>50</TimeInterval>
-        <Count>100</Count>
-    </Snapshot>
-    <Callback>http://callback.com/</Callback>
-  </Conf>
+    <Input>
+       <Object>a.mp4</Object>
+    </Input>
+    <Conf>
+        <DetectType>Porn,Terrorism,Politics,Ads</DetectType>
+        <Snapshot>
+            <Mode>Interval</Mode>
+            <Start>0.5</Start>
+            <TimeInterval>50</TimeInterval>
+            <Count>100</Count>
+        </Snapshot>
+        <Callback>http://callback.com/</Callback>
+    </Conf>
 </Request>
 ```
 
@@ -162,11 +168,13 @@ Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
+
+
 <Response>
-  <JobsDetail>
-    <JobId>vab1ca9fc8a3ed11ea834c525400863904</JobId>
-    <State>Submitted</State>
-    <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
-  </JobsDetail>
+    <JobsDetail>
+       <JobId>vab1ca9fc8a3ed11ea834c525400863904</JobId>
+       <State>Submitted</State>
+       <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
+    </JobsDetail>
 </Response>
 ```

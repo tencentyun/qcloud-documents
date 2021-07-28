@@ -7,13 +7,14 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 | API                                                 | 功能描述                |
 | --------------------------------------------------- | :---------------------- |
 | [sharedInstance()](#shareInstance)                  | 创建 OcrSDKKit 的单例     |
-| [clearInstance()](#clearInstance())                 | 主动释放资源            |
+| [clearInstance()](#clearInstance)                 | 主动释放资源            |
 | [getVersion()](#getVersion())                       | 获取当前 SDK 的版本号信息 |
-| [loadSDKConfig](#loadSDKConfig())                   | 初始化 SDK 配置信息       |
+| [loadSDKConfig](#loadSDKConfig)                   | 初始化 SDK 配置信息       |
 | [updateFederationToken()](#updateFederationToken()) | 主动更新临时密钥        |
 | [startProcessOcr()](#startProcessOcr())             | 启动 OCR 识别             |
 
 [](id:shareInstance)
+
 #### sharedInstance()
 
 ```objective-c
@@ -163,6 +164,7 @@ CustomConfigUI 是在启动 SDK 模块时需要传入的 SDK 的 UI 配置信息
 | UIImage  | lightOFFImage      | 关闭手电筒按钮图标 40x40      | 默认图标                              |
 | UIImage  | albumImage         | 相册按钮图标 40x40            | 默认图标                              |
 | BOOL     | isShowAlbumBtn     | 是否显示相册按钮             | YES                                   |
+| BOOL | isHorizontal | 是否横屏显示 | NO |
 
 
 [](id:OcrType)
@@ -179,6 +181,10 @@ OcrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支�
 | OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 |
 | OcrType.LicensePlateOCR | 汽车车牌识别模式 |
 | OcrType.VinOCR | 汽车VIN码识别模式 |
+| OcrType.VehicleLicenseOCR_FRONT | 行驶证主页识别模式 |
+| OcrType.VehicleLicenseOCR_BACK | 行驶证副页识别模式 |
+| OcrType.DriverLicenseOCR_FRONT | 驾驶证主页识别模式 |
+| OcrType.DriverLicenseOCR_BACK | 驾驶证副页识别模式 |
 
 
 
@@ -211,11 +217,11 @@ typedef void (^OcrSDKKitProcessSucceedBlock)(id _Nonnull resultInfo, UIImage *re
 typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullable reserved);
 ```
 
-> **Tips：**用户取消文字识别退出会在 OcrSDKKitProcessFailedBlock 回调
->
-> domain: "OcrSdk.UserCancelOcr" - code: 200101
->
-> NSLocalizedDescription : "用户主动停止文字识别"
+
+>?
+> 用户取消文字识别退出会在 OcrSDKKitProcessFailedBlock 回调
+> - domain: "OcrSdk.UserCancelOcr" - code: 200101
+> - NSLocalizedDescription : "用户主动停止文字识别"
 
 
 身份证正面请求返回 resultInfo 结果示例：
@@ -355,6 +361,65 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
   "Response": {
     "Vin": "LBV2B25G2E5069977",
     "RequestId": "c59d9002-6c8c-426d-b57f-a8837dee2c7c"
+  }
+}
+```
+
+行驶证主页和副页请求结果返回 resultInfo 结果示例：
+
+```json
+{
+  "Response": {
+    "FrontInfo": {
+      "PlateNo": "沪AA1234",
+      "VehicleType": "小型轿车",
+      "Owner": "李明",
+      "Address": "上海市徐汇区田林路397号腾云大厦6F",
+      "UseCharacter": "非营运",
+      "Model": "别克牌SGM7151LAAA",
+      "Vin": "ABCDEFGH123456789",
+      "EngineNo": "8B54321",
+      "RegisterDate": "2011-10-10",
+      "IssueDate": "",
+      "Seal": "上海市公安局交通警寨总队"
+    },
+    "BackInfo": null,
+    "RecognizeWarnCode": [
+      -9106
+    ],
+    "RecognizeWarnMsg": [
+      "WARN_DRIVER_LICENSE_PS_CARD"
+    ],
+    "RequestId": "820916b4-b391-40a8-9203-7ae87e3f1954"
+  }
+}
+```
+
+驾驶证主页和副页请求结果返回 resultInfo 结果示例：
+
+```json
+{
+  "Response": {
+    "Name": "李明",
+    "Sex": "男",
+    "Nationality": "中国",
+    "Address": "上海市徐汇区田林路397号腾云大厦6F",
+    "DateOfBirth": "1987-01-01",
+    "IssuingAuthority": "上海市公安局交通警察总队",
+    "DateOfFirstIssue": "2011-10-01",
+    "Class": "C1",
+    "StartDate": "2011-10-01",
+    "EndDate": "2017-10-01",
+    "CardCode": "440524198701010014",
+    "ArchivesCode": "",
+    "Record": "",
+    "RecognizeWarnCode": [
+      -9106
+    ],
+    "RecognizeWarnMsg": [
+      "WARN_DRIVER_LICENSE_PS_CARD"
+    ],
+    "RequestId": "4ba2958b-e7cf-41c2-aafe-fdc985307f63"
   }
 }
 ```

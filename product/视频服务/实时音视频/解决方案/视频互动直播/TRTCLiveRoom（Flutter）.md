@@ -844,7 +844,7 @@ void onAudienceEnter(TRTCLiveRoomDef.TRTCLiveUserInfo userInfo);
 | userName   | String | 用户昵称。        |
 | userAvatar | String | 用户头像地址。    |
 
-### onRoomPKRejectedonRoomPKAccepted
+### onRoomPKAccepted
 
 主播接受跨房 PK 请求。
 
@@ -856,7 +856,7 @@ void onAudienceEnter(TRTCLiveRoomDef.TRTCLiveUserInfo userInfo);
 
 ### onRoomPKRejected
 
-主播接受跨房Pk请求
+主播接受跨房 PK 请求。
 
 参数如下表所示：
 

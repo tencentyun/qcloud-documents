@@ -1,4 +1,4 @@
-1.	登录 [DDoS 高防 IP（境外企业版）](https://console.cloud.tencent.com/ddos/ddos-basic) 控制台 ，在左侧导航中，单击【DDoS高防IP】>【业务接入】，进入业务接入页面。
+1.	登录 [DDoS 高防 IP（境外企业版）](https://console.cloud.tencent.com/ddos/ddos-basic) 控制台 ，在左侧导航中，单击【DDoS 高防 IP】>【业务接入】，进入业务接入页面。
 2. 在业务接入页面中，单击【IP 接入】，进入相关管理页面。
 ![](https://main.qcloudimg.com/raw/499cbf6c5aee1040aca5fc99b05aec42.png)
 3. 	在“IP 接入”页面，单击【添加规则】，进入绑定资源弹窗。

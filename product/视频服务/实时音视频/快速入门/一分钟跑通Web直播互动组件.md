@@ -184,7 +184,7 @@ Vue.prototype.TWebLive = TWebLive
 使用 Chrome 浏览器打开 `dist` 目录下的 `index.html` 文件即可运行 Demo。
 >!
 >- 一般情况下体验 Demo 需要部署至服务器，通过 `https://域名/xxx` 访问，或者直接在本地搭建服务器，通过 `localhost:端口`访问。
->- 目前桌面端 Chrome 浏览器支持 TRTC 桌面浏览器 SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
+>- 目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 >- TWebLive 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击【允许】即可。
 >  ![](https://main.qcloudimg.com/raw/7eb28d195649d6c0027026eaa02fdedd.png)
 :::
@@ -235,7 +235,7 @@ Vue.prototype.TWebLive = TWebLive
 使用 Chrome 浏览器打开 `dist` 目录下的 `index.html` 文件即可运行 Demo。
 >!
 >- 一般情况下体验 Demo 需要部署至服务器，通过 `https://域名/xxx` 访问，或者直接在本地搭建服务器，通过 `localhost:端口`访问。
->- 目前桌面端 Chrome 浏览器支持 TRTC 桌面浏览器 SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
+>- 目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 >- TWebLive 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击【允许】即可。
 >  ![](https://main.qcloudimg.com/raw/7eb28d195649d6c0027026eaa02fdedd.png)
 :::
@@ -274,7 +274,7 @@ Web 推流和 Web 低延时观看用到了 WebRTC 技术。
 |   Android   |   微信内嵌网页（TBS 内核）   |         -          |     支持     |     支持     |
 |   Android   |  微信内嵌网页（XWEB 内核）   |         -          |     支持     |    不支持    |
 
->! 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC 桌面浏览器端 SDK 的正常运行。
+>! 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC Web SDK 的正常运行。
 >[](id:sos)
 
 
@@ -287,13 +287,13 @@ Web 推流和 Web 低延时观看用到了 WebRTC 技术。
 - IM 升级方法请参见 [基本配置](https://cloud.tencent.com/document/product/269/32578#.E8.8E.B7.E5.8F.96.E5.AF.86.E9.92.A5)。
 :::
 ::: 出现客户端错误：“RtcError:\sno\svalid\sice\scandidate\sfound”该如何处理？
-出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验官网 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 检查配置是否生效。
+出现该错误说明 TRTC Web SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验官网 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 检查配置是否生效。
   - TCP 端口：8687
   - UDP 端口：8000，8080，8800，843，443，16285
   - 域名：qcloud.rtc.qq.com
 :::
 ::: 出现客户端错误：“RtcError:ICE/DTLS\sTransport\sconnection\sfailed”或“RtcError:DTLS\sTransport\sconnection\stimeout”该如何处理？
-出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验官网 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 检查配置是否生效。
+出现该错误说明 TRTC Web SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验官网 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 检查配置是否生效。
   - TCP 端口：8687
   - UDP 端口：8000，8080，8800，843，443，16285
   - 域名：qcloud.rtc.qq.com
@@ -314,7 +314,7 @@ iOS 自动播放受限，请参见 [自动播放受限处理建议](https://web.
 ## 结语
 本文为您介绍了腾讯云新的 Web 直播互动组件：TWebLive，通过接入此 SDK，开发者可以快速轻便地实现 Web 推流、Web 低延时观看、CDN 观看以及实时聊天互动（或弹幕）等功能，能够很好替换传统的 Flash 推流方案。
 
-同时，提供详细的接入方案和 [在线 Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 供您体验。目前 TWebLive 在主流的桌面浏览器上也有较好的支持，在移动端支持小程序的解决方案。
+同时，提供详细的接入方案和 [在线 Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 供您体验。目前 TWebLive 在主流的 Web 上也有较好的支持，在移动端支持小程序的解决方案。
 
 后续，我们会提供更全方位的直播功能服务，例如：推流端支持屏幕分享、图片消息互动、观众端多线路观看（WebRTC 低延时线路和 CDN 线路）、主播观众连麦互动等功能。
 

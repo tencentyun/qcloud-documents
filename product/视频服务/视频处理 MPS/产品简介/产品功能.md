@@ -23,7 +23,7 @@
    </tr>
    <tr>
       <td style="text-align:center">视频编码格式</td>
-      <td>AV1、AVS2、H.264/AVC、H.263、 H.263+、H.265、MPEG-1、MPEG-2、MPEG-4、MJPEG、VP8、VP9、Quicktime、RealVideo、Windows Media Video</td>
+      <td>AV1、AVS2、H.264/AVC、H.263、 H.263+、H.265、MPEG-1、MPEG-2、MPEG-4、MJPEG、VP8、VP9、RealVideo、Windows Media Video</td>
    </tr>
 	    <tr>
       <td style="text-align:center">音频编码格式</td>

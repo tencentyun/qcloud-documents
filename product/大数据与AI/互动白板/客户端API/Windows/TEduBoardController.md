@@ -49,7 +49,7 @@ ppBoardController 指针会被自动置空
 
 
 ### ClearTEduBoardSDKEnv
-清理白板SDK环境，在不使用白板后调用以释放资源 
+清理白板 SDK 环境，在不使用白板后调用以释放资源 
 ``` C++
 EDUSDK_API void ClearTEduBoardSDKEnv()
 ```

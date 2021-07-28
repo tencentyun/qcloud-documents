@@ -14,11 +14,11 @@
 ## 体验私有域解析 Private DNS
 1. 登录私有域解析 [ Private DNS 管理控制台](https://console.cloud.tencent.com/privatedns)，即可进入【概览】管理页面。
 2. 在 Private DNS 开通成功后，单击右上角的【Demo 演示】，即可进行体验。如下图所示：
-![](https://main.qcloudimg.com/raw/6394c0372b7d4c789ec8ed412fbb1581.png)
+![](https://main.qcloudimg.com/raw/3eee2cbd7f6adc438fdb7bcdda9c2491.png)
 
 
 ## 退出体验
-若您需要退出 Demo 体验，您可以单击【退出】，即可退出体验。如下图所示：
+若您需要退出 Demo 体验，您可以单击【点击退出】，即可退出体验。如下图所示：
 >!Demo 演示仅提供模拟数据展示及功能预览，相关功能无法操作。
 >
-![](https://main.qcloudimg.com/raw/bfad167ce6abe886ae8532820a08c001.png)
+![](https://main.qcloudimg.com/raw/47c8b97b9127a023b3ec173cdf2710e8.png)

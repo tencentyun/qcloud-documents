@@ -13,7 +13,6 @@ Kafka 是目前应用非常广泛的开源消息中间件，常用场景就是�
 
 ## Kafka 数据导入到 ClickHouse
 ClickHouse 提供了 Kafka Engine 作为访问 Kafka 集群的一个接口（数据流），具体步骤如下：
-
 - **步骤1：**创建 Kafka Engine
 ```
 CREATE TABLE source

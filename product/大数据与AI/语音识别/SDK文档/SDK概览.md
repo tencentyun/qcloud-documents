@@ -19,14 +19,13 @@
 <tr>
 <td rowspan="2">客户端</td>
 <td>iOS</td>
-<td>录音文件识别、实时语音识别、一句话识别</td>
+<td>录音文件识别、实时语音识别、一句话识别、录音文件识别极速版</td>
 <td> <a href="https://cloud.tencent.com/document/product/1093/35723">一分钟跑通集成 SDK</a></td>
 </tr>
 <tr>
 <td>Android</td>
-<td>录音文件识别、实时语音识别、一句话识别</td>
+<td>录音文件识别、实时语音识别、一句话识别、录音文件识别极速版</td>
 <td><a href="https://cloud.tencent.com/document/product/1093/35722">一分钟跑通集成 SDK</a></td>
-<td></td>
 </tr>
 <tr>
 <td>小程序</td>

@@ -72,7 +72,7 @@ Namespace=QCE/CDB
 | 指标英文名           | 指标中文名     | 指标说明                 | 单位  | 维度                             | 统计粒度                     |
 | -------------------- | -------------- | ------------------------ | ----- | -------------------------------- | ---------------------------- |
 | CreatedTmpDiskTables | 磁盘临时表数量 | 每秒创建磁盘临时表的次数 | 次/秒 | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
-| CreatedTmpTables     | 临时文件数量   | 每秒创建临时文件的次数   | 次/秒 | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
+| CreatedTmpFiles     | 临时文件数量   | 每秒创建临时文件的次数   | 次/秒 | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 
 ### 引擎监控（扩展）- Key
 

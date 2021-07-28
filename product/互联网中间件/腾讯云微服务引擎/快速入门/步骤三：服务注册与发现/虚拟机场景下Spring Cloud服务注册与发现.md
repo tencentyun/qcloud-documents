@@ -4,7 +4,7 @@
 
 ## 操作步骤
 ### 步骤1：服务部署
-#### 1. 准备Spring Cloud 应用
+#### 1. 准备 Spring Cloud 应用
 
 您需要下载我们提供的Spring Cloud 应用demo，快速完成快速入门教程。
 
@@ -81,28 +81,34 @@ spring:
 ::: Consul 
 <dx-codeblock>
 :::  plaintext
+```plaintext
 nohup java 
 -Dspring.cloud.consul.host=[TSE-Consul注册中心IP] 
 -Dspring.cloud.consul.port=8500
 -jar [jar包名称] &
+```
 :::
 </dx-codeblock>
 :::
 ::: Eureka
 <dx-codeblock>
 :::  plaintext
+```plaintext
 nohup java 
 -Deureka.client.serviceUrl.defaultZone=http://[TSE-Eureka注册中心IP]:8761/eureka/ 
 -jar [jar包名称] &
+```
 :::
 </dx-codeblock>
 :::
 ::: Zookeeper
 <dx-codeblock>
 :::  plaintext
+``` plaintext
 nohup java 
 -Dspring.cloud.zookeeper.connect-string=[TSE-Zookeeper注册中心IP]:2181 
 -jar [jar包名称] &
+```
 :::
 </dx-codeblock>
 :::
@@ -119,7 +125,7 @@ nohup java
 
 ### 步骤3：验证服务发现
 
-登录Spring Cloud 应用工程 Jar 文件上传的 CVM 实例，运行以下命令：
+登录 Spring Cloud 应用工程 Jar 文件上传的 CVM 实例，运行以下命令：
 
 <dx-codeblock>
 :::  plaintext

@@ -28,7 +28,7 @@
   </tr>
   <tr>
     <td>已封禁</td>
-    <td>该域名已被举报封禁，如有问题，可咨询 <a href="https://cloud.tencent.com/online-service?from=cns">在线客服</a>。</td>
+    <td>该域名已被举报封禁，如有问题，可加入 <a href="https://cloud.tencent.com/document/product/242/57608#DNSPod">DNSPod 官方用户群</a> 进行咨询。</td>
   </tr>
 </tbody>
 </table>
@@ -50,4 +50,4 @@ DNS 地址未修改会影响解析生效，请前往域名注册商处修改 DNS
 解析记录中，无解析记录值。需对域名添加正确且有效的解析记录，才可以正常使用。设置解析记录请参考 [各记录类型说明及规则](https://cloud.tencent.com/document/product/302/38661)。
 
 ### 已封禁
-该域名已被举报封禁，如有问题，可咨询 [在线客服](https://cloud.tencent.com/online-service?from=cns)。
+该域名已被举报封禁，如有问题，可加入 [DNSPod 官方用户群](https://cloud.tencent.com/document/product/242/57608#DNSPod) 进行咨询。
