@@ -4,9 +4,7 @@
 
 `cloudapi.js` 是 Node.js 版的云 API 调用实例，自行安装 Node.js 运行环境。将 `cloudapi.js` 中的 SecretId 和 SecretKey，替换成您的腾讯云帐号下的 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 信息。
 
-**cloudapi.js 示例代码如下：**
-
-
+**cloudapi.js 示例代码如下：**[](id:cloudapi)
 <dx-codeblock>
 ::: JavaScript JavaScript
 var express = require('express');
