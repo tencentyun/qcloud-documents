@@ -95,9 +95,10 @@ trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 | **trtc://**           | 互动直播推流 URL 的前缀字段                                  |
 | **cloud.tencent.com** | 互动直播特定域名，**请勿修改**                               |
 | **push**              | 标识位，表示推流                                             |
-| **sdkappid**          | 对应 [服务开通](#step1) 一节中生成的 SDKAppID |
-| **userId**            | 主播 ID，需要由开发者自定义                                  |
-| **usersig**           | 对应 [服务开通](#step1) 中获取的 UserSig 密钥 |
+| **streamid**       | 流 ID，需要由开发者自定义                                            |
+| **sdkappid**      | 对应 [服务开通](#step1) 一节中生成的 SDKAppID |
+| **userId**           | 主播 ID，需要由开发者自定义                                  |
+| **usersig**         | 对应 [服务开通](#step1) 中获取的 UserSig 密钥 |
 
 
 #### 示例代码
@@ -109,7 +110,7 @@ pusher.setObserver(new MyPusherObserver());
 pusher.setRenderView(mSurfaceView);
 pusher.startCamera(true);
 pusher.startMicrophone();
-// 传⼊互动直播RTC推流协议地址，即可开始推流；
+// 传⼊互动直播RTC推流协议地址，即可开始推流，其中streamid设置为自定义值，比如12345687；；
 pusher.startPush("trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=finnguan&usersig=xxxxx");
 ```
 
@@ -119,13 +120,17 @@ pusher.startPush("trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&use
 #### URL 拼接
 具体的播放 URL 字符串，需要开发者按照 `域名 + streamID`，在工程代码中自行拼接。
 
+>! 使用CDN播放时，需要在[实时音视频控制台](https://console.cloud.tencent.com/trtc/app)开启**旁路推流**功能
+>
+><img src="https://main.qcloudimg.com/raw/f5f2ae04edfb169ec78d2bca1fb10321.png" width="500">
+>
 #### 示例代码
 ```java
 // 创建⼀个 V2TXLivePlayer 对象；
 V2TXLivePlayer player = new V2TXLivePlayerImpl(mContext);
 player.setObserver(new MyPlayerObserver(playerView));
 player.setRenderView(mSurfaceView);
-// 传⼊互动直播播放协议地址，即可开始播放；
+// 传⼊互动直播播放协议地址，即可开始播放，streamid对应推流时设置的streamid，比如12345687；
 player.startPlay("https://3891.liveplay.myqcloud.com/live/streamid.flv");
 ```
 
@@ -564,3 +569,6 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 #### 5. RTC连麦方案的时延性有可以参考的数据吗？
 新的 RTC 连麦方案中，主播连麦的延时 < 200ms，主播和观众的延时在 100ms - 1000ms。
+
+#### 6. RTC 推流成功后，使用CDN拉流一直提示404；
+检查一下是否有开启实时音视频服务的旁路直播功能，基本原理是RTC协议推流后，如果需要使用CDN播放，RTC会在后台服务中旁路流信息到CDN上；
