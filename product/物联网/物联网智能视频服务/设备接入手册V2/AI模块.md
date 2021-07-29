@@ -251,9 +251,11 @@ int32_t (*iv_ai_upload_cos_result_cb)(char *file_path, int err_code);
  ## 数据结构
  
 该模块提供以下数据结构：
-- iv_ai_init_parm_s ：
+- iv_ai_init_parm_s ：初始化 AI 需要传入的参数 。
 
 #### iv_ai_init_parm_s 
+
+**参数说明**
 
 | 名称                       | 类型                   | 描述                                                         |
 | -------------------------- | ---------------------- | ------------------------------------------------------------ |
@@ -261,6 +263,10 @@ int32_t (*iv_ai_upload_cos_result_cb)(char *file_path, int err_code);
 | model_id                   | int                    | AI 模型 ID，目前只支持1 - 128，1为人形检测模型                   |
 | iv_ai_upload_cos_result_cb | void (*) (char *, int) | 用来处理 COS 上传的结果，参数为上传 COS 的图片路径和上传的结果   |
  
+ 
+ **返回值**
+初始化成功，则返回对应的 handle，失败返回 NULL。
+
 ## 注意事项
 
 上传图片要求如下：
