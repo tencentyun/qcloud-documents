@@ -82,7 +82,7 @@ void onPublishComplete(TXPublishResult result);
 	<td >视频文件云存储 ID，您可以通过这个 ID 调用云点播 <a href = "https://cloud.tencent.com/document/product/266/7788">服务端 API 接口</a>。</td>
 	</tr>
 	</tbody></table> 
-- 通过 [错误码表](https://cloud.tencent.com/document/product/584/10176) 来确认短视频的发布结果。
+- 通过 [编辑错误码表](https://cloud.tencent.com/document/product/1449/57180?!preview&!editLang=zh#error) 和 [录制错误码表](https://cloud.tencent.com/document/product/1449/58921?!preview&!editLang=zh#error) 确认短视频的发布结果。
 
 [](id:step4)
 
