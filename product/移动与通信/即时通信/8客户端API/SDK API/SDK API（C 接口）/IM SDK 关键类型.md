@@ -535,7 +535,7 @@ for (int i = 0; i < length; ++i) {
 }
 
 // 在这里使用二进制数据: pBuffer 是指向二进制数据的指针，length 表示二进制数据的长度
-
+...
 // 释放 pBuffer
 free(pBuffer);
 ```
