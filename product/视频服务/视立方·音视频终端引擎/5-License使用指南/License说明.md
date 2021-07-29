@@ -255,8 +255,8 @@
       <td rowspan='2'>License</td>
       <td>License 申请</td>
       <td>不同版本 SDK 需要搭配不同版本的 License 才能使用。</td>
-      <td style="text-align:center"><a href="1">精简版 License</a></td>
-      <td style="text-align:center"><a href="1">基础版 License</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/1449/56982?!editLang=zh&!preview">精简版 License</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/1449/56982?!editLang=zh&!preview">基础版 License</a></td>
    <tr>
       <td>套餐价格</td>
       <td>SDK 的一年使用权（精简版和基础版含腾讯云点播流量套餐）。</td>
