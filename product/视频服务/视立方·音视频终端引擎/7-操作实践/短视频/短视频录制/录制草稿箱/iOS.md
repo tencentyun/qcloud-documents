@@ -53,4 +53,4 @@ record2 = [TXUGCRecord shareInstance]；
 </dx-codeblock>
 
 
->! 具体实现方法请参见 [小视频源码](https://cloud.tencent.com/document/product/584/9366) 中的 UGCKitRecordViewController 类。
+>! 具体实现方法请参见 [小视频源码](https://cloud.tencent.com/document/product/1449/56977?!preview&!editLang=zh#video_app) 中的 UGCKitRecordViewController 类。
