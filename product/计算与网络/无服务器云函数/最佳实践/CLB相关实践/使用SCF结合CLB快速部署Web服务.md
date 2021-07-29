@@ -54,7 +54,7 @@ VIP 即负载均衡向客户端提供服务的 IP 地址。
 2. 在“函数服务”页面上方单击已创建的函数 `clb-scf-web`。
 3. 在该函数的详情页面，选择【触发管理】。
 4. 在“触发管理”页中获取 API 网关触发器访问路径，查看 Web 页面。如下图所示：
-![https://main.qcloudimg.com/raw/67f118b51ec8e7c525b2b0d7454e07c2.png](https://main.qcloudimg.com/raw/67f118b51ec8e7c525b2b0d7454e07c2.png)
+![](https://main.qcloudimg.com/raw/579a6edd4c4f610c7783e84d1fa5bcc7.png)
 
 
 
