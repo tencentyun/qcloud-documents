@@ -256,4 +256,4 @@ Privacy - Camera Usage Description
 :::
 </dx-codeblock>  
 
-至此就完成了全部合唱的基础功能，功能更加丰富的示例请参见 [小视频源码](https://cloud.tencent.com/document/product/584/9366#.E5.85.A8.E5.8A.9F.E8.83.BD.E5.B0.8F.E8.A7.86.E9.A2.91-app.EF.BC.88demo.EF.BC.89.E6.BA.90.E4.BB.A3.E7.A0.81)。
+至此就完成了全部合唱的基础功能，功能更加丰富的示例请参见 [小视频源码](https://cloud.tencent.com/document/product/1449/56977?!preview&!editLang=zh#video_app)。
