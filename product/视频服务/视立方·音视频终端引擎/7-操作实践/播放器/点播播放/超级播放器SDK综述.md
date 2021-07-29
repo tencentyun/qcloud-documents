@@ -96,19 +96,54 @@
 
 腾讯云视立方点播播放器 Player 支持 Web 端、iOS 端、Android 端、Flutter 端四大终端, 其中 Flutter 仅支持超级播放器使用，详情请参见表格中的文档。
 
-| 终端类别 | 功能列表| SDK 下载| Demo 展示| 使用文档|
-| :--- | :--- | :--- | :-- | :--|
-|iOS 端集成|[能力清单](https://cloud.tencent.com/document/product/266/45539#.E8.B6.85.E7.BA.A7.E6.92.AD.E6.94.BE.E5.99.A8)|[Github](https://github.com/tencentyun/SuperPlayer_iOS)|<img src="https://main.qcloudimg.com/raw/12c7da97cc910eda673cb19b66fc7cb3.png" width="150">|[超级播放器](https://cloud.tencent.com/document/product/266/58774?!editLang=zh&!preview)、[超级播放器 Adapter](https://cloud.tencent.com/document/product/266/58775?!editLang=zh&!preview)|
-|Android 端|[能力清单](https://cloud.tencent.com/document/product/266/45539#.E8.B6.85.E7.BA.A7.E6.92.AD.E6.94.BE.E5.99.A8)|[Github](https://github.com/tencentyun/SuperPlayer_Android)|<img src="https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png" width="150">|[超级播放器](https://cloud.tencent.com/document/product/266/7938?!editLang=zh&!preview)、[超级播放器 Adapter](https://cloud.tencent.com/document/product/266/58777?!editLang=zh&!preview)|
-| Flutter 端 |[能力清单](https://cloud.tencent.com/document/product/266/45539#.E8.B6.85.E7.BA.A7.E6.92.AD.E6.94.BE.E5.99.A8)|[Github](https://github.com/tencentyun/SuperPlayer/tree/main/Flutter)|[Demo](https://github.com/tencentyun/SuperPlayer/tree/main/Flutter)|[超级播放器](https://cloud.tencent.com/document/product/266/58778?!editLang=zh&!preview) |
-| Web 端 |[能力清单](https://cloud.tencent.com/document/product/266/45539#.E8.B6.85.E7.BA.A7.E6.92.AD.E6.94.BE.E5.99.A8)|[SDK](https://tcloud-doc.isd.com/document/product/266/14424?)|[Demo](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-base.html)|[超级播放器](https://cloud.tencent.com/document/product/266/58772?!editLang=zh&!preview)、[超级播放器 Adapter](https://cloud.tencent.com/document/product/266/58773?!editLang=zh&!preview)|
+<table>
+<thead>
+<tr>
+<th>终端类别</th>
+<th>功能列表</th>
+<th>SDK 下载</th>
+<th>Demo 展示</th>
+<th>使用文档</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>iOS 端集成</td>
+<td><a href="https://cloud.tencent.com/document/product/266/45539#.E8.B6.85.E7.BA.A7.E6.92.AD.E6.94.BE.E5.99.A8">能力清单</a></td>
+<td><a href="https://github.com/tencentyun/SuperPlayer_iOS">Github</a></td>
+<td><img src="https://main.qcloudimg.com/raw/12c7da97cc910eda673cb19b66fc7cb3.png" width="150"></td>
+<td><a href="https://cloud.tencent.com/document/product/1449/57082?!preview&!editLang=zh">超级播放器</a>、<a href="https://cloud.tencent.com/document/product/1449/57084?!preview&!editLang=zh">超级播放器 Adapter</a></td>
+</tr>
+<tr>
+<td>Android 端</td>
+<td><a href="https://cloud.tencent.com/document/product/266/45539#.E8.B6.85.E7.BA.A7.E6.92.AD.E6.94.BE.E5.99.A8">能力清单</a></td>
+<td><a href="https://github.com/tencentyun/SuperPlayer_Android">Github</a></td>
+<td><img src="https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png" width="150"></td>
+<td><a href="https://cloud.tencent.com/document/product/1449/57085?!preview&!editLang=zh">超级播放器</a>、<a href="https://cloud.tencent.com/document/product/1449/57087?!preview&!editLang=zh">超级播放器 Adapter</a></td>
+</tr>
+<tr>
+<td>Flutter 端</td>
+<td><a href="https://cloud.tencent.com/document/product/1449/57091#.E8.B6.85.E7.BA.A7.E6.92.AD.E6.94.BE.E5.99.A8">能力清单</a></td>
+<td><a href="https://github.com/tencentyun/SuperPlayer/tree/main/Flutter">Github</a></td>
+<td><a href="https://github.com/tencentyun/SuperPlayer/tree/main/Flutter">Demo</a></td>
+<td><a href="https://cloud.tencent.com/document/product/1449/57091?!preview&!editLang=zh">超级播放器</a></td>
+</tr>
+<tr>
+<td>Web 端</td>
+<td><a href="https://cloud.tencent.com/document/product/266/45539#.E8.B6.85.E7.BA.A7.E6.92.AD.E6.94.BE.E5.99.A8">能力清单</a></td>
+<td><a href="https://tcloud-doc.isd.com/document/product/266/14424?">SDK</a></td>
+<td><a href="https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-base.html">Demo</a></td>
+<td><a href="https://cloud.tencent.com/document/product/1449/57088?!preview&!editLang=zh">超级播放器</a>、<a href="https://cloud.tencent.com/document/product/1449/57089?!preview&!editLang=zh">超级播放器 Adapter</a></td>
+</tr>
+</tbody></table>
 
 [](id:method)
 ### 集成方式
 
 | 播放器类型 | SDK 下载地址 | 使用文档 |
-| -- | -- | -- |
-| 超级播放器 | <ul style="margin:0;"><li>[Android](https://cloud.tencent.com/document/product/266/7938#sdk-.E4.B8.8B.E8.BD.BD)</li><li>[iOS](https://cloud.tencent.com/document/product/266/9237#sdk-.E4.B8.8B.E8.BD.BD)</li><li>[Web](https://cloud.tencent.com/document/product/266/14424#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.9C.A8.E9.A1.B5.E9.9D.A2.E4.B8.AD.E5.BC.95.E5.85.A5.E6.96.87.E4.BB.B6)</li><li>[Flutter](https://github.com/tencentyun/SuperPlayer/tree/main/Flutter)</li> | <ul style="margin:0;"><li>[Android](https://cloud.tencent.com/document/product/266/7938)</li><li>[iOS](https://cloud.tencent.com/document/product/266/9237)</li><li>[Web](https://cloud.tencent.com/document/product/266/14424)</li><li>[Flutter](https://cloud.tencent.com/document/product/266/14424)</li> |
+| ---------- | ---------- | ---------- |
+| 超级播放器 | <ul style="margin:0;"><li>[Android](https://cloud.tencent.com/document/product/1449/57085?!preview&!editLang=zh#sdk-.E4.B8.8B.E8.BD.BD)</li><li>[iOS](https://cloud.tencent.com/document/product/1449/57082?!preview&!editLang=zh#sdk-.E4.B8.8B.E8.BD.BD)</li><li>[Web](https://cloud.tencent.com/document/product/1449/57088?!preview&!editLang=zh#sdk-.E4.B8.8B.E8.BD.BD)</li><li>[Flutter](https://cloud.tencent.com/document/product/1449/57091?!preview&!editLang=zh#sdk-.E4.B8.8B.E8.BD.BD)</li></ul> | <ul style="margin:0;"><li>[Android](https://cloud.tencent.com/document/product/1449/57085?!preview&!editLang=zh)</li><li>[iOS](https://cloud.tencent.com/document/product/1449/57082?!preview&!editLang=zh)</li><li>[Web](https://cloud.tencent.com/document/product/1449/57088?!preview&!editLang=zh)</li><li>[Flutter](https://cloud.tencent.com/document/product/1449/57091?!preview&!editLang=zh)</li></ul> |
+
+
 
 ### 接入指引
 为了帮助您快速接入点播的超级播放器，我们为您提供了超级播放器 [接入指引](https://cloud.tencent.com/document/product/266/43629)，以示例的方式为您讲解接入步骤。
