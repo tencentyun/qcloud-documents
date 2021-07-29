@@ -18,7 +18,7 @@
 ![](https://main.qcloudimg.com/raw/e763b5b8466af44026f8537eabb86fba.jpg)
 4.	收到相关申请后，腾讯云专业人员将在3个工作日内完成审批，并完成配置模型调用次数等工作。
 
-## 配置 Ckafka
+### 配置 Ckafka
 
 AI 模型的推理结果将输出到用户配置的 Ckafka。完成 AI 模型的申请后，需要为它设置 Ckafka 地址，操作流程如下：
 
