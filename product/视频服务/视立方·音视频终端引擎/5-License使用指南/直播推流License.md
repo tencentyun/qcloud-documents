@@ -1,4 +1,4 @@
-直播推流 License 用于解锁直播推流（RTMP + RTC）模块的使用权限，您可以在 [视立方控制台 ]() 对直播推流 License 进行新增和续期等操作。
+直播推流 License 用于解锁直播推流（RTMP + RTC）模块的使用权限，您可以在 [视立方控制台](https://console.cloud.tencent.com/vcube) 对直播推流 License 进行新增和续期等操作。
 
 
 [](id:test)
@@ -7,7 +7,7 @@
 ### 申请测试版 License
 您可以免费申请直播推流模块的测试版 License（免费测试有效期为14天，可续期1次，共28天，有效期至到期当日的24:00:00为止）体验测试，具体步骤如下：
 
-1. 登录 [视立方控制台]()，单击【创建测试License 】。
+1. 登录 [视立方控制台](https://console.cloud.tencent.com/vcube)，单击【创建测试License 】。
 ![](https://main.qcloudimg.com/raw/11f0a5770a347054652e50773392661b.png)
 2. 根据实际需求填写 `App Name`、`Package Name` 和 `Bundle ID`，勾选功能模块【直播推流】，单击【确定】。
 ![](https://main.qcloudimg.com/raw/be5726e65e25afa95ea730f37a6eafab.png)
@@ -31,7 +31,7 @@
 [](id:creat_formal)
 ### 购买正式版 License
 1. 购买指定规格的 [直播流量包](https://cloud.tencent.com/document/product/1449/56973?!preview&!editLang=zh#live)，获得赠送1年有效期的正式直播推流 License 使用权限（到期当日的00:00:00止）。
-2. 进入 [视立方控制台]()，单击【创建应用并绑定 License 】按钮。填写 `App Name`、`Package Name` 和 `Bundle ID` 并勾选功能模块【直播推流】，完成后单击【下一步】。
+2. 进入 [视立方控制台](https://console.cloud.tencent.com/vcube)，单击【创建应用并绑定 License 】按钮。填写 `App Name`、`Package Name` 和 `Bundle ID` 并勾选功能模块【直播推流】，完成后单击【下一步】。
 ![](https://main.qcloudimg.com/raw/e6c80bea7a024b9a5390e36556db6aee.png)
 3. 进入选择套餐包并绑定 License 界面，选择**未绑定**的直播流量资源包，并单击【确定】即可生成正式版 License。
 ![](https://main.qcloudimg.com/raw/9677fe7faf19515fb01b8b62daf24ead.png)
@@ -44,7 +44,7 @@
 
 [](id:update_formal)
 ### 更新正式版 License 有效期
-您可以登录 [视立方控制台]() 页面查看直播推流正式版 License 的有效期，若您的直播推流正式版 License 已到期，可进行如下操作进行续期：
+您可以登录 [视立方控制台](https://console.cloud.tencent.com/vcube) 页面查看直播推流正式版 License 的有效期，若您的直播推流正式版 License 已到期，可进行如下操作进行续期：
 1. 选择您需要更新有效期的 License，单击直播推流模块内的【更新有效期】。
 ![](https://main.qcloudimg.com/raw/9685ce96bb720cc91e5cb0038133c2c3.png)
 2. 选择**未绑定**过的直播流量资源包（若没有可绑定的资源包，可前往 [资源包购买页]() 购买），单击【确定】即可。
