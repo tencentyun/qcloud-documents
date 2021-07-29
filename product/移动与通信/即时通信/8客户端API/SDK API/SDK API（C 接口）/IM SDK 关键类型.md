@@ -496,31 +496,23 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 使用  kTIMCustomElemData  发送二进制数据
 
 ```c++
-// base16 的编码 ----- 示例代码仅供参考
-std::string string_to_hex(const char *pBuffer, const int length) {
-    std::string in(pBuffer, length);
-    std::stringstream ss;
-    ss << std::hex << std::setfill('0');
-    for (size_t i = 0; in.length() > i; ++i) {
-        ss << std::setw(2) << static_cast<unsigned int>(static_cast<unsigned char>(in[i]));
-    }
-    return ss.str(); 
+// 假设 pBuffer 是指向二进制数据的指针，nLength 表示二进制数据的长度
+char * pBuffer;
+int length = xxx;
+
+// 对二进制数据做 base16 编码，转换为字符串
+char * pBase16Buf = (char *)malloc(2 * length + 1);
+memset(pBase16Buf, 0, 2 * length + 1);
+for (int i = 0; i < length; ++i) {
+    sprintf(pBase16Buf + 2 * i, "%02X", pBuffer[i]);
 }
+std::string strBase16 = std::string(pBase16Buf, strlen(pBase16Buf));
+free(pBase16Buf);
 
-// 获取二进制代码
-std::string filename = local_cache_path + "/test.png";
-std::ifstream istream(filename, std::ios::binary);
-istream.seekg(0, std::ios::end);
-uint32_t length = istream.tellg();
-istream.seekg(0, std::ios::beg);
-char *pBuffer = (char*)malloc(len);
-istream.read(buffer, len);
-std::string  base16string = string_to_hex(std::string(buffer, length));
-
-// 组装 JSON
+// 创建 kTIMCustomElemData 类型的 element
 json::Object json_element;
 json_element[kTIMElemType] = kTIMElem_Custom;
-json_element[kTIMCustomElemData] = base16string.c_str();
+json_element[kTIMCustomElemData] = strBase16.c_str();
 json_element[kTIMCustomElemDesc] = "description";
 json_element_array.push_back(json_element);
 ```
@@ -528,25 +520,24 @@ json_element_array.push_back(json_element);
  使用 kTIMCustomElemData  接收二进制数据
 
 ```c++
-// base16 的解码 ----- 示例代码仅供参考
-std::string hex_to_string(const std::string& in) {
-    std::string output;
-    size_t cnt = in.length() / 2;
-    for (size_t i = 0; cnt > i; ++i) {
-        uint32_t s = 0;
-        std::stringstream ss;
-        ss << std::hex << in.substr(i * 2, 2);
-        ss >> s;
+// 假设 json_element 是 kTIMCustomElemData 类型的 element，从中解析出 kTIMCustomElemData 字段
+std::string strCustomData = json_element[kTIMCustomElemData];
 
-        output.push_back(static_cast<unsigned char>(s));
-    }
-    return output;
+// 对 strCustomData 做 base16 解码，得到原始二进制数据
+char * pCustomData = (char*)(strCustomData.c_str());
+int customDataLength = (int)(strCustomData.length());
+
+int length = customDataLength / 2;
+char * pBuffer = (char *)malloc(length + 1);
+memset(pBuffer, 0, length + 1);
+for (int i = 0; i < length; ++i) {
+    sscanf(pCustomData + 2 * i, "%02X", (char*)(pBuffer + i));
 }
 
-// 解析 JOSN
-std::string content = hex_to_string(json_element[kTIMCustomElemData]);
-const char* pBuffer = content.c_str();
-int length = content.size();
+// 在这里使用二进制数据: pBuffer 是指向二进制数据的指针，length 表示二进制数据的长度
+
+// 释放 pBuffer
+free(pBuffer);
 ```
 
 
