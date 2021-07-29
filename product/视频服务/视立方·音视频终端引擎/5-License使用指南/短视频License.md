@@ -1,4 +1,4 @@
-短视频 License 用于解锁短视频（精简版/基础版）模块的使用权限，您可以在 [视立方控制台]() 对短视频 License 进行新增、升级和续期等操作。
+短视频 License 用于解锁短视频（精简版/基础版）模块的使用权限，您可以在 [视立方控制台](https://console.cloud.tencent.com/vcube) 对短视频 License 进行新增、升级和续期等操作。
 
 
 [](id:test)
@@ -8,7 +8,7 @@
 
 您可以免费申请短视频模块基础版的测试版 License（免费测试有效期为14天，可续期1次，共28天，有效期至到期当日的24:00:00为止）体验测试，具体步骤如下：
 
-1. 登录 [视立方控制台]()，单击【创建测试 License 】。
+1. 登录 [视立方控制台](https://console.cloud.tencent.com/vcube)，单击【创建测试 License 】。
 ![](https://main.qcloudimg.com/raw/11f0a5770a347054652e50773392661b.png)
 2. 根据实际需求填写 App Name、Package Name 和 Bundle ID，勾选功能模块【短视频】，单击【确定】。
 ![](https://main.qcloudimg.com/raw/cc3c2c51e90cc064dfd34675c0152439.png)
@@ -54,7 +54,7 @@
 <td>短视频基础版 License</td>
 <td>云点播流量资源包 50TB、200TB、1PB</td>
 </tr></table>
-2. 进入 [视立方控制台]()，单击【创建应用并绑定 License 】按钮。填写 App Name、Package Name 和 Bundle ID并勾选功能模块【短视频】，根据实际需求选择【精简版】或【基础版】，完成后单击【下一步】。
+2. 进入 [视立方控制台](https://console.cloud.tencent.com/vcube)，单击【创建应用并绑定 License 】按钮。填写 App Name、Package Name 和 Bundle ID并勾选功能模块【短视频】，根据实际需求选择【精简版】或【基础版】，完成后单击【下一步】。
 ![](https://main.qcloudimg.com/raw/96acb80ca19a2ca471cd5153f36239eb.png)
 3. 进入选择套餐包并绑定 License 界面，选择**未绑定**的云点播流量资源包，单击【确定】即可生成短视频（精简版/基础版）正式版 License。
 ![](https://main.qcloudimg.com/raw/4bf5c788f8992fcc919edd87d158e188.png)
@@ -65,7 +65,7 @@
 
 [](id:renew_formal)
 ### 更新正式版 License
-您可以登录 [视立方控制台]() 页面查看短视频正式版 License 的有效期，若您的短视频正式版 License 已到期，可进行如下操作进行续期：
+您可以登录 [视立方控制台](https://console.cloud.tencent.com/vcube) 页面查看短视频正式版 License 的有效期，若您的短视频正式版 License 已到期，可进行如下操作进行续期：
 1. 选择您需要更新有效期的短视频 License，单击对应视频模块中的【更新有效期】。
 ![](https://main.qcloudimg.com/raw/87ab786d72d8bad10774b2dc9bdfb8a1.png)
 2. 选择**未绑定**过的云点播流量资源包（如没有可更新有效期的资源包，可前往 [资源包购买页]() 购买），单击【确定】即可。
