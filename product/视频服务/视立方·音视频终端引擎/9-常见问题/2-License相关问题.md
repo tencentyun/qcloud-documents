@@ -23,8 +23,8 @@
 - 基础版 License 在精简版基础上增加滤镜、特效和转场等能力，快速轻松实现基于移动端的短视频应用。
 
 >?
->- 更多功能支持详细说明，请参见 [短视频 License 功能详情]()。
->- 美颜特效更多高级美颜、动效贴纸、AI 抠图和绿幕抠图的功能能力暂通过原（移动直播/短视频）企业版 SDK 对外售卖，通过购买原移动直播企业版License、短视频企业版 License 或者短视频企业版 Pro License 后，使用对应的功能。详情请参见 [美颜特效功能概述]()。
+>- 更多功能支持详细说明，请参见 [短视频 License 功能详情](https://cloud.tencent.com/document/product/1449/56980?!preview&!editLang=zh#UGSV_detail)。
+>- 美颜特效更多高级美颜、动效贴纸、AI 抠图和绿幕抠图的功能能力暂通过原（移动直播/短视频）企业版 SDK 对外售卖，通过购买原移动直播企业版License、短视频企业版 License 或者短视频企业版 Pro License 后，使用对应的功能。详情请参见 [美颜特效功能概述](https://cloud.tencent.com/document/product/1449/58916?!preview&!editLang=zh)。
 
 [](id:que4)
 ### 一个账号下能创建多个腾讯云视立方 License 吗？
