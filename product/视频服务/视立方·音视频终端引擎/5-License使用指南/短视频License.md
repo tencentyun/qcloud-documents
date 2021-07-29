@@ -25,7 +25,7 @@
 
 测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**，单击功能模块【短视频】右侧的【续期】按钮，选择【确定续期】即可续期该功能模块14天。
 ![](https://main.qcloudimg.com/raw/9bb9ab455def0773a2c06524e85b3397.png)
->! 测试版 License 有效期共28天，只能续期一次（有效期至到期当日的24:00:00为止）。若您需继续使用，请购买正式版 License。
+>! 测试版 License 有效期共28天，只能续期一次（有效期至到期当日的24:00:00为止）。若您需继续使用，请 [购买](https://buy.cloud.tencent.com/vcube) 正式版 License。
 
 [](id:update_test)
 ### 测试版 License 升级
@@ -68,7 +68,7 @@
 您可以登录 [视立方控制台](https://console.cloud.tencent.com/vcube) 页面查看短视频正式版 License 的有效期，若您的短视频正式版 License 已到期，可进行如下操作进行续期：
 1. 选择您需要更新有效期的短视频 License，单击对应视频模块中的【更新有效期】。
 ![](https://main.qcloudimg.com/raw/87ab786d72d8bad10774b2dc9bdfb8a1.png)
-2. 选择**未绑定**过的云点播流量资源包（如没有可更新有效期的资源包，可前往 [资源包购买页]() 购买），单击【确定】即可。
+2. 选择**未绑定**过的云点播流量资源包（如没有可更新有效期的资源包，可前往 [资源包购买页](https://buy.cloud.tencent.com/vcube) 购买），单击【确定】即可。
 3. 查看更新后的有效期情况。
 
 >! **短视频（精简版/基础版）的正式版 License 不支持信息修改**，若您需要修改 License 信息，购买资源包后请勿用于 License 有效期的更新，请单击【新增 License】重新新增 License 绑定新的包名信息。
