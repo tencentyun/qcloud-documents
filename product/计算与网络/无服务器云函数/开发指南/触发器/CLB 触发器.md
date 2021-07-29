@@ -1,19 +1,28 @@
 您可以通过编写云函数 SCF 来实现 Web 后端服务，并通过负载均衡 CLB 对外提供服务。负载均衡 CLB 触发器会将请求内容以参数形式传递给函数，并将函数返回作为响应返回给请求方。
 
 CLB 触发器具有以下特点：
-- **Push 模型**：负载均衡 CLB 监听器在接受到 CLB 侧发出的请求后，如果 CLB 在后端配置了对接的云函数，该函数将会被触发运行。同时 CLB 会将请求的相关信息以 event 入参的形式发送给被触发的函数。相关信息包含了具体接受到请求的方法、请求的 path、header、query 等内容。
-- **同步调用**：CLB 触发器通过同步调用的方式来调用函数。有关调用类型的更多信息，请参阅 [调用类型](https://cloud.tencent.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B)。
+- **Push 模型**
+负载均衡 CLB 监听器在接受到 CLB 侧发出的请求后，如果 CLB 在后端配置了对接的云函数，该函数将会被触发运行。同时 CLB 会将请求的相关信息以 event 入参的形式发送给被触发的函数。相关信息包含了具体接受到请求的方法、请求的 path、header、query 等内容。
+- **同步调用**
+CLB 触发器通过同步调用的方式来调用函数。有关调用类型的更多信息，请参阅 [调用类型](https://cloud.tencent.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B)。
 
 >?
 - CLB 触发器目前处于灰度测试阶段，您可点击 [申请链接](https://cloud.tencent.com/apply/p/h2r3ix3s5vs) 进行申请。
-- CLB 账户分为标准账户类型和传统账户类型。传统账户类型不支持绑定 SCF ，建议升级为标准账户类型。详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。 
+- CLB 账户分为标准账户类型和传统账户类型。传统账户类型不支持绑定 SCF，建议升级为标准账户类型。详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。 
 >
 
 ## CLB 触发器配置
 
 CLB 触发器支持在 **[云函数控制台](https://console.cloud.tencent.com/scf/index)** 或在 **[负载均衡控制台](https://console.cloud.tencent.com/clb/index)** 中进行配置。
- - 在**云函数控制台**中，支持 [在触发方式中添加 CLB 负载均衡触发器](https://cloud.tencent.com/document/product/583/30230#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.AE.8C.E6.88.90.E8.A7.A6.E5.8F.91.E5.99.A8.E5.88.9B.E5.BB.BA)、支持选取已有 CLB 负载均衡或新建主机路由规则、支持配置 URL 请求路径。
- - 在**负载均衡控制台**中配置路由规则时，后端配置可选 Cloud Function，且在选择 Cloud Function 后，即可选择与 CLB 负载均衡相同地域的云函数。在负载均衡控制台上，可以配置及管理更高阶的 CLB 负载均衡服务，例如 WAF 防护、SNI 多域名证书，弹性网卡等能力。
+<dx-tabs>
+::: 云函数控制台
+在**云函数控制台**中，支持 [在触发方式中添加 CLB 负载均衡触发器](https://cloud.tencent.com/document/product/583/30230#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.AE.8C.E6.88.90.E8.A7.A6.E5.8F.91.E5.99.A8.E5.88.9B.E5.BB.BA)、支持选取已有 CLB 负载均衡或新建主机路由规则、支持配置 URL 请求路径。
+:::
+::: 负载均衡控制台
+在**负载均衡控制台**中配置路由规则时，后端配置可选 Cloud Function，且在选择 Cloud Function 后，即可选择与 CLB 负载均衡相同地域的云函数。在负载均衡控制台上，可以配置及管理更高阶的 CLB 负载均衡服务，例如 WAF 防护、SNI 多域名证书，弹性网卡等能力。
+:::
+</dx-tabs>
+
 
 
 ## CLB 触发器绑定限制
@@ -42,8 +51,8 @@ CLB 负载均衡发送到云函数的请求处理方式，和云函数响应给 
     "X-Real-IP": "9.43.175.219",
     "X-Forwarded-For": "9.43.175.xx"  
  
-    "X-clb-stgw-vip": "121.23.21.xx",  
-    "X-Forwarded-Port": "xx",  
+    "X-Vip": "121.23.21.xx",  
+    "X-Vport": "xx",  
     "X-Uri": "/scf_location",  
     "X-Method": "POST"    
     "X-Real-Port": "44347",  
@@ -66,9 +75,9 @@ CLB 负载均衡发送到云函数的请求处理方式，和云函数响应给 
 | X-Real-IP | 客户端IP地址 |   
 | X-Forward-For | 经过的代理IP地址 |
 | X-Real-Port | 记录在 API 网关中配置过的 Path 参数以及实际取值。（可选，CLB 个性化配置） |
-| X-clb-stgw-vip | CLB 负载均衡的 VIP 地址（可选，CLB 个性化配置） |
-| X-Forwarded-Port | CLB 负载均衡的 Vport（可选，CLB 个性化配置）  |
-| X-Uri | 请求 CLB 负载均衡的 PATH（可选，CLB 个性化配置） |
+| X-Vip | CLB 负载均衡的 VIP 地址（可选，CLB 个性化配置） |
+| X-Vport | CLB 负载均衡的 Vport（可选，CLB 个性化配置）  |
+| X-Url | 请求 CLB 负载均衡的 PATH（可选，CLB 个性化配置） |
 | X-Method |请求  CLB 负载均衡的 method（可选，CLB 个性化配置） |
 
 >! 

@@ -6,7 +6,7 @@ Hive connector 支持数据流的目的表（Sink），不支持 Upsert 数据�
 
 ## 示例
 #### 用作数据目的（Sink）
-1. 需要在 Hive 数据库里建 Hive 表。
+1. 需要在 Hive 数据库中建 Hive 表。
 ```SQL
 # 在 Hive 的 testdb 数据库创建 test_sink 数据表
 # 具体语法可以参考 Hive 的相关文档，这里不再赘述
@@ -63,6 +63,7 @@ with (
 | partition.time-extractor.class             | 否   | 无           | 分区时间抽取类，这个类必须实现 PartitionTimeExtractor 接口。 |
 
 ## Hive 配置
+[](id:id)
 ### 获取 Hive 连接配置 jar 包
 Flink SQL 任务写 Hive 时需要使用包含 Hive 及 HDFS 配置信息的 jar 包来连接到 Hive 集群。具体获取连接配置 jar 及其使用的步骤如下：
 1. ssh 登录到对应 Hive 集群节点。
@@ -84,11 +85,13 @@ hdfs-site.xml
 ```
 
 ### 在任务中使用配置 jar
-Flink SQL 任务作业参数中选择：
-1. 内置 Connector flink-connector-hive-${version}.jar，其中 version 为 Hive 对应的版本。
-2. 引用程序包里面选择 Hive 连接配置 jar 包（该 jar 包为通过“获取 Hive 连接配置 jar 包”步骤制作出来的 hive-xxx.jar，然后在程序包管理上传后可使用）。
+1. Flink SQL 任务作业参数中选择内置 `Connector flink-connector-hive-${version}.jar`，其中 version 为 Hive 对应的版本。
+2. 引用程序包中选择 Hive 连接配置 jar 包（该 jar 包为在 [获取 Hive 连接配置 jar 包](#id) 中得到的 hive-xxx.jar，必须在程序包管理上传后才使用）。
 
 >! 请确保您使用的 Hive connector 和 Hive 集群是同一个版本。
 
 ## 注意事项
-若分区不可见，发现分区信息，参考命令：`msck repair table hive_table_xxx;`。
+如果 Flink 作业正常运行，日志中没有报错，但是客户端查不到这个 Hive 表，可以使用如下命令对 Hive 表进行修复（需要将 `hive_table_xxx` 替换为要修复的表名）。
+```
+msck repair table hive_table_xxx;
+```

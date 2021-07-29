@@ -65,14 +65,14 @@ Content-Type: application/xml
 
 具体数据描述如下：
 
-| 节点名称（关键字） | 父节点 | 描述           | 类型      | 必选 |
+| 节点名称（关键字） | 父节点 | 描述           | 类型      | 是否必选 |
 | ------------------ | ------ | -------------- | --------- | ---- |
 | Request            | 无     | 保存请求的容器 | Container | 是   |
 
 
 Container 类型 Request 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
 | Tag                | Request | 模板类型：Animation                                    | String    | 是   |
 | Name               | Request | 模板名称仅支持中文、英文、数字、\_、\-和\*                    | String    | 是   |
@@ -83,19 +83,19 @@ Container 类型 Request 的具体数据描述如下：
 
 Request 节点 Container 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
 | Format                | Request.Container | 容器格式：gif，hgif，webp  hgif 为高质量 gif，即清晰度比较高的 gif 格式图 | String    | 是   |
 
 Request 节点 Video 的具体数据描述如下：
 
-| 节点名称（关键字）         | 父节点        | 描述                  | 类型   | 必选 | 默认值       | 限制                                                         |
+| 节点名称（关键字）         | 父节点        | 描述                  | 类型   | 是否必选 | 默认值       | 限制                                                         |
 | -------------------------- | ------------- | --------------------- | ------ | ---- | ------------ | ------------------------------------------------------------ |
 | Codec                      | Request.Video | 编解码格式            | String | 是   |  无  | gif, webp                                          |
 | Width                      | Request.Video | 宽                    | String | 否   | 视频原<br/>始宽度 | <li>值范围：[128，4096]</li><li>单位：px</li><li>若只设置 Width 时，按照视频原始比例计算 Height</li> |
 | Height                     | Request.Video | 高                    | String | 否   | 视频原<br/>始高度 | <li>值范围：[128，4096]</li><li>单位：px</li><li>若只设置 Height 时，按照视频原始比例计算 Width</li> |
 | Fps                        | Request.Video | 帧率                  | String | 否   | 视频原<br/>始帧率 | <li>值范围：(0，60]</li><li>单位：fps</li><li>如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率</li> |
-| AnimateOnly<br/>KeepKeyFrame    | Request.Video | 动图只保留<br/>关键帧      | String | 否   |      false        | <li>true、false</li><li>动图保留关键帧参数 </li>                    |
+| AnimateOnly<br/>KeepKeyFrame    | Request.Video | 动图只保留<br/>关键帧 。若 AnimateOnlyKeepKeyFrame 设置为 true 时，则不考虑 AnimateTimeIntervalOfFrame、AnimateFramesPerSecond；若 AnimateOnlyKeepKeyFrame 设置为 false 时，则必须填写AnimateTimeIntervalOfFrame 或 AnimateFramesPerSecond     | String | 否   |      false        | <li>true、false</li><li>动图保留关键帧参数 </li> <li>优先级：AnimateFramesPerSecond > AnimateOnlyKeepKeyFrame > AnimateTimeIntervalOfFrame</li>               |
 | AnimateTime<br/>IntervalOfFrame | Request.Video | 动图抽帧间<br/>隔时间      | String | 否   |      无        | <li>（0，视频时长]</li><li>动图抽帧时间间隔</li><li>若设置 TimeInterval.Duration，则小于该值</li> |
 | AnimateFrames<br/>PerSecond     | Request.Video | Animation 每秒<br/>抽帧帧数 | String | 否   |     无         | <li>（0，视频帧率)</li><li>动图抽帧频率</li><li>优先级：AnimateFramesPerSecond >  AnimateOnlyKeepKeyFrame  > AnimateTimeIntervalOfFrame</li> |
 | Quality                    | Request.Video | 设置相对质量          | String | 否   |     无         | <li>[1, 100)</li><li>webp 图像质量设定生效，gif 没有质量参数</li> |
@@ -103,7 +103,7 @@ Request 节点 Video 的具体数据描述如下：
 
 Request 节点 TimeInterval 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
 | Start                | Request.TimeInterval | 开始时间 | String    | 否   | 0 |<li> [0 视频时长] </li> <li>单位为秒 </li> <li>支持 float 格式，执行精度精确到毫秒</li> |
 | Duration             | Request.TimeInterval | 持续时间 | String    | 否   | 视频时长 | <li> [0 视频时长] </li><li>单位为秒 </li> <li>支持 float 格式，执行精度精确到毫秒</li> |
@@ -156,25 +156,25 @@ Response的具体描述：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
-| TemplateId         | Response | 模版 ID                                                      | String    |
-| Name               | Response | 模版名字                                                     | String    |
-| BucketId           | Response | 模版所属存储桶                                                | String    |
-| Category           | Response | 模版属性，Custom 或者 Official                                | String    |
-| Tag                | Response | 模版 Tag Animation                                           | String    |
+| TemplateId         | Response | 模板 ID                                                      | String    |
+| Name               | Response | 模板名字                                                     | String    |
+| BucketId           | Response | 模板所属存储桶                                                | String    |
+| Category           | Response | 模板属性，Custom 或者 Official                                | String    |
+| Tag                | Response | 模板 Tag Animation                                           | String    |
 | UpdateTime         | Response | 更新时间                                                     | String    |
 | CreateTime         | Response | 创建时间                                                     | String    |
-| TransTpl           | Response | 详细的模版参数                                                | Container |
+| TransTpl           | Response | 详细的模板参数                                                | Container |
 
 
 TransTpl 节点 Container 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
 | Format                | Response.TransTpl.Container | 容器格式： gif，hgif，webp  hgif 为高质量 gif，即清晰度比较高的 gif 格式图 | String    | 是   |
 
 TransTpl 节点 Video 的具体数据描述如下：
 
-| 节点名称（关键字）         | 父节点        | 描述                  | 类型   | 必选 | 默认值       | 限制                                                         |
+| 节点名称（关键字）         | 父节点        | 描述                  | 类型   | 是否必选 | 默认值       | 限制                                                         |
 | -------------------------- | ------------- | --------------------- | ------ | ---- | ------------ | ------------------------------------------------------------ |
 | Codec                      | Response.<br/>TransTpl.Video | 编解码格式            | String | 是   |  无  |  gif, webp                                          |
 | Width                      | Response.<br/>TransTpl.Video | 宽                    | String | 否   | 视频原始宽度 | <li>值范围：[128，4096]</li><li>单位：px</li><li>若只设置 Width 时，按照视频原始比例计算 Height</li> |
@@ -188,7 +188,7 @@ TransTpl 节点 Video 的具体数据描述如下：
 
 TransTpl 节点 TimeInterval 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
 | Start                | Response.TransTpl.TimeInterval | 开始时间 | String    | 否   | 0 | <li> [0 视频时长]</li> <li>单位为秒</li><li>支持 float 格式，执行精度精确到毫秒</li> |
 | Duration             | Response.TransTpl.TimeInterval | 持续时间 | String    | 否   | 视频时长 | <li>[0 视频时长] </li><li>单位为秒 </li><li>支持 float 格式，执行精度精确到毫秒</li> |

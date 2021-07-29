@@ -1,4 +1,4 @@
->?目前弹性公网 IPv6 处于内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
+>?目前弹性公网 IPv6 处于内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/a9k0gialqhj)。
 
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在“私有网络”列表上方，选择【地域】，将会展示所属地域下的所以私有网络信息。

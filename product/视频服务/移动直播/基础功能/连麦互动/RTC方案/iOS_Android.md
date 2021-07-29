@@ -12,49 +12,15 @@
 | 价格     | 0.016元/分钟               | 阶梯价格，详情请参见 [RTC 连麦方案怎么计算费用](#price)  |
 
 
-## 开始体验 RTC 连麦方案
-视频云工具包是腾讯云开源的一套完整的音视频服务解决方案，包含实时音视频（TRTC）、移动直播（MLVB）、短视频（UGC）等多个 SDK 的能力展示，其中包含RTC连麦方案相关体验 UI — **连麦演示( 新方案 )** 。
-
-### 体验地址
-| 平台    | Demo 体验                                                    | 源码地址                                                     | 目标文件夹                                                   |
-| ------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Android | <img width="150" src="https://main.qcloudimg.com/raw/bff0cfca4585c448f308b339a6c17c1c.png"> | [Github](https://github.com/tencentyun/LiteAVProfessional_Android) | [Demo/livelinkmicdemonew](https://github.com/tencentyun/LiteAVProfessional_Android/tree/master/Demo/livelinkmicdemonew) |
-| iOS     | <img width="150" src="https://main.qcloudimg.com/raw/83973196cc1fc9972320182eb283d406.png"> | [Github](https://github.com/tencentyun/LiteAVProfessional_iOS) | [Demo/TXLiteAVDemo/LiveLinkMicDemoNew](https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo/TXLiteAVDemo/LiveLinkMicDemoNew) |
-
-
-
-### 体验说明
-<table>
-        <tr> 
-                <th><div align=center>主播 A</div></th>
-                <th><div align=center>主播 B</div></th>
-                <th><div align=center>观众</div></th>
-        </tr>
-        <tr>
-                <td>
-                  <div align=center>
-                    <img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/anchor.gif">
-                    </div>
-                  </td>
-                <td>
-                  <div align=center>
-                    <img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/link_audience.gif">
-                    </div>
-                </td>
-                <td>
-                  <div align=center>
-                    <img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/others_audience.gif">
-                    </div>
-                </td>
-        </tr>
-</table>
-
-### 步骤图示
-![](https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/v2_demo_use_step.png)
-> =体验 Demo 功能时需要注意，由于超低延时直播的协议特性，目前RTC连麦方案并不支持：**同一台设备，使用相同的 streamid，一边推超低延时流，一边拉超低延时的流**。
-
 ## RTC 连麦方案如何接入
-移动直播 SDK 提供了新的 V2 接口：` V2TXLivePusher` （推流）、` V2TXLivePlayer` （拉流），用来帮助客户实现更加灵活、更低延时、更多人数的直播互动场景。开播端可以利用 V2 提供的 RTC 推流能力，默认情况下，观众端观看则可使用 CDN 方式进行拉流。 CDN 观看费用较低。如果观众端有连麦需求，连麦观众上麦后，可以从 CDN 切换到 RTC 进行观看，这样延时更低，互动效果更好。以下是相关步骤方便您快速接入：
+移动直播 SDK 提供了新的 V2 接口：` V2TXLivePusher` （推流）、` V2TXLivePlayer` （拉流），用来帮助客户实现更加灵活、更低延时、更多人数的直播互动场景。开播端可以利用 V2 提供的 RTC 推流能力，默认情况下，观众端观看则可使用 CDN 方式进行拉流。 CDN 观看费用较低。如果观众端有连麦需求，连麦观众上麦后，可以从 CDN 切换到 RTC 进行观看，这样延时更低，互动效果更好。以下是相关示例代码和具体的步骤说明，方便您快速接入：
+
+### 示例工程
+
+| 平台    | 源码地址                                                     |  目标文件夹  |
+| ------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) | [LiveLink](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example/Basic/LiveLink) |
+| iOS      | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)|[LiveLink](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example/Basic/LiveLink) |
 
 [](id:step1)
 ### 步骤1：服务开通 
@@ -69,10 +35,10 @@ RTC 连麦互动直播需要在开始接入前，先开通腾讯云 [**实时音
 > !
 > - 本文提到的生成 UserSig 的方案是在客户端代码中配置 UserSig，该UserSig 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此 **该方法仅适合本地跑通 Demo 和功能调试** 。
 > - 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
+6. 在播放端，推荐使用CDN播放，所以需要在 [实时音视频控制台](https://console.cloud.tencent.com/trtc/app) 开启**旁路推流**功能。
+<img src="https://main.qcloudimg.com/raw/f5f2ae04edfb169ec78d2bca1fb10321.png" width="500">
 
-> ?在服务开通后，建议先可以编译和体验一下腾讯云提供的 SimpleCode（一个极简的 Demo），配合下文说明，方便您快速了解 API 的使用。
-> - [Android](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SimpleDemo)
-> - [iOS](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SimpleDemo)
+> ?在服务开通后，建议先可以编译和体验一下上述示例代码章节中腾讯云提供的移动直播的 API-Example 工程，配合上下文可以快速的了解相关 API 的使用。
 
 [](id:step2)
 ### 步骤2：V2TXLivePusher RTC 推流
@@ -91,9 +57,10 @@ trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 | **trtc://**           | 互动直播推流 URL 的前缀字段                                  |
 | **cloud.tencent.com** | 互动直播特定域名，**请勿修改**                               |
 | **push**              | 标识位，表示推流                                             |
-| **sdkappid**          | 对应 [**服务开通**](#RegistrationService) 一节中生成的 SDKAppID |
-| **userId**            | 主播 ID，需要由开发者自定义                                  |
-| **usersig**           | 对应 [**服务开通**](#RegistrationService) 中获取的 UserSig 密钥 |
+| **streamid**       | 流 ID，需要由开发者自定义                                            |
+| **sdkappid**      | 对应 [服务开通](#step1) 一节中生成的 SDKAppID |
+| **userId**           | 主播 ID，需要由开发者自定义                                  |
+| **usersig**         | 对应 [服务开通](#step1) 中获取的 UserSig 密钥 |
 
 
 #### 示例代码
@@ -105,7 +72,7 @@ pusher.setObserver(new MyPusherObserver());
 pusher.setRenderView(mSurfaceView);
 pusher.startCamera(true);
 pusher.startMicrophone();
-// 传⼊互动直播RTC推流协议地址，即可开始推流；
+// 传⼊互动直播RTC推流协议地址，即可开始推流，其中streamid设置为自定义值，比如12345687；；
 pusher.startPush("trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=finnguan&usersig=xxxxx");
 ```
 
@@ -121,7 +88,7 @@ pusher.startPush("trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&use
 V2TXLivePlayer player = new V2TXLivePlayerImpl(mContext);
 player.setObserver(new MyPlayerObserver(playerView));
 player.setRenderView(mSurfaceView);
-// 传⼊互动直播播放协议地址，即可开始播放；
+// 传⼊互动直播播放协议地址，即可开始播放，streamid对应推流时设置的streamid，比如12345687；
 player.startPlay("https://3891.liveplay.myqcloud.com/live/streamid.flv");
 ```
 
@@ -198,9 +165,10 @@ playerA.startPlay(playURLA);
 
 #### 5. 连麦成功后，进行混流
 
-为了保证观众可以看到连麦观众B的画面，这里主播A需要发起一次混流操作。也就是将主播A自己和连麦观众B，混合成一路流。观众可以在一路流上看到主播和连麦观众进行互动。 A 调用 `setMixTranscodingConfig` 接口启动云端混流，调用时需要设置音频相关的参数，比如 音频采样率 `audioSampleRate`、音频码率 `audioBitrate` 和 声道数 `audioChannels` 等。如果您的业务场景中也包含视频，需同时设置视频相关的参数，比如视频宽度`videoWidth`、视频高度 `videoHeight`、视频码率 `videoBitrate`、视频帧率 `videoFramerate` 等。
+为了保证观众可以看到连麦观众B的画面，这里主播 A 需要发起一次混流操作。也就是将主播A自己和连麦观众 B，混合成一路流。观众可以在一路流上看到主播和连麦观众进行互动。 A 调用 setMixTranscodingConfig 接口启动云端混流，调用时需要设置音频相关的参数，例如 `音频采样率 audioSampleRate`、`音频码率 audioBitrate` 和 `声道数 audioChannels` 等。
+如果您的业务场景中也包含视频，需同时设置视频相关的参数，例如 `视频宽度 videoWidth`、`视频高度 videoHeight`、`视频码率 videoBitrate`、`视频帧率 videoFramerate` 等。
 
-下面是示例代码：
+**示例代码**：
 ```java
 V2TXLiveDef.V2TXLiveTranscodingConfig config = new V2TXLiveDef.V2TXLiveTranscodingConfig();
 // 设置分辨率为 720 × 1280, 码率为 1500kbps，帧率为 20FPS
@@ -251,7 +219,7 @@ config.mixStreams.add(remoteB);
 pusher.setMixTranscodingConfig(config);
 ```
 
-> ! 发起云端混流后，默认混流id，是发起混流者的id，如果需要指定流 ID，需要进行传入。
+> ! 发起云端混流后，默认混流 ID，是发起混流者的 ID，如果需要指定流 ID，需要进行传入。
 
 这样其他其他观众在观看时，就可以看到 A，B 两个主播的连麦互动。
 
@@ -304,7 +272,7 @@ playerB.startPlay(playURLB);
 </dx-codeblock>
 4. **PK 成功后**，主播 A 和主播 B 的观众各自调用 `V2TXLivePlayer` 开始播放另外一名主播的推流内容。
 
-> ? 此处开发者可能会有疑问：貌似新的RTC连麦方案还需要我们自己维护一套房间和用户状态，这样不是更麻烦吗？是的，**没有更好的方案，只有更适合自己的方案**，我们也有考虑到这样的场景：
+> ? 此处开发者可能会有疑问：貌似新的 RTC 连麦方案还需要我们自己维护一套房间和用户状态，这样不是更麻烦吗？是的，**没有更好的方案，只有更适合自己的方案**，我们也有考虑到这样的场景：
 > - 如果对时延和并发要求并不高的场景，可以继续使用连麦互动的旧方案。
 > - 如果既想用到 V2 相关的接口，但是又不想维护一套单独的房间状态，可以尝试搭配 [腾讯云 IM SDK](https://cloud.tencent.com/document/product/269)，快速实现相关逻辑。
 
@@ -541,9 +509,9 @@ RTC 连麦互动直播服务后付费有 [日结](#daily) 和 [月结](#monthly)
 ## 常见问题
 
 #### 1. 为什么使用 `V2TXLivePusher&V2TXLivePlayer` 接口时，同一台设备不支持使用相同 streamid 同时推流和拉流，而 `TXLivePusher&TXLivePlayer` 可以支持？
-是的，目前 `V2TXLivePusher&V2TXLivePlayer` 是 [腾讯云 TRTC](https://cloud.tencent.com/document/product/647/45151) 协议实现，其基于 UDP 的超低延时的私有协议暂时还不支持同一台设备使用相同的 streamid 进行通信，同时考虑到用户的使用场景，所以暂时并未支持，后续会酌情考虑此问题的优化。
+是的，目前 `V2TXLivePusher&V2TXLivePlayer` 是 [腾讯云 TRTC](https://cloud.tencent.com/document/product/647/45151) 协议实现，其基于 UDP 的超低延时的私有协议暂时还不支持**同一台设备，使用相同的 streamid，一边推超低延时流，一边拉超低延时的流**，同时考虑到用户的使用场景，所以暂时并未支持，后续会酌情考虑此问题的优化。
 
-#### 2. [**服务开通**](#RegistrationService) 章节中生成参数都是什么意思呢？
+#### 2. [**服务开通**](#step1) 章节中生成参数都是什么意思呢？
 SDKAppID 用于标识您的应用，UserID 用于标识您的用户，而 UserSig 则是基于前两者计算出的安全签名，它由 **HMAC SHA256** 加密算法计算得出。只要攻击者不能伪造 UserSig，就无法盗用您的云服务流量。UserSig 的计算原理如下图所示，其本质就是对 SDKAppID、UserID、ExpireTime 等关键信息进行了一次哈希加密：
 ```Cpp
 //UserSig 计算公式，其中 secretkey 为计算 usersig 用的加密密钥
@@ -560,3 +528,6 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 #### 5. RTC连麦方案的时延性有可以参考的数据吗？
 新的 RTC 连麦方案中，主播连麦的延时 < 200ms，主播和观众的延时在 100ms - 1000ms。
+
+#### 6. RTC 推流成功后，使用 CDN 拉流一直提示404？
+检查一下是否有开启实时音视频服务的旁路直播功能，基本原理是 RTC 协议推流后，如果需要使用 CDN 播放，RTC会在后台服务中旁路流信息到 CDN 上。
