@@ -23,5 +23,7 @@
 AI 模型的推理结果将输出到用户配置的 Ckafka。完成 AI 模型的申请后，需要为它设置 Ckafka 地址，操作流程如下：
 
 1.	单击【我的 AI 模型】，进入“我的 AI 模型”页面。
-
-2.	进入模型产品列表，单击【配置 Ckafka】即可完成 Ckafka 配置工作。
+<img src="https://main.qcloudimg.com/raw/795495f4de73be89f185a637131717f4.jpg" style="width: 500px;"></img>
+2.	单击产品右侧【配置 Ckafka】>【编辑】进入配置 Ckafka 配置页面，填入相关信息。
+<img src="https://main.qcloudimg.com/raw/d872ec5383b496aadd54d3722e6bc952.jpg" style="width: 500px;"></img>
+3. 单击【保存配置】>【确定】即可完成 Ckafka 配置。
