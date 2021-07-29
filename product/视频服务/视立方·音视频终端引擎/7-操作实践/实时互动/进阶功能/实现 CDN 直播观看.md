@@ -1,5 +1,5 @@
-## SDK 版本
-本页文档所描述功能，在 SDK 版本中支持情况如下：
+## 视立方版本支持
+本页文档所描述功能，在视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
@@ -81,7 +81,7 @@ param.role     = TRTCRoleAnchor; // 角色：主播
 param.streamId = @"stream1001";  // 流 ID
 [trtcCloud enterRoom:params appScene:TRTCAppSceneLIVE]; // 请使用 LIVE 模式
 ```
-userSig 的计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
+userSig 的计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/1449/58939?!preview&!editLang=zh)。
 
 #### 方式二：系统指定 streamId
 开启自动旁路推流后，如果您没有自定义指定 streamId，系统会默认为您生成一个缺省的 streamId，生成规则如下：
