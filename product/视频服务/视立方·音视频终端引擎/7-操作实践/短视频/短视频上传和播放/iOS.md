@@ -72,7 +72,7 @@ _ugcPublish.delegate = self;                                 // 设置 TXVideoPu
 @optional
 -(void) onPublishComplete:(TXPublishResult*)result;
 ```
-- 通过 [错误码表](https://cloud.tencent.com/document/product/584/10176) 来确认短视频发布的结果。
+- 通过 [编辑错误码表](https://cloud.tencent.com/document/product/1449/57179?!preview&!editLang=zh#error) 和 [录制错误码表](https://cloud.tencent.com/document/product/1449/59155?!preview&!editLang=zh#error) 确认短视频的发布结果。
 
 
 ### 4. 播放视频
