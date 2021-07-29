@@ -134,7 +134,7 @@ defaultConfig {
 
 ## 配置 License 授权
 
-单击 [License 申请](1) 获取测试用 License，具体操作请参见 [测试版 License](1)。您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
+单击 [License 申请](https://console.cloud.tencent.com/vcube) 获取测试用 License，具体操作请参见 [测试版 License](https://cloud.tencent.com/document/product/1449/56981?!preview&!editLang=zh#test)。您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
 
 在您的 App 调用企业版 SDK 相关功能之前（建议在 Application类中）进行如下设置：
 
