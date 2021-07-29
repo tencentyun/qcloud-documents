@@ -156,7 +156,7 @@ style 支持的样式如下：
 使用 cover 方式显示封面。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
 [视频封面](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-poster.html)
 >!
->- 在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/881/20219)。
+>- 在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/1449/58949?!preview&!editLang=zh)。
 >- 以上示例链接仅用于文档演示，请勿用于生产环境。
 
 ### Step5. 多清晰度支持
