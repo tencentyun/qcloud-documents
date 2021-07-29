@@ -47,7 +47,7 @@
 您可以登录 [视立方控制台](https://console.cloud.tencent.com/vcube) 页面查看直播推流正式版 License 的有效期，若您的直播推流正式版 License 已到期，可进行如下操作进行续期：
 1. 选择您需要更新有效期的 License，单击直播推流模块内的【更新有效期】。
 ![](https://main.qcloudimg.com/raw/9685ce96bb720cc91e5cb0038133c2c3.png)
-2. 选择**未绑定**过的直播流量资源包（若没有可绑定的资源包，可前往 [资源包购买页]() 购买），单击【确定】即可。
+2. 选择**未绑定**过的直播流量资源包（若没有可绑定的资源包，可前往 [资源包购买页](https://buy.cloud.tencent.com/vcube) 购买），单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/ae487b6af9a14632609d42edf5e26ad6.png)
 3. 查看更新后的有效期情况。
 >! **直播推流正式版 License 不支持信息修改**，若您需要修改 License 信息，购买资源包后请勿用于 License 有效期的更新，请单击【新增 License】重新新增 License 绑定新的包名信息。
