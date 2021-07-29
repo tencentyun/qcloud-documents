@@ -15,7 +15,7 @@
 
 ## 安装 SDK
 ### 方式一、通过 Pip 安装（推荐）
-可通过 pip 安装方式将腾讯云 Python SDK 安装至您的项目中。若您的项目环境未安装 pip，请前往 [pip 官网](https://pip.pypa.io/en/stable/installing/?spm=a3c0i.o32026zh.a3.6.74134958lLSo6o) 完成安装。
+可通过 pip 安装方式将腾讯云 Python SDK 安装至您的项目中。若您的项目环境未安装 pip，请前往 [pip 官网](https://pip.pypa.io/en/stable/installation/) 完成安装。
 在命令行中执行以下命令，安装 Python SDK。
 
 ```bash
