@@ -504,7 +504,7 @@ int length = xxx;
 char * pBase16Buf = (char *)malloc(2 * length + 1);
 memset(pBase16Buf, 0, 2 * length + 1);
 for (int i = 0; i < length; ++i) {
-    sprintf(pBase16Buf + 2 * i, "%02X", pBuffer[i]);
+    snprintf(pBase16Buf + 2 * i, 3, "%02X", pBuffer[i]); 
 }
 std::string strBase16 = std::string(pBase16Buf, strlen(pBase16Buf));
 free(pBase16Buf);
