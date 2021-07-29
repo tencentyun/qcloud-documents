@@ -29,7 +29,7 @@
 - （可选）准备好已备案的自定义域名，您也可以通过 Serverless 备案资源包完成备案（详情请参见 [ICP 备案](https://cloud.tencent.com/document/product/1154/50706)）。
 
 ### 控制台部署
->!目前只支持北京、上海、广州三个区域。
+>!目前只支持北京、上海、广州三个地域。其中广州四区为默认区域。
 
 1. 登录[ Serverless 应用控制台](https://console.cloud.tencent.com/sls?from=wpdocs), 单击【新建应用】。
 2. 选择【应用模版】>【快速部署一个WordPress框架】，单击【下一步】。
@@ -47,7 +47,7 @@
 <br/>![](https://main.qcloudimg.com/raw/55218c4f1a6f83f3a1e1ff58a2f15006.png)
 
 ### 命令行部署
->!目前只支持 `ap-beijing-3`、`ap-shanghai-2`、`ap-guangzhou-4` 三个可用区。其中 `ap-shanghai-2` 为默认区域。
+>!目前只支持 `ap-beijing-3`、`ap-shanghai-2`、`ap-guangzhou-4` 三个地域。其中 `ap-shanghai-2` 为默认区域。
 
 1. 本地创建 `wordpress-demo` 文件夹。
 2. 在文件夹内创建 `serverless.yml` 配置文件，完成应用信息配置，参考如下（更多配置内容，请参见 [全量配置文档](https://github.com/serverless-components/tencent-wordpress/blob/master/docs/configure.md)）：
@@ -69,7 +69,6 @@ name: wordpressDemo
 </dx-codeblock>
 3. 在根目录下，执行 `sls deploy`，即可完成部署。示例如下：
 <dx-codeblock>
-<br>！！！！！！！！！要更新！！！！！！！！</br>
 :::  sh
 $ sls deploy
 
