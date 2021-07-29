@@ -95,7 +95,7 @@
 </tr>
 </tbody></table>
 
-![](https://main.qcloudimg.com/raw/c66c686dc45dcfc64ecfe5df809b5a29.png)
+![](https://main.qcloudimg.com/raw/5925894f1a15d1ebfa41338684c0c5be.png)
 
 ## 版本说明
 
