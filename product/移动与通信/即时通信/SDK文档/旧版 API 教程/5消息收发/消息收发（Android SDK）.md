@@ -1703,3 +1703,4 @@ Notification notify = mBuilder.build();
 notify.flags |= Notification.FLAG_AUTO_CANCEL;
 mNotificationManager.notify(pushId, notify);
 ```
+

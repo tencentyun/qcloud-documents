@@ -4,7 +4,7 @@
 
 | 平台 | 版本 | 
 |---------|---------|
-| Unity | 2020.2.7f1c1 及以上版本。 | 
+| Unity | 2019.4.15f1 及以上版本。 | 
 |Android|Android Studio 3.5及以上版本，App 要求 Android 4.1及以上版本设备。|
 |iOS|Xcode 11.0及以上版本，请确保您的项目已设置有效的开发者签名。|
 
@@ -40,7 +40,7 @@
 1. 配置 Unity Editor，单击【File】>【Build Setting】，切换至 Android。
 ![](https://main.qcloudimg.com/raw/d913d32e36aa01ff93acf0316d4f103f.png)
 2. 启动一个 Android 的模拟器，单击【 Build And Run】，Demo 就能跑起来。
->? 
+
 >- Demo 里面包含了已上线的所有 API，可以测试和作为调用参考，API 文档参见 [SDK API（Flutter）](https://cloud.tencent.com/document/product/269/51940)。
 > - UI 可能会有部分调整更新，请以最新版为准。
 >
@@ -52,9 +52,9 @@
 ![](https://main.qcloudimg.com/raw/3982b96c4f9e76107bb4aadac33a5de5.png)
 2. 连接 iPhone 真机，单击【Build And Run】，需要选择一个新的目录存放编译出来的 iOS 工程，等待编译完成，会有新窗口弹出 Xcode 工程。
 3. 然后在 Xcode 里面按以下步骤对项目调整配置：
-	1. 在 UnityFramework/UnityFramework.h 里引入 UnityInterface.h。
-![](https://main.qcloudimg.com/raw/0a69e67c63479810309080efa3721d6a.png)
-	2. 修改 Classes/Unity 目录下，UnityFramework.h、UnityForwardDecls.h、UnityRendering.h、UnitySharedDecls.h 文件为 Public。
+	1. 在 UnityFramework/UnityFramework.h 里引入 UnityInterface.h和TencentImSDKPluginUnityUtils.h，否则会因为找不到方法名而报错，参考下图
+![](https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/WX20210727-190240.png)
+	2. 修改 Classes/Unity 目录下，UnityInterface.h、UnityForwardDecls.h、UnityRendering.h、UnitySharedDecls.h 文件为 Public。
 ![](https://main.qcloudimg.com/raw/0b1a43e69f965b710c91f24eff8870fd.png)
 	3. 在 Classes/Prefix.pch 里面引入 IMSDK。
 ![](https://main.qcloudimg.com/raw/299789b6275e30ede0d8e7d8afcbdd59.png)
@@ -65,10 +65,18 @@
 
 ## 常见问题
 
+### 支持哪些平台？
+目前支持 iOS 和 Android 两个平台，另外 Windows 和 Mac 版正在开发中，敬请期待。
+
 ### Android 单击 Build And Run 报错找不到可用设备？
 确保设备没被其他资源占用，或单击 Build 生成 apk 包，再拖动进模拟器里运行。
 
 ### iOS 第一次运行报错？
 按照上面的 Demo 运行配置后，如果报错，可以单击【Product】>【Clean】，清除产物后重新 Build，或者关闭 Xcode 重新打开再次 Build。
+### 2019.04版 Unity，iOS 平台报错？
+Library/PackageCache/com.unity.collab-proxy@1.3.9/Editor/UserInterface/Bootstrap.cs(23,20): error CS0117: 'Collab' does not contain a definition for 'ShowChangesWindow'
+在 Editor 工具栏单击【Window】>【Package Manager】，将 Unity Collaborate 降级到1.2.16。
 
-
+### 2019.04版 Unity，iOS 平台报错？
+Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Editor/TMP_PackageUtilities.cs(453,84): error CS0103: The name 'VersionControlSettings' does not exist in the current context
+打开源码，把`|| VersionControlSettings.mode != "Visible Meta Files"`这部分代码删除即可。

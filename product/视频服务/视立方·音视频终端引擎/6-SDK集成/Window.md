@@ -160,7 +160,7 @@ ENDLOCAL
 
 [](id:using_cpp_step5)
 ### 步骤5：打印 SDK 版本号
-- 在 `CTRTCDemoDlg::OnInitDialog` 函数中，添加下面的测试代码：
+1. 在 `CTRTCDemoDlg::OnInitDialog` 函数中，添加下面的测试代码：
 <dx-codeblock>
 :::  c++  c++
 ITRTCCloud * pTRTCCloud = getTRTCShareInstance();
@@ -172,7 +172,7 @@ CWnd *pStatic = GetDlgItem(IDC_STATIC);
 pStatic->SetWindowTextW(szText);
 :::
 </dx-codeblock>
-- 按键盘 F5 运行，打印 SDK 的版本号，如下图所示：  
+2. 按键盘 F5 运行，打印 SDK 的版本号，如下图所示：  
 ![](https://main.qcloudimg.com/raw/6851ab7f24d95ae8115fdf5f69e36a3b.png)
 
 
