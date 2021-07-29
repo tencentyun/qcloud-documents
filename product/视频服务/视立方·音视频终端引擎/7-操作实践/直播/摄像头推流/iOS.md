@@ -27,7 +27,7 @@
 ## 功能对接
 [](id:step1)
 ### 1. 下载 SDK 开发包
-[下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/454/7876) 将 SDK 嵌入您的 App 工程中。
+[下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/1449/56986?!preview&!editLang=zh) 将 SDK 嵌入您的 App 工程中。
 
 [](id:step2)
 ### 2. 给 SDK 配置 License 授权
@@ -113,7 +113,7 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";
 
 [](id:step7)
 ### 7. 设定画面清晰度
-调用 V2TXLivePusher 中的 [setVideoQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a0b08436c1e14a8d7d9875fae59ac6d84) 接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而 `setVideoQuality` 设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/56600)。
+调用 V2TXLivePusher 中的 [setVideoQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a0b08436c1e14a8d7d9875fae59ac6d84) 接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而 `setVideoQuality` 设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/1449/57016?!preview&!editLang=zh)。
 
 [](id:step8)
 ### 8. 美颜美白和红润特效
