@@ -190,7 +190,6 @@ DaemonSet 类型工作负载的 Pod 不会调度到虚拟节点上。
 #### 其他说明
 
 - 没有任何服务器节点的空集群暂时无法正常使用虚拟节点功能。
-- 使用 GPU 资源的 Pod 暂不支持调度到虚拟节点上。
 - 开启了 [固定 IP ](https://cloud.tencent.com/document/product/457/34994)的 Pod 暂不支持调度到虚拟节点上。
 - 指定了 hostPort 的 Pod 不会调度到虚拟节点上。
 - 指定了 hostIP 配置的 Pod 默认会把 Pod IP 作为 hostIP。
