@@ -143,7 +143,7 @@ http://播放域名/live/[streamId].flv
 播放器选择方面推荐参考如下表格中的指引的方案：
 
 | 所属平台 | 对接文档 | API 概览 | 支持的格式|
-|:-------:|:-------:|:-------:|-------|
+| ------- |-------|-------|-------|
 | iOS App| [接入指引](https://cloud.tencent.com/document/product/454/7880) | [TXLivePlayer(iOS)](https://cloud.tencent.com/document/product/454/34762)  | 推荐 FLV |
 | Android App | [接入指引](https://cloud.tencent.com/document/product/454/7886) | [TXLivePlayer(Android)](https://cloud.tencent.com/document/product/454/34775) | 推荐 FLV |
 | Web 浏览器 | [接入指引](https://cloud.tencent.com/document/product/454/7503) | - |  桌面端 Chrome 浏览器支持 FLV <br> Mac 端 Safari和移动端手机浏览器仅支持 HLS |
@@ -170,7 +170,7 @@ http://播放域名/live/[streamId].flv
 普通的 ijkplayer 或者 ffmpeg 基于 ffmpeg 的内核包装出的播放器，缺乏延时调控的能力，如果使用该类播放器播放上述直播流地址，时延一般不可控。TXLivePlayer 有一个自研的播放引擎，具备延时调控的能力。
 
 - **设置 TXLivePlayer 的播放模式为极速模式**
-可以通过设置 TXLivePlayerConfig 的三个参数来实现极速模式，以 [iOS](https://cloud.tencent.com/document/product/454/7880#Delay) 为例。
+可以通过设置 TXLivePlayerConfig 的三个参数来实现极速模式，以 [iOS](https://cloud.tencent.com/document/product/1449/57068?!preview&!editLang=zh#delay) 为例。
 以 iOS 端的 Objective-C 代码为例：
 ```
  // 设置 TXLivePlayer 的播放模式为极速模式
