@@ -34,4 +34,4 @@
 - 支持 AES/DES/HTTPS 数据加密。
 - 支持批量查询功能。
 - 支持查询结果内返回被查询域名。
-- 支持使用 IPv6 地址作为 CVM 查询参数。
+- 支持使用 IPv6 地址作为 ECS（EDNS-Client-Subnet）查询参数。
