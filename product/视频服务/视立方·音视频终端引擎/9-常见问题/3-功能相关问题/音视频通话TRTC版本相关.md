@@ -243,7 +243,7 @@ TRTC 专门针对在线直播场景推出了10万人低延时互动直播解决�
 
 [](id:que45)
 ### 能用音视频通话 TRTC 发送自定义消息接口实现聊天室、弹幕等功能吗？
-不能，音视频通话 TRTC 发送自定义消息适用于简单低频的信令传输场景，具体限制请参考 [使用限制](https://cloud.tencent.com/document/product/647/32241#.E4.BD.BF.E7.94.A8.E9.99.90.E5.88.B6)。
+不能，音视频通话 TRTC 发送自定义消息适用于简单低频的信令传输场景，具体限制请参考 [使用限制](https://cloud.tencent.com/document/product/1449/57127?!preview&!editLang=zh#.E4.BD.BF.E7.94.A8.E9.99.90.E5.88.B6)。
 
 [](id:que46)
 ### 音视频通话 TRTC 的 SDK 播放背景音是否支持循环播放？是否支持调整背景音的播放进度？  
