@@ -4,8 +4,8 @@
 
 ## 前提条件
 
-1. TKE 的宿主机节点满足 Turbo 系列兼容的操作系统。
-2. 已在所有 TKE 节点安装 Turbo 的私有客户端，推荐使用 pshell 工具进行批量操作。
+- TKE 的宿主机节点满足 Turbo 系列兼容的操作系统。
+- 已在所有 TKE 节点安装 Turbo 的私有客户端，推荐使用 pshell 工具进行批量操作。
 相关的操作系统兼容列表及私有客户端安装方式，可参考 [在 Linux 客户端上使用 CFS Turbo 文件系统](https://cloud.tencent.com/document/product/582/54765) 文档。
 
 ## 操作步骤
@@ -66,7 +66,7 @@ spec:
       host: 10.0.0.116
       # cfs turbo fsid(not cfs id)
       fsid: xxxxxxxx
-      proto: turbo
+      proto: lustre
   storageClassName: ""
 ---
 apiVersion: v1
