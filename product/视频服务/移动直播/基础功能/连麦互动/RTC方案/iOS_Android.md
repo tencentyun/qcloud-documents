@@ -18,9 +18,63 @@
 ### 示例工程
 
 | 平台    | 源码地址                                                     |  目标文件夹  |
-| ------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| -------| ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) | [LiveLink](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example/Basic/LiveLink) |
 | iOS      | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)|[LiveLink](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example/Basic/LiveLink) |
+
+### 演示图示
+
+####  直播前
+<table>
+        <tr> 
+                <th><div align=center>主播端（手机A</div></th>
+                <th><div align=center>连麦观众（手机B）</div></th>
+                <th><div align=center>普通观众</div></th>
+        </tr>
+        <tr>
+                <td>
+                  <div align=center>
+                    <img src="https://main.qcloudimg.com/raw/f46b67807534a6f95905a9334189e2a3.jpeg" style="width: 250px;height: 510px">
+                    </div>
+                  </td>
+                <td>
+                  <div align=center>
+                    <img src="https://main.qcloudimg.com/raw/502949e9fe3133c10e5f985122bcada3.jpeg" style="width: 250px;height: 510px">
+                    </div>
+                </td>
+                <td>
+                  <div align=center>
+                    <img src="https://main.qcloudimg.com/raw/53c6cd620e83c4a82ca9cdb25aae81e8.jpg" style="width: 250px;height: 510px">
+                    </div>
+                </td>
+        </tr>
+</table>
+
+####  连麦中
+<table>
+        <tr> 
+                <th><div align=center>主播端（手机A</div></th>
+                <th><div align=center>连麦观众（手机B）</div></th>
+                <th><div align=center>普通观众</div></th>
+        </tr>
+        <tr>
+                <td>
+                  <div align=center>
+                    <img src="https://main.qcloudimg.com/raw/b13cb87c385f9392e2934e45d946f745.jpeg" style="width: 250px;height: 510px">
+                    </div>
+                  </td>
+                <td>
+                  <div align=center>
+                     <img src="https://main.qcloudimg.com/raw/b65dc3c29934d68f9a5239c0c018243f.jpeg" style="width: 250px;height: 510px">
+                    </div>
+                </td>
+                <td>
+                  <div align=center>
+                    <img src="https://main.qcloudimg.com/raw/8f208414a6f3a0b577e1be0f48946952.jpeg" style="width: 250px;height: 510px"> 
+                    </div>
+                </td>
+        </tr>
+</table>
 
 [](id:step1)
 ### 步骤1：服务开通 
