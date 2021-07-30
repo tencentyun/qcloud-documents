@@ -19,17 +19,15 @@
 ![](https://main.qcloudimg.com/raw/e1b01a45cd510dd765b62d183dd65eaf.png)
 
 ## 注意事项
-Spring Cloud 应用接入 Zookeeper 注册中心，配置文件格式需如下所示：
+Spring Cloud 应用接入 Eureka 注册中心，配置文件格式需如下所示：
 <dx-codeblock>
-:::  PLAINTEXT
-spring:
-  cloud:
-    zookeeper:
-      connect-string: [zookeeper注册中心IP:2181]
-      discovery:
-        register: true
-        enabled: true
-        prefer-ip-address: true
+:::  plaintext
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://[eureka注册中心实例访问IP:8761]/eureka/
+  instance:
+    prefer-ip-address: true
 :::
 </dx-codeblock>
 
