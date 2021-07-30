@@ -1,9 +1,9 @@
 云桌面创建前需要选择 [私有网络VPC](https://cloud.tencent.com/document/product/215)，将云桌面资源放置在您的专属云上网络空间中，以提升云上云桌面资源的安全性，并满足不同的应用场景需求。
 基于 VPC 配置云桌面的网络，可以实现云桌面与其他业务或者云产品互访、云桌面的公网访问和云桌面跨 VPC 访问。
-![](http://file.tapd.oa.com//tfl/captures/2021-05/tapd_20429582_base64_1622428862_26.png)
+![](https://main.qcloudimg.com/raw/ef6e0132b1c8e22985f5bb6078ee4734.png)
 ## VPC 网络创建
 
-云桌面需要结合VPC使用，请提前准备满足需求的腾讯云VPC网络，您可以参见 [私有网络创建指南](https://cloud.tencent.com/document/product/215/36515) 新建您的私有网络。云桌面创建完成后所属私有网络/子网无法变更。
+云桌面需要结合VPC使用，请提前准备满足需求的腾讯云 VPC 网络，您可以参见 [私有网络创建指南](https://cloud.tencent.com/document/product/215/36515) 新建您的私有网络。云桌面创建完成后所属私有网络/子网无法变更。
 
 ## 云桌面访问其他 VPC 资源
 ### 对等链接
@@ -12,7 +12,7 @@
 - [跨账号创建对等连接通信](https://cloud.tencent.com/document/product/553/18837)
 
 ### 云联网
-您可以通过 [云联网](https://cloud.tencent.com/document/product/877)（Cloud Connect Network，CCN）实现云桌面访问**两个及以上的VPC**，云联网支持同账号 VPC 互通和跨账号 VPC 互通，可以参见以下链接为您的云桌面实施云联网。
+您可以通过 [云联网](https://cloud.tencent.com/document/product/877)（Cloud Connect Network，CCN）实现云桌面访问**两个及以上的 VPC**，云联网支持同账号 VPC 互通和跨账号 VPC 互通，可以参见以下链接为您的云桌面实施云联网。
 - [同账号网络实例互通](https://cloud.tencent.com/document/product/877/30804)
 - [跨账号网络实例互通](https://cloud.tencent.com/document/product/877/30805)
 
