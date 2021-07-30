@@ -53,8 +53,8 @@
 ####  连麦中
 <table>
         <tr> 
-                <th><div align=center>主播端（手机A</div></th>
-                <th><div align=center>连麦观众（手机B）</div></th>
+                <th><div align=center>主播端（手机 A）</div></th>
+                <th><div align=center>连麦观众（手机 B）</div></th>
                 <th><div align=center>普通观众</div></th>
         </tr>
         <tr>
@@ -584,4 +584,4 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 新的 RTC 连麦方案中，主播连麦的延时 < 200ms，主播和观众的延时在 100ms - 1000ms。
 
 #### 6. RTC 推流成功后，使用 CDN 拉流一直提示404？
-检查一下是否有开启实时音视频服务的旁路直播功能，基本原理是 RTC 协议推流后，如果需要使用 CDN 播放，RTC会在后台服务中旁路流信息到 CDN 上。
+检查一下是否有开启实时音视频服务的旁路直播功能，基本原理是 RTC 协议推流后，如果需要使用 CDN 播放，RTC 会在后台服务中旁路流信息到 CDN 上。
