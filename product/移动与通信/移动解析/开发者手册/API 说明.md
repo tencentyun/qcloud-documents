@@ -54,7 +54,7 @@
 </tr>
 <tr>
 <td>ip</td>
-<td>DNS 请求的 CVM 值</td>
+<td>DNS 请求的 ECS（EDNS-Client-Subnet）值</td>
 <td>否</td>
 <td>IPv4/IPv6 地址值</td>
 <td>是</td>
