@@ -1,6 +1,8 @@
-### SaaS 型堡垒机必须安装哪些工具软件？
-- BHLoader：主要功能是拉起本地应用程序，然后通过本地应用程序创建连接，连接相关目标资源。
-- SecureCRT 和 Xshell：负责除 BHLoader 外剩余的连接工作，以及从本地操作 CVM 相关操作。
+### BHLoader 是必须要安装的吗？
+BHLoader 的主要功能是拉起本地应用程序，并通过本地应用程序创建连接，访问连接相关的目标资源，因此 BHLoader 是运维人员必须要安装的。
+
+### 安装 BHLoader 后，是否还需要安装 SecureCRT，Xshell 等连接工具软件？
+BHLoader 的主要功能是拉起本地应用程序，剩余的连接工作，以及从本地操作 CVM 都是需要在相关的 SecureCRT 和Xshell 等软件操作的。另外使用 SecureCRT，Xshell 等软件时，需要在本地安装相关应用程序。
 
 ### 安装 BHLoader 时，操作系统账户是否需要管理员权限？
 需要管理员权限，若没有管理员权限会报如下错误：
