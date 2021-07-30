@@ -27,8 +27,8 @@
 ####  直播前
 <table>
         <tr> 
-                <th><div align=center>主播端（手机A</div></th>
-                <th><div align=center>连麦观众（手机B）</div></th>
+                <th><div align=center>主播端（手机 A)</div></th>
+                <th><div align=center>连麦观众（手机 B）</div></th>
                 <th><div align=center>普通观众</div></th>
         </tr>
         <tr>
