@@ -77,15 +77,16 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 <img src="https://main.qcloudimg.com/raw/9af3f35d4b78a2e17cf2ef44fa6863d7.png" width="80%">
 
 3.3 重启使配置生效
-关闭注册表，在命令行工具中依次执行如下命令，重启 NFS 客户端服务和 Windows 系统，完成注册表修改。
+关闭注册表，在命令行工具中依次执行如下命令，重启 NFS 客户端服务，完成注册表修改。
+您也可以通过重启 Windows 系统，完成注册表修改。
 ```
 net stop nfsclnt
 ```
 ```
-net stop nfsrdr
-```
-```
 net start nfsrdr
+```
+```
+net stop nfsrdr
 ```
 ```
 net start nfsclnt
