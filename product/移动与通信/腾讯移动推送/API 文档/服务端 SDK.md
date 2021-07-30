@@ -1,4 +1,4 @@
-除了 REAT API 之外，移动推送 TPNS 还提供主流的服务端接口 SDK。
+除了 REST API 之外，移动推送 TPNS 还提供主流的服务端接口 SDK。
 
 ## 官方维护
 

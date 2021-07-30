@@ -1,5 +1,17 @@
 >?[【有奖问卷】7月31日截至！即时通信 IM Web & 小程序端 TUIKit 需求调研，单击立即参与 >>](https://wj.qq.com/s2/8750536/987c)
 
+### 2.12.1 @2021.7.20
+
+**新增**
+
+- 支持 Meeting 群未读计数。
+- [TIM.EVENT.MESSAGE_MODIFIED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.MESSAGE_MODIFIED) 事件，第三方回调修改了的消息，SDK 通过此事件通知给消息发送方。
+
+**修复**
+
+- 拉群漫游消息偶发丢消息问题。
+- uni-app 集成时可能遇到的`xx.toFixed is not a function`。
+
 ### 2.12.0 @2021.7.5
 
 **新增**

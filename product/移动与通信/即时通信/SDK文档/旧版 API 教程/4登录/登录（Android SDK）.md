@@ -135,3 +135,4 @@ public String getLoginUser()
 
 >!返回值为当前登录的用户名，如果是自有帐号登录，用户名与登录所传入的 `identifier` 相同，如果是第三方帐号，例如微信登录，QQ 登录等，登录后会有内部转换过的 `identifier`，后续搜索好友，入群等，都需要使用转换后的 `identifier` 操作。
 
+

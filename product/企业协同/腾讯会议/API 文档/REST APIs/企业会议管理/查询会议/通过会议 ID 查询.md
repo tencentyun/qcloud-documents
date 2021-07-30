@@ -189,9 +189,6 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
                 "watermark_opt":0
             }
         },
-        "meeting_room_info":[
-            {"meeting_room_id":"133195"}
-        ],
         "guests":[
             {
                 "area":"86",
@@ -202,6 +199,7 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
     }  
   ]
 }
+
 
 ```
 #### 输出示例（周期性会议）

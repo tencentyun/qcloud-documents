@@ -14,3 +14,4 @@
 ### 步骤4：购买插件使用权限
 1. 登录云点播控制台，选择【[微剪插件](https://console.cloud.tencent.com/vod/wecut)】。
 2. 根据页面提示填入小程序的 appid 等信息即可。
+
