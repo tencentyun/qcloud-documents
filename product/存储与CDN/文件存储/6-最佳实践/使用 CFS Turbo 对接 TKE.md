@@ -1,8 +1,5 @@
 ## 简介
-本文为您介绍如何在 CFS Turbo NFS 导出的情况下，对接 TKE 集群。
-
->? CFS Turbo 系列在控制台创建仅支持私有协议挂载，若需要 NFS 挂载请提工单申请。
->
+本文为您介绍如何使用 CFS Turbo 对接 TKE 集群。
 
 ## 操作步骤
 
@@ -30,6 +27,11 @@ kubectl get node
 ```
 返回如下结果，即表示完成安装。
 ![](https://main.qcloudimg.com/raw/8bc11f2f8951c7e6037763dbe1bf190c.png)
+### 前置条件
+1. TKE的宿主机节点满足Turbo系列兼容的操作系统
+2. 在所有TKE节点安装Turbo的私有客户端，推荐使用pshell工具进行批量操作。
+相关的操作系统兼容列表及私有客户端安装方式，可参考如下文档：
+https://cloud.tencent.com/document/product/582/54765
 
 ### 通过脚本创建挂载 Turbo 的 POD
 
@@ -38,22 +40,64 @@ kubectl get node
 3. 进入 `kubernetes-csi-tencentcloud/deploy/cfsturbo/examples/` 目录，下载 static-allinone.yaml 样本文件。
 4. 根据实际 PV、PVC、POD 的相关属性（如名称、镜像地址等），修改 static-allinone.yaml 文件。本文以 NGIX 为例。
 ```
-sudo mount -t nfs -o vers=3,nolock,noresvport 192.168.0.16:/89a26c41 <mount point>
+sudo mount.lustre -o sync,user_xattr 10.0.1.16@tcp0:/d3dcc487/cfs /path/to/mount
 ```
-其中，192.168.0.16表示 host，89a26c41 表示 Fsid。
-修改完成的脚本实例如下：
+其中，host为：10.0.1.16,表示 Fsid为：d3dcc487。
+修改完成的脚本示例如下：
 ```
-csi:
-		driver: com.tencent.cloud.csi.cfsturbo
-		volumeHandle: pv-cfsturbo
-		volumeAttributes: 
-			# cfs turbo server IP
-			host: 192.168.0.16
-			# cfs turbo fsid(not cfs id)
-			fsid: 89a26c41
-			# support nfs currently
-			proto: nfs
-storageClassName: ""
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-cfsturbo
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: 10Gi
+  csi:
+    driver: com.tencent.cloud.csi.cfsturbo
+    volumeHandle: pv-cfsturbo
+    volumeAttributes: 
+      # cfs turbo server ip
+      host: 10.0.0.116
+      # cfs turbo fsid(not cfs id)
+      fsid: xxxxxxxx
+      proto: turbo
+  storageClassName: ""
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-cfsturbo
+spec:
+  storageClassName: ""
+  volumeName: pv-cfsturbo
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+  
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx 
+spec:
+  containers:
+  - image: ccr.ccs.tencentyun.com/qcloud/nginx:1.9
+    imagePullPolicy: Always
+    name: nginx
+    ports:
+    - containerPort: 80
+      protocol: TCP
+    volumeMounts:
+      - mountPath: /var/www
+        name: data
+  volumes:
+  - name: data
+    persistentVolumeClaim:
+      claimName: pvc-cfsturbo
 ```
 5. 在上传脚本文件的目录下，依次执行如下命令。
  - 配置 RBAC。
