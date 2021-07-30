@@ -27,7 +27,7 @@
 ![](https://main.qcloudimg.com/raw/43368b4a90fa23a8cf733de286b4c1d9.png)
 
 ## 注意事项
-Spring Cloud 应用接入eureka注册中心，配置文件格式需如下所示：
+Spring Cloud 应用接入 Eureka 注册中心，配置文件格式需如下所示：
 <dx-codeblock>
 :::  plaintext
 eureka:
