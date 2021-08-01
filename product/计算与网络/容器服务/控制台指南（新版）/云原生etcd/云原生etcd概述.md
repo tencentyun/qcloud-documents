@@ -40,7 +40,7 @@ etcd是一个分布式、高可靠的键值存储，可以容忍集群中部分�
 用户无需关心云原生etcd服务的安装、部署、版本更新及故障处理。
 
 ## 产品定价
-ETCD服务本身不收取费用 ，ETCD自动创建的云硬盘/对象存储等产品，相关计费详情请参考对应产品计费模式 [云硬盘价格总览](https://cloud.tencent.com/document/product/213/2255)、[对象存储计费说明](https://cloud.tencent.com/document/product/436/16871)。
+ETCD服务在内测期间本身不收取费用 ，ETCD自动创建的云硬盘/对象存储等产品，相关计费详情请参考对应产品计费模式 [云硬盘价格总览](https://cloud.tencent.com/document/product/213/2255)、[对象存储计费说明](https://cloud.tencent.com/document/product/436/16871)。
 
 ## 相关服务
 腾讯云 [云原生监控服务](https://cloud.tencent.com/document/product/457/54318)（Tencent Prometheus Service，TPS）是针对云原生服务场景进行优化的监控和报警解决方案，全面支持开源 Prometheus 的监控能力，为用户提供轻量、稳定、高可用的云原生 Prometheus 监控服务。
