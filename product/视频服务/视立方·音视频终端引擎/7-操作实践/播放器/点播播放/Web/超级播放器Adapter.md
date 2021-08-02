@@ -12,7 +12,7 @@
 
 ## SDK 集成
 
-Web 超级播放器 TcAdapter 提供 **CDN 集成 **和**npm 集成**两种集成方式：
+Web 超级播放器 TcAdapter 提供 **CDN 集成 **和 **npm 集成**两种集成方式：
 
 #### CDN 集成
 
@@ -173,7 +173,7 @@ adapter.on(TcAdapter.TcAdapterEvents.Error, function(error) {
 });
 ```
 
-其中 type 为事件类型，支持的事件包括hls原生的事件以及以下事件，可从 `TcAdapter.TcAdapterEvents` 中访问到事件名称：
+其中 type 为事件类型，支持的事件包括 HLS 原生的事件以及以下事件，可从 `TcAdapter.TcAdapterEvents` 中访问到事件名称：
 
 | 名称           | 介绍                                                         |
 | :------------- | :----------------------------------------------------------- |
@@ -183,8 +183,7 @@ adapter.on(TcAdapter.TcAdapterEvents.Error, function(error) {
 
 
 ### 获取 Hls 实例
-
-**说明**：adapter底层基于 hls.js 实现，可以通过 adapter 实例访问到 hls 实例以及实例上的属性和方法，用于实现对播放流程的精细控制
+adapter 底层基于 hls.js 实现，可以通过 adapter 实例访问到 HLS 实例以及实例上的属性和方法，用于实现对播放流程的精细控制。
 
 ```javascript
 adapter.on('hlsready', () => {
