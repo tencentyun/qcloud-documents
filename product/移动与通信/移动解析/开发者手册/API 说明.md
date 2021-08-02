@@ -104,7 +104,7 @@
 
 >?
 >- ECS（EDNS-Client-Subnet）协议在 DNS 请求包中附加请求域名解析的用户 IP 地址，DNS 服务器可以根据该地址返回用户更容快速访问的服务器 IP 地址。
->- ECS IP 库已经不再为普通客户维持常态化更新，仅保持每周更新一次。
+>- 移动解析 HTTPDNS 公共服务已经不再维持 ECS IP 库的常态化更新，仅保持每周更新一次。
 
 ## 请求说明
 以请求域名为 `cloud.tencent.com`，ID 为 `xxx`，token 为 `yyyy` 为例。
