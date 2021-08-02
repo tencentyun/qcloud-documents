@@ -1,36 +1,36 @@
 ## 操作场景
 腾讯云第五代次实例 C5、S5、BMS5、M5采用第三代智能英特尔<sup>®</sup>至强<sup>®</sup>可扩展处理器 Cooper Lake。其中，英特尔<sup>®</sup> DL Boost 深度学习加速采用 BF16，可使人工智能性能性能提升1.93倍。
 
-本文以 C5 实例为例，介绍如何在 CVM 上通过 BF16加速人工智能应用。
+本文以 C5 实例为例，介绍如何在 CVM 上通过 BF16 加速人工智能应用。
 
 ## BF16
 
-BF16（也称 bfloat16或 Brain Float 16）由 Google 发明。Intel 在第三代英特尔<sup>®</sup>至强<sup>®</sup>可扩展处理器 Cooper Lake-SP 所包含的深度学习加速技术（英特尔<sup>®</sup> DL Boost）中全新集成了 BF16功能。
+BF16（也称 bfloat16 或 Brain Float 16）由 Google 发明。Intel 在第三代英特尔<sup>®</sup>至强<sup>®</sup>可扩展处理器 Cooper Lake-SP 所包含的深度学习加速技术（英特尔<sup>®</sup> DL Boost）中全新集成了 BF16 功能。
 
 ### 数据格式[](id:RecommendedSelection)
-BF16提供和 FP32相同的宽度，但精度损失很少，非常适合应用于对精度要求较高的场景。许多模型在使用 BF16时，实现了与使用32位浮点数值时相同的准确率，部分模型在使用 BF16时甚至表现出准确率的提升。BF16可使内存需求减半，并且由于 BF16以一半的位数完成任务，因此 BF16理论上计算性能可以翻倍。
-bfloat16浮点数格式如下图所示：
-![](https://main.qcloudimg.com/raw/254d7f71a76454503669c56e2477696e.png)
+BF16 提供和 FP32 相同的宽度，但精度损失很少，非常适合应用于对精度要求较高的场景。许多模型在使用 BF16时，可实现与使用32位浮点数值时相同的准确率，部分模型在使用 BF16 时甚至表现出准确率的提升。BF16 可使内存需求减半，并且由于 BF16 以一半的位数完成任务，因此 BF16 理论上计算性能可以翻倍。
+BF16 浮点数格式如下图所示：
+<img src="https://main.qcloudimg.com/raw/254d7f71a76454503669c56e2477696e.png" width="65%"/>
 精度如下图所示：
 ![](https://main.qcloudimg.com/raw/8642ad31bfabd6a0d77cd2fbd22fb6c6.png)
 
 ### 准确率[](id:RecommendedSelection)
-BF16能达到近似 FP32的准确率。在 PyTorch v1.7.0上，以 Resnet50为例，采用相同的模型，FP32和 BF16的精度如下图所示：
-![](https://main.qcloudimg.com/raw/973015246928705055cac697552c13b7.png)
+BF16 能达到近似 FP3 2的准确率。在 PyTorch v1.7.0上，以 Resnet50为例，采用相同的模型，FP32和 BF16的精度如下图所示：
+<img src="https://main.qcloudimg.com/raw/973015246928705055cac697552c13b7.png" width="65%"/>
 
 ## 操作步骤
 
-### 在 PyTorch 和 Tensorflow 中使用 FP32+BF16混精方式进行推理[](id:RecommendedSelection)
+### 在 PyTorch 和 Tensorflow 中使用 FP32 和 BF16 混精方式进行推理[](id:RecommendedSelection)
 
-#### PyTorch
-英特尔<sup>®</sup>开发的 IPEX（Intel Extension for PyTorch）是 PyTorch 的 Python 扩展，利用 IPEX 可以方便地将 PyTorch 模型中的算子在运行过程中动态地转化为 BF16算子。步骤如下：
+#### PyTorch 模型
+英特尔<sup>®</sup>开发的 IPEX（Intel Extension for PyTorch）是 PyTorch 的 Python 扩展，利用 IPEX 可以方便地将 PyTorch 模型中的算子在运行过程中动态地转化为 BF16 算子。步骤如下：
 1. 安装 IPEX。请前往 [Intel<sup>®</sup> Extension for PyTorch官方github repo](https://github.com/intel/intel-extension-for-pytorch#installation)，根据安装指南中提供的信息，对 PyTorch 以及 Intel<sup>®</sup> Extension for PyTorch (IPEX) 进行编译以及安装。
 2. 在 Python 脚本中将 IPEX 的 `auto_mixed_precision` 设置为 BF16，再将数据和模型添加到 IPEX 中即可。如下图所示：
 <img src="https://main.qcloudimg.com/raw/f3624d7cfd49a993618d80027dfa7bdb.png" alt="pytorch-enabling" width="65%;"><br>
 >?如需了解英特尔 IPEX 更多信息，请参见 [intel-extension-for-pytorch](https://github.com/intel/intel-extension-for-pytorch)。
 >
 
-#### Tensorflow
+#### Tensorflow 模型
 
 在 Tensorflow 中可以通过设置 AutoMixedPrecision 方便地使用 BF16，在脚本中只需修改两处。步骤如下：
 1. 打开 AutoMixedPrecision 代码。如下图所示：
@@ -39,25 +39,23 @@ BF16能达到近似 FP32的准确率。在 PyTorch v1.7.0上，以 Resnet50为�
 <img src="https://main.qcloudimg.com/raw/8938cf97afd333ecc5ec2f133117a94a.png" width="80%;"><br>
 如需了解具体支持的转换算子列表，请参见 [auto_mixed_precision_lists.h](https://github.com/reedwm/tensorflow/blob/auto_mp_mkl/tensorflow/core/grappler/optimizers/auto_mixed_precision_lists.h#L343-L454)。
 
-### 在云服务器上体验 BF16性能加速[](id:RecommendedSelection)
-英特尔<sup>®</sup>向腾讯云镜像市场提供了免费的 BF16的镜像。该镜像中已经设置好使用 BF16数据格式的环境，支持 PyTorch 和 Tensorflow 两种机器学习库。用户登录上运行的镜像后，不需要设置任何环境，可以直接运行各种不同模型的推理运算，体验 BF16带来的性能提升。步骤如下：
+### 在云服务器上体验 BF16 性能加速[](id:RecommendedSelection)
+英特尔<sup>®</sup>向腾讯云镜像市场提供了免费的 BF16 的镜像。该镜像中已经设置好使用 BF16 数据格式的环境，支持 PyTorch 和 Tensorflow 两种机器学习库。用户登录运行的镜像后，不需要设置任何环境，可以直接运行各种不同模型的推理运算，体验 BF16带来的性能提升。步骤如下：
 
 1. 创建云服务器实例，详情请参见 [通过购买页创建实例](https://cloud.tencent.com/document/product/213/4855)。其中：
- - **实例**：如需获取 BF16的支持，需确认处理器型号为 Intel Xeon Cooper Lake 机型。如下图所示：
+ - **实例**：如需获取 BF16 的支持，需确认实例处理器型号为 Intel Xeon Cooper Lake 机型。本文以使用 [计算型 C5](https://cloud.tencent.com/document/product/213/11518#C5) 为例，如下图所示：
 ![](https://main.qcloudimg.com/raw/b25b6c612565dbd6473dd23d81899967.png)
 >?更多实例规格参数介绍，请参见 [实例规格](https://cloud.tencent.com/document/product/213/11518)。
 >
- - **镜像**： 访问 [英特尔亚太研发有限公司](https://market.cloud.tencent.com/stores/1259321936) 页面，获取 Intel BF16镜像相关信息。选择【镜像市场】>【从镜像市场选择】，选择使用 Intel BF16镜像。
+ - **镜像**： 访问 [英特尔亚太研发有限公司](https://market.cloud.tencent.com/stores/1259321936) 页面，获取 Intel BF16 镜像相关信息。创建实例时选择【镜像市场】>【从镜像市场选择】，使用 Intel BF16 镜像。
 2. 登录云服务器实例，详情请参见 [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 3. 执行以下命令，确认 CPU 是否支持 BF16。 
 ```
 lscpu | grep "avx512_bf16"
-```
-返回如下目录结构：
+``` 返回如下目录结构：
 ```
 miniconda  pkgs  run-pt.py  run-pt.sh  run-tf.sh  tf1.15
-```
-各文件内容如下：
+``` 各文件内容如下：
  - **miniconda**：miniconda 的安装目录。镜像中依赖库通过 miniconda 安装。
  - **pkgs**：为了省去用户通过源代码编译安装的麻烦，此目录中已包含 Pytorch、Tensorflow、IPEX 的 wheel 文件和 miniconda 的安装文件。
  - **run-pt.py & run-pt.sh**：运行 PyTorch 模型的 Python 脚本和 Shell 脚本文件。
@@ -110,16 +108,15 @@ miniconda  pkgs  run-pt.py  run-pt.sh  run-tf.sh  tf1.15
 </tr>
 <tr>
 <td>large-bert</td>
-<td>BERT（Bidirectional Enoceder Representations from  Transformers），即双向的 Transformers  的Encoder。是 Google 于2018年10月提出的用于自然语言处理（NLP）的预训练技术，网络结构主要分为 Base 和 Large 两种。</td>
+<td>BERT（Bidirectional Enoceder Representations from  Transformers），即双向的 Transformers  的 Encoder。是 Google 于2018年10月提出的用于自然语言处理（NLP）的预训练技术，网络结构主要分为 Base 和 Large 两种。</td>
 </tr>
 <tr>
 <td>ssd-mobilenet</td>
-<td>前端网络设为 MobileNet，后端算法为 SSD（Sing-Shot Detection,一种one-stage 检测算法）的目标检测模型。</td>
+<td>前端网络设为 MobileNet，后端算法为 SSD（Sing-Shot Detection，一种 one-stage 检测算法）的目标检测模型。</td>
 </tr>
 </tbody></table>
 <table>
-<thead>
- - **PyTorch 模型**：
+<thead>  - **PyTorch 模型**：
 <tr>
 <th>PyTorch 模型</th>
 <th><strong>未优化</strong></th>
@@ -214,13 +211,13 @@ miniconda  pkgs  run-pt.py  run-pt.sh  run-tf.sh  tf1.15
 </tbody></table>
 
 
-##  BF16性能数据 [](id:RecommendedSelection)
+##  BF16 性能数据 [](id:RecommendedSelection)
 
 基于 Intel 第三代英特尔<sup>®</sup>至强<sup>®</sup>可扩展处理器 Cooper Lake，在云服务器8核32G内存场景，基于不同模型下测试的性能数据如下：
 >?由于实际模型及物理配置不同，性能数据会有一定差别，本文提供数据仅供参考。
 
 ### PyTorch 模型
-利用 FP32 + BF16的混合精度方式，运行多个 PyTorch 模型，配置信息和标准化的性能提升如下图所示：
+利用 FP32 + BF16 的混合精度方式，运行多个 PyTorch 模型，配置信息和标准化的性能提升如下图所示：
 ![](https://main.qcloudimg.com/raw/40017f30e1c345597d4e759479a6bcb1.png)
 性能数值如下表：  
 <table>
@@ -290,7 +287,7 @@ miniconda  pkgs  run-pt.py  run-pt.sh  run-tf.sh  tf1.15
 
 ### TensorFlow 模型
 
-利用 FP32 + BF16的混合精度方式，运行多个 Tensorflow 模型，配置信息和标准化的性能提升如下图所示：
+利用 FP32 + BF16 的混合精度方式，运行多个 Tensorflow 模型，配置信息和标准化的性能提升如下图所示：
 ![](https://main.qcloudimg.com/raw/172fa14e0b35038e0a684dd51ddbd706.png)
 性能数值如下表：
 <table>
