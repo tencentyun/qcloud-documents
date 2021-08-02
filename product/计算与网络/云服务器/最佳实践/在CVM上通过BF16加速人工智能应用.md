@@ -15,7 +15,7 @@ BF16 浮点数格式如下图所示：
 ![](https://main.qcloudimg.com/raw/8642ad31bfabd6a0d77cd2fbd22fb6c6.png)
 
 ### 准确率[](id:RecommendedSelection)
-BF16 能达到近似 FP3 2的准确率。在 PyTorch v1.7.0上，以 Resnet50为例，采用相同的模型，FP32和 BF16的精度如下图所示：
+BF16 能达到近似 FP32 的准确率。在 PyTorch v1.7.0上，以 Resnet50 为例，采用相同的模型，FP32 和 BF16 的精度如下图所示：
 <img src="https://main.qcloudimg.com/raw/973015246928705055cac697552c13b7.png" width="65%"/>
 
 ## 操作步骤
