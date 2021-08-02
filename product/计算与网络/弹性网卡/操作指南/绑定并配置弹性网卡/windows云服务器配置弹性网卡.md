@@ -1,4 +1,3 @@
-﻿
 >? 如下步骤以 Windows 2012 为例。
 >
 - 情况一：如果 Windows 操作系统设置了 DHCP，则无需配置，即能支持自动识别辅助网卡以及网卡上的 IP。查看操作如下：
@@ -11,6 +10,7 @@
  ![](https://main.qcloudimg.com/raw/93256b91fa4124b39c9e67a7ca06ead4.png)
  6. 返回“以太网 2 状态”弹窗中，单击【详细信息】，即可查看已启用 DHCP，自动识别 IP。
  ![](https://main.qcloudimg.com/raw/2b8c5273070b0880a2e0b8482a572ce6.png)
+
 -  情况二：如果 Windows 操作系统没有设置 DHCP，则需要在操作系统内，把内网 IP 配上。操作步骤如下：
    1. 登录 [腾讯云控制台](https://console.cloud.tencent.com)，把弹性网卡 [绑定云服务器](#.E7.BB.91.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8)。
    2. 登录云服务器，进入操作系统的【控制面板】>【网络和 Internet】>【网络和共享中心】。
