@@ -145,7 +145,7 @@ appId：填写 appid（如果使用了子应用，则填 subappid）。
 
 | 参数名         | 类型                         | 描述         |
 | :------------- | :--------------------------- | :----------- |
-| **completion** | ITXCRequestVideoInfoCallback | 异步回调函数 |
+| completion | ITXCRequestVideoInfoCallback | 异步回调函数 |
 
 
 
