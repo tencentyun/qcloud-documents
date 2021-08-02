@@ -39,7 +39,7 @@ reboot
 ![](https://main.qcloudimg.com/raw/84053ed92ec9eda498beaad1479af930.png)
 
 ### 方式二：手动配置
->?以Centos 7.8举例。
+>?以 Centos 7.8举例。
 >
 
 #### 前提条件
@@ -200,6 +200,7 @@ ifup eth1
 <dx-alert infotype="notice" title="">
 按照上述步骤配置好后，Linux 镜像依旧默认从主网卡发包。您可通过策略路由来指定报文从某个网卡进，并从该网卡返回。该方式配置的为临时静态路由，网络重启后需要重新配置路由。
 </dx-alert>
+
  1. <span id="Linux6.1">执行如下命令创建两张路由表。
 ```plaintext
 echo "10 t1" >> /etc/iproute2/rt_tables   #10为自定义的路由ID，t1为自定义的路由表名称，请根据实际填写。
