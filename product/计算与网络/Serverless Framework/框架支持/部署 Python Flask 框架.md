@@ -4,30 +4,8 @@
 >!任何支持 WSGI（Web Server Gateway Interface，即 Web 服务器网关接口）的 Python 服务端框架都可以通过该组件进行部署，例如 Falcon 框架等。
 
 ## 前提条件
-1. 在使用此组件之前，请确认您本地已安装好 Python 环境。
-2. 先初始化一个 Flask 项目，然后将 `Flask` 和 `werkzeug` 添加到依赖文件 `requirements.txt` 中，如下： 
-```txt
-Flask==1.0.2
-werkzeug==0.16.0
-```
-同时新增 API 服务 `app.py`，下面代码仅供参考：
-```python
-from flask import Flask, jsonify
-app = Flask(__name__)
+在使用此组件之前，请确认您本地已安装好 Python 环境。
 
-@app.route("/")
-def index():
-    return "Hello Flask"
-
-@app.route("/users")
-def users():
-    users = [{'name': 'test1'}, {'name': 'test2'}]
-    return jsonify(data=users)
-
-@app.route("/users/<id>")
-def user(id):
-    return jsonify(data={'name': 'test1'})
-```
 
 ## 操作步骤
 
@@ -58,12 +36,12 @@ touch serverless.yml
 ```yml
 #serverless.yml
 component: flask
-name: flashDemo
+name: flaskdemo
 stage: dev
 
 inputs:
   src:
-    hook: 'pip install -r requirements.txt -t ./'
+    hook: 'pip install -r requirements.txt -t ./'    
     dist: ./
     exclude:
       - .env
@@ -75,6 +53,12 @@ inputs:
       - https
     environment: release
 ```
+
+>? 
+>- `hook: 'pip install -r requirements.txt -t ./' `   
+>在部署的时候，可以在 yml 中配置相关的 hook 指令，完成依赖安装等操作。
+>- `dist: ./`
+>dist 为部署的目录路径，./ 表示根目录下的所有项目都会打包上传。
 
 ### 4. 应用部署
 通过 `sls deploy` 命令进行部署，并可以添加 --debug 参数查看部署过程中的信息。

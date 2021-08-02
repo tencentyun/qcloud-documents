@@ -1,4 +1,4 @@
-﻿本文为您描述如何接入E证通小程序，接入相关指引连接如下：
+本文为您描述如何接入E证通H5，接入相关指引连接如下：
 1. [开通E证通](https://cloud.tencent.com/document/product/1007/56642)
 2. [申请商户 ID](#spang)
 3. [获取 EidToken](#eidtoken)
@@ -14,20 +14,19 @@
 1.1 登录腾讯云慧眼 [人脸核身控制台](https://console.cloud.tencent.com/faceid)，单击【自助接入】>【E证通服务】>【申请商户 ID】
 ![](https://main.qcloudimg.com/raw/ee9d314f001f83023b36145271fce756.png)
 1.2 填写完相关申请信息，单击【提交】，审核时间需要3-5天，请您耐心等待。
-![](https://main.qcloudimg.com/raw/50e63898acf72bfd5410bbd36beb7822.png)
+![](https://main.qcloudimg.com/raw/14565c77b200b1be75664b33fc6a84b9.png)
 1.3 审核通过后，可以在自助接入列表页，查看商户 ID，后续需要使用商户 ID 获取E证通服务流程唯一标识 EidToken。 
-![](https://main.qcloudimg.com/raw/1db60ea7451f8b5490c7e24d608504d1.png)
 
 [](id:eidtoken)
 ## 2. 获取 EidToken 和 URL
 接入方服务端调用 [获取E证通 Token](https://cloud.tencent.com/document/product/1007/54089) 接口，传入E证通服务所需信息获取到 EidToken 以及核身 URL。该 URL 有效为十分钟，且仅能使用一次。
 
 [](id:eidh5)
-## 3.跳转至 H5 进行核身
-用户跳转至第二步获取到的 URL 完成核身之后，接入方可以有两种方式获取核身结果事件：接入方后台轮询；E证通重定向。
+## 3. 跳转至 H5 进行核身
+用户跳转至第二步获取到的 URL 完成核身之后，接入方可以有两种方式获取核身结果事件：接入方后台轮询、E证通重定向。
 
 ### 3.1 接入方后台轮询方式
-例如接入方业务场景主要在 PC 端 H5 的，可以将第二步获取到的核身 URL 转换为二维码，用户手机微信扫码核身后业务流程还要在 PC 端进行的可以采用这种方式。这种方式需要接入方前台查询后台调用 [CheckEidTokenStatus](https://cloud.tencent.com/document/product/1007/54089) 接口，实时查询接入方扫码或者核身状态。接入方业务可以根据返回的状态合理设计业务流程。
+例如接入方业务场景主要在 PC 端 H5 的，可以将第二步获取到的核身 URL 转换为二维码，用户手机微信扫码核身后业务流程还要在 PC 端进行的可以采用这种方式。这种方式需要接入方前台查询后台调用 [CheckEidTokenStatus](https://cloud.tencent.com/document/product/1007/58231) 接口，实时查询接入方扫码或者核身状态。接入方业务可以根据返回的状态合理设计业务流程。
 >!建议轮询间隔为1秒。遇到网络错误等异常状态连续三次以上才认为失败，否则均保持上一次状态。
  
  

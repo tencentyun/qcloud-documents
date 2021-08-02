@@ -26,12 +26,16 @@ components.yaml 文件修改示例如下：
 ```yaml
 containers:
 - args:
-	- --cert-dir=/tmp
-	- --secure-port=4443
-	- --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
-	- --kubelet-use-node-status-port
-	- --kubelet-insecure-tls # 加上该启动参数
-	image: ccr.ccs.tencentyun.com/mirrors/metrics-server:v0.4.0 # 国内集群，请替换成该镜像地址
+    - --cert-dir=/tmp
+    - --secure-port=4443 # 请替换为4443
+    - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+    - --kubelet-use-node-status-port
+    - --kubelet-insecure-tls # 加上该启动参数
+    image: ccr.ccs.tencentyun.com/mirrors/metrics-server:v0.4.0 # 国内集群，请替换成
+    ports:
+    - containerPort: 4443  #请替换为4443
+      name: https
+      protocol: TCP
 ```
 
 ### 部署 metrics-server

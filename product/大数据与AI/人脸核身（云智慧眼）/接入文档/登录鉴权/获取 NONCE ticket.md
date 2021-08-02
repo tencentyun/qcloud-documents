@@ -1,10 +1,10 @@
 ## 注意事项
 - **前置条件：**请合作方确保 Access Token 已经正常获取，获取方式请参见 [Access Token 获取](https://cloud.tencent.com/document/product/1007/37304)。
-- NONCE ticket 是合作方**前端包含 App 和 H5 等**生成签名鉴权参数之一，启动 H5 或 SDK 人脸核身。
+- **用途：**NONCE ticket 是合作方**前端包含 App 和 H5 等**生成签名鉴权参数之一，启动 H5 或 SDK 人脸核身。
 - API ticket 的 NONCE 类型，其有效期为120秒，且一次性有效，即每次启动 SDK 刷脸都要重新请求 NONCE ticket。
 
 ## 请求
-- **请求 URL：**`https://idasc.webank.com/api/oauth2/api_ticket`
+- **请求 URL：**`https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket`
 - **请求方法**：GET
 - **请求参数：**
 <table><tbody>
@@ -17,7 +17,7 @@
 </tbody></table>
 - **请求示例：**
 ```
-https://idasc.webank.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=NONCE&version=1.0.0&user_id=xxx
+https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=NONCE&version=1.0.0&user_id=xxx
 ```
 
 ## 响应

@@ -180,9 +180,6 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
                 "watermark_opt":0
             }
         },
-        "meeting_room_info":[
-            {"meeting_room_id":"133195"}
-        ],
         "guests":[
             {
                 "area":"86",

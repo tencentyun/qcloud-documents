@@ -28,7 +28,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 | 参数名称         | 参数类型     | 参数描述                             |
 | ---------------- | ------------ | ------------------------------------ |
 | meeting_id       | String       | 会议 ID。                               |
-| meeting_code     | String       | 会议 CODE。                             |
+| meeting_code     | String       | 会议 Code。                             |
 | subject          | String       | 会议主题。                             |
 | live_replay_list | 直播回看数组 | 直播回看数组（会议创建人才有权限查询）。 |
 

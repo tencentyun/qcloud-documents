@@ -64,7 +64,7 @@
     
     "source_urls": "[\"http://yourURL.cn/live/normal_230753472*****21162358-upload-45eb/playlist.m3u8\"]\n",
     
-    "stream_id": "",
+    "stream_id": "testvod",
     
     "task_id": "118148",
     
@@ -93,7 +93,7 @@
     
     "source_urls": "[\"http://yourURL.cn/live/normal_466247620*****3100448-upload-216b/playlist.m3u8\"]\n",
     
-    "stream_id": "",
+    "stream_id": "testvod",
     
     "task_id": "118145",
     
@@ -123,7 +123,7 @@
     
     "source_urls": "[\"http://yourURL.cn/live/normal_466247620*****3100448-upload-216b/playlist.m3u8\"]\n",
     
-    "stream_id": "",
+    "stream_id": "testvod",
     
     "task_id": "118145",
     

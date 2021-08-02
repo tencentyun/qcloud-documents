@@ -1,5 +1,4 @@
 
-
 ## iOS 音频相关接口
 
 此部分接口使用 SetAdvanceParams 接口进行调用，在进房前调用。 

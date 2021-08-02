@@ -1,3 +1,4 @@
+目前，仅原移动直播企业版 SDK，短视频企业版 SDK 以及短视频企业版 Pro SDK 支持高级美颜特效，需要购买原 [移动直播企业版 License](https://cloud.tencent.com/document/product/454/8008)、[短视频企业版 License 或短视频企业版 Pro License](https://cloud.tencent.com/document/product/584/9368) 后，使用对应的功能。
 
 ## 功能说明
 
@@ -7,7 +8,7 @@
 [单击此处](https://cloud.tencent.com/product/x-magic) 申请企业版本 License。
 
 ## 版本下载
-在 [SDK 下载](https://cloud.tencent.com/document/product/584/9366) 页面下方下载企业版 SDK 压缩包，压缩包有加密（解压密码和 Licence 在接入流程步骤获取），成功解压后得到一个 `Demo` 和 `SDK` 文件，特效资源存放在 SDK/Resource 下。
+在 [SDK 下载](https://cloud.tencent.com/document/product/584/9366) 页面下方下载企业版 SDK 压缩包，压缩包有加密（解压密码和 Licence 在接入流程步骤获取），成功解压后得到一个 Demo 和 SDK 文件，特效资源存放在 SDK/Resource 下。
 
 ## Xcode 工程设置
 

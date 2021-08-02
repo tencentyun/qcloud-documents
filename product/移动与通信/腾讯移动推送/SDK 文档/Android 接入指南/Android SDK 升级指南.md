@@ -7,10 +7,9 @@
 allprojects {
     repositories {
         google()
-        jcenter()
-
         // 谷歌推荐 MavenCentral 镜像源
         mavenCentral()
+        jcenter()
         // 腾讯云镜像源
         maven { url 'https://mirrors.tencent.com/nexus/repository/maven-public/' }
     }

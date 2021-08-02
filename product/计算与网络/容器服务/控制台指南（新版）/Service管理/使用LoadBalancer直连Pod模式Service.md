@@ -19,8 +19,10 @@
 - 集群 Kubernetes 版本需要高于 1.12。
 - 集群网络模式必须开启 VPC-CNI 弹性网卡模式。
 - 直连模式 Service 使用的工作负载需使用 VPC-CNI 弹性网卡模式。
+- 默认 CLB 的后端数量限制是200个，如果您绑定的工作负载的副本数超过200时，可通过 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 提升负载均衡 CLB 的配额。
 - 满足 CLB 本身绑定弹性网卡的功能限制，详情请参见 [绑定弹性网卡](https://cloud.tencent.com/document/product/214/36538)。
 - 开启直连 Pod 模式的工作负载更新时，将会根据 CLB 的健康检查状态进行滚动更新，会对更新速度造成一定影响。
+- 不支持 HostNetwork 类型的工作负载。
 
 ### 操作步骤
 
@@ -44,7 +46,7 @@ kind: Service
 apiVersion: v1
 metadata:
     annotations:
-  	service.cloud.tencent.com/direct-access: true ##开启直连 Pod 模式
+  	service.cloud.tencent.com/direct-access: "true" ##开启直连 Pod 模式
     name: my-service
 spec:
     selector:
@@ -120,15 +122,16 @@ Kubernetes 集群提供了服务注册的机制，只需要将您的服务以 `M
 
 - 单个工作负载仅能运行在一种网络模式下，您可选择弹性网卡直连或 GlobalRoute 直连。
 - 仅支持带宽上移账号，如若当前账户是传统账号类型（带宽非上移），可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。
+- 默认 CLB 的后端数量限制是 200 个，如果您绑定的工作负载的副本数超过 200 时，可通过 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 提升负载均衡 CLB 的配额。
 - 使用 CLB 直连 Pod，需注意网络链路受云服务器的安全组限制，确认安全组配置是否放开对应的协议和端口，**需要开启 CVM 上工作负载对应的端口**。
-- 开启直连后，默认将启用 [ReadinessGate](https://cloud.tencent.com/document/product/457/48768#.E5.BC.95.E5.85.A5-readinessgate) 就需检查，将会在 Pod 滚动更新时检查来自负载均衡的流量是否正常，需要为业务方配置正确的健康检查配置，详情可参见 [TKEServiceConfig 介绍](https://cloud.tencent.com/document/product/457/41895)。
+- 开启直连后，默认将启用 [ReadinessGate](https://cloud.tencent.com/document/product/457/48768#.E5.BC.95.E5.85.A5-readinessgate) 就绪检查，将会在 Pod 滚动更新时检查来自负载均衡的流量是否正常，需要为业务方配置正确的健康检查配置，详情可参见 [TKEServiceConfig 介绍](https://cloud.tencent.com/document/product/457/41895)。
 - 直连 Globalrouter 模式下的 Pod 为内测功能，您可通过以下两种方式进行使用：
  - **通过 [云联网](https://cloud.tencent.com/document/product/877) 使用。**推荐使用该方式，云联网可以校验绑定的 IP 地址，防止出现绑定出错、地址回环等 IP 绑定常见问题。操作步骤如下：
    1. 创建云联网实例。详情可参见 [新建云联网实例](https://cloud.tencent.com/document/product/877/18752)。
    2. 将集群所在 VPC 添加至已创建的云联网实例中。
    3. 将容器网段注册到云联网，在集群的“基本信息”页面中开启云联网。
 ![](https://main.qcloudimg.com/raw/e9c44e7cb6ba38bc1ab34ea1f4d91cef.png)
- - **您可 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%20TKE&step=1) 进行申请。**此方式缺少云联网的 IP 校验功能，不推荐使用。
+ - **您可通过 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 进行申请。**此方式缺少云联网的 IP 校验功能，不推荐使用。
 
 
 ### 操作步骤
@@ -155,7 +158,7 @@ kind: Service
 apiVersion: v1
 metadata:
     annotations:
-	  service.cloud.tencent.com/direct-access: true ##开启直连 Pod 模式
+  	service.cloud.tencent.com/direct-access: "true" ##开启直连 Pod 模式
     name: my-service
 spec:
     selector:

@@ -118,7 +118,7 @@ type BucketTaggingTag struct {
 
 #### 功能说明
 
-GET Object tagging 接口用于查询指定对象下已有的对象标签。
+DELETE Object tagging 接口用于删除指定对象下已有的对象标签。
 
 #### 方法原型
 

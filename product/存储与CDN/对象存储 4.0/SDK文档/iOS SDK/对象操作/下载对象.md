@@ -120,7 +120,7 @@ request.localCacheDownloadOffset = localCacheDownloadOffset;
 
 [//]: # (.cssg-snippet-transfer-download-object-cancel)
 ```objective-c
-undefined
+[request cancel];
 ```
 
 >?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/TransferDownloadObject.m) 查看。
@@ -148,7 +148,7 @@ request.localCacheDownloadOffset = Int64(localCacheDownloadOffset);
 
 [//]: # (.cssg-snippet-transfer-download-object-cancel)
 ```swift
-undefined
+request.cancel();
 ```
 
 >?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/TransferDownloadObject.swift) 查看。

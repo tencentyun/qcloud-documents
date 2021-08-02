@@ -67,10 +67,10 @@ chmod 700 get_helm.sh
 >!执行命令的机器需确保已在对应实例的公网白名单或已链接的私有网络 VPC 中，详情请参见 [公网访问控制](https://cloud.tencent.com/document/product/1141/41837)，[内网访问控制](https://cloud.tencent.com/document/product/1141/41838)
 >
 ```
-helm repo add $instance-$namespace https://$instance.tencentcloudcr.com/chartrepo/$namesapce --username $username --password $instance-token
+helm repo add $instance-$namespace https://$instance.tencentcloudcr.com/chartrepo/$namespace --username $username --password $instance-token
 ```
  - `$instance-$namespace`：为 helm repo 名称，建议使用**实例名称+命名空间名称**组合的方式命名，以便于区分各个实例及命名空间。
- - `https://$instance.tencentcloudcr.com/chartrepo/$namesapce`：为 helm repo 的远端地址。
+ - `https://$instance.tencentcloudcr.com/chartrepo/$namespace`：为 helm repo 的远端地址。
     - `$username`：为 [步骤2](#Step2) 中已获取的用户名。
     - `$instance-token`：为 [步骤2](#Step2) 中已获取的登录密码。
 如添加成功将提示以下信息。
