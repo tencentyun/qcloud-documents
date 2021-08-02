@@ -21,7 +21,7 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | [sharedInstance](#sharedinstance)               | 获取单例对象。           |
 | [destroySharedInstance](#destroysharedinstance) | 销毁单例对象。           |
 | [setDelegate](#setdelegate)                     | 设置事件回调。           |
-| [setDelegateHandler](#setdelegatehandler)       | 设置事件回调所在的线程。 |
+| [setDelegateQueue](#setdelegatequeue)       | 设置事件回调所在的线程。 |
 | [login](#login)                                 | 登录。                   |
 | [logout](#logout)                               | 登出。                   |
 | [setSelfProfile](#setselfprofile)               | 修改个人信息。           |
@@ -158,7 +158,7 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | ------------------------------------------------- | ----------------- |
 | [onMusicProgressUpdate](#onmusicprogressupdate)   | 歌曲播放进度的回调。 |
 | [onMusicPrepareToPlay](#onmusicpreparetoplay)     | 准备播放音乐的回调。 |
-| [onMusicCompletePlaying](#onmusiccompletePlaying) | 播放完成音乐的回调。 |
+| [onMusicCompletePlaying](#onmusiccompleteplaying) | 播放完成音乐的回调。 |
 
 ## SDK 基础函数
 
