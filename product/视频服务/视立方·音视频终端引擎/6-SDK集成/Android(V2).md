@@ -45,7 +45,7 @@ defaultConfig {
 ### 方法二：手动下载（aar）
 如果您的网络连接 mavenCentral 有问题，也可以手动下载 SDK 集成到工程里：
 
-1. 下载 [LiveAVSDK](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。
+1. 下载 [LiveAVSDK](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh) ，下载完成后进行解压。
 2. 将下载文件解压之后 SDK 目录下的 aar 文件拷贝到工程的 **app/libs** 目录下：
     ![](https://main.qcloudimg.com/raw/09ee3b005ff8d4ef33bafb6ce3135239.png)
 3. 在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
@@ -134,7 +134,7 @@ defaultConfig {
 
 ## 配置 License 授权
 
-单击 [License 申请](1) 获取测试用 License，具体操作请参见 [测试版 License](1)。您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
+单击 [License 申请](https://console.cloud.tencent.com/vcube) 获取测试用 License，具体操作请参见 [测试版 License](https://cloud.tencent.com/document/product/1449/56981?!preview&!editLang=zh#test)。您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
 
 在您的 App 调用企业版 SDK 相关功能之前（建议在 Application类中）进行如下设置：
 

@@ -18,9 +18,63 @@
 ### 示例工程
 
 | 平台    | 源码地址                                                     |  目标文件夹  |
-| ------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| -------| ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) | [LiveLink](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example/Basic/LiveLink) |
 | iOS      | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)|[LiveLink](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example/Basic/LiveLink) |
+
+### 演示图示
+
+####  直播前
+<table>
+        <tr> 
+                <th><div align=center>主播端（手机 A)</div></th>
+                <th><div align=center>连麦观众（手机 B）</div></th>
+                <th><div align=center>普通观众（手机 C）</div></th>
+        </tr>
+        <tr>
+                <td>
+                  <div align=center>
+                    <img src="https://main.qcloudimg.com/raw/f46b67807534a6f95905a9334189e2a3.jpeg" style="width: 250px;height: 510px">
+                    </div>
+                  </td>
+                <td>
+                  <div align=center>
+                    <img src="https://main.qcloudimg.com/raw/502949e9fe3133c10e5f985122bcada3.jpeg" style="width: 250px;height: 510px">
+                    </div>
+                </td>
+                <td>
+                  <div align=center>
+                    <img src="https://main.qcloudimg.com/raw/53c6cd620e83c4a82ca9cdb25aae81e8.jpg" style="width: 250px;height: 510px">
+                    </div>
+                </td>
+        </tr>
+</table>
+
+####  连麦中
+<table>
+        <tr> 
+                <th><div align=center>主播端（手机 A）</div></th>
+                <th><div align=center>连麦观众（手机 B）</div></th>
+                <th><div align=center>普通观众（手机 C）</div></th>
+        </tr>
+        <tr>
+                <td>
+                  <div align=center>
+                    <img src="https://main.qcloudimg.com/raw/b13cb87c385f9392e2934e45d946f745.jpeg" style="width: 250px;height: 510px">
+                    </div>
+                  </td>
+                <td>
+                  <div align=center>
+                     <img src="https://main.qcloudimg.com/raw/b65dc3c29934d68f9a5239c0c018243f.jpeg" style="width: 250px;height: 510px">
+                    </div>
+                </td>
+                <td>
+                  <div align=center>
+                    <img src="https://main.qcloudimg.com/raw/8f208414a6f3a0b577e1be0f48946952.jpeg" style="width: 250px;height: 510px"> 
+                    </div>
+                </td>
+        </tr>
+</table>
 
 [](id:step1)
 ### 步骤1：服务开通 
@@ -530,4 +584,4 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 新的 RTC 连麦方案中，主播连麦的延时 < 200ms，主播和观众的延时在 100ms - 1000ms。
 
 #### 6. RTC 推流成功后，使用 CDN 拉流一直提示404？
-检查一下是否有开启实时音视频服务的旁路直播功能，基本原理是 RTC 协议推流后，如果需要使用 CDN 播放，RTC会在后台服务中旁路流信息到 CDN 上。
+检查一下是否有开启实时音视频服务的旁路直播功能，基本原理是 RTC 协议推流后，如果需要使用 CDN 播放，RTC 会在后台服务中旁路流信息到 CDN 上。

@@ -3,37 +3,28 @@
 
 
 ## 测试版 License
-
 您可以登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vod/license)  在线申请为期28天的试用 License（试用期为14天，可免费续期一次，合计28天），该 License 可以在直播推流模块和短视频模块上使用。
 
-> ? 每个功能模块仅可申请一次，长期使用请 [购买]() 正式 License。
->
-
-
+> ? 每个功能模块仅可申请一次，长期使用请 [购买](https://buy.cloud.tencent.com/vcube
+) 正式 License。
 
 ## 正式版 License
-
 > ! 获得 License 解锁功能模块的计费详情，请参见 [计费概述](https://cloud.tencent.com/document/product/1449/56972?!editLang=zh&!preview)。
->
 
 [](id:Live)
-
 ### 直播推流模块
 
-购买云直播流量资源包-10TB，可以解锁直播推流（主播开播和主播观众连麦/主播跨房 PK）模块，有效期一年。单击 [申请直播推流 License]()。
+购买云直播流量资源包-10TB，可以解锁直播推流（主播开播和主播观众连麦/主播跨房 PK）模块，有效期一年。单击 [申请直播推流 License](https://cloud.tencent.com/document/product/1449/56981?!editLang=zh&!preview)。
 
 > ? 小程序端的直播推流/播放功能需要先取得对应的直播相关资质，详情可参见 [小程序直播接入指引](https://cloud.tencent.com/document/product/1078/37707)。
 
 
 [](id:UGSV)
-
 ### 短视频模块
-
 - 购买云点播流量资源包-10TB，可以解锁短视频模块—精简版，有效期一年。
 - 购买云点播流量资源包-50TB、流量资源包-100TB、流量资源包-1PB，可以解锁短视频模块—基础版，有效期一年。
 
 [](id:UGSV_detail)
-
 #### 短视频 License 功能详情
 短视频 License 包括**精简版 License** 和**基础版 License**。精简版 License 支持视频生成、上传、处理、分发和播放多种功能；基础版 License 在精简版基础上增加滤镜、特效和转场等能力，快速轻松实现基于移动端的短视频应用。功能支持详情如下：
 
@@ -264,8 +255,8 @@
       <td rowspan='2'>License</td>
       <td>License 申请</td>
       <td>不同版本 SDK 需要搭配不同版本的 License 才能使用。</td>
-      <td style="text-align:center"><a href="1">精简版 License</a></td>
-      <td style="text-align:center"><a href="1">基础版 License</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/1449/56982?!editLang=zh&!preview">精简版 License</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/1449/56982?!editLang=zh&!preview">基础版 License</a></td>
    <tr>
       <td>套餐价格</td>
       <td>SDK 的一年使用权（精简版和基础版含腾讯云点播流量套餐）。</td>

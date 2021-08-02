@@ -54,7 +54,7 @@
 </tr>
 <tr>
 <td>ip</td>
-<td>DNS 请求的 CVM 值</td>
+<td>DNS 请求的 ECS（EDNS-Client-Subnet）值</td>
 <td>否</td>
 <td>IPv4/IPv6 地址值</td>
 <td>是</td>
@@ -101,6 +101,10 @@
 <td>地址值在 <code>|</code> 符号后，可用值 [1]，默认值为不返回。若携带有 ip 参数，返回的是 ip 参数的值，否则返回客户端地址 IP。</td>
 </tr>
 </tbody></table>
+
+>?
+>- ECS（EDNS-Client-Subnet）协议在 DNS 请求包中附加请求域名解析的用户 IP 地址，DNS 服务器可以根据该地址返回用户更容快速访问的服务器 IP 地址。
+>- 移动解析 HTTPDNS 公共服务已经不再维持 ECS IP 库的常态化更新，仅保持每周更新一次。
 
 ## 请求说明
 以请求域名为 `cloud.tencent.com`，ID 为 `xxx`，token 为 `yyyy` 为例。

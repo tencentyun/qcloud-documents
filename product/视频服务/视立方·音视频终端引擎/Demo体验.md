@@ -31,7 +31,7 @@
 
 
 [](id:video_app)
-## 全功能小视频 App（Demo）源代码
+## 全功能小视频 App
 
 <table width="850px">
   <tr>

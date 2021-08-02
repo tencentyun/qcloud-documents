@@ -1,7 +1,7 @@
-## SDK 版本
-本页文档所描述功能，在 SDK 版本中支持情况如下：
+## 视立方版本支持
+本页文档所描述功能，在视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 纯播放 Player | 全功能 |
+| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | -  | &#10003;  |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
@@ -48,7 +48,7 @@ Xcode 9 及以上的版本，手机也必须升级至 iOS 11 以上，否则模�
 配置好 Product Name。单击【Finish】后可以看到，工程多了所输 Product Name 的目录，目录下有个系统自动生成的 SampleHandler 类，这个类负责录屏的相关处理。
 
 ### 导入 LiteAV SDK
-直播扩展需要导入 TXLiteAVSDK.framework。扩展导入 framework 的方式和主 App 导入方式相同，SDK 的系统依赖库也没有区别。具体请参见腾讯云官网 [工程配置（iOS）](https://cloud.tencent.com/document/product/454/56588)。
+直播扩展需要导入 TXLiteAVSDK.framework。扩展导入 framework 的方式和主 App 导入方式相同，SDK 的系统依赖库也没有区别。具体请参见腾讯云官网 [工程配置（iOS）](https://cloud.tencent.com/document/product/1449/56986?!preview&!editLang=zh)。
 
 
 ## 对接流程
@@ -122,7 +122,7 @@ Replaykit 会将视频以回调的方式传给 `-[SampleHandler processSampleBuf
         }
 }
 ```
-视频 sampleBuffer 只需要调用`-[V2TXLivePusher sendCustomVideoFrame:]`发送即可。
+视频 sampleBuffer 只需要调用 `-[V2TXLivePusher sendCustomVideoFrame:]` 发送即可。
 
 系统分发视频 sampleBuffer 的频率并不固定，如果画面静止，可能很长时间才会有一帧数据过来。SDK 考虑到这种情况，内部会做补帧逻辑。
 >!建议保存一帧给推流启动时使用，防止推流启动或切换横竖屏时因无新的画面数据采集发送，因为画面没有变化时系统可能会很长时间才采集一帧画面。
@@ -145,7 +145,7 @@ SDK 所要求的水印图片格式为 PNG，因为 PNG 这种图片格式有透�
 
 [](id:step5)
 ### 步骤5：结束推流
-结束推流 ReplayKit 会调用`-[SampleHandler broadcastFinished]`，示例代码：
+结束推流 ReplayKit 会调用 `-[SampleHandler broadcastFinished]`，示例代码：
 
 ```objective-c
 - (void)broadcastFinished {
@@ -160,10 +160,10 @@ SDK 所要求的水印图片格式为 PNG，因为 PNG 这种图片格式有透�
 
 
 ## 事件处理
-### 1. 事件监听
+###  事件监听
 SDK 通过 [V2TXLivePusherObserver](http://doc.qcloudtrtc.com/group__V2TXLivePusherObserver__android.html) 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表请参见 [错误码表](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__android.html)。
 
-### 2. 错误通知
+### 错误通知
 SDK 发现部分严重问题，推流无法继续
 
 | 事件 ID                              | 数值 | 含义说明                        |
@@ -176,7 +176,7 @@ SDK 发现部分严重问题，推流无法继续
 | V2TXLIVE_ERROR_REQUEST_TIMEOUT       | -6   | 请求服务器超时。                |
 | V2TXLIVE_ERROR_SERVER_PROCESS_FAILED | -7   | 服务器无法处理您的请求。        |
 
-### 3. 警告事件
+### 警告事件
 SDK 发现部分警告问题，但 WARNING 级别的事件都会触发一些尝试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复。
 
 | 事件 ID                                       | 数值  | 含义说明                                                     |
