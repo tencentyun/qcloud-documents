@@ -12,7 +12,7 @@
 
 ## SDK 集成
 
-Web 超级播放器 TcAdapter 提供 **CDN 集成 **和 **npm 集成**两种集成方式：
+Web 超级播放器 TcAdapter 提供 **CDN 集成**和 **npm 集成**两种集成方式：
 
 #### CDN 集成
 
