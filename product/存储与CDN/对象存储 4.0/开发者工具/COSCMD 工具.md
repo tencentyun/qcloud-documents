@@ -36,7 +36,7 @@
 pip install coscmd
 ```
 安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息。
->! 使用 Windows 安装后，需要将 `C:\python_install_dir; C:\python_install_dir\Scripts` 两个路径加入到环境变量中。 
+>! 使用 Windows 安装后，需要将 `C:\python_install_dir;` 和 `C:\python_install_dir\Scripts` 两个路径加入到环境变量中。 
 >
 
 #### 1.2 pip 更新
@@ -376,7 +376,7 @@ coscmd upload -rs D:/doc doc
 ```plaintext
 coscmd upload -rs --skipmd5 D:/doc doc
 ```
- >! 使用 -s 参数可以使用同步上传，且带上 --skipm5 参数后，将只对比同名文件的大小，如果大小相同则跳过上传。
+ >! 使用 -s 参数可以使用同步上传，且带上 --skipmd5 参数后，将只对比同名文件的大小，如果大小相同则跳过上传。
  >
 - 操作示例 - 同步上传，并删除 “D 盘 doc 文件夹中已经删除的文件”
 ```plaintext
