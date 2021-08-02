@@ -1,4 +1,4 @@
-超级播放器 SDK 套件通过 fileId + pSign，向腾讯云视频后台请求播放信息，SDK 对返回的视频数据解密后进行播放，保护视频信息安全。
+腾讯云视立方 Andriod 超级播放器 Adapter 套件通过 fileId + pSign，向腾讯云视频后台请求播放信息，SDK 对返回的视频数据解密后进行播放，保护视频信息安全。
 
 本文档部分内容为腾讯云专属能力，使用前请开通 [腾讯云](https://cloud.tencent.com) 相关服务，未注册用户可注册账号 [免费试用](https://cloud.tencent.com/login)。
 
@@ -14,7 +14,7 @@
 
 ## SDK 下载
 
-超级播放器 Adapter SDK 和 Demo 项目下载地址 [TXCPlayerAdapterSDK_Android](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip)。 
+腾讯云视立方 Andriod 超级播放器 Adapter SDK 和 Demo 项目下载地址 [TXCPlayerAdapterSDK_Android](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip)。 
 
 ## 集成指引
 
