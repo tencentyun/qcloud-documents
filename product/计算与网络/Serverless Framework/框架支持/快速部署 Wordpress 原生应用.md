@@ -1,4 +1,4 @@
-腾讯云 Serverless 提供了基于 Serverless 架构的 WordPress 全新部署方式，通过 [Serverless Framework WordPress 组件](https://github.com/serverless-components/tencent-wordpress) ，仅需几步，就可以快速部署一个 WordPress 项目。
+腾讯云 Serverless 提供了基于 Serverless 架构的 WordPress 全新部署方式，通过 [Serverless Framework WordPress 组件](https://github.com/serverless-components/tencent-wordpress)，仅需几步，就可以快速部署一个 WordPress 项目。
 
 ## 架构简介
 该组件主要为您创建以下资源：
@@ -8,8 +8,8 @@
 | 云函数 SCF | 负责 Serverless WordPress 的接入层实现，从而运行 WordPress。 |
 | API 网关| WordPress 的对外入口，实现了 RESTful API。 |
 | 文件储存 CFS  | WordPress 的 Serverless 存储仓库。 |
-| <nobr>云原声数据库 TDSQL-C</nobr> <br/>（默认数据库）| 通过创建 TDSQL-C (原 CynosDB) 的 MySQL 类型数据库，实现数据库按量计费，自动扩缩容。<br/>您可以选择不使用默认数据库，连接自建的MySQL 类型数据库。|
-| 私有网络 VPC <br/>（默认VPC）| 内网打通 SCF 云函数、CFS、TDSQL-C Serverless 之间的网络，保障网络隔离。<br/>您也可以选择不使用默认VPC，连接自己指定的VPC。|
+| <nobr>云原生数据库 TDSQL-C</nobr> <br>（默认数据库）| 通过创建 TDSQL-C（原 CynosDB）的 MySQL 类型数据库，实现数据库按量计费，自动扩缩容。<br>您可以选择不使用默认数据库，连接自建的 MySQL 类型数据库。|
+| 私有网络 VPC <br>（默认 VPC）| 内网打通云函数 SCF、CFS、TDSQL-C Serverless 之间的网络，保障网络隔离。<br>您也可以选择不使用默认VPC，连接自己指定的VPC。|
 
 ## 功能优势
 - **支持 WordPress 原生框架**
@@ -33,16 +33,20 @@
 
 1. 登录[ Serverless 应用控制台](https://console.cloud.tencent.com/sls?from=wpdocs), 单击【新建应用】。
 2. 选择【应用模版】>【快速部署一个WordPress框架】，单击【下一步】。
-<br/>![](https://main.qcloudimg.com/raw/69c8613f66c793d53afb879e5e11e4ae.png)
-
+![](https://main.qcloudimg.com/raw/69c8613f66c793d53afb879e5e11e4ae.png)
 3. 输入应用名。您可以选择使用默认的或连接自建数据库和指定私有网络。
-<br/>如果您选择使用默认的数据库和私有网络，单机【完成】即可完成应用创建。
-<br/>![](https://main.qcloudimg.com/raw/63417fa4e382410b2ff6f7f7d135fbce.png)
-<br/>如果您选择连接自建数据库和私有网络，可以在高级配置勾选对应的【启用】并进行配置。您可以连接有内网IP的数据库，也可以连接有公网IP的数据库。如果选择连接内网IP的数据库，您需要配置私有网络，请注意您的自建数据库所在地域与应用部署地域需要相同。如果选择连接公网IP的数据库，您也可以不启用指定的私有网络，继续使用默认的私有网络。单机【完成】完成应用。
-<br/>![](https://main.qcloudimg.com/raw/50393d473720206a8a0e515a4f253696.png)
-
+<dx-tabs>
+::: 选择使用默认的数据库和私有网络
+如果您选择使用默认的数据库和私有网络，单击【完成】即可完成应用创建。
+![](https://main.qcloudimg.com/raw/63417fa4e382410b2ff6f7f7d135fbce.png)
+:::
+::: 选择连接自建数据库和私有网络
+如果您选择连接自建数据库和私有网络，可以在高级配置勾选对应的【启用】并进行配置。您可以连接有内网 IP 的数据库，也可以连接有公网 IP 的数据库。如果选择连接内网 IP 的数据库，您需要配置私有网络，请注意您的自建数据库所在地域与应用部署地域需要相同。如果选择连接公网 IP 的数据库，您也可以不启用指定的私有网络，继续使用默认的私有网络。单击【完成】完成应用。
+![](https://main.qcloudimg.com/raw/50393d473720206a8a0e515a4f253696.png)
+:::
+</dx-tabs>
 4. 在 Serverless 应用页，单击【访问应用】，即可访问您的 WordPress 项目。
-<br/>![](https://main.qcloudimg.com/raw/90d900584c4a1da68d356c1fc5adb75a.png)
+![](https://main.qcloudimg.com/raw/90d900584c4a1da68d356c1fc5adb75a.png)
 您也可以单击您的应用名称，查看资源列表和部署日志。在资源列表页，您可以单机【新增】配置您的自定义域名。
 <br/>![](https://main.qcloudimg.com/raw/55218c4f1a6f83f3a1e1ff58a2f15006.png)
 
@@ -137,7 +141,7 @@ php -d extension_dir=/opt/lib/php/modules/ sl_handler.php 1>&2
 
 #### 如何处理报错 "event too large"？
 函数目前只支持最大**6MB**的事件上传，超过该大小文件不支持上传。
-<br>目前 API 网关 base 64转码会将用户本身代码大小扩大1.5倍左右，因此上传文件时，建议文件大小控制在**3.5MB**以内。<br/>
+目前 API 网关 base 64转码会将用户本身代码大小扩大1.5倍左右，因此上传文件时，建议文件大小控制在**3.5MB**以内。<br/>
 
 #### 如何修改 WordPress 根目录文件？
 目前文件挂载在文件存储 CFS 上，无法直接修改，建议通过安装 File Manager 插件管理根目录文件。
