@@ -19,7 +19,7 @@
 <td style="text-align:center"><a href="https://vcube.cloud.tencent.com/home.html?sdk=interactivelive" target="_blank">下载</a></td>
 <td style="text-align:center"><a href="https://vcube.cloud.tencent.com/home.html?sdk=shortVideo" target="_blank">下载</a></td>
 <td style="text-align:center"><a href="https://vcube.cloud.tencent.com/home.html?sdk=video" target="_blank">下载</a></td>
-<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/home.html?sdk=video" target="_blank">下载</a></td>
+<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/home.html?sdk=player" target="_blank">下载</a></td>
 <td style="text-align:center"><a href="https://vcube.cloud.tencent.com/home.html?sdk=allPart" target="_blank">下载</a></td>
 </tr>
 <tr>
