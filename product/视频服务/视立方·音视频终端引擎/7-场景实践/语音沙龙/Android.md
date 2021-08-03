@@ -121,7 +121,8 @@ dependencies {
 }
 :::
 </dx-codeblock>
->?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
+
+	>?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
 <dx-codeblock>
 ::: java java
@@ -158,9 +159,7 @@ defaultConfig {
 ### 步骤2：配置权限及混淆规则
 
 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态读取存储权限）：
-
-<dx-codeblock>
-::: java java
+```
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -170,8 +169,7 @@ defaultConfig {
 <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-:::
-</dx-codeblock>
+```
 
 在 proguard-rules.pro 文件，将 SDK 相关类加入不混淆名单：
 
