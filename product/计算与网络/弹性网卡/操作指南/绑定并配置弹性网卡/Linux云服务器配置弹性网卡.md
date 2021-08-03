@@ -10,7 +10,7 @@
 >!
 >+ 该方式适用于 CentOS 8.0、7.8、7.6、7.5、7.4和7.2版本。
 >+ “nic-hotplug.tgz”工具将在绑定弹性网卡或云服务器重启时被触发，自动创建网卡配置文件，并下发弹性网卡的策略路由。
->+ 当云服务器已有弹性网卡时，例如主网卡，请务必确保存量弹性网卡的策略路由均已正确配置，再执行工具配置新弹性网卡；如可以接受云服务器重启对业务的影响，也可在配置完成后，参考[ 步骤5 ](#step5)如下操作重启云服务器使工具对所有网卡均生效。
+>+ 当云服务器已有弹性网卡时，例如主网卡，请务必确保存量弹性网卡的策略路由均已正确配置，再执行工具配置新弹性网卡；如可以接受云服务器重启对业务的影响，也可在配置完成后，参考[ 步骤5 ](#step5)重启云服务器使工具配置对所有网卡均生效。
 
 #### 操作步骤
 1. 登录云服务器，在云服务器中直接执行如下命令下载 nic-hotplug.tgz 工具。 
@@ -27,16 +27,16 @@ cd nic-hotplug
 chmod +x ./install.sh
 ./install.sh
 ```
-4.  参考 [绑定弹性网卡](https://cloud.tencent.com/document/product/576/18535)，绑定弹性网卡，绑定后可执行如下操作验证新增网卡eth1的路由已正常下发。
- 1. 执行ip rule s，可查看到eth1的策略路由已添加。
-       ![](https://main.qcloudimg.com/raw/7900394af6f0f53871af6c4093f3e728.png)
+4.  参考 [绑定弹性网卡](https://cloud.tencent.com/document/product/576/18535)，绑定弹性网卡，绑定后可执行如下操作验证新增网卡 eth1 的路由已正常下发。
+ 1. 执行ip rule show，可查看到eth1的策略路由已添加。
+     ![](https://main.qcloudimg.com/raw/7900394af6f0f53871af6c4093f3e728.png)
  2. 执行ip route show table eth1，可查看到eth1路由表信息。
-		  ![](https://main.qcloudimg.com/raw/75e122a79e96b81de31bf0124c2cf5eb.png)
-5. [](id:step5)（可选）如有存量网卡，重启云服务器后，所有网卡的策略路由将自动下发正常。
-```
-reboot
-```
-![](https://main.qcloudimg.com/raw/84053ed92ec9eda498beaad1479af930.png)
+		 ![](https://main.qcloudimg.com/raw/75e122a79e96b81de31bf0124c2cf5eb.png)
+5. [](id:step5)（可选）如有存量网卡，可在云服务器控制台或执行 `reboot` 命令重启云服务器，重启后所有网卡的路由将自动下发正常。
+    控制台重启：
+	![](https://main.qcloudimg.com/raw/f282450fba6a0a61102a3e674ead325b.png)
+    命令重启：
+  ![](https://main.qcloudimg.com/raw/84053ed92ec9eda498beaad1479af930.png)
 
 ### 方式二：手动配置
 >?以 Centos 7.8举例。
@@ -84,7 +84,7 @@ systemctl restart network
 ```
 5. 检查和确认 IP 配置正确。
  1. 输入如下查看 IP 的命令。
-```plaintext
+ ```plaintext
 ip addr
 ```
  2. 确认辅助网卡和辅助网卡上的 IP 可见，如下图所示。
@@ -96,49 +96,29 @@ ip addr
 	systemctl restart network
 	```
 6. 根据业务实际情况配置路由策略。
-按照上述步骤配置好后，Linux 镜像依旧默认从主网卡发包。您可通过策略路由来指定报文从某个网卡进，并从该网卡返回。有两种方式：
-	    
-<dx-tabs>
-::: 方式一：配置临时静态路由
-<dx-alert infotype="explain" title="">
-该方式网络重启后需要重新配置路由，如希望网络重启后路由不丢失，可选择 **方式二**将路由配置持久化。
-</dx-alert>
-1. <span id="6.1">创建两张路由表。
+按照上述步骤配置好后，Linux 镜像依旧默认从主网卡发包。您可通过策略路由来指定报文从某个网卡进，并从该网卡返回。
+ 1. <span id="6.1">创建两张路由表。
 ```plaintext
 echo "10 t1" >> /etc/iproute2/rt_tables    #10为自定义的路由ID，t1为自定义的路由表名称，请根据实际填写。
 echo "20 t2" >> /etc/iproute2/rt_tables   #20为自定义的路由ID，t2为自定义的路由表名称，请根据实际填写。
 ```
-2. 给两个路由表添加默认路由。
+ 2. 给两个路由表添加默认路由。
 ```plaintext
-ip route add default dev eth0 via 192.168.1.1 table 10   #192.168.1.1要分别替换成主网卡所属子网的网关
-ip route add default dev eth1 via 192.168.1.1 table 20   #192.168.1.1要分别替换成辅助网卡所属子网的网关
+ip route add default dev eth0 via 192.168.1.1 table 10   #192.168.1.1请替换为主网卡所属子网的网关
+ip route add default dev eth1 via 192.168.1.1 table 20   #192.168.1.1请替换为辅助网卡所属子网的网关
 ```
-
- <dx-alert infotype="explain" title="">
+     <dx-alert infotype="explain" title="">
 具体网关，请参考 [查看网关](#.E6.9F.A5.E7.9C.8B.E7.BD.91.E5.85.B3) 。
 </dx-alert>
-3. 配置策略路由。
+
+ 3. 配置策略路由。
 ```plaintext
-ip rule add from 192.168.1.5 table 10     #替换成主网卡上的 IP，10为步骤6.1中自定义的路由ID，请根据实际情况填写。
-ip rule add from 192.168.1.62 table 20     #替换成辅助网卡上的 IP，20位步骤6.1中自定义的路由ID，请根据实际情况填写。
-```
-:::
-::: 方式二：配置永久静态路由
-<dx-alert infotype="explain" title="">
-该方式将路由配置持久化写入文件，可确保网络重启后路由不丢失。
+ip rule add from 192.168.1.5 table 10     #IP请替换为主网卡上的 IP，请根据实际情况填写。
+ip rule add from 192.168.1.62 table 20     #IP请替换为辅助网卡上的 IP，请根据实际情况填写。
+```   
+   <dx-alert infotype="explain" title="">
+网络重启后要重新配置路由。
 </dx-alert>
-1. 执行如下命令，进入配置文件。
-```plaintext
-vi /etc/sysconfig/network-scripts/route-eth1   
-```
-2. 按 “i” 切换至编辑模式，并进行如下配置。  
-```plaintext
-0.0.0.0/0 via 192.168.1.1 dev eth0 table 10
-0.0.0.0/0 via 192.168.1.1 dev eth1 table 20
-```
-3. 按 “Esc”，输入 “:wq”，保存文件并返回。
-:::
-</dx-tabs>
 7. 配置完成后，可用同一个子网下的 CVM，来 Ping 内网地址，能 Ping 通即说明配置成功。如无其他 CVM，可以给辅助网卡的内网 IP 绑定公网 IP，Ping 该公网 IP 来验证。
 
 ## Ubuntu 云服务器 配置弹性网卡[](id:ubuntu)
@@ -189,7 +169,7 @@ ip addr
 ```
  2. 确认辅助网卡和辅助网卡上的 IP 可见，如下图所示。
  ![](https://main.qcloudimg.com/raw/2c7060691fc51a212295e209a9dcee83.png)
- 如果IP配置不正确，请执行如下检查：
+ 如果 IP 配置不正确，请执行如下检查：
   1. 检查配置文件是否正确，如不正确请重新配置。
   2. 检查网卡是否重启，如未重启，请执行如下命令重启网卡，使配置生效。
 ```plaintext
@@ -201,7 +181,7 @@ ifup eth1
 按照上述步骤配置好后，Linux 镜像依旧默认从主网卡发包。您可通过策略路由来指定报文从某个网卡进，并从该网卡返回。该方式配置的为临时静态路由，网络重启后需要重新配置路由。
 </dx-alert>
 
- 1. <span id="Linux6.1">执行如下命令创建两张路由表。
+ 1. 执行如下命令创建两张路由表。<span id="Linux6.1">
 ```plaintext
 echo "10 t1" >> /etc/iproute2/rt_tables   #10为自定义的路由ID，t1为自定义的路由表名称，请根据实际填写。
 echo "20 t2" >> /etc/iproute2/rt_tables    #20为自定义的路由ID，t2为自定义的路由表名称，请根据实际填写。
