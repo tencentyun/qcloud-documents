@@ -150,8 +150,8 @@ def main_handler(event, context):
     scf = Client(secret_id="AKIxxxxxxxxxxxxxxxxxxxxxxggB4Sa",secret_key="3vZzxxxxxxxxxxxaeTC",region="ap-guangzhou")# 替换为您的 secret_id 和 secret_key
     try:
         data = scf.invoke('FuncInvoked',data={"a":"b"}) 
-		# data = scf.FuncInvoked(data={"a":"b"}) 
-		print (data)
+	# data = scf.FuncInvoked(data={"a":"b"}) 
+	print (data)
     except TencentServerlessSDKException as e:
         print (e)
     except TencentCloudSDKException as e:
