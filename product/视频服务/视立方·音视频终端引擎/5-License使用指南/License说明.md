@@ -3,10 +3,9 @@
 
 
 ## 测试版 License
-您可以登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vod/license)  在线申请为期28天的试用 License（试用期为14天，可免费续期一次，合计28天），该 License 可以在直播推流模块和短视频模块上使用。
+您可以登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 在线申请为期28天的试用 License（试用期为14天，可免费续期一次，合计28天），该 License 可以在直播推流模块和短视频模块上使用。
 
-> ? 每个功能模块仅可申请一次，长期使用请 [购买](https://buy.cloud.tencent.com/vcube
-) 正式 License。
+> ? 每个功能模块仅可申请一次，长期使用请 [购买](https://buy.cloud.tencent.com/vcube) 正式 License。
 
 ## 正式版 License
 > ! 获得 License 解锁功能模块的计费详情，请参见 [计费概述](https://cloud.tencent.com/document/product/1449/56972?!editLang=zh&!preview)。
