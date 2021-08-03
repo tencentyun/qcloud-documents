@@ -351,7 +351,7 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 >!以上方法必须是`TcPlayer`的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。
 
 ## 进阶攻略
-下面介绍腾讯云视立方播放器UGSV SDK 的进阶使用方法。
+下面介绍腾讯云视立方 SDK 在直播播放场景下的进阶使用方法。
 
 ### ES Module
 TCPlayerLite 提供了 ES Module 版本，module name 为 `TcPlayer`，下载地址：
