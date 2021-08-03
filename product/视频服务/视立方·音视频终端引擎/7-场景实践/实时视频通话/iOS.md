@@ -114,7 +114,7 @@
 :::
 </dx-codeblock>
 
->?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
+	>?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
 
 - **方法二：通过本地依赖**
 如果您的开发环境访问 cocoapods 仓库较慢，可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
@@ -159,12 +159,12 @@
 ### 步骤4：初始化并登录组件
 
 1. 设置推送相关信息。
-	<dx-codeblock>
+<dx-codeblock>
 	::: swift
 	 [TRTCCalling shareInstance].imBusinessID = your business ID;
 	 [TRTCCalling shareInstance].deviceToken =  deviceToken;
-	:::
-	</dx-codeblock>
+:::
+</dx-codeblock>
 
 	>?  imBusinessID 为进入 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 上传 APNs 证书后生成的，随后通过 AppDelegate 向苹果后台请求回调，即可返回对应的 deviceToken 值。具体操作请参见 [离线推送](https://cloud.tencent.com/document/product/269/9154)。
 2. 调用 `login(sdkAppID: UInt32, user: String, userSig: String, success: @escaping (() -> Void), failed: @escaping ((_ code: Int, _ message: String) -> Void))` 完成组件的登录，其中几个关键参数的填写请参考下表：
