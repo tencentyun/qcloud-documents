@@ -142,4 +142,4 @@ sls remove
 ```
 
 ### Web 框架迁移
-Serverless Framework Cli 还提供了专门针对 Web 框架部署的 HTTP 组件，快速实现 Web 框架部署、创建层、静态资源分离、CDN 加速等功能，使用方式请参考[命令行完成框架部署]()。
+Serverless Framework Cli 还提供了专门针对 Web 框架部署的 HTTP 组件，快速实现 Web 框架部署、创建层、静态资源分离、CDN 加速等功能，使用方式请参考 [命令行完成框架部署]()。
