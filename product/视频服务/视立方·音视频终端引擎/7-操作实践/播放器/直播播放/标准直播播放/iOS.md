@@ -9,27 +9,6 @@
 
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
 
-## 基础知识
-### 直播和点播 
-- **直播（LIVE）**的视频源是主播实时推送的。因此，主播停止推送后，播放端的画面也会随即停止，而且由于是实时直播，所以播放器在播直播 URL 的时候是没有进度条的。
-- **点播（VOD）**的视频源是云端的一个视频文件，只要未被从云端移除，视频就可以随时播放， 播放中您可以通过进度条控制播放位置，腾讯视频和优酷土豆等视频网站上的视频观看就是典型的点播场景。
-
-### 协议的支持
-通常使用的直播协议如下，标准直播推荐使用 FLV 协议的直播地址（以 `http` 开头，以 `.flv` 结尾），快直播使用 WebRTC 协议，更多信息请参见 [快直播拉流](https://cloud.tencent.com/document/product/454/55880)：
-
-|直播协议 |优点 |缺点 |播放延迟 |
-|---------|---------|---------|---------|
-|FLV |成熟度高、高并发无压力 |需集成 SDK 才能播放 |2s - 3s |
-|RTMP |延迟较低 |高并发情况下表现不佳 |1s - 3s |
-|HLS(m3u8) |手机浏览器支持度高 |延迟非常高 |10s - 30s |
-|WebRTC |延迟最低 |需集成 SDK 才能播放 |< 1s |
-
-
->?标准直播与快直播计费价格不同，更多计费详情请参见 [标准直播计费](https://cloud.tencent.com/document/product/267/34175) 和 [快直播计费](https://cloud.tencent.com/document/product/267/39136)。
-
-
-## 特别说明
-腾讯云视立方 SDK **不会对播放地址的来源做限制**，即您可以用它来播放腾讯云或非腾讯云的播放地址。但视频云 SDK 中的播放器只支持 FLV 、RTMP、HLS（m3u8）和 WebRTC 四种格式的直播地址，以及 MP4、 HLS（m3u8）和 FLV 三种格式的点播地址。
 
 ## 示例代码
 针对开发者的接入反馈的高频问题，腾讯云提供有更加简洁的 API-Example 工程，方便开发者可以快速的了解相关 API 的使用，欢迎使用。
@@ -40,7 +19,10 @@
 | Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) |
 
 ## 对接攻略
-[](id:step1)
+### 步骤1：下载 SDK 开发包
+[下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/1449/56986?!preview&!editLang=zh) 将 SDK 嵌入您的 App 工程中。
+
+[](id:step2)
 ### 步骤1：创建 Player
 腾讯云视立方 SDK 中的 V2TXLivePlayer 模块负责实现直播播放功能。
 ```objectivec
