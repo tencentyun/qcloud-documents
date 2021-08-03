@@ -31,8 +31,8 @@ bar: stuff
 ```
 
 复杂对象 
-
-```yaml
+<dx-codeblock>
+:::  yaml
 foo: whatever 
 bar: 
  - 
@@ -43,18 +43,22 @@ bar:
  - 
    python: rocks 
    perl: papers 
-   ruby: scissorses 
-```
+   ruby: scissorses
+:::
+</dx-codeblock>
+
 
 转换为 JavaScript 代码后：
-
-```javascript
+<dx-codeblock>
+:::  javascript
 { foo: 'whatever',
   bar: 
    [ { fruit: 'apple', name: 'steve', sport: 'baseball' },
      'more',
      { python: 'rocks', perl: 'papers', ruby: 'scissorses' } ] }
-```
+:::
+</dx-codeblock>
+
 
 ### 数组
 
@@ -102,15 +106,17 @@ s2: "内容\n字符串" # 不会对 \n 字符转义
 ```
 
 多行字符串可以使用 `|` 保留换行符，也可以使用 `>` 折叠换行。
-
-```yaml
+<dx-codeblock>
+:::  yaml
 this: |
   Foo
   Bar
 that: >
   Foo
   Bar
-```
+:::
+</dx-codeblock>
+
 
 转换为 JavaScript 代码：
 
