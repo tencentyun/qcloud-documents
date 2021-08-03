@@ -1,7 +1,7 @@
-## SDK 版本
-本页文档所描述功能，在 SDK 版本中支持情况如下：
+## 视立方版本支持
+本页文档所描述功能，在视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 纯播放 Player | 全功能 |
+| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
@@ -24,7 +24,7 @@
 |  &#10003; |  &#10003; |  &#10003;  |&#10003;  |   &#10003;  |   ×   |  &#10003;  |
 
 ## 获取分享目标
-通过 [getScreenCaptureSourcesWithThumbnailSize](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#aa8e5286e1035b64b7d2bf8fadd721123) 可以枚举可共享的窗口列表，每一个可共享的目标都是一个`TRTCScreenCaptureSourceInfo` 对象。
+通过 [getScreenCaptureSourcesWithThumbnailSize](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a37df498cbc8d9b1135e3caafdcee906f) 可以枚举可共享的窗口列表，每一个可共享的目标都是一个`TRTCScreenCaptureSourceInfo` 对象。
 
 Mac OS 里的桌面屏幕也是一个可共享目标，普通的 Mac 窗口的 type 为 `TRTCScreenCaptureSourceTypeWindow`，桌面屏幕的 type 为 `TRTCScreenCaptureSourceTypeScreen`。
 

@@ -1,7 +1,7 @@
-## SDK 版本
-本页文档所描述功能，在 SDK 版本中支持情况如下：
+## 视立方版本支持
+本页文档所描述功能，在视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 纯播放 Player | 全功能 |
+| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | -  | &#10003;  |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
@@ -27,11 +27,11 @@
 ## 功能对接
 [](id:step1)
 ### 1. 下载 SDK 开发包
-[下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/454/7876) 将 SDK 嵌入您的 App 工程中。
+[下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/1449/56987?!preview&!editLang=zh) 将 SDK 嵌入您的 App 工程中。
 
 [](id:step2)
 ### 2. 给 SDK 配置 License 授权
-单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用的 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
+单击 [License 申请](https://cloud.tencent.com/document/product/1449/56981?!preview&!editLang=zh) 获取测试用的 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
 在您的 App 调用 LiteAVSDK 的相关功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置：
 ```objc
 @import TXLiteAVSDK_Professional;
@@ -98,7 +98,7 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp
 开通直播服务后，可以使用【直播控制台】>【辅助工具】> [【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 ![](https://main.qcloudimg.com/raw/0ec9d83f340454c287d96f83eec3a3e4.png)
 - **返回 V2TXLIVE_ERROR_INVALID_LICENSE 的原因**    
-如果 `startPush` 接口返回 `V2TXLIVE_ERROR_INVALID_LICENSE`，则代表您的 License 校验失败了，请检查 [第2步：给 SDK 配置   License 授权](#step2) 中的工作是否有问题。
+如果 `startPush` 接口返回 `V2TXLIVE_ERROR_INVALID_LICENSE`，则代表您的 License 校验失败了，请检查 [第2步：给 SDK 配置 License 授权](#step2) 中的工作是否有问题。
 
 [](id:step6)
 ### 6. 纯音频推流
@@ -113,7 +113,7 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";
 
 [](id:step7)
 ### 7. 设定画面清晰度
-调用 V2TXLivePusher 中的 [setVideoQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a0b08436c1e14a8d7d9875fae59ac6d84) 接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而 `setVideoQuality` 设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/56600)。
+调用 V2TXLivePusher 中的 [setVideoQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a0b08436c1e14a8d7d9875fae59ac6d84) 接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而 `setVideoQuality` 设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/1449/57016?!preview&!editLang=zh)。
 
 [](id:step8)
 ### 8. 美颜美白和红润特效

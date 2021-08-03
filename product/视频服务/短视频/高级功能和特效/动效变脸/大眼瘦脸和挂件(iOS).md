@@ -1,3 +1,4 @@
+目前，仅原移动直播企业版 SDK，短视频企业版 SDK 以及短视频企业版 Pro SDK 支持高级美颜特效，需要购买原 [移动直播企业版 License](https://cloud.tencent.com/document/product/454/8008)、[短视频企业版 License 或短视频企业版 Pro License](https://cloud.tencent.com/document/product/584/9368) 后，使用对应的功能。
 
 ## 功能说明
 

@@ -43,7 +43,7 @@
     "data": {
 					"topic":  "persistent://appid/namespace/topic-1",
             "tags": "testtopic",
-					"TopicType": "0",
+					"TopicType": 0,
 					"subscriptionName": "xxxxxx",
 					"toTimestamp": "1603352765001",
             "partitions": "0",

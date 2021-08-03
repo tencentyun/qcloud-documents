@@ -1,7 +1,7 @@
-## SDK 版本
-本页文档所描述功能，在 SDK 版本中支持情况如下：
+## 视立方版本支持
+本页文档所描述功能，在视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 纯播放 Player | 全功能 |
+| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | -  | &#10003;  | -  | -  | &#10003;  |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
@@ -82,7 +82,7 @@ void onPublishComplete(TXPublishResult result);
 	<td >视频文件云存储 ID，您可以通过这个 ID 调用云点播 <a href = "https://cloud.tencent.com/document/product/266/7788">服务端 API 接口</a>。</td>
 	</tr>
 	</tbody></table> 
-- 通过 [错误码表](https://cloud.tencent.com/document/product/584/10176) 来确认短视频的发布结果。
+- 通过 [编辑错误码表](https://cloud.tencent.com/document/product/1449/57180?!preview&!editLang=zh#error) 和 [录制错误码表](https://cloud.tencent.com/document/product/1449/58921?!preview&!editLang=zh#error) 确认短视频的发布结果。
 
 [](id:step4)
 

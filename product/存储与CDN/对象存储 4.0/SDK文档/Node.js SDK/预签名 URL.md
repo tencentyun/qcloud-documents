@@ -13,7 +13,8 @@ COS XML API 的请求里，私有资源操作都需要鉴权凭证 Authorization
 
 COS.getAuthorization 方法用于计算鉴权凭证（Authorization），用以验证请求合法性的签名信息。
 
-> !该方法推荐只在前端调试时使用，项目上线不推荐使用前端计算签名的方法，有暴露密钥的风险。
+>! 该方法推荐只在前端调试时使用，项目上线不推荐使用前端计算签名的方法，有暴露密钥的风险。
+>
 
 #### 使用示例
 
@@ -36,7 +37,7 @@ var Authorization = COS.getAuthorization({
 
 #### 参数说明
 
-| 参数名    | 参数描述                                                     | 类型   | 必填 |
+| 参数名    | 参数描述                                                     | 类型   | 是否必填 |
 | --------- | ------------------------------------------------------------ | ------ | ---- |
 | SecretId  | 用户的 SecretId                                              | String | 是   |
 | SecretKey | 用户的 SecretKey                                             | String | 是   |
@@ -54,7 +55,7 @@ var Authorization = COS.getAuthorization({
 
 ### 下载请求示例
 
-示例一：获取不带签名 Object Url。
+示例一：获取不带签名 Object Url
 
 [//]: # (.cssg-snippet-get-presign-download-url-nosign)
 ```js
@@ -66,7 +67,7 @@ var url = cos.getObjectUrl({
 });
 ```
 
-示例二：获取带签名 Object Url。
+示例二：获取带签名 Object Url
 
 [//]: # (.cssg-snippet-get-presign-download-url)
 ```js
@@ -77,7 +78,7 @@ var url = cos.getObjectUrl({
 });
 ```
 
-示例三：如果签名过程是异步获取，需要通过 callback 获取带签名 Url。
+示例三：如果签名过程是异步获取，需要通过 callback 获取带签名 Url
 
 [//]: # (.cssg-snippet-get-presign-download-url-callback)
 ```js
@@ -91,7 +92,7 @@ cos.getObjectUrl({
 });
 ```
 
-示例四：指定链接有效时间。
+示例四：指定链接有效时间
 
 [//]: # (.cssg-snippet-get-presign-download-url-expiration)
 ```js
@@ -106,7 +107,7 @@ cos.getObjectUrl({
 });
 ```
 
-示例五：获取文件 Url 并下载文件。
+示例五：获取文件 Url 并下载文件
 
 [//]: # (.cssg-snippet-get-presign-download-url-then-fetch)
 ```js
@@ -130,7 +131,7 @@ cos.getObjectUrl({
 
 ### 上传请求示例
 
-示例一：获取预签名 Put Object 上传 Url。
+示例一：获取预签名 Put Object 上传 Url
 
 [//]: # (.cssg-snippet-get-presign-upload-url)
 ```js
@@ -158,7 +159,7 @@ cos.getObjectUrl({
 
 ### 参数说明
 
-| 参数名  | 参数描述                                                     | 类型    | 必填 |
+| 参数名  | 参数描述                                                     | 类型    | 是否必填 |
 | ------- | ------------------------------------------------------------ | ------- | ---- |
 | Bucket  | 存储桶的名称，命名规则为 BucketName-APPID，此处填写的存储桶名称必须为此格式 | String  | 是   |
 | Region  | 存储桶所在地域，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) | String  | 是   |
@@ -167,7 +168,7 @@ cos.getObjectUrl({
 | Protocol    | 可选填为`http:`或`https:`，默认为`http:`（带冒号）                         | String | 否   |
 | Domain    | 存储桶访问域名，默认为 {BucketName-APPID}.cos.{Region}.myqcloud.com     | String | 否   |
 | Method  | 操作方法，如 get，post，delete， head 等 HTTP 方法，默认为 get | String  | 否   |
-| Query   | 参与签名计算的 query 参数对象                                | Object  | 否   |
+| Query   | 参与签名计算的 query 参数对象，{key: 'val'} 的格式                                | Object  | 否   |
 | Headers | 参与签名计算的 header 参数对象                               | Object  | 否   |
 | Expires | 签名几秒后失效，默认为900秒                                  | Number  | 否   |
 

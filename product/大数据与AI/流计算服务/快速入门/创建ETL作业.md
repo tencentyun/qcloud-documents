@@ -1,7 +1,5 @@
 ## 前提条件
-1. 已创建腾讯云账号，创建账号可参考 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985)。
-2. 若使用子账号登录，需要获得用户帐户的访问授权，详情请参见 [CAM 访问管理](https://cloud.tencent.com/document/product/849/38622) 和 [流计算服务委托授权](https://cloud.tencent.com/document/product/849/38290)。
-3. 流计算作业 SQL 作业需运行于流计算独享集群，若还没有集群，请参考 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。
+流计算作业 ETL 作业需运行于流计算独享集群，若还没有集群，请参考 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。
 
 ## 步骤1：创建 ETL 作业
 登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，单击左侧导航【作业管理】，进入作业管理页面，单击【新建作业】，作业类型选中【ETL 作业】，输入作业名称，并选择一个运行中的集群，新建的 ETL 作业将运行于此集群，单击【确定】后即成功创建作业。
