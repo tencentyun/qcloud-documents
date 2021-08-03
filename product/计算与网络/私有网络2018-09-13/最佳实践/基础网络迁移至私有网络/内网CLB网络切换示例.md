@@ -29,7 +29,7 @@
 >?云数据库在网络切换时连接不中断，且切换后同时保持原基础网络和 VPC  IP，可确保迁移过程中不停服。
 >
 ![](https://main.qcloudimg.com/raw/7f51057acb0d56e40351217bad32993c.png)
-3. 配置 [终端连接 ]()服务，使得 VPC 内 CVM 客户端可以访问基础网络内网 CLB 服务。
+3. 配置终端连接服务，使得 VPC 内 CVM 客户端可以访问基础网络内网 CLB 服务。
      ![](https://main.qcloudimg.com/raw/cf97a576438ee48dc5ee9aac08c33d91.png)
 4. 在 VPC 内创建内网 CLB 以及后端 CVM，并配置相关业务。
    ![](https://main.qcloudimg.com/raw/458118bf68d8761883fff89a2a74cc2d.png)
