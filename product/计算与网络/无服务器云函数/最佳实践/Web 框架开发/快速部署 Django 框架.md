@@ -1,11 +1,13 @@
 ## 操作场景
 
 
-本文将为您指导如何通过 SCF Web Function，快速部署您的 Django 业务上云。
+本文将为您指导如何通过 Web Function，将您的本地 Django 快速部署到云端。
+
+>?本文档主要介绍控制台部署方案，您也可以通过命令行完成部署，详情请参见 [命令行部署 Web 函数](https://cloud.tencent.com/document/product/583/58183)。
+
 
 ## 前提条件
-- 在使用腾讯云云函数服务之前，您需要 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F) 并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
-> 本文档主要介绍控制台部署方案，您也可以通过命令行完成部署，请参考具体操作请参考[产品文档]()
+在使用腾讯云云函数服务之前，您需要 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F) 并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 
 ## 操作步骤
 
@@ -36,7 +38,7 @@ python -m pip install Django
 ```sh
 django-admin startproject helloworld && cd helloworld
 ```
-目录结构如下：
+ 目录结构如下：
 ```
 $ tree
 . manage.py 管理器
@@ -47,13 +49,15 @@ $ tree
 |   `-- wsgi.py   部署
 ```
 3. 在本地执行 `python manage.py runserver` 命令运行启动文件。示例如下：
-```
+<dx-codeblock>
+:::  python
 $ python manage.py runserver
 July 27, 2021 - 11:52:20
 Django version 3.2.5, using settings 'helloworld.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
-```
+:::
+</dx-codeblock>
 4. 打开浏览器访问 `http://127.0.0.1:8000`，即可在本地完成 Django 示例项目的访问。如下图所示：
 ![](https://main.qcloudimg.com/raw/a09696d7d24c719ecb2f276c4bba93ce.png)
 
@@ -64,19 +68,17 @@ Quit the server with CONTROL-C.
 
 
 1. **安装依赖包**
-
-由于 SCF 云上标准环境内未提供 Django 依赖库，此处您必须将依赖文件安装完成后，与项目代码一起打包上传。请先新建 `requirements.txt` 文件，文件内容如下：
+ 1. 由于 SCF 云上标准环境内未提供 Django 依赖库，此处您必须将依赖文件安装完成后，与项目代码一起打包上传。请先新建 `requirements.txt` 文件，文件内容如下：
 ```txt
 Django==3.1.3
 ```
-执行以下命令进行安装：
+ 2. 执行以下命令进行安装：
 ```shell
 pip install -r requirements.txt -t .
 ```
-> 由于初始化的默认项目引用了`db.sqlite3` 库，请同步安装该依赖，或将项目文件内 `setting.py` 里 `DATABASES` 字段部分配置注释掉
-
+>? 由于初始化的默认项目引用了`db.sqlite3` 库，请同步安装该依赖，或将项目文件内 `setting.py` 里 `DATABASES` 字段部分配置注释。
+>
 2. **新增 `scf_bootstrap` 启动文件**
-
 在 Web 函数内，限制了监听端口必须为**9000**，因此需要修改监听地址端口，在项目根目录下新建 `scf_bootstrap` 启动文件，在该文件添加如下内容（用于完成环境变量配置，指定服务启动命令等自定义操作，确保您的服务可以通过该文件正常启动）：
 ```
 #!/bin/bash
@@ -87,12 +89,12 @@ pip install -r requirements.txt -t .
 ```shell
 chmod 777 scf_bootstrap
 ```
->注意：
+>!
 >- 在 SCF 环境内，只有 `/tmp` 文件可读写，建议输出文件时选择 `/tmp`，其他目录会由于缺少权限而写入失败。
 >- 如需在日志中输出环境变量，需在启动命令前加 `-u` 参数，例如 `python -u app.py`。
-
+>
 4. 本地配置完成后，执行以下命令启动服务（如下命令为在 scf_bootstrap 目录下执行时示例），确保您的服务在本地可以正常启动。
-> 本地测试时注意将 python 路径改为本地路径
+>! 本地测试时注意将 python 路径改为本地路径。
 ```shell
 ./scf_bootstrap
 ```
@@ -110,5 +112,5 @@ chmod 777 scf_bootstrap
 
 
 #### 开发管理
-部署完成后，即可在 SCF 控制台快速访问并测试您的 Web 服务，并且体验云函数多项特色功能，例如层绑定、日志管理等，享受 Serverless 架构带来的低成本、弹性扩缩容等优势，如图：
+部署完成后，即可在 SCF 控制台快速访问并测试您的 Web 服务，并且体验云函数多项特色功能，例如层绑定、日志管理等，享受 Serverless 架构带来的低成本、弹性扩缩容等优势，如下图所示：
 ![](https://main.qcloudimg.com/raw/c87151ecbb2f7c7e7f2c6877a043eda6.png)
