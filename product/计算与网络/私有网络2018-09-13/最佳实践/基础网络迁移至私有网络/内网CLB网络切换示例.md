@@ -31,6 +31,8 @@
 ![](https://main.qcloudimg.com/raw/7f51057acb0d56e40351217bad32993c.png)
 3. 配置终端连接服务，使得 VPC 内 CVM 客户端可以访问基础网络内网 CLB 服务。
      ![](https://main.qcloudimg.com/raw/cf97a576438ee48dc5ee9aac08c33d91.png)
+>?终端连接不支持跨地域、跨账号，如您有建立终端连接的需要，请 [在线咨询](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
+>
 4. 在 VPC 内创建内网 CLB 以及后端 CVM，并配置相关业务。
    ![](https://main.qcloudimg.com/raw/458118bf68d8761883fff89a2a74cc2d.png)
 5. 配置基础网络互通，使得基础网络内 CVM 客户端可以访问 VPC 内网 CLB，并验证 VPC 业务提供是否正常。
