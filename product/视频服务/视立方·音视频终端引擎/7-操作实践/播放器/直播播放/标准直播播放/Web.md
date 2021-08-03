@@ -1,32 +1,53 @@
-## 功能介绍
+本文档将介绍适用于直播播放的 Web 超级播放器（TCPlayerLite）。
 
+## 功能介绍
 腾讯云 Web 超级播放器 TCPlayerLite 是为了解决在手机浏览器和 PC 浏览器上播放音视频流的问题，它使您的视频内容可以不依赖用户安装 App，就能在朋友圈和微博等社交平台进行传播。本文档适合有一定 Javascript 语言基础的开发人员阅读。
 以下视频将为您讲解腾讯云播放器 SDK 的 Web 播放器的功能特性以及对接攻略：
 
 <div class="doc-video-mod"><iframe src="  https://cloud.tencent.com/edu/learning/quick-play/2496-42186?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
-## 基础知识
-对接前需要了解如下基础知识：
-
-- **直播和点播**
-直播视频源是实时的，一旦主播停播，直播地址就失去意义，而且由于是实时直播，所以播放器在播直播视频的时候是没有进度条的。
-点播视频源是某个服务器上的文件，只要文件没有被提供方删除，就可以随时播放， 而且由于整个视频都在服务器上，所以播放器在播点播视频的时候是有进度条的。
-
-- **协议支持**
-TCPlayerLite 的视频播放能力本身不是网页代码实现的，而是靠浏览器支持，所以其兼容性不像我们想象的那么好，因此，**不是所有的手机浏览器都能有符合预期的表现**。一般用于网页直播的视频源地址是以 M3U8 结尾的地址，我们称其为 HLS (HTTP Live Streaming)，这是苹果推出的标准，目前各种手机浏览器产品对这种格式的兼容性也最好，但它有个问题：延迟比较大，一般是20s - 30s左右的延迟。
+## 协议支持
+Web 超级播放器的视频播放能力本身不是网页代码实现的，而是靠浏览器支持，所以其兼容性不像我们想象的那么好，因此，**不是所有的手机浏览器都能有符合预期的表现**。一般用于网页直播的视频源地址是以 M3U8 结尾的地址，我们称其为 HLS (HTTP Live Streaming)，这是苹果推出的标准，目前各种手机浏览器产品对这种格式的兼容性也最好，但它有个问题：延迟比较大，一般是20s - 30s左右的延迟。
 
 对于 PC 浏览器，因为其目前还没有抛弃 Flash 控件，而 Flash 控件支持的视频源格式较多，并且浏览器上的 Flash 控件都是 Adobe 自己研发，所以兼容性很好。
 
-视频协议|用途|URL 地址格式|PC 浏览器|移动浏览器
------------|-----|-------------|-------------|----------------
-WebRTC|只适用直播|`webrtc://xxx.liveplay.myqcloud.com/live/xxx`|支持|支持 
-HLS（M3U8）|可用于直播|`http://xxx.liveplay.myqcloud.com/xxx.m3u8`|支持|支持
-HLS（M3U8）|可用于点播|`http://xxx.vod.myqcloud.com/xxx.m3u8`|支持|支持
-FLV|可用于直播|`http://xxx.liveplay.myqcloud.com/xxx.flv`|支持|不支持
-FLV|可用于点播|`http://xxx.vod.myqcloud.com/xxx.flv`|支持|不支持
-RTMP|只适用直播|`rtmp://xxx.liveplay.myqcloud.com/live/xxx`|支持|不支持
-MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
-
+<table>
+<tr><th style="text-align:center">视频协议</th><th>用途</th><th>URL 地址格式</th><th>PC 浏览器</th><th>移动浏览器</th>
+</tr><tr>
+<td style="text-align:center">WebRTC</td>
+<td>直播</td>
+<td><code>webrtc://xxx.liveplay.myqcloud.com/live/xxx</code></td>
+<td>支持</td>
+<td>支持</td>
+</tr><tr>
+<td rowspan=2 style="text-align:center">HLS<br>（M3U8）</td>
+<td>直播</td>
+<td><code>http://xxx.liveplay.myqcloud.com/xxx.m3u8</code></td>
+<td>支持</td>
+<td>支持</td>
+</tr><tr>
+<td>点播</td>
+<td><code>http://xxx.vod.myqcloud.com/xxx.m3u8</code></td>
+<td>支持</td>
+<td>支持</td>
+</tr><tr>
+<td rowspan=2 style="text-align:center">FLV</td>
+<td>直播</td>
+<td><code>http://xxx.liveplay.myqcloud.com/xxx.flv</code></td>
+<td>支持</td>
+<td>不支持</td>
+</tr><tr>
+<td>点播</td>
+<td><code>http://xxx.vod.myqcloud.com/xxx.flv</code></td>
+<td>支持</td>
+<td>不支持</td>
+</tr><tr>
+<td style="text-align:center">RTMP</td>
+<td>直播</td>
+<td><code>rtmp://xxx.liveplay.myqcloud.com/live/xxx</code></td>
+<td>支持</td>
+<td>不支持</td>
+</tr></table>
 
 >!
 > - 播放 RTMP 格式的视频必须启用 Flash，目前浏览器默认禁用 Flash，需用户手动开启。
@@ -50,7 +71,7 @@ MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 <script src="https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.1/TcPlayer-2.4.1.js" charset="utf-8"></script>;
 ```
 
-建议在使用腾讯云视立方播放器UGSV SDK 的时候自行部署资源，[点击下载播放器资源](https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.1/TcPlayer-2.4.1.zip)。
+建议在使用腾讯云视立方播放器 UGSV SDK 的时候自行部署资源，单击 [下载播放器资源](https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.1/TcPlayer-2.4.1.zip)。
 
 如果您部署的地址为 `aaa.xxx.ccc`，在合适的地方引入播放器脚本文件：
 ```
@@ -391,18 +412,18 @@ webrtcstop
 
 事件监听函数返回的 msg 对象介绍：
 
-| 名称      | 说明                                                                                    |
-|-----------|---------------------------------------------------------------------------------------|
-| type      | 事件类型。                                                                               |
-| src       | 事件源对象，即播放器实例，HTML5 或者 Flash。                                               |
-| ts        | 事件触发时的 UTC 时间戳。                                                                |
+| 名称      | 说明 |
+| ----------- | ----------- |
+| type      | 事件类型。 |
+| src       | 事件源对象，即播放器实例，HTML5 或者 Flash。 |
+| ts        | 事件触发时的 UTC 时间戳。 |
 | timeStamp | [Event](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/timeStamp) 实例的时间戳。 |
 
 
 应用案例：通过事件监听，可以进行播放失败重连，[单击访问](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-reconnect.html) 在线案例。
 
 ## 案例展示
-结合了 TcPlayer 和即时通信 IM 的腾讯云 Web 直播互动组件，具体请参见 [体验地址](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html#/)。
+结合了 TCPlayerLite 和即时通信 IM 的腾讯云 Web 直播互动组件，具体请参见 [体验地址](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html#/)。
 
 ## 更新日志
 TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主版本介绍。
