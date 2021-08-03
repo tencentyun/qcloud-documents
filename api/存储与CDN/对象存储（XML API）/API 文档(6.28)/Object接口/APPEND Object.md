@@ -74,7 +74,7 @@ Authorization: Auth String
 
 | 参数名称 | 描述                                                         | 类型    | 是否必选 |
 | -------- | ------------------------------------------------------------ | ------- | ---- |
-| position | 追加操作的起始点，单位为字节。首次追加则设置 Position=0，后续追加则设置 Position 为当前 Object 的 content-length | Integer | 是   |
+| position | 追加操作的起始点，单位为字节。首次追加则设置 Position=0，后续追加则设置 Position 为当前 Object 的 content-length | Int | 是   |
 
 #### 请求体
 
