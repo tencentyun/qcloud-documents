@@ -52,17 +52,8 @@
 1. 配置 Unity Editor，单击【File】>【Build Setting】，切换至 iOS。
 ![](https://main.qcloudimg.com/raw/3982b96c4f9e76107bb4aadac33a5de5.png)
 2. 连接 iPhone 真机，单击【Build And Run】，需要选择一个新的目录存放编译出来的 iOS 工程，等待编译完成，会有新窗口弹出 Xcode 工程。
-3. 然后在 Xcode 里面按以下步骤对项目调整配置：
-	1. 在 UnityFramework/UnityFramework.h 里引入 UnityInterface.h 和 TencentImSDKPluginUnityUtils.h，否则会因为找不到方法名而报错，如下所示：
-![](https://main.qcloudimg.com/raw/ddb8f7297f66eacd800e230732785ab9.png)
-	2. 修改 Classes/Unity 目录下，UnityInterface.h、UnityForwardDecls.h、UnityRendering.h、UnitySharedDecls.h 文件为 Public。
-![](https://main.qcloudimg.com/raw/0b1a43e69f965b710c91f24eff8870fd.png)
-	3. 在 Classes/Prefix.pch 里面引入 IMSDK。
-![](https://main.qcloudimg.com/raw/299789b6275e30ede0d8e7d8afcbdd59.png)
-	4. 在项目引入 IMSDK。
-![](https://main.qcloudimg.com/raw/335c2b8ae8c797694b4e4dd5000c4751.png)
-	5. 设置 Target 的 Signing & Capabilities，让项目可以在 iPhone 真机上运行。
-	6. 启动项目，在真机上进行 Demo 的调试。
+3. 打开iOS工程，设置主Target 的 Signing & Capabilities（需要苹果开发者账号），让项目可以在 iPhone 真机上运行
+4. 启动项目，在真机上进行 Demo 的调试。
 
 ## 常见问题
 
