@@ -133,11 +133,10 @@ defaultConfig {
 3. 单击【Sync Now】同步 SDK。
 >?若您的网络连接 jcenter 没有问题，SDK 会自动下载集成到工程里。
 
-
 **方法二：通过本地 AAR 依赖**
 如果您的开发环境访问 Maven 仓库较慢，可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
 
-| SDK      | <table><tr><th>参数名</th><th>作用</th></tr><tr><td>SDKAppID</td><td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td></tr><tr><td>userId</td><td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（_）。</td></tr><tr><td>userSig</td><td>腾讯云设计的一种安全保护签名，计算方式请参见 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td></tr></table> | 集成指引                                                     |
+| SDK      | 下载页面                                                     | 集成指引                                                     |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | TRTC SDK | [DOWNLOAD](https://cloud.tencent.com/document/product/647/32689) | [集成文档](https://cloud.tencent.com/document/product/647/32175) |
 | IM SDK   | [DOWNLOAD](https://cloud.tencent.com/document/product/269/36887) | [集成文档](https://cloud.tencent.com/document/product/269/32679) |
