@@ -150,8 +150,7 @@ defaultConfig {
 [](id:model.step2)
 ### 步骤2：配置权限及混淆规则
 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请相机、读取存储权限）：
-<dx-codeblock>
-::: java java
+```
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -164,8 +163,7 @@ defaultConfig {
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-feature android:name="android.hardware.camera"/>
 <uses-feature android:name="android.hardware.camera.autofocus" />
-:::
-</dx-codeblock>
+```
 
 在 proguard-rules.pro 文件，将 SDK 相关类加入不混淆名单：
 <dx-codeblock>
