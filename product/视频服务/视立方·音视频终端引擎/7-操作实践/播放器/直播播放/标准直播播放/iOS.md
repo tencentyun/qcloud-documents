@@ -23,14 +23,14 @@
 [下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/1449/56986?!preview&!editLang=zh) 将 SDK 嵌入您的 App 工程中。
 
 [](id:step2)
-### 步骤1：创建 Player
+### 步骤2：创建 Player
 腾讯云视立方 SDK 中的 V2TXLivePlayer 模块负责实现直播播放功能。
 ```objectivec
 V2TXLivePlayer *_txLivePlayer = [[V2TXLivePlayer alloc] init];
 ```
 
-[](id:step2)
-### 步骤2：渲染 View
+[](id:step3)
+### 步骤3：渲染 View
 接下来我们要给播放器的视频画面找个地方来显示，iOS 系统中使用 view 作为基本的界面渲染单位，所以您只需要准备一个 view 并调整好布局就可以了。
 
 ```objectivec
@@ -53,15 +53,15 @@ V2TXLivePlayer *_txLivePlayer = [[V2TXLivePlayer alloc] init];
 }];
 ```
 
-[](id:step3)
-### 步骤3：启动播放
+[](id:step4)
+### 步骤4：启动播放
 ```objectivec
 NSString* url = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 [_txLivePlayer startPlay:url];
 ```
 
-[](id:step4)
-### 步骤4：画面调整
+[](id:step5)
+### 步骤5：画面调整
 
 - **setRenderFillMode：铺满 or 适应**
 <table>
@@ -92,8 +92,8 @@ NSString* url = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 
 ![](https://main.qcloudimg.com/raw/f3c65504a98c38857ff3e78bcb6c9ae9.jpg)
 
-[](id:step5)
-### 步骤5：暂停播放
+[](id:step6)
+### 步骤6：暂停播放
 对于直播播放而言，并没有真正意义上的暂停，所谓的直播暂停，只是**画面冻结**和**关闭声音**，而云端的视频源还在不断地更新着，所以当您调用 resume 的时候，会从最新的时间点开始播放，这是和点播对比的最大不同点（点播播放器的暂停和继续与播放本地视频文件时的表现相同）。
 
 ```objectivec
@@ -105,16 +105,16 @@ NSString* url = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 [_txLivePlayer resumeVideo];
 ```
 
-[](id:step6)
-### 步骤6：结束播放
+[](id:step7)
+### 步骤7：结束播放
 
 ```objectivec
 // 停止播放
 [_txLivePlayer stopPlay];
 ```
 
-[](id:step7)
-### 步骤7：屏幕截图
+[](id:step8)
+### 步骤8：屏幕截图
 通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕通过 V2TXLivePlayerObserver 的 [onSnapshotComplete](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#a5754eb816b91fd0d0ac1559dd7884dad) 回调截屏图片，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 iOS 的系统 API 来实现。
 ![](https://main.qcloudimg.com/raw/d86e665e3fc709c07d170e2ab3e2a7ef.jpg)
 ```
