@@ -19,16 +19,15 @@ pgAgent 是 pgAdmin 工具中的一个插件，在 pgAdmin III v1.4 版本中引
 psql > create extension pgagent;
 CREATE EXTENSION
 ```
-3. 执行完成后，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 并提供使用 pgAgent 功能的用户和已经开启了 pgAgent 插件的 database，腾讯云将为您的实例开启相应的配置。
-4. 配置反馈完成后，您需要通过 pgAgent 工具开启任务调度程序。
+3. 配置反馈完成后，您需要通过 pgAgent 工具开启任务调度程序。
 [登录 CVM](https://cloud.tencent.com/document/product/213/2936)（建议 CVM 与 PostgreSQL 同一 VPC），根据实际数据库版本选择 pgAgent 版本，本文以11.8版本为例，安装 [下载地址](https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-8.0-x86_64/) 中的 pgagent_11。
-5. pgAgent 工具安装完成后，执行以下语句启动任务调度程序：
+4. pgAgent 工具安装完成后，执行以下语句启动任务调度程序：
 >?请根据实际安装的 pgAgent 版本来使用命令，如果安装的是10版本，则为pgagent_10。
 >
 ```
 pgagent_11 hostaddr=IP地址 dbname=数据库 user=用户名 port=端口 password=密码
 ```
-6. 执行成功后，无任何回显提示，您可以使用以下命令来判断进程是否启动成功：
+5. 执行成功后，无任何回显提示，您可以使用以下命令来判断进程是否启动成功：
 ```
 执行此语句，如果存在 pgagent 进程，则表示已经启动成功。
 # ps -ef |grep pgagent

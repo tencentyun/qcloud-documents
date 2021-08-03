@@ -16,9 +16,9 @@ Pod 的规格配置是容器运行时可用资源和使用服务计费的依据�
 
 #### 申请提升配额操作指引
 
-1. 请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1)，选择【人工支持】或者【其他问题】>【立即创建】，进入创建工单信息填写页面。
+1. 请 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us)，选择【人工支持】或者【其他问题】>【立即创建】，进入创建工单信息填写页面。
 2. 在问题描述中填写“期望提升集群虚拟节点 Pod 配额”，注明目标地区及目标配额，并按照页面提示填写您可用的手机号等信息。
-3. 填写完成后，单击【提交工单】即可。
+3. 填写完成后，单击【在线咨询】即可。
 
 ## Pod 说明
 
@@ -190,7 +190,6 @@ DaemonSet 类型工作负载的 Pod 不会调度到虚拟节点上。
 #### 其他说明
 
 - 没有任何服务器节点的空集群暂时无法正常使用虚拟节点功能。
-- 使用 GPU 资源的 Pod 暂不支持调度到虚拟节点上。
 - 开启了 [固定 IP ](https://cloud.tencent.com/document/product/457/34994)的 Pod 暂不支持调度到虚拟节点上。
 - 指定了 hostPort 的 Pod 不会调度到虚拟节点上。
 - 指定了 hostIP 配置的 Pod 默认会把 Pod IP 作为 hostIP。
