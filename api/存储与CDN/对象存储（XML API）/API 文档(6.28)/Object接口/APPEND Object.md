@@ -6,8 +6,8 @@ APPEND Object 接口请求可以将一个对象以分块追加的方式上传至
 
 >! 
 >- Appendable 的对象不可以被复制，不参与版本管理，不参与生命周期管理，不可跨地域复制。
->- 使用 Append 接口进行追加上传时，COS 不会校验请求携带的存储类型，仅会以当前对象的存储类型为准。
->- Append 接口不支持智能分层存储类型。
+>- 使用 APPEND 接口进行追加上传时，COS 不会校验请求携带的存储类型，仅会以当前对象的存储类型为准。
+>- APPEND 接口不支持智能分层存储类型。
 
 ## 请求
 
@@ -104,7 +104,7 @@ Authorization: Auth String
 
 #### 错误分析
 
-1. 如果对一个非 appendable 的文件进行 append 操作，那么会返回409 Confilct，错误信息：
+1. 如果对一个非 appendable 的文件进行 APPEND 操作，那么会返回409 Confilct，错误信息：
 The operation is not valid for the current state of the object。
 2. 如果请求中未携带 position 参数，会返回400 Bad Request，错误信息：InvalidArgument。
 3. 如果请求中缺失 Content-Length 头部，会返回 411 Length Required，错误信息：
