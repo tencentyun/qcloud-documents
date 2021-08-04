@@ -50,7 +50,7 @@ BF16 能达到近似 FP32 的准确率。在 PyTorch v1.7.0上，以 Resnet50 �
 >
 
 
-###  体验 BF16 性能加速[](id:RecommendedSelection)
+###  通过实例测试 BF16 性能加速[](id:RecommendedSelection)
 1. 登录实例，详情请参见 [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 2. 执行以下命令，确认 CPU 是否支持 BF16。 
 ```
@@ -214,7 +214,7 @@ miniconda  pkgs  run-pt.py  run-pt.sh  run-tf.sh  tf1.15
 </tbody></table>
 
 
-###  获取 BF16 性能数据 [](id:RecommendedSelection)
+###  获取 BF16 性能测试数据 [](id:RecommendedSelection)
 
 基于 Intel 第三代英特尔<sup>®</sup>至强<sup>®</sup>可扩展处理器 Cooper Lake，在云服务器8核32G内存场景，基于不同模型下测试的性能数据如下：
 >?由于实际模型及物理配置不同，性能数据会有一定差别，本文提供数据仅供参考。
