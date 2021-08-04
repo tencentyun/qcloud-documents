@@ -1,6 +1,4 @@
-腾讯云视立方 Andriod 超级播放器 Adapter 套件通过 fileId + pSign，向腾讯云视频后台请求播放信息，SDK 对返回的视频数据解密后进行播放，保护视频信息安全。
-
-本文档部分内容为腾讯云专属能力，使用前请开通 [腾讯云](https://cloud.tencent.com) 相关服务，未注册用户可注册账号 [免费试用](https://cloud.tencent.com/login)。
+腾讯云视立方 Android 超级播放器 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开发的对接云 PaaS 资源的播放器插件，常用于有自定义播放器功能需求的用户。
 
 ## 视立方版本支持
 本页文档所描述功能，在视立方中支持情况如下：
@@ -272,7 +270,4 @@ TCXImageSpriteInfo 参数如下：
 | imageUrls | List   | 缩略图下载 URL 数组，类型为 String |
 | webVttUrl | String | 缩略图 VTT 文件下载 URL            |
 
-## 更多功能
 
-完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
-<img src="https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png" width="150">
