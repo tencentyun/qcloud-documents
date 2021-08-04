@@ -29,7 +29,7 @@
 <td>分辨率自适应</td><td>enableAdjustRes</td><td>NO</td><td>NO</td>
 </tr></table>
 
-	>?
+>?
  - 由于屏幕分享的内容一般不会剧烈变动，所以设置较高的 FPS 并不经济，推荐10 FPS即可。
  - 如果您要分享的屏幕内容包含大量文字，可以适当提高分辨率和码率设置。
  - 最高码率（videoBitrate）是指画面在剧烈变化时的最高输出码率，如果屏幕内容变化较少，实际编码码率会比较低。
@@ -276,7 +276,7 @@ onShareClick() async {
 ```
 
 ## 观看屏幕分享
-- **观看 Android / iOS 屏幕分享**
+**观看 Android / iOS 屏幕分享**
   若用户通过 Android / iOS 进行屏幕分享，会通过主流进行分享。房间里的其他用户会通过 TRTCCloudListener 中的 [onUserVideoAvailable](https://pub.flutter-io.cn/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html) 事件获得这个通知。
   希望观看屏幕分享的用户可以通过 [startRemoteView](https://pub.flutter-io.cn/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/startRemoteView.html) 接口来启动渲染远端用户主流画面。
 
