@@ -49,7 +49,7 @@ width: 18%;
 | [批量计算](https://cloud.tencent.com/document/product/599)   | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/599/40011) |
 | [边缘计算机器](https://cloud.tencent.com/document/product/1108) | 资源级   | &#10003; | &#10003;         | -        | -                                                            |
 | [	轻量应用服务器](https://cloud.tencent.com/document/product/1207) | 资源级   | &#10003; | &#10003;         | -        | -                                                            |
-| [自动化助手](https://cloud.tencent.com/document/product/1340) | 资源级   | &#10003; | -              | _-       | [访问管理指南](https://cloud.tencent.com/document/product/1340/56294) |
+| [自动化助手](https://cloud.tencent.com/document/product/1340) | 资源级   | &#10003; | -              | -       | [访问管理指南](https://cloud.tencent.com/document/product/1340/56294) |
 
 > ?<sup>1</sup> 云服务器中 [GPU 云服务器](https://cloud.tencent.com/document/product/560)、[ FPGA 云服务器](https://cloud.tencent.com/document/product/565)、[专用宿主机](https://cloud.tencent.com/document/product/416)  均已支持使用 CAM。
 
