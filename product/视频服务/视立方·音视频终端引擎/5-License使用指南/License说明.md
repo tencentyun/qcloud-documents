@@ -1,6 +1,6 @@
-## 新旧 License 区别
-腾讯云视立方 License 通过一组 License URL 和 Key 来获取并校验一个应用下功能模块的授权。不同的功能模块具备不同的功能，部分功能模块的能力需要通过 License 解锁使用。您可以通过购买特定类型套餐包，获取相对应的功能模块 License ，从而解锁对应功能模块的能力。
+腾讯云视立方 License 通过一组 License URL 和 Key 来获取并校验一个应用下功能模块的授权。不同的功能模块具备不同的功能。若您下载的腾讯云视立方版本中，包含直播推流（主播开播和主播观众连麦/主播跨房 PK）或短视频（视频录制编辑/视频上传发布）功能模块，需通过购买对应的云服务的资源包免费获取 License ，从而解锁对应功能模块的能力。功能模块解锁详情请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
 
+## 新旧 License 区别
 旧版 License 仅支持一组 License URL 和 Key 解锁对应一个 SDK 功能（移动直播或短视频），相比腾讯云视立方 License 维护和使用较为繁琐；升级后的新版视立方 License 后仅需维护一组 License URL 和 Key ，便可以管理所有腾讯云音视频的终端授权。
 
 
