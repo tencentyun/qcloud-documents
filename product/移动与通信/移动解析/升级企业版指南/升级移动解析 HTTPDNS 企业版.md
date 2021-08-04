@@ -67,8 +67,10 @@ HTTPDNS ⾮企业版仅提供基础的域名解析服务，以下功能特性均
 >- 移动解析 HTTPDNS 公共服务已经不再维持 ECS IP 库的常态化更新，仅保持每周更新一次。
 >
 ## 迁移指引
->?针对在**2021年9⽉30⽇23:59:59前**以及**2021年10⽉31⽇23:59:59前**迁移 HTTPDNS 企业版的客户，分别提供相关补贴政策。具体可查看 [过渡期补贴政策说明](https://cloud.tencent.com/document/product/379/59288)。
->
+>?
+>- 针对在**2021年9⽉30⽇23:59:59前**以及**2021年10⽉31⽇23:59:59前**迁移 HTTPDNS 企业版的客户，分别提供相关补贴政策。具体可查看 [过渡期补贴政策说明](https://cloud.tencent.com/document/product/379/59288)。
+- 若您已经使用移动解析 HTTPDNS 企业版服务，但目前接入的是 `119.29.29.29` 无需在控制台进行任何操作。您只需在业务代码中将接入 IP 切换为 `119.29.29.99`（HTTPS 加密方式）或者 `119.29.29.98`（AES/DES 加密方式）。接入指引参见：[接入移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/3522#2.-.E4.BD.BF.E7.94.A8-httpdns-api-.E6.8E.A5.E5.8F.A3.E8.A7.A3.E6.9E.90.E5.9F.9F.E5.90.8D)。
+
 ### 步骤1：开通移动解析HTTPDNS
 详细操作请参见：[开通移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/54577)。
 
@@ -85,21 +87,27 @@ HTTPDNS ⾮企业版仅提供基础的域名解析服务，以下功能特性均
 
 <dx-tabs>
 ::: 使用 HTTPDNS API 接口解析域名
-#### 已经使用移动解析 HTTPDNS 企业版服务，但目前接入的是119.29.29.29
-无需在控制台进行任何操作。
-您只需在业务代码中将接入 IP 切换为 `119.29.29.99`（HTTPS 加密方式）或者 `119.29.29.98`（AES/DES 加密方式）。接入指引参见：[接入移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/3522#2.-.E4.BD.BF.E7.94.A8-httpdns-api-.E6.8E.A5.E5.8F.A3.E8.A7.A3.E6.9E.90.E5.9F.9F.E5.90.8D)。
+1. 
+ 您可以使用以下两种方式进行查询：
+	- 单个查询方式
+		- HTTPS 加密方式：
+		` https://119.29.29.99/d?dn=[域名]&token=[HTTPS Token]&ttl=1`
+		- AES/DES 加密方式：
+		 `http://119.29.29.98/d?dn=[域名加密后的字符串]&id=[授权ID]&ttl=1`
+		- 具体加密方式请参见 [加密指引](https://cloud.tencent.com/document/product/379/3530)。
+		- 具体请求格式请参见 [API 说明](https://cloud.tencent.com/document/product/379/54976)。
 
+	- 批量查询方式
+移动解析 HTTPDNS 支持批量查询域名操作，一次性可输入多个域名数据进行查询。域名之间使用 `,` 分隔，查询结果以 `\n` 分隔。
+例如，同时查询 `cloud.tencent.com,www.qq.com,www.dnspod.cn`。
 
-#### 使用免授权方式访问119.29.29.29，没有授权 ID，直接通过 HTTP 请求服务
-1. 在 [移动解析 HTTPDNS 控制台](https://console.cloud.tencent.com/httpdns) 开通服务，详情请查看 [开通移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/54577)。
-2. 开通成功后，您将获得相关授权信息进行调用服务，此过程不会影响 `119.29.29.29` 的使用。为确保您的业务正常运行，开通后建议您逐步切量，将请求从 `119.29.29.29` 切换至 `119.29.29.99/98`。详情请查看 [接入移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/3522#2.-.E4.BD.BF.E7.94.A8-httpdns-api-.E6.8E.A5.E5.8F.A3.E8.A7.A3.E6.9E.90.E5.9F.9F.E5.90.8D)。
+2 . 客户端改造
+将客户端的解析方式改为 HTTPDNS 解析，注意在接入过程中需要**保留 LocalDNS 的解析方式作为备选**，具体可以参见接入 [最佳实践](https://cloud.tencent.com/document/product/379/3523)。
 
-#### 使用授权方式访问119.29.29.29，但未开通过移动解析 HTTPDNS 企业版服务，有授权 ID，但没有控制台权限
-1. 在 [移动解析 HTTPDNS 控制台](https://console.cloud.tencent.com/httpdns) 开通服务，开通过程中将已有授权 ID 进行绑定，详情请查看 [开通移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/54577#.E5.B7.B2.E6.8B.A5.E6.9C.89.E6.8E.88.E6.9D.83-id)。
-2. 绑定成功后，您只需在业务代码中将接入 IP 切换为 `119.29.29.99`（HTTPS  加密方式）或者 `119.29.29.98`（AES/DES 加密方式）。详情请查看 [接入移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/3522#2.-.E4.BD.BF.E7.94.A8-httpdns-api-.E6.8E.A5.E5.8F.A3.E8.A7.A3.E6.9E.90.E5.9F.9F.E5.90.8D)。
 :::
 ::: 使用最新的 HTTPDNS SDK 接口解析域名
-1. 使用最新的 HTTPDNS SDK 接口解析域名需在移动解析 HTTPDNS 管理控制台提交接入 SDK 的申请，详情参见：[SDK 开通流程](https://cloud.tencent.com/document/product/379/12544)。
+
+1. 接入移动解析 HTTPDNS 企业版需使用最新的 HTTPDNS SDK ，HTTPDNS SDK 接口解析域名需在移动解析 HTTPDNS 管理控制台提交接入 SDK 的申请，详情参见：[SDK 开通流程](https://cloud.tencent.com/document/product/379/12544)。
 2. 开通成功后，HTTPDNS 服务提供腾讯云⾃研的 SDK，高度定制化、可直接嵌入 App 内调用，已经广泛应用于腾讯各类游戏客户端，功能成熟稳定。您可根据您需接入的环境选择以下指引进行接入：
 	- [iOS SDK 文档](https://cloud.tencent.com/document/product/379/17669)
 	- [Android SDK](https://cloud.tencent.com/document/product/379/17655)
