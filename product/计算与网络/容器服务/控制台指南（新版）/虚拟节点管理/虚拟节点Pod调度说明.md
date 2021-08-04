@@ -164,7 +164,7 @@ DaemonSet 类型工作负载的 Pod 不会调度到虚拟节点上。
 
 ### 手动调度
 
-虚拟节点支持手动将 Pod 调度至虚拟节点，详情请见[手动调度 Pod 至虚拟节点](https://cloud.tencent.com/document/product/457/54754#.E5.A6.82.E4.BD.95.E6.89.8B.E5.8A.A8.E8.B0.83.E5.BA.A6-pod-.E5.88.B0.E8.99.9A.E6.8B.9F.E8.8A.82.E7.82.B9.EF.BC.9F.3Ca-id.3D.22pod1.22.3E.3C.2Fa.3E)
+虚拟节点支持手动将 Pod 调度至虚拟节点，详情请见 [手动调度 Pod 至虚拟节点](https://cloud.tencent.com/document/product/457/54754#.E5.A6.82.E4.BD.95.E6.89.8B.E5.8A.A8.E8.B0.83.E5.BA.A6-pod-.E5.88.B0.E8.99.9A.E6.8B.9F.E8.8A.82.E7.82.B9.EF.BC.9F.3Ca-id.3D.22pod1.22.3E.3C.2Fa.3E)。
 
 
 ## 虚拟节点 annotation 说明
