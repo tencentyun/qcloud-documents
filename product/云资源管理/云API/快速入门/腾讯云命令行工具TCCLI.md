@@ -138,15 +138,22 @@ tccli configure
  $ tccli cvm DescribeZones --profile test
 ```
 4.您可以配置https代理，让tccli通过代理调用API
+
+在环境变量中配置https代理
 ```bash
 # 在Linux/Unix和macOS中执行如下类似命令配置环境变量
-export https_proxy=http://192.168.1.1:1111
-export https_proxy=http://myproxy.com:1111
-
+export https_proxy=https://192.168.1.1:1111
+export https_proxy=https://myproxy.com:1111
 # 在Windows的终端中执行如下类似命令配置环境变量
-setx http_proxy=http://192.168.1.1:1111
-set  http_proxy=http://myproxy.com:1111
+setx http_proxy=https://192.168.1.1:1111
+set  http_proxy=https://myproxy.com:1111
 # setx表示设置永久环境变量，设置后重启终端生效
+```
+
+您也可以直接使用'--https_proxy'选项设置https代理
+```bash
+# 例如
+tccli cvm DescribeRegions --https_proxy https://192.168.1.1:1111
 ```
 
 ## 使用 TCCLI
