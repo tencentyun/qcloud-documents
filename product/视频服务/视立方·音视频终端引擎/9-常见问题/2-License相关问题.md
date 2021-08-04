@@ -87,7 +87,7 @@
 不支持，直播推流 License 仅支持 iOS 和 Android 端的 App 在使用直播推流（主播开播和主播观众连麦/主播跨房 PK）功能模块时使用。小程序端接入直播功能需要先具备对应的服务类目，详情参见 [方案选择](https://cloud.tencent.com/document/product/1078/37707)。  
 
 [](id:que10)
-### 为什么新版 License 升级后，少了一个 License，多了一个可用资源包 ？
+### 为什么新版 License 升级后，少了一个 License，多了一个可用资源包？
 
 新版 License 增加了重复包名校验逻辑，当多个同类型的 License 绑定了同一组包名（ Bundle ID 和 Package Name ），此时实际上仅一个 License 会生效；我们会解除无效且有效期较短的 License 绑定关系，为您释放无效绑定的资源包，并且被释放的资源包可以绑定新的 License 使用。
 
