@@ -153,7 +153,7 @@ set global gtid_mode = ON;
 gtid_mode = on
 enforce_gtid_consistency = on
 ```
-7. （可选）参考如下命令重启数据库。MySQL 5.7.6 之前的版本需要重启，5.7.6 及之后的版本不需要重启，但是需要中断所以业务连接。
+7. （可选）参考如下命令重启数据库。MySQL 5.7.6 之前的版本需要重启，5.7.6 及之后的版本不需要重启，但是需要中断所有业务连接。
 ```
 [\$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
 [\$Mysql_Dir]/bin/safe_mysqld &
