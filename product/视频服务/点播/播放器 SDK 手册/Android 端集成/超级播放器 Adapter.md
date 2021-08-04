@@ -291,7 +291,3 @@ TCXImageSpriteInfo
 | imageUrls | List   | 缩略图下载 URL 数组，类型为 String 。 |
 | webVttUrl | String | 缩略图 VTT 文件下载 URL 。            |
 
-## 更多功能[](id:moreFeature)
-
-完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
-<img src="https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png" width="150">
