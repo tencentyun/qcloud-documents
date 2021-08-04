@@ -33,7 +33,7 @@
 
 ## 动效表情
 
-小视频源代码中默认使用的是短视频 UGC SDK，而非商用版本，所以动效贴纸等功能并不包含。如果您需要此功能，请在 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh) 中获取商用版本。
+小视频源代码中默认使用的是短视频 UGSV SDK，而非商用版本，所以动效贴纸等功能并不包含。如果您需要此功能，请在 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh) 中获取商用版本。
 
 [](id:function)
 
