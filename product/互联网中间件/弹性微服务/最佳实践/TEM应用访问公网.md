@@ -69,7 +69,7 @@ TEM 中的应用部署在用户的环境中，环境和用户的 VPC 关联，�
 2. 在集群网络处单击 VPC，跳转至 VPC 网络基本信息页面。
 	<img src="https://main.qcloudimg.com/raw/bcaabe271f748c1632c20d4d18f241be.png" width="450px">
 3. 单击【NAT 网关】模块，进入NAT 网关列表页面。
-4. 单击目标NAT网关的“ID”，进入NAT网关基本信息页面，选择【关联弹性iP】页签，可获取访问公网的 IP。
+4. 单击目标NAT网关的“ID”，进入NAT网关基本信息页面，选择【关联弹性IP】页签，可获取访问公网的 IP。
 	<img src="https://main.qcloudimg.com/raw/c29b3c7ffce4f7b745a534a9a1474459.png" width="600px">
 
 
