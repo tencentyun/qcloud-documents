@@ -12,7 +12,7 @@
 本文档是介绍腾讯云视立方超级播放器 Adapter，它可以帮助腾讯云客户通过灵活的接口，快速实现第三方播放器与云点播能力的结合，实现视频播放功能。超级播放器 Adapter 支持获取视频基本信息、视频流信息、关键帧与缩略图信息等，支持私有加密，本文档适合有一定 Javascript 语言基础的开发人员阅读。
 
 
-
+[](id:Integrated)
 ## 集成SDK
 
 超级播放器 Adapter 提供以下两种集成方式：
@@ -36,7 +36,7 @@ import TcAdapter from 'tcadapter';
 ```
 
 
-
+[](id:container)
 ## 放置播放器容器
 
 在需要展示播放器的页面加入容器，TcAdapter 仅需要承载播放视频的容器，播放样式和自定义功能可由第三方播放器或使用者自行实现
@@ -47,7 +47,7 @@ import TcAdapter from 'tcadapter';
 ```
 
 
-
+[](id:useSDK)
 ## 使用 SDK
 
 #### 检测当前环境是否支持TcAdapter
