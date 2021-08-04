@@ -40,17 +40,19 @@ BF16 能达到近似 FP32 的准确率。在 PyTorch v1.7.0上，以 Resnet50 �
 
 ## 操作步骤
 
-### 在云服务器上体验 BF16 性能加速[](id:RecommendedSelection)
+### 使用云市场镜像创建实例
 英特尔<sup>®</sup>向腾讯云镜像市场提供了免费的 BF16 的镜像。该镜像中已经设置好使用 BF16 数据格式的环境，支持 PyTorch 和 Tensorflow 两种机器学习库。用户登录运行的镜像后，不需要设置任何环境，可以直接运行各种不同模型的推理运算，体验 BF16带来的性能提升。步骤如下：
-
 1. 前往 [Intel BF16 优化工具 ](https://market.cloud.tencent.com/products/28521) 镜像页面，勾选“ 同意 《云市场商品服务协议》 与 《腾讯云云市场用户协议》”后，单击【立即购买】。
 2. 创建云服务器实例，详情请参见 [通过购买页创建实例](https://cloud.tencent.com/document/product/213/4855)。
-其中，如需获取 BF16 的支持，**实例**请选择处理器型号为 Intel Xeon Cooper Lake 机型。本文以使用 [计算型 C5](https://cloud.tencent.com/document/product/213/11518#C5) 为例，如下图所示：
+其中，如需获取 BF16 的支持，**实例**请选择处理器型号为 Intel Xeon Cooper Lake 机型。本文以使用 [计算型 C5](https://cloud.tencent.com/document/product/213/11518#C5) 为例，实例其他规格请按需选择。如下图所示：
 ![](https://main.qcloudimg.com/raw/b25b6c612565dbd6473dd23d81899967.png)
 >?更多实例规格参数介绍，请参见 [实例规格](https://cloud.tencent.com/document/product/213/11518)。
 >
-3. 登录云服务器实例，详情请参见 [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
-4. 执行以下命令，确认 CPU 是否支持 BF16。 
+
+
+###  体验 BF16 性能加速[](id:RecommendedSelection)
+1. 登录实例，详情请参见 [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
+2. 执行以下命令，确认 CPU 是否支持 BF16。 
 ```
 lscpu | grep "avx512_bf16"
 ``` 返回如下目录结构：
@@ -62,7 +64,7 @@ miniconda  pkgs  run-pt.py  run-pt.sh  run-tf.sh  tf1.15
  - **run-pt.py & run-pt.sh**：运行 PyTorch 模型的 Python 脚本和 Shell 脚本文件。
  - **run-tf.sh**：运行 Tensorflow 的 Shell 脚本文件。
  - **tf1.15**：包含 Tensorflow 的多种模型。
-5. 可使用以下命令运行不同的模型：
+3. 可使用以下命令运行不同的模型：
  - **模型介绍**：
 <table>
 <thead>
@@ -212,12 +214,12 @@ miniconda  pkgs  run-pt.py  run-pt.sh  run-tf.sh  tf1.15
 </tbody></table>
 
 
-##  BF16 性能数据 [](id:RecommendedSelection)
+###  获取 BF16 性能数据 [](id:RecommendedSelection)
 
 基于 Intel 第三代英特尔<sup>®</sup>至强<sup>®</sup>可扩展处理器 Cooper Lake，在云服务器8核32G内存场景，基于不同模型下测试的性能数据如下：
 >?由于实际模型及物理配置不同，性能数据会有一定差别，本文提供数据仅供参考。
 
-### PyTorch 模型
+#### PyTorch 模型
 利用 FP32 + BF16 的混合精度方式，运行多个 PyTorch 模型，配置信息和标准化的性能提升如下图所示：
 ![](https://main.qcloudimg.com/raw/40017f30e1c345597d4e759479a6bcb1.png)
 性能数值如下表：  
@@ -286,7 +288,7 @@ miniconda  pkgs  run-pt.py  run-pt.sh  run-tf.sh  tf1.15
 </tr>
 </tbody></table>
 
-### TensorFlow 模型
+#### TensorFlow 模型
 
 利用 FP32 + BF16 的混合精度方式，运行多个 Tensorflow 模型，配置信息和标准化的性能提升如下图所示：
 ![](https://main.qcloudimg.com/raw/172fa14e0b35038e0a684dd51ddbd706.png)
