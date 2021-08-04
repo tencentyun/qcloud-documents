@@ -270,3 +270,10 @@
 > !美颜特效更多高级美颜、动效贴纸、AI 抠图和绿幕抠图的功能能力暂通过原（移动直播/短视频）企业版 SDK 对外售卖，通过购买原移动直播企业版License、短视频企业版 License 或者短视频企业版 Pro License 后，使用对应的功能。详情请参见 [美颜特效功能概述](https://cloud.tencent.com/document/product/1449/58916?!editLang=zh&!preview)。
 
 
+## 常见问题
+### 为什么新版 License 升级后，少了一个 License ，多了一个可用资源包 ？
+新版 License 增加了重复包名校验逻辑，当多个同类型的 License 绑定了同一组包名（ Bundle ID 和 Package Name ），此时实际上仅一个 License 会生效；我们会解除无效且有效期较短的 License 绑定关系，为您释放无效绑定的资源包，并且被释放的资源包可以绑定新的 License 使用。
+
+<dx-alert infotype="explain" title="示例：">
+用户 A 以前购买了两个 10 TB 的直播流量资源包（有效期截止时间不同），获赠两个移动直播 License ，并分两次绑定了同一组包名（实际上仅一个 License 有效）。在升级为腾讯云视立方 License 后，仅保留了有效期较长的 License 的绑定；另一个有效期较短的 License 被解除绑定关系，10TB 资源包被释放，用户 A 可以再次进行新的 License 绑定。
+</dx-alert>
