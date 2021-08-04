@@ -19,5 +19,5 @@ COS 目前仅支持微信小程序，由于 QQ 小程序和微信小程序不互
 
 SDK 实例化时，使用 ForcePathStyle:true 可以打开后缀式，只需要真正请求的 url，其格式如下。后缀式请求，在签名时存储桶名称 `<BucketName-APPID>` 也会加入签名计算。
 ```
-https://cos-ap-beijing.myqcloud.com/<BucketName-APPID>/<Key>
+https://cos.ap-beijing.myqcloud.com/<BucketName-APPID>/<Key>
 ```
