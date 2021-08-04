@@ -1,6 +1,6 @@
 ## 适用场景
 
-腾讯云视立方音视频通话TRTC 支持四种不同的进房模式，其中视频通话（VideoCall）和语音通话（VoiceCall）统称为通话模式，视频互动直播（Live）和语音互动直播（VoiceChatRoom）统称为 [直播模式](https://cloud.tencent.com/document/product/647/43771)。
+腾讯云视立方音视频通话 TRTC 支持四种不同的进房模式，其中视频通话（VideoCall）和语音通话（VoiceCall）统称为通话模式，视频互动直播（Live）和语音互动直播（VoiceChatRoom）统称为 [直播模式](https://cloud.tencent.com/document/product/647/43771)。
 通话模式下的 TRTC，支持单个房间最多300人同时在线，支持最多50人同时发言。适合1对1视频通话、300人视频会议、在线问诊、远程面试、视频客服、在线狼人杀等应用场景。
 
 ## 原理解析
@@ -28,7 +28,7 @@
 建议您先阅读文档 [跑通 SimpleDemo(Electron)](https://cloud.tencent.com/document/product/647/38548)，并按照文档的指引，跑通我们为您提供的官方 SimpleDemo。
 
 - 如果 SimpleDemo 能顺利运行，说明您已经掌握了在项目中安装 Electron 的方法。
-- 反之，如果运行 SimpleDemo 遇到问题，您大概率遭遇了 Electron 的下载、安装问题，此时您可以参考我们总结的 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668) ，也可以参考 Electron 官方的 [安装指引](https://www.electronjs.org/docs/tutorial/installation) 。
+- 反之，如果运行 SimpleDemo 遇到问题，您大概率遭遇了 Electron 的下载、安装问题，此时您可以参考我们总结的 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668) ，也可以参考 Electron 官方的 [安装指引](https://www.electronjs.org/docs/tutorial/installation)。
 
 [](id:step2)
 ### 步骤2：为您的项目集成 trtc-electron-sdk
@@ -99,9 +99,8 @@ param.userSig = 'eJyrVareCeYrSy1SslI...';
 2. 请根据应用场景设置合适的  `appScene`  参数，使用错误可能会导致卡顿率或画面清晰度不达预期。
    - 视频通话，请设置为 `TRTCAppScene.TRTCAppSceneVideoCall`。
    - 语音通话，请设置为 `TRTCAppScene.TRTCAppSceneAudioCall`。
-   >? 关于 `TRTCAppScene` 的详细介绍，请参见 [TRTCAppScene ](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/global.html#TRTCAppScene)。
+>? 关于 `TRTCAppScene` 的详细介绍，请参见 [TRTCAppScene](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/global.html#TRTCAppScene)。
 3. 进房成功后，SDK 会回调 [onEnterRoom(result)](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onEnterRoom) 事件。其中，参数 `result` 大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当 `result` 小于0时表示进房失败，具体数值为进房失败的错误码。
-
 <dx-codeblock>
 ::: javascript javascript
 import TRTCCloud from 'trtc-electron-sdk';
