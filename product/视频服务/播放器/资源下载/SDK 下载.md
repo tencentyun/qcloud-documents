@@ -93,7 +93,7 @@
   </tr>
   <tr align="center">
      <th>超级播放器</th>
-        <td style="text-align:center"><a href="https://github.com/tencentyun/SuperPlayer">GitHub</a></td>
+        <td style="text-align:center"><a href="https://github.com/tencentyun/SuperPlayer_iOS">GitHub</a></td>
         <td style="text-align:center"><a href="https://github.com/tencentyun/SuperPlayer_Android">GitHub</a></td>
   </tr>
 </table>

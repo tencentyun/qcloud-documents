@@ -1,10 +1,10 @@
-当用户业务分别部署于云下数据中心和云上 VPC 中时，可通过专线连接或 VPN 连接实现云上云下业务互通，为提升业务高可用性，可同时创建专线接入和 VPN 连接服务，结合 VPC 路由优先级功能，配置两条链路为主备链路，来实现冗余通信。
+当用户业务分别部署于云下数据中心和云上 VPC 中时，可通过专线连接或 VPN 连接实现云上云下业务互通，为提升业务高可用性，可同时创建专线接入和 VPN 连接服务，结合 VPC 路由优先级功能，配置两条链路为主备链路，来实现冗余通信。本文指导您如何配置专线和 VPC 主备链路来实现云上云下混合通信。
 >?
->+ 路由优先级功能目前处于内测中，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+>+ 路由优先级功能目前处于内测中，如有需要，请 [在线咨询](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
 >+ VPC 路由表中根据不同的下一跳类型定义了不同的优先级，目前默认路由优先级为：云联网 > 专线网关 > VPN 网关 > 其他。
->+ 暂不支持控制台修改优先级，如需调整，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+>+ 暂不支持控制台修改优先级，如需调整，请 [在线咨询](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
 
-本文指导您如何配置专线和 VPC 主备链路来实现云上云下混合通信。
+
 
 ## 业务场景
 如下图所示，用户在 VPC 和 IDC 中部署了业务，为了实现云上与云下业务交互，用户需要部署网络连接服务来实现业务互通，为实现高可用通信，部署方案如下：
@@ -65,7 +65,7 @@
 3. 单击左侧导航栏的【VPN 通道】，请配置 SPD 策略、IKE、IPsec 等配置。
 4. 在 IDC 本地网关设备上配置 VPN 通道信息，此处配置需要和步骤3中的 VPN 通道信息一致，否则 VPN 隧道无法正常连通。
 5. 在 VPC 通信子网关联的路由表中配置下一跳为 VPN 网关、目的端为 IDC 通信网段的路由策略。
->?更多详细配置请参考[ 建立 VPC 到 IDC 的连接（路由表）](https://cloud.tencent.com/document/product/554/52853)
+>?更多详细配置请参考[ 建立 VPC 到 IDC 的连接（路由表）](https://cloud.tencent.com/document/product/554/52853)。
 >
 
 ###  [](id:step3)步骤三：配置网络探测

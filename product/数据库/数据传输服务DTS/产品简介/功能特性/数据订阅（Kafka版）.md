@@ -2,7 +2,7 @@
 数据订阅是指获取数据库中关键业务的数据变化信息，将这些信息包装为消息对象推送到 Kafka 中，方便下游业务订阅、获取和消费。腾讯云 DTS 支持通过 Kafka Client 直接消费数据，方便用户搭建云数据库和异构系统之间的数据同步，如缓存更新，ETL（数据仓库技术）实时同步，业务异步解耦等。
 
 ## 实现原理
-如下以 MySQL 同步为例进行介绍。数据订阅通过实时拉取源实例的 Binlog 增量日志，将增量数据解析成 Kafka message，然后存储到 Kafka Server。用户可以通过 Kafka  Client 来消费数据，Kafka 作为一种开源的消息中间件，支持多数据通道消费和多种 SDK 语言，降低用户的使用成本。
+如下以 MySQL 为例进行介绍。数据订阅通过实时拉取源实例的 Binlog 增量日志，将增量数据解析成 Kafka message，然后存储到 Kafka Server。用户可以通过 Kafka  Client 来消费数据，Kafka 作为一种开源的消息中间件，支持多数据通道消费和多种 SDK 语言，降低用户的使用成本。
 ![](https://main.qcloudimg.com/raw/93f09b55d3bec10074fd4527016bc089.png)
 
 ## 典型应用场景

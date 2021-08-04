@@ -2,7 +2,7 @@
 
 ## 功能介绍
 腾讯云 Web 超级播放器 TCPlayerLite 是为了解决在手机浏览器和 PC 浏览器上播放音视频流的问题，它使您的视频内容可以不依赖用户安装 App，就能在朋友圈和微博等社交平台进行传播。本文档适合有一定 Javascript 语言基础的开发人员阅读。
-以下视频将为您讲解腾讯云播放器 SDK 的 Web 播放器的功能特性以及对接攻略：
+以下视频将为您讲解腾讯云视立方 SDK 的 Web 播放器的功能特性以及对接攻略：
 
 <div class="doc-video-mod"><iframe src="  https://cloud.tencent.com/edu/learning/quick-play/2496-42186?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
@@ -351,7 +351,7 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 >!以上方法必须是`TcPlayer`的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。
 
 ## 进阶攻略
-下面介绍腾讯云视立方播放器UGSV SDK 的进阶使用方法。
+下面介绍腾讯云视立方 SDK 在直播播放场景下的进阶使用方法。
 
 ### ES Module
 TCPlayerLite 提供了 ES Module 版本，module name 为 `TcPlayer`，下载地址：

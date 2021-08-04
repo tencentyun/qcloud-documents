@@ -1,4 +1,4 @@
-本文主要介绍如何快速地将腾讯云视立方 Electron SDK 集成到您的项目中。
+本文主要介绍如何快速地将腾讯云视立方集成到您的项目中，不同版本的 SDK 集成方式都通用，按照如下步骤进行配置，就可以完成 SDK 的集成工作。下面以腾讯云视立方全功能版本为例：
 
 ## 视立方版本支持
 本页文档所描述功能，在视立方中支持情况如下：
@@ -6,7 +6,7 @@
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | - | - | - | &#10003; | - | - |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
 
@@ -18,12 +18,12 @@
 
 ### 步骤1：安装 Node.js
 <dx-tabs>
-::: Windows平台安装指引
+::: Windows\s平台安装指引
 1. 根据 Windows 操作系统选择下载最新版本的 [Node.js](https://nodejs.org/en/download/)  安装包 `Windows Installer (.msi) 64-bit`。
 2. 打开应用程序列表中的 Node.js command prompt，启动命令行窗口，用于输入后续步骤中的各项命令。
 ![](https://main.qcloudimg.com/raw/148c49336f0d89829736af81de305de4.png)
 :::
-::: MacOS平台安装指引
+::: MacOS\s平台安装指引
 1. 打开终端（Terminal）窗口，执行以下命令安装 Homebrew，如果已经安装请跳过此步骤。
 <dx-codeblock>
 ::: shell shell
@@ -52,10 +52,10 @@ $ npm install electron@latest --save-dev
 
 ### 步骤3：安装 Electron 版的腾讯云视立方 TRTC SDK
 1. 在您的 Electron 项目中使用 npm 命令安装 SDK 包：
-```shell
-$ npm install trtc-electron-sdk@latest --save
 ```
-	>?TRTC Electron SDK 最新版可在 [trtc-electron-sdk](https://www.npmjs.com/package/trtc-electron-sdk) 中查看。
+	$ npm install trtc-electron-sdk@latest --save
+```
+>? TRTC Electron SDK 最新版可在 [trtc-electron-sdk](https://www.npmjs.com/package/trtc-electron-sdk) 中查看。
 2. 在项目脚本里引入模块并使用：
 ```javascript
 const TRTCCloud = require('trtc-electron-sdk').default;
@@ -64,8 +64,8 @@ this.rtcCloud = new TRTCCloud();
 // 获取 SDK 版本号
 this.rtcCloud.getSDKVersion();
 ```
-	从v7.9.348起，TRTC Electron SDK 增加了 trtc.d.ts 文件，方便使用 TypeScript 的开发者：
-```
+	从 Electron SDK v7.9.348起，TRTC Electron SDK 增加了 trtc.d.ts 文件，方便使用 TypeScript 的开发者：
+``` 
 import TRTCCloud from 'trtc-electron-sdk';
 const rtcCloud: TRTCCloud = new TRTCCloud();
 // 获取 SDK 版本号
@@ -93,21 +93,21 @@ $ npm install native-ext-loader@latest --save-dev
 
 
 1. 首先使 `webpack.config.js` 在构建时可以接收名为 `--target_platform` 的命令行参数，以使代码构建过程按不同的目标平台特点正确打包，在 `module.exports` 之前添加以下代码：
-``` js
-const os = require('os');
-const targetPlatform = (function(){
-		let target = os.platform();
-		for (let i=0; i<process.argv.length; i++) {
-			if (process.argv[i].includes('--target_platform=')) {
-				target = process.argv[i].replace('--target_platform=', '');
-				break;
-			}
-		}
-		if (!['win32', 'darwin'].includes) target = os.platform();
-		return target;
-})();
 ```
-	>! `os.platform()` 返回的结果中，"darwin" 表示 Mac 平台。"win32" 表示 Windows 平台，不论 64 位还是 32 位。
+	const os = require('os');
+	const targetPlatform = (function(){
+			let target = os.platform();
+			for (let i=0; i<process.argv.length; i++) {
+				if (process.argv[i].includes('--target_platform=')) {
+					target = process.argv[i].replace('--target_platform=', '');
+					break;
+				}
+			}
+			if (!['win32', 'darwin'].includes) target = os.platform();
+				return target;
+	})();
+```
+>! `os.platform()` 返回的结果中，"darwin" 表示 Mac 平台。"win32" 表示 Windows 平台，不论 64 位还是 32 位。
 2. 然后在 `rules` 选项中添加以下配置，`targetPlatform` 变量可以使 `rewritePath` 可以根据不同的目标平台切换不同的配置：
 ```js
 rules: [
@@ -169,9 +169,9 @@ rules: [
 </dx-codeblock>
 3. 在 `scripts` 节点下添加以下构建和打包的命令脚本：
  本文以 `create-react-app` 和 `vue-cli` 项目为例，其它工具创建的项目也可以参考此配置：
-    <dx-codeblock>
-    ::: json json
-    // create-react-app 项目请使用此配置
+<dx-codeblock>
+::: json json
+// create-react-app 项目请使用此配置
     "scripts": {
     "build:mac": "react-scripts build --target_platform=darwin",
     "build:win": "react-scripts build --target_platform=win32",
@@ -229,7 +229,7 @@ $ npm run pack:win64
 
 ### 1. 防火墙有什么限制？
 
-由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
+由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/1449/58956?!preview)。
 
 ### 2. Electron 安装或打包异常
 

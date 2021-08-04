@@ -4,12 +4,12 @@
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
 
 ## 功能概述
-摄像头推流，是指采集手机摄像头的画面以及麦克风的声音，进行编码之后再推送到直播云平台上。腾讯云 LiteAVSDK 通过 V2TXLivePusher 接口提供摄像头推流能力，如下是 LiteAVSDK 的简单版 Demo 中演示摄像头推流的相关操作界面：
+摄像头推流，是指采集手机摄像头的画面以及麦克风的声音，进行编码之后再推送到直播云平台上。腾讯云视立方 LiteAVSDK 通过 V2TXLivePusher 接口提供摄像头推流能力，如下是 LiteAVSDK 的简单版 Demo 中演示摄像头推流的相关操作界面：
 ![](https://main.qcloudimg.com/raw/39ee7f9e0e092d0adb9f1dff1077a482.png)
 
 ## 特别说明
@@ -148,7 +148,7 @@ SDK 内置三种不同的磨皮算法，每种磨皮算法即对应一种美颜�
 
 [](id:step9)
 ### 9. 色彩滤镜效果
-![](https://main.qcloudimg.com/raw/55b969c713b9d96f496bcab3d72e3850.png)
+![](https://main.qcloudimg.com/raw/eb06687c79243fa3a6befb30ff62e09e.jpg)
 - 调用 V2TXLivePusher 中的 [getBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a4fb05ae6b5face276ace62558731280a) 接口可以获取 TXBeautyManager 实例进一步设置美色彩滤镜效果。
 - 调用 TXBeautyManager 的 `setFilter` 接口可以设置色彩滤镜效果。所谓色彩滤镜，是指一种将整个画面色调进行区域性调整的技术，例如将画面中的淡黄色区域淡化实现肤色亮白的效果，或者将整个画面的色彩调暖让视频的效果更加清新和温和。   
 - 调用 TXBeautyManager 的 `setFilterStrength` 接口可以设定滤镜的浓度，设置的浓度越高，滤镜效果也就越明显。 
@@ -166,7 +166,7 @@ UIImage *image = [UIImage imageWithContentsOfFile:path];
 [](id:step10)
 ### 10. 设备管理
 V2TXLivePusher 提供了一组 API 用户控制设备的行为，您可通过 `getDeviceManager` 获取 TXDeviceManager 实例进一步进行设备管理，详细用法请参见 [TXDeviceManager API](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXDeviceManager__ios.html#interfaceTXDeviceManager)。
-![](https://main.qcloudimg.com/raw/f071f9c5edf88e61b108a77946669d60.png)
+![](https://main.qcloudimg.com/raw/c4d8e442558891c66f315d4c0799fce3.jpg)
 
 [](id:step11)
 ### 11. 观众端的镜像效果
@@ -187,7 +187,7 @@ V2TXLivePusher 默认推出的是竖屏分辨率的视频画面，如果希望�
 [](id:step13)
 ### 13. 音效设置
 调用 V2TXLivePusher 中的 [getAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXAudioEffectManager__ios.html) 获取 TXAudioEffectManager 实例可以实现背景混音、耳返、混响等音效功能。背景混音是指主播在直播时可以选取一首歌曲伴唱，歌曲会在主播的手机端播放出来，同时也会被混合到音视频流中被观众端听到，所以被称为“混音”。
-![](https://main.qcloudimg.com/raw/eeff5f60fa29d204e501ef2029b922ea.png)
+![](https://main.qcloudimg.com/raw/269e653bc68c73c69feeb6418c513c25.jpg)
 
 - 调用 TXAudioEffectManager 中的 `enableVoiceEarMonitor` 选项可以开启耳返功能，“耳返”指的是当主播带上耳机来唱歌时，耳机中要能实时反馈主播的声音。
 - 调用 TXAudioEffectManager 中的 `setVoiceReverbType` 接口可以设置混响效果，例如 KTV、会堂、磁性、金属等，这些效果也会作用到观众端。
@@ -253,16 +253,17 @@ SDK 发现部分严重问题，推流无法继续。
 ### 警告事件 
 SDK 发现部分警告问题，但 WARNING 级别的事件都会触发一些尝试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复。
 
-| 事件 ID                 |    数值  |  含义说明                    |
-| :-------------------  |:-------- |  :------------------------ |
-|V2TXLIVE_WARNING_NETWORK_BUSY                  |  1101|  网络状况不佳：上行带宽太小，上传数据受阻  |
-|V2TXLIVE_WARNING_VIDEO_BLOCK                   |  2105|  视频回放期间出现滞后  |
-|V2TXLIVE_WARNING_CAMERA_START_FAILED           | -1301|  摄像头打开失败  |
-|V2TXLIVE_WARNING_CAMERA_OCCUPIED               | -1316|  摄像头正在被占用中，可尝试打开其他摄像头        |
-|V2TXLIVE_WARNING_CAMERA_NO_PERMISSION          | -1314|  摄像头设备未授权，通常在移动设备出现，可能是权限被用户拒绝了  |
-|V2TXLIVE_WARNING_MICROPHONE_START_FAILED       | -1302|  麦克风打开失败  |
-|V2TXLIVE_WARNING_MICROPHONE_OCCUPIED           | -1319|  麦克风正在被占用中，例如移动设备正在通话时，打开麦克风会失败  |
-|V2TXLIVE_WARNING_MICROPHONE_NO_PERMISSION      | -1317|  麦克风设备未授权，通常在移动设备出现，可能是权限被用户拒绝了  |
-|V2TXLIVE_WARNING_SCREEN_CAPTURE_NOT_SUPPORTED  | -1309|  当前系统不支持屏幕分享  |
-|V2TXLIVE_WARNING_SCREEN_CAPTURE_START_FAILED   | -1308|  开始录屏失败，如果在移动设备出现，可能是权限被用户拒绝了  |
-|V2TXLIVE_WARNING_SCREEN_CAPTURE_INTERRUPTED    | -7001|  录屏被系统中断  |
+| 事件 ID                                       | 数值  | 含义说明                                                     |
+| :-------------------------------------------- | :---- | :----------------------------------------------------------- |
+| V2TXLIVE_WARNING_NETWORK_BUSY                 | 1101  | 网络状况不佳：上行带宽太小，上传数据受阻                     |
+| V2TXLIVE_WARNING_VIDEO_BLOCK                  | 2105  | 视频回放期间出现滞后                                         |
+| V2TXLIVE_WARNING_CAMERA_START_FAILED          | -1301 | 摄像头打开失败                                               |
+| V2TXLIVE_WARNING_CAMERA_OCCUPIED              | -1316 | 摄像头正在被占用中，可尝试打开其他摄像头                     |
+| V2TXLIVE_WARNING_CAMERA_NO_PERMISSION         | -1314 | 摄像头设备未授权，通常在移动设备出现，可能是权限被用户拒绝了 |
+| V2TXLIVE_WARNING_MICROPHONE_START_FAILED      | -1302 | 麦克风打开失败                                               |
+| V2TXLIVE_WARNING_MICROPHONE_OCCUPIED          | -1319 | 麦克风正在被占用中，例如移动设备正在通话时，打开麦克风会失败 |
+| V2TXLIVE_WARNING_MICROPHONE_NO_PERMISSION     | -1317 | 麦克风设备未授权，通常在移动设备出现，可能是权限被用户拒绝了 |
+| V2TXLIVE_WARNING_SCREEN_CAPTURE_NOT_SUPPORTED | -1309 | 当前系统不支持屏幕分享                                       |
+| V2TXLIVE_WARNING_SCREEN_CAPTURE_START_FAILED  | -1308 | 开始录屏失败，如果在移动设备出现，可能是权限被用户拒绝了     |
+| V2TXLIVE_WARNING_SCREEN_CAPTURE_INTERRUPTED   | -7001 | 录屏被系统中断                                               |
+

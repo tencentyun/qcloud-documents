@@ -1,4 +1,4 @@
-本文主要介绍如何快速地将腾讯云视立方 SDK（Mac）集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
+本文主要介绍如何快速地将腾讯云视立方集成到您的项目中，不同版本的 SDK 集成方式都通用，按照如下步骤进行配置，就可以完成 SDK 的集成工作。下面以腾讯云视立方全功能版本为例：
 
 
 ## 开发环境要求
@@ -59,7 +59,7 @@ pod update
 pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工程文件，双击打开即可。
 
 ### 手动集成
-1. 下载 [TRTC-SDK ](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) 的 Mac 版本。
+1. 下载 [TRTC-SDK ](https://vcube.cloud.tencent.com/home.html?sdk=video) 的 Mac 版本。
 2. 打开您的 Xcode 工程项目，将第一步中下载的 framework 导入到您的工程。
 3. 选择要运行的 target，选中 Build Phases 项。
 ![](https://main.qcloudimg.com/raw/b5097f8ac4cbaa5044d92b2a96ea2b9e.jpg)
