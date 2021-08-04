@@ -8,7 +8,7 @@
 ## 操作步骤
 请对应您实际使用的云服务器操作系统，参考以下步骤进行操作：
 <dx-tabs>
-::: CebtOS\s8.2
+::: CentOS\s8.2
 1. 登录实例，详情请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 2. 执行以下命令，安装图形化界面组件。
 ```
@@ -26,11 +26,11 @@ reboot
 登录实例后查看可视化界面即表示搭建成功，根据界面提示进行配置进入桌面后，可按需进行相关操作。如下图所示：
 ![](https://main.qcloudimg.com/raw/58e12a33b38e0114f5b3116b31f7b026.png)
 :::
-::: CebtOS\s7.9
+::: CentOS\s7.9
 1. 登录实例，详情请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 2. 执行以下命令，安装图形化界面组件。
 ```
-yum groupinstall "GNOME Desktop" "Graphical Administration Tools"
+yum groupinstall "GNOME Desktop" "Graphical Administration Tools" -y
 ```
 3. 执行以下命令，设置默认启动图形化界面。
 ```
