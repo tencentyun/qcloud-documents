@@ -31,7 +31,7 @@ iv_ai_deinit
 - iv_ai_stop()：停止 AI 推理
 - iv_ai_set_notify_event()：通知 SDK 发生抓图等时间
 - iv_ai_add_model_id()：添加模型 ID
-- iv_ai_del_model_Id()：删除模型 ID
+- iv_ai_del_model_id()：删除模型 ID
 
 
 <dx-alert infotype="notice" title="用户需注册以下回调函数">
