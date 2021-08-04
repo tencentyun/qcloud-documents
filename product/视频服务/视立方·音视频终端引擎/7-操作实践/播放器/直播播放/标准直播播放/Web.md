@@ -223,7 +223,7 @@ var player = new TcPlayer('id_test_video', {
 ![](https://main.qcloudimg.com/raw/99c05e75f0d417df33942d18dad2f509.jpg)
 >!
 > - PC 端现已支持多种清晰度播放及切换的功能，移动端尚未支持。
- >- 以上示例链接仅用于文档演示，请勿用于生产环境
+>- 以上示例链接仅用于文档演示，请勿用于生产环境。
 
 ### Step6. 定制错误提示语
 Web 播放器支持提示语定制。
