@@ -25,7 +25,7 @@ Window，Linux 或者 Mac OS
 ![](https://main.qcloudimg.com/raw/c87f1ecca7eb821f0f74b9c718025e00.png)
  - 在服务器详情页，选择【应用管理】，单击“应用内软件信息”中的【登录】。
 ![](https://main.qcloudimg.com/raw/c18295d4ac3b40aee2b6b9f2bb11217c.png)
-成功登录后，您可参考 [最佳实践](https://cloud.tencent.com/document/product/1207/45116) 及 [第三方教程](https://cloud.tencent.com/document/product/1207/58793)，进行搭建网站、开发环境、云盘、图床或者使用其他操作。
+成功登录后，您可参考 [最佳实践](https://cloud.tencent.com/document/product/1207/45116) 及 [第三方教程](https://cloud.tencent.com/document/product/1207/58793)，进行搭建中小型网站、Web 应用、博客、论坛、小程序/小游戏、电商、云盘/图床、云端开发测试和学习环境等轻量级、低负载且访问量适中的应用。
 
 ## 相关操作
 ### 关闭或开启 WebShell 一键登录
