@@ -74,9 +74,9 @@ static NSString *s_rtmpUrl;
     s_txLivePublisher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTMP];
     [s_txLivePublisher setObserver:self];
     [s_txLivePublisher startPush:s_rtmpUrl];
-		 }
-		 :::
-		 </dx-codeblock>
+}
+:::
+</dx-codeblock>
 
 - s_txLivePublisher 是我们用于推流的对象，因为系统录屏回调的 sampleHandler 实例有可能不只一个，因此对变量采用静态声明，确保录屏推流过程中使用的是同一个推流器。
 - 实例化 s_txLivePublisher 的最佳位置是在 `-[SampleHandler broadcastStartedWithSetupInfo:]` 方法中，直播扩展启动后会回调这个函数，就可以进行推流器初始化开始推流。但在 ReplayKit2 的屏幕录制扩展启动时，回调给 s_txLivePublisher 的 setupInfo 为 nil，无法获取启动推流所需要的推流地址等信息，因此通常回调此函数时发通知给主 App，在主 App 中设置好推流地址，横竖屏清晰度等信息后再传递给扩展并通知扩展启动推流。
@@ -247,14 +247,14 @@ CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter()
 扩展中可通过监听此开始推流通知，由于此通知是在 CF 层，需要通过 NSNotificationCenter 发送到 Cocoa 类层方便处理：
 <dx-codeblock>
 ::: code 
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
+CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
                                     (__bridge const void *)(self),
                                     onDarwinReplayKit2PushStart,
                                     kDarvinNotificationNamePushStart,
                                     NULL,
                                     CFNotificationSuspensionBehaviorDeliverImmediately);
                                                                         
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleReplayKit2PushStartNotification:) name:@"Cocoa_ReplayKit2_Push_Start" object:nil];
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleReplayKit2PushStartNotification:) name:@"Cocoa_ReplayKit2_Push_Start" object:nil];
 
 
 static void onDarwinReplayKit2PushStart(CFNotificationCenterRef center,
@@ -262,14 +262,14 @@ static void onDarwinReplayKit2PushStart(CFNotificationCenterRef center,
                                         const void *object, CFDictionaryRef
                                         userInfo)
 {
-//转到 cocoa 层框架处理
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Cocoa_ReplayKit2_Push_Start" object:nil];
+	//转到 cocoa 层框架处理
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"Cocoa_ReplayKit2_Push_Start" object:nil];
 }
 
 - (void)handleReplayKit2PushStartNotification:(NSNotification*)noti
 {
-//通过 NSUserDefault 或剪贴板拿到宿主要传递的数据
-//    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:kReplayKit2AppGroupId];
+	//通过  NSUserDefault 或剪贴板拿到宿主要传递的数据
+	//  NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:kReplayKit2AppGroupId];
   
     UIPasteboard* pb = [UIPasteboard generalPasteboard];
     NSDictionary* defaults = [self jsonData2Dictionary:pb.string];
