@@ -1,5 +1,5 @@
 UNPIVOT 是 Oracle 的列转行函数，通过 UNPIVOT 函数，可以快速实现列转行的输出，而不需要用多个 SQL UNION [ALL]  实现。
-TDSQL PostgreSQL-O版 兼容 UNPIVOT 用法。
+TDSQL PostgreSQL版（Oracle 兼容）兼容 UNPIVOT 用法。
 
 ## 语法
 ```
