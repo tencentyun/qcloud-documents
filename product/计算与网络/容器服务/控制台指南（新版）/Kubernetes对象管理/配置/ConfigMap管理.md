@@ -54,10 +54,12 @@
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击【集群】，进入集群列表页。
-3. 单击需要更新 YAML 的集群 ID，进入集群管理页面。
+3. 单击需要更新 ConfigMap 的集群 ID，进入集群管理页面。
 4. 选择 【配置管理】>【ConfigMap】，进入 ConfigMap 信息页面。
 5. 在需要更新的 ConfigMap 行中，单击右侧的【更新配置】，进入更新 ConfigMap 页面。
-6. 在 “更新配置” 页面，编辑 key-value 类型的键值对，单击【完成】。
+![](https://main.qcloudimg.com/raw/2bfb0d32ab85682548a598175e1bbe19.png)
+7. 在 “更新配置” 页面，编辑 key-value 类型的键值对，单击【完成】。
+![](https://main.qcloudimg.com/raw/91790cab3cb4ebd35c0354cd555ae60a.png)
 
 
 
