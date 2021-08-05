@@ -66,8 +66,8 @@
 ## Kubectl 操作 ConfigMap 指引
 
 ### YAML 示例
-
-```Yaml
+<dx-codeblock>
+::: Yaml
 apiVersion: v1
 data:
   key1: value1
@@ -77,11 +77,13 @@ kind: ConfigMap
 metadata:
   name: test-config
   namespace: default
-```
-- data：ConfigMap 的数据，以 key-value 形式呈现。
-- kind：标识 ConfigMap 资源类型。
-- metadata：ConfigMap 的名称、Label等基本信息。
-- metadata.annotations：ConfigMap 的额外说明，可通过该参数设置腾讯云 TKE 的额外增强能力。
+:::
+</dx-codeblock>
+
+- **data**：ConfigMap 的数据，以 key-value 形式呈现。
+- **kind**：标识 ConfigMap 资源类型。
+- **metadata**：ConfigMap 的名称、Label等基本信息。
+- **metadata.annotations**：ConfigMap 的额外说明，可通过该参数设置腾讯云 TKE 的额外增强能力。
 
 ### 创建 ConfigMap
 
@@ -93,7 +95,7 @@ metadata:
 ```shell
 kubectl create -f ConfigMap YAML 文件名称
 ```
-例如，创建一个文件名为 web.yaml 的 ConfigMap YAML 文件，则执行以下命令：
+ 例如，创建一个文件名为 web.yaml 的 ConfigMap YAML 文件，则执行以下命令：
 ```shell
 kubectl create -f web.yaml
 ```
@@ -101,12 +103,13 @@ kubectl create -f web.yaml
 ```shell
 kubectl get configmap
 ```
-返回类似以下信息，即表示创建成功。
+ 返回类似以下信息，即表示创建成功。
 ```
 NAME          DATA      AGE
 test          2         39d
 test-config   3         18d
 ```
+
 
 #### 方式二：通过执行命令方式创建
 
