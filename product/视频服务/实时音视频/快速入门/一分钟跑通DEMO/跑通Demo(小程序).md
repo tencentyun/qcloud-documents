@@ -13,6 +13,8 @@
 - 小程序基础库最低版本要求：2.10.0。
 - 由于微信开发者工具不支持原生组件（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签），需要在真机上进行运行体验。
 
+>! 请您使用企业主体的微信开发账号，并开通小程序类目的推拉流标签权限后再运行，不要使用测试微信账号。
+
 ## 前提条件
 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 
