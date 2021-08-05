@@ -13,7 +13,6 @@
 # 在节点上执行
 echo "/tmp/cores/core.%h.%e.%p.%t" > /proc/sys/kernel/core_pattern
 ``` 
-
  主要参数信息如下：
  - **%h**：主机名（在 Pod 内主机名即 Pod 的名称），推荐。
  - **%e**：程序文件名，推荐。

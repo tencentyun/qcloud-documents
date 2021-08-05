@@ -17,7 +17,8 @@ Content-Type: application/xml
 <body>
 ```
 
->?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>
 
 #### 请求头
 
@@ -136,7 +137,7 @@ Container 类型 NotifyConfig 的具体数据描述如下：
    <tr>
       <td>Event</td>
       <td>Request.NotifyConfig</td>
-      <td>回调事件，视频转码完成:TransCodingFinish</td>
+      <td>任务完成：TaskFinish；工作流完成：WorkflowFinishh</td>
       <td>String</td>
       <td>否</td>
       <td>长度限制100字符</td>
@@ -174,7 +175,6 @@ Container 类型 NotifyConfig 的具体数据描述如下：
             <Url>mts-topic-1</Url>
             <Type></Type>
             <Event></Event>
-            <State></State>
         </NotifyConfig>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>
@@ -205,8 +205,8 @@ Container 节点 Response 的内容：
 
 ```plaintext
 PUT /queue/p8eb46b8cc1a94bc09512d16c5c4f4d3a HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
-Host:examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
 
@@ -218,7 +218,6 @@ Content-Type: application/xml
         <Type></Type>
         <Url></Url>
         <Event></Event>
-        <State></State>
     </NotifyConfig>
 </Request>
 ```
@@ -244,7 +243,6 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
             <Type></Type>
             <Url></Url>
             <Event></Event>
-            <State></State>
         </NotifyConfig>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>

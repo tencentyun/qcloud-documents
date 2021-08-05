@@ -280,7 +280,7 @@ int startServiceWithXp2pInfo(const char* id, const char *product_id, const char 
 </tr>
 <tr>
 <td align="left">XP2PERR*</td>
-<td align="left">失败，对应错误码</td>
+<td align="left">失败，对应 <a href="https://cloud.tencent.com/document/product/1131/57611"> 错误码</a></td>
 </tr>
 </tbody></table>
 - 示例代码
@@ -400,7 +400,7 @@ int stopAvRecvService(const char *id, void *req);
 </tr>
 <tr>
 <td align="left">XP2PERR*</td>
-<td align="left">失败，对应错误码</td>
+<td align="left">失败，对应 <a href="https://cloud.tencent.com/document/product/1131/57611"> 错误码</a></td>
 </tr>
 </tbody></table>
 - 示例代码
@@ -581,7 +581,7 @@ int dataSend(const char *id, uint8_t *data, size_t len);
 </tr>
 <tr>
 <td align="left">XP2PERR*</td>
-<td align="left">失败，对应错误码</td>
+<td align="left">失败，对应 <a href="https://cloud.tencent.com/document/product/1131/57611"> 错误码</a></td>
 </tr>
 </tbody></table>
 
@@ -629,7 +629,7 @@ int stopSendService(const char *id, void *req);
 </tr>
 <tr>
 <td align="left">XP2PERR*</td>
-<td align="left">失败，对应错误码</td>
+<td align="left">失败，对应 <a href="https://cloud.tencent.com/document/product/1131/57611"> 错误码</a></td>
 </tr>
 </tbody></table>
 - 示例代码
@@ -718,7 +718,7 @@ int postCommandRequestSync(const char *id, const unsigned char *command, size_t 
 </tr>
 <tr>
 <td align="left">XP2PERR*</td>
-<td align="left">失败，对应错误码</td>
+<td align="left">失败，对应 <a href="https://cloud.tencent.com/document/product/1131/57611"> 错误码</a></td>
 </tr>
 </tbody></table>
 - 示例代码
@@ -787,7 +787,7 @@ int postCommandRequestWithAsync(const char *id, const unsigned char *command, si
 </tr>
 <tr>
 <td align="left">XP2PERR*</td>
-<td align="left">失败，对应错误码</td>
+<td align="left">失败，对应 <a href="https://cloud.tencent.com/document/product/1131/57611"> 错误码</a></td>
 </tr>
 </tbody></table>
 - 示例代码

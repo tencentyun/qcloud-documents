@@ -1,4 +1,4 @@
-
+目前，仅原移动直播企业版 SDK，短视频企业版 SDK 以及短视频企业版 Pro SDK 支持高级美颜特效，需要购买原 [移动直播企业版 License](https://cloud.tencent.com/document/product/454/8008)、[短视频企业版 License 或短视频企业版 Pro License](https://cloud.tencent.com/document/product/584/9368) 后，使用对应的功能。
 
 ## 功能说明
 
@@ -10,7 +10,7 @@
 
 ## 版本下载
 
-在 [SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载商用版本 SDK 压缩包，压缩包有加密（解压密码和 Licence 文件 可以跟我们的商务同学获取）, 成功解压后在 SDK 目录下得到一个`aar`和`zip`，分别对应两种集成方式。
+在 [SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载商用版本 SDK 压缩包，压缩包有加密（解压密码和 Licence 文件 可以跟我们的商务同学获取）, 成功解压后在 SDK 目录下得到一个 `aar` 和 `zip`，分别对应两种集成方式。
 
 ## 工程设置
 

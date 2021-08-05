@@ -4,7 +4,7 @@ __功能__
 
 腾讯云直播推流用 RTMP SDK 的参数配置模块。
 
-__介绍__
+__介绍__ 
 
 主要负责 [TXLivePusher](https://cloud.tencent.com/document/product/454/34772#txlivepusher) 对应的参数设置，**其中绝大多数设置项在推流开始之后再设置是无效的**。
 

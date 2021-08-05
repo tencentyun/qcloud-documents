@@ -5,7 +5,7 @@ EXIF（Exchangeable Image File）全称为可交换图像文件，可记录数�
 >! 如图片无 exif 信息，将返回`{"error" : "no exif data"}`。
 >
 
-## 接口形式
+## 接口示例
 
 ```
 download_url?exif
@@ -17,17 +17,16 @@ download_url?exif
 
 | 参数         | 含义                                                         |
 | ------------ | ------------------------------------------------------------ |
-| download_url | 文件的访问链接，具体构成为`<BucketName-APPID>.cos.<picture region>.<domain>.com/<picture name>`，<br>例如`examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/picture.jpeg`。 |
-| /ignore-error/1            | 当处理参数中携带此参数时，针对文件过大导致处理失败的场景，会直接返回原图而不报错。         |
+| download_url | 文件的访问链接，具体构成为&lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com/&lt;picture name>，<br>例如 `examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/picture.jpeg` |
 
 
-## 示例
-#### 请求示例1：公有读
+## 实际案例
+#### 请求1：公有读
 ```
 http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?exif
 ```
 
-#### 请求示例2：私有读、携带签名
+#### 请求2：私有读、携带签名
 
 获取方式同上，仅增加签名部分，并与获取参数以“&”连接，示例如下：
 

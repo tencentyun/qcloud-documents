@@ -11,7 +11,7 @@
 <th>证书安装方式</th>
 </tr>
 <tr>
-<td rowspan="9">国际标准证书</td>
+<td rowspan="9">国际标准证书（RSA/ECC）</td>
 <td rowspan="7">Linux 系统</td>
 <td> <a href="https://cloud.tencent.com/document/product/400/50874">宝塔面板 SSL 证书安装</a></td>
 </tr>
@@ -39,7 +39,7 @@
 <td><a href="https://cloud.tencent.com/document/product/400/47358">Weblogic 服务器证书安装</a></td>
 </tr>
 <tr>
-<td rowspan="3">国密标准证书</td>
+<td rowspan="3">国密标准证书（SM2）</td>
 <td rowspan="2">Linux 系统</td>
 <td><a href="https://cloud.tencent.com/document/product/400/47359">Apache 服务器国密证书安装</a></td>
 </tr>
@@ -57,6 +57,8 @@
 - [安装部署 SSL 证书到负载均衡（CLB）指引](https://cloud.tencent.com/document/product/400/6502)
 - [安装部署 SSL 证书到内容分发网络（CDN）指引 ](https://cloud.tencent.com/document/product/400/51804)
 - [安装部署 SSL 证书到 Web 应用防火墙（WAF）指引](https://cloud.tencent.com/document/product/400/51803)
+- [安装部署 SSL 证书到 DDoS 防护指引](https://cloud.tencent.com/document/product/400/56290)
+- [安装部署 SSL 证书到云直播（CSS）指引](https://cloud.tencent.com/document/product/400/56291)
 - [腾讯云实现全站 HTTPS 方案](https://cloud.tencent.com/document/product/400/6813)
 
 ## [使用 “云市场” 的证书安装服务](id:service)

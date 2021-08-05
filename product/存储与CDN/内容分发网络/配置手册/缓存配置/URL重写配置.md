@@ -21,7 +21,7 @@
 <img src="https://main.qcloudimg.com/raw/189b7ddd0b5767e6d259dce3bfd4db8e.png"  style="height:300px"></img>
 
 **配置约束**
-+ 单个域名至多可添加10条重写规则。
++ 单个域名至多可添加100条重写规则。
 + 多条规则支持调整优先级：底部优先级大于顶部。
 + 待重写 URL：以/开头，支持全路径匹配（例如：/test/a.jpg）和通配符 `*` 匹配（例如：/test/\*/\*.jpg）。若指定文件目录，不能以“/”结尾（例如：/test）。
 + 目标 Host：默认为当前域名（默认带http头），可修改为其他域名，必须包含 `http://` 或 `https://` 头。

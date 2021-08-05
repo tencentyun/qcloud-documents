@@ -12,7 +12,7 @@
 ![](https://main.qcloudimg.com/raw/fe98006fb24a8a22605c8c3b4b6250ca.png)
 ## 前提条件
 - 自动编排响应功能目前正在试用中，获得内测邀请的用户可获得免费试用资格，您可通过 [申请内测](https://cloud.tencent.com/apply/p/w5svog9t1nj) 进行使用。
-- 使用 WAF 巡检报表剧本需先开通 [Web 应用防火墙](https://buy.cloud.tencent.com/buy/wsm) 服务。
+- 使用 WAF 巡检报表剧本需先开通 [Web 应用防火墙](https://buy.cloud.tencent.com/buy/waf) 服务。
 
 
 ## 操作步骤

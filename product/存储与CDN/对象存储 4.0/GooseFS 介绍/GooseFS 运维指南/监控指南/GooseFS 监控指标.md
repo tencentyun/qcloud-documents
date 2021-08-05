@@ -2,15 +2,16 @@
 
 Goosefs 监控指标记录了客户端、集群、Master 节点、 Worker 节点、进程的运行状态。
 
-1. 按照统计维度，监控指标可以分成以下 4 大类：
+1. 按照统计维度，监控指标可以分成以下四大类：
  - **Gauge**：记录一个事件的瞬时数值，该数值可增可减，一般用来反映系统运行状态。
  - **Meter**：统计事件频率，即固定时间周期内事件的发生次数，如每分钟、每5分钟，每15分钟内的请求数。
  - **Counter**：统计事件发生的总次数，与 Gauge 不同的点在于该数值只增不减，一般用来记录访问请求次数等数据。
  - **Timer**：统计事件的频率和分布情况，该指标可以认为 Histogram 指标和 Meter 指标的结合，Histogram 指标用于统计耗时分布，Meter 指标用于统计 QPS；如果需要同时统计频率和耗时的时候可以使用该指标。
 
->!更多监控指标分类可参见 [Metrics Library 文档](https://metrics.dropwizard.io/3.1.0/getting-started)。GooseFS 目前提供的监控指标只有上述 4 种类型。
+>!更多监控指标分类可参见 [Metrics Library 文档](https://metrics.dropwizard.io/3.1.0/getting-started)。GooseFS 目前提供的监控指标只有上述4种类型。
+>
 
-2. 按照数据采集来源，监控指标可以分为以下 2 大类：
+2. 按照数据采集来源，监控指标可以分为以下两大类：
  - **集群状态指标**：集群状态指标包括了 Cluster、Master 和 Worker 维度的监控数据，这些监控指标可以反应整个集群及集群下的每个节点的运行状态。这类指标的记录格式如下：
 ```plaintext
 Master.[metricName].[tag1].[tag2]...
@@ -21,9 +22,7 @@ Master.[metricName].[tag1].[tag2]...
 [processType].[metricName].[tag1].[tag2]...[hostName]
 ```
 
-
-
-## 1. Cluster 监控指标
+## Cluster 监控指标
 
 GooseFS 集群化部署时，客户端和 Worker 节点会周期性地通过心跳将监控指标发送到 Master 节点，可以通过 goosefs.master.worker.heartbeat.interval 和 goosefs.user.metrics.heartbeat.interval 分别设置 Worker 节点和客户端监控指标的心跳周期。
 
@@ -58,8 +57,7 @@ Cluster 级别的监控指标列表如下：
 | Cluster.Workers                      | GAUGE        | Total number of active workers inside the cluster            |
 
 
-
-## 2. **Master 监控指标**
+## Master 监控指标
 
 Master 监控指标有两大类，其一是默认指标，Master 运行过程中会默认记录这些指标；其二是动态监控指标。默认的 Master 监控指标如下：
 
@@ -129,12 +127,9 @@ Master 监控指标有两大类，其一是默认指标，Master 运行过程中
 | Master.                      | TIMER        | The duration statistics of RPC calls exposed on leading master |
 
 
-
-## 3. **Worker 监控指标**
+## Worker 监控指标
 
 Worker 监控指标有两大类，其一是默认指标，Worker 运行过程中会默认记录这些指标；其二是动态监控指标。默认的 Worker 监控指标如下：
-
-
 
 | **指标名称**                            | **指标类型** | **指标描述**                                                 |
 | --------------------------------------- | ------------ | ------------------------------------------------------------ |
@@ -173,20 +168,15 @@ Worker 监控指标有两大类，其一是默认指标，Worker 运行过程中
 
 动态监控指标如下：
 
-
-
 | **指标名称**               | **指标类型** | **指标描述**                                                 |
 | -------------------------- | ------------ | ------------------------------------------------------------ |
 | Worker.UfsSessionCount-Ufs | GAUGE        | The total number of currently opened UFS sessions to connect to the given |
 | Worker.                    | TIMER        | The duration statistics of RPC calls exposed on workers      |
 
 
-
-## 4. **客户端监控指标**
+## 客户端监控指标
 
 客户端监控指标会通过指定的用户 ID 或者客户端的 IP 维度汇聚，如果已经在 GooseFS 中注册好用户 ID，则会优先按照用户 ID 维度汇聚。用户 ID 可以通过 goosefs.user.app.id 指定。客户端监控指标如下：
-
-
 
 | **指标名称**                            | **指标类型** | **指标描述**                                                 |
 | --------------------------------------- | ------------ | ------------------------------------------------------------ |
@@ -232,8 +222,7 @@ Worker 监控指标有两大类，其一是默认指标，Worker 运行过程中
 | Client.CacheUnremovableFiles            | COUNTER      | Amount of bytes unusable managed by the client cache.        |
 
 
-
-## 5. **进程监控指标**
+## 进程监控指标
 
 进程监控指标可以在 Cluster、Master 和 Worker 中收集并汇聚。主要包括 JVM 信息、垃圾回收信息、内存占用信息三大类。
 

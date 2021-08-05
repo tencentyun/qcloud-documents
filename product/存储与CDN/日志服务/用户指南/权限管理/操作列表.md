@@ -19,7 +19,6 @@
 | deleteMachineGroup        | 删除机器组                     |
 | getMachineStatus          | 查看机器组状态                 |
 | pushLog                   | 上传日志                       |
-| searchLog                 | 查询日志                       |
 | SearchLog                 | 查询日志                       |
 | downloadLog               | 下载日志                       |
 | getCursor                 | 根据时间获取游标               |

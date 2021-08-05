@@ -20,15 +20,18 @@
 [](id:step1)
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 输入应用名称，例如 TestTRTC，单击【创建】。
-![](https://main.qcloudimg.com/raw/d6c9d22a758c63ecc3b859b4a7f32839.png)
+2. 单击【新建应用】输入应用名称，例如 `TestTRTC`；若您已创建应用可单击【选择已有应用】。
+3. 根据实际业务需求添加或编辑标签，单击【创建】。
+![](https://main.qcloudimg.com/raw/f04d288ed091c98a5e8056eb86fb49e8.png)
+>?
+>- 应用名称只能包含数字、中英文字符和下划线，长度不能超过15个字符。
+>- 标签用于标识和组织您在腾讯云的各种资源。例如：企业可能有多个业务部门，每个部门有1个或多个 TRTC 应用，这时，企业可以通过给 TRTC 应用添加标签来标记部门信息。标签并非必选项，您可根据实际业务需求添加或编辑。
 
 [](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/ab5f9abefad7f60255cc0077d96445fe.png)
-
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
@@ -37,7 +40,7 @@
 3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-  <img src="https://main.qcloudimg.com/raw/4002c5b27f821455c368225557c5a028.png">
+  <img src="https://main.qcloudimg.com/raw/575902219de19b4f2d4595673fa755d4.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -64,6 +67,21 @@
 >- 小程序 &lt;live-player&gt; 和 &lt;live-pusher&gt; 标签需要在手机微信上才能使用，微信开发者工具上无法使用。
 >- 为了小程序能够使用腾讯云房间管理服务，您需要在手机微信上开启调试功能：手机微信扫码二维码后，单击右上角【...】>【打开调试】。
 ![](https://main.qcloudimg.com/raw/ba85130b18cac0f713994a3a5feb2e83.png)
+
+[](id:online)
+## 上线/部署到正式环境
+- 请申请域名并做备案。
+- 请将服务端代码部署到申请的服务器上。
+- 请将以下域名配置到小程序控制台 request 合法域名里：
+<table>
+<tr><th>域名</th><th>说明</th></tr>
+<tr>
+<td><code>https://cloud.tencent.com</code></td>
+<td>推流域名</td>
+</tr><tr>
+<td><code>https://yun.tim.qq.com</code></td>
+<td>业务域名</td>
+</tr></table>
 
 
 ## 常见问题

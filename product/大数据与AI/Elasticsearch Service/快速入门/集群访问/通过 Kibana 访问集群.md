@@ -12,22 +12,20 @@ Kibana 页面有两个入口，分别位于集群列表页和集群详情页，�
 Kibana 页面访问需要登录，帐号为 elastic，密码为用户创建集群时设置的 Kibana 密码。如果忘记密码，可以在集群详情页重置密码。出于安全考虑，用户可以配置 Kibana 公网地址的访问黑白名单来提高安全防护，详见 [Kibana 访问设置](https://cloud.tencent.com/document/product/845/16992)。
 
 - 若“ES 集群用户登录认证”未开启，Kibana 登录页如下图所示：
-![](https://main.qcloudimg.com/raw/255828a76ab2dd7a20ce6a03b4f2fd24.png)
+![](https://main.qcloudimg.com/raw/ff820fc88951faed4119bb9edbd8e8d7.png)
 - 若“ES 集群用户登录认证”已开启，Kibana 登录页如下图所示：
-![](https://main.qcloudimg.com/raw/e03ff03e0abd46c6da726c8eae27a385.png)
+![](https://main.qcloudimg.com/raw/9f7ebeef7db01d9f04fc9114299d4ad5.png)
 
 ### 访问
 登录 Kibana 页面后，如果用户是第一次使用，集群尚未存入用户自定义的索引数据，页面会提示用户配置索引，具体参考 [索引添加及访问](#jump)。
 ![](https://main.qcloudimg.com/raw/f3fe032cbea6e431856fa3c16dbf9342.png)
 
-## 索引添加及访问（存储数据）[](id:jump)
-
+[](id:jump)
+## 索引添加及访问（存储数据）
 在 Kibana 页面左侧菜单，单击【Dev Tools】进入开发工具页面，用户可以通过控制台，向集群发送各种操作请求。下面将通过城市信息的数据存储操作的示例，演示如何通过控制台操作集群和存储数据。
 
 ### 添加索引
-
 #### 定义索引的 mapping
-
 索引名称为 china，类型名称为 city，以及详细的字段及类型信息。其中字段 location 的类型是 geo_point，可以表示地理位置信息；level 是对象类型，包含二级字段信息。关于字段类型说明，可查看官方文档 [Field Datatypes](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/mapping-types.html)。
 ![](https://main.qcloudimg.com/raw/4ccd6c4f2c5eef0cdc9d25a0819ffcfc.png)
 ```
@@ -63,13 +61,11 @@ PUT china/city/wuhan
 ```
 
 #### 查询单个文档
-
 ```
 GET /china/city/wuhan
 ```
 
 #### 添加多个文档
-
 ```
 POST _bulk
 { "index" : { "_index": "china", "_type" : "city", "_id" : "beijing" } }
@@ -86,26 +82,24 @@ POST _bulk
 {"name":"杭州市","province":"浙江省拱墅区环城北路316号","location":{"lat":30.2753694112,"lon":120.1509063337},"x":7530,"level":{"level":2,"range":19,"name":"新一线城市"},"y":4182,"cityNo":6}
 ```
 
-#### 查询多个文档：
-
+#### 查询多个文档
 ```
 GET /china/city/_search
 ```
 
 ### 访问索引
 #### 配置 Kibana 访问索引
-为了使用 Kibana，需要配置至少一个可以匹配到的索引。输入上文创建的索引 china，单击【Next step】进入下一步：
+为了使用 Kibana，需要配置至少一个可以匹配到的索引。输入上文创建的索引 china，单击【Next step】进入下一步。
 ![](https://main.qcloudimg.com/raw/62c1496812dbab3bb7b9a87ec269929f.png)
-**配置时间过滤字段**用于通过时间过滤索引中的数据，如果索引中没有表示时间的字段，可以选择不使用时间过滤功能。单击【Create index pattern】创建索引模式：
+**配置时间过滤字段**用于通过时间过滤索引中的数据，如果索引中没有表示时间的字段，可以选择不使用时间过滤功能。单击【Create index pattern】创建索引模式。
 ![](https://main.qcloudimg.com/raw/69338e77375c153c3d381e52dbccd4d5.png)
-查看索引对应的字段：
+查看索引对应的字段。
 ![](https://main.qcloudimg.com/raw/dba7c606063277a509f79c5838d2f34a.png)
-单击左侧菜单【Discover】，查看该索引下已经添加的文档：
+单击左侧菜单【Discover】，查看该索引下已经添加的文档。
 ![](https://main.qcloudimg.com/raw/8a4eb067893549fe16f38e0e05e44fcb.png)
 
 ## 可视化查询分析
-
-Kibana 拥有可视化统计分析数据的能力，单击左侧菜单【Visualize】， 可以配置各种可视化的图表进行数据的分析。例如：要统计上文中，china 索引下的不同等级。
+Kibana 拥有可视化统计分析数据的能力，单击左侧菜单【Visualize】， 可以配置各种可视化的图表进行数据的分析。例如，要统计上文中，china 索引下的不同等级。
 ![](https://main.qcloudimg.com/raw/21bb9c91da491cf4cdfddbd12c64f4b4.png)
 ![](https://main.qcloudimg.com/raw/8cf36db4d3988ba69485719b650dd39e.png)
 配置指标是 count，按字段 level.level 进行分组聚合统计，单击【Save】保存。

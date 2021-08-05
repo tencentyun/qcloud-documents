@@ -3,11 +3,11 @@
 
 Elasticsearch 是一个广泛应用于全文搜索领域的开源搜索引擎，它可以快速地索引、搜索和分析海量的文本数据。腾讯云 ES 是基于 Elasticsearch 构建的高可用、可伸缩的云端托管 Elasticsearch 服务，对结构化和非结构化的数据都有良好的支持，同时还提供了简单易用的 RESTful API 和各种语言的客户端，方便快速搭建稳定的搜索服务。
 
-本文将针对搜索场景，使用 [腾讯云 ES 官方文档](https://cloud.tencent.com/document/product/845) 作为语料，介绍如何使用腾讯云 ES+SCF 快速搭建搜索服务。搜索服务界面示例如下：
+本文将针对搜索场景，使用腾讯云 ES 官方文档作为语料，介绍如何使用腾讯云 ES+SCF 快速搭建搜索服务。搜索服务界面示例如下：
 ![image](https://main.qcloudimg.com/raw/c837b6b478b53cc821765588a9403744.png)
 
 ## 资源准备
-只需要一个 ES 集群。在腾讯云购买一个 ES 集群，集群的规模根据搜索服务的 QPS 和存入的文档的数据量而定。具体可参考 [节点类型存储配置建议](https://cloud.tencent.com/document/product/845/19551)。
+只需要一个 ES 集群。在腾讯云购买一个 ES 集群，集群的规模根据搜索服务的 QPS 和存入的文档的数据量而定。具体可参考 [集群规格和容量配置评估](https://cloud.tencent.com/document/product/845/19551)。
 
 ## 部署搜索服务
 使用腾讯云**免费**的 SCF 工具部署搜索服务的前端界面和后台服务。
@@ -19,13 +19,13 @@ Elasticsearch 是一个广泛应用于全文搜索领域的开源搜索引擎，
 ![](https://main.qcloudimg.com/raw/911af3571ffa69053edfd1a03dfebd19.png)
 4. 首先将 [代码 zip 包](https://es-bot-1254139681.cos.ap-guangzhou.myqcloud.com/myserver.zip) 下载到本地。然后在**函数代码**页的**提交方法**中选择上传本地 zip 包，并选择刚下载的 zip 包，单击【保存】。
 ![](https://main.qcloudimg.com/raw/c8e23480efafc1b7f949271006939b0b.png)
-5. 在**函数代码**页修改代码。需要修改的文件有`index.py`和`index.html`：
- - `index.py`中的`es_endpoint`修改为您的 ES 集群的内网地址，填写格式如：`http://10.0.3.14:9200`。
- - `index.py`中的`es_password`修改为白金版 ES 密码，如果不是白金版则不修改。
- - `index.html`中的`server_name`修改为您创建的 SCF 函数的函数名称，默认为`myserver`。
+5. 在**函数代码**页修改代码。需要修改的文件有 `index.py` 和 `index.html`：
+ - `index.py` 中的 `es_endpoint` 修改为您的 ES 集群的内网地址，填写格式如：`http://10.0.3.14:9200`。
+ - `index.py` 中的 `es_password` 修改为白金版 ES 密码，如果不是白金版则不修改。
+ - `index.html` 中的 `server_name`修改为您创建的 SCF 函数的函数名称，默认为 `myserver`。
 ![image](https://main.qcloudimg.com/raw/92e0188267f8e15c7ae507002a0124e3.png)
 ![image](https://main.qcloudimg.com/raw/c035a9fc3a4247230ad2b1cc49e9f253.png)
->!样例默认使用`es_corpus_0126`作为索引名，请确保该索引没有业务在使用。如需修改，可在`index.py`中修改`es_index`变量。
+>!样例默认使用 `es_corpus_0126` 作为索引名，请确保该索引没有业务在使用。如需修改，可在 `index.py` 中修改 `es_index` 变量。
 6. 在**触发方式**页单击【添加触发方式】，按下图添加 API 网关触发器，并启用集成响应，然后单击【保存】。
 ![](https://main.qcloudimg.com/raw/065c08837097b564c8b7e58032297d32.png)
 7. 可在**触发方式**中看到函数的“访问路径”，单击此路径即可访问页面。

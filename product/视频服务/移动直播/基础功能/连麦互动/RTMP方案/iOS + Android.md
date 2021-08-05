@@ -1,6 +1,6 @@
 ## 功能介绍
 
-TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现推流和拉流功能，但如果想要实现复杂的直播连麦功能，就需要借助我们提供给您的 MLVBLiveRoom 组件，该组件基于云直播（LVB）和即时通信（IM）两个 PAAS 服务组合而成，支持：
+TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现推流和拉流功能，但如果想要实现复杂的直播连麦功能，就需要借助我们提供给您的 MLVBLiveRoom 组件，该组件基于云直播和即时通信（IM）两个 PAAS 服务组合而成，支持：
 
 - 主播创建新的直播间开播，观众进入直播间观看。
 - 主播和观众进行视频连麦互动。
@@ -40,7 +40,9 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 |   iOS    | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/iOS/ImSDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LiveLinkMicDemoOld/LiveRoom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LiveLinkMicDemoOld/LiveRoomUI) |
 | Android  | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom/ui) |
 
-
+>?除上述示例外，针对开发者的接入反馈的高频问题，腾讯云提供有更加简洁的 API-Example 工程，方便开发者可以快速的了解相关 API 的使用，欢迎使用。
+>- **IOS：[MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)** 
+>- **Android：[MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example)** 
 
 
 ### Step2. 申请 License 

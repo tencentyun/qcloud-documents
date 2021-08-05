@@ -4,7 +4,7 @@ trtc-electron-education 是一个开源的 npm 组件，依赖腾讯云的两个
 * IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
 
 ## 组件接入
-```
+``` 
 // yarn 方式引入
 yarn add trtc-electron-education
 // npm 方式引入

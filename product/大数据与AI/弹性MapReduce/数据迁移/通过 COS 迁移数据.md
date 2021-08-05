@@ -22,14 +22,14 @@
 ```
 4. 执行迁移 
 ```shell
-#所有操作都要在工具目录下。如果同时设置了配置文件和命令行参数，以命令行参数为准
+# 所有操作都要在工具目录下。如果同时设置了配置文件和命令行参数，以命令行参数为准
 ./hdfs_to_cos_cmd -h
-#从 HDFS 拷贝到 COS（如果 COS 上已存在文件，则会覆盖）
+# 从 HDFS 拷贝到 COS（如果 COS 上已存在文件，则会覆盖）
 ./hdfs_to_cos_cmd --hdfs_path=/tmp/hive --cos_path=/hdfs/20170224/
-#从 HDFS 拷贝到 COS，同时要拷贝的文件和 COS 的长度一致，则忽略上传（适用于拷贝一次后，重新拷贝）
-#这里只做长度的判断，因为如果将 Hadoop 上的文件摘要算出，开销较大
+# 从 HDFS 拷贝到 COS，同时要拷贝的文件和 COS 的长度一致，则忽略上传（适用于拷贝一次后，重新拷贝）
+# 这里只做长度的判断，因为如果将 Hadoop 上的文件摘要算出，开销较大
 ./hdfs_to_cos_cmd --hdfs_path=/tmp/hive --cos_path=/hdfs/20170224/ -skip_if_len_match
-#完全通过命令行设置参数
+# 完全通过命令行设置参数
 ./hdfs_to_cos_cmd -appid 1252xxxxxx -ak
       AKIDVt55xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -sk
       KS08jDVbVElxxxxxxxxxxxxxxxxxxxxxxxxxx -bucket test -cos_path /hdfs
@@ -50,7 +50,6 @@
 您也可以登录 COS 控制台查看数据是否已经正确迁移过来。
 
 ### 常见问题  
-
 - 请确保填写的配置信息，包括 appID、密钥信息、bucket 和 region 信息正确，以及机器的时间和北京时间一致（如相差1分钟左右是正常的），如果相差较大，请设置机器时间。  
 - 请保证对于 DateNode，拷贝程序所在的机器也可以连接。因 NameNode 有外网 IP 可以连接，但获取的 block 所在的 DateNode 机器是内网 IP，无法连接上，因此建议同步程序放在 Hadoop 的某个节点上执行，保证对 NameNode 和 DateNode 皆可访问。
 - 权限问题，用当前账户使用 Hadoop 命令下载文件，看是否正常，再使用同步工具同步 Hadoop 上的数据。    

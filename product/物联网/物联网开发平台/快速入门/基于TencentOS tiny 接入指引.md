@@ -5,7 +5,7 @@
 ## 前提条件
 
 为了通过下面的步骤快速理解该业务场景，需要做好以下准备工作：
-- 申请 [物联网开发平台服务](https://console.cloud.tencent.com/iotexplorer)，详情请参见 [购买指南](https://cloud.tencent.com/document/product/1081/34731)。
+- 申请 [物联网开发平台服务](https://console.cloud.tencent.com/iotexplorer)，详情请参见 [购买指南](https://cloud.tencent.com/document/product/1081/51938)。
 - 准备 TencentOS-tiny 官方 EVB_MX_Plus 开发板以及一个 ESP8266 Wi-Fi 模组。
 
 ## 控制台操作
@@ -27,7 +27,7 @@
   - 产品品类：选择【智慧城市】>【公共事业】>【路灯照明】。
   - 设备类型：选择“设备”。
   - 认证方式：选择“密钥认证”。
-  - 通信方式：随意选择。
+  - 通信方式：按需选择。
   - 数据协议：默认为“数据模板”。
   - 描述：按照实际需求填写项目描述。
 ![](https://main.qcloudimg.com/raw/6f79d468a05c1bd5dd7dd7357a5c0971.jpg)

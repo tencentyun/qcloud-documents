@@ -24,7 +24,6 @@
 | ------------- | ------------------------------------------------------------ |
 | Protobuf      | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe.proto) |
 
-
 ## 配置参数说明
 | 参数       | 说明                        |
 | ---------- | --------------------------- |
@@ -33,8 +32,7 @@
 | group      | 消费组名称                  |
 | user        | 消费组账号名                |
 | password   | 消费组密码                  |
-| trans2sql  | 是否转换为 SQL 语句    | 
-
+| trans2sql  | 是否转换为 SQL 语句    |
 
 ## [Demo 关键逻辑讲解](id:dgxljjj)
 ### 生产逻辑
@@ -239,6 +237,11 @@ enum DataType {
 其中 bv 字段存储 STRING 和 BYTES 类型的二进制表示，sv 字段存储 INT8/16/32/64/UINT8/16/32/64/DECIMAL 类型的字符串表示，charset 字段存储 STRING 的编码类型。
 
 MySQL/TDSQL 原始类型与 DataType 映射关系如下（对 UNSIGNED 修饰的 MYSQL_TYPE_INT8/16/24/32/64 分别映射为 UINT8/16/32/32/64）：
+
+> ?
+> - `DATE`，`TIME`，`DATETIME` 类型不支持时区。
+> - `TIMESTAMP` 类型支持时区，该类型字段表示：存储时，系统会从当前时区转换为 UTC（Universal Time Coordinated）进行存储；查询时，系统会从 UTC 转换为当前时区进行查询。
+> - 综上，如下表中 "MYSQL_TYPE_TIMESTAMP" 和 "MYSQL_TYPE_TIMESTAMP_NEW" 字段会携带时区信息，用户在消费数据时可自行转换。（例如，DTS 输出的时间格式是带时区的字符串"2021-05-17 07:22:42 +00:00"，其中，"+00:00"表示 UTC 时间，用户在解析和转换的时候需要考虑时区信息。）
 
 | MySQL 字段类型（TDSQL 支持与 MySQL 相同的类型） | 对应的 Protobuf DataType 枚举值 |
 | ------------------------------------------- | ----------------------------- |

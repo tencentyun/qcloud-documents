@@ -1,10 +1,10 @@
 ## 注意事项
 - **前置条件：**请合作方确保 Access Token 已经正常获取，获取方式请参见 [Access Token 获取](https://cloud.tencent.com/document/product/1007/37304)。
-- NONCE ticket 是合作方**前端包含 App 和 H5 等**生成签名鉴权参数之一，启动 H5 或 SDK 人脸核身。
+- **用途：**NONCE ticket 是合作方**前端包含 App 和 H5 等**生成签名鉴权参数之一，启动 H5 或 SDK 人脸核身。
 - API ticket 的 NONCE 类型，其有效期为120秒，且一次性有效，即每次启动 SDK 刷脸都要重新请求 NONCE ticket。
 
 ## 请求
-- **请求 URL：**`https://idasc.webank.com/api/oauth2/api_ticket`
+- **请求 URL：**`https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket`
 - **请求方法**：GET
 - **请求参数：**
 <table><tbody>
@@ -17,21 +17,36 @@
 </tbody></table>
 - **请求示例：**
 ```
-https://idasc.webank.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=NONCE&version=1.0.0&user_id=xxx
+https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=NONCE&version=1.0.0&user_id=xxx
 ```
 
 ## 响应
+
+**响应参数：**
+
+| 参数            | 类型   | 说明                                                         |
+| --------------- | ------ | ------------------------------------------------------------ |
+| code            | String | 0：成功 <br>非0：失败 <br>详情请参见 [SaaS 服务错误码](https://cloud.tencent.com/document/product/1007/47912) |
+| msg             | String | 请求结果描述                                                 |
+| transactionTime | String | 调用接口的时间                                               |
+| tickets         | list   | ticket 返回数组                                               |
+| value           | String | ticket 的值                                                   |
+| expire_time     | String | ticket 失效的绝对时间                                         |
+| expire_in       | int    | ticket 的最大生存时间                                         |
+
 **响应示例：**
 ```
 {
-	"code": "0",
-	"msg": "请求成功",
-	"transactionTime": "20151022044027",
-	"tickets": [{
-		"value": "ticket_string",
-		"expire_in": "120",
-		"expire_time": "20151022044027"
-	}]
+	  "code": "0",
+	  "msg": "请求成功",
+	  "transactionTime": "20151022044027",
+	  "tickets": [
+		{
+			  "value": "ticket_string",
+			  "expire_in": "120",
+			  "expire_time": "20151022044027"
+		}
+	]
 }
 ```
 >!

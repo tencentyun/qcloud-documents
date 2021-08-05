@@ -49,6 +49,10 @@ spec:
        customLablels
          k1: v1
 ```
+<dx-alert infotype="notice" title="">
+如果选择采集类型为“容器文件路径”时，对应的“容器文件路径”<b>不能为软链接</b>，否则会导致软链接的实际路径在采集器的容器内不存在，采集日志失败。
+</dx-alert>
+
 
 ## 日志解析格式
 <dx-tabs>

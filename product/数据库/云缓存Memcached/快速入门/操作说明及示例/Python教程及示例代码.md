@@ -1,4 +1,3 @@
-
 ## 环境及依赖
 环境：在腾讯云 CVM 上安装对应的 Python，[下载地址](https://www.python.org/downloads/)。
 依赖：本例使用 Python-memcached 1.5.4 版本，在 CVM 上安装此客户端，[下载地址](https://pypi.python.org/pypi/python-memcached)。

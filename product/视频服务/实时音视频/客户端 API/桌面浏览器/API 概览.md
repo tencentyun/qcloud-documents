@@ -9,7 +9,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <th>操作系统</th>
 <th width="22%">浏览器类型</th><th>浏览器最低<br>版本要求</th><th width="16%">接收（播放）</th><th width="16%">发送（上麦）</th><th>屏幕分享</th><th>SDK 版本要求</th>
 </tr><tr>
-<td rowspan="4">Mac OS</td>
+<td rowspan="6">Mac OS</td>
 <td>桌面版 Safari 浏览器</td>
 <td>11+</td>
 <td>支持</td>
@@ -42,7 +42,23 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>v4.7.0+</td>
 </tr>
 <tr>
-<td  rowspan="4">Windows</td>
+<td>桌面版微信内嵌网页</td>
+<td>-</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>-</td>
+</tr>
+<tr>
+<td>桌面版企业微信内嵌网页</td>
+<td>-</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>-</td>
+</tr>
+<tr>
+<td rowspan="6">Windows</td>
 <td>桌面版 Chrome 浏览器</td>
 <td>56+</td>
 <td>支持</td>
@@ -51,7 +67,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 </tr>
 <tr>
-<td>桌面版 QQ 浏览器（极速内核）</td>
+<td>桌面版 QQ 浏览器<br>（极速内核）</td>
 <td>10.4+</td>
 <td>支持</td>
 <td>支持</td>
@@ -75,9 +91,43 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>v4.7.0+</td>
 </tr>
 <tr>
+<td>桌面版微信内嵌网页</td>
+<td>-</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>-</td>
+</tr>
+<tr>
+<td>桌面版企业微信内嵌网页</td>
+<td>-</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>-</td>
+</tr>
+<tr>
 <td>iOS 11.1.2+</td>
 <td>移动版 Safari 浏览器</td>
 <td>11+</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+<td>-</td>
+</tr>
+<tr>
+<td>iOS 12.1.4+</td>
+<td>移动版 Chrome 浏览器</td>
+<td>-</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>-</td>
+</tr>
+<tr>
+<td>iOS 14.3+</td>
+<td>移动版 Chrome 浏览器</td>
+<td>-</td>
 <td>支持</td>
 <td>支持</td>
 <td>不支持</td>
@@ -102,14 +152,32 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 </tr>
 <tr>
-<td  rowspan="4">Android</td>
+<td>iOS 12.1.4+ </td>
+<td>企业微信内嵌网页</td>
+<td>-</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>-</td>
+</tr>
+<tr>
+<td rowspan="6">Android</td>
+<td>移动版 Chrome 浏览器</td>
+<td>-</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+<td>-</td>
+</tr>
+<tr>
 <td>移动版 QQ 浏览器</td>
 <td>-</td>
 <td>不支持</td>
 <td>不支持</td>
 <td>不支持</td>
 <td>-</td>
-</tr><tr>
+</tr>
+<tr>
 <td>移动版 UC 浏览器</td>
 <td>-</td>
 <td>不支持</td>
@@ -118,7 +186,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 </tr>
 <tr>
-<td>微信内嵌网页（TBS 内核）</td>
+<td>微信内嵌网页<br>（TBS 内核）</td>
 <td>-</td>
 <td>支持</td>
 <td>支持</td>
@@ -126,7 +194,15 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 </tr>
 <tr>
-<td>微信内嵌网页（XWEB 内核）</td>
+<td>微信内嵌网页<br>（XWEB 内核）</td>
+<td>-</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+<td>-</td>
+</tr>
+<tr>
+<td>企业微信内嵌网页</td>
 <td>-</td>
 <td>支持</td>
 <td>支持</td>
@@ -154,14 +230,14 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 
 ## TRTC
 
->!本文适用于4.x.x版本的 TRTC 桌面浏览器 SDK。
+>!本文适用于4.x.x版本的 TRTC Web SDK。
 
-TRTC 是 [TRTC 桌面浏览器 SDK](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/index.html) 的主入口，通过 TRTC 方法可以创建一个实时音视频通信的客户端对象（Client）和本地音视频流对象（Stream）。TRTC 方法还可以检测浏览器的兼容性，是否支持屏幕分享，以及设置日志级别及日志上传。
+TRTC 是 [TRTC Web SDK](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/index.html) 的主入口，通过 TRTC 方法可以创建一个实时音视频通信的客户端对象（Client）和本地音视频流对象（Stream）。TRTC 方法还可以检测浏览器的兼容性，是否支持屏幕分享，以及设置日志级别及日志上传。
 
 | API                                                                                                              | 描述                                                                                                                                                          |
 | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [VERSION](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#.VERSION)                                 | TRTC 桌面浏览器 SDK 版本号。                                                                                                                                  |
-| [checkSystemRequirements](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#.checkSystemRequirements) | 检测浏览器是否兼容 TRTC 桌面浏览器 SDK。若当前浏览器不兼容 TRTC 桌面浏览器 SDK，建议引导用户去下载最新版本的 Chrome 浏览器。                                  |
+| [VERSION](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#.VERSION)                                 | TRTC Web SDK 版本号。                                                                                                                                  |
+| [checkSystemRequirements](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#.checkSystemRequirements) | 检测浏览器是否兼容 TRTC Web SDK。若当前浏览器不兼容 TRTC Web SDK，建议引导用户去下载最新版本的 Chrome 浏览器。                                  |
 | [isScreenShareSupported](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#.isScreenShareSupported)   | 检测浏览器是否支持屏幕分享。在创建屏幕分享流之前请调用该方法检查当前浏览器是否支持屏幕分享。                                                                  |
 | [getDevices](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#.getDevices)                           | 返回媒体输入输出设备列表。                                                                                                                                    |
 | [getCameras](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#.getCameras)                           | 返回摄像头设备列表。                                                                                                                                          |

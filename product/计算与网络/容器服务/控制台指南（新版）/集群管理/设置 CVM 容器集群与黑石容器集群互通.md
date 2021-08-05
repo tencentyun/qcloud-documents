@@ -27,7 +27,7 @@
 ![](https://main.qcloudimg.com/raw/cdd10b18030ba60e2d73414dfbc24118.png)
 
 ### 申请对等连接
-[提交工单](https://console.cloud.tencent.com/workorder)，并在工单中填写在 [获取信息](#ObtainInformation) 中记录的 “所在地域”、“节点网络”、“容器网络” 和 当前账号的 APPID 信息。
+[在线咨询](https://console.cloud.tencent.com/workorder)，并在工单中填写在 [获取信息](#ObtainInformation) 中记录的 “所在地域”、“节点网络”、“容器网络” 和 当前账号的 APPID 信息。
 
 ### 预期结果
 

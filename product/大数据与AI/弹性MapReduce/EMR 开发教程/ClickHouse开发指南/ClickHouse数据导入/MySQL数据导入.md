@@ -5,10 +5,9 @@
 
 本文示例中，将 MySQL 数据表 test.clickhouse_test 中的数据导入到 ClickHouse 集群中，该表的 Schema 如下：
 ![](https://main.qcloudimg.com/raw/7403cab1c8f0a68fa2fe3ce0227225ab.jpg)
-                         
 
 ## 基于 MySQL 表引擎来实现数据导入（简易方案）
-ClickHouse 的 MySQL 表引擎可以对存储在远程 MySQL 服务器上的数据执行 SELECT 查询。基于这样能力，利用`CREATE ... SELECT * FROM`或者`INSERT INTO ... SELECT * FROM`语句即可完成数据导入。
+ClickHouse 的 MySQL 表引擎可以对存储在远程 MySQL 服务器上的数据执行 SELECT 查询。基于这样能力，利用 `CREATE ... SELECT * FROM` 或者 `INSERT INTO ... SELECT * FROM` 语句即可完成数据导入。
 
 **具体步骤：**
 - 步骤1：在 ClickHouse 中创建 MySQL 表引擎。
@@ -18,7 +17,7 @@ ClickHouse 的 MySQL 表引擎可以对存储在远程 MySQL 服务器上的数�
 - 步骤3：将步骤1中的外表中数据，导入到 ClickHouse 表中。
 ![](https://main.qcloudimg.com/raw/e869a8ed58e91e9066849fb1073a910d.jpg)
  
-还可以将步骤2/3合并成一个步骤，即采用`CREATE TABLE AS SELECT * FROM`方式来达到同样效果。
+还可以将步骤2/3合并成一个步骤，即采用 `CREATE TABLE AS SELECT * FROM` 方式来达到同样效果。
 
 **ClickHouse 支持 MySQL 外表引擎，是否还有必要将数据导入到 ClickHouse 中？**      
 是非常有必要的。MySQL 外表引擎，本身不存储数据，数据存储在 MySQL 中。在复制查询中，特别是有 JOIN 的情况下，访问外表是相当慢的，甚至不可能完成。该方案有明显缺陷，无法增量导入数据。
@@ -30,14 +29,13 @@ Altinity 提供了一个工具 [clickhouse-mysql-data-reader](https://github.com
 按照官网推荐，使用 [pypy](https://github.com/squeaky-pl/portable-pypy#portable-pypy-distribution-for-linux) 工具能够显著提升 clickhouse-mysql-data-reader 导入数据的性能。
 
 **工具准备**
-
 - 步骤1：下载 [pypy3.6-7.2.0](https://github.com/squeaky-pl/portable-pypy/releases)，解压到 pypy 目录下。
 - 步骤2：安装 clickhouse-mysql。**如果是在腾讯云 ClickHouse 集群，完成下面安装操作后，工具已经集成，开箱即用，无需配置。**
- - 安装 pip：执行`pypy/bin/pypy3 -m ensurepip`。
- - 安装 mysql-replication,clickhouse-driver，执行`pypy/bin/pip3 install mysql-replication`和`pypy/bin/pip3 install clickhouse-driver`。
- - 安装 clickhouse-mysql 并初始化，执行`pypy/bin/pip3 install clickhouse-mysql`，执行`pypy/bin/clickhouse-mysql --install`。
- - 安装 clickhouse-client，执行`yum install -y clickhouse-client`。
- - 安装 mysql-community-devel，执行`yum install -y mysql-community-devel`。
+ - 安装 pip：执行 `pypy/bin/pypy3 -m ensurepip`。
+ - 安装 mysql-replication,clickhouse-driver，执行 `pypy/bin/pip3 install mysql-replication` 和 `pypy/bin/pip3 install clickhouse-driver`。
+ - 安装 clickhouse-mysql 并初始化，执行 `pypy/bin/pip3 install clickhouse-mysql`，执行 `pypy/bin/clickhouse-mysql --install`。
+ - 安装 clickhouse-client，执行 `yum install -y clickhouse-client`。
+ - 安装 mysql-community-devel，执行 `yum install -y mysql-community-devel`。
 - 步骤3：数据库权限准备，所需权限为 SUPER、REPLICATION CLIENT。
 ```
 CREATE USER 'root'@'%' IDENTIFIED BY 'cloud';
