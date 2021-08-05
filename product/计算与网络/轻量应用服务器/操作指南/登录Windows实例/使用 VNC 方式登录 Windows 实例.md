@@ -1,6 +1,5 @@
 
 ## 操作场景
-
 VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接实例的方式。在没有安装或者无法使用远程桌面连接工具，以及通过其他方式均无法登录的情况下，用户可以通过 VNC 登录到实例，观察实例状态，并进行基本的管理操作。
 
 ## 使用限制
@@ -19,8 +18,6 @@ VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接�
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
 2. 在服务器列表中找到对应的实例，并根据实际的操作习惯选择不同的方式进行登录。
  - 在服务器列表中的实例卡片上，单击【登录】。
- ![](https://main.qcloudimg.com/raw/1fdb7b4359714a5b17414d14934f4b7a.png)
- - 进入服务器详情页，选择【概要】，单击“应用信息”栏的【登录】。
- ![](https://main.qcloudimg.com/raw/b02715874a2a1ace630e5109fe48b14e.png)
- - 进入服务器详情页，选择【应用管理】，单击“应用信息”栏的【登录】。
-![](https://main.qcloudimg.com/raw/29302278b87ea73c7b7c99574d94f95c.png)
+![](https://main.qcloudimg.com/raw/fac5bd2895a3717cd2d516ba57fcaf5e.png)
+ - 进入服务器详情页，选择【概要】页签，单击“远程登录”中的【登录】。
+![](https://main.qcloudimg.com/raw/53dc1f62ce0b358cc20b2bcf3c44ac23.png)
