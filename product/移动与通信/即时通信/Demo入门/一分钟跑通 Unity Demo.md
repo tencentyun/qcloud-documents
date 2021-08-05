@@ -41,8 +41,8 @@
 1. 配置 Unity Editor，单击【File】>【Build Setting】，切换至 Android。
 ![](https://main.qcloudimg.com/raw/d913d32e36aa01ff93acf0316d4f103f.png)
 2. 启动一个 Android 的模拟器，单击【 Build And Run】，Demo 就能跑起来。
->?
->- Demo 里面包含了已上线的所有 API，可以测试和作为调用参考，API 文档参见 [SDK API（Flutter）](https://cloud.tencent.com/document/product/269/51940)。
+
+>- Demo 里面包含了已上线的所有 API，可以测试和作为调用参考，API 文档参见 [SDK API（Unity）](https://cloud.tencent.com/document/product/269/54111)。
 > - UI 可能会有部分调整更新，请以最新版为准。
 >
 ![](https://main.qcloudimg.com/raw/e6f3583d0b807af62a27ee753cfa3b53.png)
