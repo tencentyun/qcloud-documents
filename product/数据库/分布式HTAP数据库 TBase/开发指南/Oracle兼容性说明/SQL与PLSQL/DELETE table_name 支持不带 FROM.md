@@ -1,7 +1,7 @@
 
 通常标准的 SQL 语法在 DELETE 时需要带 FROM 关键字，如 `DELETE FROM table WHERE expr`，Oracle 中可以省略 FROM 关键字。
 
-TDSQL PostgreSQL 版（Oracle 兼容）兼容 DELETE 时省略 FROM 关键字用法。
+TDSQL PostgreSQL版（Oracle 兼容）兼容 DELETE 时省略 FROM 关键字用法。
 
 ## 语法
 ```
