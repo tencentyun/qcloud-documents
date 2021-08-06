@@ -8,7 +8,7 @@
 2. 准备 Spring Cloud 应用镜像文件。我们同时为您提供了 Spring Cloud 应用 Demo 代码库：
 [Demo 代码仓库 >>](https://github.com/tencentyun/tse-simple-demo)
 
-3. 上传 Spring Cloud 应用镜像文件至 TKE 镜像仓库。具体操作请参见 [镜像仓库快速入门](https://cloud.tencent.com/document/product/1141/50332#null)。
+3. 上传 Spring Cloud 应用镜像文件至 TKE 镜像仓库。具体操作请参见 [镜像仓库快速入门](https://cloud.tencent.com/document/product/1141/50332)。
 
 4. 在 [TSE 控制台](https://console.cloud.tencent.com/tse) 创建 zookeeper 注册中心实例。具体操作请参见 [创建微服务引擎实例](https://cloud.tencent.com/document/product/1364/58416)。
 <dx-alert infotype="explain" title="">
