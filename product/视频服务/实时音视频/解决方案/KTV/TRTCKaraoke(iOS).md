@@ -42,10 +42,10 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 
 | API                                 | 描述             |
 | ----------------------------------- | --------------- |
-| [startPlayMusic](#startPlayMusic)   | 开始播放音乐。 	|
-| [stopPlayMusic](#stopPlayMusic)     | 停止播放音乐。  	|
-| [pausePlayMusic](#pausePlayMusic)   | 暂停播放音乐。		|
-| [resumePlayMusic](#resumePlayMusic) | 恢复播放音乐。		|
+| [startPlayMusic](#startplaymusic)   | 开始播放音乐。 	|
+| [stopPlayMusic](#stopplaymusic)     | 停止播放音乐。  	|
+| [pausePlayMusic](#pauseplaymusic)   | 暂停播放音乐。		|
+| [resumePlayMusic](#resumeplaymusic) | 恢复播放音乐。		|
 
 ### 麦位管理接口
 
@@ -100,6 +100,7 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 | [acceptInvitation](#acceptinvitation) | 接受邀请。       |
 | [rejectInvitation](#rejectinvitation) | 拒绝邀请。       |
 | [cancelInvitation](#cancelinvitation) | 取消邀请。       |
+
 
 [](id:TRTCKaraokeRoomDelegate)
 ## TRTCKaraokeRoomDelegate API 概览
@@ -158,9 +159,9 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 
 | API                                               | 描述               |
 | ------------------------------------------------- | ----------------- |
-| [onMusicProgressUpdate](#onMusicProgressUpdate)   | 歌曲播放进度的回调。 |
-| [onMusicPrepareToPlay](#onMusicPrepareToPlay)     | 准备播放音乐的回调。 |
-| [onMusicCompletePlaying](#onMusicCompletePlaying) | 播放完成音乐的回调。 |
+| [onMusicProgressUpdate](#onmusicprogressupdate)   | 歌曲播放进度的回调。 |
+| [onMusicPrepareToPlay](#onmusicpreparetoplay)     | 准备播放音乐的回调。 |
+| [onMusicCompletePlaying](#onmusiccompleteplaying) | 播放完成音乐的回调。 |
 
 ## SDK 基础函数
 
