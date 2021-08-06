@@ -100,7 +100,7 @@ RTC 连麦互动直播需要在开始接入前，先开通腾讯云 [**实时音
 > !
 > - 本文提到的生成 UserSig 的方案是在客户端代码中配置 UserSig，该UserSig 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此 **该方法仅适合本地跑通 Demo 和功能调试** 。
 > - 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
-6. 在播放端，推荐使用CDN播放，所以需要在 [实时音视频控制台](https://console.cloud.tencent.com/trtc/app) 开启**旁路推流**功能。
+6. 在播放端，推荐使用 CDN 播放，所以需要在 [实时音视频控制台](https://console.cloud.tencent.com/trtc/app) 开启**旁路推流**功能。
 <img src="https://main.qcloudimg.com/raw/f5f2ae04edfb169ec78d2bca1fb10321.png" width="500">
 
 > ?在服务开通后，建议先可以编译和体验一下上述示例代码章节中腾讯云提供的移动直播的 API-Example 工程，配合上下文可以快速的了解相关 API 的使用。
@@ -162,7 +162,7 @@ player.startPlay("https://3891.liveplay.myqcloud.com/live/streamid.flv");
 ![](https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/blog/min.helloworld/24e495dd1a910f53069237ecdf28491e.jpg)
 #### 1. 主播 RTC 推流
 
-主播 A 开始推流，调用 `V2TXLivePusher`组件开始主播 A 的推流。
+主播 A 开始推流，调用 `V2TXLivePusher` 组件开始主播 A 的推流。
 
 ```java
 V2TXLivePusher pusherA = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
@@ -205,7 +205,7 @@ pusherB.startPush(pushURLB);
 
 #### 4. 进入连麦状态
 
-主播 A 调用 `V2TXLivePlayer` 使用RTC协议拉取放**连麦观众 B** 的流。
+主播 A 调用 `V2TXLivePlayer` 使用 RTC 协议拉取放**连麦观众 B** 的流。
 
 ```java
 V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
@@ -300,7 +300,7 @@ V2TXLivePusher pusherA = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RT
 pusherA.startPush(pushURLA);
 :::
 </dx-codeblock>
-2. 主播 B 开始推流，调用 `V2TXLivePusher`组件开始主播 B 的推流。
+2. 主播 B 开始推流，调用 `V2TXLivePusher` 组件开始主播 B 的推流。
 <dx-codeblock>
 ::: java java
 V2TXLivePusher pusherB = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
