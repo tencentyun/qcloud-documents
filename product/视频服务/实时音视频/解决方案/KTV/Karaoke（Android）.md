@@ -66,26 +66,26 @@
 
 ### 用户 A
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如下图示：
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_a1.PNG" width="320"/>
+<img src="https://main.qcloudimg.com/raw/4b972d129fb39758086a606bb48b19f9.png" width="320"/>
 2. 单击【创建房间】，如下图示：
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_a2.jpg" width="320"/>
+<img src="https://main.qcloudimg.com/raw/0640bab20dcb1abdd22cb498bc460050.jpg" width="320"/>
 3. 输入房间主题，单击【一起嗨歌】。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如下图示：
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_b1.PNG" width="320"/>
+<img src="https://main.qcloudimg.com/raw/02f779455f1489b8e942f4077d6f8af8.png" width="320"/>
 2. 输入用户 A 创建的房间号，单击【进入房间】。<br>
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_b2.jpg" width="320"/>
+<img src="https://main.qcloudimg.com/raw/c08662b3c3ba3007f5797e1305e4792d.jpg" width="320"/>
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_b3.jpg" width="320"/>
+<img src="https://main.qcloudimg.com/raw/a4ba7787027e1bad1d8292e1793e5d97.jpg" width="320"/>
 
 [](id:model)
 
 ## 实现自定义 UI 界面
 
 [源码](https://github.com/tencentyun/TUIKaraoke/tree/main/Android/Source/src/main/java/com/tencent/liteav/trtcKaraoke) 中的 Source 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCKaraokeRoom，您可以在`TRTCKaraokeRoom.java`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_form.png">
+![](https://main.qcloudimg.com/raw/0b0c82a5886bcecf5f7b295350336a63.png)
 
 [](id:model.step1)
 ### 步骤1：集成 SDK
