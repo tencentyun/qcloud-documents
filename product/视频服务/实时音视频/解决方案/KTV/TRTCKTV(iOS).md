@@ -1,18 +1,19 @@
-TRTCKtvRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的组件，支持以下功能：
+TRTCKaraokeRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的组件，支持以下功能：
 
-- 房主创建新的 KTV 房间开播，听众进入 KTV 房间收听/互动。
+- 房主创建新的 Karaoke 房间开播，听众进入 Karaoke 房间收听/互动。
 - 房主可以管理点歌、将座位上的麦上主播踢下麦。
 - 房主还能对座位进行封禁，其他听众就不能再进行申请上麦了。
 - 听众可以申请上麦，变成麦上主播，上麦后可以点歌和唱歌，也可以随时下麦成为普通的听众。
 - 支持发送礼物和各种文本、自定义消息，自定义消息可用于实现弹幕、点赞等。
 
-TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [KTV（iOS）](https://cloud.tencent.com/document/product/647/59402)。
+TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [Karaoke（iOS）](https://cloud.tencent.com/document/product/647/59402?!editLang=zh&!preview)。
 
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时语音聊天组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 AVChatroom 实现聊天室的功能，同时，通过 IM 的属性接口来存储麦位表等房间信息，邀请信令可以用于上麦申请/抱麦申请。
 
 
-<h2 id="TRTCKtvRoom">TRTCKtvRoom API 概览</h2>
+[](id:TRTCKaraokeRoom)
+## TRTCKaraokeRoom API 概览
 
 ### SDK 基础函数
 
@@ -21,7 +22,7 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | [sharedInstance](#sharedinstance)               | 获取单例对象。           |
 | [destroySharedInstance](#destroysharedinstance) | 销毁单例对象。           |
 | [setDelegate](#setdelegate)                     | 设置事件回调。           |
-| [setDelegateQueue](#setdelegatequeue)       | 设置事件回调所在的线程。 |
+| [setDelegateQueue](#setdelegatequeue)	          | 设置事件回调所在的线程。 |
 | [login](#login)                                 | 登录。                   |
 | [logout](#logout)                               | 登出。                   |
 | [setSelfProfile](#setselfprofile)               | 修改个人信息。           |
@@ -41,10 +42,10 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | API                                 | 描述             |
 | ----------------------------------- | --------------- |
-| [startPlayMusic](#startplaymusic)   | 开始播放音乐。 	|
-| [stopPlayMusic](#stopplaymusic)     | 停止播放音乐。  	|
-| [pausePlayMusic](#pauseplaymusic)   | 暂停播放音乐。		|
-| [resumePlayMusic](#resumeplaymusic) | 恢复播放音乐。		|
+| [startPlayMusic](#startPlayMusic)   | 开始播放音乐。 	|
+| [stopPlayMusic](#stopPlayMusic)     | 停止播放音乐。  	|
+| [pausePlayMusic](#pausePlayMusic)   | 暂停播放音乐。		|
+| [resumePlayMusic](#resumePlayMusic) | 恢复播放音乐。		|
 
 ### 麦位管理接口
 
@@ -100,7 +101,8 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | [rejectInvitation](#rejectinvitation) | 拒绝邀请。       |
 | [cancelInvitation](#cancelinvitation) | 取消邀请。       |
 
-<h2 id="TRTCKtvRoomDelegate">TRTCKtvRoomDelegate API 概览</h2>
+[](id:TRTCKaraokeRoomDelegate)
+## TRTCKaraokeRoomDelegate API 概览
 
 ### 通用事件回调
 
@@ -156,9 +158,9 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | API                                               | 描述               |
 | ------------------------------------------------- | ----------------- |
-| [onMusicProgressUpdate](#onmusicprogressupdate)   | 歌曲播放进度的回调。 |
-| [onMusicPrepareToPlay](#onmusicpreparetoplay)     | 准备播放音乐的回调。 |
-| [onMusicCompletePlaying](#onmusiccompleteplaying) | 播放完成音乐的回调。 |
+| [onMusicProgressUpdate](#onMusicProgressUpdate)   | 歌曲播放进度的回调。 |
+| [onMusicPrepareToPlay](#onMusicPrepareToPlay)     | 准备播放音乐的回调。 |
+| [onMusicCompletePlaying](#onMusicCompletePlaying) | 播放完成音乐的回调。 |
 
 ## SDK 基础函数
 
@@ -166,14 +168,14 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### sharedInstance
 
-获取 [TRTCKtvRoom](https://cloud.tencent.com/document/product/647/45737) 单例对象。
+获取 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59402?!editLang=zh&!preview) 单例对象。
 
 ```Objective-C
 /**
-* 获取 TRTCKtvRoom 单例对象
+* 获取 TRTCKaraokeRoom 单例对象
 *
-* - returns: TRTCKtvRoom 实例
-* - note: 可以调用 {@link TRTCKtvRoom#destroySharedInstance()} 销毁单例对象
+* - returns: TRTCKaraokeRoom 实例
+* - note: 可以调用 {@link TRTCKaraokeRoom#destroySharedInstance()} 销毁单例对象
 */
 + (instancetype)sharedInstance NS_SWIFT_NAME(shared());
 ```
@@ -181,36 +183,36 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### destroySharedInstance
 
-销毁 [TRTCKtvRoom](https://cloud.tencent.com/document/product/647/59402) 单例对象。
+销毁 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59402?!editLang=zh&!preview) 单例对象。
 
->?销毁实例后，外部缓存的 TRTCKtvRoom 实例无法再使用，需要重新调用 [sharedInstance](#sharedInstance) 获取新实例。
+>?销毁实例后，外部缓存的 TRTCKaraokeRoom 实例无法再使用，需要重新调用 [sharedInstance](#sharedInstance) 获取新实例。
 
 ```Objective-C
 /**
-* 销毁 TRTCKtvRoom 单例对象
+* 销毁 TRTCKaraokeRoom 单例对象
 *
-* - note: 销毁实例后，外部缓存的 TRTCKtvRoom 实例不能再使用，需要重新调用 {@link TRTCKtvRoom#sharedInstance()} 获取新实例
+* - note: 销毁实例后，外部缓存的 TRTCKaraokeRoom 实例不能再使用，需要重新调用 {@link TRTCKaraokeRoom#sharedInstance()} 获取新实例
 */
 + (void)destroySharedInstance NS_SWIFT_NAME(destroyShared());
 ```
 
 ### setDelegate
 
-[TRTCKtvRoom](https://cloud.tencent.com/document/product/647/59402) 事件回调，您可以通过 TRTCKtvRoomDelegate 获得 [TRTCKtvRoom](https://cloud.tencent.com/document/product/647/45737) 的各种状态通知。
+[TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59402?!editLang=zh&!preview) 事件回调，您可以通过 TRTCKaraokeRoomDelegate 获得 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59402?!editLang=zh&!preview) 的各种状态通知。
 
 ```Objective-C
 /**
 * 设置组件回调接口
 * 
-* 您可以通过 TRTCKtvRoomDelegate 获得 TRTCKtvRoom 的各种状态通知
+* 您可以通过 TRTCKaraokeRoomDelegate 获得 TRTCKaraokeRoom 的各种状态通知
 *
 * - parameter delegate 回调接口
-* - note: TRTCKtvRoom 中的回调事件，默认是在 Main Queue 中回调给您；如果您需要指定事件回调所在的队列，可使用 {@link TRTCKtvRoom#setDelegateQueue(queue)}
+* - note: TRTCKaraokeRoom 中的回调事件，默认是在 Main Queue 中回调给您；如果您需要指定事件回调所在的队列，可使用 {@link TRTCKaraokeRoom#setDelegateQueue(queue)}
 */
-- (void)setDelegate:(id<TRTCKtvRoomDelegate>)delegate NS_SWIFT_NAME(setDelegate(delegate:));
+- (void)setDelegate:(id<TRTCKaraokeRoomDelegate>)delegate NS_SWIFT_NAME(setDelegate(delegate:));
 ```
 
->?setDelegate 是 TRTCKtvRoom 的代理回调。   
+>?setDelegate 是 TRTCKaraokeRoom 的代理回调。   
 
 ### setDelegateQueue
 
@@ -220,7 +222,7 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 /**
 * 设置事件回调所在的队列
 *
-* - parameter queue 队列，TRTCKtvRoom 中的各种状态通知回调，会派发到您指定的queue。
+* - parameter queue 队列，TRTCKaraokeRoom 中的各种状态通知回调，会派发到您指定的queue。
 */
 - (void)setDelegateQueue:(dispatch_queue_t)queue NS_SWIFT_NAME(setDelegateQueue(queue:));
 
@@ -230,7 +232,7 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数  | 类型             | 含义                                                         |
 | ----- | ---------------- | ------------------------------------------------------------ |
-| queue | dispatch_queue_t | TRTCKtvRoom 中的各种状态通知，会派发到您指定的线程队列里去。 |
+| queue | dispatch_queue_t | TRTCKaraokeRoom 中的各种状态通知，会派发到您指定的线程队列里去。 |
 
    
 
@@ -299,7 +301,7 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 创建房间（房主调用）。
 
 ```Objective-C
-- (void)createRoom:(int)roomID roomParam:(KTVParam *)roomParam callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(createRoom(roomID:roomParam:callback:));
+- (void)createRoom:(int)roomID roomParam:(RoomParam *)roomParam callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(createRoom(roomID:roomParam:callback:));
 ```
 
 参数如下表所示：
@@ -311,7 +313,7 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | callback  | ActionCallback      | 创建房间的结果回调，成功时 code 为0。                        |
 
 房主开播的正常调用流程如下： 
-1. 房主调用 `createRoom` 创建新的 KTV 房间，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
+1. 房主调用 `createRoom` 创建新的 Karaoke 房间，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
 2. 房主创建房间成功后，调用 `enterSeat` 进入座位。
 3. 房主收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 4. 房主还会收到麦位表有成员进入的 `onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
@@ -351,8 +353,8 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 听众进房收听的正常调用流程如下： 
 
-1. 听众向您的服务端获取最新的 KTV 房间列表，可能包含多个语聊房间的 roomId 和房间信息。
-2. 听众选择一个 KTV 房间，调用 `enterRoom` 并传入房间号即可进入该房间。
+1. 听众向您的服务端获取最新的 Karaoke 房间列表，可能包含多个语聊房间的 roomId 和房间信息。
+2. 听众选择一个 Karaoke 房间，调用 `enterRoom` 并传入房间号即可进入该房间。
 3. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
 4. 进房后会收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 5. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
@@ -381,7 +383,7 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 
 ```Objective-C
-- (void)getRoomInfoList:(NSArray<NSNumber *> *)roomIdList callback:(KTVInfoCallback _Nullable)callback NS_SWIFT_NAME(getRoomInfoList(roomIdList:callback:));
+- (void)getRoomInfoList:(NSArray<NSNumber *> *)roomIdList callback:(KaraokeInfoCallback _Nullable)callback NS_SWIFT_NAME(getRoomInfoList(roomIdList:callback:));
 ```
 
 参数如下表所示：
@@ -397,7 +399,7 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 获取指定 userId 的用户信息。
 
 ```Objective-C
-- (void)getUserInfoList:(NSArray<NSString *> * _Nullable)userIDList callback:(KTVUserListCallback _Nullable)callback NS_SWIFT_NAME(getUserInfoList(userIDList:callback:));
+- (void)getUserInfoList:(NSArray<NSString *> * _Nullable)userIDList callback:(KaraokeUserListCallback _Nullable)callback NS_SWIFT_NAME(getUserInfoList(userIDList:callback:));
 ```
 
 参数如下表所示：
@@ -413,9 +415,10 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 ### startPlayMusic
 
 播放音乐（上麦后调用）。
->?播放音乐后，自身会收到 `onMusicPrepareToPlay` 的事件通知。
->?音乐播放中，房间内所有成员会不断收到 `onMusicProgressUpdate` 的事件通知。
->?音乐播放完成，自身会收到 `onMusicCompletePlaying` 的事件通知。
+>?
+>- 播放音乐后，自身会收到 `onMusicPrepareToPlay` 的事件通知。
+>- 音乐播放中，房间内所有成员会不断收到 `onMusicProgressUpdate` 的事件通知。
+>- 音乐播放完成，自身会收到 `onMusicCompletePlaying` 的事件通知。
 
 ```Objective-C
 - (void)startPlayMusic:(int32_t)musicID url:(NSString *)url NS_SWIFT_NAME(startPlayMusic(musicID:url:));
@@ -433,7 +436,7 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 ### stopPlayMusic
 
 停止播放音乐（播放音乐时调用）。
->? 停止播放后，会收到 `onMusicCompletePlaying` 的事件通知。
+>?停止播放后，会收到 `onMusicCompletePlaying` 的事件通知。
 
 ```Objective-C
 - (void)stopPlayMusic NS_SWIFT_NAME(stopPlayMusic());
@@ -442,8 +445,8 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 ### pausePlayMusic
 
 暂停正在播放的音乐（播放音乐时调用）。
->? 
->- `onMusicProgressUpdate` 的事件通知会暂停
+>?
+>- `onMusicProgressUpdate` 的事件通知会暂停。
 >- 不会收到 `onMusicCompletePlaying` 的事件通知。
 
 ```Objective-C
@@ -836,8 +839,8 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | id       | String         | 邀请 ID。      |
 | callback | ActionCallback | 发送结果回调。 |
 
-[](id:TRTCKtvRoomDelegate)
-## TRTCKtvRoomDelegate 事件回调
+[](id:TRTCKaraokeRoomDelegate)
+## TRTCKaraokeRoomDelegate 事件回调
 
 ## 通用事件回调
 
@@ -921,7 +924,7 @@ NS_SWIFT_NAME(onRoomDestroy(message:));
 进房成功后会回调该接口，roomInfo 中的信息在房主创建房间的时候传入。
 
 ```Objective-C
-- (void)onRoomInfoChange:(KTVInfo *)roomInfo
+- (void)onRoomInfoChange:(KaraokeInfo *)roomInfo
 NS_SWIFT_NAME(onRoomInfoChange(roomInfo:));
 ```
 
@@ -934,7 +937,7 @@ NS_SWIFT_NAME(onRoomInfoChange(roomInfo:));
 
 ### onUserMicrophoneMute
 
-用户麦克风是否静音回调，当用户调用muteLocalAudio，房间内的其他用户都会收到此通知。
+用户麦克风是否静音回调，当用户调用 muteLocalAudio，房间内的其他用户都会收到此通知。
 
 ```Objective-C
 - (void)onUserMicrophoneMute:(NSString *)userId mute:(BOOL)mute
@@ -974,7 +977,7 @@ NS_SWIFT_NAME(onUserVolumeUpdate(userVolumes:totalVolume:));
 全量的麦位列表变化，包含了整个麦位表。
 
 ```Objective-C
-- (void)onSeatInfoChange:(NSArray<KTVSeatInfo *> *)seatInfolist
+- (void)onSeatInfoChange:(NSArray<KaraokeSeatInfo *> *)seatInfolist
 NS_SWIFT_NAME(onSeatListChange(seatInfoList:));
 ```
 
@@ -990,7 +993,7 @@ NS_SWIFT_NAME(onSeatListChange(seatInfoList:));
 
 ```Objective-C
 - (void)onAnchorEnterSeat:(NSInteger)index
-                              user:(KTVUserInfo *)user
+                              user:(KaraokeUserInfo *)user
 NS_SWIFT_NAME(onAnchorEnterSeat(index:user:));
 ```
 
@@ -1007,7 +1010,7 @@ NS_SWIFT_NAME(onAnchorEnterSeat(index:user:));
 
 ```Objective-C
 - (void)onAnchorLeaveSeat:(NSInteger)index
-                     user:(KTVUserInfo *)user
+                     user:(KaraokeUserInfo *)user
 NS_SWIFT_NAME(onAnchorLeaveSeat(index:user:));
 ```
 
@@ -1059,7 +1062,7 @@ NS_SWIFT_NAME(onSeatClose(index:isClose:));
 收到听众进房通知。
 
 ```Objective-C
-- (void)onAudienceEnter:(KTVUserInfo *)userInfo
+- (void)onAudienceEnter:(KaraokeUserInfo *)userInfo
 NS_SWIFT_NAME(onAudienceEnter(userInfo:));
 ```
 
@@ -1074,7 +1077,7 @@ NS_SWIFT_NAME(onAudienceEnter(userInfo:));
 收到听众退房通知。
 
 ```Objective-C
-- (void)onAudienceExit:(KTVUserInfo *)userInfo
+- (void)onAudienceExit:(KaraokeUserInfo *)userInfo
 NS_SWIFT_NAME(onAudienceExit(userInfo:));
 ```
 
@@ -1094,7 +1097,7 @@ NS_SWIFT_NAME(onAudienceExit(userInfo:));
 
 ```Objective-C
 - (void)onRecvRoomTextMsg:(NSString *)message
-                 userInfo:(KTVUserInfo *)userInfo
+                 userInfo:(KaraokeUserInfo *)userInfo
 NS_SWIFT_NAME(onRecvRoomTextMsg(message:userInfo:));
 ```
 
@@ -1114,7 +1117,7 @@ NS_SWIFT_NAME(onRecvRoomTextMsg(message:userInfo:));
 ```Objective-C
 - (void)onRecvRoomCustomMsg:(NSString *)cmd
                     message:(NSString *)message
-                   userInfo:(KTVUserInfo *)userInfo
+                   userInfo:(KaraokeUserInfo *)userInfo
 NS_SWIFT_NAME(onRecvRoomCustomMsg(cmd:message:userInfo:));
 ```
 
@@ -1203,7 +1206,7 @@ NS_SWIFT_NAME(onInviteeRejected(identifier:invitee:));
 
 ### onMusicPrepareToPlay
 
-准备播放音乐的回调
+准备播放音乐的回调。
 
 ```Objective-C
 - (void)onMusicPrepareToPlay:(int32_t)musicID
@@ -1218,7 +1221,7 @@ NS_SWIFT_NAME(onMusicPrepareToPlay(musicID:));
 
 ### onMusicProgressUpdate
 
-歌曲播放进度的回调
+歌曲播放进度的回调。
 
 ```Objective-C
 - (void)onMusicProgressUpdate:(int32_t)musicID
@@ -1236,7 +1239,7 @@ NS_SWIFT_NAME(onMusicProgressUpdate(musicID:progress:total:));
 
 ### onMusicCompletePlaying
 
-播放完成音乐的回调
+播放完成音乐的回调。
 
 ```Objective-C
 - (void)onMusicCompletePlaying:(int32_t)musicID
