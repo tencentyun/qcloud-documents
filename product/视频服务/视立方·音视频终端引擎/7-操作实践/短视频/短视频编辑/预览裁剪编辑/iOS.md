@@ -224,14 +224,14 @@ UIImage* image = [UIImage imageWithContentsOfFile:path];
 <dx-tabs>
 ::: 设置全局水印
 您可以为视频设置水印图片，并且可以指定图片的位置。
-#### 设置水印的方法： 
+**设置水印的方法：** 
 ```
 - (void) setWaterMark:(UIImage *)waterMark  normalizationFrame:(CGRect)normalizationFrame;
 ```
 
 其中 waterMark 表示水印图片，normalizationFrame 是相对于视频图像的归一化 frame，frame 的 x、y、width、height 的取值范围都为0 - 1。
 
-#### Demo 示例：
+**Demo 示例：**
 ```
 UIImage *image = [UIImage imageNamed:@"watermark"];  
 [_ugcEdit setWaterMark:image normalizationFrame:CGRectMake(0, 0, 0.3 , 0.3 * image.size.height / image.size.width)];//水印大小占视频宽度的30%，高度根据宽度自适应
@@ -239,7 +239,8 @@ UIImage *image = [UIImage imageNamed:@"watermark"];
 :::
 ::: 设置片尾水印
 您可以为视频设置片尾水印，并且可以指定片尾水印的位置。
-#### 设置片尾水印的方法：  
+
+**设置片尾水印的方法：** 
 ```
 - (void) setTailWaterMark:(UIImage *)tailWaterMark normalizationFrame:(CGRect)normalizationFrame 
                           duration:(CGFloat)duration;
@@ -247,7 +248,7 @@ UIImage *image = [UIImage imageNamed:@"watermark"];
 
 其中 tailWaterMark 表示片尾水印图片，normalizationFrame 是相对于视频图像的归一化 frame，frame 的 x、y、width、height 的取值范围都为0 - 1，duration 为水印的持续时长。
 
-#### Demo 示例：
+**Demo 示例：**
 设置水印在片尾中间，持续时间1s。
 
 ```
