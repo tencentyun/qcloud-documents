@@ -91,7 +91,7 @@ $ npm install native-ext-loader@latest --save-dev
 - 使用 `vue-cli` 创建项目的情况下，webpack 的配置存放在 `vue.config.js` 配置中的 `configureWebpack` 属性中。
 - 如您的工程文件经过了定制化，还请自行查找 webpack 配置。
 
-
+### 操作说明
 1. 首先使 `webpack.config.js` 在构建时可以接收名为 `--target_platform` 的命令行参数，以使代码构建过程按不同的目标平台特点正确打包，在 `module.exports` 之前添加以下代码：
 ```
 	const os = require('os');
@@ -171,7 +171,7 @@ rules: [
  本文以 `create-react-app` 和 `vue-cli` 项目为例，其它工具创建的项目也可以参考此配置：
 <dx-codeblock>
 ::: json json
-// create-react-app 项目请使用此配置
+    // create-react-app 项目请使用此配置
     "scripts": {
     "build:mac": "react-scripts build --target_platform=darwin",
     "build:win": "react-scripts build --target_platform=win32",
@@ -193,17 +193,20 @@ rules: [
 :::
 </dx-codeblock>
 
->? 
-> -   `main` ：Electron 的入口文件，一般情况下可以自由配置。但如果项目使用 `create-react-app` 脚手架创建，则入口文件必须配置为 `public/electron.js` 。
-> -   `build.win.extraFiles` ：打包 Windows 程序时，`electron-builder` 会把 `from` 所指目录下的所有文件复制到 bin/win-unpacked/resources（全小写）。
-> -   `build.mac.extraFiles` ：打包 Mac 程序时，`electron-builder` 会把 `from` 指向的 `trtc_electron_sdk.node` 文件复制到 bin/mac/your-app-name.app/Contents/Resources（首字母大写）。
-> -   `build.directories.output` ：打包文件的输出路径。例如这个配置会输出到 `bin` 目录下，可根据实际需要修改。
-> -   `build.scripts.build:mac` ：以 Mac 平台为目标构建脚本。
-> -   `build.scripts.build:win` ：以 Windows 平台为目标构建脚本。
-> -   `build.scripts.compile:mac` ：编译为 Mac 下的 .dmg 安装文件。
-> -   `build.scripts.compile:win64` ：编译为 Windows 下的 .exe 安装文件。
-> -   `build.scripts.pack:mac` ：先调用 build:mac 构建代码，再调用 compile:mac 打包成 .dmg 安装文件。
-> -   `build.scripts.pack:win64` ：先调用 build:win 构建代码，再调用 compile:win64 打包成 .exe 安装文件。
+| 参数                        | 说明                                                         |
+| --------------------------- | ------------------------------------------------------------ |
+| main                        | Electron 的入口文件，一般情况下可以自由配置。但如果项目使用 `create-react-app` 脚手架创建，则入口文件必须配置为 `public/electron.js`。 |
+| build.win.extraFiles        | 打包 Windows 程序时，`electron-builder` 会把 `from` 所指目录下的所有文件复制到 bin/win-unpacked/resources（全小写）。 |
+| build.mac.extraFiles        | 打包 Mac 程序时，`electron-builder` 会把 `from` 指向的 `trtc_electron_sdk.node` 文件复制到 bin/mac/your-app-name.app/Contents/Resources（首字母大写）。 |
+| build.directories.output    | 打包文件的输出路径。例如这个配置会输出到 `bin` 目录下，可根据实际需要修改。 |
+| build.scripts.build:mac     | 以 Mac 平台为目标构建脚本。                                  |
+| build.scripts.build:win     | 以 Windows 平台为目标构建脚本。                              |
+| build.scripts.compile:mac   | 编译为 Mac 下的 `.dmg` 安装文件。                              |
+| build.scripts.compile:win64 | 编译为 Windows 下的 `.exe` 安装文件。                          |
+| build.scripts.pack:mac      | 先调用 `build:mac` 构建代码，再调用 `compile:mac` 打包成 `.dmg` 安装文件。 |
+| build.scripts.pack:win64    | 先调用 `build:win` 构建代码，再调用 `compile:win64` 打包成 `.exe` 安装文件。 |
+
+
 
 
 
