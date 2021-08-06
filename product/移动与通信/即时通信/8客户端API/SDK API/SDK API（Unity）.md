@@ -23,17 +23,6 @@
 | [sendGroupTextMessage](https://comm.qq.com/unity-im-sdk-document/2021-08-04/api/com.tencent.imsdk.unity.V2TIMMessageManager.html#com_tencent_imsdk_unity_V2TIMMessageManager_sendGroupTextMessage_System_String_System_String_com_tencent_imsdk_unity_MessagePriority_) | 发送群聊普通文本消息 |
 | [sendGroupCustomMessage](https://comm.qq.com/unity-im-sdk-document/2021-08-04/api/com.tencent.imsdk.unity.V2TIMMessageManager.html#com_tencent_imsdk_unity_V2TIMMessageManager_sendGroupCustomMessage_System_String_System_String_com_tencent_imsdk_unity_MessagePriority_) | 发送群聊自定义（信令）消息 |
 
-## 信令接口
-
-| API | 描述 |
-|---------|---------|
-| [addSignalingListener](https://comm.qq.com/unity-im-sdk-document/2021-08-04/api/com.tencent.imsdk.unity.V2TIMSignallingManager.html#com_tencent_imsdk_unity_V2TIMSignallingManager_addInvitedSignaling_com_tencent_imsdk_unity_SignalingInfo_) | 添加信令监听 |
-| [invite](https://comm.qq.com/unity-im-sdk-document/2021-08-04/api/com.tencent.imsdk.unity.V2TIMSignallingManager.html#com_tencent_imsdk_unity_V2TIMSignallingManager_invite_System_String_System_String_System_Boolean_System_Int32_com_tencent_imsdk_unity_OfflinePushInfo_) | 邀请某个人 |
-| [inviteInGroup](https://comm.qq.com/unity-im-sdk-document/2021-08-04/api/com.tencent.imsdk.unity.V2TIMSignallingManager.html#com_tencent_imsdk_unity_V2TIMSignallingManager_inviteInGroup_System_String_System_String___System_String_System_Boolean_System_Int32_) | 邀请群内的某些人 |
-| [cancel](https://comm.qq.com/unity-im-sdk-document/2021-08-04/api/com.tencent.imsdk.unity.V2TIMSignallingManager.html#com_tencent_imsdk_unity_V2TIMSignallingManager_cancel_System_String_System_String_) | 邀请方取消邀请 |
-| [accept](https://comm.qq.com/unity-im-sdk-document/2021-08-04/api/com.tencent.imsdk.unity.V2TIMSignallingManager.html#com_tencent_imsdk_unity_V2TIMSignallingManager_accept_System_String_System_String_) | 接收方接受邀请 |
-| [reject](https://comm.qq.com/unity-im-sdk-document/2021-08-04/api/com.tencent.imsdk.unity.V2TIMSignallingManager.html#com_tencent_imsdk_unity_V2TIMSignallingManager_reject_System_String_System_String_) | 接收方拒绝邀请 |
-
 ## 高级消息收发接口
 
 如果您需要收发图片、视频、文件等富媒体消息，并需要撤回消息、标记已读、查询历史消息等高级功能，推荐使用下面这套高级消息接口（简单消息接口和高级消息接口请不要混用）。
