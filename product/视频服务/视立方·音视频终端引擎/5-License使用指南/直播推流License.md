@@ -25,6 +25,13 @@
 
 > ? 测试版 License 有效期共28天，**只能续期一次**（有效期至到期当日的24:00:00为止）。若您需继续使用，请购买 [正式版 License](#formal)。
 
+### 测试版 License 升级
+
+若您需要将直播推流模块的测试版 License 升级成为正式版 License，获得一年的有效期使用期。具体操作如下：
+1. 单击测试版 License 直播推流模块中的【升级】。
+![](https://main.qcloudimg.com/raw/6f94d19a25d08bb20654f805a805206a.png)
+2. 进入升级功能模块界面，选择需要绑定的云直播流量资源包，单击【确定】即可升级到直播推流模块的正式版 License。
+![](https://main.qcloudimg.com/raw/b999208f727e799f2521565cc551d210.png)
 
 [](id:formal)
 ## 正式版 License
@@ -51,4 +58,3 @@
 ![](https://main.qcloudimg.com/raw/750f57c1ee86380078be7711b4b8dc03.png)
 3. 查看更新后的有效期情况。
 >! **直播推流正式版 License 不支持信息修改**，若您需要修改 License 信息，购买资源包后请勿用于 License 有效期的更新，请单击【新增 License】重新新增 License 绑定新的包名信息。
-
