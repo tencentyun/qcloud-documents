@@ -66,7 +66,7 @@ EIAM 和腾讯云 API 网关通过 OAuth2.0 协议深度整合，您可以便捷
 
 1. 登录 [EIAM 控制台](https://console.cloud.tencent.com/eiam) ，在左侧导航栏单击【授权管理】>【应用授权】。
 2. 选择【用户授权】Tab 页，单击【新建授权】。
-3. 选择在第一步中创建或绑定的的 EIAM 应用，选择在第二步中创建的用户，将 EIAM 应用对用户授权。
+3. 选择在第一步中创建或绑定的 EIAM 应用，选择在第二步中创建的用户，将 EIAM 应用对用户授权。
 	 ![](https://main.qcloudimg.com/raw/a8ef4a3a2f57299a7f40631b76ea89bc.png)
 
 ### 步骤4：使用用户信息调用 API 网关 API
