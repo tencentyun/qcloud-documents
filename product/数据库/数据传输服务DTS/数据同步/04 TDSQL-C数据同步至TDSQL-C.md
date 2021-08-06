@@ -1,6 +1,6 @@
 本文介绍使用数据传输服务 DTS 从 TDSQL-C MySQL 数据库同步数据至腾讯云 TDSQL-C MySQL 数据库的操作指导。
 
-MySQL 到 TDSQL-C MySQL 的数据同步、TDSQL-C MySQL 到 MySQL 的数据同步，与  TDSQL-C MySQL 到 TDSQL-C MySQL 的同步要求一致，可参考本场景相关内容。
+MySQL 到 TDSQL-C MySQL 的数据同步、TDSQL-C MySQL 到 MySQL 的数据同步，与  TDSQL-C MySQL 到 TDSQL-C MySQL 的数据同步要求一致，可参考本场景相关内容。
 
 ## 注意事项 
 
