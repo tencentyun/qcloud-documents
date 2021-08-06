@@ -280,20 +280,20 @@ TRTCCalling 组件的 API 接口列表如下：
 
 | 接口函数        | 接口功能                                                  |
 | ------------- | -------------------------------------------------------- |
-| addDelegate     | 设置 TRTCCalling 代理回调，用户可以通过该回调获取状态通知 |
-| login           | 登录 IM，所有功能需要先进行登录后才能使用                 |
-| logout          | 登出 IM，登出后无法再进行拨打操作                         |
-| call            | C2C 邀请通话，被邀请方会收到 onInvited 的回调             |
-| groupCall       | IM 群组邀请通话，被邀请方会收到 onInvited 的回调          |
-| accept          | 作为被邀请方接听来电                                      |
-| reject          | 作为被邀请方拒绝来电                                      |
-| hangup          | 结束通话                                                  |
-| startRemoteView | 将远端用户的摄像头数据渲染到指定的 UIView 中              |
-| stopRemoteView  | 停止渲染某个远端用户的摄像头数据                          |
-| openCamera      | 开启摄像头，并渲染在指定的 TXCloudVideoView 中            |
-| closeCamera     | 关闭摄像头                                                |
-| switchCamera    | 切换前后摄像头                                            |
-| setMicMute      | 是否静音 mic                                              |
-| setHandsFree    | 是否开启免提                                              |
+| addDelegate     | 设置 TRTCCalling 代理回调，用户可以通过该回调获取状态通知。 |
+| login           | 登录 IM，所有功能需要先进行登录后才能使用。                 |
+| logout          | 登出 IM，登出后无法再进行拨打操作。                         |
+| call            | C2C 邀请通话，被邀请方会收到 onInvited 的回调。             |
+| groupCall       | IM 群组邀请通话，被邀请方会收到 onInvited 的回调。          |
+| accept          | 作为被邀请方接听来电。                                      |
+| reject          | 作为被邀请方拒绝来电。                                      |
+| hangup          | 结束通话。                                                  |
+| startRemoteView | 将远端用户的摄像头数据渲染到指定的 UIView 中。              |
+| stopRemoteView  | 停止渲染某个远端用户的摄像头数据。                         |
+| openCamera      | 开启摄像头，并渲染在指定的 TXCloudVideoView 中。            |
+| closeCamera     | 关闭摄像头。                                                |
+| switchCamera    | 切换前后摄像头。                                            |
+| setMicMute      | 是否静音 mic。                                              |
+| setHandsFree    | 是否开启免提。                                              |
 
 
