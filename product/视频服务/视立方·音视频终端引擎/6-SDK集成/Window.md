@@ -67,7 +67,7 @@
 set Platform=Win64
 SETLOCAL ENABLEDELAYEDEXPANSION
 if $(PlatformName)==x86 ( 
-  set Platform=Win32
+			set Platform=Win32
 )
 copy /Y "$(ProjectDir)SDK\CSharp\!Platform!\lib\*.dll" "$(ProjectDir)$(OutDir)"
 ENDLOCAL
