@@ -8,35 +8,41 @@
 
 BF16（也称 bfloat16 或 Brain Float 16）由 Google 发明。Intel 在第三代英特尔<sup>®</sup>至强<sup>®</sup>可扩展处理器 Cooper Lake-SP 所包含的深度学习加速技术（英特尔<sup>®</sup> DL Boost）中全新集成了 BF16 功能。
 
-#### 数据格式[](id:RecommendedSelection)
+<dx-accordion>
+::: 数据格式[](id:RecommendedSelection)
 BF16 提供和 FP32 相同的宽度，但精度损失很少，非常适合应用于对精度要求较高的场景。许多模型在使用 BF16时，可实现与使用32位浮点数值时相同的准确率，部分模型在使用 BF16 时甚至表现出准确率的提升。BF16 可使内存需求减半，并且由于 BF16 以一半的位数完成任务，因此 BF16 理论上计算性能可以翻倍。
 BF16 浮点数格式如下图所示：
 <img src="https://main.qcloudimg.com/raw/254d7f71a76454503669c56e2477696e.png" width="65%"/>
 精度如下图所示：
 ![](https://main.qcloudimg.com/raw/8642ad31bfabd6a0d77cd2fbd22fb6c6.png)
-
-#### 准确率[](id:RecommendedSelection)
+:::
+::: 准确率[](id:RecommendedSelection)
 BF16 能达到近似 FP32 的准确率。在 PyTorch v1.7.0上，以 Resnet50 为例，采用相同的模型，FP32 和 BF16 的精度如下图所示：
 <img src="https://main.qcloudimg.com/raw/973015246928705055cac697552c13b7.png" width="65%"/>
+:::
+</dx-accordion>
+
 
 ### 在 PyTorch 和 Tensorflow 中使用 FP32 和 BF16 混精方式进行推理[](id:RecommendedSelection)
 
-#### PyTorch 模型
+<dx-accordion>
+::: PyTorch 模型
 英特尔<sup>®</sup>开发的 IPEX（Intel Extension for PyTorch）是 PyTorch 的 Python 扩展，利用 IPEX 可以方便地将 PyTorch 模型中的算子在运行过程中动态地转化为 BF16 算子。仅需在 Python 脚本中将 IPEX 的 `auto_mixed_precision` 设置为 BF16，再将数据和模型添加到 IPEX 中即可。如下图所示：
 <img src="https://main.qcloudimg.com/raw/f3624d7cfd49a993618d80027dfa7bdb.png" alt="pytorch-enabling" width="65%;"><br>
 >?
 >- 如需了解英特尔 IPEX 安装方法，请前往 [Intel<sup>®</sup> Extension for PyTorch官方github repo](https://github.com/intel/intel-extension-for-pytorch#installation)，根据安装指南中提供的信息，对 PyTorch 以及 Intel<sup>®</sup> Extension for PyTorch (IPEX) 进行编译以及安装。
 >- 如需了解英特尔 IPEX 更多信息，请参见 [intel-extension-for-pytorch](https://github.com/intel/intel-extension-for-pytorch)。
 >
-
-#### Tensorflow 模型
-
+:::
+::: Tensorflow 模型
 在 Tensorflow 中可以通过设置 AutoMixedPrecision 方便地使用 BF16，在脚本中只需修改两处。步骤如下：
 1. 打开 AutoMixedPrecision 代码。如下图所示：
 ![](https://main.qcloudimg.com/raw/49bbab553c05843b52e83a76c178543f.png)
 2. 添加需要使用 BF16的算子列表。如下图所示：
 <img src="https://main.qcloudimg.com/raw/8938cf97afd333ecc5ec2f133117a94a.png" width="80%;"><br>
 如需了解具体支持的转换算子列表，请参见 [auto_mixed_precision_lists.h](https://github.com/reedwm/tensorflow/blob/auto_mp_mkl/tensorflow/core/grappler/optimizers/auto_mixed_precision_lists.h#L343-L454)。
+:::
+</dx-accordion>
 
 ## 操作步骤
 
