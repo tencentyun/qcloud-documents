@@ -127,8 +127,7 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 | [onAnchorEnterSeat](#onanchorenterseat) | 有成员上麦（主动上麦/房主抱人上麦）。 |
 | [onAnchorLeaveSeat](#onanchorleaveseat) | 有成员下麦（主动下麦/房主踢人下麦）。 |
 | [onSeatMute](#onseatmute)               | 房主禁麦。                          |
-| [onUserMicrophoneMute](#onusermicrophonemute)               | 用户麦克风是否静音。                          |
-
+| [onUserMicrophoneMute](#onusermicrophonemute)               | 用户麦克风是否静音。 |
 | [onSeatClose](#onseatclose)             | 房主封麦。                          |
 
 ### 听众进出事件回调
