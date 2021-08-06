@@ -19,7 +19,7 @@
 ### 步骤1：安装 Node.js
 <dx-tabs>
 ::: Windows\s平台安装指引
-1. 根据 Windows 操作系统选择下载最新版本的 [Node.js](https://nodejs.org/en/download/)  安装包 `Windows Installer (.msi) 64-bit`。
+1. 根据 Windows 操作系统选择下载最新版本的 [Node.js](https://nodejs.org/en/download/)  安装包 **Windows Installer (.msi) 64-bit**。
 2. 打开应用程序列表中的 Node.js command prompt，启动命令行窗口，用于输入后续步骤中的各项命令。
 ![](https://main.qcloudimg.com/raw/148c49336f0d89829736af81de305de4.png)
 :::
@@ -145,7 +145,7 @@ rules: [
 "build": {
     "appId": "[appId 请自行定义]",
     "directories": {
-    "output": "./bin"
+			"output": "./bin"
     },
     "win": {
     "extraFiles": [
@@ -172,23 +172,23 @@ rules: [
 <dx-codeblock>
 ::: json json
 // create-react-app 项目请使用此配置
-    "scripts": {
-    "build:mac": "react-scripts build --target_platform=darwin",
+"scripts": {
+	"build:mac": "react-scripts build --target_platform=darwin",
     "build:win": "react-scripts build --target_platform=win32",
     "compile:mac": "node_modules/.bin/electron-builder --mac",
     "compile:win64": "node_modules/.bin/electron-builder --win --x64",
     "pack:mac": "npm run build:mac && npm run compile:mac",
     "pack:win64": "npm run build:win && npm run compile:win64"
-    }
+}
 
 // vue-cli 项目请使用此配置
 "scripts": {
-  "build:mac": "vue-cli-service build --target_platform=darwin",
-  "build:win": "vue-cli-service build --target_platform=win32",
-  "compile:mac": "node_modules/.bin/electron-builder --mac",
-  "compile:win64": "node_modules/.bin/electron-builder --win --x64",
-  "pack:mac": "npm run build:mac && npm run compile:mac",
-  "pack:win64": "npm run build:win && npm run compile:win64"
+	"build:mac": "vue-cli-service build --target_platform=darwin",
+	"build:win": "vue-cli-service build --target_platform=win32",
+	"compile:mac": "node_modules/.bin/electron-builder --mac",
+	"compile:win64": "node_modules/.bin/electron-builder --win --x64",
+	"pack:mac": "npm run build:mac && npm run compile:mac",
+	"pack:win64": "npm run build:win && npm run compile:win64"
 }
 :::
 </dx-codeblock>
