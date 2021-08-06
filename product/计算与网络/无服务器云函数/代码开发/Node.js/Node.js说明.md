@@ -171,7 +171,9 @@ exports.callback_handler = function(event, context, callback) {
 
 您可以在程序中使用如下语句来完成日志输出：
 
-* console.log()
+- console.log()
+- console._stdout.write()
+- process.stdout.write()
 
 
 例如，执行以下代码，可以在函数日志中查询输出内容。
