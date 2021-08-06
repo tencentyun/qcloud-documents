@@ -224,7 +224,8 @@ adapter.on('hlsready', () => {
 参阅更多 [示例](https://github.com/tcplayer/tcadapter-combine-video)。
 </dx-alert>
 
-```javascript
+<dx-codeblock>
+:::  javascript
 import { useEffect, useRef } from 'react';
 import TcAdapter from 'tcadapter';
 
@@ -266,14 +267,16 @@ function App() {
 }
 
 export default App;
+:::
+</dx-codeblock>
 
-```
 :::
 ::: 示例2:\stcadapter\s与\svideojs\s结合
 <dx-alert infotype="explain" title="">
 参阅更多 [示例](https://github.com/tcplayer/tcadapter-combine-videojs)。
 </dx-alert>
-```javascript
+<dx-codeblock>
+:::  javascript
 // 1. videojs 播放 hls 会使用 @videojs/http-streaming，所以我们开发一套使用 tcadapter 播放的策略覆盖原有逻辑（也可以直接修改 @videojs/http-streaming 内部逻辑）
 
 // src/js/index.js
@@ -369,8 +372,9 @@ function mountHlsProvider(enforce) {
 }
 mountHlsProvider();
 export default Adapter;
+:::
+</dx-codeblock>
 
-```
 :::
 </dx-tabs>
 
