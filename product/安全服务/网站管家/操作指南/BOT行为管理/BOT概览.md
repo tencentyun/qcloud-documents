@@ -18,6 +18,6 @@ WAF 的 BOT 行为管理能够对友好及恶意机器人程序进行甄别分�
 
 ## 相关信息
 #### BOT 防护设置
-若您需根据 BOT 会话行为特征设置 BOT 对抗策略，对 BOT 行为进行动作处理，并结合 BOT 详情进行观察和分析，同时需要进行精细化策略设置，保护网站核心接口和业务的安全，请参见 [BOT 防护设置](http://yehe.isd.com/document/doc-cn/product-article/627/40157)。
+若您需根据 BOT 会话行为特征设置 BOT 对抗策略，对 BOT 行为进行动作处理，并结合 BOT 详情进行观察和分析，同时需要进行精细化策略设置，保护网站核心接口和业务的安全，请参见 [BOT 防护设置](https://cloud.tencent.com/document/product/627/40157)。
 #### BOT 详情
 若您如需查看域名正常请求和 BOT 请求次数的访问趋势，查看未知类型 BOT、公开类型 BOT和自定义类型 BOT详情，或需要了解 WAF 检测检出的 BOT 会话详情，请参见 [BOT 详情](https://cloud.tencent.com/document/product/627/40158)。
