@@ -8,7 +8,7 @@
 
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
 
-## 效果展示
+## 效果展示 
 
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验实时语音通话的效果。
 <table>
@@ -118,8 +118,7 @@ dependencies {
 }
 :::
 </dx-codeblock>
-
-	>?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
+>?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
 <dx-codeblock>
 ::: android 
