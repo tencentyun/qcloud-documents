@@ -171,7 +171,7 @@ rules: [
  本文以 `create-react-app` 和 `vue-cli` 项目为例，其它工具创建的项目也可以参考此配置：
 <dx-codeblock>
 ::: json json
-    // create-react-app 项目请使用此配置
+// create-react-app 项目请使用此配置
     "scripts": {
     "build:mac": "react-scripts build --target_platform=darwin",
     "build:win": "react-scripts build --target_platform=win32",
