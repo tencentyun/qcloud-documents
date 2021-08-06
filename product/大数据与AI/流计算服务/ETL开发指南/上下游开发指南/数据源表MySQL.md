@@ -130,4 +130,4 @@ Flink 作业运行期间会周期性执行快照，记录下 Binlog 位置，当
 用于同步的源数据库的用户必须拥有以下权限 SHOW DATABASES、REPLICATION SLAVE、REPLICATION CLIENT、SELECT 和 RELOAD。
 
 ### 数据库参数设置
-binlog_row_image 参数的参数运行值应当设置为FULL。
+binlog_row_image 参数的参数运行值应当设置为 FULL。
