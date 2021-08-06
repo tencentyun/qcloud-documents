@@ -100,7 +100,7 @@ dependencies:
 
 <dx-tabs>
 ::: iOS\s端
-1. 需要在 `Info.plist` 中加入对相机和麦克风的权限申请：
+需要在 `Info.plist` 中加入对相机和麦克风的权限申请：
 ```
 <key>NSMicrophoneUsageDescription</key>
 <string>授权麦克风权限才能正常语音通话</string>
