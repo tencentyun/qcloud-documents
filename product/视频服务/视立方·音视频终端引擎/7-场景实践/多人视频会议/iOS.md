@@ -32,7 +32,7 @@
 3. 单击【已下载，下一步】，跳过此步骤。
 
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
->!本功能同时使用了腾讯云视立方音视频通话TRTC和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+>!本功能同时使用了腾讯云视立方音视频通话 TRTC 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 [](id:ui_step2)
 ### 步骤2：下载 App 源码
@@ -123,7 +123,6 @@
 您可通过 **cocoapods 导入组件**，具体步骤如下：
 1. 将工程目录下的 `Source`、`Resources`、`TCBeautyKit`、`TXAppBasic` 文件夹、`TUIMeeting.podspec` 文件拷贝到您的工程目录下。
 2. 在您的 `Podfile` 文件中添加以下依赖。之后执行`pod install` 命令，完成导入。
-
 <dx-codeblock>
 ::: swift
  pod 'TXAppBasic', :path => "TXAppBasic/"
