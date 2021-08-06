@@ -21,7 +21,7 @@
 
 [](id:que3)
 
-### 短视频 SDK 精简版 License 和短视频 SDK 基础版 License 有什么区别？
+### 短视频精简版 License 和短视频基础版 License 有什么区别？
 
 短视频 License 包括精简版 License 和基础版 License。
 
