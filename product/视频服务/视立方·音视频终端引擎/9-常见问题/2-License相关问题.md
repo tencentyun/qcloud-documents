@@ -52,7 +52,7 @@
 
 [](id:que6)
 
-### 腾讯云视立方License 可以修改 Bundle ID 和 Package Name 吗？
+### 腾讯云视立方 License 可以修改 Bundle ID 和 Package Name 吗？
 
 腾讯云视立方正式版 License 包名信息不支持修改，腾讯云视立方测试版 License 可编辑更改包名。请您在添加腾讯云视立方正式版 License 先核对包名在应用商店里是否被占用，提交后不支持修改和替换。
 
