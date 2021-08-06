@@ -121,8 +121,7 @@ dependencies {
 }
 :::
 </dx-codeblock>
-
-	>?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
+>?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
 <dx-codeblock>
 ::: java java
@@ -134,6 +133,8 @@ defaultConfig {
 :::
 </dx-codeblock>
 3. 单击【Sync Now】，自动下载 SDK 并集成到工程里。
+
+
 
 [](id:model.step1_m2)
 #### 方法二：通过本地 AAR 依赖
