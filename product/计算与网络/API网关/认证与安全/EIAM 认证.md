@@ -80,24 +80,33 @@ EIAM 和腾讯云 API 网关通过 OAuth2.0 协议深度整合，您可以便捷
 使用 [步骤2](#step2) 中创建的用户的账号和密码，对 API 网关 API 发起访问。
 
 **非Web客户端**
-1. 对于未完成授权的用户：
-	- 请求授权 API 获取id token；
-	![](https://main.qcloudimg.com/raw/58a7a5aff138f2acca83859f5dab34ad.png)
-	![](https://main.qcloudimg.com/raw/aa53522a3084a8e7eb8a5db434cb00bc.png)
-	- 鉴权验证，返回结果“Access not authorized”。
-	![](https://main.qcloudimg.com/raw/dbf69b0bbc346900c299bbf506abe4fc.png)
-2. 对于完成授权的用户：
-	- 解析id token内容，可以查看对应用户身份为 user001；
-	![](https://main.qcloudimg.com/raw/59e72f11d1c436e7a2126dbbda49fbdb.png)
-	- 鉴权验证，返回结果“Work！！！”，user001即可进行 API 的调用。
-	![](https://main.qcloudimg.com/raw/f7df9b839b44744af1909c120b435337.png)
+1. 请求授权 API 获取id token。
+   Query请求参数username：为[步骤2](#step2) 中创建的用户账号。
+   Query请求参数password： [步骤2](#step2) 中创建的用户密码。
+![](https://main.qcloudimg.com/raw/58a7a5aff138f2acca83859f5dab34ad.png)
+![](https://main.qcloudimg.com/raw/aa53522a3084a8e7eb8a5db434cb00bc.png)
+
+2. 使用已获取的 Token 请求业务 API。
+   Header参数Authorization：格式为Bear id_token="<获取的Token内容>"
+
+```
+curl http://service-xxxxxxxx-1234567890.gz.apigw.tencentcs.com/work -H'Authorization:Bearer id_token="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1OTIyNzk3MTAsImZvbyI6ImJhciIsImlhdCI6MTU5MjI3OTQxMCwianRpIjoiZlBGYlFZRkR4REx3d0lXTFl0aHBBQSIsIm5iZiI6MTU5MjI3OTQxMCwid3VwIjo5MH0.0JQquNRVCQ8n9hPV-mJi6Mku_7G3T1jFp68Sk2AYBijpzzBMQ1KOcREyo9G6QOpvdctynGOAPkL3cwqeTzkFhWgGj633pu_MdLjlectEBMGyVQIv6pL8OBMCHMQzTUTpHWJ_NoUkLpRLKGqZFFcXW8q7v4KeCbf8xHUa9OCH5VF2JxYOnFWDVgucSqao06r0Jaq64LDwKIhLw77ujheKpcBjRrf1kqoIpqk2qhb8CzxM36g_DawMadzKmX49dT-k7auNnI2xUtu5CZdXZ3lSmLeicXfGjc66rrH_acqUqipZRKeeQ5F3Ma467jPQaTeOKiCMHwS2_yp-sXNU2GzxOA"'
+```
+
+- 对于未授权的用户：
+鉴权验证，返回403，“Access not authorized”，表明用户没有通过鉴权。
+![](https://main.qcloudimg.com/raw/dbf69b0bbc346900c299bbf506abe4fc.png)
+
+- 对于完成授权的用户：
+鉴权验证，返回API后端调用结果，user001即可进行 API 的调用。
+![](https://main.qcloudimg.com/raw/f7df9b839b44744af1909c120b435337.png)
 
 **Web客户端**
+
 1. 在浏览器输入API访问地址，可以看到弹出登录页面；
 ![](https://main.qcloudimg.com/raw/eef8349bdc4aa266c59545be7bc0f95f.png)
-2. 在登录页面中输入已完成授权的用户账号和密码。即可进行 API 的调用。
 
->!需要按照创建 API 时选择的应用类型，从“Web 客户端”或“非 Web 客户端”发起访问。
+2. 在登录页面中输入步骤2设置的用户登陆账号和密码，即可进行 API 的调用。
 
 ## 注意事项
 
