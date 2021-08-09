@@ -35,8 +35,7 @@ defaultConfig {
 }
 ```
 >?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
->
-3.单击【Sync Now】，自动下载 SDK 并集成到工程里。
+3. 单击【Sync Now】，自动下载 SDK 并集成到工程里。
 
 
 ### 方法二：手动下载（aar）
