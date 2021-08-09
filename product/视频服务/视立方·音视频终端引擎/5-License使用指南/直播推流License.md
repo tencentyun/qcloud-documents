@@ -7,7 +7,7 @@
 ### 申请测试版 License
 您可以免费申请直播推流模块的测试版 License（免费测试有效期为14天，可续期1次，共28天，有效期至到期当日的24:00:00为止）体验测试，具体步骤如下：
 
-1. 登录【[腾讯云视立方控制台](https://console.cloud.tencent.com/vcube)】，单击【创建测试License 】。
+1. 登录【[腾讯云视立方控制台](https://console.cloud.tencent.com/vcube)】，单击【创建测试License】。
 ![](https://main.qcloudimg.com/raw/a623b59b4989ef4d713fc5a2e13927c1.png)
 2. 根据实际需求填写 `App Name`、`Package Name` 和 `Bundle ID`，勾选功能模块【直播推流】，单击【确定】。
 ![](https://main.qcloudimg.com/raw/b26f840decfd7260d5aeae03c53b48ca.png)
