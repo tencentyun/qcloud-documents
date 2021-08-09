@@ -7,8 +7,8 @@
   </tr>
   <tr align="center">
      <td>版本</td>
-        <td style="text-align:center">SDK（8.8.10257）@2021.06.18</td>
-        <td style="text-align:center">SDK（8.8.10254）@2021.06.18</td>
+        <td style="text-align:center">SDK（9.0.10433）@2021.08.06</td>
+        <td style="text-align:center">SDK（9.0.10434）@2021.08.06</td>
   </tr>
   <tr align="center">
     <td>小窗播放</td>
@@ -93,7 +93,7 @@
   </tr>
   <tr align="center">
      <th>超级播放器</th>
-        <td style="text-align:center"><a href="https://github.com/tencentyun/SuperPlayer">GitHub</a></td>
+        <td style="text-align:center"><a href="https://github.com/tencentyun/SuperPlayer_iOS">GitHub</a></td>
         <td style="text-align:center"><a href="https://github.com/tencentyun/SuperPlayer_Android">GitHub</a></td>
   </tr>
 </table>

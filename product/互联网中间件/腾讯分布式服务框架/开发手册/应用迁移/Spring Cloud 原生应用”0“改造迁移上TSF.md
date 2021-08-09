@@ -28,14 +28,12 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
 
 
 <table>
-<thead>
 <tr>
 <th>环境</th>
 <th>环境分类</th>
 <th>配置</th>
 </tr>
-</thead>
-<tbody><tr>
+<tr>
 <td>开发环境</td>
 <td>-</td>
 <td>CPU: 4核<br> 内存：8GB <br>网络：50Mbps</td>
@@ -48,9 +46,8 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
 <tr>
 <td>微服务部署服务器</td>
 <td>配置：每个服务1台云主机<br> CPU：1核<br> 内存：2GB<br> 网络：20Mbps，按量计费<br> 磁盘：50GB</td>
-<td></td>
 </tr>
-</tbody></table>
+</table>
 
 
 

@@ -57,13 +57,14 @@ liveroom.pause();
 
 // Page.wxml 文件
 <mlvb-live-room id="id_liveroom"
-	roomID="{{roomID}}"
-	roomName="{{roomName}}"
-	template="float"
-	beauty="{{beauty}}"
-	muted="{{muted}}"
-	debug="{{debug}}"
-	bindRoomEvent="onRoomEvent">
+		roomID="{{roomID}}"
+		roomName="{{roomName}}"
+		template="float"
+		beauty="{{beauty}}"
+		muted="{{muted}}"
+		role="{{role}}"
+		debug="{{debug}}"
+		bindRoomEvent="onRoomEvent">
 </mlvb-live-room>
 
 
@@ -71,6 +72,7 @@ liveroom.pause();
 Page({
     data: {
     	//...
+        role: 'anchor', // 角色视您的业务场景而定
         roomID: '',
         roomName: '',
         beauty: 3,

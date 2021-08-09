@@ -1,5 +1,6 @@
 ## 介绍
-JDBC Connector 提供了对 MySQL、PostgreSQL、Oracle 等常见 JDBC 数据库的读写支持。目前 Oceanus 提供的 `flink-connector-jdbc` Connector 组件已经内置了 MySQL 和 PostgreSQL 的客户端。
+JDBC Connector 提供了对 MySQL、PostgreSQL 等常见 JDBC 数据库的读写支持。目前 Oceanus 提供的 `flink-connector-jdbc` Connector 组件已经内置了 MySQL 和 PostgreSQL 的客户端。
+>?目前 jdbc sink 不支持 oracle。
 
 若需要连接其他的数据库，可通过附加【自定义程序包】的方式，上传相应的 JDBC Driver 的 JAR 包。
 

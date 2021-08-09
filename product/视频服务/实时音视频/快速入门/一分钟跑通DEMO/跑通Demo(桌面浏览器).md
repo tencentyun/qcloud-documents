@@ -1,4 +1,4 @@
-本文主要介绍如何快速运行腾讯云 TRTC 桌面浏览器 SDK Demo。
+本文主要介绍如何快速运行腾讯云 TRTC Web SDK Demo。
 
 ## 支持的平台
 
@@ -141,12 +141,12 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 
 >! 
 >- 您可以在浏览器中打开 [WebRTC 能力测试](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。
->- 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC 桌面浏览器端 SDK 的正常运行。
+>- 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC Web端 SDK 的正常运行。
 
 [](id:requirements)
 ## 环境要求
 - 请使用最新版本的 Chrome 浏览器。
-- TRTC 桌面浏览器 SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://web.sdk.qcloud.com/trtc/webrtc/demo/latest/official-demo/index.html) 检查配置是否生效。
+- TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://web.sdk.qcloud.com/trtc/webrtc/demo/latest/official-demo/index.html) 检查配置是否生效。
  - TCP 端口：8687
  - UDP 端口：8000，8080，8800，843，443，16285
  - 域名：qcloud.rtc.qq.com
@@ -159,9 +159,13 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 [](id:step1)
 
 ### 步骤1：创建新的应用
-1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 输入应用名称，例如 TestTRTC，单击【创建】。
-![](https://main.qcloudimg.com/raw/2317abf917468bced2fbdb759a2d34a1.png)
+1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
+2. 单击【新建应用】输入应用名称，例如 `TestTRTC`；若您已创建应用可单击【选择已有应用】。
+3. 根据实际业务需求添加或编辑标签，单击【创建】。
+![](https://main.qcloudimg.com/raw/f04d288ed091c98a5e8056eb86fb49e8.png)
+>?
+>- 应用名称只能包含数字、中英文字符和下划线，长度不能超过15个字符。
+>- 标签用于标识和组织您在腾讯云的各种资源。例如：企业可能有多个业务部门，每个部门有1个或多个 TRTC 应用，这时，企业可以通过给 TRTC 应用添加标签来标记部门信息。标签并非必选项，您可根据实际业务需求添加或编辑。
 
 [](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码
@@ -176,7 +180,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-	<img src="https://main.qcloudimg.com/raw/99c0bf40a7b6267c5c398336a97f3335.png">
+    <img src="https://main.qcloudimg.com/raw/99c0bf40a7b6267c5c398336a97f3335.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -189,7 +193,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 
 >!
 > - 一般情况下体验 Demo 需要部署至服务器，通过 `https://域名/xxx` 访问，或者直接在本地搭建服务器，通过 `localhost:端口` 访问。
-> - 目前桌面端 Chrome 浏览器支持 TRTC 桌面浏览器 SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
+> - 目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 
 Demo 运行界面如图所示：
 ![](https://main.qcloudimg.com/raw/e989c968446e6e3bdcc19c58e40e2b86.png)
@@ -218,10 +222,10 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
    ![](https://main.qcloudimg.com/raw/b0412153935704abc9e286868ad8a916.png)
 
 ### 2. 出现客户端错误：“RtcError: no valid ice candidate found”该如何处理？
-出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据 [环境要求](#requirements) 检查防火墙配置。
+出现该错误说明 TRTC Web SDK 在 STUN 打洞失败，请根据 [环境要求](#requirements) 检查防火墙配置。
 
 ### 3. 出现客户端错误："RtcError: ICE/DTLS Transport connection failed" 或 “RtcError: DTLS Transport connection timeout”该如何处理？
-出现该错误说明 TRTC 桌面浏览器 SDK 在建立媒体传输通道时失败，请根据 [环境要求](#requirements) 检查防火墙配置。
+出现该错误说明 TRTC Web SDK 在建立媒体传输通道时失败，请根据 [环境要求](#requirements) 检查防火墙配置。
 
 ### 4. 出现10006 error 该如何处理？
 如果出现"Join room failed result: 10006 error: service is suspended,if charge is overdue,renew it"，请确认您的实时音视频应用的服务状态是否为可用状态。

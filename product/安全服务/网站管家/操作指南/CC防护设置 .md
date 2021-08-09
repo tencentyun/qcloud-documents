@@ -1,3 +1,4 @@
+
 ## 功能简介
 CC 防护功能支持对公网用户访问特定 URL 的行为进行频率控制和人机识别，同时可封禁恶意的高频访问行为。腾讯云 Web 应用防火墙（网站管家）已经推出全新 [CC 防护设置2.0](https://cloud.tencent.com/document/product/627/11709) 版本，支持基于 SESSION 的 CC 防护，如果您使用的版本不支持该功能，建议您[ 联系我们](https://cloud.tencent.com/about/connect) 升级到最新版本。
 ## 配置示例 

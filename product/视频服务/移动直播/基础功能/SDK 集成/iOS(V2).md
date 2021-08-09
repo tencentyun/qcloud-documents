@@ -76,6 +76,8 @@ Accelerate.framework
 OpenAL.framework
 ```
 ![](https://main.qcloudimg.com/raw/899f02c77d58f6e3b9a5d94995c767f8.png)
+5. 选中 Build Settings 项，搜索 `Other Linker Flags`。添加 `-ObjC`。
+![](https://main.qcloudimg.com/raw/818eedfb17f50f6041e84126fe4d76ed.png)
 
 ## 授权摄像头和麦克风使用权限
 使用 SDK 的音视频功能，需要授权麦克风和摄像头的使用权限。在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。
