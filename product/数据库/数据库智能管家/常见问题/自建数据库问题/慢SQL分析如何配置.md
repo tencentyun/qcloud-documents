@@ -50,4 +50,4 @@ root@xxx ~ # chmod 644 /data/mysql/VM_83_217_centos-slow.log
 ### 步骤3：打开慢日志采集开关
 1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/instance?product=mysql)，在左侧导航选择【实例管理】页，在上方选择对应数据库。
 2. 在实例管理页面，打开该数据库实例的慢日志采集开关，若开关可以正常打开且无报错，说明慢日志分析功能配置成功。
- ![](https://main.qcloudimg.com/raw/d5fd2138af2d1b5356c325a536f12d5f.png)
+![](https://main.qcloudimg.com/raw/62156ebffeb2b0965552ca027abe100f.png)

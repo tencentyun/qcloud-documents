@@ -97,6 +97,7 @@
 | referer       | String       | text         | Referer 信息，HTTP  来源地址                                 |
 | request_range | String       | text         | Range 参数，请求范围                                         |
 | request_time  | Integer      | long         | 响应时间（毫秒），指节点从收到请求后响应所有回包再到客户端所花费的时间 |
+| request_port  | String      | long         | 客户端端口，若无则为 - |
 | rsp_size      | Integer      | long         | 返回字节数                                                   |
 | time          | Integer      | long         | 请求时间，UNIX 时间戳，单位为：秒。                                        |
 | ua            | String       | text         | User-Agent 信息                                              |

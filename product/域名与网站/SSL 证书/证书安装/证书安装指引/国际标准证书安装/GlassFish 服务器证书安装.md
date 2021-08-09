@@ -46,7 +46,7 @@
     - `2_cloud.tencent.com.crt` 证书文件
     - `3_cloud.tencent.com.key` 私钥文件
   - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
-  >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
+>?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 远程登录 GlassFish 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 3. 进入 `/usr/share/glassfish4/glassfish/bin` 目录下执行命令 `./asadmin` 后，需更换 domain 的管理密码，请执行命令 `change-master-password --savemasterpassword=true domain1`。如下图所示：
 >!
@@ -84,4 +84,5 @@ keytool -importcert -trustcacerts -destkeystore cacerts.jks -file 2_cloud.tencen
 ![](https://main.qcloudimg.com/raw/fcdf919a22f0c9b07bc837e4d9a5e269.png)
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
+
 

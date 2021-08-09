@@ -3,7 +3,7 @@
 PUT Bucket domain 请求用于设置存储桶的自定义域名。
 
 > !
-> - 目前最多支持用户添加20条自定义域名，如需添加更多自定义域名，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们的技术服务团队。
+> - 目前最多支持用户添加20条自定义域名，如需添加更多自定义域名，请联系 [在线客服](https://cloud.tencent.com/act/event/Online_service)。
 > - 自定义域名支持默认源站、静态网站源站、全球加速源站三种源站类型，如果需要使用静态网站源站，需要 [开启静态网站](https://cloud.tencent.com/document/product/436/14984)；如果需要使用全球加速源站，需要 [开启全球加速](https://cloud.tencent.com/document/product/436/38864)。
 > - 主账号默认拥有添加存储桶域名的权限，子账号如需添加存储桶自定义域名，需要主账号在 [访问管理控制台](https://console.cloud.tencent.com/cam/overview) 授予`PutBucketDomain`接口的权限。
 

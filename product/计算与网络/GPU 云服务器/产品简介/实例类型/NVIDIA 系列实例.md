@@ -13,65 +13,138 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 **GPU 云服务器 NVIDIA 系列提供以下实例：**
 
 <table>
-        <thead>
-        <tr>
-            <th width="11%">类型</th>
-            <th width="3%">实例</th>
-            <th width="17%">GPU 类型</th>
-            <th width="34%">可用镜像</th>
-            <th style="width: 38%;">可用区域</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td rowspan="9">计算型</td>
-								<td><a href="#GT4">GT4</a></td> 
-                <td>Tesla A100 NVLink 40G</td>
-                                <td><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 16.04 及以上</li><li>Windows Server 2016 及以上</li></ul></td>
-                <td>广州、上海、北京</td>
-            </tr>
-						<td><a href="#GN10XGN10Xp">GN10X<br>GN10Xp</a></td> 
-                <td>Tesla V100 NVLink 32G</td>
-                <td><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
-                <td><ul class="params"><li>GN10X：广州、上海、南京、北京、成都、重庆、新加坡、硅谷、法兰克福、孟买</li><li>GN10Xp：广州、上海、南京、北京、成都、重庆、香港、法兰克福</li></ul></td>
-            </tr>
-         <tr>
-					</tr>
-					<tr>
-						    <td><a href="#GN8">GN8</a></td> 
-                <td>Tesla P40</td>
-								 <td  rowspan=3><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
-							  <td>广州、上海、北京、成都、重庆、香港、硅谷</td>
-					</tr>
-				  <tr>
-					   <td><a href="#GI3X">GI3X</a></td> 
-             <td>Tesla T4</td>
-             <td>广州、上海、北京、南京</td>
-          </tr>
-	        <tr>
-					<td rowspan="2"><a href="#GN7">GN7</a></td> 
-                <td>Tesla T4</td>
-                <td>广州、上海、南京、北京、成都、重庆、香港、新加坡、硅谷、孟买、弗吉尼亚、法兰克福</td>
-            </tr><tr>
-				<td>vGPU - Tesla T4</td> 
-                <td>CentOS 8.0 64位 GRID11.1</td>
-                <td>广州、上海、南京、北京、成都、重庆、香港、硅谷</td>
-			</tr><tr>
-            </tr><tr>
-						<td><a href="#GN6GN6S">GN6<br>GN6S</a></td> 
-                <td>Tesla P4</td>
-            	<td><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
-                <td><ul class="params"><li>GN6：成都</li><li>GN6S：广州、上海、北京</li></ul></td>
-            </tr>
-            <tr>
-                <td>渲染型</td>
-								<td><a href="#GN7vw">GN7vw</a></td> 
-                <td>Tesla T4</td>
-                <td><ul class="params"><li>CentOS 8.0 64位 GRID11.1</li><li>Windows Server 2019 数据中心版 64位 中文版 GRID11.1</li></td>
-                <td>北京、上海、广州、南京、成都、重庆、香港、新加坡、孟买、硅谷、弗吉尼亚、法兰克福</td>
-            </tr>
-        </tbody>
+  <thead>
+	<tr>
+	  <th width="11%">类型</th>
+	  <th width="3%">实例</th>
+	  <th width="17%">GPU 类型</th>
+	  <th width="34%">可用镜像</th>
+	  <th style="width: 38%;">可用区域</th>
+	</tr>
+  </thead>
+  <tbody>
+	<tr>
+	  <td rowspan="7">计算型</td>
+	  <td>
+		<a href="#GT4">GT4</a>
+	  </td>
+	  <td>Tesla A100 NVLink 40G</td>
+	  <td>
+		<ul class="params">
+		  <li>CentOS 7.2 及以上</li>
+		  <li>Ubuntu 16.04 及以上</li>
+		  <li>Windows Server 2016 及以上</li>
+		</ul>
+	  </td>
+	  <td>广州、上海、北京</td>
+	</tr>
+	<tr>
+	  <td>
+		<a href="#GN10XGN10Xp">GN10X
+		<br />GN10Xp</a>
+	  </td>
+	  <td>Tesla V100 NVLink 32G</td>
+	  <td>
+		<ul class="params">
+		  <li>CentOS 7.2 及以上</li>
+		  <li>Ubuntu 14.04 及以上</li>
+		  <li>Windows Server 2012 及以上</li>
+		</ul>
+	  </td>
+	  <td>
+		<ul class="params">
+		  <li>GN10X：广州、上海、南京、北京、成都、重庆、新加坡、硅谷、法兰克福、孟买</li>
+		  <li>GN10Xp：广州、上海、南京、北京、成都、重庆、香港、法兰克福</li>
+		</ul>
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+		<a href="#GN8">GN8</a>
+	  </td>
+	  <td>Tesla P40</td>
+	  <td rowspan="3">
+		<ul class="params">
+		  <li>CentOS 7.2 及以上</li>
+		  <li>Ubuntu 14.04 及以上</li>
+		  <li>Windows Server 2012 及以上</li>
+		</ul>
+	  </td>
+	  <td>广州、上海、北京、成都、重庆、香港、硅谷</td>
+	</tr>
+	<tr>
+	  <td>
+		<a href="#GI3X">GI3X</a>
+	  </td>
+	  <td>Tesla T4</td>
+	  <td>广州、上海、北京、南京</td>
+	</tr>
+	<tr>
+	  <td rowspan="2">
+		<a href="#GN7">GN7</a>
+	  </td>
+	  <td>Tesla T4</td>
+	  <td>
+	  广州、上海、南京、北京、成都、重庆、香港、新加坡、硅谷、孟买、弗吉尼亚、法兰克福</td>
+	</tr>
+	<tr>
+	  <td>vGPU - Tesla T4</td>
+	  <td>CentOS 8.0 64位 GRID11.1</td>
+	  <td>广州、上海、南京、北京、成都、重庆、香港、硅谷</td>
+	</tr>
+	<tr>
+	  <td>
+		<a href="#GN6GN6S">GN6
+		<br />GN6S</a>
+	  </td>
+	  <td>Tesla P4</td>
+	  <td>
+		<ul class="params">
+		  <li>CentOS 7.2 及以上</li>
+		  <li>Ubuntu 14.04 及以上</li>
+		  <li>Windows Server 2012 及以上</li>
+		</ul>
+	  </td>
+	  <td>
+		<ul class="params">
+		  <li>GN6：成都</li>
+		  <li>GN6S：广州、上海、北京</li>
+		</ul>
+	  </td>
+	</tr>
+  <tr>
+	<td rowspan="2">渲染型</td>
+	<td>
+	  <a href="#GNV4">GNV4</a>
+	</td>
+	<td>A10</td>
+	<td>
+	  <ul class="params">
+		<li>CentOS 7.2 及以上</li>
+		<li>Ubuntu 16.04 及以上</li>
+		<li>Windows Server 2012 及以上</li>
+	  </ul>
+	</td>
+	<td>上海</td>
+  </tr>
+  <tr>
+	<td>
+	  <a href="#GN7vw">GN7vw</a>
+	</td>
+	<td>Tesla T4</td>
+	<td>
+	  <ul class="params">
+		<li>CentOS 8.0 64位 GRID11.1</li>
+		<li>Windows Server 2019 数据中心版 64位 中文版 GRID11.1</li>
+	  </ul>
+	</td>
+	<td>
+	北京、上海、广州、南京、成都、重庆、香港、新加坡、孟买、硅谷、弗吉尼亚、法兰克福</td>
+  </tr>
+
+  </tbody>
 </table>
+
 
 
 >?**可用区域**：精确到城市级，细分区域详见下文中的实例配置信息。
@@ -95,6 +168,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
             <th width="11.5%">GN10X<br>GN10Xp</th>
             <th width="11.5%">GN7vw</th>
             <th width="11.5%">GT4</th>
+						<th width="11.5%">GNV4</th>
         </tr>
         </thead>
         <tbody>
@@ -107,6 +181,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>✓</td>
                 <td>★</td>
                  <td>-</td> 
+								 <td>★</td>
             </tr>
             <tr>
                 <td>视频编解码</td>
@@ -117,6 +192,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 								<td>✓</td>
                 <td>★</td>
                 <td>-</td> 
+								<td>★</td>
             </tr>
             <tr>
                 <td>深度学习训练</td>
@@ -127,6 +203,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>★</td>
                 <td>-</td>
                 <td>★</td>
+								<td>✓</td>
             </tr>
             <tr>
                 <td>深度学习推理</td>
@@ -137,6 +214,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 								<td>✓</td>
                 <td>-</td>
                 <td>✓</td>
+								<td>✓</td>
             </tr>
             <tr>
                 <td>科学计算</td>
@@ -147,13 +225,14 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 								<td>★</td>
                 <td>-</td>
                 <td>★</td>
+								<td>-</td> 
             </tr>
         </tbody>
 </table>
 
 
 ### 图形图像处理
-推荐使用 GN7vw，免除了 vDWS License 申请及搭建服务器步骤，是图形图像处理应用场景的首选。目前 GN7vw 处于限量购买阶段，如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
+推荐使用 GN7vw，免除了 vDWS License 申请及搭建服务器步骤，是图形图像处理应用场景的首选。目前使用 GNV4 需进行申请，请联系您的售前经理进行实例购买权限开通。
 
 NVIDIA GN* 系列其他实例可以通过安装 GRID Driver 的方式来支持图形图像处理，但是需要额外购买 License，详情请参见 [安装 NVIDIA GRID 驱动](https://cloud.tencent.com/document/product/560/30060)。
 
@@ -769,15 +848,69 @@ GI3X 性价比高 ，适用于如下场景：
 </table>
 
 
+## 渲染型 GNV4[](id:GNV4)
+
+**NVIDIA 实例 GNV4** 配置了 vDWS License 服务器并安装 GRID driver 的渲染型实例，适用于图形图像处理（3D 渲染，视频编解码）场景。使用该实例，您可免除手动配置 GPU 图形图像处理基础环境。
+
+>?使用该实例需进行申请，请联系您的售前经理进行实例购买权限开通。
+
+
+
+### 适用场景
+
+适用于图形图像处理。例如：
+
+- 图形图像处理
+- 视频编解码
+- 图形数据库
+
+### 硬件规格
+
+- **CPU：** Intel<sup>®</sup> Xeon<sup>®</sup> Cooper Lake 处理器，基频 3.4 GHz，睿频3.8 GHz。
+- **GPU：** NVIDIA<sup>®</sup>  A10（31.2 TFLOPS 单精度浮点计算，250 INT8 TOPS，500 INT4 TOPS）。
+- **存储：** 可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
+- **网络：** 默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
+
+**GNV4实例提供以下配置：**
+
+<table>
+		<thead>
+		<tr>
+			<th width=10%>型号</th>
+			<th width=10%>GPU<br>（NVIDIA<br> A10）</th>
+            <th width=12%>GPU 显存<br>（GDDR6）</th>
+			<th width=8%>vCPU</th>
+			<th>内存<br>（DDR4）</th>
+            <th width=10%>内网带宽</th>
+            <th>网络收发包</th>
+            <th>队列数</th>
+			<th>可用区</th>
+		</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>GNV4.3XLARGE44</td>
+				<td>1颗</td> 
+        <td>24GB</td>
+				<td>12核</td>
+				<td>44GB</td>
+        <td>2Gbps</td>
+				<td>53万PPS</td>
+        <td>4</td>
+        <td rowspan="4">上海五区</td>
+			</tr>
+		</tbody>
+</table>
+
+>?**vGPU**：GN7、GN7vw 、GNV4实例簇提供支持 vGPU 的实例类型。其中 GN7vw/GNV4 vGPU 的类型为 vDWS/vWs，仅支持 DirectX 和 OpenGL 等图形 API。
+
+
 
 ## 渲染型 GN7vw[](id:GN7vw)
 
 **NVIDIA 实例 GN7vw** 是在 GN7 基础上配置 vDWS License 服务器并安装 GRID driver 的渲染型实例，适用于图形图像处理（3D 渲染，视频编解码）场景。使用该实例，您可免除手动配置 GPU 图形图像处理基础环境。
 >!GPU 渲染型 GN7vw 现处于限量购买阶段，如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
 >
-
-
-
 
 
 ### 适用场景

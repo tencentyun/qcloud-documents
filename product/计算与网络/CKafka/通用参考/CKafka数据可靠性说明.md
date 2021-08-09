@@ -65,7 +65,7 @@
 
 ### 数据丢失排查方案
 
-#### 在本地打印分区partition和偏移量offset进行排查
+#### 在本地打印分区 partition 和偏移量 offset 进行排查
 
 打印信息代码如下：
 
@@ -76,6 +76,6 @@ log.info("partition: {}", recordMetadata.partition());
 log.info("offset: {}", recordMetadata.offset());
 ```
 
-如果能够打印出partition和offset，则表示当前发送的消息在服务端已经被正确保存。此时可以通过消息查询的工具去查询相关位点的消息即可。
-如果打印不出partition和offset，则表示消息没有被服务端保存，客户端需要重试。
+- 如果能够打印出 partition 和 offset，则表示当前发送的消息在服务端已经被正确保存。此时可以通过消息查询的工具去查询相关位点的消息即可。
+- 如果打印不出 partition 和 offset，则表示消息没有被服务端保存，客户端需要重试。
 
