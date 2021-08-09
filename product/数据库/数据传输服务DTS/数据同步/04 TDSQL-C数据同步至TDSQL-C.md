@@ -8,19 +8,14 @@ MySQL 到 TDSQL-C MySQL 的数据同步、TDSQL-C MySQL 到 MySQL 的数据同�
 - 为了避免数据重复，请确保需要同步的表具有主键或者非空唯一键。
 
 ## 前提条件
-
-- 已[创建云原生数据库 TDSQL-C](https://cloud.tencent.com/document/product/1003/30505)。
-
+- 已 [创建云原生数据库 TDSQL-C](https://cloud.tencent.com/document/product/1003/30505)。
 - 需要具备源数据库的权限如下：
-
-  ```
-  GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
-  GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';
-  FLUSH PRIVILEGES;
-  ```
-
+```
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';
+FLUSH PRIVILEGES;
+```
 - 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
-
 - 源数据库和目标数据库符合同步功能和版本要求，请参考 [数据同步支持的数据库](https://cloud.tencent.com/document/product/571/58672) 进行核对。
 
 
@@ -237,124 +232,5 @@ FLUSH PRIVILEGES;
 >?选择“操作”列的【更多】>【结束】可关闭同步任务，请您确保数据同步完成后再关闭任务。
 >
 ![](https://main.qcloudimg.com/raw/6406aa7cc707894a26b64ece51822ea6.png)
-8. （可选）您可以单击任务名，进入任务详情页，查看任务初始化状态和监控数据。
-
-
-
-## 操作步骤
-
-1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/dts)，选择相应配置，单击【立即购买】。
-
-<table>
-<thead><tr><th>参数</th><th>描述</th></tr></thead>
-<tbody><tr>
-<td>计费模式</td><td>支持包年包月和按量计费。目前免费，将来开始计费前1个月会通过邮件和站内信方式提前通知用户。</td></tr>
-<tr>
-<td>源实例类型</td><td>选择 TDSQL-C MySQL。</td></tr>
-<tr>
-<td>源实例地域</td><td>选择源实例所在地域。</td></tr>
-<tr>
-<td>目的实例类型</td><td>选择 TDSQL-C MySQL。</td></tr>
-<tr>
-<td>目的实例地域</td><td>选择目的实例所在地域。</td></tr>
-<tr>
-<td>同步任务规格</td><td>目前只支持标准版。</td></tr>
-</tbody></table>
-
-2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
-3. 在数据同步列表，单击“操作”列的【配置】，进入配置同步任务页面。
-   ![](https://main.qcloudimg.com/raw/81adb9273c188321a66e82c97f1fb823.png)
-4. 在配置同步任务页面，配置源端实例、帐号密码，配置目标端实例、帐号和密码，测试连通性后，单击【下一步】。
-
-<table>
-<thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
-<tbody><tr>
-<td rowspan=2 >任务设置</td>
-<td>任务名称</td>
-<td>DTS 会自动生成一个任务名称，用户可以根据实际情况进行设置。</td></tr>
-<tr>
-<td>运行模式</td><td>支持立即执行和定时执行两种模式。</td></tr>
-<tr>
-<td rowspan=6 >源实例设置</td>
-<td>源实例类型</td>
-<td>购买时所选择的云数据库实例类型，不可修改。</td></tr>
-<tr>
-<td>源实例地域</td>
-<td>购买时选择的云数据库实例所在地域，不可修改。</td></tr>
-<tr>
-<td>接入类型</td>
-<td>根据实际情况选择，本场景选择“云数据库”。
-    <ul>
-    <li>公网：通过公网 IP 接入的自建数据库。</li>
-    <li>云主机自建：腾讯云服务器 CVM 上的自建数据库。</li>
-    <li>专线/VPN 接入：通过专线/VPN 网关接入的自建数据库。</li>
-    <li>私有网络 VPC：通过私有网络 VPC 接入的自建数据库。</li>
-    <li>云数据库：腾讯云数据库。</li>
-    <li>云联网：通过云联网接入的自建数据库。</li>
-    </ul></td></tr>
-<tr>
-<td>实例 ID</td><td>源数据库实例 ID。</td></tr>
-<tr>
-<td>账号</td><td>源数据库账号。</td></tr>    
-<tr>
-<td>密码</td><td>源数据库密码。</td></tr>       
-<tr>
-<td rowspan=6 >目标实例设置</td>
-<td>目标实例类型</td><td>所选择的目标实例类型，不可修改。</td></tr>
-<tr>
-<td>目标实例地域</td><td>选择的目标实例所在地域，不可修改。</td></tr>
-<tr>
-<td>接入类型</td><td>选择目标数据库类型。</td></tr>
-<tr>
-<td>实例 ID</td><td>目标数据库实例 ID。</td></tr>
-<tr>
-<td>账号</td><td>目标数据库账号。</td></tr>    
-<tr>
-<td>密码</td><td>目标数据库密码。</td></tr>
-</tbody></table>
-
-<img src="https://main.qcloudimg.com/raw/b40bd5a54eaeef3d23bb3464312b0097.png" style="zoom:67%;" />
-
-5. 在设置同步选项和同步对象页面，将对数据初始化选项、数据同步选项、同步对象选项进行设置，在设置完成后单击【保存并下一步】。
-
-<table>
-<thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
-<tbody><tr>
-<td rowspan=2>数据初始化选项</td>
-<td>初始化类型</td>
-<td><ul><li>结构初始化：同步任务执行时会先将源实例中表结构初始化到目标实例中。<li>全量数据初始化：同步任务执行时会先将源实例中数据初始化到目标实例中。<li>默认两者都勾上，可根据实际情况取消。</td></tr>
-<tr>
-<td>已存在同名表</td>
-  <td><ul><li>前置校验并报错：存在同名表则报错，流程不再继续。<li>忽略并继续执行：全量数据和增量数据直接追加目标实例的表中。</td>
-  </tr>
-<tr>
-<td rowspan=2>数据同步选项</td>
-<td>冲突处理机制</td>
-<td><ul><li>冲突报错：在同步时发现表主键冲突，报错并暂停数据同步任务。<li>冲突忽略：在同步时发现表主键冲突，保留目标库主键记录。<li>冲突覆盖：在同步时发现表主键冲突，用源库主键记录覆盖目标库主键记录。</td></tr>
-<tr>
-<td>同步操作类型</td><td>支持操作：Insert、Update、Delete、DDL</td></tr>
-<tr>
-<td rowspan=2>同步对象选项</td>
-<td>源实例库表对象</td><td>选择待同步的对象，支持库级别和表及视图级别。</td></tr>
-<tr>
-<td>已选对象</td><td>展示已选择的同步对象，支持库表映射。</td></tr>
-</tbody></table>
-
-<img src="https://main.qcloudimg.com/raw/272026696de9d8dd15b0034f7bf8f0dd.png"  style="margin:0;">
-<strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
-<img src="https://main.qcloudimg.com/raw/533a454e1edc2dded72ac92b65948f31.png"  style="margin:0;">
-
-6. 在校验任务页面，完成校验并全部校验项通过后，单击【启动任务】。
-
->?在校验结果中出现告警项不影响启动任务，但推荐单击【查看详情】获取建议进行调整。
->
->![](https://main.qcloudimg.com/raw/b6b2ce1cfd25d090137e73ddc6c93339.png)
-
-7. 返回数据同步任务列表，任务开始进入“运行中”状态。 
-
->?选择“操作”列的【更多】 >【结束】可关闭同步任务，请您确保数据同步完成后再关闭任务。
->
->![](https://main.qcloudimg.com/raw/6406aa7cc707894a26b64ece51822ea6.png)
-
 8. （可选）您可以单击任务名，进入任务详情页，查看任务初始化状态和监控数据。
 
