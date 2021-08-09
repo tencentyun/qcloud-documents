@@ -35,10 +35,10 @@ server {
 
 ### IIS 证书配置
 #### 方法一
-Windows 2008及更早的版本不支持 TLS1_2 协议，因此无法调整 2008R2 TLS1_2 协议，默认是关闭的，需要启用此协议达到 ATS 要求。
+Windows 2008及更早的版本不支持 TLS1.2 协议，因此无法调整 2008R2 TLS1.2 协议，默认是关闭的，需要启用此协议达到 ATS 要求。
 
 以2008 R2为例，导入证书后没有对协议及套件做任何的调整。
- 证书导入后检测到套件是支持 ATS 需求的，但协议 TLS1_2 没有被启用，ATS 需要 TLS1_2 的支持。可使用的 ssltools工具（亚洲诚信提供，[单击下载](http://www.trustasia.com/down/ssltools.zip)）启用 TLS1_2 协议。如下图所示：
+ 证书导入后检测到套件是支持 ATS 需求的，但协议 TLS1.2 没有被启用，ATS 需要 TLS1.2 的支持。可使用的 ssltools工具（亚洲诚信提供，[单击下载](http://www.trustasia.com/down/ssltools.zip)）启用 TLS1.2 协议。如下图所示：
 ![1](https://mc.qcloudimg.com/static/img/bed43955994817ef3dcca0f8d617e117/1.png)
 - 勾选三个 TLS 协议并重启系统即可。
 - 如果检查到 PFS 不支持，在加密套件中选中带 ECDHE 和 DHE 就可以了。
@@ -52,7 +52,7 @@ Windows 2008及更早的版本不支持 TLS1_2 协议，因此无法调整 2008R
  - Enabled [Value = 1]
 ![2](https://mc.qcloudimg.com/static/img/a6d5d5103f41996d2297e897f3b15b8f/2.png)
 5. 完成后重启系统。
-6. 加密套件调整。开始菜单——运行，输入 `gpedit.msc` 进行加密套件调整，在此操作之前需要先开启 TLS1_2 协议。如下图所示：
+6. 加密套件调整。开始菜单——运行，输入 `gpedit.msc` 进行加密套件调整，在此操作之前需要先开启 TLS1.2 协议。如下图所示：
 >!对于前向保密加密套件不支持的话可通过组策略编辑器进行调整。
 >
 ![3](https://mc.qcloudimg.com/static/img/edbf53965efe2fc929347479bbfa3ffc/3.png)
