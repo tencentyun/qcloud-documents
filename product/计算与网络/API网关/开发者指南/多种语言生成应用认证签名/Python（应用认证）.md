@@ -23,8 +23,8 @@ API 网关提供 Python 2.7 和 Python 3 两个版本， 以及 JSON 请求方�
 ## 示例代码[](id:示例代码)
 ### Python 2.7 JSON 请求方式示例代码
 
-<dx-codeblock>
-:::  python
+
+```python
 # -*- coding: utf-8 -*-
 import base64
 import datetime
@@ -76,13 +76,11 @@ headers = {
 
 ret = requests.post(Url, headers=headers, data=body_json)
 print(ret.text)
-:::
-</dx-codeblock>
+```
 
 ### Python 2.7 form 请求方式示例代码
 
-<dx-codeblock>
-:::  python
+```python
 # -*- coding: utf-8 -*-
 import base64
 import datetime
@@ -137,14 +135,11 @@ headers = {
 
 ret = requests.post(Url, headers=headers, data=body)
 print(ret.text)
-
-:::
-</dx-codeblock>
+```
 
 ### Python 3 JSON 请求方式示例代码
 
-<dx-codeblock>
-:::  python
+```python
 # -*- coding: utf-8 -*-
 import base64
 import datetime
@@ -197,14 +192,11 @@ headers = {
 
 ret = requests.post(Url, headers=headers, data=body_json)
 print(ret.text)
-
-:::
-</dx-codeblock>
+```
 
 ### Python 3 form 请求方式示例代码
 
-<dx-codeblock>
-:::  python
+```python
 # -*- coding: utf-8 -*-
 import base64
 import datetime
@@ -259,6 +251,4 @@ headers = {
 
 ret = requests.post(Url, headers=headers, data=body)
 print(ret.text)
-:::
-</dx-codeblock>
-
+```
