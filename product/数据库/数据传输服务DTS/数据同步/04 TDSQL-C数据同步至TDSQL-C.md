@@ -18,7 +18,6 @@ FLUSH PRIVILEGES;
 - 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
 - 源数据库和目标数据库符合同步功能和版本要求，请参考 [数据同步支持的数据库](https://cloud.tencent.com/document/product/571/58672) 进行核对。
 
-
 ## 应用限制
 
 - 只支持同步基础表和视图，不支持同步函数、触发器、存储过程等对象。
@@ -45,53 +44,7 @@ FLUSH PRIVILEGES;
 | DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE VIEW、ALTER VIEW、DROP VIEW、CREATE INDEX、DROP INDEX |
 
 ## 环境要求
-本文介绍使用数据传输服务 DTS 从 TDSQL-C MySQL 数据库同步数据至腾讯云 TDSQL-C MySQL 数据库的操作指导。
 
-MySQL 到 TDSQL-C MySQL 的数据同步、TDSQL-C MySQL 到 MySQL 的数据同步，与 TDSQL-C MySQL 到 TDSQL-C MySQL 的同步要求一致，可参考本场景相关内容。
-
-## 注意事项 
-
-- DTS 在执行全量数据同步时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行迁移。
-- 为了避免数据重复，请确保需要同步的表具有主键或者非空唯一键。
-
-## 前提条件
-
-- 已 [创建云原生数据库 TDSQL-C](https://cloud.tencent.com/document/product/1003/30505)。
-- 需要具备源数据库的权限如下：
-```
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';
-FLUSH PRIVILEGES;
-```
-- 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
-- 源数据库和目标数据库符合同步功能和版本要求，请参考 [数据同步支持的数据库](https://cloud.tencent.com/document/product/571/58672) 进行核对。
-
-
-## 应用限制
-
-- 只支持同步基础表和视图，不支持同步函数、触发器、存储过程等对象。
-- 在导出视图结构时，DTS 会检查源库中 `DEFINER` 对应的 user1（ [DEFINER = user1]）和同步用户的 user2 是否一致，如果不一致，则会修改 user1 在目标库中的 `SQL SECURITY` 属性，由 `DEFINER` 转换为 `INVOKER`（ [INVOKER = user1]），同时设置目标库中 `DEFINER` 为同步用户的 user2（[DEFINER = user2]）。
-- 源端如果是非 GTID 实例，DTS 不支持源端 HA 切换，一旦源端 TDSQL-C 发生切换可能会导致 DTS 增量同步中断。
-- 只支持迁移 InnoDB、MySIAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行迁移。
-
-## 操作限制
-
-迁移过程中请勿进行如下操作，否则会导致迁移任务失败。
-- 请勿修改、删除源数据库和目标数据库中用户信息（包括用户名、密码和权限）和端口号。
-- 请勿在源库上执行分布式事务。
-- 请勿在源库写入 Binlog 格式为 `STATEMENT` 的数据。
-- 请勿在源库上执行清除 Binlog 的操作。
-- 在库表结构迁移和全量迁移阶段，请勿执行库或表结构变更的 DDL 操作。
-- 在增量迁移阶段，请勿删除系统库表 `__tencentdb__`。 
-
-## 支持的 SQL 操作
-
-| 操作类型 | 支持同步的 SQL 操作                                          |
-| -------- | ------------------------------------------------------------ |
-| DML      | INSERT、UPDATE、DELETE                                       |
-| DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE VIEW、ALTER VIEW、DROP VIEW、CREATE INDEX、DROP INDEX |
-
-## 环境要求
 <table>
 <tr><th width="20%">类型</th><th width="80%">环境要求</th></tr>
 <tr>
