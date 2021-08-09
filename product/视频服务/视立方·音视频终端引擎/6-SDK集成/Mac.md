@@ -72,7 +72,7 @@ pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工�
 ## 授权摄像头和麦克风使用权限
 使用 SDK 的音视频功能，需要授权麦克风和摄像头的使用权限。在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。
 - **Privacy - Microphone Usage Description**，并填入麦克风使用目的提示语。
-- **Privacy - Camera Usage Description**，并填入摄像头使用目的提示语 。
+- **Privacy - Camera Usage Description**，并填入摄像头使用目的提示语。
 如下图所示：
 ![](https://main.qcloudimg.com/raw/be76bd6f3f22d31385d871710b51b771.jpg) 
 

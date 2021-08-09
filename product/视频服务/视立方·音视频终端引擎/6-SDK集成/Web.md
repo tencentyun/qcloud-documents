@@ -1,6 +1,16 @@
-本文主要介绍如何快速地将腾讯云视立方集成到您的项目中，不同版本的 SDK 集成方式都通用，按照如下步骤进行配置，就可以完成 SDK 的集成工作。下面以腾讯云视立方全功能版本为例：
+本文主要介绍如何快速地将腾讯云视立方集成到您的项目中，按照如下步骤进行配置，就可以完成腾讯云视立方 SDK 在 Web 端的集成工作，主要包含 Web 播放器和 WebRTC 的集成方式。
 
-## 支持的平台
+## Web 播放器集成方式
+
+腾讯云 Web 播放器是为了解决在手机浏览器和 PC 浏览器上播放音视频流的问题，它使您的视频内容可以不依赖用户安装 App，就能在朋友圈和微博等社交平台进行传播。
+
+- 如果您需要在 Web 端进行直播播放，可使用Web超级播放器 TCPlayerLite，集成方式参见 [Web 超级播放器 TCPlayerLite](https://cloud.tencent.com/document/product/1449/57070?!preview&!editLang=zh)。
+- 如果您需要在 Web 端进行点播播放，可使用Web超级播放器 TCPlayer，集成方式参见 [Web 超级播放器 TCPlayer](https://cloud.tencent.com/document/product/1449/57088?!preview&!editLang=zh)。
+- 如果您需要快速实现第三方 Web 播放器与云点播能力的结合，可使用 Web 超级播放器 Adapter，集成方式参见 [Web 超级播放器 Adapter](https://cloud.tencent.com/document/product/1449/57089?!preview&!editLang=zh)。
+
+## WebRTC 集成方式
+
+### 支持的平台
 
 WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器、桌面版 Edge 浏览器、桌面版 Firefox 浏览器、桌面版 Safari 浏览器以及移动版的 Safari 浏览器上有较为完整的支持，其他平台（例如 Android 平台的浏览器）支持情况均比较差。
 - 在移动端推荐使用 [小程序](https://cloud.tencent.com/document/product/1449/56990?!preview&!editLang=zh) 解决方案，微信和手机 QQ 小程序均已支持，都是由各平台的 Native 技术实现，音视频性能更好，且针对主流手机品牌进行了定向适配。
@@ -144,32 +154,25 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 > - 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC 桌面浏览器 SDK 的正常运行。
 
 
-## 防火墙限制
+### 防火墙限制
 TRTC 桌面浏览器 SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单。
 - TCP 端口：8687
 - UDP 端口：8000，8080，8800，843，443，16285
 - 域名：qcloud.rtc.qq.com
 
-## 集成桌面浏览器 SDK
+### 集成桌面浏览器 SDK
 
-### NPM 集成
-
-您需要在项目中使用 npm 安装 SDK 包。
-
+- **NPM 集成**：
+	1. 您需要在项目中使用 npm 安装 SDK 包。
 ```
 npm install trtc-js-sdk --save
 ```
-
-在项目脚本里引入模块。
-
+	2. 在项目脚本里引入模块。
 ```javascript
 import TRTC from 'trtc-js-sdk';
 ```
-
-### Script 集成
-
+- **Script 集成**：
 您只需要在您的 Web 页面中添加如下代码即可：
-
 ```html
 <script src="trtc.js"></script>
 ```

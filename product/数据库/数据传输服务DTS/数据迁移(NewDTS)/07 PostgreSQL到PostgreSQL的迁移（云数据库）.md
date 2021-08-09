@@ -4,28 +4,25 @@
 ## 注意事项 
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您的数据库配置过低，建议您在业务低峰期进行迁移。
 - 外网实例迁移时，请确保源实例服务在外网环境下可访问，并且要保持外网连接的稳定性，当网络出现波动或者故障时会导致迁移失败，迁移一旦失败，就需要重新发起迁移任务。
-- 除腾讯云数据库PostgreSQL之外的其他PostgreSQL作为源端时，必须要求源端库具有superuser权限，否则迁移前校验步骤将不通过。
+- 除腾讯云数据库 PostgreSQL 之外的其他 PostgreSQL 作为源端时，必须要求源端库具有 superuser 权限，否则迁移前校验步骤将不通过。
 
 ## 前提条件
 - 已 [创建云数据库 PostgreSQL](https://cloud.tencent.com/document/product/409/56961)。
-- 源数据库和目标数据库符合迁移功能和版本要求，请参见 [支持的数据库](https://cloud.tencent.com/document/product/571/58686) 进行核对。
-- 已完成 [准备工作]()。
+- 源数据库和目标数据库符合迁移功能和版本要求，请参见 [数据迁移支持的数据库](https://cloud.tencent.com/document/product/571/58686) 进行核对。
+- 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
 - 源数据库需要具备的权限如下：
-  
-  - 源库为腾讯云数据库PostgreSQL之外的其他PostgreSQL时，要求源端库必须具有superuser权限。
-  
-  - 源库腾讯云数据库PostgreSQL，要求源数据库必须为创建云数据库实例时的初始化用户。
+  - 源库为腾讯云数据库 PostgreSQL 之外的其他 PostgreSQL 时，要求源端库必须具有 superuser 权限。
+  - 源库腾讯云数据库 PostgreSQL，要求源数据库必须为创建云数据库实例时的初始化用户。
 - 目标数据库必须为创建云数据库实例时的初始化用户。
 
 ## 应用限制
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
-
 - 为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。如需要跨地域迁移，请选择公网接入方式。
 
 ## 操作限制
 - 迁移过程中请勿修改、删除源数据库和目标数据库中用户信息（包括用户名、密码和权限）和端口号。
 - 在结构迁移、全量迁移和增量迁移阶段，请勿执行 DDL 操作，大对象操作，否则会导致迁移数据不一致。
-- 如果仅执行全量数据迁移，仅会迁移在发起迁移这一刻之前的数据，如果在迁移过程中向源实例中写入新的数据，源库和目标库的数据会出现不一致。针对有数据写入的场景，为实时保持数据一致性，建议选择全量+增量数据迁移。
+- 如果仅执行全量数据迁移，仅会迁移在发起迁移这一刻之前的数据，如果在迁移过程中向源实例中写入新的数据，源库和目标库的数据会出现不一致。针对有数据写入的场景，为实时保持数据一致性，建议选择全量 + 增量数据迁移。
 
 ## 环境要求
 >?如下环境要求，系统会在启动迁移任务前自动进行校验，不符合要求的系统会报错。如果用户能够识别出来，可以 参考 [校验项检查要求](https://cloud.tencent.com/document/product/571/58685) 自行修改，如果不能则等系统校验完成，按照报错提示修改。
@@ -34,32 +31,31 @@
 <tr><th width="20%">类型</th><th width="80%">环境要求</th></tr>
 <tr>
 <td>源数据库要求</td>
-<td>
-<ul>
+<td><ul>
 <li>源库和目标库网络能够连通。</li>
 <li>源库所在的服务器需具备足够的出口带宽，否则将影响迁移速率。</li>
 <li>实例参数要求：
 <ul>
-<li>增量迁移时源库 wal_level 参数值必须为logical。</li>
-<li>增量迁移时源库max_replication_slots 值必须大于待迁移的database数量。</li>
-<li>增量迁移时源库max_wal_senders 值必须大于待迁移的database数量。</li>
+<li>增量迁移时源库 wal_level 参数值必须为 logical。</li>
+<li>增量迁移时源库 max_replication_slots 值必须大于待迁移的 database 数量。</li>
+<li>增量迁移时源库 max_wal_senders 值必须大于待迁移的 database 数量。</li></ul>
+</ul></td>
 <tr> 
 <td>目标数据库要求</td>
 <td>
 <li>目标库的版本必须大于等于源库的版本。</li>
-<li>目标库的可用空间大小须是源库待迁移实例的1.2倍以上。（数据增量迁移会执行update，delete 操作，导致数据库的表产生碎片，因此迁移完成后目标数据库的表存储空间很可能会比源实例的表存储空间大，这主要是因为源端和目标端不同的autovcauum触发条件导致。）</li>
+<li>目标库的可用空间大小须是源库待迁移实例的1.2倍以上。（数据增量迁移会执行 update，delete 操作，导致数据库的表产生碎片，因此迁移完成后目标数据库的表存储空间很可能会比源实例的表存储空间大，这主要是因为源端和目标端不同的 autovcauum 触发条件导致。）</li>
 <li>目标库不能有和源库同名的迁移对象。如用户名不能相同，不能存在相同名的表。</li>
-<li>增量迁移时目标库max_replication_slots 值必须大于待迁移的database数量。</li>
-<li>增量迁移时目标库max_wal_senders 值必须大于待迁移的database数量。</li>
-<li>增量迁移时目标库max_worker_processes值必须大于max_logical_replication_workers</li>
+<li>增量迁移时目标库 max_replication_slots 值必须大于待迁移的 database 数量。</li>
+<li>增量迁移时目标库 max_wal_senders 值必须大于待迁移的 database 数量。</li>
+<li>增量迁移时目标库 max_worker_processes 值必须大于 max_logical_replication_workers。</li>
+</tr>
 </table>
 
 ## 操作步骤
 1. 登录 [DTS 数据迁移控制台](https://console.cloud.tencent.com/dts/migration)，单击【新建迁移任务】，进入新建迁移任务页面。
 2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击【0元购买】，目前 DTS 数据迁移功能免费使用。
-  >？ 
-  >迁移任务订购后不支持更换地域，请谨慎选择。
-
+>?迁移任务订购后不支持更换地域，请谨慎选择。
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击【新建】。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
 >
@@ -111,8 +107,7 @@
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
-
-![](https://main.qcloudimg.com/raw/07aa16424aa70eb25ab9450c3be31d6f.png)
+<img src="https://main.qcloudimg.com/raw/414b9b3caf06c106ce894dea9a0ddf2a.png"  style="zoom:60%;">
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击【保存】。
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
@@ -127,7 +122,7 @@
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
 </tbody></table>
-![](https://main.qcloudimg.com/raw/aadd11ed6a095813fa767690e6857276.png)
+<img src="https://main.qcloudimg.com/raw/aadd11ed6a095813fa767690e6857276.png"  style="zoom:60%;">
 5. 在校验任务页面，进行校验，校验任务通过后，单击【启动任务】。
 如果校验任务不通过，可以查看具体检查项和失败原因，根据界面提示修复后重新发起校验任务。
 ![](https://main.qcloudimg.com/raw/5ed72bfbcaefe3234e5c08114a2761f3.png)

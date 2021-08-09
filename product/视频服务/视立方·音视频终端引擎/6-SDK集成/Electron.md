@@ -1,7 +1,7 @@
 本文主要介绍如何快速地将腾讯云视立方集成到您的项目中，不同版本的 SDK 集成方式都通用，按照如下步骤进行配置，就可以完成 SDK 的集成工作。下面以腾讯云视立方全功能版本为例：
 
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
@@ -19,7 +19,7 @@
 ### 步骤1：安装 Node.js
 <dx-tabs>
 ::: Windows\s平台安装指引
-1. 根据 Windows 操作系统选择下载最新版本的 [Node.js](https://nodejs.org/en/download/)  安装包 `Windows Installer (.msi) 64-bit`。
+1. 根据 Windows 操作系统选择下载最新版本的 [Node.js](https://nodejs.org/en/download/)  安装包 **Windows Installer (.msi) 64-bit**。
 2. 打开应用程序列表中的 Node.js command prompt，启动命令行窗口，用于输入后续步骤中的各项命令。
 ![](https://main.qcloudimg.com/raw/148c49336f0d89829736af81de305de4.png)
 :::
@@ -91,7 +91,7 @@ $ npm install native-ext-loader@latest --save-dev
 - 使用 `vue-cli` 创建项目的情况下，webpack 的配置存放在 `vue.config.js` 配置中的 `configureWebpack` 属性中。
 - 如您的工程文件经过了定制化，还请自行查找 webpack 配置。
 
-
+### 操作说明
 1. 首先使 `webpack.config.js` 在构建时可以接收名为 `--target_platform` 的命令行参数，以使代码构建过程按不同的目标平台特点正确打包，在 `module.exports` 之前添加以下代码：
 ```
 	const os = require('os');
@@ -145,7 +145,7 @@ rules: [
 "build": {
     "appId": "[appId 请自行定义]",
     "directories": {
-    "output": "./bin"
+			"output": "./bin"
     },
     "win": {
     "extraFiles": [
@@ -172,38 +172,41 @@ rules: [
 <dx-codeblock>
 ::: json json
 // create-react-app 项目请使用此配置
-    "scripts": {
-    "build:mac": "react-scripts build --target_platform=darwin",
+"scripts": {
+	"build:mac": "react-scripts build --target_platform=darwin",
     "build:win": "react-scripts build --target_platform=win32",
     "compile:mac": "node_modules/.bin/electron-builder --mac",
     "compile:win64": "node_modules/.bin/electron-builder --win --x64",
     "pack:mac": "npm run build:mac && npm run compile:mac",
     "pack:win64": "npm run build:win && npm run compile:win64"
-    }
+}
 
 // vue-cli 项目请使用此配置
 "scripts": {
-  "build:mac": "vue-cli-service build --target_platform=darwin",
-  "build:win": "vue-cli-service build --target_platform=win32",
-  "compile:mac": "node_modules/.bin/electron-builder --mac",
-  "compile:win64": "node_modules/.bin/electron-builder --win --x64",
-  "pack:mac": "npm run build:mac && npm run compile:mac",
-  "pack:win64": "npm run build:win && npm run compile:win64"
+	"build:mac": "vue-cli-service build --target_platform=darwin",
+	"build:win": "vue-cli-service build --target_platform=win32",
+	"compile:mac": "node_modules/.bin/electron-builder --mac",
+	"compile:win64": "node_modules/.bin/electron-builder --win --x64",
+	"pack:mac": "npm run build:mac && npm run compile:mac",
+	"pack:win64": "npm run build:win && npm run compile:win64"
 }
 :::
 </dx-codeblock>
 
->? 
-> -   `main` ：Electron 的入口文件，一般情况下可以自由配置。但如果项目使用 `create-react-app` 脚手架创建，则入口文件必须配置为 `public/electron.js` 。
-> -   `build.win.extraFiles` ：打包 Windows 程序时，`electron-builder` 会把 `from` 所指目录下的所有文件复制到 bin/win-unpacked/resources（全小写）。
-> -   `build.mac.extraFiles` ：打包 Mac 程序时，`electron-builder` 会把 `from` 指向的 `trtc_electron_sdk.node` 文件复制到 bin/mac/your-app-name.app/Contents/Resources（首字母大写）。
-> -   `build.directories.output` ：打包文件的输出路径。例如这个配置会输出到 `bin` 目录下，可根据实际需要修改。
-> -   `build.scripts.build:mac` ：以 Mac 平台为目标构建脚本。
-> -   `build.scripts.build:win` ：以 Windows 平台为目标构建脚本。
-> -   `build.scripts.compile:mac` ：编译为 Mac 下的 .dmg 安装文件。
-> -   `build.scripts.compile:win64` ：编译为 Windows 下的 .exe 安装文件。
-> -   `build.scripts.pack:mac` ：先调用 build:mac 构建代码，再调用 compile:mac 打包成 .dmg 安装文件。
-> -   `build.scripts.pack:win64` ：先调用 build:win 构建代码，再调用 compile:win64 打包成 .exe 安装文件。
+| 参数                        | 说明                                                         |
+| --------------------------- | ------------------------------------------------------------ |
+| main                        | Electron 的入口文件，一般情况下可以自由配置。但如果项目使用 `create-react-app` 脚手架创建，则入口文件必须配置为 `public/electron.js`。 |
+| build.win.extraFiles        | 打包 Windows 程序时，`electron-builder` 会把 `from` 所指目录下的所有文件复制到 bin/win-unpacked/resources（全小写）。 |
+| build.mac.extraFiles        | 打包 Mac 程序时，`electron-builder` 会把 `from` 指向的 `trtc_electron_sdk.node` 文件复制到 bin/mac/your-app-name.app/Contents/Resources（首字母大写）。 |
+| build.directories.output    | 打包文件的输出路径。例如这个配置会输出到 `bin` 目录下，可根据实际需要修改。 |
+| build.scripts.build:mac     | 以 Mac 平台为目标构建脚本。                                  |
+| build.scripts.build:win     | 以 Windows 平台为目标构建脚本。                              |
+| build.scripts.compile:mac   | 编译为 Mac 下的 `.dmg` 安装文件。                              |
+| build.scripts.compile:win64 | 编译为 Windows 下的 `.exe` 安装文件。                          |
+| build.scripts.pack:mac      | 先调用 `build:mac` 构建代码，再调用 `compile:mac` 打包成 `.dmg` 安装文件。 |
+| build.scripts.pack:win64    | 先调用 `build:win` 构建代码，再调用 `compile:win64` 打包成 `.exe` 安装文件。 |
+
+
 
 
 

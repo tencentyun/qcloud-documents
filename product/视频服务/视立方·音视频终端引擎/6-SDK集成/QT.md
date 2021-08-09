@@ -1,7 +1,7 @@
 本文主要介绍如何快速地将腾讯云视立方集成到您的项目中，不同版本的 SDK 集成方式都通用，按照如下步骤进行配置，就可以完成 SDK 的集成工作。下面以腾讯云视立方全功能版本为例：
 
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
@@ -98,19 +98,19 @@ CONFIG += opengl
 CONFIG += debug_and_release
 
 debug {
-contains(QT_ARCH,i386) {
-LIBS += -L$$PWD/../SDK/CPlusPlus/Win32/lib -lliteav
-} else {
-LIBS += -L$$PWD/../SDK/CPlusPlus/Win64/lib -lliteav
-}
+	contains(QT_ARCH,i386) {
+		LIBS += -L$$PWD/../SDK/CPlusPlus/Win32/lib -lliteav
+	} else {
+		LIBS += -L$$PWD/../SDK/CPlusPlus/Win64/lib -lliteav
+	}
 }
 
 release {
-contains(QT_ARCH,i386) {
-LIBS += -L$$PWD/../SDK/CPlusPlus/Win32/lib -lliteav
-} else {
-LIBS += -L$$PWD/../SDK/CPlusPlus/Win64/lib -lliteav
-}
+	contains(QT_ARCH,i386) {
+		LIBS += -L$$PWD/../SDK/CPlusPlus/Win32/lib -lliteav
+	} else {
+		LIBS += -L$$PWD/../SDK/CPlusPlus/Win64/lib -lliteav
+	}
 }
 :::
 </dx-codeblock>

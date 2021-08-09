@@ -178,7 +178,7 @@ SDK 支持 http 协议和 https 协议，通过设置 HttpProfile 的 setProtoco
 
 ## 支持打印日志
 自3.1.80版本开始，SDK 支持打印日志。
-首先，在创建 CLientProfile 对象时，设置 debug 模式为真,会打印 sdk 异常信息和流量信息。
+首先，在创建 CLientProfile 对象时，设置 debug 模式为真，会打印 sdk 异常信息和流量信息。
 ```
       ClientProfile clientProfile = new ClientProfile();
       clientProfile.setDebug(true);

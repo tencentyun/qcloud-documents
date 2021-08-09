@@ -1,16 +1,4 @@
-本页文档所描述功能，在 SDK 版本中支持情况如下：
-
-|          | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | ------------- | ------------ | ---------- | -------------- | ------------ | ------ |
-| 支持情况 | -             | -            | -          | -              | √            | -      |
-| SDK 下载  | 下载          | 下载         | 下载       | 下载           | 下载         | 下载   |
-
-不同版本 SDK 包含的更多能力可以参见 [这里](https://tcloud-doc.isd.com/document/product/1449/56978?!preview&!editLang=zh)。
-
-## 产品概述
-
-本文档是介绍腾讯云视立方超级播放器 Adapter，它可以帮助腾讯云客户通过灵活的接口，快速实现第三方播放器与云点播能力的结合，实现视频播放功能。超级播放器 Adapter 支持获取视频基本信息、视频流信息、关键帧与缩略图信息等，支持私有加密，本文档适合有一定 Javascript 语言基础的开发人员阅读。
-
+本文档是介绍腾讯云视立方 Web 超级播放器 Adapter，它可以帮助腾讯云客户通过灵活的接口，快速实现第三方播放器与云点播能力的结合，实现视频播放功能。超级播放器 Adapter 支持获取视频基本信息、视频流信息、关键帧与缩略图信息等，支持私有加密，本文档适合有一定 Javascript 语言基础的开发人员阅读。
 
 [](id:Integrated)
 ## 集成SDK
@@ -226,7 +214,8 @@ adapter.on('hlsready', () => {
 参阅更多 [示例](https://github.com/tcplayer/tcadapter-combine-video)。
 </dx-alert>
 
-```javascript
+<dx-codeblock>
+:::  javascript
 import { useEffect, useRef } from 'react';
 import TcAdapter from 'tcadapter';
 
@@ -268,14 +257,16 @@ function App() {
 }
 
 export default App;
+:::
+</dx-codeblock>
 
-```
 :::
 ::: 示例2:\stcadapter\s与\svideojs\s结合
 <dx-alert infotype="explain" title="">
 参阅更多 [示例](https://github.com/tcplayer/tcadapter-combine-videojs)。
 </dx-alert>
-```javascript
+<dx-codeblock>
+:::  javascript
 // 1. videojs 播放 hls 会使用 @videojs/http-streaming，所以我们开发一套使用 tcadapter 播放的策略覆盖原有逻辑（也可以直接修改 @videojs/http-streaming 内部逻辑）
 
 // src/js/index.js
@@ -371,8 +362,9 @@ function mountHlsProvider(enforce) {
 }
 mountHlsProvider();
 export default Adapter;
+:::
+</dx-codeblock>
 
-```
 :::
 </dx-tabs>
 

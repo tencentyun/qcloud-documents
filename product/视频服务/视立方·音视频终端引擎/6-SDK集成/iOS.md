@@ -61,11 +61,11 @@ pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工�
 [](id:manual)
 ### 手动集成
 1. 下载 [LiveAVSDK](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh) ，下载完成后进行解压。
-2. 打开您的 Xcode 工程项目，选择要运行的 target , 选中 **Build Phases** 项。
+2. 打开您的 Xcode 工程项目，选择要运行的 target，选中 **Build Phases** 项。
 ![](https://main.qcloudimg.com/raw/d78299d12be0f6c3255eabec91941e7a.jpg)
 3. 单击 **Link Binary with Libraries** 项展开，单击底下的【+】添加依赖库。
 ![](https://main.qcloudimg.com/raw/dffd804d78d3e5765add218cb228c842.png)
-4. 依次添加所下载的 `TXLiteAVSDK_Professional.framework` 及其所需依赖库 :
+4. 依次添加所下载的 `TXLiteAVSDK_Professional.framework` 及其所需依赖库。
 ```
 libz.tbd
 libc++.tbd

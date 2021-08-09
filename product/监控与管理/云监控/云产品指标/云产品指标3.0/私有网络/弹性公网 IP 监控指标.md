@@ -26,5 +26,5 @@ Namespace=QCE/LB
 **查询私有网络弹性公网 IP 监控接口监控数据，入参取值如下：**
 &Namespace=QCE/LB
 &Instances.N.Dimensions.0.Name=eip
-&Instances.N.Dimensions.0.Value=弹性公网IP的唯一 ID
+&Instances.N.Dimensions.0.Value=弹性公网 IP
 

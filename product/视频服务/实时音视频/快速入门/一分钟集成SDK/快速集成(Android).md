@@ -35,8 +35,7 @@ defaultConfig {
 }
 ```
 >?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
->
-3.单击【Sync Now】，自动下载 SDK 并集成到工程里。
+3. 单击【Sync Now】，自动下载 SDK 并集成到工程里。
 
 
 ### 方法二：手动下载（aar）
@@ -48,7 +47,7 @@ defaultConfig {
 ![](https://main.qcloudimg.com/raw/3b07d38f105167ae52ffdda9a1712cec.png)
 4. 在 app/build.gradle 中，添加引用 aar 包的代码。
 ![](https://main.qcloudimg.com/raw/a5658a2b3c888513215093a04dd76a25.png)
-5.在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构。
+5. 在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构。
 ```
 defaultConfig {
        ndk {
@@ -57,7 +56,6 @@ defaultConfig {
 }
 ```
 >?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
->
 6. 单击【Sync Now】，完成 TRTC SDK 的集成工作。
 
 

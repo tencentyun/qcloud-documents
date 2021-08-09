@@ -8,8 +8,6 @@
 pgAgent 是 pgAdmin 工具中的一个插件，在 pgAdmin III v1.4 版本中引用。主要用于 PostgreSQL 的作业调度代理，能够在复杂的时间表上运行多步批处理 shell 和 SQL 任务。 
 需要注意的是，pgAgent 需要一些数据库表和其他对象的支持，因此需要先安装 pgAgen 插件。
 
-## 前提条件
-已 [购买 PostgreSQL 实例](https://buy.cloud.tencent.com/pgsql)，并 [初始化 PostgreSQL 实例](https://cloud.tencent.com/document/product/409/40426)。
 
 ## 操作方法
 ### 配置 pgAgent 

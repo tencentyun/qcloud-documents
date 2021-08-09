@@ -17,7 +17,7 @@
     - `cloud.tencent.com.pfx` 证书文件
     - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
   - CSR 文件内容：	`cloud.tencent.com.csr` 文件
-  >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
+>?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 打开 IIS 服务管理器，选择计算机名称，双击打开 “服务器证书”。如下图所示：
 ![](https://main.qcloudimg.com/raw/f81cfa90c5bed2470837ab1e04dd029e.png)
 3. 在服务器证书窗口的右侧 “操作” 栏中，单击【导入】。如下图所示：

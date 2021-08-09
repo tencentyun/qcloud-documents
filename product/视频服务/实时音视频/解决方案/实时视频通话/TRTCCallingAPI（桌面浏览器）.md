@@ -632,8 +632,8 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 #### Error code 码
 | code      | 错误类型    | 含义                        |
 | --------- | ----------- | ----------------------------- |
-| 60001     | 方法调用失败  | switchToAudioCall 调用失败   ｜
-| 60002     | 方法调用失败  | switchToVideoCall 调用失败   ｜
+| 60001     | 方法调用失败  | switchToAudioCall 调用失败   |
+| 60002     | 方法调用失败  | switchToVideoCall 调用失败   |
 
 ## 常见问题
 

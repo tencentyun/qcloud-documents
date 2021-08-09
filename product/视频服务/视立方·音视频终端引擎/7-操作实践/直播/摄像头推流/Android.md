@@ -1,5 +1,5 @@
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
@@ -99,10 +99,10 @@ mLivePusher.stopPush();
 ```
 >!如果已经启动了摄像头预览，请在结束推流时将其关闭。  
 
-- **如何获取可用的推流 URL？** 
+- **获取可用的推流 URL** 
 开通直播服务后，可以使用 [【直播控制台】>【直播工具箱】>【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。 
 ![](https://main.qcloudimg.com/raw/7110d39cdb464b789bd68301f4de7ebe.png)   
-- **返回 V2TXLIVE_ERROR_INVALID_LICENSE 的原因？**    
+- **返回 V2TXLIVE_ERROR_INVALID_LICENSE 的原因**    
 如果 `startPush` 接口返回 `V2TXLIVE_ERROR_INVALID_LICENSE`，则代表您的 License 校验失败了，请检查 [第2步：给 SDK 配置 License 授权](#step2) 中的工作是否有问题。   
 
 [](id:step6)

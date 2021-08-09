@@ -128,7 +128,7 @@ that: >
 
 ## 工具
 
-- 提供了一个 [YAML 的格式校验工具](http://www.bejson.com/validators/yaml/)，供参考
+- 提供了一个 [YAML 的格式校验工具](https://www.bejson.com/validators/yaml_editor/)，供参考
 - [YAML 和 Properties 格式互转工具](http://www.toyaml.com/)
 
 ## 参考

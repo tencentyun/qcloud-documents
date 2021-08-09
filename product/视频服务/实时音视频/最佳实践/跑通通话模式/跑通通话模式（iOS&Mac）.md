@@ -54,7 +54,7 @@ pod install
 [](id:step3)
 ### 步骤3：初始化 SDK 实例并监听事件回调
 
-1. 使用 [sharedInstance()](https://cloud.tencent.com/document/product/647/32258) 接口创建`TRTCCloud`实例。
+1. 使用 [sharedInstance()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#ab6884975e069628328d05cf0e2c3dc67) 接口创建`TRTCCloud`实例。
 ```
 // 创建 trtcCloud 实例
 _trtcCloud = [TRTCCloud sharedInstance];

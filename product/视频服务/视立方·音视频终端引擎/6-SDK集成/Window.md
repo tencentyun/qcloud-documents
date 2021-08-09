@@ -30,7 +30,7 @@
 [](id:step3)
 ### 步骤3：拷贝文件
 将解压后的 SDK 文件夹拷贝至 `TRTCCSharpDemo.csproj` 所在目录。
->?当只需要 C# SDK时，可以将 SDK 路径下的 CPlusPlus 目录删除。
+>?当只需要 C# SDK 时，可以将 SDK 路径下的 CPlusPlus 目录删除。
 
 ![](https://main.qcloudimg.com/raw/dbd90fce988853c26a832930cef2e9a6.png)
 
@@ -67,7 +67,7 @@
 set Platform=Win64
 SETLOCAL ENABLEDELAYEDEXPANSION
 if $(PlatformName)==x86 ( 
-  set Platform=Win32
+			set Platform=Win32
 )
 copy /Y "$(ProjectDir)SDK\CSharp\!Platform!\lib\*.dll" "$(ProjectDir)$(OutDir)"
 ENDLOCAL

@@ -1,9 +1,31 @@
-## 新旧 License 区别
-腾讯云视立方 License 通过一组 License URL 和 Key 来获取并校验一个应用下功能模块的授权。不同的功能模块具备不同的功能，部分功能模块的能力需要通过 License 解锁使用。您可以通过购买特定类型套餐包，获取相对应的功能模块 License ，从而解锁对应功能模块的能力。
+腾讯云视立方 License 通过一组 License URL 和 Key 来获取并校验一个应用下功能模块的授权。不同的功能模块具备不同的功能。若您下载的腾讯云视立方版本中，包含直播推流（主播开播和主播观众连麦/主播跨房 PK）或短视频（视频录制编辑/视频上传发布）功能模块，需通过购买对应的云服务的资源包免费获取 License，从而解锁对应功能模块的能力。功能模块解锁详情请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
 
+## 新旧 License 区别
 旧版 License 仅支持一组 License URL 和 Key 解锁对应一个 SDK 功能（移动直播或短视频），相比腾讯云视立方 License 维护和使用较为繁琐；升级后的新版视立方 License 后仅需维护一组 License URL 和 Key ，便可以管理所有腾讯云音视频的终端授权。
 
+原移动直播 License、短视频 License 可在腾讯云视立方·音视频终端引擎中继续使用，对应授权解锁腾讯云视立方·音视频终端引擎中的直播推流（主播开播、主播观众连麦/主播跨房 PK）与短视频（视频录制编辑/视频上传发布）模块，**若您使用包含上述功能模块的版本时，处于有效期内的 License 无需再次购买解锁授权**。新旧 License 对应详情如下：
 
+<table>
+<thead>
+<tr>
+<th colspan=2>腾讯云视立方 License</th>
+<th>原 SDK License</th>
+</tr>
+</thead>
+<tbody><tr>
+<td colspan=2>直播推流 License</td>
+<td>移动直播基础版 License</td>
+</tr>
+<tr>
+<td rowspan=2>短视频 License</td>
+<td>短视频精简版 License</td>
+<td>短视频精简版 License</td>
+</tr>
+<tr>
+<td>短视频基础版 License</td>
+<td>短视频基础版 License</td>
+</tr>
+</tbody></table>
 
 
 ## 测试版 License
@@ -25,7 +47,7 @@
 [](id:UGSV)
 ### 短视频模块
 - 购买云点播流量资源包-10TB，可以解锁短视频模块—精简版，有效期一年。
-- 购买云点播流量资源包-50TB、流量资源包-100TB、流量资源包-1PB，可以解锁短视频模块—基础版，有效期一年。
+- 购买云点播流量资源包-50TB、流量资源包-100TB、流量资源包-1PB，可以解锁短视频模块（基础版），有效期一年。
 
 [](id:UGSV_detail)
 #### 短视频 License 功能详情
@@ -269,11 +291,3 @@
 
 > !美颜特效更多高级美颜、动效贴纸、AI 抠图和绿幕抠图的功能能力暂通过原（移动直播/短视频）企业版 SDK 对外售卖，通过购买原移动直播企业版License、短视频企业版 License 或者短视频企业版 Pro License 后，使用对应的功能。详情请参见 [美颜特效功能概述](https://cloud.tencent.com/document/product/1449/58916?!editLang=zh&!preview)。
 
-
-## 常见问题
-### 为什么新版 License 升级后，少了一个 License ，多了一个可用资源包 ？
-新版 License 增加了重复包名校验逻辑，当多个同类型的 License 绑定了同一组包名（ Bundle ID 和 Package Name ），此时实际上仅一个 License 会生效；我们会解除无效且有效期较短的 License 绑定关系，为您释放无效绑定的资源包，并且被释放的资源包可以绑定新的 License 使用。
-
-<dx-alert infotype="explain" title="示例：">
-用户 A 以前购买了两个 10 TB 的直播流量资源包（有效期截止时间不同），获赠两个移动直播 License ，并分两次绑定了同一组包名（实际上仅一个 License 有效）。在升级为腾讯云视立方 License 后，仅保留了有效期较长的 License 的绑定；另一个有效期较短的 License 被解除绑定关系，10TB 资源包被释放，用户 A 可以再次进行新的 License 绑定。
-</dx-alert>

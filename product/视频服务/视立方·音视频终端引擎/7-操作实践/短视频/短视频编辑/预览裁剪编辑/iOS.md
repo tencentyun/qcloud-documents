@@ -1,7 +1,7 @@
 视频编辑包括视频裁剪、时间特效（慢动作、倒放、重复）、滤镜特效（动感光波、暗黑幻影、灵魂出窍、画面分裂）、滤镜风格（唯美、粉嫩、蓝调等）、音乐混音、动态贴纸、静态贴纸、气泡字幕等功能。
 
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
@@ -224,14 +224,14 @@ UIImage* image = [UIImage imageWithContentsOfFile:path];
 <dx-tabs>
 ::: 设置全局水印
 您可以为视频设置水印图片，并且可以指定图片的位置。
-#### 设置水印的方法： 
+**设置水印的方法：** 
 ```
 - (void) setWaterMark:(UIImage *)waterMark  normalizationFrame:(CGRect)normalizationFrame;
 ```
 
 其中 waterMark 表示水印图片，normalizationFrame 是相对于视频图像的归一化 frame，frame 的 x、y、width、height 的取值范围都为0 - 1。
 
-#### Demo 示例：
+**Demo 示例：**
 ```
 UIImage *image = [UIImage imageNamed:@"watermark"];  
 [_ugcEdit setWaterMark:image normalizationFrame:CGRectMake(0, 0, 0.3 , 0.3 * image.size.height / image.size.width)];//水印大小占视频宽度的30%，高度根据宽度自适应
@@ -239,7 +239,8 @@ UIImage *image = [UIImage imageNamed:@"watermark"];
 :::
 ::: 设置片尾水印
 您可以为视频设置片尾水印，并且可以指定片尾水印的位置。
-#### 设置片尾水印的方法：  
+
+**设置片尾水印的方法：** 
 ```
 - (void) setTailWaterMark:(UIImage *)tailWaterMark normalizationFrame:(CGRect)normalizationFrame 
                           duration:(CGFloat)duration;
@@ -247,7 +248,7 @@ UIImage *image = [UIImage imageNamed:@"watermark"];
 
 其中 tailWaterMark 表示片尾水印图片，normalizationFrame 是相对于视频图像的归一化 frame，frame 的 x、y、width、height 的取值范围都为0 - 1，duration 为水印的持续时长。
 
-#### Demo 示例：
+**Demo 示例：**
 设置水印在片尾中间，持续时间1s。
 
 ```

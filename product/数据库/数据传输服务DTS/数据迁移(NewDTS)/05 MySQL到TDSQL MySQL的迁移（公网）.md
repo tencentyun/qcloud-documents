@@ -8,41 +8,34 @@
 ## 前提条件
 
 - 已 [创建分布式数据库TDSQL MySQL版](https://cloud.tencent.com/document/product/557/10236)。
-
 - 源数据库和目标数据库符合迁移功能和版本要求，请参见 [数据迁移支持的数据库](https://cloud.tencent.com/document/product/571/58686) 进行核对。
-
-- 已完成 [准备工作]()。
-
+- 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
 - 需要您在源端 MySQL 中提前创建好数据库：`__tencentdb__`。
-
 - 需要具备源数据库的权限。
-
   - “整个实例”迁移，需要的帐号权限如下：
-    ```
-    CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
-    GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
-    GRANT INSERT, UPDATE, DELETE, DROP, SELECT, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
-    GRANT SELECT ON *.* TO '迁移帐号';
-    ```
+```
+CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+GRANT INSERT, UPDATE, DELETE, DROP, SELECT, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
+GRANT SELECT ON *.* TO '迁移帐号';
+```
   - “指定对象”迁移，需要的帐号权限如下：
-
-     ```
-     CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
-     GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
-     GRANT INSERT, UPDATE, DELETE, DROP, SELECT, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
-     GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
-     GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
-     ```
-
+```
+CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+GRANT INSERT, UPDATE, DELETE, DROP, SELECT, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
+GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
+GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
+```
 - 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
 
 ## 应用限制
 
 - 只支持迁移基础表，不支持迁移视图、函数、触发器、存储过程等对象。
 - 不支持迁移系统库表和用户信息，包括 `information_schema`， `sys`， `performance_schema`， `__tencentdb__`， `mysql`。迁移完成后，如果需要调用目标库的视图、存储过程或函数，则要对调用者授予读写权限。 
-- 只允许和迁移目标user@host相同的definer。
+- 只允许和迁移目标 user@host 相同的 definer。
 - 视图限制：
-   - 全量迁移阶段，源端的视图会忽略，不予迁移。
+  - 全量迁移阶段，源端的视图会忽略，不予迁移。
   - 增量阶段，源端产生的视图 DDL，只会回放在目标实例的第一个分片。
 - 只支持迁移 InnoDB 数据库引擎，如果存在其他的数据引擎表则默认跳过不进行迁移。
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。
@@ -58,9 +51,9 @@
   - 在增量迁移阶段，请勿删除系统库表 `__tencentdb__`。 
 - 如果仅执行全量数据迁移，请勿在迁移过程中向源实例中写入新的数据，否则会导致源和目标数据不一致。针对有数据写入的场景，为实时保持数据一致性，建议选择全量+增量数据迁移。
 
-## 支持的SQL操作
+## 支持的 SQL 操作
 
-| 操作类型 | 支持同步的SQL操作                                            |
+| 操作类型 | 支持同步的 SQL 操作                                            |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE、REPLACE                              |
 | DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE<br>VIEW：CREATE VIEW、ALTER VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br> |
@@ -70,55 +63,40 @@
 > ?如下环境要求，系统会在启动迁移任务前自动进行校验，不符合要求的系统会报错。如果用户能够识别出来，可以参考 [校验项检查要求](https://cloud.tencent.com/document/product/571/58685) 自行修改，如果不能则等系统校验完成，按照报错提示修改。
 
 <table>
-        <tr>
-                <th width="20%">类型</th>
-                <th width="80%">环境要求</th>
-        </tr>
-        <tr>
-                <td>源数据库要求</td>
-                <td>
-                  <li>源库和目标库网络能够连通。</li>
-                  <li>实例参数要求：
-                      <ul>
-                          <li>table_row_format 不能设置为 FIXED。</li>
-                          <li>源库和目标库 lower_case_table_names 变量必须设置一致。</li>
-                          <li>检查目标端 max_allowed_packet 参数，至少设置 4M。</li>
-                          <li>源库变量 connect_timeout 设置数值必须大于10。</li>
-                      </ul>
-                 </li>
-                 <li>Binlog参数要求：
-                      <ul>
-                          <li>源端 binlog_format 变量必须设置为ROW。</li>
-                          <li>源端 log_bin 变量必须设置为ON。</li>
-                          <li>源端 binlog_row_image 变量必须设置为FULL。</li>
-                          <li>源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode。</li>
-                         <li>不允许设置 do_db, ignore_db。</li>
-                         <li>对于源实例为从库的情况，log_slave_updates 变量必须设置为 ON。</li>
-                      </ul>
-                 </li>
-                 <li>外键依赖：
-                      <ul>
-                          <li>外键依赖只能设置为 no action 和 restrict 两种类型。</li>
-                          <li>部分库表迁移时，有外键依赖的表必须齐全。</li>
-                      </ul>
-                  </li>
-               </td>
-        </tr>
-        <tr> 
-                <td>目标数据库要求</td>
-                <td>
-                    <li>目标库的版本必须大于等于源库的版本。</li>
-                    <li>目标库的空间大小须是源库待迁移库表空间的1.2倍以上。</li>
-                    <li>目标库不能有和源库冲突的库表。</li>
-                    <li>源数据库实例为分布式数据库时，需要提前在目标库建立分表，否则这些表被迁移后都将是单表。</li>
-                </td>
-        </tr>
-        <tr> 
-                <td>其他要求</td>
-                <td>
-                    环境变量 innodb_stats_on_metadata 必须设置为 off。
-                </td>
-        </tr>
+<tr><th width="20%">类型</th><th width="80%">环境要求</th></tr>
+<tr>
+<td>源数据库要求</td>
+<td>
+<li>源库和目标库网络能够连通。</li>
+<ul>
+<li>实例参数要求：
+<ul>
+<li>table_row_format 不能设置为 FIXED。</li>
+<li>源库和目标库 lower_case_table_names 变量必须设置一致。</li>
+<li>检查目标端 max_allowed_packet 参数，至少设置 4M。</li>
+<li>源库变量 connect_timeout 设置数值必须大于10。</li></ul></li>
+<li>Binlog参数要求：
+<ul>
+<li>源端 binlog_format 变量必须设置为ROW。</li>
+<li>源端 log_bin 变量必须设置为ON。</li>
+<li>源端 binlog_row_image 变量必须设置为FULL。</li>
+<li>源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode。</li>
+<li>不允许设置 do_db, ignore_db。</li>
+<li>对于源实例为从库的情况，log_slave_updates 变量必须设置为 ON。</li></ul></li>
+<li>外键依赖：
+<ul>
+<li>外键依赖只能设置为 no action 和 restrict 两种类型。</li>
+<li>部分库表迁移时，有外键依赖的表必须齐全。</li></ul></li></td></tr>
+<tr> 
+<td>目标数据库要求</td>
+<td>
+<li>目标库的版本必须大于等于源库的版本。</li>
+<li>目标库的空间大小须是源库待迁移库表空间的1.2倍以上。</li>
+<li>目标库不能有和源库冲突的库表。</li>
+<li>源数据库实例为分布式数据库时，需要提前在目标库建立分表，否则这些表被迁移后都将是单表。</li></td></tr>
+<tr> 
+<td>其他要求</td>
+<td>环境变量 innodb_stats_on_metadata 必须设置为 off。</td></tr>
 </table>
 
 ## 操作步骤
@@ -128,9 +106,7 @@
 1. 登录 [DTS 数据迁移控制台](https://console.cloud.tencent.com/dts/migration?rid=8&page=1&pagesize=20)，单击【新建迁移任务】，进入新建迁移任务页面。
 2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击【0元购买】，目前 DTS 数据迁移功能免费使用。
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击【新建】。
-
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
-
 <table>
 <thead><tr><th>设置类型</th><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
@@ -174,9 +150,7 @@
 <tr>
 <td>密码</td><td>目标端 TDSQL MySQL版 的数据库帐号的密码。</td></tr>
 </tbody></table>
-
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击【保存】。
-
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
@@ -189,25 +163,18 @@
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
 </tbody></table>
-
 <img src="https://main.qcloudimg.com/raw/1101e817e99b5a53cc4a088c55b84810.png"  style="margin:0;">
-
 5. 在校验任务页面，进行校验，校验任务通过后，单击【启动任务】。
-
  -  校验任务通过后，根据选择的运行模式启动迁移任务。
  -  如果校验任务不通过，可以查看具体检查项和失败原因，待问题解决后重新发起校验任务。
-    ![](https://main.qcloudimg.com/raw/c8a82a647ce9d5bc21f902f35011e120.png)
-
+![](https://main.qcloudimg.com/raw/c8a82a647ce9d5bc21f902f35011e120.png)
 6. 返回数据迁移任务列表，任务进入创建中状态，运行1分钟 - 2分钟后，数据迁移任务开始正式启动。
-
    -  选择“结构迁移”或者“全量迁移”：任务完成后会自动结束，不需要手动结束。
    -  选择“全量 + 增量迁移”：全量迁移完成后会自动进入增量数据同步阶段，增量数据同步不会自动结束，需要您手动单击【完成】结束增量数据同步。
       - 请选择合适时间手动完成增量数据同步，并完成业务切换。
       - 观察迁移阶段为增量同步，并显示无延迟状态，将源库停写几分钟。
-      - 目标与源库数据差距为0MB及目标与源库时间延迟为0秒时，手动完成增量同步。
-      
-
-   ![](https://main.qcloudimg.com/raw/f7d0088711ded04f30dfb3d28450f5fb.png)
-
+      - 目标与源库数据差距为0MB及目标与源库时间延迟为0秒时，手动完成增量同步。      
+![](https://main.qcloudimg.com/raw/f7d0088711ded04f30dfb3d28450f5fb.png)
 7. （可选）如果您需要进行查看任务、删除任务等操作，请单击对应的任务，在“操作”列进行操作，详情可参考 [任务管理](https://cloud.tencent.com/document/product/571/58674)。
 8. 当迁移任务状态变为“任务成功”时，即可对业务进行正式割接，更多详情可参考 [割接说明](https://cloud.tencent.com/document/product/571/58660)。
+

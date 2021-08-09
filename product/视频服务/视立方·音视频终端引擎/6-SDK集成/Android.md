@@ -86,7 +86,7 @@ dependencies{
     ![](https://main.qcloudimg.com/raw/6c68b846f6f7258ae4d96bc1d95d7816.png)
 5. 在 `app/build.gradle` 中，添加引用 so 库的代码。
     ![](https://main.qcloudimg.com/raw/e0f2f39c5f53a9fd5ca084febdd4e637.png)
-6. 在 `app/build.gradle` 的 defaultConfig 中，指定 App 使用的 CPU 架构(目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a)  。
+6. 在 `app/build.gradle` 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi、armeabi-v7a 和 arm64-v8a）。
 <dx-codeblock>
 :::  jar
 defaultConfig {
