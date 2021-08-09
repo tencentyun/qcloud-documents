@@ -52,6 +52,12 @@ EIAM 和腾讯云 API 网关通过 OAuth2.0 协议深度整合，您可以便捷
 :::
 </dx-tabs>
 
+**非 Web 客户端架构图**
+![](https://main.qcloudimg.com/raw/adce9c932cadfb70af7ea3ffdd7dc141.png)
+
+**Web 客户端架构图**
+![](https://main.qcloudimg.com/raw/51d0a6ae8f2f00eeae87a9e8d65a733d.png)
+
 5. 依次完成后续创建过程，单击【完成】，即可完成认证方式为“EIAM 认证”的 API 的创建。
    ![](https://main.qcloudimg.com/raw/aba88527aa46af44f4202ef75ec06966.png)
 
@@ -71,7 +77,25 @@ EIAM 和腾讯云 API 网关通过 OAuth2.0 协议深度整合，您可以便捷
 
 ### 步骤4：使用用户信息调用 API 网关 API
 
-使用 [步骤2](#step2) 中创建的用户的账号和密码，对 API 网关 API 发起访问，即可调用成功。
+使用 [步骤2](#step2) 中创建的用户的账号和密码，对 API 网关 API 发起访问。
+
+**非Web客户端**
+1. 对于未完成授权的用户：
+	- 请求授权 API 获取id token；
+	![](https://main.qcloudimg.com/raw/58a7a5aff138f2acca83859f5dab34ad.png)
+	![](https://main.qcloudimg.com/raw/aa53522a3084a8e7eb8a5db434cb00bc.png)
+	- 鉴权验证，返回结果“Access not authorized”。
+	![](https://main.qcloudimg.com/raw/dbf69b0bbc346900c299bbf506abe4fc.png)
+2. 对于完成授权的用户：
+	- 解析id token内容，可以查看对应用户身份为 user001；
+	![](https://main.qcloudimg.com/raw/59e72f11d1c436e7a2126dbbda49fbdb.png)
+	- 鉴权验证，返回结果“Work！！！”，user001即可进行 API 的调用。
+	![](https://main.qcloudimg.com/raw/f7df9b839b44744af1909c120b435337.png)
+
+**Web客户端**
+1. 在浏览器输入API访问地址，可以看到弹出登录页面；
+![](https://main.qcloudimg.com/raw/eef8349bdc4aa266c59545be7bc0f95f.png)
+2. 在登录页面中输入已完成授权的用户账号和密码。即可进行 API 的调用。
 
 >!需要按照创建 API 时选择的应用类型，从“Web 客户端”或“非 Web 客户端”发起访问。
 
