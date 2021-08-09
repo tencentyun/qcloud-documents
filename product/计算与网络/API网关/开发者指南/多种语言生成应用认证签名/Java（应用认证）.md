@@ -22,8 +22,8 @@ API 网关提供 JSON 请求方式和 form 请求方式的示例代码，请您�
 ## 示例代码[](id:示例代码)
 
 ### JSON 请求方式示例代码
-
-```java
+<dx-codeblock>
+:::  java
 import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.crypto.Mac;
@@ -150,7 +150,10 @@ public class AppAuthJavaDemo {
         System.out.println(response.body());
     }
 }
-```
+:::
+</dx-codeblock>
+
+
 
 ### form 请求方式示例代码
 
