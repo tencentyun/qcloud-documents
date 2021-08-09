@@ -64,7 +64,7 @@ $ python3 app.py
 127.0.0.1 - - [22/Jun/2021 09:41:04] "GET / HTTP/1.1" 200 -
 :::
 </dx-codeblock>
-4. 打开浏览器访问 `http://127.0.0.1:5000`，即可在本地完成 Express 示例项目的访问。如下图所示：
+4. 打开浏览器访问 `http://127.0.0.1:5000`，即可在本地完成 Flask 示例项目的访问。如下图所示：
 ![](https://main.qcloudimg.com/raw/4230ec2b5e5160f25ebd44a8a401524f.png)
 
 
