@@ -84,7 +84,7 @@
 
 >? 根据您具体使用的服务，使用专业版需先购买对应产品授权，您可按需选购：
 >
->1. 使用其中的移动直播请购买  [移动直播基础版 License](https://cloud.tencent.com/document/product/454/34750#buy)。
+>1. 使用其中的移动直播请购买  [直播推流 License（原移动直播基础版 License）](https://cloud.tencent.com/document/product/454/34750#buy)。
 >1. 使用其中的短视频请购买 [短视频精简版/基础版 License](https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
 >1. 使用其中的实时音视频请购买 [实时音视频套餐包](https://cloud.tencent.com/document/product/647/37097)。
 
