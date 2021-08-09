@@ -22,9 +22,8 @@ API 网关提供 Python 2.7 和 Python 3 两个版本， 以及 JSON 请求方�
 
 ## 示例代码[](id:示例代码)
 ### Python 2.7 JSON 请求方式示例代码
-
-
-```python
+<dx-codeblock>
+:::  python
 # -*- coding: utf-8 -*-
 import base64
 import datetime
@@ -76,11 +75,14 @@ headers = {
 
 ret = requests.post(Url, headers=headers, data=body_json)
 print(ret.text)
-```
+:::
+</dx-codeblock>
+
+
 
 ### Python 2.7 form 请求方式示例代码
-
-```python
+<dx-codeblock>
+:::  python
 # -*- coding: utf-8 -*-
 import base64
 import datetime
@@ -98,7 +100,6 @@ ApiAppSecret = '42A6S7ZUpK2UL6Faaaaaaaa1rz2qe22RU6h4mT5'
 
 
 # 获取签名串
-
 GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
 xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
 HTTPMethod = "POST"
@@ -116,7 +117,6 @@ signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n/app?%s=%s&%s=%s' % (
 
 
 # 计算签名
-
 sign = hmac.new(ApiAppSecret, msg=signing_str, digestmod=hashlib.sha1).digest()
 sign = base64.b64encode(sign)
 auth = "hmac id=\"" + ApiAppKey + "\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\""
@@ -124,7 +124,6 @@ sign = auth + sign + "\""
 
 
 # 发送请求
-
 headers = {
     'Host': Host,
     'Accept': Accept,
@@ -135,11 +134,14 @@ headers = {
 
 ret = requests.post(Url, headers=headers, data=body)
 print(ret.text)
-```
+:::
+</dx-codeblock>
+
+
 
 ### Python 3 JSON 请求方式示例代码
-
-```python
+<dx-codeblock>
+:::  python
 # -*- coding: utf-8 -*-
 import base64
 import datetime
@@ -192,11 +194,14 @@ headers = {
 
 ret = requests.post(Url, headers=headers, data=body_json)
 print(ret.text)
-```
+:::
+</dx-codeblock>
+
+
 
 ### Python 3 form 请求方式示例代码
-
-```python
+<dx-codeblock>
+:::  python
 # -*- coding: utf-8 -*-
 import base64
 import datetime
@@ -214,7 +219,6 @@ ApiAppSecret = '42A6S7ZUpK2UL6Faaaaaaaa1rz2qe22RU6h4mT5'
 
 
 # 获取签名串
-
 GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
 xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
 HTTPMethod = "POST"
@@ -232,7 +236,6 @@ signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n/app?%s=%s&%s=%s' % (
 
 
 # 计算签名
-
 sign = hmac.new(ApiAppSecret.encode(), msg=signing_str.encode(), digestmod=hashlib.sha1).digest()
 sign = base64.b64encode(sign).decode()
 auth = "hmac id=\"" + ApiAppKey + "\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\""
@@ -240,7 +243,6 @@ sign = auth + sign + "\""
 
 
 # 发送请求
-
 headers = {
     'Host': Host,
     'Accept': Accept,
@@ -251,4 +253,6 @@ headers = {
 
 ret = requests.post(Url, headers=headers, data=body)
 print(ret.text)
-```
+:::
+</dx-codeblock>
+
