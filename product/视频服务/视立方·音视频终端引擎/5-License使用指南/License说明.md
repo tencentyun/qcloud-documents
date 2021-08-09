@@ -3,7 +3,29 @@
 ## 新旧 License 区别
 旧版 License 仅支持一组 License URL 和 Key 解锁对应一个 SDK 功能（移动直播或短视频），相比腾讯云视立方 License 维护和使用较为繁琐；升级后的新版视立方 License 后仅需维护一组 License URL 和 Key ，便可以管理所有腾讯云音视频的终端授权。
 
+原移动直播 License、短视频 License 可在腾讯云视立方·音视频终端引擎中继续使用，对应授权解锁腾讯云视立方·音视频终端引擎中的直播推流（主播开播、主播观众连麦/主播跨房 PK）与短视频（视频录制编辑/视频上传发布）模块，**若您使用包含上述功能模块的版本时，处于有效期内的 License 无需再次购买解锁授权**。新旧 License 对应详情如下：
 
+<table>
+<thead>
+<tr>
+<th colspan=2>腾讯云视立方 License</th>
+<th>原 SDK License</th>
+</tr>
+</thead>
+<tbody><tr>
+<td colspan=2>直播推流 License</td>
+<td>移动直播基础版 License</td>
+</tr>
+<tr>
+<td rowspan=2>短视频 License</td>
+<td>短视频精简版 License</td>
+<td>短视频精简版 License</td>
+</tr>
+<tr>
+<td>短视频基础版 License</td>
+<td>短视频基础版 License</td>
+</tr>
+</tbody></table>
 
 
 ## 测试版 License
@@ -268,5 +290,4 @@
 </table>
 
 > !美颜特效更多高级美颜、动效贴纸、AI 抠图和绿幕抠图的功能能力暂通过原（移动直播/短视频）企业版 SDK 对外售卖，通过购买原移动直播企业版License、短视频企业版 License 或者短视频企业版 Pro License 后，使用对应的功能。详情请参见 [美颜特效功能概述](https://cloud.tencent.com/document/product/1449/58916?!editLang=zh&!preview)。
-
 
