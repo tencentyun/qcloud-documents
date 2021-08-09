@@ -66,7 +66,8 @@ player.startPlay(url).then(() => {
 });
 </script>
 :::
-</dx-codeblock>:::
+</dx-codeblock>
+:::
 ::: 直播互动
 当主播和观众需要聊天互动时，创建即时通信 IM 对象，最简单的消息收发仅需3步：
 <dx-codeblock>
@@ -115,7 +116,8 @@ im.enterRoom('your roomID').then((imResponse) => {
 });
 </script>
 :::
-</dx-codeblock>:::
+</dx-codeblock>
+:::
 </dx-tabs>
 
 为了进一步降低开发者的开发和人力成本，我们在 TWebLive SDK 的基础上，提供了同时适配 PC 和移动端浏览器的 [Demo](https://github.com/tencentyun/TWebLive)，并开源到了 Github。开发者 fork&clone 项目到本地，稍作修改即可把 Demo 运行起来，也可集成到自己的项目部署上线。
@@ -326,3 +328,4 @@ iOS 自动播放受限，请参见 [自动播放受限处理建议](https://web.
 ## 相关文档
 
 [折扣活动](https://cloud.tencent.com/document/product/269/46181)
+ 

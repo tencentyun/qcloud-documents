@@ -22,14 +22,14 @@
 1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的【函数服务】。
 2. 在主界面上方选择期望创建函数的地域，并单击【新建】，进入函数创建流程。
 3. 选择使用【模版创建】来新建函数，在搜索框里输入 `webfunc` 筛选函数模版，选择【Next.js 框架模版】并单击【下一步】。如下图所示：
-![](https://main.qcloudimg.com/raw/589abb33e0140d96e10f3ca0094c881b.png)
+![](https://main.qcloudimg.com/raw/bfaf9cf6e08135ba5a34650c1e93eb25.png)
 4. 在“配置”页面，您可以查看模版项目的具体配置信息并进行修改。
 5. 单击【完成】即可创建函数。函数创建完成后，您可在“函数管理”页面，查看 Web 函数的基本信息。
 6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Next.js 项目。单击左侧菜单栏中的【触发管理】，查看访问路径。如下图所示：
-![](https://main.qcloudimg.com/raw/7687790fe50d4ad93f51cf6a13fbd770.png)
+![](https://main.qcloudimg.com/raw/ceb1e9969e298e059da451d6b3d5f864.png)
 7. 单击访问路径 URL，即可访问服务 Next.js 项目。如下图所示：
 ![](https://main.qcloudimg.com/raw/54c75165400e9ce84e49cb2f9edc1faf.png)
->?由于 Nextjs 框架每次部署前需要重新构建，请确保本地更新代码并且重新 `build` 之后再部署。
+>?由于 Nextjs 框架每次部署前需要重新构建，请确保本地更新代码并且重新 `build` 之后再进行部署。
 
 
 ### 自定义部署 -- 快速迁移本地项目上云

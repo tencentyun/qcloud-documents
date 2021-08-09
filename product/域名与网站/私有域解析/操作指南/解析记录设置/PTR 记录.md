@@ -7,7 +7,7 @@
 - 已配置反向私有域解析。
 
 ## 操作步骤
-1. 登录私有域解析 [Private DNS 管理控制台](https://console.cloud.tencent.com/privatedn)，并单击左侧导航栏的【私有域列表】，即可进入私有域列表。
+1. 登录私有域解析 [Private DNS 管理控制台](https://console.cloud.tencent.com/privatedns)，并单击左侧导航栏的【私有域列表】，即可进入私有域列表。
 2. 在 “私有域列表” 中，单击您需要添加 PTR 记录的私有域名称或【解析】。如下图所示：
 ![](https://main.qcloudimg.com/raw/965b35507b9de90112d57608a95d6405.png)
 3. 在解析记录页签中，单击【添加记录】并填写相关记录值信息。如下图所示：
@@ -19,6 +19,7 @@
 4. 单击【保存】，完成添加。
 
 >?操作过程中如果出现问题，请您 [联系我们](https://cloud.tencent.com/act/event/connect-service)。
+
 
 
 

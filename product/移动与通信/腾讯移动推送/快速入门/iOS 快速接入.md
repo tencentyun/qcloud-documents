@@ -89,7 +89,7 @@
 - 如果集成成功，项目结构和工程配置应该如下图所示：
   ![](https://main.qcloudimg.com/raw/e8afaa08424282986e0d0d83b93d5f14.jpg)
   ![](https://main.qcloudimg.com/raw/f830b564e0c6736bb77abff6224c693c.jpg)
-- 如果出现编译失败、收不到推送、没有触达率统计数据等情况，请先将您项目的配置与上图进行对比，找出集成错误的地方，[提交工单](https://console.cloud.tencent.com/workorder/category) 反馈。
+- 如果出现编译失败、收不到推送、没有触达率统计数据等情况，请先将您项目的配置与上图进行对比，找出集成错误的地方，并联系 [在线客服](https://cloud.tencent.com/act/event/Online_service)。
 
 ## 接入结果验证
 

@@ -12,7 +12,7 @@
 <table>
 	<tr><th style="width: 10%;">版本号</th><th style="width: 11%;">变更类型</th><th>描述</th></tr>
 	<tr><td rowspan=2><b>v2.6.2</b></td><td>新功能</td><td>支持增量采集功能。</td></tr>
-	<tr><td>体验优化</td><td><ul  style="margin: 0;"><li>优化文件在从扫描到处理之间被移除场景下的的采集忽略问题。</li><li>优化自动升级异常覆盖。</li></ul></td></tr>
+	<tr><td>体验优化</td><td><ul  style="margin: 0;"><li>优化文件在从扫描到处理之间被移除场景下的采集忽略问题。</li><li>优化自动升级异常覆盖。</li></ul></td></tr>
 	<tr><td><b>v2.6.1</b></td><td>体验优化</td><td><ul  style="margin: 0;"><li>优化某些场景下，日志轮转时可能发生回溯采集的问题。</li><li>调整采集端上传日志超时时间，避免因为 timeout 导致数据重复。</li></ul></td></tr>
 	<tr><td rowspan=2><b>v2.6.0</b></td><td>新功能</td><td><ul  style="margin: 0;"><li>支持腾讯云 CVM 批量部署功能。</li><li>支持 secret ID/KEY 密文存储。</li></ul></td></tr>
 	<tr><td>体验优化</td><td><ul  style="margin: 0;"><li>优化 loglistener install/stop 逻辑。</li><li>优化 upload 失败场景下的重试策略。</li><li>增加对老版本 glibc 库造成的 dead lock 的检测修复工具。</li><li>采集性能优化。</li></ul></td></tr>

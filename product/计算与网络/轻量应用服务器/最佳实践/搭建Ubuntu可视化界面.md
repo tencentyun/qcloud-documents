@@ -29,13 +29,15 @@ sudo apt-get install tightvncserver
 ```
 sudo vncserver
 ```
+>!如果您自定义的密码位数大于8位，则系统默认只截取前8位作为您的 VNC 密码。
+>
 返回类似如下结果，表示 VNC 启动成功。
 ![](https://main.qcloudimg.com/raw/adad6ffbb0b1b722d1e429133060134b.png)
 5. 执行以下命令，安装 X-windows 的基础。
 ```
 sudo apt-get install x-window-system-core
 ```
-6. 执行以下命令，安装登录管理器。
+6. 执行以下命令，安装 GNOME 的显示管理器 gdm3。
 ```
 sudo apt-get install gdm3
 ```

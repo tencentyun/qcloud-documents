@@ -1,5 +1,6 @@
-开通云点播后，系统会为您自动分配一个 CNAME 域名（以.vod2.myqcloud.com.cdn.dnsv1.com为后缀），可在云点播控制台域名管理进行查看。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可正常访问。
-![](https://main.qcloudimg.com/raw/09517b6d833bf7f869536a3c3f79d6be.png)
+当您的自定义域名接入云点播后，系统会为您自动分配一个 CNAME 域名（以 .cdn.dnsv1.com 为后缀)，您可在云点播控制台 [域名管理](https://console.cloud.tencent.com/vod/distribute-play/domain) 进行查看。自动分配的CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可正常访问。
+
+![](https://main.qcloudimg.com/raw/3666cc48cac239f76d7238c0b1df0994.png)
 ## 腾讯云设置方法
 若您的 DNS 服务商为腾讯云，您可通过如下步骤添加 CNAME 记录。
 1. 登录 [域名管理](https://console.cloud.tencent.com/domain) 控制台，在“我的域名”列表中，找到需要添加 CNAME 记录的域名，单击操作类中的【解析】。
@@ -35,8 +36,7 @@
 
 ## 验证 CNAME 是否生效
 不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您可以通过以下方式查询 CNAME 是否配置生效。
-- 方法一：【开始】→【运行】→输入 cmd 并回车，输入 PING 命令来查询 CNAME 是否生效，如果返回的解析结果与该域名的CNAME值一致，则CNAME已配置生效。
-![](https://main.qcloudimg.com/raw/96d1733a11d2ef09ebdbd8759245b7f5.png)
+- 方法一：【开始】→【运行】→输入 cmd 并回车，输入 PING 命令来查询 CNAME 是否生效，如果返回的解析结果与该域名的 CNAME 值一致，则 CNAME 已配置生效。
+![](https://main.qcloudimg.com/raw/3ecec823ae0159bc114754a8a3875ff9.png)
 - 方法二：【开始】→【运行】→输入 cmd 并回车，输入 nslookup 命令来查询 CNAME 是否生效，如果返回的解析结果与该域名的 CNAME 值一致，则 CNAME 已配置生效。
-- 方法三：Linux/Mac 系统下，通过 dig 命令查看，命令格式为：dig 自有域名 。若第一行显示解析到 CNAME 域名，表明 CNAME 已配置成功。
-
+![](https://main.qcloudimg.com/raw/3b29de73c80e9d651df6bb38aed83d2a.png)

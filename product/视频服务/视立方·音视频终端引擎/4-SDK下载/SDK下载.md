@@ -15,12 +15,12 @@
 </thead>
 <tbody><tr>
 <td colspan="2">SDK 下载</td>
-<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive" target="_blank">下载</a></td>
-<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive" target="_blank">下载</a></td>
-<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo" target="_blank">下载</a></td>
-<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=video" target="_blank">下载</a></td>
-<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=player" target="_blank">下载</a></td>
-<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart" target="_blank">下载</a></td>
+<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/home.html?sdk=basicLive" target="_blank">下载</a></td>
+<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/home.html?sdk=interactivelive" target="_blank">下载</a></td>
+<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/home.html?sdk=shortVideo" target="_blank">下载</a></td>
+<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/home.html?sdk=video" target="_blank">下载</a></td>
+<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/home.html?sdk=player" target="_blank">下载</a></td>
+<td style="text-align:center"><a href="https://vcube.cloud.tencent.com/home.html?sdk=allPart" target="_blank">下载</a></td>
 </tr>
 <tr>
 <td colspan="2">应用场景</td>
@@ -33,7 +33,7 @@
 </tr>
 <tr>
 <td colspan="2">Demo</td>
-<td colspan="6" style="text-align:center"><a href="https://tcloud-doc.isd.com/document/product/1449/56977" target="_blank">腾讯云视立方 Demo</a></td>
+<td colspan="6" style="text-align:center"><a href="https://cloud.tencent.com/document/product/1449/56977?!preview&!editLang=zh">腾讯云视立方 Demo</a></td>
 </tr>
 <tr>
 <td rowspan="2" width="10%">直播推流</td>
@@ -95,7 +95,7 @@
 </tr>
 </tbody></table>
 
-![](https://main.qcloudimg.com/raw/c66c686dc45dcfc64ecfe5df809b5a29.png)
+![](https://main.qcloudimg.com/raw/5925894f1a15d1ebfa41338684c0c5be.png)
 
 ## 版本说明
 
@@ -113,12 +113,12 @@
 
 ### 音视频通话 TRTC
 
-音视频通话 TRTC 是腾讯云视立方·音视频终端引擎版本之一，包含**音视频通话**一个功能模块。 音视频通话 TRTC 主打全平台互通的多人音视频通话和低延时互动直播解决方案，致力于帮助开发者快速搭建低成本、低延时、高品质的音视频互动解决方案。。
+音视频通话 TRTC 是腾讯云视立方·音视频终端引擎版本之一，包含**音视频通话**一个功能模块。 音视频通话 TRTC 主打全平台互通的多人音视频通话和低延时互动直播解决方案，致力于帮助开发者快速搭建低成本、低延时、高品质的音视频互动解决方案。
 
-## 播放器 Player
+### 播放器 Player
 
 播放器 Player 是腾讯云视立方·音视频终端引擎版本之一，包含**直播观看**和**点播观看**两个功能模块。提供视频点播和直播播放能力的强大播放载体，覆盖多类应用场景，满足客户多样需求，让客户轻松聚焦于业务发展本身，畅享极速高清播放新体验。
 
-## 全功能版本
+### 全功能版本
 
-全功能版本囊括基础直播 Smart、互动直播 Live、短视频 UGSV、音视频通话 TRTC、播放器 Player版本能力，包含**主播开播、主播观众连麦/主播跨房PK、视频录制编辑/视频上传发布、直播观看、点播观看和音视频通话六个功能模块**，简单快速地集成所有版本能力至您的终端业务，为您提供直播推流、视频播放、视频通话、美颜特效等一系列常见的音视频及通讯相关功能，一处接入、处处调用。
+全功能版本囊括基础直播 Smart、互动直播 Live、短视频 UGSV、音视频通话 TRTC、播放器 Player 版本能力，包含**主播开播、主播观众连麦/主播跨房 PK、视频录制编辑/视频上传发布、直播观看、点播观看和音视频通话六个功能模块**，简单快速地集成所有版本能力至您的终端业务，为您提供直播推流、视频播放、视频通话、美颜特效等一系列常见的音视频及通讯相关功能，一处接入、处处调用。
