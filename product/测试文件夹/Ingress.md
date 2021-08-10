@@ -1,17 +1,16 @@
 
-
 ## 简介
 
-基于接入层直连 Pod 的场景，当后端进行滚动更新，或后端 Pod 被删除时，如果直接将 Pod 从 LB 的后端摘除，无法处理 Pod 已接收但还未处理的请求。
+基于接入层直连 Pod 的场景，当后端进行滚动更新或后端 Pod 被删除时，如果直接将 Pod 从 LB 的后端摘除，则无法处理 Pod 已接收但还未处理的请求。
 特别是长链接的场景，例如会议业务，如果直接更新或删除工作负载的 Pod，此时会议会直接中断。
 
 ## 应用场景
 
-- 更新工作负载时，Pod 的优雅退出，使客户端不会感受到更新时产生的抖动和错误
-- 当 Pod 需要被删除时，Pod 能够处理完已接受到的请求，此时入流量关闭，但出流量仍能走通。直到处理完所有已有请求后，Pod 会真正删除时，出入流量才都关闭。
+- 更新工作负载时，Pod 的优雅退出，使客户端不会感受到更新时产生的抖动和错误。
+- 当 Pod 需要被删除时，Pod 能够处理完已接受到的请求，此时入流量关闭，但出流量仍能走通。直到处理完所有已有请求和 Pod 真正删除时，出入流量才进行关闭。
 
 
->!仅针对 [直连场景](https://cloud.tencent.com/document/product/457/41897) 生效，请检查您的集群是否支持直连模式
+>!仅针对 [直连场景](https://cloud.tencent.com/document/product/457/41897) 生效，请检查您的集群是否支持直连模式。
 
 ## 操作步骤
 
@@ -36,7 +35,7 @@ spec:
 
 
 
-### 步骤2：配合在需要优雅停机的工作负载里使用 preStop 和 terminationGracePeriodSeconds
+### 步骤2：使用 preStop 和 terminationGracePeriodSeconds
 
 步骤2为在需要优雅停机的工作负载里配合使用 preStop 和 terminationGracePeriodSeconds。
 
@@ -49,16 +48,16 @@ spec:
 1. Pod 被删除，状态置为 Terminating。
 2. kube-proxy 更新转发规则，将 Pod 从 Ingress 的 endpoint 列表中摘除掉，新的流量不再转发到该 Pod。
 3. 如果 Pod 配置了 preStop Hook ，将会执行。
-4. kubelet 对 Pod 中各个 container 发送 SIGTERM 信号以通知容器进程开始优雅停止。
-5. 等待容器进程完全停止，如果在 terminationGracePeriodSeconds 内 (默认 30s) 还未完全停止，就发送 SIGKILL 信号强制停止进程。
+4. kubelet 将对 Pod 中各个 container 发送 SIGTERM 信号，以通知容器进程开始优雅停止。
+5. 等待容器进程完全停止，如果在 terminationGracePeriodSeconds 内 (默认30s) 还未完全停止，将发送 SIGKILL 信号强制停止进程。
 6. 所有容器进程终止，清理 Pod 资源。
 
 
 #### 具体操作步骤
 
 1. **使用 preStop**
-要实现优雅终止，务必在业务代码里处理 SIGTERM 信号。主要逻辑是不接受新的流量进入，继续处理存量流量，所有连接全部断开才退出，了解更多可参见 [示例](https://gobyexample.com/signals)。
-若您的业务代码中未处理 SIGTERM 信号，或者您无法控制使用的第三方库或系统来增加优雅终止的逻辑，也可以尝试为 Pod 配置下 preStop，在其实现优雅终止的逻辑，示例如下：
+要实现优雅终止，务必在业务代码里处理 SIGTERM 信号。主要逻辑是不接受新的流量进入，继续处理存量流量，所有连接全部断开才退出。了解更多可参见 [示例](https://gobyexample.com/signals)。
+若您的业务代码中未处理 SIGTERM 信号，或者您无法控制使用的第三方库或系统来增加优雅终止的逻辑，也可以尝试为 Pod 配置 preStop，在其实现优雅终止的逻辑，示例如下：
 <dx-codeblock>
 :::  yaml
 apiVersion: v1
