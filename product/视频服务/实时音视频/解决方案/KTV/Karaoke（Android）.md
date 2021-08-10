@@ -1,13 +1,13 @@
 ## 效果展示
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 Karaoke 的能力，包括低延时K歌、麦位管理、收发礼物、文字聊天等 TRTC 在 Karaoke 场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 Karaoke 的能力，包括低延时 K 歌、麦位管理、收发礼物、文字聊天等 TRTC 在 Karaoke 场景下的相关能力。
 <table>
      <tr>
          <th>房主麦位操作</th>  
          <th>听众麦位操作</th>  
      </tr>
 <tr>
-<td><img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_owner.gif"/></td>
-<td><img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_audience.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_owner.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_audience.gif"/></td>
 </tr>
 </table>
 
@@ -66,26 +66,26 @@
 
 ### 用户 A
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如下图示：
-<img src="https://main.qcloudimg.com/raw/4b972d129fb39758086a606bb48b19f9.png" width="320"/>
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_anchor_step_first.PNG" width="320"/>
 2. 单击【创建房间】，如下图示：
-<img src="https://main.qcloudimg.com/raw/0640bab20dcb1abdd22cb498bc460050.jpg" width="320"/>
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_anchor_step_second.jpg" width="320"/>
 3. 输入房间主题，单击【一起嗨歌】。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如下图示：
-<img src="https://main.qcloudimg.com/raw/02f779455f1489b8e942f4077d6f8af8.png" width="320"/>
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_audience_step_first.PNG" width="320"/>
 2. 输入用户 A 创建的房间号，单击【进入房间】。<br>
-<img src="https://main.qcloudimg.com/raw/c08662b3c3ba3007f5797e1305e4792d.jpg" width="320"/>
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_audience_step_second.jpg" width="320"/>
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
-<img src="https://main.qcloudimg.com/raw/a4ba7787027e1bad1d8292e1793e5d97.jpg" width="320"/>
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_audience_step_third.jpg" width="320"/>
 
 [](id:model)
 
 ## 实现自定义 UI 界面
 
 [源码](https://github.com/tencentyun/TUIKaraoke/tree/main/Android/Source/src/main/java/com/tencent/liteav/trtcKaraoke) 中的 Source 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCKaraokeRoom，您可以在`TRTCKaraokeRoom.java`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
-![](https://main.qcloudimg.com/raw/0b0c82a5886bcecf5f7b295350336a63.png)
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn//ktv_chart_form.png">
 
 [](id:model.step1)
 ### 步骤1：集成 SDK
@@ -95,16 +95,14 @@ Karaoke 组件 TRTCKaraokeRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如�
 1. 在 dependencies 中添加 TRTCSDK 和 IMSDK 的依赖。
 <dx-codeblock>
 ::: java java
-	dependencies {
+dependencies {
        complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
        complie 'com.tencent.imsdk:imsdk:latest.release'
        compile 'com.google.code.gson:gson:2.3.1'
-	}
+}
 :::
 </dx-codeblock>
-<dx-alert infotype="explain">
-两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
-</dx-alert>
+>?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
 <dx-codeblock>
 ::: java java
@@ -166,7 +164,7 @@ defaultConfig {
 拷贝以下目录中的所有文件到您的项目中：
 <dx-codeblock>
 ::: java java
-Source/src/main/java/com/tencent/liteav/trtckaraoke/model
+Source/src/main/java/com/tencent/liteav/tuikaraoke/model
 :::
 </dx-codeblock>
 
@@ -220,7 +218,7 @@ mTRTCKaraokeRoom.login(SDKAPPID, userId, userSig, new TRTCKaraokeRoomCallback.Ac
 4. 房主收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 5. 房主还会收到麦位表有成员进入的 `onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
 
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_anchor_page.png">
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_chart_anchor_page.png">
 
 
 <dx-codeblock>
@@ -275,7 +273,7 @@ public void onAnchorEnterSeat(TRTCKaraokeRoomDef.UserInfo userInfo) {
 6. 进房后会收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 7. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
 
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_audience.png">
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_chart_audience.png">
 <dx-codeblock>
 ::: java java
 // 1.听众设置昵称和头像
@@ -330,18 +328,18 @@ public void onAnchorEnterSeat(TRTCKaraokeRoomDef.UserInfo userInfo) {
 
 <dx-tabs>
 ::: 房主端
-1. pickSeat 传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到 onSeatListChange 和 onAnchorEnterSeat 的事件通知。
-2. kickSeat 传入对应麦位后，可以踢人下麦，房间内所有成员会收到 onSeatListChange 和 onAnchorLeaveSeat 的事件通知。
-3. muteSeat 传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 onSeatListChange 和 onSeatMute 的事件通知。
-4. closeSeat 传入对应麦位后，可以封禁/解禁某个麦位，封禁后听众端将不能再上麦，房间内所有成员会收到 onSeatListChange 和 onSeatClose 的事件通知。
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_seat_anchor.png">
+1. `pickSeat `传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat `的事件通知。
+2. `kickSeat` 传入对应麦位后，可以踢人下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
+3. `muteSeat`传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
+4. `closeSeat` 传入对应麦位后，可以封禁/解禁某个麦位，封禁后听众端将不能再上麦，房间内所有成员会收到 `onSeatListChange` 和 `onSeatClose` 的事件通知。
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_chart_seat_anchor.png">
 
 :::
 ::: 听众端
-1. enterSeat 传入对应的麦位后，可以进行上麦，房间内所有成员会收到 onSeatListChange 和 onAnchorEnterSeat 的事件通知。
-2. leaveSeat 主动下麦，房间内所有成员会收到 onSeatListChange 和 onAnchorLeaveSeat 的事件通知。
+1. `enterSeat` 传入对应的麦位后，可以进行上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat `的事件通知。
+2. `leaveSeat` 主动下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
 
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_seat_audience.png">
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_chart_seat_audience.png">
 
 麦位操作后的事件通知顺序如下：callback > onSeatListChange > onAnchorEnterSeat 等独立事件。
 
@@ -401,12 +399,12 @@ public void onAnchorEnterSeat(int index, TRTCKaraokeRoomDef.UserInfo user) {
 
 <dx-tabs>
 ::: 听众主动申请上麦
-1. 听众端调用 sendInvitation 传入房主的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
-2. 房主端收到 onReceiveNewInvitation 的事件通知，此时 UI 可以弹窗并询问房主是否同意。
-3. 房主选择同意后，调用 acceptInvitation 并传入 inviteId。
-4. 听众端收到 onInviteeAccepted 的事件通知，调用 enterSeat 进行上麦。
+1. 听众端调用 `sendInvitation` 传入房主的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
+2. 房主端收到 `onReceiveNewInvitation` 的事件通知，此时 UI 可以弹窗并询问房主是否同意。
+3. 房主选择同意后，调用 `acceptInvitation` 并传入 inviteId。
+4. 听众端收到 `onInviteeAccepted` 的事件通知，调用 `enterSeat` 进行上麦。
 
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_signal_audience.png">
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_chart_signal_audience.png">
 
 <dx-codeblock>
 ::: java java
@@ -435,12 +433,12 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
 </dx-codeblock>
 :::
 ::: 房主邀请听众上麦
-1. 房主端调用 sendInvitation 传入听众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
-2. 听众端收到 onReceiveNewInvitation 的事件通知，此时 UI 可以弹窗并询问听众是否同意上麦。
-3. 听众选择同意后，调用 acceptInvitation 并传入 inviteId。
-4. 房主端收到 onInviteeAccepted 的事件通知，调用 pickSeat 抱听众上麦。
+1. 房主端调用 `sendInvitation ` 传入听众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
+2. 听众端收到 `onReceiveNewInvitation` 的事件通知，此时 UI 可以弹窗并询问听众是否同意上麦。
+3. 听众选择同意后，调用 `acceptInvitation` 并传入 inviteId。
+4. 房主端收到 `onInviteeAccepted` 的事件通知，调用`pickSeat`抱听众上麦。
 
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_signal.png">
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_chart_signal.png">
 
 <dx-codeblock>
 ::: java java
