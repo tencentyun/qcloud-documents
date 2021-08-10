@@ -6,8 +6,8 @@
          <th>听众麦位操作</th>  
      </tr>
 <tr>
-<td><img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_owner.gif"/></td>
-<td><img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_audience.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_owner.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_audience.gif"/></td>
 </tr>
 </table>
 
@@ -75,24 +75,24 @@
 ### 用户 A
 
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/16b125b0adef769b5cb12834ecc58697.png" width="320"/>
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_anchor_step_first.PNG" width="320"/>
 2. 单击【创建房间】，如下图示：
-<img src="https://main.qcloudimg.com/raw/5693019a15f3c30305e3c885f3c7664e.jpg" width="320"/>
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_anchor_step_second.jpg" width="320"/>
 2. 输入房间主题，单击【一起嗨歌】。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/248886562d23e4511c82d075a163cb8a.png" width="320"/>
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_audience_step_first.PNG" width="320"/>
 2. 输入用户 A 创建的房间号，单击【进入房间】。<br>
-<img src="https://main.qcloudimg.com/raw/04f4342a29c493fd2c7d1800845396e5.jpg" width="320"/>
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_audience_step_second.jpg" width="320"/>
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
-<img src="https://main.qcloudimg.com/raw/99b944425620099c633349f831334a5e.jpg" width="320"/>
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_audience_step_third.jpg" width="320"/>
 
 [](id:model)
 ## 实现自定义 UI 界面
 [源码](https://github.com/tencentyun/TUIKaraoke) 中的 `Source` 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCKaraokeRoom，您可以在 `TRTCKaraokeRoom.h` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
-![](https://main.qcloudimg.com/raw/5d0b0a280f154a21613163efed609298.png)
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn//ktv_chart_form.png">
 
 
 [](id:model.step1)
@@ -106,9 +106,7 @@ pod 'TXIMSDK_iOS'
 pod 'TXLiteAVSDK_TRTC'
 :::
 </dx-codeblock>
-<dx-alert infotype="explain" title="">
-两个 SDK 产品的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
-</dx-alert>
+>?两个 SDK 产品的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
 - **方法二：通过本地依赖**
 如果您的开发环境访问 cocoapods 仓库较慢，您可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
 <table>
@@ -192,9 +190,9 @@ self.karaokeRoom.login(sdkAppId: sdkAppID, userId: userId, userSig: userSig) { [
 4. 房主收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 5. 房主还会收到麦位表有成员进入的 `onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
 
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_anchor_page.png">
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_chart_anchor_page.png">
 
-示例代码：
+**示例代码**：
 <dx-codeblock>
 ::: swift
 // 1.房主设置昵称和头像
@@ -256,7 +254,7 @@ func onAnchorEnterSeat(index: Int, user: UserInfo) {
 7. 进房后还会收到麦位表有主播进入的` onAnchorEnterSeat` 的事件通知。
 
 
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_audience.png">
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_chart_audience.png">
 <dx-codeblock>
 ::: Swift Swift
 // 1.听众设置昵称和头像
@@ -301,17 +299,17 @@ func onAnchorEnterSeat(index: Int, user: UserInfo) {
 ### 步骤7：麦位管理
 <dx-tabs>
 ::: 房主端
-1. pickSeat 传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到 onSeatListChange 和 onAnchorEnterSeat 的事件通知。
-2. kickSeat 传入对应麦位后，可以踢人下麦，房间内所有成员会收到 onSeatListChange 和 onAnchorLeaveSeat 的事件通知。
-3. muteSeat 传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 onSeatListChange 和 onSeatMute 的事件通知。
-4. closeSeat 传入对应麦位后，可以封禁/解禁某个麦位，封禁后听众端将不能再上麦，房间内所有成员会收到 onSeatListChange 和 onSeatClose 的事件通知。
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_seat_anchor.png">
+1. `pickSeat` 传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
+2. `kickSeat` 传入对应麦位后，可以踢人下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
+3. `muteSeat` 传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
+4. `closeSeat` 传入对应麦位后，可以封禁/解禁某个麦位，封禁后听众端将不能再上麦，房间内所有成员会收到` onSeatListChange` 和 `onSeatClose` 的事件通知。
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_chart_seat_anchor.png">
 :::
 ::: 听众端
-1. enterSeat 传入对应的麦位后，可以进行上麦，房间内所有成员会收到 onSeatListChange 和 onAnchorEnterSeat 的事件通知。
-2. leaveSeat 主动下麦，房间内所有成员会收到 onSeatListChange 和 onAnchorLeaveSeat 的事件通知。
+1. `enterSeat`传入对应的麦位后，可以进行上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
+2. `leaveSeat`主动下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_seat_audience.png">
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_chart_seat_audience.png">
 
 麦位操作后的事件通知顺序如下：callback > onSeatListChange > onAnchorEnterSeat 等独立事件。
 
@@ -361,12 +359,12 @@ func onAnchorEnterSeat(index: Int, user: UserInfo) {
 如果您的 App 需要对方同意才能进行下一步操作的业务流程，那么邀请信令可以提供相应支持。
 <dx-tabs>
 ::: 听众主动申请上麦
-1. 听众端调用 sendInvitation 传入房主的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
-2. 房主端收到 onReceiveNewInvitation 的事件通知，此时 UI 可以弹窗并询问房主是否同意。
-3. 房主选择同意后，调用 acceptInvitation 并传入 inviteId。
-4. 听众端收到 onInviteeAccepted 的事件通知，调用 enterSeat 进行上麦。
+1. 听众端调用 `sendInvitation` 传入房主的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
+2. 房主端收到 `onReceiveNewInvitation` 的事件通知，此时 UI 可以弹窗并询问房主是否同意。
+3. 房主选择同意后，调用 `acceptInvitation` 并传入 inviteId。
+4. 听众端收到 `onInviteeAccepted` 的事件通知，调用 `enterSeat` 进行上麦。
 
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_signal_audience.png">
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_chart_signal_audience.png">
 
 <dx-codeblock>
 ::: Swift Swift
@@ -396,12 +394,12 @@ func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, co
 </dx-codeblock>
 :::
 ::: 房主邀请听众上麦
-1. 房主端调用 sendInvitation 传入听众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
-2. 听众端收到 onReceiveNewInvitation 的事件通知，此时 UI 可以弹窗并询问听众是否同意上麦。
-3. 听众选择同意后，调用 acceptInvitation 并传入 inviteId。
-4. 房主端收到 onInviteeAccepted 的事件通知，调用 pickSeat 抱听众上麦。
+1. 房主端调用 `sendInvitation` 传入听众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
+2. 听众端收到 `onReceiveNewInvitation` 的事件通知，此时 UI 可以弹窗并询问听众是否同意上麦。
+3. 听众选择同意后，调用 `acceptInvitation` 并传入 inviteId。
+4. 房主端收到 `onInviteeAccepted` 的事件通知，调用 `pickSeat` 抱听众上麦。
 
-<img src="https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/tmp/ktv/ktv_signal.png">
+<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_chart_signal.png">
 
 
 <dx-codeblock>
@@ -437,13 +435,12 @@ func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, co
 [](id:model.step9)
 ### 步骤9：实现文字聊天和弹幕消息
 - 通过` sendRoomTextMsg` 可以发送普通的文本消息，所有在该房间内的主播和听众均可以收到 `onRecvRoomTextMsg` 回调。
-  即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
-  <dx-codeblock>
-  ::: Swift Swift
-  // 发送端：发送文本消息
-  self.karaokeRoom.sendRoomTextMsg(message: message) { (code, message) in
+即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
+<dx-codeblock>
+::: Swift Swift
+// 发送端：发送文本消息
+self.karaokeRoom.sendRoomTextMsg(message: message) { (code, message) in
          
-
 }
 // 接收端：监听文本消息
 func onRecvRoomTextMsg(message: String, userInfo: UserInfo) {
@@ -453,20 +450,20 @@ func onRecvRoomTextMsg(message: String, userInfo: UserInfo) {
 </dx-codeblock>
 - 通过 `sendRoomCustomMsg` 可以发送自定义（信令）的消息，所有在该房间内的主播和听众均可以收到 `onRecvRoomCustomMsg` 回调。
  自定义消息常用于传输自定义信令，例如用于点赞消息的发送和广播。
- <dx-codeblock>
- ::: Swift Swift
- // 例如：发送端：您可以通过自定义Cmd来区分弹幕和点赞消息
- // eg:"CMD_DANMU"表示弹幕消息，"CMD_LIKE"表示点赞消息
- self.karaokeRoom.sendRoomCustomMsg(cmd: “CMD_DANMU”, message: "hello world", callback: nil)
- self.karaokeRoom.sendRoomCustomMsg(cmd: "CMD_LIKE", message: "", callback: nil)
- // 接收端：监听自定义消息
- func onRecvRoomCustomMsg(cmd: String, message: String, userInfo: UserInfo) {
+<dx-codeblock>
+::: Swift Swift
+// 例如：发送端：您可以通过自定义Cmd来区分弹幕和点赞消息
+// eg:"CMD_DANMU"表示弹幕消息，"CMD_LIKE"表示点赞消息
+self.karaokeRoom.sendRoomCustomMsg(cmd: “CMD_DANMU”, message: "hello world", callback: nil)
+self.karaokeRoom.sendRoomCustomMsg(cmd: "CMD_LIKE", message: "", callback: nil)
+// 接收端：监听自定义消息
+func onRecvRoomCustomMsg(cmd: String, message: String, userInfo: UserInfo) {
     if cmd == "CMD_DANMU" {
         // 收到弹幕消息
     }
     if cmd == "CMD_LIKE" {
         // 收到点赞消息
     }
- }
- :::
- </dx-codeblock>
+}
+:::
+</dx-codeblock>
