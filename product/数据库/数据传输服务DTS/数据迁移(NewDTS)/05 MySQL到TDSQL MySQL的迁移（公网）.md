@@ -77,9 +77,9 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <li>源库变量 connect_timeout 设置数值必须大于10。</li></ul></li>
 <li>Binlog参数要求：
 <ul>
-<li>源端 binlog_format 变量必须设置为ROW。</li>
-<li>源端 log_bin 变量必须设置为ON。</li>
-<li>源端 binlog_row_image 变量必须设置为FULL。</li>
+<li>源端 binlog_format 变量必须设置为 ROW。</li>
+<li>源端 log_bin 变量必须设置为 ON。</li>
+<li>源端 binlog_row_image 变量必须设置为 FULL。</li>
 <li>源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode。</li>
 <li>不允许设置 do_db, ignore_db。</li>
 <li>对于源实例为从库的情况，log_slave_updates 变量必须设置为 ON。</li></ul></li>
