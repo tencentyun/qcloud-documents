@@ -7,5 +7,5 @@
 
 ## 修复方法
 - 非引擎类的插件兼容性问题（如 pg_hint_plan，pg_prewarm，tsearch2，hll，rum，zhparser），一般可以忽略，用户可自行评估业务情况处理。
-- 引擎类的插件兼容性问题（如 timescaledb，pipelinedb，postgis），建议用户提交工单处理。
+- 引擎类的插件兼容性问题（如 timescaledb，pipelinedb，postgis），建议通过 [在线支持](https://cloud.tencent.com/online-service?from=connect-us) 处理。
 
