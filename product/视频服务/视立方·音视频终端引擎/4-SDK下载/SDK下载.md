@@ -33,7 +33,7 @@
 </tr>
 <tr>
 <td colspan="2">Demo</td>
-<td colspan="6" style="text-align:center"><a href="https://cloud.tencent.com/document/product/1449/56977?!preview&!editLang=zh">腾讯云视立方 Demo</a></td>
+<td colspan="6" style="text-align:center"><a href="https://cloud.tencent.com/document/product/1449/56977">腾讯云视立方 Demo</a></td>
 </tr>
 <tr>
 <td rowspan="2" width="10%">直播推流</td>

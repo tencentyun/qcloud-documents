@@ -44,7 +44,7 @@
 ## 正式版 License
 [](id:creat_formal)
 ### 购买正式版 License
-1. 购买指定规格的 [云点播流量资源包](https://cloud.tencent.com/document/product/1449/56973?!preview&!editLang=zh#video)，获得赠送1年有效期的正式短视频（精简版/基础版） License 使用权限（到期当日的00:00:00止），具体 License 版本对应套餐包如下表：
+1. 购买指定规格的 [云点播流量资源包](https://cloud.tencent.com/document/product/1449/56973#video)，获得赠送1年有效期的正式短视频（精简版/基础版） License 使用权限（到期当日的00:00:00止），具体 License 版本对应套餐包如下表：
 <table>
 <tr><th>License 版本</th><th>套餐包</th>
 </tr><tr>
