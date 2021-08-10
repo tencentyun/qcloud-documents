@@ -64,8 +64,6 @@ grant pg_tencentdb_superuser to 迁移用户;
 <li>目标库的版本必须大于等于源库的版本。</li>
 <li>目标库的可用空间大小须是源库待迁移实例的1.2倍以上。（数据增量迁移会执行 update，delete 操作，导致数据库的表产生碎片，因此迁移完成后目标数据库的表存储空间很可能会比源实例的表存储空间大，这主要是因为源端和目标端不同的 autovcauum 触发条件导致。）</li>
 <li>目标库不能有和源库同名的迁移对象。如用户名不能相同，不能存在相同名的表。</li>
-<li>增量迁移时目标库 max_replication_slots 值必须大于待迁移的 database 数量。</li>
-<li>增量迁移时目标库 max_wal_senders 值必须大于待迁移的 database 数量。</li>
 <li>增量迁移时目标库 max_worker_processes 值必须大于 max_logical_replication_workers。</li>
 </tr>
 </table>
