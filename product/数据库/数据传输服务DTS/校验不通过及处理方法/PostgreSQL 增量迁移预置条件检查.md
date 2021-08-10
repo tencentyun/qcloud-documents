@@ -13,7 +13,7 @@
 >?
 >- 如源数据库为自建数据库，需要登录至数据库的运行服务器上，进入数据库数据主目录中，一般为 $PGDATA。
 >- 如源数据库为其他云数据库，请使用相关云平台的参数修改方法。
->- 如需要修改目标实例的参数，请提交工单处理。
+>- 如需要修改目标实例的参数，请通过 [在线支持](https://cloud.tencent.com/online-service?from=connect-us) 处理。
 2. 找到 postgresql.conf 文件，打开此文件，修改`wal_level`。
 ```
 wal_level = logical
