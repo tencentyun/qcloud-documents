@@ -1,21 +1,21 @@
 ## Version 9.0 @ 2021.08.06
 
 **功能新增**
-- iOS：支持设置系统采集音量，详见 [setSystemAudioLoopbackVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#afc45226807d84673bab78b21d1be54ae)；
-- 全平台：支持设置自定义音轨的音量，详见 [setMixExternalAudioVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#ae0031e4af8bb120ef6de164d99886418)；
-- 全平台：状态回调可区分音频和视频的丢包率，详见 [TRTCRemoteStatistics](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCStatistic__cplusplus.html#structliteav_1_1TRTCRemoteStatistics)；
+- iOS：支持设置系统采集音量，详情请参见 [setSystemAudioLoopbackVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#afc45226807d84673bab78b21d1be54ae)。
+- 全平台：支持设置自定义音轨的音量，详情请参见 [setMixExternalAudioVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#ae0031e4af8bb120ef6de164d99886418)。
+- 全平台：状态回调可区分音频和视频的丢包率，详情请参见 [TRTCRemoteStatistics](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCStatistic__cplusplus.html#structliteav_1_1TRTCRemoteStatistics)。
 
 **质量优化**
-- 全平台：优化订阅流程，提升手动订阅的秒开速度；
-- 全平台：修复特定场景 onExitRoom 回调重复的问题；
+- 全平台：优化订阅流程，提升手动订阅的秒开速度。
+- 全平台：修复特定场景 onExitRoom 回调重复的问题。
 
 **问题修复**
-- Android：修复自定义采集动态设置码率和帧率无效的问题；
-- iOS：修复先开启录屏辅路，再开启摄像头推流导致的推流失败问题；
-- iOS：修复本地视频录制模糊的问题；
-- iOS：修复若干稳定性问题；
-- Winodws：修复屏幕分享时采集帧率异常的问题；
-- Windows：修复屏幕分享切换目标时，播放端会先显示一帧旧画面的问题；
+- Android：修复自定义采集动态设置码率和帧率无效的问题。
+- iOS：修复先开启录屏辅路，再开启摄像头推流导致的推流失败问题。
+- iOS：修复本地视频录制模糊的问题。
+- iOS：修复若干稳定性问题。
+- Winodws：修复屏幕分享时采集帧率异常的问题。
+- Windows：修复屏幕分享切换目标时，播放端会先显示一帧旧画面的问题。
 
 ## Version 8.9 @ 2021.07.15
 
