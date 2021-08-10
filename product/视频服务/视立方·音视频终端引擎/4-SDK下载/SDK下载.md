@@ -4,7 +4,7 @@
 <table id="download">
 <thead>
 <tr style="text-align:center">
-<th colspan="2" width="25%">功能模块</th>
+<th colspan="2" width="25%">音视频终端<br>引擎版本</th>
 <th style="text-align:center">基础直播<br>Smart</th>
 <th style="text-align:center">互动直播<br>Live</th>
 <th style="text-align:center">短视频<br>UGSV</th>
