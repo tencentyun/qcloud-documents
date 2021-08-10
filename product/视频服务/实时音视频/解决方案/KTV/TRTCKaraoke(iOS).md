@@ -6,11 +6,10 @@ TRTCKaraokeRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM �
 - 听众可以申请上麦，变成麦上主播，上麦后可以点歌和唱歌，也可以随时下麦成为普通的听众。
 - 支持发送礼物和各种文本、自定义消息，自定义消息可用于实现弹幕、点赞等。
 
-TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [Karaoke（iOS）](https://cloud.tencent.com/document/product/647/59402?!editLang=zh&!preview)。
+TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [Karaoke（iOS）](https://cloud.tencent.com/document/product/647/59402)。
 
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时语音聊天组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 AVChatroom 实现聊天室的功能，同时，通过 IM 的属性接口来存储麦位表等房间信息，邀请信令可以用于上麦申请/抱麦申请。
-
 
 [](id:TRTCKaraokeRoom)
 ## TRTCKaraokeRoom API 概览
@@ -101,7 +100,6 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 | [rejectInvitation](#rejectinvitation) | 拒绝邀请。       |
 | [cancelInvitation](#cancelinvitation) | 取消邀请。       |
 
-
 [](id:TRTCKaraokeRoomDelegate)
 ## TRTCKaraokeRoomDelegate API 概览
 
@@ -169,7 +167,7 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 
 ### sharedInstance
 
-获取 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59402?!editLang=zh&!preview) 单例对象。
+获取 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59402) 单例对象。
 
 ```Objective-C
 /**
@@ -184,7 +182,7 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 
 ### destroySharedInstance
 
-销毁 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59402?!editLang=zh&!preview) 单例对象。
+销毁 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59402) 单例对象。
 
 >?销毁实例后，外部缓存的 TRTCKaraokeRoom 实例无法再使用，需要重新调用 [sharedInstance](#sharedInstance) 获取新实例。
 
@@ -199,7 +197,7 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 
 ### setDelegate
 
-[TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59402?!editLang=zh&!preview) 事件回调，您可以通过 TRTCKaraokeRoomDelegate 获得 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59402?!editLang=zh&!preview) 的各种状态通知。
+[TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59402) 事件回调，您可以通过 TRTCKaraokeRoomDelegate 获得 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59402) 的各种状态通知。
 
 ```Objective-C
 /**
@@ -416,10 +414,9 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 ### startPlayMusic
 
 播放音乐（上麦后调用）。
->?
->- 播放音乐后，自身会收到 `onMusicPrepareToPlay` 的事件通知。
->- 音乐播放中，房间内所有成员会不断收到 `onMusicProgressUpdate` 的事件通知。
->- 音乐播放完成，自身会收到 `onMusicCompletePlaying` 的事件通知。
+>?播放音乐后，自身会收到 `onMusicPrepareToPlay` 的事件通知。
+>?音乐播放中，房间内所有成员会不断收到 `onMusicProgressUpdate` 的事件通知。
+>?音乐播放完成，自身会收到 `onMusicCompletePlaying` 的事件通知。
 
 ```Objective-C
 - (void)startPlayMusic:(int32_t)musicID url:(NSString *)url NS_SWIFT_NAME(startPlayMusic(musicID:url:));
@@ -446,9 +443,8 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 ### pausePlayMusic
 
 暂停正在播放的音乐（播放音乐时调用）。
->?
->- `onMusicProgressUpdate` 的事件通知会暂停。
->- 不会收到 `onMusicCompletePlaying` 的事件通知。
+>? `onMusicProgressUpdate` 的事件通知会暂停
+>?不会收到 `onMusicCompletePlaying` 的事件通知。
 
 ```Objective-C
 - (void)pausePlayMusic NS_SWIFT_NAME(pausePlayMusic());
@@ -938,7 +934,7 @@ NS_SWIFT_NAME(onRoomInfoChange(roomInfo:));
 
 ### onUserMicrophoneMute
 
-用户麦克风是否静音回调，当用户调用 muteLocalAudio，房间内的其他用户都会收到此通知。
+用户麦克风是否静音回调，当用户调用muteLocalAudio，房间内的其他用户都会收到此通知。
 
 ```Objective-C
 - (void)onUserMicrophoneMute:(NSString *)userId mute:(BOOL)mute
@@ -1207,7 +1203,7 @@ NS_SWIFT_NAME(onInviteeRejected(identifier:invitee:));
 
 ### onMusicPrepareToPlay
 
-准备播放音乐的回调。
+准备播放音乐的回调
 
 ```Objective-C
 - (void)onMusicPrepareToPlay:(int32_t)musicID
@@ -1222,7 +1218,7 @@ NS_SWIFT_NAME(onMusicPrepareToPlay(musicID:));
 
 ### onMusicProgressUpdate
 
-歌曲播放进度的回调。
+歌曲播放进度的回调
 
 ```Objective-C
 - (void)onMusicProgressUpdate:(int32_t)musicID
@@ -1240,7 +1236,7 @@ NS_SWIFT_NAME(onMusicProgressUpdate(musicID:progress:total:));
 
 ### onMusicCompletePlaying
 
-播放完成音乐的回调。
+播放完成音乐的回调
 
 ```Objective-C
 - (void)onMusicCompletePlaying:(int32_t)musicID
