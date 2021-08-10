@@ -1,7 +1,7 @@
 ## 前提条件
 
 - 已下载安装 [Fluid](https://github.com/fluid-cloudnative/fluid)(version >= 0.6.0)
-  // TODO
+>!单击下载 [fluid-0.6.0.tgz](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/fluid.tgz)安装包。
 - 请参见 [安装](https://cloud.tencent.com/document/product/436/59493) 文档完成 Fluid 安装。
 
 ## 创建 Dataset 和 GooseFSRuntime
@@ -41,7 +41,6 @@ spec:
         high: "0.9"
         low: "0.2"
 ```
- // TODO
 为了 AK 等密钥信息的安全性，建议使用 secret 来保存相关密钥信息，secret 使用请参考 [使用参数加密](https://cloud.tencent.com/document/product/436/59502)。
 ```yaml
 apiVersion: v1
