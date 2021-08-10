@@ -50,7 +50,6 @@ NAME                       STATUS   ROLES    AGE     VERSION            HBASE-CA
 ```
 
 ### 检查待创建的 Dataset 资源对象
-
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
@@ -73,7 +72,6 @@ dataset.data.fluid.io/hbase created
 ```
 
 ### 检查待创建的 GooseFSRuntime 资源对象
-
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: GooseFSRuntime
@@ -99,6 +97,8 @@ spec:
 ```shell
 $ kubectl create -f runtime.yaml
 goosefsruntime.data.fluid.io/hbase created
+
+
 
 $ kubectl get pod -o wide
 NAME                 READY   STATUS    RESTARTS   AGE    IP              NODE                       NOMINATED NODE   READINESS GATES
