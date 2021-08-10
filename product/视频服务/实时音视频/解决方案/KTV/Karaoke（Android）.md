@@ -1,5 +1,5 @@
 ## 效果展示
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 Karaoke 的能力，包括低延时K歌、麦位管理、收发礼物、文字聊天等 TRTC 在 Karaoke 场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 Karaoke 的能力，包括低延时 K 歌、麦位管理、收发礼物、文字聊天等 TRTC 在 Karaoke 场景下的相关能力。
 <table>
      <tr>
          <th>房主麦位操作</th>  
