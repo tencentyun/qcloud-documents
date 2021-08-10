@@ -70,7 +70,8 @@ spec:
   placement: "Shared" 
 ```
 
-> ?为了方便用户进行测试，mountPoint 这里使用的是 Web UFS，使用 COS 作为 UFS 可见 [使用 GooseFS 挂载 COS（COSN)](https://cloud.tencent.com/document/product/436/56413#.E4.BD.BF.E7.94.A8-goosefs-.E6.8C.82.E8.BD.BD-cos.EF.BC.88cosn.EF.BC.89-.E6.88.96.E8.85.BE.E8.AE.AF.E4.BA.91-hdfs.EF.BC.88chdfs.EF.BC.89)。
+>? 为了方便用户进行测试，mountPoint 这里使用的是 Web UFS，使用 COS 作为 UFS 可见 [使用 GooseFS 挂载 COS（COSN)](https://cloud.tencent.com/document/product/436/56413#.E4.BD.BF.E7.94.A8-goosefs-.E6.8C.82.E8.BD.BD-cos.EF.BC.88cosn.EF.BC.89-.E6.88.96.E8.85.BE.E8.AE.AF.E4.BA.91-hdfs.EF.BC.88chdfs.EF.BC.89)。
+>
 
 **创建 Dataset 资源对象**
 
@@ -171,7 +172,7 @@ spark-fuse-5z49p     1/1     Running   0          19s     192.168.0.199   192.16
 spark-master-0       2/2     Running   0          50s     192.168.0.200   192.168.0.200   <none>           <none>
 spark-worker-96ksn   2/2     Running   0          19s     192.168.0.199   192.168.0.199   <none>           <none>
 ```
-注意上面的不同的 Dataset 的 worker 和 fuse 组件可以正常的调度到相同的节点 `192.168.0.199`。
+注意上面不同的 Dataset 的 worker 和 fuse 组件可以正常的调度到相同的节点 `192.168.0.199`。
 
 **再次查看 Dataset 资源对象状态**
 
