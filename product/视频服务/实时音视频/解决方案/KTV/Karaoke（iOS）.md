@@ -1,5 +1,5 @@
 ## 效果展示
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 Karaoke 的能力，包括低延时K歌、麦位管理、收发礼物、文字聊天等 TRTC 在 Karaoke 场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 Karaoke 的能力，包括低延时 K 歌、麦位管理、收发礼物、文字聊天等 TRTC 在 Karaoke 场景下的相关能力。
 <table>
      <tr>
          <th>房主麦位操作</th>  
@@ -19,7 +19,7 @@
 [](id:ui.step1)
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 输入应用名称，例如  `TestKaraoke`  ，单击【创建】。
+2. 输入应用名称，例如 `TestKaraoke`，单击【创建】。
 3. 单击【已下载，下一步】，跳过此步骤。
 
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
