@@ -147,5 +147,11 @@ Ingress 跨域绑定功能，指定需要接入的 VPC。可以和 `ingress.clou
 `ingress.cloud.tencent.com/cross-region-id: "ap-guangzhou"`
 `ingress.cloud.tencent.com/cross-vpc-id: "vpc-646vhcjj"`
 :::
+::: ingress.cloud.tencent.com/enable-grace-shutdown
+**说明：**
+支持 CLB 直连模式的优雅停机。
+**使用示例：**
+仅在直连模式下支持，需要配合使用 `ingress.cloud.tencent.com/direct-access`，使用方式详情见 [Ingress 优雅停机](https://cloud.tencent.com/document/product/457/60065)。
+:::
 </dx-accordion>
 
