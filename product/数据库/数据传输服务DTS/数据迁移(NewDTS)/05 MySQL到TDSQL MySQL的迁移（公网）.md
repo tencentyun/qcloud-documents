@@ -7,7 +7,7 @@
 
 ## 前提条件
 
-- 已 [创建分布式数据库TDSQL MySQL版](https://cloud.tencent.com/document/product/557/10236)。
+- 已 [创建分布式数据库 TDSQL MySQL版](https://cloud.tencent.com/document/product/557/10236)。
 - 源数据库和目标数据库符合迁移功能和版本要求，请参见 [数据迁移支持的数据库](https://cloud.tencent.com/document/product/571/58686) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
 - 需要您在源端 MySQL 中提前创建好数据库：`__tencentdb__`。
@@ -49,7 +49,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
   - 请勿在源库写入 Binlog 格式为 `STATEMENT` 的数据。
   - 请勿在源库上执行清除 Binlog 的操作。
   - 在增量迁移阶段，请勿删除系统库表 `__tencentdb__`。 
-- 如果仅执行全量数据迁移，请勿在迁移过程中向源实例中写入新的数据，否则会导致源和目标数据不一致。针对有数据写入的场景，为实时保持数据一致性，建议选择全量+增量数据迁移。
+- 如果仅执行全量数据迁移，请勿在迁移过程中向源实例中写入新的数据，否则会导致源和目标数据不一致。针对有数据写入的场景，为实时保持数据一致性，建议选择全量 + 增量数据迁移。
 
 ## 支持的 SQL 操作
 
@@ -103,7 +103,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 
 不同接入类型的数据迁移步骤基本一致，本场景以“公网”接入方式为例进行介绍。
 
-1. 登录 [DTS 数据迁移控制台](https://console.cloud.tencent.com/dts/migration?rid=8&page=1&pagesize=20)，单击【新建迁移任务】，进入新建迁移任务页面。
+1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择【数据迁移】页，单击【新建迁移任务】，进入新建迁移任务页面。
 2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击【0元购买】，目前 DTS 数据迁移功能免费使用。
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击【新建】。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
@@ -112,7 +112,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <tbody><tr>
 <td rowspan=3>任务设置</td>
 <td>任务名称</td>
-<td>设置一个具有业务意义的名称，便于任务识别</td></tr>
+<td>设置一个具有业务意义的名称，便于任务识别。</td></tr>
 <tr>
 <td>运行模式</td>
 <td>支持立即执行和定时执行：立即执行，则完成任务校验通过后立即启动任务；定时执行，需要配置一个任务执行时间则到时间后启动任务。</td></tr>
