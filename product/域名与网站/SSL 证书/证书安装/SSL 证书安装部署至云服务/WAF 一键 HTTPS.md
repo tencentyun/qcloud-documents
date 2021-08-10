@@ -80,6 +80,7 @@ SaaS 型 WAF 通过为防护域名分配 CNAME，修改网站的 DNS 解析记�
 :::
 </dx-tabs>
 
+>?防护配置请您前往 [Web 应用防火墙](https://console.cloud.tencent.com/guanjia/instance/domain) 进行设置。
 
 
 
