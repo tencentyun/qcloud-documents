@@ -70,7 +70,7 @@ grant pg_tencentdb_superuser to 迁移用户;
 </table>
 
 ## 操作步骤
-1. 登录 [DTS 数据迁移控制台](https://console.cloud.tencent.com/dts/migration)，单击【新建迁移任务】，进入新建迁移任务页面。
+1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择【数据迁移】页，单击【新建迁移任务】，进入新建迁移任务页面。
 2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击【0元购买】，目前 DTS 数据迁移功能免费使用。
 >?迁移任务订购后不支持更换地域，请谨慎选择。
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击【新建】。
