@@ -29,7 +29,8 @@ $ kubectl  label node 192.168.0.199 fluid=multi-dataset
 **查看待创建的 Dataset 资源对象**
 
 - dataset.yaml
-```yaml
+<dx-codeblock>
+::: yaml yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
 metadata:
@@ -47,10 +48,11 @@ spec:
               values:
                 - "multi-dataset"
   placement: "Shared" // 设置为 Exclusive 或者为空则为独占节点数据集
-
-```
+:::
+</dx-codeblock>
 - dataset1.yaml
-```yaml
+<dx-codeblock>
+::: yaml yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
 metadata:
@@ -68,7 +70,8 @@ spec:
               values:
                 - "multi-dataset"
   placement: "Shared" 
-```
+:::
+</dx-codeblock>
 
 >? 为了方便用户进行测试，mountPoint 这里使用的是 Web UFS，使用 COS 作为 UFS 可见 [使用 GooseFS 挂载 COS（COSN)](https://cloud.tencent.com/document/product/436/56413#.E4.BD.BF.E7.94.A8-goosefs-.E6.8C.82.E8.BD.BD-cos.EF.BC.88cosn.EF.BC.89-.E6.88.96.E8.85.BE.E8.AE.AF.E4.BA.91-hdfs.EF.BC.88chdfs.EF.BC.89)。
 >
@@ -97,7 +100,8 @@ spark                                                                  NotBound 
 **查看待创建的 GooseFSRuntime 资源对象**
 
 - runtime.yaml
-```yaml
+<dx-codeblock>
+::: yaml yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: GooseFSRuntime
 metadata:
@@ -111,9 +115,11 @@ spec:
         quota: 2G
         high: "0.8"
         low: "0.7"
-```
+:::
+</dx-codeblock>
 - runtime-1.yaml
-```yaml
+<dx-codeblock>
+::: yaml yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: GooseFSRuntime
 metadata:
@@ -127,14 +133,14 @@ spec:
         quota: 4G
         high: "0.8"
         low: "0.7"
-```
-
+:::
+</dx-codeblock>
 
 **创建 GooseFSRuntime 资源对象**
-
 ```shell
 $ kubectl create -f runtime.yaml
 goosefsruntime.data.fluid.io/hbase created
+
 
 # 等待 Dataset hbase 全部组件 Running 
 $ kubectl get pod -o wide | grep hbase
@@ -221,7 +227,8 @@ spark   Bound    spark    100Gi      RWX                           53s
 **查看待创建的应用**
 
 - nginx.yaml
-```yaml
+<dx-codeblock>
+::: yaml yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -238,9 +245,11 @@ spec:
       persistentVolumeClaim:
         claimName: hbase
   nodeName: 192.168.0.199
-```
+:::
+</dx-codeblock>
 - nginx1.yaml
-```yaml
+<dx-codeblock>
+::: yaml yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -257,8 +266,8 @@ spec:
       persistentVolumeClaim:
         claimName: spark
   nodeName: 192.168.0.199
-```
-
+:::
+</dx-codeblock>
 
 **启动应用进行远程文件访问**
 ```shell
@@ -318,7 +327,8 @@ $ exit
 **查看待创建的测试作业**
 
 - app.yaml
-```yaml
+<dx-codeblock>
+::: yaml yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -340,9 +350,11 @@ spec:
           persistentVolumeClaim:
             claimName: hbase
       nodeName: 192.168.0.199
-```
+:::
+</dx-codeblock>
 - app1.yaml
-```yaml
+<dx-codeblock>
+::: yaml yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -364,7 +376,8 @@ spec:
           persistentVolumeClaim:
             claimName: spark
       nodeName: 192.168.0.199
-```
+:::
+</dx-codeblock>
 
 
 **启动测试作业**
