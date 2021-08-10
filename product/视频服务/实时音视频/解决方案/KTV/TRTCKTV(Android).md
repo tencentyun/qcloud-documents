@@ -159,7 +159,7 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 | ------------------------------------------------- | ----------------- |
 | [onMusicProgressUpdate](#onmusicprogressupdate)   | 歌曲播放进度的回调。 |
 | [onMusicPrepareToPlay](#onmusicpreparetoplay)     | 准备播放音乐的回调。 |
-| [onMusicCompletePlaying](#onMusicCompletePlaying) | 播放完成音乐的回调。 |
+| [onMusicCompletePlaying](#onmusiccompleteplaying) | 播放完成音乐的回调。 |
 
 ## SDK 基础函数
 
