@@ -199,7 +199,7 @@ mypack.zip
   "bucket": "examplebucket-1250000000",
   "region": "ap-guangzhou",
   "key": "mypack.zip",
-  "flatten": ture,         // flatten 为 true，对源文件路径进行扁平化处理
+  "flatten": true,         // flatten 为 true，对源文件路径进行扁平化处理
   "sourceList": [
       {
           "url": "https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/dir1/file1.jpg"

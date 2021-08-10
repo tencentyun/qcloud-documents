@@ -8,3 +8,4 @@
 | SELECT	| SELECT [ALL \| DISTINCT \| DISTINCTROW ]select_expr, ... FROM tb1_name[WHERE where_definition]	| 是 |
 | REPLACE	| REPLACE [LOW_PRIORITY \| DELAYED][INTO] tb1_name [(col_name,...)]VALUES ({expr \| DEFAULT},...),(...),...<br> REPLACE  [LOW_PRIORITY \| DELAYED][INTO] tb1_nameSET col_name={expr \| DEFAULT}, ...| 	否 |
 | TRUNCATE	| TRUNCATE [TABLE] tb1_name	 | 否 | 
+

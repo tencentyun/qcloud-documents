@@ -142,8 +142,8 @@ mTRTCCloud.startLocalAudio();
  - Smooth：光滑，效果比较明显，类似网红风格。
  - Nature：自然，磨皮算法更多地保留了面部细节，主观感受上会更加自然。
  - Pitu ：仅 [企业版](https://cloud.tencent.com/document/product/647/32689#Enterprise) 才支持。
-3. 主播端调用 [setBeautyLevel()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#a7f388122cf319218b629fb8e192a2730) 可以设置磨皮的级别，一般设置为5即可。
-4. 主播端调用 [setWhitenessLevel()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#aa4e57d02a4605984f4dc6d3508987746) 可以设置美白级别，一般设置为5即可。
+3. 主播端调用 [setBeautyLevel()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#a3931ccd8fa54bb846783ab4d6ca2874b) 可以设置磨皮的级别，一般设置为5即可。
+4. 主播端调用 [setWhitenessLevel()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#ab08c07ce725dbb8769b61fe0c76b0e95) 可以设置美白级别，一般设置为5即可。
 
 
 [](id:step7)

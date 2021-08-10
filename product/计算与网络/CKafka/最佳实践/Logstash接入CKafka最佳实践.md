@@ -49,7 +49,7 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 >?您可以点击以下页签，查看 CKafka 作为 inputs 或者 outputs 接入的具体步骤。
 
 <dx-tabs>
-:::inputs\s接入
+:::作为\sinputs\s接入
 
 1. 执行 `bin/logstash-plugin list`，查看已经支持的插件是否含有 logstash-input-kafka。
    ![](https://mc.qcloudimg.com/static/img/c5c876ea5ae5ce75307a5e307357e622/input1.png)
@@ -81,7 +81,7 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 
 :::
 
-:::outputs\s接入
+:::作为\soutputs\s接入
 
 1. 执行 `bin/logstash-plugin list`，查看已经支持的插件是否含有 logstash-output-kafka。
    ![](https://mc.qcloudimg.com/static/img/c5c876ea5ae5ce75307a5e307357e622/77.png)

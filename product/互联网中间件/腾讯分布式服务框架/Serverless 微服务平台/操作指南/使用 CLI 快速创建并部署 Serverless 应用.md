@@ -13,7 +13,7 @@
 
 
 ## 操作步骤
-以下是一个基于 TCCLI 和 COSCMD 通过脚本完成应用创建和自动部署（Continuous Deployment）的例子，您可以按照实际需要对脚本进行调整。
+以下是一个基于 TCCLI 和 COSCMD 通过脚本完成应用创建和自动部署（Continuous Deployment）的示例，您可以按照实际需要对脚本进行调整。
 ### 1. 使用 CLI 快速创建 Serverless 应用
 参考以下脚本，快速创建并部署一个 Serverless 应用。在以下脚本里，我们会创建一个 Serverless 应用、上传程序包、创建部署组。
 

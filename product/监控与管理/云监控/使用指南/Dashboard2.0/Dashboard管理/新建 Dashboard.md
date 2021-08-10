@@ -10,3 +10,5 @@
 5. 单击【确定】即可快速创建 Dashboard。
 
 > ?如需编辑 Dashboard 名称或进行 Dashboard 全局配置（模板变量、链接管理、JSON等配置），请参见 [Dashboard 全局配置](https://cloud.tencent.com/document/product/248/46763)。
+
+

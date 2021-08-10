@@ -1,3 +1,31 @@
+### 2.12.2 @2021.8.6
+
+**新增**
+
+小程序视频上传支持进度回调。
+
+**变更**
+
+修改群自定义字段等不存漫游的群提示消息，SDK 不再计入会话未读数。
+
+**修复**
+
+- 加入直播群偶现收不到自己进群的提示消息。
+- 使用 restapi 发送 c2c 消息 random 设置为0时，接收端触发2次 [MESSAGE_RECEIVED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.MESSAGE_RECEIVED) 事件。
+
+
+### 2.12.1 @2021.7.20
+
+**新增**
+
+- 支持 Meeting 群未读计数。
+- [TIM.EVENT.MESSAGE_MODIFIED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.MESSAGE_MODIFIED) 事件，第三方回调修改了的消息，SDK 通过此事件通知给消息发送方。
+
+**修复**
+
+- 拉群漫游消息偶发丢消息问题。
+- uni-app 集成时可能遇到的`xx.toFixed is not a function`。
+
 ### 2.12.0 @2021.7.5
 
 **新增**

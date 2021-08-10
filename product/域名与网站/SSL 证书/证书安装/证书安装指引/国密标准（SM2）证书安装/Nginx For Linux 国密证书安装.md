@@ -72,8 +72,7 @@ cd nginx-1.18.0/
 #编译安装 Nginx
 make && make install 
 ```
-4. 如果编译执行过程中出现 `make[1]: *** [/usr/local/wotrus_ssl2.0/.openssl/include/openssl/ssl.h] Error 127 
-`错误。则需要进入 `nginx-1.18.0/auto/lib/openssl` 目录，编辑 `conf` 文件。需修改如下内容：
+4. 如果编译执行过程中出现 `make[1]: *** [/usr/local/wotrus_ssl2.0/.openssl/include/openssl/ssl.h] Error 127` 错误。则需要进入 `nginx-1.18.0/auto/lib/openssl` 目录，编辑 `conf` 文件。需修改如下内容：
 ```
 CORE_INCS="$CORE_INCS $OPENSSL/.openssl/include"
 CORE_DEPS="$CORE_DEPS $OPENSSL/.openssl/include/openssl/ssl.h"
@@ -157,5 +156,6 @@ ssl_certificate_key /usr/local/nginx/conf/sm2/2_cloud.tencent.com.key;
 5. 重新启动 Nginx 服务器，即可解决浏览器浏览器兼容问题。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
+
 
 

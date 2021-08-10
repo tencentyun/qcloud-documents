@@ -1,6 +1,20 @@
 本文为您介绍 MySQL 内核版本更新动态，如需升级，请参见 [升级内核小版本](https://cloud.tencent.com/document/product/236/45522)。
 
 ## MySQL 8.0
+### 20210330
+#### 新特性：
+- 支持主从 bp 同步功能：当发生 HA 并进行主备切换后，备库通常需要一段比较长的时间来 warmup，把热点数据加载到buffer pool。为加速备机的预热，TXSQL  支持了主从 bp 同步功能。
+- 支持 Sort Merge Join 功能。
+- 支持 FAST DDL 功能。
+- 支持用户侧查询 character_set_client_handshake 参数显示当前值功能。
+
+#### 性能优化：
+- 优化扫描 flush list 刷脏：通过优化刷脏机制，解决了创建索引过程中的性能抖动问题，提升了系统稳定性。
+
+#### 官方 bug 修复：
+- 修复修改 offline_mode、cdb_working_mode 参数的死锁问题。
+- 修复 trx_sys的max_trx_id 持久化并发问题。
+
 ### 20201230
 #### 新特性：
 - 合并官方 [8.0.19](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-19.html)、[8.0.20](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-20.html)、[8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)、[8.0.22](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-22.html) 变更。
@@ -33,6 +47,29 @@
 - 修复全文索引中，词组查找（phrase search）在多字节字符集下存在的崩溃问题。
 
 ## MySQL 5.7
+### 20210331
+#### 新特性：
+- 支持 delete/insert/replace 的 returning 语法，可以返回该 statment 所操作的数据行。 其中，delete 语句返回前镜像数据，insert/replace 返回后镜像数据。
+- 支持列压缩功能：当前有针对行格式的压缩和针对数据页面的压缩，但是这两种压缩方式在处理一个表中的某些大字段和其他很多小字段，同时对小字段的读写很频繁，对大字段访问不频繁的情形中，它的读写访问都会造成很多不必要的计算资源浪费，列压缩可以压缩那些访问不频繁的大字段，同时能够减少整行字段的存储空间，提高读写访问的效率。
+- 支持用户侧查询 character_set_client_handshake 参数显示当前值功能。
+- 支持主动清理日志文件占用的 page cache：该功能采用滑动窗口的方式通过 posix_fadvise 主动清理日志文件占用的 page cache，降低操作系统内存压力，提升整机稳定性。
+
+#### 性能优化：
+- CREATE INDEX 并行化：CREATE INDEX 过程中需要执行外部归并排序，比较耗时。本次引入了并行外部归并排序算法，使 CREATE INDEX 耗时降低50%以上。
+- 优化扫描 flush list 刷脏：通过优化刷脏机制，解决了创建索引过程中的性能抖动问题，提升了系统稳定性。
+
+#### 官方 bug 修复：
+- 修复内存泄漏问题。
+- 移植8.0版本 json 的修复，提升使用 json 的稳定性。
+- 修复 hash scan 导致1032问题。
+- 修复热点更新功能的并发安全问题。
+- 批量移植官方 gcol bug 修复。
+- 修复 datetime 类型在某些场景下与字符串比较失败的问题。
+- 修复主从 bp 同步功能文件句柄未释放 bug。
+- 修复设置 offline_mode 的同时新建连接，可能触发死锁 bug。
+- 修复范围查询并发场景下 m_end_range 设置不正确，导致的 crash 问题。
+- 修复 groupby json 字段中 temporay table的update 耗时较长问题。
+
 ### 20201231
 #### 新特性：
 - 支持 SELECT FOR UPDATE/SHARE 使用 NOWAIT 和 SKIP LOCKED 选项。
