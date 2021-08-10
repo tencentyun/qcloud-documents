@@ -46,7 +46,7 @@
 2. 在“业务接入”页面，单击【域名接入】>【添加域名】。
 ![](https://main.qcloudimg.com/raw/315d2987ff294e027156e770851e2c02.jpg)
 3. 在添加“转发规则”页面中，根据实际需求配置2条转发规则，以下以配置433端口为例。
-![](https://main.qcloudimg.com/raw/c042c6154a9fc767debc96c624f60532.png)
+<img src="https://main.qcloudimg.com/raw/c042c6154a9fc767debc96c624f60532.png"  style="width: 65%;"><br>
 	- 关联高防 IP：选择之前购买的高防实例 IP。
 	- 域名：填写自有域名。
 	- 协议：选择 https，配置两条转发规则，一个端口配置443，另一个端口配置5443。
@@ -75,5 +75,4 @@ ping  <自有域名>
 ### 步骤3：游戏基本功能测试
 
 将游戏客户端域名替换为自有域名，测试 MGOBE 功能是否正常。
-
 
