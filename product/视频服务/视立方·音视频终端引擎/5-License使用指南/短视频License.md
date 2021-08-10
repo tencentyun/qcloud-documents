@@ -6,7 +6,7 @@
 [](id:creat_test)
 ### 申请测试版 License
 
-您可以免费申请短视频模块基础版的测试版 License（免费测试有效期为14天，可续期1次，共28天，有效期至到期当日的24:00:00为止）体验测试，具体步骤如下：
+您可以免费申请短视频模块基础版的测试版 License（免费测试有效期为14天，可续期1次，共28天，有效期至到期次日00:00:00为止）体验测试，具体步骤如下：
 
 1. 登录【[腾讯云视立方控制台](https://console.cloud.tencent.com/vcube)】，单击【创建测试 License】。
 ![](https://main.qcloudimg.com/raw/a623b59b4989ef4d713fc5a2e13927c1.png)
@@ -25,7 +25,7 @@
 
 测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**。单击功能模块【短视频】右侧的【续期】按钮，选择【确定续期】即可续期该功能模块14天。
 ![](https://main.qcloudimg.com/raw/42d1eca5dbb43c767b74c49827b73319.png)
->! 测试版 License 有效期共28天，只能续期一次（有效期至到期当日的24:00:00为止）。若您需继续使用，请 [购买](https://buy.cloud.tencent.com/vcube) 正式版 License。
+>! 测试版 License 有效期共28天，只能续期一次（有效期至到期次日00:00:00为止）。若您需继续使用，请 [购买](https://buy.cloud.tencent.com/vcube) 正式版 License。
 
 [](id:update_test)
 ### 测试版 License 升级
