@@ -10,7 +10,7 @@
 
 ## 数据脱敏 SaaS 型
 数据脱敏 SaaS型，部署过程对租户完全透明，且不占用租户资源。能够拉通不同 VPC 中的数据库，为租户提供即开即用、弹性扩容的 SaaS 化服务。
-![](https://main.qcloudimg.com/raw/06117f17f408a3b3535ed49c70cdb034.png)
+![](https://main.qcloudimg.com/raw/1741f90b19e46305deb6ecf0413187f9.png)
 
 ## 数据脱敏传统型
 数据脱敏传统型，是把数据脱敏镜像安装到租户指定 VPC 里，实现对该 VPC 中数据库的脱敏管理，不同 VPC 中需要安装不同的数据脱敏。
