@@ -1,5 +1,5 @@
 ## 效果展示
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 Karaoke 的能力，包括低延时 K 歌、麦位管理、收发礼物、文字聊天等 TRTC 在 Karaoke 场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 Karaoke 的能力，包括低延时K歌、麦位管理、收发礼物、文字聊天等 TRTC 在 Karaoke 场景下的相关能力。
 <table>
      <tr>
          <th>房主麦位操作</th>  
@@ -96,9 +96,9 @@ Karaoke 组件 TRTCKaraokeRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如�
 <dx-codeblock>
 ::: java java
 dependencies {
-       complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
-       complie 'com.tencent.imsdk:imsdk:latest.release'
-       compile 'com.google.code.gson:gson:2.3.1'
+	complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
+	complie 'com.tencent.imsdk:imsdk:latest.release'
+	complie 'com.google.code.gson:gson:2.3.1'
 }
 :::
 </dx-codeblock>
@@ -195,6 +195,7 @@ Source/src/main/java/com/tencent/liteav/tuikaraoke/model
 <td>登录回调，成功时 code 为0。</td>
 </tr>
 </table>
+
 <dx-codeblock>
 ::: java java
 TRTCKaraoke mTRTCKaraokeRoom = TRTCKaraokeRoom.sharedInstance(this);
@@ -202,7 +203,7 @@ mTRTCKaraokeRoom.setDelegate(this);
 mTRTCKaraokeRoom.login(SDKAPPID, userId, userSig, new TRTCKaraokeRoomCallback.ActionCallback() {
     @Override
     public void onCallback(int code, String msg) {
-        if (code == 0) {![](https://main.qcloudimg.com/raw/be8ee8461f8e06295d5ae1ad1502d745.png)
+        if (code == 0) {
             //登录成功
         }
     }
