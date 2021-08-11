@@ -5,7 +5,7 @@
 
 | 指标名称                | 指标单位 | 指标含义                                   |
 | ----------------------- | -------- | ------------------------------------------ |
-| RSS                     | Bytes    | 常驻内存集                                 |
+| RSS                     | bytes    | 常驻内存集                                 |
 | MemHeapInitM            | MB       | JVM 初始 HeapMemory 的数量峰值             |
 | MemHeapCommittedM       | MB       | JVM 当前已经提交的 HeapMemory 的数量       |
 | MemHeapMaxM             | MB       | JVM 配置的 HeapMemory 的数量               |
