@@ -94,30 +94,30 @@ $ npm install native-ext-loader@latest --save-dev
 ### 操作说明
 1. 首先使 `webpack.config.js` 在构建时可以接收名为 `--target_platform` 的命令行参数，以使代码构建过程按不同的目标平台特点正确打包，在 `module.exports` 之前添加以下代码：
 ```
-	const os = require('os');
-	const targetPlatform = (function(){
-			let target = os.platform();
-			for (let i=0; i<process.argv.length; i++) {
-				if (process.argv[i].includes('--target_platform=')) {
-					target = process.argv[i].replace('--target_platform=', '');
-					break;
-				}
-			}
-			if (!['win32', 'darwin'].includes) target = os.platform();
-				return target;
-	})();
+const os = require('os');
+const targetPlatform = (function(){
+	let target = os.platform();
+	for (let i=0; i<process.argv.length; i++) {
+		if (process.argv[i].includes('--target_platform=')) {
+			target = process.argv[i].replace('--target_platform=', '');
+			break;
+		}
+	}
+	if (!['win32', 'darwin'].includes) target = os.platform();
+	return target;
+})();
 ```
 >! `os.platform()` 返回的结果中，"darwin" 表示 Mac 平台。"win32" 表示 Windows 平台，不论 64 位还是 32 位。
 2. 然后在 `rules` 选项中添加以下配置，`targetPlatform` 变量可以使 `rewritePath` 可以根据不同的目标平台切换不同的配置：
 ```js
 rules: [
-  { 
-			test: /\.node$/, 
-			loader: 'native-ext-loader', 
-			options: { 
-				rewritePath: targetPlatform === 'win32' ? './resources' : '../Resources' 
-			} 
-		},
+	{ 
+		test: /\.node$/, 
+		loader: 'native-ext-loader', 
+		options: { 
+			rewritePath: targetPlatform === 'win32' ? './resources' : '../Resources' 
+		} 
+	},
 ]
 ```
 	该配置的含义是：
