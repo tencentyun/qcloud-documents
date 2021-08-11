@@ -12,7 +12,8 @@ Request 的值并不代表给容器实际分配的资源大小，而是用于提
 
 ## 设置 request 与 limit 默认值
 可使用 LimitRange 来设置 nameapsace 的 request 与 limit 默认值，也可设定 request 与 limit 的最大值与最小值。示例如下：
-```
+<dx-codeblock>
+::: yaml
 apiVersion: v1
 kind: LimitRange
 metadata:
@@ -27,7 +28,8 @@ spec:
       memory: 256Mi
       cpu: 100m
     type: Container
-```
+:::
+</dx-codeblock>
 
 
 ## 重要线上应用配置
