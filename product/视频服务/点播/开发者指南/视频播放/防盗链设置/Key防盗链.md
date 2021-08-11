@@ -4,7 +4,7 @@
 - 支持在视频 URL 中指定试看时长，实现试看功能。
 - 开发者使用密钥`KEY`对视频 URL 签名，并在 URL 中带上签名结果。只要用户密钥不泄露，其他用户无法伪造视频 URL。
 - CDN 节点检查视频 URL 中的参数和签名，对视频播放请求进行控制。如果请求检查不通过，则返回403响应码。
-- 支持的文件类型：MP4、TS、M3U8、FLV、AAC、MOV、WMV、AVI、MP3、RMVB、MKV、MPG、3GP、WEBM、M4V、ASF、F4V、WAV、MPEG、VOB、RM、WMA、DAT、M4A、MPD、M4S。
+- 支持的文件类型：WMV、RM、MOV、MPEG、MP4、3GP、FLV、AVI、RMVB、TS、ASF、MPG、WEBM、MKV 、M3U8、WM、ASX、RAM、MPE、VOB、DAT、MP4V、M4V、F4V、MXF、QT、OGG。
 
 >?开启 Key 防盗链请参见 [设置防盗链](https://cloud.tencent.com/document/product/266/33469#key-.E9.98.B2.E7.9B.97.E9.93.BE)。
 
