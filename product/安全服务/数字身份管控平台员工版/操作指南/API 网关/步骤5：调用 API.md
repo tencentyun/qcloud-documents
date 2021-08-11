@@ -1,7 +1,9 @@
 ## 前提条件
 已购买[  数字身份管控平台（员工版）服务](https://cloud.tencent.com/document/product/1442/56964)。
 
-## Web 客户端调用 API
+## 操作步骤
+
+### Web 客户端调用 API
 1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1)，在左侧导航栏中，单击 【服务】 >【基本信息】，进入服务基本信息页面。
 ![](https://main.qcloudimg.com/raw/0d9f6e20f1b440aef056778fff28e758.png)
 2. 在服务基本信息页面，选择之前所创建的服务，单击“服务名”，进入该服务的 API 管理界面。
@@ -14,7 +16,7 @@
 ![](https://main.qcloudimg.com/raw/da4fd0e126e02fb4078ce4280d49fa78.png)
 ![](https://main.qcloudimg.com/raw/7c97e3e49ddf22240af9f5bf042928f7.png)
 
-## 非 Web 客户端调用 API
+### 非 Web 客户端调用 API
 1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1)，在左侧导航栏中，单击 【服务】 >【基本信息】，进入服务基本信息页面。
 ![](https://main.qcloudimg.com/raw/0d9f6e20f1b440aef056778fff28e758.png)
 2. 在服务基本信息页面，选择之前所创建的服务，单击“服务名”，进入该服务的 API 管理界面。
