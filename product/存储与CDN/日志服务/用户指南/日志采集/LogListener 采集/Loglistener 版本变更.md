@@ -12,7 +12,7 @@
 <table>
 	<tr><th style="width: 10%;">版本号</th><th style="width: 11%;">变更类型</th><th>描述</th></tr>
 	<tr><td rowspan=2><b>v2.6.2</b></td><td>新功能</td><td>支持增量采集功能。</td></tr>
-	<tr><td>体验优化</td><td><ul  style="margin: 0;"><li>优化由于采集目录在扫描到之后，处理之前被移除场景下的处理异常，导致的文件忽略采集问题。</li><li>优化自动升级异常覆盖。</li></ul></td></tr>
+	<tr><td>体验优化</td><td><ul  style="margin: 0;"><li>优化文件在从扫描到处理之间被移除场景下的采集忽略问题。</li><li>优化自动升级异常覆盖。</li></ul></td></tr>
 	<tr><td><b>v2.6.1</b></td><td>体验优化</td><td><ul  style="margin: 0;"><li>优化某些场景下，日志轮转时可能发生回溯采集的问题。</li><li>调整采集端上传日志超时时间，避免因为 timeout 导致数据重复。</li></ul></td></tr>
 	<tr><td rowspan=2><b>v2.6.0</b></td><td>新功能</td><td><ul  style="margin: 0;"><li>支持腾讯云 CVM 批量部署功能。</li><li>支持 secret ID/KEY 密文存储。</li></ul></td></tr>
 	<tr><td>体验优化</td><td><ul  style="margin: 0;"><li>优化 loglistener install/stop 逻辑。</li><li>优化 upload 失败场景下的重试策略。</li><li>增加对老版本 glibc 库造成的 dead lock 的检测修复工具。</li><li>采集性能优化。</li></ul></td></tr>
@@ -25,7 +25,7 @@
 	<tr><td>体验优化</td><td>增强内存资源限制处理，当内存超限持续一段时间后，LogListener 自动加载。</td></tr>
 	<tr><td><b>v2.5.3</b></td><td>性能优化</td><td>优化内存问题引发 LogListener 工作异常。</td></tr>
 	<tr><td rowspan=2><b>v2.5.2</b></td><td>新功能</td><td>支持解析失败日志上传需求。</td></tr>
-	<tr><td>体验优化</td><td>修复黑名单 bug，黑名单 FILE 模式支持通配符过滤。</td></tr>
+	<tr><td>体验优化</td><td>优化黑名单功能，黑名单 FILE 模式支持通配符过滤。</td></tr>
 	<tr><td><b>v2.5.1</b></td><td>体验优化</td><td>优化当采集文件找不到断点元数据时的处理。</td></tr>
 	<tr><td><b>v2.5.0</b></td><td>新功能</td><td><ul  style="margin: 0;"><li>支持 LogListener 自动升级。</li><li>支持在 Ubuntu 系统下，LogListener 自启动。</li></ul></td></tr>
 	<tr><td><b>v2.4.6</b></td><td>体验优化</td><td><ul  style="margin: 0;"><li>变更采集配置时，清理相关配置 cache 的数据残留。</li><li>修复处理软链接的 IN_DELETE 事件时，影响其他指向此 realpath 文件的软链接文件采集的问题。</li><li>优化同一源文件同时使用文件软链接和目录软连接进行采集功能。</li></ul></td></tr>

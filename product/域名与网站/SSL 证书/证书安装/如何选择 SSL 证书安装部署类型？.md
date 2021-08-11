@@ -57,6 +57,8 @@
 - [安装部署 SSL 证书到负载均衡（CLB）指引](https://cloud.tencent.com/document/product/400/6502)
 - [安装部署 SSL 证书到内容分发网络（CDN）指引 ](https://cloud.tencent.com/document/product/400/51804)
 - [安装部署 SSL 证书到 Web 应用防火墙（WAF）指引](https://cloud.tencent.com/document/product/400/51803)
+- [安装部署 SSL 证书到 DDoS 防护指引](https://cloud.tencent.com/document/product/400/56290)
+- [安装部署 SSL 证书到云直播（CSS）指引](https://cloud.tencent.com/document/product/400/56291)
 - [腾讯云实现全站 HTTPS 方案](https://cloud.tencent.com/document/product/400/6813)
 
 ## [使用 “云市场” 的证书安装服务](id:service)

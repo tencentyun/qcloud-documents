@@ -174,3 +174,16 @@
 <td><img src="https://imgcache.qq.com/operation/dianshi/other/Electron_stu.9e3f55291b657d94878963ad86471b331190f47c.gif"/></td>
 </tr>
 </table>
+
+## Karaoke 场景
+Karaoke 场景支持主播与观众上麦唱歌；支持平滑上下麦，切换过程无需等待，主播延时小于300ms；单个房间可连麦人数无限制，最多支持50人同时连麦；低延时直播模式下，支持10万观众同时播放，播放延时低至1000ms；CDN 旁路直播模式下，观众数量无限制。常见应用场景有语音低延时直播、语音直播连麦、语音直播 PK、语聊房、语音相亲房、K 歌房、FM 电台等。
+<table>
+     <tr>
+         <th>房主点歌操作</th>  
+         <th>观众点歌操作</th>  
+     </tr>
+<tr>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_experience_owner.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_experience_audience.gif"/></td>
+</tr>
+</table>

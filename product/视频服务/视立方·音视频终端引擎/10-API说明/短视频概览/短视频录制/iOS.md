@@ -128,7 +128,7 @@
 | [TXUGCRecordResultCode](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXUGCRecordTypeDef__ios.html#ga59aed832d7c79e175e84f5f543c8e45e) | 录制结果错误码   |
 
 
-
+[](id:error)
 ## 错误码
 
 ### 录制结果错误码定义

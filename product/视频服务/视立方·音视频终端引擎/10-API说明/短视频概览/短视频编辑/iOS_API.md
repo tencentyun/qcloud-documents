@@ -157,7 +157,7 @@
 | [TXVideoCompressed](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVideoEditerTypeDef__ios.html#a8ea073944cdda7933d033d1aa74d77d7) | 短视频压缩质量         |
 
 
-
+[](id:error)
 ## 错误码
 
 ### 生成视频结果错误码

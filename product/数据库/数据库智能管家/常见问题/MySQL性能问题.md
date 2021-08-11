@@ -6,10 +6,10 @@
 
 ### 如何分析 MySQL 全量 SQL 执行轨迹？
 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain)，在左侧导航选择【诊断优化】，在上方选择对应数据库，然后选择【审计日志分析】页。
-1. 单击视图右上角的【创建分析任务】，选择时间段，单击【确定】。
-2. 在任务列表单击【查看SQL分析】，进入 SQL 分析页。
+1. 单击【创建分析任务】，选择时间段，单击【确定】。
+2. 在任务列表单击【查看 SQL 分析】，进入 SQL 分析页。
 ![](https://main.qcloudimg.com/raw/60c636949f6bcbafe726256d2a08db5f.png)
-3. 在 SQL 分析页，可选择 SQL Type、Host、User 或 SQL Code 维度的视图，并可选择时间段拉伸视图来查看具体时间点的数据。
+3. 在 SQL 分析页，可选择 SQL Type、Host、User 等维度的视图，并可选择时间段拉伸视图来查看具体时间点的数据。
 ![](https://main.qcloudimg.com/raw/e4a3cf78a8c58e6f5442362c60d3ccbb.png)
 4. 单击某行 SQL 模板，在右侧会弹出 SQL 语句的详情。
  - 在分析页，可查看和复制具体 SQL 语句，根据给出的优化建议或说明来优化 SQL 语句。

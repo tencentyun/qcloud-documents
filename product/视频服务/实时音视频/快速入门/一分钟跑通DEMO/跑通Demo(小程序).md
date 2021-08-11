@@ -13,6 +13,8 @@
 - 小程序基础库最低版本要求：2.10.0。
 - 由于微信开发者工具不支持原生组件（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签），需要在真机上进行运行体验。
 
+>! 请您使用企业主体的微信开发账号，并开通小程序类目的推拉流标签权限后再运行，不要使用测试微信账号。
+
 ## 前提条件
 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 
@@ -20,8 +22,12 @@
 [](id:step1)
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 输入应用名称，例如 TestTRTC，单击【创建】。
-![](https://main.qcloudimg.com/raw/d6c9d22a758c63ecc3b859b4a7f32839.png)
+2. 单击【新建应用】输入应用名称，例如 `TestTRTC`；若您已创建应用可单击【选择已有应用】。
+3. 根据实际业务需求添加或编辑标签，单击【创建】。
+![](https://main.qcloudimg.com/raw/f04d288ed091c98a5e8056eb86fb49e8.png)
+>?
+>- 应用名称只能包含数字、中英文字符和下划线，长度不能超过15个字符。
+>- 标签用于标识和组织您在腾讯云的各种资源。例如：企业可能有多个业务部门，每个部门有1个或多个 TRTC 应用，这时，企业可以通过给 TRTC 应用添加标签来标记部门信息。标签并非必选项，您可根据实际业务需求添加或编辑。
 
 [](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码

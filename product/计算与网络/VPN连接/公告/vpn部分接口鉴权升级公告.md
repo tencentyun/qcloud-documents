@@ -3,18 +3,18 @@
 ## 升级的接口列表
 <table>
 <tr >
-<td colspan=2>接口名称</td><td>接口功能</td></tr>
+<th colspan=2>接口名称</th><th>接口功能</th></tr>
 <tr>
-<td rowspan=4>读接口</td>
+<td rowspan=6>读接口</td>
 <td><a href="https://cloud.tencent.com/document/api/215/57676">DescribeVpnGatewayRoutes</a></td>
 <td>查询 VPN 网关路由</td></tr>
 <tr>
-<td><a href="https://cloud.tencent.com/document/api/215/43514">DescribeVpnGatewayCcnRoutes</a></td>
+<td>DescribeVpnGatewayCcnRoutes</a></td>
 <td>查询 VPN 网关云联网路由</td></tr>
-<!--<tr><td><a href="">DescribeVpnConnectionLogs</a></td><td>查询VPN连接日志
+<tr><td><a href="">DescribeVpnConnectionLogs</a></td><td>查询VPN连接日志
 </td>
 </tr>
--->
+
 <tr>
 <td><a href="https://cloud.tencent.com/document/api/215/17515">DescribeVpnConnections</a></td>
 <td>查询 VPN 通道列表
@@ -26,7 +26,11 @@
 </td>
 </tr>
 <tr>
-<td rowspan= 5>写接口</td>
+<td><a href="https://cloud.tencent.com/document/api/215/17513">DownloadCustomerGatewayConfiguration</a></td><td>下载 VPN 通道配置
+</td>
+</tr>
+<tr>
+<td rowspan= 4>写接口</td>
 <td><a href="https://cloud.tencent.com/document/api/215/57677">DeleteVpnGatewayRoutes</a></td>
 <td>删除 VPN 网关路由
 </td>
@@ -43,10 +47,7 @@
 <td><a href="https://cloud.tencent.com/document/api/215/43497">ModifyVpnGatewayCcnRoutes</a></td><td>修改 VPN 网关云联网路由
 </td>
 </tr>
-<tr>
-<td><a href="https://cloud.tencent.com/document/api/215/17513">DownloadCustomerGatewayConfiguration</a></td><td>下载 VPN 通道配置
-</td>
-</tr>
+
 </table>
 
 ## 为子账号配置策略授权[](id:cam)

@@ -119,4 +119,4 @@ mSuperPlayerView.resetPlayer();
 ## 更多功能
 
 完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
-![img](https://main.qcloudimg.com/raw/344d9d41fc5e305a17e22e104b9305da.png)
+<img src="https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png" width=250px>

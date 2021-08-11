@@ -69,7 +69,7 @@ Ingress 支持通过控制台和 YAML 两种方式进行重定向，具体步骤
 ingress.cloud.tencent.com/auto-rewrite: "true"
 :::
 </dx-codeblock>
-配置该注解之后，转发路径种的所有 HTTPS 监听器中存在的七层转发规则都将被对应到 HTTP 监听器中作为重定向规则。域名与路径路径都保持一致。
+配置该注解之后，转发路径中的所有 HTTPS 监听器中存在的七层转发规则都将被对应到 HTTP 监听器中作为重定向规则。域名与路径都保持一致。
 
 
 

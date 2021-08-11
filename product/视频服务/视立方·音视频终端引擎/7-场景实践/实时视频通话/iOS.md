@@ -1,12 +1,12 @@
-## SDK 版本
-本页文档所描述功能，在 SDK 版本中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 纯播放 Player | 全功能 |
+| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 效果展示
 
@@ -113,7 +113,6 @@
  pod 'TXLiteAVSDK_TRTC' 
 :::
 </dx-codeblock>
-
 >?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
 - **方法二：通过本地依赖**
 如果您的开发环境访问 cocoapods 仓库较慢，可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
@@ -145,7 +144,6 @@
 **通过 cocoapods 导入组件**，具体步骤如下：
 1. 将工程目录下的 `Source`、`Resources`、`TXAppBasic` 文件夹，`TUICalling.podspec` 文件拷贝到您的工程目录下。
 2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
-
 <dx-codeblock>
 ::: swift
  pod 'TXAppBasic', :path => "TXAppBasic/"
@@ -158,14 +156,13 @@
 ### 步骤4：初始化并登录组件
 
 1. 设置推送相关信息。
-	<dx-codeblock>
+<dx-codeblock>
 	::: swift
 	 [TRTCCalling shareInstance].imBusinessID = your business ID;
 	 [TRTCCalling shareInstance].deviceToken =  deviceToken;
-	:::
-	</dx-codeblock>
-
-	>?  imBusinessID 为进入 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 上传 APNs 证书后生成的，随后通过 AppDelegate 向苹果后台请求回调，即可返回对应的 deviceToken 值。具体操作请参见 [离线推送](https://cloud.tencent.com/document/product/269/9154)。
+:::
+</dx-codeblock>
+>?  imBusinessID 为进入 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 上传 APNs 证书后生成的，随后通过 AppDelegate 向苹果后台请求回调，即可返回对应的 deviceToken 值。具体操作请参见 [离线推送](https://cloud.tencent.com/document/product/269/9154)。
 2. 调用 `login(sdkAppID: UInt32, user: String, userSig: String, success: @escaping (() -> Void), failed: @escaping ((_ code: Int, _ message: String) -> Void))` 完成组件的登录，其中几个关键参数的填写请参考下表：
 <table>
 <tr><th>参数名</th><th>作用</th></tr>
@@ -281,20 +278,22 @@ IM SDK 支持离线推送，您需要进行相应的设置才能达到可用标�
 
 TRTCCalling 组件的 API 接口列表如下：
 
-| 接口函数        | 接口功能                                                 |
-| --------------- | -------------------------------------------------------- |
-| addDelegate     | 设置 TRTCCalling 代理回调，用户可以通过该回调获取状态通知 |
-| login           | 登录 IM，所有功能需要先进行登录后才能使用                |
-| logout          | 登出 IM，登出后无法再进行拨打操作                        |
-| call            | C2C 邀请通话，被邀请方会收到 onInvited 的回调            |
-| groupCall       | IM 群组邀请通话，被邀请方会收到 onInvited 的回调          |
-| accept          | 作为被邀请方接听来电                                     |
-| reject          | 作为被邀请方拒绝来电                                     |
-| hangup          | 结束通话                                                 |
-| startRemoteView | 将远端用户的摄像头数据渲染到指定的 UIView 中             |
-| stopRemoteView  | 停止渲染某个远端用户的摄像头数据                         |
-| openCamera      | 开启摄像头，并渲染在指定的 TXCloudVideoView 中           |
-| closeCamera     | 关闭摄像头                                               |
-| switchCamera    | 切换前后摄像头                                           |
-| setMicMute      | 是否静音 mic                                             |
-| setHandsFree    | 是否开启免提                                             |
+| 接口函数        | 接口功能                                                  |
+| ------------- | -------------------------------------------------------- |
+| addDelegate     | 设置 TRTCCalling 代理回调，用户可以通过该回调获取状态通知。 |
+| login           | 登录 IM，所有功能需要先进行登录后才能使用。                 |
+| logout          | 登出 IM，登出后无法再进行拨打操作。                         |
+| call            | C2C 邀请通话，被邀请方会收到 onInvited 的回调。             |
+| groupCall       | IM 群组邀请通话，被邀请方会收到 onInvited 的回调。          |
+| accept          | 作为被邀请方接听来电。                                      |
+| reject          | 作为被邀请方拒绝来电。                                      |
+| hangup          | 结束通话。                                                  |
+| startRemoteView | 将远端用户的摄像头数据渲染到指定的 UIView 中。              |
+| stopRemoteView  | 停止渲染某个远端用户的摄像头数据。                         |
+| openCamera      | 开启摄像头，并渲染在指定的 TXCloudVideoView 中。            |
+| closeCamera     | 关闭摄像头。                                                |
+| switchCamera    | 切换前后摄像头。                                            |
+| setMicMute      | 是否静音 mic。                                              |
+| setHandsFree    | 是否开启免提。                                              |
+
+

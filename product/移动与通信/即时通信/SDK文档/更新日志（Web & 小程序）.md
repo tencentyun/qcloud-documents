@@ -1,4 +1,18 @@
->?[【有奖问卷】7月31日截至！即时通信 IM Web & 小程序端 TUIKit 需求调研，单击立即参与 >>](https://wj.qq.com/s2/8750536/987c)
+### 2.12.2 @2021.8.6
+
+**新增**
+
+小程序视频上传支持进度回调。
+
+**变更**
+
+修改群自定义字段等不存漫游的群提示消息，SDK 不再计入会话未读数。
+
+**修复**
+
+- 加入直播群偶现收不到自己进群的提示消息。
+- 使用 restapi 发送 c2c 消息 random 设置为0时，接收端触发2次 [MESSAGE_RECEIVED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.MESSAGE_RECEIVED) 事件。
+
 
 ### 2.12.1 @2021.7.20
 

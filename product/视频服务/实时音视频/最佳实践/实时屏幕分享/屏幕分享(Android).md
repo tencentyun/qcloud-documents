@@ -41,7 +41,6 @@
 
 - **方案1：弹出普通的悬浮窗**
 要弹出类似“腾讯会议”的迷你悬浮窗，您只需要参考示例代码 [FloatingView.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTC-API-Example/Basic/ScreenShare/src/main/java/com/tencent/trtc/screenshare/FloatingView.java) 中的实现即可：
-
 ```java
 public void showView(View view, int width, int height) {
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);

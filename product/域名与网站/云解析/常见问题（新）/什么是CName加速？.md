@@ -37,3 +37,4 @@ CNAME 加速功能是腾讯云 DNSPod 自主研发，旨在解决用户在设置
 - 域名转出之前应该关闭 CNAME 加速功能。如果已经转出，而系统还没有扫描到该域名当前的状态时，您可以亲自或 [联系技术](https://cloud.tencent.com/document/product/302/33949) 支持去关闭 CNAME 加速功能。
 
 
+

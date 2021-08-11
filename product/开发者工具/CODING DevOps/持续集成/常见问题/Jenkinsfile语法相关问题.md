@@ -161,3 +161,5 @@ pipeline {
 
 1. 使用代码仓库中的 Jenkinsfile 进行配置，可将 Jenkinsfile 保存到仓库中进行版本记录。而选择使用静态配置的 Jenkinsfile 将不存储在代码版本中，无法进行版本记录。
 2. 使用静态配置的 Jenkinsfile 进行配置，构建时所有的构建任务将统一使用该静态配置，每次代码版本更新时将会执行相同的 Jenkinsfile 进行构建。保障构建流程相同。
+
+

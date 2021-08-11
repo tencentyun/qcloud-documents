@@ -6,3 +6,4 @@
 ![](https://main.qcloudimg.com/raw/ea50f01fb4cb9642ea843de289b796c5.jpg)
 4. 实时演示结束后单击【退出演示】即可退出演示。
 ![](https://main.qcloudimg.com/raw/40fdce45c4ff6c4b3e043b32f973ce43.jpg)
+ 

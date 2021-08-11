@@ -379,10 +379,10 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 参数如下表所示：
 
-| 参数             | 类型                      | 含义                                                         |
-| ---------------- | ------------------------- | ------------------------------------------------------------ |
-| userIdList       | List&lt;String&gt;        | 需要获取的用户 ID 列表，如果为 null，则获取房间内所有人的信息。 |
-| userlistcallback | ChatSalonUserListCallback | 用户详细信息回调。                                           |
+| 参数       | 类型                      | 含义                                                         |
+| ---------- | ------------------------- | ------------------------------------------------------------ |
+| userIdList | List&lt;String&gt;        | 需要获取的用户 ID 列表，如果为 null，则获取房间内所有人的信息。 |
+| callback   | ChatSalonUserListCallback | 用户详细信息回调。                                           |
 
 
 ## 上下麦接口
@@ -940,7 +940,7 @@ NS_SWIFT_NAME(onRecvRoomCustomMsg(cmd:message:userInfo:));
 
 | 参数     | 类型              | 含义                                               |
 | -------- | ----------------- | -------------------------------------------------- |
-| command  | String            | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
+| cmd  | String            | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
 | message  | String            | 文本消息。                                         |
 | userInfo | ChatSalonUserInfo | 发送者用户信息。                                   |
 

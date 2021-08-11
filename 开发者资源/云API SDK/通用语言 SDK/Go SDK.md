@@ -423,8 +423,6 @@ func main() {
 }
 ```
 
-更多用法请参见 [测试文件](https://github.com/TencentCloud/tencentcloud-sdk-go/tree/master/tencentcloud/common/ratelimitretry_test.go)。
-
 ### 幂等标识符
 
 当网络超时重试或限频重试开启时，会自动向请求中注入 `ClientToken` 参数（如果请求存在`ClientToken`字段且为空）。当用户手动指定 `ClientToken` 时，会跳过注入流程。

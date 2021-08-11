@@ -134,7 +134,7 @@ TRTCCallingContext.call({userID, type})
 |-----|-----|-----|
 | userIDList | Arrary | 拨打的用户列表。 |
 |type|Number|type 为通话类型，1：语音通话，2：视频通话。|
-|grouID|String| IM 群组的 groupID。|
+|groupID|String| IM 群组的 groupID。|
 
 ```javascript
 TRTCCallingContext.groupCall({userIDList, type, groupID})

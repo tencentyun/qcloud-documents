@@ -198,7 +198,7 @@
 | RECORD_RESULT_COMPOSE_INTERNAL_ERR     | -9   | 回调合成失败，内部错误                                       |
 
 
-
+[](id:error)
 ### 开始录制的返回错误码
 
 | 符号                                         | 值   | 含义                                                         |
