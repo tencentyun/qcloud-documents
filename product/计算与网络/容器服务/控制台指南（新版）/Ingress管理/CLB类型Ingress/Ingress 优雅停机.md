@@ -17,7 +17,7 @@
 ### 步骤1：使用 Annotation 标明使用优雅停机
 
 
-以下为使用 Annotation 标明使用优雅停机示例，完整 Ingress Annotation 说明可参见 [Service Annotation 说明](https://cloud.tencent.com/document/product/457/51258) 文档。
+以下为使用 Annotation 标明使用优雅停机示例，完整 Ingress Annotation 说明可参见 [Ingress Annotation 说明](https://cloud.tencent.com/document/product/457/56112) 文档。
 
 
 <dx-codeblock>

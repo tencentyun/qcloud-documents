@@ -224,7 +224,7 @@ Future<ActionCallback> setSelfProfile(String userName, String avatarURL);
 
 | 参数      | 类型   | 含义       |
 | --------- | ------ | ---------- |
-| name      | String | 昵称。     |
+| userName  | String | 昵称。     |
 | avatarURL | String | 头像地址。 |
 
 ## 房间相关接口函数
@@ -239,10 +239,10 @@ Future<ActionCallback> createRoom(int roomId, RoomParam roomParam);
 
 参数如下表所示：
 
-| 参数      | 类型                | 含义                                                         |
-| --------- | ------------------- | ------------------------------------------------------------ |
-| roomId    | int                 | 房间标识，需要由您分配并进行统一管理。多个 roomID 可以汇总成一个直播间列表，腾讯云暂不提供直播间列表的管理服务，请自行管理您的直播间列表。 |
-| roomParam | TRTCCreateRoomParam | 房间信息，用于房间描述的信息，例如房间名称，封面信息等。如果房间列表和房间信息都由您的服务器自行管理，可忽略该参数。 |
+| 参数      | 类型      | 含义                                                         |
+| --------- | --------- | ------------------------------------------------------------ |
+| roomId    | int       | 房间标识，需要由您分配并进行统一管理。多个 roomID 可以汇总成一个直播间列表，腾讯云暂不提供直播间列表的管理服务，请自行管理您的直播间列表。 |
+| roomParam | RoomParam | 房间信息，用于房间描述的信息，例如房间名称，封面信息等。如果房间列表和房间信息都由您的服务器自行管理，可忽略该参数。 |
 
 主播开播的正常调用流程如下： 
 
@@ -303,9 +303,9 @@ Future<RoomInfoCallback> getRoomInfos(List<String> roomIdList);
 
 参数如下表所示：
 
-| 参数       | 类型                | 含义         |
-| ---------- | ------------------- | ------------ |
-| roomIdList | List&lt;Integer&gt; | 房间号列表。 |
+| 参数       | 类型               | 含义         |
+| ---------- | ------------------ | ------------ |
+| roomIdList | List&lt;String&gt; | 房间号列表。 |
 
 ### getAnchorList
 
@@ -343,10 +343,10 @@ Future<void> startCameraPreview(bool isFrontCamera, int viewId);
 
 参数如下表所示：
 
-| 参数    | 类型 | 含义                                  |
-| ------- | ---- | ------------------------------------- |
-| isFront | bool | true：前置摄像头；false：后置摄像头。 |
-| viewId  | int  | 视频 view 的回调 ID。                 |
+| 参数          | 类型 | 含义                                  |
+| ------------- | ---- | ------------------------------------- |
+| isFrontCamera | bool | true：前置摄像头；false：后置摄像头。 |
+| viewId        | int  | 视频 view 的回调 ID。                 |
 
 ### stopCameraPreview
 
@@ -370,9 +370,9 @@ Future<void> startPublish(String? streamId);
 
 参数如下表所示：
 
-| 参数     | 类型   | 含义                                                         |
-| -------- | ------ | ------------------------------------------------------------ |
-| streamId | String | 用于绑定直播 CDN 的 streamId，如果您希望观众通过直播 CDN 进行观看，需要指定当前主播的直播 streamId。 |
+| 参数     | 类型    | 含义                                                         |
+| -------- | ------- | ------------------------------------------------------------ |
+| streamId | String? | 用于绑定直播 CDN 的 streamId，如果您希望观众通过直播 CDN 进行观看，需要指定当前主播的直播 streamId。 |
 
 
 ### stopPublish
@@ -456,10 +456,10 @@ Future<ActionCallback> responseJoinAnchor(String userId, bool agreee);
 
 参数如下表所示：
 
-| 参数   | 类型    | 含义                      |
-| ------ | ------- | ------------------------- |
-| userId | String  | 观众 ID。                 |
-| agree  | boolean | true：同意；false：拒绝。 |
+| 参数   | 类型   | 含义                      |
+| ------ | ------ | ------------------------- |
+| userId | String | 观众 ID。                 |
+| agree  | bool   | true：同意；false：拒绝。 |
 
 
 ### kickoutJoinAnchor
@@ -515,10 +515,10 @@ Future<ActionCallback> responseRoomPK(String userId, bool agree);
 
 参数如下表所示：
 
-| 参数   | 类型    | 含义                      |
-| ------ | ------- | ------------------------- |
-| userId | String  | 发起 PK 请求的主播 ID。   |
-| agree  | boolean | true：同意；false：拒绝。 |
+| 参数   | 类型   | 含义                      |
+| ------ | ------ | ------------------------- |
+| userId | String | 发起 PK 请求的主播 ID。   |
+| agree  | bool   | true：同意；false：拒绝。 |
 
 
 ### quitRoomPK
@@ -550,9 +550,9 @@ Future<void> setMirror(bool isMirror);
 
 参数如下表所示：
 
-| 参数     | 类型    | 含义            |
-| -------- | ------- | --------------- |
-| isMirror | boolean | 开启/关闭镜像。 |
+| 参数     | 类型 | 含义            |
+| -------- | ---- | --------------- |
+| isMirror | bool | 开启/关闭镜像。 |
 
    
 
@@ -769,11 +769,9 @@ void onAudienceEnter(TRTCLiveRoomDef.TRTCLiveUserInfo userInfo);
 
 参数如下表所示：
 
-| 参数       | 类型   | 含义           |
-| ---------- | ------ | -------------- |
-| userId     | String | 进房观众信息。 |
-| userName   | String | 用户昵称。     |
-| userAvatar | String | 用户头像地址。 |
+| 参数     | 类型                             | 含义                                |
+| -------- | -------------------------------- | ----------------------------------- |
+| userInfo | TRTCLiveRoomDef.TRTCLiveUserInfo | 进房观众用户 ID、昵称、头像等信息。 |
 
 
 ### onAudienceExit

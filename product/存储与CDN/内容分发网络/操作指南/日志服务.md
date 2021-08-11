@@ -115,7 +115,7 @@
 <td>缓存 HIT/MISS，在 CDN 边缘节点命中、父节点命中均标记为 HIT</td>
 </tr>
 <td>16</td>
-<td>客户端端口，若无则为 -</td>
+<td>客户端与 CDN 节点建立连接的端口，若无则为 -</td>
 </tr>
 </tbody></table>
 
