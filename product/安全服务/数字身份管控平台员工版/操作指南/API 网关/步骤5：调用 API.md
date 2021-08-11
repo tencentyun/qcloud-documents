@@ -1,4 +1,4 @@
-## 操作步骤
+## 前提条件
 已购买[  数字身份管控平台（员工版）服务](https://cloud.tencent.com/document/product/1442/56964)。
 
 ## Web 客户端调用 API
