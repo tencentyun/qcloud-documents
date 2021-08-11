@@ -46,14 +46,14 @@
 > - 单击【确定】前需要再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请提前进行修改，**一旦提交成功将无法再修改 License 信息**。
 > - **选择直播流量包仅用于直播基础版 License 绑定流量包的有效期，流量包的流量可用于当前账号所有 License 直播流量消耗。**
 4. 正式版 License 成功创建后，页面会显示生成的正式版 License 信息。在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。
-![](https://main.qcloudimg.com/raw/e292b1e3844a15fba87c10060ef08786.png)
+![](https://main.qcloudimg.com/raw/e3fa01da134b3cd3f75fe7dec2bfdb99.png)
 
 
 [](id:update_formal)
 ### 更新正式版 License 有效期
 您可以登录【[腾讯云视立方控制台](https://console.cloud.tencent.com/vcube)】页面查看直播推流正式版 License 的有效期，若您的直播推流正式版 License 已到期，可进行如下操作进行续期：
 1. 选择您需要更新有效期的 License，单击直播推流模块内的【更新有效期】。
-![](https://main.qcloudimg.com/raw/4b0f1113556a022e57861a0cc48f4c0a.png)
+![](https://main.qcloudimg.com/raw/b8fdbadb4d55378696c0250093282326.png)
 2. 选择**未绑定**过的直播流量资源包（若没有可绑定的资源包，可前往 [资源包购买页](https://buy.cloud.tencent.com/vcube) 购买），单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/750f57c1ee86380078be7711b4b8dc03.png)
 3. 查看更新后的有效期情况。
