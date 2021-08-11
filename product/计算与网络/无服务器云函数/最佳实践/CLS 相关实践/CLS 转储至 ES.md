@@ -23,7 +23,7 @@
 3. 单击【新增日志主题】，在新增日志主题窗口中，填写如下相关信息：
    - 日志主题名称：例如：nginx。
    - 主题分区（Partition）数量： 主题分区介绍请参见 [主题分区介绍](https://cloud.tencent.com/document/product/614/39259)，默认新建1个分区。
-![](https://main.qcloudimg.com/raw/d37c9e20232451be3053c8e280776c9c.jpg)
+   ![](https://main.qcloudimg.com/raw/d37c9e20232451be3053c8e280776c9c.jpg)
 4. 单击【确定】，新增日志主题。
 5. 日志主题新增成功，将进入日志主题管理页。
    ![](https://main.qcloudimg.com/raw/08e9dc61f1cc8bfcb1923345c86bef45.jpg)
@@ -40,7 +40,7 @@
 	- **创建方式**：选择【模板函数】。
 	- **模糊搜索**：输入“CLS 消息转储至 ES”，并进行搜索。
 3. 单击模板中的【查看详情】，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
-![](https://main.qcloudimg.com/raw/dd8e76ba274ee692d67541c8f66ae9fa.png)
+![](https://main.qcloudimg.com/raw/c0533637cf9a08ba8a46626df261f230.png)
 4. 基本信息配置完成之后，单击【下一步】，进入函数配置页面。
 5. 函数配置保持默认配置，单击【完成】，完成函数的创建。
 > ! 函数需要在【函数配置】页面中，选择和 Elasticsearch 相同的 VPC 和子网。如下图所示：
@@ -53,8 +53,8 @@
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志集管理】。
 2. 找到已创建的日志集，在其右侧操作栏中，单击【查看】，进入日志集详情页面。
 3. 在日志主题详情页面，选择【函数处理】并单击【新建】。在弹出的“函数处理”窗口中添加已创完成的函数。如下图所示：
-![](https://main.qcloudimg.com/raw/ee3aa3a2ca88355e80a415a402c2994f.jpg)
-主要参数信息如下，其余配置项请保持默认：
+	![](https://main.qcloudimg.com/raw/ee3aa3a2ca88355e80a415a402c2994f.jpg)
+	主要参数信息如下，其余配置项请保持默认：
 	- **命名空间**：选择函数所在的命名空间。
 	- **函数名**：选择 [创建云函数 SCF](#step03) 步骤中已创建的云函数。
 	- **别名**：选择函数别名。
