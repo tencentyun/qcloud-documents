@@ -134,7 +134,7 @@ PC 浏览器的视频播放基于 Flash 控件实现，但 **Flash 控件会做�
 
 ### Step4. 给播放器设置封面
 设置封面涉及到 poster 属性，下面将详细介绍 poster 属性的使用方法。
->!封面功能在部分移动端播放环境下可能失效，通常是由于移动端 webview 劫持视频播放造成的，需要 webview 支持 video 叠加元素或者放开劫持视频播放。相关详细说明请参见 [常见问题](https://cloud.tencent.com/document/product/1449/58949?!preview&!editLang=zh#que1)。
+>!封面功能在部分移动端播放环境下可能失效，通常是由于移动端 webview 劫持视频播放造成的，需要 webview 支持 video 叠加元素或者放开劫持视频播放。相关详细说明请参见 [常见问题](https://cloud.tencent.com/document/product/1449/58949#que1)。
 
 #### 4.1 简单设置封面
 poster 支持传入图片地址作为播放器的封面，在播放器区域内居中，并且以图片的实际分辨率进行显示。
@@ -157,7 +157,7 @@ style 支持的样式如下：
 
 使用 cover 方式显示封面。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现，请参见 [视频封面](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-poster.html)。
 >!
->- 在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/1449/58949?!preview&!editLang=zh#que1)。
+>- 在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/1449/58949#que1)。
 >- 以上示例链接仅用于文档演示，请勿用于生产环境。
 
 ### Step5. 多清晰度支持

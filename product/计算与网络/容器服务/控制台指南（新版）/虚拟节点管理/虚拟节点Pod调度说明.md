@@ -13,7 +13,7 @@
 
 ### 申请提升配额操作指引
 
-1. 请 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us)，选择【人工支持】或者【其他问题】>【立即创建】，进入创建工单信息填写页面。
+1. 请 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457)，选择【人工支持】或者【其他问题】>【立即创建】，进入创建工单信息填写页面。
 2. 在问题描述中填写“期望提升集群虚拟节点 Pod 配额”，注明目标地区及目标配额，并按照页面提示填写您可用的手机号等信息。
 3. 填写完成后，单击【在线咨询】即可。
 
@@ -48,7 +48,8 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 
 >!
 >- 如果不指定安全组，则 Pod 会默认绑定节点池指定的安全组。请确保安全组的网络策略不影响该 Pod 正常工作，例如，Pod 启用 80 端口提供服务，请放通入方向 80 端口的访问。
->- 如需分配 CPU 资源，则必须同时填写 `cpu` 和 `mem` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 CPU 规格。另外，可以通过 `cpu-type` 指定分配 intel 或 amd CPU，其中 amd 具备更高的性价比，详情请参考 [产品定价](https://cloud.tencent.com/document/product/457/39806)。 
+>- 如需通过 annotation 指定的方式分配 CPU 资源，则必须同时填写 `cpu` 和 `mem` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 CPU 规格。另外，可以通过 `cpu-type` 指定分配 intel 或 amd CPU，其中 amd 具备更高的性价比，详情请参考 [产品定价](https://cloud.tencent.com/document/product/457/39806)。 
+- 如需通过 annotation 指定的方式分配 GPU 资源，则必须同时填写 `cpu`、`mem`、`gpu-type` 及 `gpu-count` 4个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 GPU 规格。
 
 
 <table>
@@ -98,16 +99,6 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 </ul>
 各型号支持的具体配置请参考 <a href="https://cloud.tencent.com/document/product/457/39808">资源规格</a>。</td>
 <td>如需 GPU，则此项为必填项。填写时，请确保为支持的 GPU 型号，否则会报错。</td>
-</tr>
-<tr>
-<td>eks.tke.cloud.tencent.com/retain-ip</td>
-<td>Pod 固定 IP，value 填写 <code>"true"</code> 开启此特性，开启特性的 Pod ，当 Pod 被销毁后，默认会保留这个 Pod 的 IP 24小时。24小时内 Pod 重建，还能使用该 IP。24小时以后，该IP有可能被其他 Pod 抢占。<b>仅对 statefulset、rawpod 生效。</b></td>
-<td>否</td>
-</tr>
-<tr>
-<td>eks.tke.cloud.tencent.com/retain-ip-hours</td>
-<td>修改 Pod 固定 IP 的默认时长，value 填写数值，单位是小时。默认是24小时，最大可支持保留一年。<b>仅对 statefulset、rawpod 生效。</b></td>
-<td>否</td>
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/eip-attributes</td>

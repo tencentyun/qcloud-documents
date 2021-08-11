@@ -6,7 +6,7 @@
 | 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | -  | &#10003;  |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 功能介绍
 
@@ -54,7 +54,7 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 
 
 ### Step2. 申请 License 
-下载 LiteAVSDK 后需要 License 授权才能使用，请阅读 [License 申请](https://cloud.tencent.com/document/product/1449/56981?!preview&!editLang=zh) 了解 License 的申请方法和使用方法。
+下载 LiteAVSDK 后需要 License 授权才能使用，请阅读 [License 申请](https://cloud.tencent.com/document/product/1449/56981) 了解 License 的申请方法和使用方法。
 
 - iOS
  建议在`[AppDelegate application:didFinishLaunchingWithOptions:]`中添加：

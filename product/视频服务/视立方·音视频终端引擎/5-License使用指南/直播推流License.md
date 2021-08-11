@@ -5,7 +5,7 @@
 ## 测试版 License
 [](id:creat_test)
 ### 申请测试版 License
-您可以免费申请直播推流模块的测试版 License（免费测试有效期为14天，可续期1次，共28天，有效期至到期当日的24:00:00为止）体验测试，具体步骤如下：
+您可以免费申请直播推流模块的测试版 License（免费测试有效期为14天，可续期1次，共28天，有效期至到期次日00:00:00为止）体验测试，具体步骤如下：
 
 1. 登录【[腾讯云视立方控制台](https://console.cloud.tencent.com/vcube)】，单击【创建测试License】。
 ![](https://main.qcloudimg.com/raw/a623b59b4989ef4d713fc5a2e13927c1.png)
@@ -23,7 +23,7 @@
 测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**，单击功能模块【直播推流】右侧的【续期】，选择【确定续期】即可续期该功能模块14天。
 ![](https://main.qcloudimg.com/raw/47b0d13fd298a751be2c3775ff4d1fda.png)
 
-> ? 测试版 License 有效期共28天，**只能续期一次**（有效期至到期当日的24:00:00为止）。若您需继续使用，请购买 [正式版 License](#formal)。
+> ? 测试版 License 有效期共28天，**只能续期一次**（有效期至到期次日00:00:00为止）。若您需继续使用，请购买 [正式版 License](#formal)。
 
 ### 测试版 License 升级
 
@@ -37,7 +37,7 @@
 ## 正式版 License
 [](id:creat_formal)
 ### 购买正式版 License
-1. 购买指定规格的 [直播流量包](https://cloud.tencent.com/document/product/1449/56973?!preview&!editLang=zh#live)，获得赠送1年有效期的正式直播推流 License 使用权限（到期当日的00:00:00止）。
+1. 购买指定规格的 [直播流量包](https://cloud.tencent.com/document/product/1449/56973#live)，获得赠送1年有效期的正式直播推流 License 使用权限（有效期至到期次日00:00:00为止）。
 2. 进入【[腾讯云视立方控制台](https://console.cloud.tencent.com/vcube)】，单击【创建应用并绑定 License 】按钮。填写 `App Name`、`Package Name` 和 `Bundle ID` 并勾选功能模块【直播推流】，完成后单击【下一步】。
 ![](https://main.qcloudimg.com/raw/cc803e51118a8c33e9f29405a58ed210.png)
 3. 进入选择套餐包并绑定 License 界面，选择**未绑定**的直播流量资源包，并单击【确定】即可生成正式版 License。

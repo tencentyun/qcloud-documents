@@ -14,7 +14,7 @@
 
 ## 数据订阅任务示例
 
-1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/dss)，在左侧导航选择【数据订阅】，单击【新建数据订阅】。
+1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/dss)，在左侧导航选择【数据订阅】页，单击【新建数据订阅】。
 2. 在新建数据订阅页，选择相应配置，单击【立即购买】。
 3. 购买成功后，返回数据订阅列表，单击“操作”列的【配置订阅】对刚购买的订阅进行配置，配置完成后才可以进行使用。
 ![](https://main.qcloudimg.com/raw/d45bbff5e702281fdc57984720999e6c.png)

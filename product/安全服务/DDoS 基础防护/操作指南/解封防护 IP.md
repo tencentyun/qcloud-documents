@@ -1,5 +1,4 @@
-DDoS 基础防护对进入封堵状态的防护 IP 提供解封的功能，您可以登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview) 进行自助解封操作。
->?DDoS 基础防护取消每月三次免费解封次数，于2021年07月18日生效，详情参见[ DDoS 应急防护方案](https://cloud.tencent.com/document/product/1020/57921)。
+DDoS 基础防护对进入封堵状态的防护 IP 提供解封的功能，您可以登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview) 进行自助解封操作。在用户资产发生大流量 DDoS 攻击，且攻击流量的峰值带宽（bps）超过了资产的 DDoS 防御能力。为了避免攻击对用户资产造成更大损害，以及对网络中的其他资产产生影响，因此通过封堵（暂时屏蔽资产 IP 的所有入方向互联网流量）避免更大的损失，默认情况下封堵时长为2-24小时。
 
 ## 解封被封堵 IP
 DDoS 基础防护的用户无自助解封免费次数，如果需要解封，请参照 [DDoS 应急防护方案](https://cloud.tencent.com/document/product/1020/57921)。

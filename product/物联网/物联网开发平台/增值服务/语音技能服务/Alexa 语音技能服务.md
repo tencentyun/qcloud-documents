@@ -70,7 +70,7 @@
 
 | 品类       | 功能                         | 语音例句（以实际使用场景为准）                               |
 | :--------- | :--------------------------- | ------------------------------------------------------------ |
-| 灯         | 开关                         | Alexa, turn on the light<br />Alexa, turn of the light       |
+| 灯         | 开关                         | Alexa, turn on the light<br />Alexa, turn off the light       |
 | 开关面板   | 开关                         | Alexa, turn on the switch<br />Alexa, turn off the switch    |
 | 插座       | 开关                         | Alexa, turn on the socket<br />Alexa, turn off the socket    |
 | 窗帘       | 开关、百分比调节             | Alexa, turn on  curtain<br />Alexa, turn off  curtain<br />Alexa, open\|close the curtain 50% |

@@ -140,5 +140,5 @@ kubectl get vip -oyaml
 ![](https://main.qcloudimg.com/raw/d7df85621d613f30e5109395de4c92bb.png)
 
 #### 解决方案
-目前腾讯云弹性网卡限制一个 VPC 下面最多绑定50个弹性网卡。您可 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 申请提高配额，配额按地域生效。
+目前腾讯云弹性网卡限制一个 VPC 下面最多绑定50个弹性网卡。您可 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 申请提高配额，配额按地域生效。
 

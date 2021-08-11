@@ -1,6 +1,6 @@
 本文介绍使用数据传输服务 DTS 从 TDSQL-C MySQL 数据库同步数据至腾讯云 TDSQL-C MySQL 数据库的操作指导。
 
-MySQL 到 TDSQL-C MySQL 的数据同步、TDSQL-C MySQL 到 MySQL 的数据同步，与  TDSQL-C MySQL 到 TDSQL-C MySQL 的同步要求一致，可参考本场景相关内容。
+MySQL 到 TDSQL-C MySQL 的数据同步、TDSQL-C MySQL 到 MySQL 的数据同步，与  TDSQL-C MySQL 到 TDSQL-C MySQL 的数据同步要求一致，可参考本场景相关内容。
 
 ## 注意事项 
 
@@ -74,7 +74,7 @@ FLUSH PRIVILEGES;
 <td>目标数据库要求</td>
 <td>
 <li>目标库的版本必须大于等于源库的版本。</li>
-<li>目标库需要有足够的存储空间，如果初始类型选择“全量数据初始化"，则目标库的空间大小须是源库待迁移库表空间的1.2倍以上。</li>
+<li>目标库需要有足够的存储空间，如果初始类型选择“全量数据初始化”，则目标库的空间大小须是源库待迁移库表空间的1.2倍以上。</li>
 <li>目标库不能有和源库同名的表、视图等迁移对象。</li>
 <li>目标库 max_allowed_packet 参数设置数值至少为4M。</li></td></tr>
 <tr> 
@@ -102,7 +102,7 @@ FLUSH PRIVILEGES;
 </tbody></table>
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 3. 在数据同步列表，单击“操作”列的【配置】，进入配置同步任务页面。
-![](https://main.qcloudimg.com/raw/81adb9273c188321a66e82c97f1fb823.png)
+![](https://main.qcloudimg.com/raw/2c5f68ff0bfc4b75998cfe3f92210ed6.png)
 4. 在配置同步任务页面，配置源端实例、帐号密码，配置目标端实例、帐号和密码，测试连通性后，单击【下一步】。
 <table>
 <thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
@@ -158,7 +158,7 @@ FLUSH PRIVILEGES;
 <tr>
 <td rowspan=2>数据初始化选项</td>
 <td>初始化类型</td>
-<td><ul><li>结构初始化：同步任务执行时会先将源实例中表结构初始化到目标实例中。<li>全量数据初始化：同步任务执行时会先将源实例中数据初始化到目标实例中。<li>默认两者都勾上，可根据实际情况取消。</td></tr>
+<td><ul><li>结构初始化：同步任务执行时会先将源实例中表结构初始化到目标实例中。<li>全量数据初始化：同步任务执行时会先将源实例中数据初始化到目标实例中。默认两者都勾上，可根据实际情况取消。</td></tr>
 <tr>
 <td>已存在同名表</td>
 <td><ul><li>前置校验并报错：存在同名表则报错，流程不再继续。<li>忽略并继续执行：全量数据和增量数据直接追加目标实例的表中。</td></tr>
@@ -180,10 +180,10 @@ FLUSH PRIVILEGES;
 6. 在校验任务页面，完成校验并全部校验项通过后，单击【启动任务】。
 >?在校验结果中出现告警项不影响启动任务，但推荐单击【查看详情】获取建议进行调整。
 >
-![](https://main.qcloudimg.com/raw/b6b2ce1cfd25d090137e73ddc6c93339.png)
+![](https://main.qcloudimg.com/raw/1871bfc0cb585ff2ac190bb706baf36e.png)
 7. 返回数据同步任务列表，任务开始进入“运行中”状态。 
 >?选择“操作”列的【更多】>【结束】可关闭同步任务，请您确保数据同步完成后再关闭任务。
 >
-![](https://main.qcloudimg.com/raw/6406aa7cc707894a26b64ece51822ea6.png)
+![](https://main.qcloudimg.com/raw/41165637339063c13bb8cc720e8e6541.png)
 8. （可选）您可以单击任务名，进入任务详情页，查看任务初始化状态和监控数据。
 

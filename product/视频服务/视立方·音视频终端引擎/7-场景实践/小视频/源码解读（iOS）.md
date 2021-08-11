@@ -6,14 +6,14 @@
 | 支持情况 | -  | -  | &#10003;  | -  | -  | &#10003;  |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 [](id:structure)
 
 ## 工程结构
 ![](https://main.qcloudimg.com/raw/6dece0a7e9535e3fdb138975ff69452c.png)
 小视频主要集成了 UGCKit 作为核心功能库。集成方式参见 [UGCKit](https://github.com/tencentyun/UGSVSDK/tree/master/iOS)（主要负责播放录制）。
-小视频的美颜功能，主要集成 BeautySettingkit 实现。集成方式请参见 [类抖音特效](https://cloud.tencent.com/document/product/1449/57050?!preview&!editLang=zh)、[动效变脸](https://cloud.tencent.com/document/product/1449/57135?!preview&!editLang=zh) 文档，相关代码都可以在 BeautySettingKit 目录下找到。
+小视频的美颜功能，主要集成 BeautySettingkit 实现。集成方式请参见 [类抖音特效](https://cloud.tencent.com/document/product/1449/57050)、[动效变脸](https://cloud.tencent.com/document/product/1449/57135) 文档，相关代码都可以在 BeautySettingKit 目录下找到。
 
 [](id:function)
 

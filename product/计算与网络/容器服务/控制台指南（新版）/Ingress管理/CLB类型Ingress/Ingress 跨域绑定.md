@@ -11,7 +11,7 @@
 
 >?
 > 1. 如需使用非本集群所在 VPC 的 CLB，需先通过 [云联网](https://cloud.tencent.com/document/product/877/18752) 打通当前集群 VPC 和 CLB 所在的 VPC。
-> 2. 在确保 VPC 已经打通之后，请 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 申请使用该功能。
+> 2. 在确保 VPC 已经打通之后，请 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 申请使用该功能。
 
 
 
@@ -35,7 +35,7 @@ CLB Ingress 跨域绑定和指定可用区支持通过控制台和 YAML 两种�
 ::: YAML\s方式
 <dx-alert infotype="explain" title="">
 1. 如需使用非本集群所在 VPC 的 CLB，需先通过 [云联网](https://cloud.tencent.com/document/product/877/18752) 打通当前集群 VPC 和 CLB 所在的 VPC。
-2. 在确保 VPC 已经打通之后，请 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 申请使用该功能。
+2. 在确保 VPC 已经打通之后，请 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 申请使用该功能。
 </dx-alert>
 #### 示例1
 如果仅需要指定本集群所在 VPC 的可用区，例如集群的 VPC 在广州地域，CLB Ingress 需要指定广州一区的 CLB，可以在 Ingress 的 YAML 中添加如下 annotation：

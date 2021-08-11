@@ -72,8 +72,7 @@ cd nginx-1.18.0/
 #编译安装 Nginx
 make && make install 
 ```
-4. 如果编译执行过程中出现 `make[1]: *** [/usr/local/wotrus_ssl2.0/.openssl/include/openssl/ssl.h] Error 127 
-`错误。则需要进入 `nginx-1.18.0/auto/lib/openssl` 目录，编辑 `conf` 文件。需修改如下内容：
+4. 如果编译执行过程中出现 `make[1]: *** [/usr/local/wotrus_ssl2.0/.openssl/include/openssl/ssl.h] Error 127` 错误。则需要进入 `nginx-1.18.0/auto/lib/openssl` 目录，编辑 `conf` 文件。需修改如下内容：
 ```
 CORE_INCS="$CORE_INCS $OPENSSL/.openssl/include"
 CORE_DEPS="$CORE_DEPS $OPENSSL/.openssl/include/openssl/ssl.h"

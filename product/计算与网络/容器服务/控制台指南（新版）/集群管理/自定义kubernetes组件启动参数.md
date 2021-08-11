@@ -3,7 +3,7 @@
 
 
 ## 注意事项
-- 使用自定义 Kubernetes 组件启动参数功能需 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 进行申请。
+- 使用自定义 Kubernetes 组件启动参数功能需 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 进行申请。
 - 自定义 Kubernetes 组件启动参数功能属于租户、集群及可设置自定义参数维度开关，您在提交工单时需提供账号 ID、集群 ID、需要设置的组件和组件的参数。
 - 升级 Kubernetes 集群版本，由于 Kubernetes 跨版本后启动参数可能存在不兼容的情况，大版本升级不会保留您原集群版本的自定义 Kubernetes 组件参数，您需要重新设置自定义的 Kubernetes 的组件参数。
 

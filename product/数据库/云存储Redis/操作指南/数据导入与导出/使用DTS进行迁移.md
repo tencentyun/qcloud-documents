@@ -33,56 +33,28 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
 <caption></caption>
 <tr>
 <th style="width:130px;position:relative;text-align:left;padding:5px px;font-weight:00;" valign="top">
-<div style="position:absolute;width:1px;height:140px;top:0;left:0;background-color: #d9d9d9;display:block;transform:rotate(-66deg);transform-origin:top;valign=top;"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目标实例<br>源实例
-</th>
-</div>
+<div style="position:absolute;width:1px;height:140px;top:0;left:0;background-color: #d9d9d9;display:block;transform:rotate(-66deg);transform-origin:top;valign=top;"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目标实例<br>源实例</th></div>
 </th>
 <th style="background-color:#f2f2f2;">2.8内存版（标准架构）</th>
 <th style="background-color:#f2f2f2;">4.0内存版（标准架构）</th>
 <th style="background-color:#f2f2f2;">4.0内存版（集群架构）</th>
 <th style="background-color:#f2f2f2;">5.0内存版（标准架构）</th>
-<th style="background-color:#f2f2f2;">5.0内存版（集群架构）</th>
-</tr>
+<th style="background-color:#f2f2f2;">5.0内存版（集群架构）</th></tr>
 <tr>
 <td style="background-color:#f2f2f2;">2.8内存版（标准架构）</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
-</tr>
+<td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr>
 <td style="background-color:#f2f2f2;">4.0内存版（标准架构）</td>
-<td>x</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
-</tr>
+<td>x</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr>
 <td style="background-color:#f2f2f2;">4.0内存版（集群架构）</td>
-<td>x</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
-</tr>
+<td>x</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr>
 <td style="background-color:#f2f2f2;">5.0内存版（标准架构）</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
-</tr>
+<td>x</td><td>x</td><td>x</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr>
 <td style="background-color:#f2f2f2;">5.0内存版（集群架构）</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
-</tr>
+<td>x</td><td>x</td><td>x</td><td>&#10003;</td><td>&#10003;</td></tr>
 </table>
 
 #### 迁移限制
@@ -101,8 +73,8 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
 - 任务名称：为任务指定名称。
 - 定时执行：为迁移任务指定开始时间。
 >?
-> - 修改定时任务，校验通过后，需要重新单击【定时启动】，任务才会定时启动。
-> - 如果任务过了定时启动的时间，定时启动会变为立即启动，单击【立即启动】，会立刻启动任务。
+>- 修改定时任务，校验通过后，需要重新单击【定时启动】，任务才会定时启动。
+>- 如果任务过了定时启动的时间，定时启动会变为立即启动，单击【立即启动】，会立刻启动任务。
 
 ### 3. 设置源库和目标库
 以 CVM 上的 Redis 实例为例说明，外网实例迁移下同。
@@ -117,7 +89,7 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
 
 **集群版迁移说明**
 DTS 服务支持 Redis 集群版迁移，不论是 Redis Cluster、Codis 或者是 twemproxy 架构的集群方案，只需要在 DTS 任务创建的节点信息中，将原集群的所有分片节点地址以及密码填入节点信息即可，强烈建议从源实例的副本节点（从节点）进行数据迁移，避免影响源实例的业务访问。DTS支持无密码迁移，迁移填充信息参考如下：
-![](https://main.qcloudimg.com/raw/23a1465fd8c26cd250c853971970548a.png)
+![](https://main.qcloudimg.com/raw/4026eaca934240368a369d3a8cd3738d.png)
 
 ### 4. 启动迁移任务
 1）网络连通性测试成功，单击【保存】。

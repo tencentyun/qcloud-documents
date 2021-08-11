@@ -37,7 +37,8 @@
 3. 在打开的 “允许通过远程桌面服务登录 属性” 窗口中，检查允许通过远程桌面服务登录的用户列表是否存在需要登录的帐户。如下图所示：
 ![允许通过远程桌面服务登录](https://main.qcloudimg.com/raw/acd4d3cb6204a34c612b32c777308f9f.png)
  - 如果该用户不在允许通过远程桌面服务登录的列表中，请执行 [步骤4](#step04)。
- - 如果该用户已经在允许通过远程桌面服务登录的列表中，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&level3_id=142&radio_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8A&queue=15&scene_code=12686&step=2) 反馈。
+ - 如果该用户已经在允许通过远程桌面服务登录的列表中，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 反馈。
 4. [](id:step04)单击【添加用户或组】，打开 “选择用户或组” 窗口。
 5. 输入需要进行远程登录的帐户，单击【确定】。
 6. 单击【确定】，并关闭本地组策略编辑器。
@@ -53,7 +54,8 @@
 ![拒绝通过远程桌面服务登录](https://main.qcloudimg.com/raw/aaea1d8c0dadb73676a926ed0ed56367.png)
 3. 在打开的 “拒绝通过远程桌面服务登录 属性” 窗口中，检查拒绝通过远程桌面服务登录的用户列表是否存在需要登录的帐户。
  - 如果该用户在拒绝通过远程桌面服务登录的列表中，请将需要登录的帐户从列表中删除，并重启实例。
- - 如果该用户不在拒绝通过远程桌面服务登录的列表中，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&level3_id=142&radio_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8A&queue=15&scene_code=12686&step=2) 反馈。
+ - 如果该用户不在拒绝通过远程桌面服务登录的列表中，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 反馈。
  
  
  

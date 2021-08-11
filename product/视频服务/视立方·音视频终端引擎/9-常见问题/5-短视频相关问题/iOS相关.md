@@ -100,5 +100,5 @@ iOS 中的 AudioSession 是所有音视频应用共用的，使用其他播放�
 
 ### 调用视频合成报错“-1，Failed to enable encoder” 怎么办？
 1. 请确认问题是否为必现问题，建议更换机型测试。
-2. 可下载最新版的 [Demo](https://cloud.tencent.com/document/product/1449/56977?!preview&!editLang=zh#video_app) 中复现一下问题。若问题是必现的，请提供 [完整的日志信息](https://cloud.tencent.com/developer/article/1502366) 并 [提工单](https://console.cloud.tencent.com/workorder/category) 解决。
+2. 可下载最新版的 [Demo](https://cloud.tencent.com/document/product/1449/56977#video_app) 中复现一下问题。若问题是必现的，请提供 [完整的日志信息](https://cloud.tencent.com/developer/article/1502366) 并 [提工单](https://console.cloud.tencent.com/workorder/category) 解决。
 
