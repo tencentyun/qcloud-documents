@@ -34,18 +34,7 @@
 
 ### 安装 GooseFS 
 
-1. 输入 `helm install` 指令安装 chart 包，安装 fluid：
-<dx-codeblock>
-::: shell shell
-   -> goosefs helm install fluid ./charts/fluid-on-tke
-   NAME: fluid
-   LAST DEPLOYED: Tue Jul  6 17:41:20 2021
-   NAMESPACE: default
-   STATUS: deployed
-   REVISION: 1
-   TEST SUITE: None
-:::
-</dx-codeblock>
+1. 前往[容器服务应用市场控制台](https://console.cloud.tencent.com/tke2/market)，查找 GooseFS 应用并[参考文档](https://cloud.tencent.com/document/product/457/46432#.E5.88.9B.E5.BB.BA.E5.BA.94.E7.94.A8)创建应用。
 2. 查看 `fluid` 相关的 pod 状态：
 <dx-codeblock>
 ::: shell shell
