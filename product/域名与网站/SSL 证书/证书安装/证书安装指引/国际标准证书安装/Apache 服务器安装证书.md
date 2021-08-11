@@ -44,7 +44,7 @@
     - `2_cloud.tencent.com.crt` 证书文件
     - `3_cloud.tencent.com.key` 私钥文件
   - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
-  >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
+>?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Apache 服务器。
 3. 将已获取到的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.crt` 证书文件以及 `3_cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Apache 服务器的 `/etc/httpd/ssl` 目录下。
 >? 若无 `/etc/httpd/ssl` 目录，可通过 `mkdir /etc/httpd/ssl` 命令行创建。

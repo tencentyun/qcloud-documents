@@ -1,4 +1,4 @@
-本文介绍如何快速地将腾讯云视立方 SDK（Windows C# 和 C++ 版本）集成到项目中。
+本文主要介绍如何快速地将腾讯云视立方集成到您的项目中，不同版本的 SDK 集成方式都通用，按照如下步骤进行配置，就可以完成 SDK 的集成工作。下面以腾讯云视立方全功能版本为例：
 
 ## 开发环境要求
 
@@ -30,7 +30,7 @@
 [](id:step3)
 ### 步骤3：拷贝文件
 将解压后的 SDK 文件夹拷贝至 `TRTCCSharpDemo.csproj` 所在目录。
->?当只需要 C# SDK时，可以将 SDK 路径下的 CPlusPlus 目录删除。
+>?当只需要 C# SDK 时，可以将 SDK 路径下的 CPlusPlus 目录删除。
 
 ![](https://main.qcloudimg.com/raw/dbd90fce988853c26a832930cef2e9a6.png)
 
@@ -67,7 +67,7 @@
 set Platform=Win64
 SETLOCAL ENABLEDELAYEDEXPANSION
 if $(PlatformName)==x86 ( 
-  set Platform=Win32
+			set Platform=Win32
 )
 copy /Y "$(ProjectDir)SDK\CSharp\!Platform!\lib\*.dll" "$(ProjectDir)$(OutDir)"
 ENDLOCAL

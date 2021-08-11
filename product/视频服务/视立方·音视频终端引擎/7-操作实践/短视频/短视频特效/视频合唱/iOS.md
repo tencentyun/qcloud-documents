@@ -1,13 +1,13 @@
 本篇教程向大家介绍如何从零开始完成合唱的基础功能。
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | -  | &#10003;  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 过程简介
 
@@ -34,6 +34,7 @@ Privacy - Camera Usage Description
 
 对于合唱功能主要使用三大块功能：播放、录制、以及录制后和原视频进行合成，这三个功能对应到 SDK 的类为： TXVideoEditer、TXUGCRecord、TXVideoJoiner。
 
+[](id:step1)
 ### 1. 配置 License
 
 在使用前要配置腾讯云视立方短视频 UGSV SDK 的 Licence，打开 `AppDelegate.m` 在里面添加以下代码：
@@ -45,8 +46,9 @@ Privacy - Camera Usage Description
 }
 ```
 
-> ? Licence 参数需要到 [视立方控制台]() 去申请。申请审核通过后，页面上即可出现相关的 Licence 信息。
+> ? Licence 参数需要到 [视立方控制台](https://console.cloud.tencent.com/vcube) 去申请。申请审核通过后，页面上即可出现相关的 Licence 信息。
 
+[](id:step2)
 ### 2. 声明与初始化
 1. 打开 ViewContorller.m，引用 SDK 并声明上述三个类的实例。另外这里播放、录制和合成视频都是异步操作，需要监听他们的事件，所以要加上实现 TXVideoJoinerListener、TXUGCRecordListener、TXVideoPreviewListener 这三个协议的声明。加好后如下所示：
     <dx-codeblock>
@@ -76,8 +78,8 @@ Privacy - Camera Usage Description
       :::
       </dx-codeblock>
 2. 准备好成员变量和接口实现声明后，我们在 viewDidLoad 中对上面的成员变量进行初始化。
-   <dx-codeblock>
-   ::: ios objective-c
+<dx-codeblock>
+::: ios objective-c
     - (void)viewDidLoad {
         [super viewDidLoad];
         // 这里找一段 mp4 视频放到了工程里，或者用手机录制的 mov 格式视频也可以
@@ -129,9 +131,10 @@ Privacy - Camera Usage Description
         _joiner.joinerDelegate = self;
         [_joiner setVideoPathList:@[_recordPath, mp4Path]];
         }
-       :::
-       </dx-codeblock> 
+:::
+</dx-codeblock> 
 
+[](id:step3)
 ### 3. 录制
 录制部分，只要响应用户单击按钮调用 SDK 方法就可以了，为了方便起见，这里复用了这个按钮来显示当前状态。另外加上在进度条上显示进度的逻辑。
 <dx-codeblock>
@@ -153,6 +156,7 @@ Privacy - Camera Usage Description
 :::
 </dx-codeblock>   
 
+[](id:step4)
 ### 4. 拼接
 录制好后开始完成拼接部分, 此处需要指定两个视频在结果中的位置，这里设置一左一右。
 <dx-codeblock>
@@ -176,6 +180,7 @@ Privacy - Camera Usage Description
 :::
 </dx-codeblock>  
 
+[](id:step5)
 ### 5. 显示进度条
 实现合成进度的委托方法, 在进度条中显示进度。
 
@@ -189,6 +194,7 @@ Privacy - Camera Usage Description
 :::
 </dx-codeblock>  
 
+[](id:step6)
 ### 6. 预览
 实现合成完成的委托方法，并切换到预览界面。
 
@@ -256,4 +262,4 @@ Privacy - Camera Usage Description
 :::
 </dx-codeblock>  
 
-至此就完成了全部合唱的基础功能，功能更加丰富的示例请参见 [小视频源码](https://cloud.tencent.com/document/product/1449/56977?!preview&!editLang=zh#video_app)。
+至此就完成了全部合唱的基础功能，功能更加丰富的示例请参见 [小视频源码](https://cloud.tencent.com/document/product/1449/56977#video_app)。

@@ -1,26 +1,26 @@
 
 DBMS_SQL 可以在应用的运行时间构建查询和其它的命令。DBMS_SQL 中可以使用的存储过程及函数如下表所示：
 
-| 存储过程/函数                                                | 描述                                         |
-| ------------------------------------------------------------ | -------------------------------------------- |
-| BIND_VARIABLE(c, name, value [, out_value_size ])            | Bind a value to a variable                   |
-| BIND_VARIABLE_CHAR(c, name, value [, out_value_size ])       | Bind a CHAR value to a variable              |
-| BIND_VARIABLE_RAW(c, name, value [, out_value_size ])        | Bind a RAW value to a variable               |
-| CLOSE_CURSOR(c IN OUT)                                       | Close a cursor                               |
-| COLUMN_VALUE(c, position, value OUT [, column_error OUT [, actual_length OUT ]]) | Return a column value into a variable.       |
-| COLUMN_VALUE_CHAR(c, position, value OUT [, column_error OUT [, actual_length OUT ]]) | Return a CHAR column value into a variable.  |
-| COLUMN_VALUE_RAW(c, position, value OUT [, column_error OUT [, actual_length OUT ]]) | Return a RAW column value into a variable.   |
-| DEFINE_COLUMN(c, position, column [, column_size ])          | Define a column in the SELECT list.          |
-| DEFINE_COLUMN_CHAR(c, position, column, column_size)         | Define a CHAR column in the SELECT list.     |
-| DEFINE_COLUMN_RAW(c, position, column, column_size)          | Define a RAW column in the SELECT list.      |
-| DESCRIBE_COLUMNS                                             | Defines columns to hold a cursor result set. |
-| EXECUTE(c)                                                   | Execute a cursor.                            |
-| EXECUTE_AND_FETCH(c [, exact ])                              | Execute a cursor and fetch a single row.     |
-| FETCH_ROWS(c)                                                | Fetch rows from the cursor.                  |
-| IS_OPEN(c)                                                   | Check if a cursor is open.                   |
-| LAST_ROW_COUNT                                               | Return cumulative number of rows fetched.    |
-| OPEN_CURSOR                                                  | Open a cursor.                               |
-| PARSE(c, statement, language_flag)                           | Parse a statement.                           |
+|存储过程/函数|	描述|
+|--|--|
+|BIND_VARIABLE(c, name, value [, out_value_size ])	| 将一个值与一个变量绑定           |
+|BIND_VARIABLE_CHAR(c, name, value [, out_value_size ])| 将一个 CHAR 值与一个变量绑定 |
+|BIND_VARIABLE_RAW(c, name, value [, out_value_size ])	|将一个 RAW 值与一个变量绑定|
+|CLOSE_CURSOR(c IN OUT)| 关闭一个游标。                     |
+|COLUMN_VALUE(c, position, value OUT [, column_error OUT [, actual_length OUT ]])| 返回一个列的值到一个变量中 |
+|COLUMN_VALUE_CHAR(c, position, value OUT [, column_error OUT [, actual_length OUT ]])| 返回一个 CHAR 列的值到一个变量中 |
+|COLUMN_VALUE_RAW(c, position, value OUT [, column_error OUT [, actual_length OUT ]])| 返回一个 RAW 列的值到一个变量中 |
+|DEFINE_COLUMN(c, position, column [, column_size ])	|在 SELECT 列表中定义一个列|
+|DEFINE_COLUMN_CHAR(c, position, column, column_size)	|在 SELECT 列表中定义一个 CHAR 列|
+|DEFINE_COLUMN_RAW(c, position, column, column_size)	|在 SELECT 列表中定义一个 RAW 列|
+|DESCRIBE_COLUMNS| 定义用于存放游标结果集的列 |
+|EXECUTE(c)	|执行一个游标|
+|EXECUTE_AND_FETCH(c [, exact ])	|执行一个游标并获取一条记录|
+|FETCH_ROWS(c)|从游标中获取记录|
+|IS_OPEN(c)| 检查游标是否已经开启 |
+|LAST_ROW_COUNT	|返回获取的累积记录数|
+|OPEN_CURSOR	|开启一个游标|
+|PARSE(c, statement, language_flag)	|解析一条语句|
 
 示例：
 ```
@@ -207,5 +207,3 @@ call dbms_sql.close_cursor(c);
 end;
 $$;
 ```
-
-    

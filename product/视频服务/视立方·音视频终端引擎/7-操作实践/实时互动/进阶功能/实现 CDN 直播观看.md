@@ -1,12 +1,12 @@
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | &#10003;  | -  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 适用场景
 
@@ -31,8 +31,10 @@ TRTC 虽然支持 WebRTC 协议接入，但主要用于 Chrome 桌面版浏览�
 音视频通话TRTC 最擅长的领域就是音视频互动连麦，如果一个房间里同时有多个主播，而 CDN 观看端只希望拉取一路音视频画面，就需要使用 [云端混流服务](https://cloud.tencent.com/document/product/647/16827) 将多路画面合并成一路，其原理如下图所示：
 ![](https://main.qcloudimg.com/raw/f2feaaaac176bb4fe7dd1c318490f9e1.gif)
 
->? **为什么不直接播放多路 CDN 画面？**
->播放多路 CDN 画面很难解决多路画面的延迟对齐问题，同时拉取多路画面所消耗的下载流量也比单独画面要多，所以业内普遍采用云端混流方案。
+
+<dx-alert infotype="explain" title="<b>为什么不直接播放多路 CDN 画面？</b>">
+播放多路 CDN 画面很难解决多路画面的延迟对齐问题，同时拉取多路画面所消耗的下载流量也比单独画面要多，所以业内普遍采用云端混流方案。
+</dx-alert>
 
 ## 前提条件
 已开通腾讯 [云直播](https://console.cloud.tencent.com/live) 服务。应国家相关部门的要求，直播播放必须配置播放域名，具体操作请参考 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
@@ -81,7 +83,7 @@ param.role     = TRTCRoleAnchor; // 角色：主播
 param.streamId = @"stream1001";  // 流 ID
 [trtcCloud enterRoom:params appScene:TRTCAppSceneLIVE]; // 请使用 LIVE 模式
 ```
-userSig 的计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/1449/58939?!preview&!editLang=zh)。
+userSig 的计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/1449/58939)。
 
 #### 方式二：系统指定 streamId
 开启自动旁路推流后，如果您没有自定义指定 streamId，系统会默认为您生成一个缺省的 streamId，生成规则如下：
@@ -131,7 +133,7 @@ userSig 的计算方法请参见 [如何计算 UserSig](https://cloud.tencent.co
 http://播放域名/live/[streamId].flv
 ```
 
-例如，您的播放域名为`live.myhost.com`，您将房间（1001）中的用户 userA 的直播流 ID 通过进房参数指定为 streamId = "streamd1001"。
+例如，您的播放域名为`live.myhost.com`，您将房间（1001）中的用户 userA 的直播流 ID 通过进房参数指定为 `streamId = "streamd1001"`。
 则您可以得到三路播放地址：
 ```
  rtmp 协议的播放地址：rtmp://live.myhost.com/live/streamd1001
@@ -144,10 +146,10 @@ http://播放域名/live/[streamId].flv
 
 | 所属平台    | 对接文档 | API 概览 | 支持的格式 |
 | ----------- | ----------- | ----------- | ----------- |
-| iOS App     | [接入指引](https://cloud.tencent.com/document/product/1449/57068?!preview&!editLang=zh) | [TXLivePlayer(iOS)](https://cloud.tencent.com/document/product/1449/57170?!preview&!editLang=zh) | 推荐 FLV                                                     |
-| Android App | [接入指引](https://cloud.tencent.com/document/product/1449/57069?!preview&!editLang=zh) | [TXLivePlayer(Android)](https://cloud.tencent.com/document/product/1449/57172?!preview&!editLang=zh) | 推荐 FLV                                                     |
-| Web 浏览器  | [接入指引](https://cloud.tencent.com/document/product/1449/57070?!preview&!editLang=zh) | [TXLivePusher](https://cloud.tencent.com/document/product/1449/57173?!preview&!editLang=zh) | 桌面端 Chrome 浏览器支持 FLV <br> Mac 端 Safari和移动端手机浏览器仅支持 HLS |
-| 微信小程序  | [接入指引](https://cloud.tencent.com/document/product/1449/57071?!preview&!editLang=zh) | [&lt;live-player&gt; 标签](https://cloud.tencent.com/document/product/1449/58919?!preview&!editLang=zh) | 推荐 FLV                                                     |
+| iOS App     | [接入指引](https://cloud.tencent.com/document/product/1449/57068) | [TXLivePlayer(iOS)](https://cloud.tencent.com/document/product/1449/57170) | 推荐 FLV                                                     |
+| Android App | [接入指引](https://cloud.tencent.com/document/product/1449/57069) | [TXLivePlayer(Android)](https://cloud.tencent.com/document/product/1449/57172) | 推荐 FLV                                                     |
+| Web 浏览器  | [接入指引](https://cloud.tencent.com/document/product/1449/57070) | [TXLivePusher](https://cloud.tencent.com/document/product/1449/57173) | 桌面端 Chrome 浏览器支持 FLV <br> Mac 端 Safari和移动端手机浏览器仅支持 HLS |
+| 微信小程序  | [接入指引](https://cloud.tencent.com/document/product/1449/57071) | [&lt;live-player&gt; 标签](https://cloud.tencent.com/document/product/1449/58919) | 推荐 FLV                                                     |
 
 
 
@@ -172,7 +174,7 @@ http://播放域名/live/[streamId].flv
 普通的 ijkplayer 或者 ffmpeg 基于 ffmpeg 的内核包装出的播放器，缺乏延时调控的能力，如果使用该类播放器播放上述直播流地址，时延一般不可控。TXLivePlayer 有一个自研的播放引擎，具备延时调控的能力。
 
 - **设置 TXLivePlayer 的播放模式为极速模式**
-可以通过设置 TXLivePlayerConfig 的三个参数来实现极速模式，以 [iOS](https://cloud.tencent.com/document/product/1449/57068?!preview&!editLang=zh#delay) 为例。
+可以通过设置 TXLivePlayerConfig 的三个参数来实现极速模式，以 [iOS](https://cloud.tencent.com/document/product/1449/57068#delay) 为例。
 以 iOS 端的 Objective-C 代码为例：
 ```
  // 设置 TXLivePlayer 的播放模式为极速模式
@@ -199,7 +201,11 @@ http://播放域名/live/[streamId].flv
 ### 转码费用：启用多路画面混合时收取
 如果您启用了 [多路画面混合](#mixCDN) ，混流需要进行解码和编码，因此会产生额外的混流转码费用。混流转码根据分辨率大小和转码时长进行计费，主播用的分辨率越高，连麦时间（通常在连麦场景才需要混流转码）越长，费用越高，详情请参见 [云直播 > 直播转码](https://cloud.tencent.com/document/product/267/39889) 计费说明。
 
->例如，您通过 [setVideoEncodrParam()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCVideoEncParam) 设置主播的码率（videoBitrate）为1500kbps，分辨率为720P。如果有一位主播跟观众连麦了1个小时，连麦期间开启了 [多路画面混合](#mixCDN) ，那么产生的转码费用为 `0.0325元/分钟 × 60分钟 = 1.95元`。
+<dx-alert infotype="explain" title="示例：">
+您通过 [setVideoEncodrParam()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCVideoEncParam) 设置主播的码率（videoBitrate）为1500kbps，分辨率为720P。如果有一位主播跟观众连麦了1个小时，连麦期间开启了 [多路画面混合](#mixCDN) ，那么产生的转码费用为 `0.0325元/分钟 × 60分钟 = 1.95元`。
+</dx-alert>
+
+
 
 ## 常见问题
 **为什么房间里只有一个人时画面又卡又模糊?**

@@ -5,7 +5,7 @@
 
 考虑到存量集群可能会在用户自定义脚本中使用 Kubeconfig 文件对集群进行一些初始化的操作，我们将下发一个权限相同但有效期仅为12小时的客户端证书，供用户初始化节点使用，证书过期之后，此 Kubeconfig 文件也相应作废。如仍需使用，请参考 [问题影响及处理措施](#QA) 进行操作。
 
->! 如果您出于某些特殊场景考虑，仍需要在节点安装之后默认带有长期 admin 权限而非12小时有效的 Kubeconfig 文件，或者遇到其他任何问题，您可通过 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 联系我们。
+>! 如果您出于某些特殊场景考虑，仍需要在节点安装之后默认带有长期 admin 权限而非12小时有效的 Kubeconfig 文件，或者遇到其他任何问题，您可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 联系我们。
 
 
 

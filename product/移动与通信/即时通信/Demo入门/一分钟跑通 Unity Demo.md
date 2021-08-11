@@ -41,8 +41,8 @@
 1. 配置 Unity Editor，单击【File】>【Build Setting】，切换至 Android。
 ![](https://main.qcloudimg.com/raw/d913d32e36aa01ff93acf0316d4f103f.png)
 2. 启动一个 Android 的模拟器，单击【 Build And Run】，Demo 就能跑起来。
->?
->- Demo 里面包含了已上线的所有 API，可以测试和作为调用参考，API 文档参见 [SDK API（Flutter）](https://cloud.tencent.com/document/product/269/51940)。
+
+>- Demo 里面包含了已上线的所有 API，可以测试和作为调用参考，API 文档参见 [SDK API（Unity）](https://cloud.tencent.com/document/product/269/54111)。
 > - UI 可能会有部分调整更新，请以最新版为准。
 >
 ![](https://main.qcloudimg.com/raw/e6f3583d0b807af62a27ee753cfa3b53.png)
@@ -52,17 +52,8 @@
 1. 配置 Unity Editor，单击【File】>【Build Setting】，切换至 iOS。
 ![](https://main.qcloudimg.com/raw/3982b96c4f9e76107bb4aadac33a5de5.png)
 2. 连接 iPhone 真机，单击【Build And Run】，需要选择一个新的目录存放编译出来的 iOS 工程，等待编译完成，会有新窗口弹出 Xcode 工程。
-3. 然后在 Xcode 里面按以下步骤对项目调整配置：
-	1. 在 UnityFramework/UnityFramework.h 里引入 UnityInterface.h 和 TencentImSDKPluginUnityUtils.h，否则会因为找不到方法名而报错，如下所示：
-![](https://main.qcloudimg.com/raw/ddb8f7297f66eacd800e230732785ab9.png)
-	2. 修改 Classes/Unity 目录下，UnityInterface.h、UnityForwardDecls.h、UnityRendering.h、UnitySharedDecls.h 文件为 Public。
-![](https://main.qcloudimg.com/raw/0b1a43e69f965b710c91f24eff8870fd.png)
-	3. 在 Classes/Prefix.pch 里面引入 IMSDK。
-![](https://main.qcloudimg.com/raw/299789b6275e30ede0d8e7d8afcbdd59.png)
-	4. 在项目引入 IMSDK。
-![](https://main.qcloudimg.com/raw/335c2b8ae8c797694b4e4dd5000c4751.png)
-	5. 设置 Target 的 Signing & Capabilities，让项目可以在 iPhone 真机上运行。
-	6. 启动项目，在真机上进行 Demo 的调试。
+3. 打开 iOS 工程，设置主 Target 的 Signing & Capabilities（需要苹果开发者账号），让项目可以在 iPhone 真机上运行。
+4. 启动项目，在真机上进行 Demo 的调试。
 
 ## 常见问题
 

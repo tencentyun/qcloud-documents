@@ -1,7 +1,7 @@
 ## 功能介绍
 
-腾讯云 Web 基础播放器 TCPlayerLite 是为了解决在手机浏览器和 PC 浏览器上播放音视频流的问题，它使您的视频内容可以不依赖用户安装 App，就能在朋友圈和微博等社交平台进行传播。本文档适合有一定 Javascript 语言基础的开发人员阅读。
-以下视频将为您讲解腾讯云播放器 SDK 的 Web 播放器的功能特性以及对接攻略：
+腾讯云视立方 Web 基础播放器 TCPlayerLite 是为了解决在手机浏览器和 PC 浏览器上播放音视频流的问题，它使您的视频内容可以不依赖用户安装 App，就能在朋友圈和微博等社交平台进行传播。本文档适合有一定 Javascript 语言基础的开发人员阅读。
+以下视频将为您讲解腾讯云视立方 Web 基础播放器 SDK 的功能特性以及对接攻略：
 <div class="doc-video-mod"><iframe src="  https://cloud.tencent.com/edu/learning/quick-play/2496-42186?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 基础知识
@@ -43,7 +43,7 @@ MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 
 ## 对接攻略
 
-### Step1. 页面准备工作
+### 步骤1：页面准备工作
 在需要播放视频的页面（PC 或 H5）中引入初始化脚本。
 ```
 <script src="https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.1/TcPlayer-2.4.1.js" charset="utf-8"></script>;
@@ -58,7 +58,7 @@ MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 
 >! 直接用本地网页无法调试，Web 播放器无法处理该情况下的跨域问题。
 
-### Step2. 在 HTML 中放置容器
+### 步骤2：在 HTML 中放置容器
 
 在需要展示播放器的页面位置加入播放器容器，即放一个 div 并命名，例如 `id_test_video`，视频画面都会在容器里渲染。对于容器的大小控制，您可以使用 div 的属性进行控制，示例代码如下：
 
@@ -66,7 +66,7 @@ MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 <div id="id_test_video" style="width:100%; height:auto;"></div>
 ```
 
-### Step3. 对接视频播放
+### 步骤3：对接视频播放
 编写 Javascript 代码，作用是去指定的 URL 地址拉取音视频流，并将视频画面呈现到添加的容器内。
 
 #### 3.1 简单播放
@@ -129,7 +129,7 @@ PC 浏览器的视频播放基于 Flash 控件实现，但 **Flash 控件会做�
 </cross-domain-policy>
 ```
 
-### Step4. 给播放器设置封面
+### 步骤4：给播放器设置封面
 设置封面涉及到 poster 属性，下面将详细介绍 poster 属性的使用方法。
 >!封面功能在部分移动端播放环境下可能失效，通常是由于移动端 webview 劫持视频播放造成的，需要 webview 支持 video 叠加元素或者放开劫持视频播放。相关详细说明请参见 [常见问题](https://cloud.tencent.com/document/product/881/20219#.E6.B5.8F.E8.A7.88.E5.99.A8.E5.8A.AB.E6.8C.81.E8.A7.86.E9.A2.91.E6.92.AD.E6.94.BE)。
 
@@ -158,7 +158,7 @@ style 支持的样式如下：
 >- 在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/881/20219)。
 >- 以上示例链接仅用于文档演示，请勿用于生产环境。
 
-### Step5. 多清晰度支持
+### 步骤5：多清晰度支持
 #### 5.1 原理介绍
 同腾讯视频，Web 播放器支持多清晰度，如下图所示：
 ![](https://main.qcloudimg.com/raw/281af6b6d9b75969eed7004722b27c9b.png)
@@ -203,7 +203,7 @@ var player = new TcPlayer('id_test_video', {
 > - PC 端现已支持多种清晰度播放及切换的功能，移动端尚未支持。
  >- 以上示例链接仅用于文档演示，请勿用于生产环境
 
-### Step6. 定制错误提示语
+### 步骤6：定制错误提示语
 Web 播放器支持提示语定制。
 
 #### 6.1 代码实现
@@ -346,7 +346,7 @@ TCPlayerLite 采用 H5`<video>`和 Flash 相结合的方式来进行视频播放
 **从2.2.0版本开始，提供了可以设置播放模式优先级的属性**，如果想优先采用 H5`<video>`播放模式，则需要把 Flash 属性设置为 False；如果 H5`<video>`不可用，则采用 Flash 播放；如果没有检测到 Flash 插件，则会提示“当前系统环境不支持播放该视频格式”。
 
 ### 监听事件
-TCPlayerLite 是采用 H5`<video>` 和 Flash 相结合的方式来进行视频播放，由于两种方式播放视频时触发的事件不尽相同，所以我们以 H5`<video>`的规范，对 Flash 的播放事件做了一定程度的转换，以实现播放事件命名的统一，`TcPlayer`对这两种播放方式所触发的原生事件进行了捕获和透传。
+TCPlayerLite 是采用 H5![](https://main.qcloudimg.com/raw/c0be2e41dcd4221a31956883f8d3371c.png)和 Flash 相结合的方式来进行视频播放，由于两种方式播放视频时触发的事件不尽相同，所以我们以 H5![](https://main.qcloudimg.com/raw/21bc701651550232e6dedbd6723b28fa.png)的规范，对 Flash 的播放事件做了一定程度的转换，以实现播放事件命名的统一，`TcPlayer`对这两种播放方式所触发的原生事件进行了捕获和透传。
 
 - [H5 事件参考列表](https://www.w3.org/wiki/HTML/Elements/video#Media_Events)
 - [Flash 事件参考列表](http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/NetStatusEvent.html)

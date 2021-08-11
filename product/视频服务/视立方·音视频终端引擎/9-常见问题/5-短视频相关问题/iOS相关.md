@@ -17,7 +17,7 @@
 >?该问题在4.9版本已经修复。
 
 [](id:que4)
-### 使用短视频 UGC 功能模块时报找不到头文件？
+### 使用短视频 UGSV 功能模块时报找不到头文件？
 - 在 `Build Settings`>`Search Paths`>`Header Search Paths` 中添加头文件搜索路径。
 - 使用 `"TXLiteAVSDK_UGC/XXX.h" `方式引用 SDK 的头文件。
 - 使用 `@import TXLiteAVSDK_UGC;` 方式引用 SDK (5.0及之后的版本)。
@@ -26,7 +26,7 @@
 
 [](id:que5)
 ### 运行工程时报找不到类别方法或者 crash？
-短视频UGC SDK 用到了一些类别的方法，加载类别方法需要在工程配置：`Build Settings`>`Linking`>`Other Linker Flags`添加`-ObjC`。
+短视频 UGSV SDK 用到了一些类别的方法，加载类别方法需要在工程配置：`Build Settings`>`Linking`>`Other Linker Flags`添加`-ObjC`。
 
 [](id:que6)
 
@@ -73,7 +73,7 @@ iOS 中的 AudioSession 是所有音视频应用共用的，使用其他播放�
 
 [](id:que14)
 ### 视频编辑时退后台再回到前台，视频生成失败？
-生成视频默认采用的是硬编码（编码效率高，编码出来的图像效果好），硬编码器在程序进后台后会停止工作，从而导致视频生成失败。短视频UGC SDK 提供了两个接口 `pauseGenerate` 和 `resumeGenerate`，App 进后台时可以调用 `pauseGenerate` 暂停视频生成，App 回到前台后再调用 `resumeGenerate` 继续视频生成。
+生成视频默认采用的是硬编码（编码效率高，编码出来的图像效果好），硬编码器在程序进后台后会停止工作，从而导致视频生成失败。短视频 UGSV SDK 提供了两个接口 `pauseGenerate` 和 `resumeGenerate`，App 进后台时可以调用 `pauseGenerate` 暂停视频生成，App 回到前台后再调用 `resumeGenerate` 继续视频生成。
 
 >!调用 `resumeGenerate`，SDK 将重启硬编码器，有一定的概率重启失败，或重启后前几帧数据编码失败。此时，SDK 内部会在 `TXVideoGenerateListener` 抛出错误事件，收到错误事件后需要重新生成视频。
 
@@ -88,8 +88,8 @@ iOS 中的 AudioSession 是所有音视频应用共用的，使用其他播放�
 3. 返回错误码1003：请求参数问题、上传文件格式不支持。
 
 [](id:que16)
-### 短视频 UGC 录制是否有拍照功能？
-短视频 UGC SDK 可以实现拍照功能，开始预览后调用 `TXUGCRecord` 类的 `snapshot` 接口获取图片即可。
+### 短视频 UGSV 录制是否有拍照功能？
+短视频 UGSV SDK 可以实现拍照功能，开始预览后调用 `TXUGCRecord` 类的 `snapshot` 接口获取图片即可。
 
 
 [](id:que18)
@@ -100,5 +100,5 @@ iOS 中的 AudioSession 是所有音视频应用共用的，使用其他播放�
 
 ### 调用视频合成报错“-1，Failed to enable encoder” 怎么办？
 1. 请确认问题是否为必现问题，建议更换机型测试。
-2. 可下载最新版的 [Demo](https://cloud.tencent.com/document/product/1449/56977?!preview&!editLang=zh#video_app) 中复现一下问题。若问题是必现的，请提供 [完整的日志信息](https://cloud.tencent.com/developer/article/1502366) 并 [提工单](https://console.cloud.tencent.com/workorder/category) 解决。
+2. 可下载最新版的 [Demo](https://cloud.tencent.com/document/product/1449/56977#video_app) 中复现一下问题。若问题是必现的，请提供 [完整的日志信息](https://cloud.tencent.com/developer/article/1502366) 并 [提工单](https://console.cloud.tencent.com/workorder/category) 解决。
 
