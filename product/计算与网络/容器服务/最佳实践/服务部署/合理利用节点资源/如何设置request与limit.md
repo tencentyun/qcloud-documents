@@ -57,7 +57,8 @@ spec:
 
 
 若生产集群有用于测试的 namespace，如不加以限制，则可能导致集群负载过高，影响生产业务。可以使用 `ResourceQuota` 限制测试 namespace 的 request 与 limit 的总大小。示例如下：
-```
+<dx-codeblock>
+::: yaml
 apiVersion: v1
 kind: ResourceQuota
 metadata:
@@ -69,6 +70,7 @@ spec:
     requests.memory: 1Gi
     limits.cpu: "2"
     limits.memory: 2Gi
-```
+:::
+</dx-codeblock>
 
 
