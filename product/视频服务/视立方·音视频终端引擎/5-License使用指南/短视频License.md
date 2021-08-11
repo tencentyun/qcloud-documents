@@ -60,7 +60,7 @@
 ![](https://main.qcloudimg.com/raw/df6f65abf5dbcbaf8224876d79d22899.png)
 >! 单击【确定】前需要再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请提前进行修改，**一旦提交成功将无法再修改 License 信息**。
 4. 正式版 License 成功创建后，页面会显示生成的 正式版 License 信息。在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。
-![](https://main.qcloudimg.com/raw/be5260a5ca713e6c46748ed06052d381.png)
+![](https://main.qcloudimg.com/raw/d82cb2e666b09412c808fe87b984bf89.png)
 
 
 [](id:renew_formal)
