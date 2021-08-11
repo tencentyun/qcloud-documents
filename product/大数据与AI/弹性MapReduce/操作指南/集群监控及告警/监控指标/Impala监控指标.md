@@ -65,6 +65,6 @@
 | TotalBytesReserved    | bytes    | TCMalloc 保留的系统内存字节数 |
 |Thrift_Server_Connections_Used                  | 个       | 活跃连接数                    |
 | Running_Threads_Count                 | 个       | 运行线程数                    |
-| Count                 | 个       | StateStore 订阅者数量         |
+| StateStore_Live_Backends_Count                 | 个       | StateStore 订阅者数量         |
 
  
