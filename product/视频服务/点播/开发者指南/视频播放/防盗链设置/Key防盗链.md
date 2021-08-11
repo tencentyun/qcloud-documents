@@ -4,7 +4,7 @@
 - 支持在视频 URL 中指定试看时长，实现试看功能。
 - 开发者使用密钥`KEY`对视频 URL 签名，并在 URL 中带上签名结果。只要用户密钥不泄露，其他用户无法伪造视频 URL。
 - CDN 节点检查视频 URL 中的参数和签名，对视频播放请求进行控制。如果请求检查不通过，则返回403响应码。
-- 支持的文件类型：WMV、RM、MOV、MPEG、MP4、3GP、FLV、AVI、RMVB、TS、ASF、MPG、WEBM、MKV 、M3U8、WM、ASX、RAM、MPE、VOB、DAT、MP4V、M4V、F4V、MXF、QT、OGG。
+- 支持的文件类型：MP4、TS、M3U8、FLV、AAC、MOV、WMV、AVI、MP3、RMVB、MKV、MPG、3GP、WEBM、M4V、ASF、F4V、WAV、MPEG、VOB、RM、WMA、DAT、M4A、MPD、M4S。
 
 >?开启 Key 防盗链请参见 [设置防盗链](https://cloud.tencent.com/document/product/266/33469#key-.E9.98.B2.E7.9B.97.E9.93.BE)。
 
@@ -127,6 +127,5 @@ http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=5a71afc0&exper=300&us=7
 - 防盗链 URL 中 QueryString 的各参数必须按照`t`、`exper`、`rlimit`、`us`、`sign`的顺序出现，如果顺序不正确将无法播放视频。
 - 如果使用试看功能，需确保试看时长不大于视频时长，否则将导致视频无法播放。
 - 试看对视频的格式有较严格的要求（仅支持 H.264，视频元信息在视频文件的头部等），不符合格式要求的原始视频使用试看功能将产生异常。建议使用云点播转码功能进行转码，对转码后视频设置试看（转码后的格式均符合试看格式要求）。
-
 
 
