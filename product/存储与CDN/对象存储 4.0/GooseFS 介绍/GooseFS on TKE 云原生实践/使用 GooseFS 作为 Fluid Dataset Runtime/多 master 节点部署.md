@@ -15,7 +15,6 @@ csi-nodeplugin-fluid-fwgjh                  2/2     Running   0          8h
 csi-nodeplugin-fluid-ll8bq                  2/2     Running   0          8h
 csi-nodeplugin-fluid-dhz7d                  2/2     Running   0          8h
 dataset-controller-5b7848dbbb-n44dj         1/1     Running   0          8h
-goosefsruntime-controller-654fb74447-cldsv    1/1     Running   0          8h
 ```
 
 通常来说，您会看到一个名为 `dataset-controller` 的 Pod、一个名为 `goosefsruntime-controller` 的 Pod 和多个名为 `csi-nodeplugin` 的 Pod 正在运行。其中，`csi-nodeplugin` 这些 Pod 的数量取决于您的 Kubernetes 集群中结点的数量。
@@ -83,7 +82,7 @@ spec:
     replicas: 3
 ```
 
-我们通过指定 `spec.master.replicas=3` 来开启 Raft 3 master 模式，目前只支持3个 master 形式。
+我们通过指定 `spec.master.replicas=3` 来开启 Raft 3 master 模式，该参数必须为正奇数。
 
 ### 创建GooseFSRuntime资源并查看状态
 
