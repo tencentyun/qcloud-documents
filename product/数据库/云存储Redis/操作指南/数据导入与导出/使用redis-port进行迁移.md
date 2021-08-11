@@ -22,7 +22,7 @@ redis-port 是一组开源工具集合，主要用于 Redis 节点间的数据�
 - -m：源实例地址，格式为`"password"@ip:port`，免密码认证下格式为`ip:port`。
 - -t：目标实例地址，格式为`"password"@ip:port`，免密码认证下格式为`ip:port`。
 - --tmpfile=FILE：临时文件名称。
-- --tmpfile-size=SIZW：临时文件最大长度。
+- --tmpfile-size=SIZE：临时文件最大长度。
 - --help：查看帮助命令。
 
 **示例**：
@@ -31,7 +31,6 @@ redis-port 是一组开源工具集合，主要用于 Redis 节点间的数据�
 ```
 
 **输出日志**：
-
 ```
 [root@VM_5_16_centos bin]# ./redis-sync -m 127.0.0.1:6379 -t "xxx2018"@10.0.5.8:6379
 2019/02/21 09:56:00 sync.go:76: [INFO] sync: master = "127.0.0.1:6379", target = "xxx2018@10.0.5.8:6379"
