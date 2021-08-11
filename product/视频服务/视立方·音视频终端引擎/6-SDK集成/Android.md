@@ -57,9 +57,9 @@ implementation(name:'LiteAVSDK_Professional_8.7.10102', ext:'aar')
 5. 在 `app/build.gradle` 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi 、armeabi-v7a 和 arm64-v8a）。
 ```
 defaultConfig {
-        ndk {
-            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
-        }
+	ndk {
+		abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+	}
 }
 ```
 6. 单击 Sync Now 按钮同步 SDK，完成 LiteAVSDK 的集成工作。
