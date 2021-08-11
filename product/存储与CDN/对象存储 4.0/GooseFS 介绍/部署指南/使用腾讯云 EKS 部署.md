@@ -51,9 +51,8 @@
 ::: shell shell
    -> goosefs kubectl -n fluid-system get pod
    NAME                                         READY   STATUS    RESTARTS   AGE
-   alluxioruntime-controller-78877d9d47-p2pv6   1/1     Running   0          59s
+   goosefsruntime-controller-78877d9d47-p2pv6   1/1     Running   0          59s
    dataset-controller-5f565988cc-wnp7l          1/1     Running   0          59s
-   goosefsruntime-controller-6c55b57cd6-hr78j   1/1     Running   0          59s
 :::
 </dx-codeblock>
 3. 创建 `dataset`，按实际需要修改相关变量，并执行 `kubectl apply -f dataset.yaml` 指令应用 `dataset`：
