@@ -940,7 +940,7 @@ NS_SWIFT_NAME(onRecvRoomCustomMsg(cmd:message:userInfo:));
 
 | 参数     | 类型              | 含义                                               |
 | -------- | ----------------- | -------------------------------------------------- |
-| command  | String            | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
+| cmd  | String            | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
 | message  | String            | 文本消息。                                         |
 | userInfo | ChatSalonUserInfo | 发送者用户信息。                                   |
 
