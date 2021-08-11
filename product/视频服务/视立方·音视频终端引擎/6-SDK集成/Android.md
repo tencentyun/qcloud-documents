@@ -14,31 +14,25 @@
 
 1. 打开 app 下的 build.gradle。
 2. 在 dependencies 中添加 LiteAVSDK 的依赖。
-<dx-codeblock>
-:::  jar
+```
 dependencies {
 	implementation 'com.tencent.liteav:LiteAVSDK_Professional:latest.release'
 }
-::: 
-</dx-codeblock>
+```
 或
-<dx-codeblock>
-:::  jar
+```
 dependencies {
 	implementation 'com.tencent.liteav:LiteAVSDK_Professional:latest.release@aar'
 }
-::: 
-</dx-codeblock>
+```
 3. 在 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a）。
-<dx-codeblock>
-:::  jar
+```
 defaultConfig {
 	ndk {
 		abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
 	}
 }
-::: 
-</dx-codeblock>
+```
 4. 单击![](https://main.qcloudimg.com/raw/d6b018054b535424bb23e42d33744d03.png) Sync Now 按钮同步 SDK，如果您的网络连接 mavenCentral 没有问题，很快 SDK 就会自动下载集成到工程里。
 
 ### 方法二：手动下载（aar）
@@ -75,43 +69,36 @@ defaultConfig {
     ![](https://main.qcloudimg.com/raw/d9b6339cb52fb85afda42de6001be337.png)
 3. 在 `app/build.gradle` 中，添加引用 jar 库的代码。
 ![](https://main.qcloudimg.com/raw/695520309d9a01b19ce2f50439a42890.png)      
-<dx-codeblock>
-:::  jar
+```
 dependencies{
 	implementation fileTree(dir:'libs',include:['*.jar'])
 }
-:::
-</dx-codeblock>
+```
 4. 在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
-    ![](https://main.qcloudimg.com/raw/6c68b846f6f7258ae4d96bc1d95d7816.png)
+![](https://main.qcloudimg.com/raw/6c68b846f6f7258ae4d96bc1d95d7816.png)
 5. 在 `app/build.gradle` 中，添加引用 so 库的代码。
-    ![](https://main.qcloudimg.com/raw/e0f2f39c5f53a9fd5ca084febdd4e637.png)
-6. 在 `app/build.gradle` 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi、armeabi-v7a 和 arm64-v8a）。
-<dx-codeblock>
-:::  jar
+![](https://main.qcloudimg.com/raw/e0f2f39c5f53a9fd5ca084febdd4e637.png)
+6. 在 `app/build.gradle` 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi、armeabi-v7a 和 
+```
 defaultConfig {
     ndk {
         abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
     }
 }
-:::
-</dx-codeblock>
+```
 7. 单击 Sync Now 按钮同步 SDK，完成 LiteAVSDK 的集成工作。
 
 ## 配置 App 打包参数
 ![](https://main.qcloudimg.com/raw/dabfd69ee06e4d38bb3b51fc436c0ad1.png)
-
-<dx-codeblock>
-::: 打包参数
-    packagingOptions {
-        pickFirst '**/libc++_shared.so'
-        doNotStrip "*/armeabi/libYTCommon.so"
-        doNotStrip "*/armeabi-v7a/libYTCommon.so"
-        doNotStrip "*/x86/libYTCommon.so"
-        doNotStrip "*/arm64-v8a/libYTCommon.so"
-    } 
-:::
-</dx-codeblock>
+```
+packagingOptions {
+	pickFirst '**/libc++_shared.so'
+	doNotStrip "*/armeabi/libYTCommon.so"
+	doNotStrip "*/armeabi-v7a/libYTCommon.so"
+	doNotStrip "*/x86/libYTCommon.so"
+	doNotStrip "*/arm64-v8a/libYTCommon.so"
+} 
+```
 
 ## 配置 App 权限
 在 AndroidManifest.xml 中配置 App 的权限，LiteAVSDK 需要以下权限：
@@ -136,9 +123,7 @@ defaultConfig {
 单击 [License 申请](https://console.cloud.tencent.com/vcube) 获取测试用 License，具体操作请参见 [测试版 License](https://cloud.tencent.com/document/product/1449/56981#test)。您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
 
 在您的 App 调用企业版 SDK 相关功能之前（建议在 Application类中）进行如下设置：
-
-<dx-codeblock>
-::: java java
+```java
 public class MApplication extends Application {
 
     @Override
@@ -149,8 +134,7 @@ public class MApplication extends Application {
         TXLiveBase.getInstance().setLicence(this, licenceURL, licenceKey);
     }
 }
-:::
-</dx-codeblock>
+```
 
 ## 设置混淆规则
 在 proguard-rules.pro 文件中，将 LiteAVSDK 相关类加入不混淆名单：
