@@ -1,5 +1,5 @@
 ## 前提条件
-已购买[  数字身份管控平台（员工版）服务](https://cloud.tencent.com/document/product/1442/56964)。
+已经开通腾讯云 [API 网关服务](https://cloud.tencent.com/document/product/628/48792) 和[  数字身份管控平台（员工版）服务](https://cloud.tencent.com/document/product/1442/56964)。
 
 ## 操作步骤
 
