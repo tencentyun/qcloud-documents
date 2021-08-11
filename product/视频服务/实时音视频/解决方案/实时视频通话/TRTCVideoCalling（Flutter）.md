@@ -200,10 +200,11 @@ void startRemoteView(String userId, int streamType, int viewId);
 
 参数如下表所示：
 
-| 参数   | 类型   | 含义                                               |
-| ------ | ------ | -------------------------------------------------- |
-| userId | String | 远端用户 ID。                                      |
-| view   | int    | 承载视频画面的控件 TRTCCloudVideoView 回调的 viewId。 |
+| 参数       | 类型   | 含义                                                  |
+| ---------- | ------ | ----------------------------------------------------- |
+| userId     | String | 远端用户 ID。                                         |
+| streamType | int    | 指定要停止观看的 userId 的视频流类型。                |
+| viewId     | int    | 承载视频画面的控件 TRTCCloudVideoView 回调的 viewId。 |
 
 
 ### stopRemoteView
