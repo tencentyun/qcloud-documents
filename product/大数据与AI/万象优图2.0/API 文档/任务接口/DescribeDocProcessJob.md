@@ -1,6 +1,6 @@
 ## 功能描述
 
-DescribeDocProcessJob 用于查询指定的文档预览任务。
+DescribeDocProcessJob 用于查询指定的文档转码任务。
 
 ## 请求
 
