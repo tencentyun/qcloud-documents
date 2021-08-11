@@ -114,11 +114,11 @@ pod 'TXLiteAVSDK_TRTC'
 <tr>
 <td>TRTC SDK</td>
 <td><a href="https://cloud.tencent.com/document/product/647/32689">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/647/32175">集成文档</a></td>
+<td><a href="https://cloud.tencent.com/document/product/647/32173">集成文档</a></td>
 </tr><tr>
 <td>IM SDK</td>
 <td><a href="https://cloud.tencent.com/document/product/269/36887">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/269/32679">集成文档</a></td>
+<td><a href="https://cloud.tencent.com/document/product/269/32675">集成文档</a></td>
 </tr></table>
 
 [](id:model.step2)
