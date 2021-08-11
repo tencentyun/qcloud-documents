@@ -19,20 +19,22 @@
 
 以下为使用 Annotation 标明使用优雅停机示例，完整 Ingress Annotation 说明可参见 [Service Annotation 说明](https://cloud.tencent.com/document/product/457/51258) 文档。
 
-```yaml
+
+<dx-codeblock>
+:::  yaml
 kind: Ingress
 apiVersion: v1
-metadata:
-  annotations:
+metadata: 
+  annotations: 
     ingress.cloud.tencent.com/direct-access: "true" ## 开启直连 Pod 模式
     ingress.cloud.tencent.com/enable-grace-shutdown: "true"  # 表示使用优雅停机
   name: my-Ingress
-spec:
-  selector:
+spec: 
+  selector: 
     app: MyApp
 ...
-```
-
+:::
+</dx-codeblock>
 
 
 ### 步骤2：使用 preStop 和 terminationGracePeriodSeconds
