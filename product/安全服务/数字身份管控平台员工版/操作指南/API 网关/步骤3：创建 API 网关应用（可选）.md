@@ -1,6 +1,9 @@
 ## 背景信息
 创建 API 时，如选择“选择已有 EIAM 应用”，则需要数字身份管控平台（员工版）创建“云 API 网关”类型的应用，才能在下拉选择框中选择应用。
 
+## 前提条件
+已购买[  数字身份管控平台（员工版）服务](https://cloud.tencent.com/document/product/1442/56964)。
+
 ## 操作步骤
 1. 登录 [数字身份管控平台（员工版）控制台](https://console.cloud.tencent.com/eiam)，在左侧导航栏中，单击 【应用管理】，进入应用管理页面。
 ![](https://main.qcloudimg.com/raw/d483dae8c65854f4f42100aa77469a1e.png)
