@@ -6,31 +6,22 @@
 
 [](id:step01)
 
-### 创建日志集
+### 创建日志集和主题
 
-1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志集管理】。
+1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志主题】。
+
 2. 进入日志集管理页面，在页面上方选择日志集的地域。
-3. 单击【创建日志集】，在弹出的创建日志集窗口中，填写相关信息：
-![](https://main.qcloudimg.com/raw/727f968e92bb453f35a669bea6ec2540.jpg)
-4. 单击【确定】，即可创建日志集。
 
+3. 单击【创建日志主题】，在弹出的创建日志集窗口中，填写相关信息：
 
+   - 日志主题名称：例如 project_test
+   - 日志集名称：例如nginx
 
-[](id:step02)
+   、![img](https://main.qcloudimg.com/raw/6e2ff86cd07c0e132bee42850dfa678f.png)
 
-### 创建日志主题
+4. 单击【确定】，即可创建日志集和主题。
 
-1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志集管理】。
-2. 找到已创建的日志集，在其右侧操作栏中，单击【查看】，进入日志集详情页面。
-3. 单击【新增日志主题】，在新增日志主题窗口中，填写如下相关信息：
-   - 日志主题名称：例如：nginx。
-   - 主题分区（Partition）数量： 主题分区介绍请参见 [主题分区介绍](https://cloud.tencent.com/document/product/614/39259)，默认新建1个分区。
-    ![](https://main.qcloudimg.com/raw/c9f1db1135d4d070933e7ba1bbf60296.jpg)
-4. 单击【确定】，新增日志主题。
-5. 日志主题新增成功，将进入日志主题管理页。
-   ![](https://main.qcloudimg.com/raw/08e9dc61f1cc8bfcb1923345c86bef45.jpg)
-
-
+5. 日志主题新增成功，将进入日志主题管理页，如下图所示： ![img](https://main.qcloudimg.com/raw/c996f9074058cfd7db7ec3e8cd4a5c53.png)
 
 [](id:step03)
 
