@@ -182,7 +182,6 @@ class YourController {
         return TRTCKaraokeRoom.shared()
     }
     
-
     // 其他代码逻辑
     ......
 }
