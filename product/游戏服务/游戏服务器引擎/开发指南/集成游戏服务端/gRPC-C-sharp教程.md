@@ -37,7 +37,8 @@ sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-
 
 ## 游戏进程集成流程
 ![](https://main.qcloudimg.com/raw/c20b151d51ea9917c4311c4dbc844b73.png)
-#### 服务端接口列表
+
+#### Game Server 回调接口列表
 
 | 接口名称 | 接口功能|
 |-----|----|
@@ -45,7 +46,7 @@ sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-
 |[OnStartGameServerSession](https://cloud.tencent.com/document/product/1165/46118)|接收游戏服务器会话|
 |[OnProcessTerminate](https://cloud.tencent.com/document/product/1165/46121)|结束游戏进程|
 
-#### 客户端接口列表
+#### Game Server 主调接口列表
 
 | 接口名称 | 接口功能 |
 |-----|----|
