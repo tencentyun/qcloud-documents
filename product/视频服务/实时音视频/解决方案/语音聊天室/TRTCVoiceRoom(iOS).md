@@ -1065,7 +1065,7 @@ NS_SWIFT_NAME(onRecvRoomCustomMsg(command:message:userInfo:));
 收到新的邀请请求。
 
 ```Objective-C
-- (void)onReceiveNewInvitation:(NSString *)id
+- (void)onReceiveNewInvitation:(NSString *)identifier
                        inviter:(NSString *)inviter
                            cmd:(NSString *)cmd
                        content:(NSString *)content
@@ -1086,7 +1086,7 @@ NS_SWIFT_NAME(onReceiveNewInvitation(id:inviter:cmd:content:));
 被邀请者接受邀请。
 
 ```Objective-C
-- (void)onInviteeAccepted:(NSString *)id
+- (void)onInviteeAccepted:(NSString *)identifier
                   invitee:(NSString *)invitee
 NS_SWIFT_NAME(onInviteeAccepted(id:invitee:));
 ```
@@ -1103,7 +1103,7 @@ NS_SWIFT_NAME(onInviteeAccepted(id:invitee:));
 被邀请者拒绝邀请。
 
 ```Objective-C
-- (void)onInviteeRejected:(NSString *)id
+- (void)onInviteeRejected:(NSString *)identifier
                   invitee:(NSString *)invitee
 NS_SWIFT_NAME(onInviteeRejected(id:invitee:));
 ```
@@ -1120,7 +1120,7 @@ NS_SWIFT_NAME(onInviteeRejected(id:invitee:));
 邀请人取消邀请。
 
 ```Objective-C
-- (void)onInvitationCancelled:(NSString *)id
+- (void)onInvitationCancelled:(NSString *)identifier
                       invitee:(NSString *)invitee NS_SWIFT_NAME(onInvitationCancelled(id:invitee:));
 ```
 
