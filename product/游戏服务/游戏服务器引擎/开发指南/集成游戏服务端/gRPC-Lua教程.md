@@ -23,7 +23,9 @@ protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto```
 
 ## 游戏进程集成流程
 ![](https://main.qcloudimg.com/raw/d4d7b70768507f7f102892befe539428.png)
-#### 服务端接口列表
+
+
+#### Game Server 回调接口列表
 
 | 接口名称 | 接口功能|
 |-----|----|
@@ -31,7 +33,7 @@ protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto```
 |[OnStartGameServerSession](https://cloud.tencent.com/document/product/1165/46118)|接收游戏服务器会话|
 |[OnProcessTerminate](https://cloud.tencent.com/document/product/1165/46121)|结束游戏进程|
 
-#### 客户端接口列表
+#### Game Server 主调接口列表
 
 | 接口名称 | 接口功能 |
 |-----|----|
