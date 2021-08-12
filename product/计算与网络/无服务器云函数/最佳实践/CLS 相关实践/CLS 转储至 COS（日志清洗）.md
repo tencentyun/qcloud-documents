@@ -9,22 +9,15 @@
 ### 创建日志集和主题
 
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志主题】。
-
 2. 进入日志集管理页面，在页面上方选择日志集的地域。
-
 3. 单击【创建日志主题】，在弹出的创建日志集窗口中，填写相关信息：
-
    - 日志主题名称：例如 project_test
    - 日志集名称：例如nginx
-
-   、![img](https://main.qcloudimg.com/raw/6e2ff86cd07c0e132bee42850dfa678f.png)
-
+![img](https://main.qcloudimg.com/raw/6e2ff86cd07c0e132bee42850dfa678f.png)
 4. 单击【确定】，即可创建日志集和主题。
-
 5. 日志主题新增成功，将进入日志主题管理页，如下图所示： ![img](https://main.qcloudimg.com/raw/14416fdbda5ac39e4a650d1e37a5118c.png)
 
 [](id:step03)
-
 ### 创建云函数 SCF
 
 1. 登录云函数控制台，选择左侧导航栏中的【[函数服务](https://console.cloud.tencent.com/scf/list)】。
@@ -40,7 +33,6 @@
 
 
 [](id:step04)
-
 ### 配置 CLS 触发器
 
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志集管理】。
@@ -54,7 +46,6 @@
 	- **最长等待时间**：单次事件拉取的最长等待事件，默认60s。
 
 [](id:step05)
-
 ### 测试函数功能
 
 1. 下载 [测试样例](https://main.qcloudimg.com/raw/6e0d4837eefd0ce77dac8a3973acdf39.zip) 中的日志文件，并解压出 demo-scf1.txt，导入至源端CLS服务。
@@ -62,4 +53,4 @@
    在函数详情页面中选择【日志查询】页签，可以看到打印出的日志信息。如下图所示：
    ![](https://main.qcloudimg.com/raw/b4d8dd0a4a236ab4cb35f2e7d3160649.png)
 3. 切换至 [对象存储 COS 控制台](https://console.cloud.tencent.com/cos5) ，查看数据转储及加工结果。
-> ?您可以根据自身的需求编写具体的数据加工处理方法。
+>? 您可以根据自身的需求编写具体的数据加工处理方法。
