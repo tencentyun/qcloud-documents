@@ -1,5 +1,4 @@
 短视频 SDK License 用于激活短视频 SDK 的使用权限，用户可以在控制台申请测试版短视频 License 或续期、查看等操作。
-
 [](id:test)
 
 ## 测试版 License
@@ -18,7 +17,7 @@
 1. 登录【[云点播控制台](https://console.cloud.tencent.com/vod/license)】，左侧菜单中选择【License 管理】 >【[SDK License](https://console.cloud.tencent.com/vod/license/video)】，单击【创建测试 License 】。
 ![](https://main.qcloudimg.com/raw/a623b59b4989ef4d713fc5a2e13927c1.png)
 2. 根据实际需求填写 App Name、Package Name 和 Bundle ID，勾选功能模块【短视频】，单击【确定】。
-![](https://main.qcloudimg.com/raw/3127c6c454fecae07709f4a82fb41089.png)
+![](https://main.qcloudimg.com/raw/d9f3d35b4315a466f6b5fe823831f057.png)
 3. 测试版 License 成功创建后，页面会显示生成的 License 信息。在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。
 ![](https://main.qcloudimg.com/raw/72b7376b67bbce7fd922e30addf76614.png)
 
@@ -42,9 +41,9 @@
 
 1. 进入云点播控制台，选择 【License 管理】 >【[SDK License](https://console.cloud.tencent.com/vod/license/video)】。
 2. 选择测试版 License，单击短视频模块中的【升级】。
-    ![](https://main.qcloudimg.com/raw/ccb771bafef68ec62507904eb45b0aab.png)
+![](https://main.qcloudimg.com/raw/ccb771bafef68ec62507904eb45b0aab.png)
 3. 进入升级功能模块界面，选择需要绑定的云点播流量资源包，单击【确定】即可升级到短视频（精简版/基础版）的正式版 License。
-    ![](https://main.qcloudimg.com/raw/ce167424d536f3b051a4d3c72be5adb6.png)
+![](https://main.qcloudimg.com/raw/50183054e3d1ff5a0f74a80b2bc279aa.png)
 
 >!
 >- 若无已购买资源包，请单击【资源包购买页】前往选购流量资源包10TB、流量资源包50TB、流量资源包200TB中的任意一种。具体请参见 [价格总览](https://cloud.tencent.com/document/product/584/9368)。
