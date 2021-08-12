@@ -18,7 +18,7 @@
 1. 登录【[腾讯云视立方控制台](https://console.cloud.tencent.com/vcube)】，单击【创建测试 License】。
 ![](https://main.qcloudimg.com/raw/a623b59b4989ef4d713fc5a2e13927c1.png)
 2. 根据实际需求填写 App Name、Package Name 和 Bundle ID，勾选功能模块【短视频】，单击【确定】。
-![](https://main.qcloudimg.com/raw/3127c6c454fecae07709f4a82fb41089.png)
+![](https://main.qcloudimg.com/raw/d9f3d35b4315a466f6b5fe823831f057.png)
 3. 测试版 License 成功创建后，页面会显示生成的 License 信息。在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。
 ![](https://main.qcloudimg.com/raw/72b7376b67bbce7fd922e30addf76614.png)
 
@@ -52,7 +52,7 @@
 ## 正式版 License
 [](id:creat_formal)
 ### 购买正式版 License
-1. 购买指定规格的 [云点播流量资源包](https://cloud.tencent.com/document/product/1449/56973#video)，获得赠送1年有效期的正式短视频（精简版/基础版） License 使用权限（有效期至到期当日23:59:59止），具体 License 版本对应套餐包如下表：
+1. 购买指定规格的 [云点播流量资源包](https://cloud.tencent.com/document/product/1449/56973#video)，获得赠送1年有效期的正式短视频（精简版/基础版）License 使用权限（有效期至到期次日00:00:00止），具体 License 版本对应套餐包如下表：
 <table>
 <tr><th>License 版本</th><th>套餐包</th>
 </tr><tr>
