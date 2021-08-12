@@ -42,7 +42,7 @@
 
 [](id:que7)
 ### License 无法添加/新增，如何解决？
-- 确认是否有可绑定的资源包。进入【云点播控制台】>【[资源包](https://console.cloud.tencent.com/vod/assets/packages)】，确认您的账号下是否有可绑定的点播流量 10T、50T 或 200T 资源包中的一种。
+- 确认是否有可绑定的资源包。进入【云点播控制台】>【[资源包](https://console.cloud.tencent.com/vod/assets/packages)】，确认您的账号下是否有可绑定的点播流量 10T、50T、200T 或 1PB 资源包中的一种。
 - 查看绑定页面是否为**管理员**页面，请选择管理员页面进行绑定。
 
 [](id:que8)
