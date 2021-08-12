@@ -13,7 +13,7 @@ dependencies {
 }
 ```
 
-> ?用户可根据 [版本说明](https://cloud.tencent.com/document/product/634/48712) 把上述 x.x.x 设置成最新版本。
+> ?用户可根据 [版本说明](https://cloud.tencent.com/document/product/1081/48355) 把上述 x.x.x 设置成最新版本。
 
 ## 软件架构
 
