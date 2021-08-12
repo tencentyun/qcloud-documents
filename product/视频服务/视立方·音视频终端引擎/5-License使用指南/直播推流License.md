@@ -45,9 +45,9 @@
 ### 购买正式版 License
 1. 购买指定规格的 [直播流量包](https://cloud.tencent.com/document/product/1449/56973#live)，获得赠送1年有效期的正式直播推流 License 使用权限（有效期至到期次日00:00:00为止）。
 2. 进入【[腾讯云视立方控制台](https://console.cloud.tencent.com/vcube)】，单击【创建应用并绑定 License 】按钮。填写 `App Name`、`Package Name` 和 `Bundle ID` 并勾选功能模块【直播推流】，完成后单击【下一步】。
-![](https://main.qcloudimg.com/raw/6a62f95943713c1a8a36779315d84194.png)
+![](https://main.qcloudimg.com/raw/cc803e51118a8c33e9f29405a58ed210.png)
 3. 进入选择套餐包并绑定 License 界面，选择**未绑定**的直播流量资源包，并单击【确定】即可生成正式版 License。
-![](https://main.qcloudimg.com/raw/6a5eb7dbd26e0df535e89981818d9a16.png)
+![](https://main.qcloudimg.com/raw/6a62f95943713c1a8a36779315d84194.png)
 >!
 > - 单击【确定】前需要再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请提前进行修改，**一旦提交成功将无法再修改 License 信息**。
 > - **选择直播流量包仅用于直播基础版 License 绑定流量包的有效期，流量包的流量可用于当前账号所有 License 直播流量消耗。**
