@@ -10,18 +10,12 @@
 
 ### 创建日志集和主题
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志主题】。
-
 2. 进入日志集管理页面，在页面上方选择日志集的地域。
-
 3. 单击【创建日志主题】，在弹出的创建日志集窗口中，填写相关信息：
-
   - 日志主题名称：例如 project_test
-  - 日志集名称：例如nginx
-
-  、![](https://main.qcloudimg.com/raw/6e2ff86cd07c0e132bee42850dfa678f.png)
-
+  - 日志集名称：例如 nginx
+![](https://main.qcloudimg.com/raw/6e2ff86cd07c0e132bee42850dfa678f.png)
 4. 单击【确定】，即可创建日志集和主题。
-
 5. 日志主题新增成功，将进入日志主题管理页，如下图所示：
    ![](https://main.qcloudimg.com/raw/14416fdbda5ac39e4a650d1e37a5118c.png)
 
