@@ -29,7 +29,7 @@
 [](id:renew)
 ### 续期测试版 License
 
-您可以在 [云点播控制台](https://console.cloud.tencent.com/vod/license) 查看测试版 License 的有效期。测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**。单击功能模块【短视频】右侧的【续期】按钮，选择【确定续期】即可续期该功能模块14天。
+您可以在 [云点播控制台](https://console.cloud.tencent.com/vod/license/videoe) 查看测试版 License 的有效期。测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**。单击功能模块【短视频】右侧的【续期】按钮，选择【确定续期】即可续期该功能模块14天。
 ![](https://main.qcloudimg.com/raw/348da4abf6673f65035eec391d7310ee.png)
 
 >! 测试版 License 有效期共28天，只能续期一次。若您需继续使用，请 [购买](https://buy.cloud.tencent.com/vcube) 正式版 License。
