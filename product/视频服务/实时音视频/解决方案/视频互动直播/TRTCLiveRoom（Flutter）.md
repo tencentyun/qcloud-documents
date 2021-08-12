@@ -224,7 +224,7 @@ Future<ActionCallback> setSelfProfile(String userName, String avatarURL);
 
 | 参数      | 类型   | 含义       |
 | --------- | ------ | ---------- |
-| name      | String | 昵称。     |
+| userName  | String | 昵称。     |
 | avatarURL | String | 头像地址。 |
 
 ## 房间相关接口函数
@@ -234,15 +234,15 @@ Future<ActionCallback> setSelfProfile(String userName, String avatarURL);
 创建房间（主播调用）。
 
 ```java
-Future<ActionCallback> createRoom(int roomId, RoomParam roomParam);
+Future<ActionCallback> createRoom(int roomId, TRTCCreateRoomParam roomParam);
 ```
 
 参数如下表所示：
 
-| 参数      | 类型                | 含义                                                         |
-| --------- | ------------------- | ------------------------------------------------------------ |
-| roomId    | int                 | 房间标识，需要由您分配并进行统一管理。多个 roomID 可以汇总成一个直播间列表，腾讯云暂不提供直播间列表的管理服务，请自行管理您的直播间列表。 |
-| roomParam | TRTCCreateRoomParam | 房间信息，用于房间描述的信息，例如房间名称，封面信息等。如果房间列表和房间信息都由您的服务器自行管理，可忽略该参数。 |
+| 参数      | 类型      | 含义                                                         |
+| --------- | --------- | ------------------------------------------------------------ |
+| roomId    | int       | 房间标识，需要由您分配并进行统一管理。多个 roomID 可以汇总成一个直播间列表，腾讯云暂不提供直播间列表的管理服务，请自行管理您的直播间列表。 |
+| roomParam | RoomParam | 房间信息，用于房间描述的信息，例如房间名称，封面信息等。如果房间列表和房间信息都由您的服务器自行管理，可忽略该参数。 |
 
 主播开播的正常调用流程如下： 
 
@@ -303,9 +303,9 @@ Future<RoomInfoCallback> getRoomInfos(List<String> roomIdList);
 
 参数如下表所示：
 
-| 参数       | 类型                | 含义         |
-| ---------- | ------------------- | ------------ |
-| roomIdList | List&lt;Integer&gt; | 房间号列表。 |
+| 参数       | 类型               | 含义         |
+| ---------- | ------------------ | ------------ |
+| roomIdList | List&lt;String&gt; | 房间号列表。 |
 
 ### getAnchorList
 
@@ -343,10 +343,10 @@ Future<void> startCameraPreview(bool isFrontCamera, int viewId);
 
 参数如下表所示：
 
-| 参数    | 类型 | 含义                                  |
-| ------- | ---- | ------------------------------------- |
-| isFront | bool | true：前置摄像头；false：后置摄像头。 |
-| viewId  | int  | 视频 view 的回调 ID。                 |
+| 参数          | 类型 | 含义                                  |
+| ------------- | ---- | ------------------------------------- |
+| isFrontCamera | bool | true：前置摄像头；false：后置摄像头。 |
+| viewId        | int  | 视频 view 的回调 ID。                 |
 
 ### stopCameraPreview
 
@@ -365,14 +365,14 @@ Future<void> startCameraPreview(bool isFrontCamera, int viewId);
 - 观众开始连麦时调用。
 
 ```java
-Future<void> startPublish(String? streamId);
+Future<void> startPublish(String streamId);
 ```
 
 参数如下表所示：
 
-| 参数     | 类型   | 含义                                                         |
-| -------- | ------ | ------------------------------------------------------------ |
-| streamId | String | 用于绑定直播 CDN 的 streamId，如果您希望观众通过直播 CDN 进行观看，需要指定当前主播的直播 streamId。 |
+| 参数     | 类型    | 含义                                                         |
+| -------- | ------- | ------------------------------------------------------------ |
+| streamId | String? | 用于绑定直播 CDN 的 streamId，如果您希望观众通过直播 CDN 进行观看，需要指定当前主播的直播 streamId。 |
 
 
 ### stopPublish
@@ -451,15 +451,15 @@ Future<ActionCallback> requestJoinAnchor();
 主播处理连麦请求。主播在收到 `TRTCLiveRoomDelegate` 的 `onRequestJoinAnchor()` 回调后需要调用此接口来处理观众的连麦请求。
 
 ```java
-Future<ActionCallback> responseJoinAnchor(String userId, bool agreee);
+Future<ActionCallback> responseJoinAnchor(String userId, boolean agreee);
 ```
 
 参数如下表所示：
 
-| 参数   | 类型    | 含义                      |
-| ------ | ------- | ------------------------- |
-| userId | String  | 观众 ID。                 |
-| agree  | boolean | true：同意；false：拒绝。 |
+| 参数   | 类型   | 含义                      |
+| ------ | ------ | ------------------------- |
+| userId | String | 观众 ID。                 |
+| agree  | bool   | true：同意；false：拒绝。 |
 
 
 ### kickoutJoinAnchor
@@ -510,15 +510,15 @@ Future<ActionCallback> requestRoomPK(int roomId, String userId);
 主播响应跨房 PK 请求。主播响应后，对方主播会收到 `requestRoomPK` 传入的 `responseCallback` 回调。
 
 ```java
-Future<ActionCallback> responseRoomPK(String userId, bool agree);
+Future<ActionCallback> responseRoomPK(String userId, boolean agree);
 ```
 
 参数如下表所示：
 
-| 参数   | 类型    | 含义                      |
-| ------ | ------- | ------------------------- |
-| userId | String  | 发起 PK 请求的主播 ID。   |
-| agree  | boolean | true：同意；false：拒绝。 |
+| 参数   | 类型   | 含义                      |
+| ------ | ------ | ------------------------- |
+| userId | String | 发起 PK 请求的主播 ID。   |
+| agree  | bool   | true：同意；false：拒绝。 |
 
 
 ### quitRoomPK
@@ -537,7 +537,7 @@ Future<ActionCallback> quitRoomPK();
 切换前后摄像头。
 
 ```java
-Future<void> switchCamera(bool isFrontCamera);
+Future<void> switchCamera(boolean isFrontCamera);
 ```
 
 ### setMirror
@@ -545,14 +545,14 @@ Future<void> switchCamera(bool isFrontCamera);
 设置是否镜像展示。
 
 ```java
-Future<void> setMirror(bool isMirror);
+Future<void> setMirror(boolean isMirror);
 ```
 
 参数如下表所示：
 
-| 参数     | 类型    | 含义            |
-| -------- | ------- | --------------- |
-| isMirror | boolean | 开启/关闭镜像。 |
+| 参数     | 类型 | 含义            |
+| -------- | ---- | --------------- |
+| isMirror | bool | 开启/关闭镜像。 |
 
    
 
@@ -561,14 +561,14 @@ Future<void> setMirror(bool isMirror);
 静音本地音频。
 
 ```java
-Future<void> muteLocalAudio(bool mute);
+Future<void> muteLocalAudio(boolean mute);
 ```
 
 参数如下表所示：
 
 | 参数 | 类型 | 含义                              |
 | ---- | ---- | --------------------------------- |
-| mute | bool | true：开启静音；false：关闭静音。 |
+| mute | boolean | true：开启静音；false：关闭静音。 |
 
    
 
@@ -577,7 +577,7 @@ Future<void> muteLocalAudio(bool mute);
 静音远端音频。
 
 ```java
-Future<void> muteRemoteAudio(String userId, bool mute);
+Future<void> muteRemoteAudio(String userId, boolean mute);
 ```
 
 参数如下表所示：
@@ -585,7 +585,7 @@ Future<void> muteRemoteAudio(String userId, bool mute);
 | 参数   | 类型   | 含义                              |
 | ------ | ------ | --------------------------------- |
 | userId | String | 远端的用户 ID。                   |
-| mute   | bool   | true：开启静音；false：关闭静音。 |
+| mute   | boolean   | true：开启静音；false：关闭静音。 |
 
    
 
@@ -594,14 +594,14 @@ Future<void> muteRemoteAudio(String userId, bool mute);
 静音所有远端音频。
 
 ```java
-Future<void> muteAllRemoteAudio(bool mute);
+Future<void> muteAllRemoteAudio(boolean mute);
 ```
 
 参数如下表所示：
 
 | 参数 | 类型 | 含义                              |
 | ---- | ---- | --------------------------------- |
-| mute | bool | true：开启静音；false：关闭静音。 |
+| mute | boolean | true：开启静音；false：关闭静音。 |
 
    
 
@@ -729,7 +729,7 @@ Future<ActionCallback> sendRoomCustomMsg(String cmd, String message);
 | 参数      | 类型   | 含义           |
 | --------- | ------ | -------------- |
 | userId    | String | 用户标识。     |
-| available | bool   | 画面是否开启。 |
+| available | boolean   | 画面是否开启。 |
 
 ## 主播和观众进出事件回调
 
@@ -769,11 +769,9 @@ void onAudienceEnter(TRTCLiveRoomDef.TRTCLiveUserInfo userInfo);
 
 参数如下表所示：
 
-| 参数       | 类型   | 含义           |
-| ---------- | ------ | -------------- |
-| userId     | String | 进房观众信息。 |
-| userName   | String | 用户昵称。     |
-| userAvatar | String | 用户头像地址。 |
+| 参数     | 类型                             | 含义                                |
+| -------- | -------------------------------- | ----------------------------------- |
+| userInfo | TRTCLiveRoomDef.TRTCLiveUserInfo | 进房观众用户 ID、昵称、头像等信息。 |
 
 
 ### onAudienceExit

@@ -42,3 +42,9 @@
 **CDN 鉴权：**开启时间戳鉴权配置，可防止恶意用户盗取内容，需在添加完域名后进行设置。
 
 关于在 COS 控制台实现 CDN 加速 COS 的更多内容，请参见 [COS 域名管理概述](https://cloud.tencent.com/document/product/436/18424)。
+
+
+## 建议配置
+1. 配置完成后，前往 [CDN 控制台](https://console.cloud.tencent.com/cdn)为 COS 下的资源文件做好预热。提前将静态资源预热至 CDN 加速节点，降低源站压力，提高响应与下载速度。详情可见 [缓存预热](https://cloud.tencent.com/document/product/228/40273)。
+2. 配置好跨域的头部参数。解决资源的跨域权限问题，详情可见 [HTTP 响应头配置](https://cloud.tencent.com/document/product/228/41737#.E5.A4.B4.E9.83.A8.E5.8F.82.E6.95.B0)。
+3. 若客户源站的资源已修改，建议刷新缓存后再重新进行预热。详情可见 [缓存刷新](https://cloud.tencent.com/document/product/228/6299)。

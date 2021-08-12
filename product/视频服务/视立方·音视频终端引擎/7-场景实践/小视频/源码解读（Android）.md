@@ -6,7 +6,7 @@
 | 支持情况 | - | - | &#10003; | - | - | &#10003; |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 [](id:structure)
 
@@ -33,7 +33,7 @@
 
 ## 动效表情
 
-小视频源代码中默认使用的是短视频 UGSV SDK，而非商用版本，所以动效贴纸等功能并不包含。如果您需要此功能，请在 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh) 中获取商用版本。
+小视频源代码中默认使用的是短视频 UGSV SDK，而非商用版本，所以动效贴纸等功能并不包含。如果您需要此功能，请在 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978) 中获取商用版本。
 
 [](id:function)
 

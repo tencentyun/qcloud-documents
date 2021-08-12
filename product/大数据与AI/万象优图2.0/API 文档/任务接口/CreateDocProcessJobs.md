@@ -1,6 +1,6 @@
 ## 功能描述
 
-CreateDocProcessJobs 接口用于提交一个文档预览任务。
+CreateDocProcessJobs 接口用于提交一个文档转码任务。
 
 >!
 >- 目前支持的输入文件类型包含如下格式：

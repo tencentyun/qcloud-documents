@@ -6,7 +6,7 @@
 [](id:creat_test)
 ### 申请测试版 License
 
-您可以免费申请短视频模块基础版的测试版 License（免费测试有效期为14天，可续期1次，共28天，有效期至到期当日的24:00:00为止）体验测试，具体步骤如下：
+您可以免费申请短视频模块基础版的测试版 License（免费测试有效期为14天，可续期1次，共28天，有效期至到期次日00:00:00为止）体验测试，具体步骤如下：
 
 1. 登录【[腾讯云视立方控制台](https://console.cloud.tencent.com/vcube)】，单击【创建测试 License】。
 ![](https://main.qcloudimg.com/raw/a623b59b4989ef4d713fc5a2e13927c1.png)
@@ -25,7 +25,7 @@
 
 测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**。单击功能模块【短视频】右侧的【续期】按钮，选择【确定续期】即可续期该功能模块14天。
 ![](https://main.qcloudimg.com/raw/42d1eca5dbb43c767b74c49827b73319.png)
->! 测试版 License 有效期共28天，只能续期一次（有效期至到期当日的24:00:00为止）。若您需继续使用，请 [购买](https://buy.cloud.tencent.com/vcube) 正式版 License。
+>! 测试版 License 有效期共28天，只能续期一次（有效期至到期次日00:00:00为止）。若您需继续使用，请 [购买](https://buy.cloud.tencent.com/vcube) 正式版 License。
 
 [](id:update_test)
 ### 测试版 License 升级
@@ -44,7 +44,7 @@
 ## 正式版 License
 [](id:creat_formal)
 ### 购买正式版 License
-1. 购买指定规格的 [云点播流量资源包](https://cloud.tencent.com/document/product/1449/56973?!preview&!editLang=zh#video)，获得赠送1年有效期的正式短视频（精简版/基础版） License 使用权限（到期当日的00:00:00止），具体 License 版本对应套餐包如下表：
+1. 购买指定规格的 [云点播流量资源包](https://cloud.tencent.com/document/product/1449/56973#video)，获得赠送1年有效期的正式短视频（精简版/基础版） License 使用权限（有效期至到期次日00:00:00为止），具体 License 版本对应套餐包如下表：
 <table>
 <tr><th>License 版本</th><th>套餐包</th>
 </tr><tr>
@@ -60,7 +60,7 @@
 ![](https://main.qcloudimg.com/raw/df6f65abf5dbcbaf8224876d79d22899.png)
 >! 单击【确定】前需要再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请提前进行修改，**一旦提交成功将无法再修改 License 信息**。
 4. 正式版 License 成功创建后，页面会显示生成的 正式版 License 信息。在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。
-![](https://main.qcloudimg.com/raw/93188278ef04b78572060e7c87aeaaaa.png)
+![](https://main.qcloudimg.com/raw/d82cb2e666b09412c808fe87b984bf89.png)
 
 
 [](id:renew_formal)
@@ -78,7 +78,7 @@
 ### 升级正式版 License
 若您已经具备短视频（精简版）的正式版 License，且需要变速录制、背景音乐、滤镜特效等更强大的能力，您可以通过以下方式升级为短视频（基础版）的正式版 License，解锁更多功能：
 1. 选择需要升级的正式版 License，单击短视频模块内的【升级】。
-![](https://main.qcloudimg.com/raw/7d2b607d2731594eee9c452e59f7efd6.png)
+![](https://main.qcloudimg.com/raw/8a401df36bb1309f5051847baf01b0bc.png)
 2. 进入升级功能模块界面，选择需要绑定的云点播流量资源包（规格需可选择为 50TB、200TB 或 1PB），单击【确定】即可升级到短视频（基础版）的正式版 License。
 ![](https://main.qcloudimg.com/raw/2c761460a643335121a34c44595fc70c.png)
 

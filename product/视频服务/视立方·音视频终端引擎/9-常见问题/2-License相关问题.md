@@ -2,13 +2,13 @@
 
 ### 腾讯云视立方 License 是必须购买的吗？
 
-若您下载的腾讯云视立方版本中，包含直播推流（主播开播和主播观众连麦/主播跨房 PK）或短视频（视频录制编辑/视频上传发布）功能模块，应通过购买对应的云服务的资源包免费获取 License 进行解锁。功能模块解锁详情请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!editLang=zh&!preview)。
+若您下载的腾讯云视立方版本中，包含直播推流（主播开播和主播观众连麦/主播跨房 PK）或短视频（视频录制编辑/视频上传发布）功能模块，应通过购买对应的云服务的资源包免费获取 License 进行解锁。功能模块解锁详情请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 [](id:que2)
 
 ### 腾讯云视立方 License 有单独购买入口吗？
 
-不支持单独购买。需购买相应云服务的资源包免费获取 [直播推流 License](https://cloud.tencent.com/document/product/1449/56973?!editLang=zh&!preview#live) 或者 [短视频 License](https://cloud.tencent.com/document/product/1449/56973?!editLang=zh&!preview#video) 的1年有效期（购买日起算1年有效期）。
+不支持单独购买。需购买相应云服务的资源包免费获取 [直播推流 License](https://cloud.tencent.com/document/product/1449/56973#live) 或者 [短视频 License](https://cloud.tencent.com/document/product/1449/56973#video) 的1年有效期（购买日起算1年有效期）。
 
 ### 腾讯云视立方 License 和功能模块 License 有什么区别？
 
@@ -29,8 +29,8 @@
 - 基础版 License 在精简版基础上增加滤镜、特效和转场等能力，快速轻松实现基于移动端的短视频应用。
 
 >?
->- 更多功能支持详细说明，请参见 [短视频 License 功能详情](https://cloud.tencent.com/document/product/1449/56980?!preview&!editLang=zh#UGSV_detail)。
->- 美颜特效更多高级美颜、动效贴纸、AI 抠图和绿幕抠图的功能能力暂通过原（移动直播/短视频）企业版 SDK 对外售卖，通过购买原移动直播企业版License、短视频企业版 License 或者短视频企业版 Pro License 后，使用对应的功能。详情请参见 [美颜特效功能概述](https://cloud.tencent.com/document/product/1449/58916?!preview&!editLang=zh)。
+>- 更多功能支持详细说明，请参见 [短视频 License 功能详情](https://cloud.tencent.com/document/product/1449/56980#UGSV_detail)。
+>- 美颜特效更多高级美颜、动效贴纸、AI 抠图和绿幕抠图的功能能力暂通过原（移动直播/短视频）企业版 SDK 对外售卖，通过购买原移动直播企业版License、短视频企业版 License 或者短视频企业版 Pro License 后，使用对应的功能。详情请参见 [美颜特效功能概述](https://cloud.tencent.com/document/product/1449/58916)。
 
 [](id:que4)
 

@@ -6,7 +6,7 @@ TRTCKaraokeRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM �
 - 听众可以申请上麦，变成麦上主播，上麦后可以点歌和唱歌，也可以随时下麦成为普通的听众。
 - 支持发送礼物和各种文本、自定义消息，自定义消息可用于实现弹幕、点赞等。
 
-TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [Karaoke（iOS）](https://cloud.tencent.com/document/product/647/45753)。
+TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [Karaoke（Android）](https://cloud.tencent.com/document/product/647/59403)。
 
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时语音聊天组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 AVChatroom 实现聊天室的功能，同时，通过 IM 的属性接口来存储麦位表等房间信息，邀请信令可以用于上麦申请/抱麦申请。
@@ -41,10 +41,10 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 
 | API                                 | 描述             |
 | ----------------------------------- | --------------- |
-| [startPlayMusic](#startplaymusic)   | 开始播放音乐。 	|
-| [stopPlayMusic](#stopplaymusic)     | 停止播放音乐。  	|
-| [pausePlayMusic](#pauseplaymusic)   | 暂停播放音乐。		|
-| [resumePlayMusic](#resumeplaymusic) | 恢复播放音乐。		|
+| [startPlayMusic](#startplaymusic)   | 开始播放音乐。     |
+| [stopPlayMusic](#stopplaymusic)     | 停止播放音乐。     |
+| [pausePlayMusic](#pauseplaymusic)   | 暂停播放音乐。     |
+| [resumePlayMusic](#resumeplaymusic) | 恢复播放音乐。     |
 
 ### 麦位管理接口
 
@@ -100,9 +100,9 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 | [rejectInvitation](#rejectinvitation) | 拒绝邀请。       |
 | [cancelInvitation](#cancelinvitation) | 取消邀请。       |
 
-
 [](id:TRTCKaraokeRoomDelegate)
 ## TRTCKaraokeRoomDelegate API 概览
+
 ### 通用事件回调
 
 | API                       | 描述       |
@@ -127,7 +127,7 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 | [onAnchorEnterSeat](#onanchorenterseat) | 有成员上麦（主动上麦/房主抱人上麦）。 |
 | [onAnchorLeaveSeat](#onanchorleaveseat) | 有成员下麦（主动下麦/房主踢人下麦）。 |
 | [onSeatMute](#onseatmute)               | 房主禁麦。                          |
-| [onUserMicrophoneMute](#onusermicrophonemute)               | 用户麦克风是否静音。 |
+| [onUserMicrophoneMute](#onusermicrophonemute)               | 用户麦克风是否静音。                          |
 | [onSeatClose](#onseatclose)             | 房主封麦。                          |
 
 ### 听众进出事件回调
@@ -163,10 +163,10 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 
 ## SDK 基础函数
 
-
+[](id:sharedInstance)
 ### sharedInstance
 
-获取 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59404?!editLang=zh&!preview) 单例对象。
+获取 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59403) 单例对象。
 
 ```java
  public static synchronized TRTCKaraokeRoom sharedInstance(Context context);
@@ -176,13 +176,13 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 
 | 参数    | 类型    | 含义                                                         |
 | ------- | ------- | ------------------------------------------------------------ |
-| context | Context | Android 上下文，内部会转为 ApplicationContext 用于系统 API 调用。 |
+| context | Context | Android 上下文，内部会转为 ApplicationContext 用于系统 API 调用 |
 
    
 
 ### destroySharedInstance
 
-销毁 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59404?!editLang=zh&!preview) 单例对象。
+销毁 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59403) 单例对象。
 
 >?销毁实例后，外部缓存的 TRTCKaraokeRoom 实例无法再使用，需要重新调用 [sharedInstance](#sharedInstance) 获取新实例。
 
@@ -192,7 +192,7 @@ public static void destroySharedInstance();
 
 ### setDelegate
 
-[TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59404?!editLang=zh&!preview) 事件回调，您可以通过 TRTCKaraokeRoomDelegate 获得 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59404?!editLang=zh&!preview) 的各种状态通知。
+[TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59403) 事件回调，您可以通过 TRTCKaraokeRoomDelegate 获得 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59403) 的各种状态通知。
 
 ```java
 public abstract void setDelegate(TRTCKaraokeRoomDelegate delegate);
@@ -291,10 +291,10 @@ public abstract void createRoom(int roomId, TRTCKaraokeRoomDef.RoomParam roomPar
 | callback  | ActionCallback      | 创建房间的结果回调，成功时 code 为0。                        |
 
 房主开播的正常调用流程如下： 
-1. 房主调用 `createRoom` 创建新的 Karaoke 房间，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
-2. 房主创建房间成功后，调用 `enterSeat` 进入座位。
-3. 房主收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
-4. 房主还会收到麦位表有成员进入的 `onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
+1. 房主调用`createRoom`创建新的 Karaoke 房间，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
+2. 房主创建房间成功后，调用`enterSeat`进入座位。
+3. 房主收到组件的`onSeatListChange`麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
+4. 房主还会收到麦位表有成员进入的`onAnchorEnterSeat`的事件通知，此时会自动打开麦克风采集。
 
    
 
@@ -332,10 +332,10 @@ public abstract void enterRoom(int roomId, TRTCKaraokeRoomCallback.ActionCallbac
 听众进房收听的正常调用流程如下： 
 
 1. 听众向您的服务端获取最新的 Karaoke 房间列表，可能包含多个 Karaoke 房间的 roomId 和房间信息。
-2. 听众选择一个 Karaoke 房间，调用 `enterRoom `并传入房间号即可进入该房间。
-3. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
-4. 进房后会收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
-5. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
+2. 听众选择一个 Karaoke 房间，调用`enterRoom`并传入房间号即可进入该房间。
+3. 进房后会收到组件的`onRoomInfoChange`房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
+4. 进房后会收到组件的`onSeatListChange`麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
+5. 进房后还会收到麦位表有主播进入的`onAnchorEnterSeat`的事件通知。
 
 ### exitRoom
 
@@ -374,7 +374,7 @@ public abstract void getRoomInfoList(List<Integer> roomIdList, TRTCKaraokeRoomCa
 
 ### getUserInfoList
 
-获取指定 userId 的用户信息。
+获取指定userId的用户信息。
 
 ```java
 public abstract void getUserInfoList(List<String> userIdList, TRTCKaraokeRoomCallback.UserListCallback userlistcallback);
@@ -392,10 +392,9 @@ public abstract void getUserInfoList(List<String> userIdList, TRTCKaraokeRoomCal
 ### startPlayMusic
 
 播放音乐（上麦后调用）。
->?
->- 播放音乐后，自身会收到 `onMusicPrepareToPlay` 的事件通知。
->- 音乐播放中，房间内所有成员会不断收到 `onMusicProgressUpdate` 的事件通知。
->- 音乐播放完成，自身会收到 `onMusicCompletePlaying` 的事件通知。
+>?播放音乐后，自身会收到 `onMusicPrepareToPlay` 的事件通知。
+>?音乐播放中，房间内所有成员会不断收到 `onMusicProgressUpdate` 的事件通知。
+>?音乐播放完成，自身会收到 `onMusicCompletePlaying` 的事件通知。
 
 ```java
 public abstract void startPlayMusic(int musicID, String url);
@@ -405,8 +404,8 @@ public abstract void startPlayMusic(int musicID, String url);
 
 | 参数      | 类型            | 含义                 |
 | --------- | -------------- | -------------------- |
-| musicID 	| int            | 音乐的ID。 |
-| url 	    | String 		 | 音乐的绝对路径。           |
+| musicID   | int            | 音乐的ID。 |
+| url       | String         | 音乐的绝对路径。           |
 
 调用该接口后会停止上一个正在播放的歌曲。
 
@@ -422,9 +421,8 @@ public abstract void stopPlayMusic();
 ### pausePlayMusic
 
 暂停正在播放的音乐（播放音乐时调用）。
->?
->-  `onMusicProgressUpdate` 的事件通知会暂停。
->- 不会收到 `onMusicCompletePlaying` 的事件通知。
+>? `onMusicProgressUpdate` 的事件通知会暂停
+>?不会收到 `onMusicCompletePlaying` 的事件通知。
 
 ```java
 public abstract void pausePlayMusic();
@@ -445,7 +443,7 @@ public abstract void resumePlayMusic();
 
 主动上麦（听众端和房主均可调用）。
 
->?上麦成功后，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
+>?上麦成功后，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 
 ```java
 public abstract void enterSeat(int seatIndex, TRTCKaraokeRoomCallback.ActionCallback callback);
@@ -458,13 +456,13 @@ public abstract void enterSeat(int seatIndex, TRTCKaraokeRoomCallback.ActionCall
 | seatIndex | int            | 需要上麦的麦位序号。 |
 | callback  | ActionCallback | 操作回调。           |
 
-调用该接口会立即修改麦位表。如果是听众申请上麦需要房主同意的场景，可以先调用 `sendInvitation` 向房主申请，收到  `onInvitationAccept` 后再调用该函数。
+调用该接口会立即修改麦位表。如果是听众申请上麦需要房主同意的场景，可以先调用 `sendInvitation` 向房主申请，收到 `onInvitationAccept`后再调用该函数。
 
 ### leaveSeat
 
 主动下麦（主播调用）。
 
->? 下麦成功后，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
+>? 下麦成功后，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 
 ```java
 public abstract void leaveSeat(TRTCKaraokeRoomCallback.ActionCallback callback);
@@ -480,7 +478,7 @@ public abstract void leaveSeat(TRTCKaraokeRoomCallback.ActionCallback callback);
 
 抱人上麦（房主调用）。
 
->? 房主抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
+>? 房主抱人上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 
 ```java
 public abstract void pickSeat(int seatIndex, String userId, TRTCKaraokeRoomCallback.ActionCallback callback);
@@ -1145,7 +1143,7 @@ void onInvitationCancelled(String id, String inviter);
 
 ### onMusicPrepareToPlay
 
-准备播放音乐的回调。
+准备播放音乐的回调
 
 ```java
 void onMusicPrepareToPlay(int musicID);
@@ -1159,7 +1157,7 @@ void onMusicPrepareToPlay(int musicID);
 
 ### onMusicProgressUpdate
 
-歌曲播放进度的回调。
+歌曲播放进度的回调
 
 ```java
 void onMusicProgressUpdate(int musicID, long progress, long total);
@@ -1175,7 +1173,7 @@ void onMusicProgressUpdate(int musicID, long progress, long total);
 
 ### onMusicCompletePlaying
 
-播放完成音乐的回调。
+播放完成音乐的回调
 
 ```java
 void onMusicCompletePlaying(int musicID);

@@ -195,7 +195,7 @@ NS_SWIFT_NAME(groupCall(userIDs:type:groupID:));
 
 | 参数    | 类型     | 含义                  |
 | ------- | -------- | --------------------- |
-| userIDs | [String] | 邀请 ID 列表。        |
+| userIDs | String | 邀请 ID 列表。        |
 | type    | CallType | 通话类型：视频/语音。 |
 | groupID | String   | 群 ID。               |
 
@@ -367,7 +367,7 @@ NS_SWIFT_NAME(onError(code:msg:));
 | 参数 | 类型    | 含义       |
 | ---- | ------- | ---------- |
 | code | Int     | 错误码。   |
-| msg  | String? | 错误信息。 |
+| msg  | String  | 错误信息。 |
 
 
 ## 邀请方回调
@@ -449,7 +449,7 @@ NS_SWIFT_NAME(onInvited(sponsor:userIds:isFromGroup:callType:));
 | 参数        | 类型     | 含义                  |
 | ----------- | -------- | --------------------- |
 | sponsor     | String   | 发起方的 ID。         |
-| userIds     | [String] | 邀请 ID 列表。        |
+| userIds     | String   | 邀请 ID 列表。        |
 | isFromGroup | Bool     | 是否多人通话邀请。    |
 | callType    | CallType | 通话类型：语音/视频。 |
 
@@ -491,7 +491,7 @@ NS_SWIFT_NAME(onGroupCallInviteeListUpdate(userIds:));
 
 | 参数    | 类型     | 含义           |
 | ------- | -------- | -------------- |
-| userIds | [String] | 邀请 ID 列表。 |
+| userIds | String   | 邀请 ID 列表。 |
 
 ### onUserEnter
 

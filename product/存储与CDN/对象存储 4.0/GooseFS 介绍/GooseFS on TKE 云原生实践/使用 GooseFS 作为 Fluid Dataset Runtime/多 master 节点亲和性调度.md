@@ -6,7 +6,6 @@
 
 ## 前提条件
 
-TODO
 在运行该示例之前，请参考 [安装](https://cloud.tencent.com/document/product/436/59493) 文档完成安装，并检查 Fluid 各组件正常运行：
 
 ```shell
@@ -51,7 +50,6 @@ NAME                       STATUS   ROLES    AGE     VERSION            HBASE-CA
 ```
 
 ### 检查待创建的 Dataset 资源对象
-
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
@@ -63,8 +61,8 @@ spec:
       name: hbase
 ```
 
-TODO
->? 为了方便用户进行实验，mountPoint 这里使用的是 Web UFS，使用 COS 作为 UFS 可参见 []()。
+>? 为了方便用户进行测试，mountPoint 这里使用的是 Web UFS，使用 COS 作为 UFS 可参见 [使用 GooseFS 挂载 COS（COSN）](https://cloud.tencent.com/document/product/436/56413#.E4.BD.BF.E7.94.A8-goosefs-.E6.8C.82.E8.BD.BD-cos.EF.BC.88cosn.EF.BC.89-.E6.88.96.E8.85.BE.E8.AE.AF.E4.BA.91-hdfs.EF.BC.88chdfs.EF.BC.89)。
+>
 
 ### 创建 Dataset 资源对象
 
@@ -74,7 +72,6 @@ dataset.data.fluid.io/hbase created
 ```
 
 ### 检查待创建的 GooseFSRuntime 资源对象
-
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: GooseFSRuntime
@@ -99,7 +96,9 @@ spec:
 
 ```shell
 $ kubectl create -f runtime.yaml
-alluxioruntime.data.fluid.io/hbase created
+goosefsruntime.data.fluid.io/hbase created
+
+
 
 $ kubectl get pod -o wide
 NAME                 READY   STATUS    RESTARTS   AGE    IP              NODE                       NOMINATED NODE   READINESS GATES

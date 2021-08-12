@@ -85,24 +85,24 @@ ENDLOCAL
  ![](https://main.qcloudimg.com/raw/fec574b76a4250a3e948816b7cc1728d.png)
 2. 打开 Form1.cs 代码文件，添加以下代码：
 ```c#
-	using System.Windows.Forms;
-	using ManageLiteAV;   // 1.添加命名空间引用
+using System.Windows.Forms;
+using ManageLiteAV;   // 1.添加命名空间引用
 
-	namespace TRTCCSharpDemo
+namespace TRTCCSharpDemo
+{
+	public partial class Form1 : Form
 	{
-			public partial class Form1 : Form
-			{
-					public Form1()
-					{
-							InitializeComponent();
-							// 2.获取 ITRTCCloud 实例，打印 SDK 版本号
-							ITRTCCloud lTRTCCloud = ITRTCCloud.getTRTCShareInstance(); 
-							this.label1.Text = "SDK version : " + lTRTCCloud.getSDKVersion();
-							// 3.结束使用时需手动摧毁 ITRTCCloud 实例
-							ITRTCCloud.destroyTRTCShareInstance();
-					}
-			}
+		public Form1()
+		{
+			InitializeComponent();
+			// 2.获取 ITRTCCloud 实例，打印 SDK 版本号
+			ITRTCCloud lTRTCCloud = ITRTCCloud.getTRTCShareInstance(); 
+			this.label1.Text = "SDK version : " + lTRTCCloud.getSDKVersion();
+			// 3.结束使用时需手动摧毁 ITRTCCloud 实例
+			ITRTCCloud.destroyTRTCShareInstance();
+		}
 	}
+}
 ```
 3.  按 F5 运行，打印 SDK 的版本号，如下图所示：
  ![](https://main.qcloudimg.com/raw/9bfebaac4fa339af6b7c74b0413cde1d.png)

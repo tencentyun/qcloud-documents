@@ -4,17 +4,17 @@
 
 腾讯云 Web 播放器是为了解决在手机浏览器和 PC 浏览器上播放音视频流的问题，它使您的视频内容可以不依赖用户安装 App，就能在朋友圈和微博等社交平台进行传播。
 
-- 如果您需要在 Web 端进行直播播放，可使用Web超级播放器 TCPlayerLite，集成方式参见 [Web 超级播放器 TCPlayerLite](https://cloud.tencent.com/document/product/1449/57070?!preview&!editLang=zh)。
-- 如果您需要在 Web 端进行点播播放，可使用Web超级播放器 TCPlayer，集成方式参见 [Web 超级播放器 TCPlayer](https://cloud.tencent.com/document/product/1449/57088?!preview&!editLang=zh)。
-- 如果您需要快速实现第三方 Web 播放器与云点播能力的结合，可使用 Web 超级播放器 Adapter，集成方式参见 [Web 超级播放器 Adapter](https://cloud.tencent.com/document/product/1449/57089?!preview&!editLang=zh)。
+- 如果您需要在 Web 端进行直播播放，可使用Web超级播放器 TCPlayerLite，集成方式参见 [Web 超级播放器 TCPlayerLite](https://cloud.tencent.com/document/product/1449/57070)。
+- 如果您需要在 Web 端进行点播播放，可使用Web超级播放器 TCPlayer，集成方式参见 [Web 超级播放器 TCPlayer](https://cloud.tencent.com/document/product/1449/57088)。
+- 如果您需要快速实现第三方 Web 播放器与云点播能力的结合，可使用 Web 超级播放器 Adapter，集成方式参见 [Web 超级播放器 Adapter](https://cloud.tencent.com/document/product/1449/57089)。
 
 ## WebRTC 集成方式
 
 ### 支持的平台
 
 WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器、桌面版 Edge 浏览器、桌面版 Firefox 浏览器、桌面版 Safari 浏览器以及移动版的 Safari 浏览器上有较为完整的支持，其他平台（例如 Android 平台的浏览器）支持情况均比较差。
-- 在移动端推荐使用 [小程序](https://cloud.tencent.com/document/product/1449/56990?!preview&!editLang=zh) 解决方案，微信和手机 QQ 小程序均已支持，都是由各平台的 Native 技术实现，音视频性能更好，且针对主流手机品牌进行了定向适配。
-- 如果您的应用场景主要为教育场景，那么教师端推荐使用稳定性更好的 [Electron](https://cloud.tencent.com/document/product/1449/58915?!preview&!editLang=zh) 解决方案，支持大小双路画面，更灵活的屏幕分享方案以及更强大的弱网络恢复能力。
+- 在移动端推荐使用 [小程序](https://cloud.tencent.com/document/product/1449/56990) 解决方案，微信和手机 QQ 小程序均已支持，都是由各平台的 Native 技术实现，音视频性能更好，且针对主流手机品牌进行了定向适配。
+- 如果您的应用场景主要为教育场景，那么教师端推荐使用稳定性更好的 [Electron](https://cloud.tencent.com/document/product/1449/58915) 解决方案，支持大小双路画面，更灵活的屏幕分享方案以及更强大的弱网络恢复能力。
 
 
 <table>

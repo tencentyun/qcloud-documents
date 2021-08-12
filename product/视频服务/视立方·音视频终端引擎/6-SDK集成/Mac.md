@@ -106,4 +106,4 @@ pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工�
 using namespace trtc;
 ```
 
->? 对于 C++ 接口的使用方式，请参见 [全平台（C++）API 概览](https://tcloud-doc.isd.com/document/product/1449/58932?!preview&!editLang=zh)。
+>? 对于 C++ 接口的使用方式，请参见 [全平台（C++）API 概览](https://cloud.tencent.com/document/product/1449/58932)。
