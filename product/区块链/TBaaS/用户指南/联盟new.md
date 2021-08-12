@@ -70,7 +70,7 @@
 ![](https://main.qcloudimg.com/raw/f737e4cb4fbc3d0e9d0d36cd6f6b5f8b.png)
 3. 在弹出的“选购区块链引擎”窗口中，参考以下信息选择需要购买的区块链引擎，并单击【选购】进入对应的购买页。如下图所示：
 ![](https://main.qcloudimg.com/raw/576029c4d5011fddc0585c211222d149.png)
- - [长安链·ChainMaker 购买页说明](https://buy.cloud.tencent.com/tbaas_blockchain?engine=3)
+ - [长安链·ChainMaker 购买页说明](https://cloud.tencent.com/document/product/663/60096)
  - [Hyperledger Fabric 购买页说明](https://cloud.tencent.com/document/product/663/38262)
  - [FISCO-BCOS 购买页说明](https://cloud.tencent.com/document/product/663/38266)
  - [TrustSQL 购买页说明](https://cloud.tencent.com/document/product/663/38271)
