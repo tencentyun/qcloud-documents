@@ -484,7 +484,7 @@ public abstract void stopPlay(String userId, TRTCLiveRoomCallback.ActionCallback
 
 观众请求连麦。
 ```java
-public abstract void requestJoinAnchor(String reason, int timeout,TRTCLiveRoomCallback.ActionCallback callback);
+public abstract void requestJoinAnchor(String reason, int timeout, TRTCLiveRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
