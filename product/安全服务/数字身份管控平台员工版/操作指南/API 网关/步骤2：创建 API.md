@@ -1,5 +1,5 @@
 ## 前提条件
-已经开通腾讯云 [API 网关服务](https://cloud.tencent.com/document/product/628/48792) 和[  数字身份管控平台（员工版）服务](https://cloud.tencent.com/document/product/1442/56964)。
+已经开通腾讯云 [API 网关服务](https://console.cloud.tencent.com/apigateway/index?rid=1) 和[ 数字身份管控平台（员工版）服务](https://cloud.tencent.com/document/product/1442/56964)。
 
 ## 操作步骤
 1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1)，在左侧导航栏中，单击 【服务】 >【基本信息】，进入服务基本信息页面。
