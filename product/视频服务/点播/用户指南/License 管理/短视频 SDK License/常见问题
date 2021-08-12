@@ -19,7 +19,7 @@
 
 [](id:que2)
 ### 测试 License 能否更改 Android 的 PackageName 和 iOS 的 BundleID?
-测试 License 支持更改，在 [云点播控制台](https://console.cloud.tencent.com/vod/license) 选择测试 License 信息右上角，单击【编辑】即可进行修改。
+测试 License 支持更改，在 [云点播控制台](https://console.cloud.tencent.com/vod/license/video) 选择测试 License 信息右上角，单击【编辑】即可进行修改。
 
 [](id:que3)
 ### 正式 License 能否更改 Android 的 PackageName 和 iOS 的 BundleID?
@@ -35,7 +35,7 @@
 
 [](id:que6)
 ### 续期 License 时出现“license not exist”问题，如何解决？
-您可登录【云点播控制台】>[【短视频 SDK License】](https://console.cloud.tencent.com/vod/license/video)根据以下方式排查：
+您可登录【云点播控制台】>【License 管理】 >【[SDK License](https://console.cloud.tencent.com/vod/license/video)】根据以下方式排查：
 1. 请确认是否在**管理员**页面进行 License 绑定续期。
 ![](https://main.qcloudimg.com/raw/446b60171da15bee7b10537ea2f63f32.png)
 2. 如果您是在**非管理员**页面下进行操作，请联系**管理员**协助您进行 License 变更操作。
