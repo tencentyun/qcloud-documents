@@ -68,14 +68,14 @@
 ![](https://main.qcloudimg.com/raw/6b0a059af1b106a1e876dc53edabd2b0.png)
 >! 单击【确定】前需要再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请提前进行修改，**一旦提交成功将无法再修改 License 信息**。
 4. 正式版 License 成功创建后，页面会显示生成的 正式版 License 信息。在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。
-![](https://main.qcloudimg.com/raw/d82cb2e666b09412c808fe87b984bf89.png)
+![](https://main.qcloudimg.com/raw/c46b3a484dbcc8070d9c2d5d728953db.png)
 
 
 [](id:renew_formal)
 ### 更新正式版 License
 您可以登录【[腾讯云视立方控制台](https://console.cloud.tencent.com/vcube)】页面查看短视频正式版 License 的有效期，若您的短视频正式版 License 已到期，可进行如下操作进行续期：
 1. 选择您需要更新有效期的短视频 License，单击对应视频模块中的【更新有效期】。
-![](https://main.qcloudimg.com/raw/87ab786d72d8bad10774b2dc9bdfb8a1.png)
+![](https://main.qcloudimg.com/raw/a0e9a956644566f69a0b8d5293cdbf8e.png)
 2. 选择**未绑定**过的云点播流量资源包（如没有可更新有效期的资源包，可前往 [资源包购买页](https://buy.cloud.tencent.com/vcube) 购买），单击【确定】即可。
 3. 查看更新后的有效期情况。
 
@@ -86,7 +86,7 @@
 ### 升级正式版 License
 若您已经具备短视频（精简版）的正式版 License，且需要变速录制、背景音乐、滤镜特效等更强大的能力，您可以通过以下方式升级为短视频（基础版）的正式版 License，解锁更多功能：
 1. 选择需要升级的正式版 License，单击短视频模块内的【升级】。
-![](https://main.qcloudimg.com/raw/17c20e973066577dad5521c3c4170c30.png)
+![](https://main.qcloudimg.com/raw/7b9766f087097b02baf66d3e47385caa.png)
 2. 进入升级功能模块界面，选择需要绑定的云点播流量资源包（规格需可选择为 50TB、200TB 或 1PB），单击【确定】即可升级到短视频（基础版）的正式版 License。
 ![](https://main.qcloudimg.com/raw/48aa2580a6ab0e25a20e986b183ab189.png)
 
