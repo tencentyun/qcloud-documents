@@ -357,7 +357,7 @@ Future<ActionCallback> enterMic();
 
 ### leaveMic
 
-主动下麦。
+主播下麦。
 
 >? 下麦成功后，房间内所有成员会收到 `onAnchorLeaveMic` 的事件通知。
 
