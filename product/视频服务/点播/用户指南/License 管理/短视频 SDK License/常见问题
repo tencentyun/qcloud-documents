@@ -61,7 +61,7 @@ bundleid 类似于 Android 端的 package name，若您不集成 iOS 端，可�
 
 [](id:que10)
 ### 精简版的短视频 SDK，想升级成基础版 License，要怎么操作？
-购买点播流量资源包 50TB 或 200TB 获取基础版 License 使用权。
+购买点播流量资源包 50TB、200TB 或 1PB 获取基础版 License 使用权。
 > ?目前只支持短视频 License 由精简版升级至基础版，升级的 License 为对应的资源包赠送的 License 规格。
 
 [](id:que11)
