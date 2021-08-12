@@ -80,7 +80,7 @@ protoc --plugin=protoc-gen-grpc-java=`which protoc-gen-grpc-java` --grpc-java_ou
 |[ReportCustomData](https://cloud.tencent.com/document/product/1165/46124)|上报自定义数据|
 
 #### 其他
- 请求 meta，在游戏进程通过 gRPC 调用客户端接口时，需要在 gRPC 请求的 meta 里添加两个字段。
+ 请求 meta，在游戏进程通过 gRPC 调用 Game Server 主调接口时，需要在 gRPC 请求的 meta 里添加两个字段。
 
 | 字段      | 含义                                      | 类型   |
 | --------- | ----------------------------------------- | ------ |
