@@ -27,6 +27,7 @@
 </tr>
 </tbody></table>
 
+>? 若您的应用正使用旧版 License 进行校验，可继续使用旧版 License 或改用新版 License（推荐）。未来新购买获赠的 License 进行绑定时将不再提供旧版 License 的 URL 和 Key 。
 
 ## 测试版 License
 您可以登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 在线申请为期28天的试用 License（试用期为14天，可免费续期一次，合计28天），该 License 可以在直播推流模块和短视频模块上使用。
