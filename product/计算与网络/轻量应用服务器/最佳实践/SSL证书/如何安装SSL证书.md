@@ -17,7 +17,10 @@ SSL 证书将为您的网站、移动 App、Web API 等应用提供身份验证�
 </tr>
 </table>
 
-如您需了解更多证书安装方式，请参见 [如何选择 SSL 证书安装部署类型？](https://cloud.tencent.com/document/product/400/4143)。
+您还可参考以下文档，了解其他证书安装方式：
+- [Windows 系统 IIS 服务器证书安装](https://cloud.tencent.com/document/product/400/35225)
+- [Linux 系统宝塔面板 SSL 证书安装](https://cloud.tencent.com/document/product/400/50874)
+- [Linux 系统 Tomcat 服务器证书安装](https://cloud.tencent.com/document/product/400/35224)
 
 ## 相关文档
 - [SSL 证书产品介绍](https://cloud.tencent.com/document/product/400/7572)
