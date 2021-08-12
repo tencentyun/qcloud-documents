@@ -5,8 +5,14 @@
 >?具体安装流程请您参考 [安装 gRPC Java的说明](https://github.com/grpc/grpc-java/blob/master/COMPILING.md)。
 ## 定义服务
 gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过参数和返回类型来指定可以远程调用的方法。
- >?我们提供定义服务的 proto 文件，请您在 [proto 文件](https://cloud.tencent.com/document/product/1165/46111) 里下载使用，无需自己生成。
+
+<dx-alert infotype="explain" title="">
+我们提供定义服务的 proto 文件，请您在 [proto 文件](https://cloud.tencent.com/document/product/1165/46111) 里下载使用，无需自己生成。
  
+</dx-alert>
+
+
+
 ## 生成 gRPC 代码
 1. 定义好服务后，通过 protocol buffer 编译器 protoc 生成客户端和服务端的代码（任意 gRPC 支持的语言）。 
 2. 生成的代码包括客户端的存根和服务端要实现的抽象接口。
