@@ -382,7 +382,7 @@ NS_SWIFT_NAME(getRoomInfos(roomIDs:callback:));
 
 | 参数     | 类型                                                         | 含义               |
 | -------- | ------------------------------------------------------------ | ------------------ |
-| roomIDs  | [UInt32]                                                     | 房间号列表。       |
+| roomIDs  | UInt32                                                       | 房间号列表。       |
 | callback | (_ code: Int, _ message: String?, _ roomList: [TRTCLiveRoomInfo]) -> Void | 房间详细信息回调。 |
 
 
@@ -605,7 +605,8 @@ NS_SWIFT_NAME(requestJoinAnchor(reason:timeout:responseCallback:));
 
 | 参数             | 类型                                        | 含义           |
 | ---------------- | ------------------------------------------- | -------------- |
-| reason           | String?                                     | 连麦原因。     |
+| reason           | String                                      | 连麦原因。     |
+| timeout | long | 主播响应回调。 |
 | responseCallback | (_ agreed: Bool, _ reason: String?) -> Void | 主播响应回调。 |
 
 主播和观众的连麦流程如下：
@@ -774,7 +775,7 @@ NS_SWIFT_NAME(quitRoomPK(callback:));
 /// 设置是否镜像展示
 /// - Parameter isMirror: 开启/关闭镜像。
 - (void)setMirror:(BOOL)isMirror
-NS_SWIFT_NAME(setMirror(_:));
+NS_SWIFT_NAME(setMirror(isMirror:));
 ```
 
 参数如下表所示：
@@ -792,7 +793,7 @@ NS_SWIFT_NAME(setMirror(_:));
 /// 静音本地音频。
 /// - Parameter isMuted: true：开启静音；false：关闭静音。
 - (void)muteLocalAudio:(BOOL)isMuted
-NS_SWIFT_NAME(muteLocalAudio(_:));
+NS_SWIFT_NAME(muteLocalAudio(isMuted:));
 ```
 
 参数如下表所示：
@@ -848,7 +849,7 @@ NS_SWIFT_NAME(muteAllRemoteAudio(_:));
 /// 设置音频质量，支持的值为1 2 3，代表低中高
 /// - Parameter quality 音频质量
 - (void)setAudioQuality:(NSInteger)quality
-NS_SWIFT_NAME(setAudioiQuality(_:));
+NS_SWIFT_NAME(setAudioiQuality(quality:));
 ```
 
 参数如下表所示：
@@ -930,8 +931,8 @@ NS_SWIFT_NAME(sendRoomTextMsg(message:callback:));
 ///   - command: 命令字，由开发者自定义，主要用于区分不同消息类型
 ///   - message: 本文消息。
 ///   - callback: 发送回调。
-- (void)sendRoomCustomMsgWithCommand:(NSString *)cmd message:(NSString *)message callback:(Callback _Nullable)callback
-NS_SWIFT_NAME(sendRoomCustomMsg(cmd:message:callback:));
+- (void)sendRoomCustomMsgWithCommand:(NSString *)command message:(NSString *)message callback:(Callback _Nullable)callback
+NS_SWIFT_NAME(sendRoomCustomMsg(command:message:callback:));
 ```
 
 参数如下表所示：
