@@ -522,7 +522,7 @@ NS_SWIFT_NAME(enterSeat(callback:));
 
 | 参数       | 类型    | 含义                        |
 | ---------- | ------- | --------------------------- |
-| useSpeaker | boolean | true：扬声器；false：听筒。 |
+| userSpeaker | boolean | true：扬声器；false：听筒。 |
 
 
 
@@ -582,7 +582,7 @@ NS_SWIFT_NAME(enterSeat(callback:));
 
 | 参数 | 类型    | 含义                              |
 | ---- | ------- | --------------------------------- |
-| mute | boolean | true：开启静音；false：关闭静音。 |
+| isMute | boolean | true：开启静音；false：关闭静音。 |
 
    
 
@@ -1015,7 +1015,7 @@ NS_SWIFT_NAME(onInviteeRejected(identifier:invitee:));
 | 参数       | 类型   | 含义              |
 | ---------- | ------ | ----------------- |
 | identifier | String | 邀请 ID。         |
-| inviter    | String | 邀请人的用户 ID。 |
+| invitee    | String | 邀请人的用户 ID。 |
 
 ### onInvitationTimeout
 
