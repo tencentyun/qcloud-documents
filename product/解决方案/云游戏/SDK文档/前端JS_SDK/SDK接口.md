@@ -237,8 +237,8 @@ params对象有效字段描述：
 
 ## 游戏进程相关接口
 
-[](id:TCGSDK.gameRestart(callback,retry))
-### TCGSDK.gameRestart(callback,retry)
+[](id:TCGSDK.gameRestart(callback))
+### TCGSDK.gameRestart(callback)
 
 重启当前运行的游戏进程。
 
@@ -600,8 +600,8 @@ function(res) {
 
 ## 音视频相关接口
 
-[](id:TCGSDK.setStreamProfile(profile,callback,retry))
-### TCGSDK.setStreamProfile(profile,callback,retry)
+[](id:TCGSDK.setStreamProfile(profile,callback))
+### TCGSDK.setStreamProfile(profile,callback)
 
 设置码流参数（该接口为设置建议码流参数，云端会根据网络情况动态调整）
 
