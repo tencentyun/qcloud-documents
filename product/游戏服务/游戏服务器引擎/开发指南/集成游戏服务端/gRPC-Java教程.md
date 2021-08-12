@@ -57,7 +57,7 @@ protoc --plugin=protoc-gen-grpc-java=`which protoc-gen-grpc-java` --grpc-java_ou
 ## 游戏进程集成流程
 ![](https://main.qcloudimg.com/raw/7573bff913544f74ff384d5f491db735.png)
 
-#### 服务端接口列表
+#### Game Server 回调接口列表
 
 | 接口名称 | 接口功能|
 |-----|----|
@@ -65,7 +65,7 @@ protoc --plugin=protoc-gen-grpc-java=`which protoc-gen-grpc-java` --grpc-java_ou
 |[OnStartGameServerSession](https://cloud.tencent.com/document/product/1165/46118)|接收游戏服务器会话|
 |[OnProcessTerminate](https://cloud.tencent.com/document/product/1165/46121)|结束游戏进程|
 
-#### 客户端接口列表
+#### Game Server 主调接口列表
 
 | 接口名称 | 接口功能 |
 |-----|----|
