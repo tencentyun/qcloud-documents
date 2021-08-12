@@ -4,16 +4,23 @@
 [](id:test)
 ## 测试版 License
 [](id:creat_test)
+
 ### 申请测试版 License
 
-您可以免费申请短视频模块基础版的测试版 License（免费测试有效期为14天，可续期1次，共28天，有效期至到期次日00:00:00为止）体验测试，具体步骤如下：
+您可以免费申请短视频模块基础版的测试版 License（免费测试有效期为14天，可续期1次，共28天）体验测试。
+
+> !试用期内申请测试续期，则续期到期时间以申请测试时刻为准；若试用期结束后申请测试续期，则续期到期时间以申请测试续期时刻为准。
+> - 当申请测试开始时间为 `2021-08-12 10:28:41`，则14天后到期时间为 `2021-08-26 10:28:41`。
+> - 免费续期一次时，若在试用期14天内申请续期，则到期时间为 `2021-09-09 10:28:41`；若在试用期14天结束后申请续期，申请续期的时间为 `2021-08-30 22:26:20`，则续期的到期时间为 `2021-09-13 22:26:20`。
+
+具体步骤如下：
 
 1. 登录【[腾讯云视立方控制台](https://console.cloud.tencent.com/vcube)】，单击【创建测试 License】。
 ![](https://main.qcloudimg.com/raw/a623b59b4989ef4d713fc5a2e13927c1.png)
 2. 根据实际需求填写 App Name、Package Name 和 Bundle ID，勾选功能模块【短视频】，单击【确定】。
 ![](https://main.qcloudimg.com/raw/3127c6c454fecae07709f4a82fb41089.png)
 3. 测试版 License 成功创建后，页面会显示生成的 License 信息。在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。
-![](https://main.qcloudimg.com/raw/149d2109ce77f419b9a154bbcd2ceb63.png)
+![](https://main.qcloudimg.com/raw/72b7376b67bbce7fd922e30addf76614.png)
 
 >? 
 >- 测试版 License 有效期内可单击右侧的【编辑】，进入修改 Bundle ID 和 Package Name 信息，单击【确定】即可保存。
@@ -24,15 +31,16 @@
 ### 续期测试版 License
 
 测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**。单击功能模块【短视频】右侧的【续期】按钮，选择【确定续期】即可续期该功能模块14天。
-![](https://main.qcloudimg.com/raw/42d1eca5dbb43c767b74c49827b73319.png)
->! 测试版 License 有效期共28天，只能续期一次（有效期至到期次日00:00:00为止）。若您需继续使用，请 [购买](https://buy.cloud.tencent.com/vcube) 正式版 License。
+![](https://main.qcloudimg.com/raw/348da4abf6673f65035eec391d7310ee.png)
+
+>! 测试版 License 有效期共28天，只能续期一次。若您需继续使用，请 [购买](https://buy.cloud.tencent.com/vcube) 正式版 License。
 
 [](id:update_test)
 ### 测试版 License 升级
 若您需要将短视频测试版 License 升级成为短视频正式版 License，获得一年的有效的使用期。具体操作如下：
 
 1. 单击测试版 License 短视频模块中的【升级】。
-![](https://main.qcloudimg.com/raw/ebe73ffad274284a31ff63d104edac51.png)
+![](https://main.qcloudimg.com/raw/ccb771bafef68ec62507904eb45b0aab.png)
 2. 进入升级功能模块界面，选择需要绑定的云点播流量资源包，单击【确定】即可升级到短视频（精简版/基础版）的正式版 License。
 ![](https://main.qcloudimg.com/raw/ce167424d536f3b051a4d3c72be5adb6.png)
 
@@ -44,7 +52,7 @@
 ## 正式版 License
 [](id:creat_formal)
 ### 购买正式版 License
-1. 购买指定规格的 [云点播流量资源包](https://cloud.tencent.com/document/product/1449/56973#video)，获得赠送1年有效期的正式短视频（精简版/基础版） License 使用权限（有效期至到期次日00:00:00为止），具体 License 版本对应套餐包如下表：
+1. 购买指定规格的 [云点播流量资源包](https://cloud.tencent.com/document/product/1449/56973#video)，获得赠送1年有效期的正式短视频（精简版/基础版） License 使用权限（有效期至到期当日23:59:59止），具体 License 版本对应套餐包如下表：
 <table>
 <tr><th>License 版本</th><th>套餐包</th>
 </tr><tr>
