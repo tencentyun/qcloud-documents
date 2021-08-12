@@ -44,15 +44,17 @@
 [](id:Live)
 ### 直播推流模块
 
-购买云直播流量资源包-10TB，可以解锁直播推流（主播开播和主播观众连麦/主播跨房 PK）模块，有效期一年。单击 [申请直播推流 License](https://cloud.tencent.com/document/product/1449/56981)。
+购买 10TB 、50TB 、200TB 、1PB 云直播流量资源包，可以解锁直播推流（主播开播和主播观众连麦/主播跨房 PK）模块，有效期一年。更多新增与续期操作请参见 [直播推流 License](https://cloud.tencent.com/document/product/1449/56981)。
 
 > ? 小程序端的直播推流/播放功能需要先取得对应的直播相关资质，详情可参见 [小程序直播接入指引](https://cloud.tencent.com/document/product/1078/37707)。
 
 
 [](id:UGSV)
 ### 短视频模块
-- 购买云点播流量资源包-10TB，可以解锁短视频模块—精简版，有效期一年。
-- 购买云点播流量资源包-50TB、流量资源包-100TB、流量资源包-1PB，可以解锁短视频模块（基础版），有效期一年。
+- 购买 10TB 云点播流量资源包，可以解锁短视频模块—精简版，有效期一年。
+- 购买 50TB 、200TB 、1PB 云点播流量资源包，可以解锁短视频模块（基础版），有效期一年。
+
+更多新增与续期操作请参见 [短视频 License](https://cloud.tencent.com/document/product/1449/56982)。
 
 [](id:UGSV_detail)
 #### 短视频 License 功能详情
