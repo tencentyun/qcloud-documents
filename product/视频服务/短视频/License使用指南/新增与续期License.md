@@ -85,7 +85,7 @@
 
 [](id:renew_formal)
 ### 更新正式版 License
-您可以登录【[云点播控制台](https://console.cloud.tencent.com/vod/license)】 > 【[短视频 License](https://console.cloud.tencent.com/vod/license) 】页面查看短视频正式版 License 的有效期，正式版本的 License 有效期为一年。若您对指定 License 进行续期，请保证已购买流量资源包的情况下，可进行如下操作进行续期：
+您可以登录【[云点播控制台](https://console.cloud.tencent.com/vod/license)】>【License 管理】>【[SDK License](https://console.cloud.tencent.com/vod/license) 】页面查看短视频正式版 License 的有效期，正式版本的 License 有效期为一年。若您对指定 License 进行续期，请保证已购买流量资源包的情况下，可进行如下操作进行续期：
 1. 选择您需要更新有效期的短视频 License，单击对应视频模块中的【更新有效期】。
 ![](https://main.qcloudimg.com/raw/87ab786d72d8bad10774b2dc9bdfb8a1.png)
 2. 选择**未绑定**过的云点播流量资源包（如没有可更新有效期的资源包，可前往 [资源包购买页](https://buy.cloud.tencent.com/vcube) 购买），单击【确定】即可。
