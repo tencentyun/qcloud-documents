@@ -616,12 +616,13 @@ function(res) {
 
 获取显示区域的参数，边距，宽高等。
 
-[](id:TCGSDK.getVolume(val))
+[](id:TCGSDK.getVideoVolume())
+
 ### TCGSDK.getVideoVolume()
 获取 video 当前音量值（游戏声音）。
 
+[](id:TCGSDK.setVideoVolume(val))
 
-[](id:TCGSDK.setVolume(val))
 ### TCGSDK.setVideoVolume(val)
 设置video播放音量（游戏声音）
 
