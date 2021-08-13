@@ -77,6 +77,7 @@ bundleid 类似于 Android 端的 package name，若您不集成 iOS 端，可�
 
 - 若您仅需要提供子账号查询 License 的权限，请授权 QcloudVCUBEReadOnlyAccess 策略。
 - 若您需要提供子账号所有 License 操作权限，请授权 QcloudVCUBEFullAccess 策略。
+
 为用户/用户组关联策略以授权相关操作权限的关联指引请参见 [策略授权管理](https://cloud.tencent.com/document/product/598/10602)。
 
 >? License 界面所有功能操作已独立于云直播、云点播策略外，即原 QcloudVODFullAccess、QcloudLIVEFullAccess 策略已不包含 License 相关接口，需按照上述说明单独授权。
