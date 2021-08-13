@@ -10,7 +10,7 @@
 
 ## 效果展示
 
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 Karaoke 的能力，包括低延时 K 歌、麦位管理、收发礼物、文字聊天等音视频通话 TRTC 在 Karaoke 场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 KTV 的能力，包括低延时 K 歌、麦位管理、收发礼物、文字聊天等音视频通话 TRTC 在 KTV 场景下的相关能力。
 <table>
      <tr>
          <th>房主麦位操作</th>  
@@ -22,7 +22,7 @@
 </tr>
 </table>
 
-如需快速接入 Karaoke 功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TUIKaraoke 组件并实现自定义 UI 界面。
+如需快速接入 KTV 功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TUIKaraoke 组件并实现自定义 UI 界面。
 
 [](id:DemoUI)
 ## 复用 App 的 UI 界面
@@ -70,7 +70,7 @@
 | 文件或文件夹 | 功能描述 |
 |:-------:|:--------|
 |TRTCKaraokeEnteryControl.swift|该文件包含所有 ViewController 的初始化获取方法，您可以通过该实例，快速获取 ViewController 对象。|
-| TRTCCreateKaraokeViewController | 创建 Karaoke 页面逻辑。 |
+| TRTCCreateKaraokeViewController | 创建 KTV 页面逻辑。 |
 | TRTCKaraokeViewController | 主房间页面，包括房主和听众两种界面。 |
 
 每个 `TRTC'XXXX'ViewController` 文件夹下均包含 `ViewController`、`RootView` 和 `ViewModel`，各个文件的作用如下表所示：
@@ -109,7 +109,7 @@
 
 [](id:model.step1)
 ### 步骤1：集成 SDK
-Karaoke 组件 TRTCKaraokeRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
+KTV 组件 TRTCKaraokeRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 - **方法一：通过 cocoapods 仓库依赖**
 <dx-codeblock>
@@ -185,7 +185,7 @@ class YourController {
     // 其他代码逻辑
     ......
 }
-// 设置 Karaoke 代理
+// 设置 KTV 代理
 self.karaokeRoom.setDelegate(delegate: karaokeRoomDelegate)
 
 // 调用方式如下,闭包内建议使用 weak self 防止循环引用（下面示例代码省略 weak self 示例）
@@ -199,7 +199,7 @@ self.karaokeRoom.login(sdkAppId: sdkAppID, userId: userId, userSig: userSig) { [
 [](id:model.step5)
 ### 步骤5：房主创建房间
 1. 房主执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
-2. 房主调用 `createRoom` 创建新的 Karaoke 房间，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
+2. 房主调用 `createRoom` 创建新的 KTV 房间，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
 3. 房主创建房间成功后，可以调用 `enterSeat` 进入座位。
 4. 房主收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 5. 房主还会收到麦位表有成员进入的 `onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
@@ -258,11 +258,11 @@ func onAnchorEnterSeat(index: Int, user: UserInfo) {
 [](id:model.step6)
 ### 步骤6：听众端观看
 1. 听众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
-2. 听众端向业务后台获取最新的 Karaoke 房间列表。
->?App 中的 Karaoke 房间列表仅做演示使用，Karaoke 房间列表的业务逻辑千差万别，腾讯云暂不提供 Karaoke 房间列表的管理服务，请自行管理您的 Karaoke 房间列表。
-3. 听众端调用 `getRoomInfoList` 获取房间的详细信息，该信息是在房主端调用`createRoom`创建 Karaoke 房间时设置的简单描述信息。
->!如果您的 Karaoke 房间列表包含了足够全面的信息，可跳过调用 `getRoomInfoList` 相关步骤。
-4. 听众选择一个 Karaoke 房间，调用 `enterRoom` 并传入房间号即可进入该房间。
+2. 听众端向业务后台获取最新的 KTV 房间列表。
+>?App 中的 KTV 房间列表仅做演示使用，KTV 房间列表的业务逻辑千差万别，腾讯云暂不提供 KTV 房间列表的管理服务，请自行管理您的 KTV 房间列表。
+3. 听众端调用 `getRoomInfoList` 获取房间的详细信息，该信息是在房主端调用`createRoom`创建 KTV 房间时设置的简单描述信息。
+>!如果您的 KTV 房间列表包含了足够全面的信息，可跳过调用 `getRoomInfoList` 相关步骤。
+4. 听众选择一个 KTV 房间，调用 `enterRoom` 并传入房间号即可进入该房间。
 5. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
 6. 进房后会收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 7. 进房后还会收到麦位表有主播进入的` onAnchorEnterSeat` 的事件通知。
@@ -284,7 +284,7 @@ self.karaokeRoom.getRoomInfoList(roomIdList: roomIdsInt) { (code, message, roomI
     // 获取结果，此时可以刷新UI
 }
 
-// 4.选择 Karaoke 后，传入 roomId 进入房间
+// 4.选择 KTV 后，传入 roomId 进入房间
 self.karaokeRoom.enterRoom(roomID: roomInfo.roomID) { (code, message) in
     // 进入房间结果回调
     if code == 0 {
