@@ -35,7 +35,7 @@
 | [TCGSDK.loginHelper(params, callback) ](#tcgsdk.loginhelper(params,-callback)) | 辅助登录                   |
 | [TCGSDK.getLoginWindowStat(gameid, callback)](#tcgsdk.getloginwindowstat(gameid,-callback)) | 获取当前窗口是否为登录窗口 |
 | [TCGSDK.sendText(content)](#tcgsdk.sendText(content)) | 聚焦输入框时快速发送内容 |
-| [TCGSDK.createCustomDataChannel({destPort, onMessage})](#tcgsdk.createCustomDataChannel({destPort,-onMessage})) | 创建自定义dataChannel |
+| [TCGSDK.createCustomDataChannel({destPort, onMessage})](#tcgsdk.createCustomDataChannel({destPort,-onMessage})) | 创建自定义 dataChannel |
 | [TCGSDK.setRemoteDesktopResolution({width, height})](#tcgsdk.setRemoteDesktopResolution({width,-height})) | 设置云端桌面分辨率 |
 
 ### 鼠标键盘控制相关接口
@@ -66,7 +66,7 @@
 
 | 接口名称                                                     | 接口描述           |
 | ------------------------------------------------------------ | ------------------ |
-| [TCGSDK.setDebugMode({showLog, showStats, userid})](#tcgsdk.setDebugMode({showLog, showStats, userid})) | 打开或关闭调试模式 |
+| [TCGSDK.setDebugMode({showLog,showStats,userid})](#TCGSDK.setDebugMode({showLog,showStats,userid})) | 打开或关闭调试模式 |
 | [TCGSDK.reportLog() ](#tcgsdk.reportlog())                   | 上报问题           |
 | [TCGSDK.setLogHandler(handler)](#tcgsdk.setloghandler(handler)) | 设置日志回调函数   |
 
@@ -74,12 +74,12 @@
 
 | 接口名称                                                     | 接口描述           |
 | ------------------------------------------------------------ | ------------------ |
-| [TCGSDK.setStreamProfile(profile, callback)](#tcgsdk.setstreamprofile(profile,callback)) | 设置码流参数       |
+| [TCGSDK.setStreamProfile(profile,callback)](#tcgsdk.setstreamprofile(profile,callback)) | 设置码流参数       |
 | [TCGSDK.getDisplayRect()](#tcgsdk.getdisplayrect())          | 获取显示区域的参数 |
-| [TCGSDK.getVideoVolume()](#tcgsdk.getVideoVolume())                    | 获取video当前音量值（游戏声音）     |
-| [TCGSDK.setVideoVolume(val) ](#tcgsdk.setVideoVolume(val))             | 设置video播放音量值（游戏声音）   |
+| [TCGSDK.getVideoVolume()](#tcgsdk.getVideoVolume())                    | 获取 video 当前音量值（游戏声音）   |
+| [TCGSDK.setVideoVolume(val) ](#tcgsdk.setVideoVolume(val))             | 设置 video 播放音量值（游戏声音） |
 | [TCGSDK.setPageBackground(url)](#tcgsdk.setpagebackground(url))       | 设置云游戏页面的背景图     |
-| [TCGSDK.setVideoOrientation(deg, rotateContainer)](#tcgsdk.setVideoOrientation(deg,-rotateContainer))       | 设置video 的旋转角度 |
+| [TCGSDK.setVideoOrientation(deg, rotateContainer)](#tcgsdk.setVideoOrientation(deg,-rotateContainer))       | 设置 video 的旋转角度 |
 
 
 
@@ -97,25 +97,25 @@ params对象有效字段描述：
 | appid                   | number   | 必填     | 用户的腾讯云 [APPID](https://console.cloud.tencent.com/developer) |
 | showLogo                | boolean  | 可选     | 默认值为 true<br />true 为显示腾讯云 Logo，false不显示 |
 | mic                     | boolean  | 可选     | 默认值为 false<br />true 为开启本地麦克风，false不开启 |
-| tabletMode              | boolean  | 可选     | 默认值为 false<br />true 为使用平板滑动鼠标模式，false 为绝对映射模式。该参数只针对移动端，PC 端忽略该参数。该mode 下鼠标产生相对位移。 |
+| tabletMode              | boolean  | 可选     | 默认值为 false<br />true 为使用平板滑动鼠标模式，false 为绝对映射模式。该参数只针对移动端，PC 端忽略该参数。该 mode 下鼠标产生相对位移 |
 | mobileGame              | boolean  | 可选     | 默认值为 false<br />true 为使用接入手游，false 为适用端游 |
-| cursorMode              | number   | 可选     | 默认值为 0 <br />鼠标模式，取值同[TCGSDK.setRemoteCursor(mode)](#tcgsdk.setremotecursor(mode)) 设置鼠标样式   |
-| clickToFullscreen       | boolean  | 可选     | 默认值为 false<br />是否启动点击全屏操作，true 为启用，false为禁用 |
+| cursorMode              | number   | 可选     | 默认值为 0 <br />鼠标模式，取值同 [TCGSDK.setRemoteCursor(mode)](#tcgsdk.setremotecursor(mode)) 设置鼠标样式  |
+| clickToFullscreen       | boolean  | 可选     | 默认值为 false<br />是否启动点击全屏操作，true 为启用，false 为禁用 |
 | idleThreshold           | number   | 可选     | 默认值为 300s<br />用户操作空闲时间阈值，单位为秒，空闲超过这个时间将触发 `onNetworkChange` 事件，消息为 `{status: 'idle', times: 1}` |
-| keepLastFrame           | boolean  | 可选     | 默认值为 false<br />断开的时候是否保留最后一帧画面，false为不保留，true保留。如果需要保留最后一帧画面并重连，不能再次调用 init 函数，而是先调用 `destroy()` 接口，再调用 `start()` 接口。 |
-| reconnect               | boolean  | 可选     | 默认值为 false<br />true 为帧率掉0或者异常断开自动重连一次，true为重连，false 为不重连 |
+| keepLastFrame           | boolean  | 可选     | 默认值为 false<br />断开的时候是否保留最后一帧画面，false 为不保留，true 保留。如果需要保留最后一帧画面并重连，不能再次调用 init 函数，而是先调用 `destroy()` 接口，再调用 `start()` 接口。 |
+| reconnect               | boolean  | 可选     | 默认值为 false<br />true 为帧率掉0或者异常断开自动重连一次，true 为重连，false 为不重连 |
 | showLoading             | boolean  | 可选     | 默认值为 true <br />是否显示“正在加载中”画面 |
 | loadingText             | string   | 可选     | 默认值为 `'正在启动云游戏' `<br />加载画面中的文字提示内容 |
-| autoRotateContainer     | boolean  | 可选     | 默认值为 false <br />移动端场景下，当横竖屏切换时，是否自动旋转适配， |
-| fullVideoToScreen       | boolean  | 可选     | 默认值为 false <br />当 mount 挂载节点宽高大于云端推流分辨率时候，true 拉伸video 尺寸并采用短边适配，false 不拉伸video，保持原有云端分辨率 |
-| debugSetting            | object   | 可选     | showLog: boolean (可选)是否展示日志， showStats: boolean (可选)是否展示WebRTC 状态信息，也可使用CTRL+~ 快捷键显示 |
+| autoRotateContainer     | boolean  | 可选     | 默认值为 false <br />移动端场景下，当横竖屏切换时，是否自动旋转适配 |
+| fullVideoToScreen       | boolean  | 可选     | 默认值为 false <br />当 mount 挂载节点宽高大于云端推流分辨率时候，true 拉伸 video 尺寸并采用短边适配，false 不拉伸 video，保持原有云端分辨率 |
+| debugSetting            | object   | 可选     | <li/>showLog：boolean（可选）是否展示日志<li/> showStats：boolean（可选）是否展示 WebRTC 状态信息，也可使用 `CTRL+~`  快捷键显示 |
 | onInitSuccess           | function | 可选     | 初始化完毕的回调，触发此回调之后才能调用后面的 API |
 | onConnectSuccess        | function | 可选     | 连接成功回调，调用 start 接口成功后才会触发 |
 | onConnectFail           | function | 可选     | 连接失败回调，调用 start 接口成功后才会触发 |
 | onWebrtcStatusChange    | function | 可选     | webrtc 状态回调，调用 start 接口成功后才会触发 |
 | onDisconnect            | function | 可选     | 断开/被踢触发此回调，调用 start 接口成功后才会触发 |
 | onNetworkChange         | function | 可选     | 网络状态变化 |
-| onTouchEvent            | function | 可选     | 移动端触摸事件回调，调用 start 接口成功后才会触发，返回一个object 具体参见 [onTouchEvent](#onTouchEvent)<br /> 云端游场景下，在移动端接入JS SDK时，SDK会把对应的点位坐标按照 onTouchEventResponse[] 的结构回调，需要业务测自己处理对应的消息发送逻辑。<br />例如：mouseMove，mouseleft的down/up等操作。 |
+| onTouchEvent            | function | 可选     | 移动端触摸事件回调，调用 start 接口成功后才会触发，返回一个object 具体参见 [onTouchEvent](#onTouchEvent)<br /> 云端游场景下，在移动端接入JS SDK时，SDK会把对应的点位坐标按照 `onTouchEventResponse[]` 的结构回调，需要业务测自己处理对应的消息发送逻辑。<br />例如：mouseMove，mouseleft 的 down/up 等操作。 |
 | onLoadGameArchive       | function | 可选     | 游戏存档加载回调，会不断回调size（需要进行云端配置）|
 | onSaveGameArchive       | function | 可选     | 游戏保存存档回调（需要进行云端配置） |
 | onInputStatusChange     | function | 可选     | 云端输入状态改变，有点击事件的时候都会触发，需要判断新旧状态 |
@@ -176,7 +176,7 @@ params对象有效字段描述：
 
 | 错误码 | 说明                       |
 | ------ | -------------------------- |
-| code=-1 | setRemoteDescription失败，常见于浏览器不支持WebRTC或云游编码格式      |
+| code=-1 | setRemoteDescription 失败，常见于浏览器不支持 WebRTC 或云游编码格式   |
 | code=0 | 请求正常                   |
 | code=1 | 系统繁忙                   |
 | code=2 | 票据不合法                 |
@@ -194,9 +194,10 @@ params对象有效字段描述：
 | code=-1 | 需要重连 |
 | code=0 | 主动关闭  |
 | code=1 | 系统繁忙 |
-| code=2 | 重连失败(针对自动和手动重连情况) |
-| code=3 | 重连失败, token 过期(调用重连接口也会失败) |
+| code=2 | 重连失败（针对自动和手动重连情况） |
+| code=3 | 重连失败，token 过期（调用重连接口也会失败） |
 
+[](id:onConnectFail)
 #### onConnectFail 错误码汇总
 
 | 错误码 | 说明     |
@@ -204,12 +205,14 @@ params对象有效字段描述：
 | code=1 | 频繁连接，5s内限频 |
 | code=2 | 自动重连中 |
 
+[](id:onConfigurationChange)
 #### onConfigurationChange 事件字段描述
 
 | 字段       | 类型    | 描述                                                         |
 | ---------- | ------- | ------------------------------------------------------------ |
 | screen_config | object  | `{width: number; height: number; orientation: 'landscape' | 'portrait';}`   |
 
+[](id:TCGSDK.getClientSession())
 ### TCGSDK.getClientSession()
 
 客户端获取 Client 端的会话信息，后续供业务 Server 调用 [CreateSession(ClientSession)](https://cloud.tencent.com/document/product/1162/40740) 使用。
@@ -334,12 +337,12 @@ function(res) {
 [](id:TCGSDK.createCustomDataChannel({destPort,onMessage}))
 ### TCGSDK.createCustomDataChannel({destPort,onMessage})
 
-创建自定义dataChannel，返回Promise。（需要server 支持）
+创建自定义 dataChannel，返回 Promise。（需要 server 支持）
 
-| 参数      | 参数类型 | 说明                                  |
-| --------- | -------- | ------------------------------------- |
-| destPort  | number   | 目标端口好                            |
-| onMessage | function | onMessage 回调，透传server 返回的数据 |
+| 参数      | 参数类型 | 说明                                   |
+| --------- | -------- | -------------------------------------- |
+| destPort  | number   | 目标端口好                             |
+| onMessage | function | onMessage 回调，透传 server 返回的数据 |
 
 | 返回值 | 返回值类型 | 说明         |
 | ----------- | ---------- | ------------------------------------------------------------ |
@@ -362,8 +365,6 @@ function(res) {
 | ------ | ---------- | ---------------- |
 | code   | number     | 0 success,1 fail |
 
-
-
 ## 鼠标键盘控制相关接口
 
 [](id:TCGSDK.sendKeyboardEvent(event))
@@ -378,7 +379,7 @@ function(res) {
 [](id:TCGSDK.sendMouseEvent(event))
 ### TCGSDK.sendMouseEvent(event)
 
-模拟发送鼠标事件，对应PC鼠标按键，如果需要调用移动，请使用[mouseMove](#tcgsdk.mousemove(identifier,-type,-x,-y)) 接口。
+模拟发送鼠标事件，对应PC鼠标按键，如果需要调用移动，请使用 [mouseMove](#tcgsdk.mousemove(identifier,-type,-x,-y))  接口。
 
 | 参数  | 参数类型 | 说明                                          |
 | ----- | -------- | -------------------------------------------- |
@@ -542,7 +543,7 @@ function(res) {
 [](id:TCGSDK.setRemoteCursorStyle(style))
 ### TCGSDK.setRemoteCursorStyle(style)
 
-设置云端的系统鼠标样式，[setRemoteCursor](#tcgsdk.setremotecursor(mode)) 的 mode 为1和2时生效；
+设置云端的系统鼠标样式，[setRemoteCursor](#tcgsdk.setremotecursor(mode)) 的 mode 为1和2时生效。
 
 | 参数  | 参数类型 | 说明                                                         |
 | ----- | -------- | ------------------------------------------------------------ |
@@ -570,8 +571,8 @@ function(res) {
 
 ## 调试及日志相关接口
 
-[](id:TCGSDK.setDebugMode({showLog, showStats, userid}))
-### TCGSDK.setDebugMode({showLog, showStats, userid})
+[](id:TCGSDK.setDebugMode({showLog,showStats,userid}))
+### TCGSDK.setDebugMode({showLog,showStats,userid})
 
 打开或关闭调试模式，打开的情况下将在控制台打印日志。
 
@@ -603,7 +604,7 @@ function(res) {
 [](id:TCGSDK.setStreamProfile(profile,callback))
 ### TCGSDK.setStreamProfile(profile,callback)
 
-设置码流参数（该接口为设置建议码流参数，云端会根据网络情况动态调整）
+设置码流参数（该接口为设置建议码流参数，云端会根据网络情况动态调整）。
 
 | 参数     | 参数类型 | 说明                                                         |
 | -------- | -------- | ------------------------------------------------------------ |
@@ -617,7 +618,7 @@ function(res) {
 
 [](id:TCGSDK.getVolume(val))
 ### TCGSDK.getVideoVolume()
-获取video当前音量值（游戏声音）
+获取 video 当前音量值（游戏声音）。
 
 
 [](id:TCGSDK.setVolume(val))
@@ -646,6 +647,6 @@ function(res) {
 
 | 参数 | 参数类型 | 说明         |
 | ---- | -------- | ------------ |
-| deg  | number  | 旋转角度 当前只支持0/90 |
-| rotateContainer  | boolean  | 是否旋转整个视图 UI，选填，默认值 true ，true为旋转，false为不旋转|
+| deg  | number  | 旋转角度，当前只支持0/90 |
+| rotateContainer  | boolean  | 是否旋转整个视图 UI，选填，默认值 true ，true 为旋转，false 为不旋转 |
 
