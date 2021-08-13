@@ -94,7 +94,7 @@
 ## 3 如何使用Cookie等同类技术
 为确保网站正常运转，我们会在第三方开发者的计算机或移动设备上存储名为 Cookie 的小数据文件。Cookie 通常包含标识符、站点名称以及一些号码和字符。运用Cookie技术，我们能够为第三方开发者提供更加周到的个性化服务，并允许第三方开发者设定第三方开发者特定的服务选项。
 
-有关我们使用的 Cookie 类型、原因、功能以及如何控制 Cookie 的更多信息，请参阅**腾讯《[Cookie政策说明](https://privacy.qq.com/document/priview/UzHogYzog73ns7vnu5_vvI3ogYzog73nur866YWN572uIkNvb2tpZeaUv-etliI6Q29va2ll5pS_562W)**》。
+有关我们使用的 Cookie 类型、原因、功能以及如何控制 Cookie 的更多信息，请参阅**腾讯《[Cookie 政策说明](https://privacy.qq.com/document/priview/UzHogYzog73ns7vnu5_vvI3ogYzog73nur866YWN572uIkNvb2tpZeaUv-etliI6Q29va2ll5pS_562W)**》。
 
 ## 4 如何共享、转让、公开披露第三方开发者和/或终端用户的个人信息
 ### 4.1 共享
