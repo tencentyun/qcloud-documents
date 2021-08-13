@@ -12,14 +12,13 @@ TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
 
 ## 前提条件
 1. 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
-
 2. 出于政策和合规的考虑，微信暂未放开所有小程序对实时音视频功能（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签）的支持：
-- 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
-- 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
-- 符合类目要求的小程序，需要在【[微信公众平台](https://mp.weixin.qq.com)】>【开发】>【开发管理】>【接口设置】中自助开通该组件权限，如下图所示：
+	- 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
+	- 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
+	- 符合类目要求的小程序，需要在【[微信公众平台](https://mp.weixin.qq.com)】>【开发】>【开发管理】>【接口设置】中自助开通该组件权限，如下图所示：
 ![](https://main.qcloudimg.com/raw/dc6d3c9102bd81443cb27b9810c8e981.png)
-## TRTCCalling API 概览
 
+## TRTCCalling API 概览
 ### 事件订阅/取消订阅
 
 本组件基于事件分发进行管理，应用层可以根据组件下发的事件进行上层交互的改变。
