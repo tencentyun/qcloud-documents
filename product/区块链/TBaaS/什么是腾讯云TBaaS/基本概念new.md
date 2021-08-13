@@ -71,12 +71,12 @@
 	<td>区块链上的一条交易执行过程中，被读取和被修改或写入的状态数据的集合。</td>
 	</tr>
 		<tr>
-	<td class="update">长安链CA<br>（Chainmaker CA）<br></td>
-	<td>指使用长安链配套证书管理工具chainmaker-cryptogen管理的证书、密钥体系。</td>
+	<td class="update">长安链 CA<br>（Chainmaker CA）<br></td>
+	<td>指使用长安链配套证书管理工具 chainmaker-cryptogen 管理的证书、密钥体系。</td>
 	</tr>
 	<tr><td class="update">wasm文件<br>（webassembly file）<br></td>
 	<td>长安链指的智能合约编译后生成的文件。
-wasm指通过各自符合WebAssembly规范的编译器编译出来的以.wasm结尾的文件。</td>
+wasm 指通过各自符合 WebAssembly 规范的编译器编译出来的以 .wasm 结尾的文件。</td>
 	</tr>
 </table>
 
@@ -152,33 +152,7 @@ wasm指通过各自符合WebAssembly规范的编译器编译出来的以.wasm结
 	</tr>
 </table>
 
-## TrustSQL 相关概念
-<table>
-	<tr>
-	<th width="26%" class="update">关键词</th>
-	<th class="update">描述</th>
-	</tr>
-	<tr>
-	<td class="update">未花费的交易输出<br>（UTXO，Unspent Transaction Output）</td>
-	<td>未花费的交易输出是一个包含交易数据和执行代码的数据结构，可以理解为收到的但尚未花费的加密货币清单。比特币和其他加密货币在其区块链技术中使用 UTXO，以验证一个人是否拥有未使用的加密货币可用于支出。</td>
-	</tr>
-	<tr>
-	<td class="update">哈希值</td>
-	<td>哈希值通常用一个短的随机字母和数字组成的字符串来代表，是一组任意长度的输入信息通过哈希算法得到的“数据指纹”。此外，哈希值是一段数据唯一且及其紧凑的数值表示形式，如果通过哈希一段明文得到哈希值，仅更改该段明文中的任意一个字母，随后得到的哈希值都将不同。</td>
-	</tr>
-	<tr>
-	<td class="update">区块链浏览器</td>
-	<td>区块链浏览器主要是用作查看链上数据及信息的一种方式，可浏览并查询任意区块、交易、地址的详细信息的工具。</td>
-	</tr>
-	<tr>
-	<td class="update">数字资产</td>
-	<td>数字资产是节点机构所拥有的虚拟电子形式的资产，用以在区块链中进行流转交易的一种资产。</td>
-	</tr>
-	<tr>
-	<td class="update">共享账本</td>
-	<td>共享账本是指链上各个节点的交易记录互相同步共享，即每个节点都拥有一份完整不可篡改的账本。</td>
-	</tr>
-</table>
+
 
 
 
