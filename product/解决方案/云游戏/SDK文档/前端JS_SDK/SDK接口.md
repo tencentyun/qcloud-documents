@@ -42,23 +42,23 @@
 
 | 接口名称                                                     | 接口描述                       |
 | ------------------------------------------------------------ | ------------------------------ |
-| [TCGSDK.sendKeyboardEvent(event)](#tcgsdk.sendkeyboardevent(event)) | 发送键盘事件             |
-| [TCGSDK.sendMouseEvent(event)](#tcgsdk.sendMouseEvent(event)) | 发送鼠标事件             |
-| [TCGSDK.sendRawEvent(event)   ](#tcgsdk.sendrawevent(event)) | 发送鼠标及键盘事件（底层实现） |
-| [TCGSDK.setMoveSensitivity(value)](#tcgsdk.setmovesensitivity(value)) | 设置鼠标移动灵敏度             |
-| [TCGSDK.sendSeqRawEvents(events)](#tcgsdk.sendseqrawevents(events)) | 发送按键序列（底层实现）       |
-| [TCGSDK.getMoveSensitivity()](#tcgsdk.getmovesensitivity())  | 获取当前鼠标灵敏度值           |
-| [TCGSDK.setMouseCanLock(true/false) ](#tcgsdk.setmousecanlock(true/false)) | 设置是否允许锁定鼠标           |
-| [TCGSDK.mouseMove(identifier,type,x,y)](#tcgsdk.mousemove(identifier,type,x,y)) | 移动端向云端发送鼠标移动事件   |
-| [TCGSDK.mouseTabletMode(enable)](#tcgsdk.mousetabletmode(enable)) | 开启或关闭滑屏鼠标移动模式     |
-| [TCGSDK.setRemoteCursor(mode)](#tcgsdk.setremotecursor(mode)) | 设置鼠标样式                   |
-| [TCGSDK.setCursorShowStat(show)](#tcgsdk.setcursorshowstat(show)) | 设置鼠标隐藏或显示             |
-| [TCGSDK.getCursorShowStat()](#tcgsdk.getcursorshowstat())    | 获取鼠标隐藏状态               |
-| [TCGSDK.setMobileCursorScale(val)](#tcgsdk.setmobilecursorscale(val)) | 移动端设置鼠标放大系数         |
-| [TCGSDK.setRemoteCursorStyle(style)](#tcgsdk.setremotecursorstyle(style)) | 设置云端的系统鼠标样式         |
-| [TCGSDK.clearRemoteKeys()](#tcgsdk.clearremotekeys())        | 重置云端按键状态               |
-| [TCGSDK.resetRemoteCapsLock() ](#tcgsdk.resetremotecapslock()) | 重置云端大小写状态             |
-| [TCGSDK.setDefaultCursorImage(url)](#tcgsdk.setdefaultcursorimage(url))  |设置云游戏页面中鼠标默认图片              |
+| [TCGSDK.sendKeyboardEvent(event)](#TCGSDK.sendKeyboardEvent(event)) | 发送键盘事件             |
+| [TCGSDK.sendMouseEvent(event)](#TCGSDK.sendMouseEvent(event)) | 发送鼠标事件             |
+| [TCGSDK.sendRawEvent(event)](#TCGSDK.sendRawEvent(event)) | 发送鼠标及键盘事件（底层实现） |
+| [TCGSDK.setMoveSensitivity(value)](#TCGSDK.setMoveSensitivity(value)) | 设置鼠标移动灵敏度             |
+| [TCGSDK.sendSeqRawEvents(events)](#TCGSDK.sendSeqRawEvents(events)) | 发送按键序列（底层实现）       |
+| [TCGSDK.getMoveSensitivity()](#TCGSDK.getMoveSensitivity()) | 获取当前鼠标灵敏度值           |
+| [TCGSDK.setMouseCanLock(true/false)](#TCGSDK.setMouseCanLock(true/false) ) | 设置是否允许锁定鼠标           |
+| [TCGSDK.mouseMove(identifier,type,x,y)](#TCGSDK.mouseMove(identifier,type,x,y)) | 移动端向云端发送鼠标移动事件   |
+| [TCGSDK.mouseTabletMode(enable)](#TCGSDK.mouseTabletMode(enable)) | 开启或关闭滑屏鼠标移动模式     |
+| [TCGSDK.setRemoteCursor(mode)](#TCGSDK.setRemoteCursor(mode)) | 设置鼠标样式                   |
+| [TCGSDK.setCursorShowStat(show)](#TCGSDK.setCursorShowStat(show)) | 设置鼠标隐藏或显示             |
+| [TCGSDK.getCursorShowStat()](#TCGSDK.getCursorShowStat()) | 获取鼠标隐藏状态               |
+| [TCGSDK.setMobileCursorScale(val)](#TCGSDK.setMobileCursorScale(val)) | 移动端设置鼠标放大系数         |
+| [TCGSDK.setRemoteCursorStyle(style)](#TCGSDK.setRemoteCursorStyle(style)) | 设置云端的系统鼠标样式         |
+| [TCGSDK.clearRemoteKeys()](#TCGSDK.clearRemoteKeys()) | 重置云端按键状态               |
+| [TCGSDK.resetRemoteCapsLock()](#TCGSDK.resetRemoteCapsLock() ) | 重置云端大小写状态             |
+| [TCGSDK.setDefaultCursorImage(url)](#TCGSDK.setDefaultCursorImage(url)) |设置云游戏页面中鼠标默认图片              |
 
 
 
@@ -74,11 +74,11 @@
 
 | 接口名称                                                     | 接口描述           |
 | ------------------------------------------------------------ | ------------------ |
-| [TCGSDK.setStreamProfile(profile,callback)](#tcgsdk.setstreamprofile(profile,callback)) | 设置码流参数       |
-| [TCGSDK.getDisplayRect()](#tcgsdk.getdisplayrect())          | 获取显示区域的参数 |
-| [TCGSDK.getVideoVolume()](#tcgsdk.getVideoVolume())                    | 获取 video 当前音量值（游戏声音）   |
-| [TCGSDK.setVideoVolume(val) ](#tcgsdk.setVideoVolume(val))             | 设置 video 播放音量值（游戏声音） |
-| [TCGSDK.setPageBackground(url)](#tcgsdk.setpagebackground(url))       | 设置云游戏页面的背景图     |
+| [TCGSDK.setStreamProfile(profile,callback)](#TCGSDK.setStreamProfile(profile,callback)) | 设置码流参数       |
+| [TCGSDK.getDisplayRect()](#TCGSDK.getDisplayRect()) | 获取显示区域的参数 |
+| [TCGSDK.getVideoVolume()](#TCGSDK.getVideoVolume()) | 获取 video 当前音量值（游戏声音）   |
+| [TCGSDK.setVideoVolume(val)](#TCGSDK.setVideoVolume(val) ) | 设置 video 播放音量值（游戏声音） |
+| [TCGSDK.setPageBackground(url)](#TCGSDK.setPageBackground(url)) | 设置云游戏页面的背景图     |
 | [TCGSDK.setVideoOrientation(deg,rotateContainer)](#TCGSDK.setVideoOrientation(deg,rotateContainer)) | 设置 video 的旋转角度 |
 
 
