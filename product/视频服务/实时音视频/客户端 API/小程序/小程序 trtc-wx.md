@@ -6,7 +6,24 @@
 
 上图是一个简单的使用示例，您可以通过 trtc-wx 提供的 API 方法对您的推拉流状态进行设置，之后通过 setData 的方式，在微信页面上的原生标签上更新生效，您通过事件订阅的接口可以捕获服务端的一些状态通知，trtc-wx 也会在这些事件通知中，返回更新部分的状态，您可以及时的将这些属性更新到页面当中。
 
+## 环境要求
 
+- 微信 App iOS 最低版本要求：7.0.9
+- 微信 App Android 最低版本要求：7.0.8
+- 小程序基础库最低版本要求：2.10.0
+- 由于小程序测试号不具备 <live-pusher> 和 <live-player> 的使用权限，请使用企业小程序账号申请相关权限进行开发。
+- 由于微信开发者工具不支持原生组件（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签），需要在真机上进行运行体验。
+- 不支持 uniapp 等开发框架，请使用原生小程序开发环境。
+
+## 前提条件
+您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+
+**开通小程序类目与推拉流标签权限（如不开通则无法正常使用）**
+出于政策和合规的考虑，微信暂未放开所有小程序对实时音视频功能（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签）的支持：
+- 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
+- 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
+- 符合类目要求的小程序，需要在【[微信公众平台](https://mp.weixin.qq.com)】>【开发】>【开发管理】>【接口设置】中自助开通该组件权限，如下图所示：
+![](https://main.qcloudimg.com/raw/dc6d3c9102bd81443cb27b9810c8e981.png)
 
 ## API 概览
 
