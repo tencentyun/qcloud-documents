@@ -27,4 +27,4 @@
 	- **搜索**：您可以按数据资产、Agent 状态、Agent名称、IP、对 Agent 进行搜索。
 	- **查看 Agent 配置详情**：在“操作”栏中，单击【编辑】，可以查看 Agent 配置相关信息。
 	- **相关操作**：在右侧操作栏，可以对 Agent 进行启动、停止、编辑、卸载、删除的相关操作。
-![](https://main.qcloudimg.com/raw/629119d78e0074a523783f6d147b0ca0.png)
+![](https://main.qcloudimg.com/raw/7353023575bb6a65e1cd4eeb65859f74.png)
