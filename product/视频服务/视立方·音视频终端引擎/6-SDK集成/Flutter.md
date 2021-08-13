@@ -11,7 +11,7 @@
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## Flutter 超级播放器集成方式
-腾讯云视立方 Flutter 超级播放器是基于超级播放器的一个 Flutter 插件，同时支持 Android 和 iOS 两个平台。完全免费开源，不对播放地址来源做限制，可放心使用。Flutter 超级播放器具体集成方式参见 [Flutter 超级播放器](https://tcloud-doc.isd.com/document/product/1449/57091?!preview&!editLang=zh)。
+腾讯云视立方 Flutter 超级播放器是基于超级播放器的一个 Flutter 插件，同时支持 Android 和 iOS 两个平台。完全免费开源，不对播放地址来源做限制，可放心使用。Flutter 超级播放器具体集成方式参见 [Flutter 超级播放器](https://cloud.tencent.com/document/product/1449/57091)。
 
 
 ## Flutter 音视频通话 TRTC 集成方式
