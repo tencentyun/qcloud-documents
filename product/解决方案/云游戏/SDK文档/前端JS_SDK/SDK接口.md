@@ -29,14 +29,14 @@
 
 | 接口名称                                                     | 接口描述                   |
 | ------------------------------------------------------------ | -------------------------- |
-| [TCGSDK.gameRestart(callback)](#tcgsdk.gamerestart(callback)) | 重启当前运行的游戏进程     |
-| [TCGSDK.gamePause(callback)](#tcgsdk.gamePause(callback)) | 暂停当前运行的游戏进程     |
-| [TCGSDK.gameResume(callback)](#tcgsdk.gameResume(callback)) | 恢复运行当前运行的游戏进程     |
-| [TCGSDK.loginHelper(params,callback) ](#tcgsdk.loginhelper(params,callback)) | 辅助登录                   |
-| [TCGSDK.getLoginWindowStat(gameid,callback)](#tcgsdk.getloginwindowstat(gameid,callback)) | 获取当前窗口是否为登录窗口 |
-| [TCGSDK.sendText(content)](#tcgsdk.sendText(content)) | 聚焦输入框时快速发送内容 |
+| [TCGSDK.gameRestart(callback)](#TCGSDK.gameRestart(callback)) | 重启当前运行的游戏进程     |
+| [TCGSDK.gamePause(callback)](#TCGSDK.gamePause(callback)) | 暂停当前运行的游戏进程     |
+| [TCGSDK.gameResume(callback)](#TCGSDK.gameResume(callback)) | 恢复运行当前运行的游戏进程     |
+| [TCGSDK.loginHelper(params,callback)](#TCGSDK.loginHelper(params,callback) ) | 辅助登录                   |
+| [TCGSDK.getLoginWindowStat(gameid,callback)](#TCGSDK.getLoginWindowStat(gameid,callback)) | 获取当前窗口是否为登录窗口 |
+| [TCGSDK.sendText(content)](#TCGSDK.sendText(content)) | 聚焦输入框时快速发送内容 |
 | [TCGSDK.createCustomDataChannel({destPort,onMessage})](#TCGSDK.createCustomDataChannel({destPort,onMessage})) | 创建自定义 dataChannel |
-| [TCGSDK.setRemoteDesktopResolution({width,height})](#tcgsdk.setRemoteDesktopResolution({width,height})) | 设置云端桌面分辨率 |
+| [TCGSDK.setRemoteDesktopResolution({width,height})](#TCGSDK.setRemoteDesktopResolution({width,height})) | 设置云端桌面分辨率 |
 
 ### 鼠标键盘控制相关接口
 
@@ -79,7 +79,7 @@
 | [TCGSDK.getVideoVolume()](#tcgsdk.getVideoVolume())                    | 获取 video 当前音量值（游戏声音）   |
 | [TCGSDK.setVideoVolume(val) ](#tcgsdk.setVideoVolume(val))             | 设置 video 播放音量值（游戏声音） |
 | [TCGSDK.setPageBackground(url)](#tcgsdk.setpagebackground(url))       | 设置云游戏页面的背景图     |
-| [TCGSDK.setVideoOrientation(deg,rotateContainer)](#tcgsdk.setVideoOrientation(deg,-rotateContainer))       | 设置 video 的旋转角度 |
+| [TCGSDK.setVideoOrientation(deg,rotateContainer)](#TCGSDK.setVideoOrientation(deg,rotateContainer)) | 设置 video 的旋转角度 |
 
 
 
