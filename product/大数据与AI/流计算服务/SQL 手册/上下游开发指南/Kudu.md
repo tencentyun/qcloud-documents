@@ -8,47 +8,47 @@ Kudu Connector 支持用作数据源表（Source，仅限于普通和维表 JOIN
 ### 用作数据源（Source）
 ```sql
 CREATE TABLE `Data_Input` (
-			`id` BIGINT,
-			`name` STRING
+		`id` BIGINT,
+		`name` STRING
 ) WITH (
-			-- 指定Kudu连接参数
-			'connector.type' = 'kudu',
-			'kudu.masters' = 'master-01:7051,master-02:7051,master-03:7051', -- 连接地址
-			'kudu.table' = 'TableName1', -- 替换为 Kudu 中对应的表，如 default.TestTable1
-			'kudu.hash-columns' = 'id', -- 可选参数，Hash 键
-			'kudu.primary-key-columns' = 'id', -- 可选参数，主键
-			'kudu.operation-timeout' = '10000', -- 可选参数，插入超时时间
-			'kudu.max-buffer-size' = '2000', -- 可选参数，buffer 大小
-			'kudu.flush-interval' = '1000' -- 可选参数，刷新数据到 kudu 的时间间隔
+		-- 指定Kudu连接参数
+		'connector.type' = 'kudu',
+		'kudu.masters' = 'master-01:7051,master-02:7051,master-03:7051', -- 连接地址
+		'kudu.table' = 'TableName1', -- 替换为 Kudu 中对应的表，如 default.TestTable1
+		'kudu.hash-columns' = 'id', -- 可选参数，Hash 键
+		'kudu.primary-key-columns' = 'id', -- 可选参数，主键
+		'kudu.operation-timeout' = '10000', -- 可选参数，插入超时时间
+		'kudu.max-buffer-size' = '2000', -- 可选参数，buffer 大小
+		'kudu.flush-interval' = '1000' -- 可选参数，刷新数据到 kudu 的时间间隔
 )
 ```
 
 ### 用作数据目的（Tuple Sink）
 ```sql
 CREATE TABLE `Data_Output` (
-			`id` BIGINT,
-			`name` STRING,
+		`id` BIGINT,
+		`name` STRING,
 ) WITH (
-			-- 指定Kudu连接参数
-			'connector.type' = 'kudu',
-			'kudu.masters' = 'master-01:7051,master-02:7051,master-03:7051', -- 连接地址
-			'kudu.table' = 'TableName1', -- 替换为Kudu中对应的表，如 default.TestTable1
-                        'kudu.igonre-duplicate' = 'true' --可选参数，为 true 时会忽略主键重复的数据
+		-- 指定Kudu连接参数
+		'connector.type' = 'kudu',
+		'kudu.masters' = 'master-01:7051,master-02:7051,master-03:7051', -- 连接地址
+		'kudu.table' = 'TableName1', -- 替换为Kudu中对应的表，如 default.TestTable1
+		'kudu.igonre-duplicate' = 'true' --可选参数，为 true 时会忽略主键重复的数据
 )
 ```
 
 ### 用作数据目的（Upsert Sink）
 ```sql
 CREATE TABLE `Data_Output` (
-			`id` BIGINT,
-			`name` STRING,
+		`id` BIGINT,
+		`name` STRING,
 ) WITH (
-			-- 指定 Kudu 连接参数
-			'connector.type' = 'kudu',
-			'kudu.masters' = 'master-01:7051,master-02:7051,master-03:7051', -- 连接地址
-			'kudu.table' = 'TableName1', -- 替换为 Kudu 中对应的表，如default.TestTable1
-			'kudu.hash-columns' = 'id', -- 可选参数，Hash 键
-			'kudu.primary-key-columns' = 'id' -- 必选参数，主键。Upsert Sink 需要包含主键。
+		-- 指定 Kudu 连接参数
+		'connector.type' = 'kudu',
+		'kudu.masters' = 'master-01:7051,master-02:7051,master-03:7051', -- 连接地址
+		'kudu.table' = 'TableName1', -- 替换为 Kudu 中对应的表，如default.TestTable1
+		'kudu.hash-columns' = 'id', -- 可选参数，Hash 键
+		'kudu.primary-key-columns' = 'id' -- 必选参数，主键。Upsert Sink 需要包含主键。
 )
 ```
 
@@ -65,7 +65,7 @@ CREATE TABLE `Data_Output` (
 | kudu.operation-timeout   | 否   | 30000  | 插入超时时间，单位为毫秒                                     |
 | kudu.max-buffer-size     | 否   | 1000   | 默认为1000                                                   |
 | kudu.flush-interval      | 否   | 1000   | 默认为1000                                                   |
-| kudu.ignore-not-found    | 否   | false  | 查询时是否忽略未找到的数据                                   |
+| kudu.ignore-not-found    | 否   | false  | 是否忽略未找到的数据                                   |
 | kudu.ignore-duplicate    | 否   | false  | 插入数据时是否会忽略主键重复的数据                           |
 
 ## 类型映射
