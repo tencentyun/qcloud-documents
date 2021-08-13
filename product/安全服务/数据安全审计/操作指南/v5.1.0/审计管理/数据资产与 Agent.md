@@ -2,7 +2,7 @@
 1. 以 useradmin 账号登录数据安全审计管理页面，在左侧导航栏中，选择【数据资产与Agent】>【审计用Agent】，即可进入审计用 Agent 页面。
 2. Agent 部署。在审计用 Agent 页面，选择【Agent 下载】>【添加 Agent】，可配置审计 Agent 的各类参数并提供下载链接，配置步骤以及配置注意事项，请参见 [Agent 部署](https://cloud.tencent.com/document/product/856/17385)。
 3. 添加完成 Agent 后，在 Agent 配置页面，可查看所有已正确安装且能实现 DSA 实例网络互通的 Agent 信息。
-![](https://main.qcloudimg.com/raw/c5d123dbb2acd871c979d64ced0eabdf.png)
+![](https://main.qcloudimg.com/raw/4cd2fc3a3ce54459c3df060d21b0542d.png)
 列表各字段含义如下：
 	- Agent 名称：用于配置该 Agent 的名称。
 	- 审计服务 IP： Agent 回传数据的源 IP。
