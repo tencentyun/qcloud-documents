@@ -165,7 +165,7 @@ pod 'TUIKaraoke', :path => "./", :subspecs => ["TRTC"]
 <td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。</td>
 </tr><tr>
 <td>userSig</td>
-<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/1449/58939?!preview&!editLang=zh">如何计算 UserSig</a>。</td>
+<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/1449/58939">如何计算 UserSig</a>。</td>
 </tr></tr>
 <tr>
 <td>callback</td>
