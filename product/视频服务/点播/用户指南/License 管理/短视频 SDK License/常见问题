@@ -67,3 +67,16 @@ bundleid 类似于 Android 端的 package name，若您不集成 iOS 端，可�
 [](id:que11)
 ### 个人购买的短视频 SDK License 可以用于企业吗？
 短视频 SDK 暂仅支持购买所在账号进行使用，暂无个人实名认证以及企业实名认证的限制。
+
+[](id:que12)
+### 为什么我的子账户已经授权了直播和点播所有权限，但是还是无法访问 License 控制台相关界面？
+
+<img src="https://main.qcloudimg.com/raw/7423d2e7912de344052c7891629d528b.png" width=400px>
+
+新版 SDK License 本次升级更新了接口（详情请参见 [新旧 License 说明](https://cloud.tencent.com/document/product/1449/56980#.E6.96.B0.E6.97.A7-license-.E5.8C.BA.E5.88.AB)），需要主账号为子账号独立进行重新授权策略后方可访问 License 控制台页面。
+
+- 若您仅需要提供子账号查询 License 的权限，请授权 QcloudVCUBEReadOnlyAccess 策略。
+- 若您需要提供子账号所有 License 操作权限，请授权 QcloudVCUBEFullAccess 策略。
+为用户/用户组关联策略以授权相关操作权限的关联指引请参见 [策略授权管理](https://cloud.tencent.com/document/product/598/10602)。
+
+>? License 界面所有功能操作已独立于云直播、云点播策略外，即原 QcloudVODFullAccess、QcloudLIVEFullAccess 策略已不包含 License 相关接口，需按照上述说明单独授权。
