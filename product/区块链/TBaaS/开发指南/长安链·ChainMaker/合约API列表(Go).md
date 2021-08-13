@@ -3,6 +3,7 @@ ChainMake Go 语言版本智能合约有丰富的 API 接口，供用户在撰�
 从逻辑方面划分，可将API划分为以下类型：
 
 [](id:informationExtraction)
+
 ### 交易信息提取
 
 <table><thead>
@@ -45,7 +46,9 @@ ChainMake Go 语言版本智能合约有丰富的 API 接口，供用户在撰�
 </tr>
 </tbody></table>
 
+
 [](id:accountInteraction)
+
 ### 账本交互
 
 <table><thead>
@@ -79,11 +82,13 @@ ChainMake Go 语言版本智能合约有丰富的 API 接口，供用户在撰�
 <td>跨合约调用。</td>
 </tr>
 
+
 </tbody></table>
 
 
 
 [](id:parametersProcess)
+
 ### 参数处理
 
 <table>
@@ -103,7 +108,9 @@ ChainMake Go 语言版本智能合约有丰富的 API 接口，供用户在撰�
 </tr>
 </tbody></table>
 
+
 [](id:otherClass)
+
 ### 其他辅助类
 
 <table>
@@ -146,3 +153,4 @@ ChainMake Go 语言版本智能合约有丰富的 API 接口，供用户在撰�
 <td>新建指定field前缀匹配迭代器，key需相同，field前缀一致，即dbkey = key and dbfield.startWith(field)</td>
 </tr>
 </tbody></table>
+
