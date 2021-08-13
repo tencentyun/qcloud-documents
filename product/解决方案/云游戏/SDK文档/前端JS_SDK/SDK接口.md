@@ -32,11 +32,11 @@
 | [TCGSDK.gameRestart(callback)](#tcgsdk.gamerestart(callback)) | 重启当前运行的游戏进程     |
 | [TCGSDK.gamePause(callback)](#tcgsdk.gamePause(callback)) | 暂停当前运行的游戏进程     |
 | [TCGSDK.gameResume(callback)](#tcgsdk.gameResume(callback)) | 恢复运行当前运行的游戏进程     |
-| [TCGSDK.loginHelper(params, callback) ](#tcgsdk.loginhelper(params,-callback)) | 辅助登录                   |
-| [TCGSDK.getLoginWindowStat(gameid, callback)](#tcgsdk.getloginwindowstat(gameid,-callback)) | 获取当前窗口是否为登录窗口 |
+| [TCGSDK.loginHelper(params,callback) ](#tcgsdk.loginhelper(params,callback)) | 辅助登录                   |
+| [TCGSDK.getLoginWindowStat(gameid,callback)](#tcgsdk.getloginwindowstat(gameid,callback)) | 获取当前窗口是否为登录窗口 |
 | [TCGSDK.sendText(content)](#tcgsdk.sendText(content)) | 聚焦输入框时快速发送内容 |
-| [TCGSDK.createCustomDataChannel({destPort, onMessage})](#tcgsdk.createCustomDataChannel({destPort,-onMessage})) | 创建自定义 dataChannel |
-| [TCGSDK.setRemoteDesktopResolution({width, height})](#tcgsdk.setRemoteDesktopResolution({width,-height})) | 设置云端桌面分辨率 |
+| [TCGSDK.createCustomDataChannel({destPort,onMessage})](#TCGSDK.createCustomDataChannel({destPort,onMessage})) | 创建自定义 dataChannel |
+| [TCGSDK.setRemoteDesktopResolution({width,height})](#tcgsdk.setRemoteDesktopResolution({width,height})) | 设置云端桌面分辨率 |
 
 ### 鼠标键盘控制相关接口
 
@@ -49,7 +49,7 @@
 | [TCGSDK.sendSeqRawEvents(events)](#tcgsdk.sendseqrawevents(events)) | 发送按键序列（底层实现）       |
 | [TCGSDK.getMoveSensitivity()](#tcgsdk.getmovesensitivity())  | 获取当前鼠标灵敏度值           |
 | [TCGSDK.setMouseCanLock(true/false) ](#tcgsdk.setmousecanlock(true/false)) | 设置是否允许锁定鼠标           |
-| [TCGSDK.mouseMove(identifier, type, x, y)](#tcgsdk.mousemove(identifier,type,x,y)) | 移动端向云端发送鼠标移动事件   |
+| [TCGSDK.mouseMove(identifier,type,x,y)](#tcgsdk.mousemove(identifier,type,x,y)) | 移动端向云端发送鼠标移动事件   |
 | [TCGSDK.mouseTabletMode(enable)](#tcgsdk.mousetabletmode(enable)) | 开启或关闭滑屏鼠标移动模式     |
 | [TCGSDK.setRemoteCursor(mode)](#tcgsdk.setremotecursor(mode)) | 设置鼠标样式                   |
 | [TCGSDK.setCursorShowStat(show)](#tcgsdk.setcursorshowstat(show)) | 设置鼠标隐藏或显示             |
@@ -79,7 +79,7 @@
 | [TCGSDK.getVideoVolume()](#tcgsdk.getVideoVolume())                    | 获取 video 当前音量值（游戏声音）   |
 | [TCGSDK.setVideoVolume(val) ](#tcgsdk.setVideoVolume(val))             | 设置 video 播放音量值（游戏声音） |
 | [TCGSDK.setPageBackground(url)](#tcgsdk.setpagebackground(url))       | 设置云游戏页面的背景图     |
-| [TCGSDK.setVideoOrientation(deg, rotateContainer)](#tcgsdk.setVideoOrientation(deg,-rotateContainer))       | 设置 video 的旋转角度 |
+| [TCGSDK.setVideoOrientation(deg,rotateContainer)](#tcgsdk.setVideoOrientation(deg,-rotateContainer))       | 设置 video 的旋转角度 |
 
 
 
@@ -101,7 +101,7 @@ params对象有效字段描述：
 | mobileGame              | boolean  | 可选     | 默认值为 false<br />true 为使用接入手游，false 为适用端游 |
 | cursorMode              | number   | 可选     | 默认值为 0 <br />鼠标模式，取值同 [TCGSDK.setRemoteCursor(mode)](#tcgsdk.setremotecursor(mode)) 设置鼠标样式  |
 | clickToFullscreen       | boolean  | 可选     | 默认值为 false<br />是否启动点击全屏操作，true 为启用，false 为禁用 |
-| idleThreshold           | number   | 可选     | 默认值为 300s<br />用户操作空闲时间阈值，单位为秒，空闲超过这个时间将触发 `onNetworkChange` 事件，消息为 `{status: 'idle', times: 1}` |
+| idleThreshold           | number   | 可选     | 默认值为 300s<br />用户操作空闲时间阈值，单位为秒，空闲超过这个时间将触发 `onNetworkChange` 事件，消息为 `{status: 'idle',times: 1}` |
 | keepLastFrame           | boolean  | 可选     | 默认值为 false<br />断开的时候是否保留最后一帧画面，false 为不保留，true 保留。如果需要保留最后一帧画面并重连，不能再次调用 init 函数，而是先调用 `destroy()` 接口，再调用 `start()` 接口。 |
 | reconnect               | boolean  | 可选     | 默认值为 false<br />true 为帧率掉0或者异常断开自动重连一次，true 为重连，false 为不重连 |
 | showLoading             | boolean  | 可选     | 默认值为 true <br />是否显示“正在加载中”画面 |
@@ -152,7 +152,7 @@ params对象有效字段描述：
 | 外网 IP 变化          | {"status": "ipchanged"}                                      |
 | 连接 loading 时间过长 | {"status": "noflow"}                                         |
 | 已连接但帧率掉0     | {"status": "noflowcenter"}                                   |
-| 实时状态数据        | {"status": "stats", "stats": {...}}，stats字段的结构请参见  [stats 字段描述](#stats) |
+| 实时状态数据        | {"status": "stats","stats": {...}}，stats字段的结构请参见  [stats 字段描述](#stats) |
 
 
 [](id:stats)
@@ -229,7 +229,7 @@ params对象有效字段描述：
 
 | 参数 | 参数类型 | 说明                                                         |
 | ---- | -------- | ------------------------------------------------------------ |
-| msg  | object   | 默认错误弹窗的提示内容，结构为：`{"code": number, "message": "your message"}`，msg 可以为 null |
+| msg  | object   | 默认错误弹窗的提示内容，结构为：`{"code": number,"message": "your message"}`，msg 可以为 null |
 
 [](id:TCGSDK.reconnect())
 ### TCGSDK.reconnect()
@@ -397,22 +397,22 @@ function(res) {
 </thead>
 <tbody><tr>
 <td colspan=2>鼠标偏移（用于无边框限制的鼠标移动事件）</td>
-<td><code>{ type: "mousedeltamove", x: Number, y: Number }</code>，x、y 坐标值均为整数</td>
+<td><code>{ type: "mousedeltamove",x: Number,y: Number }</code>，x、y 坐标值均为整数</td>
 </tr><tr>
 <td colspan=2>鼠标移动</td>
-<td><code>{ type: "mousemove", x: Number, y: Number }</code>，x、y 坐标值均为整数</td>
+<td><code>{ type: "mousemove",x: Number,y: Number }</code>，x、y 坐标值均为整数</td>
 </tr><tr>
 <td colspan=2>鼠标左键点击</td>
-<td><code>{ type: "mouseleft", down: true/false }</code></td>
+<td><code>{ type: "mouseleft",down: true/false }</code></td>
 </tr><tr>
 <td colspan=2>鼠标右键点击</td>
-<td><code>{ type: "mouseright", down: true/false }</code></td>
+<td><code>{ type: "mouseright",down: true/false }</code></td>
 </tr><tr>
 <td colspan=2>鼠标滚动</td>
-<td><code>{ type: "mousescroll", delta: Number }</code></td>
+<td><code>{ type: "mousescroll",delta: Number }</code></td>
 </tr><tr>
 <td colspan=2>键盘按键事件</td>
-<td><code>{ type: "keyboard", key: Integer, down: true/false }</code></td>
+<td><code>{ type: "keyboard",key: Integer,down: true/false }</code></td>
 </tr><tr>
 <td rowspan=12>手柄事件</td>
 <td>手柄连接事件</td>
@@ -422,31 +422,31 @@ function(res) {
 <td><code>{ type: "gamepaddisconnect" }</code></td>
 </tr><tr>
 <td>手柄按键事件</td>
-<td><code>{ type: "gamepadkey", key: Number, down: true/false }</code><ul style="margin:0"><li>方向键事件值：向上键值为<code>0x01</code>，向下键值为<code>0x02</code>，向左键值为<code>0x04</code>，向右键值为<code>0x08</code></li><li>按键事件值：X 键值为<code>0x4000</code>，Y 键值为<code>0x8000</code>，A 键值为<code>0x1000</code>，B 键值为<code>0x2000</code></li><li>select 事件值：键值为<code>0x20</code></li><li>start 事件值：键值为<code>0x10</code></li></ul></td>
+<td><code>{ type: "gamepadkey",key: Number,down: true/false }</code><ul style="margin:0"><li>方向键事件值：向上键值为<code>0x01</code>，向下键值为<code>0x02</code>，向左键值为<code>0x04</code>，向右键值为<code>0x08</code></li><li>按键事件值：X 键值为<code>0x4000</code>，Y 键值为<code>0x8000</code>，A 键值为<code>0x1000</code>，B 键值为<code>0x2000</code></li><li>select 事件值：键值为<code>0x20</code></li><li>start 事件值：键值为<code>0x10</code></li></ul></td>
 </tr><tr>
 <td>手柄左摇杆事件</td>
-<td><code>{ type: "axisleft", x: [-32767~32767], y: [-32767~32767] }</code>，原浮点数值为（-1~1），实际返回原浮点数值 * 32767</td>
+<td><code>{ type: "axisleft",x: [-32767~32767],y: [-32767~32767] }</code>，原浮点数值为（-1~1），实际返回原浮点数值 * 32767</td>
 </tr><tr>
 <td>手柄右摇杆事件</td>
-<td><code>{ type: "axisright", x: [-32767~32767], y: [-32767~32767] }</code>，原浮点数值为（-1~1），实际返回原浮点数值 * 32767</td>
+<td><code>{ type: "axisright",x: [-32767~32767],y: [-32767~32767] }</code>，原浮点数值为（-1~1），实际返回原浮点数值 * 32767</td>
 </tr><tr>
 <td>手柄左触发键（L1）事件</td>
-<td><code>{type: "gamepadkey", key: 0x100, down: true/false}</code></td>
+<td><code>{type: "gamepadkey",key: 0x100,down: true/false}</code></td>
 </tr><tr>
 <td>手柄右触发键（R1）事件</td>
-<td><code>{type: "gamepadkey", key: 0x200, down: true/false}</code></td>
+<td><code>{type: "gamepadkey",key: 0x200,down: true/false}</code></td>
 </tr><tr>
 <td>手柄左触发键（L2）事件</td>
-<td><code>{ type: "lt", x: [0-255], down: true/false }</code>，原浮点数值为（0~1），实际返回原浮点数值 * 255</td>
+<td><code>{ type: "lt",x: [0-255],down: true/false }</code>，原浮点数值为（0~1），实际返回原浮点数值 * 255</td>
 </tr><tr>
 <td>手柄右触发键（R2）事件</td>
-<td><code>{ type: "rt", x: [0-255], down: true/false }</code>，原浮点数值为（0~1），实际返回原浮点数值 * 255</td>
+<td><code>{ type: "rt",x: [0-255],down: true/false }</code>，原浮点数值为（0~1），实际返回原浮点数值 * 255</td>
 </tr><tr>
 <td>手柄左摇杆垂直按下（L3）事件</td>
-<td><code>{type: "gamepadkey", key: 0x80, down: true/false}</code></td>
+<td><code>{type: "gamepadkey",key: 0x80,down: true/false}</code></td>
 </tr><tr>
 <td>手柄右摇杆垂直按下（R3）事件</td>
-<td><code>{type: "gamepadkey", key: 0x40, down: true/false}</code></td>
+<td><code>{type: "gamepadkey",key: 0x40,down: true/false}</code></td>
 </tr>
 </tbody></table>
 
@@ -469,7 +469,7 @@ function(res) {
 
 | 参数   | 参数类型 | 说明                                                         |
 | ------ | -------- | ------------------------------------------------------------ |
-| events | object   | 事件数组，例如：`` events = [{type: "mouseleft", down: true},{type: "mouseleft", down: true},...]``，数组最大限制10个事件 |
+| events | object   | 事件数组，例如：`` events = [{type: "mouseleft",down: true},{type: "mouseleft",down: true},...]``，数组最大限制10个事件 |
 
 > ? event 的对象结构参考 [TCGSDK.sendRawEvent](#tcgsdk.sendrawevent(event)) 的描述。
 
@@ -485,7 +485,7 @@ function(res) {
 
 
 [](id:TCGSDK.mouseMove(identifier,type,x,y))
-### TCGSDK.mouseMove(identifier, type, x, y)
+### TCGSDK.mouseMove(identifier,type,x,y)
 
 移动端向云端（PC 端）发送鼠标移动事件。
 
@@ -641,7 +641,7 @@ function(res) {
 
 
 [](id:TCGSDK.setVideoOrientation(deg,rotateContainer))
-### TCGSDK.setVideoOrientation(deg, rotateContainer)
+### TCGSDK.setVideoOrientation(deg,rotateContainer)
 
 设置云游戏页面的背景图。
 
