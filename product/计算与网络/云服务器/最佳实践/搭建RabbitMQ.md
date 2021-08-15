@@ -52,6 +52,10 @@ vi /etc/profile
 export PATH=$PATH:/usr/local/erlang/bin
 ```
 8. 按 **Esc** 并输入 **:wq** 保存文件并退出。
+9. 执行以下命令，让配置文件生效
+```
+source /etc/profile
+```
 
 ### 安装 RabbitMQ Server
 1. 执行以下命令，下载 RabbitMQ Server 安装包。
