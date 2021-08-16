@@ -550,7 +550,7 @@ postgres=# select * from t_lnnvl where lnnvl(f2>2);
 ```
 DECODE(value, if1, then1, if2,then2, if3,then3, . . . else )
 ```
-`value` 代表某个表的任何类型的任意列或一个通过计算所得的任何结果。当每个 `value` 值被测试，如果 `value` 的值为 `if1`，`DECODE` 函数的结果是 `then1`；如果 `value` 等于 `if2`，`DECODE` 函数结果是 `then2`，等等。事实上，可以给出多个 `if/then` 配对。如果 `value` 结果不等于给出的任何配对时，`DECODE` 结果就返回 `else`。
+`value` 代表某个表的任何类型的任意列或一个通过计算所得的任何结果。当每个 `value` 值被测试，如果 `value` 的值为 `if1`，`DECODE` 函数的结果是 `then1`；如果 `value` 等于 `if2`，`DECODE` 函数结果是 `then2` 等等。事实上，可以给出多个 `if/then` 配对。如果 `value` 结果不等于给出的任何配对时，`DECODE` 结果就返回 `else`。
 这里的 `if`、`then` 及 `else` 都可以是函数或计算表达式。
 
 在此基础上，补充和完善了以下 `DECODE` 函数用法。
@@ -675,7 +675,7 @@ DUMP(expr[,return_fmt[,start_position][,length]])
 ```
 Typ=96 Len=3 [CharacterSet=ZHS16GBK]: 61,62,63
 ```
-1. `Typ` 表示当前的 `expr` 值的类型，类型查询SQL：`select typname from pg_type where oid=?；`。
+1. `Typ` 表示当前的 `expr` 值的类型，类型查询 SQL：`select typname from pg_type where oid=?；`。
 
    Oracle 与 TDSQL PostgreSQL 版（Oracle 兼容）中类型对比如下：
 

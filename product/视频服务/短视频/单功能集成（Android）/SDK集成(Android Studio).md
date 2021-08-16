@@ -46,7 +46,7 @@ defaultConfig {
     }
 }
 ```
-	4. 最后点击 Sync Now，编译工程。
+	4. 最后单击 Sync Now，编译工程。
 
 #### 3.2 集成攻略（jar+so 集成方式）
 1. **库说明**
@@ -133,8 +133,8 @@ dependencies {
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
 #### 3.4 License 设置
-请参考 [License 申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/vod/license) 复制 key 和 url，见下图。
-![](https://main.qcloudimg.com/raw/c48435846e63a66f6b80453b4c356e7e.png)
+请参考 [License 申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/vod/license/video) 复制 key 和 url，见下图。
+![](https://main.qcloudimg.com/raw/c46b3a484dbcc8070d9c2d5d728953db.png)
 在您的应用中使用短视频功能之前，建议在 - Application onCreate() 中进行如下设置：
 ```
 public class DemoApplication extends Application {
@@ -157,7 +157,7 @@ public class DemoApplication extends Application {
 - **setConsoleEnabled**
 设置是否在 Android Studio 的控制台打印 SDK 的相关输出。
 - **setLogLevel**
-设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到 sdcard 上，**Android/data/com.tencent.liteav.demo/files/log/tencent/liteav** 文件夹下。如果您需要我们的技术支持，建议将此开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
+设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到 sdcard 上，**`Android/data/com.tencent.liteav.demo/files/log/tencent/liteav`** 文件夹下。如果您需要我们的技术支持，建议将此开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
 - **log 文件的查看**
 小直播 SDK 为了减少 log 的存储体积，对本地存储的 log 文件做了加密，并且限制了 log 数量的大小，所以要查看 log 的文本内容，需要使用 log [解压缩工具](http://dldir1.qq.com/hudongzhibo/log_tool/decode_mars_log_file.py)。
 ```

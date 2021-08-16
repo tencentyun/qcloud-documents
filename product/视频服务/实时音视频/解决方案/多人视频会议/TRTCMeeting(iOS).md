@@ -944,7 +944,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | 参数    | 类型                | 含义             |
 | ------- | ------------------- | ---------------- |
 | message | NSString            | 文本消息。       |
-| user    | TRTCMeetingUserInfo | 发送者用户信息。 |
+| userInfo | TRTCMeetingUserInfo | 发送者用户信息。 |
 
 ### onRecvRoomCustomMsg
 

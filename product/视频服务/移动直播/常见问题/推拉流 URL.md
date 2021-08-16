@@ -23,7 +23,7 @@
 ### 查看推流地址示例代码
 进入【云直播控制台】>[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，选中事先配置的推流域名，【管理】>【推流配置】页面下半部分有【推流地址示例代码】（PHP 和 Java 两个版本）演示如何生成防盗链地址。更多详情操作请参见 [推流配置](https://cloud.tencent.com/document/product/267/32833#.E6.8E.A8.E6.B5.81.E5.9C.B0.E5.9D.80.E7.A4.BA.E4.BE.8B.E4.BB.A3.E7.A0.81)。
 
-[](id:assemble_push)
+[](id:assemble_push)[](id:push)
 ### 自主拼装推流 URL
 实际产品中，当直播间较多时，您不可能为每一个主播手工创建推流和播放 URL，您可通过服务器**自行拼装**推流和播放地址，只要符合腾讯云标准规范的 URL 就可以用来推流，如下是一条标准的推流 URL，它由四个部分组成：
 ![](https://main.qcloudimg.com/raw/095b7c120b62ac8a171603d4fff67cb2.png)
@@ -42,7 +42,7 @@
  - **txSecret（防盗链签名）**
 用以防止攻击者伪造您的后台生成推流 URL，计算方法参见 [最佳实践-防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
 
-[](id:assemble_play)
+[](id:assemble_play)[](id:play)
 ### 自主拼装播放 URL
 播放地址主要由播放前缀、播放域名（domain）、应用名称（AppName）、流名称（StreamName）、播放协议后缀、鉴权参数以及其他自定义参数组成。例如： 
 

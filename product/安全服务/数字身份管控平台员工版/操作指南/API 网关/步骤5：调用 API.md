@@ -1,5 +1,5 @@
 ## 前提条件
-已经开通腾讯云 [API 网关服务](https://cloud.tencent.com/document/product/628/48792) 和[  数字身份管控平台（员工版）服务](https://cloud.tencent.com/document/product/1442/56964)。
+已经开通腾讯云 [API 网关服务](https://console.cloud.tencent.com/apigateway/index?rid=1) 和[  数字身份管控平台（员工版）服务](https://cloud.tencent.com/document/product/1442/56964)。
 
 ## 操作步骤
 
@@ -12,8 +12,8 @@
 ![](https://main.qcloudimg.com/raw/46d885bfb05ea1291976f09816aab649.png) 
 4. 在基本信息页面，取 API 访问地址，如下：
 ![](https://main.qcloudimg.com/raw/80baae4ef49903c4add76f67708eb741.png)
-5. 通过浏览器发起访问 API，自动跳转到 EIAM 认证门户登录页面，输入帐号和密码，单击【登录】，成功登录后会返回 API 输出信息。
-![](https://main.qcloudimg.com/raw/da4fd0e126e02fb4078ce4280d49fa78.png)
+5. 通过浏览器发起访问 API，自动跳转到 EIAM 认证门户登录页面输入帐号和密码，单击【登录】，成功登录后会返回 API 输出信息。
+![](https://main.qcloudimg.com/raw/25e347f42bce46c0287f3445c58b7aec.png)
 ![](https://main.qcloudimg.com/raw/7c97e3e49ddf22240af9f5bf042928f7.png)
 
 ### 非 Web 客户端调用 API
