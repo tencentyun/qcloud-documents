@@ -1,8 +1,8 @@
 ## 介绍
-Postgres 的 CDC 源表，即 Postgres 的流式源表，用于依次读取 PostgreSQL 数据库全量快照数据和变更数据，保证不多读也不少读一条数据。即使发生故障，也能采用 Exactly Once 方式处理。
+Postgres 的 CDC 源表（即 Postgres 的流式源表）用于依次读取 PostgreSQL 数据库全量快照数据和变更数据，保证不多读也不少读一条数据。即使发生故障，也能采用 Exactly Once 方式处理。
 
 ## 使用范围
-Postgresql CDC 只支持作为源表。支持的 Postgresql 版本为9.6及以上版本。
+PostgreSQL CDC 只支持作为源表。支持的 PostgreSQL 版本为9.6及以上版本。
 
 ## 示例
 ```sql
