@@ -3,14 +3,13 @@
 >?如果您有 LDAP 认证的需求，请 [联系我们](https://cloud.tencent.com/online-service?from=connect-us) 开通该功能。
 
 ## 操作步骤
-### 新建单台主机
 1. 登录 [堡垒机控制台](https://console.cloud.tencent.com/dsgc/bh)，单击【进入】，进入 SaaS 型堡垒机控制台。
 ![](https://main.qcloudimg.com/raw/eb08794b3b6dbfb57f1629b8b35c9a88.png)
 2. 在左侧导航选择【系统设置】>【认证设置】，进入认证设置页面。
 ![](https://main.qcloudimg.com/raw/8a3ecc4e4d96eebaffa38dd1134153a3.png)
 3. 默认会进入到本地认证页面，单击【LDAP】，切换到 LDAP 设置页面。
 ![](https://main.qcloudimg.com/raw/a89a544c54b51550aa7374e70a9d6ac9.png)
-4. 默认情况下，LDAP 状态为禁用状态，可单击![](https://main.qcloudimg.com/raw/1c07e6907c414936bc26c29219f87104.png)按钮启用 LDAP，需配置如下 LDAP 信息。
+4. 默认情况下，LDAP 状态为禁用状态，可单击![](https://main.qcloudimg.com/raw/f6fde0ec127d1f49dce725a2b8270fa0.png)按钮启用 LDAP，需配置如下 LDAP 信息。
 >!页面标*的为必填项。
 >
 ![](https://main.qcloudimg.com/raw/cb94097fc2a91a6659340ef0a20b56bc.png)
