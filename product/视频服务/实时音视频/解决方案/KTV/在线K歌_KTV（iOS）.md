@@ -30,7 +30,7 @@
 
 [](id:ui.step2)
 ### 步骤2：下载 App 源码
-单击进入 [TUIKaraoke](https://github.com/tencentyun/TUIKaraoke)，Clone 或者下载源码。
+单击进入 [TUIKaraoke](https://github.com/tencentyun/TUIKaraoke/tree/main/iOS/Source)，Clone 或者下载源码。
 
 [](id:ui.step3)
 ### 步骤3：配置 App 工程文件
