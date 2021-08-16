@@ -75,8 +75,7 @@
 	<td>指使用长安链配套证书管理工具 chainmaker-cryptogen 管理的证书、密钥体系。</td>
 	</tr>
 	<tr><td class="update">wasm文件<br>（webassembly file）<br></td>
-	<td>长安链指的智能合约编译后生成的文件。
-wasm 指通过各自符合 WebAssembly 规范的编译器编译出来的以 .wasm 结尾的文件。</td>
+	<td>长安链指的智能合约编译后生成的文件。wasm 指通过各自符合 WebAssembly 规范的编译器编译出来的以 .wasm 结尾的文件。</td>
 	</tr>
 </table>
 
