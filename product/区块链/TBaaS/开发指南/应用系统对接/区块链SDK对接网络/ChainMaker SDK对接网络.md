@@ -69,44 +69,44 @@ chain_client:
 
 ### 证书申请
 1. 根据 [证书申请 CSR 生成指南](https://cloud.tencent.com/document/product/663/60114)，生成证书 CSR 和相应私钥。
-2. 以生成非国密ECC证书为例，运行ecccsr.sh脚本将会得到四个文件
-- `user_ecc_sign.key`: 用户证书私钥
-- `user_ecc_sign.csr`: 用于在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 申请用户证书。
-- `user_ecc_tls.key`: 用户tls证书私钥
-- `user_ecc_tls.csr`: 用于在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 申请用户tls证书。
+2. 以生成非国密 ECC 证书为例，运行 ecccsr.sh 脚本将会得到四个文件
+ - `user_ecc_sign.key`: 用户证书私钥
+ - `user_ecc_sign.csr`: 用于在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 申请用户证书。
+ - `user_ecc_tls.key`: 用户tls证书私钥
+ - `user_ecc_tls.csr`: 用于在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 申请用户tls证书。
 3. 在“证书管理”界面添加申请证书，填写证书标识，并将将`user_ecc_sign.csr`和`user_ecc_tls.csr`上传
 4. 申请成功后可以下载对应证书，压缩包包含：
-- `ca.crt`: 组织根证书
-- `user_sign.crt`: 用户证书
-- `user_tls.crt`: 用户tls证书
+ - `ca.crt`: 组织根证书
+ - `user_sign.crt`: 用户证书
+ - `user_tls.crt`: 用户tls证书
 5. 将三个证书`ca.crt`，`user_sign.crt`，`user_tls.crt`和两个私钥`user_ecc_sign.key`和`user_ecc_sign.csr` 放置到 `chainmaker-sdk-go-demo/chainmaker-sdk-demo/config`目录下
 6. 修改SDK配置文件config.yml的证书路径和跟CA路径为:
 
 | 参数                    | 值                         | 说明                     |
 | ----------------------- | -------------------------- | ------------------------ |
-| user_key_file_path      | ./config/user_ecc_tls.key  | 用户tls证书所对应私钥    |
-| user_crt_file_path      | ./config/user_tls.crt      | 用户tls证书              |
+| user_key_file_path      | ./config/user_ecc_tls.key  | 用户 tls 证书所对应私钥    |
+| user_crt_file_path      | ./config/user_tls.crt      | 用户 tls 证书              |
 | user_sign_key_file_path | ./config/user_ecc_sign.key | 用户证书所对应私钥       |
 | user_sign_crt_file_path | ./config/user_sign.crt     | 用户证书                 |
-| trust_root_paths        | ./config/                  | 根CA证书`ca.crt`所在目录 |
+| trust_root_paths        | ./config/                  | 根 CA 证书`ca.crt`所在目录 |
 
 <img src="https://main.qcloudimg.com/raw/f880540c149d8e99a57ac22c367e5232.png" style="zoom: 60%;" />
 
 <img src="https://main.qcloudimg.com/raw/d899e6d3754a16ff916f64d55cf1070a.png" style="zoom: 60%;" />
 
 ### 运行demo
-1. 进入`chainmaker-sdk-go-demo/chainmaker-sdk-demo`目录
-2. 修改`main.go`示例代码中的`claimContractName`和`claimVersion`为上述部署的合约的名字和版本号
+1. 进入 `chainmaker-sdk-go-demo/chainmaker-sdk-demo` 目录
+2. 修改 `main.go` 示例代码中的 `claimContractName` 和 `claimVersion` 为上述部署的合约的名字和版本号
 ```go
 var (
 	claimContractName = "fact"
 	claimVersion      = "v1.0"
 )
 ```
-3. 运行`go run main.go config/config.yml`, 可以看到一下输出：
+3. 运行`go run main.go config/config.yml`, 可以看到以下输出：
 
 <img src="https://main.qcloudimg.com/raw/4a7b27e80503e68a117c3944aa58f4c0.png" style="zoom: 60%;" />
 
 ### 更多对接方式
 
-长安链提供了多种语言的SDK，包括：Go SDK、Java SDK、Python SDK（实现中）、Nodejs SDK（实现中）方便开发者根据需要进行选用。更多详情可以参考[长安链SDK开发指南](https://docs.chainmaker.org.cn/dev/SDK.html)。
+长安链提供了多种语言的SDK，包括：Go SDK、Java SDK、Python SDK（实现中）、Nodejs SDK（实现中）方便开发者根据需要进行选用。更多详情可以参考 [长安链SDK开发指南](https://docs.chainmaker.org.cn/dev/SDK.html)。
