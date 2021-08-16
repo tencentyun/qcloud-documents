@@ -675,7 +675,7 @@ DUMP(expr[,return_fmt[,start_position][,length]])
 ```
 Typ=96 Len=3 [CharacterSet=ZHS16GBK]: 61,62,63
 ```
-1. `Typ` 表示当前的 `expr` 值的类型，类型查询SQL：`select typname from pg_type where oid=?；`。
+1. `Typ` 表示当前的 `expr` 值的类型，类型查询 SQL：`select typname from pg_type where oid=?；`。
 
    Oracle 与 TDSQL PostgreSQL 版（Oracle 兼容）中类型对比如下：
 
