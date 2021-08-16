@@ -55,7 +55,7 @@
 ### 步骤4：申请并下载证书[](id:cert)
 
 1. 在 TBaaS 控制台中，选择左侧导航中的【长安链】>【[区块链网络](https://console.cloud.tencent.com/tbaas/chainmaker/chain)】，点击对应的卡片进入网络详情页。
-2. 在网络详情页面中，点击顶部菜单栏的【证书管理】页签，进入对应页面后点击【申请证书】，在弹窗中填写证书标识并上传用户证书及 TLS 证书的 CSR 文件，确认后即生成证书，在证书列表中可下载证书。CSR 文件的生成方法请参考 [证书CSR文件生成指南](https://cloud.tencent.com/document/product/663/60114)。
+2. 在网络详情页面中，点击顶部菜单栏的【证书管理】页签，进入对应页面后点击【申请证书】，在弹窗中填写证书标识并上传用户证书及 TLS 证书的 CSR 文件，确认后即生成证书，在证书列表中可下载证书。CSR 文件的生成方法请参考 [证书申请 CSR 生成指南](https://cloud.tencent.com/document/product/663/60114)。
 ![](https://main.qcloudimg.com/raw/fa1412cc72a77a8d9cb486531328d24a.png)
 
 
