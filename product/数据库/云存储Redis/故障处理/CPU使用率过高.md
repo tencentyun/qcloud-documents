@@ -28,6 +28,10 @@
 
 ### [实例升级](id:slsj)
 #### 读负载过大场景
+读负载过大时，您可以 [开启读写分离](https://cloud.tencent.com/document/product/239/19543)，通过 [增加副本数](#zjfb) 来分摊读负载。
+>!开启读写分离可能会导致数据读取不一致（副本节点数据延后于主节点），请先确认业务是否允许数据不一致的问题，请参见 [变更实例规格](https://cloud.tencent.com/document/product/239/30895)。
+
+[](id:zjfb)
 1. 登录 [Redis 控制台](https://console.cloud.tencent.com/redis)，在实例列表，选择“操作”列的【配置变更】>【增加副本】。
 ![](https://main.qcloudimg.com/raw/740453d3b1bf2ca22c601aa819b2db21.png)
 2. 在弹出的配置变更对话框，选择需更改的配置，单击【确定】。
