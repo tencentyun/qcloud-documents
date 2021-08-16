@@ -2,7 +2,7 @@
 
 部分场景下，Consumer Group 会很长一段时间不消费后重新消费，可将消费者组删除，其中的消费者重新建立连接时，会重置 Offset，从头开始消费。
 
->?只有当Consumer Group的状态为Empty时，才能被删除。
+>?Broker 版本不低于1.1.1，且Consumer Group的状态为Empty时，消费组才能被删除。
 
 ## 操作步骤
 
