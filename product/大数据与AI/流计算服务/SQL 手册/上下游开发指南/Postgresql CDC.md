@@ -134,7 +134,7 @@ Postgres CDC 和 Flink 字段类型对应关系如下：
 </table>
 
 ## 注意事项
-### 用户权限
+#### 用户权限
 用来同步的用户至少具有 REPLICATION、LOGIN、SCHEMA、DATABASE、SELECT 权限。
 ```sql
 CREATE ROLE debezium_user REPLICATION LOGIN; 
