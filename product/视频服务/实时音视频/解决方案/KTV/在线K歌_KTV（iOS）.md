@@ -91,7 +91,7 @@
 
 [](id:model)
 ## 实现自定义 UI 界面
-[源码](https://github.com/tencentyun/TUIKaraoke) 中的 `Source` 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCKaraokeRoom，您可以在 `TRTCKaraokeRoom.h` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+[源码](https://github.com/tencentyun/TUIKaraoke/tree/main/iOS/Source) 中的 `Source` 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCKaraokeRoom，您可以在 `TRTCKaraokeRoom.h` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 <img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn//ktv_chart_form.png">
 
 
