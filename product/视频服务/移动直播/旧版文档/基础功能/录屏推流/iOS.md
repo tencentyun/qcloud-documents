@@ -127,8 +127,8 @@ static NSString *s_rtmpUrl;
     [s_txLivePublisher setConfig:config];
 ```
 >!
->1. 一般手机上为9：16，而在 iPhoneX 上画面比例为1125：2436，因此此处使用屏幕比例进行计算分辨率。
->2. 在 ReplayKit2 上采集的都是竖屏的分辨率，如果需要推送横屏分辨率，除了设置横屏分辨率外还需同时指定 homeOrientation 为横屏推流，否则会引起画面变形。
+>- 一般手机上为9：16，而在 iPhoneX 上画面比例为1125：2436，因此此处使用屏幕比例进行计算分辨率。
+>- 在 ReplayKit2 上采集的都是竖屏的分辨率，如果需要推送横屏分辨率，除了设置横屏分辨率外还需同时指定 homeOrientation 为横屏推流，否则会引起画面变形。
 
 
 ### 步骤 3：发送视频
