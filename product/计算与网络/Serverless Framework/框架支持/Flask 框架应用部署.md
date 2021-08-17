@@ -24,10 +24,8 @@
 ```shell
 pip install Flask
 ```
-
 2. 本地创建 `Hello World` 示例项目
 在项目目录下，新建 `app.py` 项目，实现最简单的 Hello World 应用，示例代码如下：
-
 ```python
 from flask import Flask
 app = Flask(__name__)
@@ -39,9 +37,7 @@ def hello_world():
 if __name__ == '__main__':
    app.run()
 ```
-
-3. 本地运行 app.py 文件，在浏览器里访问 `http://127.0.0.1:5000`，即可在本地完成Express 示例项目的访问
-
+3. 本地运行 app.py 文件，在浏览器里访问 `http://127.0.0.1:5000`，即可在本地完成Express 示例项目的访问。
 ```shell
 $ python3 app.py
 
@@ -72,23 +68,25 @@ werkzeug==0.16.0
 ```shell
 pip install -r requirements.txt
 ```
-  !>! 由于 SCF 内置运行环境版本 (Python 3.6) 限制，werkzeug 只能使用低版本(<=1.0.x)，高版本可能无法正常运行，函数运行环境版本升级已在规划中，敬请期待
+
+>! 由于 SCF 内置运行环境版本 (Python 3.6) 限制，werkzeug 只能使用低版本(<=1.0.x)，高版本可能无法正常运行，函数运行环境版本升级已在规划中，敬请期待。
+>
 
 **2. 修改监听地址与端口**
 
-在 Web 函数内，限制了监听端口必须为 `9000`，因此需要对监听地址端口进行修改，改为 `0.0.0.0:9000`
+在 Web 函数内，限制了监听端口必须为 `9000`，因此需要对监听地址端口进行修改，改为 `0.0.0.0:9000`。
 ![](https://main.qcloudimg.com/raw/ea0a28fae8c9ab16dbe447bfe883aafe.png)
 >! 您也可以在 `scf_bootstrap` 中，通过环境变量配置监听端口。
 
 **3. (可选)配置 scf_bootstrap 启动文件**
 
-在项目根目录下新建 `scf_bootstrap` 启动文件，在里面完成环境变量配置，指定服务启动命令等自定义操作，确保您的服务可以通过该文件正常启动
+在项目根目录下新建 `scf_bootstrap` 启动文件，在里面完成环境变量配置，指定服务启动命令等自定义操作，确保您的服务可以通过该文件正常启动。
 
 ```shell
 #!/bin/bash
 /var/lang/python3/bin/python3 app.py
 ```
-创建完成后，注意修改您的可执行文件权限，默认需要 `777` 或 `755` 权限
+创建完成后，注意修改您的可执行文件权限，默认需要 `777` 或 `755` 权限。
 ```
 chmod 777 scf_bootstrap
 ```
