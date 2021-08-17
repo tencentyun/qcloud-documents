@@ -88,10 +88,10 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp
 [_pusher stopPush];
 ```
 
--  **如何获取可用的推流 URL？**
+-  **获取可用的推流 URL**
 开通直播服务后，可以使用【直播控制台】>【辅助工具】> [【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 ![](https://main.qcloudimg.com/raw/0ec9d83f340454c287d96f83eec3a3e4.png)
-- **返回 -5 的原因？**
+- **返回 -5 的原因**
 如果 `startPush` 接口返回 -5，则代表您的 License 校验失败了，请检查 [第2步“给 SDK 配置   License 授权”](#step2) 中的工作是否有问题。
 
 
@@ -353,10 +353,9 @@ SDK 发现部分严重问题，推流无法继续（例如，用户禁用了 App
 ### 4. 警告事件 
 SDK 发现部分警告问题，但 WARNING 级别的事件都会触发一些尝试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复。
 
-- **WARNING_NET_BUSY**：
+- **WARNING_NET_BUSY**
 主播网络差，如果您需要 UI 提示，这个 WARNING 相对比较有用。
-
-- **WARNING_SERVER_DISCONNECT**：
+- **WARNING_SERVER_DISCONNECT**
 推流请求被后台拒绝，一般是由于推流地址里的 txSecret 计算错误，或者是推流地址被其他人占用（一个推流 URL 同时只能有一个端推流）。
 
 | 事件 ID                 |    数值  |  含义说明                    |   
