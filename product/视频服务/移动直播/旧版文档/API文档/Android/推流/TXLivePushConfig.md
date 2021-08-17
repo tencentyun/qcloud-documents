@@ -31,7 +31,7 @@ __介绍__
 - 其他取值：TXLiveConstants.VIDEO_ANGLE_HOME_RIGHT 和 TXLiveConstants.VIDEO_ANGLE_HOME_LEFT (横屏推流)。
 - 改变该字段的设置以后，本地摄像头的预览画面方向也会发生改变，请调用 TXLivePusher 的 [setRenderRotation](https://cloud.tencent.com/document/product/454/34772#setrenderrotation) 进行矫正。
 
-***
+
 
 ### setTouchFocus
 
@@ -52,7 +52,7 @@ __介绍__
 - 默认值：true。
 - 因为硬件的限制，API 14以上的版本以及后置摄像头才会支持。
 
-***
+
 
 ### setEnableZoom
 
@@ -72,7 +72,7 @@ __介绍__
 接口说明：
 - 默认值：false。
 
-***
+
 
 ### setWatermark
 
@@ -95,7 +95,7 @@ __介绍__
 - 水印位置坐标系与系统保持一致。
 - 设置为 null 关闭水印。
 
-***
+
 
 ### setWatermark
 
@@ -119,7 +119,7 @@ __介绍__
 - 使用归一化坐标。
 - 假设推流分辨率为：540 × 960，x，y，width 分别设置为：（0.1， 0.1， 0.1），那么水印的实际像素坐标为：（540 * 0.1， 960 * 0.1， 水印宽度 * 0.1， 水印高度会被自动计算）。
 
-***
+
 
 ### setLocalVideoMirrorType
 
@@ -142,7 +142,7 @@ __介绍__
 - TXLiveConstants#LOCAL_VIDEO_MIRROR_TYPE_ENABLE 表示前置摄像头和后置摄像头都镜像。
 - TXLiveConstants#LOCAL_VIDEO_MIRROR_TYPE_DISABLE 表示前置摄像头和后置摄像头都不镜像。
 
-***
+
 
 ## 垫片推流
 ### setPauseImg
@@ -163,7 +163,7 @@ __介绍__
 接口说明：
 - 图片最大尺寸不能超过1920 × 1920。
 
-***
+
 
 ### setPauseImg
 
@@ -186,7 +186,7 @@ __介绍__
 - 调用 [TXLivePusher](https://cloud.tencent.com/document/product/454/34772#txlivepusher) 的 pausePush() 接口，会暂停摄像头采集并进入垫片推流状态，如果该状态一直保持， 可能会消耗主播过多的手机流量，本字段用于指定垫片推流的最大持续时间，超过后不会断开云服务器的链接，但会进入纯音频推流。
 >? 若您的移动直播服务是在2018年09月之前开通的，指定垫片推流持续时间超过后即会断开云服务器的连接。
 
-***
+
 
 ### setPauseFlag
 
@@ -209,7 +209,7 @@ __介绍__
 - TXLiveConstants#PAUSE_FLAG_PAUSE_AUDIO 表示暂停推流时，推静音数据，画面数据不做暂停，继续发送摄像头、录屏或 custom 视频数据。
 - TXLiveConstants#PAUSE_FLAG_PAUSE_VIDEO|TXLiveConstants#PAUSE_FLAG_PAUSE_AUDIO 表示暂停推流时，推送暂停图片和静音数据。
 
-***
+
 
 
 ## 音视频编码参数
@@ -232,7 +232,7 @@ __介绍__
 - 默认值：TXLiveConstants#VIDEO_RESOLUTION_TYPE_540_960 。
 - 其他值可参见 TXLiveConstants VIDEO_RESOLUTION_TYPE_XXX 。
 
-***
+
 
 ### setVideoFPS
 
@@ -252,7 +252,7 @@ __介绍__
 接口说明：
 - 默认值：20。
 
-***
+
 
 ### setVideoEncodeGop
 
@@ -272,7 +272,7 @@ __介绍__
 接口说明：
 - 默认值：3，单位为秒。
 
-***
+
 
 ### setVideoBitrate
 
@@ -293,7 +293,7 @@ __介绍__
 - 默认值：1200。
 - 不开启码率自适应时，视频以此码率编码。
 
-***
+
 
 ### setMaxVideoBitrate
 
@@ -314,7 +314,7 @@ __介绍__
 - 默认值：1000。
 - 只有开启码率自适应， 该设置项才能启作用：[setAutoAdjustBitrate(boolean)](https://cloud.tencent.com/document/product/454/34771#setautoadjustbitrate)。
 
-***
+
 
 ### setMinVideoBitrate
 
@@ -335,7 +335,7 @@ __介绍__
 - 默认值：400。
 - 只有开启码率自适应， 该设置项才能启作用：[setAutoAdjustBitrate(boolean)](https://cloud.tencent.com/document/product/454/34771#setautoadjustbitrate)。
 
-***
+
 
 ### setAutoAdjustBitrate
 
@@ -356,7 +356,7 @@ __介绍__
 - 默认值：false。
 - 开启后，SDK会根据网络情况自动调节视频码率，调节范围在（[videoBitrateMin](https://cloud.tencent.com/document/product/454/34774#setminautoadjustcachetime) - [videoBitrateMax](https://cloud.tencent.com/document/product/454/34774#setmaxautoadjustcachetime)）。
 
-***
+
 
 ### setAutoAdjustStrategy
 
@@ -377,7 +377,7 @@ __介绍__
 - 默认值： TXLiveConstants#AUTO_ADJUST_BITRATE_STRATEGY_1。
 - 其他值： 请参见 TXLiveConstants 类中 AUTO_ADJUST_XXX 。
 
-***
+
 
 ### setAudioSampleRate
 
@@ -398,7 +398,7 @@ __介绍__
 - 默认值：48000。
 - 其他值：8000、16000、32000、44100、48000。
 
-***
+
 
 ### setAudioChannels
 
@@ -419,7 +419,7 @@ __介绍__
 - 默认值：1。
 - 其他值：1、2。
 
-***
+
 
 ### enablePureAudioPush
 
@@ -440,7 +440,7 @@ __介绍__
 - 默认值：false。
 - 只有在推流启动前设置才会生效，推流过程中设置不会生效。
 
-***
+
 
 ### enableScreenCaptureAutoRotate
 
@@ -460,7 +460,7 @@ __介绍__
 接口说明：
 - 默认值：false。
 
-***
+
 
 ### enableHighResolutionCaptureMode
 
@@ -480,7 +480,7 @@ __介绍__
 接口说明：
 - 默认值：true，采用1280 × 720的采集分辨率。
 
-***
+
 
 ### setVideoEncoderXMirror
 
@@ -500,7 +500,7 @@ __介绍__
 接口说明：
 - 默认值：false。
 
-***
+
 
 
 ## 网络相关参数
@@ -524,7 +524,7 @@ __介绍__
 - 默认值：3。
 - 取值范围：1 - 10。
 
-***
+
 
 ### setConnectRetryInterval
 
@@ -546,7 +546,7 @@ __介绍__
 - 默认值：3秒。
 - 取值范围：3秒 - 30秒。
 
-***
+
 
 
 ## 自定义采集和处理
@@ -569,7 +569,7 @@ __介绍__
 - 该字段需要使用与运算符进行级联操作（自定义采集和自定义处理不能同时开启）： 开启自定义视频采集：　\_config.customModeType |= CUSTOM_MODE_VIDEO_CAPTURE；开启自定义音频采集：\_config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE。
 - 其他值：请参见 TXLiveConstants 中 CUSTOM_MODE_XXX 。
 
-***
+
 
 
 ## 专业设置项
@@ -592,7 +592,7 @@ __介绍__
 - 默认值：false。
 - 连麦时必须开启，非连麦时不要开启。
 
-***
+
 
 ### enableAGC
 
@@ -612,7 +612,7 @@ __介绍__
 接口说明：
 - 默认值：false。
 
-***
+
 
 ### enableANS
 
@@ -632,7 +632,7 @@ __介绍__
 接口说明：
 - 默认值：false。
 
-***
+
 
 ### setVolumeType
 
@@ -657,7 +657,7 @@ __介绍__
 - TXLiveConstants#AUDIO_VOLUME_TYPE_MEDIA 表示媒体音量类型。
 
 
-***
+
 
 ### setHardwareAcceleration
 
@@ -678,7 +678,7 @@ __介绍__
 - 默认值：TXLiveConstants#ENCODE_VIDEO_AUTO，自动选择是否启用硬件加速。
 - 其他值：TXLiveConstants#ENCODE_VIDEO_HARDWARE，开启硬件加速，TXLiveConstants#ENCODE_VIDEO_SOFTWARE，禁用硬件加速，默认禁用硬件加速。
 
-***
+
 
 ### enableVideoHardEncoderMainProfile
 
