@@ -65,7 +65,8 @@ node app.js
 1. 在 Koa 示例项目中，修改监听端口到 `9000`
 ![](https://main.qcloudimg.com/raw/193b4e029355a0956eb5bfcb154c9ad3.png)
 2. 在项目根目录下新建 `scf_bootstrap` 启动文件，在该文件添加如下内容（用于配置环境变量和启动服务）：
- >? 您也可以在控制台完成该模块配置
+>? 您也可以在控制台完成该模块配置。
+>
 ```sh
 #!/bin/bash
 /var/lang/node12/bin/node app.js
@@ -76,8 +77,8 @@ chmod 777 scf_bootstrap
 ```
 3. 本地配置完成后，执行启动文件，确保您的服务可以本地正常启动，接下来，登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Koa 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**
 
-您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署
-  >! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。
+您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署。
+>! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。
 
-配置完成后，单击**完成**，部署您的 Koa 项目
+配置完成后，单击**完成**，部署您的 Koa 项目。
 ![](https://main.qcloudimg.com/raw/a28efc9156bc3ba9ab817be16a463a02.png)
