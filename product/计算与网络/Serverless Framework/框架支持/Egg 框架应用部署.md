@@ -25,7 +25,6 @@
 ### 本地开发
 
 1. 参考 [Egg.js](https://eggjs.org/zh-cn/intro/quickstart.html) 官方文档，快速初始化示例项目：
-
 ```sh
 mkdir egg-example && cd egg-example
 npm init egg --type=simple
@@ -37,6 +36,7 @@ npm i
 npm run dev
 open http://localhost:7001
 ```
+
 3. 打开浏览器，即可在本地完成 Egg 示例项目的访问。
 
 ### 部署上云
@@ -49,7 +49,8 @@ open http://localhost:7001
 
 **1. (可选)配置 scf_bootstrap 启动文件**
 
- >? 您也可以在控制台完成该模块配置。
+>? 您也可以在控制台完成该模块配置。
+>
 
 在项目根目录下新建 `scf_bootstrap` 启动文件，在该文件添加如下内容（用于配置环境变量和启动服务，此处仅为示例，具体操作请以您实际业务场景来调整）：
 
@@ -100,6 +101,7 @@ chmod 777 scf_bootstrap
 
 您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署。
 >! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。
+>
 
 配置完成后，单击**完成**，部署您的 Egg 项目。
 ![](https://main.qcloudimg.com/raw/a28efc9156bc3ba9ab817be16a463a02.png)
