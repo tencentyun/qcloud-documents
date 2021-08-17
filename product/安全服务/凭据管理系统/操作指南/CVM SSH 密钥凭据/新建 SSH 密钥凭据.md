@@ -6,7 +6,7 @@
 
 ## 操作步骤
 1. 登录 [凭据管理系统](https://console.cloud.tencent.com/ssm) 控制台，在左侧导航栏中，单击【CVM SSH 密钥管理】，进入CVM SSH 密钥页面。
-   ![](https://main.qcloudimg.com/raw/0efd0b22b65ccf0160dfced0174a5896.png)
+   ![](https://main.qcloudimg.com/raw/5afcc6fcfee93523a23392d2980103eb.png)
 2. 在 CVM SSH 密钥页面中，单击左上角的“区域下拉框”，切换区域。
    ![](https://main.qcloudimg.com/raw/00d49d1edfdf4dfa90446d02be7002b7.png)
 3. 在 CVM SSH 密钥页面中，单击左上角的【新建】，进入创建 SSH 密钥页面。
