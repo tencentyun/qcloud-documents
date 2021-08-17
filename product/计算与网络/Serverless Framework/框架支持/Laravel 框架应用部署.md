@@ -10,11 +10,11 @@
 
 ### 模版部署 -- 部署 Laravel 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
-2. 选择【Web 应用】--> 【Laravel 框架】，如下图所示：
+2. 选择**Web 应用>Laravel 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/4c005329ab121bcc71e8f436932adb74.png)
-3. 点击“下一步”，完成基础配置选择
+3. 单击“下一步”，完成基础配置选择
 ![](https://main.qcloudimg.com/raw/9f22f8c1e5426b5d3d54631caabde012.png)
-4. 上传方式，选择【示例代码】直接部署，单击【完成】，即可开始应用的部署。
+4. 上传方式，选择**示例代码**直接部署，单击**完成**，即可开始应用的部署。
 5. 部署完成后，您可在应用详情页面，查看示例应用的基本信息，并通过 API 网关生成的访问路径 URL 进行访问，查看您部署的 Laravel 项目
 ![](https://main.qcloudimg.com/raw/75d23fa483ebe94273deaf846e606618.png)
 
@@ -92,12 +92,12 @@ mkdir -p /tmp/storage/framework/views
 
 **2. 控制台上传**
 
-登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择【Web 应用】--> 【Laravel 框架】，上传方式可以选择【本地上传】或【代码仓库拉取】
+登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Laravel 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**
 
 您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署
-  启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容
+  >! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。
 
-配置完成后，点击【完成】，部署您的 Laravel 项目
+配置完成后，单击**完成**，部署您的 Laravel 项目
 ![](https://main.qcloudimg.com/raw/a28efc9156bc3ba9ab817be16a463a02.png)
 
 部署完成后，点击生成的 URL，即可访问您的 Laravel 应用：

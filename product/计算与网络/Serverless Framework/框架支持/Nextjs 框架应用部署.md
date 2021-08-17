@@ -14,11 +14,11 @@
 
 ### 模版部署 -- 部署 Next.js 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
-2. 选择【Web 应用】--> 【Next.js 框架】，如下图所示：
+2. 选择**Web 应用>Next.js 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/fb2c3d23447e36dc0fb1190002edd780.png)
-3. 点击“下一步”，完成基础配置选择
+3. 单击“下一步”，完成基础配置选择
 ![](https://main.qcloudimg.com/raw/9f22f8c1e5426b5d3d54631caabde012.png)
-4. 上传方式，选择【示例代码】直接部署，单击【完成】，即可开始应用的部署。
+4. 上传方式，选择**示例代码**直接部署，单击**完成**，即可开始应用的部署。
 5. 部署完成后，您可在应用详情页面，查看示例应用的基本信息，并通过 API 网关生成的访问路径 URL 进行访问，查看您部署的 Next.js 项目
 ![](https://main.qcloudimg.com/raw/08850522bb5c19b2adf73032001b4bf6.png)
 
@@ -67,10 +67,10 @@ nextStart([ '--port', '9000', '--hostname', '0.0.0.0' ])
 ```sh
 chmod 777 scf_bootstrap
 ```
-2. 本地配置完成后，执行启动文件，确保您的服务可以本地正常启动，接下来，登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择【Web 应用】--> 【Next.js 框架】，上传方式可以选择【本地上传】或【代码仓库拉取】
+2. 本地配置完成后，执行启动文件，确保您的服务可以本地正常启动，接下来，登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Next.js 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**
 
 您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署
-  启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容
+  >! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。
 
-配置完成后，点击【完成】，部署您的 Next.js 项目
+配置完成后，单击**完成**，部署您的 Next.js 项目
 ![](https://main.qcloudimg.com/raw/a28efc9156bc3ba9ab817be16a463a02.png)
