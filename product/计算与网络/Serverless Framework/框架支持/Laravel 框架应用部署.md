@@ -50,10 +50,10 @@ $ php artisan serve --host 0.0.0.0 --port 9000
 >? 您也可以在控制台完成该模块配置。
 >
 
-在项目根目录下新建 `scf_bootstrap` 启动文件，在里面完成环境变量配置，指定服务启动命令等自定义操作，确保您的服务可以通过该文件正常启动
+在项目根目录下新建 `scf_bootstrap` 启动文件，在里面完成环境变量配置，指定服务启动命令等自定义操作，确保您的服务可以通过该文件正常启动。
 
->!
-`scf_bootstrap` 必须有 `755` 或者 `777` 的可执行权限。
+>! `scf_bootstrap` 必须有 `755` 或者 `777` 的可执行权限。
+>
 
 
 
@@ -91,7 +91,7 @@ mkdir -p /tmp/storage/framework/views
 
 **2. 控制台上传**
 
-登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Laravel 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**
+登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Laravel 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**。
 
 您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署。
 >! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。
