@@ -8,19 +8,19 @@
 
 本篇文档为您介绍应用控制台的部署方案，您也可以通过命令行完成部署，具体操作请参考 [产品文档](https://cloud.tencent.com/document/product/583/58183)。
 
-### 模版部署 -- 部署 Flask 示例代码
+## 模版部署 -- 部署 Flask 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
 2. 选择**Web 应用>Flask 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/5085acaefb589659b38d6ad796ce80f0.png)
-3. 单击“下一步”，完成基础配置选择
+3. 单击“下一步”，完成基础配置选择。
 ![](https://main.qcloudimg.com/raw/9f22f8c1e5426b5d3d54631caabde012.png)
 4. 上传方式，选择**示例代码**直接部署，单击**完成**，即可开始应用的部署。
-5. 部署完成后，您可在应用详情页面，查看示例应用的基本信息，并通过 API 网关生成的访问路径 URL 进行访问，查看您部署的 Flask 项目
+5. 部署完成后，您可在应用详情页面，查看示例应用的基本信息，并通过 API 网关生成的访问路径 URL 进行访问，查看您部署的 Flask 项目。
 ![](https://main.qcloudimg.com/raw/e51451316771ac660b543f7ebacd69b7.png)
 
-### 自定义部署 -- 快速部署 Web 应用
-#### 本地开发
-1. 首先需要确认您本地的环境内已经安装好 Flask
+## 自定义部署 -- 快速部署 Web 应用
+### 本地开发
+1. 首先需要确认您本地的环境内已经安装好 Flask。
 ```shell
 pip install Flask
 ```
@@ -55,7 +55,7 @@ $ python3 app.py
 ```
 ![](https://main.qcloudimg.com/raw/6319dcbb13adb70086eded667476c80a.png)
 
-#### 部署上云
+### 部署上云
 
 接下来，我们对本地已经创建完成的项目进行简单修改，使其可以通过 Web Function 快速部署，对于 Flask，具体改造步骤如下：
 
@@ -78,8 +78,7 @@ pip install -r requirements.txt
 
 在 Web 函数内，限制了监听端口必须为 `9000`，因此需要对监听地址端口进行修改，改为 `0.0.0.0:9000`
 ![](https://main.qcloudimg.com/raw/ea0a28fae8c9ab16dbe447bfe883aafe.png)
-
-  >! 您也可以在 `scf_bootstrap` 中，通过环境变量配置监听端口。
+>! 您也可以在 `scf_bootstrap` 中，通过环境变量配置监听端口。
 
 **3. (可选)配置 scf_bootstrap 启动文件**
 
@@ -94,7 +93,7 @@ pip install -r requirements.txt
 chmod 777 scf_bootstrap
 ```
 
-  注意
+>!
 >- 您也可以在控制台完成该模块配置
 >- 在 SCF 环境内，只有 `/tmp` 文件可读写，建议输出文件时选择 `/tmp`，其它目录会由于缺少权限而写入失败
 >- 如果想要在日志中输出环境变量，启动命令前需要加 `-u` 参数，示例：`python -u app.py`
@@ -102,14 +101,14 @@ chmod 777 scf_bootstrap
 
 **4. 控制台上传**
 
-登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Flask 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**
+登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Flask 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**。
 
-您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署
-  >! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。
+您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署。
+>! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。
 
-配置完成后，单击**完成**，部署您的 Flask 项目
+配置完成后，单击**完成**，部署您的 Flask 项目。
 ![](https://main.qcloudimg.com/raw/a28efc9156bc3ba9ab817be16a463a02.png)
 
 #### 高级配置管理
-您可在“高级配置”里进行更多应用管理操作，如创建层、绑定自定义域名、配置环境变量等
+您可在“高级配置”里进行更多应用管理操作，如创建层、绑定自定义域名、配置环境变量等。
 ![](https://main.qcloudimg.com/raw/5a788f4872c1e431e375f445f157b1e2.png)
