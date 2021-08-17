@@ -11,7 +11,7 @@
 
 ## 操作步骤
 ### 使用控制台管理 Helm Chart
-1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的**Helm Chart】。
+1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的**Helm Chart**。
 2. 在 “Helm Chart” 页面即可查看当前实例内的 Helm Chart 列表。如需切换实例，请在页面上方的“实例名称”下拉列表中进行选择。如下图所示：
 ![](https://main.qcloudimg.com/raw/bb5e725e3517261a9b97c8936042fb1b.png)
    Chart 列表包含以下信息及操作：
@@ -27,9 +27,9 @@
 
 ### 使用控制台上传及下载 Helm Chart
 #### 上传本地 Helm Chart 包
-1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的**Helm Chart】。
+1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的**Helm Chart**。
 在“Helm Chart”页面即可查看当前实例内的 Helm Chart 仓库列表。如需切换实例，请在页面上方的“实例名称”下拉列表中进行选择。
-2. 单击**上传】，在“上传Helm Chart”窗口中，参考以下提示进行配置。如下图所示：
+2. 单击**上传**，在“上传Helm Chart”窗口中，参考以下提示进行配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/cef715cd91348c2f6583b0a16485c431.png)
  - **所属实例**：当前所选实例。
  - **命名空间**：Helm Chart 所属的命名空间，如果列表为空，请先在该实例内 [新建命名空间](https://cloud.tencent.com/document/product/1141/41803#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)。
@@ -40,7 +40,7 @@
 
 #### 下载 Helm Chart 包至本地
 1. 在**Helm Chart**页面查看当前实例内的 Helm Chart 仓库列表。单击指定仓库，即可进入该 Helm 仓库的版本管理页面。
-2. 选择该 Chart 仓库内指定版本，单击该版本所在行右侧的**下载】，即可自动下载该版本的 Chart 包至本地。根据浏览器及配置的不同，可选择指定下载路径。
+2. 选择该 Chart 仓库内指定版本，单击该版本所在行右侧的**下载**，即可自动下载该版本的 Chart 包至本地。根据浏览器及配置的不同，可选择指定下载路径。
 
 
 ### 使用 Helm 客户端上传及下载 Helm Chart
