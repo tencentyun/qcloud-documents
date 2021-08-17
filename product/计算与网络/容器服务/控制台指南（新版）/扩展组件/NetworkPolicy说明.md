@@ -16,10 +16,10 @@ Network Policy 是 Kubernetes 提供的一种资源，用于定义基于 Pod 的
 ## 操作步骤
 
 
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择【集群】。
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
-3. 选择左侧菜单栏中的【组件管理】，进入 “组件列表” 页面。
-4. 在“组件列表”页面中选择【新建】，并在“新建组件”页面中勾选 NetworkPolicy。NetworkPolicy 详细配置可参见 [Network Policy 最佳实践](https://cloud.tencent.com/document/product/457/19793)。
-5. 单击【完成】即可创建组件。
+3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
+4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 NetworkPolicy。NetworkPolicy 详细配置可参见 [Network Policy 最佳实践](https://cloud.tencent.com/document/product/457/19793)。
+5. 单击**完成**即可创建组件。
 
 

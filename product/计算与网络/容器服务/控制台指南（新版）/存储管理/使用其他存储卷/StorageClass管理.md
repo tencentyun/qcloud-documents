@@ -7,11 +7,11 @@ StorageClass 描述存储的类型，集群管理员可以为集群定义不同�
 ### 创建 StorageClass
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
-2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
+2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要创建 StorageClass 的集群 ID，进入待创建 StorageClass 的集群管理页面。
 4. 选择 “存储” > “StorageClass”，进入 StorageClass 信息页面。如下图所示：
 ![StorageClass](https://main.qcloudimg.com/raw/bdb7535c8b7d5b9a9b23239c8427357e.png)
-5. 单击【新建】，进入 “新建StorageClass” 页面。如下图所示：
+5. 单击**新建**，进入 “新建StorageClass” 页面。如下图所示：
 ![新建StorageClass](https://main.qcloudimg.com/raw/dfbe33b52731d9b180dfb2ffc856adca.png)
 6. 根据实际需求，设置 StorageClass 参数。关键参数信息如下：
  - 名称：自定义。
@@ -19,7 +19,7 @@ StorageClass 描述存储的类型，集群管理员可以为集群定义不同�
  - 可用区：根据实际需求进行设置，默认为 “随机可用区”。
  - 云盘类型：根据实际需求进行选择。
  - 回收策略：根据实际需求进行选择。
-7. 单击【创建StorageClass】，完成创建。
+7. 单击**创建StorageClass**，完成创建。
 
 ### 创建 PVC 指定 StorageClass
 
@@ -27,7 +27,7 @@ StorageClass 描述存储的类型，集群管理员可以为集群定义不同�
 
 ### 创建 StatefulSet 挂载自动创建 PersistentVolumeClaim 类型
 
-参照 [StatefulSet 管理](https://cloud.tencent.com/document/product/457/31707) 中的 “[创建 StatefulSet](https://cloud.tencent.com/document/product/457/31707#createStatefulSet)”，创建 StatefulSet。并在设置 StatefulSet 参数时，单击【添加数据卷】，选择 “使用新的 PVC” 方式，设置 PVC。如下图所示：
+参照 [StatefulSet 管理](https://cloud.tencent.com/document/product/457/31707) 中的 “[创建 StatefulSet](https://cloud.tencent.com/document/product/457/31707#createStatefulSet)”，创建 StatefulSet。并在设置 StatefulSet 参数时，单击**添加数据卷**，选择 “使用新的 PVC” 方式，设置 PVC。如下图所示：
 ![](https://main.qcloudimg.com/raw/34f50be497c21d28423afe3bf68baba1.png)
 
 ## Kubectl 操作 StorageClass 指引
