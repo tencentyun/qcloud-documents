@@ -19,49 +19,49 @@ __介绍__
 ```
 @property (nonatomic, weak) id< TXLivePlayListener > delegate
 ```
-***
+
 ### videoProcessDelegate
 
 设置视频处理回调，见`TXVideoCustomProcessDelegate.h`文件中的详细定义。
 ```
 @property (nonatomic, weak) id< TXVideoCustomProcessDelegate > videoProcessDelegate
 ```
-***
+
 ### audioRawDataDelegate
 
 设置音频处理回调，见`TXAudioRawDataDelegate.h`文件中的详细定义。
 ```
 @property (nonatomic, weak) id< TXAudioRawDataDelegate > audioRawDataDelegate
 ```
-***
+
 ### enableHWAcceleration
 
 是否开启硬件加速，默认值：NO。
 ```
 @property (nonatomic, assign) BOOL enableHWAcceleration
 ```
-***
+
 ### config
 
 设置 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34760) 播放配置项，见`TXLivePlayConfig.h`文件中的详细定义。
 ```
 @property (nonatomic, copy) TXLivePlayConfig * config
 ```
-***
+
 ### recordDelegate
 
 设置短视频录制回调，见`TXLiveRecordListener.h`文件中的详细定义。
 ```
 @property (nonatomic, weak) id< TXLiveRecordListener > recordDelegate
 ```
-***
+
 ### isAutoPlay
 
 startPlay 后是否立即播放，默认 YES，只有点播有效。
 ```
 @property (nonatomic, ) BOOL isAutoPlay
 ```
-***
+
 
 ## 播放基础接口
 ### setupVideoWidget
@@ -83,7 +83,7 @@ __介绍__
 
 变更历史：1.5.2版本将参数 frame 废弃，设置此参数无效，控件大小与参数 view 的大小保持一致，如需修改控件的大小及位置，请调整父 view 的大小及位置。 请参见 [绑定渲染界面](https://cloud.tencent.com/document/product/454/7880#step-2.EF.BC.9A.E6.B8.B2.E6.9F.93-view)。
 
-***
+
 
 ### removeVideoWidget
 
@@ -92,7 +92,7 @@ __介绍__
 - (void)removeVideoWidget
 ```
 
-***
+
 
 ### startPlay
 
@@ -112,7 +112,7 @@ __返回__
 
 0表示成功，其它为失败。
 
-***
+
 
 ### stopPlay
 
@@ -125,7 +125,7 @@ __返回__
 
 0：成功；其它：失败。
 
-***
+
 
 ### isPlaying
 
@@ -138,7 +138,7 @@ __返回__
 
 YES 拉流中，NO 没有拉流。
 
-***
+
 
 ### pause
 
@@ -151,7 +151,7 @@ __介绍__
 
 适用于点播，直播（此接口会暂停数据拉流，不会销毁播放器，暂停后，播放器会显示最后一帧数据图像）。
 
-***
+
 
 ### resume
 
@@ -160,7 +160,7 @@ __介绍__
 - (void)resume
 ```
 
-***
+
 
 
 ## 视频相关接口
@@ -177,7 +177,7 @@ __参数__
 |-----|-----|-----|
 | rotation | TX_Enum_Type_HomeOrientation | 方向。 |
 
-***
+
 
 ### setRenderMode
 
@@ -192,7 +192,7 @@ __参数__
 |-----|-----|-----|
 | renderMode | TX_Enum_Type_RenderMode | 裁剪。 |
 
-***
+
 
 ### snapshot
 
@@ -207,7 +207,7 @@ __参数__
 |-----|-----|-----|
 | snapshotCompletionBlock | void(^)(TXImage *) | 通过回调返回当前图像。 |
 
-***
+
 
 
 ## 音频相关接口
@@ -218,7 +218,7 @@ __参数__
 - (void)setMute:(BOOL)bEnable 
 ```
 
-***
+
 
 ### setVolume
 
@@ -233,7 +233,7 @@ __参数__
 |-----|-----|-----|
 | volume | int | 音量大小，取值范围 0 - 100。 |
 
-***
+
 
 ### setAudioRoute
 
@@ -248,7 +248,7 @@ __参数__
 |-----|-----|-----|
 | audioRoute | TXAudioRouteType | 声音播放模式。 |
 
-***
+
 
 ### setAudioVolumeEvaluationListener
 
@@ -263,7 +263,7 @@ __参数__
 |-----|-----|-----|
 | volumeEvaluationListener | (void(^)(int)) | 音量大小回调接口。 |
 
-***
+
 
 ### enableAudioVolumeEvaluation
 
@@ -282,7 +282,7 @@ __介绍__
 
 开启后会在 volumeEvaluationListener 中获取到 SDK 对音量大小值的评估。
 
-***
+
 
 ## 直播时移相关接口
 ### prepareLiveSeek
@@ -309,7 +309,7 @@ __介绍__
 
 >!非腾讯云直播地址不能时移。
 
-***
+
 
 ### resumeLive
 
@@ -322,7 +322,7 @@ __返回__
 
 0：成功；其它：失败。
 
-***
+
 
 ### seek
 ```
@@ -339,7 +339,7 @@ __返回__
 
 0：成功；其它：失败。
 
-***
+
 
 
 ## 视频录制相关接口
@@ -360,7 +360,7 @@ __返回__
 
 0：成功；1：正在录制短视频；-2：videoRecorder 初始化失败。
 
-***
+
 
 ### stopRecord
 
@@ -373,7 +373,7 @@ __返回__
 
 0：成功；1：不存在录制任务；-2：videoRecorder 未初始化。
 
-***
+
 
 ### setRate
 
@@ -388,7 +388,7 @@ __参数__
 |-----|-----|-----|
 | rate | float | 正常速度为1.0；小于为慢速；大于为快速。最大建议不超过2.0。 |
 
-***
+
 
 
 ## 更多实用接口
@@ -405,7 +405,7 @@ __参数__
 |-----|-----|-----|
 | margin | TXEdgeInsets | 边距。 |
 
-***
+
 
 ### showVideoDebugLog
 
@@ -420,7 +420,7 @@ __参数__
 |-----|-----|-----|
 | isShow | BOOL | 是否显示。 |
 
-***
+
 
 ### switchStream
 
@@ -441,7 +441,7 @@ __返回__
 
 >!playUrl 必须是当前播放直播流的不同清晰度，切换到无关流地址可能会失败。
 
-***
+
 
 ### callExperimentalAPI
 
@@ -460,7 +460,7 @@ __介绍__
 
 该接口用于调用一些实验性功能。
 
-***
+
 
 ## TX_Enum_PlayType
 
