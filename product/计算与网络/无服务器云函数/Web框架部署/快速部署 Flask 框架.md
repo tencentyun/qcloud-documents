@@ -80,6 +80,8 @@ $ python3 app.py
 Flask==1.0.2
 werkzeug==0.16.0
 ```
+> !注意：由于 SCF 内置运行环境版本 (Python 3.6) 限制，werkzeug 只能使用低版本(<=1.0.x)，高版本可能无法正常运行，函数运行环境版本升级已在规划中，敬请期待
+
  2. 执行以下命令进行安装：
 ```shell
 pip install -r requirements.txt
