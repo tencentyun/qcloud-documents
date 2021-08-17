@@ -586,7 +586,7 @@ android.useAndroidX=false
 android.enableJetifier=false
 ```
 2. 替换 xml 中控件的包名，去掉 androidx 的相关引用。
-```
+```plaintext
 // androidx.constraintlayout.widget.ConstraintLayout
 RelativeLayout
 
@@ -596,7 +596,7 @@ RelativeLayout
 //app:layout_constraintTop_toTopOf="parent"
 ```
 3. 去掉 `build.gradle` 中 androidx。
-```
+```plaintext
 //implementation 'androidx.appcompat:appcompat:1.1.0'
 //implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 //androidTestImplementation 'androidx.test:runner:1.2.0'
