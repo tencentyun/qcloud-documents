@@ -60,7 +60,7 @@
 	</tr>
 	<tr>
 	<td class="update">同步节点<br>（Sync node）</td>
-	<td>提或称见证节点，参与区块和交易同步、区块验证，交易执行，并记录完整账本数据，但不参与共识投票。</td>
+	<td>或称见证节点，参与区块和交易同步、区块验证，交易执行，并记录完整账本数据，但不参与共识投票。</td>
 	</tr>
 	<tr>
 	<td class="update">共识节点<br>（Consensus node）<br></td>
