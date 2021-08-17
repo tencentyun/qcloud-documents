@@ -7,7 +7,7 @@
 
 本篇文档为您介绍应用控制台的部署方案，您也可以通过命令行完成部署，具体操作请参考 [产品文档](https://cloud.tencent.com/document/product/583/58183)。
 
-### 模版部署 -- 部署 Django 示例代码
+## 模版部署 -- 部署 Django 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
 2. 选择**Web 应用>Django 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/3c03bbfe813cf5d094318593b1cc4ce8.png)
@@ -17,8 +17,8 @@
 5. 部署完成后，您可在应用详情页面，查看示例应用的基本信息，并通过 API 网关生成的访问路径 URL 进行访问，查看您部署的 Django 项目。
 ![](https://main.qcloudimg.com/raw/ed52f5307da4bc7c06a939edbc84ab54.png)
 
-### 自定义部署 -- 快速部署 Web 应用
-#### 本地开发
+## 自定义部署 -- 快速部署 Web 应用
+### 本地开发
 1. 执行以下命令，确认您本地的环境已安装好 Django。
 ```shell
 python -m pip install Django
@@ -48,12 +48,12 @@ Quit the server with CONTROL-C.
 4. 打开浏览器访问 `http://127.0.0.1:8000`，即可在本地完成 Django 示例项目的访问。如下图所示：
 ![](https://main.qcloudimg.com/raw/a09696d7d24c719ecb2f276c4bba93ce.png)
 
-#### 部署上云
+### 部署上云
 
 接下来执行以下步骤，对本地已创建完成的项目进行简单修改，使其可以通过 Web Function 快速部署，对于 Django，具体修改步骤如下：
 
 
-1. **安装依赖包**
+**1. 安装依赖包**
 
 由于 SCF 云上标准环境内未提供 Django 依赖库，此处您必须将依赖文件安装完成后，与项目代码一起打包上传。请先新建 `requirements.txt` 文件，文件内容如下：
 ```txt
