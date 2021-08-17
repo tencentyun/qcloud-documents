@@ -1,10 +1,10 @@
 应用中心框架部署方案已经全新升级，您可以通过 `SCF Web Function`，快速部署您的 Laravel 业务上云。
 
-> #### F&Q：
-> **应用控制台部署与函数直接部署有什么区别？**
-> 通过应用部署或函数部署，均可以基于 Web 函数，快速部署常见 Web 框架。
-> - 如果您只关注代码逻辑开发，无需额外资源创建，可以通过 SCF 云函数控制台，完成快速部署；
-> - 如果除了代码部署外，您还需要更多能力或资源创建，如自动创建层托管依赖、一键实现静态资源分离、支持代码仓库直接拉取等，可以通过应用控制台，完成 Web 应用的创建工作。
+  >! 
+  **应用控制台部署与函数直接部署有什么区别？**
+  通过应用部署或函数部署，均可以基于 Web 函数，快速部署常见 Web 框架。
+  - 如果您只关注代码逻辑开发，无需额外资源创建，可以通过 SCF 云函数控制台，完成快速部署；
+  - 如果除了代码部署外，您还需要更多能力或资源创建，如自动创建层托管依赖、一键实现静态资源分离、支持代码仓库直接拉取等，可以通过应用控制台，完成 Web 应用的创建工作。
 
 本篇文档为您介绍应用控制台的部署方案，您也可以通过命令行完成部署，具体操作请参考[产品文档](https://cloud.tencent.com/document/product/583/58183)。
 
@@ -35,7 +35,7 @@ composer create-project --prefer-dist laravel/laravel blog
 ```shell
 $ php artisan serve --host 0.0.0.0 --port 9000
 
-   Laravel development server started: <http://0.0.0.0:9000>
+   Laravel development server started: <http://0.0.0.0:9000 
    [Wed Jul  7 11:22:05 2021] 127.0.0.1:54350 [200]: /favicon.ico
 ```
 ![](https://main.qcloudimg.com/raw/38c23a62b4ad72f777f9469af7c60c49.png)
@@ -50,11 +50,11 @@ $ php artisan serve --host 0.0.0.0 --port 9000
 
 **1. (可选)配置 scf_bootstrap 启动文件**
 
->说明：您也可以在控制台完成该模块配置
+ >? 您也可以在控制台完成该模块配置
 
 在项目根目录下新建 `scf_bootstrap` 启动文件，在里面完成环境变量配置，指定服务启动命令等自定义操作，确保您的服务可以通过该文件正常启动
 
-> 注意
+  注意
 >- `scf_bootstrap` 必须有 `755` 或者 `777` 的可执行权限
 
 
@@ -95,7 +95,7 @@ mkdir -p /tmp/storage/framework/views
 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择【Web 应用】--> 【Laravel 框架】，上传方式可以选择【本地上传】或【代码仓库拉取】
 
 您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署
-> 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容
+  启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容
 
 配置完成后，点击【完成】，部署您的 Laravel 项目
 ![](https://main.qcloudimg.com/raw/a28efc9156bc3ba9ab817be16a463a02.png)
