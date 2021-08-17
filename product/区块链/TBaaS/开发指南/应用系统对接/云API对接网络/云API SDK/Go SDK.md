@@ -2,11 +2,15 @@
 
 欢迎使用腾讯云 TBaaS 产品开发者工具套件（SDK）3.0，SDK3.0 是云 API3.0 平台的配套工具。为方便 Go 开发者调试和接入腾讯云 TBaaS 产品 API，这里向您介绍适用于 Go 的腾讯云 TBaaS 产品开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 TBaaS 产品 Go SDK 并开始调用。
 
+
+
 ## 依赖环境
 
 1.	依赖环境：Go 1.9版本及以上，并设置好 GOPATH 等必须的环境变量。
 2.	通过腾讯云控制台开通 TBaaS 产品。
 3.	获取 [SecretID、SecretKey](https://console.cloud.tencent.com/cam/capi) 以及调用地址（tbaas.tencentcloudapi.com）。
+
+
 
 ## 获取安装
 
@@ -15,39 +19,26 @@
 ### 通过 go get 安装（推荐）
 
 使用语言自带的工具安装 SDK：
+
 ```
 go get -u github.com/tencentcloud/tencentcloud-sdk-go
 ```
 
 ### 通过源码包安装
+
 1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-go) 下载最新代码。
 2. 将获取到的源码包解压缩，并安装到 `$GOPATH/src/github.com/tencentcloud` 目录下。
 
-## 接口列表
+### 接口列表
 
-| 接口名称 | 接口功能 |
-|---------|---------|
-| Invoke | 新增交易（支持同步模式和异步模式） |
-| Query | 查询交易 |
-| GetInvokeTx | 查询 Invoke 异步调用结果 |
-| GetBlockList | 查询区块列表 |
-| GetBlockTransactionListForUser | 获取区块内的交易列表 |
-| GetClusterSummary | 获取区块链网络概要 |
-| GetLatesdTransactionList | 获取最新交易列表 |
-| GetTransactionDetailForUser | 获取交易详情 |
-| ApplyUserCert | 申请用户证书 |
-| DownloadUserCert | 下载用户证书 |
-| SrvInvoke | trustsql 服务统一接口 |
-| BlockByNumberHandler | 按块高查询区块信息 |
-| DeployDynamicContractHandler | 动态部署合约 |
-| GetBlockListHandler | 查询区块列表 |
-| GetTransByHashHandler | 根据交易哈希查询交易信息 |
-| GetTransListHandler | 查询交易列表 |
-| SendTransactionHandler | 发送交易 |
-| TransByDynamicContractHandler | 根据动态部署的合约发送交易 |
+详细的接口列表请查看 [API文档](https://cloud.tencent.com/document/produc/663/19455)
+
+
 
 ## 示例
+
 以新增交易（Invoke）接口为例：
+
 ```
 package main
 import (
@@ -98,10 +89,4 @@ func main() {
 
 
 ```
-
-
-
-
-
-
 
