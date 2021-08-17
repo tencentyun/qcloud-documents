@@ -8,7 +8,7 @@
 
 ## 前提条件
 - 在使用腾讯云云函数服务之前，您需要 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F) 并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
->! 本文档主要介绍控制台部署方案，您也可以通过命令行完成部署，请参考具体操作请参考 [产品文档](https://cloud.tencent.com/document/product/583/58183)
+>! 本文档主要介绍控制台部署方案，您也可以通过命令行完成部署，请参考具体操作请参考 [产品文档](https://cloud.tencent.com/document/product/583/58183)。
 
 ## 操作步骤
 
@@ -16,10 +16,10 @@
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
 2. 选择**Web 应用>Nuxt.js 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/fb2c3d23447e36dc0fb1190002edd780.png)
-3. 单击“下一步”，完成基础配置选择
+3. 单击“下一步”，完成基础配置选择。
 ![](https://main.qcloudimg.com/raw/9f22f8c1e5426b5d3d54631caabde012.png)
 4. 上传方式，选择**示例代码**直接部署，单击**完成**，即可开始应用的部署。
-5. 部署完成后，您可在应用详情页面，查看示例应用的基本信息，并通过 API 网关生成的访问路径 URL 进行访问，查看您部署的 Nuxt.js 项目
+5. 部署完成后，您可在应用详情页面，查看示例应用的基本信息，并通过 API 网关生成的访问路径 URL 进行访问，查看您部署的 Nuxt.js 项目。
 ![](https://main.qcloudimg.com/raw/d20d687ee0b7eae89f94324e4c5c723f.png)
 
 
