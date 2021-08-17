@@ -11,10 +11,10 @@
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
 2. 选择**Web 应用>Django 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/3c03bbfe813cf5d094318593b1cc4ce8.png)
-3. 单击“下一步”，完成基础配置选择
+3. 单击“下一步”，完成基础配置选择。
 ![](https://main.qcloudimg.com/raw/9f22f8c1e5426b5d3d54631caabde012.png)
 4. 上传方式，选择**示例代码**直接部署，单击**完成**，即可开始应用的部署。
-5. 部署完成后，您可在应用详情页面，查看示例应用的基本信息，并通过 API 网关生成的访问路径 URL 进行访问，查看您部署的 Django 项目
+5. 部署完成后，您可在应用详情页面，查看示例应用的基本信息，并通过 API 网关生成的访问路径 URL 进行访问，查看您部署的 Django 项目。
 ![](https://main.qcloudimg.com/raw/ed52f5307da4bc7c06a939edbc84ab54.png)
 
 ### 自定义部署 -- 快速部署 Web 应用
@@ -84,7 +84,7 @@ chmod 777 scf_bootstrap
 >- 如需在日志中输出环境变量，需在启动命令前加 `-u` 参数，例如 `python -u app.py`。
 
 本地配置完成后，执行以下命令启动服务（如下命令为在 scf_bootstrap 目录下执行时示例），确保您的服务在本地可以正常启动。
->! 本地测试时注意将 python 路径改为本地路径
+>! 本地测试时注意将 python 路径改为本地路径。
 >
 ```shell
 ./scf_bootstrap
@@ -96,7 +96,7 @@ chmod 777 scf_bootstrap
 
 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Django 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**
 
-您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署
+您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署。
 >! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。
 
 配置完成后，单击**完成**，部署您的 Django 项目。
