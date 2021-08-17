@@ -1,10 +1,13 @@
-VPC CIDR（主）创建后不可修改，当 VPC 的主 CIDR 不满足业务分配时，您可以创建辅助 CIDR 来扩充网段，然后在辅助 CIDR 上创建网络资源以满足实际网络需求。
-
+VPC支持添加一个主CIDR，且主CIDR创建后不可更改，当主 CIDR 不满足业务分配时，您可以创建辅助 CIDR 来扩充网段，一个VPC支持添加多个辅助CIDR。
+子网支持从主CIDR或者辅助CIDR中分配网段，无论子网属于主CIDR还是辅助CIDR，同一VPC下不同子网均默认互通。
 >?
->- 目前辅助 CIDR 处于内测中，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=168&source=0&data_title=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9CVPC&step=1)。
 >- 辅助 CIDR 可以和自定义路由的目的网段重叠；但需要谨慎操作，因为辅助 CIDR 的路由属于 Local 路由，Local 路由比自定义子网路由优先级更高。
 >- 基础网络云服务器不支持和辅助 CIDR 内的云资源互通。
->- 目前仅云联网支持传递辅助 CIDR，即：辅助 CIDR 内的云服务器无法通过对等连接、专线接入和其他 VPC、IDC 通信。
+>- 云联网、VPN 网关、标准型专线网关支持传递辅助 CIDR，对等连接不支持传递辅助 CIDR。其中专线网关还存在如下限制：
+  - 金融云地域的标准型专线网关不支持传递辅助 CIDR。
+  - 标准型专线网关支持传递10个辅助 CIDR。
+ -  NAT 型专线网关不支持传递辅助 CIDR。
+
 
 ## 创建辅助 CIDR[](id:21)
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
