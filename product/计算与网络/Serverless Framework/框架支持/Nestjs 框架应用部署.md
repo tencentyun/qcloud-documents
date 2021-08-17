@@ -33,12 +33,10 @@
 #### 本地开发
 
 1. 参考 [Nest.js](https://nestjs.bootcss.com/first-steps) 官方文档，初始化您的 Nest.js 项目：
-
 ```sh
 npm i -g @nestjs/cli
 nest new nest-app
 ```
-
 2. 在根目录下，执行以下命令在本地直接启动服务。
 ```shell
 cd nest-app && npm run start
@@ -58,24 +56,25 @@ cd nest-app && npm run start
 ![](https://main.qcloudimg.com/raw/4f32f01747c5868a89d513f7ff8e91f2.png)
 
 2. 在项目根目录下新建 `scf_bootstrap` 启动文件，在该文件添加如下内容（用于启动服务）：
- >? 您也可以在控制台完成该模块配置
+>? 您也可以在控制台完成该模块配置。
+>
 ```sh
 #!/bin/bash
 
 SERVERLESS=1 /var/lang/node12/bin/node ./dist/main.js
 ```
->! >? 
-  1. 此处仅为示例启动文件，具体请根据您的业务场景进行调整
-  2. 示例使用的是云函数标准 node 环境路径，本地调试时，注意修改成您的本地路径
-
+>! 
+1. 此处仅为示例启动文件，具体请根据您的业务场景进行调整。
+2. 示例使用的是云函数标准 node 环境路径，本地调试时，注意修改成您的本地路径。
+>
 新建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可正常启动。示例如下：
 ```sh
 chmod 777 scf_bootstrap
 ```
-3. 本地配置完成后，执行启动文件，确保您的服务可以本地正常启动，接下来，登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Nest.js 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**
+3. 本地配置完成后，执行启动文件，确保您的服务可以本地正常启动，接下来，登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Nest.js 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**。
 
-您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署
+您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署。
   >! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。
 
-配置完成后，单击**完成**，部署您的 Nest.js 项目
+配置完成后，单击**完成**，部署您的 Nest.js 项目。
 ![](https://main.qcloudimg.com/raw/a28efc9156bc3ba9ab817be16a463a02.png)
