@@ -3,48 +3,37 @@
 CDWPG 是腾讯云大数据数据仓库产品，通过 DTS 实现云数据库 MySQL 到 CDWPG 的数据实时同步，可以帮助您完成 TP（在线事务）数据库到 AP（在线分析）数据库的数据闭环。
 
 ## 注意事项 
-
 - DTS 在执行全量数据同步时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
 - 为了避免数据重复，请确保需要同步的表具有主键或者非空唯一键。
 
 ## 前提条件
-
-- 已[创建 CDWPG](https://cloud.tencent.com/document/product/878/31447)。
-
+- 已 [创建 CDWPG](https://cloud.tencent.com/document/product/878/31447)。
 - 需要具备源数据库的权限如下：
-
-  ```
-  GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
-  GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';
-  FLUSH PRIVILEGES;
-  ```
-
+```
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';
+FLUSH PRIVILEGES;
+```
 - 需要具备目标数据库的权限如下：
-
-  ```
-  Delete
-  Truncate
-  Insert
-  References
-  Select
-  Update
-  TRIGGER
-  ```
-
+```
+Delete
+Truncate
+Insert
+References
+Select
+Update
+TRIGGER
+```
 - 源数据库和目标数据库符合同步功能和版本要求，请参考 [数据同步支持的数据库](https://cloud.tencent.com/document/product/571/58672) 进行核对。
 
-
 ## 应用限制
-
 源端 MySQL 需要同步的表必须有主键。
 
 ## 操作限制
-
 同步过程中请勿修改、删除源数据库和目标数据库中用户信息（包括用户名、密码和权限）和端口号。
 
-## 支持的SQL操作
-
-| 操作类型 | 支持同步的SQL操作               |
+## 支持的 SQL 操作
+| 操作类型 | 支持同步的 SQL 操作               |
 | -------- | ------------------------------- |
 | DML      | INSERT、UPDATE、DELETE、REPLACE |
 

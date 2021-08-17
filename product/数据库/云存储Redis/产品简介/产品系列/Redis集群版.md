@@ -83,7 +83,6 @@
 - FLUSHDB
 - PING
 - KEYS（支持 hashtag，优先匹配 hashtag）
-- SCAN（支持 hashtag，优先匹配 hashtag）
 - MONITOR
 
 #### 事务支持

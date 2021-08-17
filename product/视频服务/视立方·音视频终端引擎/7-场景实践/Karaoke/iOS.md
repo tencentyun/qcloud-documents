@@ -10,7 +10,7 @@
 
 ## 效果展示
 
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 Karaoke 的能力，包括低延时 K 歌、麦位管理、收发礼物、文字聊天等音视频通话 TRTC 在 Karaoke 场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 KTV 的能力，包括低延时 K 歌、麦位管理、收发礼物、文字聊天等音视频通话 TRTC 在 KTV 场景下的相关能力。
 <table>
      <tr>
          <th>房主麦位操作</th>  
@@ -22,7 +22,7 @@
 </tr>
 </table>
 
-如需快速接入 Karaoke 功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TUIKaraoke 组件并实现自定义 UI 界面。
+如需快速接入 KTV 功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TUIKaraoke 组件并实现自定义 UI 界面。
 
 [](id:DemoUI)
 ## 复用 App 的 UI 界面
@@ -41,7 +41,7 @@
 
 [](id:ui.step2)
 ### 步骤2：下载 App 源码
-单击进入 [TUIKaraoke](https://github.com/tencentyun/TUIKaraoke)，Clone 或者下载源码。
+单击进入 [TUIKaraoke](https://github.com/tencentyun/TUIKaraoke/tree/main/iOS/Source)，Clone 或者下载源码。
 
 [](id:ui.step3)
 ### 步骤3：配置 App 工程文件
@@ -56,7 +56,7 @@
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
->- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/1449/58939?!preview&!editLang=zh#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E8.AE.A1.E7.AE.97)。
+>- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/1449/58939#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E8.AE.A1.E7.AE.97)。
 
 [](id:ui.step4)
 
@@ -70,7 +70,7 @@
 | 文件或文件夹 | 功能描述 |
 |:-------:|:--------|
 |TRTCKaraokeEnteryControl.swift|该文件包含所有 ViewController 的初始化获取方法，您可以通过该实例，快速获取 ViewController 对象。|
-| TRTCCreateKaraokeViewController | 创建 Karaoke 页面逻辑。 |
+| TRTCCreateKaraokeViewController | 创建 KTV 页面逻辑。 |
 | TRTCKaraokeViewController | 主房间页面，包括房主和听众两种界面。 |
 
 每个 `TRTC'XXXX'ViewController` 文件夹下均包含 `ViewController`、`RootView` 和 `ViewModel`，各个文件的作用如下表所示：
@@ -87,29 +87,31 @@
 ### 用户 A
 
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_anchor_step_first.PNG" width="320"/>
+<img src="https://main.qcloudimg.com/raw/b97bda31bad98c91acb23eb06f9c61e9.png" width="320"/>
 2. 单击【创建房间】，如下图示：
-<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_anchor_step_second.jpg" width="320"/>
+<img src="https://main.qcloudimg.com/raw/52b7be4d4a0040c922bd93ac229b236c.jpg" width="320"/>
 2. 输入房间主题，单击【一起嗨歌】。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_audience_step_first.PNG" width="320"/>
+<img src="https://main.qcloudimg.com/raw/65c6e9c73bfa312b1c0e17dfc52dcd3e.png" width="320"/>
 2. 输入用户 A 创建的房间号，单击【进入房间】。<br>
-<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_audience_step_second.jpg" width="320"/>
+<img src="https://main.qcloudimg.com/raw/067dd109317315bdbae16b452346cab6.jpg" width="320"/>
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
-<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_audience_step_third.jpg" width="320"/>
+<img src="https://main.qcloudimg.com/raw/34651b334d6dab09b3784f500bdbaa77.jpg" width="320"/>
+
+
 
 [](id:model)
 ## 实现自定义 UI 界面
-[源码](https://github.com/tencentyun/TUIKaraoke) 中的 `Source` 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCKaraokeRoom，您可以在 `TRTCKaraokeRoom.h` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+[源码](https://github.com/tencentyun/TUIKaraoke/tree/main/iOS/Source) 中的 `Source` 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCKaraokeRoom，您可以在 `TRTCKaraokeRoom.h` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 <img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn//ktv_chart_form.png">
 
 
 [](id:model.step1)
 ### 步骤1：集成 SDK
-Karaoke 组件 TRTCKaraokeRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
+KTV 组件 TRTCKaraokeRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 - **方法一：通过 cocoapods 仓库依赖**
 <dx-codeblock>
@@ -165,7 +167,7 @@ pod 'TUIKaraoke', :path => "./", :subspecs => ["TRTC"]
 <td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。</td>
 </tr><tr>
 <td>userSig</td>
-<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/1449/58939?!preview&!editLang=zh">如何计算 UserSig</a>。</td>
+<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/1449/58939">如何计算 UserSig</a>。</td>
 </tr></tr>
 <tr>
 <td>callback</td>
@@ -185,7 +187,7 @@ class YourController {
     // 其他代码逻辑
     ......
 }
-// 设置 Karaoke 代理
+// 设置 KTV 代理
 self.karaokeRoom.setDelegate(delegate: karaokeRoomDelegate)
 
 // 调用方式如下,闭包内建议使用 weak self 防止循环引用（下面示例代码省略 weak self 示例）
@@ -199,7 +201,7 @@ self.karaokeRoom.login(sdkAppId: sdkAppID, userId: userId, userSig: userSig) { [
 [](id:model.step5)
 ### 步骤5：房主创建房间
 1. 房主执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
-2. 房主调用 `createRoom` 创建新的 Karaoke 房间，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
+2. 房主调用 `createRoom` 创建新的 KTV 房间，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
 3. 房主创建房间成功后，可以调用 `enterSeat` 进入座位。
 4. 房主收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 5. 房主还会收到麦位表有成员进入的 `onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
@@ -258,11 +260,11 @@ func onAnchorEnterSeat(index: Int, user: UserInfo) {
 [](id:model.step6)
 ### 步骤6：听众端观看
 1. 听众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
-2. 听众端向业务后台获取最新的 Karaoke 房间列表。
->?App 中的 Karaoke 房间列表仅做演示使用，Karaoke 房间列表的业务逻辑千差万别，腾讯云暂不提供 Karaoke 房间列表的管理服务，请自行管理您的 Karaoke 房间列表。
-3. 听众端调用 `getRoomInfoList` 获取房间的详细信息，该信息是在房主端调用`createRoom`创建 Karaoke 房间时设置的简单描述信息。
->!如果您的 Karaoke 房间列表包含了足够全面的信息，可跳过调用 `getRoomInfoList` 相关步骤。
-4. 听众选择一个 Karaoke 房间，调用 `enterRoom` 并传入房间号即可进入该房间。
+2. 听众端向业务后台获取最新的 KTV 房间列表。
+>?App 中的 KTV 房间列表仅做演示使用，KTV 房间列表的业务逻辑千差万别，腾讯云暂不提供 KTV 房间列表的管理服务，请自行管理您的 KTV 房间列表。
+3. 听众端调用 `getRoomInfoList` 获取房间的详细信息，该信息是在房主端调用`createRoom`创建 KTV 房间时设置的简单描述信息。
+>!如果您的 KTV 房间列表包含了足够全面的信息，可跳过调用 `getRoomInfoList` 相关步骤。
+4. 听众选择一个 KTV 房间，调用 `enterRoom` 并传入房间号即可进入该房间。
 5. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
 6. 进房后会收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 7. 进房后还会收到麦位表有主播进入的` onAnchorEnterSeat` 的事件通知。
@@ -284,7 +286,7 @@ self.karaokeRoom.getRoomInfoList(roomIdList: roomIdsInt) { (code, message, roomI
     // 获取结果，此时可以刷新UI
 }
 
-// 4.选择 Karaoke 后，传入 roomId 进入房间
+// 4.选择 KTV 后，传入 roomId 进入房间
 self.karaokeRoom.enterRoom(roomID: roomInfo.roomID) { (code, message) in
     // 进入房间结果回调
     if code == 0 {

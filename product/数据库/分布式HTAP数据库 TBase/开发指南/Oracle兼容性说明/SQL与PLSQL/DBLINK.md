@@ -4,7 +4,7 @@
 
 有两种主要类型的 DBLINK：私有 DBLINK 和公有 DBLINK。私有 DBLINK 只有创建 DBLINK 的用户才可以使用；公有 DBLINK 可以被所有的数据库用户使用。
 
-此处 DBLINK 是指从 TDSQL PostgreSQL版（Oracle 兼容）访问Oracle，如需 Oracle 访问 TDSQL PostgreSQL版（Oracle 兼容），可通过透明网关实现，TDSQL PostgreSQL版（Oracle 兼容）之间的访问可用 postgres_fdw 扩展创建外部表实现。
+此处 DBLINK 是指从 TDSQL PostgreSQL版（Oracle 兼容）访问 Oracle，如需 Oracle 访问 TDSQL PostgreSQL版（Oracle 兼容），可通过透明网关实现，TDSQL PostgreSQL版（Oracle 兼容）之间的访问可用 postgres_fdw 扩展创建外部表实现。
 
 ## 语法
 创建插件：

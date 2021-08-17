@@ -175,5 +175,5 @@ tke-autoscaling-placeholder-b58fd9d5d-zxtwp   0/1     Pending   0          23s
 
 ## 相关文档
 
-- [Pod 优先级与抢占](https://kubernetes.io/zh/docs/concepts/configuration/pod-priority-preemption/)
+- [Pod 优先级与抢占](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/pod-priority-preemption/)
 - [创建节点池](https://cloud.tencent.com/document/product/457/43735)
