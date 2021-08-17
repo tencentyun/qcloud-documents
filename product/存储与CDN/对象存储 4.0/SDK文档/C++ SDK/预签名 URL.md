@@ -1,6 +1,9 @@
 ## 简介
 C++ SDK 提供生成签名和获取请求预签名 URL 接口，详细操作请查看本文说明和示例。
 
+>? 建议用户使用临时密钥生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
+>
+
 
 ## 生成签名
 
@@ -85,7 +88,7 @@ typedef enum {
     HTTP_PUT,
     HTTP_POST,
     HTTP_DELETE,
-    HTTP_OPTIONS                                         
+    HTTP_OPTIONS
 } HTTP_METHOD;
 ```
 

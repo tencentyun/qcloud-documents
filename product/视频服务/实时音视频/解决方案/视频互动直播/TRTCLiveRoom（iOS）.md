@@ -382,7 +382,7 @@ NS_SWIFT_NAME(getRoomInfos(roomIDs:callback:));
 
 | 参数     | 类型                                                         | 含义               |
 | -------- | ------------------------------------------------------------ | ------------------ |
-| roomIDs  | UInt32                                                       | 房间号列表。       |
+| roomIDs  | [UInt32]                                                       | 房间号列表。       |
 | callback | (_ code: Int, _ message: String?, _ roomList: [TRTCLiveRoomInfo]) -> Void | 房间详细信息回调。 |
 
 

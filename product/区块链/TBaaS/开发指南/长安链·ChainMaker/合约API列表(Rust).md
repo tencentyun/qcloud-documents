@@ -3,6 +3,7 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 从逻辑方面划分，可将API划分为以下类型：
 
 [](id:informationExtraction)
+
 ### 交易信息提取
 
 <table><thead>
@@ -45,7 +46,9 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 </tr>
 </tbody></table>
 
+
 [](id:accountInteraction)
+
 ### 账本交互
 
 <table><thead>
@@ -71,7 +74,7 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 <td>写入合约账户信息。</td>
 </tr>
 <tr>
-<td>delete_state_from_key(&self, key: &str) -> result_code</td>
+<td>delete_state(&self, key: &str, field: &str) -> result_code</td>
 <td>删除合约账户信息。该接口可把类别 “key” 下属性名为 “name” 的状态从链上删除。</td>
 </tr>
 <tr>
@@ -83,11 +86,13 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 <td>跨合约调用。</td>
 </tr>
 
+
 </tbody></table>
 
 
 
 [](id:parametersProcess)
+
 ### 参数处理
 
 <table>
@@ -107,7 +112,9 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 </tr>
 </tbody></table>
 
+
 [](id:otherClass)
+
 ### 其他辅助类
 
 <table>
@@ -150,3 +157,4 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 <td>新建指定field前缀匹配迭代器，key需相同，field前缀一致，即dbkey = key and dbfield.startWith(field)</td>
 </tr>
 </tbody></table>
+
