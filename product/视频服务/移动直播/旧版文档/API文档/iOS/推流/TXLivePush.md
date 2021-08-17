@@ -23,14 +23,14 @@ __介绍__
 ```
 @property (nonatomic, copy) TXLivePushConfig * config
 ```
-***
+
 ### delegate
 
 设置推流回调接口，见`TXLivePushListener.h`文件中的详细定义。
 ```
 @property (nonatomic, weak) id< TXLivePushListener > delegate
 ```
-***
+
 ### initWithConfig
 
 创建 TXLivePusher 示例。
@@ -44,7 +44,7 @@ __参数__
 |-----|-----|-----|
 | config | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) * | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 推流配置项，见`TXLivePushConfig.h`文件中的详细定义。 |
 
-***
+
 
 
 ## 推流基础接口
@@ -54,7 +54,7 @@ __参数__
 ```
 @property (nonatomic, readonly, assign) NSString * rtmpURL
 ```
-***
+
 ### startPreview
 
 启动摄像头预览。
@@ -72,7 +72,7 @@ __介绍__
 
 启动预览后并不会立刻开始 RTMP 推流，需要调用 startPush 才能真正开始推流。
 
-***
+
 
 ### stopPreview
 
@@ -81,7 +81,7 @@ __介绍__
 - (void)stopPreview
 ```
 
-***
+
 
 ### startPush
 
@@ -107,7 +107,7 @@ __介绍__
 >?-5返回码代表 license 校验失败，TXLivePusher 需要 [License](https://cloud.tencent.com/document/product/454/34750) 校验通过才能工作。
 
 
-***
+
 
 ### stopPush
 
@@ -116,7 +116,7 @@ __介绍__
 - (void)stopPush
 ```
 
-***
+
 
 ### pausePush
 
@@ -137,7 +137,7 @@ SDK 会暂时停止摄像头采集，并使用 [TXLivePushConfig.pauseImg](https
 >?请注意调用顺序：startPush => ( pausePush => resumePush ) => [stopPush](https://cloud.tencent.com/document/product/454/34755#stoppush)，错误的调用顺序会导致 SDK 表现异常。
 
 
-***
+
 
 ### resumePush
 
@@ -146,7 +146,7 @@ SDK 会暂时停止摄像头采集，并使用 [TXLivePushConfig.pauseImg](https
 - (void)resumePush
 ```
 
-***
+
 
 ### isPublishing
 
@@ -159,7 +159,7 @@ __返回__
 
 YES：推流中；NO：没有在推流。
 
-***
+
 
 
 ## 视频相关接口
@@ -169,7 +169,7 @@ YES：推流中；NO：没有在推流。
 ```
 @property (nonatomic, readonly, assign) BOOL frontCamera
 ```
-***
+
 ### setVideoQuality
 
 设置视频编码质量。
@@ -192,7 +192,7 @@ __介绍__
 >?adjustResolution 早期被引入是为了让 TXLivePusher 能够满足视频通话这一封闭场景下的一些需求，现已不推荐使用。 如果您有视频通话的需求，可以使用我们专门为视频通话打造的 [TRTC](https://cloud.tencent.com/product/trtc) 服务。 由于目前很多 H5 播放器不支持分辨率动态变化，所以开启分辨率自适应以后，会导致 H5 播放端和录制文件的很多兼容问题。
 
 
-***
+
 
 ### switchCamera
 
@@ -201,7 +201,7 @@ __介绍__
 - (int)switchCamera
 ```
 
-***
+
 
 ### selectCamera
 
@@ -210,7 +210,7 @@ __介绍__
 - (void)selectCamera:(AVCaptureDevice *)camera 
 ```
 
-***
+
 
 ### setMirror
 
@@ -232,7 +232,7 @@ setMirror 所影响的则是观众端看到的视频效果，如果想要保持�
 
 
 
-***
+
 
 ### setRenderRotation
 
@@ -263,7 +263,7 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 [_txLivePublisher setRenderRotation:90];
 ```
 
-***
+
 
 ### toggleTorch
 
@@ -286,7 +286,7 @@ __介绍__
 
 此操作对于前置摄像头是无效的，因为绝大多数手机都没有给前置摄像头配置闪光灯。
 
-***
+
 
 ### setZoom
 
@@ -304,7 +304,7 @@ __参数__
 >?当 distance 为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头），最大值不要超过5，超过5后画面会模糊不清。
 
 
-***
+
 
 ### setFocusPosition
 
@@ -320,7 +320,7 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 >?早期 SDK 版本仅仅提供了手动和自动对焦的选择开关，并不支持设置对焦位置，3.0版本以后，手动对焦的接口才开放出来。
 
 
-***
+
 
 
 ## 美颜相关接口
@@ -339,7 +339,7 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 - 进行手势识别。
 
 
-***
+
 ## 音频相关接口
 ### setMute
 
@@ -358,7 +358,7 @@ __介绍__
 
 开启静音后，SDK 并不会继续采集麦克风的声音，但是会用非常低（5kbps左右）的码率推送伪静音数据， 这样做的目的是为了兼容 H5 上的 video 标签，并让录制出来的 MP4 文件有更好的兼容性。
 
-***
+
 
 ### playBGM
 
@@ -381,7 +381,7 @@ __介绍__
 
 SDK 会将背景音乐和麦克风采集的声音进行混合并一起推送到云端。
 
-***
+
 
 ### playBGM
 
@@ -403,7 +403,7 @@ __返回__
 
 YES：成功；NO：失败。
 
-***
+
 
 ### stopBGM
 
@@ -412,7 +412,7 @@ YES：成功；NO：失败。
 - (BOOL)stopBGM
 ```
 
-***
+
 
 ### pauseBGM
 
@@ -421,7 +421,7 @@ YES：成功；NO：失败。
 - (BOOL)pauseBGM
 ```
 
-***
+
 
 ### resumeBGM
 
@@ -430,7 +430,7 @@ YES：成功；NO：失败。
 - (BOOL)resumeBGM
 ```
 
-***
+
 
 ### getMusicDuration
 
@@ -445,7 +445,7 @@ __参数__
 |-----|-----|-----|
 | path | NSString * | 音乐文件路径，如果 path 为空，那么返回当前正在播放的背景音乐的时长。 |
 
-***
+
 
 ### setBGMVolume
 
@@ -465,7 +465,7 @@ __返回__
 
 YES：成功；NO：失败。
 
-***
+
 
 ### setMicVolume
 
@@ -484,7 +484,7 @@ __返回__
 
 YES：成功；NO：失败。
 
-***
+
 
 ### setBgmPitch
 
@@ -503,7 +503,7 @@ __返回__
 
 YES：成功；NO：失败。
 
-***
+
 
 ### setReverbType
 
@@ -522,7 +522,7 @@ __返回__
 
 YES：成功；NO：失败。
 
-***
+
 
 ### setVoiceChangerType
 
@@ -541,7 +541,7 @@ __返回__
 
 YES：成功；NO：失败。
 
-***
+
 
 
 ## 本地录制接口
@@ -551,7 +551,7 @@ YES：成功；NO：失败。
 ```
 @property (nonatomic, weak) id< TXLiveRecordListener > recordDelegate
 ```
-***
+
 ### startRecord
 
 开始录制短视频。
@@ -574,7 +574,7 @@ __返回__
 >2. &nbsp;出于安装包体积的考虑，仅专业版和商业版两个版本的 LiteAVSDK 支持该功能，直播精简版仅定义了接口但并未实现。
 >3. &nbsp;录制过程中请勿动态切换分辨率和软硬编，会有很大概率导致生成的视频异常。
 
-***
+
 
 ### stopRecord
 ```
@@ -585,7 +585,7 @@ __返回__
 
 0：成功；-1：不存在录制任务。
 
-***
+
 
 ### snapshot
 
@@ -600,7 +600,7 @@ __参数__
 |-----|-----|-----|
 | snapshotCompletionBlock | void(^)(TXImage *) | 截图完成的回调函数。 |
 
-***
+
 
 
 ## 自定义采集和处理
@@ -618,7 +618,7 @@ __介绍__
 
 >?出于性能和稳定性考虑，一般不建议开启此特性。
 
-***
+
 ### audioProcessDelegate
 
 自定义音频处理回调。
@@ -633,7 +633,7 @@ __介绍__
 
 >?出于性能和稳定性考虑，一般不建议开启此特性。
 
-***
+
 ### sendVideoSampleBuffer
 
 自定义视频采集，向 SDK 发送自己采集的视频数据。
@@ -658,7 +658,7 @@ __介绍__
 >1. 开启自定义视频采集后，即无需再调用 startPreview 来开启摄像头采集。
 >2. SDK 内部有简单的帧率控制，如果发送太快时 SDK 会自动丢弃多余的帧率；如果超时不发送，SDK 会不断地重复发送最后一帧。
 
-***
+
 
 ### sendCustomPCMData
 
@@ -684,7 +684,7 @@ __介绍__
 >?SDK 对每次传入的 PCM buffer 大小有严格要求，每一个采样点要求是16位宽。 如果是单声道，请保证传入的 PCM 长度为2048；如果是双声道，请保证传入的 PCM 长度为4096。
 
 
-***
+
 
 ### sendAudioSampleBuffer
 
@@ -715,7 +715,7 @@ __介绍__
 
 当您通过 sendAudioSampleBuffer 向 SDK 调用各种类型的声音数据时，SDK 内部会进行混流，否则只会发送一路的声音数据。
 
-***
+
 
 ### setSendAudioSampleBufferMuted
 
@@ -734,7 +734,7 @@ __介绍__
 
 该函数配合 sendAudioSampleBuffer 使用，在 InApp 类型录制切后台场合时需要调用，系统屏幕录制不需要。
 
-***
+
 
 
 ## 更多实用接口
@@ -754,14 +754,14 @@ __介绍__
 >- 若您使用过 sendMessage，不推荐立刻升级到 sendMessageEx。
 >- sendMessageEx 发送消息给旧版本5.0及以前的 SDK 版本时，消息会无法正确解析，但播放不受影响。
 
-***
+
 
 ### sendMessage
 ```
 - (void)sendMessage:(NSData *)data 
 ```
 
-***
+
 
 ### showVideoDebugLog
 
@@ -770,7 +770,7 @@ __介绍__
 - (void)showVideoDebugLog:(BOOL)isShow 
 ```
 
-***
+
 
 ### setLogViewMargin
 
@@ -779,7 +779,7 @@ __介绍__
 - (void)setLogViewMargin:(TXEdgeInsets)margin 
 ```
 
-***
+
 
 ### setEnableClockOverlay
 
@@ -790,7 +790,7 @@ __介绍__
 
 >?需要双方的时间相同才能获取准确的延迟时间。
 
-***
+
 
 ### enableClockOverlay
 
