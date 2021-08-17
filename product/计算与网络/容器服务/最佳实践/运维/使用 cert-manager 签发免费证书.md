@@ -148,8 +148,9 @@ namecheap 可以设置 custom nameserver，如下图所示：
 >!
 >- 如需创建 ClusterIssuer，Secret 需要创建在 cert-manager 所在命名空间中。
 >- 如需创建 Issuer，Secret 需要创建在 Issuer 所在命名空间中。
->
-``` yaml
+
+<dx-codeblock>
+:::  yaml
    apiVersion: v1
    kind: Secret
    metadata:
@@ -158,9 +159,11 @@ namecheap 可以设置 custom nameserver，如下图所示：
    type: Opaque
    stringData:
      api-token: <API Token> # 将 Token 粘贴到此处，不需要 base64 加密。
-```
+:::
+</dx-codeblock>
 3. 创建 ClusterIssuer。yaml 示例如下：
-``` yaml
+<dx-codeblock>
+:::  yaml
    apiVersion: cert-manager.io/v1
    kind: ClusterIssuer
    metadata:
@@ -177,9 +180,11 @@ namecheap 可以设置 custom nameserver，如下图所示：
              apiTokenSecretRef:
                key: api-token
                name: cloudflare-api-token-secret # 引用保存 cloudflare 认证信息的 Secret
-```
+:::
+</dx-codeblock>
 4. [](id:Certificate)创建 Certificate。yaml 示例如下：
-``` yaml
+<dx-codeblock>
+:::  yaml
    apiVersion: cert-manager.io/v1
    kind: Certificate
    metadata:
@@ -192,7 +197,8 @@ namecheap 可以设置 custom nameserver，如下图所示：
        kind: ClusterIssuer
        name: letsencrypt-dns01 # 引用 ClusterIssuer，指示采用 dns01 方式进行校验
      secretName: test-mydomain-com-tls # 最终签发出来的证书会保存在这个 Secret 里面
-```
+:::
+</dx-codeblock>
 :::
 </dx-tabs>
 
