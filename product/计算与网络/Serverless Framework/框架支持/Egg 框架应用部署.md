@@ -1,32 +1,30 @@
 应用中心框架部署方案已经全新升级，您可以通过 `SCF Web Function`，快速部署您的 Egg 业务上云。
 
->! 
-**应用控制台部署与函数直接部署有什么区别？**
+>! **应用控制台部署与函数直接部署有什么区别？**
 通过应用部署或函数部署，均可以基于 Web 函数，快速部署常见 Web 框架。
-- 如果您只关注代码逻辑开发，无需额外资源创建，可以通过 SCF 云函数控制台，完成快速部署；
+- 如果您只关注代码逻辑开发，无需额外资源创建，可以通过 SCF 云函数控制台，完成快速部署。
 - 如果除了代码部署外，您还需要更多能力或资源创建，如自动创建层托管依赖、一键实现静态资源分离、支持代码仓库直接拉取等，可以通过应用控制台，完成 Web 应用的创建工作。
 
-本篇文档为您介绍应用控制台的部署方案，您也可以通过命令行完成部署，具体操作请参考[产品文档](https://cloud.tencent.com/document/product/583/58183)。
+本篇文档为您介绍应用控制台的部署方案，您也可以通过命令行完成部署，具体操作请参考 [产品文档](https://cloud.tencent.com/document/product/583/58183)。
 
-### 模版部署 -- 部署 Egg 示例代码
+## 模版部署 -- 部署 Egg 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
-2. 选择【Web 应用】--> 【Egg 框架】，如下图所示：
+2. 选择**Web 应用>Egg 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/379ce45910fccfa28f3e8c50de0fa00d.png)
-3. 点击“下一步”，完成基础配置选择。
+3. 单击“下一步”，完成基础配置选择。
 ![](https://main.qcloudimg.com/raw/9f22f8c1e5426b5d3d54631caabde012.png)
-4. 上传方式，选择【示例代码】直接部署，单击【完成】，即可开始应用的部署。
+4. 上传方式，选择**示例代码**直接部署，单击**完成**，即可开始应用的部署。
 5. 部署完成后，您可在应用详情页面，查看示例应用的基本信息，并通过 API 网关生成的访问路径 URL 进行访问，查看您部署的 Egg 项目。
 ![](https://main.qcloudimg.com/raw/34cffcca8981ad1d207ee7fc4d32bd53.png)
 
-### 自定义部署 -- 快速部署 Web 应用
-#### 前提条件
+## 自定义部署 -- 快速部署 Web 应用
+### 前提条件
 
 本地已安装 Node.js 运行环境。
 
-#### 本地开发
+### 本地开发
 
 1. 参考 [Egg.js](https://eggjs.org/zh-cn/intro/quickstart.html) 官方文档，快速初始化示例项目：
-
 ```sh
 mkdir egg-example && cd egg-example
 npm init egg --type=simple
@@ -38,9 +36,10 @@ npm i
 npm run dev
 open http://localhost:7001
 ```
+
 3. 打开浏览器，即可在本地完成 Egg 示例项目的访问。
 
-#### 部署上云
+### 部署上云
 
 接下来执行以下步骤，对本地已创建完成的项目进行简单修改，使其可以通过 Web Function 快速部署，对于 Egg 框架，具体改造说明如下：
 
@@ -50,7 +49,8 @@ open http://localhost:7001
 
 **1. (可选)配置 scf_bootstrap 启动文件**
 
- >? 您也可以在控制台完成该模块配置。
+>? 您也可以在控制台完成该模块配置。
+>
 
 在项目根目录下新建 `scf_bootstrap` 启动文件，在该文件添加如下内容（用于配置环境变量和启动服务，此处仅为示例，具体操作请以您实际业务场景来调整）：
 
@@ -96,12 +96,14 @@ chmod 777 scf_bootstrap
 
 **2. 控制台上传**
 
-登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择【Web 应用】--> 【Egg 框架】，上传方式可以选择【本地上传】或【代码仓库拉取】。
+
+登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Egg 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**。
 
 您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署。
 >! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。
+>
 
-配置完成后，点击【完成】，部署您的 Egg 项目。
+配置完成后，单击**完成**，部署您的 Egg 项目。
 ![](https://main.qcloudimg.com/raw/a28efc9156bc3ba9ab817be16a463a02.png)
 
 #### 高级配置管理
