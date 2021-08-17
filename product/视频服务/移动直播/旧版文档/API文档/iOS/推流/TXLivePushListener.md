@@ -20,7 +20,7 @@ __参数__
 | EvtID | int | 参见头文件 TXLiveSDKEventDef.h |
 | param | NSDictionary * | 参见头文件 TXLiveSDKTypeDef.h |
 
-***
+
 
 ## onNetStatus
 
@@ -35,6 +35,6 @@ __参数__
 |-----|-----|-----|
 | param | NSDictionary * | 参见头文件 TXLiveSDKTypeDef.h |
 
-***
+
  
 
