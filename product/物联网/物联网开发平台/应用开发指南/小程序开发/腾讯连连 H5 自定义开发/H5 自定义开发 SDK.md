@@ -2193,7 +2193,7 @@ sdk.on('asrResponse', ({ deviceId, data }) => void)
 #### 返回值说明
 | 参数名                 | 参数描述            | 类型     |
 |:--------------------|:----------------|:-------|
-| deviceId            | 设备ID            | string |
+| deviceId            | 设备 ID            | string |
 | data                |  识别结果数据               | object |
 | data.resource_token | 某个设备下，音频文件的唯一标示 | string |
 | data.result_code    | 状态码，0代表成功      | number |
@@ -2249,8 +2249,8 @@ interface TMEResponse {
 }
 ```
 
-- 调用成功：返回一个resolved的Promise，其值为TMEResponse结构，error_code=0，data为返回结果。
-- 调用失败：返回一个rejected的Promise，有响应的错误码（error_code）及提示信息（error_msg）。
+- 调用成功：返回一个 resolved 的Promise，其值为 TMEResponse 结构，error_code=0，data 为返回结果。
+- 调用失败：返回一个 rejected 的Promise，有响应的错误码（error_code）及提示信息（error_msg）。
 
 | 属性名     | 描述                     | 类型   |
 | ---------- | ------------------------ | ------ |
@@ -2260,13 +2260,13 @@ interface TMEResponse {
 
 #### 错误信息表
 
-完整参考TME文档，在此基础上额外补充了错误码
+完整参考 TME 文档，在此基础上额外补充了错误码
 
 | 错误码 | 说明                                                    |
 | :----- | :------------------------------------------------------ |
 | 400000 | 登录授权失败                                            |
 | 400001 | 设备端超时无响应                                        |
-| 400002 | 调用SDK参数错误                                         |
+| 400002 | 调用 SDK 参数错误                                         |
 
 
 
@@ -2306,7 +2306,7 @@ tmeSdk.login() => Promise
 
 #### 用户设备登出
 
-原token将登出
+原 token 将登出
 
 **接口定义**
 
@@ -2362,13 +2362,13 @@ tmeSdk.getUserInfo() => Promise<TMEResponse>
 
 #### 接口描述
 
-调用播控SDK，会下发物模型属性+control_seq，需要设备上报相同的control_seq。
+调用播控 SDK，会下发物模型属性 +control_seq，需要设备上报相同的 control_seq。
 
-- 若在超时范围内收到上报，视为下发播控成功，返回resolved状态的`Promise<TMEResponse>`
+- 若在超时范围内收到上报，视为下发播控成功，返回 resolved 状态的`Promise<TMEResponse>`
 
-- 若超时未收到上报，返回rejected状态的`Promise<TMEResponse>`
+- 若超时未收到上报，返回 rejected 状态的`Promise<TMEResponse>`
 
-超时设置可以通过 `tmeSdk.config.timeout` 来配置，默认值为10000，单位：毫秒(ms)。
+超时设置可以通过`tmeSdk.config.timeout`来配置，默认值为10000，单位：毫秒(ms)。
 
 
 
@@ -2614,14 +2614,14 @@ tmeSdk.getCurrentPlayQueue() => Promise<TMEResponse>
 
 返回一个`Promise<TMEResponse>`
 
-TMEResponse中data如下
+TMEResponse 中 data如下
 
 | 属性名   | 描述                                                         | 类型                                                 |
 | -------- | ------------------------------------------------------------ | ---------------------------------------------------- |
 | playType | 播放列表类型                                                 | enum: `playlist` `newSongs` `recommendDaily` `album` |
-| queueId  | 当前播放列表id，根据playType对应playlist_id、album_id、top_id | string \| number                                     |
+| queueId  | 当前播放列表 id，根据 playType 对应 playlist_id、album_id、top_id | string \| number                                     |
 | total    | 列表中歌曲总数                                               | number                                               |
-| songs    | 歌曲数组，具体歌曲属性参考TME文档中Song属性                  | Array[]                                              |
+| songs    | 歌曲数组，具体歌曲属性参考 TME 文档中 Song属性                  | Array[]                                              |
 
 
 
@@ -2641,7 +2641,7 @@ tmeSdk.getCurrentPlaySong() => Promise<TMEResponse>
 
 ### 内容部分
 
-请求酷狗API拉取内容通用接口
+请求酷狗 API 拉取内容通用接口
 
 #### 拉取内容通用接口
 
@@ -2662,7 +2662,7 @@ tmeSdk.requestTMEApi(action: string, params) => Promise<TMEResponse>
 
 返回一个`Promise<TMEResponse>`
 
-注：action、params及返回值data参考 “TME牛方案2.0”
+注：action、params 及返回值 data 参考 “TME 牛方案2.0”
 
 
 
