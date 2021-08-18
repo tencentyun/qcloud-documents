@@ -1,4 +1,3 @@
-
 本文为您介绍如何使用长安链 SDK 对接网络。
 
 
@@ -12,7 +11,7 @@
   - **config**：目录，存放 SDK 配置文件，后续证书也可放置在该目录下。
     - **config.yml**：SDK 配置文件。
   - **main.go**：文件，为 SDK 调用合约示例代码。
-  - **rust-fact-1.0.0.wasm**：文件，存证合约示例代码编译后字节码，可在 TBaaS 控制台上传该文件部署合约。
+  - **go-fact-1.2.0.wasm**：文件，存证合约示例代码编译后字节码，可根据[智能合约开发(Go)](https://cloud.tencent.com/document/product/663/60112)指南编译得到，通过TBaaS 控制台上传该文件可部署该合约。
 - **chainmaker-sdk-go**：目录，存放长安链 Go 版本 SDK 源代码。
 
 
@@ -59,53 +58,58 @@ chain_client:
 2. 选择左侧导航栏中的【长安链】>【区块链网络】，进入“区块链网络”页面。
 3. 在“区块链网络”页面中，选择需查看的网络，单击【管理】进入“网络概览”页面。
 4. 在“网络基础信息”模块找到链 ID 和外网域名，分别填写到配置文件的 `chain_id` 和 `node_addr` 字段。
-<img src="https://main.qcloudimg.com/raw/7eb254ab8e889e163c8fb5bf681c86a4.png">
+   <img src="https://main.qcloudimg.com/raw/7eb254ab8e889e163c8fb5bf681c86a4.png">
 
 
 ### 获取组织 ID
 
 1. 单击【组织与节点】页签，进入“组织与节点”页面。
 2. 找到当前组织 ID 信息，填写到配置文件的 `org_id` 字段。如下图所示：
-![](https://main.qcloudimg.com/raw/8f0ab0369019b96e64db29efd2e72ac4.png)
+   ![](https://main.qcloudimg.com/raw/8f0ab0369019b96e64db29efd2e72ac4.png)
 
 
 ### 获取节点名称
 
 1. 在“组织与节点”页面单击【节点管理】，进入“节点管理”页面。
 2. 找到当前组织的节点列表，选择一个节点并复制节点名称，填写到配置文件的 `tls_host_name` 字段。如下图所示：
-![](https://main.qcloudimg.com/raw/930294344d259011819adfab7dc9db3f.png)
+   ![](https://main.qcloudimg.com/raw/930294344d259011819adfab7dc9db3f.png)
 
 
 ### 部署合约
 
 1. 单击【合约管理】页签，进入“合约管理”页面
-2. 使用压缩包内的 `rust-fact-1.0.0.wasm` 上传，并且进行如下配置：
-	- **合约名称**：填写 `fact`。
-	- **版本号**：填写：`v1.0`。
-	- **执行环境**：选择 `Rust`。
-	- **初始化参数（选填）**：保存为空。
-<img src="https://main.qcloudimg.com/raw/a9e16a6d16edd1e3d252673356597c1a.png" style="zoom: 60%;" />
+2. 使用压缩包内的 `go-fact-1.2.0.wasm` 上传，并且进行如下配置：
+   - **合约名称**：填写 `fact`。
+   - **版本号**：填写：`v1.0`。
+   - **执行环境**：选择 `Go`。
+   - **初始化参数（选填）**：保存为空。
+     <img src="https://main.qcloudimg.com/raw/2d6651004a61dcb4dcd03133bf2a12c0.png" style="zoom: 60%;" />
 3. 部署成功后，合约列表将会展示刚刚部署的合约。如下图所示：
-<img src="https://main.qcloudimg.com/raw/31f04653ef34264704db3c7d652380ef.png" style="zoom: 60%;" />
+   <img src="https://main.qcloudimg.com/raw/36139a20c5410526c643bc79c8e84092.png" style="zoom: 60%;" />
 
 
 ### 申请证书
 
 1. 根据 [证书申请 CSR 生成指南](https://cloud.tencent.com/document/product/663/60114)，生成证书 CSR 和相应私钥。
 2. 以生成非国密 ECC 证书为例，运行 ecccsr.sh 脚本将会得到以下四种文件：
+
  - **user_ecc_sign.key**：用户证书私钥。
  - **user_ecc_sign.csr**：用于在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 申请用户证书。
  - **user_ecc_tls.key**：用户 tls 证书私钥。
  - **user_ecc_tls.csr**：用于在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 申请用户 tls 证书。
+
 3. 在“证书管理”界面添加申请证书，填写证书标识，并上传 `user_ecc_sign.csr` 和 `user_ecc_tls.csr`。如下图所示：
-![](https://main.qcloudimg.com/raw/cc4ad0d188524a6a6bc6fcdc161d2dd6.png)
+   ![](https://main.qcloudimg.com/raw/cc4ad0d188524a6a6bc6fcdc161d2dd6.png)
 4. 申请成功后可以单击【下载】下载对应证书，压缩包包含如下文件：
+
  - **ca.crt**：组织根证书。
  - **user_sign.crt**：用户证书。
  - **user_tls.crt**：用户 tls 证书。
-<img src="https://main.qcloudimg.com/raw/6e0bf44f12f26a16fc5a0dab3d483881.png"/>
+   <img src="https://main.qcloudimg.com/raw/6e0bf44f12f26a16fc5a0dab3d483881.png"/>
+
 5. 将三个证书 `ca.crt`，`user_sign.crt`，`user_tls.crt` 和两个私钥 `user_ecc_sign.key` 和 `user_ecc_sign.csr` 放置到 `chainmaker-sdk-go-demo/chainmaker-sdk-demo/config` 目录下。
 6. 根据下表，修改 SDK 配置文件 config.yml 的证书路径和 CA 路径：
+
 <table>
 <thead>
 <tr>
@@ -143,25 +147,30 @@ chain_client:
 
 
 
+
 ### 运行 Demo
 
 1. 进入 `chainmaker-sdk-go-demo/chainmaker-sdk-demo` 目录。
 2. 将 `main.go` 示例代码中的 `claimContractName` 和 `claimVersion` 修改为上述部署的合约的名字和版本号，示例如下：
+
 ```go
 var (
 	claimContractName = "fact"
 	claimVersion      = "v1.0"
 )
 ```
+
 3. 执行以下命令：
+
 ```sh
 go run main.go config/config.yml
 ```
+
 成功运行可以查看到如下图输出：
-<img src="https://main.qcloudimg.com/raw/4a7b27e80503e68a117c3944aa58f4c0.png" />
+<img src="https://main.qcloudimg.com/raw/5d6be609d2c0173e85e80bc75bfb984e.png" />
 
 
 
 ## 更多对接方式
 
-长安链提供了多种语言的SDK，包括 Go SDK、Java SDK，方便开发者根据需求进行选用。更多详情请参见 [长安链 SDK 开发指南](https://docs.chainmaker.org.cn/dev/SDK.html)。
+长安链提供了多种语言的SDK，包括 Go SDK、Java SDK等，方便开发者根据需求进行选用。更多详情请参见 [长安链 SDK 开发指南](https://docs.chainmaker.org.cn/dev/SDK.html)。
