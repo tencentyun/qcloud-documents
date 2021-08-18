@@ -162,7 +162,7 @@ spec:
     - protocol: HTTP
       port: 80
       domains:
-      - domain: ""
+      - domain: ""     # domain为空表示使用VIP作为域名
         rules:
         - url: "/health"
           healthCheck:
