@@ -11,7 +11,7 @@
   - **config**：目录，存放 SDK 配置文件，后续证书也可放置在该目录下。
     - **config.yml**：SDK 配置文件。
   - **main.go**：文件，为 SDK 调用合约示例代码。
-  - **go-fact-1.2.0.wasm**：文件，存证合约示例代码编译后字节码，可根据[智能合约开发(Go)](https://cloud.tencent.com/document/product/663/60112)指南编译得到，通过TBaaS 控制台上传该文件可部署该合约。
+  - **go-fact-1.2.0.wasm**：文件，存证合约示例代码编译后字节码，可根据 [智能合约开发(Go)](https://cloud.tencent.com/document/product/663/60112) 指南编译得到，通过 TBaaS 控制台上传该文件可部署该合约。
 - **chainmaker-sdk-go**：目录，存放长安链 Go 版本 SDK 源代码。
 
 
@@ -173,4 +173,4 @@ go run main.go config/config.yml
 
 ## 更多对接方式
 
-长安链提供了多种语言的SDK，包括 Go SDK、Java SDK等，方便开发者根据需求进行选用。更多详情请参见 [长安链 SDK 开发指南](https://docs.chainmaker.org.cn/dev/SDK.html)。
+长安链提供了多种语言的SDK，包括 Go SDK、Java SDK 等，方便开发者根据需求进行选用。更多详情请参见 [长安链 SDK 开发指南](https://docs.chainmaker.org.cn/dev/SDK.html)。
