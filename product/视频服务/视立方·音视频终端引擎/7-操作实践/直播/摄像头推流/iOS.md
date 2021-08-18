@@ -74,9 +74,9 @@
 
 > ! 如果要给 view 增加动画效果，需要修改 view 的 transform 属性而不是 frame 属性。
 >```objectivec
-  [UIView animateWithDuration:0.5 animations:^{
-            _localView.transform = CGAffineTransformMakeScale(0.3, 0.3); //缩小1/3
-        }];
+[UIView animateWithDuration:0.5 animations:^{
+	_localView.transform = CGAffineTransformMakeScale(0.3, 0.3); //缩小1/3
+}];
 ```
 
 [](id:step5)
@@ -228,7 +228,7 @@ V2TXLivePusher 默认推出的是竖屏分辨率的视频画面，如果希望�
                 @"您当前的网络环境不佳，请尽快更换网络保证正常直播" forDuration:5];
         }
     });
-      }
+}
 :::
 </dx-codeblock>
 

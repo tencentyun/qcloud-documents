@@ -86,7 +86,7 @@ Web 端屏幕分享弹框的样式是由浏览器控制的，Web 页面无法更
   - echoCancellation：回声消除开关
   - noiseSuppression：噪声抑制开关
   - autoGainControl：自动增益开关
- >? 详细设置，请参见 [媒体追踪约束](https://developer.mozilla.org/zh-CN/docs/Web/API/MediaTrackConstraints)。
+>? 详细设置，请参见 [媒体追踪约束](https://developer.mozilla.org/zh-CN/docs/Web/API/MediaTrackConstraints)。
 - 若您使用 TRTC.createStream 接口进行采集，则无需手动设置 3A 参数，SDK 默认开启 3A。
 
 

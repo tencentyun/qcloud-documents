@@ -14,16 +14,16 @@
 
 ### 安装 tke-autoscaling-placeholder
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
-2. 在左侧导航栏中，单击【应用市场】进入“应用市场”管理页面。
+2. 在左侧导航栏中，单击**应用市场**进入“应用市场”管理页面。
 3. 在应用市场页面搜索框，输入 `tke-autoscaling-placeholder` 进行搜索，找到该应用。如下图所示：
 ![](https://main.qcloudimg.com/raw/b48a227c35dd1c52633a838c72e95b26.jpg)
-4. 在“应用详情页”中，单击“基本信息”模块中的【创建应用】。
+4. 在“应用详情页”中，单击“基本信息”模块中的**创建应用**。
 5. 在弹出的“创建应用”窗口中，按需配置并创建应用。如下图所示：
 ![](https://main.qcloudimg.com/raw/72e50043f590875c14a0fe6b05c3b8fd.png)
  配置说明如下：
  - **名称**：输入应用名称。最长63个字符，只能包含小写字母、数字及分隔符“-”，且必须以小写字母开头，数字或小写字母结尾。
  - **地域**：选择需要部署的所在地域。
- - **集群类型**：选择【标准集群】。
+ - **集群类型**：选择**标准集群**。
  - **集群**：选择需要部署的集群 ID。
  - **Namespace**：选择需要部署的 namespace。
  - **参数**：配置参数中最重要的是 `replicaCount` 与 `resources.request`，分别表示 `tke-autoscaling-placeholder` 的副本数与每个副本占位的资源大小，它们共同决定缓冲资源的大小，可以根据流量突高需要的额外资源量来估算进行设置。
@@ -82,7 +82,7 @@
 <td>{}</td>
 </tr>
 </tbody></table>
-6. 单击【创建】，部署 tke-autoscaling-placeholder 应用。
+6. 单击**创建**，部署 tke-autoscaling-placeholder 应用。
 7. 执行如下命令，查看进行资源占位的 Pod 是否启动成功。示例如下：
 ``` bash
 $ kubectl get pod -n default
@@ -175,5 +175,5 @@ tke-autoscaling-placeholder-b58fd9d5d-zxtwp   0/1     Pending   0          23s
 
 ## 相关文档
 
-- [Pod 优先级与抢占](https://kubernetes.io/zh/docs/concepts/configuration/pod-priority-preemption/)
+- [Pod 优先级与抢占](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/pod-priority-preemption/)
 - [创建节点池](https://cloud.tencent.com/document/product/457/43735)

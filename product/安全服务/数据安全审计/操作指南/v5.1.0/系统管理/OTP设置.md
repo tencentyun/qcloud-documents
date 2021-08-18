@@ -9,4 +9,4 @@
 >
 ![](https://main.qcloudimg.com/raw/8b374a3bc1aac8f989de9eeacb23dbb7.png)
 4. 再次登录数据安全审计管理页面，需要输入OTP 校验码。
-![](https://main.qcloudimg.com/raw/92dfddc82225bb72966bbc2f5cb4db4e.png)
+![](https://main.qcloudimg.com/raw/d463669fcc053baa29eef81274ee5bbe.png)
