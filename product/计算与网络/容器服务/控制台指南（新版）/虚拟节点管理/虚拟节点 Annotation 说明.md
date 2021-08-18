@@ -1,4 +1,4 @@
-# 虚拟节点 Annotation 说明
+
 
 您可通过在 yaml 中定义 annotation 的方式，实现虚拟节点的自定义 DNS 等能力，具体如下：
 
