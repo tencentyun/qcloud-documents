@@ -28,10 +28,10 @@
 apiVersion: v1
 kind: Node
 metadata:
-    annotations:
-      eks.tke.cloud.tencent.com/resolv-conf：|
-        nameserver 4.4.4.4
-        nameserver 8.8.8.8
+  annotations:
+    eks.tke.cloud.tencent.com/resolv-conf：|
+      nameserver 4.4.4.4
+      nameserver 8.8.8.8
    
 ```
 
