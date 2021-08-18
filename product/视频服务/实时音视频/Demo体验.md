@@ -36,8 +36,8 @@
 <img style="width:150px" src="https://main.qcloudimg.com/raw/844e3de73cf2537e8a58e2263de5900e.png" data-nonescope="true">
 </td>
 <td>
-<input type="button" value="Windows 版" class="inbuttom"  onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education/TRTC_Education_Demo%20Setup%201.1.0.exe')" /><br><br>
-<input type="button" value="MacOS 版" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education/TRTC_Education_Demo-1.1.0.dmg')" /></td>
+<input type="button" value="Windows 版" class="inbuttom"  onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/api-example/TRTC-Electron-API-Examples-windows.zip')" /><br><br>
+<input type="button" value="MacOS 版" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/api-example/TRTC-Electron-API-Examples-mac.zip')" /></td>
 </tr>
 </table>
 
