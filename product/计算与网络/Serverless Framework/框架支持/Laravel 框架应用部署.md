@@ -77,7 +77,7 @@ export APP_STORAGE=/tmp/storage
 mkdir -p /tmp/storage/framework/views
 ```
 
-同时，在 Web 函数内，限制了监听端口必须为 `9000`，因此需要在在 `scf_bootstrap` 中，通过指定监听端口：
+同时，在 Web 函数内，限制了监听端口必须为 `9000`，因此需要在 `scf_bootstrap` 中，通过指定监听端口：
 
 ```
 /var/lang/php7/bin/php artisan serve --host 0.0.0.0 --port 9000
