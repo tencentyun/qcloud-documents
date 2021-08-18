@@ -29,8 +29,8 @@
 <img style="width:150px" src="https://main.qcloudimg.com/raw/4cfc59a1b60c02fc975c8b3e23169fc7.png" data-nonescope="true">
 </td>
 <td>
-<input type="button" value="视频通话" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html')" / ><br><br>
-<input type="button" value="互动直播" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html')" />
+<input type="button" value="视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html')" / ><br><br>
+<input type="button" value="互动直播" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html')" />
 </td>
 <td>
 <img style="width:150px" src="https://main.qcloudimg.com/raw/844e3de73cf2537e8a58e2263de5900e.png" data-nonescope="true">
