@@ -136,17 +136,17 @@ yum install
 关于挂载指令的说明如下，请根据实际的业务情况使用合适的挂载指令：
  - 如果您希望支持扩展属性且所有操作默认为同步执行（机器重启不会丢数据，但性能会有损耗），请复制和执行第如下命令。
  例如：
-```
+```shell
 sudo mount.lustre -o sync,user_xattrXXXXXXXXXXXXXXXXXXX
 ```
  - 如果您希望支持扩展属性且无需强制同步执行（机器重启有可能会丢少量尚缓存在内存中的数据，但性能好），请复制和执行如下命令。
  例如：
-```
+```shell
 sudo mount.lustre -o user_xattrXXXXXXXXXXXXXXXXXXX
 ```
  - 如果您无需支持扩展属性且无需强制同步执行（机器重启有可能会丢少量尚缓存在内存中的数据，但性能好），请复制和执行如下命令。
  例如：
-```
+```shell
 sudo mount.lustre XXXXXXXXXXXXXXXXXXX
 ```
 
