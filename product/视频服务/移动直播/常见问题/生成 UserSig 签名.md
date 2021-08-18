@@ -19,9 +19,8 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 ### 密钥获取
 访问云直播 [应用管理](https://console.cloud.tencent.com/live/license/appmanage) 可以查询计算 UserSig 用的密钥，方法如下：
 1. 选择一个应用并进入详情页面，如果还没有应用就创建一个。
-2. 进入**应用管理**页面，单击【查看密钥】按钮即可获得加密密钥。
-
-![](https://main.qcloudimg.com/raw/25b8e1f2b91da8a6a9edbf5f134f234c.png)
+2. 进入**应用管理**页面，单击**查看密钥**按钮即可获得加密密钥。
+![](https://main.qcloudimg.com/raw/e7a33567095b6930e5560dd901268186.png)
 
 [](id:Client)
 ### 客户端计算
@@ -29,7 +28,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 | 语言版本 |  适用平台 | 源码位置 |
 |:---------:|:---------:|:---------:|
-| Objective-C | iOS  | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/iOS/Demo/TXLiteAVDemo/Debug/GenerateTestUserSig.h)|
+| Objective-C | iOS  | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/iOS/MLVB-API-Example/Debug/GenerateTestUserSig.h)|
 | Java | Android  | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/Android/Demo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java) |
 | Javascript | 小程序 | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/mlvb-live-room-demo/debug/GenerateTestUserSig.js)|
 
@@ -59,12 +58,12 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 | 语言版本 | 签名算法 | 关键函数 | 下载链接 |
 |:---------:|:---------:|:---------:|:---------:|
-| Java | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-java/blob/master/src/main/java/com/tencentyun/TLSSigAPIv2.java)  | [Github](https://github.com/tencentyun/tls-sig-api-v2-java)|
-| GO | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-golang/blob/master/tencentyun/TLSSigAPI.go) | [Github](https://github.com/tencentyun/tls-sig-api-v2-golang)|
-| PHP | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-php/blob/master/src/TLSSigAPIv2.php) | [Github](https://github.com/tencentyun/tls-sig-api-v2-php)|
-| Nodejs | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-node/blob/master/TLSSigAPIv2.js) | [Github](https://github.com/tencentyun/tls-sig-api-v2-node)|
-| Python | HMAC-SHA256 | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-python/blob/master/TLSSigAPIv2.py) | [Github](https://github.com/tencentyun/tls-sig-api-v2-python)|
-| C# | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)|
+| Java | HMAC-SHA256 | [genUserSig](https://github.com/tencentyun/tls-sig-api-v2-java/blob/master/src/main/java/com/tencentyun/TLSSigAPIv2.java)  | [Github](https://github.com/tencentyun/tls-sig-api-v2-java)|
+| GO | HMAC-SHA256 | [genUserSig](https://github.com/tencentyun/tls-sig-api-v2-golang/blob/master/tencentyun/TLSSigAPI.go) | [Github](https://github.com/tencentyun/tls-sig-api-v2-golang)|
+| PHP | HMAC-SHA256 | [genUserSig](https://github.com/tencentyun/tls-sig-api-v2-php/blob/master/src/TLSSigAPIv2.php) | [Github](https://github.com/tencentyun/tls-sig-api-v2-php)|
+| Nodejs | HMAC-SHA256 | [genUserSig](https://github.com/tencentyun/tls-sig-api-v2-node/blob/master/TLSSigAPIv2.js) | [Github](https://github.com/tencentyun/tls-sig-api-v2-node)|
+| Python | HMAC-SHA256 | [genUserSig](https://github.com/tencentyun/tls-sig-api-v2-python/blob/master/TLSSigAPIv2.py) | [Github](https://github.com/tencentyun/tls-sig-api-v2-python)|
+| C# | HMAC-SHA256 | [genUserSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)|
 
 [](id:old)
 ### 老版本算法
