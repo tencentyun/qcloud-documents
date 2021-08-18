@@ -26,3 +26,4 @@ TUIKit 是对 IM SDK 封装的一层 UI 组件，包含常用的 IM 操作，例
 ## 相关文档
 - [价格说明](https://cloud.tencent.com/document/product/269/11673)
 - [折扣活动](https://cloud.tencent.com/document/product/269/46181)
+

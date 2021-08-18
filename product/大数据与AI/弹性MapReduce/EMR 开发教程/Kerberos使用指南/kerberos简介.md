@@ -1,16 +1,6 @@
-当前 EMR-V2.1.0及以后的版本都支持 kerberos 创建安全类型集群，即集群中的开源组件以 Kerberos 的安全模式启动，在这种安全环境下只有经过认证的客户端（Client）才能访问集群的服务（Service，例如 HDFS）。
+当前 EMR-V2.1.0及以后的版本都支持 kerberos 创建安全类型集群，即集群中除 alluxio、zepplin、kylin 外所有已支持的开源组件以 Kerberos 的安全模式启动，在这种安全环境下只有经过认证的客户端（Client）才能访问集群的服务（Service，例如 HDFS）。
 
-当前 EMR-V2.1.0 版本支持的 Kerderos 的组件列表如下所示：
-
-| 组件名称 | 组件版本|
-|---------|---------|
-| Hadoop | 2.8.4 | 
-| Hbase | 1.3.1 | 
-| Hive | 2.3.3| 
-| Hue | 4.4.0 | 
-| Ooize | 4.3.1| 
-| Presto | 0.7.1 | 
-| Zookeeper | 3.4.9 | 
+>!impala 服务组件仅支持 EMR-V3.1.0 及以后的版本，以 kerberos 的安全模式启动。
 
 ## 重要概念
 

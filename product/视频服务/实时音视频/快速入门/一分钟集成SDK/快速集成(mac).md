@@ -83,7 +83,7 @@ pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工�
 ![](https://main.qcloudimg.com/raw/2b569e1c95bb4c97b7045112d6e3ce9c.png)
 
 ## 引用 TRTC SDK
-TRTC SDK 支持两种调用方式，您可以任选一种
+TRTC SDK 支持两种调用方式，您可以任选一种：
 ### 方案一：通过 Objective-C 或 Swift 接口引用 TRTC SDK
 在 Objective-C 或 Swift 代码中使用 SDK 有两种方式：
 - **模块引用**：在项目需要使用 SDK API 的文件里，添加模块引用。

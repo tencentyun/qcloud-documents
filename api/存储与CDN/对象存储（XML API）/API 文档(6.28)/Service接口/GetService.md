@@ -2,6 +2,22 @@
 
 GET Service 接口是用来查询请求者名下的所有存储桶列表或特定地域下的存储桶列表。
 
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=GetService&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
 ## 请求
 
 #### 请求示例
@@ -26,7 +42,7 @@ Authorization: Auth String
 
 > ?
 > - Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
-> - Host: 查询全部存储桶列表指定为`service.cos.myqcloud.com`，查询特定地域下的存储桶列表指定为`cos.<Region>.myqcloud.com`。
+> - Host: 查询全部存储桶列表指定为`service.cos.myqcloud.com`，查询特定地域下的存储桶列表指定为 cos.&lt;Region>.myqcloud.com，其中 &lt;Region> 为 COS 的可用地域，可参阅 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
 
 #### 请求参数
 

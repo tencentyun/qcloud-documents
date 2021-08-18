@@ -1,6 +1,6 @@
-1. 在添加数据源首页单击【INFOREMIX 数据库】，进入新建页面。新建的页面如下：
+1. 登录 [商业智能分析控制台](https://console.cloud.tencent.com/bi)，在添加数据源首页单击【SYBASE 数据库】，进入新建页面。新建的页面如下：
 ![](https://main.qcloudimg.com/raw/c17fa311cb1ba49d403c46b5d3061fbf.png)
-2. 填写相应的 INFORMIX 数据库连接信息，至少把必填项都填写完毕。
+2. 填写相应的 SYBASE 数据库连接信息，至少把必填项都填写完毕。
 <table>
 <thead>
 <tr>

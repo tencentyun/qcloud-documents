@@ -7,7 +7,7 @@
 
 在开始本文的实践前，您需要先了解以下产品：
 
-- [TSW 服务调用监控](https://cloud.tencent.com/document/product/1311/51690)
+- [TSW 服务观测](https://cloud.tencent.com/document/product/1311/51690)
 - [CLS 产品概述](https://cloud.tencent.com/document/product/614/11254) 
 
 ## 操作步骤
@@ -55,10 +55,10 @@
 
 ### 步骤4：联动使用
 
-1. 在 CLS 控制台的【[检索分析](https://console.cloud.tencent.com/cls/search)】中，获取需要查看的 TraceID。
-   ![](https://main.qcloudimg.com/raw/e90a657df9ae07644cfdd9464851841c.png)
-	 您也可首先在 TSW 控制台上发现调用问题，复制相关的 TraceID，在对应的 CLS 日志主题中按 TraceID 进行搜索，查询相关业务日志。
-
-2. 在 TSW 控制台的【链路追踪】>【[调用链查询](https://console.cloud.tencent.com/tsw/trace)】中，根据 TraceID 查询调用链。
-   将 TraceID 填入输入框，单击【查询】即可查看对应的调用链信息。
-	 ![](https://main.qcloudimg.com/raw/a662f2cf9dfcb6c4119fda6c7e8019cd.png)
+在 [CLS 控制台](https://console.cloud.tencent.com/cls) 成功创建日志主题，并成功写入 TraceID 后，您就可以在 TSW 控制台的服务列表中，配置服务关联的日志主题。
+1. 单击【日志配置】，打开关联日志的开关，并正确配置日志集与日志主题。
+	 ![](https://main.qcloudimg.com/raw/1efab147a3d9008e6b0aa3e63bcdaa58.png)
+日志配置界面如下：
+![](https://main.qcloudimg.com/raw/a722931c37d21f250db8984e43acd3e0.png)
+2. 在 TSW 控制台的【链路追踪】>【[调用链查询](https://console.cloud.tencent.com/tsw/trace)】中，展开任意 Trace，即可通过日志 icon 跳转到对应的业务日志。在各请求列表中，您也可以直接跳转到对应 Trace 的日志。
+![](https://main.qcloudimg.com/raw/079ed56b5a99c03e218eadb11aad1e2e.png)

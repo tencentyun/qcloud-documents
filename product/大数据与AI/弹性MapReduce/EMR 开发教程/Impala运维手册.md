@@ -1,6 +1,6 @@
 ## 数据变大，Impala 启动失败
 ### 背景
-当 Impala 中的元数据信息太多（例如几百个库、几万个表），Impala 在启动的时候，需要把这些元数据信息广播到所有节点上，默认这个动作的超时时间是10s。当元数据较大且较易触发时，可通过在 Impala 的启动配置文件`/data/Impala/conf/impalad.flgs`中设置`-statestore_subscriber_timeout_seconds=100`。
+当 Impala 中的元数据信息太多（例如几百个库、几万个表），Impala 在启动的时候，需要把这些元数据信息广播到所有节点上，默认这个动作的超时时间是10s。当元数据较大且较易触发时，可通过在 Impala 的启动配置文件 `/data/Impala/conf/impalad.flgs` 中设置 `-statestore_subscriber_timeout_seconds=100`。
 
 ### 问题排查确定
 通常出现这个问题，会在 Impala 的日志`/data/emr/impala/logs`中出现如下内容：

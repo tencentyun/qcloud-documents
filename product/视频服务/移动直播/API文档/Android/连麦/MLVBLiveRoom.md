@@ -6,7 +6,7 @@ __功能__
 
 __介绍__
     
-基于腾讯云直播（LVB）、云点播（VOD） 和即时通信（IM）三大 PAAS 服务组合而成，支持：
+基于腾讯云直播、云点播（VOD） 和即时通信（IM）三大 PAAS 服务组合而成，支持：
 
 - 主播创建新的直播间开播，观众进入直播间观看。
 - 主播和观众进行视频连麦互动。
@@ -20,7 +20,7 @@ __介绍__
 - IM SDK：使用 IM SDK 的 AVChatroom 用于实现直播聊天室的功能，同时，主播间的连麦流程也是依靠 IM 消息串联起来的。
 
 
-参考文档：[直播连麦](https://cloud.tencent.com/document/product/454/14606)。
+参见文档：[直播连麦](https://cloud.tencent.com/document/product/454/14606)。
 
 
 

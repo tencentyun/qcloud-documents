@@ -47,7 +47,7 @@ __参数__
 
 ### setPlayListener
 
-设置推流回调接口。
+设置播放回调接口。
 ```
 void setPlayListener(ITXLivePlayListener listener)
 ```
@@ -547,7 +547,6 @@ __介绍__
 使用说明：
 - 非腾讯云直播地址不能时移。
 - 使用时移功能需在播放开始后调用此方法，否则时移失败。
-- 时移的使用请参见 [直播时移播放使用文档](https://cloud.tencent.com/document/product/881/20213#.E6.97.B6.E7.A7.BB.E6.92.AD.E6.94.BE)。
 
 ***
 

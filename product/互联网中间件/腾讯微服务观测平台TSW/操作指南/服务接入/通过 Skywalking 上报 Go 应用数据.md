@@ -24,10 +24,10 @@ Go 语言应用在使用 Skywalking 上报数据时有一定改造成本，您�
 1. 在 NewGRPCReporter 的时设置上报地址和 Authentication（上报地址与 Token 的获取方式参考 [步骤1](#step1)）。
 ```
 report, err = reporter.NewGRPCReporter(
-"169.254.0.143:11800",
+"ap-guangzhou.tencentservicewatcher.com:11800",
 reporter.WithAuthentication("tsw_site@xxxxxxxxxx"))
 ```
-
+>!请根据控制台给出的私网接入点和 Token 进行改造。
 2. 进行 Server 端配置，Demo 如下：
 <dx-codeblock>
 ::: go
@@ -57,8 +57,8 @@ var (
 
 func init() {
 flag.BoolVar(&grpc, "grpc", false, "use grpc reporter")
-flag.StringVar(&oapServer, "oap-server", "169.254.0.143:11800", "oap server address")  
-//169.254.0.143:11800 需替换为 TSW 的私网接入点
+flag.StringVar(&oapServer, "oap-server", "ap-guangzhou.tencentservicewatcher.com:11800", "oap server address")  
+//ap-guangzhou.tencentservicewatcher.com:11800 需替换为 TSW 的私网接入点
 flag.StringVar(&upstreamURL, "upstream-url", "upstream-service", "upstream service url")
 flag.StringVar(&listenAddr, "listen-addr", ":8081", "listen address")
 flag.StringVar(&serviceName, "service-name", "go2sky-server", "service name")

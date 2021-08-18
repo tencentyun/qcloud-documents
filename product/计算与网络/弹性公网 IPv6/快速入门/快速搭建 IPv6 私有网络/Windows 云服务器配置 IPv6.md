@@ -1,5 +1,8 @@
 本教程将帮助您在 Windows 操作系统环境下配置 IPv6 地址。
 
+>?默认云服务器的 IPv6 地址仅具有私网通信能力，若您想要通过该 IPv6 地址访问公网或被公网访问，则需通过弹性公网 IPv6 为该 IPv6 地址开通公网能力，操作详情请参见 [为云服务器的 IPv6 地址开通公网](https://cloud.tencent.com/document/product/1142/47665#step4)。
+
+
 如下操作以 Windows 2012 为例： 
 1. 登录云服务器实例，进入操作系统的【控制面板】>【网络和 Internet】>【网络和共享中心】，单击命名为“以太网”的网卡进行编辑。
 ![](https://main.qcloudimg.com/raw/4696aa941df5c22dbf4446c01aabefbc.png)

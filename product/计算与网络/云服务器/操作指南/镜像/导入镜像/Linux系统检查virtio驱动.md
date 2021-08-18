@@ -100,8 +100,6 @@ cd /usr/src/linux
 1. 依次执行以下命令，编译内核。
 ```
 make mrproper
-symvers_path=$(find /usr/src/ -name "Module.symvers")
-test -f $symvers_path && cp $symvers_path .
 cp /boot/config-$(uname -r) ./.config
 make menuconfig
 ```

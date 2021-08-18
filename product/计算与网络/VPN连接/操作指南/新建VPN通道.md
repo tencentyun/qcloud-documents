@@ -1,10 +1,10 @@
 VPN 通道是 VPN 连接中用来传输数据包的公网加密通道，腾讯云上的 VPN 通道在实现 IPsec 时，使用 IKE（Internet Key Exchange，因特网密钥交换）协议来建立会话。IKE 具有一套自我保护机制，可以在不安全的网络上安全地认证身份、分发密钥、建立 IPSec 会话。本文介绍如何在[ 私有网络控制台 ](https://console.cloud.tencent.com/vpc/vpnConn?rid=25)创建 VPN 通道。
 
 VPN 通道的建立包括以下配置信息：
-+ 基本信息
-+ SPD（Security Policy Database）策略
-+ IKE 配置（选填）
-+ IPsec 配置（选填）
++ [基本信息](#buzhou4)
++ [SPD（Security Policy Database）策略](#buzhou6)
++ [IKE 配置（选填）](#buzhou7)
++ [IPsec 配置（选填）](#buzhou8)
 
 ## 前提条件
 + 已完成 VPN 网关和对端网关的配置。
@@ -15,7 +15,7 @@ VPN 通道的建立包括以下配置信息：
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击【VPN 连接】>【VPN 通道】，进入管理页。
 3. 在“VPN 通道”管理页面，单击【新建】。
-4. 在弹出的新建对话框中，配置 VPN 通道基本信息。
+4. 在弹出的新建对话框中，配置 VPN 通道基本信息。[](id:buzhou4)
   ![](https://main.qcloudimg.com/raw/cb32f21fa41c5f34d8a8d0f8a8d660c1.png)
 <table>
 <tr>
@@ -72,7 +72,7 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 </table>
 5. 单击【下一步】，进入【SPD 策略】配置界面。
-6. 配置 SPD 策略。
+6. 配置 SPD 策略。[](id:buzhou6)
   >?
   >+ SPD（Security Policy Database）策略由一系列 SPD 规则组成，用于指定 VPC 或云联网内哪些网段可以和 IDC 内哪些网段通信。每条 SPD 规则包括一个本端网段 CIDR，和至少一个对端网段 CIDR。一个本端网段 CIDR 和一个对端网段 CIDR 构成一组匹配关系。一个 SPD 规则下可以有多组匹配关系。
   >+ 同一 VPN 网关下所有通道内的规则，匹配关系不能重叠，即一组的匹配关系中，本端网段和对端网段不能同时重叠。
@@ -92,7 +92,7 @@ VPN 通道的建立包括以下配置信息：
  - 如果新增一个10.0.0.0/24-----192.168.1.0/24匹配关系，则会因为和已有匹配关系重叠，而无法添加 SPD 规则。
  - 如果新增一个10.0.1.0/24-----192.168.1.0/24匹配关系，和已有的3个匹配关系均不重叠，则可以加入 SPD 规则。
 ![](https://main.qcloudimg.com/raw/641121e50364a1a40b4b3643a20703c1.png)
-7. 单击【下一步】，进入【 IKE 配置（可选）】界面，如不需要高级配置，可直接单击【下一步】。
+7. [](id:buzhou7)单击【下一步】，进入【 IKE 配置（可选）】界面，如不需要高级配置，可直接单击【下一步】。
  ![](https://main.qcloudimg.com/raw/cb7acde379a0aafb5d4b28dfe759c683.png)
 <table>
 <tr>
@@ -109,11 +109,11 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>加密算法</td>
-<td>加密算法支持 AES-128、AES-192、AES-256、3DES、DES</td>
+<td>加密算法支持 AES-128、AES-192、AES-256、3DES、DES、SM4</td>
 </tr>
 <tr>
 <td>认证算法</td>
-<td>身份认证算法，支持 MD5 和 SHA1</td>
+<td>身份认证算法，支持 MD5、SHA1、SHA256、SHA512</td>
 </tr>
 <tr>
 <td>协商模式</td>
@@ -121,22 +121,22 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>本端标识</td>
-<td>支持 IP Address 和 FQDN（全称域名），默认IP Address</td>
+<td>支持 IP Address 和 FQDN（全称域名），默认 IP Address</td>
 </tr>
 <tr>
 <td>对端标识</td>
-<td>支持 IP Address 和 FQDN ，IP Address</td>
+<td>支持 IP Address 和 FQDN ，默认 IP Address</td>
 </tr>
 <tr>
 <td>DH group</td>
-<td>指定 IKE 交换密钥时使用的 DH 组，密钥交换的安全性随着 DH 组的扩大而增加，但交换的时间也增加了<br/>DH1：采用 768-bit 模指数（Modular Exponential，MODP ）算法的 DH 组<br/> DH2：采用 1024-bit MODP 算法的 DH 组<br/> DH5：采用 1536-bit MODP 算法的 DH 组<br/>DH14：采用 2048-bit MODP 算法，不支持动态 VPN 实现此选项<br/>DH24：带 256 位的素数阶子群的 2048-bit MODP算法 DH 组，不支持组 VPN 实现此选项</td>
+<td>指定 IKE 交换密钥时使用的 DH 组，密钥交换的安全性随着 DH 组的扩大而增加，但交换的时间也增加了<br/>DH1：采用 768-bit 模指数（Modular Exponential，MODP ）算法的 DH 组<br/> DH2：采用 1024-bit MODP 算法的 DH 组<br/> DH5：采用 1536-bit MODP 算法的 DH 组<br/>DH14：采用 2048-bit MODP 算法，不支持动态 VPN 实现此选项<br/>DH24：带 256 位的素数阶子群的 2048-bit MODP 算法 DH 组</td>
 </tr>
 <tr>
 <td>IKE SA Lifetime</td>
 <td>单位：秒<br/>设置 IKE 安全提议的 SA 生存周期，在设定的生存周期超时前，会提前协商另一个 SA 来替换旧的 SA。在新的 SA 还没有协商完之前，依然使用旧的 SA；在新的 SA 建立后，将立即使用新的 SA，而旧的 SA 在生存周期超时后，被自动清除</td>
 </tr>
 </table>
-8.  进入【 IPsec配置（可选）】界面，如果不需要高级配置，可直接单击【完成】。
+8. [](id:buzhou8) 进入【 IPsec配置（可选）】界面，如果不需要高级配置，可直接单击【完成】。
 <table>
 <tr>
 <th width="22%">配置项</th>
@@ -144,11 +144,11 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>加密算法</td>
-<td>支持 3DES、AES-128、AES-192、AES-256</td>
+<td>加密算法支持 AES-128、AES-192、AES-256、3DES、DES、SM4</td>
 </tr>
 <tr>
 <td>认证算法</td>
-<td>支持 MD5 和 SHA1</td>
+<td>身份认证算法，支持 MD5、SHA1、SHA256、SHA512</td>
 </tr>
 <tr>
 <td>报文封装模式</td>

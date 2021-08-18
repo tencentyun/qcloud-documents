@@ -1,3 +1,5 @@
+
+
 ## 开发准备
 
 1. 注册腾讯云账号，单击进入 [文字识别控制台](https://console.cloud.tencent.com/ocr/general)，即可开通相应服务。
@@ -10,35 +12,44 @@
 
 ### iOS 端 OCR SDK 介绍
 
-​	SDK 中包含了四个 framework：
+SDK 中包含了以下 framework 库以及资源文件：
 
 - **OcrSDKKit.framework** - OCR 对外接口、页面设置及网络请求库
-- **TXYComm.framework**- 公共库
 - **YtSDKKit.framework** - 边缘检测逻辑
-- **YTImageRefiner.framework** - 图片解析
-- **opencv2.framework** - opencv 库
+- **YTImageRefiner_pub.framework** - 图片解析
+- **tiny_opencv2.framework** - opencv 库
+- **tnn.framework** - 底层深度学习库
 - **OcrSDK.bundle** - 资源文件
+- **ocr-001.bundle** -模型文件
 
 ### 环境依赖
 
-- 当前 iOS OCR 识别 SDK 版本适用于 iOS 9.0及以上的版本
+- 当前 iOS OCR 识别 SDK 版本适用于 iOS 11.0 及以上的版本
 - 开发工具使用 xcode11 或以上版本集成开发
 
 ### 接入步骤
 
-1. 将 **OcrSDKKit.framework**、**TXYComm.framework**、**YtSDKKit.framework**、**YTImageRefiner.framework**、**opencv2.framework**、**OcrSDK.bundle** 添加至项目中。            
-
+1. 将 ocr Framework、系统 Framework 库以及 bundle 文件都添加至项目中。
+```
+├── OcrSDKKit.framework
+├── YtSDKKit.framework
+├── YTImageRefiner_pub.framework
+├── tiny_opencv2.framework
+└── tnn.framework
+//系统库
+├── Accelerate.framework
+└── CoreML.framework
+```
+```
+//资源文件
+├── OcrSDK.bundle
+└── ocr-001.bundle
+```
 2. 添加编译选项
-
-
-- 将**调用 SDK 的 ViewController** 设置为 **Objective-C++Source** 或者更改后缀为 **.mm** (sdk 内部使用了 Objective-C++ 语法)
-- 将 **Other Linker Flags** 设置为 **ObjC**
-
-
+	- 将**调用 SDK 的 ViewController** 设置为 **Objective-C++Source** 或者更改后缀为 **.mm** (sdk 内部使用了 Objective-C++ 语法)
+	- 将 **Other Linker Flags** 设置为 **-ObjC**
 3. 权限设置
-
-   OCR SDK 需要手机网络、 摄像头、访问相册的使用权限，请添加对应的权限声明。
-
+OCR SDK 需要手机网络、 摄像头、访问相册的使用权限，请添加对应的权限声明。
 ```xml
 <key>NSAppTransportSecurity</key>
 <dict>
@@ -51,13 +62,12 @@
 <string>OCR 识别需要您开启相册权限，浏览您的照片</string>
 ```
 
-​    
 
 ### SDK 接口说明
 
 #### SDK 初始化
 
-   客户初始化 OCR SDK
+客户初始化 OCR SDK
 
 ```objective-c
 #import <OcrSDKKit/OcrSDKKit.h>
@@ -121,7 +131,7 @@ OCR SDK 支持使用临时密钥接口，使用临时密钥的好处主要有以
 
 
 
- 目前 ocr SDK 支持四种类型的识别模式如下表所示。
+ 目前 ocr SDK 支持七种类型的识别模式如下表所示。
 
 | OcrType 类型             | 代表含义               |
 | ----------------------- | ---------------------- |
@@ -130,4 +140,17 @@ OCR SDK 支持使用临时密钥接口，使用临时密钥的好处主要有以
 | OcrType.BankCardOCR     | 银行卡正面识别模式     |
 | OcrType.BusinessCardOCR | 名片卡正面识别模式     |
 | OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 |
+| OcrType.LicensePlateOCR | 汽车车牌识别模式       |
+| OcrType.VinOCR          | 汽车 VIN 码识别模式      |
+| OcrType.VehicleLicenseOCR_FRONT | 行驶证主页识别模式 |
+| OcrType.VehicleLicenseOCR_BACK | 行驶证副页识别模式 |
+| OcrType.DriverLicenseOCR_FRONT | 驾驶证主页识别模式 |
+| OcrType.DriverLicenseOCR_BACK | 驾驶证副页识别模式 |
 
+
+
+### 常见错误
+
+1. 当提示**requsetConfigDict is nil**，检查下是不是在进入 SDK 时，执行了 [OcrSDKKit cleanInstance] 把密钥和配置设置清除了。
+2. SDK 页面依托于 UIWindow，所以需要在 AppDelegate.h 中添加 **@property (**nonatomic**, **strong**) UIWindow * window;**。
+3. 当出现进入 SDK 黑屏，添加设置**Other Linker Flags**添加 **-ObjC**。打印日志 **Application tried to push a nil view controller on target....**，原因是 self.storyboard 等于 nil，可以参考 demo，在调用 SDK 页面的 ViewController 手动加载 xib 页面，然后调用 SDK 进入识别页面。

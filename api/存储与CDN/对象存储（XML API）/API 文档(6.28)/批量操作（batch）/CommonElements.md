@@ -41,7 +41,6 @@
 | PrefixReplace             | COSPutObjectCopy | 指定是否需要替换源对象的前缀，值为 true 时，表示替换对象前缀，需搭配`<ResourcesPrefix>`和`<TargetKeyPrefix>`使用。默认值：false。 | boolean                    | 否       |
 | ResourcesPrefix           | COSPutObjectCopy | 当`<PrefixReplace>`值为 true 时，这个字段才有效。指定需要替换的源对象前缀，替换目录请以/结尾。可以为空，最长1024字节。 | string                     | 否       |
 | TargetKeyPrefix           | COSPutObjectCopy | 当`<PrefixReplace>`值为 true 时，这个字段才有效。该值表示替换后的前缀，替换目录请以/结尾。可以为空，最长1024字节。<br/>例：源对象为 picture.jpg，设置`ResourcesPrefix`值为 pic，`TargetKeyPrefix`值为 abc，则执行结果为 picture.jpg 变为 abcture.jpg。<br/>注意：<br/>`ResourcesPrefix`为空、`TargetKeyPrefix`有赋值，可实现增加前缀操作；<br/>`ResourcesPrefix`和`TargetKeyPrefix`同时有赋值，可实现替换前缀操作；<br/>若`ResourcesPrefix`有赋值、`TargetKeyPrefix`为空，可实现删除前缀操作。 | String                     | 否       |
-| MetadataDirective         | COSPutObjectCopy | 是否拷贝源文件的元数据，枚举值：Copy，Replaced。默认值 Copy。<br><li>假如标记为 Copy，则拷贝源文件的元数据。<br><li>假如标记为 Replaced，则按本次请求的 Header 信息修改元数据。 | String                     | 否       |
 | ModifiedSinceConstraint   | COSPutObjectCopy | 当对象在指定时间后被修改，则执行操作，否则返回412。          | Timestamp                  | 否       |
 | UnModifiedSinceConstraint | COSPutObjectCopy | 当对象在指定时间后未被修改，则执行操作，否则返回412。        | Timestamp                  | 否       |
 | MetadataDirective         | COSPutObjectCopy | 该元素指定是从源对象复制对象元数据还是替换为`<NewObjectMetadata>`元素中的元数据，有效值为：Copy、Replaced、Add。Copy：继承源对象元数据；Replaced ：替换源元数据；Add：在源元数据的基础上添加新的元数据。 | String                     | 否       |

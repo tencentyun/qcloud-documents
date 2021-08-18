@@ -1,67 +1,47 @@
+本文档简要介绍在不同操作系统下，Python 开发环境的安装方法。
 
-本文档以 Python 2.7.13 版本为例，详细介绍在 Windows 和 Linux 系统下， Python 的安装与环境配置过程。
+## 通过安装包安装
 
+### 1. 下载
+进入 [Python 官方网站](https://www.python.org/downloads/)，根据自己使用的操作系统，选择下载合适的安装包。
 
-## Windows 
-#### 1. 下载
-进入 [Python 官网](https://www.python.org/downloads/) 选择合适的版本下载，本示例中我们选择下载 [Python 2.7.13](https://www.python.org/ftp/python/2.7.13/python-2.7.13.amd64.msi) 版本。
+>! Python 官方已于2020年1月1日停止对 Python2 的维护，建议安装使用 Python3。
 
-#### 2. 安装
-下载 Python 安装包后，双击 Python 安装包，按照默认提示，单击【下一步】进行安装。
+### 2. 安装
+下载安装包后，根据安装包的引导即可完成 Python 开发环境的安装。
 
-#### 3. 环境变量配置
-（1）安装完成后，按照系统提示完成重启。
-（2）重启完成后，右键单击【计算机】>【属性】>【高级系统设置】>【环境变量】>【系统变量(S)】 找到 “Path” （若无该变量，则新建）。
-（3）单击【编辑】>【编辑文本】，并在“变量值”末尾添加 Python 的安装路径：`;C:\Python27`（请更改为您实际的安装路径）。
-（4）最后单击【确定】保存。
-![161709](//mc.qcloudimg.com/static/img/b5784ed03d0f2fd07195c9c3ae1e5075/image.png)
+>? Windows 系统用户在安装时要注意勾选"Add Python to environment variables"选项。
+> ![](https://main.qcloudimg.com/raw/bd52e448e3ba0e8171b5a37b31caadb8.png)
 
-#### 4. 测试配置是否成功
-单击【开始】（或快捷键：Win+R）>【运行】（输入 cmd）>【确定】（或者按 Enter 键），在弹出的窗口中输入命令 Python 并按 Enter 键。若出现如图信息，则说明 Python 2.7 安装成功：
-![152355](//mc.qcloudimg.com/static/img/026d7738b234171b285a98f0e751038a/image.png)
-
-## Linux
-#### 1. 查看 Python 版本 
-Linux 的 yum 自带 Python，首先查看默认 Python 版本。
-```sh
-python -V
-``` 
-若已经是 Python 2.7 及以上版本，则忽略以下步骤，否则（此处假设现有版本为 Python 2.6.6），输入以下命令：
-```plaintext
-yum groupinstall "Development tools"
-```
-
-#### 2. 安装编译 Python 需要的组件
-```sh
-yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel
-```
-
-#### 3. 下载并解压 Python 2.7 
-```sh
-wget https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz
-tar xf Python-2.7.12.tar.xz
-```
-
-#### 4. 编译与安装 Python
-```plaintext
-cd Python-2.7.12 //进入目录
-./configure -prefix=/usr/local
-make && make install  //安装
-make clean 
-make distclean
-```
-
-#### 5. 将系统 Python 命令指向 Python 2.7
+### 3. 验证
+在终端中执行以下命令查看 Python 版本：
 ```shell
-mv /usr/bin/python /usr/bin/python2.6.6
-ln -s /usr/local/bin/python2.7 /usr/bin/python
+python -V
+```
+若终端输出 Python 版本号则证明安装成功。
+
+>? Windows 系统用户在安装完毕后，可能需要重启计算机。
+
+### 4. 环境变量配置
+在 Windows 系统中，若在执行以上命令时终端提示"不是内部或外部命令"，请在【计算机】>【属性】>【高级系统设置】>【环境变量】>【系统变量(S)】中编辑 "Path"，增加 Python 的安装路径，如下图所示：
+![](https://main.qcloudimg.com/raw/ab3a700239789351b3983cbe29ecb9a9.png)
+
+## 通过包管理器安装
+
+### Mac OS
+使用 Mac OS 的用户可以先安装 [HomeBrew](https://brew.sh/index_zh-cn)，再通过 HomeBrew 来安装 Python：
+```shell
+brew install python
 ```
 
-#### 6. 测试配置是否成功
-```sh
-python
+### Ubuntu
+使用 Ubuntu 的用户可以使用 Ubuntu 自带的 apt（Advanced Packaging Tool）包管理器来安装 Python：
+```shell
+sudo apt-get install python
 ```
-若出现如图信息，则说明 Python 2.7 安装成功：
-![112046](//mc.qcloudimg.com/static/img/0eb560566c1f67e302e75b1dcb515d98/image.png)
 
->!如果出现权限的问题，建议在命令前添加 sudo 尝试解决。
+### CentOS
+使用 CentOS 的用户可以使用 CentOS 自带的 yum（Yellow dog Updater, Modified）包管理器来安装 Python：
+```shell
+sudo yum install -y python
+```

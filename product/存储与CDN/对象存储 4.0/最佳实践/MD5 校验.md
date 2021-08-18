@@ -45,6 +45,7 @@ Date: Fri, 21 Jun 2019 09:45:12 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1561109068;1561116268&q-key-time=1561109068;1561116268&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=&q-signature=998bfc8836fc205d09e455c14e3d7e623bd2****
 x-cos-meta-md5: b62e10bcab55a88240bd9c436cffdcf9
 ```
+>! 对于分块上传的文件，COS 只会校验每个分块的 MD5 值，而不会计算合并后完整文件的 MD5 值。
 
 #### 对象下载响应
 

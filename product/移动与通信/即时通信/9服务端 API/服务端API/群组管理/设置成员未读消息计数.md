@@ -58,7 +58,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/set_unread_msg_num?sdkappid=88
 
 ```
 {
-    "Action1Status": "OK",
+    "ActionStatus": "OK",
     "ErrorInfo": "",
     "ErrorCode": 0
 }

@@ -178,7 +178,7 @@ public void setObjectAcl(SetObjectAclRequest setObjectAclRequest)
 [//]: # (.cssg-snippet-put-object-acl)
 ```java
 // 权限信息中身份信息有格式要求，对于主账号与子账号的范式如下：
-// 下面的 root_uin 和 sub_uin 都必须是有效的 QQ 号
+// 下面的 root_uin 和 sub_uin 都必须是有效的 UIN 号
 // 主账号 qcs::cam::uin/<root_uin>:uin/<root_uin> 表示授予主账号 root_uin 这个用户（即前后填的 uin 一样）
 //  如 qcs::cam::uin/100000000001:uin/100000000001
 // 子账号 qcs::cam::uin/<root_uin>:uin/<sub_uin> 表示授予 root_uin 的子账号 sub_uin 这个客户

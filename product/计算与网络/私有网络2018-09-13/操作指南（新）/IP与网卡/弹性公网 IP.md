@@ -2,6 +2,10 @@
 
 弹性公网 IP 未进行释放前，您可以将其一直保留于您的账号中。相较于公网 IP 仅可跟随云服务器一起申请释放，弹性公网 IP 可以与云服务器的生命周期解耦，作为云资源单独进行操作。例如，若您需要保留某个与业务强相关的公网 IP，可以将其转为弹性公网 IP 保留在您的账号中。
 
-关于弹性公网 IP 的操作，请参见 [弹性公网 IP-操作指南](https://cloud.tencent.com/document/product/1199/41698)。
+关于弹性公网 IP 的常用操作，请参见：
++ [申请 EIP](https://cloud.tencent.com/document/product/1199/41698)
++ [EIP 绑定云资源](https://cloud.tencent.com/document/product/1199/41702)
++ [快速搭建 IPv4 私有网络](https://cloud.tencent.com/document/product/215/30716)
+
 
 

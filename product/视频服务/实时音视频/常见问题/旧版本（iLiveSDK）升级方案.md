@@ -74,7 +74,9 @@ HMODULE hiLive = LoadLibrary("iLiveSDK.dll");
 ```
 
 当您需要使用 LiteAVSDK 时，使用如下代码加载并进行初始化：
-```cpp
+
+<dx-codeblock>
+::: cpp cpp
 typedef ITRTCCloud* (*getTRTCShareInstanceMtd)();
 typedef void(*destroyTRTCShareInstanceMtd)();
 
@@ -109,7 +111,8 @@ return;
 SetDllDirectory(nullptr);
 
 pTrtcCloud->enterRoom(...);
-```
+:::
+</dx-codeblock>
 
 
 

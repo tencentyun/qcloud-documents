@@ -88,7 +88,7 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 
 ## 遇到问题？
 
-非常抱歉您在使用时遇到问题，您可以通过 [在线客服](https://cloud.tencent.com/act/event/smarty-service?from=smarty-service) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
+非常抱歉您在使用时遇到问题，您可以 [联系我们](https://cloud.tencent.com/document/product/436/37708)。
 
 ## 相关文档
 

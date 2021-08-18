@@ -68,20 +68,20 @@ Namespace=QCE/TXMR_HIVE
 
 ## 各维度对应参数总览
 
-| 参数名称                       | 维度名称             | 维度解释                     | 格式                                          |
-| :----------------------------- | :------------------- | :--------------------------- | :-------------------------------------------- |
-| Instances.N.Dimensions.0.Name  | id4hivemetastore     | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hivemetastore    |
-| Instances.N.Dimensions.0.Value | id4hivemetastore     | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222     |
-| Instances.N.Dimensions.1.Name  | host4hivemetastore   | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4hivemetastore   |
-| Instances.N.Dimensions.1.Value | host4hivemetastore   | EMR 实例中具体节点 IP        | 输入具体节点 IP ，例如：1.1.1.1               |
-| Instances.N.Dimensions.0.Name  | id4hivehiveserver2   | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hivehiveserver2  |
-| Instances.N.Dimensions.0.Value | id4hivehiveserver2   | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222     |
-| Instances.N.Dimensions.1.Name  | host4hivehiveserver2 | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4hivehiveserver2 |
-| Instances.N.Dimensions.1.Value | host4hivehiveserver2 | EMR 实例中具体节点 IP        | 输入具体节点 IP ，例如：1.1.1.1               |
-| Instances.N.Dimensions.0.Name  | id4hivehivewebhcat   | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hivehivewebhcat  |
-| Instances.N.Dimensions.0.Value | id4hivehivewebhcat   | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222     |
-| Instances.N.Dimensions.1.Name  | host4hivehivewebhcat | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4hivehivewebhcat |
-| Instances.N.Dimensions.1.Value | host4hivehivewebhcat | EMR 实例中具体节点 IP        | 输入具体节点 IP ，例如：1.1.1.1               |
+| 参数名称                       | 维度名称             | 维度解释                     | 格式                                                         |
+| :----------------------------- | :------------------- | :--------------------------- | :----------------------------------------------------------- |
+| Instances.N.Dimensions.0.Name  | id4hivemetastore     | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hivemetastore                   |
+| Instances.N.Dimensions.0.Value | id4hivemetastore     | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222                    |
+| Instances.N.Dimensions.1.Name  | host4hivemetastore   | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4hivemetastore                  |
+| Instances.N.Dimensions.1.Value | host4hivemetastore   | EMR 实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | id4hivehiveserver2   | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hivehiveserver2                 |
+| Instances.N.Dimensions.0.Value | id4hivehiveserver2   | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222                    |
+| Instances.N.Dimensions.1.Name  | host4hivehiveserver2 | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4hivehiveserver2                |
+| Instances.N.Dimensions.1.Value | host4hivehiveserver2 | EMR 实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | id4hivehivewebhcat   | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hivehivewebhcat                 |
+| Instances.N.Dimensions.0.Value | id4hivehivewebhcat   | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222                    |
+| Instances.N.Dimensions.1.Name  | host4hivehivewebhcat | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4hivehivewebhcat                |
+| Instances.N.Dimensions.1.Value | host4hivehivewebhcat | EMR 实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 
 ## 入参说明
 

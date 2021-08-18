@@ -15,16 +15,17 @@
 
 ## 使用限制
 - 仅支持 Linux 实例。
+- 每个腾讯云账号最多可具备100个 SSH 密钥对。
 - 腾讯云不会保管您的私钥信息，您需要在创建 SSH 密钥后下载私钥，并妥善保管。
 - 基于数据安全考虑，加载密钥需要在关机状态下进行。
-- 为提高云服务器的安全性，实例绑定密钥后，将禁用密码登录方式。
+- 为提高云服务器的安全性，实例绑定密钥后，将默认禁用密码登录方式。若需同时使用密码登录，请前往云服务器控制台 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 
 
 ## 使用场景
 - 关于如何创建、绑定/解绑、删除密钥，请参考 [管理 SSH 密钥](https://cloud.tencent.com/document/product/213/16691)。
 - 关于如何使用 SSH 密钥远程登录云服务器实例，请参考：
- - [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699#.E4.BD.BF.E7.94.A8.E5.AF.86.E9.92.A5.E7.99.BB.E5.BD.95)
- - [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700#.E4.BD.BF.E7.94.A8.E5.AF.86.E9.92.A5.E7.99.BB.E5.BD.95)
+ - [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699#keyLogin)
+ - [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700#LoginWithKey)
 
 
 

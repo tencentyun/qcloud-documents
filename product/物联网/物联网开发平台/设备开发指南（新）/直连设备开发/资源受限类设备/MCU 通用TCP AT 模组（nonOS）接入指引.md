@@ -1,7 +1,7 @@
 
 对于不具备网络通讯能力的 MCU，一般采用 MCU+ 通讯模组的方式，通讯模组（包括 Wi-Fi/2G/4G/NB-IoT）一般提供基于串口的 AT 指令协议供 MCU 进行网络通讯。针对这种场景，C SDK 封装 AT-socket 网络层，网络层之上的核心协议和服务层无须移植。
 
-相较于有 RTOS 场景，at_socket 网络接收数据的处理会有差异，应用层需要周期性的调用 **IOT_MQTT_Yield** 来接收服务端下行数据，错过接收窗口则会存在数据丢失的情况，所以在业务逻辑较为复杂的场景建议使用 RTOS，通过配置  FEATURE_AT_OS_USED = OFF 选择无 OS 方式。
+相较于有 RTOS 场景，AT-socket 网络接收数据的处理会有差异，应用层需要周期性的调用 **IOT_MQTT_Yield** 来接收服务端下行数据，错过接收窗口则会存在数据丢失的情况，所以在业务逻辑较为复杂的场景建议使用 RTOS，通过配置 `FEATURE_AT_OS_USED = OFF` 选择无 OS 方式。
 
 ## SDK 获取
 
@@ -25,9 +25,9 @@ MCU+ 通用 TCP AT 模组（nonOS）接入腾讯云物联网开发平台可以�
 | FEATURE_AUTH_MODE                | KEY      | 资源受限设备认证方式建议选密钥认证    |
 | FEATURE_AUTH_WITH_NOTLS          | ON/OFF        | 根据需要是否使能 TLS             |
 | FEATURE_EVENT_POST_ENABLED       | ON/OFF        | 根据需要是否使能事件上报    |
-| FEATURE_AT_TCP_ENABLED           | ON        | 使能 at_socket 组件                          |
+| FEATURE_AT_TCP_ENABLED           | ON        | 使能 AT-socket 组件                          |
 | FEATURE_AT_UART_RECV_IRQ         | ON        | 使能 AT 串口中断接收                  |
-| FEATURE_AT_OS_USED               | OFF        | at_socket 组件无 RTOS 环境使用                         |
+| FEATURE_AT_OS_USED               | OFF        | AT-socket 组件无 RTOS 环境使用                         |
 | FEATURE_AT_DEBUG                 | OFF      | 默认关闭 AT 模组调试功能，有调试需要再打开|
 
 ### 代码抽取
@@ -61,7 +61,7 @@ cmake ..
 
 请先参见 [C SDK 移植接入指引](https://cloud.tencent.com/document/product/1081/48366) 进行移植。
 
-对于网络相关的 HAL 接口，通过本文编译选项已选择 SDK 提供的 AT_Socket 框架，SDK 会调用 `network_at_tcp.c  ` 的 `at_socket` 接口，`at_socket` 层不需要移植，需要实现 AT 串口驱动及 AT 模组驱动，AT 模组驱动只需要实现 AT 框架中 `at_device` 的驱动结构体 `at_device_op_t` 的驱动接口即可，可以参照 `at_device` 目录下的已支持的模组。AT 串口驱动需要实现串口的中断接收，然后在中断服务程序中调用回调函数 `at_client_uart_rx_isr_cb` 即可，可以参考 `HAL_OS_nonos.c` 实现目标平台的移植。
+对于网络相关的 HAL 接口，通过本文编译选项已选择 SDK 提供的 AT_Socket 框架，SDK 会调用 `network_at_tcp.c  ` 的 `AT-socket` 接口，`AT-socket` 层不需要移植，需要实现 AT 串口驱动及 AT 模组驱动，AT 模组驱动只需要实现 AT 框架中 `AT_device` 的驱动结构体 `AT_device_op_t` 的驱动接口即可，可以参照 `AT_device` 目录下的已支持的模组。AT 串口驱动需要实现串口的中断接收，然后在中断服务程序中调用回调函数 `AT_client_uart_rx_isr_cb` 即可，可以参考 `HAL_OS_nonos.c` 实现目标平台的移植。
 
 ### 业务逻辑开发
 

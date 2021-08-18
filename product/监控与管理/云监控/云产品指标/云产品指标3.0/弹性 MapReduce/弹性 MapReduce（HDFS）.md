@@ -37,7 +37,7 @@ Namespace=QCE/TXMR_HDFS
 | EmrHdfsOverview<br/>HdfsNnBlockSnapshots                     | SNAPSHOT 相关_Snapshots                  | 个   | Snapshots 数量                                | host4hdfsoverview、<br>id4hdfsoverview  |
 | EmrHdfsOverview<br/>HdfsNnBlockVolumeFailuresTotal           | 磁盘故障_VolumeFailuresTotal             | 次   | 所有 Datanodes 的全故障总数                   | host4hdfsoverview、<br>id4hdfsoverview  |
 
-## HDFS-OverviewAggregation 
+## HDFS-OverviewAggregation
 
 | 指标英文名                                                   | 指标中文名                               | 单位 | 指标含义                                      | 维度            |
 | ------------------------------------------------------------ | ---------------------------------------- | ---- | --------------------------------------------- | --------------- |
@@ -245,7 +245,7 @@ Namespace=QCE/TXMR_HDFS
 | HdfsDnRtRead                                                 | 读写延迟_Read                                                | 次/s     | 读操作 QPS                                 | id4hdfsdatanode、<br>host4hdfsdatanode |
 | HdfsDnDatapacketOps<br>Datapacketops                         | 包传输操作 QPS_DataPacketOps                                 | 次/s     | 包传输操作 QPS                             | id4hdfsdatanode、<br>host4hdfsdatanode |
 
-### HDFS-Journal Node 
+### HDFS-Journal Node
 
 | 指标英文名                                       | 指标中文名                            | 指标单位 | 指标含义                                |                                               |
 | ------------------------------------------------ | ------------------------------------- | -------- | --------------------------------------- | --------------------------------------------- |
@@ -313,72 +313,72 @@ Namespace=QCE/TXMR_HDFS
 
 ## 各维度对应参数总览
 
-| 参数名称                       | 维度名称                      | 维度解释                      | 格式                                                    |
-| ------------------------------ | ----------------------------- | ----------------------------- | ------------------------------------------------------- |
-| Instances.N.Dimensions.0.Name  | id4hdfsoverview               | EMR 实例 ID 的维度名称        | 输入  String 类型维度名称：id4hdfsoverview              |
-| Instances.N.Dimensions.0.Value | id4hdfsoverview               | EMR  实例具体 ID              | 输入  EMR 具体实例 ID，例如 ：emr-mm8bs222              |
-| Instances.N.Dimensions.1.Name  | host4hdfsoverview             | EMR  实例中节点 IP 的维度名称 | 输入String  类型维度名称：host4hdfsoverview             |
-| Instances.N.Dimensions.1.Value | host4hdfsoverview             | EMR  实例中具体节点 IP        | 输入具体节点  IP ，例如：1.1.1.1                        |
-| Instances.N.Dimensions.0.Name  | id4hdfsnamenode               | EMR 实例 ID 的维度名称        | 输入 String  类型维度名称：id4hdfsnamenode              |
-| Instances.N.Dimensions.0.Value | id4hdfsnamenode               | EMR 实例具体 ID               | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222              |
-| Instances.N.Dimensions.1.Name  | host4hdfsnamenode             | EMR 实例中节点 IP 的维度名称  | 输入String  类型维度名称：host4hdfsnamenode             |
-| Instances.N.Dimensions.1.Value | host4hdfsnamenode             | EMR 实例中具体节点 IP         | 输入具体节点 IP ，例如：1.1.1.1                         |
-| Instances.N.Dimensions.0.Name  | id4hdfsdatanode               | EMR  实例 ID 的维度名称       | 输入 String  类型维度名称：id4hdfsdatanode              |
-| Instances.N.Dimensions.0.Value | id4hdfsdatanode               | EMR  实例具体 ID              | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222              |
-| Instances.N.Dimensions.1.Name  | host4hdfsdatanode             | EMR  实例中节点 IP 的维度名称 | 输入String  类型维度名称：host4hdfsdatanode             |
-| Instances.N.Dimensions.1.Value | host4hdfsdatanode             | EMR  实例中具体节点 IP        | 输入具体节点 IP ，例如：1.1.1.1                         |
-| Instances.N.Dimensions.0.Name  | id4hdfsjournalnode            | EMR 实例 ID 的维度名称        | 输入 String  类型维度名称：id4hdfsjournalnode           |
-| Instances.N.Dimensions.0.Value | id4hdfsjournalnode            | EMR 实例具体 ID               | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222              |
-| Instances.N.Dimensions.1.Name  | host4hdfsjournalnode          | EMR 实例中节点 IP 的维度名称  | 输入String  类型维度名称：host4hdfsjournalnode          |
-| Instances.N.Dimensions.1.Value | host4hdfsjournalnode          | EMR 实例中具体节点 IP         | 输入具体节点 IP ，例如：1.1.1.1                         |
-| Instances.N.Dimensions.0.Name  | id4hdfszkfailovercontroller   | EMR  实例 ID 的维度名称       | 输入  String 类型维度名称：id4hdfszkfailovercontroller  |
-| Instances.N.Dimensions.0.Value | id4hdfszkfailovercontroller   | EMR  实例具体 ID              | 输入  EMR 具体实例 ID，例如 ：emr-mm8bs222              |
-| Instances.N.Dimensions.1.Name  | host4hdfszkfailovercontroller | EMR  实例中节点 IP 的维度名称 | 输入String  类型维度名称：host4hdfszkfailovercontroller |
-| Instances.N.Dimensions.1.Value | host4hdfszkfailovercontroller | EMR  实例中具体节点 IP        | 输入具体节点  IP ，例如：1.1.1.1                        |
+| 参数名称                       | 维度名称                      | 维度解释                      | 格式                                                         |
+| ------------------------------ | ----------------------------- | ----------------------------- | ------------------------------------------------------------ |
+| Instances.N.Dimensions.0.Name  | id4hdfsoverview               | EMR 实例 ID 的维度名称        | 输入  String 类型维度名称：id4hdfsoverview                   |
+| Instances.N.Dimensions.0.Value | id4hdfsoverview               | EMR  实例具体 ID              | 输入  EMR 具体实例 ID，例如 ：emr-mm8bs222                   |
+| Instances.N.Dimensions.1.Name  | host4hdfsoverview             | EMR  实例中节点 IP 的维度名称 | 输入String  类型维度名称：host4hdfsoverview                  |
+| Instances.N.Dimensions.1.Value | host4hdfsoverview             | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | id4hdfsnamenode               | EMR 实例 ID 的维度名称        | 输入 String  类型维度名称：id4hdfsnamenode                   |
+| Instances.N.Dimensions.0.Value | id4hdfsnamenode               | EMR 实例具体 ID               | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222                   |
+| Instances.N.Dimensions.1.Name  | host4hdfsnamenode             | EMR 实例中节点 IP 的维度名称  | 输入String  类型维度名称：host4hdfsnamenode                  |
+| Instances.N.Dimensions.1.Value | host4hdfsnamenode             | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | id4hdfsdatanode               | EMR  实例 ID 的维度名称       | 输入 String  类型维度名称：id4hdfsdatanode                   |
+| Instances.N.Dimensions.0.Value | id4hdfsdatanode               | EMR  实例具体 ID              | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222                   |
+| Instances.N.Dimensions.1.Name  | host4hdfsdatanode             | EMR  实例中节点 IP 的维度名称 | 输入String  类型维度名称：host4hdfsdatanode                  |
+| Instances.N.Dimensions.1.Value | host4hdfsdatanode             | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | id4hdfsjournalnode            | EMR 实例 ID 的维度名称        | 输入 String  类型维度名称：id4hdfsjournalnode                |
+| Instances.N.Dimensions.0.Value | id4hdfsjournalnode            | EMR 实例具体 ID               | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222                   |
+| Instances.N.Dimensions.1.Name  | host4hdfsjournalnode          | EMR 实例中节点 IP 的维度名称  | 输入String  类型维度名称：host4hdfsjournalnode               |
+| Instances.N.Dimensions.1.Value | host4hdfsjournalnode          | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | id4hdfszkfailovercontroller   | EMR  实例 ID 的维度名称       | 输入  String 类型维度名称：id4hdfszkfailovercontroller       |
+| Instances.N.Dimensions.0.Value | id4hdfszkfailovercontroller   | EMR  实例具体 ID              | 输入  EMR 具体实例 ID，例如 ：emr-mm8bs222                   |
+| Instances.N.Dimensions.1.Name  | host4hdfszkfailovercontroller | EMR  实例中节点 IP 的维度名称 | 输入String  类型维度名称：host4hdfszkfailovercontroller      |
+| Instances.N.Dimensions.1.Value | host4hdfszkfailovercontroller | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 
 ## 入参说明
 
-弹性 MapReduce（HDFS）支持以下六种维度组合的查询方式，六种入参取值如下： 
+弹性 MapReduce（HDFS）支持以下六种维度组合的查询方式，六种入参取值如下：
 
 **1. 查询  HDFS-OverviewAggregation  的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_HDFS
-&Instances.N.Dimensions.0.Name=id4hdfsoverview 
-&Instances.N.Dimensions.0.Value=EMR 实例 ID 
+&Instances.N.Dimensions.0.Name=id4hdfsoverview
+&Instances.N.Dimensions.0.Value=EMR 实例 ID
 
 **2. 查询 HDFS-Overview  的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_HDFS
 &Instances.N.Dimensions.0.Name=id4hdfsoverview
-&Instances.N.Dimensions.0.Value=EMR 实例 ID 
+&Instances.N.Dimensions.0.Value=EMR 实例 ID
 &Instances.N.Dimensions.1.Name=host4hdfsoverview
-&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP 
+&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
 
 **3. 查询  HDFS-NameNode 的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_HDFS
 &Instances.N.Dimensions.0.Name=id4hdfsnamenode
-&Instances.N.Dimensions.0.Value=EMR 实例 ID 
+&Instances.N.Dimensions.0.Value=EMR 实例 ID
 &Instances.N.Dimensions.1.Name=host4hdfsnamenode
-&Instances.N.Dimensions.1.Value=EMR实例中具体节点 IP 
+&Instances.N.Dimensions.1.Value=EMR实例中具体节点 IP
 
 **4. 查询  HDFS-DataNode 的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_HDFS
 &Instances.N.Dimensions.0.Name=id4hdfsdatanode
-&Instances.N.Dimensions.0.Value=EMR 实例 ID 
-&Instances.N.Dimensions.1.Name=host4hdfsdatanode 
-&Instances.N.Dimensions.1.Value=EMR实例中具体节点 IP 
+&Instances.N.Dimensions.0.Value=EMR 实例 ID
+&Instances.N.Dimensions.1.Name=host4hdfsdatanode
+&Instances.N.Dimensions.1.Value=EMR实例中具体节点 IP
 
 **5. 查询  HDFS-Journal Node 的指标监控数据，入参取值如下：**
-&Namespace=QCE/TXMR_HDFS 
+&Namespace=QCE/TXMR_HDFS
 &Instances.N.Dimensions.0.Name=id4hdfsjournalnode
 &Instances.N.Dimensions.0.Value=EMR 实例具体 ID
 &Instances.N.Dimensions.1.Name=host4hdfsjournalnode
-&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP 
+&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
 
 **6. 查询  HDFS-ZKFC 的指标监控数据，入参取值如下：**
-&Namespace=QCE/TXMR_HDFS 
+&Namespace=QCE/TXMR_HDFS
 &Instances.N.Dimensions.0.Name=id4hdfszkfailovercontroller
 &Instances.N.Dimensions.0.Value=EMR 实例具体 ID
 &Instances.N.Dimensions.1.Name=host4hdfszkfailovercontroller
-&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP 
+&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
 
 
 

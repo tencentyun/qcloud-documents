@@ -1,6 +1,6 @@
 ## 前提条件
 1. 注册 [腾讯云账号](https://cloud.tencent.com/document/product/378/17985)，并完成 [企业实名认证](https://cloud.tencent.com/document/product/378/10496)。
-2. 已开通 [腾讯云呼叫中心实例](https://cloud.tencent.com/document/product/679/14495)。
+2. 已开通 [腾讯云呼叫中心实例](https://cloud.tencent.com/document/product/679/48028)。
 
 ## 操作步骤
 1. 进入 [融合通信客服购买页](https://buy.cloud.tencent.com/ccc_seat)。

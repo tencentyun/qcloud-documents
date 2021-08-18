@@ -14,7 +14,7 @@
 ```
 sls init scf-demo
 ```
->?命令中的 `scf-demo` 可以更换成其他语言模板。目前 SCF 组件支持的模板有：`go1-helloworld` 、`nodejs1015-helloworld`、`php72-helloworld`、`python36-helloworld`。
+>?命令中的 scf-demo 默认为 nodejs 模版，您也可以替换为其它语言的函数模版：`scf-golang`，`scf-php`，`scf-python`。
 
 ### 部署函数
 在 `scf-demo` 目录下执行以下命令，进行函数部署。
@@ -35,4 +35,8 @@ sls info
 ```
 sls remove
 ```
->?关于 Serverless Framework CLI 工具更多操作云函数的相关功能，请参见 [Serverless Framework CLI](https://cloud.tencent.com/document/product/583/44751) 。
+
+## 相关功能
+- 关于 Serverless Framework CLI 工具更多操作云函数的相关功能，请参见 [Serverless Framework CLI](https://cloud.tencent.com/document/product/583/44751) 。
+- Serverless Web IDE 工具是基于浏览器的集成式开发环境，提供接近原生 IDE 的云端开发体验。更多使用 Web IDE 操作云函数的相关功能，请参见 [Serverless Web IDE](https://cloud.tencent.com/document/product/583/51345)。
+- Tencentserverless 云函数 SDK 集成了云函数业务流接口，简化了云函数的调用方法。更多使用云函数 SDK 操作云函数的相关功能，请参见 [Python SDK](https://cloud.tencent.com/document/product/583/37102) 和 [Node.js SDK](https://cloud.tencent.com/document/product/583/37316)。

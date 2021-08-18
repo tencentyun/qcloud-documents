@@ -1,6 +1,5 @@
 [云 API 控制台](https://console.cloud.tencent.com/api/overview) 提供了用户查看调用产品情况的可视化界面，方便用户了解腾讯云 API 调用次数、错误率、使用 API 调用的产品分布以及错误码分布。同时还提供了 API 库、API Explorer 工具及错误码中心，您可按需选择并开始使用。
 >!
->- 云 API 控制台处于灰度内测阶段，如需使用，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
 >- 云 API 控制台仅展示您使用 API 3.0调用的数据情况（包括 API Explorer、TCCLI 及 SDK 调用），不包括控制台关联的 API 调用。
 >- [API 中心](https://cloud.tencent.com/document/api) 具有3.0标识代表该产品具备 API 3.0。
 
@@ -19,6 +18,9 @@
 
 ## 使用 API Explorer 工具
 您可选择云 API 控制台左侧导航栏中的【API Explorer】，进入工具页面开始使用。[腾讯云 API Explorer 工具](https://console.cloud.tencent.com/api/explorer) 是一款自动化工具，目前已支持云服务器 CVM、私有网络 VPC、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/product) 的 API 接口调用自动化。可实现自动生成 Java、Python、Node.js、PHP、GO 及 .NET 语言的 SDK 代码、在线调用、发送真实请求及签名串自动生成等功能，降低了 SDK 的使用难度。更多关于 API Explorer 工具介绍请参见 [使用 API Explorer](https://cloud.tencent.com/document/product/1278/46697)。
+
+## 使用诊断能力
+诊断能力是云 API 提供的一项帮助开发者更高效地定位使用 API 过程中问题的网页版工具。用户可通过该能力轻松找出调用 API 过程中的出错点，并获取解决方案，同时可清楚的查看整个调用过程及日志等信息。详情请参见 [使用诊断能力](https://cloud.tencent.com/document/product/1278/58589)。
 
 ## 使用错误码中心
 您可选择云 API 控制台左侧导航栏中的【错误码】，进入错误码中心快速定位并解决问题。如下图所示：

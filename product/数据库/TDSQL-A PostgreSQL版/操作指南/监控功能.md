@@ -1,0 +1,45 @@
+本文为您介绍如何通过控制台查看导出 TDSQL-A PostgreSQL版 监控信息。
+
+## 查看监控
+1. 登录 [TDSQL-A  PostgreSQL版 控制台](https://console.cloud.tencent.com/tdsqla/tdapg)，在实例列表，单击实例 ID，进入实例管理页面。
+2. 在实例管理页面，选择【系统管理】页，选择时间，可以查看监控数据信息及负载。
+![](https://main.qcloudimg.com/raw/9f91bddcb55d9ffc8827eaa48128f655.png)
+  - 在系统管理页面，单击【重启节点】，选择节点信息，可以选择重启 GTM、CN、DN 等节点。
+>!节点重启期间实例将无法提供正常服务，本操作为高危操作，请您提前做好准备，以免造成影响。
+>
+![](https://main.qcloudimg.com/raw/d9834a0a75e0ff79d960ad327fb60edb.png)
+  - 查看告警及监控信息，根据时间查看监控信息粒度，单击【近24小时】可查看24小时监控数据。
+![](https://main.qcloudimg.com/raw/508bd5761786e9648e29f98cfb56d632.png)
+  - 单击右侧的【导出数据】，选择需要导出的信息，可导出监控数据。
+![](https://main.qcloudimg.com/raw/a7ba1cd7c827a9abaf1a26b97423929b.png)
+
+## 监控指标
+腾讯云云监控从实例维度为 TDSQL-A PostgreSQL版 实例提供以下监控指标：
+
+| **指标中文名**       | **指标英文名**        | **单位** | **指标说明**                                                 |
+| -------------------- | --------------------- | -------- | ------------------------------------------------------------ |
+| CPU  利用率          | cpu_used_pct          | %        | 实例的  CN、DN、GTM 的 CPU 使用率的最大值                    |
+| 内存利用率           | mem_used_pct          | %        | 实例的  CN、DN、GTM 的内存使用率的最大值                     |
+| IO 吞吐量            | iops                  | 次/s     | 实例的  CN/DN 主备，磁盘吞吐率                               |
+| 缓存命中率           | cache_hit_pct         | %        | 数据缓存命中率                                               |
+| 连接数               | connections           | 个       | 实例的活跃连接                                               |
+| 最小  TOP10 执行耗时 | sql_runtime_min       | ms       | 执行时间最短的 TOP10 的 SQL 的平均值                         |
+| 最大  TOP10 执行耗时 | sql_runtime_max       | ms       | 执行时间最长的 TOP10 的 SQL 的平均值                         |
+| 平均  SQL 执行耗时   | sql_runtime_avg       | ms       | 所有  SQL 请求的平均执行时间，不包含事务里面的 SQL           |
+| 总请求数             | total_requests        | 次       | 所有  CN、DN 主备节点的请求之和，按分钟累加                  |
+| 业务请求数           | user_requests         | 次       | 所有  CN、DN 主备节点的业务请求之和（已去除系统请求），按分钟累加 |
+| 读请求数             | read_requests         | 次       | 读请求每分钟总数                                             |
+| 更新请求数           | update_requests       | 次       | 更新请求每分钟总数                                           |
+| 插入请求数           | insert_requests       | 次       | 插入请求每分钟总数                                           |
+| 删除请求数           | delete_requests       | 次       | 删除请求每分钟总数                                           |
+| 写请求数             | write_requests        | 次       | 写请求每分钟总数                                             |
+| 其他请求数           | other_requests        | 次       | 除了读和写以外的请求总数，按分钟累加                         |
+| 错误请求数           | error_requests        | 次       | 实例上记录的所有错误的请求数之和，按分钟累加                 |
+| 残留两阶段事务数目   | two_phase_commit_trxs | 个       | 实例中所有 CN、DN 的主备节点中  prepared 阶段在10分钟之前的事务数之和 |
+| 容量使用率           | capacity_used_pct     | %        | 实例的容量使用率                                             |
+| 容量已使用           | capacity_usage        | GBytes   | 实例的已使用容量                                             |
+| 剩余  XID 数量       | xid_remain            | Count    | 实例的所有 CN、DN 上剩余 XID 的最小值                        |
+| 主备  XLOG 同步差异  | xlog_diff             | Bytes    | 主备  XLOG 的同步大小差异，代表同步延迟，越小越好            |
+| 主备切换次数         | master_switch         | 次       | 实例中所有主节点和备节点的切换次数之和，按分钟累加           |
+
+

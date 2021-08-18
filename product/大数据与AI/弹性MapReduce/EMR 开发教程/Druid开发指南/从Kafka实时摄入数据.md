@@ -125,5 +125,4 @@ curl -XPOST -H 'Content-Type: application/json' -d @query-mytopic.json http://{d
 ```
 
 ## Web 可视化方式
-
-您可通过 Druid Web UI 控制台可视化方式，从 Kafka 集群摄入数据并查询，详细步骤请参考 [通过 data loader 加载 Kafka 数据](https://druid.apache.org/docs/latest/tutorials/tutorial-kafka.html#loading-data-with-the-data-loader)。
+您可通过 Druid Web UI 控制台可视化方式，从 Kafka 集群摄入数据并查询，详细可参考 [通过 data loader 加载 Kafka 数据](https://druid.apache.org/docs/latest/tutorials/tutorial-kafka.html#loading-data-with-the-data-loader)。

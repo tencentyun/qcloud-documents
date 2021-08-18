@@ -83,7 +83,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | API | 描述 |
 |-----|-----|
-| [getBeautyManager](#getbeautymanager) | 获取美颜管理对象 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。|
+| [getBeautyManager](#getbeautymanager) | 获取美颜管理对象 [TXBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。|
 
 ### 分享相关接口
 
@@ -170,7 +170,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ```java
 public static void destroySharedInstance();
-```   
+```
 
 ### setDelegate
 
@@ -279,7 +279,7 @@ public abstract void destroyMeeting(int roomId, TRTCMeetingCallback.ActionCallba
 |-----|-----|-----|
 | roomId | int | 会议房间标识，需要由您分配并进行统一管理。 |
 | callback | ActionCallback | 销毁房间的结果回调，成功时 code 为0。 |
-   
+
 
 ### enterMeeting
 
@@ -315,7 +315,7 @@ public abstract void leaveMeeting(TRTCMeetingCallback.ActionCallback callback);
 |-----|-----|-----|
 | callback | ActionCallback | 退出房间的结果回调，成功时 code 为0。 |
 
-   
+
 ## 远端用户相关接口
 
 ### getUserInfoList
@@ -332,7 +332,7 @@ public abstract void getUserInfoList(TRTCMeetingCallback.UserListCallback userLi
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userListCallback | UserListCallback | 用户详细信息回调。 |
-   
+
 
 ### getUserInfo
 
@@ -390,8 +390,8 @@ public abstract void setRemoteViewFillMode(String userId, int fillMode);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户 ID。|
-| fillMode | int  | 填充或适应模式，默认值：填充（FILL） 详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab4197bc2efb62b471b49f926bab9352f) |
-   
+| fillMode | int  | 填充或适应模式，默认值：填充（FILL） 详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ab4197bc2efb62b471b49f926bab9352f) |
+
 
 
 ### setRemoteViewRotation
@@ -406,8 +406,8 @@ public abstract void setRemoteViewRotation(String userId, int rotation);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户 ID。 |
-| rotation | int  | 顺时针旋转角度, 详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a87fd1307871debc7c051de4878eb6d69) |
-   
+| rotation | int  | 顺时针旋转角度, 详情请参见[TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a87fd1307871debc7c051de4878eb6d69) |
+
 
 
 ### muteRemoteAudio
@@ -440,8 +440,8 @@ public abstract void muteRemoteVideoStream(String userId, boolean mute);
 | userId | String | 用户 ID。 |
 | mute | boolean | true：屏蔽；false：解除屏蔽。|
 
-   
-      
+
+​      
 
 ## 本地视频操作接口
 ### startCameraPreview
@@ -480,7 +480,7 @@ public abstract void switchCamera(boolean isFront);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | isFront | boolean | 切换前后摄像头，true：前置摄像头；false：后置摄像头。 |
-   
+
 
 ### setVideoResolution
 
@@ -494,7 +494,7 @@ public abstract void setVideoResolution(int resolution);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| resolution | int | 视频分辨率, 详细请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#aa3b72c532f3ffdf64c6aacab26be5f87) |
+| resolution | int | 视频分辨率, 详细请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#aa3b72c532f3ffdf64c6aacab26be5f87) |
 
 
 
@@ -525,7 +525,7 @@ public abstract void setVideoBitrate(int bitrate);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| bitrate | int | 码率，SDK 会按照目标码率进行编码，只有在网络不佳的情况下才会主动降低视频码率。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html) |
+| bitrate | int | 码率，SDK 会按照目标码率进行编码，只有在网络不佳的情况下才会主动降低视频码率。详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html) |
 
 >? 【推荐取值】请参考本 TRTCVideoResolution 在各档位注释的最佳码率，也可以在此基础上适当调高。 例如 TRTC_VIDEO_RESOLUTION_1280_720 对应1200kbps的目标码率，您也可以设置为1500kbps以便获得更好的清晰度观感。
 
@@ -542,7 +542,7 @@ public abstract void setLocalViewMirror(int type);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| type | int | 镜像模式。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa353b5cf5662c43252eb8e5132f041c1) |
+| type | int | 镜像模式。详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa353b5cf5662c43252eb8e5132f041c1) |
 
 ## 本地音频操作接口
 
@@ -571,7 +571,7 @@ public abstract void setAudioQuality(int quality);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| quality | int | 音频质量。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55) |
+| quality | int | 音频质量。详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55) |
 
 
 ### muteLocalAudio
@@ -585,7 +585,7 @@ public abstract void muteLocalAudio(boolean mute);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | boolean | 静音/取消静音。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86) |
+| mute | boolean | 静音/取消静音。详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86) |
 
 
 
@@ -643,7 +643,7 @@ public abstract void startFileDumping(TRTCCloudDef.TRTCAudioRecordingParams trtc
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| trtcAudioRecordingParams | TRTCCloudDef.TRTCAudioRecordingParams | 录音参数。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCAudioRecordingParams) |
+| trtcAudioRecordingParams | TRTCCloudDef.TRTCAudioRecordingParams | 录音参数。详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCAudioRecordingParams) |
 
 >? 该方法调用后， SDK 会将通话过程中的所有音频（包括本地音频，远端音频，BGM 等）录制到一个文件里。无论是否进房，调用该接口都生效。如果调用 exitMeeting 时还在录音，录音会自动停止。
 
@@ -684,7 +684,7 @@ public abstract void startScreenCapture(TRTCCloudDef.TRTCVideoEncParam encParams
 | encParams | TRTCCloudDef.TRTCVideoEncParam | 设置屏幕分享时的编码参数，推荐采用上述推荐配置，如果您指定 encParams 为 null，则使用您调用 startScreenCapture 之前的编码参数设置。 |
 | screenShareParams | TRTCCloudDef.TRTCScreenShareParams | 设置屏幕分享的特殊配置，其中推荐设置 floatingView，一方面可以避免 App 被系统强杀；另一方面也能助于保护用户隐私。 |
 
->? 详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58)
+>? 详情请参见[TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58)
 
 ### stopScreenCapture
 
@@ -724,7 +724,7 @@ public abstract String getLiveBroadcastingURL();
 ## 美颜滤镜相关接口函数
 ### getBeautyManager
 
-获取美颜管理对象 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。
+获取美颜管理对象 [TXBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。
 ```java
 public abstract TXBeautyManager getBeautyManager();
 ```
@@ -789,7 +789,7 @@ void onError(int code, String message);
 |-----|-----|-----|
 | code | int | 错误码。 |
 | message | String | 错误信息。 |
-   
+
 
 
 ## 房间事件回调
@@ -820,7 +820,7 @@ void onRoomDestroy(String roomId);
 | localQuality | TRTCCloudDef.TRTCQuality | 上行网络质量。 |
 | remoteQuality | List&lt;TRTCCloudDef.TRTCQuality&gt; | 下行网络质量。 |
 
->? 详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#aba07d4191391dadef900422521f34e5b)
+>? 详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#aba07d4191391dadef900422521f34e5b)
 
 
 ### onUserVolumeUpdate
@@ -836,7 +836,7 @@ void onUserVolumeUpdate(String userId, int volume);
 |-----|-----|-----|
 | userId | String | 用户 ID。 |
 | volume | int | 音量大小，取值0-100。 |
-   
+
 
 
 ## 成员进出事件回调
@@ -852,7 +852,7 @@ void onUserEnterRoom(String userId);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 新进房成员的用户 ID。 |
-   
+
 
 ### onUserLeaveRoom
 
@@ -866,8 +866,8 @@ void onUserLeaveRoom(String userId);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 退房成员的用户 ID。 |
-   
-   
+
+
 ## 成员音视频事件回调
 ### onUserVideoAvailable
 
@@ -914,7 +914,7 @@ void onRecvRoomTextMsg(String message, TRTCMeetingDef.UserInfo userInfo);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | message | String | 文本消息。|
-| user | UserInfo | 发送者用户信息。|
+| userInfo | TRTCMeetingDef.UserInfo | 发送者用户信息。|
 
    
 
@@ -929,9 +929,9 @@ void onRecvRoomCustomMsg(String cmd, String message, TRTCMeetingDef.UserInfo use
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| command | String | 命令字，由开发者自定义，主要用于区分不同消息类型。|
+| cmd | String | 命令字，由开发者自定义，主要用于区分不同消息类型。|
 | message | String | 文本消息。|
-| user | UserInfo | 发送者用户信息。 |
+| userInfo | TRTCMeetingDef.UserInfo | 发送者用户信息。 |
 
 
 ## 录屏事件回调

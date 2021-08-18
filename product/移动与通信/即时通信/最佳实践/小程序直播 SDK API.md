@@ -425,3 +425,4 @@ TIM  通过 `TIM.create` 创建的对象，可使用 TIM 所有的方法。
 | [TLS.EVENT.ADD_GOODS](#tls.event.add_goods)           | 该直播中所推荐的商品发生改变时触发。                         |
 | [TLS.EVENT.USE_COUPON](#tls.event.use_coupon)         | 有人领取优惠券时触发。                                        |
 
+

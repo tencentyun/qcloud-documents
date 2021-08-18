@@ -51,7 +51,7 @@ end
 
 [](id:step4)
 ### 步骤4：开始系统声音采集  
-调用 [startSystemAudioLoopback](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2979e32c019708dcc9209bb6d2db9486) 接口开始系统声音采集，并将其混入上行音频流中，接口执行完成会通过 [onSystemAudioLoopbackError](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a8644f5136138d13ffa8e0ea68f5c3676) 回调成功或失败的结果。
+调用 [startSystemAudioLoopback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a2979e32c019708dcc9209bb6d2db9486) 接口开始系统声音采集，并将其混入上行音频流中，接口执行完成会通过 [onSystemAudioLoopbackError](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#a8644f5136138d13ffa8e0ea68f5c3676) 回调成功或失败的结果。
 ```Objective-C
 TRTCCloud *trtcCloud = [TRTCCloud sharedInstance];
 [trtcCloud startLocalAudio];
@@ -68,7 +68,7 @@ TRTCCloud *trtcCloud = [TRTCCloud sharedInstance];
 
 ### 步骤5：停止系统声音采集 
 
-调用 [stopSystemAudioLoopback](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2979e32c019708dcc9209bb6d2db9486) 接口停止系统声音采集。
+调用 [stopSystemAudioLoopback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a2979e32c019708dcc9209bb6d2db9486) 接口停止系统声音采集。
 
 ```Objective-C
 TRTCCloud *trtcCloud = [TRTCCloud sharedInstance];
@@ -78,7 +78,7 @@ TRTCCloud *trtcCloud = [TRTCCloud sharedInstance];
 [](id:step6)
 ### 步骤6：设置系统声音采集音量
 
-调用 [setSystemAudioLoopbackVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2979e32c019708dcc9209bb6d2db9486) 接口设置系统声音的采集音量。
+调用 [setSystemAudioLoopbackVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a2979e32c019708dcc9209bb6d2db9486) 接口设置系统声音的采集音量。
 
 ```Objective-C
 TRTCCloud *trtcCloud = [TRTCCloud sharedInstance];

@@ -55,9 +55,7 @@
 >
 - 若 VPC 间没有正在启用的路由，则防火墙开关无法开启。
 >?如需配置对等连接路由，请参见 [配置指向对等连接的路由](https://cloud.tencent.com/document/product/553/19696)。如需配置云联网路由，请参见 [路由概述](https://cloud.tencent.com/document/product/877/38801)。
-
 - 云防火墙开关开启状态下，**在 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1) 手动变更对应 VPC 路由表属于高危操作**，由于云防火墙无法同步路由的变更，可能导致防火墙失效，网络连接中断。
-
 - 云防火墙开关关闭状态下，您可以根据需要切换 VPC 间的其他对等连接（或云联网）路由，但**请勿启用备注信息为“防火墙”的路由**，否则将导致网络连接中断，防火墙开关故障。
 
 
@@ -65,3 +63,4 @@
 ## 相关信息
 - 如需对所持有的公网 IP 以及关联的云上资产，配置对应的防火墙开关，可参见 [互联网边界防火墙开关](https://cloud.tencent.com/document/product/1132/46928) 进行操作。
 - 如需对内网资产进行流量管控与安全防护，或基于 SNAT、DNAT 进行的网络流量转发，可参见 [NAT 边界防火墙开关](https://cloud.tencent.com/document/product/1132/46929) 进行操作。
+- 如遇到 VPC 间防火墙相关问题，可参见 [VPC 间防火墙](https://cloud.tencent.com/document/product/1132/56869) 文档。

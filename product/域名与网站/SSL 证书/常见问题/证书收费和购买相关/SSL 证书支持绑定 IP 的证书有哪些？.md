@@ -1,7 +1,5 @@
-## 支持绑定 IP 的证书品牌与类型有那些？
-
 腾讯云支持绑定 IP 的 SSL 证书请参考下表：
-
+>?免费证书仅支持申请单域名类型，不支持泛域名、多域名与 IP 类型。
 <table>
 <thead>
   <tr>
@@ -17,16 +15,16 @@
 <tbody>
   <tr>
     <td>SecureSite</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
     <td>不支持</td>
-    <td>不支持</td>
-    <td>不支持</td>
-    <td>不支持</td>
+    <td>-</td>
     <td>不支持</td>
     <td>不支持</td>
   </tr>
   <tr>
     <td>GeoTrust</td>
-    <td>不支持</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
     <td>-</td>
     <td>-</td>
     <td>-</td>
@@ -35,16 +33,16 @@
   </tr>
   <tr>
     <td>TrustAsia</td>
-    <td>支持</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
     <td>-</td>
     <td>不支持</td>
-    <td>-</td>
+    <td>不支持</td>
     <td>不支持</td>
     <td>-</td>
   </tr>
   <tr>
     <td>GlobalSign</td>
-    <td>不支持</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
     <td>-</td>
     <td>-</td>
     <td>-</td>
@@ -62,11 +60,11 @@
   </tr>
   <tr>
     <td>DNSPod </td>
-    <td>支持</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>支持</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>单域名/多域名支持<br>其余类型不支持</td>
     <td>-</td>
   </tr>
 </tbody>

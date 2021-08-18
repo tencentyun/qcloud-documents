@@ -7,30 +7,27 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 | API                                                 | 功能描述                |
 | --------------------------------------------------- | :---------------------- |
 | [sharedInstance()](#shareInstance)                  | 创建 OcrSDKKit 的单例     |
-| [clearInstance()](#clearInstance())                 | 主动释放资源            |
+| [clearInstance()](#clearInstance)                 | 主动释放资源            |
 | [getVersion()](#getVersion())                       | 获取当前 SDK 的版本号信息 |
-| [loadSDKConfig](#loadSDKConfig())                   | 初始化 SDK 配置信息       |
+| [loadSDKConfig](#loadSDKConfig)                   | 初始化 SDK 配置信息       |
 | [updateFederationToken()](#updateFederationToken()) | 主动更新临时密钥        |
 | [startProcessOcr()](#startProcessOcr())             | 启动 OCR 识别             |
 
-<span id="shareInstance"></span>
+[](id:shareInstance)
+
 #### sharedInstance()
 
 ```objective-c
 + (nonnull instancetype)sharedInstance;
 ```
 
-功能描述：
-
-​    创建 OcrSDKKit 的单例。
-
-返回结果：
-
-​    OcrSDKKit 的单例对象。	
+- 功能描述：
+创建 OcrSDKKit 的单例。
+- 返回结果：
+OcrSDKKit 的单例对象。	
 
 
-
-<span id="clearInstance()"></span>
+[](id:clearInstance)
 #### clearInstance()
 
 ```objective-c
@@ -38,30 +35,24 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 + (void)clearInstance;
 ```
 
-功能描述：
-
-​    主动释放资源的方法，可在退出应用或者需要清理资源的时候调用。
-
+- 功能描述：
+主动释放资源的方法，可在退出应用或者需要清理资源的时候调用。
 
 
-<span id="getVersion()"></span>
+[](id:getVersion())
 #### getVersion()
 
 ```objective-c
 - (NSString *_Nonnull)getVersion;
 ```
 
-功能描述：
-
-​	获取 SDK 当前的版本号。
-
-返回结果：
-
-​	当前 SDK 的版本信息。
+- 功能描述：
+获取 SDK 当前的版本号。
+- 返回结果：
+当前 SDK 的版本信息。
 
 
-
-<span id="loadSDKConfig()"></span>
+[](id:loadSDKConfig)
 #### loadSDKConfig()
 
 ```objective-c
@@ -72,11 +63,9 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 - (int)loadSDKConfigWithSecretId:(NSString *)secretId withSecretKey:(NSString *)secretKey withConfig:(OcrSDKConfig *)ocrSDKConfig;
 ```
 
-功能描述：
-
-​    初始化 SDK 信息。
-
-传入参数：
+- 功能描述：
+初始化 SDK 信息。
+- 传入参数：
 
 | 参数类型                          | 参数名称       | 参数含义               |
 | --------------------------------- | -------------- | ---------------------- |
@@ -86,8 +75,7 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 | NSString                          | secretKey      | SecretKey 密钥         |
 
 
-
-<span id="updateFederationToken()"></span>
+[](id:updateFederationToken())
 #### updateFederationToken()
 
 ```objective-c
@@ -97,11 +85,9 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 - (void)updateFederationToken:(NSString *_Nonnull) tmpSecretId withTempSecretKey:(NSString *_Nullable)tmpSecretKey withToken:(NSString *_Nonnull)token;
 ```
 
-功能描述：
-
-​    主动更新临时密钥信息，在您与服务器兑换得到临时密钥之后主动调用设置。
-
-传入参数：
+- 功能描述：
+主动更新临时密钥信息，在您与服务器兑换得到临时密钥之后主动调用设置。
+- 传入参数：
 
 | 参数类型 | 参数名称     | 参数含义              |
 | -------- | ------------ | --------------------- |
@@ -110,8 +96,7 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 | NSString | token        | 兑换后的临时访问 token |
 
 
-
-<span id="startProcessOcr()"></span>
+[](id:startProcessOcr())
 #### startProcessOcr()
 
 ```objective-c
@@ -123,11 +108,9 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 - (void)startProcessOcr:(int)ocrType withSDKUIConfig:(CustomConfigUI *)customConfigUI withProcessSucceedBlock:(OcrSDKKitProcessSucceedBlock _Nonnull)onProcessSucceed withProcessFailedBlock:(OcrSDKKitProcessFailedBlock _Nonnull)onProcessFailed;
 ```
 
-功能描述：
-
-​    启动 OCR 识别
-
-传入参数：
+- 功能描述：
+启动 OCR 识别
+- 传入参数：
 
 | 参数类型                          | 参数名称         | 参数含义          |
 | --------------------------------- | ---------------- | ----------------- |
@@ -136,33 +119,34 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 | OcrSDKKitProcessSucceedBlock      | onProcessSucceed | 识别成功的回调    |
 | OcrSDKKitProcessFailedBlock       | onProcessFailed  | 识别失败的回调    |
 
-
-<span id="OcrSDKConfig"></span>
+[](id:OcrSDKConfig)
 ### OcrSDKConfig
 
 OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类。
 
 支持参数及其默认值如下：
 
-| 类型                        | 名称            | 含义                                                         | 默认值                                       |
-| :-------------------------- | :-------------- | :----------------------------------------------------------- | :------------------------------------------- |
+| 类型                        | 名称            | 含义                                                         | 默认值                                         |
+| :-------------------------- | :-------------- | :----------------------------------------------------------- | :--------------------------------------------- |
 | [OcrType](#OcrType)         | OcrType         | 默认识别类型                                                 | IDCardOCR_FRONT，IDCardOCR_BACK 均代表 id_card |
-| [OcrModeType](#OcrModeType) | ModeType        | 识别模式类型：OCR_DETECT_MANUAL 代表手动拍摄模式，OCR_DETECT_AUTO_MANUAL 代码自动捕获模式 20s未检测提示是否切换至手动拍摄 | OCR_DETECT_MANUAL 默认值                     |
-| BOOL                        | CropIdCard      | 开启身份证照片裁剪（去掉证件外多余的边缘、自动矫正拍摄角度）开关 | NO                                           |
-| BOOL                        | CropPortrait    | 开启人像照片裁剪（自动抠取身份证头像区域）                   | NO                                           |
-| BOOL                        | CopyWarn        | 开启复印件告警                                               | NO                                           |
-| BOOL                        | BorderCheckWarn | 开启边框和框内遮挡告警                                       | NO                                           |
-| BOOL                        | ReshootWarn     | 开启翻拍告警                                                 | NO                                           |
-| BOOL                        | DetectPsWarn    | 开启 PS 检测告警                                               | NO                                           |
-| BOOL                        | TempIdWarn      | 开启临时身份证告警                                           | NO                                           |
-| BOOL                        | InvalidDateWarn | 开启身份证有效日期不合法告警                                 | NO                                           |
-| BOOL                        | Quality         | 开启图片质量分数（评价图片的模糊程度）                       | NO                                           |
-| NSString                    | RetImageType    | 图像预处理，检测图片倾斜的角度，将原本倾斜的图片围绕中心点转正，最终输出一张正的名片抠图。 | 空                                           |
-| BOOL                        | RetImage        | 马来西亚身份证接口是否返回图片                               | NO                                           |
+| [OcrModeType](#OcrModeType) | ModeType        | 识别模式类型：OCR_DETECT_MANUAL 代表手动拍摄模式，OCR_DETECT_AUTO_MANUAL 代码自动捕获模式 20s未检测提示是否切换至手动拍摄 | OCR_DETECT_MANUAL 默认值                       |
+| long                        | auto_timeout_ms | 自动捕捉模式下自动切换至手动拍照模式的超时时间(5000ms<`auto_timeout_ms`<180000ms) | 20000ms                                        |
+| BOOL                        | CropIdCard      | 开启身份证照片裁剪（去掉证件外多余的边缘、自动矫正拍摄角度）开关 | NO                                             |
+| BOOL                        | CropPortrait    | 开启人像照片裁剪（自动抠取身份证头像区域）                   | NO                                             |
+| BOOL                        | CopyWarn        | 开启复印件告警                                               | NO                                             |
+| BOOL                        | BorderCheckWarn | 开启边框和框内遮挡告警                                       | NO                                             |
+| BOOL                        | ReshootWarn     | 开启翻拍告警                                                 | NO                                             |
+| BOOL                        | DetectPsWarn    | 开启 PS 检测告警                                             | NO                                             |
+| BOOL                        | TempIdWarn      | 开启临时身份证告警                                           | NO                                             |
+| BOOL                        | InvalidDateWarn | 开启身份证有效日期不合法告警                                 | NO                                             |
+| BOOL                        | Quality         | 开启图片质量分数（评价图片的模糊程度）                       | NO                                             |
+| BOOL                        | MultiCardDetect | 是否开启多卡证检测                                           | NO                                             |
+| BOOL                        | ReflectWarn     | 是否开启反光告警                                             | NO                                             |
+| NSString                    | RetImageType    | 图像预处理，检测图片倾斜的角度，将原本倾斜的图片围绕中心点转正，最终输出一张正的名片抠图。 | 空                                             |
+| BOOL                        | RetImage        | 马来西亚身份证接口是否返回图片                               | NO                                             |
 
 
-
-<span id="CustomConfigUI"></span>
+[](id:CustomConfigUI)
 ### CustomConfigUI
 
 CustomConfigUI 是在启动 SDK 模块时需要传入的 SDK 的 UI 配置信息实体类。
@@ -180,10 +164,10 @@ CustomConfigUI 是在启动 SDK 模块时需要传入的 SDK 的 UI 配置信息
 | UIImage  | lightOFFImage      | 关闭手电筒按钮图标 40x40      | 默认图标                              |
 | UIImage  | albumImage         | 相册按钮图标 40x40            | 默认图标                              |
 | BOOL     | isShowAlbumBtn     | 是否显示相册按钮             | YES                                   |
+| BOOL | isHorizontal | 是否横屏显示 | NO |
 
 
-
-<span id="OcrType"></span>
+[](id:OcrType)
 ### OcrType
 
 OcrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支持业务类型的种类，大致如下：
@@ -195,10 +179,16 @@ OcrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支�
 | OcrType.BankCardOCR     | 银行卡正面识别模式     |
 | OcrType.BusinessCardOCR | 名片卡正面识别模式     |
 | OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 |
+| OcrType.LicensePlateOCR | 汽车车牌识别模式 |
+| OcrType.VinOCR | 汽车VIN码识别模式 |
+| OcrType.VehicleLicenseOCR_FRONT | 行驶证主页识别模式 |
+| OcrType.VehicleLicenseOCR_BACK | 行驶证副页识别模式 |
+| OcrType.DriverLicenseOCR_FRONT | 驾驶证主页识别模式 |
+| OcrType.DriverLicenseOCR_BACK | 驾驶证副页识别模式 |
 
 
 
-<span id="OcrModeType"></span>
+[](id:OcrModeType)
 ### OcrModeType
 
 OcrModeType 是一个枚举类型，列举了卡片识别模式
@@ -223,14 +213,15 @@ typedef void (^OcrSDKKitProcessSucceedBlock)(id _Nonnull resultInfo, UIImage *re
 /// SDKKIt 处理失败回调接口
 /// @param error 处理过程中触发的异常错误
 /// @param reserved 预留位
+///tips
 typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullable reserved);
 ```
 
-> **Tips：**用户取消文字识别退出会在 OcrSDKKitProcessFailedBlock 回调
->
-> domain: "OcrSdk.UserCancelOcr" - code: 200101
->
-> NSLocalizedDescription : "用户主动停止文字识别"
+
+>?
+> 用户取消文字识别退出会在 OcrSDKKitProcessFailedBlock 回调
+> - domain: "OcrSdk.UserCancelOcr" - code: 200101
+> - NSLocalizedDescription : "用户主动停止文字识别"
 
 
 身份证正面请求返回 resultInfo 结果示例：
@@ -280,7 +271,7 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
 
 名片请求结果返回 resultInfo 结果示例：
 
- ```json
+```json
 {
     "BusinessCardInfos": [
       {
@@ -323,7 +314,127 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
     "RetImageBase64": "",
     "RequestId": "98f8fcbf-933a-4e95-ac48-6f1a9308fs6h"
  }
- ```
 
-对于返回的错误码以及错误信息，可以参考 [错误码](https://cloud.tencent.com/document/product/866/33528) 。
+```
+
+马来西亚身份证请求结果返回 resultInfo 结果示例：
+
+```json
+{
+  "Response": {
+    "Name": "KAVIN ONG KHI MN",
+    "ID": "710716-08-6085",
+    "Address": "NO 11 PERSIARN PERAJRIT 4 TAMA PERAK 31400 IPOH ERAK",
+    "Sex": "LEAKI",
+    "Birthday": "",
+    "Warn": [],
+    "Image": "",
+    "AdvancedInfo": "{\"ID\":{\"Confidence\":\"1.0000\"},\"Name\":{\"Confidence\":\"0.9996\"},\"Address\":{\"Confidence\":\"0.9997\"},\"Sex\":{\"Confidence\":\"0.9999\"}}",
+    "Type": "MyKad",
+    "RequestId": "c969da05-54e3-4d0a-a55d-b3ef90d4ebf5"
+  }
+}
+```
+
+车牌识别请求结果返回 resultInfo 结果示例：
+
+```json
+{
+  "Response": {
+    "Number": "京N0L9U8",
+    "Confidence": 99,
+    "Rect": {
+      "X": 217,
+      "Y": 233,
+      "Width": 170,
+      "Height": 21
+    },
+    "RequestId": "210103d3-db06-4691-abe0-c0853aae606b"
+  }
+}
+```
+
+车辆 VIN 码识请求结果返回 resultInfo 结果示例：
+
+```json
+{
+  "Response": {
+    "Vin": "LBV2B25G2E5069977",
+    "RequestId": "c59d9002-6c8c-426d-b57f-a8837dee2c7c"
+  }
+}
+```
+
+行驶证主页和副页请求结果返回 resultInfo 结果示例：
+
+```json
+{
+  "Response": {
+    "FrontInfo": {
+      "PlateNo": "沪AA1234",
+      "VehicleType": "小型轿车",
+      "Owner": "李明",
+      "Address": "上海市徐汇区田林路397号腾云大厦6F",
+      "UseCharacter": "非营运",
+      "Model": "别克牌SGM7151LAAA",
+      "Vin": "ABCDEFGH123456789",
+      "EngineNo": "8B54321",
+      "RegisterDate": "2011-10-10",
+      "IssueDate": "",
+      "Seal": "上海市公安局交通警寨总队"
+    },
+    "BackInfo": null,
+    "RecognizeWarnCode": [
+      -9106
+    ],
+    "RecognizeWarnMsg": [
+      "WARN_DRIVER_LICENSE_PS_CARD"
+    ],
+    "RequestId": "820916b4-b391-40a8-9203-7ae87e3f1954"
+  }
+}
+```
+
+驾驶证主页和副页请求结果返回 resultInfo 结果示例：
+
+```json
+{
+  "Response": {
+    "Name": "李明",
+    "Sex": "男",
+    "Nationality": "中国",
+    "Address": "上海市徐汇区田林路397号腾云大厦6F",
+    "DateOfBirth": "1987-01-01",
+    "IssuingAuthority": "上海市公安局交通警察总队",
+    "DateOfFirstIssue": "2011-10-01",
+    "Class": "C1",
+    "StartDate": "2011-10-01",
+    "EndDate": "2017-10-01",
+    "CardCode": "440524198701010014",
+    "ArchivesCode": "",
+    "Record": "",
+    "RecognizeWarnCode": [
+      -9106
+    ],
+    "RecognizeWarnMsg": [
+      "WARN_DRIVER_LICENSE_PS_CARD"
+    ],
+    "RequestId": "4ba2958b-e7cf-41c2-aafe-fdc985307f63"
+  }
+}
+```
+
+对于返回的错误码以及错误信息，可以参考 [错误码](https://cloud.tencent.com/document/product/866/33528)。
+
+```json
+{
+  "Response": {
+    "Error": {
+      "Code": "AuthFailure.SignatureFailure",
+      "Message": "The provided credentials could not be validated. Please check your signature is correct."
+		},
+  	"RequestId": "ed93f3cb-f35e-473f-b9f3-0d451b8b79c6"
+ 	}
+}
+```
 

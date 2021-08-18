@@ -1,4 +1,4 @@
-1. 在添加数据源首页单击【Hive 数据库】，进入新建页面。新建的页面如下：
+1. 登录 [商业智能分析控制台](https://console.cloud.tencent.com/bi)，在添加数据源首页单击【Hive 数据库】，进入新建页面。新建的页面如下：
    ![](https://main.qcloudimg.com/raw/cd2e0b6e54a7b041cc26b51ba0dfd56a.png)
 2. 填写相应的 Hive 数据库连接信息。选择【服务器登录】为 Kerberos 登录方式，界面展示如下： ![](https://main.qcloudimg.com/raw/9aaa97118466f490dfdfe53afd767700.png)
 <table>

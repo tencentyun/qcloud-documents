@@ -8,7 +8,7 @@
 
 ## 前提条件
 
-- 创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)。
+- 创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)。
 - [使用私有镜像仓库管理应用镜像](https://cloud.tencent.com/document/product/457/9117)。
 
 ## 操作步骤

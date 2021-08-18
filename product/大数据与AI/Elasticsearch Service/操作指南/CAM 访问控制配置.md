@@ -7,9 +7,9 @@ ES 默认提供了两种通用策略：
 - 全读写策略 QcloudElasticsearchServiceFullAccess，可以让用户拥有创建和管理 ES 所有集群实例的权限。 
 - 只读策略 QcloudElasticsearchServiceReadOnlyAccess，可以让用户拥有查看 ES 集群实例的权限，但是不具有创建、更新、删除等操作的权限。  
 
-您可以登录 [策略管理界面](https://console.cloud.tencent.com/cam/policy)，在“服务类型”中选择“Elasticsearch Service”，在列表中会显示默认策略，可对需要授权的账号进行绑定。
-![](https://main.qcloudimg.com/raw/8f7edd89a348ea482c3e401b160b9339.png)
-如果默认策略不能满足需求，可以单击【新建自定义策略】自定义授权。
+您可以登录 [访问管理控制台-策略](https://console.cloud.tencent.com/cam/policy)，在搜索框中搜索“Elasticsearch”，在列表中会显示默认策略，可对需要授权的账号进行绑定。
+![](https://main.qcloudimg.com/raw/3c1a3d8aaa16e2d5b107ecd58d6ea409.png)
+如果默认策略不能满足需求，可单击【新建自定义策略】自定义授权。
 
 ### 自定义权限策略
 

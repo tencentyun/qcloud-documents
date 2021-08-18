@@ -1,6 +1,23 @@
 ## 功能描述
 CreateMediaTemplate 用于新增截图模板。
 
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=CreateSnapshotTemplate&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
+
 ## 请求
 
 #### 请求示例
@@ -43,30 +60,29 @@ Content-Type: application/xml
 
 具体数据描述如下：
 
-| 节点名称（关键字） | 父节点 | 描述           | 类型      | 必选 |
+| 节点名称（关键字） | 父节点 | 描述           | 类型      | 是否必选 |
 | ------------------ | ------ | -------------- | --------- | ---- |
 | Request            | 无     | 保存请求的容器 | Container | 是   |
 
 Container 类型 Request 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
 | Tag                | Request | 模板类型：Snapshot                                    | String    | 是   |
 | Name               | Request | 模板名称仅支持中文、英文、数字、_、-和*                   | String    | 是   |
-| Snapshot           | Request | 截图                                                  | Container | 否   |
+| Snapshot           | Request | 截图                                                  | Container | 是   |
 
 
 Container 类型 Snapshot 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Mode                | Request.Snapshot | 截图模式 | String    | 是   | Interval | <li>值范围：{Interval, Average}<br/><li>Interval 表示间隔模式 Average 表示平均模式<br/><li> Interval 模式：Start，TimeInterval，<br/>Count 参数生效。当设置 Count，未设置 TimeInterval 时，<br/>表示截取所有帧，共 Count 张图片<br/><li>Average 模式：Start，Count 参数生效。表示<br/>从 Start 开始到视频结束，按平均间隔截取共 Count 张图片|
-| Start                | Request.Snapshot | 开始时间 | String    | 是   | 0 | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
-| TimeInterval         | Request.Snapshot | 截图频率 | String    | 否   | 无  | <li>(0 3600] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
+| Mode                | Request.Snapshot | 截图模式 | String    | 否   | Interval | <li>值范围：{Interval, Average}</li><li>Interval 表示间隔模式 Average 表示平均模式</li><li> Interval 模式：Start，TimeInterval，<br/>Count 参数生效。当设置 Count，未设置 TimeInterval 时，<br/>表示截取所有帧，共 Count 张图片</li><li>Average 模式：Start，Count 参数生效。表示<br/>从 Start 开始到视频结束，按平均间隔截取共 Count 张图片</li>|
+| Start                | Request.Snapshot | 开始时间 | String    | 否   | 0 | <li>[0 视频时长] </li><li>单位为秒 </li><li>支持 float 格式，执行精度精确到毫秒</li> |
+| TimeInterval         | Request.Snapshot | 截图时间间隔 | String    | 否   | 无  | <li>(0 3600] </li><li>单位为秒 </li><li>支持 float 格式，执行精度精确到毫秒</li> |
 | Count                | Request.Snapshot | 截图数量 | String    | 是   | 无  | (0 10000] |
-| Width                | Request.Snapshot | 宽 | String    | 否   |  视频原<br/>始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照视频原始比例计算 Height |
-| Height                | Request.Snapshot | 高 | String    | 否  | 视频原<br/>始高度  | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照视频原始比例计算 Width |
-
+| Width                | Request.Snapshot | 宽 | String    | 否   |  视频原<br/>始宽度 | <li>值范围：[128，4096]</li><li>单位：px</li><li>若只设置 Width 时，按照视频原始比例计算 Height </li>|
+| Height                | Request.Snapshot | 高 | String    | 否  | 视频原<br/>始高度  | <li>值范围：[128，4096]</li><li>单位：px</li><li>若只设置 Height 时，按照视频原始比例计算 Width</li> |
 
 ## 响应
 
@@ -103,16 +119,16 @@ Container 类型 Snapshot 的具体数据描述如下：
 | :----------------- | :----- | :----------------------------------------------------- | :-------- |
 | Response           | 无     | 保存结果的容器 | Container |
 
-Container节点Response的内容：
+Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
-| Tag                | Response | 模版类型，Snapshot                                           | String    |
-| Name               | Response | 模版名字                                                     | String    |
-| TemplateId         | Response | 模版 ID                                                      | String    |
+| Tag                | Response | 模板类型，Snapshot                                           | String    |
+| Name               | Response | 模板名字                                                     | String    |
+| TemplateId         | Response | 模板 ID                                                      | String    |
 | UpdateTime         | Response | 更新时间                                                     | String    |
 | CreateTime         | Response | 创建时间                                                     | String    |
-| Snapshot           | Response | 其详细的模版参数，同上述请求体部分 Snapshot 说明 | Container |
+| Snapshot           | Response | 其详细的模板参数，同上述请求体部分 Snapshot 说明 | Container |
 
 
 #### 错误码
@@ -125,10 +141,12 @@ Container节点Response的内容：
 
 ```shell
 POST /template HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
+
+
 
 <Request>
    <Tag>Snapshot</Tag>
@@ -153,6 +171,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+
+
 
 <Response>
     <Template>

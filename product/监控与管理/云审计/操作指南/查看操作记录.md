@@ -1,0 +1,135 @@
+## 操作场景
+本文介绍了如何通过云审计控制台查看操作记录的事件详情，及事件详情包含的字段说明。
+
+## 操作步骤
+### 查看操作记录
+1. 登录云审计控制台，选择左侧导航栏中的【[操作记录](https://console.cloud.tencent.com/cloudaudit)】。
+2. 在“操作记录”列表页面，可查看事件操作记录。如下图所示：
+![](https://main.qcloudimg.com/raw/6945823d57f4e90694c538314bda8e80.png)
+其中，用户名指事件操作人，分为以下几种类型：
+ - **主账号操作**：用户名显示为 root。
+ - **子用户操作**：用户名显示子用户名称，如果子用户已被删除，则显示子用户 ID。
+ - **角色操作**：用户名显示角色名称，如果角色已被删除，则显示角色 ID。
+您可单击用户名，前往“用户详情”页面查看该用户更多信息。
+
+### 查看事件详情
+1. 若您需查看某一事件的详细信息，选择列表中事件前的 <img src="https://main.qcloudimg.com/raw/01149711e1d47fd4bbd2051a58b7211d.png" style="margin:-1px 0px">，并在展开的模块中，单击【查看事件】。如下图所示：
+![](https://main.qcloudimg.com/raw/3cf861313926aa692fca4262c681b67e.png)
+2. 即可在右侧模块中查看事件详细信息，字段说明请参考 [附录](#appendix)。
+
+
+
+## 附录[](id:appendix)
+操作记录中事件详情的字段说明如下表：
+<table>
+<tr>
+<th width="20%">名称</th><th width="9%">类型</th>
+<th width="32%">示例</th><th width="39%">描述</th>
+</tr>
+<tr>
+<td>userIdentity</td><td><a href="#requester">dict</a></td>
+<td>不涉及</td><td>请求者的身份信息</td>
+</tr>
+<tr>
+<td>actionType</td><td>String</td>
+<td>Read</td><td>请求事件的读写类型</td>
+</tr>
+<tr>
+<td>eventRegion</td><td>String</td>
+<td>ap-guangzhou</td><td>事件区域</td>
+</tr>
+<tr>
+<td>eventVersion</td><td>int</td>
+<td>2</td><td>日志版本</td>
+</tr>
+<tr>
+<td>errorCode</td><td>int</td>
+<td>0</td><td>API 请求发生错误时的错误码</td>
+</tr>
+<tr>
+<td>errorMessage</td><td>String</td>
+<td>不涉及</td><td>API 请求发生错误时的错误信息</td>
+</tr>
+<tr>
+<td>requestID</td><td>String</td>
+<td>be59bbc7-e539-4b14-9d2c-eb7061e61***</td><td>请求 ID，每个 API 请求都会有一个请求 ID</td>
+</tr>
+<tr>
+<td>apiVersion</td><td>String</td>
+<td>3.0</td><td>API 版本</td>
+</tr>
+<tr>
+<td>eventType</td><td>String</td>
+<td>ConsoleCall</td>
+<td>
+<ul class="params">
+<li>ConsoleCall：表明请求从腾讯云控制台发起</li>
+<li>ApiCall：表明请求由直接调用云 API 发起</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>eventTime</td><td>int</td>
+<td>1621411761</td><td>事件的发生时间（时间戳）</td>
+</tr>
+<tr>
+<td>sourceIPAddress</td><td>String</td>
+<td>113.*.*.*</td><td>源 IP 地址</td>
+</tr>
+<tr>
+<td>resourceType</td><td>String</td>
+<td>cam</td><td>请求的云服务名称</td>
+</tr>
+<tr>
+<td>eventName</td><td>String</td>
+<td>GetPolicy</td><td>请求的事件名称</td>
+</tr>
+<tr>
+<td>eventSource</td><td>String</td>
+<td>cam.ap-guangzhou.api.tencentyun.com</td><td>请求来源</td>
+</tr>
+<tr>
+<td>requestParameters</td><td>-</td>
+<td>不涉及</td><td>请求的参数信息</td>
+</tr>
+<tr>
+<td>resourceName</td><td>String</td>
+<td>policy/7934***</td><td>请求的资源</td>
+</tr>
+</table>
+
+请求者身份信息说明如下表：[](id:requester)
+<table>
+<tr>
+<th width="20%">名称</th><th width="9%">类型</th>
+<th width="32%">示例</th><th width="39%">描述</th>
+</tr>
+<tr>
+<td>principalId</td><td>String</td>
+<td>100015591***</td>
+<td>
+<ul class="params">
+操作者信息：
+<li>主账号操作：为主账号 ID</li>
+<li>子用户操作：为子用户 ID</li>
+<li>角色操作：为角色 ID</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>accountId</td><td>String</td>
+<td>100015591***</td><td>主账号 ID</td>
+</tr>
+<tr>
+<td>secretId</td><td>String</td>
+<td>AKID4IrZ2GV***</td><td>密钥 ID</td>
+</tr>
+<tr>
+<td>sessionContext</td><td>String</td>
+<td>不涉及</td><td>API 请求发生错误时的错误码</td>
+</tr>
+</table>
+
+<style>
+.params{margin-bottom:0px !important}
+</style>

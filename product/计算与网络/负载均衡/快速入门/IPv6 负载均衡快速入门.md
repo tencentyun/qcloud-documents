@@ -6,7 +6,7 @@
 2. 本文以 HTTP 转发为例，云服务器上必须部署相应的 Web 服务器（如 Apache、Nginx、IIS 等），同时 Web 服务使用的端口需要监听 IPv6。
 
 ## 使用说明
-- 目前仅支持如下地域开通 IPv6 负载均衡：广州、深圳金融、上海、上海金融、北京金融、南京、北京、成都、香港、新加坡、弗吉尼亚。其中，针对地域为**深圳金融**、**上海金融**的金融行业监管要求定制的合规专区，需提交 [工单申请](https://console.cloud.tencent.com/workorder/category) 使用专区。
+- 目前仅支持如下地域开通 IPv6 负载均衡：广州、深圳金融、上海、上海金融、南京、北京、成都、香港、新加坡、弗吉尼亚。其中，针对地域为**深圳金融**、**上海金融**的金融行业监管要求定制的合规专区，需提交 [工单申请](https://console.cloud.tencent.com/workorder/category) 使用专区。
 - IPv6 负载均衡不支持传统型负载均衡。
 - IPv6 负载均衡支持获取客户端 IPv6 源地址。四层 IPv6 负载均衡支持直接获取客户端 IPv6 源地址，七层 IPv6 负载均衡支持通过 HTTP 的 X-Forwarded-For 头域获取客户端 IPv6 源地址。
 - 当前 IPv6 负载均衡是纯公网负载均衡，相同 VPC 的客户端无法通过内网访问该 IPv6 负载均衡。
@@ -40,7 +40,6 @@ vim  /etc/nginx/nginx.conf
  - 运营商类型：BGP。
  - 网络：请务必选择已获取 IPv6 CIDR 的私有网络和子网。
 3. 在购买页选择各项配置后，单击【立即购买】。
-![](https://main.qcloudimg.com/raw/b25a3156db7a73ffa1a3b835be0069e8.png)
 4. 在“CLB 实例列表”页，选择对应的地域即可看到新建的实例。
 ![](https://main.qcloudimg.com/raw/c3c1422a41460f7a0badb6eef9e751f2.png)
 

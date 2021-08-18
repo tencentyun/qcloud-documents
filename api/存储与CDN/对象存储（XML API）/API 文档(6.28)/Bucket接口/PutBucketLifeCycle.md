@@ -6,6 +6,23 @@ COS 支持用户以生命周期配置的方式来管理 Bucket 中 Object 的生
 - **转换操作：**定义对象转换为另一个存储类的时间。例如，您可以选择在对象创建30天后将其转换为低频存储（STANDARD_IA，适用于不常访问）存储类别。同时也支持将数据沉降到智能分层存储（INTELLIGENT_TIERING，访问模式不固定）和归档存储（ARCHIVE，成本更低）。具体参数查看请求示例说明中 Transition 项。
 - **过期操作：**指定 Object 的过期时间。COS 将会自动为用户删除过期的 Object。
 
+
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=PutBucketLifecycle&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
 #### 细节分析
 
 PUT Bucket lifecycle 用于为 Bucket 创建一个新的生命周期配置。如果该 Bucket 已配置生命周期，使用该接口创建新的配置的同时则会覆盖原有的配置。
@@ -28,7 +45,10 @@ Authorization: Auth String
 Content-MD5: MD5
 ```
 
-> ?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? 
+> - Host: &lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com，其中 &lt;BucketName-APPID> 为带 APPID 后缀的存储桶名字，例如 examplebucket-1250000000，可参阅 [存储桶概览 > 基本信息](https://cloud.tencent.com/document/product/436/48921#.E5.9F.BA.E6.9C.AC.E4.BF.A1.E6.81.AF) 和 [存储桶概述 > 存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) 文档；&lt;Region> 为 COS 的可用地域，可参阅 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
+> - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> 
 
 #### 请求头
 
@@ -116,7 +136,7 @@ Content-MD5: MD5
 | NoncurrentVersionExpiration    | LifecycleConfiguration.Rule                                  | 指明非当前版本对象何时过期                                   | Container | 否       |
 | NoncurrentVersionTransition    | LifecycleConfiguration.Rule                                  | 指明非当前版本对象何时进行存储类型的转换和转换的存储类型        | Container | 否       |
 | NoncurrentDays                 | LifecycleConfiguration.Rule<br>.NoncurrentVersionExpiration <br>或 NoncurrentVersionTransition | 指明规则对应的动作在对象变成非当前版本多少天后执行<br><li>如果是 Transition，该字段有效值是非负整数<br><li>如果是 Expiration，该字段有效值为正整数，最大支持3650天 | Integer   | 否       |
-| StorageClass                   | LifecycleConfiguration.Rule<br>.Transition 或 <br>NoncurrentVersionTransition | 指定 Object 沉降后的存储类型，枚举值： STANDARD_IA，MAZ_STANDARD_IA，INTELLIGENT_TIERING，MAZ_INTELLIGENT_TIERING，ARCHIVE，DEEP_ARCHIVE | String    | 是       |
+| StorageClass                   | LifecycleConfiguration.Rule<br>.Transition 或 <br>NoncurrentVersionTransition | 指定 Object 沉降后的存储类型，枚举值： STANDARD_IA，MAZ_STANDARD_IA，INTELLIGENT_TIERING，MAZ_INTELLIGENT_TIERING，ARCHIVE，DEEP_ARCHIVE。关于存储类型的介绍，请参见 [存储类型概述](https://cloud.tencent.com/document/product/436/33417) | String    | 是       |
 
 ## 响应
 

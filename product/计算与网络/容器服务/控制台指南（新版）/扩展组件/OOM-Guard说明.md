@@ -5,7 +5,7 @@ OOM-Guard 是容器服务 TKE 提供用于在用户态处理容器 cgroup OOM �
 
 在触发阈值进行 OOM 之前，OOM-Guard 会先通过写入 `memory.force_empty` 触发相关 cgroup 的内存回收，如果 `memory.stat` 显示还有较多 cache，则不会触发后续处理策略。在 cgroup OOM 杀掉容器后，会向 Kubernetes 上报 `OomGuardKillContainer` 事件，可以通过 `kubectl get event` 命令进行查看。
 
-### 部署在集群内 Kubernetes 对象
+### 部署在集群内的 Kubernetes 对象
 
 | Kubernetes 对象名称 | 类型               | 默认占用资源            | 所属 Namespaces |
 | ------------------- | ------------------ | ----------------------- | --------------- |
@@ -24,8 +24,8 @@ OOM-Guard 是容器服务 TKE 提供用于在用户态处理容器 cgroup OOM �
 
 ## 使用方法
 
-1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
+1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
-3. 选择左侧菜单栏中的【组件管理】，进入 “组件列表” 页面。
-4. 在“组件列表”页面中选择【新建】，并在“新建组件”页面中勾选 OOM-Guard。
-5. 单击【完成】即可安装组件。
+3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
+4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 OOM-Guard。
+5. 单击**完成**即可安装组件。

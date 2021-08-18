@@ -1,4 +1,5 @@
 ## 案例说明
+
 本文主要介绍通过 LayaAir 引擎开发实践游戏联机对战的帧同步和状态同步。
 
 ## 帧同步开发实践 -《猪猪对战》
@@ -27,4 +28,5 @@
 
 #### 游戏部分页面展示
 <img src="https://main.qcloudimg.com/raw/411df9f565e8a7bdb3befe2c56dde828.png" width="80%">
+
 

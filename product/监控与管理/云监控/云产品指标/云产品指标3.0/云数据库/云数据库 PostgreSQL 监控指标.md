@@ -37,34 +37,6 @@ Namespace=QCE/POSTGRES
 <td>resourceId</td>
 </tr>
 <tr>
-<td>InFlow</td>
-<td>输入流量</td>
-<td>实例读写输入的流量</td>
-<td>KB/秒</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>OutFlow</td>
-<td>输出流量</td>
-<td>实例读写输出的流量</td>
-<td nowrap="nowrap">KB/秒</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>Iops</td>
-<td>磁盘 IOPS</td>
-<td>实例的 IOPS（每秒的请求次数)</td>
-<td>次/秒</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>Memory</td>
-<td>内存占用</td>
-<td>实例占用内存的可用空间</td>
-<td>KB</td>
-<td>resourceId</td>
-</tr>
-<tr>
 <td>OtherCalls</td>
 <td>其他请求数</td>
 <td>除了读和写以外的请求总数（例如 Drop），按分钟累加</td>

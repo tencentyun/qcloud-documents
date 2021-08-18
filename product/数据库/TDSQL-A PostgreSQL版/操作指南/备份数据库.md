@@ -1,0 +1,25 @@
+
+为防止数据丢失或损坏，您可以使用自动备份的方式来备份数据库。
+
+## 自动备份
+1. 登录 [TDSQL-A  PostgreSQL版 控制台](https://console.cloud.tencent.com/tdsqla/tdapg)，在实例列表，单击实例 ID，进入实例管理页面。
+2. 在实例管理页面，选择【备份】>【自动备份设置】页，单击【编辑】。
+![](https://main.qcloudimg.com/raw/1fa390bfd1bb30ce835b540de482777f.png)
+3. 在编辑页面，根据“备份开始时间”的提示，输入目标值，单击【确定】。
+>?
+>- 目前只可修改备份开始时间。
+>- 自动备份无法手动删除，备份保留时间到期后会自动删除。
+<table>
+<thead><tr><th>设置项</th><th>值</th></tr></thead>
+<tbody><tr>
+<td>数据备份保留</td><td>7天</td></tr>
+<tr>
+<td>备份时间间隔</td><td>每24小时备份一次</td></tr>
+<tr>
+<td>备份开始时间</td><td>00:00:00-02:00:00</td></tr>
+<tr>
+<td>是否开启日志备份</td><td>否</td></tr>
+</tbody></table>
+<img src="https://main.qcloudimg.com/raw/3cebe9a7e3904871696a45e9e1b31680.png"  style="margin:0;">
+
+

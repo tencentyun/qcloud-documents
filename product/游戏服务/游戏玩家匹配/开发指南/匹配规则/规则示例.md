@@ -1,7 +1,7 @@
 
 本文为您介绍如下几种经典规则示例。
 
-## 4V4V4 差值+延迟规则
+## 8V8V8 差值+延迟规则
 
 使用场景：发起匹配时，每个队伍技能 team skill 均值和一个匹配内所有 team skill 均值偏差不超过10；且一个至少有一个地域满足匹配内的所有玩家到该地域的延迟不超过50ms。增加扩展规则，等待一段时间后，放宽规则限制。
 ```json
@@ -17,18 +17,18 @@
 	"teams": [
 		{
 			"name": "red",
-			"maxPlayers": 4,
-			"minPlayers": 4
+			"maxPlayers": 8,
+			"minPlayers": 8
 		},
 		{
 			"name": "green",
-			"maxPlayers": 4,
-			"minPlayers": 4
+			"maxPlayers": 8,
+			"minPlayers": 8
 		},
 		{
 			"name": "blue",
-			"maxPlayers": 4,
-			"minPlayers": 4
+			"maxPlayers": 8,
+			"minPlayers": 8
 		}
 	],
 	"rules": [

@@ -52,7 +52,7 @@
 
 ### 四. 检查第三方软件漏洞
 1. 如果您服务器内有运行对外应用软件（WWW、FTP 等），请您对软件进行配置，**限制应用程序的权限，禁止目录浏览或文件写权限**。
-2. [开通腾讯云 Web 应用防火墙](https://buy.cloud.tencent.com/buy/wsm) 防护，查看 Web 应用防护攻击日志。
+2. [开通腾讯云 Web 应用防火墙](https://console.cloud.tencent.com/guanjia/instance/domain) 防护，查看 Web 应用防护攻击日志。
 
 ## 常见问题
 ### 如何恢复被入侵后的网站或系统？

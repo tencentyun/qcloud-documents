@@ -1,5 +1,9 @@
 ## 操作场景
-Rdesktop 是远程桌面协议（RDP）的开源客户端，用于进行连接 Windows 云服务器等操作。本文介绍 Linux 机器通过 rdesktop 快速上传文件至 Windows Server 2012 R2 操作系统的腾讯云云服务器（CVM）。
+Rdesktop 是远程桌面协议（RDP）的开源客户端，用于进行连接 Windows 云服务器等操作。本文介绍本地 Linux 机器通过 rdesktop 快速上传文件至 Windows Server 2012 R2 操作系统的腾讯云云服务器（CVM）。
+>? 
+>- 本地 Linux 机器需搭建可视化界面，否则无法使用 rdesktop。
+>- 本文 Linux 机器操作系统以 CentOS 7.6 为例，不同版本的操作系统步骤可能有一定区别，请您结合实际业务情况参考文档进行操作。  
+>
 
 ## 前提条件
 已购买 Windows 云服务器。

@@ -39,7 +39,7 @@ make && make install
 
 ### 数据恢复测试
 您可参考以下步骤，了解数据恢复过程并结合实际情况进行操作。
-1. 参考 [在分区上构建文件系统](https://cloud.tencent.com/document/product/362/6734#.E5.9C.A8.E5.88.86.E5.8C.BA.E4.B8.8A.E6.9E.84.E5.BB.BA.E6.96.87.E4.BB.B6.E7.B3.BB.E7.BB.9F) 对数据盘进行初始化及分区，并执行以下命令，检查现有磁盘及可用分区。
+1. 参考 [在分区上构建文件系统](https://cloud.tencent.com/document/product/362/6734#CreateFileSystemOnPartition) 对数据盘进行初始化及分区，并执行以下命令，检查现有磁盘及可用分区。
 ```
 fdisk -l
 ```

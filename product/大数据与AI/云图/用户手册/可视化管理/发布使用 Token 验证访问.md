@@ -14,6 +14,7 @@
  
  如果需要打开您的大屏，需要使用 accessId/token 通过加密后生成签名。
 ![](https://main.qcloudimg.com/raw/fac711403227883d9b1813bb98ad346e.png)
+
 ### 加密
 PHP 生成签名示例：
 ```
@@ -31,13 +32,13 @@ NodeJS 生成签名示例：
  const crypto = require('crypto');
  const accessId = "81a663dbaaab055xxxxxxxxxxxxx4a56";
  const token = "c6v9aw4gpRo1yn6DlIxxxxxxxxxxxxxK";
- const timestamp = Date.now();
+ const timestamp = parseInt(Date.now() / 1000);
  const nonce = parseInt(Math.random() * 100000, 10);
  const signStr = accessId + ',' + timestamp + ',' + nonce;
  const signRet = encodeURIComponent(crypto.createHmac('sha256', token).update(signStr).digest().toString('base64')); // 下面生成的 url 用于访问大屏
- const url = 'http://v.yuntus.com/cloudv/' + accessId + '?signa
-ture='+ signRet + '&timestamp=' + timestamp + '&nonce=' + nonce;
+ const url = 'http://v.yuntus.com/cloudv/' + accessId + '?signature='+ signRet + '&timestamp=' + timestamp + '&nonce=' + nonce;
 ```
 
 ### 安全校验策略说明
 链接校验具备时效性，生成链接1分钟内校验有效，在此时间内校验通过，之后连续访问时间间隔超过12小时则会失效。
+

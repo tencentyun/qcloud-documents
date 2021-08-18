@@ -70,8 +70,8 @@
 如果您在 [选择机型](#SelectType) 时，添加了数据盘，则需要在登录实例后对数据盘进行格式化和分区。**如果您未添加数据盘，则可跳过此步骤。**
 请根据磁盘容量大小、云服务器操作系统类型选择合适的操作指引：
 - 磁盘容量小于2TB时：
- [初始化云硬盘（Linux）](https://cloud.tencent.com/document/product/362/6734#Linux)
+ [初始化云硬盘（Linux）](https://cloud.tencent.com/document/product/362/6734#Steps)
 - 磁盘容量大于等于2TB时：
- [初始化云硬盘（Linux）](https://cloud.tencent.com/document/product/362/6735#2TBLinux)
+ [初始化云硬盘（Linux）](https://cloud.tencent.com/document/product/362/6735#Steps)
 
 更多操作指引请参见 [初始化场景介绍](https://cloud.tencent.com/document/product/362/33065)。

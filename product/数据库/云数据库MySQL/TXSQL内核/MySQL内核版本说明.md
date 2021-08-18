@@ -1,6 +1,39 @@
 本文为您介绍 MySQL 内核版本更新动态，如需升级，请参见 [升级内核小版本](https://cloud.tencent.com/document/product/236/45522)。
 
 ## MySQL 8.0
+### 20210330
+#### 新特性：
+- 支持主从 bp 同步功能：当发生 HA 并进行主备切换后，备库通常需要一段比较长的时间来 warmup，把热点数据加载到buffer pool。为加速备机的预热，TXSQL  支持了主从 bp 同步功能。
+- 支持 Sort Merge Join 功能。
+- 支持 FAST DDL 功能。
+- 支持用户侧查询 character_set_client_handshake 参数显示当前值功能。
+
+#### 性能优化：
+- 优化扫描 flush list 刷脏：通过优化刷脏机制，解决了创建索引过程中的性能抖动问题，提升了系统稳定性。
+
+#### 官方 bug 修复：
+- 修复修改 offline_mode、cdb_working_mode 参数的死锁问题。
+- 修复 trx_sys的max_trx_id 持久化并发问题。
+
+### 20201230
+#### 新特性：
+- 合并官方 [8.0.19](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-19.html)、[8.0.20](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-20.html)、[8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)、[8.0.22](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-22.html) 变更。
+- 支持动态设置 thread_handling 线程模式或连接池模式。
+
+#### 性能优化：
+- 优化 BINLOG LOCK_done 锁冲突，提升写入性能。
+- 使用 Lock Free Hash 优化 trx_sys mutex 冲突，提升性能。
+- redo log 刷盘优化。
+- buffer pool 初始化时间优化。
+- 大表 drop table 清理 AHI 优化。
+- 审计性能优化。
+
+#### 官方 bug 修复：
+- 修复清理 innodb 临时表时造成的性能抖动问题。
+- 修复核数较多的实例 read only 性能下降的问题。
+- 修复 hash scan 导致1032问题。
+- 修复热点更新功能的并发安全问题。
+
 ### 20200630
 #### 新特性：
 - 支持异步删除大表：异步、缓慢地清理文件，进而避免因删除大表导致业务性能出现抖动情况，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
@@ -14,7 +47,30 @@
 - 修复全文索引中，词组查找（phrase search）在多字节字符集下存在的崩溃问题。
 
 ## MySQL 5.7
-### 20201230
+### 20210331
+#### 新特性：
+- 支持 delete/insert/replace 的 returning 语法，可以返回该 statment 所操作的数据行。 其中，delete 语句返回前镜像数据，insert/replace 返回后镜像数据。
+- 支持列压缩功能：当前有针对行格式的压缩和针对数据页面的压缩，但是这两种压缩方式在处理一个表中的某些大字段和其他很多小字段，同时对小字段的读写很频繁，对大字段访问不频繁的情形中，它的读写访问都会造成很多不必要的计算资源浪费，列压缩可以压缩那些访问不频繁的大字段，同时能够减少整行字段的存储空间，提高读写访问的效率。
+- 支持用户侧查询 character_set_client_handshake 参数显示当前值功能。
+- 支持主动清理日志文件占用的 page cache：该功能采用滑动窗口的方式通过 posix_fadvise 主动清理日志文件占用的 page cache，降低操作系统内存压力，提升整机稳定性。
+
+#### 性能优化：
+- CREATE INDEX 并行化：CREATE INDEX 过程中需要执行外部归并排序，比较耗时。本次引入了并行外部归并排序算法，使 CREATE INDEX 耗时降低50%以上。
+- 优化扫描 flush list 刷脏：通过优化刷脏机制，解决了创建索引过程中的性能抖动问题，提升了系统稳定性。
+
+#### 官方 bug 修复：
+- 修复内存泄漏问题。
+- 移植8.0版本 json 的修复，提升使用 json 的稳定性。
+- 修复 hash scan 导致1032问题。
+- 修复热点更新功能的并发安全问题。
+- 批量移植官方 gcol bug 修复。
+- 修复 datetime 类型在某些场景下与字符串比较失败的问题。
+- 修复主从 bp 同步功能文件句柄未释放 bug。
+- 修复设置 offline_mode 的同时新建连接，可能触发死锁 bug。
+- 修复范围查询并发场景下 m_end_range 设置不正确，导致的 crash 问题。
+- 修复 groupby json 字段中 temporay table的update 耗时较长问题。
+
+### 20201231
 #### 新特性：
 - 支持 SELECT FOR UPDATE/SHARE 使用 NOWAIT 和 SKIP LOCKED 选项。
 - 支持动态设置 thread_handling 线程模式或连接池模式。
@@ -172,6 +228,15 @@ FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提�
 - 修复在异步模式下速度限制插件不可用的问题。
 
 ## MySQL 5.6
+### 20201231
+#### 官方 bug 修复：
+- 修复由于 hash scan，导致1032问题。 
+- 修复 row 格式下 replace into，导致主从 auto increment 值不一致的问题。
+- 修复 SQL 解析申请内存未释放，导致内存泄漏的问题。
+- 修复 create table as select 建表时，跳过 sql mode 检查的问题。
+- 修复 Insert 语句在插入默认值时，跳过 sql mode 检查的问题。
+- 修复绑定参数执行 update 语句时，跳过 sql mode 检查的问题。
+
 ### 20200915
 #### 新特性：
 - 支持 [SQL 限流](https://cloud.tencent.com/document/product/1130/37882#sql-.E9.99.90.E6.B5.81) 功能。

@@ -51,7 +51,8 @@ top
 根据任务管理器中的进程，分析与排查问题，以采取对应解决方案。
 - 如果是业务进程占用了大量 CPU 或内存资源，建议分析业务程序是否有优化空间，进行优化或者 [升级服务器配置](https://cloud.tencent.com/document/product/213/2178)。
 - 如果是异常进程占用了大量 CPU 或内存资源，则实例可能中毒，您可以自行终止进程或者使用安全软件进行查杀，必要时考虑备份数据，重装系统。
-- 如果是腾讯云组件进程占用了大量 CPU 或内存资源，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们进行进一步定位处理。
+- 如果是腾讯云组件进程占用了大量 CPU 或内存资源，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 联系我们进行进一步定位处理。
 常见的腾讯云组件有：
  - sap00x：安全组件进程
  - Barad_agent：监控组件进程

@@ -53,7 +53,7 @@ SDK 支持 iOS 8.0 以上系统。
 ```
 
 >?
-- 对于使用4.7版本 License 的用户，如果您升级了 SDK 到4.9版本，您可以登录控制台，单击下图的【切换到新版License】生成对应的 key 和 url，切换后的 License 必须使用4.9及更高的版本，切换后按照上述操作集成即可。
+- 对于使用**4.7版本 License 的用户**，如果您升级了 SDK 到4.9版本，您可以登录控制台，单击下图的【切换到新版License】生成对应的 key 和 url，切换后的 License 必须使用4.9及更高的版本，切换后按照上述操作集成即可。
 ![](https://main.qcloudimg.com/raw/c877efe3f57e853615e68a35e20fd8b9.png)
 - 企业版请参考 [动效变脸](https://cloud.tencent.com/document/product/584/13509)。
 

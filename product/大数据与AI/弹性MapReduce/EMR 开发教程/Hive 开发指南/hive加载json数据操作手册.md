@@ -6,7 +6,6 @@
 ```
 
 ### 2. 准备数据
-
 创建数据文件（JSON 格式），编译以下内容并保存：
 ```
 vim test.data
@@ -27,6 +26,7 @@ hadoop fs -put ./test.data /
 ```
 hive> CREATE TABLE test (name string, age int, course array<map<string,string>>, grade array<int>) ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe' STORED AS TEXTFILE;
 ```
+
 ### 4. 导入数据
 ```
 hive>LOAD DATA INPATH '/test.data' into table test;

@@ -6,7 +6,7 @@ Spark 为结构化数据处理引入了一个称为 Spark SQL 的编程模块。
 ## 2. 使用 SparkSQL 交互式控制台
 在使用 SparkSQL 之前请登录 EMR 集群的 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入 EMR 命令行界面。
 
-在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入目录`/usr/local/service/spark`：
+在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入目录 `/usr/local/service/spark`：
 ```
 [root@172 ~]# su hadoop
 [hadoop@172 root]$ cd /usr/local/service/spark
@@ -15,7 +15,7 @@ Spark 为结构化数据处理引入了一个称为 Spark SQL 的编程模块。
 ```
 [hadoop@10spark]$ bin/spark-sql --master yarn --num-executors 64 --executor-memory 2g
 ```
-其中 --master 表示您的 master URL，--num-executors 表示 executor 数量，--executor-memory 表示 executor 的储存容量。以上参数也可以根据您的实际情况作出修改，您也可以通过`sbin/start-thriftserver.sh` 或者`sbin/stop-thriftserver.sh`来启动或者停止一个 SparkSQLthriftserver。
+其中 --master 表示您的 master URL，--num-executors 表示 executor 数量，--executor-memory 表示 executor 的储存容量。以上参数也可以根据您的实际情况作出修改，您也可以通过 `sbin/start-thriftserver.sh` 或者 `sbin/stop-thriftserver.sh` 来启动或者停止一个 SparkSQLthriftserver。
 
 **下面介绍一些 SparkSQL 的基本操作：**
 - 新建一个数据库并查看：
@@ -225,21 +225,21 @@ scp $localfile root@公网IP地址:$remotefolder
 其中，$localfile 是您的本地文件的路径加名称，root 为 CVM 服务器用户名，公网 IP 可以在 EMR 控制台的节点信息中或者在云服务器控制台查看。$remotefolder 是您想存放文件的 CVM 服务器路径。上传完成后，在 EMR 集群命令行中即可查看对应文件夹下是否有相应文件。
 
 ## 4. 准备数据并运行样例
-使用 sparkSQL 来操作存放在 HDFS 上的数据。首先将数据上传到 HDFS 中，这里我们使用自带的文件 people.json，存放在路径`/usr/local/service/spark/examples/src/main/resources/`下，使用如下指令把该文件上传到 HDFS 中：
+使用 sparkSQL 来操作存放在 HDFS 上的数据。首先将数据上传到 HDFS 中，这里我们使用自带的文件 people.json，存放在路径 `/usr/local/service/spark/examples/src/main/resources/` 下，使用如下指令把该文件上传到 HDFS 中：
 ```
 [hadoop@10 hadoop]$ hadoop fs -put /usr/local/service/spark/examples/src/main/resources/people.json 
 /user/hadoop
 ```
-测试文件用户也可以另选，这里`/user/hadoop/`是 HDFS 下的文件夹，如果没有用户可以自己创建。
+测试文件用户也可以另选，这里 `/user/hadoop/` 是 HDFS 下的文件夹，如果没有用户可以自己创建。
 
 **执行样例**，首先请登录 EMR 集群的 master 节点，并且切换到 Hadoop 用户如使用 SparkSQL 交互式控制台中所示，使用以下命令执行样例：
 ```
 [hadoop@10spark]$ bin/spark-submit --class Demo --master yarn-client $yourjarpackage /  
 /user/hadoop/people.json  /user/hadoop/$output
 ```
-其中 --class 参数表示要执行的入口类，在本例子中即为 Demo，即我们在添加 Hadoop 依赖和样例代码中创建的 Java Class 的名字，--master 为集群主要的 URL，$yourjarpackage 是您打包后的包名，$output 为结果输出文件夹（**$output 为一个未创建的文件夹，如果执行指令前该文件夹已经存在，会导致程序运行失败**）。
+其中 --class 参数表示要执行的入口类，在本例子中即为 Demo，即在添加 Hadoop 依赖和样例代码中创建的 Java Class 的名字，--master 为集群主要的 URL，$yourjarpackage 是您打包后的包名，$output 为结果输出文件夹（**$output 为一个未创建的文件夹，如果执行指令前该文件夹已经存在，会导致程序运行失败**）。
 
-成功运行后，可以在`/user/hadoop/$output`查看结果：
+成功运行后，可以在 `/user/hadoop/$output` 查看结果：
 ```
 [hadoop@172 spark]$ hadoop fs -cat /user/hadoop/$output/part-00000
 [null,Michael]

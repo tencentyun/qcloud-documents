@@ -1,3 +1,6 @@
+以下视频介绍了无法登录 Linux 实例时的排查方法：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3398-59999?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 本文主要介绍无法连接 Linux 实例时对问题进行排查的方法，以及可能导致无法连接 Linux 实例的主要原因，指导您排查、定位并解决问题。
 
 ## 可能原因
@@ -66,4 +69,5 @@
 
 
 ## 其它解决方案
-通过上述排查后，仍然不能连接 Linux 实例，请您保存自助诊断结果，[提交工单](https://console.cloud.tencent.com/workorder/category) 进行反馈。
+通过上述排查后，仍然不能连接 Linux 实例，请您保存自助诊断结果，通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 进行反馈。

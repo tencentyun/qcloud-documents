@@ -1,0 +1,18 @@
+
+TDSQL-A PostgreSQL版 支持资源级授权，您可以指定子账号拥有特定资源的接口权限。
+
+支持资源级授权的接口列表如下：
+>?表中未列出的云数据库 API 操作，即表示该 TDSQL-A PostgreSQL版 API 操作不支持资源级权限。针对不支持资源级权限的 TDSQL-A PostgreSQL版 API 操作，您仍可以向用户授予使用该操作的权限，但策略语句的资源元素必须指定为 *。
+
+| API 名                  | API 描述                 |  资源六段式示例                                       |
+| ----------------------- | ------------------------ |---------------------------------------------------- |
+| DescribeAccounts        | 查询云数据库实例帐号     |  `qcs::tdapg:gz:uin/2113345772:instance/tdapg-i8edslnn` |
+| DescribeBackupDetails   | 查询云数据库实例备份详情 |  `qcs:: tdapg:gz:uin/2113345772:instance/tdapg-i8edslnn` |
+| DescribeBackupLists     | 查询云数据库实例备份列表 |  `qcs:: tdapg:gz:uin/2113345772:instance/tdapg-i8edslnn` |
+| DescribeBackupRules     | 查询云数据库实例备份规则 |  `qcs:: tdapg:gz:uin/2113345772:instance/tdapg-i8edslnn` |
+| DescribeInstanceDetails | 查询实例详细信息         |  `qcs:: tdapg:gz:uin/2113345772:instance/tdapg-i8edslnn` |
+| DescribeInstances       | 查询实例列表                  |  `qcs:: tdapg:gz:uin/2113345772:instance/tdapg-i8edslnn` |
+| ModifyInstanceName    | 修改云数据库实例名称     |  `qcs:: tdapg:gz:uin/2113345772:instance/tdapg-i8edslnn` |
+| ResetAccountPassword  | 重置云数据库帐号密码   |  `qcs:: tdapg:gz:uin/2113345772:instance/tdapg-i8edslnn` |
+| SetBackupRules        | 设置云数据库实例备份规则 |  `qcs:: tdapg:gz:uin/2113345772:instance/tdapg-i8edslnn` |
+

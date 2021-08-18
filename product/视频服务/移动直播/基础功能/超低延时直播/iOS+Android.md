@@ -1,7 +1,7 @@
 ## 超低延时直播概述
 超低延时直播，是腾讯云基于目前市场需求推出的新的直播场景解决方案，可以快速实现超低延时的互动直播功能，支持30w观众的并发播放，以及30人的实时连麦互动，适用于主播和观众有着较强的同步需求，需要频繁互动的场景。
 
-<img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/mlvb/ultra-low_latency_live/rtc_compare_cdn.gif">
+<img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/rtc_compare_cdn.gif">
 
 > ?上图为超低延时直播和标准的 CDN 直播的真实对比视频（使用 [scrcpy 工具](https://github.com/Genymobile/scrcpy) 配合录制），从左至右分别为：源视频、**超低延时直播（延时80ms）**、标准的 CDN 直播。
 
@@ -60,12 +60,12 @@
     <td><img width="150" src="https://main.qcloudimg.com/raw/bff0cfca4585c448f308b339a6c17c1c.png"> </td>
     <td rowspan="2">
       <div align="center">
-        <img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/mlvb/ultra-low_latency_live/push.gif"/>
+        <img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/push.gif"/>
       </div>
     </td>
     <td rowspan="2">
       <div align="center">
-        <img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/mlvb/ultra-low_latency_live/play.gif"/>
+        <img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/play.gif"/>
       </div>
     </td>
   </tr>
@@ -74,6 +74,7 @@
     <td><img width="150" src="https://main.qcloudimg.com/raw/83973196cc1fc9972320182eb283d406.png"></td>
   </tr>
 </table>
+
 
 ### 推流体验
 1. 下载视频云工具包，安装登录后，进入【连麦演示（新方案）】中。
@@ -116,8 +117,8 @@
 > - 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 > ? 在服务开通后，建议先可以编译&体验一下腾讯云提供的 SimpleCode（一个极简的 Demo），配合下文说明，方便您快速了解API 的使用。
-> - [Android](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SimpleDemo)
-> - [iOS](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SimpleDemo)
+> - [Android](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example)
+> - [iOS](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)
 
 
 [](id:step2)

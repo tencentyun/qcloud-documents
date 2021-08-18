@@ -23,8 +23,9 @@
 
 用户/用户组管理和策略管理页均可完成策略添加和授权，详细请参见 [授权管理](https://cloud.tencent.com/document/product/598/10602)，简述如下：
 
-- 方法一：进入用户/用户组页面，选择需添加策略的用户/用户组，单击操作列表中的【授权】，选中相应的直播策略，同时单击【确定】即可添加成功。
+- 方法一：进入用户/用户组页面，选择需添加策略的用户/用户组，单击操作列表中的【授权】/【关联策略】，选中相应的直播策略，同时单击【确定】即可添加成功。
 ![](https://main.qcloudimg.com/raw/807613247ce82e74a675671f2ad0775d.jpg)
+![](https://main.qcloudimg.com/raw/c9799d032c05e7347f2e3f14b23b11a4.png)
 
 - 方法二：进入策略页面，选择需添加的策略，单击操作列表中的【关联用户/组】，选中需授权的用户，单击【确定】即可添加成功。
 ![](https://main.qcloudimg.com/raw/bcecf5b50a67e67e282b9a0f7c8232bc.jpg)
@@ -35,6 +36,8 @@
 	- 若需使用标签，需授权 [QcloudTAGFullAccess](https://console.cloud.tencent.com/cam/policy/detail/1592575&QcloudTAGFullAccess&2) （标签（TAG）全读写访问策略）。
 	- 若需使用实时日志，需授权 [QcloudCamFullAccess](https://console.cloud.tencent.com/cam/policy/detail/596169&QcloudCamFullAccess&2) （用户与权限（CAM）全读写访问权限策略）。
 2. 添加自定义策略：进入策略页面，单击【新建自定义策略】，选择【按策略生成器创建】，详细请参见 [自定义策略](https://cloud.tencent.com/document/product/598/10601)。
+
+>? 目前云直播部分接口已支持资源级授权，具体接口可参见 [API 鉴权规则](https://cloud.tencent.com/document/product/267/58612)。
 
 **例如**：
 若需将【添加证书】接口授权给子用户，且仅可用于指定域名，按照下述步骤配置：

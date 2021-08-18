@@ -1,6 +1,22 @@
 ## 功能描述
 CreateMediaTemplate 用于新增转码模板。
 
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=CreateTranscodeTemplate&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
 ## 请求
 
 #### 请求示例
@@ -67,14 +83,14 @@ Content-Type: application/xml
 
 具体数据描述如下：
 
-| 节点名称（关键字） | 父节点 | 描述           | 类型      | 必选 |
+| 节点名称（关键字） | 父节点 | 描述           | 类型      | 是否必选 |
 | ------------------ | ------ | -------------- | --------- | ---- |
 | Request            | 无     | 保存请求的容器 | Container | 是   |
 
 
 Container 类型 Request 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 限制 |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 | 限制 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- | ---- |
 | Tag                | Request | 模板类型：Transcode                                    | String    | 是   | 无 |
 | Name               | Request | 模板名称 仅支持中文、英文、数字、\_、\-和\*                    | String    | 是   | 无 |
@@ -87,9 +103,9 @@ Container 类型 Request 的具体数据描述如下：
 
 Container 类型 Container 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 |
 | ------------------ | ------- | ---------------------------------------------------- | --------- | ---- |
-| Format                | Request.Container | 容器格式：mp4，flv，hls，ts               | String    | 是   |
+| Format                | Request.Container | 容器格式：mp4、flv、hls、ts、mp3、aac           | String    | 是   |
 
 设定 container，音频视频支持的格式如下表：
 
@@ -102,35 +118,35 @@ Container 类型 Container 的具体数据描述如下：
 
 Container 类型 Video 的具体数据描述如下：
 
-| 节点名称（关键字）         | 父节点        | 描述                  | 类型   | 必选 | 默认值       | 限制                                                         |
+| 节点名称（关键字）         | 父节点        | 描述                  | 类型   | 是否必选 | 默认值       | 限制                                                         |
 | -------------------------- | ------------- | --------------------- | ------ | ---- | ------------ | ------------------------------------------------------------ |
 | Codec                      | Request.Video | 编解码格式            | String | 否   |   H.264 |  H.264                                          |
 | Width                      | Request.Video | 宽                    | String | 否   | 视频原<br/>始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照<br/>视频原始比例计算 Height |
 | Height                     | Request.Video | 高                    | String | 否   | 视频原<br/>始高度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照<br/>视频原始比例计算 Width |
-| Fps                        | Request.Video | 帧率                  | String | 否   | 无 | <li>值范围：(0，60]<br><li>单位：fps |
+| Fps                        | Request.Video | 帧率                  | String | 否   | 视频原始帧率 | <li>值范围：(0，60]<br><li>单位：fps |
 | Remove                     | Request.Video | 是否删除<br/>视频流        | String | 否   | false        | true、false                                               |
 | Profile                    | Request.Video | 编码级别              | String | 否   | high         | <li>支持 baseline、main、high<br/><li>baseline：适合移动设备<br/><li>main：适合标准分辨率设备<br/><li>high：适合高分辨率设备<br/><li>仅H.264支持此参数 |
-| Bitrate                    | Request.Video | 视频输出<br/>文件的码率    | String | 否   |  无           | <li>值范围：[10，50000]<br/><li>单位：Kbps                     |
-| Crf                        | Request.Video | 码率-质量<br/>控制因子     | String | 否   | 无           | <li>值范围：(0，51]<br/><li>如果设置了 Crf，则 <br/>Bitrate 的设置失效 |
-| Gop                        | Request.Video | 关键帧间<br/>最大帧数      | String | 否   |  无            | 值范围：[0，100000]                                          |
+| Bitrate                    | Request.Video | 视频输出<br/>文件的码率    | String | 否   |  视频原始码率           | <li>值范围：[10，50000]<br/><li>单位：Kbps                     |
+| Crf                        | Request.Video | 码率-质量<br/>控制因子     | String | 否   | 空          | <li>值范围：(0，51]<br/><li>如果设置了 Crf，则 Bitrate 的设置失效<br/><li>默认为不设置 Crf |
+| Gop                        | Request.Video | 关键帧间<br/>最大帧数      | String | 否   |  空            | <li>值范围：[0，100000] <br/><li>默认不设置 Gop                                     |
 | Preset                     | Request.Video | 视频算法<br/>器预置        | String | 否   | medium       | <li>仅H.264支持该参数<br/><li>取值 veryfast、fast、<br/>medium、slow、slower |
-| Bufsize                    | Request.Video | 缓冲区<br/>大小            | String | 否   | 无            | <li>值范围：[1000，128000]<br/><li>单位：Kb<br/> |
-| Maxrate                    | Request.Video | 视频码率<br/>峰值          | String | 否   | 无            | <li>值范围：[10，50000]<br/><li>单位：Kbps<br/> |
+| Bufsize                    | Request.Video | 缓冲区<br/>大小            | String | 否   | 0           | <li>值范围：[1000，128000]<br/><li>单位：Kb<br/><li>默认值为0，表示不使用缓冲区  |
+| Maxrate                    | Request.Video | 视频码率<br/>峰值          | String | 否   | 0           | <li>值范围：[10，50000]<br/><li>单位：Kbps<br/><li>默认值为0，表示不使用此参数  |
 | HlsTsTime                  | Request.Video | hls 分片<br/>时间           | String | 否   | 5            | <li>(0 视频时长] <br/><li>单位为秒 |
-| Pixfmt                     | Request.Video | 视频颜色<br/>格式           | String | 否   | 无           | 支持 yuv420p、yuv422p、<br/>yuv444p、yuvj420p、yuvj422p、yuvj444p |
-| LongShortMode              | Request.Video | 长短边自适应          | String | 否   | false        | true、false
+| Pixfmt                     | Request.Video | 视频颜色<br/>格式           | String | 否   | yuv420p           | 支持 yuv420p、yuv422p、<br/>yuv444p、yuvj420p、yuvj422p、yuvj444p |
+| LongShortMode              | Request.Video | 长短边自适应          | String | 否   | false        | true、false    |
 
 Container 类型 TimeInterval 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Start                | Request.TimeInterval | 开始时间 | String    | 否   | 无 | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
-| Duration             | Request.TimeInterval | 持续时间 | String    | 否   | 无 | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
+| Start                | Request.TimeInterval | 开始时间 | String    | 否   | 0  | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
+| Duration             | Request.TimeInterval | 持续时间 | String    | 否   | 视频原始时长 | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
 
 
 Container 类型 Audio 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点        | 描述           | 类型   | 必选 | 默认值 | 限制                                                         |
+| 节点名称（关键字） | 父节点        | 描述           | 类型   | 是否必选 | 默认值 | 限制                                                         |
 | ------------------ | ------------- | -------------- | ------ | ---- | ------ | ------------------------------------------------------------ |
 | Codec              | Request.Audio | 编解码格式     | String | 否   | aac    | 取值 aac、mp3                                                |
 | Samplerate         | Request.Audio | 采样率         | String | 否   | 44100  | <li>单位：Hz<br/><li>可选 11025、22050、32000、44100、48000、96000<br/><li>不同的封装，mp3 支持不同的采样率，如下表所示|
@@ -151,15 +167,20 @@ Container 类型 Audio 的具体数据描述如下：
 
 Container 类型 TransConfig 的具体数据描述如下：
 
-| 节点名称（关键字）    | 父节点              | 描述             | 类型   | 必选 | 默认值 | 限制                                                         |
+| 节点名称（关键字）    | 父节点              | 描述             | 类型   | 是否必选 | 默认值 | 限制                                                         |
 | --------------------- | ------------------- | ---------------- | ------ | ---- | ------ | ------------------------------------------------------------ |
-| AdjDarMethod          | Request.TransConfig | 分辨率调整方式   | String | 否   | none   | <li>取值 scale、crop、pad、none<br/><li>当输出视频的宽高比与原视频不等时，<br/>需要此参数进行执行调整方式 |
+| AdjDarMethod          | Request.TransConfig | 分辨率调整方式   | String | 否   | none   | <li>取值 scale、crop、pad、none<br/><li>当输出视频的宽高比与原视频不等时，根据此参数做分辨率的相应调整 |
 | IsCheckReso           | Request.TransConfig | 是否检查分辨率   | String | 否   | false  | <li>true、false <br/><li>当为 false时，按照配置参数转码 |
 | ResoAdjMethod         | Request.TransConfig | 分辨率调整方式   | String | 否   | 0      | <li>取值0、1；0 表示使用原视频分辨率；<br/>1表示返回转码失败<br/><li>当 IsCheckReso 为 true 时生效 |
 | IsCheckVideoBitrate   | Request.TransConfig | 是否检查视频码率 | String | 否   | false  | <li>true、false <br/><li>当为 false 时，按照配置参数转码 |
 | VideoBitrateAdjMethod | Request.TransConfig | 视频码率调整方式 | String | 否   | 0      | <li>取值0、1；0 表示使用原视频码率；<br/>1表示返回转码失败<br/><li>当 IsCheckVideoBitrate 为 true 时生效 |
 | IsCheckAudioBitrate   | Request.TransConfig | 是否检查音频码率 | String | 否   | false  | <li>true、false <br/><li>当为false时，按照配置参数转码<br/> |
 | AudioBitrateAdjMethod | Request.TransConfig | 音频码率调整方式 | String | 否   | 0      | <li>取值0、1；0 表示使用原音频码率；<br/>1表示返回转码失败<br/><li>当 IsCheckAudioBitrate 为 true 时生效 |
+
+AdjDarMethod 参数图示：
+
+![](https://main.qcloudimg.com/raw/3436731be8c1caa5ffd565b2c44b9643.png)
+
 
 ## 响应
 
@@ -226,7 +247,7 @@ Container 节点 Response 的内容：
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
 | TemplateId         | Response.TemplateList | 模板 ID                                                      | String    |
-| Name               | Response.TemplateList | 模板名字                                                     | String    |
+| Name               | Response.TemplateList | 模板名称                                                     | String    |
 | BucketId           | Response.TemplateList | 模板所属存储桶                                                | String    |
 | Category           | Response.TemplateList | 模板属性，Custom 或者 Official                                | String    |
 | Tag                | Response.TemplateList | 模板类型，Transcode                                          | String    |

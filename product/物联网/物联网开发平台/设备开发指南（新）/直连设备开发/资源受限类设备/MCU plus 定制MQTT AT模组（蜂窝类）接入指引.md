@@ -13,7 +13,7 @@ MCU+ 定制 MQTT AT 模组（蜂窝类）接入腾讯云物联网开发平台可
 
 根据所选的嵌入式平台，适配 hal_export.h 头文件对应的 HAL 层 API 的移植实现。主要有串口收发（中断接收）、模组开关机、任务/线程创建、动态内存申请/释放、时延、打印等 API。详细操作可参考基于 STM32+FreeRTOS 的 AT-SDK [移植示例](https://github.com/tencentyun/tc-iot-at-sdk-stm32-freertos-based-example)。
 
-移植部分需要实现的 HAL 层适配接口请参考 hal_export.h，需要实现串口的收发接口（中断接收），延时函数，模组上下电及 OS 相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在 port 目录。
+移植部分需要实现的 HAL 层适配接口请参考 hal_export.h，需要实现串口的收发接口（中断接收），延时函数，模组上下电及 OS 相关接口适配（互斥锁、动态内存申请释放和线程创建），适配层接口单独剥离在 port 目录。
 
 - #### hal_export.h
 该源文件主要提供 HAL 层对外的 API 接口及 HAL 层宏开关控制。
@@ -222,7 +222,7 @@ MCU+ 定制 MQTT AT 模组（蜂窝类）接入腾讯云物联网开发平台可
 </tbody></table>
 
 - #### module_api_inf.c
-该源文件主要实现配网/注网 API 业务适配和基于腾讯云物联网 AT 指令的 MQTT 交互，但有一个关于联网/注网的API（module_register_network）需要根据模组适配。代码基于 [ESP8266 腾讯云物联网定制 AT 固件](https://main.qcloudimg.com/raw/6811fc7631dcf0ce5509ccbdba5c72b7.zip) 实现 Wi-Fi 直连的方式连接网络，但更常用的场景是根据特定事件（例如：按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑需自行实现。
+该源文件主要实现配网/注网 API 业务适配和基于腾讯云物联网 AT 指令的 MQTT 交互，但有一个关于联网/注网的API（module_register_network）需要根据模组适配。代码基于 [ESP8266 腾讯云物联网定制 AT 固件](https://main.qcloudimg.com/raw/6811fc7631dcf0ce5509ccbdba5c72b7.zip) 实现 Wi-Fi 直连的方式连接网络，但更常用的场景是根据特定事件（例如按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑需自行实现。
 
  ESP8266 有封装配网指令和示例 App。对于蜂窝模组，则是使用特定的网络注册指令。请参考 [module_handshake](https://github.com/tencentyun/qcloud-iot-sdk-tencent-at-based/blob/master/include/module_api_inf.h) 函数应用 AT-SDK 的 AT 框架添加和模组的 AT 指令交互。
 ```c
@@ -237,7 +237,7 @@ eAtResault module_register_network(eModuleType eType)
         #define WIFI_SSID "test_****"
         #define WIFI_PW "********"
 
-        /*此处示例传递热点名字直接联网，通常的做法是特定产品根据特定的事件（譬如按键）触发wifi配网（一键配网/softAP）*/
+        /*此处示例传递热点名字直接联网，通常的做法是特定产品根据特定的事件（例如按键）触发wifi配网（一键配网/softAP）*/
         result = wifi_connect(WIFI_SSID, WIFI_PW);
         if(AT_ERR_SUCCESS != result)
         {

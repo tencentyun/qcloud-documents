@@ -31,7 +31,7 @@ cat /proc/cpuinfo|grep avx
     <th>描述</th>
   </tr>
   <tr>
-    <td rowspan="3">入参</td>
+    <td rowspan="4">入参</td>
     <td>region</td>
 	  <td>是</td>
     <td>char *</td>	
@@ -49,12 +49,21 @@ cat /proc/cpuinfo|grep avx
     <td>char *</td>			
 		<td>云账户 API 密钥 Key</td>
   </tr>
+  <tr>
+    <td>domainName</td>
+	  <td>是</td>
+    <td>char *</td>			
+		<td>域名信息字符串</td>
+  </tr>
  </table>
+
+
 - 返回值：初始化成功返回0，否则返回相应的 [错误码](#test2)。
 
 >!
->  - 需注意 SecretId 和 SecretKey 的保密存储：腾讯云接口认证主要依靠 SecretID 和 SecretKey，SecretID 和 SecretKey 是用户的唯一认证凭证。业务系统需要该凭证调用腾讯云接口。
->  - 需注意 SecretId 和 SecretKey 的权限控制：建议使用子账号，根据业务需要进行接口授权的方式管控风险。
+> - 需注意 SecretId 和 SecretKey 的保密存储：腾讯云接口认证主要依靠 SecretID 和 SecretKey，SecretID 和 SecretKey 是用户的唯一认证凭证。业务系统需要该凭证调用腾讯云接口。
+> - 需注意 SecretId 和 SecretKey 的权限控制：建议使用子账号，根据业务需要进行接口授权的方式管控风险。
+> - 需注意 domainName 的设置：如果domainName入参为""，则从环境变量TENCENT_SDK_DOMAIN中读取值，反之，则以入参为准。
 
 ## KMS 密钥保护方式接口说明
 KMS 密钥保护方式基于 KMS 密钥管理平台实现，由 KMS 提供密钥的全生命周期管理，其中接口包括主密钥信息列表的新建添加、KeyManager 的初始化、加解密接口等。
@@ -96,7 +105,7 @@ KMS 密钥保护方式基于 KMS 密钥管理平台实现，由 KMS 提供密钥
 
 >!用于加密的首个主密钥，在 KMS 平台中是处于**生效**的状态。
 
-#### AddMasterKey
+### AddMasterKey
 
 - 功能描述：加入备用的用户主密钥，目的是为了灾备，当首个主密钥无法使用时，将会使用的备用密钥，最多支持加入4个。
 - 参数说明：
@@ -412,8 +421,8 @@ int CBCEnAndDeTest(struct KeyManager *p,unsigned char plaintext[],char masterKey
 
         strcpy(encryptionContext,"{\"name\":\"test\",\"date\":\"20200228\"}");
 
-        NewMasterKey(masterKeys,"ap-guangzhou","replace-with-****keyid");
-        AddMasterKey(masterKeys,"ap-beijing","replace-with-****keyid");
+        NewMasterKey(masterKeys,"ap-guangzhou","replace-with-realkeyid");
+        AddMasterKey(masterKeys,"ap-beijing","replace-with-realkeyid");
 
         /*初始化        可加密的消息数量设置为0即缓存不过期*/
         i_ret = InitKeyManager(&keymanager,masterKeys,0,0,0,p->secretId,p->secretKey);
@@ -451,27 +460,30 @@ int main()
         unsigned char plaintext[128];
         char region[128];
         char masterKeys[1024];
+        char domainName[128];
 
         memset(plaintext,0,sizeof(plaintext));
         memset(region,0,sizeof(region));
         memset(masterKeys,0,sizeof(masterKeys));
-
+        memset(domainName,0,sizeof(domainName));
+        
         struct KeyManager keymanager;
 
         strcpy(region,"ap-guangzhou");
-        strcpy(keymanager.secretId,"replace-with-real-****etId");
-        strcpy(keymanager.secretKey,"replace-with-real-****etKey");
-        strcpy(plaintext,"abcdefg12345678****defg123456789abcdefg");
+        strcpy(domainName,"kms.tencentcloudapi.com");
+        strcpy(keymanager.secretId,"replace-with-real-secretId");
+        strcpy(keymanager.secretKey,"replace-with-real-secretKey");
+        strcpy(plaintext,"abcdefg123456789abcdefg123456789abcdefg");
 
-        i_ret = InitSdk(region,keymanager.secretId,keymanager.secretKey);
+        i_ret = InitSdk(region,keymanager.secretId,keymanager.secretKey,domainName);
         if ( 0 != i_ret )
         {
                 printf("InitSdk error\n");
                 return ( -1 );
         }
 
-        NewMasterKey(masterKeys,"ap-guangzhou","replace-with-real-****etKey");
-        AddMasterKey(masterKeys,"ap-beijing","replace-with-real-****etKey");
+        NewMasterKey(masterKeys,"ap-guangzhou","replace-with-realkeyid");
+        AddMasterKey(masterKeys,"ap-beijing","replace-with-realkeyid");
        
         CBCEnAndDeTest(&keymanager,plaintext,masterKeys);
 
@@ -484,6 +496,37 @@ int main()
 
 原生加密方式对应的服务也需要升级为 KMS 旗舰版，与 KMS 密钥保护方式相比，原生加密方式需要用户本身生成加密密钥进行加解密，由用户保证密钥的安全性。出于安全与合规的考虑，建议用户使用 KMS 密钥保护方式。
 >?其中 CTR 模式加密没有填充，其他的模式加密采用 PKCS#7 标准进行填充。
+
+### Sm2GetKey
+
+- 功能描述：使用SM2算法生成密钥对。
+- 参数说明：
+
+<table>
+  <tr>
+    <th>属性</th>
+    <th>参数名称</th>
+		<th>必选</th>
+		<th>类型</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td rowspan="2">出参</td>	
+    <td>pubKey</td>
+	  <td>是</td>
+    <td>unsigned char *</td>	
+		<td>公钥内容，长度为64字节</td>
+   </tr>
+   <tr>
+    <td>priKey</td>
+	  <td>是</td>
+    <td>unsigned char *</td>		
+		<td>私钥内容，长度为32字节</td>
+   </tr>	 
+ </table>
+
+
+- 返回值：密钥对生成成功返回0，否则返回相应的错误码。
 
 ### Sm2Sign
 
@@ -587,6 +630,208 @@ int main()
 - 返回值：验签成功返回0，否则返回相应的 [错误码](#test2)。
 
 >!公钥长度为固定长度64字节，用户如果输入长度不一致的数据，可能导致内存访问异常。
+
+### Sm2PemChangeToPubkey
+
+- 功能描述：对pem格式的公钥内容进行转换。
+- 参数说明：
+
+<table>
+  <tr>
+    <th>属性</th>
+    <th>参数名称</th>
+		<th>必选</th>
+		<th>类型</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td rowspan="1">入参</td>
+    <td>pemPubKeyInfo</td>
+	  <td>是</td>
+    <td>unsigned char *</td>		
+		<td>pem格式的公钥信息</td>
+  </tr>
+	<tr>
+    <td rowspan="1">出参</td>
+    <td>pubKey</td>
+	  <td>是</td>
+    <td>unsigned char *</td>		
+    <td>转换后的公钥信息</td>
+  </tr>
+</table>
+
+- 返回值：转换成功返回0，否则返回相应的错误码。
+
+### HashForSM3WithSM2
+
+- 功能描述：使用 **Sm2GetKey** 接口生成的公钥，并基于SM3算法生成信息摘要。
+- 参数说明：
+
+<table>
+  <tr>
+    <th>属性</th>
+    <th>参数名称</th>
+		<th>必选</th>
+		<th>类型</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td rowspan="5">入参</td>
+		<td>msg</td>
+	  <td>是</td>
+    <td>unsigned char *</td>	
+		<td>原文数据</td>
+  </tr>
+  <tr>
+    <td>msgLen</td>
+	  <td>是</td>
+    <td>int</td>		
+		<td>原文数据的长度</td>
+  </tr>
+	<tr>
+    <td>pubKey</td>
+	  <td>是</td>
+    <td>unsigned char *</td>		
+		<td>公钥内容，数据长度固定为64字节</td>
+  </tr> 
+  <tr>
+    <td>id</td>
+	  <td>是</td>
+    <td>unsigned char *</td>		
+		<td>id值</td>
+  </tr>  
+	<tr>
+    <td>idLen</td>
+	  <td>是</td>
+    <td>int</td>		
+		<td>id值的长度</td>
+  </tr>
+	<tr>
+    <td rowspan="2">出参</td>
+    <td>digest</td>
+	  <td>是</td>
+    <td>unsigned char *</td>		
+    <td>生成的摘要</td>
+  </tr>
+  <tr>
+    <td>digestLen</td>
+	  <td>是</td>
+    <td>int *</td>
+    <td>摘要数据的长度</td>
+  </tr>
+</table>
+
+
+- 返回值：生成摘要成功返回0，否则返回相应的错误码。
+
+> 注意：公钥的长度为固定长度，用户如果输入长度不一致的数据，可能导致内存访问异常。
+
+### Sm2SignWithDigest
+
+- 功能描述：使用本地生成的消息摘要生成签名
+- 参数说明：
+
+<table>
+  <tr>
+    <th>属性</th>
+    <th>参数名称</th>
+		<th>必选</th>
+		<th>类型</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td rowspan="4">入参</td>
+    <td>pubKey</td>
+	  <td>是</td>
+    <td>unsigned char *</td>		
+		<td>公钥内容，数据长度固定为64字节</td>
+  </tr>
+	<tr>
+    <td>priKey</td>
+	  <td>是</td>
+    <td>unsigned char *</td>		
+		<td>私钥内容，数据长度固定为32字节</td>
+  </tr> 
+	<tr>
+    <td>digest</td>
+	  <td>是</td>
+    <td>unsigned char *</td>		
+    <td>摘要数据</td>
+  </tr>
+  <tr>
+    <td>digestLen</td>
+	  <td>是</td>
+    <td>int </td>
+    <td>摘要数据的长度</td>
+  </tr>
+	<tr>
+    <td rowspan="2">出参</td>
+    <td>sig</td>
+	  <td>是</td>
+    <td>unsigned char *</td>		
+    <td>生成的签名值</td>
+  </tr>
+  <tr>
+    <td>sigLen</td>
+	  <td>是</td>
+    <td>int *</td>
+    <td>签名数据的长度</td>
+  </tr>
+</table>
+
+
+- 返回值：生成签名成功返回0，否则返回相应的错误码。
+
+> 注意：公钥和私钥的长度为固定长度，用户如果输入长度不一致的数据，可能导致内存访问异常。
+
+### Sm2VerifyWithDigest
+
+- 功能描述：通过生成的摘要内容进行验签。
+- 参数说明：
+
+<table>
+  <tr>
+    <th>属性</th>
+    <th>参数名称</th>
+    <th>必选</th>
+    <th>类型</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td rowspan="5">入参</td> 
+    <td>pubKey</td>
+    <td>是</td>
+    <td>unsigned char *</td>  
+    <td>公钥内容，数据长度为64字节</td>
+   </tr>
+   <tr>
+    <td>sig</td>
+	  <td>是</td>
+    <td>unsigned char *</td>		
+    <td>签名内容</td>
+  </tr>
+  <tr>
+    <td>sigLen</td>
+	  <td>是</td>
+    <td>int </td>
+    <td>签名数据的长度</td>
+  </tr> 
+  <tr>
+    <td>digest</td>
+	  <td>是</td>
+    <td>unsigned char *</td>		
+    <td>摘要数据</td>
+  </tr>
+  <tr>
+    <td>digestLen</td>
+	  <td>是</td>
+    <td>int </td>
+    <td>摘要数据的长度</td>
+  </tr>
+ </table>
+
+
+- 返回值：验签成功返回0，否则返回相应的错误码。
 
 ### Sm2Encrypt
 
@@ -736,6 +981,47 @@ int main()
   </tr>
 </table>
 - 返回值：接口调用成功返回0，否则返回相应的 [错误码](#test2)。
+
+### Sm3Digest
+
+- 功能描述：使用SM3生成摘要。
+- 参数说明：
+
+<table>
+  <tr>
+    <th>属性</th>
+    <th>参数名称</th>
+		<th>必选</th>
+		<th>类型</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td rowspan="2">入参</td>
+    <td>data</td>
+	  <td>是</td>
+    <td>unsigned char *</td>		
+		<td>原文数据</td>
+  </tr>
+  <tr>
+    <td>dataLen</td>
+	  <td>是</td>
+    <td>int </td>		
+    <td>原文数据的长度</td>
+  </tr>
+	<tr>
+    <td rowspan="2">出参</td>
+    <td>digest</td>
+	  <td>是</td>
+    <td>unsigned char *</td>		
+    <td>生成的摘要</td>
+  </tr>
+  <tr>
+    <td>digestLen</td>
+	  <td>是</td>
+    <td>int </td>		
+    <td>生成的摘要的长度</td>
+  </tr>
+</table>
 
 ### Sm4CbcEncrypt/Sm4CtrEncrypt
 
@@ -889,7 +1175,7 @@ int main()
 </table>
 - 返回值：加密成功返回0，否则返回相应的 [错误码](#test2)。
 
-#### Sm4EcbDecrypt
+### Sm4EcbDecrypt
 
 - 功能描述：使用 SM4 加密算法 ECB 模式下的解密。
 - 参数说明：
@@ -936,7 +1222,7 @@ int main()
 </table>
 - 返回值：解密成功返回0，否则返回相应的 [错误码](#test2)。
 
-#### Sm4GcmEncrypt
+### Sm4GcmEncrypt
 
 - 功能描述：用于 SM4 加密算法 GCM 模式下的加密。
 - 参数说明：
@@ -1019,7 +1305,7 @@ int main()
 </table>
 - 返回值：加密成功返回0，否则返回相应的 [错误码](#test2)。
 
-#### Sm4GcmDecrypt
+### Sm4GcmDecrypt
 
 - 功能描述：使用 SM4 加密算法 GCM 模式下的解密。
 - 参数说明：
@@ -1154,30 +1440,32 @@ int Sm4CbcTest()
 
 int main()
 {
-	int i_ret = 0;
-	
-	char region[128];
-	char secretId[128];
-	char secretKey[128];
-	
-	memset(region,0,sizeof(region));
-	memset(secretId,0,sizeof(secretId));
-	memset(secretKey,0,sizeof(secretKey));
-	
-	strcpy(region,"ap-guangzhou");
-	strcpy(secretId,"replace-with-real-****etId");
-	strcpy(secretKey,"replace-with-real-****etKey");
-	
-	i_ret = InitSdk(region,secretId,secretKey);
-	if ( i_ret != 0 )
-	{
-		printf("InitSdk error\n");
-		return ( -1 );
-	}
+        int i_ret = 0;
+        
+        char region[128];
+        char secretId[128];
+        char secretKey[128];
 
-   Sm4CbcTest();
+        memset(region,0,sizeof(region));
+        memset(secretId,0,sizeof(secretId));
+        memset(secretKey,0,sizeof(secretKey));
+        memset(domainName,0,sizeof(domainName));
+        
+        strcpy(region,"ap-guangzhou");
+        strcpy(domainName,"kms.tencentcloudapi.com");
+        strcpy(secretId,"replace-with-real-secretId");
+        strcpy(secretKey,"replace-with-real-secretKey");
+        
+        i_ret = InitSdk(region,secretId,secretKey,domainName);
+        if ( i_ret != 0 )
+        {
+                printf("InitSdk error\n");
+                return ( -1 );
+        }
 
-return ( 0 );	
+        Sm4CbcTest();
+
+        return ( 0 );	
 }
 
 ```

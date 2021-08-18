@@ -358,7 +358,6 @@ sdk.getShareParams({ deviceId?: string }) => Promise<any>
 ### 检查设备是否有可升级固件
 
 检查指定设备是否有可升级固件，若有可升级固件，且设备在线，则弹出固件升级提示。
-
 - **接口定义**
 ```typescript
 sdk.checkFirmwareUpgrade({
@@ -1340,6 +1339,66 @@ sdk.off(type: string, listener: (...args) => void) => void
 <td>deviceStatus</td>
 <td>设备在线状态</td>
 <td>0 | 1</td>
+</tr>
+</tbody></table>
+- **wsEventReport 事件**：当 WebSocket 收到 `wsEventReport` 指令后触发。
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>deviceId</td>
+<td>设备 ID</td>
+<td>string</td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>设备回复详情</td>
+<td>object</td>
+</tr>
+</tbody></table>
+- **wsActionPush 事件**：当 WebSocket 收到 `wsActionPush` 指令后触发。
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>deviceId</td>
+<td>设备 ID</td>
+<td>string</td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>下发的 Action 指定详情</td>
+<td>object</td>
+</tr>
+</tbody></table>
+- **wsActionReport 事件**：当 WebSocket 收到 `wsActionReport` 指令后触发。
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>deviceId</td>
+<td>设备 ID</td>
+<td>string</td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>设备回复的 Action 响应详情</td>
+<td>object</td>
 </tr>
 </tbody></table>
 

@@ -95,7 +95,7 @@
       <td>latitude</td>
       <td>可选（建议填写）</td>
       <td>Float</td>
-      <td>维度。浮点数，范围为-90 - 90。</td>
+      <td>纬度。浮点数，范围为-90 - 90。</td>
    </tr>
    <tr>
       <td>longitude</td>
