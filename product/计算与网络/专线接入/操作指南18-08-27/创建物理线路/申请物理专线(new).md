@@ -25,8 +25,8 @@
 </tr>
 <tr>
 <td>专线名称</td>
-<td>请自定义您的物理专线的名称</td>
-<td>支持更改</td>
+<td>请自定义您的物理专线的名称。</td>
+<td>支持更改。</td>
 </tr>
 <tr>
 <td>地域</td>
@@ -35,12 +35,12 @@
 </tr>
 <tr>
 <td>接入点</td>
-<td>腾讯云物理专线的网络服务提供点，建议选择就近接入。具体接入点请参见<a href="https://cloud.tencent.com/document/product/216/58779"> 专线接入点</a>。</td>
+<td>腾讯云物理专线的网络服务提供点，建议选择就近接入，具体接入点请参见<a href="https://cloud.tencent.com/document/product/216/58779"> 专线接入点</a>。</td>
 <td>腾讯云支持的地域一般具备2个以上接入点，可实现双线容灾。</td>
 </tr>
  <tr>
 <td>物理线路提供商</td>
-<td>具有合规电信业务经营资质的运营商</td>
+<td>具有合规电信业务经营资质的运营商。</td>
 <td>中国电信、中国移动、中国联通、本地线路、中国其他、境外其他。</td>
 </tr>
 <tr>
@@ -60,23 +60,23 @@
 </tr>
 <tr>
 <td>IDC 地址</td>
-<td>用户 IDC 具体地址</td>
+<td>用户 IDC 具体地址。</td>
 <td>- </td>
 </tr>
 <tr>
 <td>联系人</td>
-<td>申请物理专线的客户侧联系人</td>
-<td>张三</td>
+<td>申请物理专线的客户侧联系人。</td>
+<td>张三。</td>
 </tr>
 <tr>
 <td>联系方式</td>
-<td>申请物理专线的客户侧联系人的联系方式</td>
+<td>申请物理专线的客户侧联系人的联系方式。</td>
 <td>- </td>
 </tr>
 <tr>
 <td>申请者 Email</td>
-<td>物理专线申请者电子邮件</td>
-<td>XXXX@XXXX.com</td>
+<td>物理专线申请者电子邮件。</td>
+<td>XXXX@XXXX.com。</td>
 </tr>
 </table>
 
