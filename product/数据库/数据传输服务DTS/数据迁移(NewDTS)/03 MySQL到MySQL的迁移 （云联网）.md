@@ -183,7 +183,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
     - 请选择合适时间手动完成增量数据同步，并完成业务切换。
     - 观察迁移阶段为增量同步，并显示无延迟状态，将源库停写几分钟。
     - 目标与源库数据差距为0MB及目标与源库时间延迟为0秒时，手动完成增量同步。
-    ![](https://main.qcloudimg.com/raw/0d2f7bef47a658148d779afaefe4382b.png)
+    ![](https://main.qcloudimg.com/raw/e2b9ed2f2a63a0fdf28a557aa5f7aaf2.png)
 7. （可选）如果您需要进行查看任务、删除任务等操作，请单击对应的任务，在“操作”列进行操作，详情可参考 [任务管理](https://cloud.tencent.com/document/product/571/58674)。
 8. 当迁移任务状态变为“任务成功”时，即可对业务进行正式割接，更多详情可参考 [割接说明](https://cloud.tencent.com/document/product/571/58660)。
 

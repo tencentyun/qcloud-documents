@@ -95,7 +95,7 @@ iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以�
  操作完成后，会在文件列表中生成一个名为 `Target名.entitlements` 的文件，如下图所示，选中该文件并单击 + 号填写上述步骤中的 App Group 即可。
  ![AddGroup](https://main.qcloudimg.com/raw/b4904a8b425cf55e58497b35c0700966.png)
 5. 选中主 App 的 Target ，**并按照上述步骤对主 App 的 Target 做同样的处理。**
-6. 在新创建的 Target 中，Xcode 会自动创建一个名为 "SampleHandler.m" 的文件，用如下代码进行替换。**需将代码中的 APPGROUP 改为上文中的创建的 App Group Identifier**。
+6. 在新创建的 Target 中，Xcode 会自动创建一个名为 "SampleHandler.h" 的文件，用如下代码进行替换。**需将代码中的 APPGROUP 改为上文中的创建的 App Group Identifier**。
 <dx-codeblock>
 ::: iOS object-c
 #import "SampleHandler.h"

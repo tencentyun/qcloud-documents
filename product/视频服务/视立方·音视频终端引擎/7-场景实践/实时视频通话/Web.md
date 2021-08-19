@@ -57,7 +57,7 @@ TRTCCalling 依赖以下端口进行数据传输，请将其加入防火墙白�
 3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-<img src="https://main.qcloudimg.com/raw/99c0bf40a7b6267c5c398336a97f3335.png">
+	<img src="https://main.qcloudimg.com/raw/99c0bf40a7b6267c5c398336a97f3335.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -121,7 +121,10 @@ npm run serve
 import TRTCCalling from 'trtc-calling-js';
 
 let options = {
-  SDKAppID: 0 // 接入时需要将0替换为您的 SDKAppID
+  SDKAppID: 0, // 接入时需要将0替换为您的 SDKAppID
+  // 从v0.10.2起，新增 tim 参数
+  // tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性
+  tim: tim
 };
 const trtcCalling = new TRTCCalling(options);
 :::

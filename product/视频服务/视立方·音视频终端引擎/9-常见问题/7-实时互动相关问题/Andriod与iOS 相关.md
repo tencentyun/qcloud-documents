@@ -14,7 +14,7 @@
 
 [](id:que4)
 ###  音视频通话 TRTC 移动端怎么实现录屏（屏幕分享）？	
-- **Android 端**：Version 7.2 及以上版本支持手机录屏，具体实践方法请参见 [实时屏幕分享（Android）](https://cloud.tencent.com/document/product/1449/57115#video_app)。
+- **Android 端**：Version 7.2 及以上版本支持手机录屏，具体实践方法请参见 [实时屏幕分享（Android）](https://cloud.tencent.com/document/product/1449/57115)。
 - **iOS 端**：Version 7.2 及以上版本支持 App 内录屏；Version 7.6 及以上版本支持手机录屏和 App 内录屏。具体实践方法请参见 [实时屏幕分享（iOS）](https://cloud.tencent.com/document/product/1449/57113)。
 
 

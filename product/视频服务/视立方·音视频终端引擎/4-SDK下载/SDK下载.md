@@ -36,7 +36,7 @@
 <td colspan="6" style="text-align:center"><a href="https://cloud.tencent.com/document/product/1449/56977">腾讯云视立方 Demo</a></td>
 </tr>
 <tr>
-<td rowspan="2" width="10%">直播推流</td>
+<td rowspan="2" width="15%">直播推流<br>(需 License 解锁)</td>
 <td>主播开播</td>
 <td style="text-align:center">&#10003;</td>
 <td style="text-align:center">&#10003;</td>
@@ -55,7 +55,7 @@
 <td style="text-align:center">&#10003;</td>
 </tr>
 <tr>
-<td>短视频</td>
+<td>短视频<br>(需 License 解锁)</td>
 <td>视频录制编辑/视频上传发布</td>
 <td style="text-align:center">-</td>
 <td style="text-align:center">-</td>

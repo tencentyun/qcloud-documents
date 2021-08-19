@@ -83,7 +83,7 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
 
 ### 操作步骤
 1) 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/ccs) 。
-2) 单击左侧导航栏中的【服务】，单击服务列表页的【+ 新建】。
+2) 单击左侧导航栏中的**服务**，单击服务列表页的**+ 新建**。
 ![](//mc.qcloudimg.com/static/img/11f7f75d7b051a815da8bfe1e744a8e8/image.png)
 3) 设置服务的基本信息。
  - **服务名称**：要创建的服务的名称。服务名称由小写字母、数字和 - 组成，且由小写字母开头，小写字母或数字结尾。本例中，服务名称为 helloworld。
@@ -92,9 +92,9 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
  - **服务描述**：创建服务的相关信息。该信息将显示在 **服务信息** 页面。
 ![](//mc.qcloudimg.com/static/img/a09e01f2f54a5d68720d4078d21e7c46/image.png)
 
-4) 选择镜像。输入运行容器的名称，此处以 helloworld 为例。单击【选择镜像】 。
+4) 选择镜像。输入运行容器的名称，此处以 helloworld 为例。单击**选择镜像** 。
 ![](//mc.qcloudimg.com/static/img/abb29fc594b5d87d7c475585b1dbe143/image.png)
-在 **我的镜像** 下，在搜索框中输入 helloworld，单击搜索。在搜索结果中选择 helloworld，单击 【确定】。
+在 **我的镜像** 下，在搜索框中输入 helloworld，单击搜索。在搜索结果中选择 helloworld，单击 **确定**。
 ![](//mc.qcloudimg.com/static/img/3f4e4dada565b815788720fb6436a6c6/image.png)
 5) 设置端口映射。将容器端口和服务端口都设置为 80 。
 >**注意**：服务所在集群的安全组需要放通节点网络及容器网络，同时需要放通30000-32768端口，否则可能会出现容器服务无法使用问题。详情参见[容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)
@@ -106,9 +106,9 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
 
 ## 访问 Hello World 服务
 1) 提供三种方式访问 Hello World 服务。
- - 通过**负载均衡 IP**来访问 Hello World 服务。单击服务页面的【服务信息】查看负载均衡 IP和负载均衡ID。 
+ - 通过**负载均衡 IP**来访问 Hello World 服务。单击服务页面的**服务信息**查看负载均衡 IP和负载均衡ID。 
 ![](//mc.qcloudimg.com/static/img/7891c817f167f7726b67615696cfff08/image.png)
- - 通过 **域名** 来访问 Hello World 服务。在容器服务控制台左侧导航栏中，单击【负载均衡】，单击【TCP/UDP】，找到对应的负载均衡ID，复制域名访问服务。
+ - 通过 **域名** 来访问 Hello World 服务。在容器服务控制台左侧导航栏中，单击**负载均衡**，单击**TCP/UDP**，找到对应的负载均衡ID，复制域名访问服务。
  - 集群内的其他服务或容器可以直接通过服务名称访问。
  
 2) 进入 Hello World 服务器的默认欢迎页。

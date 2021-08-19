@@ -20,7 +20,6 @@ hexo s
 ![](https://main.qcloudimg.com/raw/5b91e6303e40aea5c1d5f0cfc521dc4a.png)
 
 
-
 ## 步骤2：创建云开发环境
 1. 打开浏览器，进入腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，单击【立即创建】，新建一个环境来进行部署。
 ![](https://main.qcloudimg.com/raw/373ce011bfad392b5c2fedd8008bb6f5.png)
