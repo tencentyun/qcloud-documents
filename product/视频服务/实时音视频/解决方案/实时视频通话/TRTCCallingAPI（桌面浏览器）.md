@@ -417,7 +417,7 @@ trtcCalling.on(TRTCCalling.EVENT.REJECT, handleInviteeReject)
 #### USER_ENTER
 
 用户进房。
-触发条件：当有用户进入通话
+触发条件：当有用户进入通话。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -437,7 +437,7 @@ trtcCalling.on(TRTCCalling.EVENT.USER_ENTER, handleUserEnter);
 #### USER_LEAVE
 
 用户退出房间。
-触发条件：当有用户退出通话
+触发条件：当有用户退出通话。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -457,7 +457,7 @@ trtcCalling.on(TRTCCalling.EVENT.USER_LEAVE, handleUserLeave);
 #### CALL_END
 
 本次通话结束。
-触发条件：结束本次通话
+触发条件：结束本次通话。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -471,7 +471,7 @@ trtcCalling.on(TRTCCalling.EVENT.CALL_END, handleCallingEnd);
 #### KICKED_OUT
 
 重复登录，被踢出房间。
-触发条件：在其他页面重复登录
+触发条件：在其他页面重复登录。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -485,7 +485,7 @@ trtcCalling.on(TRTCCalling.EVENT.KICKED_OUT, handleKickedOut);
 #### USER_VIDEO_AVAILABLE
 
 远端用户打开关闭摄像头。
-触发条件：远端用户打开/关闭摄像头
+触发条件：远端用户打开/关闭摄像头。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -506,7 +506,7 @@ trtcCalling.on(TRTCCalling.EVENT.USER_VIDEO_AVAILABLE, handleUserVideoChange);
 #### USER_AUDIO_AVAILABLE
 
 远端用户开启/关闭了麦克风。
-触发条件：远端用户开启/关闭了麦克风
+触发条件：远端用户开启/关闭了麦克风。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -529,7 +529,7 @@ trtcCalling.on(TRTCCalling.EVENT.USER_AUDIO_AVAILABLE, handleUserAudioChange);
 #### REJECT
 
 用户拒绝通话。
-触发条件：被邀请方拒绝通话，发起方收到 REJECT 事件回调
+触发条件：被邀请方拒绝通话，发起方收到 REJECT 事件回调。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -549,7 +549,7 @@ trtcCalling.on(TRTCCalling.EVENT.REJECT, handleInviteeReject);
 #### NO_RESP
 
 邀请用户无应答。
-触发条件：当 call/groupCall 设置 timeout，被邀请方未在timeout内未在接听，发起方收到NO_RESP事件回调
+触发条件：当 call/groupCall 设置 timeout，被邀请方未在 timeout 内未在接听，发起方收到 NO_RESP 事件回调。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -570,7 +570,7 @@ trtcCalling.on(TRTCCalling.EVENT.NO_RESP, handleNoResponse);
 #### LINE_BUSY
 
 被邀请方正在通话中，忙线。
-触发条件：被邀请方已再另一通话中，发起方收到LINE_BUSY事件回调
+触发条件：被邀请方已再另一通话中，发起方收到 LINE_BUSY 事件回调。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -592,7 +592,7 @@ trtcCalling.on(TRTCCalling.EVENT.LINE_BUSY, handleLineBusy);
 #### INVITED
 
 收到邀请通知。
-触发条件：当有邀请通话时，被邀请方收到 INVITED 事件回调
+触发条件：当有邀请通话时，被邀请方收到 INVITED 事件回调。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -618,7 +618,7 @@ trtcCalling.on(TRTCCalling.EVENT.INVITED, handleNewInvitationReceived);
 #### CALLING_CANCEL
 
 本次通话被取消了。
-触发条件：发起方在呼叫过程中取消通话，被邀请方收到 CALLING_CANCEL 事件回调
+触发条件：发起方在呼叫过程中取消通话，被邀请方收到 CALLING_CANCEL 事件回调。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -632,7 +632,7 @@ trtcCalling.on(TRTCCalling.EVENT.CALLING_CANCEL, handleCallingCancel);
 #### CALLING_TIMEOUT
 
 本次通话超时未应答。
-触发条件：当 call/groupCall 设置 timeout，被邀请方未在timeout内未在接听，被邀请方收到CALLING_TIMEOUT事件回调
+触发条件：当 call/groupCall 设置 timeout，被邀请方未在 timeout 内未在接听，被邀请方收到 CALLING_TIMEOUT 事件回调。
 
 <dx-codeblock>
 ::: javascript javascript

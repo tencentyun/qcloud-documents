@@ -41,7 +41,7 @@
 | [exitRoom()](#exitroom())                                    | 停止推流和取消订阅所有远端音视频，并退出房间            |
 | [getPlayerList()](#getplayerlist())                          | 获取当前远端 player 的列表                              |
 
-### pusher && player 状态变更方法
+### pusher & player 状态变更方法
 
 您可以通过这些 API 主动改变推拉流的状态。
 
