@@ -1,7 +1,7 @@
 ## Version 8.9.102 @ 2021.08.11
 
 **功能新增**
-- Windows & Mac：onStatistics 回调新增字段 gatewayRtt [onStatistics](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onStatistics)。
+Windows & Mac：onStatistics 回调新增字段 gatewayRtt [onStatistics](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onStatistics)。
 
 **问题修复**
 - Mac：修复特殊机型写日志引起 crash。
