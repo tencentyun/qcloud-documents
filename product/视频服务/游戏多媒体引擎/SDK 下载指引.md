@@ -10,7 +10,7 @@
 
 ## 下载及使用
 
-下载 SDK 及 Demo 后，如果使用上有问题，您可参见 [Demo 使用问题](https://cloud.tencent.com/document/product/607/51456)，或者 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系腾讯云工作人员。
+下载 SDK 及 Demo 后，如果使用上有问题，您可参见 [Demo 使用问题](https://cloud.tencent.com/document/product/607/51456)，或进行 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 联系腾讯云工作人员。
 
 >?下载的 Demo 代码中，需要替换为您申请的 SDKAppid 和 Key 才可编译执行，例如 Unity Demo 需要修改 **UserConfig.cs** 代码文件。申请服务详情请参见 [语音服务开通指引](https://cloud.tencent.com/document/product/607/10782)。
 
@@ -30,7 +30,7 @@ v2.8.3 正式版本更新如下：
 </thead>
 <tbody><tr>
 <td>发布 SDK v2.8.3 正式版本</td>
-<td ><ul style="margin:0;"><li >增加实时语音识别功能，在语音通话的过程中可以将说话的声音实时识别成文字（目前处于灰度内测阶段，您可以 <a href="https://cloud.tencent.com/online-service?from=ticket-transform">提交工单</a> 申请使用）。</li>
+<td ><ul style="margin:0;"><li >增加实时语音识别功能，在语音通话的过程中可以将说话的声音实时识别成文字（目前处于灰度内测阶段，您可以进行 <a href="https://cloud.tencent.com/online-service?from=connect-us">在线咨询</a> 申请使用）。</li>
 <li >优化网络模块，提升 Windows 平台进房成功率。</li>
 <li >更新 H5 平台 SDK，增加浏览器适配范围。</li>
 <li >性能优化，提升进房速度，提升 SDK 稳定性。</li>

@@ -15,7 +15,7 @@
 
 ![](https://main.qcloudimg.com/raw/21e4ca6a6e312f16795545cd4b1136f1.png)
 
-完成创建平台后，可以获取到平台的名称`Platform`，用于 Demo 的配置使用。
+完成创建平台后，可以获取到平台的名称 `Platform`，用于 Demo 的配置使用。
 
 ## 步骤2：获取云 API 密钥[](id:step2)
 获取腾讯云用户身份密钥，即`SecretId`和`SecretKey`，具体步骤如下：

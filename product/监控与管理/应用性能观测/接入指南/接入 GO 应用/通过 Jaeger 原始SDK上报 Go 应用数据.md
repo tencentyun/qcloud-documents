@@ -13,7 +13,7 @@
 2. 执行下列命令启动 Agent 。
 <dx-codeblock>
 :::  shell
- shell nohup ./jaeger-agent --reporter.grpc.host-port={{collectorRPCHostPort}} --jaeger.tags=token={{token}}
+ shell nohup ./jaeger-agent --reporter.grpc.host-port={{collectorRPCHostPort}} --agent.tags=token={{token}}
 :::
 </dx-codeblock>
 

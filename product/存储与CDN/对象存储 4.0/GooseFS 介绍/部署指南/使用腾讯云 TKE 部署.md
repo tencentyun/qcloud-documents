@@ -26,7 +26,7 @@
 [root@master01 run]# export KUBECONFIG=xxx/cls-xxx-config (从tke控制台页面，下载集群凭证到某个目录）
 ```
 
->! 集群 API Server 开启外网访问权限。
+>! 集群 API Server 需要开启外网访问权限。
 >
 
 ### 2. 创建 UFS 数据集 Dataset（COS 为例）

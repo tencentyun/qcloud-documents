@@ -7,28 +7,17 @@
 ## 操作步骤
 
 [](id:step01)
-
-### 创建日志集
-
-1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志集管理】。
+### 创建日志集和主题
+1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志主题】。
 2. 进入日志集管理页面，在页面上方选择日志集的地域。
-3. 单击【创建日志集】，在弹出的创建日志集窗口中，填写相关信息：
-   ![](https://main.qcloudimg.com/raw/52704e1f3bdf6efe4c7e9b266e2ca451.jpg)
-4. 单击【确定】，即可创建日志集。
-
-[](id:step02)
-
-### 创建日志主题
-
-1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志集管理】。
-2. 找到已创建的日志集，在其右侧操作栏中，单击【查看】，进入日志集详情页面。
-3. 单击【新增日志主题】，在新增日志主题窗口中，填写如下相关信息：
-   - 日志主题名称：例如：nginx。
-   - 主题分区（Partition）数量： 主题分区介绍请参见 [主题分区介绍](https://cloud.tencent.com/document/product/614/39259)，默认新建1个分区。
-     ![](https://main.qcloudimg.com/raw/d22c9d090a380376a1de4b56f19bc27a.jpg)
-4. 单击【确定】，新增日志主题。
-5. 日志主题新增成功，将进入日志主题管理页。
-   ![](https://main.qcloudimg.com/raw/08e9dc61f1cc8bfcb1923345c86bef45.jpg)
+3. 单击【创建日志主题】，在弹出的创建日志集窗口中，填写相关信息：
+      - 日志主题名称：例如 project_test
+      - 日志集名称：例如 nginx
+![](https://main.qcloudimg.com/raw/6e2ff86cd07c0e132bee42850dfa678f.png)
+4. 单击【确定】，即可创建日志集和主题。
+5. 日志主题新增成功，将进入日志主题管理页，如下图所示：
+      ![](https://main.qcloudimg.com/raw/14416fdbda5ac39e4a650d1e37a5118c.png)
+   
 >? ETL 数据处理的源端和终端均为 CLS，故至少需创建两个 Topic。
 
 [](id:step03)
@@ -42,7 +31,7 @@
 	- **创建方式**：选择【模板函数】。
 	- **模糊搜索**：输入“CLS日志ETL”，并进行搜索。
 3. 单击模板中的【查看详情】，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
- <img src="https://main.qcloudimg.com/raw/7510ff0cd7fc0c2a33219a407c06a3a5.png" width="100%">
+ <img src="https://main.qcloudimg.com/raw/e0cfb537bc59933a254b4bcc1c67c458.png" width="100%">
 4. 基本信息配置完成之后，单击【下一步】，进入函数配置页面。
 5. 函数配置保持默认配置，单击【完成】，完成函数的创建。
 

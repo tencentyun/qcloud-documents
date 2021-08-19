@@ -112,6 +112,7 @@
 	<li><a href="#BMI5">高 IO 型 BMI5</a>  </li>
 	<li><a href="#BMD3">大数据型 BMD3</a>  </li>
 	<li><a href="#BMD2">大数据型 BMD2</a></li>
+	<li><a href="#BMGNV4">GPU 型 BMGNV4</a></li>
 	<li><a href="#BMG5t">GPU 型 BMG5t</a></li>
 	<li><a href="#BMG5v">GPU 型 BMG5v</a></li>
 </ul>
@@ -18288,6 +18289,214 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 </table>
 
 <table class="tableblock frame-none grid-all spread custom-style">
+	<colgroup>
+	  <col style="width: 100%;" />
+	</colgroup>
+	<tbody>
+	  <tr>
+		<td class="tableblock halign-left valign-top">
+		  <div>
+			<div class="sect2">
+			  <h3 id="BMGNV4">GPU 型 BMGNV4</h3>
+			  <div class="paragraph">
+				<p>GPU 型 BMGNV4 实例搭载 NVIDIA<sup>®</sup> A10 GPU，搭载高主频 CPU，适用于高性能图形图像处理应用（3D 渲染，视频编解码），同时也适用于深度学习、科学计算等 GPU 通用计算场景。实例采用腾讯云最新的虚拟化技术，计算性能无损耗，支持嵌套虚拟化，提供快速、稳定、弹性的计算服务。</p>
+				<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
+</blockquote>
+			  </div>
+			  <div class="sect3">
+				<h4 id="_使用场景_20">使用场景</h4>
+				<div class="ulist">
+				  <ul>
+					<li><p>图形图像处理场景。例如：</p></li>
+						<ul><li>
+					  <p>图形图像处理</p>
+					</li>
+					<li>
+					  <p>视频编解码</p>
+					</li>
+					<li>
+					  <p>图形数据库</p>
+					</li></ul>
+					<li><p>深度学习的推理场景和小规模训练场景。例如：</p></li>
+						<ul><li>
+					  <p>大规模部署的 AI 推理</p>
+					</li>
+					<li>
+					  <p>深度学习小规模训练</p>
+					</li></ul>
+				  </ul>
+					<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>NVIDIA 系列 GPU 实例用作通用计算，需要安装 Tesla Driver + CUDA，安装方法请参考 <a href="https://cloud.tencent.com/document/product/560/8048">安装 NVIDIA Tesla 驱动指引</a> 和 <a href="https://cloud.tencent.com/document/product/560/8064">安装 CUDA 驱动指引</a>。</p></blockquote>
+				</div>
+			  </div>
+			  <div class="sect3">
+				<h4 id="_实例特点_20">实例特点</h4>
+				<div class="ulist">
+				  <ul>
+					<li>
+					  <p>基于腾讯云自研星星海服务器，提供可靠、安全、稳定的高性能</p>
+					</li>
+					<li>
+					<p>3.4GHz Intel<sup>®</sup> Xeon<sup>®</sup> Cooper Lake 高主频处理器，全核睿频3.8GHz</p>
+					</li>
+					<li>
+					  <p>搭载 NVIDIA<sup>®</sup> A10 GPU（31.2 TFLOPS 单精度浮点计算，250 INT8 TOPS，500 INT4 TOPS）</p>
+					</li>
+					<li>
+					  <p>支持25Gbps内网带宽，超高网络收发包能力，满足极高的内网传输需求</p>
+					</li>
+				  </ul>
+				</div>
+			  </div>
+			  <div class="sect3">
+				<h4 id="__a_href_instancetype_回到顶部_a_20">    
+				<a href="#INSTANCETYPE">回到顶部</a></h4>
+			  </div>
+			</div>
+		  </div>
+		</td>
+	  </tr>
+	  <tr>
+		<td class="tableblock halign-left valign-top">
+		  <div>
+			<div class="doc-table-wrap">
+			  <table class="tableblock frame-all grid-all spread">
+				<colgroup>
+				  <col style="width: 10%;" />
+				  <col style="width: 8%;" />
+				  <col style="width: 10%;" />
+				  <col style="width: 12%;" />
+				  <col style="width: 10%;" />
+				  <col style="width: 10%;" />
+				  <col style="width: 10%;" />
+				  <col style="width: 30%;" />
+				</colgroup>
+				<tbody>
+				  <tr>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						  <p>规格</p>
+						</div>
+					  </div>
+					</td>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						  <p>vCPU</p>
+						</div>
+					  </div>
+					</td>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						  <p>内存 （GB）</p>
+						</div>
+					  </div>
+					</td>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						  <p>网络收发包（pps）（出+入）</p>
+						</div>
+					  </div>
+					</td>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						  <p>队列数</p>
+						</div>
+					  </div>
+					</td>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						  <p>内网带宽能力（Gbps）（出+入）</p>
+						</div>
+					  </div>
+					</td>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						  <p>主频</p>
+						</div>
+					  </div>
+					</td>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						  <p>备注</p>
+						</div>
+					  </div>
+					</td>
+				  </tr>
+				  <tr>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						  <p>BMGNV4</p>
+						</div>
+					  </div>
+					</td>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						  <p>208</p>
+						</div>
+					  </div>
+					</td>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						  <p>768</p>
+						</div>
+					  </div>
+					</td>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						  <p>1000万</p>
+						</div>
+					  </div>
+					</td>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						  <p>32</p>
+						</div>
+					  </div>
+					</td>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						  <p>25</p>
+						</div>
+					  </div>
+					</td>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						  <p>3.4GHz</p>
+						</div>
+					  </div>
+					</td>
+					<td class="tableblock halign-left valign-top">
+					  <div>
+						<div class="paragraph">
+						<p>16 × NVIDIA<sup>®</sup> A10 GPU</p>
+						</div>
+					  </div>
+					</td>
+				  </tr>
+				</tbody>
+			  </table>
+			</div>
+		  </div>
+		</td>
+	  </tr>
+	</tbody>
+  </table>
+
+<table class="tableblock frame-none grid-all spread custom-style">
 			<colgroup>
 				<col style="width: 100%;">
 			</colgroup>
@@ -18319,7 +18528,7 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 								<p>图形图像处理、视频编解码和图形数据库场景</p>
 							</li>
 						</ul>
-						<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>NVIDIA 系列 GPU 实例用作通用计算，需要安装 Tesla Driver + CUDA，安装方法请参考 <a href="https://cloud.tencent.com/document/product/560/8048">安装 NVIDIA Tesla 驱动指引</a> 和 <a href="https://cloud.tencent.com/document/product/560/8064">安装 CUDA 驱动指引</a>。</p>
+						<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>NVIDIA 系列 GPU 实例用作通用计算，需要安装 Tesla Driver + CUDA，安装方法请参考 <a href="https://cloud.tencent.com/document/product/560/8048">安装 NVIDIA Tesla 驱动指引</a> 和 <a href="https://cloud.tencent.com/document/product/560/8064">安装 CUDA 驱动指引</a>。</p></blockquote>
 									</div>
 								</div>
 								<div class="sect3">
@@ -18445,8 +18654,7 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 										<li><p>计算流体动力学</p></li>
 										<li><p>分子建模</p></li>
 										<li><p>基因组学及其他</p></li>
-										</ul>
-											<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>NVIDIA 系列 GPU 实例用作通用计算，需要安装 Tesla Driver + CUDA，安装方法请参考 <a href="https://cloud.tencent.com/document/product/560/8048">安装 NVIDIA Tesla 驱动指引</a> 和 <a href="https://cloud.tencent.com/document/product/560/8064">安装 CUDA 驱动指引</a>。</p>
+										</ul>										
 										</ul>
 										</div>
 								</div>
@@ -18458,6 +18666,7 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 								<li><p>图形数据库</p></li>
 								</ul>
 								</ul>
+								<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>NVIDIA 系列 GPU 实例用作通用计算，需要安装 Tesla Driver + CUDA，安装方法请参考 <a href="https://cloud.tencent.com/document/product/560/8048">安装 NVIDIA Tesla 驱动指引</a> 和 <a href="https://cloud.tencent.com/document/product/560/8064">安装 CUDA 驱动指引</a>。</p></blockquote>
 								<div class="sect3">
 									<h4 id="_实例特点_22">实例特点</h4>
 									<div class="ulist">

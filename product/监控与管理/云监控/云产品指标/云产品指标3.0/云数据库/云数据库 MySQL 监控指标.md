@@ -157,7 +157,7 @@ Namespace=QCE/CDB
 | MasterSlaveSyncDistance | 主从延迟距离 | 主从 binlog 差距 | MB                                  | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | SecondsBehindMaster     | 主从延迟时间 | 主从延迟时间     | 秒                                  | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | SlaveIoRunning          | IO 线程状态  | IO 线程运行状态  | 状态值（0-Yes，1-No，2-Connecting） | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
-| SlaveSqlRunning         | SQL 线程状态 | SQL 线程运行状态 | 状态值（0-Yes，1-No）               | InstanceId、InstanceTyp          | 5s、60s、300s、3600s、86400s |
+| SlaveSqlRunning         | SQL 线程状态 | SQL 线程运行状态 | 状态值（0-Yes，1-No）               | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 
 > ?每个指标的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度。
 

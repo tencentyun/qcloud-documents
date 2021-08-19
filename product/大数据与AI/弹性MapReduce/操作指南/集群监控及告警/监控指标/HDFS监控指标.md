@@ -62,8 +62,8 @@
 | LogError                                      | 个       | Error 日志数量                                       |
 | LogWarn                                       | 个       | Warn 日志数量                                        |
 | LogInfo                                       | 个       | Info 日志数量                                        |
-| S0                                            | %        | Survivor 0区内存使用占比                             |
-| S1                                            | %        | Survivor 1区内存使用占比                             |
+| S0                                            | %        | Survivor 0 区内存使用占比                             |
+| S1                                            | %        | Survivor 1 区内存使用占比                             |
 | E                                             | %        | Eden 区内存使用占比                                  |
 | O                                             | %        | Old 区内存使用占比                                   |
 | M                                             | %        | Metaspace 区内存使用占比                             |
@@ -177,8 +177,8 @@
 | LogError                                | 个       | Error 日志数量                             |
 | LogWarn                                 | 个       | Warn 日志数量                              |
 | LogInfo                                 | 个       | Info 日志数量                              |
-| S0                                      | %        | Survivor 0区内存使用占比                   |
-| S1                                      | %        | Survivor 1区内存使用占比                   |
+| S0                                      | %        | Survivor 0 区内存使用占比                   |
+| S1                                      | %        | Survivor 1 区内存使用占比                   |
 | E                                       | %        | Eden 区内存使用占比                        |
 | O                                       | %        | Old 区内存使用占比                         |
 | M                                       | %        | Metaspace 区内存使用占比                   |
@@ -230,8 +230,8 @@
 | LogError                   | 个       | Error 日志数量                          |
 | LogWarn                    | 个       | Warn 日志数量                           |
 | LogInfo                    | 个       | Info 日志数量                           |
-| S0                         | %        | Survivor 0区内存使用占比                |
-| S1                         | %        | Survivor 1区内存使用占比                |
+| S0                         | %        | Survivor 0 区内存使用占比                |
+| S1                         | %        | Survivor 1 区内存使用占比                |
 | E                          | %        | Eden 区内存使用占比                     |
 | O                          | %        | Old 区内存使用占比                      |
 | M                          | %        | Metaspace 区内存使用占比                |
@@ -261,8 +261,8 @@
 
 | 指标名称 | 指标单位 | 指标含义                              |
 | -------- | -------- | ------------------------------------- |
-| S0       | %        | Survivor 0区内存使用占比              |
-| S1       | %        | Survivor 1区内存使用占比              |
+| S0       | %        | Survivor 0 区内存使用占比              |
+| S1       | %        | Survivor 1 区内存使用占比              |
 | E        | %        | Eden 区内存使用占比                   |
 | O        | %        | Old 区内存使用占比                    |
 | M        | %        | Metaspace 区内存使用占比              |
@@ -272,8 +272,3 @@
 | YGCT     | s        | Young GC 消耗时间                     |
 | FGCT     | s        | Full GC 消耗时间                      |
 | GCT      | s        | 垃圾回收时间消耗                      |
-
-
-
-
-

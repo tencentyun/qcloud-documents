@@ -5,7 +5,7 @@ Kafka Producer 和 Consumer 的性能测试均可使用 Kafka 客户端自带的
 
 
 ## 测试命令
->?以下命令中的`ckafka vip:vport`应替换为您实际实例分配的 IP 和端口。
+>?以下命令中的 `ckafka vip:vport` 应替换为您实际实例分配的 IP 和端口。
 
 生产测试命令示例：
 ```

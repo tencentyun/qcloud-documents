@@ -4,9 +4,9 @@
 ## 相关类介绍
 | 类                     | 功能                                           |
 | ---------------------- | ---------------------------------------------- |
-| TXUGCRecord            | 实现视频的录制功能                             |
+| TXUGCRecord            | 实现视频的录制功能                             | 
 | TXUGCPartsManager      | 视频片段管理类，用于视频的多段录制，回删等     |
-| ITXVideoRecordListener | 录制回调                                       |
+| ITXVideoRecordListener | 录制回调                                       | 
 | TXRecordCommon         | 基本参数定义，包括了视频录制回调及发布回调接口 |
 
 ## 使用说明
@@ -185,7 +185,7 @@ mTXCameraRecord.setAspectRatio(TXRecordCommon.VIDEO_ASPECT_RATIO_9_16);
 // TXRecordCommon.RECORD_SPEED_NORMAL(标准) 
 // TXRecordCommon.RECORD_SPEED_FAST(快速) 
 // TXRecordCommon.RECORD_SPEED_FASTEST(极快速) 
-mTXCameraRecord.setRecordSpeed(VIDEO_RECORD_SPEED_NOMAL);
+mTXCameraRecord.setRecordSpeed(VIDEO_RECORD_SPEED_NORMAL);
 ```
 ### 3. 声音设置
 

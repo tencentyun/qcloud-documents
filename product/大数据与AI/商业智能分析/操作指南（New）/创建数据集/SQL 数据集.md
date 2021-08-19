@@ -5,10 +5,10 @@
 SQL 数据集主要是通过 JDBC 和 ODBC 与目前主流数据库相联系。JDBC 和 ODBC 提供了一组对数据库访问的标准 API，建立了一组数据库访问的规范，支持 SQL 语句的执行，同时也是腾讯云商业智能分析 BI 与数据源之间的主要接口。腾讯云商业智能分析 BI 对数据库的操作不依赖任何 DBMS，不直接与 DBMS 打交道，所有的数据库操作由对应的 DBMS 的数据库驱动程序完成。
 
 ## 创建 SQL 数据集
-登录 [商业智能分析控制台](https://console.cloud.tencent.com/bi)。可通过以下两种方式进入创建 SQL 数据集界面：
-- 单击首页上的【SQL 数据集】，进入 SQL 数据集新建界面。
+登录 [商业智能分析 BI 控制台](https://console.cloud.tencent.com/bi)。可通过以下两种方式进入创建 SQL 数据集界面：
+- 单击首页上的 **SQL 数据集**，进入 SQL 数据集新建界面。
 ![](https://main.qcloudimg.com/raw/37eeb2a83e4d9d55e73fa20831a4339c.jpg)
-2. 选择左侧菜单栏【创建数据集】，在新打开的页面上选择【SQL 数据集】。
+2. 选择左侧菜单栏**创建数据集**，在新打开的页面上选择 **SQL 数据集**。
  ![](https://main.qcloudimg.com/raw/09a60e27b55d36e6c3bbe27294dd6200.png)
 
 ## 使用存储过程创建 SQL 数据集

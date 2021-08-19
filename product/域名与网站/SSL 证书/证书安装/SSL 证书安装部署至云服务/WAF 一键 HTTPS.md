@@ -1,10 +1,9 @@
 
 ## 概述
-一键 HTTPS 是 SSL 证书结合腾讯云 Web 应用防火墙（WAF）服务开发的快速部署 WAF 的 HTTPS 功能。使用该功能，您可以快捷在 [证书管理控制台](https://console.cloud.tencent.com/https) 将您申请到的 SSL 证书接入部署至腾讯云 Web 应用防火墙（WAF）提供的 SaaS 型 WAF 域名接入服务。
-SaaS 型 WAF 通过为防护域名分配 CNAME，修改网站的 DNS 解析记录，将网站收到的 Web 请求转发给 WAF，从而对网站进行安全防护。详情请参见 [Web 应用防火墙产品概述](https://cloud.tencent.com/document/product/627/17470)。
+一键 HTTPS 是 SSL 证书结合腾讯云 Web 应用防火墙（WAF）服务开发的快速部署 HTTPS 功能，帮助用户网站的 HTTPS 访问升级。
+使用该功能，您无需进行繁琐的 SSL 证书部署操作，仅需配置一个CNAME 解析，即可实现从 HTTP 到 HTTPS 的能力升级。
 本文将指导您如何在 [证书管理控制台](https://console.cloud.tencent.com/https) 一键添加 WAF 接入域名并配置 HTTPS。
 >!一键 HTTPS 功能目前为免费，可免费使用至2021年12月31日。
-
 
 ## 前提条件
 已在 [证书管理控制台](https://console.cloud.tencent.com/ssl) 申请颁发 SSL 证书。
@@ -80,6 +79,7 @@ SaaS 型 WAF 通过为防护域名分配 CNAME，修改网站的 DNS 解析记�
 :::
 </dx-tabs>
 
+>?防护配置是对 WAF 防护进行策略调整，如需进行防护配置，请您参考 [Web 应用防火墙产品文档](https://cloud.tencent.com/document/product/627/17470) 进行设置。
 
 
 

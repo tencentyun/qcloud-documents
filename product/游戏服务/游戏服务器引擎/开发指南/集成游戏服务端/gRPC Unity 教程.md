@@ -62,99 +62,99 @@ Unity 接入 GSE SDK 包括以下几个步骤：
 
 将 [步骤2](#test2) 中生成的四个 `.cs` 文件拷贝到 Unity 项目中（可以拷贝到 Assets/Scripts/目录下单独的文件夹中），便可使用 GSE SDK 进行开发，详情可参见 [Unity DEMO](#test5)。
 1. 实现 `gameserver_grpcsdk_service.proto` 定义的三个接口 `OnHealthCheck`、`OnStartGameServerSession` 和 ` OnProcessTerminate` 。
-```
- public class GrpcServer : GameServerGrpcSdkService.GameServerGrpcSdkServiceBase
-    {
-        private static Logs logger
-        {
-            get
-            {
-                return new Logs();
-            }
-        }
-        // 健康检查
-        public override Task<HealthCheckResponse> OnHealthCheck(HealthCheckRequest request, ServerCallContext context)
-        {
-            logger.Println($"OnHealthCheck, HealthStatus: {GseManager.HealthStatus}");
-            logger.Println($"OnHealthCheck, GameServerSession: {GseManager.GetGameServerSession()}");
-            return Task.FromResult(new HealthCheckResponse
-            {
-                HealthStatus = GseManager.HealthStatus
-            });
-        }
-        // 接收游戏会话
-        public override Task<GseResponse> OnStartGameServerSession(StartGameServerSessionRequest request, ServerCallContext context)
-        {
-            logger.Println($"OnStartGameServerSession, request: {request}");
-            GseManager.SetGameServerSession(request.GameServerSession);
-            var resp = GseManager.ActivateGameServerSession(request.GameServerSession.GameServerSessionId, request.GameServerSession.MaxPlayers);
-            logger.Println($"OnStartGameServerSession, resp: {resp}");
-            return Task.FromResult(resp);
-        }    
-        // 结束游戏进程
-        public override Task<GseResponse> OnProcessTerminate(ProcessTerminateRequest request, ServerCallContext context)
-        {
-            logger.Println($"OnProcessTerminate, request: {request}");
-            // 设置进程终止时间
-            GseManager.SetTerminationTime(request.TerminationTime);
-            // 终止游戏服务器会话
-            GseManager.TerminateGameServerSession();
-            // 进程退出
-            GseManager.ProcessEnding();
-            return Task.FromResult(new GseResponse());
-        }
-    }
+```JavaScript
+public class GrpcServer : GameServerGrpcSdkService.GameServerGrpcSdkServiceBase
+{
+	private static Logs logger
+	{
+		get
+		{
+			return new Logs();
+		}
+	}
+	// 健康检查
+	public override Task<HealthCheckResponse> OnHealthCheck(HealthCheckRequest request, ServerCallContext context)
+	{
+		logger.Println($"OnHealthCheck, HealthStatus: {GseManager.HealthStatus}");
+		logger.Println($"OnHealthCheck, GameServerSession: {GseManager.GetGameServerSession()}");
+		return Task.FromResult(new HealthCheckResponse
+		{
+				HealthStatus = GseManager.HealthStatus
+		});
+	}
+	// 接收游戏会话
+	public override Task<GseResponse> OnStartGameServerSession(StartGameServerSessionRequest request, ServerCallContext context)
+	{
+		logger.Println($"OnStartGameServerSession, request: {request}");
+		GseManager.SetGameServerSession(request.GameServerSession);
+		var resp = GseManager.ActivateGameServerSession(request.GameServerSession.GameServerSessionId, request.GameServerSession.MaxPlayers);
+		logger.Println($"OnStartGameServerSession, resp: {resp}");
+		return Task.FromResult(resp);
+	}    
+	// 结束游戏进程
+	public override Task<GseResponse> OnProcessTerminate(ProcessTerminateRequest request, ServerCallContext context)
+	{
+		logger.Println($"OnProcessTerminate, request: {request}");
+		// 设置进程终止时间
+		GseManager.SetTerminationTime(request.TerminationTime);
+		// 终止游戏服务器会话
+		GseManager.TerminateGameServerSession();
+		// 进程退出
+		GseManager.ProcessEnding();
+		return Task.FromResult(new GseResponse());
+	}
+}
 ```
 2. 开发 Unity 服务端程序（以 ChatServer 为例）。 
-```
+```JavaScript
 public static void StartChatServer(int clientPort)
-    {
-        RegisterHandlers();
-        logger.Println("ChatServer Listen at " + clientPort);
-        NetworkServer.Listen(clientPort);
-    }
+{
+	RegisterHandlers();
+	logger.Println("ChatServer Listen at " + clientPort);
+	NetworkServer.Listen(clientPort);
+}
 ```
 3. 开发 gRPC 服务端。
-```
+```JavaScript
 public static void StartGrpcServer(int clientPort, int grpcPort, string logPath)
-    {
-        try
-        {
-           Server server = new Server
-           {
-              Services = { GameServerGrpcSdkService.BindService(new GrpcServer()) },
-              Ports = { new ServerPort("127.0.0.1", grpcPort, ServerCredentials.Insecure) },
-            };
-            server.Start();
-            logger.Println("GrpcServer Start On localhost:" + grpcPort);
-            GseManager.ProcessReady(new string[] { logPath }, clientPort, grpcPort);
-        }
-        catch (System.Exception e)
-        {
-           logger.Println("error: " + e.Message);
-        }
-    }
+{
+	try
+	{
+		 Server server = new Server
+		 {
+			Services = { GameServerGrpcSdkService.BindService(new GrpcServer()) },
+			Ports = { new ServerPort("127.0.0.1", grpcPort, ServerCredentials.Insecure) },
+		 };
+			server.Start();
+			logger.Println("GrpcServer Start On localhost:" + grpcPort);
+			GseManager.ProcessReady(new string[] { logPath }, clientPort, grpcPort);
+	}
+	catch (System.Exception e)
+	{
+		 logger.Println("error: " + e.Message);
+	}
+}
 ```
 4. 启动开发者本身实现的服务端和 gRPC 服务端。
-```
+```JavaScript
 public class StartServers : MonoBehaviour
 {
-		private int grpcPort = PortServer.GenerateRandomPort(2000, 6000);
-		private int chatPort = PortServer.GenerateRandomPort(6001, 10000);
-		private const string logPath = "./log/log.txt";
-		// Start is called before the first frame update
-		[Obsolete]
-		void Start()
-		{
-			 // Start ChatServer By UNet's NetWorkServer, Listen on UDP protocol
-			 MyChatServer.StartChatServer(chatPort);
-			 // Start GrpcServer By Grpc, Listen on TCP protocol
-			 MyGrpcServer.StartGrpcServer(chatPort, grpcPort, logPath);
-		}
-		[Obsolete]
-		void OnGUI()
-		{
-		}
+	private int grpcPort = PortServer.GenerateRandomPort(2000, 6000);
+	private int chatPort = PortServer.GenerateRandomPort(6001, 10000);
+	private const string logPath = "./log/log.txt";
+	// Start is called before the first frame update
+	[Obsolete]
+	void Start()
+	{
+		 // Start ChatServer By UNet's NetWorkServer, Listen on UDP protocol
+		 MyChatServer.StartChatServer(chatPort);
+		 // Start GrpcServer By Grpc, Listen on TCP protocol
+		 MyGrpcServer.StartGrpcServer(chatPort, grpcPort, logPath);
+	}
+	[Obsolete]
+	void OnGUI()
+	{
+	}
 }
 ```
 

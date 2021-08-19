@@ -7,5 +7,5 @@
 ![](https://main.qcloudimg.com/raw/8136c7cca94cc0981f2f61e1f045f82f.png)
 
 ## 步骤3：开始使用
-选择相应账号登录后，选择【免费试用】或【企业试用】即可进入“创建问卷”页面。
+选择相应账号登录后，选择【免费试用】或【企业使用】即可进入“创建问卷”页面。
 ![](https://main.qcloudimg.com/raw/aa1d6f3136d1fc1cc772113d04835e8f.png)
