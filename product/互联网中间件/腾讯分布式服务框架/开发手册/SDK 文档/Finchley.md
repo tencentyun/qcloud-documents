@@ -20,16 +20,16 @@
 
 ## 1.29.2-Finchley-RELEASE（2020-08-16）
 ### 优化
-- 增加 catalog 内存 cache 的优化
-- 优化熔断模块不必要的日志输出
-- 优化去除 tsf 日志配置后，使用log4j2时出现${sys:LOG_FILE}的情况
-- 统一第三方组件的版本号
+- 增加 catalog 内存 cache 的优化。
+- 优化熔断模块不必要的日志输出。
+- 优化去除 TSF日志配置后，使用 log4j2 时出现 `${sys:LOG_FILE}` 的情况。
+- 统一第三方组件的版本号。
   
 ### Bug 修复
-- 修复 Feign 在指定 URL 的模式下无法请求的问题
-- 修复日志组件log4j和log4j2 输出调用链数据问题
-- 修复 sleuth 模块 debug 日志打印异常
-- 修复 scg metrics duration 异常问题
+- 修复 Feign 在指定 URL 的模式下无法请求的问题。
+- 修复日志组件 log4j 和 log4j2 输出调用链数据问题。
+- 修复 sleuth 模块 debug 日志打印异常。
+- 修复 scg metrics duration 异常问题。
 
 ### 版本建议
 支持向后兼容，建议全量升级。
