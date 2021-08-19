@@ -1,12 +1,12 @@
 ## 操作场景
 在 [凭据管理系统](https://console.cloud.tencent.com/ssm) 控制台中创建 SSH 密钥，SSH 密钥通过 SSM 进行安全加密托管，实现对 SSH Private Key 的安全托管。
 > ! 为了能让您更好的使用**CVM SSH 密钥管理**功能，请提前做好以下准备：
-- [确认已开通KMS服务](https://buy.cloud.tencent.com/kms)，SSM基于密钥管理系统KMS托管的密钥进行加密
+- [确认已开通KMS服务](https://buy.cloud.tencent.com/kms)，SSM 基于密钥管理系统 KMS 托管的密钥进行加密。
 - 确保您已经创建 云服务器 CVM 实例。对于具体操作，请查阅 [创建 CVM 实例](https://cloud.tencent.com/document/product/213/44264)。
 
 ## 操作步骤
-1. 登录 凭据管理系统 控制台，在左侧导航栏中，单击【CVM SSH 密钥管理】，进入CVM SSH 密钥页面。
-   ![](https://main.qcloudimg.com/raw/0efd0b22b65ccf0160dfced0174a5896.png)
+1. 登录 [凭据管理系统](https://console.cloud.tencent.com/ssm) 控制台，在左侧导航栏中，单击【CVM SSH 密钥管理】，进入CVM SSH 密钥页面。
+   ![](https://main.qcloudimg.com/raw/5afcc6fcfee93523a23392d2980103eb.png)
 2. 在 CVM SSH 密钥页面中，单击左上角的“区域下拉框”，切换区域。
    ![](https://main.qcloudimg.com/raw/00d49d1edfdf4dfa90446d02be7002b7.png)
 3. 在 CVM SSH 密钥页面中，单击左上角的【新建】，进入创建 SSH 密钥页面。

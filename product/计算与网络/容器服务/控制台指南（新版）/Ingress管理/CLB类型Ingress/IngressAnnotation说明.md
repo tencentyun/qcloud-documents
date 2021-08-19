@@ -103,7 +103,7 @@ metadata:
 :::
 ::: ingress.cloud.tencent.com/tke-service-config-auto
 **说明：**
-通过该注解可自动创建 TkeServiceConfig 资源，并提供配置的模板，用户可以按需进行配置。
+通过该注解可自动创建 TKEServiceConfig 资源，并提供配置的模板，用户可以按需进行配置。
 **使用示例：**
 `ingress.cloud.tencent.com/tke-service-config-auto: "true"`，详情可参见 [Ingress 使用 TKEServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
 :::

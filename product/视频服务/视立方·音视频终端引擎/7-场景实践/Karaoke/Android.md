@@ -76,19 +76,19 @@
 
 ### 用户 A
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如下图示：
-<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_anchor_step_first.PNG" width="320"/>
+<img src="https://main.qcloudimg.com/raw/b97bda31bad98c91acb23eb06f9c61e9.png" width="320"/>
 2. 单击【创建房间】，如下图示：
-<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_anchor_step_second.jpg" width="320"/>
+<img src="https://main.qcloudimg.com/raw/52b7be4d4a0040c922bd93ac229b236c.jpg" width="320"/>
 3. 输入房间主题，单击【一起嗨歌】。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如下图示：
-<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_audience_step_first.PNG" width="320"/>
+<img src="https://main.qcloudimg.com/raw/65c6e9c73bfa312b1c0e17dfc52dcd3e.png" width="320"/>
 2. 输入用户 A 创建的房间号，单击【进入房间】。<br>
-<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_audience_step_second.jpg" width="320"/>
+<img src="https://main.qcloudimg.com/raw/067dd109317315bdbae16b452346cab6.jpg" width="320"/>
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
-<img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_audience_step_third.jpg" width="320"/>
+<img src="https://main.qcloudimg.com/raw/34651b334d6dab09b3784f500bdbaa77.jpg" width="320"/>
 
 [](id:model)
 
