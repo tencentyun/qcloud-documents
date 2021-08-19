@@ -6,7 +6,7 @@
 
 #### 功能说明
 
-查询对象访问URL。
+查询对象访问 URL。
 
 #### 使用示例
 
@@ -40,7 +40,8 @@ try {
     print_r($e);
 }
 ```
->?更多示例请查看[预签名URL](https://cloud.tencent.com/document/product/436/34284)
+
+>?更多示例请查看 [预签名 URL](https://cloud.tencent.com/document/product/436/34284)。
 
 #### 参数说明
 
@@ -51,4 +52,5 @@ try {
 | Expires | 签名几秒后失效，默认为1800秒                                  | String  | 是   |
 
 #### 返回结果说明
-方法返回值为对象访问的URL。
+
+方法返回值为对象访问的 URL。
