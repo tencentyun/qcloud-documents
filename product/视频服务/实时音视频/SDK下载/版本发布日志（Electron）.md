@@ -5,7 +5,7 @@ Windows & Mac：onStatistics 回调新增字段 gatewayRtt [onStatistics](https:
 
 **问题修复**
 - Mac：修复特殊机型写日志引起 crash。
-- Mac：修复禁麦的操作使用 setAudioCaptureVolume(0) 这个api后，发现麦克风检测音量为 0。
+- Mac：修复禁麦的操作使用 API 接口 setAudioCaptureVolume(0) 后，发现麦克风检测音量为 0。
 - Windows：性能优化，修复打开摄像头后黑屏。
 - Windows：修复屏幕捕获自动减低分辨率后不恢复。
 - Windows & Mac：其他 bug 修复。
