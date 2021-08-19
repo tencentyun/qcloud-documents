@@ -32,11 +32,11 @@ CREATE TABLE `MongodbSourceTable` (
     PRIMARY KEY (_id) NOT ENFORCED
 ) WITH (
     'connector' = 'mongodb-cdc',             -- 固定值 'mongodb-cdc'
-    'hostname' = '172.28.0.136:27017',       -- MongoDB数据库IP和端口对, 多对使用英文逗号分隔
-    'username' = 'xxx',                      -- 数据库访问的用户名(MongoDB的User必须有Admin数据库、oplog、Config database的读权限)
+    'hostname' = '172.28.0.136:27017',       -- MongoDB 数据库 IP 和端口对, 多对使用英文逗号分隔
+    'username' = 'xxx',                      -- 数据库访问的用户名(拥有 changeStream 和 read 权限)
     'password' = 'xxxx',                     -- 数据库访问的密码
     'database-name' = 'column_type_test',    -- 需要同步的数据库
-    'collection-name' = 'full_types'         -- 需要同步的数据collection
+    'collection-name' = 'full_types'         -- 需要同步的数据 collection
 );
 ```
 
