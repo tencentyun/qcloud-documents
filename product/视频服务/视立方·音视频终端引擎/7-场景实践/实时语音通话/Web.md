@@ -134,7 +134,7 @@ trtcCalling.login({
 ```
 
 ### 步骤4：实现 1v1 通话
-#### 主叫方：呼叫某个用户
+- **主叫方：呼叫某个用户**
 ```javascript
 trtcCalling.call({
   userID,  //用户 ID
@@ -142,8 +142,7 @@ trtcCalling.call({
   timeout  //邀请超时时间, 单位 s(秒)
 });
 ```
-
-#### 被叫方：接听新的呼叫
+- **被叫方：接听新的呼叫**
 ```javascript
 // 接听
 trtcCalling.accept({
@@ -155,10 +154,9 @@ trtcCalling.accept({
 trtcCalling.reject({ 
   inviteID, //邀请 ID, 标识一次邀请
   isBusy //是否是忙线中， 0-未知， 1-语音通话，2-视频通话
-  })
+})
 ```
-
-#### 挂断
+- **挂断**
 ```javascript
 trtcCalling.hangup()
 ```
