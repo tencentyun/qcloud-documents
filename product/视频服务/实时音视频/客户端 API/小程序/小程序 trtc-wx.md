@@ -616,7 +616,7 @@ this.TRTC.on(EVENT.REMOTE_AUDIO_REMOVE, onRemoteAudioRemove)
 ::: javascript javascript
 let onRemoteStateUpdate = function(event){
   // id 是对应触发的 player 的 id，目前 streamid 和 id 是相同的
-  const id = event.currentTarget.dataset.streamid
+  const id = event.data.currentTarget.dataset.streamid
   const data = event.data // 这里是微信原生组件抛出的关于player的信息，若有需要您可以自主获取
 }
 this.TRTC.on(EVENT.REMOTE_STATE_UPDATE, onRemoteStateUpdate)
