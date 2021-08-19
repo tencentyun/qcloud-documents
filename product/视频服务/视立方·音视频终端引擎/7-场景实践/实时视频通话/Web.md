@@ -141,7 +141,7 @@ trtcCalling.login({
 ```
 
 ### 步骤4：实现 1v1 通话
-#### 主叫方：呼叫某个用户
+- **主叫方：呼叫某个用户**
 ```javascript
 trtcCalling.call({
   userID,  //用户 ID
@@ -149,8 +149,7 @@ trtcCalling.call({
   timeout  //邀请超时时间, 单位 s(秒)
 });
 ```
-
-#### 被叫方：接听新的呼叫
+- **被叫方：接听新的呼叫**
 ```javascript
 // 接听
 trtcCalling.accept({
@@ -162,31 +161,27 @@ trtcCalling.accept({
 trtcCalling.reject({ 
   inviteID, //邀请 ID, 标识一次邀请
   isBusy //是否是忙线中， 0-未知， 1-语音通话，2-视频通话
-  })
+})
 ```
-
-#### 打开本地摄像头
+- **打开本地摄像头**
 ```javascript
 trtcCalling.openCamera()
 ```
-
-#### 展示远端的视频画面
+- **展示远端的视频画面**
 ```javascript
 trtcCalling.startRemoteView({
   userID, //远端用户 ID
   videoViewDomID //该用户数据将渲染到该 DOM ID 节点里
 })
 ```
-
-#### 展示本地的预览画面
+- **展示本地的预览画面**
 ```javascript
 trtcCalling.startLocalView({
   userID, //本地用户 ID
   videoViewDomID //该用户数据将渲染到该 DOM ID 节点里
 })
 ```
-
-#### 挂断
+- **挂断**
 ```javascript
 trtcCalling.hangup()
 ```
