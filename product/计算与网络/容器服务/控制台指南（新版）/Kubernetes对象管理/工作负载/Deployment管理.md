@@ -36,7 +36,7 @@ Deployment 声明了 Pod 的模板和控制 Pod 的运行策略，适用于部�
 1. 登录容器服务控制台，选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 单击需要更新 Deployment 的集群 ID，进入待更新 Deployment 的集群管理页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/91af8781e51bc79ba7f8ab011edc22c9.png)
-3. 在需要更新 YAML 的 Deployment 行中，单击**更多**>**编辑YAML**，进入更新 Deployment 页面。
+3. 在需要更新 YAML 的 Deployment 行中，单击**更多** > **编辑YAML**，进入更新 Deployment 页面。
 5. 在 “更新Deployment” 页面，编辑 YAML，单击**完成**，即可更新 YAML。如下图所示：
 ![更新YAML](https://main.qcloudimg.com/raw/ddc23ea3fc49bdb05e35c59b67a577ac.png)
 
