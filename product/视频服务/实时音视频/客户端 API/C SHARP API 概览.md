@@ -359,7 +359,7 @@
 |-----|-----|
 | [TRTCImageBuffer](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__csharp.html#a115d7544222e40e31d1766f7770f4619) | 图缓存。 |
 | [TRTCScreenCaptureSourceInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__csharp.html#a78b6e0861f6c951b7269e5b0e13b8c36) | 屏幕采集信息。 |
-| [SIZE](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__csharp.html#classManageLiteAV_1_1SIZE) | 记录 buffer 的长宽。 |
+| [SIZE](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__csharp.html#structManageLiteAV_1_1SIZE) | 记录 buffer 的长宽。 |
 | [ITRTCScreenCaptureSourceList](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__csharp.html#interfaceManageLiteAV_1_1ITRTCScreenCaptureSourceList) | 屏幕窗口列表。 |
 | [ITRTCDeviceCollection](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITXDeviceManager__csharp.html#interfaceManageLiteAV_1_1ITRTCDeviceCollection) | 设备列表。 |
 | [ITRTCDeviceInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITXDeviceManager__csharp.html#interfaceManageLiteAV_1_1ITRTCDeviceInfo) | 设备 Item 信息。 |
