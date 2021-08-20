@@ -1,6 +1,6 @@
 ## 开启内容安全 CAM 授权
 
-### 步骤1：创建子用户或消息接收人
+### 创建消息接收人
 主账号/管理员用户可以创建一个或多个子账号提供给团队成员，并为其绑定权限策略。内容安全 CAM 授权功能支持三种创建方式，分别是：**快速创建、自定义创建、微信/企业微信导入**。
 - 快速创建配置简单，新建速度快但权限策略相对固定。
 - 自定义创建流程相对复杂，但支持批量创建和精细化的权限策略管理。
@@ -8,7 +8,7 @@
 
 更多关于创建子用户的问题，敬请参阅 [新建子用户](https://cloud.tencent.com/document/product/598/13674)。
 
-### 步骤2：创建协作者
+### 创建协作者
 管理员用户可以将团队其他成员的**腾讯云账号**设置为协作者，允许其访问云上资源并为其绑定权限策略；具体配置方式敬请参阅 [新建子用户](https://cloud.tencent.com/document/product/598/13674)。
 
 ## 配置内容安全 CAM 权限
@@ -36,23 +36,54 @@ CAM 可以为子用户/协作者赋予特定内容安全服务的访问权限，
 4. 单击【确定】，完成内容安全产品的访问权限配置。
 
 #### 方法二：通过为子账号关联策略配置内容安全产品授权
-各个内容安全产品对应的预设策略如下：
+各个内容安全产品对应的预设策略如下表：
 
-##### 文本内容安全
-- QcloudTMSFullAccess：文本内容安全（TMS）**全读写访问权限**；
-- QcloudTMSReadOnlyAccess：文本内容安全（TMS）**只读访问权限**；
+<table>
+<thead>
+<tr>
+<th><strong>产品名称</strong></th>
+<th><strong>预设策略</strong></th>
+<th><strong>权限说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td rowspan= 2>文本内容安全</td>  
+<td>QcloudTMSFullAccess</td>
+<td>全读写访问权限</td>
+</tr>
+<tr>
+<td>QcloudTMSReadOnlyAccess</td>
+<td>只读访问权限</td>
+</tr>
+<tr>
+<td rowspan= 2>图片内容安全</td>
+<td>QcloudIMSFullAccess</td>
+<td>全读写访问权限</td>
+</tr>
+<tr>
+<td>QcloudIMSFullAccess</td>
+<td>只读访问权限</td>
+</tr>
+<tr>
+<td rowspan= 2>音频内容安全</td>
+<td>QcloudAMSFullAccess</td>
+<td>全读写访问权限</td>
+</tr>
+<tr>
+<td>QcloudAMSReadOnlyAccess</td>
+<td>只读访问权限</td>
+</tr>
+<tr>
+<td rowspan= 2>视频内容安全</td>
+<td>QcloudVMFullAccess</td>
+<td>全读写访问权限</td>
+</tr>
+<tr>
+<td>QcloudVMReadOnlyAccess</td>
+<td>只读访问权限</td>
+</tr>
+</tbody></table>
 
-##### 图片内容安全
-- QcloudIMSFullAccess：图片内容安全（IMS）**全读写访问权限**；
-- QcloudIMSReadOnlyAccess：图片内容安全（IMS）**只读访问权限**；
-
-##### 音频内容安全
-- QcloudAMSFullAccess：音频内容安全（AMS）**全读写访问权限**；
-- QcloudAMSReadOnlyAccess：音频内容安全（AMS）**只读访问权限**；
-
-##### 视频内容安全
-- QcloudVMFullAccess：视频内容安全（VM）**全读写访问权限**；
-- QcloudVMReadOnlyAccess：视频内容安全（VM）**只读访问权限**；
 
 上述预设策略可用于给子账号关联相应内容安全服务不同的访问权限，将预设策略按照 [访问管理-授权管理](https://cloud.tencent.com/document/product/598/10602) 所述的步骤，分配给想要配置的子用户/用户组，该子用户/用户组即可根据策略授予的权限，访问或使用对应的内容安全服务。<br>
 
