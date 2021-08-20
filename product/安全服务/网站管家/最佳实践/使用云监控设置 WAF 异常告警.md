@@ -1,8 +1,8 @@
 本文档将介绍如何在云监控平台进行告警配置，当 Web 应用防火墙（以下简称为：WAF）出现异常情况，可以及时提醒。
 
 ## 前提条件
-- 已开通 Web 应用防火墙。
-- 已配置完实例域名。
+- 已开通 [ Web 应用防火墙](https://buy.cloud.tencent.com/buy/waf)。
+- 已配置完 [实例域名](https://cloud.tencent.com/document/product/627/53628)。
 
 ## 操作步骤
 ### 步骤1：设置触发条件模板[](id:CFTJ)
