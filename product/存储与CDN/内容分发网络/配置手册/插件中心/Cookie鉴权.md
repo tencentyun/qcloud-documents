@@ -16,7 +16,7 @@
 
 ## 使用流程
 
-1. 登录 [插件中心](https://console.cloud.tencent.com/cdn/plugins) 开启 Cookie 鉴权功能，进入 [域名管理](https://console.cloud.tencent.com/cdn/domains) 设置鉴权模式和对应秘钥。
+1. 登录 [插件中心](https://console.cloud.tencent.com/cdn/plugins) 开启 Cookie 鉴权功能，进入 [域名管理](https://console.cloud.tencent.com/cdn/domains) 设置鉴权模式和对应密钥。
 2. 客户源站根据规范要求，对客户端进行 Set-Cookie ，将 Cookie 传递给客户端。
 3. 终端用户携带上述 Cookie 向 CDN 请求资源。
 4. CDN 边缘服务器读取 Cookie 对应内容，鉴权通过则继续提供服务，鉴权失败则返回 403 状态码。
@@ -94,11 +94,11 @@ Set-Cookie: TC-HMAC=acl=` 可允许的 URL`~st=` 开始时间 `~exp=` 结束时�
 
 ## 配置指南
 
-首次使用需登陆插件中心，打开 **Cookie 鉴权** 插件功能后，再回到域名管理进行配置。具体配置路径为：**[域名管理](https://console.cloud.tencent.com/cdn/domains)**  > **选中域名** > **访问控制** > **Cookie 鉴权**。
-设置鉴权模式、首选秘钥和备选秘钥后，CDN 节点优先采用首选秘钥进行验证，验证失败则采用备选秘钥，两者都不通过则返回 403。
+首次使用需登录插件中心，打开 **Cookie 鉴权** 插件功能后，再回到域名管理进行配置。具体配置路径为：**[域名管理](https://console.cloud.tencent.com/cdn/domains)**  > **选中域名** > **访问控制** > **Cookie 鉴权**。
+设置鉴权模式、首选密钥和备选密钥后，CDN 节点优先采用首选密钥进行验证，验证失败则采用备选密钥，两者都不通过则返回 403。
 ![](https://main.qcloudimg.com/raw/3fa5c2d1e8e01a151c3f3d130b23a923.png)
 
->? 备选秘钥可用于秘钥轮换。
+>? 备选密钥可用于密钥轮换。
 
 设置完成后，按上述要求 Set-Cookie，用控制台设置的密钥进行签名，客户端携带已签名的 Cookie 向 CDN 节点发起访问请求即可。
 
