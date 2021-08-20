@@ -66,10 +66,7 @@ GET _cat/nodes
 ```sql
 -- mysql-cdc connector
 CREATE TABLE `mysql_source` (
-    `id` int,CREATE TABLE `cdc_source4es` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '学号',
-  `score` int(11) NOT NULL COMMENT '分数',
-  PRIMARY KEY (`id`)
+    `id` int,
     `score` int,
     PRIMARY KEY (`id`) NOT ENFORCED -- 如果要同步的数据库表定义了主键, 则这里也需要定义
 ) WITH (
@@ -126,6 +123,7 @@ INSERT INTO es_old_sink select id, score  from mysql_source;
 
 ## 验证总结
 在 Kibana 的 Dev Tools 中查询 ES 中的数据是否插入成功。
+
 ```sql
 # 查询该索引下所有的数据
 GET connector-test-index/_search
