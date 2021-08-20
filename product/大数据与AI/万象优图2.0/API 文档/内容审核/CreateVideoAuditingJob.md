@@ -31,19 +31,20 @@ Content-Type: application/xml
 
 ```plaintext
 <Request>
-    <Input>
-         <Object></Object>
-    </Input>
-    <Conf>
-      <DetectType>Porn,Terrorism,Politics,Ads</DetectType>
-      <Snapshot>
-           <Mode>Interval</Mode>
-           <TimeInterval></TimeInterval>
-          <Count></Count>
-      </Snapshot>
-      <Callback></Callback>
-			<BizType></BizType>
-    </Conf>
+  <Input>
+    <Object></Object>
+  </Input>
+  <Conf>
+    <DetectType>Porn,Terrorism,Politics,Ads</DetectType>
+    <Snapshot>
+        <Mode>Interval</Mode>
+        <TimeInterval></TimeInterval>
+        <Count></Count>
+    </Snapshot>
+    <Callback></Callback>
+    <BizType></BizType>
+    <DetectContent></DetectContent>
+  </Conf>
 </Request>
 ```
 
@@ -70,18 +71,19 @@ Container 类型 Conf 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点       | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | ------------ | ------------------------------------------------------------ | --------- | -------- |
-| DetectType         | Request.Conf | 审核类型  涉黄 Porn、涉暴恐 Terrorism、政治敏感 Politics、广告 Ads，可以审核多种类型 | string    | 是       |
-| Snapshot           | Request.Conf | 截帧配置                                                     | Container | 是       |
+| DetectType         | Request.Conf | 审核类型：涉黄 Porn、涉暴恐 Terrorism、政治敏感 Politics、广告 Ads，可以传入多种类型 | string    | 是   |
+| Snapshot           | Request.Conf | 视频截帧的配置                                            | Container | 是   |
 | Callback           | Request.Conf | 回调地址，以`http://`或者`https://`开头的地址                  | string    | 否       |
-| BizType	  |  Request.Conf	| 审核策略，不带审核策略时使用默认策略|	string	|否|
+| BizType            | Request.Conf | 审核策略，不带审核策略时使用默认策略                         | string    | 否   |
+| DetectContent      | Request.Conf | 审核内容开关。0: 只审截图，1: 审核截图和音频。默认为0        | string    | 否   |
 
 Container 类型 Snapshot 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | :-------------------- | ------------------------------------------------------------ | --------- | -------- |
 | Mode               | Request.Conf.Snapshot | 截帧模式。Interval 表示间隔模式；Average 表示平均模式；Fps 表示固定帧率模式。</br><li> Interval 模式：TimeInterval，Count 参数生效。当设置 Count，未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片</br><li> Average 模式：Count 参数生效。表示整个视频，按平均间隔截取共 Count 张图片</br><li> Fps 模式：TimeInterval 表示每秒截取多少帧，Count 表示共截取多少帧 | string | 否       |
-| Count              | Request.Conf.Snapshot | 截图数量，范围为(0,10000]                                    | string    | 否       |
-| TimeInterval       | Request.Conf.Snapshot | 截图频率，范围为(0,60]，单位为秒，支持 float 格式，执行精度精确到毫秒 | string    | 否       |
+| Count              | Request.Conf.Snapshot | 视频截帧数量，范围为(0, 10000]                                    | string    | 否       |
+| TimeInterval       | Request.Conf.Snapshot | 视频截帧频率，范围为(0, 60]，单位为秒，支持 float 格式，执行精度精确到毫秒 | string    | 否       |
 
 ## 响应
 
@@ -119,8 +121,8 @@ Container 节点 JobsDetail 的内容：
 
 | 节点名称（关键字） | 父节点              | 描述                                                         | 类型   |
 | :----------------- | :------------------ | :----------------------------------------------------------- | :----- |
-| JobId              | Response.JobsDetail | 新创建任务的 ID                                              | String |
-| State              | Response.JobsDetail | 任务的状态，为 Submitted、Snapshoting、Success、Failed、Auditing 其中一个 | String |
+| JobId              | Response.JobsDetail | 新创建视频审核任务的 ID                                       | String |
+| State              | Response.JobsDetail | 任务的状态，为 Submitted（已提交审核）、Snapshoting（视频截帧中）、Success（审核成功）、Failed（审核失败）、Auditing（审核中）其中一个 | String |
 | CreationTime       | Response.JobsDetail | 任务的创建时间                                               | String |
 
 #### 错误码
@@ -178,3 +180,6 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     </JobsDetail>
 </Response>
 ```
+	
+	
+	
