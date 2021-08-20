@@ -5,7 +5,7 @@
 ## 操作步骤
 
 
-1. 登录 [TDID 控制台](https://console.cloud.tencent.com/tdid)，在左侧菜单栏中选择**TDID-BCOS**>**DID管理**进入“DID管理”页面。
+1. 登录 TDID 控制台，在左侧菜单栏中选择**TDID-BCOS**>**DID管理**进入“DID管理”页面。
    ![](https://main.qcloudimg.com/raw/ceaaa58d8ec36e8562393094993102cc.png)
 2. 在此页面有3个 Tab 页，依次为您提供了您所拥有的所有该类型的区块链网络下的 **DID 列表**、**权威机构**以及 **DID 标签**的管理页。
 
