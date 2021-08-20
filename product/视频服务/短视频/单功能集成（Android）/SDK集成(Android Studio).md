@@ -47,7 +47,7 @@ defaultConfig {
     }
 }
 ```
-  4. 最后点击 Sync Now，编译工程。
+  4. 最后单击 **Sync Now**，编译工程。
 :::
 ::: jar+so 方式集成
 1. **库说明**
