@@ -1,3 +1,111 @@
+### 2.6.4.126 @ 2021-08-16
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.4.126.zip) 
+
+- 新增接口
+	1. 增加白板(addBoard)，可选择不跳转到新增的白板
+	2. 分组模式功能
+		1. 开启分组模式(setClassGroupEnable)
+		2. 设置分组(setClassGroup)
+		3. 设置分组标题(setClassGroupTitle)
+		4. 重置所有分组(resetClassGroup)
+		5. 获取所有分组id(getAllClassGroupIds)
+		6. 获取分组模式状态(getClassGroupEnable)
+		7. 获取用户所在的分组(getClassGroupIdByUserId)
+		8. 获取分组信息(getClassGroupInfoByGroupId)
+		9. 从分组中移除白板(removeBoardInClassGroup)
+		10. 从分组中移除用户(removeUserInClassGroup)
+		11. 删除分组(removeClassGroup)
+		12. 添加白板到分组(addBoardToClassGroup)
+		13. 添加用户到分组(addUserToClassGroup)
+		14. 分组内跳转(gotoClassGroupBoard)
+### 2.6.4.125 @ 2021.08.06
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.4.125.zip) 
+- 新增接口  
+  1. 设置几何图形类型(setMathGraphType)  
+  2. 鼠标模式下的操作权限(setMouseToolBehavior)  
+  3. 设置白板备注信息(setBoardRemark)  
+  4. 获取白板备注信息(getBoardRemark)  
+  5. 添加函数元素接口(addElement)  
+- 新增初始化参数   
+  1. 鼠标模式下的操作权限  mouseToolBehavior  
+  2. 开启公式元素支持 formulaEnable
+- 功能优化
+  1. 几何画板新增多种几何图形支持
+  2. 新增公式元素的支持
+  3. 优化视频加载播放逻辑
+  4. 图形涂鸦绘制实时同步显示
+  5. 优化ppt资源加载重试逻辑
+  6. 添加本地缓存，提高资源加载速度
+- Bug修复
+  1. 互动白板宽高变化时滚动条抖动
+  2. 删除文件时远端ppt动画步数重置
+  3. 自定义图形高度为0时远端图形显示错误
+  4. 若干已知问题修复
+
+### 2.6.3.113 @ 2021.07.04
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.3.113.zip)    
+- 新增接口  
+  1. 设置画笔自动拟合模式(setPenAutoFittingMode)  
+  2. 生成板书图片(addSnapshotMark)  
+- 接口调整  
+  1. 添加白板(addBoard) 支持新增白板直接设置背景H5  
+- 新增初始化参数  
+  1. 白板离线告警时间间隔(offlineWarningTimeout)  
+- 新增事件  
+  1. 白板离线告警(TEB_OFFLINE_WARNING)  
+- 调整事件  
+  1. 增加元素回调(TEB_ADDELEMENT)  增加元素回调返回值新增元素类型type  
+
+- 优化  
+  1. 魔法笔功能  
+  2. 支持直接创建H5背景白板
+  3. 支持白板离线检测
+- bug修复  
+  1. 若干已知问题  
+  
+### 2.6.2.106 @ 2021.06.14
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.2.106.zip)    
+- 接口调整  
+  1.  addElementMathCanvas （添加数学函数画板）  
+  2.  addElementFunctionGrapher （添加数学函数图像)   
+- 调整初始化参数  
+  1. TEduBoardInitParam 增加mathGraphEnable（是否预加载数学函数工具库）  
+
+- 新增事件  
+  1. onTEBSelectElement (框选工具选中元素回调)  
+  2. onTEBMathGraphEvent （数学函数图像工具事件）  
+  3. onTEBZoomDragStatus (远端白板缩放移动状态回调)  
+ 
+- 废除接口  
+  1. addImageElement （添加图片元素)  
+ 
+- 优化  
+  1. 支持数学图像显示  
+  2. 支持h5元素移动，缩放，旋转  
+  3. 添加元素支持自定义位置，支持图片元素，h5元素，数学函数图像  
+  4. 移动端支持在任意工具下双指缩放白板   
+  
+- bug修复  
+  1.若干已知问题
+
+
+
+### 2.6.1.100 @ 2021.06.03
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.1.100.zip)  
+
+- 接口调整  
+  1. setToolTypeTitle  （设置工具的提示语）  
+  2. setAccessibleUsers (设置允许操作哪些用户绘制的图形)  
+  
+- 初始化参数:  
+  优化参数结构  
+
+- 新增接口：
+   1. 文本组件状态回调(onTEBTextElementStatusChange) 
+   2. 图片元素加载状态(onTEBImageElementStatusChanged)  
+   3. 白板文字工具异常警告(onTEBTextElementWarning)
+  
+
 ### 2.6.0.94 @ 2021.05.08
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.0.94.zip)
 
@@ -52,6 +160,9 @@
   4. 添加自定义元素时点选框范围错误
   5. 文本工具相关问题
   6. 其他若干已知问题
+  
+ 
+
 ### 2.5.6.85 @ 2020.12.14
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.6.85.zip)
 
@@ -62,11 +173,11 @@
         - 开启该功能 Mac 端在一些情况下会导致光标变成默认的鼠标指针，如消息弹窗等行为，属于正常现象。
     - 增加设置画笔和激光笔工具的提示语接口 setToolTypeTitle
     - 支持音频元素
-        - 新增音频 addElement
-        - 播放音频 playAudio
-        - 暂停音频 pauseAudio
-        - 跳转进度 seekAudio
-        - 是否启用音频控制面板 enableAudioControl
+        -新增音频 addElement
+        -播放音频 playAudio
+        -暂停音频 pauseAudio
+        -跳转进度 seekAudio
+        -是否启用音频控制面板 enableAudioControl
 - 新增特性：
     - 点选和框选工具合并
     - 激光笔和画笔支持多人
@@ -75,8 +186,8 @@
 
 ### 2.5.5.83 @ 2020.12.03 
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.5.83.zip)
-- Bug 修复   
-  - 修复 WebView 远程调试漏洞
+- Bug修复   
+  - 修复WebView远程调试漏洞
   - 替换日志模块，防止内存泄漏
 
 ### 2.5.5.71 @ 2020.11.09

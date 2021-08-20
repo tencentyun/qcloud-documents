@@ -12,8 +12,8 @@ function TEB_ERROR(TEduBoardErrorCode code, String msg)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardErrorCode | 错误码，参见 [TEduBoardErrorCode](https://cloud.tencent.com/document/product/1137/40008#teduboarderrorcode) 定义  |
-| msg | String | 错误信息，编码格式为 UTF8  |
+| code | TEduBoardErrorCode | 错误码，参见TEduBoardErrorCode定义  |
+| msg | String | 错误信息，编码格式为UTF8  |
 
 
 ### TEB_WARNING
@@ -25,8 +25,8 @@ function TEB_WARNING(TEduBoardWarningCode code, String msg)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardWarningCode | 错误码，参见 [TEduBoardWarningCode](https://cloud.tencent.com/document/product/1137/40008#teduboardwarningcode) 定义  |
-| msg | String | 错误信息，编码格式为 UTF8  |
+| code | TEduBoardWarningCode | 错误码，参见TEduBoardWarningCode定义  |
+| msg | String | 错误信息，编码格式为UTF8  |
 
 
 
@@ -42,7 +42,7 @@ function TEB_INIT()
 
 
 ### TEB_HISTROYDATA_SYNCCOMPLETED
-白板历史数据同步完成回调  
+白板历史数据同步完成回调 
 ``` C++
 function TEB_HISTROYDATA_SYNCCOMPLETED()
 ```
@@ -59,7 +59,7 @@ function TEB_SYNCDATA(Object data)
 | data | Object | 白板同步数据 |
 
 #### 介绍
-收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用 AddSyncData 接口将数据添加到白板以实现数据同步，该回调用于多个白板间的数据同步，使用腾讯云 IMSDK 进行实时数据同步时，不会收到该回调。
+收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用addSyncData接口将数据添加到白板以实现数据同步 该回调用于多个白板间的数据同步，使用腾讯云IMSDK进行实时数据同步时，不会收到该回调 
 
 
 ### TEB_OPERATE_CANUNDO_STATUS_CHANGED
@@ -83,7 +83,7 @@ function TEB_OPERATE_CANREDO_STATUS_CHANGED(Boolean canRedo)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| canRedo | Boolean | 白板当前是否还能执行 Redo 操作  |
+| canRedo | Boolean | 白板当前是否还能执行Redo操作  |
 
 
 

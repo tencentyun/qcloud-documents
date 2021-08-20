@@ -1,3 +1,124 @@
+### 2.6.4 @ 2021.08.16
+* 链接地址：https://res.qcloudtiw.com/board/2.6.4/TEduBoard.min.js
+
+- 新增分组模式
+    1. 添加白板到分组  addBoardToClassGroup
+    2. 添加用户到分组 addUserToClassGroup
+    3. 获取所有分组id getAllClassGroupIds
+    4. 获取分组模式状态 getClassGroupEnable
+    5. 获取用户所在的分组 getClassGroupIdByUserId
+    6. 获取分组信息 getClassGroupInfoByGroupId
+    7. 分组内跳转 gotoClassGroupBoard
+    8. 从分组中移除白板 removeBoardInClassGroup
+    9. 删除分组 removeClassGroup
+    10. 从分组中移除用户 removeUserInClassGroup
+    11. 重置所有分组 resetClassGroup
+    12. 设置分组 setClassGroup
+    13. 开启分组模式 setClassGroupEnable
+    14. 设置分组标题 setClassGroupTitle
+### 2.6.4 @ 2021.08.06
+* 链接地址：https://res.qcloudtiw.com/board/2.6.4/TEduBoard.min.js
+
+- 新增接口
+  1. 设置几何图形类型 setMathGraphType，可用于几何画板绘制几何图形
+  2. 鼠标模式下的操作权限 setMouseToolBehavior
+  3. 设置白板备注信息 setBoardRemark
+  4. 获取白板备注信息 getBoardRemark
+
+- 新增初始化参数
+  1. 鼠标模式下的操作权限
+  2. 开启公式元素支持
+
+- 新增元素类型
+  1. 公式元素 TEDU_BOARD_ELEMENT_FORMULA，此功能需要设置开启公式元素支持 formulaEnable 为`true`。添加方式详见 添加白板元素中的 `示例8：添加一个公式元素`
+
+- 新增全局变量
+  1. 几何元素类型
+
+- 功能优化
+  1. 支持涂鸦点擦
+  2. 几何画板新增多种几何图形支持
+  3. 新增公式元素的支持
+  4. 优化视频加载播放逻辑
+  5. 图形涂鸦绘制实时同步显示
+  6. 优化ppt资源加载重试逻辑
+
+- Bug 修复
+  1. 互动白板宽高变化时滚动条抖动
+  2. 删除文件时远端ppt动画步数重置
+  3. 自定义图形高度为0时远端图形显示错误
+  4. 若干已知问题修复
+
+### 2.6.3 @ 2021.06.28
+* 链接地址：https://res.qcloudtiw.com/board/2.6.3/TEduBoard.min.js
+
+- 新增接口：
+    1. 设置画笔自动拟合模式setPenAutoFittingMode
+    2. 生成板书图片addSnapshotMark
+- 调整接口：
+    1. 添加白板addBoard
+    > 支持新增白板直接设置背景H5
+- 新增初始化参数：
+    1. 白板离线告警时间间隔offlineWarningTimeout
+- 新增事件：
+    1. 白板离线告警TEB_OFFLINE_WARNING
+- 调整事件：
+    1. 增加元素回调TEB_ADDELEMENT
+    > 增加元素回调返回值新增元素类型type
+- 优化：
+    1. 魔法笔功能
+    2. 支持直接创建H5背景白板
+    3. 支持白板离线检测
+    4. 支持生成板书
+- Bug 修复
+    1. 若干已知问题
+
+### 2.6.2 @ 2021.06.09
+* 链接地址：https://res.qcloudtiw.com/board/2.6.2/TEduBoard.min.js
+
+- 调整接口：
+    1. 添加白板元素addElement
+- 调整初始化参数：
+    1. 初始化权限参数 mathGraphEnable，预加载数学函数图像库
+    2. 初始化配置参数 scaleRange，白板缩放范围
+- 新增事件：
+    1. 框选工具选中元素回调TEB_SELECTED_ELEMENTS，原有的回调事件(TEB_RECTSELECTED弃用
+    2. 数学函数图像工具事件回调TEB_MATH_GRAPH_EVENT
+    2. 远端白板缩放移动状态回调TEB_ZOOM_DRAG_STATUS
+- 废除接口
+    1. 废除添加图片元素addImageElement，请使用添加白板元素addElement
+- 优化：
+    1. 支持数学函数图像显示
+    2. 支持H5元素移动、缩放、旋转
+    3. 添加元素支持自定义位置，目前支持图片元素，H5元素，数学函数图像
+    4. 移动端支持在任意工具下双指缩放白板
+- Bug 修复
+    1. 若干已知问题
+
+### 2.6.1 @ 2021.06.01
+* 链接地址：https://res.qcloudtiw.com/board/2.6.1/TEduBoard.min.js
+
+- 调整接口：
+    1. 设置工具的提示语setToolTypeTitle
+    2. 设置允许操作哪些用户绘制的图形setAccessibleUsers
+    2. 设置用户信息setUserInfo
+- 调整初始化参数：
+    1. 优化初始化参数结构
+- 新增事件：
+    1. 文本组件状态回调TEB_TEXT_ELEMENT_STATUS_CHANGED
+    2. 图片元素加载状态TEB_IMAGE_ELEMENT_STATUS_CHANGED
+    3. 白板文字工具异常警告TEB_TEXT_ELEMENT_WARNING
+- 优化：
+    1. 涂鸦支持缩放旋转
+    2. 文本支持等比例缩放
+    3. 优化用户权限控制
+    4. 支持显示远端操作元素
+    5. 支持显示白板元素操作者或创造者信息
+    6. 支持自动隐藏静止的远端画笔
+    7. 优化低版本背景图显示
+- Bug 修复
+    1. 若干已知问题
+
 ### 2.6.0 @ 2021.05.07
 * 链接地址：https://res.qcloudtiw.com/board/2.6.0/TEduBoard.min.js
 
