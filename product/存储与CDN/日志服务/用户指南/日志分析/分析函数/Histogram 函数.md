@@ -50,7 +50,7 @@ histogram(long, interval)
 
 统计每5分钟访问次数 PV 值。
 ```
-* | select histogram(cast(__TIMESTAMP__ as timestamp),INTERVAL 5 MINUTE) AS dt, count(*) as PV group by dt order by dt
+* | select histogram(cast(__TIMESTAMP__ as timestamp),INTERVAL 5 MINUTE) AS dt, count(*) as PV group by dt order by dt limit 1000
 ```
 ![image-20210719003224086](https://main.qcloudimg.com/raw/13bfe6019fb000314de02acbeb7b68f7.png)
 
