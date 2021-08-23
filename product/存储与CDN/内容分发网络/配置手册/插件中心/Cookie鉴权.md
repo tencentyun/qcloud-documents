@@ -88,7 +88,7 @@ Set-Cookie: TC-HMAC=acl=` 可允许的 URL`~st=` 开始时间 `~exp=` 结束时�
 >- `st` ：鉴权开始时间，采用 UNIX 时间戳，必填参数。
 >- `exp` ：鉴权结束时间，采用 UNIX 时间戳，可选参数，未设置则默认在`st` 基础上加 86400 秒。
 >- `ip`： IP 白名单，采用 CIDR 格式，仅支持 IPv4，可选参数。
->- `hmac` ：对上述参数进行 HMAC 签名的结果，hmac = hmac (key, acl, st, exp, ip)，Type B 签名方式具体请见 [示例](TypeB)。
+>- `hmac` ：对上述参数进行 HMAC 签名的结果，hmac = hmac (key, acl, st, exp, ip)，Type B 签名方式具体请见 [示例](#TypeB)。
 
 
 
@@ -170,7 +170,74 @@ TC-HMAC=acl=https://www.example.com/i?age/*~st=1627821119~exp=1629550200~ip=192.
 
 
 ## 最佳实践
+假设 0.cooke.test.scdn.team 负责 set-cookie, 1.cooke.test.scdn.team 负责向 CDN 请求资源，使用 Type A 的签名方式，密钥为 `TencentCDN`。
 
+1. 终端用户向 0.cooke.test.scdn.team 请求资源 /image/test.jpg，通过鉴权后，源站返回 set-cookie 响应头，源站配置的访问控制策略为（后续访问将命中第二组策略）：
+```
+{
+    "Policy":[
+        {
+            "Condition":{
+                "DateGreaterThan":{
+                    "StartTime":45
+                },
+                "DateLessThan":{
+                    "ExpireTime":999999999999
+                },
+                "IpAddress":{
+                    "SourceIp":"192.168.1.1/32"
+                }
+            },
+            "Resource":"https://1.cookie.test.scdn.team/movie/*"
+        },
+        {
+            "Condition":{
+                "DateGreaterThan":{
+                    "StartTime":45
+                },
+                "DateLessThan":{
+                    "ExpireTime":999999999999
+                },
+                "IpAddress":{
+                    "SourceIp":"192.168.1.1/32"
+                }
+            },
+            "Resource":"https://1.cookie.test.scdn.team/i?age/*.jpg"
+        }
+    ]
+}
+```
+则计算出来
+```
+set-cookie: TC-Policy=eyJQb2xpY3kiOlt7IkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiU3RhcnRUaW1lIjo0NX0sIkRhdGVMZXNzVGhhbiI6eyJFeHBpcmVUaW1lIjo5OTk5OTk5OTk5OTl9LCJJcEFkZHJlc3MiOnsiU291cmNlSXAiOiIxOTIuMTY4LjEuMS8zMiJ9fSwiUmVzb3VyY2UiOiJodHRwczovLzEuY29va2llLnRlc3Quc2Nkbi50ZWFtL21vdmllLyoifSx7IkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiU3RhcnRUaW1lIjo0NX0sIkRhdGVMZXNzVGhhbiI6eyJFeHBpcmVUaW1lIjo5OTk5OTk5OTk5OTl9LCJJcEFkZHJlc3MiOnsiU291cmNlSXAiOiIxOTIuMTY4LjEuMS8zMiJ9fSwiUmVzb3VyY2UiOiJodHRwczovLzEuY29va2llLnRlc3Quc2Nkbi50ZWFtL2k~YWdlLyouanBnIn1dfQ__; Path=/; Domain=test.scdn.team; Max-Age=600; Secure
+
+set-cookie: TC-Sign=aafc24c523636050e57e50388a35fd6999528b7848a521d171e67d8df350f4b2; Path=/; Domain=test.scdn.team; Max-Age=600; Secure
+```
+2. 终端用户携带该 Cookie 访问 CDN 资源 `https://1.cookie.test.scdn.team/image/test.jpg`，请求示例如下：
+```
+curl 'https://1.cookie.test.scdn.team/image/test.jpg' \
+  -H 'authority: 1.cookie.test.scdn.team' \
+  -H 'sec-ch-ua: "Chromium";v="92", " Not A;Brand";v="99", "Microsoft Edge";v="92"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36 Edg/92.0.902.73' \
+  -H 'accept: */*' \
+  -H 'origin: https://0.cookie.test.scdn.team' \
+  -H 'sec-fetch-site: same-site' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'referer: https://0.cookie.test.scdn.team/' \
+  -H 'accept-language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6' \
+  -H 'cookie: TC-Policy=eyJQb2xpY3kiOlt7IkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiU3RhcnRUaW1lIjo0NX0sIkRhdGVMZXNzVGhhbiI6eyJFeHBpcmVUaW1lIjo5OTk5OTk5OTk5OTl9LCJJcEFkZHJlc3MiOnsiU291cmNlSXAiOiIxOTIuMTY4LjEuMS8zMiJ9fSwiUmVzb3VyY2UiOiJodHRwczovLzEuY29va2llLnRlc3Quc2Nkbi50ZWFtL21vdmllLyoifSx7IkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiU3RhcnRUaW1lIjo0NX0sIkRhdGVMZXNzVGhhbiI6eyJFeHBpcmVUaW1lIjo5OTk5OTk5OTk5OTl9LCJJcEFkZHJlc3MiOnsiU291cmNlSXAiOiIxOTIuMTY4LjEuMS8zMiJ9fSwiUmVzb3VyY2UiOiJodHRwczovLzEuY29va2llLnRlc3Quc2Nkbi50ZWFtL2k~YWdlLyouanBnIn1dfQ__;TC-Sign=aafc24c523636050e57e50388a35fd6999528b7848a521d171e67d8df350f4b2 \
+  --compressed
+```
+>?
+> 由于涉及到跨域访问，需要在 CDN/源站上配置如下响应头部，用于跨域请求。
+> access-control-allow-credentials: true
+> access-control-allow-methods: GET, POST
+> access-control-allow-origin: `https://0.cookie.test.scdn.team`
+> 前端发起请求时设置 xhr.withCredentials = true，用于携带 Cookie 发送跨域请求。
+> 
+3. CDN 节点会对用户携带的 Cookie 进行校验，如果通过则会返回 /image/test.jpg 文件内容，如果不通过则返回403。
 
 ## 费用说明
 
