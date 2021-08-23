@@ -89,7 +89,7 @@ MySQL 5.7 和 MariaDB 中，由于 NULL 属于未知值，在上述的对比中�
 如果 alter table 仅交换列的顺序，MariaDB 允许使用 inplace 算法，但 MySQL 不允许。
 MariaDB 执行 inplace alter table 后，show create table t1 后发现运行结果与 MySQL 用 ALGORITHM=COPY 时运行结果相同。
 
-### 4 MySQL 和 MariaDB 的未定义行为
+### 4. MySQL 和 MariaDB 的未定义行为
 未定义行为（undefined behavior）：指 MySQL、MariaDB 可以按照任意方式实现这种功能和行为，且版本之间可能发生变化而不需要通知用户或者明确指出。MySQL、MariaDB 对这些行为的实现可能产生相同的结果或者不同的结果。
 
 对于现在和未来版本的这类不同或者相同之处，MariaDB 不会做任何结果保证，也不保证提供内核优化保证完全一致，[未定义行为官方说明](https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-compatibility/)。
@@ -177,7 +177,7 @@ MySQL 5.5、5.6 返回 NULL，MariaDB 10.1 和 MySQL 5.7 返回 2016-08-03 23:38
 - TIMESTAMP() 的第一个参数为 time 类型时，MySQL 5.5 无法自动转换为 timestamp 类型，因而返回 NULL。
 - MySQL 5.7 和 MariaDB 则将 time 类型自动转为 timestamp 类型，即将当前的日期+输入的 time 变量。
 
-### 5 附录：MariaDB 参数和 MySQL 参数
+### 5. 附录：MariaDB 参数和 MySQL 参数
 #### 5.1 相同变量名不同参数
 变量名相同意味着主要功能也相同。
 
