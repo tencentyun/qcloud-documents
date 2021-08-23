@@ -83,11 +83,11 @@ echo '172.21.17.69 demo.tencentcloudcr.com' >> /etc/hosts
 4. 进入“新建Namespace” 页面，勾选“自动下发容器镜像服务企业版访问凭证”，并选择该集群需访问的 TCR 实例。如下图所示：
 	![](https://main.qcloudimg.com/raw/d4c21b05217a1b2d715fd3632e77a241.png)
 5. 单击**创建Namespace**进行创建。
-	创建完成后，该实例的访问凭证将自动下发至该命名空间。可选择左侧的**配置管理**>**Secret**，进入 “Secret” 页面即可查看该访问凭证。例如 `1000090225xx-tcr-m3ut3qxx-dockercfg`。其中，`1000090225xx` 为创建命名空间的子账号 UIN，`tcr-m3ut3qxx` 为所选实例的实例 ID。
+	创建完成后，该实例的访问凭证将自动下发至该命名空间。可选择左侧的**配置管理** > **Secret**，进入 “Secret” 页面即可查看该访问凭证。例如 `1000090225xx-tcr-m3ut3qxx-dockercfg`。其中，`1000090225xx` 为创建命名空间的子账号 UIN，`tcr-m3ut3qxx` 为所选实例的实例 ID。
 
 参考以下步骤，向已有命名空间下发访问凭证：
 1. [](id:loginInfo)参考 [获取实例访问凭证](https://cloud.tencent.com/document/product/1141/41829)，获取用户名及密码。
-2. 在集群详情页，选择左侧的**配置管理**>**Secret**，进入 “Secret” 页面。
+2. 在集群详情页，选择左侧的**配置管理** > **Secret**，进入 “Secret” 页面。
 3. 在 “Secret” 页面单击**新建**进入“新建Secret” 页面，参考以下信息下发访问凭证。如下图所示：
 	![](https://main.qcloudimg.com/raw/3521ba5ef8437b52586411eb505d344a.png)
 	主要参数信息如下：
@@ -98,7 +98,7 @@ echo '172.21.17.69 demo.tencentcloudcr.com' >> /etc/hosts
 4. 单击**创建Secret**即可完成下发。
 
 ### 使用 TCR 实例内容器镜像创建工作负载
-1. 在集群详情页面，选择左侧**工作负载**>**Deployment**。
+1. 在集群详情页面，选择左侧**工作负载** > **Deployment**。
 2. 进入“Deployment” 页面，并单击**新建**。
 3. 进入“新建Workload” 页面，参考以下信息创建工作负载。
 主要参数信息如下，其他参数请按需设置：

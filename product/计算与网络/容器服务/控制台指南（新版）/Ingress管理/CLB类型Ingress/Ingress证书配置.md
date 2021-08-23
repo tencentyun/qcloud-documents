@@ -122,7 +122,7 @@ kubectl edit secrets [secret-name]
 #### 通过控制台更新
 1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面，选择需修改 Ingress 的集群 ID。
-3. 在集群详情页，选择左侧**服务与路由**>**Ingress**。如下图所示：
+3. 在集群详情页，选择左侧**服务与路由** > **Ingress**。如下图所示：
 ![](https://main.qcloudimg.com/raw/69e9c55ea644144ea5848c98b9d0462a.png)
 4. 单击目标 Ingress 所在行右侧的**更新转发配置**。
 5. 在“更新转发配置”页面中，根据实际情况进行转发配置规则更新。
