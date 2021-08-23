@@ -45,7 +45,7 @@ webRTC 协议推流主要用于视频云的快直播（超低延迟直播）推�
 ![](https://main.qcloudimg.com/raw/34924378812d1a36f04cfe1a2180e7a0.png)    
 2. **配置 OBS 推流服务**。[](id:set_obs)
 	1. 打开 OBS，您可通过底部工具栏的 **控件**>**设置** 按钮进入设置界面。
-	2. 单击 **推流** 进入流设置页签，选择服务类型为 `Tenent webrtc`，服务器为 `Default`，串流秘钥中输入之前生成的 [WebRTC 推流地址](#push)，并在后面拼接上 `&stopstream_api=https://webrtcpush.myqcloud.com/webrtc/v1/stopstream`。
+	2. 单击 **推流** 进入流设置页签，选择服务类型为 `Tenent webrtc`，服务器为 `Default`，串流密钥中输入之前生成的 [WebRTC 推流地址](#push)，并在后面拼接上 `&stopstream_api=https://webrtcpush.myqcloud.com/webrtc/v1/stopstream`。
 	**串流密钥示例：**
 ```
 webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx &stopstream_api=https://webrtcpush.myqcloud.com/webrtc/v1/stopstream 
