@@ -37,11 +37,11 @@ kubectl -n devops get secret jenkins -o jsonpath='{.data.jenkins-admin-password}
 
 建议通过普通用户管理 Jenkins，创建普通用户之前，需配置认证与授权策略。
 
-1. 登录 Jenkins 后台，选择**Dashboard**>**Manage Jenkins**>**Security**>**Configure Global Security**，进入认证与授权策略页面。如下图所示：
+1. 登录 Jenkins 后台，选择**Dashboard** > **Manage Jenkins** > **Security** > **Configure Global Security**，进入认证与授权策略页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/98801d650feb5e2a9623dff3057a1c1a.png)
  - **Security Realm**：选择**Jenkins‘ own user database**。
  - **Authorization**：选择**Logged-in users can do anything**。
-2. 选择**Dashboard** > **Manage Jenkins** > **Security** > **Manage Users**>**Create User**，进入创建用户界面，根据以下提示创建用户。如下图所示：
+2. 选择**Dashboard** > **Manage Jenkins** > **Security** > **Manage Users** > **Create User**，进入创建用户界面，根据以下提示创建用户。如下图所示：
 ![](https://main.qcloudimg.com/raw/b0e04f93312ee575d42d074979f4797f.png)
 	- **Username**：输入用户名。
 	- **Password**：输入用户密码。

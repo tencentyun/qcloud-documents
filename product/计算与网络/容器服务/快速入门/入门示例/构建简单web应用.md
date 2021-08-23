@@ -117,7 +117,7 @@ GET_HOSTS_FROM = dns
 
 ### 验证 Web 应用
 1. 单击左侧导航栏中**[集群](https://console.cloud.tencent.com/tke2/cluster)**，进入“集群管理”页面。
-2. 单击已创建服务所在的集群 ID，选择**服务**>**Service**。如下图所示：
+2. 单击已创建服务所在的集群 ID，选择**服务** > **Service**。如下图所示：
 3. 进入服务管理页面，复制 frontend 服务的负载均衡 IP。如下图所示：
 ![](https://main.qcloudimg.com/raw/70f977306648e811b82c124492657ce1.png)
 >?

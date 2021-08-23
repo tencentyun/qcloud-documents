@@ -70,7 +70,7 @@ WORDPRESS_DB_PASSWORD = 初始化时填写的密码
 
 #### 通过负载均衡 IP 访问 WordPress 服务
 1. 单击左侧导航栏中**[集群](https://console.cloud.tencent.com/tke2/cluster)**，进入“集群管理”页面。
-2. 单击 WordPress 服务所在的集群 ID，选择**服务**>**Service**。
+2. 单击 WordPress 服务所在的集群 ID，选择**服务** > **Service**。
 3. 进入服务管理页面，复制 WordPress 服务的负载均衡 IP，如下图所示：
 ![](https://main.qcloudimg.com/raw/e832352b82c6aa9ed7c030ae30fc0c28.png)
 4. 在浏览器地址栏输入负载均衡 IP，按 **Enter** 即可访问服务。

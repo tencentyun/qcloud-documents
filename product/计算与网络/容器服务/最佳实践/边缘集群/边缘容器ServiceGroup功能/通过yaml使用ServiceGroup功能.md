@@ -16,9 +16,9 @@
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**边缘集群**。
 2. 选择需要编辑标签的节点所在的集群 ID，进入该集群管理页面。
-3. 选择**节点管理**>**节点**，进入节点列表页，如下图所示：
+3. 选择**节点管理** > **节点**，进入节点列表页，如下图所示：
    ![](https://main.qcloudimg.com/raw/712450952968557eefd23e4833deaa5f.png)
-4. 选择需要编辑标签的节点所在行右侧的**更多**>**编辑标签**。
+4. 选择需要编辑标签的节点所在行右侧的**更多** > **编辑标签**。
 5. 在弹出的“编辑标签”窗口，参考以下信息新增 Label。如下图所示：
    ![](https://main.qcloudimg.com/raw/28596c7e60903b064df642f3a823427e.png)   
    - 参考 [整体架构](https://cloud.tencent.com/document/product/457/46923#OverallStructure) 章节，选择 Node12及 Node14编辑 Label：`zone=nodeunit1`。Node21及 Node23编辑 Label：`zone=nodeunit2`。

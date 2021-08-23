@@ -51,7 +51,7 @@
 #### 通过**负载均衡 IP** 访问 Nginx 服务
 
 1. 单击左侧导航栏中**[集群](https://console.cloud.tencent.com/tke2/cluster)**，进入 “集群管理” 页面。
-2. 单击 Nginx 服务所在的集群 ID，选择**服务**>**Service**。
+2. 单击 Nginx 服务所在的集群 ID，选择**服务** > **Service**。
 3. 在服务管理页面，复制 Nginx 服务的负载均衡 IP，如下图所示：
 ![](https://main.qcloudimg.com/raw/91a91da5197a2447205cbe09c5484081.png)
 4. 在浏览器地址栏输入负载均衡 IP，按 “**Enter**” 即可访问服务。

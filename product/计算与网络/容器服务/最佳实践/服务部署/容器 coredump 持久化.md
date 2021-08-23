@@ -48,7 +48,7 @@ kubectl create secret generic cos-secret -n kube-system  --from-literal=SecretId
 
 使用 COS 插件需要手动创建 PV 和创建 PVC，并完成绑定。
 #### 创建 PV[](id:pv)
-1. 在目标集群详情页面，选择左侧菜单栏中的**存储**>**PersistentVolume**，进入 “PersistentVolume” 页面。
+1. 在目标集群详情页面，选择左侧菜单栏中的**存储** > **PersistentVolume**，进入 “PersistentVolume” 页面。
 2. 单击**新建**进入“新建PersistentVolume” 页面，参考以下信息创建 PV。如下图所示：
 ![](https://main.qcloudimg.com/raw/d2301b77ad197f86f9131656d5e5339b.png)
 主要参数信息如下：
@@ -60,7 +60,7 @@ kubectl create secret generic cos-secret -n kube-system  --from-literal=SecretId
 
 
 #### 创建 PVC[](id:pvc)
-1. 在目标集群详情页，选择左侧菜单栏中的**存储**>**PersistentVolumeClaim**，进入 “PersistentVolumeClaim” 页面。
+1. 在目标集群详情页，选择左侧菜单栏中的**存储** > **PersistentVolumeClaim**，进入 “PersistentVolumeClaim” 页面。
 2. 单击**新建**进入“新建PersistentVolumeClaim” 页面，参考以下信息创建 PVC。如下图所示：
 ![](https://main.qcloudimg.com/raw/b8e1a09f37a34264a8b251c0362d43a8.png)
 主要参数信息如下：
@@ -74,7 +74,7 @@ kubectl create secret generic cos-secret -n kube-system  --from-literal=SecretId
 #### 通过控制台创建 Pod 使用 PVC
 >? 本步骤以创建工作负载 Deployment 为例。
 >
-1. 在目标集群详情页，选择左侧菜单栏中的**工作负载**>**Deployment**，进入 “Deployment” 页面。
+1. 在目标集群详情页，选择左侧菜单栏中的**工作负载** > **Deployment**，进入 “Deployment” 页面。
 2. 单击**新建**进入“新建Workload” 页面，参考 [创建 Deployment](https://cloud.tencent.com/document/product/457/31705#.E5.88.9B.E5.BB.BA-deployment) 进行创建，并设置数据卷挂载。如下图所示：
 ![](https://main.qcloudimg.com/raw/f63720106568c9eff4a263e4572ae9d9.png)
 主要参数信息如下：
