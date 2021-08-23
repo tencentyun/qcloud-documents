@@ -168,7 +168,7 @@ TC-HMAC=acl=https://www.example.com/i?age/*~st=1627821119~exp=1629550200~ip=192.
 
 
 ## 最佳实践
-假设 0.cooke.test.scdn.team 负责 set-cookie, 1.cooke.test.scdn.team 负责向 CDN 请求资源，使用 Type A 的签名方式，密钥为 `TencentCDN`。
+假设 0.cooke.test.scdn.team 负责 set-cookie, 1.cooke.test.scdn.team 负责向 CDN 请求资源，使用 Type A 的签名方式，密钥为`TencentCDN`。
 
 1. 终端用户向 0.cooke.test.scdn.team 请求资源 /image/test.jpg，通过鉴权后，源站返回 set-cookie 响应头，源站配置的访问控制策略为（后续访问将命中第二组策略）：
 ```
