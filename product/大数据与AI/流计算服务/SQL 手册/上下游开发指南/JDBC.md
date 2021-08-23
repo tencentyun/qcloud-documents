@@ -6,7 +6,7 @@ JDBC Connector 提供了对 MySQL、PostgreSQL、Oracle 等常见的数据库读
 ## 使用范围
 JDBC 支持用作数据源表（Source），用于按固定列扫描表和用于 JOIN 的右表（维表）。也支持用作数据目的表（sink），用于 Tuple 数据流表和用于 Upsert 数据流表（需要指定主键）。
 
-若需要将 JDBC 数据库的变动记录作为流式源表消费，请使用内置的 CDC 数据源。若内置的 CDC 数据源无法满足需求，还可使用 [Debezium](https://debezium.io/documentation/reference/1.2/tutorial.html)、[Canal](https://github.com/alibaba/canal) 等，对 JDBC 数据库的变更进行捕获和订阅，然后 Flink 即可对这些变更事件进行进一步的处理。详情可参见 [Kafka](https://cloud.tencent.com/document/product/849/48310)。
+若需要将 JDBC 数据库的变动记录作为流式源表消费，请使用内置的 CDC 数据源。若内置的 CDC 数据源无法满足需求，还可使用 [Debezium](https://debezium.io/documentation/reference/1.2/tutorial.html)、[Canal](https://github.com/alibaba/canal) 等，对 JDBC 数据库的变更进行捕获和订阅，然后 Oceanus 即可对这些变更事件进行进一步的处理。详情可参见 [消息队列 Kafka](https://cloud.tencent.com/document/product/849/48310)。
 
 ## 示例
 ### 用作按列扫描的数据源（Source）
