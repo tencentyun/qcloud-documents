@@ -159,9 +159,9 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 [](id:step1)
 
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 单击【新建应用】输入应用名称，例如 `TestTRTC`；若您已创建应用可单击【选择已有应用】。
-3. 根据实际业务需求添加或编辑标签，单击【创建】。
+1. 登录实时音视频控制台，选择 **开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+2. 单击 **新建应用** 输入应用名称，例如 `TestTRTC`；若您已创建应用可单击 **选择已有应用**。
+3. 根据实际业务需求添加或编辑标签，单击 **创建**。
 ![](https://main.qcloudimg.com/raw/f04d288ed091c98a5e8056eb86fb49e8.png)
 >?
 >- 应用名称只能包含数字、中英文字符和下划线，长度不能超过15个字符。
@@ -170,19 +170,19 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 [](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
-2. 下载完成后，单击【已下载，下一步】。
+2. 下载完成后，单击 **“已下载，下一步”**。
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `Web/js/debug/GenerateTestUserSig.js` 文件。
+2. 找到并打开 `Web/base-js/debug/GenerateTestUserSig.js` 文件。
 3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
     <img src="https://main.qcloudimg.com/raw/99c0bf40a7b6267c5c398336a97f3335.png">
-4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
-5. 编译完成后，单击【回到控制台概览】即可。
+4. 粘贴完成后，单击 **已复制粘贴，下一步** 即创建成功。
+5. 编译完成后，单击 **回到控制台概览** 即可。
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
@@ -197,12 +197,11 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 
 Demo 运行界面如图所示：
 ![](https://main.qcloudimg.com/raw/e989c968446e6e3bdcc19c58e40e2b86.png)
-- 单击【加入房间】加入音视频通话房间并且发布本地音视频流。
- 您可以打开多个页面，每个页面都单击 【加入房间】，正常情况下可以看到多个画面并模拟实时音视频通话。
+- 单击 **加入房间** 加入音视频通话房间并且发布本地音视频流。
+ 您可以打开多个页面，每个页面都单击  **加入房间**，正常情况下可以看到多个画面并模拟实时音视频通话。
 - 单击摄像头图标可以选择摄像头设备。
 - 单击麦克风图标可以选择麦克风设备。
-
->?WebRTC 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击【允许】。
+>?WebRTC 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击 **允许**。
 > ![](https://main.qcloudimg.com/raw/1a2c1e7036720b11f921f8ee1829762a.png)
 
 
@@ -212,8 +211,8 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 升级/切换操作：
  1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
- 2. 在左侧导航栏选择【应用管理】，单击目标应用所在行的【应用信息】。
- 3. 选择【快速上手】页签，单击【第二步 获取签发UserSig的密钥】区域的【点此升级】、【非对称式加密】或【HMAC-SHA256】。
+ 2. 在左侧导航栏选择 **应用管理**，单击目标应用所在行的 **应用信息**。
+ 3. 选择 **快速上手** 页签，单击 **第二步 获取签发UserSig的密钥** 区域的 **点此升级** 、 **非对称式加密** 或 **HMAC-SHA256**。
   - 升级：
    ![](https://main.qcloudimg.com/raw/69bd0957c99e6a6764368d7f13c6a257.png)
   - 切换回老版本算法 ECDSA-SHA256：
@@ -229,5 +228,5 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 ### 4. 出现10006 error 该如何处理？
 如果出现"Join room failed result: 10006 error: service is suspended,if charge is overdue,renew it"，请确认您的实时音视频应用的服务状态是否为可用状态。
-登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)，单击您创建的应用，单击【帐号信息】，在帐号信息面板即可确认服务状态。
+登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)，单击您创建的应用，单击 **帐号信息**，在帐号信息面板即可确认服务状态。
 ![](https://main.qcloudimg.com/raw/13c9b520ea333804cffb4e2c4273fced.png)
