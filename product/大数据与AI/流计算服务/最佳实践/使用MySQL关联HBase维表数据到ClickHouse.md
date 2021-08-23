@@ -123,6 +123,7 @@ CREATE TABLE `student` (
   `id` INT NOT NULL,
   `name` varchar,
   `age` INT,
+  proc_time AS PROCTIME(),
   PRIMARY KEY (`ID`) NOT ENFORCED
 ) WITH (
   'connector' = 'mysql-cdc',
@@ -187,7 +188,8 @@ SELECT
   dim_hbase.cf.school_name
 FROM
   student
-  JOIN dim_hbase ON CAST(student.school_id AS STRING) = dim_hbase.rowkey;
+  JOIN dim_hbase for SYSTEM_TIME as of student.proc_time
+	ON CAST(student.school_id AS STRING) = dim_hbase.rowkey;
 ```
 
 ### 结果验证
