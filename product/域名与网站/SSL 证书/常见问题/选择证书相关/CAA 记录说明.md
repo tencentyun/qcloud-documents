@@ -8,6 +8,6 @@ CAA（Certification Authority Authorization，证书颁发机构授权）是一�
 >?
 >- 若域名所有者未为该域名设置 CAA 记录，那么任何 CA 机构都可以为该域名颁发 SSL 证书。
 >- 若您的域名在 DNSPod 进行托管，具体操作请参见 [CAA 记录](https://docs.dnspod.cn/dns/5f3b337aab35dc34f57913e4/)。
-
+>- 若申请域名添加了非腾讯云 CA 机构的 CAA 记录，将无法正常颁发，进行域名验证前，请先检查是否添加了 CAA 记录。若已添加，请删除后再进行域名验证。
 
 

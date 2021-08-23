@@ -269,7 +269,7 @@
     </tr>
                 <tr>      
      <td>8000 </td>
-     <td>设备存证异常篡改信息行为，该标签支持 Android 和 iOS 系统</td>   
+     <td>设备存在异常篡改信息行为，该标签支持 Android 和 iOS 系统</td>   
     </tr>
      <tr>      
      <td colspan=2>说明：8000的含义包括了如 IMEI 篡改、OAID 篡改、IMSI 篡改及频繁修改设备参数行为</td>
