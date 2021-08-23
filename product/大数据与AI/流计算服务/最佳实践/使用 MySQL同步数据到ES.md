@@ -59,7 +59,7 @@ GET _cat/nodes
 在 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus) 的**作业管理 > 新建作业**中新建 **SQL 作业**，选择在新建的集群中新建作业。然后在作业的**开发调试 > 作业参数**中添加必要的 connector，如 mysql-cdc connector、elasticsearch6/7 connector。
 >!ES connector 版本要与购买的 ES 组件版本一致。
 
-<img src="https://main.qcloudimg.com/raw/519a45c9ec8d74e24f2e47bf39b681e2.png" alt="SQL作业" style="zoom:50%;" />
+![](https://main.qcloudimg.com/raw/9b95d4a12dab6d6f54cb4f94213b8db2.png)
 
 ### 创建 Source 端
 选择 mysql 作为数据源，并将后续的数据持续更新到 ES 中。
@@ -91,7 +91,7 @@ CREATE TABLE es_old_sink (
     `score` INT
 ) WITH (
     'connector.type' = 'elasticsearch', -- 输出到 Elasticsearch
-    'connector.version' = '6',          -- 指定 Elasticsearch 的版本, 例如 '6', '7'. 注意务必要和所选的内置 Connector 版本一致
+    'connector.version' = '7',          -- 指定 Elasticsearch 的版本, 例如 '6', '7'. 注意务必要和所选的内置 Connector 版本一致
     'connector.hosts' = 'http://172.28.1.175:9200',  -- Elasticsearch 的连接地址
     'connector.index' = 'connector-test-index',       -- Elasticsearch 的 Index 名
     'connector.document-type' = '_doc',  -- Elasticsearch 的 Document 类型
