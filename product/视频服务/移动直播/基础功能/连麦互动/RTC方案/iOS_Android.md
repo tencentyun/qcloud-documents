@@ -83,7 +83,7 @@ RTC 连麦互动直播需要在开始接入前，先开通腾讯云 [**实时音
 1. 您需要 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 2. 登录实时音视频控制台，选择 **[应用管理](https://console.cloud.tencent.com/trtc/app)**。
 3.  单击 **创建应用**，输入应用名称，例如 `V2Demo`，单击 **确定**。
-![](https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/blog/min.helloworld/21ef2f952c428c08cedfbef88ba16407.png)
+![](https://main.qcloudimg.com/raw/3d1853c6540a47f1b02de37dccf01f74.png)
 4. 创建成功后，单击右侧 **应用信息**，查看应用对应的 `SDKAppID` 信息。
 5. 单击 **快速上手**，加载完成后，记录出现的 **UserSig 的密钥**。
 > !
