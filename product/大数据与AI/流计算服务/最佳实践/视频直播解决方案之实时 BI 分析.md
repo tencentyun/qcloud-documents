@@ -418,7 +418,7 @@ CREATE TABLE `module_gift_total_sink` (
 );
 ```
 4. 业务逻辑
-```
+```sql
 INSERT INTO `module_gift_total_sink`
 SELECT
 `b`.`cf`.`module_id`,
