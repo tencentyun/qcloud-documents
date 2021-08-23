@@ -704,7 +704,7 @@ this.TRTC.on(EVENT.VIDEO_FULLSCREEN_UPDATE, onVideoFullscreenUpdate)
 [](id:BGM_PLAY_PROGRESS)
 ### BGM_PLAY_PROGRESS
 
-远端视图全屏状态变更。
+BGM 播放时间戳变更通知。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -720,7 +720,7 @@ this.TRTC.on(EVENT.BGM_PLAY_PROGRESS, onBgmPlayProgress)
 [](id:BGM_PLAY_COMPLETE)
 ### BGM_PLAY_COMPLETE
 
-BGM 播放完成。
+BGM 播放结束通知。
 
 <dx-codeblock>
 ::: javascript javascript
