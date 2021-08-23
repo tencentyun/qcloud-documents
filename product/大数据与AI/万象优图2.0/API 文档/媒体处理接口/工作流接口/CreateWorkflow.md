@@ -178,9 +178,9 @@ Content-Type: application/xml
 </Request>
 ```
 
-#### 请求体2：HLS 自适应多码流
+#### 请求体2：HLS 自适应打包
 
-```plaintext
+```
 <Request>
     <MediaWorkflow>
         <Name>demo</Name>
