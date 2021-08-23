@@ -8,12 +8,11 @@
 ``` C++
 virtual void onTEBError(TEduBoardErrorCode code, const char *msg)=0
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardErrorCode | 错误码，参见 [TEduBoardErrorCode](https://cloud.tencent.com/document/product/1137/39987#teduboarderrorcode) 定义  |
+| code | TEduBoardErrorCode | 错误码，参见 TEduBoardErrorCode 定义  |
 | msg | const char * | 错误信息，编码格式为 UTF8  |
 
 
@@ -22,12 +21,11 @@ virtual void onTEBError(TEduBoardErrorCode code, const char *msg)=0
 ``` C++
 virtual void onTEBWarning(TEduBoardWarningCode code, const char *msg)=0
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardWarningCode | 错误码，参见 [TEduBoardWarningCode](https://cloud.tencent.com/document/product/1137/39987#teduboardwarningcode) 定义  |
+| code | TEduBoardWarningCode | 错误码，参见 TEduBoardWarningCode 定义  |
 | msg | const char * | 错误信息，编码格式为 UTF8  |
 
 
@@ -39,7 +37,6 @@ virtual void onTEBWarning(TEduBoardWarningCode code, const char *msg)=0
 ``` C++
 virtual void onTEBInit()=0
 ```
-
 #### 介绍
 收到该回调后表示白板已处于可正常工作状态（此时白板为空白白板，历史数据尚未拉取到） 
 
@@ -55,7 +52,6 @@ virtual void onTEBHistroyDataSyncCompleted()
 ``` C++
 virtual void onTEBSyncData(const char *data)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -71,7 +67,6 @@ virtual void onTEBSyncData(const char *data)
 ``` C++
 virtual void onTEBUndoStatusChanged(bool canUndo)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -84,7 +79,6 @@ virtual void onTEBUndoStatusChanged(bool canUndo)
 ``` C++
 virtual void onTEBRedoStatusChanged(bool canRedo)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -109,7 +103,6 @@ virtual void onTEBRefresh()
 ``` C++
 virtual void onTEBOffscreenPaint(const void *buffer, uint32_t width, uint32_t height, const TEduBoardRect *dirtyRects, uint32_t dirtyRectCount)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -124,7 +117,7 @@ virtual void onTEBOffscreenPaint(const void *buffer, uint32_t width, uint32_t he
 该回调不会从统一回调线程触发，可能来自不同线程调用
 
 #### 介绍
-该回调只有在启用离屏渲染时才会被触发 当 width != 0 || height != 0时，buffer 指向白板像素数据，大小为 width * height * 4，像素以白板左上方为原点从左到右从上到下按 BGRA 排列 
+该回调只有在启用离屏渲染时才会被触发 当width != 0 || height != 0时，buffer指向白板像素数据，大小为 width * height * 4，像素以白板左上方为原点从左到右从上到下按 BGRA 排列 
 
 
 ### onTEBAudioCallbackStarted
@@ -132,7 +125,6 @@ virtual void onTEBOffscreenPaint(const void *buffer, uint32_t width, uint32_t he
 ``` C++
 virtual void onTEBAudioCallbackStarted(uint32_t channels, uint32_t channelSize, uint32_t sampleRate)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -150,12 +142,11 @@ virtual void onTEBAudioCallbackStarted(uint32_t channels, uint32_t channelSize, 
 ``` C++
 virtual void onTEBAudioCallbackPacket(const float **buffer, int64_t pts)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| buffer | const float **| 音频数据数组，格式为 buffer[channels][channelSize]  |
+| buffer | const float ** | 音频数据数组，格式为 buffer[channels][channelSize]  |
 | pts | int64_t | 音频包时间戳  |
 
 #### 警告
@@ -167,7 +158,6 @@ virtual void onTEBAudioCallbackPacket(const float **buffer, int64_t pts)
 ``` C++
 virtual void onTEBAudioCallbackStopped()
 ```
-
 #### 警告
 该回调不会从统一回调线程触发，可能来自不同线程调用 
 
@@ -180,7 +170,6 @@ virtual void onTEBAudioCallbackStopped()
 ``` C++
 virtual void onTEBImageStatusChanged(const char *boardId, const char *url, TEduBoardImageStatus status)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -195,7 +184,6 @@ virtual void onTEBImageStatusChanged(const char *boardId, const char *url, TEduB
 ``` C++
 virtual void onTEBSetBackgroundImage(const char *url)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -211,7 +199,6 @@ virtual void onTEBSetBackgroundImage(const char *url)
 ``` C++
 virtual void onTEBAddImageElement(const char *url)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -230,7 +217,6 @@ virtual void onTEBAddImageElement(const char *url)
 ``` C++
 virtual void onTEBAddElement(const char *elementId, const char *url)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -242,24 +228,11 @@ virtual void onTEBAddElement(const char *elementId, const char *url)
 只有本地调用 AddElement 时会收到该回调 收到该回调表示元素已经显示出来 
 
 
-### onTEBRemoveElement
-删除白板元素回调 
-``` C++
-virtual void onTEBRemoveElement(const TEduBoardStringList *elementIds)
-```
-
-#### 参数
-
-| 参数 | 类型 | 含义 |
-| --- | --- | --- |
-| elementIds | const TEduBoardStringList * | 被删除的元素 ID（使用后不需要自行调用 Release 方法释放，SDK 内部自动释放）  |
-
 ### onTEBBackgroundH5StatusChanged
 设置白板背景 H5 状态改变回调 
 ``` C++
 virtual void onTEBBackgroundH5StatusChanged(const char *boardId, const char *url, TEduBoardBackgroundH5Status status)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -277,7 +250,6 @@ virtual void onTEBBackgroundH5StatusChanged(const char *boardId, const char *url
 ``` C++
 virtual void onTEBAddBoard(const TEduBoardStringList *boardList, const char *fileId)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -291,7 +263,6 @@ virtual void onTEBAddBoard(const TEduBoardStringList *boardList, const char *fil
 ``` C++
 virtual void onTEBDeleteBoard(const TEduBoardStringList *boardList, const char *fileId)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -305,7 +276,6 @@ virtual void onTEBDeleteBoard(const TEduBoardStringList *boardList, const char *
 ``` C++
 virtual void onTEBGotoBoard(const char *boardId, const char *fileId)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -319,7 +289,6 @@ virtual void onTEBGotoBoard(const char *boardId, const char *fileId)
 ``` C++
 virtual void onTEBGotoStep(uint32_t currentStep, uint32_t totalStep)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -333,7 +302,6 @@ virtual void onTEBGotoStep(uint32_t currentStep, uint32_t totalStep)
 ``` C++
 virtual void onTEBSnapshot(const char *path)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -349,7 +317,6 @@ virtual void onTEBSnapshot(const char *path)
 ``` C++
 virtual void onTEBFileTranscodeProgress(const char *path, const char *errorCode, const char *errorMsg, const TEduBoardTranscodeFileResult &result)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -365,7 +332,6 @@ virtual void onTEBFileTranscodeProgress(const char *path, const char *errorCode,
 ``` C++
 virtual void onTEBAddTranscodeFile(const char *fileId)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -381,7 +347,6 @@ virtual void onTEBAddTranscodeFile(const char *fileId)
 ``` C++
 virtual void onTEBAddImagesFile(const char *fileId)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -397,7 +362,6 @@ virtual void onTEBAddImagesFile(const char *fileId)
 ``` C++
 virtual void onTEBVideoStatusChanged(const char *fileId, TEduBoardVideoStatus status, double progress, double duration)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -408,26 +372,11 @@ virtual void onTEBVideoStatusChanged(const char *fileId, TEduBoardVideoStatus st
 | duration | double | 总时长（秒）（仅支持 mp4 格式）  |
 
 
-### onTEBAudioStatusChanged
-音频文件状态回调 
-``` C++
-virtual void onTEBAudioStatusChanged(const char *elementId, TEduBoardAudioStatus status, double progress, double duration)
-```
-
-#### 参数
-| 参数 | 类型 | 含义 |
-| --- | --- | --- |
-| elementId | const char * | 元素 ID  |
-| status | TEduBoardAudioStatus | 文件状态  |
-| progress | double | 当前进度（秒）  |
-| duration | double | 总时长（秒）  |
-
 ### onTEBH5FileStatusChanged
 H5 文件状态回调 
 ``` C++
 virtual void onTEBH5FileStatusChanged(const char *fileId, TEduBoardH5FileStatus status)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -437,11 +386,10 @@ virtual void onTEBH5FileStatusChanged(const char *fileId, TEduBoardH5FileStatus 
 
 
 ### onTEBH5PPTStatusChanged
-H5PPT 文件状态改变回调 
+H5PPT文件状态改变回调 
 ``` C++
 virtual void onTEBH5PPTStatusChanged(const char *fileId, TEduBoardH5PPTStatus status, const char *message)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -456,7 +404,6 @@ virtual void onTEBH5PPTStatusChanged(const char *fileId, TEduBoardH5PPTStatus st
 ``` C++
 virtual void onTEBDeleteFile(const char *fileId)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -469,7 +416,6 @@ virtual void onTEBDeleteFile(const char *fileId)
 ``` C++
 virtual void onTEBSwitchFile(const char *fileId)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -482,7 +428,6 @@ virtual void onTEBSwitchFile(const char *fileId)
 ``` C++
 virtual void onTEBFileUploadProgress(const char *path, int currentBytes, int totalBytes, int uploadSpeed, double percent)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -499,7 +444,6 @@ virtual void onTEBFileUploadProgress(const char *path, int currentBytes, int tot
 ``` C++
 virtual void onTEBFileUploadStatus(const char *path, TEduBoardUploadStatus status, int errorCode, const char *errorMsg)
 ```
-
 #### 参数
 
 | 参数 | 类型 | 含义 |
