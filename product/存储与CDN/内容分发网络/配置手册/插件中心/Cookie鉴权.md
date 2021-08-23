@@ -228,11 +228,12 @@ curl 'https://1.cookie.test.scdn.team/image/test.jpg' \
   -H 'cookie: TC-Policy=eyJQb2xpY3kiOlt7IkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiU3RhcnRUaW1lIjo0NX0sIkRhdGVMZXNzVGhhbiI6eyJFeHBpcmVUaW1lIjo5OTk5OTk5OTk5OTl9LCJJcEFkZHJlc3MiOnsiU291cmNlSXAiOiIxOTIuMTY4LjEuMS8zMiJ9fSwiUmVzb3VyY2UiOiJodHRwczovLzEuY29va2llLnRlc3Quc2Nkbi50ZWFtL21vdmllLyoifSx7IkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiU3RhcnRUaW1lIjo0NX0sIkRhdGVMZXNzVGhhbiI6eyJFeHBpcmVUaW1lIjo5OTk5OTk5OTk5OTl9LCJJcEFkZHJlc3MiOnsiU291cmNlSXAiOiIxOTIuMTY4LjEuMS8zMiJ9fSwiUmVzb3VyY2UiOiJodHRwczovLzEuY29va2llLnRlc3Quc2Nkbi50ZWFtL2k~YWdlLyouanBnIn1dfQ__;TC-Sign=aafc24c523636050e57e50388a35fd6999528b7848a521d171e67d8df350f4b2 \
   --compressed
 ```
-	1. 由于涉及到跨域访问，需要在 CDN/源站上配置如下响应头部，用于跨域请求。
-	access-control-allow-credentials: true
-	access-control-allow-methods: GET, POST
-	access-control-allow-origin:`https://0.cookie.test.scdn.team`
-	2. 前端发起请求时设置 xhr.withCredentials = true，用于携带 Cookie 发送跨域请求。
+>?
+>1. 由于涉及到跨域访问，需要在 CDN/源站上配置如下响应头部，用于跨域请求。
+>access-control-allow-credentials: true
+>access-control-allow-methods: GET, POST
+>access-control-allow-origin: `https://0.cookie.test.scdn.team`
+>2. 前端发起请求时设置 xhr.withCredentials = true，用于携带 Cookie 发送跨域请求。
 	
 3. CDN 节点会对用户携带的 Cookie 进行校验，如果通过则会返回 /image/test.jpg 文件内容，如果不通过则返回403。
 
