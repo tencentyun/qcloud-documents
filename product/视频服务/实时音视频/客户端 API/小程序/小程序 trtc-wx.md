@@ -47,8 +47,8 @@
 
 | API                                                          | 描述             |
 | :----------------------------------------------------------- | :--------------- |
-| [setPusherAttributes(config)](#setpusherattributes(config))  | 设置推流参数变更 |
-| [setPlayerAttributes(id, config)](#setplayerattributes(id.2C-config)) | 设置拉流参数变更 |
+| [setPusherAttributes(config)](#setpusherattributes(config))  | 设置推流的参数 |
+| [setPlayerAttributes(id, config)](#setplayerattributes(id.2C-config)) | 改变拉流 player 的参数 |
 
 ### 获取实例
 
