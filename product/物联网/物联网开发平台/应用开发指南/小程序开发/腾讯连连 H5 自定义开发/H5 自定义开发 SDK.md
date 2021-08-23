@@ -2223,7 +2223,7 @@ sdk.getAsrDownloadUrl({...}) => Promise<{...}>
 |:--------------------|:----------------|:-------|
 | ResourceURL       | cos 访问链接            | string |
 
-## TMESDK
+## 音乐服务
 
 ### 公共说明
 
