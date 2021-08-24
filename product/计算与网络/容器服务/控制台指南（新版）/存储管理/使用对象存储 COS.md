@@ -102,7 +102,7 @@
 	- **命名空间**：选择为 `kube-system`。
 	- **Provisioner**：选择**对象存储COS**。
 	- **读写权限**：对象存储仅支持多机读写。
-	- **PersistentVolume**：选择在[ 步骤2 ](#StepTwo)中已创建的 PV，本文以 `cos-pvc` 为例。
+	- **PersistentVolume**：选择在[ 步骤2 ](#StepTwo)中已创建的 PV，本文以 `cos-pv` 为例。
 3. 单击**创建PersistentVolumeClaim**即可。
 
 #### 创建 Pod 使用的 PVC
