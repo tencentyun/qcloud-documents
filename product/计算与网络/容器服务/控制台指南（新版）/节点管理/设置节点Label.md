@@ -14,7 +14,7 @@
 <dx-tabs>
 ::: 控制台设置节点Label
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
-2. 在左侧导航栏中，单击**[集群](https://console.cloud.tencent.com/tke2/cluster?rid=1)**，进入集群管理页面。
+2. 在左侧导航栏中，单击 **[集群](https://console.cloud.tencent.com/tke2/cluster?rid=1)**，进入集群管理页面。
 3. 选择需要设置节点 Label 的集群 ID/名称，进入集群详情。
 4. 在左侧导航栏中，选择**节点管理**> **节点**，进入“节点列表” 页面。
 5. 选择需要设置 Label 的节点行，单击**更多** > **编辑标签**。

@@ -519,7 +519,7 @@ Deployment 声明了 Pod 的模板和控制 Pod 的运行策略，适用于部�
 | ---------------- | ------------------------------------------------------------ |
 | replicas         | 表示需要创建的 Pod 数量                                      |
 | image            | 镜像的地址                                                   |
-| imagePullSecrets | 拉取镜像时需要使用的 key，可在**[集群](https://console.cloud.tencent.com/tke2/)**>**配置管理** > **Secret**中获取。使用公共镜像时可省略 |
+| imagePullSecrets | 拉取镜像时需要使用的 key，可在 **[集群](https://console.cloud.tencent.com/tke2/)**>**配置管理** > **Secret**中获取。使用公共镜像时可省略 |
 | env              | <li>定义了 pod 的环境变量和取值<br><li>ConfigMap 中定义的 key-value 可使用 configMapKeyRef 引用<br><li>Secret 中定义的 key-value 可使用 secretKeyRef 引用 |
 | ports            | 指定容器的端口号，account-service 的端口号为6000       |
 
@@ -660,7 +660,7 @@ spec:
 
 容器日志采集功能默认关闭，使用前需要开启，步骤如下：
 
-1. 登录容器服务控制台，选择左侧导航栏中的**集群运维**>**[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=1)**。
+1. 登录容器服务控制台，选择左侧导航栏中的**集群运维**> **[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=1)**。
 2. 在“功能管理”页面上方选择地域，单击需要开启日志采集的集群右侧的**设置**。
 ![](https://main.qcloudimg.com/raw/3d55d97eb5b3fa9f0cfe1c9ea4266561.png)
 3. 在“设置功能”页面，单击日志采集**编辑**，开启日志采集后确认。如下图所示：
