@@ -38,8 +38,8 @@
    - Telnet 测试不通过。
      在新建的 VPC 网络中（本例中为 TomVPC）购买一个云服务器 CVM，在 CVM 上 ping 源数据库主机地址：
       - 如果不能 ping 通。
-        - [源数据库设置了安全组或防火墙]()。
-        - [源数据库对 SNAT IP 地址进行了限制]()。
+        - [源数据库设置了安全组或防火墙](https://cloud.tencent.com/document/product/571/58685)。
+        - [源数据库对 SNAT IP 地址进行了限制](https://cloud.tencent.com/document/product/571/58685)。
         - 源数据库端口设置问题。     
       - 如果可以 ping 通。
         请 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
