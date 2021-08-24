@@ -146,7 +146,7 @@ kubectl create -f [yaml_name]
 <dx-tabs>
 ::: 控制台查看
 在创建 Job 之后，默认进入 Job 管理页面。您也可以通过以下步骤进入 Job 管理页面：
-1. 登录容器服务控制台，在左侧导航栏中单击**弹性容器**> **[弹性集群](https://console.cloud.tencent.com/tke2/ecluster)**。
+1. 登录容器服务控制台，在左侧导航栏中单击**弹性容器** > **[弹性集群](https://console.cloud.tencent.com/tke2/ecluster)**。
 2. 在弹性集群列表中，单击需要查看的事件集群 ID，进入集群管理页面。
 3. 选择**工作负载** > **Job**，在 Job 列表中单击上述步骤创建的 Job。
 	- 选择**事件**页签在查看事件，如下图所示：
