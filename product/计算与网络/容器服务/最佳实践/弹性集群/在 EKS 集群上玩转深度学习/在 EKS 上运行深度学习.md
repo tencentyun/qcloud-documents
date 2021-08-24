@@ -130,7 +130,7 @@ kubectl create -f [yaml_name]
 - 在 YAML 文件中需使用 Annotations 声明资源分配，详情请参见 [Annotation 说明](https://cloud.tencent.com/document/product/457/44173)。同样需要注意的是不同 GPU 对应不同的 CPU、内存选项，建议按需填写。
 - 此处数据卷使用的是 NFS 。若需使用其他数据卷进行持久化存储，请参见 [其他存储卷使用说明](https://cloud.tencent.com/document/product/457/31713)。
 - Annotation 可以**只保留** `eks.tke.cloud.tencent.com/gpu-type` ，**不需要其他项**。如果写上了 `/gpu-count`，那么 `cpu` 和 `mem` 也需要一起写上（本文**不推荐加上其他项**。不加不会影响实际效果，加了之后未按规格填写可能会报 OOM 错误）。
-- 在 GPU 的调度中，对 `nvidia.com/gpu` 而言，**limits 是必须且仅需填写**。如果只写 Annotation ，将出现找不到卡的报错。如果只填 limits ，该值将被作为 request 。如果也写上 request ，二者值必须相等。详情请参见 K8s 文档 [调度 GPUs](https://kubernetes.io/zh/docs/tasks/manage-gpus/scheduling-gpus/)（这里同样**不推荐在 request 和 limits 中加上 cpu 和 memory 的设置**，理由同上）。
+- 在 GPU 的调度中，对 `nvidia.com/gpu` 而言，**limits 是必须且仅需填写**。如果只写 Annotation ，将出现找不到卡的报错。如果只填 limits ，该值将被作为 request 。如果也写上 request ，二者值必须相等。详情请参见 K8S 文档 [调度 GPUs](https://kubernetes.io/zh/docs/tasks/manage-gpus/scheduling-gpus/)（这里同样**不推荐在 request 和 limits 中加上 cpu 和 memory 的设置**，理由同上）。
 </dx-alert>
 :::
 </dx-tabs>

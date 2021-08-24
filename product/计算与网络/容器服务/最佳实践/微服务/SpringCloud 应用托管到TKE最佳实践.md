@@ -317,7 +317,7 @@ docker push ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
 
 ### 在 TKE 上部署服务
 
-#### 创建 K8s 集群 PiggyMetrics
+#### 创建 K8S 集群 PiggyMetrics
 
 1. 实际部署前，需要新建一个 K8S 集群。有关集群的创建，请参见 [创建集群](https://cloud.tencent.com/document/product/457/54231) 文档。
 >!在创建集群时，在“选择机型” 页面建议开启“置放群组功能”，该功能可将 CVM 打散到不同母机上，增加系统可靠性。如下图所示：
