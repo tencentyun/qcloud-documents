@@ -85,7 +85,7 @@ ocrSDKConfig.ocrModeType = _ocrModel;
 /// @param secretId  Secret id
 /// @param secretKey Secret key
 /// @param ocrConfig ocr 配置类
-[ocrSDKKit loadSDKConfigWithSecretId:nil withSecretKey:nil withConfig:ocrSdkConfig];
+[[OcrSDKKit sharedInstance] loadSDKConfigWithSecret:nil withSecretKey:nil withConfig:ocrSdkConfig];
 
 ```
 
