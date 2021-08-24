@@ -15,7 +15,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <th>屏幕分享</th>
 </tr>
 <tr>
-<td rowspan="9">Windows</td>
+<td rowspan="11">Windows</td>
 <td>桌面版 Chrome 浏览器</td>
 <td>56+</td>
 <td>-</td>
@@ -46,6 +46,22 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>支持</td>
 <td>支持</td>
 <td>支持</td>
+</tr>
+<tr>
+<td>桌面版搜狗浏览器（高速模式）</td>
+<td>11+</td>
+<td>v4.7.0+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>桌面版搜狗浏览器（兼容模式）</td>
+<td>-</td>
+<td>-</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>不支持</td>
 </tr>
 <tr>
 <td>桌面版 Opera 浏览器</td>
