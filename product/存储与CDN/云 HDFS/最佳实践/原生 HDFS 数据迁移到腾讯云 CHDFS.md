@@ -13,11 +13,11 @@ hadoop fs -ls ofs://f4xxxxxxxxxxxxxxx.chdfs.ap-beijing.myqcloud.com/
 
 ### 使用COSDistcp工具迁移
 
-cosdistcp工具是cos团队针对对象存储和HDFS系统之间高效的数据传输工作，针对对象存储系统，做了很多的优化和改进，其中包括
+cosdistcp工具是cos团队研发的对象存储和HDFS系统之间高效的数据传输工具，针对对象存储系统和HDFS系统之间的差异，做了很多的优化和改进，其中包括
 
-*跨系统之间的数据CRC在线校验
-*小文件性能
-*增量复制拷贝
+- 跨系统之间的数据CRC在线校验
+- 小文件性能
+- 增量复制拷贝
 
 工具详情参见 [COSDistcp 官方指引文档](https://cloud.tencent.com/document/product/436/50272)
 
@@ -33,7 +33,7 @@ hadoop jar cos-distcp-1.6-2.8.5.jar -Dmapred.job.queue.name=root.users.presto --
 
 ### 使用Distcp工具迁移
 
-当准备工作就绪后，就可以使用 hadoop 社区标准的 Distcp 工具实现全量或者增量的 HDFS 数据迁移，详情请参见 [Distcp 官方指引文档](https://hadoop.apache.org/docs/r1.0.4/cn/distcp.html)。
+当准备工作就绪后，也可以使用 hadoop 社区标准的 Distcp 工具实现全量或者增量的 HDFS 数据迁移，详情请参见 [Distcp 官方指引文档](https://hadoop.apache.org/docs/r1.0.4/cn/distcp.html)。
 
 #### 注意事项
 
@@ -44,15 +44,15 @@ hadoop jar cos-distcp-1.6-2.8.5.jar -Dmapred.job.queue.name=root.users.presto --
 | -p[rbax] | r：replication，b：block-size，a：ACL，x：XATTR | 不生效   |
 
 2. 由于Hadoop 2.x中的HDFS系统的CRC计算方式和对象存储文件的CRC计算方式不一致，导致在迁移过程中无法利用crccheck来对数据进行在线迁移校验。
-  所以在迁移过程中，一般都需要加上-skipcrccheck选项。
   
-  如果需要校验迁移后的数据是否完整，需要借助COS研发的离线校验工具[COS离线校验工具](https://cloud.tencent.com/document/product/436/41459)
-  离线校验。
+   所以在迁移过程中，一般都需要加上-skipcrccheck选项。
   
-  Hadoop 3.1.1版本及以上，可以采用COMPOSITE_CRC算法进行在线校验，示例：
+   如果需要校验迁移后的数据是否完整，需要借助COS研发的离线校验工具[COS离线校验工具](https://cloud.tencent.com/document/product/436/41459)离线校验。
+  
+   Hadoop 3.1.1版本及以上，可以采用COMPOSITE_CRC算法进行在线校验，示例：
   ```bash
-  hadoop distcp  -Ddfs.checksum.combine.mode=COMPOSITE_CRC -checksum  hdfs://10.0.1.11:4007/testcp ofs://f4xxxxxxxx-xxxx.chdfs.ap-beijing.myqcloud.com/
- ```
+   hadoop distcp  -Ddfs.checksum.combine.mode=COMPOSITE_CRC -checksum  hdfs://10.0.1.11:4007/testcp ofs://f4xxxxxxxx-xxxx.chdfs.ap-beijing.myqcloud.com/
+  ```
  
 ##### 示例说明
 
