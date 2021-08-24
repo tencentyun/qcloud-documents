@@ -124,16 +124,11 @@ APNs 推送内容部分由消息体中各个 `Elem` 内容组成，不同 `Elem`
 如果将多个 App 中的 `SDKAppID` 设置为相同值，则可以实现多 App 互通。不同 App 需要使用不同的推送证书，您需要为每一个 App [申请 APNs 证书](https://cloud.tencent.com/document/product/269/3898) 并完成 [离线推送配置](#配置推送)。
 
 ## 自定义角标
-
-* 默认情况下，当 APP 进入后台后，IMSDK 会将当前 IM 未读消息总数设置为角标。
-
-* 如果想自定义角标，可按照如下步骤设置：
-
- 1. APP 调用 `- (void)setAPNSListener:(id<V2TIMAPNSListener>)apnsListener` 接口设置监听。
- 2. APP 实现 `- (uint32_t)onSetAPPUnreadCount` 接口，并在内部返回需要自定义的角标。
-
-* 如果 APP 接入了离线推送，当接收到新的离线推送时，APP 角标会在基准角标（默认是 IM 未读消息总数，如果自定义了角标，则以自定义角标为准）的基础上加 1 逐条递增。
-
+- 默认情况下，当 APP 进入后台后，IMSDK 会将当前 IM 未读消息总数设置为角标。
+- 如果想自定义角标，可按照如下步骤设置：
+ 1. App 调用 `- (void)setAPNSListener:(id<V2TIMAPNSListener>)apnsListener` 接口设置监听。
+ 2. App 实现 `- (uint32_t)onSetAPPUnreadCount` 接口，并在内部返回需要自定义的角标。
+- 如果 App 接入了离线推送，当接收到新的离线推送时，App 角标会在基准角标（默认是 IM 未读消息总数，如果自定义了角标，则以自定义角标为准）的基础上加 1 逐条递增。
 ```
 // 1. 设置监听
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
