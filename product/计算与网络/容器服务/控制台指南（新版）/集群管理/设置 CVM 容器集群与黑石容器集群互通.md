@@ -20,7 +20,7 @@
 6. 在左侧导航栏中，选择 “基本信息”，进入“基本信息” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/ff32de50dadbee103621862412ae08cc.png)
 7. 记录 “基本信息” 中 “所在地域”、“节点网络” 和 “容器网络” 的信息。
-8. 单击右上方的**账号**> **[账号信息](https://console.cloud.tencent.com/developer)**，记录当前账号的 APPID。如下图所示：
+8. 单击右上方的**账号** > **[账号信息](https://console.cloud.tencent.com/developer)**，记录当前账号的 APPID。如下图所示：
 ![](https://main.qcloudimg.com/raw/a9057017451dbe67837a0867cf6022ab.png)
 9. 切换至 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc)。
 10. 在左侧导航栏中，单击 **[对等连接](https://console.cloud.tencent.com/vpc/conn)**，进入对等连接管理页面，并记录对等连接的 ID/名称。如下图所示：

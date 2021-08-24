@@ -54,7 +54,7 @@ kubectl -n devops get secret jenkins -o jsonpath='{.data.jenkins-admin-password}
 
 ### 安装插件
 
-登录 Jenkins 后台，选择**Dashboard**> **Manage Jenkins** > **System Configuration** > **Manage Plugins**，进入插件管理页面。
+登录 Jenkins 后台，选择**Dashboard** > **Manage Jenkins** > **System Configuration** > **Manage Plugins**，进入插件管理页面。
 ![](https://main.qcloudimg.com/raw/3f0c59f227e66ff388a41c2bfbb07fe3.png)
 您可以安装以下常用插件：
 - kubernetes
