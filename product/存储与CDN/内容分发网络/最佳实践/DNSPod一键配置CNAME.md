@@ -45,7 +45,7 @@
 
 ### 完成 CNAME 设置
 
-提交一键配置解析后，大约1分钟内生效，请您耐心等待。届时您可刷新 CDN 控制台 [域名管理](https://console.cloud.tencent.com/cdn/domains) 页，当 CNAME 状态变为已启动的状态时，鼠标悬浮在 CNAME 上时可看到提示：域名加速服务已生效。
+提交一键配置解析后，大约1分钟内生效，请您耐心等待。届时您可刷新 CDN 控制台 [域名管理](https://console.cloud.tencent.com/cdn/domains) 页，当 CNAME 状态变为已启动的状态时，鼠标悬浮在 CNAME 上时可看到提示：加速服务正常运行中。
 
 
 
