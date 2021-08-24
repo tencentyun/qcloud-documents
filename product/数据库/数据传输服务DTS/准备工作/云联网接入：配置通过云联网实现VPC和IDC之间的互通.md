@@ -36,8 +36,8 @@
    - Telnet 测试不通过。
      在云联网关联 VPC 中（本例中为 vpc-nanjing）购买一个云服务器 CVM，在 CVM 上 ping 源数据库主机地址：
      - 如果不能 ping 通。
-      - [源数据库所在服务器设置了安全组或防火墙]()。
-      - [源数据库对 SNAT IP 地址进行了限制]()。
+      - [源数据库所在服务器设置了安全组或防火墙](https://cloud.tencent.com/document/product/571/58685)。
+      - [源数据库对 SNAT IP 地址进行了限制](https://cloud.tencent.com/document/product/571/58685)。
       - 源数据库端口设置问题。
       - 云联网实例的路由表中，网段冲突导致部分路由表未被启用。
      - 如果可以 ping 通，则源数据库和云联网之间路由没有问题。     
