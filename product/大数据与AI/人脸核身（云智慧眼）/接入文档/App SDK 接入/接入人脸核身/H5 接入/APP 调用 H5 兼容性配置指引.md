@@ -10,7 +10,7 @@
 `.NSMicrophoneUsageDescription`   
 `.NSCameraUsageDescription`
 - 使用 WKWebView 时，需要通过 WKWebViewConfiguration 配置允许使用相机：
-- 
+
 ```
 WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
 config.allowsInlineMediaPlayback = YES;
