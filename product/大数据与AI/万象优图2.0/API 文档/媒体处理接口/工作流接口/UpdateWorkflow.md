@@ -952,29 +952,136 @@ Content-Type: application/xml
 #### 响应2
 
 ```shell
-HTTP/1.1 200 OKContent-Type: application/xmlContent-Length: 100Connection: keep-aliveDate: Thu, 15 Jun 2017 12:37:29 GMTServer: tencent-cix-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=<Response>    <MediaWorkflow>        <Name>demo</Name>        <State>Active</State>        <WorkflowId></WorkflowId        <BucketId></BucketId>        <Topology>            <Dependencies>                <Start>HlsPackConfig_1581665960532</Start>                <HlsPackConfig_1581665960532>VideoStream_1581665960536,VideoStream_1581665960537</HlsPackConfig_1581665960532>                <VideoStream_1581665960536>HlsPack</VideoStream_1581665960536>                <VideoStream_1581665960537>HlsPack</VideoStream_1581665960537>                <HlsPack_1581665960538>End</HlsPack_1581665960538>            </Dependencies>            <Nodes>                <Start>                    <Type>Start</Type>                    <Input>                        <QueueId></QueueId>                        <ObjectPrefix></ObjectPrefix>                        <NotifyConfig>                            <Url>http://www.callback.com</Url>                            <Event>TaskFinish,WorkflowFinish</Event>                            <Type>Url</Type>                        </NotifyConfig>                        <ExtFilter>                            <State>on</State>                            <Audio>true</Audio>                            <Custom>true</Custom>                            <CustomExts>mp4/mp3</CustomExts>                        </ExtFilter>                    </Input>                </Start>                <HlsPackConfig_1581665960532>                    <Type>HlsPackConfig</Type>                    <Operation>                        <Output>                            <Region></Region>                            <Bucket></Bucket>                            <Object>${InputPath}/${InputName}._${RunId}.${ext}</Object>                        </Output>                    </Operation>                </HlsPackConfig_1581665960532>                <VideoStream_1581665960536>                    <Type>VideoStream</Type>                    <Operation>                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>                        <Output>                            <Region></Region>                            <Bucket></Bucket>                            <Object>${RunId}_Substream_1/video.m3u8</Object>                        </Output>                    </Operation>                </VideoStream_1581665960536>                <VideoStream_1581665960537>                    <Type>VideoStream</Type>                    <Operation>                        <TemplateId>t1460606bgfdg2148c4ab182f55163ba7bj</TemplateId>                        <Output>                            <Region></Region>                            <Bucket></Bucket>                            <Object>${RunId}_Substream_2/video.m3u8</Object>                        </Output>                    </Operation>                </VideoStream_1581665960537>                <HlsPack_1581665960538>                    <Type>HlsPack</Type>                    <Operation>                        <HlsPackInfo>                            <VideoStreamConfig>                                <VideoStreamName>VideoStream_1581665960536</VideoStreamName>                                <BandWidth>0</BandWidth>                            </VideoStreamConfig>                            <VideoStreamConfig>                                <VideoStreamName>VideoStream_1581665960537</VideoStreamName>                                <BandWidth>0</BandWidth>                            </VideoStreamConfig>                        </HlsPackInfo>                    </Operation>                </HlsPack_1581665960538>            </Nodes>        </Topology>        <BucketId></BucketId>        <CreateTime></CreateTime>        <UpdateTime></UpdateTime>    </MediaWorkflow></Response>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 100
+Connection: keep-alive
+Date: Thu, 15 Jun 2017 12:37:29 GMT
+Server: tencent-ci
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
+<Response>
+    <MediaWorkflow>
+        <Name>demo</Name>
+        <State>Active</State>
+        <WorkflowId></WorkflowId
+        <BucketId></BucketId>
+        <Topology>
+            <Dependencies>
+                <Start>HlsPackConfig_1581665960532</Start>
+                <HlsPackConfig_1581665960532>VideoStream_1581665960536,VideoStream_1581665960537</HlsPackConfig_1581665960532>
+                <VideoStream_1581665960536>HlsPack</VideoStream_1581665960536>
+                <VideoStream_1581665960537>HlsPack</VideoStream_1581665960537>
+                <HlsPack_1581665960538>End</HlsPack_1581665960538>
+            </Dependencies>
+            <Nodes>
+                <Start>
+                    <Type>Start</Type>
+                    <Input>
+                        <QueueId></QueueId>
+                        <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
+                    </Input>
+                </Start>
+                <HlsPackConfig_1581665960532>
+                    <Type>HlsPackConfig</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${InputPath}/${InputName}._${RunId}.${ext}</Object>
+                        </Output>
+                    </Operation>
+                </HlsPackConfig_1581665960532>
+                <VideoStream_1581665960536>
+                    <Type>VideoStream</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}_Substream_1/video.m3u8</Object>
+                        </Output>
+                    </Operation>
+                </VideoStream_1581665960536>
+                <VideoStream_1581665960537>
+                    <Type>VideoStream</Type>
+                    <Operation>
+                        <TemplateId>t1460606bgfdg2148c4ab182f55163ba7bj</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}_Substream_2/video.m3u8</Object>
+                        </Output>
+                    </Operation>
+                </VideoStream_1581665960537>
+                <HlsPack_1581665960538>
+                    <Type>HlsPack</Type>
+                    <Operation>
+                        <HlsPackInfo>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960536</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960537</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                        </HlsPackInfo>
+                    </Operation>
+                </HlsPack_1581665960538>
+            </Nodes>
+        </Topology>
+        <BucketId></BucketId>
+        <CreateTime></CreateTime>
+        <UpdateTime></UpdateTime>
+    </MediaWorkflow>
+</Response>
 ```
 
 #### 请求3 停用工作流
 
 ```shell
-PUT /workflow/<WorkflowId>?paused HTTP/1.1Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+PUT /workflow/<WorkflowId>?paused HTTP/1.1
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 ```
 
 #### 响应3
 
 ```shell
-HTTP/1.1 200 OKContent-Length: 0Connection: keep-aliveDate: Thu, 15 Jun 2017 12:37:29 GMTServer: tencent-cix-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+HTTP/1.1 200 OK
+Content-Length: 0
+Connection: keep-alive
+Date: Thu, 15 Jun 2017 12:37:29 GMT
+Server: tencent-ci
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 ```
 
 #### 请求4 启用工作流
 
 ```shell
-PUT /workflow/<WorkflowId>?active HTTP/1.1Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+PUT /workflow/<WorkflowId>?active HTTP/1.1
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 ```
 
 #### 响应4
 
 ```shell
-HTTP/1.1 200 OKContent-Length: 0Connection: keep-aliveDate: Thu, 15 Jun 2017 12:37:29 GMTServer: tencent-cix-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+HTTP/1.1 200 OK
+Content-Length: 0
+Connection: keep-alive
+Date: Thu, 15 Jun 2017 12:37:29 GMT
+Server: tencent-ci
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 ```
