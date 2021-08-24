@@ -1,0 +1,46 @@
+## 概述
+在特定场景下，客户只希望将 namespace 下的部分文件数据缓存到 GooseFS 中，子目录缓存能力支持将客户提供的白名单配置 apply 到 GooseFs 中，当客户使用 GooseFS 访问 UFS 时，只对白名单内的文件数据进行缓存。
+
+
+## 操作示例
+该示例演示了如何通过命令行在 GooseFS 配置子目录缓存。
+
+### 1. 准备配置和计算集群
+需要客户提供一份config用来记录namespace和对应的白名单目录，config格式如下()
+```plaintext
+{
+    //namespace名称
+    "nsName-1": {
+        // 是否启动子目录缓存，如果为 false ，则该 namespace 的子目录缓存功能为关闭状态
+        "enable": bool,
+        // namespace 子目录白名单的路径列表，当 enable = true 时，apply 后该 namespace 只对 whiteList 中的目录或子目录进行缓存
+        "whiteList": [
+            "/ns-1/test1",
+            ...
+        ]
+    },
+    "nsName-2": {
+        "enable": bool,
+        "whiteList": [
+            "/ns-2/test1",
+            ...
+        ]
+    }
+}
+```plaintext
+
+>! 默认根目录挂载点的 namespace = "root" 
+
+### 2. 执行命令添加子目录缓存
+支持通过命令 ./bin/goosefs ns cacheRestrict -apply <config>  将子目录缓存信息 apply 到 GooseFS 系统中，该 cli 会以 json 形式打印请求结果。
+
+当指定 namespace 开启子目录缓存以后，客户通过 cli 执行 distribuedLoad 或者通过客户端读取 namespace 下的文件数据时，只会对白名单目录或其子目录下的文件进行缓存。
+
+
+>! config 中所有 namespace 必须存在于 GooseFS 中，否则会执行失败
+>! 每次执行该命令会覆盖上一次的执行结果
+>! 根挂载点下的路径信息不会对 namespace 挂载点上的路径生效
+
+### 3. 执行命令检查白名单
+
+支持通过命令 ./bin/goosefs ns cacheRestrictList  <namespace> 来查看指定 namespace 下的白名单列表，或者通过命令 ./bin/goosefs ns cacheRestrictList -all 来查看所有 namespace 的白名单信息，所有结果均已json形式打印。
