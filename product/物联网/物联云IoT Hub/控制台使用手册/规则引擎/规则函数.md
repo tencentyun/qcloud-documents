@@ -20,7 +20,7 @@
 | concat(string1, string2)                | 字符串连接，例如 `concat（deviceid，'a'）` 或 `concat（field1,field2）` |
 | requestId()                             | 返回物联网通信生成的消息 ID                                  |
 | newuuid()                               | 返回一个随机 uuId 字符串                                       |
-| replace(source, substring, replacement) | replacement 替换 resouce 中的 substring                          |
+| replace(source, substring, replacement) | replacement 替换 source 中的 substring                          |
 | substring(source, start, end)           | 字符串截取，返回从 start（包括）到 end（不包括）的字符串      |
 
 ### 使用示例
