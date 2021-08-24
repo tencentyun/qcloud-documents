@@ -123,6 +123,54 @@ APNs 推送内容部分由消息体中各个 `Elem` 内容组成，不同 `Elem`
 
 如果将多个 App 中的 `SDKAppID` 设置为相同值，则可以实现多 App 互通。不同 App 需要使用不同的推送证书，您需要为每一个 App [申请 APNs 证书](https://cloud.tencent.com/document/product/269/3898) 并完成 [离线推送配置](#配置推送)。
 
+## 自定义角标
+
+* 默认情况下，当 APP 进入后台后，IMSDK 会将当前 IM 未读消息总数设置为角标。
+
+* 如果想自定义角标，可按照如下步骤设置：
+
+ 1. APP 调用 `- (void)setAPNSListener:(id<V2TIMAPNSListener>)apnsListener` 接口设置监听。
+ 2. APP 实现 `- (uint32_t)onSetAPPUnreadCount` 接口，并在内部返回需要自定义的角标。
+
+* 如果 APP 接入了离线推送，当接收到新的离线推送时，APP 角标会在基准角标（默认是 IM 未读消息总数，如果自定义了角标，则以自定义角标为准）的基础上加 1 逐条递增。
+
+```
+// 1. 设置监听
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // 监听推送
+    [V2TIMManager.sharedInstance setAPNSListener:self];
+    // 监听会话的未读数
+    [[V2TIMManager sharedInstance] setConversationListener:self];
+    return YES;
+}
+
+// 2. 未读数发生变化后保存未读数
+- (void)onTotalUnreadMessageCountChanged:(UInt64)totalUnreadCount {
+    self.unreadNumber = totalUnreadCount;
+}
+
+
+// 3. APP 推到后台后上报自定义未读数
+/** 程序进后台后，自定义 APP 的未读数，如果不处理，APP 未读数默认为所有会话未读数之和
+ *  <pre>
+ *
+ *   - (uint32_t)onSetAPPUnreadCount {
+ *       return 100;  // 自定义未读数
+ *   }
+ *
+ *  </pre>
+ */
+- (uint32_t)onSetAPPUnreadCount {
+    // 1. 获取自定义的角标
+    uint32_t customBadgeNumber = ...
+    
+    // 2. 加上 IM 的消息未读数
+    customBadgeNumber += self.unreadNumber;
+    
+    // 3. 通过 IMSDK 上报给 IM 服务器
+    return customBadgeNumber;
+}
+```
 
 ## 自定义 iOS 推送提示音
 
