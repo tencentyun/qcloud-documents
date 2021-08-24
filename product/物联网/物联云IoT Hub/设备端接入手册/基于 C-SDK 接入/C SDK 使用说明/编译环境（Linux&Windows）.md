@@ -44,7 +44,7 @@ set(FEATURE_DEBUG_DEV_INFO_USED  OFF)
 
 ## Windows 环境
 
-#### 获取和安装 Visio Studio 2019开发环境
+#### 获取和安装 Visual Studio 2019开发环境
 
 1. 请访问 [Visual Studio 下载网站](https://visualstudio.microsoft.com/zh-hans/downloads/)，下载并安装 Visual Studio 2019，本文档下载安装的是16.2版本 Community。
 ![](https://main.qcloudimg.com/raw/2fd5a35c66683b62f09a93575ad29036.png)
