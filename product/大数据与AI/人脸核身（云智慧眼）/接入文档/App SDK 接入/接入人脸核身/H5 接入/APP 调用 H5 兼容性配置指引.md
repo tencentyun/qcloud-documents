@@ -51,8 +51,23 @@ config.allowsInlineMediaPlayback = YES;
 调用`WebView.loadUrl(String url)`前，WebView 必须调用`setWebChormeClient(WebChromeClient webChormeClient)`，并重写 WebChromeClient 的如下三个函数：
 
 ```
+/**
+     * H5_TRTC 刷脸配置，这里负责处理授权来自 H5 界面发来的相机权限申请
+     * @param request 来自h5界面的权限请求
+     */
+    @Override
+    public void onPermissionRequest(PermissionRequest request) {
+        if (Build.VERSION.SDK_INT>Build.VERSION_CODES.LOLLIPOP){ // android sdk 21以上
+            request.grant(request.getResources());
+            request.getOrigin();
+        }
+    }
+
+```
+
+```
 	/**
-			* android端接收H5端发来的请求
+			* android 端接收 H5 端发来的请求
 	For Android >= 3.0
 			*/
 					public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType) {
@@ -89,7 +104,8 @@ config.allowsInlineMediaPlayback = YES;
  >!
  >- 如果第三方已重写以上函数，请将如上述函数体内容添加至第三方的对应函数体首行。
  >- 如果第三方没有重写以上函数，则直接按照上述所示重写即可。
- >
+ >- WebView 不要使用 layerType 属性，否则导致刷脸界面白屏。
+ 
 5. Activity 的重写
 WebView 所属的 Activity 必须重写如下函数：
 
