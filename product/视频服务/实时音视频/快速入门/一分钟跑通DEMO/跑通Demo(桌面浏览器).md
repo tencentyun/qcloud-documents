@@ -10,7 +10,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 腾讯云 TRTC 桌面浏览器 SDK 详细支持度表格请参见 [支持的平台](https://cloud.tencent.com/document/product/647/17249#.E6.94.AF.E6.8C.81.E7.9A.84.E5.B9.B3.E5.8F.B0)。
 >! 
 >- 您可以在浏览器中打开 [WebRTC 能力测试](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。
->- 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC Web端 SDK 的正常运行。
+>- 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC Web 端 SDK 的正常运行。
 
 [](id:requirements)
 ## 环境要求
