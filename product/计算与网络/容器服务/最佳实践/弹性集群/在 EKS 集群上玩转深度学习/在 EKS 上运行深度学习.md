@@ -64,7 +64,7 @@
 >- 因为数据集可能需要联网下载，所以需要配置对集群的外网访问。详情请参见常见问题 [公网访问相关](https://cloud.tencent.com/document/product/457/60222)。
 >- 选择 GPU 型号后，在填写 request 和 limit 时需要为容器分配符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 的 CPU 和内存，实际填写并不严格要求精确到个位。
   在控制台中配置，也可以选择删除默认配置以留空，即为“不限制”，也会有对应的计费规格；更推荐这种做法。
->- 容器运行命令 comman 继承 Docker 的 CMD 字段，而 CMD 指令首选 exec 形式，不调用 shell 命令。这意味着不会发生正常的 shell 处理。因此命令需要 shell 形式运行，就需要在前面添加 `"sh","-c"`。
+>- 容器运行命令 command 继承 Docker 的 CMD 字段，而 CMD 指令首选 exec 形式，不调用 shell 命令。这意味着不会发生正常的 shell 处理。因此命令需要 shell 形式运行，就需要在前面添加 `"sh","-c"`。
   在控制台输入多个命令和参数时，每个命令单独一行（以换行为准）。
 :::
 ::: Kubectl 操作指引
