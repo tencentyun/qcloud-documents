@@ -48,5 +48,6 @@
      - 迁移帐号授权问题。请参考 [数据迁移](https://cloud.tencent.com/document/product/571/58688)、[数据同步](https://cloud.tencent.com/document/product/571/56516) 中的对应场景，重新对迁移帐号授权。
      - 帐号密码不正确。
 
- <img src="https://main.qcloudimg.com/raw/67e8d67ce1a62737a93078af33e22c3d.png" style="zoom:50%;" />
- 
+ <img src="https://main.qcloudimg.com/raw/60f01468821b4bc3f805d98c3138a4cf.png" style="zoom:50%;" />
+
+
