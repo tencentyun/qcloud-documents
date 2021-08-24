@@ -2662,7 +2662,7 @@ tmeSdk.requestTMEApi(action: string, params) => Promise<TMEResponse>
 
 返回一个`Promise<TMEResponse>`
 
-注：action、params 及返回值 data 参考 “音乐服务”
+注：action、params 及返回值 data 参考 [音乐服务](https://cloud.tencent.com/document/product/1081/60545)。
 
 
 
