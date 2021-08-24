@@ -105,5 +105,5 @@
 为用户/用户组关联策略以授权相关操作权限的关联指引请参见 [策略授权管理](https://cloud.tencent.com/document/product/598/10602)。
 
 #### 相关问题：
-- [子账户为什么无法访问直播控制台 License 相关界面？](https://cloud.tencent.com/document/product/454/43500#.E4.B8.BA.E4.BB.80.E4.B9.88.E6.88.91.E7.9A.84.E5.AD.90.E8.B4.A6.E6.88.B7.E5.B7.B2.E7.BB.8F.E6.8E.88.E6.9D.83.E4.BA.86.E7.9B.B4.E6.92.AD.E5.92.8C.E7.82.B9.E6.92.AD.E6.89.80.E6.9C.89.E6.9D.83.E9.99.90.EF.BC.8C.E4.BD.86.E6.98.AF.E8.BF.98.E6.98.AF.E6.97.A0.E6.B3.95.E8.AE.BF.E9.97.AE-license-.E6.8E.A7.E5.88.B6.E5.8F.B0.E7.9B.B8.E5.85.B3.E7.95.8C.E9.9D.A2.EF.BC.9F)
+- [子账户为什么无法访问直播控制台 License 相关界面？](https://cloud.tencent.com/document/product/454/43500#que16)
 - [子账户为什么无法访问点播控制台 License 相关界面？](https://cloud.tencent.com/document/product/266/50296#que12)
