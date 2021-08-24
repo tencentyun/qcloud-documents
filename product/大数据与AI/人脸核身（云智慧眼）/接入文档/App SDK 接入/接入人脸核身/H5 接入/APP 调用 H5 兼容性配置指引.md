@@ -6,9 +6,15 @@
 
 ## [兼容性配置](id:pz)
 ### iOS 接入
-iPhone 的兼容性适配，需在配置里加上摄像头和麦克风的使用权限。App 的 info.plist 中加入：
+- iPhone 的兼容性适配，需在配置里加上摄像头和麦克风的使用权限。App 的 info.plist 中加入：
 `.NSMicrophoneUsageDescription`   
 `.NSCameraUsageDescription`
+- 使用 WKWebView 时，需要通过 WKWebViewConfiguration 配置允许使用相机：
+- 
+```
+WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+config.allowsInlineMediaPlayback = YES;
+```
 
 ### Android 接入
 由于 Android 机器碎片化严重，用系统 WebView 调起系统摄像头完成视频录制可能存在很多兼容性问题，如部分机器出现调不起摄像头、调起摄像头无法录制视频等。
