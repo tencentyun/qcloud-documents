@@ -21,7 +21,7 @@ Namespace=QCE/CES
 | IndexLatencyMax                    | 最大写入延迟               | ES 集群在统计粒度内写入延迟的最大值                       | ES 集群写入延迟的最大值               | ms      | uInstanceId | 60s、300s          |
 | SearchLatencyAvg                   | 平均查询延迟               | ES 集群在统计粒度内查询延迟的平均值                       | ES 集群查询延迟的平均值               | ms      | uInstanceId | 60s、300s          |
 | SearchLatencyMax                   | 最大查询延迟               | ES 集群在统计粒度内查询延迟的最大值                       | ES 集群查询延迟的最大值               | ms      | uInstanceId | 60s、300s          |
-| IndexSpeed                         | 写入速度                   | ES 集群单周期内写入速度的平均值                           | ES 集群每秒完成写入操作次数           | count/s | uInstanceId | 60s、300s          |
+| IndexSpeed                         | 写入速度                   | ES 集群单周期内写入速度的平均值                           | 每单位统计周期内，ES 集群各个节点接收到的每秒写入请求次数之和           | count/s | uInstanceId | 60s、300s          |
 | SearchCompletedSpeed               | 查询速度                   | ES 集群单周期内查询速度的平均值                           | ES 集群每秒完成查询操作次数           | count/s | uInstanceId | 60s、300s          |
 | BulkRejected<br>CompletedPercent   | bulk拒绝率                 | ES 集群在统计粒度内 bulk 操作被拒绝次数占 bulk 总次数的百分比 | bulk 操作被拒绝次数占总次数的百分比   | %       | uInstanceId | 60s、300s          |
 | SearchRejected<br>CompletedPercent | 查询拒绝率                 | ES 集群在统计粒度内查询操作被拒绝次数占查询总次数的百分比 | 查询操作被拒绝次数占总次数的百分比   | %       | uInstanceId | 60s, 300s          |

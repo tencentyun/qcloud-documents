@@ -1,3 +1,26 @@
+## 2021年07月
+
+<table>
+ <tr>
+ <th width=20%>动态名称 </th>
+ <th width=44%>动态描述 </th>
+ <th width=16%>发布时间 </th>
+ <th width=20%>相关文档 </th>
+ </tr>
+ <td>SDK 1.3.3.0 版本发布 </td>
+ <td>  
+<li> 修复：修复了集群切换没有实时生效的问题。
+<li> 修复：修复了 tag 接口频繁调用时，绑定不准确的问题。
+<li> 优化：升级 SDK deployment target 到 9.0。
+<li> 优化：提升了"账号绑定"和"注册回调"的性能。
+<li> 新增：新增了对 RestApi 的 show_type 字段的支持，App 前台时可以不展示通知。
+<li> 新增：新增了长连接可支持SSL的能力。
+<li> 新增：对 App 启动类型，能区分是由"点击通知"拉起。
+ <td>2021-07-06</td>
+ <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></td>
+ </tr>
+ </table>
+ 
 ## 2021年06月
 
 <table>
@@ -18,7 +41,7 @@
 <li> 增加：对第三方 SDK 对 appdelegate 的 hook 冲突，进行了日志提示
 <li> 删除：若干在生产环境下，不必要的日志提示</td>
  <td>2021-06-01</td>
- <td><ul  style="margin: 0;"><li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li><li><a href="https://cloud.tencent.com/document/product/548/56433">升级指南 </a></li></ul></td>
+ <td><a href="https://cloud.tencent.com/document/product/548/56433">升级指南 </a></td>
  </tr>
  </table>
 

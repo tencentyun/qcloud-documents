@@ -7,13 +7,23 @@
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos)，选择左侧导航栏中的【存储桶列表】。
 2. 参考 [创建存储桶](https://cloud.tencent.com/document/product/436/38484#.E6.AD.A5.E9.AA.A44.EF.BC.9A.E5.88.9B.E5.BB.BA.E5.AD.98.E5.82.A8.E6.A1.B6) 创建一个存储桶，主要参数信息设置如下：
  - **名称**：命名为 loganalysis。
- - **所属地域**：选择北京地域。
+ - **所属地域**：本案例地域选择北京。使用外网连接时 Bucket 可选与 MySQL 云数据库不同的地域。
  - **访问权限**：选择“私有读写”。
+
+
+
+
 
 [](id:step02)
 ### 创建 MySQL 云数据库
-1. 参考 [购买方式](https://cloud.tencent.com/document/product/236/5160) 创建一个 MySQL 云数据库。由于数据库需要付费购买，您可以选择在北京地域购买云数据库 MySQL 入门机型。
-2. 购买完成后，给数据库添加可访问的用户名和密码，并创建新库 `mason_demo`。
+
+1. 由于数据库需要付费购买，您可以选择在目标地域购买云数据库 MySQL 入门机型，本案例地域选择北京。
+2. 参考 [云数据库MySQL入门概述](https://cloud.tencent.com/document/product/236/46908) 创建一个 MySQL 云数据库。
+3. 购买完成后，给数据库添加可访问的用户名和密码，并创建新实例，本案例实例名称使用 `mason_demo`。
+
+
+
+
 
 [](id:step03)
 ### 创建云函数 SCF
@@ -25,7 +35,9 @@
 单击模板中的【查看详情】，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
 ![](https://main.qcloudimg.com/raw/2f8df5014e3d70d2911ffd83e3d4159a.png)
 4. 函数名称默认填充，可根据需要自行修改。按照引导配置环境变量、运行角色和私有网络：
-   - **环境变量**：在使用本模板函数时，您需要按照提示在函数配置中添加环境变量，填写方式可参考下图：
+<dx-tabs>
+::: 环境变量
+在使用本模板函数时，您需要按照提示在函数配置中添加环境变量，填写方式可参考下图：
 ![](https://main.qcloudimg.com/raw/3112dba5a8cac82c295c17a593ed222e.png)
 <table>
   <tbody><tr>
@@ -34,7 +46,7 @@
       </tr>
       <tr>
           <td>dbhost</td>
-          <td rowspan="2">请参考 <a href="https://cloud.tencent.com/document/product/236/3130" target="_blank">访问 MySQL 数据库</a> 获取。</td>
+        <td rowspan="2">请参考 <a href="https://cloud.tencent.com/document/product/236/3130" target="_blank">访问 MySQL 数据库</a> 获取。本文以外网为例，格式为 <code>bj-cdb-xxxxx.sql.tencentcdb.com:00000</code>。其中冒号后数字为 <code>dbport</code>。</td>
       </tr>
       <tr>
           <td>dbport</td>
@@ -49,23 +61,32 @@
       </tr>
       <tr>
           <td>dbname</td>
-          <td>需备份的数据库名称，本文以 <code>mason_demo</code> 为例。</td>
+          <td>需进行写入的数据库实例名称，本文以 <code>mason_demo</code> 为例。</td>
       </tr>
        <tr>
       <td>cosregion</td>
-      <td> Bucket 所在地域。</td>
+      <td> Bucket 所在地域的简称。详情可参见 <a href="https://cloud.tencent.com/document/product/436/6224" target="_blank">Bucket 地域和访问域名</a>。</td>
       </tr>
   </tbody></table>
- - **运行角色**：勾选“启用”，选择“配置并使用SCF模版运行角色”，将会自动创建并选择关联了 COS、CDB 全读写权限的 SCF 模版运行角色。或选择“使用已有角色”，在下拉列表中选择包含上述权限的已有角色。本文以“配置并使用SCF模版运行角色”为例。如下图所示：
-   ![](https://main.qcloudimg.com/raw/fd6753328a44e78b2577c64595749ef1.png)
-   >! 您也可以直接在函数代码中替换为账户实际使用的 SecretId 及 SecretKey，可前往 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取。
-   >
- - **私有网络**：如果数据库使用的是内网地址，则函数需要启用【私有网络】，并选择和数据库相同的 VPC 和子网。如下图所示：
+
+:::
+::: 运行角色
+勾选“启用”，选择“配置并使用SCF模版运行角色”，将会自动创建并选择关联了 COS、CDB 全读写权限的 SCF 模版运行角色。或选择“使用已有角色”，在下拉列表中选择包含上述权限的已有角色。本文以“配置并使用SCF模版运行角色”为例。如下图所示：
+![](https://main.qcloudimg.com/raw/fd6753328a44e78b2577c64595749ef1.png)
+<dx-alert infotype="notice" title="">
+您也可以直接在函数代码中替换为账户实际使用的 SecretId 及 SecretKey，可前往 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取。
+</dx-alert>
+
+:::
+::: 私有网络
+如果数据库使用的是内网地址，则函数需要启用【私有网络】，并选择和数据库相同的 VPC 和子网。如下图所示：
  ![](https://main.qcloudimg.com/raw/0601c89c36ff527df033bb65f24a5f09.png)	
+:::
+</dx-tabs>
 
 
 [](id:step04)
-#### 配置 COS 触发器
+### 配置 COS 触发器
 在“触发器配置”中，选择“自定义创建”，并填写相关参数信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/4758853ffff769056ea357036dbb313f.png)
 主要参数信息如下，其余配置项请保持默认：

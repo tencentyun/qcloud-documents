@@ -133,4 +133,66 @@ clearEpisodeNotification.applicationIconBadgeNumber = -1;
 
 #### 通过[ API 创建推送](https://cloud.tencent.com/document/product/548/39064#ios-.E9.80.9A.E7.9F.A5.E6.B6.88.E6.81.AF) 时，如何让角标数不变？
 badge_type = -1：角标数字不变。
+#### 如何查询App的角标修改方法的函数堆栈？
+可以通过hook系统类UIApplication的setApplicationIconBadgeNumber:方法打印函数调用堆栈，从而发现调用者信息，代码如下：
+UIApplication+ApplicationIconBadgeNumber.h文件
+``` 
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface UIApplication (ApplicationIconBadgeNumber)
+
+@end
+
+NS_ASSUME_NONNULL_END
+
+```
+UIApplication+ApplicationIconBadgeNumber.m文件
+```
+#import "UIApplication+ApplicationIconBadgeNumber.h"
+#import <objc/runtime.h>
+
+@implementation UIApplication (ApplicationIconBadgeNumber)
+
+//load类方法(当某个类的代码被读到内存后调用)
++ (void)load
+{
+SEL origSel = @selector(setApplicationIconBadgeNumber:);
+SEL swizSel = @selector(swiz_setApplicationIconBadgeNumber:);
+[UIApplication swizzleMethods:[self class] originalSelector:origSel swizzledSelector:swizSel];
+}
+
+//交换两个方法的实现
++ (void)swizzleMethods:(Class)class originalSelector:(SEL)origSel swizzledSelector:(SEL)swizSel
+{
+Method origMethod = class_getInstanceMethod(class, origSel);
+Method swizMethod = class_getInstanceMethod(class, swizSel);
+BOOL didAddMethod = class_addMethod(class, origSel, method_getImplementation(swizMethod), method_getTypeEncoding(swizMethod));
+if (didAddMethod){
+class_replaceMethod(class, swizSel, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
+}else{
+method_exchangeImplementations(origMethod, swizMethod);
+}
+}
+
+/// hook设置角标
+- (void)swiz_setApplicationIconBadgeNumber:(NSInteger)number
+{
+NSLog(@"调用了swiz_setApplicationIconBadgeNumber方法");
+/// 打印当前函数调用堆栈
+NSArray *syms = [NSThread  callStackSymbols];
+for(int i = 0 ; i < [syms count]; i++){
+NSLog(@"<%@ %p> %@ - caller: %@ ", [self class], self, NSStringFromSelector(_cmd),[syms objectAtIndex:i]);
+}
+//执行这句的时候跳转到setApplicationIconBadgeNumber方法中
+[self swiz_setApplicationIconBadgeNumber:number];
+}
+
+@end
+
+```
+将上面的两个文件加入到自己的工程中使用。
+下图是加入到TPNS Demo示例：
+![](https://main.qcloudimg.com/raw/b079a5fbbd9b0c9f174e841db692330d.png)
 

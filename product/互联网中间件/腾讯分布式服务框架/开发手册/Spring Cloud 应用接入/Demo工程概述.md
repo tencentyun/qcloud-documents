@@ -43,14 +43,14 @@ pom.xml 中定义了工程需要的依赖包（以下以基于 Spring Cloud Finc
 			<parent>
 				<groupId>com.tencent.tsf</groupId>
 				<artifactId>spring-cloud-tsf-dependencies</artifactId>
-				<version>1.23.0-Greenwich-RELEASE</version>
+				<version><!-- 调整为 SDK 长期维护（LTS）版本号 --></version>
 			</parent>
 
 
 
 			<groupId>com.tencent.tsf</groupId>
 			<artifactId>tsf-demo</artifactId>
-			<version>1.23.0-Greenwich-RELEASE</version>
+			<version><!-- 调整为 SDK 长期维护（LTS）版本号 --></version>
 			<packaging>pom</packaging>
 
 
@@ -99,7 +99,7 @@ pom.xml 中定义了工程需要的依赖包（以下以基于 Spring Cloud Finc
 <parent>
         <groupId>com.tencent.tsf</groupId>
         <artifactId>spring-cloud-tsf-dependencies</artifactId>
-        <version><!-- 调整为 SDK 最新版本号 --></version>
+        <version><!-- 调整为 SDK 长期维护（LTS）版本号 --></version>
 </parent>
 ```
 
@@ -114,7 +114,7 @@ pom.xml 中定义了工程需要的依赖包（以下以基于 Spring Cloud Finc
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-starter</artifactId>
-    <version><!-- 调整为 SDK 最新版本号 --></version>
+    <version><!-- 调整为 SDK 长期维护（LTS）版本号 --></version>
 </dependency>
 ```
 `spring-cloud-tsf-starter` 中包含了服务注册发现、服务路由、服务鉴权、服务限流、服务熔断、服务容错、服务监控、分布式配置、调用链功能。

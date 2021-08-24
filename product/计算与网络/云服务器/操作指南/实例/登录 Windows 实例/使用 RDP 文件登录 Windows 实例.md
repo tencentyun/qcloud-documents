@@ -1,3 +1,6 @@
+>! 目前 Windows 实例登录方式已更新为**标准登录方式（WebRDP）**，您可通过控制台一键登录 Windows 实例，无需下载本地登录客户端。登录方法介绍请参见 [使用标准方式登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/57778)。
+>
+
 ## 操作场景
 以下视频介绍了如何登录 Windows 实例：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2445-39745?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
@@ -56,9 +59,9 @@ make install
 rdesktop -u Administrator -p <your-password> <hostname or IP address>
 ```
  - `Administrator` 即为前提条件中获得的管理员帐号。
- - `&lt;your-password&gt;` 即为您设置的登录密码。
+ - `<your-password>` 即为您设置的登录密码。
    如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
- - `&lt;hostname or IP address&gt;` 即为您的 Windows 实例公网 IP 或自定义域名。实例公网 IP 获取方法请参见 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940)。
+ - `<hostname or IP address>` 即为您的 Windows 实例公网 IP 或自定义域名。实例公网 IP 获取方法请参见 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940)。
 :::
 ::: MacOS\s系统使用\sRDP\s登录[](id:MacRDP)
 >?

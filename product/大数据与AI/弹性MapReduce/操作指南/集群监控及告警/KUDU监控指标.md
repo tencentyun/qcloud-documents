@@ -37,7 +37,7 @@
 | ErrorMessages                 | 个    | 应用程序发出的 ERROR 级日志消息数                              |
 | WarningMessages               | 个    | 应用程序发出的 WARNING 级日志消息数                            |
 | InvoluntarySwitches           | 次    | 非自发的上下文切换                                           |
-| VoluntarySwitches             | 次    | 自发的上下文切换                                             |
+| VoluntarySwitches              | 次    | 自发的上下文切换                                             |
 | SpinlockContentionTime        | 微秒  | 自服务器启动后，内部自旋锁上的争用所消耗的时间量             |
 | OversizedWriteRequests        | 个    | 启动后拒绝的对 system catalog tablet 的过大写请求数           |
 | HybridClockError              | 微秒  | 服务器时钟最大错误；无法读取基础时钟时返回2^64-1             |
@@ -50,6 +50,7 @@
 | FreeBytes                     | bytes | 页堆中可用的映射页的字节数                                   |
 | UnMappedBytes                 | bytes | 页堆中空闲的未映射页的字节数                                 |
 | ConnectionsAccepted           | 个    | 到 RPC 服务器的连入 TCP 连接数                                   |
-| QueueOverflow                 | 个    | 由于服务队列已满而丢弃的 RPC 数                                |
+| QueueOverflow                  | 个    | 由于服务队列已满而丢弃的 RPC 数                                |
 | TimesOutInQueue               | 个    | 在服务队列中等待时超时并因此未被处理的 RPC 数                  |
 | ThreadsRunning                | 个    | 所有 tablet server 中当前正在运行的线程数/所有 master 中当前正在运行的线程数 |
+

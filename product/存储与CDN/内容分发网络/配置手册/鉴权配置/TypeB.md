@@ -2,6 +2,9 @@
 **访问 URL 格式**
 `http://DomainName/timestamp/md5hash/FileName`
 
+>! 访问 URL 中不能包含中文。
+
+
 **算法说明**
 - timestamp：格式为 YYYYMMDDHHMM。
 - md5hash：MD5（自定义密钥 + timestamp + 文件路径）。

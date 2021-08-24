@@ -6,7 +6,23 @@
 
 上图是一个简单的使用示例，您可以通过 trtc-wx 提供的 API 方法对您的推拉流状态进行设置，之后通过 setData 的方式，在微信页面上的原生标签上更新生效，您通过事件订阅的接口可以捕获服务端的一些状态通知，trtc-wx 也会在这些事件通知中，返回更新部分的状态，您可以及时的将这些属性更新到页面当中。
 
+## 环境要求
 
+- 微信 App iOS 最低版本要求：7.0.9
+- 微信 App Android 最低版本要求：7.0.8
+- 小程序基础库最低版本要求：2.10.0
+- 由于小程序测试号不具备 &lt;live-pusher&gt; 和 &lt;live-player&gt; 的使用权限，请使用企业小程序账号申请相关权限进行开发。
+- 由于微信开发者工具不支持原生组件（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签），需要在真机上进行运行体验。
+- 不支持 uniapp 等开发框架，请使用原生小程序开发环境。
+
+## 前提条件
+1. 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+2. **开通小程序类目与推拉流标签权限（如不开通则无法正常使用）**。
+出于政策和合规的考虑，微信暂未放开所有小程序对实时音视频功能（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签）的支持：
+ - 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
+ - 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
+ - 符合类目要求的小程序，需要在 **[微信公众平台](https://mp.weixin.qq.com)**>**开发**>**开发管理**>**接口设置** 中自助开通该组件权限，如下图所示：
+![](https://main.qcloudimg.com/raw/dc6d3c9102bd81443cb27b9810c8e981.png)
 
 ## API 概览
 
@@ -25,14 +41,14 @@
 | [exitRoom()](#exitroom())                                    | 停止推流和取消订阅所有远端音视频，并退出房间            |
 | [getPlayerList()](#getplayerlist())                          | 获取当前远端 player 的列表                              |
 
-### pusher && player 状态变更方法
+### pusher & player 状态变更方法
 
 您可以通过这些 API 主动改变推拉流的状态。
 
 | API                                                          | 描述             |
 | :----------------------------------------------------------- | :--------------- |
-| [setPusherAttributes(config)](#setpusherattributes(config))  | 设置推流参数变更 |
-| [setPlayerAttributes(id, config)](#setplayerattributes(id.2C-config)) | 设置拉流参数变更 |
+| [setPusherAttributes(config)](#setpusherattributes(config))  | 设置推流的参数 |
+| [setPlayerAttributes(id, config)](#setplayerattributes(id.2C-config)) | 改变拉流 player 的参数 |
 
 ### 获取实例
 
@@ -83,9 +99,11 @@ page({
 
 #### 示例代码：
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 this.TRTC.on(this.EVENT.LOCAL_JOIN, onLocalJoin, this)
-```
+:::
+</dx-codeblock>
 
 ### off(EventCode, handler)
 
@@ -103,13 +121,14 @@ this.TRTC.on(this.EVENT.LOCAL_JOIN, onLocalJoin, this)
 无
 
 #### 示例代码：
-
-```javascript
+<dx-codeblock>
+::: javascript javascript
 function onLocalJoin(event) {
  // 本地进房成功
 }
 trtcRoomContext.off(this.EVENT.LOCAL_JOIN, onLocalJoin)
-```
+:::
+</dx-codeblock>
 
 ### createPusher(pusherAttributes)
 
@@ -128,9 +147,11 @@ pusherInstance
 
 #### 示例代码：
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 this.TRTC.createPusher({'frontCamera': 'back'})
-```
+:::
+</dx-codeblock>
 
 ### enterRoom(params)
 
@@ -145,10 +166,11 @@ this.TRTC.createPusher({'frontCamera': 'back'})
 | userID   | String | -      | 必填，您进房的 userID                                        |
 | userSig  | String | -      | 必填，您服务器签发的 userSig                                 |
 | roomID   | Number | -      | 必填，您要进入的房间号，如该房间不存在，系统会为您自动创建   |
+| strRoomID   | String | -      | 选填，您要进入的字符串房间号，如填写该参数，将优先进入字符串房间   |
+| userDefineRecordId   | String | -      | 选填，设置云端录制完成后的回调消息中的 "userdefinerecordid" 字段内容，便于您更方便的识别录制回调。<li>**推荐取值：**限制长度为64字节，只允许包含大小写英文字母（a-zA-Z）、数字（0-9）及下划线和连词符。</li><li>**参考文档：**[云端录制](https://cloud.tencent.com/document/product/647/16823)。 </li>   |
 | scene    | String | 'rtc'  | 选填，必填参数，使用场景：<li>rtc：实时通话，采用优质线路，同一房间中的人数不应超过300人。</li><li>live：直播模式，采用混合线路，支持单一房间十万人在线（同时上麦的人数应控制在50人以内）</li> |
 
 >! 
->
 >- **视频通话&语音通话（scene = "rtc"）**
 >  - 视频通话场景，支持 720P、1080P 高清画质。
 >  - 视频通话场景，支持48kHz全频带，支持双声道。
@@ -165,8 +187,8 @@ this.TRTC.createPusher({'frontCamera': 'back'})
 pusherAttributes
 
 #### 示例代码：
-
-```javascript
+<dx-codeblock>
+::: javascript javascript
 enterRoom(options) {
     this.setData({
         pusher: this.TRTC.enterRoom({
@@ -178,13 +200,15 @@ enterRoom(options) {
           enableCamera: true, // 进房默认开启视频上行
         }),
     }, () => {
-        this.TRTC.getPusherInstance.start() // 开始进行推流
+        this.TRTC.getPusherInstance().start() // 开始进行推流
     })
 },
-```
+:::
+</dx-codeblock>
+
 
 ### exitRoom()
-退房，重置状态机的状态，并同步到页面中，放置下次进房发生状态的混乱。
+退房，重置状态机的状态，并同步到页面中，防止下次进房发生状态的混乱。
 
 #### 参数：
 无
@@ -192,16 +216,18 @@ enterRoom(options) {
 #### 返回值：
 - Object。
 - 状态机重置，会返回更新后的 pusher 和 playerList。
-```
+<dx-codeblock>
+::: javascript javascript
 {
     pusher: {},
     playerList: {}
 }
-```
+:::
+</dx-codeblock>
 
 #### 示例代码：
-
-```javascript
+<dx-codeblock>
+::: javascript javascript
 exitRoom() {
     const result = this.TRTC.exitRoom()
     // 状态机重置，会返回更新后的pusher和playerList
@@ -210,7 +236,8 @@ exitRoom() {
         playerList: result.playerList,
     })
 },
-```
+:::
+</dx-codeblock>
 
 ### getPlayerList()
 
@@ -225,12 +252,13 @@ exitRoom() {
 Array 播放 player 的列表。
 
 #### 示例代码：
-
-```javascript
+<dx-codeblock>
+::: javascript javascript
 this.setData({
   playerList: this.TRTC.getPlayerList()
 })
-```
+:::
+</dx-codeblock>
 
 ### setPusherAttributes(config)
 
@@ -247,15 +275,16 @@ this.setData({
 pusherAttributes，返回更新后的推流状态。
 
 #### 示例代码：
-
-```javascript
+<dx-codeblock>
+::: javascript javascript
 this.setData({
   pusher: this.TRTC.setPusherAttributes({
     enableMic: false, // 关闭音频上行
     enableCamera: false, // 关闭视频上行
   }),
 })
-```
+:::
+</dx-codeblock>
 
 ### setPlayerAttributes(id, config)
 
@@ -274,13 +303,15 @@ playerList，返回更新后的拉流状态列表。
 
 #### 示例代码：
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 this.setData({  playerList: this.TRTC.setPlayerAttributes({    muteAudio: false, // 关闭音频上行    orientation: 'horizontal', // 改变拉流画面的方向  }),})
-```
+:::
+</dx-codeblock>
 
 ### getPusherInstance()
 
-获取 pusher 的推流实例，调用挂载在实例上的相关方法，具体请参见 [playerInstance](#playerInstance)。
+获取 pusher 的推流实例，调用挂载在实例上的相关方法，具体请参见 [pusherInstance](#pusherinstance)。
 
 #### 参数：
 
@@ -292,9 +323,11 @@ pusherInstance
 
 #### 示例代码：
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 this.getPusherInstance().start() // 开始推流
-```
+:::
+</dx-codeblock>
 
 ### getPlayerInstance(id)
 
@@ -313,9 +346,11 @@ playerInstance
 
 #### 示例代码：
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 this.getPlayerInstance().stop() // 停止这个player的播放
-```
+:::
+</dx-codeblock>
 
 ## 更多高级特性
 
@@ -401,7 +436,7 @@ playerInstance 是 trtc-wx 为您管理的 &lt;live-player&gt; 的实例。
 | objectFit             | String  | fillCrop | 填充模式，可选值有 contain，fillCrop                         |
 | minCache              | Number  | 1        | 最小缓冲区，单位：s                                          |
 | maxCache              | Number  | 2        | 最大缓冲区，单位：s                                          |
-| soundMode             | String  | speaker  | 是否支持双手滑动调整摄像头焦距                               |
+| soundMode             | String  | speaker  | 声音输出方式，speaker：扬声器，ear：听筒 （通话音量模式下听筒才有效，对应 RTC 模式）                 |
 | enableRecvMessage     | Boolean | false    | 是否接收 SEI 消息                                            |
 | autoPauseIfNavigate   | Boolean | true     | 当跳转到其它小程序页面时，是否自动暂停本页面的实时音视频播放 |
 | autoPauseIfOpenNative | Boolean | true     | 当跳转到其它微信原生页面时，是否自动暂停本页面的实时音视频播放 |
@@ -411,10 +446,12 @@ playerInstance 是 trtc-wx 为您管理的 &lt;live-player&gt; 的实例。
 
 通过组件实例的 EVENT 属性可以获取到事件常量字段，这些事件会通知您服务器推送的一些信息，以及 SDK 内部的一些参数提示。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 this.TRTC = new TRTC(this)
 const EVENT = this.TRTC.EVENT
-```
+:::
+</dx-codeblock>
 
 事件表
 
@@ -422,6 +459,7 @@ const EVENT = this.TRTC.EVENT
 | :-------------------------------------------------------- | :--------------------------------------------------------- |
 | [LOCAL_JOIN](#LOCAL_JOIN)                                 | 成功进入房间                                               |
 | [LOCAL_LEAVE](#LOCAL_LEAVE)                               | 成功离开房间                                               |
+| [KICKED_OUT](#KICKED_OUT)                               | 服务端踢人或房间被解散退房                                               |
 | [REMOTE_USER_JOIN](#REMOTE_USER_JOIN)                     | 远端用户进入房间时触发                                     |
 | [REMOTE_USER_LEAVE](#REMOTE_USER_LEAVE)                   | 远端用户退出房间时触发                                     |
 | [REMOTE_VIDEO_ADD](#REMOTE_VIDEO_ADD)                     | 远端视频流添加事件，当远端用户发布视频流后会收到该通知     |
@@ -443,137 +481,172 @@ const EVENT = this.TRTC.EVENT
 
 本地进房成功后的回调。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onLocalJoin = function(event){
   console.log('本地进房成功')
 }
 this.TRTC.on(EVENT.LOCAL_JOIN, onLocalJoin)
-```
+:::
+</dx-codeblock>
 
 [](id:LOCAL_LEAVE)
 ### LOCAL_LEAVE
 
 本地离开房间后的回调。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onLocalLeave = function(event){
   console.log('本地退房成功')
 }
 this.TRTC.on(EVENT.LOCAL_LEAVE, onLocalLeave)
-```
+:::
+</dx-codeblock>
+
+[](id:KICKED_OUT)
+### KICKED_OUT
+
+服务端踢人或房间被解散退房后的回调。
+
+<dx-codeblock>
+::: javascript javascript
+let onKickedout = function(event){
+  console.log('被服务端踢出或房间被解散')
+}
+this.TRTC.on(EVENT.KICKED_OUT, onKickedout)
+:::
+</dx-codeblock>
 
 [](id:REMOTE_USER_JOIN)
 ### REMOTE_USER_JOIN
 
 远端用户加入此房间。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onRemoteUserJoin = function(event){
   // userID 是加入的用户 ID
   const { userID, userList, playerList } = event.data
 }
 this.TRTC.on(EVENT.REMOTE_USER_JOIN, onRemoteUserJoin)
-```
+:::
+</dx-codeblock>
 
 [](id:REMOTE_USER_LEAVE)
 ### REMOTE_USER_LEAVE
 
 远端的用户离开。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onRemoteUserLeave = function(event){
   // userID 是离开的用户 ID
   const { userID, userList, playerList } = event.data
 }
 this.TRTC.on(EVENT.REMOTE_USER_LEAVE, onRemoteUserLeave)
-```
+:::
+</dx-codeblock>
 
 [](id:REMOTE_VIDEO_ADD)
 ### REMOTE_VIDEO_ADD
 
 远端的用户有新的视频上行。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onRemoteVideoAdd = function(event){
   // id 是对应的player的id
   const { player, userList, playerList } = event.data
 }
 this.TRTC.on(EVENT.REMOTE_VIDEO_ADD, onRemoteVideoAdd)
-```
+:::
+</dx-codeblock>
 
 [](id:REMOTE_VIDEO_REMOVE)
 ### REMOTE_VIDEO_REMOVE
 
 远端的用户有视频上行移除。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onRemoteVideoRemove = function(event){
   // id 是对应的player的id
   const { player, userList, playerList } = event.data
 }
 this.TRTC.on(EVENT.REMOTE_VIDEO_REMOVE, onRemoteVideoRemove)
-```
+:::
+</dx-codeblock>
 
 [](id:REMOTE_AUDIO_ADD)
 ### REMOTE_AUDIO_ADD
 
 远端的用户有新的音频上行。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onRemoteAudioAdd = function(event){
   // id 是对应的player的id
   const { player, userList, playerList } = event.data
 }
 this.TRTC.on(EVENT.REMOTE_AUDIO_ADD, onRemoteAudioAdd)
-```
+:::
+</dx-codeblock>
 
 [](id:REMOTE_AUDIO_REMOVE)
 ### REMOTE_AUDIO_REMOVE
 
 远端的用户有音频上行移除。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onRemoteAudioRemove = function(event){
   // id 是对应的player的id
   const { id, userList, playerList } = event.data
 }
 this.TRTC.on(EVENT.REMOTE_AUDIO_REMOVE, onRemoteAudioRemove)
-```
+:::
+</dx-codeblock>
 
 [](id:REMOTE_STATE_UPDATE)
 ### REMOTE_STATE_UPDATE
 
 远端用户播放状态变更通知。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onRemoteStateUpdate = function(event){
   // id 是对应触发的 player 的 id，目前 streamid 和 id 是相同的
-  const id = event.currentTarget.dataset.streamid
+  const id = event.data.currentTarget.dataset.streamid
   const data = event.data // 这里是微信原生组件抛出的关于player的信息，若有需要您可以自主获取
 }
 this.TRTC.on(EVENT.REMOTE_STATE_UPDATE, onRemoteStateUpdate)
-```
+:::
+</dx-codeblock>
 
 [](id:LOCAL_NET_STATE_UPDATE)
 ### LOCAL_NET_STATE_UPDATE
 
 本地网络相关状态变更。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onLocalNetStateUpdate = function(event){
   // 这里会返回更新后的 pusherAttributes，上面有个属性是 netStatus 对应网络状态的对象
   // 其中 netQualityLevel 对应网络状态的好坏，1 代表最好，数字越大代表网络越差
   const netStatus = event.data.pusher.netStatus
 }
 this.TRTC.on(EVENT.LOCAL_NET_STATE_UPDATE, onLocalNetStateUpdate)
-```
+:::
+</dx-codeblock>
 
 [](id:REMOTE_NET_STATE_UPDATE)
 ### REMOTE_NET_STATE_UPDATE
 
 远端用户网络相关状态变更。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onRemoteNetStateUpdate = function(event){
   // 这里会返回更新后的 playerList，上面有个属性是 netStatus 对应网络状态的对象
   // 其中 netQualityLevel 对应网络状态的好坏，1 代表最好，数字越大代表网络越差
@@ -581,80 +654,93 @@ let onRemoteNetStateUpdate = function(event){
 
 }
 this.TRTC.on(EVENT.REMOTE_NET_STATE_UPDATE, onRemoteNetStateUpdate)
-```
+:::
+</dx-codeblock>
 
 [](id:REMOTE_AUDIO_VOLUME_UPDATE)
 ### REMOTE_AUDIO_VOLUME_UPDATE
 
 远端用户音量状态变更。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onRemoteAudioVolumeUpdate = function(event){
   // 这里会返回更新后的 playerList
   const { playerList } = event.data
 }
 this.TRTC.on(EVENT.REMOTE_AUDIO_VOLUME_UPDATE, onRemoteAudioVolumeUpdate)
-```
+:::
+</dx-codeblock>
 
 [](id:LOCAL_AUDIO_VOLUME_UPDATE)
 ### LOCAL_AUDIO_VOLUME_UPDATE
 
 本地音量状态变更。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onLocalAudioVolumeUpdate = function(event){
   // 这里会返回更新后的 pusher 状态
   const { pusher } = event.data
 }
 this.TRTC.on(EVENT.LOCAL_AUDIO_VOLUME_UPDATE, onLocalAudioVolumeUpdate)
-```
+:::
+</dx-codeblock>
 
 [](id:VIDEO_FULLSCREEN_UPDATE)
 ### VIDEO_FULLSCREEN_UPDATE
 
 远端视图全屏状态变更。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onVideoFullscreenUpdate = function(event){
   // 您可以进行业务的操作，目前没有抛出data字段
 }
 this.TRTC.on(EVENT.VIDEO_FULLSCREEN_UPDATE, onVideoFullscreenUpdate)
-```
+:::
+</dx-codeblock>
 
 [](id:BGM_PLAY_PROGRESS)
 ### BGM_PLAY_PROGRESS
 
-远端视图全屏状态变更。
+BGM 播放时间戳变更通知。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onBgmPlayProgress = function(event){
   // progress是已经播放的时长，duration是总时长，比值代表当前的进度
   const { progress, duration } = event.data
   
 }
 this.TRTC.on(EVENT.BGM_PLAY_PROGRESS, onBgmPlayProgress)
-```
+:::
+</dx-codeblock>
 
 [](id:BGM_PLAY_COMPLETE)
 ### BGM_PLAY_COMPLETE
 
-BGM 播放完成。
+BGM 播放结束通知。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onBgmPlayComplete = function(event){
   // 您可以进行业务的操作，目前没有抛出data字段
 }
 this.TRTC.on(EVENT.BGM_PLAY_COMPLETE, onBgmPlayComplete)
-```
+:::
+</dx-codeblock>
 
 [](id:ERROR)
 ### ERROR
 
-BGM 播放完成。
+本地推流出现错误、渲染错误事件等。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let onError = function(event){
   // 您可以监听一些预期之外的错误信息
 }
 this.TRTC.on(EVENT.ERROR, onError)
-```
+:::
+</dx-codeblock>

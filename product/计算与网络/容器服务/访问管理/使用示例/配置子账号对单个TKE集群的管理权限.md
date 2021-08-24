@@ -8,8 +8,8 @@
 
 1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam/overview)。
 2. 在左侧导航栏中，单击 [策略](https://console.cloud.tencent.com/cam/policy)，进入策略管理页面。
-3. 单击【新建自定义策略】，选择 “[按策略语法创建](https://console.cloud.tencent.com/cam/policy/createV2)” 方式。
-4. 选择 “空白模板” 类型，单击【下一步】。
+3. 单击**新建自定义策略**，选择 “[按策略语法创建](https://console.cloud.tencent.com/cam/policy/createV2)” 方式。
+4. 选择 “空白模板” 类型，单击**下一步**。
 5. 自定义策略名称，将 “编辑策略内容” 替换为以下内容。
 ```json
 {
@@ -66,15 +66,15 @@
 <dx-alert infotype="notice" title="">
 请替换成您想赋予权限的指定地域下的集群 ID。如果您需要允许子账号进行集群的扩缩容，还需要配置子账号用户支付权限。
 </dx-alert>
-7. 单击【创建策略】，即可完成对单个集群全读写权限的配置。
+7. 单击**创建策略**，即可完成对单个集群全读写权限的配置。
 
 
 ### 配置对单个集群只读权限
 
 1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam/overview)。
 2. 在左侧导航栏中，单击 [策略](https://console.cloud.tencent.com/cam/policy)，进入策略管理页面。
-3. 单击【新建自定义策略】，选择 “[按策略语法创建](https://console.cloud.tencent.com/cam/policy/createV2)” 方式。
-4. 选择 “空白模板” 类型，单击【下一步】。
+3. 单击**新建自定义策略**，选择 “[按策略语法创建](https://console.cloud.tencent.com/cam/policy/createV2)” 方式。
+4. 选择 “空白模板” 类型，单击**下一步**。
 5. 自定义策略名称，将 “编辑策略内容” 替换为以下内容。
 ```json
 {
@@ -128,7 +128,7 @@
 ```
 
 6. 在 “编辑策略内容” 中，将 `qcs::tke:gz::cluster/cls-1xxxxxx` 修改为您想赋予权限的指定地域下的集群。例如，您需要为北京地域的 cls-19a7dz9c 集群赋予只读的权限，将 `qcs::tke:gz::cluster/cls-1xxxxxx` 修改为 `qcs::tke:bj::cluster/cls-19a7dz9c`。
-7. 单击【创建策略】，即可完成对单个集群只读权限的配置。
+7. 单击**创建策略**，即可完成对单个集群只读权限的配置。
 
 
 

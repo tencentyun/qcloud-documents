@@ -175,7 +175,7 @@ encParams.videoFps = 15;
 
 [](id:step9)
 ### 步骤9：观众跟主播连麦
-1. 观众端调用 [switch(TRTCRoleType.anchor)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a5f4598c59a9c1e66938be9bfbb51589c) 将角色切换为主播（TRTCRoleType.anchor）。
+1. 观众端调用 [switch(TRTCRoleType.TRTCRoleAnchor)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a5f4598c59a9c1e66938be9bfbb51589c) 将角色切换为主播（TRTCRoleType.TRTCRoleAnchor）。
 2. 观众端调用 [startLocalPreview()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a3fc1ae11b21944b2f354db258438100e) 可以开启本地的画面。
 3. 观众端调用 [startLocalAudio()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a3177329bc84e94727a1be97563800beb) 开启麦克风采音。
 

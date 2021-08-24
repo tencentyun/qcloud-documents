@@ -88,3 +88,6 @@ CODING 支持您关联 GitLab 公有云和私有云等外部仓库，在关联�
 
 并且打开 CODING 持续集成，查看构建节点 IP，进行放行：
 ![](https://main.qcloudimg.com/raw/3937fa00af88a5dcda62300c7a03876b.png)
+
+
+

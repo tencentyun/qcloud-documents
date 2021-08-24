@@ -2,7 +2,7 @@
 
 ## 开发准备
 - 确认已开通腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群时需要在软件配置界面选择 Hive、Hbase 组件。 
-- Hive 等相关软件安装在路径 EMR 云服务器的`/usr/local/service/`路径下。
+- Hive 等相关软件安装在路径 EMR 云服务器的 `/usr/local/service/` 路径下。
 
 ## 创建一个 Hbase 表 
 首先需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
@@ -22,7 +22,7 @@ hbase(main):005:0> put 'test', 'row1', 'cf:c', 'value3'
 ```
 更多在 Hbase 中的操作详见 Hbase 操作指南，或者查看 [官方文档](http://hbase.apache.org/book.html#_introduction)。
 
-创建完成后，可以使用`list`和`scan`操作来查看新建的表。
+创建完成后，可使用`list`和`scan`操作来查看新建的表。
 ```
 hbase(main):001:0> list 'test'
 TABLE                                                       

@@ -19,7 +19,7 @@ phoneNumber：E.164标准，格式为+[国家或地区码][手机号]，例如+8
 #### 示例代码
 
 ```Objective-C
-[[XGPushTokenManager defaultTokenManager] upsertPhoneNumber:@"13712345678"];;
+[[XGPushTokenManager defaultTokenManager] upsertPhoneNumber:@"+8613712345678"];;
 ```
 
 >! 

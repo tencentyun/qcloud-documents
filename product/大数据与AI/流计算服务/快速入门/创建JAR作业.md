@@ -1,7 +1,5 @@
 ## 前提条件
-1. 已创建腾讯云账号，创建账号可参考 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985)。
-2. 若使用子账号登录，需要获得用户帐户的访问授权，详情请参见 [CAM 访问管理](https://cloud.tencent.com/document/product/849/38622) 和 [流计算服务委托授权](https://cloud.tencent.com/document/product/849/38290)。
-3. 流计算作业 JAR 作业需运行于流计算独享集群，若还没有集群，请参考 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。
+流计算作业 JAR 作业需运行于流计算独享集群，若还没有集群，请参考 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。
 
 ## 步骤1：JAR 包开发
 创建 JAR 作业需要上传已开发好的 JAR 包，您可以单击 [GitHub 链接](https://github.com/tencentyun/flink-hello-world/releases/tag/0.1)，下载我们提供的 WordCount 示例 JAR 包（文件名为 flink-hello-world-1.0.0.jar）来完成。
@@ -12,7 +10,7 @@
 
 ## 步骤3：创建 JAR 作业
 登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，单击左侧导航【作业管理】，进入作业管理页面，单击【新建作业】，作业类型选中 JAR 作业，输入作业名称，并选择一个运行中的集群，新建的 JAR 作业将运行于此集群，单击【确定】后即成功创建作业。
-![](https://main.qcloudimg.com/raw/ad91e309983a9024a97959967e06d9ef.png)
+![](https://main.qcloudimg.com/raw/d818f5952a478dc8351a814e6cf2ef84.png)
 
 ## 步骤4：流计算服务委托授权
 选择【作业管理】中刚新建的作业，单击【开发调试】。在未授权时，弹出访问授权对话框如下，单击【前往授权】，授权流计算作业访问您的 CKafka、TencentDB 等资源。此授权的详细说明参见 [流计算服务委托授权](https://cloud.tencent.com/document/product/849/38290)。

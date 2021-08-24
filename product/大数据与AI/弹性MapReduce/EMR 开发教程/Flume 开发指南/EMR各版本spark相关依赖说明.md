@@ -8,7 +8,6 @@
 | v3.0.0  | 2.4.3 | 2.12.x | 2.7+/3.4+ | 3.1+ | 8+   |
 
 ### 查找方法
-
 1. 访问官网链接，输入版本号链接模板： 
 ```
 https://spark.apache.org/docs/{spark.version}/index.html

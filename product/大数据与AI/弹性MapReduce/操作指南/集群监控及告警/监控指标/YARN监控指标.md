@@ -217,8 +217,3 @@ ThreadsNew                         | 个       | JVM 线程数量       |
 | Uptime                         | s        | 进程运行时长     |
 | DaemonThreadCount              | 个       | 工作线程数       |
 | ThreadCount                    | 个       | 工作线程数       |
-
-
-
-
-

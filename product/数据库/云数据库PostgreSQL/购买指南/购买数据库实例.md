@@ -8,7 +8,7 @@
  - **地域**：实例实际部署的地域；建议与需要对接的云服务器保持一致，以便延迟最低。
  - **可用区**：在同一地域内电力和网络互相独立的物理数据中心；建议与需要对接的云服务器保持一致，以便延迟最低。
  - **网络类型**：实例所处的网络，一旦网络选定就不能轻易改变；建议与需要对接的云服务器保持一致，以便延迟最低。
- - **数据库内核版本**：PostgreSQL 的不同数据库内核版本之间存在功能差异，详见：[9.3.5](https://www.postgresql.org/docs/9.3/static/index.html)、[9.5.4](https://www.postgresql.org/docs/9.5/static/index.html)、[10.4](https://www.postgresql.org/docs/10/static/index.html)、[11.8](https://www.postgresql.org/docs/11/index.html)、[12.4](https://www.postgresql.org/docs/12/release-12-4.html) 的官网介绍。
+ - **数据库内核版本**：PostgreSQL 的不同数据库内核版本之间存在功能差异，详见：[10.4](https://www.postgresql.org/docs/10/static/index.html)、[11.8](https://www.postgresql.org/docs/11/index.html)、[12.4](https://www.postgresql.org/docs/12/release-12-4.html) 的官网介绍。
  - **实例规格**：实例规格代表不同的性能水平和价格基数。
  - **硬盘**：默认采用 SSD 盘（本地盘）。
  - **用户名**：帐号名需要1个 - 16个字符，只能由字母、数字或下划线组成；不能为 postgres；不能由数字和 pg\_ 开头；所有规则均不区分大小写。

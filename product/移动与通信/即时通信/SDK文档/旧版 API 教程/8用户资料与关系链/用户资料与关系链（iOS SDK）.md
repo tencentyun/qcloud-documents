@@ -1213,3 +1213,5 @@ typedef NS_ENUM(NSInteger, TIM_PROFILE_SYSTEM_TYPE){
 
 当自己的资料或者好友的资料变更时，会收到用户资料变更系统消息。
 
+
+

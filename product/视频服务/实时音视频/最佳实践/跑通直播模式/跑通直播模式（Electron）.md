@@ -128,9 +128,9 @@ trtcCloud.setVideoEncoderParam(encParam);
     -   style： 美颜风格，光滑或者自然，光滑风格磨皮更加明显，适合娱乐场景。
         -   `TRTCBeautyStyle.TRTCBeautyStyleSmooth`: 光滑，适用于美女秀场，效果比较明显。
         -   `TRTCBeautyStyle.TRTCBeautyStyleNature`: 自然，磨皮算法更多地保留了面部细节，主观感受上会更加自然。
-    -   beauty：美颜级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显
-    -   white：美白级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显
-    -   ruddiness：红润级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显，该参数 Windows 平台暂未生效
+    -   beauty：美颜级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显。
+    -   white：美白级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显。
+    -   ruddiness：红润级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显，该参数 Windows 平台暂未生效。
 
 ```javascript
 // 开启美颜 

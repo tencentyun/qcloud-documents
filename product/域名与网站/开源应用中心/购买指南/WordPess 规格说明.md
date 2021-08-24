@@ -1,31 +1,5 @@
-## 应用实例
-网站类正式开通应用实例如下所示：
-<table>
-<thead>
-  <tr>
-    <th width="25%">分类标签</th>
-    <th>应用名称</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-	<td rowspan="4">网站</td>
-    <td>Wordpress</td>
-  </tr>
-  <tr>
-    <td>Joomla</td>
-  </tr>
-  <tr>
-    <td>Ghost</td>
-  </tr>
-	  <tr>
-    <td>Z-BlogPHP</td>
-  </tr>
-</tbody>
-</table>
-
-## 规格说明
-若您在腾讯云开源应用中心正式开通网站类应用实例，将默认使用以下规格云资源：
+## Wordpress 规格说明
+若您在腾讯云开源应用中心正式开通 Wordpress 应用实例，将默认使用以下规格云资源：
 
 <table>
 <thead>
@@ -38,7 +12,7 @@
 <tbody>
   <tr>
     <td>云托管<br>（CloudBase Run）</td>
-    <td><ul style="margin:0"><li><b>Wordpress</b></li><ul style="margin:0"><li>默认配置2核4GiB内存的容器，伸缩范围0 - 10个实例，遇到 CPU 负载大于60将会进行扩容。无流量则会缩容到0，不产生费用</li><li>使用 “镜像拉取” 方式无构建费用</li></ul><li><b>Joomla/Ghost/Z-BlogPHP</b></li><ul style="margin:0"><li>默认配置0.25核4GiB内存的容器，伸缩范围0 - 10个实例，遇到 CPU 负载大于60将会进行扩容。无流量则会缩容到0，不产生费用</li><li>使用 “镜像拉取” 方式无构建费用</li></ul></il></td>
+    <td><ul style="margin:0"><li>默认配置2核4GiB内存的容器，伸缩范围0 - 10个实例，遇到 CPU 负载大于60将会进行扩容。无流量则会缩容到0，不产生费用</li><li>使用 “镜像拉取” 方式无构建费用</li></ul></td>
     <td><ul style="margin:0"><li><b>CPU：</b>0.055元/核/小时</li><li><b>内存：</b>0.032元/GiB/小时</li><li><b>流量：</b>0.8元/GB</li><li>具体可查看 <a href= "https://cloud.tencent.com/document/product/1243/47823#.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9">计费说明</a></ul></li></td>
   </tr>
   <tr>

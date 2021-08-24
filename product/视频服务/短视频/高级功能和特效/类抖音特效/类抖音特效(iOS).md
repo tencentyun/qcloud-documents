@@ -34,11 +34,13 @@ Demo 示例：
 
 ```
 //在1-2s之间应用第一种滤镜特效
-[_ugcEdit startEffect(TXEffectType_SOUL_OUT, 1.0);
-[_ugcEdit stopEffect(TXEffectType_SOUL_OUT, 2.0);
+[_ugcEdit startEffect:TXEffectType_SOUL_OUT startTime:1.0];
+[_ugcEdit stopEffect:TXEffectType_SOUL_OUT startTime:2.0)];
+
 //在3-4s之间应用第2种滤镜特效
-[_ugcEdit startEffect(TXEffectType_SPLIT_SCREEN, 3.0);
-[_ugcEdit stopEffect(TXEffectType_SPLIT_SCREEN, 4.0);
+[_ugcEdit startEffect:TXEffectType_SPLIT_SCREEN startTime:3.0];
+[_ugcEdit stopEffect:TXEffectType_SPLIT_SCREEN startTime:4.0];
+
 //删除3-4s设置的滤镜特效
 [_ugcEdit deleteLastEffect];
 ```

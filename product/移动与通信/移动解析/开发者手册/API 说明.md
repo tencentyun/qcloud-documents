@@ -54,7 +54,7 @@
 </tr>
 <tr>
 <td>ip</td>
-<td>DNS 请求的 ECS 值</td>
+<td>DNS 请求的 ECS（EDNS-Client-Subnet）值</td>
 <td>否</td>
 <td>IPv4/IPv6 地址值</td>
 <td>是</td>
@@ -101,6 +101,10 @@
 <td>地址值在 <code>|</code> 符号后，可用值 [1]，默认值为不返回。若携带有 ip 参数，返回的是 ip 参数的值，否则返回客户端地址 IP。</td>
 </tr>
 </tbody></table>
+
+>?
+>- ECS（EDNS-Client-Subnet）协议在 DNS 请求包中附加请求域名解析的用户 IP 地址，DNS 服务器可以根据该地址返回用户更容快速访问的服务器 IP 地址。
+>- 移动解析 HTTPDNS 公共服务已经不再维持 ECS IP 库的常态化更新，仅保持每周更新一次。
 
 ## 请求说明
 以请求域名为 `cloud.tencent.com`，ID 为 `xxx`，token 为 `yyyy` 为例。
@@ -149,8 +153,8 @@ curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&ty
 ```
 curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&query=1&ttl=1"
 ```
-**返回格式**：`cloud.tencent.com:2.3.3.4;2.3.3.5;2.3.3.6,120|1.2.3.4`。
-**格式说明**：返回格式为 “域名:结果” 的格式。
+**返回格式**：`cloud.tencent.com.:2.3.3.4;2.3.3.5;2.3.3.6,120|1.2.3.4`。
+**格式说明**：返回格式为 “域名.:结果” 的格式。
 
 ### 批量域名请求
 - **输入示例：**
@@ -159,9 +163,9 @@ curl "http://119.29.29.98/d?dn=cloud.tencent.com,www.qq.com,www.dnspod.cn&id=xxx
 ```
 - **返回格式：**
 ```
-cloud.tencent.com:2.3.3.4;2.3.3.5;2.3.3.6,120
-www.qq.com:3.3.3.4;3.3.3.5;3.3.3.6,180
-www.dnspod.cn:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
+cloud.tencent.com.:2.3.3.4;2.3.3.5;2.3.3.6,120
+www.qq.com.:3.3.3.4;3.3.3.5;3.3.3.6,180
+www.dnspod.cn.:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
 ```
 - **格式说明：**多个域名返回内容之间以 “换行符” 分隔，ip 地址附加在所有记录值的最后。
 
@@ -193,8 +197,8 @@ curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&type=addrs&query=1&ip=1.
 ```
 curl "http://119.29.29.98/d?dn=www.notexist.com&id=xxx&type=addrs&query=1&ip=1.2.3.4"
 ```
-- **返回格式：**`cloud.tencent.com:0-0|1.2.3.4`。
-- **格式说明：**0表示没有记录。如果某个记录存在，则该记录正常返回在结果中，如 `cloud.tencent.com:2.3.4.5;3.3.3.3-0|1.2.3.4`，表示 AAAA 记录无法查询到。
+- **返回格式：**`cloud.tencent.com.:0-0|1.2.3.4`。
+- **格式说明：**0表示没有记录。如果某个记录存在，则该记录正常返回在结果中，如 `cloud.tencent.com.:2.3.4.5;3.3.3.3-0|1.2.3.4`，表示 AAAA 记录无法查询到。
 
 
 ### 批量域名请求
@@ -204,9 +208,9 @@ curl "http://119.29.29.98/d?dn=cloud.tencent.com,www.qq.com,www.dnspod.cn&id=xxx
 ```
 - **返回格式**：
 ```
-cloud.tencent.com:0
-www.qq.com:3.3.3.4;3.3.3.5;3.3.3.6,180
-www.dnspod.cn:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
+cloud.tencent.com.:0
+www.qq.com.:3.3.3.4;3.3.3.5;3.3.3.6,180
+www.dnspod.cn.:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
 ```
 - **格式说明：**未查询到数据的域名则返回0。如果某个记录存在，则该记录正常返回在结果中。
 

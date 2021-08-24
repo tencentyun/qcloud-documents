@@ -3,7 +3,7 @@
 
 ## 前提条件
 
-- 已开通 [Web 应用防火墙](https://buy.cloud.tencent.com/buy/wsm)。
+- 已开通 [Web 应用防火墙](https://buy.cloud.tencent.com/buy/waf)。
 - 已在 API 网关上发布了 API，详情请参见 [快速入门](https://cloud.tencent.com/document/product/628/41654)。
 
 ## 操作步骤

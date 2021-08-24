@@ -15,11 +15,19 @@
 |HLS(m3u8) |手机浏览器支持度高 |延迟非常高 |10s - 30s |
 |WebRTC |延迟最低 |需集成 SDK 才能播放 |< 1s |
 
-
+>?标准直播与快直播计费价格不同，更多计费详情请参见 [标准直播计费](https://cloud.tencent.com/document/product/267/34175) 和 [快直播计费](https://cloud.tencent.com/document/product/267/39136)。
 
 
 ## 特别说明
 视频云 SDK **不会对播放地址的来源做限制**，即您可以用它来播放腾讯云或非腾讯云的播放地址。但视频云 SDK 中的播放器只支持 FLV 、RTMP、HLS（m3u8）和 WebRTC 四种格式的直播地址，以及 MP4、 HLS（m3u8）和 FLV 三种格式的点播地址。
+
+## 示例代码
+针对开发者的接入反馈的高频问题，腾讯云提供有更加简洁的 API-Example 工程，方便开发者可以快速的了解相关 API 的使用，欢迎使用。
+
+| 所属平台 |                         GitHub 地址                          |
+| :------: | :----------------------------------------------------------: |
+|   iOS    | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example) |
+| Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) |
 
 ## 对接攻略
 [](id:step1)
@@ -129,7 +137,7 @@ private class MyPlayerObserver extends V2TXLivePlayerObserver  {
 
 [](id:Delay)
 ## 延时调节
-腾讯云 SDK 的直播播放（LVB）功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场、游戏以及混合场景。
+腾讯云 SDK 的云直播播放功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场、游戏以及混合场景。
 
 - **三种模式的特性对比**
 <table>
@@ -192,10 +200,10 @@ mLivePlayer.setCacheParams(5.0f, 5.0f);
 <td>帧率（fps）</td>
 </tr><tr>
 <td>audioBitrate</td>
-<td>视频码率（Kbps）</td>
+<td>音频码率（Kbps）</td>
 </tr><tr>
 <td>videoBitrate</td>
-<td>音频码率（Kbps）</td>
+<td> 视频码率（Kbps）</td>
 </tr></table>
 - [onPlayoutVolumeUpdate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#a57fc000bf5e935f7253fa94e1750359e) 播放器音量大小回调。这个回调仅当您调用 [enableVolumeEvaluation](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayer__android.html#aaa893a96eff34a7ba660441f7597d6d8) 开启播放音量大小提示之后才会工作。回调的时间间隔也会与您在设置 `enableVolumeEvaluation` 的参数 `intervalMs` 保持一致。
 

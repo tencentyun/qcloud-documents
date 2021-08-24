@@ -1,3 +1,60 @@
+## Version 9.0 @ 2021.08.06
+
+**功能新增**
+- iOS：支持设置系统采集音量，详情请参见 [setSystemAudioLoopbackVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#afc45226807d84673bab78b21d1be54ae)。
+- 全平台：支持设置自定义音轨的音量，详情请参见 [setMixExternalAudioVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#ae0031e4af8bb120ef6de164d99886418)。
+- 全平台：状态回调可区分音频和视频的丢包率，详情请参见 [TRTCRemoteStatistics](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCStatistic__cplusplus.html#structliteav_1_1TRTCRemoteStatistics)。
+
+**质量优化**
+- 全平台：优化订阅流程，提升手动订阅的秒开速度。
+- 全平台：修复特定场景 onExitRoom 回调重复的问题。
+
+**问题修复**
+- Android：修复自定义采集动态设置码率和帧率无效的问题。
+- iOS：修复先开启录屏辅路，再开启摄像头推流导致的推流失败问题。
+- iOS：修复本地视频录制模糊的问题。
+- iOS：修复若干稳定性问题。
+- Winodws：修复屏幕分享时采集帧率异常的问题。
+- Windows：修复屏幕分享切换目标时，播放端会先显示一帧旧画面的问题。
+
+## Version 8.9 @ 2021.07.15
+
+**功能新增** 
+- Android：自定义渲染支持指定外部 GLContext，可以更灵活使用 OpenGL 环境。
+- Windows：采集系统播放声音 [startSystemAudioLoopback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a157639a4fa3cc73ffc1982bbd8a8985e) 时支持指定扬声器设备。
+- Windows：支持 NVIDIA 平台硬编码，提升推流性能表现。
+- 全平台：新增云代理支持，针对企业防火墙内部的环境，安全配置更友好。
+- 全平台：接口 [muteLocalVideo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a22804c4112dee8c76475619f891e2eb5) 和 [muteRemoteVideoStream](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a74d8d9922a771114804517db66657f65) 增加对流类型的支持。
+- 全平台：统计状态回调 [onStatistics](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudCallback__cplusplus.html#ae7e4117f9c8004c9bcc5a29d64e840c9) 新增对本地网关延迟的统计 gatewayRtt，用于判断用户到 WiFi 路由器的网络质量。
+- 全平台：音频录制接口 [startAudioRecording](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a5224523e00d5167eb75cee9b65f72677) 支持录制成更多的音频格式。
+
+**质量优化**
+- 全平台：优化某些场景下的声音播放出现颤抖的问题。
+- Android：优化画面秒开速度。
+- Android：升级音频前处理算法，通话声音更清晰。
+
+**问题修复**
+- Windows：修复 VODPlayer 播片推流时本地录制音频文件会有重音的问题。
+- Windows：修复高 DPI 环境下并启用过滤窗口时部分场景 crash 的问题。
+- iOS：修复外录屏辅路推流设置横屏无效的问题。
+- iOS：修复只开启远端自定义渲染并指定使用 RGBA 格式数据时的内存泄漏问题。
+- 全平台：修复偶现进房失败问题。
+
+## Version 8.8 @ 2021.06.21
+
+**功能新增**
+Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAudioRendering](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#addb4c87719393cd4c4765d66a8cd9803)。
+
+**质量优化**
+- 全平台：优化 mixExternalAudioFrame 易用性，不再需要您完美地控制调用时机。
+- Mac：降低屏幕分享开启鼠标捕捉时 CPU 的开销。
+- Windows：优化 AGC 声音增益效果，更快更及时地进行调整。
+- Windows：优化启用窗口过滤时屏幕分享的性能开销。
+
+**问题修复**
+- iOS：修复播放 AAC 格式本地音频文件总时长不准的问题。
+- Android：修复部分机型切换后台时播放声音卡顿的问题。
+
 ## Version 8.7 @ 2021.5.25
 **功能新增**
 - 全平台：增加外接音频设备的异常检测。注册 onStatistics 回调后， 您可以用 [TRTCLocalStatistics](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCTypeDef__cplusplus.html#structtrtc_1_1TRTCLocalStatistics) 中的 audioCaptureState 来实时检测长时间静音、破音、异常间断问题。
@@ -10,7 +67,7 @@
 
 **问题修复**
 - Android ：修复 setRemoteViewFillMode 部分机型偶现不生效的问题。
-- iOS&Mac：修复停止自定义美颜时的内存资源释放问题。
+- iOS/Mac：修复停止自定义美颜时的内存资源释放问题。
 
 ## Version 8.6 @ 2021.05.08
 - 全平台：优化网络流控算法，进一步提升音视频传输质量。

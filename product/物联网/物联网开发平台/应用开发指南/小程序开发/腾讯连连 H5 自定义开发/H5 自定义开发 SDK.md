@@ -2193,7 +2193,7 @@ sdk.on('asrResponse', ({ deviceId, data }) => void)
 #### 返回值说明
 | 参数名                 | 参数描述            | 类型     |
 |:--------------------|:----------------|:-------|
-| deviceId            | 设备ID            | string |
+| deviceId            | 设备 ID            | string |
 | data                |  识别结果数据               | object |
 | data.resource_token | 某个设备下，音频文件的唯一标示 | string |
 | data.result_code    | 状态码，0代表成功      | number |
@@ -2222,6 +2222,447 @@ sdk.getAsrDownloadUrl({...}) => Promise<{...}>
 | 参数名                 | 参数描述            | 类型     |
 |:--------------------|:----------------|:-------|
 | ResourceURL       | cos 访问链接            | string |
+
+## 音乐服务
+
+### 公共说明
+
+#### 获取实例
+
+```typescript
+let tmeSdk = await sdk.getTMESdk();
+```
+
+
+
+#### 接口通用返回
+
+**接口统一返回值**
+
+TMESDK 接口调用的返回值统一为`Promise<TMEResponse>`结构。
+
+```typescript
+interface TMEResponse {
+  error_code: number,
+  error_msg: string,
+  data?: any;
+}
+```
+
+- 调用成功：返回一个 resolved 的Promise，其值为 TMEResponse 结构，error_code=0，data 为返回结果。
+- 调用失败：返回一个 rejected 的Promise，有响应的错误码（error_code）及提示信息（error_msg）。
+
+| 属性名     | 描述                     | 类型   |
+| ---------- | ------------------------ | ------ |
+| error_code | 错误码，参考错误信息表   | number |
+| error_msg  | 错误信息，参考错误信息表 | string |
+| data       | 响应数据                 | object |
+
+#### 错误信息表
+
+完整参考 TME 文档，在此基础上额外补充了错误码
+
+| 错误码 | 说明                                                    |
+| :----- | :------------------------------------------------------ |
+| 400000 | 登录授权失败                                            |
+| 400001 | 设备端超时无响应                                        |
+| 400002 | 调用 SDK 参数错误                                         |
+
+
+
+### 登录授权部分
+
+#### 激活设备
+
+在登录授权前，需要先激活设备
+
+**接口定义**
+
+```typescript
+tmeSdk.activateDevice() => Promise
+```
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 用户设备登录授权
+
+跳转酷狗音乐小程序授权，当再次返回h5时，Promise状态改变。
+
+**接口定义**
+
+```typescript
+tmeSdk.login() => Promise
+```
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 用户设备登出
+
+原 token 将登出
+
+**接口定义**
+
+```typescript
+tmeSdk.getUserInfo() => Promise<TMEResponse>
+```
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 校验设备授权
+
+**接口定义**
+
+```typescript
+tmeSdk.checkDeviceAuth() => Promise<TMEResponse>
+```
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 获取用户信息
+
+**接口定义**
+
+```typescript
+tmeSdk.getUserInfo() => Promise<TMEResponse>
+```
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`，其中data如下：
+
+| 属性名           | 描述                   | 类型           |
+| ---------------- | ---------------------- | -------------- |
+| userid           | 用户id                 | string         |
+| nick_name        | 用户昵称               | string         |
+| img              | 用户头像               | string         |
+| is_vip           | 是否vip 0:否 1:是      | enum:  `0` `1` |
+| vip_end_time     | vip有效期终止时间      | string         |
+| car_vip_end_time | 车机会员有效期终止时间 | string         |
+| svip_end_time    | 豪V有效期终止时间      | string         |
+
+
+
+### 播控部分
+
+#### 接口描述
+
+调用播控 SDK，会下发物模型属性 +control_seq，需要设备上报相同的 control_seq。
+
+- 若在超时范围内收到上报，视为下发播控成功，返回 resolved 状态的`Promise<TMEResponse>`
+
+- 若超时未收到上报，返回 rejected 状态的`Promise<TMEResponse>`
+
+超时设置可以通过`tmeSdk.config.timeout`来配置，默认值为10000，单位：毫秒(ms)。
+
+
+
+#### 通用播控接口
+
+**接口定义**
+
+```typescript
+tmeSdk.controlKugouDeviceData(deviceData) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名     | 参数描述       | 类型   | 必填 |
+| ---------- | -------------- | ------ | ---- |
+| deviceData | 设备物模型数据 | object | 是   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 播放音乐
+
+**接口定义**
+
+```typescript
+tmeSdk.play() => Promise<TMEResponse>
+```
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 暂停音乐
+
+**接口定义**
+
+```typescript
+tmeSdk.pause() => Promise<TMEResponse>
+```
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 上一首
+
+**接口定义**
+
+```typescript
+tmeSdk.preSong() => Promise<TMEResponse>
+```
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 下一首
+
+**接口定义**
+
+```typescript
+tmeSdk.nextSong() => Promise<TMEResponse>
+```
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 设置播放模式
+
+**接口定义**
+
+```typescript
+tmeSdk.setPlayMode(play_mode: number) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名    | 参数描述                                   | 类型              | 必填 |
+| --------- | ------------------------------------------ | ----------------- | ---- |
+| play_mode | 播放模式：0:顺序播放 1:单曲循环 2:随机播放 | enum: `0` `1` `2` | 是   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 设置音量
+
+**接口定义**
+
+```typescript
+tmeSdk.setVolume(volume: number) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名 | 参数描述        | 类型   | 必填 |
+| ------ | --------------- | ------ | ---- |
+| volume | 音量：0-100之间 | number | 是   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 设置播放进度
+
+**接口定义**
+
+```typescript
+tmeSdk.setPlayPosition(play_position: number) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名        | 参数描述             | 类型   | 必填 |
+| ------------- | -------------------- | ------ | ---- |
+| play_position | 播放进度：单位:秒(s) | number | 是   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 设置播放质量
+
+**接口定义**
+
+```typescript
+tmeSdk.setPlayQuality(recommend_quality: number) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名            | 参数描述                       | 类型              | 必填 |
+| ----------------- | ------------------------------ | ----------------- | ---- |
+| recommend_quality | 播放质量：0:标准 1:高清 2:无损 | enum: `0` `1` `2` | 是   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 设置当前播放歌曲
+
+**接口定义**
+
+```typescript
+tmeSdk.setCurSongId(song_id: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名  | 参数描述 | 类型   | 必填 |
+| ------- | -------- | ------ | ---- |
+| song_id | 歌曲id   | string | 是   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 设置当前播放歌曲位置
+
+**接口定义**
+
+```typescript
+tmeSdk.setSongIndex(song_index: number) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名     | 参数描述      | 类型   | 必填 |
+| ---------- | ------------- | ------ | ---- |
+| song_index | 歌曲位置Index | number | 是   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 设置播放列表
+
+目前支持四种类型：歌单(playlist)、新歌首发(newSongs)、每日推荐(recommendDaily)、专辑(album)
+
+**接口定义**
+
+```typescript
+tmeSdk.setCurrentPlayQueue(playType: enum, params?: Object) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名   | 参数描述                           | 类型                                                 | 必填 |
+| -------- | ---------------------------------- | ---------------------------------------------------- | ---- |
+| playType | 播放列表类型                       | enum: `playlist` `newSongs` `recommendDaily` `album` | 是   |
+| params   | 查询参数(不同类型对应查询参数不同) | object                                               | 是   |
+
+**playType对应params说明**
+
+| playType                 | params                                                       |
+| ------------------------ | ------------------------------------------------------------ |
+| 歌单(playlist)           | { page: `>=1`，size: `[1..50]`, playlist_id: `string` (歌单分类id) } |
+| 新歌首发(newSongs)       | { page: `>=1`，size: `[1..30]`, top_id: 榜单id (number) `1:华语` `2.欧美` `3.韩语` `4.日语`  } |
+| 专辑(album)              | { page: `>=1`，size: `[1..10]`, album_id:  `string` (专辑id)} |
+| 每日推荐(recommendDaily) | {}                                                           |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 获取设备当前播放列表
+
+根据目前支持的播放类型(playType)，拉取对应的歌单列表，并查出歌曲的详细信息
+
+**接口定义**
+
+```typescript
+tmeSdk.getCurrentPlayQueue() => Promise<TMEResponse>
+```
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+TMEResponse 中 data如下
+
+| 属性名   | 描述                                                         | 类型                                                 |
+| -------- | ------------------------------------------------------------ | ---------------------------------------------------- |
+| playType | 播放列表类型                                                 | enum: `playlist` `newSongs` `recommendDaily` `album` |
+| queueId  | 当前播放列表 id，根据 playType 对应 playlist_id、album_id、top_id | string \| number                                     |
+| total    | 列表中歌曲总数                                               | number                                               |
+| songs    | 歌曲数组，具体歌曲属性参考 TME 文档中 Song属性                  | Array[]                                              |
+
+
+
+#### 获取设备当前播放歌曲
+
+**接口定义**
+
+```typescript
+tmeSdk.getCurrentPlaySong() => Promise<TMEResponse>
+```
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`，data为歌曲信息
+
+
+
+### 内容部分
+
+请求酷狗 API 拉取内容通用接口
+
+#### 拉取内容通用接口
+
+**接口定义**
+
+```typescript
+tmeSdk.requestTMEApi(action: string, params) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名 | 描述     | 类型   | 必填 |
+| ------ | -------- | ------ | ---- |
+| action | 请求行为 | string | 是   |
+| params | 请求参数 | object | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+注：action、params 及返回值 data 参考 “音乐服务”
 
 
 

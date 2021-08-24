@@ -46,12 +46,12 @@
 
 | 参数                        | 说明                                                         | 默认值                                         |            
 | --------------------------- | ------------------------------------------------------------ | ---------------------------------------------- | 
-| http.cors.enabled           | 跨域资源共享配置项，`true`表示启用跨域资源访问，`false`表示不启用 | false                                          |                          
+| http.cors.enabled           | 跨域资源共享配置项，`true`表示启用跨域资源访问，`false`表示不启用 | false                        |                          
 | http.cors.allow-origin      | 域资源配置项，可设置接受来自哪些域名的请求                   | `""`                                           | 
 | http.cors.max-age           | 获取的 CORS 配置信息在浏览器中的缓存时间                       | 1728000（20天）                                | 
 | http.cors.allow-methods     | 跨域允许的请求方法                                           | `OPTIONS,HEAD,GET,POST,PUT,DELETE`             |              
-| http.cors.allow-headers     | 跨域允许的请求头信息                                         | `X-Requested-With,Content-Type,Content-Length` |                          
-| http.cors.allow-credentials | 是否允许响应头中返回 Access-Control-Allow-Credentials 信息     | false                                          |                   
+| http.cors.allow-headers     | 跨域允许的请求头信息                  | `X-Requested-With,Content-Type,Content-Length` |                          
+| http.cors.allow-credentials | 是否允许响应头中返回 Access-Control-Allow-Credentials 信息     | false                               |                   
 
 ## 配置 Watcher
 
@@ -59,4 +59,4 @@
 | --------------------- | --------------------------------- | ------ |
 | xpack.watcher.enabled | `true`表示开启 X-Pack 的 Watcher 功能 | true   |
 
-具体配置项详细含义，请查询 [Elasticsearch 官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/index.html)。如果有其他配置项自定义设置需求，请通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 向我们进行反馈。
+具体配置项详细含义，可参见 [Elasticsearch 官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/index.html)。如果有其他配置项自定义设置需求，可通过 [售后支持](https://cloud.tencent.com/online-service?from=connect-us) 进行反馈。
