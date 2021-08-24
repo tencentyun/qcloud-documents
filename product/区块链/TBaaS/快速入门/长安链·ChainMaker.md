@@ -38,7 +38,7 @@
 
 ### 步骤3：安装合约[](id:chaincode)
 
-1. 在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas) 中，选择左侧导航中的**长安链** > **[区块链网络](https://console.cloud.tencent.com/tbaas/chainmaker/chain)**进入网络卡片页面。
+1. 在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas) 中，选择左侧导航中的**长安链** > **[区块链网络](https://console.cloud.tencent.com/tbaas/chainmaker/chain)** 进入网络卡片页面。
 2. 当购买的长安链·ChainMaker 区块链网络完成部署后，点击卡片即可进入网络详情页面，点击顶部菜单栏的**合约管理**页签，进入对应页面后点击**安装合约**，在弹窗中填写对应的信息及上传合约文件后即可将合约安装至链上。如下图所示：
 ![](https://main.qcloudimg.com/raw/167ef56bf7c870e000dae7c18c51f25d.png)
 
