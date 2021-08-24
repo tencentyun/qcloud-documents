@@ -70,8 +70,8 @@
    - **Provisioner**：选择**文件存储 CFS**。
    - **读写权限**：文件存储仅支持多机读写。
    - **StorageClass**：按需指定 StorageClass，本文选择以在 [创建 StorageClass](#create) 步骤中创建的 `cfs-storageclass` 为例。
- >? 
- >- PVC 和 PV 会绑定在同一个 StorageClass 下。
+>? 
+>- PVC 和 PV 会绑定在同一个 StorageClass 下。
 >- 不指定 StorageClass 意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
 > 
    - **PersistVolume**：按需指定 PersistentVolume，本文以不指定 PersistentVolume 为例。
