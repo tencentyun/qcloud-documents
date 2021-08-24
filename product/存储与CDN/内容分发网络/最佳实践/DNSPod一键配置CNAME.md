@@ -28,19 +28,20 @@
 在 CDN 控制台 [域名管理](https://console.cloud.tencent.com/cdn/domains) 页找到对应的加速域名，鼠标悬浮在 CNAME 上，即可看到相关提示，单击**一键配置**设置 CNAME
 ![](https://main.qcloudimg.com/raw/88e44660c0d149d3d6262768c743542f.png)
 
->!
->请确保当前账号有对应域名的解析权限：
->- 若为子账号，请联系主账号授权：拥有对应 CDN 加速域名的写权限 + QcloudDNSPodFullAccess 权限。
->- 若为协作者，请联系主账号 [域名共享](https://docs.dnspod.cn/dns/5f2d4664e8320f1a740d9cc1/)。
 
 为正式启用所选域名的加速服务，我们将对域名 DNSPod 侧的解析记录进行以下处理：
 
 1. 若域名未配置任何解析记录：新增一条默认线路类型的腾讯云 CDN CNAME 记录，TTL 值默认为 600。
-![](https://main.qcloudimg.com/raw/25308891389f899ee15d501285f62a29.png)
 2. 若域名已配置解析记录：暂停所有已配置的解析记录，新增一条默认线路类型的腾讯云 CDN CNAME 记录，TTL 值默认为 600。
->! 暂停域名所有已配置的解析记录可能会影响域名当前已有 DNS 解析服务，请您注意确认。
+**注： 暂停域名所有已配置的解析记录可能会影响域名当前已有 DNS 解析服务，请您注意确认。**
 
+![](https://main.qcloudimg.com/raw/25308891389f899ee15d501285f62a29.png)
 您可后续前往 [DNSPod 控制台](https://console.dnspod.cn/) 管理解析记录。
+
+
+>!请确保当前账号有对应域名的解析权限：
+>- 若为子账号，请联系主账号授权：拥有对应 CDN 加速域名的写权限 + QcloudDNSPodFullAccess 权限。
+>- 若为协作者，请联系主账号 [域名共享](https://docs.dnspod.cn/dns/5f2d4664e8320f1a740d9cc1/)。
 
 ### 完成 CNAME 设置
 
