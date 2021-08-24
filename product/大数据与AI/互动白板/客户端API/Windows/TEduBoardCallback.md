@@ -1,5 +1,5 @@
 ## TEduBoardCallback
-白板事件回调接口 
+白板事件回调接口，请参考[回调定义文档](https://doc.qcloudtiw.com/win32/2.6.4.216/struct_t_edu_board_callback.html)
 
 ## 通用事件回调
 
@@ -59,7 +59,7 @@ virtual void onTEBSyncData(const char *data)
 | data | const char * | 白板同步数据（JSON 格式字符串） |
 
 #### 介绍
-收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用 AddSyncData 接口将数据添加到白板以实现数据同步，该回调用于多个白板间的数据同步，使用腾讯云 IMSDK 进行实时数据同步时，不会收到该回调。
+收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用 AddSyncData 接口将数据添加到白板以实现数据同步，该回调用于多个白板间的数据同步，使用腾讯云 IMSDK 进行实时数据同步时，不会收到该回调。 
 
 
 ### onTEBUndoStatusChanged
@@ -203,10 +203,10 @@ virtual void onTEBAddImageElement(const char *url)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | const char * | 调用 AddImageElement 时传入的 URL |
+| url | const char * | 调用 AddImageElement 时传入的 URL  |
 
 #### 警告
-该回调已废弃，请使用 AddElement 接口及 onTEBAddElement 回调代替
+该回调已废弃，请使用AddElement接口及onTEBAddElement回调代替
 
 #### 介绍
 只有本地调用 AddImageElement 时会收到该回调 收到该回调表示图片已经上传或下载成功，并且显示出来 
@@ -215,17 +215,27 @@ virtual void onTEBAddImageElement(const char *url)
 ### onTEBAddElement
 添加白板元素回调 
 ``` C++
-virtual void onTEBAddElement(const char *elementId, const char *url)
+virtual void onTEBAddElement(const char *elementId, const char *url, const TEduBoardElementType type)
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | elementId | const char * | 调用 AddElement 时返回的元素 ID  |
-| url | const char * | 调用 AddElement 时传入的 URL |
+| url | const char * | 调用 AddElement 时传入的 URL  |
+| type | const TEduBoardElementType | 元素类型 TEduBoardElementType 只有本地调用 AddElement 时会收到该回调 收到该回调表示元素已经显示出来  |
 
-#### 介绍
-只有本地调用 AddElement 时会收到该回调 收到该回调表示元素已经显示出来 
+
+### onTEBRemoveElement
+删除白板元素回调 
+``` C++
+virtual void onTEBRemoveElement(const TEduBoardStringList *elementIds)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementIds | const TEduBoardStringList * | 被删除的元素ID（使用后不需要自行调用 Release 方法释放，SDK 内部自动释放）  |
 
 
 ### onTEBBackgroundH5StatusChanged
@@ -372,8 +382,23 @@ virtual void onTEBVideoStatusChanged(const char *fileId, TEduBoardVideoStatus st
 | duration | double | 总时长（秒）（仅支持 mp4 格式）  |
 
 
+### onTEBAudioStatusChanged
+音频文件状态回调 
+``` C++
+virtual void onTEBAudioStatusChanged(const char *elementId, TEduBoardAudioStatus status, double progress, double duration)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | const char * | 元素 ID  |
+| status | TEduBoardAudioStatus | 文件状态  |
+| progress | double | 当前进度（秒）  |
+| duration | double | 总时长（秒）  |
+
+
 ### onTEBH5FileStatusChanged
-H5 文件状态回调 
+H5文件状态回调 
 ``` C++
 virtual void onTEBH5FileStatusChanged(const char *fileId, TEduBoardH5FileStatus status)
 ```
@@ -452,6 +477,119 @@ virtual void onTEBFileUploadStatus(const char *path, TEduBoardUploadStatus statu
 | status | TEduBoardUploadStatus | 文件上传状态  |
 | errorCode | int | 文件上传错误码  |
 | errorMsg | const char * | 文件上传错误信息  |
+
+
+### onTEBOfflineWarning
+白板离线告警 
+``` C++
+virtual void onTEBOfflineWarning(int count)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| count | int | 告警次数  |
+
+
+### onTEBTextElementStatusChanged
+文本组件状态回调 
+``` C++
+virtual void onTEBTextElementStatusChanged(const char *status, const char *id, const char *value, int left, int top)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| status | const char * | 文本组件状态（focus：获得焦点，blur：失去焦点）  |
+| id | const char * | 文本组件id  |
+| value | const char * | 文本内容  |
+| left | int | 文本组件水平偏移  |
+| top | int | 文本组件垂直偏移  |
+
+
+### onTEBImageElementStatusChanged
+白板图片状态改变回调 
+``` C++
+virtual void onTEBImageElementStatusChanged(const char *boardId, const char *url, const char *elementId, TEduBoardImageStatus status)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| boardId | const char * | 白板 ID  |
+| url | const char * | 白板图片 URL  |
+| elementId | const char * | 当前元素id  |
+| status | TEduBoardImageStatus | 新的白板图片状态  |
+
+
+### onTEBTextElementWarning
+白板图片状态改变回调 
+``` C++
+virtual void onTEBTextElementWarning(const char *message, TEduBoardTextComponentStatus code)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| message | const char * | 异常信息  |
+| code | TEduBoardTextComponentStatus | 白板文字工具异常状态码  |
+
+
+### onTEBSelectedElements
+框选工具选中元素回调 
+``` C++
+virtual void onTEBSelectedElements(const TEduBoardSelectedElementInfoList &selElementList)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| selElementList | const TEduBoardSelectedElementInfoList & | 选中的元素列表ID  |
+
+
+### onTEBMathGraphEvent
+框选工具选中元素回调 
+``` C++
+virtual void onTEBMathGraphEvent(const char *boardId, const char *graphId, const char *message, TEduBoardMathGraphCode code)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| boardId | const char * | 函数画板ID  |
+| graphId | const char * | 函数图像ID  |
+| message | const char * | 异常信息  |
+| code | TEduBoardMathGraphCode | 数学函数图像工具状态码(TEduBoardMathGraphCode)  |
+
+
+### onTEBZoomDragStatus
+远端白板缩放移动状态回调 
+``` C++
+virtual void onTEBZoomDragStatus(const char *fid, int32_t scale, int32_t xOffset, int32_t yOffset)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fid | const char * | 文件ID  |
+| scale | int32_t | 文件缩放比  |
+| xOffset | int32_t | 当前可视区域距左上角的横向偏移量  |
+| yOffset | int32_t | 当前可视区域距左上角的纵向偏移量  |
+
+
+### onTEBGroupStatusChanged
+分组讨论状态变更 
+``` C++
+virtual void onTEBGroupStatusChanged(bool enable, const char *classGroupId, TEduBoardClassGroupOperationType operationType, const char *messgae)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | bool | 分组模式状态  |
+| classGroupId | const char * | 发生变化的分组id  |
+| operationType | TEduBoardClassGroupOperationType | 触发状态变更的操作  |
+| messgae | const char * | 操作信息  |
 
 
 
