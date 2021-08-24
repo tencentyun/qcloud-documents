@@ -5,10 +5,8 @@
 
 ## 修复方法
 如果目的端预设片建，参考如下命令在源端进行分片操作。
-
 ```
 sh.shardCollection("<database>.<collection>", { <shard key> : "hashed" } , false, {numInitialChunks: 预置的chunk个数}) 
 ```
-
 重新执行校验任务。
 
