@@ -3,7 +3,7 @@
 ## 安装 Tomcat 和 tez-ui 
 ```
 cd  /usr/local/service
-wget https://mirror-hk.koddos.net/apache/tomcat/tomcat-9/v9.0.46/bin/apache-tomcat-9.0.46.tar.gz
+wget https://jaydihu-package-1258469122.cos.ap-guangzhou.myqcloud.com/apache-tomcat-9.0.46.tar.gz
 tar -zxvf apache-tomcat-9.0.46.tar.gz
 mv /usr/local/service/apache-tomcat-9.0.46 /usr/local/service/tomcat
 ```
