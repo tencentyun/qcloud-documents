@@ -12,7 +12,7 @@ Nginx Controller 需要搜集以下日志并提供给用户：
 
 
 ## 前提条件 
-已在容器服务控制台的**[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=8)**中开启日志采集，详情参见 [开启日志采集](https://cloud.tencent.com/document/product/457/36771)。
+已在容器服务控制台的 **[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=8)**中开启日志采集，详情参见 [开启日志采集](https://cloud.tencent.com/document/product/457/36771)。
 
 
 

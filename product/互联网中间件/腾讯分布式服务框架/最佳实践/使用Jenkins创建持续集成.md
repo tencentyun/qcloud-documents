@@ -16,7 +16,7 @@ TSF 应用可以使用 Jenkins 构建持续集成方案。
    ![create jenkins item](https://main.qcloudimg.com/raw/2458ba567a47968634de459fbdbed5a0/create-jenkins-item.png)
    4.2 在源码管理页面中选择 Git，并设置相关参数。
    Repository URL：您的项目的 Git 协议地址。
-   Credentials：安全凭证，选择无（前提是运行 Jenkins 软件的用户的 SSH RSA 公匙已添加到该 Git 项目所在的 GitLab 或 GitHub 中，否则这里会报错）或者添加用户名密码。
+   Credentials：安全凭证，选择“无”（前提是运行 Jenkins 软件的用户的 SSH RSA 公匙已添加到该 Git 项目所在的 GitLab 或 GitHub 中，否则这里会报错）或者添加用户名密码。
    ![git info](https://main.qcloudimg.com/raw/a3d8d5ab5062a00fd47394e753f89eb1/add_git_url.png)
    ![add username](https://main.qcloudimg.com/raw/3b129735c76cdae1799c17625ed2324e/add_username.png)
    4.3 单击【构建触发器】页签，勾选【Build when a change is pushed to GitLab】。 GitLab webhook URL 中的 IP 要确保能通过 GitLab 访问。
