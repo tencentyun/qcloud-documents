@@ -64,30 +64,30 @@
 - 具备指定标签的日志主题采集规则管理权限。
 ```
 {
-	"version": "2.0",
-	"statement": [
-		{
-		"action": [
-					 "cls:DescribeLogsets"
-					 "cls:DescribeConfigs"
-					 "cls:ModifyConfig"
-					 "cls:DescribeIndex"
-					 "cls:DescribeIndex"
-					 "cls:ModifyIndex",
-			],
-			"resource": [
-				"*"
-			],
-			 "condition": {
-					"for_any_value:string_equal": {
-						 "qcs:resource_tag": [
-							 "key&value"
-						  ]
-					 }
-			},
-		 "effect": "allow"
-		}
-	]
+    "version": "2.0",
+    "statement": [
+        {
+        "action": [
+                     "cls:DescribeLogsets",
+                     "cls:DescribeConfigs",
+                     "cls:ModifyConfig",
+                     "cls:DescribeIndex",
+                     "cls:DescribeIndex",
+                     "cls:ModifyIndex"
+            ],
+            "resource": [
+                "*"
+            ],
+             "condition": {
+                    "for_any_value:string_equal": {
+                         "qcs:resource_tag": [
+                             "key&value"
+                          ]
+                     }
+            },
+         "effect": "allow"
+        }
+    ]
 }
 ```
 
@@ -100,10 +100,10 @@
 "statement": [
   {
      "action": [
-         "cls:DescribeLogsets"
-         "cls:DescribeConfigs"
-         "cls:DescribeIndex"
+         "cls:DescribeLogsets",
+         "cls:DescribeConfigs",
          "cls:DescribeIndex",
+         "cls:DescribeIndex"
                 ]
    "resource": [
                 "*"
@@ -119,14 +119,14 @@
 "version": "2.0",
 "statement": [
   {
-     "effect": "allow"，
+     "effect": "allow",
      "action": [
-         "cls:DescribeLogsets"
-         "cls:DescribeConfigs"
-         "cls:DescribeIndex"
+         "cls:DescribeLogsets",
+         "cls:DescribeConfigs",
          "cls:DescribeIndex",
+         "cls:DescribeIndex"
                 ],
-	"resource": [
+    "resource": [
                 "*"
             ],
      "condition": {
