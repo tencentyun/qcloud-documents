@@ -23,7 +23,7 @@
 "statement": [
   {
       "action": [
-         "cls:pushlog"
+         "cls:pushlog",
          "cls:listLogset",
          "cls:getConfig",
          "cls:agentHeartBeat"
