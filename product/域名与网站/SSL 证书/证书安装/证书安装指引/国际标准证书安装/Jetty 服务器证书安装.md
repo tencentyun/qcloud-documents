@@ -47,7 +47,7 @@
     - `cloud.tencent.com.jks` 密钥库
     - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
   - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
-  >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
+>?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 远程登录 Jetty 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 3. 进入部署证书步骤，在 `/usr/local/jetty/jetty-distribution-9.4.28.v20200408/etc` 目录下执行命令 `mkdir cert` 创建 cert 文件夹。
 4. 使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 Jetty 服务器，将已获取到的 `cloud.tencent.com.jks` 密钥库文件从本地目录拷贝至 cert 文件夹。
@@ -149,4 +149,5 @@ etc/jetty-https.xml
 解决方案：您可以将 `/usr/local/jetty/jetty-distribution-9.4.28.v20200408/demo-base/webapps` 目录下的 ROOT 文件复制到 `/usr/local/jetty/jetty-distribution-9.4.28.v20200408/webapps` 目录下，重启 jetty，即可访问成功。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
+
 

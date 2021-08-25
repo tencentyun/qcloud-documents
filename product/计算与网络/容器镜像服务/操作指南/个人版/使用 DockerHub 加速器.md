@@ -46,7 +46,7 @@ $ sudo systemctl restart docker
 	 ]
 }
 ```
-2. 单击【Apply & Restart】，Docker 服务会保存该配置并自动重启。
+2. 单击**Apply & Restart**，Docker 服务会保存该配置并自动重启。
 
 ## 检查加速器是否生效
 执行 `docker info` 命令，返回结果中包含以下内容，则说明配置成功。

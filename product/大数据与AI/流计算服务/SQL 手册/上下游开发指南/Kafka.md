@@ -149,3 +149,10 @@ CREATE TABLE `Data-Output` (
 | debezium-json.schema-include            |  否   | false  | 设置 Debezium Kafka Connect 时，如果指定了`'value.converter.schemas.enable'`参数，那么 Debezium 发来的 JSON 数据里会包含 Schema 信息，该选项需要设置为 true。 |
 | debezium-json.ignore-parse-errors       |  否   | false  |   忽略处理错误。对于无法解析的字段，会输出为 null。      |
 | debezium-json.timestamp-format.standard |  否   |  SQL   | 指定 JSON 时间戳字段的格式，默认是 SQL（格式是 `yyyy-MM-dd HH:mm:ss.s{可选精度}`）。也可以选择 ISO-8601，格式是`yyyy-MM-ddTHH:mm:ss.s{可选精度}`。 |
+
+## Connector 选择
+在 Oceanus 内置 Connector 中有2个不同的 KafkaConnector 版本。
+![](https://main.qcloudimg.com/raw/c3ad144c10b81a3fcf894b741b760d6f.png)
+目前内置 KafkaConnector 支持0.11及以上的 Kafka 版本。
+- 如果您的 kafka 版本是0.11，请选择 flink-connector-kafka-0.11，并在 WITH 参数的 connector 参数值中输入 'kafka-0.11'。
+- 如果您的 kafka 版本高于0.11，请选择 flink-connector-kafka，并在 WITH 参数的 connector 参数值中输入 'kafka'。

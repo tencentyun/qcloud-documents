@@ -25,11 +25,11 @@
 
 <dx-tabs>
 ::: 方法1：使用控制台部署
-1. 登录容器服务控制台，选择左侧导航栏中的【[应用市场](https://console.cloud.tencent.com/tke2/market)】。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[应用市场](https://console.cloud.tencent.com/tke2/market)**。
 2. 在“应用市场”页面搜索 Gitlab，并进入 Gitlab 应用页面。
-3. 单击【创建应用】，在创建应用窗口中指定要安装的集群，并将 [values.yaml](https://raw.githubusercontent.com/TencentCloudContainerTeam/manifest/master/gitlab/values-gitlab-ce.yaml) 配置粘贴到参数中。如下图所示：
+3. 单击**创建应用**，在创建应用窗口中指定要安装的集群，并将 [values.yaml](https://raw.githubusercontent.com/TencentCloudContainerTeam/manifest/master/gitlab/values-gitlab-ce.yaml) 配置粘贴到参数中。如下图所示：
 ![](https://main.qcloudimg.com/raw/5508def786013ef4e6d5e21e2ade5803.jpg)
-4. 单击【创建】即可安装 Gitlab。
+4. 单击**创建**即可安装 Gitlab。
 :::
 ::: 方法2：使用\sHelm\s命令部署
 
@@ -49,9 +49,9 @@
 ### 获取访问入口与登录方式
 
 安装 Gitlab 后，默认会创建一个 CLB 并使用4层监听器作为 Gitlab 的访问入口，通过以下步骤可在控制台找到对应的 CLB 及其外网 IP：
-1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2)】。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2)**。
 2. 在“集群管理”列表页面，选择目标集群 ID，进入该集群 “Deployment” 页面。
-3. 选择左侧菜单栏中的【服务与路由】>【Service】，进入 “Service” 页面。如下图所示：
+3. 选择左侧菜单栏中的**服务与路由** > **Service**，进入 “Service” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/6061996aaed6e36a19db885b9ba38b24.png)
  CLB 端口默认为8181，用户名为 root，初始密码从 gitlab-migrations 的 pod 标准输出可以查看，或者从 `gitlab-initial-root-password` 的 secret 中获取。
 
@@ -141,9 +141,9 @@ gitlab:
 ::: 通过控制台创建\sIngress
 参考控制台 [创建 Ingress](https://cloud.tencent.com/document/product/457/31711#.E5.88.9B.E5.BB.BA-ingress) 步骤创建 Ingress。其中：
 
--  **Ingress**：选择【Nginx负载均衡器】，指定使用 Nginx Ingress。
+-  **Ingress**：选择**Nginx负载均衡器**，指定使用 Nginx Ingress。
 -  **Class**：指定 Nginx Ingress 实例使用的 ingressClass 名称。
-- **监听端口**：选择【Https:443】。
+- **监听端口**：选择**Https:443**。
 - **转发配置**：填写相关信息，其中“后端服务”，需使用 Gitlab webservice 的 service。
 - **TLS配置**：填写相关信息，若使用 HTTPS，则需提前创建证书 Secret。
 ![](https://main.qcloudimg.com/raw/85ccc1cc26831de539f45df660afc478.jpg)

@@ -19,9 +19,7 @@
 </tr><tr>
 <td><a href="https://cloud.tencent.com/document/product/1179/56492"> Node.js SDK</a></td>
 </tr><tr>
-<td rowspan="2">TCP 协议（腾讯云版，仅限存量客户使用）</td>
-<td><a href="https://cloud.tencent.com/document/product/1179/44831">Go SDK</a></td>
-</tr><tr>
+<td>TCP 协议（腾讯云版，仅限存量客户使用）</td>
 <td><a href="https://cloud.tencent.com/document/product/1179/44832">Java SDK</a></td>
 </tr>
 </table>

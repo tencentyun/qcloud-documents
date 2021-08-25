@@ -1,16 +1,16 @@
 
 DBMS_OUTPUT 用于向消息缓冲区发送消息（文本行的形式出现），或者从消息缓冲区中获取消息。
 
-| 存储过程/函数                         | 描述                                                         |
-| ------------------------------------- | ------------------------------------------------------------ |
-| DISABLE                               | Disable the capability to send and receive messages.         |
-| ENABLE(buffer size)                   | Enable the capability to send and receive messages.          |
-| GET LINE(line OUT, status OUT)        | Get a line from the message buffer.                          |
-| GET LINES(lines OUT, numlines IN OUT) | Get multiple lines from the message buffer.                  |
-| NEW LINE                              | Puts an end-of-line character sequence.                      |
-| PUT(item)                             | Puts a partial line without an end-of-line character sequence. |
-| PUT LINE(item)                        | Puts a complete line with an end-of-line character sequence. |
-| SERVEROUTPUT(stdout)                  | Direct messages from PUT, PUT LINE, or NEW_LINE to either standard output or the message buffer. |
+|存储过程/函数|	描述|
+|--|--|
+|DISABLE	|禁用发送和接收信息的能力|
+|ENABLE(buffer size)	|启用发送和接收信息的能力|
+|GET LINE(line OUT, status OUT)| 从消息缓冲区获取一行 |
+|GET LINES(lines OUT, numlines IN OUT)	|从消息缓冲区获取多行|
+|NEW LINE	|放置一个行末字符序列|
+|PUT(item)	|放置一个没有行末字符序列的部分行|
+|PUT LINE(item)	|放置一个有行末字符序列的完整行|
+|SERVEROUTPUT(stdout)	|将来自 PUT、PUT LINE 或 NEW_LINE 的信息引导到标准输出或信息缓冲区|
 
 示例：
 ```

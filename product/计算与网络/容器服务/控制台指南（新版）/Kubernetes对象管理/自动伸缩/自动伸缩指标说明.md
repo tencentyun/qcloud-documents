@@ -31,7 +31,7 @@
 	<tr>
 	<td>CPU 利用率<br>（占 Request）</td>
 	<td>% </td>
-	<td>Pod 的 CPU 使用量和设置的 Request 值之比 </td>
+	<td>Pod 的 CPU 使用量和 Pod 中容器设置的 Request 值之比 </td>
 	<td>Pods</td>
 	<td>k8s_pod_rate_cpu_core_used_request</td>
 	<td>%</td>
@@ -39,7 +39,7 @@
 	<tr>
 	<td>CPU 利用率<br>（占 Limit）</td>
 	<td>%</td>
-	<td>Pod 的 CPU 使用量和设置的 Limit 值之比</td>
+	<td>Pod 的 CPU 使用量和 Pod 中容器设置的 Limit 之和的比例</td>
 	<td>Pods</td>
 	<td>k8s_pod_rate_cpu_core_used_limit</td>
 	<td>%</td>
@@ -206,7 +206,7 @@
 	<tr>
 	<td>内存利用率<br>（占 Limit）</td>
 	<td>%</td>
-	<td>Pod 内存使用占 limit 的比例</td>
+	<td>Pod 内存使用占 Limit 的比例</td>
 	<td>Pods</td>
 	<td>k8s_pod_rate_mem_usage_limit</td>
 	<td>%</td>
@@ -214,7 +214,7 @@
 	<tr>
 	<td>内存利用率<br>（占 Limit，不包含 Cache）</td>
 	<td>%</td>
-	<td>Pod 内存使用占 limit 的比例，不含 Cache</td>
+	<td>Pod 内存使用占 Limit 的比例，不含 Cache</td>
 	<td>Pods</td>
 	<td>k8s_pod_rate_mem_no_cache_limit</td>
 	<td>%</td>

@@ -1,7 +1,5 @@
 ## 前提条件
-1. 已创建腾讯云账号，创建账号可参考 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985)。
-2. 若使用子账号登录，需要获得用户帐户的访问授权，详情请参见 [CAM 访问管理](https://cloud.tencent.com/document/product/849/38622) 和 [流计算服务委托授权](https://cloud.tencent.com/document/product/849/38290)。
-3. 流计算作业 SQL 作业需运行于流计算独享集群，若还没有集群，请参考 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。
+流计算作业 SQL 作业需运行于流计算独享集群，若还没有集群，请参考 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。
 
 ## 步骤1：创建 SQL 作业
 登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，单击左侧导航【作业管理】，进入作业管理页面，单击【新建作业】，作业类型选中 SQL 作业，输入作业名称，并选择一个运行中的集群，新建的 SQL 作业将运行于此集群，单击【确定】后即成功创建作业。
@@ -41,6 +39,8 @@ SELECT AVG(age), AVG(score) FROM `Data_Input`;
 
 ## 步骤4：设置作业参数
 在【作业参数】中设置 Checkpoint 和算子默认并行度等参数的值，使用其他上下游数据则需选择相应的内置 Connector。
+>?至少要添加一个 Connector，需选择 Kafka Connector。
+
 
 ## 步骤5：发布运行 SQL 作业
 单击【发布运行】，将进行作业运行检查，检查通过后将进入发布确认。发布将生成新的作业版本，版本号由系统自动生成，需输入版本说明并选择运行策略，再单击【确认启动】。
