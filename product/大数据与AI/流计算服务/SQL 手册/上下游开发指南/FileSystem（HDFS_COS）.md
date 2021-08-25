@@ -9,7 +9,7 @@ FileSystem 支持作为 Append-Only 数据流的目的表 (Sink)，目前还不�
 - Parquet
 - Orc
 
->!目前使用数据格式 Avro、Parquet、Orc 写入时，需要手动上传额外的 jar 包才能使用。
+>!目前使用数据格式 Avro、Parquet、Orc 写入时，需要 [手动上传额外的 jar 包](#jump) 才能使用。
 
 ## 示例
 #### 用作数据目的
@@ -80,6 +80,7 @@ fs.cosn.userinfo.appid: COS 所属用户的 appid
 配置示意图：
 ![](https://main.qcloudimg.com/raw/56b95e89a8bddfec4a3d17ea5ee85bbd.png)
 
+[](id:jump)
 ## 手动上传对应 Jar 包
 1. 先下载对应 Jar 包到本地。
  - Avro：[Jar 包下载地址](https://repo.maven.apache.org/maven2/org/apache/flink/flink-avro/1.11.2/flink-avro-1.11.2-sql-jar.jar)
