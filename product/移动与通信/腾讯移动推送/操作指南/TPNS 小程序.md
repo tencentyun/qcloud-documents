@@ -5,7 +5,7 @@
 
 ### 进入 TPNS 小程序
 
-1.打开微信「扫一扫」，扫码下方二维码进入 TPNS 小程序。
+打开微信「扫一扫」，扫码下方二维码进入 TPNS 小程序。
 ![](https://main.qcloudimg.com/raw/cd47d33e0217e082b884c2df29e84881.png)
 
 
