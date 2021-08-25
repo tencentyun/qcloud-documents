@@ -429,8 +429,8 @@ Container 类型 Transcode_***.Operation 的具体数据描述如下：
 
 | 节点名称（关键字）  | 父节点                                                       | 描述         | 类型      | 是否必选 | 限制                           |
 | ------------------- | ------------------------------------------------------------ | ------------ | --------- | -------- | ------------------------------ |
-| TemplateId          | Request.MediaWorkflow.Topology.Nodes.Transcode_***.Operation | 转码模板ID   | String    | 是       | 无                             |
-| WatermarkTemplateId | Request.MediaWorkflow.Topology.Nodes.Transcode_***.Operation | 水印模板ID   | String    | 否       | 可以使用多个水印模板，不超过3个 |
+| TemplateId          | Request.MediaWorkflow.Topology.</br>Nodes.Transcode_***.Operation | 转码模板ID   | String    | 是       | 无                             |
+| WatermarkTemplateId | Request.MediaWorkflow.Topology.</br>Nodes.Transcode_***.Operation | 水印模板ID   | String    | 否       | 可以使用多个水印模板，不超过3个 |
 | RemoveWatermark       | Request.MediaWorkflow.Topology.</br>Nodes.Transcode\_\*\*\*.Operation | 去除水印参数        | Container | 否   |无|
 | Output       | Request.MediaWorkflow.Topology.</br>Nodes.Transcode\_\*\*\*.Operation | 输出地址 | Container | 是   | 无 |
 
