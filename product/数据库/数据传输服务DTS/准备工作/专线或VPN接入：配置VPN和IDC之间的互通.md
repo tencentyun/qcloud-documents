@@ -9,10 +9,10 @@
 请参考 [建立 VPC 到 IDC 的连接](https://cloud.tencent.com/document/product/554/18988)。
 
 ## 后续步骤
-1. VPN 与 IDC 连通后，在 [DTS 任务页面](https://console.cloud.tencent.com/dts/migration) 选择**VPN接入方式**，关键参数配置说明如下：
+1. VPN 与 IDC 连通后，在 [DTS 任务页面](https://console.cloud.tencent.com/dts/migration) 选择**VPN 接入**，关键参数配置说明如下：
 ![](https://main.qcloudimg.com/raw/ad3d1aad26532abe25bc461f92d91038.png)
 <table>
-<thead><tr><th>参数</th><th>说明</th><th>参数示例</th></tr></thead>
+<thead><tr><th><strong>参数</strong></th><th><strong>说明</strong></th><th><strong>参数示例</strong></th></tr></thead>
 <tbody><tr>
 <td>VPN 网关</td>
 <td>在 VPC 网络中新建的 VPN 网关名称。</td>

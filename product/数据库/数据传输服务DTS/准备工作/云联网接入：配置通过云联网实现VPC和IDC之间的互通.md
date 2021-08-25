@@ -14,7 +14,7 @@
 1. 在 [DTS 任务页面](https://console.cloud.tencent.com/dts/migration) 选择**云联网**，关键参数配置说明如下：
 ![](https://main.qcloudimg.com/raw/9a918fdb3da73967a62cdeb95a6fa120.png)
 <table>
-<thead><tr><th>参数</th><th>说明</th><th>参数示例</th></tr></thead>
+<thead><tr><th><strong>参数</strong></th><th><strong>说明</strong></th><th><strong>参数示例</strong></th></tr></thead>
 <tbody><tr>
 <td>私有网络云联网</td><td>云联网实例名称。</td><td>ccn6-xxxx7d</td></tr>
 <tr>
@@ -49,5 +49,4 @@
      - 帐号密码不正确。
 
  <img src="https://main.qcloudimg.com/raw/60f01468821b4bc3f805d98c3138a4cf.png" style="zoom:50%;" />
-
 
