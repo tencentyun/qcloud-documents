@@ -46,13 +46,13 @@
 "statement": [
   {
   "action": [
-         "cls:DescribeLogsets"
-         "cls:DescribeConfigs"
-         "cls:ModifyConfig"
-         "cls:DescribeIndex"
-         "cls:DescribeIndex"
-         "cls:ModifyIndex",
-                ]
+         "cls:DescribeLogsets",
+         "cls:DescribeConfigs",
+         "cls:ModifyConfig",
+         "cls:DescribeIndex",
+         "cls:DescribeIndex",
+         "cls:ModifyIndex"
+                ],
    "resource": [
                 "*"
             ],
