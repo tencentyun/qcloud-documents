@@ -1,6 +1,21 @@
 ## 功能描述
 
-CreateVideoAuditingJob 接口用于提交一个视频审核任务。您可以通过主动设置回调地址接收审核信息，也可以通过 Jobid 进行查询。
+本接口用于提交一个视频审核任务。视频审核功能为异步任务方式，您可以通过提交视频审核任务审核您的视频文件，然后通过查询视频审核任务接口查询审核结果。
+
+该接口支持情况如下：
+
+- 支持对视频文件进行自动检测，从 OCR 文本识别、物体检测（实体、广告台标、二维码等）、图像识别及音频审核四个维度，通过深度学习技术，识别视频中的违规内容；
+- 支持设置回调地址 Callback 获取检测结果，或通过 [查询视频审核任务结果接口](https://cloud.tencent.com/document/product/460/46926) 主动轮询获取审核结果详情；
+- 支持识别多种违规场景，包括：色情、违法、广告等场景；
+- 支持根据不同的业务场景配置自定义的审核策略；
+- 支持用户 [自定义配置黑白图片库](https://cloud.tencent.com/document/product/436/59080)，打击自定义违规内容。
+
+### 限制说明
+
+- 视频文件大小支持：小于5GB的文件；
+- 视频文件支持格式：flv、mkv、mp4 、rmvb、avi、wmv、3gp、mov、m3u8、m4v 等；
+- 视频文件支持的访问方式：腾讯云对象存储；
+- 支持用户配置审核视频画面或视频声音。
 
 ## 请求
 
@@ -13,8 +28,6 @@ Date: <GMT Date>
 Authorization: <Auth String>
 Content-Length: <length>
 Content-Type: application/xml
-
-
 
 <body>
 ```
@@ -50,32 +63,32 @@ Content-Type: application/xml
 
 具体的数据描述如下：
 
-| 节点名称（关键字） | 父节点 | 描述           | 类型      | 是否必选 |
-| ------------------ | ------ | -------------- | --------- | -------- |
-| Request            | 无     | 保存请求的容器 | Container | 是       |
+| 节点名称（关键字） | 父节点 | 描述                   | 类型      | 是否必选 |
+| ------------------ | ------ | ---------------------- | --------- | -------- |
+| Request            | 无     | 视频审核的具体配置项。 | Container | 是       |
 
 Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述             | 类型      | 是否必选 |
 | ------------------ | ------- | ---------------- | --------- | -------- |
-| Input              | Request | 待操作的媒体信息 | Container | 是       |
-| Conf               | Request | 操作规则         | Container | 是       |
+| Input              | Request | 需要审核的视频。 | Container | 是       |
+| Conf               | Request | 审核规则配置。   | Container | 是       |
 
 Container 类型 Input 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点        | 描述           | 类型   | 是否必选 |
-| ------------------ | ------------- | -------------- | ------ | -------- |
-| Object             | Request.Input | 媒体文件的名称 | String | 是       |
+| 节点名称（关键字） | 父节点        | 描述                                                         | 类型   | 是否必选 |
+| ------------------ | ------------- | ------------------------------------------------------------ | ------ | -------- |
+| Object             | Request.Input | 当前 COS 存储桶中的视频文件名称，例如在目录 test 中的文件 video.mp4，则文件名称为 test/video.mp4。 | String | 是       |
 
 Container 类型 Conf 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点       | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | ------------ | ------------------------------------------------------------ | --------- | -------- |
-| DetectType         | Request.Conf | 审核类型：涉黄 Porn、涉暴恐 Terrorism、政治敏感 Politics、广告 Ads，可以传入多种类型 | String    | 是   |
-| Snapshot           | Request.Conf | 视频截帧的配置                                            | Container | 是   |
-| Callback           | Request.Conf | 回调地址，以`http://`或者`https://`开头的地址                  | String    | 否       |
-| BizType            | Request.Conf | 审核策略，不带审核策略时使用默认策略                         | String    | 否   |
-| DetectContent      | Request.Conf | 审核内容开关。0: 只审截图，1: 审核截图和音频。默认为0        | String    | 否   |
+| DetectType         | Request.Conf | 审核的场景类型，有效值：Porn（涉黄）、Terrorism（涉暴恐）、Politics（政治敏感）、Ads（广告），可以传入多种类型，不同类型以逗号分隔，例如：Porn,Terrorism。 | String    | 是       |
+| Snapshot           | Request.Conf | 视频画面的审核通过视频截帧能力截取出一定量的截图，通过对截图逐一审核而实现的，该参数用于指定视频截帧的配置。 | Container | 是       |
+| Callback           | Request.Conf | 回调地址，以`http://`或者`https://`开头的地址。              | String    | 否       |
+| BizType            | Request.Conf | 审核策略，不带审核策略时使用默认策略。                       | String    | 否       |
+| DetectContent      | Request.Conf | 用于指定是否审核视频声音，当值为0时：表示只审核视频画面截图；值为1时：表示同时审核视频画面截图和视频声音。默认值为0。 | String    | 否       |
 
 Container 类型 Snapshot 的具体数据描述如下：
 
@@ -107,23 +120,23 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 具体的数据内容如下：
 
-| 节点名称（关键字） | 父节点 | 描述           | 类型      |
-| :----------------- | :----- | :------------- | :-------- |
-| Response           | 无     | 保存结果的容器 | Container |
+| 节点名称（关键字） | 父节点 | 描述                         | 类型      |
+| :----------------- | :----- | :--------------------------- | :-------- |
+| Response           | 无     | 视频审核返回的具体响应内容。 | Container |
 
 Container 节点 Response 的内容：
 
-| 节点名称（关键字） | 父节点   | 描述           | 类型      |
-| :----------------- | :------- | :------------- | :-------- |
-| JobsDetail         | Response | 任务的详细信息 | Container |
+| 节点名称（关键字） | 父节点   | 描述                     | 类型      |
+| :----------------- | :------- | :----------------------- | :-------- |
+| JobsDetail         | Response | 视频审核任务的详细信息。 | Container |
 
 Container 节点 JobsDetail 的内容：
 
 | 节点名称（关键字） | 父节点              | 描述                                                         | 类型   |
 | :----------------- | :------------------ | :----------------------------------------------------------- | :----- |
-| JobId              | Response.JobsDetail | 新创建视频审核任务的 ID                                       | String |
-| State              | Response.JobsDetail | 任务的状态，为 Submitted（已提交审核）、Snapshoting（视频截帧中）、Success（审核成功）、Failed（审核失败）、Auditing（审核中）其中一个 | String |
-| CreationTime       | Response.JobsDetail | 任务的创建时间                                               | String |
+| JobId              | Response.JobsDetail | 本次视频审核任务的 ID。                                      | String |
+| State              | Response.JobsDetail | 视频审核任务的状态，值为 Submitted（已提交审核）、Snapshoting（视频截帧中）、Success（审核成功）、Failed（审核失败）、Auditing（审核中）其中一个 | String |
+| CreationTime       | Response.JobsDetail | 视频审核任务的创建时间。                                     | String |
 
 #### 错误码
 
@@ -140,8 +153,6 @@ Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
 
-
-
 <Request>
     <Input>
        <Object>a.mp4</Object>
@@ -150,11 +161,12 @@ Content-Type: application/xml
         <DetectType>Porn,Terrorism,Politics,Ads</DetectType>
         <Snapshot>
             <Mode>Interval</Mode>
-            <Start>0.5</Start>
             <TimeInterval>50</TimeInterval>
             <Count>100</Count>
         </Snapshot>
         <Callback>http://callback.com/</Callback>
+        <BizType>b81d45f94b91a683255e9a9506f45a11</BizType>
+        <DetectContent>1</DetectContent>
     </Conf>
 </Request>
 ```
@@ -170,13 +182,11 @@ Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
-
-
 <Response>
     <JobsDetail>
        <JobId>vab1ca9fc8a3ed11ea834c525400863904</JobId>
        <State>Submitted</State>
-       <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
+       <CreationTime>2021-08-07T12:12:12+0800</CreationTime>
     </JobsDetail>
 </Response>
 ```
