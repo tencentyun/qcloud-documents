@@ -36,7 +36,7 @@
 **注： 暂停域名所有已配置的解析记录可能会影响域名当前已有 DNS 解析服务，请您注意确认。**
 
 ![](https://main.qcloudimg.com/raw/25308891389f899ee15d501285f62a29.png)
-您可后续前往 [DNSPod 控制台](https://console.dnspod.cn/) 管理解析记录。
+您可后续前往 [DNSPod 控制台](https://console.dnspod.cn/dns/list) 管理解析记录。
 
 
 >!请确保当前账号有对应域名的解析权限：
