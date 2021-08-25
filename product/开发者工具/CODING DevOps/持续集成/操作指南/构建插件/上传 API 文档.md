@@ -12,7 +12,7 @@
 
 ## 功能介绍
 
-CODING 持续集成插件「读取代码生成 API 文档」可以提取代码中的注释，生成 API 文档并发布。
+CODING 持续集成插件**读取代码生成 API 文档**可以提取代码中的注释，生成 API 文档并发布。
 
 ### 在代码中编写注释
 
@@ -32,16 +32,16 @@ ls storage/api-docs/api-docs.json
 
 ### 使用图形化界面生成并上传 API 文档
 
-使用**持续集成**的图形化编辑器，添加一个步骤「执行 Shell 脚本」，填入生成 API 文档的命令。
+使用**持续集成**的图形化编辑器，添加一个步骤**执行 Shell 脚本**，填入生成 API 文档的命令。
 ![2](https://main.qcloudimg.com/raw/329f139cfea29e1f6dda5b8dd3a9ea87.png)
 
-再添加一个步骤「读取代码生成 API 文档」，「语言 & 注释库」选择「其他」，填写之前生成的 `json` 文件路径，并且选择之前创建的「API 文档」。
+再添加一个步骤**读取代码生成 API 文档**，**语言 & 注释库**选择**其他**，填写之前生成的 `json` 文件路径，并且选择之前创建的**API 文档**。
 ![3](https://main.qcloudimg.com/raw/27db1f312c5f32f9ac1562fd5bc9a343.png)
 ![4](https://main.qcloudimg.com/raw/9d911dfd256114c7e65d7682c93e2e9a.png)
 
 ### Jenkinsfile
 
-也可以使用持续集成的「文本编辑器」，填入以下代码：
+也可以使用持续集成的**文本编辑器**，填入以下代码：
 
 ```groovy
 pipeline {
