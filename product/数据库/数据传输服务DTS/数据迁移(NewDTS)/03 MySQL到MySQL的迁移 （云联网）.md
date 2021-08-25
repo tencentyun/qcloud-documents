@@ -132,7 +132,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <tr>
 <td>服务提供商</td><td>选择“普通”。</td></tr>
 <tr>
-<td>接入类型</td><td>选择“云联网”。</td></tr>
+<td>接入类型</td><td>选择“云联网”。更多接入类型的详情介绍请参考<a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>主机地址</td><td>源库 MySQL 访问 IP 地址或域名。</td></tr>
 <tr>
@@ -159,24 +159,27 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <tr>
 <td>密码</td><td>目标端云数据库的数据库帐号的密码。</td></tr>
 </tbody></table>
+
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
 <td>迁移类型</td>
-<td>如果只进行结构迁移，请选择结构迁移。<br>如果只进行数据全量迁移，请选择全量迁移。<br>如果需要不停机平滑迁移，请选择全量 + 增量迁移。</td></tr>
+<td>请根据您的场景选择。<ul><li>结构迁移：迁移数据库中的库、表等结构化的数据。</li><li>全量迁移：迁移整个数据库。</li><li>全量 + 增量迁移：迁移整个数据库和后续增量数据，如果迁移过程中有数据写入，需要不停机平滑迁移，请选择此场景。</li></ul></td></tr>
 <tr>
 <td>迁移对象</td>
-<td>如果需要整个实例迁移，请选择整个实例，不包括系统库，如 information_schema、mysql、performance_schema、sys。 <br>如果需要指定库表迁移，请选择指定对象。</td></tr>
+<td><ul><li>整个实例：迁移整个实例，但不包括系统库，如information_schema、mysql、performance_schema、sys。</li>
+<li>指定对象：迁移指定对象。</li></ul> </td></tr>
 <tr>
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
 </tbody></table>
+
 <img src="https://main.qcloudimg.com/raw/51d26749a5a208f84c3750e9afc9ea32.png"  style="margin:0;">
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
  -  校验任务通过后，根据选择的运行模式启动迁移任务。
  -  如果校验任务不通过，可以查看具体检查项和失败原因，待问题解决后重新发起校验任务。
-![](https://main.qcloudimg.com/raw/0a206c0f8f0c26da17ecb3b983c2ee52.png)
+![](https://main.qcloudimg.com/raw/652fd77b719de63ad40a00a4d56d8967.png)
 6. 返回数据迁移任务列表，任务进入创建中状态，运行1分钟 - 2分钟后，数据迁移任务开始正式启动。
  - 选择**结构迁移**或者**全量迁移**：任务完成后会自动结束，不需要手动结束。
  - 选择**全量 + 增量迁移**：全量迁移完成后会自动进入增量数据同步阶段，增量数据同步不会自动结束，需要您手动单击**完成**结束增量数据同步。
@@ -186,4 +189,3 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
     ![](https://main.qcloudimg.com/raw/e2b9ed2f2a63a0fdf28a557aa5f7aaf2.png)
 7. （可选）如果您需要进行查看任务、删除任务等操作，请单击对应的任务，在**操作**列进行操作，详情可参考 [任务管理](https://cloud.tencent.com/document/product/571/58674)。
 8. 当迁移任务状态变为**任务成功**时，即可对业务进行正式割接，更多详情可参考 [割接说明](https://cloud.tencent.com/document/product/571/58660)。
-
