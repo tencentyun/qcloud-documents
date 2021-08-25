@@ -10,30 +10,36 @@
 | 文件储存 CFS  | Discuz！Q 代码的挂载和存储仓库。 |
 | 私有网络 VPC | 内网打通云函数 SCF、CFS 之间的网络，保障网络隔离。|
 
+
+## 前提条件
+- 已开通 [云函数 SCF 服务](https://console.cloud.tencent.com/scf)。
+- 已开通 [文件存储 CFS 服务](https://console.cloud.tencent.com/cfs)。
+- （可选）准备好已备案的自定义域名，您也可以通过 Serverless 备案资源包完成备案，详情请参见 [ICP 备案](https://cloud.tencent.com/document/product/1154/50706)。
+
 ## 部署步骤
 您可以通过**控制台**或**命令行**完成 Serverless Discuz！Q 部署，步骤如下：
 
-### 前提条件
-- 已开通 [云函数 SCF 服务](https://console.cloud.tencent.com/scf)。
-- 已开通 [文件存储 CFS 服务](https://console.cloud.tencent.com/cfs)。
-- （可选）准备好已备案的自定义域名，您也可以通过 Serverless 备案资源包完成备案（详情请参见 [ICP 备案](https://cloud.tencent.com/document/product/1154/50706)）。
+
 
 ### 控制台部署
 
-1. 登录[ Serverless 应用控制台](https://console.cloud.tencent.com/sls?from=wpdocs), 单击【新建应用】。
-2. 选择【应用模版】>【快速部署一个Discuz！Q框架】，单击【下一步】。
+1. 登录[ Serverless 应用控制台](https://console.cloud.tencent.com/sls?from=wpdocs)，单击**新建应用**。
+2. 选择**应用模版** > **快速部署一个Discuz！Q框架**，单击**下一步**。
 ![](https://main.qcloudimg.com/raw/c93aec460abf0909fe586f3c867b39e4.png)
-3. 输入应用名，单击【完成】即可完成应用创建。
+3. 输入应用名，单击**完成**即可完成应用创建。
 ![](https://main.qcloudimg.com/raw/d0ca3501aed949fd2e530ceac6c5f9e5.png)
-4. 在 Serverless 应用页，单击【访问应用】，即可访问您的 Discuz！Q 项目。
+4. 在 Serverless 应用页，单击**访问应用**，即可访问您的 Discuz！Q 项目。
 ![](https://main.qcloudimg.com/raw/457b49007c670d109c8a402444d522f4.png)
-5. 部署后，您也可以单击您的应用名称，查看资源列表和部署日志。在资源列表页，您可以单机【新增】配置您的自定义域名。
+5. 部署后，您也可以单击您的应用名称，查看资源列表和部署日志。在资源列表页，您可以单击**新增**配置您的自定义域名。
 ![](https://main.qcloudimg.com/raw/ef07a567abf3524586a72bb1c116ecbf.png)
 
 ### 命令行部署
 
 1. 本地创建 `discuzq-demo` 文件夹。
-2. 在文件夹内创建 `serverless.yml` 配置文件，完成应用信息配置，参考如下（更多配置内容，请参见 [全量配置文档](https://github.com/serverless-components/tencent-discuzq/blob/main/docs/configure.md)）：
+2. 在文件夹内创建 `serverless.yml` 配置文件，完成应用信息配置，参考如下：
+<dx-alert infotype="explain" title="">
+更多配置内容，请参见 [全量配置文档](https://github.com/serverless-components/tencent-discuzq/blob/main/docs/configure.md)。
+</dx-alert>
 <dx-codeblock>
 :::  yaml
 app: discuz-q
