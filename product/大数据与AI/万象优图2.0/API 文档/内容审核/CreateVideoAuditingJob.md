@@ -87,16 +87,17 @@ Container 类型 Conf 的具体数据描述如下：
 | DetectType         | Request.Conf | 审核的场景类型，有效值：Porn（涉黄）、Terrorism（涉暴恐）、Politics（政治敏感）、Ads（广告），可以传入多种类型，不同类型以逗号分隔，例如：Porn,Terrorism。 | String    | 是       |
 | Snapshot           | Request.Conf | 视频画面的审核通过视频截帧能力截取出一定量的截图，通过对截图逐一审核而实现的，该参数用于指定视频截帧的配置。 | Container | 是       |
 | Callback           | Request.Conf | 回调地址，以`http://`或者`https://`开头的地址。              | String    | 否       |
+| CallbackVersion    | Request.Conf | 回调内容的结构，有效值：Simple（回调内容包含基本信息）、Detail（回调内容包含详细信息）。默认为 Simple。 | String    | 否       |
 | BizType            | Request.Conf | 审核策略，不带审核策略时使用默认策略。                       | String    | 否       |
-| DetectContent      | Request.Conf | 用于指定是否审核视频声音，当值为0时：表示只审核视频画面截图；值为1时：表示同时审核视频画面截图和视频声音。默认值为0。 | String    | 否       |
+| DetectContent      | Request.Conf | 用于指定是否审核视频声音，当值为0时：表示只审核视频画面截图；值为1时：表示同时审核视频画面截图和视频声音。默认值为0。 | Integer   | 否       |
 
 Container 类型 Snapshot 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | :-------------------- | ------------------------------------------------------------ | --------- | -------- |
 | Mode               | Request.Conf.Snapshot | 截帧模式。Interval 表示间隔模式；Average 表示平均模式；Fps 表示固定帧率模式。</br><li> Interval 模式：TimeInterval，Count 参数生效。当设置 Count，未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片</br><li> Average 模式：Count 参数生效。表示整个视频，按平均间隔截取共 Count 张图片</br><li> Fps 模式：TimeInterval 表示每秒截取多少帧，Count 表示共截取多少帧 | String | 否       |
-| Count              | Request.Conf.Snapshot | 视频截帧数量，范围为(0, 10000]                                    | String    | 否       |
-| TimeInterval       | Request.Conf.Snapshot | 视频截帧频率，范围为(0, 60]，单位为秒，支持 float 格式，执行精度精确到毫秒 | String    | 否       |
+| Count              | Request.Conf.Snapshot | 视频截帧数量，范围为(0, 10000]                             | String | 否       |
+| TimeInterval       | Request.Conf.Snapshot | 视频截帧频率，范围为(0, 60]，单位为秒，支持 float 格式，执行精度精确到毫秒 | Float  | 否       |
 
 ## 响应
 
@@ -190,6 +191,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     </JobsDetail>
 </Response>
 ```
+	
 	
 	
 	
