@@ -23,7 +23,7 @@
 "statement": [
   {
       "action": [
-         “cls:pushlog"
+         "cls:pushlog"
          "cls:listLogset",
          "cls:getConfig",
          "cls:agentHeartBeat"
@@ -47,7 +47,7 @@
   {
   "action": [
          "cls:DescribeLogsets"
-         “cls:DescribeConfigs"
+         "cls:DescribeConfigs"
          "cls:ModifyConfig"
          "cls:DescribeIndex"
          "cls:DescribeIndex"
@@ -64,31 +64,30 @@
 - 具备指定标签的日志主题采集规则管理权限。
 ```
 {
-"version": "2.0",
-"statement": [
-  {
-  "action": [
-         "cls:DescribeLogsets"
-         “cls:DescribeConfigs"
-         "cls:ModifyConfig"
-         "cls:DescribeIndex"
-         "cls:DescribeIndex"
-         "cls:ModifyIndex",
-                ]
-   	"resource": [
-                "*"
-            ],
-     "condition": {
-        "for_any_value:string_equal": {
-           "qcs:resource_tag": [
-             "key&value"
-                    ]
-                }
-            }   
-  },
-   "effect": "allow"
-  }
-]
+	"version": "2.0",
+	"statement": [
+		{
+		"action": [
+					 "cls:DescribeLogsets"
+					 "cls:DescribeConfigs"
+					 "cls:ModifyConfig"
+					 "cls:DescribeIndex"
+					 "cls:DescribeIndex"
+					 "cls:ModifyIndex",
+			],
+			"resource": [
+				"*"
+			],
+			 "condition": {
+					"for_any_value:string_equal": {
+						 "qcs:resource_tag": [
+							 "key&value"
+						  ]
+					 }
+			},
+		 "effect": "allow"
+		}
+	]
 }
 ```
 
@@ -102,7 +101,7 @@
   {
      "action": [
          "cls:DescribeLogsets"
-         “cls:DescribeConfigs"
+         "cls:DescribeConfigs"
          "cls:DescribeIndex"
          "cls:DescribeIndex",
                 ]
@@ -123,7 +122,7 @@
      "effect": "allow"，
      "action": [
          "cls:DescribeLogsets"
-         “cls:DescribeConfigs"
+         "cls:DescribeConfigs"
          "cls:DescribeIndex"
          "cls:DescribeIndex",
                 ],
@@ -363,6 +362,9 @@
 ```
 - 对所有日志主题控制台的检索具备只读权限。
 ```
+{
+    "version": "2.0",
+    "statement": [
         {
             "effect": "allow",
             "action": [
@@ -393,7 +395,8 @@
                 "cls:listPartitions"
             ],
             "resource": [
-                "*"]
+                "*"
+            ]
         }
     ]
 }
@@ -618,8 +621,6 @@
                     ]
                 }
             }
-        }
-    ]
         },
         {
             "effect": "allow",
@@ -693,8 +694,6 @@
                     ]
                 }
             }
-        }
-    ]
         },
         {
             "effect": "allow",
