@@ -18,7 +18,7 @@
 
 ### 更多说明
 
-待完成付费后，当您计费模式为流量计费时，您可在 CDN 流量包有效期内享受其所含流量额度的抵扣优惠。关于 CDN 流量包使用情况，您可在 CDN 控制台[流量包管理](https://console.cloud.tencent.com/cdn/package)页面中查询。
+待完成付费后，当您计费模式为流量计费时，您可在 CDN 流量包有效期内享受其所含流量额度的抵扣优惠。关于 CDN 流量包使用情况，您可在 CDN 控制台 [流量包管理](https://console.cloud.tencent.com/cdn/package) 页面中查询。
 
  
 
