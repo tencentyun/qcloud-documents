@@ -75,13 +75,13 @@ COSDistCp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 |      --promGatewayJobName=VALUE      | 指定上报给 Prometheus PushGateway 的 JobName </br>示例：--promGatewayJobName=cos-distcp-hive-backup           |   无   |    否    |
 |      --promCollectInterval=VALUE      | 指定收集 MapReduce 任务 Counter 信息的间隔，单位：ms </br>示例：--promCollectInterval=5000            |   5000   |    否    |
 |      --promPort=VALUE      | 指定将 Prometheus 指标暴露给外部的 Server 端口 <br>示例：--promPort=9028            |   无   |    否    |
-|      --enableDynamicStrategy      | 指定开启任务动态分配策略，使迁移速度快的任务迁移更多的文件 </br>示例：--enableDynamicStrategy            |   false   |    否    |
+|      --enableDynamicStrategy      | 指定开启任务动态分配策略，使迁移速度快的任务迁移更多的文件，注意：该模式存在一定局限性，例如任务计数器在进程异常的情况下数值不准确 </br>示例：--enableDynamicStrategy            |   false   |    否    |
 |      --splitRatio=VALUE      | 指定 Dynamic Strategy 的切分比例，splitRatio 值越大，则任务粒度越小</br>示例：--splitRatio=8            |   8   |    否    |
 |      --localTemp=VALUE      | 指定 Dynamic Strategy 生成的任务信息文件所在的本地文件夹</br>示例：--localTemp=/tmp            |   /tmp   |    否    |
 |      --taskFilesCopyThreadNum=VALUE      | 指定 Dynamic Strategy 任务信息文件拷贝到 HDFS 上的并发度 </br>示例：--taskFilesCopyThreadNum=32            |   32   |    否    |
 |      --statsRange=VALUE      | 指定统计的区间范围</br>示例：---statsRange=0,1mb,10mb,100mb,1gb,10gb,inf   |   0,1mb,10mb,100mb,1gb,10gb,inf   |    否    |
 |      --printStatsOnly      | 只统计待迁移文件大小的分布信息，不迁移数据</br>示例：--printStatsOnly            |   无   |    否    |
-
+|      --bandWidth      | 限制每个迁移文件的读取带宽，单位为：MB/s，默认-1，不限制读取带宽。</br>示例：--bandWidth=10            |   无   |    否    |
 
 ## 使用示例
 
@@ -335,6 +335,8 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 ```plaintext
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse    --dest  cosn://examplebucket-1250000000/data/warehouse --enableDynamicStrategy
 ```
+
+>! 注意：该模式存在一定局限性，例如任务计数器在进程异常的情况下数值不准确
 
 ### 拷贝文件的元信息
 
