@@ -46,5 +46,5 @@
 
 提交一键配置解析后，大约1分钟内生效，请您耐心等待。届时您可刷新 CDN 控制台 [域名管理](https://console.cloud.tencent.com/cdn/domains) 页，当 CNAME 状态变为已启动的状态时，鼠标悬浮在 CNAME 上时可看到提示：加速服务正常运行中。
 
-如果您不希望使用此功能，想自行配置 CNAME，可参见 [配置 CNAME](https://tcloud-doc.isd.com/document/product/228/3121)。
+>?如果您不希望使用此功能，想自行配置 CNAME，可参见 [配置 CNAME](https://tcloud-doc.isd.com/document/product/228/3121)。
 
