@@ -71,7 +71,7 @@
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer) ，进入项目详情页面，单击左侧菜单的**数据同步**进入数据同步页面。
 2. 在数据同步页面中，数据同步在未设置时，默认生效状态都为关闭，HTTP 服务地址为空。
    <img src="https://main.qcloudimg.com/raw/ccefb4e1667484c8362108c87f7c2206.png" alt="" style="" />
-3. 选择需要设置数据同步的产品，单击设备列表中的**设置**，即可设置该产品需要同步的消息类型及 HTTP 服务 URL。其中URL需要输入上一步骤得到的默认公网访问地址+“post.php”，例如`https://***.ap-guangzhou.service.tcloudbase.com/post.php”。`
+3. 选择需要设置数据同步的产品，单击设备列表中的**设置**，即可设置该产品需要同步的消息类型及 HTTP 服务 URL。其中URL需要输入上一步骤得到的默认公网访问地址+“post.php”，例如`https://***.ap-guangzhou.service.tcloudbase.com/post.php。`
    <img src="https://main.qcloudimg.com/raw/fd5d3496f2ecd2c2db191c5383e76baf.png" alt="" style="zoom: 80%;" />
 4. 单击**保存**，跳转到列表页，可开启该产品的**生效状态**，完成该产品的数据同步配置。
 
