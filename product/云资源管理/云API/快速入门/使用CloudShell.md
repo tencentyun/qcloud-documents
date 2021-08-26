@@ -1,4 +1,4 @@
-CloudShell 是网页版命令行工具，帮助用户通过命令行管理腾讯云资源。您可以通过浏览器启动 CloudShell，启动时将会自动为您分配一台 Linux 管理机供您免费使用，该机器上已经预装 TCCLI 及 Terraform 等多种云管理工具和 SSH 及 VIM 等系统工具。
+CloudShell 是网页版命令行工具，帮助您通过命令行管理腾讯云资源。您可以通过浏览器启动 CloudShell，启动时将会自动为您分配一台 Linux 管理机供您免费使用，该实例上已经预装 TCCLI 及 Terraform 等多种云管理工具和 SSH 及 VIM 等系统工具。
 
 ## 功能特性
 CloudShell 具备以下功能特性：
@@ -49,11 +49,11 @@ CloudShell 实例多种语言支持及预装工具如下：
   </tr>
   <tr>
 	<td>C++</td>
-	<td>—</td>
+	<td>-</td>
   </tr>
   <tr>
 	<td>C#</td>
-	<td>—</td>
+	<td>-</td>
   </tr>
 </tbody>
 </table>
@@ -231,7 +231,7 @@ CloudShell 实例多种语言支持及预装工具如下：
 <dx-tabs>
 ::: 通过控制台运行[](id:startMethodOne)
 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance)，选择页面上方的**工具** > **CloudShell**，即可启动 CloudShell。如下图所示：
-![](https://main.qcloudimg.com/raw/e456cb9fc90158d13ecdfc24e1077371.png)
+![](https://main.qcloudimg.com/raw/14b50cd7f1c261571fce41764c5c6025.png)
 ::: 
 ::: 独立运行[](id:startMethodTwo)
 您可通过以下方式，独立运行 CloudShell：
@@ -268,12 +268,12 @@ tccli <ProductCode> <ApiName> help
 ```
 tccli cvm DescribeInstances help
 ```
-详情请参见 [使用 TCCLI](https://cloud.tencent.com/document/product/440/34013)。
+
 
 
 ## 相关操作
 ### 上传及下载文件
-CloudShell 提供了文件的上传和下载功能。您可通过以下两种方式传输文件
+CloudShell 提供了文件的上传和下载功能。您可通过以下两种方式传输文件：
 
 <dx-tabs>
 ::: 通过\sCloudShell\s界面
