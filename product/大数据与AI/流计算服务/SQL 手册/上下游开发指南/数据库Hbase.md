@@ -13,9 +13,9 @@ CREATE TABLE dim_hbase (
   cf ROW < school_name STRING >,
   PRIMARY KEY (rowkey) NOT ENFORCED
 ) WITH (
-  'connector' = 'hbase-1.4',
-  'table-name' = 'dim_hbase',
-  'zookeeper.quorum' = 'ip:port,ip:port,ip:port'
+  'connector' = 'hbase-1.4',                       -- 固定值为 hbase-1.4
+  'table-name' = 'dim_hbase',                      -- Hbase 表名
+  'zookeeper.quorum' = 'ip:port,ip:port,ip:port'.  -- Hbase 的 zookeeper 地址
 );
 
 -- Logger Sink 可以将输出数据打印到 TaskManager 的日志中
@@ -40,14 +40,14 @@ CREATE TABLE random_source (
   school_name STRING 
   ) WITH ( 
   'connector' = 'datagen', 
-  'rows-per-second'='1',                     -- 每秒产生的数据条数
+  'rows-per-second'='1',                 -- 每秒产生的数据条数
   'fields.f_sequence.kind'='sequence',   -- 有界序列（结束后自动停止输出）
-  'fields.f_sequence.start'='1',              -- 序列的起始值
-  'fields.f_sequence.end'='10000',        -- 序列的终止值
-  'fields.f_random.kind'='random',        -- 无界的随机数
-  'fields.f_random.min'='1',                  -- 随机数的最小值
-  'fields.f_random.max'='1000',            -- 随机数的最大值
-  'fields.f_random_str.length'='10'        -- 随机字符串的长度
+  'fields.f_sequence.start'='1',         -- 序列的起始值
+  'fields.f_sequence.end'='10000',       -- 序列的终止值
+  'fields.f_random.kind'='random',       -- 无界的随机数
+  'fields.f_random.min'='1',             -- 随机数的最小值
+  'fields.f_random.max'='1000',          -- 随机数的最大值
+  'fields.f_random_str.length'='10'      -- 随机字符串的长度
 );
 
 
@@ -56,11 +56,11 @@ CREATE TABLE dim_hbase (
   cf ROW < school_name STRING >,
   PRIMARY KEY (rowkey) NOT ENFORCED
 ) WITH (
-  'connector' = 'hbase-1.4',
-  'table-name' = 'dim_hbase',
-  'zookeeper.quorum' = 'ip:port,ip:port,ip:port',
-  'sink.buffer-flush.max-size' = '50KB',
-  'sink.buffer-flush.max-rows' = '10'
+  'connector' = 'hbase-1.4',                          -- 固定值为 hbase-1.4
+  'table-name' = 'dim_hbase',                         -- Hbase 表名
+  'zookeeper.quorum' = 'ip:port,ip:port,ip:port',     -- Hbase 的 zookeeper 地址
+  'sink.buffer-flush.max-size' = '50KB',              -- 写入 Hbase 前，内存中缓存的数据条数。调大该值有利于提高 Hbase 写入性能，但会增加写入延迟和内存使用。
+  'sink.buffer-flush.max-rows' = '10'                 -- 将缓存数据周期性写入到 Hbase 的间隔，可以控制写入 Hbase 的延迟。
 );
 
 INSERT INTO dim_hbase SELECT rowkey, ROW(school_name) FROM random_source;
