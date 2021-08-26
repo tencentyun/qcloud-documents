@@ -1,4 +1,4 @@
-## 介绍
+﻿## 介绍
 FileSystem connector 提供了对 HDFS 和 COS 等常见文件系统的写入支持。
 
 ## 使用范围
@@ -65,6 +65,12 @@ fs.hdfs.dfs.namenode.rpc-address.HDFS12345.nn2: 172.27.1.218:4007
 fs.hdfs.dfs.client.failover.proxy.provider.HDFS12345: org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider
 ```
 
+>? Flink 作业默认以 flink 用户操作 HDFS，若没有 HDFS 路径的写入权限，可通过作业 [高级参数](https://cloud.tencent.com/document/product/849/53391) 设置为有权限的用户，或者设置为超级用户 hadoop。
+> ```
+containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
+containerized.master.env.HADOOP_USER_NAME: hadoop
+```
+
 ## COS 配置
 >?当写入 COS 时，Oceanus 作业所运行的地域必须和 COS 在同一个地域中。
 
@@ -92,3 +98,48 @@ fs.cosn.userinfo.appid: COS 所属用户的 appid
 在作业参数的引用程序包栏单击**添加程序包**，选择在第2步上传的 Jar 包，单击**确定**保存作业参数配置。
 ![](https://main.qcloudimg.com/raw/19734292615ac8cacb3c6a3a9422acef.png)
 4. 发布作业。
+
+## HDFS Kerberos 认证授权
+1. 登录集群 Master 节点，获取 krb5.conf、emr.keytab、core-site.xml、hdfs-site.xml文件，路径为。
+```
+/etc/krb5.conf
+/var/krb5kdc/emr.keytab
+/usr/local/service/hadoop/etc/hadoop/core-site.xml
+/usr/local/service/hadoop/etc/hadoop/hdfs-site.xml
+```
+2. 对步骤1中获取的文件打 jar 包。
+```
+jar cvf hdfs-xxx.jar krb5.conf emr.keytab core-site.xml hdfs-site.xml
+``` 
+3. 校验 jar 的结构（可以通过 vim 命令查看 vim hdfs-xxx.jar），jar 里面包含如下信息，请确保文件不缺失且结构正确。
+```
+META-INF/
+META-INF/MANIFEST.MF
+emr.keytab
+krb5.conf
+hdfs-site.xml
+core-site.xml
+```
+4. 在 [程序包管理](https://console.cloud.tencent.com/oceanus/resource) 页面上传 jar 包，并在作业参数配置里引用该程序包。
+5. 获取 kerberos principal，用于作业 [高级参数](https://cloud.tencent.com/document/product/849/53391) 配置。
+```
+klist -ket emr.keytab
+
+# 输出如下所示，选取第一个即可：hadoop/172.28.28.51@EMR-OQPO48B9
+KVNO Timestamp     Principal
+---- ------------------- ------------------------------------------------------
+  2 08/09/2021 15:34:40 hadoop/172.28.28.51@EMR-OQPO48B9 (des3-cbc-sha1) 
+  2 08/09/2021 15:34:40 HTTP/172.28.28.51@EMR-OQPO48B9 (des3-cbc-sha1) 
+  2 08/09/2021 15:34:40 hadoop/VM-28-51-centos@EMR-OQPO48B9 (des3-cbc-sha1) 
+  2 08/09/2021 15:34:40 HTTP/VM-28-51-centos@EMR-OQPO48B9 (des3-cbc-sha1) 
+```
+6. 作业 [高级参数](https://cloud.tencent.com/document/product/849/53391) 配置。
+```
+containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
+containerized.master.env.HADOOP_USER_NAME: hadoop
+security.kerberos.login.principal: hadoop/172.28.28.51@EMR-OQPO48B9
+security.kerberos.login.keytab: emr.keytab
+security.kerberos.login.conf: krb5.conf
+```
+
+>! 历史Oceanus集群可能不支持该功能，您可通过 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_849) 联系我们升级集群管控服务，以支持 Kerberos 访问。

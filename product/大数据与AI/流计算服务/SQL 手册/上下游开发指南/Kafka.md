@@ -1,4 +1,4 @@
-## 介绍
+﻿## 介绍
 Kafka  数据管道是流计算系统中最常用的数据源（Source）和数据目的（Sink）。用户可以把流数据导入到 Kafka 的某个 Topic 中，通过 Flink 算子进行处理后，输出到相同或不同 Kafka 示例的另一个 Topic。
 
 Kafka 支持同一个 Topic 多分区读写，数据可以从多个分区读入，也可以写入到多个分区，以提供更高的吞吐量，减少数据倾斜和热点。
@@ -156,3 +156,76 @@ CREATE TABLE `Data-Output` (
 目前内置 KafkaConnector 支持0.11及以上的 Kafka 版本。
 - 如果您的 kafka 版本是0.11，请选择 flink-connector-kafka-0.11，并在 WITH 参数的 connector 参数值中输入 'kafka-0.11'。
 - 如果您的 kafka 版本高于0.11，请选择 flink-connector-kafka，并在 WITH 参数的 connector 参数值中输入 'kafka'。
+
+# SASL 认证授权
+## SASL/PLAIN 用户名密码认证授权
+1. 参考 CKafka 文档 [配置ACL策略](https://cloud.tencent.com/document/product/597/31528)，设置 Topic 按用户名密码访问的 SASL_PLAINTEXT 认证方式。
+2. 参考 CKafka 文档 [添加路由策略](https://cloud.tencent.com/document/product/597/36348)，选择 SASL_PLAINTEXT 接入方式，并以该接入方式下的网络地址访问 Topic。
+3. 作业配置with参数。
+```
+CREATE TABLE `YourTable` (
+...
+) WITH (
+  ...
+  'properties.sasl.jaas.config' = 'org.apache.kafka.common.security.plain.PlainLoginModule required username="ckafka-xxxxxxxx#YourUserName" password="YourPassword";',
+  'properties.security.protocol' = 'SASL_PLAINTEXT',
+  'properties.sasl.mechanism' = 'PLAIN',
+  ...
+);
+```
+>? `username` 是`实例 ID` + `#` + `刚配置的用户名`，`password` 是刚配置的用户密码。
+
+## SASL/GSSAPI Kerberos 认证授权
+腾讯云 CKafka 暂时不支持 Kerberos 认证，您的自建 Kafka 如果开启了 Kerberos 认证，请参考该文档配置作业。
+1. 获取您的自建 Kafka 集群的 Kerberos 配置文件，如果您基于腾讯云 EMR 集群自建，获取 krb5.conf、emr.keytab 文件，路径为。
+```
+/etc/krb5.conf
+/var/krb5kdc/emr.keytab
+```
+2. 对步骤1中获取的文件打 jar 包。
+```
+jar cvf kafka-xxx.jar krb5.conf emr.keytab
+``` 
+3. 校验 jar 的结构（可以通过 vim 命令查看 vim kafka-xxx.jar），jar 里面包含如下信息，请确保文件不缺失且结构正确。
+```
+META-INF/
+META-INF/MANIFEST.MF
+emr.keytab
+krb5.conf
+```
+4. 在 [程序包管理](https://console.cloud.tencent.com/oceanus/resource) 页面上传 jar 包，并在作业参数配置里引用该程序包。
+5. 获取 kerberos principal，用于作业 [高级参数](https://cloud.tencent.com/document/product/849/53391) 配置。
+```
+klist -ket emr.keytab
+
+# 输出如下所示，选取第一个即可：hadoop/172.28.28.51@EMR-OQPO48B9
+KVNO Timestamp     Principal
+---- ------------------- ------------------------------------------------------
+  2 08/09/2021 15:34:40 hadoop/172.28.28.51@EMR-OQPO48B9 (des3-cbc-sha1) 
+  2 08/09/2021 15:34:40 HTTP/172.28.28.51@EMR-OQPO48B9 (des3-cbc-sha1) 
+  2 08/09/2021 15:34:40 hadoop/VM-28-51-centos@EMR-OQPO48B9 (des3-cbc-sha1) 
+  2 08/09/2021 15:34:40 HTTP/VM-28-51-centos@EMR-OQPO48B9 (des3-cbc-sha1) 
+```
+6. 作业with参数配置。
+```
+CREATE TABLE `YourTable` (
+...
+) WITH (
+  ...
+  'properties.security.protocol' = 'SASL_PLAINTEXT',
+  'properties.sasl.mechanism' = 'GSSAPI',
+  'properties.sasl.kerberos.service.name' = 'hadoop',
+  ...
+);
+```
+>? 参数 `properties.sasl.kerberos.service.name` 的值必须与您选取的 principal 匹配，如果您选择的为 `hadoop/${IP}@EMR-OQPO48B9`，那么取值为 hadoop。
+7. 作业 [高级参数](https://cloud.tencent.com/document/product/849/53391) 配置。
+```
+security.kerberos.login.principal: hadoop/172.28.2.13@EMR-4K3VR5FD
+security.kerberos.login.keytab: emr.keytab
+security.kerberos.login.conf: krb5.conf
+security.kerberos.login.contexts: KafkaClient
+fs.hdfs.hadoop.security.authentication: kerberos
+```
+
+>! 历史Oceanus集群可能不支持该功能，您可通过 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_849) 联系我们升级集群管控服务，以支持 Kerberos 访问。
