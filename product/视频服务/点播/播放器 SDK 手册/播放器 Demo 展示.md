@@ -11,8 +11,8 @@ Web 端播放器支持 PC 端和移动端的浏览器视频播放，丰富灵活
 
 |播放器类型|Demo 体验|
 |:--|:--
-|超级播放器 - 基础播放|[Web 端超级播放器 - 基础播放 Demo](https://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-test.html)|
-|超级播放器 - 点播播放|[Web 端超级播放器 - 点播播放 Demo](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-base.html)|
+|超级播放器 - URL 播放|[Web 端超级播放器 - 基础播放 Demo](https://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-test.html)|
+|超级播放器 - FileID 播放|[Web 端超级播放器 - 点播播放 Demo](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-base.html)|
 
 #### Web 端超级播放器 Demo展示
 
