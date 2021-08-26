@@ -59,7 +59,7 @@ spec:
       includeLabels:                        ## 采集包含指定label的Pod
         k8s-app: xxx                        ## 只采pod标签中配置"k8s-app=xxx"的pod产生的日志，与workloads、allContainers=true不能同时指定
       workloads:                            ## 要采集的容器的Pod所属的kubernetes workload
-        namespace: prod                     ## workload的命名空间
+      - namespace: prod                     ## workload的命名空间
         name: sample-app                    ## workload的名字
         kind: deployment                    ## workload类型，支持deployment、daemonset、statefulset、job、cronjob
         container: xxx                      ## 要采集的容器名，如果填空，代表workload Pod中的所有容器
