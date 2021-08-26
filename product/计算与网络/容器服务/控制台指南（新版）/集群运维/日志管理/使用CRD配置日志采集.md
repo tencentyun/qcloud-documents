@@ -6,7 +6,7 @@
 
 ## 创建 CRD
 您只需要定义 LogConfig CRD 即可创建采集配置，log-agent 根据 LogConfig CRD 的变化修改相应的日志服务 CLS 日志主题，并设置绑定的机器组。CRD 的格式如下:
-```
+``` yaml
 apiVersion: cls.cloud.tencent.com/v1
 kind: LogConfig                              ## 默认值
 metadata:
