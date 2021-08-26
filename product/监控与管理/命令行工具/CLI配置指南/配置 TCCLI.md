@@ -3,7 +3,7 @@
 
 ## 前提条件
 
-[安装 TCCLI](https://cloud.tencent.com/document/product/440/34011)
+[安装 TCCLI](../CLI安装指南/安装%20TCCLI.md)
 
 ## 操作详解
 
