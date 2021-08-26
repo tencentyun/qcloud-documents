@@ -24,9 +24,7 @@ TIM_DECL int TIMInit(uint64_t sdk_app_id, const char* json_sdk_config);
 
 >?
 - 在使用 IM SDK 进一步操作之前，需要先初始化 IM SDK。
-- `json_sdk_config`可以为`NULL`空字符串指针或者""空字符串，在此情况下 SdkConfig 均为默认值。
-- `json_sdk_config`里面的每个 JSON key 都是选填的，详情请参考 [SdkConfig](https://cloud.tencent.com/document/product/269/33553#sdkconfig)。
-
+- `json_sdk_config 中 kTIMSdkConfigLogFilePath 和 kTIMSdkConfigConfigFilePath 两个 JSON Key 是必填字段，详情请参考 [SdkConfig](https://cloud.tencent.com/document/product/269/33553#sdkconfig)。
 
 **示例**
 
