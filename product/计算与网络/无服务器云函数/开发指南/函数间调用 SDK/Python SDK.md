@@ -22,7 +22,7 @@ Tencentserverless SDK 的功能特性可分为以下几点：
 > - 如果不指定地域，默认为同地域下函数互调。
 > - 命名空间不指定，默认为 default。
 
-1. 在云端创建一个被调用的 Python 云函数，地域为【广州】，命名为 “FuncInvoked”。函数内容如下：
+1. 在云端创建一个被调用的 Python 云函数，地域为**广州**，命名为 “FuncInvoked”。函数内容如下：
 <dx-codeblock>
 :::  python
 # -*- coding: utf8 -*-
@@ -34,7 +34,7 @@ def main_handler(event, context):
     return "Hello World from the function being invoked"  #return
 :::
 </dx-codeblock>
-2. 在云端创建调用的 Python 云函数，地域为【成都】，命名为 “PythonInvokeTest”。可通过以下两种方式，结合您的实际情况编辑 PythonInvokeTest 函数。
+2. 在云端创建调用的 Python 云函数，地域为**成都**，命名为 “PythonInvokeTest”。可通过以下两种方式，结合您的实际情况编辑 PythonInvokeTest 函数。
 方式 1：如果您不需要频繁的调用函数，可使用如下示例代码：
 <dx-codeblock>
 :::  python
@@ -136,7 +136,7 @@ pip show tencentserverless
 ```
 
 #### 示例
-1. 在云端创建一个被调用的 Python 云函数，地域为【广州】，命名为 “FuncInvoked”。函数内容如下：
+1. 在云端创建一个被调用的 Python 云函数，地域为**广州**，命名为 “FuncInvoked”。函数内容如下：
 <dx-codeblock>
 :::  python
 # -*- coding: utf8 -*-
@@ -176,7 +176,7 @@ main_handler("","")
 :::
 </dx-codeblock>
 
->?Secret_id 及 secret_key：指云 API 的密钥 ID 和密钥 Key。您可以通过登录【[访问管理控制台](https://console.cloud.tencent.com/cam/overview)】，选择【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】，获取相关密钥或创建相关密钥。
+>?Secret_id 及 secret_key：指云 API 的密钥 ID 和密钥 Key。您可以通过登录 **[访问管理控制台](https://console.cloud.tencent.com/cam/overview)**，选择**云 API 密钥** >  **[API 密钥管理](https://console.cloud.tencent.com/cam/capi)**，获取相关密钥或创建相关密钥。
 >
 进入 PythonInvokeTest.py 所在文件目录，执行以下命令，查看结果。
 ```shell

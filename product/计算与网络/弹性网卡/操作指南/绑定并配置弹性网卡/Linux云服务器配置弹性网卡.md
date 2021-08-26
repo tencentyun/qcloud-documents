@@ -107,7 +107,7 @@ echo "20 t2" >> /etc/iproute2/rt_tables   #20为自定义的路由ID，t2为自�
 ip route add default dev eth0 via 192.168.1.1 table 10   #192.168.1.1请替换为主网卡所属子网的网关
 ip route add default dev eth1 via 192.168.1.1 table 20   #192.168.1.1请替换为辅助网卡所属子网的网关
 ```
-     <dx-alert infotype="explain" title="">
+<dx-alert infotype="explain" title="">
 具体网关，请参考 [查看网关](#.E6.9F.A5.E7.9C.8B.E7.BD.91.E5.85.B3) 。
 </dx-alert>
 
@@ -191,8 +191,8 @@ echo "20 t2" >> /etc/iproute2/rt_tables    #20为自定义的路由ID，t2为自
 ip route add default dev eth0 via 172.21.48.1 table 10   #172.21.48.1要分别替换成主网卡所属子网的网关
 ip route add default dev eth1 via 172.21.48.1 table 20   #172.21.48.1要分别替换成辅助网卡所属子网的网关
 ```
-    <dx-alert infotype="explain" title="">
-此处两个命令中，，以及辅助网卡所属子网的网关。具体网关，请参考 [查看网关](#.E6.9F.A5.E7.9C.8B.E7.BD.91.E5.85.B3) 。
+<dx-alert infotype="explain" title="">
+具体网关，请参考 [查看网关](#.E6.9F.A5.E7.9C.8B.E7.BD.91.E5.85.B3) 。
 </dx-alert>
  3. 执行如下命令，配置策略路由。
 ```plaintext
