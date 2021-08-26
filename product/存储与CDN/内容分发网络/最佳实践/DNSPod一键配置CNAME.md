@@ -50,3 +50,6 @@
 
 >?如果您不希望使用此功能，想自行配置 CNAME，可参见 [配置 CNAME](https://tcloud-doc.isd.com/document/product/228/3121)。
 
+## 其他
+若您后续要删除对应的加速域名，删除时，我们不会操作您在 DNSPod 侧的解析记录，请您根据需要自行修改解析记录。
+
