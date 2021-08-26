@@ -1,6 +1,6 @@
 
 
-腾讯云 CDN 与 [DNSPod](https://console.dnspod.cn/) 已打通解析配置能力，若域名已托管至腾讯云 DNSPod，则可通过 [CDN 控制台](https://console.cloud.tencent.com/cdn/domains) 一键配置 CNAME，节省配置步骤和时间，快速启用 CDN 加速服务。
+腾讯云 CDN 与 [DNSPod](https://console.dnspod.cn/) 已打通解析配置能力，若域名已托管至腾讯云 DNSPod，则可通过 [CDN 控制台](https://console.cloud.tencent.com/cdn/domains) 一键配置 CNAME，减少配置步骤和时间，快速启用 CDN 加速服务。
 
 ## 背景
 
