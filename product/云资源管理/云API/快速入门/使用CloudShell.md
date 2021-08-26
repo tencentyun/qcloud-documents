@@ -281,7 +281,7 @@ CloudShell 提供了文件的上传和下载功能。您可通过以下两种方
 2. 选择 CloudShell 界面上方的 <img src="https://main.qcloudimg.com/raw/ec8d0b471216407ba9afde40f54cfb73.png" style="margin:-3px 0px">。如下图所示：
 ![](https://main.qcloudimg.com/raw/507f98a47f077698a2f3f599eca0212d.png)
 3. 在弹出的菜单中单击**上传**或**下载**，按需传输文件。
- - 上传文件：在弹出的窗口中选择文件，并单击**打开**。
+ - 上传文件：在弹出的窗口中选择文件后，单击**打开**。
  - 下载文件：在弹出的窗口中，输入需下载文件的绝对路径后，单击**确定**。
 :::
 ::: 使用\sCloudShell\s命令
