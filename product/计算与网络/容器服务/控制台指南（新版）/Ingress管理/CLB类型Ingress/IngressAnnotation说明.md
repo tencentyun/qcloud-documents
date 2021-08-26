@@ -56,7 +56,7 @@ metadata:
 :::
 ::: kubernetes.io/ingress.extensiveParameters
 **说明：**
-参考 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/30692) 为创建负载均衡追加自定义参数。
+参考 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/30692#4.-.E7.A4.BA.E4.BE.8B) 为创建负载均衡追加自定义参数。
 **使用示例：**
 - 创建 NAT64 IPv6 实例：
   `kubernetes.io/ingress.extensiveParameters: '{"AddressIPVersion":"IPV6"}'`
