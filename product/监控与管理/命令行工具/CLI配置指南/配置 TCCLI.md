@@ -40,8 +40,10 @@ secretKey =  Gu5t9xGARNpq86cd98joQYCN3*******
 configure:
 region =  ap-guangzhou
 output =  json
+# 在命令行中直接指定secretId和secretKey的值，如查询cvm实例信息：
+$ tccli cvm DescribeInstances --secretId AKIDz8krbsJ5yKBZQpn74WFkmLPx3****** --secretKey Gu5t9xGARNpq86cd98joQYCN3*******
 ```
-更多信息请执行 `tccli configure [list get set] help` 查看。
+
 3. 多账户支持，TCCLI 支持多账户，方便您多种配置同时使用。
 ```bash
 # 在交互模式中指定账户名 test
@@ -73,22 +75,38 @@ $ tccli cvm DescribeZones --profile test
 	export TENCENTCLOUD_SECRET_ID=AKIDz8krbsJ5yKBZQpn74WFkmLPx3*******
 	export TENCENTCLOUD_SECRET_KEY=Gu5t9xGARNpq86cd98joQYCN3*******
 	export TENCENTCLOUD_REGION=ap-guangzhou
+	# 写入后需执行如下命令使环境变量生效
+	$ source /etc/profile
 	```
-5.您可以配置https代理，让tccli通过代理调用API
 
-在环境变量中配置https代理
+## 其他配置
+
+1. TCCLI支持cam角色的方式进行认证，您可以参考[cam角色](https://cloud.tencent.com/document/product/598/19420)的文档来查看相关信息。
+
 ```bash
-# 在Linux/Unix和macOS中执行如下类似命令配置环境变量
-export https_proxy=https://192.168.1.1:1111
-export https_proxy=https://myproxy.com:1111
-# 在Windows的终端中执行如下类似命令配置环境变量
-setx http_proxy=https://192.168.1.1:1111
-set  http_proxy=https://myproxy.com:1111
-# setx表示设置永久环境变量，设置后重启终端生效
+# cam角色的配置不支持交互模式，您可以使用非交互模式的方式进行配置：
+$ tccli configure set role-arn qcs::cam::uin/***********/**** role-session-name ****
+```
+`role-arn`和`role-session-name`字段也支持configure的get和list操作,也可以写入配置文件、直接在命令行指定，操作方式与`secretId`和`secretKey`的配置类似。
+```bash
+# get 子命令获取配置信息
+$ tccli configure get role-arn
+role-arn = qcs::cam::uin/***********/****
+# list 子命令打印所有配置信息
+$ tccli configure list
+credential:
+role-arn = qcs::cam::uin/***********/****
+role-session-name = ****
+# 将配置信息写入环境变量
+$ export TENCENTCLOUD_ROLE_ARN=qcs::cam::uin/***********/****
+$ export TENCENTCLOUD_ROLE_SESSION_NAME=****
+# 直接在命令行中指定role-arn和role-session-name信息，如调用DescriZones接口
+$ tccli cvm DescribeZones --role-arn qcs::cam::uin/***********/**** --role-session-name ****
 ```
 
-您也可以直接使用'--https-proxy'选项设置https代理
+2. 如果您的实例绑定了角色，您可以直接通过实例角色的方式进行认证，不需要secretId和secretKey等信息。您可以使用`--use-cvm-role`来使用实例角色的方式调用。
 ```bash
-# 例如
-tccli cvm DescribeRegions --https-proxy https://192.168.1.1:1111
+#  使用实例角色的方式调用DescribeZones的接口
+$ tccli cvm DescribeZones --use-cvm-role
 ```
+>!该方式只能在绑定了角色的实例上使用，具体方式可以参考角色的[创建](https://cloud.tencent.com/document/product/598/19381)与[使用](https://cloud.tencent.com/document/product/598/19419)文档。
