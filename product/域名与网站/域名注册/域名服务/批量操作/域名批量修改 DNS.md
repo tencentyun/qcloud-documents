@@ -32,7 +32,7 @@
 > 
  - **选择自定义 DNS**：填写您需要为域名设置的 DNS 服务器地址。
 >?
->- 需要在腾讯云进行解析的域名，修改 DNS 服务器地址请参考 [修改 DNS 服务器](https://cloud.tencent.com/document/product/302/7806#.E6.AD.A5.E9.AA.A43.EF.BC.9A.E4.BF.AE.E6.94.B9-dns-.E6.9C.8D.E5.8A.A1.E5.99.A8)。
+>- 需要在腾讯云进行解析的域名，修改 DNS 服务器地址请参考 [修改 DNS 服务器](https://cloud.tencent.com/document/product/302/5518)。
 >- 自定义的 DNS 服务器域名不能是私建的 DNS 服务器域名，必须是解析商的权威 DNS 服务器域名。
 2. 单击【下一步】，进入信息确认页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/4b3008eaa0f625aa17f60447e3722fa6.png)

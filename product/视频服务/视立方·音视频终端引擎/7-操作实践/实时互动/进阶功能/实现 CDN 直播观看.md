@@ -6,7 +6,7 @@
 | 支持情况 | -  | &#10003;  | -  | -  | -  | &#10003;  |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 适用场景
 
@@ -83,7 +83,7 @@ param.role     = TRTCRoleAnchor; // 角色：主播
 param.streamId = @"stream1001";  // 流 ID
 [trtcCloud enterRoom:params appScene:TRTCAppSceneLIVE]; // 请使用 LIVE 模式
 ```
-userSig 的计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/1449/58939?!preview&!editLang=zh)。
+userSig 的计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/1449/58939)。
 
 #### 方式二：系统指定 streamId
 开启自动旁路推流后，如果您没有自定义指定 streamId，系统会默认为您生成一个缺省的 streamId，生成规则如下：
@@ -146,10 +146,10 @@ http://播放域名/live/[streamId].flv
 
 | 所属平台    | 对接文档 | API 概览 | 支持的格式 |
 | ----------- | ----------- | ----------- | ----------- |
-| iOS App     | [接入指引](https://cloud.tencent.com/document/product/1449/57068?!preview&!editLang=zh) | [TXLivePlayer(iOS)](https://cloud.tencent.com/document/product/1449/57170?!preview&!editLang=zh) | 推荐 FLV                                                     |
-| Android App | [接入指引](https://cloud.tencent.com/document/product/1449/57069?!preview&!editLang=zh) | [TXLivePlayer(Android)](https://cloud.tencent.com/document/product/1449/57172?!preview&!editLang=zh) | 推荐 FLV                                                     |
-| Web 浏览器  | [接入指引](https://cloud.tencent.com/document/product/1449/57070?!preview&!editLang=zh) | [TXLivePusher](https://cloud.tencent.com/document/product/1449/57173?!preview&!editLang=zh) | 桌面端 Chrome 浏览器支持 FLV <br> Mac 端 Safari和移动端手机浏览器仅支持 HLS |
-| 微信小程序  | [接入指引](https://cloud.tencent.com/document/product/1449/57071?!preview&!editLang=zh) | [&lt;live-player&gt; 标签](https://cloud.tencent.com/document/product/1449/58919?!preview&!editLang=zh) | 推荐 FLV                                                     |
+| iOS App     | [接入指引](https://cloud.tencent.com/document/product/1449/57068) | [TXLivePlayer(iOS)](https://cloud.tencent.com/document/product/1449/57170) | 推荐 FLV                                                     |
+| Android App | [接入指引](https://cloud.tencent.com/document/product/1449/57069) | [TXLivePlayer(Android)](https://cloud.tencent.com/document/product/1449/57172) | 推荐 FLV                                                     |
+| Web 浏览器  | [接入指引](https://cloud.tencent.com/document/product/1449/57070) | [TXLivePusher](https://cloud.tencent.com/document/product/1449/57173) | 桌面端 Chrome 浏览器支持 FLV <br> Mac 端 Safari和移动端手机浏览器仅支持 HLS |
+| 微信小程序  | [接入指引](https://cloud.tencent.com/document/product/1449/57071) | [&lt;live-player&gt; 标签](https://cloud.tencent.com/document/product/1449/58919) | 推荐 FLV                                                     |
 
 
 
@@ -174,7 +174,7 @@ http://播放域名/live/[streamId].flv
 普通的 ijkplayer 或者 ffmpeg 基于 ffmpeg 的内核包装出的播放器，缺乏延时调控的能力，如果使用该类播放器播放上述直播流地址，时延一般不可控。TXLivePlayer 有一个自研的播放引擎，具备延时调控的能力。
 
 - **设置 TXLivePlayer 的播放模式为极速模式**
-可以通过设置 TXLivePlayerConfig 的三个参数来实现极速模式，以 [iOS](https://cloud.tencent.com/document/product/1449/57068?!preview&!editLang=zh#delay) 为例。
+可以通过设置 TXLivePlayerConfig 的三个参数来实现极速模式，以 [iOS](https://cloud.tencent.com/document/product/1449/57068#delay) 为例。
 以 iOS 端的 Objective-C 代码为例：
 ```
  // 设置 TXLivePlayer 的播放模式为极速模式

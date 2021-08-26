@@ -6,7 +6,7 @@ Serverless 架构的入湖方案是通过云函数触发器拉起数据调用后
 
 ### 创建 COS 储存桶
 
-1. 登录 [腾讯云控制台](https://cloud.tencent.com/login)，选择【对象存储】。
+1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)。
 2. 选择左侧“存储桶列表”，单击【创建存储桶】，新建源 COS Bucket。
 3. 设置 COS Bucket 的名称，例如 “`scf-data-lake`”，地域为“广州” ，设置访问权限为默认值“私有读写” ，单击【确定】完成创建。
 
@@ -17,7 +17,7 @@ Serverless 架构的入湖方案是通过云函数触发器拉起数据调用后
 
 ### 通过 COS 应用集成进行函数配置 
 
-1. 登录 [对象储存控制台](https://console.cloud.tencent.com/cos5)。
+1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)。
 2. 选择左侧“应用集成”，在“数据迁移与备份”中选择“TDMQ消息备份”。如下图所示：
 ![](https://main.qcloudimg.com/raw/673f44c32c0870e1ca64e57ca87df9ef.png)
 3. 在 “TDMQ消息备份”页中，选择已创建的 COS Bucket 所在的地域，并单击【添加函数】。 

@@ -7,7 +7,7 @@
 | 支持情况 | -  | -  | &#10003;  | -  | -  | &#10003;  |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 
 ## 过程简介
@@ -142,4 +142,4 @@ public void onJoinComplete(TXVideoEditConstants.TXJoinerResult result) {
 :::
 </dx-codeblock>
 
-至此就完成了全部合唱的基础功能，完整代码请参见 [小视频源码](https://cloud.tencent.com/document/product/1449/56977?!preview&!editLang=zh#video_app)。
+至此就完成了全部合唱的基础功能，完整代码请参见 [小视频源码](https://cloud.tencent.com/document/product/1449/56977#video_app)。

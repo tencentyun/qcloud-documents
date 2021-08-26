@@ -8,7 +8,7 @@
 | 支持情况 | -  | -  | &#10003;  | -  | -  | &#10003;  |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 
 ## 相关类介绍 
@@ -319,8 +319,8 @@ VIDEO_COMPRESSED_720P ——压缩至720P分辨率 (1280*720)
 当您不再使用 mTXVideoEditer 对象时，一定要记得调用 **release()** 释放它。
 
 ## 高级功能
-- [类抖音特效](https://cloud.tencent.com/document/product/1449/57051?!preview&!editLang=zh)
-- [设置背景音乐](https://cloud.tencent.com/document/product/1449/57037?!preview&!editLang=zh)
-- [贴纸字幕](https://cloud.tencent.com/document/product/1449/57053?!preview&!editLang=zh)
-- [图片转场特效](https://cloud.tencent.com/document/product/1449/57057?!preview&!editLang=zh)
+- [类抖音特效](https://cloud.tencent.com/document/product/1449/57051)
+- [设置背景音乐](https://cloud.tencent.com/document/product/1449/57037)
+- [贴纸字幕](https://cloud.tencent.com/document/product/1449/57053)
+- [图片转场特效](https://cloud.tencent.com/document/product/1449/57057)
 

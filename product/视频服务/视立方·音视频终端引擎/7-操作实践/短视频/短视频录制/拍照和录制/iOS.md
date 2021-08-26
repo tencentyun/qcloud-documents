@@ -8,7 +8,7 @@
 | 支持情况 | -  | -  | &#10003;  | -  | -  | &#10003;  |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 
 ## 使用类介绍
@@ -290,9 +290,9 @@ recorder.videoProcessDelegate = delegate;
 ```
 
 ## 高级功能
-- [多段录制](https://cloud.tencent.com/document/product/1449/57028?!preview&!editLang=zh)
-- [录制草稿箱](https://cloud.tencent.com/document/product/1449/57030?!preview&!editLang=zh)
-- [添加背景音乐](https://cloud.tencent.com/document/product/1449/57036?!preview&!editLang=zh)
-- [变声和混响](https://cloud.tencent.com/document/product/1449/57038?!preview&!editLang=zh)
-- [定制视频数据](https://cloud.tencent.com/document/product/1449/57060?!preview&!editLang=zh)
+- [多段录制](https://cloud.tencent.com/document/product/1449/57028)
+- [录制草稿箱](https://cloud.tencent.com/document/product/1449/57030)
+- [添加背景音乐](https://cloud.tencent.com/document/product/1449/57036)
+- [变声和混响](https://cloud.tencent.com/document/product/1449/57038)
+- [定制视频数据](https://cloud.tencent.com/document/product/1449/57060)
 

@@ -69,7 +69,7 @@ trtcCloud.on('onError',onError);
 | :------- | :----- | :----------------------------------------------------------- | :--------------------- |
 | sdkAppId | 数字   | 应用 ID，您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) >【应用管理】>【应用信息】中查找到。 | 1400000123  |
 | userId   | 字符串 | 只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。 | test_user_001 |
-| userSig  | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/1449/58939?!preview&!editLang=zh) 。 | eJyrVareCeYrSy1SslI... |
+| userSig  | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/1449/58939) 。 | eJyrVareCeYrSy1SslI... |
 | roomId   | 数字   | 默认不支持字符串类型的房间号，字符串类型的房间号会影响进房速度。如果您确实需要支持字符串类型的房间号，可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。 | 29834 |
 
 <dx-codeblock>
@@ -211,7 +211,7 @@ SDK 支持自动订阅和手动订阅两种模式，自动订阅追求秒开速�
 3. 调用 [setLocalViewFillMode()](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setLocalViewFillMode) 可以设定本地视频画面的显示模式：
    - `TRTCVideoFillMode.TRTCVideoFillMode_Fill`：模式表示填充，画面可能会被等比放大和裁剪，但不会有黑边。
    - `TRTCVideoFillMode.TRTCVideoFillMode_Fit`：模式表示适应，画面可能会等比缩小以完全显示其内容，可能会有黑边。
-4. 调用 [setVideoEncoderParam()](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setVideoEncoderParam) 接口可以设定本地视频的编码参数，该参数将决定房间里其他用户观看您的画面时所感受到的 [画面质量](https://cloud.tencent.com/document/product/1449/57122?!preview&!editLang=zh)。
+4. 调用 [setVideoEncoderParam()](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setVideoEncoderParam) 接口可以设定本地视频的编码参数，该参数将决定房间里其他用户观看您的画面时所感受到的 [画面质量](https://cloud.tencent.com/document/product/1449/57122)。
 
 <dx-codeblock>
 ::: javascript javascript

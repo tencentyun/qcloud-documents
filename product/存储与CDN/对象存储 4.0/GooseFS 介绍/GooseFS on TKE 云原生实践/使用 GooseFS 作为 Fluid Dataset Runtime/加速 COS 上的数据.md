@@ -1,16 +1,19 @@
 ## 前提条件
 
-- 已下载安装 [Fluid](https://github.com/fluid-cloudnative/fluid)(version >= 0.6.0)
-  // TODO
+- 已下载安装 [Fluid](https://github.com/fluid-cloudnative/fluid)（version >= 0.6.0）
+>! 单击下载 [fluid-0.6.0.tgz](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/fluid.tgz) 安装包。
+>
 - 请参见 [安装](https://cloud.tencent.com/document/product/436/59493) 文档完成 Fluid 安装。
 
 ## 创建 Dataset 和 GooseFSRuntime
 
-1. 创建一个 resource.yaml 文件，里面包含以下两部分：
- - 包含数据集及 ufs 的 dataset 信息，并创建一个 Dataset CRD 对象，描述了数据集的来源，例如示例中的 test-bucket。
+1. 创建一个 resource.yaml 文件，里面包含如下内容：
+ - 包含数据集及 ufs 的 dataset 信息。
+ - 创建一个 Dataset CRD 对象，描述了数据集的来源，例如示例中的 test-bucket。
  - 创建一个 GooseFSRuntime，相当于启动一个 GooseFS 的集群来提供缓存服务。
 
- ```yaml
+ <dx-codeblock>
+::: yaml yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
 metadata:
@@ -26,6 +29,7 @@ spec:
         fs.AbstractFileSystem.cosn.impl: org.apache.hadoop.fs.CosN
         fs.cos.app.id: <COS_APP_ID>
   name: hadoop
+	
 ---
 apiVersion: data.fluid.io/v1alpha1
 kind: GooseFSRuntime
@@ -40,10 +44,11 @@ spec:
         quota: 100G
         high: "0.9"
         low: "0.2"
-```
- // TODO
-为了 AK 等密钥信息的安全性，建议使用 secret 来保存相关密钥信息，secret 使用请参考 [使用参数加密](https://cloud.tencent.com/document/product/436/59502)。
-```yaml
+:::
+</dx-codeblock>
+为了 AK 等密钥信息的安全性，建议使用 secret 来保存相关密钥信息，secret 使用请参考 <a href="https://cloud.tencent.com/document/product/436/59502">使用参数加密</a>。
+<dx-codeblock>
+::: yaml yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -90,18 +95,20 @@ spec:
         quota: 100G
         high: "0.9"
         low: "0.2"
-```
- Dataset：
- - mountPoint：表示挂载 UFS 的路径，路径中不需要包含 endpoint 信息。
- - options：在 options 需要指定存储桶的必要信息，具体可参考 [API 术语信息](https://cloud.tencent.com/document/product/436/7751)。
-  - fs.cos.accessKeyId/fs.cos.accessKeySecret：拥有权限访问该 COS 存储桶的密钥信息。
+:::
+</dx-codeblock>
+ 
+ - Dataset：
+    - mountPoint：表示挂载 UFS 的路径，路径中不需要包含 endpoint 信息。
+    - options：在 options 需要指定存储桶的必要信息，具体可参考 [API 术语信息](https://cloud.tencent.com/document/product/436/7751)。
+    - fs.cos.accessKeyId/fs.cos.accessKeySecret：拥有权限访问该 COS 存储桶的密钥信息。
  - GooseFSRuntime：更多 API 可参考 [api_doc.md](https://github.com/fluid-cloudnative/fluid/blob/master/docs/en/dev/api_doc.md)。
- - replicas：表示创建 GooseFS 集群节点的数量。
- - mediumtype： GooseFS 支持 HDD/SSD/MEM 三种类型缓存介质，提供多级缓存配置。
- - path：存储路径。
- - quota：缓存最大容量。
- - high：水位上限大小。
- - low：水位下限大小。
+    - replicas：表示创建 GooseFS 集群节点的数量。
+    - mediumtype： GooseFS 支持 HDD/SSD/MEM 三种类型缓存介质，提供多级缓存配置。
+    - path：存储路径。
+    - quota：缓存最大容量。
+    - high：水位上限大小。
+    - low：水位下限大小。
 2.  执行命令，创建 GooseFSRuntime：
 ```shell
 $ kubectl create -f resource.yaml
@@ -138,8 +145,7 @@ hadoop-fuse-svz4s         1/1     Running     0          23h
 hadoop-master-0           1/1     Running     0          23h
 hadoop-worker-2fpbk       1/1     Running     0          23h
 ```
-
-```shell
+ ```shell
 $ kubectl exec -ti hadoop-goosefs-master-0 bash
 goosefs fs ls /hadoop
 ```
@@ -152,7 +158,6 @@ cd /runtime-mnt/goosefs/<namespace>/<DatasetName>/goosefs-fuse/<DatasetName>
 ## 创建应用容器体验加速效果
 
 您可以通过创建应用容器来使用 GooseFS 加速服务，或者提交机器学习作业来进行体验相关功能。如下，创建一个应用容器 app.yaml 用于使用该数据集。我们将多次访问同一数据，并比较访问时间来展示 GooseFSRuntime 的加速效果。
-
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -171,11 +176,11 @@ spec:
         claimName: hadoop
 ```
 
-1. 使用 kubectl 完成创建应用
+1. 使用 kubectl 完成创建应用。
 ```shell
 $ kubectl create -f app.yaml
 ```
-2. 查看文件大小
+2. 查看文件大小。
 ```shell
 $ kubectl exec -it demo-app -- bash
 $ du -sh /data/hadoop/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2 

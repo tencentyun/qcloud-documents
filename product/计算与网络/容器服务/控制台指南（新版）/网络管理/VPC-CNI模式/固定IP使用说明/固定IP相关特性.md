@@ -15,7 +15,7 @@ kubectl get vip
 由于网络组件在集群范围内分配 IP 时会依据 `VpcIP` 信息找寻可用 IP，因此固定 IP 的地址若不使用需要及时回收（目前默认策略是永不回收），否则会导致 IP 浪费而无 IP 可用。本文介绍过期回收、手动回收及级联回收的 IP 回收方法。
 
 ### 过期回收（默认支持）
-在 [创建集群](https://cloud.tencent.com/document/product/457/32189) 页面，容器网络插件选择【VPC-CNI】模式并且勾选【开启支持】固定Pod IP 支持，如下图所示：
+在 [创建集群](https://cloud.tencent.com/document/product/457/32189) 页面，容器网络插件选择**VPC-CNI**模式并且勾选**开启支持**固定Pod IP 支持，如下图所示：
 ![](https://main.qcloudimg.com/raw/ad1290436fa0ff66d8bb17abd2bab161.png)
 在高级设置中设置 IP 回收策略，可以设置 Pod 销毁后多少秒回收保留的固定 IP。如下图所示：
 ![](https://main.qcloudimg.com/raw/a9adcfc9618452c4afd45dfdd27c050f.png)
@@ -140,5 +140,5 @@ kubectl get vip -oyaml
 ![](https://main.qcloudimg.com/raw/d7df85621d613f30e5109395de4c92bb.png)
 
 #### 解决方案
-目前腾讯云弹性网卡限制一个 VPC 下面最多绑定50个弹性网卡。您可 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 申请提高配额，配额按地域生效。
+目前腾讯云弹性网卡限制一个 VPC 下面最多绑定50个弹性网卡。您可 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 申请提高配额，配额按地域生效。
 

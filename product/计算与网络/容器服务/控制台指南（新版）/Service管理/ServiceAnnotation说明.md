@@ -65,9 +65,9 @@ Serice Local 模式下仅绑定有 Pod 存在的节点。
 :::
 ::: service.cloud.tencent.com/tke-service-config-auto
 **说明：**
-通过该注解可自动创建 TkeServiceConfig。
+通过该注解可自动创建 TKEServiceConfig。
 **使用示例：**
-使用方式详情见 [Service 与 TkeServiceConfig 关联行为](https://cloud.tencent.com/document/product/457/45490#service-.E4.B8.8E-tkeserviceconfig-.E5.85.B3.E8.81.94.E8.A1.8C.E4.B8.BA)。
+使用方式详情见 [Service 与 TKEServiceConfig 关联行为](https://cloud.tencent.com/document/product/457/45490#service-.E4.B8.8E-tkeserviceconfig-.E5.85.B3.E8.81.94.E8.A1.8C.E4.B8.BA)。
 :::
 ::: service.kubernetes.io/loadbalance-nat-ipv6
 **说明：**
@@ -95,6 +95,12 @@ Serice Local 模式下仅绑定有 Pod 存在的节点。
 - 创建 NAT64 IPv6 实例：service.kubernetes.io/service.extensiveParameters: '{"AddressIPVersion":"IPV6"}' 
 - 购买电信负载均衡：service.kubernetes.io/service.extensiveParameters: '{"VipIsp":"CTCC"}'
 
+:::
+::: service.cloud.tencent.com/enable-grace-shutdown
+**说明：**
+支持 CLB 直连模式的优雅停机。
+**使用示例：**
+仅在直连模式下支持，需要配合使用 `service.cloud.tencent.com/direct-access`，使用方式详情见 [Service 优雅停机](https://cloud.tencent.com/document/product/457/60064)。
 :::
 </dx-accordion>
 
