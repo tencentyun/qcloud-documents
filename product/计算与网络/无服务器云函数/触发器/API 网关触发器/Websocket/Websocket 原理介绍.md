@@ -253,7 +253,7 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 
 #### 服务端主动断开连接
 
-参考【[下行数据回调](#DownlinkDataCallback)】，在函数中发起 Request 请求，将以下数据结构封装在 Body 中，并以 POST 方法发送给 API 网关的反向推向地址。
+参考 **[下行数据回调](#DownlinkDataCallback)**，在函数中发起 Request 请求，将以下数据结构封装在 Body 中，并以 POST 方法发送给 API 网关的反向推向地址。
 ```
 {
   "websocket":{
