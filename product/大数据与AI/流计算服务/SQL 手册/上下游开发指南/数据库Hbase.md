@@ -129,15 +129,15 @@ HBase 将所有的数据存为字节数组。读写操作时需要将数据进�
   </tr>
     <tr>
     <td> DATE </td>
-    <td>将日期转换成自1970.01.01以来的天数 int 表示，用 int 表示，并通过 byte[] toBytes(int val) 转换成字节数组。</td>
+    <td>将日期转换成自1970.01.01以来的天数，用 int 表示，并通过 byte[] toBytes(int val) 转换成字节数组</td>
   </tr>
   <tr>
     <td> TIME </td>
-    <td>将时间转换成自00:00:00以来的毫秒数 int 表示，用 int 表示，并通过 byte[] toBytes(int val) 转换成字节数组。</td>
+    <td>将时间转换成自00:00:00以来的毫秒数，用 int 表示，并通过 byte[] toBytes(int val) 转换成字节数组</td>
   </tr>
   <tr>
     <td> TIMESTAMP </td>
-    <td>将时间戳转换成自1970-01-01 00:00:00以来的毫秒数 long 表示，用 int 表示，并通过 byte[] toBytes(int val) 转换成字节数组。</td>
+    <td>将时间戳转换成自1970-01-01 00:00:00以来的毫秒数，用 long 表示，并通过 byte[] toBytes(long val) 转换成字节数组</td>
   </tr>
   <tr>
     <td> ARRAY </td>
