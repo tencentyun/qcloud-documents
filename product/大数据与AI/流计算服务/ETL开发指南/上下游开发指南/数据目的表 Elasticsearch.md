@@ -1,13 +1,13 @@
 ## 介绍
 Elasticsearch 数据目的表支持将数据写入到 Elasticsearch 中。
->!Elasticsearch 数据目的表暂时只支持 Elasticsearch 6或 Elasticsearch 7版本。
+>!Elasticsearch 数据目的表暂时只支持 Elasticsearch 6 或 Elasticsearch 7 版本。
 
 ## 示例
 创建 ETL 作业后，进入**开发调试**页面。在数据目的表处单击**添加**。
 ![](https://main.qcloudimg.com/raw/ed72b4cfa8ed243f6e7c0c8387d8ee8b.png)
 根据示例正确填写 Elasticsearch 目的表相应信息。
 
->!Elasticsearch 6 与 Elasticsearch 7 在配置上有一些不同，Elasticsearch 6 需要配置 document-type 而 Elasticsearch 7 不需要。
+>!Elasticsearch 6 版本与 Elasticsearch 7 版本在配置上有一些不同，Elasticsearch 6 版本需要配置 document-type 而 Elasticsearch 7 版本不需要。
 
 ![](https://main.qcloudimg.com/raw/42619970125f288ead44c2d05134e75f.png)
 动态 index 功能支持用户将数据写入到按时间切分的不同 index 中去，其中 date_field 指目标表中的某个确定的时间类型字段（DATE 或是 TIMESTAMP）yyyy-MM-dd 表示时间格式化后的格式，具体语法可以参考 [相关 JDK 文档](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html)。
