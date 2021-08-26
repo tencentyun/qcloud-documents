@@ -1,11 +1,8 @@
 ## 介绍
-
 Elasticsearch 数据目的表支持将数据写入到 Elasticsearch 中。
-
 >!Elasticsearch 数据目的表暂时只支持 Elasticsearch 6或 Elasticsearch 7版本。
 
 ## 示例
-
 创建 ETL 作业后，进入**开发调试**页面。在数据目的表处单击**添加**。
 ![](https://main.qcloudimg.com/raw/ed72b4cfa8ed243f6e7c0c8387d8ee8b.png)
 根据示例正确填写 Elasticsearch 目的表相应信息。
@@ -17,7 +14,7 @@ Elasticsearch 数据目的表支持将数据写入到 Elasticsearch 中。
 
 下方的下拉框会查询出 Elasticsearch 现存 index 中符合格式的 index 列表，选择一个确定的 index 会读取对应的字段名与字段类型，方便字段映射规则的填写。
 ![](https://main.qcloudimg.com/raw/7a81000fd1d5a06d6a5d65b9d913e19e.png)
-如信息填写无误，ETL 作业会自动获取数据目的表中所有字段的名称和类型（前提为数据源表已正确录入)。
+如信息填写无误，ETL 作业会自动获取数据目的表中所有字段的名称和类型（前提为数据源表已正确录入）。
 
 由于 Elasticsearch 具有动态生成字段能力，因此对于 Elasticsearch 数据目的表，我们同样也提供了能够自由定义数字字段与类型的能力，如下图的 capture_time 字段，注意自定义的字段类型必须要与数据源表的类型一致，否则启动任务时将会报错。
 ![](https://main.qcloudimg.com/raw/193774754f8e9511909b621324c7a49e.png)
