@@ -39,9 +39,8 @@
 您可后续前往 [DNSPod 控制台](https://console.dnspod.cn/dns/list) 管理解析记录。
 
 
->!请确保当前账号有对应域名的解析权限：
->- 若为子账号，请联系主账号授权：拥有对应 CDN 加速域名的写权限 + QcloudDNSPodFullAccess 权限。
->- 若为协作者，请联系主账号 [域名共享](https://docs.dnspod.cn/dns/5f2d4664e8320f1a740d9cc1/)。
+>!请确保当前账号有对应域名的管理权限：
+>若为子账号或协作者账号，请联系主账号授权。例如：授权对应 CDN 加速域名的写权限 + QcloudDNSPodFullAccess 权限。
 
 ### 完成 CNAME 设置
 
