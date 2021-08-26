@@ -1,5 +1,7 @@
 ## 介绍
+
 MySQL 数据源表支持对 MySQL 数据库的全量和增量读取，并保证 Exactly Once 语义。MySQL 数据源表底层使用 Debezium 来做 CDC（Change Data Capture）。其工作机制如下：
+
 1. 获取一个全局读锁，从而阻塞住其他数据库客户端的写操作。
 2. 开启一个可重复读语义的事务，来保证后续在同一个事务内读操作都是在一个一致性快照中完成的。
 3. 读取 Binlog 的当前位置。
@@ -10,15 +12,14 @@ MySQL 数据源表支持对 MySQL 数据库的全量和增量读取，并保证 
 Flink 作业运行期间会周期性执行快照，记录下 Binlog 位置，当作业崩溃恢复时，便会从之前记录的 Binlog 点继续处理，从而保证 Exactly Once 语义。
 
 ## 示例
-创建 ETL 作业后，进入【开发调试】页面，在数据源表处单击【添加】。
+创建 ETL 作业后，进入**开发调试**页面，在数据源表处单击**添加**。
 ![](https://main.qcloudimg.com/raw/98805c5711b5de7fcf5cc88327928cee.png)
 根据示例正确填写 MySQL 数据源表相应信息。
-![](https://main.qcloudimg.com/raw/205ee203d616346339f8eca2938e582d.png)
+![](https://main.qcloudimg.com/raw/a50e86b8df13637e02d66eac7afa3454.png)
 如信息填写无误，ETL 作业会自动获取数据源表中所有字段的名称和类型。
 ![](https://main.qcloudimg.com/raw/838c4911037f0003509ac09e26eed218.png)
 
 ## 类型映射
-
 
 <table>
   <tr>
@@ -124,10 +125,13 @@ Flink 作业运行期间会周期性执行快照，记录下 Binlog 位置，当
   </tr>
 </table>
 
-
 ## 注意事项
 ### 用户权限
 用于同步的源数据库的用户必须拥有以下权限 SHOW DATABASES、REPLICATION SLAVE、REPLICATION CLIENT、SELECT 和 RELOAD。
 
 ### 数据库参数设置
 binlog_row_image 参数的参数运行值应当设置为 FULL。
+
+## WITH 参数
+MySQL 数据源表基于数据库 MySQL CDC 开发，两者具有相同的 WITH 参数，具体参数配置方式可参见 [数据库 MySQL CDC](https://cloud.tencent.com/document/product/849/52698)。
+
