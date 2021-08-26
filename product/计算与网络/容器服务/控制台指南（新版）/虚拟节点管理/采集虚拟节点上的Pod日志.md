@@ -56,7 +56,7 @@ spec:
       namespace: default                    ## 采集容器的kubernetes命名空间，如果不指定，代表所有命名空间
       allContainers: false                  ## 是否采集指定命名空间中的所有容器的标准输出
       container: xxx                        ## 采集日志的容器名，此处可填空
-      includeLabels:                         ## 采集包含指定label的Pod
+      includeLabels:                        ## 采集包含指定label的Pod
         k8s-app: xxx                        ## 只采pod标签中配置"k8s-app=xxx"的pod产生的日志，与workloads、allContainers=true不能同时指定
       workloads:                            ## 要采集的容器的Pod所属的kubernetes workload
         namespace: prod                     ## workload的命名空间
@@ -67,7 +67,7 @@ spec:
     containerFile:                          ## 容器内文件
       namespace: default                    ## 采集容器的kubernetes命名空间，必须指定一个命名空间
       container: xxx                        ## 采集日志的容器名，此处可填*
-      includeLabels:                         ## 采集包含指定label的Pod
+      includeLabels:                        ## 采集包含指定label的Pod
         k8s-app: xxx                        ## 只采pod标签中配置"k8s-app=xxx"的pod产生的日志，与workload不能同时指定
       workload:                             ## 要采集的容器的Pod所属的kubernetes workload
         name: sample-app                    ## workload的名字                  
