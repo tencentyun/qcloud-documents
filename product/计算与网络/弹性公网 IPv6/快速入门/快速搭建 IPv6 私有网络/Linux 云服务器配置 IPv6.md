@@ -140,7 +140,7 @@ chmod +x ./config_ipv6.sh
 对于需要自动化配置 IPv6 实例的需求，例如大批量配置，建议您使用实例自定义数据配合脚本的方式来调用。详情请参见 [实例自定义数据](https://cloud.tencent.com/document/product/213/17525)。如下为脚本示例（假设是 RHEL 系列，Bash Shell 脚本）。
 
 > ?该示例仅对 eth0 进行配置，实际操作时注意修改为实际使用的网卡名。
-
+> 
 ```plaintext
 #!/bin/sh
 install_dir=/usr/sbin
@@ -229,12 +229,8 @@ sysctl -a | grep ipv6 | grep disable
 ![](https://main.qcloudimg.com/raw/866730d160b1f0b893b2c00cd0cb4257.png)
 9. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```plaintext
-# 若云服务器有多个网卡，请执行 dhclient -6 网卡名称，如 dhclient -6 eth0
-dhclient -6 或 dhclient -6 网卡名称
 ifconfig
 ```
-  >?如果 dhclient 获取地址失败，检查 cvm 内的防火墙/ip6tables 是否允许了 udp 546和547端口的 dhcp 协议报文。
-  >
  若出现以下报文说明成功获取 IPv6 地址。
  ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png) 
 10. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
@@ -301,13 +297,9 @@ service network restart
 systemctl restart network
 ```
 9. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
-	 ```plaintext
-# 若云服务器有多个网卡，请执行 dhclient -6 网卡名称，如 dhclient -6 eth0
- dhclient -6 或 dhclient -6 网卡名称
- ifconfig
- ```
-   >?如果 dhclient 获取地址失败，检查 cvm 内的防火墙/ip6tables 是否允许了 udp 546和547端口的 dhcp 协议报文。
-   >
+```plaintext
+ifconfig
+```
 若出现以下报文表示已成功获取到 IPv6 地址。
 ![](https://main.qcloudimg.com/raw/2e42f1a5e7b9672d60461fe05edfed52.png)
 10. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
@@ -339,17 +331,13 @@ net.ipv6.conf.default.disable_ipv6 = 0
 	3.  按 “Esc”，输入 “:wq”，保存文件并返回。
 4. 执行如下命令，对参数进行加载。
 ```plaintext
- sysctl -p
- ```
+sysctl -p
+```
 5. <span id="debianstep5" />依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```plaintext
-# 若云服务器有多个网卡，请执行 dhclient -6 网卡名称，如 dhclient -6 eth0
-dhclient -6 或 dhclient -6 网卡名称
 ifconfig
-若出现以下保存证明成功获取 IPv6 地址。
 ```
-   >?如果 dhclient 获取地址失败，检查 cvm 内的防火墙/ip6tables 是否允许了 udp 546和547端口的 dhcp 协议报文。
-   >
+若出现以下报文，证明成功获取 IPv6 地址。
 ![](https://main.qcloudimg.com/raw/cd5a2072c73307c79b7997bbd24cec13.png)
 6. Debian 8.2 系统默认为 ssh（22端口）开启 IPv6 监听，无需特殊配置，您可执行如下命令，进行查看。
 ```plaintext
@@ -430,8 +418,8 @@ gateway <IPv6网关>
   vi /etc/netplan/50-cloud-init.yaml
   ```
  2. 添加 IPv6 地址和网关配置。
- > !只添加 addresses 和 gateway6。
- >
+> !只添加 addresses 和 gateway6。
+>
 ```plaintext
 network:
 version: 2
@@ -537,22 +525,21 @@ default <IPv6网关> - -
 
 
 ### SUSE 10 配置 IPv6[](id:suse)
-
 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 运行如下命令，并做相应修改，开启 IPv6 功能支持。
 ```plaintext
 vi /etc/sysctl.conf
 ```
- 做如下修改：
+做如下修改：
 ```plaintext
- #net.ipv6.conf.all.disable_ipv6 = 1
- #net.ipv6.conf.default.disable_ipv6 = 1
- #net.ipv6.conf.lo.disable_ipv6 = 1
+#net.ipv6.conf.all.disable_ipv6 = 1
+#net.ipv6.conf.default.disable_ipv6 = 1
+#net.ipv6.conf.lo.disable_ipv6 = 1
 
- net.ipv6.conf.all.disable_ipv6 = 0
- net.ipv6.conf.default.disable_ipv6 = 0
- net.ipv6.conf.lo.disable_ipv6 = 0
- ```
+net.ipv6.conf.all.disable_ipv6 = 0
+net.ipv6.conf.default.disable_ipv6 = 0
+net.ipv6.conf.lo.disable_ipv6 = 0
+```
 3. 运行`sysctl -p`使配置生效。
 4. 配置 IPv6，SUSE 10镜像类型的云服务器 IPv6 操作步骤有 [脚本方式](#jbfs1) 和 [手动方式](#sdfs1)。请根据实际情况选择配置方式。
 **脚本方式**[](id:jbfs1)
@@ -578,12 +565,12 @@ netip=$(echo $ip6 | awk -F":" '{print $1":"$2":"$3":"$4}')
 	echo "default $netip::1 - $ifcfg" >> /etc/sysconfig/network/routes
 	service network restart
 ```
- 2. 执行脚本，举例如下。
+  2. 执行脚本，举例如下。
 ```plaintext
 ./test.sh eth0 0 2402:4e00:1000:4200:0:8f0c:d527:b985 64
 ```
- **手动方式**[](id:sdfs1)
- 1. 运行如下脚本，打开网卡配置文件。
+**手动方式**[](id:sdfs1)
+  1. 运行如下脚本，打开网卡配置文件。
 ```plaintext
 vi /etc/sysconfig/network/ifcfg-eth0
 ```
@@ -604,18 +591,18 @@ PREFIXLEN_1=<子网前缀长度>
 IPADDR_2=<IPv6地址2>
 PREFIXLEN_2=<子网前缀长度>
 ```
-   2. 运行`vi /etc/sysconfig/network/routes`打开路由配置文件，添加配置项。
+  2. 运行`vi /etc/sysconfig/network/routes`打开路由配置文件，添加配置项。
       ```plaintext
       default <IPv6网关> - -
       ```
-   3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
+  3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
 5. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6) 开启 SSH 的 IPv6 功能。
 
 ### FreeBSD 11 配置 IPv6[](id:Freebsd11)
 FreeBSD 11 配置 IPv6 有 [脚本方式](#jbfs2) 和 [手动方式](#sdfs2)，请根据实际情况选择配置方式。
 
 #### 脚本方式[](id:jbfs2)
-> !脚本方式配置会重启网络，请谨慎执行。
+>!脚本方式配置会重启网络，请谨慎执行。
 > 
  1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
  2. 将如下脚本拷贝到 shell 文件中，这里以“test.sh”为例。
