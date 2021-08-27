@@ -8,7 +8,7 @@
 | 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | &#10003;  | &#10003;                                                            |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 示例代码
 针对开发者的接入反馈的高频问题，腾讯云提供有更加简洁的 API-Example 工程，方便开发者可以快速的了解相关 API 的使用，欢迎使用。
@@ -21,7 +21,7 @@
 ## 对接攻略
 [](id:step1)
 ### 步骤1：下载 SDK 开发包
-[下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/1449/56987?!preview&!editLang=zh) 将 SDK 嵌入您的 App 工程中。
+[下载](https://cloud.tencent.com/document/product/1449/56978) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/1449/56987) 将 SDK 嵌入您的 App 工程中。
 
 [](id:step2)
 ### 步骤2：添加渲染 View
@@ -165,7 +165,7 @@ mLivePlayer.setCacheParams(5.0f, 5.0f);
 //设置完成之后再启动播放
 ```
 
->? 更多关于卡顿和延迟优化的技术知识，请参见 [优化视频卡顿](https://cloud.tencent.com/document/product/1449/58943?!preview&!editLang=zh)。
+>? 更多关于卡顿和延迟优化的技术知识，请参见 [优化视频卡顿](https://cloud.tencent.com/document/product/1449/58943)。
 
 [](id:sdklisten)
 ## SDK 事件监听

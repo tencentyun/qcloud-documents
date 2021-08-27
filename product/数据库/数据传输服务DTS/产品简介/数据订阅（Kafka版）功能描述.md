@@ -8,11 +8,12 @@
 ## 典型应用场景
 #### 数据归档存储
 使用 DTS 的数据订阅特性，您可将云数据库的增量更新数据实时地流式推送到归档数据库或数据仓库。
-<img src="https://mc.qcloudimg.com/static/img/6bc58a2088159ccb0264765a4f2e922e/DTS-scenarios4.png" style="zoom:80%;" />
+<img src="https://main.qcloudimg.com/raw/7a33220dab9880544d723535e7a51351.png" style="zoom:90%;" />
 
 ## 约束限制
 - 订阅的消息内容目前默认保存时间为最近1天，超过保存时间的数据会被清除，请用户及时消费，避免数据在消费完之前就被清除。
 - 数据消费的地域需要与订阅实例的地域相同。
+- 对 MySQL、MariaDB、TDSQL MySQL 的数据订阅，当前不支持 geometry 相关的数据类型。 
 
 ## 支持的订阅类型
 DTS 支持订阅对象选择的粒度为库、表，具体支持如下三种订阅类型。

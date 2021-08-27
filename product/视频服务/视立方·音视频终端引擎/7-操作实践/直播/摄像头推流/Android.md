@@ -6,7 +6,7 @@
 | 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | -  | &#10003;  |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 功能概述
 
@@ -30,11 +30,11 @@
 [](id:step1)
 ### 1. 下载 SDK 开发包
 
-[下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/1449/56987?!preview&!editLang=zh) 将 SDK 嵌入您的 App 工程中。
+[下载](https://cloud.tencent.com/document/product/1449/56978) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/1449/56987) 将 SDK 嵌入您的 App 工程中。
 
 [](id:step2)
 ### 2. 给 SDK 配置 License 授权
-单击 [License 申请](https://cloud.tencent.com/document/product/1449/56981?!preview&!editLang=zh) 获取测试用 License，您会获得两个字符串：其中一个字符串是 licenceURL ，另一个字符串是解密 licenceKey。
+单击 [License 申请](https://cloud.tencent.com/document/product/1449/56981) 获取测试用 License，您会获得两个字符串：其中一个字符串是 licenceURL ，另一个字符串是解密 licenceKey。
 在您的 App 调用企业版 SDK 相关功能之前（建议在 Application类中）进行如下设置：
 ```java
 public class MApplication extends Application {
@@ -120,7 +120,7 @@ int ret = mLivePusher.startPush(rtmpURL.trim());
 
 [](id:step7)
 ### 7. 设定画面清晰度  
-调用 V2TXLivePusher 中的 [setVideoQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a2695806cb6c74ccce4b378d306ef0a02) 接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而 `setVideoQuality` 设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/1449/57016?!preview&!editLang=zh)。
+调用 V2TXLivePusher 中的 [setVideoQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a2695806cb6c74ccce4b378d306ef0a02) 接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而 `setVideoQuality` 设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/1449/57016)。
 
 [](id:step8)
 ### 8. 美颜美白和红润特效    

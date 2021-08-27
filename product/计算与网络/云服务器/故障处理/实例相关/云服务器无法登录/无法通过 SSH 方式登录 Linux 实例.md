@@ -19,7 +19,8 @@
 ```
 netstat -tnlp | grep sshd
 ```
- - 若返回如下结果，即表示 sshd 进程已监听22端口，请通过 [在线支持](https://cloud.tencent.com/online-service?from=connect-us) 进行反馈。
+ - 若返回如下结果，即表示 sshd 进程已监听22端口，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 进行反馈。
 ```
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1015/sshd  
 ```
@@ -30,11 +31,13 @@ tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      
 ```
 systemctl status sshd.service
 ```
- - 如果已启动，请通过 [在线支持](https://cloud.tencent.com/online-service?from=connect-us) 进行反馈。
+ - 如果已启动，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 进行反馈。
  - 如果未启动，请执行以下命令，启动 sshd 服务，再重新使用 SSH 登录 Linux 实例。
 ```
 systemctl start sshd
 ```
 
-如果进行以上操作后，您的实例仍无法连接，建议您通过 [在线支持](https://cloud.tencent.com/online-service?from=connect-us) 进行反馈。
+如果进行以上操作后，您的实例仍无法连接，建议您通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 进行反馈。
 

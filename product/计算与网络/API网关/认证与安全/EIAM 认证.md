@@ -35,14 +35,14 @@ EIAM 和腾讯云 API 网关通过 OAuth2.0 协议深度整合，您可以便捷
 
 >?您可以点击以下页签，查看两种接入方式的配置项：
 <dx-tabs>
-::: 新建\sEIAM\s应用
+::: 新建 EIAM 应用
 | 参数           | 是否必填 | 说明                                                         |
 | -------------- | -------- | ------------------------------------------------------------ |
 | 认证与鉴权     | 是       | 提供两种认证与鉴权方式：“只认证不鉴权”与“既认证又鉴权”：<li>认证：提供用户名密码，做身份认证；</li><li>鉴权：通过用户名判断是否有访问网关资源的权限。</li> |
 | EIAM 应用类型  | 是       | 提供两种应用类型：“非 Web 客户端”与“Web 客户端”：<li>非 Web 客户端：适用于非 Web 客户端发起的API调用，如服务器端、C/S架构系统客户端、App 客户端、小程序客户端，能支持以 POST 方式发起请求，需要自行请求授权 API 获取 Token，再使用 Token 请求业务 API；</li><li>Web 客户端：适用于 Web 客户端发起的 API 调用，如浏览器、客户端应用 Web Viewer 等 Web 客户端，能支持以 Web 重定向方式接收返回信息。</li> |
 | Token 有效时间 | 是       | 单个签发的 Token 有效期，超过有效期后，必须重新获取 Token。  |
 :::
-::: 选择已有\sEIAM\s应用
+::: 选择已有 EIAM 应用
 | 参数           | 是否必填 | 说明                                                         |
 | -------------- | -------- | ------------------------------------------------------------ |
 | 选择 EIAM 应用 | 是       | 从列表中选择一个已经创建好的 EIAM 应用建立绑定关系。         |
@@ -78,35 +78,36 @@ EIAM 和腾讯云 API 网关通过 OAuth2.0 协议深度整合，您可以便捷
 ### 步骤4：使用用户信息调用 API 网关 API
 
 使用 [步骤2](#step2) 中创建的用户的账号和密码，对 API 网关 API 发起访问。
+>?您可以点击以下页签，查看非 Web 客户端和 Web 客户端的调用方法。
 
-**非Web客户端**
-1. 请求授权 API 获取id token。
-   Query请求参数username：为[步骤2](#step2) 中创建的用户账号。
-   Query请求参数password： [步骤2](#step2) 中创建的用户密码。
-![](https://main.qcloudimg.com/raw/58a7a5aff138f2acca83859f5dab34ad.png)
+<dx-tabs>
+::: 非 Web 客户端
+1. 请求授权 API 获取 id token。
+   Query 请求参数 username：为 [步骤2](#step2) 中创建的用户账号。
+   Query 请求参数 password： 为 [步骤2](#step2) 中创建的用户密码。
 ![](https://main.qcloudimg.com/raw/aa53522a3084a8e7eb8a5db434cb00bc.png)
 
 2. 使用已获取的 Token 请求业务 API。
-   Header参数Authorization：格式为Bear id_token="<获取的Token内容>"
+   Header 参数 Authorization：格式为 `Bear id_token="<获取的Token内容>"`
+	```
+	curl http://service-xxxxxxxx-1234567890.gz.apigw.tencentcs.com/work -H'Authorization:Bearer id_token="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1OTIyNzk3MTAsImZvbyI6ImJhciIsImlhdCI6MTU5MjI3OTQxMCwianRpIjoiZlBGYlFZRkR4REx3d0lXTFl0aHBBQSIsIm5iZiI6MTU5MjI3OTQxMCwid3VwIjo5MH0.0JQquNRVCQ8n9hPV-mJi6Mku_7G3T1jFp68Sk2AYBijpzzBMQ1KOcREyo9G6QOpvdctynGOAPkL3cwqeTzkFhWgGj633pu_MdLjlectEBMGyVQIv6pL8OBMCHMQzTUTpHWJ_NoUkLpRLKGqZFFcXW8q7v4KeCbf8xHUa9OCH5VF2JxYOnFWDVgucSqao06r0Jaq64LDwKIhLw77ujheKpcBjRrf1kqoIpqk2qhb8CzxM36g_DawMadzKmX49dT-k7auNnI2xUtu5CZdXZ3lSmLeicXfGjc66rrH_acqUqipZRKeeQ5F3Ma467jPQaTeOKiCMHwS2_yp-sXNU2GzxOA"'
+	```
+	- 对于未授权的用户：
+	鉴权验证，返回403，“Access not authorized”，表明用户没有通过鉴权。
+	![](https://main.qcloudimg.com/raw/dbf69b0bbc346900c299bbf506abe4fc.png)
 
-```
-curl http://service-xxxxxxxx-1234567890.gz.apigw.tencentcs.com/work -H'Authorization:Bearer id_token="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1OTIyNzk3MTAsImZvbyI6ImJhciIsImlhdCI6MTU5MjI3OTQxMCwianRpIjoiZlBGYlFZRkR4REx3d0lXTFl0aHBBQSIsIm5iZiI6MTU5MjI3OTQxMCwid3VwIjo5MH0.0JQquNRVCQ8n9hPV-mJi6Mku_7G3T1jFp68Sk2AYBijpzzBMQ1KOcREyo9G6QOpvdctynGOAPkL3cwqeTzkFhWgGj633pu_MdLjlectEBMGyVQIv6pL8OBMCHMQzTUTpHWJ_NoUkLpRLKGqZFFcXW8q7v4KeCbf8xHUa9OCH5VF2JxYOnFWDVgucSqao06r0Jaq64LDwKIhLw77ujheKpcBjRrf1kqoIpqk2qhb8CzxM36g_DawMadzKmX49dT-k7auNnI2xUtu5CZdXZ3lSmLeicXfGjc66rrH_acqUqipZRKeeQ5F3Ma467jPQaTeOKiCMHwS2_yp-sXNU2GzxOA"'
-```
+	- 对于完成授权的用户：
+	鉴权验证，返回 API 后端调用结果，user001即可进行 API 的调用。
+	![](https://main.qcloudimg.com/raw/f7df9b839b44744af1909c120b435337.png)
+:::
+::: Web 客户端
+1. 在浏览器输入 API 访问地址，可以看到弹出登录页面：
+	<img src="https://main.qcloudimg.com/raw/eef8349bdc4aa266c59545be7bc0f95f.png" width="450px">
+2. 在登录页面中输入步骤2设置的用户登录账号和密码，即可进行 API 的调用。
+:::
+</dx-tabs>
 
-- 对于未授权的用户：
-鉴权验证，返回403，“Access not authorized”，表明用户没有通过鉴权。
-![](https://main.qcloudimg.com/raw/dbf69b0bbc346900c299bbf506abe4fc.png)
 
-- 对于完成授权的用户：
-鉴权验证，返回API后端调用结果，user001即可进行 API 的调用。
-![](https://main.qcloudimg.com/raw/f7df9b839b44744af1909c120b435337.png)
-
-**Web客户端**
-
-1. 在浏览器输入API访问地址，可以看到弹出登录页面；
-![](https://main.qcloudimg.com/raw/eef8349bdc4aa266c59545be7bc0f95f.png)
-
-2. 在登录页面中输入步骤2设置的用户登陆账号和密码，即可进行 API 的调用。
 
 ## 注意事项
 

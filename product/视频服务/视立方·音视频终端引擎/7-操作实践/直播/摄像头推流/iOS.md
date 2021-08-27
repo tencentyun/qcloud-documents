@@ -6,7 +6,7 @@
 | 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | -  | &#10003;  |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 功能概述
 摄像头推流，是指采集手机摄像头的画面以及麦克风的声音，进行编码之后再推送到直播云平台上。腾讯云视立方 LiteAVSDK 通过 V2TXLivePusher 接口提供摄像头推流能力，如下是 LiteAVSDK 的简单版 Demo 中演示摄像头推流的相关操作界面：
@@ -27,11 +27,11 @@
 ## 功能对接
 [](id:step1)
 ### 1. 下载 SDK 开发包
-[下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/1449/56986?!preview&!editLang=zh) 将 SDK 嵌入您的 App 工程中。
+[下载](https://cloud.tencent.com/document/product/1449/56978) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/1449/56986) 将 SDK 嵌入您的 App 工程中。
 
 [](id:step2)
 ### 2. 给 SDK 配置 License 授权
-单击 [License 申请](https://cloud.tencent.com/document/product/1449/56981?!preview&!editLang=zh) 获取测试用的 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
+单击 [License 申请](https://cloud.tencent.com/document/product/1449/56981) 获取测试用的 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
 在您的 App 调用 LiteAVSDK 的相关功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置：
 ```objc
 @import TXLiteAVSDK_Professional;
@@ -74,9 +74,9 @@
 
 > ! 如果要给 view 增加动画效果，需要修改 view 的 transform 属性而不是 frame 属性。
 >```objectivec
-  [UIView animateWithDuration:0.5 animations:^{
-            _localView.transform = CGAffineTransformMakeScale(0.3, 0.3); //缩小1/3
-        }];
+[UIView animateWithDuration:0.5 animations:^{
+	_localView.transform = CGAffineTransformMakeScale(0.3, 0.3); //缩小1/3
+}];
 ```
 
 [](id:step5)
@@ -113,7 +113,7 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";
 
 [](id:step7)
 ### 7. 设定画面清晰度
-调用 V2TXLivePusher 中的 [setVideoQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a0b08436c1e14a8d7d9875fae59ac6d84) 接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而 `setVideoQuality` 设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/1449/57016?!preview&!editLang=zh)。
+调用 V2TXLivePusher 中的 [setVideoQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a0b08436c1e14a8d7d9875fae59ac6d84) 接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而 `setVideoQuality` 设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/1449/57016)。
 
 [](id:step8)
 ### 8. 美颜美白和红润特效
@@ -228,7 +228,7 @@ V2TXLivePusher 默认推出的是竖屏分辨率的视频画面，如果希望�
                 @"您当前的网络环境不佳，请尽快更换网络保证正常直播" forDuration:5];
         }
     });
-      }
+}
 :::
 </dx-codeblock>
 

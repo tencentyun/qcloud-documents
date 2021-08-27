@@ -1,6 +1,6 @@
 ## 概述
 
-单个 master 的稳定性可能较低，在一些线上提供服务的场景，需要使用多 master 来保证容错率。GooseFSRuntme 提供以 3 master 的形式来提供容错，通过 Raft 协议来进行选举，raft 是工程上使用较为广泛的强一致性、去中心化、高可用的分布式协议。
+单个 master 的稳定性可能较低，在一些线上提供服务的场景，需要使用多 master 来保证容错率。GooseFSRuntime 提供以 3 master 的形式来提供容错，通过 Raft 协议来进行选举，raft 是工程上使用较为广泛的强一致性、去中心化、高可用的分布式协议。
 
 下面将为您简单地介绍上述特性。
 
@@ -15,7 +15,6 @@ csi-nodeplugin-fluid-fwgjh                  2/2     Running   0          8h
 csi-nodeplugin-fluid-ll8bq                  2/2     Running   0          8h
 csi-nodeplugin-fluid-dhz7d                  2/2     Running   0          8h
 dataset-controller-5b7848dbbb-n44dj         1/1     Running   0          8h
-jindoruntime-controller-654fb74447-cldsv    1/1     Running   0          8h
 ```
 
 通常来说，您会看到一个名为 `dataset-controller` 的 Pod、一个名为 `goosefsruntime-controller` 的 Pod 和多个名为 `csi-nodeplugin` 的 Pod 正在运行。其中，`csi-nodeplugin` 这些 Pod 的数量取决于您的 Kubernetes 集群中结点的数量。
@@ -43,7 +42,6 @@ NAME                       STATUS   ROLES    AGE     VERSION
 
 
 ### 检查待创建的 Dataset 资源对象
-
 ```shell
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
@@ -54,8 +52,8 @@ spec:
     - mountPoint: https://mirrors.tuna.tsinghua.edu.cn/apache/hbase/stable/
       name: hbase
 ```
-TODO
->? mountPoint 这里为了方便用户进行实验使用的是 Web UFS，使用 COS 作为 UFS 可见 []()。
+
+>? 为了方便用户进行测试，mountPoint 这里使用的是 Web UFS，使用 COS 作为 UFS 可参见 [使用 GooseFS 挂载 COS（COSN）](https://cloud.tencent.com/document/product/436/56413#.E4.BD.BF.E7.94.A8-goosefs-.E6.8C.82.E8.BD.BD-cos.EF.BC.88cosn.EF.BC.89-.E6.88.96.E8.85.BE.E8.AE.AF.E4.BA.91-hdfs.EF.BC.88chdfs.EF.BC.89)。
 >
 
 ### 创建 Dataset 资源对象
@@ -66,7 +64,6 @@ dataset.data.fluid.io/hbase created
 ```
 
 ### 检查待创建的 GooseFSRuntime 资源对象
-
 ```shell
 apiVersion: data.fluid.io/v1alpha1
 kind: GooseFSRuntime
@@ -85,13 +82,15 @@ spec:
     replicas: 3
 ```
 
-我们通过指定 `spec.master.replicas=3` 来开启 Raft 3 master 模式，目前只支持3个 master 形式。
+我们通过指定 `spec.master.replicas=3` 来开启 Raft 3 master 模式，该参数必须为正奇数。
 
 ### 创建GooseFSRuntime资源并查看状态
 
 ```shell
 $ kubectl create -f runtime.yaml
 goosefsruntime.data.fluid.io/hbase created
+
+
 
 $ kubectl get pod
 NAME                          READY   STATUS    RESTARTS   AGE

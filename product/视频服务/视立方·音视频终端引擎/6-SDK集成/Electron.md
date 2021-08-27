@@ -1,4 +1,4 @@
-本文主要介绍如何快速地将腾讯云视立方集成到您的项目中，不同版本的 SDK 集成方式都通用，按照如下步骤进行配置，就可以完成 SDK 的集成工作。下面以腾讯云视立方全功能版本为例：
+本文主要介绍如何快速地在 Electron 端将腾讯云视立方 SDK 集成到您的项目中，腾讯云视立方 SDK Electron 端仅**音视频通话 TRTC 版本**支持。按照如下步骤进行配置，就可以完成 SDK 在 Electron 端的集成工作。
 
 ## 版本支持
 本页文档所描述功能，在腾讯云视立方中支持情况如下：
@@ -8,7 +8,8 @@
 | 支持情况 | - | - | - | &#10003; | - | - |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
+
 
 ## 支持的平台
 -  Windows（PC）
@@ -94,30 +95,30 @@ $ npm install native-ext-loader@latest --save-dev
 ### 操作说明
 1. 首先使 `webpack.config.js` 在构建时可以接收名为 `--target_platform` 的命令行参数，以使代码构建过程按不同的目标平台特点正确打包，在 `module.exports` 之前添加以下代码：
 ```
-	const os = require('os');
-	const targetPlatform = (function(){
-			let target = os.platform();
-			for (let i=0; i<process.argv.length; i++) {
-				if (process.argv[i].includes('--target_platform=')) {
-					target = process.argv[i].replace('--target_platform=', '');
-					break;
-				}
-			}
-			if (!['win32', 'darwin'].includes) target = os.platform();
-				return target;
-	})();
+const os = require('os');
+const targetPlatform = (function(){
+	let target = os.platform();
+	for (let i=0; i<process.argv.length; i++) {
+		if (process.argv[i].includes('--target_platform=')) {
+			target = process.argv[i].replace('--target_platform=', '');
+			break;
+		}
+	}
+	if (!['win32', 'darwin'].includes) target = os.platform();
+	return target;
+})();
 ```
 >! `os.platform()` 返回的结果中，"darwin" 表示 Mac 平台。"win32" 表示 Windows 平台，不论 64 位还是 32 位。
 2. 然后在 `rules` 选项中添加以下配置，`targetPlatform` 变量可以使 `rewritePath` 可以根据不同的目标平台切换不同的配置：
 ```js
 rules: [
-  { 
-			test: /\.node$/, 
-			loader: 'native-ext-loader', 
-			options: { 
-				rewritePath: targetPlatform === 'win32' ? './resources' : '../Resources' 
-			} 
-		},
+	{ 
+		test: /\.node$/, 
+		loader: 'native-ext-loader', 
+		options: { 
+			rewritePath: targetPlatform === 'win32' ? './resources' : '../Resources' 
+		} 
+	},
 ]
 ```
 	该配置的含义是：
@@ -232,7 +233,7 @@ $ npm run pack:win64
 
 ### 1. 防火墙有什么限制？
 
-由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/1449/58956?!preview)。
+由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/1449/58956)。
 
 ### 2. Electron 安装或打包异常
 

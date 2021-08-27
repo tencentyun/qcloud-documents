@@ -25,7 +25,7 @@ TKE 后续推出 VPC-CNI 网络模式，即为每个 Pod 插入一张弹性网�
 TKE 有两种方式启用 VPC-CNI：
 - 方式1：创建集群时选择 VPC-CNI 网络插件。如下图所示：
 ![](https://main.qcloudimg.com/raw/d3d84cfc2ede5be4c67d698c03b18c6a.png)
->! 使用 [方式1](#VPC-CNI) 启用 VPC-CNI 时，需要展开【高级设置】>【设置IP回收策略】。
+>! 使用 [方式1](#VPC-CNI) 启用 VPC-CNI 时，需要展开**高级设置** > **设置IP回收策略**。
 >
 - 方式2：创建集群时选择 Global Router 网络插件，在集群基本信息页面开启 VPC-CNI 模式（两种默认混用）。如下图所示：   
 ![](https://main.qcloudimg.com/raw/ab4d97e82fff662de4c7532beac46238.png)

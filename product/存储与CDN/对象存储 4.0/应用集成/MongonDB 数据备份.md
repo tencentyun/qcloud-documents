@@ -4,7 +4,7 @@ MongoDB 数据备份是腾讯云对象存储（Cloud Object Storage，COS）基�
 
 ## 注意事项
 
-- MongoDB 数据备份函数备份的是腾讯云 MongoDB 数据库的备份文件，若您此前并未开启 MongoDB 数据库备份，则无法执行备份函数。有关腾讯云 MongoDB 数据库备份的更多信息，可查看 [备份云数据库MongonDB](https://cloud.tencent.com/document/product/240/7108)。
+- MongoDB 数据备份函数备份的是腾讯云 MongoDB 数据库的备份文件，若您此前并未开启 MongoDB 数据库备份，则无法执行备份函数。有关腾讯云 MongoDB 数据库备份的更多信息，可查看 [备份云数据库 MongoDB](https://cloud.tencent.com/document/product/240/7108)。
 - 若您此前在对象存储控制台上为存储桶添加了 MongoDB 数据备份规则，可以在 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 上看到您所创建的 MongoDB 数据备份函数，请**不要**删除该函数，否则可能导致您的规则不生效。
 - 已上线云函数的地域均已支持 MongoDB 数据备份，包括有广州、上海、北京、成都、香港、新加坡、孟买、多伦多、硅谷等，更多支持地域可查看 [云函数产品文档](https://cloud.tencent.com/document/product/583)。
 
