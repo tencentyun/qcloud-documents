@@ -1,7 +1,7 @@
-腾讯云 BI 支持连接 MongoDB 数据源，进行数据查询、计算和分析。通过输入 URL、用户名和密码成功连接 MongoDB 后，选择数据库中的某个集合，即可管理这个集合中的数据。产品支持管道操作（Pipeline）语句对集合进行过滤、分组、聚合和排序等操作。
+腾讯云商业智能分析 BI 支持连接 MongoDB 数据源，进行数据查询、计算和分析。通过输入 URL、用户名和密码成功连接 MongoDB 后，选择数据库中的某个集合，即可管理这个集合中的数据。产品支持管道操作（Pipeline）语句对集合进行过滤、分组、聚合和排序等操作。
 
 ## 创建 Mongo 数据集
-登录 [商业智能分析控制台](https://console.cloud.tencent.com/bi)，选择左侧菜单栏【创建数据集】>【Mongo 数据集】，进入到创建 Mongo 数据集页面。
+登录 [商业智能分析 BI 控制台](https://console.cloud.tencent.com/bi)，选择左侧菜单栏**创建数据集 > Mongo 数据集**，进入到创建 Mongo 数据集页面。
 ![](https://main.qcloudimg.com/raw/f57689b9d8f9f4436762e5bdc1c65a72.png)
 
 ## 数据治理

@@ -6,7 +6,7 @@
 已登录 [证书管理控制台](https://console.cloud.tencent.com/certoverview)，成功申请获取证书（参考 [如何免费申请域名型证书](https://cloud.tencent.com/document/product/400/6814)）。
 
 ## 操作步骤
- >!
+>!
  - 域名需要已经接入 CDN，且状态为**部署中**或**已启动**，关闭状态的域名无法部署证书。具体操作请参考 [接入域名](https://cloud.tencent.com/document/product/228/41215)。
  - COS 或 数据万象开启 CDN 加速后，默认的 .file.myqcloud.com 或 .image.myqcloud.com 域名无法配置证书。
  - SVN 托管源暂时无法配置证书。
@@ -24,3 +24,4 @@
  - COS 源或 FTP 源域名仅支持 HTTP 回源。
 6. 配置成功后，您可以在【证书管理】页面看到已经配置成功的域名以及证书情况。如下图所示：
 ![](https://main.qcloudimg.com/raw/c30cb345a0cca5d567f3b00d1425e59e.png)
+

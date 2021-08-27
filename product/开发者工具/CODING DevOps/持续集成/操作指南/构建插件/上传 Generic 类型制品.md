@@ -8,8 +8,8 @@
 ## 进入持续集成
 
 1. 登录 [CODING 控制台](https://console.cloud.tencent.com/coding)，单击团队域名进入 CODING 使用页面。
-2. 单击页面右上角的 <img src ="https://main.qcloudimg.com/raw/d94a8e60dd3a41d0af07d72ae0e9d70e.png" style ="margin:0">，进入项目列表页面，点击项目图标进入目标项目。
-3. 进入左侧菜单中的【持续集成】>【构建计划】。
+2. 单击页面右上角的 <img src ="https://main.qcloudimg.com/raw/d94a8e60dd3a41d0af07d72ae0e9d70e.png" style ="margin:0">，进入项目列表页面，单击项目图标进入目标项目。
+3. 进入左侧菜单中的**持续集成** > **构建计划**。
 
 ## 功能介绍
 
@@ -37,7 +37,7 @@
 ![](https://main.qcloudimg.com/raw/fbebd3c0d5ebd9ca215b6075ca48f248.png)
 3. 在默认值选中刚刚创立的 test 制品库，您也可以在代码中填写您的制品库地址。
 ![](https://main.qcloudimg.com/raw/167ed9a854c27f5c2732934a3be95e2a.png)
-4. 单击【保存并构建】。
+4. 单击**保存并构建**。
 ![](https://main.qcloudimg.com/raw/0563268bfdd74d74c9ff3ffc8b09c2aa.png)
 5. 构建完成后在制品库中会出现刚刚上传的文件。
 ![](https://main.qcloudimg.com/raw/4eec7a4609ade92cc29b26d3fa00d4a0.png)
@@ -100,3 +100,5 @@ pipeline {
 | credentialsID  | 否                                       | string       | 凭据（用户名\+密码）                              | env\.CODING\_ARTIFACTS\_CREDENTIALS\_ID                      | 用于上传制品库的凭证（只支持 username \+ password 且必须为项目令牌）类型，默认将使用环境变量中的 `CODING_ARTIFACTS_CREDENTIALS_ID` |
 | repoURL        | 否                                       | string       | string                                            | https://`<`env.CCI_CURRENT_TEAM>-generic.`<`env.CCI_CURRENT_DOMAIN>/`<`env.PROJECT_NAME>/`<`params.repoName> | 默认将用 CI 内置的环境变量 `CCI_CURRENT_TEAM`  `CCI_CURRENT_DOMAIN`    `PROJECT_NAME` 和参数设置的 `repoName` 组成，如: `https://myteam-generic.coding.net/myproject/myrepo/`。  用户若想上传到非当前项目的制品库里，可以手动设置该参数。  设置了该参数后，repoName 将失效。 |
 | withBuildProps | 否                                       | boolean      | boolean                                           | true                                                         | 设置为`true` ，默认会将当前持续集成构建环境与内置制品属性的信息关联。 |
+
+

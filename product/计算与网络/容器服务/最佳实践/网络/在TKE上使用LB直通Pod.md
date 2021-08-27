@@ -38,8 +38,8 @@ CLB 直接绑定 Pod 时检查 Pod 是否 Ready，需查看 Pod 是否 Running�
 ## 操作步骤
 ### 确认是否开启弹性网卡[](id:ElasticNetworkCard)
 请对应您的实际情况，按照以下步骤进行操作：
-- 若您在创建集群时，“容器网络插件”选择为【VPC-CNI】，则创建的 Pod 已默认使用了弹性网卡，请跳过此步骤。
-- 若您在创建集群时，“容器网络插件”选择为【Global Router】后开启了 VPC-CNI 支持。则为两种模式混用，创建的 Pod 默认不适用弹性网卡，需使用 YAML 创建工作负载，为 Pod 指定 `tke.cloud.tencent.com/networks: tke-route-eni` 该 annotation 来声明使用弹性网卡，并为其中一个容器添加例如 `tke.cloud.tencent.com/eni-ip: "1"`  的 requests 与 limits。YAML 示例如下：
+- 若您在创建集群时，“容器网络插件”选择为**VPC-CNI**，则创建的 Pod 已默认使用了弹性网卡，请跳过此步骤。
+- 若您在创建集群时，“容器网络插件”选择为**Global Router**后开启了 VPC-CNI 支持。则为两种模式混用，创建的 Pod 默认不适用弹性网卡，需使用 YAML 创建工作负载，为 Pod 指定 `tke.cloud.tencent.com/networks: tke-route-eni` 该 annotation 来声明使用弹性网卡，并为其中一个容器添加例如 `tke.cloud.tencent.com/eni-ip: "1"`  的 requests 与 limits。YAML 示例如下：
 ``` yaml
    apiVersion: apps/v1
    kind: Deployment

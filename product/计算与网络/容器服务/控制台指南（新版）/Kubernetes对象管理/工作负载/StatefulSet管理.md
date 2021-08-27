@@ -6,15 +6,15 @@ StatefulSet 主要用于管理有状态的应用，创建的 Pod 拥有根据规
 
 
 ### 创建 StatefulSet[](id:createStatefulSet)
-1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 单击需要创建 StatefulSet 的集群 ID，进入待创建 StatefulSet 的集群管理页面。
-3. 选择【工作负载】>【StatefulSet】，进入 StatefulSet 管理页面。如下图所示：
+3. 选择**工作负载** > **StatefulSet**，进入 StatefulSet 管理页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/23db2d7cf222d19252f6a2fa88859e58.png)
-4. 单击【新建】，进入 “新建Workload” 页面。
+4. 单击**新建**，进入 “新建Workload” 页面。
 根据实际需求，设置 StatefulSet 参数。关键参数信息如下：
  - **工作负载名**：输入自定义名称。
  - **命名空间**：根据实际需求进行选择。
- - **类型**：选择【StatefulSet（有状态集的运行Pod）】。
+ - **类型**：选择**StatefulSet（有状态集的运行Pod）**。
  - **实例内容器**：根据实际需求，为 StatefulSet 的一个 Pod 设置一个或多个不同的容器。
     - **名称**：自定义。
     - **镜像**：根据实际需求进行选择。
@@ -27,25 +27,25 @@ StatefulSet 主要用于管理有状态的应用，创建的 Pod 拥有根据规
     - **CPU/内存限制**：可根据 [Kubernetes 资源限制](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/) 进行设置 CPU 和内存的限制范围，提高业务的健壮性。
     - **高级设置**：可设置 “**工作目录**”、“**运行命令**”、“**运行参数**”、“**容器健康检查**”和“**特权级**”等参数。
  - **实例数量**：根据实际需求选择调节方式，设置实例数量。
-5. 单击【创建Workload】，完成创建。
+5. 单击**创建Workload**，完成创建。
 
 ### 更新 StatefulSet
 
 #### 更新 YAML
-1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 单击需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
-3. 选择【工作负载】>【StatefulSet】，进入 StatefulSet 信息页面。如下图所示：
+3. 选择**工作负载** > **StatefulSet**，进入 StatefulSet 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/f11e0c1f7cf788ec70a866b7b8201357.png)
-4. 在需要更新 YAML 的 StatefulSet 行中，选择【更多】>【编辑YAML】，进入更新 StatefulSet 页面。
-5. 在 “更新StatefulSet” 页面编辑 YAML，并单击【完成】即可更新 YAML。
+4. 在需要更新 YAML 的 StatefulSet 行中，选择**更多** > **编辑YAML**，进入更新 StatefulSet 页面。
+5. 在 “更新StatefulSet” 页面编辑 YAML，并单击**完成**即可更新 YAML。
 
 #### 更新 Pod 配置
 1. 在集群管理页面，单击需要更新 Pod 配置的 StatefulSet 的集群 ID，进入待更新 Pod 配置的 StatefulSet 的集群管理页面。
-2. 在需要更新 Pod 配置的 StatefulSet 行中，单击【更新Pod配置】。如下图所示：
+2. 在需要更新 Pod 配置的 StatefulSet 行中，单击**更新Pod配置**。如下图所示：
 ![](https://main.qcloudimg.com/raw/75d24d6a0bcf25c66ba88127d115e5e8.png)
 3. 在 “更新Pod配置” 页面，根据实际需求修改更新方式，设置参数。如下图所示：
 ![](https://main.qcloudimg.com/raw/41b3c20d1ab095b3929f66f89631cf2f.png)
-4. 单击【完成】，即可更新 Pod 配置。
+4. 单击**完成**，即可更新 Pod 配置。
 
 ## Kubectl 操作 StatefulSet 指引
 

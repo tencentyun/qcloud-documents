@@ -149,15 +149,17 @@ pipeline {
 
 1. Jenkinsfile 文件存储在所选择的代码仓库中，修改 Jenkinsfile 的同时也更新代码仓库。
 2. 任务 Job 的构建可由更新代码触发规则定义，若修改 Jenkinsfile 将会自动触发构建。
-3. 在任务 Job 点击立即构建，选择构建目标进行构建时，构建任务的配置将会从所构建目标拉取代码的 Jenkinsfile 进行构建，而不是该任务 Job 里当时配置的 Jenkinsfile。
+3. 在任务 Job 单击立即构建，选择构建目标进行构建时，构建任务的配置将会从所构建目标拉取代码的 Jenkinsfile 进行构建，而不是该任务 Job 里当时配置的 Jenkinsfile。
 
 **使用静态配置的 Jenkinsfile 有以下特点：**
 
 1. 静态配置的 Jenkinsfile 将不会保存在代码仓库中，修改 Jenkinsfile 的同时不会更新代码仓库。
 2. 任务 Job 的构建可由更新代码触发规则定义，修改静态配置文件 Jenkinsfile 不会自动触发构建。
-3. 在任务 Job 点击立即构建，选择构建目标进行构建时，构建任务将统一使用该静态配置，不再使用代码仓库中的 Jenkinsfile。
+3. 在任务 Job 单击立即构建，选择构建目标进行构建时，构建任务将统一使用该静态配置，不再使用代码仓库中的 Jenkinsfile。
 
 **两者区别**
 
 1. 使用代码仓库中的 Jenkinsfile 进行配置，可将 Jenkinsfile 保存到仓库中进行版本记录。而选择使用静态配置的 Jenkinsfile 将不存储在代码版本中，无法进行版本记录。
 2. 使用静态配置的 Jenkinsfile 进行配置，构建时所有的构建任务将统一使用该静态配置，每次代码版本更新时将会执行相同的 Jenkinsfile 进行构建。保障构建流程相同。
+
+

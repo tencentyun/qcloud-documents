@@ -16,12 +16,14 @@
 sudo parted -l /dev/sda | grep 'Partition Table'
 ```
  - 若返回结果为 msdos，即表示为 MBR 分区，请执行下一步。
- - 若返回结果为 gpt，即表示为 GPT 分区。目前服务迁移不支持 GPT 分区，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 反馈。
+ - 若返回结果为 gpt，即表示为 GPT 分区。目前服务迁移不支持 GPT 分区，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 反馈。
 2. 执行以下命令，检查操作系统是否以 EFI 方式启动。
 ```
 sudo ls /sys/firmware/efi
 ```
- - 若存在文件，则表示当前操作系统以 EFI 方式启动，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 反馈。
+ - 若存在文件，则表示当前操作系统以 EFI 方式启动，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 反馈。
  - 若不存在文件，请执行下一步。
 
 #### 检查系统关键文件
@@ -96,7 +98,7 @@ gvfsd-fuse on /run/user/1000/gvfs type fuse.gvfsd-fuse (rw,nosuid,nodev,relatime
 根据实际需求，选择不同的方式导出镜像。
 <dx-tabs>
 ::: 使用平台工具导出镜像[](id:Useplatform)
-使用 VMWare vCenter Convert 或 Citrix XenConvert 等虚拟化平台的导出镜像工具。详情请参见各平台的导出工具文档。
+使用 VMWare vCenter Converter 或 Citrix XenConvert 等虚拟化平台的导出镜像工具。详情请参见各平台的导出工具文档。
 >? 目前腾讯云服务迁移支持的镜像格式有：qcow2，vhd，raw，vmdk。
 >
 :::

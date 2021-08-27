@@ -33,20 +33,20 @@ Kubernetes 默认仅提供保留一个小时的 Kubernetes 事件。而 Persiste
 ## 使用方法
 
 ### 安装并设置存储端
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，选择左侧导航栏中的【集群】。
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面上方选择目标集群所在地域下的集群 ID，进入集群详情页。
-3. 选择左侧菜单栏中的【组件管理】，进入“组件列表”页面。
-4. 在“组件列表”页面中选择【新建】，并在“新建组件”页面中勾选 PersistentEvent，并配置事件持久化存储端，单击【完成】即可安装成功。
+3. 选择左侧菜单栏中的**组件管理**，进入“组件列表”页面。
+4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 PersistentEvent，并配置事件持久化存储端，单击**完成**即可安装成功。
 主要参数信息如下：
- - **存储端选择**：您可以选择将事件存储到【[Elasticsearch](https://cloud.tencent.com/document/product/845/16478)】或【[日志服务 CLS](https://cloud.tencent.com/document/product/614/11254)】。
+ - **存储端选择**：您可以选择将事件存储到 **[Elasticsearch](https://cloud.tencent.com/document/product/845/16478)**或 **[日志服务 CLS](https://cloud.tencent.com/document/product/614/11254)**。
  - **参数详情**：
-	 - 事件存储至【Elasticsearch】需要提供 Elasticsearch 地址和索引。
-	 - 事件存储至【日志服务CLS】需要提供日志服务实例，若当前无合适的实例，您可以 [新建日志主题](https://console.cloud.tencent.com/cls/topic?region=ap-guangzhou)。
+	 - 事件存储至**Elasticsearch**需要提供 Elasticsearch 地址和索引。
+	 - 事件存储至**日志服务CLS**需要提供日志服务实例，若当前无合适的实例，您可以 [新建日志主题](https://console.cloud.tencent.com/cls/topic?region=ap-guangzhou)。
 
 
 
 ### 在日志服务控制台检索事件
-登录日志服务控制台，选择左侧导航栏中的【[检索分析](https://console.cloud.tencent.com/cls/search)】，并在“日志集”和“日志主题”下拉框中选择 PersistentEvent 所配置的日志服务，以及期望检索日志的时间段，单击【查询分析】即可查看事件数据。如下图所示：
+登录日志服务控制台，选择左侧导航栏中的 **[检索分析](https://console.cloud.tencent.com/cls/search)**，并在“日志集”和“日志主题”下拉框中选择 PersistentEvent 所配置的日志服务，以及期望检索日志的时间段，单击**查询分析**即可查看事件数据。如下图所示：
 ![](https://main.qcloudimg.com/raw/7b30875bb8f4e7bf057291d210dc0d0c.png)
 
 

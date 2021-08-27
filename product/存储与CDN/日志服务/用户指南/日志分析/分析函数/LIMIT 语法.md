@@ -23,7 +23,6 @@ offset S limit N
 select count(1) as pv from log group by status 
 )
 ```
-> - limit 翻页的不能超过100条。
 > 
 
 ## 示例

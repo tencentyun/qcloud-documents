@@ -39,7 +39,7 @@ type: Opaque
 ```
 >?您还可参考 [创建 Secret](https://cloud.tencent.com/document/product/457/31718#.E5.88.9B.E5.BB.BA-secret)，通过容器服务控制台进行创建。主要参数配置如下：
 >- **名称**：自定义，本文以 cos-secret 为例。
->- **Secret类型**：选择【Opaque】，该类型适用于保存密钥证书和配置文件，Value 将以 Base64 格式编码。
+>- **Secret类型**：选择**Opaque**，该类型适用于保存密钥证书和配置文件，Value 将以 Base64 格式编码。
 >- **生效范围**：按需选择，需确保与 Ingress 在同一 Namespace 下。
 >- **内容**：变量名设置为 `qcloud_cert_id`，变量值配置为 qcloud_cert_id 所对应的证书 ID。
 >
@@ -84,18 +84,18 @@ spec:
 ### 通过控制台新建服务器证书[](id:create)
 >?若您已具备需配置的证书，则请跳过此步骤。
 >
-1. 登录负载均衡控制台，选择左侧导航栏中的【[证书管理](https://console.cloud.tencent.com/clb/cert)】。
-2. 在“证书管理”页面中，单击【新建】。
+1. 登录负载均衡控制台，选择左侧导航栏中的 **[证书管理](https://console.cloud.tencent.com/clb/cert)**。
+2. 在“证书管理”页面中，单击**新建**。
 3. 在弹出的“新建证书”窗口中，参考以下信息进行设置。
  - **证书名称**：自定义设置。
  - **证书类型**：选择“服务器证书”。
 **服务器证书**：即 SSL 证书（SSL Certificates）。基于 SSL 证书，可将站点由 HTTP（Hypertext Transfer Protocol）切换到 HTTPS（Hyper Text Transfer Protocol over Secure Socket Layer），即基于安全套接字层（SSL）进行安全数据传输的加密版 HTTP 协议。
    - **证书内容**：根据实际情况填写证书内容，证书格式要求请参见文档[ SSL 证书格式要求及格式转换说明](https://cloud.tencent.com/document/product/214/5369)。
    - **密钥内容**：仅当证书类型选择为“服务器证书”时，该选项才会显示。请参考文档[ SSL 证书格式要求及格式转换说明](https://cloud.tencent.com/document/product/214/5369) 添加相关密钥内容。
-4. 单击【提交】即可完成创建。
+4. 单击**提交**即可完成创建。
 
 ### 创建使用证书的 Ingress 对象
-参考 [创建 Ingress ](https://cloud.tencent.com/document/product/457/31711#.E5.88.9B.E5.BB.BA-ingress) 完成 Ingress 新建，其中监听端口勾选【Https:443】。
+参考 [创建 Ingress ](https://cloud.tencent.com/document/product/457/31711#.E5.88.9B.E5.BB.BA-ingress) 完成 Ingress 新建，其中监听端口勾选**Https:443**。
 
 >!
 >- 当控制台创建的 Ingress 开启 HTTPS 服务，会先创建同名的 Secret 资源用于存放证书 ID，并在 Ingress 中使用并监听该 Secret。
@@ -120,13 +120,13 @@ kubectl edit secrets [secret-name]
 ### 更新 Ingress 对象
 
 #### 通过控制台更新
-1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
+1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面，选择需修改 Ingress 的集群 ID。
-3. 在集群详情页，选择左侧【服务与路由】>【Ingress】。如下图所示：
+3. 在集群详情页，选择左侧**服务与路由** > **Ingress**。如下图所示：
 ![](https://main.qcloudimg.com/raw/69e9c55ea644144ea5848c98b9d0462a.png)
-4. 单击目标 Ingress 所在行右侧的【更新转发配置】。
+4. 单击目标 Ingress 所在行右侧的**更新转发配置**。
 5. 在“更新转发配置”页面中，根据实际情况进行转发配置规则更新。
-6. 单击【更新转发配置】即可完成更新操作。
+6. 单击**更新转发配置**即可完成更新操作。
 
 #### 通过 yaml 更新
 执行以下命令，使用默认编辑器打开需修改的 ingress，修改 yaml 文件并保存即可完成更新操作。

@@ -2,7 +2,7 @@
 本文档指导您如何在国密版 Nginx 服务器中安装国密标准 SSL 证书。
 >?
 >- 国密标准 SSL 证书仅支持安装在国密版本的 Nginx 服务器上。
->- 目前仅提供64位 `nginx/1.16.0` 国密版与32位 `nginx/1.17.0` 国密版，如您需其它版本，请您 [提交工单](https://console.cloud.tencent.com/workorder/category)，腾讯云工程师将为您提供其他版本与帮助。
+>- 目前仅提供64位 `nginx/1.16.0` 国密版与32位 `nginx/1.17.0` 国密版，如您需其它版本，请您使用 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us)，腾讯云工程师将为您提供其他版本与帮助。
 >- Nginx 版本以国密版 `nginx/1.16.0` 为例。
 >- 本文档以证书名称 `cloud.tencent.com` 为例。
 >- 当前服务器的操作系统为 Windows Server 2012 R2，由于操作系统的版本不同，详细操作步骤略有区别。

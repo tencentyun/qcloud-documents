@@ -9,15 +9,15 @@ DaemonSet 主要用于部署常驻集群内的后台程序，例如节点的日�
 ## DaemonSet 控制台操作指引
 
 ### 创建 DaemonSet
-1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 单击需要创建 DaemonSet 的集群 ID，进入待创建 DaemonSet 的集群管理页面。
-3. 选择【工作负载】>【DaemonSet】，进入 DaemonSet 信息页面。如下图所示：
+3. 选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/4c9a1a9e7115d341c4426833a76077c0.png)
-4. 单击【新建】，进入 “新建Workload” 页面。
+4. 单击**新建**，进入 “新建Workload” 页面。
 根据实际需求，设置 DaemonSet 参数。关键参数信息如下：
  - **工作负载名**：输入自定义名称。
  - **命名空间**：根据实际需求进行选择。
- - **类型**：选择【DaemonSet（在每个主机上运行Pod）】。
+ - **类型**：选择**DaemonSet（在每个主机上运行Pod）**。
  - **实例内容器**：根据实际需求，为 DaemonSet 的一个 Pod 设置一个或多个不同的容器。
     - **名称**：自定义。
     - **镜像**：根据实际需求进行选择。
@@ -29,27 +29,27 @@ DaemonSet 主要用于部署常驻集群内的后台程序，例如节点的日�
        - **Never**：只使用本地镜像，若本地没有该镜像将报异常。
     - **CPU/内存限制**：可根据 [Kubernetes 资源限制](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/) 进行设置 CPU 和内存的限制范围，提高业务的健壮性。
     - 高级设置：可设置 “**工作目录**”，“**运行命令**”，“**运行参数**”，“**容器健康检查**”，“**特权级**”等参数。
-5. 单击【创建Workload】，完成创建。
+5. 单击**创建Workload**，完成创建。
 
 ### 更新 DaemonSet
 
 #### 更新 YAML
-1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 单击需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
-4. 选择【工作负载】>【DaemonSet】，进入 DaemonSet 信息页面。如下图所示：
+4. 选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/292064b549bd53d5e6f24bfa2a44b141.png)
-5. 在需要更新 YAML 的 DaemonSet 行中，选择【更多】>【编辑YAML】，进入更新 DaemonSet 页面。
-6. 在 “更新DaemonSet” 页面编辑 YAML，单击【完成】即可更新 YAML。
+5. 在需要更新 YAML 的 DaemonSet 行中，选择**更多** > **编辑YAML**，进入更新 DaemonSet 页面。
+6. 在 “更新DaemonSet” 页面编辑 YAML，单击**完成**即可更新 YAML。
 
 #### 更新 Pod 配置
 >? 仅在 Kubernetes 1.6或更高版本中支持 DaemonSet 滚动更新功能。
 >
 1. 在集群管理页面，单击需要更新 Pod 配置的 DaemonSet 的集群 ID，进入待更新 Pod 配置的 DaemonSet 的集群管理页面。
-2. 在需要更新 Pod 配置的 DaemonSet 行中，单击【更新Pod配置】。如下图所示：
+2. 在需要更新 Pod 配置的 DaemonSet 行中，单击**更新Pod配置**。如下图所示：
 ![](https://main.qcloudimg.com/raw/22a518ea2069ff209ea9b3175bcbb248.png)
 3. 在 “更新Pod配置” 页面，根据实际需求修改更新方式，设置参数。如下图所示：
 ![](https://main.qcloudimg.com/raw/3205e96b04d94c693af9f8fb28614cff.png)
-4. 单击【完成】，即可更新 Pod 配置。
+4. 单击**完成**，即可更新 Pod 配置。
 
 ## Kubectl 操作 DaemonSet 指引
 

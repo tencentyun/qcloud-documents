@@ -1,4 +1,5 @@
 
+
 mgobexsCode 对象是实时服务器的入口，您需要在代码中导出该对象。
 
 ### gameServer 属性
