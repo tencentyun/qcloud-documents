@@ -90,6 +90,7 @@
 ### 步骤四：访问服务
 
 再次访问上一阶段创建的 SaaS 服务，即可查看来自物联网开发平台所同步的设备状态数据。
+<img src="https://main.qcloudimg.com/raw/9e3dabf221344c2c1d70f6d01f946871.jpg" alt=""  />
 <img src="https://main.qcloudimg.com/raw/ef7b56d332721f796dba3071bc3ce306.png" alt=""  />
 
 ## 更多拓展
