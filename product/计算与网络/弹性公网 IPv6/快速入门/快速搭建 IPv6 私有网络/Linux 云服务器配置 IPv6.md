@@ -542,12 +542,12 @@ net.ipv6.conf.lo.disable_ipv6 = 0
 ```
 3. 运行`sysctl -p`使配置生效。
 4. 配置 IPv6，SUSE 10镜像类型的云服务器 IPv6 操作步骤有 [脚本方式](#jbfs1) 和 [手动方式](#sdfs1)。请根据实际情况选择配置方式。
-**脚本方式**[](id:jbfs1)
-  1. 将如下脚本拷贝到 shell 文件中，这里以 test.sh 为例。
+ - **脚本方式**[](id:jbfs1)
+      1. 将如下脚本拷贝到 shell 文件中，这里以 test.sh 为例。
 	 + dev 表示网卡设备名，例如 eth0、eth1。
-     + index 表示这是第几个 ipv6 地址，从0开始计数。
-     + ip6 表示本机的 ipv6 地址，例如2607:f0d0:1002:0011:0000:0000:0000:0002。
-     + prefix_len 表示子网前缀长度，例如64。
+	 + index 表示这是第几个 ipv6 地址，从0开始计数。
+	 + ip6 表示本机的 ipv6 地址，例如2607:f0d0:1002:0011:0000:0000:0000:0002。
+	 + prefix_len 表示子网前缀长度，例如64。
 ```plaintext
 dev=$1
 	index=$2
@@ -565,22 +565,22 @@ netip=$(echo $ip6 | awk -F":" '{print $1":"$2":"$3":"$4}')
 	echo "default $netip::1 - $ifcfg" >> /etc/sysconfig/network/routes
 	service network restart
 ```
-  2. 执行脚本，举例如下。
+      2. 执行脚本，举例如下。
 ```plaintext
 ./test.sh eth0 0 2402:4e00:1000:4200:0:8f0c:d527:b985 64
 ```
-**手动方式**[](id:sdfs1)
-  1. 运行如下脚本，打开网卡配置文件。
+ - **手动方式**[](id:sdfs1)
+      1. 运行如下脚本，打开网卡配置文件。
 ```plaintext
 vi /etc/sysconfig/network/ifcfg-eth0
 ```
      `eth0`为网卡标识符，您需要修改成实际的标识符。在文件中根据实际信息添加以下配置：
-     + 单 IPv6 地址：
+	 + 单 IPv6 地址：
 ```plaintext
 IPADDR_0=<IPv6地址>
 PREFIXLEN_0=<子网前缀长度>
 ```
-     + 多 IPv6 地址：
+	 + 多 IPv6 地址：
 ```plaintext
 IPADDR_0=<IPv6地址>
 PREFIXLEN_0=<子网前缀长度>
@@ -591,11 +591,11 @@ PREFIXLEN_1=<子网前缀长度>
 IPADDR_2=<IPv6地址2>
 PREFIXLEN_2=<子网前缀长度>
 ```
-  2. 运行`vi /etc/sysconfig/network/routes`打开路由配置文件，添加配置项。
+      2. 运行`vi /etc/sysconfig/network/routes`打开路由配置文件，添加配置项。
       ```plaintext
       default <IPv6网关> - -
       ```
-  3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
+      3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
 5. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6) 开启 SSH 的 IPv6 功能。
 
 ### FreeBSD 11 配置 IPv6[](id:Freebsd11)
@@ -604,8 +604,8 @@ FreeBSD 11 配置 IPv6 有 [脚本方式](#jbfs2) 和 [手动方式](#sdfs2)，�
 #### 脚本方式[](id:jbfs2)
 >!脚本方式配置会重启网络，请谨慎执行。
 > 
- 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
- 2. 将如下脚本拷贝到 shell 文件中，这里以“test.sh”为例。
+1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
+2. 将如下脚本拷贝到 shell 文件中，这里以“test.sh”为例。
        + dev 表示网卡设备名，例如 eth0、eth1。
        + ip6 表示本机的 ipv6 地址，例如 2607:f0d0:1002:0011:0000:0000:0000:0002。
        + prefix_len 表示子网前缀长度，例如 64。
@@ -673,7 +673,7 @@ ipv6_defaultrouter="<IPv6网关>"
 
 ## 附录[](id:ssh-ipv6)
 
- ### SSH 支持 IPv6 配置
+### SSH 支持 IPv6 配置
 > !如果需要使用 IPv6 地址远程连接，则需要开启 ssh 的 IPv6 支持。
 > 
 1. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
@@ -681,7 +681,7 @@ ipv6_defaultrouter="<IPv6网关>"
 vim /etc/ssh/sshd_config
 ```
 2. 按 “i” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
-    ![](https://main.qcloudimg.com/raw/e0d64e3836b704bab4713697df865d81.png)
+![](https://main.qcloudimg.com/raw/e0d64e3836b704bab4713697df865d81.png)
 3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 4. 执行如下命令，重新加载配置。
 ```plaintext
