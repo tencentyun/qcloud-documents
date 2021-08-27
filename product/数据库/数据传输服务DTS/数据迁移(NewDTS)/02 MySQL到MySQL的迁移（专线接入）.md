@@ -130,7 +130,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <li>专线接入：通过专线接入的自建数据库。</li>
 <li>VPN接入：通过 VPN 网关接入的自建数据库。</li>
 <li>云数据库：腾讯云数据库。</li>
-<li>云联网：通过云联网接入的数据库。</li></ul>更多接入类型的详情介绍请参考<a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+<li>云联网：通过云联网接入的数据库。</li></ul>更多接入类型的详情介绍请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>所属地域</td><td>源库所属地域为 DTS 服务出口地域，选择离自建实例最近的一个地域即可。</td></tr>
 <tr>
@@ -159,10 +159,8 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
-
 <img src="https://main.qcloudimg.com/raw/ef55d13eb5f3f2fe7551ad4fbb7cb5a5.png"  style="margin:0;">
 <img src="https://main.qcloudimg.com/raw/6db0920d8371181091c1105e2d4da86a.png"  style="margin:0;">
-
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
