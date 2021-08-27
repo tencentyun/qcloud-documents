@@ -410,13 +410,13 @@ gateway <IPv6网关>
 	address <IPv6地址2>
 	netmask <子网前缀长度>
 	gateway <IPv6网关>
-	```
+```
  2. 重启网络服务：运行`service network restart` 或 `systemctl restart networking`。
 6. <span id="ubstep6"/>如果镜像类型为 Ubuntu 18，请执行如下操作配置 IPv6。
  1. 编辑网卡配置文件。
-  ```plaintext
-  vi /etc/netplan/50-cloud-init.yaml
-  ```
+```plaintext
+vi /etc/netplan/50-cloud-init.yaml
+```
  2. 添加 IPv6 地址和网关配置。
 > !只添加 addresses 和 gateway6。
 >
@@ -430,7 +430,7 @@ match:
 macaddress: 52:54:00:75:ce:c2  //MAC地址
 set-name: eth0                      //网卡名
 addresses:
-       - 2a00:7b80:454:2000::xxx/64    //设置IPv6地址和掩码
+		 - 2a00:7b80:454:2000::xxx/64    //设置IPv6地址和掩码
 gateway6: 2a00:7b80:454::1          //设置IPv6网关地址
 ```
  3. 执行如下命令，使配置生效。
@@ -465,7 +465,7 @@ net.ipv6.conf.lo.disable_ipv6 = 0
 ```
 4. 运行`sysctl -p`使配置生效。
 5. 配置 IPv6，OpenSUSE 42镜像类型的云服务器 IPv6 操作步骤有[ 脚本方式 ](#jbfs)和[ 手动方式 ](#sdfs)。请根据实际情况选择配置方式。[](id:opensusestep4)
-   **脚本方式**[](id:jbfs)
+ -  **脚本方式**[](id:jbfs)
     1. 将如下脚本拷贝到 shell 文件中，这里以 test.sh 为例。
 		 + dev表示网卡设备名，例如 eth0、eth1。
 		 + index 表示这是第几个 ipv6 地址，从0开始计数。
@@ -494,18 +494,18 @@ net.ipv6.conf.lo.disable_ipv6 = 0
 ```plaintext
 ./test.sh eth0 0 2402:4e00:1000:4200:0:8f0c:d527:b985 64
 ```
- **手动方式**[](id:sdfs)
+ - **手动方式**[](id:sdfs)
     1. 运行如下脚本，打开网卡配置文件。
 ```plaintext
 vi /etc/sysconfig/network/ifcfg-eth0
 ```
     `eth0`为网卡标识符，您需要修改成实际的标识符。在文件中根据实际信息添加以下配置：
-   - 单 IPv6 地址：
+      - 单 IPv6 地址：
 ```plaintext
 	IPADDR_0=<IPv6地址>
 	PREFIXLEN_0=<子网前缀长度>
 ```
-     - 多 IPv6 地址：
+      - 多 IPv6 地址：
 ```plaintext
 IPADDR_0=<IPv6地址>
 PREFIXLEN_0=<子网前缀长度>
