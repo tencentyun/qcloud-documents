@@ -11,7 +11,7 @@
 
 **2. 选择区块链引擎**
 在 [TBaaS 购买页](https://cloud.tencent.com/product/tbaas)，您需选择使用的区块链引擎。如下图所示：
-![](https://main.qcloudimg.com/raw/b3bcc5f973ff304c5664a657e0449707.png)
+![](https://main.qcloudimg.com/raw/06382bc56db3762d78cc1da4026c90ad.png)
 您可通过以下入口，直接购买已选择的区块链引擎：
 
  - [长安链·ChainMaker](https://buy.cloud.tencent.com/tbaas_blockchain/chainmaker)
