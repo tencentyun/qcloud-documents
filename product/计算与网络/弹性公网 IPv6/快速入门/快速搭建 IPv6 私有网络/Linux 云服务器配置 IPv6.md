@@ -82,19 +82,39 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#gjpz) 和 [手�
   </tbody></table>
 
 - **手动配置**：需要您对 Linux 命令有一定的熟练掌握程度。本文列举了几种常用镜像的手动配置方法供您参考，如果您有其他镜像类型的手动配置需求，请 <a href="https://console.cloud.tencent.com/workorder/category?step=0" target="_blank">提交工单</a> 申请。
-  - [CentOS 7.3/CentOS 7.5/ CentOS 7.6 配置 IPv6](#CentOS7.3)
-  - [CentOS 6.8 配置 IPv6](#CentOS6.8)
-  - [Ubuntu 14/Ubuntu 16/Ubuntu 18 配置IPv6](#Ubuntu18)
-  - [Debian 8.2 配置 IPv6](#Debian8.2)
-  - [OpenSUSE 42 配置IPv6](#Opensuse)
-  - [SUSE 10 配置IPv6](#suse)
-  - [FreeBSD 11 配置IPv6](#Freebsd11)
-
+	- [CentOS 7.3/CentOS 7.5/ CentOS 7.6 配置 IPv6](#CentOS7.3)
+	- [CentOS 6.8 配置 IPv6](#CentOS6.8)
+	-  [Ubuntu 14/Ubuntu 16/Ubuntu 18 配置 IPv6](#Ubuntu18)
+	- [Debian 8.2 配置 IPv6](#Debian8.2)
+	- [OpenSUSE 42 配置 IPv6](#Opensuse)
+	- [SUSE 10 配置IPv6](#suse)
+	- [FreeBSD 11 配置 IPv6](#Freebsd11)
 
 
 ## 工具配置[](id:gjpz)
-<dx-accordion>
-::: config_ipv6 工具配置[](id:open)
+
+### enable_ipv6 工具配置[](id:unopen)
+enable_ipv6 工具可以为已分配 IPv6 地址的 CVM 实例，一键配置 IPv6 地址。
+
+#### **使用限制**
+- enable_ipv6 工具仅适用于 VPC 网络环境下。
+- enable_ipv6 工具运行时会自动重启网卡、网络服务，短时间内网络可能会不可用，请慎重执行。
+
+#### **操作步骤**
+1. 登录云服务器，在云服务器中直接执行如下命令下载 enable_ipv6 工具。
+```plaintext
+wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/enable_ipv6.sh
+```
+2. 赋予执行权限后，使用管理员权限执行如下命令：
+```plaintext
+ chmod +x ./enable_ipv6.sh
+ ./enable_ipv6.sh [网卡名称]  
+ # 示例 1：./enable_ipv6.sh eth0
+ # 示例 2：./enable_ipv6.sh eth1
+```
+3. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
+
+### config_ipv6 工具配置[](id:open)
 config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例，一键配置 IPv6 地址。
 
 #### 使用限制
@@ -114,6 +134,7 @@ chmod +x ./config_ipv6.sh
 # 示例 2：./config_ipv6.sh eth1
 ```
 3. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
+
 
 #### **开机自动配置IPv6**
 对于需要自动化配置 IPv6 实例的需求，例如大批量配置，建议您使用实例自定义数据配合脚本的方式来调用。详情请参见 [实例自定义数据](https://cloud.tencent.com/document/product/213/17525)。如下为脚本示例（假设是 RHEL 系列，Bash Shell 脚本）。
@@ -140,39 +161,11 @@ fi
 # run the tool
 $install_path eth0
 ```
-:::
-</dx-accordion>
-
-<dx-accordion>
-::: enable_ipv6 工具配置[](id:unopen)
-enable_ipv6 工具可以为已分配 IPv6 地址的 CVM 实例，一键配置 IPv6 地址。
-#### **使用限制**
-- enable_ipv6 工具仅适用于 VPC 网络环境下。
-- enable_ipv6 工具运行时会自动重启网卡、网络服务，短时间内网络可能会不可用，请慎重执行。
-
-#### **操作步骤**
-1. 登录云服务器，在云服务器中直接执行如下命令下载 enable_ipv6 工具。
-```plaintext
-wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/enable_ipv6.sh
-```
-2. 赋予执行权限后，使用管理员权限执行如下命令：
-```plaintext
- chmod +x ./enable_ipv6.sh
- ./enable_ipv6.sh [网卡名称]  
- # 示例 1：./enable_ipv6.sh eth0
- # 示例 2：./enable_ipv6.sh eth1
-```
-3. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
-:::
-</dx-accordion>
-
 
 
 ## 手动配置[](id:manual)
 
-
-<dx-accordion>
-::: CentOS 7.3/CentOS 7.5/CentOS 7.6 配置 IPv6<span id="CentOS7.3"></span>
+### CentOS 7.3/CentOS 7.5/CentOS 7.6 配置 IPv6[](id:CentOS7.3)
 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
 ```plaintext
@@ -240,13 +233,8 @@ ifconfig
 若出现以下报文表示已成功获取到 IPv6 地址。
 ![](https://main.qcloudimg.com/raw/2e42f1a5e7b9672d60461fe05edfed52.png)
 10. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
-:::
-</dx-accordion>
 
-
-
-<dx-accordion>
-::: CentOS 6.8 配置 IPv6<span id="CentOS6.8"></span>
+### CentOS 6.8 配置 IPv6[](id:CentOS6.8)
 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
 ```plaintext
@@ -315,12 +303,11 @@ ifconfig
  若出现以下报文说明成功获取 IPv6 地址。
  ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png) 
 10. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
-:::
-</dx-accordion>
 
 
-<dx-accordion>
-::: Ubuntu 14/Ubuntu 16/Ubuntu 18 配置 IPv6[](id:Ubuntu18)
+
+
+### Ubuntu 14/Ubuntu 16/Ubuntu 18 配置 IPv6[](id:Ubuntu18)
 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
 ```plaintext
@@ -406,12 +393,10 @@ gateway6: 2a00:7b80:454::1          //设置IPv6网关地址
 netplan apply
 ```
 7. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
-:::
-</dx-accordion>
 
+<span id="Debian8.2"/>
 
-<dx-accordion>
-::: Debian 8.2 配置 IPv6<span id="Debian8.2"></span>
+### Debian 8.2 配置 IPv6[](id:Debian8.2)
 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
 ```plaintext
@@ -452,11 +437,11 @@ netstat -tupln
 ip -6 route add default dev eth0 via fe80::feee:ffff:feff:ffff
 ```
 8. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
-:::
-</dx-accordion>
 
-<dx-accordion>
-::: OpenSUSE 42 配置 IPv6[](id:Opensuse)
+
+
+
+### OpenSUSE 42 配置 IPv6[](id:Opensuse)
 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 执行如下命令，检查实例是否已开启 IPv6 功能支持。
 ```plaintext
@@ -539,11 +524,9 @@ default <IPv6网关> - -
 ```
     3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
 6. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
-:::
-</dx-accordion>
 
-<dx-accordion>
-::: SUSE 10 配置 IPv6[](id:suse)
+
+### SUSE 10 配置 IPv6[](id:suse)
 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 运行如下命令，并做相应修改，开启 IPv6 功能支持。
 ```plaintext
@@ -616,11 +599,8 @@ PREFIXLEN_2=<子网前缀长度>
       ```
       3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
 5. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6) 开启 SSH 的 IPv6 功能。
-:::
-</dx-accordion>
 
-<dx-accordion>
-::: FreeBSD 11 配置 IPv6[](id:Freebsd11)
+### FreeBSD 11 配置 IPv6[](id:Freebsd11)
 FreeBSD 11 配置 IPv6 有 [脚本方式](#jbfs2) 和 [手动方式](#sdfs2)，请根据实际情况选择配置方式。
 
 #### 脚本方式[](id:jbfs2)
@@ -691,8 +671,6 @@ ipv6_defaultrouter="<IPv6网关>"
 ```
 6. 运行 `/etc/netstart restart` 重启网络服务，使配置生效。
 7. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
-:::
-</dx-accordion>
 
 
 ## 附录[](id:ssh-ipv6)
