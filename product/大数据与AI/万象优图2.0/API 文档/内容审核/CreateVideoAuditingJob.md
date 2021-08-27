@@ -3,9 +3,8 @@
 本接口用于提交一个视频审核任务。视频审核功能为异步任务方式，您可以通过提交视频审核任务审核您的视频文件，然后通过查询视频审核任务接口查询审核结果。
 
 该接口支持情况如下：
-
 - 支持对视频文件进行自动检测，从 OCR 文本识别、物体检测（实体、广告台标、二维码等）、图像识别及音频审核四个维度，通过深度学习技术，识别视频中的违规内容。
-- 支持设置回调地址 Callback 获取检测结果，或通过 [查询视频审核任务结果接口](https://cloud.tencent.com/document/product/436/47317) 主动轮询获取审核结果详情。
+- 支持设置回调地址 Callback 获取检测结果，或通过 [查询视频审核任务结果接口](https://cloud.tencent.com/document/product/460/46926) 主动轮询获取审核结果详情。
 - 支持识别多种违规场景，包括：色情、违法、广告等场景。
 - 支持根据不同的业务场景配置自定义的审核策略。
 - 支持用户 [自定义配置黑白图片库](https://cloud.tencent.com/document/product/436/59080)，打击自定义违规内容。
@@ -15,10 +14,10 @@
 视频的审核分为**视频画面审核**、**视频截帧**、**视频声音审核**，其中：
 
 - 视频画面审核：基于视频截帧能力，通过视频截帧将视频截取为多张图片进行审核，审核费用与图片审核一致。
-- 视频截帧：会产生相应的 [视频截帧费用](https://cloud.tencent.com/document/product/436/58966)。
+- 视频截帧：会产生相应的 [视频截帧费用](https://cloud.tencent.com/document/product/460/58120)。
 - 视频声音审核：将视频声音分离出来进行音频审核，审核费用与音频审核一致。
 - 每个审核场景单独计费，例如您选择审核涉黄、广告两种场景，则审核**1个视频**，**计2次**审核费用。
-- 调用接口会产生 [图片审核费用](https://cloud.tencent.com/document/product/436/58965#.E5.9B.BE.E7.89.87.E5.AE.A1.E6.A0.B8.E8.B4.B9.E7.94.A8) 和 [COS 读请求费用](https://cloud.tencent.com/document/product/436/53861#.E8.AF.B7.E6.B1.82.E6.AC.A1.E6.95.B0.E5.AE.9A.E4.BB.B7)。
+- 调用接口会产生 [图片审核费用](https://cloud.tencent.com/document/product/460/58119#.E5.9B.BE.E7.89.87.E5.AE.A1.E6.A0.B8.E8.B4.B9.E7.94.A8) 和 [COS 读请求费用](https://cloud.tencent.com/document/product/436/53861#.E8.AF.B7.E6.B1.82.E6.AC.A1.E6.95.B0.E5.AE.9A.E4.BB.B7)。
 - 如果音频文件属于 COS 上的低频存储类型，调用审核会产生 [COS 低频数据取回费用](https://cloud.tencent.com/document/product/436/53862#.E6.95.B0.E6.8D.AE.E5.8F.96.E5.9B.9E.E5.AE.9A.E4.BB.B7)。
 - 不支持审核 COS 上的归档存储类型和深度归档存储类型的音频，如果需要审核此类型音频，请先 [恢复归档文件](https://cloud.tencent.com/document/product/436/12633)。
 
@@ -50,11 +49,12 @@ Content-Type: application/xml
 
 #### 请求头
 
-此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
 #### 请求体
 
-该请求操作的实现需要有如下请求体：
+该请求操作的实现需要有如下请求体。
+
 ```plaintext
 <Request>
   <Input>
@@ -116,7 +116,7 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。 
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。 
 
 #### 响应体
 
@@ -154,7 +154,7 @@ Container 节点 JobsDetail 的内容：
 
 #### 错误码
 
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
 
 ## 实际案例
 
