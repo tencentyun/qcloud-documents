@@ -512,7 +512,7 @@ badgeNumber：应用的角标数。
 ```
 
 ##  应用内消息展示
-### 应用内消息轮询时间设置
+### 轮询时间设置
 
 #### 接口说明
 
@@ -525,7 +525,7 @@ badgeNumber：应用的角标数。
 #### 参数说明
 NSTimeInterval：NSTimeInterval类型，应用内消息轮询时间间隔。
 
-### 应用内消息自定义事件处理
+### 自定义事件处理
 
 #### TPNSInAppMessageActionDelegate代理说明
 
