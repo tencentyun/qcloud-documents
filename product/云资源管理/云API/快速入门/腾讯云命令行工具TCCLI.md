@@ -25,6 +25,7 @@
 <li>支持输出入参数据结构到 JSON 文件</li>
 <li>支持从 JSON 文件读取参数调用</li>
 <li>复杂类型点（.）连接展开方式调用</li>
+<li>结果轮询</li>
 </ul>
 </td>
 </tr>
@@ -510,11 +511,11 @@ tccli cvm DescribeZones --endpoint cvm.ap-guangzhou.tencentcloudapi.com
 ```bash
 tccli cvm DescribeInstancesStatus --region ap-hongkong --waiter "{'expr':'InstanceStatusSet[0].InstanceState','to':'RUNNING'}"
 ```
-- 支持自定义超时时间和睡眠时间，执行以下命令，设定超时时间为180秒，睡眠时间为5秒。
+- 您可自定义超时时间和睡眠时间，执行以下命令，设定超时时间为180秒，睡眠时间为5秒。
 ```bash
 tccli cvm DescribeInstancesStatus --region ap-hongkong --waiter "{'expr':'InstanceStatusSet[0].InstanceState','to':'RUNNING','timeout':180,'interval':5}"
 ```
-- 支持在配置文件中设置可选子参数的值。您可在 `default.configure` 文件中添加如下参数，设置系统超时时间为180s，睡眠时间为5s。
+- 您可在配置文件中设置可选子参数的值。在 `default.configure` 文件中添加如下参数，设置系统超时时间为180s，睡眠时间为5s。
 ```
 "waiter": {
 		"interval": 5,
@@ -522,8 +523,8 @@ tccli cvm DescribeInstancesStatus --region ap-hongkong --waiter "{'expr':'Instan
 	},
 ```
 参数说明如下：
- - **--region** 需替换为您实例所在的地域。
- - **--waiter** 后的参数需使用双引号包裹，参数需为 JSON 格式。其中必选及可选参数如下表：
+ - **--region**：需替换为您实例所在的地域。
+ - **--waiter**：后的参数需使用双引号包裹，且参数需为 JSON 格式。其中必选及可选参数如下表：
  <table>
  <tr>
  <th>参数</th> <th>是否必选</th> <th>说明</th>
