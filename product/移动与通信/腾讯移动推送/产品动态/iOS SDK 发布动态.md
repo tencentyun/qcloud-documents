@@ -10,7 +10,7 @@
  <td>SDK 1.3.4.0 版本发布 </td>
  <td>  
 <li>修复：修复了长链接多次重连后，网络连接偶尔失效的问题。
-<li> 修复：修复了App跳转导致TPNS在线状态偶尔不准确的问题。
+<li> 修复：修复了 App 跳转导致 TPNS 在线状态偶尔不准确的问题。
 <li>增加：增加了使用应用内消息作为补推的能力。
  <td>2021-08-26</td>
  <td><li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a>
