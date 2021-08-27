@@ -504,6 +504,30 @@ badgeNumber：应用的角标数。
 
 ```
 
+##  应用内消息展示
+### 应用内消息轮询时间设置
+
+#### 接口说明
+
+此接口可以设置应用内消息的轮询时间，最小为10s，默认为258s
+
+```objective-c
+/// 设置消息轮询时间间隔，最小值为10s，此方法需要在单例初始化之前调用
+(void)setMessageTimerInterval:(NSTimeInterval)interval;
+```
+#### 参数说明
+NSTimeInterval：NSTimeInterval类型，应用内消息轮询时间间隔
+
+### 应用内消息自定义事件处理
+
+#### TPNSInAppMessageActionDelegate代理说明
+
+用户通过代理方法 `onClickWithCustomAction`获取自定义事件参数来处理相关业务
+
+```objective-c
+/// 按钮事件响应代理
+@property (weak, nonatomic, nullable) id<TPNSInAppMessageActionDelegate> actionDelegate;
+```
 
 
 ## 查询设备通知权限
