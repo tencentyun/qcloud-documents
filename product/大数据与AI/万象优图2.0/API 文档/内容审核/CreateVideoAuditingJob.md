@@ -3,15 +3,29 @@
 本接口用于提交一个视频审核任务。视频审核功能为异步任务方式，您可以通过提交视频审核任务审核您的视频文件，然后通过查询视频审核任务接口查询审核结果。
 
 该接口支持情况如下：
+
 - 支持对视频文件进行自动检测，从 OCR 文本识别、物体检测（实体、广告台标、二维码等）、图像识别及音频审核四个维度，通过深度学习技术，识别视频中的违规内容。
-- 支持设置回调地址 Callback 获取检测结果，或通过 [查询视频审核任务结果接口](https://cloud.tencent.com/document/product/460/46926) 主动轮询获取审核结果详情。
+- 支持设置回调地址 Callback 获取检测结果，或通过 [查询视频审核任务结果接口](https://cloud.tencent.com/document/product/436/47317) 主动轮询获取审核结果详情。
 - 支持识别多种违规场景，包括：色情、违法、广告等场景。
 - 支持根据不同的业务场景配置自定义的审核策略。
 - 支持用户 [自定义配置黑白图片库](https://cloud.tencent.com/document/product/436/59080)，打击自定义违规内容。
 
+## 费用说明
+
+视频的审核分为**视频画面审核**、**视频截帧**、**视频声音审核**，其中：
+
+- 视频画面审核：基于视频截帧能力，通过视频截帧将视频截取为多张图片进行审核，审核费用与图片审核一致。
+- 视频截帧：会产生相应的 [视频截帧费用](https://cloud.tencent.com/document/product/436/58966)。
+- 视频声音审核：将视频声音分离出来进行音频审核，审核费用与音频审核一致。
+- 每个审核场景单独计费，例如您选择审核涉黄、广告两种场景，则审核**1个视频**，**计2次**审核费用。
+- 调用接口会产生 [图片审核费用](https://cloud.tencent.com/document/product/436/58965#.E5.9B.BE.E7.89.87.E5.AE.A1.E6.A0.B8.E8.B4.B9.E7.94.A8) 和 [COS 读请求费用](https://cloud.tencent.com/document/product/436/53861#.E8.AF.B7.E6.B1.82.E6.AC.A1.E6.95.B0.E5.AE.9A.E4.BB.B7)。
+- 如果音频文件属于 COS 上的低频存储类型，调用审核会产生 [COS 低频数据取回费用](https://cloud.tencent.com/document/product/436/53862#.E6.95.B0.E6.8D.AE.E5.8F.96.E5.9B.9E.E5.AE.9A.E4.BB.B7)。
+- 不支持审核 COS 上的归档存储类型和深度归档存储类型的音频，如果需要审核此类型音频，请先 [恢复归档文件](https://cloud.tencent.com/document/product/436/12633)。
+
+
 ## 限制说明
 
-- 视频文件大小支持：小于5GB的文件。
+- 视频文件大小支持：**文件 < 5GB**。
 - 视频文件支持格式：flv、mkv、mp4 、rmvb、avi、wmv、3gp、mov、m3u8、m4v 等。
 - 视频文件支持的访问方式：腾讯云对象存储。
 - 支持用户配置审核视频画面或视频声音。
@@ -36,12 +50,11 @@ Content-Type: application/xml
 
 #### 请求头
 
-此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 请求体
 
-该请求操作的实现需要有如下请求体。
-
+该请求操作的实现需要有如下请求体：
 ```plaintext
 <Request>
   <Input>
@@ -95,15 +108,15 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | :-------------------- | ------------------------------------------------------------ | --------- | -------- |
-| Mode               | Request.Conf.Snapshot | 截帧模式。Interval 表示间隔模式；Average 表示平均模式；Fps 表示固定帧率模式。</br><li> Interval 模式：TimeInterval，Count 参数生效。当设置 Count，未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片</br><li> Average 模式：Count 参数生效。表示整个视频，按平均间隔截取共 Count 张图片</br><li> Fps 模式：TimeInterval 表示每秒截取多少帧，Count 表示共截取多少帧 | String | 否       |
-| Count              | Request.Conf.Snapshot | 视频截帧数量，范围为(0, 10000]                             | String | 否       |
-| TimeInterval       | Request.Conf.Snapshot | 视频截帧频率，范围为(0, 60]，单位为秒，支持 float 格式，执行精度精确到毫秒 | Float  | 否       |
+| Mode               | Request.Conf.Snapshot | 截帧模式。Interval 表示间隔模式；Average 表示平均模式；Fps 表示固定帧率模式。</br><li> Interval 模式：TimeInterval，Count 参数生效。当设置 Count，未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片。</br><li> Average 模式：Count 参数生效。表示整个视频，按平均间隔截取共 Count 张图片。</br><li> Fps 模式：TimeInterval 表示每秒截取多少帧，Count 表示共截取多少帧。 | String | 否       |
+| Count              | Request.Conf.Snapshot | 视频截帧数量，范围为(0, 10000]。                             | String | 否       |
+| TimeInterval       | Request.Conf.Snapshot | 视频截帧频率，范围为(0, 60]，单位为秒，支持 float 格式，执行精度精确到毫秒。 | Float  | 否       |
 
 ## 响应
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。 
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。 
 
 #### 响应体
 
@@ -136,12 +149,12 @@ Container 节点 JobsDetail 的内容：
 | 节点名称（关键字） | 父节点              | 描述                                                         | 类型   |
 | :----------------- | :------------------ | :----------------------------------------------------------- | :----- |
 | JobId              | Response.JobsDetail | 本次视频审核任务的 ID。                                      | String |
-| State              | Response.JobsDetail | 视频审核任务的状态，值为 Submitted（已提交审核）、Snapshoting（视频截帧中）、Success（审核成功）、Failed（审核失败）、Auditing（审核中）其中一个 | String |
+| State              | Response.JobsDetail | 视频审核任务的状态，值为 Submitted（已提交审核）、Snapshoting（视频截帧中）、Success（审核成功）、Failed（审核失败）、Auditing（审核中）其中一个。 | String |
 | CreationTime       | Response.JobsDetail | 视频审核任务的创建时间。                                     | String |
 
 #### 错误码
 
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -155,20 +168,20 @@ Content-Length: 166
 Content-Type: application/xml
 
 <Request>
-    <Input>
-       <Object>a.mp4</Object>
-    </Input>
-    <Conf>
-        <DetectType>Porn,Terrorism,Politics,Ads</DetectType>
-        <Snapshot>
-            <Mode>Interval</Mode>
-            <TimeInterval>50</TimeInterval>
-            <Count>100</Count>
-        </Snapshot>
-        <Callback>http://callback.com/</Callback>
-        <BizType>b81d45f94b91a683255e9a9506f45a11</BizType>
-        <DetectContent>1</DetectContent>
-    </Conf>
+  <Input>
+    <Object>a.mp4</Object>
+  </Input>
+  <Conf>
+    <DetectType>Porn,Terrorism,Politics,Ads</DetectType>
+    <Snapshot>
+        <Mode>Interval</Mode>
+        <TimeInterval>50</TimeInterval>
+        <Count>100</Count>
+    </Snapshot>
+    <Callback>http://callback.com/</Callback>
+    <BizType>b81d45f94b91a683255e9a9506f45a11</BizType>
+    <DetectContent>1</DetectContent>
+  </Conf>
 </Request>
 ```
 
@@ -184,14 +197,13 @@ Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
-    <JobsDetail>
-       <JobId>vab1ca9fc8a3ed11ea834c525400863904</JobId>
-       <State>Submitted</State>
-       <CreationTime>2021-08-07T12:12:12+0800</CreationTime>
-    </JobsDetail>
+  <JobsDetail>
+    <JobId>vab1ca9fc8a3ed11ea834c525400863904</JobId>
+    <State>Submitted</State>
+    <CreationTime>2021-08-07T12:12:12+0800</CreationTime>
+  </JobsDetail>
 </Response>
 ```
-	
-	
-	
-	
+
+
+​	
