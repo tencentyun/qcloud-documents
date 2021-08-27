@@ -60,9 +60,7 @@ db.createUser({
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置。  
 >?请在源实例创建一个只读帐号供迁移使用，否则迁移前校验步骤将不通过。
 <table>
-<thead>
-<tr>
-<th width="10%">设置类型</th><th width="20%">配置项</th><th width="70%">说明</th></tr></thead>
+<thead><tr><th width="10%">设置类型</th><th width="20%">配置项</th><th width="70%">说明</th></tr></thead>
 <tbody>
 <tr>
 <td rowspan=3>任务设置</td>
@@ -78,7 +76,7 @@ db.createUser({
 <td rowspan=6>源库设置</td>
 <td>源库类型</td><td>根据您的源数据库类型选择，本场景选择“MongoDB”。</td></tr>
 <tr>
-<td>接入类型</td><td>请根据您的场景选择，本场景选择“云数据库”。更多接入类型的详情介绍请参考<a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
+<td>接入类型</td><td>请根据您的场景选择，本场景选择“云数据库”。更多接入类型的详情介绍请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
 <ul><li>公网：通过公网 IP 接入的自建数据库。</li>
 <li>云主机自建：腾讯云服务器 CVM 上的自建数据库。</li>
 <li>专线接入：通过专线接入的自建数据库。</li>
@@ -107,8 +105,7 @@ db.createUser({
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
-
-![](https://main.qcloudimg.com/raw/68b3b04023f54eb288de6464422c52cc.png)
+<img src="https://main.qcloudimg.com/raw/68b3b04023f54eb288de6464422c52cc.png"  style="zoom:80%;">
 4. 测试源实例和目标实例的连通性。
 ![](https://main.qcloudimg.com/raw/43d1d1717e76331a9d2048428515cf75.png)
 5. 在设置迁移选项及选择迁移对象页面，设置迁移选项和迁移对象（可选择部分库表）。
@@ -119,7 +116,7 @@ db.createUser({
 <td>请根据您的场景选择。<ul><li>结构迁移：迁移数据库中的库、表等结构化的数据。</li><li>全量迁移：迁移整个数据库。</li><li>全量 + 增量迁移：迁移整个数据库和后续增量数据，如果迁移过程中有数据写入，需要不停机平滑迁移，请选择此场景。</li></ul></td></tr>
 <tr>
 <td>迁移对象</td>
-<td><ul><li>整个实例：迁移整个实例，但不包括系统库，如postgres中的系统对象，但是会迁移role与用户元数据定义。</li>
+<td><ul><li>整个实例：迁移整个实例，但不包括系统库，如 postgres 中的系统对象，但是会迁移 role 与用户元数据定义。</li>
 <li>指定对象：迁移指定对象。</li></ul> </td></tr>
 <tr>
 <td>指定对象</td>
@@ -127,7 +124,7 @@ db.createUser({
 </tbody></table>
 ![](https://main.qcloudimg.com/raw/0392c50e0aa030d890c20f119e714579.png)
 6. 在校验任务页面，完成迁移前校验工作，单击**启动任务**。
-    ![](https://main.qcloudimg.com/raw/1182ccb4cfaa066e95e499c44f4363fe.png)
+![](https://main.qcloudimg.com/raw/1182ccb4cfaa066e95e499c44f4363fe.png)
 7. 返回迁移任务列表，待增量同步完成100%，在**操作**列单击**完成**，即可完成迁移任务。
  - 选择**结构迁移**或者**全量迁移**：任务完成后会自动结束，不需要手动结束。
  - 选择**全量 + 增量迁移**：全量迁移完成后会自动进入增量数据同步阶段，增量数据同步不会自动结束，需要您手动单击**完成**结束增量数据同步。
