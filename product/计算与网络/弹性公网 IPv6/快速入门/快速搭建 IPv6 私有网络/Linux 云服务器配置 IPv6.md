@@ -82,10 +82,10 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#gjpz) 和 [手�
   </tbody></table>
 
 - **手动配置**：需要您对 Linux 命令有一定的熟练掌握程度。本文列举了几种常用镜像的手动配置方法供您参考，如果您有其他镜像类型的手动配置需求，请 <a href="https://console.cloud.tencent.com/workorder/category?step=0" target="_blank">提交工单</a> 申请。
-  - [CentOS 6.8 配置 IPv6](#CentOS6.8)
   - [CentOS 7.3/CentOS 7.5/ CentOS 7.6 配置 IPv6](#CentOS7.3)
-  - [Debian 8.2 配置 IPv6](#Debian8.2)
+  - [CentOS 6.8 配置 IPv6](#CentOS6.8)
   - [Ubuntu 14/Ubuntu 16/Ubuntu 18 配置IPv6](#Ubuntu18)
+  - [Debian 8.2 配置 IPv6](#Debian8.2)
   - [OpenSUSE 42 配置IPv6](#Opensuse)
   - [SUSE 10 配置IPv6](#suse)
   - [FreeBSD 11 配置IPv6](#Freebsd11)
@@ -167,78 +167,6 @@ $install_path eth0
 </dx-accordion>
 
 ## 手动配置[](id:manual)
-<dx-accordion>
-::: CentOS 6.8 配置 IPv6<span id="CentOS6.8"></span>
-1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
-2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
-```plaintext
-ip addr | grep inet6
-或者
-ifconfig | grep inet6
-```
- + 若实例未开启 IPv6 功能支持，请根据下文继续开启 IPv6 功能支持。 
- + 若返回`inet6`相关内容，表示实例已成功开启 IPv6 功能支持，您可以跳至 [第5步](#centstep5) 继续操作。
-3. 执行以下步骤修改并保存`ipv6.conf`文件。
-	1. 执行如下命令，打开`/etc/modprobe.d/`文件夹下的`ipv6.conf`文件。
-```plaintext
-vi /etc/modprobe.d/ipv6.conf
-```
-	2.  按 “i” 切换至编辑模式，将如下的内核参数设置为0。
-```plaintext
-options ipv6 disable=0
-```
-    ![](https://main.qcloudimg.com/raw/37a4754fd0a8f6192d5f3818bcd685fe.png) 
-	3.  按 “Esc”，输入 “:wq”，保存文件并返回。
-4. 执行以下步骤修改并保存`sysctl.conf.first`文件。
-  1. 执行如下命令，打开`etc`文件夹下的`sysctl.conf.first`文件。
-```plaintext
-vim /etc/sysctl.conf.first
-```
-   2. 按 “i” 切换至编辑模式，将如下的配置文件参数设置为0。
-```plaintext
-net.ipv6.conf.all.disable_ipv6 = 0
-```
-    ![](https://main.qcloudimg.com/raw/e5faf656a6aa6fcbd8a4ac190a13759e.png)
-   3. 按 “Esc”，输入 “:wq”，保存文件并返回。
-5. 执行以下步骤修改并保存`network`文件。[](id:centstep5)
-  1. 执行如下命令，打开`/etc/sysconfig/`文件夹下的`network`文件。
-```plaintext
-vi /etc/sysconfig/network
-```
-  2. 按 “i” 切换至编辑模式，增加如下内容。
-```plaintext
-NETWORKING_IPV6=yes
-DHCPV6C=yes
-```
-    ![](https://main.qcloudimg.com/raw/477077b3418849b62dc7479df9839859.png)
-   3. 按 “Esc”，输入 “:wq”，保存文件并返回。
-6. 执行以下步骤修改并保存`route6-eth0`文件。
- 1. 执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
-```plaintext
-vim /etc/sysconfig/network-scripts/route6-eth0
-```	
- 2. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
-```plaintext
-default dev eth0 via fe80::feee:ffff:feff:ffff
-```
-    ![](https://main.qcloudimg.com/raw/3baffe425e598460caf1fc2de45e10d8.png)
- 3. 按 “Esc”，输入 “:wq”，保存文件并返回。
-7. 重启云服务器，若仅通过 `service network restart`，IPv6 无法正常加载。
-8. 执行如下命令查看重启后 IPv6 是否已经正常加载。
-```plaintext
-sysctl -a | grep ipv6 | grep disable
-```
- 若出现以下报文说明 IPv6 已经正常加载。
-![](https://main.qcloudimg.com/raw/866730d160b1f0b893b2c00cd0cb4257.png)
-9. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
-```plaintext
-ifconfig
-```
- 若出现以下报文说明成功获取 IPv6 地址。
- ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png) 
-10. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
-:::
-</dx-accordion>
 
 <dx-accordion>
 ::: CentOS 7.3/CentOS 7.5/CentOS 7.6 配置 IPv6<span id="CentOS7.3"></span>
@@ -312,8 +240,10 @@ ifconfig
 :::
 </dx-accordion>
 
+
+
 <dx-accordion>
-::: Debian 8.2 配置 IPv6<span id="Debian8.2"></span>
+::: CentOS 6.8 配置 IPv6<span id="CentOS6.8"></span>
 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
 ```plaintext
@@ -322,40 +252,69 @@ ip addr | grep inet6
 ifconfig | grep inet6
 ```
  + 若实例未开启 IPv6 功能支持，请根据下文继续开启 IPv6 功能支持。 
- + 若返回`inet6`相关内容，表示实例已成功开启 IPv6 功能支持，您可以跳至 [第5步](#debianstep5) 继续操作。
-3. 执行以下步骤修改并保存`sysctl.conf`文件。
-	1. 执行如下命令，打开`etc`文件夹下的`sysctl.conf`。
+ + 若返回`inet6`相关内容，表示实例已成功开启 IPv6 功能支持，您可以跳至 [第5步](#centstep5) 继续操作。
+3. 执行以下步骤修改并保存`ipv6.conf`文件。
+	1. 执行如下命令，打开`/etc/modprobe.d/`文件夹下的`ipv6.conf`文件。
 ```plaintext
-vim /etc/sysctl.conf
+vi /etc/modprobe.d/ipv6.conf
 ```
-	2.  按 “i” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
+	2.  按 “i” 切换至编辑模式，将如下的内核参数设置为0。
+```plaintext
+options ipv6 disable=0
+```
+    ![](https://main.qcloudimg.com/raw/37a4754fd0a8f6192d5f3818bcd685fe.png) 
+	3.  按 “Esc”，输入 “:wq”，保存文件并返回。
+4. 执行以下步骤修改并保存`sysctl.conf.first`文件。
+  1. 执行如下命令，打开`etc`文件夹下的`sysctl.conf.first`文件。
+```plaintext
+vim /etc/sysctl.conf.first
+```
+   2. 按 “i” 切换至编辑模式，将如下的配置文件参数设置为0。
 ```plaintext
 net.ipv6.conf.all.disable_ipv6 = 0
-net.ipv6.conf.default.disable_ipv6 = 0
 ```
-	3.  按 “Esc”，输入 “:wq”，保存文件并返回。
-4. 执行如下命令，对参数进行加载。
+    ![](https://main.qcloudimg.com/raw/e5faf656a6aa6fcbd8a4ac190a13759e.png)
+   3. 按 “Esc”，输入 “:wq”，保存文件并返回。
+5. 执行以下步骤修改并保存`network`文件。[](id:centstep5)
+  1. 执行如下命令，打开`/etc/sysconfig/`文件夹下的`network`文件。
 ```plaintext
-sysctl -p
+vi /etc/sysconfig/network
 ```
-5. <span id="debianstep5" />依次执行如下命令，查看是否已经获取到 IPv6 地址。
+  2. 按 “i” 切换至编辑模式，增加如下内容。
+```plaintext
+NETWORKING_IPV6=yes
+DHCPV6C=yes
+```
+    ![](https://main.qcloudimg.com/raw/477077b3418849b62dc7479df9839859.png)
+   3. 按 “Esc”，输入 “:wq”，保存文件并返回。
+6. 执行以下步骤修改并保存`route6-eth0`文件。
+ 1. 执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
+```plaintext
+vim /etc/sysconfig/network-scripts/route6-eth0
+```	
+ 2. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
+```plaintext
+default dev eth0 via fe80::feee:ffff:feff:ffff
+```
+    ![](https://main.qcloudimg.com/raw/3baffe425e598460caf1fc2de45e10d8.png)
+ 3. 按 “Esc”，输入 “:wq”，保存文件并返回。
+7. 重启云服务器，若仅通过 `service network restart`，IPv6 无法正常加载。
+8. 执行如下命令查看重启后 IPv6 是否已经正常加载。
+```plaintext
+sysctl -a | grep ipv6 | grep disable
+```
+ 若出现以下报文说明 IPv6 已经正常加载。
+![](https://main.qcloudimg.com/raw/866730d160b1f0b893b2c00cd0cb4257.png)
+9. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```plaintext
 ifconfig
 ```
-若出现以下报文，证明成功获取 IPv6 地址。
-![](https://main.qcloudimg.com/raw/cd5a2072c73307c79b7997bbd24cec13.png)
-6. Debian 8.2 系统默认为 ssh（22端口）开启 IPv6 监听，无需特殊配置，您可执行如下命令，进行查看。
-```plaintext
-netstat -tupln
-```
- ![](https://main.qcloudimg.com/raw/8bdb6f9672f81d8a6df56b61418fe492.png)
-7. 执行如下命令，配置默认路由。
-```plaintext
-ip -6 route add default dev eth0 via fe80::feee:ffff:feff:ffff
-```
-8. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
+ 若出现以下报文说明成功获取 IPv6 地址。
+ ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png) 
+10. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
 :::
 </dx-accordion>
+
 
 <dx-accordion>
 ::: Ubuntu 14/Ubuntu 16/Ubuntu 18 配置 IPv6[](id:Ubuntu18)
@@ -444,6 +403,52 @@ gateway6: 2a00:7b80:454::1          //设置IPv6网关地址
 netplan apply
 ```
 7. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
+:::
+</dx-accordion>
+
+
+<dx-accordion>
+::: Debian 8.2 配置 IPv6<span id="Debian8.2"></span>
+1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
+2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
+```plaintext
+ip addr | grep inet6
+或者
+ifconfig | grep inet6
+```
+ + 若实例未开启 IPv6 功能支持，请根据下文继续开启 IPv6 功能支持。 
+ + 若返回`inet6`相关内容，表示实例已成功开启 IPv6 功能支持，您可以跳至 [第5步](#debianstep5) 继续操作。
+3. 执行以下步骤修改并保存`sysctl.conf`文件。
+	1. 执行如下命令，打开`etc`文件夹下的`sysctl.conf`。
+```plaintext
+vim /etc/sysctl.conf
+```
+	2.  按 “i” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
+```plaintext
+net.ipv6.conf.all.disable_ipv6 = 0
+net.ipv6.conf.default.disable_ipv6 = 0
+```
+	3.  按 “Esc”，输入 “:wq”，保存文件并返回。
+4. 执行如下命令，对参数进行加载。
+```plaintext
+sysctl -p
+```
+5. <span id="debianstep5" />依次执行如下命令，查看是否已经获取到 IPv6 地址。
+```plaintext
+ifconfig
+```
+若出现以下报文，证明成功获取 IPv6 地址。
+![](https://main.qcloudimg.com/raw/cd5a2072c73307c79b7997bbd24cec13.png)
+6. Debian 8.2 系统默认为 ssh（22端口）开启 IPv6 监听，无需特殊配置，您可执行如下命令，进行查看。
+```plaintext
+netstat -tupln
+```
+ ![](https://main.qcloudimg.com/raw/8bdb6f9672f81d8a6df56b61418fe492.png)
+7. 执行如下命令，配置默认路由。
+```plaintext
+ip -6 route add default dev eth0 via fe80::feee:ffff:feff:ffff
+```
+8. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
 :::
 </dx-accordion>
 
@@ -685,8 +690,6 @@ ipv6_defaultrouter="<IPv6网关>"
 7. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 :::
 </dx-accordion>
-
-
 
 
 ## 附录[](id:ssh-ipv6)
