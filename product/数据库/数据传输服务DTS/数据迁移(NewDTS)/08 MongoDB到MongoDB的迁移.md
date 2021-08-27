@@ -122,7 +122,7 @@ db.createUser({
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
 </tbody></table>
-![](https://main.qcloudimg.com/raw/0392c50e0aa030d890c20f119e714579.png)
+<img src="https://main.qcloudimg.com/raw/0392c50e0aa030d890c20f119e714579.png"  style="zoom:80%;">
 6. 在校验任务页面，完成迁移前校验工作，单击**启动任务**。
 ![](https://main.qcloudimg.com/raw/1182ccb4cfaa066e95e499c44f4363fe.png)
 7. 返回迁移任务列表，待增量同步完成100%，在**操作**列单击**完成**，即可完成迁移任务。
