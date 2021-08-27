@@ -72,7 +72,7 @@ MSP 迁移工具提供了限制 QPS（对象存储模式）和带宽限速（URL
 
 1.	在迁移源一侧建立用于迁移的临时服务器（主控服务器）。
 因为建立迁移任务时需要填写 Agent 主控服务器的 IP 地址（内网 IP 地址，用于与迁移集群中的 Worker 服务器通信），因此在建立迁移任务之前，需先在 AWS 上准备一台操作系统为 CentOS 7.x 64位的云服务器。
-2.	在 [腾讯云 MSP](https://console.cloud.tencent.com/msp/tools_file_migration) 中建立迁移任务。
+2.	在 [腾讯云 MSP](https://console.cloud.tencent.com/msp/v2file) 中建立迁移任务。
 i.	在【选择迁移模式】中的“模式选择”部分，选择【新建迁移任务后手动下载 Agent 启动迁移】。
 ii.	在“主节点内网 IP”部分，填写 AWS 上创建的服务器内网 IP 地址（例如：172.XXX.XXX.94）。
 ![](https://main.qcloudimg.com/raw/a6c87ea2574d2b0355fafa3834f7502b.jpg)

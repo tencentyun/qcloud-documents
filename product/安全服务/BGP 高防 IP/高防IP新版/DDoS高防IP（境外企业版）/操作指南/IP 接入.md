@@ -6,4 +6,4 @@
 4. 在“绑定资源”弹窗中，选择关联 Anycast 高防 IP 与选择可用实例后，单击【确定】，即可完成绑定资源。
 >?可用实例支持不同地区筛选。
 >
-![](https://main.qcloudimg.com/raw/d20fc281b2ee7080956241c96a2a0286.png)
+![](https://main.qcloudimg.com/raw/4c1112aa55c0e586db04e3b285bb7e2f.png)

@@ -812,7 +812,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 ### 在线消息
 
-对于某些场景，需要发送在线消息，即用户在线时收到消息，如果用户不在线，下次登录也不会看到消息，可用于通知类消息，这种消息不会进行存储，也不会计入未读计数。发送接口与 `sendMessage` 类似。
+对于某些场景，需要发送在线消息，即用户在线时收到消息，如果用户不在线，下次登录也不会看到消息，可用于通知类消息，这种消息不会进行存储，也不会计入未读计数。发送接口与 `sendMessage` 类似。如果您不希望收到离线推送，可以调用消息中的 `setOfflinePushSettings` 接口，设置参数 `TIMOfflinePushSettings` 关闭推送 `setEnabled(false)`。
 
 >!2.5.3版本以前只针对单聊消息有效。2.5.3版本以后对群组消息有效(暂不支持 AVChatRoom 和 BChatRoom 类型)
 
@@ -1703,3 +1703,4 @@ Notification notify = mBuilder.build();
 notify.flags |= Notification.FLAG_AUTO_CANCEL;
 mNotificationManager.notify(pushId, notify);
 ```
+

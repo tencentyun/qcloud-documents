@@ -103,3 +103,4 @@ APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
  ![](https://main.qcloudimg.com/raw/f343cb4d7674d58623dfa0097d2c6484.png)
 
 3. 重新打包上传。
+

@@ -11,7 +11,8 @@ CPU 或内存使用率过高，容易引起服务响应速度变慢、服务器�
 2. 对 CPU 或内存占用率高的进程进行分析。
  - 如果是异常进程，可能是病毒或木马导致，您可以自行终止进程，或者使用安全软件进行查杀。
  - 如果是业务进程，则需要分析是否由于访问量变化引起，是否存在优化空间。
- - 如果是腾讯云组件进程，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们进行进一步定位处理。
+ - 如果是腾讯云组件进程，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 联系我们进行进一步定位处理。
 
 ## 定位工具
 
@@ -80,7 +81,8 @@ CPU 或内存使用率过高，容易引起服务响应速度变慢、服务器�
 
 #### 占用大量 CPU 或内存资源的进程为腾讯云组件进程
 
-请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们进行进一步定位处理。
+请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 联系我们进行进一步定位处理。
 
 
 

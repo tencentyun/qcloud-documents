@@ -3,7 +3,7 @@ Android SDK 接入请观看视频：
 
 ## 接入准备
 ### SDK 获取
-实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_2.6.0.zip)。
+实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_2.6.2.zip)。
 
 ### 接入须知
 - 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。
@@ -311,7 +311,6 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 | audioFlowSilenceTimeOut | Int | 否 | 开启检测说话启始超时，开启后超时会自动停止录音 | 5000ms |
 | minAudioFlowSilenceTime | Int | 否 | 两个语音流最短分割时间 | 2000ms |
 | minVolumeCallbackTime | Int | 否 | 音量回调时间 | 80ms |
-| sensitive | float | 否 | 语音识别敏感度，越小越敏感(范围1 - 5) | 3 |
 
 **示例：**
 ```
@@ -320,7 +319,6 @@ AudioRecognizeConfiguration audioRecognizeConfiguration = new AudioRecognizeConf
         .audioFlowSilenceTimeOut(5000) // 静音检测超时停止录音
         .minAudioFlowSilenceTime(2000) // 语音流识别时的间隔时间
     	.minVolumeCallbackTime(80) // 音量回调时间
-	.sensitive(2.8) // 识别敏感度
     	.build();
 
 // 启动语音识别
@@ -407,7 +405,7 @@ templateName 和 customTemplate 都设置时，优先使用 templateName 的设�
 |---------|---------|---------|---------|---------|
 | pcmAudioDataSource | PcmAudioDataSource | 是 | 音频数据源 | 无 |
 | templateName | String | 否 | 用户控制台设置的模板名称 | 无 |
-|customTemplate|AudioRecognizeTemplate|否|用户自定义的模板|(1, 0, 1)|
+|customTemplate|AudioRecognizeTemplate|否|用户自定义的模板|("16k_zh", 1)|
 
 **AudioRecognizeResult**
 语音识别结果对象，和 AudioRecognizeRequest 对象相对应，用于返回语音识别的结果。
@@ -426,13 +424,12 @@ templateName 和 customTemplate 都设置时，优先使用 templateName 的设�
 
 | 参数名称 | 类型 | 是否必填 | 参数描述 |
 |---------|---------|---------|---------|
-| engineModelType | Int | 是 |引擎模型类型 |
-| resultTextFormat | Int | 是 |识别文本结果的编码形式，可选值包括：UTF-8、GB2312、GBK、BIG5 |
+| engineModelType | String | 是 |引擎模型类型 |
 | resType | Int | 是 |结果返回方式 |
 
 **示例：**
 ```
-AudioRecognizeTemplate audioRecognizeTemplate = new AudioRecognizeTemplate(1,0,1);
+AudioRecognizeTemplate audioRecognizeTemplate = new AudioRecognizeTemplate("16k_zh",1);
 ```
 **PcmAudioDataSource**
 用户可以实现这个接口来识别单通道、采样率16k的 PCM 音频数据。主要包括如下几个接口：

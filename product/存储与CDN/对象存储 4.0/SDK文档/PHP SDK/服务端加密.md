@@ -34,8 +34,8 @@ try {
 ```php
 require 'vendor/autoload.php';
 
-$secretId = "COS_SECRETID"; //"云 API 密钥 SecretId";
-$secretKey = "COS_SECRETKEY"; //"云 API 密钥 SecretKey";
+$secretId = "SECRETID"; //"云 API 密钥 SecretId";
+$secretKey = "SECRETKEY"; //"云 API 密钥 SecretKey";
 $region = "ap-beijing"; //设置一个默认的存储桶地域
 $cosClient = new Qcloud\Cos\Client(
     array(

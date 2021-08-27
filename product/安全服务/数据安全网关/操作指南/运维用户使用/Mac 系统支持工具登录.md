@@ -7,7 +7,7 @@
 
 ## 操作步骤
 ### 步骤1：下载并运行控件
-1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/cds/dasb) ，选择一台已部署好的堡垒机实例，在右侧操作栏，单击【管理】，进入堡垒机登录页面。
+1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/dsgc/bh) ，选择一台已部署好的堡垒机实例，在右侧操作栏，单击【管理】，进入堡垒机登录页面。
 2. 使用运维用户账号登录堡垒机。
 >?若运维用户忘记密码，可以联系管理员进行重置，详情请参见 [设置口令](https://cloud.tencent.com/document/product/1025/41852)。
 3. 单击<img src=" https://main.qcloudimg.com/raw/606f82657fccfac739b26e67d57abef7.png"  style="margin:0;">，进入套件中心，下载 macos 控件包。
@@ -20,7 +20,7 @@
 ![](https://main.qcloudimg.com/raw/578cd5a846c9ac43ca5aa721b02a6a21.png)
 
 ### 步骤2：使用 Mac_SecureCRT、Mac_Terminal 、Mac_Iterm 登录
-1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/cds/dasb)。
+1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/dsgc/bh)。
 2. 使用运维用户账号登录堡垒机。
 >?若运维用户忘记密码，可以联系管理员进行重置，详情请参见 [设置口令](https://cloud.tencent.com/document/product/1025/41852)。
 3. 单击【授权列表】，进入资源列表页。

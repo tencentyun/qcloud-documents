@@ -1,0 +1,38 @@
+
+
+以下为 CDN 内部状态码含义说明：
+
+| 状态码 | 含义                             | 处理建议                                                     |
+| :----- | :------------------------------- | :----------------------------------------------------------- |
+| 400    | HTTP 请求语法错误 服务器无法解析 | 请检查请求语法是否正确。                                     |
+| 403    | 请求拒绝                         | 请检查是否配置 referer 黑白名单、IP 黑白名单，鉴权配置等访问控制功能。 |
+| 404    | 服务器无法返回正确信息           | 请检查源站是否正常或者源站信息、回源 HOST 配置是否发生变更。详细说明可见 [CDN 域名突然出现404状态](https://cloud.tencent.com/document/product/228/59282)。 |
+| 413    | POST 长度超出限制                | 请检查客户端 POST 内容大小（默认大小限制为32MB）。           |
+| 414    | URL 长度超出限制                 | URL 默认大小限制为2KB。                                      |
+| 423    | 回环请求                         | 请检查回源跟随301/302配置，HTTPS 配置回源方式，源站 rewrite 的处理方式。详细说明可见 [CDN 访问报错423](https://cloud.tencent.com/document/product/228/59284)。 |
+| 499    | 客户端主动断开连接               | 请检查客户端状态或超时时间设置。                             |
+| 502    | 网关错误                         | 请检查业务源站是否正常。                                     |
+| 503    | 触发 COS 频控                    | 请检查缓存配置或 COS 源站返回 no-cache/no-store。            |
+| 509    | 触发 CC 攻击被封禁               | 请 [联系我们](https://cloud.tencent.com/about/connect) 或 [在线支持](ttps://cloud.tencent.com/online-service?from=connect-entry) 解封。 |
+| 514    | 超出 IP 访问限频                 | 请检查 CDN 控制台 IP 访问限频配置。详细说明可见 [域名接入 CDN 后，访问返回514](https://cloud.tencent.com/document/product/228/56824)。 |
+| 531    | HTTPS 请求回源域名解析错误       | 请检查源站域名解析配置。                                     |
+| 532    | HTTPS 请求回源站建连失败         | 请检查源站443端口状态及证书配置或源站可用性。                |
+| 533    | HTTPS 请求回源站连接超时         | 请检查源站443端口状态及证书配置或源站可用性。                |
+| 537    | HTTPS 请求接受源站数据超时       | 请检查业务源站稳定性。                                       |
+| 538    | HTTPS 请求 SSL 握手失败          | 请检查源站协议和算法的兼容性。                               |
+| 539    | HTTPS 请求证书校验失败           | 请检查源站证书是否正常配置（是否过期、是否证书链齐全）。     |
+| 540    | HTTPS 请求证书域名校验不通过     | 请检查源站证书是否正常配置。                                 |
+| 562    | HTTPS 请求建连失败               | 请 [联系我们](https://cloud.tencent.com/about/connect) 并提供 X-NWS-LOG-UUID 信息或 [在线支持](ttps://cloud.tencent.com/online-service?from=connect-entry) 进行排查。 |
+| 563    | HTTPS 请求连接超时               | 请 [联系我们](https://cloud.tencent.com/about/connect) 并提供 X-NWS-LOG-UUID 信息或 [在线支持](ttps://cloud.tencent.com/online-service?from=connect-entry) 进行排查。 |
+| 564    | HTTPS 请求回源失败               | 若配置为 HTTP 回源方式，请检查源站负载及带宽使用率，或源站访问限制。 若配置为协议跟随方式，请检查源站443端口状态及证书配置。 若排查源站无异常，请 [联系我们](https://cloud.tencent.com/about/connect) 并提供 X-NWS-LOG-UUID 信息或 [在线支持](ttps://cloud.tencent.com/online-service?from=connect-entry) 进行排查。 |
+
+
+
+
+
+
+
+
+
+
+

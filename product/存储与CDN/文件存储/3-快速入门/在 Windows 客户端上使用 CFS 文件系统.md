@@ -1,5 +1,3 @@
-
-
 ## 简介
 
 本文为您详细介绍如何在 Windows 客户端上使用 CFS 文件系统。本指引以 Windows Server 2012 R2 为示例截图，其他版本操作系统，例如 Windows Server 2008 及 Windows Server 2016 操作方法相同。
@@ -39,7 +37,6 @@
 | NFS 4.0      | 2049           | telnet 2049               |
 | CIFS/SMB     | 445            | telnet 445                |
 
-> !CFS 暂不支持 ping。
 
 ## 步骤3: 挂载文件系统
 
@@ -48,9 +45,8 @@
 #### 1. 开启 NFS 服务
 
 挂载前，请确保系统已经启动 NFS 服务。
-1.1 选择【控制面板】>【程序】>【打开或关闭 Windows 功能】>【服务器角色】页签中勾选【Server for NFS】。
-<img src="https://mc.qcloudimg.com/static/img/eaeed922e9d1f673e47137d80a88fa70/image.png" width="80%">
-1.2 选择【控制面板】>【程序】>【打开或关闭 Windows 功能】>【特性】页签中勾选【NFS 客户端】，勾选【NFS 客户端】即可开启 Windows NFS 客户端服务。
+
+选择【控制面板】>【程序】>【打开或关闭 Windows 功能】>【特性】页签中勾选【NFS 客户端】，勾选【NFS 客户端】即可开启 Windows NFS 客户端服务。
 <img src="https://mc.qcloudimg.com/static/img/4f9d7ac7b877ceffc5bc2b1d7c050a24/image.png" width="80%">
 
 #### 2. 验证 NFS 服务是否启动
@@ -68,7 +64,6 @@ mount -h
 在命令行窗口输入 regedit 命令，回车即可打开注册表窗口。
 <img src="https://mc.qcloudimg.com/static/img/c9fca9a1b123a5b2dbc69b0ce66d539f/image.png" width="80%">
 
-
 3.2 添加配置项 AnonymousUid 和 AnonymousGid
 在打开的注册表中找到如下路径并选中。 
 ```bash
@@ -81,9 +76,20 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 添加完毕如下图所示：
 <img src="https://main.qcloudimg.com/raw/9af3f35d4b78a2e17cf2ef44fa6863d7.png" width="80%">
 
-
 3.3 重启使配置生效
-关闭注册表并重启 Windows 系统，完成注册表修改。
+关闭注册表，在命令行工具中依次执行如下命令，重启 NFS 客户端服务，使修改的注册表生效。或者通过重启 Windows 系统，使修改的注册表生效。
+```
+net stop nfsclnt
+```
+```
+net stop nfsrdr
+```
+```
+net start nfsrdr
+```
+```
+net start nfsclnt
+```
 
 #### 4. 挂载文件系统
 
@@ -107,7 +113,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 若以上界面中出现" locking=yes"，为了避免文件锁导致读写异常（NFS v3 暂不支持锁），请按以下步骤修改注册表：
 
 （1）找到如下注册表路径 【HKEY_LOCAL_MACHINE】 > 【SOFTWARE】 > 【Microsoft】 > 【ClientForNFS】 > 【CurrentVersion】 > 【User】 > 【Default】 > 【Mount】。
-（2）在右侧内容区右键新建【DWORD (64-位)值】，名称为”Locking”，值为”0” 。
+（2）在右侧内容区右键新建【QWORD (64-位)值】，名称为”Locking”，值为”0” 。
 
 
 d. 验证读写
@@ -123,6 +129,7 @@ mount  <挂载点IP>:/<FSID> <共享目录名称>:
 mount 10.10.0.12:/z3r6k95r X:
 ```
 > ! FSID 挂载命令可以到【文件存储控制台】>【文件系统详情】>【挂载点信息】中获取。
+> 
 
 ### 挂载 CIFS/SMB 文件系统
 
@@ -152,7 +159,8 @@ net use <共享目录名称>: \\10.10.11.12\FSID
 net use X: \\10.10.11.12\fjie120
 ```
 
-> ! FSID 可以到【[文件存储控制台](https://console.cloud.tencent.com/cfs)】>【文件系统详情】>【挂载点信息】中获取。
+>! FSID 可以到【[文件存储控制台](https://console.cloud.tencent.com/cfs)】>【文件系统详情】>【挂载点信息】中获取。
+>
 
 
 
@@ -176,7 +184,8 @@ umount X：
 
 ## 步骤5: 终止资源
 
->!文件系统删除后，资源不可恢复，建议您删除文件系统之前，先备份资源。
+>! 文件系统删除后，资源不可恢复，建议您删除文件系统之前，先备份资源。
+>
 
 您可以从腾讯云控制台终止文件系统。进入腾讯云 [文件存储控制台](https://console.cloud.tencent.com/cfs/fs)，选中需要终止的文件系统，单击【删除】并【确认】，即可删除文件系统。
 

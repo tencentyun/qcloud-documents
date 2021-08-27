@@ -1,5 +1,5 @@
 ## 接口描述
-**描述**：用于会议 Code 查询会议详情。企业 secert 鉴权用户可查询到任何该用户创建的企业下的会议，OAuth2.0 鉴权用户只能查询到通过 OAuth2.0 鉴权创建的会议。
+**描述**：用于会议 Code 查询会议详情。企业 secret 鉴权用户可查询到任何该用户创建的企业下的会议，OAuth2.0 鉴权用户只能查询到通过 OAuth2.0 鉴权创建的会议。
 **调用方式**：GET
 **接口请求域名**：
 ```plaintext
@@ -180,9 +180,6 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
                 "watermark_opt":0
             }
         },
-        "meeting_room_info":[
-            {"meeting_room_id":"133195"}
-        ],
         "guests":[
             {
                 "area":"86",
