@@ -126,7 +126,7 @@ FLUSH PRIVILEGES;
     <li>私有网络 VPC：通过私有网络 VPC 接入的自建数据库。</li>
     <li>云数据库：腾讯云数据库。</li>
     <li>云联网：通过云联网接入的自建数据库。</li>
-    </ul></td></tr>
+    </ul>更多接入类型的详情介绍请参考<a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td rowspan=3 >目标实例设置</td>
 <td>目标实例类型</td><td>所选择的目标实例类型，不可修改。</td></tr>
@@ -135,7 +135,9 @@ FLUSH PRIVILEGES;
 <tr>
 <td>接入类型</td><td>选择目标数据库类型。</td></tr>
 </tbody></table>
+
 <strong>接入类型说明</strong><br>在源实例及目标实例设置中，根据接入类型选择的不同，会要求填写不同的参数，对应情况见下表：
+
 <table>
 <thead><tr><th>服务提供商</th><th>接入类型</th><th>实例 ID</th><th>云主机实例</th><th>主机地址</th><th>端口</th><th>账号</th><th>密码</th></tr></thead>
 <tbody><tr>

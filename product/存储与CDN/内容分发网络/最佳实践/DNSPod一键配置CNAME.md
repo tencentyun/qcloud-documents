@@ -2,6 +2,8 @@
 
 腾讯云 CDN 与 [DNSPod](https://console.dnspod.cn/) 已打通解析配置能力，若域名已托管至腾讯云 DNSPod，则可通过 [CDN 控制台](https://console.cloud.tencent.com/cdn/domains) 一键配置 CNAME，减少配置步骤和时间，快速启用 CDN 加速服务。
 
+>! 仅支持中国站，不支持国际站。
+
 ## 背景
 
 域名接入 CDN 后，系统会自动分配一个以`.cdn.dnsv1.com`为后缀的 CNAME 域名，可在 CDN 控制台 [域名管理](https://console.cloud.tencent.com/cdn/domains) 页查看。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，CNAME 记录生效后，即可启用 CDN 加速服务。
@@ -25,7 +27,7 @@
 
 #### 配置 CNAME
 
-在 CDN 控制台 [域名管理](https://console.cloud.tencent.com/cdn/domains) 页找到对应的加速域名，鼠标悬浮在 CNAME 上，即可看到相关提示，单击**一键配置**设置 CNAME
+在 CDN 控制台 [域名管理](https://console.cloud.tencent.com/cdn/domains) 页找到对应的加速域名，鼠标悬浮在 CNAME 前的图标上，即可看到相关提示，单击**一键配置**设置 CNAME
 ![](https://main.qcloudimg.com/raw/88e44660c0d149d3d6262768c743542f.png)
 
 
@@ -44,7 +46,10 @@
 
 ### 完成 CNAME 设置
 
-提交一键配置解析后，大约1分钟内生效，请您耐心等待。届时您可刷新 CDN 控制台 [域名管理](https://console.cloud.tencent.com/cdn/domains) 页，当 CNAME 状态变为已启动的状态时，鼠标悬浮在 CNAME 上时可看到提示：加速服务正常运行中。
+提交一键配置解析后，大约1分钟内生效，请您耐心等待。届时您可刷新 CDN 控制台 [域名管理](https://console.cloud.tencent.com/cdn/domains) 页，当 CNAME 状态变为已启动的状态时，鼠标悬浮在 CNAME 前的图标上时可看到提示：加速服务正常运行中。
 
 >?如果您不希望使用此功能，想自行配置 CNAME，可参见 [配置 CNAME](https://tcloud-doc.isd.com/document/product/228/3121)。
+
+## 其他
+若您后续要删除对应的加速域名，删除时，我们不会操作您在 DNSPod 侧的解析记录，请您根据需要自行修改解析记录。
 

@@ -82,6 +82,7 @@ RenewInstances                       ResetInstancesPassword               RunIns
 --filter                    --InstanceName              --secretKey                 
 [root@VM_33_50_centos ~]# tccli cvm RunInstances --Placement 
 ```
+也可以将该命令加入环境变量（`/etc/profile`）中，使自动补全功能一直有效。
 
 ## 配置 TCCLI
 1. 在命令行中执行以下命令，进入交互模式快配置。
@@ -99,7 +100,7 @@ tccli configure
  * **secretKey**：云 API 密钥 SecretKey，请前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 获取。
  * **region**： 云产品地域，请前往对应云产品的 [API 文档](https://cloud.tencent.com/document/api) 获取可用的 region。例如云服务器的 [地域列表](https://cloud.tencent.com/document/api/213/15692#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
  * **output**： 可选参数，请求回包输出格式，支持 JSON、table 及 text 三种格式，默认为 JSON。
-     更多信息请执行 `tccli configure help` 命令查看。
+
 2. 您可执行以下命令进入命令行模式，通过命令行模式您可以在自动化脚本中配置您的信息。 
 ```bash
  # set子命令可以设置某一配置，也可同时配置多个。
@@ -116,8 +117,7 @@ tccli configure
  configure:
  region =  ap-guangzhou
  output =  json
-```
-更多信息请执行 `tccli configure [list、get 或 set] help` 查看，例如 `tccli configure list help`。 
+``` 
 3. 您可执行以下命令配置多账户支持，方便您在多种配置同时使用。 
 ```bash
  # 在交互模式中指定账户名 test。
@@ -135,6 +135,24 @@ tccli configure
  $ tccli configure list --profile test
  # 在调用接口时指定账户（以 cvm DescribeZones 接口为例）。
  $ tccli cvm DescribeZones --profile test
+```
+4.您可以配置https代理，让tccli通过代理调用API
+
+在环境变量中配置https代理
+```bash
+# 在Linux/Unix和macOS中执行如下类似命令配置环境变量
+export https_proxy=https://192.168.1.1:1111
+export https_proxy=https://myproxy.com:1111
+# 在Windows的终端中执行如下类似命令配置环境变量
+setx http_proxy=https://192.168.1.1:1111
+set  http_proxy=https://myproxy.com:1111
+# setx表示设置永久环境变量，设置后重启终端生效
+```
+
+直接在命令行中使用'--https-proxy'选项设置https代理
+```bash
+# 例如
+tccli cvm DescribeRegions --https-proxy https://192.168.1.1:1111
 ```
 
 ## 使用 TCCLI
@@ -489,6 +507,33 @@ tccli cvm DescribeZones --endpoint cvm.ap-guangzhou.tencentcloudapi.com
     ]
 ```
 
+#### 结果轮询
+在使用产品的过程中，有些操作并不能即时完成，您可以使用结果轮询功能来不断查询操作是否完成。比如：您开启一台实例之后，实例并不能立即进入'RUNNING'状态，您可以使用结果轮询功能对实例状态轮询，直到出现'RUNNING'状态为止。
+>! `--waiter`后面的参数需要用双引号括起来，填写的参数是json格式的数据。
+```
+# 例如执行如下命令，程序将一定的时间间隔对实例的状态进行轮询，直到实例的状态为'RUNNING'或者超时为止，`--region`的值需改为您的实例所在的地域
+tccli cvm DescribeInstancesStatus --region ap-hongkong --waiter "{'expr':'InstanceStatusSet[0].InstanceState','to':'RUNNING'}"
+# 您可以自己指定超时的时间和睡眠的时间，如下面的例子，设定的超时时间为180秒，睡眠的时间为5秒。
+tccli cvm DescribeInstancesStatus --region ap-hongkong --waiter "{'expr':'InstanceStatusSet[0].InstanceState','to':'RUNNING','timeout':180,'interval':5}"
+```
+使用'--waiter'参数时，必须指定一以下两个参数：
+
+- expr: 指定被查询的字段，使用[jmespath](http://jmespath.org/)来查找被指定的字段的值
+- to: 被轮询的字段的目标值
+
+可选子参数：
+
+- timeout: 轮询的超时时间(s)
+- inaterval: 进程睡眠的时间(s)
+
+您可以在配置文件中设置可选子参数的值，例如
+```
+# 在default.configure文件中，您可以添加如下参数，设置系统超时时间为180诗，睡眠时间为5s
+    "waiter": {
+        "interval": 5,
+        "timeout": 180
+      },
+```
 ## 相关问题
 
 #### 如何购买命令行工具？

@@ -33,7 +33,7 @@
 4. 在弹出的 “添加账号” 窗口中，输入 B 账号的账号 ID 并单击【确定】。如下图所示：
 >?账号 ID 获取可参考 [账号基本信息](https://cloud.tencent.com/document/product/378/11245)。
 >
-![](https://main.qcloudimg.com/raw/86abc5d0c94dafcce56ad63c332e1594.png)
+![](https://main.qcloudimg.com/raw/c29bdf2da3bffd072d26e5041fdc93ce.png)
 5. 关联成功后，即可对本账号 VPC 或关联账号的 VPC 进行关联或修改等操作。
 
 
