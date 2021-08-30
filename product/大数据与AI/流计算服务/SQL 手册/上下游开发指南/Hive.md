@@ -1,8 +1,8 @@
 ## 介绍
-Hive Sink Connector 提供了对 Hive 的写入支持。当前支持的 Hive 版本有1.1.0、2.3.2、2.3.5和3.1.1版本。
+Hive Sink Connector 提供了对 Hive 的读取和写入支持。当前支持的 Hive 版本有1.1.0、2.3.2、2.3.5和3.1.1版本。
 
 ## 使用范围
-Hive connector 支持数据流的目的表（Sink），不支持 Upsert 数据流。支持 Text、SequenceFile、ORC、Parquet 格式的写入。
+Hive Connector 支持作为数据源表，包括流式和维表 source，也支持数据流的目的表，但只支持 append only，不支持 Upsert 数据流。数据格式支持包括 Text、SequenceFile、ORC 和 Parquet 等。
 
 ## 示例
 #### 用作数据目的（Sink）
@@ -12,8 +12,8 @@ Hive connector 支持数据流的目的表（Sink），不支持 Upsert 数据�
 # 具体语法可以参考 Hive 的相关文档，这里不再赘述
 USE testdb;
 CREATE TABLE `test_sink` (
-			`name` string,
-			`age` int)
+	`name` string,
+	`age` int)
 PARTITIONED BY (`dt` string, `hr` string)
 STORED AS ORC;
 ```
@@ -22,7 +22,7 @@ STORED AS ORC;
 ```
 hdfs dfs -chmod 777 /usr/hive/warehouse/testdb.db/test_sink
 ```
- - 方式二：在【作业管理】>【作业参数】中添加以下高级参数，可以 hadoop 用户角色获取 HDFS 路径权限。
+ - 方式二：在**作业管理 > 作业参数**中添加以下高级参数，可以 hadoop 用户角色获取 HDFS 路径权限。
 ```
 containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
 containerized.master.env.HADOOP_USER_NAME: hadoop
@@ -31,21 +31,49 @@ containerized.master.env.HADOOP_USER_NAME: hadoop
 ```SQL
 # Flink SQL 中使用 Hive 表 testdb.test_sink, 这里的 CREATE TABLE 的表名对应 Hive 库的表名，库名通过 hive-database 参数指定
 CREATE TABLE test_sink (
-			name STRING,
-			age INT,
-			dt STRING,
-			hr STRING
+	name STRING,
+	age INT,
+	dt STRING,
+	hr STRING
 ) PARTITIONED BY (dt, hr)
 with (
-			'connector.type' = 'hive',
-			'hive-version' = '3.1.1',
-			'hive-database' = 'testdb',
-			'partition.time-extractor.timestamp-pattern'='$dt $hr:00:00',
-			'sink.partition-commit.trigger'='partition-time',
-			'sink.partition-commit.delay'='1 h',
-			'sink.partition-commit.policy.kind'='metastore,success-file'
+	'connector.type' = 'hive',
+	'hive-version' = '3.1.1',
+	'hive-database' = 'testdb',
+	'partition.time-extractor.timestamp-pattern'='$dt $hr:00:00',
+	'sink.partition-commit.trigger'='partition-time',
+	'sink.partition-commit.delay'='1 h',
+	'sink.partition-commit.policy.kind'='metastore,success-file'
 );
 ```
+
+#### 用作数据源（Source）或者 Hive 维表
+
+1. 需要在 Hive 数据库（default_database）创建 Hive 表
+```sql
+CREATE TABLE if not exists hive_source (
+  id int,
+  name string
+  )PARTITIONED BY (dt string,hr string) 
+  row format delimited fields terminated by ','
+```
+2. Flink SQL 建库建表（在默认的 HiveCatalog）
+```sql
+SET TABLE.sql-dialect = hive;
+
+CREATE database default_catalog.testdb; -- 新建注册数据库
+
+CREATE TABLE default_catalog.testdb.Hive表名 (id INT, name STRING, dt STRING, hr STRING) PARTITIONED BY (dt, hr) WITH (
+  'connector.type' = 'hive',
+  'hive-version' = '2.3.5',
+  'partition.time-extractor.timestamp-pattern' = '$dt $hr:00:00',
+  'streaming-source.enable' = 'true',
+  'streaming-source.monitor-interval' = '10s',
+  'streaming-source.consume-order' = 'partition-time',
+  'lookup.join.cache.ttl' = '10s'
+);
+```
+
 
 ## 通用 WITH 参数
 
@@ -61,6 +89,11 @@ with (
 | sink.partition-commit.policy.class         | 否   | 无           | 分区提交类，配合 sink.partition-commit.policy.kind = 'custom' 使用，类必须实现 PartitionCommitPolicy。 |
 | partition.time-extractor.kind              | 否   | default      | 分区时间抽取方式。这个配置仅当 sink.partition-commit.trigger 配置为 partition-time 时生效。如果用户有自定义的分区时间抽取方法，配置为 custom。 |
 | partition.time-extractor.class             | 否   | 无           | 分区时间抽取类，这个类必须实现 PartitionTimeExtractor 接口。 |
+| streaming-source.enable                    | 否   | false        | 是否开启流模式。                                             |
+| streaming-source.monitor-interval          | 否   | 1 m          | 监控新文件/分区产生的间隔。                                  |
+| streaming-source.consume-order             | 否   | create-time  | 可以选 create-time 或者 partition-time；create-time 指的不是分区创建时间，而是在 HDFS 中文件/文件夹的创建时间；partition-time 指的是分区的时间；对于非分区表，只能用 create-time。 |
+| streaming-source.consume-start-offset      | 否   | 1970-00-00   | 从哪个分区开始读。                                           |
+| lookup.join.cache.ttl                      | 否   | 60 min       | 表示缓存时间；这里值得注意的是，因为 Hive 维表会把维表所有数据缓存在 TM 的内存中，如果维表量很大，那么很容易就 OOM；如果 ttl 时间太短，那么会频繁的加载数据，性能会有很大影响。 |
 
 ## Hive 配置
 [](id:id)
@@ -91,7 +124,11 @@ hdfs-site.xml
 >! 请确保您使用的 Hive connector 和 Hive 集群是同一个版本。
 
 ## 注意事项
-如果 Flink 作业正常运行，日志中没有报错，但是客户端查不到这个 Hive 表，可以使用如下命令对 Hive 表进行修复（需要将 `hive_table_xxx` 替换为要修复的表名）。
+1. 如果 Flink 作业正常运行，日志中没有报错，但是客户端查不到这个 Hive 表，可以使用如下命令对 Hive 表进行修复（需要将 `hive_table_xxx` 替换为要修复的表名）。
 ```
 msck repair table hive_table_xxx;
 ```
+2. 将 Hive 作为数据源并在配置中`io.compression.codec.lzo.class = com.hadoop.compression.lzo.LzoCodec`时需要上传 hadoop-lzo-版本号.jar 包到 oceanus。
+3. Hive Streaming Source 最大的不足是，无法读取已经读取过的分区下的新增的文件。
+4. 如若 Hive 版本是2.3.7版本，当 Hive 表作为源（Source）时，可以使用 oceanus 上的 flink-connector-hive 的版本为1.1.0、2.3.2、2.3.5版本。
+5. 如果需要查询其他库（默认库名 default_database）中的表，需要在默认的 Catalog（default_catalog）中注册数据库。

@@ -17,7 +17,7 @@
 - 视频截帧：会产生相应的 [视频截帧费用](https://cloud.tencent.com/document/product/460/58120)。
 - 视频声音审核：将视频声音分离出来进行音频审核，审核费用与音频审核一致。
 - 每个审核场景单独计费，例如您选择审核涉黄、广告两种场景，则审核**1个视频**，**计2次**审核费用。
-- 调用接口会产生 [图片审核费用](https://cloud.tencent.com/document/product/460/58119#.E5.9B.BE.E7.89.87.E5.AE.A1.E6.A0.B8.E8.B4.B9.E7.94.A8) 和 [COS 读请求费用](https://cloud.tencent.com/document/product/436/53861#.E8.AF.B7.E6.B1.82.E6.AC.A1.E6.95.B0.E5.AE.9A.E4.BB.B7)。
+- 调用接口会产生 [图片审核费用](https://cloud.tencent.com/document/product/460/58119#.E5.9B.BE.E7.89.87.E5.AE.A1.E6.A0.B8.E8.B4.B9.E7.94.A8)、[音频审核费用](https://cloud.tencent.com/document/product/460/58119#.E9.9F.B3.E9.A2.91.E5.AE.A1.E6.A0.B8.E8.B4.B9.E7.94.A8) 和 [COS 读请求费用](https://cloud.tencent.com/document/product/436/53861#.E8.AF.B7.E6.B1.82.E6.AC.A1.E6.95.B0.E5.AE.9A.E4.BB.B7)。
 - 如果音频文件属于 COS 上的低频存储类型，调用审核会产生 [COS 低频数据取回费用](https://cloud.tencent.com/document/product/436/53862#.E6.95.B0.E6.8D.AE.E5.8F.96.E5.9B.9E.E5.AE.9A.E4.BB.B7)。
 - 不支持审核 COS 上的归档存储类型和深度归档存储类型的音频，如果需要审核此类型音频，请先 [恢复归档文件](https://cloud.tencent.com/document/product/436/12633)。
 

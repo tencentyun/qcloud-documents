@@ -158,9 +158,9 @@ create ‘dim_hbase’, ‘cf’
 ![](https://main.qcloudimg.com/raw/fcbf3d43673bdf39a50993b5e8e22121.png)
 修改完参数后，登录 MySQL 创建示例所需要的数据库和数据库表。
 
-1. 进入实例详情页，单击**登录**，登录 MySQL 云数据库
+1. 进入实例详情页，单击**登录**，登录 MySQL 云数据库。
 ![](https://main.qcloudimg.com/raw/57436002f5ebb5d654008c1223912e77.png)
-2. 新建数据库
+2. 新建数据库。
 打开 SQL 窗口或可视化页面创建数据库和表。
 ```
 CREATE DATABASE livedb;     --创建数据库列表
@@ -181,7 +181,7 @@ CREATE DATABASE livedb;     --创建数据库列表
 
 1. 打开购买的 MySQL 实例，开启外网。
 ![](https://main.qcloudimg.com/raw/4a3c22fcb48f1dfccb2818c659d388f8.png)
-2. 将 SaaS BI（119.29.66.144:3306）添加到 MySQL 数据库安全组
+2. 将 SaaS BI（119.29.66.144:3306）添加到 MySQL 数据库安全组。
 ![](https://main.qcloudimg.com/raw/39817844630b406d5d7b32ec4147175e.png)![](https://main.qcloudimg.com/raw/3bb5e73b19bb62e80f6a255ec61df8cd.png)
 **这里添加的是 MySQL 3306 端口，不是外网映射的端口**。 
 ![](https://main.qcloudimg.com/raw/c21c60a7afea3edf913fddcd83caba9d.png)
@@ -193,7 +193,7 @@ CREATE DATABASE livedb;     --创建数据库列表
 4. 进入智能商业分析 BI，连接 MySQL 数据库。**添加数据源 > MySQL**，填写完成后单击**测试连接**。
 
 ## 方案实现
-接下来通过案例为您介绍如何利用流计算服务Oceanus实现视频直播数字化运营的实时可视化数据处理与分析。
+接下来通过案例为您介绍如何利用流计算服务 Oceanus 实现视频直播数字化运营的实时可视化数据处理与分析。
 
 ### 解决方案
 #### 业务目标

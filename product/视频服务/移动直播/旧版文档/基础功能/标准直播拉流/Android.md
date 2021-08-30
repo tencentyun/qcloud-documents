@@ -26,7 +26,7 @@ SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，�
 
 ## 对接攻略
 [](id:step_1)
-### step 1: 添加 View
+### step 1：添加 View
 为了能够展示播放器的视频画面，我们第一步要做的就是在布局 xml 文件里加入如下一段代码：
 ```xml
 <com.tencent.rtmp.ui.TXCloudVideoView
@@ -37,7 +37,8 @@ SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，�
             android:visibility="visible"/>
 ```
 
-### step 2: 创建 Player
+[](id:step_2)
+### step 2：创建 Player
 视频云 SDK 中的 **TXLivePlayer** 模块负责实现直播播放功能，并使用 **setPlayerView** 接口将它与我们刚刚添加到界面上的 **video_view** 控件进行关联。
 ```java
 //mPlayerView 即 step1 中添加的界面 view
@@ -50,7 +51,8 @@ TXLivePlayer mLivePlayer = new TXLivePlayer(getActivity());
 mLivePlayer.setPlayerView(mView);
 ```
 
-### step 3: 启动播放
+[](id:step_3)
+### step 3：启动播放
 ```java
 String flvUrl = "http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
@@ -66,7 +68,8 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
 **关于 HLS(m3u8)**
 在 App 上我们不推荐使用 HLS 这种播放协议播放直播视频源（虽然它很适合用做点播），因为延迟太高。在 App 上推荐使用 LIVE_FLV 或者 LIVE_RTMP 播放协议。
 
-### step 4: 画面调整
+[](id:step_4)
+### step 4：画面调整
 
 - **view：大小和位置**
 如需修改画面的大小及位置，直接调整 [step1](#step_1) 中添加的`video_view`控件的大小和位置即可。
@@ -103,8 +106,8 @@ mLivePlayer.setRenderRotation(TXLiveConstants.RENDER_ROTATION_LANDSCAPE);
 
 ![](https://main.qcloudimg.com/raw/89e7b5b2b6b944fe8377cf9f2bcff573.jpg)
 
-
-### step 5: 暂停播放
+[](id:step_5)
+### step 5：暂停播放
 对于直播播放而言，并没有真正意义上的暂停，所谓的直播暂停，只是**画面冻结**和**关闭声音**，而云端的视频源还在不断地更新着，所以当您调用 resume 的时候，会从最新的时间点开始播放，这是和点播对比的最大不同点（点播播放器的暂停和继续与播放本地视频文件时的表现相同)。
 
 ```java
@@ -114,7 +117,8 @@ mLivePlayer.pause();
 mLivePlayer.resume();
 ```
 
-### step 6: 结束播放
+[](id:step_6)
+### step 6：结束播放
 结束播放时**记得销毁 view 控件**，尤其是在下次 startPlay 之前，否则会产生大量的内存泄露以及闪屏问题。
 同时，在退出播放界面时，记得一定要调用渲染 View 的 `onDestroy()` 函数，否则可能会产生内存泄露和“Receiver not registered”报警。
 ```java
@@ -129,7 +133,8 @@ public void onDestroy() {
 stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”。早期版本的 RTMP SDK 的直播播放器没有 pause 的概念，所以通过这个布尔值来控制最后一帧画面的清除。
 如果是点播播放结束后，也想保留最后一帧画面，您可以在收到播放结束事件后什么也不做，默认停在最后一帧。
 
-<h3 id="Message">step 7: 消息接收</h3>
+[](id:step_7)[](id:Message)
+### step 7：消息接收
 此功能可以在推流端将一些自定义 message 随着音视频线路直接下发到观众端，适用场景例如：
  
 - 冲顶大会：推流端将**题目**下发到观众端，可以做到“音-画-题”完美同步。
@@ -165,7 +170,8 @@ stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”�
         });
 ```
 
-### step 8: 屏幕截图
+[](id:step_8)
+### step 8：屏幕截图
 通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 Android 的系统 API 来实现。
 ![](https://main.qcloudimg.com/raw/1439eff8e2b9629abf92960e1b784f56.jpg)
 ```java
@@ -179,7 +185,8 @@ mLivePlayer.snapshot(new ITXSnapshotListener() {
 });
 ```
 
-### step 9: 截流录制
+[](id:step_9)
+### step 9：截流录制
 截流录制是直播播放场景下的一种扩展功能：观众在观看直播时，可以通过单击录制按钮把一段直播的内容录制下来，并通过视频分发平台（例如腾讯云的点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
 ![](https://main.qcloudimg.com/raw/c5277659170dccb7e317f4386e75c265.png)
 
@@ -198,7 +205,8 @@ mLivePlayer.stopRecord();
 - 录制好的文件以 MP4 文件的形式，由 ITXVideoRecordListener 的 `onRecordComplete` 通知出来。
 - 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [视频上传（Android）](https://cloud.tencent.com/document/product/584/15535)。
 
-### step 10: 清晰度无缝切换
+[](id:step_10)
+### step 10：清晰度无缝切换
 日常使用中，网络情况在不断发生变化。在网络较差的情况下，最好适度降低画质，以减少卡顿；反之，网速比较好，可以提高观看画质。
 传统切流方式一般是重新播放，会导致切换前后画面衔接不上、黑屏、卡顿等问题。使用无缝切换方案，在不中断直播的情况下，能直接切到另条流上。
 
@@ -212,7 +220,8 @@ mLivePlayer.switchStream("http://5815.liveplay.myqcloud.com/live/5815_62fe94d692
 
 >? 清晰度无缝切换功能需要在后台配置 PTS 对齐，如您需要可 [提交工单](https://console.cloud.tencent.com/workorder) 申请使用。
 
-### step 11: 直播回看
+[](id:step_11)
+### step 11：直播回看
 时移功能是腾讯云推出的特色能力，可以在直播过程中，随时观看回退到任意直播历史时间点，并能在此时间点一直观看直播。非常适合游戏、球赛等互动性不高，但观看连续性较强的场景。
 
 ```java
@@ -336,7 +345,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 | PLAY_EVT_GET_MESSAGE  |  2012|  获取夹在视频流中的自定义 SEI 消息，消息的发送需使用 TXLivePusher |  
 | PLAY_EVT_VOD_PLAY_PREPARED    |  2013|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
 | PLAY_EVT_VOD_LOADING_END  |  2014|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
-| PLAY_EVT_STREAM_SWITCH_SUCC   |  2015|  直播流切换完成，请参考 [清晰度无缝切换](https://cloud.tencent.com/document/product/881/20212#step-10.3A-.E6.B8.85.E6.99.B0.E5.BA.A6.E6.97.A0.E7.BC.9D.E5.88.87.E6.8D.A2)|  
+| PLAY_EVT_STREAM_SWITCH_SUCC   |  2015|  直播流切换完成，请参考 [清晰度无缝切换](#step_10) |  
 
 **不要在收到 PLAY_LOADING 后隐藏播放画面**
 因为 `PLAY_LOADING -> PLAY_BEGIN` 的等待时间长短是不确定的，可能是5s也可能是5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。

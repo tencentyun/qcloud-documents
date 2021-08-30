@@ -48,7 +48,7 @@
 
 提交一键配置解析后，大约1分钟内生效，请您耐心等待。届时您可刷新 CDN 控制台 [域名管理](https://console.cloud.tencent.com/cdn/domains) 页，当 CNAME 状态变为已启动的状态时，鼠标悬浮在 CNAME 前的图标上时可看到提示：加速服务正常运行中。
 
->?如果您不希望使用此功能，想自行配置 CNAME，可参见 [配置 CNAME](https://tcloud-doc.isd.com/document/product/228/3121)。
+>?如果您不希望使用此功能，想自行配置 CNAME，可参见 [配置 CNAME](https://cloud.tencent.com/document/product/228/3121)。
 
 ## 其他
 若您后续要删除对应的加速域名，删除时，我们不会操作您在 DNSPod 侧的解析记录，请您根据需要自行修改解析记录。
