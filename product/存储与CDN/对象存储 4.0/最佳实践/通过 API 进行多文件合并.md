@@ -1,8 +1,8 @@
 ## 准备工作
 
-1. 多文件合并功能通过云函数（Serverless Cloud Function，SCF）实现，使用前需在对象存储控制台  [应用集成 - 多文件合并](https://console.cloud.tencent.com/cos5/application/cosZip) 上创建**多文件合并**函数。创建指引请参见  [多文件合并](https://cloud.tencent.com/document/product/436/60662)。
+1. 多文件合并功能通过云函数（Serverless Cloud Function，SCF）实现，使用前需在对象存储控制台  [应用集成 - 多文件合并](https://console.cloud.tencent.com/cos5/application/cosConcatFile) 上创建**多文件合并**函数。创建指引请参见  [多文件合并](https://cloud.tencent.com/document/product/436/60662)。
 2. 函数创建后，根据函数列表操作栏的**使用引导**，完成函数参数配置。具体函数所需参数配置请参考下文，格式为 **JSON 字符串**。
- - 对于选择云函数鉴权的函数，需要调用 SCF 提供的 [运行函数（Invoke）接口 ](https://cloud.tencent.com/document/api/583/17243) 来运行云函数，其中的 ClientContext 参数以 json 格式传入，请参见 [函数参数配置示例](#1)。
+ - 对于选择云函数鉴权的函数，需要调用 SCF 提供的 [运行函数（Invoke）接口](https://cloud.tencent.com/document/api/583/17243) 来运行云函数，其中的 ClientContext 参数以 json 格式传入，请参见 [函数参数配置示例](#1)。
  - 对于选择免鉴权的函数，则可以直接向对应的 API 网关发起 HTTP 请求来调用函数。
 
 
@@ -79,7 +79,7 @@
 | ------- | ------------------------------------------------------ | ---------------- |
 | code    | 业务错误码，如果为 0 则说明执行成功，否则为执行失败    | Number           |
 | message | 执行结果的文字说明，可能为 null                        | String           |
-| data    | 执行成功的信息，如果执行成功，则包含 ZIP 包的 URL 信息 | Object           |
+| data    | 执行成功的信息，如果执行成功，则包含合并产物文件的 URL 信息 | Object           |
 | error   | 执行的错误信息，如执行成功则为 null                    | Object or String |
 
 ## 实际案例
