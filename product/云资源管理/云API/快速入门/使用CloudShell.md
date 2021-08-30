@@ -1,12 +1,15 @@
 CloudShell 是网页版命令行工具，帮助您通过命令行管理腾讯云资源。您可以通过浏览器启动 CloudShell，启动时将会自动为您分配一台 Linux 管理机供您免费使用，该实例上已经预装 TCCLI 及 Terraform 等多种云管理工具和 SSH 及 VIM 等系统工具。
 
+>?CloudShell 目前处于公测期间，如需使用，请通过 [在线支持](https://cloud.tencent.com/act/event/Online_service?from=doc_1278) 提交申请，审核通过后即可开始使用。
+>
+
 ## 功能特性
 CloudShell 具备以下功能特性：
 - **自动创建免费虚拟机**
 CloudShell 启动时，会自动创建一台 Linux 虚拟机，供您独享使用。
 当会话处于活跃状态时，CloudShell 实例长期有效。每个登录云账号所拥有的管理权限等同于其在访问管理 CAM 中被授予的操作权限。同时，CloudShell 会对所有的登录用户进行安全认证，并实现虚拟机按用户隔离，保障运行环境的安全。
-- **永久性磁盘存储空间**
-CloudShell 免费提供1GB的永久存储，作为您在 CloudShell 实例上的 `/home/cloudshell/data/` 目录。您存储在主目录中的所有文件在不同会话、实例之间保持不变。
+- **持久性磁盘存储空间**
+CloudShell 免费提供1GB的持久存储（ 数据将会在最近一次会话的120天后随机器销毁），作为您在 CloudShell 实例上的 `/home/cloudshell/data/` 目录。您存储在主目录中的所有文件在不同会话、实例之间保持不变。
 - **语言及工具支持**
 CloudShell 实例多种语言支持及预装工具如下：
 <dx-accordion>
@@ -49,11 +52,11 @@ CloudShell 实例多种语言支持及预装工具如下：
   </tr>
   <tr>
 	<td>C++</td>
-	<td>-</td>
+	<td>7.5.0</td>
   </tr>
   <tr>
 	<td>C#</td>
-	<td>-</td>
+	<td>5.0.205</td>
   </tr>
 </tbody>
 </table>
@@ -202,11 +205,6 @@ CloudShell 实例多种语言支持及预装工具如下：
   <tr>
 	<td>会话窗口</td>
 	<td>最多可以打开5个会话窗口。</td>
-  </tr>
-  <tr>
-	<td>无操作销毁</td>
-	<td>
-	无交互式操作30分钟或者关闭所有会话窗口将视为终止操作，在终止操作后15分钟 CloudShell 将销毁此台虚拟机。再次启动 CloudShell 时，将会为您创建一台全新的虚拟机。</td>
   </tr>
   <tr>
 	<td>文件存储</td>
