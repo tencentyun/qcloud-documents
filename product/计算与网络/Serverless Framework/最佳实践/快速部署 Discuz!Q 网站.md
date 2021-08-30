@@ -14,6 +14,7 @@
 ## 前提条件
 - 已开通 [云函数 SCF 服务](https://console.cloud.tencent.com/scf)。
 - 已开通 [文件存储 CFS 服务](https://console.cloud.tencent.com/cfs)。
+- 已准备好您的数据库资源，注意配置好网络环境，推荐使用 [TDSQL-C Serverless MySQL 数据库](https://cloud.tencent.com/document/product/1003/50853)。
 - （可选）准备好已备案的自定义域名，您也可以通过 Serverless 备案资源包完成备案，详情请参见 [ICP 备案](https://cloud.tencent.com/document/product/1154/50706)。
 
 ## 部署步骤
@@ -28,9 +29,12 @@
 ![](https://main.qcloudimg.com/raw/c93aec460abf0909fe586f3c867b39e4.png)
 3. 输入应用名，单击**完成**即可完成应用创建。
 ![](https://main.qcloudimg.com/raw/d0ca3501aed949fd2e530ceac6c5f9e5.png)
-4. 在 Serverless 应用页，单击**访问应用**，即可访问您的 Discuz！Q 项目。
-![](https://main.qcloudimg.com/raw/457b49007c670d109c8a402444d522f4.png)
-5. 部署后，您也可以单击您的应用名称，查看资源列表和部署日志。在资源列表页，您可以单击**新增**配置您的自定义域名。
+4. 在 Serverless 应用页，单击**安装应用**，按照页面提示，安装您的 Discuz！Q 项目，完成数据库配置、账号密码创建等操作。
+>! 请保证您绑定的数据库必须和应用本身在同一个 VPC 网络环境下，如果没有数据库实例，您可以参考 [TDSQL-C Serverless MySQL 数据库](https://cloud.tencent.com/document/product/1003/50853) 文档，创建一个 Serverless 数据库并完成绑定。
+![](https://main.qcloudimg.com/raw/5be323ac9c9264443ad555dfa1c36ed5.png)
+5. 完成安装后，单击**“访问应用”**，输入您的账户名和密码，即可访问您的 Discuz！Q 论坛。
+![](https://main.qcloudimg.com/raw/d89eee226f9dc5f125a6ea2a26d916e1.png)
+6. 部署后，您也可以单击您的应用名称，查看资源列表和部署日志。在资源列表页，您可以单击**新增**配置您的自定义域名。
 ![](https://main.qcloudimg.com/raw/ef07a567abf3524586a72bb1c116ecbf.png)
 
 ### 命令行部署

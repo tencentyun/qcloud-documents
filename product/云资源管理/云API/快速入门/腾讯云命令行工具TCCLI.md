@@ -37,7 +37,7 @@
 >- Python 版本必须为2.7及以上版本，更多内容请参考 [Python](https://www.python.org/) 和 [pip](https://pypi.org/project/pip/) 官网文档。 
 >- TCCLI 依赖于 TencentCloudApi Python SDK，如果 TencentCloudApi Python SDK 的版本号小于要安装 TCCLI 版本号，在安装 TCCLI 时会自动升级 TencentCloudApi Python SDK。
 >
-2. Windows 系统按 **Win+R** 打开运行窗口输入 cmd 并单击【确定】，本文以 Linux 为例。
+2. Windows 系统按 **Win+R** 打开运行窗口输入 cmd 并单击**确定**，本文以 Linux 为例。
 3. 在命令行窗口中，执行以下命令进行 TCCLI 安装。
 ```
 pip install tccli
@@ -83,7 +83,7 @@ RenewInstances                       ResetInstancesPassword               RunIns
 --filter                    --InstanceName              --secretKey                 
 [root@VM_33_50_centos ~]# tccli cvm RunInstances --Placement 
 ```
-也可以将该命令加入环境变量（`/etc/profile`）中，使自动补全功能一直有效。
+>?您也可以将该命令加入环境变量（`/etc/profile`）中，使自动补全功能一直有效。
 
 ## 配置 TCCLI
 1. 在命令行中执行以下命令，进入交互模式快配置。
@@ -169,7 +169,7 @@ TCCLI 目前支持以下三种调用方式：
 ```bash
 $ tccli cvm RunInstances --InstanceChargeType POSTPAID_BY_HOUR --InstanceChargePrepaid '{"Period":1,"RenewFlag":"DISABLE_NOTIFY_AND_MANUAL_RENEW"}' --Placement '{"Zone":"ap-guangzhou-2"}' --InstanceType S1.SMALL1 --ImageId img-8toqc6s3 --SystemDisk '{"DiskType":"CLOUD_BASIC", "DiskSize":50}' --InternetAccessible '{"InternetChargeType":"TRAFFIC_POSTPAID_BY_HOUR","InternetMaxBandwidthOut":10,"PublicIpAssigned":true}' --InstanceCount 1 --InstanceName TCCLI-TEST --LoginSettings '{"Password":"isd@cloud"}' --SecurityGroupIds '["sg-0rszg2vb"]' --HostName TCCLI-HOST-NAME1
 ```
-- 执行以下命令，获取云产品 CVM 的监控数据。
+- 执行以下命令，获取 CVM 的监控数据。
 ```bash
 [root@VM_33_50_centos ~]# tccli monitor GetMonitorData --Namespace "QCE/CVM" --Period 300 --MetricName "CPUUsage" --Instances '[{"Dimensions":[{"Name":"InstanceId","Value":"ins-cac6a4w8"}]}]'
 ```
@@ -199,7 +199,7 @@ $ tccli cvm RunInstances --InstanceChargeType POSTPAID_BY_HOUR --InstanceChargeP
 
 
 #### 更多使用示例
-您还可通过以下命令，进一步使用 TCCLI：
+您还可通过以下命令，进一步使用 TCCLI。
 - 执行 `tccli help` 命令，查看支持的产品，支持中文。
 ```bash
 [root@VM_33_50_centos ~]# tccli help
@@ -226,7 +226,7 @@ AVAILABLE SERVICES
     介绍如何使用API对正版曲库直通车进行操作，包括素材获取、数据上报等。
     ......
 ```
-- 执行 `tccli cvm help` 命令，查看产品支持的接口。本文以 CVM 为例。
+- 本文以 CVM 为例，执行 `tccli cvm help` 命令，查看产品支持的接口。
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm help
 NAME
@@ -251,7 +251,7 @@ AVAILABLE ACTIONS
     绑定安全组
     ......
 ```
-- 执行 `tccli cbs DescribeDisks help` 命令，查看接口支持的参数。本文以 CBS 的 DescribeDisks 接口为例。
+- 本文以 CBS 的 DescribeDisks 接口为例，执行 `tccli cbs DescribeDisks help` 命令，查看接口支持的参数。
 ```bash
 [root@VM_33_50_centos ~]# tccli cbs DescribeDisks help
 NAME
@@ -398,11 +398,11 @@ REGIONSET       na-toronto      北美地区(多伦多)        AVAILABLE
 
 #### 多版本接口访问
 某些产品可能存在多个版本的接口，TCCLI 默认访问最新版本的接口。如果您想访问特定旧版本的接口，可以通过以下方式实现：
-- 方式1：设置 CVM 产品默认使用版本：2017-03-12
+- 方式1：设置 CVM 产品默认使用版本为 2017-03-12。
 ```bash
 tccli configure set cvm.version 2017-03-12
 ```
-- 方式2：在实时使用时指定版本号
+- 方式2：在实时使用时指定版本号。
 ```
 tccli cvm help --version 2017-03-12
 tccli cvm DescribeZones help --version 2017-03-12
@@ -411,7 +411,7 @@ tccli cvm DescribeZones --version 2017-03-12
 
 #### 指定最近的接入点（Endpoint）
 TCCLI 默认会请求就近的接口点访问服务，您也可以针对某一产品指定自己的 Endpoint。
-- 设置 CVM 产品默认 endpoint
+- 设置 CVM 产品默认 Endpoint 为 ap-guangzhou。
 ```bash
 tccli configure set cvm.endpoint cvm.ap-guangzhou.tencentcloudapi.com
 ```
