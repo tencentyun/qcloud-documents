@@ -1,4 +1,3 @@
-
 本文介绍使用 DTS 数据迁移功能从 MySQL 迁移数据至腾讯云数据库 MySQL 的操作指导。
 
 ## 注意事项 
@@ -48,7 +47,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 - 如果仅执行全量数据迁移，请勿在迁移过程中向源实例中写入新的数据，否则会导致源和目标数据不一致。针对有数据写入的场景，为实时保持数据一致性，建议选择全量+增量数据迁移。
 
 ## 支持的 SQL 操作
-| 操作类型 | 支持的 SQL 操作                                                |
+| 操作类型 | 支持的 SQL 操作                                              |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE、REPLACE                              |
 | DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE <br>VIEW：CREATE VIEW、ALTER VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br>DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
@@ -100,8 +99,6 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 
 ## 操作步骤
 
-不同接入类型的数据迁移步骤基本一致，本场景以“专线接入”为例进行介绍。
-
 1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
 2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。
 ![](https://main.qcloudimg.com/raw/7cde8ece6d819a89800e2fccfafc4010.png)
@@ -133,7 +130,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <li>专线接入：通过专线接入的自建数据库。</li>
 <li>VPN接入：通过 VPN 网关接入的自建数据库。</li>
 <li>云数据库：腾讯云数据库。</li>
-<li>云联网：通过云联网接入的数据库。</li></ul>	</td></tr>
+<li>云联网：通过云联网接入的数据库。</li></ul>更多接入类型的详情介绍请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>所属地域</td><td>源库所属地域为 DTS 服务出口地域，选择离自建实例最近的一个地域即可。</td></tr>
 <tr>
@@ -181,7 +178,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <img src="https://main.qcloudimg.com/raw/51d26749a5a208f84c3750e9afc9ea32.png"  style="margin:0;">
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
 如果校验任务不通过，可以查看具体检查项和失败原因，根据界面提示修复后重新发起校验任务。
-![](https://main.qcloudimg.com/raw/0a206c0f8f0c26da17ecb3b983c2ee52.png)
+![](https://main.qcloudimg.com/raw/652fd77b719de63ad40a00a4d56d8967.png)
 6. 返回数据迁移任务列表，任务进入准备运行状态，运行1分钟 - 2分钟后，数据迁移任务开始正式启动。
    - 选择**结构迁移**或者**全量迁移**：任务完成后会自动结束，不需要手动结束。
    - 选择**全量 + 增量迁移**：全量迁移完成后会自动进入增量数据同步阶段，增量数据同步不会自动结束，需要您手动单击**完成**结束增量数据同步。
@@ -191,4 +188,3 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 ![](https://main.qcloudimg.com/raw/e2b9ed2f2a63a0fdf28a557aa5f7aaf2.png)
 7. （可选）如果您需要进行查看任务、删除任务等操作，请单击对应的任务，在**操作**列进行操作，详情可参考 [任务管理](https://cloud.tencent.com/document/product/571/58674)。
 8. 当迁移任务状态变为**任务成功**时，即可对业务进行正式割接，更多详情可参考 [割接说明](https://cloud.tencent.com/document/product/571/58660)。
-

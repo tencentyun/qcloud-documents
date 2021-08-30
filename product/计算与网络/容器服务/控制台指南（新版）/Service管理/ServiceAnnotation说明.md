@@ -65,9 +65,9 @@ Serice Local 模式下仅绑定有 Pod 存在的节点。
 :::
 ::: service.cloud.tencent.com/tke-service-config-auto
 **说明：**
-通过该注解可自动创建 TKEServiceConfig。
+通过该注解可自动创建 TkeServiceConfig。
 **使用示例：**
-使用方式详情见 [Service 与 TKEServiceConfig 关联行为](https://cloud.tencent.com/document/product/457/45490#service-.E4.B8.8E-tkeserviceconfig-.E5.85.B3.E8.81.94.E8.A1.8C.E4.B8.BA)。
+使用方式详情见 [Service 与 TkeServiceConfig 关联行为](https://cloud.tencent.com/document/product/457/45490#service-.E4.B8.8E-tkeserviceconfig-.E5.85.B3.E8.81.94.E8.A1.8C.E4.B8.BA)。
 :::
 ::: service.kubernetes.io/loadbalance-nat-ipv6
 **说明：**

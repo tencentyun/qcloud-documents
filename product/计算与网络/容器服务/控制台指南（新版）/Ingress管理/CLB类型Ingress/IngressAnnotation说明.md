@@ -99,13 +99,13 @@ metadata:
 **说明：**
 通过 tke-service-config 配置负载均衡相关配置，包括监听器、转发规则等。
 **使用示例：**
-`ingress.cloud.tencent.com/tke-service-config: "nginx-config"`，详情可参见 [Ingress 使用 TKEServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
+`ingress.cloud.tencent.com/tke-service-config: "nginx-config"`，详情可参见 [Ingress 使用 TkeServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
 :::
 ::: ingress.cloud.tencent.com/tke-service-config-auto
 **说明：**
-通过该注解可自动创建 TKEServiceConfig 资源，并提供配置的模板，用户可以按需进行配置。
+通过该注解可自动创建 TkeServiceConfig 资源，并提供配置的模板，用户可以按需进行配置。
 **使用示例：**
-`ingress.cloud.tencent.com/tke-service-config-auto: "true"`，详情可参见 [Ingress 使用 TKEServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
+`ingress.cloud.tencent.com/tke-service-config-auto: "true"`，详情可参见 [Ingress 使用 TkeServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
 :::
 ::: ingress.cloud.tencent.com/rewrite-support
 **说明：**

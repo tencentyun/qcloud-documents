@@ -59,12 +59,70 @@ db.createUser({
 2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。 
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置。  
 >?请在源实例创建一个只读帐号供迁移使用，否则迁移前校验步骤将不通过。
->
-![](https://main.qcloudimg.com/raw/68b3b04023f54eb288de6464422c52cc.png)
+<table>
+<thead><tr><th width="10%">设置类型</th><th width="20%">配置项</th><th width="70%">说明</th></tr></thead>
+<tbody>
+<tr>
+<td rowspan=3>任务设置</td>
+<td>任务名称</td>
+<td>设置一个具有业务意义的名称，便于任务识别。</td></tr>
+<tr>
+<td>运行模式</td>
+<td><ul><li>立即执行：完成任务校验通过后立即启动任务。</li><li>定时执行：需要配置一个任务执行时间，到时间后启动任务。</li></ul></td></tr>
+<tr>
+<td>标签</td>
+<td>标签用于从不同维度对资源分类管理。如现有标签不符合您的要求，请前往控制台管理标签。</td></tr>
+<tr>
+<td rowspan=6>源库设置</td>
+<td>源库类型</td><td>根据您的源数据库类型选择，本场景选择“MongoDB”。</td></tr>
+<tr>
+<td>接入类型</td><td>请根据您的场景选择，本场景选择“云数据库”。更多接入类型的详情介绍请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
+<ul><li>公网：通过公网 IP 接入的自建数据库。</li>
+<li>云主机自建：腾讯云服务器 CVM 上的自建数据库。</li>
+<li>专线接入：通过专线接入的自建数据库。</li>
+<li>VPN接入：通过 VPN 网关接入的自建数据库。</li>
+<li>云数据库：腾讯云数据库。</li>
+<li>云联网：通过云联网接入的数据库。</li></ul></td></tr>
+<tr>
+<td>所属地域</td><td>源库 MongoDB 所属地域。</td></tr>
+<tr>
+<td>数据库实例</td><td>选择目标库的实例 ID。</td></tr>
+<tr>
+<td>帐号</td><td>源库 MongoDB 的数据库帐号，帐号权限需要满足要求。</td></tr>
+<tr>
+<td>密码</td><td>源库 MongoDB 的数据库帐号的密码。</td></tr>
+<tr>
+<td rowspan=6>目标库设置</td>
+<td>目标库类型</td><td>选择“MongoDB”。</td></tr>
+<tr>
+<td>接入类型</td><td>本场景选择“云数据库”。</td></tr>
+<tr>
+<td>所属地域</td><td>源库中已选择的地域。</td></tr>
+<tr>
+<td>数据库实例</td><td>选择目标库的实例 ID。</td></tr>
+<tr>
+<td>帐号</td><td>目标库的数据库帐号，帐号权限需要满足要求。</td></tr>
+<tr>
+<td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
+</tbody></table>
+<img src="https://main.qcloudimg.com/raw/68b3b04023f54eb288de6464422c52cc.png"  style="zoom:80%;">
 4. 测试源实例和目标实例的连通性。
 ![](https://main.qcloudimg.com/raw/43d1d1717e76331a9d2048428515cf75.png)
 5. 在设置迁移选项及选择迁移对象页面，设置迁移选项和迁移对象（可选择部分库表）。
-![](https://main.qcloudimg.com/raw/0392c50e0aa030d890c20f119e714579.png)
+<table>
+<thead><tr><th>配置项</th><th>说明</th></tr></thead>
+<tbody><tr>
+<td>迁移类型</td>
+<td>请根据您的场景选择。<ul><li>结构迁移：迁移数据库中的库、表等结构化的数据。</li><li>全量迁移：迁移整个数据库。</li><li>全量 + 增量迁移：迁移整个数据库和后续增量数据，如果迁移过程中有数据写入，需要不停机平滑迁移，请选择此场景。</li></ul></td></tr>
+<tr>
+<td>迁移对象</td>
+<td><ul><li>整个实例：迁移整个实例，但不包括系统库，如 postgres 中的系统对象，但是会迁移 role 与用户元数据定义。</li>
+<li>指定对象：迁移指定对象。</li></ul> </td></tr>
+<tr>
+<td>指定对象</td>
+<td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
+</tbody></table>
+<img src="https://main.qcloudimg.com/raw/0392c50e0aa030d890c20f119e714579.png"  style="zoom:80%;">
 6. 在校验任务页面，完成迁移前校验工作，单击**启动任务**。
 ![](https://main.qcloudimg.com/raw/1182ccb4cfaa066e95e499c44f4363fe.png)
 7. 返回迁移任务列表，待增量同步完成100%，在**操作**列单击**完成**，即可完成迁移任务。

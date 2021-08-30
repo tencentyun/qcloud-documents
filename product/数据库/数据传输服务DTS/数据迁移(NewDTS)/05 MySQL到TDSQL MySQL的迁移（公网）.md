@@ -53,7 +53,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 
 ## 支持的 SQL 操作
 
-| 操作类型 | 支持同步的 SQL 操作                                            |
+| 操作类型 | 支持同步的 SQL 操作                                          |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE、REPLACE                              |
 | DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE<br>VIEW：CREATE VIEW、ALTER VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br> |
@@ -101,8 +101,6 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 
 ## 操作步骤
 
-不同接入类型的数据迁移步骤基本一致，本场景以“公网”接入方式为例进行介绍。
-
 1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
 2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
@@ -125,7 +123,13 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <tr>
 <td>服务提供商</td><td>选择“普通”。</td></tr>
 <tr>
-<td>接入类型</td><td>选择“公网”。</td></tr>
+<td>接入类型</td><td>请根据您的场景选择，本场景选择“公网”。
+<ul><li>公网：通过公网 IP 接入的自建数据库。</li>
+<li>云主机自建：腾讯云服务器 CVM 上的自建数据库。</li>
+<li>专线接入：通过专线接入的自建数据库。</li>
+<li>VPN接入：通过 VPN 网关接入的自建数据库。</li>
+<li>云数据库：腾讯云数据库。</li>
+<li>云联网：通过云联网接入的数据库。</li></ul>更多接入类型的详情介绍请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>所属地域</td><td>源库所属地域为 DTS 服务出口地域，选择离自建实例最近的一个地域即可。</td></tr>
 <tr>
@@ -155,10 +159,11 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
 <td>迁移类型</td>
-<td>- 目标端为 TDSQL MySQL版 实例暂不支持结构迁移。<br>- 如果只进行数据全量迁移，请选择全量迁移。<br>- 如果需要不停机平滑迁移，请选择全量 + 增量迁移。</td></tr>
+<td>请根据您的场景选择。<ul><li>结构迁移：迁移数据库中的库、表等结构化的数据。</li><li>全量迁移：迁移整个数据库。</li><li>全量 + 增量迁移：迁移整个数据库和后续增量数据，如果迁移过程中有数据写入，需要不停机平滑迁移，请选择此场景。</li></ul></td></tr>
 <tr>
 <td>迁移对象</td>
-<td>- 如果需要整个实例迁移，请选择整个实例，不包括系统库，如 information_schema、mysql、performance_schema、sys。 <br>- 如果需要指定库表迁移，请选择指定对象。</td></tr>
+<td><ul><li>整个实例：迁移整个实例，但不包括系统库，如information_schema、mysql、performance_schema、sys。</li>
+<li>指定对象：迁移指定对象。</li></ul> </td></tr>
 <tr>
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
