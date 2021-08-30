@@ -38,7 +38,7 @@ tccli cvm RunInstances --cli-unfold-argument \
 --DryRun True
 ```
 >?
->- `--cli-unfold-argument` 命令可通过 Tab 键进行补全，详情请参见 [命令补全](https://cloud.tencent.com/document/product/440/34011#.E5.91.BD.E4.BB.A4.E8.A1.A5.E5.85.A8)。
+>- `--cli-unfold-argument` 命令可通过 Tab 键进行补全，详情请参见 [使用命令行自动补全功能](https://cloud.tencent.com/document/product/440/60834)。
 >- `--cli-unfold-argument` 命令需`3.0.273.1` 版本及以上。
 - 可增加 `--generate-cli-skeleton` 参数，输出 JSON 格式入参骨架。
 ```bash
@@ -62,12 +62,12 @@ tccli cvm DescribeInstances --generate-cli-skeleton
 }
 ```
 >?
->- `--generate-cli-skeleton` 命令可通过 Tab 键进行补全，详情请参见 [命令补全](https://cloud.tencent.com/document/product/440/34011#.E5.91.BD.E4.BB.A4.E8.A1.A5.E5.85.A8)。
+>- `--generate-cli-skeleton` 命令可通过 Tab 键进行补全，详情请参见  [使用命令行自动补全功能](https://cloud.tencent.com/document/product/440/60834)。
 >- `--generate-cli-skeleton` 命令需`3.0.273.1`版本及以上。
 - 若接口入参较多，可增加 `--cli-input-json` 参数，该参数支持 JSON 文件输入（参数后需增加 `file://+文件路径`）。您可以使用 `--generate-cli-skeleton` 生成相应的 JSON 文件，填写参数后即可直接使用该 JSON 文件调用接口。
 ```bash
 tccli cvm DescribeInstances --cli-input-json file:///home/test.json
 ```
 >?
->- `--cli-input-json` 命令可通过 Tab 键进行补全，详情请参见 [命令补全](https://cloud.tencent.com/document/product/440/34011#.E5.91.BD.E4.BB.A4.E8.A1.A5.E5.85.A8)。
+>- `--cli-input-json` 命令可通过 Tab 键进行补全，详情请参见 [使用命令行自动补全功能](https://cloud.tencent.com/document/product/440/60834)。
 >- `--cli-input-json` 命令需`3.0.250.2`版本及以上。
