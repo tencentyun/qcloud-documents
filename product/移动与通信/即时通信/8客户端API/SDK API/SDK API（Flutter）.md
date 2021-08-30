@@ -120,7 +120,7 @@
 | [setOfflinePushConfig](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_offline_push_manager/V2TIMOfflinePushManager/setOfflinePushConfig.html) | 设置离线推送配置信息 |
 
 ## 好友管理相关接口
-腾讯云 IM 在收发消息时默认不检查是不是好友关系，您可以在 [【控制台】](https://console.cloud.tencent.com/im) >【功能配置】>【登录与消息】>【好友关系检查】中开启"发送单聊消息检查关系链"开关，并使用如下接口增删好友和管理好友列表。
+腾讯云 IM 在收发消息时默认不检查是不是好友关系，您可以在 [**控制台**](https://console.cloud.tencent.com/im) >**功能配置**>**登录与消息**>**好友关系检查**中开启"发送单聊消息检查关系链"开关，并使用如下接口增删好友和管理好友列表。
 
 | API | 描述 |
 |---------|---------|
