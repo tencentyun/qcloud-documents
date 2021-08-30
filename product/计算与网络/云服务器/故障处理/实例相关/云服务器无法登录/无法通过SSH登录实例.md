@@ -10,9 +10,9 @@
 当使用 SSH 登录 Linux 实例失败，并返回报错信息时，您可记录报错信息，并匹配以下常见的报错信息，快速定位问题并参考步骤进行解决。
  
 <dx-accordion>
-::: SSH 登录报错 “User test from xxx.xxx.xxx.xxx not allowed because not listed in AllowUsers”[](id:userNotListAllowUsers)
+::: SSH 登录报错 “User test from xxx.xxx.xxx.xxx not allowed because not listed in AllowUsers”
 
-#### 问题原因
+#### 问题原因[](id:userNotListAllowUsers)
 该问题通常是由于 SSH 服务启用了用户登录控制参数，对登录用户进行了限制。参数说明如下：
 - **AllowUsers**：允许登录的用户白名单，只有该参数标注的用户可以登录。
 - **DenyUsers**：拒绝登录的用户黑名单，该参数标注的用户都被拒绝登录。
@@ -57,9 +57,9 @@ service sshd restart
 
 
 ::: 
-::: SSH 登录报错 Disconnected:No supported authentication methods available[](id:noSupportesAuthentication)
+::: SSH 登录报错 Disconnected:No supported authentication methods available
 
-#### 现象描述
+#### 现象描述[](id:noSupportesAuthentication)
 使用 SSH 登录时，出现如下报错信息：
 ```
 Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
@@ -96,9 +96,9 @@ service sshd restart
 重启 SSH 服务后，即可使用 SSH 登录。详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
 
 :::
-::: SSH 登录报错 ssh_exchange_identification: read: Connection reset by peer[](id:connectionResetByPeer)
+::: SSH 登录报错 ssh_exchange_identification: read: Connection reset by peer
 
-#### 现象描述
+#### 现象描述[](id:connectionResetByPeer)
 使用 SSH 登录时，出现报错信息 “ssh_exchange_identification: read: Connection reset by peer”。或出现以下报错信息：
 - “ssh_exchange_identification: Connection closed by remote host”
 - “kex_exchange_identification: read: Connection reset by peer”
@@ -133,8 +133,12 @@ ALL:ALL				# 阻止所有TCP连接
 [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701) 后，请检查 `/etc/hosts.deny` 文件及 `/etc/hosts.allow` 文件。并根据检查结果选择以下处理方式：
  - 配置有误，请按需修改，更改即时生效。
  - 未配置或配置无误，请进行下一步。
->?若您未配置访问策略，则默认文件均为空，且允许所有连接。
->
+
+<dx-alert infotype="explain" title="">
+若您未配置访问策略，则默认文件均为空，且允许所有连接。
+</dx-alert>
+
+
  
 
 #### 检查 iptables 防火墙规则
@@ -154,7 +158,9 @@ vim /etc/ssh/sshd_config
 2. 检查 `MaxStartups` 值是否需调整。`sshd_config` 配置文件中通过 `MaxStartups` 设置允许的最大连接数，如果短时间需建立较多连接，则需适当调整该值。
  - 若需调整，则请参考以下步骤修改：
     1. 按 **i** 进入编辑模式，修改完成后按 **Esc** 退出编辑模式，并输入 **:wq** 保存修改。
->?MaxStartups 10:30:100为默认配置，指定 SSH 守护进程未经身份验证的并发连接的最大数量。10:30:100表示从第10个连接开始，以30%的概率（递增）拒绝新的连接，直到连接数达到100。
+<dx-alert infotype="explain" title="">
+MaxStartups 10:30:100为默认配置，指定 SSH 守护进程未经身份验证的并发连接的最大数量。10:30:100表示从第10个连接开始，以30%的概率（递增）拒绝新的连接，直到连接数达到100。
+</dx-alert>
     2. 执行以下命令，重启 sshd 服务。
 ```
 service sshd restart
@@ -164,17 +170,18 @@ service sshd restart
 
 #### 测试网络环境
 1. 检查是否使用了 [内网 IP](https://cloud.tencent.com/document/product/213/5225) 进行登录。
- - 是，请切换为 [公网 IP](https://cloud.tencent.com/document/product/213/5224) 后再次进行尝试。
- - 否，请进行下一步。
+  - 是，请切换为 [公网 IP](https://cloud.tencent.com/document/product/213/5224) 后再次进行尝试。
+  - 否，请进行下一步。
 2. 使用其他网络环境测试是否连接正常。
- - 是，请重启实例后使用 VNC 登录实例。
- - 否，请根据测试结果解决网络环境问题。
+  - 是，请重启实例后使用 VNC 登录实例。
+  - 否，请根据测试结果解决网络环境问题。
  
  
 若至此您仍未解决 SSH 登录问题，则可能是由于系统内核出现异常或其他潜在原因导致，请通过 [在线支持](https://cloud.tencent.com/act/event/Online_service?from=doc_213) 联系我们进一步处理问题。
 :::
-::: SSH 登录报错 Permission denied, please try again[](id:permissionDenied)
-#### 现象描述
+::: SSH 登录报错 Permission denied, please try again
+
+#### 现象描述[](id:permissionDenied)
 root 用户使用 SSH 登录 Linux 实例时，出现报错信息 “Permission denied, please try again”。
  
 
