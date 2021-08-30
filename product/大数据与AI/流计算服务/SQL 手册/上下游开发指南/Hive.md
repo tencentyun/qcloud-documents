@@ -22,7 +22,7 @@ STORED AS ORC;
 ```
 hdfs dfs -chmod 777 /usr/hive/warehouse/testdb.db/test_sink
 ```
- - 方式二：在【作业管理】>【作业参数】中添加以下高级参数，可以 hadoop 用户角色获取 HDFS 路径权限。
+ - 方式二：在**作业管理 > 作业参数**中添加以下高级参数，可以 hadoop 用户角色获取 HDFS 路径权限。
 ```
 containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
 containerized.master.env.HADOOP_USER_NAME: hadoop
@@ -57,7 +57,7 @@ CREATE TABLE if not exists hive_source (
   )PARTITIONED BY (dt string,hr string) 
   row format delimited fields terminated by ','
 ```
-2. Flink SQL 建库建表（在默认的HiveCatalog）
+2. Flink SQL 建库建表（在默认的 HiveCatalog）
 ```sql
 SET TABLE.sql-dialect = hive;
 
