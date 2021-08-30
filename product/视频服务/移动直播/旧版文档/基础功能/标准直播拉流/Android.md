@@ -336,7 +336,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 | PLAY_EVT_GET_MESSAGE  |  2012|  获取夹在视频流中的自定义 SEI 消息，消息的发送需使用 TXLivePusher |  
 | PLAY_EVT_VOD_PLAY_PREPARED    |  2013|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
 | PLAY_EVT_VOD_LOADING_END  |  2014|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
-| PLAY_EVT_STREAM_SWITCH_SUCC   |  2015|  直播流切换完成，请参考 [清晰度无缝切换](https://cloud.tencent.com/document/product/881/20212#step-10.3A-.E6.B8.85.E6.99.B0.E5.BA.A6.E6.97.A0.E7.BC.9D.E5.88.87.E6.8D.A2)|  
+| PLAY_EVT_STREAM_SWITCH_SUCC   |  2015|  直播流切换完成 |  
 
 **不要在收到 PLAY_LOADING 后隐藏播放画面**
 因为 `PLAY_LOADING -> PLAY_BEGIN` 的等待时间长短是不确定的，可能是5s也可能是5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。
