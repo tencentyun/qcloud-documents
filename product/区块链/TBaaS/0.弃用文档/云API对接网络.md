@@ -10,7 +10,7 @@
 SDK 的使用流程如下图所示：
 <img src="https://main.qcloudimg.com/raw/3abf6af1b8f0f1096619fa0945a3d789.png" alt="img" style="zoom: 33%;" />            
 
-云 API 支持 Fabric、BCOS 和 TrustSQL 调用，本文将以 Fabric 为例进行介绍。
+云 API 支持 Fabric 和 BCOS 调用，本文将以 Fabric 为例进行介绍。
 ## 获取账户信息
 使用云 API 调用合约时除了需要网络、合约的相关参数，还需要提供购买 TBaaS 节点的账户信息，包括 SecretId 和 SecretKey。
 >?
