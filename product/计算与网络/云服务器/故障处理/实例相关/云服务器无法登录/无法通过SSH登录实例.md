@@ -10,9 +10,9 @@
 当使用 SSH 登录 Linux 实例失败，并返回报错信息时，您可记录报错信息，并匹配以下常见的报错信息，快速定位问题并参考步骤进行解决。
  
 <dx-accordion>
-::: SSH 登录报错 “User test from xxx.xxx.xxx.xxx not allowed because not listed in AllowUsers”[](id:userNotListAllowUsers)
+::: SSH 登录报错 “User test from xxx.xxx.xxx.xxx not allowed because not listed in AllowUsers”
 
-#### 问题原因
+#### 问题原因[](id:userNotListAllowUsers)
 该问题通常是由于 SSH 服务启用了用户登录控制参数，对登录用户进行了限制。参数说明如下：
 - **AllowUsers**：允许登录的用户白名单，只有该参数标注的用户可以登录。
 - **DenyUsers**：拒绝登录的用户黑名单，该参数标注的用户都被拒绝登录。
@@ -57,9 +57,9 @@ service sshd restart
 
 
 ::: 
-::: SSH 登录报错 Disconnected:No supported authentication methods available[](id:noSupportesAuthentication)
+::: SSH 登录报错 Disconnected:No supported authentication methods available
 
-#### 现象描述
+#### 现象描述[](id:noSupportesAuthentication)
 使用 SSH 登录时，出现如下报错信息：
 ```
 Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
@@ -96,9 +96,9 @@ service sshd restart
 重启 SSH 服务后，即可使用 SSH 登录。详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
 
 :::
-::: SSH 登录报错 ssh_exchange_identification: read: Connection reset by peer[](id:connectionResetByPeer)
+::: SSH 登录报错 ssh_exchange_identification: read: Connection reset by peer
 
-#### 现象描述
+#### 现象描述[](id:connectionResetByPeer)
 使用 SSH 登录时，出现报错信息 “ssh_exchange_identification: read: Connection reset by peer”。或出现以下报错信息：
 - “ssh_exchange_identification: Connection closed by remote host”
 - “kex_exchange_identification: read: Connection reset by peer”
@@ -179,9 +179,9 @@ service sshd restart
  
 若至此您仍未解决 SSH 登录问题，则可能是由于系统内核出现异常或其他潜在原因导致，请通过 [在线支持](https://cloud.tencent.com/act/event/Online_service?from=doc_213) 联系我们进一步处理问题。
 :::
-::: SSH 登录报错 Permission denied, please try again[](id:permissionDenied)
+::: SSH 登录报错 Permission denied, please try again
 
-#### 现象描述
+#### 现象描述[](id:permissionDenied)
 root 用户使用 SSH 登录 Linux 实例时，出现报错信息 “Permission denied, please try again”。
  
 
@@ -245,4 +245,9 @@ service sshd restart
 
 <br>
 若您的问题仍未解决，请通过 <a href="https://cloud.tencent.com/act/event/Online_service?from=doc_213">在线支持</a> 联系我们寻求帮助。
+
+
+
+
+
 
