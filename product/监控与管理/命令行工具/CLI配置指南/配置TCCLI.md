@@ -4,7 +4,7 @@
 ## 前提条件
 已安装 TCCLI，详情请参见 [安装 TCCLI](https://cloud.tencent.com/document/product/440/34011)。
 
-## 操作详解
+## 操作步骤
 
 使用 TCCLI 前您需要进行一些初始化配置，使其完成使用云 API 的必要前提条件。
 >?下文中 secretId、secretKey、地域等信息仅作为实例，请以实际情况为准。
