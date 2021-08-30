@@ -221,6 +221,7 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
 - 执行命令后需重启系统或实例，使修改生效。
 </dx-alert>
 
+
 #### 检查及调整 sshd 配置
 1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
 2. 执行以下命令，使用 VIM 编辑器进入 `sshd_config` 配置文件。
@@ -242,8 +243,8 @@ service sshd restart
 </dx-accordion>
 
 
-
-若您的问题仍未解决，请通过 [在线支持](https://cloud.tencent.com/act/event/Online_service?from=doc_213) 联系我们寻求帮助。
+<br>
+若您的问题仍未解决，请通过 <a href="https://cloud.tencent.com/act/event/Online_service?from=doc_213">在线支持</a> 联系我们寻求帮助。
 
 
 
