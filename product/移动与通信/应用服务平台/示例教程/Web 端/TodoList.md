@@ -10,7 +10,7 @@
    ![](https://main.qcloudimg.com/raw/68f9e9836035f548aa840ad1c2a17a77.png)
 3. <span id="step1.3"></span>开通成功之后，单击环境名称，进入 [环境总览](https://console.cloud.tencent.com/tcb/env/overview) 页面，如下所示：
 	 ![](https://main.qcloudimg.com/raw/d592affbb4342ab13ad3825fbc38a466.jpg)
-> !请记住您的环境 ID，这个 ID 在后续步骤将被使用。您可单击**环境Id**右侧的**<img src="https://main.qcloudimg.com/raw/a06f957521023a64e977041f9181f251.jpg"  style="margin:0;">**图标进行复制。
+> !请记住您的环境 ID，这个 ID 在后续步骤将被使用。您可单击**环境Id**右侧的<img src="https://main.qcloudimg.com/raw/a06f957521023a64e977041f9181f251.jpg"  style="margin:0;">图标进行复制。
 
 ## 步骤1：开启匿名登录
 
