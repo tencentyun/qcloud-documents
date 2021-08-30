@@ -1,10 +1,8 @@
 ## 介绍
-
 Hive Sink Connector 提供了对 Hive 的读取和写入支持。当前支持的 Hive 版本有1.1.0、2.3.2、2.3.5和3.1.1版本。
 
 ## 使用范围
-
-Hive connector 支持作为数据源表，包括流式和维表source，也支持数据流的目的表，但只支持append only，不支持 Upsert 数据流。数据格式支持包括Text、SequenceFile、ORC和Parquet等 。
+Hive Connector 支持作为数据源表，包括流式和维表 source，也支持数据流的目的表，但只支持 append only，不支持 Upsert 数据流。数据格式支持包括 Text、SequenceFile、ORC 和 Parquet 等。
 
 ## 示例
 #### 用作数据目的（Sink）
@@ -51,7 +49,7 @@ with (
 
 #### 用作数据源（Source）或者 Hive维表
 
-1. 需要在Hive数据库（default_database）创建 Hive 表
+1. 需要在 Hive 数据库（default_database）创建 Hive 表
 ```sql
 CREATE TABLE if not exists hive_source (
   id int,
