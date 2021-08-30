@@ -36,7 +36,7 @@ hexo s
    ![](https://main.qcloudimg.com/raw/5516e22060227892fe254d6027d343bf.jpg)
 3. <span id="step2.3"></span>开通成功之后，单击环境名称，进入环境总览页面。如下所示：
    ![](https://main.qcloudimg.com/raw/c7fb3e0eaacfd716fddd0914a43eff00.jpg)
->!请记住您的环境 ID，这个 ID 在后续步骤将被使用。您可单击**环境Id**右侧的**<img src="https://main.qcloudimg.com/raw/a06f957521023a64e977041f9181f251.jpg"  style="margin:0;">**图标进行复制。
+>!请记住您的环境 ID，这个 ID 在后续步骤将被使用。您可单击**环境Id**右侧的<img src="https://main.qcloudimg.com/raw/a06f957521023a64e977041f9181f251.jpg"  style="margin:0;">图标进行复制。
 4. 单击左侧菜单栏中的**静态网站托管**，在页面中单击**开启使用**，开通静态托管服务。
 ![](https://main.qcloudimg.com/raw/b2722f1c74c77d582802a0ddedf1823c.png)
 当您能看到如下界面时，即说明开通成功。
@@ -120,7 +120,7 @@ jobs:
  - 配置中主要用到云开发 Github Action 扩展 <b>TencentCloudBase/cloudbase-action@v1.1.1</b> 来部署静态文件，请检查该扩展是否为 [最新版本](https://github.com/TencentCloudBase/cloudbase-action)，否则可能会在自动部署中出现错误。
  - `staticSrcPath` 填写静态网站构建产生的目录 `public`，如需将静态资源部署到云端的某个子目录而非根目录，可以再配置一个参数 `staticDestPath: ./public`。
 2. 配置腾讯云**密钥信息**及云开发**环境 ID** 。
-前往项目 Github 文件夹的** Settings**标签页，在项目的**Secrets**中配置 [准备工作](#preparation) 步骤获取的 `SECRET_ID`、`SECRET_KEY`、`ENV_ID`。
+前往项目 Github 文件夹的**Settings**标签页，在项目的**Secrets**中配置 [准备工作](#preparation) 步骤获取的 `SECRET_ID`、`SECRET_KEY`、`ENV_ID`。
 ![](https://main.qcloudimg.com/raw/8b2adcfb183707a7c8551c73555d36c1.png)
 3. 自动部署。
 配置完后即可提交代码体验自动部署，在每次 `git push` 命令完成后，`Actions` 都会自动运行，将项目的静态资源部署到您的云开发静态托管环境中，部署成功之后即可通过云开发提供的 [默认域名](https://console.cloud.tencent.com/tcb/hosting/index) 访问来您的网站。
