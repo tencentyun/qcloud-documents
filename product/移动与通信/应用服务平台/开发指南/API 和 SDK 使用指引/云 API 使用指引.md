@@ -19,7 +19,7 @@
 <img src="https://main.qcloudimg.com/raw/85228392c7e500ebeee75626f13ace04.jpg" width="80%">
 
 
-如需了解整个产品概况，点击 [了解更多](https://cloud.tencent.com/document/product/876/18431)。
+如需了解整个产品概况，单击 [了解更多](https://cloud.tencent.com/document/product/876/18431)。
 
 针对云开发的云 API 包含两大部分：
 - 由云开发产品提供的云 API 能力。
