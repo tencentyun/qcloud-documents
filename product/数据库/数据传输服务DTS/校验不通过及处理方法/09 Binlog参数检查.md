@@ -77,7 +77,7 @@ mysql> show variables like '%binlog_format%';
 5. 重新执行校验任务。
 
 ### 修改 binlog_row_image 参数
-`binlog_row_image` 参数决定了 binlog 是如何记录前镜像（记录修改前的内容）和后镜像（记录修改前的内容）的，这会直接影响到数据闪回、主从复制等功能。
+`binlog_row_image` 参数决定了 binlog 是如何记录前镜像（记录修改前的内容）和后镜像（记录修改后的内容）的，这会直接影响到数据闪回、主从复制等功能。
 `binlog_row_image` 参数只在 `binlog_format` 配置为 `ROW` 模式下生效。具体取值影响如下：
 - `FULL`：在 `ROW` 模式下，binlog 会记录前镜像和后镜像的所有列的数据信息。
 - `MINIMAL`：在 `ROW` 模式下，当表没有主键或唯一键时，前镜像记录所有列，后镜像记录被修改的列；如果存在主键或唯一键，不管是前镜像还是后镜像，都只记录有影响的列。
