@@ -31,7 +31,7 @@ npm install tim-js-sdk --save
 // 发送图片、文件等消息需要腾讯云即时通信 IM 上传插件
 npm install tim-upload-plugin --save
 ```
- >?若同步依赖过程中出现问题，请切换 npm 源后再次重试。
+>?若同步依赖过程中出现问题，请切换 npm 源后再次重试。
 >```
 >// 切换 cnpm 源
 >npm config set registry http://r.cnpmjs.org/
