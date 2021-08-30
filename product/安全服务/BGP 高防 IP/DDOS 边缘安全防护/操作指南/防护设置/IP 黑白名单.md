@@ -10,7 +10,7 @@ DDoS 边缘安全防护支持通过配置 IP 黑名单和白名单实现对访�
 1. 登录 [DDoS 边缘安全防护管理控制台](https://console.cloud.tencent.com/ddos/antiddos-edge/policy/ddos) ，在左侧导航中，单击【防护策略】，并选择【DDoS防护】。
 2. 在左边的列表选中高防实例 的 ID，如“edge-xxxxxxx”。
 ![](https://main.qcloudimg.com/raw/e854c4c6423ee81d80ed7b964ac26df1.png)
-3. 右侧卡片中单击“IP 黑白名单”卡片中的【设置】，进入IP 黑白名单页面。
+3. 在右侧卡片中单击“IP 黑白名单”卡片中的【设置】，进入IP 黑白名单页面。
 ![](https://main.qcloudimg.com/raw/93c2fc39330b593470b21e0e3bca2da9.png)
 4. 在 IP 黑白名单页面中，单击【新建】。
 ![](https://main.qcloudimg.com/raw/a04dd1610c7610bdbe495cda14dc9fa0.png)
