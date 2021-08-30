@@ -47,7 +47,7 @@ with (
 );
 ```
 
-#### 用作数据源（Source）或者 Hive维表
+#### 用作数据源（Source）或者 Hive 维表
 
 1. 需要在 Hive 数据库（default_database）创建 Hive 表
 ```sql
