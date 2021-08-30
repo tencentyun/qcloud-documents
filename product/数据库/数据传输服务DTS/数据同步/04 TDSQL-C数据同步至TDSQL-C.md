@@ -128,7 +128,7 @@ FLUSH PRIVILEGES;
     <li>私有网络 VPC：通过私有网络 VPC 接入的自建数据库。</li>
     <li>云数据库：腾讯云数据库。</li>
     <li>云联网：通过云联网接入的自建数据库。</li>
-    </ul>更多接入类型的详情介绍请参考<a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+    </ul>更多接入类型的详情介绍请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>实例 ID</td><td>源数据库实例 ID。</td></tr>
 <tr>

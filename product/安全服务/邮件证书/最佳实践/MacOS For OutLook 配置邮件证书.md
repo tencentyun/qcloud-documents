@@ -24,7 +24,7 @@
 2. 选择您的证书所属的帐户，然后单击【高级】按钮。
 <img src="https://main.qcloudimg.com/raw/1861297dddb7953025020219d24fc62d.png" style="zoom:75%;" />
 3. 单击【安全性】标签，勾选并选择相关信息，配置可参考下图方式进行选择。
->?签名算法 SHA-1 比 SHA26 兼容性好，SHA256 更加安全。
+>?签名算法 SHA-1 比 SHA256 兼容性好，SHA256 更加安全。
 >
 <img src="https://main.qcloudimg.com/raw/1c29ff63825ac15ec031afc8b553803c.png" style="zoom:75%;" /><br>
 字段说明：

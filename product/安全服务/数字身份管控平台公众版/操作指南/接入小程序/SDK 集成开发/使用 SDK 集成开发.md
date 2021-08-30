@@ -1,5 +1,6 @@
 ## 操作背景
 本文档介绍如何将数字身份管控平台（公共版）的 SDK 集成到小程序应用中。
+>?推荐下载 [小程序 Demo](https://ciam-prd-1302490086.cos.ap-guangzhou.myqcloud.com/public/file/ciam-miniap-demo.zip) 实现快速开发。
 
 ## 相关示例
 ### SDK 实例化
@@ -181,36 +182,3 @@ await authSDK.logout();
 
 **返回值**
 类型为 Boolean，返回 true/false。
-
-### 更新用户信息updateUser
-```
-	await authSDK.updateUser({
-	   nickname: "xxxx",
-	   phoneNumber: "xxxxx"
-});
-```
-
-**参数说明**
-传入发生变化的用户属性 code 及属性值。
-```
-	{
-	   nickname: "xxxx",
-	   phoneNumber: "xxxxx"
-}
-```
-
-**返回值**:
-类型为 Promise[User|null]，User 结构如下:
-```
-{
-   sub: "69bc2a4d-e575-41cf-bbc6-996e0911e2ec",
-   username: "xxx",
-   name: "xxx",
-   gender: "female",
-   phoneNumber: "+86-13612345678",
-   email: "xxx@qq.com",
-   nickname: "xxxx",
-   wechatUnionId: "xxxxx",
-   wechatOpenid: "xxxxx"
-}
-```

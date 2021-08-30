@@ -101,14 +101,14 @@
 ## 操作步骤
 ### 开启/关闭专线网关 Community 属性传递
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
-2. 单击左侧导航栏中的【专线网关】。
+2. 单击左侧导航栏中的**专线网关**。
 3. 单击云联网类型的专线网关 ID，进入详情页。
-4. 选择【IDC网段】标签页。
+4. 选择**IDC网段**标签页。
 5. 单击 Community 属性开关并确定操作，开启或关闭专线网关 Community 属性传递。
 ![](https://main.qcloudimg.com/raw/a881ad720445f71267c75d7547b433a9.png)
 
 ### 查看专用通道 Community 属性传递状态
 1. 登录 [专线接入控制台](https://console.cloud.tencent.com/dc/dc)。
-2. 单击左侧导航栏中的【专用通道】。
+2. 单击左侧导航栏中的**专用通道**。
 3. 选择专用通道 ID，进入详情页进行查看。
 ![](https://main.qcloudimg.com/raw/0e569c0f972281ac0902eb4b00fe530e.png)

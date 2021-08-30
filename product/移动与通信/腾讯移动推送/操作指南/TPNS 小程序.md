@@ -5,17 +5,17 @@
 
 ### 进入 TPNS 小程序
 
-1. 打开微信，搜索“腾讯云助手”，点击并进入小程序。
-![](https://main.qcloudimg.com/raw/3daae380576cef2a21e58f9a71d729e5.png)
-2. 点击**管理**，找到并点击**移动推送TPNS**，即可进入 TPNS 小程序。
-![](https://main.qcloudimg.com/raw/5b358027d9bd2995d3f6bf7f68831d18.png)
+打开微信「扫一扫」，扫码下方二维码进入 TPNS 小程序。
+![](https://main.qcloudimg.com/raw/cd47d33e0217e082b884c2df29e84881.png)
+
 
 ### 选择应用
 
 1. 点击**应用切换**。
 ![](https://main.qcloudimg.com/raw/55a518987fdf37c6f1ea5b0d1a01f847.png)
+
 2. 根据实际需求，选择想要查看数据的应用。
-![](https://main.qcloudimg.com/raw/77af1f4cdfa6704a15a3df5932187b09.png)
+![](https://main.qcloudimg.com/raw/e0f7b11bbdbfe084359cf4853373a808.png)
 
 ### 查看数据
 
@@ -29,6 +29,7 @@
  - **实发率（PV）**：实际发送次数/计划发送次数 * 100%
  - **消息抵达率（PV）**：抵达次数/实际发送次数 * 100%
  - **点击率（PV）**：点击次数/抵达次数 * 100%
+ 
 2. 根据实际需求，点击**所有通道**，切换查看不同通道的数据情况。
 
 
@@ -36,5 +37,6 @@
 
 1. 点击**服务详情**。
 ![](https://main.qcloudimg.com/raw/09435ddac13723e28750715167f882cd.png)
+
 2. 在”服务设置“界面，您可以查看应用的服务状态、服务版本，并进行续费、充值等操作。
 ![](https://main.qcloudimg.com/raw/9d0b11fc868d97c126467c1db74c683d.png)
