@@ -8,7 +8,7 @@
 ## 创建企业自建应用
 - 企业自建应用需账户管理员管理使用，如果您是账户管理员，则可以通过腾讯会议官网 [开放平台](https://meeting.tencent.com/open-api.html) 中的“API” 创建或查看密钥，创建 JWT 验证密钥进行鉴权。
 ![](https://main.qcloudimg.com/raw/4e5eaacf58f144143b6af66c8dc4426b.png)
-- 您也可以登录 [腾讯会议官网](https://meeting.tencent.com/index.html)，在【用户中心】>【高级】>【RestAPI】进行应用创建和 JWT 密钥获取。
+- 您也可以登录 [腾讯会议官网](https://meeting.tencent.com/index.html)，在**用户中心 > 高级 > RestAPI**进行应用创建和 JWT 密钥获取。
 ![](https://main.qcloudimg.com/raw/653073ef3f6cd8ca5f34458320f1eeab.png)
 
 **企业自建应用类型**
@@ -19,9 +19,10 @@
 应用创建完成后，您可以通过 AppID、SDKID、SecretKey、SecretID 进行鉴权，完成接口调用。详细鉴权方式请参考 [企业内部应用鉴权](https://cloud.tencent.com/document/product/1095/42413)。
 
 ## 事件订阅
-1. 启用通知状态，单击【消息通知】后进行事件配置。
+1. 启用通知状态，单击**消息通知**后进行事件配置。
 ![](https://main.qcloudimg.com/raw/df9198bf3ae1f4c08112219097e9945c.png)
-2. 单击右上角【添加消息通知】，填写消息通知名称、接收消息通知的 URL 地址、选择需要订阅的事件类型，即可完成消息事件订阅。
+2. 单击右上角**添加消息通知**，填写消息通知名称、接收消息通知的 URL 地址、选择需要订阅的事件类型，即可完成消息事件订阅。
 ![](https://main.qcloudimg.com/raw/629c457fc6a75b1362cd036f23840f3b.png)
+
 
 
