@@ -24,7 +24,7 @@
 
 具体获取步骤如下：
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择已有项目进入项目详情页。
-2. 选择左侧菜单【物联使能】>【应用服务】，新建 [应用服务](https://cloud.tencent.com/document/product/1465/59050)。
+2. 选择左侧菜单**物联使能** > **应用服务**，新建 [应用服务](https://cloud.tencent.com/document/product/1465/59050)。
 3. 创建应用成功后，即可获取系统自动生成的 AppKey 与 AppSecret。
 
 ### 生成签名串
@@ -77,7 +77,7 @@
    将把上一步排序好的请求参数格式化成“参数名称”=“参数值”的形式，如对 Action 参数，其参数名称为 "Action"，参数值为 "AppCreateCellphoneUser"，因此格式化后就为 Action=AppCreateCellphoneUser。
   - “参数值” 为原始值而非 URL 编码后的值。
   - 若输入参数中包含下划线，则需要将其转换为 `“.”`。
-  
+
 将格式化后的各个参数用 `"&"` 拼接在一起，最终生成的请求字符串为：
 <dx-codeblock>
 ::: Java Java

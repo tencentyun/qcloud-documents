@@ -34,7 +34,7 @@
 ### 创建并获取访问密钥[](id:createCAM)
 >?如已创建访问密钥，则请跳过此步骤。
 >
-1. 登录[ 访问管理控制台](https://console.cloud.tencent.com/cam/overview)，选择左侧导航栏中的**访问密钥**>**API密钥管理**，进入 “API密钥管理”页面。
+1. 登录[ 访问管理控制台](https://console.cloud.tencent.com/cam/overview)，选择左侧导航栏中的**访问密钥** > **API密钥管理**，进入 “API密钥管理”页面。
 2. 在 “API密钥管理”页面中，单击**新建密钥**并等待创建完成。
 3. 创建完成即可在 “API密钥管理”页面查看该密钥信息，包含 `SecretId`、`SecretKey`。如下图所示：
 ![](https://main.qcloudimg.com/raw/106be1fd3e9f52f0d112b7f583b2d7df.png)
@@ -116,8 +116,8 @@ spec:
 ```
 vim /etc/kubernetes/encryption-provider-config.yaml
 ```
-3. 按 **i** 切换至编辑模式，对上述 YAML 文件进行编辑。对应实际使用的 K8s 版本，输入如下内容：
- -  K8s v1.13+：
+3. 按 **i** 切换至编辑模式，对上述 YAML 文件进行编辑。对应实际使用的 K8S 版本，输入如下内容：
+ -  K8S v1.13+：
 ```
    apiVersion: apiserver.config.k8s.io/v1
    kind: EncryptionConfiguration
@@ -132,7 +132,7 @@ vim /etc/kubernetes/encryption-provider-config.yaml
              endpoint: unix:///var/run/tke-kms-plugin/server.sock
          - identity: {}
 ```
- - K8s v1.10 - v1.12：
+ - K8S v1.10 - v1.12：
 ```
    apiVersion: v1
    kind: EncryptionConfig
@@ -152,14 +152,14 @@ vim /etc/kubernetes/encryption-provider-config.yaml
 ```
 vi /etc/kubernetes/manifests/kube-apiserver.yaml
 ```
-6. 按 **i** 切换至编辑模式，对应实际使用的 K8s 版本，将以下内容添加至 `args`。
->?K8s v1.10.5 版本的独立集群，需要先将 `kube-apiserver.yaml`  移出 `/etc/kubernetes/manifests` 目录，编辑完成之后再移入。
+6. 按 **i** 切换至编辑模式，对应实际使用的 K8S 版本，将以下内容添加至 `args`。
+>?K8S v1.10.5 版本的独立集群，需要先将 `kube-apiserver.yaml`  移出 `/etc/kubernetes/manifests` 目录，编辑完成之后再移入。
 >
- - K8s v1.13+：
+ - K8S v1.13+：
 ```
  --encryption-provider-config=/etc/kubernetes/encryption-provider-config.yaml
 ```
- - K8s v1.10 - v1.12：
+ - K8S v1.10 - v1.12：
 ```
 --experimental-encryption-provider-config=/etc/kubernetes/encryption-provider-config.yaml
 ```

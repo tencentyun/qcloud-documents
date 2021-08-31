@@ -1,5 +1,5 @@
 ## 介绍
-MongoDB 的 CDC 源表（即 MogoDB 的流式源表），Connector 会自动跟踪 MongoDB 副本集或分片集群，以获取数据库和集合中的文档更改。
+MongoDB 的 CDC 源表（即 MongoDB 的流式源表），Connector 会自动跟踪 MongoDB 副本集或分片集群，以获取数据库和集合中的文档更改。
 
 ## 使用范围
 MongoDB CDC 只支持作为源表，MongoDB 只支持3.6及以上版本，MongoDB 集群必须是副本集或者分片集群。

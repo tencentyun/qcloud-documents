@@ -60,7 +60,7 @@ spec:
 
 ####  annotation 扩展
 
-负载均衡 CLB 的相关配置可参见 [TKEServiceConfig 介绍](https://cloud.tencent.com/document/product/457/41895)。其中相关 annotation 配置如下：
+负载均衡 CLB 的相关配置可参见 [TkeServiceConfig 介绍](https://cloud.tencent.com/document/product/457/41895)。其中相关 annotation 配置如下：
 
 ```
 service.cloud.tencent.com/tke-service-config: [tke-service-configName]
@@ -124,7 +124,7 @@ Kubernetes 集群提供了服务注册的机制，只需要将您的服务以 `M
 - 仅支持带宽上移账号，如若当前账户是传统账号类型（带宽非上移），可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。
 - 默认 CLB 的后端数量限制是 200 个，如果您绑定的工作负载的副本数超过 200 时，可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 提升负载均衡 CLB 的配额。
 - 使用 CLB 直连 Pod，需注意网络链路受云服务器的安全组限制，确认安全组配置是否放开对应的协议和端口，**需要开启 CVM 上工作负载对应的端口**。
-- 开启直连后，默认将启用 [ReadinessGate](https://cloud.tencent.com/document/product/457/48768#.E5.BC.95.E5.85.A5-readinessgate) 就绪检查，将会在 Pod 滚动更新时检查来自负载均衡的流量是否正常，需要为业务方配置正确的健康检查配置，详情可参见 [TKEServiceConfig 介绍](https://cloud.tencent.com/document/product/457/41895)。
+- 开启直连后，默认将启用 [ReadinessGate](https://cloud.tencent.com/document/product/457/48768#.E5.BC.95.E5.85.A5-readinessgate) 就绪检查，将会在 Pod 滚动更新时检查来自负载均衡的流量是否正常，需要为业务方配置正确的健康检查配置，详情可参见 [TkeServiceConfig 介绍](https://cloud.tencent.com/document/product/457/41895)。
 - 直连 Globalrouter 模式下的 Pod 为内测功能，您可通过以下两种方式进行使用：
  - **通过 [云联网](https://cloud.tencent.com/document/product/877) 使用。**推荐使用该方式，云联网可以校验绑定的 IP 地址，防止出现绑定出错、地址回环等 IP 绑定常见问题。操作步骤如下：
    1. 创建云联网实例。详情可参见 [新建云联网实例](https://cloud.tencent.com/document/product/877/18752)。
@@ -173,7 +173,7 @@ spec:
 ####  annotation 扩展
 
 
-负载均衡 CLB 的相关配置可参见 [TKEServiceConfig 介绍](https://cloud.tencent.com/document/product/457/41895)。其中相关 annotation 配置如下：
+负载均衡 CLB 的相关配置可参见 [TkeServiceConfig 介绍](https://cloud.tencent.com/document/product/457/41895)。其中相关 annotation 配置如下：
 
 ```
 service.cloud.tencent.com/tke-service-config: [tke-service-configName]

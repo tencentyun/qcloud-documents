@@ -103,7 +103,7 @@ sudo docker push ccr.ccs.tencentyun.com/命名空间/helloworld:v1
 >- 已注册腾讯云账户，请前往 [注册页面](https://cloud.tencent.com/register) 填写相关信息注册腾讯云账户。
 >- 已创建集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
 >
-1. 登录容器服务控制台，选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择需创建服务的集群 ID，进入集群的工作负载 “Deployment” 页面并单击**新建**。如下图所示：
 ![](https://main.qcloudimg.com/raw/19997a6644943a2c6ec1587404eb8ca0.png)
 3. 在“新建Workload” 页面，根据以下信息，设置工作负载基本信息。如下图所示：
@@ -143,8 +143,8 @@ sudo docker push ccr.ccs.tencentyun.com/命名空间/helloworld:v1
 可通过以下两种方式访问 Hello World 服务。
 
 #### 通过负载均衡 IP 访问 Hello World 服务
-1. 单击左侧导航栏中**[集群](https://console.cloud.tencent.com/tke2/cluster)**，进入 “集群管理” 页面。
-2. 单击 Hello World 服务所在的集群 ID，选择**服务**>**Service**。
+1. 单击左侧导航栏中 **[集群](https://console.cloud.tencent.com/tke2/cluster)**，进入 “集群管理” 页面。
+2. 单击 Hello World 服务所在的集群 ID，选择**服务** > **Service**。
 3. 在服务管理页面，复制 helloworld 服务的负载均衡 IP，如下图所示：
 ![](https://main.qcloudimg.com/raw/3b570e8ab6180118c1ecba68349efe5b.png)
 

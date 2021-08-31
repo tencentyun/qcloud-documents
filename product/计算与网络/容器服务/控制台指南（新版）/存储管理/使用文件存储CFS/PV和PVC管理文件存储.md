@@ -54,7 +54,7 @@
 ### 静态创建 PV[](id:pv)
 >? 静态创建 PV 适用于已有存量的文件存储，并在集群内使用的场景。
 >
-1. 登录容器服务控制台，选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择需创建 PV 的集群 ID，进入待创建 PV 的集群管理页面。
 3. 选择左侧菜单栏中的**存储** > **PersistentVolume**，进入 “PersistentVolume” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/d3d74b0bb94b8621904c3d8403937b3d.png)

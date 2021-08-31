@@ -9,6 +9,8 @@ FileSystem 支持作为 Append-Only 数据流的目的表 (Sink)，目前还不�
 - Parquet
 - Orc
 
+>!目前使用数据格式 Avro、Parquet、Orc 写入时，需要 [手动上传额外的 jar 包](#jump) 才能使用。
+
 ## 示例
 #### 用作数据目的
 ```sql
@@ -78,3 +80,15 @@ fs.cosn.userinfo.appid: COS 所属用户的 appid
 配置示意图：
 ![](https://main.qcloudimg.com/raw/56b95e89a8bddfec4a3d17ea5ee85bbd.png)
 
+[](id:jump)
+## 手动上传对应 Jar 包
+1. 先下载对应 Jar 包到本地。
+ - Avro：[Jar 包下载地址](https://repo.maven.apache.org/maven2/org/apache/flink/flink-avro/1.11.2/flink-avro-1.11.2-sql-jar.jar)
+ - Parquet：[Jar 包下载地址](https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-parquet_2.11/1.11.2/flink-sql-parquet_2.11-1.11.2.jar)
+ - Orc：[Jar 包下载地址](https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-orc_2.11/1.11.2/flink-sql-orc_2.11-1.11.2.jar)
+2. 在 Oceanus 的程序包管理上传对应 Jar 包，详情可参见 [程序包管理](https://cloud.tencent.com/document/product/849/48295)。
+3. 进入对应作业的开发调试界面，打开作业参数侧栏。
+![](https://main.qcloudimg.com/raw/74fa13f156b114df80fd84aac4bf0554.png)
+在作业参数的引用程序包栏单击**添加程序包**，选择在第2步上传的 Jar 包，单击**确定**保存作业参数配置。
+![](https://main.qcloudimg.com/raw/19734292615ac8cacb3c6a3a9422acef.png)
+4. 发布作业。

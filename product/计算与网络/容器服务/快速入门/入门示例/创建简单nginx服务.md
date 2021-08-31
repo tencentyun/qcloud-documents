@@ -8,7 +8,7 @@
 ## 操作步骤
 
 ### 创建 Nginx 服务
-1. 登录容器服务控制台，选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择需创建服务的集群 ID，进入集群的工作负载 “Deployment” 页面并单击**新建**。如下图所示：
 ![](https://main.qcloudimg.com/raw/19997a6644943a2c6ec1587404eb8ca0.png)
 3. 在“新建Workload” 页面，根据以下信息，设置工作负载基本信息。如下图所示：
@@ -23,7 +23,7 @@
 ![](https://main.qcloudimg.com/raw/5c750650b8d6df2c5158db3151205894.png)
 主要参数信息如下：
   - **名称**：输入实例内容器名称，本文以 test 为例。
-  - **镜像**：单击**选择镜像**，在弹出框中选择**Docker Hub镜像**> **nginx** ，并单击**确定**。
+  - **镜像**：单击**选择镜像**，在弹出框中选择**Docker Hub镜像** > **nginx** ，并单击**确定**。
   - **镜像版本（Tag）**：使用默认值 `latest`。
   - **镜像拉取策略**：提供以下3种策略，请按需选择，本文以不进行设置使用默认策略为例。
   若不设置镜像拉取策略，当镜像版本为空或 `latest` 时，使用 Always 策略，否则使用 IfNotPresent 策略。
@@ -50,8 +50,8 @@
 
 #### 通过**负载均衡 IP** 访问 Nginx 服务
 
-1. 单击左侧导航栏中**[集群](https://console.cloud.tencent.com/tke2/cluster)**，进入 “集群管理” 页面。
-2. 单击 Nginx 服务所在的集群 ID，选择**服务**>**Service**。
+1. 单击左侧导航栏中 **[集群](https://console.cloud.tencent.com/tke2/cluster)**，进入 “集群管理” 页面。
+2. 单击 Nginx 服务所在的集群 ID，选择**服务** > **Service**。
 3. 在服务管理页面，复制 Nginx 服务的负载均衡 IP，如下图所示：
 ![](https://main.qcloudimg.com/raw/91a91da5197a2447205cbe09c5484081.png)
 4. 在浏览器地址栏输入负载均衡 IP，按 “**Enter**” 即可访问服务。

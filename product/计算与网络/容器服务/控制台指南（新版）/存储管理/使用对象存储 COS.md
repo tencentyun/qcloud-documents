@@ -13,7 +13,7 @@
 
 ### 创建访问密钥[](id:CreatAccessKey)
 >!
-> - 为避免主账号密钥泄露造成您的云上资产损失，建议您参照[ 最佳实践 ](https://cloud.tencent.com/document/product/598/10592)停止使用主账号登录控制台或者使用主账号密钥访问云 API，并使用已授予相关管理权限的子账号/协作者进行相关资源操作。
+> - 为避免主账号密钥泄露造成您的云上资产损失，建议您参照[ 安全设置策略 ](https://cloud.tencent.com/document/product/598/10592)停止使用主账号登录控制台或者使用主账号密钥访问云 API，并使用已授予相关管理权限的子账号/协作者进行相关资源操作。
 > - 本文以已授予访问管理相关权限的子用户创建或查看访问密钥为例，关于如何创建子用户并实现访问管理权限请参考文档[ 自定义创建子用户](https://cloud.tencent.com/document/product/598/13674)。
 > 
 1. 使用子账号用户登录[ 访问管理控制台 ](https://console.cloud.tencent.com/cam/overview)，单击左侧导航栏中的**访问密钥** > **API密钥管理**，进入 “API密钥管理”管理界面。
@@ -102,7 +102,7 @@
 	- **命名空间**：选择为 `kube-system`。
 	- **Provisioner**：选择**对象存储COS**。
 	- **读写权限**：对象存储仅支持多机读写。
-	- **PersistentVolume**：选择在[ 步骤2 ](#StepTwo)中已创建的 PV，本文以 `cos-pvc` 为例。
+	- **PersistentVolume**：选择在[ 步骤2 ](#StepTwo)中已创建的 PV，本文以 `cos-pv` 为例。
 3. 单击**创建PersistentVolumeClaim**即可。
 
 #### 创建 Pod 使用的 PVC

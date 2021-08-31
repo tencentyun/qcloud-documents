@@ -23,7 +23,7 @@
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中单击**集群**，进入集群列表页。
 3. 单击需要部署 Workload 的集群 ID，进入集群管理页面。
-4. 在 “工作负载” 下，任意选择 Workload 类型，进入对应的信息页面。例如，选择**工作负载**> **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
+4. 在 “工作负载” 下，任意选择 Workload 类型，进入对应的信息页面。例如，选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/71e5e1f1c03b60792c9c3232ab6bc088.png)
 5. 单击**新建**，进入 “新建Workload” 页面。
 6. 根据页面信息，设置工作负载名、命名空间等信息。并在 “数据卷” 中，单击**添加数据卷**，添加数据卷。如下图所示：
@@ -42,7 +42,7 @@
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群列表页。
 3. 单击需要部署 Workload 的集群 ID，进入待部署 Workload 的集群管理页面。
-4. 在 “工作负载” 下，任意选择 Workload 类型，进入对应的信息页面。例如，选择**工作负载**> **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
+4. 在 “工作负载” 下，任意选择 Workload 类型，进入对应的信息页面。例如，选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/71e5e1f1c03b60792c9c3232ab6bc088.png)
 5. 单击**新建**，进入 “新建Workload” 页面。
 6. 根据页面信息，设置工作负载名、命名空间等信息。并在 “实例内容器” 的 “环境变量” 中，单击**新增变量**。如下图所示：
