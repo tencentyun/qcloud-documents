@@ -50,7 +50,7 @@ table th:nth-of-type(2){ width:84%; }
 ### 第三部分：服务配置
 
 配置节点加速服务相关配置：
-![](https://main.qcloudimg.com/raw/b70c312bab350bce39f286bbd7e89a39.png)
+![](https://main.qcloudimg.com/raw/ee565150c442d0968c78685a970398f6.png)
 
 **配置项详解：**
 
