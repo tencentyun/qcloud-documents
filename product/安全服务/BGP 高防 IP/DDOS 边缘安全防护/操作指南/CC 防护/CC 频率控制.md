@@ -7,7 +7,7 @@
 
 ## 操作步骤
 1. 登录 [DDoS 边缘防护管理控制台](https://console.cloud.tencent.com/ddos/antiddos-edge/policy/ddos) ，在左侧导航中，单击【防护策略】，并选择【CC 防护】。
-2. 在左边的列表选中高防实例 的 ID，如“edge-xxxxxxx”。
+2. 在左边的列表选中高防实例的 ID，如“edge-xxxxxxx”。
 ![](https://main.qcloudimg.com/raw/e854c4c6423ee81d80ed7b964ac26df1.png)
 3. 在右侧卡片中单击“CC 频率控制”卡片中的【设置】，进入 CC 频率控制页面。
 ![](https://main.qcloudimg.com/raw/8eab20d50decf72553d374617e8ced94.png)
