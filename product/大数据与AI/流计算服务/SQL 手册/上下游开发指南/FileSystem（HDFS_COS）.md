@@ -1,4 +1,4 @@
-﻿## 介绍
+## 介绍
 FileSystem connector 提供了对 HDFS 和 COS 等常见文件系统的写入支持。
 
 ## 使用范围
@@ -100,7 +100,7 @@ fs.cosn.userinfo.appid: COS 所属用户的 appid
 4. 发布作业。
 
 ## HDFS Kerberos 认证授权
-1. 登录集群 Master 节点，获取 krb5.conf、emr.keytab、core-site.xml、hdfs-site.xml文件，路径为。
+1. 登录集群 Master 节点，获取 krb5.conf、emr.keytab、core-site.xml、hdfs-site.xml 文件，路径如下。
 ```
 /etc/krb5.conf
 /var/krb5kdc/emr.keytab
@@ -142,4 +142,4 @@ security.kerberos.login.keytab: emr.keytab
 security.kerberos.login.conf: krb5.conf
 ```
 
->! 历史Oceanus集群可能不支持该功能，您可通过 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_849) 联系我们升级集群管控服务，以支持 Kerberos 访问。
+>! 历史 Oceanus 集群可能不支持该功能，您可通过 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_849) 联系我们升级集群管控服务，以支持 Kerberos 访问。
