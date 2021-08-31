@@ -125,7 +125,7 @@ hdfs-site.xml
 
 
 ## Kerberos 认证授权
-1. 登录集群 Master 节点，获取 krb5.conf、emr.keytab、core-site.xml、hdfs-site.xml、hive-site.xml文件，路径如下。
+1. 登录集群 Master 节点，获取 krb5.conf、emr.keytab、core-site.xml、hdfs-site.xml、hive-site.xml 文件，路径如下。
 ```
 /etc/krb5.conf
 /var/krb5kdc/emr.keytab
