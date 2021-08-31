@@ -1,6 +1,5 @@
 ### 2.6.4 @ 2021.08.16
 * 链接地址：https://res.qcloudtiw.com/board/2.6.4/TEduBoard.min.js
-
 - 新增分组模式
     1. 添加白板到分组  addBoardToClassGroup
     2. 添加用户到分组 addUserToClassGroup
