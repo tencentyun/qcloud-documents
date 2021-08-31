@@ -21,7 +21,7 @@
 | 备用服务器 IP 地址 | 如果您的 LDAP 服务器有多个 IP，可以输入一个备用的 IP 地址。  |
 | SSL                | 设置是否启用 SSL。                                           |
 | 服务端口           | 输入 LDAP 服务器的端口。                                     |
-| Base DN            | 输入 LDAP 服务器的 Base DN 信息，格式为：ou=ouname,dc=test,dc=com。 |
+| Base DN            | 输入 LDAP 服务器的 Base DN 信息，格式为：ou=ouname,dc=test,do=com。 |
 |	管理员账号          | 输入管理员的账号信息，格式为：cn=admin, ou=ouname,dc=test,dc=com。 |
 | 管理员密码         | 输入管理员账号的密码信息。                                   |
 | 用户过滤           | 输入用户过滤条件。                                           |
