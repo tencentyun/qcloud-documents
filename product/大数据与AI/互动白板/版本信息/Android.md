@@ -108,7 +108,7 @@
 ### 2.6.0.94 @ 2021.05.08
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.0.94.zip)
 - 重要特性：
-    1. 支持最新的转码方案，具体请看[新文档转码](../开发指南/新文档转码/快速接入.md)
+    1. 支持最新的转码方案，具体请看[新文档转码](https://cloud.tencent.com/document/product/1137/55888)
 
 - 新增接口：
    1. 增加[设置单次擦除图层数量(setEraseLayerLimit)]
