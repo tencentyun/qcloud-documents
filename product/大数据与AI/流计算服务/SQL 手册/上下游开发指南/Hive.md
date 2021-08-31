@@ -150,7 +150,7 @@ hive-site.xml
 4. 在 [程序包管理](https://console.cloud.tencent.com/oceanus/resource) 页面上传 jar 包，并在作业参数配置里引用该程序包。
 5. 获取 kerberos principal，用于作业 [高级参数](https://cloud.tencent.com/document/product/849/53391) 配置。
 ```
-klist -kt emr.keytab
+klist -kt /var/krb5kdc/emr.keytab
 
 # 输出如下所示，选取第一个即可：hadoop/172.28.28.51@EMR-OQPO48B9
 KVNO Timestamp     Principal
