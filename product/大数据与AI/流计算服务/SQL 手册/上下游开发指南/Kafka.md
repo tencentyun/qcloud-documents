@@ -1,4 +1,3 @@
-## 介绍
 Kafka 数据管道是流计算系统中最常用的数据源（Source）和数据目的（Sink）。用户可以把流数据导入到 Kafka 的某个 Topic 中，通过 Flink 算子进行处理后，输出到相同或不同 Kafka 示例的另一个 Topic。
 
 Kafka 支持同一个 Topic 多分区读写，数据可以从多个分区读入，也可以写入到多个分区，以提供更高的吞吐量，减少数据倾斜和热点。
@@ -106,7 +105,8 @@ CREATE TABLE `Data-Output` (
 );
 ```
 
-## 通用 WITH 参数
+## WITH 参数
+### 通用 WITH 参数
 
 | 参数值                        |      必填       |    默认值     |                             描述                             |
 | :---------------------------- | :--------------: | :-----------: | :----------------------------------------------------------: |
@@ -120,7 +120,7 @@ CREATE TABLE `Data-Output` (
 | scan.startup.timestamp-millis |        否        |      无       | 如果`scan.startup.mode` 的值为`'timestamp'`，则必须使用本参数来指定开始读取的时间点（毫秒为单位的 Unix 时间戳）。 |
 | sink.partitioner              |        否        |      无       | Kafka 输出时所用的分区器。目前支持的分区器如下：<li>`fixed`：一个 Flink 分区对应不多于一个 Kafka 分区。</li><li>`round-robin`：一个Flink 分区依次被分配到不同的 Kafka 分区。</li><li>自定义分区：也可以通过继承 `FlinkKafkaPartitioner` 类，实现该逻辑。</li> |
 
-## JSON 格式 WITH 参数
+### JSON 格式 WITH 参数
 
 | 参数值                         | 必填 | 默认值 | 描述                                                         |
 | ------------------------------ | ----- | ------ | ------------------------------------------------------------ |
@@ -128,7 +128,7 @@ CREATE TABLE `Data-Output` (
 | json.ignore-parse-errors       | 否    | false  | 如果为 true，则遇到解析异常时，会把这个字段设置为 null 并继续处理。如果为 false，则会让作业失败。 |
 | json.timestamp-format.standard | 否    | SQL    | 指定 JSON 时间戳字段的格式，默认是 SQL（格式是`yyyy-MM-dd HH:mm:ss.s{可选精度}`）。也可以选择 ISO-8601，格式是 `yyyy-MM-ddTHH:mm:ss.s{可选精度}`。 |
 
-## CSV 格式 WITH 参数
+### CSV 格式 WITH 参数
 
 | 参数值                      | 必填 | 默认值     | 描述                                                         |
 | --------------------------- | ----- | ---------- | ------------------------------------------------------------ |
@@ -142,7 +142,7 @@ CREATE TABLE `Data-Output` (
 | csv.escape-character        | 否    | 无         | 指定转义符，默认禁用转义。                                   |
 | csv.null-literal            | 否    | 无         | 将指定的字符串看作 null 值。                                 |
 
-## Debezium 格式 WITH 参数
+### Debezium 格式 WITH 参数
 
 | 参数值                                  | 必填 | 默认值 |                             描述                             |
 | :-------------------------------------- | :---: | :----: | :----------------------------------------------------------: |
