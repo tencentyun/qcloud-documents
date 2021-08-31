@@ -125,7 +125,7 @@ hdfs-site.xml
 
 
 ## Kerberos 认证授权
-1. 登录集群 Master 节点，获取 krb5.conf、emr.keytab、core-site.xml、hdfs-site.xml、hive-site.xml文件，路径为。
+1. 登录集群 Master 节点，获取 krb5.conf、emr.keytab、core-site.xml、hdfs-site.xml、hive-site.xml文件，路径如下。
 ```
 /etc/krb5.conf
 /var/krb5kdc/emr.keytab
@@ -169,7 +169,7 @@ security.kerberos.login.keytab: emr.keytab
 security.kerberos.login.conf: krb5.conf
 ```
 
->! 历史Oceanus集群可能不支持该功能，您可通过 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_849) 联系我们升级集群管控服务，以支持 Kerberos 访问。
+>! 历史 Oceanus 集群可能不支持该功能，您可通过 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_849) 联系我们升级集群管控服务，以支持 Kerberos 访问。
 
 ## 注意事项
 1. 如果 Flink 作业正常运行，日志中没有报错，但是客户端查不到这个 Hive 表，可以使用如下命令对 Hive 表进行修复（需要将 `hive_table_xxx` 替换为要修复的表名）。
