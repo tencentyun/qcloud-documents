@@ -24,7 +24,7 @@
 
 具体获取步骤如下：
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择已有项目进入项目详情页。
-2. 选择左侧菜单**物联使能**>**应用服务**，新建 [应用服务](https://cloud.tencent.com/document/product/1465/59050)。
+2. 选择左侧菜单**物联使能** > **应用服务**，新建 [应用服务](https://cloud.tencent.com/document/product/1465/59050)。
 3. 创建应用成功后，即可获取系统自动生成的 AppKey 与 AppSecret。
 
 ### 生成签名串
