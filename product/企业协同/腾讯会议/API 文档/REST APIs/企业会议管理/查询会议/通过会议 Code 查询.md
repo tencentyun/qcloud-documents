@@ -38,7 +38,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |type   |Integer  | 会议类型：<br>0：预约会议类型<br>1：快速会议类型   |
 |join_url   |String  | 加入会议 URL。  |
 |hosts   |用户对象数组  | 指定主持人列表，仅商业版和企业版可指定主持人。|
-|participants  |用户对象数组 |邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段。 |
+|participants  |用户对象数组 |邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段，最多返回200个邀请者。|
 |current_hosts  |用户对象数组  | 会议当前主持人列表。|
 |current_co_hosts  |用户对象数组  | 会议联席主持人列表。|
 |start_time  |String | 会议开始时间戳（单位秒）。 |

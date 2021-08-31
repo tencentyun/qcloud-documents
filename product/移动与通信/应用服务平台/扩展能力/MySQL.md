@@ -18,8 +18,8 @@
 您可以通过 [云开发控制台](https://console.cloud.tencent.com/tcb/extensions)，来安装和管理该能力。
 
 > ! 
-- 微信小程序开发者请使用【其他登录方式】>【微信公众号登录】登录，选择关联的小程序账户登录。
-- QQ 小程序开发者可直接通过 QQ 小程序开发者 IDE【云开发】登录，也可以通过关联的腾讯云账户登录。
+- 微信小程序开发者请使用**其他登录方式** > **微信公众号登录**登录，选择关联的小程序账户登录。
+- QQ 小程序开发者可直接通过 QQ 小程序开发者 IDE**云开发**登录，也可以通过关联的腾讯云账户登录。
 
 ## 使用程序
 
@@ -74,7 +74,7 @@ exports.main = async (event, context, callback) => {
 
 
 ### MySQL 连接数
-MySQL 连接数的相关参数配置，可以在 [云数据库 TencentDB](https://console.cloud.tencent.com/cdb) 控制台， 【MySQL】>【数据库管理】>【参数设置】中配置。
+MySQL 连接数的相关参数配置，可以在 [云数据库 TencentDB](https://console.cloud.tencent.com/cdb) 控制台， **MySQL** > **数据库管理** > **参数设置**中配置。
 
 >?关于 MySQL 连接，推荐阅读 MySQL 官方博客的博文 [MySQL Connection Handling and Scaling](https://mysqlserverteam.com/mysql-connection-handling-and-scaling/)。
 
