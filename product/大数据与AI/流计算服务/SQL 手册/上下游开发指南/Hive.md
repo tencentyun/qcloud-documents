@@ -20,7 +20,7 @@ STORED AS ORC;
 2. 对 Hive 表的 HDFS 路径开启写权限。
  - 方式一：可登录 EMR Hive 集群节点（具体可参见 [Hive 基础操作](https://cloud.tencent.com/document/product/589/12317)），对目的库 testdb 库的 test_sink 表执行 chmod 操作。
 ```
-hdfs dfs -chmod 777 /usr/hive/warehouse/testdb.db/test_sink
+hdfs dfs -chmod 777 /user/hive/warehouse/testdb.db/test_sink
 ```
  - 方式二：在**作业管理 > 作业参数**中添加以下高级参数，可以 hadoop 用户角色获取 HDFS 路径权限。
 ```
