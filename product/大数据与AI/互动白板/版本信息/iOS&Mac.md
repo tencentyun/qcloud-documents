@@ -9,7 +9,7 @@
         2. 设置分组(setClassGroup)
         3. 设置分组标题(setClassGroupTitle)
         4. 重置所有分组(resetClassGroup)
-        5. 获取所有分组id(getAllClassGroupIds)
+        5. 获取所有分组ID(getAllClassGroupIds)
         6. 获取分组模式状态(getClassGroupEnable)
         7. 获取用户所在的分组(getClassGroupIdByUserId)
         8. 获取分组信息(getClassGroupInfoByGroupId)
@@ -46,12 +46,12 @@
     2.新增公式元素的支持
     3.优化视频加载播放逻辑
     4.图形涂鸦绘制实时同步显示
-    5.优化ppt资源加载重试逻辑
+    5.优化 ppt 资源加载重试逻辑
     6.添加本地缓存，提高资源加载速度
     
-- Bug修复
+- Bug 修复
     1.互动白板宽高变化时滚动条抖动
-    2.删除文件时远端ppt动画步数重置
+    2.删除文件时远端 ppt 动画步数重置
     3.自定义图形高度为0时远端图形显示错误
     4.若干已知问题修复
 
@@ -134,7 +134,7 @@
     6. 涂鸦超出白板区域时框选范围错误
     7. 优化白板渲染时的重排、重绘操作
 - Bug 修复
-    1. 截图时文本元素被iframe元素遮挡
+    1. 截图时文本元素被 iframe 元素遮挡
     2. 直线碰撞检测计算错误
     3. 其他若干已知问题
     
@@ -143,7 +143,7 @@
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.0.37.zip)
 
 - 重要特性：
-    1. 支持最新的转码方案，具体请看[新文档转码](../开发指南/新文档转码/快速接入.md)
+    1. 支持最新的转码方案，具体请看 [新文档转码](https://cloud.tencent.com/document/product/1137/55888)
 
 - 新增接口
     1. 新增限制橡皮擦单次擦除图层数量接口(setEraseLayerLimit)
@@ -178,13 +178,13 @@
     6. 增加添加资源主备域名映射(addBackupDomain)
     7. 增加删除资源主备域名映射(removeBackupDomain)
 - 新增事件：
-    1. 删除元素事件onTEBRemoveElement
-    1. 增加元素事件onTEBAddElement
+    1. 删除元素事件 onTEBRemoveElement
+    1. 增加元素事件 onTEBAddElement
 - 新增初始化参数：
     1. 增加初始化参数，关闭移动工具的缩放功能 enableScaleTool
 - 优化：
-    1. 添加H5PPT, 图片元素(imageElement)/图片文件(imagesFile)，背景图片，视频等资源支持指定主备Url，需要配合增加备用域名接口使用。
-    2. 静态PPT翻页交互效果优化
+    1. 添加 H5PPT，图片元素(imageElement)/图片文件(imagesFile)，背景图片，视频等资源支持指定主备 URL，需要配合增加备用域名接口使用。
+    2. 静态 PPT 翻页交互效果优化
     3. 调整点选框样式
     4. 激光笔功能性能优化
 - Bug 修复
@@ -194,7 +194,8 @@
     4. 添加自定义元素时点选框范围错误
     5. 文本工具相关问题
     6. 其他若干已知问题
-    7. 修复setToolTypeTitle设置衍射不生效问题
+    7. 修复 setToolTypeTitle 设置衍射不生效问题
+    
 ### 2.5.6.27 @ 2020.12.14
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.5.6.27.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.5.6.27.zip)
@@ -278,7 +279,7 @@
 - bug fix
     - 修复涂鸦过程中擦除涂鸦导致涂鸦不同步问题
     - 修复视频文件在特定场景下新增多余白板问题
-    - 修复iOS8播放视频失败问题
+    - 修复 iOS8 播放视频失败问题
 - 性能优化
 
 ### 2.4.9.7 @ 2020.06.10
@@ -415,7 +416,7 @@
 - 增加接口
     - setAccessibleUsers 设置允许操作特定用户绘制的图形
     - clearBackground:andSelected 删除选中涂鸦
-    - setCursorIcon:cursorIcon;自定义鼠标样式
+    - setCursorIcon:cursorIcon 自定义鼠标样式
 
 ### 2.3.6 @ 2019.11.18
 
@@ -495,7 +496,7 @@
 ### 2.2.1 @ 2019.06.21
 回调接口修改
 - onTEBAddBoard 回调 boardId 数组
-- onTEBDeleteBoard 回调 boardId数组
+- onTEBDeleteBoard 回调 boardId 数组
 
 ### 2.2.0 @ 2019.06.20
 新增接口
@@ -587,4 +588,4 @@
     - 背景色、背景图
     - 点选、框选、移动涂鸦、撤销、重做
     - 白板缩放、移动
-    - 文件展示（静态：支持PPT、PDF、WORD、EXCEL）、多文件支持
+    - 文件展示（静态：支持 PPT、PDF、WORD、EXCEL）、多文件支持
