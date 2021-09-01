@@ -51,4 +51,4 @@
 
 ### 步骤5：编译运行
 使用 Android Studio（3.5及以上的版本）打开源码工程 `MLVB-API-Example`，单击 **运行** 即可。
-<img src="https://main.qcloudimg.com/raw/a6534c832fa80b8c818a7320873e5e1c.png" width=300px>
+<img src="https://main.qcloudimg.com/raw/2ce5d6bb6a1f1edd626a9a3922819220.png" width=300px>
