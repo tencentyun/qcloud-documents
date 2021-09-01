@@ -256,47 +256,27 @@ NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=140018888
 <dx-codeblock>
 ::: java java
 // 主播A
-V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
-/**
-- 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
- playURLA= "http://3891.liveplay.myqcloud.com/live/streamidB.flv ";
- playURLA= "http://3891.liveplay.myqcloud.com/live/streamidB.hls ";
- playURLA= "webrtc://3891.liveplay.myqcloud.com/live/streamidB"
-*/
-playerA.startPlay(playURLA);
+V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
+playURLB = "trtc://3891.liveplay.myqcloud.com/live/streamidB"
+playerB.startPlay(playURLB);
 ...
 // 主播B
-V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
-/**
-- 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
- playURLB= "http://3891.liveplay.myqcloud.com/live/streamidA.flv ";
- playURLB= "http://3891.liveplay.myqcloud.com/live/streamidA.hls ";
- playURLB= "webrtc://3891.liveplay.myqcloud.com/live/streamidA"
-*/
-playerB.startPlay(playURLB);
+V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
+playURLA= "trtc://3891.liveplay.myqcloud.com/live/streamidA"
+playerA.startPlay(playURLA);
 :::
 ::: Objective-C ObjectiveC
 // 主播A
-V2TXLivePlayer *playerA = [[V2TXLivePlayer alloc] init];
-/**
-- 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
- NSString *playURLA = "http://3891.liveplay.myqcloud.com/live/streamidB.flv ";
- NSString *playURLA = "http://3891.liveplay.myqcloud.com/live/streamidB.hls ";
- NSString *playURLA = "webrtc://3891.liveplay.myqcloud.com/live/streamidB"
-*/
-[playerA setRenderView:view];
-[playerA startPlay:playURLA];
-...
-// 主播B
-V2TXLivePlayer *playerB = [[V2TXLivePlayer alloc] init];
-/**
-- 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
- NSString *playURLB = "http://3891.liveplay.myqcloud.com/live/streamidA.flv ";
- NSString *playURLB = "http://3891.liveplay.myqcloud.com/live/streamidA.hls ";
- NSString *playURLB = "webrtc://3891.liveplay.myqcloud.com/live/streamidA"
-*/
+V2TXLivePlayer playerB = [[V2TXLivePlayer alloc] init];
+NSString playURLB = "trtc://3891.liveplay.myqcloud.com/live/streamidB"
 [playerB setRenderView:view];
 [playerB startPlay:playURLB];
+...
+// 主播B
+V2TXLivePlayer playerA = [[V2TXLivePlayer alloc] init];
+NSString playURLA = "trtc://3891.liveplay.myqcloud.com/live/streamidA"
+[playerA setRenderView:view];
+[playerA startPlay:playURLA];
 :::
 </dx-codeblock>
 
