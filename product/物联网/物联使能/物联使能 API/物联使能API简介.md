@@ -20,11 +20,11 @@
 
 ### 获取 SaaS 的 AppKey 和 AppSecret
 
-在创建 SaaS 服务时，平台将会为用户生成对应的安全凭证。安全凭证包括 AppKey 和 AppSecret。AppKey 是用于标识 API 调用者身份，AppSecret 是用于加密签名字符串和服务器端验证签名字符串的密钥。**用户应严格保管其 AppSecret，避免泄露**。
+在创建 SaaS 时，平台将会为用户生成对应的安全凭证。安全凭证包括 AppKey 和 AppSecret。AppKey 是用于标识 API 调用者身份，AppSecret 是用于加密签名字符串和服务器端验证签名字符串的密钥。**用户应严格保管其 AppSecret，避免泄露**。
 
 具体获取步骤如下：
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择已有项目进入项目详情页。
-2. 选择左侧菜单**物联使能** > **SaaS 服务**，单击**新建**按钮 [创建 SaaS](https://cloud.tencent.com/document/product/1465/58446#.E6.96.B0.E5.BB.BA-saas)。
+2. 选择左侧菜单**物联使能** > **SaaS**，单击**新建**按钮 [创建 SaaS](https://cloud.tencent.com/document/product/1465/58446#.E6.96.B0.E5.BB.BA-saas)。
 3. 创建 SaaS 成功后，即可获取系统自动生成的 AppKey 与 AppSecret。
 
 ### 生成签名串
