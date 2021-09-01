@@ -1,6 +1,7 @@
 ## SDK 初始化
 
 SDK 初始化后，才能通过 SDK 使用物联网开发平台提供的云端能力。初始化 SDK 需要依次完成以下步骤：
+
 1. 调用 `AppDevSdk` 的构造函数并传入配置项，创建 SDK 对象。
 2. 调用 SDK 对象的 `init` 函数初始化 SDK。
 
@@ -15,11 +16,11 @@ AppDevSdk(sdkOptions)
 | 参数名         | 参数描述                                                     | 类型                                         | 必填 |
 | -------------- | ------------------------------------------------------------ | -------------------------------------------- | ---- |
 | getAccessToken | 获取 accessToken 的回调，返回一个 Promise，其值为 [微信号注册登录](https://cloud.tencent.com/document/product/1081/40781) 应用端 API 的返回结果 | Promise<{ Token:string, ExpireAt?: number }> | 是   |
-| appKey         | 在 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer) >【应用开发】>【小程序开发】中申请的 AppKey | string                                       | 是   |
+| appKey         | 在 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer) > **应用开发** > **小程序开发**中申请的 AppKey | string                                       | 是   |
 | debug          | 是否为调试模式，默认为：false，开启调试模式后会开启打印调试日志 | boolean                                      | 否   |
 | wsConfig       | WebSocket 的配置                                             | WsOptions                                    | 否   |
 | plugins        | 导入到 SDK 的配网插件数组                                    | AppDevPlugin[]                               | 否   |
-| apiUrl         | 物联网开发平台的接口 URL，默认为：https://iot.cloud.tencent.com/api/exploreropen/，一般无需更改 | string                                       | 否   |
+| apiUrl         | 物联网开发平台的接口 URL，默认为：`https://iot.cloud.tencent.com/api/exploreropen/`，一般无需更改 | string                                       | 否   |
 | defaultUin     | 未登录状态下的默认 uin，以及调试模式下的固定 uin，默认为：unknown，一般无需更改 | string                                       | 否   |
 | reporter       | SDK 运行日志的回调函数                                       | (eventName: string, params: any) => void     | 否   |
 
@@ -151,15 +152,15 @@ sdk.requestApi('AppGetFamilyDeviceList', { FamilyId: 'default' })
   });
 ```
 
->! 
-- 腾讯云物联网开发平台是基于**家庭**的设备体系，每个家庭有其对应的 `FamilyId`，每台设备均归属一个家庭。
-- 开发者也可以选择不关注家庭这一概念，对所有需要传`FamilyId`的接口（例如 [获取用户绑定设备列表](https://cloud.tencent.com/document/product/1081/40803)）传入`default` 作为 `FamilyId`，SDK 会自动完成内部的家庭相关的逻辑（SDK 会为用户创建一个默认家庭，若`FamilyId`入参的值为`default`，SDK 会自动替换为用户默认家庭的`FamilyId`）。
->
+> ! 
+>- 腾讯云物联网开发平台是基于**家庭**的设备体系，每个家庭有其对应的 `FamilyId`，每台设备均归属一个家庭。
+>- 开发者也可以选择不关注家庭这一概念，对所有需要传`FamilyId`的接口（例如 [获取用户绑定设备列表](https://cloud.tencent.com/document/product/1081/40803)）传入`default` 作为 `FamilyId`，SDK 会自动完成内部的家庭相关的逻辑（SDK 会为用户创建一个默认家庭，若`FamilyId`入参的值为`default`，SDK 会自动替换为用户默认家庭的`FamilyId`）。
+
 
 ## 设备配网
 
-SDK 目前支持 softAP 和 SmartConfig 和 simpleConfig 和 AirKiss 这四种方式进行设备配网。这四种配网方式是以**插件**的方式按需引入的，这里为了方便大家理解，下图是设计思路，可以看出这4个插件的依赖关系
-![](https://main.qcloudimg.com/raw/b903c4270d9442edf79588958addf5e9.jpg)
+SDK 目前支持 softAP、SmartConfig、simpleConfig、AirKiss、BLE-Combo 这五种方式进行设备配网。这五种配网方式是以**插件**的方式按需引入的，这里为了方便大家理解，下图是设计思路，可以看出这5个插件的依赖关系
+![](https://main.qcloudimg.com/raw/69f79c09c8b3a995cb90b8d2e0de952e.png)
 
 通过4步可以运行插件，以`SoftAp`为例，其余的配网方式步骤一样，后面关于配网步骤和参数说明会具体阐述。
 
@@ -173,43 +174,41 @@ const SoftApPlug = require('qcloud-iotexplorer-appdev-plugin-wificonf-softap');
 SoftApPlug.install(sdk);
 ```
 3. 生成配网 Token，调用 [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044) 应用端 API 获取 Wi-Fi 设备配网 Token。
-<dx-codeblock>
-:::  JavaScript
-sdk.requestApi('AppCreateDeviceBindToken')
-  .then(data => {
+   <dx-codeblock>
+   :::  JavaScript
+   sdk.requestApi('AppCreateDeviceBindToken')
+    .then(data => {
     const bindDeviceToken = data.Token;
-  });
-:::
-</dx-codeblock>
-
-4. 运行插件，`plugin` 注册时的名称分别为：`wifiConfSoftAp` 、`wifiConfSmartConfig` 、`wifiConfSmartConfig` 、`wifiConfAirKiss`。
-<dx-codeblock>
-:::  JavaScript
+    });
+   :::
+   </dx-codeblock>
+4. 运行插件，`plugin` 注册时的名称分别为：`wifiConfSoftAp` 、`wifiConfSmartConfig` 、`wifiConfSmartConfig` 、`wifiConfAirKiss` 、`wifiConfBleCombo`。
+``` JavaScript
 /** 
- * pluginNames: wifiConfSoftAp | wifiConfSmartConfig | wifiConfSimpleConfig | wifiConfAirKiss
+- pluginNames: wifiConfSoftAp | wifiConfSmartConfig | wifiConfSimpleConfig | wifiConfAirKiss | wifiConfBleCombo
 */
 sdk.plugins['wifiConfSoftAp'].start({
-    wifiConfToken: bindDeviceToken,
-    targetWifiInfo: wifiInfo,
-    familyId,
-    roomId,
-    onProgress,
-    onComplete,
-    onError,
-    autoRetry: true, // 自动处理故障流程
+wifiConfToken: bindDeviceToken,
+targetWifiInfo: wifiInfo,
+familyId,
+roomId,
+onProgress,
+onComplete,
+onError,
+autoRetry: true, // 自动处理故障流程
 });
-:::
-</dx-codeblock>
-
+```
 
 ### softAP 配网
 
 关于 softAP 方式配网的流程，请参见 [softAP 配网开发](https://cloud.tencent.com/document/product/1081/43695)。各端交互的简易的流程如下：
 ![SoftAPFlows](https://main.qcloudimg.com/raw/858ade66bfbcadc01c389a07cdd5fed2.png)
-腾讯连连中 `softAP`配网页面如下，供开发者开发时参考。
-![SoftAPUI](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/14dec8d5fa7a389e118fe5f5ad18d1eb/1605000905805.gif)
+腾讯连连中 `softAP` 配网页面如下，供开发者开发时参考。
+![](https://main.qcloudimg.com/raw/a9914f2a21fd0063cd2ac48ad639fe82.gif)
 
 #### softAPOpts 配网参数
+
+
 
 | 参数名         | 参数描述                                                     | 类型                                                  | 必填 |
 | -------------- | ------------------------------------------------------------ | ----------------------------------------------------- | ---- |
@@ -218,8 +217,8 @@ sdk.plugins['wifiConfSoftAp'].start({
 | softAPInfo     | 设备热点信息，如果传该配置，则首先会调用 wx.connectWifi 去连接设备热点；如果不传，则需要自行引导用户去连接设备热点 | WifiInfo                                              | 否   |
 | familyId       | 家庭ID，默认为：'default'，即用户默认家庭 ID                 | 'default' \｜string                                   | 是   |
 | roomId         | 房间ID，默认为：''，即用户默认房间 ID                        | '' \| string                                          | 否   |
-| onProgress     | 配网过程执行到每个步骤时触发的回调，回调中入参为当前步骤的详情<li>code：步骤代码，详见 [配网步骤](#softAP) 小节<li>msg：步骤描述，自行从`WifiConfStepDesp`拿code取<li>detail：步骤详情，根据每个步骤不同而不同 | ({ code: WifiConfStepCode, detail?: object }) => void | 否   |
-| onError        | 配网失败时触发<li>code：错误代码，详见 [错误码 ](#test2) 小节<li>msg：错误描述，自行从`WifiConfErrorMsg`拿code取<li>detail：错误详情 | ({ code: WifiConfErrorCode, detail }) => void         | 是   |
+| onProgress     | 配网过程执行到每个步骤时触发的回调，回调中入参为当前步骤的详情<li>code：步骤代码，详见 [配网步骤](#softAP) 小节</li><li>msg：步骤描述，自行从`WifiConfStepDesp`拿code取</li><li>detail：步骤详情，根据每个步骤不同而不同</li> | ({ code: WifiConfStepCode, detail?: object }) => void | 否   |
+| onError        | 配网失败时触发<li>code：错误代码，详见 [错误码 ](#test2) 小节</li><li>msg：错误描述，自行从`WifiConfErrorMsg`拿code取</li><li>detail：错误详情</li> | ({ code: WifiConfErrorCode, detail }) => void         | 是   |
 | onComplete     | 配网完成后触发                                               | () => void                                            | 是   |
 | udpAddress     | 连接上设备热点后，小程序发起 UDP 通信的地址，默认为：'192.168.4.1'，一般无需更改 | string                                                | 否   |
 | udpPort        | 连接上设备热点后，小程序发起 UDP 通信的端口，默认为：8266，一般无需更改 | number                                                | 否   |
@@ -232,7 +231,6 @@ sdk.plugins['wifiConfSoftAp'].start({
 | -------- | ------------- | ------ | ---- |
 | SSID     | Wi-Fi 的 SSID | string | 是   |
 | password | Wi-Fi 的 密码 | string | 是   |
-
 
 #### 示例代码
 
@@ -362,13 +360,12 @@ module.exports = SoftApConfigure;
 | WifiConfStepCode.BUSINESS_SUCCESS                     | 业务流程成功<br>detail: { productId, deviceName}，请求参数   |
 | WifiConfStepCode.WIFI_CONF_SUCCESS                    | 配网成功                                                     |
 
-
 ### SmartConfig 配网
 
 关于 SmartConfig 方式配网的流程，请参见 [SmartConfig 配网开发](https://cloud.tencent.com/document/product/1081/43696)。一键配网的配网流程图文版本如下：
 ![oneKeyConfigure](https://main.qcloudimg.com/raw/f60365f1a09b87ded109ca2e4fc1493e.png)
 腾讯连连中一键配网的页面交互流程如下，也给出来作为参考。
-![oneKeyConfigureWeapp](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/14dec8d5fa7a389e118fe5f5ad18d1eb/1605000924657.gif)
+![](https://main.qcloudimg.com/raw/7ccf24038d855864f83134c5705957e9.gif)
 
 #### smartConfigOpts 配网参数
 
@@ -378,8 +375,8 @@ module.exports = SoftApConfigure;
 | targetWifiInfo | 目标 Wi-Fi 信息，需要设备去连接的 Wi-Fi 的信息               | WifiInfo                                                   | 是   |
 | familyId       | 家庭 ID，默认为：'default'，即用户默认家庭 ID                | 'default' \| string                                        | 否   |
 | roomId         | 房间ID，默认为：''，即用户默认房间 ID                        | '' \| string                                               | 否   |
-| onProgress     | <li>code：步骤代码，详见 [配网步骤](#SmartConfig) 小节<li>msg：步骤描述，自行从`WifiConfStepDesp`拿code取<li>detail：步骤详情，根据每个步骤不同而不同 | ({ code: WifiConfStepCode, detail?: object }) => void      | 否   |
-| onError        | 配网失败时触发<li>code：错误代码，详见 [错误码](#test2) 小节<li>msg：错误描述，自行从`WifiConfErrorMsg`拿code取<li>detail：错误详情 | ({ code: WifiConfErrorCode, msg: string, detail }) => void | 是   |
+| onProgress     | <li>code：步骤代码，详见 [配网步骤](#SmartConfig) 小节</li><li>msg：步骤描述，自行从`WifiConfStepDesp`拿code取</li><li>detail：步骤详情，根据每个步骤不同而不同</li> | ({ code: WifiConfStepCode, detail?: object }) => void      | 否   |
+| onError        | 配网失败时触发<li>code：错误代码，详见 [错误码](#test2) 小节</li><li>msg：错误描述，自行从`WifiConfErrorMsg`拿code取</li><li>detail：错误详情</li> | ({ code: WifiConfErrorCode, msg: string, detail }) => void | 是   |
 | onComplete     | 配网完成后触发                                               | () => void                                                 | 是   |
 | udpPort        | 小程序和设备连上同一个局域网之后，小程序发起 UDP 通信的端口，默认为：8266，一般无需更改 | number                                                     | 否   |
 | stepInterval   | 配网过程中，每一步中间等待的间隔，单位毫秒，默认为：1000，一般无需更改 | number                                                     | 否   |
@@ -496,7 +493,7 @@ module.exports = SmartConfigConfigure;
 关于 simpleConfig 方式配网的流程，请参见 [simpleConfig 配网开发](https://cloud.tencent.com/document/product/1081/48407)。一键配网的配网流程图文版本如下：
 ![oneKeyConfigure](https://main.qcloudimg.com/raw/f60365f1a09b87ded109ca2e4fc1493e.png)
 腾讯连连中一键配网的页面交互流程如下，也给出来作为参考。
-![oneKeyConfigureWeapp](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/14dec8d5fa7a389e118fe5f5ad18d1eb/1605000924657.gif)
+![](https://main.qcloudimg.com/raw/18d692f6e63dd582c72e5ba190ac763d.gif)
 
 #### simpleConfigOpts 配网参数
 
@@ -506,8 +503,8 @@ module.exports = SmartConfigConfigure;
 | targetWifiInfo | 目标 Wi-Fi 信息，需要设备去连接的 Wi-Fi 的信息               | WifiInfo                                              | 是   |
 | familyId       | 家庭 ID，默认为：'default'，即用户默认家庭 ID                | 'default' \| string                                   | 否   |
 | roomId         | 房间ID，默认为：''，即用户默认房间 ID                        | '' \| string                                          | 否   |
-| onProgress     | <li>code：步骤代码，详见 [配网步骤](#simpleConfig) 小节<li>msg：步骤描述，自行从`WifiConfStepDesp`拿code取<li>detail：步骤详情，根据每个步骤不同而不同 | ({ code: WifiConfStepCode, detail?: object }) => void | 否   |
-| onError        | 配网失败时触发<li>code：错误代码，详见 [错误码](#test2) 小节<li>msg：错误描述，自行从`WifiConfErrorMsg`拿code取<li>detail：错误详情 | ({ code: WifiConfErrorCode, detail }) => void         | 是   |
+| onProgress     | <li>code：步骤代码，详见 [配网步骤](#simpleConfig) 小节</li><li>msg：步骤描述，自行从`WifiConfStepDesp`拿code取</li><li>detail：步骤详情，根据每个步骤不同而不同</li> | ({ code: WifiConfStepCode, detail?: object }) => void | 否   |
+| onError        | 配网失败时触发<li>code：错误代码，详见 [错误码](#test2) 小节</li><li>msg：错误描述，自行从`WifiConfErrorMsg`拿code取</li><li>detail：错误详情</li> | ({ code: WifiConfErrorCode, detail }) => void         | 是   |
 | onComplete     | 配网完成后触发                                               | () => void                                            | 是   |
 | udpPort        | 小程序和设备连上同一个局域网之后，小程序发起 UDP 通信的端口，默认为：8266，一般无需更改 | number                                                | 否   |
 | stepInterval   | 配网过程中，每一步中间等待的间隔，单位毫秒，默认为：1000，一般无需更改 | number                                                | 否   |
@@ -622,7 +619,7 @@ module.exports = SimpleConfigConfigure;
 关于 AirKiss 方式配网的流程，请参见 [AirKiss 配网开发](https://cloud.tencent.com/document/product/1081/48406)。一键配网的配网流程图文版本如下：
 ![oneKeyConfigure](https://main.qcloudimg.com/raw/f60365f1a09b87ded109ca2e4fc1493e.png)
 腾讯连连中一键配网的页面交互流程如下，也给出来作为参考。
-![oneKeyConfigureWeapp](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/14dec8d5fa7a389e118fe5f5ad18d1eb/1605000924657.gif)
+![](https://main.qcloudimg.com/raw/741b5a69403cce3d00b09fe05bddb43d.gif)
 
 #### airKissOpts 配网参数
 
@@ -632,8 +629,8 @@ module.exports = SimpleConfigConfigure;
 | targetWifiInfo | 目标 Wi-Fi 信息，需要设备去连接的 Wi-Fi 的信息               | WifiInfo                                              | 是   |
 | familyId       | 家庭 ID，默认为：'default'，即用户默认家庭 ID                | 'default' \| string                                   | 否   |
 | roomId         | 房间ID，默认为：''，即用户默认房间 ID                        | '' \| string                                          | 否   |
-| onProgress     | <li>code：步骤代码，详见 [配网步骤](#AirKiss) 小节<li>msg：步骤描述，自行从`WifiConfStepDesp`拿code取<li>detail：步骤详情，根据每个步骤不同而不同 | ({ code: WifiConfStepCode, detail?: object }) => void | 否   |
-| onError        | 配网失败时触发<li>code：错误代码，详见 [错误码](#test2) 小节<li>msg：错误描述，自行从`WifiConfErrorMsg`拿code取<li>detail：错误详情 | ({ code: WifiConfErrorCode, detail }) => void         | 是   |
+| onProgress     | <li>code：步骤代码，详见 [配网步骤](#AirKiss) 小节</li><li>msg：步骤描述，自行从`WifiConfStepDesp`拿code取</li><li>detail：步骤详情，根据每个步骤不同而不同</li> | ({ code: WifiConfStepCode, detail?: object }) => void | 否   |
+| onError        | 配网失败时触发<li>code：错误代码，详见 [错误码](#test2) 小节</li><li>msg：错误描述，自行从`WifiConfErrorMsg`拿code取</li><li>detail：错误详情</li> | ({ code: WifiConfErrorCode, detail }) => void         | 是   |
 | onComplete     | 配网完成后触发                                               | () => void                                            | 是   |
 | udpPort        | 小程序和设备连上同一个局域网之后，小程序发起 UDP 通信的端口，默认为：8266，一般无需更改 | number                                                | 否   |
 | stepInterval   | 配网过程中，每一步中间等待的间隔，单位毫秒，默认为：1000，一般无需更改 | number                                                | 否   |
@@ -743,7 +740,6 @@ module.exports = AirKissConfigure;
 | WifiConfStepCode.BUSINESS_SUCCESS                   | 业务流程成功<br>detail: { productId, deviceName}，请求参数   |
 | WifiConfStepCode.WIFI_CONF_SUCCESS                  | 配网成功                                                     |
 
-
 <span id="test2"></span>
 
 ### 错误码
@@ -776,15 +772,198 @@ module.exports = AirKissConfigure;
 | ----------------- | ------------------------------------------------------------ |
 | PROTOCOL_TIMEOUT  | 超时未收到设备响应，其原因可能是中途网络被切走，导致设备和手机无法通信造成超时；自动处理方式：检查当前网络是不是目标网络，否则切到目标网络，重新配网。 |
 | UDP_ERROR         | UDP 通道发生错误，可能的原因其一如上（中途网络被切走，导致设备和手机无法通信造成超时），其二是 Wi-Fi 切换之后，底层 UDP 还未切换，会发包失败；自动处理方式：延迟2s之后重新配网 |
-| UDP_SEND_MSG_FAIL | 同上两种处理方式                                                         |
+| UDP_SEND_MSG_FAIL | 同上两种处理方式                                             |
 
+### 蓝牙辅助配网
+
+关于 蓝牙辅助方式配网的流程，请参见 [蓝牙辅助配网开发](https://cloud.tencent.com/document/product/1081/48408)。一键配网的配网流程图文版本如下：
+![](https://main.qcloudimg.com/raw/e659d1247c28849198cacac0d2abd373.png)
+腾讯连连中一键配网的页面交互流程如下，也给出来作为参考。
+![](https://main.qcloudimg.com/raw/25e31b76813e9bb37af397ec16bfb067.gif)
+
+<span id="deviceAdapter"></span>
+
+### DeviceAdapter
+
+如上所述，在配网之前，我们需要先发现设备，然后与设备建立蓝牙连接，并获得一个 DeviceAdapter 实例，来实现和蓝牙设备的通信。这个过程可以通过 BlueToothAdapter 完成。整个流程如下：
+
+#### 1. 创建一个 bluetoothAdapter
+
+bluetoothAdapter 可以用来搜索设备，连接到设备。代码如下：
+
+```ts
+import { BleComboEspDeviceAdapter, BleComboLLSyncDeviceAdapter } from 'qcloud-iotexplorer-appdev-plugin-wificonf-blecombo';
+import { BlueToothAdapter } from 'qcloud-iotexplorer-bluetooth-adapter';
+export const bluetoothAdapter = new BlueToothAdapter({
+  deviceAdapters: [
+    BleComboEspDeviceAdapter,
+    BleComboLLSyncDeviceAdapter,
+  ],
+});
+```
+
+在实例化 blueToothAdapter时，我们需要传入想要支持设备的 DeviceAdapter。目前插件内置了两种`DeviceAdapter`:
+
+- BleComboEspDeviceAdapter: 支持通过[BluFi协议](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/api-guides/blufi.html)进行蓝牙辅助配网
+- BleComboLLSyncDeviceAdapter: 支持通过[LLSync协议](https://github.com/tencentyun/qcloud-iot-explorer-BLE-sdk-embedded/blob/master/docs/LLSync%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%85%A5%E5%8D%8F%E8%AE%AE.pdf)进行蓝牙辅助配网
+
+#### 2. 获取蓝牙设备列表
+
+通过 `bluetoothAdapter.startSearch` 方法，我们可以发现设备，获得设备列表。
+
+```ts
+  await bluetoothAdapter.startSearch({
+    ignoreDeviceIds,
+    serviceIds,
+    ignoreServiceIds,
+    onError: (error) => {
+      console.log('----error', error);
+      // 搜索设备出错
+      bluetoothAdapter.stopSearch();
+    },
+    onSearch: (devices) => {
+      console.log('searched devices', devices);
+      if (devices.length > 0) {
+        console.log('找到设备', devices); // 此时可以在页面上展示
+      }
+    },
+    timeout: 1.4 * 15 * 1000,
+  });
+```
+
+在上面的 onSearch 回调函数中，我们可以获得搜寻到的设备列表，这时可以将设备列表展示到页面上，供用户选择要连接哪个设备。此后可以调用`bluetoothAdapter.stopSearch()`来结束搜索。
+
+#### 3. 连接设备
+
+用户从上面获取到的设备中选择一个，并发起连接操作时，可以调用 `bluetoothAdapter.connectDevice` 方法进行连接。连接成功后会返回一个 deviceAdapter，可以用来向连接的设备发送Wi-Fi，token等数据。
+
+```ts
+try {
+  // device参数是上一步获取的devices中的某一个item
+  const deviceAdapter = await bluetoothAdapter.connectDevice(device);
+
+  if (!deviceAdapter) {
+    throw {
+      code: 'CONNECT_ERROR',
+    };
+  }
+} catch (err) {
+  console.error('连接到设备出错');
+}
+```
+
+在上面三步完成之后，我们已经通过蓝牙连接到了设备，并获得了可以更设备通信的 deviceAdapter，接下来就可以正式进行配网了。
+
+#### bleComboOpts 配网参数
+
+| 参数名         | 参数描述                                                     | 类型                                                  | 必填 |
+| -------------- | ------------------------------------------------------------ | ----------------------------------------------------- | ---- |
+| wifiConfToken  | Wi-Fi 设备配网 Token，从后台接口 [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044) 获取 | string                                                | 是   |
+| targetWifiInfo | 目标 Wi-Fi 信息，需要设备去连接的 Wi-Fi 的信息               | WifiInfo                                              | 是   |
+| familyId       | 家庭 ID，默认为：'default'，即用户默认家庭 ID                | 'default' \| string                                   | 否   |
+| roomId         | 房间ID，默认为：''，即用户默认房间 ID                        | '' \| string                                          | 否   |
+| onProgress     | <li>code：步骤代码，详见 [配网步骤](#BleCombo) 小节</li><li>msg：步骤描述，自行从`WifiConfStepDesp`拿code取</li><li>detail：步骤详情，根据每个步骤不同而不同</li> | ({ code: WifiConfStepCode, detail?: object }) => void | 否   |
+| onError        | 配网失败时触发<li>code：错误代码，详见 [错误码](#blecombo_error_code) 小节</li><li>msg：错误描述，自行从`WifiConfErrorMsg`拿code取</li><li>detail：错误详情</li> | ({ code: WifiConfErrorCode, detail }) => void         | 是   |
+| onComplete     | 配网完成后触发                                               | () => void                                            | 是   |
+| deviceAdapter  | 用于和设备进行蓝牙通信的设备适配器实例，连接蓝牙之后获得，详见[DeviceAdapter](#deviceAdapter) | DeviceAdapter                                         | 是   |
+| bleComboProto  | 使用的蓝牙配网协议，目前支持ESP官方和LLsync两种协议          | 'BLE_COMBO_ESP' / 'BLE_COMBO_LLSYNC'                  | 否   |
+
+#### WifiInfo 数据结构
+
+| 属性名   | 属性描述      | 类型   | 必填 |
+| -------- | ------------- | ------ | ---- |
+| SSID     | Wi-Fi 的 SSID | string | 是   |
+| password | Wi-Fi 的 密码 | string | 是   |
+
+#### 示例代码
+
+```javascript
+  // 这里可以进行一些UI进度更新操作
+  const onStepChange = (progress) => {
+    console.log(progress);
+  }
+
+  // 这里是配网进行过程中的回调函数
+  const onProgress = (data) => {
+    console.info(data.code, data.detail);
+    switch (data.code) {
+      case WifiConfStepCode.PROTOCOL_START: // 开始配网
+        onStepChange(1);
+        break;
+      case WifiConfStepCode.PROTOCOL_SUCCESS: // 设备联网成功，设备可以访问互联网
+        onStepChange(2);
+        break;
+      case WifiConfStepCode.BUSINESS_QUERY_TOKEN_STATE_SUCCESS: // 发送token到设备成功，设备开始连接云端
+        onStepChange(3);
+        break;
+      case WifiConfStepCode.WIFI_CONF_SUCCESS: // 配网成功
+        onStepChange(4);
+        break;
+    }
+  };
+
+  const onComplete = ({ productId, deviceName }) => {
+    // 配网成功后，可以拿到设备的 productId 和 设备名称
+    console.log('配网成功', productId, deviceName);
+  };
+
+  const onError = async ({ code, detail }) => {
+    console.error('配网出错', code, detail);
+  };
+
+  const config = {
+    wifiConfToken, // 用于设备连接云端的token
+    targetWifiInfo: { // 用于设备联网的wifi信息，由用户填入
+      SSID: '你的Wi-Fi名称';
+      password: '你的Wi-Fi密码';
+      BSSID: '';
+    },
+    deviceAdapter, // 由连接设备之后获得
+    wifiConfType: 'ble', // 'ble' | 'llsyncble'
+    familyId: 'default',
+    roomId,
+
+    onProgress, // 用来更新页面的进度条
+    onError,
+    OnComplete,
+  }
+
+  // 开始执行配网逻辑 go!
+  sdk.plugins['wifiConfBleCombo'].start(config);
+```
+
+<span id="BleCombo"></span>
+
+#### 配网状态码
+
+`sdk.plugins['wifiConfBleCombo'].start(bleComboOpts)` 配网过程中，每执行完一个步骤就会触发一次 `onProgress` 回调，入参为：`{ code, detail }` 形式。
+
+| 步骤                                    | 描述                                  |
+| --------------------------------------- | ------------------------------------- |
+| WifiConfStepCode.PROTOCOL_START         | 开始配网                              |
+| WifiConfStepCode.PROTOCOL_SUCCESS       | 设备联网成功，设备可以访问互联网      |
+| WifiConfStepCode.BLE_SEND_TOKEN_START   | 开始发送token到设备，用于连接云端     |
+| WifiConfStepCode.BLE_SEND_TOKEN_SUCCESS | 发送token到设备成功，设备开始连接云端 |
+| WifiConfStepCode.WIFI_CONF_SUCCESS      | 配网成功                              |
+
+<span id="blecombo_error_code"></span>
+
+#### 蓝牙辅助配网错误码
+
+在 `onError`回调函数中，我们可以拿到配网失败的错误码。
+
+| CODE                 | 描述                |
+| -------------------- | ------------------- |
+| PROTOCOL_FAIL        | 设备连接失败        |
+| BLE_SEND_TOKEN_ERROR | 发送token到设备失败 |
+| WIFI_CONF_FAIL       | 配网失败            |
 
 <span id="moduleLog"></span>
 
 ### 模组日志收集
 
 当发生错误的时候，只看`onProgress` 或者 `onError`里面打印出来的信息并不能准确定位到问题，需要结合设备端日志查看，我们制定了跟设备端的日志交互协议，原理如下：
-![moduleLog](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/14dec8d5fa7a389e118fe5f5ad18d1eb/1605098789526.jpg)
+![](https://main.qcloudimg.com/raw/8d3701cd1d3cf40de5169f4ed3e76558.png)
 
 #### 示例代码
 
@@ -972,7 +1151,7 @@ SDK 所有接口的错误都经过标准化处理为 `{ code, msg, ...detail }` 
 
 ### 全局错误码
 
->! 下文中描述为一个对象的 detail ，实际上是解构到错误对象当中的。例如 `INTERNAL_ERROR` 的具体 Error 为 `{ code: 'INTERNAL_ERROR', msg: Error.message, stack: Error.stack, error: Error }`。
+> ! 下文中描述为一个对象的 detail ，实际上是解构到错误对象当中的。例如 `INTERNAL_ERROR` 的具体 Error 为 `{ code: 'INTERNAL_ERROR', msg: Error.message, stack: Error.stack, error: Error }`。
 
 | 错误码                           | 描述                                                         |
 | -------------------------------- | ------------------------------------------------------------ |
@@ -992,10 +1171,12 @@ SDK 所有接口的错误都经过标准化处理为 `{ code, msg, ...detail }` 
 #### 更新项目依赖
 
 更新小程序 SDK 到 v1.x 版本，需要更新项目依赖，请在项目目录下的命令行中执行以下命令：
+
 ```bash
 npm install qcloud-iotexplorer-appdev-sdk@1
 ```
->? 如果您使用了微信开发者工具的 npm 支持，在更新项目依赖后，需要选择微信开发者工具菜单栏的【工具】>【构建 npm】以重新构建 npm 依赖。
+
+> ? 如果您使用了微信开发者工具的 npm 支持，在更新项目依赖后，需要选择微信开发者工具菜单栏的**工具** > **构建 npm**以重新构建 npm 依赖。
 
 #### 调整导入 SDK 的方式
 
@@ -1119,3 +1300,117 @@ export function AirKissConfigure({
   });
 }
 ```
+
+## 添加LLSync蓝牙设备
+
+通过 [qcloud-iotexplorer-bluetooth-adapter-llsync](https://www.npmjs.com/package/qcloud-iotexplorer-bluetooth-adapter-llsync) sdk， 小程序可以完成和标准蓝牙设备进行连接，绑定，控制等流程。通过下面的图片可以直观地了解整个流程:
+
+<img src=https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/shuaisguo/1629101191691.gif style="width: 300px">
+
+### 1. 创建一个 bluetoothAdapter
+
+bluetoothAdapter 可以用来搜索设备，连接到设备。代码如下：
+
+```ts
+import { BlueToothAdapter } from 'qcloud-iotexplorer-bluetooth-adapter';
+import { LLSyncDeviceAdapter } from 'qcloud-iotexplorer-bluetooth-adapter-llsync';
+
+// 关于appDevSdk文档，详见https://www.npmjs.com/package/qcloud-iotexplorer-appdev-sdk
+const options = {
+  appDevSdk, // 通过qcloud-iotexplorer-appdev-sdk得到的实例
+}
+LLSyncDeviceAdapter.injectOptions(options);
+export const bluetoothAdapter = new BlueToothAdapter({
+  deviceAdapters: [
+    LLSyncDeviceAdapter,
+  ],
+});
+```
+
+### 2. 获取蓝牙设备列表
+
+通过 bluetoothAdapter.startSearch方法，我们可以发现设备，获得设备列表。
+
+```ts
+  const serviceIds = [BleComboLLSyncDeviceAdapter.serviceId];
+  await bluetoothAdapter.startSearch({
+    ignoreDeviceIds,
+    serviceIds,
+    ignoreServiceIds,
+    onError: (error) => {
+      console.log('----error', error);
+      // 搜索设备出错
+      bluetoothAdapter.stopSearch();
+    },
+    onSearch: (devices) => {
+      console.log('searched devices', devices);
+      if (devices.length > 0) {
+        console.log('找到设备', devices); // 此时可以在页面上展示
+      }
+    },
+    timeout: 1.4 * 15 * 1000,
+  });
+
+```
+
+在上面的 onSearch 回调函数中，我们可以获得搜寻到的设备列表，这时可以将设备列表展示到页面上，供用户选择要连接哪个设备。
+
+**tip:** 如果设备无法搜索到，请确认设备没有被绑定
+
+### 3. 连接设备
+
+用户从上面获取到的设备中选择一个，并发起连接操作时，可以调用 `bluetoothAdapter.connectDevice` 方法进行连接。连接成功后会返回一个 deviceAdapter，可以用来向连接的设备发送Wi-Fi，token等数据。
+
+**tip**: 如果在连接时提示没有权限操作该产品，请到控制台/应用开发对应用和产品进行关联
+
+```ts
+try {
+  // device 参数是上一步 onSearch 回调中获取 devices 数组的某一项
+  const deviceAdapter = await bluetoothAdapter.connectDevice(device);
+
+  if (!deviceAdapter) {
+    throw {
+      code: 'CONNECT_ERROR',
+    }
+  }
+} catch (err) {
+  console.error('连接到设备出错');
+}
+
+```
+
+在这一步中，可以通过连接设备获得 deviceAdapter实例 ，通过 deviceAdapter，我们可以完成后续设备的绑定和解绑操作。
+
+### 4. 绑定设备
+
+绑定设备时，可以传入familyId, roomId, 从而将设备绑定到特定的家庭和房间，绑定完成后，可以在设备列表中看到该设备。
+
+```ts
+try {
+  const deviceId = await deviceAdapter.bindDevice({ familyId, roomId });
+} catch (err) {
+  console.log(err);
+}
+
+```
+
+### 5. 解绑设备
+
+设备绑定后，也可以通过小程序发起删除设备的操作，这时需要调用解绑api，解绑完成后设备会恢复未绑定的状态。
+
+```ts
+try{
+  await deviceAdapter.unbindDevice({ familyId, deviceId });
+} catch (err) {
+  console.log(err);
+}
+
+```
+
+### 6. deviceAdapter事件
+
+|事件|描述|参数|
+|---|---|---|
+connect |  蓝牙设备连接时触发 |DeviceInfo
+disconnect|蓝牙设备连接断开时触发|DeviceInfo|
+authorized|蓝牙设备授权完成时触发|{ version, mtu, otaVersion, }|
