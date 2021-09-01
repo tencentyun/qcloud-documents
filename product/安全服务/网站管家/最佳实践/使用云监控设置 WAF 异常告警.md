@@ -42,7 +42,7 @@
 ![](https://main.qcloudimg.com/raw/f34de0482428d4e3aea6acb26bad05a8.png)
 
 ### 步骤3：配置告警策略
-1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor/overview)，在左侧导航中，单击告警管理菜单下的 【告警策略】>【告警策略】，进入告警策略页面。
+1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor/overview)，在左侧导航中，单击告警管理菜单下的 【告警配置】>【告警策略】，进入告警策略页面。
 >?可在告警策略页面页面新增，修改复制以及查看策略的告警历史，对于每条策略，可以绑定刚设置的 [触发条件](#CFTJ) 和 [通知模板](#TZMB)。
 2. 在告警策略页面，单击【新建】，进入新建告警策略页面。
 ![](https://main.qcloudimg.com/raw/b0849fa979d0728072d5f40a6f6aff44.png)
