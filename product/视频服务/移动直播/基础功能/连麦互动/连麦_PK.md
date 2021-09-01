@@ -13,12 +13,12 @@
 <dx-codeblock>
 ::: java java
 V2TXLivePusher pusherA = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
-pushURLA= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
+pushURLA= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
 pusherA.startPush(pushURLA);
 :::
 ::: Objective-C ObjectiveC
 V2TXLivePusher *pusherA = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
-NSString *pushURLA = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
+NSString *pushURLA = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
 [pusherA startPush:pushURLA];
 :::
 </dx-codeblock>
@@ -59,12 +59,12 @@ V2TXLivePlayer * playerA = [[V2TXLivePlayer alloc] init];
 <dx-codeblock>
 ::: java java
 V2TXLivePusher pusherB = new V2TXLivePusherImpl(this,V2TXLiveMode.TXLiveMode_RTC);
-pushURLB= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=B&amp;usersig=xxx";
+pushURLB= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=B&usersig=xxx";
 pusherB.startPush(pushURLB);
 :::
 ::: Objective-C ObjectiveC
 V2TXLivePusher *pusherB = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
-NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
+NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
 [pusherB startPush:pushURLB];
 :::
 </dx-codeblock>
@@ -75,12 +75,12 @@ NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=140018888
 <dx-codeblock>
 ::: java java
 V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
-playURLB= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&amp;userId=B&amp;usersig=xxx";
+playURLB= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx";
 playerB.startPlay(playURLB);
 :::
 ::: Objective-C ObjectiveC
 V2TXLivePlayer * playerB = [[V2TXLivePlayer alloc] init];
-NSString* playURLB = @"trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&amp;userId=B&amp;usersig=xxx";
+NSString* playURLB = @"trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx";
 [playerB setRenderView:view];
 [playerB startPlay:playURLB];
 :::
@@ -90,12 +90,12 @@ NSString* playURLB = @"trtc://cloud.tencent.com/play/streamid?sdkappid=140018888
 <dx-codeblock>
 ::: java java
 V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
-playURLA= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
+playURLA= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
 playerA.startPlay(playURLA);
 :::
 ::: Objective-C ObjectiveC
 V2TXLivePlayer * playerA = [[V2TXLivePlayer alloc] init];
-NSString* playURLA = @"trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
+NSString* playURLA = @"trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
 [playerA setRenderView:view];
 [playerA startPlay:playURLA];
 :::
@@ -226,12 +226,12 @@ pusher.setMixTranscodingConfig(config);
 <dx-codeblock>
 ::: java java
 V2TXLivePusher pusherA = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
-pushURLA= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
+pushURLA= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
 pusherA.startPush(pushURLA);
 :::
 ::: Objective-C ObjectiveC
 V2TXLivePusher *pusherA = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
-NSString *pushURLA = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
+NSString *pushURLA = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
 [pusherA startPush:pushURLA];
 :::
 </dx-codeblock>
@@ -241,12 +241,12 @@ NSString *pushURLA = @"trtc://cloud.tencent.com/push/streamid?sdkappid=140018888
 <dx-codeblock>
 ::: java java
 V2TXLivePusher pusherB = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
-pushURLB "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=B&amp;usersig=xxx";
+pushURLB "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=B&usersig=xxx";
 pusherB.startPush(pushURLB);
 :::
 ::: Objective-C ObjectiveC
 V2TXLivePusher *pusherB = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
-NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=B&amp;usersig=xxx";
+NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=B&;usersig=xxx";
 [pusherB startPush:pushURLB];
 :::
 </dx-codeblock>
@@ -256,47 +256,27 @@ NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=140018888
 <dx-codeblock>
 ::: java java
 // 主播A
-V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
-/**
-- 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
- playURLA= "http://3891.liveplay.myqcloud.com/live/streamidB.flv ";
- playURLA= "http://3891.liveplay.myqcloud.com/live/streamidB.hls ";
- playURLA= "webrtc://3891.liveplay.myqcloud.com/live/streamidB"
-*/
-playerA.startPlay(playURLA);
+V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
+playURLB = "trtc://3891.liveplay.myqcloud.com/live/streamidB"
+playerB.startPlay(playURLB);
 ...
 // 主播B
-V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
-/**
-- 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
- playURLB= "http://3891.liveplay.myqcloud.com/live/streamidA.flv ";
- playURLB= "http://3891.liveplay.myqcloud.com/live/streamidA.hls ";
- playURLB= "webrtc://3891.liveplay.myqcloud.com/live/streamidA"
-*/
-playerB.startPlay(playURLB);
+V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
+playURLA= "trtc://3891.liveplay.myqcloud.com/live/streamidA"
+playerA.startPlay(playURLA);
 :::
 ::: Objective-C ObjectiveC
 // 主播A
-V2TXLivePlayer *playerA = [[V2TXLivePlayer alloc] init];
-/**
-- 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
- NSString *playURLA = "http://3891.liveplay.myqcloud.com/live/streamidB.flv ";
- NSString *playURLA = "http://3891.liveplay.myqcloud.com/live/streamidB.hls ";
- NSString *playURLA = "webrtc://3891.liveplay.myqcloud.com/live/streamidB"
-*/
-[playerA setRenderView:view];
-[playerA startPlay:playURLA];
-...
-// 主播B
-V2TXLivePlayer *playerB = [[V2TXLivePlayer alloc] init];
-/**
-- 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
- NSString *playURLB = "http://3891.liveplay.myqcloud.com/live/streamidA.flv ";
- NSString *playURLB = "http://3891.liveplay.myqcloud.com/live/streamidA.hls ";
- NSString *playURLB = "webrtc://3891.liveplay.myqcloud.com/live/streamidA"
-*/
+V2TXLivePlayer playerB = [[V2TXLivePlayer alloc] init];
+NSString playURLB = "trtc://3891.liveplay.myqcloud.com/live/streamidB"
 [playerB setRenderView:view];
 [playerB startPlay:playURLB];
+...
+// 主播B
+V2TXLivePlayer playerA = [[V2TXLivePlayer alloc] init];
+NSString playURLA = "trtc://3891.liveplay.myqcloud.com/live/streamidA"
+[playerA setRenderView:view];
+[playerA startPlay:playURLA];
 :::
 </dx-codeblock>
 
