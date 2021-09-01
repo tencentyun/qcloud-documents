@@ -110,18 +110,7 @@ COSDistCp 默认会对拷贝失败的文件重试5次，如果仍然失败，则
 1. 存在源文件的清单中，但拷贝时源文件不存在，记录为 SRC_MISS
 2. 其他原因导致的拷贝失败，统一记录为 COPY_FAILED
 
-您可以重新运行拷贝命令实现增量迁移，也可通过如下命令，获取除 SRC_MISS 以外的差异文件列表：
-```plaintext
-hadoop fs -getmerge /tmp/${randomUUID}/output/failed/ failed-manifest
-grep -v '"comment":"SRC_MISS"' failed-manifest |gzip > failed-manifest.gz
-```
-
-执行如下命令，根据失败文件列表重新迁移：
-```plaintext
-hadoop  jar cos-distcp-${version}.jar --taskNumber=20 --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --previousManifest=file:///usr/local/service/hadoop/failed-manifest.gz --copyFromManifest
-```
-
-通过如下命令，获取 MapReduce 任务的日志，确定文件拷贝失败的原因，其中 application_1610615435237_0021 为应用 ID：
+您可以重新运行拷贝命令实现增量迁移，通过如下命令，获取 MapReduce 任务的日志，确定文件拷贝失败的原因，其中 application_1610615435237_0021 为应用 ID：
 ```plaintext
 yarn logs -applicationId application_1610615435237_0021 > application_1610615435237_0021.log
 ```
@@ -324,6 +313,7 @@ grep -v '"comment":"SRC_MISS"' diff-manifest |gzip > diff-manifest.gz
 ```plaintext
 hadoop  jar cos-distcp-${version}.jar --taskNumber=20 --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --previousManifest=file:///usr/local/service/hadoop/diff-manifest.gz --copyFromManifest
 ```
+增量迁移完成后，再次运行带 --diffMode 参数的命令，查看是否文件是否完全一致。
 
 ### 指定 COS 文件的存储类型
 
