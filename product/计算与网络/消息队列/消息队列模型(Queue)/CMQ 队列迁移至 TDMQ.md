@@ -29,7 +29,7 @@
    ![](https://main.qcloudimg.com/raw/0d1d65697c56dfa776c6036a52eb3d79.png)
 4. 迁移完成后，登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)。
 5. 在左侧导航栏选择**队列服务**，选择相同的**地域**可看到迁移到 TDMQ CMQ 版的队列。
-   ![](https://main.qcloudimg.com/raw/ad3f0b5492c5cf7e7480fe919f5bd9ae.png)
+   ![](https://main.qcloudimg.com/raw/0598980238530ead4225bc5791a767ef.png)
 
 ### 步骤2：新建消费者
 
