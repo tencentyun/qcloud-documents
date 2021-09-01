@@ -10,7 +10,7 @@
 当使用 SSH 登录 Linux 实例失败，并返回报错信息时，您可记录报错信息，并匹配以下常见的报错信息，快速定位问题并参考步骤进行解决。
  
 <dx-accordion>
-::: SSH 登录报错 User test from xxx.xxx.xxx.xxx not allowed because not listed in AllowUsers
+::: SSH 登录报错 User root not allowed because not listed in AllowUsers
 
 #### 问题原因[](id:userNotListAllowUsers)
 该问题通常是由于 SSH 服务启用了用户登录控制参数，对登录用户进行了限制。参数说明如下：
