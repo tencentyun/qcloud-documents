@@ -20,6 +20,8 @@ HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 - Objective-C Demo [下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSDemo)。
 - Swift Demo [下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSSwiftDemo)。
 
+>?开通移动解析 HTTPDNS 服务后，您需在移动解析 HTTPDNS 管理控制台添加解析域名后才可正常使用。具体操作请参见 [添加域名](https://cloud.tencent.com/document/product/379/54588)。
+
 ### 3.1 通过 CocoaPods 集成
 在工程的 Podfile 里面添加以下代码：
 ```
