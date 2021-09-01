@@ -764,4 +764,4 @@ OPPO 手机收不到推送一般有以下几种情况：
 
 ### 如何关闭离线推送消息的接收？
 
-如果您想关闭离线推送消息的接收，从5.6.1200版本开始，可以通过设置 [setOfflinePushConfig](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 接口的 `config` 参数为 `null` 来实现。
+如果您想关闭离线推送消息的接收，可以通过设置 [setOfflinePushConfig](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 接口的 `config` 参数为 `null` 来实现。该功能从5.6.1200版本开始支持。
