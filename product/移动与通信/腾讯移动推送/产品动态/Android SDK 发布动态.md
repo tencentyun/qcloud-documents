@@ -9,8 +9,8 @@
     <th width=20%>相关文档</th>
 	</tr>
 	<tr>
-        <td>SDK 1.2.7.1 版本发布</td><td>
-		<li>  修复：偶现的跨进程存储不一致问题</td>
+        <td>SDK 1.2.7.1 版本发布</td>
+	<td>修复：偶现的跨进程存储不一致问题</td>
         <td>2021-09-1</td><td><li>使用新增的应用内消息能力时，请注意高版本安卓使用 WebView 的兼容性，参考 <a href="https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA">Android 接口文档</a></li>
 <li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
 <li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li></td>
