@@ -3,7 +3,7 @@
 
 
 ## 基本消息类型
-`TUIKit` 基本消息类型请参见 [MessageInfo.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/message/MessageInfo.java)。
+`TUIKit` 基本消息类型请参见 [MessageInfo.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/message/MessageInfo.java)。
 <table>
      <tr>
          <th width="20%" style="text-align:center">消息类型</th>  
@@ -34,7 +34,7 @@
 ## 自定义消息
 >- 如果基本消息类型不能满足您的需求，您可以根据实际业务需求自定义消息。
 >- 本文以发送一条可跳转至浏览器的超文本作为自定义消息为例，帮助您快速了解实现流程。**本文以 `5.4.666` 版本为例，与之前版本有所不同。**
->- 可以参考 [自定义欢迎消息实现](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/helper/HelloChatController.java) 和 [自定义群直播消息实现](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit-live/src/main/java/com/tencent/qcloud/tim/tuikit/live/helper/TUIKitLiveChatController.java) 。
+>- 可以参考 [自定义欢迎消息实现](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/helper/HelloChatController.java) 和 [自定义群直播消息实现](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit-live/src/main/java/com/tencent/qcloud/tim/tuikit/live/helper/TUIKitLiveChatController.java) 。
 
 ### 实现自定义消息的流程
 自定义消息流程
@@ -135,7 +135,7 @@ if (messageSender != null) {
 
 #### 创建 ViewHolder
 `TUIKit` 使用 `RecyclerView` 来展示消息，要想显示自定义消息，需要创建自定义消息的 `ViewHolder` 来存放展示消息内容的 `View`。
-自定义消息的 `ViewHolder` 可以继承自 [基础消息 ViewHolder](https://github.com/tencentyun/TIMSDK/tree/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/layout/message/holder)。
+自定义消息的 `ViewHolder` 可以继承自 [基础消息 ViewHolder](https://github.com/tencentyun/TIMSDK/tree/master/Android/Demo/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/layout/message/holder)。
 ```java
 // 定义 HelloViewHolder 继承自 MessageCustomHolder
 class HelloViewHolder extends MessageCustomHolder{
