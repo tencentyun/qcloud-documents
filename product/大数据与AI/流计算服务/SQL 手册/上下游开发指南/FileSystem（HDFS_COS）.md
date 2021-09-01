@@ -1,4 +1,3 @@
-## 介绍
 FileSystem connector 提供了对 HDFS 和 COS 等常见文件系统的写入支持。
 
 ## 使用范围
