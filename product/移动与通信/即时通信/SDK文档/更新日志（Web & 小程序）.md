@@ -1,3 +1,28 @@
+### 2.13.1 @2021.8.27
+
+**变更**
+
+- 未登录时，连续调用 [login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login)，返回错误码 `2025`，表示【重复登录】。
+- WebSocket 重连后，SDK 重新登录并同步未读消息，保障消息的可靠性。
+
+
+**修复**
+
+- 未登录时，连续调用 [login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login) 后会话的未读数错误。
+- 调用 [setGroupMemberNameCard](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupMemberNameCard) 接口，`nameCard` 传入空字符串后报错。
+- 调用 [getGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMemberList) 接口，回包数据 `muteUntil` 的值错误。
+
+
+### 2.13.0 @2021.8.23
+
+**新增**
+
+支持好友关系链，请参见 [使用指引](https://web.sdk.qcloud.com/im/doc/zh-cn/tutorial-03-sns.html)。
+
+**修复**
+
+WebSocket 长连接断开时偶现的报错。
+
 ### 2.12.2 @2021.8.6
 
 **新增**

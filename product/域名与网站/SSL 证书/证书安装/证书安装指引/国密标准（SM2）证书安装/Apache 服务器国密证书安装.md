@@ -51,7 +51,7 @@ yum install -y gcc-c++
 #切换至 /usr/local/ 目录下
 cd /usr/local/ 
 #下载 apr 1.7.0
-wget -c http://mirror.bit.edu.cn/apache/apr/apr-1.7.0.tar.gz
+wget -c http://mirrors.tencent.com/apache/apr/apr-1.7.0.tar.gz
 #解压已下载的 apr 1.7.0 压缩包
 tar -zvxf apr-1.7.0.tar.gz
 #进入解压后的 apr 1.7.0 文件夹并指定编译目录路径。
@@ -101,7 +101,7 @@ make && make install
 >- 如果在安装 Apache 的过程中找不到 pcre、apr-util 或 apr 等相关文件，请将 `/pcre/bin`、`/apr-util/bin` 或 `/apr/bin` 等文件加入系统路径。
 >
 ```
-#下载 Apache 国密版
+#下载 Apache httpd-2.4.48 压缩包
 wget -c http://mirrors.tencent.com/apache/httpd/httpd-2.4.48.tar.gz
 #下载国密模块
 wget -c https://www.wotrus.com/download/wotrus_ssl.tar.gz
@@ -109,9 +109,6 @@ wget -c https://www.wotrus.com/download/wotrus_ssl.tar.gz
 tar -zvxf wotrus_ssl.tar.gz 
 #解压已下载的 httpd-2.4.48 压缩包
 tar -zvxf httpd-2.4.48.tar.gz 
-#再次解压 httpd-2.4.48 解压出来的`httpd-2.4.48.tar`压缩包
-tar -zvxf httpd-2.4.48.tar
-
 #进入解压后的 httpd-2.4.48 文件夹并指定编译目录路径。
 cd httpd-2.4.48/
 ./configure --prefix=/usr/local/httpd --enable-so --enable-ssl --enable-cgi --enable-rewrite --enable-modules=most --enable-mpms-shared=all --with-mpm=prefork --with-zlib --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util --with-ssl=/usr/local/wotrus_ssl2.0 

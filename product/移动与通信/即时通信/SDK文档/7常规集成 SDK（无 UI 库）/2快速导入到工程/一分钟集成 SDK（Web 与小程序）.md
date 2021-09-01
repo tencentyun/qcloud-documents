@@ -31,7 +31,7 @@ npm install tim-js-sdk --save
 // 发送图片、文件等消息需要腾讯云即时通信 IM 上传插件
 npm install tim-upload-plugin --save
 ```
- >?若同步依赖过程中出现问题，请切换 npm 源后再次重试。
+>?若同步依赖过程中出现问题，请切换 npm 源后再次重试。
 >```
 >// 切换 cnpm 源
 >npm config set registry http://r.cnpmjs.org/
@@ -132,7 +132,7 @@ tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 ## 常见问题
 
 **1. 小程序如果需要上线或者部署正式环境怎么办？**
-请在【微信公众平台】>【开发】>【开发设置】>【服务器域名】中进行域名配置：
+请在**微信公众平台**>**开发**>**开发设置**>**服务器域名**中进行域名配置：
 
 将以下域名添加到 **request 合法域名**：
 

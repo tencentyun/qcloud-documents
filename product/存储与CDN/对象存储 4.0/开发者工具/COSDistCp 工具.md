@@ -47,7 +47,7 @@ COSDistCp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 |              --help              | 输出 COSDistCp 支持的参数选项<br> 示例：--help               |   无   |    否    |
 |          --src=LOCATION          | 指定拷贝的源目录，可以是 HDFS 或者 COS 路径<br> 示例：--src=hdfs://user/logs/ |   无   |    是    |
 |         --dest=LOCATION          | 指定拷贝的目标目录，可以是 HDFS 或者 COS 路径<br> 示例：--dest=cosn://examplebucket-1250000000/user/logs |   无   |    是 |
-|       --srcPattern=PATTERN       | 指定正则表达式对源目录中的文件进行过滤<br>示例：`--srcPattern='.*.log'`<br>**注意：您需要将参数使用单引号包围，以避免符号`*`被 shell 解释**。 |   无   |    否    |
+|       --srcPattern=PATTERN       | 指定正则表达式对源目录中的文件进行过滤<br>示例：`--srcPattern='.*.log'`<br>**注意：您需要将参数使用单引号包围，以避免符号`*`被 shell 解释** |   无   |    否    |
 |       --taskNumber=VALUE       | 指定拷贝进程数，示例：--taskNumber=10 |   10   |    否    |
 |       --workerNumber=VALUE       | 指定拷贝线程数，COSDistCp 在每个拷贝进程中创建该参数大小的拷贝线程池<br>示例：--workerNumber=4 |   4    |    否    |
 |      --filesPerMapper=VALUE      | 指定每个 Mapper 输入文件的行数<br>示例：--filesPerMapper=10000 | 500000 |    否    |
@@ -75,13 +75,13 @@ COSDistCp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 |      --promGatewayJobName=VALUE      | 指定上报给 Prometheus PushGateway 的 JobName </br>示例：--promGatewayJobName=cos-distcp-hive-backup           |   无   |    否    |
 |      --promCollectInterval=VALUE      | 指定收集 MapReduce 任务 Counter 信息的间隔，单位：ms </br>示例：--promCollectInterval=5000            |   5000   |    否    |
 |      --promPort=VALUE      | 指定将 Prometheus 指标暴露给外部的 Server 端口 <br>示例：--promPort=9028            |   无   |    否    |
-|      --enableDynamicStrategy      | 指定开启任务动态分配策略，使迁移速度快的任务迁移更多的文件 </br>示例：--enableDynamicStrategy            |   false   |    否    |
+|      --enableDynamicStrategy      | 指定开启任务动态分配策略，使迁移速度快的任务迁移更多的文件。</br>**注意：该模式存在一定局限性，例如任务计数器在进程异常的情况下数值不准确** </br>示例：--enableDynamicStrategy            |   false   |    否    |
 |      --splitRatio=VALUE      | 指定 Dynamic Strategy 的切分比例，splitRatio 值越大，则任务粒度越小</br>示例：--splitRatio=8            |   8   |    否    |
 |      --localTemp=VALUE      | 指定 Dynamic Strategy 生成的任务信息文件所在的本地文件夹</br>示例：--localTemp=/tmp            |   /tmp   |    否    |
 |      --taskFilesCopyThreadNum=VALUE      | 指定 Dynamic Strategy 任务信息文件拷贝到 HDFS 上的并发度 </br>示例：--taskFilesCopyThreadNum=32            |   32   |    否    |
 |      --statsRange=VALUE      | 指定统计的区间范围</br>示例：---statsRange=0,1mb,10mb,100mb,1gb,10gb,inf   |   0,1mb,10mb,100mb,1gb,10gb,inf   |    否    |
 |      --printStatsOnly      | 只统计待迁移文件大小的分布信息，不迁移数据</br>示例：--printStatsOnly            |   无   |    否    |
-
+|      --bandWidth      | 限制每个迁移文件的读取带宽，单位为：MB/s，默认-1，不限制读取带宽。</br>示例：--bandWidth=10            |   无   |    否    |
 
 ## 使用示例
 
@@ -336,6 +336,9 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse    --dest  cosn://examplebucket-1250000000/data/warehouse --enableDynamicStrategy
 ```
 
+>! 该模式存在一定局限性，例如任务计数器在进程异常的情况下数值不准确。
+>
+
 ### 拷贝文件的元信息
 
 以参数`--preserveStatus`执行命令，将源文件或源目录的 user、group、permission 和 timestamps（modification time 和 access time）拷贝到目标文件或目标目录，示例如下：
@@ -449,6 +452,7 @@ yarn logs -applicationId application_1610615435237_0021 > application_1610615435
 其中 application_1610615435237_0021 为应用 ID。
 
 ### COSDistCp 是否会在网络等异常情况下，拷贝生成不完整文件？
+
 在网络异常、源文件缺失和权限不足等情况下，COSDistCp 无法在目标端生成和源端同样大小的文件。
 - 对于 COSDistCp 1.5 以下版本，COSDistCp 会尝试删除生成在目标端文件。如果删除失败，则需要您重新执行拷贝任务覆盖这些文件，或者手动删除这些不完整的文件。
 - 对于 COSDistCp 1.5 及以上版本，且运行环境的 Hadoop COS 插件版本在 5.9.3 及以上版本时，如果拷贝到 COS 拷贝失败，COSDistCp 会调用 abort 接口终止正在上传的请求。因此，即使遇到异常情况，也不会生成不完整的文件。

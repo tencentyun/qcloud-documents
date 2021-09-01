@@ -1,5 +1,5 @@
 ## 购买流程
-腾讯云区块链服务平台（TBaaS）目前开放地域请参见 [地域与可用区](#region)。TBaaS 支持多引擎，您可立即前往【[立即选购](https://cloud.tencent.com/product/tbaas)】，并参考 [选择区块链引擎](#gettbaas) 和购买页面的提示完成购买。具体步骤如下：
+腾讯云区块链服务平台（TBaaS）目前开放地域请参见 [地域与可用区](#region)。TBaaS 支持多引擎，您可立即前往 **[立即选购](https://cloud.tencent.com/product/tbaas)**，并参考 [选择区块链引擎](#gettbaas) 和购买页面的提示完成购买。具体步骤如下：
 
 
 **1. 选择公有云专区/金融专区服务**
@@ -11,13 +11,13 @@
 
 **2. 选择区块链引擎**
 在 [TBaaS 购买页](https://cloud.tencent.com/product/tbaas)，您需选择使用的区块链引擎。如下图所示：
-![](https://main.qcloudimg.com/raw/17a4c0a9dbaeca27b884aab92a540a9e.png)
+![](https://main.qcloudimg.com/raw/06382bc56db3762d78cc1da4026c90ad.png)
 您可通过以下入口，直接购买已选择的区块链引擎：
 
  - [长安链·ChainMaker](https://buy.cloud.tencent.com/tbaas_blockchain/chainmaker)
  - [Hyperledger Fabric 增强版](https://buy.cloud.tencent.com/tbaas_blockchain?engine=0)
  - [FISCO BCOS](https://buy.cloud.tencent.com/tbaas_blockchain?engine=1)
- - [Tencent TrustSQL](https://buy.cloud.tencent.com/tbaas_blockchain?engine=2)
+
 
 **3. 填写购买信息**
 请参考对应的区块链引擎购买说明，完成购买：
@@ -25,7 +25,7 @@
 - [长安链·ChainMaker 购买页说明](https://cloud.tencent.com/document/product/663/60096)
 - [Hyperledger Fabric 购买页说明](https://cloud.tencent.com/document/product/663/38262)
 - [FISCO BCOS 购买页说明](https://cloud.tencent.com/document/product/663/38266)
-- [Tencent TrustSQL 购买页说明](https://cloud.tencent.com/document/product/663/38271)
+
 
 **4. 开始使用 TBaaS 服务**
 当您已完成购买后，即可前往 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas) 使用相关服务。

@@ -27,9 +27,9 @@
 > - 当您直接在负载均衡控制台修改证书后，请务必参照[ 修改证书 ](#ModifySecret)步骤，及时修改使用该证书创建 Ingress 时控制台默认生成的同名 Secret 证书资源。否则 Ingress 配置的证书仍保持旧版本，将会导致您的证书更新失效。
 
 ### 更换证书
-1. 登录容器服务控制台，选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择需更换证书集群 ID。
-3. 在集群详情页，选择左侧**服务与路由**>**Ingress**。如下图所示：
+3. 在集群详情页，选择左侧**服务与路由** > **Ingress**。如下图所示：
 ![](https://main.qcloudimg.com/raw/69e9c55ea644144ea5848c98b9d0462a.png)
 4. 选择需更换证书 Ingress 所在行右侧的**更新转发配置**。
 5. 在“更新转发配置”页面中，按需更新“服务器证书”。如下图所示：

@@ -21,7 +21,7 @@
 出于政策和合规的考虑，微信暂未放开所有小程序对实时音视频功能（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签）的支持：
  - 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
  - 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
- - 符合类目要求的小程序，需要在【[微信公众平台](https://mp.weixin.qq.com)】>【开发】>【开发管理】>【接口设置】中自助开通该组件权限，如下图所示：
+ - 符合类目要求的小程序，需要在 **[微信公众平台](https://mp.weixin.qq.com)**>**开发**>**开发管理**>**接口设置** 中自助开通该组件权限，如下图所示：
 ![](https://main.qcloudimg.com/raw/dc6d3c9102bd81443cb27b9810c8e981.png)
 
 ## API 概览
@@ -47,8 +47,8 @@
 
 | API                                                          | 描述             |
 | :----------------------------------------------------------- | :--------------- |
-| [setPusherAttributes(config)](#setpusherattributes(config))  | 设置推流参数变更 |
-| [setPlayerAttributes(id, config)](#setplayerattributes(id.2C-config)) | 设置拉流参数变更 |
+| [setPusherAttributes(config)](#setpusherattributes(config))  | 设置推流的参数 |
+| [setPlayerAttributes(id, config)](#setplayerattributes(id.2C-config)) | 改变拉流 player 的参数 |
 
 ### 获取实例
 
@@ -167,6 +167,7 @@ this.TRTC.createPusher({'frontCamera': 'back'})
 | userSig  | String | -      | 必填，您服务器签发的 userSig                                 |
 | roomID   | Number | -      | 必填，您要进入的房间号，如该房间不存在，系统会为您自动创建   |
 | strRoomID   | String | -      | 选填，您要进入的字符串房间号，如填写该参数，将优先进入字符串房间   |
+| userDefineRecordId   | String | -      | 选填，设置云端录制完成后的回调消息中的 "userdefinerecordid" 字段内容，便于您更方便的识别录制回调。<li>**推荐取值：**限制长度为64字节，只允许包含大小写英文字母（a-zA-Z）、数字（0-9）及下划线和连词符。</li><li>**参考文档：**[云端录制](https://cloud.tencent.com/document/product/647/16823)。 </li>   |
 | scene    | String | 'rtc'  | 选填，必填参数，使用场景：<li>rtc：实时通话，采用优质线路，同一房间中的人数不应超过300人。</li><li>live：直播模式，采用混合线路，支持单一房间十万人在线（同时上麦的人数应控制在50人以内）</li> |
 
 >! 
@@ -616,7 +617,7 @@ this.TRTC.on(EVENT.REMOTE_AUDIO_REMOVE, onRemoteAudioRemove)
 ::: javascript javascript
 let onRemoteStateUpdate = function(event){
   // id 是对应触发的 player 的 id，目前 streamid 和 id 是相同的
-  const id = event.currentTarget.dataset.streamid
+  const id = event.data.currentTarget.dataset.streamid
   const data = event.data // 这里是微信原生组件抛出的关于player的信息，若有需要您可以自主获取
 }
 this.TRTC.on(EVENT.REMOTE_STATE_UPDATE, onRemoteStateUpdate)
@@ -703,7 +704,7 @@ this.TRTC.on(EVENT.VIDEO_FULLSCREEN_UPDATE, onVideoFullscreenUpdate)
 [](id:BGM_PLAY_PROGRESS)
 ### BGM_PLAY_PROGRESS
 
-远端视图全屏状态变更。
+BGM 播放时间戳变更通知。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -719,7 +720,7 @@ this.TRTC.on(EVENT.BGM_PLAY_PROGRESS, onBgmPlayProgress)
 [](id:BGM_PLAY_COMPLETE)
 ### BGM_PLAY_COMPLETE
 
-BGM 播放完成。
+BGM 播放结束通知。
 
 <dx-codeblock>
 ::: javascript javascript

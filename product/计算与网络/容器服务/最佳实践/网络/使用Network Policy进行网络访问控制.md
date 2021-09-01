@@ -111,7 +111,7 @@ spec:
 
 ## 性能测试方案
 ### NetworkPolicy 扩展组件功能测试
-运行 K8s 社区针对 `NetworkPolicy` 的 [e2e 测试](https://github.com/kubernetes/kubernetes/blob/release-1.18/test/e2e/network/network_policy.go)，结果如下：
+运行 K8S 社区针对 `NetworkPolicy` 的 [e2e 测试](https://github.com/kubernetes/kubernetes/blob/release-1.18/test/e2e/network/network_policy.go)，结果如下：
 
 | NetworkPolicy Feature| 是否支持 |
 |---------|---------|

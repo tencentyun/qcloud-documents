@@ -21,9 +21,9 @@
 #### 静态创建 PV[](id:pv)
 >? 静态创建 PV 适用于已有存量云盘，并在集群内使用的场景。
 >
-1. 登录容器服务控制台，选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 选择需创建 PV 的集群 ID，进入该集群详情页面。
-3. 选择左侧菜单栏中的**存储**>**PersistentVolume**，进入 “PersistentVolume” 页面。如下图所示：
+3. 选择左侧菜单栏中的**存储** > **PersistentVolume**，进入 “PersistentVolume” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/f643eb293a3cbb42073218e478ebc6cf.png)
 4. 选择**新建**进入“新建PersistentVolume” 页面，参考以下信息进行创建。如下图所示：
 ![](https://main.qcloudimg.com/raw/82016b390657386de0b204aecac0703f.png)
@@ -43,7 +43,7 @@
 
 
 #### 创建 PVC[](id:createPVC2)
-1. 在集群详情页，选择左侧菜单栏中的**存储**>**PersistentVolumeClaim**，进入 “PersistentVolumeClaim” 页面。如下图所示：
+1. 在集群详情页，选择左侧菜单栏中的**存储** > **PersistentVolumeClaim**，进入 “PersistentVolumeClaim” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/df6c4f1d31510fdcfa6cf9d914e8f382.png)
 2. 选择**新建**进入 “新建PersistentVolumeClaim” 页面，参考以下信息进行创建。如下图所示：
 ![](https://main.qcloudimg.com/raw/8073733fd2606a48d2af18a863b30ca1.png)
@@ -79,7 +79,7 @@
        - **目标路径**：填写目标路径，本文以 `/cache` 为例。
        - **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如，`/data` 或 `/test.txt`。
 4. 单击**创建Workload**即可完成创建。
- > ! 如使用 CBS 的 PVC 挂载模式，则数据卷只能挂载到一台 Node 主机上。
+> ! 如使用 CBS 的 PVC 挂载模式，则数据卷只能挂载到一台 Node 主机上。
 
 ### Kubectl 操作指引
 

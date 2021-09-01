@@ -3,7 +3,7 @@
 
 ### 获取集群凭证[](id:proof)
 1. 登录 [TKE 控制台](https://console.cloud.tencent.com/tke2) 并单击左侧导航栏中的**集群**，进入集群管理界面。
-2. 选择目标集群所在行右侧的**更多**>**查看集群凭证**，进入集群基本信息页。
+2. 选择目标集群所在行右侧的**更多** > **查看集群凭证**，进入集群基本信息页。
 3. 在“集群APIServer信息”中，执行以下操作。如下图所示：
 ![](https://main.qcloudimg.com/raw/6adfa8b2059ca81f1d6cfc8b114d2c1a.png)
    1. 查看并记录集群的**访问地址**及 Kubeconfig 中 **token**。
@@ -67,7 +67,7 @@ cat /etc/hosts
 4. 其他配置项保持默认状态，并单击页面下方的**保存**。
 
 ### 添加 TKE 集群 token[](id:addToken)
-1. 登录 Jenkins 后台，选择左侧导航栏中的**凭据**>**系统**。
+1. 登录 Jenkins 后台，选择左侧导航栏中的**凭据** > **系统**。
 2. 在打开的“系统”面板中，选择**全局凭据 (unrestricted)**。如下图所示：
 ![](https://main.qcloudimg.com/raw/bb761bc624d5e60462a57607ff6f88aa.png)
 3. 在“全局凭据 (unrestricted)”页中，单击左侧菜单栏中的**添加凭据**，根据以下提示设置凭据基本信息。如下图所示：
@@ -94,7 +94,7 @@ cat /etc/hosts
 ### 配置 slave pod 模板[](id:PodTemplates)
 1. 登录 Jenkins 后台，选择左侧导航栏中的**系统管理**。
 2. 在打开的“管理Jenkins” 面板中，单击**系统配置**。
-3. 在“系统配置”面板最下方，选择“云”模块下的**新增一个云**>**Kubernetes**。如下图所示：
+3. 在“系统配置”面板最下方，选择“云”模块下的**新增一个云** > **Kubernetes**。如下图所示：
 ![](https://main.qcloudimg.com/raw/f23401c33207fa861ce61b6544327662.png)
 4. 单击**Kubernetes Cloud details...**，设置 Kubernetes 以下基本信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/7134e788af9007ae3288a1c3e6305d0e.png)
@@ -104,13 +104,13 @@ cat /etc/hosts
     - **Kubernetes 服务证书 Key**：集群 CA 证书，可参考 [获取集群 CA 证书](#getCA) 步骤获取。
     - **凭据**：选择[ 添加 TKE 集群 token ](#addToken)步骤中已创建的凭据 `tke-token`，并单击**连接测试**。若连接成功则会提示 Connection test succeessful。
     - **Jenkins 地址**：填写为 Jenkins 内网地址，例如`http://10.x.x.x:8080`。
-5. 选择**Pod Templates**>**添加 Pod 模板**>**Pod Templates details...**，设置 Pod 模板基本信息。如下图所示：
+5. 选择**Pod Templates** > **添加 Pod 模板** > **Pod Templates details...**，设置 Pod 模板基本信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/084af569d140e04750b3c157835f6e31.png)
 主要参数信息如下，其余选项请保持默认设置：
  - **名称**：自定义，本文以 `jnlp-agent` 为例。
  - **标签列表**：定义标签名称，构建时可根据该标签选择 Pod ，本文以 `jnlp-agent` 为例。
   - **用法**：选择**尽可能的使用这个节点**。
-6. [](id:ContainerTemplate)在“容器列表”中，选择**添加容器**>**Container Template**，设置以下容器相关信息。如下图所示：
+6. [](id:ContainerTemplate)在“容器列表”中，选择**添加容器** > **Container Template**，设置以下容器相关信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/6a5e619f36709cc9af76ee555ee8e984.png)
     - **名称**：自定义容器名称，本文以 `jnlp-agent` 为例。
     - **Docker 镜像**：输入镜像地址 `jenkins/jnlp-slave:alpine`。
@@ -118,8 +118,8 @@ cat /etc/hosts
     - 其余选项保持默认设置即可。
 7. 在“卷”中按照以下步骤添加卷，为 slave pod 配置 docker 命令。如下图所示：
 ![](https://main.qcloudimg.com/raw/bd098fee9954a62c9c6e2328e9912314.png)
-  1. 选择**添加卷**>**Host Path Volume**，主机和挂载路径均填写 `/usr/bin/docker`。
-   2. 选择**添加卷**>**Host Path Volume**，主机和挂载路径均填写`/var/run/docker.sock`。
+  1. 选择**添加卷** > **Host Path Volume**，主机和挂载路径均填写 `/usr/bin/docker`。
+   2. 选择**添加卷** > **Host Path Volume**，主机和挂载路径均填写`/var/run/docker.sock`。
 8. 单击页面下方的**保存**，即可完成 slave pod 模板配置。
 
 ## 下一步操作

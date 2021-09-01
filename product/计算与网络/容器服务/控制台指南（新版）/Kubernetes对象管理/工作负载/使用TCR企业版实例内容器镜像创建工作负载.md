@@ -39,7 +39,7 @@ docker push demo-tcr.tencentcloudcr.com/docker/getting-started:latest
 ### 配置 TKE 集群访问 TCR 实例[](id:deployTKE)
 TCR 企业版实例支持网络访问控制，默认拒绝全部来源的外部访问。您可根据 TKE 集群的网络配置，选择通过公网或内网访问指定实例，拉取容器镜像。若 TKE 集群与 TCR 实例部署在同一地域，建议通过内网访问方式拉取容器镜像，可提升拉取速度，并节约公网流量成本。
 #### 使用 TCR 扩展组件进行快速配置（推荐）
-1. 登录容器服务控制台，选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择集群 ID，进入集群详情页。 
 3. 在集群详情页面，选择左侧**组件管理**，进入“组件管理”页面，并单击**新建**。
 4. 在“新建扩展组件”页面，选择 “TCR” 组件。如下图所示：
@@ -77,17 +77,17 @@ echo '172.21.17.69 demo.tencentcloudcr.com' >> /etc/hosts
 
 #### 2. 配置访问凭证[](id:issued)
 新建命名空间时参考以下步骤，下发访问凭证：
-1. 登录容器服务控制台，选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择集群 ID，进入集群详情页。
 3. 选择左侧的**命名空间**，进入 “Namespace” 页面并单击**新建**。
 4. 进入“新建Namespace” 页面，勾选“自动下发容器镜像服务企业版访问凭证”，并选择该集群需访问的 TCR 实例。如下图所示：
 	![](https://main.qcloudimg.com/raw/d4c21b05217a1b2d715fd3632e77a241.png)
 5. 单击**创建Namespace**进行创建。
-	创建完成后，该实例的访问凭证将自动下发至该命名空间。可选择左侧的**配置管理**>**Secret**，进入 “Secret” 页面即可查看该访问凭证。例如 `1000090225xx-tcr-m3ut3qxx-dockercfg`。其中，`1000090225xx` 为创建命名空间的子账号 UIN，`tcr-m3ut3qxx` 为所选实例的实例 ID。
+	创建完成后，该实例的访问凭证将自动下发至该命名空间。可选择左侧的**配置管理** > **Secret**，进入 “Secret” 页面即可查看该访问凭证。例如 `1000090225xx-tcr-m3ut3qxx-dockercfg`。其中，`1000090225xx` 为创建命名空间的子账号 UIN，`tcr-m3ut3qxx` 为所选实例的实例 ID。
 
 参考以下步骤，向已有命名空间下发访问凭证：
 1. [](id:loginInfo)参考 [获取实例访问凭证](https://cloud.tencent.com/document/product/1141/41829)，获取用户名及密码。
-2. 在集群详情页，选择左侧的**配置管理**>**Secret**，进入 “Secret” 页面。
+2. 在集群详情页，选择左侧的**配置管理** > **Secret**，进入 “Secret” 页面。
 3. 在 “Secret” 页面单击**新建**进入“新建Secret” 页面，参考以下信息下发访问凭证。如下图所示：
 	![](https://main.qcloudimg.com/raw/3521ba5ef8437b52586411eb505d344a.png)
 	主要参数信息如下：
@@ -98,7 +98,7 @@ echo '172.21.17.69 demo.tencentcloudcr.com' >> /etc/hosts
 4. 单击**创建Secret**即可完成下发。
 
 ### 使用 TCR 实例内容器镜像创建工作负载
-1. 在集群详情页面，选择左侧**工作负载**>**Deployment**。
+1. 在集群详情页面，选择左侧**工作负载** > **Deployment**。
 2. 进入“Deployment” 页面，并单击**新建**。
 3. 进入“新建Workload” 页面，参考以下信息创建工作负载。
 主要参数信息如下，其他参数请按需设置：

@@ -67,7 +67,7 @@
 </tr>
 <tr>
 <td align="left"><a href="https://cloud.tencent.com/document/product/1465/59077">ServiceGetInsurancePageURL</a></td>
-<td align="left">获取保险领取 H5 页面地址</td>
+<td align="left">获取保险领取页面地址</td>
 </tr>
 </tbody></table>
 

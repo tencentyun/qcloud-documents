@@ -92,13 +92,13 @@
 RTC 连麦互动直播需要在开始接入前，先开通腾讯云 [**实时音视频**](https://cloud.tencent.com/document/product/647) 服务，具体步骤如下：
 
 1. 您需要 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
-2. 登录实时音视频控制台，选择【[应用管理](https://console.cloud.tencent.com/trtc/app)】。
-3.  单击【创建应用】，输入应用名称，例如 `V2Demo` ，单击【确定】。
-![](https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/blog/min.helloworld/21ef2f952c428c08cedfbef88ba16407.png)
-4. 创建成功后，单击右侧【应用信息】，查看应用对应的 `SDKAppID` 信息。
-5. 单击【快速上手】，加载完成后，记录出现的 **UserSig 的密钥**。
+2. 登录实时音视频控制台，选择 **[应用管理](https://console.cloud.tencent.com/trtc/app)**。
+3.  单击 **创建应用**，输入应用名称，例如 `V2Demo`，单击 **确定**。
+![](https://main.qcloudimg.com/raw/3d1853c6540a47f1b02de37dccf01f74.png)
+4. 创建成功后，单击右侧 **应用信息**，查看应用对应的 `SDKAppID` 信息。
+5. 单击 **快速上手**，加载完成后，记录出现的 **UserSig 的密钥**。
 > !
-> - 本文提到的生成 UserSig 的方案是在客户端代码中配置 UserSig，该UserSig 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此 **该方法仅适合本地跑通 Demo 和功能调试** 。
+> - 本文提到的生成 UserSig 的方案是在客户端代码中配置 UserSig，该UserSig 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此 **该方法仅适合本地跑通 Demo 和功能调试**。
 > - 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 6. 在播放端，推荐使用 CDN 播放，所以需要在 [实时音视频控制台](https://console.cloud.tencent.com/trtc/app) 开启**旁路推流**功能。
 <img src="https://main.qcloudimg.com/raw/f5f2ae04edfb169ec78d2bca1fb10321.png" width="500">
@@ -286,7 +286,7 @@ pusher.setMixTranscodingConfig(config);
 
 > ! 发起云端混流后，默认混流 ID，是发起混流者的 ID，如果需要指定流 ID，需要进行传入。
 
-这样其他其他观众在观看时，就可以看到 A，B 两个主播的连麦互动。
+这样其他观众在观看时，就可以看到 A，B 两个主播的连麦互动。
 
 ### 步骤5：实现主播 PK
 1. 主播 A 开始推流，调用 `V2TXLivePusher` 组件开始主播 A 的推流。
@@ -344,7 +344,7 @@ playerB.startPlay(playURLB);
 
 [](id:price)
 ## RTC 连麦方案怎么计算费用
-RTC 连麦互动直服务费用按所有参与连麦的用户产生的 [视频时长](#v_duration) 和 [语音时长](#s_duration) 来统计连麦服务产生的用量。
+RTC 连麦互动直播服务费用按所有参与连麦的用户产生的 [视频时长](#v_duration) 和 [语音时长](#s_duration) 来统计连麦服务产生的用量。
 
 >!时长统计精度为秒，以当月累计秒数转换成分钟数后进行计费，不足一分钟按一分钟计。
 
@@ -391,7 +391,7 @@ RTC 连麦互动直服务费用按所有参与连麦的用户产生的 [视频�
 [](id:pre-payment)
 
 #### 预付费套餐包
-RTC连麦互动直服务为您提供音视频通用套餐包，可按照**1:2:4:15**分别抵扣语音、标清 SD、高清 HD 和超清 HD+ 时长，例如1分钟高清视频时长扣除4分钟通用套餐包时长。
+RTC连麦互动直播服务为您提供音视频通用套餐包，可按照**1:2:4:15**分别抵扣语音、标清 SD、高清 HD 和超清 HD+ 时长，例如1分钟高清视频时长扣除4分钟通用套餐包时长。
 通用套餐包定价如下表所示：
 
 <table>

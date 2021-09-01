@@ -12,7 +12,7 @@
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 单击左侧导航栏中的**集群**，进入**集群管理**页面。
 3. 选择需新建组件的集群 ID，进入**集群详情**页面。
-4. 在“集群详情页”，选择**组件管理**>**新建**，进入**新建组件**页面。
+4. 在“集群详情页”，选择**组件管理** > **新建**，进入**新建组件**页面。
 5. 在“新建组件”页面，勾选**CFS（腾讯云文件存储）**并单击**完成**即可。
 
 
@@ -40,7 +40,7 @@
 #### 通过控制台创建 StorageClass[](id:create)
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
-3. 选择左侧菜单栏中的**存储**>**StorageClass**，进入 “StorageClass” 页面。如下所示：
+3. 选择左侧菜单栏中的**存储** > **StorageClass**，进入 “StorageClass” 页面。如下所示：
 ![](https://main.qcloudimg.com/raw/a630fa854ae6a45da2b24dcbabf50438.png)
 4. 单击**新建**，进入“新建StorageClass” 页面，参考以下信息进行创建。如下所示：
 ![](https://main.qcloudimg.com/raw/c7a96aa3160f93c6fe844f2fa8f05dd4.png)
@@ -60,7 +60,7 @@
 
 #### 使用指定 StorageClass 创建 PVC[](id:createPVC)
 1. 在“集群管理”页，选择需创建 PVC 的集群 ID。
-2. 在集群详情页，选择左侧菜单栏中的**存储**>**PersistentVolumeClaim**，进入 “PersistentVolumeClaim” 信息页面。如下图所示：
+2. 在集群详情页，选择左侧菜单栏中的**存储** > **PersistentVolumeClaim**，进入 “PersistentVolumeClaim” 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/e771b0d7e010605c3701de3f20831a96.png)
 3. 选择**新建**进入“新建PersistentVolumeClaim” 页面，参考以下信息设置 PVC 关键参数。如下图所示：
 ![](https://main.qcloudimg.com/raw/17d188dba93ffa0c50818144d4a20378.png)
@@ -70,8 +70,8 @@
    - **Provisioner**：选择**文件存储 CFS**。
    - **读写权限**：文件存储仅支持多机读写。
    - **StorageClass**：按需指定 StorageClass，本文选择以在 [创建 StorageClass](#create) 步骤中创建的 `cfs-storageclass` 为例。
- >? 
- >- PVC 和 PV 会绑定在同一个 StorageClass 下。
+>? 
+>- PVC 和 PV 会绑定在同一个 StorageClass 下。
 >- 不指定 StorageClass 意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
 > 
    - **PersistVolume**：按需指定 PersistentVolume，本文以不指定 PersistentVolume 为例。
@@ -91,13 +91,13 @@
 	- **数据卷（选填）**：
 		- **挂载方式**：选择“使用已有PVC”。
 		- **数据卷名称**：自定义，本文以 `cfs-vol` 为例。
-		- **选择 PVC**：选择在步骤 [创建 PVC](#createPVC2) 中已创建的 “cfs-pvc”。
+		- **选择 PVC**：选择在步骤 [创建 PVC](#createPVC) 中已创建的 “cfs-pvc”。
 	- **实例内容器**：单击**添加挂载点**，进行挂载点设置。
        - **数据卷**：选择该步骤中已添加的数据卷“cfs-vol”。
        - **目标路径**：填写目标路径，本文以 `/cache` 为例。
        - **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如， `/data` 或 `/test.txt`。
 3. 单击**创建Workload**，完成创建。
- >! 如使用 CFS 的 PVC 挂载模式，数据卷支持挂载到多台 Node 主机上。
+>! 如使用 CFS 的 PVC 挂载模式，数据卷支持挂载到多台 Node 主机上。
 
 
 ### Kubectl 操作指引

@@ -7,12 +7,12 @@ UserSig 是用户登录即时通信 IM 的密码，其本质是对 UserID 等信
 ## 获取密钥 
 
 1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/im)。
- >?如果您还没有应用，请先 [创建应用](https://cloud.tencent.com/document/product/269/36838#step1)，然后执行 [步骤2](#step2)。
+>?如果您还没有应用，请先 [创建应用](https://cloud.tencent.com/document/product/269/36838#step1)，然后执行 [步骤2](#step2)。
 [](id:step2)
 2. 单击目标应用卡片，进入应用的基础配置页面。
-3. 在【基本信息】区域，单击【密钥】右侧的【显示密钥】。
-4. 单击【复制】即可复制并储存密钥信息。
- >!请妥善保管密钥信息，谨防泄露。
+3. 在**基本信息**区域，单击**密钥**右侧的**显示密钥**。
+4. 单击**复制**即可复制并储存密钥信息。
+>!请妥善保管密钥信息，谨防泄露。
 
 ## 客户端计算 UserSig
 IM SDK 示例代码中提供的`GenerateTestUserSig`的开源模块可以帮忙您快速生成 UserSig。您只需设置 SDKAPPID（应用 SDKAppID）、EXPIRETIME（UserSig 过期时间）和 SECRETKEY（密钥信息）三个成员变量的取值，然后调用 genTestUserSig() 函数即可快速获取 UserSig。

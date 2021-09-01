@@ -34,9 +34,9 @@
 
 ### 步骤1：创建新的应用
 
-1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 输入应用名称，例如  `TestChatSalon`  ，单击【创建】。
-3. 单击【已下载，下一步】，跳过此步骤。
+1. 登录实时音视频控制台，选择 **开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+2. 输入应用名称，例如 `TestChatSalon` ，单击 **创建**。
+3. 单击 **已下载，下一步** ，跳过此步骤。
 
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
@@ -58,8 +58,8 @@
 <ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
 <img src="https://main.qcloudimg.com/raw/a226f5713e06e014515debd5a701fb63.png">
-4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
-5. 编译完成后，单击【回到控制台概览】即可。
+4. 粘贴完成后，单击 **已复制粘贴，下一步** 即创建成功。
+5. 编译完成后，单击 **回到控制台概览** 即可。
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
@@ -69,7 +69,7 @@
 
 ### 步骤4：运行 App
 
-使用 Xcode（11.0及以上的版本）打开源码工程 `TUIChatSalon/TUIChatSalonApp.xcworkspace`，单击【运行】即可开始调试本 App。
+使用 Xcode（11.0及以上的版本）打开源码工程 `TUIChatSalon/TUIChatSalonApp.xcworkspace`，单击 **运行** 即可开始调试本 App。
 
 [](id:ui.step5)
 
@@ -90,18 +90,18 @@
 
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 ![](https://main.qcloudimg.com/raw/aacadc7ee6d1267f334fd1d155dcf415.png)
-2. 单击【创建房间】，如下图示：
+2. 单击 **创建房间** ，如下图示：
 ![](https://main.qcloudimg.com/raw/433a147234b87f0aed47211326510b72.png)
-3. 输入房间主题，单击【开始交谈】。
+3. 输入房间主题，单击 **开始交谈**。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 ![](https://main.qcloudimg.com/raw/9ac6eb6a300a8f401389008c411f5ed8.png)
-2. 输入用户 A 创建的房间号，单击【进入房间】。
+2. 输入用户 A 创建的房间号，单击 **进入房间**。
 ![](https://main.qcloudimg.com/raw/f73991f7c3752a82863a7ed7630ad93c.png)
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
-![](https://main.qcloudimg.com/raw/a121d22806914a1dc545ef8bae011da2.png)
+![](https://main.qcloudimg.com/raw/8360703edbe8321929e54bd7c1ba23ad.png)
 
 
 [](id:model)
@@ -119,8 +119,8 @@
 - **方法一：通过 cocoapods 仓库依赖**
 <dx-codeblock>
 ::: swift
-	pod 'TXIMSDK_iOS'
-	pod 'TXLiteAVSDK_TRTC'
+    pod 'TXIMSDK_iOS'
+    pod 'TXLiteAVSDK_TRTC'
 :::
 </dx-codeblock>
 >?两个 SDK 产品的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。

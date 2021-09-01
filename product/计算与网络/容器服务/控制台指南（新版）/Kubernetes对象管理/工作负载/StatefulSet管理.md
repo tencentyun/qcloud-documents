@@ -6,9 +6,9 @@ StatefulSet 主要用于管理有状态的应用，创建的 Pod 拥有根据规
 
 
 ### 创建 StatefulSet[](id:createStatefulSet)
-1. 登录容器服务控制台，选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 单击需要创建 StatefulSet 的集群 ID，进入待创建 StatefulSet 的集群管理页面。
-3. 选择**工作负载**>**StatefulSet**，进入 StatefulSet 管理页面。如下图所示：
+3. 选择**工作负载** > **StatefulSet**，进入 StatefulSet 管理页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/23db2d7cf222d19252f6a2fa88859e58.png)
 4. 单击**新建**，进入 “新建Workload” 页面。
 根据实际需求，设置 StatefulSet 参数。关键参数信息如下：
@@ -32,11 +32,11 @@ StatefulSet 主要用于管理有状态的应用，创建的 Pod 拥有根据规
 ### 更新 StatefulSet
 
 #### 更新 YAML
-1. 登录容器服务控制台，选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 单击需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
-3. 选择**工作负载**>**StatefulSet**，进入 StatefulSet 信息页面。如下图所示：
+3. 选择**工作负载** > **StatefulSet**，进入 StatefulSet 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/f11e0c1f7cf788ec70a866b7b8201357.png)
-4. 在需要更新 YAML 的 StatefulSet 行中，选择**更多**>**编辑YAML**，进入更新 StatefulSet 页面。
+4. 在需要更新 YAML 的 StatefulSet 行中，选择**更多** > **编辑YAML**，进入更新 StatefulSet 页面。
 5. 在 “更新StatefulSet” 页面编辑 YAML，并单击**完成**即可更新 YAML。
 
 #### 更新 Pod 配置

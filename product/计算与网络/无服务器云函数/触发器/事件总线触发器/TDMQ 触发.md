@@ -17,7 +17,7 @@
 ![](https://main.qcloudimg.com/raw/6332a17c6782b4774801ebefa4348b49.png)
 
 ### 步骤2：配置触发器
-选择【TDMQ 触发】后，按照指引，依次选择您的 TDMQ 集群、主题等信息，指定触发事件源，消费位置：
+选择**TDMQ 触发**后，按照指引，依次选择您的 TDMQ 集群、主题等信息，指定触发事件源，消费位置：
 ![](https://main.qcloudimg.com/raw/73295485d347e1a169c04378f62b0f47.png)
 
 ### 步骤3：管理触发器

@@ -2,7 +2,7 @@
 
 ## 简介
 
-物联使能 API 是物联使能平台为帮助用户快速开发并高效托管物联网应用而提供的接口操作与云端服务，包括设备管理与控制、设备数据查询、数据模板查询等管理能力。用户可通过调用物联使能 API 来使用物联使能服务，支持的全部 API 请参见 [物联使能 API 概览](https://cloud.tencent.com/document/product/1465/59056)。
+物联使能 API 是物联使能平台为帮助用户快速开发并高效托管物联网 SaaS 而提供的接口操作与云端服务，包括设备管理与控制、设备数据查询、数据模板查询等管理能力。用户可通过调用物联使能 API 来使用物联使能服务，支持的全部 API 请参见 [物联使能 API 概览](https://cloud.tencent.com/document/product/1465/59056)。
 
 ## 调用方式
 
@@ -10,7 +10,7 @@
 其中公共参数有： Action，RequestId，AppKey，Signature，Timestamp，Nonce。具体说明如下：
 - **Action**：用于标识请求的方法名称。
 - **RequestId**：用于标识一个唯一请求，推荐使用 uuid 作为参数值，定位问题时建议提供该参数值。
-- **AppKey**：为应用的密钥。
+- **AppKey**：为 SaaS 的密钥。
 -  **Signature**：为本次请求的签名，具体计算方法见本文下方示例。
 -  **Timestamp**：为本次请求的 Unix 秒级时间戳。
 -  **Nonce**：为随机正整数，用于和时间戳一起，防范 API 重放攻击。
@@ -18,14 +18,14 @@
 
 ## 签名算法
 
-### 获取应用 AppKey 和 AppSecret
+### 获取 SaaS 的 AppKey 和 AppSecret
 
-在创建应用服务时，平台将会为用户生成对应的安全凭证。安全凭证包括 AppKey 和 AppSecret。AppKey 是用于标识 API 调用者身份，AppSecret 是用于加密签名字符串和服务器端验证签名字符串的密钥。**用户应严格保管其 AppSecret，避免泄露**。
+在创建 SaaS 时，平台将会为用户生成对应的安全凭证。安全凭证包括 AppKey 和 AppSecret。AppKey 是用于标识 API 调用者身份，AppSecret 是用于加密签名字符串和服务器端验证签名字符串的密钥。**用户应严格保管其 AppSecret，避免泄露**。
 
 具体获取步骤如下：
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择已有项目进入项目详情页。
-2. 选择左侧菜单【物联使能】>【应用服务】，新建 [应用服务](https://cloud.tencent.com/document/product/1465/59050)。
-3. 创建应用成功后，即可获取系统自动生成的 AppKey 与 AppSecret。
+2. 选择左侧菜单**物联使能** > **SaaS 服务**，单击**新建**按钮 [创建 SaaS](https://cloud.tencent.com/document/product/1465/58446#.E6.96.B0.E5.BB.BA-saas)。
+3. 创建 SaaS 成功后，即可获取系统自动生成的 AppKey 与 AppSecret。
 
 ### 生成签名串
 
@@ -44,7 +44,7 @@
 | ---------- | ------ | ------------------------------------------------------------ | ------------------------------------ |
 | RequestId  | String | 公共参数，唯一请求 ID，可自行生成，推荐使用 uuid。定位问题时，需要提供该次请求的 RequestId | 476c990a-f5b7-1575-987c-4ef70e474932 |
 | Action     | String | 公共参数，调用的接口方法名称                                 | ServiceDescribeDeviceData            |
-| AppKey     | String | 公共参数，应用 AppKey ，用于标识对应的 App                   | ServiceAppKey                        |
+| AppKey     | String | 公共参数，物联网 SaaS 的 AppKey ，用于标识对应的物联网 SaaS         | ServiceAppKey                        |
 | Signature  | String | 公共参数，请求的签名                                         | 根据实际算法生成                     |
 | Timestamp  | Int64  | 公共参数，当前的  UNIX 时间戳（秒级）                        | 1546315200                           |
 | Nonce      | Int64  | 公共参数，随机正整数，与时间戳一起，用于 API 防重放          | 71087795                             |
@@ -77,7 +77,7 @@
    将把上一步排序好的请求参数格式化成“参数名称”=“参数值”的形式，如对 Action 参数，其参数名称为 "Action"，参数值为 "AppCreateCellphoneUser"，因此格式化后就为 Action=AppCreateCellphoneUser。
   - “参数值” 为原始值而非 URL 编码后的值。
   - 若输入参数中包含下划线，则需要将其转换为 `“.”`。
-  
+
 将格式化后的各个参数用 `"&"` 拼接在一起，最终生成的请求字符串为：
 <dx-codeblock>
 ::: Java Java

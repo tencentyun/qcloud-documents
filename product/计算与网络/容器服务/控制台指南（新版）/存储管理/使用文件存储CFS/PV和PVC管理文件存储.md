@@ -11,7 +11,7 @@
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 单击左侧导航栏中的**集群**，进入**集群管理**页面。
 3. 选择需新建组件的集群 ID，进入**集群详情**页面。
-4. 在“集群详情页”，选择**组件管理**>**新建**，进入**新建组件**页面。
+4. 在“集群详情页”，选择**组件管理** > **新建**，进入**新建组件**页面。
 5. 在“新建组件”页面，勾选**CFS（腾讯云文件存储）**并单击**完成**即可。
 
 ### 通过控制台创建 StorageClass[](id:createStorageClass)
@@ -54,9 +54,9 @@
 ### 静态创建 PV[](id:pv)
 >? 静态创建 PV 适用于已有存量的文件存储，并在集群内使用的场景。
 >
-1. 登录容器服务控制台，选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择需创建 PV 的集群 ID，进入待创建 PV 的集群管理页面。
-3. 选择左侧菜单栏中的**存储**>**PersistentVolume**，进入 “PersistentVolume” 页面。如下图所示：
+3. 选择左侧菜单栏中的**存储** > **PersistentVolume**，进入 “PersistentVolume” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/d3d74b0bb94b8621904c3d8403937b3d.png)
 4. 单击**新建**进入“新建PersistentVolume” 页面，参考以下信息设置 PV 参数。如下图所示：
 ![](https://main.qcloudimg.com/raw/3577b53114dc37ad63a4a2911a42e406.png)
@@ -75,7 +75,7 @@
 
 
 ### 创建 PVC[](id:createPVC2)
-1.  在目标集群详情页，选择左侧菜单栏中的**存储**>**PersistentVolumeClaim**，进入 “PersistentVolumeClaim” 页面。如下图所示：
+1.  在目标集群详情页，选择左侧菜单栏中的**存储** > **PersistentVolumeClaim**，进入 “PersistentVolumeClaim” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/1e33ff549656ade2836b91bb5d718201.png)
 2. 选择**新建**进入“新建PersistentVolumeClaim” 页面，参考以下信息设置 PVC 关键参数。如下图所示：
 ![](https://main.qcloudimg.com/raw/a4dd41cd00d155fde6c1f7c9e6f5745a.png)

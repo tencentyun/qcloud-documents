@@ -27,6 +27,7 @@ PHP 生成签名示例：
 r, $token, true))); // 下面生成的 url 用于访问大屏
  $url = 'http://v.yuntus.com/cloudv/' . $accessId . '?signature=' . $signRet . '&timestamp=' . $timestamp . '&nonce=' . $nonce);
 ```
+
 NodeJS 生成签名示例：
 ```
  const crypto = require('crypto');
@@ -37,6 +38,37 @@ NodeJS 生成签名示例：
  const signStr = accessId + ',' + timestamp + ',' + nonce;
  const signRet = encodeURIComponent(crypto.createHmac('sha256', token).update(signStr).digest().toString('base64')); // 下面生成的 url 用于访问大屏
  const url = 'http://v.yuntus.com/cloudv/' + accessId + '?signature='+ signRet + '&timestamp=' + timestamp + '&nonce=' + nonce;
+```
+
+Java 生成签名示例：
+```
+import java.net.URLEncoder;
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import javax.xml.bind.DatatypeConverter;
+
+public class TcvTokenSignClientDemo {
+    private final static String CHARSET = "UTF-8";
+
+    public static String sign(String s, String key, String method) throws Exception {
+        Mac mac = Mac.getInstance(method);
+        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(CHARSET), mac.getAlgorithm());
+        mac.init(secretKeySpec);
+        byte[] hash = mac.doFinal(s.getBytes(CHARSET));
+        return DatatypeConverter.printBase64Binary(hash);
+    }
+
+    public static void main(String[] args) throws Exception {
+        String accessId = "";
+        String token = "";
+        long timestamp = System.currentTimeMillis() / 1000;
+        int nonce = (int)(Math.random() * 100000);
+        String signStr = accessId + "," + timestamp + "," + nonce;
+        String signRet = URLEncoder.encode(sign(signStr, token, "HmacSHA256"), CHARSET);
+        String url = "https://v.yuntus.com/tcv/" + accessId + "?signature=" + signRet + "&timestamp=" + timestamp + "&nonce=" + nonce;
+        System.out.println(url);
+    }
+}
 ```
 
 ### 安全校验策略说明

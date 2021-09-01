@@ -4,7 +4,7 @@
 ## 操作步骤
 [](id:step01)
 ### 创建 COS Bucket
-1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos)，选择左侧导航栏中的【存储桶列表】。
+1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos)，选择左侧导航栏中的**存储桶列表**。
 2. 参考 [创建存储桶](https://cloud.tencent.com/document/product/436/38484#.E6.AD.A5.E9.AA.A44.EF.BC.9A.E5.88.9B.E5.BB.BA.E5.AD.98.E5.82.A8.E6.A1.B6) 创建一个存储桶，主要参数信息设置如下：
  - **名称**：命名为 loganalysis。
  - **所属地域**：本案例地域选择北京。使用外网连接时 Bucket 可选与 MySQL 云数据库不同的地域。
@@ -27,12 +27,12 @@
 
 [](id:step03)
 ### 创建云函数 SCF
-1. 登录云函数控制台，选择左侧导航栏中的【[函数服务](https://console.cloud.tencent.com/scf/list)】。
-2. 在“函数服务”页面上方选择**北京**地域，并单击【新建】进入新建函数页面。
-设置以下参数信息，并单击【下一步】。如下图所示：
- - **创建方式**：选择【模板创建】。
+1. 登录云函数控制台，选择左侧导航栏中的 **[函数服务](https://console.cloud.tencent.com/scf/list)**。
+2. 在“函数服务”页面上方选择**北京**地域，并单击**新建**进入新建函数页面。
+设置以下参数信息，并单击**下一步**。如下图所示：
+ - **创建方式**：选择**模板创建**。
  - **模糊搜索**：输入“日志分析写数据库”，并进行搜索。
-单击模板中的【查看详情】，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
+单击模板中的**查看详情**，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
 ![](https://main.qcloudimg.com/raw/2f8df5014e3d70d2911ffd83e3d4159a.png)
 4. 函数名称默认填充，可根据需要自行修改。按照引导配置环境变量、运行角色和私有网络：
 <dx-tabs>
@@ -79,7 +79,7 @@
 
 :::
 ::: 私有网络
-如果数据库使用的是内网地址，则函数需要启用【私有网络】，并选择和数据库相同的 VPC 和子网。如下图所示：
+如果数据库使用的是内网地址，则函数需要启用**私有网络**，并选择和数据库相同的 VPC 和子网。如下图所示：
  ![](https://main.qcloudimg.com/raw/0601c89c36ff527df033bb65f24a5f09.png)	
 :::
 </dx-tabs>
@@ -94,15 +94,15 @@
  - **COS Bucket**：选择 [创建 COS Bucket](#step01) 步骤中已创建的存储桶 loganalysis。
  - **事件类型**：选择“全部创建。”
 
-单击【完成】，即可完成函数和触发器创建。
+单击**完成**，即可完成函数和触发器创建。
 
 [](id:step05)
 ### 测试函数功能
 1. 下载 [测试样例](https://main.qcloudimg.com/raw/6e0d4837eefd0ce77dac8a3973acdf39.zip) 中的日志文件，并解压出 demo-scf1.txt。
-2. 切换至 [对象存储控制台](https://console.cloud.tencent.com/cos/bucket)，选择创建好的存储桶 loganalysis，单击【上传文件】。
-3. 在弹出的“上传文件”窗口中，选择下载好的 demo-scf1.txt，单击【确定上传】。
+2. 切换至 [对象存储控制台](https://console.cloud.tencent.com/cos/bucket)，选择创建好的存储桶 loganalysis，单击**上传文件**。
+3. 在弹出的“上传文件”窗口中，选择下载好的 demo-scf1.txt，单击**确定上传**。
 4. 切换至 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。
-在函数详情页面中选择【日志查询】页签，可以看到打印出的日志信息。如下图所示：
+在函数详情页面中选择**日志查询**页签，可以看到打印出的日志信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/b4d8dd0a4a236ab4cb35f2e7d3160649.png)
 5. 切换至 MySQL 管理界面，查看数据库中的分析结果。
 >?您可以根据自身的日志格式编写具体的处理方法，数据库的写方法也可以修改为增量写。

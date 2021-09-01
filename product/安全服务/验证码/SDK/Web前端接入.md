@@ -44,6 +44,7 @@
 
         // res（用户主动关闭验证码）= {ret: 2, ticket: null}
         // res（验证成功） = {ret: 0, ticket: "String", randstr: "String"}
+	    // res（客户端出现异常错误 仍返回可用票据） = {ret: 0, ticket: "String", randstr: "String",  errorCode: Number, errorMessage: "String"}
         if (res.ret === 0) {
             // 复制结果至剪切板
             let str = `【randstr】->【${res.randstr}】      【ticket】->【${res.ticket}】`;
@@ -281,7 +282,7 @@ TencentCaptcha 的实例提供一些操作验证码的常用方法：
 ### [配置参数](id:pzcs)
 options 提供以下配置参数：
 >!
-- 验证码弹窗内部不支持调整样式大小，如果需要调整，可在弹窗最外层`id=tcaptcha_transform`的元素设置 `transform:scale();`。
+- 验证码更新可能会改变元素的 id，class 等属性，请勿依赖验证码元素属性值覆盖样式。
 - 如果手机原生端有设置左右滑动手势，需在调用验证码 show 方法前禁用，验证完成后再打开，防止与验证码滑动事件冲突。
 
 |配置名	|值类型|	说明|

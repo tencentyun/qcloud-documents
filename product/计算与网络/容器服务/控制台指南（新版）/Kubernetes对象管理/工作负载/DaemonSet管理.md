@@ -9,9 +9,9 @@ DaemonSet 主要用于部署常驻集群内的后台程序，例如节点的日�
 ## DaemonSet 控制台操作指引
 
 ### 创建 DaemonSet
-1. 登录容器服务控制台，选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 单击需要创建 DaemonSet 的集群 ID，进入待创建 DaemonSet 的集群管理页面。
-3. 选择**工作负载**>**DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
+3. 选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/4c9a1a9e7115d341c4426833a76077c0.png)
 4. 单击**新建**，进入 “新建Workload” 页面。
 根据实际需求，设置 DaemonSet 参数。关键参数信息如下：
@@ -34,11 +34,11 @@ DaemonSet 主要用于部署常驻集群内的后台程序，例如节点的日�
 ### 更新 DaemonSet
 
 #### 更新 YAML
-1. 登录容器服务控制台，选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 单击需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
-4. 选择**工作负载**>**DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
+4. 选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/292064b549bd53d5e6f24bfa2a44b141.png)
-5. 在需要更新 YAML 的 DaemonSet 行中，选择**更多**>**编辑YAML**，进入更新 DaemonSet 页面。
+5. 在需要更新 YAML 的 DaemonSet 行中，选择**更多** > **编辑YAML**，进入更新 DaemonSet 页面。
 6. 在 “更新DaemonSet” 页面编辑 YAML，单击**完成**即可更新 YAML。
 
 #### 更新 Pod 配置
