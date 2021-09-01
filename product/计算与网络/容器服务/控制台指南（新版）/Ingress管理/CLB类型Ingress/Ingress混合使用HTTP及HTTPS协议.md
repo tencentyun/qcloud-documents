@@ -21,8 +21,6 @@
 
 1. **开启混合规则**    
     在 Ingress 中添加注解 `kubernetes.io/ingress.rule-mix`，并设置为 true。
->!当 Ingress 模板未配置 TLS 时，即没有提供任何证书资源，所有规则都将以 HTTP 服务暴露，上述注解将不会生效。
->
 2. **规则匹配**     
 将 Ingress 中的每条转发规则与 `kubernetes.io/ingress.http-rules` 及 `kubernetes.io/ingress.https-rules` 进行匹配，并添加到对应规则集中。若 Ingress 注解中的未找到对应规则，则默认添加到 HTTPS 规则集中。
 3. **校验匹配项**    

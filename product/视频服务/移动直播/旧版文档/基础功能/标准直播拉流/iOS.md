@@ -25,12 +25,14 @@ SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，�
 
 ## 对接攻略
 
-### step 1： 创建 Player
+[](id:step_1)
+### step 1：创建 Player
 视频云 SDK 中的 TXLivePlayer 模块负责实现直播播放功能。
 ```objectivec
 TXLivePlayer *_txLivePlayer = [[TXLivePlayer alloc] init];
 ```
 
+[](id:step_2)
 ### step 2：渲染 View
 接下来我们要给播放器的视频画面找个地方来显示，iOS 系统中使用 view 作为基本的界面渲染单位，所以您只需要准备一个 view 并调整好布局就可以了。
 
@@ -52,7 +54,8 @@ TXLivePlayer *_txLivePlayer = [[TXLivePlayer alloc] init];
         }];
 ```
 
-### step 3： 启动播放
+[](id:step_3)
+### step 3：启动播放
 ```objectivec
 NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 [_txLivePlayer startPlay:flvUrl type:PLAY_TYPE_LIVE_FLV];
@@ -68,8 +71,8 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 **关于 HLS(m3u8)**
 在 App 上我们不推荐使用 HLS 这种播放协议播放直播视频源（虽然它很适合用于点播），因为延迟太高，在 App 上推荐使用 LIVE_FLV 或者 LIVE_RTMP 播放协议。
 
-
-### step 4： 画面调整
+[](id:step_4)
+### step 4：画面调整
 
 - **view：大小和位置**
 如需修改画面的大小及位置，直接调整 setupVideoWidget 的参数 view 的大小和位置，SDK 会让视频画面跟着您的 view 的大小和位置进行实时的调整。
@@ -90,6 +93,7 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 
 ![](https://main.qcloudimg.com/raw/f3c65504a98c38857ff3e78bcb6c9ae9.jpg)
 
+[](id:step_5)
 ### step 5：暂停播放
 对于直播播放而言，并没有真正意义上的暂停，所谓的直播暂停，只是**画面冻结**和**关闭声音**，而云端的视频源还在不断地更新着，所以当您调用 resume 的时候，会从最新的时间点开始播放，这是和点播对比的最大不同点（点播播放器的暂停和继续与播放本地视频文件时的表现相同）。
 
@@ -100,6 +104,7 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 [_txLivePlayer resume];
 ```
 
+[](id:step_6)
 ### step 6：结束播放
 结束播放时，如果要退出当前的 UI 界面，要记得用 **removeVideoWidget** 销毁 view 控件，否则会产生内存泄露或闪屏问题。
 
@@ -109,7 +114,8 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 [_txLivePlayer removeVideoWidget]; // 记得销毁view控件
 ```
 
-<h3 id="Message">step 7：消息接收</h3>
+[](id:step_7)[](id:Message)
+### step 7：消息接收
 此功能可以在推流端将一些自定义 message 随着音视频线路直接下发到观众端，适用场景例如：
 
 - 冲顶大会：推流端将**题目**下发到观众端，可以做到“音-画-题”完美同步。
@@ -134,11 +140,13 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 }
 ```
 
-### step 8： 屏幕截图
+[](id:step_8)
+### step 8：屏幕截图
 通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 iOS 的系统 API 来实现。
 ![](https://main.qcloudimg.com/raw/d86e665e3fc709c07d170e2ab3e2a7ef.jpg)
 
-### step 9： 截流录制
+[](id:step_9)
+### step 9：截流录制
 截流录制是直播播放场景下的一种扩展功能：观众在观看直播时，可以通过单击录制按钮把一段直播的内容录制下来，并通过视频分发平台（例如云点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
 ![](https://main.qcloudimg.com/raw/4de11a9f9f82589c7effe3ad4bee2130.png)
 
@@ -158,7 +166,8 @@ _txLivePlayer.recordDelegate = recordListener;
 - 录制好的文件以 MP4 文件的形式，由 TXVideoRecordListener 的 `onRecordComplete` 通知出来。
 - 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [短视频-文件发布](https://cloud.tencent.com/document/product/584/15534)。
 
-### step 10： 清晰度无缝切换
+[](id:step_10)
+### step 10：清晰度无缝切换
 日常使用中，网络情况在不断发生变化。在网络较差的情况下，最好适度降低画质，以减少卡顿；反之，网速比较好，可以提高观看画质。
 传统切流方式一般是重新播放，会导致切换前后画面衔接不上、黑屏、卡顿等问题。使用无缝切换方案，在不中断直播的情况下，能直接切到另条流上。
 清晰度切换在直播开始后，任意时间都可以调用。调用方式如下：
@@ -171,8 +180,8 @@ _txLivePlayer.recordDelegate = recordListener;
 
 >? 清晰度无缝切换功能需要在后台配置 PTS 对齐，如您需要可 [提交工单](https://console.cloud.tencent.com/workorder) 申请使用。
 
-
-### step 11： 直播回看
+[](id:step_11)
+### step 11：直播回看
 时移功能是腾讯云推出的特色能力，可以在直播过程中，随时回退到任意直播历史时间点观看，并能在此时间点一直观看直播。非常适合游戏、球赛等互动性不高，但观看连续性较强的场景。
 
 ```objectivec
@@ -274,7 +283,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 | PLAY_EVT_GET_MESSAGE  |  2012|  获取夹在视频流中的自定义 SEI 消息，消息的发送需使用 TXLivePusher |  
 | PLAY_EVT_VOD_PLAY_PREPARED    |  2013|  如果您在直播中收到此消息，可以忽略|  
 | PLAY_EVT_VOD_LOADING_END  |  2014|  如果您在直播中收到此消息，可以忽略|  
-| PLAY_EVT_STREAM_SWITCH_SUCC   |  2015|  直播流切换完成，请参考 [清晰度无缝切换](https://cloud.tencent.com/document/product/881/20212#step-10.3A-.E6.B8.85.E6.99.B0.E5.BA.A6.E6.97.A0.E7.BC.9D.E5.88.87.E6.8D.A2)|  
+| PLAY_EVT_STREAM_SWITCH_SUCC   |  2015|  直播流切换完成，请参考 [清晰度无缝切换](#step_10)|  
 
 **不要在收到 PLAY_LOADING 后隐藏播放画面**
 因为 `PLAY_LOADING -> PLAY_BEGIN` 的等待时间长短是不确定的，可能是5s也可能是5ms，有些客户考虑在 LOADING 时隐藏画面，BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。

@@ -976,7 +976,7 @@ void onAnchorLeaveSeat(int index, TRTCKaraokeRoomDef.UserInfo user);
 | 参数  | 类型     | 含义                 |
 | ----- | -------- | -------------------- |
 | index | int      | 下麦的麦位。         |
-| user  | UserInfo | 上麦用户的详细信息。 |
+| user  | UserInfo | 下麦用户的详细信息。 |
 
 ### onSeatMute
 
@@ -1092,7 +1092,7 @@ void onReceiveNewInvitation(String id, String inviter, String cmd, String conten
 | id      | String   | 邀请 ID。                          |
 | inviter | String   | 邀请人的用户 ID。                  |
 | cmd     | String   | 业务指定的命令字，由开发者自定义。 |
-| content | UserInfo | 业务指定的内容。                   |
+| content | String | 业务指定的内容。                   |
 
 ### onInviteeAccepted
 

@@ -13,10 +13,10 @@
 
 ### 创建访问密钥[](id:CreatAccessKey)
 >!
-> - 为避免主账号密钥泄露造成您的云上资产损失，建议您参照[ 最佳实践 ](https://cloud.tencent.com/document/product/598/10592)停止使用主账号登录控制台或者使用主账号密钥访问云 API，并使用已授予相关管理权限的子账号/协作者进行相关资源操作。
+> - 为避免主账号密钥泄露造成您的云上资产损失，建议您参照[ 安全设置策略 ](https://cloud.tencent.com/document/product/598/10592)停止使用主账号登录控制台或者使用主账号密钥访问云 API，并使用已授予相关管理权限的子账号/协作者进行相关资源操作。
 > - 本文以已授予访问管理相关权限的子用户创建或查看访问密钥为例，关于如何创建子用户并实现访问管理权限请参考文档[ 自定义创建子用户](https://cloud.tencent.com/document/product/598/13674)。
 > 
-1. 使用子账号用户登录[ 访问管理控制台 ](https://console.cloud.tencent.com/cam/overview)，单击左侧导航栏中的**访问密钥**>**API密钥管理**，进入 “API密钥管理”管理界面。
+1. 使用子账号用户登录[ 访问管理控制台 ](https://console.cloud.tencent.com/cam/overview)，单击左侧导航栏中的**访问密钥** > **API密钥管理**，进入 “API密钥管理”管理界面。
 2. 单击**新建密钥**等待新建完成即可。
 >?
 >- 一个子用户最多可以创建两个 API 密钥。
@@ -60,7 +60,7 @@
 
 1. 单击左侧导航栏中的**集群**，进入集群管理界面。
 2. 选择目标集群 ID，进入集群详情页面。
-3. 在集群详情页面，选择左侧菜单栏中的**配置管理**>**Secret**，进入 “Secret” 页面。如下图所示：
+3. 在集群详情页面，选择左侧菜单栏中的**配置管理** > **Secret**，进入 “Secret” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/db1844b634f27d727362f9116f5dc16e.png)
 4. 单击**新建**进入“新建Secret” 页面，根据以下信息进行设置。如下图所示：
 ![](https://main.qcloudimg.com/raw/ae126ccc936ac209fcb33234fd607a28.png)
@@ -75,7 +75,7 @@
 #### 创建支持 COS-CSI 动态配置的 PV [](id:StepTwo)
 >!本步骤需使用存储桶，若当前地域无可用存储桶，则请参考 [创建存储桶](#CreatBucket) 进行创建。
 >
-1. 在目标集群详情页面，选择左侧菜单栏中的**存储**>**PersistentVolume**，进入 “PersistentVolume” 页面。
+1. 在目标集群详情页面，选择左侧菜单栏中的**存储** > **PersistentVolume**，进入 “PersistentVolume” 页面。
 2. 单击**新建**进入“新建PersistentVolume” 页面，参考以下信息创建 PV。如下图所示：
 ![](https://main.qcloudimg.com/raw/8dd2a6ad66bce8601a57b032a6ca8862.png)
 主要参数信息如下：
@@ -95,20 +95,20 @@
 #### 创建 PVC 绑定 PV[](id:StepThree)
 >!请勿绑定状态为 Bound 的 PV。
 >
-1. 在目标集群详情页，选择左侧菜单栏中的**存储**>**PersistentVolumeClaim**，进入 “PersistentVolumeClaim” 页面。
+1. 在目标集群详情页，选择左侧菜单栏中的**存储** > **PersistentVolumeClaim**，进入 “PersistentVolumeClaim” 页面。
 2. 单击**新建**进入“新建PersistentVolumeClaim” 页面，参考以下信息创建 PVC。如下图所示：
 ![](https://main.qcloudimg.com/raw/8b7e7c5ece9db3104ceddded4a72b5d8.png)
 	- **名称**：自定义，本文以 `cos-pvc` 为例。
 	- **命名空间**：选择为 `kube-system`。
 	- **Provisioner**：选择**对象存储COS**。
 	- **读写权限**：对象存储仅支持多机读写。
-	- **PersistentVolume**：选择在[ 步骤2 ](#StepTwo)中已创建的 PV，本文以 `cos-pvc` 为例。
+	- **PersistentVolume**：选择在[ 步骤2 ](#StepTwo)中已创建的 PV，本文以 `cos-pv` 为例。
 3. 单击**创建PersistentVolumeClaim**即可。
 
 #### 创建 Pod 使用的 PVC
 >?本步骤以创建工作负载 Deployment 为例。
 >
-1. 在目标集群详情页，选择左侧菜单栏中的**工作负载**>**Deployment**，进入 “Deployment” 页面。
+1. 在目标集群详情页，选择左侧菜单栏中的**工作负载** > **Deployment**，进入 “Deployment” 页面。
 2. 单击**新建**进入“新建Workload” 页面，参考[ 创建 Deployment ](https://cloud.tencent.com/document/product/457/31705#.E5.88.9B.E5.BB.BA-deployment)进行创建，并设置数据卷挂载。如下图所示：
 ![](https://main.qcloudimg.com/raw/5186f8d947d9593fb726aa95d7e5bd4b.png)
 	- **数据卷（选填）**：

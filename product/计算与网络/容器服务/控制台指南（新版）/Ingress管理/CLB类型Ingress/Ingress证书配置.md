@@ -84,7 +84,7 @@ spec:
 ### 通过控制台新建服务器证书[](id:create)
 >?若您已具备需配置的证书，则请跳过此步骤。
 >
-1. 登录负载均衡控制台，选择左侧导航栏中的**[证书管理](https://console.cloud.tencent.com/clb/cert)**。
+1. 登录负载均衡控制台，选择左侧导航栏中的 **[证书管理](https://console.cloud.tencent.com/clb/cert)**。
 2. 在“证书管理”页面中，单击**新建**。
 3. 在弹出的“新建证书”窗口中，参考以下信息进行设置。
  - **证书名称**：自定义设置。
@@ -122,7 +122,7 @@ kubectl edit secrets [secret-name]
 #### 通过控制台更新
 1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面，选择需修改 Ingress 的集群 ID。
-3. 在集群详情页，选择左侧**服务与路由**>**Ingress**。如下图所示：
+3. 在集群详情页，选择左侧**服务与路由** > **Ingress**。如下图所示：
 ![](https://main.qcloudimg.com/raw/69e9c55ea644144ea5848c98b9d0462a.png)
 4. 单击目标 Ingress 所在行右侧的**更新转发配置**。
 5. 在“更新转发配置”页面中，根据实际情况进行转发配置规则更新。

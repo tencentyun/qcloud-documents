@@ -1,7 +1,7 @@
 本文将为您介绍如何进入数据脱敏 SaaS 型控制台。
 
 ## 前提条件
-已购买 [数据脱敏 SaaS 型](https://cloud.tencent.com/document/product/882/59994)。
+已购买 [数据脱敏 SaaS 型](https://cloud.tencent.com/document/product/882/20024#.E6.95.B0.E6.8D.AE.E8.84.B1.E6.95.8F-saas-.E5.9E.8B)。
 
 ## 操作步骤
 ### 授权服务

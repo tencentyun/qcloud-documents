@@ -177,6 +177,6 @@ export PATH=$MAVEN_HOME/bin:$PATH
 
 ## 安装 SDK
 
-在您的Java工程的`pom.xml`所在目录执行`mvn clean package`即可下载 TSF SDK。
+在您的 Java 应用工程的 pom.xml 中添加依赖的 TSF SDK 的 group、artifaceId、version 等信息后（参考对应的应用开发文档），在 pom.xml 所在目录执行 `mvn clean package` 即可下载 TSF SDK。
 
 >!如果无法下载相关依赖，请检查网络是否有防火墙限制。

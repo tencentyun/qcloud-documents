@@ -31,7 +31,7 @@ SCF CLI, version 0.0.1
 ```
 Tencent Serverless Toolkit for VS Code
 ```
-单击搜索框下方列表中的 Tencent Serverless 插件查看详情并选择【install】。如下图所示：
+单击搜索框下方列表中的 Tencent Serverless 插件查看详情并选择**install**。如下图所示：
 ![](https://main.qcloudimg.com/raw/49a9ec2dad6e19a497dd148d9f2b88ee.png)
        
 
@@ -40,7 +40,7 @@ Tencent Serverless Toolkit for VS Code
 2. 单击创建一个腾讯云用户凭证，并输入相关凭证信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/15592fb57aa84d524c07554dd852b31c.png)
  - AppId：请前往 [账号信息](https://console.cloud.tencent.com/developer) 获取。
- - ServiceId 及 ServiceKey：请前往 【访问管理】>【访问密钥】>【[API 密钥](https://console.cloud.tencent.com/cam/capi)】获取。
+ - ServiceId 及 ServiceKey：请前往 **访问管理** > **访问密钥** >  **[API 密钥](https://console.cloud.tencent.com/cam/capi)**获取。
  >!
  >- 若您未创建 ServiceId 及 ServiceKey，请在 [API 密钥](https://console.cloud.tencent.com/cam/capi) 管理页面进行创建。
  >- 函数期望所在地域请勿选择**成都**。
@@ -53,7 +53,7 @@ Tencent Serverless Toolkit for VS Code
 #### Git 拉取创建函数
 >?使用 Git 拉取创建函数，须完成 VS Code IDE 和 git 的配置。若您没有安装 git 或已完成配置，请选择 [源码创建函数](#create)。
 >
-1. 打开插件，单击本地函数右侧的<img src="https://main.qcloudimg.com/raw/1a14823bd6129b9989e3ef34ed80a9cc.png" style="margin:-3px 0;">，并选择【Git 仓库】为代码来源后按 “**Enter**”。如下图所示：
+1. 打开插件，单击本地函数右侧的<img src="https://main.qcloudimg.com/raw/1a14823bd6129b9989e3ef34ed80a9cc.png" style="margin:-3px 0;">，并选择**Git 仓库**为代码来源后按 “**Enter**”。如下图所示：
 ![](https://main.qcloudimg.com/raw/2c9d4f9c05cbc41ce1fa84b59ad94551.png)
 2. 将以下 git 地址填入输入框，并按 “**Enter**”。如下图所示：
 ```
@@ -68,16 +68,16 @@ https://github.com/TencentServerless/scf_vscode_demo1.git
 
 [](id:create)
 #### 源码创建函数
-1. 请前往 [活动包下载地址](https://github.com/TencentServerless/scf_vscode_demo1.git )，选择【Clone or download】>【Download ZIP】。如下图所示：
+1. 请前往 [活动包下载地址](https://github.com/TencentServerless/scf_vscode_demo1.git )，选择**Clone or download** > **Download ZIP**。如下图所示：
 ![](https://main.qcloudimg.com/raw/c960496a9f897256383b7962763caa26.png)
-2. 成功下载压缩包后请解压，并进入【scf_vscode_demo1-master】>【{{cookiecutter.project_name}}】目录打开 `template.yaml` 文件。
+2. 成功下载压缩包后请解压，并进入**scf_vscode_demo1-master** > **{{cookiecutter.project_name}}**目录打开 `template.yaml` 文件。
  - 将文件中的 `{{cookiecutter.namespace}}:` 替换为 `default:`。
  - 将文件中的 `{{cookiecutter.project_name}}:` 替换为 `testFunc:`。
  成功替换后保存，如下图所示：
  ![](https://main.qcloudimg.com/raw/ae7e46637e20316a580735b08889634d.png)
-3. 单击 VS Code IDE 左上角的【File】，选择【Open Folder】。如下图所示：
+3. 单击 VS Code IDE 左上角的**File**，选择**Open Folder**。如下图所示：
 ![](https://main.qcloudimg.com/raw/da2380944925aace539b6b82b1a98c4d.png)
-4. 在弹出界面上选择已下载的 `scf_vscode_demo1-master` 目录，单击【选择文件夹】确认选择。
+4. 在弹出界面上选择已下载的 `scf_vscode_demo1-master` 目录，单击**选择文件夹**确认选择。
 5. 打开插件即可看到本地函数下已创建函数 `testFunc`。如下图所示：
 ![](https://main.qcloudimg.com/raw/30cd6a9c4ce2c70cebfd0e1316781594.png)     
 
@@ -93,7 +93,7 @@ https://github.com/TencentServerless/scf_vscode_demo1.git
 
 ### 调试函数
 1. 进入插件页面，单击 `testFunc` 函数右侧的<img src="https://main.qcloudimg.com/raw/0e5a9ac04a38053224f6881b721cf35a.png" style="margin:-3px 0;">，打开本地调用页面。
-2. 选择【API Gateway 网关响应请求时间模版】，并等待调试结果。如下图所示：
+2. 选择**API Gateway 网关响应请求时间模版**，并等待调试结果。如下图所示：
 ![](https://main.qcloudimg.com/raw/65ed4038c42540b3f1c96124565a8d76.png)
 函数成功调用，则如下图所示：
 ![](https://main.qcloudimg.com/raw/79a829e0c74ba72076d448b5caaf21f3.png)
@@ -105,7 +105,7 @@ https://github.com/TencentServerless/scf_vscode_demo1.git
 ![](https://main.qcloudimg.com/raw/1d9b8f3e992fe289269995d2f55f1663.png)
 2. 选择该地域下的 `defalut` 命名空间，`testFunc` 函数将被部署至此命名空间下。如下图所示：
 ![](https://main.qcloudimg.com/raw/ad3758a22bebfd05162c7b48a2afbfff.png)
-3. 在右下角弹出框中，单击【Yes】并等待函数部署。如下图所示：
+3. 在右下角弹出框中，单击**Yes**并等待函数部署。如下图所示：
 ![](https://main.qcloudimg.com/raw/c7eff5687bc53452f99b08077fa360c4.png)
 4. 部署成功后，您可通过右下角弹出框前往 SCF 控制台查看该函数。如下图所示：
 ![](https://main.qcloudimg.com/raw/83a1e90b2cbf3a1bac82a590375fdee2.png)

@@ -64,7 +64,7 @@
 >- 因为数据集可能需要联网下载，所以需要配置对集群的外网访问。详情请参见常见问题 [公网访问相关](https://cloud.tencent.com/document/product/457/60222)。
 >- 选择 GPU 型号后，在填写 request 和 limit 时需要为容器分配符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 的 CPU 和内存，实际填写并不严格要求精确到个位。
   在控制台中配置，也可以选择删除默认配置以留空，即为“不限制”，也会有对应的计费规格；更推荐这种做法。
->- 容器运行命令 comman 继承 Docker 的 CMD 字段，而 CMD 指令首选 exec 形式，不调用 shell 命令。这意味着不会发生正常的 shell 处理。因此命令需要 shell 形式运行，就需要在前面添加 `"sh","-c"`。
+>- 容器运行命令 command 继承 Docker 的 CMD 字段，而 CMD 指令首选 exec 形式，不调用 shell 命令。这意味着不会发生正常的 shell 处理。因此命令需要 shell 形式运行，就需要在前面添加 `"sh","-c"`。
   在控制台输入多个命令和参数时，每个命令单独一行（以换行为准）。
 :::
 ::: Kubectl 操作指引
@@ -130,7 +130,7 @@ kubectl create -f [yaml_name]
 - 在 YAML 文件中需使用 Annotations 声明资源分配，详情请参见 [Annotation 说明](https://cloud.tencent.com/document/product/457/44173)。同样需要注意的是不同 GPU 对应不同的 CPU、内存选项，建议按需填写。
 - 此处数据卷使用的是 NFS 。若需使用其他数据卷进行持久化存储，请参见 [其他存储卷使用说明](https://cloud.tencent.com/document/product/457/31713)。
 - Annotation 可以**只保留** `eks.tke.cloud.tencent.com/gpu-type` ，**不需要其他项**。如果写上了 `/gpu-count`，那么 `cpu` 和 `mem` 也需要一起写上（本文**不推荐加上其他项**。不加不会影响实际效果，加了之后未按规格填写可能会报 OOM 错误）。
-- 在 GPU 的调度中，对 `nvidia.com/gpu` 而言，**limits 是必须且仅需填写**。如果只写 Annotation ，将出现找不到卡的报错。如果只填 limits ，该值将被作为 request 。如果也写上 request ，二者值必须相等。详情请参见 K8s 文档 [调度 GPUs](https://kubernetes.io/zh/docs/tasks/manage-gpus/scheduling-gpus/)（这里同样**不推荐在 request 和 limits 中加上 cpu 和 memory 的设置**，理由同上）。
+- 在 GPU 的调度中，对 `nvidia.com/gpu` 而言，**limits 是必须且仅需填写**。如果只写 Annotation ，将出现找不到卡的报错。如果只填 limits ，该值将被作为 request 。如果也写上 request ，二者值必须相等。详情请参见 K8S 文档 [调度 GPUs](https://kubernetes.io/zh/docs/tasks/manage-gpus/scheduling-gpus/)（这里同样**不推荐在 request 和 limits 中加上 cpu 和 memory 的设置**，理由同上）。
 </dx-alert>
 :::
 </dx-tabs>
@@ -146,9 +146,9 @@ kubectl create -f [yaml_name]
 <dx-tabs>
 ::: 控制台查看
 在创建 Job 之后，默认进入 Job 管理页面。您也可以通过以下步骤进入 Job 管理页面：
-1. 登录容器服务控制台，在左侧导航栏中单击**弹性容器**>**[弹性集群](https://console.cloud.tencent.com/tke2/ecluster)**。
+1. 登录容器服务控制台，在左侧导航栏中单击**弹性容器** > **[弹性集群](https://console.cloud.tencent.com/tke2/ecluster)**。
 2. 在弹性集群列表中，单击需要查看的事件集群 ID，进入集群管理页面。
-3. 选择**工作负载**>**Job**，在 Job 列表中单击上述步骤创建的 Job。
+3. 选择**工作负载** > **Job**，在 Job 列表中单击上述步骤创建的 Job。
 	- 选择**事件**页签在查看事件，如下图所示：
 	![](https://main.qcloudimg.com/raw/95eb57fa00729e0a4362fad69922ea0c.png)
 	- 选择**日志**页签查看日志，如下图所示：

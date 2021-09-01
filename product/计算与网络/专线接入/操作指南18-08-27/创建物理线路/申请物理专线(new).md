@@ -16,7 +16,7 @@
 2. 在“新建物理专线”页面阅读《腾讯云专线接入服务协议》，完成后在左下角勾选【我已阅读并同意[《腾讯云专线接入服务协议》](https://cloud.tencent.com/document/product/216/45873)】，并单击【下一步】。
  ![](https://main.qcloudimg.com/raw/311d90253642885ef33eea0d1f844ff4.png)
 3. 在“确认接入信息”页面填写以下信息，然后单击【确定】。
-![](https://main.qcloudimg.com/raw/da610dad2c2a74861ae7bcb653028e92.png)
+![](https://main.qcloudimg.com/raw/e277d9fe67be1b5cbfc0bc61647222ab.png)
 <table>
 <tr>
 <th width="15%">参数</th>

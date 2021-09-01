@@ -141,7 +141,7 @@ width: 18%;
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
 | [消息队列 CMQ](https://cloud.tencent.com/document/product/406) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/406/8618) |
-| [消息队列 CKafka](https://cloud.tencent.com/document/product/597) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/597/31528) |
+| [消息队列 CKafka](https://cloud.tencent.com/document/product/597) | 资源级   | &#10003; |-        | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/597/31528) |
 | [API 网关](https://cloud.tencent.com/document/product/628)   | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/628/34267) |
 | [消息队列 TDMQ](https://cloud.tencent.com/document/product/1179) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1179/45125) |
 | [腾讯微服务观测平台 TSW](https://cloud.tencent.com/document/product/1311) | 操作级   | &#10003; | -                | -        | -                                                            |
@@ -155,7 +155,6 @@ width: 18%;
 | [分布式事务 DTF](https://cloud.tencent.com/document/product/1224) | 操作级   | &#10003; | -                | -        | -                                                            |
 | [弹性微服务](https://cloud.tencent.com/document/product/1371) | 操作级   | &#10003; | -                | &#10003; | -                                                            |
 
-## 域名与网站  
 
 
 

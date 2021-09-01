@@ -1,4 +1,3 @@
-
 ## MariaDB 和开源 MariaDB 的兼容性
 完全兼容 MariaDB。
 
@@ -27,7 +26,6 @@ Create table ... Select from 语句建表时，varchar(N) 类型的字段的缺�
 - MySQL 5.5、5.6 的默认值是空串 ‘’。
 
 decimal 列的默认值：MySQL 5.5、5.6 把推导为0.00，MariaDB 10.1 推导为 NULL。
-
 示例：
 ```
 ---------------- MySQL 5.5 -----------------------
@@ -62,8 +60,7 @@ t1  CREATE TABLE `t1` (
 在这条语句中`SELECT a AS x, ROW(11, 12) = (SELECT MAX(x), 12), ROW(11, 12) IN (SELECT MAX(x), 12) FROM t1;`
 
 - MySQL 5.5、5.6 处理子查询 SELECT MAX(x), 12 时，如果该子查询位于 in 后面则相当于 SELECT MAX(x), 12 from t1，如果子查询位于 = 后面，则相当于 SELECT x, 12，其中 x 就是当前行中 a 的别名。
-- MySQL 5.7 和 MariaDB 10.1.* 中，子查询 SELECT MAX(x), 12 都等于 SELECT x, 12 ，其中 x 就是当前行中 a 的别名。
-
+- MySQL 5.7 和 MariaDB 10.1.\* 中，子查询 SELECT MAX(x), 12 都等于 SELECT x, 12 ，其中 x 就是当前行中 a 的别名。
 示例：
 ```
 ----------------- MySQL 5.5/5.6 -----------------------
@@ -92,15 +89,13 @@ MySQL 5.7 和 MariaDB 中，由于 NULL 属于未知值，在上述的对比中�
 如果 alter table 仅交换列的顺序，MariaDB 允许使用 inplace 算法，但 MySQL 不允许。
 MariaDB 执行 inplace alter table 后，show create table t1 后发现运行结果与 MySQL 用 ALGORITHM=COPY 时运行结果相同。
 
-### 4 MySQL 和 MariaDB 的未定义行为
+### 4. MySQL 和 MariaDB 的未定义行为
 未定义行为（undefined behavior）：指 MySQL、MariaDB 可以按照任意方式实现这种功能和行为，且版本之间可能发生变化而不需要通知用户或者明确指出。MySQL、MariaDB 对这些行为的实现可能产生相同的结果或者不同的结果。
 
 对于现在和未来版本的这类不同或者相同之处，MariaDB 不会做任何结果保证，也不保证提供内核优化保证完全一致，[未定义行为官方说明](https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-compatibility/)。
 
-
 #### 4.1 字符类型列与大小写无关的排序
 字符类型列，排序（order by 子句）一般按照大小写无关的方式排序，这意味着对于除大小写有区别之外，内容完全相同的字段，排序后的顺序是未定义的。您可以使用 BINARY 关键字来强制大小写相关的排序：ORDER BY BINARY 列名。
-
 示例：
 ```
 MySQL 和 MariaDB 对如下示例的排序可能是完全随机的
@@ -182,292 +177,194 @@ MySQL 5.5、5.6 返回 NULL，MariaDB 10.1 和 MySQL 5.7 返回 2016-08-03 23:38
 - TIMESTAMP() 的第一个参数为 time 类型时，MySQL 5.5 无法自动转换为 timestamp 类型，因而返回 NULL。
 - MySQL 5.7 和 MariaDB 则将 time 类型自动转为 timestamp 类型，即将当前的日期+输入的 time 变量。
 
-### 5 附录：MariaDB 参数和 MySQL 参数
-
+### 5. 附录：MariaDB 参数和 MySQL 参数
 #### 5.1 相同变量名不同参数
 变量名相同意味着主要功能也相同。
 
 <table>
-
-<tr>
-<th width="20%">参数名</th>
-<th width="30%">MariaDB 10.1</th>
-<th width="30%">MySQL 5.6</th>
-</tr>
-
+<tr><th width="20%">参数名</th><th width="30%">MariaDB 10.1</th><th width="30%">MySQL 5.6</th></tr>
 <tr>
 <td>old_passwords</td>
 <td>OFF</td>
-<td>0</td>
-</tr>
-
+<td>0</td></tr>
 <tr>
 <td>tmpdir</td>
 <td>/tmp/5cXm2hHsWi/mysqld.1</td>
-<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/tmp/mysqld.1</td>
-</tr>
-
+<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/tmp/mysqld.1</td></tr>
 <tr>
 <td>version</td>
 <td>10.1.9-MariaDB-log</td>
-<td>5.6.31-log</td>
-</tr>
-
+<td>5.6.31-log</td></tr>
 <tr>
 <td>slow_query_log_file</td>
 <td>/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/build_dongzhi/mysql-test/var/mysqld.1/mysqld-slow.log</td>
-<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/mysqld.1/mysqld-slow.log</td>
-</tr>
-
+<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/mysqld.1/mysqld-slow.log</td></tr>
 <tr>
 <td>table_definition_cache</td>
 <td>400</td>
-<td>1400</td>
-</tr>
-
+<td>1400</td></tr>
 <tr>
 <td>datadir</td>
 <td>/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/build_dongzhi/mysql-test/var/mysqld.1/data/</td>
-<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/mysqld.1/data/</td>
-</tr>
-
+<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/mysqld.1/data/</td></tr>
 <tr>
 <td>pid_file</td>
 <td>/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/build_dongzhi/mysql-test/var/run/mysqld.1.pid</td>
-<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/run/mysqld.1.pid</td>
-</tr>
-
+<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/run/mysqld.1.pid</td></tr>
 <tr>
 <td>max_seeks_for_key</td>
 <td>4294967295</td>
-<td>18446744073709500000</td>
-</tr>
-
+<td>18446744073709500000</td></tr>
 <tr>
 <td>slave_load_tmpdir</td>
 <td>/tmp/5cXm2hHsWi/mysqld.1</td>
-<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/tmp/mysqld.1</td>
-</tr>
-
+<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/tmp/mysqld.1</td></tr>
 <tr>
 <td>secure_file_priv</td>
 <td>	/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/build_dongzhi/mysql-test/var/</td>
-<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/</td>
-</tr>
-
+<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/</td></tr>
 <tr>
 <td>sql_mode</td>
 <td>NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION	</td>
-<td>NO_ENGINE_SUBSTITUTION</td>
-</tr>
-
+<td>NO_ENGINE_SUBSTITUTION</td></tr>
 <tr>
 <td>ssl_cert</td>
 <td>/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/mysql-test/std_data/server-cert.pem</td>
-<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/mysql-test/std_data/server-cert.pem</td>
-</tr>
-
+<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/mysql-test/std_data/server-cert.pem</td></tr>
 <tr>
 <td>ssl_ca</td>
 <td>	/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/mysql-test/std_data/cacert.pem</td>
-<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/mysql-test/std_data/cacert.pem</td>
-</tr>
-
+<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/mysql-test/std_data/cacert.pem</td></tr>
 <tr>
 <td>open_files_limit</td>
 <td>1024</td>
-<td>4161</td>
-</tr>
-
+<td>4161</td></tr>
 <tr>
 <td>binlog_checksum</td>
 <td>NONE</td>
-<td>CRC32</td>
-</tr>
-
+<td>CRC32</td></tr>
 <tr>
 <td>basedir</td>
 <td>/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1</td>
-<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6</td>
-</tr>
-
+<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6</td></tr>
 <tr>
 <td>query_alloc_block_size</td>
 <td>16384</td>
-<td>8192</td>
-</tr>
-
+<td>8192</td></tr>
 <tr>
 <td>innodb_max_dirty_pages_pct</td>
 <td>75.000000</td>
-<td>75</td>
-</tr>
-
+<td>75</td></tr>
 <tr>
 <td>ssl_key</td>
 <td>/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/mysql-test/std_data/server-key.pem</td>
-<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/mysql-test/std_data/server-key.pem</td>
-</tr>
-
+<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/mysql-test/std_data/server-key.pem</td></tr>
 <tr>
 <td>myisam_sort_buffer_size</td>
 <td>134216704</td>
-<td>8388608</td>
-</tr>
-
+<td>8388608</td></tr>
 <tr>
 <td>skip_name_resolve</td>
 <td>ON</td>
-<td>OFF</td>
-</tr>
-
+<td>OFF</td></tr>
 <tr>
 <td>pseudo_thread_id</td>
 <td>3</td>
-<td>2</td>
-</tr>
-
+<td>2</td></tr>
 <tr>
 <td>character_sets_dir</td>
 <td>/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/sql/share/charsets/</td>
-<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/sql/share/charsets/</td>
-</tr>
-
+<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/sql/share/charsets/</td></tr>
 <tr>
 <td>innodb_adaptive_flushing_lwm</td>
 <td>10</td>
-<td>10</td>
-</tr>
-
+<td>10</td></tr>
 <tr>
 <td>myisam_recover_options</td>
 <td>DEFAULT</td>
-<td>OFF</td>
-</tr>
-
+<td>OFF</td></tr>
 <tr>
 <td>performance_schema_max_statement_classes</td>
 <td>179</td>
-<td>168</td>
-</tr>
-
+<td>168</td></tr>
 <tr>
 <td>innodb_version</td>
 <td>5.6.26-74.0</td>
-<td>5.6.31</td>
-</tr>
-
+<td>5.6.31</td></tr>
 <tr>
 <td>max_write_lock_count</td>
 <td>4294967295</td>
-<td>18446744073709500000</td>
-</tr>
-
+<td>18446744073709500000</td></tr>
 <tr>
 <td>thread_cache_size</td>
 <td>0</td>
-<td>9</td>
-</tr>
-
+<td>9</td></tr>
 <tr>
 <td>innodb_checksum_algorithm</td>
 <td>INNODB</td>
-<td>innodb</td>
-</tr>
-
+<td>innodb</td></tr>
 <tr>
 <td>optimizer_switch</td>
 <td>
-index_merge=on,<br>index_merge_union=on,<br>index_merge_sort_union=on,<br>index_merge_intersection=on,<br>index_merge_sort_intersection=off,<br>engine_condition_pushdown=off,<br>index_condition_pushdown=on,<br>derived_merge=on,<br>derived_with_keys=on,<br>firstmatch=on,<br>loosescan=on,<br>materialization=on,<br>in_to_exists=on,<br>semijoin=on,<br>partial_match_rowid_merge=on,<br>partial_match_table_scan=on,<br>subquery_cache=on,<br>mrr=off,<br>mrr_cost_based=off,<br>mrr_sort_keys=off,<br>outer_join_with_cache=on,<br>semijoin_with_cache=on,<br>join_cache_incremental=on,<br>join_cache_hashed=on,<br>join_cache_bka=on,<br>optimize_join_buffer_size=off,<br>table_elimination=on,<br>extended_keys=on,<br>exists_to_in=on
-</td>
+index_merge=on,<br>index_merge_union=on,<br>index_merge_sort_union=on,<br>index_merge_intersection=on,<br>index_merge_sort_intersection=off,<br>engine_condition_pushdown=off,<br>index_condition_pushdown=on,<br>derived_merge=on,<br>derived_with_keys=on,<br>firstmatch=on,<br>loosescan=on,<br>materialization=on,<br>in_to_exists=on,<br>semijoin=on,<br>partial_match_rowid_merge=on,<br>partial_match_table_scan=on,<br>subquery_cache=on,<br>mrr=off,<br>mrr_cost_based=off,<br>mrr_sort_keys=off,<br>outer_join_with_cache=on,<br>semijoin_with_cache=on,<br>join_cache_incremental=on,<br>join_cache_hashed=on,<br>join_cache_bka=on,<br>optimize_join_buffer_size=off,<br>table_elimination=on,<br>extended_keys=on,<br>exists_to_in=on</td>
 <td>
 index_merge=on,<br>index_merge_union=on,<br>index_merge_sort_union=on,<br>index_merge_intersection=on,<br>engine_condition_pushdown=on,<br>index_condition_pushdown=on,<br>mrr=on,<br>mrr_cost_based=on,<br>block_nested_loop=on,<br>batched_key_access=off,<br>materialization=on,<br>semijoin=on,<br>loosescan=on,<br>firstmatch=on,<br>subquery_materialization_cost_based=on,<br>use_index_extensions=on
-</td>
-</tr>
-
+</td></tr>
 <tr>
 <td>timestamp</td>
 <td>1471938276</td>
-<td>1471937901</td>
-</tr>
-
+<td>1471937901</td></tr>
 <tr>
 <td>general_log_file</td>
 <td>/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/build_dongzhi/mysql-test/var/mysqld.1/mysqld.log</td>
-<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/mysqld.1/mysqld.log</td>
-</tr>
-
+<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/mysqld.1/mysqld.log</td></tr>
 <tr>
 <td>myisam_stats_method</td>
 <td>NULLS_UNEQUAL</td>
-<td>nulls_unequal</td>
-</tr>
-
+<td>nulls_unequal</td></tr>
 <tr>
 <td>innodb_log_compressed_pages</td>
 <td>OFF</td>
-<td>ON</td>
-</tr>
-
+<td>ON</td></tr>
 <tr>
 <td>query_prealloc_size</td>
 <td>24576</td>
-<td>0</td>
-</tr>
-
+<td>0</td></tr>
 <tr>
 <td>rand_seed2</td>
 <td>297895171</td>
-<td>0</td>
-</tr>
-
+<td>0</td></tr>
 <tr>
 <td>rand_seed1</td>
 <td>605568929</td>
-<td>0</td>
-</tr>
-
+<td>0</td></tr>
 <tr>
 <td>socket</td>
 <td>/tmp/5cXm2hHsWi/mysqld.1.sock</td>
-<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/tmp/mysqld.1.sock</td>
-</tr>
-
+<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/tmp/mysqld.1.sock</td></tr>
 <tr>
 <td>innodb_max_dirty_pages_pct_lwm</td>
 <td>0.001</td>
-<td>0</td>
-</tr>
-
+<td>0</td></tr>
 <tr>
 <td>lc_messages_dir</td>
 <td>/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/build_dongzhi/sql/share/</td>
-<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/sql/share/</td>
-</tr>
-
+<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/sql/share/</td></tr>
 <tr>
 <td>max_relay_log_size</td>
 <td>1073741824</td>
-<td>0</td>
-</tr>
-
+<td>0</td></tr>
 <tr>
 <td>plugin_dir</td>
 <td>/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/lib/plugin/</td>
-<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/lib/plugin/</td>
-</tr>
-
+<td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/lib/plugin/</td></tr>
 <tr>
 <td>thread_stack</td>
 <td>294912</td>
-<td>262144</td>
-</tr>
-
+<td>262144</td></tr>
 </table>
 
-
 #### 5.2 仅存在于 MariaDB 中的变量
-
 - aria_block_size     8192
 - aria_checkpoint_interval     30
 - aria_checkpoint_log_activity     1048576

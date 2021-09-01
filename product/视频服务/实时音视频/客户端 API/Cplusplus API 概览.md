@@ -46,7 +46,7 @@
 | API | 描述 |
 |-----|-----|
 | [startLocalPreview](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a8ac23e725c7ed75488df1be2ee514884) | 开启本地摄像头的预览画面（移动端） |
-| [startLocalPreview](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a8ac23e725c7ed75488df1be2ee514884) | 开启本地摄像头的预览画面（桌面端） |
+| [startLocalPreview](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#aef6d61f571304066aaf839f7db00a17b) | 开启本地摄像头的预览画面（桌面端） |
 | [updateLocalView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a0af978a75d5ba671b7ce5f0b81b003c8) | 更新本地摄像头的预览画面 |
 | [stopLocalPreview](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#af7003d2c12f5f783115ada43a715abe7) | 停止摄像头预览 |
 | [muteLocalVideo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a22804c4112dee8c76475619f891e2eb5) | 暂停/恢复发布本地的视频流 |

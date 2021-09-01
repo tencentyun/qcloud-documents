@@ -34,9 +34,9 @@ TSF 长期维护 LTS (Long Term Support) 版本，SDK 的第三位版本号会�
 
 |TSF 私有化平台版本| Edgware|Finchley|Greenwich|
 |----|------|----|------|
-|1.29.x|-|1.29.0-Finchley-RELEASE|1.29.0-Greenwich-RELEASE|
-|1.23.x|-|1.23.7-Finchley-RELEASE|1.23.8-Greenwich-RELEASE|
-|1.21.x|1.21.5-Edgware-RELEASE|1.21.9-Finchley-RELEASE|1.21.4-Greenwich-RELEASE|
-|1.18.x|1.18.1-Edgware-RELEASE|1.18.5-Finchley-RELEASE|1.18.1-Greenwich-RELEASE|
+|1.29.x|-|1.29.2-Finchley-RELEASE|1.29.0-Greenwich-RELEASE|
+|1.23.x|-|1.23.10-Finchley-RELEASE|1.23.12-Greenwich-RELEASE|
+|1.21.x|-|1.21.9-Finchley-RELEASE|1.21.4-Greenwich-RELEASE|
+|1.18.x|-|1.18.5-Finchley-RELEASE|1.18.1-Greenwich-RELEASE|
 |1.12.x|1.12.5-Edgware-RELEASE|1.12.5-Finchley-RELEASE|-|
 
