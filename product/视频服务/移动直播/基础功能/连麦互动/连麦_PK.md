@@ -5,7 +5,7 @@
 - 主播 A：开始播放观众 B 的流，同时发起混流指令，把 A 和 B 的内容合成一路。
 - 观众 C：无需变化，继续 CDN 播放即可，只不过会看到混流后的连麦画面。
  
-<img src="https://main.qcloudimg.com/raw/00e5376f86d39517b3f8c9ad1dca16e4.png" width=700>
+<img src="https://main.qcloudimg.com/raw/00e5376f86d39517b3f8c9ad1dca16e4.png">
 
 [](id:step_live1)
 ### 1. 主播 RTC 推流
@@ -16,7 +16,7 @@ V2TXLivePusher pusherA = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RT
 pushURLA= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
 pusherA.startPush(pushURLA);
 :::
-::: Objective-C Objective-C
+::: Objective-C ObjectiveC
 V2TXLivePusher *pusherA = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
 NSString *pushURLA = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
 [pusherA startPush:pushURLA];
@@ -38,7 +38,7 @@ V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
  */
 playerA.startPlay(playURLA);
 :::
-::: Objective-C Objective-C
+::: Objective-C ObjectiveC
 V2TXLivePlayer * playerA = [[V2TXLivePlayer alloc] init];
 /**
  * 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
@@ -62,7 +62,7 @@ V2TXLivePusher pusherB = new V2TXLivePusherImpl(this,V2TXLiveMode.TXLiveMode_RTC
 pushURLB= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=B&amp;usersig=xxx";
 pusherB.startPush(pushURLB);
 :::
-::: Objective-C Objective-C
+::: Objective-C ObjectiveC
 V2TXLivePusher *pusherB = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
 NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
 [pusherB startPush:pushURLB];
@@ -78,7 +78,7 @@ V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
 playURLB= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&amp;userId=B&amp;usersig=xxx";
 playerB.startPlay(playURLB);
 :::
-::: Objective-C Objective-C
+::: Objective-C ObjectiveC
 V2TXLivePlayer * playerB = [[V2TXLivePlayer alloc] init];
 NSString* playURLB = @"trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&amp;userId=B&amp;usersig=xxx";
 [playerB setRenderView:view];
@@ -93,7 +93,7 @@ V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
 playURLA= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
 playerA.startPlay(playURLA);
 :::
-::: Objective-C Objective-C
+::: Objective-C ObjectiveC
 V2TXLivePlayer * playerA = [[V2TXLivePlayer alloc] init];
 NSString* playURLA = @"trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
 [playerA setRenderView:view];
@@ -158,7 +158,7 @@ config.mixStreams.add(remoteB);
 // 发起云端混流
 pusher.setMixTranscodingConfig(config);
 :::
-::: Objective-C Objective-C
+::: Objective-C ObjectiveC
 V2TXLiveTranscodingConfig *config = [[V2TXLiveTranscodingConfig alloc] init];
 // 设置分辨率为 720 × 1280, 码率为 1500kbps，帧率为 20FPS
 config.videoWidth      = 720;
@@ -219,36 +219,40 @@ pusher.setMixTranscodingConfig(config);
 - 主播 B：开始播放主播 A 的流，同时发起混流指令，把 B 和 A 的内容合成一路，供主播 B 的观众观看。
 - 观众 A 和 B：无需变化，继续 CDN 播放即可，只不过会看到各自主播混流后的 PK 画面。
 
-<img src="https://main.qcloudimg.com/raw/638542d7e0bbb8fb3979ebfb00177f9d.png" width=700>
+<img src="https://main.qcloudimg.com/raw/638542d7e0bbb8fb3979ebfb00177f9d.png">
 
-### 操作步骤
-1. 主播 A 开始推流，调用 `V2TXLivePusher` 组件开始主播 A 的推流。
+### 1. 主播 A 开始推流
+调用 `V2TXLivePusher` 组件开始主播 A 的推流。
 <dx-codeblock>
 ::: java java
 V2TXLivePusher pusherA = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
 pushURLA= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
 pusherA.startPush(pushURLA);
 :::
-::: Objective-C Objective-C
+::: Objective-C ObjectiveC
 V2TXLivePusher *pusherA = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
 NSString *pushURLA = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
 [pusherA startPush:pushURLA];
 :::
 </dx-codeblock>
-2. 主播 B 开始推流，调用 `V2TXLivePusher` 组件开始主播 B 的推流。
+
+### 2. 主播 B 开始推流
+调用 `V2TXLivePusher` 组件开始主播 B 的推流。
 <dx-codeblock>
 ::: java java
 V2TXLivePusher pusherB = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
 pushURLB "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=B&amp;usersig=xxx";
 pusherB.startPush(pushURLB);
 :::
-::: Objective-C Objective-C
+::: Objective-C ObjectiveC
 V2TXLivePusher *pusherB = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
 NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=B&amp;usersig=xxx";
 [pusherB startPush:pushURLB];
 :::
 </dx-codeblock>
-3.  **开始 PK** ，主播 A 和主播 B 分别调用  `V2TXLivePlayer`  开始播放对方的流，此时主播 A 和主播 B 即进入 RTC 连麦互动直播场景中。
+
+### 3. 开始 PK 
+主播 A 和主播 B 分别调用  `V2TXLivePlayer`  开始播放对方的流，此时主播 A 和主播 B 即进入 RTC 连麦互动直播场景中。
 <dx-codeblock>
 ::: java java
 // 主播A
@@ -271,7 +275,7 @@ V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
 */
 playerB.startPlay(playURLB);
 :::
-::: Objective-C Objective-C
+::: Objective-C ObjectiveC
 // 主播A
 V2TXLivePlayer *playerA = [[V2TXLivePlayer alloc] init];
 /**
@@ -296,10 +300,8 @@ V2TXLivePlayer *playerB = [[V2TXLivePlayer alloc] init];
 :::
 </dx-codeblock>
 
-
-4.  **PK 成功后** ，连麦成功后，进行混流。
-为了保证观众可以看到 PK 主播 B 的画面，这里主播 A 需要发起一次混流操作。也就是将主播 A 自己和 PK 主播 B，混合成一路流。观众可以在一路流上看到主播 A 和主播 B 进行互动。 A 和 B 各自调用 setMixTranscodingConfig 接口启动云端混流，调用时需要设置音频相关的参数，例如 `音频采样率 audioSampleRate`、`音频码率 audioBitrate` 和 `声道数 audioChannels` 等。
-如果您的业务场景中也包含视频，需同时设置视频相关的参数，例如 `视频宽度 videoWidth`、`视频高度 videoHeight`、`视频码率 videoBitrate`、`视频帧率 videoFramerate` 等。
+### 4. PK 成功后，进行混流
+为了保证主播 A 和 主播 B 的观众都可以看到 PK 画面，这里主播 A 和主播 B 都需要发起一次混流操作，也就是主播将自己和对方主播混合成一路流，自己直播间的观众就可以在看到自己和对方主播进行互动。 主播 A 和 B 各自调用 setMixTranscodingConfig 接口启动云端混流，调用时需要设置音频相关的参数，例如 `音频采样率 audioSampleRate`、`音频码率 audioBitrate` 和 `声道数 audioChannels` 等。
  **示例代码** ：
 <dx-codeblock>
 ::: java java
@@ -379,7 +381,7 @@ config.mixStreams.add(remoteA);
 // 发起云端混流
 pusher.setMixTranscodingConfig(config);
 :::
-::: Objective-C Objective-C
+::: Objective-C ObjectiveC
 // 主播 A 
 V2TXLiveTranscodingConfig *config = [[V2TXLiveTranscodingConfig alloc] init];
 // 设置分辨率为 720 × 1280, 码率为 1500kbps，帧率为 20FPS
