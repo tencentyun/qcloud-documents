@@ -82,4 +82,4 @@ pod install
 use_frameworks! :linkage => :static
 ```
 
-如果您使用的是 `swift`，请将头文件引用改成@import模块名形式引用。
+如果您使用的是 `swift`，请将头文件引用改成 @import 模块名形式引用。
