@@ -18,14 +18,14 @@
 
 ## 签名算法
 
-### 获取应用 AppKey 和 AppSecret
+### 获取 SaaS 的 AppKey 和 AppSecret
 
 在创建 SaaS 服务时，平台将会为用户生成对应的安全凭证。安全凭证包括 AppKey 和 AppSecret。AppKey 是用于标识 API 调用者身份，AppSecret 是用于加密签名字符串和服务器端验证签名字符串的密钥。**用户应严格保管其 AppSecret，避免泄露**。
 
 具体获取步骤如下：
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择已有项目进入项目详情页。
-2. 选择左侧菜单**物联使能** > **应用服务**，单击**新建**按钮 [创建 SaaS](https://cloud.tencent.com/document/product/1465/58446#.E6.96.B0.E5.BB.BA-saas)。
-3. 创建应用成功后，即可获取系统自动生成的 AppKey 与 AppSecret。
+2. 选择左侧菜单**物联使能** > **SaaS 服务**，单击**新建**按钮 [创建 SaaS](https://cloud.tencent.com/document/product/1465/58446#.E6.96.B0.E5.BB.BA-saas)。
+3. 创建 SaaS 成功后，即可获取系统自动生成的 AppKey 与 AppSecret。
 
 ### 生成签名串
 
@@ -44,7 +44,7 @@
 | ---------- | ------ | ------------------------------------------------------------ | ------------------------------------ |
 | RequestId  | String | 公共参数，唯一请求 ID，可自行生成，推荐使用 uuid。定位问题时，需要提供该次请求的 RequestId | 476c990a-f5b7-1575-987c-4ef70e474932 |
 | Action     | String | 公共参数，调用的接口方法名称                                 | ServiceDescribeDeviceData            |
-| AppKey     | String | 公共参数，应用 AppKey ，用于标识对应的 App                   | ServiceAppKey                        |
+| AppKey     | String | 公共参数，物联网 SaaS 的 AppKey ，用于标识对应的物联网 SaaS         | ServiceAppKey                        |
 | Signature  | String | 公共参数，请求的签名                                         | 根据实际算法生成                     |
 | Timestamp  | Int64  | 公共参数，当前的  UNIX 时间戳（秒级）                        | 1546315200                           |
 | Nonce      | Int64  | 公共参数，随机正整数，与时间戳一起，用于 API 防重放          | 71087795                             |
