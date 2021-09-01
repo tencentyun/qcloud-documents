@@ -13,12 +13,12 @@
 <dx-codeblock>
 ::: java java
 V2TXLivePusher pusherA = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
-pushURLA= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
+pushURLA= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
 pusherA.startPush(pushURLA);
 :::
 ::: Objective-C ObjectiveC
 V2TXLivePusher *pusherA = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
-NSString *pushURLA = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
+NSString *pushURLA = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
 [pusherA startPush:pushURLA];
 :::
 </dx-codeblock>
@@ -59,12 +59,12 @@ V2TXLivePlayer * playerA = [[V2TXLivePlayer alloc] init];
 <dx-codeblock>
 ::: java java
 V2TXLivePusher pusherB = new V2TXLivePusherImpl(this,V2TXLiveMode.TXLiveMode_RTC);
-pushURLB= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=B&amp;usersig=xxx";
+pushURLB= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=B&usersig=xxx";
 pusherB.startPush(pushURLB);
 :::
 ::: Objective-C ObjectiveC
 V2TXLivePusher *pusherB = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
-NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
+NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
 [pusherB startPush:pushURLB];
 :::
 </dx-codeblock>
@@ -75,12 +75,12 @@ NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=140018888
 <dx-codeblock>
 ::: java java
 V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
-playURLB= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&amp;userId=B&amp;usersig=xxx";
+playURLB= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx";
 playerB.startPlay(playURLB);
 :::
 ::: Objective-C ObjectiveC
 V2TXLivePlayer * playerB = [[V2TXLivePlayer alloc] init];
-NSString* playURLB = @"trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&amp;userId=B&amp;usersig=xxx";
+NSString* playURLB = @"trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx";
 [playerB setRenderView:view];
 [playerB startPlay:playURLB];
 :::
@@ -90,12 +90,12 @@ NSString* playURLB = @"trtc://cloud.tencent.com/play/streamid?sdkappid=140018888
 <dx-codeblock>
 ::: java java
 V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
-playURLA= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
+playURLA= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
 playerA.startPlay(playURLA);
 :::
 ::: Objective-C ObjectiveC
 V2TXLivePlayer * playerA = [[V2TXLivePlayer alloc] init];
-NSString* playURLA = @"trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
+NSString* playURLA = @"trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
 [playerA setRenderView:view];
 [playerA startPlay:playURLA];
 :::
@@ -226,12 +226,12 @@ pusher.setMixTranscodingConfig(config);
 <dx-codeblock>
 ::: java java
 V2TXLivePusher pusherA = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
-pushURLA= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
+pushURLA= "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
 pusherA.startPush(pushURLA);
 :::
 ::: Objective-C ObjectiveC
 V2TXLivePusher *pusherA = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
-NSString *pushURLA = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx";
+NSString *pushURLA = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
 [pusherA startPush:pushURLA];
 :::
 </dx-codeblock>
@@ -241,12 +241,12 @@ NSString *pushURLA = @"trtc://cloud.tencent.com/push/streamid?sdkappid=140018888
 <dx-codeblock>
 ::: java java
 V2TXLivePusher pusherB = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
-pushURLB "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=B&amp;usersig=xxx";
+pushURLB "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=B&usersig=xxx";
 pusherB.startPush(pushURLB);
 :::
 ::: Objective-C ObjectiveC
 V2TXLivePusher *pusherB = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
-NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=B&amp;usersig=xxx";
+NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=B&;usersig=xxx";
 [pusherB startPush:pushURLB];
 :::
 </dx-codeblock>
