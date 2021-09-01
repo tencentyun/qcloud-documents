@@ -79,7 +79,7 @@ Log.i(TAG, "startPush return: " + ret);
 ### 播放协议选择
 - 播放端有以下多种播放协议可供选择，这些协议的 URL 拼接可以参考 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 <table>
-<tr><th width="20%">播放协议</th><th width=25%>播放前缀</th><th>备注</th></tr>
+<tr><th width="18%">播放协议</th><th width=35%>播放前缀</th><th>备注</th></tr>
 <tr>
 <td>WebRTC</td>
 <td><code>webrtc://</code></td>
