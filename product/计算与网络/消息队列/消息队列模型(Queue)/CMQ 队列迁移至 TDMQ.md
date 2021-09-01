@@ -29,7 +29,7 @@
    ![](https://main.qcloudimg.com/raw/0d1d65697c56dfa776c6036a52eb3d79.png)
 4. 迁移完成后，登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)。
 5. 在左侧导航栏选择**队列服务**，选择相同的**地域**可看到迁移到 TDMQ CMQ 版的队列。
-   ![](https://main.qcloudimg.com/raw/0598980238530ead4225bc5791a767ef.png)
+	 ![](https://main.qcloudimg.com/raw/f74407c4a979dc3b01cb18c4d37ed729.png)
 
 ### 步骤2：新建消费者
 
@@ -55,7 +55,6 @@ Consumer consumer = new Consumer();
         // 消息拉取的队列名称
         final String queue = "****";
 ```
-
 	- NameServerAddress：API 调用地址，在[ TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务** > **API请求地址**处复制。
 ![](https://main.qcloudimg.com/raw/bbc5dc77a8475304377d00cc92028e01.png)
 
