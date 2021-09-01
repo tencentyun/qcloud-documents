@@ -30,7 +30,7 @@ Apache Ranger 是大数据生态系统中用于控制访问权限的一个标准
 
 #### 在 Ranger Admin 侧部署 GooseFS Ranger Plugin 并注册对应服务
 
->? 单击此处下载 GooseFS Ranger Plugin。
+>? 单击 [此处](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/ranger-goosefs-plugin-1.0.0.jar) 下载 GooseFS Ranger Plugin。
 >
 
 部署步骤如下：
@@ -43,8 +43,8 @@ Apache Ranger 是大数据生态系统中用于控制访问权限的一个标准
 3. 重启 Ranger 服务。
 4. 在 Ranger 上，按照如下命令，注册 GooseFS Service。
 ```bash
-## 生成服务，需要传入 Ranger 管理员的账号和密码，以及 Ranger 的服务地址
-## 对于腾讯云 EMR 集群，管理员用户是 root，密码是构建 EMR 集群时设置的 root 密码，ranger 服务的 IP 就是 EMR 服务的 Master IP
+# 生成服务，需要传入 Ranger 管理员的账号和密码，以及 Ranger 的服务地址
+# 对于腾讯云 EMR 集群，管理员用户是 root，密码是构建 EMR 集群时设置的 root 密码，ranger 服务的 IP 就是 EMR 服务的 Master IP
 adminUser=root
 adminPasswd=xxxx
 
@@ -52,8 +52,8 @@ rangerServerAddr=10.0.0.1:6080
 
 curl -v -u${adminUser}:${adminPasswd} -X POST -H "Accept:application/json" -H "Content-Type:application/json" -d @./ranger-servicedef-goosefs.json http://${rangerServerAddr}/service/plugins/definitions
 
-## 服务注册成功后，会返回一个服务 ID，请务必记录下这个ID
-## 如果要删除 GooseFS 的服务，则传入刚刚返回的服务 ID，执行如下命令即可：
+# 服务注册成功后，会返回一个服务 ID，请务必记录下这个ID
+# 如果要删除 GooseFS 的服务，则传入刚刚返回的服务 ID，执行如下命令即可：
 serviceId=104
 curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H "Content-Type:application/json" http://${rangerServerAddr}/service/plugins/definitions/${serviceId}
 ```

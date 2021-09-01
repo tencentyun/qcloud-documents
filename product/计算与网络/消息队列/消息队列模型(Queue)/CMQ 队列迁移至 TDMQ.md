@@ -1,6 +1,6 @@
 ## 操作场景
 
-本文以一个 Java 客户端为例，为您介绍将 CMQ 队列迁移至 TDMQ 的操作步骤。
+本文以一个 Java 客户端为例，为您介绍将 CMQ 队列迁移至 TDMQ CMQ 版的操作步骤。
 
 **方案总览**
 
@@ -8,9 +8,9 @@
 
 **整体流程**
 <dx-steps>
--在控制台上将 CMQ 的队列和主题元数据迁移至 TDMQ 中。
--旧的消费者保持不动，消费端新建消费者，接入到 TDMQ 的队列中。
--生产者停止向原 CMQ 队列生产消息，并切换生产流接入到 TDMQ 队列中。
+-在控制台上将 CMQ 的队列和主题元数据迁移至 TDMQ CMQ 版中。
+-旧的消费者保持不动，消费端新建消费者，接入到 TDMQ CMQ 版的队列中。
+-生产者停止向原 CMQ 队列生产消息，并切换生产流接入到 TDMQ CMQ 版队列中。
 -旧的消费者继续消费原 CMQ 队列中的存量消息，消费完成后下线 CMQ 业务消费者。
 </dx-steps>
 
@@ -24,16 +24,16 @@
 ### 步骤1：迁移元数据
 
 1. 登录 [CMQ 控制台](https://console.cloud.tencent.com/cmq)。
-2. 在左侧导航栏选择**队列**，选择好**地域**后，单击页面上方的**同步到TDMQ**。
-3. 在弹出的窗口中单击**启动**，将该地域下的所有队列和主题元数据迁移至 TDMQ 中。
+2. 在左侧导航栏选择**队列**，选择好**地域**后，单击页面上方的**同步到 TDMQ**。
+3. 在弹出的窗口中单击**启动**，将该地域下的所有队列和主题元数据迁移至 TDMQ CMQ 版中。
    ![](https://main.qcloudimg.com/raw/0d1d65697c56dfa776c6036a52eb3d79.png)
-4. 迁移完成后，登录 [TDMQ控制台](https://console.cloud.tencent.com/tdmq)。
-5. 在左侧导航栏选择**队列服务**，选择相同的**地域**可看到迁移到 TDMQ 的队列。
+4. 迁移完成后，登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)。
+5. 在左侧导航栏选择**队列服务**，选择相同的**地域**可看到迁移到 TDMQ CMQ 版的队列。
    ![](https://main.qcloudimg.com/raw/ad3f0b5492c5cf7e7480fe919f5bd9ae.png)
 
 ### 步骤2：新建消费者
 
-1. 在消费端新建一个消费者，并接入到 TDMQ 队列中。
+1. 在消费端新建一个消费者，并接入到 TDMQ CMQ 版队列中。
 ```java
 Consumer consumer = new Consumer();
         // 私有网络地址： http://{region}.mqadapter.cmq.tencentyun.com 支持腾讯云私有网络的云服务器内网访问
@@ -56,10 +56,8 @@ Consumer consumer = new Consumer();
         final String queue = "****";
 ```
 
-	- NameServerAddress：API 调用地址，在[ TDMQ 控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务** > **API请求地址**处复制。
->CMQ 的 API 调用地址如下：
->- 公网地址：`https://cmq-gz.public.tencenttdmq.com`（不同地域的 API 调用地址 URL会有所变化）
->- 内网地址：`http://gz.mqadapter.cmq.tencentyun.com`（不同地域的 API 调用地址 URL 会有所变化）
+	- NameServerAddress：API 调用地址，在[ TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务** > **API请求地址**处复制。
+![](https://main.qcloudimg.com/raw/bbc5dc77a8475304377d00cc92028e01.png)
 
 	- SecretId、SecretKey：云API密钥，登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，在**访问密钥** > **API密钥管理**页面复制。
 		![](https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png)
@@ -67,7 +65,7 @@ Consumer consumer = new Consumer();
 
 2. 运行代码，查看消费端服务是否能正常运行无报错。
 
-3. 通过 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务** > **发送消息**向消息接收侧发送测试消息，验证消费者服务是否可以正常消费。
+3. 通过 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务** > **发送消息**向消息接收侧发送测试消息，验证消费者服务是否可以正常消费。
    ![](https://main.qcloudimg.com/raw/1c2f1532860b51440bbf2a42285fb644.png)
 如图则为正常消费：
    ![](https://main.qcloudimg.com/raw/959a9b688673054d7449913d71f89b4b.png)
@@ -75,7 +73,7 @@ Consumer consumer = new Consumer();
 
 ### 步骤3：切换生产流
 
-1. 将原生产者的 NameServer 修改为 TDMQ 队列的接入地址，在 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)的**队列服务** > **API请求地址**处复制。
+1. 将原生产者的 NameServer 修改为 TDMQ CMQ 版队列的接入地址，在 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq)的**队列服务** > **API请求地址**处复制。
 2. 运行生产消息程序，验证生产者服务是否可以正常发送消息。
    ![](https://main.qcloudimg.com/raw/7c258f9b7cfd517f1bb6f735416c0f44.png)
 

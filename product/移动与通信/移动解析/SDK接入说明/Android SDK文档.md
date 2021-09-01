@@ -11,6 +11,8 @@ HTTPDNS 服务的详细介绍可以参见文章 [全局精确流量调度新思�
 智营解析 Android SDK 的获取方式：[点此获取](https://github.com/tencentyun/httpdns-android-sdk)。
 
 ## 接入
+### 控制台添加域名
+开通移动解析 HTTPDNS 服务后，您需在移动解析 HTTPDNS 管理控制台添加解析域名后才可正常使用。具体操作请参见 [添加域名](https://cloud.tencent.com/document/product/379/54588)。
 
 ### 权限配置
 

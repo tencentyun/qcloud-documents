@@ -25,7 +25,7 @@
 - 修复退群再加入同一个群后，会把退群期间没有接收到的消息也计入未读数的问题
 - 修复群 tips 消息存入数据库时没有保存群资料自定义字段问题
 - iOS 获取用户自定义字段时去掉 Tag_Profile_Custom_ 前缀，获取好友自定义字段时去掉 Tag_SNS_Custom_ 前缀
-- Android 去掉运营商名称的获取，去掉 wifi 信息的获取，去掉 androidx 的依赖
+- Android 去掉运营商名称的获取，去掉 WiFi 信息的获取，去掉 androidx 的依赖
 - Android 解决非 utf-8 编码导致的崩溃问题
 
 ### TUIKit & Demo

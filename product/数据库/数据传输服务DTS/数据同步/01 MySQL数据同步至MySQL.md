@@ -94,9 +94,8 @@ FLUSH PRIVILEGES;
 <tr>
 <td>同步任务规格</td><td>目前只支持标准版。</td></tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/94b1751564b042ad7c9c6dc3c3bf2e29.png"  style="margin:0;">
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
-3. 在数据同步列表，单击**操作**列的【**配置**】，进入配置同步任务页面。
+3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
 ![](https://main.qcloudimg.com/raw/b21f1336854375bb1343c7ccb144900b.png)
 4. 在配置同步任务页面，配置源端实例、帐号密码，配置目标端实例、帐号和密码，测试连通性后，单击**下一步**。
 <table>
@@ -186,8 +185,9 @@ FLUSH PRIVILEGES;
 <strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
 <img src="https://main.qcloudimg.com/raw/533a454e1edc2dded72ac92b65948f31.png"  style="margin:0;">
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
->?在校验结果中出现告警项不影响启动任务，但推荐单击**查看详情**获取建议进行调整。
->
+    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+ - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
+ - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
 ![](https://main.qcloudimg.com/raw/9ec59e1cbcf8144d2f3bff7e1aeffa5c.png)
 7. 返回数据同步任务列表，任务开始进入**运行中**状态。
 >?选择**操作**列的**更多** > **结束**可关闭同步任务，请您确保数据同步完成后再关闭任务。

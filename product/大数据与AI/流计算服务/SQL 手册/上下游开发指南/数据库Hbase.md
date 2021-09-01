@@ -40,16 +40,10 @@ CREATE TABLE random_source (
   school_name STRING 
   ) WITH ( 
   'connector' = 'datagen', 
-  'rows-per-second'='1',                 -- 每秒产生的数据条数
-  'fields.f_sequence.kind'='sequence',   -- 有界序列（结束后自动停止输出）
-  'fields.f_sequence.start'='1',         -- 序列的起始值
-  'fields.f_sequence.end'='10000',       -- 序列的终止值
-  'fields.f_random.kind'='random',       -- 无界的随机数
-  'fields.f_random.min'='1',             -- 随机数的最小值
-  'fields.f_random.max'='1000',          -- 随机数的最大值
-  'fields.f_random_str.length'='10'      -- 随机字符串的长度
+  'rows-per-second'='1',            -- 每秒产生的数据条数
+  'fields.rowkey.length'='10',      -- 随机字符串的长度
+  'fields.school_name.length'='10'  -- 随机字符串的长度
 );
-
 
 CREATE TABLE dim_hbase (
   rowkey STRING,

@@ -96,6 +96,7 @@ CREATE TABLE default_catalog.testdb.Hive表名 (id INT, name STRING, dt STRING, 
 | lookup.join.cache.ttl                      | 否   | 60 min       | 表示缓存时间；这里值得注意的是，因为 Hive 维表会把维表所有数据缓存在 TM 的内存中，如果维表量很大，那么很容易就 OOM；如果 ttl 时间太短，那么会频繁的加载数据，性能会有很大影响。 |
 
 ## Hive 配置
+
 [](id:id)
 ### 获取 Hive 连接配置 jar 包
 Flink SQL 任务写 Hive 时需要使用包含 Hive 及 HDFS 配置信息的 jar 包来连接到 Hive 集群。具体获取连接配置 jar 及其使用的步骤如下：
@@ -122,6 +123,54 @@ hdfs-site.xml
 2. 引用程序包中选择 Hive 连接配置 jar 包（该 jar 包为在 [获取 Hive 连接配置 jar 包](#id) 中得到的 hive-xxx.jar，必须在程序包管理上传后才使用）。
 
 >! 请确保您使用的 Hive connector 和 Hive 集群是同一个版本。
+
+
+## Kerberos 认证授权
+1. 登录集群 Master 节点，获取 krb5.conf、emr.keytab、core-site.xml、hdfs-site.xml、hive-site.xml 文件，路径如下。
+```
+/etc/krb5.conf
+/var/krb5kdc/emr.keytab
+/usr/local/service/hadoop/etc/hadoop/core-site.xml
+/usr/local/service/hadoop/etc/hadoop/hdfs-site.xml
+/usr/local/service/hive/conf/hive-site.xml
+```
+2. 对步骤1中获取的文件打 jar 包。
+```
+jar cvf hive-xxx.jar krb5.conf emr.keytab core-site.xml hdfs-site.xml hive-site.xml
+``` 
+3. 校验 jar 的结构（可以通过 vim 命令查看 vim hive-xxx.jar），jar 里面包含如下信息，请确保文件不缺失且结构正确。
+```
+META-INF/
+META-INF/MANIFEST.MF
+emr.keytab
+krb5.conf
+hdfs-site.xml
+core-site.xml
+hive-site.xml
+```
+4. 在 [程序包管理](https://console.cloud.tencent.com/oceanus/resource) 页面上传 jar 包，并在作业参数配置里引用该程序包。
+5. 获取 kerberos principal，用于作业 [高级参数](https://cloud.tencent.com/document/product/849/53391) 配置。
+```
+klist -kt /var/krb5kdc/emr.keytab
+
+# 输出如下所示，选取第一个即可：hadoop/172.28.28.51@EMR-OQPO48B9
+KVNO Timestamp     Principal
+---- ------------------- ------------------------------------------------------
+  2 08/09/2021 15:34:40 hadoop/172.28.28.51@EMR-OQPO48B9 
+  2 08/09/2021 15:34:40 HTTP/172.28.28.51@EMR-OQPO48B9 
+  2 08/09/2021 15:34:40 hadoop/VM-28-51-centos@EMR-OQPO48B9 
+  2 08/09/2021 15:34:40 HTTP/VM-28-51-centos@EMR-OQPO48B9 
+```
+6. 作业 [高级参数](https://cloud.tencent.com/document/product/849/53391) 配置。
+```
+containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
+containerized.master.env.HADOOP_USER_NAME: hadoop
+security.kerberos.login.principal: hadoop/172.28.28.51@EMR-OQPO48B9
+security.kerberos.login.keytab: emr.keytab
+security.kerberos.login.conf: krb5.conf
+```
+
+>! 历史 Oceanus 集群可能不支持该功能，您可通过 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_849) 联系我们升级集群管控服务，以支持 Kerberos 访问。
 
 ## 注意事项
 1. 如果 Flink 作业正常运行，日志中没有报错，但是客户端查不到这个 Hive 表，可以使用如下命令对 Hive 表进行修复（需要将 `hive_table_xxx` 替换为要修复的表名）。
