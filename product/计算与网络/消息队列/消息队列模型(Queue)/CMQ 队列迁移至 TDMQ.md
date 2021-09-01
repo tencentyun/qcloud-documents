@@ -57,9 +57,7 @@ Consumer consumer = new Consumer();
 ```
 
 	- NameServerAddress：API 调用地址，在[ TDMQ 控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务** > **API请求地址**处复制。
->CMQ 的 API 调用地址如下：
->- 公网地址：`https://cmq-gz.public.tencenttdmq.com`（不同地域的 API 调用地址 URL会有所变化）
->- 内网地址：`http://gz.mqadapter.cmq.tencentyun.com`（不同地域的 API 调用地址 URL 会有所变化）
+![](https://main.qcloudimg.com/raw/bbc5dc77a8475304377d00cc92028e01.png)
 
 	- SecretId、SecretKey：云API密钥，登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，在**访问密钥** > **API密钥管理**页面复制。
 		![](https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png)
