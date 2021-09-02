@@ -89,6 +89,7 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
 - http 协议服务地址为 `119.29.29.98`，https 协议服务地址为 `119.29.29.99`。
 - 新版本 API 更新为使用 `119.29.29.99/98` 接入，同时原移动解析 HTTPDNS 服务地址 `119.29.29.29` 仅供开发调试使用，无 SLA 保障，不建议用于正式业务，请您尽快将正式业务迁移至 `119.29.29.99/98`。
 - 具体以 [API 说明](https://cloud.tencent.com/document/product/379/54976) 提供的 IP 为准。
+-  SDK 方式接入 HTTPDNS，若 HTTPDNS 未查询到解析结果，则通过 LocalDNS 进行域名解析，返回 LocalDNS 的解析结果。
 
 #### 默认使用 DES 加密
 
