@@ -23,7 +23,7 @@
 <td>vpc-nanjing</td></tr>
 <tr>
 <td>子网</td>
-<td>已选择 VPC 网络的子网名称。<br>如果无法拉取子网，则可能是账号问题，”云联网关联 VPC“所属账号和迁移账号需要一致。<br>例如：要把A账号的实例迁到B账号下面，使用B账号进行任务创建，所以”云联网关联 VPC“一定要是B账号下的。</td>
+<td>已选择 VPC 网络的子网名称。<br>如果无法拉取子网，则可能是账号问题，“云联网关联 VPC”所属账号和迁移账号需要一致。<br>例如：要把A账号的实例迁到B账号下面，使用B账号进行任务创建，所以“云联网关联 VPC”一定要是B账号下的。</td>
 <td>vpc-nanjing-子网</td></tr>
 <tr>
 <td>主机地址</td><td>源数据库的主机 IP 地址。</td><td>172.16.0.0</td></tr>
@@ -44,7 +44,7 @@
       - 云联网关联 VPC 选择有误。       
        云联网关联 VPC 与主机地址不能在同一地域（源库所在网络环境为广州某个 VPC，则云联网关联 VPC 不能选择广州的其他 VPC）；云联网关联 VPC 与主机地址不能在同一 VPC（源库所在网络环境为 VPC-A，则云联网关联 VPC 不能选择 VPC-A）。       
       -  请 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。    
- - Telnet 测试通过，Datebase Connect 失败。
+ - Telnet 测试通过，Database Connect 失败。
      - 迁移帐号授权问题。请参考 [数据迁移](https://cloud.tencent.com/document/product/571/58688)、[数据同步](https://cloud.tencent.com/document/product/571/56516) 中的对应场景，重新对迁移帐号授权。
      - 帐号密码不正确。
 
