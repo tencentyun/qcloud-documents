@@ -283,7 +283,7 @@ service sshd restart
 ::: SSH 启动时报错 error while loading shared libraries
 
 #### 现象描述[](id:errorLibraries)
-Linux 实例启动 SSH 服务，在 secure日志文件中，或直接返回类似如下错误信息：
+Linux 实例启动 SSH 服务，在 secure 日志文件中，或直接返回类似如下错误信息：
 - “error while loading shared libraries： libcrypto.so.10: cannot open shared object file: No such file or directory”
 - “PAM unable to dlopen(/usr/lib64/security/pam_tally.so): /usr/lib64/security/pam_tally.so: cannot open shared object file: No such file or directory”
 
@@ -392,7 +392,7 @@ service sshd start
 :::
 ::: SSH 服务启动时报错 fatal: Cannot bind any address
 #### 现象描述[](id:cannotBindAddress)
-Linux 实例启动 SSH 服务，在 secure日志文件中，或直接返回类似如下错误信息：
+Linux 实例启动 SSH 服务，在 secure 日志文件中，或直接返回类似如下错误信息：
 ```
 FAILED.
 fatal: Cannot bind any address.
@@ -439,7 +439,7 @@ service sshd restart
 ::: SSH 服务启动时报错 Bad configuration options
 
 #### 现象描述[](id:badConfigureOptions)
-Linux 实例启动 SSH 服务，在 secure日志文件中，或直接返回类似如下错误信息：
+Linux 实例启动 SSH 服务，在 secure 日志文件中，或直接返回类似如下错误信息：
 ```
 /etc/ssh/sshd_config: line 2: Bad configuration options:\\ 
 /etc/ssh/sshd_config: terminating, 1 bad configuration options
@@ -447,7 +447,7 @@ Linux 实例启动 SSH 服务，在 secure日志文件中，或直接返回类�
 
 
 #### 问题描述
-配置文件存在文件编码、配置错误等异常问题所致。
+配置文件存在文件编码或配置错误等异常问题所致。
 
 
 #### 解决思路
