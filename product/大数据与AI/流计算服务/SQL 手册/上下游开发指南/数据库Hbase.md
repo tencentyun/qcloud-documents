@@ -15,7 +15,7 @@ CREATE TABLE dim_hbase (
 ) WITH (
   'connector' = 'hbase-1.4',                       -- 固定值为 hbase-1.4
   'table-name' = 'dim_hbase',                      -- Hbase 表名
-  'zookeeper.quorum' = 'ip:port,ip:port,ip:port'.  -- Hbase 的 zookeeper 地址
+  'zookeeper.quorum' = 'ip:port,ip:port,ip:port'  -- Hbase 的 zookeeper 地址
 );
 
 -- Logger Sink 可以将输出数据打印到 TaskManager 的日志中

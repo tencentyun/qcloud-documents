@@ -9,27 +9,27 @@
 </tr>
 <tr>
 <td style="text-align:center">Android  </td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK">Github(推荐)</a></td>
-<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Android/SDK#https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/restructure/android/5.1.131/imsdk-smart-5.1.131.aar">Gitee</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Android/IMSDK">Gitee</a></td>
 <td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/37059">【极速集成】导入TUIKit (Android)</a><br><a href="https://cloud.tencent.com/document/product/269/32679">【常规集成】快速导入到工程 (Android)</a></td>
 <td style="text-align:center" rowspan='4'><a href="https://cloud.tencent.com/document/product/269/1606">更新日志(终端)</a> </td>
 </tr>
 <tr>
 <td style="text-align:center">iOS  </td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/iOS/ImSDK">Github(推荐)</a></td>
-<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/iOS/ImSDK">Gitee</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/iOS/IMSDK">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/iOS/IMSDK">Gitee</a></td>
 <td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/37060">【极速集成】导入TUIKit (iOS)</a><br><a href="https://cloud.tencent.com/document/product/269/32675">【常规集成】快速导入到工程  (iOS)</a></td>
 </tr>
 <tr>
 <td style="text-align:center">Mac  </td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Mac/ImSDK">Github(推荐)</a></td>
-<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Mac/ImSDK">Gitee</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Mac/IMSDK">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Mac/IMSDK">Gitee</a></td>
 <td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/32676">【常规集成】快速导入到工程 (Mac)</a></td>
 </tr>
 <tr>
 <td style="text-align:center">Windows  </td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Windows">Github(推荐)</a></td>
-<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/cross-platform/Windows">Gitee</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Windows/IMSDK">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Windows/IMSDK">Gitee</a></td>
 <td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/33489">【常规集成】快速导入到工程 (Windows)</a></td>
 </tr>
 </table>

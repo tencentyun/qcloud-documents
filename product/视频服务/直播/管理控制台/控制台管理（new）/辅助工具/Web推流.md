@@ -27,6 +27,7 @@
 ![](https://main.qcloudimg.com/raw/47ada859dc54bf2859ce9c76103ab7b4.png)
 4. **推流配置**。设置推流配置，默认为推荐配置（不同分辨率有不同视频码率的推荐配置，音频码率不支持修改），可在右上角单击 **编辑** 进入自定义编辑配置，可自定义修改视频码率和音频码率。
 > ? web 推流的音频编码方式为 opus 编码，推荐使用快直播 WebRTC 地址进行播放。若使用标准直播的播放地址（RTMP/FLV/HLS），系统会自动转换为 aac 编码才能正常播放，从而会产生音频转码费用，详见 [计费文档](https://cloud.tencent.com/document/product/267/39889#a_trans)。
+> 
 ![](https://main.qcloudimg.com/raw/1cdda05bdee9acb361fde98d754796a6.png)
 5. **推流预览**。在确定采集方式和配置以及推流配置后，开启预览，即可在右侧看到推流预览。
 ![](https://main.qcloudimg.com/raw/60e032cbac522fb02cd58550a10cb621.png)
