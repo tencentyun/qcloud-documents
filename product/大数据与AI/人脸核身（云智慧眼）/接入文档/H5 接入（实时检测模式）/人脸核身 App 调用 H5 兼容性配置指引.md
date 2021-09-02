@@ -29,7 +29,7 @@ config.allowsInlineMediaPlayback = YES;
     - 如果第三方编译的 targetSdkVersion >= 23，则需要动态申请权限。
     - 如果第三方编译的 targetSdkVersion < 23，则不需要动态申请权限。
 3. 设置 WebSettings
- 调用 WebView.loadUrl(String url) 前一行添加如下代码设置 WebSettings。
+调用 WebView.loadUrl(String url) 前一行添加如下代码设置 WebSettings。
 ```
 /**
 * 对 WebSettings 进行设置：添加 ua 字段和适配 h5 页面布局等
@@ -42,7 +42,7 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
  调用 WebView.loadUrl(String url) 前，WebView 必须调用 setWebChormeClient(WebChromeClient webChormeClient)，并重写 WebChromeClient 的如下三个函数：
 ```
 /**
- * H5_TRTC刷脸配置，这里负责处理授权来自H5界面发来的相机权限申请
+ * H5_TRTC刷脸配置，这里负责处理授权来自 H5 界面发来的相机权限申请
  * @param request 来自h5界面的权限请求
  */
 @Override
@@ -53,7 +53,7 @@ public void onPermissionRequest(PermissionRequest request) {
 	}
 }
 /**
-* android端接收H5端发来的请求
+* android 端接收H5端发来的请求
 For Android >= 3.0
 */
 public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType) {        
@@ -71,7 +71,7 @@ public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, Str
     // TODO: 第三方有调用系统相机处理其他业务的话，将相关逻辑代码放在下面
 }
 /**
-* android端接收H5端发来的请求
+* android 端接收H5端发来的请求
 For Lollipop 5.0+ Devices
 */
 @Override
@@ -86,11 +86,11 @@ public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathC
 >!
 >- 如果第三方已重写以上函数，只要将如上述所示的函数体内容添加至第三方的对应函数体首行即可。
 >- 如果第三方没有重写以上函数，则直接按上述所示重写。
->- WebView不要使用layerType属性，否则导致刷脸界面白屏。
+>- WebView 不要使用 layerType 属性，否则导致刷脸界面白屏。
 >
 5. 重写 Activity
- WebView 所属的 Activity 必须重写如下函数：
-
+WebView 所属的 Activity 必须重写如下函数：
+```
 */***
 
 ****返回到**WebView**所属的**Activity**的回调*
@@ -105,16 +105,12 @@ public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathC
 
   **if** (WBH5FaceVerifySDK.getInstance().receiveH5FaceVerifyResult(requestCode,resultCode,data))
 
-​    **return**;
+   **return**;
 
-*//* *TODO:* *第三方有其他请求的返回结果要处理的话，将相关逻辑代码放在下面*
-
- 
+*//* *TODO:* *第三方有其他请求的返回结果要处理的话，将相关逻辑代码放在下面* 
 
 }
-
-**注意：**
-
-l 如果第三方 WebView 所属的 Activity 已重写以上函数，则将如上图所示的函数体内容添加至第三方的对应函数体首行即可。
-
-l 如果第三方 WebView 所属的 Activity 没有重写以上函数，则直接按上图所示重写。
+```
+>!
+>- 如果第三方 WebView 所属的 Activity 已重写以上函数，则将如上图所示的函数体内容添加至第三方的对应函数体首行即可。
+>- 如果第三方 WebView 所属的 Activity 没有重写以上函数，则直接按上图所示重写。
