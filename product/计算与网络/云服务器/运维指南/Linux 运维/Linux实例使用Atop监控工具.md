@@ -85,3 +85,9 @@ atop -r /var/log/atop/atop_2021xxxx
 - **NET 行**：多列 NET 展示了网络状况，包括传输层（TCP 和 UDP）、IP 层以及各活动的网口信息。
  - xxxxxi：各层或活动网口收包数目。
  - xxxxxo：各层或活动网口发包数目。
+
+### 停止 Atop
+不建议在业务环境下长期运行 Atop，您可在问题排查完成后，执行以下命令停止 Atop。
+```
+systemctl stop atop
+```
