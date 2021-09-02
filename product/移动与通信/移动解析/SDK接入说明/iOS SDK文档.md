@@ -170,7 +170,7 @@ msdkDns?.initConfig(with: [
 >- 如 IPv6 地址为0，则直接使用 IPv4 地址连接。
 >- 如 IPv4 地址为0，则直接使用 IPv6 地址连接。
 >- 如 IPv4 和 IPv6 地址都不为0，则由客户端决定优先使用哪个地址进行连接，但优先地址连接失败时应切换为另一个地址。 
->- SDK 方式接入 HTTPDNS，若 HTTPDNS 未查询到解析结果，则通过 LocalDNS 进行域名解析，返回 LocalDNS 的解析结果。
+>- 使用 SDK 方式接入 HTTPDNS，若 HTTPDNS 未查询到解析结果，则通过 LocalDNS 进行域名解析，返回 LocalDNS 的解析结果。
 
 #### 同步解析接口：WGGetHostByName、WGGetHostByNames
 
