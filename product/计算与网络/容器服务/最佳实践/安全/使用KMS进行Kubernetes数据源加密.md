@@ -45,7 +45,7 @@
 2. 在“集群管理”页面中，选择符合条件的集群 ID，进入该集群详情页。
 3. 选择该集群任意界面右上角**YAML创建资源**，进入 YAML 创建资源页，输入 `tke-kms-plugin.yaml` 内容。如下所示：
 > ? 请根据实际情况替换以下参数：
-> - `{{REGION}}`：KMS 密钥所在地域，有效值可取： `ap-beijing`、`ap-guangzhou`、`ap-shanghai`。
+> - `{{REGION}}`：KMS 密钥所在地域，有效值可参见 [地域列表](https://cloud.tencent.com/document/api/573/34406#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
 > - `{{KEY_ID}}`：输入 [创建 KMS 密钥并获取 ID](#createKMS) 步骤中所获取的 KMS 密钥 ID。
 > - `{{SECRET_ID}}` 和 `{{SECRET_KEY}}`：输入 [创建并获取访问密钥](#createCAM) 步骤中创建的 SecretID 和 SecretKey。
 > - `images: ccr.ccs.tencentyun.com/tke-plugin/tke-kms-plugin:1.0.0`：tke-kms-plugin 镜像地址。当您需要使用自己制作的 tke-kms-plugin 镜像时，可自行进行更换。
