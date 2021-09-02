@@ -113,7 +113,9 @@
 >!
 >- 以下示例为 AES/DES 加密方式，其中域名和 IP 参数均需要加密，如 `cloud.tencent.com` 为域名加密后的信息，授权 ID 不需要进行加密。
 >- 如使用 HTTPS 加密方式，请求地址改为 119.29.29.99 并且必须要传入 token。
->
+>- 若 HTTPDNS 未查询到解析结果，将返回为空值。
+>- HTTP 已接入 BGP Anycast ，并实现多地机房容灾，但为了服务质量更高的保障，建议您采用 [Failed over 策略](https://cloud.tencent.com/document/product/379/3523) 进行接入。 
+
 ### 请求 A 记录
 - **输入示例：**
 ```
