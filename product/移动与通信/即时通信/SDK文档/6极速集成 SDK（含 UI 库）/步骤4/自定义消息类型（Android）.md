@@ -34,7 +34,7 @@
 ## 自定义消息
 >- 如果基本消息类型不能满足您的需求，您可以根据实际业务需求自定义消息。
 >- 本文以发送一条可跳转至浏览器的超文本作为自定义消息为例，帮助您快速了解实现流程。**本文以 `5.4.666` 版本为例，与之前版本有所不同。**
->- 可以参考 [自定义欢迎消息实现](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/helper/HelloChatController.java) 和 [自定义群直播消息实现](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit-live/src/main/java/com/tencent/qcloud/tim/tuikit/live/helper/TUIKitLiveChatController.java) 。
+>- 可以参考 [自定义欢迎消息实现](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/helper/HelloChatController.java) 和 [自定义群直播消息实现](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/tuikit-live/src/main/java/com/tencent/qcloud/tim/tuikit/live/helper/TUIKitLiveChatController.java) 。
 
 ### 实现自定义消息的流程
 自定义消息流程
