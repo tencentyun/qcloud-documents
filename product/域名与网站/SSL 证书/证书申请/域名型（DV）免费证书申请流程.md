@@ -7,9 +7,8 @@
 
 ## 申请免费证书
 >?
->- 免费证书提供二级域名证书申请。
+>- 免费证书仅提供二级域名及其子域名证书申请，不支持 IP 与泛域名申请。如：dnspod.cn、docs.dnspod.cn。
 >- 亚洲诚信范围内（不一定在腾讯云申请）的同一主域最多只能申请20张免费证书，申请时请注意该域名是否在其他服务商平台存在亚洲诚信下的证书，避免申请达到上限无法申请。更多详情可参考 [免费证书名额相关问题](https://cloud.tencent.com/document/product/400/46849)。
->- 如需要给二级域名进行配置证书，请您单独对该二级域名进行申请证书。
 >- 免费证书到期后如需继续使用证书，请重新申请并安装。
 >
 1. 登录 [SSL证书管理控制台](https://console.cloud.tencent.com/ssl)，进入 “我的证书” 管理页面，并单击【申请免费证书】。如下图所示：
@@ -30,7 +29,7 @@
 4. 选择域名验证方式，并单击【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/9adc3968c25a0745988d015a4c1ed1ca.png)
  - **选择自动添加 DNS**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/54499)。
->?如果所申请域名成功添加 [DNS 解析平台](https://console.cloud.tencent.com/cns/domains)，可以支持自动添加 DNS。
+>?如果所申请域名成功托管在 [DNSPod DNS解析](https://console.cloud.tencent.com/cns/domains)，可以支持自动添加 DNS。
  - **选择 DNS 验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/54500)。
  - **选择文件验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/54501)。
 5. 根据【验证操作】提示，完成域名身份验证即可获取证书。
@@ -44,7 +43,12 @@
 >!提交域名未通过 CA 机构安全审核，具体原因参考 [安全审核失败原因](https://cloud.tencent.com/document/product/400/5439)。
 >
 ## 下载和部署
-完成域名审核后，颁发的证书可下载到本地，或者部署到腾讯云相关云服务。如下图所示：
-![](https://main.qcloudimg.com/raw/5c3b23c2abb7e3dfa75e5847a8945987.png)
+完成域名审核后，颁发的证书即可单击**下载**到本地进行安装部署或部署到腾讯云相关云服务上。相关操作请参见：[如何选择 SSL 证书安装部署类型？](https://cloud.tencent.com/document/product/400/4143)
+
+## 相关问题
+- [免费 SSL 证书名额相关问题](https://cloud.tencent.com/document/product/400/46849)。
+- [SSL 证书配置的 TXT 解析是否可以删除？](https://cloud.tencent.com/document/product/400/46864)。
+- [忘记私钥密码怎么办？](https://cloud.tencent.com/document/product/400/7421)
+- [免费 SSL 证书一直在待验证怎么办？](https://cloud.tencent.com/document/product/400/46870)
 
 
