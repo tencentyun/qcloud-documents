@@ -42,7 +42,7 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
  调用 WebView.loadUrl(String url) 前，WebView 必须调用 setWebChormeClient(WebChromeClient webChormeClient)，并重写 WebChromeClient 的如下三个函数：
 >!
 >- 如果第三方已重写以下函数，只要将如下所示的函数体内容添加至第三方的对应函数体首行即可。
->- 如果第三方没有重写以下函数，则直接按上述所示重写。
+>- 如果第三方没有重写以下函数，则直接按以下代码示重写。
 >- WebView 不要使用 layerType 属性，否则导致刷脸界面白屏。
 >
 ```
@@ -92,7 +92,7 @@ public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathC
  WebView 所属的 Activity 必须重写如下函数：
 >!
 >- 如果第三方 WebView 所属的 Activity 已重写以下函数，则将如下所示的函数体内容添加至第三方的对应函数体首行即可。
->- 如果第三方 WebView 所属的 Activity 没有重写以下函数，则直接按上图所示重写。
+>- 如果第三方 WebView 所属的 Activity 没有重写以下函数，则直接按以下代码重写。
 >
 ```
 /**
