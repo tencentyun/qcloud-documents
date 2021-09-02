@@ -53,8 +53,8 @@ COSDistCp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 |      --filesPerMapper=VALUE      | 指定每个 Mapper 输入文件的行数<br>示例：--filesPerMapper=10000 | 500000 |    否    |
 |        --groupBy=PATTERN         | 指定正则表达式对文件进行聚合</br>示例：--groupBy='.\*group-input/(\d+)-(\d+).\*' |   无   |    否    |
 |        --targetSize=VALUE        | 指定目标文件的大小，单位：MB，与 --groupBy 一起使用</br>示例：--targetSize=10 |   无   |    否    |
-|       --outputCodec=VALUE        | 指定输出文件的压缩方式，可选 gzip、lzo、snappy、none 和 keep，其中：</br> 1. keep 保持原有文件的压缩方式<br>2. none 则根据文件后缀对文件进行解压</br>示例：--outputCodec=gzip |  keep  |    否    |
-|        --deleteOnSuccess         | 指定源文件拷贝到目标目录成功时，立即删除源文件</br>示例：--deleteOnSuccess，注意：1.7 及以上版本不再提供该参数，建议数据迁移成功后，再删除源文件系统的数据 | false  |    否    |
+|       --outputCodec=VALUE        | 指定输出文件的压缩方式，可选 gzip、lzo、snappy、none 和 keep，其中：</br> 1. keep 保持原有文件的压缩方式<br>2. none 则根据文件后缀对文件进行解压， </br>示例：--outputCodec=gzip </br>**注意：如果存在文件 /dir/test.gzip 和 /dir/test.gz，指定输出格式为 lzo，最终只会保留一个文件 /dir/test.lzo** |  keep  |    否    |
+|        --deleteOnSuccess         | 指定源文件拷贝到目标目录成功时，立即删除源文件</br>示例：--deleteOnSuccess，</br>**注意：1.7 及以上版本不再提供该参数，建议数据迁移成功后，再删除源文件系统的数据** | false  |    否    |
 | --multipartUploadChunkSize=VALUE | 指定 Hadoop-COS 插件传输文件到 COS 时分块的大小，COS 支持的最大分块数为 10000，您可根据文件大小，调整分块大小，单位：MB，默认为8MB</br>示例：--multipartUploadChunkSize=20 |  8MB   |    否    |
 |    --cosServerSideEncryption     | 指定文件上传到 COS 时，使用 SSE-COS 作为加解密算法</br>示例：--cosServerSideEncryption | false  |    否    |
 |      --outputManifest=VALUE      | 指定拷贝完成的时候，在目标目录下生成本次拷贝到目标文件信息列表（GZIP 压缩）</br>示例：--outputManifest=manifest.gz |   无   |    否    |
@@ -313,7 +313,7 @@ grep -v '"comment":"SRC_MISS"' diff-manifest |gzip > diff-manifest.gz
 ```plaintext
 hadoop  jar cos-distcp-${version}.jar --taskNumber=20 --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --previousManifest=file:///usr/local/service/hadoop/diff-manifest.gz --copyFromManifest
 ```
-增量迁移完成后，再次运行带 --diffMode 参数的命令，查看是否文件是否完全一致。
+增量迁移完成后，再次运行带 --diffMode 参数的命令，校验文件是否完全一致。
 
 ### 指定 COS 文件的存储类型
 
@@ -413,7 +413,7 @@ hadoop jar cos-distcp-1.4-2.8.5.jar \
 
 ## 常见问题
 ### 使用 COSDistcp 迁移 HDFS 数据包含哪些阶段，如何调整迁移性能和保障数据的正确性？
-您可以执行如下两个阶段保障数据的准确性，首先执行如下的命令进行迁移：
+您可以执行如下两个阶段的命令，以保障数据的准确性，首先执行如下的命令进行迁移：
 ```
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --taskNumber=20
 ```
@@ -427,7 +427,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 对于环境中未配置 Hadoop-COS 插件的用户，根据 Hadoop 版本，下载对应版本的 COSDistCp jar 包后，指定 Hadoop-COS 相关参数执行拷贝任务：
 
 ```plaintext
-hadoop jar cos-distcp-1.3-2.8.5.jar \
+hadoop jar cos-distcp-${version}.jar \
 -Dfs.cosn.credentials.provider=org.apache.hadoop.fs.auth.SimpleCredentialProvider \
 -Dfs.cosn.userinfo.secretId=COS_SECRETID \
 -Dfs.cosn.userinfo.secretKey=COS_SECRETKEY \
