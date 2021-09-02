@@ -464,4 +464,4 @@ yarn logs -applicationId application_1610615435237_0021 > application_1610615435
 - 对于非 COS 的目标端，COSDistCp 会尝试删除目标端文件。
 
 ### COS 存储桶中存在一些看不见的未完成上传文件，占用存储空间，如何处理？
-由于机器异常、进程被 Kill 等因素，可能导致 COS 存储桶中存在一些碎片文件占用存储空间，您可参考官网[生命周期文档](https://cloud.tencent.com/document/product/436/14605)配置碎片删除规则，进行清理。
+由于机器异常、进程被 Kill 等因素，可能导致 COS 存储桶中存在一些碎片文件占用存储空间，您可参考官网 [生命周期文档](https://cloud.tencent.com/document/product/436/14605) 配置碎片删除规则，进行清理。
