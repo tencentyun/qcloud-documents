@@ -241,6 +241,7 @@ pvc-e193201e-6f6d-48cf-b96d-ccc09225cf9c   30Gi       RWO            Delete     
 
 - 已创建1.18或以上版本的 [TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
 - 已安装最新版的 [CBS-CSI](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CBS.md "cbs csi文档") 组件。
+- 在 [访问管理](https://console.cloud.tencent.com/cam/role) 控制台完成对 `TKE_QCSRole` 角色授予 CBS快照操作的相关权限，详情请参考 [快照授权](#authorize)。
 
 
 #### 操作步骤
@@ -399,3 +400,52 @@ status:
 :::
 </dx-codeblock>
 
+## 快照授权 [](id:authorize)
+
+### 授权场景
+使用CBS-CSI插件的 [创建快照和使用快照来恢复卷](#backup) 功能时，需给容器服务角色 `TKE_QCSRole`  授予快照等相关资源的操作
+
+### 授权步骤
+1、创建自定义策略
+- 登录  [访问管理](https://console.cloud.tencent.com/cam/role)  控制台，选择左侧导航栏的【策略】。
+- 在“策略”列表页面中，单击 【新建自定义策略】，创建策略方式选择【按策略生成器创建】。
+- 在“编辑策略”列表页面中选择【JSON】，将以下代码复制并替换到文本框中，并点击“下一步”。
+![](https://main.qcloudimg.com/raw/20bce11d9a41c1564f32abb5178ea002.png)
+- 在“关联用户/用户组”页面指定策略名称（这里设置为 `QcloudAccessForTKERoleInCBSSnapshot` ）和关联用户/用户组。
+
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "effect": "allow",
+            "action": [
+                "cvm:CreateSnapshot",
+                "cvm:DeleteSnapshot",
+                "cvm:DescribeSnapshots"
+            ],
+            "resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+
+- 单击【确定】即可完成自定义策略的设定。
+
+2、绑定策略到角色
+- 登录  [访问管理](https://console.cloud.tencent.com/cam/role)  控制台，选择左侧导航栏的【角色】。
+- 在“角色”列表页面中，搜索 TKE_QCSRole 进入该角色管理页面。
+- 选择 “TKE_QCSRole” 页面中的【关联策略】，并在弹出的“风险提醒”窗口中进行确认。
+![](https://main.qcloudimg.com/raw/5cf2f5e7f0b180ff81da622cf40b3467.png)
+- 在弹出的“关联策略”窗口中，找到自定义 `QcloudAccessForTKERoleInCBSSnapshot` 策略并勾选。
+- 单击【确定】即可完成授权。
+
+### 权限内容
+
+| 权限名称 | 权限说明 |
+|---------|---------|
+| cvm:CreateSnapshot | 创建快照 |
+| cvm:DeleteSnapshot | 删除快照 |
+| cvm:DescribeSnapshots | 描述快照列表 |
