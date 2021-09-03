@@ -20,7 +20,7 @@
 ![](https://main.qcloudimg.com/raw/bdbb79b1804f420aaf2acf7b758268c1.png)
 4. 随后进入 [云函数](https://console.cloud.tencent.com/scf/list?rid=16&ns=default) 产品控制台创建模板函数。
 ![](https://main.qcloudimg.com/raw/6908d242862fabac3058c9ab62e66d98.png)
-5. 单击**新建**按钮，创建方式选择**模板创建**，在下方模糊搜索栏搜索“`IoT Explorer`。
+5. 单击**新建**按钮，创建方式选择**模板创建**，在下方模糊搜索栏搜索 `IoT Explorer`。
 ![](https://main.qcloudimg.com/raw/738bacf6c26feb3109343b81c909eced.png)
 选择“IoT Explorer数据同步转发”模板后，单击**下一步**按钮
 6. 无需更改相关配置信息，单击**完成**按钮后进入函数管理页面。
