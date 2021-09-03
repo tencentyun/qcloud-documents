@@ -10,11 +10,11 @@
 | QoS      | 弱网抗性能力弱             | 50%丢包率可正常视频观看，70%丢包率可正常语音连麦 |
 | 支持区域 | 仅支持中国内地（大陆）地区 | 全球覆盖                                           |
 | 使用产品 | 需开通移动直播、云直播服务 | 需开通移动直播、云直播、实时音视频服务             |
-| 价格     | 0.016元/分钟               | 阶梯价格，详情请参见 [费用介绍](https://cloud.tencent.com/document/product/454/60981) |
+| 价格     | 0.016元/分钟               | 阶梯价格，详情请参见 [费用介绍](#price) |
 
 
 ## RTC PK 方案演示
-移动直播 SDK 提供了新的 V2 接口：` V2TXLivePusher` （推流）、` V2TXLivePlayer` （拉流），用来帮助客户实现更加灵活、更低延时、更多人数的直播互动场景。开播端可以利用 V2 提供的 RTC 推流能力，默认情况下，观众端观看则可使用 CDN 方式进行拉流。 CDN 观看费用较低。如果主播端有 PK 需求，直接互相播放对方的流即可。RTC PK 需要另外开通服务，具体步骤请参见 [TODO](https://tcloud-doc.isd.com/document/product/454/60985?!editLang=zh&!preview#step4) 配置。
+移动直播 SDK 提供了新的 V2 接口：` V2TXLivePusher` （推流）、` V2TXLivePlayer` （拉流），用来帮助客户实现更加灵活、更低延时、更多人数的直播互动场景。开播端可以利用 V2 提供的 RTC 推流能力，默认情况下，观众端观看则可使用 CDN 方式进行拉流。 CDN 观看费用较低。如果主播端有 PK 需求，直接互相播放对方的流即可。RTC PK 需要另外开通服务，具体步骤请参见 [配置连麦或 PK 能力](https://cloud.tencent.com/document/product/454/60985#step4) 配置。
 下面是 [MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) Demo 的演示效果。
 
 ### 演示图示
@@ -511,4 +511,41 @@ RTC 连麦互动直播服务后付费有 [日结](#daily) 和 [月结](#monthly)
   - B 接收 A 的分辨率前30分钟位于超清档，后15分钟没有接收 A 的视频流。
   - B 产生的费用为 `超清视频时长单价 × 超清视频时长 + 语音时长单价 × 语音时长 = 105元/千分钟 × (30分钟 / 1000) + 7元/千分钟 × (15分钟 / 1000）= 3.255元`。
 
-则产生的**总费用**为 `用户 A 产生的费用 + 用户 B 产生的费用 = 4.305元 `。
+则产生的**总费用**为 `用户 A 产生的费用 + 用户 B 产生的费用 = 4.305元`。
+
+[](id:que)
+## 常见问题
+[](id:que1)
+#### 1. 为什么使用 `V2TXLivePusher&V2TXLivePlayer` 接口时，同一台设备不支持使用相同 streamid 同时推流和拉流，而 `TXLivePusher&TXLivePlayer` 可以支持？
+
+是的，目前 `V2TXLivePusher&V2TXLivePlayer` 是 [腾讯云 TRTC](https://cloud.tencent.com/document/product/647/45151) 协议实现，其基于 UDP 的超低延时的私有协议暂时还不支持**同一台设备，使用相同的 streamid，一边推超低延时流，一边拉超低延时的流**，同时考虑到用户的使用场景，所以暂时并未支持，后续会酌情考虑此问题的优化。
+
+[](id:que2)
+#### 2. [**服务开通**](#step1) 章节中生成参数都是什么意思呢？
+
+SDKAppID 用于标识您的应用，UserID 用于标识您的用户，而 UserSig 则是基于前两者计算出的安全签名，它由 **HMAC SHA256** 加密算法计算得出。只要攻击者不能伪造 UserSig，就无法盗用您的云服务流量。UserSig 的计算原理如下图所示，其本质就是对 SDKAppID、UserID、ExpireTime 等关键信息进行了一次哈希加密：
+
+```Cpp
+//UserSig 计算公式，其中 secretkey 为计算 usersig 用的加密密钥
+
+usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire + 
+                                 base64(userid + sdkappid + currtime + expire)))
+```
+
+[](id:que3)
+#### 3. V2TXLivePusher&V2TXLivePlayer 如何设置音质或者画质呢？
+我们有提供对应的音质和画质的设置接口，详情见 API 文件：[设置推流音频质量](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a88956a3ad5e030af7b2f7f46899e5f13) 和 [设置推流视频参数](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a0b08436c1e14a8d7d9875fae59ac6d84)。
+
+[](id:que4)
+#### 4. 收到一个错误码：`-5`，代表什么意思？
+-5表示由于许可证无效，因此无法调用API，对应的枚举值为：[V2TXLIVE_ERROR_INVALID_LICENSE](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__ios.html)，更多错误码请参见 [API 状态码](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__ios.html)。
+
+[](id:que5)
+#### 5. RTC连麦方案的时延性有可以参考的数据吗？
+新的 RTC 连麦方案中，主播连麦的延时 &lt; 200ms，主播和观众的延时在 100ms - 1000ms。
+
+[](id:que6)
+#### 6. RTC 推流成功后，使用 CDN 拉流一直提示404？
+检查一下是否有开启实时音视频服务的旁路直播功能，基本原理是 RTC 协议推流后，如果需要使用 CDN 播放，RTC 会在后台服务中旁路流信息到 CDN 上。
+
+
