@@ -20,7 +20,7 @@
 ![](https://main.qcloudimg.com/raw/c5d09ad1df000b33c68bd29773271104.png)
 5. 进入 “审阅” 步骤，填写相关信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/fc977bb5dddf69f257cbae94dc2f23c1.png)
- - **角色名称**：请输入 `PRIVATEDNS_ACCOUNT`。
+ - **角色名称**：请输入 `PRIVATEDNS_ACCOUNT_{被授权 UIN}`。例如 `PRIVATEDNS_ACCOUNT_88888888`。
  - **角色描述**：请输入相关描述。
 6. 单击**完成**，即可完成角色授权操作。
 
