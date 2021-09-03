@@ -5,7 +5,7 @@
 1. 登录 [腾讯云 DNS 解析控制台](https://console.cloud.tencent.com/cns)。
 2. 在 “域名解析列表” 中，选择需要进行 NS 记录转发的域名，单击操作栏的**解析**，进入该域名的**记录管理**页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/49a39d8d52241ccc61b6acd85eeccf8f.png)
-3. 单击添加记录】，填写以下记录信息。如下图所示：
+3. 单击**添加记录**，填写以下记录信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/9242366a029b7d97570883befdd55294.png)
  - 主机记录：填写子域名。例如，需要将 `www.123.com` 的解析授权给其他 DNS 服务器，您在 “主机记录” 处选择 “www” 即可，并且授权出去的子域名不会影响其他子域名的正常解析。
 >?主机记录选择 “@”，则不允许添加、修改、删除 NS 记录，如需进行相关操作，请前往 [DNSPod 控制台](https://console.dnspod.cn/)。
