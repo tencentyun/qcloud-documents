@@ -61,7 +61,7 @@
 
 [](id:step1)
 ### 1. 主播 A 开始推流
-调用 `V2TXLivePusher` 组件开始主播 A 的推流。URL 拼装方案请参见 [自主拼装 RTC 连麦/PK URL](https://cloud.tencent.com/document/product/454/7915#rtc)。
+调用 `V2TXLivePusher` 组件开始主播 A 的推流。URL 拼装方案请参见 [自主拼装 RTC 连麦/PK URL](https://cloud.tencent.com/document/product/454/7915#rtc_push)。
 <dx-codeblock>
 ::: java java
 V2TXLivePusher pusher = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
@@ -77,7 +77,7 @@ NSString *pushURLA = @"trtc://cloud.tencent.com/push/streamid?sdkappid=140018888
 
 [](id:step2)
 ### 2. 主播 B 开始推流
-调用 `V2TXLivePusher` 组件开始主播 B 的推流。URL 拼装方案请参见 [自主拼装 RTC 连麦/PK URL](https://cloud.tencent.com/document/product/454/7915#rtc)。
+调用 `V2TXLivePusher` 组件开始主播 B 的推流。URL 拼装方案请参见 [自主拼装 RTC 连麦/PK URL](https://cloud.tencent.com/document/product/454/7915#rtc_play)。
 <dx-codeblock>
 ::: java java
 V2TXLivePusher pusher = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
