@@ -6,7 +6,7 @@
 ![](https://main.qcloudimg.com/raw/9012b5275680b170ec6cc8b69358664f.png)
 
 ## 配置
-1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单**规则引擎**。
+1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，单击左侧菜单**规则引擎**。
 2. 进入规则引擎页面，单击需要配置的规则。
 3. 在规则详情页面，单击**添加行为操作**。
 >?第一次使用时会提示用户授权访问 MySQL，您需单击**立即授权**才能继续创建。

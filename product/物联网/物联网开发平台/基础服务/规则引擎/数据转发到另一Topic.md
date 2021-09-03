@@ -1,6 +1,6 @@
 
 ## 概述
-通过将感兴趣的消息字段转发到另一个 Topic，即可实现不同设备间的 M2M 通信。Topic 的填写支持以下方式：
+通过将业务需求所需要的消息字段转发到另一个 Topic，即可实现不同设备间的 M2M 通信。Topic 的填写支持以下方式：
 - **填写一个 Topic 名字**
 例如 `${productId}/house_monitor/thermometer`，即可将满足规则的消息转发到这个 Topic。
 - **填写带变量的 Topic 名字**
@@ -21,14 +21,14 @@ WHERE house="tencent" AND temperature > 40
 ![image](https://main.qcloudimg.com/raw/d4914e4b87c30f9240bbfcd62411be8a.png)
 
 ## 配置
-1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，选择左侧菜单栏**规则引擎**，单击需要配置的规则。
+1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择左侧菜单栏**规则引擎**，单击需要配置的规则。
 2. 在规则详情页面，单击**添加行为操作**。
 3. 在弹出的“添加规则”窗口，填写相关信息。单击**保存**即可。
  - 选择行为类型为“republish”。
  - 填写要转发至的 Topic 名称。
 ![](https://main.qcloudimg.com/raw/ecec657128df4e50498213fda2aaa23f.jpg)
 
-物联网通信平台即可将上报数据发转至该 Topic。
+物联网开发平台即可将设备上报数据发转至该 Topic。
 
 ## 转发消息服务质量等级
 

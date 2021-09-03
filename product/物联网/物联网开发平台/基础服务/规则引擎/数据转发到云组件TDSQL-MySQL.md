@@ -7,7 +7,7 @@
 
 ## 配置[](id:test)
 
-1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单**规则引擎**。
+1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，单击左侧菜单**规则引擎**。
 2. 进入规则引擎页面，单击需要配置的**规则名称**进入规则详情页面。
 3. 单击**添加行为操作**。若是首次使用时会提示用户授权访问 TDSQL，您需单击**立即授权**才能继续创建。
 <img src="https://main.qcloudimg.com/raw/81bb4b6e0335aa6e3e482b8706620750.png" style="width: 75%;">
