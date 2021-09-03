@@ -90,7 +90,6 @@ MySQL 的 CDC 和 Flink 字段类型对应关系如下：
   </tr>
   <tr>
     <td>INT UNSIGNED</td>
-    <td></td>
   </tr>
   <tr>
     <td>BIGINT UNSIGNED</td>
