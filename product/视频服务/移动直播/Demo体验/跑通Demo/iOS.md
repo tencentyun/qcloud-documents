@@ -78,21 +78,7 @@
 
 [](id:step43)
 #### 推流 URL 字段说明
-具体的推流 URL 字符串，需要开发者按照下方协议解析中的规则，在工程代码中自行拼接。URL 的示例如下：
-```http
-trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxxx
-```
-在上述的 URL 中，存在一些关键字段，关于其中关键字段的含义信息，详见下表：
-
-| 字段名称 | 字段含义 |
-| --------------------- | --------------------- |
-| **trtc://** | 互动直播推流 URL 的前缀字段 |
-| **cloud.tencent.com** | 互动直播特定域名，**请勿修改** |
-| **push** | 标识位，表示推流 |
-| **streamid** | 流 ID，需要由开发者自定义 |
-| **sdkappid** | 对应 [服务开通](#step41) 一节中生成的 SDKAppID |
-| **userId** | 主播 ID，需要由开发者自定义 |
-| **usersig** | 由 [服务开通](#step41) 一节中获取的密钥计算得出 |
+具体的推拉流 URL 字符串，需要开发者按照对应的协议自行拼接，拼装方案请参考 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915#rtc)。Demo 中已经拼接好，运行后即可播放。
 
 [](id:step5)
 ### 步骤五：编译运行
