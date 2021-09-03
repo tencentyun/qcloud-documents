@@ -59,9 +59,9 @@
 
 <img src="https://main.qcloudimg.com/raw/638542d7e0bbb8fb3979ebfb00177f9d.png">
 
-
+[](id:step1)
 ### 1. 主播 A 开始推流
-调用 `V2TXLivePusher` 组件开始主播 A 的推流。
+调用 `V2TXLivePusher` 组件开始主播 A 的推流。URL 拼装方案请参见 [自主拼装 RTC 连麦/PK URL](https://cloud.tencent.com/document/product/454/7915#rtc)。
 <dx-codeblock>
 ::: java java
 V2TXLivePusher pusher = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
@@ -75,8 +75,9 @@ NSString *pushURLA = @"trtc://cloud.tencent.com/push/streamid?sdkappid=140018888
 :::
 </dx-codeblock>
 
+[](id:step2)
 ### 2. 主播 B 开始推流
-调用 `V2TXLivePusher` 组件开始主播 B 的推流。
+调用 `V2TXLivePusher` 组件开始主播 B 的推流。URL 拼装方案请参见 [自主拼装 RTC 连麦/PK URL](https://cloud.tencent.com/document/product/454/7915#rtc)。
 <dx-codeblock>
 ::: java java
 V2TXLivePusher pusher = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
@@ -90,6 +91,7 @@ NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=140018888
 :::
 </dx-codeblock>
 
+[](id:step3)
 ### 3. 开始 PK 
 主播 A 和主播 B 分别调用  `V2TXLivePlayer`  开始播放对方的流，此时主播 A 和主播 B 即进入 RTC PK 互动直播场景中。
 <dx-codeblock>
@@ -121,6 +123,7 @@ V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
 :::
 </dx-codeblock>
 
+[](id:step4)
 ### 4. PK 成功，观看 PK 内容
 PK 成功后，观众有两种方式可以观看 PK 内容。
 1. 主播 A 和主播 B 的观众各自调用 V2TXLivePlayer 开始播放另外一名主播的推流内容。
@@ -292,7 +295,8 @@ pusher.setMixTranscodingConfig(config);
 >? 此处开发者可能会有疑问：貌似新的 RTC 连麦方案还需要我们自己维护一套房间和用户状态，这样不是更麻烦吗？是的，**没有更好的方案，只有更适合自己的方案**，我们也有考虑到这样的场景：
 - 如果对时延和并发要求并不高的场景，可以继续使用连麦互动的旧方案。
 - 如果既想用到 V2 相关的接口，但是又不想维护一套单独的房间状态，可以尝试搭配 [腾讯云 IM SDK](https://cloud.tencent.com/document/product/269)，快速实现相关逻辑。
-	
+
+[](id:price)
 ## RTC 连麦方案怎么计算费用
 RTC 连麦互动直播服务费用按所有参与连麦的用户产生的 [视频时长](#v_duration) 和 [语音时长](#s_duration) 来统计连麦服务产生的用量。
 
