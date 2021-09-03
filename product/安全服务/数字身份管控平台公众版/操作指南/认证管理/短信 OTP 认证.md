@@ -35,7 +35,7 @@
 
 
 ### 测试短信
-1. 登录 [数字身份管控平台（公共版）控制台](https://console.cloud.tencent.com/ciam)，在左侧导航栏，选择【认证管理】>【通用认证源】,进入通用认证源页面。
+1. 登录 [数字身份管控平台（公众版）控制台](https://console.cloud.tencent.com/ciam)，在左侧导航栏，选择【认证管理】>【通用认证源】,进入通用认证源页面。
 2. 在通用认证源页面，选择短信 OTP 认证，单击【测试短信】，弹出测试短信弹窗。
 >?测试短信功能仅在短信 OTP 认证源开启状态下可用。
 ![](https://main.qcloudimg.com/raw/c5101afeff25916b6d4bdef9e937e690.png)
