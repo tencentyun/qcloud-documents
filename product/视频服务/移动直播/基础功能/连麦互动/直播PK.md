@@ -93,7 +93,7 @@ NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=140018888
 
 [](id:step3)
 ### 3. 开始 PK 
-主播 A 和主播 B 分别调用  `V2TXLivePlayer`  开始播放对方的流，此时主播 A 和主播 B 即进入 RTC PK 互动直播场景中。URL 拼装方案请参见 [如何拼装 URL](https://cloud.tencent.com/document/product/454/7915#rtc_play)。
+主播 A 和主播 B 分别调用  `V2TXLivePlayer`  开始播放对方的流，此时主播 A 和主播 B 即进入 RTC PK 互动直播场景中。URL 拼装方案请参见 [如何拼装 URL](https://cloud.tencent.com/document/product/454/7915#rtc)。
 <dx-codeblock>
 ::: java java
 // 主播A
