@@ -79,7 +79,7 @@
 
 [](id:step43)
 #### 推流 URL 字段说明
-具体的推拉流 URL 字符串，需要开发者按照对应的协议自行拼接，拼装方案请参考 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915#rtc)。Demo 中已经拼接好，运行后即可播放。
+具体的推拉流 URL 字符串，需要开发者按照对应的协议自行拼接，拼装方案请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915#rtc)。Demo 中已经拼接好，运行后即可播放。
 
 [](id:step5)
 ### 步骤五：编译运行
