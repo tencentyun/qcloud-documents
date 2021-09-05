@@ -24,8 +24,8 @@ Hadoop-2.6.0及以上版本、Hadoop-COS 插件 5.9.3 及以上版本。
 
 #### 获取 COSDistCp jar 包
 
-- Hadoop 2.x 用户可下载 [cos-distcp-1.6-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.6-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.6-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
-- Hadoop 3.x 用户可下载 [cos-distcp-1.6-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.6-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.6-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
+- Hadoop 2.x 用户可下载 [cos-distcp-1.7-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.7-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.7-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
+- Hadoop 3.x 用户可下载 [cos-distcp-1.7-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.7-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.7-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
 
 #### 安装说明
 
@@ -39,7 +39,7 @@ COSDistCp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 
 ## 参数说明
 
-您可使用命令 `hadoop jar cos-distcp-${version}.jar --help` 查看 COSDistCp 支持的参数选项，其中`${version}`为版本号，以下为 COSDistCp 参数说明：
+您可使用命令 `hadoop jar cos-distcp-${version}.jar --help` 查看 COSDistCp 支持的参数选项，其中`${version}`为版本号，以下为当前版本 COSDistCp 的参数说明：
 
 
 |              属性键              | 说明                                                         | 默认值 | 是否必填 |
@@ -47,14 +47,14 @@ COSDistCp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 |              --help              | 输出 COSDistCp 支持的参数选项<br> 示例：--help               |   无   |    否    |
 |          --src=LOCATION          | 指定拷贝的源目录，可以是 HDFS 或者 COS 路径<br> 示例：--src=hdfs://user/logs/ |   无   |    是    |
 |         --dest=LOCATION          | 指定拷贝的目标目录，可以是 HDFS 或者 COS 路径<br> 示例：--dest=cosn://examplebucket-1250000000/user/logs |   无   |    是 |
-|       --srcPattern=PATTERN       | 指定正则表达式对源目录中的文件进行过滤<br>示例：`--srcPattern='.*.log'`<br>**注意：您需要将参数使用单引号包围，以避免符号`*`被 shell 解释**。 |   无   |    否    |
+|       --srcPattern=PATTERN       | 指定正则表达式对源目录中的文件进行过滤<br>示例：`--srcPattern='.*.log'`<br>**注意：您需要将参数使用单引号包围，以避免符号`*`被 shell 解释** |   无   |    否    |
 |       --taskNumber=VALUE       | 指定拷贝进程数，示例：--taskNumber=10 |   10   |    否    |
 |       --workerNumber=VALUE       | 指定拷贝线程数，COSDistCp 在每个拷贝进程中创建该参数大小的拷贝线程池<br>示例：--workerNumber=4 |   4    |    否    |
 |      --filesPerMapper=VALUE      | 指定每个 Mapper 输入文件的行数<br>示例：--filesPerMapper=10000 | 500000 |    否    |
 |        --groupBy=PATTERN         | 指定正则表达式对文件进行聚合</br>示例：--groupBy='.\*group-input/(\d+)-(\d+).\*' |   无   |    否    |
 |        --targetSize=VALUE        | 指定目标文件的大小，单位：MB，与 --groupBy 一起使用</br>示例：--targetSize=10 |   无   |    否    |
-|       --outputCodec=VALUE        | 指定输出文件的压缩方式，可选 gzip、lzo、snappy、none 和 keep，其中：</br> 1. keep 保持原有文件的压缩方式<br>2. none 则根据文件后缀对文件进行解压</br>示例：--outputCodec=gzip |  keep  |    否    |
-|        --deleteOnSuccess         | 指定源文件拷贝到目标目录成功时，立即删除源文件</br>示例：--deleteOnSuccess | false  |    否    |
+|       --outputCodec=VALUE        | 指定输出文件的压缩方式，可选 gzip、lzo、snappy、none 和 keep，其中：</br> 1. keep 保持原有文件的压缩方式<br>2. none 则根据文件后缀对文件进行解压， </br>示例：--outputCodec=gzip </br>**注意：如果存在文件 /dir/test.gzip 和 /dir/test.gz，指定输出格式为 lzo，最终只会保留一个文件 /dir/test.lzo** |  keep  |    否    |
+|        --deleteOnSuccess         | 指定源文件拷贝到目标目录成功时，立即删除源文件</br>示例：--deleteOnSuccess，</br>**注意：1.7 及以上版本不再提供该参数，建议数据迁移成功后，再删除源文件系统的数据** | false  |    否    |
 | --multipartUploadChunkSize=VALUE | 指定 Hadoop-COS 插件传输文件到 COS 时分块的大小，COS 支持的最大分块数为 10000，您可根据文件大小，调整分块大小，单位：MB，默认为8MB</br>示例：--multipartUploadChunkSize=20 |  8MB   |    否    |
 |    --cosServerSideEncryption     | 指定文件上传到 COS 时，使用 SSE-COS 作为加解密算法</br>示例：--cosServerSideEncryption | false  |    否    |
 |      --outputManifest=VALUE      | 指定拷贝完成的时候，在目标目录下生成本次拷贝到目标文件信息列表（GZIP 压缩）</br>示例：--outputManifest=manifest.gz |   无   |    否    |
@@ -75,13 +75,15 @@ COSDistCp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 |      --promGatewayJobName=VALUE      | 指定上报给 Prometheus PushGateway 的 JobName </br>示例：--promGatewayJobName=cos-distcp-hive-backup           |   无   |    否    |
 |      --promCollectInterval=VALUE      | 指定收集 MapReduce 任务 Counter 信息的间隔，单位：ms </br>示例：--promCollectInterval=5000            |   5000   |    否    |
 |      --promPort=VALUE      | 指定将 Prometheus 指标暴露给外部的 Server 端口 <br>示例：--promPort=9028            |   无   |    否    |
-|      --enableDynamicStrategy      | 指定开启任务动态分配策略，使迁移速度快的任务迁移更多的文件 </br>示例：--enableDynamicStrategy            |   false   |    否    |
+|      --enableDynamicStrategy      | 指定开启任务动态分配策略，使迁移速度快的任务迁移更多的文件。</br>**注意：该模式存在一定局限性，例如任务计数器在进程异常的情况下计数不准确** </br>示例：--enableDynamicStrategy            |   false   |    否    |
 |      --splitRatio=VALUE      | 指定 Dynamic Strategy 的切分比例，splitRatio 值越大，则任务粒度越小</br>示例：--splitRatio=8            |   8   |    否    |
 |      --localTemp=VALUE      | 指定 Dynamic Strategy 生成的任务信息文件所在的本地文件夹</br>示例：--localTemp=/tmp            |   /tmp   |    否    |
 |      --taskFilesCopyThreadNum=VALUE      | 指定 Dynamic Strategy 任务信息文件拷贝到 HDFS 上的并发度 </br>示例：--taskFilesCopyThreadNum=32            |   32   |    否    |
 |      --statsRange=VALUE      | 指定统计的区间范围</br>示例：---statsRange=0,1mb,10mb,100mb,1gb,10gb,inf   |   0,1mb,10mb,100mb,1gb,10gb,inf   |    否    |
 |      --printStatsOnly      | 只统计待迁移文件大小的分布信息，不迁移数据</br>示例：--printStatsOnly            |   无   |    否    |
-
+|      --bandWidth      | 限制每个迁移文件的读取带宽，单位为：MB/s，默认-1，不限制读取带宽。</br>示例：--bandWidth=10            |   无   |    否    |
+|      --jobName      | 指定迁移任务的名称。</br>示例：--jobName=cosdistcp-to-warehouse            |   无   |    否    |
+|      --compareWithCompatibleSuffix  | 使用 --skipMode 和 --diffMode 参数时，是否将源文件的后缀 gzip 转换为 gz，lzop 文件后缀转换为 lzo，进行判断。</br>示例：--compareWithCompatibleSuffix |   无   |    否    |
 
 ## 使用示例
 
@@ -108,18 +110,7 @@ COSDistCp 默认会对拷贝失败的文件重试5次，如果仍然失败，则
 1. 存在源文件的清单中，但拷贝时源文件不存在，记录为 SRC_MISS
 2. 其他原因导致的拷贝失败，统一记录为 COPY_FAILED
 
-您可以通过如下命令，获取除 SRC_MISS 以外的差异文件列表：
-```plaintext
-hadoop fs -getmerge /tmp/${randomUUID}/output/failed/ failed-manifest
-grep -v '"comment":"SRC_MISS"' failed-manifest |gzip > failed-manifest.gz
-```
-
-执行如下命令，根据失败文件列表重新迁移：
-```plaintext
-hadoop  jar cos-distcp-${version}.jar --taskNumber=20 --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --previousManifest=file:///usr/local/service/hadoop/failed-manifest.gz --copyFromManifest
-```
-
-通过如下命令，获取 MapReduce 任务的日志，确定文件拷贝失败的原因，其中 application_1610615435237_0021 为应用 ID：
+您可以重新运行拷贝命令实现增量迁移，通过如下命令，获取 MapReduce 任务的日志，确定文件拷贝失败的原因，其中 application_1610615435237_0021 为应用 ID：
 ```plaintext
 yarn logs -applicationId application_1610615435237_0021 > application_1610615435237_0021.log
 ```
@@ -143,12 +134,13 @@ CosDistCp Counters
 |  统计项   |  说明  |
 | -----|-----|
 |  BYTES_EXPECTED  | 根据源目录统计的需拷贝的文件总大小，单位：字节   |
-|  FILES_EXPECTED  | 根据源目录统计的需拷贝文件数   |
+|  FILES_EXPECTED  | 根据源目录统计的需拷贝文件数，包含目录文件   |
 |   BYTES_SKIPPED  | 长度或校验和值相等，不拷贝的文件总大小，单位：字节  |
 |  FILES_SKIPPED  | 长度或校验和值相等，不拷贝的源文件数  |
 |  FILES_COPIED  | 拷贝成功的源文件数   |
 |  FILES_FAILED  | 拷贝失败的源文件数   |
-
+|  FOLDERS_COPIED  | 拷贝成功的目录数   |
+|  FOLDERS_SKIPPED  | 跳过的目录数   |
 
 
 ### 统计待迁移的文件大小分布信息
@@ -156,7 +148,7 @@ CosDistCp Counters
 以参数 `--printStatsOnly` 和 `--statsRange=VALUE` 执行命令，输出待迁移文件的大小分布信息：
 
 ```plaintext
-hadoop jar cos-distcp-1.6-3.1.0.jar --src /wookie/data --dest cosn://examplebucket-1250000000/wookie/data --printStatsOnly  --statsRange=0,1mb,10mb,100mb,1gb,10gb,inf
+hadoop jar cos-distcp-${version}.jar --src /wookie/data --dest cosn://examplebucket-1250000000/wookie/data --printStatsOnly  --statsRange=0,1mb,10mb,100mb,1gb,10gb,inf
 
 Copy File Distribution Statistics:
 Total File Count: 4
@@ -196,7 +188,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse/ --dest cosn://exampl
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --deleteOnSuccess
 ```
 
->! 指定该选项后每迁移完一个文件，立即删除对应的源文件，并非整个迁移完成后，再删除源文件，请谨慎使用。
+>! 指定该选项后每迁移完一个文件，立即删除对应的源文件，并非整个迁移完成后，再删除源文件，请谨慎使用，1.7 及其以后版本不再提供该参数。
 >
 
 ### 限制单文件读取带宽
@@ -215,30 +207,14 @@ hadoop jar cos-distcp-${version}.jar  --src /data/warehouse --dest cosn://exampl
 hadoop jar cos-distcp-${version}.jar  --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --cosChecksumType=CRC32C
 ```
 
-### 跳过具有相同长度的文件
-
-以参数`--skipMode`执行命令。跳过具有源和目标具有相同长度文件的拷贝：
-```plaintext
-hadoop jar cos-distcp-${version}.jar  --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse  --skipMode=length
-```
-
-`--skipMode`选项用于在拷贝文件前，校验源文件和目标文件是否相同，若相同则跳过，可选 none（不校验）、length（长度）、checksum（CRC 值）和 length-checksum（长度 + CRC 值）。
-
-如果源和目标文件系统的校验和算法不同，则会读取源端文件计算新的校验和。如果您的源是 HDFS，您可以通过如下方式，确定 HDFS 源是否支持 COMPOSITE-CRC32C 校验算法：
-
-```plaintext
-hadoop fs  -Ddfs.checksum.combine.mode=COMPOSITE_CRC -checksum /data/test.txt
-/data/test.txt  COMPOSITE-CRC32C        6a732798
-```
-
 ### 校验源文件和目标文件是否具有相同 CRC
 
-以参数`--checkMode`执行命令，文件拷贝完成时，校验源文件和目标文件校验和是否一致。
+以参数`--checkMode`执行命令，文件拷贝完成时，校验源文件和目标文件长度及校验和是否一致。
 
 从非 COS 文件系统同步到 COS 时，如果源的 CRC 算法和 Hadoop-COS 的 CRC 算法不一致，则拷贝时计算 CRC，并在拷贝完成后，获取目标 COS 文件的 CRC，和计算得到的源文件 CRC 对比校验：
 
 ```plaintext
-hadoop jar cos-distcp-${version}.jar   --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --checkMode=checksum
+hadoop jar cos-distcp-${version}.jar   --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --checkMode=length-checksum
 ```
 
 ### 指定目标文件的压缩类型
@@ -254,7 +230,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse/logs --dest cosn://ex
 
 ### 多目录同步
 
-新建一个本地文件（例如 srcPrefixes.txt），在该文件中添加需要迁移的多个目录，添加之后，可通过 cat 命令查看，示例如下：
+新建一个本地文件（例如 srcPrefixes.txt），在该文件中添加需要迁移的多个目录的绝对路径，这些目录之间需要不存在父子关系，添加之后，可通过 cat 命令查看，示例如下：
 
 ```plaintext
 cat srcPrefixes.txt 
@@ -282,7 +258,25 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest  cosn://exampl
 >! 上述命令的增量迁移，只能同步文件大小变化的文件，无法同步文件内容发生变化的文件。如果文件内容可能发生变化，请参考 --diffMode 使用示例，根据文件的 CRC 确定文件发生变化的文件列表。
 >
 
-### 根据 CRC 获取差异文件列表和增量迁移
+
+### 跳过具有相同校验值文件，进行增量迁移
+
+以参数`--skipMode`执行命令。跳过源和目标具有相同长度和校验和文件的拷贝：
+```plaintext
+hadoop jar cos-distcp-${version}.jar  --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse  --skipMode=length-checksum
+```
+
+`--skipMode`选项用于在拷贝文件前，校验源文件和目标文件是否相同，若相同则跳过，可选 none（不校验）、length（长度）、checksum（CRC 值）和 length-checksum（长度 + CRC 值）。
+
+如果源和目标文件系统的校验和算法不同，则会读取源端文件计算新的校验和。如果您的源是 HDFS，您可以通过如下方式，确定 HDFS 源是否支持 COMPOSITE-CRC32C 校验算法：
+
+```plaintext
+hadoop fs  -Ddfs.checksum.combine.mode=COMPOSITE_CRC -checksum /data/test.txt
+/data/test.txt  COMPOSITE-CRC32C        6a732798
+```
+
+
+### 根据 CRC 获取差异文件列表，及根据差异文件列表增量迁移
 
 以参数`--diffMode`和`--diffOutput`执行命令：
 - `--diffMode` 可选值为 length 和 length-checksum。
@@ -319,6 +313,7 @@ grep -v '"comment":"SRC_MISS"' diff-manifest |gzip > diff-manifest.gz
 ```plaintext
 hadoop  jar cos-distcp-${version}.jar --taskNumber=20 --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --previousManifest=file:///usr/local/service/hadoop/diff-manifest.gz --copyFromManifest
 ```
+增量迁移完成后，再次运行带 --diffMode 参数的命令，校验文件是否完全一致。
 
 ### 指定 COS 文件的存储类型
 
@@ -335,6 +330,9 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 ```plaintext
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse    --dest  cosn://examplebucket-1250000000/data/warehouse --enableDynamicStrategy
 ```
+
+>! 该模式存在一定局限性，例如任务计数器在进程异常的情况下，可能计数不准确。
+>
 
 ### 拷贝文件的元信息
 
@@ -414,13 +412,22 @@ hadoop jar cos-distcp-1.4-2.8.5.jar \
 
 
 ## 常见问题
+### 使用 COSDistcp 迁移 HDFS 数据包含哪些阶段，如何调整迁移性能和保障数据的正确性？
+您可以执行如下两个阶段的命令，以保障数据的准确性，首先执行如下的命令进行迁移：
+```
+hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --taskNumber=20
+```
+迁移完成后，执行如下的命令，查看源和目的的差异文件列表：
+```
+hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --diffMode=length-checksum --diffOutput=/tmp/diff-output
+```
 
 ### 环境中未配置 Hadoop-COS, 如何运行 COSDistCp?
 
 对于环境中未配置 Hadoop-COS 插件的用户，根据 Hadoop 版本，下载对应版本的 COSDistCp jar 包后，指定 Hadoop-COS 相关参数执行拷贝任务：
 
 ```plaintext
-hadoop jar cos-distcp-1.3-2.8.5.jar \
+hadoop jar cos-distcp-${version}.jar \
 -Dfs.cosn.credentials.provider=org.apache.hadoop.fs.auth.SimpleCredentialProvider \
 -Dfs.cosn.userinfo.secretId=COS_SECRETID \
 -Dfs.cosn.userinfo.secretKey=COS_SECRETKEY \
@@ -449,8 +456,12 @@ yarn logs -applicationId application_1610615435237_0021 > application_1610615435
 其中 application_1610615435237_0021 为应用 ID。
 
 ### COSDistCp 是否会在网络等异常情况下，拷贝生成不完整文件？
+
 在网络异常、源文件缺失和权限不足等情况下，COSDistCp 无法在目标端生成和源端同样大小的文件。
 - 对于 COSDistCp 1.5 以下版本，COSDistCp 会尝试删除生成在目标端文件。如果删除失败，则需要您重新执行拷贝任务覆盖这些文件，或者手动删除这些不完整的文件。
 - 对于 COSDistCp 1.5 及以上版本，且运行环境的 Hadoop COS 插件版本在 5.9.3 及以上版本时，如果拷贝到 COS 拷贝失败，COSDistCp 会调用 abort 接口终止正在上传的请求。因此，即使遇到异常情况，也不会生成不完整的文件。
 - 对于 COSDistCp 1.5 及以上版本，如果运行环境的 Hadoop COS 插件版本低于 5.9.3，建议升级到 5.9.3 及其以上版本。
 - 对于非 COS 的目标端，COSDistCp 会尝试删除目标端文件。
+
+### COS 存储桶中存在一些看不见的未完成上传文件，占用存储空间，如何处理？
+由于机器异常、进程被 Kill 等因素，可能导致 COS 存储桶中存在一些碎片文件占用存储空间，您可参考官网 [生命周期文档](https://cloud.tencent.com/document/product/436/14605) 配置碎片删除规则，进行清理。

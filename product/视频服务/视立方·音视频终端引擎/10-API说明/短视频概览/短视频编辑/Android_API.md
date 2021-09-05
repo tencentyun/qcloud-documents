@@ -181,6 +181,8 @@
 | [TXRepeat](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVideoEditConstants__android.html#classcom_1_1tencent_1_1ugc_1_1TXVideoEditConstants_1_1TXRepeat) | 重复片段                     |
 | [TXAbsoluteRect](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVideoEditConstants__android.html#classcom_1_1tencent_1_1ugc_1_1TXVideoEditConstants_1_1TXAbsoluteRect) | 画面合成每个视频的位置和宽高 |
 
+
+[](id:error)
 ## 错误码
 
 ### 短视频编辑结果错误码
@@ -190,8 +192,6 @@
 | GENERATE_RESULT_OK                          | 0    | 生成视频成功                   |
 | GENERATE_RESULT_FAILED                      | -1   | 生成视频失败                   |
 | GENERATE_RESULT_LICENCE_VERIFICATION_FAILED | -5   | 生成视频失败，License 校验错误 |
-
-
 
 ### 短视频预览错误码定义
 

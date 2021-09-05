@@ -9,3 +9,5 @@
 3. 在 Dashboard 列表中，找到您需要收藏的 Dashboard，单击对应的面板名，进入 Dashboard 管理页。
 4. 如下图单击【![](https://main.qcloudimg.com/raw/84c8d89448e297dbb3e1eedd795797ea.png)】，提示“收藏成功”即可。
 ![](https://main.qcloudimg.com/raw/4eb2e2de177b23ec648c0531b2c457c4.png)
+
+

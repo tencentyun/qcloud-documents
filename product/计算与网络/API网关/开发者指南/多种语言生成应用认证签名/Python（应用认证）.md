@@ -12,7 +12,7 @@
 
 ## 环境依赖
 
-API 网关提供 Python 2.7 和 Python 3 两个版本的示例代码，请您根据自己的 Python 版本合理选择。
+API 网关提供 Python 2.7 和 Python 3 两个版本， 以及 JSON 请求方式和 form 请求方式两种请求方式的示例代码，请您根据自己业务的实际情况合理选择。
 
 ## 注意事项
 
@@ -21,8 +21,66 @@ API 网关提供 Python 2.7 和 Python 3 两个版本的示例代码，请您根
 
 
 ## 示例代码[](id:示例代码)
+### Python 2.7 JSON 请求方式示例代码
+<dx-codeblock>
+:::  python
+# -*- coding: utf-8 -*-
+import base64
+import datetime
+import hashlib
+import hmac
+import json
+import requests
 
-### Python 2.7 示例代码
+
+Url = 'http://service-xxxxxxxx-1234567890.cq.apigw.tencentcs.com/app'
+Host = 'service-xxxxxxxx-1234567890.cq.apigw.tencentcs.com'
+#应用 ApiAppKey
+ApiAppKey = 'APIDkva7jni5ihyaaaaaaaaavyz7scdnxdhhba9'
+#应用 ApiAppSecret
+ApiAppSecret = '5rbMhtz2Q44ZxyaaaaaaaaaNBeWjnO9Qgwz537wv'
+
+
+# 获取签名串
+GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
+xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
+HTTPMethod = "POST"
+Accept = 'application/json'
+ContentType = 'application/json'
+body = {
+    "arg1": "a",
+    "arg2": "b"
+}
+body_json = json.dumps(body)
+ContentMD5 = base64.b64encode(hashlib.md5(body_json).hexdigest())
+signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n/app' % (
+    xDate, HTTPMethod, Accept, ContentType, ContentMD5)
+
+
+# 计算签名
+sign = hmac.new(ApiAppSecret, msg=signing_str, digestmod=hashlib.sha1).digest()
+sign = base64.b64encode(sign)
+auth = "hmac id=\"" + ApiAppKey + "\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\""
+sign = auth + sign + "\""
+
+
+# 发送请求
+headers = {
+    'Host': Host,
+    'Accept': Accept,
+    'Content-Type': ContentType,
+    'x-date': xDate,
+    'Authorization': sign
+}
+
+ret = requests.post(Url, headers=headers, data=body_json)
+print(ret.text)
+:::
+</dx-codeblock>
+
+
+
+### Python 2.7 form 请求方式示例代码
 <dx-codeblock>
 :::  python
 # -*- coding: utf-8 -*-
@@ -42,7 +100,6 @@ ApiAppSecret = '42A6S7ZUpK2UL6Faaaaaaaa1rz2qe22RU6h4mT5'
 
 
 # 获取签名串
-
 GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
 xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
 HTTPMethod = "POST"
@@ -60,7 +117,6 @@ signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n/app?%s=%s&%s=%s' % (
 
 
 # 计算签名
-
 sign = hmac.new(ApiAppSecret, msg=signing_str, digestmod=hashlib.sha1).digest()
 sign = base64.b64encode(sign)
 auth = "hmac id=\"" + ApiAppKey + "\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\""
@@ -68,7 +124,6 @@ sign = auth + sign + "\""
 
 
 # 发送请求
-
 headers = {
     'Host': Host,
     'Accept': Accept,
@@ -79,14 +134,72 @@ headers = {
 
 ret = requests.post(Url, headers=headers, data=body)
 print(ret.text)
-
 :::
 </dx-codeblock>
 
 
 
-### Python 3 示例代码
+### Python 3 JSON 请求方式示例代码
+<dx-codeblock>
+:::  python
+# -*- coding: utf-8 -*-
+import base64
+import datetime
+import hashlib
+import hmac
+import json
+import requests
 
+
+Url = 'http://service-xxxxxxxx-1234567890.cq.apigw.tencentcs.com/app'
+Host = 'service-xxxxxxxx-1234567890.cq.apigw.tencentcs.com'
+#应用 ApiAppKey
+ApiAppKey = 'APIDkva7jni5ihyaaaaaaaaavyz7scdnxdhhba9'
+#应用 ApiAppSecret
+ApiAppSecret = '5rbMhtz2Q44ZxyaaaaaaaaaNBeWjnO9Qgwz537wv'
+
+
+# 获取签名串
+GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
+xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
+HTTPMethod = "POST"
+Accept = 'application/json'
+ContentType = 'application/json'
+body = {
+    "arg1": "a",
+    "arg2": "b"
+}
+body_json = json.dumps(body)
+body_md5 = hashlib.md5(body_json.encode()).hexdigest()
+ContentMD5 = base64.b64encode(body_md5.encode()).decode()
+signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n/app' % (
+    xDate, HTTPMethod, Accept, ContentType, ContentMD5)
+
+
+# 计算签名
+sign = hmac.new(ApiAppSecret.encode(), msg=signing_str.encode(), digestmod=hashlib.sha1).digest()
+sign = base64.b64encode(sign).decode()
+auth = "hmac id=\"" + ApiAppKey + "\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\""
+sign = auth + sign + "\""
+
+
+# 发送请求
+headers = {
+    'Host': Host,
+    'Accept': Accept,
+    'Content-Type': ContentType,
+    'x-date': xDate,
+    'Authorization': sign
+}
+
+ret = requests.post(Url, headers=headers, data=body_json)
+print(ret.text)
+:::
+</dx-codeblock>
+
+
+
+### Python 3 form 请求方式示例代码
 <dx-codeblock>
 :::  python
 # -*- coding: utf-8 -*-
@@ -106,7 +219,6 @@ ApiAppSecret = '42A6S7ZUpK2UL6Faaaaaaaa1rz2qe22RU6h4mT5'
 
 
 # 获取签名串
-
 GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
 xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
 HTTPMethod = "POST"
@@ -124,7 +236,6 @@ signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n/app?%s=%s&%s=%s' % (
 
 
 # 计算签名
-
 sign = hmac.new(ApiAppSecret.encode(), msg=signing_str.encode(), digestmod=hashlib.sha1).digest()
 sign = base64.b64encode(sign).decode()
 auth = "hmac id=\"" + ApiAppKey + "\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\""
@@ -132,7 +243,6 @@ sign = auth + sign + "\""
 
 
 # 发送请求
-
 headers = {
     'Host': Host,
     'Accept': Accept,

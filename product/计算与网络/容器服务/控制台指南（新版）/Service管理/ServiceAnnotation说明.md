@@ -96,5 +96,11 @@ Serice Local 模式下仅绑定有 Pod 存在的节点。
 - 购买电信负载均衡：service.kubernetes.io/service.extensiveParameters: '{"VipIsp":"CTCC"}'
 
 :::
+::: service.cloud.tencent.com/enable-grace-shutdown
+**说明：**
+支持 CLB 直连模式的优雅停机。
+**使用示例：**
+仅在直连模式下支持，需要配合使用 `service.cloud.tencent.com/direct-access`，使用方式详情见 [Service 优雅停机](https://cloud.tencent.com/document/product/457/60064)。
+:::
 </dx-accordion>
 

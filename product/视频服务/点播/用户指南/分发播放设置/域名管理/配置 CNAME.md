@@ -1,4 +1,5 @@
-开通云点播后，系统会为您自动分配一个 CNAME 域名（以.vod2.myqcloud.com.cdn.dnsv1.com为后缀），可在云点播控制台 [域名管理](https://console.cloud.tencent.com/domain) 进行查看。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可正常访问。
+当您的自定义域名接入云点播后，系统会为您自动分配一个 CNAME 域名（以 .cdn.dnsv1.com 为后缀)，您可在云点播控制台 [域名管理](https://console.cloud.tencent.com/vod/distribute-play/domain) 进行查看。自动分配的CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可正常访问。
+
 ![](https://main.qcloudimg.com/raw/3666cc48cac239f76d7238c0b1df0994.png)
 ## 腾讯云设置方法
 若您的 DNS 服务商为腾讯云，您可通过如下步骤添加 CNAME 记录。

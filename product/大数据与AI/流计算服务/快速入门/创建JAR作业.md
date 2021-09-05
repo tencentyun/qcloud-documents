@@ -1,7 +1,5 @@
 ## 前提条件
-1. 已创建腾讯云账号，创建账号可参考 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985)。
-2. 若使用子账号登录，需要获得用户帐户的访问授权，详情请参见 [CAM 访问管理](https://cloud.tencent.com/document/product/849/38622) 和 [流计算服务委托授权](https://cloud.tencent.com/document/product/849/38290)。
-3. 流计算作业 JAR 作业需运行于流计算独享集群，若还没有集群，请参考 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。
+流计算作业 JAR 作业需运行于流计算独享集群，若还没有集群，请参考 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。
 
 ## 步骤1：JAR 包开发
 创建 JAR 作业需要上传已开发好的 JAR 包，您可以单击 [GitHub 链接](https://github.com/tencentyun/flink-hello-world/releases/tag/0.1)，下载我们提供的 WordCount 示例 JAR 包（文件名为 flink-hello-world-1.0.0.jar）来完成。

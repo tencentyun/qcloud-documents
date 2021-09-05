@@ -19,11 +19,11 @@ Cron 格式说明如下：
 ### 创建 CronJob
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
-2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
+2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要创建 CronJob 的集群 ID，进入待创建 CronJob 的集群管理页面。
 4. 选择 “工作负载” > “CronJob”，进入 CronJob 信息页面。如下图所示：
 ![CronJob](https://main.qcloudimg.com/raw/521279f6e09ab9c9efc62675e3a7376f.png)
-5. 单击【新建】，进入 “新建Workload” 页面。如下图所示：
+5. 单击**新建**，进入 “新建Workload” 页面。如下图所示：
 ![新建Workload](https://main.qcloudimg.com/raw/6ea173c38411103881736060f8394440.png)
 6. 根据实际需求，设置 CronJob 参数。关键参数信息如下：
  - 工作负载名：自定义。
@@ -42,12 +42,12 @@ Cron 格式说明如下：
     - 镜像版本：根据实际需求进行填写。
     - CPU/内存限制：可根据 [Kubernetes 资源限制](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/) 进行设置 CPU 和内存的限制范围，提高业务的健壮性。
     - 高级设置：可设置 “**工作目录**”，“**运行命令**”，“**运行参数**”，“**容器健康检查**”，“**特权级**”等参数。
-7. 单击【创建Workload】，完成创建。
+7. 单击**创建Workload**，完成创建。
 
 ### 查看 CronJob 状态
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
-2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
+2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要查看 CronJob 状态的集群 ID，进入待查看 CronJob 状态的集群管理页面。
 4. 选择 “工作负载” > “CronJob”，进入 CronJob 信息页面。如下图所示：
 ![CronJob](https://main.qcloudimg.com/raw/521279f6e09ab9c9efc62675e3a7376f.png)

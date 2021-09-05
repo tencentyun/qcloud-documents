@@ -260,7 +260,7 @@ status:
 **创建集群 Namespace**
 
 1. 在集群列表页中选择某集群的 ID/名称。
-2. 单击 Namespace 列表 ，单击【新建 Namespace】。
+2. 单击 Namespace 列表 ，单击**新建 Namespace**。
 更多关于命名空间的操作，可以参考 [Namespace 使用指引][28]。
 ![应用管理 wordpress-23.png-31.1kB][29]
 在本示例中，我们依次创建 devnamespace、testnamespace、prenamespace、prodnamespace。

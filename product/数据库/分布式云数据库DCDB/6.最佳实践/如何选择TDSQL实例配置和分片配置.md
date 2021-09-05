@@ -24,7 +24,8 @@ TDSQL MySQL版 分片规格的选择，主要从三个方面需求来决定：1�
 
 
 ## TDSQL MySQL版 分片性能测试
-数据库基准性能测试为 sysbench 0.5 工具修改说明：对 sysbench 自带的 otlp 脚本做了修改，读写比例修改为 1：1，并通过执行测试命令参数 oltp_point_selects 和 oltp_index_updates 控制读写比例，本文测试用例的均采用4个 select 点，1个 update 点，读写比例保持 4:1。
+数据库基准性能测试为 sysbench 0.5 工具。
+修改说明：对 sysbench 自带的 otlp 脚本做了修改，读写比例修改为 1：1，并通过执行测试命令参数 oltp_point_selects 和 oltp_index_updates 控制读写比例，本文测试用例的均采用4个 select 点，1个 update 点，读写比例保持 4:1。
 
 |vCPU（核）|内存(GB)|存储空间(GB)|数据集(GB)|客户端数|单客户端并发数|QPS|TPS|
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|

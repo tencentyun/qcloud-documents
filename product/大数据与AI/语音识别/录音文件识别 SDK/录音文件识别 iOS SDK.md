@@ -85,7 +85,8 @@ iOS SDK 接入请观看视频：
                     projectId:(NSString *)projectId;
 ```
 
-#### QCloudFileRecognizerDelegate 协议说明[](id:QCloudFileRecognizerDelegate)
+[](id:QCloudFileRecognizerDelegate)
+#### QCloudFileRecognizerDelegate 协议说明
 此 delegate 为录音文件识别相关回调，调用者需要实现此 delegate 获取识别结果、开始录音、结束录音事件。
 ```objective-c
 @protocol QCloudFileRecognizerDelegate <NSObject>
@@ -121,9 +122,10 @@ iOS SDK 接入请观看视频：
   //设置 delegate，相关回调方法见 QCloudFileRecognizerDelegate 定义
  recognizer.delegate = self;
 ```
+
 ### 2. 实现此 [QCloudFileRecognizerDelegate](#QCloudFileRecognizerDelegate) 协议方法
 ### 3. 调用方式示例
-+ ##### 通过语音 url 调用
++ #### 通过语音 url 调用
 ```objective-c
  (void)recognizeWithUrl {
     QCloudFileRecognizeParams *params = [QCloudFileRecognizeParams defaultRequestParams];
@@ -131,8 +133,7 @@ iOS SDK 接入请观看视频：
     [_recognizer recognize:params];
 }
 ```
-
-+ ##### 通过语音数据调用
++ #### 通过语音数据调用
 ```objective-c
  (void)recognizeWithAudioData {
     QCloudFileRecognizeParams *params = [QCloudFileRecognizeParams defaultRequestParams];

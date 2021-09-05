@@ -32,7 +32,7 @@ netstat -antup | grep ftp
 ```
 显示结果如下，则说明 FTP 服务已成功启动。
 ![](https://main.qcloudimg.com/raw/2a7abf80253a8469c9340878d89b452a.png)
-此时，vsftpd 已默认开启匿名访问模式，无需通过用户名和密码即可登录 FTP 服务器。使用此方式登录 FTP 服务器的用户没有权修改或上传文件的权限。
+此时，vsftpd 已默认开启匿名访问模式，无需通过用户名和密码即可登录 FTP 服务器。使用此方式登录 FTP 服务器的用户没有修改或上传文件的权限。
 
 
 ### 步骤3：配置 vsftpd<span id="user"></span>
@@ -153,7 +153,8 @@ ls -l /home/test
 # /home/test 为 FTP 目录，请修改为您实际的 FTP 目录。
 ```
  - 若返回结果中没有 `w`，则表示该用户没有写的权限，请执行下一步。
- - 若返回结果中已有 `w`，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行反馈。
+ - 若返回结果中已有 `w`，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 进行反馈。
 3. 执行以下命令，对 FTP 目录加上写的权限。
 ```
 chmod +w /home/test 

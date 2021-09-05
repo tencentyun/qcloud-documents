@@ -2,7 +2,7 @@
 >?Excel 数据集目前支持上传2003和2007类型的 Excel 文件。
 
 ## 创建 Excel 数据集
-登录 [商业智能分析控制台](https://console.cloud.tencent.com/bi)，选择左侧菜单栏【创建数据集】>【Excel 数据集】，进入到创建 Excel 数据集页面。
+登录 [商业智能分析 BI 控制台](https://console.cloud.tencent.com/bi)，选择左侧菜单栏**创建数据集 > Excel 数据集**，进入到创建 Excel 数据集页面。
 ![](https://main.qcloudimg.com/raw/f57689b9d8f9f4436762e5bdc1c65a72.png)
 
 ## 数据治理

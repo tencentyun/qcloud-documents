@@ -281,6 +281,7 @@ iOS 平台具体字段如下表：
 | content        | String | message       |无    | 是    | 消息内容，此字段会覆盖 alert 下的 body 中的内容。
 | thread_id       | String  | message       |无    | 否    | 通知分组折叠的组别识别名 |
 | ios    | Object       |message  | 无    | 是    | iOS 消息结构体，请参见 [iOS 字段说明](#iOS) |
+| show_type      | Integer | message | 2      | 否   | 应用前台时，是否展示通知 。 <li>1：不展示</li><li>2：展示</br>说明：若取值为1且应用在前台，终端用户对该条推送无感知，但有抵达数据上报</li> |
 | xg_media_resources    | String     | message | 无    | 否    | 图片、音视频富媒体元素 url 地址                          |
 
 
@@ -311,6 +312,7 @@ iOS 平台具体字段如下表：
     "content": "xxxxxxxxx",
     "thread_id":"活动_id",
     "xg_media_resources":"https://www.xx.com/img/bd_logo1.png",
+    "show_type":1,
     "ios":{
         "aps": {
             "alert": {

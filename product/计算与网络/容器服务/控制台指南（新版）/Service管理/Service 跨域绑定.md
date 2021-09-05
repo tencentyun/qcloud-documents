@@ -8,7 +8,7 @@
 - 需要支持 CLB 的跨地域接入或跨 VPC 接入，即 CLB 所在的 VPC 和当前集群所在的 VPC 不在同一 VPC 内。
 - 需要指定 CLB 的可用区已实现资源的统一管理。
 
-> ?
+>?
 > 1. 如需使用非本集群所在 VPC 的 CLB，需先通过 [云联网](https://cloud.tencent.com/document/product/877/18752) 打通当前集群 VPC 和 CLB 所在的 VPC。
 > 2. 在确保 VPC 已经打通之后，请 [在线咨询](https://cloud.tencent.com/act/event/connect-service) 申请使用该功能。
 
@@ -20,11 +20,11 @@
 
 <dx-tabs>
 ::: 控制台方式
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击需要创建 Service 的集群 ID，进入待创建 Service 的集群管理页面。
-3. 选择【服务与路由】>【Service】，进入 “Service” 管理页面。如下图所示：
+3. 选择**服务与路由** > **Service**，进入 “Service” 管理页面。如下图所示：
    ![](https://main.qcloudimg.com/raw/c7ac45e1efc03a0cdbd937a35ade9037.png)
-4. 单击【新建】，进入“新建Service”页面。
+4. 单击**新建**，进入“新建Service”页面。
 6. 在“新建 Service”页面中配置相关可用区规则。配置规则说明如下：
  - **服务访问方式**：选择“公网LB访问”。
  - **当前VPC**：使用本集群所在 VPC 内的 CLB，建议使用随机可用区，若指定可用区的资源售罄将无法创建相关实例。
@@ -60,7 +60,7 @@ service.kubernetes.io/tke-existed-lbid: "lb-342wppll"
 :::
 </dx-codeblock>
 #### 示例4 
-annotation 在 Service YMAL 中的写法如下所示：
+annotation 在 Service YAML 中的写法如下所示：
 <dx-codeblock>
 :::  yaml
 # 创建异地接入的负载均衡

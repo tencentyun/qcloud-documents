@@ -7,16 +7,16 @@
 [](id:que2) 
 ### 移动直播 License 有单独购买入口吗？
 不支持单独购买。
-- 移动直播基础版 SDK License ：需购买云直播10TB及以上 [流量资源包](https://cloud.tencent.com/document/product/267/34174) 获取一年使用授权。
+- 直播推流 License（原移动直播基础版 SDK License） ：需购买云直播10TB及以上 [流量资源包](https://cloud.tencent.com/document/product/267/34174) 获取一年使用授权。
 - 移动直播企业版 SDK License：需 [联系腾讯云商务](https://cloud.tencent.com/apply/p/h1qsz5vhvko) 申请。
 
 [](id:que3)
-### 移动直播基础版 License 和移动直播企业版 License 有什么区别？
-移动直播基础版 License 即可解锁直播推流和播放功能，以及基础的美颜功能（美白、磨皮等）。
+### 直播推流 License（原移动直播基础版 SDK License） 和移动直播企业版 License 有什么区别？
+直播推流 License（原移动直播基础版 SDK License） 即可解锁直播推流和播放功能，以及基础的美颜功能（美白、磨皮等）。
 移动直播企业版 License 是在其之上，增加了高级美颜（大眼、瘦脸）、绿幕功能、动效贴纸、AI 抠图等能力，还可以配合美妆和手势素材实现额外的功能。
 
 >?
->- SDK 下载中的3个版本的 SDK 均可用移动直播基础版 License 来解锁直播推流和播放功能。
+>- SDK 下载中的3个版本的 SDK 均可用直播推流 License（原移动直播基础版 SDK License） 来解锁直播推流和播放功能。
 >- 企业版中的高级美颜相关功能只能通过移动直播企业版 License 来解锁。
 
 

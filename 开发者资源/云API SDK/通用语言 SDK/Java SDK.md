@@ -178,7 +178,7 @@ SDK 支持 http 协议和 https 协议，通过设置 HttpProfile 的 setProtoco
 
 ## 支持打印日志
 自3.1.80版本开始，SDK 支持打印日志。
-首先，在创建 CLientProfile 对象时，设置 debug 模式为真,会打印 sdk 异常信息和流量信息。
+首先，在创建 CLientProfile 对象时，设置 debug 模式为真，会打印 sdk 异常信息和流量信息。
 ```
       ClientProfile clientProfile = new ClientProfile();
       clientProfile.setDebug(true);
@@ -270,14 +270,14 @@ logger.info("hello world");
 
 >?您必须明确知道您调用的接口所需参数，否则可能会调用失败。
 
-目前仅支持使用 POST 方式，且签名方法必须使用签名方法 v3。详细使用请参阅示例：[使用 Common Client 进行调用](./examples/common/CommonClient)
+目前仅支持使用 POST 方式，且签名方法必须使用签名方法 v3。详细使用请参阅示例：[使用 Common Client 进行调用](https://github.com/TencentCloud/tencentcloud-sdk-java/tree/master/examples/common/CommonClient)
 
 
 ## 支持重试请求
 
 从 3.1.310 版本开始腾讯云 Java SDK 支持重试请求。对于每一个请求，您可以设置重试次数，如果接口请求未成功，就进行重试，直到请求成功或者达到重试次数为止。待设置的重试次数最大为10，最小为0，每次重试失败需要睡眠1秒钟。
 
-详细使用请参阅示例：[使用 retry 进行重试请求](./examples/common/retry/Retry.java)。
+详细使用请参阅示例：[使用 retry 进行重试请求](https://github.com/TencentCloud/tencentcloud-sdk-java/blob/master/examples/common/retry/Retry.java)。
 
 ## 凭证管理
 
@@ -342,4 +342,4 @@ Credential cred = new CvmRoleCredential();
 Credential cred = new DefaultCredentialsProvider().getCredentials();
 ```
 
-凭证管理详细使用请参阅示例：[使用凭证提供链](./examples/common/credential_manager/CredentialManager.java)。
+凭证管理详细使用请参阅示例：[使用凭证提供链](https://github.com/TencentCloud/tencentcloud-sdk-java/blob/master/examples/common/credential_manager/CredentialManager.java)。

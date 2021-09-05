@@ -1,18 +1,18 @@
-## SDK 版本
-本页文档所描述功能，在 SDK 版本中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 纯播放 Player | 全功能 |
+| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 概述
 
 录屏功能是 iOS 10 新推出的特性，苹果在 iOS 9 的 ReplayKit 保存录屏视频的基础上，增加了视频流实时直播功能，官方介绍见 [Go Live with ReplayKit](https://developer.apple.com/videos/play/wwdc2016/601/)。iOS 11 增强为 [ReplayKit2](https://developer.apple.com/videos/play/wwdc2017/606/)，进一步提升了 Replaykit 的易用性和通用性，并且可以对整个手机实现屏幕录制，并非只是支持 ReplayKit 功能，因此录屏推流建议直接使用 iOS 11 的 ReplayKit2 屏幕录制方式。系统录屏采用的是扩展方式，扩展程序有单独的进程，iOS 系统为了保证系统流畅，给扩展程序的资源相对较少，扩展程序内存占用过大也会被 Kill 掉。腾讯云 LiteAV SDK 在原有直播的高质量、低延迟的基础上，进一步降低系统消耗，保证了扩展程序稳定。
 
->!本文主要介绍 iOS 11 的 ReplayKit2 录屏使用 SDK 推流的方法，涉及 SDK 的使用介绍同样适用于其它方式的自定义推流。更详细的使用可参考 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) 里 ReplaykitUpload 文件夹的示例代码。
+>!本文主要介绍 iOS 11 的 ReplayKit2 录屏使用 SDK 推流的方法，涉及 SDK 的使用介绍同样适用于其它方式的自定义推流。更详细的使用说明可以参考 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example/Basic/LivePushScreen) 里 TXReplayKit_Screen 文件夹示例代码。
 
 ## 功能体验
 
@@ -29,8 +29,8 @@
 | Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) |
 
 #### 使用步骤
-1. 打开控制中心，长按屏幕录制按钮，选择【视频云工具包】。
-2. 打开【视频云工具包】>【推流演示（录屏推流）】，输入推流地址或单击【New】自动获取推流地址，单击【开始推流】。
+1. 打开控制中心，长按屏幕录制按钮，选择 **视频云工具包**。
+2. 打开 **视频云工具包** > **推流演示（录屏推流）**，输入推流地址或单击 **New** 自动获取推流地址，单击 **开始推流**。
 
 ![](https://main.qcloudimg.com/raw/822ccd7c5acbcbf25e8fb148a6db74d7.png)
 
@@ -43,12 +43,12 @@
 Xcode 9 及以上的版本，手机也必须升级至 iOS 11 以上，否则模拟器无法使用录屏特性。
 
 ### 创建直播扩展
-在现有工程选择【New】>【Target…】，选择【Broadcast Upload Extension】，如图所示。
+在现有工程选择 **New** > **Target…**，选择 **Broadcast Upload Extension**，如图所示。
 ![](https://main.qcloudimg.com/raw/c4c0b0ee049c733640f813a318a25adb.png)
-配置好 Product Name。单击【Finish】后可以看到，工程多了所输 Product Name 的目录，目录下有个系统自动生成的 SampleHandler 类，这个类负责录屏的相关处理。
+配置好 Product Name。单击 **Finish** 后可以看到，工程多了所输 Product Name 的目录，目录下有个系统自动生成的 SampleHandler 类，这个类负责录屏的相关处理。
 
 ### 导入 LiteAV SDK
-直播扩展需要导入 TXLiteAVSDK.framework。扩展导入 framework 的方式和主 App 导入方式相同，SDK 的系统依赖库也没有区别。具体请参见腾讯云官网 [工程配置（iOS）](https://cloud.tencent.com/document/product/454/56588)。
+直播扩展需要导入 TXLiteAVSDK.framework。扩展导入 framework 的方式和主 App 导入方式相同，SDK 的系统依赖库也没有区别。具体请参见腾讯云官网 [工程配置（iOS）](https://cloud.tencent.com/document/product/1449/56986)。
 
 
 ## 对接流程
@@ -68,15 +68,15 @@ static NSString *s_rtmpUrl;
 <dx-codeblock>
 ::: objective objective
  - (void)initPublisher {
-		 if (s_txLivePublisher) {
-			 [s_txLivePublisher stopPush];
+         if (s_txLivePublisher) {
+             [s_txLivePublisher stopPush];
     }
     s_txLivePublisher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTMP];
     [s_txLivePublisher setObserver:self];
     [s_txLivePublisher startPush:s_rtmpUrl];
-		 }
-		 :::
-		 </dx-codeblock>
+}
+:::
+</dx-codeblock>
 
 - s_txLivePublisher 是我们用于推流的对象，因为系统录屏回调的 sampleHandler 实例有可能不只一个，因此对变量采用静态声明，确保录屏推流过程中使用的是同一个推流器。
 - 实例化 s_txLivePublisher 的最佳位置是在 `-[SampleHandler broadcastStartedWithSetupInfo:]` 方法中，直播扩展启动后会回调这个函数，就可以进行推流器初始化开始推流。但在 ReplayKit2 的屏幕录制扩展启动时，回调给 s_txLivePublisher 的 setupInfo 为 nil，无法获取启动推流所需要的推流地址等信息，因此通常回调此函数时发通知给主 App，在主 App 中设置好推流地址，横竖屏清晰度等信息后再传递给扩展并通知扩展启动推流。
@@ -122,7 +122,7 @@ Replaykit 会将视频以回调的方式传给 `-[SampleHandler processSampleBuf
         }
 }
 ```
-视频 sampleBuffer 只需要调用`-[V2TXLivePusher sendCustomVideoFrame:]`发送即可。
+视频 sampleBuffer 只需要调用 `-[V2TXLivePusher sendCustomVideoFrame:]` 发送即可。
 
 系统分发视频 sampleBuffer 的频率并不固定，如果画面静止，可能很长时间才会有一帧数据过来。SDK 考虑到这种情况，内部会做补帧逻辑。
 >!建议保存一帧给推流启动时使用，防止推流启动或切换横竖屏时因无新的画面数据采集发送，因为画面没有变化时系统可能会很长时间才采集一帧画面。
@@ -145,7 +145,7 @@ SDK 所要求的水印图片格式为 PNG，因为 PNG 这种图片格式有透�
 
 [](id:step5)
 ### 步骤5：结束推流
-结束推流 ReplayKit 会调用`-[SampleHandler broadcastFinished]`，示例代码：
+结束推流 ReplayKit 会调用 `-[SampleHandler broadcastFinished]`，示例代码：
 
 ```objective-c
 - (void)broadcastFinished {
@@ -160,10 +160,10 @@ SDK 所要求的水印图片格式为 PNG，因为 PNG 这种图片格式有透�
 
 
 ## 事件处理
-### 1. 事件监听
+###  事件监听
 SDK 通过 [V2TXLivePusherObserver](http://doc.qcloudtrtc.com/group__V2TXLivePusherObserver__android.html) 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表请参见 [错误码表](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__android.html)。
 
-### 2. 错误通知
+### 错误通知
 SDK 发现部分严重问题，推流无法继续
 
 | 事件 ID                              | 数值 | 含义说明                        |
@@ -176,7 +176,7 @@ SDK 发现部分严重问题，推流无法继续
 | V2TXLIVE_ERROR_REQUEST_TIMEOUT       | -6   | 请求服务器超时。                |
 | V2TXLIVE_ERROR_SERVER_PROCESS_FAILED | -7   | 服务器无法处理您的请求。        |
 
-### 3. 警告事件
+### 警告事件
 SDK 发现部分警告问题，但 WARNING 级别的事件都会触发一些尝试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复。
 
 | 事件 ID                                       | 数值  | 含义说明                                                     |
@@ -238,23 +238,23 @@ ReplayKit2 录屏只唤起 upload 直播扩展，直播扩展不能进行 UI 操
 <dx-codeblock>
 ::: code 
 CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(),
-									kDarvinNotificationNamePushStart,
-									NULL,
-									nil,
-									YES);
+                                    kDarvinNotificationNamePushStart,
+                                    NULL,
+                                    nil,
+                                    YES);
 :::
 </dx-codeblock>
 扩展中可通过监听此开始推流通知，由于此通知是在 CF 层，需要通过 NSNotificationCenter 发送到 Cocoa 类层方便处理：
 <dx-codeblock>
 ::: code 
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
+CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
                                     (__bridge const void *)(self),
                                     onDarwinReplayKit2PushStart,
                                     kDarvinNotificationNamePushStart,
                                     NULL,
                                     CFNotificationSuspensionBehaviorDeliverImmediately);
                                                                         
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleReplayKit2PushStartNotification:) name:@"Cocoa_ReplayKit2_Push_Start" object:nil];
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleReplayKit2PushStartNotification:) name:@"Cocoa_ReplayKit2_Push_Start" object:nil];
 
 
 static void onDarwinReplayKit2PushStart(CFNotificationCenterRef center,
@@ -262,14 +262,14 @@ static void onDarwinReplayKit2PushStart(CFNotificationCenterRef center,
                                         const void *object, CFDictionaryRef
                                         userInfo)
 {
-//转到 cocoa 层框架处理
+    //转到 cocoa 层框架处理
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Cocoa_ReplayKit2_Push_Start" object:nil];
 }
 
 - (void)handleReplayKit2PushStartNotification:(NSNotification*)noti
 {
-//通过 NSUserDefault 或剪贴板拿到宿主要传递的数据
-//    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:kReplayKit2AppGroupId];
+    //通过  NSUserDefault 或剪贴板拿到宿主要传递的数据
+    //  NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:kReplayKit2AppGroupId];
   
     UIPasteboard* pb = [UIPasteboard generalPasteboard];
     NSDictionary* defaults = [self jsonData2Dictionary:pb.string];

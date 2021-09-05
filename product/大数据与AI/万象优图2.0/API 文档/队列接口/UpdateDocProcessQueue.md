@@ -1,6 +1,6 @@
 ## 功能描述
 
-UpdateDocProcessQueue 接口用于更新文档预览队列。
+UpdateDocProcessQueue 接口用于更新文档转码队列。
 
 ## 请求
 

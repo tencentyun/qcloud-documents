@@ -10,7 +10,7 @@
 | 删除帐号  | [v4/im_open_login_svc/account_delete](https://cloud.tencent.com/document/product/269/36443) |
 | 查询帐号  | [v4/im_open_login_svc/account_check](https://cloud.tencent.com/document/product/269/38417)  | 
 | 失效帐号登录态  | [v4/im_open_login_svc/kick](https://cloud.tencent.com/document/product/269/3853) |
-| 查询帐号在线状态 | [ v4/openim/querystate](https://cloud.tencent.com/document/product/269/2566) |
+| 查询帐号在线状态 | [ v4/openim/query_online_status](https://cloud.tencent.com/document/product/269/2566) |
 
 ## 单聊消息
 
@@ -22,6 +22,7 @@
 | 查询单聊消息 | [v4/openim/admin_getroammsg](https://cloud.tencent.com/document/product/269/42794) |
 | 撤回单聊消息 | [v4/openim/admin_msgwithdraw](https://cloud.tencent.com/document/product/269/38980) |
 |设置单聊消息已读|[v4/openim/admin_set_msg_read](https://cloud.tencent.com/document/product/269/50349)|
+|查询单聊未读消息计数|[v4/openim/get_c2c_unread_msg_num](https://cloud.tencent.com/document/product/269/56043)|
 
 ## 全员推送
 

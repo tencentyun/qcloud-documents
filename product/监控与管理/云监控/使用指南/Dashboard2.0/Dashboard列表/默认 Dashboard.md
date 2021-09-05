@@ -11,3 +11,4 @@
 ![](https://main.qcloudimg.com/raw/350f307f923b282a51ee3bebfb90a916.png)
 设置成功后您可以在左侧菜单栏【默认 Dashboard】快速访问该 Dashboard。
 >?自定义 Dashboard 仅支持一个默认 Dashboard。若重复设置默认 Dashboard，旧的默认 Dashboard 会失效。
+

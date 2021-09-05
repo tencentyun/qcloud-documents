@@ -20,6 +20,8 @@ HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 - Objective-C Demo [下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSDemo)。
 - Swift Demo [下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSSwiftDemo)。
 
+>?开通移动解析 HTTPDNS 服务后，您需在移动解析 HTTPDNS 控制台添加解析域名后才可正常使用。具体操作请参见 [添加域名](https://cloud.tencent.com/document/product/379/54588)。
+
 ### 3.1 通过 CocoaPods 集成
 在工程的 Podfile 里面添加以下代码：
 ```
@@ -168,6 +170,7 @@ msdkDns?.initConfig(with: [
 >- 如 IPv6 地址为0，则直接使用 IPv4 地址连接。
 >- 如 IPv4 地址为0，则直接使用 IPv6 地址连接。
 >- 如 IPv4 和 IPv6 地址都不为0，则由客户端决定优先使用哪个地址进行连接，但优先地址连接失败时应切换为另一个地址。 
+>- 使用 SDK 方式接入 HTTPDNS，若 HTTPDNS 未查询到解析结果，则通过 LocalDNS 进行域名解析，返回 LocalDNS 的解析结果。
 
 #### 同步解析接口：WGGetHostByName、WGGetHostByNames
 

@@ -101,7 +101,7 @@ TUIKitLive 中已经默认打开了视频或语音通话，如果您不需要开
 1. 配置 App 的 [离线推送](https://cloud.tencent.com/document/product/269/44517)。
 2. 升级 TUIKit  到4.9.1以上版本。
 3. 通过 TUIKit 发起通话邀请成功的时候，默认会生成一条离线推送消息，消息生成的具体逻辑请参考 `TUICall+Signal.m` 类里面的 `sendAPNsForCall` 函数。
-3. 接收通话的一方，在收到离线推送的消息时，请参考 [AppDelegate](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKitDemo/TUIKitDemo/AppDelegate.m) 源码在系统 `didReceiveRemoteNotification` 回调唤起通话界面。
+3. 接收通话的一方，在收到离线推送的消息时，请参考 [AppDelegate](https://github.com/tencentyun/TIMSDK/blob/master/iOS/Demo/TUIKitDemo/AppDelegate.m) 源码在系统 `didReceiveRemoteNotification` 回调唤起通话界面。
 
 
 ## 常见问题

@@ -45,3 +45,4 @@ Namespace=QCE/CYNOSDB_MYSQL
 &Instances.N.Dimensions.0.Name=InstanceId
 &Instances.N.Dimensions.0.Value=CynosDB 数据库中具体实例的 ID 
 
+

@@ -20,87 +20,87 @@ var secretKey = 'your secretKey';
 
 // tencent cloud api client profile
 const client = new GsClient({
-    credential: {
-      secretId,
-      secretKey,
-    },
-    region: "ap-shanghai",// api region, for example: ap-shanghai, ap-guangzhou, ap-chengdu, ap-beijing
-    profile: {
-      signMethod: "TC3-HMAC-SHA256",// signature algorithm
-      httpProfile: {
-        reqMethod: "POST",
-        reqTimeout: 30,
-      },
-    },
+  credential: {
+   secretId,
+   secretKey,
+  },
+  region: "ap-shanghai",// api region, for example: ap-shanghai, ap-guangzhou, ap-chengdu, ap-beijing
+  profile: {
+   signMethod: "TC3-HMAC-SHA256",// signature algorithm
+   httpProfile: {
+    reqMethod: "POST",
+    reqTimeout: 30,
+   },
+  },
 });
 
 // support forward proxy
 var getClientIp = (req) => {
-    var ips = req.headers['x-forwarded-for'] ||
-        req.headers['x-real-ip'] || 
-        req.connection.remoteAddress ||
-        req.socket.remoteAddress ||
-        req.connection.socket.remoteAddress;
-    return ips?ips.split(',')[0].trim();
+  var ips = req.headers['x-forwarded-for'] ||
+    req.headers['x-real-ip'] || 
+    req.connection.remoteAddress ||
+    req.socket.remoteAddress ||
+    req.connection.socket.remoteAddress;
+  return ips?ips.split(',')[0].trim();
 };
 
 // API for get client WAN ip
 router.get('/get_wan_ip', function(req, res, next){
-    var clientIp = getClientIp(req).replace(/::ffff:/, '');
-    var data = JSON.stringify({cip: clientIp});
-    var body = `var returnCitySN = ${data};`;
-    res.end(body);
+  var clientIp = getClientIp(req).replace(/::ffff:/, '');
+  var data = JSON.stringify({cip: clientIp});
+  var body = `var returnCitySN = ${data};`;
+  res.end(body);
 });
 
 // try to lock an instance
 router.post('/TryLockWorker', (req, res, next) => {
-    var clientInfo = req.body;
-    
+  var clientInfo = req.body;
+  
 
-    client.TrylockWorker(clientInfo).then((response) => {
-        // normally
-        console.log(response);
-        res.json({code:0, data: response});
-    },
-    (err) => {
-        // error
-        console.log(err);
-        res.json({code:-1, data: err});
-    });
+  client.TrylockWorker(clientInfo).then((response) => {
+    // normally
+    console.log(response);
+    res.json({code:0, data: response});
+  },
+  (err) => {
+    // error
+    console.log(err);
+    res.json({code:-1, data: err});
+  });
 
 });
 
 // connect to locked instance
 router.post('/CreateSession', (req, res, next) => {
-    var clientInfo = req.body;
+  var clientInfo = req.body;
 
-    client.CreateSession(clientInfo).then((response) => {
-        // normally
-        console.log(response);
-        res.json({code:0, data: response});
-    },
-    (err) => {
-        // error
-        console.log(err);
-        res.json({code:-1, data: err});
-    });
+  client.CreateSession(clientInfo).then((response) => {
+    // normally
+    console.log(response);
+    res.json({code:0, data: response});
+  },
+  (err) => {
+    // error
+    console.log(err);
+    res.json({code:-1, data: err});
+  });
 
 });
 
 // release instance
 router.post('/StopGame', (req, res, next) => {
-    var clientInfo = req.body;
+  var clientInfo = req.body;
 
-    client.StopGame(clientInfo).then((response) => {
-        // normally
-        console.log(response);
-        res.json({code:0, data: response});
-    },
-    (err) => {
-        // error
-        console.log(err);
-        res.json({code:-1, data: err});
-    });
+  client.StopGame(clientInfo).then((response) => {
+    // normally
+    console.log(response);
+    res.json({code:0, data: response});
+  },
+  (err) => {
+    // error
+    console.log(err);
+    res.json({code:-1, data: err});
+  });
 
 });
 

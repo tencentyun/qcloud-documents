@@ -18,20 +18,20 @@
 
 
 > ! 
-> - 微信小程序开发者请使用【其他登录方式】-【微信公众号登录】登录，再选择关联的小程序账户登录。
-> - QQ 小程序开发者可直接通过 QQ 小程序开发者 IDE【云开发】登录，也可以通过关联的腾讯云账户登录。
+> - 微信小程序开发者请使用**其他登录方式** > **微信公众号登录**登录，再选择关联的小程序账户登录。
+> - QQ 小程序开发者可直接通过 QQ 小程序开发者 IDE**云开发**登录，也可以通过关联的腾讯云账户登录。
 
 
 ## 使用扩展
 
-1. 进入 [云开发控制台](https://console.cloud.tencent.com/tcb)，单击需安装扩展的环境（下文以 `custom_env` 指代对应的环境 ID），单击左侧菜单栏【环境】页进入环境设置页：
-	1. 单击【登录授权】，打开【匿名登录】开关，允许应用中可以使用匿名登录的方式访问云开发；
+1. 进入 [云开发控制台](https://console.cloud.tencent.com/tcb)，单击需安装扩展的环境（下文以 `custom_env` 指代对应的环境 ID），单击左侧菜单栏**环境**页进入环境设置页：
+	1. 单击**登录授权**，打开**匿名登录**开关，允许应用中可以使用匿名登录的方式访问云开发；
 ![](https://main.qcloudimg.com/raw/490bf26b5c0708f11adb213a40ad9604.png)
-	2. 单击【安全配置】，单击 **Web 安全域名**下的【添加域名】，添加云函数 HTTP 触发当前环境默认域名： \${custom_env}.service.tcloudbase.com （该域名是云开发为开发者分配的 HTTP 触发云函数的域名，详情可以参考 [HTTP 触发](https://cloud.tencent.com/document/product/876/41136)），允许在该域名的页面下调用 web 云开发；
+	2. 单击**安全配置**，单击 **Web 安全域名**下的**添加域名**，添加云函数 HTTP 触发当前环境默认域名： \${custom_env}.service.tcloudbase.com （该域名是云开发为开发者分配的 HTTP 触发云函数的域名，详情可以参考 [HTTP 触发](https://cloud.tencent.com/document/product/876/41136)），允许在该域名的页面下调用 web 云开发；
 ![](https://main.qcloudimg.com/raw/d739652c8541c718a7433a440f6b02e1.png)
-	3. 访问【安全配置】，然后在【移动应用安全来源】中注册 `touristappid`，添加成功后获取凭证信息备用；
+	3. 访问**安全配置**，然后在**移动应用安全来源**中注册 `touristappid`，添加成功后获取凭证信息备用；
 ![](https://main.qcloudimg.com/raw/5e56f42805e822f2a19ecd35ffaf2ad6.png)
-2. 打开 custom_env 环境下的【云数据库】，找到 `tcb_hello_world` 集合进入详情，进入【权限设置】 tab 页，单击【切换到安全规则】，输入：
+2. 打开 custom_env 环境下的**云数据库**，找到 `tcb_hello_world` 集合进入详情，进入**权限设置** tab 页，单击**切换到安全规则**，输入：
 ```json
 {
 		"read": true,

@@ -48,8 +48,8 @@ LBCF 对系统有以下要求：
 
 ## 使用方法
 ### 组件安装
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”管理页面上方，选择地域及需安装 LBCF 的集群，并单击【新建】。如下图所示：
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**扩展组件**。
+2. 在“扩展组件”管理页面上方，选择地域及需安装 LBCF 的集群，并单击**新建**。如下图所示：
 ![](https://main.qcloudimg.com/raw/887d95fb6d298edbb4e9a329440c22c1.png)
 3. 开发或选择安装 LBCF Webhook 规范，实现 Webhook 服务器。
 

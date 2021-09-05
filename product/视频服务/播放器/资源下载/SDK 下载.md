@@ -7,8 +7,8 @@
   </tr>
   <tr align="center">
      <td>版本</td>
-        <td style="text-align:center">SDK（8.9.10361）@2021.07.15</td>
-        <td style="text-align:center">SDK（8.9.10349）@2021.07.15</td>
+        <td style="text-align:center">SDK（9.1.10563）@2021.09.02</td>
+        <td style="text-align:center">SDK（9.1.10565）@2021.09.02</td>
   </tr>
   <tr align="center">
     <td>小窗播放</td>
@@ -93,7 +93,7 @@
   </tr>
   <tr align="center">
      <th>超级播放器</th>
-        <td style="text-align:center"><a href="https://github.com/tencentyun/SuperPlayer">GitHub</a></td>
+        <td style="text-align:center"><a href="https://github.com/tencentyun/SuperPlayer_iOS">GitHub</a></td>
         <td style="text-align:center"><a href="https://github.com/tencentyun/SuperPlayer_Android">GitHub</a></td>
   </tr>
 </table>
@@ -102,7 +102,7 @@
 
 
 ## 技术交流
-关注公众号“腾讯云视频云”，在聊天窗口发送“技术支持”，将有专人和您联系。
+关注公众号"腾讯云音视频"，了解腾讯云视频最新资讯。
 <img src="https://main.qcloudimg.com/raw/1c414d4d70e910289eac02b2e14e8c03.jpg" width="150">
 
 <script>

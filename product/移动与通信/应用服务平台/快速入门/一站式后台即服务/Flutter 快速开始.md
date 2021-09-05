@@ -37,7 +37,7 @@ flutter pub get
 
 ## 第 4 步：开启匿名登录
 
-在[环境设置页面](https://console.cloud.tencent.com/tcb/env/setting)中，点击“登录方式”，然后**启用匿名登录**：
+在[环境设置页面](https://console.cloud.tencent.com/tcb/env/setting)中，单击“登录方式”，然后**启用匿名登录**：
 
 <img src="https://main.qcloudimg.com/raw/0b6a93991575776761137e9558aed3fc.png">
 

@@ -49,12 +49,13 @@ UserID 即用户 ID，用于在一个实时音视频应用中唯一标识一个�
 [](id:que10)
 
 ### 音视频通话 TRTC 支持直播连麦吗?
-支持，具体操作指南请参考：
-- [跑通直播模式(iOS&Mac)](https://cloud.tencent.com/document/product/647/35429)
-- [跑通直播模式(Android)](https://cloud.tencent.com/document/product/647/35428)
-- [跑通直播模式(Windows)](https://cloud.tencent.com/document/product/647/35430)
-- [跑通直播模式(Electron)](https://cloud.tencent.com/document/product/647/43771)
-- [跑通直播模式(Web)](https://cloud.tencent.com/document/product/647/38751)
+支持，具体操作指南请参见：
+- [跑通直播模式(iOS&Mac)](https://cloud.tencent.com/document/product/1449/57106)
+- [跑通直播模式(Android)](https://cloud.tencent.com/document/product/1449/57107)
+- [跑通直播模式(Windows)](https://cloud.tencent.com/document/product/1449/57108)
+- [跑通直播模式(Electron)](https://cloud.tencent.com/document/product/1449/57109)
+- [跑通直播模式(Web)](https://cloud.tencent.com/document/product/1449/57110)
+- [跑通直播模式(小程序)](https://cloud.tencent.com/document/product/1449/57111)
 
 [](id:que11)
 
@@ -67,8 +68,8 @@ UserID 即用户 ID，用于在一个实时音视频应用中唯一标识一个�
 房间是由腾讯云后台在客户端进房时自动创建的，您无需手动创建房间，只需调用客户端的相关接口“进入房间”即可：
 - [iOS & Mac > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d)
 - [Android > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c)
-- [Windows（C++） > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#ac73c4ad51eda05cd2bcec820c847e84f)
-- [Windows（C#） > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__csharp.html#a28b2d3ec27af8c9bfd5cf687dd8e002b)
+- [Windows（C++） > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#a0fab3ea6c23c6267112bd1c0b64aa50b)
+- [Windows（C#） > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__csharp.html#afbb3a1e6f73f339d47368a7d620a995f)
 - [Electron > enterRoom](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#enterRoom)
 - [Web > join](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#join)
 - [小程序 > enterRoom](https://cloud.tencent.com/document/product/647/17018#enterroom(params))
@@ -86,7 +87,7 @@ UserID 即用户 ID，用于在一个实时音视频应用中唯一标识一个�
 [](id:que15)
 
 ### 音视频通话 TRTC 开通旁路直播，域名是否需要进行备案使用？
-如需开通旁路直播，依据国家相关部门要求，播放域名需要备案才能使用，更多详情请参见 [CDN 直播观看](https://cloud.tencent.com/document/product/647/16826)。
+如需开通旁路直播，依据国家相关部门要求，播放域名需要备案才能使用，更多详情请参见 [CDN 直播观看](https://cloud.tencent.com/document/product/1449/57112)。
 
 [](id:que16)
 
@@ -96,7 +97,7 @@ UserID 即用户 ID，用于在一个实时音视频应用中唯一标识一个�
 [](id:que17)
 
 ### 音视频通话 TRTC 是否支持主动呼叫功能？
-需要结合信令通道解决，例如使用 [即时通信 IM](https://cloud.tencent.com/product/im) 服务的自定义消息实现呼叫，可以参考 [SDK](https://cloud.tencent.com/document/product/647/32689) 源码中的场景化 Demo 示例。
+需要结合信令通道解决，例如使用 [即时通信 IM](https://cloud.tencent.com/product/im) 服务的自定义消息实现呼叫，可以参考 [SDK](https://cloud.tencent.com/document/product/1449/56978) 源码中的场景化 Demo 示例。
 
 [](id:que18)
 
@@ -104,19 +105,17 @@ UserID 即用户 ID，用于在一个实时音视频应用中唯一标识一个�
 支持。
 
 [](id:que19)
-
 ### 音视频通话 TRTC 是否支持在国外使用？
 支持。
 
 [](id:que20)
-
 ### 音视频通话 TRTC 接入 PC 端是否支持屏幕分享功能？
 支持，您可以参考如下文档：
-- [屏幕分享（Windows）](https://cloud.tencent.com/document/product/647/32247)
-- [屏幕分享（Mac）](https://cloud.tencent.com/document/product/647/32249)
-- [屏幕分享（桌面浏览器）](https://cloud.tencent.com/document/product/647/32251)
+- [屏幕分享（Windows）](https://cloud.tencent.com/document/product/1449/57116)
+- [屏幕分享（Mac）](https://cloud.tencent.com/document/product/1449/57117)
+- [屏幕分享（Web）](https://cloud.tencent.com/document/product/1449/57118)
 
-屏幕分享接口详情请参见 [Windows（C++）API](https://cloud.tencent.com/document/product/647/32268#.E5.B1.8F.E5.B9.95.E5.88.86.E4.BA.AB.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3.E5.87.BD.E6.95.B0) 或 [Windows（C#）API](https://cloud.tencent.com/document/product/647/36776#.E5.B1.8F.E5.B9.95.E5.88.86.E4.BA.AB.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3.E5.87.BD.E6.95.B0)。另外，您也可以使用 [Electron 接口](https://cloud.tencent.com/document/product/647/38551#.E8.BE.85.E6.B5.81.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3.E5.87.BD.E6.95.B0)。
+屏幕分享接口详情请参见 [Windows（C++）API](https://cloud.tencent.com/document/product/1449/58932#.E5.B1.8F.E5.B9.95.E5.88.86.E4.BA.AB.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3) 或 [Windows（C#）API](https://cloud.tencent.com/document/product/1449/58933#.E5.B1.8F.E5.B9.95.E5.88.86.E4.BA.AB.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3.E5.87.BD.E6.95.B0)。另外，您也可以使用 [Electron 接口](https://cloud.tencent.com/document/product/1449/58934#.E8.BE.85.E6.B5.81.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3.E5.87.BD.E6.95.B0)。
 
 [](id:que21)
 
@@ -128,12 +127,12 @@ UserID 即用户 ID，用于在一个实时音视频应用中唯一标识一个�
 
 ### 是否支持将本地视频文件分享到音视频通话 TRTC 中？
 
-支持，可以通过 [自定义采集](https://cloud.tencent.com/document/product/647/34066) 功能来实现。
+支持，可以通过 [自定义采集](https://cloud.tencent.com/document/product/1449/57128) 功能来实现。
 
 [](id:que23)
 
 ### 音视频通话 TRTC 能否把直播视频录制后存储在手机本地？
-不支持直接存储在手机本地，录制后视频文件默认存储在云点播平台，您可以自行下载并保存到手机中，更多详情请参见 [云端录制与回放](https://cloud.tencent.com/document/product/1449/57121?!preview&!editLang=zh)。
+不支持直接存储在手机本地，录制后视频文件默认存储在云点播平台，您可以自行下载并保存到手机中，更多详情请参见 [云端录制与回放](https://cloud.tencent.com/document/product/1449/57121)。
 
 [](id:que24)
 
@@ -159,7 +158,7 @@ UserID 即用户 ID，用于在一个实时音视频应用中唯一标识一个�
 [](id:que28)
 
 ### 音视频通话 TRTC 是否可以自定义采集数据？
-部分平台支持，详细信息请参见 [自定义采集和渲染](https://cloud.tencent.com/document/product/1449/57128?!preview&!editLang=zh)。
+部分平台支持，详细信息请参见 [自定义采集和渲染](https://cloud.tencent.com/document/product/1449/57128)。
 
 [](id:que29)
 
@@ -201,7 +200,7 @@ UserID 即用户 ID，用于在一个实时音视频应用中唯一标识一个�
 [](id:que36)
 
 ### 音视频通话 TRTC 是否支持音视频互通过程中的视频录制成文件？
-支持自有服务端录制（即录音/录像），如需使用请 [提工单](https://console.cloud.tencent.com/workorder/category) 联系我们获取 SDK 及相关指引。您也可以使用 [云端录制与回放](https://cloud.tencent.com/document/product/1449/57121?!preview&!editLang=zh) 录制视频。
+支持自有服务端录制（即录音/录像），如需使用请 [提工单](https://console.cloud.tencent.com/workorder/category) 联系我们获取 SDK 及相关指引。您也可以使用 [云端录制与回放](https://cloud.tencent.com/document/product/1449/57121) 录制视频。
 
 [](id:que37)
 
@@ -240,11 +239,11 @@ UserID 即用户 ID，用于在一个实时音视频应用中唯一标识一个�
 [](id:que43)
 
 ###  音视频通话 TRTC 怎么实现直播场景类应用？
-TRTC 专门针对在线直播场景推出了10万人低延时互动直播解决方案，能保证主播与连麦主播的最低延时到200ms，普通观众的延时在1s以内，并且超强的抗弱网能力适应移动端复杂的网络环境。具体操作指引请参考 [跑通直播模式](https://cloud.tencent.com/document/product/647/35429)。
+TRTC 专门针对在线直播场景推出了10万人低延时互动直播解决方案，能保证主播与连麦主播的最低延时到200ms，普通观众的延时在1s以内，并且超强的抗弱网能力适应移动端复杂的网络环境。具体操作指引请参考 [跑通直播模式](https://cloud.tencent.com/document/product/1449/57106)。
 
 [](id:que45)
 ### 能用音视频通话 TRTC 发送自定义消息接口实现聊天室、弹幕等功能吗？
-不能，音视频通话 TRTC 发送自定义消息适用于简单低频的信令传输场景，具体限制请参考 [使用限制](https://cloud.tencent.com/document/product/647/32241#.E4.BD.BF.E7.94.A8.E9.99.90.E5.88.B6)。
+不能，音视频通话 TRTC 发送自定义消息适用于简单低频的信令传输场景，具体限制请参考 [使用限制](https://cloud.tencent.com/document/product/1449/57127#.E4.BD.BF.E7.94.A8.E9.99.90.E5.88.B6)。
 
 [](id:que46)
 ### 音视频通话 TRTC 的 SDK 播放背景音是否支持循环播放？是否支持调整背景音的播放进度？  
@@ -300,7 +299,7 @@ TRTC 专门针对在线直播场景推出了10万人低延时互动直播解决�
 
 [](id:que57)
 ### 音视频通话 TRTC 的 SDK 都支持哪些分辨率？
-建议参见 [设定画面质量](https://cloud.tencent.com/document/product/1449/57122?!preview&!editLang=zh) 配置分辨率达到更合适的画面质量。
+建议参见 [设定画面质量](https://cloud.tencent.com/document/product/1449/57122) 配置分辨率达到更合适的画面质量。
 
 [](id:que58)
 ### 音视频通话 TRTC 的 SDK 怎么设置上行视频码率、分辨率、帧率？ 
@@ -308,11 +307,11 @@ TRTC 专门针对在线直播场景推出了10万人低延时互动直播解决�
 
 [](id:que59)
 ### 音视频通话 TRTC 控制画面角度与方向是如何实现的？  
-详情请参见 [视频画面旋转和缩放](https://cloud.tencent.com/document/product/1449/57123?!preview&!editLang=zh)。
+详情请参见 [视频画面旋转和缩放](https://cloud.tencent.com/document/product/1449/57123)。
 
 [](id:que60)
 ### 怎样实现横屏视频通话？ 
-详情请参见 [实现横屏视频通话](https://cloud.tencent.com/developer/article/1492095) 和 [视频画面旋转和缩放](https://cloud.tencent.com/document/product/1449/57123?!preview&!editLang=zh)。
+详情请参见 [实现横屏视频通话](https://cloud.tencent.com/developer/article/1492095) 和 [视频画面旋转和缩放](https://cloud.tencent.com/document/product/1449/57123)。
 
 [](id:que61)
 ### 音视频通话 TRTC 本地和远端画面方向不一致怎么调整？  
@@ -321,19 +320,19 @@ TRTC 专门针对在线直播场景推出了10万人低延时互动直播解决�
 
 [](id:que62)
 ### 音视频通话 TRTC 有没有推荐的画面质量（码率、分辨率、帧率）相关参数配置？
-详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/1449/57122?!preview&!editLang=zh)。
+详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/1449/57122)。
 
 [](id:que63)
 ### 音视频通话 TRTC 是否支持对网络测速？如何操作？  
-详情请参见 [通话前网络测试](https://cloud.tencent.com/document/product/1449/57125?!preview&!editLang=zh)。
+详情请参见 [通话前网络测试](https://cloud.tencent.com/document/product/1449/57125)。
 
 [](id:que64)
 ### 音视频通话 TRTC 是否支持对房间进行权限校验，例如会员才能进入的场景？ 
-支持，详情请参见 [开启高级权限控制](https://cloud.tencent.com/document/product/1449/57126?!preview&!editLang=zh)。
+支持，详情请参见 [开启高级权限控制](https://cloud.tencent.com/document/product/1449/57126)。
 
 [](id:que65)
 ### 音视频通话 TRTC 音视频流是否支持通过 CDN 拉流观看？ 
-支持，详情请参见 [实现 CDN 直播观看](https://cloud.tencent.com/document/product/1449/57112?!preview&!editLang=zh)。
+支持，详情请参见 [实现 CDN 直播观看](https://cloud.tencent.com/document/product/1449/57112)。
 
 [](id:que66)
 
@@ -347,7 +346,7 @@ TRTC 专门针对在线直播场景推出了10万人低延时互动直播解决�
 
 [](id:que68)
 ### 音视频通话 TRTC Demo 怎么体验？
-具体请参见 [Demo 体验](https://cloud.tencent.com/document/product/647/17021)。
+具体请参见 [Demo 体验](https://cloud.tencent.com/document/product/1449/56977)。
 
 [](id:que69)
 ### 音视频通话 TRTC 如何快速入门？
@@ -355,7 +354,7 @@ TRTC 专门针对在线直播场景推出了10万人低延时互动直播解决�
 
 [](id:que70)
 ### 音视频通话 TRTC 如何实现云端录制与回放？
-具体请参见 [云端录制与回放](https://cloud.tencent.com/document/product/1449/57121?!preview&!editLang=zh)。
+具体请参见 [云端录制与回放](https://cloud.tencent.com/document/product/1449/57121)。
 
 
 

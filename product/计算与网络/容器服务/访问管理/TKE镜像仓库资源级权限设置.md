@@ -50,11 +50,11 @@
 一旦您规划好权限设置，就可以开始进行权限分配。下面我们以“允许协作者创建镜像仓库”为例进行说明：
 1. 创建自定义 [策略](https://cloud.tencent.com/document/product/598/10601)。
   1. 使用开发商账号登录腾讯云-控制台。
-  2. 进入 [CAM 自定义策略管理页面](https://console.cloud.tencent.com/cam/policy/custom)，单击【新建自定义策略】，打开“选择创建策略方式”对话框。如下图所示：
+  2. 进入 [CAM 自定义策略管理页面](https://console.cloud.tencent.com/cam/policy/custom)，单击**新建自定义策略**，打开“选择创建策略方式”对话框。如下图所示：
 ![选择创建策略方式](https://main.qcloudimg.com/raw/08e19cb78789ff21c93d05778e714c6c.png)
- 3. 选择【按策略语法创建】> 【空白模板】。
+ 3. 选择**按策略语法创建** > **空白模板**。
 ![选择模板](https://main.qcloudimg.com/raw/bf61909472a19dae68ec918045e6a011.png)
- 4. 单击【下一步】，进入“编辑策略” 页面。
+ 4. 单击**下一步**，进入“编辑策略” 页面。
  5. 设置策略名称，并将以下内容填入“编辑策略内容”编辑框中。
 ```
         {
@@ -70,7 +70,7 @@
 ![](https://main.qcloudimg.com/raw/0fcfc0a683b973dee320c276b9b56e1d.png)
 >? resource **末尾**使用 \* 表示可以在任意命名空间下创建镜像仓库。
 >
- 6. 单击【创建策略】，结束策略创建过程。
+ 6. 单击**创建策略**，结束策略创建过程。
 ![](https://main.qcloudimg.com/raw/86d69dee0ee0223c56d94f1bb288e6cd.png)
 2. 关联自定义策略。步骤1中的策略（ccr-policy-demo）创建完成以后，您可以将其关联到任意协作者，详见 [授权管理](https://cloud.tencent.com/document/product/598/10602)。策略关联完成后协作者即拥有**在任意命名空间下创建镜像仓库权限**。
 \_resource `qcs::ccr:::repo/*` 格式说明：
@@ -139,7 +139,7 @@ action:
 - `ccr:CreateCCRNamespace`     新建镜像仓库命名空间
 - `ccr:DeleteUserNamespace`    删除镜像仓库命名空间
 
-功能指引：【**容器服务**】> 左侧导航栏【**镜像仓库**】 >【**我的镜像**】>【**命名空间**】。
+功能指引：****容器服务****> 左侧导航栏****镜像仓库**** >****我的镜像****>****命名空间****。
 ![新建或删除镜像仓库命名空间权限](https://main.qcloudimg.com/raw/df48a6009764c81e4eb442983478b92a.png)
 
 
@@ -152,7 +152,7 @@ action：
 - `ccr:BatchDeleteRepository`   批量删除镜像仓库
 - `ccr:GetUserRepositoryList`  查看镜像仓库列表
 
-功能指引：【**容器服务**】> 左侧导航栏【**镜像仓库**】 >【**我的镜像**】>【**我的镜像**】。
+功能指引：****容器服务****> 左侧导航栏****镜像仓库**** >****我的镜像****>****我的镜像****。
 ![镜像仓库权限](https://main.qcloudimg.com/raw/10252cfab26c97e94bef7a3b3367e1b0.png)
 >! 若要阻止协作者删除某些镜像，请配置多个 action 来实现。
 >
@@ -177,7 +177,7 @@ action：
 resource： `qcs::ccr:::repo/${namespace}/${name}:${tag}`  
 action： `ccr:DeleteTag` 删除镜像 Tag 权限
 
-功能指引：【**容器服务**】> 左侧导航栏【**镜像仓库**】 >【**我的镜像**】>【**我的镜像**】> 单击某个镜像名称 > 【**镜像版本**】页面。
+功能指引：****容器服务****> 左侧导航栏****镜像仓库**** >****我的镜像****>****我的镜像****> 单击某个镜像名称 > ****镜像版本****页面。
 ![镜像仓库权限](https://main.qcloudimg.com/raw/b05900eb5d8df19def6ae0bc3eed56c6.png)
 
 

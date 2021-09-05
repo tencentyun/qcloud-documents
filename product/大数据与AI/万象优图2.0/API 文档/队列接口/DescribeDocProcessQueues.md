@@ -1,6 +1,6 @@
 ## 功能描述
 
-DescribeDocProcessQueues 接口用于查询文档预览队列。
+DescribeDocProcessQueues 接口用于查询文档转码队列。
 
 ## 请求
 

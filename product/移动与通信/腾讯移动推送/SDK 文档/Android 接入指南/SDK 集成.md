@@ -301,7 +301,10 @@ XGPushConfig.enableDebug(this,true);
 
 
 ### Token 注册
+在需要启动推送服务的地方调用推送服务注册接口：
 
+>! 建议仅在 App 的主进程内调用注册接口。
+>
 
 ```java
 XGPushManager.registerPush(this, new XGIOperateCallback() {

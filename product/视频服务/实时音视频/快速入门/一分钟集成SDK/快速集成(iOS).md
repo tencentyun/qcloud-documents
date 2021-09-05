@@ -70,7 +70,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
  ![](https://main.qcloudimg.com/raw/85509cc24bd958e7b9978e11937597c5.png)
 3. 单击 **Link Binary with Libraries** 项展开，单击底下的“+”号图标去添加依赖库。
  ![](https://main.qcloudimg.com/raw/54be71cc14ec79ce642216612544a8a4.png)
-4. 依次添加所下载的 TRTC SDK Framework 及其所需依赖库 **libc++** 、**Accelerate.framework** 和 **libresolv.tbd**、**AVFoundation.framework**。
+4. 依次添加所下载的 TRTC SDK Framework 及其所需依赖库 **libc++.tbd** 、**Accelerate.framework** 和 **libresolv.tbd**、**AVFoundation.framework**。
  ![](https://main.qcloudimg.com/raw/2fa94b7f81c7e9c4ac09733782e79c10.png)
 
 

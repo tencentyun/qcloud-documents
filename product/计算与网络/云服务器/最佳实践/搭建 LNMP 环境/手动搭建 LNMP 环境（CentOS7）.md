@@ -28,7 +28,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 ```
 vi /etc/yum.repos.d/nginx.repo
 ```
-2. 按 “**i**” 切换至编辑模式，写入以下内容。
+2. 按 **i** 切换至编辑模式，写入以下内容。
 ```
 [nginx] 
 name = nginx repo 
@@ -36,19 +36,17 @@ baseurl = https://nginx.org/packages/mainline/centos/7/$basearch/
 gpgcheck = 0 
 enabled = 1
 ```
-3. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+3. 按 **Esc**，输入 **:wq**，保存文件并返回。
 4. 执行以下命令，安装 nginx。
 ```
 yum install -y nginx
 ```
-5. 执行以下命令，打开 `nginx.conf` 文件。
+5. 执行以下命令，打开 `default.conf` 文件。
 ```
-vim /etc/nginx/nginx.conf
+vim /etc/nginx/conf.d/default.conf
 ```
-6. 按 “**i**” 切换至编辑模式，编辑 `nginx.conf` 文件。
+6. 按 **i** 切换至编辑模式，编辑 `default.conf` 文件。
 7. 找到 `server{...}`，并将 `server` 大括号中相应的配置信息替换为如下内容。用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
->? 您可使用 `Ctrl+F` 向下翻页、`Ctrl+B`向上翻页查看文件。
->
 ```
 server {
 	listen       80;
@@ -77,9 +75,7 @@ server {
 	}
 }
 ```
-若 `nginx.conf` 文件中未找到 `server{...}`，请在 `include /etc/nginx/conf.d/*conf;`上方添加以上的 `server{...}` 配置内容。如下图所示：
-![](https://main.qcloudimg.com/raw/901a3957ccd992c2fb345287271c4bef.png)
-7. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+7. 按 **Esc**，输入 **:wq**，保存文件并返回。
 8. 执行以下命令启动 Nginx。
 ```
 systemctl start nginx
@@ -112,7 +108,7 @@ yum -y remove 包名
 ```
 vi /etc/yum.repos.d/MariaDB.repo
 ```
-3. 按 “**i**” 切换至编辑模式，写入以下内容，添加 MariaDB 软件库。
+3. 按 **i** 切换至编辑模式，写入以下内容，添加 MariaDB 软件库。
 >? 
 >- 不同操作系统的 MariaDB 软件库不同，您可前往 [MariaDB 官网](https://downloads.mariadb.org) 获取其他版本操作系统的 MariaDB 软件库安装信息。
 >- 若您的云服务器使用了 [内网服务](https://cloud.tencent.com/document/product/213/5225)，则可以将 `mirrors.cloud.tencent.com` 替换为 `mirrors.tencentyun.com` 内网地址，内网流量不占用公网流量且速度更快。
@@ -126,7 +122,7 @@ baseurl = https://mirrors.cloud.tencent.com/mariadb/yum/10.4/centos7-amd64
 gpgkey=https://mirrors.cloud.tencent.com/mariadb/yum/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
-4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+4. 按 **Esc**，输入 **:wq**，保存文件并返回。
 5. 执行以下命令，安装 MariaDB。此步骤耗时较长，请关注安装进度，等待安装完毕。
 ```
 yum -y install MariaDB-client MariaDB-server
