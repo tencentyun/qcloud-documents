@@ -14,8 +14,8 @@
 
 ### 步骤1：获取 CKafka 实例接入地址
 
-CKafka 实例 与 Oceanus 集群在同一子网时，CKafka 接入地址为：<font color="red">需要补充图片或者文案</font>
-![Ckafka内网IP与端口](Ckafka内网IP与端口.png)
+CKafka 实例 与 Oceanus 集群在同一子网时，CKafka 接入地址为：
+![Ckafka内网IP与端口](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
 
 CKafka 实例与 Oceanus 集群不在同一子网时，您需要进行以下操作：
 

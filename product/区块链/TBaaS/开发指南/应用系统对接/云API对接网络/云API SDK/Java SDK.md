@@ -44,7 +44,7 @@ Java SDK 推荐通过 Maven 安装。Maven 是 Java 的依赖管理工具，支�
 
 ### 接口列表
 
-详细的接口列表请查看 [API文档](https://cloud.tencent.com/document/produc/663/19455)。
+详细的接口列表请查看 [API文档](https://cloud.tencent.com/document/product/663/19455)。
 
 
 
