@@ -28,7 +28,7 @@
     <td>是</td>
     <td>加密前的单个域名长度为253</td>
     <td>是</td>
-    <td>需在控制台已添加域名并且为传输加密后的字符串。加密详情请参见 <a href="https://cloud.tencent.com/document/product/379/3530#.E5.8A.A0.E5.AF.86.E4.B8.8E.E8.A7.A3.E5.AF.86.E7.AE.97.E6.B3.95.E4.BD.BF.E7.94.A8.E8.AF.B4.E6.98.8E">加密与解密算法使用说明</a>。</td>
+    <td>需在移动解析 HTTPDNS 控制台已添加域名并且为传输加密后的字符串。<ul style="margin:0"><li>域名添加请参见 <a href="https://cloud.tencent.com/document/product/379/54588">添加域名</a>。</li><li>加密详情请参见 <a href="https://cloud.tencent.com/document/product/379/3530#state">加密与解密算法使用说明</a>。</li></ul></td>
   </tr>
   <tr>
     <td>id</td>
@@ -52,7 +52,7 @@
     <td>否</td>
     <td>IPv4/IPv6 地址值</td>
     <td>是</td>
-    <td>默认情况下 HTTPDNS 服务器会查询客户端出口 IP 为 DNS 线路查询 IP，使用 “ip=xxx” 参数，可以指定线路 IP 地址。支持 IPv4/IPv6 地址传入，接口会自动识别。加密详情请参见 <a href="https://cloud.tencent.com/document/product/379/3530#.E5.8A.A0.E5.AF.86.E4.B8.8E.E8.A7.A3.E5.AF.86.E7.AE.97.E6.B3.95.E4.BD.BF.E7.94.A8.E8.AF.B4.E6.98.8E">加密与解密算法使用说明</a>。</td>
+    <td>默认情况下 HTTPDNS 服务器会查询客户端出口 IP 为 DNS 线路查询 IP，使用 “ip=xxx” 参数，可以指定线路 IP 地址。支持 IPv4/IPv6 地址传入，接口会自动识别。加密详情请参见 <a href="https://cloud.tencent.com/document/product/379/3530#state">加密与解密算法使用说明</a>。</td>
   </tr>
   <tr>
     <td>query</td>
