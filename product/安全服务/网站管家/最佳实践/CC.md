@@ -1,3 +1,5 @@
+## 操作场景
+为避免证书过期对业务造成影响，请在腾讯云控制台上及时更新证书。
 
 ## 操作步骤
 ### 示例1：更换自有证书
@@ -27,5 +29,5 @@
 ![](https://main.qcloudimg.com/raw/fdf31449280401cf67ce7f64f50ceb6e.png)
 
 ## 检验是否生效
-通过浏览器访问相关域名，查看证书的生效时间和到期时间。如果更换证书始终不生效请 [联系我们](https://cloud.tencent.com/online-service?from=connect-us) 获得帮助。
+通过浏览器访问相关域名，可以查看证书的生效时间和到期时间。如果更换证书始终不生效，请 [联系我们](https://cloud.tencent.com/online-service?from=connect-us) 获得帮助。
 ![](https://main.qcloudimg.com/raw/e95302f7dd2c8749159f35673dc1c0ef.png)
