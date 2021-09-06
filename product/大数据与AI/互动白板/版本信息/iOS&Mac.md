@@ -4,7 +4,8 @@
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.4.66.zip)
 
 - Bug 修复
-    1. 解决互动白板加载h5课件加载异常的问题
+解决互动白板加载 h5 课件加载异常的问题
+
 ### 2.6.4.61 @ 2021-08-16
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.4.61.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.4.61.zip)

@@ -85,7 +85,7 @@ TUILiveRoomAudienceViewController *audienceVC =
 - 主播端销毁房间后，后端同步销毁房间 ID。
 - 观众端通过后端拉取到房间 ID 列表，单击后进入对应房间。
 
-由于房间列表千差万别，我们暂时未提供后端房间列表搭建示例，您可以参考 Demo 中的 [`TUILiveRoomManager`](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKitDemo/TUIKitDemo/Scenes/Data/TUILiveRoomManager.m) 来实现客户端上报的逻辑。
+由于房间列表千差万别，我们暂时未提供后端房间列表搭建示例，您可以参考 Demo 中的 [`TUILiveRoomManager`](https://github.com/tencentyun/TIMSDK/blob/master/iOS/Demo/TUIKitDemo/Scenes/Data/TUILiveRoomManager.m) 来实现客户端上报的逻辑。
 
 1.  主播端创建成功后，在主播端回调函数中，上报开播、停播信息。
 

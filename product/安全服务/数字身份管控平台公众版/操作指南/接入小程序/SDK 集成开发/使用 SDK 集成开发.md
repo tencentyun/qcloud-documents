@@ -1,5 +1,5 @@
 ## 操作背景
-本文档介绍如何将数字身份管控平台（公共版）的 SDK 集成到小程序应用中。
+本文档介绍如何将数字身份管控平台（公众版）的 SDK 集成到小程序应用中。
 >?推荐下载 [小程序 Demo](https://ciam-prd-1302490086.cos.ap-guangzhou.myqcloud.com/public/file/ciam-miniap-demo.zip) 实现快速开发。
 
 ## 相关示例

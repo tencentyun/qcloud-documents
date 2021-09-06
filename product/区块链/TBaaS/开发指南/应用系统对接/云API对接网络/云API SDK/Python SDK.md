@@ -37,7 +37,7 @@ $ python setup.py install
 
 ### 接口列表
 
-详细的接口列表请查看 [API文档](https://cloud.tencent.com/document/produc/663/19455)。
+详细的接口列表请查看 [API文档](https://cloud.tencent.com/document/product/663/19455)。
 
 
 
