@@ -25,7 +25,7 @@
 ### 控制台部署
 
 1. 登录[ Serverless 应用控制台](https://console.cloud.tencent.com/sls?from=wpdocs)，单击**新建应用**。
-2. 选择**应用模版** > **快速部署一个Discuz！Q框架**，单击**下一步**。
+2. 选择**应用市场** > **快速部署一个Discuz！Q框架**，单击**下一步**。
 ![](https://main.qcloudimg.com/raw/c93aec460abf0909fe586f3c867b39e4.png)
 3. 输入应用名，单击**完成**即可完成应用创建。
 ![](https://main.qcloudimg.com/raw/d0ca3501aed949fd2e530ceac6c5f9e5.png)
