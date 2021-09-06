@@ -13,7 +13,7 @@ HTTPDNS 服务的详细介绍可以参见文章 [全局精确流量调度新思�
 ## 前期准备
 1. 首先需要开通移动解析 HTTPDNS 服务，请前往 [移动解析 HTTPDNS 控制台](https://console.cloud.tencent.com/httpdns) 开通。具体操作请参见 [开通移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/54577)。
 2. 开通移动解析 HTTPDNS 服务后，您需在移动解析 HTTPDNS 控制台添加解析域名后才可正常使用。具体操作请参见 [添加域名](https://cloud.tencent.com/document/product/379/54588)。
-3. 开通服务后，移动解析 HTTPDNS 将为您分配授权 ID、AES 和 DES 加密密钥及 HTTPS Token 等配置信息。您可前往 [移动解析 HTTPDNS 控制台](https://console.cloud.tencent.com/httpdns) 进行查看。配置信息说明参见：[配置信息说明](链接)。
+3. 开通服务后，移动解析 HTTPDNS 将为您分配授权 ID、AES 和 DES 加密密钥及 HTTPS Token 等配置信息。您可前往 [移动解析 HTTPDNS 控制台](https://console.cloud.tencent.com/httpdns) 进行查看。配置信息说明参见：[配置信息说明](https://cloud.tencent.com/document/product/379/61203)。
 4. 已在移动解析 HTTPDNS 控制台 [开通 SDK](https://cloud.tencent.com/document/product/379/12544)。
 
 
