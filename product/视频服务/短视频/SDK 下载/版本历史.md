@@ -1,3 +1,9 @@
+### Version 9.1 @ 2021.09.02
+- Android：优化短视频若干稳定性问题。
+- Android：优化 UGC 相关功能生成视频的清晰度问题。
+- Android：修复 Android5.x 特定设备出现播放崩溃的问题。
+- iOS：修复 iPhone 12 以上机型导出视频颜色饱和度失真。
+
 ### Version 9.0 @ 2021.08.06
 - Android：优化短视频合唱加载耗时问题。
 - Android：优化短视频 SDK 的性能问题。
