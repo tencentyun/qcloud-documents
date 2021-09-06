@@ -19,7 +19,7 @@
 
 1. 登录 [域名服务](https://console.cloud.tencent.com/domain) 控制台，在列表中，找到需要添加 CNAME 记录的域名所在行，单击操作栏的【解析】。
    ![CNAME配置](https://main.qcloudimg.com/raw/dd299f2ef44538523622a7de978d5995.png)
-2. 在跳转到的DNSPOD页面中，单击【添加记录】，通过如下步骤添加 CNAME 记录。
+2. 在跳转到的 DNSPod 页面中，单击【添加记录】，通过如下步骤添加 CNAME 记录。
    ![img](https://main.qcloudimg.com/raw/489791e8d992b47ed300e30899050c67.png)
 	- **主机记录**：填写子域名。例如，要添加 `www.dnspod.com`这个域名的解析，您在 “主机记录” 处选择 “www” 即可。如果只是想添加 `dnspod.com` 这个域名的解析，您在 “主机记录” 处选择 “@” 即可。
 	- **记录类型**：选择 “CNAME”。
