@@ -337,7 +337,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse    --dest  cosn://exa
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --diffMode=length-checksum --diffOutput=/tmp/diff-output
 ```
 
->! 该模式在 Mapper 进程中迁移数据，存在一定局限性，例如任务计数器在进程异常的情况下，可能计数不准确，请迁移完成后用 --diffMode 对数据进行校验。
+>! 该模式存在一定局限性，例如任务计数器在进程异常的情况下，可能计数不准确，请迁移完成后用 --diffMode 对数据进行校验。
 >
 
 ### 拷贝文件的元信息
