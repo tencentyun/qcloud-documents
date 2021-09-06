@@ -1,5 +1,5 @@
 ## 基础设施架构
-![](https://main.qcloudimg.com/raw/6ef1ee8538312d9ffe1b5235579de0ec.png)
+![](https://main.qcloudimg.com/raw/019e380d8ce2668969a4ac62ed7b0632.png)
 
 -	腾讯云区块链服务 TBaaS 提供两种模式的服务：腾讯公有云专区、金融专区服务和私有云服务。用户可以根据实际业务需求，购买云上的区块链服务。TBaaS 也支持将系统搭建在自建数据中心或私有云上。
 

@@ -25,7 +25,7 @@
 #### 配置 SPD 策略
 
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc)。
-2. 在左侧导航栏中，单击**VPN链接**>**[VPN通道](https://console.cloud.tencent.com/vpc/vpnConn)**，进入VPN 通道管理页面。
+2. 在左侧导航栏中，单击**VPN链接** > **[VPN通道](https://console.cloud.tencent.com/vpc/vpnConn)**，进入VPN 通道管理页面。
 3. [](id:step3)单击需要配置 SPD 策略的本端 VPN 通道的 ID/名称。如下图所示：
 ![](https://main.qcloudimg.com/raw/515b950b0ec3a540ee4668a36de3575c.png)
 4. 在 VPN 通道的详情页面，单击 “SPD策略” 栏下的**编辑**，添加容器网段。如下图所示：
@@ -37,7 +37,7 @@
 
 >! 一个子网只能绑定一个路由表，若关联多个路由表，将被替换成最后一个绑定的路由表。
 >
-1. 在左侧导航栏中，单击**[路由表](https://console.cloud.tencent.com/vpc/route)**，进入路由表管理页面。
+1. 在左侧导航栏中，单击 **[路由表](https://console.cloud.tencent.com/vpc/route)**，进入路由表管理页面。
 2. [](id:addCIDRStep2)找到 [设置同地域集群间互通](https://cloud.tencent.com/document/product/457/32197) 或者 [设置跨地域集群间互通](https://cloud.tencent.com/document/product/457/32198) 时配置的路由表，单击该路由表的 ID/名称，进入路由表的详情页面。
 3. 单击**+新增路由策略**，追加容器网段。
 4. [](id:addCIDRStep4)选择**关联子网**页签，单击**新建关联子网**，关联子机所在的子网。

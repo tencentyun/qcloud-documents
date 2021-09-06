@@ -53,7 +53,7 @@ DeScheduler  基于 [社区版本 Descheduler](https://github.com/kubernetes-sig
 ### Prometheus 数据查询地址
 
 
->!为确保组件可以拉取到所需的监控数据、调度策略生效，请按照**[依赖部署](#DeScheduler)**>**Prometheus 文件配置**步骤配置监控数据采集规则。
+>!为确保组件可以拉取到所需的监控数据、调度策略生效，请按照 **[依赖部署](#DeScheduler)**>**Prometheus 文件配置**步骤配置监控数据采集规则。
 
 - 如果使用自建 Prometheus，直接填入数据查询 URL（HTTPS/HTTPS）即可。
 - 如果使用托管 Prometheus，选择托管实例 ID 即可，系统会自动解析实例对应的数据查询 URL。
@@ -154,7 +154,7 @@ rule_files:
 >?通常情况下，上述 Prometheus 配置文件和 rules 配置文件都是通过 configmap 存储，再挂载到 Prometheus server 容器，因此修改相应的 configmap 即可。
 :::
 ::: 云原生监控\sPrometheus
-1. 登录容器服务控制台，在左侧菜单栏中选择**[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**，进入“云原生监控”页面。
+1. 登录容器服务控制台，在左侧菜单栏中选择 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**，进入“云原生监控”页面。
 2. 创建与 Cluster 处于同一 VPC 下的 [云原生监控 Prometheus 实例](https://cloud.tencent.com/document/product/457/49889#.E5.88.9B.E5.BB.BA.E7.9B.91.E6.8E.A7.E5.AE.9E.E4.BE.8B)，并 [关联用户集群](https://cloud.tencent.com/document/product/457/49890)。如下图所示：
    ![](https://main.qcloudimg.com/raw/bafb027663fbb3f2a5063531743c2e97.jpg)
 3. 与原生托管集群关联后，可以在用户集群查看到每个节点都已安装 node-exporter。如下图所示：

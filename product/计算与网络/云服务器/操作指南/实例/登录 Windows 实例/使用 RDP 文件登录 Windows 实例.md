@@ -59,9 +59,9 @@ make install
 rdesktop -u Administrator -p <your-password> <hostname or IP address>
 ```
  - `Administrator` 即为前提条件中获得的管理员帐号。
- - `&lt;your-password&gt;` 即为您设置的登录密码。
+ - `<your-password>` 即为您设置的登录密码。
    如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
- - `&lt;hostname or IP address&gt;` 即为您的 Windows 实例公网 IP 或自定义域名。实例公网 IP 获取方法请参见 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940)。
+ - `<hostname or IP address>` 即为您的 Windows 实例公网 IP 或自定义域名。实例公网 IP 获取方法请参见 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940)。
 :::
 ::: MacOS\s系统使用\sRDP\s登录[](id:MacRDP)
 >?

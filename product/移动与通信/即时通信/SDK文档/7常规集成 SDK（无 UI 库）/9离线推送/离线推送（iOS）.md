@@ -26,11 +26,11 @@
 2. 单击目标应用卡片，进入应用的基础配置页面。
 3. 单击【iOS平台推送设置】右侧的【添加证书】。
 4. 选择证书类型，上传 iOS 证书（p.12），设置证书密码，单击【确认】。
- >!
- >- 上传证书名最好使用全英文（尤其不能使用括号等特殊字符）。
- >- 上传证书需要设置密码，无密码收不到推送。
- >- 发布 App Store 的证书需要设置为生产环境，否则无法收到推送。
- >- 上传的 p12 证书必须是自己申请的真实有效的证书。
+>!
+>- 上传证书名最好使用全英文（尤其不能使用括号等特殊字符）。
+>- 上传证书需要设置密码，无密码收不到推送。
+>- 发布 App Store 的证书需要设置为生产环境，否则无法收到推送。
+>- 上传的 p12 证书必须是自己申请的真实有效的证书。
 5. 待推送证书信息生成后，记录证书的 ID。
 
 [](id:DeviceToken)
@@ -95,13 +95,10 @@ confg.token = deviceToken;
 ### 通用推送规则
 
 对于单聊消息，APNs 推送规则如下，其中昵称是发送方用户昵称，如果未设置昵称，则只显示内容。
-
 ```
 昵称:内容
 ```
-
 对于群聊消息，APNs 推送规则如下，其中名称展示优先级为消息发送者的`群名片`>`群昵称`，如果都没有，则不展示。
-
 ```
 名称(群名):内容
 ```
@@ -123,6 +120,49 @@ APNs 推送内容部分由消息体中各个 `Elem` 内容组成，不同 `Elem`
 
 如果将多个 App 中的 `SDKAppID` 设置为相同值，则可以实现多 App 互通。不同 App 需要使用不同的推送证书，您需要为每一个 App [申请 APNs 证书](https://cloud.tencent.com/document/product/269/3898) 并完成 [离线推送配置](#配置推送)。
 
+## 自定义角标
+- 默认情况下，当 APP 进入后台后，IMSDK 会将当前 IM 未读消息总数设置为角标。
+- 如果想自定义角标，可按照如下步骤设置：
+ 1. App 调用 `- (void)setAPNSListener:(id<V2TIMAPNSListener>)apnsListener` 接口设置监听。
+ 2. App 实现 `- (uint32_t)onSetAPPUnreadCount` 接口，并在内部返回需要自定义的角标。
+- 如果 App 接入了离线推送，当接收到新的离线推送时，App 角标会在基准角标（默认是 IM 未读消息总数，如果自定义了角标，则以自定义角标为准）的基础上加 1 逐条递增。
+```
+// 1. 设置监听
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // 监听推送
+    [V2TIMManager.sharedInstance setAPNSListener:self];
+    // 监听会话的未读数
+    [[V2TIMManager sharedInstance] setConversationListener:self];
+    return YES;
+}
+
+// 2. 未读数发生变化后保存未读数
+- (void)onTotalUnreadMessageCountChanged:(UInt64)totalUnreadCount {
+    self.unreadNumber = totalUnreadCount;
+}
+
+
+// 3. APP 推到后台后上报自定义未读数
+/** 程序进后台后，自定义 APP 的未读数，如果不处理，APP 未读数默认为所有会话未读数之和
+ *  <pre>
+ *
+ *   - (uint32_t)onSetAPPUnreadCount {
+ *       return 100;  // 自定义未读数
+ *   }
+ *
+ *  </pre>
+ */
+- (uint32_t)onSetAPPUnreadCount {
+    // 1. 获取自定义的角标
+    uint32_t customBadgeNumber = ...
+    
+    // 2. 加上 IM 的消息未读数
+    customBadgeNumber += self.unreadNumber;
+    
+    // 3. 通过 IMSDK 上报给 IM 服务器
+    return customBadgeNumber;
+}
+```
 
 ## 自定义 iOS 推送提示音
 
@@ -137,9 +177,7 @@ APNs 推送内容部分由消息体中各个 `Elem` 内容组成，不同 `Elem`
 请在调用  [sendMessage](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a3694cd507a21c7cfdf7dfafdb0959e56) 发送消息的时候设置  [offlinePushInfo](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMOfflinePushInfo.html) 的`ext` 字段，当用户收到离线推送启动 APP 的时候，可以在 `AppDelegate -> didReceiveRemoteNotification` 系统回调获取到 `ext` 字段，然后根据 `ext` 字段内容跳转到指定的 UI 界面。
 
 本文以 “denny 给 vinson 发送消息” 的场景为例。
-
 - 发送方：denny 需在发送消息时设置推送扩展字段 `ext`：
-
 ```
 // denny在发送消息时设置 offlinePushInfo，并指定 ext 字段
 V2TIMMessage *msg = [[V2TIMManager sharedInstance] createTextMessage:@"文本消息"];
@@ -151,9 +189,7 @@ onlineUserOnly:NO offlinePushInfo:info progress:^(uint32_t progress) {
 } fail:^(int code, NSString *msg) {
 }];
 ```
-
 - 接收方：vinson 的 App 虽然不在线，但可以接收到 APNS 离线推送，当 vinson 点击推送消息时会启动 App：
-
 ```
 // vinson 启动 APP 后会收到以下回调
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo 
@@ -175,4 +211,8 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandl
 ### 自定义消息为什么收不到离线推送？
 
 自定义消息的离线推送和普通消息不太一样，自定义消息的内容我们无法解析，不能确定推送的内容，所以默认不推送，如果您有推送需求，需要您在 [sendMessage](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a3694cd507a21c7cfdf7dfafdb0959e56) 的时候设置  [offlinePushInfo](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMOfflinePushInfo.html) 的 `desc`字段，推送的时候会默认展示 `desc` 信息。
+
+### 如何关闭离线推送消息的接收？
+
+如果您想关闭离线推送消息的接收，可以通过设置 [setAPNS](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07APNS_08.html#a6aecbdc0edaa311c3e4e0ed3e71495b1) 接口的 `config` 参数为 `nil` 来实现。该功能从5.6.1200版本开始支持。
 

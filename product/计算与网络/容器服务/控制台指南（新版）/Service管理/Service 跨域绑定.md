@@ -22,7 +22,7 @@
 ::: 控制台方式
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击需要创建 Service 的集群 ID，进入待创建 Service 的集群管理页面。
-3. 选择**服务与路由**>**Service**，进入 “Service” 管理页面。如下图所示：
+3. 选择**服务与路由** > **Service**，进入 “Service” 管理页面。如下图所示：
    ![](https://main.qcloudimg.com/raw/c7ac45e1efc03a0cdbd937a35ade9037.png)
 4. 单击**新建**，进入“新建Service”页面。
 6. 在“新建 Service”页面中配置相关可用区规则。配置规则说明如下：

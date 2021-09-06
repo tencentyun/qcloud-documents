@@ -92,7 +92,7 @@ metadata:
 - 在创建 Service 时，若以“**公网LB**”或“**内网LB**”的形式暴露服务，非 [直连模式](https://cloud.tencent.com/document/product/457/41897) 情况下，“端口映射”中，仅支持 TCP 和 TCP SSL 一起使用。如下图所示：
 ![](https://main.qcloudimg.com/raw/18e3a413976d7619251f5c7f8ef91612.png)
 
-- 当 Service 为“**仅在集群内访问**（ClusterIP）”或“**主机端口访问**（NodeBalance）”模式时，支持任意协议混用。
+- 当 Service 为“**仅在集群内访问**（ClusterIP）”或“**主机端口访问**（NodePort）”模式时，支持任意协议混用。
 
 - [直连模式](https://cloud.tencent.com/document/product/457/41897)，支持任意协议混用。
 :::

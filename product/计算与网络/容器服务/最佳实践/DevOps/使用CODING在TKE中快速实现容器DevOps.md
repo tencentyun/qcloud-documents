@@ -37,7 +37,7 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops 服务，本文将介
 
 
 ### 访问容器 DevOps 
-登录容器服务控制台，选择左侧导航栏中的**[DevOps](https://console.cloud.tencent.com/coding/container-devops)**，单击**立即使用**。如下图所示：
+登录容器服务控制台，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**，单击**立即使用**。如下图所示：
 ![](https://main.qcloudimg.com/raw/2ace8e2476fea433581b712463b73a22.png)
 
 
@@ -46,9 +46,9 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops 服务，本文将介
 在 Coding 团队主页面创建一个测试项目和测试代码仓库，创建步骤请参见 [创建项目并创建代码仓库](https://cloud.tencent.com/document/product/457/47834#.E5.88.9B.E5.BB.BA.E9.A1.B9.E7.9B.AE.E5.B9.B6.E5.88.9B.E5.BB.BA.E4.BB.A3.E7.A0.81.E4.BB.93.E5.BA.93.3Cspan-id.3D.22createproduct.22.3E.3C.2Fspan.3E)。关于 Coding 代码托管介绍请参见 [代码托管介绍](https://help.coding.net/docs/host/introduce.html )。
 
 ### 创建构建计划
-1. 登录 Coding DevOps ，选择左侧导航中的**[项目](https://tencent-test.coding.net/user/projects)**，进入项目管理页。
+1. 登录 Coding DevOps ，选择左侧导航中的 **[项目](https://tencent-test.coding.net/user/projects)**，进入项目管理页。
 2. 在“项目管理页”中，单击已创建 [测试项目](#step2) 的名称，进入该项目详情页。
-3. 在左侧导航栏中选择**持续集成**>**构建计划**>**创建构建计划**，进入**选择构建计划模版**页面。
+3. 在左侧导航栏中选择**持续集成** > **构建计划** > **创建构建计划**，进入**选择构建计划模版**页面。
 >? 构建计划是持续集成的基本单元，可以通过选择构建计划模版快速创建一个构建计划，详情请参见 [快速开始持续集成](https://help.coding.net/docs/ci/start.html)。
 >
 4. 选择 “构建镜像并推送到 TCR 企业版” 模版快速创建一个构件计划，如下图所示：
@@ -65,14 +65,14 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops 服务，本文将介
  - **变量与缓存**环境变量与缓存配置，相关说明请参见 [环境变量](https://help.coding.net/docs/ci/env.html) 和 [缓存目录](https://help.coding.net/docs/ci/cache.html)。
  - **通知提醒**构建计划完成时可向指定的 Coding 团队成员发送通知提醒。
 6. 单击**确认**即可完成创建构建计划。
-7. （可选）在**项目配置**>**开发者选项**>**WebHook**中选择**新建 WebHook**，将事件通知推送到企业微信等即时通信平台，详情请参见 [WebHook](https://help.coding.net/docs/project/open/webhook.html) 和 [绑定企业微信群机器人](https://help.coding.net/docs/project/open/wechat-robot.html)。更多关于 Coding 持续集成的介绍请参见 [持续集成介绍](https://help.coding.net/docs/ci/index.html)。
+7. （可选）在**项目配置** > **开发者选项** > **WebHook**中选择**新建 WebHook**，将事件通知推送到企业微信等即时通信平台，详情请参见 [WebHook](https://help.coding.net/docs/project/open/webhook.html) 和 [绑定企业微信群机器人](https://help.coding.net/docs/project/open/wechat-robot.html)。更多关于 Coding 持续集成的介绍请参见 [持续集成介绍](https://help.coding.net/docs/ci/index.html)。
 
 
 
 ### 创建持续部署
-1. 登录 Coding DevOps，选择左侧导航中的**[项目](https://tencent-test.coding.net/user/projects)**，进入项目管理页。
+1. 登录 Coding DevOps，选择左侧导航中的 **[项目](https://tencent-test.coding.net/user/projects)**，进入项目管理页。
 2. 在“项目管理页”中，单击已创建 [测试项目](#step2) 的名称，进入该项目详情页。
-3. 在左侧导航栏中选择**持续部署**>**Kubernetes**，单击**立即配置**。如下图所示：
+3. 在左侧导航栏中选择**持续部署** > **Kubernetes**，单击**立即配置**。如下图所示：
 ![](https://main.qcloudimg.com/raw/bd0f34e27589669f5fc01ed0e144e8ce.png)
 4. 在“部署控制台”页面，自定义选择 [需要配置的云账号](#one) 类型即可继续进行 [配置应用和流程](#two)、[关联项目和应用](#three) 及 [开始部署](#four) 等后续步骤。
 

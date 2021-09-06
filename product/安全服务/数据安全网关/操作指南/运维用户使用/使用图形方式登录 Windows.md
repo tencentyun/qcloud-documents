@@ -12,7 +12,7 @@ Windows 类资源包含两种单点登录方式：图形登录（WEB 登录）�
 
 ## 操作步骤
 
-1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/cds/dasb)。
+1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/dsgc/bh)。
 2. 运维用户登录堡垒机系统。
 3. 单击【授权列表】，进入资源列表页。
 4. 找到您需要登录的 Windows 资源，在其右侧单击【登录】，进行登录配置。

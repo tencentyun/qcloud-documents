@@ -647,7 +647,7 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 设置麦克风采集音量。
 
 ```Objective-C
-- (void)setAudioCaptureVolume:(NSInteger)voluem NS_SWIFT_NAME(setAudioCaptureVolume(volume:));
+- (void)setAudioCaptureVolume:(NSInteger)volume NS_SWIFT_NAME(setAudioCaptureVolume(volume:));
 ```
 
 参数如下表所示：
@@ -698,7 +698,7 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 
 | 参数 | 类型    | 含义                              |
 | ---- | ------- | --------------------------------- |
-| mute | boolean | true：开启静音；false：关闭静音。 |
+| isMute | boolean | true：开启静音；false：关闭静音。 |
 
 ### setVoiceEarMonitorEnable
 
@@ -913,7 +913,7 @@ NS_SWIFT_NAME(onRoomDestroy(message:));
 
 | 参数   | 类型   | 含义      |
 | ------ | ------ | --------- |
-| roomId | String | 房间 ID。 |
+| message | String | 回调信息。 |
 
 
 ### onRoomInfoChange
@@ -1197,7 +1197,7 @@ NS_SWIFT_NAME(onInviteeRejected(identifier:invitee:));
 | 参数    | 类型   | 含义              |
 | ------- | ------ | ----------------- |
 | id      | String | 邀请 ID。         |
-| inviter | String | 邀请人的用户 ID。 |
+| invitee | String | 邀请人的用户 ID。 |
 
 ## 音乐播放状态回调
 

@@ -86,7 +86,7 @@ TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
 ::: javascript javascript
 // videocall.js
 trtcConfig = {
-	sdkAppID: '1401000123', // 开通实时音视频服务创建应用后分配的 SDKAppID
+	sdkAppID: 0, // 开通实时音视频服务创建应用后分配的 SDKAppID
 	userID: 'test_user_001', // 用户 ID，可以由您的帐号系统指定
 	userSig: 'xxxxxxxxxxxx', // 身份签名，相当于登录密码的作用
 	type: 1, // 通话模式
