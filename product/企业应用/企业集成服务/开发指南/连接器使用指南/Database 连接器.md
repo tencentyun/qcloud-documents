@@ -83,7 +83,7 @@ Database 连接器目前支持查询、插入、更新、删除、存储过程�
 1. 添加 Database 连接器组件，选择查询操作。
 ![image-20210322174020999](https://main.qcloudimg.com/raw/dedd178d8b4df665832d87897429ba6a/database7.png)
 ![image-20210322174047443](https://main.qcloudimg.com/raw/cd82cdd13a97f7c8f716f72d22d7a6bc/database8.png)
-2. 新建连接器配置，填写配置参数，单击【测试连接】，测试连接器配置是否正确。
+2. 新建连接器配置，填写配置参数，单击**测试连接**，测试连接器配置是否正确。
 ![image-20210322174307139](https://main.qcloudimg.com/raw/f420cf6b8d1fa8a342de570ace1107b6/database9.png)
 3. 在通用配置中，填入 SQL 语句及输入参数。例如：“查询语句”为 `select * from books where book_price > :book_price`，输入参数中 key 为 book_price，value 为30，正确的查询结果如下：
 ![image-20210322192557544](https://main.qcloudimg.com/raw/35ebbe479ca0c2fa8497df8cbdbc1882/database10.png)

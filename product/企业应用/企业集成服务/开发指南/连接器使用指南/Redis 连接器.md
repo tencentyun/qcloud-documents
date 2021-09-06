@@ -63,7 +63,7 @@ Redis 连接器的操作分为键操作、字符串、列表、哈希、集合�
 #### 案例
 1. 添加 Redis 连接器组件。
 ![image-20210323194824490](https://main.qcloudimg.com/raw/46d6495d90c5e14f0545168a9ec6d482/redis5.png)
-2. 新建连接器配置，填写配置参数，单击【测试连接】，测试连接器配置是否正确。
+2. 新建连接器配置，填写配置参数，单击**测试连接**，测试连接器配置是否正确。
 ![image-20210323194919388](https://main.qcloudimg.com/raw/f3dd5819722c55e150379769136f3df8/redis6.png)
 3. 在通用配置中，填入待查询的键。
  ![image-20210323195005501](https://main.qcloudimg.com/raw/205783ee7ffd20de8f7d802ac2956633/redis7.png)
