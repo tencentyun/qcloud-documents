@@ -88,7 +88,7 @@ http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&amp
 
 [](id:rtc)
 ### 自主拼装 RTC 连麦/PK URL
-当您使用 RTC [连麦](https://cloud.tencent.com/document/product/454/52751?!preview&!editLang=zh#step_live1) 或者 [PK](https://cloud.tencent.com/document/product/454/60980?!preview&!editLang=zh#step1) 时，需要拼接不同的推拉流 URL。
+当您使用 RTC [连麦](https://cloud.tencent.com/document/product/454/52751#step_live1) 或者 [PK](https://cloud.tencent.com/document/product/454/60980#step1) 时，需要拼接不同的推拉流 URL。
 
 - **推流 URL**[](id:rtc_push)
 具体的推流 URL 字符串，需要开发者按照下方协议解析中的规则，在工程代码中自行拼接。URL 的示例如下：
@@ -111,13 +111,13 @@ trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 <td>流 ID，需要由开发者自定义</td>
 </tr><tr>
 <td>sdkappid</td>
-<td>对应 <a href="https://cloud.tencent.com/document/product/454/60985?!preview&!editLang=zh#step41">服务开通</a> 一节中生成的 SDKAppID</td>
+<td>对应 <a href="https://cloud.tencent.com/document/product/454/60985#step41">服务开通</a> 一节中生成的 SDKAppID</td>
 </tr><tr>
 <td>userId</td>
 <td>主播 ID，需要由开发者自定义</td>
 </tr><tr>
 <td>usersig</td>
-<td>由 <a href="https://cloud.tencent.com/document/product/454/60985?!preview&!editLang=zh#step41">服务开通</a> 一节中获取的密钥计算得出</td>
+<td>由 <a href="https://cloud.tencent.com/document/product/454/60985#step41">服务开通</a> 一节中获取的密钥计算得出</td>
 </tr></table>
 - **拉流 URL**[](id:rtc_play)
 具体的推流 URL 字符串，需要开发者按照下方协议解析中的规则，在工程代码中自行拼接。URL 的示例如下：
@@ -141,11 +141,11 @@ trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 <td>流 ID，需要由开发者自定义</td>
 </tr><tr>
 <td>sdkappid</td>
-<td>对应 <a href="https://cloud.tencent.com/document/product/454/60985?!preview&amp;!editLang=zh#step41">服务开通</a> 一节中生成的 SDKAppID</td>
+<td>对应 <a href="https://cloud.tencent.com/document/product/454/60985#step41">服务开通</a> 一节中生成的 SDKAppID</td>
 </tr><tr>
 <td>userId</td>
 <td>主播 ID，需要由开发者自定义</td>
 </tr><tr>
 <td>usersig</td>
-<td>由 <a href="https://cloud.tencent.com/document/product/454/60985?!preview&amp;!editLang=zh#step41">服务开通</a> 一节中获取的密钥计算得出</td>
+<td>由 <a href="https://cloud.tencent.com/document/product/454/60985#step41">服务开通</a> 一节中获取的密钥计算得出</td>
 </tr></table>
