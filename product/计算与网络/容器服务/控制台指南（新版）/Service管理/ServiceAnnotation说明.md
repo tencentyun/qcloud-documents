@@ -106,23 +106,23 @@ Serice Local 模式下仅绑定有 Pod 存在的节点。
 :::
 ::: kubernetes.io/service.internetChargeType
 **说明：**
-指定创建负载均衡时，负载均衡的付费类型。请配合 kubernetes.io/service.internetMaxBandwidthOut 注解一起使用。
+指定创建负载均衡时，负载均衡的付费类型。请配合 `kubernetes.io/service.internetMaxBandwidthOut` 注解一起使用。
 **可选值：**
 
 TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费。
 BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费。
 **使用示例：**
-kubernetes.io/service.internetChargeType: "TRAFFIC_POSTPAID_BY_HOUR"
+`kubernetes.io/service.internetChargeType: "TRAFFIC_POSTPAID_BY_HOUR"`
 :::
 ::: kubernetes.io/service.internetMaxBandwidthOut
 **说明：**
-指定创建负载均衡时，负载均衡的最大出带宽，仅对公网属性的 LB 生效。需配合 kubernetes.io/service.internetChargeType 注解一起使用。
+指定创建负载均衡时，负载均衡的最大出带宽，仅对公网属性的 LB 生效。需配合 `kubernetes.io/service.internetChargeType` 注解一起使用。
 
 **可选值：**
 范围支持1到2048，单位 Mbps。
 
 **使用示例：**
-kubernetes.io/service.internetMaxBandwidthOut: "2048"
+`kubernetes.io/service.internetMaxBandwidthOut: "2048"`
 :::
 </dx-accordion>
 
