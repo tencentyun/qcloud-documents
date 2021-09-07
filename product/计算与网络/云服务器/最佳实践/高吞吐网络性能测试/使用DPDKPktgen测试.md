@@ -301,7 +301,7 @@ Pktgen:/> stp
 
 ### DPDK-Pktgen 双向流量测试
 测试场景如下图所示：
-![](https://main.qcloudimg.com/raw/52aae97e5bf29eee4873479d19158512.png)
+![](https://main.qcloudimg.com/raw/b7bf2ecdedecf7c347c47c069b704c93.png)
 - 发送端执行以下命令：
 ```
 /root/pktgen/tools/dpdk-run.py -s default
