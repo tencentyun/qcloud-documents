@@ -176,15 +176,12 @@ spec:
         #多行-完全正则格式
         logType: multiline_fullregex_log
         extractRule: 
-      #行首完全正则表达式，只有以日期时间开头的行才被认为是新一条日志的开头，否则就添加换行符\n并追加到当前日志的尾部
-            beginningRegex: \[\d+-\d+-\w+:\d+:\d+,\d+\]\s\[\w+\]\s.*
-      #正则表达式，会根据()捕获组提取对应的value
-      logRegex: \[(\d+-\d+-\w+:\d+:\d+,\d+)\]\s\[(\w+)\]\s(.*)
-            # 提取的 key 列表，与提取的 value 的一一对应
-            keys: 
-      - time 
-      - level 
-      - msg
+                #行首完全正则表达式，只有以日期时间开头的行才被认为是新一条日志的开头，否则就添加换行符\n并追加到当前日志的尾部
+          beginningRegex: \[\d+-\d+-\w+:\d+:\d+,\d+\]\s\[\w+\]\s.*
+                      #正则表达式，会根据()捕获组提取对应的value
+                logRegex: \[(\d+-\d+-\w+:\d+:\d+,\d+)\]\s\[(\w+)\]\s(.*)
+          # 提取的 key 列表，与提取的 value 的一一对应
+          keys: ['time','level','msg']
 ```
 
 根据提取的 key，采集到日志服务的数据为：
@@ -330,7 +327,6 @@ spec:
 apiVersion: cls.cloud.tencent.com/v1
 kind: LogConfig
 spec:
-  topicId: xxxxxx-xx-xx-xx-xxxxxxxx
   inputDetail:
     type: container_file
     containerFile:
