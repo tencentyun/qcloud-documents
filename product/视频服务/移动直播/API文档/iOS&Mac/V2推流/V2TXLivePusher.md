@@ -116,9 +116,42 @@ __介绍__
 
 ***
 
+### startVirtualCamera
+
+开启图片推流。
+
+>? startVirtualCamera，startCamera，startScreenCapture，同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流
+
+```
+- (V2TXLiveCode)startVirtualCamera:(TXImage *)image
+```
+
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+
+### stopVirtualCamera
+
+关闭图片推流。
+
+```
+- (V2TXLiveCode)stopVirtualCamera
+```
+
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+
 ### startScreenCapture
 开启屏幕采集。
 >? iOS 端暂不支持通过此接口开启屏幕采集。
+    startVirtualCamera，startCamera，startScreenCapture，同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流
 >*       需要通过 iOS Broadcast Upload Extension 来开启屏幕采集。
 >*       然后设置 enableCustomVideoCapture 开启自定义采集支持。 
 >*       最后通过 sendCustomVideoFrame 把 Broadcast Upload Extension 中采集到的屏幕画面送出去。
@@ -253,6 +286,9 @@ __介绍__
 ### startCamera
 
 打开本地摄像头。
+
+>? startVirtualCamera，startCamera，startScreenCapture，同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流
+
 ```
 - (V2TXLiveCode)startCamera:(BOOL)frontCamera
 ```
