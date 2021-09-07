@@ -3,7 +3,9 @@
 
 
 ## 示例软件版本
-本文测试机器使用 CentOS 8.2 操作系统。
+- 测试机器为 CentOS 8.2 操作系统
+- DPDK 20.08
+- PKTGEN 3.5.0
 
 ## 操作步骤
 
@@ -41,9 +43,11 @@ sed -i "s/\(^WERROR_FLAGS += -Wno-address-of-packed-member$\)/#\1/g" /root/dpdk/
 ```
  - 若您的操作系统内核版本较高（例如5.3），则执行以下命令，屏蔽差异。
 ```
-sed -i "s/\(^WERROR_FLAGS += -Wundef -Wwrite-strings$\)/\1 -Wno-address-of-packed-member/g" ./mk/toolchain/gcc/rte.vars.mk
+sed -i "s/\(^WERROR_FLAGS += -Wundef -Wwrite-strings$\)/\1 -Wno-address-of-packed-member/g" /root/dpdk/mk/toolchain/gcc/rte.vars.mk
 ``` ```
-sed -i "s/fall back/falls through -/g" ./lib/librte_eal/linuxapp/igb_uio/igb_uio.c
+sed -i "s/fall back/falls through -/g" /root/dpdk/lib/librte_eal/linuxapp/igb_uio/igb_uio.c
+
+sed -i "s/fall back/falls through -/g" /root/dpdk/kernel/linux/igb_uio/igb_uio.c
 ```
 5. 执行以下命令，编译安装 DPDK。
 ```
@@ -53,7 +57,7 @@ cd $RTE_SDK && make install T=x86_64-native-linuxapp-gcc -j 4
 ### 编译安装 Pktgen
 1. 执行以下命令，下载及解压 Pktgen 安装包。
 ```
-wget -O pktgen.tar.gz  http://git.dpdk.org/apps/pktgen-dpdk/snapshot/pktgen-dpdk-pktgen-20.02.0.tar.gz
+cd && wget -O pktgen.tar.gz http://git.dpdk.org/apps/pktgen-dpdk/snapshot/pktgen-dpdk-pktgen-20.02.0.tar.gz
 ``` ```
 mkdir -p /root/pktgen && tar -xf pktgen.tar.gz -C /root/pktgen --strip-components 1
 ```
@@ -65,7 +69,9 @@ cd /root/pktgen/lib/lua
 ``` ```
 wget https://www.lua.org/ftp/lua-5.3.4.tar.gz
 ``` ```
-make linux
+tar zxf lua-5.3.4.tar.gz
+``` ```
+cd lua-5.3.4 && make linux
 ``` ```
 make install
 ```
@@ -249,7 +255,7 @@ echo 4096 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
 ```
 
 ### 装载内核模块及绑定接口
-1. 切换登录方式为 [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。由于将网卡驱动绑定至 igb_uio 用户态驱动后，该网卡将无法通过 ssh 或 IP 访问，仅支持通过 VNC 或 console 方式访问。
+1. 切换登录方式为 [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。由于将网卡驱动绑定至 uio 用户态驱动后，该网卡将无法通过 ssh 或 IP 访问，仅支持通过 VNC 或 console 方式访问。
 2. 依次执行以下命令，装载 UIO 模块及绑定 virito 接口。
 ```
 ifconfig eth0 0
@@ -258,7 +264,7 @@ ifconfig eth0 down
 ``` ```
 modprobe uio
 ``` ```
-insmod /root/dpdk/build/kmod/igb_uio.ko
+modprobe uio_pci_generic
 ``` ```
 cd /root/dpdk/usertools/
 ``` ```
