@@ -1,9 +1,21 @@
-新版本移动解析 HTTPDNS 使用 HTTP 请求方式查询可以通过 `http://119.29.29.98/d? + {请求参数}` 接口使用移动解析 HTTPDNS 服务。
+## 概述
+
+移动解析 HTTPDNS 使用 HTTP 请求方式查询可以通过 `http://119.29.29.98/d? + {请求参数}` 接口使用移动解析 HTTPDNS 服务。
 
 >? 
 >- [开通移动解析 HTTPDNS 服务](https://cloud.tencent.com/document/product/379/54577) 后，您需在移动解析 HTTPDNS 控制台添加解析域名后才可正常使用。详情请参见 [添加域名](https://cloud.tencent.com/document/product/379/54588)。
 >- HTTP 协议服务地址为 `119.29.29.98`，HTTPS 协议服务地址为 `119.29.29.99`。
 >- 新版本 API 更新为使用 `119.29.29.99/98` 接入，同时原移动解析 HTTPDNS 服务地址 `119.29.29.29` 仅供开发调试使用，无 SLA 保障，不建议用于正式业务，请您尽快将正式业务迁移至 `119.29.29.99/98`。
+
+## 前期准备
+使用请求接口 `http://119.29.29.98/d? + {请求参数}` 时，需使用以下配置信息。您可先前往移动解析 HTTPDNS 管理控制台 [开发配置页](https://console.cloud.tencent.com/httpdns/configure) 获取相关配置信息：
+
+
+![](https://main.qcloudimg.com/raw/5125ebfc724cf95c04fe46bc2b508ba7.png)
+
+**授权 ID**：使⽤移动解析 HTTPDNS 服务中，开发配置的唯⼀标识。调⽤移动解析 HTTPDNS 的 HTTP 解析接口 `http://119.29.29.28` 时中传⼊的授权 ID 参数。
+**DES 加密密钥**：调⽤移动解析 HTTPDNS 的 HTTP 解析接口 `http://119.29.29.98` 并使用 DES 加密方式时，对 DNS 请求数据进⾏加密时的加密密钥。
+**AES 加密密钥**：调⽤移动解析 HTTPDNS 的 HTTP 解析接口 `http://119.29.29.98` 并使用 AES 加密方式时，对 DNS 请求数据进⾏加密时的加密密钥。
 
 ## 接口描述
 - 接口请求地址：`http://119.29.29.98/d? + {请求参数}`。
