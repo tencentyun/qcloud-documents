@@ -105,18 +105,23 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
 - config_ipv6 工具运行时会自动重启网卡、网络服务，短时间内网络可能会不可用，请慎重执行。
 
 #### **操作步骤**
-1. 登录云服务器，在云服务器中直接执行如下命令下载 config_ipv6 工具。
+1. 登录云服务器，执行` ifconfig` 或 `ip address` 命令确定需要配置 IPv6 地址的网卡，如下图所示，eth0 无 IPV6 地址（fe80::是本机私有地址）。
+  <img src="https://main.qcloudimg.com/raw/beda0d051a43188ac9f6d07aef63ef9b.png" width="50%" />
+2. 在云服务器中直接执行如下命令下载 config_ipv6 工具。
 ```plaintext
 wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/config_ipv6.sh
 ```
-2. 赋予执行权限后使用管理员权限执行如下命令：
+3. 赋予执行权限后使用管理员权限执行如下命令，配置过程中请输入`y`确认配置操作。
 ```plaintext
-chmod +x ./config_ipv6.sh  
-./config_ipv6.sh [网卡名称] 
+chmod +x ./config_ipv6.sh  # 赋予执行权限
+./config_ipv6.sh [网卡名称]   # 网卡名称请根据步骤1查询到的实际接口填写，本例以 eth0 为例
 # 示例 1：./config_ipv6.sh eth0
 # 示例 2：./config_ipv6.sh eth1
 ```
-3. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
+ ![](https://main.qcloudimg.com/raw/c15addb368f2814a83a11c7808706683.png)
+3. 执行 `ifconfig` 查询 IPv6 地址的配置情况，出现如下所示报文表示配置成功。
+  <img src="https://main.qcloudimg.com/raw/b6c466912558224a5543caaa72af668a.png" width="50%" />
+4. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
 
 
 #### **开机自动配置IPv6**
