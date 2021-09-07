@@ -4,8 +4,8 @@
 
 腾讯云 Web 播放器是为了解决在手机浏览器和 PC 浏览器上播放音视频流的问题，它使您的视频内容可以不依赖用户安装 App，就能在朋友圈和微博等社交平台进行传播。
 
-- 如果您需要在 Web 端进行直播播放，可使用Web超级播放器 TCPlayerLite，集成方式参见 [Web 超级播放器 TCPlayerLite](https://cloud.tencent.com/document/product/1449/57070)。
-- 如果您需要在 Web 端进行点播播放，可使用Web超级播放器 TCPlayer，集成方式参见 [Web 超级播放器 TCPlayer](https://cloud.tencent.com/document/product/1449/57088)。
+- 如果您需要在 Web 端进行直播播放，可使用 Web 超级播放器 TCPlayerLite，集成方式参见 [Web 超级播放器 TCPlayerLite](https://cloud.tencent.com/document/product/1449/57070)。
+- 如果您需要在 Web 端进行点播播放，可使用 Web 超级播放器 TCPlayer，集成方式参见 [Web 超级播放器 TCPlayer](https://cloud.tencent.com/document/product/1449/57088)。
 - 如果您需要快速实现第三方 Web 播放器与云点播能力的结合，可使用 Web 超级播放器 Adapter，集成方式参见 [Web 超级播放器 Adapter](https://cloud.tencent.com/document/product/1449/57089)。
 
 ## WebRTC 集成方式
@@ -24,8 +24,8 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 ### URL 域名协议限制
 | 应用场景     | 协议             | 接收（播放） | 发送（上麦） | 屏幕分享 | 备注 |
 | ------------ | :--------------- | :----------- | ------------ | -------- | ---- |
-| 生产环境     | https协议        | 支持         | 支持         | 支持     | 推荐 |
-| 生产环境     | http协议         | 支持         | 不支持       | 不支持   |      |
+| 生产环境     | HTTPS 协议        | 支持         | 支持         | 支持     | 推荐 |
+| 生产环境     | HTTP 协议         | 支持         | 不支持       | 不支持   |      |
 | 本地开发环境 | http://localhost | 支持         | 支持         | 支持     | 推荐 |
 | 本地开发环境 | http://127.0.0.1 | 支持         | 支持         | 支持     |      |
 | 本地开发环境 | http://[本机IP]  | 支持         | 不支持       | 不支持   |      |
