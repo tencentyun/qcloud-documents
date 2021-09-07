@@ -17,9 +17,10 @@
 1. 登录源数据库。
 2. 参考如下内容修改源数据库的配置文件 `my.cnf`。
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
+
 ```
 log_bin = MYSQL_BIN
-binlog_forma = ROW
+binlog_format = ROW
 server_id = 2         //建议设为大于1的整数，此处仅为示例。
 binlog_row_image = FULL
 ```
@@ -57,6 +58,7 @@ mysql> show variables like '%log_bin%';
 1. 登录源数据库。
 2. 参考如下内容修改配置文件 `my.cnf`。
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
+
 ```
 binlog_format = ROW
 ```
@@ -97,7 +99,7 @@ show variables like "%binlog_row_image%";
 ```
 系统显示结果类似如下：
 ```
-mysql> show variables like '%binlog_format%';
+mysql> show variables like '%binlog_row_image%';
 +------------------+-------+
 | Variable_name    | Value |
 +------------------+-------+
@@ -149,6 +151,7 @@ set global gtid_mode = ON;
 ```
 6. 在 `my.cnf` 文件中添加如下内容。
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
+
 ```
 gtid_mode = on
 enforce_gtid_consistency = on
@@ -167,6 +170,7 @@ enforce_gtid_consistency = on
 1. 登录源数据库。
 2. 参考如下内容修改源数据库的配置文件 `my.cnf`。
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
+
 ```
 server_id = 2    //建议设为大于1的整数，此处仅为示例
 ```
@@ -193,12 +197,8 @@ binlog 会记录数据库所有执行的 DDL 和 DML 语句，而 do_db，ignore
 
 设置 do_db，ignore_db 后，会导致一些跨库操作 binlog 记录不全，主从复制出现异常，因此不建议设置。如发生类似报错，请参考如下指导进行修复。
 1. 登录源数据库。
-2. 参考如下内容修改源数据库的配置文件 `my.cnf`。
+2. 修改源数据库的配置文件 `my.cnf`，删除 do_db，ignore_db相关设置。
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
-```
-binlog_do_db = NULL   //待确认命令是否正确
-binlog_ignore_db = NULL
-```
 3. 参考如下命令重启源数据库。
 ```
 [\$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
