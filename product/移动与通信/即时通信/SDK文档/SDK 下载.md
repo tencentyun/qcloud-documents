@@ -113,11 +113,11 @@
 </tr>
 <tr>
 <td style="text-align:center" >Web</td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/H5">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Web">Github(推荐)</a></td>
 </tr>
 <tr>
 <td style="text-align:center" >微信小程序</td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/WXMini">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram">Github(推荐)</a></td>
 </tr>
 <tr>
 <td style="text-align:center" >IM Demo (Flutter)  </td>
