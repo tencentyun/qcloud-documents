@@ -3,7 +3,7 @@
 ## 操作步骤
 
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。
-2. 在左侧导航栏中选择**Dashboard** > **Dashboard 列表**，进入 Dashboard 列表页。
+2. 在左侧导航栏中选择 **Dashboard** > **Dashboard 列表**，进入 Dashboard 列表页。
 3. 支持单项删除和批量删除 Dashboard，说明如下：
 <dx-tabs>
 ::: 单项删除
