@@ -138,64 +138,6 @@ public abstract int isPushing();
 - 1：正在推流中。
 - 0：已经停止推流。
 
-### startVirtualCamera
-
-开启图片推流。
-
->? startVirtualCamera、startCamera 和 startScreenCapture 同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流。
-
-```
-public abstract int startVirtualCamera(Bitmap image);
-```
-
-#### 返回
-
-返回值 V2TXLiveCode：
-- V2TXLIVE_OK：成功。
-
-***
-
-### stopVirtualCamera
-
-关闭图片推流。
-
-```
-public abstract int stopVirtualCamera();
-```
-
-#### 返回
-
-返回值 V2TXLiveCode：
-- V2TXLIVE_OK：成功。
-
-***
-
-### startScreenCapture
-开启屏幕采集。
-
->? startVirtualCamera、startCamera 和 startScreenCapture 同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流。
-
-```
-public abstract int startScreenCapture();
-```
-#### 返回
-
-返回值 V2TXLiveCode：
-- V2TXLIVE_OK：成功。
-
-***
-
-### stopScreenCapture
-关闭屏幕采集。
-```
-public abstract int stopScreenCapture();
-```
-#### 返回
-
-返回值 V2TXLiveCode：
-- V2TXLIVE_OK：成功。
-
-***
 
 ## 视频相关接口
 ### setVideoQuality
@@ -330,6 +272,64 @@ public abstract int stopCamera();
 - V2TXLIVE_OK：成功。
 
 ***
+### startVirtualCamera
+
+开启图片推流。
+
+>? startVirtualCamera、startCamera 和 startScreenCapture 同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流。
+
+```
+public abstract int startVirtualCamera(Bitmap image);
+```
+
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+
+### stopVirtualCamera
+
+关闭图片推流。
+
+```
+public abstract int stopVirtualCamera();
+```
+
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+
+### startScreenCapture
+开启屏幕采集。
+
+>? startVirtualCamera、startCamera 和 startScreenCapture 同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流。
+
+```
+public abstract int startScreenCapture();
+```
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+
+### stopScreenCapture
+关闭屏幕采集。
+```
+public abstract int stopScreenCapture();
+```
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
 
 ### snapshot
 
@@ -348,6 +348,7 @@ public abstract int snapshot();
 - V2TXLIVE_ERROR_REFUSED：已经停止推流，不允许调用截图操作。
 
 ***
+
 
 ### setWatermark
 设置推流器水印。默认情况下，水印不开启。
