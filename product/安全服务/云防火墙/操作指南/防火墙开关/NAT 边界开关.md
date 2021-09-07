@@ -1,23 +1,22 @@
 NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防护，同时支持基于 SNAT、DNAT 进行的网络流量转发。
 ## 操作指南
-
 1. 登录 [云防火墙控制台](https://console.cloud.tencent.com/cfw)，在左侧导航栏中，选择【防火墙开关】>【NAT边界开关】，进入 NAT 边界开关页面。
 >?当某个 NAT 边界防火墙开关开启后，对应子网的互联网流量将经过防火墙，届时访问控制规则、入侵防御功能将对其生效，流量日志也会生成。
 2. 在 “NAT 边界开关”页面，可进行创建实例、同步资产、查看并监控基于 NAT 边界的带宽情况等操作。
 
 ###  **创建实例**	
 1. 在 [NAT 边界开关页面](https://console.cloud.tencent.com/cfw/switch/nat) 下，单击【创建实例】。
-	![](https://main.qcloudimg.com/raw/c59558e085b6e3b7da47870f588caea7.png)
+![](https://main.qcloudimg.com/raw/57aef4dbbc56957be8b0be12567dc321.png)
 2. 在“新建 NAT 边界防火墙”弹窗中，可为当前账号创建一个新的 NAT 边界防火墙实例，填写相关字段，单击【下一步】。
 >?创建“NAT 边界防火墙”实例，涉及大量后台配置工作，这个步骤可能需要持续若干分钟。
 >
 	![](https://main.qcloudimg.com/raw/dada8612c7f4278e4c1415fbb17929dd.png)
 	**字段说明：**
 	- **地域**：选择创建地域，支持国内所有地域，创建实例后不可更改。
->?用户可在拥有 VPC 的所有国内地域（支持中国香港地域）中进行地域选择，但已经创建了 NAT 边界防火墙的地域将无法选择。
+>?用户可在拥有 VPC 的所有国内地域（支持中国香港地域）中进行地域选择，同地域下可创建多个防火墙实例，但总带宽不能超过限定规格。
 	- **可选区**：根据需求选择合适的可用区。
 	- **实例名称**：输入实例名称。
-	- **带宽规格**：根据需求选择带宽规格，最小20Mbps，最大60Mbps，如需更多带宽请 [升级扩容](https://buy.cloud.tencent.com/cfw?type=modify&adtag=cfw.from.console.page.buy)。
+	- **带宽规格**：根据需求选择带宽规格，最小20Mbps，如需更多带宽请 [升级扩容](https://buy.cloud.tencent.com/cfw?type=modify&adtag=cfw.from.console.page.buy)。
 >?互联网带宽保持一致，如果分了多个 NAT 防火墙，那么多个 NAT 防火墙的带宽之和，要小于等于互联网边界的带宽。
 	- **模式**：分为新增模式和接入模式。
 		- **新增模式**：若当前地域没有 NAT 网关，新增模式可以通过 NAT 边界防火墙内置的 NAT 功能，实现指定实例通过防火墙访问互联网。
@@ -68,12 +67,13 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 
 ### 实例配置
 - **端口转发**
-在 [实例配置页面](https://console.cloud.tencent.com/cfw/switch/nat?tab=config) ，可以查看用户基于 NAT 边界防火墙实例所添加的 DNAT 端口转发规则，以及与实例关联的弹性 IP。
+ 在 [NAT 边界开关页面](https://console.cloud.tencent.com/cfw/switch/nat) 下，单击对应【实例 ID】。在右侧边栏中可以查看用户基于 NAT 边界防火墙实例所添加的 DNAT 端口转发规则，以及与实例关联的弹性 IP。
 >?
 >- 接入模式中，NAT 边界防火墙会自动同步现有NAT网关的端口转发规则，从而保证流量通行，后续对于该规则的操作，请在 [云防火墙控制台](https://console.cloud.tencent.com/cfw/ac/nat) 中进行。
 >- 开启防火墙开关的子网 SNAT、DNAT 流量都会经过防火墙，关闭开关的子网 SNAT、DNAT 流量都走原先路径。
 >- 请勿前往私有网络控制台操作端口转发规则，否则可能造成网络中断。
 >
+![](https://main.qcloudimg.com/raw/987948ac445541239938616a1dbf0bd2.png)
 	1. 在实例配置页面的端口转发页签下，单击【新建规则】。
 ![](https://main.qcloudimg.com/raw/a49df48278081ba2968e45e6f3d2e4c4.png)
 	2. 在“新建端口转发规则”弹框中，用户可为当前 NAT 边界防火墙实例添加一条外部 IP 为用户所绑定的弹性 IP 的 DNAT 规则。
