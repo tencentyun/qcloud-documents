@@ -71,9 +71,9 @@ CBS-CSI 组件在集群内部署后，包含以下组件：
 ```yaml
 kind: StorageClass
 metadata:
-    name: cbs-topo
+  name: cbs-topo
 parameters:
-    type: cbs
+  type: cbs
 provisioner: com.tencent.cloud.csi.cbs
 reclaimPolicy: Delete
 volumeBindingMode: WaitForFirstConsumer
@@ -91,11 +91,11 @@ TKE 支持在线扩容 PV、对应的云硬盘及文件系统，即不需要重�
 
 - 已创建1.16或以上版本的 [TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
 - 已将 [CBS-CSI](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CBS.md) 更新为最新版本。
-- 为避免扩容失败导致数据丢失，可以在扩容前 [使用快照备份数据](#backup)。（可选）
+- （可选）为避免扩容失败导致数据丢失，可以在扩容前 [使用快照备份数据](#backup)。
 
 
 
-#### 操作步骤
+
 
 #### 创建允许扩容的 StorageClass
 
@@ -105,9 +105,9 @@ allowVolumeExpansion: true
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-   name: cbs-csi-expand
+  name: cbs-csi-expand
 parameters:
-   diskType: CLOUD_PREMIUM
+  diskType: CLOUD_PREMIUM
 provisioner: com.tencent.cloud.csi.cbs
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
@@ -244,7 +244,7 @@ pvc-e193201e-6f6d-48cf-b96d-ccc09225cf9c   30Gi       RWO            Delete     
 - 在 [访问管理](https://console.cloud.tencent.com/cam/role) 控制台完成对 `TKE_QCSRole` 角色授予 CBS快照操作的相关权限，详情请参考 [快照授权](#authorize)。
 
 
-#### 操作步骤
+
 
 #### 使用快照备份云硬盘
 
@@ -400,19 +400,16 @@ status:
 :::
 </dx-codeblock>
 
-## 快照授权 [](id:authorize)
+## 相关操作
+### 快照授权 [](id:authorize)
 
-### 授权场景
-使用CBS-CSI插件的 [创建快照和使用快照来恢复卷](#backup) 功能时，需给容器服务角色 `TKE_QCSRole`  授予快照等相关资源的操作
 
-### 授权步骤
-1、创建自定义策略
-- 登录  [访问管理](https://console.cloud.tencent.com/cam/role)  控制台，选择左侧导航栏的【策略】。
-- 在“策略”列表页面中，单击 【新建自定义策略】，创建策略方式选择【按策略生成器创建】。
-- 在“编辑策略”列表页面中选择【JSON】，将以下代码复制并替换到文本框中，并点击“下一步”。
-![](https://main.qcloudimg.com/raw/20bce11d9a41c1564f32abb5178ea002.png)
-- 在“关联用户/用户组”页面指定策略名称（这里设置为 `QcloudAccessForTKERoleInCBSSnapshot` ）和关联用户/用户组。
+使用 CBS-CSI 插件的 [创建快照和使用快照来恢复卷](#backup) 功能时，需给容器服务角色 `TKE_QCSRole`  授予快照等相关资源的操作。
 
+#### 步骤1：创建自定义策略
+1. 登录 [访问管理](https://console.cloud.tencent.com/cam/role)  控制台，选择左侧导航栏的**策略**。
+2. 在“策略”列表页面中，单击**新建自定义策略**，创建策略方式选择**按策略生成器创建**。
+3. 在“编辑策略”列表页面中选择**JSON**，将如下代码复制并替换到文本框中，并点击“下一步”。
 ```
 {
     "version": "2.0",
@@ -432,17 +429,19 @@ status:
 }
 ```
 
-- 单击【确定】即可完成自定义策略的设定。
+4. 在“关联用户/用户组”页面指定策略名称。此处设置为 `QcloudAccessForTKERoleInCBSSnapshot` 和关联用户/用户组。
+5. 单击**确定**即可完成自定义策略的设定。
 
-2、绑定策略到角色
-- 登录  [访问管理](https://console.cloud.tencent.com/cam/role)  控制台，选择左侧导航栏的【角色】。
-- 在“角色”列表页面中，搜索 TKE_QCSRole 进入该角色管理页面。
-- 选择 “TKE_QCSRole” 页面中的【关联策略】，并在弹出的“风险提醒”窗口中进行确认。
+
+#### 步骤2：绑定策略到角色
+1. 登录 [访问管理](https://console.cloud.tencent.com/cam/role)  控制台，选择左侧导航栏的**角色**。
+2. 在“角色”列表页面中，搜索 TKE_QCSRole 进入该角色管理页面。
+3. 选择 “TKE_QCSRole” 页面中的**关联策略**，并在弹出的“风险提醒”窗口中进行确认。如下图所示：
 ![](https://main.qcloudimg.com/raw/5cf2f5e7f0b180ff81da622cf40b3467.png)
-- 在弹出的“关联策略”窗口中，找到自定义 `QcloudAccessForTKERoleInCBSSnapshot` 策略并勾选。
-- 单击【确定】即可完成授权。
+4. 在弹出的“关联策略”窗口中，选择自定义 `QcloudAccessForTKERoleInCBSSnapshot` 策略。
+5. 单击**确定**即可完成授权。
 
-### 权限内容
+#### 权限内容
 
 | 权限名称 | 权限说明 |
 |---------|---------|
