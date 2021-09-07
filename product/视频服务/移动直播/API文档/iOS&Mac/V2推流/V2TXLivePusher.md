@@ -504,6 +504,7 @@ __介绍__
 
 启用采集音量大小提示。
 >? 开启后可以在 `V2TXLivePusherObserver#onMicrophoneVolumeUpdate:(NSInteger)volume` 回调中获取到 SDK 对音量大小值的评估。
+
 ```
 - (V2TXLiveCode)enableVolumeEvaluation:(NSInteger)intervalMs;
 ```
