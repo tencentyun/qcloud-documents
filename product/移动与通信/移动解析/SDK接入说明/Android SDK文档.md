@@ -13,9 +13,16 @@
 ## 前期准备
 1. 首先需要开通移动解析 HTTPDNS 服务，请前往 [移动解析 HTTPDNS 控制台](https://console.cloud.tencent.com/httpdns) 开通。具体操作请参见 [开通移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/54577)。
 2. 开通移动解析 HTTPDNS 服务后，您需在移动解析 HTTPDNS 控制台添加解析域名后才可正常使用。具体操作请参见 [添加域名](https://cloud.tencent.com/document/product/379/54588)。
-3. 开通服务后，移动解析 HTTPDNS 将为您分配授权 ID、AES 和 DES 加密密钥及 HTTPS Token 等配置信息。您可前往 [移动解析 HTTPDNS 控制台](https://console.cloud.tencent.com/httpdns) 进行查看。配置信息说明参见：[配置信息说明](https://cloud.tencent.com/document/product/379/61203)。
-4. 已在移动解析 HTTPDNS 控制台 [开通 SDK](https://cloud.tencent.com/document/product/379/12544)。
+3. 已在移动解析 HTTPDNS 控制台 [开通 SDK](https://cloud.tencent.com/document/product/379/12544)。
+4. 开通服务后，移动解析 HTTPDNS 将为您分配授权 ID、AES 和 DES 加密密钥及 HTTPS Token 等配置信息。使用 iOS SDK 需求获取的配置如下：
 
+![](https://main.qcloudimg.com/raw/3c57f997cae9a61fc093bc81ae9d0b38.png)
+
+- **授权 ID**：使⽤移动解析 HTTPDNS 服务中，开发配置的唯⼀标识。SDK中 `dnsId` 参数，用于域名解析鉴权。
+- **DES 加密密钥**：SDK中 `dnsKey` 参数，加密方式为 DES 时传入此项。
+- **AES 加密密钥**：SDK中 `dnsKey` 参数，加密方式为 AES 时传入此项。
+- **HTTPS 加密 Token**：SDK中 `token` 参数，加密方式为 HTTPS 时传入此项。
+-  **IOS APPID**： [Android 端 SDK](https://cloud.tencent.com/document/product/379/17669) 的 `appkey` 鉴权信息。
 
 ## 接入
 ### 权限配置
