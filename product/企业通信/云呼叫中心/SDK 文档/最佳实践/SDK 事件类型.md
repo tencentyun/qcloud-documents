@@ -1,5 +1,4 @@
-### SDK 事件
-#### 如何监听事件
+## 如何监听事件
 ```
 function onCallIn(data) { //可以直接传入事件字符串监听事件
     console.log('会话呼入',data)
@@ -11,7 +10,7 @@ tccc.on(tccc.events.sessionEnded, function(data) { //也可以通过tccc.events�
 })
 ```
 
-#### 事件类型
+## 事件类型
 为了同步 SDK 的状态给前端页面, SDK 暴露了以下事件：
 
 <dx-tabs>
