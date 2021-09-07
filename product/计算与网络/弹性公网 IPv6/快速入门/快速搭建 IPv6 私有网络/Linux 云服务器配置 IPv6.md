@@ -105,7 +105,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
 - config_ipv6 工具运行时会自动重启网卡、网络服务，短时间内网络可能会不可用，请慎重执行。
 
 #### **操作步骤**
-1. 登录云服务器，执行` ifconfig` 或 `ip address` 命令确定需要配置 IPv6 地址的网卡，如下图所示，eth0 无 IPV6 地址（fe80::是本机私有地址）。
+1. 登录云服务器，执行` ifconfig` 或 `ip address` 命令确定需要配置 IPv6 地址的网卡，如下图所示，本例eth0 无 IPv6 地址（fe80::是本机私有地址）。
   <img src="https://main.qcloudimg.com/raw/beda0d051a43188ac9f6d07aef63ef9b.png" width="50%" />
 2. 在云服务器中直接执行如下命令下载 config_ipv6 工具。
 ```plaintext
