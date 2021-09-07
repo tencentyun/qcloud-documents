@@ -26,7 +26,7 @@ agent.authentication=<Token>
 agent.service_name=<上报的服务名称>
 ```
 
->?修改完 `agent.config` 需要把配置项前反注释符号 `#` 去掉。否则更改的信息讲无法生效。
+>?修改完 `agent.config` 需要把配置项前反注释符号 `#` 去掉。否则更改的信息将无法生效。
 
 ### 步骤4：选择相应方法指定插件路径
 根据应用的运行环境，选择相应的方法来指定 SkyWalking Agent 的路径。
