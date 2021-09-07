@@ -5,10 +5,10 @@
 ## 查看、复制 JSON
 
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。
-2. 在左侧导航栏中单击**Dashboard 列表**，进入 Dashboard 列表页。
+2. 在左侧导航栏中单击 **Dashboard 列表**，进入 Dashboard 列表页。
 3. 单击 Dashboard 列表左上角的**新建**，进入新建 Dashboard 管理页。
-4. 在面板区单击**![](https://main.qcloudimg.com/raw/8e26fe2eacdd794457a53a745bd48f3c.png)**或单击Dashboard 列表页的**设置**，进入 Dashboard 全局配置页。
-5. 单击**JSON**，复制 JSON 模板，即可把 JSON 格式部署到您的自建系统，在您的系统可查看对应的 Dashboard。
+4. 在面板区单击![](https://main.qcloudimg.com/raw/8e26fe2eacdd794457a53a745bd48f3c.png)或单击 Dashboard 列表页的**设置**，进入 Dashboard 全局配置页。
+5. 单击 **JSON**，复制 JSON 模板，即可把 JSON 格式部署到您的自建系统，在您的系统可查看对应的 Dashboard。
    ![](https://main.qcloudimg.com/raw/50fffa2ed12cbf3d74fd6b0c95f5afe2.png)
 
 JSON 模板包含 Dashboard 的属性、模板变量、面板查询等字段，具体字段说明请参考下文。
