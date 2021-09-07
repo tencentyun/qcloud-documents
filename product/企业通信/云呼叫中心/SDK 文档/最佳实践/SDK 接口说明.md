@@ -220,7 +220,7 @@ tccc.Agent.offline()
 ## Devices
 ### 检测当前浏览器是否支持
 `tccc.Devices.isBrowserSupported(): boolean`
-### 支持 Chrome 56+，Edge 80+
+支持 Chrome 56+，Edge 80+
 ### 返回麦克风设备列表
 `tccc.Devices.getMicrophones(): Promise<MediaDeviceInfo[]>`
 ### 返回扬声器设备列表
