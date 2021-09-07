@@ -18,7 +18,7 @@
 ### 自动更新 Dashboard 监控对象[](id:step1)
 
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。
-2. 选择**Dashboard** > **Dashboard 列表** > **新建 Dashboard** > **新建图表**。
+2. 选择 **Dashboard** > **Dashboard 列表** > **新建 Dashboard** > **新建图表**。
 3. 参考下列步骤配置监控图表。
  -  **监控类型**：选择云产品监控。
  -  **指标**：选择云产品为“容器服务（新）-pod”，选择指标为“CPU利用率（%)”。
