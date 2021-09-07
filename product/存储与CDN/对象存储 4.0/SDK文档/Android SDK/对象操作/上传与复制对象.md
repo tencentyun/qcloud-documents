@@ -49,10 +49,11 @@ String srcPath = new File(context.getCacheDir(), "exampleobject")
         .toString(); //本地文件的绝对路径
 //若存在初始化分块上传的 UploadId，则赋值对应的 uploadId 值用于续传；否则，赋值 null
 String uploadId = null;
-
+PutObjectRequest putObjectRequest= new PutObjectRequest(bucket, cosPath, srcPath);
+// 设置上传时的文件存储类型
+putObjectRequest.setStroageClass(COSStorageClass.STANDARD);
 // 上传文件
-COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath,
-        srcPath, uploadId);
+COSXMLUploadTask cosxmlUploadTask = transferManager.upload(putObjectRequest, uploadId);
 
 //设置上传进度回调
 cosxmlUploadTask.setCosXmlProgressListener(new CosXmlProgressListener() {
