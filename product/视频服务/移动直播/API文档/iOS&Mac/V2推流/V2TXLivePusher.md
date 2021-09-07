@@ -116,76 +116,6 @@ __介绍__
 
 ***
 
-### startVirtualCamera
-
-开启图片推流。
-
->? startVirtualCamera、startCamera 和 startScreenCapture 同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流。
-
-```
-- (V2TXLiveCode)startVirtualCamera:(TXImage *)image
-```
-
-#### 返回
-
-返回值 V2TXLiveCode：
-- V2TXLIVE_OK：成功。
-
-***
-
-### stopVirtualCamera
-
-关闭图片推流。
-
-```
-- (V2TXLiveCode)stopVirtualCamera
-```
-
-#### 返回
-
-返回值 V2TXLiveCode：
-- V2TXLIVE_OK：成功。
-
-***
-
-### startScreenCapture
-开启屏幕采集。
->? 
->- iOS 端暂不支持通过此接口开启屏幕采集。
->- startVirtualCamera、startCamera 和 startScreenCapture 同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流。
-
-1. 需要通过 iOS Broadcast Upload Extension 来开启屏幕采集。
-2. 然后设置 enableCustomVideoCapture 开启自定义采集支持。 
-3. 最后通过 sendCustomVideoFrame 把 Broadcast Upload Extension 中采集到的屏幕画面送出去。
-
-```
-- (V2TXLiveCode)startScreenCapture:(NSString *)appGroup
-```
-
-#### 参数
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| appGroup |  NSString * | 主 App 与 Broadcast 共享的 Application Group Identifier，可以指定为 nil，但按照文档设置会使功能更加可靠。 |
-
-#### 返回
-
-返回值 V2TXLiveCode：
-- V2TXLIVE_OK：成功。
-
-***
-
-### stopScreenCapture
-关闭屏幕采集。
-```
-- (V2TXLiveCode)stopScreenCapture
-```
-#### 返回
-
-返回值 V2TXLiveCode：
-- V2TXLIVE_OK：成功。
-
-***
 
 ## 视频相关接口
 ### setVideoQuality
@@ -310,6 +240,76 @@ __介绍__
 - (V2TXLiveCode)stopCamera
 ```
 
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+### startVirtualCamera
+
+开启图片推流。
+
+>? startVirtualCamera、startCamera 和 startScreenCapture 同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流。
+
+```
+- (V2TXLiveCode)startVirtualCamera:(TXImage *)image
+```
+
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+
+### stopVirtualCamera
+
+关闭图片推流。
+
+```
+- (V2TXLiveCode)stopVirtualCamera
+```
+
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+
+### startScreenCapture
+开启屏幕采集。
+>? 
+>- iOS 端暂不支持通过此接口开启屏幕采集。
+>- startVirtualCamera、startCamera 和 startScreenCapture 同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流。
+
+1. 需要通过 iOS Broadcast Upload Extension 来开启屏幕采集。
+2. 然后设置 enableCustomVideoCapture 开启自定义采集支持。 
+3. 最后通过 sendCustomVideoFrame 把 Broadcast Upload Extension 中采集到的屏幕画面送出去。
+
+```
+- (V2TXLiveCode)startScreenCapture:(NSString *)appGroup
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| appGroup |  NSString * | 主 App 与 Broadcast 共享的 Application Group Identifier，可以指定为 nil，但按照文档设置会使功能更加可靠。 |
+
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+
+### stopScreenCapture
+关闭屏幕采集。
+```
+- (V2TXLiveCode)stopScreenCapture
+```
 #### 返回
 
 返回值 V2TXLiveCode：
