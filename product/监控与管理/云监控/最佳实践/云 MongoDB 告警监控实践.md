@@ -438,7 +438,7 @@ Qr>100，Qw>100，Ar>100，Aw>100
 
 **配置 Dashboard**
 1. 登录 [腾讯云监控控制台](https://console.cloud.tencent.com/monitor )。
-2. 单击**Dashboard** > **Dashboard 列表**。
+2. 单击 **Dashboard** > **Dashboard 列表**。
 3. 在 Dashboard 列表中选择“云数据库 MongoDB 预设面板”。
 	- 选择 MongoDB 实例
 	- 选择 MongoDB 副本集
