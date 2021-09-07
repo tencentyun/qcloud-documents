@@ -404,7 +404,7 @@ status:
 ### 快照授权 [](id:authorize)
 
 
-使用 CBS-CSI 插件的 [创建快照和使用快照来恢复卷](#backup) 功能时，需给容器服务角色 `TKE_QCSRole`  授予快照等相关资源的操作。
+使用 CBS-CSI 插件的 [创建快照和使用快照来恢复卷](#backup) 功能时，需给容器服务角色 `TKE_QCSRole` 授予快照等相关资源的操作。
 
 #### 步骤1：创建自定义策略
 1. 登录 [访问管理](https://console.cloud.tencent.com/cam/role)  控制台，选择左侧导航栏的**策略**。
@@ -429,7 +429,7 @@ status:
 }
 ```
 
-4. 在“关联用户/用户组”页面指定策略名称。此处设置为 `QcloudAccessForTKERoleInCBSSnapshot` 和关联用户/用户组。
+4. 在“关联用户/用户组”页面指定策略名称。此处设置为 `QcloudAccessForTKERoleInCBSSnapshot` 并关联用户/用户组。
 5. 单击**确定**即可完成自定义策略的设定。
 
 
