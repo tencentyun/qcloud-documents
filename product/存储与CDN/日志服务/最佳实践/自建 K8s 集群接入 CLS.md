@@ -378,7 +378,7 @@ spec:
 :::
 </dx-tabs>
 
-### 步骤3：创建 LogConfig 对象 [](id:logconfig_craete)
+### 步骤3：创建 LogConfig 对象 [](id:logconfig_create)
 
 由于 [步骤2：定义 LogConfig 对象](#logconfig_def) 定义了 LogConfig.yaml 声明文件，我们可以使用 kubect 命令创建 LogConfig 对象。
 ```shell
