@@ -43,7 +43,7 @@
     <td>DNS 请求的 ECS（EDNS-Client-Subnet）值</td>
     <td>否</td>
     <td>IPv4/IPv6 地址值</td>
-    <td>是</td>
+    <td>否</td>
     <td>默认情况下 HTTPDNS 服务器会查询客户端出口 IP 为 DNS 线路查询 IP，使用 “ip=xxx” 参数，可以指定线路 IP 地址。支持 IPv4/IPv6 地址传入，接口会自动识别。</td>
   </tr>
   <tr>
