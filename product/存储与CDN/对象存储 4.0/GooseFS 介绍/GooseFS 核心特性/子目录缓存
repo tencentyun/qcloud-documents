@@ -6,26 +6,18 @@
 该示例演示了如何通过命令行在 GooseFS 配置子目录缓存。
 
 ### 1. 准备配置和计算集群
-需要客户提供一份config用来记录namespace和对应的白名单目录，config格式如下()
+需要客户提供 config 文件用来记录 namespace 和对应的白名单目录，config文件格式如下()
 ```plaintext
 {
-    //namespace名称
-    "nsName-1": {
-        // 是否启动子目录缓存，如果为 false ，则该 namespace 的子目录缓存功能为关闭状态
-        "enable": bool,
-        // namespace 子目录白名单的路径列表，当 enable = true 时，apply 后该 namespace 只对 whiteList 中的目录或子目录进行缓存
-        "whiteList": [
-            "/ns-1/test1",
-            ...
-        ]
-    },
-    "nsName-2": {
-        "enable": bool,
-        "whiteList": [
-            "/ns-2/test1",
-            ...
-        ]
-    }
+    //namespace 名称
+    "namespace": "nsName-1",
+    // 是否启动子目录缓存，如果为 false ，则该 namespace 的子目录缓存功能为关闭状态
+    "enable": bool,
+    // namespace 子目录白名单的路径列表，当 enable = true 时，apply 后该 namespace 只对 whiteList 中的目录或子目录进行缓存
+    "whiteList": [
+        "/ns-1/test1",
+        ...
+    ]
 }
 ```plaintext
 
