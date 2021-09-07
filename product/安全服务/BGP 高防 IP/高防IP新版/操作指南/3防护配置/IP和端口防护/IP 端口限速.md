@@ -1,7 +1,7 @@
  DDoS 高防支持对于业务 IP，基于 IP+端口的维度进行流量访问限速。
  
 ## 前提条件
-您需要成功 [购买 DDoS 高防 IP](https://cloud.tencent.com/document/product/1021/43894)  ，并设置防护对象。
+您需要成功 [购买 DDoS 高防 IP](https://cloud.tencent.com/document/product/1014/44082)  ，并设置防护对象。
 
 ## 操作步骤
 1. 登录 [DDoS 高防 IP（新版）管理控制台](https://console.cloud.tencent.com/ddos/antiddos-advanced/package) ，在左侧导航中，单击【DDoS 高防 IP】>【防护配置】。

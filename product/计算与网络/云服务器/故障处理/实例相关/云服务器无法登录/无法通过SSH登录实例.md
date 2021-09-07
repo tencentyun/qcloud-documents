@@ -10,7 +10,7 @@
 当使用 SSH 登录 Linux 实例失败，并返回报错信息时，您可记录报错信息，并匹配以下常见的报错信息，快速定位问题并参考步骤进行解决。
  
 <dx-accordion>
-::: SSH 登录报错 User test from xxx.xxx.xxx.xxx not allowed because not listed in AllowUsers
+::: SSH 登录报错 User root not allowed because not listed in AllowUsers
 
 #### 问题原因[](id:userNotListAllowUsers)
 该问题通常是由于 SSH 服务启用了用户登录控制参数，对登录用户进行了限制。参数说明如下：
@@ -283,7 +283,7 @@ service sshd restart
 ::: SSH 启动时报错 error while loading shared libraries
 
 #### 现象描述[](id:errorLibraries)
-Linux 实例启动 SSH 服务，在 secure日志文件中，或直接返回类似如下错误信息：
+Linux 实例启动 SSH 服务，在 secure 日志文件中，或直接返回类似如下错误信息：
 - “error while loading shared libraries： libcrypto.so.10: cannot open shared object file: No such file or directory”
 - “PAM unable to dlopen(/usr/lib64/security/pam_tally.so): /usr/lib64/security/pam_tally.so: cannot open shared object file: No such file or directory”
 
@@ -388,6 +388,128 @@ service sshd start
 - 快照回滚会导致快照创建后的数据丢失，请谨慎操作。
 - 建议按快照创建时间从近到远的顺序逐一尝试回滚，直至 SSH 服务正常运行。若回滚后仍无法正常运行 SSH 服务，则说明该时间点的系统已经出现异常。
 </dx-alert>
+
+:::
+::: SSH 服务启动时报错 fatal: Cannot bind any address
+#### 现象描述[](id:cannotBindAddress)
+Linux 实例启动 SSH 服务，在 secure 日志文件中，或直接返回类似如下错误信息：
+```
+FAILED.
+fatal: Cannot bind any address.
+address family must be specified before ListenAddress.
+```
+
+
+#### 问题原因
+SSH 服务的 `AddressFamily` 参数配置不当所致。`AddressFamily` 参数用于指定运行时使用的协议簇，若参数仅配置了 IPv6，而系统内未启用 IPv6 或 IPv6 配置无效，则可能导致该问题。
+
+
+#### 解决思路
+1. 参考 [处理步骤](#ProcessingSteps7)，进入 SSH 配置文件 `sshd_config` 检查配置。
+2. 修改 `AddressFamily` 参数，并重启 SSH 服务即可。
+
+
+
+#### 处理步骤[](id:ProcessingSteps7)
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，使用 VIM 编辑器进入 `sshd_config` 配置文件。
+```
+vim /etc/ssh/sshd_config
+```
+3. 查看是否包含类似如下配置。
+```
+AddressFamily inet6
+``` 常用参数说明如下：
+ - **inet**：使用 IPv4 协议簇，为默认值。
+ - **inet6**：使用 IPv6 协议簇。
+ - **any**：同时启用 IPv4 和 IPv6 协议簇。
+4. 按 **i** 进入编辑模式，修改为以下配置，或在行首增加 `#` 进行注释。 
+```
+AddressFamily inet
+```<dx-alert infotype="notice" title="">
+`AddressFamily` 参数需在 `ListenAddress`  前配置才可生效。
+</dx-alert>
+5. 按 **Esc** 退出编辑模式，并输入 **:wq** 保存修改。
+6. 执行以下命令，重启 SSH 服务。
+```shell
+service sshd restart
+```重启 SSH 服务后，即可使用 SSH 登录。详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+:::
+::: SSH 服务启动时报错 Bad configuration options
+
+#### 现象描述[](id:badConfigureOptions)
+Linux 实例启动 SSH 服务，在 secure 日志文件中，或直接返回类似如下错误信息：
+```
+/etc/ssh/sshd_config: line 2: Bad configuration options:\\ 
+/etc/ssh/sshd_config: terminating, 1 bad configuration options
+```
+
+
+#### 问题描述
+配置文件存在文件编码或配置错误等异常问题所致。
+
+
+#### 解决思路
+参考处理步骤提供的以下处理项，修复 `sshd_config` 配置文件。
+- [对应错误信息修改配置文件](#changeSetting)
+- [外部文件上传](#upload)
+- [重新安装 SSH 服务](#installSSH)
+- [通过快照回滚恢复](#rollBack)
+
+
+#### 处理步骤
+
+
+#### 对应错误信息修改配置文件[](id:changeSetting)
+若错误信息中明确指出了错误配置，则可通过 VIM 编辑器直接修改 `/etc/ssh/sshd_config` 配置文件。您可参考其他实例的正确配置文件进行修改。
+
+
+#### 外部文件上传[](id:upload)
+1. 通过 FTP 软件将其他正常服务器上的 `/etc/ssh/sshd_config` 的库文件上传至目标服务器的 `\tmp` 目录。
+<dx-alert infotype="explain" title="">
+本文以上传至目标服务器的 `\tmp` 目录为例，您可结合实际情况进行修改。
+</dx-alert>
+2. 执行以下命令，将库文件拷贝至正常目录。
+```
+cp /tmp/sshd_config /etc/ssh/sshd_config
+```
+3. 依次执行以下命令，修改文件权限、所有者及属组。
+```
+chmod 600 /etc/ssh/sshd_config
+``` ```
+chown root:root /etc/ssh/sshd_config
+```
+4. 执行以下命令，启动 SSH 服务。
+```
+service sshd start
+```
+
+
+#### 重新安装 SSH 服务[](id:installSSH)
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，卸载 SSH 服务。
+```
+rpm -e openssh-server
+```
+3. 执行以下命令，安装 SSH 服务。
+```
+yum install openssh-server
+```
+4. 执行以下命令，启动 SSH 服务。
+```
+service sshd start
+```
+
+#### 通过快照回滚恢复[](id:rollBack)
+可通过回滚实例系统盘的历史快照进行库文件恢复，详情请参见 [从快照回滚数据](https://cloud.tencent.com/document/product/362/5756)。
+
+<dx-alert infotype="notice" title="">
+- 快照回滚会导致快照创建后的数据丢失，请谨慎操作。
+- 建议按快照创建时间从近到远的顺序逐一尝试回滚，直至 SSH 服务正常运行。若回滚后仍无法正常运行 SSH 服务，则说明该时间点的系统已经出现异常。
+</dx-alert>
+
+
 
 :::
 </dx-accordion>

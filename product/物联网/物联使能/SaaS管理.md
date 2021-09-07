@@ -5,8 +5,8 @@
 ### 新建 SaaS 
 
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer) ，选择**公共实例**或您购买的**标准企业实例**。
-2. 单击**项目 ID**进入项目详情页面，单击左侧菜单栏**物联使能** > **SaaS 服务**进入 SaaS 服务页。
-3. 在 SaaS 服务页，单击**新建**，定义您的 SaaS 。
+2. 单击**项目 ID**进入项目详情页面，单击左侧菜单栏**物联使能** > **SaaS 服务**进入 SaaS 列表页面。
+3. 在 SaaS 列表页面，单击**新建**，定义您的 SaaS 。
 <img src="https://main.qcloudimg.com/raw/8564e0e2b972386b20babe4b202296fa.png" style="zoom: 60%;"></img><br>
 - **SaaS 名称**：必填，根据实际业务输入便于识别的 SaaS 名称。支持中文、英文、数字、下划线的组合，最多不超过20个字符。
 - **SaaS 场景**：必填，选择业务实际的 SaaS 场景。

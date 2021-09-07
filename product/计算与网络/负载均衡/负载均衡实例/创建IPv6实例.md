@@ -30,7 +30,7 @@ IPv6 NAT64 负载均衡的架构如下图所示。
  - IP 版本：IPv6 NAT64。
  - 所属网络：私有网络。
  - 其他配置和普通实例配置相同。
-3. 在购买页选择各项配置后，单击【立即购买】，返回至 [负载均衡实例列表页](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，即可查看已购的 IPv6 NAT64 负载均衡。
+3. 在购买页选择各项配置后，单击**立即购买**，返回至 [负载均衡实例列表页](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，即可查看已购的 IPv6 NAT64 负载均衡。
 
 
 ### 使用 IPv6 NAT64 负载均衡

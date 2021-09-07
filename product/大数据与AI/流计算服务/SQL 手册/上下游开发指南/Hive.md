@@ -96,6 +96,7 @@ CREATE TABLE default_catalog.testdb.Hive表名 (id INT, name STRING, dt STRING, 
 | lookup.join.cache.ttl                      | 否   | 60 min       | 表示缓存时间；这里值得注意的是，因为 Hive 维表会把维表所有数据缓存在 TM 的内存中，如果维表量很大，那么很容易就 OOM；如果 ttl 时间太短，那么会频繁的加载数据，性能会有很大影响。 |
 
 ## Hive 配置
+
 [](id:id)
 ### 获取 Hive 连接配置 jar 包
 Flink SQL 任务写 Hive 时需要使用包含 Hive 及 HDFS 配置信息的 jar 包来连接到 Hive 集群。具体获取连接配置 jar 及其使用的步骤如下：
@@ -150,7 +151,7 @@ hive-site.xml
 4. 在 [程序包管理](https://console.cloud.tencent.com/oceanus/resource) 页面上传 jar 包，并在作业参数配置里引用该程序包。
 5. 获取 kerberos principal，用于作业 [高级参数](https://cloud.tencent.com/document/product/849/53391) 配置。
 ```
-klist -kt emr.keytab
+klist -kt /var/krb5kdc/emr.keytab
 
 # 输出如下所示，选取第一个即可：hadoop/172.28.28.51@EMR-OQPO48B9
 KVNO Timestamp     Principal
