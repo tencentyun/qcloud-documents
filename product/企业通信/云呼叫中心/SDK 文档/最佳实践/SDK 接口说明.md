@@ -180,8 +180,6 @@ tccc.Call.transfer(options)
       <td>指定会话 Id</td>
    </tr>
 </table>
-Name		Type	Description
-options	sessionId	string	指定会话Id
 给用户放音，坐席会进入静音状态，放音内容需在管理后台配置。
 
 ### 取消呼叫保持
