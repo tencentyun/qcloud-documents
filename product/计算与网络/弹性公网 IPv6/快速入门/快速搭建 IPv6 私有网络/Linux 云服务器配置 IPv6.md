@@ -236,7 +236,7 @@ systemctl restart network
 ```plaintext
 ifconfig
 ```
-若出现以下报文表示已成功获取到 IPv6 地址。
+ 若出现以下报文表示已成功获取到 IPv6 地址。
 ![](https://main.qcloudimg.com/raw/2e42f1a5e7b9672d60461fe05edfed52.png)
 10. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
 
