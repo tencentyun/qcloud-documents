@@ -1,5 +1,5 @@
 ## 整体效果
-集成 SDK 后，业务系统右下方会出现“坐席工作台“图标，点击图标即可出现客服工作台。
+集成 SDK 后，业务系统右下方会出现“坐席工作台“图标，单击图标即可出现客服工作台。
 ![](https://main.qcloudimg.com/raw/d3046ddd8ffbec95bcbcd0601a699abf.png)
 >?**坐席工作台**图标可以隐藏。
 
@@ -11,7 +11,7 @@
 ::: 电话工具条
 ![](https://main.qcloudimg.com/raw/d750f51c933d2d1795d1cc352db36c85.png)
 :::
-::: 业务系统调用外呼接口点击呼出
+::: 业务系统调用外呼接口单击呼出
 ![](https://main.qcloudimg.com/raw/97578a13ff3c786eef2b6f537056fc35.png)
 :::
 ::: 手动拨号盘呼出
