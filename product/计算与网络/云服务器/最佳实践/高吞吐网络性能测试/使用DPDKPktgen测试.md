@@ -45,8 +45,6 @@ sed -i "s/\(^WERROR_FLAGS += -Wno-address-of-packed-member$\)/#\1/g" /root/dpdk/
 ```
 sed -i "s/\(^WERROR_FLAGS += -Wundef -Wwrite-strings$\)/\1 -Wno-address-of-packed-member/g" /root/dpdk/mk/toolchain/gcc/rte.vars.mk
 ``` ```
-sed -i "s/fall back/falls through -/g" /root/dpdk/lib/librte_eal/linuxapp/igb_uio/igb_uio.c
-
 sed -i "s/fall back/falls through -/g" /root/dpdk/kernel/linux/igb_uio/igb_uio.c
 ```
 5. 执行以下命令，编译安装 DPDK。
@@ -268,7 +266,7 @@ modprobe uio_pci_generic
 ``` ```
 cd /root/dpdk/usertools/
 ``` ```
-python3 dpdk-devbind.py --bind=igb_uio 00:05.0
+python3 dpdk-devbind.py --bind=uio_pci_generic 00:05.0
 ``` <dx-alert infotype="explain" title="">
 命令中的 00.05.0 为示例地址，请执行 `python3 dpdk-devbind.py -s` 命令，获取网卡实际地址。
 </dx-alert>
