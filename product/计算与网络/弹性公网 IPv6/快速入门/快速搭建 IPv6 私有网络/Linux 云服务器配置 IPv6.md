@@ -3,83 +3,87 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#gjpz) 和 [手�
 >?默认云服务器的 IPv6 地址仅具有私网通信能力，若您想要通过该 IPv6 地址访问公网或被公网访问，则需通过弹性公网 IPv6 为该 IPv6 地址开通公网能力，操作详情请参见 [为云服务器的 IPv6 地址开通公网](https://cloud.tencent.com/document/product/1142/47665#step4)。
 
 - **工具配置**：指通过工具一键配置 IPv6，根据镜像类型及购买时间的不同，使用的配置方法也不同，具体如下表所示。
-  <table>
-  <tbody>
-  <tr>
-  <tr style="text-align:center;">
-  <th><strong>镜像类型</strong></th>
-  <th><strong>购买时间</strong></th>
-  <th><strong>是否默认已开启 IPv6</strong></th>
-  <th><strong>工具配置<br>（推荐）</strong></th>
-  </tr><tr>
-  <td >CentOS 8.0以上</td>
-  <td >任何时间购买</td>
-  <td >是</td>
-  <td >
-  <a href="#open">config_ipv6 工具</a>
-  </td>
-  </tr>
-  <tr >
-  <td rowspan="2">CentOS 7.5/CentOS 7.6</td>
-  <td>2019-06-30前购买</td>
-  <td>否</td>
-  <td >
-  <a href="#unopen">enable_ipv6 工具</a>
-  </td>
-  </tr>
-  <tr>
-  <td>2019-06-30后购买</td>
-  <td>是</td>
-  <td >
-  <a href="#open">config_ipv6 工具</a>
-  </td>
-  </tr>
-  <tr>
-  <td rowspan="2">CentOS 6.x/CentOS 7.x（不含7.5/7.6）</td>
-  <td>2019-11-13 01:00前购买</td>
-  <td>否</td>
-  <td >
-  <a href="#unopen">enable_ipv6 工具</a>
-  </td>
-  </tr><tr>
-  <td>2019-11-13 01:00后购买</td>
-  <td>是</td>
-  <td >
-  <a href="#open">config_ipv6 工具</a>
-  </td>
-  <tr>
-  <tr>
-  <td rowspan="2">
-  <ul>
-  <li>Ubuntu14.04/Ubuntu 12.04/Ubuntu 16/Ubuntu 18/Ubuntu16.04/Ubuntu18.04</li>
-  <li>Debian 8/Debian 9</li>
-  <li>CoreOS 17</li>
-  <li>Tencent Linux</li>
-  </ul>
-  </td>
-  <td>2019-11-13 01:00前购买</td>
-  <td>否</td>
-  <td >
-  <a href="#unopen">enable_ipv6 工具</a>
-  </td>
-  </tr>
-  <tr>
-  <td>2019-11-13 01:00后购买</td>
-  <td>是</td>
-  <td >
-  <a href="#open">config_ipv6 工具</a>
-  </td>
-  <tr><td rowspan="2" >FreeBSD、Suse、OpenSUSE
-  </td>
-  <td>2019-11-13 01:00前购买</td>
-  <td>否</td>
-  <td rowspan="2">不支持工具配置，
-  请参见 <a href="#manual">手动配置</a></td>
-  </tr>
-  <tr >
-  <td>2019-11-13 01:00后购买</td>
-  <td>是</td>
-  </tbody></table>
+<table>
+<tbody>
+<tr>
+<tr style="text-align:center;">
+<th><strong>镜像类型</strong></th>
+<th><strong>购买时间</strong></th>
+<th><strong>是否默认已开启 IPv6</strong></th>
+<th><strong>工具配置<br>（推荐）</strong></th>
+</tr><tr>
+<td >CentOS 8.0以上</td>
+<td >任何时间购买</td>
+<td >是</td>
+<td >
+<a href="#open">config_ipv6 工具</a>
+</td>
+</tr>
+<tr >
+<td rowspan="2">CentOS 7.5/CentOS 7.6</td>
+<td>2019-06-30后购买</td>
+<td>是</td>
+<td >
+<a href="#open">config_ipv6 工具</a>
+</td>
+</tr>
+<tr>
+<td>2019-06-30前购买</td>
+<td>否</td>
+<td >
+<a href="#unopen">enable_ipv6 工具</a>
+</td>
+</tr>
+<tr>
+<td rowspan="2">CentOS 6.x/CentOS 7.x（不含7.5/7.6）</td>
+<td>2019-11-13 01:00后购买</td>
+<td>是</td>
+<td >
+<a href="#open">config_ipv6 工具</a>
+</td>
+</tr>
+<tr>
+<td>2019-11-13 01:00前购买</td>
+<td>否</td>
+<td >
+<a href="#unopen">enable_ipv6 工具</a>
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+<ul>
+<li>Ubuntu14.04/Ubuntu 12.04/Ubuntu 16/Ubuntu 18/Ubuntu16.04/Ubuntu18.04</li>
+<li>Debian 8/Debian 9</li>
+<li>CoreOS 17</li>
+<li>Tencent Linux</li>
+</ul>
+</td>
+<td>2019-11-13 01:00后购买</td>
+<td>是</td>
+<td >
+<a href="#open">config_ipv6 工具</a>
+</td>
+</tr>
+<tr>
+<td>2019-11-13 01:00前购买</td>
+<td>否</td>
+<td >
+<a href="#unopen">enable_ipv6 工具</a>
+</td>
+<tr>
+<td rowspan="2" >FreeBSD、Suse、OpenSUSE
+</td>
+<td>2019-11-13 01:00前购买</td>
+<td>否</td>
+<td rowspan="2">不支持工具配置，
+请参见 <a href="#manual">手动配置</a></td>
+</tr>
+<tr>
+<td>2019-11-13 01:00后购买</td>
+<td>是</td>
+</tr >
+</tbody>
+</table>
 
 - **手动配置**：需要您对 Linux 命令有一定的熟练掌握程度。本文列举了几种常用镜像的手动配置方法供您参考，如果您有其他镜像类型的手动配置需求，请 <a href="https://console.cloud.tencent.com/workorder/category?step=0" target="_blank">提交工单</a> 申请。
 	- [CentOS 7.3/CentOS 7.5/ CentOS 7.6 配置 IPv6](#CentOS7.3)
@@ -176,7 +180,7 @@ ip addr | grep inet6
 ifconfig | grep inet6
 ```
  + 若实例未开启 IPv6 功能支持，请根据下文继续开启 IPv6 功能支持。 
- + 若返回`inet6`相关内容，表示实例已成功开启 IPv6 功能支持，您可以跳至 [第6步](#centstep6) 继续操作。
+ + 若返回 `inet6` 相关内容，表示实例已成功开启 IPv6 功能支持，您可以跳至 [第6步](#centstep6) 继续操作。
 3. 执行以下步骤修改并保存`sysctl.conf`文件。
  1. 执行如下命令，打开`etc`文件夹下的`sysctl.conf`文件。
 ```plaintext
@@ -350,23 +354,23 @@ gateway <IPv6网关>
 ```
 	- 多 IPv6 地址：
 ```plaintext
-	auto eth0
-	iface eth0 inet6 static
-	address <IPv6地址>
-	netmask <子网前缀长度>
-	gateway <IPv6网关>
+auto eth0
+iface eth0 inet6 static
+address <IPv6地址>
+netmask <子网前缀长度>
+gateway <IPv6网关>
 
-	auto eth0:0
-	iface eth0:0 inet6 static
-	address <IPv6地址1>
-	netmask <子网前缀长度>
-	gateway <IPv6网关>
-	auto eth0:1
+auto eth0:0
+iface eth0:0 inet6 static
+address <IPv6地址1>
+netmask <子网前缀长度>
+gateway <IPv6网关>
+auto eth0:1
 
-	iface eth0:1 inet6 static
-	address <IPv6地址2>
-	netmask <子网前缀长度>
-	gateway <IPv6网关>
+iface eth0:1 inet6 static
+address <IPv6地址2>
+netmask <子网前缀长度>
+gateway <IPv6网关>
 ```
  2. 重启网络服务：运行`service network restart` 或 `systemctl restart networking`。
 6. <span id="ubstep6"/>如果镜像类型为 Ubuntu 18，请执行如下操作配置 IPv6。
@@ -427,7 +431,7 @@ sysctl -p
 ```plaintext
 ifconfig
 ```
-若出现以下报文，证明成功获取 IPv6 地址。
+ 若出现以下报文，证明成功获取 IPv6 地址。
 ![](https://main.qcloudimg.com/raw/cd5a2072c73307c79b7997bbd24cec13.png)
 6. Debian 8.2 系统默认为 ssh（22端口）开启 IPv6 监听，无需特殊配置，您可执行如下命令，进行查看。
 ```plaintext
@@ -534,7 +538,7 @@ default <IPv6网关> - -
 ```plaintext
 vi /etc/sysctl.conf
 ```
-做如下修改：
+ 做如下修改：
 ```plaintext
 #net.ipv6.conf.all.disable_ipv6 = 1
 #net.ipv6.conf.default.disable_ipv6 = 1
@@ -658,7 +662,7 @@ sh ./test.sh vtnet0 2402:4e00:1000:4200:0:8f0c:d527:b985 64
 3. 删除`ipv6_network_interfaces='none'` ，并修改`ipv6_activate_all_interfaces='NO'`为`ipv6_activate_all_interfaces='YES'`后保存退出。
 4. 运行`/etc/netstart restart`重启网络。
 5. 运行`vi /etc/rc.conf`打开网卡配置文件，`vtnet0`为网卡标识符，您需要修改成实际的标识符。在文件中根据实际信息添加以下配置：
-> ?为区分单个 IPv6 与多个 IPv6 地址，您只需在同一网卡标识符的基础上重复添加地址信息即可。
+>?为区分单个 IPv6 与多个 IPv6 地址，您只需在同一网卡标识符的基础上重复添加地址信息即可。
 > 
  - 单 IPv6 地址：
 ```plaintext
