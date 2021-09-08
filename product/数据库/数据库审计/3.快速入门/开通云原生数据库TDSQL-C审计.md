@@ -7,4 +7,4 @@
 ![](https://main.qcloudimg.com/raw/38ed851e5c179a2e97cac05301372cd3.png)
 
 ## 查看审计日志
-开通创建审计后，可在控制台查看对应的 SQL 审计日志，请参见 [审计日志](https://cloud.tencent.com/document/product/672/61284)。
+开通审计后，可在**审计日志**页查看对应的 SQL 审计日志，请参见 [审计日志](https://cloud.tencent.com/document/product/672/61284)。
