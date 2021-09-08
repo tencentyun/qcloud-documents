@@ -4,9 +4,9 @@
     <tr><th> 时间         </th><th> 版本                 </th><th> 更新内容                           </th></tr>
   </thead>
   <tbody>
-		    <tr><td>2021-07-19 </td><td> v1.20.6-tke.3</td><td>
-			<li>从 TKE 集群扩容到 EKS，在批量调度 Pod 时，能正确感知子网剩余 ip，调度正确数量的 Pod 到虚拟节点上。  (kube-scheduler)</li>
-			<li>移植 upstream 对 kubelet 及 cadvisor 的修改，修复使用 cgroupv2 时指标收集统计的问题。  (kubelet)</td></tr>
+<tr><td>2021-07-19 </td><td> v1.20.6-tke.3</td><td>
+<li>从 TKE 集群扩容到 EKS，在批量调度 Pod 时，能正确感知子网剩余 ip，调度正确数量的 Pod 到虚拟节点上。  (kube-scheduler)</li>
+<li>移植 upstream 对 kubelet 及 cadvisor 的修改，修复使用 cgroupv2 时指标收集统计的问题。  (kubelet)</td></tr>
     <tr><td>2021-06-21 </td><td> v1.20.6-tke.2</td><td>默认开启 CSIMigration 及 CSIMigrationQcloudCbs，以 CSI 方式挂载 CBS 盘。</td></tr>
     <tr><td> 2021-05-25   </td><td> v1.20.6-tke.1</td><td><li>revert pr63066，修复 LB 健康检查与 IPVS 的问题。（kube-proxy）</li>
 <li>合并 pr90260，修复 containerd 集群网络监控缺失问题。（kubelet）</li>
@@ -35,13 +35,12 @@
 <tbody>
 	<tr>
 	<tr><td>2021-08-23</td><td>v1.18.4-tke.14</td>
-<td>1. 从 TKE 集群扩容到 EKS：支持固定 IP   (kube-scheduler)<br>2. 从 TKE 集群扩容到 EKS：当匹配 EKS 固定 IP 时，跳过其他预选策略   (kube-scheduler)<br>3. 从 TKE 集群扩容到 EKS：针对 EKS 节点的调度优化 EKS 节点资源感知重调度；EKS 节点优先机型调度；优化了针对 EKS 节点的优选/预选策略   (kube-scheduler)<br>4.记录已加载的 ipvs 内核模块，避免 ipvs 模式时 kube-proxy 崩溃   (kube-proxy)<br>5. 写入 cpu manager 状态文件发生错误时，避免 panic   (kubelet)</td></tr><tr><td>2021-07-22</td><td>v1.18.4-tke.13</td><td>合并 <a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/91859" target="_blank">PR91859</a>，修复 CRD 类型只有一个字母时导致 kube-apiserver panic 的问题   (kube-apiserver)</td></tr>
-<tr><td>2021-07-13</td><td>v1.18.4-tke.12</td><td>1. 从 TKE 集群扩容到 EKS：在批量调度 Pod 时，能正确感知子网剩余 IP ，调度正确数量的 Pod 到虚拟节点上   (kube-scheduler)<br>2. 支持收集 Containerd 运行时的磁盘用量指标   (kubelet)<br>3. 缩容时支持指定 Pod   (kube-controller-manager)</td></tr>
+<td><li>从 TKE 集群扩容到 EKS：支持固定 IP   (kube-scheduler)<br><li>从 TKE 集群扩容到 EKS：当匹配 EKS 固定 IP 时，跳过其他预选策略   (kube-scheduler)<br><li>从 TKE 集群扩容到 EKS：针对 EKS 节点的调度优化 EKS 节点资源感知重调度；EKS 节点优先机型调度；优化了针对 EKS 节点的优选/预选策略   (kube-scheduler)<br><li>记录已加载的 ipvs 内核模块，避免 ipvs 模式时 kube-proxy 崩溃   (kube-proxy)<br><li>写入 cpu manager 状态文件发生错误时，避免 panic   (kubelet)</td></tr><tr><td>2021-07-22</td><td>v1.18.4-tke.13</td><td>合并 <a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/91859" target="_blank">PR91859</a>，修复 CRD 类型只有一个字母时导致 kube-apiserver panic 的问题   (kube-apiserver)</td></tr>
+<tr><td>2021-07-13</td><td>v1.18.4-tke.12</td><td><li>从 TKE 集群扩容到 EKS：在批量调度 Pod 时，能正确感知子网剩余 IP ，调度正确数量的 Pod 到虚拟节点上   (kube-scheduler)<br><li>支持收集 Containerd 运行时的磁盘用量指标   (kubelet)<br><li>缩容时支持指定 Pod   (kube-controller-manager)</td></tr>
     <td>2021-06-05</td>	
     <td>v1.18.4-tke.11</td>	
-    <td><ul class="params">
-TKE 支持混合云节点。（kube-controller-manager）
-</ul></td>
+    <td>
+TKE 支持混合云节点。（kube-controller-manager）</td>
 </tr>
 <tr>
     <td>2021-05-14</td>	
