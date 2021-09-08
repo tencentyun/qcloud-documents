@@ -10,9 +10,9 @@
 ### 创建 iOS 平台应用
 
 1. 接入 SDK 之前，需要您前往 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详情请参见 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
-   ![](https://main.qcloudimg.com/raw/a6f7bd9a751cde939069d8ef2c3e5e12.png)
+   ![](https://main.qcloudimg.com/raw/e6e1805c3198704a0d24ed20fe65f25a.png)
 2. 在【配置管理】页面上传推送证书，您可以参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664) 操作获取推送证书。
-   ![](https://main.qcloudimg.com/raw/aea977e64071e69ad4743aa9217efb25.png)
+   ![](https://main.qcloudimg.com/raw/d7ed258ecf2eda9d32e986039bc9bb3c.png)
    ![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
 3. 完成以上步骤后，单击快速接入，下载快速集成工具。
    ![](https://main.qcloudimg.com/raw/bbe22b0a4ea25ed313c5c3785814f922.png)
