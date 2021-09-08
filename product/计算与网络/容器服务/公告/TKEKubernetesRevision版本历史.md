@@ -40,7 +40,7 @@
 	<li>记录已加载的 ipvs 内核模块，避免 ipvs 模式时 kube-proxy 崩溃   (kube-proxy)</li>
 	<li>写入 cpu manager 状态文件发生错误时，避免 panic   (kubelet)</li></ul></td></tr>
 	<tr><td>2021-07-22</td><td>v1.18.4-tke.13</td><td>合并 <a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/91859" target="_blank">PR91859</a>，修复 CRD 类型只有一个字母时导致 kube-apiserver panic 的问题   (kube-apiserver)</td></tr>
-<tr><td>2021-07-13</td><td>v1.18.4-tke.12</td><td><li>从 TKE 集群扩容到 EKS：在批量调度 Pod 时，能正确感知子网剩余 IP ，调度正确数量的 Pod 到虚拟节点上   (kube-scheduler)</li>
+<tr><td>2021-07-13</td><td>v1.18.4-tke.12</td><td><ul class="params"><li>从 TKE 集群扩容到 EKS：在批量调度 Pod 时，能正确感知子网剩余 IP ，调度正确数量的 Pod 到虚拟节点上   (kube-scheduler)</li>
 <li>支持收集 Containerd 运行时的磁盘用量指标   (kubelet)</li><li>缩容时支持指定 Pod   (kube-controller-manager)</li></td></ul></tr>
     <td>2021-06-05</td>	
     <td>v1.18.4-tke.11</td>	
