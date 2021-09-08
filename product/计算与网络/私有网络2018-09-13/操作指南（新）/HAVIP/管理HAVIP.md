@@ -1,4 +1,6 @@
 本章节介绍如何在控制台创建高可用虚拟 IP（HAVIP），以及 HAVIP 创建后，在第三方软件中如何进行配置等后续操作。
+>?目前 HAVIP 产品处于灰度优化中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/azh0w1qoavk)。
+
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/)，在左侧导航栏中，选择**IP 与网卡** > **高可用虚拟 IP**。 
