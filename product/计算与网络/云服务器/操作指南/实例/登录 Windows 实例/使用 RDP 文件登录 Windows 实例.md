@@ -88,7 +88,7 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 :::
 </dx-tabs>
 
-## 相关说明[](id:illustrate)
+## RDP 带宽限制说明[](id:illustrate)
 网络可用带宽将直接影响通过 RDP 登录及使用云服务器的体验，不同的应用程序和显示分辨率需要不同的网络配置。微软提出了不同应用场景下使用 RDP 时实例的最低带宽要求。请参考下表，确保实例的网络配置可满足您的业务需求，否则可能引起卡顿等问题。
 >?如需调整实例带宽，请参见 [调整网络配置](https://cloud.tencent.com/document/product/213/15517)。
 >
