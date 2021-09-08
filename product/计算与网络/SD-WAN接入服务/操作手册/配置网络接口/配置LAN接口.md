@@ -14,7 +14,7 @@ LAN（Local Area Network）即局域网端口，Edge 设备通过 LAN 口连接�
 ![](https://main.qcloudimg.com/raw/c86157783e9181062e02512888e4018c.png)
 7. 在**已关联逻辑接口**区域的逻辑接口卡片右上角，单击<img src="https://main.qcloudimg.com/raw/463afbc4198fb885dbb914309ec143f8.png" style="margin:0;" />，并选择**编辑**。
 ![](https://main.qcloudimg.com/raw/8000e45063474c45917bb5d1e874eddc.png)
-8. 在“编辑接口”对话框中，填写以下信息，单击**确定**。
+8. 在**编辑接口**弹窗中，填写以下信息，单击**确定**。
   ![](https://main.qcloudimg.com/raw/82435abfd9519e80ecfd260d4040e449.png)
 >!系统创建的默认逻辑接口不允许更改 DHCP 字段。
 <table>
