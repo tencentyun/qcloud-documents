@@ -98,3 +98,4 @@ aps 证书创建成功了，单击 Download 下载到本地。（文件名：开
 ## Xcode 中的配置
 新版 Xcode 已经不需要手动配置证书和描述文件了，只需在 General 中选择正确的 Team，Fix Issue 即可，这也是上面所说的不用下载证书到本地安装的原因
 <img src="//main.qcloudimg.com/raw/22db4c59af9d26d562f916e87e10fbc2.png" width=640 />
+
