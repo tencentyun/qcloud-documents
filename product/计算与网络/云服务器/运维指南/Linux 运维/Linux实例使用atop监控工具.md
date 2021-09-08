@@ -1,43 +1,43 @@
 ## 操作场景
 
-Atop 是一款用于监控 Linux 系统资源与进程的工具，以一定的频率记录系统的运行状态，采集系统资源（CPU、内存、磁盘和网络）使用情况及进程运行情况数据，并以日志文件的方式保存在磁盘中。当实例出现问题时，可获取对应的 Atop 日志文件用于分析。
+atop 是一款用于监控 Linux 系统资源与进程的工具，以一定的频率记录系统的运行状态，采集系统资源（CPU、内存、磁盘和网络）使用情况及进程运行情况数据，并以日志文件的方式保存在磁盘中。当实例出现问题时，可获取对应的 atop 日志文件用于分析。
 
-本文以操作系统为 CentOS 7.9 的云服务器为例，介绍如何使用 Atop 监控工具。
+本文以操作系统为 CentOS 7.9 的云服务器为例，介绍如何使用 atop 监控工具。
 
 ## 操作步骤
 
-### 安装 Atop
+### 安装 atop
 1. [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
-2. 执行以下命令，安装 Atop。
+2. 执行以下命令，安装 atop。
 ```
 yum install atop -y
 ``` 页面提示信息为 `Complete!` 时说明已成功安装。
 
-### 配置并启动 Atop
-参考以下步骤，配置 Atop 监控周期及日志保留时间。
+### 配置并启动 atop
+参考以下步骤，配置 atop 监控周期及日志保留时间。
 
-1. 执行以下命令，使用 VIM 编辑器打开 Atop 配置文件。
+1. 执行以下命令，使用 VIM 编辑器打开 atop 配置文件。
 ```
 vim /etc/sysconfig/atop
 ```2. 按 **i** 进入编辑模式，修改以下配置：
  - 将 `LOGINTERVAL=600` 修改为 `LOGINTERVAL=30`，表示将默认的600s监控周期修改为30s。建议修改为30s，您可结合实际情况进行修改。
- - 将 `LOGGENERATIONS=28` 修改为 `LOGGENERATIONS=7`，表示将默认的日志保留时间28天修改为7天。为避免 Atop 长时间运行占用太多磁盘空间，建议修改为7天，您可结合实际情况进行修改。
+ - 将 `LOGGENERATIONS=28` 修改为 `LOGGENERATIONS=7`，表示将默认的日志保留时间28天修改为7天。为避免 atop 长时间运行占用太多磁盘空间，建议修改为7天，您可结合实际情况进行修改。
 修改完成后如下图所示：
 ![](https://main.qcloudimg.com/raw/764fee905a0f1d89d1c48c6d2f6aa372.png) 
 3. 按 **Esc** 并输入 **:wq**，保存修改并退出编辑器。
-4. 执行以下命令，启动 Atop。
+4. 执行以下命令，启动 atop。
 ```
 systemctl restart atop
 ```
 
-### 分析 Atop
-Atop 启动后，会将采集的数据记录在 `/var/log/atop` 目录的日志文件中。请获取实际的日志文件名，执行以下命令，查看日志文件并参考 [Atop 常用命令](#commands) 及 [系统资源监控字段说明](#monitoringField) 进行分析。
+### 分析 atop
+atop 启动后，会将采集的数据记录在 `/var/log/atop` 目录的日志文件中。请获取实际的日志文件名，执行以下命令，查看日志文件并参考 [atop 常用命令](#commands) 及 [系统资源监控字段说明](#monitoringField) 进行分析。
 ```
 atop -r /var/log/atop/atop_2021xxxx
 ```
 
 
-#### Atop 常用命令[](id:commands)
+#### atop 常用命令[](id:commands)
 您可在打开日志文件后，使用以下命令筛选所需数据：
 - **c**：按照进程的 CPU 使用率降序筛选。
 - **m**：按照进程的内存使用率降序筛选。
@@ -50,8 +50,8 @@ atop -r /var/log/atop/atop_2021xxxx
 
 
 #### 系统资源监控字段说明[](id:monitoringField)
-下图为部分监控字段以及数值，数值根据采样周期获取，仅作为参考。说明如下：
-![](https://main.qcloudimg.com/raw/f5950b3a2ab4979c78f0b7f5583d9d77.png)
+下图为部分监控字段以及数值，数值根据采样周期获取，仅作为参考。主要参数说明如下：
+![](https://main.qcloudimg.com/raw/977bd4f82338866d3a09c6766c67dc9e.png)
 
 - **ATOP 行**：主机名、信息采样日期和时间点。
 - **PRC 行**：进程整体运行情况。
@@ -86,8 +86,8 @@ atop -r /var/log/atop/atop_2021xxxx
  - xxxxxi：各层或活动网口收包数目。
  - xxxxxo：各层或活动网口发包数目。
 
-### 停止 Atop
-不建议在业务环境下长期运行 Atop，您可在问题排查完成后，执行以下命令停止 Atop。
+### 停止 atop
+不建议在业务环境下长期运行 atop，您可在问题排查完成后，执行以下命令停止 atop。
 ```
 systemctl stop atop
 ```
