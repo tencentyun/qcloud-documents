@@ -26,7 +26,7 @@
 <td>服务器 IP</td>
 <td>测速结果会回调多次，每次对应一个不同的 IP 地址</td>
 </tr><tr>
-<td>quality</td>
+<td><a href="https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#ga25f9ccb045890cb18a5f647ef3c1f974">quality</a></td>
 <td>网络质量评分</td>
 <td>通过评估算法测算出的网络质量，loss 越低，rtt 越小，得分也就越高</td>
 </tr><tr>
