@@ -1,7 +1,7 @@
 ## 功能介绍
-Yarn 资源调度器提供界面化的集群资源管理能力，帮助用户提高集群资源的利用率。目前支持 Fair Scheduler 和 Capacity Scheduler 两种类型的配置。
-- Fair Scheduler 即公平调度器，公平调度器能将资源公平的分配到 yarn 上的各个作业，权重可以用来调整资源的分配。
-- Capacity Scheduler 即容量调度器，容量调度器以分层的方式组织资源，设计了多层级别的资源限制条件以更好的让多用户共享集群资源。
+YARN 资源调度提供了交互式的 YARN 资源队列调度管理能力，较文件式配置管理操作更便捷，目前支持 Fair Scheduler 和 Capacity Scheduler 两种类型的调度配置。
+- Fair Scheduler 是公平调度器，公平调度器将资源公平的分配给 yarn 上的各个作业，通过权重来调整资源的分配。
+- Capacity Scheduler 是容量调度器，容量调度器以分层的方式组织资源,可通过多层级的资源限制条件让多用户共享集群资源。
 
 >!
 - 资源调度器默认使用公平调度器，配置管理 YARN 组件 fair-scheduler.xml 配置文件中的相关配置项参数保持与资源调度页一致。切换调度器为容量调度器，配置管理 YARN 组件 capacity-scheduler.xml 配置文件中的相关配置参数也保持与资源调度页一致。
@@ -118,7 +118,7 @@ Yarn 资源调度器提供界面化的集群资源管理能力，帮助用户提
 ![](https://main.qcloudimg.com/raw/068cbd684c9f615f1d6d6d690d9782f9.png)
 3. 单击**资源调度器开关**，打开后开关后即可进行相关调度器配置。
 4. 新建 Capacity Scheduler
-调度策略类型选择 Capacity Scheduler 即可进入 Capacity Scheduler 的配置页面，单击**新增资源池**即可新建资源池，可对已有资源池进行编辑、新建子池、克隆、删除等操作。
+调度策略类型选择 Capacity Scheduler 即可进入 Capacity Scheduler 的配置页面，单击**新增资源池**即可新建资源池，可对已有资源池进行编辑、新建子池、克隆等操作。
 ![](https://main.qcloudimg.com/raw/d4e9fdfbe1550dba3b896aa0522ff09a.png)![](https://main.qcloudimg.com/raw/f7e4335375f03c2762d9e0953ee02011.png)
 **字段与配置项对照表**
 <table>
