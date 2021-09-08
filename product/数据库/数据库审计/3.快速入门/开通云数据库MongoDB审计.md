@@ -6,9 +6,12 @@
 ### 创建审计规则
 1. 登录 [MongoDB 控制台](https://console.cloud.tencent.com/dls/mongodb)，在左侧导航选择**数据库审计**页，在上方选择地域后，在**审计实例**页，单击**未开启**过滤未开启审计的实例。
 ![](https://main.qcloudimg.com/raw/7f392eeef2526fcf2a71c847cff5474c.png)
-2. 单击需要开通审计的实例 ID 进入开通页面，选择日志保存时长，单击**开通**。
+>?或在**审计日志**页的审计实例处，直接搜索未开通的实例进行开通。
+>![](https://main.qcloudimg.com/raw/1f1b8e541049e6007e9d7391f1bd4e8e.png)
+2. 在**审计实例**页，单击需要开通审计的实例 ID 进入开通页面，选择日志保存时长，单击**开通**。
 >? MongoDB开通审计后，规则为全审计。
 
 ### 查看审计日志
 开通审计后，可在**审计日志**页查看对应的 SQL 审计日志，请参见 [审计日志](https://cloud.tencent.com/document/product/672/61284)。
+     
      
