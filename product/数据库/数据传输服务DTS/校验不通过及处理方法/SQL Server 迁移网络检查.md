@@ -4,4 +4,4 @@
 
 ## 修复方法
 
-如果迁移网络检查报错，请提交工单处理。
+如果迁移网络检查报错，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
