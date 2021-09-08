@@ -284,9 +284,9 @@ ifconfig eth0 up
 ![](https://main.qcloudimg.com/raw/88116c6e3625696e0935f3238671ae4c.png)
 - 发送端执行以下命令：
 ```
-/root/pktgen/tools/dpdk-run.py -s default
+/root/pktgen/tools/run.py -s default
 ``` ```
-/root/pktgen/tools/dpdk-run.py default
+/root/pktgen/tools/run.py default
 ``` 启动发包时执行以下命令。```
 Pktgen:/> str
 ``` 终止发包时执行以下命令。```
@@ -302,9 +302,9 @@ Pktgen:/> stp
 ![](https://main.qcloudimg.com/raw/b7bf2ecdedecf7c347c47c069b704c93.png)
 - 发送端执行以下命令：
 ```
-/root/pktgen/tools/dpdk-run.py -s default
+/root/pktgen/tools/run.py -s default
 ``` ```
-/root/pktgen/tools/dpdk-run.py default
+/root/pktgen/tools/run.py default
 ``` 启动发包时执行以下命令。```
 Pktgen:/> str
 ``` 终止发包时执行以下命令。```
