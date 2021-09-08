@@ -237,7 +237,7 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
 
 电商典型场景：后端敏感业务需要对访问权限进行控制。
 
-场景：对于后台商品管理模块，仅支持有权限的服务对它进行访问。例如，在这个场景中，我们限制gateway微服务可以不访问 mall admin 微服务，所有从 gateway 发起的请求都会被拒绝。
+场景：对于后台商品管理模块，仅支持有权限的服务对它进行访问。例如，在这个场景中，我们限制 gateway 微服务可以不访问 mall admin 微服务，所有从 gateway 发起的请求都会被拒绝。
 
 配置方式：在 [TSF 控制台](https://console.cloud.tencent.com/tsf/index) 服务治理页面找到 mall-admin 服务，进入服务详情页面，配置服务鉴权规则。
 
@@ -266,7 +266,7 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
    | groupName | 可选        | 默认采用和应用名称同名，不可重复                             |
    | microserviceType |可选 | 默认“NATIVE” 云原生应用。否，填写 “N”                        |
    | applicationType | 可选  | 默认“V”表示虚拟机部署                                        |
-   | pkgVersion | 可选      | 上传的程序包版本号，默认当前时间戳，时间戳格式：”YYYYmmddHHMMSS“ |
+   | pkgVersion | 可选      | 上传的程序包版本号，默认当前时间戳，时间戳格式：“YYYYmmddHHMMSS”|
 
 2. 在 travis.yml 中添加脚本任务和任务所需的执行参数。依次是：程序包路径、应用名和 APPID。
 
