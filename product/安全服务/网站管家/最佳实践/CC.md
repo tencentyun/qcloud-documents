@@ -21,7 +21,7 @@
 >
 ![](https://main.qcloudimg.com/raw/0ab087a75f4e1570d6adb19ec91090a5.png)
 
-### 示例3：一键替换证书
+### 示例3：腾讯云托管证书
 1. 登录 [SSL 证书](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航中，单击【我的证书】，进入我的证书页面。
 2. 在我的证书页面，选择所需 ID,单击【部署】，弹出选择部署类型弹窗。
 ![](https://main.qcloudimg.com/raw/59512620e91d930e09564cc158447acd.png)
