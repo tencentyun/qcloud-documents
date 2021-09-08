@@ -7,7 +7,7 @@
 -[创建联盟](#league)
 -[购买网络](#network)
 -[安装合约](#chaincode)
--[申请证书](#cert)
+-[申请并下载证书](#cert)
 -[应用开发与对接](#app)
 -[通过浏览器查看链上数据](#data)
 </dx-steps>
