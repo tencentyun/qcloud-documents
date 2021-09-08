@@ -92,17 +92,27 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 >?协议可选子网和私有网络，VPC 或子网的选项选择接入 NAT 边界防火墙，且当前没有绑定出口 NAT 规则的 VPC 或子网。
 >
 ![](https://main.qcloudimg.com/raw/3964cb064bb8e4853f8385997990d253.png)
-- **域名解析**
-	- 域名解析开关对应整个 NAT 边界防火墙实例，用来控制 DNS 流量是否经过 NAT 边界防火墙，默认关闭，接入 DNS 流量开关生效于所有纳入 NAT 防火墙管控的 VPC。
-![](https://main.qcloudimg.com/raw/472403c3a06a5f9a35d2c865d366dd0a.png)
-		- 开启开关后，系统会修改所接入 VPC 的 DNS 解析地址，将 DNS 流量牵引至 NAT 边界防火墙，从而获取全流量域名。
+- **接入 VPC 与公网 IP**
+在实例配置页面的接入 VPC 与公网 IP 页签下，可以增加接入的 VPC 或者重新选择 VPC。
+ - 增加接入的 VPC
+ 单击【增加接入 VPC】，选择需要增加接入的VPC，单击【确定】。
+ ![](https://main.qcloudimg.com/raw/d0f5278c2167f2e5467b2e325b0d6302.png)
+ - 重新选择 VPC
+ 单击【重新选择 VPC】>【确定】，即可重新选择 VPC。
+>?必须关闭当前防火墙实例下的所有子网开关和 DNS 流量开关。
+>
+ ![](https://main.qcloudimg.com/raw/817ad9156d4f6a21069650947ff09470.png) 
+-  接入 DNS 流量
+ - 单击![](https://main.qcloudimg.com/raw/4810bf867dec5152045bc24a9ca018c5.png)开启对应 VPC 右侧的DNS流量开关，开启开关后，系统会修改所接入 VPC 的 DNS 解析地址，将 DNS 流量牵引至 NAT 边界防火墙，从而获取全流量域名。
 >?接入 VPC 中若存在未开启防火墙开关的子网，可能导致该子网 DNS 解析产生明显延迟，建议开启全部防火墙开关后再启用此开关。
 >
-		- 关闭开关后，系统会恢复所接入 VPC 的 DNS 解析地址，DNS 流量将恢复原先路径，不再经过 NAT 边界防火墙。
-	- **应用场景**：NAT 防火墙支持将用户的 DNS 解析地址改为 NAT 防火墙的 IP，从而将用户的 DNS 流量牵引至防火墙，防火墙继续请求真实 DNS 解析服务器，并返回 DNS 响应给指定的服务器，不区分 NAT 防火墙的模式。
-		1. 在 [NAT 边界规则](https://console.cloud.tencent.com/cfw/ac/nat) 页面，单击【出向规则】。
-		2. 在出向规则页签中，单击【添加规则】。
-		3. 在添加规则页面，填写相关字段，并选择 DNS 协议。
+![](https://main.qcloudimg.com/raw/901b75396d80a5c125baa2e34bbd9a03.png)
+ - 关闭开关后，系统会恢复所接入 VPC 的 DNS 解析地址，DNS 流量将恢复原先路径，不再经过 NAT 边界防火墙。
+ 
+- **应用场景**：NAT 防火墙支持将用户的 DNS 解析地址改为 NAT 防火墙的 IP，从而将用户的 DNS 流量牵引至防火墙，防火墙继续请求真实 DNS 解析服务器，并返回 DNS 响应给指定的服务器，不区分 NAT 防火墙的模式。
+	1. 在 [NAT 边界规则](https://console.cloud.tencent.com/cfw/ac/nat) 页面，单击【出向规则】。
+	2. 在出向规则页签中，单击【添加规则】。
+	3. 在添加规则页面，填写相关字段，并选择 DNS 协议。
 		![](https://main.qcloudimg.com/raw/247aebda68b11b47b32707fb8bee1017.png)
 		
 - **微信远程运维**
