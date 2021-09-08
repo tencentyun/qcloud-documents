@@ -5,7 +5,7 @@ Serverless SSR 为您提供了完整的控制台开发应用流程，该任务�
 ## 操作步骤
 ### 步骤1：创建应用
 1. 登录 [Serverless SSR 控制台](https://console.cloud.tencent.com/ssr)。
-2. 单击【新建应用】 ，进入项目创建页面。
+2. 单击**新建应用** ，进入项目创建页面。
 3. 根据页面提示，填写应用基本信息。
  - 应用名：2 - 63个字符，只能包含小写字母、数字及分隔符“-”、且必须以小写字母开头，数字或小写字母结尾。创建后不可更改。
  - 环境：选择 dev、test、prod 任一种方式，也支持自定义环境。
@@ -14,7 +14,7 @@ Serverless SSR 为您提供了完整的控制台开发应用流程，该任务�
  >?
  >- 目前只支持 Next.js、Nuxt.js 两个框架的项目部署。
  >- 导入已有项目时，如果您使用了 Express 等 web 框架替代默认的Web Server，需要做简单的改造，具体请参考 [自定义路由项目改造](https://cloud.tencent.com/document/product/1242/49214) 文档。
-4. 单击【创建】，Serverless SSR 将为您自动部署应用，您可以查看项目的部署日志。
+4. 单击**创建**，Serverless SSR 将为您自动部署应用，您可以查看项目的部署日志。
 
 <span id="1"></span>
 #### 模版创建
@@ -25,7 +25,7 @@ Serverless SSR 为您提供了完整的控制台开发应用流程，该任务�
 
 ![](https://main.qcloudimg.com/raw/1b517a43b6250b3bcb4ef0cfd9eeb4cd.png)
 
-您还可以在【高级设置】部分，为您的项目进行静态资源存储、自定义域名、CDN 加速等高级能力的配置。
+您还可以在**高级设置**部分，为您的项目进行静态资源存储、自定义域名、CDN 加速等高级能力的配置。
 ![](https://main.qcloudimg.com/raw/c3824c2fa8a031ddeba9d270d3be3c3e.png)
 
 >?配置自定义域名时，请确定您的域名已在腾讯云备案并配置了 CNAME 解析，详细步骤参考 [自定义域名配置文档](https://cloud.tencent.com/document/product/628/11791)。
@@ -48,7 +48,7 @@ Serverless SSR 为您提供了完整的控制台开发应用流程，该任务�
 ![](https://main.qcloudimg.com/raw/a24e03c9884af396df2395ef7721063b.png)
 
 ### 步骤3：二次开发
-在应用详情页顶部，单击【开发部署】，您可以轻松地实现应用的配置修改与二次部署上传，支持**本地上传、代码托管、CLI 开发**三种方式。
+在应用详情页顶部，单击**开发部署**，您可以轻松地实现应用的配置修改与二次部署上传，支持**本地上传、代码托管、CLI 开发**三种方式。
 <img src="https://main.qcloudimg.com/raw/5b727ac0d6715f339574e37d3580ac89.png" width="770px">
 
 

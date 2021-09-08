@@ -130,3 +130,4 @@ Access-Control-Allow-Methods: POST
 5. 建议业务调用方使用“长连接+连接池”模式。
 >?由于 HTTPS 短连接建连耗时比较大，每次请求都有TCP + tls 握手开销，所以建议 REST API 长连接接入。
 使用标准 HTTP 库的场景：HTTP1.0 需要指定请求头部 Connection: keep-alive，HTTP1.1 默认支持长连接；基于 TCP 封装 HTTPS 请求的场景，可以复用 TCP 连接来收发请求。
+

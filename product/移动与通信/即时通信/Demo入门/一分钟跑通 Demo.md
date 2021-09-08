@@ -50,11 +50,11 @@
      </tr>  
   <tr>      
       <td>Web（通用）</td>   
-      <td>H5/dist/debug/GenerateTestUserSig.js</td>   
+      <td>Web/Demo/dist/debug/GenerateTestUserSig.js</td>   
      </tr>  
   <tr>      
       <td>小程序</td>   
-      <td>WXMini/dist/wx/debug/GenerateTestUserSig.js</td>   
+      <td>MiniProgram/Demo/dist/wx/debug/GenerateTestUserSig.js</td>   
      </tr>  
 </table>
 3. 设置`GenerateTestUserSig`文件中的相关参数：

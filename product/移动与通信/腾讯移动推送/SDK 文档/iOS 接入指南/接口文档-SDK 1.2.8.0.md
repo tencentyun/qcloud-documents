@@ -520,7 +520,7 @@ badgeNumber：应用的角标数。
 
 ```objective-c
 /// 设置消息轮询时间间隔，最小值为10s，此方法需要在单例初始化之前调用
-(void)setMessageTimerInterval:(NSTimeInterval)interval;
+- (void)setMessageTimerInterval:(NSTimeInterval)interval;
 ```
 #### 参数说明
 NSTimeInterval：NSTimeInterval类型，应用内消息轮询时间间隔。
