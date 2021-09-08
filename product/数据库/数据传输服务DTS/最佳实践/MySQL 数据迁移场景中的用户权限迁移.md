@@ -39,7 +39,7 @@ pt-show-grants --user=root --host=<src host or ip> --port=<src port> --user=<use
 ```
 mysql -u<user> -p<password> -h<dst ip or host> -P<dst port> -e "source account.sql"
 ```
-MySQL 5.7.6 以上版本导出的 SQL 示例如下：
+MySQL 5.7.6 及以上版本导出的 SQL 示例如下：
 ```
 -- Grants dumped by pt-show-grants
 -- Dumped from server xxxx via TCP/IP, MySQL 8.0.22-txsql at 2021-09-01 11:28:21
