@@ -233,10 +233,9 @@ modprobe uio_pci_generic
 cd /root/dpdk/usertools/
 ``` ```
 python3 dpdk-devbind.py --bind=uio_pci_generic 00:07.0
-``` <dx-alert infotype="explain" title="">
+```<dx-alert infotype="explain" title="">
 命令中的 00.07.0 为示例地址，请执行 `python3 dpdk-devbind.py -s` 命令，获取网卡实际地址。
-</dx-alert>
-完成测试后，可通过请执行以下命令，恢复网卡变更。
+</dx-alert> 完成测试后，可通过请执行以下命令，恢复网卡变更。
 ```
 cd /root/dpdk/usertools/
 ``` ```
