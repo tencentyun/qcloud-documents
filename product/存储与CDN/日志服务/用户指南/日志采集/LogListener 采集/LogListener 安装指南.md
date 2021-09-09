@@ -33,7 +33,7 @@ LogListener 最新版本下载地址：[公网下载 LogListener](https://mirror
 以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`loglistener/tools`，执行安装命令 。
 - 公网环境下，操作命令如下：
 ```plaintext
-wget https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.4.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.4.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.2/tools && ./loglistener.sh install
+wget https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.4.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.4.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.4/tools && ./loglistener.sh install
 ```
 - 内网环境下，操作命令如下：
 ```plaintext
