@@ -203,8 +203,8 @@ run = {
     }
 ```
 相关说明如下：
-- 可执行 `cd /root/dpdk/usertools/ && python3 dpdk-devbind.py -s`，获取网卡实际地址。
-- 其他参数填写可参考 [default.cfg](https://github.com/pktgen/Pktgen-DPDK/blob/pktgen-20.03.0/cfg/default.cfg) 及 [run.py](https://github.com/pktgen/Pktgen-DPDK/blob/pktgen-20.03.0/tools/run.py#L209)。本文以 Pktgen 20.03.0 版本为例，请您结合实际情况进行配置。
+- 可执行 `cd /root/dpdk/usertools/ && python3 dpdk-devbind.py -s` 命令，获取网卡实际地址。
+- 其他参数配置可参考 [default.cfg](https://github.com/pktgen/Pktgen-DPDK/blob/pktgen-20.03.0/cfg/default.cfg) 及 [run.py](https://github.com/pktgen/Pktgen-DPDK/blob/pktgen-20.03.0/tools/run.py#L209)。本文以 Pktgen 20.03.0 版本为例，请您结合实际情况进行配置。
 :::
 </dx-accordion>
 
@@ -261,10 +261,12 @@ ln -s python2 python
 2. 运行 Pktgen
 发送端依次执行以下命令，运行 Pktegn。
 ```
-/root/pktgen/tools/run.py -s default
+cd /root/pktgen
 ``` ```
-/root/pktgen/tools/run.py default
-``` 出现如下图所示界面则表明 Pktgen 已成功运行。
+./tools/run.py -s default
+``` ```
+./tools/run.py default
+``` 出现如下图所示界面则表示 Pktgen 已成功运行。
 ![](https://main.qcloudimg.com/raw/0e29c92daec09b5babbe6a3c613a4219.png)
 执行以下命令，启动发包。```
 Pktgen:/> str
@@ -276,7 +278,7 @@ Pktgen:/> stp
 <dx-tabs>
 ::: DPDK-Pktgen 单向流量测试
 测试场景如下图所示：
-![](https://main.qcloudimg.com/raw/88116c6e3625696e0935f3238671ae4c.png)
+![](https://main.qcloudimg.com/raw/30af864970438d494c8678287c03c01b.png)
 接收端执行以下命令：
 ```
 /root/dpdk/x86_64-native-linuxapp-gcc/app/testpmd -- --txd=128 --rxd=128 --txq=48 --rxq=48 --nb-cores=16 --forward-mode=rxonly --stats-period=1
@@ -284,7 +286,7 @@ Pktgen:/> stp
 :::
 ::: DPDK-Pktgen 双向流量测试
 测试场景如下图所示：
-![](https://main.qcloudimg.com/raw/b7bf2ecdedecf7c347c47c069b704c93.png)
+![](https://main.qcloudimg.com/raw/84a47b3d23f4201ddfca388b3631547e.png)
 接收端执行以下命令：
 ```
 /root/dpdk/x86_64-native-linuxapp-gcc/app/testpmd -- --txd=128 --rxd=128 --txq=48 --rxq=48 --nb-cores=16 --forward-mode=5tswap --stats-period=1
