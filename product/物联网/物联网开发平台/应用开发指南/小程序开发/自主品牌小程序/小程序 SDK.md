@@ -914,8 +914,8 @@ try {
   const config = {
     wifiConfToken, // 用于设备连接云端的token
     targetWifiInfo: { // 用于设备联网的wifi信息，由用户填入
-      SSID: '你的Wi-Fi名称';
-      password: '你的Wi-Fi密码';
+      SSID: '您的Wi-Fi名称';
+      password: '您的Wi-Fi密码';
       BSSID: '';
     },
     deviceAdapter, // 由连接设备之后获得
