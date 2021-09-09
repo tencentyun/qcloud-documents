@@ -244,6 +244,10 @@ python3 dpdk-devbind.py --bind=virtio-pci 00:07.0
 ``` ```
 ifconfig eth0 up
 ```
+```
+systemctl restart NetworkManager
+```
+
 
 
 ### 测试步骤
@@ -293,5 +297,8 @@ Pktgen:/> stp
 ```
 :::
 </dx-tabs>
-您可根据接收端获取的数据，计算当前网络的接收带宽。
+
+### 查看网络带宽
+您可通过 Pktgen 获取当前网络的带宽数据。如下图所示，`Pkts/s` 及 `MBits/s` 表示当前 PPS 及带宽值。
+![](https://main.qcloudimg.com/raw/7a746630b88f1b0da5cb5f7d536dd568.png)
 
