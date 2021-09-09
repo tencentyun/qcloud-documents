@@ -89,7 +89,7 @@ java -jar tapm-agent-java.jar install
 **使用示例：**
 
 ```
-java -javaagent:/path/to/appserver/tapm/tapm-java-agent.jar  -Dtapm.app_name={APP_NAME} -Dtapm.collector.addresses={COLLECTOR_ADDRESSES} -Dtapm.license_key={LICENSE_KEY} -jar application.jar
+java -javaagent:/path/to/appserver/tapm/tapm-agent-java.jar  -Dtapm.app_name={APP_NAME} -Dtapm.collector.addresses={COLLECTOR_ADDRESSES} -Dtapm.license_key={LICENSE_KEY} -jar application.jar
 ```
 
 >?其中 application.jar 为您所要监控的应用。
