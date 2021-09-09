@@ -1,6 +1,6 @@
 ## 操作场景
 
-Malagu 提供了一个很强大的命令行工具`@malagu/cli` ，设计思路部分借鉴了`@vue/cli` 。应用的初始化、运行、构建和部署等操作都是基于该命令行工具完成。了解更多请参见 [命令行工具](https://www.yuque.com/cellbang/malagu/xbfpir) 文档。本文将通过以下步骤为您介绍如何创建第一个应用。
+Malagu 提供了一个很强大的命令行工具 `@malagu/cli` ，设计思路部分借鉴了 `@vue/cli` 。应用的初始化、运行、构建和部署等操作都是基于该命令行工具完成。了解更多请参见 [命令行工具](https://www.yuque.com/cellbang/malagu/xbfpir) 文档。本文将通过以下步骤为您介绍如何创建第一个应用。
 
 
 
@@ -8,11 +8,11 @@ Malagu 提供了一个很强大的命令行工具`@malagu/cli` ，设计思路�
 
 ### 快速初始化
 
-1. 执行以下命令，安装`@malagu/cli`命令行工具。
+1. 执行以下命令，安装 `@malagu/cli` 命令行工具。
 ```sh
 npm i -g @malagu/cli
 ```
-2. 使用`malagu init`命令初始化一个模板应用， `malagu init`可以指定项目名称和模板，如果未指定，则会让您选择一个合适的模板，并且项目名称为模板名称。
+2. 使用 `malagu init` 命令初始化一个模板应用， `malagu init` 可以指定项目名称和模板，如果未指定，则会让您选择一个合适的模板，并且项目名称为模板名称。
 ```sh
 malagu init
 ## 国内用户可以使用镜像源加速
@@ -116,7 +116,7 @@ malagu module - @malagu/cloud/lib/node/module
 malagu module - @malagu/faas-adapter/lib/node/module
 malagu module - @malagu/fc-adapter/lib/node/module
 malagu module - /Users/kevin/js/backend-app/src/module
- DONE  Compiled successfully in 1028ms                                                                         上午10:21:03
+ DONE  Compiled successfully in 1028ms 上午10:21:03
  I  The backend is running at http://localhost:3000
 Build completed in 0.722s
 ```
