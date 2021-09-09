@@ -914,8 +914,8 @@ try {
   const config = {
     wifiConfToken, // 用于设备连接云端的token
     targetWifiInfo: { // 用于设备联网的wifi信息，由用户填入
-      SSID: '你的Wi-Fi名称';
-      password: '你的Wi-Fi密码';
+      SSID: '您的Wi-Fi名称';
+      password: '您的Wi-Fi密码';
       BSSID: '';
     },
     deviceAdapter, // 由连接设备之后获得
@@ -1301,11 +1301,13 @@ export function AirKissConfigure({
 }
 ```
 
-## 添加LLSync蓝牙设备
+## 添加 LLSync 蓝牙设备
 
 通过 [qcloud-iotexplorer-bluetooth-adapter-llsync](https://www.npmjs.com/package/qcloud-iotexplorer-bluetooth-adapter-llsync) sdk， 小程序可以完成和标准蓝牙设备进行连接，绑定，控制等流程。通过下面的图片可以直观地了解整个流程:
 
 <img src=https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/shuaisguo/1629101191691.gif style="width: 300px">
+
+您也可以通过官方的 [小程序 SDK demo](https://github.com/tencentyun/qcloud-iotexplorer-appdev-miniprogram-sdk-demo) 的添加标准蓝牙设备部分来掌握连接标准蓝牙设备的流程。
 
 ### 1. 创建一个 bluetoothAdapter
 
@@ -1329,14 +1331,12 @@ export const bluetoothAdapter = new BlueToothAdapter({
 
 ### 2. 获取蓝牙设备列表
 
-通过 bluetoothAdapter.startSearch方法，我们可以发现设备，获得设备列表。
+通过 bluetoothAdapter.startSearch 方法，我们可以发现设备，获得设备列表。
 
 ```ts
-  const serviceIds = [BleComboLLSyncDeviceAdapter.serviceId];
+  const serviceIds = [LLSyncDeviceAdapter.serviceId];
   await bluetoothAdapter.startSearch({
-    ignoreDeviceIds,
     serviceIds,
-    ignoreServiceIds,
     onError: (error) => {
       console.log('----error', error);
       // 搜索设备出错
@@ -1350,12 +1350,11 @@ export const bluetoothAdapter = new BlueToothAdapter({
     },
     timeout: 1.4 * 15 * 1000,
   });
-
 ```
 
 在上面的 onSearch 回调函数中，我们可以获得搜寻到的设备列表，这时可以将设备列表展示到页面上，供用户选择要连接哪个设备。
 
-**tip:** 如果设备无法搜索到，请确认设备没有被绑定
+**tip:** 如果设备无法搜索到，请确认设备没有被绑定。
 
 ### 3. 连接设备
 
