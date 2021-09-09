@@ -76,7 +76,7 @@ roomAudienceLayout.initWithRoomId(getSupportFragmentManager(), 12345, “1280”
 - 主播端销毁房间后，服务端同步销毁房间 ID。
 - 观众端通过服务端拉取到房间 ID 列表，单击后进入对应房间。
 
-由于房间列表千差万别，我们暂时未提供服务端房间列表搭建示例，您可以参考 Demo 中的 [`RoomManager`](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/scenes/net/RoomManager.java) 来实现客户端上报的逻辑。
+由于房间列表千差万别，我们暂时未提供服务端房间列表搭建示例，您可以参考 Demo 中的 [`RoomManager`](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/scenes/net/RoomManager.java) 来实现客户端上报的逻辑。
 
 1. 主播端创建成功后，在主播端回调函数中，上报开播、停播信息。
 ```java

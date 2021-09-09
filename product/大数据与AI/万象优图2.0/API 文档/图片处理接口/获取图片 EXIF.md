@@ -35,8 +35,8 @@ http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?exif
 http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?q-sign-algorithm=<signature>&exif
 ```
 
- >? `<signature>` 为签名部分，获取方式请参考 [请求签名](https://cloud.tencent.com/document/product/436/7778)。
- >
+>? `<signature>` 为签名部分，获取方式请参考 [请求签名](https://cloud.tencent.com/document/product/436/7778)。
+>
 
 
 ## 注意事项
