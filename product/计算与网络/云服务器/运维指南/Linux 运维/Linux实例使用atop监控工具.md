@@ -19,14 +19,13 @@ yum install atop -y
 1. 执行以下命令，使用 VIM 编辑器打开 atop 配置文件。
 ```
 vim /etc/sysconfig/atop
-```
-2. 按 **i** 进入编辑模式，修改以下配置：
+```2. 按 **i** 进入编辑模式，修改以下配置：
  - 将 `LOGINTERVAL=600` 修改为 `LOGINTERVAL=30`，表示将默认的600s监控周期修改为30s。建议修改为30s，您可结合实际情况进行修改。
  - 将 `LOGGENERATIONS=28` 修改为 `LOGGENERATIONS=7`，表示将默认的日志保留时间28天修改为7天。为避免 atop 长时间运行占用太多磁盘空间，建议修改为7天，您可结合实际情况进行修改。
 修改完成后如下图所示：
 ![](https://main.qcloudimg.com/raw/764fee905a0f1d89d1c48c6d2f6aa372.png) 
 3. 按 **Esc** 并输入 **:wq**，保存修改并退出编辑器。
-4. 执行以下命令，启动 atop。
+4. 在 CentOS 7 及以上版本可执行以下命令，启动 atop。
 ```
 systemctl restart atop
 ```
@@ -88,7 +87,7 @@ atop -r /var/log/atop/atop_2021xxxx
  - xxxxxo：各层或活动网口发包数目。
 
 ### 停止 atop
-不建议在业务环境下长期运行 atop，您可在问题排查完成后，执行以下命令停止 atop。
+不建议在业务环境下长期运行 atop，您可在问题排查完成后停止 atop。在 CentOS 7 及以上版本可执行以下命令，停止 atop。
 ```
 systemctl stop atop
 ```
