@@ -11,7 +11,7 @@ Job 执行完成后，不再创建新的 Pod，也不会删除 Pod，您可在 �
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要创建 Job 的集群 ID，进入待创建 Job 的集群管理页面。
 4. 选择 **工作负载** > **Job**，进入 Job 信息页面。如下图所示：
-![](https://main.qcloudimg.com/raw/73f4e9b256fd7f428c1877da28c1802f.png)
+![](https://main.qcloudimg.com/raw/ca53820e24a5092811efb96cf07b399d.png)
 5. 单击**新建**，进入 “新建Workload” 页面。如下图所示：
 6. 根据实际需求，设置 Job 参数。关键参数信息如下：
  - **工作负载名**：自定义。
