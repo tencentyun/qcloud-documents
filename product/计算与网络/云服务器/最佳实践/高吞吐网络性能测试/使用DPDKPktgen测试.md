@@ -5,7 +5,7 @@
 ## 示例软件版本
 - 测试机器为 CentOS 8.2 操作系统
 - DPDK 20.08
-- PKTGEN 20.02
+- Pktgen 20.03
 
 ## 操作步骤
 
@@ -55,7 +55,7 @@ cd $RTE_SDK && make install T=x86_64-native-linuxapp-gcc -j 4
 ### 编译安装 Pktgen
 1. 执行以下命令，下载及解压 Pktgen 安装包。
 ```
-cd && wget -O pktgen.tar.gz http://git.dpdk.org/apps/pktgen-dpdk/snapshot/pktgen-dpdk-pktgen-20.02.0.tar.gz
+cd && wget -O http://git.dpdk.org/apps/pktgen-dpdk/snapshot/pktgen-dpdk-pktgen-20.03.0.tar.gz
 ``` ```
 mkdir -p /root/pktgen && tar -xf pktgen.tar.gz -C /root/pktgen --strip-components 1
 ```
@@ -125,37 +125,6 @@ pktgen.range.pkt_size("0", "inc", 0);
 pktgen.range.pkt_size("0", "min", 64);
 pktgen.range.pkt_size("0", "max", 256);
 
--- Set up second port
--- pktgen.range.dst_mac("1", "start", "3c:fd:fe:9c:5c:d8");
--- pktgen.range.src_mac("1", "start", "3c:fd:fe:9c:5c:b8");
-
--- pktgen.range.dst_ip("1", "start", "192.168.0.1");
--- pktgen.range.dst_ip("1", "inc", "0.0.0.1");
--- pktgen.range.dst_ip("1", "min", "192.168.0.1");
--- pktgen.range.dst_ip("1", "max", "192.168.0.128");
-
--- pktgen.range.src_ip("1", "start", "192.168.1.1");
--- pktgen.range.src_ip("1", "inc", "0.0.0.1");
--- pktgen.range.src_ip("1", "min", "192.168.1.1");
--- pktgen.range.src_ip("1", "max", "192.168.1.128");
-
--- pktgen.set_proto("all", "udp");
-
--- pktgen.range.dst_port("1", "start", 5000);
--- pktgen.range.dst_port("1", "inc", 1);
--- pktgen.range.dst_port("1", "min", 5000);
--- pktgen.range.dst_port("1", "max", 7000);
-
--- pktgen.range.src_port("1", "start", 2000);
--- pktgen.range.src_port("1", "inc", 1);
--- pktgen.range.src_port("1", "min", 2000);
--- pktgen.range.src_port("1", "max", 4000);
-
--- pktgen.range.pkt_size("1", "start", 64);
--- pktgen.range.pkt_size("1", "inc", 0);
--- pktgen.range.pkt_size("1", "min", 64);
--- pktgen.range.pkt_size("1", "max", 256);
-
 -- Port 0 测试流量的协议类型  udp/tcp/icmp
 pktgen.set_proto("0", "udp");
 pktgen.ip_proto("0", "udp");
@@ -163,10 +132,10 @@ pktgen.set_range("all", "on");
 ```
 相关信息获取途径如下：
 - **网卡 MAC 地址**：可执行 `ifconfig -a` 命令获取，其中 `ether` 字段为网卡 Mac 地址。
-- **接收端\发送端 IP 地址**：测试机的内网 IP 地址，获取方式请参见 [获取实例的内网 IP 地址](https://cloud.tencent.com/document/product/213/17941#.E8.8E.B7.E5.8F.96.E5.AE.9E.E4.BE.8B.E7.9A.84.E5.86.85.E7.BD.91-ip-.E5.9C.B0.E5.9D.80)。
+- **接收端\发送端 IP 地址**：测试机的 IP 地址，可使用 [公网 IP](https://cloud.tencent.com/document/product/213/5224)。若机器再同一私有网络下，也可使用 [内网 IP](https://cloud.tencent.com/document/product/213/5225)。
 :::
 ::: default.cfg
-参考以下 `default.cfg` 示例，结合实际情况编辑 `/root/pktgen/cfg/default.cfg`。配置测试网卡、收发包 CPU，指定使用 range 模式的测试报文配置文件。
+参考以下 `default.cfg` 示例，结合实际情况编辑 `/root/pktgen/cfg/default.cfg`，配置测试网卡地址、收发包 CPU、指定使用 range 模式的测试报文配置文件。
 
 ```plaintext
 description = 'A Pktgen default simple configuration'
@@ -174,24 +143,20 @@ description = 'A Pktgen default simple configuration'
 # Setup configuration
 setup = {
     'exec': (
-        'sudo',
-        '-E'
+    'sudo', '-E'
         ),
 
-	'devices': (
-		'0000:00:07.0' #请结合实际情况填写
-		),
-		
-	'opts': (
-		'uio_pci_generic'
-		)
-	}
+    'devices': (
+        '0000:00:07.0' # 请结合实际情况填写
+        ),
+    # UIO module type, igb_uio, vfio-pci or uio_pci_generic
+    'uio': 'uio_pci_generic'
+    }
 
 # Run command and options
 run = {
     'exec': (
-        'sudo',
-        '-E'
+    'sudo', '-E', 'LD_LIBRARY_PATH=%(sdk)s/%(target)s/lib/x86_64-linux-gnu'
         ),
 
     # Application name and use app_path to help locate the app
@@ -203,42 +168,43 @@ run = {
     'app_path': (
         './app/%(target)s/%(app_name)s',
         '%(sdk)s/%(target)s/app/%(app_name)s',
+        './build/app/%(app_name)s',
         ),
 
-	'dpdk': (
-		'-l 8,9-24', #请结合实际情况填写
-		'-n 4',
-		'--proc-type auto',
-		'--log-level 7',
-		'--socket-mem 2048,2048',
-		'--file-prefix pg',
-		'-w 00:05.0'
-		),
-	
-	'blacklist': (
-		#'-b 81:00.0 -b 81:00.1 -b 81:00.2 -b 81:00.3',
-		#'-b 85:00.0 -b 85:00.1 -b 85:00.2 -b 85:00.3',
-		#'-b 81:00.0 -b 81:00.1',
-		#'-b 85:00.0 -b 85:00.1',
-		),
-		
-	'app': (
-		'-T',
-		'-P',
-		'--crc-strip',
-		'-m [9-12:9-12].0', #请结合实际情况填写
-		#'-m [17:18].1',
-		#'-m [19:20].2',
-		#'-m [21:22].3'
-		),
-	
-	'misc': (
-		#'-f', 'themes/black-yellow.theme'
-		'-f', 'test/test_range.lua' #请结合实际情况填写
-		)
-	}
+    'cores': '0,1-3', # 请结合实际情况填写
+    'nrank': '4',
+    'proc': 'auto',
+    'log': '7',
+    'prefix': 'pg',
 
+    'blacklist': (
+        #'03:00.0', '05:00.0',
+        #'81:00.0', '84:00.0'
+        ),
+    'whitelist': (
+        #'05:00.0,safe-mode-support=1',
+        #'84:00.0,safe-mode-support=1',
+        #'03:00.0', '81:00.0'
+        '00:07.0' # 请结合实际情况填写
+        ),
+
+    'opts': (
+        '-v',
+        '-T',
+        '-P',
+        '-j',
+        ),
+    'map': (
+        '[1-2:1-2].0', # 请结合实际情况填写
+        ),
+
+    #'theme': 'themes/black-yellow.theme'
+    'loadfile': 'test/test_range.lua' # 请结合实际情况填写
+    }
 ```
+相关说明如下：
+- 可执行 `cd /root/dpdk/usertools/ && python3 dpdk-devbind.py -s`，获取网卡实际地址。
+- 其他参数填写可参考 [default.cfg](https://github.com/pktgen/Pktgen-DPDK/blob/pktgen-20.03.0/cfg/default.cfg) 及 [run.py](https://github.com/pktgen/Pktgen-DPDK/blob/pktgen-20.03.0/tools/run.py#L209)。本文以 Pktgen 20.03.0 版本为例，请您结合实际情况进行配置。
 :::
 </dx-accordion>
 
@@ -266,52 +232,64 @@ modprobe uio_pci_generic
 ``` ```
 cd /root/dpdk/usertools/
 ``` ```
-python3 dpdk-devbind.py --bind=uio_pci_generic 00:05.0
+python3 dpdk-devbind.py --bind=uio_pci_generic 00:07.0
 ``` <dx-alert infotype="explain" title="">
-命令中的 00.05.0 为示例地址，请执行 `python3 dpdk-devbind.py -s` 命令，获取网卡实际地址。
+命令中的 00.07.0 为示例地址，请执行 `python3 dpdk-devbind.py -s` 命令，获取网卡实际地址。
 </dx-alert>
 完成测试后，可通过请执行以下命令，恢复网卡变更。
 ```
 cd /root/dpdk/usertools/
 ``` ```
-python3 dpdk-devbind.py --bind=virtio-pci 00:05.0
+python3 dpdk-devbind.py --bind=virtio-pci 00:07.0
 ``` ```
 ifconfig eth0 up
 ```
 
-### DPDK-Pktgen 单向流量测试
-测试场景如下图所示：
-![](https://main.qcloudimg.com/raw/88116c6e3625696e0935f3238671ae4c.png)
-- 发送端执行以下命令：
+
+### 测试步骤
+1. 测试环境准备
+依次执行以下命令，安装测试所需的 Python2。
+```
+dnf install python2-pip -y
+``` ```
+cd /usr/bin
+``` ```
+rm python
+``` ```
+ln -s python2 python
+```
+2. 运行 Pktgen
+发送端依次执行以下命令，运行 Pktegn。
 ```
 /root/pktgen/tools/run.py -s default
 ``` ```
 /root/pktgen/tools/run.py default
-``` 启动发包时执行以下命令。```
+``` 出现如下图所示界面则表明 Pktgen 已成功运行。
+![](https://main.qcloudimg.com/raw/0e29c92daec09b5babbe6a3c613a4219.png)
+执行以下命令，启动发包。```
 Pktgen:/> str
-``` 终止发包时执行以下命令。```
+``` 执行以下命令，终止发包。```
 Pktgen:/> stp
 ```
-- 接收端执行以下命令：
+3. 选择测试场景进行测试
+了解并选择测试场景，在接收端执行对应命令。
+<dx-tabs>
+::: DPDK-Pktgen 单向流量测试
+测试场景如下图所示：
+![](https://main.qcloudimg.com/raw/88116c6e3625696e0935f3238671ae4c.png)
+接收端执行以下命令：
 ```
 /root/dpdk/x86_64-native-linuxapp-gcc/app/testpmd -- --txd=128 --rxd=128 --txq=48 --rxq=48 --nb-cores=16 --forward-mode=rxonly --stats-period=1
 ```
-
-### DPDK-Pktgen 双向流量测试
+:::
+::: DPDK-Pktgen 双向流量测试
 测试场景如下图所示：
 ![](https://main.qcloudimg.com/raw/b7bf2ecdedecf7c347c47c069b704c93.png)
-- 发送端执行以下命令：
-```
-/root/pktgen/tools/run.py -s default
-``` ```
-/root/pktgen/tools/run.py default
-``` 启动发包时执行以下命令。```
-Pktgen:/> str
-``` 终止发包时执行以下命令。```
-Pktgen:/> stp
-```
-- 接收端执行以下命令：
+接收端执行以下命令：
 ```
 /root/dpdk/x86_64-native-linuxapp-gcc/app/testpmd -- --txd=128 --rxd=128 --txq=48 --rxq=48 --nb-cores=16 --forward-mode=5tswap --stats-period=1
 ```
+:::
+</dx-tabs>
+
 
