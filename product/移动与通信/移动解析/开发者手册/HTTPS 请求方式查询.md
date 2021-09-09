@@ -111,7 +111,7 @@
 ### 请求 A 记录
 - **输入示例：**
 ```
-curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy&ip=1.2.3.4"
+curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy"
 ```
 - **返回格式：**
 ```
