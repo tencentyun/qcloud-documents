@@ -11,7 +11,7 @@
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要创建 CronJob 的集群 ID，进入待创建 CronJob 的集群管理页面。
 4. 选择**工作负载** > **CronJob**，进入 CronJob 信息页面。如下图所示：
-![](https://main.qcloudimg.com/raw/78db05143c1542c6f92170d667081fc6.png)
+![](https://main.qcloudimg.com/raw/8588176420024d138ca62060df69a016.png)
 5. 单击**新建**，进入 “新建Workload” 页面。
 6. 根据实际需求，设置 CronJob 参数。关键参数信息如下：
  - **工作负载名**：自定义。
