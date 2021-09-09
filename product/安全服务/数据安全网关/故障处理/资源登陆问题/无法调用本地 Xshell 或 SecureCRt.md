@@ -14,7 +14,7 @@
 3. 在选择客户端工具弹窗中，选择 Xshell/SecureCRT 的安装目录与应用程序，BHLoader 会把本次选择的结果保存在配置中，后续不用再选择。
  - Xshell 选择程序
 ![](https://main.qcloudimg.com/raw/fab2eb5f185cc15b67983a926f7752e3.png)
-- SecureCRT 选择程序
+ - SecureCRT 选择程序
 ![](https://main.qcloudimg.com/raw/973841d5e97b054d92c3246986a63b3e.png)
 
 
