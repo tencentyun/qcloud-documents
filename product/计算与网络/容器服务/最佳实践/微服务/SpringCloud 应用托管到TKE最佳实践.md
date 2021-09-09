@@ -324,8 +324,7 @@ docker push ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
 ![](https://main.qcloudimg.com/raw/6aba7922f3b7247cda8cb8e5b8959578.jpg)
 2. 创建完成后，在容器服务控制台的 [集群管理](https://console.cloud.tencent.com/tke2/cluster) 页面可以看到新建的集群信息。本文新建的集群名称为 piggyMetrics。如下图所示：
 ![](https://main.qcloudimg.com/raw/1157a6c99171ef8080c860eae636881a.png)
-3. 单击集群 PiggyMetrics-k8s-demo 进入“基本信息”页面，可以查看整个集群的配置信息。如下图所示：
-![](https://main.qcloudimg.com/raw/c1f99a7412951a2df550b4fc2eb68d4f.png)
+3. 单击集群 PiggyMetrics-k8s-demo 进入“基本信息”页面，可以查看整个集群的配置信息。
 4. （可选）如需使用 kubectl 和 lens 等 K8S 管理工具，还需进行以下两步操作：
 	1. 开启外网访问。
 	2. 将 API 认证 Token 保存为本地 `用户 home/.kube` 下的 config 文件中（若 config 文件已有内容，需要替换），以确保每次访问都能进入默认集群中。如果选择不保存为 `.kube` 下的 config 文件中，则可参考控制台**集群APIServer信息**下的 **通过Kubectl连接Kubernetes集群操作说明**。如下图所示：

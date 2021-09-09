@@ -131,32 +131,31 @@ ng               1         1         1            1           42m
 - Recreate 更新策略为先销毁全部 Pod，再重新创建 Deployment。
 - RollingUpdate 更新策略为滚动更新策略，逐个更新 Deployment 的 Pod。RollingUpdate 还支持暂停、设置更新时间间隔等。
 
-[](id:Method1)
-#### 方法一
-
+<dx-tabs>
+::: 方法一[](id:Method2)
 执行以下命令，更新 Deployment。
 ```
 kubectl edit  deployment/[name]
 ```
 此方法适用于简单的调试验证，不建议在生产环境中直接使用。您可以通过此方法更新任意的 Deployment 参数。
 
-[](id:Method2)
-#### 方法二
-
+:::
+::: 方法二[](id:Method2)
 执行以下命令，更新指定容器的镜像。
 ```
 kubectl set image deployment/[name] [containerName]=[image:tag]
 ```
 建议保持 Deployment 的其他参数不变，业务更新时，仅更新容器镜像。
-
-[](id:Method3)
-#### 方法三
-
+:::
+::: 方法三[](id:Method3)
 执行以下命令，滚动更新指定资源。
 ```
 kubectl rolling-update [NAME] -f FILE
 ```
-更多滚动更新可参见 [滚动更新说明](https://kubernetes.io/docs/tasks/run-application/rolling-update-replication-controller/)。
+:::
+</dx-tabs>
+
+
 
 ### Kubectl 回滚 Deployment
 
@@ -178,16 +177,14 @@ kubectl rollout undo deployment/[name] --to-revision=[REVISION]
 ```
 
 ### Kubectl 调整 Pod 数量
-
-#### 手动更新 Pod 数量
-
+<dx-tabs>
+::: 手动更新 Pod 数量
 执行以下命令，手动更新 Pod 数量。
 ```
 kubectl scale deployment [NAME] --replicas=[NUMBER]
 ```
-	 
-#### 自动更新 Pod 数量
-
+:::
+::: 自动更新 Pod 数量
 **前提条件**
 
 开启集群中的 HPA 功能。TKE 创建的集群默认开启 HPA 功能。
@@ -198,6 +195,10 @@ kubectl scale deployment [NAME] --replicas=[NUMBER]
 ```
 kubectl autoscale deployment [NAME] --min=10 --max=15 --cpu-percent=80
 ```
+:::
+</dx-tabs>
+
+
 
 ### Kubectl 删除 Deployment
 
