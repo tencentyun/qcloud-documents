@@ -3,7 +3,7 @@
 <table>
    <tr>
       <th width="13%" style="text-align:center">终端类别</td>
-      <th width="13%" style="text-align:center">播放器类型</td>
+      <th width="20%" style="text-align:center">播放器类型</td>
       <th width="0px"  style="text-align:center">SDK & Demo<br>下载地址</td>
       <th width="0px" style="text-align:center">Demo 展示</td>
       <th width="0px"  style="text-align:center">	使用文档</td>
