@@ -111,13 +111,13 @@ pktgen.range.src_ip("0", "max", "172.16.0.9");
 pktgen.range.dst_port("0", "start", 2013);
 pktgen.range.dst_port("0", "inc", 1);
 pktgen.range.dst_port("0", "min", 2013);
-pktgen.range.dst_port("0", "max", 10113);
+pktgen.range.dst_port("0", "max", 2112);
 
 -- Port 0 流量接收端口范围
 pktgen.range.src_port("0", "start", 5029);
 pktgen.range.src_port("0", "inc", 1);
 pktgen.range.src_port("0", "min", 5029);
-pktgen.range.src_port("0", "max", 7129);
+pktgen.range.src_port("0", "max", 5128);
 
 -- Port 0 测试流量的包长
 pktgen.range.pkt_size("0", "start", 64);
