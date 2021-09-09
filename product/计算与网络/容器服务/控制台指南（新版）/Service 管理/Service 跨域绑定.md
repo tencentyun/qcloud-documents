@@ -29,7 +29,7 @@
  - **服务访问方式**：选择“公网LB访问”。
  - **当前VPC**：使用本集群所在 VPC 内的 CLB，建议使用随机可用区，若指定可用区的资源售罄将无法创建相关实例。
  - **其它VPC**：仅支持通过 [云联网](https://console.cloud.tencent.com/vpc/ccn) 与当前集群的 VPC 打通的其他 VPC。建议使用随机可用区，若指定可用区的资源售罄将无法创建相关实例。
-     ![](https://main.qcloudimg.com/raw/fabe704fb3abfc37a707a534036764e5.png)
+     ![](https://main.qcloudimg.com/raw/a94769f097ec3385b492a7078f69cd5a.png)
 :::
 ::: YAML\s方式
 <dx-alert infotype="explain" title="">
