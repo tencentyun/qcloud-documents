@@ -1,3 +1,12 @@
+<blockquote class="d-mod-alarm">
+              <div class="d-mod-title d-alarm-title">
+                <i class="d-icon-alarm"></i>公告：
+              </div>
+               <p>QUIC 访问功能已在内侧中，CDN 官网通用日志字段 - HTTP 协议标识（离线日志第14个字段；实时日志 proto 字段）将增加值“HTTP/3”，此变更将于 2021-09-13 起灰度发布，不会影响控制台及接口的数据监控统计，若您使用离线日志下载包进行数据统计，请关注并确认具体影响，按需调整。非常感谢您的理解与配合，谢谢！详情请参见 [日志服务](https://cloud.tencent.com/document/product/228/42136)。</p>
+            </blockquote>
+
+
+
 ## 功能介绍
 
 QUIC (Quick UDP Internet Connections) 是一个通用的网络协议，能够保障网络安全性，同时减少传输和连接时的延时，避免网络拥塞。您可开启 QUIC 协议，保障客户端访问 CDN 节点时数据传输的安全性，提升访问效率。
