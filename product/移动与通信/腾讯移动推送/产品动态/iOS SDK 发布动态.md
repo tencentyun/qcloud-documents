@@ -1,3 +1,22 @@
+## 2021年09月
+
+<table>
+ <tr>
+ <th width=20%>动态名称 </th>
+ <th width=44%>动态描述 </th>
+ <th width=16%>发布时间 </th>
+ <th width=20%>相关文档 </th>
+ </tr>
+ <td>SDK 1.3.4.1 版本发布 </td>
+ <td>  
+<li> 优化：提升了通知栏状态的准确性。
+<li> 增加：修改了应用内消息API接口
+ <td>2021-09-10</td>
+ <td><li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a>
+	</td>
+ </tr>
+ </table>
+
 ## 2021年08月
 
 <table>
