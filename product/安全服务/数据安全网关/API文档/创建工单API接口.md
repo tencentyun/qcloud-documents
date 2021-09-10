@@ -21,8 +21,8 @@
 ## 请求示例
 
 ```shell
-{     
-        "X-Auth-Token":"fnBIaLG275EtTswn2FwP4tWNjYNCvzqM1JoCabgyHjg=",
+{
+   "X-Auth-Token":"fnBIaLG275EtTswn2FwP4tWNjYNCvzqM1JoCabgyHjg=",
 	"applicantUid": "shenqingren",
 	"endTimeStr": "2020-06-17 11:00:00",
 	"designUid": "shenpiren",
