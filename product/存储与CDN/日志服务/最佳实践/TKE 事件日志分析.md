@@ -7,7 +7,7 @@
 
 Event 是 Kubernetes 中众多资源对象中的一员，通常用来记录集群内发生的状态变更，大到集群节点异常，小到 Pod 启动、调度成功等等。我们常用的`kubectl describe`命令就可以查看相关资源的事件信息。
 
-### 事件日志字段说明
+## 事件日志字段说明
 
 ![img](https://main.qcloudimg.com/raw/6d6dabec677912952415964e6d525966.png)
 
