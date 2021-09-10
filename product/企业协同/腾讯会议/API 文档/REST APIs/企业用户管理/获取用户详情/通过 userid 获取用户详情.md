@@ -72,7 +72,7 @@ GET https://api.meeting.qq.com/v1/users/9527
 	"role_name": "普通成员",
 	"role_code": "NORMAL_ROLE",
 	"department_list": [{
-		"department_id": "e3ce08567893251f05db4de921fc2c2d",
+		"department_id": "e3ce****************4de921fc2c2d",
 		"department_name": "主部门"
 	}]
 }
