@@ -325,7 +325,7 @@ trtcCalling.closeCamera()
 
 <dx-codeblock>
 ::: javascript javascript
-trtcCalling.setMicMute(true) // 开启麦克风
+trtcCalling.setMicMute(true) // 关闭麦克风
 :::
 </dx-codeblock>
 

@@ -47,7 +47,7 @@
 <tr>
 <td style="text-align:center">Web & H5  </td>
 <td style="text-align:center" ><a href="https://www.npmjs.com/package/tim-js-sdk">NPM (推荐)</a></td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/H5/sdk">Github</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Web/IMSDK">Github</a></td>
 <td style="text-align:left" rowspan='3' ><a href="https://web.sdk.qcloud.com/im/download/im-latest.zip">ZIP</a></td>
 <td style="text-align:center" rowspan='2'><a href="https://cloud.tencent.com/document/product/269/37413">【常规集成】快速导入到工程</a> </td>
 <td style="text-align:center" rowspan='3'><a href="https://cloud.tencent.com/document/product/269/38492">更新日志(Web & 小程序)</a> </td>
@@ -55,12 +55,12 @@
 <tr>
 <td style="text-align:center">小程序 </td>
 <td style="text-align:center" ><a href="https://www.npmjs.com/package/tim-wx-sdk">NPM (推荐)</a></td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/WXMini/sdk">Github</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram/IMSDK">Github</a></td>
 </tr>
 <tr>
 <td style="text-align:center">Web SDK 上传插件  </td>
 <td style="text-align:center" ><a href="https://www.npmjs.com/package/tim-upload-plugin">NPM (推荐)</a></td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/H5/sdk">Github</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Web/Demo/sdk">Github</a></td>
 <td style="text-align:center" >-</td>
 </tr>
 </table>
@@ -113,11 +113,11 @@
 </tr>
 <tr>
 <td style="text-align:center" >Web</td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/H5">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Web">Github(推荐)</a></td>
 </tr>
 <tr>
 <td style="text-align:center" >微信小程序</td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/WXMini">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram">Github(推荐)</a></td>
 </tr>
 <tr>
 <td style="text-align:center" >IM Demo (Flutter)  </td>

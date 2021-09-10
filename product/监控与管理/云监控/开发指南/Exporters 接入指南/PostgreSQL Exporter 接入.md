@@ -8,7 +8,7 @@
 ## 前提条件
 
 - 在 Proemtheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [Kubernetes 集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)。
-- 在【[云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)】 >【选择“对应的 Prometheus 实例”】 >【集成容器服务】中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
+- 在**[云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)** >**选择“对应的 Prometheus 实例”** >**集成容器服务**中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
 
 
 ## 操作步骤
@@ -24,8 +24,8 @@
 
 #### 使用 Secret 管理 PostgreSQL 密码[](id:step1) 
 
-1. 在左侧菜单中选择【工作负载】>【Deployment】，进入 Deployment 页面。
-2. 在页面右上角单击【YAML创建资源】，创建 YAML 配置，配置说明如下：
+1. 在左侧菜单中选择**工作负载** > **Deployment**，进入 Deployment 页面。
+2. 在页面右上角单击**YAML创建资源**，创建 YAML 配置，配置说明如下：
    使用 Kubernetes 的 Secret 来管理密码并对密码进行加密处理，在启动 MongoDB  Exporter 的时候直接使用 Secret Key，需要调整对应的 `password`，YAML 配置示例如下：
 ```yaml
 apiVersion: v1
@@ -40,7 +40,7 @@ stringData:
 
 #### 部署 PostgreSQL Exporter[](id:step2) 
 
-在 Deployment 管理页面，单击【新建】，选择对应的**命名空间**来进行部署服务。可以通过控制台的方式创建，如下以 YAML 的方式部署 Exporter，YAML 配置示例如下（`请直接复制下面的内容，根据实际业务调整相应的参数`）:
+在 Deployment 管理页面，单击**新建**，选择对应的**命名空间**来进行部署服务。可以通过控制台的方式创建，如下以 YAML 的方式部署 Exporter，YAML 配置示例如下（`请直接复制下面的内容，根据实际业务调整相应的参数`）:
 
 ```yaml
 apiVersion: apps/v1
@@ -318,7 +318,7 @@ pg_postmaster_start_time_seconds{server="x.x.x.x:5432"} 1.605061592e+09
 当 Exporter 运行起来之后，需要进行以下操作配置腾讯云 Prometheus 托管服务发现并采集监控指标：
 
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
-2. 通过集成容器服务列表点击【集群 ID】进入到容器服务集成管理页面。
+2. 通过集成容器服务列表单击**集群 ID**进入到容器服务集成管理页面。
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
 
 ```yaml
@@ -355,8 +355,8 @@ pg_postmaster_start_time_seconds{server="x.x.x.x:5432"} 1.605061592e+09
 
 > ?需要使用上述 [获取指标](#step3) 配置来获取 Postgres 实例的启动时间。
 
-1. 在 [Prometheus 实例](https://console.cloud.tencent.com/monitor/prometheus) 列表，找到对应的  Prometheus 实例，单击 实例ID 右侧【<img src="https://main.qcloudimg.com/raw/978c842f0c093a31df8d5240dd01016d.png" width="2%">】 图标，打开您的专属 Grafana，输入您的账号密码，即可进行 Grafana 可视化大屏操作区。
-2. 进入 Grafana，单击【<img src="https://main.qcloudimg.com/raw/7e3fff6131aa085987552a9725e9ae54.png" width="2%">】图表，展开监控面板，单击对应的监控图表名称即可查看监控数据。
+1. 在 [Prometheus 实例](https://console.cloud.tencent.com/monitor/prometheus) 列表，找到对应的  Prometheus 实例，单击 实例ID 右侧**<img src="https://main.qcloudimg.com/raw/978c842f0c093a31df8d5240dd01016d.png" width="2%">** 图标，打开您的专属 Grafana，输入您的账号密码，即可进行 Grafana 可视化大屏操作区。
+2. 进入 Grafana，单击**<img src="https://main.qcloudimg.com/raw/7e3fff6131aa085987552a9725e9ae54.png" width="2%">**图表，展开监控面板，单击对应的监控图表名称即可查看监控数据。
 ![示例](https://main.qcloudimg.com/raw/91715279d22a1f6efe1844e318712391.png)
 
 ### 告警以及接入

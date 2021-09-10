@@ -1,9 +1,15 @@
-新版本移动解析 HTTPDNS 使用 HTTPS 请求方式查询可以通过 `https://119.29.29.99/d? + {请求参数}` 接口使用移动解析 HTTPDNS 服务。
+移动解析 HTTPDNS 的 HTTPS 请求方式查询可以通过 `https://119.29.29.99/d? + {请求参数}` 接口使用移动解析 HTTPDNS 服务。
 
 >? 
 >- [开通移动解析 HTTPDNS 服务](https://cloud.tencent.com/document/product/379/54577) 后，您需在移动解析 HTTPDNS 控制台添加解析域名后才可正常使用。具体操作请参见 [添加域名](https://cloud.tencent.com/document/product/379/54588)。
 >- HTTP 协议服务地址为 `119.29.29.98`，HTTPS 协议服务地址为 `119.29.29.99`。
 >- 新版本 API 更新为使用 `119.29.29.99/98` 接入，同时原移动解析 HTTPDNS 服务地址 `119.29.29.29` 仅供开发调试使用，无 SLA 保障，不建议用于正式业务，请您尽快将正式业务迁移至 `119.29.29.99/98`。
+
+
+## 前期准备
+使用请求接口 `https://119.29.29.99/d? + {请求参数}` 时，需使用以下配置信息。请先前往移动解析 HTTPDNS 管理控制台 [开发配置页](https://console.cloud.tencent.com/httpdns/configure) 获取相关配置信息：
+![](https://main.qcloudimg.com/raw/588d4d57fd15c3e801bc0ca036862f2f.png)
+**HTTPS 加密 Token**：调⽤移动解析 HTTPDNS 的 HTTPS 解析接口 `https://119.29.29.99` ，对 DNS 请求数据进⾏鉴权的 Token 信息。
 
 ## 接口描述
 - 接口请求地址：  `https://119.29.29.99/d? + {请求参数}`。
@@ -43,7 +49,7 @@
     <td>DNS 请求的 ECS（EDNS-Client-Subnet）值</td>
     <td>否</td>
     <td>IPv4/IPv6 地址值</td>
-    <td>是</td>
+    <td>否</td>
     <td>默认情况下 HTTPDNS 服务器会查询客户端出口 IP 为 DNS 线路查询 IP，使用 “ip=xxx” 参数，可以指定线路 IP 地址。支持 IPv4/IPv6 地址传入，接口会自动识别。</td>
   </tr>
   <tr>
@@ -91,7 +97,6 @@
 
 >?
 >- ECS（EDNS-Client-Subnet）协议在 DNS 请求包中附加请求域名解析的用户 IP 地址，DNS 服务器可以根据该地址返回用户更容快速访问的服务器 IP 地址。
->- 移动解析 HTTPDNS 公共服务已经不再维持 ECS IP 库的常态化更新，仅保持每周更新一次。
 >- 使用 HTTPS 方式，传输的数据会因为 TLS 通道而被加密保护，因此不需要主动对传入的数据额外加密。
 >- 出于安全和身份认证的考虑，需要传入 HTTPS Token 实现身份鉴权。
 
@@ -105,7 +110,7 @@
 ### 请求 A 记录
 - **输入示例：**
 ```
-curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy&ip=1.2.3.4"
+curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy"
 ```
 - **返回格式：**
 ```

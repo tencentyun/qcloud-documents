@@ -1,23 +1,22 @@
 NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防护，同时支持基于 SNAT、DNAT 进行的网络流量转发。
 ## 操作指南
-
 1. 登录 [云防火墙控制台](https://console.cloud.tencent.com/cfw)，在左侧导航栏中，选择【防火墙开关】>【NAT边界开关】，进入 NAT 边界开关页面。
 >?当某个 NAT 边界防火墙开关开启后，对应子网的互联网流量将经过防火墙，届时访问控制规则、入侵防御功能将对其生效，流量日志也会生成。
 2. 在 “NAT 边界开关”页面，可进行创建实例、同步资产、查看并监控基于 NAT 边界的带宽情况等操作。
 
 ###  **创建实例**	
 1. 在 [NAT 边界开关页面](https://console.cloud.tencent.com/cfw/switch/nat) 下，单击【创建实例】。
-	![](https://main.qcloudimg.com/raw/c59558e085b6e3b7da47870f588caea7.png)
+![](https://main.qcloudimg.com/raw/57aef4dbbc56957be8b0be12567dc321.png)
 2. 在“新建 NAT 边界防火墙”弹窗中，可为当前账号创建一个新的 NAT 边界防火墙实例，填写相关字段，单击【下一步】。
 >?创建“NAT 边界防火墙”实例，涉及大量后台配置工作，这个步骤可能需要持续若干分钟。
 >
 	![](https://main.qcloudimg.com/raw/dada8612c7f4278e4c1415fbb17929dd.png)
 	**字段说明：**
 	- **地域**：选择创建地域，支持国内所有地域，创建实例后不可更改。
->?用户可在拥有 VPC 的所有国内地域（支持中国香港地域）中进行地域选择，但已经创建了 NAT 边界防火墙的地域将无法选择。
+>?用户可在拥有 VPC 的所有国内地域（支持中国香港地域）中进行地域选择，同地域下可创建多个防火墙实例，但总带宽不能超过限定规格。
 	- **可选区**：根据需求选择合适的可用区。
 	- **实例名称**：输入实例名称。
-	- **带宽规格**：根据需求选择带宽规格，最小20Mbps，最大60Mbps，如需更多带宽请 [升级扩容](https://buy.cloud.tencent.com/cfw?type=modify&adtag=cfw.from.console.page.buy)。
+	- **带宽规格**：根据需求选择带宽规格，最小20Mbps，如需更多带宽请 [升级扩容](https://buy.cloud.tencent.com/cfw?type=modify&adtag=cfw.from.console.page.buy)。
 >?互联网带宽保持一致，如果分了多个 NAT 防火墙，那么多个 NAT 防火墙的带宽之和，要小于等于互联网边界的带宽。
 	- **模式**：分为新增模式和接入模式。
 		- **新增模式**：若当前地域没有 NAT 网关，新增模式可以通过 NAT 边界防火墙内置的 NAT 功能，实现指定实例通过防火墙访问互联网。
@@ -67,42 +66,54 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 ![](https://main.qcloudimg.com/raw/25de90f0acc96be53dc16393b0ee49d2.png)
 
 ### 实例配置
+ 在 [NAT 边界开关页面](https://console.cloud.tencent.com/cfw/switch/nat) 下，单击对应【实例 ID】，可以进行实例配置。
 - **端口转发**
-在 [实例配置页面](https://console.cloud.tencent.com/cfw/switch/nat?tab=config) ，可以查看用户基于 NAT 边界防火墙实例所添加的 DNAT 端口转发规则，以及与实例关联的弹性 IP。
+在右侧边栏中可以查看用户基于 NAT 边界防火墙实例所添加的 DNAT 端口转发规则，以及与实例关联的弹性 IP。
 >?
 >- 接入模式中，NAT 边界防火墙会自动同步现有NAT网关的端口转发规则，从而保证流量通行，后续对于该规则的操作，请在 [云防火墙控制台](https://console.cloud.tencent.com/cfw/ac/nat) 中进行。
 >- 开启防火墙开关的子网 SNAT、DNAT 流量都会经过防火墙，关闭开关的子网 SNAT、DNAT 流量都走原先路径。
 >- 请勿前往私有网络控制台操作端口转发规则，否则可能造成网络中断。
 >
+![](https://main.qcloudimg.com/raw/987948ac445541239938616a1dbf0bd2.png)
 	1. 在实例配置页面的端口转发页签下，单击【新建规则】。
-![](https://main.qcloudimg.com/raw/a49df48278081ba2968e45e6f3d2e4c4.png)
+![](https://main.qcloudimg.com/raw/2b23d9c276686ceaf47772970d9d7890.png)
 	2. 在“新建端口转发规则”弹框中，用户可为当前 NAT 边界防火墙实例添加一条外部 IP 为用户所绑定的弹性 IP 的 DNAT 规则。
 >?
 >- 在外部 IP 端口下拉框内，提供的选项为当前 NAT 边界防火墙实例所绑定的弹性 IP。
 >- 输入内部 IP 地址时，用户需填写本地域 VPC 网段内可用的 IP。
 >
-![](https://main.qcloudimg.com/raw/ca4969cb2bd037ebc8c5193a85118c3d.png)
+![](https://main.qcloudimg.com/raw/0ac292a32d8ab33fb3e166af890db1a9.png)
 - **出口绑定**
 在新增模式下，当规则列表为空时，所有 VPC 的子网将随机选择 NAT 网关访问互联网。
 >!接入模式暂不支持出口绑定。
 >
 	1. 在实例配置页面的出口绑定页签下，单击【新建规则】。
-![](https://main.qcloudimg.com/raw/1735cd0543b9359f5b4581e3d44cf7a1.png)
+![](https://main.qcloudimg.com/raw/b5a17b6832d01348bd50fc4a4f93a743.png)
 	2. 在“新建出口绑定规则”弹框中，提供防火墙实例 ID 信息，用户可为当前 NAT 边界防火墙添加 SNAT 规则。
 >?协议可选子网和私有网络，VPC 或子网的选项选择接入 NAT 边界防火墙，且当前没有绑定出口 NAT 规则的 VPC 或子网。
 >
-![](https://main.qcloudimg.com/raw/2adb73cc8dd1129ff18701ea3627a0e4.png)
-- **域名解析**
-	- 域名解析开关对应整个 NAT 边界防火墙实例，用来控制 DNS 流量是否经过 NAT 边界防火墙，默认关闭，接入 DNS 流量开关生效于所有纳入 NAT 防火墙管控的 VPC。
-![](https://main.qcloudimg.com/raw/472403c3a06a5f9a35d2c865d366dd0a.png)
-		- 开启开关后，系统会修改所接入 VPC 的 DNS 解析地址，将 DNS 流量牵引至 NAT 边界防火墙，从而获取全流量域名。
+![](https://main.qcloudimg.com/raw/3964cb064bb8e4853f8385997990d253.png)
+- **接入 VPC 与公网 IP**
+在实例配置页面的接入 VPC 与公网 IP 页签下，可以增加接入的 VPC 或者重新选择 VPC。
+ - 增加接入的 VPC
+ 单击【增加接入 VPC】，选择需要增加接入的VPC，单击【确定】。
+ ![](https://main.qcloudimg.com/raw/d0f5278c2167f2e5467b2e325b0d6302.png)
+ - 重新选择 VPC
+ 单击【重新选择 VPC】>【确定】，即可重新选择 VPC。
+>?必须关闭当前防火墙实例下的所有子网开关和 DNS 流量开关。
+>
+ ![](https://main.qcloudimg.com/raw/817ad9156d4f6a21069650947ff09470.png) 
+-  接入 DNS 流量
+ - 单击![](https://main.qcloudimg.com/raw/4810bf867dec5152045bc24a9ca018c5.png)开启对应 VPC 右侧的DNS流量开关，开启开关后，系统会修改所接入 VPC 的 DNS 解析地址，将 DNS 流量牵引至 NAT 边界防火墙，从而获取全流量域名。
 >?接入 VPC 中若存在未开启防火墙开关的子网，可能导致该子网 DNS 解析产生明显延迟，建议开启全部防火墙开关后再启用此开关。
 >
-		- 关闭开关后，系统会恢复所接入 VPC 的 DNS 解析地址，DNS 流量将恢复原先路径，不再经过 NAT 边界防火墙。
-	- **应用场景**：NAT 防火墙支持将用户的 DNS 解析地址改为 NAT 防火墙的 IP，从而将用户的 DNS 流量牵引至防火墙，防火墙继续请求真实 DNS 解析服务器，并返回 DNS 响应给指定的服务器，不区分 NAT 防火墙的模式。
-		1. 在 [NAT 边界规则](https://console.cloud.tencent.com/cfw/ac/nat) 页面，单击【出向规则】。
-		2. 在出向规则页签中，单击【添加规则】。
-		3. 在添加规则页面，填写相关字段，并选择 DNS 协议。
+![](https://main.qcloudimg.com/raw/901b75396d80a5c125baa2e34bbd9a03.png)
+ - 关闭开关后，系统会恢复所接入 VPC 的 DNS 解析地址，DNS 流量将恢复原先路径，不再经过 NAT 边界防火墙。
+ 
+- **应用场景**：NAT 防火墙支持将用户的 DNS 解析地址改为 NAT 防火墙的 IP，从而将用户的 DNS 流量牵引至防火墙，防火墙继续请求真实 DNS 解析服务器，并返回 DNS 响应给指定的服务器，不区分 NAT 防火墙的模式。
+	1. 在 [NAT 边界规则](https://console.cloud.tencent.com/cfw/ac/nat) 页面，单击【出向规则】。
+	2. 在出向规则页签中，单击【添加规则】。
+	3. 在添加规则页面，填写相关字段，并选择 DNS 协议。
 		![](https://main.qcloudimg.com/raw/247aebda68b11b47b32707fb8bee1017.png)
 		
 - **微信远程运维**
