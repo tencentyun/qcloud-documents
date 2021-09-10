@@ -61,7 +61,7 @@
     <td rowspan="2">ssl.crt</td>
   </tr>
   <tr>
-    <td>2_cloud.tencent.com.cr</td>
+    <td>2_cloud.tencent.com.crt</td>
   </tr>
   <tr>
     <td>3_cloud.tencent.com.key</td>
@@ -74,14 +74,14 @@
 
 ### 步骤2：配置文件
 1. 使用文本编辑器，打开 Apache 服务器 `conf` 目录下 `httpd.conf` 文件，并删除以下字段前 `#` 注释符。
-```
+```java
 #LoadModule ssl_module modules/mod_ssl.so
 #Include conf/extra/httpd-ssl.conf
 ```
 2. 使用文本编辑器，打开 Apache 服务器 `conf\extra` 目录下 `httpd-ssl.conf` 文件。如下图所示：
 ![](https://main.qcloudimg.com/raw/97142cb8fe3e2f0cbc267eb7a4c8279f.png)
-3. 修改 `httpd-ssl.conf` 文件以下字段参数为上传的证书文件路径，如下所示：
-```
+3. 修改 `httpd-ssl.conf` 文件，将以下字段参数设置为上传的证书文件路径，如下所示：
+```java
 SSLCertificateFile "C:/apache/conf/ssl.crt/2_cloud.tencent.com.crt"
 SSLCertificateKeyFile "C:/apache/conf/ssl.key/3_cloud.tencent.com.key"
 SSLCertificateChainFile "C:/apache/conf/ssl.crt/1_root_bundle.crt"
@@ -91,11 +91,11 @@ SSLCertificateChainFile "C:/apache/conf/ssl.crt/1_root_bundle.crt"
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 
 1. 使用文本编辑器，打开 Apache 服务器 `conf` 目录下 `httpd.conf` 文件，并删除以下字段前 `#` 注释符。
-```
+```java
 #LoadModule rewrite_module modules/mod_rewrite.so
 ```
 2. 并在网站运行目录配置字段。如： `<Directory "C:/xampp/htdocs">` 字段中添加如下内容：
-```
+```java
 <Directory "C:/xampp/htdocs">
 RewriteEngine on
 RewriteCond %{SERVER_PORT} !^443$
