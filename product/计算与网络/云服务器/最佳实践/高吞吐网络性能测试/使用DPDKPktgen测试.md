@@ -84,7 +84,7 @@ cd /root/pktgen && make
 
 <dx-accordion>
 ::: test_range.lua 文件
-参考以下 `test_range.lua` 示例，结合实际情况编辑 `/root/pktgen/test/test_range.lua` 文件，修改 Pktgen 测试 rang 模式报文特征，生成100条流。
+参考以下 `test_range.lua` 示例，结合实际情况编辑 `/root/pktgen/test/test_range.lua` 文件，修改 Pktgen 测试 range 模式报文特征，生成100条流。
 ```
 package.path = package.path ..";?.lua;test/?.lua;app/?.lua;"
 
@@ -235,7 +235,7 @@ cd /root/dpdk/usertools/
 python3 dpdk-devbind.py --bind=uio_pci_generic 00:07.0
 ```<dx-alert infotype="explain" title="">
 命令中的 00.07.0 为示例地址，请执行 `python3 dpdk-devbind.py -s` 命令，获取网卡实际地址。
-</dx-alert> 完成测试后，可通过请执行以下命令，恢复网卡变更。
+</dx-alert> 完成测试后，请执行以下命令，恢复网卡变更。
 ```
 cd /root/dpdk/usertools/
 ``` ```
