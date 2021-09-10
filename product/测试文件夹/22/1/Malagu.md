@@ -126,7 +126,7 @@ Build completed in 0.722s
 
 Malagu 框架提供了 `malagu deploy` 命令用于部署。与传统框架最大的区别在于提供了体验极致的一键部署、多环境支持、开箱即用的 CICD 能力。该能力的实现得益于 Serverless 技术的发展。
 
-执行以下命令，如果您是首次部署，命令行工具会自动提示您输入云平台相关的访问秘钥信息（AccessKey），您也可以在项目根目录下执行 `malagu config` 手动配置或修改访问秘钥信息。了解更多请参见 [平台访问秘钥配置](https://www.yuque.com/cellbang/malagu/ktefxi)。
+执行以下命令，如果您是首次部署，命令行工具会自动提示您输入云平台相关的访问密钥信息（AccessKey），您也可以在项目根目录下执行 `malagu config` 手动配置或修改访问密钥信息。了解更多请参见 [平台访问密钥配置](https://www.yuque.com/cellbang/malagu/ktefxi)。
 ```sh
 malagu deploy
 ```
