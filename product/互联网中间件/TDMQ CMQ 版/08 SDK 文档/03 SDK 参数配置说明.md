@@ -12,7 +12,7 @@ TDMQ CMQ 版提供了四种 SDK，本文以 Python 为例进行说明。
 
 >!所有的类均为非线程安全的，如果需要多线程使用，最好每个线程实例化自己的对象。
 
-[下载 SDK >>](https://cloud.tencent.com/document/product/406/6107)
+[下载 SDK >>](https://cloud.tencent.com/document/product/1496/61039)
 
 
 ## 队列模型
