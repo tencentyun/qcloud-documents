@@ -71,7 +71,7 @@ GET https://api.meeting.qq.com/v1/users?uuid=WM4Fs4Th56ogU13JiK
 	"role_code": "NORMAL_ROLE",
 	"department_list": [{
 		"department_id": "e3ce08567893251f05db4de921fc2c2d",
-		"department_name": "顶级部门"
+		"department_name": "主部门"
 	}]
 }
 
