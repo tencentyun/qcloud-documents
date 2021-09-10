@@ -1,6 +1,6 @@
 ## 操作场景
 
-Malagu 提供了一个很强大的命令行工具 `@malagu/cli` ，设计思路部分借鉴了 `@vue/cli` 。应用的初始化、运行、构建和部署等操作都是基于该命令行工具完成。了解更多请参见 [命令行工具](https://www.yuque.com/cellbang/malagu/xbfpir) 文档。本文将通过以下步骤为您介绍如何创建第一个应用。
+Malagu 提供了一个很强大的命令行工具 `@malagu/cli`，设计思路部分借鉴了 `@vue/cli`。应用的初始化、运行、构建和部署等操作都是基于该命令行工具完成。了解更多请参见 [命令行工具](https://www.yuque.com/cellbang/malagu/xbfpir) 文档。本文将通过以下步骤为您介绍如何创建第一个应用。
 
 
 
@@ -44,7 +44,7 @@ malagu init
   mycli Official
 ```
 3. 选择完模板类型后，会基于该模板创建好应用，并安装好相关依赖。安装的时候，命令行工具根据当前环境，智能选择包管理器。如果环境中只存在 npm 工具，则选择 npm，否则优先使用 yarn 工具。
-本文示例选择`backend-app`模板，应用初始化好后，效果如下：
+本文示例选择 `backend-app` 模板，应用初始化好后，效果如下：
 ```
 ➜  js malagu init
                    ___
@@ -71,7 +71,7 @@ Success! Initialized "backend-app" example in /Users/kevin/js/backend-app.
 ```sh
 .
 ├── src
-│   ├── module.ts            # 模块入口文件
+│   ├── module.ts # 模块入口文件
 │   └── home-controller.ts
 ├── tsconfig.json
 └── package.json
@@ -83,7 +83,7 @@ Success! Initialized "backend-app" example in /Users/kevin/js/backend-app.
 
 ### 本地运行应用
 
-Malagu 命令行工具提供了一个支持 HMR（热模块替换）能力的本地运行命令 `malagu serve` 。另外，除了 `malagu init` 命令外，其他命令都是应用上下文感知命令，也就是说，Malagu 会把这些命令委托给应用中依赖的 `@malagu/cli-service` 去执行。这么做的好处是让全局命令的行为永远与当前应用依赖的框架版本保持一致，同时，也让 `@malagu/cli` 体积变小且稳定，安装速度很快，也无需经常升级。
+Malagu 命令行工具提供了一个支持 HMR（热模块替换）能力的本地运行命令 `malagu serve` 。另外，除了 `malagu init` 命令外，其他命令都是应用上下文感知命令，也就是说，Malagu 会将这些命令委托给应用中依赖的 `@malagu/cli-service` 去执行。这样做的好处是让全局命令的行为永远与当前应用依赖的框架版本保持一致，同时，也让 `@malagu/cli` 体积变小且稳定，安装速度很快，也无需经常升级。
 ```sh
 malagu serve
 open http://localhost:3000
@@ -126,7 +126,7 @@ Build completed in 0.722s
 
 Malagu 框架提供了 `malagu deploy` 命令用于部署。与传统框架最大的区别在于提供了体验极致的一键部署、多环境支持、开箱即用的 CICD 能力。该能力的实现得益于 Serverless 技术的发展。
 
-执行以下命令，如果您是首次部署，命令行工具会自动提示您输入云平台相关的访问秘钥信息（AccessKey），您也可以在项目根目录下执行 `malagu config` 手动配置或修改访问秘钥信息。了解更多请参见 [平台访问秘钥配置](https://www.yuque.com/cellbang/malagu/ktefxi)。
+执行以下命令，如果您是首次部署，命令行工具会自动提示您输入云平台相关的访问密钥信息（AccessKey），您也可以在项目根目录下执行 `malagu config` 手动配置或修改访问密钥信息。了解更多请参见 [平台访问密钥配置](https://www.yuque.com/cellbang/malagu/ktefxi)。
 ```sh
 malagu deploy
 ```

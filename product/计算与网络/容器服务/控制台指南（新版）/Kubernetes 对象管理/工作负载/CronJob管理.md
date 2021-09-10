@@ -1,17 +1,6 @@
 ## 简介
 
-一个 CronJob 对象类似于 crontab（cron table）文件中的一行。它根据指定的预定计划周期性地运行一个 Job，格式可以参考 Cron。
-Cron 格式说明如下：
-```
-# 文件格式说明
-#  ——分钟（0 - 59）
-# |  ——小时（0 - 23）
-# | |  ——日（1 - 31）
-# | | |  ——月（1 - 12）
-# | | | |  ——星期（0 - 6）
-# | | | | |
-# * * * * *
-```
+一个 CronJob 对象类似于 crontab（cron table）文件中的一行，它根据指定的预定计划周期性地运行一个 Job。
 
 
 ## CronJob 控制台操作指引
@@ -21,27 +10,38 @@ Cron 格式说明如下：
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要创建 CronJob 的集群 ID，进入待创建 CronJob 的集群管理页面。
-4. 选择 “工作负载” > “CronJob”，进入 CronJob 信息页面。如下图所示：
-![CronJob](https://main.qcloudimg.com/raw/521279f6e09ab9c9efc62675e3a7376f.png)
-5. 单击**新建**，进入 “新建Workload” 页面。如下图所示：
-![新建Workload](https://main.qcloudimg.com/raw/6ea173c38411103881736060f8394440.png)
+4. 选择**工作负载** > **CronJob**，进入 CronJob 信息页面。如下图所示：
+![](https://main.qcloudimg.com/raw/8588176420024d138ca62060df69a016.png)
+5. 单击**新建**，进入 “新建Workload” 页面。
 6. 根据实际需求，设置 CronJob 参数。关键参数信息如下：
- - 工作负载名：自定义。
- - 命名空间：根据实际需求进行选择。
- - 类型：选择 “CronJob（按照Cron的计划定时运行）”。
- - 执行策略：根据 Cron 格式设置任务的定期执行策略。
- - Job设置
-    - 重复次数：Job 管理的 Pod 需要重复执行的次数。
-    - 并行度：Job 并行执行的 Pod 数量。
-    - 失败重启策略：Pod下容器异常退出后的重启策略。
+ - **工作负载名**：自定义。
+ - **标签**：一个键 - 值对（Key-Value），用于对资源进行分类管理。
+ - **命名空间**：根据实际需求进行选择。
+ - **类型**：选择 “CronJob（按照 Cron 的计划定时运行）”。
+ - **定时规则**：根据业务需求选择任务的定期执行策略。
+ - **保留成功 Job 数**：对应.spec.successfulJobsHistoryLimit，详情见 [Jobs History Limits](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/#jobs-history-limits)。
+ - **保留失败 Job 数**：对应.spec.failedJobsHistoryLimit，详情见 [Jobs History Limits](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/#jobs-history-limits)。
+ - **Job设置**：
+    - **重复次数**：Job 管理的 Pod 需要重复执行的次数。
+    - **并行度**：Job 并行执行的 Pod 数量。
+    - **失败重启策略**：Pod下容器异常退出后的重启策略。
         - Never：不重启容器，直至 Pod 下所有容器退出。
         - OnFailure：Pod 继续运行，容器将重新启动。
- - 实例内容器：根据实际需求，为 CronJob 的一个 Pod 设置一个或多个不同的容器。
-    - 名称：自定义。
-    - 镜像：根据实际需求进行选择。
-    - 镜像版本：根据实际需求进行填写。
-    - CPU/内存限制：可根据 [Kubernetes 资源限制](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/) 进行设置 CPU 和内存的限制范围，提高业务的健壮性。
-    - 高级设置：可设置 “**工作目录**”，“**运行命令**”，“**运行参数**”，“**容器健康检查**”，“**特权级**”等参数。
+ - **数据卷（选填）**：为容器提供存储，目前支持临时路径、主机路径、云硬盘数据卷、文件存储 NFS、配置文件、PVC，还需挂载到容器的指定路径中。
+ - **实例内容器**：根据实际需求，为 CronJob 的一个 Pod 设置一个或多个不同的容器。
+    - **名称**：自定义。
+    - **镜像**：根据实际需求进行选择。
+    - **镜像版本**：根据实际需求进行填写。
+    - **镜像拉取策略**：提供以下3种策略，请按需选择。
+       若不设置镜像拉取策略，当镜像版本为空或 `latest` 时，使用 Always 策略，否则使用 IfNotPresent 策略。
+        - **Always**：总是从远程拉取该镜像。
+        - **IfNotPresent**：默认使用本地镜像，若本地无该镜像则远程拉取该镜像。
+        - **Never**：只使用本地镜像，若本地没有该镜像将报异常。
+    - **CPU/内存限制**：可根据 [Kubernetes 资源限制](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/) 进行设置 CPU 和内存的限制范围，提高业务的健壮性。
+    - **GPU 资源**：配置该工作负载使用的最少 GPU 资源。
+    - **高级设置**：可设置 “工作目录”，“运行命令”，“运行参数”，“容器健康检查”，“特权级”等参数。
+ - **镜像访问凭证**：容器镜像默认私有，在创建工作负载时，需选择实例对应的镜像访问凭证。
+ - **节点调度策略**：可根据调度规则，将 Pod 调度到符合预期的 Label 的节点中。
 7. 单击**创建Workload**，完成创建。
 
 ### 查看 CronJob 状态

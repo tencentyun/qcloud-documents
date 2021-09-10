@@ -31,9 +31,9 @@ CREATE TABLE `cdc_source4es` (
 ```
 并在表中插入几条数据。
 ```sql
-insert into cdc_source4es vlaues(1, 99);
-insert into cdc_source4es vlaues(2, 88);
-insert into cdc_source4es vlaues(3, 77);
+insert into cdc_source4es values(1, 99);
+insert into cdc_source4es values(2, 88);
+insert into cdc_source4es values(3, 77);
 ```
 
 ### 创建 ElasticSearch 集群
