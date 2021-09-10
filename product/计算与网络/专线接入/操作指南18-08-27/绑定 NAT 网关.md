@@ -1,9 +1,9 @@
 创建专线网关完成后如果您业务需要通过 NAT 网关方式进行公网访问，那么您需要为专线网关绑定 NAT 网关。本文将介绍如何为专线网关绑定 NAT 网关。
 
 ## 前提条件
-- 已[创建 VPC 网络](https://cloud.tencent.com/document/product/215/36515)。
-- 已[创建 VPC 型专线网关](https://cloud.tencent.com/document/product/216/19256)。
-- 已[创建 NAT 网关](https://cloud.tencent.com/document/product/552/18186#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.88.9B.E5.BB.BA-nat-.E7.BD.91.E5.85.B3)。
+- 已[ 创建 VPC 网络](https://cloud.tencent.com/document/product/215/36515)。
+- 已 [创建 VPC 型专线网关](https://cloud.tencent.com/document/product/216/19256)。
+- 已[ 创建 NAT 网关](https://cloud.tencent.com/document/product/552/18186#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.88.9B.E5.BB.BA-nat-.E7.BD.91.E5.85.B3)。
 
 ## 绑定 NAT 网关
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
