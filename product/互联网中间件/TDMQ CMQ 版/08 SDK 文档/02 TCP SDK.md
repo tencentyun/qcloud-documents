@@ -14,7 +14,7 @@ TCP 支持异步接口，支持回调。
 - **更多样的特性支持**
 TCP 支持 TDMQ CMQ 版最新的分布式消息事务。
 
-## Demo工程使用
+## Demo 工程使用
 ### 准备 Demo 环境
 1. **安装 IDE**
 您可以安装 IntelliJ IDEA 或者 Eclipse，本文以 IntelliJ IDEA 为例进行说明。
