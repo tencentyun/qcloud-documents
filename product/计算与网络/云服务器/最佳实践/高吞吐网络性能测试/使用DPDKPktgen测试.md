@@ -84,7 +84,7 @@ cd /root/pktgen && make
 
 <dx-accordion>
 ::: test_range.lua 文件
-参考以下 `test_range.lua` 示例，结合实际情况编辑 `/root/pktgen/test/test_range.lua` 文件，修改 Pktgen 测试 range 模式报文特征，生成100条流。
+参考以下 `test_range.lua` 示例，结合实际情况编辑 `/root/pktgen/test/test_range.lua` 文件，修改 Pktgen 测试 range 模式报文特征。本文以生成100条流为例，若您需修改生成流数目，可修改 `dst_port` 及 `src_port` 参数配置。
 ```
 package.path = package.path ..";?.lua;test/?.lua;app/?.lua;"
 
@@ -108,20 +108,22 @@ pktgen.range.src_ip("0", "min", "172.16.0.9");
 pktgen.range.src_ip("0", "max", "172.16.0.9");
 
 -- Port 0 流量目的端口范围
+-- (max value - min value) 需等于流数目
 pktgen.range.dst_port("0", "start", 2013);
 pktgen.range.dst_port("0", "inc", 1);
 pktgen.range.dst_port("0", "min", 2013);
 pktgen.range.dst_port("0", "max", 2112);
 
 -- Port 0 流量接收端口范围
+-- (max value - min value) 需等于流数目
 pktgen.range.src_port("0", "start", 5029);
 pktgen.range.src_port("0", "inc", 1);
 pktgen.range.src_port("0", "min", 5029);
 pktgen.range.src_port("0", "max", 5128);
 
--- Port 0 测试流量的包长
+-- Port 0 测试流量的数据包属性
 pktgen.range.pkt_size("0", "start", 64);
-pktgen.range.pkt_size("0", "inc", 0);
+pktgen.range.pkt_size("0", "inc", 0);  -- 固定包长为64字节
 pktgen.range.pkt_size("0", "min", 64);
 pktgen.range.pkt_size("0", "max", 256);
 
@@ -130,7 +132,7 @@ pktgen.set_proto("0", "udp");
 pktgen.ip_proto("0", "udp");
 pktgen.set_range("all", "on");
 ```
-相关信息获取途径如下：
+相关说明如下：
 - **网卡 MAC 地址**：可执行 `ifconfig -a` 命令获取，其中 `ether` 字段为网卡 Mac 地址。
 - **接收端\发送端 IP 地址**：测试机的 IP 地址，可使用 [公网 IP](https://cloud.tencent.com/document/product/213/5224)。若机器再同一私有网络下，也可使用 [内网 IP](https://cloud.tencent.com/document/product/213/5225)。
 :::
@@ -147,7 +149,7 @@ setup = {
         ),
 
     'devices': (
-        '0000:00:07.0' # 请结合实际情况填写
+        '0000:00:07.0' # 测试网卡地址，请结合实际情况填写
         ),
     # UIO module type, igb_uio, vfio-pci or uio_pci_generic
     'uio': 'uio_pci_generic'
@@ -171,7 +173,7 @@ run = {
         './build/app/%(app_name)s',
         ),
 
-    'cores': '0,1-3', # 请结合实际情况填写
+    'cores': '0,1-3', # 16进制掩码设置应用程序使用哪些 cpu 核，请结合实际情况填写
     'nrank': '4',
     'proc': 'auto',
     'log': '7',
@@ -185,7 +187,7 @@ run = {
         #'05:00.0,safe-mode-support=1',
         #'84:00.0,safe-mode-support=1',
         #'03:00.0', '81:00.0'
-        '00:07.0' # 请结合实际情况填写
+        '00:07.0' # 测试网卡地址，请结合实际情况填写
         ),
 
     'opts': (
@@ -195,7 +197,7 @@ run = {
         '-j',
         ),
     'map': (
-        '[1-2:1-2].0', # 请结合实际情况填写
+        '[1-2:1-2].0', # 网卡和逻辑核之间的矩阵映射，映射格式使用 BNF-like 语法，请结合实际情况填写
         ),
 
     #'theme': 'themes/black-yellow.theme'
@@ -203,8 +205,8 @@ run = {
     }
 ```
 相关说明如下：
-- 可执行 `cd /root/dpdk/usertools/ && python3 dpdk-devbind.py -s` 命令，获取网卡实际地址。
-- 其他参数配置可参考 [default.cfg](https://github.com/pktgen/Pktgen-DPDK/blob/pktgen-20.03.0/cfg/default.cfg) 及 [run.py](https://github.com/pktgen/Pktgen-DPDK/blob/pktgen-20.03.0/tools/run.py#L209)。本文以 Pktgen 20.03.0 版本为例，请您结合实际情况进行配置。
+- 可执行 `cd /root/dpdk/usertools/ && python3 dpdk-devbind.py -s` 命令，获取测试网卡实际地址。
+- 其他参数配置可参考 [Runtime Options and Commands](https://pktgen-dpdk.readthedocs.io/en/latest/commands.html#pages) 及 [Pktgen Commandline Options](https://pktgen-dpdk.readthedocs.io/en/latest/usage_pktgen.html) 进行填写。
 :::
 </dx-accordion>
 
