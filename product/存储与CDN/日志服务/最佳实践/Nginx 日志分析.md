@@ -34,7 +34,7 @@ log_format  main  '$server_name $remote_addr - $remote_user [$time_local] "$requ
 ```
 ![image-20210823202154190](https://main.qcloudimg.com/raw/854d6dc6900d8f4a2c35146303178987.png)
 - 对延时最大的页面进行调优。
-例如**/4nm8c.html**页面的访问延时最大，需要对**/4nm8c.html**页面进行调优，则需计算**/4nm8c.html**页面的访问PV、UV、各种请求方法次数、各种请求状态次数、各种浏览器次数、平均延时和最大延时。
+例如**/4nm8c.html**页面的访问延时最大，需要对**\/4nm8c.html**页面进行调优，则需计算**\/4nm8c.html**页面的访问 PV、UV、各种请求方法次数、各种请求状态次数、各种浏览器次数、平均延时和最大延时。
 ```
 request_uri:"/4nm8c.html*" | select count(1) as pv,
         approx_distinct(remote_addr) as uv,
@@ -86,7 +86,6 @@ request_uri:"/4nm8c.html*" | select count(1) as pv,
 *| select approx_distinct(remote_addr) as uv ,count(1) as pv , time_series(__TIMESTAMP__, '5m', '%Y-%m-%d %H:%i:%s', '0')  as time group by time order by time limit 1000
 ```
 ![image-20210823212539291](https://main.qcloudimg.com/raw/01bd568b51de6b6c3351284666647113.png)
-
 
 
 
