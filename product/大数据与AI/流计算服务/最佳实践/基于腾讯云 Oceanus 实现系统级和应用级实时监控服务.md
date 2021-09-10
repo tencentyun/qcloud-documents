@@ -70,8 +70,8 @@ top -d 10 >>/tmp/test.log
 ```
 2. 进入 Ckafka 页面，单击**消息查询**，查询对应 topic 消息，验证是否采集到数据。  
 ![](https://main.qcloudimg.com/raw/b9155994a4e68b14fdd4bc9b19d2bda6.png)
+filebeat 采集到的数据格式：
 ```json
-# filebeat采集到的数据格式：
 {
 	"@timestamp": "2021-08-30T10:22:52.888Z",
 	"@metadata": {
@@ -114,7 +114,7 @@ top -d 10 >>/tmp/test.log
 	"log": {
 		"offset": 2449931,
 		"file": {
-			"path": "/tmp/mysysteminfo.log"
+			"path": "/tmp/test.log"
 		}
 	},
 	"message": "(B[m16root0-20000S0.00.00:00.00kworker/1:0H(B[m[39;49m[K"
