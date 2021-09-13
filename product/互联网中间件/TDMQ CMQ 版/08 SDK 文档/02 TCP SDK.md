@@ -16,7 +16,7 @@ TCP 支持 TDMQ CMQ 版最新的分布式消息事务。
 
 ## Demo 工程使用
 ### 准备 Demo 环境
-1. **安装 IDE**
+1. **安装 IDEA**
 您可以安装 IntelliJ IDEA 或者 Eclipse，本文以 IntelliJ IDEA 为例进行说明。
 请在 [下载 IntelliJ IDEA Ultimate 版本](https://www.jetbrains.com/idea/)，并参考 IntelliJ IDEA 说明进行安装。
 2. **下载 Demo 工程**
@@ -32,7 +32,7 @@ TCP 支持 TDMQ CMQ 版最新的分布式消息事务。
 打开文件夹后，文件层级关系如下，Demo 工程文件存于 Demo 文件夹下。
 ![](https://main.qcloudimg.com/raw/1fc9235f7ae621fec4105fb173725d89.png)
 3. **配置 Demo 参数**<span id="peizhi"></span>
-修改文件 NameServer 地址、密钥对及消息队列名，NameServer 地址请参考 [NameServer 对照表](#Nameserver)。
+修改文件 NameServer 地址、密钥对及消息队列名。
 以 ProducerDemo 为例，配置如下：
 ```java
 producer.setNameServerAddress(“对应的NameSever”)；
