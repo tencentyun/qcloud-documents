@@ -1,5 +1,5 @@
 腾讯云视立方播放器 Player （以下简称播放器 Player）支持 Web、iOS、Android 和 Flutter 四大终端，云点播为客户提供了完整的 Demo 和播放器 Player 下载。
-
+[](id:downloadSDK)
 ## SDK 下载 & Demo 
 <table>
    <tr>
@@ -60,6 +60,7 @@
 </table>
 
 ## 功能列表
+[](id:functionList)
 超级播放器在各端上都提供丰富的能力接入，各平台支持的能力列表展示如下：
 
 | 功能点         | 功能说明                                               | iOS & Android |
