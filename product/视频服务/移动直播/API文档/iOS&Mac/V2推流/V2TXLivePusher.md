@@ -119,17 +119,17 @@ __介绍__
 
 ## 视频相关接口
 ### setVideoQuality
-设置推流视频分辨率，以及宽高比模式（横屏 / 竖屏）。
+设置推流视频编码参数。
 ```
-- (V2TXLiveCode)setVideoQuality:(V2TXLiveVideoResolution)resolution
-                 resolutionMode:(V2TXLiveVideoResolutionMode)resolutionMode
+- (V2TXLiveCode)setVideoQuality:(V2TXLiveVideoEncoderParam *)param;
 ```
 #### 参数
 
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| resolution | V2TXLiveVideoResolution | 视频分辨率。 |
-| resolutionMode | V2TXLiveVideoResolutionMode | 视频宽高比模式（横屏或者竖屏模式）。 |
+| 参数  | 类型    |含义           |
+| ---- | ----  | ----  |
+| param | [V2TXLiveVideoEncoderParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveDef__ios.html#interfaceV2TXLiveVideoEncoderParam) | 视频编码参数。 |
+
+
 
 #### V2TXLiveVideoResolution 枚举值
 
