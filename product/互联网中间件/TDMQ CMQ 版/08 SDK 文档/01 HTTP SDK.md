@@ -35,7 +35,7 @@ TDMQ CMQ 版目前支持 Java、Python、PHP 及 C++ SDK ，后续会支持更�
 
 ## Demo工程使用
 ### 准备 Demo 环境
-1. **安装 IDE**
+1. **安装 IDEA**
 您可以安装 IntelliJ IDEA 或者 Eclipse，本文以 IntelliJ IDEA 为例进行说明。
 请在 [下载 IntelliJ IDEA Ultimate 版本](https://www.jetbrains.com/idea/)，并参考 IntelliJ IDEA 说明进行安装。
 2. **下载 Demo 工程**
