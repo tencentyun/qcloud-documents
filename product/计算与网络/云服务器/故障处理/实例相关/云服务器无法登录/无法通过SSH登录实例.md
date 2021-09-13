@@ -501,6 +501,8 @@ yum install openssh-server
 service sshd start
 ```
 
+
+
 #### 通过快照回滚恢复[](id:rollBack)
 可通过回滚实例系统盘的历史快照进行库文件恢复，详情请参见 [从快照回滚数据](https://cloud.tencent.com/document/product/362/5756)。
 
@@ -690,8 +692,7 @@ drwx--x--x. 2 root root 4096 Apr 11 2018 /var/empty/sshd/
 3. 对比实际返回结果与默认权限配置，若不相同，则请依次执行以下命令，恢复默认配置。
 <dx-alert infotype="explain" title="">
 `/var/empty/sshd` 目录权限默认为711，默认为 root 属组的 root 用户。
-</dx-alert>
-```
+</dx-alert> ```
 chown -R root:root /var/empty/sshd
 ``` ```
 chmod -R 711 /var/empty/sshd
@@ -713,8 +714,7 @@ ll /etc/securetty
 2. 对比实际返回结果与默认权限配置，若不相同，则请依次执行以下命令，恢复默认配置。
 <dx-alert infotype="explain" title="">
 `/etc/securetty` 文件权限默认为600，默认为 root 属组的 root 用户。
-</dx-alert>
-```
+</dx-alert> ```
 chown root:root /etc/securetty
 ``` ```
 chmod 600 /etc/securetty
