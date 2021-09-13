@@ -173,7 +173,7 @@ run = {
         './build/app/%(app_name)s',
         ),
 
-    'cores': '0,1-3', # 16进制掩码设置应用程序使用哪些 cpu 核，请结合实际情况填写
+    'cores': '0,1-3', # 填写 CPU ID，即绑定对应的 CPU 执行 Pktgen 。可通过 lscpu 命令查看 CPU ID，请结合实际情况填写
     'nrank': '4',
     'proc': 'auto',
     'log': '7',
@@ -197,7 +197,7 @@ run = {
         '-j',
         ),
     'map': (
-        '[1-2:1-2].0', # 网卡和逻辑核之间的矩阵映射，映射格式使用 BNF-like 语法，请结合实际情况填写
+        '[1-2:1-2].0', #  CPU ID 和网卡的绑定关系。格式为 [RX 各队列所绑定的 CPU ID：TX 队列所绑定的 CPU ID].PORT ID。CPU ID 需在上文中的 cores 指定，请结合实际情况填写。
         ),
 
     #'theme': 'themes/black-yellow.theme'
