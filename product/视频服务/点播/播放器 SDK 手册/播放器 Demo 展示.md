@@ -7,7 +7,7 @@ Web 端播放器支持 PC 端和移动端的浏览器视频播放，丰富灵活
 ![](https://main.qcloudimg.com/raw/489b5a53fadb14e982406b927589ad62.png)
 
 ### Demo 下载
-[Web 端超级播放器 - 点播播放 Demo](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-base.html)
+[Web 端超级播放器 - 点播播放 Demo](https://tcplayer-1306264703.cos.ap-nanjing.myqcloud.com/build/index.html)
 
 ## 移动端
 腾讯云工具包 App 是腾讯云音视频开发的集多款产品及功能于一身的最佳体验方案。下载腾讯云工具包，选择**腾讯云工具包** > **播放器 Player** > **超级播放器**中，您可根据自身需求选择相应功能进行体验。
