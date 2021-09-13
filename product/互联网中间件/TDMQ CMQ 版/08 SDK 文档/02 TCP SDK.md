@@ -31,7 +31,7 @@ TCP 支持 TDMQ CMQ 版最新的分布式消息事务。
 ![](https://main.qcloudimg.com/raw/8a3ba96ef290ad50f6f0d20c01594f5d.png)
 打开文件夹后，文件层级关系如下，Demo 工程文件存于 Demo 文件夹下。
 ![](https://main.qcloudimg.com/raw/1fc9235f7ae621fec4105fb173725d89.png)
-3. **配置 Demo 参数**<span id="peizhi"></span>
+3. **配置 Demo 参数**[](id:demo)
 修改文件 NameServer 地址、密钥对及消息队列名。
 以 ProducerDemo 为例，配置如下：
 ```java
@@ -45,10 +45,10 @@ String queue = “创建的队列名”
 
 ### 运行 Demo
 #### 使用队列模型收发消息
- 1. [配置 Demo 参数](#peizhi)。
+ 1. [配置 Demo 参数](#demo)。
 
  2. 执行文件 ProducerDemo，成功后显示日志如下：
- ![](https://main.qcloudimg.com/raw/7c258f9b7cfd517f1bb6f735416c0f44.png)
+ ![](https://main.qcloudimg.com/raw/dfb74dac5c9dc5550697f9f9628f1259.png)
     ProducerDemo 支持普通消息、延时消息、异步消息的发送。
 
  3. 执行文件 ConsumerDemo，可接收消息。
