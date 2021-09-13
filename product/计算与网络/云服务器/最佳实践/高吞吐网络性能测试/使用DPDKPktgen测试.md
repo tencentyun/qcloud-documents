@@ -22,8 +22,6 @@ mkdir -p /root/dpdk && tar -xf dpdk.tar.gz -C /root/dpdk --strip-components 1
 ```
 2. 依次执行以下命令，安装 kernel-headers、numa、pcap 库和 patch 组件。
 ```
-dnf upgrade
-``` ```
 dnf --enablerepo=powertools install libpcap-devel
 ``` ```shell
 yum install numactl-devel patch python3 -y
