@@ -218,5 +218,4 @@ spec:
     persistentVolumeClaim:
       claimName: pvc-cfsturbo
 ```
-
 >! 在 CFS 控制台创建的 Turbo 类型存储仅支持通过私有协议挂载，若需要 NFS 协议挂载请参考 [在 CFS Turbo NFS 协议下对接 TKE](https://cloud.tencent.com/document/product/582/56768)。
