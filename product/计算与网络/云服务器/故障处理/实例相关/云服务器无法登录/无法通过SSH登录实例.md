@@ -510,6 +510,292 @@ service sshd start
 </dx-alert>
 
 
+:::
+::: SSH 启用 UseDNS 导致 SSH 登录或数据传输速度变慢
+#### 现象描述[](id:useDNSSlow)
+Linux 实例通过外网使用 SSH 登录或进行数据传输时，速度很慢。在切换为内网后，登录及数据传输速度仍然很慢。
+
+
+#### 问题原因
+可能是由于 SSH 服务启用了 UseDNS 特性所致。UseDNS 特性是 SSH 服务的安全增强特性，默认未开启。开启后，服务端会先根据客户端 IP 进行 DNS PTR 反向查询，得到客户端主机名。再根据得到的客户端主机名进行 DNS 正向 A 记录查询，最后比对得到的 IP 与原始 IP 是否一致，用以防止客户端欺骗。
+通常情况下，客户端使用的都是动态 IP，没有相应的 PTR 记录。该特性开启后，不仅无法用于信息比对，反而由于相关查询操作增加了操作延迟，最终导致客户端连接速度变慢。
+
+
+#### 解决思路
+1. 参考 [处理步骤](#ProcessingSteps9)，进入 SSH 配置文件 `sshd_config`。
+2. 检查并修改 SSH 服务的 UseDNS 配置，并重启 SSH 服务即可。
+
+
+#### 处理步骤[](id:ProcessingSteps9)
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，使用 VIM 编辑器进入 `sshd_config` 配置文件。
+```
+vim /etc/ssh/sshd_config
+```
+3. 查看是否包含如下配置：
+```
+UseDNS yes
+```
+4. 按 **i** 进入编辑模式，删除配置或在行首增加 `#` 进行注释。
+5. 执行以下命令，重启 SSH 服务。
+```shell
+service sshd restart
+```重启 SSH 服务后，即可使用 SSH 登录。详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+:::
+::: SSH 登录报错 No supported key exchange algorithms
+#### 现象描述[](id:noSupportedkey)
+使用 SSH 登录 Linux 实例时，客户端或服务端的 secure 日志中可能出现类似如下错误信息，且无法正常登录。
+- Read from socket failed: Connection reset by peer.
+- Connection closed by 192.X.X.1.
+- sshd error: could not load host key.
+- fatal: No supported key exchange algorithms [preauth].
+- DSA host key for 192.X.X.1 has changed and you have requested strict checking.
+- Host key verification failed.
+- ssh_exchange_identification: read: Connection reset by peer.
+
+
+
+#### 问题原因
+通常是由于 SSH 服务相关的密钥文件出现异常，导致 sshd 守护进程无法加载到正确的 SSH 主机密钥。常见异常问题如下：
+- 相关密钥文件异常。例如，文件损坏、被删除或篡改等。
+- 相关密钥文件权限配置异常，无法正确读取。
+
+
+
+#### 解决思路
+参考处理步骤提供的以下处理项，进行配置检查及修改。
+- [检查及修改文件权限](#filePermissions)
+- [检查及修改文件有效性](#effectiveness)
+
+
+
+#### 处理步骤
+
+
+#### 检查及修改文件权限[](id:filePermissions)
+SSH 服务会对相关密钥文件的权限进行检查。例如，私钥文件默认权限为600，如果配置为777等其他权限，导致其他用户也具备读取或修改权限。则 SSH 服务会认为该配置存在安全风险，导致客户端连接失败。检查及修复步骤如下：
+
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 依次执行以下命令，恢复相关文件的默认权限。
+```
+cd /etc/ssh/
+``` ```
+chmod 600 ssh_host_*
+``` ```
+chmod 644 *.pub
+```
+3. 执行 `ll` 命令，查看文件权限。返回如下结果，表明文件权限正常。
+```
+total 156
+-rw-------. 1 root root 125811 Nov 23 2013 moduli
+-rw-r--r--. 1 root root 2047 Nov 23 2013 ssh_config
+-rw------- 1 root root 3639 May 16 11:43 sshd_config
+-rw------- 1 root root 668 May 20 23:31 ssh_host_dsa_key
+-rw-r--r-- 1 root root 590 May 20 23:31 ssh_host_dsa_key.pub
+-rw------- 1 root root 963 May 20 23:31 ssh_host_key
+-rw-r--r-- 1 root root 627 May 20 23:31 ssh_host_key.pub
+-rw------- 1 root root 1675 May 20 23:31 ssh_host_rsa_key
+-rw-r--r-- 1 root root 382 May 20 23:31 ssh_host_rsa_key.pub
+```
+
+ 
+#### 检查及修改文件有效性[](id:effectiveness)
+1. SSH 服务在启动时会自动重建丢失的密钥文件。依次执行以下命令，确认存在 `ssh_host_*` 文件。
+```
+cd /etc/ssh/
+``` ```
+ll
+``` 返回如下结果，表明存在 `ssh_host_*` 文件。
+```
+total 156
+-rw-------. 1 root root 125811 Nov 23  2013 moduli
+-rw-r--r--. 1 root root   2047 Nov 23  2013 ssh_config
+-rw-------  1 root root   3639 May 16 11:43 sshd_config
+-rw-------  1 root root    672 May 20 23:08 ssh_host_dsa_key
+-rw-r--r--  1 root root    590 May 20 23:08 ssh_host_dsa_key.pub
+-rw-------  1 root root    963 May 20 23:08 ssh_host_key
+-rw-r--r--  1 root root    627 May 20 23:08 ssh_host_key.pub
+-rw-------  1 root root   1675 May 20 23:08 ssh_host_rsa_key
+-rw-r--r--  1 root root    382 May 20 23:08 ssh_host_rsa_key.pub
+```
+2. 执行以下命令，删除相关文件。
+```
+rm -rf ssh_host_*
+``` Ubuntu 及 Debain 类操作系统，请执行以下命令，删除相关文件。
+```
+sudo rm -r /etc/ssh/ssh*key
+```
+3. 执行 `ll` 命令，确认文件是否成功删除。返回结果如下所示，则说明已成功删除。
+```
+total 132
+-rw-------. 1 root root 125811 Nov 23  2013 moduli
+-rw-r--r--. 1 root root   2047 Nov 23  2013 ssh_config
+-rw-------  1 root root   3639 May 16 11:43 sshd_config
+```
+4. 执行以下命令，重启 SSH 服务，自动生成相关文件。
+```
+service sshd restart
+``` Ubuntu 及 Debain 类操作系统，请执行以下命令，重启 SSH 服务。
+```
+sudo dpkg-reconfigure openssh-server
+```
+5. 执行 `ll` 命令，确认是否成功生成 `ssh_host_*` 文件。返回结果如下，则说明已成功生成。
+```
+total 156
+-rw-------. 1 root root 125811 Nov 23  2013 moduli
+-rw-r--r--. 1 root root   2047 Nov 23  2013 ssh_config
+-rw-------  1 root root   3639 May 16 11:43 sshd_config
+-rw-------  1 root root    668 May 20 23:16 ssh_host_dsa_key
+-rw-r--r--  1 root root    590 May 20 23:16 ssh_host_dsa_key.pub
+-rw-------  1 root root    963 May 20 23:16 ssh_host_key
+-rw-r--r--  1 root root    627 May 20 23:16 ssh_host_key.pub
+-rw-------  1 root root   1671 May 20 23:16 ssh_host_rsa_key
+-rw-r--r--  1 root root    382 May 20 23:16 ssh_host_rsa_key.pub
+```使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+
+:::
+::: SSH 服务启动时报错 must be owned by root and not group or word-writable
+#### 现象描述[](id:mustBeOwnerByRoot)
+Linux 实例启动 SSH 服务，返回 “must be owned by root and not group or word-writable” 错误信息。
+
+
+#### 问题原因
+通常是由于 SSH 服务相关权限，或属组异常所致。基于安全性考虑，SSH 服务对相关目录或文件的权限配置及属组等均有一定要求。
+
+
+#### 解决思路
+参考处理步骤中提供的处理项，检查并修改错误配置。
+ - [检查及修复 /var/empty/sshd 目录配置](#repairSshd)
+ - [检查及修复 /etc/securetty 文件配置](#repairSecuretty)
+
+
+#### 处理步骤
+
+<dx-alert infotype="explain" title="">
+本步骤以 CentOS 7.6 操作系统环境为例，请您结合实际业务情况进行操作。
+</dx-alert>
+
+
+#### 检查及修复 /var/empty/sshd 目录配置[](id:repairSshd)
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，查看 `/var/empty/sshd` 目录权限配置。 
+```
+ll -d /var/empty/sshd/
+``` 以下内容为默认权限配置。
+```
+drwx--x--x. 2 root root 4096 Apr 11 2018 /var/empty/sshd/
+```
+3. 对比实际返回结果与默认权限配置，若不相同，则请依次执行以下命令，恢复默认配置。
+<dx-alert infotype="explain" title="">
+`/var/empty/sshd` 目录权限默认为711，默认为 root 属组的 root 用户。
+</dx-alert>
+```
+chown -R root:root /var/empty/sshd
+``` ```
+chmod -R 711 /var/empty/sshd
+```
+4. 执行以下命令，重启 SSH 服务。
+```
+systemctl restart sshd.service
+```
+
+
+#### 检查及修复 /etc/securetty 文件配置[](id:repairSecuretty)
+1. 执行如下命令，查看 `/etc/securetty` 文件权限配置。
+```
+ll /etc/securetty
+``` 以下内容为默认权限配置。
+```
+-rw-------. 1 root root 221 Oct 31  2018 /etc/securetty
+```
+2. 对比实际返回结果与默认权限配置，若不相同，则请依次执行以下命令，恢复默认配置。
+<dx-alert infotype="explain" title="">
+`/etc/securetty` 文件权限默认为600，默认为 root 属组的 root 用户。
+</dx-alert>
+```
+chown root:root /etc/securetty
+``` ```
+chmod 600 /etc/securetty
+```
+3. 执行以下命令，重启 SSH 服务。
+```
+systemctl restart sshd.service
+```使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+
+:::
+::: SSH 登录时报错 Host key verification failed
+#### 现象描述[](id:hostKeyVerification)
+使用 SSH 登录 Linux 实例时，无法正常登录实例，且出现以下报错信息：
+```
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that the RSA host key has just been changed.
+The fingerprint for the RSA key sent by the remote host is
+ae:6e:68:4c:97:a6:91:81:11:38:8d:64:ff:92:13:50.
+Please contact your system administrator.
+Add correct host key in /root/.ssh/known_hosts to get rid of this message.
+Offending key in /root/.ssh/known_hosts:70
+RSA host key for x.x.x.x has changed and you have requested strict checking.
+Host key verification failed.
+```
+若客户端为 Windows 操作系统，则以常见的 SSH 客户端为例，连接时出现以下报错信息：
+```
+X.X.X.X （端口：XX）的主机密钥与本地主机密钥数据库中保存的不一致。主机密钥已更改或有人试图监听此连接。若无法确定，建议取消此连接。
+```
+
+
+#### 问题原因
+Linux 实例进行过重装系统操作，账户信息等变更使 SSH 公钥变更，造成客户端保存的公钥指纹与服务器端不一致，导致 SSH 认证失败拒绝登录。
+
+
+#### 解决思路
+对应实际情况，参考处理步骤中提供的步骤进行操作。
+- [Windows 客户端](#windows)
+- [Linux 客户端](#linux)
+
+
+
+#### 处理步骤
+
+
+#### Windows 客户端[](id:windows)
+
+<dx-alert infotype="explain" title="">
+本文 SSH 客户端以 PuTTY 为例，请您结合实际情况进行操作。
+</dx-alert>
+
+1. 启动 PuTTY。
+2. 在登录页面，选择会话后单击 **Delete** 进行删除。如下图所示：
+![](https://main.qcloudimg.com/raw/fba29dcb992ff9458484aeb09b3d3a97.png)
+3. 参考 [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)，重新使用用户名及密码登录实例，确认保存新的公钥指纹后，即可成功登录。 
+
+
+#### Linux 客户端[](id:linux)
+
+<dx-alert infotype="explain" title="">
+本文 Linux 实例操作系统以 CentOS 6.5 为例，不同版本操作系统可能存在区别，请您结合实际情况操作。
+</dx-alert>
+
+
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行如下命令，进入对应账号的 `known_hosts` 文件。
+```
+vi ~/.ssh/known_hosts
+```
+3. 按 **i** 进入编辑模式，删除 Linux 实例 IP 对应的条目。类似如下信息：
+```
+1.14.xxx.xx
+skowcenw96a/pxka32sa....
+dsaprgpck2wa22mvi332ueddw...
+```
+4. 按 **Esc** 输入 **:wq** 保存修改并退出。
+5. 参考 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)，重新连接 Linux 实例，确认保存新的公钥指纹后，即可成功登录。
 
 :::
 </dx-accordion>
