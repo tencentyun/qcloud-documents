@@ -1,5 +1,4 @@
 
-# 静态挂载 CFS Turbo 文件存储
 
 ## 操作场景
 如需为集群挂载 CFS Turbo 类型存储，可以通过安装 `kubernetes-csi-tencentloud` 组件来实现。该组件基于私有协议将腾讯云 CFS Turbo 文件系统挂载到工作负载，目前仅支持静态配置。
