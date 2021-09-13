@@ -141,16 +141,15 @@ public abstract int isPushing();
 
 ## 视频相关接口
 ### setVideoQuality
-设置推流视频分辨率，以及宽高比模式（横屏 / 竖屏）。
+设置推流视频编码参数。
 ```
-public abstract int setVideoQuality(V2TXLiveVideoResolution resolution, V2TXLiveVideoResolutionMode resolutionMode);
+public abstract int setVideoQuality(V2TXLiveVideoEncoderParam param);
 ```
 #### 参数
 
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| resolution | [V2TXLiveVideoResolution](#V2TXLiveVideoResolution) | 视频分辨率。 |
-| resolutionMode | [V2TXLiveVideoResolutionMode](#V2TXLiveVideoResolutionMode) | 视频宽高比模式（横屏或者竖屏模式）。 |
+| 参数  | 类型     | 含义           |
+| ---- | ---- | ---- |
+| param | [V2TXLiveVideoEncoderParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveDef__android.html#classcom_1_1tencent_1_1live2_1_1V2TXLiveDef_1_1V2TXLiveVideoEncoderParam) | 视频编码参数。 |
 
 [](id:V2TXLiveVideoResolution)
 
