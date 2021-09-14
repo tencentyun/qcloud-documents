@@ -998,6 +998,130 @@ authconfig --disableldap --update #更新PAM安全认证记录
 5. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
 
 :::
+::: SSH 登录时报错 login: Module is unknown
+
+#### 现象描述[](id:moduleIsUnknown)
+使用 SSH 登录 Linux 实例时，无法登录成功，且 secure 日志中出现类似如下报错信息：
+```
+login: Module is unknown.
+login: PAM unable to dlopen(/lib/security/pam_limits.so): /lib/security/pam_limits.so: cannot open shared object file: No such file or directory.
+```
+
+
+#### 问题原因
+每个启用了 pam 模块的应用程序，在 `/etc/pam.d` 目录中都有对应的同名配置文件。例如，login 命令的配置文件是 `/etc/pam.d/login`，可以在相应配置文件中配置具体的策略。如下表所示：
+<table>
+<tr>
+<th>文件</th>
+<th>功能说明</th>
+</tr>
+<tr>
+<td><code>/etc/pam.d/login</code></td>
+<td>控制台（管理终端）对应配置文件</td>
+</tr>
+<tr>
+<td><code>/etc/pam.d/sshd</code></td>
+<td>SSH 登录对应配置文件</td>
+</tr>
+<tr>
+<td><code>/etc/pam.d/system-auth</code></td>
+<td>系统全局配置文件</td>
+</tr>
+</table>
+远程连接登录时，某些启用了 pam 的应用程序加载模块失败，导致配置了相应策略的登录方式交互失败。
+
+
+
+#### 解决思路
+参考 [处理步骤](#ProcessingSteps15)，检查并修复配置文件。
+
+
+
+#### 处理步骤[](id:ProcessingSteps15)
+
+<dx-alert infotype="explain" title="">
+本文主要查看 `/etc/pam.d/sshd` 和 `/etc/pam.d/system-auth` 文件，若 `/etc/pam.d/login` 出现问题，请通过 [在线支持](https://cloud.tencent.com/act/event/Online_service?from=doc_213) 联系我们需求帮助。
+</dx-alert>
+
+
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，查看 pam 配置文件。
+```
+cat [对应 pam 配置文件的绝对路径] 
+``` 查看配置文件是否包含类似如下配置信息，该配置信息模块文件路径为 `/lib/security/pam_limits.so`。
+```
+session    required     pam_limits.so
+```
+3. 执行以下命令，确认 `/lib/security/pam_limits.so` 路径错误。
+```
+ll /lib/security/pam_limits.so
+```
+4. 使用 VIM  编辑器编辑 pam 配置文件，修复 `pam_limits.so` 模块路径。64位系统的 Linux 实例中，正确路径应该为 `/lib64/security`。 修改后配置信息应如下所示：
+```
+session     required     /lib64/security/pam_limits.so
+```
+5. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+:::
+::: 病毒引起 SSH 服务运行异常报错 fatal: mm_request_send: write: Broken pipe
+
+#### 现象描述[](id:writeBrokenPipe)
+病毒引发 SSH 服务运行异常，系统提示 “fatal: mm_request_send: write: Broken pipe” 报错信息。
+
+
+
+#### 问题原因
+可能是由于 udev-fall 等病毒影响了 SSH 服务的正常运行所致。
+
+
+#### 解决思路
+参考处理步骤中提供的处理项，结合实际情况处理病毒问题。
+- [临时处理方法](#temporary)
+- [可靠处理方法](#reliable)
+
+
+
+#### 处理步骤
+
+
+#### 临时处理方法[](id:temporary)
+本文以 udev-fall 病毒为例，您可通过下步骤，临时恢复 SSH 服务的正常运行。
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，查看 udev-fall 病毒进程信息，并记录该进程 ID。
+```
+ps aux | grep udev-fall
+```
+3. 执行以下命令，根据获取的 udev-fall 病毒进程 ID，结束 udev-fall 病毒进程。 
+```
+kill -9 [病毒进程 ID]
+```
+4. 执行以下命令，取消 udev-fall 病毒程序的自动运行设置。
+```
+chkconfig udev-fall off
+```
+5. 执行以下命令，删除所有 udev-fall 病毒程序相关指令和启动配置。 
+```
+for i in ` find / -name "udev-fall"`;
+do echo '' > $i && rm -rf $i;
+done
+```
+6. 执行以下命令，重启 SSH 服务。
+```
+systemctl restart sshd.service
+```
+
+
+
+#### 可靠处理方法[](id:reliable)
+
+由于无法明确病毒或者恶意入侵者是否对系统做过其他篡改，或隐藏了其他病毒文件。为了服务器的长期稳定运行，建议通过回滚实例系统盘历史快照的方式，来将服务器恢复到正常状态。详情请参见 [从快照回滚数据](https://cloud.tencent.com/document/product/362/5756)。
+<dx-alert infotype="notice" title="">
+- 快照回滚会导致快照创建后的数据丢失，请谨慎操作。
+- 建议按快照创建时间从近到远的顺序逐一尝试回滚，直至 SSH 服务正常运行。若回滚后仍无法正常运行 SSH 服务，则说明该时间点的系统已经出现异常。
+</dx-alert>
+
+
+:::
 </dx-accordion>
 
 
