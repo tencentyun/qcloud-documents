@@ -40,7 +40,7 @@ def main_handler(event, context):
 
 2. 在云端创建调用的 Python 云函数，地域为**成都**，命名为 “PythonInvokeTest”。可通过以下两种方式，结合您的实际情况编辑 PythonInvokeTest 函数。
 
- - 方式 1：如果您不需要频繁的调用函数，可使用如下示例代码：
+- 方式 1：如果您不需要频繁的调用函数，可使用如下示例代码：
 
 ```python
 # -*- coding: utf8 -*-
