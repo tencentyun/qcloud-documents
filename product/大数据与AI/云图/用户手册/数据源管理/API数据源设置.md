@@ -11,7 +11,7 @@
 
 ### 接口的实现
 返回 HTTP 响应头以支持浏览器端跨域发起请求。
-- `Access-Control-Allow-Credentials: true`：勾选【需要 Cookie】，需要返回。
+- `Access-Control-Allow-Credentials: true`：勾选**需要 Cookie**，需要返回。
 - `Access-Control-Allow-Origin: http://yuntu.cloud.tencent.com`：需要按照 HTTP 请求的协议头 Origin 来源返回，如果请求`https://v.yuntus.com`页面（Origin: `https://v.yuntus.com`），则需要对应返回`Access-Control-Allow-Origin: https://v.yuntus.com`。
 ![](https://main.qcloudimg.com/raw/165b0e11d9eba0fe5d9084e0c159cbb0.png)
 
@@ -75,9 +75,9 @@ app.listen(PORT)
 ```
 
 ## 服务器端发起请求
->!接口不支持跨域，需勾选【服务器发起请求】。已勾选【服务器发起请求】时，勾选【需要 Cookie】无效（无法传递接口域名下的 Cookie）。
+>!接口不支持跨域，需勾选**服务器发起请求**。已勾选**服务器发起请求**时，勾选**需要 Cookie** 无效（无法传递接口域名下的 Cookie）。
 
-由服务器端发起请求，接口响应数据格式与**浏览器端发起请求**一致，但需要接口支持外网访问，即需勾选【服务器发起请求】。
+由服务器端发起请求，接口响应数据格式与**浏览器端发起请求**一致，但需要接口支持外网访问，即需勾选**服务器发起请求**。
 ![](https://main.qcloudimg.com/raw/cb53beacb7f6280783cd108e4bb4923f.png)
 
 ## 使用访问密钥
@@ -86,7 +86,7 @@ app.listen(PORT)
 2. 使用访问密钥，在 API 里实现鉴权。
 
 ### 创建密钥
-登录 [腾讯云图控制台](http://yuntu.cloud.tencent.com/#/access-key)，单击【新建访问密钥】，新建成功后即可得到 SecretId 和 SecretKey。
+登录 [腾讯云图控制台](http://yuntu.cloud.tencent.com/#/access-key)，单击**新建访问密钥**，新建成功后即可得到 SecretId 和 SecretKey。
 ![](https://main.qcloudimg.com/raw/43145c939ee0a226ae5712ed7b8fdf8f.png)
 ### 选择访问密钥
 ![](https://main.qcloudimg.com/raw/514a8947997b78ffb116f7371236d883.png)
@@ -132,7 +132,7 @@ const CORS_ALLOW_ORIGIN = [
   'http://v.yuntus.com',
   'https://v.yuntus.com'
 ]
-const secretKey = 'xrck1Mgi0IxVjS08B3HsECajO01RYfGW'
+const secretKey = 'xrck1Mgi0IxVxxxxjO01RYfGW'
 function randomNumber(max) {
   return parseInt(Math.random() * max, 10)
 }
@@ -201,7 +201,4 @@ app.get('/api', (req, res, next) => {
 })
 app.listen(PORT)
 ```
-
-
-
 
