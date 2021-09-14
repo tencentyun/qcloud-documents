@@ -132,7 +132,7 @@ const CORS_ALLOW_ORIGIN = [
   'http://v.yuntus.com',
   'https://v.yuntus.com'
 ]
-const secretKey = 'xrck1Mgi0IxVjS08B3HsECajO01RYfGW'
+const secretKey = 'xrck1Mgi0IxVxxxxjO01RYfGW'
 function randomNumber(max) {
   return parseInt(Math.random() * max, 10)
 }
@@ -201,7 +201,4 @@ app.get('/api', (req, res, next) => {
 })
 app.listen(PORT)
 ```
-
-
-
 
