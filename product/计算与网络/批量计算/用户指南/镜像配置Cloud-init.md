@@ -4,7 +4,7 @@
 
 （Cloud-init 提供了一个云服务器首次初始化时的自定义配置的能力）
 
-安装和配置 Cloud-init 请遵循下面指引，
+安装和配置 Cloud-init 请遵循以下指引：
 * Linux ``新建``云服务器/自定义镜像：目前腾讯云 CentOS、Ubuntu 所有版本公有镜像已默认支持 Cloud-init，从这些公有镜像再去创建云服务器和自定义镜像即可，无需再手动去安装和配置 Cloud-init。
 * Linux ``存量``云服务器/自定义镜像：如果是早前就创建的云服务器或自定义镜像，需要手动安装 Cloud-init，请参照 [Linux 系统安装 cloud-init](https://cloud.tencent.com/document/product/213/12587)。
 * Windows：必须从Batch 官方提供的镜像市场镜像来创建云服务器或制作自定义镜像，请参照 [制作 Batch 可用的 Windows 自定义镜像](https://cloud.tencent.com/document/product/599/13035)。
