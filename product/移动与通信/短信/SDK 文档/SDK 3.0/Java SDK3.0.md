@@ -366,10 +366,10 @@ public class SendStatusStatistics {
 
             /* 通过 client 对象调用 SendStatusStatistics 方法发起请求。注意请求方法名与请求对象是对应的
              * 返回的 res 是一个 SendStatusStatisticsResponse 类的实例，与请求对象对应 */
-            SendStatusStatisticsResponse res = client.SendStatusStatisticsStatus(req);
+            SendStatusStatisticsResponse res = client.SendStatusStatistics(req);
 
             // 输出json格式的字符串回包
-            System.out.println(SendStatusStatisticsStatusResponse.toJsonString(res));
+            System.out.println(SendStatusStatisticsResponse.toJsonString(res));
 
         } catch (TencentCloudSDKException e) {
             e.printStackTrace();
