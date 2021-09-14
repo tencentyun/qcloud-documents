@@ -34,4 +34,4 @@
 >- 主机地址：输入测试网站的服务器地址。
 >- 共享密钥：输入共享密钥，密钥自行设置，建议使用安全性较强的密钥。
 >
-![](https://main.qcloudimg.com/raw/f81e9b4f036f19c066800e1c70748905.png)
+![](https://main.qcloudimg.com/raw/3b2a32ce2e41cf04a77f6dbe2ce6e997.png)

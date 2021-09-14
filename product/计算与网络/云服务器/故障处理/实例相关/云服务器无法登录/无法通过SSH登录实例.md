@@ -501,6 +501,8 @@ yum install openssh-server
 service sshd start
 ```
 
+
+
 #### 通过快照回滚恢复[](id:rollBack)
 可通过回滚实例系统盘的历史快照进行库文件恢复，详情请参见 [从快照回滚数据](https://cloud.tencent.com/document/product/362/5756)。
 
@@ -510,6 +512,490 @@ service sshd start
 </dx-alert>
 
 
+:::
+::: SSH 启用 UseDNS 导致 SSH 登录或数据传输速度变慢
+#### 现象描述[](id:useDNSSlow)
+Linux 实例通过外网使用 SSH 登录或进行数据传输时，速度很慢。在切换为内网后，登录及数据传输速度仍然很慢。
+
+
+#### 问题原因
+可能是由于 SSH 服务启用了 UseDNS 特性所致。UseDNS 特性是 SSH 服务的安全增强特性，默认未开启。开启后，服务端会先根据客户端 IP 进行 DNS PTR 反向查询，得到客户端主机名。再根据得到的客户端主机名进行 DNS 正向 A 记录查询，最后比对得到的 IP 与原始 IP 是否一致，用以防止客户端欺骗。
+通常情况下，客户端使用的都是动态 IP，没有相应的 PTR 记录。该特性开启后，不仅无法用于信息比对，反而由于相关查询操作增加了操作延迟，最终导致客户端连接速度变慢。
+
+
+#### 解决思路
+1. 参考 [处理步骤](#ProcessingSteps9)，进入 SSH 配置文件 `sshd_config`。
+2. 检查并修改 SSH 服务的 UseDNS 配置，并重启 SSH 服务即可。
+
+
+#### 处理步骤[](id:ProcessingSteps9)
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，使用 VIM 编辑器进入 `sshd_config` 配置文件。
+```
+vim /etc/ssh/sshd_config
+```
+3. 查看是否包含如下配置：
+```
+UseDNS yes
+```
+4. 按 **i** 进入编辑模式，删除配置或在行首增加 `#` 进行注释。
+5. 执行以下命令，重启 SSH 服务。
+```shell
+service sshd restart
+```重启 SSH 服务后，即可使用 SSH 登录。详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+:::
+::: SSH 登录报错 No supported key exchange algorithms
+#### 现象描述[](id:noSupportedkey)
+使用 SSH 登录 Linux 实例时，客户端或服务端的 secure 日志中可能出现类似如下错误信息，且无法正常登录。
+- Read from socket failed: Connection reset by peer.
+- Connection closed by 192.X.X.1.
+- sshd error: could not load host key.
+- fatal: No supported key exchange algorithms [preauth].
+- DSA host key for 192.X.X.1 has changed and you have requested strict checking.
+- Host key verification failed.
+- ssh_exchange_identification: read: Connection reset by peer.
+
+
+
+#### 问题原因
+通常是由于 SSH 服务相关的密钥文件出现异常，导致 sshd 守护进程无法加载到正确的 SSH 主机密钥。常见异常问题如下：
+- 相关密钥文件异常。例如，文件损坏、被删除或篡改等。
+- 相关密钥文件权限配置异常，无法正确读取。
+
+
+
+#### 解决思路
+参考处理步骤提供的以下处理项，进行配置检查及修改。
+- [检查及修改文件权限](#filePermissions)
+- [检查及修改文件有效性](#effectiveness)
+
+
+
+#### 处理步骤
+
+
+#### 检查及修改文件权限[](id:filePermissions)
+SSH 服务会对相关密钥文件的权限进行检查。例如，私钥文件默认权限为600，如果配置为777等其他权限，导致其他用户也具备读取或修改权限。则 SSH 服务会认为该配置存在安全风险，导致客户端连接失败。检查及修复步骤如下：
+
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 依次执行以下命令，恢复相关文件的默认权限。
+```
+cd /etc/ssh/
+``` ```
+chmod 600 ssh_host_*
+``` ```
+chmod 644 *.pub
+```
+3. 执行 `ll` 命令，查看文件权限。返回如下结果，表明文件权限正常。
+```
+total 156
+-rw-------. 1 root root 125811 Nov 23 2013 moduli
+-rw-r--r--. 1 root root 2047 Nov 23 2013 ssh_config
+-rw------- 1 root root 3639 May 16 11:43 sshd_config
+-rw------- 1 root root 668 May 20 23:31 ssh_host_dsa_key
+-rw-r--r-- 1 root root 590 May 20 23:31 ssh_host_dsa_key.pub
+-rw------- 1 root root 963 May 20 23:31 ssh_host_key
+-rw-r--r-- 1 root root 627 May 20 23:31 ssh_host_key.pub
+-rw------- 1 root root 1675 May 20 23:31 ssh_host_rsa_key
+-rw-r--r-- 1 root root 382 May 20 23:31 ssh_host_rsa_key.pub
+```
+
+ 
+#### 检查及修改文件有效性[](id:effectiveness)
+1. SSH 服务在启动时会自动重建丢失的密钥文件。依次执行以下命令，确认存在 `ssh_host_*` 文件。
+```
+cd /etc/ssh/
+``` ```
+ll
+``` 返回如下结果，表明存在 `ssh_host_*` 文件。
+```
+total 156
+-rw-------. 1 root root 125811 Nov 23  2013 moduli
+-rw-r--r--. 1 root root   2047 Nov 23  2013 ssh_config
+-rw-------  1 root root   3639 May 16 11:43 sshd_config
+-rw-------  1 root root    672 May 20 23:08 ssh_host_dsa_key
+-rw-r--r--  1 root root    590 May 20 23:08 ssh_host_dsa_key.pub
+-rw-------  1 root root    963 May 20 23:08 ssh_host_key
+-rw-r--r--  1 root root    627 May 20 23:08 ssh_host_key.pub
+-rw-------  1 root root   1675 May 20 23:08 ssh_host_rsa_key
+-rw-r--r--  1 root root    382 May 20 23:08 ssh_host_rsa_key.pub
+```
+2. 执行以下命令，删除相关文件。
+```
+rm -rf ssh_host_*
+``` Ubuntu 及 Debain 类操作系统，请执行以下命令，删除相关文件。
+```
+sudo rm -r /etc/ssh/ssh*key
+```
+3. 执行 `ll` 命令，确认文件是否成功删除。返回结果如下所示，则说明已成功删除。
+```
+total 132
+-rw-------. 1 root root 125811 Nov 23  2013 moduli
+-rw-r--r--. 1 root root   2047 Nov 23  2013 ssh_config
+-rw-------  1 root root   3639 May 16 11:43 sshd_config
+```
+4. 执行以下命令，重启 SSH 服务，自动生成相关文件。
+```
+service sshd restart
+``` Ubuntu 及 Debain 类操作系统，请执行以下命令，重启 SSH 服务。
+```
+sudo dpkg-reconfigure openssh-server
+```
+5. 执行 `ll` 命令，确认是否成功生成 `ssh_host_*` 文件。返回结果如下，则说明已成功生成。
+```
+total 156
+-rw-------. 1 root root 125811 Nov 23  2013 moduli
+-rw-r--r--. 1 root root   2047 Nov 23  2013 ssh_config
+-rw-------  1 root root   3639 May 16 11:43 sshd_config
+-rw-------  1 root root    668 May 20 23:16 ssh_host_dsa_key
+-rw-r--r--  1 root root    590 May 20 23:16 ssh_host_dsa_key.pub
+-rw-------  1 root root    963 May 20 23:16 ssh_host_key
+-rw-r--r--  1 root root    627 May 20 23:16 ssh_host_key.pub
+-rw-------  1 root root   1671 May 20 23:16 ssh_host_rsa_key
+-rw-r--r--  1 root root    382 May 20 23:16 ssh_host_rsa_key.pub
+```使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+
+:::
+::: SSH 服务启动时报错 must be owned by root and not group or word-writable
+#### 现象描述[](id:mustBeOwnerByRoot)
+Linux 实例启动 SSH 服务，返回 “must be owned by root and not group or word-writable” 错误信息。
+
+
+#### 问题原因
+通常是由于 SSH 服务相关权限，或属组异常所致。基于安全性考虑，SSH 服务对相关目录或文件的权限配置及属组等均有一定要求。
+
+
+#### 解决思路
+参考处理步骤中提供的处理项，检查并修改错误配置。
+ - [检查及修复 /var/empty/sshd 目录配置](#repairSshd)
+ - [检查及修复 /etc/securetty 文件配置](#repairSecuretty)
+
+
+#### 处理步骤
+
+<dx-alert infotype="explain" title="">
+本步骤以 CentOS 7.6 操作系统环境为例，请您结合实际业务情况进行操作。
+</dx-alert>
+
+
+#### 检查及修复 /var/empty/sshd 目录配置[](id:repairSshd)
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，查看 `/var/empty/sshd` 目录权限配置。 
+```
+ll -d /var/empty/sshd/
+``` 以下内容为默认权限配置。
+```
+drwx--x--x. 2 root root 4096 Apr 11 2018 /var/empty/sshd/
+```
+3. 对比实际返回结果与默认权限配置，若不相同，则请依次执行以下命令，恢复默认配置。
+<dx-alert infotype="explain" title="">
+`/var/empty/sshd` 目录权限默认为711，默认为 root 属组的 root 用户。
+</dx-alert> ```
+chown -R root:root /var/empty/sshd
+``` ```
+chmod -R 711 /var/empty/sshd
+```
+4. 执行以下命令，重启 SSH 服务。
+```
+systemctl restart sshd.service
+```
+
+
+#### 检查及修复 /etc/securetty 文件配置[](id:repairSecuretty)
+1. 执行如下命令，查看 `/etc/securetty` 文件权限配置。
+```
+ll /etc/securetty
+``` 以下内容为默认权限配置。
+```
+-rw-------. 1 root root 221 Oct 31  2018 /etc/securetty
+```
+2. 对比实际返回结果与默认权限配置，若不相同，则请依次执行以下命令，恢复默认配置。
+<dx-alert infotype="explain" title="">
+`/etc/securetty` 文件权限默认为600，默认为 root 属组的 root 用户。
+</dx-alert> ```
+chown root:root /etc/securetty
+``` ```
+chmod 600 /etc/securetty
+```
+3. 执行以下命令，重启 SSH 服务。
+```
+systemctl restart sshd.service
+```使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+
+:::
+::: SSH 登录时报错 Host key verification failed
+#### 现象描述[](id:hostKeyVerification)
+使用 SSH 登录 Linux 实例时，无法正常登录实例，且出现以下报错信息：
+```
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that the RSA host key has just been changed.
+The fingerprint for the RSA key sent by the remote host is
+ae:6e:68:4c:97:a6:91:81:11:38:8d:64:ff:92:13:50.
+Please contact your system administrator.
+Add correct host key in /root/.ssh/known_hosts to get rid of this message.
+Offending key in /root/.ssh/known_hosts:70
+RSA host key for x.x.x.x has changed and you have requested strict checking.
+Host key verification failed.
+```
+若客户端为 Windows 操作系统，则以常见的 SSH 客户端为例，连接时出现以下报错信息：
+```
+X.X.X.X （端口：XX）的主机密钥与本地主机密钥数据库中保存的不一致。主机密钥已更改或有人试图监听此连接。若无法确定，建议取消此连接。
+```
+
+
+#### 问题原因
+Linux 实例进行过重装系统操作，账户信息等变更使 SSH 公钥变更，造成客户端保存的公钥指纹与服务器端不一致，导致 SSH 认证失败拒绝登录。
+
+
+#### 解决思路
+对应实际情况，参考处理步骤中提供的步骤进行操作。
+- [Windows 客户端](#windows)
+- [Linux 客户端](#linux)
+
+
+
+#### 处理步骤
+
+
+#### Windows 客户端[](id:windows)
+
+<dx-alert infotype="explain" title="">
+本文 SSH 客户端以 PuTTY 为例，请您结合实际情况进行操作。
+</dx-alert>
+
+1. 启动 PuTTY。
+2. 在登录页面，选择会话后单击 **Delete** 进行删除。如下图所示：
+![](https://main.qcloudimg.com/raw/fba29dcb992ff9458484aeb09b3d3a97.png)
+3. 参考 [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)，重新使用用户名及密码登录实例，确认保存新的公钥指纹后，即可成功登录。 
+
+
+#### Linux 客户端[](id:linux)
+
+<dx-alert infotype="explain" title="">
+本文 Linux 实例操作系统以 CentOS 6.5 为例，不同版本操作系统可能存在区别，请您结合实际情况操作。
+</dx-alert>
+
+
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行如下命令，进入对应账号的 `known_hosts` 文件。
+```
+vi ~/.ssh/known_hosts
+```
+3. 按 **i** 进入编辑模式，删除 Linux 实例 IP 对应的条目。类似如下信息：
+```
+1.14.xxx.xx
+skowcenw96a/pxka32sa....
+dsaprgpck2wa22mvi332ueddw...
+```
+4. 按 **Esc** 输入 **:wq** 保存修改并退出。
+5. 参考 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)，重新连接 Linux 实例，确认保存新的公钥指纹后，即可成功登录。
+
+:::
+::: SSH 登录报错 pam_listfile(sshd:auth): Refused user root for service sshd
+
+#### 现象描述[](id:canNotLogIn)
+使用 SSH 登录 Linux 实例时，即使输入正确密码，仍无法登录实例。该问题出现时，通过控制台或 SSH 两种登录方式可能均登录失败，或仅其中一种可登录成功。secure 日志出现类似如下错误信息：
+- sshd[1199]: pam_listfile(sshd:auth): Refused user root for service sshd
+- sshd[1199]: Failed password for root from 192.X.X.1 port 22 ssh2
+- sshd[1204]: Connection closed by 192.X.X.2
+
+
+
+#### 问题原因
+pam 模块（pam_listfile.so）相关访问控制策略导致用户登录失败。
+
+
+#### pam 模块介绍
+pam（Pluggable Authentication Modules）是由 Sun 提出的一种认证机制。通过提供一些动态链接库和一套统一的 API，将系统提供的服务和该服务的认证方式分开。使系统管理员可以灵活地根据需求给不同的服务配置不同的认证方式，而无需更改服务程序，同时也便于向系统中添加新的认证手段。
+每个启用了 pam 模块的应用程序，在 `/etc/pam.d` 目录中都有对应的同名配置文件。例如，login 命令的配置文件是 `/etc/pam.d/login`，可以在相应配置文件中配置具体的策略。关于更多 pam_listfile 信息，请查阅 [linux-pam.org 官方文档](http://www.linux-pam.org/Linux-PAM-html/sag-pam_listfile.html)。
+
+
+
+#### 解决思路
+参考 [处理步骤](#ProcessingSteps13) 检查并修复 pam 模块。
+
+
+#### 处理步骤[](id:ProcessingSteps13)
+
+<dx-alert infotype="explain" title="">
+本文处理步骤以 CentOS 6.5 操作系统为例，不同操作系统版本有一定区别，请结合实际情况进行操作。
+</dx-alert>
+
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 使用 `cat` 命令，查看对应 pam 配置文件。说明如下：
+<table>
+<tr>
+<th>文件</th>
+<th>功能说明</th>
+</tr>
+<tr>
+<td><code>/etc/pam.d/login</code></td>
+<td>控制台（管理终端）对应配置文件</td>
+</tr>
+<tr>
+<td><code>/etc/pam.d/sshd</code></td>
+<td>SSH 登录对应配置文件</td>
+</tr>
+<tr>
+<td><code>/etc/pam.d/system-auth</code></td>
+<td>系统全局配置文件</td>
+</tr>
+</table>
+3. 查看是否存在类似如下配置。
+```
+auth required pam_listfile.so item=user sense=allow file=/etc/ssh/whitelist onerr=fail
+``` 说明如下：
+	 - **item**：设置访问控制的对象类型。可选值为 tty、user、rhost、ruser、group 和 shell。
+	 - **sense**：在配置文件中找到符合条件项目的控制方式。可选值为 allow 和 deny。allow 代表白名单方式，deny 代表黑名单方式。
+	 - **file**：用于指定配置文件的全路径名称。
+	 - **onerr**：定义出现错误时的缺省返回值。例如，无法打开配置文件的错误。
+4. 使用 VIM 编辑器，删除策略配置，或在行首增加 `#` 进行注释。
+<dx-alert infotype="explain" title="">
+相关策略配置可一定程度提高服务器的安全性，请您集合实际情况进行修改，建议修改前进行备份。
+</dx-alert> ```
+# auth required pam_listfile.so item=user sense=allow file=/etc/ssh/whitelist onerr=fail
+```
+5. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+
+:::
+::: SSH 登录时报错 requirement "uid >= 1000" not met by user "root"
+
+#### 现象描述[](id:requirementUidNotMet)
+使用 SSH 登录 Linux 实例时，输入正确的用户及密码也无法登录成功。该问题出现时，通过控制台或 SSH 两种登录方式可能均登录失败，或仅其中一种可登录成功。secure 日志出现类似如下错误信息：
+```
+pam_succeed_if(sshd:auth): requirement "uid >= 1000" not met by user "root".
+```
+
+
+#### 问题原因
+pam 模块的策略配置禁止了 UID 小于1000的用户进行登录。
+
+
+
+#### 解决方案
+参考 [处理步骤](#ProcessingSteps14) 检查并修复 pam 模块。
+
+
+
+#### 处理步骤[](id:ProcessingSteps14)
+<dx-alert infotype="explain" title="">
+本文处理步骤以 CentOS 6.5 操作系统为例，不同操作系统版本有一定区别，请结合实际情况进行操作。
+</dx-alert>
+
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 使用 `cat` 命令，查看对应 pam 配置文件。说明如下：
+<table>
+<tr>
+<th>文件</th>
+<th>功能说明</th>
+</tr>
+<tr>
+<td><code>/etc/pam.d/login</code></td>
+<td>控制台（管理终端）对应配置文件</td>
+</tr>
+<tr>
+<td><code>/etc/pam.d/sshd</code></td>
+<td>SSH 登录对应配置文件</td>
+</tr>
+<tr>
+<td><code>/etc/pam.d/system-auth</code></td>
+<td>系统全局配置文件</td>
+</tr>
+</table> 
+3. 查看是否存在类似如下配置。
+```
+auth required pam_succeed_if.so uid >= 1000
+```
+4. 使用 VIM 编辑器，修改、删除策略配置或在行首增加 `#` 进行注释。请结合实际情况进行修改，建议修改前进行备份。
+```
+auth        required      pam_succeed_if.so uid <= 1000    # 修改策略
+# auth        required      pam_succeed_if.so uid >= 1000  # 注释相关配置
+```
+5. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+:::
+::: SSH 登录时报错 Maximum amount of failed attempts was reached 
+#### 现象描述[](id:maximumAmountFailed)
+使用 SSH 登录 Linux 实例时，出现 “Maximum amount of failed attempts was reached” 报错信息。
+
+
+
+####  问题原因
+连续多次输入错误密码，触发系统 pam 认证模块策略限制，导致用户被锁定。
+
+<dx-alert infotype="explain" title="">
+更多 pam 安全认证相关信息，请参考官网文档 [pam_tally2 - login counter (tallying) module](http://www.linux-pam.org/Linux-PAM-html/sag-pam_tally2.html?spm=a2c4g.11186623.0.0.44262fc7r2i3PU)。
+</dx-alert>
+
+
+
+
+
+#### 解决方案
+参考处理步骤提供的处理项，结合实际情况进行操作：
+
+- [root 用户未被锁定](#notLocked)
+- [root 用户被锁定](#locked)
+
+
+#### 处理步骤
+<dx-alert infotype="explain" title="">
+本文处理步骤以 CentOS 7.6 及 CentOS 6.5 操作系统为例，不同操作系统版本有一定区别，请结合实际情况进行操作。
+</dx-alert>
+
+
+
+#### root 用户未被锁定[](id:notLocked)
+1. 使用 root 用户登录实例，详情请参见 [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，查看系统全局 pam 配置文件。
+```
+cat /etc/pam.d/system-auth
+```
+3. 执行以下命令，查看本地终端对应的 pam 配置文件。
+```
+cat /etc/pam.d/login
+```
+4. 执行以下命令，查看 SSH 服务对应的 pam 配置文件。 
+```
+cat /etc/pam.d/sshd
+```
+5. 使用 VIM 编辑器编辑以上文件相关内容，修改、删除对应配置或在行首增加 `#` 注释配置。本文以注释配置为例，修改完成后，相关配置如下所示：
+```
+#auth required pam_tally2.so deny=3 unlock_time=5
+#auth required pam_tally.so onerr=fail no_magic_root
+#auth requeired pam_tally2.so deny=5 lock_time=30 unlock_time=10 even_deny_root root_unlock_time=10
+``` 说明如下：
+ - 此处使用 `pam_tally2` 模块，如果不支持则可以使用 `pam_tally` 模块。不同的 pam 版本，设置可能有所不同，具体使用方法请参照相关模块的使用规则。
+ - `pam_tally2` 与 `pam_tally` 模块都可以用于账户锁定策略控制。两者的区别是前者增加了自动解锁时间的功能。
+ - `even_deny_root` 指限制 root 用户。
+ - `deny` 指设置普通用户和 root 用户连续错误登录的最大次数。超过最大次数，则锁定该用户。
+ - `unlock_time` 指设定普通用户锁定后，指定时间后解锁，单位为秒。
+ - `root_unlock_time` 指设定 root 用户锁定后，指定时间后解锁，单位为秒。
+6. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+
+
+#### root 用户被锁定[](id:locked)
+1. 使用单用户模式登录实例，详情请参见 [设置 Linux 云服务器进入单用户模式](https://cloud.tencent.com/document/product/213/33321)。
+2. 在单用户模式下，依次执行以下命令，手动解锁 root 用户。 
+```
+pam_tally2 -u root #查看root用户登录密码连续输入错误次数
+``` ```
+pam_tally2 -u root -r #清除root用户密码连续输入错误次数
+``` ```
+authconfig --disableldap --update #更新PAM安全认证记录
+```
+3. 重启实例。
+4. 参考 [root 用户未被锁定](#notLocked) 步骤，在对应的 pam 配置文件进行注释、修改或更新即可。
+5. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
 
 :::
 </dx-accordion>

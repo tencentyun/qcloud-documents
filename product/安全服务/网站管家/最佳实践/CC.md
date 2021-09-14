@@ -1,3 +1,5 @@
+## 操作场景
+如果证书已过期，用户在浏览网站的时候会显示证书不可信；如果客户该域名有使用 API 调用，在调用过程中将会报错。为了避免证书过期对业务造成影响，请在腾讯云控制台上及时更新证书。
 
 ## 操作步骤
 ### 示例1：更换自有证书
@@ -9,7 +11,7 @@
 4. 在证书配置窗口，证书来源选择自有证书，并输入相关的证书和私钥，单击【保存】，即可更换自有证书。
 ![](https://main.qcloudimg.com/raw/43e585d512df3a310c4082e6e902bc70.png)
 
-### 示例2：更换 SSL 证书
+### 示例2：腾讯云托管证书
 1. 在 [域名接入](https://console.cloud.tencent.com/guanjia/instance/domain) 页面，选中所需域名，单击【编辑】，进入编辑域名页面。
 ![](https://main.qcloudimg.com/raw/f26543b49f58a5c29de895b8b72c0d94.png)
 2. 在编辑域名页面，单击服务器配置中的【重新关联】，弹窗证书配置窗口。
@@ -27,5 +29,5 @@
 ![](https://main.qcloudimg.com/raw/fdf31449280401cf67ce7f64f50ceb6e.png)
 
 ## 检验是否生效
-通过浏览器访问相关域名，查看证书的生效时间和到期时间。如果更换证书始终不生效请 [联系我们](https://cloud.tencent.com/online-service?from=connect-us) 获得帮助。
+通过浏览器访问相关域名，可以查看证书的生效时间和到期时间。如果更换证书始终不生效，请 [联系我们](https://cloud.tencent.com/online-service?from=connect-us) 获得帮助。
 ![](https://main.qcloudimg.com/raw/e95302f7dd2c8749159f35673dc1c0ef.png)

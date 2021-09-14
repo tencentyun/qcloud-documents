@@ -87,3 +87,66 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 ![](https://main.qcloudimg.com/raw/5a524210acd13624af7263b6de3aea54.png)
 :::
 </dx-tabs>
+
+## RDP 带宽限制说明[](id:illustrate)
+网络可用带宽将直接影响通过 RDP 登录及使用云服务器的体验，不同的应用程序和显示分辨率需要不同的网络配置。微软提出了不同应用场景下使用 RDP 时实例的最低带宽要求。请参考下表，确保实例的网络配置可满足您的业务需求，否则可能引起卡顿等问题。
+>?如需调整实例带宽，请参见 [调整网络配置](https://cloud.tencent.com/document/product/213/15517)。
+>
+以下数据适用于采用1920 × 1080分辨率，并同时采用默认图形模式和 H.264/AVC 444 图形模式的单一监视器配置。
+
+<table>
+<tr>
+<th width="15%">方案</th>
+<th width="19%">默认模式</th>
+<th width="19%">H.264/AVC 444 模式	</th>
+<th width="47%">场景说明</th>
+</tr>
+<tr>
+<td>闲置</td>
+<td>0.3Kbps	</td>
+<td>0.3Kbps</td>
+<td>用户已暂停工作，未发生活跃的屏幕更新。</td>
+</tr>
+<tr>
+<td>Microsoft Word</td>
+<td>100 - 150 Kbps</td>
+<td>200 - 300 Kbps</td>
+<td>用户正在活跃使用 Microsoft Word、打字、粘贴图形，并在文档之间切换。</td>
+</tr>
+<tr>
+<td>Microsoft Excel</td>
+<td>150 - 200Kbps</td>
+<td>400 - 500Kbps</td>
+<td>用户正在活跃使用 Microsoft Excel，并同时更新多个包含公式和图表的单元格。</td>
+</tr>
+<tr>
+<td>Microsoft PowerPoint</td>
+<td>4 - 4.5Mbps</td>
+<td>1.6 - 1.8Mbps</td>
+<td>用户正在活跃使用 Microsoft PowerPoint、打字、粘贴。 另外，用户正在修改内容丰富的图形，并使用幻灯片过渡效果。</td>
+</tr>
+<tr>
+<td>Web 浏览</td>
+<td>6 - 6.5Mbps</td>
+<td>0.9 - 1Mbps</td>
+<td>用户正在活跃浏览一个图形内容丰富的网站（横向和纵向滚动页面），其中包含多个静态图像和动画图像。</td>
+</tr>
+<tr>
+<td>图库</td>
+<td>3.3 - 3.6Mbps	</td>
+<td>0.7 - 0.8Mbps</td>
+<td>用户正在活跃使用图库应用程序。浏览、缩放、调整大小和旋转图像。</td>
+</tr>
+<tr>
+<td>视频播放</td>
+<td>8.5 - 9.5Mbps</td>
+<td>2.5 - 2.8Mbps</td>
+<td>用户正在观看一段占用了半个屏幕的 30 FPS 视频。</td>
+</tr>
+<tr>
+<td>全屏视频播放</td>
+<td>7.5 - 8.5Mbps</td>
+<td>2.5 - 3.1Mbps</td>
+<td>用户正在观看一段已最大化为全屏的 30 FPS 视频。</td>
+</tr>
+</table>

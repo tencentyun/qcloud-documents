@@ -38,7 +38,7 @@ iOS SDK 接入请观看视频：
 2. **申请系统麦克风权限，添加如下内容：**
 ```objective-c
    <key>NSMicrophoneUsageDescription</key>
-   <string>需要使用了的麦克风采集音频</string>
+   <string>需要使用您的麦克风采集音频</string>
 ```
 3. **在工程中添加依赖库，在 build Phases Link Binary With Libraries 中添加以下库：**
    + AVFoundation.framework

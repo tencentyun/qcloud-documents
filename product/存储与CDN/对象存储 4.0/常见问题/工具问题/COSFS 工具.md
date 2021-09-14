@@ -255,5 +255,6 @@ COSFS 不占用本地存储空间，为了兼容 df 等工具，COSFS 显示的 
 ### 为什么执行 df -i 显示 Inode/IUsed/IFree 都为0？
 COSFS 不是基于硬盘的文件系统，所以不会有 inode。
 
-
+### SUSE 12 SP3安装依赖包报"No provider of xxx found."错误，怎么办？
+请参考 [SUSE系统无法安装COSFS的解决方案](https://cloud.tencent.com/developer/article/1868019)。
 

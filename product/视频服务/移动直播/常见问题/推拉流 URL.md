@@ -120,7 +120,7 @@ trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 <td>由 <a href="https://cloud.tencent.com/document/product/454/60985#step41">服务开通</a> 一节中获取的密钥计算得出</td>
 </tr></table>
 - **拉流 URL**[](id:rtc_play)
-具体的推流 URL 字符串，需要开发者按照下方协议解析中的规则，在工程代码中自行拼接。URL 的示例如下：
+具体的拉流 URL 字符串，需要开发者按照下方协议解析中的规则，在工程代码中自行拼接。URL 的示例如下：
 ```http
 trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxxxx
 ```
@@ -129,13 +129,13 @@ trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 <tr><th>字段名称</th><th>字段含义</th></tr>
 <tr>
 <td>trtc://</td>
-<td>互动直播推流 URL 的前缀字段</td>
+<td>互动直播拉流 URL 的前缀字段</td>
 </tr><tr>
 <td>cloud.tencent.com</td>
 <td>互动直播特定域名，<b>请勿修改</b></td>
 </tr><tr>
 <td>play</td>
-<td>标识位，表示推流</td>
+<td>标识位，表示拉流</td>
 </tr><tr>
 <td>streamid</td>
 <td>流 ID，需要由开发者自定义</td>
