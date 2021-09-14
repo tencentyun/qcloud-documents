@@ -798,6 +798,206 @@ dsaprgpck2wa22mvi332ueddw...
 5. 参考 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)，重新连接 Linux 实例，确认保存新的公钥指纹后，即可成功登录。
 
 :::
+::: SSH 登录报错 pam_listfile(sshd:auth): Refused user root for service sshd
+
+#### 现象描述[](id:canNotLogIn)
+使用 SSH 登录 Linux 实例时，即使输入正确密码，仍无法登录实例。该问题出现时，通过控制台或 SSH 两种登录方式可能均登录失败，或仅其中一种可登录成功。secure 日志出现类似如下错误信息：
+- sshd[1199]: pam_listfile(sshd:auth): Refused user root for service sshd
+- sshd[1199]: Failed password for root from 192.X.X.1 port 22 ssh2
+- sshd[1204]: Connection closed by 192.X.X.2
+
+
+
+#### 问题原因
+pam 模块（pam_listfile.so）相关访问控制策略导致用户登录失败。
+
+
+#### pam 模块介绍
+pam（Pluggable Authentication Modules）是由 Sun 提出的一种认证机制。通过提供一些动态链接库和一套统一的 API，将系统提供的服务和该服务的认证方式分开。使系统管理员可以灵活地根据需求给不同的服务配置不同的认证方式，而无需更改服务程序，同时也便于向系统中添加新的认证手段。
+每个启用了 pam 模块的应用程序，在 `/etc/pam.d` 目录中都有对应的同名配置文件。例如，login 命令的配置文件是 `/etc/pam.d/login`，可以在相应配置文件中配置具体的策略。关于更多 pam_listfile 信息，请查阅 [linux-pam.org 官方文档](http://www.linux-pam.org/Linux-PAM-html/sag-pam_listfile.html)。
+
+
+
+#### 解决思路
+参考 [处理步骤](#ProcessingSteps13) 检查并修复 pam 模块。
+
+
+#### 处理步骤[](id:ProcessingSteps13)
+
+<dx-alert infotype="explain" title="">
+本文处理步骤以 CentOS 6.5 操作系统为例，不同操作系统版本有一定区别，请结合实际情况进行操作。
+</dx-alert>
+
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 使用 `cat` 命令，查看对应 pam 配置文件。说明如下：
+<table>
+<tr>
+<th>文件</th>
+<th>功能说明</th>
+</tr>
+<tr>
+<td><code>/etc/pam.d/login</code></td>
+<td>控制台（管理终端）对应配置文件</td>
+</tr>
+<tr>
+<td><code>/etc/pam.d/sshd</code></td>
+<td>SSH 登录对应配置文件</td>
+</tr>
+<tr>
+<td><code>/etc/pam.d/system-auth</code></td>
+<td>系统全局配置文件</td>
+</tr>
+</table>
+3. 查看是否存在类似如下配置。
+```
+auth required pam_listfile.so item=user sense=allow file=/etc/ssh/whitelist onerr=fail
+``` 说明如下：
+	 - **item**：设置访问控制的对象类型。可选值为 tty、user、rhost、ruser、group 和 shell。
+	 - **sense**：在配置文件中找到符合条件项目的控制方式。可选值为 allow 和 deny。allow 代表白名单方式，deny 代表黑名单方式。
+	 - **file**：用于指定配置文件的全路径名称。
+	 - **onerr**：定义出现错误时的缺省返回值。例如，无法打开配置文件的错误。
+4. 使用 VIM 编辑器，删除策略配置，或在行首增加 `#` 进行注释。
+<dx-alert infotype="explain" title="">
+相关策略配置可一定程度提高服务器的安全性，请您集合实际情况进行修改，建议修改前进行备份。
+</dx-alert> ```
+# auth required pam_listfile.so item=user sense=allow file=/etc/ssh/whitelist onerr=fail
+```
+5. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+
+:::
+::: SSH 登录时报错 requirement "uid >= 1000" not met by user "root"
+
+#### 现象描述[](id:requirementUidNotMet)
+使用 SSH 登录 Linux 实例时，输入正确的用户及密码也无法登录成功。该问题出现时，通过控制台或 SSH 两种登录方式可能均登录失败，或仅其中一种可登录成功。secure 日志出现类似如下错误信息：
+```
+pam_succeed_if(sshd:auth): requirement "uid >= 1000" not met by user "root".
+```
+
+
+#### 问题原因
+pam 模块的策略配置禁止了 UID 小于1000的用户进行登录。
+
+
+
+#### 解决方案
+参考 [处理步骤](#ProcessingSteps14) 检查并修复 pam 模块。
+
+
+
+#### 处理步骤[](id:ProcessingSteps14)
+<dx-alert infotype="explain" title="">
+本文处理步骤以 CentOS 6.5 操作系统为例，不同操作系统版本有一定区别，请结合实际情况进行操作。
+</dx-alert>
+
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 使用 `cat` 命令，查看对应 pam 配置文件。说明如下：
+<table>
+<tr>
+<th>文件</th>
+<th>功能说明</th>
+</tr>
+<tr>
+<td><code>/etc/pam.d/login</code></td>
+<td>控制台（管理终端）对应配置文件</td>
+</tr>
+<tr>
+<td><code>/etc/pam.d/sshd</code></td>
+<td>SSH 登录对应配置文件</td>
+</tr>
+<tr>
+<td><code>/etc/pam.d/system-auth</code></td>
+<td>系统全局配置文件</td>
+</tr>
+</table> 
+3. 查看是否存在类似如下配置。
+```
+auth required pam_succeed_if.so uid >= 1000
+```
+4. 使用 VIM 编辑器，修改、删除策略配置或在行首增加 `#` 进行注释。请结合实际情况进行修改，建议修改前进行备份。
+```
+auth        required      pam_succeed_if.so uid <= 1000    # 修改策略
+# auth        required      pam_succeed_if.so uid >= 1000  # 注释相关配置
+```
+5. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+:::
+::: SSH 登录时报错 Maximum amount of failed attempts was reached 
+#### 现象描述[](id:maximumAmountFailed)
+使用 SSH 登录 Linux 实例时，出现 “Maximum amount of failed attempts was reached” 报错信息。
+
+
+
+####  问题原因
+连续多次输入错误密码，触发系统 pam 认证模块策略限制，导致用户被锁定。
+
+<dx-alert infotype="explain" title="">
+更多 pam 安全认证相关信息，请参考官网文档 [pam_tally2 - login counter (tallying) module](http://www.linux-pam.org/Linux-PAM-html/sag-pam_tally2.html?spm=a2c4g.11186623.0.0.44262fc7r2i3PU)。
+</dx-alert>
+
+
+
+
+
+#### 解决方案
+参考处理步骤提供的处理项，结合实际情况进行操作：
+
+- [root 用户未被锁定](#notLocked)
+- [root 用户被锁定](#locked)
+
+
+#### 处理步骤
+<dx-alert infotype="explain" title="">
+本文处理步骤以 CentOS 7.6 及 CentOS 6.5 操作系统为例，不同操作系统版本有一定区别，请结合实际情况进行操作。
+</dx-alert>
+
+
+
+#### root 用户未被锁定[](id:notLocked)
+1. 使用 root 用户登录实例，详情请参见 [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，查看系统全局 pam 配置文件。
+```
+cat /etc/pam.d/system-auth
+```
+3. 执行以下命令，查看本地终端对应的 pam 配置文件。
+```
+cat /etc/pam.d/login
+```
+4. 执行以下命令，查看 SSH 服务对应的 pam 配置文件。 
+```
+cat /etc/pam.d/sshd
+```
+5. 使用 VIM 编辑器编辑以上文件相关内容，修改、删除对应配置或在行首增加 `#` 注释配置。本文以注释配置为例，修改完成后，相关配置如下所示：
+```
+#auth required pam_tally2.so deny=3 unlock_time=5
+#auth required pam_tally.so onerr=fail no_magic_root
+#auth requeired pam_tally2.so deny=5 lock_time=30 unlock_time=10 even_deny_root root_unlock_time=10
+``` 说明如下：
+ - 此处使用 `pam_tally2` 模块，如果不支持则可以使用 `pam_tally` 模块。不同的 pam 版本，设置可能有所不同，具体使用方法请参照相关模块的使用规则。
+ - `pam_tally2` 与 `pam_tally` 模块都可以用于账户锁定策略控制。两者的区别是前者增加了自动解锁时间的功能。
+ - `even_deny_root` 指限制 root 用户。
+ - `deny` 指设置普通用户和 root 用户连续错误登录的最大次数。超过最大次数，则锁定该用户。
+ - `unlock_time` 指设定普通用户锁定后，指定时间后解锁，单位为秒。
+ - `root_unlock_time` 指设定 root 用户锁定后，指定时间后解锁，单位为秒。
+6. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+
+
+#### root 用户被锁定[](id:locked)
+1. 使用单用户模式登录实例，详情请参见 [设置 Linux 云服务器进入单用户模式](https://cloud.tencent.com/document/product/213/33321)。
+2. 在单用户模式下，依次执行以下命令，手动解锁 root 用户。 
+```
+pam_tally2 -u root #查看root用户登录密码连续输入错误次数
+``` ```
+pam_tally2 -u root -r #清除root用户密码连续输入错误次数
+``` ```
+authconfig --disableldap --update #更新PAM安全认证记录
+```
+3. 重启实例。
+4. 参考 [root 用户未被锁定](#notLocked) 步骤，在对应的 pam 配置文件进行注释、修改或更新即可。
+5. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+:::
 </dx-accordion>
 
 
