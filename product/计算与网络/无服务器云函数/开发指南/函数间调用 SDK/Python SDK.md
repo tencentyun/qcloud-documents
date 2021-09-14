@@ -63,7 +63,7 @@ return "Already invoked a function!" # return
 ```shell
 "Already invoked a function!"
 ```
-- 方式 2：如果您需要频繁调用函数，可选择通过 Client 的方式连接并触发。可使用如下示例代码：
+ - 方式 2：如果您需要频繁调用函数，可选择通过 Client 的方式连接并触发。可使用如下示例代码：
 ```python
 # -*- coding: utf8 -*-
 
