@@ -4,6 +4,7 @@
 
 [](id:app)
 ## App 接入
+### 接入说明
 iOS、Android 上的应用可以通过集成移动直播 SDK 来实现 App 端上的直播推流/播放功能。
 
 - **App 端直播推流**：支持采集摄像头画面或者采集手机界面，通过 RTMP 协议快速推流到云直播服务上，详情请参见 [摄像头推流](https://cloud.tencent.com/document/product/454/56591) 和 [录屏推流](https://cloud.tencent.com/document/product/454/56594)。
@@ -11,14 +12,53 @@ iOS、Android 上的应用可以通过集成移动直播 SDK 来实现 App 端�
 
 >? 移动直播 SDK 借助云直播、即时通信 IM、TRTC 等服务实现了多人音视频低延迟互联互通，可以实现多人连麦的互动效果，不参与连麦的观众仍通过直播服务观看，详情请参见 [直播连麦互动](https://cloud.tencent.com/document/product/454/52751)。
 
+## Demo 体验
+视频云工具包是腾讯云开源的一套完整的音视频服务解决方案，您可通过视频云工具包体验快直播毫秒级低延迟拉流能力。
+<table>
+  <tr>
+    <th><div align="center">开发端</div></th>
+    <th><div align="center">体验安装</div></th>
+    <th><div align="center">推流演示（Android）</div></th>
+    <th><div align="center">播放演示（Android）</div></th>
+  </tr>
+  <tr>
+    <td >Android</td>
+    <td style="text-align:center"><img width="150" src="https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png"> </td>
+    <td rowspan="2">
+      <div align="center">
+        <img  width="200" src="https://sdk-liteav-1252463788.cos.ap-hongkong.myqcloud.com/doc/res/mlvb/picture/push.gif"/>
+      </div>
+    </td>
+    <td rowspan="2">
+      <div align="center">
+        <img  width="200"  src="https://sdk-liteav-1252463788.cos.ap-hongkong.myqcloud.com/doc/res/mlvb/picture/pull.gif"/>
+      </div>
+    </td>
+  </tr>
+  <tr>
+      <td >iOS</td>
+    <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/12c7da97cc910eda673cb19b66fc7cb3.png" width="150"></td>
+  </tr>
+</table>
+
+
+
 [](id:web)
 ## Web 接入
+### 接入说明
 若您有网站需要进行直播推流和播放，推荐您使用以下方式进行接入：
 
 - **Web 端直播推流**：基于浏览器通用的 WebRTC 标准进行设计和封装，通过引入代码片段就能实现在浏览器中进行直播推流，详情请参见 [WebRTC 推流](https://cloud.tencent.com/document/product/267/56505)。
 > ! WebRTC 推流时音频编码方式为 opus 编码，若使用标准直播的播放协议（RTMP、FLV、HLS）进行播放时，为保证能正常观看，云直播后台会自动发起音频转码转为 aac 编码，从而会产生音频转码费用，详情请参见[音频转码费用说明](https://cloud.tencent.com/document/product/267/39889#a_trans)。（若只使用快直播则不会发起音频转码）
-- **Web 端直播播放**：推荐您选用播放器 SDK 的[TCPlayerLite](https://cloud.tencent.com/document/product/454/7503) ，支持在手机浏览器和 PC 浏览器上播放**快直播 WebRTC 协议**直播流，相比传统的直播协议延迟更低，为观众提供毫秒级的极致直播观看体验。
+- **Web 端直播播放**：推荐您选用播放器 SDK 的 [TCPlayerLite](https://cloud.tencent.com/document/product/454/7503) ，支持在手机浏览器和 PC 浏览器上播放**快直播 WebRTC 协议**直播流，相比传统的直播协议延迟更低，为观众提供毫秒级的极致直播观看体验。
 > ! 在不支持 WebRTC 的浏览器环境，传入播放器的 WebRTC 地址会自动进行协议转换来更好的支持媒体播放，在移动端浏览器会默认转换为 HLS，PC 端浏览器默认转换为 FLV。
+
+### Demo 体验
+
+- **Web 端直播推流**：可通过 **云直播控制台**>[Web 推流工具](https://console.cloud.tencent.com/live/tools/webpush) 进行测试 Web 端推流功能。
+- **Web 端直播拉流**：可通过 [WebRTC Live Demo](https://webrtc-demo.myqcloud.com/pull-sdk/index.html) 工具进行播放体验。
+
+> ! Web 端直播推流和拉流均使用标准 WebRTC 协议，Web 端推流时不包含 B帧 ，且音频编码为 OPUS 音频格式，所以不会产生音频转码及去 B 帧转码费用。
 
 [](id:obs)
 ## OBS WebRTC 协议推流接入
