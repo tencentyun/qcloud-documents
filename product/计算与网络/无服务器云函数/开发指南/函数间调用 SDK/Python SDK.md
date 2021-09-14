@@ -40,8 +40,7 @@ def main_handler(event, context):
 
 2. 在云端创建调用的 Python 云函数，地域为**成都**，命名为 “PythonInvokeTest”。可通过以下两种方式，结合您的实际情况编辑 PythonInvokeTest 函数。
 
-- 方式 1：如果您不需要频繁的调用函数，可使用如下示例代码：
-
+ - 方式 1：如果您不需要频繁的调用函数，可使用如下示例代码：
 ```python
 # -*- coding: utf8 -*-
 
@@ -63,15 +62,12 @@ def main_handler(event, context):
     print (e)
 	return "Already invoked a function!" # return
 ```
-
 输出结果如下：
-
 ```shell
 "Already invoked a function!"
 ```
 
  - 方式 2：如果您需要频繁调用函数，可选择通过 Client 的方式连接并触发。可使用如下示例代码：
-
 ```python
 # -*- coding: utf8 -*-
 
@@ -96,13 +92,10 @@ def main_handler(event, context):
     print (e)
 	return "Already invoked a function!" # return
 ```
-
 输出结果如下：
-
 ```shell
 "Already invoked a function!"
 ```
-
 >! secret_id 及 secret_key：指云 API 的密钥 ID 和密钥 Key。您可以通过登录 **[访问管理控制台](https://console.cloud.tencent.com/cam/overview)**，选择**云 API 密钥** >  **[API 密钥管理](https://console.cloud.tencent.com/cam/capi)**，获取相关密钥或创建相关密钥。
 
 
