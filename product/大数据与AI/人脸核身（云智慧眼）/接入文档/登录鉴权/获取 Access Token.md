@@ -51,7 +51,7 @@ https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/access_token?app_id=xxx&s
 | transactionTime | String | 调用接口的时间                                               |
 | access_token    | String | access_token 的值                                             |
 | expire_time     | String | access_token 失效的绝对时间                                  |
-| expire_in       | int    | access_token 的最大生存时间                                  |
+| expire_in       | String    | access_token 的最大生存时间                                  |
 
 **响应示例：**
 ```
