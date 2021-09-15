@@ -1122,6 +1122,165 @@ systemctl restart sshd.service
 
 
 :::
+::: SSH 服务启动时报错 main process exited, code=exited
+
+#### 现象描述[](id:mainProcessExited)
+
+在 Linux 实例中，使用 service 或 systemctl 命令启动 SSH 服务时，命令行没有返回报错信息，但服务没有正常运行。secure 日志中发现类似如下错误信息：
+```
+sshd.service: main process exited, code=exited, status=203/EXEC.
+init: ssh main process (1843) terminated with status 255.
+```
+
+
+
+#### 问题原因
+通常是 PATH 环境变量配置异常，或 SSH 软件包相关文件被移除导致。
+
+
+
+#### 解决方案
+参考 [处理步骤](#ProcessingSteps18)，检查并修复 PATH 环境变量，或重新安装 SSH 软件包。
+
+
+
+#### 处理步骤[](id:ProcessingSteps18)
+
+<dx-alert infotype="explain" title="">
+本文处理步骤以 CentOS 6.5 操作系统为例，不同操作系统版本有一定区别，请结合实际情况进行操作。
+</dx-alert>
+
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，检查环境变量配置。
+```
+echo $PATH
+```
+3. 对比实际返回 PATH 环境变量与默认值。PATH 环境变量默认值：
+```
+/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+```若实际返回 PATH 环境变量若与默认值不相同，则需执行以下命令，重置 PATH 环境变量。
+```
+export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+```
+4. 执行如下命令，查找并确认 sshd 程序路径。
+```
+find / -name sshd
+```
+  - 返回结果如下，则说明 sshd 程序文件已存在。
+```
+/usr/sbin/sshd
+``` 
+  - 若对应文件不存在，则请重新安装 SSH 软件包。
+5. 执行以下命令，重启 SSH 服务。
+```
+service sshd restart
+``` 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+
+:::
+::: SSH 登录时报错 pam_limits(sshd:session)：could not sent limit for ‘nofile’
+
+#### 现象描述[](id:pamLimits)
+使用 SSH 登录 Linux 实例后，返回如下错误信息：
+```
+-bash: fork: retry: Resource temporarily unavailable.
+pam_limits(sshd:session)：could not sent limit for 'nofile':operaton not permitted.
+Permission denied.
+```
+
+
+
+#### 问题原因
+通常是由于当前 Shell 进程或文件开启的数量，超出服务器 Ulimit 系统环境限制导致。
+
+
+
+#### 解决思路
+参考 [处理步骤](#ProcessingSteps19)，结合实际使用的操作系统版本，修改 limits.conf 文件永久变更 Ulimit 系统环境限制。
+
+
+
+#### 处理步骤[](id:ProcessingSteps19)
+
+<dx-alert infotype="explain" title="">
+- CentOS 6系统版本及之后发行版本中，增加了 `X-nproc.conf` 文件管理 Ulimit 系统环境限制，操作步骤以 CentOS 6进行区分。`X-nproc.conf` 文件在不同系统版本中前缀数字不同，在 CentOS 6中为 `90-nproc.conf`，在 CentOS 7中为 `20-nproc.conf`，请以实际情况环境为准。
+- 本文以 CentOS 7.6 及 CentOS 5 操作系统环境为例，请您结合实际业务情况进行操作。
+</dx-alert>
+
+
+#### CentOS 6之前版本[](id:beforeCentOS6)
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，查看系统当前 Ulimit 系统资源限制信息。
+```
+cat /etc/security/limits.conf
+```说明如下：
+  - **&lt;domain&gt;**：需要限制的系统用户，可以用 \* 代替所有用户。
+  - **&lt;type&gt;**：soft、hard 和 - 三种参数。 
+      - soft 指当前系统已经生效的 &lt;value&gt; 值。
+      - hard 指系统中设定的最大 &lt;value&gt; 值。
+      - soft 的限制不能比 hard 限制高，- 表示同时设置 soft 和 hard 的值。
+  - **&lt;item&gt;**：需要限制的使用资源类型。 
+      - core 指限制内核文件的大小。
+      - rss 指最大持久设置大小。
+      - nofile 指打开文件的最大数目。
+      - noproc 指进程的最大数目。
+3. 默认未设置系统资源限制，请根据实际情况进行判断，如果系统开启并配置系统资源限制，则需通过编辑 `limits.conf` 文件，选择注释、修改或删除 `noproc` 或 `nofile` 参数限制的资源类型代码操作。
+修改前建议执行以下命令，备份 `limits.conf` 文件。
+```
+cp -af /etc/security/limits.conf /root/limits.conf_bak
+```
+4. 修改完成后，重启实例即可。
+
+
+
+#### CentOS 6之后版本
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，查看系统当前 Ulimit 系统资源限制信息。
+```
+cat /etc/security/limits.d/20-nproc.conf
+```返回结果如下图所示，表示已开启系统资源限制，并允许 root 用户以外的所有用户最大连接进程数为4096。
+![](https://main.qcloudimg.com/raw/c4d7105cc05a172ee1f9f501690788bf.png)
+3. 参考 [CentOS 6之前版本](id:beforeCentOS6) 版本步骤，修改 `/etc/security/limits.d/20-nproc.conf` 文件，建议修改前进行文件备份。
+4. 修改完成后，重启实例即可。
+
+:::
+::: SSH 登录报错 pam_unix(sshdsession) session closed for user
+
+#### 现象描述[](id:sessionClosedForUser)
+使用 SSH 登录 Linux 实例时，输入正确的用户及密码无法登录成功。secure 日志出现类似如下错误信息：
+- This account is currently not available.
+- Connection to 127.0.0.1 closed.
+- Received disconnect from 127.0.0.1: 11: disconnected by user.
+- pam_unix(sshd:session): session closed for user test.
+
+
+
+####  问题原因
+通常由于对应用户的默认 Shell 被修改导致。
+
+
+#### 解决思路
+参考 [处理步骤](#ProcessingSteps20)，检查并修复对应用户的默认 Shell 配置。
+
+
+#### 处理步骤[](id:ProcessingSteps20)
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，查看 test 用户的默认 Shell。
+```
+cat /etc/passwd | grep test
+``` 系统返回类似如下信息，表示 test 用户的 Shell 被修改成 nologin。 
+```
+test:x:1000:1000::/home/test:/sbin/nologin
+```
+3. 执行以下命令，使用 VIM 编辑器编辑 `/etc/passwd` 文件。建议在修改前进行文件备份。
+```
+vim /etc/passwd
+```
+4. 按 **i** 进入编辑模式，将 `/sbin/nologin` 修改为 `/bin/bash`。 
+5. 按 **Esc** 输入 **:wq**，保存编辑并退出。
+6. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+::: 
 </dx-accordion>
 
 
