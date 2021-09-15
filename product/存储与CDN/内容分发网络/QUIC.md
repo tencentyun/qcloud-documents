@@ -1,9 +1,15 @@
 <blockquote class="d-mod-alarm">
-              <div class="d-mod-title d-alarm-title">
-                <i class="d-icon-alarm"></i>公告：
-              </div>
-               <p>QUIC 访问功能已在内测中，CDN 官网通用日志字段 - HTTP 协议标识（离线日志第14个字段；实时日志 proto 字段）将增加值“HTTP/3”，此变更将于 2021-09-13 起灰度发布，不会影响控制台及接口的数据监控统计，若您使用离线日志下载包进行数据统计，请关注并确认具体影响，按需调整。非常感谢您的理解与配合，谢谢！详情请参见 <a href="https://cloud.tencent.com/document/product/228/42136">日志服务</a>。</p>
-            </blockquote>
+<div class="d-mod-title d-alarm-title">
+<i class="d-icon-alarm"></i>公告：
+</div>
+<p><ul><li>QUIC 访问属于增值服务，目前腾讯云 CDN 正在免费内测中。<strong>后续进行线上计费时，我们会提前推送消息给您，请您关注确认。</strong></li>
+<li>收到计费提示消息后，您仍可管理 QUIC 访问功能：</li>
+<ul>
+<li> 若您通过官网内测申请使用：请自行于控制台管理 QUIC 访问功能。</li>
+<li> 若您通过后端配置开启了 QUIC：请联系您的售后人员。</li>
+</ul></ul>
+QUIC 访问增值服务将按 QUIC 请求数次数计费，按量后付费，详细说明请见 <a href="https://cloud.tencent.com/document/product/228/2949#m8">计费说明</a>。</p>
+</blockquote>
 
 
 
