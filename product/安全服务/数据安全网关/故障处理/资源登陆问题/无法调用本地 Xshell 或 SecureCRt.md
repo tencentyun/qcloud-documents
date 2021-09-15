@@ -6,7 +6,7 @@
 
 
 ## 解决思路
-重新安装 Xshell 或 SecureCRT，试用默认路径安装，或手动选择工具路径。
+重新安装 Xshell 或 SecureCRT，使用默认路径安装，或手动选择工具路径。
 
 ## 处理步骤
 1. 重新安装 Xshell 或 SecureCRT，安装路径选择默认目录：C:\Program Files 或者 C:\Program Files (x86)。
