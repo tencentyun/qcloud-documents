@@ -356,6 +356,14 @@ TRTC 专门针对在线直播场景推出了10万人低延时互动直播解决�
 ### 音视频通话 TRTC 如何实现云端录制与回放？
 具体请参见 [云端录制与回放](https://cloud.tencent.com/document/product/1449/57121)。
 
+[](id:que71)
+### TRTC 如何实现服务端录制？
+服务端录制需要使用 Linux SDK， Linux SDK 暂未完全开放。若您需咨询或使用，请填写 [Linux SDK 问卷](https://cloud.tencent.com/apply/p/bmpdfyvtui) 。我们会在2个 - 3个工作日内完成评估并反馈结果。
+
+[](id:que72)
+### TRTC 是否支持私有化部署？
+TRTC 私有化部署暂未完全开放。若您需咨询或使用私有化服务，请填写 [私有化问卷](https://cloud.tencent.com/apply/p/1a2ofbzgo1w)。我们会在2个 - 3个工作日内完成评估并反馈结果。
+
 
 
 
