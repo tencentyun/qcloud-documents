@@ -1,5 +1,5 @@
 ## 现象描述
-已经安装了 Xshell/SecureCRt，但是点击访问 Linux 资源时 BHLoader 插件没有拉起对应工具，而是弹出了如下文件选择框。
+已经安装了 Xshell/SecureCRT，但是点击访问 Linux 资源时 BHLoader 插件没有拉起对应工具，而是弹出了如下文件选择框。
 ![](https://main.qcloudimg.com/raw/5f36b0d557302f0b70691f8501816f28.png)
 ## 可能原因
 工具未安装在程序的默认目录C:\Program Files 或者 C:\Program Files (x86)，导致BHLoader无法直接拉起工具。
