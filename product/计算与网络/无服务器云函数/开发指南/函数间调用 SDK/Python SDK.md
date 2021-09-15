@@ -30,11 +30,12 @@ Tencentserverless SDK 的功能特性可分为以下几点：
 # -*- coding: utf8 -*-
 
 def main_handler(event, context):
-		if 'key1' in event.keys():
-				print("value1 = " + event['key1'])
-		if 'key2' in event.keys():
-				print("value2 = " + event['key2'])
-		return "Hello World from the function being invoked"  #return
+	if 'key1' in event.keys():
+		print("value1 = " + event['key1'])
+	if 'key2' in event.keys():
+		print("value2 = " + event['key2'])
+	return "Hello World from the function being invoked"  #return
+
 ```
 
 2. 在云端创建调用的 Python 云函数，地域为**成都**，命名为 “PythonInvokeTest”。可通过以下两种方式，结合您的实际情况编辑 PythonInvokeTest 函数。
@@ -42,25 +43,23 @@ def main_handler(event, context):
  - 方式 1：如果您不需要频繁的调用函数，可使用如下示例代码：
 <dx-codeblock>
 :::  python
-# -*- coding: utf8 -*-
-
 from tencentserverless import scf 
 from tencentserverless.scf import Client
 from tencentserverless.exception import TencentServerlessSDKException
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
 
 def main_handler(event, context):
-		print("prepare to invoke a function!")
-		try:
-				data = scf.invoke('FuncInvoked',region="ap-guangzhou",data={"a": "b"})
-				print (data)
-		except TencentServerlessSDKException as e:
-		print (e)
-		except TencentCloudSDKException as e:
-		print (e)
-		except Exception as e:
-		print (e)
-		return "Already invoked a function!" # return
+	print("prepare to invoke a function!")
+	try:
+		data = scf.invoke('FuncInvoked',region="ap-guangzhou",data={"a": "b"})
+		print (data)
+	except TencentServerlessSDKException as e:
+    	print (e)
+	except TencentCloudSDKException as e:
+    	print (e)
+	except Exception as e:
+    	print (e)
+	return "Already invoked a function!" # return
 
 :::
 </dx-codeblock>
@@ -80,21 +79,20 @@ from tencentserverless.exception import TencentServerlessSDKException
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
 
 def main_handler(event, context):
-		#scf = Client(region="ap-guangzhou") # 使用该方法进行 Client 连接，请在函数配置中启用“运行角色”功能，并选择具有调用函数权限的运行角色。
-		scf = Client(secret_id="AKIxxxxxxxxxxxxxxxxxxxxxxggB4Sa",secret_key="3vZzxxxxxxxxxxxaeTC",region="ap-guangzhou",token=" ")# 使用该方法进行 Client 连接，请将 secret_id 和 secret_key 替换为您的 secret_id 和 secret_key，该组密钥需要包含调用函数的权限。
-		print("prepare to invoke a function!")
-		try:
-		data = scf.invoke('FuncInvoked',data={"a": "b"})
-		# data = scf.FuncInvoked(data={"a": "b"}) #使用Python原生调用方式，需要首先通过Client进行初始化
-		print (data)
-		except TencentServerlessSDKException as e:
-		print (e)
-		except TencentCloudSDKException as e:
-		print (e)
-		except Exception as e:
-		print (e)
-		return "Already invoked a function!" # return
-
+	#scf = Client(region="ap-guangzhou") # 使用该方法进行 Client 连接，请在函数配置中启用“运行角色”功能，并选择具有调用函数权限的运行角色。
+	scf = Client(secret_id="AKIxxxxxxxxxxxxxxxxxxxxxxggB4Sa",secret_key="3vZzxxxxxxxxxxxaeTC",region="ap-guangzhou",token=" ")# 使用该方法进行 Client 连接，请将 secret_id 和 secret_key 替换为您的 secret_id 和 secret_key，该组密钥需要包含调用函数的权限。
+	print("prepare to invoke a function!")
+	try:
+    	data = scf.invoke('FuncInvoked',data={"a": "b"})
+    	# data = scf.FuncInvoked(data={"a": "b"}) #使用Python原生调用方式，需要首先通过Client进行初始化
+    	print (data)
+	except TencentServerlessSDKException as e:
+    	print (e)
+	except TencentCloudSDKException as e:
+    	print (e)
+	except Exception as e:
+    	print (e)
+	return "Already invoked a function!" # return
 :::
 </dx-codeblock>
 输出结果如下：
@@ -156,25 +154,52 @@ pip show tencentserverless
 #### 示例
 
 1. 在云端创建一个被调用的 Python 云函数，地域为**广州**，命名为 “FuncInvoked”。函数内容如下：
+``` python
+# -*- coding: utf8 -*-
 
-```python
-# -*- coding: utf8 -*-def main_handler(event, context):	if 'key1' in event.keys():		print("value1 = " + event['key1'])	if 'key2' in event.keys():		print("value2 = " + event['key2'])	return "Hello World from the function being invoked"  #return
+def main_handler(event, context):
+	if 'key1' in event.keys():
+		print("value1 = " + event['key1'])
+	if 'key2' in event.keys():
+		print("value2 = " + event['key2'])
+	return "Hello World from the function being invoked"  #return
 ```
 
 2. 创建完毕后，在本地创建一个名为 PythonInvokeTest.py 的文件。内容如下：
+``` python
+# -*- coding: utf8 -*-
 
-```python
-# -*- coding: utf8 -*-from tencentserverless import scf from tencentserverless.scf import Clientfrom tencentserverless.exception import TencentServerlessSDKExceptionfrom tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKExceptiondef main_handler(event, context):	print("prepare to invoke a function!")	scf = Client(secret_id="AKIxxxxxxxxxxxxxxxxxxxxxxggB4Sa",secret_key="3vZzxxxxxxxxxxxaeTC",region="ap-guangzhou",token=" ")# 替换为您的 secret_id 和 secret_key	try:		data = scf.invoke('FuncInvoked',data={"a":"b"}) 		# data = scf.FuncInvoked(data={"a":"b"}) 		print (data)	except TencentServerlessSDKException as e:		print (e)	except TencentCloudSDKException as e:		print (e)	except Exception as e:		print (e)	return "Already invoked a function!" # returnmain_handler("","")
+from tencentserverless import scf 
+from tencentserverless.scf import Client
+from tencentserverless.exception import TencentServerlessSDKException
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+
+def main_handler(event, context):
+	print("prepare to invoke a function!")
+	scf = Client(secret_id="AKIxxxxxxxxxxxxxxxxxxxxxxggB4Sa",secret_key="3vZzxxxxxxxxxxxaeTC",region="ap-guangzhou",token=" ")# 替换为您的 secret_id 和 secret_key
+	try:
+		data = scf.invoke('FuncInvoked',data={"a":"b"}) 
+		# data = scf.FuncInvoked(data={"a":"b"}) 
+		print (data)
+	except TencentServerlessSDKException as e:
+		print (e)
+	except TencentCloudSDKException as e:
+		print (e)
+	except Exception as e:
+		print (e)
+	return "Already invoked a function!" # return
+
+main_handler("","")
+
+
 ```
 
 进入 PythonInvokeTest.py 所在文件目录，执行以下命令，查看结果。
-
 ```python
 python PythonInvokeTest.py
 ```
 
 输出结果如下：
-
 ```shell
 prepare to invoke a function!"Hello World form the function being invoked"
 ```
