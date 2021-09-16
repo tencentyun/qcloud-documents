@@ -18,22 +18,30 @@
 若要使用其他数据源或数据目的的 Connector，如 Ckafka 或 Elasticsearch，可参考 [上下游开发指南](https://cloud.tencent.com/document/product/849/48263)，并自行准备数据。
 
 ```mysql
-CREATE TABLE `Data_Input` (
-    `id` VARCHAR,
-    `age` BIGINT,
-    `score` BIGINT
+CREATE TABLE `Data_Input` ( --步骤 1 ：创建数据源表（Source） Data_Input
+    age BIGINT,
+    score BIGINT
 ) WITH (
-    'connector' = 'datagen'
+    'connector' = 'datagen',
+    'rows-per-second'='100',  -- 每秒产生的数据条数
+
+    'fields.age.kind'='random',       -- 无界的随机数
+    'fields.f_random.min'='1',             -- 随机数的最小值
+    'fields.f_random.max'='100',          -- 随机数的最大值
+
+    'fields.score.kind'='random',       -- 无界的随机数
+    'fields.score.min'='1',             -- 随机数的最小值
+    'fields.score.max'='1000'          -- 随机数的最大值
 );
 
-CREATE TABLE `Data_Output` (
+CREATE TABLE `Data_Output` ( --步骤 2 ：创建数据结果表（Sink） Data_Output
     `avg_age` BIGINT,
     `avg_score` BIGINT
 ) WITH (
     'connector' = 'blackhole'
 );
 
-INSERT INTO `Data_Output`
+INSERT INTO `Data_Output`   --步骤 3 ： 将数据源表（Source） Data_Intput 中的 age 和 score 取平均数之后存储于数据结果表（Sink） Data_Output
 SELECT AVG(age), AVG(score) FROM `Data_Input`;
 ```
 
