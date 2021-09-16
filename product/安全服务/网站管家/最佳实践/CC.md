@@ -25,7 +25,7 @@
 1. 登录 [SSL 证书](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航中，单击【我的证书】，进入我的证书页面。
 2. 在我的证书页面，选择所需 ID,单击【部署】，弹出选择部署类型弹窗。
 ![](https://main.qcloudimg.com/raw/59512620e91d930e09564cc158447acd.png)
-3. 在选择部署类型弹窗，部署类型选择 Web 应用防火墙，并选择所需 WFA 资源，单击【确定】，即可一键替换证书。
+3. 在选择部署类型弹窗，部署类型选择 Web 应用防火墙，并选择所需 WAF 资源，单击【确定】，即可一键替换证书。
 ![](https://main.qcloudimg.com/raw/fdf31449280401cf67ce7f64f50ceb6e.png)
 
 ## 检验是否生效
