@@ -1,76 +1,56 @@
-## 操作场景
+## 使用 Rust 进行智能合约开发
 
-您可通过本文快速开始使用 长安链·ChainMaker 区块链网络，同时可前往 [长安链·ChainMaker 操作指南](https://cloud.tencent.com/document/product/663/60106) 了解更多信息。
+读者对象：本章节主要描述使用 Rust 进行 ChainMaker 合约编写的方法，主要面向于使用 Rust 进行 ChainMaker 的合约开发的开发者。
 
-长安链·ChainMaker 网络的使用过程主要分为以下步骤：
-<dx-steps>
--[创建联盟](#league)
--[购买网络](#network)
--[安装合约](#chaincode)
--[申请并下载证书](#cert)
--[应用开发与对接](#app)
--[通过浏览器查看链上数据](#data)
-</dx-steps>
+Rust 安装及教程请参考: [Rust 官网](https://www.rust-lang.org/)
 
+### 使用 Docker 镜像进行合约开发
 
+ChainMaker 官方已经将容器发布至 [docker hub](https://hub.docker.com/u/chainmakerofficial)
 
-## 前提条件
+1. 首先拉取镜像
+```
+docker pull chainmakerofficial/chainmaker-rust-contract:1.2.0
+```
+请指定你本机的工作目录 $WORK_DIR，例如 /data/workspace/contract，挂载到 docker 容器中以方便后续进行必要的一些文件拷贝
+```
+docker run -it --name chainmaker-rust-contract -v $WORK_DIR:/home chainmakerofficial/chainmaker-rust-contract:1.2.0 bash
+# 或者先后台启动
+docker run -d  --name chainmaker-rust-contract -v $WORK_DIR:/home chainmakerofficial/chainmaker-rust-contract:1.2.0 bash -c "while true; do echo hello world; sleep 5;done"
+# 再进入容器
+docker exec -it chainmaker-rust-contract /bin/sh
+```
 
-已登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)。
+2. 编译合约
+```
+cd /home/
+tar xvf /data/contract_rust_template.tar.gz
+cd contract_rust
+wasm-pack build
+```
+生成的合约字节码文件位于：
+```
+/home/contract_rust/target/wasm32-unknown-unknown/release/chainmaker_contract.wasm
+```
+`chainmaker_contract.wasm` 文件可在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 上传并部署。
 
-
-
-## 操作步骤
-
-### 步骤1：创建联盟[](id:league)
-
-登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)，选择左侧导航中的**联盟**，进入联盟管理页面，单击左上角的“新建”，填写联盟名称等信息即可完成创建。
-
-更多联盟管理的信息可参考操作指南 [联盟](https://cloud.tencent.com/document/product/663/38470) 部分。
-
-
-
-### 步骤2：购买网络[](id:network)
-
-参考 [长安链·ChainMaker 购买页说明](https://cloud.tencent.com/document/product/663/60096) 创建长安链·ChainMaker 网络。
-
-
-
-### 步骤3：安装合约[](id:chaincode)
-
-1. 在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas) 中，选择左侧导航中的**长安链** > **[区块链网络](https://console.cloud.tencent.com/tbaas/chainmaker/chain)** 进入网络卡片页面。
-2. 当购买的长安链·ChainMaker 区块链网络完成部署后，点击卡片即可进入网络详情页面，点击顶部菜单栏的**合约管理**页签，进入对应页面后点击**安装合约**，在弹窗中填写对应的信息及上传合约文件后即可将合约安装至链上。如下图所示：
-![](https://main.qcloudimg.com/raw/167ef56bf7c870e000dae7c18c51f25d.png)
-
-<dx-alert infotype="notice" title="">
-- 当前 TBaaS 控制台暂支持上传编译过后的 .wasm 合约文件。
-- 合约支持 Rust、Go、C++ 三种语言。
-- 合约编译方法可参考开发指南 [智能合约开发（Go）](https://cloud.tencent.com/document/product/663/60112) 或 [智能合约开发（Rust）](https://cloud.tencent.com/document/product/663/60113)。
-</dx-alert>
-
-
-
-
-
-### 步骤4：申请并下载证书[](id:cert)
-
-1. 在 TBaaS 控制台中，选择左侧导航中的**长安链** > **[区块链网络](https://console.cloud.tencent.com/tbaas/chainmaker/chain)**，单击对应的卡片进入网络详情页。
-2. 在网络详情页面中，单击顶部菜单栏的**证书管理**页签，进入对应页面后点击**申请证书**，在弹窗中填写证书标识并上传用户证书及 TLS 证书的 CSR 文件，确认后即生成证书，在证书列表中可下载证书。CSR 文件的生成方法请参考 [证书申请 CSR 生成指南](https://cloud.tencent.com/document/product/663/60114)。
-![](https://main.qcloudimg.com/raw/4db7df54c5bfd5d13628baab50b88347.png)
-
-
-
-### 步骤5：应用开发与对接[](id:app)
-
-TBaaS 平台支持通过长安链 SDK、云 API 两种方式进行对接上链，详细的对接开发流程请参考开发指南 [对接说明](https://cloud.tencent.com/document/product/663/47512) 章节。
-
-
-
-### 步骤6：通过浏览器查看链上数据[](id:data)
-
-TBaaS 平台提供区块链浏览器，便于用户实时查看或检索链上的数据，操作方式如下：
-
-1. 在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas) 中，选择左侧导航中的**长安链** > **[区块链网络](https://console.cloud.tencent.com/tbaas/chainmaker/chain)**，单击对应的卡片进入网络详情页。
-2. 在网络详情页面中，点击顶部菜单栏的**区块链浏览器**页签，进入对应页面即可实时查看或检索区块信息、交易信息、链上指标等数据。如下图所示：
-![](https://main.qcloudimg.com/raw/2a315b1a269f8272139882ff90aa9765.png)
-
+3. 合约开发框架描述
+解压缩 contract_rust_template.tar.gz 后，文件描述如下：
+```
+chainmaker-contract-sdk-rust$ tree -I target
+.
+├── Cargo.lock # 依赖版本信息
+├── Cargo.toml # 项目配置及依赖，参考：https://rustwasm.github.io/wasm-pack/book/cargo-toml-configuration.html
+├── Makefile   # build一个wasm文件
+├── README.md  # 编译环境说明
+├── src
+│   ├── contract_fact.rs			# 存证示例代码
+│   ├── easycodec.rs                # 序列化工具类
+│   ├── lib.rs                      # 程序入口
+│   ├── sim_context.rs              # 合约SDK主要接口及实现
+│   ├── sim_context_bulletproofs.rs # 合约SDK基于bulletproofs的范围证明接口实现
+│   ├── sim_context_paillier.rs     # 合约SDK基于paillier的半同态运算接口实现
+│   ├── sim_context_rs.rs           # 合约SDK sql接口实现
+│   └── vec_box.rs                  # 内存管理类
+```
+用户使用 Rust 编写智能合约后，可以把源代码更新到 `src/contract_fact.rs` 文件中并重新编译，得到新的智能合约的字节码，并前往 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 上传并部署。更多关于使用 Rust 进行开发长安链智能合约的详情，可参考长安链官网 [使用 Rust 进行智能合约开发](https://docs.chainmaker.org.cn/dev/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#rust)
