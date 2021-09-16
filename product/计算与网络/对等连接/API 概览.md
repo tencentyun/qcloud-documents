@@ -1,4 +1,4 @@
-对等连接 API 2.0 ， 相关接口如下表所示：
+对等连接 API 相关接口如下表所示：
 
 | 接口功能        | Action ID                                | 功能描述         |
 | ----------- | ---------------------------------------- | ------------ |
@@ -15,4 +15,6 @@
 | 驳回跨地域对等连接   | [RejectVpcPeeringConnectionEx](https://cloud.tencent.com/doc/api/245/4807) | 驳回跨地域对等连接。   |
 | 启用跨地域过期对等连接 | [EnableVpcPeeringConnectionEx](https://cloud.tencent.com/doc/api/245/4808) | 启用跨地域过期对等连接。 |
 | 查询对等连接      | [DescribeVpcPeeringConnections](https://cloud.tencent.com/doc/api/245/2101) | 查询对等连接。      |
+
+
 

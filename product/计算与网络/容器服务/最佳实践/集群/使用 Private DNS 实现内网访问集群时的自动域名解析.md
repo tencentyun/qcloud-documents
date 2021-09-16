@@ -34,25 +34,25 @@ Private DNS 目前支持的地域未完全覆盖 TKE 支持地域，具体支持
 ### 创建私有域
 
 1. 登录 [Private DNS](https://console.cloud.tencent.com/privatedns/domains) 控制台。
-2. 单击【新建私有域】，配置以下选项（其他参数使用默认值即可），了解更多请参见 [创建私有域文档](https://cloud.tencent.com/document/product/1338/50532)。
+2. 单击**新建私有域**，配置以下选项（其他参数使用默认值即可），了解更多请参见 [创建私有域文档](https://cloud.tencent.com/document/product/1338/50532)。
 ![](https://main.qcloudimg.com/raw/2082da7f7d68f496906625372a53edd5.jpg)
  - **域名**：输入“tencent-cloud.com”（TKE 为集群访问分配的域名）。
  - **关联 VPC**：选择需要访问集群的节点网络 VPC。
-3. 单击【确定】即可创建私有域。
+3. 单击**确定**即可创建私有域。
 
 
 
 ### 配置解析记录
 
 1. 单击上述创建的私有域名称，进入“解析记录”页面。
-2. 单击【添加记录】，配置以下选项：
+2. 单击**添加记录**，配置以下选项：
 ![](https://main.qcloudimg.com/raw/9f1c8acae204be7b08d55c7ad1ae3bc5.jpg)
    - **主机记录**：输入 TKE 集群访问的次级域名，例如 “cls-{{clsid}}.css”。
    - **记录类型**：输入 A。
    - **记录值**：输入 TKE 集群内网访问 IP。
->?**主机记录**和**记录值**可前往【[集群管理](https://console.cloud.tencent.com/tke2/cluster?rid=1)】 >【集群】>【基本信息】获取。其中**主机记录**对应**访问地址**中的域名，**记录值**对应**内网访问**中的 IP 地址，如下图所示：
+>?**主机记录**和**记录值**可前往 **[集群管理](https://console.cloud.tencent.com/tke2/cluster?rid=1)** >**集群** > **基本信息**获取。其中**主机记录**对应**访问地址**中的域名，**记录值**对应**内网访问**中的 IP 地址，如下图所示：
 ![](https://main.qcloudimg.com/raw/c68ecc7c886fec6e9386e8f9d728157e.jpg)
-3. 单击右侧操作栏下的【保存】以保存配置。
+3. 单击右侧操作栏下的**保存**以保存配置。
 
 
 

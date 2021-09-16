@@ -55,7 +55,7 @@ npm install tencentcloud-serverless-nodejs
 > - 如果没有手动传入 secretId 和 secretKey 等参数，函数需绑定有 SCF Invoke 权限（或者包含 SCF Invoke，例如 SCF FullAccess）的角色，可参考 [创建函数运行角色](https://cloud.tencent.com/document/product/583/41755)。
 
 
-1. [](id:Step1)创建一个地域为【北京】，名称为 “FuncInvoked”，并用于**被调用**的 Node.js 云函数。该云函数内容如下：
+1. [](id:Step1)创建一个地域为**北京**，名称为 “FuncInvoked”，并用于**被调用**的 Node.js 云函数。该云函数内容如下：
 ```js
 'use strict';
 exports.main_handler = async (event, context, callback) => {
@@ -94,12 +94,12 @@ exports.main_handler = async (event, context) => {
  - **qualifier**：**被调用**云函数版本，如未指定则默认使用 `$LATEST`。详情请参见 [查看版本](https://cloud.tencent.com/document/product/583/31211)。
  - **namespace**：**被调用**云函数所在命名空间， 如未指定则默认 `default`。详情请参见 [命名空间管理](https://cloud.tencent.com/document/product/583/35913)。
  - **data**：传递给**被调用**云函数的数据，被调用的云函数可以从 event 入参中读取此数据。
-3. 创建一个地域为【成都】，名称为 “NodejsInvokeTest”，并用于**调用**的 Node.js 云函数。该云函数主要设置信息如下：
- - 执行方法：选择【index.main_handler】。
- - 代码提交方式：选择【本地上传 zip 包】。
+3. 创建一个地域为**成都**，名称为 “NodejsInvokeTest”，并用于**调用**的 Node.js 云函数。该云函数主要设置信息如下：
+ - 执行方法：选择**index.main_handler**。
+ - 代码提交方式：选择**本地上传 zip 包**。
     将 `testNodejsSDK` 目录下的所有文件压缩为 zip 格式，并上传到云端。
 4. 
-在 [云函数控制台](https://console.cloud.tencent.com/scf/list) 中的函数详情页面，通过进入函数代码子页面，单击【运行】，测试运行函数。输出结果如下：
+在 [云函数控制台](https://console.cloud.tencent.com/scf/list) 中的函数详情页面，通过进入函数代码子页面，单击**运行**，测试运行函数。输出结果如下：
 ```shell
 "Already invoked a function!"
 ```
@@ -111,7 +111,7 @@ exports.main_handler = async (event, context) => {
 
 #### 示例
 
-1. 创建一个地域为【北京】，名称为 “FuncInvoked”，并且用于**被调用**的 Node.js 云函数。该云函数内容如下：
+1. 创建一个地域为**北京**，名称为 “FuncInvoked”，并且用于**被调用**的 Node.js 云函数。该云函数内容如下：
 ```js
 'use strict';
 exports.main_handler = async (event, context, callback) => {
@@ -146,7 +146,7 @@ exports.main_handler = async (event, context) => {
 :::
 </dx-codeblock>
 <dx-alert infotype="notice" title="">
-secretId 及 secretKey：指云 API 的密钥 ID 和密钥 Key。您可以通过登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，选择【访问密钥】>【API 密钥管理】，获取相关密钥或创建相关密钥。
+secretId 及 secretKey：指云 API 的密钥 ID 和密钥 Key。您可以通过登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，选择**访问密钥** > **API 密钥管理**，获取相关密钥或创建相关密钥。
 </dx-alert>
 3. 进入 index.js 所在文件目录，执行以下命令，查看结果。
  - Linux 及 Mac 操作系统，执行以下命令：

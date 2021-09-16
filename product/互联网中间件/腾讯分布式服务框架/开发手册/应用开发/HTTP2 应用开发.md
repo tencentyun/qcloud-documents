@@ -270,7 +270,8 @@ test-ssl-config.key-store-password: 123456
 </dx-alert>
 
 
-
+<dx-codeblock>
+:::  java
 ```java
 package com.tsf.demo.consumer;
 
@@ -357,6 +358,10 @@ public class ConsumerApplication {
 		}
 }
 ```
+:::
+</dx-codeblock>
+
+
 
 :::
 </dx-tabs>

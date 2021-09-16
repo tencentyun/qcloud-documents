@@ -1,9 +1,8 @@
 [负载均衡型 Web 应用防火墙（WAF）](https://cloud.tencent.com/document/product/627/17470) 通过域名和负载均衡监听器进行绑定，实现对经过负载均衡监听器的 HTTP 或 HTTPS 流量进行检测和拦截。本文档将介绍如何通过负载均衡型 WAF 为已经添加到负载均衡的域名进行 Web 安全防护。
 
 ## 前提条件
-- 负载均衡型 WAF 处于灰度发布状态中，如需使用请 [提交申请](https://cloud.tencent.com/apply/p/b5e8c1wm1or)。
 - 您已成功创建 HTTP 监听器或 HTTPS 监听器，并且域名可以正常访问。操作详情请参考 [负载均衡快速入门](https://cloud.tencent.com/document/product/214/8975)。
-- 您已成功购买负载均衡型 WAF。购买方式请参考 [购买方式](https://cloud.tencent.com/document/product/627/47429)。
+- 您已成功购买负载均衡型 WAF。购买方式请参考 [购买方式](https://cloud.tencent.com/document/product/627/47429)。若未购买，可选择 [7天免费试用](https://cloud.tencent.com/act/pro/clbwafenterprise) 负载均衡型 WAF。
 
 ## 限制条件
 目前仅 IPv4 版本的负载均衡支持负载均衡型 WAF 防护，IPv6 和 IPv6 NAT64 版本的负载均衡暂不支持。

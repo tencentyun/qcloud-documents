@@ -1,3 +1,56 @@
+### 2.13.1 @2021.8.27
+
+**变更**
+
+- 未登录时，连续调用 [login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login)，返回错误码 `2025`，表示【重复登录】。
+- WebSocket 重连后，SDK 重新登录并同步未读消息，保障消息的可靠性。
+
+
+**修复**
+
+- 未登录时，连续调用 [login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login) 后会话的未读数错误。
+- 调用 [setGroupMemberNameCard](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupMemberNameCard) 接口，`nameCard` 传入空字符串后报错。
+- 调用 [getGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMemberList) 接口，回包数据 `muteUntil` 的值错误。
+
+
+### 2.13.0 @2021.8.23
+
+**新增**
+
+支持好友关系链，请参见 [使用指引](https://web.sdk.qcloud.com/im/doc/zh-cn/tutorial-03-sns.html)。
+
+**修复**
+
+WebSocket 长连接断开时偶现的报错。
+
+### 2.12.2 @2021.8.6
+
+**新增**
+
+小程序视频上传支持进度回调。
+
+**变更**
+
+修改群自定义字段等不存漫游的群提示消息，SDK 不再计入会话未读数。
+
+**修复**
+
+- 加入直播群偶现收不到自己进群的提示消息。
+- 使用 restapi 发送 c2c 消息 random 设置为0时，接收端触发2次 [MESSAGE_RECEIVED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.MESSAGE_RECEIVED) 事件。
+
+
+### 2.12.1 @2021.7.20
+
+**新增**
+
+- 支持 Meeting 群未读计数。
+- [TIM.EVENT.MESSAGE_MODIFIED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.MESSAGE_MODIFIED) 事件，第三方回调修改了的消息，SDK 通过此事件通知给消息发送方。
+
+**修复**
+
+- 拉群漫游消息偶发丢消息问题。
+- uni-app 集成时可能遇到的`xx.toFixed is not a function`。
+
 ### 2.12.0 @2021.7.5
 
 **新增**

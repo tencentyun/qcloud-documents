@@ -1,10 +1,10 @@
 ## 概述
-当用户接入实时音视频（Tencent RTC）服务后，有时会有实时语音识别需求，从而实现实时会议字幕或语音弹幕等功能，本文档帮助客户端（Android/iOS）用户在已经接入 TRTC 服务后，更好的对实时语音识别进行接入。
+当用户接入实时音视频（Tencent RTC）服务后，有时会有实时语音识别需求，从而实现实时会议字幕或语音弹幕等功能。本文档帮助客户端（Android/iOS）用户在已经接入 TRTC 服务后，更好的对实时语音识别进行接入。
 
 ## iOS 接入流程
 1. 首先需要 [接入 TRTC](https://cloud.tencent.com/document/product/647/32221)，跑通流程。
 2. 根据实时语音识别 [音频流格式要求](https://cloud.tencent.com/document/product/1093/35799)，参考 [TRTC 技术文档](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html) 设置音频流格式。
-3. 在 [TRTC 接口协议](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html) 里设置音频源代理，并设置 ASR 读取音频源。
+3. 在 [TRTC 接口协议](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html) 中设置音频源代理，并设置 ASR 读取音频源。
 
 ```objective-c
 //1.TRTCAudioFrameDelegate 协议是 TRTC 获取音频源的协议，由于 ASR 识别16k或8k采样率的音频数据，所以需要设置 setAudioQuality 为 TRTCCloudDef#TRTC_AUDIO_QUALITY_SPEECH (流畅:采样率:16k;单声道;音频裸码率:16kbps)
@@ -16,11 +16,9 @@
   [dataSource didRecordAudioData:pcmBytes length:readLength];
 }
 ```
-
 4. ASR 音频源设置为第三方，并实现具体逻辑。
 
 4.1 接入第三方音频源需要在 ASR 接入部分实现 QCloudAudioDataSource 协议。代码示例如下：
-
 ```objective-c
 #import<QCloudSDK/QCloudSDK.h>
 
@@ -30,8 +28,7 @@ QDAudioDataSource *dataSource = [[QDAudioDataSource alloc] init];
 //2.创建 QCloudRealTimeRecognizer 识别实例
 QCloudRealTimeRecognizer *realTimeRecognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config dataSource:dataSource];
 ```
-
-4.2 接入 ASR 的 QCloudAudioDataSource 协议如下，[协议详情](https://cloud.tencent.com/document/product/1093/35723#QCloudAudioDataSource) 。代码可参考工程中 QDAudioDataSource.m 文件。
+4.2 接入 ASR 的 QCloudAudioDataSource 协议如下，[协议详情](https://cloud.tencent.com/document/product/1093/35723#QCloudAudioDataSource)。代码可参考工程中 QDAudioDataSource.m 文件。
 
 ```objc
 @interface QDAudioDataSource : NSObject<QCloudAudioDataSource>
@@ -73,15 +70,14 @@ QCloudRealTimeRecognizer *realTimeRecognizer = [[QCloudRealTimeRecognizer alloc]
 @end
 ```
 
+
 ## Android 接入流程
 
 1. 首先需要 [接入 TRTC](https://cloud.tencent.com/document/product/647/32221)，跑通流程。
 2. 根据实时语音识别 [音频流格式要求](https://cloud.tencent.com/document/product/1093/35799)，参考 [TRTC 技术文档](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html) 设置音频流格式。
 3. 在 [TRTC 接口协议](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html) 里设置音频源代理，并设置 ASR 读取音频源。
 4. ASR 音频源设置为第三方，并实现具体逻辑。
-
-4.1 接入第三方音频源需要在 ASR 接入部分实现 PcmAudioDataSource 接口。代码示例如下：
-
+ - 接入第三方音频源需要在 ASR 接入部分实现 PcmAudioDataSource 接口。代码示例如下：
 ```java
 //1.使用第三方外部数据源传入语音数据，自定义 data source 需要实现 PcmAudioDataSource 接口
 AudioDataSource dataSource = new AudioDataSource(); 
@@ -90,9 +86,7 @@ final AudioRecognizeRequest audioRecognizeRequest = new AudioRecognizeRequest.
 .pcmAudioDataSource(dataSource)
 .build(); 
 ```
-
-4.2 接入 ASR 的 PcmAudioDataSource 接口实现如下，[协议详情](https://cloud.tencent.com/document/product/1093/35722) 。代码可参考工程中 AudioDataSource.java 文件。
-
+ - 接入 ASR 的 PcmAudioDataSource 接口实现如下，[协议详情](https://cloud.tencent.com/document/product/1093/35722)。代码可参考工程中 AudioDataSource.java 文件。
 ```java
 private ConcurrentLinkedDeque<Short> shortList = new ConcurrentLinkedDeque<>();
 private static boolean first;
@@ -144,11 +138,8 @@ public void writeByte(short[] pcmData) {
 private ConcurrentLinkedDeque<Short> getDataList() {
         return shortList;
     } 
-
 ```
-
-4.3 TRTC 音频源接入 ASR 协议如下，[TRTC 协议详情](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html) 。
-
+ - TRTC 音频源接入 ASR 协议如下，[TRTC 协议详情](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html)。
 ```java
 //1.TRTCCloudListener.TRTCAudioFrameListener 是 TRTC 获取本地麦克风采集到的音频数据回调  由于 ASR 识别16k或8k采样率的音频数据，所以需要设置 setAudioQuality 为 TRTCCloudDef#TRTC_AUDIO_QUALITY_SPEECH （流畅：采样率：16k；单声道；音频裸码率：16kbps）
 void onCapturedRawAudioFrame(TRTCCloudDef.TRTCAudioFrame trtcAudioFrame) {
@@ -163,9 +154,4 @@ public static short[] bytesToShort(byte[] bytes) {
 ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().get(shorts);
     return shorts;
 }
-
 ```
-
-
-
-

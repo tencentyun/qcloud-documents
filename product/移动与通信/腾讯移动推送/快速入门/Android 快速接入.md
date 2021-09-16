@@ -9,9 +9,9 @@
 
 ### 创建 Android 平台应用
 1. 接入 SDK 之前，需要您前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 Android 应用，详情请参见 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
-   ![](https://main.qcloudimg.com/raw/1cf5d9ce4231466f07a8fd66e1f93d90.png)
+   ![](https://main.qcloudimg.com/raw/6c410b88409bb658e3920ec1b764c5c0.png)
 2. 完成以上步骤后，进入应用的【配置管理】页面，准备接入。
-   ![](https://main.qcloudimg.com/raw/e8bce7bbb6798378129e6f3c4bf159b0.png)
+   ![](https://main.qcloudimg.com/raw/fa8bc3c2c4fdf67cd5b837232fc9457b.png)
 
 ## 步骤1：开始接入
 

@@ -81,11 +81,11 @@ sysctl -w kernel.container_stats_isolated=0
 
 ## 相关操作
 ### 修改操作系统[](id:revise)
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2) ，单击左侧导航栏中的【集群】。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2) ，单击左侧导航栏中的**集群**。
 2. 单击需修改操作系统的集群 ID，进入集群的“基本信息”页面。
 3. 在集群“基本信息”页面的节点和网络信息模块，单击默认操作系统右侧的![](https://main.qcloudimg.com/raw/3b38ca6981068a10b031df5708bc4f41.png)。如下图所示：
 ![](https://main.qcloudimg.com/raw/3a20aa7a26bc0049451edcf5389ed720.png)
-4. 在弹出窗口中选择 “Tencent Linux 2.4 64bit” 并单击【提交】，完成操作系统的修改。如下图所示：
+4. 在弹出窗口中选择 “Tencent Linux 2.4 64bit” 并单击**提交**，完成操作系统的修改。如下图所示：
 ![](https://main.qcloudimg.com/raw/17c6da91e1c29af2dd4186c0ea0ff81f.png)
 
 

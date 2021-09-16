@@ -1,6 +1,6 @@
 ## TRTCCalling 简介
 
-[TRTCCalling](https://www.npmjs.com/package/trtc-calling-js) 组件是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持1v1和多人视频/语音通话。具体的实现过程请参见 [实时语音通话（桌面浏览器）](https://cloud.tencent.com/document/product/647/49795)。
+[TRTCCalling](https://www.npmjs.com/package/trtc-calling-js) 组件是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持1v1和多人视频/语音通话。具体的实现过程请参见 [实时语音通话（Web）](https://cloud.tencent.com/document/product/647/49795)。
 
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频通话组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
@@ -42,7 +42,8 @@
 | [closeCamera()](#closecamera())                                                               | 关闭摄像头         |
 | [setMicMute(isMute)](#setmicmute(ismute))                                                     | 设备麦克风是否静音 |
 | [setVideoQuality(profile)](#setvideoquality(profile) ) |   设置视频质量 |
-
+| [switchToAudioCall()](#switchtoaudiocall()) | 视频通话切换语音通话|
+| [switchToVideoCall()](#switchtovideocall()) | 语音通话切换视频通话|
 
 ## TRTCCalling 详解
 
@@ -54,7 +55,10 @@
 <dx-codeblock>
 :::  javascript javascript
 let options = {
-  SDKAppID: 0 // 接入时需要将0替换为您的即时通信 IM 应用的 SDKAppID
+  SDKAppID: 0, // 接入时需要将0替换为您的即时通信 IM 应用的 SDKAppID
+  // 从v0.10.2起，新增 tim 参数
+  // tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性
+  tim: tim
 };
 let trtcCalling = new TRTCCalling(options);
 :::
@@ -140,7 +144,7 @@ trtcCalling.call({userID, type, timeout})
 | ------- | ------ | ------------------------ |
 | userID  | String | 被邀请方 userID          |
 | type    | Number | 1：语音通话，2：视频通话 |
-| timeout | Number | 0为不超时, 单位 s(秒)    |
+| timeout | Number | 0为不超时, 单位 s（秒）    |
 
 
 
@@ -336,6 +340,33 @@ trtcCalling.setVideoQuality('720p') // 设置视频质量为720p
 | ------ | ------- | -------------------------------------------- |
 | profile | String | <li/>480p：640 × 480 <li/>720p：1280 × 720  <li/>1080p：1920 × 1080  |
 
+####  switchToAudioCall() 
+视频通话切换语音通话。
+>?  
+>- v0.10.0 及其之后版本，新增该方法。
+>- 仅支持1v1通话过程中使用。
+>- 失败监听 ERROR 事件，code：60001。
+
+<dx-codeblock>
+::: javascript javascript
+trtcCalling.switchToAudioCall() // 视频通话切换语音通话
+:::
+</dx-codeblock>
+
+####  switchToVideoCall() 
+语音通话切换视频通话。
+>?  
+>- v0.10.0 及其之后版本，新增该方法。
+>- 仅支持1v1通话过程中使用。
+>- 失败监听 ERROR 事件，code：60002。
+
+<dx-codeblock>
+::: javascript javascript
+trtcCalling.switchToVideoCall() // 语音通话切换视频通话
+:::
+</dx-codeblock>
+
+
 [](id:event)
 ## TRTCCalling 事件表
 您可以参考如下代码监听 [TRTCCalling 组件事件](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/module-EVENT.html)：
@@ -361,7 +392,7 @@ trtcCalling.on(TRTCCalling.EVENT.REJECT, handleInviteeReject)
 |       [CALLING_CANCEL](#calling_cancel)       |     被邀方     |     本次通话被取消了      |
 |      [CALLING_TIMEOUT](#calling_timeout)      |     被邀方     |    本次通话超时未应答     |
 |           [USER_ENTER](#user_enter)           | 邀请方和被邀方 |         用户进房          |
-|           [USER_LEAVE](#user_leave)           | 邀请方和被邀方 |       用户退出房间        |
+|           [USER_LEAVE](#user_leave)           | 邀请方和被邀方 |       有用户离开通话       |
 |             [CALL_END](#call_end)             | 邀请方和被邀方 |       本次通话结束        |
 |           [KICKED_OUT](#kicked_out)           | 邀请方和被邀方 |   重复登录，被踢出房间    |
 | [USER_VIDEO_AVAILABLE](#user_video_available) | 邀请方和被邀方 | 远端用户开启/关闭了摄像头 |
@@ -370,13 +401,16 @@ trtcCalling.on(TRTCCalling.EVENT.REJECT, handleInviteeReject)
 ### 通用事件回调
 
 #### USER_ENTER
+
 用户进房。
+触发条件：当有用户进入通话。
 
 <dx-codeblock>
-:::  javascript javascript
-function handleUserEnter({userID}) {
-
-}
+::: javascript javascript
+let handleUserEnter = function({userID}) {
+  console.log(userID)
+};
+trtcCalling.on(TRTCCalling.EVENT.USER_ENTER, handleUserEnter);
 :::
 </dx-codeblock>
 
@@ -387,15 +421,19 @@ function handleUserEnter({userID}) {
 | userID | String | 用户 ID |
 
 #### USER_LEAVE
+
 用户退出房间。
+触发条件：当有用户退出通话。
 
 <dx-codeblock>
-:::  javascript javascript
-function handleUserLeave({userID}) {
-
-}
+::: javascript javascript
+let handleUserLeave = function({userID}) {
+  console.log(userID)
+};
+trtcCalling.on(TRTCCalling.EVENT.USER_LEAVE, handleUserLeave);
 :::
 </dx-codeblock>
+
 参数如下表所示：
 
 | 参数   | 类型   | 含义    |
@@ -403,35 +441,65 @@ function handleUserLeave({userID}) {
 | userID | String | 用户 ID |
 
 #### CALL_END
+
 本次通话结束。
+触发条件：结束本次通话。
 
 <dx-codeblock>
-:::  javascript javascript
-function handleCallEnd() {
-
-}
+::: javascript javascript
+let handleCallingEnd = function(event) {
+  console.log(event)
+};
+trtcCalling.on(TRTCCalling.EVENT.CALL_END, handleCallingEnd);
 :::
 </dx-codeblock>
 
 #### KICKED_OUT
+
 重复登录，被踢出房间。
+触发条件：在其他页面重复登录。
 
 <dx-codeblock>
-:::  javascript javascript
-function handleKickedOut() {
-
-}
+::: javascript javascript
+let handleKickedOut = function(event) {
+  console.log(event)
+};
+trtcCalling.on(TRTCCalling.EVENT.KICKED_OUT, handleKickedOut);
 :::
 </dx-codeblock>
 
 #### USER_VIDEO_AVAILABLE
+
 远端用户打开关闭摄像头。
+触发条件：远端用户打开/关闭摄像头。
 
 <dx-codeblock>
-:::  javascript javascript
-function handleUserVideoChange({userID, isVideoAvailable}) {
+::: javascript javascript
+let handleUserVideoChange = function({userID, isVideoAvailable}) {
+  console.log(userID, isVideoAvailable)
+};
+trtcCalling.on(TRTCCalling.EVENT.USER_VIDEO_AVAILABLE, handleUserVideoChange);
+:::
+</dx-codeblock>
 
-}
+参数如下表所示：
+
+| 参数             | 类型    | 含义                                                        |
+| ---------------- | ------- | ----------------------------------------------------------- |
+| userID           | String  | 用户 ID                                                     |
+| isVideoAvailable | Boolean | <li/>true：远端用户打开摄像头<li/>false：远端用户关闭摄像头 |
+
+#### USER_AUDIO_AVAILABLE
+
+远端用户开启/关闭了麦克风。
+触发条件：远端用户开启/关闭了麦克风。
+
+<dx-codeblock>
+::: javascript javascript
+let handleUserAudioChange = function({userID, isAudioAvailable}) {
+  console.log(userID, isAudioAvailable)
+};
+trtcCalling.on(TRTCCalling.EVENT.USER_AUDIO_AVAILABLE, handleUserAudioChange);
 :::
 </dx-codeblock>
 
@@ -440,36 +508,21 @@ function handleUserVideoChange({userID, isVideoAvailable}) {
 | 参数             | 类型    | 含义                                                          |
 | ---------------- | ------- | ------------------------------------------------------------- |
 | userID           | String  | 用户 ID                                                       |
-| isVideoAvailable | Boolean | <li/>true：远端用户打开摄像头 <li/> false：远端用户关闭摄像头 |
-
-#### USER_AUDIO_AVAILABLE
-远端用户开启/关闭了麦克风。
-
-<dx-codeblock>
-:::  javascript javascript
-function handleUserAudioChange({userID, isAudioAvailable}) {
-
-}
-:::
-</dx-codeblock>
-
-参数如下表所示：
-
-| 参数             | 类型    | 含义                                                           |
-| ---------------- | ------- | -------------------------------------------------------------- |
-| userID           | String  | 用户 ID                                                        |
-| isAudioAvailable | Boolean | <li/>true：远端用户打开麦克风  <li/> false：远端用户关闭麦克风 |
+| isAudioAvailable | Boolean | <li/>true：远端用户打开麦克风 <li/> false：远端用户关闭麦克风 |
 
 ### 邀请方事件回调
 
 #### REJECT
+
 用户拒绝通话。
+触发条件：被邀请方拒绝通话，发起方收到 REJECT 事件回调。
 
 <dx-codeblock>
-:::  javascript javascript
-function handleInviteeReject({userID}) {
-
-}
+::: javascript javascript
+let handleInviteeReject = function({userID}) {
+  console.log(userID)
+};
+trtcCalling.on(TRTCCalling.EVENT.REJECT, handleInviteeReject);
 :::
 </dx-codeblock>
 
@@ -480,13 +533,16 @@ function handleInviteeReject({userID}) {
 | userID | String | 用户 ID |
 
 #### NO_RESP
+
 邀请用户无应答。
+触发条件：当 call/groupCall 设置 timeout，被邀请方未在 timeout 内未在接听，发起方收到 NO_RESP 事件回调。
 
 <dx-codeblock>
-:::  javascript javascript
-function handleNoResponse({userID, userIDList}) {
-
-}
+::: javascript javascript
+let handleNoResponse = function({userID, userIDList}) {
+  console.log(userID, userIDList)
+};
+trtcCalling.on(TRTCCalling.EVENT.NO_RESP, handleNoResponse);
 :::
 </dx-codeblock>
 
@@ -498,13 +554,16 @@ function handleNoResponse({userID, userIDList}) {
 | userIDList | Array  | 超时用户列表 |
 
 #### LINE_BUSY
+
 被邀请方正在通话中，忙线。
+触发条件：被邀请方已再另一通话中，发起方收到 LINE_BUSY 事件回调。
 
 <dx-codeblock>
-:::  javascript javascript
-function handleInviteeLineBusy({userID}) {
-
-}
+::: javascript javascript
+let handleLineBusy = function({userID}) {
+  console.log(userID)
+};
+trtcCalling.on(TRTCCalling.EVENT.LINE_BUSY, handleLineBusy);
 :::
 </dx-codeblock>
 
@@ -517,47 +576,56 @@ function handleInviteeLineBusy({userID}) {
 ### 被邀请方事件回调
 
 #### INVITED
+
 收到邀请通知。
+触发条件：当有邀请通话时，被邀请方收到 INVITED 事件回调。
 
 <dx-codeblock>
-:::  javascript javascript
-function handleNewInvitationReceived({
+::: javascript javascript
+let handleNewInvitationReceived = function({
     sponsor, userIDList, isFromGroup, inviteData, inviteID
 }) {
-
-}
+  console.log(sponsor, userIDList, isFromGroup, inviteData, inviteID)
+};
+trtcCalling.on(TRTCCalling.EVENT.INVITED, handleNewInvitationReceived);
 :::
 </dx-codeblock>
 
 参数如下表所示：
 
-| 参数        | 类型    | 含义                                                                                                     |
-| ----------- | ------- | -------------------------------------------------------------------------------------------------------- |
-| sponsor     | String  | 邀请者                                                                                                   |
-| userIDList  | Array   | 同时还被邀请的人                                                                                         |
-| isFromGroup | Boolean | 是否 IM 群组邀请                                                                                         |
-| inviteData  | Object  | <li/>针对新用户邀请： {version, callType, roomID}<li/>针对最后一位用户挂断：{version, callType, callEnd} |
-| inviteID    | String  | 邀请 ID，标识一次邀请                                                                                    |
+| 参数        | 类型    | 含义                                                                                                       |
+| ----------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| sponsor     | String  | 邀请者                                                                                                     |
+| userIDList  | Array   | 同时还被邀请的人                                                                                           |
+| isFromGroup | Boolean | 是否 IM 群组邀请                                                                                           |
+| inviteData  | Object  | <li/>针对新用户邀请： {version, callType, roomID} <li/> 针对最后一位用户挂断：{version, callType, callEnd} |
+| inviteID    | String  | 邀请 ID，标识一次邀请                                                                                      |
 
 #### CALLING_CANCEL
+
 本次通话被取消了。
+触发条件：发起方在呼叫过程中取消通话，被邀请方收到 CALLING_CANCEL 事件回调。
 
 <dx-codeblock>
-:::  javascript javascript
-function handleInviterCancel() {
-
-}
+::: javascript javascript
+let handleCallingCancel = function(event) {
+  console.log(event)
+};
+trtcCalling.on(TRTCCalling.EVENT.CALLING_CANCEL, handleCallingCancel);
 :::
 </dx-codeblock>
 
 #### CALLING_TIMEOUT
+
 本次通话超时未应答。
+触发条件：当 call/groupCall 设置 timeout，被邀请方未在 timeout 内未在接听，被邀请方收到 CALLING_TIMEOUT 事件回调。
 
 <dx-codeblock>
-:::  javascript javascript
-function handleCallTimeout() {
-
-}
+::: javascript javascript
+let handleCallingTimeout = function(event) {
+  console.log(event)
+};
+trtcCalling.on(TRTCCalling.EVENT.CALLING_TIMEOUT, handleCallingTimeout);
 :::
 </dx-codeblock>
 
@@ -574,6 +642,13 @@ let onError = function(error) {
 trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 :::
 </dx-codeblock>
+
+#### Error code 码
+| code      | 错误类型    | 含义                        |
+| --------- | ----------- | ----------------------------- |
+| 60001     | 方法调用失败  | switchToAudioCall 调用失败   
+| 60002     | 方法调用失败  | switchToVideoCall 调用失败   
+
 
 ## 常见问题
 #### 为什么拨打不通，或者被踢下线？

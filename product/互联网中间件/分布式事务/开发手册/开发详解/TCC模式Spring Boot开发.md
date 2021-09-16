@@ -25,8 +25,8 @@ TCC 事务，也可以理解为手动事务。需要用户提供 Try、Confirm�
 
 ```
 <dependency>
-	<groupId>com.tencent.cloud</groupId>
-	<artifactId>spring-boot-dtf-druid</artifactId>
+<groupId>com.tencent.cloud</groupId>
+<artifactId>spring-boot-dtf-druid</artifactId>
 </dependency>  
 ```
 
@@ -84,7 +84,7 @@ public class OrderApplication {
 }
 ```
 
-> ?通常建议同时启用本地事务管理`@EnableTransactionManagement`。
+>?通常建议同时启用本地事务管理`@EnableTransactionManagement`。
 
 ## 主事务管理
 
@@ -231,7 +231,7 @@ public interface IOrderService {
 | confirmMethod | String                       | 否   | confirm 前缀 + @DtfTcc 注解方法名首字母大写 | Confirm 操作方法名                                   |
 | cancelClass   | String                       | 否   | @DtfTcc 注解所在 Class                      | Cancel 操作类名，建议填写 beanname                   |
 | cancelMethod  | String                       | 否   | Cancel 前缀 + @DtfTcc 注解方法名首字母大写  | Cancel 操作方法名                                    |
-| rollbackFor   | Class<? extends Throwable>[] | 否   | {}                                          | 分支事务在识别到以下异常时回滚主事务，未配置时不回滚 |
+| rollbackFor   | Class &lt;? extends Throwable&gt;[] | 否   | {}                                          | 分支事务在识别到以下异常时回滚主事务，未配置时不回滚 |
 
 在上面的例子中：
 
@@ -250,7 +250,7 @@ public interface IOrderService {
 
 ## 远程请求时传递分布式事务上下文
 
-使用`RestTemplate`或`FeginClient`时，DTF 框架支持自动化的分布式事务上下文传递。
+使用`RestTemplate`或`FeignClient`时，DTF 框架支持自动化的分布式事务上下文传递。
 
 如果使用了其他的通信框架，也可以**手动处理分布式事务上下文**。
 
@@ -270,9 +270,9 @@ DTF-Last-Branch-ID: ${LastBranchId}
 
 ```
 
-### 主调 - FeginClient
+### 主调 - FeignClient
 
-使用`FeginClient`访问下游服务时，DTF 框架自动注入了 TxFeignInterceptor，向请求头中装载分布式事务上下文信息。
+使用`FeignClient`访问下游服务时，DTF 框架自动注入了 TxFeignInterceptor，向请求头中装载分布式事务上下文信息。
 
 需要引入 feign 依赖：
 
@@ -298,7 +298,7 @@ DTF-Last-Branch-ID: ${LastBranchId}
 
 ### 主调 - 手动处理
 
-可以参考 [Spring Free开发指导](https://cloud.tencent.com/document/product/1224/45970) 中的**远程请求时传递分布式事务上下文**章节。
+可以参考 [Spring Free 开发指导](https://cloud.tencent.com/document/product/1224/45970) 中的**远程请求时传递分布式事务上下文**章节。
 
 ### 被调 - Spring MVC - Controller
 
@@ -324,11 +324,9 @@ DTF-Last-Branch-ID: ${LastBranchId}
 引入依赖后（注意 SDK 版本），直接正常使用 TSF 即可。
 
 ### 使用方式
-
 目前支持 Greenwich（G）和 Finchley（F）版本的 TSF SDK。您可以单击以下页签，查看对应的使用方式。
 <dx-tabs>
-::: G&nbsp;版本&nbsp;TSF&nbsp;SDK&nbsp;使用方式
-
+::: G\s版本\sTSF\sSDK\s使用方式
 ```xml
 <!-- TSF 启动器 -->
 <dependency>
@@ -337,11 +335,11 @@ DTF-Last-Branch-ID: ${LastBranchId}
     <version>1.23.0-Greenwich-RELEASE</version>
 </dependency>
 ```
-
 :::
-::: F&nbsp;版本&nbsp;TSF&nbsp;SDK&nbsp;使用方式
-
-> !需要再排除 DTF 中的一些依赖。
+::: F\s版本\sTSF\sSDK\s使用方式
+<dx-alert infotype="notice" title="">
+需要再排除 DTF 中的一些依赖。
+</dx-alert>
 
 ```xml
 <!-- TSF 启动器 -->
@@ -379,12 +377,14 @@ DTF-Last-Branch-ID: ${LastBranchId}
         </exclusions>
 </dependency>
 ```
-
 :::
 </dx-tabs>
 
-### 启用 TSF
 
+
+
+
+### 启用 TSF
 <dx-codeblock>
 :::  java
 @SpringBootApplication

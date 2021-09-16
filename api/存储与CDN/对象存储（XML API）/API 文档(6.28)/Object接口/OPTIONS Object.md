@@ -37,6 +37,8 @@ Access-Control-Request-Method: RequestMethod
 >!
 >- 虽然上述示例指定了对象键（ObjectKey），但在实际使用过程中可针对存储桶域名下的任意资源（包含根目录）发起预检请求，例如 `OPTIONS / HTTP/1.1` 或者 `OPTIONS /?lifecycle HTTP/1.1` 等。
 >- 预检请求由浏览器自动发出，因此预检请求无需也无法携带 Authorization 请求签名。
+> - Host: &lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com，其中 &lt;BucketName-APPID> 为带 APPID 后缀的存储桶名字，例如 examplebucket-1250000000，可参阅 [存储桶概览 > 基本信息](https://cloud.tencent.com/document/product/436/48921#.E5.9F.BA.E6.9C.AC.E4.BF.A1.E6.81.AF) 和 [存储桶概述 > 存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) 文档；&lt;Region> 为 COS 的可用地域，可参阅 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
+> 
 
 #### 请求参数
 

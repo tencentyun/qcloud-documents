@@ -6,6 +6,7 @@
 * （如果需要部署容器）已安装 Docker
 
 下载 Demo 地址： [spring cloud demo](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/native-app-demo/spring-cloud-boot2.tar.gz)。README 中介绍了打包 jar 包和 Docker 镜像的方法。
+>?原生应用不支持全局命名空间特性。
 
 ## Demo 目录结构
 

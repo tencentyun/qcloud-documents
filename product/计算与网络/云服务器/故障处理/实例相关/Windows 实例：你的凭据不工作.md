@@ -59,6 +59,7 @@ Windows 操作系统的本地计算机通过 RDP 协议（如 MSTSC 方式）远
 2. 展开【所有网络】页签，并在【密码保护的共享】下选择【关闭密码保护共享】，单击【保存更改】。
 3. 重新连接 Windows 云服务器，验证连接是否成功。
  - 是，任务结束。
- - 否，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&step=1) 反馈。
+ - 否，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 反馈。
 
 

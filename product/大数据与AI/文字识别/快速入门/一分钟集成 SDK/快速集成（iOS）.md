@@ -51,11 +51,6 @@ SDK 中包含了以下 framework 库以及资源文件：
 3. 权限设置
 OCR SDK 需要手机网络、 摄像头、访问相册的使用权限，请添加对应的权限声明。
 ```xml
-<key>NSAppTransportSecurity</key>
-<dict>
-	<key>NSAllowArbitraryLoads</key>
-	<true/>
-</dict>
 <key>Privacy - Camera Usage Description</key>
 <string>OCR 识别需要开启您的摄像头权限，用于识别</string>
 <key>Privacy - Photo Library Usage Description</key>
@@ -85,7 +80,7 @@ ocrSDKConfig.ocrModeType = _ocrModel;
 /// @param secretId  Secret id
 /// @param secretKey Secret key
 /// @param ocrConfig ocr 配置类
-[ocrSDKKit loadSDKConfigWithSecretId:nil withSecretKey:nil withConfig:ocrSdkConfig];
+[[OcrSDKKit sharedInstance] loadSDKConfigWithSecret:nil withSecretKey:nil withConfig:ocrSdkConfig];
 
 ```
 
@@ -152,5 +147,5 @@ OCR SDK 支持使用临时密钥接口，使用临时密钥的好处主要有以
 ### 常见错误
 
 1. 当提示**requsetConfigDict is nil**，检查下是不是在进入 SDK 时，执行了 [OcrSDKKit cleanInstance] 把密钥和配置设置清除了。
-2. SDK 页面依托于 UIWindow，所以需要再 AppDelegate.h 中添加 **@property (**nonatomic**, **strong**) UIWindow * window;**。
+2. SDK 页面依托于 UIWindow，所以需要在 AppDelegate.h 中添加 **@property (**nonatomic**, **strong**) UIWindow * window;**。
 3. 当出现进入 SDK 黑屏，添加设置**Other Linker Flags**添加 **-ObjC**。打印日志 **Application tried to push a nil view controller on target....**，原因是 self.storyboard 等于 nil，可以参考 demo，在调用 SDK 页面的 ViewController 手动加载 xib 页面，然后调用 SDK 进入识别页面。

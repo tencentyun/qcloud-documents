@@ -2,7 +2,7 @@
 
 ### SDK 获取
 
-录音文件识别的 iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_IOS_v2.6.0.zip )。
+录音文件识别的 iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_IOS_v2.6.1.zip)。
 
 ### 使用须知
 - QCloudSDK 支持 **iOS 9.0** 及以上版本。
@@ -39,7 +39,7 @@
 2. **申请系统麦克风权限，添加如下内容：**
 ```objective-c
    <key>NSMicrophoneUsageDescription</key>
-   <string>需要使用了的麦克风采集音频</string>
+   <string>需要使用您的麦克风采集音频</string>
 ```
 3. **在工程中添加依赖库，在 build Phases Link Binary With Libraries 中添加以下库：**
    + AVFoundation.framework

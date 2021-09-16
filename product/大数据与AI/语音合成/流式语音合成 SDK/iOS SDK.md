@@ -2,7 +2,7 @@
 ### 开发准备
 - 支持 iOS 8.0 及以上版本，不支持 bitcode 版本。
 - 合成实时流式语音，需要手机能够连接网络（2/3/4G 或 Wi-Fi 网络等）。
-- 语音合成 iOS SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/tts_sdk_ios_v1.4.0.zip)。
+- 语音合成 iOS SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/tts_sdk_ios_v1.4.1.zip)。
 - 服务端 [API 文档](https://cloud.tencent.com/document/product/1073/37995)。
 
 ### 导入 SDK

@@ -195,4 +195,4 @@ server-id=1
 除了本文所介绍的工具外，这里再推荐两种工具：
 - py-mysql-elasticsearch-sync，该工具是使用 Python语言编写，与 go-mysql-elasticsearch 的原理类似，都是使用 binlog 来实现数据的同步，安装及使用见 [官方文档 ](https://github.com/zhongbiaodev/py-mysql-elasticsearch-sync)。
 - logstash，使用 logstash 同步数据时需要安装 logstash-input-jdbc、logstash-output-elasticsearch 两个插件，具体使用参考 [官方文档](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html)  、[elastic 官方文档](https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html)。
-如果您在使用上述工具中遇到问题，可 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
+如果您在使用上述工具中遇到问题，可通过 [在线支持](https://cloud.tencent.com/online-service?from=connect-us) 解决。

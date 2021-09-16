@@ -14,8 +14,8 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
 
 ## 操作步骤
 ### 创建 WordPress 服务
-1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
-2. 在“集群管理”页面，选择需创建服务的集群 ID，进入集群的工作负载 “Deployment” 页面并单击【新建】。如下图所示：
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+2. 在“集群管理”页面，选择需创建服务的集群 ID，进入集群的工作负载 “Deployment” 页面并单击**新建**。如下图所示：
 ![](https://main.qcloudimg.com/raw/19997a6644943a2c6ec1587404eb8ca0.png)
 3. 在“新建Workload” 页面，根据以下信息，设置工作负载基本信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/119ceb8dd65d01df363a637361541d7a.png)
@@ -47,7 +47,7 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
  - **负载均衡器**：根据实际需求进行选择。
  - **端口映射**：选择 TCP 协议，将容器端口和服务端口都设置为80。
 >!服务所在集群的安全组需要放通节点网络及容器网络，同时需要放通30000 - 32768端口，否则可能会出现容器服务无法使用问题。详情参见 [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)。
-9. 单击【创建Workload】，完成 wordpress 服务的创建。
+9. 单击**创建Workload**，完成 wordpress 服务的创建。
 
 
 ###  访问 WordPress 服务
@@ -55,8 +55,8 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
 可通过以下两种方式访问 WordPress 服务。
 
 #### 通过负载均衡 IP 来访问 WordPress 服务
-1. 单击左侧导航栏中【[集群](https://console.cloud.tencent.com/tke2/cluster)】，进入“集群管理”页面。
-2. 单击 WordPress 服务所在的集群 ID，选择【服务】>【Service】。
+1. 单击左侧导航栏中 **[集群](https://console.cloud.tencent.com/tke2/cluster)**，进入“集群管理”页面。
+2. 单击 WordPress 服务所在的集群 ID，选择**服务** > **Service**。
 3. 进入服务管理页面，复制 WordPress 服务的负载均衡 IP，如下图所示：
 ![](https://main.qcloudimg.com/raw/29c21308a87d3f252ff3b0a2e9893822.png)
 4. 在浏览器地址栏输入负载均衡 IP，按 “**Enter**” 即可访问服务。

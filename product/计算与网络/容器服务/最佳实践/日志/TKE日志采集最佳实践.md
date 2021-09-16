@@ -134,7 +134,7 @@ Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0 0.310 
 
 
 ## 查询日志
-完成日志采集规则配置后，采集器会自动开始采集日志并上报到 CLS。您可在 [日志服务控制台](https://console.cloud.tencent.com/cls) 的【检索分析】中查询日志，开启索引后支持 Lucene 语法。有以下3类索引：
+完成日志采集规则配置后，采集器会自动开始采集日志并上报到 CLS。您可在 [日志服务控制台](https://console.cloud.tencent.com/cls) 的**检索分析**中查询日志，开启索引后支持 Lucene 语法。有以下3类索引：
 - 全文索引。用于模糊搜索，不用指定字段。如下图所示：
 ![](https://main.qcloudimg.com/raw/b4635a9c0956c6d3f43ac555e4284110.png)
 - 键值索引。索引结构化处理过的日志内容，可以指定日志字段进行检索。如下图所示：

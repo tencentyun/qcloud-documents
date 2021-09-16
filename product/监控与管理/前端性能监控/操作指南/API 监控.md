@@ -11,7 +11,7 @@ API 监控为您提供 HTTP Code 成功率、API 请求耗时等调用情况监�
 展示 API 性能关键指标变化趋势图，包括 API 耗时、成功率等。
 - 单击上方的图例可取消或展示对应的数据。
 - 支持按时间段或近14天粒度展示变化趋势图。
-- 在曲线中拖动鼠标可展示某一时刻首屏渲染时间。
+- 在曲线中拖动鼠标可展示某一时刻 API 耗时。
 - 鼠标移动到圆形位置并左右拖动圆形，可调整图表时间跨度。
 ![](https://main.qcloudimg.com/raw/8f598b372c090dcd109bc61ea51d0502.png)
 
@@ -58,6 +58,7 @@ API 监控为您提供 HTTP Code 成功率、API 请求耗时等调用情况监�
 ![](https://main.qcloudimg.com/raw/0ef2339941dc2909a2c47d0f467f6725.png)
 
 ### Version 视图
+本模块用于展示应用各版本异常占比。您可以通过在 new Aegis 的时候传入 version 来自定义研发相关的版本信息，默认使用 sdk 的版本。
 - 您可以将鼠标悬浮在饼图中或在右侧的列表中查看详细数据。
 - 单击上方的图例可取消或展示对应的数据。
 ![](https://main.qcloudimg.com/raw/2a5df05187de5dd574bf8fa6a2932a5f.png)

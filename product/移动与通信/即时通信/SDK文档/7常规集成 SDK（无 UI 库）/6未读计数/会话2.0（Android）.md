@@ -143,4 +143,4 @@ private void updateConversation(List<V2TIMConversation> convList, boolean needSo
 调用 `getConversationList` 接口拉取的会话可能已经通过 `onNewConversation` 回调接口添加到了 UI 会话列表的数据源中，因此为了避免重复添加同一个会话，您需要在 UI 会话列表数据源中根据 [getConversationID](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMConversation.html#ae599509f3d5e39bbcfb176b8976ff620) 找到相同的会话并做替换。
 
 ### 4. IM SDK 支持会话置顶吗？
-IM SDK 并不提供会话置顶功能，但是可以通过封装会话再重排序，可以参考 TUIKit 实现。置顶仅对本机生效，不会保存到云端上。
+IM SDK 从5.3.425版本开始支持会话置顶功能并可以同步到云端。

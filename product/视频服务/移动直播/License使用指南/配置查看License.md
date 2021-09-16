@@ -4,7 +4,7 @@
 - **iOS**
  建议在 `[AppDelegate application:didFinishLaunchingWithOptions:]` 中添加： 
 ```
-[TXLiveBase setLicenceURL:LicenceUrl key:Key];
+[TXLiveBase setLicenceURL:LicenceUrl key:Key]; 
 ```
 -  **Android**
  建议在 application 中添加：

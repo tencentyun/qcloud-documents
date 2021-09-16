@@ -6,6 +6,7 @@
 
 - 已 [创建文件系统及挂载点](https://cloud.tencent.com/document/product/582/9132)。
 - 已在云联网内的某个 VPC 下 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
+- 需要和存储通信的计算实例，且已双向放通云联网内 Turbo 所在 VPC 全部 IP 地址的988端口。
 
 ## 操作步骤
 
@@ -132,20 +133,20 @@ yum install
 10. 在挂载点信息页签的“挂载命令”中，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" />，复制所需命令。
 ![](https://main.qcloudimg.com/raw/4133842c838460323fea754124bd8548.png)
 11. 切换至登录的实例，执行刚复制的挂载命令。
-通常情况下，建议使用第一条指令进行挂载。关于挂载指令的说明如下：
- - 如果您希望支持扩展属性且所有操作默认为同步执行（机器重启不会丢数据，但 IO 性能会稍有损耗），请复制和执行第一条命令。
+关于挂载指令的说明如下，请根据实际的业务情况使用合适的挂载指令：
+ - 如果您希望支持扩展属性且所有操作默认为同步执行（机器重启不会丢数据，但性能会有损耗），请复制和执行第如下命令。
  例如：
-```
+```shell
 sudo mount.lustre -o sync,user_xattrXXXXXXXXXXXXXXXXXXX
 ```
- - 如果您希望支持扩展属性且无需强制同步执行（机器重启有可能会丢少量尚缓存在内存中的数据，但 IO 性能好），请复制和执行第二条命令。
+ - 如果您希望支持扩展属性且无需强制同步执行（机器重启有可能会丢少量尚缓存在内存中的数据，但性能好），请复制和执行如下命令。
  例如：
-```
+```shell
 sudo mount.lustre -o user_xattrXXXXXXXXXXXXXXXXXXX
 ```
- - 如果您无需支持扩展属性且无需强制同步执行，请复制和执行第三条命令。
+ - 如果您无需支持扩展属性且无需强制同步执行（机器重启有可能会丢少量尚缓存在内存中的数据，但性能好），请复制和执行如下命令。
  例如：
-```
+```shell
 sudo mount.lustre XXXXXXXXXXXXXXXXXXX
 ```
 

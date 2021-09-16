@@ -2291,4 +2291,3 @@ type | TIM_GROUP_SYSTEM_REVOKE_GROUP_TYPE
 group | 群组 ID，表示哪个群被回收了
 
 
-

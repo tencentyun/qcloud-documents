@@ -157,7 +157,7 @@ static Future<TRTCMeeting> sharedInstance();
 ```dart
 static void destroySharedInstance();
 ```
->? 销毁实例后，外部缓存的 TRTCMeeting 实例无法再使用，需要重新调用 [sharedInstance](#sharedInstance) 获取新实例。
+>? 销毁实例后，外部缓存的 TRTCMeeting 实例无法再使用，需要重新调用 [sharedInstance](#sharedinstance) 获取新实例。
 
 ### registerListener
 
@@ -207,7 +207,7 @@ Future<ActionCallback> setSelfProfile(String userName, String avatarURL);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| name | String | 用户昵称。|
+| userName | String | 用户昵称。|
 | avatarURL | String | 用户头像地址。|
 
 ## 会议房间相关接口
@@ -463,7 +463,7 @@ Future<void> setLocalViewMirror(bool isMirror);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| isMirror | boolean | 是否开启镜像预览模式。|
+| isMirror | boolean | 是否开启镜像预览模式，true：开启；false：不开启。|
 
 ## 本地音频操作接口
 ### startMicrophone

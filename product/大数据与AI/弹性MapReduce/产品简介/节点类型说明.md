@@ -167,15 +167,10 @@ EMR 定义了5种节点类型，您可以根据集群类型进行选择：
    <tr>
       <td>路由节点（Router）</td>
       <td>可选择部署 FE Observer、Broker 等进程。</td>
-      <td colspan=2>可随时更改 Router 节点数，最小值为0。</td>
+      <td colspan=2>可扩容增加 router 节点，不支持缩容。</td>
    </tr>
 </table>
 
 - Master 节点为 Frontend 模块，同时提供 Web UI 的功能。
 - Core 节点为 Backend 模块，主要提供数据存储功能。
 - Router 节点部署 Frontend 模块，实现读写高可用。
-
-
-
-
-

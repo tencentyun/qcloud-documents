@@ -53,7 +53,7 @@ Container 节点 Response 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| JobsDetail | Response | 任务的详细信息，同 CreateMediaJobs <br/>接口的 Response.JobsDetail 节点 |  Container |
+| JobsDetail | Response | 任务的详细信息，同 [CreateMediaJobs](https://cloud.tencent.com/document/product/460/48217) <br/>接口的 Response.JobsDetail 节点 |  Container |
 | NonExistJobIds | Response | 查询的 ID 中不存在任务，所有任务都存在时不返回 |  String |
 
 Container 节点 JobsDetail 的内容：

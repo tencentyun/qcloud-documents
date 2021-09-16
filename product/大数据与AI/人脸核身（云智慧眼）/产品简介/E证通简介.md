@@ -9,7 +9,7 @@ E证通支持通过微信小程序接入，内嵌企业业务小程序 SDK 中�
 
 |子产品名|比对库源|功能明细|接入渠道|
 |--------|--------|---------|--------|
-|E证通（权威库）|权威库|<li>身份证 OCR<li>活体检测<li>权威库人脸比对|[微信小程序](https://cloud.tencent.com/document/product/1007/56642)|
+|E证通（权威库）|权威库|<li>身份证 OCR<li>活体检测<li>权威库人脸比对|[E证通小程序](https://cloud.tencent.com/document/product/1007/56642)、[E证通H5](https://cloud.tencent.com/document/product/1007/58171)|
 
 
 ## 产品优势

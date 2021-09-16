@@ -1,5 +1,7 @@
-您的域名接入 CDN 后，系统会为您自动分配一个以 `.cdn.dnsv1.com` 为后缀的 CNAME 域名，可在 CDN 控制台 [域名管理页](https://console.cloud.tencent.com/cdn/domains) 查看。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受 CDN 加速服务。
+您的域名接入 CDN 后，系统会为您自动分配一个以 `.cdn.dnsv1.com` 或 `.dsa.dnsv1.com` 为后缀的 CNAME 域名，可在 CDN 控制台 [域名管理页](https://console.cloud.tencent.com/cdn/domains) 查看。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受 CDN 加速服务。
 ![img](https://main.qcloudimg.com/raw/64aa3f78c45b66f2387d64b54d77f75d.png)
+
+腾讯云 CDN 与 DNSPod 已打通解析配置能力，若域名已托管至腾讯云 DNSPod，则可通过 CDN 控制台 一键配置 CNAME，减少配置步骤和时间，快速启用 CDN 加速服务。详情请见 [DNSPod 一键配置 CNAME](https://cloud.tencent.com/document/product/228/59152)。
 
 ## 配置步骤
 
@@ -19,14 +21,13 @@
 
 1. 登录 [域名服务](https://console.cloud.tencent.com/domain) 控制台，在列表中，找到需要添加 CNAME 记录的域名所在行，单击操作栏的【解析】。
    ![CNAME配置](https://main.qcloudimg.com/raw/dd299f2ef44538523622a7de978d5995.png)
-2. 在跳转到的DNSPOD页面中，单击【添加记录】，通过如下步骤添加 CNAME 记录。
+2. 在跳转到的 DNSPod 页面中，单击【添加记录】，通过如下步骤添加 CNAME 记录。
    ![img](https://main.qcloudimg.com/raw/489791e8d992b47ed300e30899050c67.png)
 	- **主机记录**：填写子域名。例如，要添加 `www.dnspod.com`这个域名的解析，您在 “主机记录” 处选择 “www” 即可。如果只是想添加 `dnspod.com` 这个域名的解析，您在 “主机记录” 处选择 “@” 即可。
 	- **记录类型**：选择 “CNAME”。
 	- **线路类型**：选择 “默认” 类型。DNSPod 支持按多种方式划分线路，让指定用户访问该记录。详细说明请查看[解析线路说明](https://docs.dnspod.cn/dns/5f4775898ae73e11c5b01afc/)
 	- **记录值**：指向的域名，一般填写加速域名的 CNAME 值：xxx.xxx.com.cdn.dnsv1.com。记录生成后会自动在域名后面补一个“.”，这是正常现象。
-	- **权重**：同一条主机记录相同的线路,可以针对不同的记录值设置权重,解析时将根据设置的权重比例进行返回。输入范围
-		为0-100的整数。
+	- **权重**：同一条主机记录相同的线路,可以针对不同的记录值设置权重,解析时将根据设置的权重比例进行返回。输入范围为0-100的整数。
 	- **MX 优先级**：不需要填写。
 	- **TTL**：为缓存时间，数值越小，修改记录各地生效时间越快，默认为600秒。
 3. 填写完成后，单击【确认】，即可完成CNAME配置。
@@ -35,7 +36,7 @@
 
 ####  扩展设置
 - 您可以将单个主机记录的【线路类型】设置为 “默认” ，则是为整站开启加速服务。
-例如，您需要将所有用户都指向 `1.com`，您可以通过添加线路类型为默认、记录值为`1.com`的这一条 CANME 记录来实现。
+例如，您需要将所有用户都指向 `1.com`，您可以通过添加线路类型为默认、记录值为`1.com`的这一条 CNAME 记录来实现。
 ![img](https://main.qcloudimg.com/raw/be770e0f8b91c33ae7c41f1e50e633af.png)
 
 - 您也可以分线路开启加速服务。

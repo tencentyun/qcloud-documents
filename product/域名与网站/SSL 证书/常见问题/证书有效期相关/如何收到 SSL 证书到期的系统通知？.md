@@ -11,6 +11,6 @@
 
 ### 如何设置接收证书相关的系统消息通知？
 1. 请您登录 [消息中心控制台](https://console.cloud.tencent.com/message/subscription) 。
-2. 在【消息订阅】管理页面，您可在【产品消息】>【SSL 证书相关通知】勾选您需要的通知类型。
+2. 在**消息订阅**管理页面，您可在**产品消息 > SSL 证书相关通知**勾选您需要的通知类型。
 
 具体操作也可参考：[消息订阅管理](https://cloud.tencent.com/document/product/567/43476)。

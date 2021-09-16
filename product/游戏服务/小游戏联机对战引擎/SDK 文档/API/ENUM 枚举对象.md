@@ -18,5 +18,3 @@ ENUM 对象为 MGOBE 的子属性，记录了 SDK 常用的几种枚举数据，
 |GroupType|[MGOBE.types.GroupType](https://cloud.tencent.com/document/product/1038/35534#grouptype)|队组类型|
 
 
-
-

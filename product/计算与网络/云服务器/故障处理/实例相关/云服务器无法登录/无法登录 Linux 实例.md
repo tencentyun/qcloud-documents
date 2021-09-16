@@ -69,4 +69,5 @@
 
 
 ## 其它解决方案
-通过上述排查后，仍然不能连接 Linux 实例，请您保存自助诊断结果，[提交工单](https://console.cloud.tencent.com/workorder/category) 进行反馈。
+通过上述排查后，仍然不能连接 Linux 实例，请您保存自助诊断结果，通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 进行反馈。

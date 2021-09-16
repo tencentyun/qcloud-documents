@@ -49,7 +49,7 @@ cat /proc/meminfo | grep -iE "HugePages_Total|Hugepagesize"
 内存监控中内存使用率计算方法为：用户使用的内存量与总内存量之比，不包括缓冲区与系统缓存占用的内容。计算过程如下：
 = `(Total - available)100% / Total`
 = `(Total - (Free + Buffers + Cached + SReclaimable - Shmem))100% /Total`
-= `（Total - Free - Buffers - Cached - SReclaimable + Shmem）* 100% / Total`
+= `(Total - Free - Buffers - Cached - SReclaimable + Shmem）* 100% / Total`
 
 计算过程中使用的 `Total`、`Free`、`Buffer`、`Cached`、`SReclaimable`、`Shmem` 参数可从 `/proc/meminfo` 中获取。`/proc/meminfo` 示例如下：
 ```plaintext

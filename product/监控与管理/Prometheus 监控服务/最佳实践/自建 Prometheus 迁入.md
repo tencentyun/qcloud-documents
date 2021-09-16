@@ -1,10 +1,10 @@
 ## 操作场景
 
-已经有自建 Promethues 需快速迁移到 Prometheus 监控服务。
+已经有自建 Prometheus 需快速迁移到 Prometheus 监控服务。
 
 ## 操作步骤
 
-Prometheus 本身支持 Remote Write 到一个外部存储，因此沿用这个想思，在自建 Prometheus 的配置文件中加一个 Remote Write 配置指向到 Prometheus 监控服务即可。具体操作步骤如下：
+Prometheus 本身支持 Remote Write 到一个外部存储，因此沿用这个思想，在自建 Prometheus 的配置文件中加一个 Remote Write 配置指向到 Prometheus 监控服务即可。具体操作步骤如下：
 1. 通过实例基本信息获取 Prometheus监控服务的 Remote Write 地址及 Token，如下：
 ![](https://main.qcloudimg.com/raw/8a75f9f21f391f771d3898310a8ccc0d.png)
 2. 修改 `prometheus.yml`，修改完成 `重启 Prometheus`，具体配置如下，如需了解更多 Remote Write 配置参数，请参考 [remote_write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) 。

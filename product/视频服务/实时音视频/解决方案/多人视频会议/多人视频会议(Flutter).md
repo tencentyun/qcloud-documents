@@ -1,25 +1,4 @@
-
-
-## 效果展示
-
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验多人视频会议的效果，包括屏幕分享、美颜、低延时会议等 TRTC 在多人视频会议场景下的相关能力。
-
-<table>
-    <tr>
-        <th>进入会议</th>  
-        <th>屏幕分享</th>  
-    </tr>
-    <tr>
-        <td>
-            <img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/meeting1.gif" width="300px" height="640px"/>
-        </td>
-        <td>
-            <img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/screencapture.gif" width="300px" height="640px"/>
-        </td>
-    </tr>
-</table>
-
-如需快速接入多人视频会议功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TRTCMeeting 组件并实现自定义 UI 界面。
 
 [](id:DemoUI)
 ## 复用 App 的 UI 界面

@@ -33,7 +33,7 @@ GRANT ALL ON example_db TO test;
 ```
 USE example_db;
 ```
-Doris 支持支持单分区和复合分区两种建表方式。
+Doris 支持单分区和复合分区两种建表方式。
 
 在复合分区中：
 - 第一级称为 Partition，即分区。用户可以指定某一维度列作为分区列（当前只支持整型和时间类型的列），并指定每个分区的取值范围。

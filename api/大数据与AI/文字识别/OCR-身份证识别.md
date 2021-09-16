@@ -1,6 +1,6 @@
 >!
 - 身份证识别接口全面升级，算法更强、性能更优，支持子账号调用。欢迎立即体验 [新版身份证识别](https://cloud.tencent.com/document/product/866/33524)。
-- 新老版本的接口计费模式相同，且共享计费阶梯和资源包，您可以在【文字识别控制台】>【[身份证识别](https://console.cloud.tencent.com/ai/ocr/idcard)】中查看调用情况。
+- 新老版本的接口计费模式相同，且共享计费阶梯和资源包，您可以在【文字识别控制台】>【[用量统计](https://console.cloud.tencent.com/ocr/stats)】中查看调用情况。
 - 老版本接口我们仍继续维护，但不支持新客户开通调用，建议您使用 [新版身份证识别](https://cloud.tencent.com/document/product/866/33524)，体验更优服务。  
 
 ## 接口描述

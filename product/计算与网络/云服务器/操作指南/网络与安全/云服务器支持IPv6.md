@@ -1,6 +1,6 @@
 ## 操作场景
 本文指导您搭建一个具有 IPv6 CIDR 的云服务器，并为弹性网卡开启 IPv6，实现 IPv6 的内外网通信。
->? 目前弹性公网 IPv6 处于内测中，如有需求，[请提交申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
+>? 目前弹性公网 IPv6 处于内测中，如有需求，[请提交申请](https://cloud.tencent.com/apply/p/a9k0gialqhj)。
 >
 
 
@@ -14,7 +14,7 @@
 5. 黑石物理服务器2.0不支持在创建实例时配置 IPv6 地址。如需在黑石物理服务器2.0配置此功能，请在创建黑石物理服务器2.0实例后，前往弹性网卡 IPv6 控制台进行开通。详情请参见 [管理 IPv6 公网](https://cloud.tencent.com/document/product/1142/38141)。
 
 ## 操作步骤
->? 由于 IPv6 正在公测中，默认不会为云服务器实例配置 IPv6 地址。如果您的云服务器需要开启 IPv6 功能，请先进行手动配置，详情请参考 [快速搭建 IPv6 私有网络](https://cloud.tencent.com/document/product/215/37946)。
+>? 由于 IPv6 正在内测中，默认不会为云服务器实例配置 IPv6 地址。如果您的云服务器需要开启 IPv6 功能，请先进行手动配置，详情请参考 [快速搭建 IPv6 私有网络](https://cloud.tencent.com/document/product/215/37946)。
 > 
 
 ### 步骤1：购买云服务器（可选）

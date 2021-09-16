@@ -8,7 +8,7 @@
 
 |   计费方式|  描述  | 结算方式|
 |-----------|-------|-------|
-|后付费|后付费方式是人脸核身服务默认的计费方式，根据您使用腾讯云慧眼人脸核身相关产品产生的调用量进行计费，当月1-5号为您推送上个自然月账单并进行扣费结算。 |按调用量月结|
+|后付费|后付费方式是人脸核身服务默认的计费方式，根据您使用腾讯云慧眼人脸核身相关产品产生的调用量进行计费，当月1-3号为您推送上个自然月账单并进行扣费结算。 |按调用量月结|
 |预付费|通过购买资源包的方式抵扣人脸核身产品的计费量，资源包有效期均为1年（过期作废），支持 [7天内无理由退款](https://cloud.tencent.com/document/product/1007/31008)。|[购买资源包](https://buy.cloud.tencent.com/iai_faceid)|
 
 >?人脸核身产品的结算顺序：免费资源包>付费资源包>后付费；
@@ -154,6 +154,11 @@
 				<tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/47837">银行卡基础信息查询</a></td>
 			 <td>银行卡基础信息查询</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
+			  </tr>
+				<tr>
+			 <td><a href="https://cloud.tencent.com/document/product/1007/60075">身份信息及有效期核验</a></td>
+			 <td>身份信息及有效期核验</td>
 <td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
 			  </tr>
 </table>

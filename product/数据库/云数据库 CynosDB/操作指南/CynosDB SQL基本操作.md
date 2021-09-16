@@ -1,5 +1,4 @@
-
-## TDSQL-C（兼容 MySQL 版）SQL 基本操作
+## TDSQL-C for MySQL SQL 基本操作
 ### 查询版本
 方法一：
 ```
@@ -32,8 +31,7 @@ MySQL [(none)]> SHOW VARIABLES LIKE 'CYNOS_VERSION';
 1 row in set (0.01 sec)
 ```
 
-## TDSQL-C（兼容 PostgreSQL 版）SQL 基本操作
-
+## TDSQL-C for PostgreSQL SQL 基本操作
 ### 查询版本
 ```
 postgres=# select cynosdb_version(); cynosdb_version

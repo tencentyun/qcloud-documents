@@ -11,18 +11,18 @@
 请参见 [申请 License](https://cloud.tencent.com/document/product/584/20333)。
 
 ### step3. 准备调试环境
-**iOS 平台** 
+#### iOS 平台
 - XCode 9 或更高版本
 - OS X 10.10 或更高版本
 
-**Android 平台**
-- Android NDK: android-ndk-r12b
-- Android SDK Tools: android-sdk_26.0.2
-  - minSdkVersion: 15
-  - targetSdkVersion: 21
+#### Android 平台
+- Android NDK：android-ndk-r12b
+- Android SDK Tools：android-sdk_26.0.2
+  - minSdkVersion：15
+  - targetSdkVersion：21
 
 ### step4. 编译运行
-单击 XCode 或 Android Studio 的 Build 按钮，即可完成编译和运行工作，源码中默认配置了腾讯云提供的测试服务器地址`http://demo.vod2.myqcloud.com/lite/`，以便您快速在调试环境中运行我们的 App。
+单击 XCode 或 Android Studio 的 Build 按钮，即可完成编译和运行工作，源码中默认配置了腾讯云提供的测试服务器地址 `http://demo.vod2.myqcloud.com/lite/`，以便您快速在调试环境中运行我们的 App。
 
 
 ## 后台部分
@@ -30,7 +30,7 @@
 小视频 App 的运行依赖两种后台服务：
 
 - **点播云服务（VOD）**
-点播（VOD）服务可以为小视频提供视频的存储和在线分发的能力，您在购买短视频的基础版或者企业版 License 时，会一并购买腾讯云的点播服务套餐包，所以已经有一定量的流量可以使用。
+点播（VOD）服务可以为小视频提供视频的存储和在线分发的能力，您在购买短视频的基础版或者企业版 License 时，会一并购买腾讯云的点播服务套餐包，因此包含一定量的流量可以使用。
 
 - **业务服务器（CVM）**
 小视频 App 需要一台简单的业务服务器，该服务器可以为 App 提供注册、登录、视频列表存储、视频上传签名等能力，您可以将其搭建在腾讯云 CVM 云服务器上，并可以自行修改里面的逻辑。
@@ -41,36 +41,32 @@
 
 ### step1. 开通点播服务（VOD）
 
-登录 [云点播控制台](https://console.cloud.tencent.com/vod) 开通云点播服务，云点播服务可以为小视频提供视频存储和在线播放的能力。
-
-在云点播控制台的[【回调设置】](https://console.cloud.tencent.com/vod/callback)中设置回调模式为可靠回调，【事件回调配置】中选择上传完成回调，该配置需要10分钟左右能生效。
-<img src="https://main.qcloudimg.com/raw/fe55d80402a0ae03ad3e45592eb68b39.png" width="800"/>
+1. 登录 [云点播控制台](https://console.cloud.tencent.com/vod) 开通云点播服务，云点播服务可以为小视频提供视频存储和在线播放的能力。
+2. 在云点播控制台的[【回调设置】](https://console.cloud.tencent.com/vod/callback)中设置回调模式为可靠回调，【事件回调配置】中选择上传完成回调，该配置需要10分钟左右能生效。
+![](https://main.qcloudimg.com/raw/03e7c65ee0a53a033115275f1cc8bb14.png)
 
 ### step2. 获取云 API 密钥
 
 小视频 App 在上传视频时，需要使用腾讯云密钥，即 SecretId 和 SecretKey，这两个 Key 要从腾讯云控制台中获取并配置到业务服务器上。
-- **2.1**：登录控制台，选择【云产品】>【访问管理】>[【API密钥管理】](https://console.cloud.tencent.com/cam/capi)，进入“API 密钥管理”页面。
-- **2.2**：获取云 API 密钥。如果您尚未创建密钥，则单击【新建密钥】即可创建一对 SecretId 和 SecretKey。
-
-<img src="https://main.qcloudimg.com/raw/fb0490e2553cd5bc314a4ca9e1fc6913.png" width="800"/>
+1. 登录控制台，选择【云产品】>【访问管理】>[【API密钥管理】](https://console.cloud.tencent.com/cam/capi)，进入“API 密钥管理”页面。
+2. 获取云 API 密钥。如果您尚未创建密钥，则单击【新建密钥】即可创建一对 SecretId 和 SecretKey。[](id:step2_2)
+![](https://main.qcloudimg.com/raw/9b6ebb10bc83da80c1cdce084881d158.png)
 
 ### step3. 在云服务器上部署后台代码
-
-- **3.1：[新建 CVM 云服务器](https://console.cloud.tencent.com/cvm)**。  
-<img src="https://main.qcloudimg.com/raw/85a4ee15e56253b838e5fe30ecaf4655.png" width="800"/>
-- **3.2：选择【自定义配置】，进入镜像市场选取镜像**。
-![](https://main.qcloudimg.com/raw/baa3c6b05d431393bb08f0431678e284.png)
-![](https://main.qcloudimg.com/raw/e74f5eba3cb02f5838d27ea26090bd62.png)
-- **3.3：配置硬盘和网络，以及云服务器访问密码，妥善保管好密码，然后设置安全组**。
-![](https://main.qcloudimg.com/raw/81655f57778fd5a5ebe192f5db1200a4.png)
-- **3.4：登录生成的云服务器**。
-单击实例操作栏的【登录】，可以通过腾讯云的网页 shell 进行访问，也可以用 **putty** 或 **SecretCRT** 采用 ssh 登录到云服务器。
-![](https://main.qcloudimg.com/raw/4f8c3a12375bdebde7344fcb8c38ea22.png)
-- **3.5：修改云服务器配置信息**。
-将如下脚本中的`appId`、`SecretId`和`SecretKey`配置**2.2**中获取到的 APPID、SecretId 和 SecretKey。然后登录云服务器，直接在云服务器上执行修改后的脚本。
+1. **[新建 CVM 云服务器](https://console.cloud.tencent.com/cvm)**。  
+   ![](https://main.qcloudimg.com/raw/117061b25682cba1824d04beb3f9d8c5.png)
+2. **选择【自定义配置】，进入镜像市场选取镜像**。
+   ![](https://main.qcloudimg.com/raw/baa3c6b05d431393bb08f0431678e284.png)
+   ![](https://main.qcloudimg.com/raw/e74f5eba3cb02f5838d27ea26090bd62.png)
+3. **配置硬盘和网络，以及云服务器访问密码，妥善保管好密码，然后设置安全组**。
+   ![](https://main.qcloudimg.com/raw/81655f57778fd5a5ebe192f5db1200a4.png)
+4. **登录生成的云服务器**。[](id:step3_4)
+   单击实例操作栏的【登录】，可以通过腾讯云的网页 shell 进行访问，也可以用 **putty** 或 **SecretCRT** 采用 ssh 登录到云服务器。
+   ![](https://main.qcloudimg.com/raw/4f8c3a12375bdebde7344fcb8c38ea22.png)
+5. **修改云服务器配置信息**。
+   将如下脚本中的`appId`、`SecretId`和`SecretKey`配置 [步骤2](#step2_2) 中获取到的 APPID、SecretId 和 SecretKey。然后登录云服务器，直接在云服务器上执行修改后的脚本。
 >! 请在本地修改以下配置并复制，然后登录云服务器在控制台粘贴回车执行。
-
-	```
+```
   echo '{
       "dbconfig":{
           "host":"127.0.0.1",
@@ -97,7 +93,7 @@
   }' > /home/ubuntu/vod-xiaoshipin-server/conf/localconfig.json
 ```
 在服务器输入启动服务命令直接启动服务，服务启动默认端口为：`8001`。
-  启动服务：
+启动服务：
 ```
   cd /home/ubuntu/vod-xiaoshipin-server/;pm2 start app.js --name 'litvideo';
 ```
@@ -110,14 +106,14 @@
 ```
   pm2 delete litvideo;
 ```
-查看**3.4**中云服务器的公网 IP，在浏览器中输入`http://IP`查看服务是否启动成功。
+查看 [步骤4](#step3_4) 中云服务器的公网 IP，在浏览器中输入`http://IP` 查看服务是否启动成功。
 
 ### step4. 替换终端源代码中的后台地址
-- **iOS** 
-源码包解压后在 iOS/Demo/XiaoShiPin/TCConstants.h，将文件里的 `kHttpServerAddr` 改成您的云服务器公网 IP 地址。
+#### iOS 
+源码包解压后在 `iOS/Demo/XiaoShiPin/TCConstants.h`，将文件里的 `kHttpServerAddr` 改成您的云服务器公网 IP 地址。
 
-- **Android** 
-源码包解压后在 XiaoShiPin_Professional_Android/Demo/ugckit/src/main/java/com/tencent/qcloud/ugckit/UGCKitConstants.java ，将文件里的 `APP_SVR_URL` 改成您的云服务器公网 IP 地址。
+#### Android 
+源码包解压后在 `XiaoShiPin_Professional_Android/Demo/ugckit/src/main/java/com/tencent/qcloud/ugckit/UGCKitConstants.java`，将文件里的 `APP_SVR_URL` 改成您的云服务器公网 IP 地址。
 
 >! 如果服务器没有配置证书，这里的云服务器地址需要用 HTTP，而不能用 HTTPS。
 
