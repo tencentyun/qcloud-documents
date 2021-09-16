@@ -727,7 +727,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 接受邀请。
 
 ```Objective-C
-- (void)acceptInvitation:(NSString *)identifier callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(acceptInvitation(identifier:callback:));
+- (void)acceptInvitation:(NSString *)identifier callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(acceptInvitation(id:callback:));
 ```
 
 参数如下表所示：
@@ -742,7 +742,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 拒绝邀请。
 
 ```Objective-C
-- (void)rejectInvitation:(NSString *)identifier callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(rejectInvitation(identifier:callback:));
+- (void)rejectInvitation:(NSString *)identifier callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(rejectInvitation(id:callback:));
 ```
 
 参数如下表所示：
@@ -758,7 +758,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 取消邀请。
 
 ```Objective-C
-- (void)cancelInvitation:(NSString *)identifier callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(cancelInvitation(identifier:callback:));
+- (void)cancelInvitation:(NSString *)identifier callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(cancelInvitation(id:callback:));
 ```
 
 参数如下表所示：
@@ -837,8 +837,8 @@ NS_SWIFT_NAME(onDebugLog(message:));
 房间被销毁的回调。房主解散房间时，房间内的所有用户都会收到此通知。
 
 ```Objective-C
-- (void)onRoomDestroy:(NSString *)message
-NS_SWIFT_NAME(onRoomDestroy(message:));
+- (void)onRoomDestroy:(NSString *)roomId
+NS_SWIFT_NAME(onRoomDestroy(roomId:));
 ```
 
 参数如下表所示：
@@ -1044,10 +1044,10 @@ NS_SWIFT_NAME(onRecvRoomTextMsg(message:userInfo:));
 收到自定义消息。
 
 ```Objective-C
-- (void)onRecvRoomCustomMsg:(NSString *)cmd
+- (void)onRecvRoomCustomMsg:(NSString *)command
                     message:(NSString *)message
                    userInfo:(VoiceRoomUserInfo *)userInfo
-NS_SWIFT_NAME(onRecvRoomCustomMsg(cmd:message:userInfo:));
+NS_SWIFT_NAME(onRecvRoomCustomMsg(command:message:userInfo:));
 ```
 
 参数如下表所示：
@@ -1069,7 +1069,7 @@ NS_SWIFT_NAME(onRecvRoomCustomMsg(cmd:message:userInfo:));
                        inviter:(NSString *)inviter
                            cmd:(NSString *)cmd
                        content:(NSString *)content
-NS_SWIFT_NAME(onReceiveNewInvitation(identifier:inviter:cmd:content:));
+NS_SWIFT_NAME(onReceiveNewInvitation(id:inviter:cmd:content:));
 ```
 
 参数如下表所示：
@@ -1088,7 +1088,7 @@ NS_SWIFT_NAME(onReceiveNewInvitation(identifier:inviter:cmd:content:));
 ```Objective-C
 - (void)onInviteeAccepted:(NSString *)identifier
                   invitee:(NSString *)invitee
-NS_SWIFT_NAME(onInviteeAccepted(identifier:invitee:));
+NS_SWIFT_NAME(onInviteeAccepted(id:invitee:));
 ```
 
 参数如下表所示：
@@ -1105,7 +1105,7 @@ NS_SWIFT_NAME(onInviteeAccepted(identifier:invitee:));
 ```Objective-C
 - (void)onInviteeRejected:(NSString *)identifier
                   invitee:(NSString *)invitee
-NS_SWIFT_NAME(onInviteeRejected(identifier:invitee:));
+NS_SWIFT_NAME(onInviteeRejected(id:invitee:));
 ```
 
 参数如下表所示：
@@ -1121,7 +1121,7 @@ NS_SWIFT_NAME(onInviteeRejected(identifier:invitee:));
 
 ```Objective-C
 - (void)onInvitationCancelled:(NSString *)identifier
-                      invitee:(NSString *)invitee NS_SWIFT_NAME(onInvitationCancelled(identifier:invitee:));
+                      invitee:(NSString *)invitee NS_SWIFT_NAME(onInvitationCancelled(id:invitee:));
 ```
 
 参数如下表所示：

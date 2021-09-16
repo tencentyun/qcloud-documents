@@ -1,6 +1,6 @@
 对于 SQL 作业，用户可以上传 [自定义程序包](https://console.cloud.tencent.com/oceanus/resource)，然后在作业分析开发页的参数设置中，引用该程序包。目前支持从本地上传，也可以引用账户下现有 COS 存储中的资源（仅限相同地域）。
 
-这里的程序包既可以用来扩展 Connector 的功能（参见 [自定义 Connector]()），也可以创建自定义函数（UDF）。
+这里的程序包既可以用来扩展 Connector 的功能，也可以创建自定义函数（UDF）。
 
 ## 语法
 目前流计算 Oceanus 支持 Java 和 Scala 两种语言编写的程序包。当用户上传了自定义程序包后，在界面上关联后即可用下面的 CREATE FUNCTION 语句来声明：

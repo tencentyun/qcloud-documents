@@ -1,6 +1,6 @@
 ## 数学
 ### MOD(character varying,integer)
-MOD 为取余函数，MOD(m,n)，其中 m，n 都应是数字，同时 m 支持字符串类型。
+`MOD` 为取余函数，`MOD(m,n)`，其中 `m`、  `n` 都应是数字，同时 `m` 支持字符串类型。
 
 #### 语法
 ```
@@ -17,7 +17,7 @@ postgres=# select mod('10',3) from dual;
 ```  
 
 ### SUM(character varying)
-SUM 为求和函数，SUM(m)，其中 m 都应是数字，同时 m 支持字符串类型。
+`SUM` 为求和函数，`SUM(m)`，其中 `m` 应是数字，同时 `m` 支持字符串类型。
 
 #### 语法
 ```
@@ -39,7 +39,7 @@ postgres=# select sum(id),sum(info) from t_sum;
     
 
 ### LISTAGG(numeric,text)
-LISTAGG 聚合查询函数，可实现列转行，通常第一个参数为字符串类型，同时也支持数字。
+`LISTAGG` 聚合查询函数，可实现列转行，通常第一个参数为字符串类型，同时也支持数字。
 
 #### 语法
 ```
@@ -83,7 +83,7 @@ select grp_no,listagg(c1,'->') as t1
     
 ## 日期时间
 ### ADD_MONTHS(timestamp,text)
-ADD_MONTHS(x, y) 函数用于计算某个日期向前或者向后 y 个月后的时间，通常第2个参数为数字，同时支持字符串。
+`ADD_MONTHS(x, y)` 函数用于计算某个日期向前或者向后 `y` 个月后的时间，通常第 2 个参数为数字，同时支持字符串。
 
 #### 语法
 ```
@@ -122,7 +122,7 @@ orcl_sysdate | res
 ```
    
 ### NUMTOYMINTERVAL
-NUMTOYMINTERVAL 时间计算函数，2个参数第1个通常为数字，第2个参数为单位，可选有 'year','month'（忽略大小写）。
+`NUMTODSINTERVAL` 时间计算函数有 2 个参数。第 1 个通常为数字，第 2 个参数为单位，可选有 'day'，'hour'，'minute'，'second' （忽略大小写）。
 
 #### 语法
 ```
@@ -167,7 +167,7 @@ orcl_sysdate
 在 Oracle 中计算月份的差值，都是月底或是日期相同，都会按整月计算。如果计算结果不是整数，Oracle 会把31作为分母来计算。
 
 #### 使用限制
-Oracle 和 TDSQL PostgreSQL-O版 该函数实现相同，但精度不同，Oracle 有效数字为9位，TDSQL PostgreSQL-O版 为15位。
+Oracle 和 TDSQL PostgreSQL版（Oracle 兼容）的该函数实现相同，但精度不同，Oracle 有效数字为9位，TDSQL PostgreSQL 版（Oracle 兼容）为15位。
 
 #### 语法
 ```
@@ -195,8 +195,9 @@ postgres=# select months_between(to_date('20200301', 'yyyymmdd'), to_date('20200
 ```
    
 ### EXTRACT
-Oracle 中 EXTRACT() 函数从 Oracle 9i 中引入，主要作用于从一个 date 或者 interval 类型中截取特定的部分。
-TDSQL PostgreSQL-O版 兼容 EXTRACT 函数用法。
+Oracle 中 `EXTRACT()` 函数是从 Oracle 9i 引入的，主要作用于一个 `date` 或者 `interval` 类型中截取特定的部分。
+
+TDSQL PostgreSQL版（Oracle 兼容）兼容 `EXTRACT` 函数用法。
 
 #### 语法
 ```
@@ -253,7 +254,7 @@ postgres=# select SYSTIMESTAMP,EXTRACT(TIMEZONE_HOUR FROM SYSTIMESTAMP) hour,EXT
 ```
 NCHR(number)
 ```
-NCHR 返回具有与国家字符集中的数字等效的二进制字符。返回的值始终为 NVARCHAR2。此函数等效于将 CHR 函数与 USING NCHAR_CS 子句一起使用。
+`NCHR` 返回具有与国家字符集中的数字等效的二进制字符。返回的值始终为 `NVARCHAR2`。此函数等效于将 `CHR` 函数与 `USING NCHAR_CS` 子句一起使用。
 
 #### 示例
 ```
@@ -270,18 +271,18 @@ postgres=# select NCHR(84);
 ```
     
 ### NLS_UPPER
-NLS_UPPER 将字符串转换成大写，并可指定排序方式为拼音、部首或笔画。
+`NLS_UPPER` 将字符串转换成大写，并可指定排序方式为拼音、部首或笔画。
 
 #### 语法
 ```
 NLS_UPPER( x [, y ] )
 ```
 其中：
-- x：字符型表达式
-- y：可选，指定排序的方式 (nls_sort=) 
-- SCHINESE_RADICAL_M（部首、笔画）
-- SCHINESE_STROKE_M（笔画、部首)
-- SCHINESE_PINYIN_M（拼音）
+`x`：字符型表达式。
+`y`：可选，指定排序的方式（`nls_sort=`）。
+`SCHINESE_RADICAL_M`（部首、笔画）
+`SCHINESE_STROKE_M`（笔画、部首)
+`SCHINESE_PINYIN_M`（拼音））
     
 #### 示例
 ```
@@ -309,10 +310,11 @@ order by NLS_UPPER(info,'nls_sort= SCHINESE_STROKE_M');
 ```
 NLSSORT(char [, 'nlsparam' ])
 ```
-NLSSORT 用于对中文按拼音、笔画、部首进行排序。通过设置 NSL_SORT 值来实现：
-- SCHINESE_RADICAL_M 按照部首（第一顺序）、笔划（第二顺序）排序。
-- SCHINESE_STROKE_M 按照笔划（第一顺序）、部首（第二顺序）排序。
-- SCHINESE_PINYIN_M 按照拼音排序。
+用于对中文按拼音、笔画、部首进行排序。
+通过设置 `NSL_SORT` 值来实现：
+`SCHINESE_RADICAL_M` 按照部首（第一顺序）、笔划（第二顺序）排序。
+`SCHINESE_STROKE_M` 按照笔划（第一顺序）、部首（第二顺序）排序。
+`SCHINESE_PINYIN_M` 按照拼音排序。
 
 #### 示例
 ```
@@ -359,11 +361,11 @@ REGEXP_SUBSTR(source_string, pattern
    ]
   )
 ```
-- source_string：需要进行正则处理的字符串。
-- pattern：进行匹配的正则表达式。
-- position：起始位置，从第几个字符开始正则表达式匹配（默认为1）。
-- occurrence ：标识第几个匹配组，默认为1。
-- modifier：模式（'i'不区分大小写进行检索；'c'区分大小写进行检索，默认为'c'）。
+`srcstr`：需要进行正则处理的字符串。
+`pattern`：进行匹配的正则表达式。
+`position`：起始位置，从第几个字符开始正则表达式匹配（默认为 1）。
+`occurrence` ：标识第几个匹配组，默认为 1。
+`match_parameter`：模式（`i` 不区分大小写进行检索；`c` 区分大小写进行检索。默认为 `c`）。
 
 #### 示例
 ```
@@ -375,11 +377,11 @@ select   REGEXP_SUBSTR('as12b','b',1) from dual;
 ```
 INSTR (string , substring [, position [, occurrence ] ]) 
 ```
-- string：源字符串。
-- substring：目标字符串。
-- position：起始位置。
-- occurrence：匹配序号。
-在 string 中搜索 substring 出现的位置。
+`string`：源字符串
+`substring`：目标字符串
+`position`：起始位置
+`occurrence`：匹配序号
+在 `string` 中搜索 `substring` 出现的位置。
 
 #### 示例
 ```
@@ -391,7 +393,7 @@ SELECT INSTR('CORPORATE FLOOR','OR', 3, 2) FROM DUAL;
 ```
 { LENGTH| LENGTHB}(char)
 ```
-LENGTH 函数返回 char 的长度。 LENGTH 使用输入字符集定义的字符来计算长度。 LENGTHB 使用字节而不是字符。
+`LENGTH` 函数返回 `char` 的长度。`LENGTH` 使用输入字符集定义的字符来计算长度。`LENGTHB` 使用字节而不是字符。
 
 #### 示例
 ```
@@ -399,7 +401,7 @@ select length('CAND IDE') from dual;
 ```
     
 ## NULL 相关
-NVL 函数的功能是实现空值的转换，根据第一个表达式的值是否为空值，来返回响应的列名或表达式，主要用于对数据列上的空值进行处理，语法格式：NVL( string1, replace_with)。
+`NVL` 函数的功能是实现空值的转换，根据第一个表达式的值是否为空值来返回响应的列名或表达式，主要用于对数据列上的空值进行处理。
 如果第一个参数的值为空值，则返回第二个参数的值，否则返回第一个参数的值。如果两个参数的值都为空值，则返回空值。第一个参数和第二个参数可以是任何类型的数据，但两个参数的数据类型必须相同（或能够由隐式转换为相同的类型）。
 
 #### 语法
@@ -408,7 +410,7 @@ NVL( string1, replace_with)
 ```
 
 ### NVL(character varying, integer)
-支持 NVL 函数参数为 (character varying, integer)。
+支持 `NVL(character varying, integer)` 函数。
 
 #### 示例
 ```
@@ -436,7 +438,7 @@ postgres=# select nvl(null::text, 1);
    
 
 ### NVL(numeric, integer)
-支持 NVL 函数参数为 (numeric, integer)。
+支持 `NVL(numeric, integer)` 函数。
 
 #### 示例
 ```
@@ -463,7 +465,7 @@ postgres=# select nvl(null::numeric,'123'::integer);
 ```
     
 ### NVL(bigint, int)
-支持 NVL 函数参数为 (bigint, int)。
+支持 `NVL(bigint, int)` 函数。
 
 #### 示例
 ```
@@ -485,7 +487,7 @@ postgres=# select nvl(null::bigint,12::int);
 ```
     
 ### NVL(numeric,'')  
-支持 NVL 函数参数为 (numeric,'')。
+支持 `NVL (numeric,'')` 函数。
 
 #### 示例
 ```
@@ -517,8 +519,8 @@ postgres=# select nvl(null::numeric,'123');
 ```
    
 ### LNNVL 
-LNNVL 用于某个语句的 where 子句中的条件，如果条件为 true 则返回 false；如果条件为 unknown 或者 false 则返回 true。该函数不能用于复合条件，如 AND、OR 或 BETWEEN。
-    
+`LNNVL` 用于某个语句的 `where` 子句中的条件，如果条件为 `true` 则返回 `false`；如果条件为 `UNKNOWN` 或者 `false` 则返回 `true`。该函数不能用于复合条件如 `AND`、` OR` 或者 `BETWEEN` 中。    
+
 #### 语法
 ```
 LNNVL( expression )
@@ -542,19 +544,19 @@ postgres=# select * from t_lnnvl where lnnvl(f2>2);
 ```
     
 ## 编码与解码
-DECODE 函数是 ORACLE PL/SQL 的功能强大函数之一，用于实现 if–then–else 逻辑判断。
+`DECODE` 函数是 Oracle PL/SQL 的功能强大的函数之一，用于实现 `if–then–else` 逻辑判断。
 
 #### 语法
 ```
 DECODE(value, if1, then1, if2,then2, if3,then3, . . . else )
 ```
-Value 代表某个表任何类型的任意列或一个通过计算所得的任何结果。当每个 value 值被测试，如果 value 的值为 if1，decode 函数的结果是 then1；如果 value 等于 if2，decode 函数结果是 then2；等等。
-事实上，可以给出多个 if/then 配对。如果 value 结果不等于给出的任何配对时，decode 结果就返回 else。这里的 if、then 及 else 都可以是函数或计算表达式。
+`value` 代表某个表的任何类型的任意列或一个通过计算所得的任何结果。当每个 `value` 值被测试，如果 `value` 的值为 `if1`，`DECODE` 函数的结果是 `then1`；如果 `value` 等于 `if2`，`DECODE` 函数结果是 `then2` 等等。事实上，可以给出多个 `if/then` 配对。如果 `value` 结果不等于给出的任何配对时，`DECODE` 结果就返回 `else`。
+这里的 `if`、`then` 及 `else` 都可以是函数或计算表达式。
 
-在此基础上，补充和完善了以下 decode 函数用法。
+在此基础上，补充和完善了以下 `DECODE` 函数用法。
 
 ### DECODE(numeric, integer, text, numeric) 
-支持参数为 numeric, integer, text, numeric 的 decode 函数调用。
+支持参数为 `numeric`、`integer`、`text`、`numeric` 的 `DECODE` 函数调用。
 
 #### 示例
 ```
@@ -566,7 +568,7 @@ postgres=# select decode(1::numeric,2::integer,3::text,10::numeric) from dual;
 ```
     
 ### DECODE(bigint, integer, integer, integer)
-支持参数为 bigint, integer, integer, integer 的 decode 函数调用。
+支持参数为 `bigint`、`integer`、`integer`、`integer` 的 `DECODE` 函数调用。
 
 #### 示例
 ```
@@ -578,7 +580,7 @@ postgres=# select decode(1::bigint,2::integer,3::integer,10::integer) from dual;
 ```
    
 ### DECODE(bigint, integer, integer, integer, integer)
-支持参数为 bigint, integer, integer, integer, integer 的 decode 函数调用。
+支持参数为 `bigint`、`integer`、`integer`、`integer`、`integer` 的 `DECODE` 函数调用。
 
 #### 示例
 ```
@@ -595,7 +597,7 @@ postgres=# select decode(1::bigint,2::integer,3::integer,1::integer, 10::integer
 ```
     
 ### DECODE(bigint, bigint, bigint, double precision)
-支持参数为 bigint, bigint, bigint, double precision 的 decode 函数调用。
+支持参数为 `bigint`、`bigint`、`bigint`、`double precision` 的 `DECODE` 函数调用。
 
 #### 示例
 ```
@@ -607,7 +609,7 @@ postgres=# select decode(1::bigint,2::bigint,3::bigint,10::double precision) fro
 ```
     
 ### DECODE(bigint, integer, integer, double precision) 
-支持参数为 bigint, integer, integer, double precision 的 decode 函数调用。
+支持参数为 `bigint`、 `integer`、 `integer`、 `double precision` 的 `DECODE` 函数调用。
     
 #### 示例
 ```
@@ -619,7 +621,7 @@ postgres=# select decode(1::bigint,2::integer,3::integer,10::double precision) f
 ```
       
 ### DECODE(numeric, bigint, text, bigint, text)
-支持参数为 numeric, bigint, text, bigint, text 的 decode 函数调用。
+支持参数为 `numeric`、`bigint`、`text`、`bigint`、`text` 的 `DECODE` 函数调用。
     
 #### 示例
 ```
@@ -636,7 +638,7 @@ postgres=# select decode(1::numeric,2::bigint,3::text,1::bigint,10::text) from d
 ```
    
 ### DECODE(0,0,0,0/0)
-支持传入参数为0,0,0,0/0的用法。
+支持传入参数为 `0,0,0,0/0` 的用法。
 
 #### 示例
 ```
@@ -648,7 +650,7 @@ postgres=# select decode(0,0,0,0/0) from dual;
 ```
     
 ### DUMP
-dump() 函数可以返回一个 varchar 值，这个值包含了数据类型代码、字节长度和表达式的内部表示形式。
+`DUMP()` 函数可以返回一个 `varchar` 值，该值包含了数据类型代码、字节长度和表达式的内部表示形式。
 
 #### 语法
 ```
@@ -673,31 +675,35 @@ DUMP(expr[,return_fmt[,start_position][,length]])
 ```
 Typ=96 Len=3 [CharacterSet=ZHS16GBK]: 61,62,63
 ```
-- typ 表示当前 expr 值的类型，类型查询 `sql：select typname from pg_type where oid=?`；
-Oracle 与 TDSQL PostgreSQL-O版 中类型对比如下：
+1. `Typ` 表示当前的 `expr` 值的类型，类型查询 SQL：`select typname from pg_type where oid=?；`。
 
-|  Oracle|  Type|  TDSQL PostgreSQL-O版 |  Type |  
-|  -----|  -------------- |  --------------|  ----------------|  
-|  1  |  VARCHAR2   |  781   |  varchar2  |  
-|  2  |  NUMBER   |    1700  |  number  |  
-|  8  |  LONG   |   不支持  |    |  
-|  12  |  DATE     |  1082  |  date  |  
-|  23  |  RAW    |   不支持  |    |  
-|  24  |  LONG RAW   |  不支持  |    |  
-|  69  |  ROWID   |  4657rowid  |  
-|  96  |  CHAR   |   1042bpchar  |  
-|  112  |  CLOB    |   11905    |   clob  |  
-|  113  |  BLOB    |   11904     |  blob  |  
-|  114  |  BFILE    |   不支持  |  
-|  180  |  TIMESTAMP  |  1114  |  timestamp  |  
-|  181  |  TIMESTAMP WITH TIMEZONE1184  |  timestamptz  |  
-|  182  |  INTERVAL YEAR TO MONTH   |  1186  |  interval  |  
-|  183  |  INTERVAL DAY TO SECOND  |   1186  |  interval  |  
-|  208  |  UROWID  |  不支持  |    |  
-|  231  |  TIMESTAMP WITH LOCAL TIMEZONE   |  不支持  |    |  
+   Oracle 与 TDSQL PostgreSQL 版（Oracle 兼容）中类型对比如下：
 
-- Len 表示占用的字节数，这里字节数和 Oracle 的可能会有差异。
-- 具体的存储值。返回的数值就是 TDSQL PostgreSQL-O版 在自己内部的存储形式。对于非汉字的普通字符串，可以理解为就是它的 ASCII 码。
+| CODE TYP | Oracle Type                   | CODE TYP | TDSQL Type  |
+| -------- | ----------------------------- | -------- | ----------- |
+| 1        | VARCHAR2                      | 781      | varchar2    |
+| 2        | NUMBER                        | 1700     | number      |
+| 8        | LONG                          | -        | 不支持      |
+| 12       | DATE                          | 1082     | date        |
+| 23       | RAW                           | -        | 不支持      |
+| 24       | LONG RAW                      | -        | 不支持      |
+| 69       | ROWID                         | 4657     | rowid       |
+| 96       | CHAR                          | 1042     | bpchar      |
+| 112      | CLOB                          | 11905    | clob        |
+| 113      | BLOB                          | 11904    | blob        |
+| 114      | BFILE                         | -        | 不支持      |
+| 180      | TIMESTAMP                     | 1114     | timestamp   |
+| 181      | TIMESTAMP WITH TIMEZONE       | 1184     | timestamptz |
+| 182      | INTERVAL YEAR TO MONTH        | 1186     | interval    |
+| 183      | INTERVAL DAY TO SECOND        | 1186     | interval    |
+| 208      | UROWID                        | -        | 不支持      |
+| 231      | TIMESTAMP WITH LOCAL TIMEZONE | -        | 不支持      |
+
+
+2. `Len` 表示占用的字节数，此处的字节数和 Oracle 可能会有差异。
+
+3. 具体的存储值。返回的数值就是 TDSQL PostgreSQL版（Oracle 兼容）在数据库内部的存储形式。对于非汉字的普通字符串，可以理解为就是它的 ASCII 码。
+
 
 #### 示例
 ```
@@ -740,7 +746,7 @@ postgres=# select ascii('a'),ascii('='),ascii('?'),ascii('5') from dual;
 
 ## XML
 ### EXTRACTVALUE
-EXTRACTVALUE 函数将 XMLType 实例和 XPath 表达式作为参数，并返回结果节点的标量值。
+`EXTRACTVALUE` 函数将 XMLType 实例和 XPath 表达式作为参数，并返回结果节点的标量值。
 
 #### 语法
 ```
@@ -771,7 +777,7 @@ select extractvalue(xmltype(a.temp_clob),'/AAA/BBB[@id="b2"]') from temp a;
 
 ## 转换
 ### TO_CLOB
-TDSQL PostgreSQL-O版 兼容 Oracle 的 TO_CLOB 函数，将字符串、数字转换为 clob 类型。
+TDSQL PostgreSQL版（Oracle 兼容）兼容 Oracle 的 `TO_CLOB` 函数，将字符串、数字转换为 `clob` 类型。
 
 #### 语法
 ```
@@ -799,8 +805,8 @@ postgres=# select typname from pg_type where oid=11899;
 确认函数输出类型11899对应 clob。
 
 ### ROWIDTOCHAR
-Oracle 中 ROWIDTOCHAR 函数转换 rowid 为 varchar2 类型。
-TDSQL PostgreSQL-O版 兼容该函数，返回类型为 text。
+Oracle 中 `ROWIDTOCHAR` 函数转换 `rowid` 为 `varchar2` 类型。TDSQL PostgreSQL版（Oracle 兼容）兼容该函数，返回类型为 `text`。
+使用限制：参数必须为 `rowid` 类型，或符合 `rowid` 要求的 `varchar`、`varchar2`、`text` 类型。
 
 #### 使用限制
 参数必须为 rowid 类型，或符合 rowid 要求的 varchar、varchar2、text 类型。
@@ -834,11 +840,9 @@ postgres=# select ROWIDTOCHAR('XPK3fw==AQAAAAAAAAA=');
 ```
     
 ### CHARTOROWID
-Oracle 中 CHARTOROWID 函数转换 varchar2 类型为 rowid 值,c1,字符串，长度为18的字符串，字符串必须符合 rowid 格式，ROWID：数据表中行的全局唯一地址，[ROWID 详解](https://blog.csdn.net/chiclewu/article/details/25782619)。
-TDSQL PostgreSQL-O版 中 rowid 长度为20位。
+Oracle 中的 `CHARTOROWID` 函数转换  `CHAR`、 `VARCHAR2`、 `NCHAR` 或 `NVARCHAR2` 类型为 `rowid` 值。
 
-#### 使用限制
-参数为字符串，用长度必须为20，字符只能为数字、大小写字母、=组合。
+TDSQL PostgreSQL版（Oracle 兼容）中 `rowid` 长度为20位。
 
 #### 语法
 ```
@@ -873,10 +877,9 @@ postgres=#
 ```
     
 ### TO_CHAR(十进制，'xxx') 转换为16进制
-TO_CHAR 通常用来将日期、数字转换为字符串，但 Oracle 中还有一种用途，可以用来将十进制转换为16进制。
+`TO_CHAR` 通常用于将日期、数字转换为字符串，但 Oracle 中还有一种用途，可以用于将十进制转换为十六进制。
 
-#### 使用限制
-需要开启 Oracle 兼容性，即 enable_oracle_compatible 为 on。
+使用限制：需要开启 Oracle 兼容性，即 `enable_oracle_compatible` 为 `on`。
 
 #### 语法
 ```
@@ -913,7 +916,7 @@ ERROR:  invalid argument string length
    
 ## 大对象
 ### EMPTY_BLOB
-TDSQL PostgreSQL-O版 兼容 Oracle 的 EMPTY_BLOB 函数，用于初始化 BLOB 字段，然后再使用输出流向字段中写数据。
+TDSQL PostgreSQL版（Oracle 兼容）兼容 Oracle 的 EMPTY_BLOB 函数，用于初始化 BLOB 字段，然后再使用输出流向字段中写数据。
 
 #### 语法
 ```
@@ -936,7 +939,7 @@ postgres=# select * from t_empty_blob ;
 ```
    
 ### EMPTY_CLOB
-TDSQL PostgreSQL-O版 兼容 Oracle 的 EMPTY_CLOB 函数，用于初始化 CLOB 字段，然后再使用输出流向字段中写数据。
+TDSQL PostgreSQL版（Oracle 兼容）兼容 Oracle 的 EMPTY_CLOB 函数，用于初始化 CLOB 字段，然后再使用输出流向字段中写数据。
 
 #### 语法
 ```

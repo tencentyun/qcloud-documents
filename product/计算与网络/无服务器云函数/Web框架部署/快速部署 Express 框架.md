@@ -3,7 +3,7 @@
 本文将为您指导如何通过 Web Function，将您的本地 Express 项目快速部署到云端。
 
 
->?本文档主要介绍控制台部署方案，您也可以通过命令行完成部署，详情请参见 [命令行部署 Web 函数](https://cloud.tencent.com/document/product/583/58183)。
+>?本文档主要介绍控制台部署方案，您也可以通过命令行完成部署，详情请参见 [通过命令行完成框架部署](https://cloud.tencent.com/document/product/583/59439)。
 
 
 
@@ -16,13 +16,13 @@
 ### 模版部署 -- 一键部署 Express 项目
 
 
-1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的【函数服务】。
-2. 在主界面上方选择期望创建函数的地域，并单击【新建】，进入函数创建流程。
-3. 选择使用【模版创建】来新建函数，在搜索框里输入 `WebFunc` 筛选所有 Web 函数模版，选择【Express 框架模版】并单击【下一步】。如下图所示：
+1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
+2. 在主界面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
+3. 选择使用**模版创建**来新建函数，在搜索框里输入 `WebFunc` 筛选所有 Web 函数模版，选择**Express 框架模版**并单击**下一步**。如下图所示：
 ![](https://main.qcloudimg.com/raw/10cb2b9714ee259475f1b67813a53570.png)
-4. 在“配置”页面，您可以查看模版项目的具体配置信息并进行修改。
-5. 单击【完成】即可创建函数。函数创建完成后，您可在“函数管理”页面，查看 Web 函数的基本信息。
-6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Express 项目。单击左侧菜单栏中的【触发管理】，查看访问路径。如下图所示：
+4. 在**新建**页面，您可以查看模版项目的具体配置信息并进行修改。
+5. 单击**完成**即可创建函数。函数创建完成后，您可在**函数管理**页面查看 Web 函数的基本信息。
+6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Express 项目。单击左侧菜单栏中的**触发管理**，查看访问路径。如下图所示：
 ![](https://main.qcloudimg.com/raw/2f0518e802213e84250e66f768d32d99.png)
 7. 单击访问路径 URL，即可访问服务 Express 项目。如下图所示：
 ![](https://main.qcloudimg.com/raw/022395bbdc8315c16c4d6ef92d4ecb4d.png)
@@ -88,9 +88,9 @@ chmod 777 scf_bootstrap
 ./scf_bootstrap
 :::
 </dx-codeblock>
-5. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的【函数服务】。
-6. 在主界面上方选择期望创建函数的地域，并单击【新建】，进入函数创建流程。
-7. 选择【自定义创建】新建函数，根据页面提示配置相关选项。如下图所示：
+5. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
+6. 在主界面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
+7. 选择**自定义创建**新建函数，根据页面提示配置相关选项。如下图所示：
 ![](https://main.qcloudimg.com/raw/5ea3c99b29d6a21d158635f314f760e3.png)
 	- **函数类型**：选择 “Web 函数”。
 	- **函数名称**：填写您自己的函数名称。
@@ -99,7 +99,7 @@ chmod 777 scf_bootstrap
 	- **部署方式**：选择“代码部署”，上传您的本地项目。
 	- **提交方法**：选择“本地上传文件夹”。
 	- **函数代码**：选择函数代码在本地的具体文件夹。
-8. 单击【完成】完成 Express 项目的部署。
+8. 单击**完成**完成 Express 项目的部署。
 
 
 

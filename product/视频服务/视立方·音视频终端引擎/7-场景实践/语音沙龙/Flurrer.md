@@ -1,12 +1,12 @@
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 效果展示
 
@@ -33,7 +33,7 @@
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 输入应用名称，例如  `TestChatSalon`  ，单击【创建】。
 
->!本功能同时使用了腾讯云视立方音视频通话TRTC和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+>!本功能同时使用了腾讯云视立方音视频通话 TRTC 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 
 
@@ -51,7 +51,6 @@
 <ul><li/>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
 	<li/>SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。</ul>
 <img src="https://main.qcloudimg.com/raw/fba60aa9a44a94455fe31b809433cfa4.png">
-
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -216,7 +215,7 @@ onVoiceListener(type, param) async {
 
 1. 听众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 听众端向业务后台获取最新的语音沙龙房间列表。
- >?Demo 中的语音沙龙列表仅做演示使用，语音沙龙列表的业务逻辑千差万别，腾讯云暂不提供语音沙龙列表的管理服务，请自行管理您的语音沙龙列表。
+>?Demo 中的语音沙龙列表仅做演示使用，语音沙龙列表的业务逻辑千差万别，腾讯云暂不提供语音沙龙列表的管理服务，请自行管理您的语音沙龙列表。
 3. 听众端调用 `getRoomList` 获取房间的详细信息，该信息是在房主端调用  `createRoom` 创建语音沙龙时设置的简单描述信息。
 > !如果您的语音沙龙列表包含了足够全面的信息，可跳过调用 `getRoomList` 相关步骤。 并传入房间号即可进入该房间。
 4. 进房后会收到组件的 `TRTCChatSalonDelegate.onAudienceEnter` 和 `TRTCChatSalonDelegate.onAudienceExit` 听众进退房通知，监听到事件回调后可以将变化然后刷新到 UI 界面上。

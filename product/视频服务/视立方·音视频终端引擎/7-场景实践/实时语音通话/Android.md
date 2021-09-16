@@ -1,14 +1,14 @@
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
-## 效果展示
+## 效果展示 
 
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验实时语音通话的效果。
 <table>
@@ -37,7 +37,7 @@
 3. 单击【已下载，下一步】，跳过此步骤。
 
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
->! 本功能同时使用了腾讯云视立方音视频通话TRTC和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+>! 本功能同时使用了腾讯云视立方音视频通话 TRTC 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 [](id:ui.step2)
 ### 步骤2：下载 App 源码
@@ -132,11 +132,10 @@ defaultConfig {
 3. 单击【Sync Now】同步 SDK。
 >?若您的网络连接 jcenter 没有问题，SDK 会自动下载集成到工程里。
 
-
 **方法二：通过本地 AAR 依赖**
 如果您的开发环境访问 Maven 仓库较慢，可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
 
-| SDK      | <table><tr><th>参数名</th><th>作用</th></tr><tr><td>SDKAppID</td><td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td></tr><tr><td>userId</td><td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（_）。</td></tr><tr><td>userSig</td><td>腾讯云设计的一种安全保护签名，计算方式请参见 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td></tr></table> | 集成指引                                                     |
+| SDK      | 下载页面                                                     | 集成指引                                                     |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | TRTC SDK | [DOWNLOAD](https://cloud.tencent.com/document/product/647/32689) | [集成文档](https://cloud.tencent.com/document/product/647/32175) |
 | IM SDK   | [DOWNLOAD](https://cloud.tencent.com/document/product/269/36887) | [集成文档](https://cloud.tencent.com/document/product/269/32679) |
@@ -147,8 +146,7 @@ defaultConfig {
 
 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请相机、读取存储权限）：
 
-<dx-codeblock>
-::: android 
+```
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -161,8 +159,7 @@ defaultConfig {
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-feature android:name="android.hardware.camera"/>
 <uses-feature android:name="android.hardware.camera.autofocus" />
-:::
-</dx-codeblock>
+```
 
 在 proguard-rules.pro 文件，将 SDK 相关类加入不混淆名单：
 
@@ -298,3 +295,4 @@ TRTCCalling 组件的 API 接口列表如下：
 | switchCamera    | 切换前后摄像头                                            |
 | setMicMute      | 是否静音 mic                                              |
 | setHandsFree    | 是否开启免提                                              |
+

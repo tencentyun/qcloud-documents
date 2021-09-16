@@ -26,7 +26,8 @@ soft lockup 指 CPU 被内核代码占据以至于无法执行其他进程。检
 - 触发了内核 bug。
 
 ### 处理步骤
-内核相关问题排查及处理步骤较复杂，建议 [提交工单](https://console.cloud.tencent.com/workorder/category) 进一步定位及处理。
+内核相关问题排查及处理步骤较复杂，建议通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 进一步定位及处理。
 
 
 ## 硬盘问题定位及处理

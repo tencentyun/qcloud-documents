@@ -1,19 +1,19 @@
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | -  | &#10003;  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 [](id:structure)
 
 ## 工程结构
 ![](https://main.qcloudimg.com/raw/6dece0a7e9535e3fdb138975ff69452c.png)
-小视频主要集成了 UGCKit 作为核心功能库。集成方式参考 [UGCKit](https://github.com/tencentyun/UGSVSDK/tree/master/iOS)（主要负责播放录制）。
-小视频的美颜功能，主要集成 BeautySettingkit 实现。集成方式请参见 [类抖音特效](https://cloud.tencent.com/document/product/1449/57050?!preview&!editLang=zh)、[动效变脸](https://cloud.tencent.com/document/product/1449/57135?!preview&!editLang=zh) 文档，相关代码都可以在 BeautySettingKit 目录下找到。
+小视频主要集成了 UGCKit 作为核心功能库。集成方式参见 [UGCKit](https://github.com/tencentyun/UGSVSDK/tree/master/iOS)（主要负责播放录制）。
+小视频的美颜功能，主要集成 BeautySettingkit 实现。集成方式请参见 [类抖音特效](https://cloud.tencent.com/document/product/1449/57050)、[动效变脸](https://cloud.tencent.com/document/product/1449/57135) 文档，相关代码都可以在 BeautySettingKit 目录下找到。
 
 [](id:function)
 
@@ -39,10 +39,8 @@
 
 #### 相关代码
 - **Model**：
-
   TCLiveListModel(XiaoShiPin/AppViewControllers/mainList)：点播列表的数据层定义以及序列化/反序列化实现。
 - **UI**：
-	
 	- TCNavigationController：定制的导航栏，主要是设置导航栏的背景颜色。
 	- TCMainViewController：主界面的 tab bar 控件，用于切换列表、录制和个人资料页面。
 	- TCVideoListCell：点播列表的 Cell 类，主要展示封面、标题、昵称。
@@ -89,6 +87,7 @@
 - 资料模块会从服务器同步用户最新资料到 App，用户可以通过资料模块来浏览自己的相关资料，包括用户头像、昵称和性别等。
 - 用户可以通过资料模块修改自己的相关资料，资料模块会将这些操作同步到服务器。
 - 其他模块也可以通过资料模块获取，修改用户资料。
+
 #### 相关代码
 `XiaoShiPin/AppViewController/AccountInfo` 目录下可以找到用户资料相关的所有逻辑。
 

@@ -2,6 +2,11 @@
 
 小程序 SDK 提供计算签名、获取对象 URL、获取请求预签名 URL 等示例。
 
+>?
+> - 建议用户使用临时密钥生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
+> - 如果您一定要使用永久密钥来生成预签名，建议永久密钥的权限范围仅限于上传或下载操作，以规避风险。
+> 
+
 ## 计算签名
 
 COS XML API 的请求里，私有资源操作都需要鉴权凭证 Authorization，用于判断当前请求是否合法。
@@ -41,7 +46,7 @@ var Authorization = COS.getAuthorization({
 | SecretId  | 用户的 SecretId                                              | String | 是   |
 | SecretKey | 用户的 SecretKey                                             | String | 是   |
 | Method    | 操作方法，例如 GET，POST，DELETE， HEAD 等 HTTP 方法         | String | 是   |
-| Key       | 对象键（Object 的名称），对象在存储桶中的唯一标识<br><li>**如果请求操作是对文件的，则为文件名，且为必须参数**<br><li>如果操作是对于存储桶，则为空 | String | 否   |
+| Key       | 对象键（Object 的名称），对象在存储桶中的唯一标识</br><li>**如果请求操作是对文件的，则为文件名，且为必须参数**</li><li>如果操作是对于存储桶，则为空</li> | String | 否   |
 | Query     | 请求的 query 参数对象                                        | Object | 否   |
 | Headers   | 请求的 header 参数对象                                       | Object | 否   |
 | Expires   | 签名几秒后失效，默认为900秒                                  | Number | 否   |
@@ -83,7 +88,8 @@ var url = cos.getObjectUrl({
 
 示例三：通过 callback 获取带签名 Url
 
-> ?如果签名过程是异步获取，需要通过 callback 获取带签名 Url。
+>? 如果签名过程是异步获取，需要通过 callback 获取带签名 Url。
+>
 
 [//]: # (.cssg-snippet-get-presign-download-url-callback)
 ```js
@@ -143,7 +149,7 @@ cos.getObjectUrl({
 | ------- | ------------------------------------------------------------ | ------- | ---- |
 | Bucket  | 存储桶的名称，命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式 | String  | 是   |
 | Region  | 存储桶所在地域，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) | String  | 是   |
-| Key     | 对象键（Object 的名称），对象在存储桶中的唯一标识<br><li>**如果请求操作是对文件的，则为文件名，且为必须参数**<br><li>如果操作是对于存储桶，则为空 | String  | 是   |
+| Key     | 对象键（Object 的名称），对象在存储桶中的唯一标识</br><li>**如果请求操作是对文件的，则为文件名，且为必须参数**</li><li>如果操作是对于存储桶，则为空</li> | String  | 是   |
 | Sign    | 是否返回带有签名的 Url，默认为 true                          | Boolean | 否   |
 | Protocol    | 可选填为`http:`或`https:`，默认为`http:`（带冒号）                          | String | 否   |
 | Domain    | 存储桶访问域名，默认为 {BucketName-APPID}.cos.{Region}.myqcloud.com     | String | 否   |

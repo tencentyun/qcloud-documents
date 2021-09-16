@@ -43,7 +43,7 @@
 
 ### 数据卷的注意事项
 
-- **创建数据卷后，需在【实例内容器】模块设置容器的挂载点。**
+- **创建数据卷后，需在**实例内容器**模块设置容器的挂载点。**
 - 同一个服务下，数据卷的名称和容器设置的挂载点不能重复。
 - 本地硬盘数据卷源路径为空时，系统将分配 `/var/lib/kubelet/pods/pod_name/volumes/kubernetes.io~empty-dir` 临时目录，且使用临时的数据卷生命周期与实例的生命周期保持一致。
 - 数据卷挂载未设置权限，默认设置为读写权限。
@@ -51,18 +51,18 @@
 ## Volume 控制台操作指引
 ### 创建工作负载挂载数据卷
 
-1. 登录容器服务控制台，并选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
+1. 登录容器服务控制台，并选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，单击需要部署 Workload 的集群 ID，进入待部署 Workload 的集群管理页面。
-3. 在【工作负载】下，任意选择 Workload 类型，进入对应的信息页面。
-例如，选择【工作负载】>【DaemonSet】，进入 DaemonSet 信息页面。如下图所示：
+3. 在**工作负载**下，任意选择 Workload 类型，进入对应的信息页面。
+例如，选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/0098359fed5ce7eb42658604962f3165.png)
-4. 单击【新建】，进入 “新建Workload” 页面。
-5. [](id:Step5)根据页面信息，设置工作负载名、命名空间等信息。并在“数据卷”中，单击【添加数据卷】添加数据卷。
-6. 根据实际需求，选择数据卷的存储方式，本文以【使用腾讯云硬盘】为例。
-7. 在“实例内容器”的【挂载点】配置挂载点。如下图所示：
-在 [步骤5](#Step5) 中选择【添加数据卷】后，才可进行挂载点配置。
+4. 单击**新建**，进入 “新建Workload” 页面。
+5. [](id:Step5)根据页面信息，设置工作负载名、命名空间等信息。并在“数据卷”中，单击**添加数据卷**添加数据卷。
+6. 根据实际需求，选择数据卷的存储方式，本文以**使用腾讯云硬盘**为例。
+7. 在“实例内容器”的**挂载点**配置挂载点。如下图所示：
+在 [步骤5](#Step5) 中选择**添加数据卷**后，才可进行挂载点配置。
 ![](https://main.qcloudimg.com/raw/ba8a35b82a905daa9823add9299b12d1.png)
-8. 其余选项请按需设置，并单击【创建Workload】即可完成创建。
+8. 其余选项请按需设置，并单击**创建Workload**即可完成创建。
 
 
 ### 各类数据卷挂载配置
@@ -95,7 +95,7 @@
         <td>主机路径</td><td>设置主机路径。<li>主机路径：该路径不能为空，例如当该容器需要访问 Docker 时主机路径可设置为<code>/var/lib/docker</code>。</li><li>检查类型：TKE 为您提供 NoChecks、DirectoryOrCreate 等多种检查类型，请仔细查阅控制台上每种类型介绍，并根据实际需求进行选择。</li></td>
     </tr>
     <tr>
-        <td> NFS 盘</td><td> NFS 路径：填写文件系统 CFS 或自建 NFS 地址。<li>如需创建文件系统，请参看<a herf="https://cloud.tencent.com/document/product/582/9132">创建文件系统及挂载点。</a></li><li> NFS 路径示例如<code>10.0.0.161:/</code>。该路径可登录 <a href="https://console.cloud.tencent.com/cfs" target="_blank">文件系统控制台</a>，单击目标文件系统 ID ，在【挂载点信息】页签的 “Linux 下挂载目录”中获取。</li></td>
+        <td> NFS 盘</td><td> NFS 路径：填写文件系统 CFS 或自建 NFS 地址。<li>如需创建文件系统，请参看<a herf="https://cloud.tencent.com/document/product/582/9132">创建文件系统及挂载点。</a></li><li> NFS 路径示例如<code>10.0.0.161:/</code>。该路径可登录 <a href="https://console.cloud.tencent.com/cfs" target="_blank">文件系统控制台</a>，单击目标文件系统 ID ，在**挂载点信息**页签的 “Linux 下挂载目录”中获取。</li></td>
     </tr>
     <tr>
         <td>已有 PVC</td><td>请选择 PVC：根据实际需求进行选择。</td>

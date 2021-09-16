@@ -1,12 +1,12 @@
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | -  | &#10003;  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 
 
@@ -139,7 +139,7 @@ TXSubtitle 的参数如下：
 | endTime | 字幕作用的结束时间。   | 
 
 
-因为字幕这一块的 UI 逻辑比较复杂，我们已经在 Demo 层有一整套的实现方法，推荐客户直接参考 [Demo](https://cloud.tencent.com/document/product/1449/56977?!preview&!editLang=zh) 实现， 可以大大降低您的接入成本。
+因为字幕这一块的 UI 逻辑比较复杂，我们已经在 Demo 层有一整套的实现方法，推荐客户直接参考 [Demo](https://cloud.tencent.com/document/product/1449/56977) 实现， 可以大大降低您的接入成本。
 
 [](id:demo)
 #### Demo 示例
@@ -195,6 +195,6 @@ videoTextInfos = @[VideoTextInfo1, VideoTextInfo2 ...];
 >?该封装格式用户可以自行决定，非 SDK 强制性要求。
 
 #### 字幕过长
-我们的 [Demo](https://cloud.tencent.com/document/product/1449/56977?!preview&!editLang=zh) 提供了一个自动排版的控件，在当前字体大小下，且字幕过长时，控件将自动缩小字号，直到能够恰好放下所有字幕文字为止。使用该控件即可**实现字幕若输入过长情况下，通过排版使字幕与气泡美观地合并。**
+我们的 [Demo](https://cloud.tencent.com/document/product/1449/56977) 提供了一个自动排版的控件，在当前字体大小下，且字幕过长时，控件将自动缩小字号，直到能够恰好放下所有字幕文字为止。使用该控件即可**实现字幕若输入过长情况下，通过排版使字幕与气泡美观地合并。**
 您也可以修改相关控件源代码，来满足自身的业务要求。 
 

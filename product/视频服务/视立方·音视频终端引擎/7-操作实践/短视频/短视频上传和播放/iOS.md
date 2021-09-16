@@ -1,12 +1,12 @@
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | -  | &#10003;  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 
 ## 对接流程
@@ -41,7 +41,7 @@
 [](id:step3)
 
 ### 3. 发布视频
-把刚才生成的 MP4 文件发布到腾讯云上，App 需要拿到上传文件用的短期有效上传签名，这部分有独立的文档介绍，详情请参件 [签名派发](https://cloud.tencent.com/document/product/1449/59084?!preview&!editLang=zh)。
+把刚才生成的 MP4 文件发布到腾讯云上，App 需要拿到上传文件用的短期有效上传签名，这部分有独立的文档介绍，详情请参件 [签名派发](https://cloud.tencent.com/document/product/1449/59084)。
 TXUGCPublish（位于 TXUGCPublish.h）负责将 MP4 文件发布到腾讯云视频分发平台上，以确保视频观看的就近调度、秒开播放、动态加速以及海外接入等需求。
 
 ```ObjectiveC
@@ -72,7 +72,7 @@ _ugcPublish.delegate = self;                                 // 设置 TXVideoPu
 @optional
 -(void) onPublishComplete:(TXPublishResult*)result;
 ```
-- 通过 [编辑错误码表](https://cloud.tencent.com/document/product/1449/57179?!preview&!editLang=zh#error) 和 [录制错误码表](https://cloud.tencent.com/document/product/1449/59155?!preview&!editLang=zh#error) 确认短视频的发布结果。
+- 通过 [编辑错误码表](https://cloud.tencent.com/document/product/1449/57179#error) 和 [录制错误码表](https://cloud.tencent.com/document/product/1449/59155#error) 确认短视频的发布结果。
 
 
 ### 4. 播放视频

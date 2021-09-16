@@ -2,7 +2,7 @@
 
 ## 前提条件
 - 已在 macOS 系统上安装 Outlook 客户端。
-- 已 [申请购买邮件（S/MIME）证书](https://da.do/6g0p)。
+- 已 [申请购买邮件（S/MIME）证书](https://cloud.tencent.com/apply/p/cn69mmv599k)。
 
 
 ## 操作步骤
@@ -24,7 +24,7 @@
 2. 选择您的证书所属的帐户，然后单击【高级】按钮。
 <img src="https://main.qcloudimg.com/raw/1861297dddb7953025020219d24fc62d.png" style="zoom:75%;" />
 3. 单击【安全性】标签，勾选并选择相关信息，配置可参考下图方式进行选择。
->?签名算法 SHA-1 比 SHA26 兼容性好，SHA256 更加安全。
+>?签名算法 SHA-1 比 SHA256 兼容性好，SHA256 更加安全。
 >
 <img src="https://main.qcloudimg.com/raw/1c29ff63825ac15ec031afc8b553803c.png" style="zoom:75%;" /><br>
 字段说明：

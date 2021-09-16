@@ -16,7 +16,7 @@ Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供�
 
 1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，在【产品管理】>【配置管理】页面获取应用的 AccessID、AccessKey。
 2. 在 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面，获取当前最新版本号。
-![](https://main.qcloudimg.com/raw/14e6c42845be00c1e2cf964482062794.png)
+![](https://main.qcloudimg.com/raw/37b19f4e6c8dba5084c052f7e442be7f.png)
 3. 在 app build.gradle 文件下，配置以下内容：
 ```
 android {
@@ -301,7 +301,10 @@ XGPushConfig.enableDebug(this,true);
 
 
 ### Token 注册
+在需要启动推送服务的地方调用推送服务注册接口：
 
+>! 建议仅在 App 的主进程内调用注册接口。
+>
 
 ```java
 XGPushManager.registerPush(this, new XGIOperateCallback() {

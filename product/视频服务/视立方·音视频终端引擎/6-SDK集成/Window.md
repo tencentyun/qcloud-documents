@@ -1,4 +1,13 @@
-本文介绍如何快速地将腾讯云视立方 SDK（Windows C# 和 C++ 版本）集成到项目中。
+本文主要介绍如何快速地在 Windows 端将腾讯云视立方 SDK 集成到您的项目中，腾讯云视立方 SDK Windows 端仅**音视频通话 TRTC 版本**支持。按照如下步骤进行配置，就可以完成 SDK 在 Windows 端的集成工作。
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
+
+| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| 支持情况 | - | - | - | &#10003; | - | - |
+| SDK 下载 <div style="width: 90px"/>  | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
+
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 开发环境要求
 
@@ -30,7 +39,7 @@
 [](id:step3)
 ### 步骤3：拷贝文件
 将解压后的 SDK 文件夹拷贝至 `TRTCCSharpDemo.csproj` 所在目录。
->?当只需要 C# SDK时，可以将 SDK 路径下的 CPlusPlus 目录删除。
+>?当只需要 C# SDK 时，可以将 SDK 路径下的 CPlusPlus 目录删除。
 
 ![](https://main.qcloudimg.com/raw/dbd90fce988853c26a832930cef2e9a6.png)
 
@@ -67,7 +76,7 @@
 set Platform=Win64
 SETLOCAL ENABLEDELAYEDEXPANSION
 if $(PlatformName)==x86 ( 
-  set Platform=Win32
+			set Platform=Win32
 )
 copy /Y "$(ProjectDir)SDK\CSharp\!Platform!\lib\*.dll" "$(ProjectDir)$(OutDir)"
 ENDLOCAL
@@ -85,24 +94,24 @@ ENDLOCAL
  ![](https://main.qcloudimg.com/raw/fec574b76a4250a3e948816b7cc1728d.png)
 2. 打开 Form1.cs 代码文件，添加以下代码：
 ```c#
-	using System.Windows.Forms;
-	using ManageLiteAV;   // 1.添加命名空间引用
+using System.Windows.Forms;
+using ManageLiteAV;   // 1.添加命名空间引用
 
-	namespace TRTCCSharpDemo
+namespace TRTCCSharpDemo
+{
+	public partial class Form1 : Form
 	{
-			public partial class Form1 : Form
-			{
-					public Form1()
-					{
-							InitializeComponent();
-							// 2.获取 ITRTCCloud 实例，打印 SDK 版本号
-							ITRTCCloud lTRTCCloud = ITRTCCloud.getTRTCShareInstance(); 
-							this.label1.Text = "SDK version : " + lTRTCCloud.getSDKVersion();
-							// 3.结束使用时需手动摧毁 ITRTCCloud 实例
-							ITRTCCloud.destroyTRTCShareInstance();
-					}
-			}
+		public Form1()
+		{
+			InitializeComponent();
+			// 2.获取 ITRTCCloud 实例，打印 SDK 版本号
+			ITRTCCloud lTRTCCloud = ITRTCCloud.getTRTCShareInstance(); 
+			this.label1.Text = "SDK version : " + lTRTCCloud.getSDKVersion();
+			// 3.结束使用时需手动摧毁 ITRTCCloud 实例
+			ITRTCCloud.destroyTRTCShareInstance();
+		}
 	}
+}
 ```
 3.  按 F5 运行，打印 SDK 的版本号，如下图所示：
  ![](https://main.qcloudimg.com/raw/9bfebaac4fa339af6b7c74b0413cde1d.png)

@@ -3,7 +3,7 @@
 本文档指导您如何通过 Web 函数，快速迁移本地的 Laravel 服务上云。
 
 
->?本文档主要介绍控制台部署方案，您也可以通过命令行完成部署，详情请参见 [命令行部署 Web 函数](https://cloud.tencent.com/document/product/583/58183)。
+>?本文档主要介绍控制台部署方案，您也可以通过命令行完成部署，详情请参见 [通过命令行完成框架部署](https://cloud.tencent.com/document/product/583/59439)。
 
 ## 前提条件
 
@@ -13,13 +13,13 @@
 ## 操作步骤
 
 ### 模版部署 -- 一键部署 Laravel 项目
-1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的【函数服务】。
-2. 在主界面上方选择期望创建函数的地域，并单击【新建】，进入函数创建流程。
-3. 选择使用【模版创建】来新建函数，在搜索框里筛选 `WebFunc`，筛选所有 Web 函数模版，选择【Laravel 框架模版】并单击【下一步】。如下图所示：
+1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
+2. 在主界面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
+3. 选择使用**模版创建**来新建函数，在搜索框里筛选 `WebFunc`，筛选所有 Web 函数模版，选择**Laravel 框架模版**并单击**下一步**。如下图所示：
 ![](https://main.qcloudimg.com/raw/5aaff988896823fd718b5b8a36234cfd.png)
-4. 在“配置”页面，您可以查看模版项目的具体配置信息并进行修改。
-5. 单击【完成】，即可创建函数。函数创建完成后，您可在“函数管理”页面，查看 Web 函数的基本信息。
-6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Laravel 项目。单击左侧菜单栏中的【触发管理】，查看访问路径。如下图所示：[](id:step1-6)
+4. 在**新建**页面，您可以查看模版项目的具体配置信息并进行修改。
+5. 单击**完成**即可创建函数。函数创建完成后，您可在**函数管理**页面查看 Web 函数的基本信息。
+6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Laravel 项目。单击左侧菜单栏中的**触发管理**，查看访问路径。如下图所示：[](id:step1-6)
 ![](https://main.qcloudimg.com/raw/976c50da475f63367cda54caba20afc2.png)
 7. 单击访问路径 URL，即可访问服务 Laravel 项目。如下图所示：
 ![](https://main.qcloudimg.com/raw/c862404be796d10bd999a577b69f8316.png)
@@ -94,9 +94,9 @@ mkdir -p /tmp/storage/framework/views
 ![](https://main.qcloudimg.com/raw/089fb093fba05db7ebf41b6fc1cb7c86.png)
 4. **部署上云**
 本地配置完成后，执行启动文件，确保您的服务可以本地正常启动。执行以下步骤部署 Laravel：
-	1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的【函数服务】。
-	2. 在主界面上方选择期望创建函数的地域，并单击【新建】，进入函数创建流程。
-	3. 选择【自定义创建】新建函数，根据页面提示配置相关选项。如下图所示：
+	1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
+	2. 在主界面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
+	3. 选择**自定义创建**新建函数，根据页面提示配置相关选项。如下图所示：
 	![](https://main.qcloudimg.com/raw/783db24ab94568c430e84a3dae99f84d.png)
 		- **函数类型**：选择 “Web 函数”。
 		- **函数名称**：填写您自己的函数名称。

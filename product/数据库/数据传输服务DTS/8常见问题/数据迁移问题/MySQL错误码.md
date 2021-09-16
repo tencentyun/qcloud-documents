@@ -20,9 +20,9 @@
 |-268 |库名重复|库表迁移模式，对于整库迁移，请确保源实例和目标实例不存在重复的库表。|
 |-269| 表名重复|库表迁移模式，请确保迁移目标库表在源和目标没有重复的库表名。|
 |-265| 库表模式迁移，外键依赖的表没有在迁移目标库表当中|-|
-|-266 |目标库表存在存储引擎不支持|对于源库表，目前支持存储引擎：<li>5.6不支持：'MEMORY'、'BLACKHOLE'、 'CSV', 'ARCHIVE' 引擎。 <li> 5.7不支持：'MRG_MYISAM'、'MEMORY'、'BLACKHOLE'、'CSV'、'ARCHIVE'。<li>支持 tokudb 引擎。|
+|-266 |目标库表存在存储引擎不支持|对于源库表，目前支持存储引擎：<li>5.6不支持：MEMORY、BLACKHOLE、 CSV、ARCHIVE 引擎。 <li> 5.7不支持：MRG_MYISAM、MEMORY、BLACKHOLE、CSV、ARCHIVE。<li>支持 tokudb 引擎。|
 |-420| 源 tokudb 存在压缩|quicklz/lzma/snappy/uncompressed 对于 toku 这几种 row_format 不支持。|
-|-421 |源 tokudb 存在 cluster index|存在 column_key 为 'CLU' 的表。|
+|-421 |源 tokudb 存在 cluster index|存在 column_key 为 CLU 的表。|
 |-292 |目标实例 RO 状态不正常|迁移任务发起需要目标实例 RW 和 RO 均处于正常状态。|
 |-405 |源实例存在 row_format 为 fixed 的库表|源实例库表建议修改为非 row_format 格式的 innodb 引擎库表。格式修改后，数据库表会被重建。|
 |-417 |目标实例和源实例主从关系异常|检查源实例网络连接是否正常，检查在迁移过程中是否有用户自身对目标实例进行写入形成双写。 |

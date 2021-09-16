@@ -1,4 +1,43 @@
->?[【有奖问卷】7月31日截至！即时通信 IM Web & 小程序端 TUIKit 需求调研，单击立即参与 >>](https://wj.qq.com/s2/8750536/987c)
+### 2.13.1 @2021.8.27
+
+**变更**
+
+- 未登录时，连续调用 [login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login)，返回错误码 `2025`，表示【重复登录】。
+- WebSocket 重连后，SDK 重新登录并同步未读消息，保障消息的可靠性。
+
+
+**修复**
+
+- 未登录时，连续调用 [login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login) 后会话的未读数错误。
+- 调用 [setGroupMemberNameCard](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupMemberNameCard) 接口，`nameCard` 传入空字符串后报错。
+- 调用 [getGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMemberList) 接口，回包数据 `muteUntil` 的值错误。
+
+
+### 2.13.0 @2021.8.23
+
+**新增**
+
+支持好友关系链，请参见 [使用指引](https://web.sdk.qcloud.com/im/doc/zh-cn/tutorial-03-sns.html)。
+
+**修复**
+
+WebSocket 长连接断开时偶现的报错。
+
+### 2.12.2 @2021.8.6
+
+**新增**
+
+小程序视频上传支持进度回调。
+
+**变更**
+
+修改群自定义字段等不存漫游的群提示消息，SDK 不再计入会话未读数。
+
+**修复**
+
+- 加入直播群偶现收不到自己进群的提示消息。
+- 使用 restapi 发送 c2c 消息 random 设置为0时，接收端触发2次 [MESSAGE_RECEIVED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.MESSAGE_RECEIVED) 事件。
+
 
 ### 2.12.1 @2021.7.20
 

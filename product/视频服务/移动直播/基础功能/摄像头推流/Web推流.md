@@ -27,13 +27,13 @@ TXLivePusher 推流 SDK 主要用于视频云的快直播（超低延迟直播�
 在需要直播推流的页面（桌面端）中引入初始化脚本。
 
 ```html
-<script src="https://imgcache.qq.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.0.min.js" charset="utf-8"></script>;
+<script src="https://imgcache.qq.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.1.min.js" charset="utf-8"></script>
 ```
 
 如果在域名限制区域，可以引入以下链接：
 
 ```html
-<script src="https://cloudcache.tencent-cloud.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.0.min.js" charset="utf-8"></script>;
+<script src="https://cloudcache.tencent-cloud.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.1.min.js" charset="utf-8"></script>
 ```
 
 ### 步骤2：在 HTML 中放置容器
@@ -82,7 +82,7 @@ livePusher.startMicrophone();
 ```javascript
 livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
 ```
-	>?推流之前要保证已经采集到了音视频流，否则推流接口会调用失败，如果要实现采集到音视频流之后自动推流，可以通过回调事件通知，当收到采集首帧成功的通知后，再进行推流。如果同时采集了视频流和音频流，需要在视频首帧和音频首帧的采集成功回调通知都收到后再发起推流。
+>?推流之前要保证已经采集到了音视频流，否则推流接口会调用失败，如果要实现采集到音视频流之后自动推流，可以通过回调事件通知，当收到采集首帧成功的通知后，再进行推流。如果同时采集了视频流和音频流，需要在视频首帧和音频首帧的采集成功回调通知都收到后再发起推流。
 >```javascript
 var hasVideo = false;
 var hasAudio = false;
@@ -178,8 +178,9 @@ deviceManager.switchCamera('camera_device_id');
 :::
 </dx-codeblock>
 
+### WebRTC 推流相关接口
 
-
+WebRTC 推流相关接口说明，请参见 [API 概览](https://cloud.tencent.com/document/product/454/56498)。
 
 
 

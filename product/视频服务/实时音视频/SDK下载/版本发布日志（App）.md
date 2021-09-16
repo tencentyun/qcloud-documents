@@ -1,13 +1,55 @@
+## Version 9.1 @ 2021.09.04
+
+**功能新增**
+- 全平台：C++ 接口支持音频帧回调格式设置。
+- Windows：播片增加 ac3 格式的支持。
+- Windows：摄像头信息支持获取支持的分辨率列表，具体请参见 [ITXDeviceCollection.getDeviceProperties](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXDeviceManager__cplusplus.html#ad502f48cb2a4470943134e4b48904450)。
+- Windows：支持 Nvidia、Intel、AMD 硬解。
+- Mac：新增本地媒体录制支持。
+
+**问题修复**
+- 全平台：修复偶现的进房失败问题。
+- Mac：修复屏幕分享时切换分辨率，预览画面闪一下的问题。
+- Android：修复子房间切回主房间时，辅路视频画面显示异常的问题。
+- Android：修复特定场景下偶现的帧率设置不生效问题。
+- Windows：修复观众切换为 CDN 流后无法拉流的问题。
+- Windows：修复播片功能播放特定格式视频画面消失的问题。
+
+**质量优化**
+- 全平台：优化弱网下音视频体验。
+- Android：优化退房时的音频状态管理。
+- Android：优化音频采集启动失败后的恢复逻辑，提升成功率。
+- Android：优化特定条件下视频画面过曝的问题。
+
+## Version 9.0 @ 2021.08.06
+
+**功能新增**
+- iOS：支持设置系统采集音量，详情请参见 [setSystemAudioLoopbackVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#afc45226807d84673bab78b21d1be54ae)。
+- 全平台：支持设置自定义音轨的音量，详情请参见 [setMixExternalAudioVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#ae0031e4af8bb120ef6de164d99886418)。
+- 全平台：状态回调可区分音频和视频的丢包率，详情请参见 [TRTCRemoteStatistics](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCStatistic__cplusplus.html#structliteav_1_1TRTCRemoteStatistics)。
+
+**质量优化**
+- 全平台：优化订阅流程，提升手动订阅的秒开速度。
+- 全平台：修复特定场景 onExitRoom 回调重复的问题。
+
+**问题修复**
+- Android：修复自定义采集动态设置码率和帧率无效的问题。
+- iOS：修复先开启录屏辅路，再开启摄像头推流导致的推流失败问题。
+- iOS：修复本地视频录制模糊的问题。
+- iOS：修复若干稳定性问题。
+- Winodws：修复屏幕分享时采集帧率异常的问题。
+- Windows：修复屏幕分享切换目标时，播放端会先显示一帧旧画面的问题。
+
 ## Version 8.9 @ 2021.07.15
 
 **功能新增** 
 - Android：自定义渲染支持指定外部 GLContext，可以更灵活使用 OpenGL 环境。
-- Windows：采集系统播放声音（startSystemAudioLoopback）时支持指定扬声器设备。
+- Windows：采集系统播放声音 [startSystemAudioLoopback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a157639a4fa3cc73ffc1982bbd8a8985e) 时支持指定扬声器设备。
 - Windows：支持 NVIDIA 平台硬编码，提升推流性能表现。
 - 全平台：新增云代理支持，针对企业防火墙内部的环境，安全配置更友好。
-- 全平台：接口 muteLocalVideo 和 muteRemoteVideoStream 增加对流类型的支持。
-- 全平台：统计状态回调 onStatistics 新增对本地网关延迟的统计 gatewayRtt，用于判断用户到 WiFi 路由器的网络质量。
-- 全平台：音频录制接口 startAudioRecording 支持录制成更多的音频格式。
+- 全平台：接口 [muteLocalVideo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a22804c4112dee8c76475619f891e2eb5) 和 [muteRemoteVideoStream](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a74d8d9922a771114804517db66657f65) 增加对流类型的支持。
+- 全平台：统计状态回调 [onStatistics](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudCallback__cplusplus.html#ae7e4117f9c8004c9bcc5a29d64e840c9) 新增对本地网关延迟的统计 gatewayRtt，用于判断用户到 WiFi 路由器的网络质量。
+- 全平台：音频录制接口 [startAudioRecording](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a5224523e00d5167eb75cee9b65f72677) 支持录制成更多的音频格式。
 
 **质量优化**
 - 全平台：优化某些场景下的声音播放出现颤抖的问题。

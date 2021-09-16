@@ -1,6 +1,5 @@
 云桌面创建前需要选择 [私有网络VPC](https://cloud.tencent.com/document/product/215)，将云桌面资源放置在您的专属云上网络空间中，以提升云上云桌面资源的安全性，并满足不同的应用场景需求。
 基于 VPC 配置云桌面的网络，可以实现云桌面与其他业务或者云产品互访、云桌面的公网访问和云桌面跨 VPC 访问。
-![](https://main.qcloudimg.com/raw/ef6e0132b1c8e22985f5bb6078ee4734.png)
 ## VPC 网络创建
 
 云桌面需要结合VPC使用，请提前准备满足需求的腾讯云 VPC 网络，您可以参见 [私有网络创建指南](https://cloud.tencent.com/document/product/215/36515) 新建您的私有网络。云桌面创建完成后所属私有网络/子网无法变更。

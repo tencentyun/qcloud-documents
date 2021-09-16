@@ -106,4 +106,5 @@
 **处理步骤**：推荐通过安装安全更新的方式解决，具体可参考 [Windows 实例：发生身份验证错误](https://cloud.tencent.com/document/product/213/30813)。
 
 ## 其它解决方案
-通过上述排查后，仍然不能连接 Windows 实例，请您保存自助诊断结果，[提交工单](https://console.cloud.tencent.com/workorder/category) 进行反馈。
+通过上述排查后，仍然不能连接 Windows 实例，请您保存自助诊断结果，通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 进行反馈。

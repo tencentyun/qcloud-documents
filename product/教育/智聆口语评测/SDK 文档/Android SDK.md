@@ -3,6 +3,7 @@
 腾讯云智聆口语评测（Smart Oral Evaluation，SOE）是腾讯云推出的语音评测产品，是基于口语类教育培训场景和腾讯云的语音处理技术，应用特征提取、声学模型和语音识别算法，为儿童和成人提供高准确度的口语发音评测。腾讯云智聆口语评测支持单词、句子和段落模式的评测，多维度反馈口语表现，可广泛应用于中文及英语口语类教学中。
 TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，用户可以快速接入相关产品功能，如智聆口语评测、数学作业批改等。本文档介绍智聆口语评测 Android SDK 相关说明，如需其他产品的调用说明，可在对应产品的产品文档查看。
 本文档只对 Android SDK 进行描述，详细的网络 API 说明请参见 [API 文档](https://cloud.tencent.com/document/product/884/19309)。
+单击 [示例链接](https://tec.qq.com/ai/soe#demos) 在线体验智聆口语评测 demo。
 
 ## 总体流程
 ### 1. 流程图
@@ -29,7 +30,7 @@ android.permission.WRITE_EXTERNAL_STORAGE
 ```
 
 ### 2. 获取密钥
-SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在【[访问管理](https://console.cloud.tencent.com/cam/overview)】>【访问密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】中获取该凭证。
+SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在**[访问管理](https://console.cloud.tencent.com/cam/overview)**>**访问密钥**>**[API 密钥管理](https://console.cloud.tencent.com/cam/capi)**中获取该凭证。
 ![](https://main.qcloudimg.com/raw/273b67bc4d38af6cb9999e9f4663d268.png)
 
 

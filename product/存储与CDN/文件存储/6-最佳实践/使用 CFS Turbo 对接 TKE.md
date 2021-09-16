@@ -1,5 +1,12 @@
 ## 简介
-本文为您介绍如何使用 CFS Turbo 对接 TKE 集群。
+本文为您介绍如何使用 CFS Turbo 对接容器服务（Tencent Kubernetes Engine，TKE）集群。
+
+
+## 前提条件
+
+- TKE 的宿主机节点满足 Turbo 系列兼容的操作系统。
+- 已在所有 TKE 节点安装 Turbo 的私有客户端，推荐使用 pshell 工具进行批量操作。
+相关的操作系统兼容列表及私有客户端安装方式，可参考 [在 Linux 客户端上使用 CFS Turbo 文件系统](https://cloud.tencent.com/document/product/582/54765) 文档。
 
 ## 操作步骤
 
@@ -27,11 +34,8 @@ kubectl get node
 ```
 返回如下结果，即表示完成安装。
 ![](https://main.qcloudimg.com/raw/8bc11f2f8951c7e6037763dbe1bf190c.png)
-### 前置条件
-1. TKE的宿主机节点满足Turbo系列兼容的操作系统
-2. 在所有TKE节点安装Turbo的私有客户端，推荐使用pshell工具进行批量操作。
-相关的操作系统兼容列表及私有客户端安装方式，可参考如下文档：
-https://cloud.tencent.com/document/product/582/54765
+
+
 
 ### 通过脚本创建挂载 Turbo 的 POD
 
@@ -62,7 +66,7 @@ spec:
       host: 10.0.0.116
       # cfs turbo fsid(not cfs id)
       fsid: xxxxxxxx
-      proto: turbo
+      proto: lustre
   storageClassName: ""
 ---
 apiVersion: v1
@@ -77,7 +81,6 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  
 ---
 apiVersion: v1
 kind: Pod

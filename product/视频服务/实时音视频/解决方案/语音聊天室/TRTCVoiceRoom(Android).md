@@ -118,7 +118,6 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | [onAnchorLeaveSeat](#onanchorleaveseat) | 有成员下麦（主动下麦/房主踢人下麦）。 |
 | [onSeatMute](#onseatmute)               | 房主禁麦。                          |
 | [onUserMicrophoneMute](#onusermicrophonemute)               | 用户麦克风是否静音。                          |
-
 | [onSeatClose](#onseatclose)             | 房主封麦。                          |
 
 ### 听众进出事件回调
@@ -865,7 +864,7 @@ void onUserVolumeUpdate(List<TRTCCloudDef.TRTCVolumeInfo> userVolumes, int total
 
 | 参数   | 类型   | 含义                      |
 | ------ | ------ | ------------------------- |
-| userVolumes | List | 用户列表。                 |
+| userVolumes | ListList<TRTCCloudDef.TRTCVolumeInfo> | 用户列表。                 |
 | totalVolume | int    | 音量大小，取值：0 - 100。 |
 
 
@@ -1006,7 +1005,7 @@ void onRecvRoomCustomMsg(String cmd, String message, TRTCVoiceRoomDef.UserInfo u
 
 | 参数     | 类型     | 含义                                               |
 | -------- | -------- | -------------------------------------------------- |
-| command  | String   | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
+| cmd      | String   | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
 | message  | String   | 文本消息。                                         |
 | userInfo | UserInfo | 发送者用户信息。                                   |
 
@@ -1027,7 +1026,7 @@ void onReceiveNewInvitation(String id, String inviter, String cmd, String conten
 | id      | String   | 邀请 ID。                          |
 | inviter | String   | 邀请人的用户 ID。                  |
 | cmd     | String   | 业务指定的命令字，由开发者自定义。 |
-| content | UserInfo | 业务指定的内容。                   |
+| content | String   | 业务指定的内容。                   |
 
 ### onInviteeAccepted
 

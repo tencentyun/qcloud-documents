@@ -1,6 +1,6 @@
 ## 操作场景
 
-已经有自建 Promethues 需快速迁移到 Prometheus 监控服务。
+已经有自建 Prometheus 需快速迁移到 Prometheus 监控服务。
 
 ## 操作步骤
 

@@ -1,13 +1,20 @@
 ## 简介
 PHP SDK 提供获取请求预签名 URL 接口，请求示例如下。
 
+>?
+> - 建议用户使用临时密钥生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
+> - 如果您一定要使用永久密钥来生成预签名，建议永久密钥的权限范围仅限于上传或下载操作，以规避风险。
+> 
+
+
+
 ## 永久密钥预签名请求示例
 
 ### 上传请求示例
 [//]: # (.cssg-snippet-get-presign-upload-url)
 ```php
-$secretId = "COS_SECRETID"; //替换为您的永久密钥 SecretId
-$secretKey = "COS_SECRETKEY"; //替换为您的永久密钥 SecretKey
+$secretId = "SECRETID"; //替换为您的永久密钥 SecretId
+$secretKey = "SECRETKEY"; //替换为您的永久密钥 SecretKey
 $region = "ap-beijing"; //设置一个默认的存储桶地域
 $cosClient = new Qcloud\Cos\Client(
     array(
@@ -49,8 +56,8 @@ try {
 ### 下载请求示例
 [//]: # (.cssg-snippet-get-presign-download-url)
 ```php
-$secretId = "COS_SECRETID"; //替换为您的永久密钥 SecretId
-$secretKey = "COS_SECRETKEY"; //替换为您的永久密钥 SecretKey
+$secretId = "SECRETID"; //替换为您的永久密钥 SecretId
+$secretKey = "SECRETKEY"; //替换为您的永久密钥 SecretKey
 $region = "ap-beijing"; //设置一个默认的存储桶地域
 $cosClient = new Qcloud\Cos\Client(
     array(
@@ -90,8 +97,8 @@ try {
 ### 上传请求示例
 [//]: # (.cssg-snippet-get-presign-sts-upload-url)
 ```php
-$tmpSecretId = "COS_SECRETID"; //替换为您的临时密钥 SecretId
-$tmpSecretKey = "COS_SECRETKEY"; //替换为您的临时密钥 SecretKey
+$tmpSecretId = "SECRETID"; //替换为您的临时密钥 SecretId
+$tmpSecretKey = "SECRETKEY"; //替换为您的临时密钥 SecretKey
 $tmpToken = "COS_TOKEN"; //替换为您的临时密钥 token
 $region = "ap-beijing"; //设置一个默认的存储桶地域
 $cosClient = new Qcloud\Cos\Client(
@@ -134,8 +141,8 @@ try {
 ### 下载请求示例
 [//]: # (.cssg-snippet-get-presign-sts-download-url)
 ```php
-$tmpSecretId = "COS_SECRETID"; //替换为您的临时密钥 SecretId
-$tmpSecretKey = "COS_SECRETKEY"; //替换为您的临时密钥 SecretKey
+$tmpSecretId = "SECRETID"; //替换为您的临时密钥 SecretId
+$tmpSecretKey = "SECRETKEY"; //替换为您的临时密钥 SecretKey
 $tmpToken = "COS_TOKEN"; //替换为您的临时密钥 token
 $region = "ap-beijing"; //设置一个默认的存储桶地域
 $cosClient = new Qcloud\Cos\Client(

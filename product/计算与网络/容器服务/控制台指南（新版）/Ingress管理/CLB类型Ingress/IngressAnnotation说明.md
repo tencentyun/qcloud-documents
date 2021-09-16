@@ -49,14 +49,14 @@ metadata:
 指定创建负载均衡时，负载均衡的最大出带宽，仅对公网属性的 LB 生效。需配合 `kubernetes.io/ingress.internetChargeType` 注解一起使用。
 
 **可选值：**
-范围支持0到2048，单位 Mbps。
+范围支持1到2048，单位 Mbps。
 
 **使用示例：**
 `kubernetes.io/ingress.internetMaxBandwidthOut: "2048"`
 :::
 ::: kubernetes.io/ingress.extensiveParameters
 **说明：**
-参考 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/30692) 为创建负载均衡追加自定义参数。
+参考 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/30692#4.-.E7.A4.BA.E4.BE.8B) 为创建负载均衡追加自定义参数。
 **使用示例：**
 - 创建 NAT64 IPv6 实例：
   `kubernetes.io/ingress.extensiveParameters: '{"AddressIPVersion":"IPV6"}'`
@@ -95,23 +95,17 @@ metadata:
 **使用示例：**
 使用方式详情见 [使用 LoadBalancer 直连 Pod 模式 Service](https://cloud.tencent.com/document/product/457/41897)。
 :::
-::: ingress.cloud.tencent.com/enable-grace-shutdown
-**说明：**
-支持工作负载在接入层进行优雅停机。在 Pod 进入 Terminating 状态时，工作负载将不会被直接摘除而是权重变成0。配合工作负载的 PreStop 特性控制工作负载停机时的流量。
-**使用示例：**
-`ingress.cloud.tencent.com/enable-grace-shutdown: "true"`
-:::
 ::: ingress.cloud.tencent.com/tke-service-config
 **说明：**
 通过 tke-service-config 配置负载均衡相关配置，包括监听器、转发规则等。
 **使用示例：**
-`ingress.cloud.tencent.com/tke-service-config: "nginx-config"`，详情可参见 [Ingress 使用 TKEServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
+`ingress.cloud.tencent.com/tke-service-config: "nginx-config"`，详情可参见 [Ingress 使用 TkeServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
 :::
 ::: ingress.cloud.tencent.com/tke-service-config-auto
 **说明：**
 通过该注解可自动创建 TkeServiceConfig 资源，并提供配置的模板，用户可以按需进行配置。
 **使用示例：**
-`ingress.cloud.tencent.com/tke-service-config-auto: "true"`，详情可参见 [Ingress 使用 TKEServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
+`ingress.cloud.tencent.com/tke-service-config-auto: "true"`，详情可参见 [Ingress 使用 TkeServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
 :::
 ::: ingress.cloud.tencent.com/rewrite-support
 **说明：**
@@ -146,6 +140,12 @@ Ingress 跨域绑定功能，指定需要接入的 VPC。可以和 `ingress.clou
 创建异地接入的负载均衡：
 `ingress.cloud.tencent.com/cross-region-id: "ap-guangzhou"`
 `ingress.cloud.tencent.com/cross-vpc-id: "vpc-646vhcjj"`
+:::
+::: ingress.cloud.tencent.com/enable-grace-shutdown
+**说明：**
+支持 CLB 直连模式的优雅停机。
+**使用示例：**
+仅在直连模式下支持，需要配合使用 `ingress.cloud.tencent.com/direct-access`，使用方式详情见 [Ingress 优雅停机](https://cloud.tencent.com/document/product/457/60065)。
 :::
 </dx-accordion>
 

@@ -57,3 +57,5 @@ Namespace=QCE/SQLSERVER
 &Instances.N.Dimensions.0.Name=resourceId
 &Instances.N.Dimensions.0.Value 为实例的资源 ID 
 
+
+

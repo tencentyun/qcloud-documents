@@ -14,8 +14,8 @@
 
 [](id:que4)
 ###  音视频通话 TRTC 移动端怎么实现录屏（屏幕分享）？	
-- **Android 端**：Version 7.2 及以上版本支持手机录屏，具体实践方法请参见 [实时屏幕分享（Android）](https://cloud.tencent.com/document/product/647/45751)。
-- **iOS 端**：Version 7.2 及以上版本支持 App 内录屏；Version 7.6 及以上版本支持手机录屏和 App 内录屏。具体实践方法请参见 [实时屏幕分享（iOS）](https://cloud.tencent.com/document/product/647/45750)。
+- **Android 端**：Version 7.2 及以上版本支持手机录屏，具体实践方法请参见 [实时屏幕分享（Android）](https://cloud.tencent.com/document/product/1449/57115)。
+- **iOS 端**：Version 7.2 及以上版本支持 App 内录屏；Version 7.6 及以上版本支持手机录屏和 App 内录屏。具体实践方法请参见 [实时屏幕分享（iOS）](https://cloud.tencent.com/document/product/1449/57113)。
 
 
 
@@ -47,7 +47,7 @@
 
 [](id:que11)
 ### 手机锁屏状态，视频如何拨通？
-实现离线接听等功能，详情请参见 [实现离线接听](https://cloud.tencent.com/document/product/647/42047#.E6.AD.A5.E9.AA.A47.EF.BC.9A.E5.AE.9E.E7.8E.B0.E7.A6.BB.E7.BA.BF.E6.8E.A5.E5.90.AC)。
+实现离线接听等功能，详情请参见 [实现离线接听](https://cloud.tencent.com/document/product/1449/57157#offline)。
 
 [](id:que12)
 ### 是否支持 Android 和 Web 端互通？
@@ -57,7 +57,7 @@
 
 [](id:que13)
 ### 主播和粉丝在直播过程中连麦，是否双方都可以主动发起连麦？
-双方都可以主动发起，观众和主播发起逻辑一致，具体操作请参见  [跑通直播模式(Android)](https://cloud.tencent.com/document/product/647/35428) 。
+双方都可以主动发起，观众和主播发起逻辑一致，具体操作请参见  [跑通直播模式(Android)](https://cloud.tencent.com/document/product/1449/57107) 。
 
 [](id:que14)
 ### 多人视频会议中，移动端和 Web 端是否可以进入同一房间？
