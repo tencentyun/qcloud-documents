@@ -21,7 +21,7 @@ qGPU 方案通过对 NVIDIA GPU 卡上任务的有效调度，达到给多个容
 
 ![](https://main.qcloudimg.com/raw/ac99fd3de566decc2510df90394fb44a.png)
 
-## 限制条件
+## 使用须知
 - TKE 版本限制 ≥ v1.14.x
 - OS 限制：仅支持特定的 Tencent OS 3.1 镜像。
 - 机型限制：仅支持使用 V100 和 T4 卡的 CVM 机型（后续会规划支持黑石机器以及更多的 GPU 卡类型）。
