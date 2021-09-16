@@ -12,7 +12,16 @@
 <dx-accordion>
 ::: SSH 登录报错 User root not allowed because not listed in AllowUsers
 
-#### 问题原因[](id:userNotListAllowUsers)
+#### 现象描述[](id:userNotListAllowUsers)
+使用 SSH 登录 Linux 实例时，无法正常登录。客户端或服务端的 secure 日志中出现类似如下信息：
+- Permission denied, please try again.
+- User test from 192.X.X.1 not allowed because not listed in AllowUsers.
+- User test from 192.X.X.1 not allowed because listed in DenyUsers.
+- User root from 192.X.X.1 not allowed because a group is listed in DenyGroups.
+- User test from 192.X.X.1 not allowed because none of user's groups are listed in AllowGroups.
+
+
+#### 问题原因
 该问题通常是由于 SSH 服务启用了用户登录控制参数，对登录用户进行了限制。参数说明如下：
 - **AllowUsers**：允许登录的用户白名单，只有该参数标注的用户可以登录。
 - **DenyUsers**：拒绝登录的用户黑名单，该参数标注的用户都被拒绝登录。
@@ -392,7 +401,7 @@ service sshd start
 :::
 ::: SSH 服务启动时报错 fatal: Cannot bind any address
 #### 现象描述[](id:cannotBindAddress)
-Linux 实例启动 SSH 服务，在 secure 日志文件中，或直接返回类似如下错误信息：
+Linux 实例启动 SSH 服务时，直接返回或在 secure 日志文件中出现类似如下错误信息：
 ```
 FAILED.
 fatal: Cannot bind any address.
@@ -439,7 +448,7 @@ service sshd restart
 ::: SSH 服务启动时报错 Bad configuration options
 
 #### 现象描述[](id:badConfigureOptions)
-Linux 实例启动 SSH 服务，在 secure 日志文件中，或直接返回类似如下错误信息：
+Linux 实例启动 SSH 服务时，直接返回或在 secure 日志文件中出现类似如下错误信息：
 ```
 /etc/ssh/sshd_config: line 2: Bad configuration options:\\ 
 /etc/ssh/sshd_config: terminating, 1 bad configuration options
@@ -546,8 +555,9 @@ service sshd restart
 
 :::
 ::: SSH 登录报错 No supported key exchange algorithms
+
 #### 现象描述[](id:noSupportedkey)
-使用 SSH 登录 Linux 实例时，客户端或服务端的 secure 日志中可能出现类似如下错误信息，且无法正常登录。
+使用 SSH 登录 Linux 实例时，无法正常登录。客户端或服务端的 secure 日志中可能出现类似如下错误信息：：
 - Read from socket failed: Connection reset by peer.
 - Connection closed by 192.X.X.1.
 - sshd error: could not load host key.
@@ -559,7 +569,7 @@ service sshd restart
 
 
 #### 问题原因
-通常是由于 SSH 服务相关的密钥文件出现异常，导致 sshd 守护进程无法加载到正确的 SSH 主机密钥。常见异常问题如下：
+通常是由于 SSH 服务相关的密钥文件出现异常，导致 sshd 守护进程无法加载到正确的 SSH 主机密钥。常见异常原因如下：
 - 相关密钥文件异常。例如，文件损坏、被删除或篡改等。
 - 相关密钥文件权限配置异常，无法正确读取。
 
@@ -660,7 +670,7 @@ total 156
 :::
 ::: SSH 服务启动时报错 must be owned by root and not group or word-writable
 #### 现象描述[](id:mustBeOwnerByRoot)
-Linux 实例启动 SSH 服务，返回 “must be owned by root and not group or word-writable” 错误信息。
+Linux 实例启动 SSH 服务时，返回 “must be owned by root and not group or word-writable” 错误信息。
 
 
 #### 问题原因
@@ -687,7 +697,7 @@ Linux 实例启动 SSH 服务，返回 “must be owned by root and not group or
 ll -d /var/empty/sshd/
 ``` 以下内容为默认权限配置。
 ```
-drwx--x--x. 2 root root 4096 Apr 11 2018 /var/empty/sshd/
+drwx--x--x. 2 root root 4096 Aug  9  2019 /var/empty/sshd/
 ```
 3. 对比实际返回结果与默认权限配置，若不相同，则请依次执行以下命令，恢复默认配置。
 <dx-alert infotype="explain" title="">
@@ -709,7 +719,7 @@ systemctl restart sshd.service
 ll /etc/securetty
 ``` 以下内容为默认权限配置。
 ```
--rw-------. 1 root root 221 Oct 31  2018 /etc/securetty
+-rw-------. 1 root root 255 Aug  5  2020 /etc/securetty
 ```
 2. 对比实际返回结果与默认权限配置，若不相同，则请依次执行以下命令，恢复默认配置。
 <dx-alert infotype="explain" title="">
@@ -728,7 +738,7 @@ systemctl restart sshd.service
 :::
 ::: SSH 登录时报错 Host key verification failed
 #### 现象描述[](id:hostKeyVerification)
-使用 SSH 登录 Linux 实例时，无法正常登录实例，且出现以下报错信息：
+使用 SSH 登录 Linux 实例时，无法正常登录，且出现以下报错信息：
 ```
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @ WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! @
@@ -744,18 +754,18 @@ Offending key in /root/.ssh/known_hosts:70
 RSA host key for x.x.x.x has changed and you have requested strict checking.
 Host key verification failed.
 ```
-若客户端为 Windows 操作系统，则以常见的 SSH 客户端为例，连接时出现以下报错信息：
+若客户端为 Windows 操作系统，则通常 SSH 客户端在连接时出现以下报错信息：
 ```
 X.X.X.X （端口：XX）的主机密钥与本地主机密钥数据库中保存的不一致。主机密钥已更改或有人试图监听此连接。若无法确定，建议取消此连接。
 ```
 
 
 #### 问题原因
-Linux 实例进行过重装系统操作，账户信息等变更使 SSH 公钥变更，造成客户端保存的公钥指纹与服务器端不一致，导致 SSH 认证失败拒绝登录。
+Linux 实例重装系统操作后，账户信息等变更使 SSH 公钥变更，造成客户端保存的公钥指纹与服务器端不一致，导致 SSH 认证失败拒绝登录。
 
 
 #### 解决思路
-对应实际情况，参考处理步骤中提供的步骤进行操作。
+对应客户端实际使用操作系统，参考处理步骤中提供的步骤进行操作。
 - [Windows 客户端](#windows)
 - [Linux 客户端](#linux)
 
@@ -1052,15 +1062,16 @@ cat [对应 pam 配置文件的绝对路径]
 ```
 session    required     pam_limits.so
 ```
-3. 执行以下命令，确认 `/lib/security/pam_limits.so` 路径错误。
+3. 执行以下命令，确认 `/lib/security/pam_limits.so` 路径是否错误。
 ```
 ll /lib/security/pam_limits.so
 ```
-4. 使用 VIM  编辑器编辑 pam 配置文件，修复 `pam_limits.so` 模块路径。64位系统的 Linux 实例中，正确路径应该为 `/lib64/security`。 修改后配置信息应如下所示：
+  - 是，则使用 VIM  编辑器编辑 pam 配置文件，修复 `pam_limits.so` 模块路径。64位系统的 Linux 实例中，正确路径应该为 `/lib64/security`。 修改后配置信息应如下所示：
 ```
 session     required     /lib64/security/pam_limits.so
 ```
-5. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+  - 否，则请通过 [在线支持](https://cloud.tencent.com/act/event/Online_service?from=doc_213) 寻求帮助。
+4. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
 
 :::
 ::: 病毒引起 SSH 服务运行异常报错 fatal: mm_request_send: write: Broken pipe
@@ -1122,6 +1133,165 @@ systemctl restart sshd.service
 
 
 :::
+::: SSH 服务启动时报错 main process exited, code=exited
+
+#### 现象描述[](id:mainProcessExited)
+
+在 Linux 实例中，使用 service 或 systemctl 命令启动 SSH 服务时，命令行没有返回报错信息，但服务没有正常运行。secure 日志中发现类似如下错误信息：
+```
+sshd.service: main process exited, code=exited, status=203/EXEC.
+init: ssh main process (1843) terminated with status 255.
+```
+
+
+
+#### 问题原因
+通常是 PATH 环境变量配置异常，或 SSH 软件包相关文件被移除导致。
+
+
+
+#### 解决方案
+参考 [处理步骤](#ProcessingSteps18)，检查并修复 PATH 环境变量，或重新安装 SSH 软件包。
+
+
+
+#### 处理步骤[](id:ProcessingSteps18)
+
+<dx-alert infotype="explain" title="">
+本文处理步骤以 CentOS 6.5 操作系统为例，不同操作系统版本有一定区别，请结合实际情况进行操作。
+</dx-alert>
+
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，检查环境变量配置。
+```
+echo $PATH
+```
+3. 对比实际返回 PATH 环境变量与默认值。PATH 环境变量默认值：
+```
+/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+```若实际返回 PATH 环境变量若与默认值不相同，则需执行以下命令，重置 PATH 环境变量。
+```
+export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+```
+4. 执行如下命令，查找并确认 sshd 程序路径。
+```
+find / -name sshd
+```
+  - 返回结果如下，则说明 sshd 程序文件已存在。
+```
+/usr/sbin/sshd
+``` 
+  - 若对应文件不存在，则请重新安装 SSH 软件包。
+5. 执行以下命令，重启 SSH 服务。
+```
+service sshd restart
+``` 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+
+:::
+::: SSH 登录时报错 pam_limits(sshd:session)：could not sent limit for ‘nofile’
+
+#### 现象描述[](id:pamLimits)
+使用 SSH 登录 Linux 实例后，返回如下错误信息：
+```
+-bash: fork: retry: Resource temporarily unavailable.
+pam_limits(sshd:session)：could not sent limit for 'nofile':operaton not permitted.
+Permission denied.
+```
+
+
+
+#### 问题原因
+通常是由于当前 Shell 进程或文件开启的数量，超出服务器 Ulimit 系统环境限制导致。
+
+
+
+#### 解决思路
+参考 [处理步骤](#ProcessingSteps19)，结合实际使用的操作系统版本，修改 limits.conf 文件永久变更 Ulimit 系统环境限制。
+
+
+
+#### 处理步骤[](id:ProcessingSteps19)
+
+<dx-alert infotype="explain" title="">
+- CentOS 6系统版本及之后发行版本中，增加了 `X-nproc.conf` 文件管理 Ulimit 系统环境限制，操作步骤以 CentOS 6进行区分。`X-nproc.conf` 文件在不同系统版本中前缀数字不同，在 CentOS 6中为 `90-nproc.conf`，在 CentOS 7中为 `20-nproc.conf`，请以实际情况环境为准。
+- 本文以 CentOS 7.6 及 CentOS 5 操作系统环境为例，请您结合实际业务情况进行操作。
+</dx-alert>
+
+
+#### CentOS 6之前版本[](id:beforeCentOS6)
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，查看系统当前 Ulimit 系统资源限制信息。
+```
+cat /etc/security/limits.conf
+```说明如下：
+  - **&lt;domain&gt;**：需要限制的系统用户，可以用 \* 代替所有用户。
+  - **&lt;type&gt;**：soft、hard 和 - 三种参数。 
+      - soft 指当前系统已经生效的 &lt;value&gt; 值。
+      - hard 指系统中设定的最大 &lt;value&gt; 值。
+      - soft 的限制不能比 hard 限制高，- 表示同时设置 soft 和 hard 的值。
+  - **&lt;item&gt;**：需要限制的使用资源类型。 
+      - core 指限制内核文件的大小。
+      - rss 指最大持久设置大小。
+      - nofile 指打开文件的最大数目。
+      - noproc 指进程的最大数目。
+3. 默认未设置系统资源限制，请根据实际情况进行判断，如果系统开启并配置系统资源限制，则需通过编辑 `limits.conf` 文件，选择注释、修改或删除 `noproc` 或 `nofile` 参数限制的资源类型代码操作。
+修改前建议执行以下命令，备份 `limits.conf` 文件。
+```
+cp -af /etc/security/limits.conf /root/limits.conf_bak
+```
+4. 修改完成后，重启实例即可。
+
+
+
+#### CentOS 6之后版本
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，查看系统当前 Ulimit 系统资源限制信息。
+```
+cat /etc/security/limits.d/20-nproc.conf
+```返回结果如下图所示，表示已开启系统资源限制，并允许 root 用户以外的所有用户最大连接进程数为4096。
+![](https://main.qcloudimg.com/raw/c4d7105cc05a172ee1f9f501690788bf.png)
+3. 参考 [CentOS 6之前版本](#beforeCentOS6) 版本步骤，修改 `/etc/security/limits.d/20-nproc.conf` 文件，建议修改前进行文件备份。
+4. 修改完成后，重启实例即可。
+
+:::
+::: SSH 登录报错 pam_unix(sshdsession) session closed for user
+
+#### 现象描述[](id:sessionClosedForUser)
+使用 SSH 登录 Linux 实例时，输入正确的用户及密码无法登录成功。直接返回或在 secure 日志出现类似如下错误信息：
+- This account is currently not available.
+- Connection to 127.0.0.1 closed.
+- Received disconnect from 127.0.0.1: 11: disconnected by user.
+- pam_unix(sshd:session): session closed for user test.
+
+
+
+####  问题原因
+通常由于对应用户的默认 Shell 被修改导致。
+
+
+#### 解决思路
+参考 [处理步骤](#ProcessingSteps20)，检查并修复对应用户的默认 Shell 配置。
+
+
+#### 处理步骤[](id:ProcessingSteps20)
+1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+2. 执行以下命令，查看 test 用户的默认 Shell。
+```
+cat /etc/passwd | grep test
+``` 系统返回类似如下信息，表示 test 用户的 Shell 被修改成 nologin。 
+```
+test:x:1000:1000::/home/test:/sbin/nologin
+```
+3. 执行以下命令，使用 VIM 编辑器编辑 `/etc/passwd` 文件。建议在修改前进行文件备份。
+```
+vim /etc/passwd
+```
+4. 按 **i** 进入编辑模式，将 `/sbin/nologin` 修改为 `/bin/bash`。 
+5. 按 **Esc** 输入 **:wq**，保存编辑并退出。
+6. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
+
+::: 
 </dx-accordion>
 
 

@@ -1,6 +1,6 @@
 ## 操作场景
 
-您可通过本文快速开始使用 长安链·ChainMaker 区块链网络，同时可前往 [长安链·ChainMaker 操作指南](https://cloud.tencent.com/document/product/663/60100) 了解更多信息。
+您可通过本文快速开始使用 长安链·ChainMaker 区块链网络，同时可前往 [长安链·ChainMaker 操作指南](https://cloud.tencent.com/document/product/663/60106) 了解更多信息。
 
 长安链·ChainMaker 网络的使用过程主要分为以下步骤：
 <dx-steps>
@@ -46,7 +46,7 @@
 - 当前 TBaaS 控制台暂支持上传编译过后的 .wasm 合约文件。
 - 合约支持 Rust、Go、C++ 三种语言。
 - 合约编译方法可参考开发指南 [智能合约开发（Go）](https://cloud.tencent.com/document/product/663/60112) 或 [智能合约开发（Rust）](https://cloud.tencent.com/document/product/663/60113)。
-</dx-alert>
+</dx-警报>
 
 
 
@@ -73,4 +73,3 @@ TBaaS 平台提供区块链浏览器，便于用户实时查看或检索链上�
 1. 在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas) 中，选择左侧导航中的**长安链** > **[区块链网络](https://console.cloud.tencent.com/tbaas/chainmaker/chain)**，单击对应的卡片进入网络详情页。
 2. 在网络详情页面中，点击顶部菜单栏的**区块链浏览器**页签，进入对应页面即可实时查看或检索区块信息、交易信息、链上指标等数据。如下图所示：
 ![](https://main.qcloudimg.com/raw/2a315b1a269f8272139882ff90aa9765.png)
-
