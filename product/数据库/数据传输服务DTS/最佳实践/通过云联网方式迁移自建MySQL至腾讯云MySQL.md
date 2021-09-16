@@ -1,8 +1,12 @@
-本文主要介绍通过 DTS 数据迁移功能从通过腾讯云云联网的自建 MySQL 迁移数据至腾讯云数据库 MySQL。
+## 操作场景
 
-## 背景说明
-用户自建 MySQL 所在的本地 IDC 已经通过腾讯云云联网接入到腾讯云，需要将本地自建 MySQL 实例迁移到腾讯云数据库 MySQL，具体架构如下所示：
-<img src="https://main.qcloudimg.com/raw/1cb4f955473d9d2dea02948fdb4472f5.png"  style="zoom:40%;">
+本文主要介绍通过 DTS 数据迁移功能从通过腾讯云云联网的自建数据库迁移至腾讯云数据库。
+
+云联网可以实现不同 VPC（私有网络间）之间，VPC 与 IDC（本地数据中心间）之间的互联互通。使用云联网接入方式，需要用户提前通过云联网建立各 VPC 之间、VPC 与 IDC 的互通。
+
+本场景中，已通过云联网建立了vpc-广州、vpc-南京、vpc-上海三个网络之间的互通，计划通过 DTS 迁移广州地域的 MySQL 数据库到目标数据库中，云联网关联 VPC 选择南京或者上海地域的 VPC。
+
+<img src="https://main.qcloudimg.com/raw/61f515040e4072a5815522cabbd1fb0b.png" style="zoom:67%;" />
 
 ## 注意事项 
 
@@ -59,7 +63,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 | 操作类型 | 支持的 SQL 操作                                              |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE、REPLACE                              |
-| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE <br>VIEW：CREATE VIEW、ALTER VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br>DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
+| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE <br>VIEW：CREATE VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br>DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
 
 ## 环境要求
 
@@ -109,6 +113,13 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 
 ## 操作步骤
 
+#### 配置通过云联网建立不同网络之间的互通
+
+请参考 [通过云联网建立不同网络之间的互通](https://cloud.tencent.com/document/product/877/30804)。
+
+> ?云联网仅提供所有地域间 10Kbps 以下的免费带宽，使用 DTS 数据传输时需要更高带宽，所以链接中的配置带宽是必选操作。
+
+####  配置 DTS 迁移任务
 1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
 2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
@@ -187,5 +198,8 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
     - 目标与源库数据差距为0MB及目标与源库时间延迟为0秒时，手动完成增量同步。
     ![](https://main.qcloudimg.com/raw/e2b9ed2f2a63a0fdf28a557aa5f7aaf2.png)
 7. （可选）如果您需要进行查看任务、删除任务等操作，请单击对应的任务，在**操作**列进行操作，详情可参考 [任务管理](https://cloud.tencent.com/document/product/571/58674)。
-8. 当迁移任务状态变为**任务成功**时，即可对业务进行正式割接，更多详情可参考 [割接说明](https://cloud.tencent.com/document/product/571/58660)。
+
+### 业务割接
+
+当迁移任务状态变为**任务成功**时，即可对业务进行正式割接，更多详情可参考 [割接说明](https://cloud.tencent.com/document/product/571/58660)。
 
