@@ -1,6 +1,6 @@
 ## 操作场景
 
-您可通过本文快速开始使用 长安链·ChainMaker 区块链网络，同时可前往 [长安链·ChainMaker 操作指南](https://cloud.tencent.com/document/product/663/60100) 了解更多信息。
+您可通过本文快速开始使用 长安链·ChainMaker 区块链网络，同时可前往 [长安链·ChainMaker 操作指南](https://cloud.tencent.com/document/product/663/60106) 了解更多信息。
 
 长安链·ChainMaker 网络的使用过程主要分为以下步骤：
 <dx-steps>
