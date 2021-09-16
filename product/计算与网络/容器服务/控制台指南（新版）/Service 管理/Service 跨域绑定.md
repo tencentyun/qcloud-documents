@@ -11,6 +11,7 @@
 >?
 > 1. 如需使用非本集群所在 VPC 的 CLB，需先通过 [云联网](https://cloud.tencent.com/document/product/877/18752) 打通当前集群 VPC 和 CLB 所在的 VPC。
 > 2. 在确保 VPC 已经打通之后，请 [在线咨询](https://cloud.tencent.com/act/event/connect-service) 申请使用该功能。
+> 3. 以下 YAML 中，需要您输入地域 ID ，您可以通过 [地域和可用区](https://cloud.tencent.com/document/product/457/44787#.E4.B8.AD.E5.9B.BD) 查看地域 ID。
 
 
 ## 操作步骤

@@ -28,7 +28,9 @@ try {
     $signedUrl = $cosClient->getPreSignedUrl('putObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
-        'Body' => 'string' //可为空或任意字符串
+        'Body' => 'string', //可为空或任意字符串
+        'Params' => array(), //需要签入签名的请求参数
+        'Headers' => array() //需要签入签名的请求头部
     ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
@@ -44,7 +46,10 @@ try {
             'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
             'UploadId' => 'string',
             'PartNumber' => '1',
-            'Body' => 'string'), '+10 minutes'); //签名的有效时间
+            'Body' => 'string',
+            'Params' => array(), //需要签入签名的请求参数
+            'Headers' => array() //需要签入签名的请求头部
+            ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
 } catch (\Exception $e) {
@@ -71,6 +76,8 @@ try {
     $signedUrl = $cosClient->getPreSignedUrl('getObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
+        'Params' => array(), //需要签入签名的请求参数
+        'Headers' => array() //需要签入签名的请求头部
         ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
@@ -114,7 +121,10 @@ try {
     $signedUrl = $cosClient->getPreSignedUrl('putObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
-        'Body' => 'string'), '+10 minutes'); //签名的有效时间
+        'Body' => 'string',
+        'Params' => array(), //需要签入签名的请求参数
+        'Headers' => array() //需要签入签名的请求头部
+        ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
 } catch (\Exception $e) {
@@ -129,7 +139,10 @@ try {
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
         'UploadId' => '',
         'PartNumber' => '1',
-        'Body' => ''), '+10 minutes'); //签名的有效时间
+        'Body' => '',
+        'Params' => array(), //需要签入签名的请求参数
+        'Headers' => array() //需要签入签名的请求头部
+        ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
 } catch (\Exception $e) {
@@ -158,6 +171,8 @@ try {
     $signedUrl = $cosClient->getPreSignedUrl('getObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject" //对象在存储桶中的位置，即对象键
+        'Params' => array(), //需要签入签名的请求参数
+        'Headers' => array() //需要签入签名的请求头部
     ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
