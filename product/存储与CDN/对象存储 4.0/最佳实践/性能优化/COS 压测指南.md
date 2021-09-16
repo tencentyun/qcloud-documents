@@ -31,7 +31,6 @@ sudo yum install nmap-ncat java curl java-1.8.0-openjdk-devel -y
 ```
 sudo apt install nmap openjdk-8-jdk 
 ```
-
 3. 编辑 s3-config-sample.xml 文件并添加任务配置信息，任务配置主要包含如下五个阶段：
    1. init 阶段：创建存储桶。
    2. prepare 阶段：worker 线程，PUT 上传指定大小的对象，用于 main 阶段读取。
@@ -93,7 +92,6 @@ sudo apt install nmap openjdk-8-jdk
 ```plaintext
 -Dcom.amazonaws.services.s3.disableGetObjectMD5Validation=true
 ```
-
 5. 启动 cosbench 服务。
  - 对于 centos 系统，执行以下命令：
 ```plaintext
@@ -104,7 +102,6 @@ sudo bash start-all.sh
 sudo bash start-driver.sh &
 sudo bash start-controller.sh &
 ```
-
 6. 执行以下命令提交任务。
 ```plaintext
 sudo bash cli.sh submit conf/s3-config-sample.xml
@@ -113,7 +110,7 @@ sudo bash cli.sh submit conf/s3-config-sample.xml
 ![](https://main.qcloudimg.com/raw/77f1631fa15141332d123fb472bab7ac.png)
 此时可以看到五个执行阶段，如下图所示：
 ![](https://main.qcloudimg.com/raw/3ccb5a60253ceb20c6da9292582c4355.png)
-7. 下面展示的是所属地域为北京地域、32核、内网带宽为17Gbps 的 CVM 进行上传和下载性能测试，包括以下2个阶段：
+7. 下面展示的是所属地域为北京地域、32核、内网带宽为17Gbps的 CVM 进行上传和下载性能测试，包括以下2个阶段：
     1. prepare 阶段：100个 worker 线程，上传1000个50MB对象。
     2. main 阶段：100个 worker 线程混合读写对象，运行300秒。
 
