@@ -14,14 +14,14 @@
 
 #### 获取 PushGateway 访问配置
 
-1. 前往[**弹性 MapReduce**](https://console.cloud.tencent.com/emr) > **选择对应的“实例”** > **基本信息** > **实例信息**页面，获取 Pushgateway 地址和 Token。
+1. 前往 [**弹性 MapReduce**](https://console.cloud.tencent.com/emr) > **选择对应的“实例”** > **基本信息** > **实例信息**页面，获取 Pushgateway 地址和 Token。
 ![](https://main.qcloudimg.com/raw/1853a917832e275511cfc7c537815941.png)
 2. 在 [账号信息](https://console.cloud.tencent.com/developer) 页面获取 APPID。
 
 
 #### 修改 Flink 配置
 
-1. 进入[**弹性 MapReduce**](https://console.cloud.tencent.com/emr) > **选择对应的“实例”** > **集群服务**页面。
+1. 进入 [**弹性 MapReduce**](https://console.cloud.tencent.com/emr) > **选择对应的“实例”** > **集群服务**页面。
 2. 找到 **Flink** 配置项，在右侧选择**操作** > **配置管理**，进入配置管理页面。
 3. 在页面右侧单击**新增配置项**，依次添加以下配置。
 <table>
