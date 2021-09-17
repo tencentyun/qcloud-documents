@@ -3,7 +3,7 @@
 ## 步骤1：开通直播互动曲库
 完成 [直播曲库服务开通](https://cloud.tencent.com/document/product/1155/61649)。
 
-## 步骤2：实时音视频 TRTC 服务开通
+## 步骤2：创建实时音视频应用
 
 创建 [实时音视频 TRTC 应用](https://console.cloud.tencent.com/trtc/quickstart)。
 
@@ -489,20 +489,19 @@ media->QueryInterface(TXIID_MediaPreload, (void**)&preload);
 :::
 </dx-codeblock>
 
-#### 加载 Music 数据
+#### 预加载 Music 数据
 
 - **接口说明**
-加载 Music 数据。
+预加载 Music 数据。
 - **示例代码**
-<dx-codeblock>
-:::  Java
+```
 preloadMedia(const char* music_id, const char* path)
-</dx-codeblock>
+```
 
-#### 取消加载 Music 数据
+#### 取消预加载 Music 数据
 
 - **接口说明**
-取消加载 Music 数据。
+取消预加载 Music 数据。
 - **示例代码**
 <dx-codeblock>
 :::  Java
