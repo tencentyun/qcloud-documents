@@ -529,8 +529,8 @@ ITXCopyrightedMedia *media = CreateCopyRightMedia();
 
 // license 设置
 // key 和 url 的获取请参考应用创建中的内容
-char key[] = "7915c47e249a134bed50e1e80f0c303b";
-char url[] = "http://license.vod2.myqcloud.com/license/v1/dc7c4eff3eeaf3b6da031f7941288830/TXAmeSDK.licence";
+char key[] = "7915c47e2****34bed50e1e80f0c303b";
+char url[] = "http://license.vod2.myqcloud.com/license/v1/dc7c4eff3****3b6da031f7941288830/TXAmeSDK.licence";
 media->setCopyrightedLicense(key, url);
 
 //  版权音乐的下载和播放
