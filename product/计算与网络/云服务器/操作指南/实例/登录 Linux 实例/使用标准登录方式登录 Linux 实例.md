@@ -24,7 +24,7 @@ WebShell 优点如下：
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在实例的管理页面，选择需要登录的 Linux 云服务器，单击**登录**。如下图所示：
-![](https://main.qcloudimg.com/raw/b7f0594ddecad128707ee720502e10b0.png)
+![](https://main.qcloudimg.com/raw/7ab9564c491eb1d0a2bc12a4dc862563.png)
 3. 在打开的“标准登录 | Linux 实例”窗口，根据实际需求选择**密码登录**或者**密钥登录**方式进行登录。如下图所示：
 ![](https://main.qcloudimg.com/raw/ec0f1315e3aacd5553fb63b645bb5387.png)
 请参考以下说明填写登录所需信息：
@@ -32,8 +32,8 @@ WebShell 优点如下：
  -  **用户名**：Linux 实例用户名默认为 root（Ubuntu 系统实例用户名默认为 ubuntu），请按需填写。
  -  **密码**：填写已从 [前提条件](#Prerequisites) 步骤中获取的登录密码。
  - **密钥**：选择已绑定实例的密钥。
-4. 单击**登录**即可登录 Linux 实例。
-如果登录成功，WebShell 界面会出现 Socket connection established 提示。如下图所示：
+4. 单击**登录**，即可登录 Linux 实例。
+如果登录成功，WebShell 界面会出现如下提示。如下图所示：
 ![](https://main.qcloudimg.com/raw/bdeded2dc1eb8e0bfe6daf1173d7a62e.png)
 
 ## 后续操作
