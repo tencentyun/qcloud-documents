@@ -267,7 +267,7 @@ Ckafka 内部采用 json 格式存储，展现出来的数据如下所示：
 全网观看直播用户分布（需提前在 MySQL 建表）
 1. 定义 source
 ```
-CREATE TABLE `live_streaming_log_source ` (
+CREATE TABLE `live_streaming_log_source` (
      `user_id`       BIGINT,
      `ip`            VARCHAR,
      `room_id`       BIGINT, 
@@ -303,8 +303,7 @@ CREATE TABLE `live_streaming_log_sink` (
      primary key(`user_id`, `ip`,`room_id`,`arrive_time`) not enforced
 ) WITH (
     'connector' = 'jdbc',
-    'url' ='jdbc:mysql://172.28.28.227:3306/livedb?
-rewriteBatchedStatements=true&serverTimezon=Asia/Shanghai', 
+    'url' ='jdbc:mysql://172.28.28.227:3306/livedb?rewriteBatchedStatements=true&serverTimezon=Asia/Shanghai', 
     'table-name' = 'live_streaming_log',
     'username' = 'root', 
     'password' = 'xxxxx',
@@ -316,7 +315,7 @@ rewriteBatchedStatements=true&serverTimezon=Asia/Shanghai',
 3. 业务逻辑
 ```
 INSERT INTO `live_streaming_log_sink` 
-SELECT `*` FROM `live_streaming_log_source`;
+SELECT * FROM `live_streaming_log_source`;
 ```
 
 礼物总和统计（需提前在 MySQL 建表）
@@ -347,8 +346,7 @@ CREATE TABLE `live_gift_total_sink` (
 	primary key(`user_id`, `gift_type`) not enforced
 ) WITH (
 	'connector' = 'jdbc',
-	'url' = 'jdbc:mysql://172.28.28.227:3306/livedb?
-	rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai',
+	'url' = 'jdbc:mysql://172.28.28.227:3306/livedb?rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai',
 	'table-name' = 'live\_gift\_total',
 	'username' = 'root',
 	'password' = 'xxxxx',
@@ -407,8 +405,7 @@ CREATE TABLE `module_gift_total_sink` (
 	primary key(`module_id`) not enforced
 ) WITH (
 'connector' = 'jdbc',
-	'url' = 'jdbc:mysql://172.28.28.227:3306/livedb?
-	rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai',
+	'url' = 'jdbc:mysql://172.28.28.227:3306/livedb?rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai',
 	'table-name' = 'live\_gift\_total',
 	'username' = 'root',
 	'password' = 'xxxxx',
