@@ -221,15 +221,15 @@ Ckafka 内部采用 json 格式存储，展现出来的数据如下所示：
 
 ```
 {
-'user_id': 3165
-, 'ip': '123.0.0.105'
-, 'room_id': 20210813
-, 'arrive_time': '2021-08-16 09:48:01'
-, 'create_time': '2021-08-16 09:48:01'
-, 'leave_time': '2021-08-16 09:48:01'
-, 'region': 1122
-, 'grade': 1
-, 'province': '浙江'
+	'user_id': 3165
+	, 'ip': '123.0.0.105'
+	, 'room_id': 20210813
+	, 'arrive_time': '2021-08-16 09:48:01'
+	, 'create_time': '2021-08-16 09:48:01'
+	, 'leave_time': '2021-08-16 09:48:01'
+	, 'region': 1122
+	, 'grade': 1
+	, 'province': '浙江'
 }
 ```
 
@@ -260,7 +260,7 @@ Ckafka 内部采用 json 格式存储，展现出来的数据如下所示：
 
 | 字段       | 例子     | 含义         |
 | :--------- | :------- | :----------- |
-| room\_id   | 20210813 | 房间号       |
+| rowkey   | 20210813 | 房间号       |
 | module\_id | 1001     | 所属直播模块 |
 
 #### Oceanus SQL 作业编写
@@ -347,7 +347,7 @@ CREATE TABLE `live_gift_total_sink` (
 ) WITH (
 	'connector' = 'jdbc',
 	'url' = 'jdbc:mysql://172.28.28.227:3306/livedb?rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai',
-	'table-name' = 'live\_gift\_total',
+	'table-name' = 'live_gift_total',
 	'username' = 'root',
 	'password' = 'xxxxx',
 	'sink.buffer-flush.max-rows' = '5000',
@@ -376,7 +376,7 @@ CREATE TABLE `live_gift_total_source` (
 	proc_time AS PROCTIME()
 ) WITH (
  'connector' = 'kafka',
- 'topic' = 'live\_gift\_total',
+ 'topic' = 'live_gift_total',
  'scan.startup.mode' = 'earliest-offset',
  'properties.bootstrap.servers' = '172.28.28.13:9092',
  'properties.group.id' = 'joylyu-consumer-1',
@@ -406,7 +406,7 @@ CREATE TABLE `module_gift_total_sink` (
 ) WITH (
 'connector' = 'jdbc',
 	'url' = 'jdbc:mysql://172.28.28.227:3306/livedb?rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai',
-	'table-name' = 'live\_gift\_total',
+	'table-name' = 'live_gift_total',
 	'username' = 'root',
 	'password' = 'xxxxx',
 	'sink.buffer-flush.max-rows' = '5000',
@@ -418,12 +418,12 @@ CREATE TABLE `module_gift_total_sink` (
 ```sql
 INSERT INTO `module_gift_total_sink`
 SELECT
-`b`.`cf`.`module_id`,
-SUM(`a`.`gift_total_amount`) AS `module_gift_total_amount`
-FROM `live_gift_total_source` AS `a` 
-LEFT JOIN `dim_hbase` AS `b` for SYSTEM_TIME as of `a`.`proc_time`
- ON `a`.`room_id` = `b`.`rowkey`
-GROUP BY `b`.`cf`.`module_id`;
+b.`cf`.`module_id`,
+SUM(a.`gift_total_amount`) AS `module_gift_total_amount`
+FROM `live_gift_total_source` AS a
+LEFT JOIN `dim_hbase` AS b for SYSTEM_TIME as of a.`proc_time`
+ ON a.`room_id` = b.`rowkey`
+GROUP BY b.`cf`.`module_id`;
 ```
 
 ### 实时大屏可视化展示
