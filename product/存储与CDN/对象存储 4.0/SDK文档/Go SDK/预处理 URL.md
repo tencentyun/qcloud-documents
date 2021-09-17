@@ -115,13 +115,13 @@ func main() {
 	ctx := context.Background()
 
 	// 方法1 通过 tag 设置 x-cos-security-token
-	// Get presigned
+	// 获取预签名
 	presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodGet, name, tak, tsk, time.Hour, token)
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 		return
 	}
-	// Get object by presinged url
+	// 通过预签名访问对象
 	resp, err := http.Get(presignedURL.String())
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
@@ -137,13 +137,13 @@ func main() {
 		Header: &http.Header{},
 	}
 	opt.Query.Add("x-cos-security-token", "<token>")
-	// Get presigned
+	// 获取预签名
 	presignedURL, err = c.Object.GetPresignedURL(ctx, http.MethodGet, name, tak, tsk, time.Hour, opt)
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 		return
 	}
-	// Get object by presinged url
+	// 通过预签名访问对象
 	resp, err = http.Get(presignedURL.String())
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
@@ -153,3 +153,79 @@ func main() {
 	fmt.Printf("resp:%v\n", resp)
 }
 ```
+
+## 自定义域名生成预签名示例
+```go
+func main() {
+    // 替换成您的临时密钥
+    tak := os.Getenv("SECRETID")
+    tsk := os.Getenv("SECRETKEY")
+    // 修改成用户的自定义域名
+    u, _ := url.Parse("https://<自定义域名>")
+    b := &cos.BaseURL{BucketURL: u}
+    c := cos.NewClient(b, &http.Client{})
+
+    name := "exampleobject"
+    ctx := context.Background()
+
+    // 获取预签名
+    presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodGet, name, tak, tsk, time.Hour, nil)
+    if err != nil {
+        fmt.Printf("Error: %v\n", err)
+        return
+    }
+    // 通过预签名访问对象
+    resp, err := http.Get(presignedURL.String())
+    if err != nil {
+        fmt.Printf("Error: %v\n", err)
+    }
+    defer resp.Body.Close()
+    fmt.Println(presignedURL.String())
+    fmt.Printf("resp:%v\n", resp)
+}
+```
+
+## 添加请求参数或请求头部
+```go
+func main() {
+	// 替换成您的临时密钥
+	tak := os.Getenv("SECRETID")
+	tsk := os.Getenv("SECRETKEY")
+	u, _ := url.Parse("https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
+	b := &cos.BaseURL{BucketURL: u}
+	c := cos.NewClient(b, &http.Client{})
+
+	name := "exampleobject"
+	ctx := context.Background()
+
+	// PresignedURLOptions 提供用户添加请求参数和请求头部
+	opt := &cos.PresignedURLOptions{
+		Query:  &url.Values{},
+		Header: &http.Header{},
+	}
+	// 添加请求参数, 返回的预签名url将包含该参数
+	opt.Query.Add("x-cos-security-token", "<token>")
+	// 添加请求头部，返回的预签名url只是将请求头部设置到签名里，请求时还需要自行设置对应的header。
+	opt.Header.Add("Content-Type", "text/html")
+
+	// 获取预签名
+	presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodPut, name, tak, tsk, time.Hour, opt)
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+	// 通过预签名访问对象
+	req, _ := http.NewRequest(http.MethodPut, presignedURL.String(), strings.NewReader("test"))
+	// 请求时需要设置对应 header
+	req.Header.Set("Content-Type", "text/html")
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+	}
+	defer resp.Body.Close()
+	fmt.Println(presignedURL.String())
+	fmt.Printf("resp:%v\n", resp)
+}
+```
+
+
