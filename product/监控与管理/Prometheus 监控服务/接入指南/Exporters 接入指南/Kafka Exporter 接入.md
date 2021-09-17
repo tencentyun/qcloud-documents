@@ -9,7 +9,7 @@
 ## 前提条件
 
 - 在 Prometheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)，并为集群创建 [命名空间](https://cloud.tencent.com/document/product/1141/41803)。
-- 在**[Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)** >**选择“对应的 Prometheus 实例”** >**集成容器服务**中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/1416/56000)。
+- 在 [**Prometheus 监控服务控制台**](https://console.cloud.tencent.com/monitor/prometheus) > **选择“对应的 Prometheus 实例”** > **集成容器服务**中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/1416/56000)。
 
 
 ## 操作步骤
@@ -70,7 +70,7 @@ spec:
 ### 添加采取任务
 
 1. 登录 [ Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
-2. 通过集成容器服务列表单击**集群 ID**进入到容器服务集成管理页面。
+2. 通过集成容器服务列表单击**集群 ID** 进入到容器服务集成管理页面。
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
 
 <dx-codeblock>
