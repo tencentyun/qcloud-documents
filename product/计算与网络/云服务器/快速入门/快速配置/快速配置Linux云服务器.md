@@ -30,7 +30,7 @@
 >! 通过快速配置购买的云服务器，系统将为您自动分配云服务器登录密码并发送到您的站内信中。此密码为登录云服务器的凭据。<div style="background-color:#00A4FF; width: 160px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/message" target="_blank"  style="color: white; font-size:16px;">点此获取初始密码</a></div>
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)，在实例列表中找到刚购买的云服务器，在右侧操作栏中单击**登录**。
-![](https://main.qcloudimg.com/raw/f97dec23b6b0b8bdd7916e6c8af72cce.jpg)
+![](https://main.qcloudimg.com/raw/47fe5103be8ae1a5d08bf2f0c962ef14.png)
 2. 在“标准登录 | Linux 实例”窗口中，输入云服务器的用户名和密码，并单击**登录**即可正常登录。如下图所示：
 ![](https://main.qcloudimg.com/raw/ddd85a45a55eac09c988c5c52be4f818.png)
 3. 登录成功后，界面如下图所示：
