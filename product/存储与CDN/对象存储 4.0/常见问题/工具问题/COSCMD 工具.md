@@ -35,9 +35,6 @@ coscmd download prefix/ localpath/ -r
 ```
 
 
-### 如何使用 COSCMD 访问多个存储桶？
-
-可以使用 -b，-r 参数指定多个存储桶，例如`coscmd -b examplebucket-1250000000 examplebucket-1250000001 -r ap-beijing`；或者使用 -c 参数，指定配置文件 cos.conf，在 cos.conf 文件中配置多个存储桶。
 
 ### COSCMD list 是否支持按照文件上传时间列出文件？
 
