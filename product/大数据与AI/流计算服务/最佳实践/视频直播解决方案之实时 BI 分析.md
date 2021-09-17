@@ -233,7 +233,7 @@ Ckafka 内部采用 json 格式存储，展现出来的数据如下所示：
 }
 ```
 
-礼物记录：live\_gift\_log（topic 名）
+礼物记录：live\_gift\_total（topic 名）
 
 | 字段                | 类型      | 含义     |
 | :------------------ | :-------- | :------- |
@@ -256,7 +256,7 @@ Ckafka 内部采用 json 格式存储，展现出来的数据如下所示：
 }
 ```
 
-模块记录表：live\_module\_roomid（Hbase 维表）
+模块记录表：dim\_hbase（Hbase 维表）
 
 | 字段       | 例子     | 含义         |
 | :--------- | :------- | :----------- |
@@ -321,7 +321,7 @@ SELECT * FROM `live_streaming_log_source`;
 礼物总和统计（需提前在 MySQL 建表）
 1. 定义 source
 ```
-CREATE TABLE ` live_gift_total_source` (
+CREATE TABLE `live_gift_total_source` (
     `user_id`           VARCHAR,
     `gift_type`          VARCHAR,
     `gift_total_amount`   BIGINT,
