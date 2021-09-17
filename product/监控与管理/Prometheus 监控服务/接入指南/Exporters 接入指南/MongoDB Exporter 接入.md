@@ -8,7 +8,7 @@
 ## 前提条件
 
 - 在 Prometheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [Kubernetes 集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)。
-- 在**[ Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)** >**选择“对应的 Prometheus 实例”** >**集成容器服务**中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/1416/56000)。
+- 在 [**Prometheus 监控服务控制台**](https://console.cloud.tencent.com/monitor/prometheus) > **选择“对应的 Prometheus 实例”** > **集成容器服务**中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/1416/56000)。
 
 
 
@@ -25,7 +25,7 @@
 #### 使用 Secret 管理 MongoDB 连接串[](id:step1)
 
 1. 在左侧菜单中选择**工作负载** > **Deployment**，进入 Deployment 页面。
-2. 在页面右上角单击**YAML创建资源**，创建 YAML 配置，配置说明如下：
+2. 在页面右上角单击 **YAML创建资源**，创建 YAML 配置，配置说明如下：
    使用 Kubernetes 的 Secret 来管理密码并对密码进行加密处理，在启动 MongoDB   Exporter 的时候直接使用 Secret Key，需要调整对应的 URI，YAML 配置示例如下：
 <dx-codeblock>
 :::  yaml
@@ -107,7 +107,7 @@ spec:
 1. 在 Deployment 页面单击上述步骤创建的 Deployment，进入 Deployment 管理页面。
 2. 单击**日志**页签，可以查看到 Exporter 成功启动并暴露对应的访问地址，如下图所示：
 ![](https://main.qcloudimg.com/raw/8e02dd72301a6dbcf91e2c121dba3084.png)
-3. 单击**Pod管理**页签，进入 Pod 页面。
+3. 单击 **Pod 管理**页签，进入 Pod 页面。
 4. 在右侧的操作项下单击**远程登录**登录 Pod，在命令行中执行以下 wget 命令对应 Exporter 暴露的地址，可以正常得到对应的 MongoDB 指标，若发现未能得到对应的数据，请检查一下连接 URI 是否正确，具体如下：
 ```
 wget 127.0.0.1:9216/metrics 
@@ -121,7 +121,7 @@ cat metrics
 ### 添加采集任务
 
 1. 登录 [ Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
-2. 通过集成容器服务列表单击**集群 ID**进入到容器服务集成管理页面。
+2. 通过集成容器服务列表单击**集群 ID** 进入到容器服务集成管理页面。
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
 
 <dx-codeblock>
@@ -173,11 +173,11 @@ cat metrics
 ## 常见问题
 
 #### 客户端报错：client checkout connect timeout，该如何处理？
-
-可能是连接池使用率达到100%，导致创建连接失败。可以通过 Grafana 大盘**MongoDB 详情/核心指标/连接使用率**指标排查。
+ 
+可能是连接池使用率达到100%，导致创建连接失败。可以通过 Grafana 大盘 **MongoDB 详情/核心指标/连接使用率**指标排查。
 ![](https://main.qcloudimg.com/raw/ed65b8c0a8b9013e2532e392a55a1058.png)
 
 #### 写入不断超时，该如何处理？
 
-需检查 Cache 使用率是否过高、Transactions 可用个数是否为0，可以通过 Grafana 大盘**MongoDB详情/核心指标/ WiredTiger Transactions 可用个数| WiredTiger Cache 使用率| GetLastError 写耗时| GetLastError 写超时**指标排查。
+需检查 Cache 使用率是否过高、Transactions 可用个数是否为0，可以通过 Grafana 大盘 **MongoDB 详情/核心指标/ WiredTiger Transactions 可用个数| WiredTiger Cache 使用率| GetLastError 写耗时| GetLastError 写超时**指标排查。
 ![](https://main.qcloudimg.com/raw/282ab600c5d8a65e0735d61b538e3db8.png)
