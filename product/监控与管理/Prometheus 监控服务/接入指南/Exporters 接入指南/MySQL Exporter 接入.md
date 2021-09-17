@@ -45,7 +45,7 @@ GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* TO 'exporter'@'ip';
 #### 使用 Secret 管理 MySQL 连接串
 
 1. 在左侧菜单中选择**工作负载** > **Deployment**，进入 Deployment 页面。
-2. 在页面右上角单击**YAML创建资源**，创建 YAML 配置，配置说明如下：
+2. 在页面右上角单击 **YAML 创建资源**，创建 YAML 配置，配置说明如下：
 使用 Kubernetes 的 Secret 来管理连接串，并对连接串进行加密处理，在启动 MySQL Exporter 的时候直接使用 Secret Key，需要调整对应的**连接串**，YAML 配置示例如下：
 
 <dx-codeblock>
@@ -119,7 +119,7 @@ spec:
 1. 在 Deployment 页面单击上述步骤创建的 Deployment，进入 Deployment 管理页面。
 2. 单击**日志**页签，可以查看到 Exporter 成功启动并暴露对应的访问地址，如下图所示：
 ![](https://main.qcloudimg.com/raw/353be171da1dbdff76735a4b67a2055d.png)
-3. 单击**Pod管理**页签进入 Pod 页面。
+3. 单击 **Pod 管理**页签进入 Pod 页面。
 4. 在右侧的操作项下单击**远程登录**登录 Pod，在命令行窗口中执行以下 curl 命令对应 Exporter 暴露的地址，可以正常得到对应的 MySQL 指标。如发现未能得到对应的数据，请检查**连接串**是否正确，具体如下：
 
 ```
@@ -133,7 +133,7 @@ curl localhost:9104/metrics
 ### 添加采取任务
 
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
-2. 通过集成容器服务列表单击**集群 ID**进入到容器服务集成管理页面。
+2. 通过集成容器服务列表单击**集群 ID** 进入到容器服务集成管理页面。
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
 
 <dx-codeblock>
