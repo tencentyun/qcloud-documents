@@ -3,7 +3,7 @@
 ## 正式版 License
 
 ### 注意事项
-- **正式版 License 不支持信息修改**，若您需要修改 License 信息，购买资源包后请勿用于续期 License，请单击**创建应用并绑定License **重新新增 License 绑定新的包名信息。
+- **正式版 License 不支持信息修改**，若您需要修改 License 信息，购买资源包后请勿用于续期 License，请单击**创建应用并绑定License**重新新增 License 绑定新的包名信息。
 - 短视频 SDK License 需要通过 [云点播控制台](https://console.cloud.tencent.com/vod/license/video) 与 [流量资源包](https://cloud.tencent.com/document/product/266/14667#flow_page) 进行绑定。绑定成功后该资源包视为已使用，不支持5天内无理由退款。
 
 [](id:creat_formal)
@@ -19,7 +19,7 @@
 | [企业版 Pro SDK（EnterprisePro）](https://cloud.tencent.com/document/product/584/9366#sdk) | 请参见 [申请企业版本 License](#enterpriseli)                 |
 
 #### 操作步骤
-1. 进入**云点播控制台]**>**License 管理** >**[SDK License](https://console.cloud.tencent.com/vod/license/video)**，单击**创建应用并绑定License **按钮。填写 App Name、Package Name 和 Bundle ID并勾选功能模块**短视频**，根据实际需求选择**精简版**或**基础版**，完成后单击**下一步**。
+1. 进入**云点播控制台]**>**License 管理** >**[SDK License](https://console.cloud.tencent.com/vod/license/video)**，单击**创建应用并绑定License**按钮。填写 App Name、Package Name 和 Bundle ID并勾选功能模块**短视频**，根据实际需求选择**精简版**或**基础版**，完成后单击**下一步**。
 ![](https://main.qcloudimg.com/raw/d9bb304bb79de0d5cde9db737abd1bd9.png)
 2. 进入选择套餐包并绑定 License 界面，选择**未绑定**的云点播流量资源包，单击**确定**即可生成短视频（精简版/基础版）正式版 License。
 ![](https://main.qcloudimg.com/raw/6b0a059af1b106a1e876dc53edabd2b0.png)
@@ -33,7 +33,7 @@
 
 [](id:renew_formal)
 ### 更新正式版 License
-您可以登录**云点播控制台**>**License 管理**>**[SDK License](https://console.cloud.tencent.com/vod/license/video) **页面查看短视频正式版 License 的有效期，正式版本的 License 有效期为一年。若您对指定 License 进行续期，请保证已购买流量资源包的情况下，可进行如下操作进行续期：
+您可以登录**云点播控制台**>**License 管理**>**[SDK License](https://console.cloud.tencent.com/vod/license/video)**页面查看短视频正式版 License 的有效期，正式版本的 License 有效期为一年。若您对指定 License 进行续期，请保证已购买流量资源包的情况下，可进行如下操作进行续期：
 1. 选择您需要更新有效期的短视频 License，单击对应视频模块中的**更新有效期**。
 ![](https://main.qcloudimg.com/raw/a0e9a956644566f69a0b8d5293cdbf8e.png)
 2. 选择**未绑定**过的云点播流量资源包（如没有可更新有效期的资源包，可前往 [资源包购买页](https://buy.cloud.tencent.com/vcube) 购买），单击**确定**即可。
