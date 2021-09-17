@@ -45,7 +45,7 @@ apt-get install tightvncserver
 ```
 :::
 </dx-tabs>
-2. [](id:step05)执行以下命令，启动 VNC 服务，并设置 VNC 的密码。
+2. [](id:step02)执行以下命令，启动 VNC 服务，并设置 VNC 的密码。
 ```
 vncserver
 ```
@@ -75,6 +75,7 @@ vncserver -geometry 1920x1080 :1 #生成新的会话
 8. 在 VNC Viewer 软件中，输入 `云服务器的 IP 地址:1`，按 **Enter**。
 ![](https://main.qcloudimg.com/raw/df25e2085e9d27d53b1827ccf98a3618.png)
 9. 在弹出的提示框中，单击 **Continue**。
-10. 输入 [步骤5](#step05) 设置的 VNC 的密码，单击 **OK**，即可登录实例并使用图形化界面。
+10. 输入 [步骤2](#step02) 设置的 VNC 的密码，单击 **OK**，即可登录实例并使用图形化界面。
+
 
 
