@@ -146,7 +146,7 @@ if __name__ == '__main__':
 # 进入HBase命令
 [root@172~]# hbase shell
 # 建表语句
-create ‘dim_hbase’, ‘cf’
+create 'dim_hbase', 'cf'
 ```
   
 ### 创建云数据库 MySQL
@@ -221,15 +221,15 @@ Ckafka 内部采用 json 格式存储，展现出来的数据如下所示：
 
 ```
 {
-'user_id': 3165
-, 'ip': '123.0.0.105'
-, 'room_id': 20210813
-, 'arrive_time': '2021-08-16 09:48:01'
-, 'create_time': '2021-08-16 09:48:01'
-, 'leave_time': '2021-08-16 09:48:01'
-, 'region': 1122
-, 'grade': 1
-, 'province': '浙江'
+	'user_id': 3165
+	, 'ip': '123.0.0.105'
+	, 'room_id': 20210813
+	, 'arrive_time': '2021-08-16 09:48:01'
+	, 'create_time': '2021-08-16 09:48:01'
+	, 'leave_time': '2021-08-16 09:48:01'
+	, 'region': 1122
+	, 'grade': 1
+	, 'province': '浙江'
 }
 ```
 
@@ -260,14 +260,14 @@ Ckafka 内部采用 json 格式存储，展现出来的数据如下所示：
 
 | 字段       | 例子     | 含义         |
 | :--------- | :------- | :----------- |
-| room\_id   | 20210813 | 房间号       |
+| rowkey   | 20210813 | 房间号       |
 | module\_id | 1001     | 所属直播模块 |
 
 #### Oceanus SQL 作业编写
 全网观看直播用户分布（需提前在 MySQL 建表）
 1. 定义 source
 ```
-CREATE TABLE `live_streaming_log_source ` (
+CREATE TABLE `live_streaming_log_source` (
      `user_id`       BIGINT,
      `ip`            VARCHAR,
      `room_id`       BIGINT, 
@@ -303,8 +303,7 @@ CREATE TABLE `live_streaming_log_sink` (
      primary key(`user_id`, `ip`,`room_id`,`arrive_time`) not enforced
 ) WITH (
     'connector' = 'jdbc',
-    'url' ='jdbc:mysql://172.28.28.227:3306/livedb?
-rewriteBatchedStatements=true&serverTimezon=Asia/Shanghai', 
+    'url' ='jdbc:mysql://172.28.28.227:3306/livedb?rewriteBatchedStatements=true&serverTimezon=Asia/Shanghai', 
     'table-name' = 'live_streaming_log',
     'username' = 'root', 
     'password' = 'xxxxx',
@@ -316,7 +315,7 @@ rewriteBatchedStatements=true&serverTimezon=Asia/Shanghai',
 3. 业务逻辑
 ```
 INSERT INTO `live_streaming_log_sink` 
-SELECT `*` FROM `live_streaming_log_source`;
+SELECT * FROM `live_streaming_log_source`;
 ```
 
 礼物总和统计（需提前在 MySQL 建表）
@@ -347,9 +346,8 @@ CREATE TABLE `live_gift_total_sink` (
 	primary key(`user_id`, `gift_type`) not enforced
 ) WITH (
 	'connector' = 'jdbc',
-	'url' = 'jdbc:mysql://172.28.28.227:3306/livedb?
-	rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai',
-	'table-name' = 'live\_gift\_total',
+	'url' = 'jdbc:mysql://172.28.28.227:3306/livedb?rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai',
+	'table-name' = 'live_gift_total',
 	'username' = 'root',
 	'password' = 'xxxxx',
 	'sink.buffer-flush.max-rows' = '5000',
@@ -378,7 +376,7 @@ CREATE TABLE `live_gift_total_source` (
 	proc_time AS PROCTIME()
 ) WITH (
  'connector' = 'kafka',
- 'topic' = 'live\_gift\_total',
+ 'topic' = 'live_gift_total',
  'scan.startup.mode' = 'earliest-offset',
  'properties.bootstrap.servers' = '172.28.28.13:9092',
  'properties.group.id' = 'joylyu-consumer-1',
@@ -407,9 +405,8 @@ CREATE TABLE `module_gift_total_sink` (
 	primary key(`module_id`) not enforced
 ) WITH (
 'connector' = 'jdbc',
-	'url' = 'jdbc:mysql://172.28.28.227:3306/livedb?
-	rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai',
-	'table-name' = 'live\_gift\_total',
+	'url' = 'jdbc:mysql://172.28.28.227:3306/livedb?rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai',
+	'table-name' = 'live_gift_total',
 	'username' = 'root',
 	'password' = 'xxxxx',
 	'sink.buffer-flush.max-rows' = '5000',
@@ -421,12 +418,12 @@ CREATE TABLE `module_gift_total_sink` (
 ```sql
 INSERT INTO `module_gift_total_sink`
 SELECT
-`b`.`cf`.`module_id`,
-SUM(`a`.`gift_total_amount`) AS `module_gift_total_amount`
-FROM `live_gift_total_source` AS `a` 
-LEFT JOIN `dim_hbase` AS `b` for SYSTEM_TIME as of `a`.`proc_time`
- ON `a`.`room_id` = `b`.`rowkey`
-GROUP BY `b`.`cf`.`module_id`;
+b.`cf`.`module_id`,
+SUM(a.`gift_total_amount`) AS `module_gift_total_amount`
+FROM `live_gift_total_source` AS a
+LEFT JOIN `dim_hbase` AS b for SYSTEM_TIME as of a.`proc_time`
+ ON a.`room_id` = b.`rowkey`
+GROUP BY b.`cf`.`module_id`;
 ```
 
 ### 实时大屏可视化展示
