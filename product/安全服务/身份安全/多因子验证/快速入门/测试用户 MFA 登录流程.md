@@ -15,7 +15,7 @@
 >!在实际应用场景中，“MFA 配置”界面的全部信息需要在 WebApp 中提前配置好，安全存储于 WebApp 服务器上。供 WebApp 调用 MFA SaaS API 认证接口时使用，终端用户登录时无需此配置页面。 
 
 3. 进入用户登录页面后，输入用户名和密码，单击【登录】，进入多因素认证页面。
->?用户名密码请参见 [创建的测试用户信息](https://cloud.tencent.com/document/product/1326/60864)。
+>?用户名密码请参见 [创建的测试用户信息](https://cloud.tencent.com/document/product/1326/55081)。
 >
 ![](https://main.qcloudimg.com/raw/cc32fa043ff80e78a3bcb8c68ef68fab.jpg)
 5. 在多因素认证页面，输入6位动态口令，单击【验证】。如果口令正确，您将会看到登录成功提示。 

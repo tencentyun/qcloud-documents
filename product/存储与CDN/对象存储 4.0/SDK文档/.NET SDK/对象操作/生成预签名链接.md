@@ -12,6 +12,14 @@
 
 SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos-dotnet-sdk-doc-1253960454.file.myqcloud.com/)。
 
+## 生成无签名链接
+
+当对象 ACL 属性设置为“公有读”时，可以通过以下 SDK 接口生成的 URL 直接访问对象。
+
+```C#
+ string GetObjectUrl(string bucket, string key);
+ ```
+
 ## 生成对象预签名链接
 
 #### 示例代码一：生成预签名上传链接

@@ -59,7 +59,7 @@ GET https://api.meeting.qq.com/v1/users?uuid=WM4Fs4Th56ogU13JiK
     "area": "86",
     "update_time": "2020-04-21 18:01:29",
     "phone": "13000000000",
-    "user_id": "9527",
+    "userid": "9527",
     "email": "",
     "username": "testusername",
     "status": "1",
@@ -70,7 +70,7 @@ GET https://api.meeting.qq.com/v1/users?uuid=WM4Fs4Th56ogU13JiK
 	"role_name": "普通成员",
 	"role_code": "NORMAL_ROLE",
 	"department_list": [{
-		"department_id": "e3ce08567893251f05db4de921fc2c2d",
+		"department_id": "e3ce085****************921fc2c2d",
 		"department_name": "主部门"
 	}]
 }

@@ -20,7 +20,7 @@ TDMQ CMQ 版目前支持 Java、Python、PHP 及 C++ SDK ，后续会支持更�
 - 内网接口请求域名：`http://{$region}.mqadapter.cmq.tencentyun.com`
 
 
-#### 主题模型 <span id="topic"></span>
+#### 主题模型 [](id:topic)
 **请参照下面说明将域名中的 {$region} 替换成相应地域：**
 - 外网接口请求域名：`https://cmq-{$region}.public.tencenttdmq.com`
 - 内网接口请求域名：`http://{$region}.mqadapter.cmq.tencentyun.com`
@@ -35,17 +35,17 @@ TDMQ CMQ 版目前支持 Java、Python、PHP 及 C++ SDK ，后续会支持更�
 
 ## Demo工程使用
 ### 准备 Demo 环境
-1. **安装 IDE**
+1. **安装 IDEA**
 您可以安装 IntelliJ IDEA 或者 Eclipse，本文以 IntelliJ IDEA 为例进行说明。
 请在 [下载 IntelliJ IDEA Ultimate 版本](https://www.jetbrains.com/idea/)，并参考 IntelliJ IDEA 说明进行安装。
 2. **下载 Demo 工程**
-请在 [下载 CMQ-HTTP 的 Demo 工程](https://github.com/tencentyun/cmq-java-sdk) 到本地，解压后即可看到本地新增的 cmq-java-sdk-master 文件夹。
+请在 [下载 TDMQ CMQ 版 HTTP 的 Demo 工程](https://github.com/tencentyun/cmq-java-sdk) 到本地，解压后即可看到本地新增的 cmq-java-sdk-master 文件夹。
 
 
 ### 配置 Demo 工程
 1. **创建资源**
-您需要在控制台创建所需消息队列资源，包括 CMQ 队列名、SecretID、SecretKey。
-具体创建过程请参考 [队列模型快速入门]() 和 [主题模型快速入门]()。
+您需要在控制台创建所需消息队列资源，包括 TDMQ CMQ 版队列名、SecretID、SecretKey。
+具体创建过程请参考 [队列模型快速入门](https://cloud.tencent.com/document/product/1496/61006) 和 [主题模型快速入门](https://cloud.tencent.com/document/product/1496/61005)。
 2. **导入 Demo 工程文件**
 在 IDEA 的开机界面打开文件夹。
 ![](https://main.qcloudimg.com/raw/8a3ba96ef290ad50f6f0d20c01594f5d.png)

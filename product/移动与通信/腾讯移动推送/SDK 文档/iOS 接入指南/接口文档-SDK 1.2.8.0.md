@@ -527,7 +527,7 @@ NSTimeInterval：NSTimeInterval类型，应用内消息轮询时间间隔。
 
 ### 自定义事件处理
 
-#### TPNSInAppMessageActionDelegate代理说明
+#### XGInAppMessageActionDelegate 代理说明
 
 用户通过代理方法 `onClickWithCustomAction`获取自定义事件参数来处理相关业务。
 

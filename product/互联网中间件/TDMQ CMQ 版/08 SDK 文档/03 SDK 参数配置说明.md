@@ -1,10 +1,10 @@
-消息队列 CMQ 版（TDMQ for CMQ）是一种分布式消息队列服务，它能够提供可靠的，基于消息的异步通信机制，能够将分布式部署的不同应用（或同一应用的不同组件）中的信息传递，存储在可靠有效的 CMQ 队列中，防止消息丢失。TDMQ CMQ 版支持多进程同时读写，收发互不干扰，无需各应用或组件始终处于运行状态。
+消息队列 CMQ 版（TDMQ CMQ 版）是一种分布式消息队列服务，它能够提供可靠的，基于消息的异步通信机制，能够将分布式部署的不同应用（或同一应用的不同组件）中的信息传递，存储在可靠有效的 TDMQ CMQ 版队列中，防止消息丢失。TDMQ CMQ 版支持多进程同时读写，收发互不干扰，无需各应用或组件始终处于运行状态。
 
 TDMQ CMQ 版提供了四种 SDK，本文以 Python 为例进行说明。
 
 ## Python SDK 简介
 
-为了方便使用，CMQ 将用户操作、队列操作、主题操作等抽象成了几个类：
+为了方便使用，TDMQ CMQ 版将用户操作、队列操作、主题操作等抽象成了几个类：
 - Account：封装账户 SecretId、SecretKey，用户可以创建删除队列、主题及订阅，并查看这些对象。
 - queue：收发消息，查看设置队列属性。
 - topic：发布消息，查看设置主题属性，查看订阅者。
@@ -12,7 +12,7 @@ TDMQ CMQ 版提供了四种 SDK，本文以 Python 为例进行说明。
 
 >!所有的类均为非线程安全的，如果需要多线程使用，最好每个线程实例化自己的对象。
 
-[下载 SDK >>](https://cloud.tencent.com/document/product/406/6107)
+[下载 SDK >>](https://cloud.tencent.com/document/product/1496/61039)
 
 
 ## 队列模型
@@ -35,7 +35,7 @@ TDMQ CMQ 版提供了四种 SDK，本文以 Python 为例进行说明。
 | minMsgTime | 消息最小未消费时间，单位为秒。 | 
 | delayMsgNum | 延时消息数量。| 
 
-[查看队列模型快速入门>>]()
+[查看队列模型快速入门>>](https://cloud.tencent.com/document/product/1496/61006)
 
 ## 主题模型
 
@@ -50,4 +50,4 @@ TDMQ CMQ 版提供了四种 SDK，本文以 Python 为例进行说明。
 | lastModifyTime | 最后一次修改主题属性的时间。返回 Unix 时间戳，精确到秒。 |
 | filterType | 描述用户创建订阅时选择的过滤策略：<br> filterType = 1 表示用户使用 filterTag 标签过滤；<br>filterType = 2 表示用户使用 bindingKey 过滤。 |
 
-[查看主题模型快速入门 >>]()
+[查看主题模型快速入门 >>](https://cloud.tencent.com/document/product/1496/61005)

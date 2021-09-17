@@ -12,7 +12,6 @@ ChainMaker 官方已经将容器发布至 [docker hub](https://hub.docker.com/u/
 ```
 docker pull chainmakerofficial/chainmaker-rust-contract:1.2.0
 ```
-
 请指定你本机的工作目录 $WORK_DIR，例如 /data/workspace/contract，挂载到 docker 容器中以方便后续进行必要的一些文件拷贝
 ```
 docker run -it --name chainmaker-rust-contract -v $WORK_DIR:/home chainmakerofficial/chainmaker-rust-contract:1.2.0 bash
@@ -29,19 +28,14 @@ tar xvf /data/contract_rust_template.tar.gz
 cd contract_rust
 wasm-pack build
 ```
-
 生成的合约字节码文件位于：
-
 ```
 /home/contract_rust/target/wasm32-unknown-unknown/release/chainmaker_contract.wasm
 ```
-
-`chainmaker_contract.wasm`文件可在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 上传并部署。
+`chainmaker_contract.wasm` 文件可在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 上传并部署。
 
 3. 合约开发框架描述
-
 解压缩 contract_rust_template.tar.gz 后，文件描述如下：
-
 ```
 chainmaker-contract-sdk-rust$ tree -I target
 .
@@ -59,5 +53,4 @@ chainmaker-contract-sdk-rust$ tree -I target
 │   ├── sim_context_rs.rs           # 合约SDK sql接口实现
 │   └── vec_box.rs                  # 内存管理类
 ```
-
 用户使用 Rust 编写智能合约后，可以把源代码更新到 `src/contract_fact.rs` 文件中并重新编译，得到新的智能合约的字节码，并前往 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 上传并部署。更多关于使用 Rust 进行开发长安链智能合约的详情，可参考长安链官网 [使用 Rust 进行智能合约开发](https://docs.chainmaker.org.cn/dev/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#rust)

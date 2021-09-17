@@ -87,8 +87,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 | status           | Integer  | 子会议状态。<br> 0：默认（存在）<br> 1：已删除   |
 | start_time       | Integer  | 子会议开始时间（UTC 秒）。               |
 | end_time         | Integer  | 子会议结束时间（UTC 秒）。              |
-| first_start_time | string   | 预定的第一次会议起始时间（UTC 单位:秒）。|
-| first_end_time   | string   | 预定的第一次会议结束时间（UTC 单位:秒）。 |
+
 
 **周期性会议 period_meeting**
 

@@ -141,44 +141,15 @@ public abstract int isPushing();
 
 ## 视频相关接口
 ### setVideoQuality
-设置推流视频分辨率，以及宽高比模式（横屏 / 竖屏）。
+设置推流视频编码参数。
 ```
-public abstract int setVideoQuality(V2TXLiveVideoResolution resolution, V2TXLiveVideoResolutionMode resolutionMode);
+public abstract int setVideoQuality(V2TXLiveVideoEncoderParam param);
 ```
 #### 参数
 
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| resolution | [V2TXLiveVideoResolution](#V2TXLiveVideoResolution) | 视频分辨率。 |
-| resolutionMode | [V2TXLiveVideoResolutionMode](#V2TXLiveVideoResolutionMode) | 视频宽高比模式（横屏或者竖屏模式）。 |
-
-[](id:V2TXLiveVideoResolution)
-
-#### V2TXLiveVideoResolution 枚举值
-
-| 取值 | 含义 |
-|---------|---------|
-| V2TXLiveVideoResolution160x160 | 分辨率 160*160，码率范围：100Kbps ~ 150Kbps，帧率: 15fps。 |
-| V2TXLiveVideoResolution270x270 | 分辨率 270*270，码率范围：200Kbps ~ 300Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution480x480 | 分辨率 480*480，码率范围：350Kbps ~ 525Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution320x240 | 分辨率 320*240，码率范围：250Kbps ~ 375Kbps，帧率：15fps。|
-| V2TXLiveVideoResolution480x360 | 分辨率 480*360，码率范围：400Kbps ~ 600Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution640x480 | 分辨率 640*480，码率范围：600Kbps ~ 900Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution320x180 | 分辨率 320*180，码率范围：250Kbps ~ 400Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution480x270 | 分辨率 480*270，码率范围：350Kbps ~ 550Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution640x360 | 分辨率 640*360，码率范围：500Kbps ~ 900Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution960x540 | 分辨率 960*540，码率范围：800Kbps ~ 1500Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution1280x720 |  分辨率 1280*720，码率范围：1000Kbps ~ 1800Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution1920x1080 | 分辨率 1920*1080，码率范围：2500Kbps ~ 3000Kbps，帧率：15fps。 |
-
-[](id:V2TXLiveVideoResolutionMode)
-
-#### V2TXLiveVideoResolutionMode 枚举值
-
-| 取值 | 含义 |
-|---------|---------|
-| V2TXLiveVideoResolutionModeLandscape | 横屏模式下的分辨率：V2TXLiveVideoResolution640_360 + V2TXLiveVideoResolutionModeLandscape = 640x360 |
-| V2TXLiveVideoResolutionModePortrait | 竖屏模式下的分辨率：V2TXLiveVideoResolution640_360 + V2TXLiveVideoResolutionModePortrait = 360x640 |
+| 参数  | 类型     | 含义           |
+| ---- | ---- | ---- |
+| param | [V2TXLiveVideoEncoderParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveDef__android.html#classcom_1_1tencent_1_1live2_1_1V2TXLiveDef_1_1V2TXLiveVideoEncoderParam) | 视频编码参数。 |
 
 ***
 

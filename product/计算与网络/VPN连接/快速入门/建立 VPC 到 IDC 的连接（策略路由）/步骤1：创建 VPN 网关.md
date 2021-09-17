@@ -1,6 +1,7 @@
-您可通过如下视频了解 VPN 网关的基本操作。
+本文为您介绍如何创建 VPN 网关，您可通过如下视频了解 VPN 网关的基本操作。
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1786-20142?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
+## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击 **VPN 连接** > **VPN 网关**，进入管理页。
 3. 选择地域，如示例中的**广州**，单击**+新建**。
