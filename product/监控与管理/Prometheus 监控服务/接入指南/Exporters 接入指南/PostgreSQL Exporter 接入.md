@@ -24,7 +24,7 @@
 
 1. 在左侧菜单中选择**工作负载** > **Deployment**，进入 Deployment 页面。
 2. 在页面右上角单击 **YAML 创建资源**，创建 YAML 配置，配置说明如下：
-   使用 Kubernetes 的 Secret 来管理密码并对密码进行加密处理，在启动 MongoDB  Exporter 的时候直接使用 Secret Key，需要调整对应的 `password`，YAML 配置示例如下：
+   使用 Kubernetes 的 Secret 来管理密码并对密码进行加密处理，在启动 PostgreSQL Exporter 的时候直接使用 Secret Key，需要调整对应的 `password`，YAML 配置示例如下：
 <dx-codeblock>
 :::  yaml
 apiVersion: v1
