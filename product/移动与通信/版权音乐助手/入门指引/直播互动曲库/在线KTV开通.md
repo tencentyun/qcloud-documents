@@ -7,7 +7,7 @@
 
 创建 [实时音视频 TRTC 应用](https://console.cloud.tencent.com/trtc/quickstart)。
 
-### 步骤3：API 联调
+## 步骤3：API 联调
 
 
 |API 名称 | 描述 | 使用说明 |
@@ -109,7 +109,7 @@ X-TC-Action: DescribeKTVMusicDetail
  
 - **Android**
 a. 拷贝 TXCopyrightedMedia-release-1.0.1.aar 到 libs目录，添加依赖项 `implementation(name:'TXCopyrightedMedia-release-1.0.1', ext:'aar')`。
-b. 参考此处集成 TRTC SDKimplementation `com.tencent.liteav:LiteAVSDK_TRTC:latest.release` 并 [设置混淆规则](https://cloud.tencent.com/document/product/647/32175#.E8.AE.BE.E7.BD.AE.E6.B7.B7.E6.B7.86.E8.A7.84.E5.88.99)。
+b. 参考 [快速入门](https://cloud.tencent.com/document/product/647/32175) 集成 TRTC SDK implementation 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'并 [设置混淆规则](https://cloud.tencent.com/document/product/647/32175#.E8.AE.BE.E7.BD.AE.E6.B7.B7.E6.B7.86.E8.A7.84.E5.88.99)。
 - **iOS**
 a. 集成版权曲库 SDK（拷贝TXCopyrightedMedia.framework）到项目工程中并集成。
 b. 若使用 pod 导入，则需要在 podfile 里添加以下代码。
@@ -529,8 +529,8 @@ ITXCopyrightedMedia *media = CreateCopyRightMedia();
 
 // license 设置
 // key 和 url 的获取请参考应用创建中的内容
-char key[] = "7915c47e****134bed50e1e80f0c303b";
-char url[] = "http://license.vod2.myqcloud.com/license/v1/dc7c4eff3eeaf3b****31f7941288830/TXAmeSDK.licence";
+char key[] = "7915c47e249a134bed50e1e80f0c303b";
+char url[] = "http://license.vod2.myqcloud.com/license/v1/dc7c4eff3eeaf3b6da031f7941288830/TXAmeSDK.licence";
 media->setCopyrightedLicense(key, url);
 
 //  版权音乐的下载和播放
@@ -591,7 +591,8 @@ void StartPlay(){
 }
 
 // 伴奏的播放与下载
-同原唱，只需把 audiotype 的值设置为 1 即可。
+//同原唱，只需把 audiotype 的值设置为 1 即可。
+
 
 :::
 </dx-codeblock>
