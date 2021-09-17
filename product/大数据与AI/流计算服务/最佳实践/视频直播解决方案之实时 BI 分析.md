@@ -146,7 +146,7 @@ if __name__ == '__main__':
 # 进入HBase命令
 [root@172~]# hbase shell
 # 建表语句
-create ‘dim_hbase’, ‘cf’
+create 'dim_hbase', 'cf'
 ```
   
 ### 创建云数据库 MySQL
