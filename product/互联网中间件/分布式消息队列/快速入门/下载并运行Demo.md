@@ -134,7 +134,7 @@ for (int i = 0; i < 1000; i++) {
 		}
 ```
 
-2. 在 `pom.xml` 所在目录执行命令`mvn clean package`，或者通过IDE自带的功能打包整个工程，在target目录下生成一个可运行的jar文件。
+2. 在 `pom.xml` 所在目录执行命令 `mvn clean package`，或者通过 IDE 自带的功能打包整个工程，在 target 目录下生成一个可运行的 jar 文件。
    <img src="https://main.qcloudimg.com/raw/8a4808ea722fe0b19ad1cd91666088c7.png" width="450px"> 
 
 3. 运行成功后将 jar 文件上传到云服务器，具体操作参考 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
