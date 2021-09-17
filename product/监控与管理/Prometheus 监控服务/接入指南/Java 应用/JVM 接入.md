@@ -166,7 +166,7 @@ spec:
 #### 步骤4：添加采取任务
 
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
-2. 通过集成容器服务列表单击**集群 ID**进入到容器服务集成管理页面。
+2. 通过集成容器服务列表单击**集群 ID** 进入到容器服务集成管理页面。
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
 <dx-codeblock>
 :::  yaml
