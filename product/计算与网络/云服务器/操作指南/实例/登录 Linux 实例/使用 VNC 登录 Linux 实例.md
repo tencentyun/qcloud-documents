@@ -19,11 +19,11 @@ VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接�
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在实例的管理页面，选择需要登录的 Linux 云服务器，单击**登录**。如下图所示：
-![](https://main.qcloudimg.com/raw/e5a753b4ca2dbd4d8ace5fd4e8334284.png)
+![](https://main.qcloudimg.com/raw/e82e7f4b606fc59d26990285d7bdbaa3.png)
 3. 在打开的“标准登录 | Linux 实例”窗口，单击 **VNC登录**。如下图所示：
 ![](https://main.qcloudimg.com/raw/600264310b8e778ffadaa164a597faae.png)
 4. 在打开的窗口中，在 “login” 后输入用户名，按 **Enter**。
-Linux 实例默认用户名为 `root`，Ubuntu 系统示例默认用户名为 `ubuntu`，请按需填写。
+Linux 实例默认用户名为 `root`，Ubuntu 系统实例默认用户名为 `ubuntu`，请按需填写。
 5. 在 “Password” 后输入密码，按 **Enter**。
 输入的密码默认不显示，登录完成后，命令提示符左侧将显示当前登录云服务器的信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/69bd64692fdaffc0cbbbdd0b9d307722.png)
