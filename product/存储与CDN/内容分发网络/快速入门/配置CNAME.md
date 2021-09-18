@@ -64,5 +64,16 @@
 
 ## 后续步骤
 
+### 验证 CNAME 是否生效
+
+不同的 DNS 服务商CNAME 生效的时间略有不同，一般在半个小时之内生效。您可以通过 nslookup 或 dig 的方式来查询 CNAME 是否生效，若应答的CNAME记录是我们配置的CNAME，则说明配置成功，此时您已成功开启加速服务。
+
+- nslookup -qt=cname <加速域名>
+<img src="https://main.qcloudimg.com/raw/1f94ea7e3ee46fc761e8e839ce68a86d.png" width="70%">
+- dig <加速域名></br>
+<img src="https://main.qcloudimg.com/raw/fe9b8f9a1a26d3a7df5db614762caeaf.png" width="70%">
+
+### 配置指南
+
 您已完成 CDN 服务的基础配置，有关 CDN 服务的更多高级配置，可以在 [配置指南](https://cloud.tencent.com/document/product/228/37851) 目录下对应的项目进行了解。
 ![](https://main.qcloudimg.com/raw/6d875ca6a806cd568b1dcc91d1391370.png)
