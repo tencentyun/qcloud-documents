@@ -1,4 +1,3 @@
-## CLS 日志消费
 CLS 提供了一站式的日志数据解决方案，在 Oceanus 中可以作为数据源（Source）。用户可以通过新建 CLS 日志主题，将 CLS 日志数据投递到 CLS 自行维护的 Kafka 中，通过 Kafka 的形式供 Oceanus 消费。
 
 ## 使用范围
