@@ -17,7 +17,7 @@
 
 ### Windows 操作系统未设置 DHCP
 如果 Windows 操作系统没有设置 DHCP，则需要在操作系统内，把内网 IP 配上。操作步骤如下：
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com)，把弹性网卡 [绑定云服务器](https://cloud.tencent.com/document/product/576/18535#.E7.BB.91.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8)。
+1. 登录 [弹性网卡控制台](https://console.cloud.tencent.com/vpc/eni?rid=1)，把弹性网卡 [绑定云服务器](https://cloud.tencent.com/document/product/576/18535#.E7.BB.91.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8)。
 2. 登录云服务器，进入操作系统的**控制面板** > **网络和 Internet** > **网络和共享中心**。
 3. 单击命名为“以太网 2”的辅助网卡，进行编辑。
 ![](https://main.qcloudimg.com/raw/b8498adcc2896f436a1bfdc96d11090d.png)
