@@ -1,5 +1,13 @@
+## 准备工作
+
+迁移用户需要具备源数据库的权限，具体包括：RELOAD, PROCESS, REPLICATION SLAVE, LOCK TABLES, REPLICATION CLIENT, SHOW DATABASE, EVENT, SELECT。
+
+如果源数据库的视图需要迁移，还需要具备SHOW VIEW权限。
+
+## 操作步骤
 
 ### 1. 新建迁移任务
+
 1）登录 [DTS 控制台](https://console.cloud.tencent.com/dts )，在数据迁移页，单击【新建迁移任务】。
 2）在“链路地域”选择对应地域，单击【0元购买】。
 >?迁移任务订购后不支持更换地域，请谨慎选择。

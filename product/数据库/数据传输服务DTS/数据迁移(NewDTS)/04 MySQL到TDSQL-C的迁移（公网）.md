@@ -98,7 +98,7 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
 <table>
-<thead><tr><th>设置类型</th><th>配置项</th><th>说明</th></tr></thead>
+<thead><tr><th width="15%">设置类型</th><th width="15%">配置项</th><th width="70%">说明</th></tr></thead>
 <tbody><tr>
 <td rowspan=3>任务设置</td>
 <td>任务名称</td>
@@ -118,12 +118,12 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 <td>数据库版本	</td><td>选择 RDS 5.6 或 RDS 5.7。</td></tr>
 <tr>
 <td>接入类型</td><td>根据您的源数据库类型选择，本场景选择“公网”。
-    <ul><li>公网：通过公网 IP 接入的自建数据库。</li>
-<li>云主机自建：腾讯云服务器 CVM 上的自建数据库。</li>
-<li>专线接入：通过专线接入的自建数据库。</li>
-<li>VPN接入：通过 VPN 网关接入的自建数据库。</li>
-<li>云数据库：腾讯云数据库。</li>
-<li>云联网：通过云联网接入的数据库。</li></ul>更多接入类型的详情介绍请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+    <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
+<li>云主机自建：源数据库部署在<a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过<a href="https://cloud.tencent.com/document/product/216">专线接入</a>方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过<a href="https://cloud.tencent.com/document/product/554">VPN 连接</a>方式与腾讯云私有网络打通。</li>
+<li>云数据库：源数据库属于腾讯云数据库实例。</li>
+<li>云联网：源数据库可以通过<a href="https://cloud.tencent.com/document/product/877">云联网</a>与腾讯云私有网络打通。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>所属地域</td><td>源库所属地域为 DTS 服务出口地域，请选择离自建 MySQL 最近的一个地域即可。</td></tr>
 <tr>
@@ -148,6 +148,7 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 <tr>
 <td>密码</td><td>目标端 TDSQL-C 的数据库帐号的密码。</td></tr>
 </tbody></table>
+
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>

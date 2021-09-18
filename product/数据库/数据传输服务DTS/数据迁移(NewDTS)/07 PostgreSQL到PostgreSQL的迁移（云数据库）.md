@@ -77,7 +77,7 @@ grant pg_tencentdb_superuser to 迁移用户;
 <table>
 <thead>
 <tr>
-<th width="10%">设置类型</th><th width="20%">配置项</th><th width="70%">说明</th></tr></thead>
+<th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
 <tr>
 <td rowspan=3>任务设置</td>
@@ -94,12 +94,12 @@ grant pg_tencentdb_superuser to 迁移用户;
 <td>源库类型</td><td>根据您的源数据库类型选择，本场景选择“PostgreSQL”。</td></tr>
 <tr>
 <td>接入类型</td><td>请根据您的场景选择，本场景选择“云数据库”。<br>为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。如需要跨地域迁移，请选择公网接入方式。
-<ul><li>公网：通过公网 IP 接入的自建数据库。</li>
-<li>云主机自建：腾讯云服务器 CVM 上的自建数据库。</li>
-<li>专线接入：通过专线接入的自建数据库。</li>
-<li>VPN接入：通过 VPN 网关接入的自建数据库。</li>
-<li>云数据库：腾讯云数据库。</li>
-<li>云联网：通过云联网接入的数据库。</li></ul>更多接入类型的详情介绍请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+<ul><li>公网：源数据库可以通过公网 IP 访问。</li>
+<li>云主机自建：源数据库部署在<a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过<a href="https://cloud.tencent.com/document/product/216">专线接入</a>方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过<a href="https://cloud.tencent.com/document/product/554">VPN 连接</a>方式与腾讯云私有网络打通。</li>
+<li>云数据库：源数据库属于腾讯云数据库实例。</li>
+<li>云联网：源数据库可以通过<a href="https://cloud.tencent.com/document/product/877">云联网</a>与腾讯云私有网络打通。</li></ul>不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>所属地域</td><td>源库 PostgreSQL 所属地域。</td></tr>
 <tr>
@@ -122,7 +122,9 @@ grant pg_tencentdb_superuser to 迁移用户;
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
+
 <img src="https://main.qcloudimg.com/raw/414b9b3caf06c106ce894dea9a0ddf2a.png"  style="zoom:60%;">
+
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
@@ -139,7 +141,7 @@ grant pg_tencentdb_superuser to 迁移用户;
 </tbody></table>
 <img src="https://main.qcloudimg.com/raw/aadd11ed6a095813fa767690e6857276.png"  style="zoom:60%;">
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
-  如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
   - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
   - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
  ![](https://main.qcloudimg.com/raw/5ed72bfbcaefe3234e5c08114a2761f3.png)
