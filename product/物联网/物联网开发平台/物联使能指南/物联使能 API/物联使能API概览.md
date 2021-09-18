@@ -4,25 +4,25 @@
 
 | 接口名称                                                     | 接口功能                 |
 | :----------------------------------------------------------- | :----------------------- |
-| [ServiceDescribeDevice](https://cloud.tencent.com/document/product/1465/59062) | 查看设备详情             |
-| [ServiceGetDeviceList](https://cloud.tencent.com/document/product/1465/59063) | 获取设备列表             |
-| [ServiceCallDeviceActionSync](https://cloud.tencent.com/document/product/1465/59064) | 同步调用设备行为         |
-| [ServiceCallDeviceActionAsync](https://cloud.tencent.com/document/product/1465/59065) | 异步调用设备行为         |
-| [ServiceControlDeviceData](https://cloud.tencent.com/document/product/1465/59066) | 设置控制设备的属性数据 |
+| [ServiceDescribeDevice](https://cloud.tencent.com/document/product/1081/50250) | 查看设备详情             |
+| [ServiceGetDeviceList](https://cloud.tencent.com/document/product/1081/50251) | 获取设备列表             |
+| [ServiceCallDeviceActionSync](https://cloud.tencent.com/document/product/1081/50252) | 同步调用设备行为         |
+| [ServiceCallDeviceActionAsync](https://cloud.tencent.com/document/product/1081/50253) | 异步调用设备行为         |
+| [ServiceControlDeviceData](https://cloud.tencent.com/document/product/1081/50254) | 设置控制设备的属性数据 |
 
 ## 数据查询
 
 | 接口名称                                                     | 接口功能               |
 | :----------------------------------------------------------- | :--------------------- |
-| [ServiceDescribeDeviceData](https://cloud.tencent.com/document/product/1465/59067) | 获取设备物模型数据     |
-| [ServiceDescribeDeviceDataHistory](https://cloud.tencent.com/document/product/1465/59068) | 获取设备物模型历史数据 |
-| [ServiceListEventHistory](https://cloud.tencent.com/document/product/1465/59069) | 获取设备历史事件       |
+| [ServiceDescribeDeviceData](https://cloud.tencent.com/document/product/1081/50255) | 获取设备物模型数据     |
+| [ServiceDescribeDeviceDataHistory](https://cloud.tencent.com/document/product/1081/50256) | 获取设备物模型历史数据 |
+| [ServiceListEventHistory](https://cloud.tencent.com/document/product/1081/50257) | 获取设备历史事件       |
 
 ## 数据模板
 
 | 接口名称                                                     | 接口功能         |
 | :----------------------------------------------------------- | :--------------- |
-| [ServiceDescribeModelDefinition](https://cloud.tencent.com/document/product/1465/59059) | 查询产品数据模板 |
+| [ServiceDescribeModelDefinition](https://cloud.tencent.com/document/product/1081/50244) | 查询产品数据模板 |
 
 ## 数据订阅
 
@@ -50,23 +50,23 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><a href="https://cloud.tencent.com/document/product/1465/59073">ServiceCreateCustomer</a></td>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56660">ServiceCreateCustomer</a></td>
 <td align="left">创建用户信息</td>
 </tr>
 <tr>
-<td align="left"><a href="https://cloud.tencent.com/document/product/1465/59074">ServiceGetCustomerList</a></td>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56661">ServiceGetCustomerList</a></td>
 <td align="left">获取用户信息列表</td>
 </tr>
 <tr>
-<td align="left"><a href="https://cloud.tencent.com/document/product/1465/59075">ServiceCreateOrder</a></td>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56662">ServiceCreateOrder</a></td>
 <td align="left">创建订单</td>
 </tr>
 <tr>
-<td align="left"><a href="https://cloud.tencent.com/document/product/1465/59076">ServiceGetOrderList</a></td>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56663">ServiceGetOrderList</a></td>
 <td align="left">查询订单列表</td>
 </tr>
 <tr>
-<td align="left"><a href="https://cloud.tencent.com/document/product/1465/59077">ServiceGetInsurancePageURL</a></td>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56664">ServiceGetInsurancePageURL</a></td>
 <td align="left">获取保险领取页面地址</td>
 </tr>
 </tbody></table>
@@ -82,7 +82,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><a href="https://cloud.tencent.com/document/product/1465/59071">ServiceBindDevice</a></td>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56658">ServiceBindDevice</a></td>
 <td align="left">设备与用户绑定关系推送</td>
 </tr>
 </tbody></table>
@@ -97,11 +97,11 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><a href="https://cloud.tencent.com/document/product/1465/59078">ServiceReportDeviceData</a></td>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56665">ServiceReportDeviceData</a></td>
 <td align="left">用于设备数据上报</td>
 </tr>
 <tr>
-<td align="left"><a href="https://cloud.tencent.com/document/product/1465/59079">ServiceReportDeviceState</a></td>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56666">ServiceReportDeviceState</a></td>
 <td align="left">用于设备状态上报</td>
 </tr>
 </tbody></table>
