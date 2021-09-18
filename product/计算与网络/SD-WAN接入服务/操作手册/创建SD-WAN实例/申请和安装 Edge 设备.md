@@ -6,17 +6,22 @@
 <table>
 <thead>
 <tr>
-<th>设备型号</th>
-<th>内网带宽</th>
-<th>接入方式</th>
-<th>使用场景</th>
+<th width="20%">设备型号</th>
+<th width="12%">内网带宽</th>
+<th width="35%">接入方式</th>
+<th width="%">使用场景</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>Edge-100</td>
 <td>100Mbps</td>
 <td><ul><li>WAN 侧支持宽带与 4G 接入</li><li>LAN 侧支持有线与 Wi-Fi 接入</li><ul></ul></ul></td>
-<td>智慧零售、连锁酒店、办公职场、多节点小带宽内网互通场景</td>
+<td rowspan="2">智慧零售、连锁酒店、办公职场等多节点小带宽内网互通场景</td>
+</tr>
+<tr>
+<td>Edge-100-5G</td>
+<td>100Mbps</td>
+<td><ul><li>WAN 侧支持宽带与 5G 接入</li><li>LAN 侧支持有线与 Wi-Fi 接入</li></ul</td>
 </tr>
 <tr>
 <td>Edge-1000</td>
