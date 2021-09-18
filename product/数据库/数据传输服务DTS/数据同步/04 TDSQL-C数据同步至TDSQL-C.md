@@ -123,11 +123,11 @@ FLUSH PRIVILEGES;
 <td>根据实际情况选择，本场景选择“云数据库”。
     <ul>
     <li>公网：源数据库可以通过公网 IP 访问。</li>
-<li>云主机自建：源数据库部署在<a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
-<li>专线接入：源数据库可以通过<a href="https://cloud.tencent.com/document/product/216">专线接入</a>方式与腾讯云私有网络打通。</li>
-<li>VPN接入：源数据库可以通过<a href="https://cloud.tencent.com/document/product/554">VPN 连接</a>方式与腾讯云私有网络打通。</li>
+<li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
-<li>云联网：源数据库可以通过<a href="https://cloud.tencent.com/document/product/877">云联网</a>与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据和目标数据库都部署在腾讯云上，且有<a href="https://cloud.tencent.com/document/product/215">私有网络</a>。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据和目标数据库都部署在腾讯云上，且有 <a href="https://cloud.tencent.com/document/product/215">私有网络</a>。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>实例 ID</td><td>源数据库实例 ID。</td></tr>
 <tr>
@@ -148,9 +148,7 @@ FLUSH PRIVILEGES;
 <tr>
 <td>密码</td><td>目标数据库密码。</td></tr>
 </tbody></table>
-
 <img src="https://main.qcloudimg.com/raw/b40bd5a54eaeef3d23bb3464312b0097.png" style="zoom:67%;" />
-
 5. 在设置同步选项和同步对象页面，将对数据初始化选项、数据同步选项、同步对象选项进行设置，在设置完成后单击**保存并下一步**。
 >? 
 >- 当**初始化类型**仅选择**全量数据初始化**，系统默认用户在目标库已经创建了表结构，不会进行表结构迁移，也不会校验源库和目标库是否有同名表，所以当用户同时在**已存在同名表**项选择**前置校验并报错**，则校验并报错功能不生效。
