@@ -56,11 +56,12 @@ iOS、Android 上的应用可以通过集成移动直播 SDK 来实现 App 端�
 ### Demo 体验
 
 - **Web 端直播推流**：可通过 **云直播控制台**>[Web 推流工具](https://console.cloud.tencent.com/live/tools/webpush) 进行测试 Web 端推流功能。
-![](https://main.qcloudimg.com/raw/a47e0c7d8b40f94c13339265034b188a.png)
-- **Web 端直播拉流**：可通过 [WebRTC Live Demo](https://webrtc-demo.myqcloud.com/pull-sdk/index.html) 工具进行播放体验。
-![](https://main.qcloudimg.com/raw/bf2fd8d742782450aef50adf7dc654f6.png)
-
-> ! Web 端直播推流和拉流均使用标准 WebRTC 协议，Web 端推流时不包含 B帧 ，且音频编码为 OPUS 音频格式，所以不会产生音频转码及去 B 帧转码费用。
+<img src="https://main.qcloudimg.com/raw/a47e0c7d8b40f94c13339265034b188a.png" width=600>
+- **Web 端直播拉流**：可通过 [WebRTC Live Demo](https://tcplayer.vcube.tencent.com/webrtc-demo/index.html) 工具进行播放体验。
+>?Web 端直播推流和拉流均使用标准 WebRTC 协议，Web 端推流时不包含 B帧 ，且音频编码为 OPUS 音频格式，所以不会产生音频转码及去 B 帧转码费用。
+>WebRTC Live Demo 支持多清晰度功能，可在云直播控制台【功能配置】>[【直播转码】](https://console.cloud.tencent.com/live/config/transcode)配置高清-HD、标清-SD的转码模板，将带有转码模板的 Webrtc流地址填入 Demo中对应的栏目后测试播放（如不需要测试此功能则只需要在 Demo中填入一条WebRTC原始流即可）。直播转码操作指引及转码计费内容，请参见文档 [直播转码](https://cloud.tencent.com/document/product/267/20385)。
+>
+<img src="https://main.qcloudimg.com/raw/1f871aa2d45e2d3529cee8a98ef24673.png" width=600>
 
 [](id:obs)
 ## OBS WebRTC 协议推流接入
