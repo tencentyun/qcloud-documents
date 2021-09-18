@@ -11,7 +11,7 @@ CDWPG 是腾讯云大数据数据仓库产品，通过 DTS 实现云数据库 My
 - 需要具备源数据库的权限如下：
 ```
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 FLUSH PRIVILEGES;
 ```
 - 需要具备目标数据库的权限如下：
