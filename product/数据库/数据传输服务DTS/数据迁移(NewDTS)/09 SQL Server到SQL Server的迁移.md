@@ -78,7 +78,7 @@
 <tr>
 <td>帐号</td><td>源库 SQL Server 的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
-<td>密码</td><td>源库 SQL ServerL 的数据库帐号的密码。</td></tr>
+<td>密码</td><td>源库 SQL Server 的数据库帐号的密码。</td></tr>
 <tr>
 <td rowspan=6>目标库设置</td>
 <td>目标库类型</td><td>选择“SQL Server”。</td></tr>
