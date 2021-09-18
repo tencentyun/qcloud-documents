@@ -46,7 +46,8 @@
 - 当前 TBaaS 控制台暂支持上传编译过后的 .wasm 合约文件。
 - 合约支持 Rust、Go、C++ 三种语言。
 - 合约编译方法可参考开发指南 [智能合约开发（Go）](https://cloud.tencent.com/document/product/663/60112) 或 [智能合约开发（Rust）](https://cloud.tencent.com/document/product/663/60113)。
-</dx-警报>
+</dx-alert>
+
 
 
 
