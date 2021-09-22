@@ -17,7 +17,7 @@
 1. 打开 demo APP，**单击 VIDEO** > **IoT Video（消费版）**进入 IoT Video Demo 界面。
 2. Access ID、Access Token 和 Product ID 分别填入腾讯云账号的 Secretid、Secretkey 和对应设备 的productid。（secretid、secretkey 获取方式：登录 [访问管理控制台](https://console.cloud.tencent.com/cam) > **访问密钥** > **API 密钥管理** 获取 secretId 和 secretKey。如果没有密钥则单击**新建密钥**）。
 ![](https://main.qcloudimg.com/raw/04916abc449741f91e5b3714e4257cc9.png)
-3. 单击**登录**进入 demo APP 主页（如果使用子账号测试，需要给子账号配置策略：QcloudIotVideoFullAccess、QcloudIotExplorerFullAccess）。
+3. 单击**登录**进入 demo APP 主页（如果使用子账号测试，需要给子账号配置策略：QcloudIotVideoFullAccess、QcloudIotExplorerFullAccess）。<br>
 <img src="https://main.qcloudimg.com/raw/4ae1547b788081c0533737d225f46281.png" width="40%">
 
 #### 直播预览
