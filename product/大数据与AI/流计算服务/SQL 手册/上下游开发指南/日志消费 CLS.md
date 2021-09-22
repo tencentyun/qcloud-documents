@@ -15,7 +15,7 @@ CLS 支持用作数据源表（Source）。
 开启后的状态如下：
 ![](https://main.qcloudimg.com/raw/f0ebde3e05ccc3d09bb12f355b704936.png)
 4. 在 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus/cluster) 中，单击**集群名称/ID**，在集群详情页**集群信息**中，单击 **VPC** 网络。
->?由于 Oceanus VPC 下的网络安全的严格性，需要用户找到 CLS 团队拿到 Kafka VIP 的另外几个 IP 和端口一起配置到此 VPC 下的 NAT 网关中 CLS 实时消费开放的域名和端口是不足以连通 Kafka，还是需要找到 CLS 团队拿其他 VIP 的 IP 和端口。
+>?由于 Oceanus VPC 的网络安全严格性，需要用户找到 CLS 团队拿到 Kafka VIP 的另外几个 IP 和端口一起配置到 VPC 下的 NAT 网关中。
 >
 ![](https://main.qcloudimg.com/raw/5b32339416ed805f85cefd8c31d2344f.png)
 在 VPC **网络资源**中，需自行配置 NAT 网关。
@@ -55,4 +55,5 @@ CREATE TABLE `表名` (
 1. 支持实时消费的地域如下：
 广州、广州 Open、深圳金融、上海、上海金融、北京、北京金融、成都、重庆、中国台北、中国香港、新加坡、曼谷、孟买、首尔、东京、硅谷、弗吉尼亚（美国）、法兰克福、莫斯科。
 2. CLS 提供的 Topic，集群带宽50MB/s（待定），您将和其它正在消费日志的租户共享这个带宽。如果需要高性能吞吐，可以单独购买 Ckafka 进行消费。
+3. 需要找 CLS 团队给账号开白名单（暂时）。
 
