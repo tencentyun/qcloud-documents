@@ -376,7 +376,7 @@ spec:
 
 ### 步骤3：创建 LogConfig 对象 [](id:logconfig_create)
 
-由于 [步骤2：定义 LogConfig 对象](#logconfig_def) 定义了 LogConfig.yaml 声明文件，我们可以使用 kubect 命令创建 LogConfig 对象。
+由于 [步骤2：定义 LogConfig 对象](#logconfig_def) 定义了 LogConfig.yaml 声明文件，我们可以使用 kubectl 命令创建 LogConfig 对象。
 ```shell
 # kubectl create -f /usr/local/LogConfig.yaml
 ```
@@ -422,9 +422,11 @@ Log-Provisioner 负责发现并监听 LogConfig 资源中 CLS 消费端信息，
 
 1. 以 Master 节点路径 /usr/local/ 为例，使用 wget 命令下载 Log-Agent 和 Loglistener 的声明文件。
 ```shell
-# wget https://mirrors.tencent.com/install/cls/k8s/Log—Agent.yaml
+# wget https://mirrors.tencent.com/install/cls/k8s/Log-Agent.yaml
 ```
->! 如果宿主机的 docker 根目录不在 /var/lib/docker（宿主机的根目录）下，则需要在 Log—Agent.yaml 声明文件中把 docker 的根目录映射到容器中。如下图所示，将 /data/docker 挂载到容器中：
+>! 
+> - 配置时，请将 Log-Agent.yaml 中环境变量 env 下的 CLS_HOST 字段配置为目标日志主题所在地域的域名。 不同地域的域名请参见 [可用地域](https://cloud.tencent.com/document/product/614/18940) 文档。
+> - 如果宿主机的 docker 根目录不在 /var/lib/docker（即在宿主机的根目录）下，需要在 Log-Agent.yaml 声明文件中把 docker 的根目录映射到容器中，如下图所示，将 /data/docker 挂载到容器中：
 > ![](https://main.qcloudimg.com/raw/7a6dd1f80f7e33cdf2f4db3695f15555.png)
 > 
 2. 使用 kubect 命令，以 DaemonSet 的方式部署 Log-Agent 和 Loglistener。
