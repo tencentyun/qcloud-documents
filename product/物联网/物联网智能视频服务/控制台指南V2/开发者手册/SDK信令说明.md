@@ -53,9 +53,6 @@ code 的取值：
 
 app_connect_num：已连接到设备的 APP 数量；
 
-### 测试信令
-**是否保留**
--	action=user_define&channel=xxx&cmd=custom_cmd
 
 ### 拉取本地录像列表：
 #### 按时间查询
@@ -110,7 +107,7 @@ xxxx：表示32位的数字，从低位到高位每一比特代表月份的第�
 {"status":"code"}
 ```
 
-#### 设置快进速度（是否支持待定)
+#### 设置快进速度
 -	action=inner_define&channel=xxx&cmd=playback_ff&speed=value
 -	参数说明:value 是大于0的整数，代表快进速度，即跳帧的间隔，1表示只发送I帧，2表示两个I帧中取一个发送。
 设备返回值：
@@ -119,7 +116,7 @@ xxxx：表示32位的数字，从低位到高位每一比特代表月份的第�
 {"status":"code"}
 ```
 
-#### 设置快放or慢放速度（是否支持待定）
+#### 设置快放 or 慢放速度
 -	action=inner_define&channel=xxx&cmd=playback_speed&speed=value
 -	参数说明:value 是一个正整数，单位毫秒，代表 PTS 的间隔，当 value 大于正常 pts 是慢放，否则是快放；
 设备返回值：
@@ -128,7 +125,7 @@ xxxx：表示32位的数字，从低位到高位每一比特代表月份的第�
 {"status":"code"}
 ```
 
-#### 设置设置快退（是否支持待定）
+#### 设置设置快退
 -	action=inner_define&channel=xxx&cmd=playback_rewind&start_time=000&end_time=111
 -	参数说明:start_time 表示快退的截止时间，end_time 表示快退的开始时间；
 设备返回值：
