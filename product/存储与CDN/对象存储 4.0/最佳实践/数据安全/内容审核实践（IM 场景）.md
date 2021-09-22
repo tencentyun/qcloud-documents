@@ -6,7 +6,7 @@
 
 整体流程如下图所示：
 
-![img](https://main.qcloudimg.com/raw/a173d9a579bf07077d7629d788d8dc0c.png)
+![img](https://main.qcloudimg.com/raw/9b1d23d088e2b000c99b68d704c9c5bf.png)
 
 内容审核的处理主要体现在步骤6、7、8。
 
