@@ -1,4 +1,3 @@
-
 TDSQL PostgreSQL版 为文档 jsonb 提供了 GIN 索引，GIN 索引在大量 jsonb 文档（数据）中，可有效地用来搜索出现的键或者键值对。
 
 ## 创建 jsonb 索引
