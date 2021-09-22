@@ -27,7 +27,7 @@
 <img src="https://main.qcloudimg.com/raw/2e4e1a50c66030e221447ae0ec3ad4cd.png" width="40%">
 
 #### 存储回放
->! 使用云端存储回放前需要先开通云存服务。
+>! 使用云端存储回放前需要先 [开通云存服务](https://cloud.tencent.com/document/product/1131/53636)。
 >
 1. 单击需要预览的设备，选择**回放**。
 <img src="https://main.qcloudimg.com/raw/c8e5e01778004285c7995886a4943ed5.png" width="40%">
