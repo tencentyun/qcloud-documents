@@ -1,15 +1,12 @@
-﻿## 证书监控 SSLPod 提示“连接异常”
-
-### 故障描述
-在证书监控 SSLPod 中添加站点后提示提示“连接异常”。如下图所示：
-
+## 现象描述
+在证书监控 SSLPod 中添加站点后提示 “连接异常”。如下图所示：
 ![](https://main.qcloudimg.com/raw/1618d11e5321c49e2afcf57fc6894adf.png)
 
 
-### 故障原因
-您添加的站点监控类型网络不可达。如：您添加的站点监控类型为 `HTTPS`、端口为`443`。证书监控 SSLPod 将通过该协议和端口，访问您的证书信息。当无法访问时，将报错“连接异常”。
+## 故障原因
+您添加的站点监控类型网络不可达。例如：您添加的站点监控类型为 `HTTPS`、端口为 `443`。证书监控 SSLPod 将通过该协议和端口，访问您的证书信息，当无法访问时，将报错 “连接异常”。
 
-### 排查思路
+## 解决思路
 
 ### 排查服务器相关问题
 服务器关机、硬件故障、CPU/内存/带宽使用率过高都可能造成网站无法访问，因此建议您依次排查服务器的运行状态、CPU/内存/带宽的使用情况。若您使用腾讯云服务器，您可参考以下步骤进行排查：
@@ -19,7 +16,7 @@
  - 是，请执行 [步骤2](#Server_step02)。
  - 否，请重启云服务器实例。
 2. <span id="Server_step02">单击实例的 ID/实例名，进入该实例的详情页面。</span>
-3. 选择【监控】页签，查看 CPU/内存/带宽的使用情况。如下图所示：
+3. 选择**监控**页签，查看 CPU/内存/带宽的使用情况。如下图所示：
 ![](https://main.qcloudimg.com/raw/c36fcea660fcf4d81bdd4cfd6549f137.png)
  - 如果存在 CPU/内存使用过高的情况，请参考 [Windows 实例：CPU 与内存占用率高导致无法登录](https://cloud.tencent.com/document/product/213/10233) 和 [Linux 实例：CPU 与内存占用率高导致无法登录](https://cloud.tencent.com/document/product/213/10310) 进行排查。
  - 如果存在带宽使用过高的情况，请参考 [带宽占用高导致无法登录](https://cloud.tencent.com/document/product/213/10334) 进行排查。
@@ -37,9 +34,10 @@
  - Linux 实例：执行 `iptables -vnL` 命令，查看 iptables 是否放通80端口。
     - 若已放通80端口，请 [排查网络相关问题](#TroubleshootNetwork)。
     - 若未放通80端口，请执行 `iptables -I INPUT 5 -p tcp  --dport 80 -j ACCEPT` 命令，放通80端口。
- - Windows 实例：在操作系统界面，单击【开始】>【控制面板】>【防火墙设置】，查看 Windows 防火墙是否关闭
+ - Windows 实例：在操作系统界面，单击**开始 > 控制面板 > 防火墙设置**，查看 Windows 防火墙是否关闭。
 		- 是，请 [排查网络相关问题](#TroubleshootNetwork)。
 		- 否，请关闭防火墙设置。
+
 
 <span id="TroubleshootNetwork"></span>
 ### 排查网络相关问题
@@ -51,14 +49,16 @@ ping 目的服务器的公网 IP
 ![](https://mc.qcloudimg.com/static/img/30d9946522f43cfc1c6731b9035ae9e9/image.png)
 - 如果没有丢包或延时高的情况，请 [排查安全组设置相关问题](#TroubleshootSecurityGroup)。
 
+
 <span id="TroubleshootSecurityGroup"></span>
 ### 排查安全组设置相关问题
 安全组是一个虚拟防火墙，可以控制关联实例的入站流量和出站流量。安全组的规则可以指定协议、端口、策略等。如果您没有放通 Web 进程相关的端口也会造成网站无法访问。
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，并在 “实例列表” 页面单击实例的 ID/实例名，进入该实例的详情页面。
-2. 选择【安全组】页签，查看查看绑定的安全组以及对应安全组的出站和入站规则，确认是否放通 Web 进程相关的端口。如下图所示：
+2. 选择**安全组**页签，查看绑定的安全组以及对应安全组的出站和入站规则，确认是否放通 Web 进程相关的端口。如下图所示：
 ![](https://main.qcloudimg.com/raw/4a42bcc5588fe3261943e7f0c9fa0be3.png)
  - 是，请 [排查域名、备案和解析相关问题](#TroubleshootDomainFilingOrAnalysis)。
  - 否，请修改安全组设置，放通 Web 进程相关的端口。
+
 
 <span id="TroubleshootDomainFilingOrAnalysis"></span>
 ### 排查域名备案和解析相关问题
