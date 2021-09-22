@@ -1,25 +1,24 @@
 # CLB 回环问题
 
 ## 问题描述
+用户使用容器服务 TKE 时，会遇到因 CLB 回环问题导致服务访问不通或访问 Ingress 几秒延时的现象，本文档介绍该问题的相关背景、原因，并提供解决方法。
 
-使用 TKE 一些用户，可能会遇到因 CLB 回环问题导致服务访问不通或访问 Ingress 几秒延时的现象，本文就此问题介绍下相关背景、原因以及一些建议。
 
-## 有哪些现象？
+## 现象描述
 
-CLB 回环可能导致的问题现象有：
+CLB 回环可能导致的问题存在以下现象：
 
-1. 不管是 iptables 还是 ipvs 模式，访问本集群内网 Ingress 出现 4 秒延时或不通。
-2. ipvs 模式下，集群内访问本集群 LoadBanacer 类型的内网 Service 出现完全不通，或者时通时不通。
+1. 无论是 iptables 还是 ipvs 模式，访问本集群内网 Ingress 会出现4秒延时或不通。
+2. ipvs 模式下，集群内访问本集群 LoadBanacer 类型的内网 Service 出现完全不通，或者联通不稳定。
 
-## 为什么会回环？
+## 问题原因
 
-根本原因在于 CLB 将请求转发到后端 RS 时，报文的源目的 IP 都在同一节点内，而 Linux 默认忽略收到的源 IP 是本机 IP 的报文，导致数据包在子机内部回环出不去：
-
+根本原因在于 CLB 将请求转发到后端 RS 时，报文的源目的 IP 都在同一节点内，而 Linux 默认忽略收到的源 IP 是本机 IP 的报文，导致数据包在子机内部回环，如下图所示：
 ![img](https://main.qcloudimg.com/raw/aa429bf25d857d2d8fd90d3225bf7c6d.png)
 
 ### 分析 Ingress 回环
 
-先来分析下 Ingress。使用 TKE CLB 类型的 Ingress，会为每个 Ingress 资源创建一个 CLB 以及 80、443 的 7 层监听器规则(HTTP/HTTPS)，并为 Ingress 每个 location 绑定对应 TKE 各个节点某个相同的 NodePort 作为 RS (每个 location 对应一个 Service，每个 Service 都通过各个节点的某个相同 NodePort 暴露流量)，CLB 根据请求匹配 location 转发到相应的 RS (即 NodePort)，流量到了 NodePort 后会再经过 Kubernetes 的 iptables 或 ipvs 转发给对应的后端 Pod。集群中的 Pod 访问本集群的内网 Ingress，CLB 将请求转发给其中一台节点的对应 NodePort：
+使用 TKE CLB 类型的 Ingress，会为每个 Ingress 资源创建一个 CLB 以及80、443的7层监听器规则（HTTP/HTTPS），并为 Ingress 每个 location 绑定对应 TKE 各个节点某个相同的 NodePort 作为 RS（每个 location 对应一个 Service，每个 Service 都通过各个节点的某个相同 NodePort 暴露流量），CLB 根据请求匹配 location 转发到相应的 RS（即 NodePort），流量到了 NodePort 后会再经过 Kubernetes 的 iptables 或 ipvs 转发给对应的后端 Pod。集群中的 Pod 访问本集群的内网 Ingress，CLB 将请求转发给其中一台节点的对应 NodePort：
 
 ![img](https://main.qcloudimg.com/raw/cf3003d32c45aeea25330400e4827ad7.png)
 
@@ -29,11 +28,11 @@ CLB 回环可能导致的问题现象有：
 2. 报文到 NodePort 时，目的 IP 是节点 IP，源 IP 是 client pod 的真实 IP， 因为 CLB 不做 SNAT，会将真实源 IP 透传过去。
 3. 由于源 IP 与目的 IP 都在这台机器内，所以就导致了回环，CLB 将收不到来自 RS 的响应。
 
-那为什么访问集群内 Ingress 的故障现象大多是几秒延时呢？因为 7 层 CLB 如果请求 RS 后端超时(大概 4s)，会重试下一个 RS，所以如果 client 这侧设置的超时时间较长，出现回环问题的现象就是请求响应慢，有几秒的延时。当然如果集群只有一个节点，CLB 也没得可以重试的 rs，现象就是访问不通了。
+访问集群内 Ingress 的故障现象大多为几秒延时，原因是7层 CLB 如果请求 RS 后端超时（大概4s），会重试下一个 RS，所以如果 client 设置的超时时间较长，出现回环问题的现象就是请求响应慢，有几秒的延时。如果集群只有一个节点，CLB 没有可以重试的 RS，则现象为访问不通。
 
 ### 分析 LoadBalancer Service 回环
 
-上面分析了 7 层 CLB 的情况，下面来分析下 4 层 CLB。当使用 LoadBalancer 类型的内网 Service 时暴露服务时，会创建内网 CLB 并创建对应的 4 层监听器(TCP/UDP)。当集群内 Pod 访问 LoadBalancer 类型 Service 的 `EXTERNAL-IP` 时(即 CLB IP)，原生 Kubernetes 实际上不会去真正访问 LB，而是直接通过 iptables 或 ipvs 转发到后端 Pod (不经过 CLB)：
+当使用 LoadBalancer 类型的内网 Service 时暴露服务时，会创建内网 CLB 并创建对应的4层监听器（TCP/UDP）。当集群内 Pod 访问 LoadBalancer 类型 Service 的 `EXTERNAL-IP` 时（即 CLB IP），原生 Kubernetes 实际上不会去真正访问 LB，而是直接通过 iptables 或 ipvs 转发到后端 Pod （不经过 CLB）：
 
 ![img](https://main.qcloudimg.com/raw/f56111ffb547c02fe78b927f3a4e3012.png)
 
@@ -43,9 +42,9 @@ CLB 回环可能导致的问题现象有：
 
 有一点不同的是，四层 CLB 不会重试下一个 RS，当遇到回环时，现象通常是时通时不通；当然如果集群只有一个节点，也就完全不通。
 
-那为什么 TKE 的 ipvs 模式不是用原生 Kubernetes 那样的转发逻辑呢(不经过 LB，直接转发到后端 pod)？
+那为什么 TKE 的 ipvs 模式不是用原生 Kubernetes 那样的转发逻辑呢（不经过 LB，直接转发到后端 Pod）？
 
-这里大概介绍下背景，以前 TKE 的 ipvs 模式集群使用 LoadBalancer 内网 Service 暴露服务，内网 CLB 对后端 NodePort 的健康探测会全部失败，原因是:
+这里大概介绍下背景，以前 TKE 的 ipvs 模式集群使用 LoadBalancer 内网 Service 暴露服务，内网 CLB 对后端 NodePort 的健康探测会全部失败，原因是：
 
 1. ipvs 主要工作在 INPUT 链，需要将要转发的 VIP (Service 的 Cluster IP 和 `EXTERNAL-IP` )当成本机 IP，才好让报文进入 INPUT 链交给 ipvs 处理。
 2. kube-proxy 的做法是将 Cluster IP 和 `EXTERNAL-IP` 都绑到一个叫 `kube-ipvs0` 的 dummy 网卡，这个网卡仅仅用来绑 VIP (内核自动为其生成 local 路由)，不用于接收流量。
@@ -59,7 +58,7 @@ CLB 回环可能导致的问题现象有：
 
 ## 为什么公网 CLB 没这个问题？
 
-使用公网 Ingress 和 LoadBalancer 类型公网 Service 没有回环问题，我的理解主要是公网 CLB 收到的报文源 IP 是子机的出口公网 IP，而子机内部感知不到自己的公网 IP，当报文转发回子机时，不认为公网源 IP 是本机 IP，也就不存在回环。
+使用公网 Ingress 和 LoadBalancer 类型公网 Service 没有 回环问题，我的理解主要是公网 CLB 收到的报文源 IP 是子机的出口公网 IP，而子机内部感知不到自己的公网 IP，当报文转发回子机时，不认为公网源 IP 是本机 IP，也就不存在回环。
 
 ## CLB 是否有避免回环机制？
 
