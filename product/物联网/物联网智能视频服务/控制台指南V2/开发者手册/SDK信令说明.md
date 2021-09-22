@@ -32,7 +32,7 @@
 ]
 ```
 
-### 获取 ipc/nvr 设备状态，是否可以推流：
+### 获取 ipc/nvr 设备状态，是否可以推流
 **type 参数区分直播和对讲**
 - 	action=inner_define&channel=xxx&cmd=get_device_st&type=(voice/live)&quality=standard
 返回的json结构：
@@ -59,7 +59,7 @@ app_connect_num：已连接到设备的 APP 数量；
 **是否保留**
 -	action=user_define&channel=xxx&cmd=custom_cmd
 
-### 拉取本地录像列表：
+### 拉取本地录像列表
 #### 按时间查询
 -	action=inner_define&channel=xxx&cmd=get_record_index&start_time=000&end_time=111
 -	参数说明：start_time 和 end_time 秒为单位，差值不得小于5s，UNIX时间戳。
