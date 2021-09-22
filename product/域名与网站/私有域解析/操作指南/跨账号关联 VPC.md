@@ -8,7 +8,7 @@
 ### 步骤1：B 账号给 A 账号进行角色授权
 1. 使用 B 账号登录腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam/role)，进行 “角色” 管理页面，并单击**新建角色**。如下图所示：
 ![](https://main.qcloudimg.com/raw/1211f0e6bab235117faeb89c3e3c19d5.png)
-2. 在弹出的 “选择角色载体 ”窗口中，单击**腾讯云主账户**。如下图所示：
+2. 在弹出的 “选择角色载体 ”窗口中，单击**腾讯云账户**。如下图所示：
 ![](https://main.qcloudimg.com/raw/194aacbc920fbe9d39469ea0fc89dd00.png)
 3. 在 “新建自定义角色” 页面，填写相关信息并单击**下一步**。如下图所示：
 ![](https://main.qcloudimg.com/raw/6a6c61d5038119965c4c930fd48a3936.png)

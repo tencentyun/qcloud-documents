@@ -28,38 +28,38 @@
 
 ## 支持资源级授权的 API 列表
 
-TDMQ 支持资源级授权，您可以指定子账号拥有特定资源的接口权限。
+TDMQ CMQ 版支持资源级授权，您可以指定子账号拥有特定资源的接口权限。
 
 支持资源级授权的接口列表如下：
 
 | API 名                             | API 描述                 | 资源类型 | 资源六段式示例                                               |
 | --------------------------------- | ----------------------- | -------- | ------------------------------------------------------------ |
-| ModifyCmqTopicAttribute           | 修改 CMQ 主题属性         | 主题     | qcs::tdmq:${region}:uin/${uin}:topic/${topicName}            |
-| CreateCmqSubscribe                | 创建 CMQ 订阅接口         | 主题     | qcs::tdmq:${region}:uin/${uin}:topic/${topicName}            |
-| ModifyCmqSubscriptionAttribute    | 修改 CMQ 订阅属性         | 订阅     | qcs::tdmq:${region}:uin/${uin}:subscription/${topicName}/${subscriptionName} |
-| RewindCmqQueue                    | 回溯 CMQ 队列             | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${queueName}            |
-| ModifyCmqQueueAttribute           | 修改 CMQ 队列属性         | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${queueName}            |
-| ClearCmqSubscriptionFilterTags    | 清空 CMQ 订阅者消息标签   | 订阅     | qcs::tdmq:${region}:uin/${uin}:subscription/${topicName}/${subscriptionName} |
-| ClearCmqQueue                     | 清空 CMQ 消息队列中的消息 | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${queueName}            |
-| DeleteCmqSubscribe                | 删除 CMQ 订阅             | 订阅     | qcs::tdmq:${region}:uin/${uin}:subscription/${topicName}/${subscriptionName} |
-| DeleteCmqTopic                    | 删除 CMQ 主题             | 主题     | qcs::tdmq:${region}:uin/${uin}:topic/${topicName}            |
-| UnbindCmqDeadLetter               | 解绑 CMQ 死信队列         | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${sourceQueueName}      |
-| DescribeCmqDeadLetterSourceQueues | 枚举 CMQ 死信队列源队列   | 死信队列 | qcs::tdmq:${region}:uin/${uin}:dlq/${sourceQueueName}/${deadLetterQueueName} |
-| DescribeCmqTopics                 | 枚举 CMQ 全量主题         | 主题     | qcs::tdmq:${region}:uin/${uin}:topic/${topicName}            |
-| DescribeCmqSubscriptionDetail     | 查询 CMQ 订阅详情         | 主题     | qcs::tdmq:${region}:uin/${uin}:topic/${topicName}/${subscriptionName} |
-| DescribeCmqQueues                 | 查询 CMQ 全量队列         | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${queueName}            |
-| PublishCmqMsg                     | 发送 CMQ 主题消息         | 主题     | qcs::tdmq:${region}:uin/${uin}:topic/${topicName}            |
-| SendCmqMsg                        | 发送 CMQ 消息             | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${queueName}            |
-| DescribeCmqTopicDetail            | 查询 CMQ 主题详情         | 主题     | qcs::tdmq:${region}:uin/${uin}:topic/${topicName}qcs::tdmq:${region}:uin/${uin}:queue/${queueName} |
-| DescribeCmqQueueDetail            | 查询 CMQ 队列详情         | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${queueName}            |
-| DeleteCmqQueue                    | 删除 CMQ 队列             | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${queueName}            |
+| ModifyCmqTopicAttribute           | 修改 TDMQ CMQ 版主题属性         | 主题     | qcs::tdmq:${region}:uin/${uin}:topic/${topicName}            |
+| CreateCmqSubscribe                | 创建 TDMQ CMQ 版订阅接口         | 主题     | qcs::tdmq:${region}:uin/${uin}:topic/${topicName}            |
+| ModifyCmqSubscriptionAttribute    | 修改 TDMQ CMQ 版订阅属性         | 订阅     | qcs::tdmq:${region}:uin/${uin}:subscription/${topicName}/${subscriptionName} |
+| RewindCmqQueue                    | 回溯 TDMQ CMQ 版队列             | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${queueName}            |
+| ModifyCmqQueueAttribute           | 修改 TDMQ CMQ 版队列属性         | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${queueName}            |
+| ClearCmqSubscriptionFilterTags    | 清空 TDMQ CMQ 版订阅者消息标签   | 订阅     | qcs::tdmq:${region}:uin/${uin}:subscription/${topicName}/${subscriptionName} |
+| ClearCmqQueue                     | 清空 TDMQ CMQ 版消息队列中的消息 | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${queueName}            |
+| DeleteCmqSubscribe                | 删除 TDMQ CMQ 版订阅             | 订阅     | qcs::tdmq:${region}:uin/${uin}:subscription/${topicName}/${subscriptionName} |
+| DeleteCmqTopic                    | 删除 TDMQ CMQ 版主题             | 主题     | qcs::tdmq:${region}:uin/${uin}:topic/${topicName}            |
+| UnbindCmqDeadLetter               | 解绑 TDMQ CMQ 版死信队列         | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${sourceQueueName}      |
+| DescribeCmqDeadLetterSourceQueues | 枚举 TDMQ CMQ 版死信队列源队列   | 死信队列 | qcs::tdmq:${region}:uin/${uin}:dlq/${sourceQueueName}/${deadLetterQueueName} |
+| DescribeCmqTopics                 | 枚举 TDMQ CMQ 版全量主题         | 主题     | qcs::tdmq:${region}:uin/${uin}:topic/${topicName}            |
+| DescribeCmqSubscriptionDetail     | 查询 TDMQ CMQ 版订阅详情         | 主题     | qcs::tdmq:${region}:uin/${uin}:topic/${topicName}/${subscriptionName} |
+| DescribeCmqQueues                 | 查询 TDMQ CMQ 版全量队列         | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${queueName}            |
+| PublishCmqMsg                     | 发送 TDMQ CMQ 版主题消息         | 主题     | qcs::tdmq:${region}:uin/${uin}:topic/${topicName}            |
+| SendCmqMsg                        | 发送 TDMQ CMQ 版消息             | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${queueName}            |
+| DescribeCmqTopicDetail            | 查询 TDMQ CMQ 版主题详情         | 主题     | qcs::tdmq:${region}:uin/${uin}:topic/${topicName}qcs::tdmq:${region}:uin/${uin}:queue/${queueName} |
+| DescribeCmqQueueDetail            | 查询 TDMQ CMQ 版队列详情         | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${queueName}            |
+| DeleteCmqQueue                    | 删除 TDMQ CMQ 版队列             | 队列     | qcs::tdmq:${region}:uin/${uin}:queue/${queueName}            |
 
 ## 不支持资源级授权的 API 列表
 
 | API 名         | API 描述        | 资源六段式 |
 | -------------- | --------------- | ---------- |
-| CreateCmqTopic | 创建 CMQ 主题     | *          |
-| CreateCmqQueue | 创建 CMQ 队列接口 |            |
+| CreateCmqTopic | 创建 TDMQ CMQ 版主题     | *          |
+| CreateCmqQueue | 创建 TDMQ CMQ 版队列接口 |            |
 
 ## 授权方案示例
 
@@ -68,11 +68,11 @@ TDMQ 支持资源级授权，您可以指定子账号拥有特定资源的接口
 以授权一个子用户以 TDMQ CMQ 版队列服务的完全管理权限（创建、管理等全部操作）为例。
 
 1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
-2. 在左侧菜单栏中，单击 **策略**。
+2. 在左侧菜单栏中，单击**策略**。
 3. 在策略列表中，单击**新建自定义策略**。
 4. 在选择创建策略方式的弹窗中，选择**按策略生成器创建**。
 5. 在编辑策略页面，单击右上角**导入策略语法**。
-6. 在导入策略语法页面，搜索“CMQ”，在搜索结果中勾选QcloudCmqQueueFullAccess，单击**确定**。
+6. 在导入策略语法页面，搜索“CMQ”，在搜索结果中勾选 QcloudCmqQueueFullAccess，单击**确定**。
 7. 在编辑策略页面，单击**下一步**，填写策略名称和描述，选择您要关联的用户/用户组。
 8. 单击**完成**，完成策略创建与授权。
 

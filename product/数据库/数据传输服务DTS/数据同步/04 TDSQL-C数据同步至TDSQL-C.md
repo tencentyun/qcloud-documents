@@ -12,7 +12,7 @@ MySQL 到 TDSQL-C MySQL 的数据同步、TDSQL-C MySQL 到 MySQL 的数据同�
 - 需要具备源数据库的权限如下：
 ```
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 FLUSH PRIVILEGES;
 ```
 - 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
@@ -40,7 +40,7 @@ FLUSH PRIVILEGES;
 | 操作类型 | 支持同步的 SQL 操作                                          |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE                                       |
-| DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE VIEW、ALTER VIEW、DROP VIEW、CREATE INDEX、DROP INDEX |
+| DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE VIEW、DROP VIEW、CREATE INDEX、DROP INDEX |
 
 ## 环境要求
 
@@ -104,7 +104,7 @@ FLUSH PRIVILEGES;
 ![](https://main.qcloudimg.com/raw/2c5f68ff0bfc4b75998cfe3f92210ed6.png)
 4. 在配置同步任务页面，配置源端实例、帐号密码，配置目标端实例、帐号和密码，测试连通性后，单击**下一步**。
 <table>
-<thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
+<thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
 <tbody><tr>
 <td rowspan=2 >任务设置</td>
 <td>任务名称</td>
@@ -122,13 +122,12 @@ FLUSH PRIVILEGES;
 <td>接入类型</td>
 <td>根据实际情况选择，本场景选择“云数据库”。
     <ul>
-    <li>公网：通过公网 IP 接入的自建数据库。</li>
-    <li>云主机自建：腾讯云服务器 CVM 上的自建数据库。</li>
-    <li>专线/VPN 接入：通过专线/VPN 网关接入的自建数据库。</li>
-    <li>私有网络 VPC：通过私有网络 VPC 接入的自建数据库。</li>
-    <li>云数据库：腾讯云数据库。</li>
-    <li>云联网：通过云联网接入的自建数据库。</li>
-    </ul>更多接入类型的详情介绍请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+    <li>公网：源数据库可以通过公网 IP 访问。</li>
+<li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
+<li>云数据库：源数据库属于腾讯云数据库实例。</li>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据和目标数据库都部署在腾讯云上，且有 <a href="https://cloud.tencent.com/document/product/215">私有网络</a>。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>实例 ID</td><td>源数据库实例 ID。</td></tr>
 <tr>

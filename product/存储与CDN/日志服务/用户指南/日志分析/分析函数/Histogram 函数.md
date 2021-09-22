@@ -1,4 +1,4 @@
->? 当前日志服务已支持大部分地域使用 CLS 函数。北京、上海、广州、南京地域如有需要，请联系 [在线客服](https://cloud.tencent.com/act/event/Online_service)。
+>? 当前日志服务已支持大部分地域使用 CLS 函数。上海、广州地域部分用户暂未开通，如有需要，请联系 [在线客服](https://cloud.tencent.com/act/event/Online_service)。
 >
 
 时间函数支持对日志时间进行格式转换，分组聚合等处理，通常应用于根据日志时间做统计分析的场景。

@@ -13,14 +13,14 @@
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';  
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限  
 GRANT SELECT ON *.* TO '迁移帐号';
 ```
   - “指定对象”迁移：
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';  
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限  
 GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 ```
@@ -50,7 +50,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 | 操作类型 | 支持的 SQL 操作                                              |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE、REPLACE                              |
-| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE <br>VIEW：CREATE VIEW、ALTER VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br>DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
+| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE <br>VIEW：CREATE VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br>DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
 
 ## 环境要求
 >?如下环境要求，系统会在启动迁移任务前自动进行校验，不符合要求的系统会报错。如果用户能够识别出来，可以参考 [校验项检查要求](https://cloud.tencent.com/document/product/571/58685) 自行修改，如果不能则等系统校验完成，按照报错提示修改。
@@ -125,12 +125,12 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>服务提供商</td><td>选择“普通”。</td></tr>
 <tr>
 <td>接入类型</td><td>请根据您的场景选择，本场景选择“专线接入”或“VPN 接入”。
-<ul><li>公网：通过公网 IP 接入的自建数据库。</li>
-<li>云主机自建：腾讯云服务器 CVM 上的自建数据库。</li>
-<li>专线接入：通过专线接入的自建数据库。</li>
-<li>VPN接入：通过 VPN 网关接入的自建数据库。</li>
-<li>云数据库：腾讯云数据库。</li>
-<li>云联网：通过云联网接入的数据库。</li></ul>更多接入类型的详情介绍请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+<ul><li>公网：源数据库可以通过公网 IP 访问。</li>
+<li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
+<li>云数据库：源数据库属于腾讯云数据库实例。</li>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>所属地域</td><td>源库所属地域为 DTS 服务出口地域，选择离自建实例最近的一个地域即可。</td></tr>
 <tr>
@@ -177,7 +177,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 </tbody></table>
 <img src="https://main.qcloudimg.com/raw/51d26749a5a208f84c3750e9afc9ea32.png"  style="margin:0;">
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
-  如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
  - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
 ![](https://main.qcloudimg.com/raw/652fd77b719de63ad40a00a4d56d8967.png)

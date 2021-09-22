@@ -4,7 +4,7 @@
 
 ## 操作步骤
 1. 登录 [堡垒机控制台](https://console.cloud.tencent.com/dsgc/bh)，单击【进入】，进入 SaaS 型堡垒机控制台。
-![](https://main.qcloudimg.com/raw/eb08794b3b6dbfb57f1629b8b35c9a88.png)
+![](https://main.qcloudimg.com/raw/c4d6945d8c76ed1ae7bb8821fde8b41d.png)
 2. 在左侧导航选择【系统设置】>【认证设置】，进入认证设置页面。
 ![](https://main.qcloudimg.com/raw/8a3ecc4e4d96eebaffa38dd1134153a3.png)
 3. 默认会进入到本地认证页面，单击【LDAP】，切换到 LDAP 设置页面。

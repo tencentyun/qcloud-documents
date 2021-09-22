@@ -4,8 +4,6 @@
 - **跨应用分享**
 基于苹果的 Replaykit 方案，能够分享整个系统的屏幕内容，但需要当前 App 额外提供一个 Extension 扩展组件，因此对接步骤也相对应用内分享要多一点。
 
->! 需要注意的一点是，TRTC SDK 的移动端版本并不像桌面端版本一样支持“辅路分享”，因为 iOS 和 Android 系统都对运行于后台的 App 限制了摄像头使用权，因此支持辅路分享的意义并不大。
-
 ## 支持的平台
 
 | iOS | Android | Mac OS | Windows |Electron| 微信小程序 | Chrome 浏览器|

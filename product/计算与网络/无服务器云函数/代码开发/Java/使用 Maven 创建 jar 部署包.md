@@ -83,7 +83,7 @@ public class Hello {
 ```
 
 #### 使用 Maven Central 库处理包依赖
-如果需要引用 Maven Central 的外部包，可以根据需要添加依赖，`pom.xml` 文件内容如下：
+如果需要引用 Maven Central 的外部包，可以根据需要添加依赖，`pom.xml` 文件内容如下，添加依赖请关注 `<dependencies>` 部分。
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">

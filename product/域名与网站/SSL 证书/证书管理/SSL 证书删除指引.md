@@ -16,12 +16,12 @@
 
 
 ## 操作步骤
-1. 登录 [证书管理控制台](https://console.cloud.tencent.com/certoverview)，并在左侧菜单栏单击【我的证书】，进入 “我的证书” 管理页面。
+1. 登录 [证书管理控制台](https://console.cloud.tencent.com/certoverview)，并在左侧菜单栏单击**我的证书**，进入 “我的证书” 管理页面。
 2. 在 “我的证书” 管理页面，查看您需要删除的证书，并根据您的证书状态类型，进行相应操作：
-	- 上传托管证书：单击【更多】>【删除】。
+	- 上传托管证书：单击**更多 > 删除**。
 	![](https://main.qcloudimg.com/raw/ab103fca752803b25b59f1e864acf6a0.png)
-	- 已过期、已吊销证书、已取消审核：单击【删除】。
+	- 已过期、已吊销证书、已取消审核：单击**删除**。
 	![](https://main.qcloudimg.com/raw/381029fe7bf9f7f9192d8964ee092925.png)
-3. 在弹出的 “温馨提示” 中，单击【确定】即可删除该证书。
+3. 在弹出的 “温馨提示” 中，单击**确定**即可删除该证书。
 ![](https://main.qcloudimg.com/raw/63513643d152b0b05b5ef5808177e669.png)
 

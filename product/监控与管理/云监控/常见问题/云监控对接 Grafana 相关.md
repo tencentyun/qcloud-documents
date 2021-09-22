@@ -11,7 +11,7 @@
 ![](https://main.qcloudimg.com/raw/041a8658cc5e349ab8a51e6d7c9f6c17.png)
 
 ### 对比多个实例时，为什么 Panel 中报错 `Only queries that return single series/table is supported` ？
-![](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/faq-q3.png?raw=true)  
+![](https://main.qcloudimg.com/raw/35b75a1b7840e96df8b64940664233c7.png)
 
 部分 Panel 类型如`仪表盘`图表仅支持单 query 查询，如需对比多实例请使用折线图 (Line)。
 

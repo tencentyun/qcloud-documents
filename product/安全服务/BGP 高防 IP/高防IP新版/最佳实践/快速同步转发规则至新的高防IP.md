@@ -1,4 +1,3 @@
-
 用户购买新的 DDoS 高防 IP 实例后，当实例数较多或配置三网高防 IP 实例时，如需以便捷的方式快速实现转发规则的同步，可参照本文档进行配置。
 ## 操作步骤
 1. 登录 [DDoS 高防 IP（新版）控制台](https://console.cloud.tencent.com/ddos/antiddos-advanced/access/l4) ，在左侧导航中，单击【业务接入 】，进入端口接入页签。

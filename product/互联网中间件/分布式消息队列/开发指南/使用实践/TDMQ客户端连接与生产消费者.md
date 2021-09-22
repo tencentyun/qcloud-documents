@@ -6,7 +6,7 @@
 
 ## 客户端与连接
 
-TDMQ Pulsar 客户端（以下简称 PulsarClient ）是应用程序连接到 TDMQ Pulsar 版的一个基本单位，一个 PulsarClient 对应一个 TCP 连接。一般来说，用户侧的一个应用程序或者进程对应使用一个 PulsarClient，有多少个应用节点，对应就有多少个 Client 数量。若长时间不使用 TDMQ 服务的应用节点，应回收 Client 以节省资源消耗（当前 TDMQ Pulsar 版的连接上限是单个 Topic 2000个 Client 连接）。
+TDMQ Pulsar 客户端（以下简称 PulsarClient ）是应用程序连接到 TDMQ Pulsar 版的一个基本单位，一个 PulsarClient 对应一个 TCP 连接。一般来说，用户侧的一个应用程序或者进程对应使用一个 PulsarClient，有多少个应用节点，对应就有多少个 Client 数量。若长时间不使用 TDMQ Pulsar 版服务的应用节点，应回收 Client 以节省资源消耗（当前 TDMQ Pulsar 版的连接上限是单个 Topic 2000个 Client 连接）。
 
 
 
@@ -14,7 +14,7 @@ TDMQ Pulsar 客户端（以下简称 PulsarClient ）是应用程序连接到 TD
 
 一个 Client 下可以创建多个生产和消费者，用于提升生产和消费的速度。比较常见的用法是，一个 Client 下，利用多线程创建多个 Producer 或 Consumer 对象，用于生产消费，不同 Producer 和 Consumer 之间数据相互隔离。
 
-当前 TDMQ 对生产/消费者的限制为：
+当前 TDMQ Pulsar 版对生产/消费者的限制为：
 - 单个 Topic 生产者上限1000个。
 - 单个 Topic 消费者上限500个。
 
@@ -65,7 +65,7 @@ public void onProduce(Producer<String> producer){
     //添加业务逻辑
     String msg = "my-message";//模拟从业务逻辑拿到消息
     try {
-        //TDMQ 默认开启 Schema 校验, 消息对象一定需要和 producer 声明的 Schema 类型匹配
+        //TDMQ Pulsar 版默认开启 Schema 校验, 消息对象一定需要和 producer 声明的 Schema 类型匹配
         MessageId messageId = producer.newMessage()
               .key("msgKey")
           		.value(msg)
