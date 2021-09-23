@@ -148,7 +148,7 @@ trtcCalling.logout()
 
 >?
 >- v1.0.0 及其之后版本，取消 timeout 参数。
->- v1.0.0 及其之后版本，新增 offlinePushInfo 参数（**离线推送仅适用于Android 或 iOS 终端，Web 和微信小程序不支持**）。
+>- v1.0.0 及其之后版本，新增 offlinePushInfo 参数（**离线推送仅适用于 Android 或 iOS 终端，Web 和微信小程序不支持**）。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -171,7 +171,7 @@ trtcCalling.call({userID, type, offlinePushInfo})
 | userID          | String | 被邀请方 userID                                            |
 | type            | Number | 1：语音通话，2：视频通话                                   |
 | timeout         | Number | 0为不超时，单位 s（秒）。**仅限于v1.0.0之前的版本**        |
-| offlinePushInfo | Object | 自定义离线消息推送（选填) 。**仅限于v1.0.0及其之后的版本** |
+| offlinePushInfo | Object | 自定义离线消息推送（选填)。**仅限于v1.0.0及其之后的版本** |
 
 offlinePushInfo 参数 (仅限于v1.0.0及其之后的版本)
 
@@ -184,7 +184,7 @@ offlinePushInfo 参数 (仅限于v1.0.0及其之后的版本)
 #### groupCall({userIDList, type, groupID, offlinePushInfo})
 groupID 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息是通过群消息系统广播出去的，这种消息广播方式比较简单可靠。如果不填写，那么 TRTCCalling 组件会采用单发消息逐一通知。
 
->?v1.0.0 及其之后版本，新增 offlinePushInfo 参数（**离线推送仅适用于Android 或 iOS 终端，Web 和微信小程序不支持**）。
+>?v1.0.0 及其之后版本，新增 offlinePushInfo 参数（**离线推送仅适用于 Android 或 iOS 终端，Web 和微信小程序不支持**）。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -207,7 +207,7 @@ trtcCalling.groupCall({userIDList, type, groupID, offlinePushInfo})
 | userIDList      | Array  | 邀请列表                                                   |
 | type            | Number | 1：语音通话，2：视频通话                                   |
 | groupID         | String | IM 群组 ID（选填）                                         |
-| offlinePushInfo | Object | 自定义离线消息推送（选填) 。**仅限于v1.0.0及其之后的版本** |
+| offlinePushInfo | Object | 自定义离线消息推送（选填)。**仅限于v1.0.0及其之后的版本** |
 
 offlinePushInfo 参数 (仅限于v1.0.0及其之后的版本)
 
@@ -223,7 +223,7 @@ offlinePushInfo 参数 (仅限于v1.0.0及其之后的版本)
 
 >?
 >- 当上一个 invitation 未处理完成时，组件会默认占线，之后的邀请都会回复忙线。
->- v1.0.0 及其之后版本，取消 params 参数
+>- v1.0.0 及其之后版本，取消 params 参数。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -242,16 +242,16 @@ trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 
 | 参数     | 类型   | 含义                                                  |
 | -------- | ------ | ----------------------------------------------------- |
-| inviteID | String | 邀请 ID，标识一次邀请 。**仅限于v1.0.0之前的版本**    |
-| roomID   | Number | 通话房间号 ID 。**仅限于v1.0.0之前的版本**            |
-| callType | Number | 1：语音通话，2：视频通话 。**仅限于v1.0.0之前的版本** |
+| inviteID | String | 邀请 ID，标识一次邀请。**仅限于v1.0.0之前的版本**    |
+| roomID   | Number | 通话房间号 ID。**仅限于v1.0.0之前的版本**            |
+| callType | Number | 1：语音通话，2：视频通话。**仅限于v1.0.0之前的版本** |
 
 
 
 #### reject()
 当收到邀请后，调用该接口将拒绝当前的邀请。
 
->?v1.0.0 及其之后版本，取消 params 参数
+>?v1.0.0 及其之后版本，取消 params 参数。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -270,9 +270,9 @@ trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 
 | 参数     | 类型    | 含义                                                  |
 | -------- | ------- | ----------------------------------------------------- |
-| inviteID | String  | 邀请 ID, 标识一次邀请  。**仅限于v1.0.0之前的版本**   |
-| isBusy   | Boolean | 是否是忙线中 。**仅限于v1.0.0之前的版本**             |
-| callType | Number  | 1：语音通话，2：视频通话 。**仅限于v1.0.0之前的版本** |
+| inviteID | String  | 邀请 ID, 标识一次邀请。**仅限于v1.0.0之前的版本**   |
+| isBusy   | Boolean | 是否是忙线中。**仅限于v1.0.0之前的版本**             |
+| callType | Number  | 1：语音通话，2：视频通话。**仅限于v1.0.0之前的版本** |
 
 
 #### hangup()
@@ -306,7 +306,7 @@ trtcCalling.startRemoteView({userID, videoViewDomID})
 #### stopRemoteView({userID})
 将远端用户的摄像头数据渲染的 DOM 节点删除。
 
->?v1.0.0 及其之后版本，移除 videoViewDomID 参数
+>?v1.0.0 及其之后版本，移除 videoViewDomID 参数。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -323,7 +323,7 @@ trtcCalling.stopRemoteView({userID});
 | 参数           | 类型   | 含义                                                         |
 | -------------- | ------ | ------------------------------------------------------------ |
 | userID         | String | 用户 ID                                                      |
-| videoViewDomID | String | 该 DOM ID 节点的 video 标签进行移除，停止播放视频 。**仅限于v1.0.0之前的版本** |
+| videoViewDomID | String | 该 DOM ID 节点的 video 标签进行移除，停止播放视频。**仅限于v1.0.0之前的版本** |
 
 #### startLocalView({userID, videoViewDomID})
 将本地用户的摄像头数据渲染到指定的 DOM ID 节点里。
@@ -345,7 +345,7 @@ trtcCalling.startLocalView({userID, videoViewDomID})
 
 将本地用户的摄像头数据渲染的 DOM 节点删除。
 
->?v1.0.0 及其之后版本，移除 videoViewDomID 参数
+>?v1.0.0 及其之后版本，移除 videoViewDomID 参数。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -361,7 +361,7 @@ trtcCalling.stopLocalView({userID});
 | 参数           | 类型   | 含义                                                         |
 | -------------- | ------ | ------------------------------------------------------------ |
 | userID         | String | 用户 ID                                                      |
-| videoViewDomID | String | 该 DOM ID 节点的 video 标签进行移除，停止播放视频  。**仅限于v1.0.0之前的版本** |
+| videoViewDomID | String | 该 DOM ID 节点的 video 标签进行移除，停止播放视频。**仅限于v1.0.0之前的版本** |
 
 #### openCamera()
 开启本地摄像头。
@@ -394,7 +394,7 @@ trtcCalling.setMicMute(true) // 关闭麦克风
 
 | 参数   | 类型    | 含义                                         |
 | ------ | ------- | -------------------------------------------- |
-| isMute | Boolean | <li/>true: 麦克风关闭 <li/>false: 麦克风打开 |
+| isMute | Boolean | <li/>true：麦克风关闭 <li/>false：麦克风打开 |
 
 ####  setVideoQuality(profile) 
 设置视频质量。
