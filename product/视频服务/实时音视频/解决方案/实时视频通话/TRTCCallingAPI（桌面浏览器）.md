@@ -148,7 +148,7 @@ trtcCalling.logout()
 
 >?
 >- v1.0.0 及其之后版本，取消 timeout 参数。
->- v1.0.0 及其之后版本，新增 offlinePushInfo 参数（**离线推送仅适用于终端（Android 或 iOS)，Web 和微信小程序不支持**）。
+>- v1.0.0 及其之后版本，新增 offlinePushInfo 参数（**离线推送仅适用于 Android 或 iOS 终端)，Web 和微信小程序不支持**）。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -184,7 +184,7 @@ offlinePushInfo 参数
 #### groupCall({userIDList, type, groupID})
 groupID 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息是通过群消息系统广播出去的，这种消息广播方式比较简单可靠。如果不填写，那么 TRTCCalling 组件会采用单发消息逐一通知。
 
->?v1.0.0 及其之后版本，新增 offlinePushInfo 参数 注意：离线推送仅适用于终端（Android 或 iOS)，Web 和 微信小程序不支持。
+>?v1.0.0 及其之后版本，新增 offlinePushInfo 参数（**离线推送仅适用于 Android 或 iOS 终端)，Web 和微信小程序不支持**）。
 
 <dx-codeblock>
 ::: javascript javascript
