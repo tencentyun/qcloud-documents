@@ -12,9 +12,9 @@ Pulsar Java SDK 接入步骤如下：
 
 <!-- in your <dependencies> block -->
 <dependency>
-			<groupId>org.apache.pulsar</groupId>
-			<artifactId>pulsar-client</artifactId>
-			<version>${pulsar.version}</version>
+	<groupId>org.apache.pulsar</groupId>
+	<artifactId>pulsar-client</artifactId>
+	<version>${pulsar.version}</version>
 </dependency>
 ```
 :::
