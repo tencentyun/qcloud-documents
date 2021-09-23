@@ -188,3 +188,4 @@ KTV 场景支持主播与观众上麦唱歌；支持平滑上下麦，切换过�
 <td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_experience_audience.gif"/></td>
 </tr>
 </table>
+ 
