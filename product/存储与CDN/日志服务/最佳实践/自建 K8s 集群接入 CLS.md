@@ -391,7 +391,7 @@ spec:
 ```
 >! 配置时，请将 ConfigMap.yaml 中的 **TmpSecretId** 和 **TmpSecretKey** 配置为您的 **API 密钥 ID** 和 **API 密钥 KEY**。
 >
-2. 使用 kubect 命令创建 ConfigMap 对象。
+2. 使用 kubectl 命令创建 ConfigMap 对象。
 ```shell
 # kubectl create -f /usr/local/ConfigMap.yaml
 ```
@@ -407,7 +407,7 @@ Log-Provisioner 负责发现并监听 LogConfig 资源中 CLS 消费端信息，
 ```
 >! 配置时，请将 Log-Provisioner.yaml 中环境变量 env 下的 **CLS_HOST** 字段配置为目标日志主题所在地域的域名。 不同地域的域名请参见 [可用地域](https://cloud.tencent.com/document/product/614/18940) 文档。
 >
-2. 使用 kubect 以 Deployment 的方式部署 Log-Provinsioner。
+2. 使用 kubectl 以 Deployment 的方式部署 Log-Provinsioner。
 ```shell
 # kubectl create -f /usr/local/Log-Provinsioner.yaml
 ```
@@ -429,7 +429,7 @@ Log-Provisioner 负责发现并监听 LogConfig 资源中 CLS 消费端信息，
 > - 如果宿主机的 docker 根目录不在 /var/lib/docker（即在宿主机的根目录）下，需要在 Log-Agent.yaml 声明文件中把 docker 的根目录映射到容器中，如下图所示，将 /data/docker 挂载到容器中：
 > ![](https://main.qcloudimg.com/raw/7a6dd1f80f7e33cdf2f4db3695f15555.png)
 > 
-2. 使用 kubect 命令，以 DaemonSet 的方式部署 Log-Agent 和 Loglistener。
+2. 使用 kubectl 命令，以 DaemonSet 的方式部署 Log-Agent 和 Loglistener。
 ```shell
 # kubectl create -f /usr/local/Log—Agent.yaml
 ```
