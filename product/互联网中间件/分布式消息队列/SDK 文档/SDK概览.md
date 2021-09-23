@@ -1,7 +1,7 @@
-消息队列 TDMQ 现支持 TDMQ 腾讯云版 SDK 和 Pulsar 社区版 SDK。以下是消息队列 TDMQ 所支持的多语言 SDK：
+TDMQ Pulsar 版现支持腾讯云版 SDK 和 Pulsar 社区版 SDK。以下是 TDMQ Pulsar 版所支持的多语言 SDK：
 
 >!
->- 为了更好地和 Pulsar 开源社区统一，自2021年4月30日起，腾讯云版 SDK 将停止功能更新，TDMQ 推荐您使用社区版本的 SDK。
+>- 为了更好地和 Pulsar 开源社区统一，自2021年4月30日起，腾讯云版 SDK 将停止功能更新，TDMQ Pulsar 版推荐您使用社区版本的 SDK。
 >- 如果您已使用了腾讯云版 SDK，并且确定未使用下文中列出的 [额外功能](#external)，可以直接替换成社区版的 SDK。
 
 <table>
