@@ -472,7 +472,7 @@ trtcCalling.getMicrophones() // 获取麦克风列表
 
 <dx-codeblock>
 ::: javascript javascript
-trtcCalling.switchDevice(deviceType:, deviceID) // 切换设备
+trtcCalling.switchDevice(deviceType, deviceID) // 切换设备
 :::
 </dx-codeblock>
 
