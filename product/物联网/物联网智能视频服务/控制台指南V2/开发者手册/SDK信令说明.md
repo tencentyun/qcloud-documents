@@ -70,8 +70,7 @@ app_connect_num：已连接到设备的 APP 数量；
 }
 ```
 
->? "file_name" 字段用途不明晰，可以暂不处理。
->
+
 #### 按月查询
 -	action=inner_define&channel=xxx&cmd=get_month_record&time=yyyymm
 -	参数说明:yyyymm 中前四位是年份，后两位是月份；
