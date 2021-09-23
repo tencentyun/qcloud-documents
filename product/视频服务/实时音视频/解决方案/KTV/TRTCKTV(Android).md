@@ -392,20 +392,22 @@ public abstract void getUserInfoList(List<String> userIdList, TRTCKaraokeRoomCal
 ### startPlayMusic
 
 播放音乐（上麦后调用）。
->?播放音乐后，自身会收到 `onMusicPrepareToPlay` 的事件通知。
->?音乐播放中，房间内所有成员会不断收到 `onMusicProgressUpdate` 的事件通知。
->?音乐播放完成，自身会收到 `onMusicCompletePlaying` 的事件通知。
+>?
+>- 播放音乐后，自身会收到 `onMusicPrepareToPlay` 的事件通知。
+>- 音乐播放中，房间内所有成员会不断收到 `onMusicProgressUpdate` 的事件通知。
+>- 音乐播放完成，自身会收到 `onMusicCompletePlaying` 的事件通知。
 
 ```java
-public abstract void startPlayMusic(int musicID, String url);
+public abstract void startPlayMusic(int musicID, String originalUrl, String accompanyUrl);
 ```
 
 参数如下表所示：
 
 | 参数      | 类型            | 含义                 |
 | --------- | -------------- | -------------------- |
-| musicID   | int            | 音乐的ID。 |
-| url       | String         | 音乐的绝对路径。           |
+|musicID   |   int | 音乐的 ID。  |
+|originalUrl  | String | 原唱音乐的绝对路径。   |
+|accompanyUrl |  String | 伴奏音乐的绝对路径。  |
 
 调用该接口后会停止上一个正在播放的歌曲。
 
@@ -421,8 +423,9 @@ public abstract void stopPlayMusic();
 ### pausePlayMusic
 
 暂停正在播放的音乐（播放音乐时调用）。
->? `onMusicProgressUpdate` 的事件通知会暂停
->?不会收到 `onMusicCompletePlaying` 的事件通知。
+>? 
+>- `onMusicProgressUpdate` 的事件通知会暂停
+>- 不会收到 `onMusicCompletePlaying` 的事件通知。
 
 ```java
 public abstract void pausePlayMusic();
