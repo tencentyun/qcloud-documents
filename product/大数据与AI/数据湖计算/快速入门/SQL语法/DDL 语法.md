@@ -6,8 +6,8 @@ SHOW CREATE TABLE [catalog_name.][db_name.]table_name
 ```
 #### 参数
 `TABLE [db_name.]table_name`
-- `db_name`: 数据库名称
-- `table_name`: 表名称
+- `db_name`：数据库名称。
+- `table_name`：表名称。
 
 #### 示例
 ```
@@ -22,7 +22,7 @@ SHOW CREATE TABLE tbl;
 SHOW VIEWS [IN database_name] LIKE ['regular_expression']
 ```
 #### 参数
-- `[IN database_name]`：指定要从中列出视图的数据库名称。如果省略，则假定当前上下文中的数据库
+- `[IN database_name]`：指定要从中列出视图的数据库名称。如果省略，则假定当前上下文中的数据库。
 - `[LIKE 'regular_expression']`：将视图列表筛选为与指定的常规表达式匹配的视图。只能使用表示任意字符的通配符\*，或表示字符之间可供选择。
 
 #### 示例
@@ -90,7 +90,7 @@ SHOW PARTITIONS db01.table PARTITION(ds='2010-03-03', hr='12');
 SHOW CREATE VIEW view_name
 ```
 #### 参数
-`view_name 视图名称`
+`view_name`：视图名称。
 
 #### 示例
 ```
@@ -132,8 +132,8 @@ SHOW COLUMNS IN clicks;
 DROP VIEW [ IF EXISTS ] view_name;
 ```
 #### 参数
-- `IF EXISTS 可选 如果存在的意思。`
-- `table_name 表名`
+- `IF EXISTS`：可选，如果存在的意思。
+- `table_name`：表名。
 
 #### 示例
 ```
@@ -142,14 +142,14 @@ DROP VIEW IF EXISTS orders_by_date;
 ```
 
 ## DROP TABLE
-移除表定义为`table_name的元数据表。`
+移除表定义为`table_name`的元数据表。
 #### 语法
 ```
 DROP TABLE [IF EXISTS] table_name；
 ```
 #### 参数
-- `IF EXISTS 可选 如果存在的意思。`
-- `table_name 表名`
+- `IF EXISTS`：可选，如果存在的意思。
+- `table_name`：表名。
 
 #### 示例
 ```
@@ -164,8 +164,8 @@ DROP TABLE IF EXISTS tbl
 MSCK [REPAIR] TABLE table_name;
 ```
 #### 参数
-- `REPAIR 可选`
-- `table_name 表名`
+- `REPAIR`：可选。
+- `table_name`：表名。
 
 #### 示例
 ```
@@ -242,7 +242,7 @@ CREATE [ EXTERNAL ] TABLE [ IF NOT EXISTS ] table_identifier
 - OpenCSVSerde 限制
 如果使用该 OpenCSVSerde 作为 row format 时，创建表的时候如果指定了该格式的时候，那么创建列的所有类型是 String 类型，这里可能会和实际创建表产生歧义，尽量如果都是 String 类型的时候使用，如果有特殊类型的时候不推荐使用。
 - JSONSerde 限制
-如果使用 JSONSerde 创建表时，如果要增加、修改、删除列时是不支持的。尽量如果要使用该 JSONSerde 创建表时尽量保证元数据不会发生改变或者创建的时候可以预留出字段。
+使用 JSONSerde 创建表时，不支持增加、修改、删除列。如果要使用 JSONSerde 创建表，需元数据不会发生改变或者创建时，可以预留出字段。
 
 #### 示例
 创建表：
@@ -251,8 +251,8 @@ CREATE DATABASE db
 COMMENT 'db1_name' 
 LOCATION 'cosn://path/to/db1' 
 WITH DBPROPERTIES('k1' = 'v1','k2' = 'v2');
-```
-复杂创建方式：
+```qw
+复杂创建方式： 
 ```
 CREATE TABLE t1 (
        ID  INTEGER
@@ -275,8 +275,7 @@ WITH DBPROPERTIES('k1' = 'v1','k2' = 'v2');
 CREATE EXTERNAL TABLE `test`(
   `id` string COMMENT 'from deserializer', 
   `name` int COMMENT 'from deserializer'
-ROW FORMAT SERDE 
-  'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
+  ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
 WITH SERDEPROPERTIES ( 
   'quoteChar'='"', 
   'separatorChar'=',') 
@@ -289,6 +288,7 @@ LOCATION
 TBLPROPERTIES (
   'skip.header.line.count'='1', 
   'transient_lastDdlTime'='1623651887980');
+)
 ```
 
 ![image-20210803151712077](/Users/majun/Library/Application Support/typora-user-images/image-20210803151712077.png)
@@ -325,19 +325,20 @@ CREATE TABLE [ IF NOT EXISTS ] table_name [ ( column_alias, ... ) ]
 
 #### 参数
 - Spark 引擎：
-`[IF NOT EXISTS]`：如果不存在创建表，存在则不创建。
-`table_identifier`：表名。
-`( column_alias, ... )`：猎德
-`[ COMMENT table_comment ]`：表名加注释。
-`[ CLUSTERED BY ( col_name1, col_name2, ...)`、`[ SORTED BY ( col_name1 [ ASC | DESC ], col_name2 [ ASC | DESC ], ... ) ]`：根据用其中几个列创建桶，并通过制指定字段进行排序。
-`[ ROW FORMAT row_format ]`：指定 Row 的格式化参数。
-`[ STORED AS file_format ]`：指定存储使用的文件格式，例如 OrcFile、Parquent。
-`query SELECT`：查询语句。
-- Presto 引擎：`[ WITH ( property_name = expression [, ...] ) ]`：with 选项用于给新创建的表添加一些属性配置。
+ - `[IF NOT EXISTS]`：如果不存在创建表，存在则不创建。
+ - `table_identifier`：表名。
+ - `( column_alias, ... )`：猎德。
+ - `[ COMMENT table_comment ]`：表名加注释。
+ - `[ CLUSTERED BY ( col_name1, col_name2, ...) [ SORTED BY ( col_name1 [ ASC | DESC ], col_name2 [ ASC | DESC ], ... ) ] INTO num_buckets BUCKETS ]`：根据用其中几个列创建桶，并通过制指定字段进行排序。
+ - `[ ROW FORMAT row_format ]`：指定 Row 的格式化参数。
+ - `[ STORED AS file_format ]`：指定存储使用的文件格式，例如 OrcFile、Parquent。
+ - `query SELECT`：查询语句。
+- Presto 引擎：
+`[ WITH ( property_name = expression [, ...] ) ]`：with 选项用于给新创建的表添加一些属性配置。
 
 #### 限制
 - OpenCSVSerde 限制
-如果创建表指定 row format 为 OpenCSVSerde 的场景，那么创建列的所有元数据类型是`string`类型，这里可能会和你实际创建表产生歧义，尽量都是 string 类型的情况下使用，有特殊类型（`map`、`struct`等）的时候不推荐使用。
+如果创建表指定 row format 为 OpenCSVSerde 的场景，那么创建列的所有元数据类型是`string`类型，这里可能会和实际创建表产生歧义，尽量都是 string 类型的情况下使用，有特殊类型（`map`、`struct`等）的时候不推荐使用。
 - JSONSerde 限制
 如果创建表指定 row format 为 JSONSerde 的场景，如果要增加、修改、删除列时是不支持的。尽量如果要使用 JSONSerde 在创建表的时候，尽量保证元数据不会发生改变或者创建时可以预留出字段。
 
@@ -372,11 +373,11 @@ CREATE VIEW [IF NOT EXISTS] view_name
   AS select_statement
 ```
 #### 参数
-`[IF NOT EXISTS]`：不存在则创建
-`view_name`：视图名
-`[(column_name [COMMENT 'column_comment'][, ...])]`：列的名字，同时后面可以带上列的注释
-`[COMMENT 'view_comment']`：视图的注释
-`select_statement`：查询语句
+`[IF NOT EXISTS]`：不存在则创建。
+`view_name`：视图名。
+`[(column_name [COMMENT 'column_comment'][, ...])]`：列的名字，同时后面可以带上列的注释。
+`[COMMENT 'view_comment']`：视图的注释。
+`select_statement`：查询语句。
 
 #### 示例
 ```
@@ -389,11 +390,11 @@ create view test_view (id comment 'test c1', name_length comment 'test name c2')
 #### 语法
 ```
 ALTER DATABASE database_name
-  SET DBPROPERTIES ('property_name'='property_value' [, ...] );
+  SET DBPROPERTIES ('property_name'='property_value' [, ...]);
 ```
 #### 参数
 ```
-SET DBPROPERTIES ('property_name'='property_value' [, ...]
+SET DBPROPERTIES ('property_name'='property_value' [, ...])
 ```
 为数据库增加一个属性或者修改某个属性，如果属性相同会覆盖。
 
@@ -424,7 +425,7 @@ ALTER DATABASE db01 SET LOCATION 'cosn:///new/path'
 ALTER TABLE table_name SET TBLPROPERTIES ('property_name' = 'property_value' [ , ... ])
 ```
 #### 参数
-- `[table_name]`：表名
+- `[table_name]`：表名。
 - `[SET TBLPROPERTIES ('property_name' = 'property_value' [ , ... ])]`：指定表的元数据列的属性。
 
 #### 示例
@@ -441,8 +442,8 @@ ALTER TABLE table_name [ PARTITION (partition_spec) ] SET LOCATION 'new location
 ```
 #### 参数
 - `PARTITION (partition_spec)`：指定分区列。
- - `partition_col_name` 分区列名
- - `partition_col_value` 分区列的值
+ - `partition_col_name` 分区列名。
+ - `partition_col_value` 分区列的值。
 - `SET LOCATION 'new location'`：创建在一个新位置在 tencent cos 上。
 
 ## ALTER TABLE ADD COLUMNS
@@ -456,11 +457,11 @@ ALTER TABLE table_name
   ADD COLUMNS (col_name data_type) [RESTRICT | CASCADE];
 ```
 #### 参数
-- \[`table_name`\]：表名
-- \[`PARTITION`\]：指定分区，分区列和值相对应。
-- ADD COLUMNS (col_name data_type [,col_name data_type,…])：增加列给某个表，可以是一个列或者多个列。
- - `col_name 列名`
- - `data_type 数据类型`
+- table_name：表名。
+- PARTITION：指定分区，分区列和值相对应。
+- `ADD COLUMNS (col_name data_type [,col_name data_type,…])`：增加列给某个表，可以是一个列或者多个列。
+ - col_name：列名。
+ - data_type：数据类型。
 
 #### 示例
 表：
@@ -487,8 +488,8 @@ ALTER TABLE table_name
  REPLACE COLUMNS (col_spec[, col_spec ...])
 ```
 #### 参数
-- \[`table_name`\]：表名
-- \[`PARTITION`\]：指定分区，分区列和值相对应。
+- table_name：表名。
+- PARTITION：指定分区，分区列和值相对应。
 - `(col_spec[, col_spec ...])`：用指定的列名和数据类型替换现有列。
 
 #### 示例
@@ -524,7 +525,7 @@ ALTER TABLE table_name ADD [IF NOT EXISTS]
   [,...]);
 ```
 #### 参数
-- `[IF NOT EXISTS]`：如果存在就不报错。
+- IF NOT EXISTS：如果存在就不报错。
 - `PARTITION (partition_col_name = partition_col_value [,...])`：指定分区列。
 
 #### 示例
@@ -540,7 +541,7 @@ ALTER TABLE tbl ADD IF NOT EXISTS PARTITION ('P' = 1) PARTITION ('P' = 2);
 ALTER TABLE table_name DROP [IF EXISTS] PARTITION (partition_spec) [, PARTITION (partition_spec)];
 ```
 #### 参数
-- `[IF EXISTS]`：如果指定的分区不存在，则取消显示错误消息。
+- IF EXISTS：如果指定的分区不存在，则取消显示错误消息。
 - `PARTITION (partition_spec)`：指定分区。
 
 #### 示例
@@ -580,7 +581,7 @@ DESCRIBE FORMATTED tbl PARTITION (date_id = '2019-01-07');
 DESCRIBE [view_name];
 ```
 #### 参数
-`[view_name]`：视图名。
+view_name：视图名。
 
 #### 示例
 ```
@@ -596,8 +597,8 @@ CREATE FUNCTION [db_name.]function_name AS class_name
 ```
 #### 参数
 - `[db_name.]function_name`：函数名，创建函数的时候后指定命名空间在`db_name 下`。
-- `class_name`：类名。
-- `[USING JAR|FILE 'file_uri' [, JAR|FILE 'file_uri'] ]`：使用jar包或者File创建函数，这里要指明远程文件系统 Tencent  COS 的路径。
+- class_name：类名。
+- `[USING JAR|FILE 'file_uri' [, JAR|FILE 'file_uri'] ]`：使用 jar 包或者 File 创建函数，这里要指明远程文件系统 Tencent  COS 的路径。
 
 #### 示例
 ```
@@ -612,8 +613,8 @@ USING JAR 'cosn://xxxxx/udf/hive-test-udfs.jar.
 DROP FUNCTION [ IF EXISTS ] function_name
 ```
 #### 参数
-- `[ IF EXISTS ]`：存在就删除。
-- `function_name`：函数名。
+- IF EXISTS：存在就删除。
+- function_name：函数名。
 
 #### 示例
 ```
@@ -627,7 +628,7 @@ DROP FUNCTION udf_add2;
 CALL expression
 ```
 #### 参数
-`expression`：函数表达式
+`expression`：函数表达式。
 
 #### 示例
 ```
@@ -650,8 +651,8 @@ CALL catalog_name.system.set_current_snapshot('db.sample', 1)
 DESCRIBE SCHEMA|DATABASE [EXTENDED] DB_NAME;
 ```
 #### 参数
-- `[SCHEMA|DATABASE]`：指定库为 SCHEMA 或者 DATABASE。
-- `[EXTENDED]`：该库是否为 EXTENDED。
+- SCHEMA|DATABASE：指定库为 SCHEMA 或者 DATABASE。
+- EXTENDED：该库是否为 EXTENDED。
 
 #### 示例
 ```
