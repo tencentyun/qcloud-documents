@@ -27,8 +27,8 @@
 
 | API                                                          | 描述         |
 | ------------------------------------------------------------ | ------------ |
-| [call({userID, type, offlinePushInfo}))](#call(.7Buserid.2C-type.2C-timeout.7D)) | 单人通话邀请 |
-| [groupCall({userIDList, type, groupID, offlinePushInfo})](#groupcall(.7Buseridlist.2C-type.2C-groupid.7D)) | 群聊通话邀请 |
+| [call({userID, type, offlinePushInfo}))](#call(.7Buserid.2C-type.2C-offlinepushinfo.7D)) | 单人通话邀请 |
+| [groupCall({userIDList, type, groupID, offlinePushInfo})](#groupcall(.7Buseridlist.2C-type.2C-groupid.2C-offlinepushinfo.7D)) | 群聊通话邀请 |
 | [accept()](#accept(.7Binviteid.2C-roomid.2C-calltype.7D))    | 接受通话邀请 |
 | [reject()](#reject(.7Binviteid.2C-isbusy.2C-calltype.7D))    | 拒绝通话邀请 |
 | [hangup()](#hangup())                                        | 挂断当前通话 |
