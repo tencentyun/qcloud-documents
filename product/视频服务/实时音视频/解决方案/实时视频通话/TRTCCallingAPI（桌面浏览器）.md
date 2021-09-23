@@ -25,28 +25,31 @@
 
 #### 通话操作相关接口函数
 
-| API                                                                                       | 描述         |
-| ----------------------------------------------------------------------------------------- | ------------ |
-| [call({userID, type, timeout}))](#call(.7Buserid.2C-type.2C-timeout.7D))                  | 单人通话邀请 |
-| [groupCall({userIDList, type, groupID})](#groupcall(.7Buseridlist.2C-type.2C-groupid.7D)) | 群聊通话邀请 |
-| [accept({inviteID, roomID, callType})](#accept(.7Binviteid.2C-roomid.2C-calltype.7D))     | 接受通话邀请 |
-| [reject({inviteID, isBusy, callType})](#reject(.7Binviteid.2C-isbusy.2C-calltype.7D))     | 拒绝通话邀请 |
-| [hangup()](#hangup())                                                                     | 挂断当前通话 |
+| API                                                          | 描述         |
+| ------------------------------------------------------------ | ------------ |
+| [call({userID, type, offlinePushInfo}))](#call(.7Buserid.2C-type.2C-timeout.7D)) | 单人通话邀请 |
+| [groupCall({userIDList, type, groupID, offlinePushInfo})](#groupcall(.7Buseridlist.2C-type.2C-groupid.7D)) | 群聊通话邀请 |
+| [accept()](#accept(.7Binviteid.2C-roomid.2C-calltype.7D))    | 接受通话邀请 |
+| [reject()](#reject(.7Binviteid.2C-isbusy.2C-calltype.7D))    | 拒绝通话邀请 |
+| [hangup()](#hangup())                                        | 挂断当前通话 |
 
 #### 视频控制相关接口函数
 
-| API                                                                                           | 描述               |
-| --------------------------------------------------------------------------------------------- | ------------------ |
-| [startRemoteView({userID, videoViewDomID})](#startremoteview(.7Buserid.2C-videoviewdomid.7D)) | 启动远端画面渲染   |
-| [stopRemoteView({userID, videoViewDomID})](#stopremoteview(.7Buserid.2C-videoviewdomid.7D))   | 停止远端画面渲染   |
-| [startLocalView({userID, videoViewDomID})](#startlocalview(.7Buserid.2C-videoviewdomid.7D))   | 启动本地画面渲染   |
-| [stopLocalView({userID, videoViewDomID})](#stoplocalview(.7Buserid.2C-videoviewdomid.7D))     | 停止本地画面渲染   |
-| [openCamera()](#opencamera())                                                                 | 启动摄像头         |
-| [closeCamera()](#closecamera())                                                               | 关闭摄像头         |
-| [setMicMute(isMute)](#setmicmute(ismute))                                                     | 设备麦克风是否静音 |
-| [setVideoQuality(profile)](#setvideoquality(profile)) | 设置视频质量|
-| [switchToAudioCall()](#switchtoaudiocall()) | 视频通话切换语音通话|
-| [switchToVideoCall()](#switchtovideocall()) | 语音通话切换视频通话|
+| API                                                          | 描述                   |
+| ------------------------------------------------------------ | ---------------------- |
+| [startRemoteView({userID, videoViewDomID})](#startremoteview(.7Buserid.2C-videoviewdomid.7D)) | 启动远端画面渲染       |
+| [stopRemoteView({userID})](#stopremoteview(.7Buserid.2C-videoviewdomid.7D)) | 停止远端画面渲染       |
+| [startLocalView({userID, videoViewDomID})](#startlocalview(.7Buserid.2C-videoviewdomid.7D)) | 启动本地画面渲染       |
+| [stopLocalView({userID, videoViewDomID})](#stoplocalview(.7Buserid.2C-videoviewdomid.7D)) | 停止本地画面渲染       |
+| [openCamera()](#opencamera())                                | 启动摄像头             |
+| [closeCamera()](#closecamera())                              | 关闭摄像头             |
+| [setMicMute(isMute)](#setmicmute(ismute))                    | 设备麦克风是否静音     |
+| [setVideoQuality(profile)](#setvideoquality(profile))        | 设置视频质量           |
+| [switchToAudioCall()](#switchtoaudiocall())                  | 视频通话切换语音通话   |
+| [switchToVideoCall()](#switchtovideocall())                  | 语音通话切换视频通话   |
+| [getCameras()](#getCameras())                                | 获取摄像头设备列表   |
+| [getMicrophones()](#getMicrophones())                        | 获取麦克风设备列表   |
+| [switchDevice({deviceType, deviceID})](#switchDevice())      | 切换摄像头或麦克风设备 |
 
 
 ## TRTCCalling 详解
@@ -143,86 +146,135 @@ trtcCalling.logout()
 
 1对1通话邀请，其中 type 为通话类型，1-语音通话，2-视频通话。
 
+>?
+>- v1.0.0 及其之后版本，取消 timeout 参数
+>- v1.0.0 及其之后版本，新增 offlinePushInfo 参数 注意：离线推送仅适用于终端（Android 或 iOS)，Web 和 微信小程序不支持。
+
 <dx-codeblock>
 ::: javascript javascript
-trtcCalling.call({userID, type, timeout})
+// v1.0.0 之前
+trtcCalling.call({userID, type, timeout});
+
+// v1.0.0 版本及其之后
+const offlinePushInfo = {
+  title: '',
+  description: '您有一个通话请求',
+}
+trtcCalling.call({userID, type, offlinePushInfo})
 :::
 </dx-codeblock>
 
 参数如下表所示：
 
-| 参数    | 类型   | 含义                     |
-| ------- | ------ | ------------------------ |
-| userID  | String | 被邀请方 userID          |
-| type    | Number | 1：语音通话，2：视频通话 |
-| timeout | Number | 0为不超时，单位 s（秒）  |
+| 参数            | 类型   | 含义                                                    |
+| --------------- | ------ | ------------------------------------------------------- |
+| userID          | String | 被邀请方 userID                                         |
+| type            | Number | 1：语音通话，2：视频通话                                |
+| timeout         | Number | 0为不超时，单位 s（秒）-- 仅限于v1.0.0之前的版本        |
+| offlinePushInfo | Object | 自定义离线消息推送（选填) -- 仅限于v1.0.0及其之后的版本 |
 
+offlinePushInfo 参数
 
+| 参数                 | 类型   | 含义                                                   |
+| -------------------- | ------ | ------------------------------------------------------ |
+| title                | String | 离线推送标题（选填）                                   |
+| description          | String | 离线推送内容（选填)                                    |
+| androidOPPOChannelID | String | 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID（选填） |
 
 #### groupCall({userIDList, type, groupID})
 groupID 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息是通过群消息系统广播出去的，这种消息广播方式比较简单可靠。如果不填写，那么 TRTCCalling 组件会采用单发消息逐一通知。
 
+>?
+>- v1.0.0 及其之后版本，新增 offlinePushInfo 参数 注意：离线推送仅适用于终端（Android 或 iOS)，Web 和 微信小程序不支持。
+
 <dx-codeblock>
 ::: javascript javascript
-trtcCalling.groupCall({userIDList, type, groupID})
+// v1.0.0之前
+trtcCalling.groupCall({userIDList, type, groupID});
+
+// v1.0.0及其之后
+const offlinePushInfo = {
+  title: '',
+  description: '您有一个通话请求',
+}
+trtcCalling.groupCall({userIDList, type, groupID, offlinePushInfo})
 :::
 </dx-codeblock>
 
 参数如下表所示：
 
-| 参数       | 类型   | 含义                     |
-| ---------- | ------ | ------------------------ |
-| userIDList | Array  | 邀请列表                 |
-| type       | Number | 1：语音通话，2：视频通话 |
-| groupID    | String | IM 群组 ID（选填）       |
+| 参数            | 类型   | 含义                                                    |
+| --------------- | ------ | ------------------------------------------------------- |
+| userIDList      | Array  | 邀请列表                                                |
+| type            | Number | 1：语音通话，2：视频通话                                |
+| groupID         | String | IM 群组 ID（选填）                                      |
+| offlinePushInfo | Object | 自定义离线消息推送（选填) -- 仅限于v1.0.0及其之后的版本 |
+
+offlinePushInfo 参数
+
+| 参数                 | 类型   | 含义                                                   |
+| -------------------- | ------ | ------------------------------------------------------ |
+| title                | String | 离线推送标题（选填）                                   |
+| description          | String | 离线推送内容（选填)                                    |
+| androidOPPOChannelID | String | 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID（选填） |
 
 
-
-
-#### accept({inviteID, roomID, callType})
+#### accept()
 当收到邀请后，调用该接口将接受当前的邀请。
->? 当上一个 invitation 未处理完成时，组件会默认占线，之后的邀请都会回复忙线。
+
+>?
+>- 当上一个 invitation 未处理完成时，组件会默认占线，之后的邀请都会回复忙线。
+>- v1.0.0 及其之后版本，取消 params 参数
 
 <dx-codeblock>
 ::: javascript javascript
 import TRTCCalling from 'trtc-calling-js';
 trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
+  // v1.0.0之前
   trtcCalling.accept({inviteID, roomID, callType})
+  // v1.0.0及其之后
+  trtcCalling.accept();
 })
 :::
 </dx-codeblock>
 
 参数如下表所示：
 
-| 参数     | 类型   | 含义                     |
-| -------- | ------ | ------------------------ |
-| inviteID | String | 邀请 ID，标识一次邀请    |
-| roomID   | Number | 通话房间号 ID            |
-| callType | Number | 1：语音通话，2：视频通话 |
+| 参数     | 类型   | 含义                                               |
+| -------- | ------ | -------------------------------------------------- |
+| inviteID | String | 邀请 ID，标识一次邀请 -- 仅限于v1.0.0之前的版本    |
+| roomID   | Number | 通话房间号 ID -- 仅限于v1.0.0之前的版本            |
+| callType | Number | 1：语音通话，2：视频通话 -- 仅限于v1.0.0之前的版本 |
 
 
 
-#### reject({inviteID, isBusy, callType})
+#### reject()
 当收到邀请后，调用该接口将拒绝当前的邀请。
 
+>?
+>- v1.0.0 及其之后版本，取消 params 参数
+
 <dx-codeblock>
 ::: javascript javascript
 import TRTCCalling from 'trtc-calling-js';
 trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
+  // v1.0.0之前
   trtcCalling.reject({inviteID, isBusy, callType})
+  // v1.0.0及其以后
+  trtcCalling.reject();
 })
 :::
 </dx-codeblock>
 
 参数如下表所示：
 
-| 参数     | 类型    | 含义                     |
-| -------- | ------- | ------------------------ |
-| inviteID | String  | 邀请 ID, 标识一次邀请    |
-| isBusy   | Boolean | 是否是忙线中             |
-| callType | Number  | 1：语音通话，2：视频通话 |
+| 参数     | 类型    | 含义                                               |
+| -------- | ------- | -------------------------------------------------- |
+| inviteID | String  | 邀请 ID, 标识一次邀请  -- 仅限于v1.0.0之前的版本   |
+| isBusy   | Boolean | 是否是忙线中 -- 仅限于v1.0.0之前的版本             |
+| callType | Number  | 1：语音通话，2：视频通话 -- 仅限于v1.0.0之前的版本 |
 
 
 #### hangup()
@@ -256,18 +308,25 @@ trtcCalling.startRemoteView({userID, videoViewDomID})
 #### stopRemoteView({userID, videoViewDomID})
 将远端用户的摄像头数据渲染的 DOM 节点删除。
 
+>?
+>- v1.0.0 及其之后版本，移除 videoViewDomID 参数
+
 <dx-codeblock>
 ::: javascript javascript
-trtcCalling.stopRemoteView({userID, videoViewDomID})
+// v1.0.0之前
+trtcCalling.stopRemoteView({userID, videoViewDomID});
+// v1.0.0及其之后
+trtcCalling.stopRemoteView({userID});
+
 :::
 </dx-codeblock>
 
 参数如下表所示：
 
-| 参数           | 类型   | 含义                                              |
-| -------------- | ------ | ------------------------------------------------- |
-| userID         | String | 用户 ID                                           |
-| videoViewDomID | String | 该 DOM ID 节点的 video 标签进行移除，停止播放视频 |
+| 参数           | 类型   | 含义                                                         |
+| -------------- | ------ | ------------------------------------------------------------ |
+| userID         | String | 用户 ID                                                      |
+| videoViewDomID | String | 该 DOM ID 节点的 video 标签进行移除，停止播放视频 -- 仅限于v1.0.0之前的版本 |
 
 #### startLocalView({userID, videoViewDomID})
 将本地用户的摄像头数据渲染到指定的 DOM ID 节点里。
@@ -289,18 +348,24 @@ trtcCalling.startLocalView({userID, videoViewDomID})
 
 将本地用户的摄像头数据渲染的 DOM 节点删除。
 
+>?
+>- v1.0.0 及其之后版本，移除 videoViewDomID 参数
+
 <dx-codeblock>
 ::: javascript javascript
-trtcCalling.stopLocalView({userID, videoViewDomID})
+// v1.0.0之前
+trtcCalling.stopLocalView({userID, videoViewDomID});
+// v1.0.0及其之后
+trtcCalling.stopLocalView({userID});
 :::
 </dx-codeblock>
 
 参数如下表所示：
 
-| 参数           | 类型   | 含义                                              |
-| -------------- | ------ | ------------------------------------------------- |
-| userID         | String | 用户 ID                                           |
-| videoViewDomID | String | 该 DOM ID 节点的 video 标签进行移除，停止播放视频 |
+| 参数           | 类型   | 含义                                                         |
+| -------------- | ------ | ------------------------------------------------------------ |
+| userID         | String | 用户 ID                                                      |
+| videoViewDomID | String | 该 DOM ID 节点的 video 标签进行移除，停止播放视频  -- 仅限于v1.0.0之前的版本 |
 
 #### openCamera()
 开启本地摄像头。
@@ -379,6 +444,52 @@ trtcCalling.switchToVideoCall() // 语音通话切换视频通话
 :::
 </dx-codeblock>
 
+####  getCameras() 
+
+您可以调用此接口获取摄像头设备列表。
+
+>?
+>- v1.0.0 及其之后版本，新增该方法。
+
+<dx-codeblock>
+::: javascript javascript
+trtcCalling.getCameras() // 获取摄像头列表
+:::
+</dx-codeblock>
+
+####  getMicrophones() 
+
+您可以调用此接口获取麦克风设备列表。
+
+>?
+>- v1.0.0 及其之后版本，新增该方法。
+
+<dx-codeblock>
+::: javascript javascript
+trtcCalling.getMicrophones() // 获取麦克风列表
+:::
+</dx-codeblock>
+
+####  switchDevice({deviceType,deviceID}) 
+
+您可以调用此接口切换摄像头或麦克风设备
+
+>?
+>- v1.0.0 及其之后版本，新增该方法。
+
+<dx-codeblock>
+::: javascript javascript
+trtcCalling.switchDevice(deviceType:, deviceID) // 切换设备
+:::
+</dx-codeblock>
+
+参数如下表所示：
+
+| 参数       | 类型   | 含义                                                         |
+| ---------- | ------ | ------------------------------------------------------------ |
+| deviceType | String | video: 摄像头, audio: 麦克风                                 |
+| deviceID   | String | <li/>摄像头设备标识通过 getCameras() 获取。<li/>麦克风设备标识通过 getMicrophones() 获取。 |
+
 [](id:event)
 ## TRTCCalling 事件表
 
@@ -406,13 +517,29 @@ trtcCalling.on(TRTCCalling.EVENT.REJECT, handleInviteeReject)
 |       [CALLING_CANCEL](#calling_cancel)       |     被邀方     |     本次通话被取消了      |
 |      [CALLING_TIMEOUT](#calling_timeout)      |     被邀方     |    本次通话超时未应答     |
 |           [USER_ENTER](#user_enter)           | 邀请方和被邀方 |         用户进房          |
-|           [USER_LEAVE](#user_leave)           | 邀请方和被邀方 |       有用户离开通话       |
+|           [USER_LEAVE](#user_leave)           | 邀请方和被邀方 |      有用户离开通话       |
 |             [CALL_END](#call_end)             | 邀请方和被邀方 |       本次通话结束        |
 |           [KICKED_OUT](#kicked_out)           | 邀请方和被邀方 |   重复登录，被踢出房间    |
 | [USER_VIDEO_AVAILABLE](#user_video_available) | 邀请方和被邀方 | 远端用户开启/关闭了摄像头 |
 | [USER_AUDIO_AVAILABLE](#user_audio_available) | 邀请方和被邀方 | 远端用户开启/关闭了麦克风 |
 
 ### 通用事件回调
+
+#### SDK_READY
+
+SDK 进入 ready 状态时收到该回调
+
+>?
+>- v1.0.0 及其之后版本，新增此事件。
+
+<dx-codeblock>
+::: javascript javascript
+let onSDKReady = function(event) {
+  console.log(event)
+};
+trtcCalling.on(TRTCCalling.EVENT.SDK_READY, onSDKReady);
+:::
+</dx-codeblock>
 
 #### USER_ENTER
 
@@ -453,6 +580,22 @@ trtcCalling.on(TRTCCalling.EVENT.USER_LEAVE, handleUserLeave);
 | 参数   | 类型   | 含义    |
 | ------ | ------ | ------- |
 | userID | String | 用户 ID |
+
+#### GROUP_CALL_INVITEE_LIST_UPDATE
+
+群聊更新邀请列表收到该回调
+
+>?
+>- v1.0.0 及其之后版本，新增此事件。
+
+<dx-codeblock>
+::: javascript javascript
+let handleGroupInviteeListUpdate = function(event) {
+  console.log(event)
+};
+trtcCalling.on(TRTCCalling.EVENT.GROUP_CALL_INVITEE_LIST_UPDATE, handleGroupInviteeListUpdate);
+:::
+</dx-codeblock>
 
 #### CALL_END
 
@@ -658,10 +801,14 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 </dx-codeblock>
 
 #### Error code 码
-| code      | 错误类型    | 含义                        |
-| --------- | ----------- | ----------------------------- |
-| 60001     | 方法调用失败  | switchToAudioCall 调用失败   |
-| 60002     | 方法调用失败  | switchToVideoCall 调用失败   |
+
+| code  | 错误类型     | 含义                       |
+| ----- | ------------ | -------------------------- |
+| 60001 | 方法调用失败 | switchToAudioCall 调用失败 |
+| 60002 | 方法调用失败 | switchToVideoCall 调用失败 |
+| 60003 | 权限获取失败 | 没有可用的麦克风设备       |
+| 60004 | 权限获取失败 | 没有可用的摄像头设备       |
+| 60005 | 权限获取失败 | 用户禁止使用设备           |
 
 ## 常见问题
 
