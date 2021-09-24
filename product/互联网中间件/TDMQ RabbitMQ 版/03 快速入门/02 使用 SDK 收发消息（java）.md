@@ -10,7 +10,7 @@
 
 ## 操作步骤
 
-1. 在pom.xml中添加以下依赖。
+1. 在 pom.xml 中添加以下依赖。
    ```xml
    <dependency>
        <groupId>com.rabbitmq</groupId>
