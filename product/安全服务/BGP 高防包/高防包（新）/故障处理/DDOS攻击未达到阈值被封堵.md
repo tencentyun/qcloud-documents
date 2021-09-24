@@ -11,7 +11,7 @@
 2. 在 ISP 封堵的情况下分为两种方式封堵。
  - 单 IP 封堵：当一个 IP 的流量达到某个出口单 IP 封堵阈值（根据出口带宽设置）时封堵。
  - 多 IP 封堵：当某个检测区间 IDC 的总流量（攻击流量 + 业务流量）超过多 IP 封堵阈值。
-![](https://main.qcloudimg.com/raw/a3bee8fa44a5add0ff65157ef39a4e22.png)
+![](https://main.qcloudimg.com/raw/4f74978f4c072f5e38db0b5ba852c4d3.png)
 
 ## 解决思路
 等待攻击结束后进行自助解封或者自动解封。
