@@ -15,8 +15,8 @@
 	
 | 参数 | 是否必选 |说明 | 
 |---------|---------|---------|
-| Entity ID | 必选 |下载的元数据 XM L中，md:EntityDescriptor 元素的 entityID 属性值。
-| ACS URL | 必选 |下载的元数据 XML 中，md:AssertionConsumerService 元素 Location 属性值。
+| Entity ID | 必选 |下载的元数据 XML中，EntityDescriptor 元素的 entityID 属性值。
+| ACS URL | 必选 |下载的元数据 XML 中，AssertionConsumerService 元素 Location 属性值。
 
 
 
