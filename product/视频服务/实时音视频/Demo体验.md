@@ -189,3 +189,19 @@ KTV 场景支持主播与观众上麦唱歌；支持平滑上下麦，切换过�
 </tr>
 </table>
  
+## 实时合唱_Chorus 场景
+
+Chorus 场景支持房主主唱与一名观众上麦唱歌；支持平滑上下麦，切换过程无需等待，主播延时小于100ms；低延时直播模式下，支持10万观众同时播放，播放延时低至1000ms；CDN 旁路直播模式下，观众数量无限制。常见应用场景有双人合唱、K 歌房、FM 电台等。
+
+<table>
+     <tr>
+         <th style="text-align:center;width:50%">房主点歌操作</th>  
+         <th style="text-align:center">副唱查看歌单操作</th>  
+     </tr>
+<tr>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/Chorus_Anchor.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/Chorus_Chorus.gif"/></td>
+</tr>
+</table>
+
+
