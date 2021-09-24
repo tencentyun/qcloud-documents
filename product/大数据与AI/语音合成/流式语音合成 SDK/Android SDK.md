@@ -18,7 +18,7 @@
 
 | 参数名称  | 类型   | 必填 | 说明                                                         |
 | --------- | ------ | ---- | ------------------------------------------------------------ |
-| appId     | int    | 是   | 腾讯云 ID，即 AppID ，[获取地址](https://console.cloud.tencent.com/developer) |
+| appId     | int    | 是   | 腾讯云 ID，即 AppID，[获取地址](https://console.cloud.tencent.com/developer) |
 | secretId  | String | 是   | 腾讯云安全凭证，[获取地址](https://console.cloud.tencent.com/cam/capi) |
 | secretKey | String | 是   | 腾讯云安全凭证，获取地址同上                                 |
 | sessionId | String | 否   | 一次请求对应一个 SessionId，会原样返回                       |
@@ -28,17 +28,12 @@
 | language  | int | 否   | 主语言类型，默认中文                                         |
 
 ## 快速入门
-
 ### 初始化 TtsController 示例
-
 通过 LongTextTtsController 构造 ttsController。
-
 ```
 LongTextTtsController mTtsController = new LongTextTtsController();
 ```
-
 在使用云 API 之前，请前往腾讯云 API 密钥页面申请安全凭证。安全凭证包括 SecretId 和 SecretKey。
-
 ```
 SecretId 用于标识 API 调用者身份。
 SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。
@@ -67,10 +62,7 @@ mTtsController.init(this,
 
 ```
 
-
-
 ### 设置自定义参数
-
 ```
 //更多音色id可查看官网文档https://cloud.tencent.com/document/product/1073/37995
 public enum VoiceType {
@@ -98,7 +90,6 @@ public enum VoiceLanguage {
 ```
 
 #### 示例
-
 ```
 //设置语速
 mTtsController.setVoiceSpeed(speed);
@@ -116,13 +107,9 @@ mTtsController.setVoiceLanguage(language);
 mTtsController.setProjectId(0);
 ```
 
-
-
 ### 语音合成
-
 ```
 mTtsController.startTts(ttsText, mTtsExceptionHandler, new QCloudPlayerCallback() {
-
 	//播放开始
 	@Override
 	public void onTTSPlayStart() {
@@ -162,7 +149,6 @@ mTtsController.startTts(ttsText, mTtsExceptionHandler, new QCloudPlayerCallback(
 ```
 
 ### 接收异常
-
 ```
 //接收接口异常
 private final TtsController.TtsExceptionHandler mTtsExceptionHandler = new TtsController.TtsExceptionHandler() {
@@ -176,16 +162,12 @@ private final TtsController.TtsExceptionHandler mTtsExceptionHandler = new TtsCo
 
 
 ### 暂停、恢复或停止语音播放 
-
 ```
 mTtsController.pause();
-
 mTtsController.resume(); 
-
 mTtsController.stop();
 ```
 
 ### 错误码
-
 请参考 [语音合成 API 文档](https://cloud.tencent.com/document/product/1073/37995)。
 
