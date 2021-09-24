@@ -2,7 +2,7 @@
 
 ## 概念
 
-Exchange 是 TDMQ RabbitMQ 版的消息路由代理，Producer 将消息发送到 Exchange 中，Exchange 根据消息的属性或内容将消息路由到一个或多个 Queue 中（或者丢弃），Consumer从 Queue 中拉取消息进行消费。
+Exchange 是 TDMQ RabbitMQ 版的消息路由代理，Producer 将消息发送到 Exchange 中，Exchange 根据消息的属性或内容将消息路由到一个或多个 Queue 中（或者丢弃），Consumer 从 Queue 中拉取消息进行消费。
 
 TDMQ RabbitMQ 版目前支持 Direct、Fanout 和 Topic 三种类型的 Exchange。
 
@@ -10,7 +10,7 @@ TDMQ RabbitMQ 版目前支持 Direct、Fanout 和 Topic 三种类型的 Exchange
 
 - Fanout：该类型 Exchange 会将消息路由到所有与其绑定的 Queue 中。
 
-- Topic：该类型 Exchange 支持多条件匹配和模糊匹配，即使用 Routing Key 模式匹配和字符串比较的方式将消息路由至与其绑定的Queue中。
+- Topic：该类型 Exchange 支持多条件匹配和模糊匹配，即使用 RoutingKey 模式匹配和字符串比较的方式将消息路由至与其绑定的Queue中。
 
 ## Direct Exchange
 
