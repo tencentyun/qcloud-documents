@@ -16,7 +16,7 @@ Producer 将消息发送到 Exchange 中，Exchange 根据消息的属性或内�
 2. 单击顶部 **Exchange** 页签，选择 Vhost 后，单击**新建**进入创建 Exchange 页面。
 3. 在新建 Exchange 对话框中，填写以下信息。
    ![](https://main.qcloudimg.com/raw/a05cf17275616133497dd8334e39fd05.png)
-   - Exchange 名称：填写 Topic 名称（创建后不可修改），3-64个字符，只能包含字母、数字、“-”及“_”
+   - Exchange 名称：填写 Exchange 名称（创建后不可修改），3-64个字符，只能包含字母、数字、“-”及“_”
    - 路由类型：选择路由类型，包括：Direct、Fanout、Topic，路由类型选择后不可修改（关于路由类型的详细说明，请参考 [Exchange](https://cloud.tencent.com/document/product/1495/61834)）
      - Direct：该类型 Exchange 会把消息路由到 RoutingKey 和 BindingKey 完全匹配的 Queue 中
      - Fanout：该类型 Exchange 会将消息路由到所有与其绑定的 Queue 中
