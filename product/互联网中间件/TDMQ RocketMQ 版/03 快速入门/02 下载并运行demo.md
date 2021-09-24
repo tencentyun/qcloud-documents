@@ -6,11 +6,11 @@
 
 - [安装1.8或以上版本JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [安装2.5或以上版本Maven](http://maven.apache.org/download.cgi#)
-- [下载demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo.zip)
+- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo.zip)
 
 ## 操作步骤
 
-### 步骤1. 添加依赖
+### 步骤1：添加依赖
 
 在 pom.xml 中添加以下依赖。
 
@@ -22,7 +22,7 @@
 </dependency>
 ```
 
-### 步骤2. 发送消息
+### 步骤2：发送消息
 
 1. 创建发送消息程序 ProducerWithNamespace.java，并配置相关参数。
 
@@ -38,14 +38,14 @@
        public static void main(String[] args) throws Exception {
    
            DefaultMQProducer producer = new DefaultMQProducer("rocketmq-xxxx|namespace", "producerGroup");
-           // rocketmq-****|namespace指命名空间的名称，在控制台【命名空间】页面复制，producerGroup指生产者Group的名称，控制台【Group】页面复制；
+           // rocketmq-****|namespace指命名空间的名称，在控制台命名空间页面复制，producerGroup指生产者Group的名称，控制台【Group】页面复制；
            producer.setNamesrvAddr("rocketmq-xxxx.rocketmq.ap-sh.public.tencenttdmq.com:xxxx");
-           // 集群接入地址，在控制台【集群管理】页面的集群列表操作栏的【接入地址】处获取。
+           // 集群接入地址，在控制台集群管理页面的集群列表操作栏的接入地址处获取。
            producer.start();
            int total = 0;
            for (int i = 0; true; i++) {
                Message message = new Message("topic", "tags", ("Hello world——" + i).getBytes());
-               // topic指topic的名称，在控制台【topic】页面复制，tags指消息标签。
+               // topic指topic的名称，在控制台 topic 页面复制，tags 指消息标签。
                try {
                    SendResult result = producer.send(message);
                    total++;
@@ -65,13 +65,13 @@
 
    | 参数                     | 说明                                                         |
    | ------------------------ | ------------------------------------------------------------ |
-   | rocketmq-xxxx\|namespace | 命名空间的名称，在控制台【命名空间】页面复制。               |
-   | producerGroup            | 生产者 Group 的名称，在控制台【Group】页面复制。             |
-   | setNamesrvAddr           | 集群接入地址，在控制台【集群管理】页面的集群列表操作栏的【接入地址】处获取。 |
-   | topic                    | Topic 的名称，在控制台【topic】页面复制。                    |
-   | tags                     | 消息过滤的标签，使用说明参考[消息过滤]()。                   |
+   | rocketmq-xxxx\|namespace | 命名空间的名称，在控制台**命名空间**页面复制。               |
+   | producerGroup            | 生产者 Group 的名称，在控制台 **Group** 页面复制。             |
+   | setNamesrvAddr           | 集群接入地址，在控制台**集群管理**页面的集群列表操作栏的**接入地址**处获取。 |
+   | topic                    | Topic 的名称，在控制台 **topic** 页面复制。                    |
+   | tags                     | 消息过滤的标签。                   |
 
-2. 编译并运行 ProducerWithNamespace.java程序。
+2. 编译并运行 ProducerWithNamespace.java 程序。
 
 3. 查看运行结果，运行成功结果如下。
 
@@ -84,7 +84,7 @@
    Topic:topic1 send success, queueId is: 1
    ```
 
-### 步骤3. 消费消息
+### 步骤3：消费消息
 
 1. 创建发送消息程序 PushConsumerWithNamespace.java，并配置相关参数。
 
@@ -128,10 +128,10 @@
 
    | 参数                     | 说明                                                         |
    | ------------------------ | ------------------------------------------------------------ |
-   | rocketmq-xxxx\|namespace | 命名空间的名称，在控制台【命名空间】页面复制。               |
-   | consumerGroup            | 消费者 Group 的名称，在控制台【Group】页面复制。             |
-   | setNamesrvAddr           | 集群接入地址，在控制台【集群管理】页面的集群列表操作栏的【接入地址】处获取。 |
-   | topic                    | Topic 的名称，在控制台【topic】页面复制。                    |
+   | rocketmq-xxxx\|namespace | 命名空间的名称，在控制台**命名空间**页面复制。               |
+   | consumerGroup            | 消费者 Group 的名称，在控制台 **Group** 页面复制。             |
+   | setNamesrvAddr           | 集群接入地址，在控制台**集群管理**页面的集群列表操作栏的**接入地址**处获取。 |
+   | topic                    | Topic 的名称，在控制台 **topic** 页面复制。                    |
 
 2. 编译并运行 PushConsumerWithNamespace.java。程序。
 
