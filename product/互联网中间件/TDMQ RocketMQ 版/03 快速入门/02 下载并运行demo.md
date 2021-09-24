@@ -4,8 +4,8 @@
 
 ## 前提条件
 
-- [安装1.8或以上版本JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
-- [安装2.5或以上版本Maven](http://maven.apache.org/download.cgi#)
+- [安装1.8或以上版本 JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
+- [安装2.5或以上版本 Maven](http://maven.apache.org/download.cgi#)
 - [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo.zip)
 
 ## 操作步骤
