@@ -60,4 +60,4 @@
 
 [](id:que12)
 ### Flutter 支持自定义采集和渲染吗？
-目前不支持，自定义采集和渲染支持的平台详情请参见 [支持的平台](https://cloud.tencent.com/document/product/647/34066#.E6.94.AF.E6.8C.81.E7.9A.84.E5.B9.B3.E5.8F.B0)。
+目前不支持。自定义采集和渲染平台支持详情，请参见 [支持的平台](https://cloud.tencent.com/document/product/647/34066#.E6.94.AF.E6.8C.81.E7.9A.84.E5.B9.B3.E5.8F.B0)。
