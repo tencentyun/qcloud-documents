@@ -270,13 +270,13 @@ int32_t (*iv_ai_upload_cos_result_cb)(char *file_path, int err_code);
 ## 注意事项
 
 1. 上传图片要求如:
-- 图片 base64 编码后大小不可超过5M。
-- 图片分辨率不得超过 1920 * 1080 。
-- 图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。
-- 非腾讯云存储的Url速度和稳定性可能受一定影响。
--支持PNG、JPG、JPEG、BMP，不支持 GIF 图片
-2. 按照格式准备图片：在推理图片的工作路径iv_ai_init_parm_s传入的work_dir<device_name>_<id>.jpg的图片，
--其中ID与调用iv_ai_notify_event中图片ID保持一致。
+	- 图片 base64 编码后大小不可超过5M。
+	- 图片分辨率不得超过 1920 * 1080。
+	- 图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。
+	- 非腾讯云存储的Url速度和稳定性可能受一定影响。
+	- 支持 PNG、JPG、JPEG、BMP，不支持 GIF 图片
+2. 按照格式准备图片：在推理图片的工作路径 iv_ai_init_parm_s 传入的 work_dir<device_name>_<id>.jpg 的图片。
+	- 其中 ID 与调用 iv_ai_notify_event 中图片 ID 保持一致。
 
 ## 示例代码
 <dx-codeblock>
