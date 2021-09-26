@@ -160,6 +160,11 @@ YARN 资源调度提供了交互式的 YARN 资源队列调度管理能力，较
 <td>每个 container 的最大内存值，这个配置会覆盖 yarn.scheduler.maximum-allocation-mb 值，但是该值必须小于等于系统的 yarn.scheduler.maximum-allocation-mb 的值。</td>
 </tr>
 <tr>
+<td>Container 最大 vCore 数量</td>
+<td>-</td>
+<td>资源池状态为 STOPPED 状态，任何任务都无法提交到该资源池以及子池中。</td>
+</tr>
+<tr>
 <td>资源池状态</td>
 <td><code>yarn.scheduler.capacity.&lt;queue-path&gt;.state</code></td>
 <td>队列的状态。可以是正在运行或已停止。如果队列处于停止状态，则无法向其自身或其任何子队列提交新的应用程序。</td>
