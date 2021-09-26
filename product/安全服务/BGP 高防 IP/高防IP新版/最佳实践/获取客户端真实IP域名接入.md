@@ -124,26 +124,26 @@ RemoteIPTrustedProxyList x.x.x.x/24
 如果您的源站部署了 IIS 6 服务器，您可以通过安装 F5XForwardedFor.dll 插件，从 IIS 6 服务器记录的访问日志中获取访问者真实的 IP 地址。
 1. 下载并安装 [F5XForwardedFor](https://devcentral.f5.com/s/articles/x-forwarded-for-log-filter-for-windows-servers) 模块。
 2. 根据您服务器的操作系统版本将 x86\Release 或者 x64\Release 目录中的 F5XForwardedFor.dll 文件拷贝至指定目录（如 C:\ISAPIFilters），同时确保 IIS 进程对该目录有读取权限。
-3. 打开 IIS 管理器，找到当前开启的网站，在该网站上右键单击【属性】，打开“属性”页面。
-4. 在“属性”页面，切换至 ISAPI筛选器，单击【添加】，在弹出的窗口中，配置如下信息：
+3. 打开 IIS 管理器，找到当前开启的网站，在该网站上右键单击**属性**，打开“属性”页面。
+4. 在“属性”页面，切换至 ISAPI筛选器，单击**添加**，在弹出的窗口中，配置如下信息：
 	- **筛选器名称**：F5XForwardedFor。
 	- **可执行文件**：F5XForwardedFor.dll 的完整路径，例如：C:\ISAPIFilters\F5XForwardedFor.dll。 
-5. 单击【确定】，重启 IIS 6 服务器。
+5. 单击**确定**，重启 IIS 6 服务器。
 6. 查看 IIS 6 服务器记录的访问日志（默认的日志路径为：C:\WINDOWS\system32\LogFiles\ ，IIS 日志的文件名称以 .log 为后缀），可获取 X-Forwarded-For 对应的访问者真实 IP。
 
 ### IIS 7 配置方案
 如果您的源站部署了 IIS 7 服务器，您可以通过安装 F5XForwardedFor 模块，从 IIS 7 服务器记录的访问日志中，获取访问者真实的 IP 地址。
 1. 下载并安装 [F5XForwardedFor](https://devcentral.f5.com/s/articles/x-forwarded-for-log-filter-for-windows-servers) 模块。
 2. 根据服务器的操作系统版本将 x86\Release （或 x64\Release）目录中的 F5XFFHttpModule.dll 和 F5XFFHttpModule.ini 文件拷贝到指定目录（如 C:\x_forwarded_for\x86 或 C:\x_forwarded_for\x64 ），并确保 IIS 进程对该目录有读取权限。
-3. 在 IIS 服务器的选择项中，双击【模块】，进入“模块”界面。
-4. 单击【配置本机模块】，在弹出的对话框中，单击【注册】，按操作系统选择注册模块注册已下载的 DLL 文件。
+3. 在 IIS 服务器的选择项中，双击**模块**，进入“模块”界面。
+4. 单击**配置本机模块**，在弹出的对话框中，单击**注册**，按操作系统选择注册模块注册已下载的 DLL 文件。
 	- x86 操作系统：注册模块 x_forwarded_for_x86
 		- 名称：x_forwarded_for_x86
 		- 路径：C:\x_forwarded_for\x86\F5XFFHttpModule.dll
 	- x64 操作系统：注册模块 x_forwarded_for_x64 
 		- 名称：x_forwarded_for_x64
 		- 路径：C:\x_forwarded_for\x64\F5XFFHttpModule.dll
-5. 注册完成后，勾选新注册的模块（x_forwarded_for_x86 或 x_forwarded_for_x64）并单击【确定】。
+5. 注册完成后，勾选新注册的模块（x_forwarded_for_x86 或 x_forwarded_for_x64）并单击**确定**。
 6. 在 ISAPI 和 CGI 限制中，按操作系统添加已注册的 DLL 文件，并将其“限制”改为“允许”。
 	- x86 操作系统：
 		- ISAPI 或 CGI 路径：C:\x_forwarded_for\x86\F5XFFHttpModule.dll
