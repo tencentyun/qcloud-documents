@@ -17,12 +17,12 @@ TKE Resilience Chart 主要是由虚拟节点管理器，调度器，容忍控�
 
 | 简称                 | 组件名称       | 描述                                                                 |
 | -------------------- | -------------- | -------------------------------------------------------------------- |
-| eklet                | 虚拟节点管理器 | 负责 podsandbox 生命周期的管理，并对外提供原生kubelet与节点相关的接口  |
+| eklet                | 虚拟节点管理器 | 负责 podsandbox 生命周期的管理，并对外提供原生 kubelet 与节点相关的接口  |
 | tke-scheduler        | 调度器         | 负责根据调度策略将 workload 弹性上云, 仅会安装在非 TKE 发行版的 k8s 集群上,TKE 发行版集群不会安装此组件。其中 TKE 发行版（TKE Kubernetes Distro）是由腾讯云 TKE 发布的 k8s 发行版本，用于帮助用户创建与云上 TKE 完全一致的 K8s 集群，目前 TKE 发行版集群已经在GitHub开源，详情请参考 <a href="https://github.com/tkestack/tke-k8s-distro" target="_blank">这里</a>|
 | admission-controller | 容忍控制器     | 负将处于 `pending` 状态的 pod 添加容忍，使其可以调度到虚拟节点上       |
 
 ## 主要特性
-1. 如需要 EKS Pod 和本地集群的 Pod 互通，则要求本地集群是 Underlay 的网络模型（使用Calico之类的基于BGP路由而不是SDN封装的CNI插件），并且需要在腾讯云VPC中添加本地 Pod CIDR 的路由信息，请参考<a href="https://cloud.tencent.com/document/product/457/32199" target="_blank">路由配置</a>
+1. 如需要 EKS Pod 和本地集群的 Pod 互通，则要求本地集群是 Underlay 的网络模型（使用 Calico 之类的基于 BGP 路由而不是 SDN 封装的 CNI 插件），并且需要在腾讯云 VPC 中添加本地 Pod CIDR 的路由信息，请参考<a href="https://cloud.tencent.com/document/product/457/32199" target="_blank">路由配置</a>
 
 2. Workload resilience 特性控制开关`AUTO_SCALE_EKS=true|false`分为全局开关和局部开关, 用来控制 workload 在`pending`的情况下是否弹性调度到腾讯云 EKS，如下表格：
 - 全局开关：`kubectl get cm -n kube-system eks-config` 中 `AUTO_SCALE_EKS`,默认开启
@@ -95,7 +95,7 @@ eklet:
 
 
 ## 安装 TKE Resilience Chart
-在第三方集群中通过helm chart安装。安装Helm客户端连接集群，请参考<a href="https://cloud.tencent.com/document/product/457/32731" target="_blank">这里</a>
+在第三方集群中通过 Helm Chart 安装。安装 Helm 客户端连接集群，请参考<a href="https://cloud.tencent.com/document/product/457/32731" target="_blank">这里</a>
 
 ```bash
 helm install tke-resilience --namespace kube-system ./tke-resilience --debug
@@ -116,7 +116,7 @@ eklet-subnet-xxxxxxxx   Ready    <none>   43h    v2.4.6
 ```
 
 ## 创建测试用例
-创建 demo 应用`nginx-deployment`,该应用有4个副本，其中3个在腾讯云 EKS，1个在本地集群，Yaml如下：
+创建 demo 应用`nginx-deployment`,该应用有4个副本，其中3个在腾讯云 EKS，1个在本地集群，Yaml 如下：
 ```bash
 apiVersion: apps/v1
 kind: Deployment
@@ -155,7 +155,7 @@ nginx-deployment-77b9b9bc97-sd4z5   1/1     Running   0          27s   10.0.1.7 
 nginx-deployment-77b9b9bc97-z86tx   1/1     Running   0          27s   10.0.1.133    eklet-subnet-xxxxxxxx   <none>           <none>
 ```
 
-然后验证下缩容的特性，由于使用的是TKE发行版的集群，则会优先缩容腾讯云EKS的实例。这里应用的副本数从4调整为3。
+然后验证下缩容的特性，由于使用的是 TKE 发行版的集群，则会优先缩容腾讯云 EKS 的实例。这里应用的副本数从4调整为3。
 ```bash
 # kubectl scale deployment nginx-deployment --replicas=3
 ```
