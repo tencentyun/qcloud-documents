@@ -27,29 +27,35 @@
 1. 创建发送消息程序 ProducerWithNamespace.java，并配置相关参数。
 
    ```java
-   package org.apache.rocketmq.example.namespace;
-   
-   import java.util.concurrent.TimeUnit;
+   import org.apache.rocketmq.acl.common.AclClientRPCHook;
+   import org.apache.rocketmq.acl.common.SessionCredentials;
    import org.apache.rocketmq.client.producer.DefaultMQProducer;
    import org.apache.rocketmq.client.producer.SendResult;
    import org.apache.rocketmq.common.message.Message;
+   import org.apache.rocketmq.remoting.RPCHook;
    
    public class ProducerWithNamespace {
+   
+       //请按照文档指引在控制台配置好命名空间密钥鉴权后进行配置，此处从【角色管理】处复制Token填入
+       //文档指引详见 https://cloud.tencent.com/document/product/1493/61599
+       private static final String ACL_ACCESS_KEY = "eyJr****";
+       //此处填写角色名或者"rop"（通用角色名）
+       private static final String ACL_SECRET_KEY = "rop";
        public static void main(String[] args) throws Exception {
    
-           DefaultMQProducer producer = new DefaultMQProducer("rocketmq-xxxx|namespace", "producerGroup");
            // rocketmq-****|namespace指命名空间的名称，在控制台命名空间页面复制，producerGroup指生产者Group的名称，控制台【Group】页面复制；
-           producer.setNamesrvAddr("rocketmq-xxxx.rocketmq.ap-sh.public.tencenttdmq.com:xxxx");
+           DefaultMQProducer producer = new DefaultMQProducer("rocketmq-xxxx|namespace", "producerGroup", getAclRPCHook());
            // 集群接入地址，在控制台集群管理页面的集群列表操作栏的接入地址处获取。
+           producer.setNamesrvAddr("rocketmq-xxxx.rocketmq.ap-sh.public.tencenttdmq.com:xxxx");
+   
            producer.start();
            int total = 0;
-           for (int i = 0; true; i++) {
+           for (int i = 0; i<10; i++) {
                Message message = new Message("topic", "tags", ("Hello world——" + i).getBytes());
                // topic指topic的名称，在控制台 topic 页面复制，tags 指消息标签。
                try {
                    SendResult result = producer.send(message);
                    total++;
-                   //TimeUnit.SECONDS.sleep(1);
                    System.out.printf("Topic:%s send success, queueId is: %s%n", message.getTopic(),
                            result.getMessageQueue().getQueueId());
                    Thread.sleep(1000);
@@ -57,20 +63,26 @@
                    e.printStackTrace();
                }
            }
-   //        System.out.println("total ===> " + total);
-   //        producer.shutdown();
+           System.out.println("total ===> " + total);
+           producer.shutdown();
+       }
+   
+       static RPCHook getAclRPCHook() {
+           return new AclClientRPCHook(new SessionCredentials(ACL_ACCESS_KEY, ACL_SECRET_KEY));
        }
    }
    ```
 
 
-   | 参数                     | 说明                                                         |
-   | ------------------------ | ------------------------------------------------------------ |
-   | rocketmq-xxxx\|namespace | 命名空间的名称，在控制台**命名空间**页面复制。               |
-   | producerGroup            | 生产者 Group 的名称，在控制台 **Group** 页面复制。             |
-   | setNamesrvAddr           | 集群接入地址，在控制台**集群管理**页面的集群列表操作栏的**接入地址**处获取。 |
-   | topic                    | Topic 的名称，在控制台 **topic** 页面复制。                    |
-   | tags                     | 消息过滤的标签。                   |
+| 参数                     | 说明                                                         |
+| ------------------------ | ------------------------------------------------------------ |
+| username                 | 角色名称，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制。 |
+| password                 | 角色密钥，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制**密钥**列复制。![](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
+| rocketmq-xxxx\|namespace | 命名空间的名称，在控制台**命名空间**页面复制。               |
+| producerGroup            | 生产者 Group 的名称，在控制台 **Group** 页面复制。           |
+| setNamesrvAddr           | 集群接入地址，在控制台**集群管理**页面的集群列表操作栏的**接入地址**处获取。 |
+| topic                    | Topic 的名称，在控制台 **topic** 页面复制。                  |
+| tags                     | 消息过滤的标签。                                             |
 
 2. 编译并运行 ProducerWithNamespace.java 程序。
 
@@ -90,56 +102,69 @@
 1. 创建发送消息程序 PushConsumerWithNamespace.java，并配置相关参数。
 
    ```java
-   package org.apache.rocketmq.example.namespace;
-   
-   import java.util.concurrent.atomic.AtomicLong;
+   import org.apache.rocketmq.acl.common.AclClientRPCHook;
+   import org.apache.rocketmq.acl.common.SessionCredentials;
    import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
    import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
    import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
    import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
+   import org.apache.rocketmq.remoting.RPCHook;
+   
+   import java.util.concurrent.atomic.AtomicLong;
    
    public class PushConsumerWithNamespace {
+   
+       //请按照文档指引在控制台配置好命名空间密钥鉴权后进行配置，此处从【角色管理】处复制Token填入
+       //文档指引详见 https://cloud.tencent.com/document/product/1493/61599
+       private static final String ACL_ACCESS_KEY = "eyJr****";
+       //此处填写角色名或者"rop"（通用角色名）
+       private static final String ACL_SECRET_KEY = "rop";
+   
        public static void main(String[] args) throws Exception {
-           DefaultMQPushConsumer defaultMQPushConsumer = new DefaultMQPushConsumer("rocketmq-xxxx|namespace", "consumerGroup");
            // rocketmq-xxxx|namespace指命名空间的名称，在控制台【命名空间】页面复制，consumerGroup指消费者Group的名称，控制台【Group】页面复制；
+           DefaultMQPushConsumer defaultMQPushConsumer = new DefaultMQPushConsumer("rocketmq-xxxx|namespace", "consumerGroup", getAclRPCHook());
+           // 集群接入地址，在控制台【集群管理】页面的集群列表操作栏的【接入地址】处获取；
            defaultMQPushConsumer.setNamesrvAddr("rocketmq-xxxx.rocketmq.ap-sh.public.tencenttdmq.com:xxxx");
-           // 集群接入地址，在控制台【集群管理】页面的集群列表操作栏的【接入地址】处获取。
+           // topic指topic的名称，在控制台【topic】页面复制。
            defaultMQPushConsumer.subscribe("topic", "*");
-           // topic指topic的名称，在控制台【topic】页面复制，。
+   
            defaultMQPushConsumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
    
            AtomicLong curTime = new AtomicLong(System.currentTimeMillis());
            AtomicLong count = new AtomicLong(0L);
            defaultMQPushConsumer.registerMessageListener((MessageListenerConcurrently)(msgs, context) -> {
-               msgs.stream().forEach((msg) -> {
-                   long dur = System.currentTimeMillis() - msg.getBornTimestamp();
+               msgs.forEach((msg) -> {
                    System.out.println(" body=" + new String(msg.getBody()));
                    curTime.set(System.currentTimeMillis());
                    count.incrementAndGet();
                    System.out.println("total ====> " + count.get());
                });
-               //context.setDelayLevelWhenNextConsume();
                return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
            });
-   
            defaultMQPushConsumer.start();
+       }
+   
+       static RPCHook getAclRPCHook() {
+           return new AclClientRPCHook(new SessionCredentials(ACL_ACCESS_KEY, ACL_SECRET_KEY));
        }
    }
    ```
 
 
-   | 参数                     | 说明                                                         |
-   | ------------------------ | ------------------------------------------------------------ |
-   | rocketmq-xxxx\|namespace | 命名空间的名称，在控制台**命名空间**页面复制。               |
-   | consumerGroup            | 消费者 Group 的名称，在控制台 **Group** 页面复制。             |
-   | setNamesrvAddr           | 集群接入地址，在控制台**集群管理**页面的集群列表操作栏的**接入地址**处获取。 |
-   | topic                    | Topic 的名称，在控制台 **topic** 页面复制。                    |
+| 参数                     | 说明                                                         |
+| ------------------------ | ------------------------------------------------------------ |
+| username                 | 角色名称，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制。 |
+| password                 | 角色密钥，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制**密钥**列复制。![](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
+| rocketmq-xxxx\|namespace | 命名空间的名称，在控制台**命名空间**页面复制。               |
+| consumerGroup            | 消费者 Group 的名称，在控制台 **Group** 页面复制。           |
+| setNamesrvAddr           | 集群接入地址，在控制台**集群管理**页面的集群列表操作栏的**接入地址**处获取。 |
+| topic                    | Topic 的名称，在控制台 **topic** 页面复制。                  |
 
 2. 编译并运行 PushConsumerWithNamespace.java。程序。
 
 3. 查看运行结果，运行成功结果如下。
 
-   ```
+   ```bash
     body=Hello world——4
    total ====> 1
     body=Hello world——6
