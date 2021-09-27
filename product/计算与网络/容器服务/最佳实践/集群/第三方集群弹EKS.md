@@ -1,5 +1,5 @@
 # 使用场景
-IDC 的资源是有限的，当有业务突发流量需要应对时，IDC内的算力资源可能不足以应对。选择使用公有云资源应对临时流量是不错的选择。TKE Resilience Chart 利用 <a href="https://cloud.tencent.com/product/eks" target="_blank">腾讯云弹性容器服务EKS</a> ,基于自定义的调度策略，通过添加虚拟节点的方式，将用户集群中的工作负载弹性上云，使用户IDC集群获得极大的弹性拓展能力，并带来以下好处：
+IDC 的资源是有限的，当有业务突发流量需要应对时，IDC内的算力资源不足以应对，使用公有云资源应对临时流量是不错的选择。TKE Resilience Chart 利用 <a href="https://cloud.tencent.com/product/eks" target="_blank">腾讯云弹性容器服务EKS</a> ,基于自定义的调度策略，通过添加虚拟节点的方式，将用户集群中的工作负载弹性上云，使用户IDC集群获得极大的弹性拓展能力，并带来以下好处：
 
 1. 用户 IDC/私有云的硬件和维护成本保持不变
 2. 实现了用户 IDC/私有云和公有云级别的应用高可用
