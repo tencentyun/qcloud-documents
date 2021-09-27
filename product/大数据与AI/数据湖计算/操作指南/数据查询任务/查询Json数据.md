@@ -1,7 +1,7 @@
 ## 查询步骤
 1. 创建数据表，指定 Json 解析格式。
 ```
- 	CREATE EXTERNAL TABLE `order_demo`(
+CREATE EXTERNAL TABLE `order_demo`(
   `docid` string COMMENT 'from deserializer',
   `user` struct < id :int,
   username :string,
@@ -18,7 +18,7 @@
 SELECT `user`.`shippingaddress`.`address1` FROM `order_demo` limit 10;
 ```
 
-## **系统约束**
+## 系统约束
 - 必须是完整的 JSON 格式，否则 DLC 无法正常解析。
 - 同一行数据不能有换行符，不能对 Json 进行可视化格式优化。例如：
 ```json
