@@ -65,7 +65,7 @@ public static int initEx(int gameId, String appKey);
 ### 用户登录接口
 **函数原型**
 ```
-public static native int onUserLogin(int accountType, int worldId, String openId, String roleId);
+public static native int onUserLogin(int  account_type, int worldId, String openId, String roleId);
 ```
 
 **参数说明**
