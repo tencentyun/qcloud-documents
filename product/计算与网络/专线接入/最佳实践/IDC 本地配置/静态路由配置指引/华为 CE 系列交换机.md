@@ -4,7 +4,7 @@
 
 ## 路由配置
 ``` 
-#设置物理接口
+# 设置物理接口
 interfaces <interface_number>
 description <interface_desc>
 port link-type trunk
@@ -14,7 +14,7 @@ duplex full
 undo negotiation auto
 commit
 
-#设置虚拟通道
+# 设置虚拟通道
 vlan <subinterface_vlanid>
 description <subinterface_desc>
 interface Vlanif <subinterface_vlanid>
@@ -24,13 +24,13 @@ interfaces <interface_number>
 port trunk allow-pass vlan <subinterface_vlanid>
 commit
 
-#设置静态路由
-#设置全局静态路由
+# 设置静态路由
+# 设置全局静态路由
 ip route-static <ip-address> <mask | mask-length> <nexthop-address>//<ip-address>为用户需
 要访问 Tencent 网络服务的目的网段
 例如:ip route-static 172.16.0.192 255.255.255.192 10.128.152.1
 
-#设置 VRF 下用户访问 Tencent 静态路由
+# 设置 VRF 下用户访问 Tencent 静态路由
 ip route-static <vpn-instance vpn-instance-name> <ip-address> <mask | mask-length> <nexthop-
 address>
 例如:ip route-static vpn-instance GLOBAL 9.0.0.0 255.0.0.0 10.128.152.1
