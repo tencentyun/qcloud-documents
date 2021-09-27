@@ -23,8 +23,10 @@
 5. 选择 **SET PASSWORD** 并设置初始口令，设置完成即可单击 **LOGIN** 登录您的 NVIDIA 企业账号。也可前往 [NVIDIA 许可门户网站](https://nvid.nvidia.com) 进行登录。
 6. 登录成功后，进入 “Dashboard” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/fef04abe7c0bcc9e4c818dfcc930739f.png)
->?vGPU 试用的全部资源均可由此网站获得，包括 vGPU 软件和 License Server 软件。
->
+<dx-alert infotype="explain" title="">
+vGPU 试用的全部资源均可由此网站获得，包括 vGPU 软件和 License Server 软件。
+</dx-alert>
+
 
 
 ### 软件准备 
