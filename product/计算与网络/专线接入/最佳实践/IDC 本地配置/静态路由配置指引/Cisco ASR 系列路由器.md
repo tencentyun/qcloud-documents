@@ -4,7 +4,7 @@
 
 ## 路由配置
 ``` 
-#配置物理接口
+# 配置物理接口
 interfaces <interface_number>
 description <interface_desc>
 no shutdown
@@ -13,14 +13,14 @@ duplex full
 no negotiation auto
 commit
 
-#配置虚拟通道
+# 配置虚拟通道
 interfaces <interface_number>.<subinterface_number>
 description <subinterface_desc>
 encapsulation dot1q <subinterface_vlanid>
 ipv4 address <subinterface_ipaddress> <subinterface_netmask>
 commit
 
-#设置静态路由
+# 设置静态路由
 router static
 vrf <vrf-name> //如果没有指定 VRF，静态路由在 default VRF 下
   address-family <ipv4 | ipv6> unicast
