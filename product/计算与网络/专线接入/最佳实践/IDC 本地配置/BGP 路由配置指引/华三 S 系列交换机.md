@@ -7,7 +7,7 @@
 vlan <vlanid>
 description <vlan_description>
 
-#配置物理接口
+# 配置物理接口
 interface <interface_name>
 port link-mode bridge
 description <XXXX>
