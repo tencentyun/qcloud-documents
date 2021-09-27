@@ -4,7 +4,7 @@
 
 ## 路由配置
 ``` 
-#配置物理接口
+# 配置物理接口
 set interfaces <interface_number> description <interface_desc>
 set interfaces <interface_number> vlan-tagging
 set interfaces <interface_number> link-mode full-duplex
@@ -13,19 +13,19 @@ set interfaces <interface_number> gigether-options no-auto-negotiation //建议�
 使用
 commit
 
-#配置虚拟通道
+# 配置虚拟通道
 set interfaces <interface_number> unit <subinterface_number> vlan-id <subinterface_vlanid>
 set interfaces <interface_number> unit <subinterface_number> description <subinterface_desc>
 set interfaces <interface_number> unit <subinterface_number> family inet address
 <subinterface_ipaddress>/<subinterface_netmask>
 commit
 
-#设置静态路由
-#全局下配置到用户 IP 的静态路由
+# 设置静态路由
+# 全局下配置到用户 IP 的静态路由
 set routing-options static route <customer_prefix/mask> next-hop <customer_interface_ip>
 例如:set routing-options static route 1.1.1.0/24 next-hop 192.168.1.2
 
-#VRF 下配置到用户 IP 的静态路由:
+# VRF 下配置到用户 IP 的静态路由:
 set routing-instances <vrf_name> routing-options static route <customer_prefix/mask> next-hop
 <customer_interface_ip>
 例如:set routing-instances cap routing-options static route 1.1.1.0/24 next-hop 192.168.1.2
