@@ -8,7 +8,7 @@
 ```
 tp2.jar
 tp2_sdk.h
-tss_sdt.h,tss_sdt_ex.h（安全数据类型选接，接入教程见《SDK 安全数据类型接入教程 C++）
+tss_sdt.h,tss_sdt_ex.h（安全数据类型选接，接入教程见《SDK 安全数据类型接入教程 C++》）
 libtersafe2.so
 ```
 
