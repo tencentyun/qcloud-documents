@@ -1,16 +1,18 @@
+## 环境准备
+- 依赖：JDK 1.8
+- JDBC 下载：[点击下载 JDBC 驱动]()
 
-1. 依赖：JDK 1.8
-2. JDBC 下载：[点击下载 JDBC 驱动]()
-3. 连接 DLC
- - 加载 DLC JDBC 驱动
+## 连接 DLC
+1. 加载 DLC JDBC 驱动
 ```
 Class.forName("com.tencent.cloud.dlc.jdbc.DlcDriver");
 ```
- - 通过 DriverManager 创建 Connection
+2. 通过 DriverManager 创建 Connection
 ```
 Connection cnct = DriverManager.getConnection(url, secretId, secretKey);
 ```
- - url 的格式
+
+## url 格式
 ```
 jdbc:dlc:<dlc_endpoint>?task_type=SQLTask&database_name=abc&datasource_connection_name=CosDataCatalog&region=ap-nanjing
 ```
@@ -18,7 +20,7 @@ jdbc:dlc:<dlc_endpoint>?task_type=SQLTask&database_name=abc&datasource_connectio
 <tr>
 <th>参数</th>
 <th>必填</th>
-<th>说明</th>
+<th>说明</th> 
 </tr>
 <tr>
 <td>dlc_endpoint</td>
@@ -56,7 +58,8 @@ jdbc:dlc:<dlc_endpoint>?task_type=SQLTask&database_name=abc&datasource_connectio
 <td>腾讯云 API 密钥管理中的 Secretkey</td>
 </tr>
 </table>
- - 执行查询
+
+## 执行查询
 ```Java
 Statement stmt = cnct.createStatement();
 ResultSet rset = stmt.executeQuery("SELECT * FROM dlc");
@@ -69,10 +72,12 @@ rset.close();
 stmt.close();
 conn.close();
 ```
-4. 语法支持
+
+## 语法支持
 目前 jdbc 可以使用的语法与 DLC 标准语法保持一致。
-5. 实例代码
- - 库表操作
+
+## 实例代码
+### 库表操作
 ```Java
 import java.sql.*;
 
@@ -141,7 +146,8 @@ public class MetaTest {
   }
 }
 ```
- - 数据查询
+
+### 数据查询
 ```Java
 import java.sql.*;
 
@@ -170,5 +176,26 @@ public class DataTest {
   }
 }
 ```
-6. 数据库客户端 
+
+
+## 数据库客户端 
 您可以将 DLC 的 JDBC 驱动包加载到 SQL 客户端，连接到 DLC 服务进行查询。
+
+### 前置条件
+1. 已开通数据湖计算 Data Lake Compute 服务。
+2. 已下载上文中的 jdbc 驱动包。
+3. 已下载并安装 **SQL Workbench/J**。
+
+### 操作步骤
+1. 通过 jdbc 驱动包创建 DLC Driver。
+![](https://main.qcloudimg.com/raw/0bc57eb7369d3a6592b0d34d121d60c9.png)
+2. 连接 DLC，填入如下参数，单击 **test**，测试通过后，完成与 DLC 的连接。
+ - Name：连接名称，用于标识与 DLC 的连接。
+ - Username：对应于腾讯云用户的 secret_id。
+ - Password：对应于腾讯云用户的 secret_key。
+ - URL：用于连接 DLC 的 URL。格式和上文中通过 jdbc 创建连接的 URL 一致。
+![](https://main.qcloudimg.com/raw/98ad71d15e80d6a44e995f2c26c72a3c.png)
+1. 查看库表信息。
+![](https://main.qcloudimg.com/raw/55f5f8cc8de1e67ef8adb9baf77d3654.png)
+1. 查询数据。
+![](https://main.qcloudimg.com/raw/440a29e0a6b8ebf78963cf2d1a374d13.png)
