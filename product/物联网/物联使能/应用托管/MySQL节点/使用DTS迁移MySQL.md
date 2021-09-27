@@ -113,12 +113,10 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 <td>标签</td>
 <td>标签用于从不同维度对资源分类管理。如现有标签不符合您的要求，请前往控制台管理标签。</td></tr>
 <tr>
-<td rowspan=9>源库设置</td>
+<td rowspan=8>源库设置</td>
 <td>源库类型</td><td>选择“MySQL”。</td></tr>
 <tr>
 <td>服务提供商</td><td>选择“普通”。</td></tr>
-<tr>
-<td>数据库版本	</td><td>选择 RDS 5.7。</td></tr>
 <tr>
 <td>接入类型</td><td>选择“公网”。</td></tr>
 <tr>
