@@ -8,7 +8,7 @@
 ```
 tp2.jar
 tp2_sdk.h
-tss_sdt.h,tss_sdt_ex.h（安全数据类型选接，接入教程见《SDK 安全数据类型接入教程 C++）
+tss_sdt.h,tss_sdt_ex.h（安全数据类型选接，接入教程见《SDK 安全数据类型接入教程 C++》）
 libtersafe2.so
 ```
 
@@ -60,12 +60,12 @@ LOCAL_SHARED_LIBRARIES:=libtp2
 ```
 
 ## SDK 接口调用
-所需头文件
 ```
-#include “tp2_sdk.h”
+#include “tp2_sdk.h”//所需头文件
+int tp2_sdk_init_ex(int game_id  const char* app_key);// 初始化接口 函数原型
 ```
 
-### 初始化接口
+### 参数说明
 
 | 参数 | 是否必须 | 说明 |
 |---------|---------|---------|

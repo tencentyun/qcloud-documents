@@ -8,19 +8,19 @@ Namespace=QCE/TXMR_YARN
 
 | 指标英文名                                            | 指标中文名                    | 指标单位 | 指标含义 | 维度                                    |
 | ----------------------------------------------------- | ----------------------------- | -------- | -------- | --------------------------------------- |
-| EmrHdfsOverview<br>YarnRmNumsNumactivenms             | 节点个数_NumActiveNMs         | 个       | 节点个数 | host4yarnoverview、<br>id4yarnoverview  |
-| EmrHdfsOverview<br>YarnRmNumsNumde<br>commissionednms | 节点个数_NumDecommissionedNMs | 个       | 节点个数 | host4yarnoverview、<br/>id4yarnoverview |
-| EmrHdfsOverviewYarn<br>RmNumsNumlostnms               | 节点个数_NumLostNMs           | 个       | 节点个数 | host4yarnoverview、<br/>id4yarnoverview |
-| EmrHdfsOverview<br>YarnRmNumsNumun<br>healthynms      | 节点个数_NumUnhealthyNMs      | 个       | 节点个数 | host4yarnoverview、<br/>id4yarnoverview |
+| EmrYarnOverviewYarn<br>RmNumsNumactivenms          | 节点个数_NumActiveNMs         | 个       | 节点个数 | host4yarnoverview、<br>id4yarnoverview  |
+| EmrYarnOverviewYarnRmNums<br>Numdecommissionednms | 节点个数_NumDecommissionedNMs | 个       | 节点个数 | host4yarnoverview、<br/>id4yarnoverview |
+| EmrYarnOverviewYarn<br>RmNumsNumlostnms               | 节点个数_NumLostNMs           | 个       | 节点个数 | host4yarnoverview、<br/>id4yarnoverview |
+| EmrYarnOverviewYarn<br>RmNumsNumunhealthynms        | 节点个数_NumUnhealthyNMs      | 个       | 节点个数 | host4yarnoverview、<br/>id4yarnoverview |
 
 ### Yarn-OverviewAggregation
 
 | 指标英文名                                                   | 指标中文名                    | 指标单位 | 指标含义 | 维度            |
 | ------------------------------------------------------------ | ----------------------------- | -------- | -------- | --------------- |
-| EmrHdfsOverviewAggregation<br>YarnRmNumsNumactivenms         | 节点个数_NumActiveNMs         | 个       | 节点个数 | id4yarnoverview |
-| EmrHdfsOverviewAggregation<br>YarnRmNumsNumde<br>commissionednms | 节点个数_NumDecommissionedNMs | 个       | 节点个数 | id4yarnoverview |
-| EmrHdfsOverviewAggregation<br> RmNumsNumlostnms              | 节点个数_NumLostNMs           | 个       | 节点个数 | id4yarnoverview |
-| EmrHdfsOverviewAggregation<br> YarnRmNumsNumun healthynms    | 节点个数_NumUnhealthyNMs      | 个       | 节点个数 | id4yarnoverview |
+| EmrYarnOverviewAggregation<br>YarnRmNumsNumactivenms  | 节点个数_NumActiveNMs         | 个       | 节点个数 | id4yarnoverview |
+| EmrYarnOverviewAggregationYarn<br>RmNumsNumdecommissionednms | 节点个数_NumDecommissionedNMs | 个       | 节点个数 | id4yarnoverview |
+| EmrYarnOverviewAggregation<br>YarnRmNumsNumlostnms           | 节点个数_NumLostNMs           | 个       | 节点个数 | id4yarnoverview |
+| EmrYarnOverviewAggregation<br>YarnRmNumsNumunhealthynms   | 节点个数_NumUnhealthyNMs      | 个       | 节点个数 | id4yarnoverview |
 
 ### YARN-Cluster
 

@@ -63,12 +63,12 @@
 <td rowspan=7>源库设置</td>
 <td>源库类型</td><td>根据您的源数据库类型选择，本场景选择“SQL Server”。</td></tr>
 <td>接入类型</td><td>请根据您的场景选择。
-<ul><li>公网：通过公网 IP 接入的自建数据库。</li>
-<li>云主机自建：腾讯云服务器 CVM 上的自建数据库。</li>
-<li>专线接入：通过专线接入的自建数据库。</li>
-<li>VPN接入：通过 VPN 网关接入的自建数据库。</li>
-<li>云数据库：腾讯云数据库。</li>
-</ul>更多接入类型的详情介绍请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+<ul><li>公网：源数据库可以通过公网 IP 访问。</li>
+<li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
+<li>云数据库：源数据库属于腾讯云数据库实例。</li>
+</ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>所属地域</td><td>源库所属地域为 DTS 服务出口地域，选择离自建实例最近的一个地域即可。</td></tr>
 <tr>
@@ -78,7 +78,7 @@
 <tr>
 <td>帐号</td><td>源库 SQL Server 的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
-<td>密码</td><td>源库 SQL ServerL 的数据库帐号的密码。</td></tr>
+<td>密码</td><td>源库 SQL Server 的数据库帐号的密码。</td></tr>
 <tr>
 <td rowspan=6>目标库设置</td>
 <td>目标库类型</td><td>选择“SQL Server”。</td></tr>

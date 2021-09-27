@@ -8,10 +8,10 @@ Namespace=QCE/TXMR_PRESTO
 
 | 指标英文名                                                   | 指标中文名                                   | 指标单位 | 指标含义           | 维度              |
 | ------------------------------------------------------------ | -------------------------------------------- | -------- | ------------------ | ----------------- |
-| EmrPrestoOverviewPresto<br>PrestoMNodesActive                | 节点数量_Active                              | 个       | 活跃节点数量       | id4prestooverview |
-| EmrPrestoOverviewPresto<br/>PrestoMNodesTotal                | 节点数量_Total                               | 个       | 总节点数量         | id4prestooverview |
-| EmrPrestoOverviewPresto<br/>PrestoMNodesFailed               | 节点数量_Failed                              | 个       | 失败节点数量       | id4prestooverview |
-| EmrPrestoOverviewPresto<br/>PrestoMQueries<br>Runningqueries | 查询_RunningQueries                          | 个       | 正在运行的查询总数 | id4prestooverview |
+| EmrPrestoOverviewPresto<br/>MNodesActive             | 节点数量_Active                              | 个       | 活跃节点数量       | id4prestooverview |
+| EmrPrestoOverviewPresto<br/>MNodesTotal              | 节点数量_Total                               | 个       | 总节点数量         | id4prestooverview |
+| EmrPrestoOverviewPresto<br/>MNodesFailed               | 节点数量_Failed                              | 个       | 失败节点数量       | id4prestooverview |
+| EmrPrestoOverviewPresto<br/>MQueries<br>Runningqueries | 查询_RunningQueries                          | 个       | 正在运行的查询总数 | id4prestooverview |
 | EmrPrestoOverviewPresto<br/>MQueriesOneMinute<br>Failedqueries | 查询频度_FailedQueries                       | 个/min   | 失败的查询总数     | id4prestooverview |
 | EmrPrestoOverviewPresto<br/>MQueriesOneMinute<br>Abandonedqueries | 查询频度_AbandonedQueries                    | 个/min   | 放弃的查询总数     | id4prestooverview |
 | EmrPrestoOverviewPresto<br/>MQueriesOneMinute<br>Canceledqueries | 查询频度_CanceledQueries                     | 个/min   | 取消的查询总数     | id4prestooverview |
@@ -24,10 +24,10 @@ Namespace=QCE/TXMR_PRESTO
 
 | 指标英文名                                                   | 指标中文名                                   | 指标单位 | 指标含义           | 维度                                        |
 | ------------------------------------------------------------ | -------------------------------------------- | -------- | ------------------ | ------------------------------------------- |
-| EmrPrestoOverview<br>OriginalPresto<br>PrestoMNodesActive    | 节点数量_Active                              | 个       | 活跃节点数量       | id4prestooverview、<br/>host4prestooverview |
-| EmrPrestoOverview<br/>OriginalPresto<br/>PrestoMNodesTotal   | 节点数量_Total                               | 个       | 总节点数量         | id4prestooverview、<br/>host4prestooverview |
-| EmrPrestoOverview<br/>OriginalPresto<br/>PrestoMNodesFailed  | 节点数量_Failed                              | 个       | 失败节点数量       | id4prestooverview、<br/>host4prestooverview |
-| EmrPrestoOverview<br/>OriginalPresto<br/>PrestoMQueries<br>Runningqueries | 查询_RunningQueries                          | 个       | 正在运行的查询总数 | id4prestooverview、<br/>host4prestooverview |
+| EmrPrestoOverview<br>OriginalPresto<br>MNodesActive    | 节点数量_Active                              | 个       | 活跃节点数量       | id4prestooverview、<br/>host4prestooverview |
+| EmrPrestoOverview<br/>OriginalPresto<br/>MNodesTotal   | 节点数量_Total                               | 个       | 总节点数量         | id4prestooverview、<br/>host4prestooverview |
+| EmrPrestoOverview<br/>OriginalPresto<br/>MNodesFailed  | 节点数量_Failed                              | 个       | 失败节点数量       | id4prestooverview、<br/>host4prestooverview |
+| EmrPrestoOverview<br/>OriginalPresto<br/>MQueries<br>Runningqueries | 查询_RunningQueries                          | 个       | 正在运行的查询总数 | id4prestooverview、<br/>host4prestooverview |
 | EmrPrestoOverview<br/>OriginalPresto<br/>MQueriesOneMinute<br>Failedqueries | 查询频度_FailedQueries                       | 个/min   | 失败的查询总数     | id4prestooverview、<br>host4prestooverview  |
 | EmrPrestoOverview<br/>OriginalPresto<br/>MQueriesOneMinute Abandonedqueries | 查询频度_AbandonedQueries                    | 个/min   | 放弃的查询总数     | id4prestooverview、<br/>host4prestooverview |
 | EmrPrestoOverview<br/>OriginalPresto<br/>MQueriesOneMinute<br>Canceledqueries | 查询频度_CanceledQueries                     | 个/min   | 取消的查询总数     | id4prestooverview、<br/>host4prestooverview |

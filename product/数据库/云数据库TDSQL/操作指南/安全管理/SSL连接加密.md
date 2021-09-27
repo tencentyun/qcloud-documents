@@ -38,7 +38,7 @@ SSL 加密并不保护数据本身，而是确保了来往于数据库和服务�
 - 会显著增加 CPU 使用率，并根据通讯数据量大小线性增加。
 - 明显增加网络连接响应时间。
 
-您可以在 [MariaDB 控制台](https://console.cloud.tencent.com/mariadb) 实例管理页的【数据安全性】>【连接加密】中关闭 SSL（Secure Sockets Layer）加密。
+您可以在 [MariaDB 控制台](https://console.cloud.tencent.com/mariadb) 实例管理页的**数据安全性** > **连接加密**中关闭 SSL（Secure Sockets Layer）加密。
 
 
 ### SSL 连接加密支持情况
@@ -66,7 +66,7 @@ mysql -P 3306 -h 10.xx.xx.168  -u test -p --ssl
 
 
 ### Navicat 等图形化客户端
-直接选择【使用 SSL】，无需选择【使用验证】即可连接。
+直接选择**使用 SSL**，无需选择**使用验证**即可连接。
 ![](https://main.qcloudimg.com/raw/9b8ed85ccd740544aec36c63a487e2bf.png)
 
 ### JDBC 等连接程序示例

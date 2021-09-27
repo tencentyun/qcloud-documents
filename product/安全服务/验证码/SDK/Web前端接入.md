@@ -1,6 +1,6 @@
 ## 接入步骤
 ### 前提条件
-接入验证码前，进入[图形验证](https://console.cloud.tencent.com/captcha/graphical)  页完成新建验证。可在【验证列表】查看 验证码接入所需的 CaptchaAppId 以及 AppSecretKey。
+接入验证码前，进入[图形验证](https://console.cloud.tencent.com/captcha/graphical)  页完成新建验证。可在**验证列表**查看 验证码接入所需的 CaptchaAppId 以及 AppSecretKey。
 ![](https://main.qcloudimg.com/raw/a15105526bbcf8c0b51b5cdafeefb92c.png)
 
 ### 快速接入
@@ -295,4 +295,4 @@ options 提供以下配置参数：
 
 
 ## 更多信息
-您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击【快速咨询】，了解更多详细信息。
+您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击**快速咨询**，了解更多详细信息。

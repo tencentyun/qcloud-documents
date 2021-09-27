@@ -59,7 +59,7 @@ TDMQ CMQ 版支持资源级授权，您可以指定子账号拥有特定资源�
 | API 名         | API 描述        | 资源六段式 |
 | -------------- | --------------- | ---------- |
 | CreateCmqTopic | 创建 TDMQ CMQ 版主题     | *          |
-| CreateCmqQueue | 创建 TDMQ CMQ 版队列接口 |            |
+| CreateCmqQueue | 创建 TDMQ CMQ 版队列接口 |   *          |
 
 ## 授权方案示例
 

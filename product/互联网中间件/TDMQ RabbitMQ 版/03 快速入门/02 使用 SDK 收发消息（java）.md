@@ -1,6 +1,6 @@
 ## 操作场景
 
-该任务以 Java 客户端为例介绍您在控制台创建集群、Vhost、Exchange等资源后，下载 Demo 并进行简单的测试，了解运行一个客户端的操作步骤。
+该任务以 Java 客户端为例介绍您在控制台创建集群、Vhost、Exchange 等资源后，下载 Demo 并进行简单的测试，了解运行一个客户端的操作步骤。
 
 ## 前提条件
 
@@ -10,8 +10,7 @@
 
 ## 操作步骤
 
-1. 在pom.xml中添加以下依赖。
-
+1. 在 pom.xml 中添加以下依赖。
    ```xml
    <dependency>
        <groupId>com.rabbitmq</groupId>
@@ -20,8 +19,7 @@
    </dependency>
    ```
 
-2. 创建收发消息程序AoPTest.java，并配置相关参数。
-
+2. 创建收发消息程序 AoPTest.java，并配置相关参数。
    ```java
    package com.qcloud.tdmq.aop.client.test;
    
@@ -127,14 +125,14 @@
            Thread.sleep(10_000);
            aopTest.close();
        }
-   }
-   
+   }  
    ```
    
+	 
    | 参数       | 说明                                                         |
    | ---------- | ------------------------------------------------------------ |
-   | username   | 角色名称，在**[角色管理](https://console.cloud.tencent.com/tdmq/role)**页面复制。 |
-   | password   | 角色密钥，在**[角色管理](https://console.cloud.tencent.com/tdmq/role)**页面复制**密钥**列复制。![](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
+   | username   | 角色名称，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制。 |
+   | password   | 角色密钥，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制**密钥**列复制。![](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
    | exchange   | Exchange 名称，在控制台 Exchange 列表获取。                  |
    | qu1        | Queue名称，在控制台 Queue 列表获取。                         |
    | uri        | 集群接入地址，在**集群管理**页面操作列的**获取接入地址**获取。![](https://main.qcloudimg.com/raw/0238d2d64bd896704ebef400fc08a7f1.png) |
@@ -145,7 +143,6 @@
 
    ![](https://main.qcloudimg.com/raw/c7f33820fecd715a977276bbcdfc2aba.png)
 
-4. 在控制台上**[集群管理](https://console.cloud.tencent.com/tdmq/rocket-cluster)** > **Queue**页面可查看接入的消费者情况。
-
+4. 在控制台上 **[集群管理](https://console.cloud.tencent.com/tdmq/rocket-cluster)** > **Queue** 页面可查看接入的消费者情况。
    ![](https://main.qcloudimg.com/raw/a7d78cc58efadfb614b890cc33d08632.png)
 

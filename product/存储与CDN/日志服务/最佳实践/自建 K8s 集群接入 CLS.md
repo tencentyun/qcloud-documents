@@ -1,5 +1,5 @@
 ## 简介
-日志服务 （Cloud Log Service， CLS）支持采集自建 K8s 集群上的日志，在进行日志采集前，需要在 K8s 自建集群上通过 CRD 定义日志采集配置（LogConfig），并部署安装 Log-Provisoner，Log-Agent，以及 LogListener。针对使用腾讯云容器服务（Tencent Kubernetes Engine ,TKE）的用户， 可参见 [TKE 开启日志采集](https://cloud.tencent.com/document/product/457/36771) 文档，通过控制台快速接入并使用日志服务。
+日志服务 （Cloud Log Service， CLS）支持采集自建 K8s 集群上的日志，在进行日志采集前，需要在 K8s 自建集群上通过 CRD 定义日志采集配置（LogConfig），并部署安装 Log-Provisioner，Log-Agent，以及 LogListener。针对使用腾讯云容器服务（Tencent Kubernetes Engine ,TKE）的用户， 可参见 [TKE 开启日志采集](https://cloud.tencent.com/document/product/457/36771) 文档，通过控制台快速接入并使用日志服务。
 
 
 ## 前提条件
@@ -13,9 +13,9 @@
 可前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 查看。
 
 ## K8s 日志采集原理
-K8s 集群上部署日志采集主要涉及 Log-Provisoner，Log-Agent，LogListener 三个组件，以及一个 LogConfig 采集配置。
+K8s 集群上部署日志采集主要涉及 Log-Provisioner，Log-Agent，LogListener 三个组件，以及一个 LogConfig 采集配置。
 - LogConfig：日志采集配置，定义了日志在哪里被采集， 采集后如何解析， 以及解析后投递至哪个 CLS 日志主题中。
-- Log-Provisoner： 将 LogConfig 中定义日志采集配置信息同步至 CLS。
+- Log-Provisioner： 将 LogConfig 中定义日志采集配置信息同步至 CLS。
 - Log-Agent：监听 LogConfig 和节点上容器的变化， 动态计算容器中的日志文件在节点宿主机上的实际位置。
 - LogListener：采集节点宿主机上的相应日志文件内容，解析并上传至 CLS。
 
@@ -26,8 +26,8 @@ K8s 集群上部署日志采集主要涉及 Log-Provisoner，Log-Agent，LogList
 - <a href="#logconfig_def">定义 LogConfig 对象</a>
 - <a href="#logconfig_create">创建 LogConfig 对象</a>
 - <a href="#configmap">配置 CLS 鉴权 ConfigMap</a>
-- <a href="#log-provisioner">部署 cls-provisioner</a>
-- <a href="#log-agent">部署 log-agent 与 loglistener</a>
+- <a href="#log-provisioner">部署 Log-Provisioner</a>
+- <a href="#log-agent">部署 Log-Agent 和 Loglistener</a>
 </dx-steps>
 
 ## 操作步骤
@@ -376,7 +376,7 @@ spec:
 
 ### 步骤3：创建 LogConfig 对象 [](id:logconfig_create)
 
-由于 [步骤2：定义 LogConfig 对象](#logconfig_def) 定义了 LogConfig.yaml 声明文件，我们可以使用 kubect 命令创建 LogConfig 对象。
+由于 [步骤2：定义 LogConfig 对象](#logconfig_def) 定义了 LogConfig.yaml 声明文件，我们可以使用 kubectl 命令创建 LogConfig 对象。
 ```shell
 # kubectl create -f /usr/local/LogConfig.yaml
 ```
@@ -391,13 +391,13 @@ spec:
 ```
 >! 配置时，请将 ConfigMap.yaml 中的 **TmpSecretId** 和 **TmpSecretKey** 配置为您的 **API 密钥 ID** 和 **API 密钥 KEY**。
 >
-2. 使用 kubect 命令创建 ConfigMap 对象。
+2. 使用 kubectl 命令创建 ConfigMap 对象。
 ```shell
 # kubectl create -f /usr/local/ConfigMap.yaml
 ```
 
 
-### 步骤5：部署 Log-Provinsioner [](id:log-provisioner)
+### 步骤5：部署 Log-Provisioner [](id:log-provisioner)
 
 Log-Provisioner 负责发现并监听 LogConfig 资源中 CLS 消费端信息，日志采集规则，以及日志文件路径，并同步至 CLS。 
 
@@ -407,9 +407,9 @@ Log-Provisioner 负责发现并监听 LogConfig 资源中 CLS 消费端信息，
 ```
 >! 配置时，请将 Log-Provisioner.yaml 中环境变量 env 下的 **CLS_HOST** 字段配置为目标日志主题所在地域的域名。 不同地域的域名请参见 [可用地域](https://cloud.tencent.com/document/product/614/18940) 文档。
 >
-2. 使用 kubect 以 Deployment 的方式部署 Log-Provinsioner。
+2. 使用 kubectl 以 Deployment 的方式部署 Log-Provisioner。
 ```shell
-# kubectl create -f /usr/local/Log-Provinsioner.yaml
+# kubectl create -f /usr/local/Log-Provisioner.yaml
 ```
 
 
@@ -422,12 +422,14 @@ Log-Provisioner 负责发现并监听 LogConfig 资源中 CLS 消费端信息，
 
 1. 以 Master 节点路径 /usr/local/ 为例，使用 wget 命令下载 Log-Agent 和 Loglistener 的声明文件。
 ```shell
-# wget https://mirrors.tencent.com/install/cls/k8s/Log—Agent.yaml
+# wget https://mirrors.tencent.com/install/cls/k8s/Log-Agent.yaml
 ```
->! 如果宿主机的 docker 根目录不在 /var/lib/docker（宿主机的根目录）下，则需要在 Log—Agent.yaml 声明文件中把 docker 的根目录映射到容器中。如下图所示，将 /data/docker 挂载到容器中：
+>! 
+> - 配置时，请将 Log-Agent.yaml 中环境变量 env 下的 CLS_HOST 字段配置为目标日志主题所在地域的域名。 不同地域的域名请参见 [可用地域](https://cloud.tencent.com/document/product/614/18940) 文档。
+> - 如果宿主机的 docker 根目录不在 /var/lib/docker（即在宿主机的根目录）下，需要在 Log-Agent.yaml 声明文件中把 docker 的根目录映射到容器中，如下图所示，将 /data/docker 挂载到容器中：
 > ![](https://main.qcloudimg.com/raw/7a6dd1f80f7e33cdf2f4db3695f15555.png)
 > 
-2. 使用 kubect 命令，以 DaemonSet 的方式部署 Log-Agent 和 Loglistener。
+2. 使用 kubectl 命令，以 DaemonSet 的方式部署 Log-Agent 和 Loglistener。
 ```shell
 # kubectl create -f /usr/local/Log—Agent.yaml
 ```

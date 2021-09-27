@@ -12,7 +12,7 @@ YARN 资源调度提供了交互式的 YARN 资源队列调度管理能力，较
 1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在集群列表中选择对应的 Hadoop 集群单击**详情**进入集群详情页。
 2. 在集群详情页中选择**集群服务 > Yarn 组件卡**页右上角**操作 > 资源调度**进入资源调度页面。
 ![](https://main.qcloudimg.com/raw/808aa5b1c5b928c5eb6d7d19c54deb5c.png)
-3. 单击**资源调度器开关**，打开后开关后即可进行相关调度器配置。
+3. 单击**资源调度器开关**，打开开关后即可进行相关调度器配置。
 ![](https://main.qcloudimg.com/raw/dd4ba878146a5f2b837b67700dd03b0c.png)
 4. 新建 Fair Scheduler 资源池
 调度器类型选择 Fair Scheduler 即可进行 Fair Scheduler 策略设置页面，单击**新建资源池**即可新建资源池，可对已有资源池进行编辑、新建子池、克隆、删除等操作。
@@ -116,7 +116,7 @@ YARN 资源调度提供了交互式的 YARN 资源队列调度管理能力，较
 1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在集群列表中选择对应的 Hadoop 集群单击**详情**进入集群详情页。
 2. 在集群详情页中选择**集群服务 > Yarn 组件**卡页右上角**操作 > 资源调度**进入资源调度页面。
 ![](https://main.qcloudimg.com/raw/068cbd684c9f615f1d6d6d690d9782f9.png)
-3. 单击**资源调度器开关**，打开后开关后即可进行相关调度器配置。
+3. 单击**资源调度器开关**，打开开关后即可进行相关调度器配置。
 4. 新建 Capacity Scheduler
 调度策略类型选择 Capacity Scheduler 即可进入 Capacity Scheduler 的配置页面，单击**新增资源池**即可新建资源池，可对已有资源池进行编辑、新建子池、克隆等操作。
 ![](https://main.qcloudimg.com/raw/d4e9fdfbe1550dba3b896aa0522ff09a.png)![](https://main.qcloudimg.com/raw/f7e4335375f03c2762d9e0953ee02011.png)
@@ -158,6 +158,11 @@ YARN 资源调度提供了交互式的 YARN 资源队列调度管理能力，较
 <td>分配 Container 最大内存数量</td>
 <td><code>yarn.scheduler.capacity.&lt;queue-path&gt;.maximum-allocation-mb</code></td>
 <td>每个 container 的最大内存值，这个配置会覆盖 yarn.scheduler.maximum-allocation-mb 值，但是该值必须小于等于系统的 yarn.scheduler.maximum-allocation-mb 的值。</td>
+</tr>
+<tr>
+<td>Container 最大 vCore 数量</td>
+<td>-</td>
+<td>资源池状态为 STOPPED 状态，任何任务都无法提交到该资源池以及子池中。</td>
 </tr>
 <tr>
 <td>资源池状态</td>

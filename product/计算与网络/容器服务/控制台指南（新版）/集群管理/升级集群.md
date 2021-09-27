@@ -13,7 +13,7 @@
 - **CSI-CFS 插件不兼容问题**：关于 CSI 插件 COS CSI 和 CFS CSI，不同 Kubernetes 版本适配的 CSI 插件版本有以下差异，因此建议您：将集群升级到 TKE 1.14及以上版本时，在组件管理页面重新安装 CSI 插件（重建组件不影响已经在使用中的 COS 和 CFS 存储）。
   - Kubernetes 1.10 和 Kubernetes 1.12 版本适配的 CSI 插件版本是**0.3**。
   - Kubernetes 1.14 及以上版本适配的 CSI 插件版本是**1.0**。
-- **HPA 失效问题**：在 Kubernetes  1.18版本之前，HPA 中所引用的 deployment 对象的 apiversion 可能是 `extensions/v1bata1`, 而 Kubernetes 1.18版本之后，deployment 的 apiversion 只有 `apps/v1`，可能导致集群升级到 Kubernetes 1.18之后，HPA 会失效。
+- **HPA 失效问题**：在 Kubernetes  1.18版本之前，HPA 中所引用的 deployment 对象的 apiversion 可能是 `extensions/v1beta1`, 而 Kubernetes 1.18版本之后，deployment 的 apiversion 只有 `apps/v1`，可能导致集群升级到 Kubernetes 1.18之后，HPA 会失效。
   如果您使用了 HPA 功能，建议在升级之前，执行如下命令，将 HPA 对象中的 apiVersion 切换到 `apps/v1`。
 ```
 kubectl patch hpa test -p '{"spec":{"scaleTargetRef":{"apiVersion":"apps/v1"}}}'

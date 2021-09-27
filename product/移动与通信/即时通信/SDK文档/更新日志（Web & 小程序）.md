@@ -1,3 +1,19 @@
+### 2.14.0 @2021.9.24
+
+**新增**
+
+- [pinConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#pinConversation)，支持会话置顶。
+- [initGroupAttributes](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#initGroupAttributes) 等群属性相关接口，支持 TRTC 语聊房的麦位管理。
+
+**变更**
+
+发送群聊消息自动补齐消息体 `nameCard` 属性，便于接入侧展示。
+
+**修复**
+
+- C2C 会话拉漫游消息偶现丢消息。
+- 加群附言（applyMessage）缺失。
+
 ### 2.13.1 @2021.8.27
 
 **变更**

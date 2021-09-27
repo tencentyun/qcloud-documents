@@ -10,8 +10,7 @@
 2. 在左侧导航栏中，单击**集群**，进入集群列表页。
 3. 单击需要创建 ConfigMap 的集群 ID，进入集群管理页面。
 4. 选择 **配置管理** > **ConfigMap**，进入 ConfigMap 信息页面。
-5. 单击**新建**，进入 “新建ConfigMap” 页面。如下图所示：
-![新建ConfigMap](https://main.qcloudimg.com/raw/9a1f6cba071c092ad06464538f7d1f99.png)
+5. 单击**新建**，进入 “新建ConfigMap” 页面。
 6. 根据实际需求，设置 ConfigMap 参数。关键参数信息如下：
  - 名称：自定义。
  - 命名空间：根据实际需求进行选择命名空间类型，定义变量名和变量值。

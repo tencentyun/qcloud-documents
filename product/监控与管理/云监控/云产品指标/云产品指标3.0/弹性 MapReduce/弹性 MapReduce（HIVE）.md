@@ -33,7 +33,7 @@ Namespace=QCE/TXMR_HIVE
 | HiveH2GcUtilMemoryE                         | 内存区域占比_E                       | %        | Eden 区内存使用占比                     | host4hivehiveserver2、<br/>id4hivehiveserver2 |
 | HiveH2GcUtilMemoryCcs                       | 内存区域占比_CCS                     | %        | Compressed class space 区内存使用占比   | host4hivehiveserver2、<br/>id4hivehiveserver2 |
 | HiveH2GcUtilMemoryS1                        | 内存区域占比_S1                      | %        | Survivor 1区内存使用占比                | host4hivehiveserver2、<br/>id4hivehiveserver2 |
-| HiveH1GcUtilMemoryO                         | 内存区域占比_O                       | %        | Old 区内存使用占比                      | host4hivehiveserver2、<br/>id4hivehiveserver2 |
+| HiveH2GcUtilMemoryO                        | 内存区域占比_O                       | %        | Old 区内存使用占比                      | host4hivehiveserver2、<br/>id4hivehiveserver2 |
 | HiveH2GcUtilMemoryM                         | 内存区域占比_M                       | %        | Metaspace 区内存使用占比                | host4hivehiveserver2、<br/>id4hivehiveserver2 |
 | HiveH2JvmMemMem<br> nonheapusedm            | JVM 内存_MemNonHeapUsedM              | MB       | JVM 当前已经使用的 NonHeapMemory 的数量 | host4hivehiveserver2、<br/>id4hivehiveserver2 |
 | HiveH2JvmMemMem<br> nonheapcommittedm       | JVM 内存_MemNonHeapCommittedM         | MB       | JVM 当前已经提交的 NonHeapMemory 的数量 | host4hivehiveserver2、<br/>id4hivehiveserver2 |
