@@ -4,11 +4,11 @@
 
 ## 路由配置
 ``` 
-#配置VLAN
+# 配置 VLAN
 vlan <vlanid>
 description <vlan_description>
 
-#设置物理接口
+# 设置物理接口
 interface <interface_name>
 port link-mode bridge
 description <XXXX>
@@ -18,11 +18,11 @@ port trunk permit vlan <vlanid>
 speed <interface_speed>
 duplex full
 
-#配置 vlan-interface
+# 配置 vlan-interface
 interface Vlan-interface<vlanid>
 description <vlan_description>
 ip address <subinterface_ipaddress> <subinterface_netmask>
 
-#设置静态路由
+# 设置静态路由
 ip route-static <Destination_IP_address> <Mask_of_the-IP_address> <VLAN_interface>
 ```
