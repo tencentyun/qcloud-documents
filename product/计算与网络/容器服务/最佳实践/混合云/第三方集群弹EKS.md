@@ -91,7 +91,7 @@ cloud:
 eklet:
   podUsedApiserver: "{当前集群的API Server地址}"
 ```
->?弹性容器服务支持售卖的地域和可用区请参考<a href="https://cloud.tencent.com/document/product/457/58172" target="_blank">这里</a>
+>弹性容器服务支持售卖的地域和可用区请参考<a href="https://cloud.tencent.com/document/product/457/58172" target="_blank">这里</a>
 
 
 ## 安装 TKE Resilience Chart
