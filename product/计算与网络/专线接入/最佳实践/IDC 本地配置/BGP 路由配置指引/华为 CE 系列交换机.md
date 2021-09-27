@@ -25,7 +25,7 @@ interfaces <interface_number>
 port trunk allow-pass vlan <subinterface_vlanid>
 commit
 
-# 设置eBGP 
+# 设置 eBGP 
 bgp <as_number>
 #router-id <route_id>
 peer <bgp_peer_address> as-number <bgp_peer_as_number>
