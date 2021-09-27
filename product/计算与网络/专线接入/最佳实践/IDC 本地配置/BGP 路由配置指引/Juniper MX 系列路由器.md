@@ -20,7 +20,7 @@ set interfaces <interface_number> unit <subinterface_number> family inet address
 <subinterface_ipaddress>/<subinterface_netmask>
 commit
 
-# 设置eBGP 
+# 设置 eBGP 
 set protocols bgp group ebgp type external //定义协议组，ebgp 名称可以更换
 set protocols bgp group ebgp neighbor <bgp_peer_address> loacal-as <as_number> //如果不配
 置，默认使用设备全局(set routing-options autonomous-system XX)
