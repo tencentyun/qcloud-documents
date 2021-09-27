@@ -4,7 +4,7 @@
 
 ## 路由配置
 ``` 
-#配置物理接口
+# 配置物理接口
 interfaces <interface_number>
 description <interface_desc>
 switchport mode trunk
@@ -13,7 +13,7 @@ speed <interface_speed>
 duplex full
 no negotiation auto
 
-#配置虚拟通道
+# 配置虚拟通道
 feature interface-vlan
 !
 vlan <subinterface_vlanid>
@@ -26,7 +26,7 @@ ip address <subinterface_ipaddress> <subinterface_netmask>
 interfaces <interface_number>
 switchport trunk allowed vlan <subinterface_vlanid> add
 
-#设置静态路由
+# 设置静态路由
 ip route <ip_prefix/netmask> <interface_number | vlan_id> <next_hop_ip> <name nexthop_name>
 <distance> <tag tag_value>
 ```
