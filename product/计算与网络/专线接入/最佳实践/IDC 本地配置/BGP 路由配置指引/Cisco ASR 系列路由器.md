@@ -19,7 +19,7 @@ encapsulation dot1q <subinterface_vlanid>
 ipv4 address <subinterface_ipaddress> <subinterface_netmask>
 commit
 
-# 设置eBGP
+# 设置 eBGP
 router bgp <as_number>
 #bgp router-id <router_id>
 neighbor <bgp_peer_address>
