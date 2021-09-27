@@ -23,7 +23,7 @@ ip address <subinterface_ipaddress> <subinterface_netmask>
 interfaces <interface_number>
 switchport trunk allowed vlan <subinterface_vlanid> add
 
-# 设置eBGP 
+# 设置 eBGP 
 router bgp <as_number>
 bgp router-id <router_id>
 neighbor <bgp_peer_address> remote-as <bgp_peer_as_number>
