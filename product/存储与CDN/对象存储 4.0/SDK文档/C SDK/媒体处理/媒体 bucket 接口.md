@@ -2,12 +2,12 @@
 
 本文档提供关于媒体 bucket 的 API 概览和 SDK 示例代码。
 
-| API                                                          | 操作描述                   |
-| :----------------------------------------------------------- | :------------------------- |
-|  [DescribeMediaBuckets](https://cloud.tencent.com/document/product/436/48988)   | 用于查询已经开通媒体处理功能的存储桶   |
+| API                        |             操作名                     | 操作描述                                               |
+| ------------------------------------------------------------ | --------------------------|---------------------------- |
+|  [DescribeMediaBuckets](https://cloud.tencent.com/document/product/436/48988)  |  查询媒体处理开通情况    |    用于查询已经开通媒体处理功能的存储桶         |
 
 
-## 查询媒体功能桶
+## 查询媒体处理开通情况
 
 #### 功能说明
 
@@ -56,7 +56,7 @@ cos_status_t *ci_describe_media_buckets(const cos_request_options_t *options,
 | req_id     | 请求消息 ID | String |
 
 #### 示例
-完整代码见cos_demo.c中test_ci_media_process_media_bucket()函数
+完整代码请参见cos_demo.c中test_ci_media_process_media_bucket()函数。
 
 ```cpp
 cos_pool_t *p = NULL;
