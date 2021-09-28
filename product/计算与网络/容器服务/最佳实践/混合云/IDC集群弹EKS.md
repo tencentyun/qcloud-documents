@@ -1,5 +1,5 @@
 ## 使用场景
-IDC 的资源有限，当需要应对业务突发流量，IDC 内的算力资源不足以应对时，可以选择使用公有云资源应对临时流量。TKE Resilience Chart 利用 <a href="https://cloud.tencent.com/product/eks"> 腾讯云弹性容器服务 EKS</a>，基于自定义的调度策略，通过添加虚拟节点的方式，将用户集群中的工作负载弹性上云，使用户 IDC 集群获得极大的弹性拓展能力，具有以下优势：
+IDC 的资源有限，当需要应对业务突发流量，IDC 内的算力资源不足以应对时，可以选择使用公有云资源应对临时流量。TKE Resilience Chart 利用 <a href="https://cloud.tencent.com/product/eks"> 腾讯云弹性容器服务 EKS</a>，基于自定义的调度策略，通过添加虚拟节点的方式，将用户集群中的工作负载弹性上云，使用户 IDC 集群获得极大的弹性拓展能力，优势如下：
 
 1. 用户 IDC / 私有云的硬件和维护成本保持不变。
 2. 实现了用户 IDC / 私有云和公有云级别的应用高可用。
@@ -35,52 +35,51 @@ TKE Resilience Chart 主要是由虚拟节点管理器，调度器，容忍控�
 </tr>
 </thead>
 <tbody><tr>
-<td><code>AUTO_SCALE_EKS=true</code></td>
-<td><code>AUTO_SCALE_EKS=false</code></td>
-<td><code>调度成功</code></td>
+<td>AUTO_SCALE_EKS=true</td>
+<td>AUTO_SCALE_EKS=false</td>
+<td>调度成功 </td>
 </tr>
 <tr>
-<td><code>AUTO_SCALE_EKS=true</code></td>
-<td><code>未定义</code></td>
-<td><code>调度成功</code></td>
+<td> AUTO_SCALE_EKS=true </td>
+<td> 未定义 </td>
+<td> 调度成功 </td>
 </tr>
 <tr>
-<td><code>AUTO_SCALE_EKS=true</code></td>
-<td><code>AUTO_SCALE_EKS=true</code></td>
-<td><code>调度成功</code></td>
+<td> AUTO_SCALE_EKS=true </td>
+<td> AUTO_SCALE_EKS=true </td>
+<td> 调度成功 </td>
 </tr>
 <tr>
-<td><code>AUTO_SCALE_EKS=false</code></td>
-<td><code>AUTO_SCALE_EKS=false</code></td>
-<td><code>调度失败</code></td>
+<td> AUTO_SCALE_EKS=false </td>
+<td> AUTO_SCALE_EKS=false </td>
+<td> 调度失败 </td>
 </tr>
 <tr>
-<td><code>AUTO_SCALE_EKS=false</code></td>
-<td><code>未定义</code></td>
-<td><code>调度失败</code></td>
+<td> AUTO_SCALE_EKS=false </td>
+<td> 未定义 </td>
+<td> 调度失败 </td>
 </tr>
 <tr>
-<td><code>AUTO_SCALE_EKS=false</code></td>
-<td><code>AUTO_SCALE_EKS=true</code></td>
-<td><code>调度成功</code></td>
+<td> AUTO_SCALE_EKS=false </td>
+<td> AUTO_SCALE_EKS=true </td>
+<td> 调度成功 </td>
 </tr>
 <tr>
-<td><code>未定义</code></td>
-<td><code>AUTO_SCALE_EKS=false</code></td>
-<td><code>调度成功</code></td>
+<td> 未定义 </td>
+<td> AUTO_SCALE_EKS=false </td>
+<td> 调度成功 </td>
 </tr>
 <tr>
-<td><code>未定义</code></td>
-<td><code>未定义</code></td>
-<td><code>调度成功</code></td>
+<td> 未定义 </td>
+<td> 未定义 </td>
+<td> 调度成功 </td>
 </tr>
 <tr>
-<td><code>未定义</code></td>
-<td><code>AUTO_SCALE_EKS=true</code></td>
-<td><code>调度成功</code></td>
+<td> 未定义 </td>
+<td> AUTO_SCALE_EKS=true </td>
+<td> 调度成功 </td>
 </tr>
 </tbody></table>
-
 
 3. 当使用社区版 K8S 的时候，需要在 workload 中指定调度器为 `tke-scheduler`，TKE 发行版 K8S 则不需要指定调度器。
 4. Workload 设定本地集群保留副本数量 `LOCAL_REPLICAS: N`。
