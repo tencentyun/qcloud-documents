@@ -143,7 +143,7 @@ cos_status_t *cos_resumable_download_file(cos_request_options_t *options,
 | 参数名称           | 参数描述                                                     | 类型    |
 | ------------------ | ------------------------------------------------------------ | ------- |
 | options            | COS 请求选项                                                 | Struct  |
-| options.ctl.options.enable_crc  | crc校验使能，默认开启crc校验                      | Int  |
+| options.ctl.options.enable_crc  | crc校验选项，默认开启crc校验                      | Int  |
 其它参数说明则参考[对象操作](https://cloud.tencent.com/document/product/436/35558)。
 
 #### 返回结果说明
@@ -157,7 +157,7 @@ cos_status_t *cos_resumable_download_file(cos_request_options_t *options,
 
 
 #### 示例
-这里只用了简单上传和下载两个接口来示例，其它接口也是同样使用方式，只需要将options->ctl->options->enable_crc设置为COS_TRUE即可(默认值也是COS_TRUE)
+这里只用了简单上传和下载两个接口来举例，其它接口也是同样使用方式，只需要将options->ctl->options->enable_crc设置为COS_TRUE即可(默认值也是COS_TRUE)
 
 ```cpp
 cos_pool_t *p = NULL;
