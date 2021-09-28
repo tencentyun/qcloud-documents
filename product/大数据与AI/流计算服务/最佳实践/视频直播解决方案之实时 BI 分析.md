@@ -12,7 +12,7 @@
 
 ### 创建私有网络 VPC
 
-私有网络是一块您在腾讯云上自定义的逻辑隔离网络空间，在构建 MySQL、EMR、ClickHouse 集群等服务时，选择的网络必须保持一致，网络才能互通。否则就需要使用对等连接、VPN 等方式打通网络。登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8) 创建私有网络，详情请参见 [创建私有网络](https://cloud.tencent.com/document/product/215/36515)。
+私有网络是一块您在腾讯云上自定义的逻辑隔离网络空间，在构建流计算 Oceanus、消息队列 CKafka、云数据库 MySQL、弹性 MapReduce 等服务时，选择的网络必须保持一致，网络才能互通。否则就需要使用对等连接、VPN 等方式打通网络。登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8) 创建私有网络，详情请参见 [创建私有网络](https://cloud.tencent.com/document/product/215/36515)。
 
 ### 创建 Oceanus 集群
 
@@ -141,7 +141,7 @@ if __name__ == '__main__':
 
 ### 创建 EMR 集群
 
-弹性 MapReduce 是云端托管的弹性开源泛 Hadoop 服务，支持 Spark、HBase、Presto、Flink、Druid 等大数据框架，本次示例主要需要使用Hadoop、Zookeeper、knox、Hbase 组件。页面地址[https://console.cloud.tencent.com/emr](https://console.cloud.tencent.com/emr)
+弹性 MapReduce 是云端托管的弹性开源泛 Hadoop 服务，支持 Spark、HBase、Presto、Flink、Druid 等大数据框架，本次示例主要需要使用Hadoop、Zookeeper、knox、Hbase 组件。
 
 1. 登录 [弹性 MapReduce 控制台](https://console.cloud.tencent.com/emr)，选择**集群列表 > 新建集群**，开始新建集群，具体可参考 [创建 EMR 集群](https://cloud.tencent.com/document/product/589/10981)。新建集群时，需选择安装 HBase 组件。
    ![](https://main.qcloudimg.com/raw/b8de93e041489aed3d8d9f847bd32f95.png)
@@ -333,7 +333,7 @@ CREATE TABLE `live_streaming_log_sink` (
 ```sql
 INSERT INTO `live_streaming_log_sink`
 SELECT 
-CASE WHEN `user_id` IS NULL THEN 0000 END AS `user_id`
+CASE WHEN `user_id` IS NULL THEN 0000 ELSE `user_id` END AS `user_id`
 , `ip`
 , CAST(`room_id`     AS VARCHAR)   AS `room_id`
 , CAST(`arrive_time` AS TIMESTAMP) AS `arrive_time`
@@ -368,14 +368,14 @@ FROM `live_streaming_log_source`;
 ```
 2. 定义 sink
 ```sql
-CREATE TABLE `live_gift_dim_total_sink` (
+CREATE TABLE `live_gift_total_amount_sink ` (
     `gift_type`         VARCHAR,
     `gift_total_amount` BIGINT,
     primary key(`gift_type`) not enforced
 ) WITH (
     'connector' = 'jdbc',
     'url' = 'jdbc:mysql://xx.xx.xx.xx:xxxx/livedb?rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai',
-    'table-name' = 'live_gift_dim_total',   -- 需要写入的数据表
+    'table-name' = 'live_gift_total_amount',   -- 需要写入的数据表
     'username' = 'root',           -- 数据库访问的用户名（需要提供 INSERT 权限）
     'password' = 'xxxxxxxxxxxxx',  -- 数据库访问的密码
     'sink.buffer-flush.max-rows' = '5000',
@@ -385,7 +385,7 @@ CREATE TABLE `live_gift_dim_total_sink` (
 ```
 3. 业务逻辑
 ```sql
-INSERT INTO `live_gift_dim_total_sink`
+INSERT INTO `live_gift_total_amount_sink`
 SELECT 
 CAST(`gift_type` AS VARCHAR) AS `gift_type`
 , SUM(`gift_total_amount`) AS `gift_total_amount_all`
