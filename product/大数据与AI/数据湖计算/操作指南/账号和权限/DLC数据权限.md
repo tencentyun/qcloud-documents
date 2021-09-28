@@ -5,23 +5,23 @@
 
   | Action                     | CREATE | ALTER | DROP | SELECT | INSERT | DELETE | Target         |
   | -------------------------- | ------ | ----- | ---- | ------ | ------ | ------ | -------------- |
-  | CREATE DATABASE            | Y      |     -  |   -   |    -    |   -     | -       | Cataglog       |
-  | ALTER DATABASE             |  -      | Y     |   -   |    -    |     -   |  -      | Database       |
-  | DROP DATABASE              |  -      | -      | Y    |  -      |    -    |      -  | Database       |
-  | CREATE TABLE               | Y      | -      |     - |     -   |   -     |   -     | Database       |
-  | CREATE TABLE AS SELECT     | Y      |    -   |   -   | Y      | Y      |  -      | Database/Table |
-  | DROP TABLE                 |     -   | -      | Y    |     -   |    -    |   -     | Table          |
-  | ALTER TABLE LOCATION       |      -  | Y     |    -  |    -    |   -     |  -      | Table          |
-  | ALTER PARTITION LOCATION   |    -    | Y     |  -    |    -    |     -   |   -     | Table          |
-  | ALTER TABLE ADD PARTITION  |    -    | Y     |   -   |    -    |     -   |    -    | Table          |
-  | ALTER TABLE DROP PARTITION |    -    | Y     |   -   |   -     |    -    |  -      | Table          |
-  | ALTER TABLE                |   -     | Y     |   -   |     -   |     -   |       - | Table          |
-  | CREATE VIEW                | Y      |  -     |    -  |    -    |     -   |     -   | Database       |
-  | ALTER VIEW PROPERTIES      |   -     | Y     |   -   |  -      |    -    |  -      | Table          |
-  | ALTER VIEW RENAME          |     -   | Y     |  -    |     -   |  -      |     -   | Table          |
-  | DROP VIEW PROPERTIES       |    -    | Y     | Y    |  -      |   -     |     -   | Table          |
-  | DROP VIEW                  |     -   |   -    | Y    |     -   |  -      |     -   | Table          |
-  | SELECT                     |   -     |  -     |   -   | Y      |    -    |    -    | Table          |
-  | INSERT                     |      -  |    -   |   -   |    -    | Y      |      -  | Table          |
-  | INSERT OVERWRITE           |    -    |  -     |   -   | -       | Y      | Y      | Table          |
+  | CREATE DATABASE            | &#10003      |     -  |   -   |    -    |   -     | -       | Cataglog       |
+  | ALTER DATABASE             |  -      | &#10003     |   -   |    -    |     -   |  -      | Database       |
+  | DROP DATABASE              |  -      | -      | &#10003    |  -      |    -    |      -  | Database       |
+  | CREATE TABLE               | &#10003      | -      |     - |     -   |   -     |   -     | Database       |
+  | CREATE TABLE AS SELECT     | &#10003      |    -   |   -   | &#10003      | &#10003      |  -      | Database/Table |
+  | DROP TABLE                 |     -   | -      | &#10003    |     -   |    -    |   -     | Table          |
+  | ALTER TABLE LOCATION       |      -  | &#10003     |    -  |    -    |   -     |  -      | Table          |
+  | ALTER PARTITION LOCATION   |    -    | &#10003     |  -    |    -    |     -   |   -     | Table          |
+  | ALTER TABLE ADD PARTITION  |    -    | &#10003     |   -   |    -    |     -   |    -    | Table          |
+  | ALTER TABLE DROP PARTITION |    -    | &#10003     |   -   |   -     |    -    |  -      | Table          |
+  | ALTER TABLE                |   -     | &#10003     |   -   |     -   |     -   |       - | Table          |
+  | CREATE VIEW                | &#10003      |  -     |    -  |    -    |     -   |     -   | Database       |
+  | ALTER VIEW PROPERTIES      |   -     | &#10003     |   -   |  -      |    -    |  -      | Table          |
+  | ALTER VIEW RENAME          |     -   | &#10003     |  -    |     -   |  -      |     -   | Table          |
+  | DROP VIEW PROPERTIES       |    -    | &#10003     | &#10003    |  -      |   -     |     -   | Table          |
+  | DROP VIEW                  |     -   |   -    | &#10003    |     -   |  -      |     -   | Table          |
+  | SELECT                     |   -     |  -     |   -   | &#10003      |    -    |    -    | Table          |
+  | INSERT                     |      -  |    -   |   -   |    -    | &#10003      |      -  | Table          |
+  | INSERT OVERWRITE           |    -    |  -     |   -   | -       | &#10003      | &#10003      | Table          |
 
