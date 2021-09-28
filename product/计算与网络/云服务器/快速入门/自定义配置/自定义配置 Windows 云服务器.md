@@ -6,7 +6,7 @@
 在使用云服务器之前，您需要完成以下准备工作：
 1. 注册腾讯云账号，并完成实名认证。
 新用户需在腾讯云官网进行 [注册](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F)，具体操作可参考 [注册腾讯云](https://cloud.tencent.com/doc/product/378/9603)。
-2. 访问 [腾讯云云服务器介绍页面](https://cloud.tencent.com/product/cvm)，单击【立即选购】。
+2. 访问 [腾讯云云服务器介绍页面](https://cloud.tencent.com/product/cvm)，单击**立即选购**。
 
 
 ## 选择机型[](id:SelectType)
@@ -57,7 +57,6 @@
 
 1. 核对购买的云服务器信息，了解各项配置的费用明细。
 2. 阅读并勾选“同意《腾讯云服务协议》和《退款规则》”或“同意《腾讯云服务协议》”。
-3. 单击**立即购买**或**开通**，完成支付。当您付款完成后，即可进入 [云服务器控制台](https://console.cloud.tencent.com/cvm) 查收您的云服务器。
 4. 您可根据实际需求，进行以下操作：
  - 选择**保存为启动模板**：将该实例的配置保存为启动模板，您可使用启动模板快速创建实例。详情请参见 [管理实例启动模板](https://cloud.tencent.com/document/product/213/62034)。
  - 选择**生成 API Explorer 最佳实践脚本**：生成已选配置对应的创建实例 OpenAPI 最佳实践脚本代码，您可保存代码用于购买同配置云服务器。详情请参见 [生成创建实例 API Explorer 最佳实践脚本](https://cloud.tencent.com/document/product/213/49856)。
