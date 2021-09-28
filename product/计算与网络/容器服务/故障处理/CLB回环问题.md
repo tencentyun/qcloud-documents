@@ -12,7 +12,9 @@ CLB 回环问题可能导致存在以下现象：
 ## 问题原因
 
 根本原因在于 CLB 将请求转发到后端 RS 时，报文的源目的 IP 都在同一节点内，而 Linux 默认忽略收到源 IP 是本机 IP 的报文，导致数据包在子机内部回环，如下图所示：
-![img](https://main.qcloudimg.com/raw/aa429bf25d857d2d8fd90d3225bf7c6d.png)
+![](https://main.qcloudimg.com/raw/7cdff4fde69e4e95e75002ae47379d01.png)
+
+
 
 ### 分析 Ingress 回环
 
@@ -30,7 +32,7 @@ CLB 回环问题可能导致存在以下现象：
 ### 分析 LoadBalancer Service 回环
 
 当使用 LoadBalancer 类型的内网 Service 时暴露服务时，会创建内网 CLB 并创建对应的4层监听器（TCP/UDP）。当集群内 Pod 访问 LoadBalancer 类型 Service 的 `EXTERNAL-IP` 时（即 CLB IP），原生 Kubernetes 实际上不会去真正访问 LB，而是直接通过 iptables 或 ipvs 转发到后端 Pod （不经过 CLB），如下图所示：
-![img](https://main.qcloudimg.com/raw/f56111ffb547c02fe78b927f3a4e3012.png)
+![](https://main.qcloudimg.com/raw/c116a45c8cf269764e31d4317d31c366.png)
 
 因此原生 Kubernetes 的逻辑不存在回环问题。但在 TKE 的 ipvs 模式下，Client 访问 CLB IP 的包会真正到 CLB，如果在 ipvs 模式下，Pod 访问本集群 LoadBalancer 类型 Service 的 CLB IP 将存在回环问题，情况跟上述内网 Ingress 回环类似，如下图所示：
 ![img](https://main.qcloudimg.com/raw/c5a2e4c087df8089c3f3f50397e107e2.png)
@@ -72,7 +74,7 @@ CLB 回环问题可能导致存在以下现象：
 ### VPC-CNI 的 LB 直通 Pod 是否也存在 CLB 回环问题？
 
 TKE 通常用的 Global Router 网络模式（网桥方案），还有一种是 VPC-CNI（弹性网卡方案）。目前 LB 直通 Pod 只支持 VPC-CNI 的 Pod，即 LB 不绑 NodePort 作为 RS，而是直接绑定后端 Pod 作为 RS，如下图所示：
-![img](https://main.qcloudimg.com/raw/19869d25fcca272f00cfd0af56e7a8c3.png)
+![](https://main.qcloudimg.com/raw/e21903a2d23aef3cad564a44954a9aa4.png)
 
 这样即可绕过 NodePort，不再像之前一样可能会转发给任意节点。但如果 Client 与 Server 在同一节点，同样可能会发生回环问题，通过反亲和可以规避。
 
