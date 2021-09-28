@@ -141,7 +141,7 @@ if __name__ == '__main__':
 
 ### 创建 EMR 集群
 
-弹性 MapReduce 是云端托管的弹性开源泛 Hadoop 服务，支持 Spark、HBase、Presto、Flink、Druid 等大数据框架，本次示例主要需要使用Hadoop、Zookeeper、knox、Hbase 组件。
+弹性 MapReduce 是云端托管的弹性开源泛 Hadoop 服务，支持 Spark、HBase、Presto、Flink、Druid 等大数据框架，本次示例主要需要使用 Hadoop、Zookeeper、Knox、Hbase 组件。
 
 1. 登录 [弹性 MapReduce 控制台](https://console.cloud.tencent.com/emr)，选择**集群列表 > 新建集群**，开始新建集群，具体可参考 [创建 EMR 集群](https://cloud.tencent.com/document/product/589/10981)。新建集群时，需选择安装 HBase 组件。
    ![](https://main.qcloudimg.com/raw/b8de93e041489aed3d8d9f847bd32f95.png)
