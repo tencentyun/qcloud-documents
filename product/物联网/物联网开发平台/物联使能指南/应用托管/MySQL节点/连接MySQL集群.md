@@ -2,7 +2,7 @@
 
 ## 前提条件
 
-已完成 [新建 MySQL 集群](https://cloud.tencent.com/document/product/1465/61967)。
+已完成 [新建 MySQL 集群](https://cloud.tencent.com/document/product/1081/62046)。
 
 ## 连接方式
 
