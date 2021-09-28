@@ -17,7 +17,7 @@
 <dependency>
     <groupId>org.apache.rocketmq</groupId>
     <artifactId>rocketmq-client</artifactId>
-    <version>4.5.2</version>
+    <version>4.6.1</version>
 </dependency>
 ```
 
