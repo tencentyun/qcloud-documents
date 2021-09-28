@@ -7,14 +7,14 @@
 
 ## Oceanus Grafana 面板导入方法
 1. 下载 Oceanus Grafana Dashboard 模板并解压到本地。[点此下载 Dashboard](https://oceanus-public-1257058918.cos.ap-guangzhou.myqcloud.com/Oceanus-Prometheus-Dashboard.zip)
-2. 在 Prometheus 的 Grafana 面板上，鼠标移动到左边栏，选择【Dashboard】>【Manage】。
+2. 在 Prometheus 的 Grafana 面板上，鼠标移动到左边栏，选择![](https://main.qcloudimg.com/raw/1747bb326e66317fc234c04530896607.png) **> Manage**。
 ![](https://main.qcloudimg.com/raw/4899b13ef9523d5f5dbb3491018dc6aa.png)
 3. 创建一个名为 Oceanus 新文件夹。
 ![](https://main.qcloudimg.com/raw/e6886e7dd7b99a6d1ebca724bd923d50.png)![](https://main.qcloudimg.com/raw/ce24ede1a62e492fbf2fa9e896d2883b.png)
-4. 再次进入 Dashboard 管理页面，单击右上角的【Import】，**逐个**将解压后的 json 文件内容粘贴进来。
+4. 再次进入 Dashboard 管理页面，单击右上角的 **Import**，**逐个**将解压后的 json 文件内容粘贴进来。
 > !
 >- 请按照下文指引，逐一导入每个 JSON 文件。
->- 不要修改面板的 UID（即不要单击【Change uid】），以免面板之间的跳转链接失效。
+>- 不要修改面板的 UID（即不要单击 **Change uid**），以免面板之间的跳转链接失效。
 >
 ![](https://main.qcloudimg.com/raw/262bcf13814f254c8eac922e62a81852.png)
 ![](https://main.qcloudimg.com/raw/dc0a7cd37ebdb2154ee0f03d2a0df7b0.png)![](https://main.qcloudimg.com/raw/61ad2099bbc35aa07c5256fce2e48784.png)![](https://main.qcloudimg.com/raw/54481cc9355d7bc21a6c25faeb89f48d.png)
@@ -24,11 +24,11 @@
 ## 作业启用 Prometheus 监控指标上报
 > !
 >- 每个作业需要单独配置 Prometheus 上报。
->- 修改每个作业的配置后，必须单击【发布运行】，待作业重启后才会正式上报监控数据。
+>- 修改每个作业的配置后，必须单击**发布运行**，待作业重启后才会正式上报监控数据。
 
-1. 在 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus/job)，单击需要添加监控的作业，进入【开发调试】面板。
+1. 在 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus/job)，单击需要添加监控的作业，进入**开发调试**面板。
 ![](https://main.qcloudimg.com/raw/469266f4c077fa0584113f8bc231f037.png)
-2. 单击【作业参数】，在高级参数中新增以下内容：
+2. 单击**作业参数**，在高级参数中新增以下内容：
 > ! ${ } 的变量需替换为实际值。
 > 
 ```yaml

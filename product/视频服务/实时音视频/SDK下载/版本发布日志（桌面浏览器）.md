@@ -7,6 +7,25 @@
 > - 建议您及时更新至最新版本，以便获得更好的产品稳定性及在线支持。
 > - 版本升级注意事项请参见：[升级指引](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-00-info-update-guideline.html)。
 
+## Version 4.11.6 @2021.09.10
+
+**Improvement**
+
+优化信令调度逻辑，提升弱网下的进房成功率，建议 v4.11.5 升级至该版本。
+
+## Version 4.11.5 @2021.09.04
+
+**Improvement**
+
+- 支持信令通道动态调度，提升弱网环境下连接成功率。
+- 支持跨房间混流，请参见 [Client.startMixTranscode](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#startMixTranscode)。
+
+**Bug Fixed**
+
+- 修复偶现断网重连后，收不到 stream-added 事件的问题。
+- 修复偶现长时间屏幕分享帧率掉0的问题。
+
+
 ## Version 4.11.4 @2021.08.20
 
 **Improvement**

@@ -230,7 +230,7 @@ docker images
 QCBM 项目采用个人版镜像仓库（建议企业客户使用企业版镜像仓库）。
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2) 。
-2. 选择**镜像仓库** > **个人版**> **命名空间**进入“命名空间”页面。
+2. 选择**镜像仓库** > **个人版** > **命名空间**进入“命名空间”页面。
 3. 单击**新建**，在弹出的新建命名窗口中新建命名空间 qcbm。QCBM 项目所有的镜像都存放于该命名空间下。如下图所示：
    ![](https://main.qcloudimg.com/raw/d41dc91e084a7b21f44078445360895d.png)
 
@@ -422,7 +422,7 @@ Deployment 声明了 Pod 的模板和控制 Pod 的运行策略，适用于部�
 | ---------------- | ------------------------------------------------------------ |
 | replicas         | 表示需要创建的 pod 数量                                      |
 | image            | 镜像的地址                                                   |
-| imagePullSecrets | 拉取镜像时需要使用的 key，可在**[集群](https://console.cloud.tencent.com/tke2/)**>**配置管理** > **Secret**中获取。使用公共镜像时可省略 |
+| imagePullSecrets | 拉取镜像时需要使用的 key，可在 **[集群](https://console.cloud.tencent.com/tke2/)**>**配置管理** > **Secret**中获取。使用公共镜像时可省略 |
 | env              | <li>定义了 pod 的环境变量和取值<br><li>ConfigMap 中定义的 key-value 可使用 configMapKeyRef 引用<br><li>Secret 中定义的 key-value 可使用 secretKeyRef 引用 |
 | ports            | 指定容器的端口号，由于是 Dubbo 应用，所以端口号为20880       |
 
@@ -606,7 +606,7 @@ spec:
 
 容器日志采集功能默认关闭，使用前需要开启，步骤如下：
 
-1. 登录容器服务控制台，选择左侧导航栏中的**集群运维**>**[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=1)**。
+1. 登录容器服务控制台，选择左侧导航栏中的**集群运维** > **[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=1)**。
 2. 在“功能管理”页面上方选择地域，单击需要开启日志采集的集群右侧的**设置**。
    ![](https://main.qcloudimg.com/raw/2402b7869f3687bf6237bfb5d3940817.png)
 3. 在“设置功能”页面，单击日志采集**编辑**并勾选**开启日志采集**。如下图所示：
@@ -748,6 +748,6 @@ Skywalking agent 也支持使用环境变量方式进行配置，QCBM 使用 Con
 
 #### 查看服务拓扑
 
-1.  登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的**链路追踪**> **分布式依赖拓扑**。
+1.  登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的**链路追踪** > **分布式依赖拓扑**。
 2.  在“分布式依赖拓扑”页面可查看完成的服务依赖情况，以及调用次数和平均延迟等信息。如下图所示：
     ![](https://main.qcloudimg.com/raw/f17189bbf5e40ce6a4132caa2b00e0ee.png)

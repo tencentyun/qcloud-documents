@@ -1,3 +1,46 @@
+## Version 9.2 @ 2021.09.23
+
+**功能新增**
+- Android&iOS：支持 Socks5 代理。
+- Windows：TRTCAudioQualityMusic 高音质场景新增自适应回声消除功能，自动平衡音质与回声消除强度。
+- 全平台：新增设置语音音调功能。
+
+**故障修复**
+- Windows：修复 Mac 安装 Windows 的环境部分摄像头不吐数据问题。
+- Android：修复偶现 CDN/TRTC 互切后没有上行音频的问题。
+- iOS：修复 Web 端屏幕分享导致 iOS 接受端自定义渲染花屏的问题。
+
+**功能优化**
+- Android：优化硬解码时导致 ANR 的问题。
+- Android：优化摄像头本地预览角度兼容的问题。
+- Android：优化首帧秒开速度。
+- Android&iOS：优化合唱模式 3A 策略。
+- Windows：优化 AGC 算法，降低出现声音过小和声音过大的问题的概率。
+- 全平台：优化弱网环境抗抖动算法，视频播放更流畅。
+
+## Version 9.1 @ 2021.09.04
+
+**功能新增**
+- 全平台：C++ 接口支持音频帧回调格式设置。
+- Windows：播片增加 ac3 格式的支持。
+- Windows：摄像头信息支持获取支持的分辨率列表，具体请参见 [ITXDeviceCollection.getDeviceProperties](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXDeviceManager__cplusplus.html#ad502f48cb2a4470943134e4b48904450)。
+- Windows：支持 Nvidia、Intel、AMD 硬解。
+- Mac：新增本地媒体录制支持。
+
+**问题修复**
+- 全平台：修复偶现的进房失败问题。
+- Mac：修复屏幕分享时切换分辨率，预览画面闪一下的问题。
+- Android：修复子房间切回主房间时，辅路视频画面显示异常的问题。
+- Android：修复特定场景下偶现的帧率设置不生效问题。
+- Windows：修复观众切换为 CDN 流后无法拉流的问题。
+- Windows：修复播片功能播放特定格式视频画面消失的问题。
+
+**质量优化**
+- 全平台：优化弱网下音视频体验。
+- Android：优化退房时的音频状态管理。
+- Android：优化音频采集启动失败后的恢复逻辑，提升成功率。
+- Android：优化特定条件下视频画面过曝的问题。
+
 ## Version 9.0 @ 2021.08.06
 
 **功能新增**

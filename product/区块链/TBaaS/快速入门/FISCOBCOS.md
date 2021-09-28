@@ -9,7 +9,7 @@ TBaaS-BCOS 支持 FISCO BCOS 2.X，新增多群组功能。
 
 ## 操作步骤
 ### 步骤1：网络概览
-选择左侧导航栏中的**BCOS】>【[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)】，进入“区块链网络”页面。
+选择左侧导航栏中的**BCOS** > **[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)**，进入“区块链网络”页面。
 “区块链网络”页面展示区块链网络的相关信息，包含以下内容：
 - 数据概览，包含区块链的群组、节点、组织和智能合约数量。
 - 网络基础信息。
@@ -43,7 +43,7 @@ TBaaS-BCOS 支持 FISCO BCOS 2.X，新增多群组功能。
 ### 步骤4：合约管理
 合约已群组维度展示，您可根据需要切换群组。
 #### 新建合约
-1. 选择左侧导航栏中的**BCOS】>【[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)】，进入“区块链网络”页面。
+1. 选择左侧导航栏中的**BCOS** > **[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)**，进入“区块链网络”页面。
 2. 选择**合约管理**页签，进入合约管理界面，并单击**新增合约**。
 3. 在弹出的“新增合约”窗口中，单击**选择文件**并上传 solidity 合约。如下图所示：
    <dx-alert infotype="notice" title="">
@@ -133,7 +133,7 @@ TBaaS-BCOS 支持 FISCO BCOS 2.X，新增多群组功能。
 ![](https://main.qcloudimg.com/raw/cbe21f20d495f269e50a82bd3b2be119.png)
 
 #### 邀请组织
-1. 选择左侧导航栏中的**BCOS】>【[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)】，进入“区块链网络”页面。
+1. 选择左侧导航栏中的**BCOS** > **[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)**，进入“区块链网络”页面。
 2. 选择**组织管理**页签，进入组织管理界面，并单击**邀请组织**。
 3. 在弹出的“邀请组织”窗口中，选择需要邀请的成员。如下图所示：
 ![](https://main.qcloudimg.com/raw/c7617827e6f46468d8bd58e5cbc2f4d7.png)

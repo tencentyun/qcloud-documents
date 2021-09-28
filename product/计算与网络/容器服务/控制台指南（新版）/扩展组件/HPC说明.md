@@ -2,7 +2,7 @@
 
 ### 组件介绍
 
-HPC（HorizontalPodCronscaler）是一种可以对 K8s workload 副本数进行定时修改的自研组件，配合 HPC CRD 使用，最小支持秒级的定时任务。
+HPC（HorizontalPodCronscaler）是一种可以对 K8S workload 副本数进行定时修改的自研组件，配合 HPC CRD 使用，最小支持秒级的定时任务。
 
 ### 组件功能
 
@@ -48,7 +48,7 @@ HPC（HorizontalPodCronscaler）是一种可以对 K8s workload 副本数进行�
 
 #### 被控资源要求
 
-在创建 HPC 资源时，被控制的 workload（K8s 资源）需要存在于集群中。
+在创建 HPC 资源时，被控制的 workload（K8S 资源）需要存在于集群中。
 
 
 ## 操作步骤

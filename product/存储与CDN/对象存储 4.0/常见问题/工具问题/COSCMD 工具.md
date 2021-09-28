@@ -35,9 +35,6 @@ coscmd download prefix/ localpath/ -r
 ```
 
 
-### 如何使用 COSCMD 访问多个存储桶？
-
-可以使用 -b，-r 参数指定多个存储桶，例如`coscmd -b examplebucket-1250000000 examplebucket-1250000001 -r ap-beijing`；或者使用 -c 参数，指定配置文件 cos.conf，在 cos.conf 文件中配置多个存储桶。
 
 ### COSCMD list 是否支持按照文件上传时间列出文件？
 
@@ -76,7 +73,7 @@ coscmd config -m 30
 
 ### COSCMD 上传文件时如何跳过已存在文件？
 
-COSCMD 上传时通过添加 -rs 参数跳过 md5 相同的文件。详情请参考 [COSCMD工具](https://cloud.tencent.com/document/product/436/10976) 文档中的**上传文件或文件夹使用方法**。
+COSCMD 上传时通过添加 -rs 参数跳过 md5 相同的文件。详情请参考 [COSCMD工具](https://cloud.tencent.com/document/product/436/10976) 文档中的 [上传文件夹](https://cloud.tencent.com/document/product/436/10976#.E4.B8.8A.E4.BC.A0.E6.96.87.E4.BB.B6.E5.A4.B9) 示例。
 
 ### 使用 COSCMD 工具下载如何跳过相同文件？
 

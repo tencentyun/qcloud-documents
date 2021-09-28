@@ -61,7 +61,7 @@ docker run --network=host --rm ccr.ccs.tencentyun.com/tcrimages/image-transfer:c
 ### 查看及确认运行结果
 
 因个人版迁移至企业版默认使用全量迁移模式，迁移时间直接与当前个人版内镜像仓库数量及大小有关，请耐心等待。
-若运行后展示如下代码，即表示全量迁移成功。否则请重新运行该迁移工具进行重试，或 [在线咨询](https://cloud.tencent.com/online-service?from=doc_1141) 申请协助。
+若运行后展示如下代码，即表示全量迁移成功。否则请重新运行该迁移工具进行重试。您可以通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_1141) 申请协助。
 
 ```bash
 ################# Finished, 0 transfer jobs failed, 0 normal urlPair generate failed, 0 jobs generate failed #################

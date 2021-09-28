@@ -2,8 +2,10 @@
 
 C SDK 提供获取请求预签名 URL 接口，详细操作请查看本文说明和示例。
 
->? 建议用户使用临时密钥生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
->
+>?
+> - 建议用户使用临时密钥生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
+> - 如果您一定要使用永久密钥来生成预签名，建议永久密钥的权限范围仅限于上传或下载操作，以规避风险。
+> 
 
 ## 获取请求预签名 URL 
 
@@ -29,7 +31,7 @@ int cos_gen_presigned_url(const cos_request_options_t *options,
 | 参数名称      | 参数描述                                                     | 类型   |
 | ------------- | ------------------------------------------------------------ | ------ |
 | options       | COS 请求选项                                                 | Struct |
-| bucket        | 存储桶名称，存储桶的命名格式为 BucketName-APPID ，此处填写的存储桶名称必须为此格式 | String |
+| bucket        | 存储桶名称，存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式 | String |
 | object        | Object 名称                                                  | String |
 | expire        | 签名有效时间，单位为秒                                       | Int    |
 | method        | HTTP 请求方法枚举类型，分别为 HTTP_GET、HTTP_HEAD、HTTP_PUT、HTTP_POST、HTTP_DELETE | Enum   |

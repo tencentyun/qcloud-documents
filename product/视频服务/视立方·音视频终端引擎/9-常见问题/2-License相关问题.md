@@ -94,7 +94,7 @@
 用户 A 以前购买了两个 10 TB 的直播流量资源包（有效期截止时间不同），获赠两个移动直播 License，并分两次绑定了同一组包名（实际上仅一个 License 有效）。在升级为腾讯云视立方 License 后，仅保留了有效期较长的 License 的绑定；另一个有效期较短的 License 被解除绑定关系，10TB 资源包被释放，用户 A 可以再次进行新的 License 绑定。
 
 [](id:que13)
-### 为什么我的子账户已经授权了直播和点播所有权限，但是还是无法访问 License 控制台相关界面？
+### 为什么子账户打开腾讯云视立方·音视频终端引擎控制台提示未授权？
 #### 问题截图：
 <img src="https://main.qcloudimg.com/raw/7423d2e7912de344052c7891629d528b.png" width=400px>
 
@@ -102,7 +102,8 @@
 音视频终端引擎控制台需要主账号为子账号独立进行授权策略后方可访问控制台页面。
 - 若您仅需要提供子账号访问音视频终端引擎控制台只读的权限，请授权 QcloudVCUBEReadOnlyAccess 策略。
 - 若您需要提供子账访问音视频终端引擎号所有操作权限，请授权 QcloudVCUBEFullAccess 策略。
-
 为用户/用户组关联策略以授权相关操作权限的关联指引请参见 [策略授权管理](https://cloud.tencent.com/document/product/598/10602)。
 
->? License 界面所有功能操作已独立于云直播、云点播策略外，即原 QcloudVODFullAccess、QcloudLIVEFullAccess 策略已不包含 License 相关接口，需按照上述说明单独授权。
+#### 相关问题：
+- [子账户为什么无法访问直播控制台 License 相关界面？](https://cloud.tencent.com/document/product/454/43500#que16)
+- [子账户为什么无法访问点播控制台 License 相关界面？](https://cloud.tencent.com/document/product/266/50296#que12)

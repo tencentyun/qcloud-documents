@@ -8,10 +8,10 @@ Namespace=QCE/TXMR_PRESTO
 
 | 指标英文名                                                   | 指标中文名                                   | 指标单位 | 指标含义           | 维度              |
 | ------------------------------------------------------------ | -------------------------------------------- | -------- | ------------------ | ----------------- |
-| EmrPrestoOverviewPresto<br>PrestoMNodesActive                | 节点数量_Active                              | 个       | 活跃节点数量       | id4prestooverview |
-| EmrPrestoOverviewPresto<br/>PrestoMNodesTotal                | 节点数量_Total                               | 个       | 总节点数量         | id4prestooverview |
-| EmrPrestoOverviewPresto<br/>PrestoMNodesFailed               | 节点数量_Failed                              | 个       | 失败节点数量       | id4prestooverview |
-| EmrPrestoOverviewPresto<br/>PrestoMQueries<br>Runningqueries | 查询_RunningQueries                          | 个       | 正在运行的查询总数 | id4prestooverview |
+| EmrPrestoOverviewPresto<br/>MNodesActive             | 节点数量_Active                              | 个       | 活跃节点数量       | id4prestooverview |
+| EmrPrestoOverviewPresto<br/>MNodesTotal              | 节点数量_Total                               | 个       | 总节点数量         | id4prestooverview |
+| EmrPrestoOverviewPresto<br/>MNodesFailed               | 节点数量_Failed                              | 个       | 失败节点数量       | id4prestooverview |
+| EmrPrestoOverviewPresto<br/>MQueries<br>Runningqueries | 查询_RunningQueries                          | 个       | 正在运行的查询总数 | id4prestooverview |
 | EmrPrestoOverviewPresto<br/>MQueriesOneMinute<br>Failedqueries | 查询频度_FailedQueries                       | 个/min   | 失败的查询总数     | id4prestooverview |
 | EmrPrestoOverviewPresto<br/>MQueriesOneMinute<br>Abandonedqueries | 查询频度_AbandonedQueries                    | 个/min   | 放弃的查询总数     | id4prestooverview |
 | EmrPrestoOverviewPresto<br/>MQueriesOneMinute<br>Canceledqueries | 查询频度_CanceledQueries                     | 个/min   | 取消的查询总数     | id4prestooverview |
@@ -24,10 +24,10 @@ Namespace=QCE/TXMR_PRESTO
 
 | 指标英文名                                                   | 指标中文名                                   | 指标单位 | 指标含义           | 维度                                        |
 | ------------------------------------------------------------ | -------------------------------------------- | -------- | ------------------ | ------------------------------------------- |
-| EmrPrestoOverview<br>OriginalPresto<br>PrestoMNodesActive    | 节点数量_Active                              | 个       | 活跃节点数量       | id4prestooverview、<br/>host4prestooverview |
-| EmrPrestoOverview<br/>OriginalPresto<br/>PrestoMNodesTotal   | 节点数量_Total                               | 个       | 总节点数量         | id4prestooverview、<br/>host4prestooverview |
-| EmrPrestoOverview<br/>OriginalPresto<br/>PrestoMNodesFailed  | 节点数量_Failed                              | 个       | 失败节点数量       | id4prestooverview、<br/>host4prestooverview |
-| EmrPrestoOverview<br/>OriginalPresto<br/>PrestoMQueries<br>Runningqueries | 查询_RunningQueries                          | 个       | 正在运行的查询总数 | id4prestooverview、<br/>host4prestooverview |
+| EmrPrestoOverview<br>OriginalPresto<br>MNodesActive    | 节点数量_Active                              | 个       | 活跃节点数量       | id4prestooverview、<br/>host4prestooverview |
+| EmrPrestoOverview<br/>OriginalPresto<br/>MNodesTotal   | 节点数量_Total                               | 个       | 总节点数量         | id4prestooverview、<br/>host4prestooverview |
+| EmrPrestoOverview<br/>OriginalPresto<br/>MNodesFailed  | 节点数量_Failed                              | 个       | 失败节点数量       | id4prestooverview、<br/>host4prestooverview |
+| EmrPrestoOverview<br/>OriginalPresto<br/>MQueries<br>Runningqueries | 查询_RunningQueries                          | 个       | 正在运行的查询总数 | id4prestooverview、<br/>host4prestooverview |
 | EmrPrestoOverview<br/>OriginalPresto<br/>MQueriesOneMinute<br>Failedqueries | 查询频度_FailedQueries                       | 个/min   | 失败的查询总数     | id4prestooverview、<br>host4prestooverview  |
 | EmrPrestoOverview<br/>OriginalPresto<br/>MQueriesOneMinute Abandonedqueries | 查询频度_AbandonedQueries                    | 个/min   | 放弃的查询总数     | id4prestooverview、<br/>host4prestooverview |
 | EmrPrestoOverview<br/>OriginalPresto<br/>MQueriesOneMinute<br>Canceledqueries | 查询频度_CanceledQueries                     | 个/min   | 取消的查询总数     | id4prestooverview、<br/>host4prestooverview |
@@ -107,15 +107,15 @@ Namespace=QCE/TXMR_PRESTO
 | Instances.N.Dimensions.0.Name  | id4prestooverview            | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4prestooverview                  |
 | Instances.N.Dimensions.0.Value | id4prestooverview            | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222                    |
 | Instances.N.Dimensions.1.Name  | host4prestooverview          | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4prestooverview                 |
-| Instances.N.Dimensions.1.Value | host4prestooverview          | EMR 实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Value | host4prestooverview          | EMR 实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.0.Name  | id4prestoprestoworker        | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4prestoprestoworker              |
 | Instances.N.Dimensions.0.Value | id4prestoprestoworker        | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222                    |
 | Instances.N.Dimensions.1.Name  | host4prestoprestoworker      | EMR 实例中节点 IP 的维度名称 | 输入 String 类型维度名称：host4prestoprestoworker            |
-| Instances.N.Dimensions.1.Value | host4prestoprestoworker      | EMR 实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Value | host4prestoprestoworker      | EMR 实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.0.Name  | id4prestoprestocoordinator   | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id27prestoprestocoordinator        |
 | Instances.N.Dimensions.0.Value | id4prestoprestocoordinator   | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222                    |
 | Instances.N.Dimensions.1.Name  | host4prestoprestocoordinator | EMR 实例中节点 IP 的维度名称 | 输入 String 类型维度名称：host4prestoprestocoordinator       |
-| Instances.N.Dimensions.1.Value | host4prestoprestocoordinator | EMR 实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Value | host4prestoprestocoordinator | EMR 实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 
 
 

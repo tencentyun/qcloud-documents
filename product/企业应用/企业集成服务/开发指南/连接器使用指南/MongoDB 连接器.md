@@ -97,7 +97,7 @@ MongoDB 连接器的操作分为集合操作、文档操作、索引操作。
 #### 案例
 1. 添加 MongoDB 连接器组件。
 ![image-20210330144809170](https://main.qcloudimg.com/raw/af43d4d200ad684360a3bed27ea5f9a7/mongo6.png)
-2. 新建连接器配置，填写配置参数，单击【测试连接】，测试连接器配置是否正确。
+2. 新建连接器配置，填写配置参数，单击**测试连接**，测试连接器配置是否正确。
 ![image-20210425103813367](https://main.qcloudimg.com/raw/5877b9e034ec92b687893944b8037b90/mongo7.png)
 3. 在通用配置中，填入集合名称。
   ![image-20210330145017036](https://main.qcloudimg.com/raw/4bb0b61cbab40d5212b3473a4e6b943d/mongo8.png)

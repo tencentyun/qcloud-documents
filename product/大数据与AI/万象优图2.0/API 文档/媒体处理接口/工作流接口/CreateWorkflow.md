@@ -28,16 +28,17 @@ Content-Type: application/xml
 
 该请求操作的实现需要有如下请求体：
 
-#### 请求体1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、音视频拼接、智能封面
+#### 请求体1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、音视频拼接、智能封面、视频增强、SDR to HDR
 
 
 ```plaintext
 <Request>
     <MediaWorkflow>
         <Name>demo</Name>
+        <State>Active</State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -45,6 +46,8 @@ Content-Type: application/xml
                 <SmartCover_1581665960539>End</SmartCover_1581665960539>
                 <VoiceSeparate_1581665960551>End</VoiceSeparate_1581665960551>
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -52,6 +55,17 @@ Content-Type: application/xml
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <SmartCover_1581665960539>
@@ -131,18 +145,47 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>
+                    <Type>SDRtoHDR</Type>
+                    <Operation>
+                        <SDRtoHDR>
+                            <HdrMode>HLG</HdrMode>
+                        </SDRtoHDR>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/SDRtoHDR.mp4</Object>
+                        </Output>
+                    </Operation>
+                </SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>
+                    <Type>VideoProcess</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55356fshb18</TemplateId>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/videoProcess.mp4</Object>
+                        </Output>
+                    </Operation>
+                </VideoProcess_1581665960554>
             </Nodes>
         </Topology>
     </MediaWorkflow>
 </Request>
 ```
 
-#### 请求体2：HLS 自适应打包
+#### 请求体2：HLS 自适应多码流
 
-```
+```plaintext
 <Request>
     <MediaWorkflow>
         <Name>demo</Name>
+        <State>Active</State>
         <Topology>
             <Dependencies>
                 <Start>HlsPackConfig_1581665960532</Start>
@@ -157,6 +200,17 @@ Content-Type: application/xml
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <HlsPackConfig_1581665960532>
@@ -193,6 +247,18 @@ Content-Type: application/xml
                 </VideoStream_1581665960537>
                 <HlsPack_1581665960538>
                     <Type>HlsPack</Type>
+                    <Operation>
+                        <HlsPackInfo>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960536</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960537</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                        </HlsPackInfo>
+                    </Operation>
                 </HlsPack_1581665960538>
             </Nodes>
         </Topology>
@@ -203,8 +269,8 @@ Content-Type: application/xml
 具体数据描述如下：
 
 | 节点名称（关键字） | 父节点 | 描述           | 类型      | 是否必选 |
-| ------------------ | ------ | -------------- | --------- | ---- |
-| Request            | 无     | 保存请求的容器 | Container | 是   |
+| ------------------ | ------ | -------------- | --------- | -------- |
+| Request            | 无     | 保存请求的容器 | Container | 是       |
 
 Container 类型 Request 的具体数据描述如下：
 
@@ -215,10 +281,11 @@ Container 类型 Request 的具体数据描述如下：
 
 Container 类型 MediaWorkflow 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                | 描述       | 类型      | 是否必选 | 限制       |
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Name      | Request.MediaWorkflow | 工作流名称 | String    | 是   | 支持中文、英文、数字、—和\_，长度限制128字符 |
-| Topology  | Request.MediaWorkflow | 拓扑信息 | Container    | 是   | 无 |
+| 节点名称（关键字） | 父节点                | 描述       | 类型      | 是否必选 | 限制                                        |
+| ------------------ | --------------------- | ---------- | --------- | -------- | ------------------------------------------- |
+| Name               | Request.MediaWorkflow | 工作流名称 | String    | 是       | 支持中文、英文、数字、—和_，长度限制128字符 |
+| State              | Request.MediaWorkflow | 工作流状态 | String    | 否       | Paused/Active                               |
+| Topology           | Request.MediaWorkflow | 拓扑信息   | Container | 是       | 无                                          |
 
 
 
@@ -226,25 +293,27 @@ Container 类型 Topology 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                         | 描述         | 类型      | 是否必选 | 限制 |
 | ------------------ | ------- | ------| --------- | ---- | ---- |
-| Dependencies      | Request.MediaWorkflow.<br>Topology | 节点依赖关系 | Container    | 是   | 无 |
-| Nodes             | Request.MediaWorkflow.<br>Topology | 节点列表 | Container    | 是   | 无 |
+| Dependencies      | Request.MediaWorkflow.</br>Topology | 节点依赖关系 | Container    | 是   | 无 |
+| Nodes             | Request.MediaWorkflow.</br>Topology | 节点列表 | Container    | 是   | 无 |
 
 Container 类型 Nodes 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                               | 描述         | 类型      | 是否<br>必选 | 限制                                               |
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Start         | Request.MediaWorkflow.Topology.Nodes | 开始节点 | Container    | 是   | 只有唯一一个开始节点 |
-| Animation\_\*\*\* | Request.MediaWorkflow.Topology.Nodes | 动图类型节点 | Container    | 否   | 节点名称以 Animation 为前缀，可能有多个动图节点 |
-| Snapshot\_\*\*\*  | Request.MediaWorkflow.Topology.Nodes | 截图类型节点 | Container    | 否   | 节点名称以 Snapshot 为前缀，可能有多个截图节点|
-| SmartCover\_\*\*\* | Request.MediaWorkflow.Topology.Nodes | 智能封面节点 | Container    | 否   | 节点名称以 SmartCover 为前缀，可能有多个智能封面节点|
-| Transcode\_\*\*\*  | Request.MediaWorkflow.Topology.Nodes | 转码节点 | Container    | 否   | 节点名称以 Transcode 为前缀，可能有多个转码节点|
-| Concat\_\*\*\*  | Request.MediaWorkflow.Topology.Nodes | 音视频拼接节点 | Container    | 否   | 节点名称以 Concat 为前缀，可能有多个音视频拼接节点|
-| VoiceSeparate\_\*\*\*  | Request.MediaWorkflow.Topology.Nodes | 人声节点 | Container    | 否   | 节点名称以 VoiceSeparate 为前缀，可能有多个人声分离节点|
-| VideoMontage\_\*\*\*  | Request.MediaWorkflow.Topology.Nodes | 精彩集锦节点 | Container    | 否   | 节点名称以 VideoMontage 为前缀，可能有多个精彩集锦节点|
-| HlsPackConfig\_\*\*\*| Request.MediaWorkflow.Topology.Nodes | Hls打包配置节点 | Container    | 否   | 节点名称以 HlsPackConfig 为前缀，只能有一个 Hls 打包配置节点。只能在 start 节点之后，后面只能是视频子流节点，可以有多个视频子流节点|
-| VideoStream\_\*\*\*| Request.MediaWorkflow.Topology.Nodes | 视频子流节点 | Container    | 否   | 节点名称以 VideoStream 为前缀，可能有多个视频子流节点 ，只能在 HlsPackConfig 节点之后，后面只能是 HlsPack 节点|
-| HlsPack\_\*\*\*| Request.MediaWorkflow.Topology.Nodes | Hls打包节点 | Container    | 否   | 节点名称以 HlsPack 为前缀，只能有一个 Hls 打包节点 ，只能在视频子流节点之后，后面只能是 End 节点|
-
+| 节点名称（关键字） | 父节点                               | 描述            | 类型      | 是否<br>必选 | 限制                                                         |
+| ------------------ | ------------------------------------ | --------------- | --------- | ------------ | ------------------------------------------------------------ |
+| Start         | Request.MediaWorkflow.</br>Topology.Nodes | 开始节点 | Container    | 是   | 只有唯一一个开始节点 |
+| Animation\_\*\*\* | Request.MediaWorkflow.</br>Topology.Nodes | 动图类型节点 | Container    | 否   | 节点名称以 Animation 为前缀，可能有多个动图节点 |
+| Snapshot\_\*\*\*  | Request.MediaWorkflow.</br>Topology.Nodes | 截图类型节点 | Container    | 否   | 节点名称以 Snapshot 为前缀，可能有多个截图节点|
+| SmartCover\_\*\*\* | Request.MediaWorkflow.</br>Topology.Nodes | 智能封面节点 | Container    | 否   | 节点名称以 SmartCover 为前缀，可能有多个智能封面节点|
+| Transcode\_\*\*\*  | Request.MediaWorkflow.</br>Topology.Nodes | 转码节点 | Container    | 否   | 节点名称以 Transcode 为前缀，可能有多个转码节点|
+| Concat\_\*\*\*  | Request.MediaWorkflow.</br>Topology.Nodes | 音视频拼接节点 | Container    | 否   | 节点名称以 Concat 为前缀，可能有多个音视频拼接节点|
+| VoiceSeparate\_\*\*\*  | Request.MediaWorkflow.</br>Topology.Nodes | 人声节点 | Container    | 否   | 节点名称以 VoiceSeparate 为前缀，可能有多个人声分离节点|
+| VideoMontage\_\*\*\*  | Request.MediaWorkflow.</br>Topology.Nodes | 精彩集锦节点 | Container    | 否   | 节点名称以 VideoMontage 为前缀，可能有多个精彩集锦节点|
+| HlsPackConfig\_\*\*\*| Request.MediaWorkflow.</br>Topology.Nodes | Hls 打包配置节点 | Container    | 否   | 节点名称以 HlsPackConfig 为前缀，只能有一个 Hls 打包配置节点。只能在 start 节点之后，后面只能是视频子流节点，可以有多个视频子流节点|
+| VideoStream\_\*\*\*| Request.MediaWorkflow.</br>Topology.Nodes | 视频子流节点 | Container    | 否   | 节点名称以 VideoStream 为前缀，可能有多个视频子流节点 ，只能在 HlsPackConfig 节点之后，后面只能是 HlsPack 节点|
+| HlsPack\_\*\*\*| Request.MediaWorkflow.</br>Topology.Nodes | Hls 打包节点 | Container    | 否   | 节点名称以 HlsPack 为前缀，只能有一个 Hls 打包节点 ，只能在视频子流节点之后，后面只能是 End 节点|
+| SDRtoHDR\_\*\*\*       | Request.MediaWorkflow.</br>Topology.Nodes | SDRtoHDR 节点    | Container | 否           | 节点名称以 SDRtoHDR 为前缀，可能有多个 SDRtoHDR 节点             |
+| VideoProcess\_\*\*\*   | Request.MediaWorkflow.</br>Topology.Nodes | 视频处理节点    | Container | 否           | 节点名称以 VideoProcess 为前缀，可能有多个视频处理节点         |
+| SCF\_\*\*\*            | Request.MediaWorkflow.</br>Topology.Nodes | SCF 函数节点     | Container | 否           | 节点名称以 SCF 为前缀，可能有多个 SCF 函数节点                   |
 
 Container 类型 Start 的具体数据描述如下：
 
@@ -255,46 +324,69 @@ Container 类型 Start 的具体数据描述如下：
 
 Container 类型 Input 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                                                | 描述        | 类型   | 是否必选 | 限制 |
-| ------------------ | ------- | ------| --------- | ---- | ---- |
+| 节点名称（关键字） | 父节点                                           | 描述                                     | 类型      | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------ | ---------------------------------------- | --------- | -------- | ---- |
 | ObjectPrefix       | Request.MediaWorkflow.<br>Topology.Nodes.Start.Input | Object 前缀 | String | 是       | 无   |
 | QueueId            | Request.MediaWorkflow.<br>Topology.Nodes.Start.Input | 队列 ID     | String | 是       | 无   |
+| NotifyConfig       | Request.MediaWorkflow.<br>Topology.Nodes.Start.Input | 回调信息，如果不设置，则使用队列的回调信息 | Container | 否       | 无   |
+| ExtFilter          | Request.MediaWorkflow.<br>Topology.Nodes.Start.Input | 文件后缀过滤器                           | Container | 否       | 无   |
 
+
+Container 类型 Start.Input.NotifyConfig 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                       | 描述     | 类型   | 是否必选 | 限制                                                         |
+| ------------------ | ------------------------------------------------------------ | -------- | ------ | ---- | ------------------------------------------------------------ |
+| Url                | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.NotifyConfig | 回调地址 | String | 是   | 不能为内网地址                                               |
+| Type               | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.NotifyConfig | 回调类型 | String | 是   |  Url:Url回调                                         |
+| Event              | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.NotifyConfig | 回调信息 | String | 是   | 1. TaskFinish：任务完成 </br> 2. WorkflowFinish：工作流完成 </br> 3. 支持多种事件，以逗号分隔 |
+
+
+
+Container 类型 Start.Input.ExtFilter 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                     | 描述                | 类型   | 是否必选 | 默认值 | 限制                                                         |
+| ------------------ | ---------------------------------------------------------- | ------------------- | ------ | ---- | ------ | ------------------------------------------------------------ |
+| State              | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 开关                | String | 否   | Off    | On/Off                                                       |
+| Video              | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 打开视频后缀限制    | String | 否   | false  | false/true                                                   |
+| Audio              | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 打开音频后缀限制    | String | 否   | false  | false/true                                                   |
+| ContentType        | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 打开 ContentType 限制 | String | 否   | false  | false/true                                                   |
+| Custom             | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 打开自定义后缀限制  | String | 否   | false  | false/true                                                   |
+| CustomExts         | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 自定义后缀          | String | 否   | 无     | 1. 多种文件后缀以/分隔，后缀个数不超过10个</br>2. 当 Custom 为 true 时，该参数必填 |
 
 Container 类型 Animation\_\*\*\* 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                                                  | 描述     | 类型      | 是否必选 | 限制         |
-| ------------------ | ------- | ------| --------- | ---- | ---- |
+| 节点名称（关键字） | 父节点                                                     | 描述     | 类型      | 是否必选 | 限制      |
+| ------------------ | ---------------------------------------------------------- | -------- | --------- | -------- | --------- |
 | Type               | Request.MediaWorkflow.<br>Topology.Nodes.Animation\_\*\*\* | 节点类型 | String    | 是       | Animation |
-| Operation          | Request.MediaWorkflow.<br>Topology.Nodes.Animation\_\*\*\* | 操作规则 | Container | 是       | 无           |
+| Operation          | Request.MediaWorkflow.<br>Topology.Nodes.Animation\_\*\*\* | 操作规则 | Container | 是       | 无        |
 
 Container 类型 Animation\_\*\*\*.Operation 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| TemplateId   | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation | 模板ID  | String    | 是   | 无 |
-| Output       | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation | 输出地址 | Container | 是   | 无 |
+| 节点名称（关键字） | 父节点                                                       | 描述     | 类型      | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------------ | -------- | --------- | ---- | ---- |
+| TemplateId         | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation | 模板 ID   | String    | 是   | 无   |
+| Output             | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation | 输出地址 | Container | 是   | 无   |
 
 
 Container 类型 Output 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Region             | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是           | 无                                                     |
-| Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是           | 无                                                     |
-| Object   | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation.Output | 结果文件名称  | String    | 是   |  1、bcd/${RunId}/bcd.gif <br/> 2、bcd/${RunId}/bcd.webp <br/> |
+| 节点名称（关键字） | 父节点                                                       | 描述         | 类型   | 是否必选 | 限制                                                         |
+| ------------------ | ------------------------------------------------------------ | ------------ | ------ | ---- | ------------------------------------------------------------ |
+| Region             | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是   | 无                                                           |
+| Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是   | 无                                                           |
+| Object             | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation.Output | 结果文件名称 | String | 是   | 1、bcd/${RunId}/bcd.gif <br/> 2、bcd/${RunId}/bcd.webp <br/> |
 
 Container 类型 Snapshot\_\*\*\* 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                                                    | 描述     | 类型      | 是否必选 | 限制         |
-| ------------------ | ------- | ------| --------- | ---- | ---- |
+| 节点名称（关键字） | 父节点                                                       | 描述     | 类型      | 是否必选 | 限制     |
+| ------------------ | ------------------------------------------------------------ | -------- | --------- | -------- | -------- |
 | Type               | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*\*\*\* | 节点类型 | String    | 是       | Snapshot |
-| Operation          | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*\*\*\* | 操作规则 | Container | 是       | 无           |
+| Operation          | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*\*\*\* | 操作规则 | Container | 是       | 无       |
 
 Container 类型 Operation 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                                                       | 描述     | 类型      | 是否必选 | 限制 |
-| ------------------ | ------- | ------| --------- | ---- | ---- |
+| ------------------ | ------------------------------------------------------------ | -------- | --------- | -------- | ---- |
 | TemplateId         | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation | 模板 ID  | String    | 是       | 无   |
 | Output             | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation | 输出地址 | Container | 是       | 无   |
 
@@ -308,10 +400,10 @@ Container 类型 Output 的具体数据描述如下：
 
 Container 类型 SmartCover_*** 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                                                   | 描述     | 类型      | 是否必选 | 限制         |
-| ------------------ | -------------------------------------------------------- | -------- | --------- | -------- | ------------ |
+| 节点名称（关键字） | 父节点                                                  | 描述     | 类型      | 是否必选 | 限制       |
+| ------------------ | ------------------------------------------------------- | -------- | --------- | -------- | ---------- |
 | Type               | Request.MediaWorkflow.<br>Topology.Nodes.SmartCover_*** | 节点类型 | String    | 是       | SmartCover |
-| Operation          | Request.MediaWorkflow.<br>Topology.Nodes.SmartCover_*** | 操作规则 | Container | 是       | 无           |
+| Operation          | Request.MediaWorkflow.<br>Topology.Nodes.SmartCover_*** | 操作规则 | Container | 是       | 无         |
 
 Container 类型 SmartCover_***.Operation 的具体数据描述如下：
 
@@ -322,165 +414,264 @@ Container 类型 SmartCover_***.Operation 的具体数据描述如下：
 Container 类型 SmartCover_***.Output 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                                                       | 描述         | 类型   | 是否必选 | 限制                            |
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Region   | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation.Output | 存储桶的地域  | String    | 是   | 无 |
-| Bucket   | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation.Output | 存储桶的名称  | String    | 是   | 无 |
-| Object   | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation.Output | 结果文件名称  | String    | 是   |  必须包含 ${Number} ${RunId}参数 |
+| ------------------ | ------------------------------------------------------------ | ------------ | ------ | -------- | ------------------------------- |
+| Region             | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation.Output | 存储桶的地域 | String | 是       | 无                              |
+| Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation.Output | 存储桶的名称 | String | 是       | 无                              |
+| Object             | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation.Output | 结果文件名称 | String | 是       | 必须包含 ${Number} ${RunId}参数 |
 
 Container 类型 Transcode_*** 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Type       | Request.MediaWorkflow.<br>Topology.Nodes.Transcode_*** | 节点类型 | String    | 是   | Transcode |
-| Operation  | Request.MediaWorkflow.<br>Topology.Nodes.Transcode_*** | 操作规则 | Container | 是   | 无 |
+| 节点名称（关键字） | 父节点                                                 | 描述     | 类型      | 是否必选 | 限制      |
+| ------------------ | ------------------------------------------------------ | -------- | --------- | -------- | --------- |
+| Type               | Request.MediaWorkflow.<br>Topology.Nodes.Transcode_*** | 节点类型 | String    | 是       | Transcode |
+| Operation          | Request.MediaWorkflow.<br>Topology.Nodes.Transcode_*** | 操作规则 | Container | 是       | 无        |
 
 Container 类型 Transcode_***.Operation 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| TemplateId   | Request.MediaWorkflow.Topology.</br>Nodes.Transcode\_\*\*\*.Operation | 转码模板 ID  | String    | 是   | 无 |
-| WatermarkTemplateId   | Request.MediaWorkflow.Topology.</br>Nodes.Transcode\_\*\*\*.Operation | 水印模板 ID  | String    | 是   | 可以使用多个水印模板 |
+| 节点名称（关键字）  | 父节点                                                       | 描述         | 类型      | 是否必选 | 限制                           |
+| ------------------- | ------------------------------------------------------------ | ------------ | --------- | -------- | ------------------------------ |
+| TemplateId          | Request.MediaWorkflow.Topology.</br>Nodes.Transcode_***.Operation | 转码模板ID   | String    | 是       | 无                             |
+| WatermarkTemplateId | Request.MediaWorkflow.Topology.</br>Nodes.Transcode_***.Operation | 水印模板ID   | String    | 否       | 可以使用多个水印模板，不超过3个 |
 | RemoveWatermark       | Request.MediaWorkflow.Topology.</br>Nodes.Transcode\_\*\*\*.Operation | 去除水印参数        | Container | 否   |无|
 | Output       | Request.MediaWorkflow.Topology.</br>Nodes.Transcode\_\*\*\*.Operation | 输出地址 | Container | 是   | 无 |
 
 Container 类型 Transcode\_\*\*\*.RemoveWatermark 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                      | 描述                                   | 类型      | 是否必选 |  限制  |
-| ------------------ | :-------------------------- | -------------------------------------- | --------- | ---- |----|
-| Dx                 | Request.MediaWorkflow.Topology.Nodes.<br>Transcode\_\*\*\*.Operation.RemoveWatermark|  距离左上角原点 x 偏移   | string | 是   |  1. 值范围：[0, 4096]<br/>2. 单位：px   |
-| Dy                 | Request.MediaWorkflow.Topology.Nodes.<br>Transcode\_\*\*\*.Operation.RemoveWatermark |  距离左上角原点 y 偏移  | string | 是   |    1. 值范围：[0, 4096]<br/>2. 单位：px       |
-| Width              | Request.MediaWorkflow.Topology.Nodes.<br>Transcode\_\*\*\*.Operation.RemoveWatermark |  水印的宽度               | string | 是   |  1. 值范围：(0, 4096]<br/>2. 单位：px  |
-| Height             | Request.MediaWorkflow.Topology.Nodes.<br>Transcode\_\*\*\*.Operation.RemoveWatermark |  水印的高度             | string | 是   | 1. 值范围：(0, 4096]<br/>2. 单位：px     |
+| 节点名称（关键字） | 父节点                                                       | 描述                  | 类型   | 是否必选 | 限制                                 |
+| ------------------ | :----------------------------------------------------------- | --------------------- | ------ | -------- | ------------------------------------ |
+| Dx                 | Request.MediaWorkflow.Topology.Nodes.<br>Transcode\_\*\*\*.Operation.RemoveWatermark | 距离左上角原点 x 偏移 | string | 是       | 1. 值范围：[0, 4096]<br/>2. 单位：px |
+| Dy                 | Request.MediaWorkflow.Topology.Nodes.<br>Transcode\_\*\*\*.Operation.RemoveWatermark | 距离左上角原点 y 偏移 | string | 是       | 1. 值范围：[0, 4096]<br/>2. 单位：px |
+| Width              | Request.MediaWorkflow.Topology.Nodes.<br>Transcode\_\*\*\*.Operation.RemoveWatermark | 水印的宽度            | string | 是       | 1. 值范围：(0, 4096]<br/>2. 单位：px |
+| Height             | Request.MediaWorkflow.Topology.Nodes.<br>Transcode\_\*\*\*.Operation.RemoveWatermark | 水印的高度            | string | 是       | 1. 值范围：(0, 4096]<br/>2. 单位：px |
 
 Container 类型 Transcode\_\*\*\*.Output 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制  |
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Region   | Request.MediaWorkflow.Topology.Nodes.<br>Transcode\_\*\*\*.Operation.Output | 存储桶的地域  | String    | 是   | 无 |
-| Bucket   | Request.MediaWorkflow.Topology.Nodes.<br>Transcode\_\*\*\*.Operation.Output | 存储桶的名称  | String    | 是   | 无 |
-| Object   | Request.MediaWorkflow.Topology.Nodes.<br>Transcode\_\*\*\*.Operation.Output | 结果文件名称  | String    | 是   | 无 |
+| 节点名称（关键字） | 父节点                                                       | 描述         | 类型   | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------------ | ------------ | ------ | -------- | ---- |
+| Region             | Request.MediaWorkflow.Topology.Nodes.<br>Transcode\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是       | 无   |
+| Bucket             | Request.MediaWorkflow.Topology.Nodes.<br>Transcode\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是       | 无   |
+| Object             | Request.MediaWorkflow.Topology.Nodes.<br>Transcode\_\*\*\*.Operation.Output | 结果文件名称 | String | 是       | 无   |
 
 Container 类型 Concat\_\*\*\* 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Type       | Request.MediaWorkflow.Topology.<br>Nodes.Concat\_\*\*\* | 节点类型 | String    | 是   | Concat |
-| Operation  | Request.MediaWorkflow.Topology.<br>Nodes.Concat\_\*\*\* | 操作规则 | Container | 是   | 无 |
+| 节点名称（关键字） | 父节点                                                  | 描述     | 类型      | 是否必选 | 限制   |
+| ------------------ | ------------------------------------------------------- | -------- | --------- | -------- | ------ |
+| Type               | Request.MediaWorkflow.Topology.<br>Nodes.Concat\_\*\*\* | 节点类型 | String    | 是       | Concat |
+| Operation          | Request.MediaWorkflow.Topology.<br>Nodes.Concat\_\*\*\* | 操作规则 | Container | 是       | 无     |
 
 Container 类型 Concat\_\*\*\*.Operation 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| TemplateId   | Request.MediaWorkflow.Topology.Nodes.Concat\_\*\*\*.Operation | 模板 ID  | String    | 是   | 无 |
-| Output       | Request.MediaWorkflow.Topology.Nodes.Concat\_\*\*\*.Operation | 输出地址 | Container | 是   | 无 |
+| 节点名称（关键字） | 父节点                                                       | 描述     | 类型      | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------------ | -------- | --------- | -------- | ---- |
+| TemplateId         | Request.MediaWorkflow.Topology.</br>Nodes.Concat\_\*\*\*.Operation | 模板 ID  | String    | 是       | 无   |
+| Output             | Request.MediaWorkflow.Topology.</br>Nodes.Concat\_\*\*\*.Operation | 输出地址 | Container | 是       | 无   |
 
 Container 类型 VoiceSeparate\_\*\*\* 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Type       | Request.MediaWorkflow.Topology.Nodes.VoiceSeparate\_\*\*\* | 节点类型 | String    | 是   | VoiceSeparate |
-| Operation  | Request.MediaWorkflow.Topology.Nodes.VoiceSeparate\_\*\*\* | 操作规则 | Container | 是   | 无 |
+| 节点名称（关键字） | 父节点                                                     | 描述     | 类型      | 是否必选 | 限制          |
+| ------------------ | ---------------------------------------------------------- | -------- | --------- | -------- | ------------- |
+| Type               | Request.MediaWorkflow.Topology.</br>Nodes.VoiceSeparate\_\*\*\* | 节点类型 | String    | 是       | VoiceSeparate |
+| Operation          | Request.MediaWorkflow.Topology.</br>Nodes.VoiceSeparate\_\*\*\* | 操作规则 | Container | 是       | 无            |
 
 Container 类型 VoiceSeparate\_\*\*\*.Operation 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| TemplateId   | Request.MediaWorkflow.Topology.Nodes.VoiceSeparate\_\*\*\*.Operation | 模板 ID  | String    | 是   | 无 |
-| Output       | Request.MediaWorkflow.Topology.Nodes.VoiceSeparate\_\*\*\*.Operation | 输出地址 | Container | 是   | 无 |
+| 节点名称（关键字） | 父节点                                                       | 描述     | 类型      | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------------ | -------- | --------- | -------- | ---- |
+| TemplateId         | Request.MediaWorkflow.Topology.</br>Nodes.VoiceSeparate\_\*\*\*.Operation | 模板 ID  | String    | 是       | 无   |
+| Output             | Request.MediaWorkflow.Topology.</br>Nodes.VoiceSeparate\_\*\*\*.Operation | 输出地址 | Container | 是       | 无   |
 
 Container 类型 VoiceSeparate\_\*\*\*.Output 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Region   | Request.MediaWorkflow.Topology.Nodes.VoiceSeparate\_\*\*\*.Operation.Output | 存储桶的地域  | String    | 是   | 无 |
-| Bucket   | Request.MediaWorkflow.Topology.Nodes.VoiceSeparate\_\*\*\*.Operation.Output | 存储桶的名称  | String    | 是   | 无 |
-| Object   | Request.MediaWorkflow.Topology.Nodes.VoiceSeparate\_\*\*\*.Operation.Output | 背景声结果文件名称| String    | 是   | 无 |
-| AuObject | Request.MediaWorkflow.Topology.Nodes.VoiceSeparate\_\*\*\*.Operation.Output | 人声结果文件名称  | String    | 是   | 无 |
+| 节点名称（关键字） | 父节点                                                       | 描述               | 类型   | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------------ | ------------------ | ------ | -------- | ---- |
+| Region             | Request.MediaWorkflow.Topology.</br>Nodes.VoiceSeparate\_\*\*\*.Operation.Output | 存储桶的地域       | String | 是       | 无   |
+| Bucket             | Request.MediaWorkflow.Topology.</br>Nodes.VoiceSeparate\_\*\*\*.Operation.Output | 存储桶的名称       | String | 是       | 无   |
+| Object             | Request.MediaWorkflow.Topology.</br>Nodes.VoiceSeparate\_\*\*\*.Operation.Output | 背景声结果文件名称 | String | 是       | 无   |
+| AuObject           | Request.MediaWorkflow.Topology.</br>Nodes.VoiceSeparate\_\*\*\*.Operation.Output | 人声结果文件名称   | String | 是       | 无   |
 
 
 Container 类型 VideoMontage\_\*\*\* 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Type       | Request.MediaWorkflow.Topology.Nodes.VideoMontage\_\*\*\* | 节点类型 | String    | 是   | VideoMontage |
-| Operation  | Request.MediaWorkflow.Topology.Nodes.VideoMontage\_\*\*\* | 操作规则 | Container | 是   | 无 |
+| 节点名称（关键字） | 父节点                                                    | 描述     | 类型      | 是否必选 | 限制         |
+| ------------------ | --------------------------------------------------------- | -------- | --------- | -------- | ------------ |
+| Type               | Request.MediaWorkflow.Topology.</br>Nodes.VideoMontage\_\*\*\* | 节点类型 | String    | 是       | VideoMontage |
+| Operation          | Request.MediaWorkflow.Topology.</br>Nodes.VideoMontage\_\*\*\* | 操作规则 | Container | 是       | 无           |
 
 Container 类型 VideoMontage\_\*\*\*.Operation 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| TemplateId   | Request.MediaWorkflow.Topology.Nodes.VideoMontage\_\*\*\*.Operation | 模板 ID  | String    | 是   | 无 |
-| Output       | Request.MediaWorkflow.Topology.Nodes.VideoMontage\_\*\*\*.Operation | 输出地址 | Container | 是   | 无 |
+| 节点名称（关键字） | 父节点                                                       | 描述     | 类型      | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------------ | -------- | --------- | -------- | ---- |
+| TemplateId         | Request.MediaWorkflow.Topology.</br>Nodes.VideoMontage\_\*\*\*.Operation | 模板 ID  | String    | 是       | 无   |
+| Output             | Request.MediaWorkflow.Topology.</br>Nodes.VideoMontage\_\*\*\*.Operation | 输出地址 | Container | 是       | 无   |
 
 Container 类型 VideoMontage\_\*\*\*.Output 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Region   | Request.MediaWorkflow.Topology.Nodes.VideoMontage\_\*\*\*.Operation.Output | 存储桶的地域  | String    | 是   | 无 |
-| Bucket   | Request.MediaWorkflow.Topology.Nodes.VideoMontage\_\*\*\*.Operation.Output | 存储桶的名称  | String    | 是   | 无 |
-| Object   | Request.MediaWorkflow.Topology.Nodes.VideoMontage\_\*\*\*.Operation.Output | 结果文件名称  | String    | 是   | 无 |
+| 节点名称（关键字） | 父节点                                                       | 描述         | 类型   | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------------ | ------------ | ------ | -------- | ---- |
+| Region             | Request.MediaWorkflow.Topology.</br>Nodes.VideoMontage\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是       | 无   |
+| Bucket             | Request.MediaWorkflow.Topology.</br>Nodes.VideoMontage\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是       | 无   |
+| Object             | Request.MediaWorkflow.Topology.</br>Nodes.VideoMontage\_\*\*\*.Operation.Output | 结果文件名称 | String | 是       | 无   |
 
 Container 类型 HlsPackConfig\_\*\*\* 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Type       | Request.MediaWorkflow.Topology.Nodes.HlsPackConfig\_\*\*\* | 节点类型 | String    | 是   | HlsPackConfig |
-| Operation  | Request.MediaWorkflow.Topology.Nodes.HlsPackConfig\_\*\*\* | 操作规则 | Container | 是   | 无 |
+| 节点名称（关键字） | 父节点                                                     | 描述     | 类型      | 是否必选 | 限制          |
+| ------------------ | ---------------------------------------------------------- | -------- | --------- | -------- | ------------- |
+| Type               | Request.MediaWorkflow.Topology.</br>Nodes.HlsPackConfig\_\*\*\* | 节点类型 | String    | 是       | HlsPackConfig |
+| Operation          | Request.MediaWorkflow.Topology.</br>Nodes.HlsPackConfig\_\*\*\* | 操作规则 | Container | 是       | 无            |
 
 Container 类型 HlsPackConfig\_\*\*\*.Operation 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Output       | Request.MediaWorkflow.Topology.Nodes.HlsPackConfig\_\*\*\*.Operation | 输出地址 | Container | 是   | 无 |
+| 节点名称（关键字） | 父节点                                                       | 描述     | 类型      | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------------ | -------- | --------- | -------- | ---- |
+| Output             | Request.MediaWorkflow.Topology.</br>Nodes.HlsPackConfig\_\*\*\*.Operation | 输出地址 | Container | 是       | 无   |
 
 Container 类型 HlsPackConfig\_\*\*\*.Operation.Output 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Region   | Request.MediaWorkflow.Topology.Nodes.HlsPackConfig\_\*\*\*.Operation.Output | 存储桶的地域  | String    | 是   | 无 |
-| Bucket   | Request.MediaWorkflow.Topology.Nodes.HlsPackConfig\_\*\*\*.Operation.Output | 存储桶的名称  | String    | 是   | 无 |
-| Object   | Request.MediaWorkflow.Topology.Nodes.HlsPackConfig\_\*\*\*.Operation.Output | 结果文件名称  | String    | 是   | 无 |
+| 节点名称（关键字） | 父节点                                                       | 描述         | 类型   | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------------ | ------------ | ------ | -------- | ---- |
+| Region             | Request.MediaWorkflow.Topology.</br>Nodes.HlsPackConfig\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是       | 无   |
+| Bucket             | Request.MediaWorkflow.Topology.</br>Nodes.HlsPackConfig\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是       | 无   |
+| Object             | Request.MediaWorkflow.Topology.</br>Nodes.HlsPackConfig\_\*\*\*.Operation.Output | 结果文件名称 | String | 是       | 无   |
 
 
 Container 类型 VideoStream\_\*\*\* 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
 | ------------------ | ------- | ------| --------- | ---- | ---- |
-| Type       | Request.MediaWorkflow.Topology.Nodes.VideoStream\_\*\*\* | 节点类型 | String    | 是   | VideoStream |
-| Operation  | Request.MediaWorkflow.Topology.Nodes.VideoStream\_\*\*\* | 操作规则 | Container | 是   | 无 |
+| Type       | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\* | 节点类型 | String    | 是   | VideoStream |
+| Operation  | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\* | 操作规则 | Container | 是   | 无 |
 
 Container 类型 VideoStream\_\*\*\*.Operation 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
 | ------------------ | ------- | ------| --------- | ---- | ---- |
-| TemplateId   | Request.MediaWorkflow.Topology.Nodes.VideoStream\_\*\*\*.Operation | 模板 ID  | String    | 是   | 无 |
-| Output       | Request.MediaWorkflow.Topology.Nodes.VideoStream\_\*\*\*.Operation | 输出地址 | Container | 是   | 无 |
-| WatermarkTemplateId   | Request.MediaWorkflow.Topology.Nodes.VideoStream\_\*\*\*.Operation | 水印模板 ID  | String    | 是   | 可以使用多个水印模板 |
-| RemoveWatermark       | Request.MediaWorkflow.Topology.Nodes.VideoStream\_\*\*\*.Operation | 去除水印参数        | Container | 否   |无|
+| TemplateId   | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\*.Operation | 模板 ID  | String    | 是   | 无 |
+| Output       | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\*.Operation | 输出地址 | Container | 是   | 无 |
+| WatermarkTemplateId   | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\*.Operation | 水印模板 ID  | String    | 是   | 可以使用多个水印模板 |
+| RemoveWatermark       | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\*.Operation | 去除水印参数        | Container | 否   |无|
 
 Container 类型 VideoStream\_\*\*\*.Output 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Region   | Request.MediaWorkflow.Topology.Nodes.VideoMontage\_\*\*\*.Operation.Output | 存储桶的地域  | String    | 是   | 无 |
-| Bucket   | Request.MediaWorkflow.Topology.Nodes.VideoMontage\_\*\*\*.Operation.Output | 存储桶的名称  | String    | 是   | 无 |
-| Object   | Request.MediaWorkflow.Topology.Nodes.VideoMontage\_\*\*\*.Operation.Output | 结果文件名称  | String    | 是   | 无 |
+| 节点名称（关键字） | 父节点                                                       | 描述         | 类型   | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------------ | ------------ | ------ | -------- | ---- |
+| Region             | Request.MediaWorkflow.Topology.</br>Nodes.VideoMontage\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是       | 无   |
+| Bucket             | Request.MediaWorkflow.Topology.</br>Nodes.VideoMontage\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是       | 无   |
+| Object             | Request.MediaWorkflow.Topology.</br>Nodes.VideoMontage\_\*\*\*.Operation.Output | 结果文件名称 | String | 是       | 无   |
 
 Container 类型 VideoStream\_\*\*\*.RemoveWatermark 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                      | 描述                                   | 类型      | 是否必选 | 限制|
-| ------------------ | :-------------------------- | -------------------------------------- | --------- | ---- | ---- |
-| Dx                 | Request.MediaWorkflow.Topology.Nodes.VideoStream\_\*\*\*.Operation.RemoveWatermark|  距离左上角原点 x 偏移   | string | 是   | 1. 值范围：[0, 4096]<br/>2. 单位：px |
-| Dy                 | Request.MediaWorkflow.Topology.Nodes.VideoStream\_\*\*\*.Operation.RemoveWatermark |  距离左上角原点 y 偏移  | string | 是   | 1. 值范围：[0, 4096]<br/>2. 单位：px |
-| Width              | Request.MediaWorkflow.Topology.Nodes.VideoStream\_\*\*\*.Operation.RemoveWatermark |  宽                | string | 是   | 1. 值范围：(0, 4096]<br/>2. 单位：px |
-| Height             | Request.MediaWorkflow.Topology.Nodes.VideoStream\_\*\*\*.Operation.RemoveWatermark |  高                | string | 是   | 1. 值范围：(0, 4096]<br/>2. 单位：px |
+| 节点名称（关键字） | 父节点                                                       | 描述                  | 类型   | 是否必选 | 限制                                 |
+| ------------------ | :----------------------------------------------------------- | --------------------- | ------ | -------- | ------------------------------------ |
+| Dx                 | Request.MediaWorkflow.Topology.Nodes.</br>VideoStream\_\*\*\*.Operation.RemoveWatermark | 距离左上角原点 x 偏移 | string | 是       | 1. 值范围：[0, 4096]<br/>2. 单位：px |
+| Dy                 | Request.MediaWorkflow.Topology.Nodes.</br>VideoStream\_\*\*\*.Operation.RemoveWatermark | 距离左上角原点 y 偏移 | string | 是       | 1. 值范围：[0, 4096]<br/>2. 单位：px |
+| Width              | Request.MediaWorkflow.Topology.Nodes.</br>VideoStream\_\*\*\*.Operation.RemoveWatermark | 宽                    | string | 是       | 1. 值范围：(0, 4096]<br/>2. 单位：px |
+| Height             | Request.MediaWorkflow.Topology.Nodes.</br>VideoStream\_\*\*\*.Operation.RemoveWatermark | 高                    | string | 是       | 1. 值范围：(0, 4096]<br/>2. 单位：px |
 
 
 Container 类型 HlsPack\_\*\*\* 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述       | 类型      | 是否必选 | 限制|
-| ------------------ | ------- | ------| --------- | ---- | ---- |
-| Type       | Request.MediaWorkflow.Topology.Nodes.HlsPack\_\*\*\* | 节点类型 | String    | 是   | HlsPack |
+| 节点名称（关键字） | 父节点                                           | 描述     | 类型      | 是否必选 | 限制    |
+| ------------------ | ------------------------------------------------ | -------- | --------- | -------- | ------- |
+| Type       | Request.MediaWorkflow.Topology.</br>Nodes.HlsPack\_\*\*\* | 节点类型 | String    | 是   | HlsPack |
+| Operation          | Request.MediaWorkflow.</br>Topology.Nodes.HlsPack\_\*\*\* | 操作规则 | Container | 是       | 无      |
+
+Container 类型 HlsPack\_\*\*\*.Operation 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                     | 描述     | 类型      | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | --------- | ---- | ---- |
+| HlsPackInfo        | Request.MediaWorkflow.Topology.</br>Nodes.HlsPack\_\*\*\*.Operation | 打包规则 | Container | 否   | 无   |
+
+Container 类型 HlsPack\_\*\*\*.Operation.HlsPackInfo 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                       | 描述         | 类型      | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------------ | ------------ | --------- | ---- | ---- |
+| VideoStreamConfig  | Request.MediaWorkflow.Topology.</br>Nodes.HlsPack\_\*\*\*.Operation.HlsPackInfo | 视频子流配置 | Container | 否   | 无   |
+
+Container 类型 HlsPack\_\*\*\*.Operation.HlsPackInfo.VideoStreamConfig 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                       | 描述                                                      | 类型      | 是否必选 | 限制                     |
+| ------------------ | ------------------------------------------------------------ | --------------------------------------------------------- | --------- | ---- | ------------------------ |
+| VideoStreamName    | Request.MediaWorkflow.Topology.Nodes.</br>HlsPack\_\*\*\*.Operation.HlsPackInfo.VideoStreamConfig | 视频子流名称                                              | Container | 是   | 必须和存在的视频节点对应 |
+| BandWidth          | Request.MediaWorkflow.Topology.Nodes.</br>HlsPack\_\*\*\*.Operation.HlsPackInfo.VideoStreamConfig | 视频子流带宽限制，单位b/s，范围[0, 2000000000]，0表示不限制 | Container | 否   | 大于等于0，默认值是0     |
+
+
+Container 类型 SDRtoHDR\_\*\*\* 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                            | 描述     | 类型      | 是否必选 | 限制     |
+| ------------------ | ------------------------------------------------- | -------- | --------- | ---- | -------- |
+| Type               | Request.MediaWorkflow.Topology.</br>Nodes.SDRtoHDR\_\*\*\* | 节点类型 | Container | 是   | SDRtoHDR |
+| Operation          | Request.MediaWorkflow.Topology.</br>Nodes.SDRtoHDR\_\*\*\* | 操作规则 | Container | 是   | 无       |
+
+Container 类型 SDRtoHDR\_\*\*\*.Operation 的具体数据描述如下：
+
+| 节点名称（关键字）  | 父节点                                                      | 描述         | 类型      | 是否必选 | 限制                           |
+| ------------------- | ----------------------------------------------------------- | ------------ | --------- | ---- | ------------------------------ |
+| SDRtoHDR            | Request.MediaWorkflow.Topology.</br>Nodes.SDRtoHDR\_\*\*\*.Operation | SDRtoHDR 配置 | Container | 是   | 无                             |
+| TranscodeTemplateId | Request.MediaWorkflow.Topology.</br>Nodes.SDRtoHDR\_\*\*\*.Operation | 转码模板 ID   | String    | 是   | 无                             |
+| WatermarkTemplateId | Request.MediaWorkflow.Topology.</br>Nodes.SDRtoHDR\_\*\*\*.Operation | 水印模板 ID   | String    | 否   | 可以使用多个水印模板,不超过3个 |
+| Output              | Request.MediaWorkflow.Topology.</br>Nodes.SDRtoHDR\_\*\*\*.Operation | 输出地址     | Container | 是   | 无                             |
+
+Container 类型 SDRtoHDR\_\*\*\*.SDRtoHDR 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                       | 描述    | 类型   | 是否必选 | 限制                |
+| ------------------ | ------------------------------------------------------------ | ------- | ------ | ---- | ------------------- |
+| HdrMode            | Request.MediaWorkflow.Topology.</br>Nodes.SDRtoHDR\_\*\*\*.Operation.SDRtoHDR | HDR 标准 | String | 是   | 1. HLG<br/>2. HDR10 |
+
+Container 类型 SDRtoHDR\_\*\*\*.Output 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                       | 描述         | 类型   | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------------ | ------------ | ------ | ---- | ---- |
+| Region             | Request.MediaWorkflow.Topology.</br>Nodes.SDRtoHDR\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是   | 无   |
+| Bucket             | Request.MediaWorkflow.Topology.</br>Nodes.SDRtoHDR\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是   | 无   |
+| Object             | Request.MediaWorkflow.Topology.</br>Nodes.SDRtoHDR\_\*\*\*.Operation.Output | 结果文件名称 | String | 是   | 无   |
+
+
+
+Container 类型 VideoProcess\_\*\*\* 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                | 描述     | 类型      | 是否必选 | 限制         |
+| ------------------ | ----------------------------------------------------- | -------- | --------- | ---- | ------------ |
+| Type               | Request.MediaWorkflow.Topology.</br>Nodes.VideoProcess\_\*\*\* | 节点类型 | String    | 是   | VideoProcess |
+| Operation          | Request.MediaWorkflow.Topology.</br>Nodes.VideoProcess\_\*\*\* | 操作规则 | Container | 是   | 无           |
+
+Container 类型 VideoProcess\_\*\*\*.Operation 的具体数据描述如下：
+
+| 节点名称（关键字）  | 父节点                                                       | 描述       | 类型      | 是否必选 | 限制                           |
+| ------------------- | ------------------------------------------------------------ | ---------- | --------- | ---- | ------------------------------ |
+| TemplateId          | Request.MediaWorkflow.Topology.</br>Nodes.VideoProcess\_\*\*\*.Operation | 模板 ID     | String    | 是   | 无                             |
+| TranscodeTemplateId | Request.MediaWorkflow.Topology.</br>Nodes.VideoProcess\_\*\*\*.Operation | 转码模板 ID | String    | 是   | 无                             |
+| WatermarkTemplateId | Request.MediaWorkflow.Topology.</br>Nodes.VideoProcess\_\*\*\*.Operation | 水印模板 ID | String    | 否   | 可以使用多个水印模板，不超过3个 |
+| Output              | Request.MediaWorkflow.Topology.</br>Nodes.VideoProcess\_\*\*\*.Operation | 输出地址   | Container | 是   | 无                             |
+
+Container 类型 VideoProcess\_\*\*\*.Operation.Output 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                       | 描述         | 类型   | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------------ | ------------ | ------ | ---- | ---- |
+| Region             | Request.MediaWorkflow.Topology.</br>Nodes.VideoProcess\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是   | 无   |
+| Bucket             | Request.MediaWorkflow.Topology.</br>Nodes.VideoProcess\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是   | 无   |
+| Object             | Request.MediaWorkflow.Topology.</br>Nodes.VideoProcess\_\*\*\*.Operation.Output | 结果文件名称 | String | 是   | 无   |
+
+Container 类型 SCF\_\*\*\* 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                       | 描述     | 类型      | 是否必选 | 限制 |
+| ------------------ | -------------------------------------------- | -------- | --------- | ---- | ---- |
+| Type               | Request.MediaWorkflow.Topology.</br>Nodes.SCF\_\*\*\* | 节点类型 | String    | 是   | SCF  |
+| Operation          | Request.MediaWorkflow.Topology.</br>Nodes.SCF\_\*\*\* | 操作规则 | Container | 是   | 无   |
+
+Container 类型 SCF\_\*\*\*.Operation 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                 | 描述        | 类型      | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------ | ----------- | --------- | ---- | ---- |
+| SCF                | Request.MediaWorkflow.Topology.</br>Nodes.SCF\_\*\*\*.Operation | SCF 函数信息 | Container | 是   | 无   |
+
+Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                     | 描述     | 类型   | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | ------ | ---- | ---- |
+| Region             | Request.MediaWorkflow.Topology.</br>Nodes.SCF\_\*\*\*.Operation.SCF | 函数地域 | String | 是   | 无   |
+| FunctionName       | Request.MediaWorkflow.Topology.</br>Nodes.SCF\_\*\*\*.Operation.SCF | 函数名称 | String | 是   | 无   |
+| Namespace          | Request.MediaWorkflow.Topology.</br>Nodes.SCF\_\*\*\*.Operation.SCF | 命名空间 | String | 否   | 无   |
+| Alias              | Request.MediaWorkflow.Topology.</br>Nodes.SCF\_\*\*\*.Operation.SCF | 函数别名 | String | 否   | 无   |
 
 ## 响应
 
@@ -492,19 +683,18 @@ Container 类型 HlsPack\_\*\*\* 的具体数据描述如下：
 
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-#### 响应体1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、音视频拼接、智能封面
+#### 响应体1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、音视频拼接、智能封面、视频增强、SDR to HDR
 
 
 ```plaintext
 <Response>
     <MediaWorkflow>
         <Name>demo</Name>
-        <BucketId></BucketId>
+        <State>Active</State>
         <WorkflowId></WorkflowId>
-        <State></State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -512,6 +702,8 @@ Container 类型 HlsPack\_\*\*\* 的具体数据描述如下：
                 <SmartCover_1581665960539>End</SmartCover_1581665960539>
                 <VoiceSeparate_1581665960551>End</VoiceSeparate_1581665960551>
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -519,6 +711,17 @@ Container 类型 HlsPack\_\*\*\* 的具体数据描述如下：
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <SmartCover_1581665960539>
@@ -598,8 +801,37 @@ Container 类型 HlsPack\_\*\*\* 的具体数据描述如下：
                         </Output>
                     </Operation>
                 </VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>
+                    <Type>SDRtoHDR</Type>
+                    <Operation>
+                        <SDRtoHDR>
+                            <HdrMode>HLG</HdrMode>
+                        </SDRtoHDR>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/SDRtoHDR.mp4</Object>
+                        </Output>
+                    </Operation>
+                </SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>
+                    <Type>VideoProcess</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55356fshb18</TemplateId>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/videoProcess.mp4</Object>
+                        </Output>
+                    </Operation>
+                </VideoProcess_1581665960554>
             </Nodes>
         </Topology>
+        <BucketId></BucketId>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>
     </MediaWorkflow>
@@ -611,10 +843,10 @@ Container 类型 HlsPack\_\*\*\* 的具体数据描述如下：
 ```
 <Response>
     <MediaWorkflow>
-        <BucketId></BucketId>
-        <WorkflowId></WorkflowId>
-        <State></State>
         <Name>demo</Name>
+        <State>Active</State>
+        <WorkflowId></WorkflowId>
+        <BucketId></BucketId>
         <Topology>
             <Dependencies>
                 <Start>HlsPackConfig_1581665960532</Start>
@@ -629,6 +861,17 @@ Container 类型 HlsPack\_\*\*\* 的具体数据描述如下：
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <HlsPackConfig_1581665960532>
@@ -665,9 +908,22 @@ Container 类型 HlsPack\_\*\*\* 的具体数据描述如下：
                 </VideoStream_1581665960537>
                 <HlsPack_1581665960538>
                     <Type>HlsPack</Type>
+                    <Operation>
+                        <HlsPackInfo>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960536</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960537</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                        </HlsPackInfo>
+                    </Operation>
                 </HlsPack_1581665960538>
             </Nodes>
         </Topology>
+        <BucketId></BucketId>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>
     </MediaWorkflow>
@@ -677,12 +933,29 @@ Container 类型 HlsPack\_\*\*\* 的具体数据描述如下：
 
 具体的数据内容如下：
 
-| 节点名称（关键字） | 父节点 | 描述                                                   | 类型      |
-| :----------------- | :----- | :----------------------------------------------------- | :-------- |
-| Response           | 无     | 保存结果的容器，同 Describe Workflow 中的 Response.MediaWorkflowList | Container |
+| 节点名称（关键字） | 父节点 | 描述           | 类型      |
+| :----------------- | :----- | :------------- | :-------- |
+| Response           | 无     | 保存结果的容器 | Container |
 
+Container 节点 Response 的内容：
 
-### 错误码
+| 节点名称（关键字） | 父节点   | 描述         | 类型      |
+| :----------------- | :------- | :----------- | :-------- |
+| RequestId          | Response | 请求的唯一 ID | String    |
+| MediaWorkflow      | Response | 工作流数组   | Container |
+
+Container节点 MediaWorkflow 的内容：
+
+| 节点名称（关键字） | 父节点                 | 描述                                                        | 类型      |
+| ------------------ | ---------------------- | ----------------------------------------------------------- | --------- |
+| Name               | Response.MediaWorkflow | 工作流名称                                                  | String    |
+| WorkflowId         | Response.MediaWorkflow | 工作流 ID                                                    | String    |
+| State              | Response.MediaWorkflow | 工作流状态                                                  | String    |
+| CreateTime         | Response.MediaWorkflow | 创建时间                                                    | String    |
+| UpdateTime         | Response.MediaWorkflow | 更新时间                                                    | String    |
+| Topology           | Response.MediaWorkflow | 拓扑信息，同 POST Workflow 中的 Request.MediaWorkflow.Topology | Container |
+
+#### 错误码
 
 该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
 
@@ -697,14 +970,13 @@ Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
 
-
-
 <Request>
     <MediaWorkflow>
         <Name>demo</Name>
+        <State>Active</State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -712,6 +984,8 @@ Content-Type: application/xml
                 <SmartCover_1581665960539>End</SmartCover_1581665960539>
                 <VoiceSeparate_1581665960551>End</VoiceSeparate_1581665960551>
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -719,6 +993,17 @@ Content-Type: application/xml
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <SmartCover_1581665960539>
@@ -798,6 +1083,34 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>
+                    <Type>SDRtoHDR</Type>
+                    <Operation>
+                        <SDRtoHDR>
+                            <HdrMode>HLG</HdrMode>
+                        </SDRtoHDR>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/SDRtoHDR.mp4</Object>
+                        </Output>
+                    </Operation>
+                </SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>
+                    <Type>VideoProcess</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55356fshb18</TemplateId>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/videoProcess.mp4</Object>
+                        </Output>
+                    </Operation>
+                </VideoProcess_1581665960554>
             </Nodes>
         </Topology>
     </MediaWorkflow>
@@ -815,17 +1128,14 @@ Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
-
-
 <Response>
     <MediaWorkflow>
         <Name>demo</Name>
-        <State></State>
-        <BucketId></BucketId>
-        <WorkflowId></WorkflowId>
+        <State>Active</State>
+        <WorkflowId></WorkflowId
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -833,6 +1143,8 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                 <SmartCover_1581665960539>End</SmartCover_1581665960539>
                 <VoiceSeparate_1581665960551>End</VoiceSeparate_1581665960551>
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -840,6 +1152,17 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <SmartCover_1581665960539>
@@ -919,8 +1242,37 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                         </Output>
                     </Operation>
                 </VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>
+                    <Type>SDRtoHDR</Type>
+                    <Operation>
+                        <SDRtoHDR>
+                            <HdrMode>HLG</HdrMode>
+                        </SDRtoHDR>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/SDRtoHDR.mp4</Object>
+                        </Output>
+                    </Operation>
+                </SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>
+                    <Type>VideoProcess</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55356fshb18</TemplateId>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/videoProcess.mp4</Object>
+                        </Output>
+                    </Operation>
+                </VideoProcess_1581665960554>
             </Nodes>
         </Topology>
+        <BucketId></BucketId>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>
     </MediaWorkflow>
@@ -933,10 +1285,11 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 ```plaintext
 POST /workflow HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
+
 <Request>
     <MediaWorkflow>
         <Name>demo</Name>
@@ -1007,13 +1360,14 @@ Content-Length: 230
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+
 <Response>
     <MediaWorkflow>
-        <BucketId></BucketId>
-        <WorkflowId></WorkflowId>
-        <State></State>
         <Name>demo</Name>
+        <State>Active</State>
+        <WorkflowId></WorkflowId
+        <BucketId></BucketId>
         <Topology>
             <Dependencies>
                 <Start>HlsPackConfig_1581665960532</Start>
@@ -1028,6 +1382,17 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <HlsPackConfig_1581665960532>
@@ -1064,11 +1429,26 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
                 </VideoStream_1581665960537>
                 <HlsPack_1581665960538>
                     <Type>HlsPack</Type>
+                    <Operation>
+                        <HlsPackInfo>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960536</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960537</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                        </HlsPackInfo>
+                    </Operation>
                 </HlsPack_1581665960538>
             </Nodes>
         </Topology>
+        <BucketId></BucketId>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>
     </MediaWorkflow>
 </Response>
 ```
+
+

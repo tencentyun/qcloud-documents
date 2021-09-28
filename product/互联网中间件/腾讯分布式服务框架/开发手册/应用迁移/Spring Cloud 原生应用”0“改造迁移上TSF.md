@@ -90,7 +90,7 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
    ```
 3. 进入每个项目的 `src/main/resource` 目录，根据已经部署的容器所有的云服务器地址，修改 application.yml 文件中的连接信息。
 	<dx-alert infotype="explain" title="">
-	若在本地安装调试可以忽略本步骤，即在本地安装docker和所有基础组件，在本地启动Spring Cloud调试。
+	若在本地安装调试可以忽略本步骤，即在本地安装 docker 和所有基础组件，在本地启动 Spring Cloud 调试。
 	</dx-alert>
    ```yml
    # mysql中替换localhost为内网IP
@@ -215,7 +215,7 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
 
 **2.1 验证服务限流功能**
 
-服务限流详细介绍请参考[服务限流](https://cloud.tencent.com/document/product/649/19046)。
+服务限流详细介绍请参考 [服务限流](https://cloud.tencent.com/document/product/649/19046)。
 
 典型业务问题：后端业务被高频恶意访问，导致核心业务链路阻塞，系统瘫痪。
 
@@ -233,11 +233,11 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
 
 **2.2 验证服务鉴权功能**
 
-服务鉴权详细介绍请参考[服务鉴权](https://cloud.tencent.com/document/product/649/18024)。
+服务鉴权详细介绍请参考 [服务鉴权](https://cloud.tencent.com/document/product/649/18024)。
 
 电商典型场景：后端敏感业务需要对访问权限进行控制。
 
-场景：对于后台商品管理模块，仅支持有权限的服务对它进行访问。例如，在这个场景中，我们限制gateway微服务可以不访问mall admin微服务，所有从gateway发起的请求都会被拒绝。
+场景：对于后台商品管理模块，仅支持有权限的服务对它进行访问。例如，在这个场景中，我们限制 gateway 微服务可以不访问 mall admin 微服务，所有从 gateway 发起的请求都会被拒绝。
 
 配置方式：在 [TSF 控制台](https://console.cloud.tencent.com/tsf/index) 服务治理页面找到 mall-admin 服务，进入服务详情页面，配置服务鉴权规则。
 
@@ -264,9 +264,9 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
    | applicationName | 必选  | 应用名称                                                     |
    | appId | 必选            | 账号 APPID                                                    |
    | groupName | 可选        | 默认采用和应用名称同名，不可重复                             |
-   | microserviceType |可选 | 默认“NATIVE" 云原生应用。否，填写 “N”                        |
+   | microserviceType |可选 | 默认“NATIVE” 云原生应用。否，填写 “N”                        |
    | applicationType | 可选  | 默认“V”表示虚拟机部署                                        |
-   | pkgVerstion | 可选      | 上传的程序包版本号，默认当前时间戳，时间戳格式：”YYYYmmddHHMMSS“ |
+   | pkgVersion | 可选      | 上传的程序包版本号，默认当前时间戳，时间戳格式：“YYYYmmddHHMMSS”|
 
 2. 在 travis.yml 中添加脚本任务和任务所需的执行参数。依次是：程序包路径、应用名和 APPID。
 

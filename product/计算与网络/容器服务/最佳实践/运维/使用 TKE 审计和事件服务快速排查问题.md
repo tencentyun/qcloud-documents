@@ -17,7 +17,7 @@
 ![](https://main.qcloudimg.com/raw/4c4ba2c916cca86f0c4879670e48cd34.png)
 4. 单击**过滤**开始查询，查询结果如下图所示：
 ![](https://main.qcloudimg.com/raw/d35cf30fe20f04d8cc52d0494eb415ea.png)
-由图可见， `10001****7138` 账号在 `2020-11-30T03:37:13`时删除了 `nginx` 应用。可根据账号 ID 在**访问管理**>**[用户列表](https://console.cloud.tencent.com/cam)**中查找关于此账号的详细信息。
+由图可见， `10001****7138` 账号在 `2020-11-30T03:37:13`时删除了 `nginx` 应用。可根据账号 ID 在**访问管理** > **[用户列表](https://console.cloud.tencent.com/cam)**中查找关于此账号的详细信息。
 
 
 

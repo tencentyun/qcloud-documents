@@ -476,7 +476,7 @@ Velero 提供众多非常实用的备份和还原策略，详细介绍如下：
 ### Hook 操作相关
 
 - 在**备份期间**执行 Hook 操作，例如，需要在备份前将内存数据落盘，详情请参见 [备份 Hooks](https://velero.io/docs/v1.5/backup-hooks/)。
-- 在**还原期间**执行 Hook 操作，例如，在还原前判断组件依赖是否可用，详情请参见 [还原 Hooks](https://velero.io/docs/v1.5/backup-hooks/)。
+- 在**还原期间**执行 Hook 操作，例如，在还原前判断组件依赖是否可用，详情请参见 [还原 Hooks](https://velero.io/docs/v1.5/restore-hooks/)。
 - 在**还原时**配置 PVC/PV 卷相关映射关系配置可参考以下文档。如需了解更多请参见 [还原参考](https://velero.io/docs/v1.5/restore-reference/)。
   - [配置 PV/PVC 存储类映射](https://velero.io/docs/v1.5/restore-reference/#changing-pvpvc-storage-classes)
   - [配置 PVC 绑定节点映射](https://velero.io/docs/v1.5/restore-reference/#changing-pvc-selected-node)

@@ -19,11 +19,11 @@ Window，Linux 或者 Mac OS
 
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
 2. 在服务器列表中找到对应的实例，并根据实际的操作习惯选择不同的方式进行登录。
- - 在服务器列表中的实例卡片上，单击【登录】。
+ - 在服务器列表中的实例卡片上，单击**登录**。
 ![](https://main.qcloudimg.com/raw/ad83b4066ea56c22ca1593a6ab808ff0.png)
- - 单击实例卡片进入服务器详情页，单击“远程登录”中的【登录】。
+ - 单击实例卡片进入服务器详情页，单击“远程登录”中的**登录**。
 ![](https://main.qcloudimg.com/raw/c87f1ecca7eb821f0f74b9c718025e00.png)
- - 在服务器详情页，选择【应用管理】，单击“应用内软件信息”中的【登录】。
+ - 使用 [应用镜像](https://cloud.tencent.com/document/product/1207/44361#appOS) 创建的实例，可在实例详情页选择**应用管理**，单击“应用内软件信息”中的**登录**。
 ![](https://main.qcloudimg.com/raw/c18295d4ac3b40aee2b6b9f2bb11217c.png)
 成功登录后，您可参考 [最佳实践](https://cloud.tencent.com/document/product/1207/45116) 及 [第三方教程](https://cloud.tencent.com/document/product/1207/58793)，进行搭建中小型网站、Web 应用、博客、论坛、小程序/小游戏、电商、云盘/图床、云端开发测试和学习环境等轻量级、低负载且访问量适中的应用。
 
@@ -33,7 +33,7 @@ Window，Linux 或者 Mac OS
 >
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
 2. 在服务器列表中找到对应的实例，进入服务器详情页。
-3. 在“远程登录”的“一键登录”中，按需选择【开启】或【关闭】 WebShell 一键登录：
+3. 在“远程登录”的“一键登录”中，按需选择**开启**或**关闭** WebShell 一键登录：
  - **关闭**：当无需使用一键登录时，可选择关闭此功能。
 >!
 >- 关闭一键登录后，并不会影响您使用本地 SSH 客户端远程登录实例，您也可以选择再次开启一键登录功能。

@@ -8,7 +8,7 @@
 ## 接入步骤
 
 ### 步骤1：获取接入点和 Token
-进入 [应用性能观测控制台](https://console.cloud.tencent.com/apm)【应用监控】>【应用列表】页面，单击【接入应用】，在接入应用时选择 Java 语言与 SkyWalking 的数据采集方式。
+进入 [应用性能观测控制台](https://console.cloud.tencent.com/apm) **应用监控** > **应用列表**页面，单击**接入应用**，在接入应用时选择 Java 语言与 SkyWalking 的数据采集方式。
 在选择接入方式步骤获取您的接入点和 Token，如下图所示：
 ![](https://main.qcloudimg.com/raw/d7d94913947d31edf70e85c6462c6bac.png)
 
@@ -25,6 +25,8 @@ collector.backend_service=<接入点>
 agent.authentication=<Token>
 agent.service_name=<上报的服务名称>
 ```
+
+>?修改完 `agent.config` 需要把配置项前反注释符号 `#` 去掉。否则更改的信息将无法生效。
 
 ### 步骤4：选择相应方法指定插件路径
 根据应用的运行环境，选择相应的方法来指定 SkyWalking Agent 的路径。

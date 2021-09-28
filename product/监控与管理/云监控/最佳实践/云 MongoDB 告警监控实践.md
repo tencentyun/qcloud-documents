@@ -420,7 +420,7 @@ Qr>100，Qw>100，Ar>100，Aw>100
 ### 配置云数据库 MongoDB 告警
 
 1. 登录 [腾讯云监控控制台](https://console.cloud.tencent.com/monitor )。
-2. 单击【告警配置】>【告警策略】>【新建】。
+2. 单击**告警配置** > **告警策略** > **新建**。
 3. 进入新建告警策略页，填写如下信息：
 	- 输入策略名称
 	- 输入备注
@@ -438,7 +438,7 @@ Qr>100，Qw>100，Ar>100，Aw>100
 
 **配置 Dashboard**
 1. 登录 [腾讯云监控控制台](https://console.cloud.tencent.com/monitor )。
-2. 单击【Dashboard】>【Dashboard 列表】。
+2. 单击 **Dashboard** > **Dashboard 列表**。
 3. 在 Dashboard 列表中选择“云数据库 MongoDB 预设面板”。
 	- 选择 MongoDB 实例
 	- 选择 MongoDB 副本集

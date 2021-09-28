@@ -10,7 +10,7 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
 
 应用到注册中心的所有请求如注册、发现，会被代理到我们自己的注册中心从而完成服务的注册和发现。当前的服务治理功能是基于 [TSF Mesh](https://cloud.tencent.com/document/product/649/17928) 来实现的，服务调用会经过 TSF Mesh 的 sidecar，在 sidecar 中实现负载均衡、服务路由等治理功能。
 
->!服务中的熔断、限流功能可能会 TSF 自身的功能冲突，请确保只开启了一种，否则可能会产生非预期的结果。如果确定要启用 TSF 的治理功能来代替服务自身的，可以参考 [关闭服务熔断和限流规则](https://cloud.tencent.com/document/product/649/54152)。
+>!服务中的熔断、限流功能可能会与 TSF 自身的功能冲突，请确保只开启了一种，否则可能会产生非预期的结果。如果确定要启用 TSF 的治理功能来代替服务自身的，可以参考 [关闭服务熔断和限流规则](https://cloud.tencent.com/document/product/649/54152)。
 
 ## 功能说明
 
@@ -24,6 +24,6 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
 | 服务限流         | -                                        | 支持     | 自定义标签，需在 HTTP 请求头添加 tsf-mesh-tag: KEY=VALUE |
 | 服务熔断         | hystrix                                  | 支持     |             -                                          |
 | 服务鉴权         | -                                        | 支持     | 自定义标签，需在 HTTP 请求头添加 tsf-mesh-tag: KEY=VALUE |
-| 配置管理         | Config Server Consul Config              | 支持     | 引入 tsf-sdk                                            |
+| 配置管理         | Config Server Consul Config              | 不支持     | -                                          |
 | 链路追踪         | Spring Cloud Sleuth zipkin               | 兼容     | -                                                      |
 | 微服务网关       | Spring Cloud Gateway Netflix Zuul        | 兼容     | -                                                      |

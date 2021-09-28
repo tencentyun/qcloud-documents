@@ -7,141 +7,10 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 - 如果您的应用场景主要为教育场景，那么教师端推荐使用稳定性更好的 [Electron](https://cloud.tencent.com/document/product/647/38549) 解决方案，支持大小双路画面，更灵活的屏幕分享方案以及更强大的弱网络恢复能力。
 
 
-
-<table>
-<tr>
-<th>操作系统</th>
-<th width="22%">浏览器类型</th><th>浏览器最低<br>版本要求</th><th width="16%">接收（播放）</th><th width="16%">发送（上麦）</th><th>屏幕分享</th><th>SDK 版本要求</th>
-</tr><tr>
-<td rowspan="4">Mac OS</td>
-<td>桌面版 Safari 浏览器</td>
-<td>11+</td>
-<td>支持</td>
-<td>支持</td>
-<td>支持（需要 Safari13+ 版本）</td>
-<td>-</td>
-</tr>
-<tr>
-<td>桌面版 Chrome 浏览器</td>
-<td>56+</td>
-<td>支持</td>
-<td>支持</td>
-<td>支持（需要 Chrome72+ 版本）</td>
-<td>-</td>
-</tr>
-<tr>
-<td>桌面版 Firefox 浏览器</td>
-<td>56+</td>
-<td>支持</td>
-<td>支持</td>
-<td>支持（需要 Firefox66+ 版本）</td>
-<td>v4.7.0+</td>
-</tr>
-<tr>
-<td>桌面版 Edge 浏览器</td>
-<td>80+</td>
-<td>支持</td>
-<td>支持</td>
-<td>支持</td>
-<td>v4.7.0+</td>
-</tr>
-<tr>
-<td  rowspan="4">Windows</td>
-<td>桌面版 Chrome 浏览器</td>
-<td>56+</td>
-<td>支持</td>
-<td>支持</td>
-<td>支持（需要 Chrome72+ 版本）</td>
-<td>-</td>
-</tr>
-<tr>
-<td>桌面版 QQ 浏览器（极速内核）</td>
-<td>10.4+</td>
-<td>支持</td>
-<td>支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td>桌面版 Firefox 浏览器</td>
-<td>56+</td>
-<td>支持</td>
-<td>支持</td>
-<td>支持（需要 Firefox66+ 版本）</td>
-<td>v4.7.0+</td>
-</tr>
-<tr>
-<td>桌面版 Edge 浏览器</td>
-<td>80+</td>
-<td>支持</td>
-<td>支持</td>
-<td>支持</td>
-<td>v4.7.0+</td>
-</tr>
-<tr>
-<td>iOS 11.1.2+</td>
-<td>移动版 Safari 浏览器</td>
-<td>11+</td>
-<td>支持</td>
-<td>支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td>iOS 12.1.4+</td>
-<td>微信内嵌网页</td>
-<td>-</td>
-<td>支持</td>
-<td>不支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td>iOS 14.3+</td>
-<td>微信内嵌网页</td>
-<td>6.5+（微信版本）</td>
-<td>支持</td>
-<td>支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td  rowspan="4">Android</td>
-<td>移动版 QQ 浏览器</td>
-<td>-</td>
-<td>不支持</td>
-<td>不支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr><tr>
-<td>移动版 UC 浏览器</td>
-<td>-</td>
-<td>不支持</td>
-<td>不支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td>微信内嵌网页（TBS 内核）</td>
-<td>-</td>
-<td>支持</td>
-<td>支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td>微信内嵌网页（XWEB 内核）</td>
-<td>-</td>
-<td>支持</td>
-<td>支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-</table>
-
+腾讯云 TRTC Web SDK 详细支持度表格请参见 [支持的平台](https://cloud.tencent.com/document/product/647/17249#.E6.94.AF.E6.8C.81.E7.9A.84.E5.B9.B3.E5.8F.B0)。
 >! 
->- 您可以在浏览器中打开 [WebRTC 能力测试](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。
->- 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC Web端 SDK 的正常运行。
+>- 您可以在浏览器中打开 [TRTC Web SDK 能力测试页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 检测当前浏览器是否支持 WebRTC 所有能力。例如 WebView 等浏览器环境。
+>- 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC Web 端 SDK 的正常运行。
 
 [](id:requirements)
 ## 环境要求
@@ -150,6 +19,16 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
  - TCP 端口：8687
  - UDP 端口：8000，8080，8800，843，443，16285
  - 域名：qcloud.rtc.qq.com
+
+## URL 域名协议限制
+| 应用场景     | 协议             | 接收（播放） | 发送（上麦） | 屏幕分享 | 备注 |
+| ------------ | :--------------- | :----------- | ------------ | -------- | ---- |
+| 生产环境     | HTTPS 协议        | 支持         | 支持         | 支持     | 推荐 |
+| 生产环境     | HTTP 协议         | 支持         | 不支持       | 不支持   |      |
+| 本地开发环境 | http://localhost | 支持         | 支持         | 支持     | 推荐 |
+| 本地开发环境 | http://127.0.0.1 | 支持         | 支持         | 支持     |      |
+| 本地开发环境 | http://[本机IP]  | 支持         | 不支持       | 不支持   |      |
+| 本地开发环境 | file:///         | 支持         | 支持         | 支持     |      |
  
 ## 前提条件
 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
@@ -176,7 +55,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `Web/base-js/debug/GenerateTestUserSig.js` 文件。
+2. 找到并打开 `Web/js/debug/GenerateTestUserSig.js` 文件。
 3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 

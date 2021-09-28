@@ -9,10 +9,10 @@
 请参考 [建立 VPC 到 IDC 的连接](https://cloud.tencent.com/document/product/554/18988)。
 
 ## 后续步骤
-1. VPN 与 IDC 连通后，在 DTS 迁移界面选择**VPN接入方式**，关键参数配置说明如下：
+1. VPN 与 IDC 连通后，在 [DTS 任务页面](https://console.cloud.tencent.com/dts/migration) 选择**VPN 接入**，关键参数配置说明如下：
 ![](https://main.qcloudimg.com/raw/ad3d1aad26532abe25bc461f92d91038.png)
 <table>
-<thead><tr><th>参数</th><th>说明</th><th>参数示例</th></tr></thead>
+<thead><tr><th><strong>参数</strong></th><th><strong>说明</strong></th><th><strong>参数示例</strong></th></tr></thead>
 <tbody><tr>
 <td>VPN 网关</td>
 <td>在 VPC 网络中新建的 VPN 网关名称。</td>
@@ -38,8 +38,8 @@
    - Telnet 测试不通过。
      在新建的 VPC 网络中（本例中为 TomVPC）购买一个云服务器 CVM，在 CVM 上 ping 源数据库主机地址：
       - 如果不能 ping 通。
-        - [源数据库设置了安全组或防火墙]()。
-        - [源数据库对 SNAT IP 地址进行了限制]()。
+        - [源数据库设置了安全组或防火墙](https://cloud.tencent.com/document/product/571/58685)。
+        - [源数据库对 SNAT IP 地址进行了限制](https://cloud.tencent.com/document/product/571/58685)。
         - 源数据库端口设置问题。     
       - 如果可以 ping 通。
         请 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
@@ -47,4 +47,6 @@
      - 迁移帐号授权问题。请参考 [数据迁移](https://cloud.tencent.com/document/product/571/58688)、[数据同步](https://cloud.tencent.com/document/product/571/56516) 中的对应场景，重新对迁移帐号授权。
      - 帐号密码不正确。
      
-<img src="https://main.qcloudimg.com/raw/67e8d67ce1a62737a93078af33e22c3d.png" style="zoom:50%;" />
+ <img src="https://main.qcloudimg.com/raw/55f1738e5ea18c881182ae5efc9a8b08.png" style="zoom:50%;" />
+
+ 

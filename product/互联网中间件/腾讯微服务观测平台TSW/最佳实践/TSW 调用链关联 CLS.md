@@ -17,27 +17,23 @@
 ### 步骤1：配置 logback 以输出 TraceID
 
 1. 在 pom.xml 中引入相关依赖。
-<dx-codeblock>
-:::  xml
+```xml
 <dependency>
-		<groupId>org.apache.skywalking</groupId>
+	<groupId>org.apache.skywalking</groupId>
 	<artifactId>apm-toolkit-logback-1.x</artifactId>
 </dependency>
-:::
-</dx-codeblock>
+```
 
 
 2. 修改 logback.xml 文件。
    在 appender 中添加如下日志配置：
-<dx-codeblock>
-:::  xml
+```xml
 <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
 	<layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.TraceIdPatternLogbackLayout">
 		<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level logger_name:%logger{36} - [%tid] - message:%msg%n</pattern>
 	</layout>
 </encoder>
-:::
-</dx-codeblock>
+```
 
  输出的日志将如下所示：
 ```xml

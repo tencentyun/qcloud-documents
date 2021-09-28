@@ -28,7 +28,7 @@ pip install tencentcloud-sdk-python
 
 ### 通过源码包安装
 
-1. 前往 Github 代码托管地址 下载最新代码。
+1. 前往 [Github 代码托管地址](https://github.com/TencentCloud/tencentcloud-sdk-python) 下载最新代码。
 2. 将获取到的源码包解压缩，并执行以下命令进行安装。
 ```
 $ cd tencentcloud-sdk-python
@@ -37,7 +37,7 @@ $ python setup.py install
 
 ### 接口列表
 
-详细的接口列表请查看 [API文档](https://cloud.tencent.com/document/produc/663/19455)。
+详细的接口列表请查看 [API文档](https://cloud.tencent.com/document/product/663/19455)。
 
 
 

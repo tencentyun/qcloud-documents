@@ -11,15 +11,16 @@
 
 ## 修复方法
 ### 开启 binlog 
-`log_bin`是 binlog 的开关控制参数，需要将 binlog 打开，以便记录所有的数据库表结构和表数据变更日志。 
+`log_bin` 是 binlog 的开关控制参数，需要将 binlog 打开，以便记录所有的数据库表结构和表数据变更日志。 
 
 如发生类似报错，请参考如下指导进行修复。
 1. 登录源数据库。
 2. 参考如下内容修改源数据库的配置文件 `my.cnf`。
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
+>
 ```
 log_bin = MYSQL_BIN
-binlog_forma = ROW
+binlog_format = ROW
 server_id = 2         //建议设为大于1的整数，此处仅为示例。
 binlog_row_image = FULL
 ```
@@ -51,12 +52,13 @@ mysql> show variables like '%log_bin%';
 - `ROW`：binlog 日志中会记录成每一行数据修改的形式，然后在 slave 端再对相同的数据进行修改。该模式会保证 master 和 slave 的正确复制，但是 binlog 日志量会增加。
 - `MIXED`：前两种模式的结合，MySQL 会根据执行的每一条具体的 SQL 语句来区分对待记录的日志形式，在 `STATEMENT` 和 `ROW` 之间选择一种。 
 
-综上，为了保证 master 和 slave 的正确复制，`binlog_format`参数需要设置为`ROW`。如发生类似报错，请参考如下指导进行修复。
+综上，为了保证 master 和 slave 的正确复制，`binlog_format` 参数需要设置为 `ROW`。如发生类似报错，请参考如下指导进行修复。
 >?该参数修改可以不重启数据库，但是需要中断当前数据库上的所有业务连接，当源库为从库时，还需重启主从同步 SQL 线程，避免当前业务连接继续使用修改前的模式写入。
 
 1. 登录源数据库。
 2. 参考如下内容修改配置文件 `my.cnf`。
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
+>
 ```
 binlog_format = ROW
 ```
@@ -77,7 +79,7 @@ mysql> show variables like '%binlog_format%';
 5. 重新执行校验任务。
 
 ### 修改 binlog_row_image 参数
-`binlog_row_image` 参数决定了 binlog 是如何记录前镜像（记录修改前的内容）和后镜像（记录修改前的内容）的，这会直接影响到数据闪回、主从复制等功能。
+`binlog_row_image` 参数决定了 binlog 是如何记录前镜像（记录修改前的内容）和后镜像（记录修改后的内容）的，这会直接影响到数据闪回、主从复制等功能。
 `binlog_row_image` 参数只在 `binlog_format` 配置为 `ROW` 模式下生效。具体取值影响如下：
 - `FULL`：在 `ROW` 模式下，binlog 会记录前镜像和后镜像的所有列的数据信息。
 - `MINIMAL`：在 `ROW` 模式下，当表没有主键或唯一键时，前镜像记录所有列，后镜像记录被修改的列；如果存在主键或唯一键，不管是前镜像还是后镜像，都只记录有影响的列。
@@ -88,6 +90,7 @@ mysql> show variables like '%binlog_format%';
 1. 登录源数据库。
 2. 参考如下内容修改源数据库的配置文件 `my.cnf`。
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
+>
 ```
 binlog_row_image = FULL
 ```
@@ -97,7 +100,7 @@ show variables like "%binlog_row_image%";
 ```
 系统显示结果类似如下：
 ```
-mysql> show variables like '%binlog_format%';
+mysql> show variables like '%binlog_row_image%';
 +------------------+-------+
 | Variable_name    | Value |
 +------------------+-------+
@@ -149,6 +152,7 @@ set global gtid_mode = ON;
 ```
 6. 在 `my.cnf` 文件中添加如下内容。
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
+>
 ```
 gtid_mode = on
 enforce_gtid_consistency = on
@@ -167,6 +171,7 @@ enforce_gtid_consistency = on
 1. 登录源数据库。
 2. 参考如下内容修改源数据库的配置文件 `my.cnf`。
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
+>
 ```
 server_id = 2    //建议设为大于1的整数，此处仅为示例
 ```
@@ -193,12 +198,8 @@ binlog 会记录数据库所有执行的 DDL 和 DML 语句，而 do_db，ignore
 
 设置 do_db，ignore_db 后，会导致一些跨库操作 binlog 记录不全，主从复制出现异常，因此不建议设置。如发生类似报错，请参考如下指导进行修复。
 1. 登录源数据库。
-2. 参考如下内容修改源数据库的配置文件 `my.cnf`。
+2. 修改源数据库的配置文件 `my.cnf`，删除 do_db，ignore_db相关设置。
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
-```
-binlog_do_db = NULL   //待确认命令是否正确
-binlog_ignore_db = NULL
-```
 3. 参考如下命令重启源数据库。
 ```
 [\$Mysql_Dir]/bin/mysqladmin -u root -p shutdown

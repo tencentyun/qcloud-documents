@@ -48,7 +48,7 @@ Nginx-ingress 扩展组件安装后，在 `kube-system` 下会有 Nginx-ingress 
 1. 为集群启用 [VPC-CNI](https://cloud.tencent.com/document/product/457/50355)。
 2. 创建 Nginx Ingress 实例时，勾选**使用CLB直连Pod模式**，可以使流量绕过 NodePort 直达 Pod，以此来提升性能。如下图所示：
 ![](https://main.qcloudimg.com/raw/b920ef483e80e83d2080910471f7de4c.png)
->?创建 Nginx Ingress 实例详细步骤，请参见 [安装 Nginx-ingress 实例](https://cloud.tencent.com/document/product/457/50503)。
+>? 创建 Nginx Ingress 实例详细步骤，请参见 [安装 Nginx-ingress 实例](https://cloud.tencent.com/document/product/457/50503)。
 
 
 
@@ -78,7 +78,7 @@ Nginx Ingress 实例已默认为内核参数与 Nginx Ingress 自身的配置进
 ::: 修改\sNginx\sIngress\s自身配置
 在**Nginx配置**中选中对应的实例，单击**编辑YAML**可修改 Nginx Ingress 实例的 ConfigMap 配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/a6cd6034f4d29ef24b3410bd0dd4f698.jpg)
->?ConfigMap 配置详细介绍请参见 [官方文档](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/)。
+>? ConfigMap 配置详细介绍请参见 [官方文档](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/)。
 :::
 </dx-tabs>
 

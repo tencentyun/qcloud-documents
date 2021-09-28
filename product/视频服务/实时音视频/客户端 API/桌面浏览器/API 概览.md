@@ -7,209 +7,277 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <table>
 <tr>
 <th>操作系统</th>
-<th width="22%">浏览器类型</th><th>浏览器最低<br>版本要求</th><th width="16%">接收（播放）</th><th width="16%">发送（上麦）</th><th>屏幕分享</th><th>SDK 版本要求</th>
-</tr><tr>
-<td rowspan="6">Mac OS</td>
+<th>浏览器类型</th>
+<th>浏览器最低<br>版本要求</th>
+<th>SDK 版本要求</th>
+<th>接收（播放）</th>
+<th>发送（上麦）</th>
+<th>屏幕分享</th>
+</tr>
+<tr>
+<td rowspan="11">Windows</td>
+<td>桌面版 Chrome 浏览器</td>
+<td>56+</td>
+<td>-</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持（需要 Chrome72+ 版本）</td>
+</tr>
+<tr>
+<td>桌面版 QQ 浏览器（极速内核）</td>
+<td>10.4+</td>
+<td>-</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>桌面版 Firefox 浏览器</td>
+<td>56+</td>
+<td>v4.7.0+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持（需要 Firefox66+ 版本）</td>
+</tr>
+<tr>
+<td>桌面版 Edge 浏览器</td>
+<td>80+</td>
+<td>v4.7.0+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>桌面版搜狗浏览器（高速模式）</td>
+<td>11+</td>
+<td>v4.7.0+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>桌面版搜狗浏览器（兼容模式）</td>
+<td>-</td>
+<td>-</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>桌面版 Opera 浏览器</td>
+<td>46+</td>
+<td>v4.7.0+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持（需要 Opera60+ 版本）</td>
+</tr>
+<tr>
+<td>桌面版 360 安全浏览器（极速模式）</td>
+<td>13+</td>
+<td>v4.7.0+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>桌面版 360 安全浏览器（兼容模式）</td>
+<td>-</td>
+<td>-</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>桌面版微信内嵌浏览器</td>
+<td>-</td>
+<td>-</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>桌面版企业微信内嵌浏览器</td>
+<td>-</td>
+<td>-</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td rowspan="7">Mac OS</td>
 <td>桌面版 Safari 浏览器</td>
 <td>11+</td>
+<td>-</td>
 <td>支持</td>
 <td>支持</td>
 <td>支持（需要 Safari13+ 版本）</td>
-<td>-</td>
 </tr>
 <tr>
 <td>桌面版 Chrome 浏览器</td>
 <td>56+</td>
+<td>-</td>
 <td>支持</td>
 <td>支持</td>
 <td>支持（需要 Chrome72+ 版本）</td>
-<td>-</td>
 </tr>
 <tr>
 <td>桌面版 Firefox 浏览器</td>
 <td>56+</td>
+<td>v4.7.0+</td>
 <td>支持</td>
 <td>支持</td>
 <td>支持（需要 Firefox66+ 版本）</td>
-<td>v4.7.0+</td>
 </tr>
 <tr>
 <td>桌面版 Edge 浏览器</td>
 <td>80+</td>
-<td>支持</td>
-<td>支持</td>
-<td>支持</td>
 <td>v4.7.0+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
 </tr>
 <tr>
-<td>桌面版微信内嵌网页</td>
-<td>-</td>
-<td>支持</td>
-<td>不支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td>桌面版企业微信内嵌网页</td>
-<td>-</td>
-<td>支持</td>
-<td>不支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td rowspan="6">Windows</td>
-<td>桌面版 Chrome 浏览器</td>
-<td>56+</td>
-<td>支持</td>
-<td>支持</td>
-<td>支持（需要 Chrome72+ 版本）</td>
-<td>-</td>
-</tr>
-<tr>
-<td>桌面版 QQ 浏览器<br>（极速内核）</td>
-<td>10.4+</td>
-<td>支持</td>
-<td>支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td>桌面版 Firefox 浏览器</td>
-<td>56+</td>
-<td>支持</td>
-<td>支持</td>
-<td>支持（需要 Firefox66+ 版本）</td>
+<td>桌面版 Opera 浏览器</td>
+<td>46+</td>
 <td>v4.7.0+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持（需要 Opera60+ 版本）</td>
 </tr>
 <tr>
-<td>桌面版 Edge 浏览器</td>
-<td>80+</td>
+<td>桌面版微信内嵌浏览器</td>
+<td>-</td>
+<td>-</td>
 <td>支持</td>
-<td>支持</td>
-<td>支持</td>
-<td>v4.7.0+</td>
+<td>不支持</td>
+<td>不支持</td>
 </tr>
 <tr>
-<td>桌面版微信内嵌网页</td>
+<td>桌面版企业微信内嵌浏览器</td>
+<td>-</td>
 <td>-</td>
 <td>支持</td>
 <td>不支持</td>
 <td>不支持</td>
-<td>-</td>
 </tr>
 <tr>
-<td>桌面版企业微信内嵌网页</td>
+<td rowspan="6">Android</td>
+<td>微信内嵌浏览器（TBS 内核）</td>
+<td>-</td>
+<td>-</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>微信内嵌浏览器（XWEB 内核）</td>
+<td>-</td>
+<td>-</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>企业微信内嵌浏览器</td>
+<td>-</td>
+<td>-</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>移动版 Chrome 浏览器</td>
+<td>-</td>
+<td>-</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>移动版 QQ 浏览器</td>
+<td>-</td>
+<td>-</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>移动版 UC 浏览器</td>
+<td>-</td>
+<td>-</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>iOS 12.1.4+</td>
+<td>微信内嵌浏览器</td>
+<td>-</td>
 <td>-</td>
 <td>支持</td>
 <td>不支持</td>
 <td>不支持</td>
+</tr>
+<tr>
+<td>iOS 14.3+</td>
+<td>微信内嵌浏览器</td>
+<td>6.5+（微信版本）</td>
 <td>-</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>iOS</td>
+<td>企业微信内嵌浏览器</td>
+<td>-</td>
+<td>-</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
 </tr>
 <tr>
 <td>iOS 11.1.2+</td>
 <td>移动版 Safari 浏览器</td>
 <td>11+</td>
+<td>-</td>
 <td>支持</td>
 <td>支持</td>
 <td>不支持</td>
-<td>-</td>
 </tr>
 <tr>
 <td>iOS 12.1.4+</td>
 <td>移动版 Chrome 浏览器</td>
 <td>-</td>
+<td>-</td>
 <td>支持</td>
 <td>不支持</td>
 <td>不支持</td>
-<td>-</td>
 </tr>
 <tr>
 <td>iOS 14.3+</td>
 <td>移动版 Chrome 浏览器</td>
 <td>-</td>
-<td>支持</td>
-<td>支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td>iOS 12.1.4+</td>
-<td>微信内嵌网页</td>
-<td>-</td>
-<td>支持</td>
-<td>不支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td>iOS 14.3+</td>
-<td>微信内嵌网页</td>
-<td>6.5+（微信版本）</td>
-<td>支持</td>
-<td>支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td>iOS 12.1.4+ </td>
-<td>企业微信内嵌网页</td>
-<td>-</td>
-<td>支持</td>
-<td>不支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td rowspan="6">Android</td>
-<td>移动版 Chrome 浏览器</td>
 <td>-</td>
 <td>支持</td>
 <td>支持</td>
 <td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td>移动版 QQ 浏览器</td>
-<td>-</td>
-<td>不支持</td>
-<td>不支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td>移动版 UC 浏览器</td>
-<td>-</td>
-<td>不支持</td>
-<td>不支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td>微信内嵌网页<br>（TBS 内核）</td>
-<td>-</td>
-<td>支持</td>
-<td>支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td>微信内嵌网页<br>（XWEB 内核）</td>
-<td>-</td>
-<td>支持</td>
-<td>支持</td>
-<td>不支持</td>
-<td>-</td>
-</tr>
-<tr>
-<td>企业微信内嵌网页</td>
-<td>-</td>
-<td>支持</td>
-<td>支持</td>
-<td>不支持</td>
-<td>-</td>
 </tr>
 </table>
+
+>! 
+>- 您可以在浏览器中打开 [TRTC Web SDK 能力测试页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 检测当前浏览器是否支持 WebRTC 所有能力。例如 WebView 等浏览器环境。
+>- 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC Web 端 SDK 的正常运行。
+
+## URL 域名协议限制
+| 应用场景     | 协议             | 接收（播放） | 发送（上麦） | 屏幕分享 | 备注 |
+| ------------ | :--------------- | :----------- | ------------ | -------- | ---- |
+| 生产环境     | https协议        | 支持         | 支持         | 支持     | 推荐 |
+| 生产环境     | http协议         | 支持         | 不支持       | 不支持   |      |
+| 本地开发环境 | http://localhost | 支持         | 支持         | 支持     | 推荐 |
+| 本地开发环境 | http://127.0.0.1 | 支持         | 支持         | 支持     |      |
+| 本地开发环境 | http://[本机IP]  | 支持         | 不支持       | 不支持   |      |
+| 本地开发环境 | file:///         | 支持         | 支持         | 支持     |      |
 
 ## API 使用指引
 详细的 API 使用介绍请参见以下指引：

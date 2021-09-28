@@ -1,7 +1,20 @@
-## 1. 功能介绍
-HTTPDNS 的主要功能是为了有效避免由于运营商传统 LocalDns 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
+## 概述
+移动解析 HTTPDNS 的主要功能是为了有效避免由于运营商传统 LocalDns 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
 
-## 2. 安装包结构
+## 前期准备
+1. 首先需要开通移动解析 HTTPDNS 服务，请前往 [移动解析 HTTPDNS 控制台](https://console.cloud.tencent.com/httpdns) 开通。具体操作请参见 [开通移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/54577)。
+2. 开通移动解析 HTTPDNS 服务后，您需在移动解析 HTTPDNS 控制台添加解析域名后才可正常使用。具体操作请参见 [添加域名](https://cloud.tencent.com/document/product/379/54588)。
+4. 已在移动解析 HTTPDNS 控制台 [开通 SDK](https://cloud.tencent.com/document/product/379/12544)。
+5. 开通服务后，移动解析 HTTPDNS 将为您分配授权 ID、AES 和 DES 加密密钥及 HTTPS Token 等配置信息。使用 iOS SDK 需求获取的配置如下：
+![](https://main.qcloudimg.com/raw/0a4481963d31b07e20a3136021fb4743.png)
+ - **授权 ID**：使⽤移动解析 HTTPDNS 服务中，开发配置的唯⼀标识。SDK中 `dnsId` 参数，用于域名解析鉴权。
+ - **DES 加密密钥**：SDK 中 `dnsKey` 参数，加密方式为 DES 时传入此项。
+ - **AES 加密密钥**：SDK 中 `dnsKey` 参数，加密方式为 AES 时传入此项。
+ - **HTTPS 加密 Token**：SDK 中 `token` 参数，加密方式为 HTTPS 时传入此项。
+ -  **IOS APPID**： [IOS 端 SDK](https://cloud.tencent.com/document/product/379/17669) 的 `appId（应用 ID）` 鉴权信息。
+
+
+## 安装包结构
 - SDK 最新版本包 [下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSLibs)。
 - SDK 开源 [仓库地址](https://github.com/DNSPod/httpdns-sdk-ios)。
 
@@ -11,8 +24,8 @@ HTTPDNS 的主要功能是为了有效避免由于运营商传统 LocalDns 解�
 | MSDKDns_C11.xcframework | 适用于该两项配置分别为 **“GNU++11”** 和 **“libc++(LLVM C++ standard library with C++11 support)”** 的工程。 |
 
 
-## 3. SDK 集成
-HTTPDNS 提供两种集成方式供 iOS 开发者选择：
+## SDK 集成
+移动解析 HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 - 通过 CocoaPods 集成。
 - 手动集成。
 
@@ -20,7 +33,8 @@ HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 - Objective-C Demo [下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSDemo)。
 - Swift Demo [下载地址](https://github.com/tencentyun/httpdns-ios-sdk/tree/master/HTTPDNSSwiftDemo)。
 
-### 3.1 通过 CocoaPods 集成
+
+### 通过 CocoaPods 集成
 在工程的 Podfile 里面添加以下代码：
 ```
 # 适用“Build Setting->C++ Language Dialect”配置为**“GNU++98”**，“Build Setting->C++ Standard Library”为**“libstdc++(GNU C++ standard library)”**的工程。
@@ -31,15 +45,15 @@ HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 保存并执行 `pod install`，再使用后缀为 `.xcworkspace` 的文件打开工程。
 
 >?关于 `CocoaPods` 的更多信息，请查看 [CocoaPods 官方网站](https://cocoapods.org/)。
->
-### 3.2 手动集成
 
-#### 3.2.1 已接入灯塔（Beacon）的业务（可选）
+### 手动集成
+
+#### 已接入灯塔（Beacon）的业务（可选）
 >?灯塔（beacon）SDK 是腾讯灯塔团队开发的用于移动应用统计分析的 SDK，HTTPDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
 >
 仅需引入位于 HTTPDNSLibs 目录下的 MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）即可。
 
-#### 3.2.2 未接入灯塔（Beacon）的业务（可选）
+#### 未接入灯塔（Beacon）的业务（可选）
 - 引入依赖库（位于 HTTPDNSLibs 目录下）：
 	- BeaconAPI_Base.framework
 	- MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）
@@ -62,9 +76,9 @@ HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 ```
 >!请在 Other linker flag 里加入 -ObjC 标志。
 
-## 4. API 及使用示例
+## API 及使用示例
 
-### 4.1 设置业务基本信息
+### 设置业务基本信息
 
 #### 类型定义
 
@@ -141,7 +155,7 @@ msdkDns?.initConfig(with: [
 		"encryptType": 0, // 0 -> des，1 -> aes，2 -> https
 ]);
 ```
-### 4.2 域名解析接口
+### 域名解析接口
 
 **获取 IP 共有以下四个接口，**引入头文件，调用相应接口即可。
 - 同步接口 
@@ -150,7 +164,7 @@ msdkDns?.initConfig(with: [
 - 异步接口 
 	- 单个查询 **WGGetHostByNameAsync:returnIps:**；
 	- 批量查询 **WGGetHostsByNamesAsync:returnIps:**；
-	
+
 **返回的地址格式如下：**
 - **单个查询**：单个查询接口返回 NSArray，固定长度为2，其中第一个值为 IPv4 地址，第二个值为 IPv6 地址。以下为返回格式的详细说明：
  - IPv4 下，仅返回 IPv4 地址，即返回格式为：[ipv4, 0]。
@@ -168,6 +182,7 @@ msdkDns?.initConfig(with: [
 >- 如 IPv6 地址为0，则直接使用 IPv4 地址连接。
 >- 如 IPv4 地址为0，则直接使用 IPv6 地址连接。
 >- 如 IPv4 和 IPv6 地址都不为0，则由客户端决定优先使用哪个地址进行连接，但优先地址连接失败时应切换为另一个地址。 
+>- 使用 SDK 方式接入 HTTPDNS，若 HTTPDNS 未查询到解析结果，则通过 LocalDNS 进行域名解析，返回 LocalDNS 的解析结果。
 
 #### 同步解析接口：WGGetHostByName、WGGetHostByNames
 
@@ -305,7 +320,7 @@ if (result) {
 
 
 
-## 5. 注意事项
+## 注意事项
 1. 如果客户端的业务是与 host 绑定的，例如绑定了 host 的 HTTP 服务或者是 cdn 的服务，那么在用 HTTPDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定下 HTTP 头的 host 字段。
  - 以 NSURLConnection 为例：
 ```
@@ -326,7 +341,7 @@ NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSes
 NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue currentQueue]];
 NSURLSessionTask *task = [session dataTaskWithRequest:mutableReq];
 [task resume];
-```
+ ```
  - 以 curl 为例：  
 假设您要访问 www.qq.com，通过 HTTPDNS 解析出来的 IP 为192.168.0.111，那么通过这个方式来调用即可：
 ```
@@ -373,14 +388,14 @@ if (conn.error != null) {
 	}
 ```
 
-## 6. 实践场景 
-### 6.1 Unity 工程接入
+## 实践场景 
+### Unity 工程接入
 
 1. 将 HTTPDNSUnityDemo/Assets/Plugins/Scripts 下的 **HttpDns.cs** 文件拷贝到 Unity 对应 Assets/Plugins/Scripts 路径下。
 2. 在需要进行域名解析的部分，调用 HttpDns.GetAddrByName(string domain) 或者 HttpDns.GetAddrByNameAsync(string domain) 方法。
 	- 如使用同步接口 **HttpDns.GetAddrByName**，直接调用接口即可。
 	- 如果使用异步接口 **HttpDns.GetAddrByNameAsync**，还需设置回调函数 **onDnsNotify(string ipString)**，函数名可自定义。
- 并建议添加如下处理代码：
+	 并建议添加如下处理代码：
 ``` 
 string[] sArray=ipString.Split(new char[] {';'}); 
 if (sArray != null && sArray.Length > 1) {
@@ -400,7 +415,7 @@ if (sArray != null && sArray.Length > 1) {
 ![](https://main.qcloudimg.com/raw/f9a10fb9306f73cfd99c6dde705fc956.jpg)
 ![](https://main.qcloudimg.com/raw/5e34886a01bb50d17df72be53db03984.jpg)
 
-### 6.2 HTTPS 场景下（非 SNI）使用 HTTPDNS 解析结果
+### HTTPS 场景下（非 SNI）使用 HTTPDNS 解析结果
 
 #### 原理
 
@@ -522,14 +537,14 @@ if (sArray != null && sArray.Length > 1) {
  ```
 //const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";
 const char* WWWDelegateClassName = "UnityWWWConnectionDelegate";
-```
+ ```
 调整为：
 ```
 const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";
 //const char* WWWDelegateClassName = "UnityWWWConnectionDelegate";
 ```
 
-### 6.3 SNI（单 IP 多 HTTPS 证书）场景下使用 HTTPDNS 解析结果
+### SNI（单 IP 多 HTTPS 证书）场景下使用 HTTPDNS 解析结果
 
 SNI（Server Name Indication）是为了解决一个服务器使用多个域名和证书的 SSL/TLS 扩展。它的工作原理如下：
 - 在连接到服务器建立 SSL 链接之前先发送要访问站点的域名（Hostname）。

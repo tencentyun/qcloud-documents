@@ -12,7 +12,7 @@ MySQL 到 TDSQL-C MySQL 的数据同步、TDSQL-C MySQL 到 MySQL 的数据同�
 - 需要具备源数据库的权限如下：
 ```
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 FLUSH PRIVILEGES;
 ```
 - 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
@@ -40,7 +40,7 @@ FLUSH PRIVILEGES;
 | 操作类型 | 支持同步的 SQL 操作                                          |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE                                       |
-| DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE VIEW、ALTER VIEW、DROP VIEW、CREATE INDEX、DROP INDEX |
+| DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE VIEW、DROP VIEW、CREATE INDEX、DROP INDEX |
 
 ## 环境要求
 
@@ -83,7 +83,7 @@ FLUSH PRIVILEGES;
 
 ## 操作步骤
 
-1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/dts)，选择相应配置，单击【立即购买】。
+1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/dts)，选择相应配置，单击**立即购买**。
 <table>
 <thead><tr><th>参数</th><th>描述</th></tr></thead>
 <tbody><tr>
@@ -100,11 +100,11 @@ FLUSH PRIVILEGES;
 <td>同步任务规格</td><td>目前只支持标准版。</td></tr>
 </tbody></table>
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
-3. 在数据同步列表，单击“操作”列的【配置】，进入配置同步任务页面。
+3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
 ![](https://main.qcloudimg.com/raw/2c5f68ff0bfc4b75998cfe3f92210ed6.png)
-4. 在配置同步任务页面，配置源端实例、帐号密码，配置目标端实例、帐号和密码，测试连通性后，单击【下一步】。
+4. 在配置同步任务页面，配置源端实例、帐号密码，配置目标端实例、帐号和密码，测试连通性后，单击**下一步**。
 <table>
-<thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
+<thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
 <tbody><tr>
 <td rowspan=2 >任务设置</td>
 <td>任务名称</td>
@@ -122,13 +122,12 @@ FLUSH PRIVILEGES;
 <td>接入类型</td>
 <td>根据实际情况选择，本场景选择“云数据库”。
     <ul>
-    <li>公网：通过公网 IP 接入的自建数据库。</li>
-    <li>云主机自建：腾讯云服务器 CVM 上的自建数据库。</li>
-    <li>专线/VPN 接入：通过专线/VPN 网关接入的自建数据库。</li>
-    <li>私有网络 VPC：通过私有网络 VPC 接入的自建数据库。</li>
-    <li>云数据库：腾讯云数据库。</li>
-    <li>云联网：通过云联网接入的自建数据库。</li>
-    </ul></td></tr>
+    <li>公网：源数据库可以通过公网 IP 访问。</li>
+<li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
+<li>云数据库：源数据库属于腾讯云数据库实例。</li>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据和目标数据库都部署在腾讯云上，且有 <a href="https://cloud.tencent.com/document/product/215">私有网络</a>。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>实例 ID</td><td>源数据库实例 ID。</td></tr>
 <tr>
@@ -150,10 +149,10 @@ FLUSH PRIVILEGES;
 <td>密码</td><td>目标数据库密码。</td></tr>
 </tbody></table>
 <img src="https://main.qcloudimg.com/raw/b40bd5a54eaeef3d23bb3464312b0097.png" style="zoom:67%;" />
-5. 在设置同步选项和同步对象页面，将对数据初始化选项、数据同步选项、同步对象选项进行设置，在设置完成后单击【保存并下一步】。
+5. 在设置同步选项和同步对象页面，将对数据初始化选项、数据同步选项、同步对象选项进行设置，在设置完成后单击**保存并下一步**。
 >? 
->- 当“初始化类型”仅选择“全量数据初始化”，系统默认用户在目标库已经创建了表结构，不会进行表结构迁移，也不会校验源库和目标库是否有同名表，所以当用户同时在“已存在同名表”项选择“前置校验并报错”，则校验并报错功能不生效。
->- 仅选择“全量数据初始化”的场景，用户需要提前在目标库创建好表结构。
+>- 当**初始化类型**仅选择**全量数据初始化**，系统默认用户在目标库已经创建了表结构，不会进行表结构迁移，也不会校验源库和目标库是否有同名表，所以当用户同时在**已存在同名表**项选择**前置校验并报错**，则校验并报错功能不生效。
+>- 仅选择**全量数据初始化**的场景，用户需要提前在目标库创建好表结构。
 >
 <table>
 <thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
@@ -180,12 +179,13 @@ FLUSH PRIVILEGES;
 <img src="https://main.qcloudimg.com/raw/272026696de9d8dd15b0034f7bf8f0dd.png"  style="margin:0;">
 <strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
 <img src="https://main.qcloudimg.com/raw/533a454e1edc2dded72ac92b65948f31.png"  style="margin:0;">
-6. 在校验任务页面，完成校验并全部校验项通过后，单击【启动任务】。
->?在校验结果中出现告警项不影响启动任务，但推荐单击【查看详情】获取建议进行调整。
->
+6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
+如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+ - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
+ - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
 ![](https://main.qcloudimg.com/raw/1871bfc0cb585ff2ac190bb706baf36e.png)
-7. 返回数据同步任务列表，任务开始进入“运行中”状态。 
->?选择“操作”列的【更多】>【结束】可关闭同步任务，请您确保数据同步完成后再关闭任务。
+7. 返回数据同步任务列表，任务开始进入**运行中**状态。 
+>?选择**操作**列的**更多** > **结束**可关闭同步任务，请您确保数据同步完成后再关闭任务。
 >
 ![](https://main.qcloudimg.com/raw/41165637339063c13bb8cc720e8e6541.png)
 8. （可选）您可以单击任务名，进入任务详情页，查看任务初始化状态和监控数据。

@@ -1,9 +1,9 @@
 ## 操作场景
 
-Topic 是 TDMQ 中的核心概念。Topic 通常用来对系统生产的各类消息做一个集中的分类和管理，例如和交易的相关消息可以放在一个名为 “trade” 的 Topic 中，供其他消费者订阅。
+Topic 是 TDMQ Pulsar 版中的核心概念。Topic 通常用来对系统生产的各类消息做一个集中的分类和管理，例如和交易的相关消息可以放在一个名为 “trade” 的 Topic 中，供其他消费者订阅。
 在实际应用场景中，一个 Topic 往往代表着一个业务聚合，由开发者根据自身系统设计、数据架构设计来决定如何设计不同的 Topic。
 
-本文档可以指导您使用 TDMQ 时，利用 Topic 对消息进行分类管理。
+本文档可以指导您使用 TDMQ Pulsar 版时，利用 Topic 对消息进行分类管理。
 
 ## 前提条件
 
@@ -13,7 +13,7 @@ Topic 是 TDMQ 中的核心概念。Topic 通常用来对系统生产的各类�
 
 ### 创建 Topic
 
-1. 登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，在左侧导航栏单击 **Topic 管理**。
+1. 登录 [TDMQ Pulsar 版控制台](https://console.cloud.tencent.com/tdmq)，在左侧导航栏单击 **Topic 管理**。
 2. 在 Topic 管理页面，单击**新建**，弹出新建 Topic 的对话框。
 3. 在新建 Topic 对话框中，填写以下信息：
  - Topic 名称：只能包含字母、数字、“-”及“_”
@@ -25,7 +25,7 @@ Topic 是 TDMQ 中的核心概念。Topic 通常用来对系统生产的各类�
 
 ### 查询 Topic
 
-您可以在 [Topic 管理](https://console.cloud.tencent.com/tdmq/topic) 页右上角的搜索框中，通过 Topic 名称进行搜索查询，TDMQ 将会模糊匹配并呈现搜索结果。
+您可以在 [Topic 管理](https://console.cloud.tencent.com/tdmq/topic) 页右上角的搜索框中，通过 Topic 名称进行搜索查询，TDMQ Pulsar 版将会模糊匹配并呈现搜索结果。
 
 ### 编辑 Topic
 
@@ -35,7 +35,7 @@ Topic 是 TDMQ 中的核心概念。Topic 通常用来对系统生产的各类�
 
 ### 发送消息
 
-TDMQ 控制台支持手动发送消息，在控制台进行相应的操作即可实现消息发送给指定的 Topic 。
+TDMQ Pulsar 版控制台支持手动发送消息，在控制台进行相应的操作即可实现消息发送给指定的 Topic 。
 
 1. 在 [Topic 管理](https://console.cloud.tencent.com/tdmq/topic) 中，找到需要编辑的 Topic ，单击操作列中的**发送消息**。
 2. 在弹出的对话框中输入消息内容。消息长度不超过64KB。
@@ -44,7 +44,7 @@ TDMQ 控制台支持手动发送消息，在控制台进行相应的操作即可
 
 ### 新增订阅
 
-TDMQ 控制台支持手动创建订阅，在控制台进行相应的操作后即可完成订阅的创建。
+TDMQ Pulsar 版控制台支持手动创建订阅，在控制台进行相应的操作后即可完成订阅的创建。
 1. 在 [Topic 管理](https://console.cloud.tencent.com/tdmq/topic) 中，找到需要创建订阅的 Topic ，单击操作列中的**新增订阅**。
 2. 在弹出的对话框中输入订阅的名称和说明。
  - 订阅名称：只能包含字母、数字、“-”及“_”
@@ -56,7 +56,7 @@ TDMQ 控制台支持手动创建订阅，在控制台进行相应的操作后即
 
 >?
 >
->- 如果选择自动创建重试和死信 Topic，TDMQ 会自动帮用户创建好一个重试队列和死信队列，以两个新的 Topic 呈现于 Topic 列表，分别以 “订阅名”+“RETRY” 和 “订阅名”+“DLQ” 命名。
+>- 如果选择自动创建重试和死信 Topic，TDMQ Pulsar 版会自动帮用户创建好一个重试队列和死信队列，以两个新的 Topic 呈现于 Topic 列表，分别以 “订阅名”+“RETRY” 和 “订阅名”+“DLQ” 命名。
 >- 关于重试队列和死信队列的概念和用法请参考 [重试队列和死信队列](https://cloud.tencent.com/document/product/1179/44834) 文档。
 
 ### 删除 Topic

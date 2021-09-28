@@ -38,7 +38,7 @@
 ### 删除并退出联盟
 
 1. 选择左侧导航栏中的**联盟**。
-2. 在“联盟”列表页面中，选择待删除联盟右侧的**更多**>**退出联盟**。如下图所示：
+2. 在“联盟”列表页面中，选择待删除联盟右侧的**更多** > **退出联盟**。如下图所示：
    ![](https://main.qcloudimg.com/raw/f2b82ab50d08bbab67a7d7881bc06461.png)
 3. 在弹出的“退出联盟”窗口中，单击**退出**即可退出联盟。此退出行为不会通知该联盟其他联盟成员，且不再接受该联盟其他成员的组网邀请。如下图所示：
    ![](https://main.qcloudimg.com/raw/a41ccd5598823de3f0457b672618bbbd.png)
@@ -71,9 +71,9 @@
 2. 单击需创建网络联盟所在行右侧的**新建网络**。如下图所示：
    ![](https://main.qcloudimg.com/raw/f737e4cb4fbc3d0e9d0d36cd6f6b5f8b.png)
 3. 在弹出的“选购区块链引擎”窗口中，参考以下信息选择需要购买的区块链引擎，并单击**选购**进入对应的购买页。如下图所示：
-![](https://main.qcloudimg.com/raw/d52f4059b28f3588b0aeca9d6b86ef84.png)
- - [长安链·ChainMaker 购买页说明](https://cloud.tencent.com/document/product/663/38470)
+![](https://main.qcloudimg.com/raw/822386638ab5de4b5514e43fe8a7874a.png)
+ - [长安链·ChainMaker 购买页说明](https://cloud.tencent.com/document/product/663/60096)
  - [Hyperledger Fabric 购买页说明](https://cloud.tencent.com/document/product/663/38262)
  - [FISCO-BCOS 购买页说明](https://cloud.tencent.com/document/product/663/38266)
- - [TrustSQL 购买页说明](https://cloud.tencent.com/document/product/663/38271)
+
 

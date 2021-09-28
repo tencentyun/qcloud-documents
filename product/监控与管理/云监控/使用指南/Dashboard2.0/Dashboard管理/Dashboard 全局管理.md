@@ -6,9 +6,9 @@
 
 ## Dashboard 全局配置
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。
-2. 在左侧导航栏中点击【Dashboard列表】，进入Dashboard列表页。
-3. 单击 Dashboard 列表左上角的【新建】，进入新建 Dashboard 管理页。
-4. 在面板区单击【![](https://main.qcloudimg.com/raw/8e26fe2eacdd794457a53a745bd48f3c.png)】或单击Dashboard 列表页的【设置】，进入 Dashboard 全局配置页。 Dashboard 全局配置支持基础设置、模板变量、链接管理、JSON，详细说明如下：
+2. 在左侧导航栏中单击**Dashboard列表**，进入Dashboard列表页。
+3. 单击 Dashboard 列表左上角的**新建**，进入新建 Dashboard 管理页。
+4. 在面板区单击**![](https://main.qcloudimg.com/raw/8e26fe2eacdd794457a53a745bd48f3c.png)**或单击Dashboard 列表页的**设置**，进入 Dashboard 全局配置页。 Dashboard 全局配置支持基础设置、模板变量、链接管理、JSON，详细说明如下：
 	- **基础设置**：支持自定义 Dashboard 名称和备注。
 	- **模板变量**：支持自定义 Dashboard 数据筛选标签。
 	- **链接管理**：支持自定义 Dashboard 快速跳转链接。您可以把业务相关的链接或面板关联到 Dashboard 中，方便您异障排查时进行快速跳转。
@@ -23,7 +23,7 @@
 您可以自定义 Dashboard 筛选条件，在 Dashboard 管理页 [使用模板变量](#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E5.8F.98.E9.87.8F) 。目前支持云服务器—基础监控、存储监控和云数据库MySQL主机、备机监控标签筛选。
 
 1. 新建模板变量。
-	单击【模板管理页】>【新增】，定义完模板变量信息后单击【确认】即可。
+	单击**模板管理页** > **新增**，定义完模板变量信息后单击**确认**即可。
 	![](https://main.qcloudimg.com/raw/84f4a6d0feb1aa68ce7fe184e02cb5c3.png)		 
 2. 编辑、删除模板变量。
 在模板变量列表中您可以进行模板变量的删除和编辑。
@@ -170,37 +170,37 @@ JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可�
 					"alignAsTable": [// 图例是否以表格形式展示
 						"1"
 					],
-					"avg": [// 是否显示平均值.【‘1’】为true；【‘0’】为false
+					"avg": [// 是否显示平均值.**‘1’**为true；**‘0’**为false
 						"1"
 					],
-					"current": [// 是否显示最新值.【‘1’】为true；【‘0’】为false
+					"current": [// 是否显示最新值.**‘1’**为true；**‘0’**为false
 						"1"
 					],
-					"max": [// 是否显示最大值.【‘1’】为true；【‘0’】为false
+					"max": [// 是否显示最大值.**‘1’**为true；**‘0’**为false
 						"1"
 					],
-					"min": [// 是否显示最小值.【‘1’】为true；【‘0’】为false
+					"min": [// 是否显示最小值.**‘1’**为true；**‘0’**为false
 						"1"
 					],
-					"rightSide": [// 是否放在右边.【‘1’】为true；【‘0’】为false
+					"rightSide": [// 是否放在右边.**‘1’**为true；**‘0’**为false
 						"1"
 					],
-					"show": [// 是否显示图例.【‘1’】为true；【‘0’】为false
+					"show": [// 是否显示图例.**‘1’**为true；**‘0’**为false
 						"1"
 					],
-					"total": [// 是否展示累加值.【‘1’】为true；【‘0’】为false
+					"total": [// 是否展示累加值.**‘1’**为true；**‘0’**为false
 						"1"
 					],
 					"values": false
 				},
-				"lines": [// 是否显示曲线.【‘1’】为true；【‘0’】为false
+				"lines": [// 是否显示曲线.**‘1’**为true；**‘0’**为false
 					"1"
 				],
-				"linesType": true,// 是否展示平滑曲线.【‘1’】为true；【‘0’】为false
+				"linesType": true,// 是否展示平滑曲线.**‘1’**为true；**‘0’**为false
 				"linewidth": "2",// 曲线宽度
 				"markline": {// mark设置
 					"marklineMax": {
-						"max": [// 是否显示峰值.【‘1’】为true；【‘0’】为false
+						"max": [// 是否显示峰值.**‘1’**为true；**‘0’**为false
 							"1"
 						]
 					}
@@ -215,7 +215,7 @@ JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可�
 				"renderer": "flot",
 				"seriesOverrides": [],
 				"spaceLength": 10,
-				"stack": [// 是否堆积显示。【‘1’】为true；【‘0’】为false
+				"stack": [// 是否堆积显示。**‘1’**为true；**‘0’**为false
 					"1"
 				],
 				"steppedLine": false,
@@ -251,7 +251,7 @@ JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可�
 						"logBase": 1,
 						"max": 2,// 左侧y轴坐标最大值
 						"min": 0,// 左侧y轴坐标最小值
-						"show": [// 是否展示左侧y轴.【‘1’】为true；【‘0’】为false
+						"show": [// 是否展示左侧y轴.**‘1’**为true；**‘0’**为false
 							"1"
 						]
 					},
@@ -313,7 +313,7 @@ JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可�
 ## 使用模板变量
 
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。
-2. 在左侧导航栏中单击【Dashboard 列表】，进入 Dashboard 列表页。
+2. 在左侧导航栏中单击**Dashboard 列表**，进入 Dashboard 列表页。
 3. 找到您需要查看模板变量的 Dashboard，单击对应的面板名称。
 4. 创建模板变量后支持在 作为 Dashboard 和监控图表的快速选择器。
     - 在 Dashboard 使用：在 Dashboard 管理页中即可使用模板变量对 Dashboard 展示数据进行筛选。

@@ -5,7 +5,7 @@
 在 [流计算 Oceanus](https://console.cloud.tencent.com/oceanus/cluster) 控制台的**集群管理 > 新建集群**创建集群，选择地域、可用区、VPC、日志、存储、设置初始密码等。创建完后的集群如下：
 >?
 >- 若未使用过 VPC、日志、存储这些组件，需要先进行创建。
->- VPC 及子网需要和下面的 MySQL、ES 集群使用同一个，否则需要手动打通（如对等连接）。
+>- VPC 及子网需要和下面的 MySQL、EMR 集群使用同一个，否则需要手动打通（如对等连接）。
 
 ![](https://main.qcloudimg.com/raw/6dafa64073856583ce73ca85c7505e6b.png)
 
@@ -52,7 +52,7 @@ create table `student` (
 ```
 
 ### 创建 EMR 集群
-弹性 MapReduce 是云端托管的弹性开源泛 Hadoop 服务，支持 Spark、HBase、Presto、Flink、Druid 等大数据框架，本次示例主要需要使用 Flume、Hive、YARN、HUE、Oozie 组件。页面地址[https://console.cloud.tencent.com/emr](https://console.cloud.tencent.com/emr)
+弹性 MapReduce 是云端托管的弹性开源泛 Hadoop 服务，支持 Spark、HBase、Presto、Flink、Druid 等大数据框架，本次示例主要需要使用 Flume、Hive、YARN、HUE、Oozie 组件。
 1. 登录 [弹性 MapReduce 控制台](https://console.cloud.tencent.com/emr)，选择**集群列表 > 新建集群**，开始新建集群，具体可参考 [创建 EMR 集群](https://cloud.tencent.com/document/product/589/10981)。新建集群时，需选择安装 HBase 组件。
 ![](https://main.qcloudimg.com/raw/b8de93e041489aed3d8d9f847bd32f95.png)
 如果是生产环境，服务器配置可根据实际情况选择。网络需要选择之前创建好的 VPC 网络，始终保持服务组件在同一 VPC 下。

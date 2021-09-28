@@ -12,7 +12,7 @@
 云服务器不绑定弹性公网 IP ，所有访问 Internet 流量通过 NAT 网关转发。此种方案中，云服务器访问 Internet 的流量会通过内网转发至 NAT 网关，因而不会受云服务器购买时公网带宽的带宽上限限制，NAT 网关产生的网络流量费用也不会占用云服务器的公网带宽出口。通过 NAT 网关访问 Internet，您需要完成以下两个步骤：
 
 ### 步骤 1 创建 NAT 网关
-1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，单击左侧导航栏中的**[NAT 网关](https://console.cloud.tencent.com/vpc/nat?rid=1)**。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，单击左侧导航栏中的 **[NAT 网关](https://console.cloud.tencent.com/vpc/nat?rid=1)**。
 2. 在 “NAT 网关”管理页面，单击**新建**。
 3. 在弹出的“新建 NAT 网关”窗口中，填写以下参数。
  - 网关名称：自定义。
@@ -28,7 +28,7 @@
 >? 完成创建 NAT 网关后，您需要在私有网络控制台路由表页配置路由规则，以将子网流量指向 NAT 网关。
 >
 
-1. 单击左侧导航栏中的**[路由表](https://console.cloud.tencent.com/vpc/route?rid=1)**。
+1. 单击左侧导航栏中的 **[路由表](https://console.cloud.tencent.com/vpc/route?rid=1)**。
 2. 在路由表列表中，单击需要访问 Internet 的子网所关联的路由表 ID/名称，进入路由表详情页。
 3. 在“路由策略”栏中，单击**新增路由策略**。
 3. 在弹出的“新增路由”窗口中，填写**目的端**，将**下一跳类型**选择为**NAT 网关**，并将**下一跳**选择为已创建的 NAT 网关 ID。

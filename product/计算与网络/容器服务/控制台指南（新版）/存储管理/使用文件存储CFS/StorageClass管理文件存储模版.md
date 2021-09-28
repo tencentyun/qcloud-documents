@@ -70,8 +70,8 @@
    - **Provisioner**：选择**文件存储 CFS**。
    - **读写权限**：文件存储仅支持多机读写。
    - **StorageClass**：按需指定 StorageClass，本文选择以在 [创建 StorageClass](#create) 步骤中创建的 `cfs-storageclass` 为例。
- >? 
- >- PVC 和 PV 会绑定在同一个 StorageClass 下。
+>? 
+>- PVC 和 PV 会绑定在同一个 StorageClass 下。
 >- 不指定 StorageClass 意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
 > 
    - **PersistVolume**：按需指定 PersistentVolume，本文以不指定 PersistentVolume 为例。
@@ -91,13 +91,13 @@
 	- **数据卷（选填）**：
 		- **挂载方式**：选择“使用已有PVC”。
 		- **数据卷名称**：自定义，本文以 `cfs-vol` 为例。
-		- **选择 PVC**：选择在步骤 [创建 PVC](#createPVC2) 中已创建的 “cfs-pvc”。
+		- **选择 PVC**：选择在步骤 [创建 PVC](#createPVC) 中已创建的 “cfs-pvc”。
 	- **实例内容器**：单击**添加挂载点**，进行挂载点设置。
        - **数据卷**：选择该步骤中已添加的数据卷“cfs-vol”。
        - **目标路径**：填写目标路径，本文以 `/cache` 为例。
        - **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如， `/data` 或 `/test.txt`。
 3. 单击**创建Workload**，完成创建。
- >! 如使用 CFS 的 PVC 挂载模式，数据卷支持挂载到多台 Node 主机上。
+>! 如使用 CFS 的 PVC 挂载模式，数据卷支持挂载到多台 Node 主机上。
 
 
 ### Kubectl 操作指引

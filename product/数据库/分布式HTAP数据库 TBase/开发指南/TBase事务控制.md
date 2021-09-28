@@ -14,7 +14,6 @@ BEGIN
 postgres=# begin transaction isolation level read committed ;
 BEGIN
 ```
- 
 
 ## 提交事务
 **进程#1访问**

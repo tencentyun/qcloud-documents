@@ -13,7 +13,7 @@ CLB 触发器通过同步调用的方式来调用函数。有关调用类型的�
 
 ## CLB 触发器配置
 
-CLB 触发器支持在 **[云函数控制台](https://console.cloud.tencent.com/scf/index)** 或在 **[负载均衡控制台](https://console.cloud.tencent.com/clb/index)** 中进行配置。
+CLB 触发器支持在  **[云函数控制台](https://console.cloud.tencent.com/scf/index)** 或在  **[负载均衡控制台](https://console.cloud.tencent.com/clb/index)** 中进行配置。
 <dx-tabs>
 ::: 云函数控制台
 在**云函数控制台**中，支持 [在触发方式中添加 CLB 负载均衡触发器](https://cloud.tencent.com/document/product/583/30230#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.AE.8C.E6.88.90.E8.A7.A6.E5.8F.91.E5.99.A8.E5.88.9B.E5.BB.BA)、支持选取已有 CLB 负载均衡或新建主机路由规则、支持配置 URL 请求路径。

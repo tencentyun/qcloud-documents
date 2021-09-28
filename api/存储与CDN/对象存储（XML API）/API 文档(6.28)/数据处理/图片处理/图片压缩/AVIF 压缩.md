@@ -4,6 +4,13 @@
 
 对象存储（Cloud Object Storage，COS）基于 [数据万象（Cloud Infinite，CI）](https://cloud.tencent.com/document/product/460/6962) 产品推出了 AVIF 压缩功能，可将图片转换为 avif 格式，avif 是基于 av1 的一种全新图片格式，在2020年2月由 Netflix 首次公布于众，目前已支持 Chrome、Firefox 等浏览器。
 
+## 限制说明
+
+- 支持格式：支持将 jpg、png、bmp、gif、webp、tpg、heif 等格式图片转换为 avif 格式。
+- 体积限制：处理图片原图大小不超过32MB、宽高不超过30000像素且总像素不超过2.5亿像素，处理结果图宽高设置不超过9999像素；针对动图，原图宽 x 高 x 帧数不超过2.5亿像素。
+- 动图帧数限制：gif 帧数限300帧。
+
+
 ## 前提条件
 
 - 目前 AVIF 压缩属于内测功能，仅支持北京、上海、广州地域的存储桶，使用前请先 [申请开通 AVIF 功能内测](https://cloud.tencent.com/apply/p/igpvms3gjcn)。

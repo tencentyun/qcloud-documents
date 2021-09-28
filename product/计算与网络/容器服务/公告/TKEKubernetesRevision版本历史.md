@@ -4,8 +4,11 @@
     <tr><th> 时间         </th><th> 版本                 </th><th> 更新内容                           </th></tr>
   </thead>
   <tbody>
+<tr><td>2021-07-19 </td><td> v1.20.6-tke.3</td><td><ul class="params">
+<li>从 TKE 集群扩容到 EKS，在批量调度 Pod 时，能正确感知子网剩余 ip，调度正确数量的 Pod 到虚拟节点上。  (kube-scheduler)</li>
+<li>移植 upstream 对 kubelet 及 cadvisor 的修改，修复使用 cgroupv2 时指标收集统计的问题。  (kubelet)</li></td></ul></tr>
     <tr><td>2021-06-21 </td><td> v1.20.6-tke.2</td><td>默认开启 CSIMigration 及 CSIMigrationQcloudCbs，以 CSI 方式挂载 CBS 盘。</td></tr>
-    <tr><td> 2021-05-25   </td><td> v1.20.6-tke.1</td><td><li>revert pr63066，修复 LB 健康检查与 IPVS 的问题。（kube-proxy）</li>
+    <tr><td> 2021-05-25   </td><td> v1.20.6-tke.1</td><td><ul class="params"><li>revert pr63066，修复 LB 健康检查与 IPVS 的问题。（kube-proxy）</li>
 <li>合并 pr90260，修复 containerd 集群网络监控缺失问题。（kubelet）</li>
 <li>ubuntu16下 lxcfs 升级造成  Pod  退出问题修复。（kubelet）</li>
 <li>合并 pr72914，修复删除 Pod 后立即创建并调度到同一个节点可能导致无法挂载成功的问题。（kube-controller-manager）</li>
@@ -19,7 +22,7 @@
 <li>支持 cbs csi migration。（kube-controller-manager，kubelet）</li>
 <li>合并 pr93260，解决 AWS Credential Provider 导致节点启动变慢的问题。（kubelet）</li>
 <li>为调度器增加命令行参数 eks-config-namespace：指定扩容 eks 相关配置所在的 namespace。（kube-scheduler）</li>
-<li> TKE支持混合云节点。（kube-controller-manager）</li></td></tr>
+<li> TKE支持混合云节点。（kube-controller-manager）</li></ul></td></tr>
   </tbody>
 </table>
 
@@ -31,11 +34,18 @@
 </thead>
 <tbody>
 	<tr>
+	<tr><td>2021-08-23</td><td>v1.18.4-tke.14</td>
+<td><ul class="params"><li>从 TKE 集群扩容到 EKS：支持固定 IP   (kube-scheduler)</li>
+	<li>从 TKE 集群扩容到 EKS：当匹配 EKS 固定 IP 时，跳过其他预选策略   (kube-scheduler)</li><li>从 TKE 集群扩容到 EKS：针对 EKS 节点的调度优化 EKS 节点资源感知重调度；EKS 节点优先机型调度；优化了针对 EKS 节点的优选/预选策略   (kube-scheduler)</li>
+	<li>记录已加载的 ipvs 内核模块，避免 ipvs 模式时 kube-proxy 崩溃   (kube-proxy)</li>
+	<li>写入 cpu manager 状态文件发生错误时，避免 panic   (kubelet)</li></ul></td></tr>
+	<tr><td>2021-07-22</td><td>v1.18.4-tke.13</td><td>合并 <a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/91859" target="_blank">PR91859</a>，修复 CRD 类型只有一个字母时导致 kube-apiserver panic 的问题   (kube-apiserver)</td></tr>
+<tr><td>2021-07-13</td><td>v1.18.4-tke.12</td><td><ul class="params"><li>从 TKE 集群扩容到 EKS：在批量调度 Pod 时，能正确感知子网剩余 IP ，调度正确数量的 Pod 到虚拟节点上   (kube-scheduler)</li>
+<li>支持收集 Containerd 运行时的磁盘用量指标   (kubelet)</li><li>缩容时支持指定 Pod   (kube-controller-manager)</li></td></ul></tr>
     <td>2021-06-05</td>	
     <td>v1.18.4-tke.11</td>	
-    <td><ul class="params">
-TKE 支持混合云节点。（kube-controller-manager）
-</ul></td>
+    <td>
+TKE 支持混合云节点。（kube-controller-manager）</td>
 </tr>
 <tr>
     <td>2021-05-14</td>	
@@ -140,6 +150,7 @@ TKE 支持混合云节点。（kube-controller-manager）
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr><td>2021-09-03</td><td>v1.16.3-tke.22</td><td>写入 cpu manager 状态文件发生错误时，避免 panic (kubelet)</td></tr><tr><td>2021-08-17</td><td>v1.16.3-tke.21</td><td><ul class="params"><li>针对 EKS 节点的调度优化：针对 EKS 节点的调度优化 EKS 节点资源感知重调度；EKS 节点优先机型调度；优化了针对 EKS 节点的优选 / 预选策略 (kube-scheduler)</li><li>移植 <a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/87692" target="_blank">87692</a>，修复调度器 pending_pods 和 schedule_attempts_total 指标没有数据的问题 (kube-scheduler)</li></ul></td></tr><tr><td>2021-07-19</td><td>v1.16.3-tke.20</td><td><ul class="params"><li>移植 <a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/87688" target="_blank">87688 </a>及 <a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/87693" target="_blank">87693</a>，优化 Node Authorizer 性能 (kube-apiserver)</li><li> 从 TKE 集群扩容到 EKS： 在批量调度 Pod 时，能正确感知子网剩余 IP，调度正确数量的 Pod 到虚拟节点上 (kube-scheduler)</li><li>合并 <a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/88507" target="_blank">pr88507</a>，解决更新 Pod 状态时 podIP 和 podIPs 不一致的问题 (kube-apiserver)</li></ul></td></tr>
 <tr>
     <td>2021-05-24</td>	
     <td>v1.16.3-tke.17</td>	

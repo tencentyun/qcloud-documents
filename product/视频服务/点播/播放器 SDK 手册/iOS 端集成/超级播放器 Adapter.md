@@ -12,19 +12,21 @@
 
 ## 集成指引[](id:guide)
 
-- **环境要求**
-  需要配置支持 http 请求，配置方式：在项目的 info.plist 文件中添加 App Transport Security Settings->Allow Arbitrary Loads 设置为 YES。
+### 环境要求
 
-- **组件依赖**
+配置支持 HTTP 请求，需要在项目的 info.plist 文件中添加 `App Transport Security Settings->Allow Arbitrary Loads` 设置为 YES。
 
-  `GCDWebServer`   
+###  组件依赖
 
-  ```objective-c
-  pod "GCDWebServer", "~> 3.0"
-  ```
+添加 `GCDWebServer` 组件依赖。   
 
+```objective-c
+pod "GCDWebServer", "~> 3.0"
+```
 
-## 使用播放器
+GCDWebServer 是一个轻量的 HTTP server，它基于 GCD 并可用于 OS X & iOS，该库还实现了基于 Web 的文件上传以及 WebDAV server 等扩展功能。
+
+### 使用播放器
 
 变量声明，播放器主类为 `TXCPlayerAdapter`，创建后即可播放视频。
 
@@ -82,12 +84,9 @@ id<ITXCPlayerAssistorProtocol> assistor = [TXCPlayerAdapter createPlayerAssistor
 
 
 
-## SDK 接口列表 [](id:sdkList)
+## SDK 接口说明
 
-#### 初始化 Adatper
-
-**说明**
-
+### 初始化 Adatper
 初始化 Adapter，单例。
 
 **接口**
@@ -98,15 +97,10 @@ id<ITXCPlayerAssistorProtocol> assistor = [TXCPlayerAdapter createPlayerAssistor
 
 **参数说明**
 
-appId：填写 appid（如果使用了子应用，则填 subappid）
+appId：填写 appid（如果使用了子应用，则填 subappid）。
 
-
-
-#### 销毁 Adatper
-
-**说明**
-
-销毁Adapter，当程序退出后调用。
+### 销毁 Adatper
+销毁 Adapter，当程序退出后调用。
 
 **接口**
 
@@ -114,11 +108,7 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 + (void)destroy;
 ```
 
-
-
-#### 创建播放器辅助类
-
-**说明**
+### 创建播放器辅助类
 
 通过播放器辅助类可以获取播放 fileId 相关信息以及处理 DRM 加密接口等。
 
@@ -133,12 +123,10 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 | 参数名 | 类型   | 描述               |
 | :----- | :----- | :----------------- |
-| fileId | String | 要播放的视频fileId |
+| fileId | String | 要播放的视频 fileId |
 | pSign  | String | 超级播放器签名     |
 
-#### 请求视频播放信息
-
-**说明**
+### 请求视频播放信息
 
 本接口会请求腾讯云点播服务器，获取播放视频的流信息等。
 
@@ -152,13 +140,11 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 | 参数名         | 类型                         | 描述         |
 | :------------- | :--------------------------- | :----------- |
-| **completion** | ITXCRequestVideoInfoCallback | 异步回调函数 |
+| completion | ITXCRequestVideoInfoCallback | 异步回调函数 |
 
 
 
-销毁播放器辅助类
-
-**说明**
+### 销毁播放器辅助类
 
 销毁辅助类，在退出播放器或者切换了下一个视频播放的时候调用。
 
@@ -170,11 +156,9 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 
 
-#### 获取视频的基本信息
+### 获取视频的基本信息
 
-**说明**
-
-获取视频信息， 必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
+获取视频信息， 必须是在 `id<ITXCPlayerAssistorProtocol>.requestVideoInfo` 回调之后才生效。
 
 **接口**
 
@@ -184,23 +168,21 @@ appId：填写 appid（如果使用了子应用，则填 subappid）
 
 **参数说明**
 
-TXCVideoBasicInfo：参数如下
+TXCVideoBasicInfo 参数如下：
 
-| 参数名      | 类型   | 描述                   |
-| :---------- | :----- | :--------------------- |
-| name        | String | 视频名称。             |
-| size        | Int    | 视频大小，单位：字节。 |
-| duration    | Float  | 视频时长，单位：秒。   |
-| description | String | 视频描述。             |
-| coverUrl    | String | 视频封面。             |
+| 参数名      | 类型   | 描述                 |
+| :---------- | :----- | :------------------- |
+| name        | String | 视频名称             |
+| size        | Int    | 视频大小，单位：字节 |
+| duration    | Float  | 视频时长，单位：秒   |
+| description | String | 视频描述             |
+| coverUrl    | String | 视频封面             |
 
 
 
-#### 获取视频流信息
+### 获取视频流信息
 
-**说明**
-
-获取视频流信息列表，必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
+获取视频流信息列表，必须是在 `id<ITXCPlayerAssistorProtocol>.requestVideoInfo` 回调之后才生效。
 
 **接口**
 
@@ -210,27 +192,25 @@ TXCVideoBasicInfo：参数如下
 
 **参数说明**
 
-TXCStreamingInfo
+TXCStreamingInfo 参数如下：
 
-| 参数名     | 类型   | 描述                                          |
-| :--------- | :----- | :-------------------------------------------- |
-| playUrl    | String | 播放 URL。                                    |
-| subStreams | List   | 自适应码流子流信息，类型为 TXCSubStreamInfo。 |
+| 参数名     | 类型   | 描述                                                         |
+| :--------- | :----- | :----------------------------------------------------------- |
+| playUrl    | String | 播放 URL                                                     |
+| subStreams | List   | 自适应码流子流信息，类型为 [TXCSubStreamInfo](#TXCSubStreamInfo) |
 
-TXCSubStreamInfo
+TXCSubStreamInfo 参数如下：[](id:TXCSubStreamInfo)
 
-| 参数名         | 类型   | 描述                                   |
-| :------------- | :----- | :------------------------------------- |
-| type           | String | 子流的类型，目前可能的取值仅有 video。 |
-| width          | Int    | 子流视频的宽，单位：px。               |
-| height         | Int    | 子流视频的高，单位：px。               |
-| resolutionName | String | 子流视频在播放器中展示的规格名。       |
+| 参数名         | 类型   | 描述                                 |
+| :------------- | :----- | :----------------------------------- |
+| type           | String | 子流的类型，目前可能的取值仅有 video |
+| width          | Int    | 子流视频的宽，单位：px               |
+| height         | Int    | 子流视频的高，单位：px               |
+| resolutionName | String | 子流视频在播放器中展示的规格名       |
 
-#### 获取关键帧打点信息
+### 获取关键帧打点信息
 
-**说明**
-
-获取视频关键帧打点信息，必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
+获取视频关键帧打点信息，必须是在 `id<ITXCPlayerAssistorProtocol>.requestVideoInfo` 回调之后才生效。
 
 **接口**
 
@@ -240,7 +220,7 @@ TXCSubStreamInfo
 
 **参数说明**
 
-TXCKeyFrameDescInfo
+TXCKeyFrameDescInfo 参数如下：
 
 | 参数名     | 类型   | 描述          |
 | :--------- | :----- | :------------ |
@@ -249,11 +229,9 @@ TXCKeyFrameDescInfo
 
 
 
-#### 获取缩略图信息
+### 获取缩略图信息
 
-**说明**
-
-获取缩略图信息，必须是在 id<ITXCPlayerAssistorProtocol>.requestVideoInfo 回调之后才生效。
+获取缩略图信息，必须是在 `id<ITXCPlayerAssistorProtocol>.requestVideoInfo` 回调之后才生效。
 
 **接口**
 
@@ -263,10 +241,9 @@ TXCKeyFrameDescInfo
 
 **参数说明**
 
-TCXImageSpriteInfo
+TCXImageSpriteInfo 参数如下：
 
-| 参数名    | 类型   | 描述                                  |
-| :-------- | :----- | :------------------------------------ |
-| imageUrls | List   | 缩略图下载 URL 数组，类型为 String 。 |
-| webVttUrl | String | 缩略图 VTT 文件下载 URL 。            |
-
+| 参数名    | 类型   | 描述                               |
+| :-------- | :----- | :--------------------------------- |
+| imageUrls | List   | 缩略图下载 URL 数组，类型为 String |
+| webVttUrl | String | 缩略图 VTT 文件下载 URL            |
