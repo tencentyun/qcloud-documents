@@ -1,6 +1,6 @@
 ## 环境准备
 - 依赖：JDK 1.8
-- JDBC 下载：[点击下载 JDBC 驱动]()
+- JDBC 下载：[点击下载 JDBC 驱动](https://dlc-jdbc-1304028854.cos.ap-beijing.myqcloud.com/dlc-jdbc-1.3.0-jar-with-dependencies.jar)
 
 ## 连接 DLC
 1. 加载 DLC JDBC 驱动
@@ -188,14 +188,14 @@ public class DataTest {
 
 ### 操作步骤
 1. 通过 jdbc 驱动包创建 DLC Driver。
-![](https://main.qcloudimg.com/raw/0bc57eb7369d3a6592b0d34d121d60c9.png)
+![](https://main.qcloudimg.com/raw/afc6df5b900eb933aaf431d529b4241a.png)
 2. 连接 DLC，填入如下参数，单击 **test**，测试通过后，完成与 DLC 的连接。
  - Name：连接名称，用于标识与 DLC 的连接。
  - Username：对应于腾讯云用户的 secret_id。
  - Password：对应于腾讯云用户的 secret_key。
  - URL：用于连接 DLC 的 URL。格式和上文中通过 jdbc 创建连接的 URL 一致。
-![](https://main.qcloudimg.com/raw/98ad71d15e80d6a44e995f2c26c72a3c.png)
+![](https://main.qcloudimg.com/raw/abda4b50672f4c70b4d81e80a2c2158c.png)
 1. 查看库表信息。
-![](https://main.qcloudimg.com/raw/55f5f8cc8de1e67ef8adb9baf77d3654.png)
+![](https://main.qcloudimg.com/raw/5ecbf80953f8589821eb008375f0bbff.png)
 1. 查询数据。
-![](https://main.qcloudimg.com/raw/440a29e0a6b8ebf78963cf2d1a374d13.png)
+![](https://main.qcloudimg.com/raw/7090e6adac000b263cfc41bbcf25695f.png)
