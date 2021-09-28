@@ -78,11 +78,11 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>username</td>
+<td>ACL_SECRET_KEY</td>
 <td>角色名称，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制。</td>
 </tr>
 <tr>
-<td>password</td>
+<td>ACL_ACCESS_KEY</td>
 <td>角色密钥，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制<strong>密钥</strong>列复制。<img src="https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png" alt=""></td>
 </tr>
 <tr>
@@ -178,11 +178,11 @@ Topic:topic1 send success, queueId is: 1
 </tr>
 </thead>
 <tbody><tr>
-<td>username</td>
+<td>ACL_SECRET_KEY</td>
 <td>角色名称，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制。</td>
 </tr>
 <tr>
-<td>password</td>
+<td>ACL_ACCESS_KEY</td>
 <td>角色密钥，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制<strong>密钥</strong>列复制。<img src="https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png" alt=""></td>
 </tr>
 <tr>
