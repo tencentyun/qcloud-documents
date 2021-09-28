@@ -20,21 +20,21 @@ X-Forwarded-For: 用户真实IP, 代理服务器1-IP， 代理服务器2-IP，..
 >?当使用此方式获取客户端真实 IP 时，获取的第一个地址即为客户端真实 IP。
 	- 各语言通过调用 SDK 接口获取 X-Forwarded-For 字段的方式如下：
 		- ASP：
-		```plaintext
-		Request.ServerVariables("HTTP_X_FORWARDED_FOR")
-		```
+```plaintext
+Request.ServerVariables("HTTP_X_FORWARDED_FOR")
+```
 		- ASP.NET(C#)：
-		```plaintext
-		Request.ServerVariables["HTTP_X_FORWARDED_FOR"]
-		```
+```plaintext
+Request.ServerVariables["HTTP_X_FORWARDED_FOR"]
+```
 		- PHP：
-		```plaintext
-		$_SERVER["HTTP_X_FORWARDED_FOR"]
-		```
+```plaintext
+$_SERVER["HTTP_X_FORWARDED_FOR"]
+```
 		- JSP:
-		```plaintext
-		request.getHeader("HTTP_X_FORWARDED_FOR")
-		```
+```plaintext
+request.getHeader("HTTP_X_FORWARDED_FOR")
+```
 - **方式2**：DDoS 高防服务支持使用 X-Real-IP 变量，获取客户的来源 IP（使用过程中考虑了后面所经过的多层反向代理对该变量的修改）。
 各种语言通过调用 SDK 接口获取 X-Real-IP 字段的方式如下：
 	- ASP：
