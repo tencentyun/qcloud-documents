@@ -2,7 +2,7 @@
 
 ## 前提条件
 
-- 已 [创建物联网 SaaS 托管 MySQL 节点](https://cloud.tencent.com/document/product/1465/61967)。
+- 已 [创建物联网 SaaS 托管 MySQL 节点](https://cloud.tencent.com/document/product/1081/62046)。
 - 源数据库和目标数据库符合迁移功能和版本要求，请参见 [数据迁移支持的数据库](https://cloud.tencent.com/document/product/571/58686) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
 - 需要您在源端自建 MySQL 中创建迁移帐号，需要的帐号权限如下：
