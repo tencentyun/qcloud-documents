@@ -55,7 +55,7 @@ x-cos-request-id: NWRlODY0ZWRfMjNiMjU4NjRfOGQ4Ml81MDEw****
 
 #### 功能说明
 
-用于在对象上传和下载的时候对对象数据做crc64一致性校验。
+用于在对象上传和下载的时候对对象数据做 crc64 一致性校验。
 
 #### 方法原型
 
@@ -143,21 +143,22 @@ cos_status_t *cos_resumable_download_file(cos_request_options_t *options,
 | 参数名称           | 参数描述                                                     | 类型    |
 | ------------------ | ------------------------------------------------------------ | ------- |
 | options            | COS 请求选项                                                 | Struct  |
-| options.ctl.options.enable_crc  | crc校验选项，默认开启crc校验                      | Int  |
-其它参数说明则参考[对象操作](https://cloud.tencent.com/document/product/436/35558)。
+| options.ctl.options.enable_crc  | crc 校验选项，默认开启 crc 校验                      | Int  |
+
+>?其他参数说明则参见 [对象操作](https://cloud.tencent.com/document/product/436/35558)。
 
 #### 返回结果说明
 
 | 返回结果   | 描述        | 类型   |
 | ---------- | ----------- | ------ |
-| code       | 错误码(crc校验不通过返回：COSE_CRC_INCONSISTENT_ERROR)      | Int    |
+| code       | 错误码（crc 校验不通过返回：COSE_CRC_INCONSISTENT_ERROR）      | Int    |
 | error_code | 错误码内容  | String |
 | error_msg  | 错误码描述  | String |
 | req_id     | 请求消息 ID | String |
 
 
 #### 示例
-这里只用了简单上传和下载两个接口来举例，其它接口也是同样使用方式，只需要将options->ctl->options->enable_crc设置为COS_TRUE即可(默认值也是COS_TRUE)
+这里只用了简单上传和下载两个接口来举例，其它接口也是同样使用方式，只需要将 **options** > **ctl** > **options** > **enable_crc** 设置为 COS_TRUE 即可（默认值也是 COS_TRUE）。
 
 ```cpp
 cos_pool_t *p = NULL;
