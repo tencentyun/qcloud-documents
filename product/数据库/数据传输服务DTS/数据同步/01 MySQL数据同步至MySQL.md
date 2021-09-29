@@ -95,9 +95,14 @@ FLUSH PRIVILEGES;
 <td>同步任务规格</td><td>目前只支持标准版。</td></tr>
 </tbody></table>
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
+
 3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
-![](https://main.qcloudimg.com/raw/b21f1336854375bb1343c7ccb144900b.png)
+    ![](https://main.qcloudimg.com/raw/b21f1336854375bb1343c7ccb144900b.png)
+
 4. 在配置同步任务页面，配置源端实例、帐号密码，配置目标端实例、帐号和密码，测试连通性后，单击**下一步**。
+
+<img src="https://main.qcloudimg.com/raw/d5ed42367196f718c62a90c3a3a37088.png"  style="margin:0;">
+
 <table>
 <thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
 <tbody><tr>
@@ -152,12 +157,17 @@ FLUSH PRIVILEGES;
 <td>阿里云</td>
 <td>公网</td><td>×</td><td>×</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/d5ed42367196f718c62a90c3a3a37088.png"  style="margin:0;">
 5. 在设置同步选项和同步对象页面，将对数据初始化选项、数据同步选项、同步对象选项进行设置，在设置完成后单击**保存并下一步**。
 >?
-> - 当**初始化类型**仅选择**全量数据初始化**，系统默认用户在目标库已经创建了表结构，不会进行表结构迁移，也不会校验源库和目标库是否有同名表，所以当用户同时在**已存在同名表**项选择**前置校验并报错**，则校验并报错功能不生效。
-> - 仅选择**全量数据初始化**的场景，用户需要提前在目标库创建好表结构。
-> 
+>- 当**初始化类型**仅选择**全量数据初始化**，系统默认用户在目标库已经创建了表结构，不会进行表结构迁移，也不会校验源库和目标库是否有同名表，所以当用户同时在**已存在同名表**项选择**前置校验并报错**，则校验并报错功能不生效。
+>- 仅选择**全量数据初始化**的场景，用户需要提前在目标库创建好表结构。
+>- 如果用户在同步过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**同步对象**需要选择这个表所在的整个库，不能仅选择这个表，否则无法同步 Online DDL 变更产生的临时表数据到目标数据库。
+>- 如果用户在同步过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**同步对象**需要选择 table A 所在的整个库，不能仅选择 table A，否则系统会报错。
+>
+<img src="https://main.qcloudimg.com/raw/272026696de9d8dd15b0034f7bf8f0dd.png"  style="margin:0;">
+<strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
+<img src="https://main.qcloudimg.com/raw/533a454e1edc2dded72ac92b65948f31.png"  style="margin:0;">
+
 <table>
 <thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
 <tbody>
@@ -180,9 +190,7 @@ FLUSH PRIVILEGES;
 <tr>
 <td>已选对象</td><td>展示已选择的同步对象，支持库表映射。</td></tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/272026696de9d8dd15b0034f7bf8f0dd.png"  style="margin:0;">
-<strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
-<img src="https://main.qcloudimg.com/raw/533a454e1edc2dded72ac92b65948f31.png"  style="margin:0;">
+
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
     如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
