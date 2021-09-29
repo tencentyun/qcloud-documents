@@ -46,7 +46,7 @@ RemoteFx 是 Windows RDP 桌面协议升级版，RDP 8.0起可以使用 RemoteFx
 ![](https://main.qcloudimg.com/raw/760b413ec2fb3aec917716556875a99f.png)
 4. 在弹出的窗口中，选择**已启用**，并将 RemoteFx USB 重定向访问权限设置为**管理员和用户**。如下图所示：
 ![](https://main.qcloudimg.com/raw/a34da80ec13c8c041662b2c1142c931e.png)
-5. 单击【确定】。
+5. 单击**确定**。
 6. 重启本地计算机。
 
 ### 验证配置效果
