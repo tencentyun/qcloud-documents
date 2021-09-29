@@ -55,7 +55,7 @@ CREATE TABLE `Data-Output` (
 | index                               |           是           |    无    | 数据要写入的 Index。支持固定 Index（例如 `'myIndex'`），也支持动态 Index（例如`'index-{log_ts\|yyyy-MM-dd}'`）。 |
 | document-type                       | 6.x 版本：必填<br>7.x 版本：不需要 |    无    | Elasticsearch 文档的 Type 信息。当选择 `elasticsearch-7` 时，不能填写这个字段，否则会报错。 |
 | document-id.key-delimiter           |           否           |    _     | 为复合键生成 \_id 时的分隔符 (默认是 "\_")。例如有 a、b、c 三个主键，某条数据的 a 字段为 "1"，b 字段为 "2"，c 字段为 "3"，使用默认分隔符，则最终写入 Elasticsearch 的 \_id 是 "1\_2\_3"。 |
-| failure-handler                     |           否           |   fail   | 指定请求 Elasticsearch 失败时，错误处理策略。选项为：<li>`fail`：抛出一个异常。<li>`ignore`：忽略错误，直接继续。<li>`retry_rejected`：重试写入该条记录。<br>另外也支持自定义错误处理器，这里可以填写用户自己编写的 Handler 的类全名（需要上传自定义程序包）。 |
+| failure-handler                     |           否           |   fail   | 指定请求 Elasticsearch 失败时，错误处理策略。选项为：<li>`fail`：抛出一个异常。<li>`ignore`：忽略错误，直接继续。<li>`retry-rejected`：重试写入该条记录。<br>另外也支持自定义错误处理器，这里可以填写用户自己编写的 Handler 的类全名（需要上传自定义程序包）。 |
 | sink.flush-on-checkpoint            |           否           |   true   | Flink 进行快照时，是否等待现有记录完全写入 Elasticsearch 。如果设置为 false，则可能造成恢复时部分数据丢失或者重复等异常情况，但快照速度会提升。 |
 | sink.bulk-flush.max-actions         |    否  |   1000   | 批量写入的最大条数。设置为 `0` 则禁用批量功能。          |
 | sink.bulk-flush.max-size            |           否           |   2mb    | 批量写入缓存的最大容量，必须以 `mb` 为单位。设置为 `0` 则禁用批量功能。 |
