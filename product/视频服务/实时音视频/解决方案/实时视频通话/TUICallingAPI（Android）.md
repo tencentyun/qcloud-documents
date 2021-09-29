@@ -4,23 +4,25 @@ TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务�
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
 
 
-<h2 id="TUICalling"> TUICalling API 概览</h2>
+## TUICalling API 概览
+[](id:TUICalling)
  
 ### SDK 基础函数
 
 | API                                             | 描述                                             |
 | ----------------------------------------------- | ------------------------------------------------ |
-| [sharedInstance](#sharedinstance)               | 组件单例。                                       |
-| [call](#call) | C2C 邀请通话。                                   |
-| [receiveAPNSCalled](#receiveAPNSCalled)                     | 作为被邀请方接听来电。                                   |
+| [sharedInstance](#sharedinstance)               | 组件单例                                     |
+| [call](#call) | C2C 邀请通话                                   |
+| [receiveAPNSCalled](#receiveAPNSCalled)                     | 作为被邀请方接听来电                                   |
 | [setCallingListener](#setCallingListener)               | 设置监听器。                                   |
-| [setCallingBell](#setCallingBell)                             | 设置铃声(建议在30s以内)   |
+| [setCallingBell](#setCallingBell)                             | 设置铃声（建议在30s以内）   |
 | [enableMuteMode](#enableMuteMode)                                 | 开启静音模式 |
 | [enableFloatWindow](#enableFloatWindow)                               | 开启悬浮窗      |
 | [enableCustomViewRoute](#enableCustomViewRoute)                               | 开启自定义视图       |
 
 
-<h2 id="TUICallingListener">TUICallingListener API 概览</h2>
+## TUICallingListener API 概览
+[](id:TUICallingListener)
 
 ### 事件回调
 
@@ -31,7 +33,8 @@ TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务�
 | [onCallEnd](#onCallEnd) | 通话回调。主叫、被叫均会触发 |
 | [onCallEvent](#onCallEvent) | 通话事件回调 |
 
-<h2 id="Type">Type API 概览</h2>
+## Type API 概览
+[](id:Type)
 
 ### 通话类型
 | enum                 | 描述       |
@@ -39,7 +42,8 @@ TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务�
 | AUDIO | 音频通话 |
 | VIDEO | 视频通话 |
 
-<h2 id="Role">Role API 概览</h2>
+## Role API 概览
+[](id:Role)
 
 ### 用户角色类型
 | enum                 | 描述       |
@@ -47,7 +51,8 @@ TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务�
 | CALL | 通话发起方（主叫） |
 | CALLED | 通话接听方（被叫） |
 
-<h2 id="Event">Event API 概览</h2>
+## Event API 概览
+[](id:Event)
 
 ### 事件类型
 | enum                 | 描述       |
@@ -60,7 +65,7 @@ TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务�
 ## SDK 基础函数
 
 ### sharedInstance
-<span id="sharedInstance"> </span>
+[](id:sharedInstance)
 
 sharedInstance 是 TUICalling 的组件单例。
 
@@ -69,7 +74,7 @@ public static TUICallingManager sharedInstance();
 ```
 
 ### call
-<span id="call"> </span>
+[](id:call)
 
 C2C 邀请通话。
 
@@ -81,11 +86,11 @@ void call(String[] userIDs, Type type);
 
 | 参数      | 类型    | 含义               |
 | --------- | ------- | ------------------ |
-| userIDs    | String[]  | 通话用户 ID列表。      |
-| type | TUICalling.Type | 通话类型：音频/视频。 |
+| userIDs    | String[]  | 通话用户 ID 列表      |
+| type | TUICalling.Type | 通话类型：音频/视频 |
 
 ### receiveAPNSCalled
-<span id="receiveAPNSCalled"> </span>
+[](id:receiveAPNSCalled)
 
 作为被邀请方接听来电。
 
@@ -97,11 +102,11 @@ void receiveAPNSCalled(String[] userIDs, Type type);
 
 | 参数      | 类型    | 含义               |
 | --------- | ------- | ------------------ |
-| userIDs    | String[]  | 通话用户 ID列表。      |
-| type | TUICalling.Type | 通话类型：音频/视频。 |
+| userIDs    | String[]  | 通话用户 ID 列表      |
+| type | TUICalling.Type | 通话类型：音频/视频 |
 
 ### setCallingListener
-<span id="setCallingListener"> </span>
+[](id:setCallingListener)
 
 设置监听器。
 
@@ -113,10 +118,10 @@ void setCallingListener(TUICallingListener listener);
 
 | 参数      | 类型    | 含义               |
 | --------- | ------- | ------------------ |
-| listener    | TUICallingListener  | TUIcalling组件监听器。   |
+| listener    | TUICallingListener  | TUIcalling 组件监听器   |
 
 ### setCallingBell
-<span id="setCallingBell"> </span>
+[](id:setCallingBell)
 
 设置铃声(建议在30s以内)。
 
@@ -131,7 +136,7 @@ void setCallingBell(String filePath);
 | filePath    | String  | 铃音资源路径   |
 
 ### enableMuteMode
-<span id="enableMuteMode"> </span>
+[](id:enableMuteMode)
 
 开启静音模式。
 
@@ -146,7 +151,7 @@ void enableMuteMode(boolean enable);
 | enable    | boolean  | 是否开启静音模式   |
 
 ### enableFloatWindow
-<span id="enableFloatWindow"> </span>
+[](id:enableFloatWindow)
 
 开启悬浮窗。
 
@@ -161,11 +166,11 @@ void enableFloatWindow(boolean enable);
 | enable    | boolean  | 是否开启悬浮窗   |
 
 ### enableCustomViewRoute
-<span id="enableCustomViewRoute"> </span>
+[](id:enableCustomViewRoute)
 
 开启自定义视图。
-开启后，会在呼叫/被叫开始回调中，接收到CallingView的实例，由开发者自行决定展示方式
-注意：必须全屏或者与屏幕等比例展示，否则会有展示异常
+开启后，会在呼叫/被叫开始回调中，接收到 CallingView 的实例，由开发者自行决定展示方式。
+>! 必须全屏或者与屏幕等比例展示，否则会有展示异常。
 
 ```java
 void enableCustomViewRoute(boolean enable);
@@ -181,9 +186,9 @@ void enableCustomViewRoute(boolean enable);
 ## TUICallingListener 回调函数
 
 ### shouldShowOnCallView
-<span id="shouldShowOnCallView"> </span>
+[](id:shouldShowOnCallView)
 
-是否同意被叫时请求拉起接听页面
+是否同意被叫时请求拉起接听页面。
 
 ```java
 boolean shouldShowOnCallView();
@@ -196,9 +201,9 @@ boolean shouldShowOnCallView();
 | 返回值    | boolean  |  是否同意   |
 
 ### onCallStart
-<span id="onCallStart"> </span>
+[](id:onCallStart)
 
-呼叫开始回调。主叫、被叫均会触发
+呼叫开始回调。主叫、被叫均会触发。
 
 ```java
  void onCallStart(String[] userIDs, TUICalling.Type type, TUICalling.Role role, View tuiCallingView);
@@ -208,15 +213,15 @@ boolean shouldShowOnCallView();
 
 | 参数      | 类型    | 含义               |
 | --------- | ------- | ------------------ |
-| userIDs    | String[]  | 通话用户 ID列表。      |
-| type | TUICalling.Type | 通话类型：音频/视频。 |
-| role | TUICalling.Role | 用户角色类型：主叫/被叫。 |
-| tuiCallingView | View | 通话视图View。enableCustomViewRoute设置为false时，view为null。 |
+| userIDs    | String[]  | 通话用户 ID 列表。      |
+| type | TUICalling.Type | 通话类型：音频/视频 |
+| role | TUICalling.Role | 用户角色类型：主叫/被叫 |
+| tuiCallingView | View | 通话视图 View。enableCustomViewRoute 设置为 false 时，view 为 null |
 
 ### onCallEnd
-<span id="onCallEnd"> </span>
+[](id:onCallEnd)
 
-通话结束回调。主叫、被叫均会触发
+通话结束回调。主叫、被叫均会触发。
 
 ```java
  void onCallEnd(String[] userIDs, TUICalling.Type type, TUICalling.Role role, long totalTime);
@@ -226,15 +231,15 @@ boolean shouldShowOnCallView();
 
 | 参数      | 类型    | 含义               |
 | --------- | ------- | ------------------ |
-| userIDs    | String[]  | 通话用户 ID列表。      |
-| type | TUICalling.Type | 通话类型：音频/视频。 |
-| role | TUICalling.Role | 用户角色类型：主叫/被叫。 |
-| totalTime | long | 通话时长，单位：秒。 |
+| userIDs    | String[]  | 通话用户 ID 列表      |
+| type | TUICalling.Type | 通话类型：音频/视频 |
+| role | TUICalling.Role | 用户角色类型：主叫/被叫 |
+| totalTime | long | 通话时长，单位：秒 |
 
 ### onCallEvent
-<span id="onCallEvent"> </span>
+[](id:onCallEvent)
 
-通话事件回调
+通话事件回调。
 
 ```java
 void onCallEvent(TUICalling.Event event, TUICalling.Type type, TUICalling.Role role, String message);
@@ -244,10 +249,10 @@ void onCallEvent(TUICalling.Event event, TUICalling.Type type, TUICalling.Role r
 
 | 参数      | 类型    | 含义               |
 | --------- | ------- | ------------------ |
-| event    | TUICalling.Event  | 通话事件类型。      |
-| type | TUICalling.Type | 通话类型：音频/视频。 |
-| role | TUICalling.Role | 用户角色类型：主叫/被叫。 |
-| message | String | 事件的描述信息。 |
+| event    | TUICalling.Event  | 通话事件类型      |
+| type | TUICalling.Type | 通话类型：音频/视频 |
+| role | TUICalling.Role | 用户角色类型：主叫/被叫 |
+| message | String | 事件的描述信息 |
 
 
 
