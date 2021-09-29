@@ -145,8 +145,8 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 >?
->- 如果用户在迁移过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**迁移对象**需要选择这个表所在的整个库，不能仅选择这个表，否则无法迁移 Online DDL 变更产生的临时表数据到目标数据库。
->- 如果用户在迁移过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**迁移对象**需要选择 table A 所在的整个库，不能仅选择 table A，否则系统会报错。
+>- 如果用户在迁移过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**迁移对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法迁移 Online DDL 变更产生的临时表数据到目标数据库。
+>- 如果用户在迁移过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**迁移对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
 
    <img src="https://main.qcloudimg.com/raw/51d26749a5a208f84c3750e9afc9ea32.png"  style="margin:0;">
 <table>
