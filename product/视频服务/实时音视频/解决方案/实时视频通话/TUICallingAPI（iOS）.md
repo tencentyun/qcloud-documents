@@ -4,7 +4,8 @@ TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务�
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
 
 
-<h2 id="TUICalling"> TUICalling API 概览</h2>
+## TUICalling API 概览
+[](id:TUICalling)
  
 ### SDK 基础函数
 
@@ -14,15 +15,16 @@ TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务�
 | [call](#call) | C2C 邀请通话。                                   |
 | [receiveAPNSCalled](#receiveAPNSCalled)                     | 作为被邀请方接听来电。                                   |
 | [setCallingListener](#setCallingListener)               | 设置监听器。                                   |
-| [setCallingBell](#setCallingBell)                             | 设置铃声(建议在30s以内)   |
+| [setCallingBell](#setCallingBell)                             | 设置铃声（建议在30s以内）   |
 | [enableMuteMode](#enableMuteMode)                                 | 开启静音模式 |
 | [enableFloatWindow](#enableFloatWindow)                               | 开启悬浮窗      |
 | [enableCustomViewRoute](#enableCustomViewRoute)                               | 开启自定义视图       |
 
 
-<h2 id="TUICallingListener">TUICallingListener API 概览</h2>
+## TUICallingListener API 概览
+[](id:TUICallingListener)
 
-### 事件回调
+#### 事件回调
 
 | API                 | 描述       |
 | ------------------- | ---------- |
@@ -31,25 +33,28 @@ TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务�
 | [onCallEnd](#onCallEnd) | 通话回调。主叫、被叫均会触发 |
 | [onCallEvent](#onCallEvent) | 通话事件回调 |
 
-<h2 id="Type">Type API 概览</h2>
+## Type API 概览
+[](id:Type)
 
-### 通话类型
+#### 通话类型
 | enum                 | 描述       |
 | ------------------- | ---------- |
 | TUICallingTypeAudio | 音频通话 |
 | TUICallingTypeVideo | 视频通话 |
 
-<h2 id="Role">Role API 概览</h2>
+## Role API 概览
+[](id:Role)
 
-### 用户角色类型
+#### 用户角色类型
 | enum                 | 描述       |
 | ------------------- | ---------- |
 | TUICallingRoleCall | 通话发起方（主叫） |
 | TTUICallingRoleCalled | 通话接听方（被叫） |
 
-<h2 id="Event">Event API 概览</h2>
+## Event API 概览
+[](id:Event)
 
-### 事件类型
+#### 事件类型
 | enum                 | 描述       |
 | ------------------- | ---------- |
 | TUICallingEventCallStart | 通话开始 |
@@ -60,7 +65,7 @@ TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务�
 ## SDK 基础函数
 
 ### sharedInstance
-<span id="sharedInstance"> </span>
+[](id:sharedInstance)
 
 sharedInstance 是 TUICallingManager 的组件单例。
 
@@ -69,7 +74,7 @@ sharedInstance 是 TUICallingManager 的组件单例。
 ```
 
 ### call
-<span id="call"> </span>
+[](id:call)
 
 C2C 邀请通话。
 
@@ -81,11 +86,11 @@ C2C 邀请通话。
 
 | 参数      | 类型    | 含义               |
 | --------- | ------- | ------------------ |
-| userIDs    | NSArray  | 通话用户 ID列表。      |
-| type | TUICallingType | 通话类型：音频/视频。 |
+| userIDs    | NSArray  | 通话用户 ID 列表      |
+| type | TUICallingType | 通话类型：音频/视频 |
 
 ### receiveAPNSCalled
-<span id="receiveAPNSCalled"> </span>
+[](id:receiveAPNSCalled)
 
 作为被邀请方接听来电。
 
@@ -97,11 +102,11 @@ C2C 邀请通话。
 
 | 参数      | 类型    | 含义               |
 | --------- | ------- | ------------------ |
-| userIDs    | NSArray  | 通话用户 ID列表。      |
-| type | TUICallingType | 通话类型：音频/视频。 |
+| userIDs    | NSArray  | 通话用户 ID 列表      |
+| type | TUICallingType | 通话类型：音频/视频 |
 
 ### setCallingListener
-<span id="setCallingListener"> </span>
+[](id:setCallingListener)
 
 设置监听器。
 
@@ -113,12 +118,12 @@ C2C 邀请通话。
 
 | 参数      | 类型    | 含义               |
 | --------- | ------- | ------------------ |
-| listener    | TUICallingListener  | TUIcalling组件监听器。   |
+| listener    | TUICallingListener  | TUIcalling 组件监听器   |
 
 ### setCallingBell
-<span id="setCallingBell"> </span>
+[](id:setCallingBell)
 
-设置铃声(建议在30s以内)。
+设置铃声（建议在30s以内）。
 
 ```objc
 - (void)setCallingBell:(NSString *)filePath;
@@ -131,7 +136,7 @@ C2C 邀请通话。
 | filePath    | NSString  | 铃音资源路径   |
 
 ### enableMuteMode
-<span id="enableMuteMode"> </span>
+[](id:enableMuteMode)
 
 开启静音模式。
 
@@ -146,7 +151,7 @@ C2C 邀请通话。
 | enable    | BOOL  | 是否开启静音模式   |
 
 ### enableFloatWindow
-<span id="enableFloatWindow"> </span>
+[](id:enableFloatWindow)
 
 开启悬浮窗。
 
@@ -161,11 +166,11 @@ C2C 邀请通话。
 | enable    | BOOL  | 是否开启悬浮窗   |
 
 ### enableCustomViewRoute
-<span id="enableCustomViewRoute"> </span>
+[](id:enableCustomViewRoute)
 
 开启自定义视图。
-开启后，会在呼叫/被叫开始回调中，接收到CallingViewController的实例，由开发者自行决定展示方式
-注意：必须全屏展示，否则会有展示异常
+开启后，会在呼叫/被叫开始回调中，接收到 CallingViewController 的实例，由开发者自行决定展示方式。
+>! 必须全屏展示，否则会有展示异常。
 
 ```objc
 - (void)enableCustomViewRoute:(BOOL)enable;
@@ -181,9 +186,9 @@ C2C 邀请通话。
 ## TUICallingListener 回调函数
 
 ### shouldShowOnCallView
-<span id="shouldShowOnCallView"> </span>
+[](id:shouldShowOnCallView)
 
-是否同意被叫时请求拉起接听页面
+是否同意被叫时请求拉起接听页面。
 
 ```objc
 - (BOOL)shouldShowOnCallView;
@@ -196,7 +201,7 @@ C2C 邀请通话。
 | 返回值    | BOOL  |  是否同意   |
 
 ### onCallStart
-<span id="onCallStart"> </span>
+[](id:onCallStart)
 
 呼叫开始回调。主叫、被叫均会触发。
 
@@ -208,15 +213,15 @@ C2C 邀请通话。
 
 | 参数      | 类型    | 含义               |
 | --------- | ------- | ------------------ |
-| userIDs    | NSArray  | 通话用户 ID列表。      |
-| type | TUICallingType | 通话类型：音频/视频。 |
-| role | TUICallingRole | 用户角色类型：主叫/被叫。 |
-| viewController | UIViewController | 通话视图ViewController。|
+| userIDs    | NSArray  | 通话用户 ID 列表      |
+| type | TUICallingType | 通话类型：音频/视频 |
+| role | TUICallingRole | 用户角色类型：主叫/被叫 |
+| viewController | UIViewController | 通话视图 ViewController  |
 
 ### onCallEnd
-<span id="onCallEnd"> </span>
+[](id:onCallEnd)
 
-通话结束回调。主叫、被叫均会触发。enableCustomViewRoute设置为NO时，此回调方法不会触发。
+通话结束回调。主叫、被叫均会触发。enableCustomViewRoute 设置为 NO 时，此回调方法不会触发。
 
 ```objc
  - (void)callEnd:(NSArray<NSString *> *)userIDs type:(TUICallingType)type role:(TUICallingRole)role totalTime:(CGFloat)totalTime;
@@ -226,15 +231,15 @@ C2C 邀请通话。
 
 | 参数      | 类型    | 含义               |
 | --------- | ------- | ------------------ |
-| userIDs    | NSArray | 通话用户 ID列表。      |
-| type | TUICallingType | 通话类型：音频/视频。 |
-| role | TUICallingRole | 用户角色类型：主叫/被叫。 |
-| totalTime | CGFloat | 通话时长，单位：秒。|
+| userIDs    | NSArray | 通话用户 ID 列表      |
+| type | TUICallingType | 通话类型：音频/视频 |
+| role | TUICallingRole | 用户角色类型：主叫/被叫 |
+| totalTime | CGFloat | 通话时长，单位：秒  |
 
 ### onCallEvent
-<span id="onCallEvent"> </span>
+[](id:onCallEvent)
 
-通话事件回调。enableCustomViewRoute设置为NO时，此回调方法不会触发。
+通话事件回调。enableCustomViewRoute 设置为 NO 时，此回调方法不会触发。
 
 ```objc
 - (void)onCallEvent:(TUICallingEvent)event type:(TUICallingType)type role:(TUICallingRole)role message:(NSString *)message;
@@ -245,9 +250,9 @@ C2C 邀请通话。
 | 参数      | 类型    | 含义               |
 | --------- | ------- | ------------------ |
 | event    | TUICallingEvent  | 通话事件类型。      |
-| type | TUICallingType | 通话类型：音频/视频。 |
-| role | TUICallingRole | 用户角色类型：主叫/被叫。 |
-| message | NSString | 事件的描述信息。 |
+| type | TUICallingType | 通话类型：音频/视频 |
+| role | TUICallingRole | 用户角色类型：主叫/被叫 |
+| message | NSString | 事件的描述信息 |
 
 
 
