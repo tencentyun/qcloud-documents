@@ -1,10 +1,10 @@
 ## 操作场景
 
-TDMQ 现已支持 Pulsar 社区版 Go SDK。本文介绍如何使用 Pulsar 社区版 Go SDK 完成接入。
+TDMQ Pulsar 版现已支持 Pulsar 社区版 Go SDK。本文介绍如何使用 Pulsar 社区版 Go SDK 完成接入。
 
 ## 前提条件[](id:前提条件)
 - 获取路由 ID 和接入点地址
-在 TDMQ 控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】页面复制接入地址（2.6.1之前版本需进入接入点页面复制路由 ID 和接入点地址）。
+在 TDMQ Pulsar 版控制台 **[集群管理](https://console.cloud.tencent.com/tdmq/cluster)** 页面复制接入地址（2.6.1之前版本需进入接入点页面复制路由 ID 和接入点地址）。
 
 - 获取密钥
 已参考 [角色与鉴权](https://cloud.tencent.com/document/product/1179/47543) 文档配置好了角色与权限，并获取到了对应角色的密钥（Token）。

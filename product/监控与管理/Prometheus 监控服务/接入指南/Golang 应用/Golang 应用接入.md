@@ -228,7 +228,7 @@ spec:
 
 ### 查看监控
 
-1. 在 [Prometheus 实例](https://console.cloud.tencent.com/monitor/prometheus) 列表，找到对应的  Prometheus 实例，单击实例ID 右侧**<img src="https://main.qcloudimg.com/raw/978c842f0c093a31df8d5240dd01016d.png" width="2%"/>** 图标，打开您的专属 Grafana，输入您的账号密码，即可进行 Grafana 可视化大屏操作区。
+1. 在 [Prometheus 实例](https://console.cloud.tencent.com/monitor/prometheus) 列表，找到对应的  Prometheus 实例，单击实例ID 右侧<img src="https://main.qcloudimg.com/raw/978c842f0c093a31df8d5240dd01016d.png" width="2%"/>图标，打开您的专属 Grafana，输入您的账号密码，即可进行 Grafana 可视化大屏操作区。
 2. 进入 Grafana，单击<img src="https://main.qcloudimg.com/raw/7e3fff6131aa085987552a9725e9ae54.png" width="2%"/>图表，展开监控面板，单击对应的监控图表名称即可查看监控数据。
 ![](https://main.qcloudimg.com/raw/cafce5a26169309cb89ba176317c8d5c.png)
 ![](https://main.qcloudimg.com/raw/627c99e89dd58043069b3c2e086cf8a9.png)

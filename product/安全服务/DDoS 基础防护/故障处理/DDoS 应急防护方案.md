@@ -21,13 +21,13 @@
 
 
 ### 操作步骤
-1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/unblock/list)，在左侧导航中，选择【自助解封】>【解封操作】，进入解封操作页面。
-2. 在解封操作页面，选择被封堵的 IP，单击【申请应急服务】,弹出应急服务申请弹窗。
+1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/unblock/list)，在左侧导航中，选择**自助解封** > **解封操作**，进入解封操作页面。
+2. 在解封操作页面，选择被封堵的 IP，单击**申请应急服务**,弹出应急服务申请弹窗。
 ![](https://main.qcloudimg.com/raw/2558336fdcfd33d7cc4fa8b2c7728272.png)
-3. 在应急服务申请弹窗，填写相关信息，单击【确定】提交信息单，既进入审核状态中。
+3. 在应急服务申请弹窗，填写相关信息，单击**确定**提交信息单，既进入审核状态中。
 ![](https://main.qcloudimg.com/raw/458221cb87a5b732a6f954851e39378e.png)
 4. 审核通过后将获得一天免费试用防护资源，进入[ 管理防护对象](https://cloud.tencent.com/document/product/1021/43906)，进行对需要解封的云资产进行防护绑定。云资产首次绑定高防包将自动解封。
-5. 回到【解封操作】时，状态如下：
+5. 回到**解封操作**时，状态如下：
 ![](https://main.qcloudimg.com/raw/bc4964712925274ee733325aa935b323.png)
 
 ## 长期防护服务

@@ -1,6 +1,6 @@
 ## 操作场景
 
-该任务以 Java 客户端为例介绍您在控制台创建集群、Vhost、Exchange等资源后，下载 Demo 并进行简单的测试，了解运行一个客户端的操作步骤。
+该任务以 Java 客户端为例介绍您在控制台创建集群、Vhost、Exchange 等资源后，下载 Demo 并进行简单的测试，了解运行一个客户端的操作步骤。
 
 ## 前提条件
 
@@ -10,8 +10,7 @@
 
 ## 操作步骤
 
-1. 在pom.xml中添加以下依赖。
-
+1. 在 pom.xml 中添加以下依赖。
    ```xml
    <dependency>
        <groupId>com.rabbitmq</groupId>
@@ -20,8 +19,7 @@
    </dependency>
    ```
 
-2. 创建收发消息程序AoPTest.java，并配置相关参数。
-
+2. 创建收发消息程序 AoPTest.java，并配置相关参数。
    ```java
    package com.qcloud.tdmq.aop.client.test;
    
@@ -39,15 +37,19 @@
    import java.util.Date;
    import java.util.concurrent.TimeoutException;
    
-   /**
-    * @author coselding.
-    * @date 2021/6/3
-    */
    public class AoPTest {
    
-       // 填写您的用户名和密钥，在控制台“角色管理”页面获取。
-       private static final String username = "yourusername";
+       // 填写您的用户名和密钥，在控制台“角色管理”页面获取
+       private static final String username = "role";
        private static final String password = "eyJr****";
+       //集群接入地址，在集群管理页面操作列的获取接入地址获取。
+       private static final String uri = "amqp://amqp-****.com:5***";
+       //Vhost 名称，在控制台 Vhost 页面复制，格式是“集群 ID + | + vhost 名称”
+       private static final String vhostname = "amqp-****|vhost";
+       //Exchange 名称，在控制台创建好后复制
+       private static final String exchange = "exchange";
+       //Queue 名称，在控制台创建好后复制
+       private static final String queue = "queue";
    
        private ConnectionFactory connectionFactory;
        private Connection connection;
@@ -73,15 +75,6 @@
            if (connection != null) {
                connection.close();
            }
-       }
-   
-       public void bind(String exchange, String routingKey, String queue) throws IOException {
-           // exchange declare
-           channel.exchangeDeclare(exchange, BuiltinExchangeType.DIRECT, true, false, false, null);
-   
-           // queue declare and bind
-           channel.queueDeclare(queue, true, false, false, null);
-           channel.queueBind(queue, exchange, routingKey);
        }
    
        public void publish(String exchange, String routingKey, int count) throws InterruptedException {
@@ -117,24 +110,24 @@
        }
      
        public static void main(String[] args) throws Exception {
-           // 填写exchange名称
-           String exchange = "yourexchange";
-           String queue = "yourqueue";
-           AoPTest aopTest = new AoPTest("uri", "vhostname");
+           
+           AoPTest aopTest = new AoPTest(uri, vhostname);
+	   //开启持续消费c
            aopTest.consume(queue);
+	   //开始生产消息
            aopTest.publish(exchange, "routingKey", 10);
    
            Thread.sleep(10_000);
            aopTest.close();
        }
-   }
-   
+   }  
    ```
    
+	 
    | 参数       | 说明                                                         |
    | ---------- | ------------------------------------------------------------ |
-   | username   | 角色名称，在**[角色管理](https://console.cloud.tencent.com/tdmq/role)**页面复制。 |
-   | password   | 角色密钥，在**[角色管理](https://console.cloud.tencent.com/tdmq/role)**页面复制**密钥**列复制。![](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
+   | username   | 角色名称，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制。 |
+   | password   | 角色密钥，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制**密钥**列复制。![](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
    | exchange   | Exchange 名称，在控制台 Exchange 列表获取。                  |
    | qu1        | Queue名称，在控制台 Queue 列表获取。                         |
    | uri        | 集群接入地址，在**集群管理**页面操作列的**获取接入地址**获取。![](https://main.qcloudimg.com/raw/0238d2d64bd896704ebef400fc08a7f1.png) |
@@ -145,7 +138,6 @@
 
    ![](https://main.qcloudimg.com/raw/c7f33820fecd715a977276bbcdfc2aba.png)
 
-4. 在控制台上**[集群管理](https://console.cloud.tencent.com/tdmq/rocket-cluster)** > **Queue**页面可查看接入的消费者情况。
-
+4. 在控制台上 **[集群管理](https://console.cloud.tencent.com/tdmq/rocket-cluster)** > **Queue** 页面可查看接入的消费者情况。
    ![](https://main.qcloudimg.com/raw/a7d78cc58efadfb614b890cc33d08632.png)
 

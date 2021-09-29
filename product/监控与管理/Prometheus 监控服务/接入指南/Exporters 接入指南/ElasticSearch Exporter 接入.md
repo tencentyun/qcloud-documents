@@ -9,7 +9,7 @@
 ## 前提条件
 
 - 在 Prometheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)，并为集群创建 [命名空间](https://cloud.tencent.com/document/product/1141/41803)。
-- 在**[Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)** >**选择“对应的 Prometheus 实例”** >**集成容器服务**中找到对应容器集群完成集成操作，详情请参见  [Agent 管理](https://cloud.tencent.com/document/product/1416/56000)。
+- 在 [**Prometheus 监控服务控制台**](https://console.cloud.tencent.com/monitor/prometheus) > **选择“对应的 Prometheus 实例”** > **集成容器服务**中找到对应容器集群完成集成操作，详情请参见  [Agent 管理](https://cloud.tencent.com/document/product/1416/56000)。
 
 
 ## 操作步骤
@@ -27,7 +27,7 @@
 #### 使用 Secret 管理 ElasticSearch 连接串
 
 1. 在左侧菜单中选择**工作负载** > **Deployment**，进入 Deployment 页面。
-2. 在页面右上角单击**YAML创建资源**，创建 YAML 配置，配置说明如下：
+2. 在页面右上角单击 **YAML创建资源**，创建 YAML 配置，配置说明如下：
    使用 Kubernetes 的 Secret 来管理密码并对密码进行加密处理，在启动 ElasticSearch Exporter 的时候直接使用 Secret Key，需要调整对应的 URI，YAML 配置示例如下：
 	
 ## 操作场景
@@ -41,7 +41,7 @@
 ## 前提条件
 
 - 在 Prometheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)，并为集群创建 [命名空间](https://cloud.tencent.com/document/product/1141/41803)。
-- 在**[ Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)** >**选择“对应的 Prometheus 实例”** >**集成容器服务**中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/1416/56000)。
+- 在 [**Prometheus 监控服务控制台**](https://console.cloud.tencent.com/monitor/prometheus) > **选择“对应的 Prometheus 实例”** > **集成容器服务**中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/1416/56000)。
 
 
 ## 操作步骤
@@ -59,7 +59,7 @@
 #### 使用 Secret 管理 ElasticSearch 连接串[](id:step1)
 
 1. 在左侧菜单中选择**工作负载** > **Deployment**，进入 Deployment 页面。
-2. 在页面右上角单击**YAML创建资源**，创建 YAML 配置，配置说明如下：
+2. 在页面右上角单击 **YAML创建资源**，创建 YAML 配置，配置说明如下：
    使用 Kubernetes 的 Secret 来管理密码并对密码进行加密处理，在启动 ElasticSearch Exporter 的时候直接使用 Secret Key，需要调整对应的 URI，YAML 配置示例如下：
 	
 

@@ -109,6 +109,29 @@ client := cos.NewClient(b, &http.Client{
     },
 })
 ```
+#### 请求示例4：CRC64校验
+
+COS Go SDK 默认开启了文件上传 CRC64 检验。
+
+>! 
+>- COS Go SDK 版本需要大于等于 v0.7.23。
+>- 强烈不建议用户关闭 CRC64 校验。
+```
+// 将 examplebucket-1250000000 和 COS_REGION 修改为真实的信息
+u, _ := url.Parse("https://examplebucket-1250000000.cos.COS_REGION.myqcloud.com")
+b := &cos.BaseURL{BucketURL: u}
+// 2.临时密钥
+client := cos.NewClient(b, &http.Client{
+    Transport: &cos.AuthorizationTransport{
+        SecretID:     "SECRETID",
+        SecretKey:    "SECRETKEY",
+        SessionToken: "SECRETTOKEN",
+    },
+})
+// 关闭 CRC64 校验
+client.Conf.EnableCRC = false
+
+```
 
 ### 创建存储桶
 

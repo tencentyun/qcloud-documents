@@ -30,7 +30,6 @@ alter database 库名 owner to 迁移用户;
 grant pg_tencentdb_superuser to 迁移用户;
 ```
 
-
 ## 应用限制
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
 - 为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。如需要跨地域迁移，请选择公网接入方式。
@@ -75,9 +74,7 @@ grant pg_tencentdb_superuser to 迁移用户;
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
 >
 <table>
-<thead>
-<tr>
-<th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
+<thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
 <tr>
 <td rowspan=3>任务设置</td>
@@ -95,11 +92,11 @@ grant pg_tencentdb_superuser to 迁移用户;
 <tr>
 <td>接入类型</td><td>请根据您的场景选择，本场景选择“云数据库”。<br>为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。如需要跨地域迁移，请选择公网接入方式。
 <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
-<li>云主机自建：源数据库部署在<a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
-<li>专线接入：源数据库可以通过<a href="https://cloud.tencent.com/document/product/216">专线接入</a>方式与腾讯云私有网络打通。</li>
-<li>VPN接入：源数据库可以通过<a href="https://cloud.tencent.com/document/product/554">VPN 连接</a>方式与腾讯云私有网络打通。</li>
+<li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
-<li>云联网：源数据库可以通过<a href="https://cloud.tencent.com/document/product/877">云联网</a>与腾讯云私有网络打通。</li></ul>不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul>不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>所属地域</td><td>源库 PostgreSQL 所属地域。</td></tr>
 <tr>
@@ -122,9 +119,7 @@ grant pg_tencentdb_superuser to 迁移用户;
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
-
 <img src="https://main.qcloudimg.com/raw/414b9b3caf06c106ce894dea9a0ddf2a.png"  style="zoom:60%;">
-
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>

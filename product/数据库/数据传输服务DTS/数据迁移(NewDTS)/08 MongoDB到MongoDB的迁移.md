@@ -3,10 +3,8 @@
 MongoDB 支持副本集、分片集群之间的异构迁移，即源端、目标端架构为副本集 - 副本集、副本集 - 分片集群、分片集群 - 副本集、分片集群 - 分片集群的4种场景。
 
 ## 注意事项
-
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您的数据库配置过低，建议您在业务低峰期进行迁移。
 - 外网实例迁移时，请确保源实例服务在外网环境下可访问。
-
 
 ## 前提条件
 - 已 [创建云数据库 MongoDB](https://cloud.tencent.com/document/product/240/3551)。
@@ -78,11 +76,11 @@ db.createUser({
 <tr>
 <td>接入类型</td><td>请根据您的场景选择，本场景选择“云数据库”。
 <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
-<li>云主机自建：源数据库部署在<a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
-<li>专线接入：源数据库可以通过<a href="https://cloud.tencent.com/document/product/216">专线接入</a>方式与腾讯云私有网络打通。</li>
-<li>VPN接入：源数据库可以通过<a href="https://cloud.tencent.com/document/product/554">VPN 连接</a>方式与腾讯云私有网络打通。</li>
+<li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
-<li>云联网：源数据库可以通过<a href="https://cloud.tencent.com/document/product/877">云联网</a>与腾讯云私有网络打通。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>所属地域</td><td>源库 MongoDB 所属地域。</td></tr>
 <tr>
@@ -105,9 +103,7 @@ db.createUser({
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
-
 <img src="https://main.qcloudimg.com/raw/68b3b04023f54eb288de6464422c52cc.png"  style="zoom:80%;">
-
 4. 测试源实例和目标实例的连通性。
 ![](https://main.qcloudimg.com/raw/43d1d1717e76331a9d2048428515cf75.png)
 5. 在设置迁移选项及选择迁移对象页面，设置迁移选项和迁移对象（可选择部分库表）。
