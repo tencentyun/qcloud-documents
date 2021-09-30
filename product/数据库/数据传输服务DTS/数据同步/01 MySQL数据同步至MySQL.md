@@ -95,14 +95,10 @@ FLUSH PRIVILEGES;
 <td>同步任务规格</td><td>目前只支持标准版。</td></tr>
 </tbody></table>
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
-
 3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
-    ![](https://main.qcloudimg.com/raw/b21f1336854375bb1343c7ccb144900b.png)
-
+![](https://main.qcloudimg.com/raw/b21f1336854375bb1343c7ccb144900b.png)
 4. 在配置同步任务页面，配置源端实例、帐号密码，配置目标端实例、帐号和密码，测试连通性后，单击**下一步**。
-
 <img src="https://main.qcloudimg.com/raw/d5ed42367196f718c62a90c3a3a37088.png"  style="margin:0;">
-
 <table>
 <thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
 <tbody><tr>
@@ -124,7 +120,7 @@ FLUSH PRIVILEGES;
 <tr>
 <td>接入类型</td>
 <td>若服务提供商选择其他云厂商，接入类型可选公网；如服务提供商选择普通，请根据数据库部署情况选择。<ul>
-    <li>公网：源数据库可以通过公网 IP 访问。</li>
+<li>公网：源数据库可以通过公网 IP 访问。</li>
 <li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
 <li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
 <li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
@@ -167,7 +163,6 @@ FLUSH PRIVILEGES;
 <img src="https://main.qcloudimg.com/raw/272026696de9d8dd15b0034f7bf8f0dd.png"  style="margin:0;">
 <strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
 <img src="https://main.qcloudimg.com/raw/533a454e1edc2dded72ac92b65948f31.png"  style="margin:0;">
-
 <table>
 <thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
 <tbody>
@@ -190,7 +185,6 @@ FLUSH PRIVILEGES;
 <tr>
 <td>已选对象</td><td>展示已选择的同步对象，支持库表映射。</td></tr>
 </tbody></table>
-
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
     如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
