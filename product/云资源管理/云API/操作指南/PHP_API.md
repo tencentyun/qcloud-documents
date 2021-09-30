@@ -42,7 +42,9 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 
 ## 公共参数
 
->?公共参数是用于标识用户和接口签名的参数，每次请求均需要携带这些参数，才能正常发起请求。 
+<dx-alert infotype="explain" title="">
+公共参数是用于标识用户和接口签名的参数，每次请求均需要携带这些参数，才能正常发起请求。 
+</dx-alert>
 
 ### 签名方法 V3 公共参数
 
@@ -445,7 +447,13 @@ https://cvm.tencentcloudapi.com/?Action=DescribeInstances&InstanceIds.0=ins-09dx
 | endpoint | 服务地址， 例如：`cvm.tencentcloudapi.com`                   |
 | data     | API 3.0 签名 V1 所举示例接口参数，**注意这里需要将计算的签名已键值对的形式加入 data 中**  |
 
->! 由于示例中的密钥是虚构的，时间戳也不是系统当前时间，因此如果将此 url 在浏览器中打开或者用 curl 等命令调用时会返回鉴权错误：签名过期。为了得到一个可以正常返回的 url ，需要修改示例中的 SecretId 和 SecretKey 为真实的密钥，并使用系统当前时间戳作为 Timestamp 。 
+
+
+<dx-alert infotype="notice" title="">
+由于示例中的密钥是虚构的，时间戳也不是系统当前时间，因此如果将此 url 在浏览器中打开或者用 curl 等命令调用时会返回鉴权错误：签名过期。为了得到一个可以正常返回的 url ，需要修改示例中的 SecretId 和 SecretKey 为真实的密钥，并使用系统当前时间戳作为 Timestamp 。 
+</dx-alert>
+
+
 
 为了更清楚的解释签名过程，下面以 PHP 语言为例，将上述的签名过程具体实现。请求的域名、调用的接口和参数的取值都以上述签名过程为准，代码只为解释签名过程，并不具备通用性，实际开发请尽量使用 SDK 。
 
