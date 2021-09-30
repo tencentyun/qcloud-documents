@@ -28,6 +28,7 @@ public List<Bucket> listBuckets() throws CosClientException, CosServiceException
 
 [//]: # (.cssg-snippet-get-service)
 ```java
+// 如果只调用 listBuckets 方法，则创建 cosClient 时指定 region 为 new Region("") 即可
 List<Bucket> buckets = cosClient.listBuckets();
 for (Bucket bucketElement : buckets) {
     String bucketName = bucketElement.getName();

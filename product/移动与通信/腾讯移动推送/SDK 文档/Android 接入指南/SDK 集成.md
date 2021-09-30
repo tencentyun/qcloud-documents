@@ -2,6 +2,9 @@
 
 Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供给开发者的接口，本文将提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式。
 
+>! 为了避免您的 App 被监管部门通报或下架，请您在接入 SDK 之前务必按照 [Android 合规指南](https://cloud.tencent.com/document/product/548/57361) 在《隐私政策》中增加 TPNS 相关说明，并且在用户同意《隐私政策》后再初始化 TPNS SDK。
+>
+
 ## SDK 集成（二选一）
 
 ### AndroidStudio Gradle 自动集成
@@ -13,7 +16,7 @@ Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供�
 
 1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，在【产品管理】>【配置管理】页面获取应用的 AccessID、AccessKey。
 2. 在 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面，获取当前最新版本号。
-![](https://main.qcloudimg.com/raw/14e6c42845be00c1e2cf964482062794.png)
+![](https://main.qcloudimg.com/raw/37b19f4e6c8dba5084c052f7e442be7f.png)
 3. 在 app build.gradle 文件下，配置以下内容：
 ```
 android {
@@ -298,6 +301,10 @@ XGPushConfig.enableDebug(this,true);
 
 
 ### Token 注册
+在需要启动推送服务的地方调用推送服务注册接口：
+
+>! 建议仅在 App 的主进程内调用注册接口。
+>
 
 ```java
 XGPushManager.registerPush(this, new XGIOperateCallback() {
@@ -319,7 +326,13 @@ XGPushManager.registerPush(this, new XGIOperateCallback() {
 ```xml
 TPNS register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 ```
+### 关闭日志打印
+调用 XGPushConfig.enableDebug(context, false) 关闭 SDK debug 日志开关时，SDK 默认仍会打印部分日常运行日志（包含 TPNS Token）。
 
+您可以通过在 Application.onCreate 内调用如下方法，来关闭这些日常运行日志在控制台的输出打印：
+```java
+new XGPushConfig.Build(context).setLogLevel(Log.ERROR);
+```
 
 ## 代码混淆
 

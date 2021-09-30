@@ -7,7 +7,7 @@
 1. 登录 [文件存储控制台](https://console.cloud.tencent.com/cfs)。
 2. 查看文件系统的可用区，本文档以北京一区为例。单击 ID/名称（如 cfs-xxxxv0z），进入文件系统详情页。
 ![](//mc.qcloudimg.com/static/img/50dbda0d284e1e428bedcbf157af69ae/image.png)
-3. 单击【挂载点信息】获取网络信息和挂载路径，这些信息将在后续步骤创建服务中使用。本例信息如下：
+3. 单击**挂载点信息**获取网络信息和挂载路径，这些信息将在后续步骤创建服务中使用。本例信息如下：
  - **网络信息**：docker-test 和 docker。
  - **挂载路径**：`10.0.0.7:/` 。
 ![](//mc.qcloudimg.com/static/img/c3286b417a5a73278a35665e4ef4e739/image.png)
@@ -27,7 +27,7 @@
  - **路径**：填写文件系统的挂载路径。在本例中填写 `10.0.0.7:/`。
 ![](//mc.qcloudimg.com/static/img/a514e6fcb76a07182ced69ddfcd68df1/image.png)
 2. 设置挂载点。
-单击运行容器下的【显示高级设置】。填写挂载点的相关信息。
+单击运行容器下的**显示高级设置**。填写挂载点的相关信息。
 ![](//mc.qcloudimg.com/static/img/1e6f5c80d5f78e58fb475d82676f9e88/image.png)
 
 

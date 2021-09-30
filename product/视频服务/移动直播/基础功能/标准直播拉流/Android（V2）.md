@@ -15,11 +15,19 @@
 |HLS(m3u8) |手机浏览器支持度高 |延迟非常高 |10s - 30s |
 |WebRTC |延迟最低 |需集成 SDK 才能播放 |< 1s |
 
-
+>?标准直播与快直播计费价格不同，更多计费详情请参见 [标准直播计费](https://cloud.tencent.com/document/product/267/34175) 和 [快直播计费](https://cloud.tencent.com/document/product/267/39136)。
 
 
 ## 特别说明
 视频云 SDK **不会对播放地址的来源做限制**，即您可以用它来播放腾讯云或非腾讯云的播放地址。但视频云 SDK 中的播放器只支持 FLV 、RTMP、HLS（m3u8）和 WebRTC 四种格式的直播地址，以及 MP4、 HLS（m3u8）和 FLV 三种格式的点播地址。
+
+## 示例代码
+针对开发者的接入反馈的高频问题，腾讯云提供有更加简洁的 API-Example 工程，方便开发者可以快速的了解相关 API 的使用，欢迎使用。
+
+| 所属平台 |                         GitHub 地址                          |
+| :------: | :----------------------------------------------------------: |
+|   iOS    | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example) |
+| Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) |
 
 ## 对接攻略
 [](id:step1)
@@ -104,19 +112,10 @@ mLivePlayer.resumeVideo();
 
 [](id:step6)
 ### 步骤6：结束播放
-结束播放时**记得销毁 view 控件**，尤其是在下次 startPlay 之前，否则会产生大量的内存泄露以及闪屏问题。
-同时，在退出播放界面时，记得一定要调用渲染 View 的 `onDestroy()` 函数，否则可能会产生内存泄露和 “`Receiver not registered`” 报警。
-
+结束播放非常简单，直接调用 `stopPlay` 即可。
 ```java
-@Override
-public void onDestroy() {
-    super.onDestroy();
-    mLivePlayer.stopPlay();  
-    mView.onDestroy(); 
-}
+mLivePlayer.stopPlay();  
 ```
-
-点播播放结束后，默认不清除最后一帧视频画面，如果想清除最后一帧画面，调用 `TXCloudVideoView` 的 `clearLastFrame` 设置为true。
 
 [](id:step7)
 ### 步骤7：屏幕截图
@@ -138,7 +137,7 @@ private class MyPlayerObserver extends V2TXLivePlayerObserver  {
 
 [](id:Delay)
 ## 延时调节
-腾讯云 SDK 的直播播放（LVB）功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场、游戏以及混合场景。
+腾讯云 SDK 的云直播播放功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场、游戏以及混合场景。
 
 - **三种模式的特性对比**
 <table>
@@ -175,27 +174,7 @@ mLivePlayer.setCacheParams(5.0f, 5.0f);
 
 >? 更多关于卡顿和延迟优化的技术知识，可以阅读 [如何优化视频卡顿？](https://cloud.tencent.com/document/product/454/56613?!preview&!editLang=zh)
 
-[](id:RealTimePlay)
-
-## 超低延时播放
-支持**400ms**左右的超低延迟播放是腾讯云直播播放器的一个特点，它可以用于一些对时延要求极为苛刻的场景，例如**远程夹娃娃**或者**主播连麦**等，关于这个特性，您需要知道：
-
-- **播放地址需要带防盗链**
-播放 URL 不能用普通的 CDN URL，必须要带防盗链签名和 bizid 参数，防盗链签名的计算方法请参见 [防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
-bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/live/domainmanage) 页面，在默认域名中出现的第一个数字即为 bizid，如图所示：
-![](https://main.qcloudimg.com/raw/d4bae92945f16569ab5446d320fcf663.png)
-如果您的防盗链地址为：
-`rtmp://domain/live/test?txTime=5c2acacc&amp;txSecret=b77e812107e1d8b8f247885a46e1bd34`
-则加速流地址为：
-`rtmp://domain/live/test?txTime=5c2acacc&amp;txSecret=b77e812107e1d8b8f247885a46e1bd34&amp;bizid=2157`
-
-    >? 防盗链计算默认使用推流防盗链 Key。
-- **该功能有并发播放限制**
-  目前最多同时10路并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（例如连麦时只给主播使用，或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要贵于 CDN 线路）。
-    
-- **该功能按播放时长收费**
-  本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)。
-
+[](id:sdklisten)
 ## SDK 事件监听
 您可以为 V2TXLivePlayer 对象绑定一个 [V2TXLivePlayerObserver](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html)，之后 SDK 的内部状态信息例如播放器状态、播放音量回调、音视频首帧回调、统计数据、警告和错误信息等会通过对应的回调通知给您。
 
@@ -221,12 +200,12 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 <td>帧率（fps）</td>
 </tr><tr>
 <td>audioBitrate</td>
-<td>视频码率（Kbps）</td>
+<td>音频码率（Kbps）</td>
 </tr><tr>
 <td>videoBitrate</td>
-<td>音频码率（Kbps）</td>
+<td> 视频码率（Kbps）</td>
 </tr></table>
 - [onPlayoutVolumeUpdate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#a57fc000bf5e935f7253fa94e1750359e) 播放器音量大小回调。这个回调仅当您调用 [enableVolumeEvaluation](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayer__android.html#aaa893a96eff34a7ba660441f7597d6d8) 开启播放音量大小提示之后才会工作。回调的时间间隔也会与您在设置 `enableVolumeEvaluation` 的参数 `intervalMs` 保持一致。
 
 ### 非定时触发的状态通知
-其余的回调仅仅在事件发生时才会抛出来。
+其余的回调仅在事件发生时才会抛出来。

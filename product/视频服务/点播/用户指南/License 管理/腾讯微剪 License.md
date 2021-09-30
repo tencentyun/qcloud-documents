@@ -5,12 +5,13 @@
 在开始使用微剪服务之前，您需要拥有腾讯云账号，若未注册，请前往 [腾讯云注册账号](https://cloud.tencent.com/document/product/378/17985) 并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 
 ### 步骤2：注册小程序账号
-登录 [微信公众平台](https://mp.weixin.qq.com/)，选择【帐号分类】>【[小程序](https://mp.weixin.qq.com/cgi-bin/wx?token=&lang=zh_CN)】，按接入流程注册小程序，并记录小程序的 appid信息。
+登录 [微信公众平台](https://mp.weixin.qq.com/)，选择**帐号分类**>**[小程序](https://mp.weixin.qq.com/cgi-bin/wx?token=&lang=zh_CN)**，按接入流程注册小程序，并记录小程序的 appid信息。
 
 ### 步骤3：申请插件权限
-1. 在小程序管理后台的【设置】>【第三方设置】中选择【添加插件】。
+1. 在小程序管理后台的**设置**>**第三方设置**中选择**添加插件**。
 2. 在弹出的面板中搜索：[微剪](https://mp.weixin.qq.com/wxopen/pluginbasicprofile?action=intro&appid=wx76f1d77827f78beb&token=&lang=zh_CN)，选中插件并添加。
 
 ### 步骤4：购买插件使用权限
-1. 登录云点播控制台，选择【[微剪插件](https://console.cloud.tencent.com/vod/wecut)】。
+1. 登录云点播控制台，选择**[微剪插件](https://console.cloud.tencent.com/vod/wecut)**。
 2. 根据页面提示填入小程序的 appid 等信息即可。
+

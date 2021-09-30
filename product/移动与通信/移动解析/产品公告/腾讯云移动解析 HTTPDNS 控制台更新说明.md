@@ -1,4 +1,4 @@
-为了让您有更好的体验，[腾讯云移动解析 HTTPDNS 控制台](https://console.cloud.tencent.com/httpdns/apply) 已全面升级，在原移动解析 HTTPDNS 控制台的基础上进行了优化体验。新版控制台新增域名管理、开发配置、流量包管理等功能模块，提供更全面更便捷的配置和管理。本文档将对新版移动解析 HTTPDNS 控制台的使用进行简要说明。
+为了让您有更好的体验，[腾讯云移动解析 HTTPDNS 控制台](https://console.cloud.tencent.com/httpdns) 已全面升级，在原移动解析 HTTPDNS 控制台的基础上进行了优化体验。新版控制台新增域名管理、开发配置、流量包管理等功能模块，提供更全面更便捷的配置和管理。本文档将对新版移动解析 HTTPDNS 控制台的使用进行简要说明。
 如果在使用过程中有任何疑问、建议或意见，请 [联系我们](https://cloud.tencent.com/document/product/400/35259)，感谢您的使用。
 
 ## 功能概述
@@ -30,8 +30,9 @@
 </table>
 
 ## 新版本特性
-与原移动解析 HTTPDNS 服务地址 119.29.29.29 版本提供的服务相比，新版本具有以下新的特性：
+与原移动解析 HTTPDNS 提供的服务相比，新版本具有以下新的特性：
 - 支持 AES/DES/HTTPS 数据加密。
 - 支持批量查询功能。
 - 支持查询结果内返回被查询域名。
-- 支持使用 IPv6 地址作为 ECS 查询参数。
+- 支持使用 IPv6 地址作为 ECS（EDNS-Client-Subnet）查询参数。
+>?ECS（EDNS-Client-Subnet）协议在 DNS 请求包中附加请求域名解析的用户 IP 地址，DNS 服务器可以根据该地址返回用户更容快速访问的服务器 IP 地址。

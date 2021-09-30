@@ -1,4 +1,4 @@
-在了解如何访问 ES 集群前，您需要先了解 ES 集群用户登录认证。
+在了解如何访问 ES 集群前，您需要先了解 ES 集群用户登录认证。本文将为您介绍用户登录认证的相关内容。
 
 ## ES 集群用户登录认证（User authentication）
 此功能用于提高 ES 集群的数据访问安全（可参阅 [保护您在 Elastic Stack 中的数据](https://www.elastic.co/what-is/elastic-stack-security)），用户必须通过用户名和密码认证，才被允许访问 ES 集群。无论是通过 Kibana、客户端或者 API 等方式访问集群都需要经过认证。详情请参考 [通过 API 访问集群](https://cloud.tencent.com/document/product/845/19540)、[通过客户端访问集群](https://cloud.tencent.com/document/product/845/19538)、[通过 Kibana 访问集群](https://cloud.tencent.com/document/product/845/19541)。
@@ -8,7 +8,6 @@
 > - 对于已开启此功能的集群，用户名和密码可用于任何方式下的 ES 集群用户登录认证。
 
 ## 支持 ES 集群用户登录认证的 Elasticsearch 版本
-
 并非所有的 Elasticsearch 版本都支持此功能，各版本情况如下：
 - 开源版：不支持此功能。
 - 基础版：从6.8版本开始，允许用户开启或关闭此功能，**6.8版本之前的版本不支持此功能**。

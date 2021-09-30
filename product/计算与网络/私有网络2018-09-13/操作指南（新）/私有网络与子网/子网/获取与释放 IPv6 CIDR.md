@@ -1,5 +1,5 @@
 当您的私有网络有 IPv6 业务通信需求时，您需要先为网络环境配置 IPv6 网段，然后才能在 VPC 内的资源分配 IPv6 地址，从而进行 IPv6 通信业务。大致顺序为：获取 VPC IPv6 CIDR > 获取子网 IPv6 CIDR  > 云资源实例分配 IPv6 地址。本章节为您介绍子网 IPv6 CIDR 的获取与释放。
->?目前 IPv6/IPv4 双栈 VPC 功能处于内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
+>?目前 IPv6/IPv4 双栈 VPC 功能处于内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/a9k0gialqhj)。
 >
 ## 获取 IPv6 CIDR
 

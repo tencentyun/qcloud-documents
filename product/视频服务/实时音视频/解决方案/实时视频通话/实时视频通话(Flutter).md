@@ -14,16 +14,16 @@
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 根据实际业务需求下载 SDK 及配套的 [Demo 源码](https://github.com/tencentyun/TRTCFlutterScenesDemo)。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:ui.step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `/lib/debug/GenerateTestUserSig.dart` 文件。
+2. 找到并打开 `/example/lib/debug/GenerateTestUserSig.dart` 文件。
 3. 设置 `GenerateTestUserSig.dart` 文件中的相关参数：
-<ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
-<li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
-<img src="https://main.qcloudimg.com/raw/31b265429e66a899acccb875a8c17ad6.png">
+<ul><li/>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
+	<li/>SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。</ul>
+	<img src="https://main.qcloudimg.com/raw/fba60aa9a44a94455fe31b809433cfa4.png"/>
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 >!
@@ -135,9 +135,6 @@ sCall.login(1400000123, "userA", "xxxx");
 3. 接收方：如果希望接听电话，接收方可以调用 `accept()` 函数，并同时调用 `openCamera()` 函数打开自己本地的摄像头。接收方也可以调用 `reject()` 拒绝此次通话。
 4. 当双方的音视频通道建立完成后，通话的双方都会接收到名为  `onUserVideoAvailable()` 的事件通知，表示对方的视频画面已经拿到。此时双方用户均可以调用`startRemoteView()` 展示远端的视频画面。远端的声音默认是自动播放的。
 
-[](id:model.offline)
-### 步骤6：实现离线接听
-离线接听暂不支持，计划在6月中旬支持。
 
 [](id:api)
 ## 组件 API 列表

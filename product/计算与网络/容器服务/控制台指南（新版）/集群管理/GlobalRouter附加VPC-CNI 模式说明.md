@@ -16,7 +16,7 @@ StatefulSet 支持固定 IP 类型的 Pod。该类型的 Pod 重启和迁移保�
 ### VPC-CNI 模式使用方法
 #### 开启 VPC-CNI
 1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)。
-2. 在左侧导航栏中，单击【集群】，进入集群管理页面。单击【基本信息】。
+2. 在左侧导航栏中，单击**集群**，进入集群管理页面。单击**基本信息**。
 3. 在 VPC-CNI 字段中单击开启，选择子网，并确认使用限制。如下图所示：
 ![](https://main.qcloudimg.com/raw/e5e3212e0a1fac8eebe5ef6e12f5ed42.png)
 
@@ -71,6 +71,6 @@ spec:
 
 #### 关闭 VPC-CNI
 1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)。
-2. 在左侧导航栏中，单击【集群】，进入集群管理页面。单击【基本信息】。
+2. 在左侧导航栏中，单击**集群**，进入集群管理页面。单击**基本信息**。
 3. 在 VPC-CNI 字段中单击关闭。（仅支持在集群内不存在任何 VPC-CNI 模式的 Pod 时关闭）如下图所示：
 ![](https://main.qcloudimg.com/raw/6a5d9b920fcec57e1db7bc324f13fbf0.png)

@@ -8,18 +8,20 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 - 已 [开通云直播服务](https://console.cloud.tencent.com/live)，并准备已备案的域名，[添加为播放域名](https://cloud.tencent.com/document/product/267/20381)（系统提供默认的推流域名可以使用，也可以添加自定义域名推流）
 >? 新用户立享 [9.9元 100GB 直播流量包](https://cloud.tencent.com/act/pro/xinyonghu)，更多规格资源包 [立即前往选购](https://buy.cloud.tencent.com/live )。
 
-## 获取推流地址[](id:step0)
+[](id:step0)
+## 获取推流地址
 1. 登录云直播控制台，进入[【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，进行如下配置：
    1. 选择生成类型为**推流域名**或**播放域名**。
    2. 选择您已添加到域名管理里对应的域名。
    3. AppName 为区分同一个域名下多个 App 的地址路径，默认为 live。
-   4. 填写自定义的流名称 StreamName，例如：`liveteststream`。
-   5. 选择地址过期时间，例如：`2019-11-30 23:59:59`。
+   4. 填写自定义的流名称 StreamName，例如：`live`。
+   5. 选择地址过期时间，例如：`2020-06-09 23:59:59`。
 3. 单击【生成地址】即可获取 OBS 推流地址。
 
 ![](https://main.qcloudimg.com/raw/64c3815306c68daebb5fc7d53bb43164.png)
 
-## OBS 在线推流[](id:normal)
+[](id:normal)
+## OBS 在线推流
 ### 步骤一：设置推流地址[](id:step1)
 1. 打开 OBS，您可通过底部工具栏的【控件】>【设置】按钮进入设置界面。
 ![](https://main.qcloudimg.com/raw/56e4c19f24d08df7b8f8815f1ffb6857.png)
@@ -91,6 +93,10 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 3. 同时在左侧导航栏，选择【高级】，即可对【串流延迟】进行设置：
 ![](https://main.qcloudimg.com/raw/e1cd9e4c9e813a5706e1ef23f332c7d1.png)
 
+### 关于快直播去除 B 帧设置
+快直播 Web 方案**不支持 B 帧解码播放**，所以如果原始流存在 B 帧，则后台会自动进行转码去掉 B 帧，但这样会引入额外的转码延迟，并且会**产生转码费用**。建议尽量不推包含 B 帧的流，用户可以通过调整推流端软件（如 OBS）的视频编码参数来去除 B 帧。如果使用 OBS 推流，可以通过设置，关闭 B 帧。如下图：
+![](https://main.qcloudimg.com/raw/ff2b72f6d9ece45182b2d278019a5d8d.png)
+
 ### 本地直播录制相关设置
 若您有直播时进行本地录制的需求，可以选择直播时在本地进行录制备份，设置方法如下：
 1. 单击【控件】>【设置】>【输出】进入输出设置页签。
@@ -105,7 +111,7 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 若您在推流过程中需要修改视频的码率，具体操作如下：
 1. 通过底部的【控件】>【设置】按钮进入设置界面。
 2. 单击【输出】页签，选择输出模式为“简单”。
-3. 填写视频比特率。单击【确定】即可。
+3. 填写视频比特率，单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/3cbeecf4eb6517563f5a6ee5ff879498.png)
 
 

@@ -4,7 +4,7 @@
 
 NodeLocal DNSCache 通过在集群节点上作为 DaemonSet 运行 DNS 缓存代理来提高集群 DNS 性能。在当今的体系结构中，处于 ClusterFirst DNS 模式的 Pod 可以连接到 kube-dns serviceIP 进行 DNS 查询。通过 kube-proxy 添加的 iptables 规则将其转换为 kube-dns/CoreDNS 端点。借助此新架构，Pods 将可以访问在同一节点上运行的 DNS 缓存代理，从而避免了 iptables DNAT 规则和连接跟踪。本地缓存代理将查询 kube-dns 服务以获取集群主机名的缓存缺失（默认为 cluster.local 后缀）。
 
-### 部署在集群内 kubernetes 对象
+### 部署在集群内的 Kubernetes 对象
 
 | kubernets 对象名称 | 类型           | 请求资源                | 所属 Namespace |
 | :----------------- | -------------- | ----------------------- | -------------- |
@@ -24,8 +24,8 @@ NodeLocal DNSCache 通过在集群节点上作为 DaemonSet 运行 DNS 缓存代
 ## 操作步骤
 
 
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择【集群】。
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
-3. 选择左侧菜单栏中的【组件管理】，进入 “组件列表” 页面。
-4. 在“组件列表”页面中选择【新建】，并在“新建组件”页面中勾选 NodeLocalDNSCache。NodeLocalDNSCache 详细配置可参见 [官方文档](https://kubernetes.io/docs/tasks/administer-cluster/nodelocaldns)。
-5. 单击【完成】即可创建组件。
+3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
+4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 NodeLocalDNSCache。NodeLocalDNSCache 详细配置可参见 [官方文档](https://kubernetes.io/docs/tasks/administer-cluster/nodelocaldns)。
+5. 单击**完成**即可创建组件。

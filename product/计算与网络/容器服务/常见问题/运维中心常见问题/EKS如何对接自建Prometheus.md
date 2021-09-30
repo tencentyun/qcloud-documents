@@ -4,16 +4,16 @@
 
 ## EKS 如何对接腾讯云原生 Prometheus 监控？
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/prometheus/list?rid=8)，选择左侧导航中的【云原生监控】。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/prometheus/list?rid=8)，选择左侧导航中的**云原生监控**。
 2. 创建监控实例，操作详情请参见 [监控实例管理](https://cloud.tencent.com/document/product/457/49889#.E5.88.9B.E5.BB.BA.E7.9B.91.E6.8E.A7.E5.AE.9E.E4.BE.8B)。
 3. 完成创建后，在“云原生监控”列表页中单击监控实例名称进入监控实例详情页。
 4. 在监控实例详情页，选择“关联集群”页签。
-5. 单击【关联集群】。如下图所示：
+5. 单击**关联集群**。如下图所示：
 ![](https://main.qcloudimg.com/raw/cb00ca575ec1af802e7384bf66802e60.png)
  - **集群类型**：选择“弹性集群”。
  - **集群**：勾选当前 VPC 下需要关联的集群。
-6. 单击【确定】完成关联集群。
-7. 在“关联集群”页签中，单击集群 ID 右侧的【数据采集配置】，完成数据采集规则配置。操作详情请参见 [数据采集配置](https://cloud.tencent.com/document/product/457/49891#.E9.85.8D.E7.BD.AE.E6.95.B0.E6.8D.AE.E9.87.87.E9.9B.86)。
+6. 单击**确定**完成关联集群。
+7. 在“关联集群”页签中，单击集群 ID 右侧的**数据采集配置**，完成数据采集规则配置。操作详情请参见 [数据采集配置](https://cloud.tencent.com/document/product/457/49891#.E9.85.8D.E7.BD.AE.E6.95.B0.E6.8D.AE.E9.87.87.E9.9B.86)。
 8. 在“基本信息”页签中，查看 Grafana 信息。登录指定的 Grafana 地址并输入账号密码即可查看监控数据。
 
 

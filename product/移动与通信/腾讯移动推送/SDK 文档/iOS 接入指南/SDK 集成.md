@@ -1,6 +1,8 @@
 ## 简介
 本文档提供关于 SDK 接入以及开启推送服务的示例代码（SDK 版本：V1.0+ 版本）。
 
+>! 为了避免您的 App 被监管部门通报或下架，请您在接入 SDK 之前务必按照 [iOS 合规指南](https://cloud.tencent.com/document/product/548/57362) 在《隐私政策》中增加 TPNS 相关说明，并且在用户同意《隐私政策》后再初始化 TPNS SDK。
+>
 
 ## SDK 组成
 - doc 文件夹：腾讯移动推送 iOS SDK 开发指南。
@@ -9,9 +11,9 @@
 ## SDK 集成
 ### 接入前准备
 1. 接入 SDK 之前，请前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241)。
-   ![](https://main.qcloudimg.com/raw/29089bca0d0378db21e2df69930346fe.png)
+   ![](https://main.qcloudimg.com/raw/47d9802945ecc9d4c84a2c1f3d45d40b.png)
 2. 单击【配置管理】，进入管理页面。
-   ![](https://main.qcloudimg.com/raw/69d6c1d7d8729a17e0b829a648019cff.png)
+   ![](https://main.qcloudimg.com/raw/30da757263936244ba3967f280202ab9.png)
 3. 单击【上传证书】，完成上传操作。推送证书获取详情请参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664)。
    ![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
 4. 证书上传成功后，在应用信息栏中，获取应用 Access ID 和 Access KEY。
@@ -261,7 +263,6 @@ if (msgType.integerValue == 1) {
 ![](https://main.qcloudimg.com/raw/8eaaba4bedf0a541ed7f077d2e374ca3.png)![](https://main.qcloudimg.com/raw/5c28586161aefb3c47c5cdb7e23ed57b.png)
 #### 示例代码
 ```objective-c
-//获取 TPNS 生成的 Token
 [[XGPush defaultManager] uploadLogCompletionHandler:^(BOOL result, NSString * _Nullable errorMessage) {
 NSString *title = result ? NSLocalizedString(@"report_log_info", nil) : NSLocalizedString(@"failed", nil);
 if (result && errorMessage.length>0) {

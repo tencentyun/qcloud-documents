@@ -9,7 +9,7 @@
 <th>iOS</th><th>Android</th><th>Windows</th><th >Mac OS</th>
 </tr>
 <tr>
-<td><img style="width:150px" src="https://main.qcloudimg.com/raw/a1a6fd4a9bc3ad2b5fe60e31202c8fda.png" data-nonescope="true"></td>
+<td><img style="width:150px;" src="https://main.qcloudimg.com/raw/a1a6fd4a9bc3ad2b5fe60e31202c8fda.png" data-nonescope="true"></td>
 <td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/TRTCDemo.apk')"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/8a603ced0a61983018c794df842f7029.png);background-size: cover;">
 </button></a></td>
 <td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Win_Demo.exe')"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;">
@@ -19,10 +19,11 @@
 </tr>
 </table>
 
+
 ## 跨平台 Demo
 <table>
 <tr>
-<th>微信小程序</th><th>桌面浏览器</th><th>Flutter </th><th>Electron</th>
+<th>微信小程序</th><th>Web</th><th>Flutter </th><th>Electron</th>
 </tr>
 <tr>
 </div></a></td>
@@ -30,20 +31,25 @@
 </div>
 </td>
 <td>
-<input type="button" value="视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/latest/official-demo/index.html')" /><br><br>
+<input type="button" value="视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html')" /><br><br>
 <input type="button" value="互动直播" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html')" />
 </td>
 <td>
-<a onclick="window.open('https://www.pgyer.com/KP03')"><button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/8f16c874f74a3eee60919c65e1184efc.png);background-size: cover;">
-</button></a><br>
-<a onclick="window.open('https://comm.qq.com/im_demo_download/trtc_flutter_demo.apk')"><button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/f53741b9ad7567c475841e68cc65dbc3.png);background-size: cover;">
-</button></a>
-</td>
+<a onclick="window.open('https://www.pgyer.com/TtEk')" value="Flutter_ios_版">
+	<button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/a3b7ef0199988c33850eeeb186c8d26f.png);background-size: cover;">
+</button>
+</a>
+<br>
+<a onclick="window.open('https://comm.qq.com/im_demo_download/trtc_flutter_demo.apk')" value="Flutter_android_版"> 
+	<button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/f53741b9ad7567c475841e68cc65dbc3.png);background-size: cover;">
+</button>
+</a></td>
 <td>
-<input type="button" value="Windows 版" class="inbuttom"  onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education/TRTC_Education_Demo%20Setup%201.1.0.exe')" /><br><br>
-<input type="button" value="MacOS 版" class="inbuttom" onclick="window.open('https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/TRTC-EDUCATION-DEMO-1.2.0.dmg')" /></td>
+<input type="button" value="Windows 版" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/api-example/TRTC-Electron-API-Examples-windows.zip')" /><br><br>
+<input type="button" value="MacOS 版" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/api-example/TRTC-Electron-API-Examples-mac.zip')" /></td>
 </tr>
 </table>
+
 
 
 
@@ -72,7 +78,7 @@
 ::: macOS
 ![](https://imgcache.qq.com/operation/dianshi/other/macOS.cd7d6d7e8a7fcc388ec27e41c6952b8615ce9d34.gif)
 :::
-::: 桌面浏览器
+::: Web
 ![](https://imgcache.qq.com/operation/dianshi/other/058ffcf5-60f0-430c-96c7-e1760b93e444.fdd0f2c10a8242dadbf99108a48a59124124b437.gif)
 :::
 ::: 小程序
@@ -125,7 +131,7 @@
 </tr>
 </table>
 :::
-::: 桌面浏览器
+::: Web
 ![](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/doc-assets/demo-official-website.gif)
 :::
 </dx-tabs>
@@ -169,3 +175,33 @@
 <td><img src="https://imgcache.qq.com/operation/dianshi/other/Electron_stu.9e3f55291b657d94878963ad86471b331190f47c.gif"/></td>
 </tr>
 </table>
+
+## 在线 K 歌（KTV 场景）
+KTV 场景支持主播与观众上麦唱歌；支持平滑上下麦，切换过程无需等待，主播延时小于300ms；单个房间可连麦人数无限制，最多支持50人同时连麦；低延时直播模式下，支持10万观众同时播放，播放延时低至1000ms；CDN 旁路直播模式下，观众数量无限制。常见应用场景有语音低延时直播、语音直播连麦、语音直播 PK、语聊房、语音相亲房、K 歌房、FM 电台等。
+<table>
+     <tr>
+         <th>房主点歌操作</th>  
+         <th>观众点歌操作</th>  
+     </tr>
+<tr>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_experience_owner.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_experience_audience.gif"/></td>
+</tr>
+</table>
+ 
+## 实时合唱（Chorus 场景）
+
+Chorus 场景支持房主主唱与一名观众上麦唱歌；支持平滑上下麦，切换过程无需等待，主播延时小于100ms；低延时直播模式下，支持10万观众同时播放，播放延时低至1000ms；CDN 旁路直播模式下，观众数量无限制。常见应用场景有双人合唱、K 歌房、FM 电台等。
+
+<table>
+     <tr>
+         <th style="text-align:center;width:50%">房主点歌操作</th>  
+         <th style="text-align:center">副唱查看歌单操作</th>  
+     </tr>
+<tr>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/Chorus_Anchor.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/Chorus_Chorus.gif"/></td>
+</tr>
+</table>
+
+

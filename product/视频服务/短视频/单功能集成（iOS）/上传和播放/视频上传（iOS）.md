@@ -1,5 +1,5 @@
 ## 计算上传签名
-客户端视频上传，是指 App 的最终用户将本地视频直接上传到腾讯云点播。客户端上传的详细介绍请参考点播 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)，本文将以最简洁的方式介绍客户端上传的签名生成方法。
+客户端视频上传，是指 App 的最终用户将本地视频直接上传到腾讯云点播。客户端上传的详细介绍请参见点播 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)，本文将以最简洁的方式介绍客户端上传的签名生成方法。
 
 ### 总体介绍
 客户端上传的整体流程如下图所示：
@@ -66,7 +66,7 @@ function getUploadSignature(req, res) {
 ## 对接流程
 #### 短视频发布
 将 MP4 文件上传到腾讯视频云，并获得在线观看 URL， 腾讯视频云支持视频观看的就近调度、秒开播放、动态加速 以及海外接入等要求，从而确保优质的观看体验。
-![](//mc.qcloudimg.com/static/img/283c8d7fe0a5a316097ae687a2bf6c5a/image.png)
+![](https://main.qcloudimg.com/raw/8b3e157465338369bc8b72ec2b7d7d0e.png)
 
 * 第一步：使用 TXUGCRecord 接口录制一段小视频，录制结束后会生成一个小视频文件（MP4）回调给客户。
 * 第二步：您的 App 向您的业务服务器申请上传签名。上传签名是 App 将 MP4 文件上传到腾讯云视频分发平台的“许可证”，为了确保安全性，这些上传签名都要求由您的业务 Server 进行签发，而不能由终端 App 生成。
@@ -79,7 +79,7 @@ function getUploadSignature(req, res) {
 - 发布短视频时，请务必保证正确传递 Signature 字段，否则会发布失败。
 
 ### 对接攻略
-![](https://main.qcloudimg.com/raw/b3023cee1814e777e8458aa9b1047cbb.png)
+![](https://main.qcloudimg.com/raw/a74a7a7ed81525b8ecb9e2ab5d841a46.png)
 
 #### 1. 选择视频
 可以接着上篇文档中的录制或者编辑，把生成的视频进行上传，或者可以选择手机本地的视频进行上传。
@@ -123,4 +123,4 @@ _ugcPublish.delegate = self;                                 // 设置 TXVideoPu
 
 #### 4. 播放视频
 
-第**3**步上传成功后，会返回视频的 fileId，播放地址 url，封面 url。用 [点播播放器](https://cloud.tencent.com/document/product/584/9372) 可以直接传入 fileId 播放，或者 url 播放。
+第**3**步上传成功后，会返回视频的 fileId，播放地址 URL，封面 URL。用 [点播播放器](https://cloud.tencent.com/document/product/584/9372) 可以直接传入 fileId 播放，或者 URL 播放。

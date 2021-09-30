@@ -203,7 +203,7 @@ GRANT RELOAD ON *.* TO 'elastic'@'172.16.32.44';
 	index = "building"
 	type = "buildingtype"
 ```
-6. 在 ES 集群中创建 building index，因为该工具并没有使用 ES 的 auto create index 功能，如果 index 不存在会报错 。
+6. 在 ES 集群中创建 building index，因为该工具并没有使用 ES 的 auto create index 功能，如果 index 不存在，则会报错。
 7. 执行命令 `./bin/go-mysql-elasticsearch -config=./etc/river.toml`。
 8. 在控制台输出结果。
 ```
@@ -220,7 +220,7 @@ GRANT RELOAD ON *.* TO 'elastic'@'172.16.32.44';
 9. 测试：向 MySQL 中插入、修改、删除数据，都可以反映到 ES 中。
 
 ### 使用体验
-- `go-mysql-elasticsearch`完成了最基本的 MySQL 实时同步数据到 ES 的功能，业务如果需要更深层次的功能如允许运行中修改 MySQL 表结构，可以进行自行定制化开发。
+- `go-mysql-elasticsearch` 完成了最基本的 MySQL 实时同步数据到 ES 的功能，业务如果需要更深层次的功能如允许运行中修改 MySQL 表结构，可以进行自行定制化开发。
 - 异常处理不足，解析 binlog event 失败直接抛出异常。
 - 据作者描述，该项目并没有被其应用于生产环境中，所以使用过程中建议通读源码，知其利弊。
 

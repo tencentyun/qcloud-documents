@@ -15,3 +15,4 @@
 <img onclick="window.open('https://cloud.tencent.com/document/product/382/37796')" style="display: block;cursor: pointer;" src="https://main.qcloudimg.com/raw/013722d03e91f46776446c050a7c1f50.png" data-nonescope="true">
 </html> 
 
+如有任何疑问，请联系 [腾讯云短信小助手](https://tccc.qcloud.com/web/im/index.html#/chat?webAppId=8fa15978f85cb41f7e2ea36920cb3ae1&title=Sms)，将有专人为您解答。

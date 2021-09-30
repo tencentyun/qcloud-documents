@@ -1,5 +1,5 @@
 ### MongoDB 如何查看实例详情？
-在 [实例列表](https://console.cloud.tencent.com/mongodb)，单击实例名可以进入详细信息页面查看实例详情。
+在 [实例列表](https://console.cloud.tencent.com/mongodb)，单击实例 ID 可以进入详细信息页面查看实例详情。
 
 ### 如何访问 MongoDB 实例？
 云数据库 MongoDB 提供多种语言连接方式，如 Shell，PHP，Node.js，Java，Python。

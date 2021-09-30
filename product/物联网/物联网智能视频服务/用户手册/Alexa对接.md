@@ -1,4 +1,3 @@
-
 ##  前提条件
 
 * 在 IoT Video（Consumer Version） 平台 [创建产品](https://cloud.tencent.com/document/product/1131/42177)，开发产品。

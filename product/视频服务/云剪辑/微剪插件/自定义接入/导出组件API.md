@@ -38,6 +38,8 @@
 | watermark         | String                        | -      | 水印地址，支持线上链接和本地临时地址 | 否   |
 | watermarkX | Number | 15 | 水印基于左上角X偏移量 | 否 |
 | watermarkY | Number | 15 | 水印基于左上角Y偏移量 | 否 |
+| bitrate           | Number                        | 2000     | 导出视频的比特率                                        | 否   |
+| gop               | Number                        | 12     | 导出视频的 gop                                        | 否   |
 | bindready         | Function                      | -      | 导出组件加载完成时触发                                       | 否   |
 | bindexportstart   | Function                      | -      | 导出流程开始                                                 | 否   |
 | bindprogress      | Function                      | -      | 导出进度更新<pre style="margin:0">e.detail =  {<br />progress: Number<br />} </pre>| 否   |

@@ -13,7 +13,7 @@
 - entity['xxxx']：根据 mimetype/encoding 对 message 的内容进行反序列化，并获取其中指定 key 的值，逻辑上相当于 obj<span>['^value']</span>['xxx']。
 - entity.get(attr, default=None)：根据 mimetype/encoding 对 message 的内容进行反序列化，并获取其中指定 key 的值，如果获取不到则返回默认值 None，逻辑上相当于 obj['^value'].get(attr, default=None)。
 
-## <span id='selectors'></span>选择器
+## 选择器
 对于 Entity 类型的变量，如预定义属性 msg.payload，DataWay 支持通过选择器 (selector) 的方式进行快速访问，支持的操作类型如下：
 
 | 下标类型                                 | 描述                                                         | 举例                      |

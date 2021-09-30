@@ -1,3 +1,90 @@
+### 2.14.0 @2021.9.24
+
+**新增**
+
+- [pinConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#pinConversation)，支持会话置顶。
+- [initGroupAttributes](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#initGroupAttributes) 等群属性相关接口，支持 TRTC 语聊房的麦位管理。
+
+**变更**
+
+发送群聊消息自动补齐消息体 `nameCard` 属性，便于接入侧展示。
+
+**修复**
+
+- C2C 会话拉漫游消息偶现丢消息。
+- 加群附言（applyMessage）缺失。
+
+### 2.13.1 @2021.8.27
+
+**变更**
+
+- 未登录时，连续调用 [login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login)，返回错误码 `2025`，表示【重复登录】。
+- WebSocket 重连后，SDK 重新登录并同步未读消息，保障消息的可靠性。
+
+
+**修复**
+
+- 未登录时，连续调用 [login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login) 后会话的未读数错误。
+- 调用 [setGroupMemberNameCard](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupMemberNameCard) 接口，`nameCard` 传入空字符串后报错。
+- 调用 [getGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMemberList) 接口，回包数据 `muteUntil` 的值错误。
+
+
+### 2.13.0 @2021.8.23
+
+**新增**
+
+支持好友关系链，请参见 [使用指引](https://web.sdk.qcloud.com/im/doc/zh-cn/tutorial-03-sns.html)。
+
+**修复**
+
+WebSocket 长连接断开时偶现的报错。
+
+### 2.12.2 @2021.8.6
+
+**新增**
+
+小程序视频上传支持进度回调。
+
+**变更**
+
+修改群自定义字段等不存漫游的群提示消息，SDK 不再计入会话未读数。
+
+**修复**
+
+- 加入直播群偶现收不到自己进群的提示消息。
+- 使用 restapi 发送 c2c 消息 random 设置为0时，接收端触发2次 [MESSAGE_RECEIVED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.MESSAGE_RECEIVED) 事件。
+
+
+### 2.12.1 @2021.7.20
+
+**新增**
+
+- 支持 Meeting 群未读计数。
+- [TIM.EVENT.MESSAGE_MODIFIED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.MESSAGE_MODIFIED) 事件，第三方回调修改了的消息，SDK 通过此事件通知给消息发送方。
+
+**修复**
+
+- 拉群漫游消息偶发丢消息问题。
+- uni-app 集成时可能遇到的`xx.toFixed is not a function`。
+
+### 2.12.0 @2021.7.5
+
+**新增**
+
+- [deleteMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessage)，支持删除消息。
+- 同步会话列表时支持 `lastMessage` 为被撤回消息的情况。
+- [getGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMemberList) 支持拉取 `joinTime`（入群时间）。
+
+**修复**
+被设置 admin 和取消 admin 后群提示消息的 `nick` 错误。
+
+
+### 2.11.2 @2021.6.16
+
+**新增**
+
+- 支持 WebSocket，[升级指引](https://web.sdk.qcloud.com/im/doc/zh-cn/tutorial-02-upgradeguideline.html)。
+- 支持 uni-app 发送图片、视频等文件类消息。
 
 
 ### 2.10.2 @2021.4.27

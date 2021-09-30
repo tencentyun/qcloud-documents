@@ -1,5 +1,3 @@
-
-
 ActionArgs 是一个模板类型，其 TypeScript 定义如下：
 ```
 export interface ActionArgs<T> {

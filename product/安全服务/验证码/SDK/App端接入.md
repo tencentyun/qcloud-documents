@@ -1,5 +1,5 @@
 ## 前提条件
-接入验证码前，进入[图形验证](https://console.cloud.tencent.com/captcha/graphical)  页完成新建验证。可在【验证列表】查看 验证码接入所需的 CaptchaAppId 及 AppSecretKey。
+接入验证码前，进入[图形验证](https://console.cloud.tencent.com/captcha/graphical)  页完成新建验证。可在**验证列表**查看 验证码接入所需的 CaptchaAppId 及 AppSecretKey。
 ![](https://main.qcloudimg.com/raw/a15105526bbcf8c0b51b5cdafeefb92c.png)
 
 ## 接入步骤
@@ -88,7 +88,7 @@ webview.loadUrl("https://x.x.x/x/");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web 前端接入示例</title>
-    <!-- 验证码程序依赖(必须) -->
+    <!-- 验证码程序依赖(必须)。请勿修改以下程序依赖，如使用本地缓存，或通过其他手段规避加载，会影响程序的正常使用。 -->
     <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
 </head>
 
@@ -221,4 +221,4 @@ parameter[@"params"]
 >!验证码客户端接入完成后，验证码后台需二次核查验证码票据结果，请进行 [后台 API 接入](https://console.cloud.tencent.com/api/explorer?Product=captcha&Version=2019-07-22&Action=DescribeCaptchaResult&SignVersion=) 操作，确保验证安全性。更多详情请参见 [核查验证码票据文档](https://cloud.tencent.com/document/product/1110/36926) 。
 
 ## 更多信息
-您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击【快速咨询】，了解更多详细信息。
+您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击**快速咨询**，了解更多详细信息。

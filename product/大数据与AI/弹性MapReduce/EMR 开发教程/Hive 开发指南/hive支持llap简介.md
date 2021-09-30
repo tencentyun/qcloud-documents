@@ -1,6 +1,7 @@
 apache hive 从 Hive 2.0 版本引⼊了 LLAP（Live Long And Process），2.1版本进⾏了⽐较⼤的优化，可以说 hive 已经⾛向了内存计算。⽬前 hortonworks 测试 llap + tez ⽐ hive1.x 快了25倍。LLAP 提供了混合执行 model，由一个 long-lived 守护进程组成，取代了与 HDFS DataNode 的直接交互和一个紧密集成的 DAG-based framework。例如，缓存 pre-fetching，部分查询处理和访问控制之类的功能被移动到守护进程中。Small/short 查询由此守护程序直接处理，其他较为复杂的查询将在标准 YARN 容器中执行。
 
 ## hive-llap 架构图
+
 ![](https://main.qcloudimg.com/raw/c650eee1bc1019d8d7d3353b86a469ec.png)
 - 持久守护进程
 为了便于缓存和 JIT 优化，并消除大部分启动成本，守护程序在 cluster 上的 worker 节点上运行。守护程序处理 I/O、缓存和查询片段执行。

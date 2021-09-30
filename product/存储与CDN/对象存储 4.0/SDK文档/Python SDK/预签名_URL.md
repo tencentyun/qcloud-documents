@@ -1,6 +1,10 @@
 ## 简介
-Python SDK 提供获取签名，获取请求预签名 URL 接口以及获取对象下载预签名 URL 接口。使用永久密钥或临时密钥获取预签名 URL 的调用方法相同，使用临时密钥时需要在 header 或 query_string 中加上 x-cos-security-token。
+Python SDK 提供获取签名、获取请求预签名 URL 接口以及获取对象下载预签名 URL 接口。使用永久密钥或临时密钥获取预签名 URL 的调用方法相同，使用临时密钥时需要在 header 或 query_string 中加上 x-cos-security-token。
 
+>?
+> - 建议用户使用临时密钥生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
+> - 如果您一定要使用永久密钥来生成预签名，建议永久密钥的权限范围仅限于上传或下载操作，以规避风险。
+> 
 
 ## 获取签名
 
@@ -53,9 +57,10 @@ response = client.get_auth(
     }
 )
 ```
+
 #### 参数说明
 
-| 参数名称   | 参数描述   |类型 | 必填 | 
+| 参数名称   | 参数描述   |类型 | 是否必填 | 
 | -------------- | -------------- |---------- | ----------- |
  | Method  |对应操作的 Method, 可选值为 'PUT'，'POST'，'GET'，'DELETE'，'HEAD'|  String |  是 | 
  | Bucket  |存储桶名称，由 BucketName-APPID 构成 |  String |  是 | 
@@ -65,11 +70,13 @@ response = client.get_auth(
  |Params | 需要签入签名的请求参数| Dict| 否|
 
 #### 返回结果说明
+
 该方法返回值为对应操作的签名值。
 
 ## 获取预签名 URL
 
 #### 功能说明
+
 获取预签名链接用于分发。
 
 #### 上传请求示例
@@ -95,11 +102,26 @@ response = client.get_presigned_url(
 ```
 
 
+#### 临时密钥请求示例
+
+[//]: # (.cssg-snippet-get-presign-download-sts-url)
+```python
+response = client.get_presigned_url(
+    Method='GET',
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    Params={
+        'x-cos-security-token': 'string'
+    }
+)
+```
+
 #### 方法原型
 
 ```
 get_presigned_url(Bucket, Key, Method, Expired=300, Params={}, Headers={})
 ```
+
 #### 请求示例
 
 ```python
@@ -118,9 +140,10 @@ response = client.get_presigned_url(
     }
 )
 ```
+
 #### 参数说明
 
-| 参数名称   | 参数描述   |类型 | 必填 | 
+| 参数名称   | 参数描述   |类型 | 是否必填 | 
 | -------------- | -------------- |---------- | ----------- |
  | Bucket  |存储桶名称，由 BucketName-APPID 构成 |  String |  是 | 
  | Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String | 是 | 
@@ -131,6 +154,7 @@ response = client.get_presigned_url(
  
  
 #### 返回结果说明
+
 该方法返回值为预签名的 URL。
 
 ## 获取预签名下载 URL
@@ -138,11 +162,27 @@ response = client.get_presigned_url(
 #### 功能说明
 获取预签名下载链接用于直接下载。
 
+
+#### 临时密钥请求示例
+
+[//]: # (.cssg-snippet-get-presign-download-sts-url)
+```python
+response = client.get_presigned_download_url(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    Params={
+        'x-cos-security-token': 'string'
+    }
+)
+```
+
+
 #### 方法原型
 
 ```
 get_presigned_download_url(Bucket, Key, Expired=300, Params={}, Headers={})
 ```
+
 #### 请求示例
 
 [//]: # (.cssg-snippet-get-presign-download-url-alias)
@@ -152,8 +192,7 @@ response = client.get_presigned_download_url(
     Key='exampleobject',
     Expired=300,
     Headers={
-        'Content-Length': 'string',
-        'Content-MD5': 'string'
+        'Range': 'string'
     },
     Params={
         'param1': 'string',
@@ -161,9 +200,10 @@ response = client.get_presigned_download_url(
     }
 )
 ```
+
 #### 参数说明
 
-| 参数名称   | 参数描述   |类型 | 必填 | 
+| 参数名称   | 参数描述   |类型 | 是否必填 | 
 | -------------- | -------------- |---------- | ----------- |
  | Bucket  |存储桶名称，由 BucketName-APPID 构成 |  String |  是 | 
  | Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String | 是 | 
@@ -172,4 +212,5 @@ response = client.get_presigned_download_url(
  |Headers| 签名中要签入的请求头部| Dict| 否|
 
 #### 返回结果说明
+
 该方法返回值为预签名的下载 URL。

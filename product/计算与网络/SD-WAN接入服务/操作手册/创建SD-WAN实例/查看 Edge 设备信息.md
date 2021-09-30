@@ -48,7 +48,6 @@
    
 
 ## 查看设备概况
-
 1. 在 [SD-WAN 接入服务实例列表](https://console.cloud.tencent.com/sas/edge) 中，单击目标实例 ID。
 2. 在“设备概况”页面，可查看设备基本信息。
    ![](https://main.qcloudimg.com/raw/3ba633084f7392a3ebcd728636fd0d4b.png) 
@@ -71,7 +70,7 @@
 </tr>
 <tr>
 <td>防火墙</td>
-<td>与 SD-WAN 接入服务绑定的防火墙，可单击【更换】，变更防火墙。</td>
+<td>与 SD-WAN 接入服务绑定的防火墙，可单击<b>更换</b>，变更防火墙。</td>
 </tr>
 <tr>
 <td>硬件型号</td>
@@ -83,6 +82,6 @@
 </tr>
 <tr>
 <td>S/N 码</td>
-<td>与 SD-WAN 接入服务绑定的 Edge 设备，可单击【更换】，进行变更。</td>
+<td>与 SD-WAN 接入服务绑定的 Edge 设备，可单击<b>更换</b>，进行变更。</td>
 </tr>
 </tbody></table>

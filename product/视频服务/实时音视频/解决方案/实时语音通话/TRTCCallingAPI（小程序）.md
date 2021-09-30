@@ -2,8 +2,24 @@
 TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯云信令 SDK（TSignalling）组合而成，支持1V1，多人场景下的语音通话。TRTCCalling 是一个开源组件，依赖闭源的信令 SDK（TSignalling）进行状态管理，通过 C2C 通信，完成信令传递。组件可快速服务线上客服，咨询，医疗问诊，跨端实时通话等应用场景。您可前往 [【Github】](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/TRTCScenesDemo)或单击 [【ZIP】](https://web.sdk.qcloud.com/component/trtccalling/download/trtc-calling-miniapp.zip)，下载相关 SDK 及配套的 Demo 源码。
 ![](https://web.sdk.qcloud.com/component/trtccalling/doc/miniapp/6b1368e2186abcd5126fc1c165f2fb78.png)
 
-## TRTCCalling API 概览
+## 环境要求
+- 微信 App iOS 最低版本要求：7.0.9。
+- 微信 App Android 最低版本要求：7.0.8。
+- 小程序基础库最低版本要求：2.10.0。
+- 由于微信开发者工具不支持原生组件（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签），需要在真机上进行运行体验。
+- 由于小程序测试号不具备 &lt;live-pusher&gt; 和 &lt;live-player&gt; 的使用权限，需要申请常规小程序账号进行开发。
+- 不支持 uniapp 开发环境，请使用原生小程序开发环境。
 
+## 前提条件
+1. 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+2. **开通小程序类目与推拉流标签权限（如不开通则无法正常使用）**。
+出于政策和合规的考虑，微信暂未放开所有小程序对实时音视频功能（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签）的支持：
+ - 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
+ - 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
+ - 符合类目要求的小程序，需要在【[微信公众平台](https://mp.weixin.qq.com)】>【开发】>【开发管理】>【接口设置】中自助开通该组件权限，如下图所示：
+![](https://main.qcloudimg.com/raw/dc6d3c9102bd81443cb27b9810c8e981.png)
+ 
+## TRTCCalling API 概览
 ### 事件订阅/取消订阅
 
 本组件基于事件分发进行管理，应用层可以根据组件下发的事件进行上层交互的改变。
@@ -43,26 +59,34 @@ TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
 
 ## 属性表
 ### &lt;TRTCCalling&gt; 属性
-`<TRTCCalling>` 只有 config 一个属性，通过该属性传入以下参数：
 
-| 参数 | 类型 |  必填项 |  说明 |
-|---------|---------|---------|---------|
-| sdkAppID | String |是| 开通实时音视频服务创建应用后分配的 [SDKAppID](https://console.cloud.tencent.com/trtc/app)。 |
-|userID|String| 是|用户 ID，可以由您的帐号体系指定。|
-|userSig|String|是|身份签名（即相当于登录密码），由 userID 计算得出，具体计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。|
-|type|Number|是|指定通话类型，1：语音通话，2：视频通话。|
+| 属性                 | 类型    | 默认值 | 必填 | 说明                                                         |
+| -------------------- | ------- | ------ | ---- | ------------------------------------------------------------ |
+| id                   | String  |        | 是   | 绑定TRTCCalling的dom ID，可通过this.selectComponent(ID)获取实例 |
+| config               | Object  |        | 是   | TRTCCalling初始化配置                                        |
+| backgroundMute       | Boolean | false  | 否   | 进入后台时是否保持音频通话，true保持、false挂断       |
+
+
+#### config 参数
+
+| 参数     | 类型   | 必填 | 说明                                                         |
+| -------- | ------ | ---- | ------------------------------------------------------------ |
+| sdkAppID | Number | 是   | 开通实时音视频服务创建应用后分配的 [SDKAppID](https://console.cloud.tencent.com/trtc/app)。 |
+| userID   | String | 是   | 用户 ID，可以由您的帐号体系指定。                            |
+| userSig  | String | 是   | 身份签名（即相当于登录密码），由 userID 计算得出，具体计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
+| type     | Number | 是   | 指定通话类型。1：语音通话，2：视频通话。                     |
 
 **示例代码：**
 ```html
 // index.wxml
-<TRTCCalling id="TRTCCalling-room" config="{{config}}"></TRTCCalling>
+<TRTCCalling id="TRTCCalling-room" config="{{config}}" backgroundMute="{{false}}"></TRTCCalling>
 ```
 
 <dx-codeblock>
 ::: javascript javascript
 // videocall.js
 trtcConfig = {
-	sdkAppID: '1401000123', // 开通实时音视频服务创建应用后分配的 SDKAppID
+	sdkAppID: 0, // 开通实时音视频服务创建应用后分配的 SDKAppID
 	userID: 'test_user_001', // 用户 ID，可以由您的帐号系统指定
 	userSig: 'xxxxxxxxxxxx', // 身份签名，相当于登录密码的作用
 	type: 1, // 通话模式
@@ -134,7 +158,7 @@ TRTCCallingContext.call({userID, type})
 |-----|-----|-----|
 | userIDList | Arrary | 拨打的用户列表。 |
 |type|Number|type 为通话类型，1：语音通话，2：视频通话。|
-|grouID|String| IM 群组的 groupID。|
+|groupID|String| IM 群组的 groupID。|
 
 ```javascript
 TRTCCallingContext.groupCall({userIDList, type, groupID})

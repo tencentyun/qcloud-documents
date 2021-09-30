@@ -19,7 +19,7 @@
 ## 操作步骤
 ### 使用 YAML 创建资源
 本文提供以下两种方式使用 YAML 部署工作负载及创建 Servcie：
- - 方式1：单击 TKE 或 EKS 集群详情页右上角的【YAML创建资源】，并将本文示例的 YAML 文件内容输入编辑界面。
+ - 方式1：单击 TKE 或 EKS 集群详情页右上角的**YAML创建资源**，并将本文示例的 YAML 文件内容输入编辑界面。
  - 方式2：将示例 YAML 保存为文件，再使用 kubectl 指定 YAML 文件进行创建。例如 `kubectl apply -f xx.yaml`。
 
 
@@ -197,8 +197,8 @@ nginx-v1
 ```
 3. 通过控制台或 kubectl 方式修改 Service 的 selector，使其选中 v2 版本的服务：
  - **通过控制台修改**：
-    1. 进入集群详情页，选择左侧【服务与路由】>【Service】。
-    2. 在 “Service” 页面中选择需修改 Service 所在行右侧的【编辑YAML】。如下图所示：
+    1. 进入集群详情页，选择左侧**服务与路由** > **Service**。
+    2. 在 “Service” 页面中选择需修改 Service 所在行右侧的**编辑YAML**。如下图所示：
 <img style="width:80%" src="https://main.qcloudimg.com/raw/fd90554aa91b092e2c9cb4706ba45ab4.png" data-nonescope="true"></img>
 修改 selector 部分为如下内容：
 ``` yaml
@@ -264,9 +264,9 @@ nginx-v2
 ```
 3. 通过控制台或 kubectl 方式调节 v1 和 v2 版本的 Deployment 的副本，将 v1 版本调至 1 个副本，v2 版本调至 4 个副本：
  - **通过控制台修改**：
-    1. 进入集群 “Deployment” 管理页，选择 v1 版本 Deployment 所在行右侧的【更多】>【编辑YAML】。
-    2. 在 YAML 编辑页面，将 v1 版本的 `replicas` 修改为1并单击【完成】。
-    3. 重复上述步骤，将 v2 版本的 `replicas` 修改为4并单击【完成】。
+    1. 进入集群 “Deployment” 管理页，选择 v1 版本 Deployment 所在行右侧的**更多** > **编辑YAML**。
+    2. 在 YAML 编辑页面，将 v1 版本的 `replicas` 修改为1并单击**完成**。
+    3. 重复上述步骤，将 v2 版本的 `replicas` 修改为4并单击**完成**。
  - **通过 kubectl 修改**：
 ``` bash
 kubectl scale deployment/nginx-v1 --replicas=1

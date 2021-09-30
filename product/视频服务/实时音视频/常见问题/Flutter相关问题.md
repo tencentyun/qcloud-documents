@@ -2,7 +2,7 @@
 ### 两台手机同时运行 Demo，为什么看不到彼此的画面？
 请确保两台手机在运行 Demo 时使用的是不同的 UserID，TRTC 不支持同一个 UserID （除非 SDKAppID 不同）在两个终端同时使用。
 ![](https://main.qcloudimg.com/raw/c7b1589e1a637cf502c6728f3c3c4f99.png)
-
+ 
 [](id:que2)
 ### 防火墙有什么限制？
 由于 SDK 使用 UDP 协议进行音视频传输，所以在对 UDP 有拦截的办公网络下无法使用。如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399) 排查并解决。
@@ -58,5 +58,6 @@
 ![](https://main.qcloudimg.com/raw/9102b3394560ca9df2f70549baabe3ff.png)
 可能是 pods 的 target 版本无法满足所依赖的插件，因此造成报错。因此您需修改报错 pods 中的 target 到对应的版本。
 
-
-
+[](id:que12)
+### Flutter 支持自定义采集和渲染吗？
+目前不支持。自定义采集和渲染平台支持详情，请参见 [支持的平台](https://cloud.tencent.com/document/product/647/34066#.E6.94.AF.E6.8C.81.E7.9A.84.E5.B9.B3.E5.8F.B0)。

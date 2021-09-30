@@ -9,7 +9,7 @@ $ curl http://127.0.0.1:8123Ok.
 ```
 $ wget -q -O- 'http://127.0.0.1:8123/?query=SELECT * from testdb.account'1       GHua    WuHan Hubei     19902       SLiu    ShenZhen Guangzhou      19913       JPong   Chengdu Sichuan 1992
 ```
-其他用法可以参照官方文档 [HTTP Interface](https://clickhouse.tech/docs/en/interfaces/http/)。
+其他用法可参考官方文档 [HTTP Interface](https://clickhouse.tech/docs/en/interfaces/http/)。
 
 ## 基于 TCP 协议
 主要在 clickhouse-client 端使用，在云数据仓库 ClickHouse 集群内输入 clickhouse-client 命令，会输出版本信息、连接到的 clickhouse-server 地址、默认使用的数据库等。**可以通过 quit、exit 或 q 等退出使用。**
@@ -37,4 +37,4 @@ Connected to ClickHouse server version 19.16.12 revision 54427.
 | --send_logs_level | 指定服务端返回日志数据的级别 |
 |  --server_logs_file | 指定服务端日志保存路径 |
 
-其他参数可以参照官方文档 [Command-line Client](https://clickhouse.tech/docs/en/interfaces/cli/)。
+其他参数可参考官方文档 [Command-line Client](https://clickhouse.tech/docs/en/interfaces/cli/)。

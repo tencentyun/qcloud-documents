@@ -28,7 +28,7 @@
 
 #### 步骤2：若使用真机调试，配置您的苹果开发者账号
 
-TARGETS -> Signing$Capabilities ->Signing 设置
+TARGETS > Signing$Capabilities > Signing 设置
 
 #### 步骤3: 修改配置信息
 
@@ -48,6 +48,6 @@ static NSString *SECRET_KEY = @"e*********************";
 
 
 
-#### 步骤3:编译运行
+#### 步骤4:编译运行
 
 完成配置之后，选择您的运行机器（模拟器&真机）。（tips:真机才能体验摄像头拍照识别功能的）。

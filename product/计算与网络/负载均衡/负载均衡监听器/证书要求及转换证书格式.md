@@ -12,7 +12,7 @@ openssl req -new -key privateKey.pem -out server.csr
 3. 获取证书请求文件中的内容前往 CA 等机构站点申请证书。
 
 ## 证书格式要求
-- 用户要申请的证书为：Linux 环境下 PEM 格式的证书。负载均衡不支持其他格式的证书，如其它格式的证书请参见下文 [证书转换为 PEM 格式说明](#4.-.E8.AF.81.E4.B9.A6.E8.BD.AC.E6.8D.A2.E4.B8.BA-pem-.E6.A0.BC.E5.BC.8F.E8.AF.B4.E6.98.8E) 的内容。
+- 用户要申请的证书为：Linux 环境下 PEM 格式的证书。负载均衡不支持其他格式的证书，如其它格式的证书请参见下文 [证书转换为 PEM 格式说明](#PEM) 的内容。
 - 如果是通过 root CA 机构颁发的证书，您拿到的证书为唯一的一份，不需要额外的证书，配置的站点即可被浏览器等访问设备认为可信。
 - 如果是通过中级 CA 机构颁发的证书，您拿到的证书文件包含多份证书，需要人为的将服务器证书与中间证书合并在一起上传。
 - 当您的证书有证书链时，请将证书链内容，转化为 PEM 格式内容，与证书内容合并上传。
@@ -53,10 +53,10 @@ openssl rsa -in old_server_key.pem -out new_server_key.pem
 ```
 然后将 new_server_key.pem 的内容与证书一起上传。
 
-## 证书转换为 PEM 格式说明
+## [](id:PEM)证书转换为 PEM 格式说明
 目前负载均衡只支持 PEM 格式的证书，其他格式的证书需要转换成 PEM 格式后才能上传到负载均衡中，建议通过 openssl  工具进行转换。下面是几种比较流行的证书格式转换为 PEM 格式的方法。
 <dx-tabs>
-::: DER\s格式转换为\sPEM\s
+::: DER\s转换为\sPEM\s
 DER 格式一般出现在 Java 平台中。
 证书转换：
 ```
@@ -67,7 +67,7 @@ openssl x509 -inform der -in certificate.cer -out certificate.pem
 openssl rsa -inform DER -outform PEM -in privatekey.der -out privatekey.pem
 ```
 :::
-::: P7B\s格式转换为\sPEM\s
+::: P7B\s转换为\sPEM\s
 P7B 格式一般出现在 Windows Server 和 tomcat 中。
 证书转换：
 ```
@@ -76,7 +76,7 @@ openssl pkcs7 -print_certs -in incertificat.p7b -out outcertificate.cer
 获取 outcertificat.cer 里面 [——-BEGIN CERTIFICATE——-， ——-END CERTIFICATE——-] 的内容作为证书上传。
 私钥转换：私钥一般在 IIS 服务器里可导出。
 :::
-::: PFX\s格式转换为\sPEM\s
+::: PFX\s转换为\sPEM\s
 PFX 格式一般出现在 Windows Server 中。
 证书转换：
 ```
@@ -87,7 +87,7 @@ openssl pkcs12 -in certname.pfx -nokeys -out cert.pem
 openssl pkcs12 -in certname.pfx -nocerts -out key.pem -nodes
 ```	
 :::
-::: CER/CRT\s格式转换为\sPEM\s
+::: CER/CRT\s转换为\sPEM\s
 对于 CER/CRT 格式的证书，您可通过直接修改证书文件扩展名的方式进行转换。例如，将 “servertest.crt” 证书文件直接重命名为 “servertest.pem” 即可。
 :::
 </dx-tabs>

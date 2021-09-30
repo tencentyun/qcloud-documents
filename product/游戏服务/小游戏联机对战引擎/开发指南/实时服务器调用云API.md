@@ -45,7 +45,9 @@ const clientConfig = {
 const client = new MgobeClient(clientConfig)
 :::
 </dx-codeblock>
-
+<dx-alert infotype="explain" title="">
+本地调式时无需实例化 Client 对象，否则会出现超时异常。建议与本地调式分开使用。
+</dx-alert>
 3. 调用云 API。以 [查询房间信息](https://cloud.tencent.com/document/product/1038/52497) 为例：
 <dx-codeblock>
 :::  Node.js

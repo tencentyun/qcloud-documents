@@ -1,4 +1,4 @@
-## TKEServiceConfig
+## TkeServiceConfig
 TkeServiceConfig 是腾讯云容器服务 TKE 提供的自定义资源 CRD，通过 TkeServiceConfig 能够帮助您更灵活的进行 Ingress 管理负载均衡的各种配置。
 
 ### 使用场景
@@ -12,10 +12,10 @@ TkeServiceConfig 不会帮您配置并修改协议、端口、域名以及转发
 
 每个七层的监听器下可有多个域名，每个域名下可有多个转发路径。因此，在一个 `TkeServiceConfig` 中可以声明多组域名、转发规则配置，目前主要针对负载均衡的健康检查以及对后端访问提供配置。
 - 通过指定协议和端口，配置能够被准确地下发到对应监听器：
- - `spec.loadBalancer.l7Listeners.protocol`：四层协议
+ - `spec.loadBalancer.l7Listeners.protocol`：七层协议
  - `spec.loadBalancer.l7Listeners.port`：监听端口
 - 通过指定协议、端口、域名以及访问路径，可以配置转发规则级别的配置。例如，后端健康检查、负载均衡方式。
- - `spec.loadBalancer.l7Listeners.protocol`：四层协议
+ - `spec.loadBalancer.l7Listeners.protocol`：七层协议
  - `spec.loadBalancer.l7Listeners.port`：监听端口
  - `spec.loadBalancer.l7Listeners.domains[].domain`：域名
  - `spec.loadBalancer.l7Listeners.domains[].rules[].url`：转发路径
@@ -162,7 +162,7 @@ spec:
     - protocol: HTTP
       port: 80
       domains:
-      - domain: ""
+      - domain: ""     # domain为空表示使用VIP作为域名
         rules:
         - url: "/health"
           healthCheck:

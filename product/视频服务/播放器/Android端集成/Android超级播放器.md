@@ -75,17 +75,18 @@ mSuperPlayerView.playWithModel(model);
 
 上面的示例代码只有一种清晰度，如果要添加多个清晰度，以直播为例：
 
-在云直播控制台 [创建转码模板](https://cloud.tencent.com/document/product/267/20385) 后，播放域名 [绑定转码模板](https://cloud.tencent.com/document/product/267/32834)，然后在原 StreamName（流 ID）的基础上加上"\_模板名称"，重新生成播放地址，即可播放指定的码率或分辨率的直播流，详情请参见 [直播转码](https://cloud.tencent.com/document/product/267/32736#.E8.BD.AC.E7.A0.81.E5.8F.82.E6.95.B0.E8.AE.BE.E7.BD.AE.E4.BD.BF.E7.94.A8.E6.96.B9.E6.B3.95)。
+打开 [直播控制台](https://console.cloud.tencent.com/live/livemanage)，找到需要播放的直播流，进入详情。
+![](https://main.qcloudimg.com/raw/e7502f092eaabdafbca1450427eef5a9.png)
 
 例如，您有不同清晰度、不同格式的播放地址。推荐使用 FLV 地址播放，代码如下：
 
 ```java
 SuperPlayerModel model = new SuperPlayerModel();
 model.multiURLs = new ArrayList<>();
-model.multiURLs.add(new SuperPlayerModel.SuperPlayerURL("http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/e1ab85305285890781763144364/v.f10.mp4", "流畅"));
-model.multiURLs.add(new SuperPlayerModel.SuperPlayerURL("http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/e1ab85305285890781763144364/v.f20.mp4", "标清"));
-model.multiURLs.add(new SuperPlayerModel.SuperPlayerURL("http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/e1ab85305285890781763144364/v.f30.mp4", "高清"));
-model.playDefaultIndex = 1;// 默认播放标清
+model.multiURLs.add(new SuperPlayerModel.SuperPlayerURL("http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e_550.flv", "标清"));
+model.multiURLs.add(new SuperPlayerModel.SuperPlayerURL("http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e_900.flv", "高清"));
+model.multiURLs.add(new SuperPlayerModel.SuperPlayerURL("http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e.flv", "超清"));
+model.playDefaultIndex = 1;// 默认播放高清
 
 mSuperPlayerView.playWithModel(model);
 ```

@@ -254,84 +254,84 @@ __参数__
 ### setForeheadLevel
 设置发际线 （商用企业版有效，其它版本设置此参数无效）。
 ```
-void setForeheadLevel(int foreheadLevel)
+void setForeheadLevel(float foreheadLevel)
 ```
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| foreheadLevel | int | 发际线级别，取值范围0 - 9；0表示关闭，1 - 9值越大，发际线越向下移。 |
+| foreheadLevel | float | 发际线级别，取值范围-9 - 9；0表示关闭，9表示效果最明显。 |
 
 ### setEyeDistanceLevel
 设置眼距 （商用企业版有效，其它版本设置此参数无效）。
 ```
-void setEyeDistanceLevel(int eyeDistanceLevel) 
+void setEyeDistanceLevel(float eyeDistanceLevel)
 ```
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| eyeDistanceLevel | int | 眼距级别，取值范围0 - 9；0表示关闭，1 - 9值越大，眼间距越小。 |
+| eyeDistanceLevel  |float | 眼距级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。 |
 
 ### setEyeAngleLevel
-设置眼角 （商用企业版有效，其它版本设置此参数无效）。
+设置眼角调整级别 （商用企业版有效，其它版本设置此参数无效）。
 ```
-void setEyeAngleLevel(int eyeAngleLevel)
+void setEyeAngleLevel(float eyeAngleLevel)
 ```
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| eyeAngleLevel | int | 眼角级别，取值范围0 - 9；0表示关闭，1 - 9值越大，外眼角越向上，内眼角越向下。 |
+| eyeAngleLevel | float | 眼角调整级别，取值范围-9 - 9；0表示关闭，9表示效果最明显。 |
 
 ### setMouthShapeLevel
-设置嘴型 （商用企业版有效，其它版本设置此参数无效）。
+设置嘴型调整级别（商用企业版有效，其它版本设置此参数无效）。
 
 ```
-void setMouthShapeLevel(int mouthShapeLevel)
+void setMouthShapeLevel(float mouthShapeLevel)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mouthShapeLevel | int | 嘴型级别，取值范围0 - 9；0表示关闭，1 - 9值越大，嘴越小。 |
+| mouthShapeLevel  | float | 嘴型级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。 |
 
 ### setNoseWingLevel 
-设置鼻翼 （商用企业版有效，其它版本设置此参数无效）。
+设置鼻翼调整级别（商用企业版有效，其它版本设置此参数无效）。
 ```
-void setNoseWingLevel(int noseWingLevel)
+void setNoseWingLevel(float noseWingLevel)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| noseWingLevel | int | 鼻翼级别，取值范围0 - 9；0表示关闭，1 - 9值越大，鼻翼越小。 |
+| noseWingLevel | float | 鼻翼调整级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。|
 
 ### setNosePositionLevel
 设置鼻子位置 （商用企业版有效，其它版本设置此参数无效）。
 ```
-void setNosePositionLevel(int nosePositionLevel)
+void setNosePositionLevel(float nosePositionLevel)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| nosePositionLevel | int | 鼻子位置级别，取值范围0 - 9；0表示关闭，1 - 9值越大，鼻子位置越向下移。 |
+| nosePositionLevel | float | 鼻子位置级别，取值范围-9 - 9；0表示关闭，小于0表示抬高，大于0表示降低。 |
 
 ### setLipsThicknessLevel
 设置嘴唇厚度 （商用企业版有效，其它版本设置此参数无效）。
 
 ```
-void setLipsThicknessLevel(int lipsThicknessLevel)
+void setLipsThicknessLevel(float lipsThicknessLevel)
 ```
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| lipsThicknessLevel | int | 嘴唇厚度级别，取值范围0 - 9；0表示关闭，1 - 9值越大，嘴唇越厚。 |
+| lipsThicknessLevel | float | 嘴唇厚度级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。 |
 
 ### setFaceBeautyLevel
 设置脸型 （商用企业版有效，其它版本设置此参数无效）。
@@ -369,7 +369,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| motionMute | boolean | true表示静音；false表示不静音。 |
+| motionMute | boolean | true 表示静音；false 表示不静音。 |
 
 
 

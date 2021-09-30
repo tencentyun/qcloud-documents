@@ -1,4 +1,4 @@
-ts over SRT 推流通过 **SRT 协议**直接传输包含音视频数据的 ts 流，下行复用了现有直播系统。TS over SRT 已作为 Haivision 硬件及 OBS 的推流格式标准。
+TS over SRT 推流通过 **SRT 协议**直接传输包含音视频数据的 ts 流，下行复用了现有直播系统。TS over SRT 已作为 Haivision 硬件及 OBS 的推流格式标准。
 此种模式下，SRT 服务器会解析负载（TS），并转封装为 RTMP 协议，转推到后端 RTMP 服务器。
 ![](https://main.qcloudimg.com/raw/5ceb4e1d0d3a2e1f07bb601d17d04eb5.png)
 
@@ -22,7 +22,7 @@ ts over SRT 推流通过 **SRT 协议**直接传输包含音视频数据的 ts �
 在传输质量指标上，与 QUIC 做了对比。SRT 通过更精准和快速的重传控制，以及针对直播流媒体场景的 Pacing 机制，使得在相同丢包率下，应用层丢包较少。当丢包率在 50%时，SRT 相比 QUIC 仍能保证稳定的传输。
 
 和 QUIC 上行对比，在推流端相同链路同一直播文件的情况下，每5分钟提高了5%的丢包率，通过以下示图可以看出 SRT 的推流帧率更平稳。
-![](https://main.qcloudimg.com/raw/638357e7bd47ae34b08423255f354922.png)
+![](https://main.qcloudimg.com/raw/aa34e85a1751ed5e9c1f0547fcf9c03a.png)
 
 ## 直播推流
 ### 接入方法

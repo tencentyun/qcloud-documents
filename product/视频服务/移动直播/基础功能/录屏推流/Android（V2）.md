@@ -7,8 +7,14 @@
 ## 限制说明
 - Android 5.0 系统以后开始支持录屏功能。
 - 悬浮窗在部分手机和系统上需要通过手动设置打开。
-- 录屏直播时，请先关闭小米的**神隐模式**。
-![#800px](https://main.qcloudimg.com/raw/2574ba9cf80d92fec94f59bcd1a94607.jpg)
+
+## 示例代码
+针对开发者的接入反馈的高频问题，腾讯云提供有更加简洁的 API-Example 工程，方便开发者可以快速的了解相关 API 的使用，欢迎使用。
+
+| 所属平台 |                         GitHub 地址                          |
+| :------: | :----------------------------------------------------------: |
+|   iOS    | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example) |
+| Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) |
 
 
 ## 对接攻略
@@ -22,7 +28,7 @@ V2TXLivePusher mLivePusher = new V2TXLivePusherImpl(context, V2TXLiveDef.V2TXLiv
 
 [](id:step2)
 ### 步骤2：启动推流
-经过 [步骤1](#step1) 和 [步骤2](#step2) 的准备之后，用下面这段代码就可以启动推流了：
+经过 [步骤1](#step1) 的准备之后，用下面这段代码就可以启动推流了：
 ```java
 String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 mLivePusher.startMicrophone();
@@ -46,7 +52,7 @@ mLivePusher.setWatermark(BitmapFactory.decodeResource(getResources(),R.drawable.
 
 [](id:step4)
 ### 步骤4：推荐的清晰度
-调用 V2TXLivePusher 中的`setVideoQuality`接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而`setVideoQuality`设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/56600?!preview&!editLang=zh)。
+调用 V2TXLivePusher 中的`setVideoQuality`接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而`setVideoQuality`设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/56600)。
 
 [](id:step5)
 ### 步骤5：提醒主播“网络不好”
@@ -54,15 +60,16 @@ mLivePusher.setWatermark(BitmapFactory.decodeResource(getResources(),R.drawable.
 ![](https://main.qcloudimg.com/raw/ede09b70402bee1d88f86492226c6b46.png)  
 
 通过 V2TXLivePusherObserver 里的 [onWarning](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__android.html) 可以捕获 **V2TXLIVE_WARNING_NETWORK_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。此时就可以像上图一样在 UI 上弹出一个“弱网提示”。
-
-```objectiveC   
+<dx-codeblock>
+::: objectiveC objectiveC
 @Override
 public void onWarning(int code, String msg, Bundle extraInfo) {
     if (code == V2TXLiveCode.V2TXLIVE_WARNING_NETWORK_BUSY) {
         showNetBusyTips(); // 显示网络繁忙的提示
     }
 } 
-```
+:::
+</dx-codeblock>
 
 [](id:step6)
 ### 步骤6：横竖屏适配

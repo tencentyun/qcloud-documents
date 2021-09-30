@@ -1,6 +1,5 @@
 
 常用的聊天软件都是由聊天窗口、会话列表等几个基本的界面组成。TUIKit 提供一套基本的 UI 实现，简化 IM SDK 的集成过程，只需几行代码即可在项目中使用 IM SDK 提供通信功能。
->?更多实操教学视频请参见：[极速集成 TUIKit（Android）](https://cloud.tencent.com/edu/learning/course-3130-56399)。
 
 ## 创建会话列表界面
 
@@ -61,7 +60,7 @@ ChatLayout chatLayout = findViewById(R.id.chat_layout);
 // 单聊面板的默认 UI 和交互初始化
 chatLayout.initDefault();
 // 传入 ChatInfo 的实例，这个实例必须包含必要的聊天信息，一般从调用方传入
-// 构造 mChatInfo 可参考 <a href="https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/menu/StartC2CChatActivity.java">StartC2CChatActivity.java</a> 的方法 startConversation
+// 构造 mChatInfo 可参考 <a href="https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/menu/StartC2CChatActivity.java">StartC2CChatActivity.java</a> 的方法 startConversation
 chatLayout.setChatInfo(mChatInfo);
 </pre>
 </li></ol>

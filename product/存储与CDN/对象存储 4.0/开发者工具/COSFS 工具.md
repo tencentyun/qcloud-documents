@@ -1,6 +1,6 @@
 ## 功能说明 
 
-COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储中的对象， COSFS 提供的主要功能包括：
+COSFS 工具支持将对象存储（Cloud Object Storage，COS）存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储中的对象， COSFS 提供的主要功能包括：
 - 支持 POSIX 文件系统的大部分功能，如：文件读写、目录操作、链接操作、权限管理、uid/gid 管理等功能。
 - 大文件分块传输功能。
 - MD5 数据校验功能。
@@ -41,7 +41,7 @@ wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-
 #Ubuntu20.04
 wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-ubuntu20.04_amd64.deb
 ```
-2. 安装。以 Ubuntu16.04 为例。
+2. 安装。以 Ubuntu16.04 为例：
 ```shell
 sudo dpkg -i cosfs_1.0.19-ubuntu16.04_amd64.deb
 ```
@@ -135,7 +135,8 @@ ldconfig   #更新动态链接库
 pkg-config --modversion fuse  #查看 fuse 版本号，当看到 “2.9.4” 时，表示 fuse 2.9.4 安装成功 
 ```
 - SUSE 系统下手动安装 fuse 2.8.4及以上版本，安装命令示例如下：
->!安装时，需要注释掉`example/fusexmp.c`文件下第222行内容，否则 make 将报错。注释方法为`/*content*/` 。
+>! 安装时，需要注释掉`example/fusexmp.c`文件下第222行内容，否则 make 将报错。注释方法为`/*content*/` 。
+>
 ```shell
 zypper remove fuse libfuse2
 wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.9.4.tar.gz
@@ -193,14 +194,13 @@ chmod 640 /etc/passwd-cosfs
 将密钥文件中配置的存储桶挂载到指定目录，可以使用如下命令行：
 
 ```shell
-cosfs <BucketName-APPID> <MountPoint> -ourl=<CosDomainName> -odbglevel=info -oallow_other
+cosfs <BucketName-APPID> <MountPoint> -ourl=http://cos.<Region>.myqcloud.com -odbglevel=info -oallow_other
 ```
 其中：
 - &lt;MountPoint&gt; 为本地挂载目录（例如`/mnt`）。
-- &lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为`http://cos.<Region>.myqcloud.com` （适用于 XML API，请勿在该参数中携带存储桶名称），其中 &lt;Region&gt; 为地域简称， 例如 ap-guangzhou 、 eu-frankfurt 等。更多地域简称信息，请参见 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
-- -odbglevel 指定日志级别。
+- &lt;Region&gt; 为地域简称， 例如 ap-guangzhou 、 eu-frankfurt 等。更多地域简称信息，请参见 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
+- -odbglevel 指定日志级别，默认为crit，可选值为crit、error、warn、info、debug。
 - -oallow_other 允许非挂载用户访问挂载文件夹。
-
 
 **示例：**
 

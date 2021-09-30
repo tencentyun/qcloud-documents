@@ -8,7 +8,7 @@
 
 1. 登录 [CODING 控制台](https://console.cloud.tencent.com/coding)，单击团队域名进入 CODING 使用页面。
 2. 单击页面右上角的 <img src ="https://main.qcloudimg.com/raw/d94a8e60dd3a41d0af07d72ae0e9d70e.png" style ="margin:0">，进入项目列表页面，单击项目图标进入目标项目。
-3. 进入项目后点击左下角的《项目设置》。
+3. 进入项目后单击左下角的**项目设置**。
 
 ## 功能介绍
 
@@ -24,7 +24,7 @@
 
 1.  将获取到的 API 密钥上传至 CODING 进行托管以获得凭据 ID。
 ![](https://main.qcloudimg.com/raw/9dbe0deb533ee222d0871bfa55c6ec4d.png)
-2.  在变量与缓存中选择【增加环境变量】>【类别选择 CODING 凭据】>【选择您需调取的凭据】。
+2.  在变量与缓存中选择**增加环境变量** > **类别选择 CODING 凭据** > **选择您需调取的凭据**。
 ![](https://main.qcloudimg.com/raw/9ab5c8d6ce931fba2f3b5dfa4489bfc1.png)
 3.  在构建于部署中新建计划列表，并填写相应的 Jenkinsfile 配置
 
@@ -63,3 +63,5 @@ pipeline {
 | credentialsId     | 是    | \-  | 需要获取的凭据 ID，仅支持云 API 类型的凭据      |
 | secretIdVariable  | 是    | \-  | secretId 环境变量的名称，会用配置名称注入环境变量  |
 | secretKeyVariable | 是    | \-  | secretKey 环境变量的名称，会用配置名称注入环境变量 |
+
+

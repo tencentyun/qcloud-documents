@@ -20,17 +20,17 @@
 |-268 |库名重复|库表迁移模式，对于整库迁移，请确保源实例和目标实例不存在重复的库表。|
 |-269| 表名重复|库表迁移模式，请确保迁移目标库表在源和目标没有重复的库表名。|
 |-265| 库表模式迁移，外键依赖的表没有在迁移目标库表当中|-|
-|-266 |目标库表存在存储引擎不支持|对于源库表，目前支持存储引擎：<li>5.6不支持：'MEMORY'、'BLACKHOLE'、 'CSV', 'ARCHIVE' 引擎。 <li> 5.7不支持：'MRG_MYISAM'、'MEMORY'、'BLACKHOLE'、'CSV'、'ARCHIVE'。<li>支持 tokudb 引擎。|
+|-266 |目标库表存在存储引擎不支持|对于源库表，目前支持存储引擎：<li>5.6不支持：MEMORY、BLACKHOLE、 CSV、ARCHIVE 引擎。 <li> 5.7不支持：MRG_MYISAM、MEMORY、BLACKHOLE、CSV、ARCHIVE。<li>支持 tokudb 引擎。|
 |-420| 源 tokudb 存在压缩|quicklz/lzma/snappy/uncompressed 对于 toku 这几种 row_format 不支持。|
-|-421 |源 tokudb 存在 cluster index|存在 column_key 为 'CLU' 的表。|
+|-421 |源 tokudb 存在 cluster index|存在 column_key 为 CLU 的表。|
 |-292 |目标实例 RO 状态不正常|迁移任务发起需要目标实例 RW 和 RO 均处于正常状态。|
 |-405 |源实例存在 row_format 为 fixed 的库表|源实例库表建议修改为非 row_format 格式的 innodb 引擎库表。格式修改后，数据库表会被重建。|
 |-417 |目标实例和源实例主从关系异常|检查源实例网络连接是否正常，检查在迁移过程中是否有用户自身对目标实例进行写入形成双写。 |
 |-253 |收到用户终止撤销任务的请求|收到用户发送的终止撤销迁移任务的请求，撤销迁移任务，撤销成功任务进入回滚完成状态。|
 |-407 |用户输入参数有误|输入参数有误，检查输入参数格式，例如库表名称是否合法等。|
-|-411 |源实例帐号权限检查需求失败 | 请提供满足要求的源实例用户帐号权限需求详情，根据需求的任务配置，给出满足权限需求的用户帐号。<br>例如：全量检测是需要对 session 进行 binlog 格式的设置，这个是需要 super 权限的，解决办法：1.选抽样检测就不需要 super 权限，2.通过对帐号增加 super 权限授权。|
-|6001000|备份系统异常|请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们处理。|
-|-41 |同步数据失败，主从异常|请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们处理。|
-|996|内部错误，迁移模式和对比方式不同，后端是不同的配置，如果配置文件找不到就报错|请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们处理。|
+|-411 |源实例帐号权限检查需求失败 | 请提供满足要求的源实例用户帐号权限需求详情，根据需求的任务配置，给出满足权限需求的用户帐号。<br>例如：全量检测是需要对 session 进行 binlog 格式的设置，这个是需要 super 权限的，解决办法：1.选抽样检测就不需要 super 权限，2.通过对帐号增加 super 权限授权。</br>|
+|6001000|备份系统异常|请通过 [在线支持](https://cloud.tencent.com/online-service?from=connect-us) 联系我们处理。|
+|-41 |同步数据失败，主从异常|请通过 [在线支持](https://cloud.tencent.com/online-service?from=connect-us) 联系我们处理。|
+|996|内部错误，迁移模式和对比方式不同，后端是不同的配置，如果配置文件找不到就报错|请通过 [在线支持](https://cloud.tencent.com/online-service?from=connect-us) 联系我们处理。|
 
->?如遇到其他错误码，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 反馈。
+>?如遇到其他错误码，请通过 [在线支持](https://cloud.tencent.com/online-service?from=connect-us) 反馈。

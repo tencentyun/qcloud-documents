@@ -18,6 +18,7 @@ Content-Type: application/xml
 ```
 
 >? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>
 
 
 #### 请求头
@@ -60,7 +61,7 @@ Container 类型 Request 的具体数据描述如下：
 | Input              | Request | 待操作的媒体信息                                         | Container | 是   |
 | Operation          | Request | 操作规则，支持对单个文件执行多个不同任务，最多可填写6个                                                | Container | 是   |
 | QueueId            | Request | 任务所在的队列 ID                                         | String    | 是   |
-| CallBack           | Request | 回调地址                 | String    | 是   |
+| CallBack           | Request | 回调地址                 | String    | 否   |
 
 Container 类型 Input 的具体数据描述如下：
 
@@ -79,7 +80,8 @@ Container 类型 Operation 的具体数据描述如下：
 | WatermarkTemplateId          | Request.Operation | 指定的水印模板 ID，可以传多个水印模板 ID                                      | String    | 否   |
 | Output                       | Request.Operation | 结果输出地址                                                            | Container | 是   |
 
->!优先使用 TemplateId，无 TemplateId 时使用对应任务类型的参数。
+>! 优先使用 TemplateId，无 TemplateId 时使用对应任务类型的参数。
+>
 
 Container 类型 Transcode 的具体数据描述如下：
 
@@ -95,10 +97,10 @@ Container 类型 RemoveWatermark 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                      | 描述                                   | 类型      | 必选 |
 | ------------------ | :-------------------------- | -------------------------------------- | --------- | ---- |
-| Dx                 | Request.Operation.RemoveWatermark |  距离左上角原点 x 偏移，[1, 4096]   | string | 是   |
-| Dy                 | Request.Operation.RemoveWatermark |  距离左上角原点 y 偏移，[1, 4096]   | string | 是   |
-| Width              | Request.Operation.RemoveWatermark |  宽，[1, 4096]                 | string | 是   |
-| Height             | Request.Operation.RemoveWatermark |  高，[1, 4096]                 | string | 是   |
+| Dx                 | Request.Operation.RemoveWatermark |  距离左上角原点 x 偏移，范围为[1, 4096]   | string | 是   |
+| Dy                 | Request.Operation.RemoveWatermark |  距离左上角原点 y 偏移，范围为[1, 4096]   | string | 是   |
+| Width              | Request.Operation.RemoveWatermark |  宽，范围为[1, 4096]                 | string | 是   |
+| Height             | Request.Operation.RemoveWatermark |  高，范围为[1, 4096]                 | string | 是   |
 
 Container 类型 Output 的具体数据描述如下：
 
@@ -173,6 +175,7 @@ Container 节点 JobsDetail 的内容：
 | Tag | Response.JobsDetail | 新创建任务的 Tag：Transcode（转码）、Animation（动图）、SmartCover（智能封面）、Snapshot（截图）、Concat（拼接） | String |
 | State | Response.JobsDetail | 任务的状态，为 Submitted、Running、Success、Failed、Pause、Cancel 其中一个 |  String |
 | CreationTime | Response.JobsDetail | 任务的创建时间 |  String |
+| StartTime | Response.JobsDetail | 任务的开始时间 |  String |
 | EndTime | Response.JobsDetail | 任务的结束时间 |  String |
 | QueueId | Response.JobsDetail | 任务所属的队列 ID |  String |
 | Input | Response.JobsDetail | 该任务的输入资源地址 |  Container |
@@ -201,13 +204,11 @@ Container 节点 MediaInfo 的内容：
 
 ## 实际案例
 
-**使用转码模板 ID**
-
-#### 请求
+#### 请求1：使用转码模板 ID
 
 ```shell
 POST /jobs HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
 Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
@@ -241,7 +242,7 @@ Content-Type: application/xml
 </Request>
 ```
 
-#### 响应
+#### 响应1
 
 ```shell
 HTTP/1.1 200 OK
@@ -250,7 +251,7 @@ Content-Length: 230
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 
 
@@ -290,9 +291,9 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
 
 
 
-**使用转码处理参数**
 
-#### 请求
+
+#### 请求2：使用转码处理参数
 
 ```shell
 POST /jobs HTTP/1.1
@@ -386,7 +387,7 @@ Content-Type: application/xml
 </Request>
 ```
 
-#### 响应
+#### 响应2
 
 ```shell
 HTTP/1.1 200 OK
@@ -395,7 +396,7 @@ Content-Length: 230
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 
 
@@ -406,6 +407,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
     <JobId>jabcxxxxfeipplsdfwe</JobId>
     <State>Submitted</State>
     <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
+    <StartTime></StartTime>
     <EndTime></EndTime>
     <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
     <Tag>Transcode</Tag>

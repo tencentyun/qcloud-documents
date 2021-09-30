@@ -3,13 +3,19 @@
 
 ### 引入 SDK 运行后，出现 java.lang.NoSuchMethodError 的异常，该如何处理？
 
-原因一般是发生了 JAR 包冲突，例如，用户的工程中的 httpclient 库中 的 JAR 包版本没有 A 方法，但是  SDK 依赖的 JAR 包使用了 A 方法。此时，由于运行时加载顺序的问题，加载了用户工程中的 httpclient  库，运行时便会抛出 NoSuchMethodError 的异常。
-解决方法：将工程中引起 NoSuchMethodError 包的版本，改成和 SDK 中 pom.xml 里的对应库的版本一致。
+原因：一般是发生了 JAR 包冲突，例如，用户的工程中的 httpclient 库中 的 JAR 包版本没有 A 方法，但是  SDK 依赖的 JAR 包使用了 A 方法。此时，由于运行时加载顺序的问题，加载了用户工程中的 httpclient  库，运行时便会抛出 NoSuchMethodError 的异常。
+解决方法：
+方式一：将工程中引起 NoSuchMethodError 包的版本，改成和 SDK 中 pom.xml 里的对应库的版本一致
+方式二：将 cos-java-sdk 换成 cos_api-bundle。此方案会将 cos-java-sdk 的所有依赖都独立安装，所以会占用更多的空间。
+```
+<groupId>com.qcloud</groupId>
+       <artifactId>cos_api-bundle</artifactId>
+<version>5.6.35</version>
+```
 
 ### Java SDK 的默认超时时间是多少？
 
 Java SDK 默认连接超时时间为 45000ms，默认读写超时时间为 45000ms，可以使用 SDK 中的 SetConnectionTimeoutMs 方法和 SetReadWriteTimeoutMs 来进行调整。
-
 
 ### Java SDK 上传速度慢，日志频繁打印 IOException，该如何处理？
 
@@ -30,6 +36,17 @@ Java SDK 默认连接超时时间为 45000ms，默认读写超时时间为 45000
  <version>4.5.3</version> 
 ```
 
+方式二：将 cos-java-sdk 换成 cos_api-bundle。此方案会将 cos-java-sdk 的所有依赖都独立安装，所以会占用更多的空间。
+```
+<groupId>com.qcloud</groupId>
+       <artifactId>cos_api-bundle</artifactId>
+<version>5.6.35</version>
+```
+
+### 使用 Java SDK 报错提示某个依赖版本太低，如何处理？
+原因：用户 Java 环境的依赖版本和 Java SDK 需要的依赖版本有冲突。
+解决方法:
+方式一：按照提示，升级对应依赖到要求的版本。
 方式二：将 cos-java-sdk 换成 cos_api-bundle。此方案会将 cos-java-sdk 的所有依赖都独立安装，所以会占用更多的空间。
 ```
 <groupId>com.qcloud</groupId>
@@ -137,6 +154,62 @@ COS Java SDK 旧版本仅支持例如125开头的 APPID，如果您使用的是 
 ### Java SDK 是否支持计算本地文件的 CRC64？
 
 COS Java SDK 本身不支持计算本地文件的 crc64，需要您在业务侧自行实现，您可以参考 [Java issues](https://github.com/tencentyun/cos-java-sdk-v5/issues/63) 寻求答案。
+
+### Java SDK 校验 COS 返回的 CRC64 是 21 位的怎么和本地计算的 CRC64 对比？
+
+由于 Java 的 Long 只能支持 20 位数字，可以参考以下的对比方案：
+
+```java
+CRC64 localCRC = new CRC64();
+// 计算本地的 crc64
+localCRC.update();
+//...
+
+// 把 COS 返回的 CRC 变成 Long
+cosCRC = crc64ToLong(strCOSCRC);
+
+// 比较
+if (cosCRC == localCRC.getValue()) {
+   xxx
+}
+
+// 用来将 COS 返回的 CRC64 转化成 1 个 Java 里的 Long
+long crc64ToLong(String crc64) {
+   if (crc64.charAt(0) == '-') {
+       return negativeCrc64ToLong(crc64);
+   } else {
+       return positiveCrc64ToLong(crc64);
+   }
+}
+
+long positiveCrc64ToLong(String strCrc64) {
+   BigInteger crc64 = new BigInteger(strCrc64);
+   BigInteger maxLong = new BigInteger(Long.toString(Long.MAX_VALUE));
+
+   int maxCnt = 0;
+
+   while (crc64.compareTo(maxLong) > 0) {
+       crc64 = crc64.subtract(maxLong);
+       maxCnt++;
+   }
+
+   return crc64.longValue() + Long.MAX_VALUE * maxCnt;
+}
+
+long negativeCrc64ToLong(String strCrc64) {
+   BigInteger crc64 = new BigInteger(strCrc64);
+   BigInteger minLong = new BigInteger(Long.toString(Long.MIN_VALUE));
+
+   int minCnt = 0;
+
+   while (crc64.compareTo(minLong) < 0) {
+       crc64 = crc64.subtract(minLong);
+       minCnt++;
+   }
+
+   return crc64.longValue() + Long.MIN_VALUE * minCnt;
+}
+```
 
 ### Java SDK 能否使用长连接?
 

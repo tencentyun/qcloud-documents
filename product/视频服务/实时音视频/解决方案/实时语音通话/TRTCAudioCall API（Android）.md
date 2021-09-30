@@ -120,7 +120,7 @@ void removeListener(TRTCAudioCallListener listener);
 ```java
 void login( int sdkAppId,
             final String userId, 
-            String userSign, 
+            String userSig, 
             final ActionCallBack callback);
 ```
 

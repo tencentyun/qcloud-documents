@@ -8,8 +8,8 @@
 - 已登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)。
 
 ## 操作步骤
-1. 选择左侧导航栏中的【Fabric】>【区块链网络】，进入“区块链网络”页面。
-2. 单击【新建】，进入 “[区块链服务TBaaS-Fabric](https://buy.cloud.tencent.com/tbaas_blockchain?engine=0)” 购买页面，按照页面提示填写基本信息、组织及节点配置。如下图所示：
+1. 选择左侧导航栏中的**Fabric** > **区块链网络**，进入“区块链网络”页面。
+2. 单击**新建**，进入 “[区块链服务TBaaS-Fabric](https://buy.cloud.tencent.com/tbaas_blockchain?engine=0)” 购买页面，按照页面提示填写基本信息、组织及节点配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/0572bf2b092dc1474de7c393affc83b0.png)
 主要参数信息如下：
 	- **联盟**：选择所属联盟。需建立联盟后才可以购买区块链网络，网络建立后联盟不可更换。
@@ -22,8 +22,8 @@
 	- **证书加密方式**：选择证书加密方式，支持国密 SM2 证书和 ECC 证书，默认为ECC证书。
 	- **状态数据库类型**：支持 LevelDB 状态数据库和 CouchDB 状态数据库，默认为LevelDB 状态数据库。
 	- **实例自动续费**：开启后，若账户余额足够，则支持网络到期后按月自动续费。
-	    在区块链完成初始化设置之后，如需对“自动续费”进行设置，可以进入 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)，选择左侧导航栏中的【Fabric】>【区块链网络】，进入“区块链网络”页面后对需要设置的网络，选择【更多】>【设置自动续费】，并进行再次的设置。如下图所示：
+	    在区块链完成初始化设置之后，如需对“自动续费”进行设置，可以进入 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)，选择左侧导航栏中的**Fabric** > **区块链网络**，进入“区块链网络”页面后对需要设置的网络，选择**更多** > **设置自动续费**，并进行再次的设置。如下图所示：
 ![](https://main.qcloudimg.com/raw/0388bdf218f0d8694e0dd9ef668bed57.png)
-3. 单击【下一步】，选择要邀请的组织，也可以直接跳过该步骤。
-4. 单击【立即购买】即可成功部署 Fabric 网络。
+3. 单击**下一步**，选择要邀请的组织，也可以直接跳过该步骤。
+4. 单击**立即购买**即可成功部署 Fabric 网络。
 

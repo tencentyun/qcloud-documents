@@ -1,4 +1,3 @@
-
 GameServer.IGameServer 对象即实时服务器接口。提供了接收客户端消息、监听房间广播相关接口。
 
 ### mode 属性

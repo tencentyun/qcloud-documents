@@ -64,9 +64,9 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 ![](https://main.qcloudimg.com/raw/2280ea2d3ffbd00c9ea40baab3b53beb.png)
 3. 单击【安装】，在完成安装成功界面，单击右上角![](https://main.qcloudimg.com/raw/32f3dcf3b4c58c0acb3485f2dab0f9a7.png)，单击【配置目标服务器的 Active Directory 证书服务】。如下图所示：
 ![](https://main.qcloudimg.com/raw/f2fef65b3e14eba197d47bdc6e44dc6a.png)
-4.保持页面默认信息，一直单击【下一步】，在角色服务栏勾选证书颁发机构、证书颁发机构 Web 注册。如下图所示：
+4. 保持页面默认信息，一直单击【下一步】，在角色服务栏勾选证书颁发机构、证书颁发机构 Web 注册。如下图所示：
 ![](https://main.qcloudimg.com/raw/3cb95189345827ea9da7a653bf83a243.png)
-5.保持页面默认信息，一直单击【下一步】，单击【配置】，完成安装 ADC。如下图所示：
+5. 保持页面默认信息，一直单击【下一步】，单击【配置】，完成安装 ADC。如下图所示：
 ![](https://main.qcloudimg.com/raw/cbf71552decaf46bf46d2768153eae17.png)
 
 ### 生成 SSL 证书

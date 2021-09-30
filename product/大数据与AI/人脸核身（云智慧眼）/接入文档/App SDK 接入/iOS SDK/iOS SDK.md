@@ -3,9 +3,9 @@
 
 ## 业务流程
 ![](https://main.qcloudimg.com/raw/61e2fdb830756b993210e13ffabebc50.png)
-1. 客户后端调用 [DetectAuth](https://cloud.tencent.com/document/api/1007/31816) 接口进行核身流程开启前鉴权，获取业务流水号（`BizToken`）。
+1. 客户后端调用 [DetectAuth](https://cloud.tencent.com/document/api/1007/31816) 接口进行核身流程开启前鉴权，获取业务流水号（BizToken）。
 2. 根据客户自身需求，在对应页面调用相关函数进入人脸核身流程，开始验证。
-3. 人脸核身完成后，会触发回调函数，此时客户后端即可凭借回调中提供的`BizToken`调用 [GetDetectInfo](https://cloud.tencent.com/document/api/1007/31331) 接口获取本次核身的详细信息。
+3. 人脸核身完成后，会触发回调函数，此时客户后端即可凭借回调中提供的 BizToken 调用 [GetDetectInfo](https://cloud.tencent.com/document/api/1007/31331) 接口获取本次核身的详细信息。
 
 ## SDK 说明
 本 SDK 封装了实名核身的整体流程，包括身份证 OCR 识别和活体检测功能。
@@ -31,10 +31,10 @@ f**ace_shape.ref、ULSGPUAssets.bin、authsdk.bundle、 ULSFaceTrackerAssets.bun
 ![](https://main.qcloudimg.com/raw/24a1005a94b091559cf364d9176691a6.png)
 
 ### 2.  添加需要的编译选项
-在 TARGETS-Build Settings-Other Linker Flags 中添加`-ObjC` 。
+在 TARGETS-Build Settings-Other Linker Flags 中添加 -ObjC。
 - C++ Language Dialect 设置为 C++11 [-std=c++11]
 - C++ Standard Library 设置为 libc++
-- bitCode 设置为NO
+- bitCode 设置为 NO
 
 ![](https://main.qcloudimg.com/raw/0634a472dbee443542d89b9364f75515.png)
 

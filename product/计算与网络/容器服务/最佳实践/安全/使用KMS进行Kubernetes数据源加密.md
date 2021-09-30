@@ -19,7 +19,7 @@
 ### 创建 KMS 密钥并获取 ID[](id:createKMS)
 
 1. 登录 [密钥管理系统（合规）](https://console.cloud.tencent.com/kms2) 控制台，进入“用户密钥”页面。
-2. 在“用户密钥”页面上方，选择需要创建密钥的区域并单击【新建】。
+2. 在“用户密钥”页面上方，选择需要创建密钥的区域并单击**新建**。
 3. 在弹出的“新建密钥”窗口，参考以下信息进行配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/2082bac6e37c381f6d14e1717fa6e401.png)
 主要参数信息如下，其余参数请保持默认设置：
@@ -27,25 +27,25 @@
  - **描述信息**：选填，可用来说明计划保护的数据类型或计划与 CMK 配合使用的应用程序。
  - **密钥用途**：选择“对称加解密”。
  - **密钥材料来源**：提供 “KMS” 和“外部”两种选择，请根据实际需求进行选择。本文以选择 “KMS” 为例。
-4. 单击【确定】后返回“用户密钥”页面，即可查看已成功创建的密钥。
+4. 单击**确定**后返回“用户密钥”页面，即可查看已成功创建的密钥。
 5. 单击密钥 ID，进入密钥信息页，记录该密钥完整 ID。如下图所示：
 ![](https://main.qcloudimg.com/raw/ab708d6ade0bdd9dd12cd54e2cea35d9.png)
 
 ### 创建并获取访问密钥[](id:createCAM)
 >?如已创建访问密钥，则请跳过此步骤。
 >
-1. 登录[ 访问管理控制台](https://console.cloud.tencent.com/cam/overview)，选择左侧导航栏中的【访问密钥】>【API密钥管理】，进入 “API密钥管理”页面。
-2. 在 “API密钥管理”页面中，单击【新建密钥】并等待创建完成。
+1. 登录[ 访问管理控制台](https://console.cloud.tencent.com/cam/overview)，选择左侧导航栏中的**访问密钥** > **API密钥管理**，进入 “API密钥管理”页面。
+2. 在 “API密钥管理”页面中，单击**新建密钥**并等待创建完成。
 3. 创建完成即可在 “API密钥管理”页面查看该密钥信息，包含 `SecretId`、`SecretKey`。如下图所示：
 ![](https://main.qcloudimg.com/raw/106be1fd3e9f52f0d112b7f583b2d7df.png)
 
 ### 创建 DaemonSet 并部署 tke-kms-plugin
 
-1. 登录[ 腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中【集群】。
+1. 登录[ 腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中**集群**。
 2. 在“集群管理”页面中，选择符合条件的集群 ID，进入该集群详情页。
-3. 选择该集群任意界面右上角【YAML创建资源】，进入 YAML 创建资源页，输入 `tke-kms-plugin.yaml` 内容。如下所示：
+3. 选择该集群任意界面右上角**YAML创建资源**，进入 YAML 创建资源页，输入 `tke-kms-plugin.yaml` 内容。如下所示：
 > ? 请根据实际情况替换以下参数：
-> - `{{REGION}}`：KMS 密钥所在地域，有效值可取： `ap-beijing`、`ap-guangzhou`、`ap-shanghai`。
+> - `{{REGION}}`：KMS 密钥所在地域，有效值可参见 [地域列表](https://cloud.tencent.com/document/api/573/34406#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
 > - `{{KEY_ID}}`：输入 [创建 KMS 密钥并获取 ID](#createKMS) 步骤中所获取的 KMS 密钥 ID。
 > - `{{SECRET_ID}}` 和 `{{SECRET_KEY}}`：输入 [创建并获取访问密钥](#createCAM) 步骤中创建的 SecretID 和 SecretKey。
 > - `images: ccr.ccs.tencentyun.com/tke-plugin/tke-kms-plugin:1.0.0`：tke-kms-plugin 镜像地址。当您需要使用自己制作的 tke-kms-plugin 镜像时，可自行进行更换。
@@ -106,7 +106,7 @@ spec:
               mountPath: /var/run/tke-kms-plugin
               readOnly: false
 ```
-4. 单击【完成】并等待 DaemonSet 创建成功即可。
+4. 单击**完成**并等待 DaemonSet 创建成功即可。
 
 ### 配置 kube-apiserver
 1. 参考 [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)，分别登录该集群每一个 Master 节点。
@@ -116,8 +116,8 @@ spec:
 ```
 vim /etc/kubernetes/encryption-provider-config.yaml
 ```
-3. 按 **i** 切换至编辑模式，对上述 YAML 文件进行编辑。对应实际使用的 K8s 版本，输入如下内容：
- -  K8s v1.13+：
+3. 按 **i** 切换至编辑模式，对上述 YAML 文件进行编辑。对应实际使用的 K8S 版本，输入如下内容：
+ -  K8S v1.13+：
 ```
    apiVersion: apiserver.config.k8s.io/v1
    kind: EncryptionConfiguration
@@ -132,7 +132,7 @@ vim /etc/kubernetes/encryption-provider-config.yaml
              endpoint: unix:///var/run/tke-kms-plugin/server.sock
          - identity: {}
 ```
- - K8s v1.10 - v1.12：
+ - K8S v1.10 - v1.12：
 ```
    apiVersion: v1
    kind: EncryptionConfig
@@ -152,14 +152,14 @@ vim /etc/kubernetes/encryption-provider-config.yaml
 ```
 vi /etc/kubernetes/manifests/kube-apiserver.yaml
 ```
-6. 按 **i** 切换至编辑模式，对应实际使用的 K8s 版本，将以下内容添加至 `args`。
->?K8s v1.10.5 版本的独立集群，需要先将 `kube-apiserver.yaml`  移出 `/etc/kubernetes/manifests` 目录，编辑完成之后再移入。
+6. 按 **i** 切换至编辑模式，对应实际使用的 K8S 版本，将以下内容添加至 `args`。
+>?K8S v1.10.5 版本的独立集群，需要先将 `kube-apiserver.yaml`  移出 `/etc/kubernetes/manifests` 目录，编辑完成之后再移入。
 >
- - K8s v1.13+：
+ - K8S v1.13+：
 ```
  --encryption-provider-config=/etc/kubernetes/encryption-provider-config.yaml
 ```
- - K8s v1.10 - v1.12：
+ - K8S v1.10 - v1.12：
 ```
 --experimental-encryption-provider-config=/etc/kubernetes/encryption-provider-config.yaml
 ```

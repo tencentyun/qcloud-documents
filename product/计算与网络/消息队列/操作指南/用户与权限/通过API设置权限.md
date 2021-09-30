@@ -15,7 +15,8 @@
 - 请求协议：HTTP
 
 调用规范示例：
-```
+<dx-codeblock>
+::: json
 {
 	"version": 1,
 	"componentName": "MC",
@@ -27,10 +28,13 @@
 		}
 	}
 }
-```
+:::
+</dx-codeblock>
+
 
 返回结果：
-```
+<dx-codeblock>
+::: json
 {
 	"version": 1,
 	"eventId": 123456,
@@ -44,7 +48,9 @@
 		"ownerAppid": 323
 	}
 }
-```
+:::
+</dx-codeblock>
+
 当返回结果出错时，则 returnCode 不为0，returnMessage 内容为出错信息。
 输入参数中的 interfaceName 、para 和输出参数中的 data 说明详见 [调用说明](#调用说明)。
 

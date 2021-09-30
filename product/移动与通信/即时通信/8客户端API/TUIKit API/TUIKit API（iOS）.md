@@ -61,3 +61,4 @@ iOS TableView 的特点是滚动时 TableViewCell 会被重用，所有消息数
 | [contentSize](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIMessageCellData.html) | 消息内容大小 |
 
 
+

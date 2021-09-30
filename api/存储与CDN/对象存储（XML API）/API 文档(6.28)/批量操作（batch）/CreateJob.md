@@ -139,8 +139,8 @@ x-cos-appid: <APPID>
 | ClientRequestToken   | CreateJobRequest | 每个请求唯一的 token，用于避免前端重复发起同一批处理任务。长度为1 - 64字节，建议使用 uuid。 | String           | 是       |
 | ConfirmationRequired | CreateJobRequest | 是否在执行任务前进行确认。默认值为 false。                   | Boolean          | 否       |
 | Description          | CreateJobRequest | 任务描述。若您在创建任务时配置了此信息，则会返回该项内容。描述长度范围为0 - 256字节。 | String           | 否       |
-| Manifest             | CreateJobRequest | 待处理的对象清单。您需要将待处理的对象记录在此对象清单内。   | Manifest Object  | 是       |
-| Operation            | CreateJobRequest | 选择对清单文件中的对象将要执行的操作。目前 COS 支持批量复制对象、批量恢复归档等操作，您可以据此处理存储桶内的存量数据。 | Operation Object | 是       |
+| Manifest             | CreateJobRequest | 待处理的对象清单。您需要将待处理的对象记录在此对象清单内。您可以使用 [清单功能](https://cloud.tencent.com/document/product/436/33702) 生成文件清单。   | Manifest Object  | 是       |
+| Operation            | CreateJobRequest | 选择对清单文件中的对象将要执行的操作。目前 COS 支持 [批量复制对象](https://cloud.tencent.com/document/product/436/38603)、[批量恢复归档](https://cloud.tencent.com/document/product/436/40961) 等操作，您可以据此处理存储桶内的存量数据。 | Operation Object | 是       |
 | Priority             | CreateJobRequest | 任务优先级。越高的数值代表此项任务的优先级越高。优先级数值范围为0 - 2147483647。 | Integer          | 是       |
 | Report               | CreateJobRequest | 任务完成报告。您可配置此参数以在任务完成时输出报告，方便审计任务执行状况。 | Report Object    | 是       |
 | RoleArn              | CreateJobRequest | COS 资源标识符，此处用于标识您创建的角色。您需要此资源标识符以验证您的身份。 | String           | 是       |

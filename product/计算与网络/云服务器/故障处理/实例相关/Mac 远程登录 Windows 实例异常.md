@@ -30,4 +30,5 @@
 ![](https://main.qcloudimg.com/raw/25245ed985e5317078c80fa82d375a59.png)
 4. 单击【确定】，完成设置。
 5. 重启实例，重新尝试连接是否成功。
-如果还是无法成功，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&level3_id=142&radio_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8A&queue=15&scene_code=12686&step=2) 进行反馈。
+如果还是无法成功，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 进行反馈。

@@ -45,7 +45,7 @@
 | TCLoginActivity.java    | 用户登录页面                                                 |
 | TCRegisterActivity.java | 用户注册页面                                                 |
 | TCUserMgr | 用户登录注册管理类 |
-| OnProcessFragment       | 显示进度条的 Fragment                                         |
+| ProgressFragmentUtil       | 显示进度条的控件                                        |
 | TCUserInfoFragment.java     | 用户资料展示页面                                             |
 | TCAboutActivity             |  小视频介绍的关于页面                                   |
 

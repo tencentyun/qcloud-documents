@@ -84,8 +84,8 @@
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMSdkConfigConfigFilePath | string | 只写（选填） | 配置文件路径，默认路径为"/" |
-| kTIMSdkConfigLogFilePath | string | 只写（选填） | 日志文件路径，默认路径为"/" |
+| kTIMSdkConfigConfigFilePath | string | 只写（必填） | 配置文件路径 |
+| kTIMSdkConfigLogFilePath | string | 只写（必填） | 日志文件路径 |
 | kTIMSdkConfigJavaVM | uint64 | 只写（选填） | 配置 Android 平台的 Java 虚拟机指针 |
 
 ### TIMGroupMemberInfoFlag
@@ -489,7 +489,56 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMCustomElemExt | string | 读写 | 后台推送对应的 ext 字段 |
 | kTIMCustomElemSound | string | 读写 | 自定义声音 |
 
->?自定义消息是指当内置的消息类型无法满足特殊需求，开发者可以自定义消息格式，内容全部由开发者定义，IM SDK 只负责透传。
+>?自定义消息是指当内置的消息类型无法满足特殊需求，开发者可以自定义消息格式，`kTIMCustomElemData` 可以存储二进制信息（必须转换成 String，JSON 不支持二进制传输） 内容全部由开发者定义，IM SDK 只负责透传。
+
+
+
+使用  kTIMCustomElemData  发送二进制数据
+
+```c++
+// 假设 pBuffer 是指向二进制数据的指针，nLength 表示二进制数据的长度
+char * pBuffer;
+int length = xxx;
+
+// 对二进制数据做 base16 编码，转换为字符串
+char * pBase16Buf = (char *)malloc(2 * length + 1);
+memset(pBase16Buf, 0, 2 * length + 1);
+for (int i = 0; i < length; ++i) {
+    snprintf(pBase16Buf + 2 * i, 3, "%02X", pBuffer[i]); 
+}
+std::string strBase16 = std::string(pBase16Buf, strlen(pBase16Buf));
+free(pBase16Buf);
+
+// 创建 kTIMCustomElemData 类型的 element
+json::Object json_element;
+json_element[kTIMElemType] = kTIMElem_Custom;
+json_element[kTIMCustomElemData] = strBase16.c_str();
+json_element[kTIMCustomElemDesc] = "description";
+json_element_array.push_back(json_element);
+```
+
+ 使用 kTIMCustomElemData  接收二进制数据
+
+```c++
+// 假设 json_element 是 kTIMCustomElemData 类型的 element，从中解析出 kTIMCustomElemData 字段
+std::string strCustomData = json_element[kTIMCustomElemData];
+
+// 对 strCustomData 做 base16 解码，得到原始二进制数据
+char * pCustomData = (char*)(strCustomData.c_str());
+int customDataLength = (int)(strCustomData.length());
+
+int length = customDataLength / 2;
+char * pBuffer = (char *)malloc(length + 1);
+memset(pBuffer, 0, length + 1);
+for (int i = 0; i < length; ++i) {
+    sscanf(pCustomData + 2 * i, "%02X", (char*)(pBuffer + i));
+}
+
+// 在这里使用二进制数据: pBuffer 是指向二进制数据的指针，length 表示二进制数据的长度
+...
+// 释放 pBuffer
+free(pBuffer);
+```
 
 
 ### FileElem
@@ -1467,5 +1516,4 @@ UUID 类型。
 | kTIMFriendshipCheckFriendTypeResultRelation | uint [TIMFriendCheckRelation](#timfriendcheckrelation) | 只读 | 检测成功时返回的二者之间的关系 |
 | kTIMFriendshipCheckFriendTypeResultCode | int [错误码](https://cloud.tencent.com/document/product/269/1671) | 只读 | 检测的结果 |
 | kTIMFriendshipCheckFriendTypeResultDesc | string | 只读 | 检测好友失败的描述信息 |
-
 

@@ -1,5 +1,5 @@
 腾讯云直播推流的回调通知，回调包括推流器状态，统计信息，警告以及错误信息。
-
+  
 ### onError
 
 直播推流器错误通知，推流器出现错误时，会回调该通知。
@@ -86,32 +86,6 @@ onStatisticsUpdate(statistics: Object): void;
 
 ---
 
-### video
-
-| 字段               | 说明                                                        |
-| ------------------ | ----------------------------------------------------------- |
-| bitrate            | 视频码率，单位：bit/s                                       |
-| framesPerSecond    | 视频帧率                                                    |
-| frameWidth         | 视频宽度，Firefox下不存在                                   |
-| frameHeight        | 视频高度，Firefox下不存在                                   |
-| framesEncoded      | 编码帧数                                                    |
-| framesSent         | 发送帧数，Firefox下不存在                                   |
-| packetsSent        | 发送包数                                                    |
-| nackCount          | NACK（Negative ACKnowledgement）数                          |
-| firCount           | FIR（Full Intra Request），关键帧重传请求数                 |
-| pliCount           | PLI（Picture Loss Indication），视频帧丢失重传数            |
-| frameEncodeAvgTime | 平均编码时间，单位：ms，Safari / Firefox下不存在            |
-| packetSendDelay    | 数据包发送之前本地缓存的平均时间，单位：ms，Firefox下不存在 |
-
----
-
-### audio
-
-| 字段        | 说明                  |
-| ----------- | --------------------- |
-| bitrate     | 音频码率，单位：bit/s |
-| packetsSent | 发送包数              |
-
 [](id:errocode)
 
 ### 推流错误码
@@ -155,3 +129,29 @@ onStatisticsUpdate(statistics: Object): void;
 | timestamp       | 数据采样的时间，自1970年1月1日（UTC）起经过的毫秒数 |
 | [video](#video) | 视频流相关的数据                                    |
 | [audio](#audio) | 音频流相关的数据                                    |
+
+#### video
+
+| 字段               | 说明                                                        |
+| ------------------ | ----------------------------------------------------------- |
+| bitrate            | 视频码率，单位：bit/s                                       |
+| framesPerSecond    | 视频帧率                                                    |
+| frameWidth         | 视频宽度，Firefox下不存在                                   |
+| frameHeight        | 视频高度，Firefox下不存在                                   |
+| framesEncoded      | 编码帧数                                                    |
+| framesSent         | 发送帧数，Firefox下不存在                                   |
+| packetsSent        | 发送包数                                                    |
+| nackCount          | NACK（Negative ACKnowledgement）数                          |
+| firCount           | FIR（Full Intra Request），关键帧重传请求数                 |
+| pliCount           | PLI（Picture Loss Indication），视频帧丢失重传数            |
+| frameEncodeAvgTime | 平均编码时间，单位：ms，Safari / Firefox下不存在            |
+| packetSendDelay    | 数据包发送之前本地缓存的平均时间，单位：ms，Firefox下不存在 |
+
+---
+
+#### audio
+
+| 字段        | 说明                  |
+| ----------- | --------------------- |
+| bitrate     | 音频码率，单位：bit/s |
+| packetsSent | 发送包数              |

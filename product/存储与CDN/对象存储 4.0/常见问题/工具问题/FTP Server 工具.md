@@ -12,13 +12,6 @@ masquerade_address 是配置提供给客户端的服务器地址。当 FTP serve
 
 因此，通常情况下，建议用户将 masquerade_address 都配置为客户端连接 Server 时所使用的那个 IP 地址。
 
-### FTP Server 何时需要配置 masquerade_address？
-
-masquerade_address 是配置提供给客户端的服务器地址。当 FTP server 运行在一个通过 NAT 映射到外网 IP 的主机上时，此时需要配置 masquerade_address 选项为客户端可访问的 FTP Server 外网 IP，以通知客户端使用该 IP 与服务端完成数据通信。
-
-例如，在 FTP Server 运行的机器上，执行 ifconfig，得到映射到外网的网卡 IP 为10.xxx.xxx.xxx，它映射的外网 IP 假设为119.xxx.xxx.xxx。此时，若 FTP Server 未显式配置 masquerade_address 为客户端访问 server 时的外网 IP（119.xxx.xxx.xxx），则 FTP Server 在 Passive 模式下，给客户端回包可能会使用内网地址（10.xxx.xxx.xxx）。这时就会出现客户端能够连上 FTP Server，但却不能正常给客户端返回数据包的情况。
-
-因此，通常情况下，建议用户将 masquerade_address 都配置为客户端连接 Server 时所使用的那个 IP 地址。
 
 ### 正确配置了 masquerade_address 选项以后，ftp server 可以正常登录，但是执行 FTP 命令：list 或者 get 等数据取回命令时，提示“服务器返回不可路由的地址”或“ftp: connect: No route to host”等错误，该如何处理？
 
@@ -31,10 +24,6 @@ masquerade_address 是配置提供给客户端的服务器地址。当 FTP serve
 
 由于适用于 COS 最新版本的 FTP Server 提供了完全的流式上传特性，用户文件上传的取消或断开，都会触发大文件的上传完成操作。因此，COS 会认为用户数据流已经上传完成，并将已经上传的数据组成一个完整的文件。 如果用户希望重新上传，可以直接以原文件名上传覆盖；也可手动删除不完整的文件，重新上传。
 
-### 为什么 FTP Server 配置中要设置最大上传文件的限制？
-
-COS 的分片上传数目最大只能为 10000 块，且每个分片的大小限制为 1MB - 5G。 这里设置最大上传文件的限制是为了合理计算一个上传分片的大小。
-FTP Server 默认支持 200 GB 以内的单文件上传，但是不建议用户设置过大，因为单文件大小设置越大，上传时的分片缓冲区也会相应的增大，这可能会耗费用户的内存资源。因此，建议用户根据自己的实际情况，合理设置单文件的大小限制。
 
 ### 如果上传的文件超过最大限制，会怎么样？
 
