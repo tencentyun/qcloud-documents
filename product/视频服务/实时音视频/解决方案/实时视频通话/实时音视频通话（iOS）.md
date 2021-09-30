@@ -77,7 +77,7 @@ Xcode（11.0及以上的版本）打开源码工程 `TUICalling/Example/TUICalli
 ## 具体接入流程
 
 [源码](https://github.com/tencentyun/TUICalling/tree/master/Android/Source/src/main/java/com/tencent/liteav/trtccalling) 文件夹 `Source` 中包含三个子文件夹 ui、model 和 Service，其中 Service 文件夹中包含了我们对外暴露的开源组件 TUICallingManager，您可以在  `TUICallingManager.h`  文件中看到该组件提供的接口函数。
-![](https://main.qcloudimg.com/raw/36220937e8689dac4499ce9f2f187889.png)
+![](https://main.qcloudimg.com/raw/18e2e6fd62ade4a8bac560d45f4fbab4.png)
 
 
 您直接使用开源组件 TUICalling 的TUICallingManager即可轻松实现音视频通话功能，而无需再自己实现复杂的通话UI界面和逻辑。
