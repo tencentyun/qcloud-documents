@@ -1,5 +1,5 @@
 您可以登录 YARN 自带的 YARNwebUI，登录方式为通过 EMR 提供的快捷入口，查看快捷入口请参考 [软件 WebUI 入口](https://cloud.tencent.com/document/product/589/14629)，登录后您将看到如下图：
-![YARN](https://mc.qcloudimg.com/static/img/df3b8ca1dc152d28f7f84caa87613e53/5-1-3.png)  
+![](https://main.qcloudimg.com/raw/0435fe1f983f4a4406750cebcf1d0721.png)
 
 从图中可以看到整个集群的一些监控信息：
 - 应用信息：9个等待，7个执行，51个完成，总结67个；其中有15个 container 正在执行。

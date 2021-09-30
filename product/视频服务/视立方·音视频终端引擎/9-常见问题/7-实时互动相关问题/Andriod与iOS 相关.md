@@ -46,7 +46,7 @@
 可以使用 [onRemoteUserLeaveRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#afa7d16e1e4c66d938fc2bc69f3e34c28) 来监听用户离开房间事件，且该接口仅在 VideoCall 的所有用户和 LIVE 模式下的主播离开房间时会触发回调，观众离开房间不会有回调。 
 
 [](id:que11)
-### 手机锁屏状态，视频如何拨通？
+### 手机锁屏状态、App 在后台或 App 被关闭，音视频如何拨通？
 实现离线接听等功能，详情请参见 [实现离线接听](https://cloud.tencent.com/document/product/1449/57157#offline)。
 
 [](id:que12)

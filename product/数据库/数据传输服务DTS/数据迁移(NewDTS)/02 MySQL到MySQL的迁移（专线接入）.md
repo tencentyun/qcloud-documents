@@ -98,13 +98,14 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 </table>
 
 ## 操作步骤
-
 1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
 2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。
 ![](https://main.qcloudimg.com/raw/7cde8ece6d819a89800e2fccfafc4010.png)
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
 >
+<img src="https://main.qcloudimg.com/raw/ef55d13eb5f3f2fe7551ad4fbb7cb5a5.png"  style="margin:0;">
+<img src="https://main.qcloudimg.com/raw/6db0920d8371181091c1105e2d4da86a.png"  style="margin:0;">
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="20%">配置项</th><th width="70%">说明</th></tr></thead>
 <tbody>
@@ -159,9 +160,12 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/ef55d13eb5f3f2fe7551ad4fbb7cb5a5.png"  style="margin:0;">
-<img src="https://main.qcloudimg.com/raw/6db0920d8371181091c1105e2d4da86a.png"  style="margin:0;">
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
+>?
+>- 如果用户在迁移过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**迁移对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法迁移 Online DDL 变更产生的临时表数据到目标数据库。
+>- 如果用户在迁移过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**迁移对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。 
+>
+<img src="https://main.qcloudimg.com/raw/51d26749a5a208f84c3750e9afc9ea32.png"  style="margin:0;">
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
@@ -175,7 +179,6 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/51d26749a5a208f84c3750e9afc9ea32.png"  style="margin:0;">
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
     如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。

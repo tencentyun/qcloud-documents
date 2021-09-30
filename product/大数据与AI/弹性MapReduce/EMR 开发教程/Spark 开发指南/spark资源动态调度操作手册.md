@@ -7,20 +7,20 @@ Spark 安装在 EMR 云服务器的 `/usr/local/service` 路径下（`/usr/local
 需要将 `spark-<version>-yarn-shuffle.jar` 拷贝到集群各个节点的 `/usr/local/service/hadoop/share/hadoop/yarn/lib` 目录路径下。
 
 ### 方法一：SSH 控制台操作
-1. 在【集群服务】>【YARN】组件中，选择【操作】>【角色管理】，确定 NodeManager 所在节点 IP。
+1. 在**集群服务 > YARN** 组件中，选择**操作 > 角色管理**，确定 NodeManager 所在节点 IP。
 ![](https://main.qcloudimg.com/raw/57a68801574c926d085c90de16dbdc3c.png)
 2. 依次登录每个 NodeManager 所在节点。
  - 首先，需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)，这里我们可以使用 XShell 登录 Master 节点。
  - 使用 SSH 登录到其他 NodeManager 所在节点。指令为`ssh $user@$ip`，$user 为登录的用户名，$ip 为远程节点 IP（即步骤1中确定的 IP 地址）。
-![](https://main.qcloudimg.com/raw/d83d844103c4a6050a83700fadaf79dd.png)
+![](https://main.qcloudimg.com/raw/15845038f7a2c5f4cf79c6bf30502c4f.png)
  - 验证已经成功切换。
-![](https://main.qcloudimg.com/raw/30f0578b2cc19daebbdd82df8d95c13e.png)
+![](https://main.qcloudimg.com/raw/d34b340d10c1953c78b3ce0c3e873b55.png)
 3. 搜索 `spark-<version>-yarn-shuffle.jar` 文件路径。
 ![](https://main.qcloudimg.com/raw/4927797f6ff300662f14dd3d0ae3b22a.png)
 4. 将 `spark-<version>-yarn-shuffle.jar` 拷贝到 `/usr/local/service/hadoop/share/hadoop/yarn/lib` 下。
 ![](https://main.qcloudimg.com/raw/fab8b0abf34de2f4608924e9982f28ac.png)
 5. 退出登录，并切换其余节点。
-![](https://main.qcloudimg.com/raw/a9d4b368807a974b618202af0173357c.png)
+![](https://main.qcloudimg.com/raw/281580b197d6bd981aa04ec9c6efab58.png)
 
 ### 方法二：批量部署脚本
 首先，需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)，这里我们可以使用 XShell 登录 Master 节点。

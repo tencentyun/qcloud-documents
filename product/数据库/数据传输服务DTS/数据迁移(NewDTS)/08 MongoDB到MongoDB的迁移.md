@@ -57,6 +57,8 @@ db.createUser({
 2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。 
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置。  
 >?请在源实例创建一个只读帐号供迁移使用，否则迁移前校验步骤将不通过。
+>
+<img src="https://main.qcloudimg.com/raw/68b3b04023f54eb288de6464422c52cc.png"  style="zoom:80%;">
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
@@ -103,10 +105,10 @@ db.createUser({
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/68b3b04023f54eb288de6464422c52cc.png"  style="zoom:80%;">
 4. 测试源实例和目标实例的连通性。
 ![](https://main.qcloudimg.com/raw/43d1d1717e76331a9d2048428515cf75.png)
 5. 在设置迁移选项及选择迁移对象页面，设置迁移选项和迁移对象（可选择部分库表）。
+<img src="https://main.qcloudimg.com/raw/0392c50e0aa030d890c20f119e714579.png"  style="zoom:80%;">
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
@@ -120,7 +122,6 @@ db.createUser({
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/0392c50e0aa030d890c20f119e714579.png"  style="zoom:80%;">
 6. 在校验任务页面，完成迁移前校验工作，单击**启动任务**。
 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
