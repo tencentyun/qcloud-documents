@@ -7,8 +7,9 @@
 ## 操作步骤
 ### 步骤1：创建 API
 API 管理功能支持 3.0.0 版本的 OpenAPI 规范。登录 [企业集成服务控制台](https://console.cloud.tencent.com/eis)，选择**深度集成 > API 管理**，选择对应项目名称后单击**创建 API** 进入 API 创建界面。当前支持两种创建模式，用户可以选择手动编辑一个 API 描述文件，也可以上传填写好的 JSON 或者 YAML 文件进行 API 的生成，按照页面提示全部填写完成并且内容校验通过后，单击**下一步**即可进入 API 的管理详情配置界面。
+>?
 - OpenAPI 3.0.0 规范的对象定义请参考 [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)。
-- 如果您需要更多帮助，如获取 API 描述文档样例文件，请参考此章节末尾处的“API描述文件样例”
+- 如果您需要更多帮助，如获取 API 描述文档样例文件，请参考 [API 描述文件样例](#sample)。
 ![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/eis/55.png)  
 
 ### 步骤2：API 管理配置
@@ -22,7 +23,7 @@ API 管理功能支持 3.0.0 版本的 OpenAPI 规范。登录 [企业集成服�
 - API 控制策略：企业集成服务允许用户对所发布的 API 的访问权限进行配置。当前版本仅支持 Basic Auth（账户密码模式），其他验证方式敬请关注！
  ![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/eis/57.png)  
 
-### 步骤3：API 的使用
+### 步骤3：使用 API 
 1. 当 API 配置完成后，您即可通过 API 进行应用的控制和管理。打开绑定 API 的应用及其具体的流，通过流中 trigger 上的“复制域名”方式即可获取 API 的请求地址；或者在流左侧边栏“连接器配置”中找到对应的请求配置，并复制请求地址。地址构成方式一般为："HTTP Listener 监听端口"-"HTTP Listener 监听路径".ipaas.ap-"环境".mycloud.com/。
 >!同应用下不同的流则会拥有不同 HTTP Listener 监听端口和监听路径，请在使用 API 服务时注意区分，避免调用不正确的服务。
 
@@ -32,7 +33,7 @@ API 管理功能支持 3.0.0 版本的 OpenAPI 规范。登录 [企业集成服�
  - 配置 API 后增加身份校验：
 ![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/eis/58.1.png) 
 >!您在此过程中所使用的请求参数会作为被绑定的流的入参使用，如果正在使用的是正式环境中的 API 服务，请谨慎使用避免对生产数据造成影响。
- - API 描述文件样例：
+ - [API 描述文件样例](id:sample)：
 ```plaintext
 `{
     "openapi": "3.0.0",
