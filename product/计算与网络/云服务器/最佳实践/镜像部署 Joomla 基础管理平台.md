@@ -13,7 +13,7 @@ Joomla 是使用 PHP 语言及 MySQL 数据库开发的开源内容管理系统�
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的**新建**。
 2. 根据页面提示选择机型，并在“镜像”中选择**镜像市场** > **从镜像市场选择**。如下图所示：
 <dx-alert infotype="notice" title="">
-部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
+部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有**镜像市场**，请选择其他支持镜像市场的地域。
 </dx-alert> 
 <img src="https://main.qcloudimg.com/raw/079615fcf41610885b6462a478cab823.png"/>
 3. 在“镜像市场”窗口的搜索框中，输入 Joomla 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。如下图所示：
@@ -28,16 +28,16 @@ Joomla 是使用 PHP 语言及 MySQL 数据库开发的开源内容管理系统�
 <dx-alert infotype="notice" title="">
 镜像中已设置默认数据库密码，为提高数据库安全性，建议执行此步骤修改默认密码。
 </dx-alert>
+
 1. 在实例的管理页面，找到已创建的云服务器实例，并记录该云服务器实例的公网 IP。如下图所示：
-<img src="https://main.qcloudimg.com/raw/a87c24c75bdbcc568a1ab0f1fd62c357.png"/>
+![](https://main.qcloudimg.com/raw/a87c24c75bdbcc568a1ab0f1fd62c357.png)
 2. 在本地浏览器中访问以下地址，进入 phpMyAdmin 管理平台。
 ```
 http://云服务器实例的公网 IP/tools/phpMyAdmin
 ```
 3. 输入数据库帐户名及密码，并单击**执行**。如下图所示：
 帐户名为 `root`，默认密码为 `joomla@2019`。
-<img src="https://main.qcloudimg.com/raw/7e04ec9d80e569513a8fbe13f2ce27a2.png">
-
+![](https://main.qcloudimg.com/raw/7e04ec9d80e569513a8fbe13f2ce27a2.png)
 4. 进入 phpMyAdmin 管理页面，单击**修改密码**。如下图所示：
 <img src="https://main.qcloudimg.com/raw/8cd53ce1e7aaa1895339a3a0b8c2f1f4.png"/>
 5. [](id:step5)在弹出的“修改密码”窗口中，选择自行设置或自动生成密码，并单击**执行**。如下图所示：
