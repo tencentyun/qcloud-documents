@@ -39,7 +39,7 @@ pod 'TPNS-iOS', '~> 版本'  // 如果不指定版本则默认为本地 pod TPNS
 3. 将 InAppMessage 文件夹导入到工程并在【Build Setting】>【Framework Search Paths】 添加查找路径（若您 SDK 版本低于1.2.8.0，则可以忽略此步骤）。
 4. 在 Build Phases 下，添加以下 Framework：
  ```
- * TPNSInAppMessage.framework
+ * XGInAppMessage.framework
  * XGMTACloud.framework
  * CoreTelephony.framework
  * SystemConfiguration.framework
