@@ -51,7 +51,7 @@ pod 'TPNS-iOS', '~> 版本'  // 如果不指定版本则默认为本地 pod TPNS
  * libc++.tbd
 ```
 5. 添加完成后，库的引用如下：
-![](https://main.qcloudimg.com/raw/79976648574060954cebfb894cc5cdd4.png)
+![](https://main.qcloudimg.com/raw/ecdff5ffdca4b99992b954e059244677.png)
 
 ### 工程配置
 1. 在工程配置和后台模式中打开推送，如下图所示：
