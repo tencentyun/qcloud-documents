@@ -533,7 +533,7 @@ NSTimeInterval：NSTimeInterval类型，应用内消息轮询时间间隔。
 
 ```objective-c
 /// 按钮事件响应代理
-@property (weak, nonatomic, nullable) id<TPNSInAppMessageActionDelegate> actionDelegate;
+@property (weak, nonatomic, nullable) id<XGInAppMessageActionDelegate> actionDelegate;
 ```
 
 
