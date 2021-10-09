@@ -1,5 +1,5 @@
 创建一个表同时带一些属性。
-### 语法
+## 语法
 ```
 CREATE [ EXTERNAL ] TABLE [ IF NOT EXISTS ] table_identifier
     [ ( col_name1[:] col_type1 [ COMMENT col_comment1 ], ... ) ]
@@ -14,7 +14,7 @@ CREATE [ EXTERNAL ] TABLE [ IF NOT EXISTS ] table_identifier
     [ LOCATION path ]
     [ TBLPROPERTIES ( key1=val1, key2=val2, ... ) ]
 ```
-### 参数
+## 参数
 - `[IF NOT EXISTS]`：如果存在执行将不报错。
 - `[COMMENT database_comment]`：数据表指定注释。
 - `[LOCATION 'cosn://bucket_name/[folder]/']`：指定数据表的存储位置。例如指定腾讯云 COS：cosn://bucket_id。
@@ -26,7 +26,7 @@ CREATE [ EXTERNAL ] TABLE [ IF NOT EXISTS ] table_identifier
 - JSONSerde 限制
 使用 JSONSerde 创建表时，不支持增加、修改、删除列。如果要使用 JSONSerde 创建表，需元数据不会发生改变或者创建时，可以预留出字段。
 
-### 示例
+## 示例
 创建表：
 ```
 CREATE DATABASE db 
