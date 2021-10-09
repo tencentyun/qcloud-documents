@@ -16,9 +16,9 @@
 ## 复用 App 的 UI 界面
 [](id:ui_step1)
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 输入应用名称，例如 `TestMeetingRoom` ，单击【创建】。
-3. 单击【已下载，下一步】，跳过此步骤。
+1. 登录实时音视频控制台，选择 **开发辅助>[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**，
+2. 输入应用名称，例如 `TestMeetingRoom` ，单击 **创建**，
+3. 单击 **已下载，下一步**，跳过此步骤。
 
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 >!本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
@@ -35,8 +35,8 @@
 <ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
 <img src="https://main.qcloudimg.com/raw/0f2dcf7189d07670343bc8ab9f9697e6.png">
-4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
-5. 编译完成后，单击【回到控制台概览】即可。
+4. 粘贴完成后，单击 **已复制粘贴，下一步** 即创建成功。
+5. 编译完成后，单击 **回到控制台概览** 即可。
 
 
 >!
@@ -45,7 +45,7 @@
 
 [](id:ui_step4)
 ### 步骤4：运行工程
-使用 Xcode（11.0及以上的版本）打开源码工程 `TUIMeeting/TUIMeetingApp.xcworkspace`，单击【运行】即可开始调试本 App。
+使用 Xcode（11.0及以上的版本）打开源码工程 `TUIMeeting/TUIMeetingApp.xcworkspace`，单击 **运行** 即可开始调试本 App。
 
 [](id:ui_step5)
 ### 步骤5：修改工程源代码
@@ -67,14 +67,14 @@
 ### 用户 A
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 ![](https://main.qcloudimg.com/raw/aacadc7ee6d1267f334fd1d155dcf415.png)
-2. 输入会议号，单击【进入会议】，如下图示：
+2. 输入会议号，单击 **进入会议**，如下图示：
 ![](https://main.qcloudimg.com/raw/cce4f1ff06fb55f37b6dffcf819e95c6.png)
-3. 输入房间主题，单击【开始交谈】。
+3. 输入房间主题，单击 **开始交谈**，
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 ![](https://main.qcloudimg.com/raw/9ac6eb6a300a8f401389008c411f5ed8.png)
-2. 输入用户 A 创建的会议号，单击【进入会议】。
+2. 输入用户 A 创建的会议号，单击 **进入会议**，
 ![](https://main.qcloudimg.com/raw/cce4f1ff06fb55f37b6dffcf819e95c6.png)
 
 [](id:model)
@@ -114,16 +114,13 @@
 ### 步骤3：导入 TUIMeeting 组件
 您可通过 **cocoapods 导入组件**，具体步骤如下：
 1. 将工程目录下的 `Source`、`Resources`、`TCBeautyKit`、`TXAppBasic` 文件夹、`TUIMeeting.podspec` 文件拷贝到您的工程目录下。
-2. 在您的 `Podfile` 文件中添加以下依赖。之后执行`pod install` 命令，完成导入。
-
-<dx-codeblock>
-::: swift
+2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
+```swift
  pod 'TXAppBasic', :path => "TXAppBasic/"
  pod 'TCBeautyKit', :path => "TCBeautyKit/"
  pod 'TXLiteAVSDK_TRTC'
  pod 'TUIMeeting', :path => "./", :subspecs => ["TRTC"] 
-:::
-</dx-codeblock>
+```
 
 [](id:model.step4)
 ### 步骤4：创建并登录组件
@@ -149,8 +146,7 @@
 </tr>
 </table>
 
-<dx-codeblock>
-::: swift swift
+```swift
 let userID = ProfileManager.shared().curUserID()
 let userSig = GenerateTestUserSig.genTestUserSig(userID)
 
@@ -159,8 +155,7 @@ TRTCMeeting.sharedInstance().login(SDKAPPID, userId: userID, userSig: userSig, c
         //登录成功
     }
 })
-:::
-</dx-codeblock>
+```
 
 [](id:model.step5)
 ### 步骤5：创建多人会议
@@ -172,8 +167,7 @@ TRTCMeeting.sharedInstance().login(SDKAPPID, userId: userID, userSig: userSig, c
 
 ![](https://main.qcloudimg.com/raw/6e0cf097f46a8953cbebcf9995ba28c1.png)
 
-<dx-codeblock>
-::: swift swift
+```swift
 // 1.主播设置昵称和头像
 trtcMeeting.setSelfProfile(name: "A", avatarURL: "faceUrl", callback: nil)
 
@@ -190,8 +184,7 @@ trtcMeeting.createMeeting(roomId) { (code, msg) in
   return;
  }
 }
-:::
-</dx-codeblock>
+```
 
 [](id:model.step6)
 ### 步骤6：参会成员进入多人会议
@@ -202,8 +195,7 @@ trtcMeeting.createMeeting(roomId) { (code, msg) in
 
 ![](https://main.qcloudimg.com/raw/d8b796bbe41c9da1af40740916e84d70.png)
 
-<dx-codeblock>
-::: swift swift
+```swift
 // 1.参会成员设置昵称和头像
 trtcMeeting.setSelfProfile(name: "A", avatarURL: "faceUrl", callback: nil)
 
@@ -216,11 +208,8 @@ trtcMeeting.enterMeeting(roomId) { (code, msg) in
       self.view.makeToast("会议进入失败：" + msg!)
    }
 }
-:::
-</dx-codeblock>
-
-<dx-codeblock>
-::: swift swift
+```
+```swift
 let renderView = getRenderView(userId: userId)
 if available && renderView != nil {
   //收到回调，并调用 startRemoteView，传入 userId 开始播放
@@ -234,8 +223,7 @@ if available && renderView != nil {
 }
 //刷新当前界面
 renderView?.refreshVideo(isVideoAvailable: available)
-:::
-</dx-codeblock>
+```
 
 [](id:model.step7)
 ### 步骤7：屏幕分享
@@ -244,8 +232,7 @@ renderView?.refreshVideo(isVideoAvailable: available)
 
 >!屏幕分享和摄像头采集是两个互斥的操作，如果需要打开屏幕分享功能，请先调用`stopCameraPreview`关闭摄像头采集。
 
-<dx-codeblock>
-::: swift swift
+```swift
 // 1.按钮点击实现屏幕分享
 if #available(iOS 12.0, *) {
   // 录屏前必须先关闭摄像头采集
@@ -261,15 +248,13 @@ if #available(iOS 12.0, *) {
 } else {
   self.view.makeToast("系统版本低于12.0，请升级系统")
 }     
-:::
-</dx-codeblock>
+```
 
 [](id:model.step8)
 ### 步骤8：实现文字聊天和禁言消息
 - 通过 `sendRoomTextMsg` 可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到 `onRecvRoomTextMsg` 回调。
 即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
-<dx-codeblock>
-::: swift swift
+```swift
 // 发送端：发送文本消息
 TRTCMeeting.sharedInstance().sendRoomTextMsg("Hello Word!") { (code, message) in
   debugPrint("send result: ", code)
@@ -279,12 +264,10 @@ TRTCMeeting.sharedInstance().sendRoomTextMsg("Hello Word!") { (code, message) in
 func onRecvRoomTextMsg(_ message: String?, userInfo: TRTCMeetingUserInfo) {
   debugPrint("收到来自:\(String(describing: userInfo.userId))的消息\(String(describing: message))")
 }
-:::
-</dx-codeblock>
+```
 - 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主持人和与会观众均可以收到`onRecvRoomCustomMsg`回调。
 自定义消息常用于传输自定义信令，例如用于禁言之类的会场控制等。
-<dx-codeblock>
-::: swift swift
+```swift
 // 发送端：您可以通过自定义 Cmd 来区分禁言通知
 // eg:"CMD_MUTE_AUDIO"表示禁言通知
 TRTCMeeting.sharedInstance().sendRoomCustomMsg("CMD_MUTE_AUDIO", message: "1") { (code, message) in
@@ -298,5 +281,4 @@ func onRecvRoomCustomMsg(_ cmd: String?, message: String?, userInfo: TRTCMeeting
     TRTCMeeting.sharedInstance().muteLocalAudio(message == "1")
   }
 }
-:::
-</dx-codeblock>
+```
