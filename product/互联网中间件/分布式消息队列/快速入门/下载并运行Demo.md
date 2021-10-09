@@ -171,7 +171,7 @@ for (int i = 0; i < 5; i++) {
    执行命令 `java -jar tdmq-demo-1.0.0.jar`，运行 Demo，可查看运行日志。
    ![](https://main.qcloudimg.com/raw/cd31ccff67fe1f5fa926e383151c5aae.png)
 
-5. 登录 [TDMQ Pulsar 版控制台](https://console.cloud.tencent.com/tdmq)，依次点击**Topic管理** > **Topic名称**进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
+5. 登录 [TDMQ Pulsar 版控制台](https://console.cloud.tencent.com/tdmq)，依次点击 **Topic管理** > **Topic名称**进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
 
    ![](https://main.qcloudimg.com/raw/da7ce2bc5ac606c91982efecdb3b53bb.png)
 
