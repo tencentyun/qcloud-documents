@@ -14,21 +14,19 @@ SELECT [ ALL | DISTINCT ] select_expression [, ...]
 ```
 
 ## 参数
-###  [ WITH with_query [, ....] ]
-
+####  [ WITH with_query [, ....] ]
 可使用 WITH 来展平嵌套查询或简化子查询。`with_query` 语法如下：
 ```
 subquery_table_name [ ( column_name [, ...] ) ] AS (subquery)
 ```
-其中：
  - subquery\_table\_name 是临时表的唯一名称，该临时表用于定义 WITH 子句子查询的结果。每个 subquery 都必须具有一个可在 FROM 子句中引用的表名称。
  - column\_name \[, ...\] 是可选的输出列名称列表。列名称数目必须等于或小于 subquery 定义的列数。
  - subquery 是任意查询语句。
    
-###  [ ALL | DISTINCT ] select_expr
+####  [ ALL | DISTINCT ] select_expr
 ALL 和 DISTINCT 选项指定是否应返回重复的行。如果没有给出这些选项，则默认值为 ALL（返回所有匹配的行）。DISTINCT 指定从结果集中删除重复行。
 
-###  FROM from_item [, ...]
+####  FROM from_item [, ...]
 from\_item 可以是视图、表、子查询，如果多表 join，支持的 join 类型如下：
  - `[ INNER ] JOIN`
  - `LEFT [ OUTER ] JOIN`
@@ -37,24 +35,22 @@ from\_item 可以是视图、表、子查询，如果多表 join，支持的 joi
  - `CROSS JOIN`
  - `ON join_condition`，如果使用 `join_condition`，您可以为多个表中的联接键指定列名称；如果使用 `join_column`，则要求 join\_column 在两个表中都存在。
 
-###  [ WHERE condition ]
+####  [ WHERE condition ]
 根据您指定的 condition 筛选结果，返回满足条件的结果集。
 
-###  [ GROUP BY [ ALL | DISTINCT ] grouping_expressions [, ...] 
+####  [ GROUP BY [ ALL | DISTINCT ] grouping_expressions [, ...] ]
 GROUP BY 表达式可以按照指定的列名对输出进行分组。
 
-###  [ HAVING condition ]
-
+####  [HAVING condition ]
 与聚合函数和 GROUP BY 子句一起使用。控制哪些组处于选中状态，从而消除不满足 condition 的组。此筛选在计算组和聚合之后发生。
 
-###  [{UNION | INTERSECT | EXCEPT} [ALL | DISTINCT] union_query]
-
+####  [{UNION | INTERSECT | EXCEPT} [ALL | DISTINCT] union_query]
 `UNION`、`INTERSECT` 和 `EXCEPT` 将多个结果组合在一起，`UNION` 将第一个查询生成的行与第二个查询生成的行组合在一起。为了消除重复，UNION 构建一个散列表，这会消耗内存。为了更好的性能，建议使用 UNION ALL。
-- `INTERSECT`仅返回第一个和第二个查询的结果中存在的行。
-- `EXCEPT`返回第一个查询结果中的行，不包括第二个查询找到的行。
+- `INTERSECT` 仅返回第一个和第二个查询的结果中存在的行。
+- `EXCEPT` 返回第一个查询结果中的行，不包括第二个查询找到的行。
 
-###  [ ORDER BY expression [ ASC | DESC ] [ NULLS FIRST | NULLS LAST] [, ...] ]
-按一个或多个输出 expression 对结果集进行排序，当子句包含多个表达式时，将根据第一个`expression`对结果集进行排序。然后，第二个`expression`应用于具有第一个表达式中的匹配值的行，以此类推。
+####  [ORDER BY expression [ ASC | DESC ] [ NULLS FIRST | NULLS LAST] [, ...] ]
+按一个或多个输出 expression 对结果集进行排序，当子句包含多个表达式时，将根据第一个 `expression` 对结果集进行排序。然后，第二个 `expression` 应用于具有第一个表达式中的匹配值的行，以此类推。
 
 
 ## 示例
