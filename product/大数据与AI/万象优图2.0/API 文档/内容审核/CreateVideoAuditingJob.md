@@ -1,31 +1,117 @@
 ## 功能描述
 
-本接口用于主动查询指定的视频审核任务结果。视频审核功能为异步任务方式，您可以通过提交视频审核任务审核您的视频文件，然后通过查询视频审核任务接口查询审核结果。
+本接口用于提交一个视频审核任务。视频审核功能为异步任务方式，您可以通过提交视频审核任务审核您的视频文件，然后通过查询视频审核任务接口查询审核结果。
+
+该接口支持情况如下：
+- 支持对视频文件进行自动检测，从 OCR 文本识别、物体检测（实体、广告台标、二维码等）、图像识别及音频审核四个维度，通过深度学习技术，识别视频中的违规内容。
+- 支持设置回调地址 Callback 获取检测结果，或通过 [查询视频审核任务结果接口](https://cloud.tencent.com/document/product/460/46926) 主动轮询获取审核结果详情。
+- 支持识别多种违规场景，包括：色情、违法、广告等场景。
+- 支持根据不同的业务场景配置自定义的审核策略。
+- 支持用户 [自定义配置黑白图片库](https://cloud.tencent.com/document/product/436/59080)，打击自定义违规内容。
+
+## 费用说明
+
+视频的审核分为**视频画面审核**、**视频截帧**、**视频声音审核**，其中：
+
+- 视频画面审核：基于视频截帧能力，通过视频截帧将视频截取为多张图片进行审核，审核费用与图片审核一致。
+- 视频截帧：会产生相应的 [视频截帧费用](https://cloud.tencent.com/document/product/460/58120)。
+- 视频声音审核：将视频声音分离出来进行音频审核，审核费用与音频审核一致。
+- 每个审核场景单独计费，例如您选择审核涉黄、广告两种场景，则审核**1个视频**，**计2次**审核费用。
+- 调用接口会产生 [图片审核费用](https://cloud.tencent.com/document/product/460/58119#.E5.9B.BE.E7.89.87.E5.AE.A1.E6.A0.B8.E8.B4.B9.E7.94.A8)、[音频审核费用](https://cloud.tencent.com/document/product/460/58119#.E9.9F.B3.E9.A2.91.E5.AE.A1.E6.A0.B8.E8.B4.B9.E7.94.A8) 和 [COS 读请求费用](https://cloud.tencent.com/document/product/436/53861#.E8.AF.B7.E6.B1.82.E6.AC.A1.E6.95.B0.E5.AE.9A.E4.BB.B7)。
+- 如果音频文件属于 COS 上的低频存储类型，调用审核会产生 [COS 低频数据取回费用](https://cloud.tencent.com/document/product/436/53862#.E6.95.B0.E6.8D.AE.E5.8F.96.E5.9B.9E.E5.AE.9A.E4.BB.B7)。
+- 不支持审核 COS 上的归档存储类型和深度归档存储类型的音频，如果需要审核此类型音频，请先 [恢复归档文件](https://cloud.tencent.com/document/product/436/12633)。
+
+
+## 限制说明
+
+- 视频文件大小支持：**文件 < 5GB**。
+- 视频文件支持格式：flv、mkv、mp4 、rmvb、avi、wmv、3gp、mov、m3u8、m4v 等。
+- 视频文件支持的访问方式：腾讯云对象存储。
+- 支持用户配置审核视频画面或视频声音。
 
 ## 请求
 
 #### 请求示例
 
-``` plaintext
-GET /video/auditing/<jobId> HTTP/1.1
+```plaintext
+POST /video/auditing HTTP/1.1
 Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
 Date: <GMT Date>
 Authorization: <Auth String>
+Content-Length: <length>
+Content-Type: application/xml
+
+<body>
 ```
 
->? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/460/6968) 文档）。
+>? Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 >
-
 
 #### 请求头
 
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
+#### 请求体
 
-####  请求体
+该请求操作的实现需要有如下请求体。
 
-该请求无请求体。
+```plaintext
+<Request>
+  <Input>
+    <Object></Object>
+  </Input>
+  <Conf>
+    <DetectType>Porn,Terrorism,Politics,Ads</DetectType>
+    <Snapshot>
+        <Mode>Interval</Mode>
+        <TimeInterval></TimeInterval>
+        <Count></Count>
+    </Snapshot>
+    <Callback></Callback>
+    <BizType></BizType>
+    <DetectContent></DetectContent>
+  </Conf>
+</Request>
+```
 
+具体的数据描述如下：
+
+| 节点名称（关键字） | 父节点 | 描述                   | 类型      | 是否必选 |
+| ------------------ | ------ | ---------------------- | --------- | -------- |
+| Request            | 无     | 视频审核的具体配置项。 | Container | 是       |
+
+Container 类型 Request 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点  | 描述             | 类型      | 是否必选 |
+| ------------------ | ------- | ---------------- | --------- | -------- |
+| Input              | Request | 需要审核的视频。 | Container | 是       |
+| Conf               | Request | 审核规则配置。   | Container | 是       |
+
+Container 类型 Input 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点        | 描述                                                         | 类型   | 是否必选 |
+| ------------------ | ------------- | ------------------------------------------------------------ | ------ | -------- |
+| Object             | Request.Input | 当前 COS 存储桶中的视频文件名称，例如在目录 test 中的文件 video.mp4，则文件名称为 test/video.mp4。 | String | 是       |
+| Url                | Request.Input | 视频文件的链接地址，例如 http://examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/test.mp4。Object 和 Url 只能选择其中一种。 | String | 否       |
+
+Container 类型 Conf 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点       | 描述                                                         | 类型      | 是否必选 |
+| ------------------ | ------------ | ------------------------------------------------------------ | --------- | -------- |
+| DetectType         | Request.Conf | 审核的场景类型，有效值：Porn（涉黄）、Terrorism（涉暴恐）、Politics（政治敏感）、Ads（广告），可以传入多种类型，不同类型以逗号分隔，例如：Porn,Terrorism。 | String    | 是       |
+| Snapshot           | Request.Conf | 视频画面的审核通过视频截帧能力截取出一定量的截图，通过对截图逐一审核而实现的，该参数用于指定视频截帧的配置。 | Container | 是       |
+| Callback           | Request.Conf | 回调地址，以`http://`或者`https://`开头的地址。              | String    | 否       |
+| CallbackVersion    | Request.Conf | 回调内容的结构，有效值：Simple（回调内容包含基本信息）、Detail（回调内容包含详细信息）。默认为 Simple。 | String    | 否       |
+| BizType            | Request.Conf | 审核策略，不带审核策略时使用默认策略。                       | String    | 否       |
+| DetectContent      | Request.Conf | 用于指定是否审核视频声音，当值为0时：表示只审核视频画面截图；值为1时：表示同时审核视频画面截图和视频声音。默认值为0。 | Integer   | 否       |
+
+Container 类型 Snapshot 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                | 描述                                                         | 类型      | 是否必选 |
+| ------------------ | :-------------------- | ------------------------------------------------------------ | --------- | -------- |
+| Mode               | Request.Conf.Snapshot | 截帧模式。Interval 表示间隔模式；Average 表示平均模式；Fps 表示固定帧率模式。</br><li> Interval 模式：TimeInterval，Count 参数生效。当设置 Count，未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片。</br><li> Average 模式：Count 参数生效。表示整个视频，按平均间隔截取共 Count 张图片。</br><li> Fps 模式：TimeInterval 表示每秒截取多少帧，Count 表示共截取多少帧。 | String | 否       |
+| Count              | Request.Conf.Snapshot | 视频截帧数量，范围为(0, 10000]。                             | String | 否       |
+| TimeInterval       | Request.Conf.Snapshot | 视频截帧频率，范围为(0, 60]，单位为秒，支持 float 格式，执行精度精确到毫秒。 | Float  | 否       |
 
 ## 响应
 
@@ -39,171 +125,33 @@ Authorization: <Auth String>
 
 ```plaintext
 <Response>
-  <JobsDetail>
-    <Code>Success</Code>
-    <Message>Success</Message>
-    <JobId></JobId>
-    <State></State>
-    <CreationTime></CreationTime>
-    <Object></Object>
-    <SnapshotCount></SnapshotCount>
-    <Result>1</Result>
-    <PornInfo>
-        <HitFlag></HitFlag>
-        <Count></Count>
-    </PornInfo>
-    <TerrorismInfo>
-        <HitFlag></HitFlag>
-        <Count></Count>
-    </TerrorismInfo>
-    <PoliticsInfo>
-        <HitFlag></HitFlag>
-        <Count></Count>
-    </PoliticsInfo>
-    <AdsInfo>
-        <HitFlag></HitFlag>
-        <Count></Count>
-    </AdsInfo>
-    <Snapshot>
-        <Url></Url>
-        <Text></Text>
-        <SnapshotTime></SnapshotTime>
-        <PornInfo>
-            <HitFlag></HitFlag>
-            <Score></Score>
-            <Label></Label>
-            <SubLabel></SubLabel>
-        </PornInfo>
-        <TerrorismInfo>
-            <HitFlag></HitFlag>
-            <Score></Score>
-            <Label></Label>
-            <SubLabel></SubLabel>
-        </TerrorismInfo>
-        <PoliticsInfo>
-            <HitFlag></HitFlag>
-            <Score></Score>
-            <Label></Label>
-            <SubLabel></SubLabel>
-        </PoliticsInfo>
-        <AdsInfo>
-            <HitFlag></HitFlag>
-            <Score></Score>
-            <Label></Label>
-            <SubLabel></SubLabel>
-        </AdsInfo>
-    </Snapshot>
-    <AudioSection>
-        <Url></Url>
-	      <OffsetTime>0</OffsetTime>
-	      <Duration>3000</Duration>
-        <Text>哈哈哈</Text>
-        <PoliticsInfo>
-            <HitFlag></HitFlag>
-            <Score></Score>
-            <Keywords></Keywords>
-        </PoliticsInfo>
-        <PornInfo>
-            <HitFlag></HitFlag>
-            <Score></Score>
-            <Keywords></Keywords>
-        </PornInfo>
-        <TerrorismInfo>
-            <HitFlag></HitFlag>
-            <Score></Score>
-            <Keywords></Keywords>
-        </TerrorismInfo>
-        <AdsInfo>
-            <HitFlag></HitFlag>
-            <Score></Score>
-            <Keywords></Keywords>
-        </AdsInfo>
-    </AudioSection>
-  </JobsDetail>
-  <NonExistJobIds></NonExistJobIds>
+    <JobsDetail>
+      <JobId></JobId>
+      <State></State>
+      <CreationTime></CreationTime>
+    </JobsDetail>
 </Response>
 ```
 
 具体的数据内容如下：
 
-| 节点名称（关键字） | 父节点 | 描述                     | 类型      |
-| :----------------- | :----- | :----------------------- | :-------- |
-| Response           | 无     | 视频审核的全部结果信息。 | Container |
+| 节点名称（关键字） | 父节点 | 描述                         | 类型      |
+| :----------------- | :----- | :--------------------------- | :-------- |
+| Response           | 无     | 视频审核返回的具体响应内容。 | Container |
 
 Container 节点 Response 的内容：
 
-| 节点名称（关键字） | 父节点   | 描述                                           | 类型      |
-| :----------------- | :------- | :--------------------------------------------- | :-------- |
-| JobsDetail         | Response | 视频审核任务的详细信息。  | Container |
-| NonExistJobIds     | Response | 查询的 ID 中不存在任务，所有任务都存在时不返回。 | String    |
+| 节点名称（关键字） | 父节点   | 描述                     | 类型      |
+| :----------------- | :------- | :----------------------- | :-------- |
+| JobsDetail         | Response | 视频审核任务的详细信息。 | Container |
 
 Container 节点 JobsDetail 的内容：
 
-| 节点名称（关键字） | 父节点              | 描述                                                         | 类型             |
-| :----------------- | :------------------ | :----------------------------------------------------------- | :--------------- |
-| Code               | Response.JobsDetail | 错误码，只有State为 Failed时有意义。                         | String           |
-| Message            | Response.JobsDetail | 错误描述，只有State为 Failed时有意义。                       | String           |
-| JobId              | Response.JobsDetail | 视频审核任务的 ID。                                           | String           |
-| State              | Response.JobsDetail | 视频审核任务的状态，值为 Submitted（已提交审核）、Snapshoting（视频截帧中）、Success（审核成功）、Failed（审核失败）、Auditing（审核中）其中一个。 | String           |
-| CreationTime       | Response.JobsDetail | 视频审核任务的创建时间。                                     | String           |
-| Object             | Response.JobsDetail | 被审核的视频文件的名称。                                     | String           |
-| SnapshotCount      | Response.JobsDetail | 视频截图的总数量。                                           | String           |
-| Result             | Response.JobsDetail | 该字段表示本次判定的审核结果，您可以根据该结果，进行后续的操作；建议您按照业务所需，对不同的审核结果进行相应处理。<br/>有效值：**0**（审核正常），**1** （判定为违规敏感文件），**2**（疑似敏感，建议人工复核）。 | Integer          |
-| PornInfo           | Response.JobsDetail | 审核场景为**涉黄**的审核结果信息。                           | Container        |
-| TerrorismInfo      | Response.JobsDetail | 审核场景为**涉暴恐**的审核结果信息。                         | Container        |
-| PoliticsInfo       | Response.JobsDetail | 审核场景为**政治敏感**的审核结果信息。                       | Container        |
-| AdsInfo            | Response.JobsDetail | 审核场景为**广告引导**的审核结果信息。                       | Container        |
-| Snapshot           | Response.JobsDetail | 该字段用于返回视频中视频画面截图审核的结果。<br/>注意：每次查看数据的有效期为2小时，2小时后如还需查看，请重新发起查询请求。 | Container Array  |
-| AudioSection        | Response.JobsDetail | 该字段用于返回视频中视频声音审核的结果。<br/>注意：每次查看数据的有效期为2小时，2小时后如还需查看，请重新发起查询请求。 | Container  Array |
-
-Container 节点 PornInfo，TerrorismInfo，PoliticsInfo，AdsInfo 的内容：
-
-| 节点名称（关键字） | 父节点                    | 描述                                                    | 类型    |
-| :----------------- | :------------------------ | :------------------------------------------------------ | :------ |
-| HitFlag            | Response.JobsDetail.*Info | 是否命中该审核分类，0表示未命中，1表示命中，2表示疑似。 | Integer |
-| Count              | Response.JobsDetail.*Info | 命中该审核分类的截图张数。                              | Integer |
-
-Container 节点 Snapshot 的内容：
-
-| 节点名称（关键字） | 父节点                       | 描述                                                         | 类型      |
-| :----------------- | :--------------------------- | :----------------------------------------------------------- | :-------- |
-| Url                | Response.JobsDetail.Snapshot | 视频截图的访问地址，您可以通过该地址查看该截图内容，地址格式为标准 URL 格式。 | String    |
-| SnapshotTime       | Response.JobsDetail.Snapshot | 该字段用于返回当前截图位于视频中的时间，单位为毫秒。例如5000（视频开始后5000毫秒）。 | Integer   |
-| Text               | Response.JobsDetail.Snapshot | 该字段用于返回当前截图的图片 OCR 文本识别的检测结果（仅在审核策略开启文本内容检测时返回），识别上限为**5000字节**。 | String    |
-| PornInfo           | Response.JobsDetail.Snapshot | 审核场景为**涉黄**的审核结果信息。                           | Container |
-| TerrorismInfo      | Response.JobsDetail.Snapshot | 审核场景为**涉暴恐**的审核结果信息。                         | Container |
-| PoliticsInfo       | Response.JobsDetail.Snapshot | 审核场景为**政治敏感**的审核结果信息。                       | Container |
-| AdsInfo            | Response.JobsDetail.Snapshot | 审核场景为**广告引导**的审核结果信息。                       | Container |
-
-Container 节点 PornInfo，TerrorismInfo，PoliticsInfo，AdsInfo 的内容：
-
-| 节点名称（关键字） | 父节点                             | 描述                                                         | 类型    |
-| :----------------- | :--------------------------------- | :----------------------------------------------------------- | :------ |
-| HitFlag            | Response.JobsDetail.Snapshot.*Info | 是否命中该审核分类，0表示未命中，1表示命中，2表示疑似。      | Integer |
-| Score              | Response.JobsDetail.Snapshot.*Info | 该字段表示审核结果命中审核信息的置信度，取值范围：0（**置信度最低**）-100（**置信度最高** ），越高代表该内容越有可能属于当前返回审核信息。<br/>例如：色情 99，则表明该内容非常有可能属于色情内容。 | Integer |
-| Label              | Response.JobsDetail.Snapshot.*Info | 该字段为兼容旧版本的保留字段，表示该截图的结果标签（可能为 SubLabel，可能为人物名字等）。 | String  |
-| SubLabel           | Response.JobsDetail.Snapshot.*Info | 该字段表示审核命中的具体子标签，例如：Porn 下的 SexBehavior 子标签。<br/>注意：该字段可能返回空，表示未命中具体的子标签。 | String  |
-
-Container 节点 AudioSection 的内容：
-
-| 节点名称（关键字） | 父节点                           | 描述                                                         | 类型      |
-| :----------------- | :------------------------------- | :----------------------------------------------------------- | :-------- |
-| Url                | Response.JobsDetail.AudioSection | 视频声音片段的访问地址，您可以通过该地址获取该声音片段的内容，地址格式为标准 URL 格式。 | String    |
-| Text               | Response.JobsDetail.AudioSection | 该字段用于返回当前视频声音的 ASR 文本识别的检测结果（仅在审核策略开启文本内容检测时返回），识别上限为**5小时**。 | String    |
-| OffsetTime         | Response.JobsDetail.AudioSection | 该字段用于返回当前声音片段位于视频中的时间，单位为毫秒，例如5000（视频开始后5000毫秒）。 | Integer   |
-| Duration           | Response.JobsDetail.AudioSection | 当前视频声音片段的时长，单位毫秒。                           | Integer   |
-| PornInfo           | Response.JobsDetail.AudioSection | 审核场景为**涉黄**的审核结果信息。                           | Container |
-| TerrorismInfo      | Response.JobsDetail.AudioSection | 审核场景为**涉暴恐**的审核结果信息。                         | Container |
-| PoliticsInfo       | Response.JobsDetail.AudioSection | 审核场景为**政治敏感**的审核结果信息。                       | Container |
-| AdsInfo            | Response.JobsDetail.AudioSection | 审核场景为**广告引导**的审核结果信息。                       | Container |
-
-Container 节点 PornInfo，TerrorismInfo，PoliticsInfo，AdsInfo 的内容：
-
-| 节点名称（关键字） | 父节点                                 | 描述                                                         | 类型   |
-| :----------------- | :------------------------------------- | :----------------------------------------------------------- | :----- |
-| HitFlag            | Response.JobsDetail.AudioSection.*Info | 是否命中该审核分类，0表示未命中，1表示命中，2表示疑似。      | String |
-| Score              | Response.JobsDetail.AudioSection.*Info | 该字段表示审核结果命中审核信息的置信度，取值范围：0（**置信度最低**）-100（**置信度最高** ），越高代表该内容越有可能属于当前返回审核信息<br/>例如：色情 99，则表明该内容非常有可能属于色情内容。 | String |
-| Keywords           | Response.JobsDetail.AudioSection.*Info | 在当前审核场景下命中的关键词。                               | String |
+| 节点名称（关键字） | 父节点              | 描述                                                         | 类型   |
+| :----------------- | :------------------ | :----------------------------------------------------------- | :----- |
+| JobId              | Response.JobsDetail | 本次视频审核任务的 ID。                                      | String |
+| State              | Response.JobsDetail | 视频审核任务的状态，值为 Submitted（已提交审核）、Snapshoting（视频截帧中）、Success（审核成功）、Failed（审核失败）、Auditing（审核中）其中一个。 | String |
+| CreationTime       | Response.JobsDetail | 视频审核任务的创建时间。                                     | String |
 
 #### 错误码
 
@@ -213,19 +161,37 @@ Container 节点 PornInfo，TerrorismInfo，PoliticsInfo，AdsInfo 的内容：
 
 #### 请求
 
-```shell
-GET /video/auditing/vab1ca9fc8a3ed11ea834c525400863904 HTTP/1.1
-Accept: */*
+```plaintext
+POST /video/auditing HTTP/1.1
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
 Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+Content-Length: 166
+Content-Type: application/xml
+
+<Request>
+  <Input>
+    <Object>a.mp4</Object>
+  </Input>
+  <Conf>
+    <DetectType>Porn,Terrorism,Politics,Ads</DetectType>
+    <Snapshot>
+        <Mode>Interval</Mode>
+        <TimeInterval>50</TimeInterval>
+        <Count>100</Count>
+    </Snapshot>
+    <Callback>http://callback.com/</Callback>
+    <BizType>b81d45f94b91a683255e9a9506f45a11</BizType>
+    <DetectContent>1</DetectContent>
+  </Conf>
+</Request>
 ```
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 666
+Content-Length: 230
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
@@ -233,82 +199,11 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
   <JobsDetail>
-    <Code>Success</Code>
-    <Message>Success</Message>
     <JobId>vab1ca9fc8a3ed11ea834c525400863904</JobId>
-    <State>Success</State>
-    <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
-    <Object>a.mp4</Object>
-    <SnapshotCount>1</SnapshotCount>
-    <Result>0</Result>
-    <PornInfo>
-        <HitFlag>0</HitFlag>
-        <Count>0</Count>
-    </PornInfo>
-    <TerrorismInfo>
-        <HitFlag>0</HitFlag>
-        <Count>0</Count>
-    </TerrorismInfo>
-    <PoliticsInfo>
-        <HitFlag>0</HitFlag>
-        <Count>0</Count>
-    </PoliticsInfo>
-    <AdsInfo>
-        <HitFlag>0</HitFlag>
-        <Count>0</Count>
-    </AdsInfo>
-    <Snapshot>
-        <Url>http://examplebucket-1250000000.cos.ap-chongqing.myqcloud.com/0.jpg</Url>
-        <SnapshotTime>0</SnapshotTime>
-        <Text>哈哈</Text>
-        <PornInfo>
-            <HitFlag>0</HitFlag>
-            <Score>0</Score>
-            <Label></Label>
-            <SubLabel></SubLabel>
-        </PornInfo>
-        <TerrorismInfo>
-            <HitFlag>0</HitFlag>
-            <Score>0</Score>
-            <Label></Label>
-            <SubLabel></SubLabel>
-        </TerrorismInfo>
-        <PoliticsInfo>
-            <HitFlag>0</HitFlag>
-            <Score>0</Score>
-            <Label></Label>
-            <SubLabel></SubLabel>
-        </PoliticsInfo>
-        <AdsInfo>
-            <HitFlag>0</HitFlag>
-            <Score>0</Score>
-            <Label></Label>
-            <SubLabel></SubLabel>
-        </AdsInfo>
-    </Snapshot>
-    <AudioSection>
-        <AdsInfo>
-            <HitFlag>0</HitFlag>
-            <Score>0</Score>
-        </AdsInfo>
-        <Duration>30000</Duration>
-        <OffsetTime>0</OffsetTime>
-        <PoliticsInfo>
-            <HitFlag>0</HitFlag>
-            <Score>0</Score>
-        </PoliticsInfo>
-        <PornInfo>
-            <HitFlag>0</HitFlag>
-            <Score>0</Score>
-        </PornInfo>
-        <TerrorismInfo>
-            <HitFlag>0</HitFlag>
-            <Score>0</Score>
-        </TerrorismInfo>
-        <Text>wc xx</Text>
-        <Url>http://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/q9MhdztF/0.mp3</Url>
-    </AudioSection>
+    <State>Submitted</State>
+    <CreationTime>2021-08-07T12:12:12+0800</CreationTime>
   </JobsDetail>
 </Response>
 ```
+
 
