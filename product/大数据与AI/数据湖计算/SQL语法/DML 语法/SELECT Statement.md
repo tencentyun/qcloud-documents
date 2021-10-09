@@ -14,80 +14,48 @@ SELECT [ ALL | DISTINCT ] select_expression [, ...]
 ```
 
 ## 参数
-<dx-accordion>
-::: [ WITH with_query [, ....] ]
+###  [ WITH with_query [, ....] ]
 
-可使用 WITH 来展平嵌套查询或简化子查询。不支持使用 WITH 子句创建递归查询。WITH 子句在查询中位于 SELECT 列表之前，定义一个或多个子查询，以便在 SELECT 查询中使用。每个子查询均定义一个临时表，与可在 FROM 子句中引用的视图定义类似。只有在查询运行时才使用这些表。
- - `with_query` 语法为：
+可使用 WITH 来展平嵌套查询或简化子查询。`with_query` 语法如下：
 ```
 subquery_table_name [ ( column_name [, ...] ) ] AS (subquery)
 ```
 其中：
-   - subquery\_table\_name 是临时表的唯一名称，该临时表用于定义 WITH 子句子查询的结果。每个 subquery 都必须具有一个可在 FROM 子句中引用的表名称。
-   - column\_name \[, ...\] 是可选的输出列名称列表。列名称数目必须等于或小于 subquery 定义的列数。
-   - subquery 是任意查询语句。
+ - subquery\_table\_name 是临时表的唯一名称，该临时表用于定义 WITH 子句子查询的结果。每个 subquery 都必须具有一个可在 FROM 子句中引用的表名称。
+ - column\_name \[, ...\] 是可选的输出列名称列表。列名称数目必须等于或小于 subquery 定义的列数。
+ - subquery 是任意查询语句。
    
-:::
-::: [ ALL | DISTINCT ] select_expression
+###  [ ALL | DISTINCT ] select_expr
+ALL 和 DISTINCT 选项指定是否应返回重复的行。如果没有给出这些选项，则默认值为 ALL（返回所有匹配的行）。DISTINCT 指定从结果集中删除重复行。
 
-`select_expression` 确定要选择的行。默认值为 `ALL`。使用 `ALL` 会被视为与省略它相同；将会选定所有列的所有行，并保留重复项。当列包含重复值时，请使用`DISTINCT`仅返回不同的值。
+###  FROM from_item [, ...]
+from\_item 可以是视图、表、子查询，如果多表 join，支持的 join 类型如下：
+ - `[ INNER ] JOIN`
+ - `LEFT [ OUTER ] JOIN`
+ - `RIGHT [ OUTER ] JOIN`
+ - `FULL [ OUTER ] JOIN`
+ - `CROSS JOIN`
+ - `ON join_condition`，如果使用 `join_condition`，您可以为多个表中的联接键指定列名称；如果使用 `join_column`，则要求 join\_column 在两个表中都存在。
 
-:::
-::: FROM from_item [, ...]
+###  [ WHERE condition ]
+根据您指定的 condition 筛选结果，返回满足条件的结果集。
 
-指示要查询的输入，其中 from\_item 可以是视图、联接构造或如下所述的子查询。`from_item` 可以是：
-```
-table_name [ [ AS ] alias [ (column_alias [, ...]) ] ]
-```
-其中，`table_name`是要从中选择行的目标表的名称，`alias` 是要提供 SELECT 语句输出的名称，column\_alias 定义指定`alias`的列。
-- JOIN
-```
-join_type from_item [ ON join_condition | USING ( join_column [, ...] ) ]
-```
-其中，join\_type 为以下值之一：
-   - `[ INNER ] JOIN`
-   - `LEFT [ OUTER ] JOIN`
-   - `RIGHT [ OUTER ] JOIN`
-   - `FULL [ OUTER ] JOIN`
-   - `CROSS JOIN`
-   - `ON join_condition`，如果使用 `join_condition`，您可以为多个表中的联接键指定列名称；如果使用 `join_column`，则要求 join\_column 在两个表中都存在。
-   - `[ WHERE condition ]`，根据您指定的 condition 筛选结果，返回满足条件的结果集。
+###  [ GROUP BY [ ALL | DISTINCT ] grouping_expressions [, ...] 
+GROUP BY 表达式可以按照指定的列名对输出进行分组。
 
-:::
-::: [ GROUP BY [ ALL | DISTINCT ] grouping_expressions [, ...] ]
-
-将 SELECT 语句的输出分成多个具有匹配值的行。
- - ALL 和 DISTINCT 确定重复的分组集是否各自产生不同的输出行。如果省略，则会采用 ALL。
- - grouping\_expressions 允许您执行复杂的分组操作。grouping\_expressions 元素可以是对输入列执行的任何函数（如 SUM、AVG 或 COUNT 等），或是一个按位置选择输出列的序号（从1开始）。
-
-
-GROUP BY 表达式可以按照不在 SELECT 语句的输出中显示的输入列名称对输出进行分组。所有输出表达式都必须是存在于 GROUP BY 子句中的聚合函数或列。您可以使用单个查询来执行需要聚合多个列集的分析。这些复杂的分组操作不支持包含输入列的表达式。只允许使用列名或序号。通常，您可以使用 UNION ALL 实现和这些 GROUP BY 操作相同的结果，但使用 GROUP BY 的查询具有一次读取数据的优点，而 UNION ALL 三次读取底层数据，因此可能会在数据源发生变化时造成不一致的结果。
- - `GROUP BY CUBE` 为给定的列集生成所有可能的分组集。
- - `GROUP BY ROLLUP` 为给定的列集生成所有可能的小计。
-
-:::
-::: [ HAVING condition ]
+###  [ HAVING condition ]
 
 与聚合函数和 GROUP BY 子句一起使用。控制哪些组处于选中状态，从而消除不满足 condition 的组。此筛选在计算组和聚合之后发生。
 
-:::
-::: [{UNION | INTERSECT | EXCEPT} [ALL | DISTINCT] union_query]
+###  [{UNION | INTERSECT | EXCEPT} [ALL | DISTINCT] union_query]
 
-`UNION`、`INTERSECT`和`EXCEPT`将多个结果组合在一起`SELECT`语句转换到单个查询中。`ALL`或者`DISTINCT`控制包含在最终结果集中的行的唯一性。`UNION`将第一个查询生成的行与第二个查询生成的行组合在一起。为了消除重复，UNION 构建一个散列表，这会消耗内存。为了更好的性能，可考虑使用 UNION ALL，如果您的查询不需要消除重复项。将会按从左到右的顺序处理多个 UNION 子句，除非您使用圆括号显式定义处理顺序。
+`UNION`、`INTERSECT` 和 `EXCEPT` 将多个结果组合在一起，`UNION` 将第一个查询生成的行与第二个查询生成的行组合在一起。为了消除重复，UNION 构建一个散列表，这会消耗内存。为了更好的性能，建议使用 UNION ALL。
 - `INTERSECT`仅返回第一个和第二个查询的结果中存在的行。
 - `EXCEPT`返回第一个查询结果中的行，不包括第二个查询找到的行。
-- `ALL` 会导致包含所有行，即使这些行是相同的。
-- `DISTINCT`只导致唯一行包含在组合结果集中。
 
-:::
-::: [ ORDER BY expression [ ASC | DESC ] [ NULLS FIRST | NULLS LAST] [, ...] ]
+###  [ ORDER BY expression [ ASC | DESC ] [ NULLS FIRST | NULLS LAST] [, ...] ]
+按一个或多个输出 expression 对结果集进行排序，当子句包含多个表达式时，将根据第一个`expression`对结果集进行排序。然后，第二个`expression`应用于具有第一个表达式中的匹配值的行，以此类推。
 
-按一个或多个输出 expression 对结果集进行排序。当子句包含多个表达式时，将根据第一个`expression`对结果集进行排序。然后，第二个`expression`应用于具有第一个表达式中的匹配值的行，以此类推。每个 `expression` 可以指定 `SELECT` 中的输出列或按位置指定输出列的序号（从1开始）。在任何`GROUP BY`或 `HAVING` 子句之后，作为最后一个步骤，会计算 ORDER BY。`ASC` 和 `DESC` 确定是按升序还是按降序对结果进行排序。默认 `NULL` 排序是 `NULLS LAST`，无论是按升序还是按降序排序。
-- TABLESAMPLE BERNOULLI \| SYSTEM \(percentage\)：可选运算符，用于根据采样方法从表中选择行。`BERNOULLI` 选择每个位于表样本中的行，概率为 percentage。将会扫描表的所有物理块，并根据样本 percentage 和在运行时计算的随机值之间的比较来跳过某些行。借助 `SYSTEM`，表被划分成数据的逻辑段，而且表按此粒度采样。将会选择特定段中的所有行，或者根据样本 percentage 和在运行时计算的随机值之间的比较来跳过该段。
-- `SYSTEM` 采样取决于连接器。此方法不保证独立采样概率。
-:::
-
-</dx-accordion>
 
 ## 示例
 ### WITH Clause
