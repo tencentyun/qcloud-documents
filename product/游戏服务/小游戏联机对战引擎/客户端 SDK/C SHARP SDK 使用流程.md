@@ -249,3 +249,4 @@ room.OnStopFrameSync = eve => {
 };
 ```
 
+>!C# SDK 可正常使用但后续不再进行更新维护。

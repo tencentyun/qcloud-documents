@@ -7,7 +7,7 @@
 ![](https://main.qcloudimg.com/raw/2d01c33765a5dd0bb87ae498bfa5cde1.png)
 2. 单击左上角的“区域下拉框”，切换区域，同时选择当前区域下的 Casb 实例。
 ![](https://main.qcloudimg.com/raw/c3bea7583ecfb2183ea8aad00efc6e5d.png)
-3. 在对象存储 COS 页面中，单击**资产同步**，COS 拉取对应区域的存储桶资源，系统会自动为存储桶资源创建元数据。
+3. 在对象存储 COS 页面中，单击**资产同步**，对象存储 COS 拉取对应区域的存储桶资源，系统会自动为存储桶资源创建元数据。
 >?当对应区域的对象存储 COS 资源有变更后，需要单击**资产同步**，以确保数据一致性、完整性。
 > 
 ![](https://main.qcloudimg.com/raw/7ab5bc310ff00625eb123db033f46bb8.png)

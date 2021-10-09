@@ -1,7 +1,9 @@
 ## 简介
 
 ### 组件介绍
-OOM-Guard 是容器服务 TKE 提供用于在用户态处理容器 cgroup OOM 的组件。由于 Linux 内核对 cgroup OOM 的处理存在很多问题，经常发生由于频繁 cgroup OOM 导致节点故障（卡死、重启或进程异常但无法杀死）的情况。在发生 cgroup OOM，内核杀死容器进程之前，OOM-Guard 组件在用户空间杀掉超限的容器，减少走到内核 cgroup 内存回收失败后的代码分支而触发各种内核故障的机会。
+内存溢出（Out of Memory，OOM）是指应用系统中存在无法回收的内存或使用的内存过多，最终使得程序运行要用到的内存大于能提供的最大内存。当 cgroup 内存不足时，Linux 内核会触发 cgroup OOM 来选择一些进程杀掉，以便能回收一些内存从而尽量继续保持系统继续运行。但 Linux 内核对 cgroup OOM 的处理存在很多问题，频繁的 cgroup OOM 经常会带来节点故障（例如卡死、重启或进程异常但无法杀死）的情况。
+
+OOM-Guard 是容器服务 TKE 提供用于在用户态处理容器 cgroup OOM 的组件。当 cgroup OOM 情况出现时，在系统内核杀死相关容器进程之前，OOM-Guard 组件会直接在用户空间杀掉超过内存限制的容器，从而减少了在内核态回收内存失败而触发各种节点故障的概率。
 
 在触发阈值进行 OOM 之前，OOM-Guard 会先通过写入 `memory.force_empty` 触发相关 cgroup 的内存回收，如果 `memory.stat` 显示还有较多 cache，则不会触发后续处理策略。在 cgroup OOM 杀掉容器后，会向 Kubernetes 上报 `OomGuardKillContainer` 事件，可以通过 `kubectl get event` 命令进行查看。
 

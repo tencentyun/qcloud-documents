@@ -93,5 +93,3 @@ Bus 002 Device 002:ID096e:031b Feitian Technologies, Inc.
 Bus 002 Device 001:ID1d6b:0002 Linux Foundation 2.0 root hub
 Bus 001 Device 001:ID1d6b:0001 Linux Foundation 1.1 root hub
 ```
-
-
