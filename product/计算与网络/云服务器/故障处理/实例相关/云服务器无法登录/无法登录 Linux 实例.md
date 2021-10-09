@@ -18,6 +18,8 @@
 2. 在实例详情页中，选择**执行命令**页签，并单击**执行命令**。如下图所示：
 ![](https://main.qcloudimg.com/raw/ac7ea794c059aaea78281e2d112a3dac.png)
 3. 在弹出的“执行命令”窗口中，您可按需选择命令，单击**执行命令**即可执行命令并查看命令结果。
+例如，输入新命令 `df -TH` 并单击**执行命令**，即可在不登录实例的情况下查看其结果。如下图所示：
+![](https://main.qcloudimg.com/raw/c26ed3d4fd9d6d781048d2aebd994a8a.png)
 如需了解自动化助手的更多信息，请参见 [自动化助手](https://cloud.tencent.com/document/product/1340)。
 
 
