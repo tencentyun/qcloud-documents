@@ -51,12 +51,12 @@
 
 | 文件或文件夹 | 功能描述 |
 |:-------:|:--------|
+| TRTCMeetingNewViewController.swift | 视频会议创建界面 UI 实现代码，此类为对Pod对外暴露的公共类。 |
 | SegmentVC | 设置界面相关 UI 实现代码。 |
-| TRTCBroadcastExtensionLauncher.swift | 录屏弹窗相关 UI 实现代码。 |
-| TRTCMeetingNewViewController.swift | 视频会议创建界面 UI 实现代码。 |
-| TRTCMeetingMainViewController.swift | 视频房间界面 UI 实现代码。 |
-| TRTCMeetingMemberViewController.swift | 成员列表界面 UI 实现代码。 |
-| TRTCMeetingMoreViewController.swift | 设置界面相关 UI 实现代码。 |
+| TRTCBroadcastExtensionLauncher.swift | 录屏弹窗相关 UI 实现代码，此类为Pod私有类。 |
+| TRTCMeetingMainViewController.swift | 视频房间界面 UI 实现代码，此类为Pod私有类。 |
+| TRTCMeetingMemberViewController.swift | 成员列表界面 UI 实现代码，此类为Pod私有类。 |
+| TRTCMeetingMoreViewController.swift | 设置界面相关 UI 实现代码，此类为对Pod对外暴露的公共类。 |
 
 
 ## 体验应用
