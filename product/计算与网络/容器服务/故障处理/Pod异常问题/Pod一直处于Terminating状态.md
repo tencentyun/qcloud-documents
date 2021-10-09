@@ -52,7 +52,7 @@ Warning FailedSync 3m (x408 over 1h) kubelet, 10.179.80.31 error determining sta
 
 #### 解决方法
 升级 Docker 版本至18，该版本使用了新的 containerd，针对很多已有 bug 进行了修复。
-若 Pod 仍出现 Terminating 状态，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1) 联系工程师进行排查。**不建议直接强行删除**，可能会导致业务出现问题。
+若 Pod 仍出现 Terminating 状态，请 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 联系工程师进行排查。**不建议直接强行删除**，可能会导致业务出现问题。
 
 ### 检查是否存在 Finalizers
 #### 现象描述

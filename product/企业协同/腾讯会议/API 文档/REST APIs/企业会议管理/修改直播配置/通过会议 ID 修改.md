@@ -1,6 +1,6 @@
 
 ## 接口描述
-**描述**：通过会议 ID 修改直播配置信息，目前暂不支持 OAuth2.0 鉴权访问。
+**描述**：通过会议 ID 修改直播配置信息，企业 secret 鉴权用户（会议创建者）可修改任何该企业该用户创建的会议中的直播配置，目前暂不支持 OAuth2.0 鉴权访问。
 **调用方式**：PUT
 **接口请求域名**：
 ```plaintext
@@ -26,7 +26,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 | live_subject         | 否| String   | 直播主题。         |
 | live_summary         | 否|String   | 直播简介。         |
 | enable_live_password |否|Boolean   | 是否开启直播密码。<br>true：开启<br>false：不开启 |
-| live_password        |否|String   | 直播密码，当设置开启直播密码时，该参数必填。         |
+| live_password        |否|String   | 直播密码，当设置开启直播密码时需要填写，如不填写则表示跟会议创建时的会议密码保持一致。         |
 | enable_live_im       | 否|Boolean  | 是否开启直播互动。<br>true：开启<br>false：不开启 |
 | enable_live_replay   | 否|Boolean  | 是否开启直播回放。<br>true：开启<br>false：不开启 |
 | live_watermark   | 否|object  |直播水印对象信息。     |

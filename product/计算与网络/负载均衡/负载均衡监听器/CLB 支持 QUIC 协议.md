@@ -13,6 +13,7 @@ CLB 开启 QUIC 后，客户端可以和 CLB 之间建立 QUIC 连接，当二�
 - 当前 CLB 中的 QUIC 协议正在内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/9e084vdqdw) 进行使用。
 - 当前支持 QUIC 的地域为：北京、上海及孟买。
 - 当前仅公网负载均衡的七层 HTTPS 监听器支持 QUIC 协议。
+- 当前 QUIC 仅支持单可用区 CLB 实例，不支持多可用区。
 
 ## 操作步骤[](id:making)
 1. 根据需求创建负载均衡实例，详情请参见 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)。

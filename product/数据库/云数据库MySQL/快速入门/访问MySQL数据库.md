@@ -25,15 +25,15 @@
 >?推荐您下载 MySQL Workbench，并根据您的系统来下载适配版本的安装程序，下载地址请参见 https://dev.mysql.com/downloads/workbench/。
 >
 ![](https://main.qcloudimg.com/raw/851ab46468c554097a0cf742017157b7.png)
-3. 界面将提示【Login】、【Sign Up】和【No, thanks, just start my download.】， 选择【No thanks, just start my download.】来快速下载。
+3. 界面将提示 **Login**、**Sign Up** 和 **No, thanks, just start my download.**， 选择 **No thanks, just start my download.** 来快速下载。
 ![](https://main.qcloudimg.com/raw/47b195fb37ff584f21038ee54342d362.png)
 4. 在此台云服务器上安装 MySQL Workbench。
 >?
 >- 此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。
->- 您可以单击 MySQL Workbench 安装向导中的【Download Prerequisites】，跳转至对应页面下载并安装这两个软件，然后安装 MySQL Workbench。
+>- 您可以单击 MySQL Workbench 安装向导中的 **Download Prerequisites**，跳转至对应页面下载并安装这两个软件，然后安装 MySQL Workbench。
 >
 ![](https://main.qcloudimg.com/raw/1af292f989f03f3e02e1200b77cb70c1.png)
-5. 打开 MySQL Workbench，选择【Database】>【Connect to Database】，输入 MySQL 数据库实例的内网（或外网）地址和用户名、密码，单击【OK】进行登录。
+5. 打开 MySQL Workbench，选择 **Database** > **Connect to Database**，输入 MySQL 数据库实例的内网（或外网）地址和用户名、密码，单击 **OK** 进行登录。
  - Hostname：输入内网（或外网）地址。在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看内网（或外网）地址和端口号。若为外网地址，请确认是否已开启，请参见 [开启外网地址](#waiwang)。
  - Port：内网（或外网）对应端口。
  - Username：默认为 root，外网连接时建议您单独 [创建帐号](https://cloud.tencent.com/document/product/236/35794) 便于连接控制管理。
@@ -85,12 +85,14 @@ mysql -h hostname -P port -u username -p
 若 telnet 验证云数据库网络访问正常后，如在云服务器上通过命令行登录云数据库报错，请参见 [连接实例相关问题](https://cloud.tencent.com/document/product/236/11278#sytyzysjk)。
 
 ## [附录3：开启外网连接地址](id:waiwang)
-1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb/ )，在实例列表中，单击实例名或“操作”列的【管理】，进入实例详情页面。
-2. 在实例详情页下的“外网地址”处，单击【开启】。
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3483-61427?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
+1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb/ )，在实例列表，单击实例 ID 或**操作**列的**管理**，进入实例详情页面。
+2. 在实例详情页下的**外网地址**处，单击**开启**。
 >?若有外网地址和外网端口信息，说明已开启外网地址。
 >
 ![](https://main.qcloudimg.com/raw/9253a96d19c982a909e3e73e19f5d20c.png)
-3. 在弹出的对话框，单击【确定】。
+3. 在弹出的对话框，单击**确定**。
 >?
 >- 开启成功后，即可在基本信息中查看到外网地址。
 >- 通过开关可以关闭外网连接权限，重新开启外网，域名对应的外网地址不变。

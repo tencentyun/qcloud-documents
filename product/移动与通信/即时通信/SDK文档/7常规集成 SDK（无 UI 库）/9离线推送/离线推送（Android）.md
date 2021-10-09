@@ -113,7 +113,7 @@
 
 #### 打开应用内指定界面
 
-1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/AndroidManifest.xml)：
+1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml)：
 
    ```
    <activity
@@ -156,7 +156,7 @@
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
 
-- 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java) 类的 sendMessage() 方法中对应的逻辑：
+- 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java) 类的 sendMessage() 方法中对应的逻辑：
 
   ```
   JSONObject jsonObject = new JSONObject();
@@ -183,14 +183,14 @@
 
 **步骤2：接收端获取自定义内容**
 
-- 若 [添加证书](#xiaomiStep1_2) 时设置【点击通知后】的操作为【打开应用】，当点击通知栏的消息时，会触发小米推送 SDK 的  `onNotificationMessageClicked(Context context, MiPushMessage miPushMessage)` 回调，自定义内容可以从 `miPushMessage` 中获取，可以参考 [XiaomiMsgReceiver.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/XiaomiMsgReceiver.java) 的解析实现。
+- 若 [添加证书](#xiaomiStep1_2) 时设置【点击通知后】的操作为【打开应用】，当点击通知栏的消息时，会触发小米推送 SDK 的  `onNotificationMessageClicked(Context context, MiPushMessage miPushMessage)` 回调，自定义内容可以从 `miPushMessage` 中获取，可以参考 [XiaomiMsgReceiver.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/XiaomiMsgReceiver.java) 的解析实现。
 
   ```
   Map extra = miPushMessage.getExtra();
   String extContent = extra.get("ext");
   ```
 
-- 若 [添加证书](#xiaomiStep1_2) 时设置【点击通知后】的操作为【打开应用内指定界面】，封装消息的 `MiPushMessage` 对象通过 `Intent` 传到客户端，客户端在相应的 `Activity` 中获取自定义内容，可以参考  [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
+- 若 [添加证书](#xiaomiStep1_2) 时设置【点击通知后】的操作为【打开应用内指定界面】，封装消息的 `MiPushMessage` 对象通过 `Intent` 传到客户端，客户端在相应的 `Activity` 中获取自定义内容，可以参考  [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 
   ```
     Bundle bundle = getIntent().getExtras(); 
@@ -245,7 +245,7 @@
 
 #### 打开应用内指定界面
 
-1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/AndroidManifest.xml)：
+1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml)：
 
    ```
    <activity
@@ -287,7 +287,7 @@
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
 
-- 下面是 Android 端简单示例，也可以参考 TUIKit 中 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java)  类的 sendMessage() 方法中对应的逻辑：
+- 下面是 Android 端简单示例，也可以参考 TUIKit 中 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java)  类的 sendMessage() 方法中对应的逻辑：
 
   ```
   JSONObject jsonObject = new JSONObject();
@@ -314,7 +314,7 @@
 
 **步骤2：接收端获取自定义内容**
 
-- 若 [添加证书](#huaweiStep1_1) 时设置【点击通知后】的操作为【打开应用】或【打开应用内指定界面】，当点击通知栏的消息时，客户端可以在相应的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
+- 若 [添加证书](#huaweiStep1_1) 时设置【点击通知后】的操作为【打开应用】或【打开应用内指定界面】，当点击通知栏的消息时，客户端可以在相应的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 
 ```
 Bundle bundle = getIntent().getExtras();
@@ -398,7 +398,7 @@ String value = bundle.getString("ext");
 
 **Intent action**
 
-1. 在 AndroidManifest 要打开的 Activity 中做如下配置，并且必须加上 category 且不能有 data 数据，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/AndroidManifest.xml)：
+1. 在 AndroidManifest 要打开的 Activity 中做如下配置，并且必须加上 category 且不能有 data 数据，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml)：
 
 ```
 <intent-filter>
@@ -418,7 +418,7 @@ String value = bundle.getString("ext");
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
 
-- 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java) 类的 sendMessage() 方法中对应的逻辑：
+- 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java) 类的 sendMessage() 方法中对应的逻辑：
 
   ```
   JSONObject jsonObject = new JSONObject();
@@ -444,7 +444,7 @@ String value = bundle.getString("ext");
 - 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
 
 **步骤2：接收端获取自定义内容**
-当点击通知栏的消息时，客户端在启动的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
+当点击通知栏的消息时，客户端在启动的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 
 ```
 Bundle bundle = intent.getExtras();
@@ -502,7 +502,7 @@ Bundle bundle = intent.getExtras();
 
 #### 打开应用内指定界面
 
-1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/AndroidManifest.xml)：
+1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml)：
 
    ```
    <activity
@@ -544,7 +544,7 @@ Bundle bundle = intent.getExtras();
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
 
-- 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java) 类的 sendMessage() 方法中对应的逻辑：
+- 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java) 类的 sendMessage() 方法中对应的逻辑：
 
   ```
   JSONObject jsonObject = new JSONObject();
@@ -570,7 +570,7 @@ Bundle bundle = intent.getExtras();
 - 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
 
 **步骤2：接收端获取自定义内容**
-点击通知栏的消息时，会触发 vivo 推送 SDK 的 `onNotificationMessageClicked(Context context, UPSNotificationMessage upsNotificationMessage)` 回调，自定义内容可以从 `upsNotificationMessage` 中获取，可以参考 [VIVOPushMessageReceiverImpl.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/VIVOPushMessageReceiverImpl.java) 的解析实现。
+点击通知栏的消息时，会触发 vivo 推送 SDK 的 `onNotificationMessageClicked(Context context, UPSNotificationMessage upsNotificationMessage)` 回调，自定义内容可以从 `upsNotificationMessage` 中获取，可以参考 [VIVOPushMessageReceiverImpl.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/VIVOPushMessageReceiverImpl.java) 的解析实现。
 
 ```
 Map<String, String> paramMap = upsNotificationMessage.getParams();
@@ -635,7 +635,7 @@ String extContent = paramMap.get("ext");
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
 
-- 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java) 类的 sendMessage() 方法中对应的逻辑：
+- 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java) 类的 sendMessage() 方法中对应的逻辑：
 
   ```
   JSONObject jsonObject = new JSONObject();
@@ -668,7 +668,7 @@ String extContent = paramMap.get("ext");
 String extContent = mzPushMessage.getSelfDefineContentString();
 ```
 
-另外，客户端也可以在打开的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
+另外，客户端也可以在打开的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 
 ```
 Bundle bundle = getIntent().getExtras();
@@ -704,7 +704,7 @@ String extContent = bundle.getString("ext");
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
 
-- 下面是 Android 端简单示例，也可以参考 TUIKit 中 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java) 类的 sendMessage() 方法中对应的逻辑：
+- 下面是 Android 端简单示例，也可以参考 TUIKit 中 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java) 类的 sendMessage() 方法中对应的逻辑：
 
   ```
   JSONObject jsonObject = new JSONObject();
@@ -730,7 +730,7 @@ String extContent = bundle.getString("ext");
 - 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
 
 **步骤2：接收端获取自定义内容**
-当点击通知栏的消息时，客户端在相应的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
+当点击通知栏的消息时，客户端在相应的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 
 ```
 Bundle bundle = getIntent().getExtras();
@@ -761,3 +761,7 @@ OPPO 手机收不到推送一般有以下几种情况：
 ### 自定义消息为什么收不到离线推送？
 
 自定义消息的离线推送和普通消息不太一样，自定义消息的内容我们无法解析，不能确定推送的内容，所以默认不推送，如果您有推送需求，需要您在 [sendMessage](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a318c40c8547cb9e8a0de7b0e871fdbfe) 的时候设置 [offlinePushInfo](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html) 的 [desc](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a78c8e202aa4e0859468ce40bde6fd602) 字段，推送的时候会默认展示 desc 信息。
+
+### 如何关闭离线推送消息的接收？
+
+如果您想关闭离线推送消息的接收，可以通过设置 [setOfflinePushConfig](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 接口的 `config` 参数为 `null` 来实现。该功能从5.6.1200版本开始支持。

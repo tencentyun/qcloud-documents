@@ -17,6 +17,5 @@
 4. 游戏多媒体引擎 iOS 平台所需要的隐私权限如下：
  - Required background modes：允许后台运行（可选）。
  - Microphone Usage Description：允许麦克风权限。
-5. 增加 Allow Arbitrary Loads 权限。如下图所示：
-   ![](https://main.qcloudimg.com/raw/1aebf9111fd95e3e6b6fb4eb08193a26.png)
+
 

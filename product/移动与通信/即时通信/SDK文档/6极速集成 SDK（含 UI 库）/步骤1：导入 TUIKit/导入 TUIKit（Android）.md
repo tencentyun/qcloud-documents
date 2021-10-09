@@ -9,7 +9,7 @@
  `TUIKit` 支持以 `module` 源码的方式集成。
 
 ### module 源码集成
-[TUIKit 源码下载地址](https://github.com/tencentyun/TIMSDK/tree/master/Android/tuikit)
+[TUIKit 源码下载地址](https://github.com/tencentyun/TIMSDK/tree/master/Android/TUIKit)
 
 1. 从 `GitHub` 下载 `Demo` 源码，把其中的 `tuikit` 文件夹拷贝到自己的工程目录下，作为工程中的一个模块。
 

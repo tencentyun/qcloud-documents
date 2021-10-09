@@ -1,14 +1,14 @@
 ## 功能概览
-视频编辑包括视频裁剪、时间特效（慢动作、倒放、重复）、滤镜特效（动感光波，暗黑幻影，灵魂分出窍，画面分裂）、滤镜风格（唯美，粉嫩，蓝调等）、音乐混音、动态贴纸、静态贴纸、气泡字幕等功能。
+视频编辑包括视频裁剪、时间特效（慢动作、倒放、重复）、滤镜特效（动感光波，暗黑幻影，灵魂出窍，画面分裂）、滤镜风格（唯美，粉嫩，蓝调等）、音乐混音、动态贴纸、静态贴纸、气泡字幕等功能。
 
 ## 相关类介绍 
 | 类名           | 功能  |
-| ------------- | --------- |
+| ------------- | --------- | 
 | `TXVideoInfoReader`| 媒体信息获取 |
 | `TXVideoEditer` | 视频编辑 |
 
 ## 使用说明
-视频编辑的基本使用流程如下：
+视频编辑的基本使用流程如下： 
 
 1. 设置视频路径。
 2. 视频导入。
@@ -162,7 +162,7 @@ mTXVideoEditer.processVideo();                                               // 
 ```
 
 ## 编辑预览
-视频编辑提供了 定点预览（将视频画面定格在某一时间点）与区间预览（循环播放某一时间段 A<=>B 内的视频片段）两种效果预览方式，使用时需要给 SDK 绑定一个 UIView 用于显示视频画面。
+视频编辑提供了 定点预览（将视频画面定格在某一时间点）与区间预览（播放某一时间段 A<=>B 内的视频片段）两种效果预览方式，使用时需要给 SDK 绑定一个 UIView 用于显示视频画面。
 
 ### 1. 设置预览播放的 Layout
 ```
@@ -179,7 +179,7 @@ public final static int PREVIEW_RENDER_MODE_FILL_EDGE = 2;        // 适应模�
 public void previewAtTime(long timeMs);
 ```
 ### 3. 区间预览
-TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段 A<=>B 内的视频片段。
+TXVideoEditer 的 startPlayFromTime 函数用于播放某一时间段 A<=>B 内的视频片段。
 ```
 // 播放某一时间段的视频，从 startTime 到 endTime 的视频片段
 public void startPlayFromTime(long startTime, long endTime);

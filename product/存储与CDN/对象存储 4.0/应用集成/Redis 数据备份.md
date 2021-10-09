@@ -1,6 +1,6 @@
 ## 简介
 
-Reids 数据备份是腾讯云对象存储（Cloud Object Storage，COS）基于 [云函数（Serverless Cloud Function，SCF）](https://cloud.tencent.com/document/product/583) 为用户提供的数据库备份功能，可以协助用户将 Redis 云数据库上的备份文件转存至对象存储进行持久化的保存，以防止数据丢失或损坏。当用户在指定存储桶配置了备份函数规则后，云函数会定期扫描您的 Redis 备份文件并将文件转存至存储桶中。
+Redis 数据备份是腾讯云对象存储（Cloud Object Storage，COS）基于 [云函数（Serverless Cloud Function，SCF）](https://cloud.tencent.com/document/product/583) 为用户提供的数据库备份功能，可以协助用户将 Redis 云数据库上的备份文件转存至对象存储进行持久化的保存，以防止数据丢失或损坏。当用户在指定存储桶配置了备份函数规则后，云函数会定期扫描您的 Redis 备份文件并将文件转存至存储桶中。
 
 ## 注意事项
 

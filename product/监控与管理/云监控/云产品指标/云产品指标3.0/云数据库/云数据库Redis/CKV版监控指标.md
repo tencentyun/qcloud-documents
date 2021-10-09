@@ -31,3 +31,5 @@ Namespace=QCE/REDIS
 &Namespace= QCE/REDIS
 &Instances.N.Dimensions.0.Name=redis_uuid
 &Instances.N.Dimensions.0.Value 为实例的 uuid 
+
+

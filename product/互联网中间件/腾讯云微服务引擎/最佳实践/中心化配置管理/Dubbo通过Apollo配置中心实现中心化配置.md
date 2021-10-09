@@ -8,7 +8,7 @@
 
 ## 操作步骤
 1. 在 Apollo 配置中心创建 AppId 为 `dubbo` 的项目。
-2. 在默认的 `application` 下配置 zookeerper 的地址。
+2. 在默认的 `application` 下配置 zookeeper 的地址。
 	key为 `zookeeper.address`，例如：zookeeper.address = 127.0.0.1:2181。
 3. 启动 zookeeper。
 4. 运行 `com.ctrip.framework.apollo.use.cases.dubbo.service.Server` 启动 Demo 服务端。

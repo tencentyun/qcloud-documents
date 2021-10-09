@@ -6,10 +6,11 @@
 ## 前提条件
 已 [购买负载均衡实例](https://buy.cloud.tencent.com/lb)。
 >? 传统型负载均衡不支持基于域名和 URL 的转发，因此传统型负载均衡不支持 SNI。
+>
 
 ## 操作步骤
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)。
 2. 参考 [配置监听器](https://cloud.tencent.com/document/product/214/36385#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E9.85.8D.E7.BD.AE.E7.9B.91.E5.90.AC.E5.99.A8) 的操作步骤配置监听器，并且在配置 HTTPS 监听器时，开启 SNI。
 ![](https://main.qcloudimg.com/raw/1665fb3a16b95979e92bff414a36912e.png)
-2. 在该监听器中添加转发规则时，针对不同的域名配置不同的服务器证书，单击【下一步】，继续完成健康检查和会话保持的配置。
+2. 在该监听器中添加转发规则时，针对不同的域名配置不同的服务器证书，单击**下一步**，继续完成健康检查和会话保持的配置。
 ![](https://main.qcloudimg.com/raw/b0bd94e55549242a97ca22a1d735597d.png)

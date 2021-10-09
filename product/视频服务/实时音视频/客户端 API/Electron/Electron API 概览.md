@@ -40,12 +40,12 @@ subscribeEvents = (rtcCloud) => {
 subscribeEvents(this.rtcCloud);
 ```
 
-### 创建与销毁 ITRTCCloud 单例
+### 创建与销毁 TRTCCloud 单例
 
 | API | 描述 |
 |-----|-----|
-| [getTRTCShareInstance](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#.getTRTCShareInstance) | 用于动态加载 dll 时，创建 [ITRTCCloud](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html) 对象单例。 |
-| [destroyTRTCShareInstance](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#.destroyTRTCShareInstance) | 释放 [ITRTCCloud](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html) 单例对象并清理资源。 |
+| [getTRTCShareInstance](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#.getTRTCShareInstance) | 用于动态加载 dll 时，创建 [TRTCCloud](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html) 对象单例。 |
+| [destroyTRTCShareInstance](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#.destroyTRTCShareInstance) | 释放 [TRTCCloud](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html) 单例对象并清理资源。 |
 
 ### 房间相关接口函数
 

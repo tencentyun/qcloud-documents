@@ -66,10 +66,10 @@ data:
 - 集群中的 dns server 的工作负载为 deployment/coredns。
 
 ## 使用方法
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择【集群】。
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
-3. 选择左侧菜单栏中的【组件管理】，进入 “组件列表” 页面。
-4. 在“组件列表”页面中选择【新建】，并在“新建组件”页面中勾选 DNSAutoscaler。
+3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
+4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 DNSAutoscaler。
     该组件默认伸缩配置策略如下：
 ```
 data:
@@ -89,6 +89,6 @@ data:
     }
 ```
 扩展组件创建成功后，可以通过修改 kube-system 命名空间下的 `configmap/tke-dns-autoscaler` 来变更配置。详细配置请参见 [官方文档](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler)。
-5. 单击【完成】即可创建组件。
+5. 单击**完成**即可创建组件。
 
 

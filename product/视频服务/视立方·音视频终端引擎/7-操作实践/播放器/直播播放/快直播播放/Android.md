@@ -1,12 +1,12 @@
-## SDK 版本
-本页文档所描述功能，在 SDK 版本中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart                                               | 互动直播 Live                                                | 短视频 UGSV                                                  | 音视频通话 TRTC                                              | 纯播放 Player                                                | 全功能                                                       |
-| -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | &#10003;  | -  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 基础知识
 ### 直播和点播
@@ -64,7 +64,7 @@ mLivePlayer.startPlay(flvUrl);
 [](id:step4)
 ### 步骤4：画面调整
 - **view：大小和位置**
-如需修改画面的大小及位置，直接调整 [step1](#step1) 中添加的 `video_view` 控件的大小和位置即可。
+如需修改画面的大小及位置，直接调整 [步骤1](#step1) 中添加的 `video_view` 控件的大小和位置即可。
 - **setRenderFillMode：铺满 or 适应**
 <table><tr><th>可选值</th><th>含义</th>
 </tr><tr>
@@ -172,7 +172,7 @@ mLivePlayer.setCacheParams(5.0f, 5.0f);
 //设置完成之后再启动播放
 ```
 
->? 更多关于卡顿和延迟优化的技术知识，请参见 [优化视频卡顿](https://cloud.tencent.com/document/product/1449/58943?!preview&!editLang=zh)。
+>? 更多关于卡顿和延迟优化的技术知识，请参见 [优化视频卡顿](https://cloud.tencent.com/document/product/1449/58943)。
 
 [](id:sdklisten)
 ## SDK 事件监听

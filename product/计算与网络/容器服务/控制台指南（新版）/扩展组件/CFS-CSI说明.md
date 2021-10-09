@@ -25,26 +25,26 @@ CFS 接入简单，您无需调节自身业务结构，或者是进行复杂的�
 ## 操作步骤
 ### 安装并设置 CFS 扩展组件
 
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择【集群】。
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
-3. 选择左侧菜单栏中的【组件管理】，进入 “组件列表” 页面。
-4. 在“组件列表”页面中选择【新建】，并在“新建组件”页面中勾选 CFS。
-5. 单击【完成】即可创建组件。
+3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
+4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 CFS。
+5. 单击**完成**即可创建组件。
 
 
 
 ### 创建 CFS 类型 StroageClass
 1. 在“集群管理”页面单击使用 CFS 的集群 ID，进入集群详情页。
-2. 在左侧导航栏中选择【存储】>【StorageClass】，单击【新建】进入 “新建StorageClass” 页面。
+2. 在左侧导航栏中选择**存储** > **StorageClass**，单击**新建**进入 “新建StorageClass” 页面。
 3. 根据实际需求，创建 CFS 类型的 StorageClass。如下图所示：
 ![](https://main.qcloudimg.com/raw/ef128d1f27b6d3089ee8654f4080d8dc.png)
-4. 单击【创建StorageClass】，完成创建。
+4. 单击**创建StorageClass**，完成创建。
 
 ### 创建 PersistentVolumeClaim
 1. 在“集群管理”页面单击使用 CFS 的集群 ID，进入集群详情页。
-2. 在左侧导航栏中选择【存储】>【PersistentVolumeClaim】，单击【新建】进入 “新建PersistentVolumeClaim” 页面。
+2. 在左侧导航栏中选择**存储** > **PersistentVolumeClaim**，单击**新建**进入 “新建PersistentVolumeClaim” 页面。
 3. 根据实际需求，创建 CFS 类型 PersistentVolumeClaim，选择上述步骤创建的 StorageClass。
-4. 单击【创建PersistentVolumeClaim】，完成创建。
+4. 单击**创建PersistentVolumeClaim**，完成创建。
 
 
 
@@ -52,8 +52,8 @@ CFS 接入简单，您无需调节自身业务结构，或者是进行复杂的�
 
 ### 创建工作负载
 1. 在“集群管理”页面单击使用 CFS 的集群 ID，进入集群详情页。
-2. 在左侧导航栏中选择【工作负载】>【Deployment】，单击【新建】进入 “新建Workload” 页面。
-3. 根据实际需求，数据卷选择【使用已有PVC】，并选择上述已创建的 PVC。
-4. 挂载到容器的指定路径后，单击【创建Workload】完成创建。
+2. 在左侧导航栏中选择**工作负载** > **Deployment**，单击**新建**进入 “新建Workload” 页面。
+3. 根据实际需求，数据卷选择**使用已有PVC**，并选择上述已创建的 PVC。
+4. 挂载到容器的指定路径后，单击**创建Workload**完成创建。
 
 

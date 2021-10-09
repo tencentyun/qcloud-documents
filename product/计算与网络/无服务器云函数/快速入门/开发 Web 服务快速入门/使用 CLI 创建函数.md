@@ -25,7 +25,7 @@
 1. 前往 [CLI 下载](https://cloud.tencent.com/document/product/583/37940)，获取 SCF CLI 安装包。
 >?选择此方式，升级 CLI 需获取最新安装包并重新进行安装。
 >
-2. 对已下载的 “scfcli.exe” 文件单击右键，选择【以管理员身份运行】进行安装。
+2. 对已下载的 “scfcli.exe” 文件单击右键，选择**以管理员身份运行**进行安装。
 3. 执行以下命令，验证 CLI 是否安装成功。
 ```
 scf --version
@@ -219,9 +219,9 @@ Report RequestId: 37fe28ff-bfdb-11e9-acc7-5254008a4f10 Duration:0ms Memory:128MB
 
 
 ### 查看监控
-1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list)，单击左侧导航栏【函数服务】。
+1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list)，单击左侧导航栏**函数服务**。
 2. 在“函数服务”页面上方选择已创建函数地域，并单击函数 ID。
-3. 在已创建函数的详情页面，选择【监控信息】，即可查看函数调用次数/运行时间等情况。如下图所示：
+3. 在已创建函数的详情页面，选择**监控信息**，即可查看函数调用次数/运行时间等情况。如下图所示：
 >!监控统计的粒度最小为1分钟。您需要等待1分钟后，才可查看当次的监控记录。
 >
 ![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
@@ -229,7 +229,7 @@ Report RequestId: 37fe28ff-bfdb-11e9-acc7-5254008a4f10 Duration:0ms Memory:128MB
 
 
 ### 配置告警
-在已创建函数的详情页面，单击【前往新增告警】为云函数配置告警策略，对函数运行状态进行监控。如下图所示：
+在已创建函数的详情页面，单击**前往新增告警**为云函数配置告警策略，对函数运行状态进行监控。如下图所示：
 ![](https://main.qcloudimg.com/raw/6850e40bca71bfe7ca976004388294c8.png)
 更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133)。
 

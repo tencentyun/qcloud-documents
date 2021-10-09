@@ -15,15 +15,15 @@ WHERE house="tencent" AND temperature > 40
 ```
 
 此规则从消息中提取了 `t` 和 `house` 这两个字段的值，假定 `house` 字段的内容为 `tencent`。
-此时如果定义了转发给 `house_monitor/${house}/app这个 Topic，那么规则引擎则会将这个 Topic 中的 `${house}` 变量替换为 "tencent"， 从而将 `t` 和 `house` 的字段内容发送给 `house_monitor/tencent/app` 这个 Topic。
+此时如果定义了转发给 `house_monitor/${house}/app` 这个 Topic，那么规则引擎则会将这个 Topic 中的 `${house}` 变量替换为 "tencent"， 从而将 `t` 和 `house` 的字段内容发送给 `house_monitor/tencent/app` 这个 Topic。
 
 转发全过程如下图所示：
 ![image](https://main.qcloudimg.com/raw/d4914e4b87c30f9240bbfcd62411be8a.png)
 
 ## 配置
-1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，选择左侧菜单栏【规则引擎】，单击需要配置的规则。
-2. 在规则详情页面，单击【添加行为操作】。
-3. 在弹出的“添加规则”窗口，填写相关信息。单击【保存】即可。
+1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，选择左侧菜单栏**规则引擎**，单击需要配置的规则。
+2. 在规则详情页面，单击**添加行为操作**。
+3. 在弹出的“添加规则”窗口，填写相关信息。单击**保存**即可。
  - 选择行为类型为“republish”。
  - 填写要转发至的 Topic 名称。
 ![](https://main.qcloudimg.com/raw/ecec657128df4e50498213fda2aaa23f.jpg)

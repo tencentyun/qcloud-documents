@@ -99,89 +99,89 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 ![](https://main.qcloudimg.com/raw/6e9a88107651955f1e6b9b783b85bf4b.png)
 5. 使用`yarn rmadmin -replaceLabelsOnNode`命令给节点打标签。
 ![](https://main.qcloudimg.com/raw/6824f8a6eed39c25bb127a532ed615b3.png)
-	在 NodeLabels 面板中可以看到 normal、cpu 分区的节点个数从0变为1。
+在 NodeLabels 面板中可以看到 normal、cpu 分区的节点个数从0变为1。
 ![](https://main.qcloudimg.com/raw/45e47b8fa8f27246dc77cbcc94e8a332.png)
- 在 Scheduler 面板中可以看到，测试系统的两个节点对应的标签已经发生改变。
-![](https://main.qcloudimg.com/raw/0388a5e8ecf0a148ad5985080a04e145.jpg)
+在 Scheduler 面板中可以看到，测试系统的两个节点对应的标签已经发生改变。
+![](https://main.qcloudimg.com/raw/1d533a728eb26f94deb8814e81647174.jpg)
 6. 编辑`Capacity-Scheduler.xml`中的配置项，配置集群队列、队列的资源占比和队列的可访问标签。示例如下：
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <configuration><property>
-        <name>yarn.scheduler.capacity.maximum-am-resource-percent</name>
-        <value>0.8</value>
+	<name>yarn.scheduler.capacity.maximum-am-resource-percent</name>
+	<value>0.8</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.maximum-applications</name>
-        <value>1000</value>
+	<name>yarn.scheduler.capacity.maximum-applications</name>
+	<value>1000</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.queues</name>
-        <value>default,dev,product</value>
+	<name>yarn.scheduler.capacity.root.queues</name>
+	<value>default,dev,product</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.default.capacity</name>
-        <value>20</value>
+	<name>yarn.scheduler.capacity.root.default.capacity</name>
+	<value>20</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.dev.capacity</name>
-        <value>40</value>
+	<name>yarn.scheduler.capacity.root.dev.capacity</name>
+	<value>40</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.product.capacity</name>
-        <value>40</value>
+	<name>yarn.scheduler.capacity.root.product.capacity</name>
+	<value>40</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.accessible-node-labels.cpu.capacity</name>
-        <value>100</value>
+	<name>yarn.scheduler.capacity.root.accessible-node-labels.cpu.capacity</name>
+	<value>100</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.accessible-node-labels.normal.capacity</name>
-        <value>100</value>
+	<name>yarn.scheduler.capacity.root.accessible-node-labels.normal.capacity</name>
+	<value>100</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.accessible-node-labels</name>
-        <value>*</value>
+	<name>yarn.scheduler.capacity.root.accessible-node-labels</name>
+	<value>*</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.dev.accessible-node-labels.normal.capacity</name>
-        <value>100</value>
+	<name>yarn.scheduler.capacity.root.dev.accessible-node-labels.normal.capacity</name>
+	<value>100</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.dev.accessible-node-labels.cpu.capacity</name>
-        <value>100</value>
+	<name>yarn.scheduler.capacity.root.dev.accessible-node-labels.cpu.capacity</name>
+	<value>100</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.dev.accessible-node-labels</name>
-        <value>normal</value>
+	<name>yarn.scheduler.capacity.root.dev.accessible-node-labels</name>
+	<value>normal</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.dev.default-node-label-expression</name>
-        <value>normal</value>
+	<name>yarn.scheduler.capacity.root.dev.default-node-label-expression</name>
+	<value>normal</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.product.accessible-node-labels</name>
-        <value>cpu</value>
+	<name>yarn.scheduler.capacity.root.product.accessible-node-labels</name>
+	<value>cpu</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.product.default-node-label-expression</name>
-        <value>cpu</value>
+	<name>yarn.scheduler.capacity.root.product.default-node-label-expression</name>
+	<value>cpu</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.normal.sharable-partitions</name>
-        <value>cpu</value>
+	<name>yarn.scheduler.capacity.normal.sharable-partitions</name>
+	<value>cpu</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.normal.require-other-partition-resource</name>
-        <value>true</value>
+	<name>yarn.scheduler.capacity.normal.require-other-partition-resource</name>
+	<value>true</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.cpu.sharable-partitions</name>
-        <value></value>
+	<name>yarn.scheduler.capacity.cpu.sharable-partitions</name>
+	<value></value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.cpu.require-other-partition-resource</name>
-        <value>true</value>
+	<name>yarn.scheduler.capacity.cpu.require-other-partition-resource</name>
+	<value>true</value>
 </property>
 </configuration>
 ```

@@ -15,7 +15,7 @@
 ### 创建实例和事件回调
 | API | 描述 |
 |-----|-----|
-| [getTRTCShareInstance](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#gaa4ff8735a6b14ca43f18774f8e46934b) | 创建 TRTCCloud 实例（单例模式） |
+| [getTRTCShareInstance](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#ga0ef57994050abf58a18a3defd4cc5fd0) | 创建 TRTCCloud 实例（单例模式） |
 | [destroyTRTCShareInstance](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#gaadc9070c962327451dbc949a4c5a4681) | 销毁 TRTCCloud 实例（单例模式）  |
 | [addCallback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a6a8317825ffe59ddcf1159a778dd7577) | 设置 TRTC 事件回调 |
 | [removeCallback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#ad088226e8af2d6764851efe7bd94652d) | 移除 TRTC 事件回调 |
@@ -46,7 +46,7 @@
 | API | 描述 |
 |-----|-----|
 | [startLocalPreview](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a8ac23e725c7ed75488df1be2ee514884) | 开启本地摄像头的预览画面（移动端） |
-| [startLocalPreview](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a8ac23e725c7ed75488df1be2ee514884) | 开启本地摄像头的预览画面（桌面端） |
+| [startLocalPreview](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#aef6d61f571304066aaf839f7db00a17b) | 开启本地摄像头的预览画面（桌面端） |
 | [updateLocalView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a0af978a75d5ba671b7ce5f0b81b003c8) | 更新本地摄像头的预览画面 |
 | [stopLocalPreview](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#af7003d2c12f5f783115ada43a715abe7) | 停止摄像头预览 |
 | [muteLocalVideo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a22804c4112dee8c76475619f891e2eb5) | 暂停/恢复发布本地的视频流 |
@@ -102,7 +102,7 @@
 | [getAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#ad9da9a5121bb52fbb85890dd857d7e8a) | 获取音效管理类（TXAudioEffectManager） |
 | [startSystemAudioLoopback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a157639a4fa3cc73ffc1982bbd8a8985e) | 开启系统声音采集（仅适用于桌面系统） |
 | [stopSystemAudioLoopback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#aab0258238e4414c386657151d01ffb23) | 停止系统声音采集（仅适用于桌面系统） |
-| [setSystemAudioLoopbackVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a52d0f9a999296633b1d859f75d36d5e8) | 设置系统声音的采集音量（仅适用于桌面系统） |
+| [setSystemAudioLoopbackVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a52d0f9a999296633b1d859f75d36d5e8) | 设置系统声音的采集音量 |
 
 ### 屏幕分享相关接口
 | API | 描述 |
@@ -110,7 +110,7 @@
 | [startScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#ab1fc5a303726a666d30051c836e33fdd) | 开始桌面端屏幕分享（该接口仅支持桌面系统） |
 | [stopScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a0e09090fe4281c0e78d8eb38496a8ed0) | 停止屏幕分享 |
 | [pauseScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a0dcd89ed2e23706239db98b55dd806d4) | 暂停屏幕分享 |
-| [pauseScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a0dcd89ed2e23706239db98b55dd806d4) | 恢复屏幕分享 |
+| [resumeScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a9dc10db068b9d8c6a0fcb8b085359f33) | 恢复屏幕分享 |
 | [getScreenCaptureSources](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#ad23c03ad142e8a42c49967ff9ccf9592) | 枚举可分享的屏幕和窗口（该接口仅支持桌面系统） |
 | [selectScreenCaptureTarget](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a9d16af81b2ea2db7b91a8346add13393) | 选取要分享的屏幕或窗口（该接口仅支持桌面系统） |
 | [setSubStreamEncoderParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a542913f5081fb2479137a7416c970e2d) | 设置屏幕分享（即辅路）的视频编码参数（该接口仅支持桌面系统） |
@@ -131,11 +131,13 @@
 | [sendCustomAudioData](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a47ba3ba599134e902299dda9c5596c0d) | 向 SDK 投送自己采集的音频数据 |
 | [enableMixExternalAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a896ff4b2731488821dd1ce382276ca0c) | 启用/关闭自定义音轨 |
 | [mixExternalAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a3c99feacd22af10926d5a521ca598ecd) | 向 SDK 混入自定义音轨 |
+| [setMixExternalAudioVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#ae0031e4af8bb120ef6de164d99886418) | 设置推流时混入外部音频的推流音量和播放音量 |
 | [generateCustomPTS](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a33ed1b26695b6b75dc9ce78e5280cbb4) | 生成自定义采集时的时间戳 |
 | [setLocalVideoProcessCallback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a3f6d32bdf3cb0fe72b61455304b975c6) | 设置第三方美颜的视频数据回调 |
 | [setLocalVideoRenderCallback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#ad64031e060146f7985263aad994fc733) | 设置本地视频自定义渲染回调 |
 | [setRemoteVideoRenderCallback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a1efc475e32f06c768330ff80ebffbc8a) | 设置远端视频自定义渲染回调 |
 | [setAudioFrameCallback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a607dc63d8d944869537457c5b92b56e9) | 设置音频数据自定义回调 |
+| [setMixedPlayAudioFrameCallbackFormat](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a1c4e3c6d0c2653609e748ceeda8bb46e) | 设置最终要由系统播放出的音频帧回调格式 |
 | [enableCustomAudioRendering](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a7047f52811cefa10cf020ee20db1b087) | 开启音频自定义播放 |
 | [getCustomAudioRenderingFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#ac986d3ec66ab6681d94c8eb933b519de) | 获取可播放的音频数据 |
 
@@ -161,7 +163,7 @@
 | [setLogDirPath](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#afbacbfc33a72f8fdd6995cf1ec3d04a6) | 设置本地日志的保存路径 |
 | [setLogCallback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a239c5b9962a95a1eb4662440fab682fd) | 设置日志回调 |
 | [showDebugView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a7df528c2024556a073b4668879dff91f) | 显示仪表盘 |
-| [callExperimentalAPI](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#ab15fc0877664a8ac257ca4d6e7afc7b0) | 调用实验性接口 |
+| [callExperimentalAPI](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a187cb56ce8bbdf9a74e347954d2c7c6a) | 调用实验性接口 |
 
 ### 废弃接口
 | API | 描述 |
@@ -311,7 +313,7 @@
 | [TRTCRoleType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#ga42ff820a33d9f3535d203fd5d6782cb5) | 角色 |
 | [TRTCQosControlMode](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#ga6615b296e31fc3d03c0df92e9755b5aa) | 流控模式（已废弃） |
 | [TRTCVideoQosPreference](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#ga60efcaeea7692bbce8dc362856683319) | 画质偏好 |
-| [TRTCQualityInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCQualityInfo) | 网络质量 |
+| [TRTCQualityInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCQualityInfo) | 网络质量 |
 | [TRTCAVStatusType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#ga9ab84e3f9458dacd479937e5a24c95f2) | 视频状态类型 |
 | [TRTCAVStatusChangeReason](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#ga37b6311e4d5ba7376070ba65de520865) | 视频状态变化原因类型 |
 
@@ -328,28 +330,28 @@
 | [TRTCTranscodingConfigMode](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#gaec50c849a17b7706f6989d718fc6b7df) | 云端混流的排版模式 |
 | [TRTCLocalRecordType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#ga92580ecee493fb524b84234305316238) | 媒体录制类型 |
 | [TRTCMixInputType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#ga323584f89d0479be0a1b554ec05672f7) | 混流输入类型 |
-| [TRTCDeviceType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/namespacetrtc.html#abaf3d3254d2b2e11fb2064478975be17) | 设备类型（仅适用于桌面平台） |
+| [TRTCDeviceType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/namespaceliteav.html#abaf3d3254d2b2e11fb2064478975be17) | 设备类型（仅适用于桌面平台） |
 | [TRTCAudioRecordingContent](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#ga5adbddb520b6eea48142c3b5be740205) | 音频录制内容类型 |
 
 ### TRTC 核心类型定义
 | API | 描述 |
 |-----|-----|
-| [TRTCParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCParams) | 进房参数 |
-| [TRTCVideoEncParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCVideoEncParam) | 视频编码参数 |
-| [TRTCNetworkQosParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCNetworkQosParam) | 网络流控（Qos）参数集 |
-| [TRTCRenderParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCRenderParams) | 视频画面的渲染参数 |
-| [TRTCQualityInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCQualityInfo) | 网络质量 |
-| [TRTCVolumeInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCVolumeInfo) | 音量大小 |
-| [TRTCSpeedTestResult](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCSpeedTestResult) | 网络测速结果 |
-| [TRTCVideoFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCVideoFrame) | 视频帧信息 |
-| [TRTCAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCAudioFrame) | 音频帧数据 |
+| [TRTCParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCParams) | 进房参数 |
+| [TRTCVideoEncParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCVideoEncParam) | 视频编码参数 |
+| [TRTCNetworkQosParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCNetworkQosParam) | 网络流控（Qos）参数集 |
+| [TRTCRenderParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCRenderParams) | 视频画面的渲染参数 |
+| [TRTCQualityInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCQualityInfo) | 网络质量 |
+| [TRTCVolumeInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCVolumeInfo) | 音量大小 |
+| [TRTCSpeedTestResult](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCSpeedTestResult) | 网络测速结果 |
+| [TRTCVideoFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCVideoFrame) | 视频帧信息 |
+| [TRTCAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCAudioFrame) | 音频帧数据 |
 | [TRTCMixUser](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#ac5b1947f21f77726cbff822eaf0003f9) | 云端混流中各路画面的描述信息 |
-| [TRTCTranscodingConfig](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCTranscodingConfig) | 云端混流的排版布局和转码参数 |
-| [TRTCPublishCDNParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCPublishCDNParam) | 向非腾讯云 CDN 上发布音视频流时需设置的转推参数 |
-| [TRTCAudioRecordingParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCAudioRecordingParams) | 本地音频文件的录制参数 |
-| [TRTCLocalRecordingParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCLocalRecordingParams) | 本地媒体文件的录制参数 |
-| [TRTCAudioEffectParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCAudioEffectParam) | 音效参数（已废弃） |
-| [TRTCSwitchRoomConfig](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCSwitchRoomConfig) | 房间切换参数 |
-| [TRTCScreenCaptureSourceInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structtrtc_1_1TRTCScreenCaptureSourceInfo) | 屏幕分享的目标信息（仅适用于桌面系统） |
-
+| [TRTCTranscodingConfig](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCTranscodingConfig) | 云端混流的排版布局和转码参数 |
+| [TRTCPublishCDNParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCPublishCDNParam) | 向非腾讯云 CDN 上发布音视频流时需设置的转推参数 |
+| [TRTCAudioRecordingParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCAudioRecordingParams) | 本地音频文件的录制参数 |
+| [TRTCLocalRecordingParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCLocalRecordingParams) | 本地媒体文件的录制参数 |
+| [TRTCAudioEffectParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCAudioEffectParam) | 音效参数（已废弃） |
+| [TRTCSwitchRoomConfig](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCSwitchRoomConfig) | 房间切换参数 |
+| [TRTCAudioFrameCallbackFormat](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCAudioFrameCallbackFormat) | 音频自定义回调的格式参数 |
+| [TRTCScreenCaptureSourceInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__cplusplus.html#structliteav_1_1TRTCScreenCaptureSourceInfo) | 屏幕分享的目标信息（仅适用于桌面系统） |
 

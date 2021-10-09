@@ -87,7 +87,7 @@ TXVideoEditer > TXVideoInfoReader > getVideoInfo。
 [](id:que20)
 ### 使用视频编辑功能插入音乐，可以使用什么来源的音乐？
 
-短视频这边的音乐是需要您在代码中进行添加的，目前这边没有提供的音乐库供您使用，您可自行选择音乐路径。更多详情，请参见 [添加背景音乐](https://cloud.tencent.com/document/product/1449/57036?!preview&!editLang=zh)。
+短视频这边的音乐是需要您在代码中进行添加的，目前这边没有提供的音乐库供您使用，您可自行选择音乐路径。更多详情，请参见 [添加背景音乐](https://cloud.tencent.com/document/product/1449/57036)。
 
 [](id:que21)
 ### 短视频 UGSV 是否可以在精简版的基础上试用拍照功能？
@@ -97,13 +97,13 @@ TXVideoEditer > TXVideoInfoReader > getVideoInfo。
 [](id:que22)
 ### 短视频 UGSV 是否支持自定义动态贴纸？怎么实现？
 
-支持，通过 SDK 源代码使用，详情请参见 [贴纸和字幕(iOS)](https://cloud.tencent.com/document/product/1449/57052?!preview&!editLang=zh)。
+支持，通过 SDK 源代码使用，详情请参见 [贴纸和字幕(iOS)](https://cloud.tencent.com/document/product/1449/57052)。
 
 [](id:que23)
 
 ### 短视频 UGSV 是否支持滤镜？
 
-短视频 UGSV 支持滤镜特效和视频剪辑功能，详情请参见 [类抖音特效](https://cloud.tencent.com/document/product/1449/57050?!preview&!editLang=zh)、[SDK 集成(XCode)](https://cloud.tencent.com/document/product/584/11638#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E4.BD.BF.E7.94.A8-ugckit)。
+短视频 UGSV 支持滤镜特效和视频剪辑功能，详情请参见 [类抖音特效](https://cloud.tencent.com/document/product/1449/57050)、[SDK 集成(XCode)](https://cloud.tencent.com/document/product/584/11638#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E4.BD.BF.E7.94.A8-ugckit)。
 
 [](id:que24)
 ### 短视频 UGSV 的剪辑功能，能否在微信小程序使用 ？

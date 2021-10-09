@@ -107,7 +107,9 @@ dependencies {
 }
 :::
 </dx-codeblock>
->?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
+
+	>?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
+
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
 <dx-codeblock>
 ::: android 
@@ -136,8 +138,7 @@ defaultConfig {
 
 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请相机、读取存储权限）：
 
-<dx-codeblock>
-::: android 
+```
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -150,8 +151,7 @@ defaultConfig {
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-feature android:name="android.hardware.camera"/>
 <uses-feature android:name="android.hardware.camera.autofocus" />
-:::
-</dx-codeblock>
+```
 
 在 proguard-rules.pro 文件，将 SDK 相关类加入不混淆名单：
 

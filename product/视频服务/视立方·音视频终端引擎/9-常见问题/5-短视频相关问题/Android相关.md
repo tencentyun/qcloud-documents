@@ -172,8 +172,8 @@ mTXVideoEditer.generateVideo(TXVideoEditConstants.VIDEO_COMPRESSED_720P, mVideoO
 
 [](id:que13)
 
-### 通过短视频 UGC 录制功能录制的视频，其中的音频是可以剥离出来的吗？ 
-目前短视频 UGC 录制不支持同时录制 BGM 和人声，所以进入编辑后，重新设置 BGM，可以将原声音量设为0，达到替换 BGM 的目的，代码如下所示：
+### 通过短视频 UGSV 录制功能录制的视频，其中的音频是可以剥离出来的吗？ 
+目前短视频 UGSV 录制不支持同时录制 BGM 和人声，所以进入编辑后，重新设置 BGM，可以将原声音量设为0，达到替换 BGM 的目的，代码如下所示：
 
 ```
 // 设置视频原声音量大小（设为0，去掉录制的 BGM）

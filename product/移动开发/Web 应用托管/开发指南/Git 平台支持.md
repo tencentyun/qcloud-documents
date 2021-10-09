@@ -1,4 +1,4 @@
-CloudBase Webify 目前支持以下三种代码托管平台：
+Web 应用托管 目前支持以下三种代码托管平台：
 
 - [Github](https://github.com/)
 - [Gitlab](https://gitlab.com/)

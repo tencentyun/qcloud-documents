@@ -157,7 +157,7 @@ static Future<TRTCMeeting> sharedInstance();
 ```dart
 static void destroySharedInstance();
 ```
->? 销毁实例后，外部缓存的 TRTCMeeting 实例无法再使用，需要重新调用 [sharedInstance](#sharedInstance) 获取新实例。
+>? 销毁实例后，外部缓存的 TRTCMeeting 实例无法再使用，需要重新调用 [sharedInstance](#sharedinstance) 获取新实例。
 
 ### registerListener
 

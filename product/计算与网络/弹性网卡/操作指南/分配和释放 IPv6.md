@@ -1,4 +1,4 @@
->?目前弹性公网 IPv6 处于内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
+>?目前弹性公网 IPv6 处于内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/a9k0gialqhj)。
 
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1) 。
 2. 单击左侧目录中的【IP 与网卡】>【弹性网卡】，进入弹性网卡列表页。

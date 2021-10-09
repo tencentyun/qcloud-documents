@@ -22,7 +22,8 @@
 ![](https://main.qcloudimg.com/raw/09c2f84a3fa140c07b5a22a14b1f20cc.png)
 5. 选择【本地资源】页签，单击【详细信息】。如下图所示：
 ![](https://main.qcloudimg.com/raw/0b33b2b83914f1a158bc174a2644d674.png)
-6. 在弹出的【本地设备和资源】窗口中，选择【驱动器】模块，勾选需要上传到 Windows 云服务器的文件所在的本地硬盘，单击【确定】。如下图所示：
+6. 在弹出的【本地设备和资源】窗口中，选择【驱动器】模块，勾选所需上传到 Windows 云服务器文件所在的本地硬盘，单击【确定】。如下图所示：
+例如，需上传到 Windows 云服务器的文件位于 E 盘，则需勾选 E 盘。
 ![](https://main.qcloudimg.com/raw/ed51f0181d2c964ff96323a9ff957203.png)
 7. 本地配置完成后，单击【连接】，远程登录 Windows 云服务器。
 8. 在 Windows 云服务器中，选择 <img src="https://main.qcloudimg.com/raw/ef8fb18be7880d8b48ce402b973f22dc.png" style="margin:-3px 0px">，在打开的窗口中单击【此电脑】，即可以看到挂载到云服务器上的本地硬盘。如下图所示：

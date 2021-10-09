@@ -119,12 +119,21 @@ Access-Control-Allow-Methods: POST
 | 60013 | HTTP 响应包 JSON 解析错误 |
 | 60014 | 置换帐号超时 |
 | 60015 | 请求包体帐号类型错误，请确认帐号为字符串格式 |
+| 60016  | SDKAppID 被禁用。                  |
+| 60017  | 请求被禁用。              |
+| 60018  | 请求过于频繁，请稍后重试。                                   |
+| 60019  | 请求过于频繁，请稍后重试。                                   |
+| 60020  | 您的专业版套餐包已到期并停用，请登录 [即时通信 IM 购买页面](https://buy.cloud.tencent.com/avc) 重新购买套餐包。购买后，将在5分钟后生效。 |
+|60021  |RestAPI 调用来源 IP 非法。|
 
 ## FAQ
 ### REST API 请求有概率超时，收不到任何响应
 
-（1）即时通信 IM 后台 REST 接口设置的超时时间是 3s，调用方设置的超时时间应该长于 3s。
-（2）telnet console.tim.qq.com 443 确认能否连接服务端口。
-（3）使用 curl -I https://console.tim.qq.com 简单测试看状态码是否为200。
-（4）确认机器的 dns server 配置是内网 dns server，还是公共 dns server。如果是内网 dns server，请确保 dns server 网络出口和本机器网络出口 IP 所在地域运营商一致。
-（5）建议业务调用方使用“长连接+连接池”模式。
+1. 即时通信 IM 后台 REST 接口设置的超时时间是 3s，调用方设置的超时时间应该长于 3s。
+2. telnet console.tim.qq.com 443 确认能否连接服务端口。
+3. 使用 curl -I https://console.tim.qq.com 简单测试看状态码是否为200。
+4. 确认机器的 dns server 配置是内网 dns server，还是公共 dns server。如果是内网 dns server，请确保 dns server 网络出口和本机器网络出口 IP 所在地域运营商一致。
+5. 建议业务调用方使用“长连接+连接池”模式。
+>?由于 HTTPS 短连接建连耗时比较大，每次请求都有TCP + tls 握手开销，所以建议 REST API 长连接接入。
+使用标准 HTTP 库的场景：HTTP1.0 需要指定请求头部 Connection: keep-alive，HTTP1.1 默认支持长连接；基于 TCP 封装 HTTPS 请求的场景，可以复用 TCP 连接来收发请求。
+

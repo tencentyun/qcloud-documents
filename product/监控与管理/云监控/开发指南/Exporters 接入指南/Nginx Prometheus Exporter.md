@@ -106,5 +106,5 @@ $ nginx-prometheus-exporter -nginx.scrape-uri http://<nginx>:8080/nginx_status
 
 腾讯云 Prometheus 托管服务在 Grafana 中提供预先配置的 Nginx Exporter  Dashboard，您可以根据以下操作步骤查看 Nginx 监控数据。
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)。
-2. 单击对应实例 ID 右侧的【<img src="https://main.qcloudimg.com/raw/978c842f0c093a31df8d5240dd01016d.png" width="2%"/>】 ，即可查看数据。
+2. 单击对应实例 ID 右侧的**<img src="https://main.qcloudimg.com/raw/978c842f0c093a31df8d5240dd01016d.png" width="2%"/>** ，即可查看数据。
 ![Nginx Exporter dashboard](https://main.qcloudimg.com/raw/80ff106c4553812d083cd21c211ea950.png)

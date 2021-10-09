@@ -27,16 +27,16 @@
 >
 ![](https://main.qcloudimg.com/raw/6b7d6bd05d075c2be6889e8eea737ca8.png)
 3. 参见 [创建自定义镜像](https://cloud.tencent.com/document/product/213/4942) 在基础网络制作两台云服务器 CVM1 和 CVM2 的镜像，在私有网络内，参见 [通过镜像创建实例](https://cloud.tencent.com/document/product/213/44265) 创建两个 CVM。完成后，测试 CVM 是否能正常访问云数据库。
- >?如您可以接受 CVM 切换时实例重启导致的业务停服，也可以选择在业务低峰时段直接切换 CVM 网络，具体请参见 [云服务器切换私有网络服务](https://cloud.tencent.com/document/product/213/20278)。
- >
+>?如您可以接受 CVM 切换时实例重启导致的业务停服，也可以选择在业务低峰时段直接切换 CVM 网络，具体请参见 [云服务器切换私有网络服务](https://cloud.tencent.com/document/product/213/20278)。
+>
 ![](https://main.qcloudimg.com/raw/96d9e67836e4aa19b879369bbe0f0d50.png)
 4. 参见 [负载均衡快速入门 ](https://cloud.tencent.com/document/product/214/8975#qrjkjc)，在私有网络内，新建一个公网 CLB，并绑定上述新建的两个 CVM，注意检查健康状态，避免因异常情况影响服务。
 ![](https://main.qcloudimg.com/raw/6b465520d036dd450e1d70e5d202a905.png)
 5. 切换 DNS 域名解析地址为 VPC 中公网 CLB 的 VIP。
-   >?如您使用的是腾讯云 DNSPod，请参考 [修改解析记录](https://cloud.tencent.com/document/product/302/42168)。
-   >
+>?如您使用的是腾讯云 DNSPod，请参考 [修改解析记录](https://cloud.tencent.com/document/product/302/42168)。
+>
 ![](https://main.qcloudimg.com/raw/c9a954b3e8a0aa5a61dd4305175d9440.png)
 6. 待私有网络运行正常后，释放基础网络下留存的公网 CLB、CVM 资源，结束迁移。
- >?云数据库的原基础网络 IP 过期后将自动释放。
- >
+>?云数据库的原基础网络 IP 过期后将自动释放。
+>
 ![](https://main.qcloudimg.com/raw/2f22ab531342bae572bc2b5a7b2aace0.png)

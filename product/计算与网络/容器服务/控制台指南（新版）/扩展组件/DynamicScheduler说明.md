@@ -90,7 +90,7 @@ Dynamic-scheduler 是一个 scheduler-extender，根据 node annotation 负载�
 
 
 >!
->- 为确保组件可以拉取到所需的监控数据、调度策略生效，请按照【[依赖部署](#Dynamic)】>【[Prometheus 规则配置](#Prometheus1)】步骤配置监控数据采集规则。
+>- 为确保组件可以拉取到所需的监控数据、调度策略生效，请按照 **[依赖部署](#Dynamic)**> **[Prometheus 规则配置](#Prometheus1)**步骤配置监控数据采集规则。
 >- 预选和优选参数已设置默认值，如您无额外需求，可直接采用。
 
 
@@ -199,7 +199,7 @@ rule_files:
 
 :::
 ::: 云原生监控 Prometheus
-1. 登录容器服务控制台，在左侧菜单栏中选择【[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)】，进入“云原生监控”页面。
+1. 登录容器服务控制台，在左侧菜单栏中选择 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**，进入“云原生监控”页面。
 2. 创建与 Cluster 处于同一 VPC 下的 [云原生监控 Prometheus 实例](https://cloud.tencent.com/document/product/457/49889#.E5.88.9B.E5.BB.BA.E7.9B.91.E6.8E.A7.E5.AE.9E.E4.BE.8B)，并 [关联用户集群](https://cloud.tencent.com/document/product/457/49890)。如下图所示：
 	 ![](https://main.qcloudimg.com/raw/bafb027663fbb3f2a5063531743c2e97.jpg)
 2. 与原生托管集群关联后，可以在用户集群查看到每个节点都已安装 node-exporter。如下图所示：
@@ -255,10 +255,10 @@ spec:
 
 
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster)，选择左侧导航栏中的【集群】。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
-3. 选择左侧菜单栏中的【组件管理】，进入 “组件列表” 页面。
-4. 在“组件列表”页面中选择【新建】，并在“新建组件”页面中勾选 DynamicScheduler（动态调度器插件）。
-5. 单击【参数配置】，按照 [参数说明](#parameter) 填写组件所需参数。
-6. 单击【完成】即可创建组件。安装成功后，Dynamic Scheduler 即可正常运行，无需进行额外配置。
+3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
+4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 DynamicScheduler（动态调度器插件）。
+5. 单击**参数配置**，按照 [参数说明](#parameter) 填写组件所需参数。
+6. 单击**完成**即可创建组件。安装成功后，Dynamic Scheduler 即可正常运行，无需进行额外配置。
 

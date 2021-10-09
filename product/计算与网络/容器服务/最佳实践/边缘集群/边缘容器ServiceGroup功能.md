@@ -1,6 +1,6 @@
 边缘计算场景下，往往需要在同一个集群中管理多个边缘站点，每个边缘站点内有一个或多个计算节点。同时需要在每个站点中都运行一组有业务逻辑联系的服务，每个站点内的服务具备一套完整的功能，可以为用户提供服务。但由于网络限制，有业务联系的服务之间不希望或者不能跨站点访问。
 
-目前，已有 [常规方案](#rule) 应对上述问题，但是仍有 [痛点](#defect) 无法解决。为此，[边缘容器服务](https://cloud.tencent.com/document/product/457/42876) ECK 提供 ServiceGroup 特性，可 [通过 yaml](https://cloud.tencent.com/document/product/457/50417) 或者 [通过控制台](https://cloud.tencent.com/document/product/457/50418) 使用 ServiceGroup 功能，轻松实现上百地域的服务部署，且无需进行应用适配或改造。
+目前，已有 [常规方案](#rule) 应对上述问题，但是仍有 [痛点](#defect) 无法解决。为此，[边缘容器服务](https://cloud.tencent.com/document/product/457/42876) TKE Edge 提供 ServiceGroup 特性，可 [通过 yaml](https://cloud.tencent.com/document/product/457/50417) 或者 [通过控制台](https://cloud.tencent.com/document/product/457/50418) 使用 ServiceGroup 功能，轻松实现上百地域的服务部署，且无需进行应用适配或改造。
 
 ## 使用 ServiceGroup
 
@@ -8,7 +8,7 @@ ServiceGroup 可以便捷地在共属同一个集群的不同机房或区域中�
 
 原生 Kubernetes 无法控制 Deployment 的 Pod 创建的具体节点位置，需要通过统筹规划节点的亲和性来间接完成。当边缘站点数量以及需要部署的服务数量过多时，管理和部署方面的极为复杂，甚至仅存在理论上的可能性。与此同时，为了将服务间的相互调用限制在一定范围，业务方需要为各个 Deployment 分别创建专属的 Service，管理方面的工作量巨大且极容易出错并引起线上业务异常。
 
-ServiceGroup 针对此场景设计，用户仅需使用 ServiceGroup 提供的 DeploymentGrid 和 ServiceGrid 两种 ECK 自研 Kubernetes 资源，即可方便地将服务分别部署到这些节点组中，并进行服务流量管控，同时还可保证各区域服务数量及容灾。
+ServiceGroup 针对此场景设计，用户仅需使用 ServiceGroup 提供的 DeploymentGrid 和 ServiceGrid 两种 TKE Edge 自研 Kubernetes 资源，即可方便地将服务分别部署到这些节点组中，并进行服务流量管控，同时还可保证各区域服务数量及容灾。
 
 ### 整体架构[](id:OverallStructure)
 
@@ -30,8 +30,8 @@ ServiceGroup 整体架构示意图如下：
 
 - NodeUnit 通常是位于同一边缘站点内的一个或多个计算资源实例，需确保同一 NodeUnit 中的节点内网互通。
 - ServiceGroup 组中的服务运行在一个 NodeUnit 内。
-- ECK 允许用户设置服务在一个 NodeUnit 中运行的 Pod 数量。
-- ECK 能够把服务之间的调用限制在本 NodeUnit 内。
+- TKE Edge 允许用户设置服务在一个 NodeUnit 中运行的 Pod 数量。
+- TKE Edge 能够把服务之间的调用限制在本 NodeUnit 内。
 
 #### NodeGroup
 
@@ -104,5 +104,5 @@ spec:
 - **公网 IP 数量不足**
 使用方为了让容器化的业务在调度方案上与之前运行在虚拟机或者物理机上的业务保持一致，通常会为每个 Pod 分配一个公网 IP，然而公网 IP 数量是远远不够的。
 
-综上所述，原生 Kubernetes 虽然可以变相满足方案1，但是实际方案非常复杂。对于方案2，则没有好的解决方案。您可结合本文开始使用由 ECK 开创性地提出和实现的 ServiceGroup 特性，[通过 yaml](https://cloud.tencent.com/document/product/457/50417) 或者 [通过控制台](https://cloud.tencent.com/document/product/457/50418) 使用 ServiceGroup 功能，轻松实现上百地域的服务部署，且无需进行应用适配或改造。
+综上所述，原生 Kubernetes 虽然可以变相满足方案1，但是实际方案非常复杂。对于方案2，则没有好的解决方案。您可结合本文开始使用由 TKE Edge 开创性地提出和实现的 ServiceGroup 特性，[通过 yaml](https://cloud.tencent.com/document/product/457/50417) 或者 [通过控制台](https://cloud.tencent.com/document/product/457/50418) 使用 ServiceGroup 功能，轻松实现上百地域的服务部署，且无需进行应用适配或改造。
 

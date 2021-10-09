@@ -16,7 +16,7 @@ GooseFS 到 CosN 的路径映射关系如下：
 /warehouse/folder/test.txt -> cosn://examplebucket-1250000000/data/warehouse/folder/test.txt
 ```
 
-CosN Scheme 访问 GooseFS 特性，通过在客户端维持 GooseFS 路径和底层文件系统 CosN 路径之间的映射关系，并将 CosN 路径的请求转换为 GooseFS 的请求。映射关系周期性刷新，您可以通过修改 GooseFS 配置文件 goosefs-site.properties 中的配置项 goosefs.client.namespace.refresh.interval 调整刷新间隔，默认值为60s。
+CosN Scheme 访问 GooseFS 特性，通过在客户端维持 GooseFS 路径和底层文件系统 CosN 路径之间的映射关系，并将 CosN 路径的请求转换为 GooseFS 的请求。映射关系周期性刷新，您可以通过修改 GooseFS 配置文件 goosefs-site.properties 中的配置项 goosefs.user.client.namespace.refresh.interval 调整刷新间隔，默认值为60s。
 
 >! 如果访问的 CosN 路径无法转换为 GooseFS 路径，对应的 Hadoop API 调用会抛出异常。
 

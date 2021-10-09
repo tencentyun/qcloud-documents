@@ -1,3 +1,4 @@
+
 ## 操作场景
 
 在使用 GSE 时搭配 [游戏玩家匹配（Game Player Matchmaking, GPM）](https://cloud.tencent.com/document/product/1294/49601)，搭建您的对战游戏后端。GPM 为您提供基于对战游戏的玩家匹配服务，支持通过简单的脚本自定义匹配规则，自动执行玩家的匹配搜索和匹配完成后的游戏服务器会话放置。

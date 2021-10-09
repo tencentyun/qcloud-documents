@@ -4,7 +4,7 @@
 MySQL 的内存大体可以分为 global 级的共享内存和 session 级的私有内存两部分，共享内存是实例创建时即分配的内存空间，并且是所有连接共享的。私有内存用于每个连接到 MySQL 服务器时才分配各自的缓存，一些特殊的 SQL 或字段类型会导致单个线程可能分配多次缓存，因此当出现 OOM 异常，都是由各个连接私有内存造成的。下面将详细介绍各部分的构成。
 
 ## 共享内存
-执行以下命令，查询示例的共享内存分配情况：
+执行以下命令，查询实例的共享内存分配情况：
 ```
 show variables where variable_name in ('innodb_buffer_pool_size','innodb_log_buffer_size','innodb_additional_mem_pool_size','key_buffer_size','query_cache_size');
 ```
@@ -40,7 +40,7 @@ show variables where variable_name in ('innodb_buffer_pool_size','innodb_log_buf
  该部分是对查询结果做缓存，以减少解析 SQL 和执行 SQL 的开销，在云数据库 MySQL 上关闭了该部分的缓存。主要适合于读多写少的应用场景，因为它是按照 SQL 语句的 hash 值进行缓存的，当表数据发生变化后即失效。
 
 ## 私有内存
-执行以下命令，查询示例的 session 私有内存分配情况：
+执行以下命令，查询实例的 session 私有内存分配情况：
 ```
 show variables where variable_name in ('read_buffer_size','read_rnd_buffer_size','sort_buffer_size','join_buffer_size','binlog_cache_size','tmp_table_size');
 ```

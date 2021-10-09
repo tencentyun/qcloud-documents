@@ -38,7 +38,7 @@ TSF 应用可以使用 CODING 构建持续集成方案。腾讯云 CODING 持续
 - TSF_GROUP_ID: TSF 平台的部署组 ID
 - TSF_APPLICATION_ID：TSF 平台的应用 ID （仅适用于虚拟机应用部署）
 - TSF_APPID：用户在腾讯云上的 APPID （仅适用于虚拟机应用部署）
-- TSF_STARTUP_PARAM：Java 应用启动参数，注意**不要**带上引号。（仅适用于虚拟机应用部署）
+- TSF_STARTUP_PARAM：Java 应用启动参数，注意**不要**带上引号（仅适用于虚拟机应用部署）
 
 ![](https://main.qcloudimg.com/raw/6da8b6410f846bcb8f1446804d921934.png)
 

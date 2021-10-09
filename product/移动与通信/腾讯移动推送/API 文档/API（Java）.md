@@ -10,7 +10,7 @@ Maven  依赖引用方式：
 <dependency>
 				<groupId>com.github.xingePush</groupId>
 				<artifactId>xinge</artifactId>
-				<version>1.2.4.2</version>
+				<version>1.2.4.9</version>
 </dependency>
 ```
 

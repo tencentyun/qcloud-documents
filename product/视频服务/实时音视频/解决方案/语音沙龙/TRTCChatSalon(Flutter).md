@@ -297,7 +297,7 @@ Future<RoomInfoCallback> getRoomInfoList(List<String> roomIdList)
 
 | 参数       | 类型                | 含义         |
 | ---------- | ------------------- | ------------ |
-| roomIdList | List&lt;Integer&gt; | 房间号列表。 |
+| roomIdList | List&lt;String&gt; | 房间号列表。 |
 
 
 ### getRoomMemberList
@@ -357,7 +357,7 @@ Future<ActionCallback> enterMic();
 
 ### leaveMic
 
-主动下麦。
+主播下麦。
 
 >? 下麦成功后，房间内所有成员会收到 `onAnchorLeaveMic` 的事件通知。
 
@@ -430,7 +430,7 @@ void muteLocalAudio(bool mute)
 
 | 参数 | 类型    | 含义                                                         |
 | ---- | ------- | ------------------------------------------------------------ |
-| mute | boolean | 静音/取消静音，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86)。 |
+| mute | bool | 静音/取消静音，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86)。 |
 
 
 ### setSpeaker
@@ -445,7 +445,7 @@ void setSpeaker(bool useSpeaker)
 
 | 参数       | 类型    | 含义                        |
 | ---------- | ------- | --------------------------- |
-| useSpeaker | boolean | true：扬声器；false：听筒。 |
+| useSpeaker | bool | true：扬声器；false：听筒。 |
 
 
 
@@ -491,7 +491,7 @@ void muteRemoteAudio(String userId, bool mute)
 | 参数   | 类型    | 含义                              |
 | ------ | ------- | --------------------------------- |
 | userId | String  | 指定的用户 ID。                   |
-| mute   | boolean | true：开启静音；false：关闭静音。 |
+| mute   | bool | true：开启静音；false：关闭静音。 |
 
 ### muteAllRemoteAudio
 
@@ -505,7 +505,7 @@ void muteAllRemoteAudio(bool mute)
 
 | 参数 | 类型    | 含义                              |
 | ---- | ------- | --------------------------------- |
-| mute | boolean | true：开启静音；false：关闭静音。 |
+| mute | bool | true：开启静音；false：关闭静音。 |
 
 
 ## 背景音乐音效相关接口函数

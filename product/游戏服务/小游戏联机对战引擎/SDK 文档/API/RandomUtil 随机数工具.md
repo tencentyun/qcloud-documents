@@ -1,3 +1,4 @@
+
 MGOBE SDK 内部实现了一个基于“线性同余算法”的随机数生成方法。RandomUtil 对象方法如下：
 
 ### init

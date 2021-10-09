@@ -1,5 +1,5 @@
 ## 接口描述
-**描述**：通过会议 ID 查询会议详情。企业 secert 鉴权用户可查询到任何该用户创建的企业下的会议，OAuth2.0 鉴权用户只能查询到通过 OAuth2.0 鉴权创建的会议。
+**描述**：通过会议 ID 查询会议详情。企业 secret 鉴权用户可查询到任何该用户创建的企业下的会议，OAuth2.0 鉴权用户只能查询到通过 OAuth2.0 鉴权创建的会议。
 **调用方式**：GET
 **接口请求域名**：
 ```plaintext
@@ -43,7 +43,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |hosts   |用户对象数组  |指定主持人列表，仅商业版和企业版可指定主持人。|
 |current_hosts  |用户对象数组  | 会议当前主持人列表。|
 |current_co_hosts  |用户对象数组  | 联席主持人列表。|
-|participants  |用户对象数组 |邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段。 |
+|participants  |用户对象数组 |邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段，最多返回200个邀请者。 |
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。  |
 |settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
@@ -189,9 +189,6 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
                 "watermark_opt":0
             }
         },
-        "meeting_room_info":[
-            {"meeting_room_id":"133195"}
-        ],
         "guests":[
             {
                 "area":"86",
@@ -202,6 +199,7 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
     }  
   ]
 }
+
 
 ```
 #### 输出示例（周期性会议）

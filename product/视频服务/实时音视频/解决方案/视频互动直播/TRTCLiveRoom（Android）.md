@@ -5,8 +5,8 @@ TRTCLiveRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服�
 - 支持发送各种文本消息和自定义消息，自定义消息可用于实现弹幕、点赞和礼物。
 
 TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [视频连麦直播（Android）](https://cloud.tencent.com/document/product/647/43182)。
-- TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时直播组件。
-- IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 AVChatroom 实现直播聊天室的功能，同时，通过 IM 消息串联主播间的连麦流程。
+- TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647/32689) 作为低延时直播组件。
+- IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269/36887) 的 AVChatroom 实现直播聊天室的功能，同时，通过 IM 消息串联主播间的连麦流程。
 
 [](id:TRTCLiveRoom)
 ## TRTCLiveRoom API 概览
@@ -243,7 +243,7 @@ public abstract void setSelfProfile(String userName, String avatarURL, TRTCLiveR
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| name | String | 昵称。 |
+| userName | String | 昵称。 |
 | avatarURL | String | 头像地址。 |
 | callback | ActionCallback | 个人信息设置回调，成功时 code 为0。 |
 
@@ -484,7 +484,7 @@ public abstract void stopPlay(String userId, TRTCLiveRoomCallback.ActionCallback
 
 观众请求连麦。
 ```java
-public abstract void requestJoinAnchor(String reason, TRTCLiveRoomCallback.ActionCallback callback);
+public abstract void requestJoinAnchor(String reason, int timeout, TRTCLiveRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -492,7 +492,8 @@ public abstract void requestJoinAnchor(String reason, TRTCLiveRoomCallback.Actio
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | reason | String | 连麦原因。 |
-| responseCallback | ActionCallback | 主播响应回调。 |
+| timeout | int | 超时时间。 |
+| callback | ActionCallback | 主播响应回调。 |
 
 
 主播和观众的连麦流程如下：
@@ -555,7 +556,7 @@ public abstract void requestRoomPK(int roomId, String userId, TRTCLiveRoomCallba
 |-----|-----|-----|
 | roomId | int | 被邀约房间 ID。 |
 | userId | String | 被邀约主播 ID。 |
-| responseCallback | ActionCallback | 请求跨房 PK 的结果回调。 |
+| callback | ActionCallback | 请求跨房 PK 的结果回调。 |
 
 主播和主播之间可以跨房间 PK，两个正在直播中的主播 A 和 B 之间的跨房 PK 流程如下：
 1. 【主播 A】调用 `requestRoomPK()` 向主播 B 发起连麦请求。
@@ -955,7 +956,7 @@ void onRecvRoomTextMsg(String message, TRTCLiveRoomDef.TRTCLiveUserInfo userInfo
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | message | String | 文本消息。|
-| user | TRTCLiveUserInfo | 发送者用户信息。|
+| userInfo | TRTCLiveUserInfo | 发送者用户信息。|
 
    
 
@@ -972,7 +973,7 @@ void onRecvRoomCustomMsg(String cmd, String message, TRTCLiveRoomDef.TRTCLiveUse
 |-----|-----|-----|
 | command | String | 命令字，由开发者自定义，主要用于区分不同消息类型。|
 | message | String | 文本消息。|
-| user | TRTCLiveUserInfo | 发送者用户信息。 |
+| userInfo | TRTCLiveUserInfo | 发送者用户信息。 |
 
    
 [](id:TRTCAudioEffectManager)

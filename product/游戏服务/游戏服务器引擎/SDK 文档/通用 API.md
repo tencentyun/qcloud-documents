@@ -1,4 +1,5 @@
 
+
 ## 简介
 游戏进程和 GSE 通过 grpc 通信，通信 pb 的协议见 GameServerGrpcSdkService.proto 和 GseGrpcSdkService.proto。
 

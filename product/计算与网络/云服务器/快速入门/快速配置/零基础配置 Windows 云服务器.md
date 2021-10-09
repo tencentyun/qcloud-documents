@@ -2,11 +2,8 @@
 如果您是首次使用云服务器，建议您先选择轻量应用服务器（Lighthouse）来作为云服务器使用的入门途径，详情请参见 [快速配置轻量应用服务器 Windows 实例](https://cloud.tencent.com/document/product/1207/44549)。轻量应用服务器专为云开发者及云计算入门者设计，您可前往 [与云服务器 CVM 对比](https://cloud.tencent.com/document/product/1207/49819) 了解云服务器与轻量应用服务器的区别。
 </dx-alert>
 
-本文主要介绍如何从零开始，以最简单的方式搭建一个 Windows 云服务器。您可按照以下视频及文档，购买和配置您的第一台云服务器。
-
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2027-24330?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
-
-本文是搭建 Windows 云服务器入门教程。若想了解搭建 Linux 云服务器的入门教程，可以参考 <a href="https://cloud.tencent.com/document/product/213/2936" hotrep="document.guide.2764.link1">快速配置 Linux 云服务器</a>。
+本文主要介绍如何从零开始，以最简单的方式搭建一个 Windows 云服务器。您可按照以下文档，购买和配置您的第一台云服务器。
+若想了解搭建 Linux 云服务器的入门教程，可以参考 <a href="https://cloud.tencent.com/document/product/213/2936" hotrep="document.guide.2764.link1">快速配置 Linux 云服务器</a>。
 
 
 ## 步骤1：注册腾讯云账号
@@ -35,8 +32,8 @@
 >! 通过快速配置购买的云服务器，系统将为您自动分配云服务器登录密码并发送到您的站内信中。此密码为登录云服务器的凭据。<div style="background-color:#00A4FF; width: 160px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/message" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.2764.btn3">点此获取初始密码</a></div>
 >
  
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)，在实例列表中找到您刚购买的云服务器，在右侧操作栏中单击【登录】。
-![](https://main.qcloudimg.com/raw/25d5fed7a99dda8a738490b2f89f3044.jpg)
+1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)，在实例列表中找到您刚购买的云服务器，在右侧操作栏中单击**登录**。
+![](https://main.qcloudimg.com/raw/af462e19818656510615a663e6aae536.png)
 2. 参考 [使用标准方式登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/5435)，登录云服务器。
 登录成功后将打开 Windows 云服务器界面，如下图所示：
 ![](https://main.qcloudimg.com/raw/5a524210acd13624af7263b6de3aea54.png)
@@ -50,7 +47,8 @@
 您可以根据需要，按照文档指引进行下一步操作。
 
 ## 出现问题？
-非常抱歉您在使用时出现问题，您可以第一时间通过 <a href="https://console.cloud.tencent.com/workorder/category" hotrep="document.guide.2764.link4">提交工单</a> 联系我们，也可以先参考相关文档进行问题定位和解决。
+非常抱歉您在使用时出现问题，您可以第一时间通过 <a href="https://cloud.tencent.com/online-service?from=doc_213
+" hotrep="document.guide.2764.link4">在线支持</a> 联系我们，也可以先参考相关文档进行问题定位和解决。
 以下是用户在使用云服务器时出现的常见问题，建议您先参考文档进行问题定位和解决。
 - 忘记云服务器登录密码？
 请参考 <a href="https://cloud.tencent.com/document/product/213/16566" hotrep="document.guide.2764.link5">重置实例密码</a>。

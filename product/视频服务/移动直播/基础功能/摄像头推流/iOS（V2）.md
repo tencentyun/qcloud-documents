@@ -71,11 +71,12 @@
 
 [](id:step5)
 ### 5. 启动和结束推流
-如果已经通过`startCamera`接口启动了摄像头预览，就可以调用 V2TXLivePusher 中的 [startPush](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a33b38f236a439e7d848606acb68cc087) 接口开始推流。
+如果已经通过`startCamera`接口启动了摄像头预览，就可以调用 V2TXLivePusher 中的 [startPush](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a33b38f236a439e7d848606acb68cc087) 接口开始推流。推流地址可以使用 [TRTC 地址](https://cloud.tencent.com/document/product/454/7915#.E8.87.AA.E4.B8.BB.E6.8B.BC.E8.A3.85-rtc-.E8.BF.9E.E9.BA.A6.2Fpk-url) ，或者使用 [RTMP 地址](https://cloud.tencent.com/document/product/454/7915#.E8.87.AA.E4.B8.BB.E6.8B.BC.E8.A3.85.E6.8E.A8.E6.B5.81-url) ，前者使用 UDP 协议，推流质量更高，并支持连麦互动。
 ```objectivec 
-//启动推流
-NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp 推流地址
-[_pusher startPush:rtmpUrl];
+//启动推流， URL 可以使用 trtc:// 或者 rtmp:// 两种协议，前者支持连麦功能
+NSString* url = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxxx";  //支持连麦
+NSString* url = @"rtmp://test.com/live/streamid?txSecret=xxxxx&txTime=xxxxxxxx";    //不支持连麦，直接推流到直播 CDN
+[_pusher startPush:url];
 ```
 
 推流结束后，可以调用 V2TXLivePusher 中的 [stopPush](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a7332411d6264bc743b0b2bae0b8a73ae) 接口结束推流。
@@ -83,7 +84,7 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp
 //结束推流
 [_pusher stopPush];
 ```
->! 如果已经启动了摄像头预览，请在结束推流时将其关闭。  
+>! 如果已经启动了摄像头预览，请在结束推流时将其关闭。 
 
 -  **如何获取可用的推流 URL？**
 开通直播服务后，可以使用【直播控制台】>【辅助工具】> [【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
@@ -96,9 +97,11 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp
 如果您的直播场景是纯音频直播，不需要视频画面，那么您可以不执行 [第4步](#step4) 中的操作，或者在调用 `startPush` 之前不调用 `startCamera` 接口即可。
 ```objectivec
 V2TXLivePusher *_pusher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTMP]; 
-NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    
+//启动推流， URL 可以使用 trtc:// 或者 rtmp:// 两种协议，前者支持连麦功能
+NSString* url = @"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxxx";  //支持连麦
+NSString* url = @"rtmp://test.com/live/streamid?txSecret=xxxxx&txTime=xxxxxxxx";    //不支持连麦，直接推流到直播 CDN
+[_pusher startPush:url];
 [_pusher startMicrophone];
-[_pusher startPush:rtmpUrl];
 ```
 >? 如果您启动纯音频推流，但是 RTMP、FLV 、HLS 格式的播放地址拉不到流，那是因为线路配置问题，请 [提工单](https://console.cloud.tencent.com/workorder/category) 联系我们帮忙修改配置。
 
@@ -108,6 +111,7 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";
 
 [](id:step8)
 ### 8. 美颜美白和红润特效
+![](https://main.qcloudimg.com/raw/b0ddfe1f97d73c9fc8e42caf994211b7.jpg)
 调用 V2TXLivePusher 中的 [getBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a4fb05ae6b5face276ace62558731280a) 接口可以获取 TXBeautyManager 实例进一步设置美颜效果。
 
 #### 美颜风格
@@ -139,12 +143,12 @@ SDK 内置三种不同的磨皮算法，每种磨皮算法即对应一种美颜�
 
 [](id:step9)
 ### 9. 色彩滤镜效果
-![](https://main.qcloudimg.com/raw/55b969c713b9d96f496bcab3d72e3850.png)
+![](https://main.qcloudimg.com/raw/eb06687c79243fa3a6befb30ff62e09e.jpg)
 - 调用 V2TXLivePusher 中的 [getBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a4fb05ae6b5face276ace62558731280a) 接口可以获取 TXBeautyManager 实例进一步设置美色彩滤镜效果。
 - 调用 TXBeautyManager 的 `setFilter` 接口可以设置色彩滤镜效果。所谓色彩滤镜，是指一种将整个画面色调进行区域性调整的技术，例如将画面中的淡黄色区域淡化实现肤色亮白的效果，或者将整个画面的色彩调暖让视频的效果更加清新和温和。   
 - 调用 TXBeautyManager 的 `setFilterStrength` 接口可以设定滤镜的浓度，设置的浓度越高，滤镜效果也就越明显。 
 
-从手机 QQ 和 Now 直播的经验来看，单纯通过 TXBeautyManager 的 `setBeautyStyle` 调整美颜风格是不够的，只有将美颜风格和`setFilter`配合使用才能达到更加丰富的美颜效果。所以，我们的设计师团队提供了17种默认的色彩滤镜，并将其默认打包在了 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) 中供您使用。
+从手机 QQ 和 Now 直播的经验来看，单纯通过 TXBeautyManager 的 `setBeautyStyle` 调整美颜风格是不够的，只有将美颜风格和`setFilter`配合使用才能达到更加丰富的美颜效果。所以，我们的设计师团队提供了17种默认的色彩滤镜供您使用。
 ```objectivec
 NSString * path = [[NSBundle mainBundle] pathForResource:@"FilterResource" ofType:@"bundle"];
 path = [path stringByAppendingPathComponent:lookupFileName];
@@ -157,7 +161,7 @@ UIImage *image = [UIImage imageWithContentsOfFile:path];
 [](id:step10)
 ### 10. 设备管理
 V2TXLivePusher 提供了一组 API 用户控制设备的行为，您可通过 `getDeviceManager` 获取 TXDeviceManager 实例进一步进行设备管理，详细用法请参见 [TXDeviceManager API](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXDeviceManager__ios.html#interfaceTXDeviceManager)。
-![](https://main.qcloudimg.com/raw/f071f9c5edf88e61b108a77946669d60.png)
+![](https://main.qcloudimg.com/raw/c4d8e442558891c66f315d4c0799fce3.jpg)
 
 [](id:step11)
 ### 11. 观众端的镜像效果
@@ -178,7 +182,7 @@ V2TXLivePusher 默认推出的是竖屏分辨率的视频画面，如果希望�
 [](id:step13)
 ### 13. 音效设置
 调用 V2TXLivePusher 中的 [getAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXAudioEffectManager__ios.html) 获取 TXAudioEffectManager 实例可以实现背景混音、耳返、混响等音效功能。背景混音是指主播在直播时可以选取一首歌曲伴唱，歌曲会在主播的手机端播放出来，同时也会被混合到音视频流中被观众端听到，所以被称为“混音”。
-![](https://main.qcloudimg.com/raw/eeff5f60fa29d204e501ef2029b922ea.png)
+![](https://main.qcloudimg.com/raw/269e653bc68c73c69feeb6418c513c25.jpg)
 
 - 调用 TXAudioEffectManager 中的 `enableVoiceEarMonitor` 选项可以开启耳返功能，“耳返”指的是当主播带上耳机来唱歌时，耳机中要能实时反馈主播的声音。
 - 调用 TXAudioEffectManager 中的 `setVoiceReverbType` 接口可以设置混响效果，例如 KTV、会堂、磁性、金属等，这些效果也会作用到观众端。

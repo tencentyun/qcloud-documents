@@ -43,20 +43,22 @@
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
+[](id:ui_step4)
 ### 步骤4：运行工程
 使用 Xcode（11.0及以上的版本）打开源码工程 `TUIMeeting/TUIMeetingApp.xcworkspace`，单击【运行】即可开始调试本 App。
 
+[](id:ui_step5)
 ### 步骤5：修改工程源代码
 源码中的 ``Source `` 中包含两个子文件夹 Source 和 model，ui 文件夹中均为界面代码，如下表格列出了各个文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
 
 | 文件或文件夹 | 功能描述 |
 |:-------:|:--------|
+| TRTCMeetingNewViewController.swift | 视频会议创建界面 UI 实现代码，此类为对 Pods 对外暴露的公共类。 |
 | SegmentVC | 设置界面相关 UI 实现代码。 |
-| TRTCBroadcastExtensionLauncher.swift | 录屏弹窗相关 UI 实现代码。 |
-| TRTCMeetingNewViewController.swift | 视频会议创建界面 UI 实现代码。 |
-| TRTCMeetingMainViewController.swift | 视频房间界面 UI 实现代码。 |
-| TRTCMeetingMemberViewController.swift | 成员列表界面 UI 实现代码。 |
-| TRTCMeetingMoreViewController.swift | 设置界面相关 UI 实现代码。 |
+| TRTCBroadcastExtensionLauncher.swift | 录屏弹窗相关 UI 实现代码，此类为 Pods 私有类。 |
+| TRTCMeetingMainViewController.swift | 视频房间界面 UI 实现代码，此类为 Pods 私有类。 |
+| TRTCMeetingMemberViewController.swift | 成员列表界面 UI 实现代码，此类为 Pods 私有类。 |
+| TRTCMeetingMoreViewController.swift | 设置界面相关 UI 实现代码，此类为对 Pods 对外暴露的公共类。 |
 
 
 ## 体验应用
