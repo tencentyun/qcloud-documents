@@ -83,8 +83,8 @@ Container 类型 Segment 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                      | 描述                                   | 类型      | 是否必选 |限制 |
 | ------------------ | :------------------------ | -------------------------------------- | --------- | ---- |---- |
-| Format             | Request.Operation.Segment  | 封装格式                                | string | 是   |aac、mp3、flac、mp4、ts、mkv、avi|
-| Duration           | Request.Operation.Segment  | 分段时长，单位：秒                         | string | 是   |不小于5的整数|
+| Format             | Request.Operation.Segment  | 封装格式                                | String | 是   |aac、mp3、flac、mp4、ts、mkv、avi|
+| Duration           | Request.Operation.Segment  | 分段时长，单位：秒                         | String | 是   |不小于5的整数|
 
 Container 类型 Output 的具体数据描述如下：
 
