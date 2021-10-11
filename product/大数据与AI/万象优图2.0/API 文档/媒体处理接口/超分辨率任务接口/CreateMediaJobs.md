@@ -79,7 +79,7 @@ Container 类型 Operation 的具体数据描述如下：
 | Transcode          | Request.Operation | 指定转码模板参数，不能与 TranscodeTemplateId 同时为空             | Container | 否   |
 | TranscodeTemplateId| Request.Operation | 指定的转码模板 ID,优先使用模板 Id，不能与 Transcode 同时为空         | String  | 否|
 | Watermark          | Request.Operation | 指定水印模板参数，同创建水印模板 CreateMediaTemplate 接口的 Request.Watermark，最多传3个 | Container | 否 |
-| WatermarkTemplateId| Request.Operation | 指定的水印模板 ID，可以传多个水印模板 ID，最多传3个，优先使用模板 id          | String    | 否 |无|
+| WatermarkTemplateId| Request.Operation | 指定的水印模板 ID，可以传多个水印模板 ID，最多传3个，优先使用模板 ID          | String    | 否 |无|
 | Output             | Request.Operation | 结果输出地址                                                 | Container | 是   |
 
 >!优先使用 TemplateId，无 TemplateId 时使用对应任务类型的参数。
@@ -180,7 +180,7 @@ Container 节点 Operation 的内容：
 | Transcode          | Response.JobsDetail.Operation  | 指定转码模板参数，不能与 TranscodeTemplateId 同时为空             | Container | 否   |
 | TranscodeTemplateId| Response.JobsDetail.Operation  | 指定的转码模板 ID，优先使用模板 Id，不能与 Transcode 同时为空         | String  | 否|
 | Watermark           | Response.JobsDetail.Operation | 指定水印模板参数，同创建水印模板 CreateMediaTemplate 接口的 Request.Watermark，最多传3个 | Container | 否 |
-| WatermarkTemplateId | Response.JobsDetail.Operation | 指定的水印模板 ID，可以传多个水印模板 ID，最多传3个，优先使用模板 id          | String    | 否 |无|
+| WatermarkTemplateId | Response.JobsDetail.Operation | 指定的水印模板 ID，可以传多个水印模板 ID，最多传3个，优先使用模板 ID          | String    | 否 |无|
 | Output | Response.JobsDetail.Operation | 文件的输出地址 |  Container |
 | MediaInfo | Response.JobsDetail.Operation | 转码输出视频的信息，没有时不返回 |  Container |
 
