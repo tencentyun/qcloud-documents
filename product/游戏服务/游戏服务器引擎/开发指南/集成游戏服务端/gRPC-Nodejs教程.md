@@ -20,7 +20,7 @@ gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过�
 ## 游戏进程集成流程
 ![](https://main.qcloudimg.com/raw/8b0ed25c273421c8365b77d1faf900c5.png)
 
-#### 服务端接口列表
+#### Game Server 回调接口列表
 
 | 接口名称 | 接口功能|
 |-----|----|
@@ -28,7 +28,7 @@ gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过�
 |[OnStartGameServerSession](https://cloud.tencent.com/document/product/1165/46118)|接收游戏服务器会话|
 |[OnProcessTerminate](https://cloud.tencent.com/document/product/1165/46121)|结束游戏进程|
 
-#### 客户端接口列表
+####  Game Server 主调接口列表
 
 | 接口名称 | 接口功能 |
 |-----|----|
@@ -44,7 +44,7 @@ gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过�
 
 #### 其他
 
- 请求 meta，在游戏进程通过 gRPC 调用客户端接口  时，需要在 gRPC 请求的 meta 里添加两个字段。
+ 请求 meta，在游戏进程通过 gRPC 调用 Game Server 主调接口时，需要在 gRPC 请求的 meta 里添加两个字段。
 
 | 字段      | 含义                                      | 类型   |
 | --------- | ----------------------------------------- | ------ |
