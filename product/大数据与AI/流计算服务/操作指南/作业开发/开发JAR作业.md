@@ -23,7 +23,7 @@
 
 若内置 Connector 无法满足需求，可自行开发自定义 Connector，以同样的方式上传并在此添加引用。自定义 Connector 的开发可参考 [自定义 Connector](https://cloud.tencent.com/document/product/849/48330)。
 
-程序包的上传和版本管理方式请参考 [程序包管理](https://cloud.tencent.com/document/product/849/48295)。
+程序包的上传和版本管理方式请参考 [依赖管理](https://cloud.tencent.com/document/product/849/48295)。
 
 ### 引用外部依赖
 若用户程序需要使用外部依赖文件，可以自行在依赖管理中上传外部依赖后，在作业参数中添加外部依赖，并选择版本。
