@@ -134,36 +134,36 @@ parameters:
 <dx-alert infotype="explain" title="">
 资源对象的 apiVersion 可能因为您集群的 Kubernetes 版本不同而不同，您可通过 `kubectl api-versions` 命令查看当前资源对象的 apiVersion。
 </dx-alert>
-``` yaml
+```yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-   name: web
+  name: web
 spec:
-   serviceName: "nginx"
-   replicas: 3
-   template:
-     metadata:
-       labels:
-         app: nginx
-     spec:
-       terminationGracePeriodSeconds: 10
-       containers:
-       - name: nginx
-         image: nginx
-         ports:
-         - containerPort: 80
-           name: web
-         volumeMounts:
-         - name: www
-           mountPath: /usr/share/nginx/html
-   volumeClaimTemplates:  # 自动创建pvc，进而自动创建pv
-   - metadata:
-       name: www
-     spec:
-       accessModes: [ "ReadWriteOnce" ]
-       storageClassName: cloud-premium
-       resources:
-         requests:
-           storage: 10Gi
+  serviceName: "nginx"
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:  # 自动创建pvc，进而自动创建pv
+  - metadata:
+      name: www
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: cloud-premium
+      resources:
+        requests:
+          storage: 10Gi
 ```
