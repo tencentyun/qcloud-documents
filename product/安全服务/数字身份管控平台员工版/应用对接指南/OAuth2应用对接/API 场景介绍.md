@@ -4,7 +4,7 @@
 
 >!在应用接入前，您需要首先在 [应用管理页面](https://console.cloud.tencent.com/eiam/app-manager) 完成 OAuth2 协议类型应用的新建与配置，获取应用的 Client ID 、 Client Secret 等配置信息。
 ## 前提条件
-已完成 [创建 OAuth2 应用](https://cloud.tencent.com/document/product/1442/55110#.E5.88.9B.E5.BB.BA.E5.BA.94.E7.94.A8)。
+已完成 [创建应用并授权访问](https://cloud.tencent.com/document/product/1442/55110#.E5.88.9B.E5.BB.BA.E5.BA.94.E7.94.A8)。
 
 ## 用户登录
 对于应用实现用户认证的功能，EIAM 提供通过认证门户登录并直接单点登录至应用的能力。基于OAuth2 协议，提供授权码模式、PKCE 模式、简化模式等多种认证授权方式。下面以授权码模式为例展示应用实现用户认证的流程。
