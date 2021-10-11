@@ -1,109 +1,40 @@
 本文为您介绍正版曲库直通车 AME & 实时音视频 TRTC 在线 KTV 解决方案服务开通指引。
 
-## 步骤1：开通直播互动曲库
-完成 [直播曲库服务开通](https://cloud.tencent.com/document/product/1155/61649)。
+## 步骤1：开通直播互动曲库服务
+完成 [直播互动曲库服务开通](https://cloud.tencent.com/document/product/1155/61649)。
 
-## 步骤2：创建实时音视频应用
+## 步骤2：开通实时音视频服务
 
 创建 [实时音视频 TRTC 应用](https://console.cloud.tencent.com/trtc/quickstart)。
 
-## 步骤3：API 联调
+## 步骤3：应用创建
+您可在 [正版曲库直通车控制台](https://console.cloud.tencent.com/ame/recommend) 左导航栏进入直播互动曲库-**应用管理**页面，单击**创建应用**，根据弹窗填空提示，填写相应的信息。
+![](https://main.qcloudimg.com/raw/cbdd069683b39e9641af1a226704293d.png)
+- 应用名称：指接入 App 应用名称。应用名称涉及版权授权，请准确填写，创建后无法再次修改。
+- Android PackageName：指接入应用在安卓应用市场的 PackageName。请准确填写，创建后无法再次修改。
+- iOS BundleID：指接入应用在 iOS 应用市场的 BundleID。请准确填写，创建后无法再次修改。
+- 应用场景：请根据接入应用的具体使用场景如实选择（语聊房/直播/FM）。
+- DAU：请基于接入应用实际情况准确填写。
 
 
-|API 名称 | 描述 | 使用说明 |
-|---------|---------|---------|
-| SearchKTVMusics | 搜索曲目 | [搜索直播互动曲库歌曲](https://cloud.tencent.com/document/product/1155/56401) |
-| DescribeKTVMusicDetail | 查询歌曲详情 | [查询直播互动曲目详情](https://cloud.tencent.com/document/product/1155/56402) |
 
-1. 调用 SearchKTVMusics 搜索目标歌曲，返回的列表包含歌曲的信息及 Id。
-<dx-codeblock>
-:::  HTTP
-// 请求
-POST / HTTP/1.1
-Host: ame.tencentcloudapi.com
-Content-Type: application/json
-X-TC-Action: SearchKTVMusics
-<公共请求参数>
+## 步骤4：API 联调
+### 搜索选曲
+第一步：调用 [搜索直播互动曲库歌曲](https://cloud.tencent.com/document/product/1155/56401) 接口，根据搜索条件返回匹配的歌曲列表。
+第二步：调用 [查询直播互动曲目详情](https://cloud.tencent.com/document/product/1155/56402) 接口，查询歌曲的详细信息。
 
-{
-    "Limit": 10,
-    "KeyWord": "周*伦",
-    "Offset": 0
-}
-
-// 响应
-{
-  "Response": {
-    "TotalCount": 1,
-    "KTVMusicInfoSet": [
-      {
-        "ComposerSet": [
-          "方*山"
-        ],
-        "MusicId": "ame-78dxxx",
-        "SingerSet": [
-          "周*伦"
-        ],
-        "Name": "七里香",
-        "LyricistSet": [
-          "周*伦"
-        ],
-        "TagSet": [
-          "华语",
-          "流行"
-        ]
-      }
-    ],
-    "RequestId": "xx"
-  }
-}
-
-:::
-</dx-codeblock>
-2. 根据上面接口返回的 Id 查询歌曲详情，包含 SDK 中所需要的 PlayToken。
-<dx-codeblock>
-:::  HTTP
-// 请求
-POST / HTTP/1.1
-Host: ame.tencentcloudapi.com
-Content-Type: application/json
-X-TC-Action: DescribeKTVMusicDetail
-<公共请求参数>
-
-{
-    "MusicId": "ame-78d2xxx"
-}
-
-// 响应
-{
-  "Response": {
-    "PlayToken": "DUE3344xxxxxx",
-    "KTVMusicBaseInfo": {
-      "ComposerSet": [
-        "周*伦"
-      ],
-      "MusicId": "ame-78d2xxx",
-      "SingerSet": [
-        "周*伦"
-      ],
-      "Name": "七里香",
-      "LyricistSet": [
-        "方*山"
-      ],
-      "TagSet": [
-        "华语",
-        "流行"
-      ]
-    },
-    "RequestId": "xx"
-  }
-}
-
-:::
-</dx-codeblock>
+### 推荐歌单
+第一步：调用 [获取直播互动曲库推荐歌单列表](https://cloud.tencent.com/document/product/1155/60295) 接口，获取推荐歌单ID及歌单基础信息。
+第二步：调用 [获取直播互动曲库推荐歌单详情](https://cloud.tencent.com/document/product/1155/60296) 接口，获取歌曲ID及歌曲基础信息。
+第三步：调用 [查询直播互动曲目详情](https://cloud.tencent.com/document/product/1155/56402) 接口，获取 SDK 播放所需 PlayToken。
+>?
+>- PlayToken 与歌词获取链接，有效期均为1个小时，过期需重新获取。
+详细信息，您可以点此查看。另外您也可以：
+>- 通过 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer) 进行在线调用、签名验证、SDK 代码生成和快速检索接口等能力。
+>- 通过 [腾讯云命令行工具](https://cloud.tencent.com/document/product/440/6176) 来调用腾讯云 API，管理您的腾讯云资源，基于腾讯云 CLI 来做自动化和脚本处理，从而简化部分复杂 API 的服务。
 
 
-## 步骤4：SDK 接入
+## 步骤5：SDK 接入
 
 ### 集成 SDK
  
@@ -116,7 +47,7 @@ b. 若使用 pod 导入，则需要在 podfile 里添加以下代码。
 ```
 pod 'TXCopyrightedMedia', :podspec => 'https://mediacloud-76607.gzc.vod.tencent-cloud.com/Podspec/TXCopyrightedMedia/1.0.1/TXCopyrightedMedia.podspec'
 ```
-c. [集成 TRTC SDK ]( https://cloud.tencent.com/document/product/647/32173)。
+c. [集成 TRTC SDK](https://cloud.tencent.com/document/product/647/32173)。
 <dx-alert infotype="explain" title="">
 请搭配 professional 或 enterprise 版本的 TRTC SDK 使用。
 </dx-alert>
@@ -611,7 +542,11 @@ void onPlayProcess(int id,long curPtsMS,long durationMs){
 :::
 </dx-codeblock>
 
-## 步骤5：SDK 下载
+## 步骤6：场景实践
+
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 KTV 的能力，包括低延时 K 歌、麦位管理、收发礼物、文字聊天等 TRTC 在 KTV 场景下的相关能力，详情请参见 [在线 K 歌_KTV](https://cloud.tencent.com/document/product/647/59402)。
+
+## SDK 下载
 
 ### Android &iOS AME SDK
 - [Android 1.0.3版本 zip包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCopyrightedMedia/Release/1.0.3/TXCopyRightedMedia-Android-1.0.3.zip)。
@@ -622,8 +557,3 @@ void onPlayProcess(int id,long curPtsMS,long durationMs){
 ### Windows AME SDK
 
 - [AME SDK & TRTC SDK](https://cloud.tencent.com/document/product/647/32689)。
-
-## 步骤6：场景实践
-
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 KTV 的能力，包括低延时 K 歌、麦位管理、收发礼物、文字聊天等 TRTC 在 KTV 场景下的相关能力，详情请参见 [在线 K 歌_KTV](https://cloud.tencent.com/document/product/647/59402)。
-
