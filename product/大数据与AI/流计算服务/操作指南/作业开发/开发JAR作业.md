@@ -25,6 +25,42 @@
 
 程序包的上传和版本管理方式请参考 [程序包管理](https://cloud.tencent.com/document/product/849/48295)。
 
+### 引用外部依赖
+若用户程序需要使用外部依赖文件，可以自行在依赖管理中上传外部依赖后，在作业参数中添加外部依赖，并选择版本。
+外部依赖的上传和版本管理方式请参考 [依赖管理](https://cloud.tencent.com/document/product/849/48295)。
+
+作业参数中指定的外部依赖文件会被放置到 Flink 容器的指定目录下（当前默认路径为 `/var/flink-data/user-depenedncy/`），并且会同时被放置于 classpath 的根目录中。用户可以通过手动指定路径或读取 classpath 的方式获取到外部依赖文件。
+
+下面以 properties 配置文件为例，介绍如何引用并获取配置内容。
+1. 手动指定配置文件路径，获取配置内容
+用户首先需要在作业参数中引用配置文件。
+![](https://main.qcloudimg.com/raw/59a0a39520d1cb256c67994845277dff.jpg)
+随后在主类入参中指定依赖文件的绝对路径（当前默认路径为 `/var/flink-data/user-depenedncy/` + 依赖文件名）。
+![](https://main.qcloudimg.com/raw/93fb1379c6566bd12b77df8f930c5179.jpg)
+之后就可以在 Flink 主类中使用如下的方式获取外部依赖中的配置内容。
+```
+ParameterTool parameterTool = ParameterTool.fromPropertiesFile(args[0]);
+Properties properties = parameterTool.getProperties();
+```
+2. 读取 classpath 中配置文件，获取配置内容
+用户首先需要在作业参数中引用配置文件。
+![](https://main.qcloudimg.com/raw/4e5e528e751ff7744067072537017ae7.jpg)
+随后在程序 Pom 中添加依赖。
+```
+<dependency>
+     <groupId>commons-configuration</groupId>
+     <artifactId>commons-configuration</artifactId>
+     <version>1.6</version>
+</dependency>
+```
+之后就可以用以下代码获取配置内容。
+```
+PropertiesConfiguration pc = new PropertiesConfiguration();
+pc.setEncoding("utf8");
+pc.load("flink-config-1.properties");
+```
+    
+
 ### 内置 Connector
 由系统提供可让用户选择的 Connector。例如，在 JAR 包中使用了来自 Ckafka 的数据流，则必须要在此处选择 Ckafka 相应的 connector。内置 Connector 的使用说明可参考 [上下游开发指南](https://cloud.tencent.com/document/product/849/48263)。
 
