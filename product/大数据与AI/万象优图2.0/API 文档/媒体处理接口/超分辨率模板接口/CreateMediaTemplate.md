@@ -47,8 +47,8 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                        | 类型      | 是否必选 | 限制                           |
 | ------------------ | ------- | ----------------------------------------------------- | --------- | ---- | ---- |
-| Tag                | Request | 模板类型: SuperResolution                              | String    | 是   | 无 |
-| Name               | Request | 模板名称 仅支持中文、英文、数字、_、-和*                 | String    | 是   | 无 |
+| Tag                | Request | 模板类型：SuperResolution                              | String    | 是   | 无 |
+| Name               | Request | 模板名称：仅支持中文、英文、数字、\_、-和\*                 | String    | 是   | 无 |
 | Resolution         | Request | 分辨率选项                                             | String    | 是   | 1. sdtohd：标清到超清<br>2. hdto4k：高清到4K |
 | EnableScaleUp      | Request |   自动缩放开关，默认关闭                                    | String    | 否   | true、false | 
 
@@ -88,7 +88,7 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
-| TemplateId         | Response.Template     | 模板ID                                                      | String    |
+| TemplateId         | Response.Template     | 模板 ID                                                      | String    |
 | Name               | Response.Template     | 模板名称                                                     | String    |
 | BucketId           | Response.Template     | 模板所属存储桶                                                | String    |
 | Category           | Response.Template     | 模板属性，Custom 或者 Official                                | String    |
