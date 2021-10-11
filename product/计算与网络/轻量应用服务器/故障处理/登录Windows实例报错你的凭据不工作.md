@@ -1,5 +1,5 @@
 ## 现象描述
-Windows 操作系统的本地计算机通过远程桌面登录 Windows 轻量应用服务器时，出现如下报错：
+Windows 操作系统的本地计算机通过远程桌面登录 Windows 轻量应用服务器时，提示如下报错信息：
 你的凭据无法工作，之前用于连接到 `XXX.XXX.XXX.XXX` 的凭据无法工作。请输入新凭据。
 ![](https://main.qcloudimg.com/raw/e19f89876a50bf177713bdae8365b0b4.png)
 
@@ -9,7 +9,7 @@ Windows 操作系统的本地计算机通过远程桌面登录 Windows 轻量应
 
 
 <dx-alert infotype="explain" title="">
-- 以 Windows Server 2012 R2 操作系统的轻量应用服务器为例，根据操作系统的版本不同，详细操作步骤略有区别。
+- 本文以 Windows Server 2012 R2 操作系统的轻量应用服务器为例，根据操作系统的版本不同，详细操作步骤略有区别。
 - 请按照以下步骤依次排查，并在每一个步骤执行完后重新登录 Windows 轻量应用服务器以验证问题是否解决，如未生效请继续执行下一步骤。
 </dx-alert>
 
