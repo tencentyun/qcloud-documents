@@ -32,10 +32,10 @@ CREATE TABLE `random_source` (
   ) WITH ( 
   'connector' = 'datagen', 
   'rows-per-second'='10',                  -- 每秒产生的数据条数
-  'fields.f_sequence.kind'='random',       -- 无界随机数
+  'fields.f_sequence.kind'='random',       -- 随机数
   'fields.f_sequence.min'='1',             -- 随机数的最小值
   'fields.f_sequence.max'='10',            -- 随机数的最大值
-  'fields.f_random.kind'='random',         -- 无界随机数
+  'fields.f_random.kind'='random',         -- 随机数
   'fields.f_random.min'='1',               -- 随机数的最小值
   'fields.f_random.max'='100',             -- 随机数的最大值
   'fields.f_random_str.length'='10'        -- 随机字符串的长度
