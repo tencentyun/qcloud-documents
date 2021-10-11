@@ -10,13 +10,14 @@
 ## 步骤3：应用创建
 您可在 [正版曲库直通车控制台](https://console.cloud.tencent.com/ame/recommend) 左导航栏进入直播互动曲库-**应用管理**页面，单击**创建应用**，根据弹窗填空提示，填写相应的信息。
 ![](https://main.qcloudimg.com/raw/cbdd069683b39e9641af1a226704293d.png)
-- 应用名称：指接入 App 应用名称。应用名称涉及版权授权，请准确填写，创建后无法再次修改。
-- Android PackageName：指接入应用在安卓应用市场的 PackageName。请准确填写，创建后无法再次修改。
-- iOS BundleID：指接入应用在 iOS 应用市场的 BundleID。请准确填写，创建后无法再次修改。
-- 应用场景：请根据接入应用的具体使用场景如实选择（语聊房/直播/FM）。
-- DAU：请基于接入应用实际情况准确填写。
 
-
+|名词 | 说明 | 
+|---------|---------|
+| 应用名称 | 指接入 App 应用名称。应用名称涉及版权授权，请准确填写，创建后无法再次修改。 | 
+|Android PackageName|指接入应用在安卓应用市场的 PackageName。请准确填写，创建后无法再次修改。|
+|iOS BundleID|指接入应用在 iOS 应用市场的 BundleID。请准确填写，创建后无法再次修改。|
+|应用场景|请根据接入应用的具体使用场景如实选择（语聊房/直播/FM）。|
+|DAU|请基于接入应用实际情况准确填写。|
 
 ## 步骤4：API 联调
 ### 搜索选曲
@@ -545,15 +546,3 @@ void onPlayProcess(int id,long curPtsMS,long durationMs){
 ## 步骤6：场景实践
 
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 KTV 的能力，包括低延时 K 歌、麦位管理、收发礼物、文字聊天等 TRTC 在 KTV 场景下的相关能力，详情请参见 [在线 K 歌_KTV](https://cloud.tencent.com/document/product/647/59402)。
-
-## SDK 下载
-
-### Android &iOS AME SDK
-- [Android 1.0.3版本 zip包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCopyrightedMedia/Release/1.0.3/TXCopyRightedMedia-Android-1.0.3.zip)。
-- [iOS 1.0.3版本 zip包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCopyrightedMedia/Release/1.0.3/TXCopyrightedMedia-iOS-1.0.3.zip
-)。
-- [iOS podspec接入方式](https://mediacloud-76607.gzc.vod.tencent-cloud.com/Podspec/TXCopyrightedMedia/1.0.3/TXCopyrightedMedia.podspec)。
-
-### Windows AME SDK
-
-- [AME SDK & TRTC SDK](https://cloud.tencent.com/document/product/647/32689)。
