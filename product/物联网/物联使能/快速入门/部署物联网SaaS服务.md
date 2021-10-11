@@ -11,8 +11,7 @@
 
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer) ，选择**公共实例**或您购买的**标准企业实例**。
 2. 单击**项目 ID** 进入项目详情页面，单击**物联使能** > **SaaS 服务**进入 SaaS 列表页面。
-3. 单击**新建 SaaS**，在弹出的配置框中，填写相应信息。
-
+3. 单击**新建 SaaS**，在弹出的配置框中，填写相应信息。<br>
 <img src="https://main.qcloudimg.com/raw/723b6e44a63762ca4accbbc6a0a539ce.png" alt="" style=" zoom: 80%;" />
 
 ### 步骤二：创建 SaaS 托管环境
