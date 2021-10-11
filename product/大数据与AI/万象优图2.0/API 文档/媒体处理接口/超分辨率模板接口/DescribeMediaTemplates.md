@@ -32,7 +32,7 @@ Content-Type: application/xml
 |节点名称（关键字）|父节点     |描述                    |   类型    |   是否必选    |
 |:---           |:--       |:--                    |   :--     |   :--    |
 | tag           | 无        | 模板 Tag：SuperResolution       | String    |是|
-| category      | 无   | Official，Custom，默认值: Custom | String    |是|
+| category      | 无   | Official，Custom，默认值：Custom | String    |是|
 | ids           | 无        | 模板 ID，以,符号分割字符串  | String     |否|
 | name          | 无        | 模板名称前缀              | String     |否|
 | pageNumber    | 无        | 第几页                   | Integer     |否|
