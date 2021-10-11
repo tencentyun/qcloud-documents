@@ -33,7 +33,7 @@
  - 是，执行下一步。
  - 否，将 `cloudbase-init` 的登录身份设置为**本地系统帐户**。
 7. 选择**常规**页签，单击服务状态下的**启动**，手动启动 `cloudbase-init` 服务并观察是否报错。
- - 是，[检查云服务器中安装的安全软件](#CheckSecuritySoftware)。
+ - 是，[检查轻量应用服务器中安装的安全软件](#CheckSecuritySoftware)。
  - 否，执行下一步。
 8. 在操作系统界面，右键单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: -3px 0px;"></img>，在弹出的菜单中选择**运行**。
 9. 在“运行”窗口中输入 **regedit**，并按 **Enter** 打开“注册表编辑器”窗口。
@@ -44,11 +44,11 @@
  - 否，将 LocalScriptsPlugin 的数值数据设置为2。
 11. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: -3px 0px;"></img>，选择**这台电脑**，检查设备和驱动器中是否加载了 CD-驱动器。如下图所示：
 ![](https://main.qcloudimg.com/raw/8c6e8c83acfdfaccbdcfc98597662aaa.png)
- - 是，[检查云服务器中安装的安全软件](#CheckSecuritySoftware)。
+ - 是，[检查轻量应用服务器中安装的安全软件](#CheckSecuritySoftware)。
  - 否，在设备管理器中启动 CD-ROM 驱动器。
 
 
-### 检查云服务器中安装的安全软件[](id:CheckSecuritySoftware)
+### 检查轻量应用服务器中安装的安全软件[](id:CheckSecuritySoftware)
 
 在已安装的安全软件，选择全盘扫描，检查轻量应用服务器有是否漏洞，以及检查 `cloudbase-init` 的核心组件是否被拦截。
 - 如检查出轻量应用服务器有漏洞，请修复。
