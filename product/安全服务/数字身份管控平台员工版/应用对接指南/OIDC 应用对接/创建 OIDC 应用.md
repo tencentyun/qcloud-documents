@@ -1,3 +1,7 @@
+## 操作场景
+本文为您介绍如何创建 OIDC 应用，并对其进行授权。
+
+## 操作步骤
 1. 登录 [数字身份管控平台（员工版）控制台](https://console.cloud.tencent.com/eiam)，在左侧导航栏，单击**应用管理**。
 2. 在应用管理页面，单击**应用协议新建**，选择应用协议模板**OIDC**，单击**下一步：配置参数信息**。
 ![](https://main.qcloudimg.com/raw/d4ebaf4b8371be193b9803f394b7aecd.png)
