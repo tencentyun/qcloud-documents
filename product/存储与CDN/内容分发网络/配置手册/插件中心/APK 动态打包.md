@@ -46,7 +46,8 @@ APK 动态打包插件功能识别终端用户请求 URL 中的特定参数，�
 
 ### 步骤三：等待母包处理完成
 
-在 APK 动态打包功能页，单击**母包状态**查看 CDN 节点对母包的处理进展。 [![img]![](https://main.qcloudimg.com/raw/a9cf41b30661295f593c65cea60a1a4c.png)
+在 APK 动态打包功能页，单击**母包状态**查看 CDN 节点对母包的处理进展。 
+![](https://main.qcloudimg.com/raw/a9cf41b30661295f593c65cea60a1a4c.png)
 
 ### 步骤四：发布动态打包 URL
 
