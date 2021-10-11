@@ -29,14 +29,14 @@ Authorization: <Auth String>
 
 |节点名称（关键字）|父节点|描述|类型|是否必选|
 |:---|:-- |:--|:--|:--|
-|queueId|无|拉取该队列 ID 下的任务。|String|是|
-| tag |无| 任务的 Tag：SuperResolution。 | String |是|
-| orderByTime |无| Desc 或者 Asc。默认为 Desc。 | String |否|
-| nextToken |无| 请求的上下文，用于翻页。上次返回的值。 | String |否|
-| size |无| 拉取的最大任务数。默认为10。最大为100。 | Integer |否|
-| states |无| 拉取该状态的任务，以`,`分割，支持多状态：All、Submitted、Running、Success、Failed、Pause、Cancel。默认为 All。 | String |否|
-| startCreationTime |无| 拉取创建时间大于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z`，示例：2001-01-01T00:00:00+0800。 | String |否|
-| endCreationTime |无| 拉取创建时间小于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z`，示例：2001-01-01T23:59:59+0800。    | String |否|
+|queueId|无|拉取该队列 ID 下的任务|String|是|
+| tag |无| 任务的 Tag：SuperResolution | String |是|
+| orderByTime |无| Desc 或者 Asc。默认为 Desc | String |否|
+| nextToken |无| 请求的上下文，用于翻页。上次返回的值 | String |否|
+| size |无| 拉取的最大任务数。默认为10。最大为100 | Integer |否|
+| states |无| 拉取该状态的任务，以`,`分割，支持多状态：All、Submitted、Running、Success、Failed、Pause、Cancel。默认为 All | String |否|
+| startCreationTime |无| 拉取创建时间大于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z`，示例：2001-01-01T00:00:00+0800 | String |否|
+| endCreationTime |无| 拉取创建时间小于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z`，示例：2001-01-01T23:59:59+0800    | String |否|
 
 ## 响应
 
