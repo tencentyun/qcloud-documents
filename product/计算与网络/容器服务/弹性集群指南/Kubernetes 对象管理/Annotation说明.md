@@ -25,7 +25,7 @@
 	<ul class="params">
 	<li>可填写多个，以<code>,</code>分割。例如 <code>sg-id1,sg-id2</code>。</li>
 	<li>网络策略按安全组顺序生效。</li>
-	<li>请注意单个安全组默认只能关联 2000 个计算实例，如云服务器 CVM 或 弹性容器 Pod，详细请参考<a href="https://cloud.tencent.com/document/product/213/15379#.E5.AE.89.E5.85.A8.E7.BB.84.E7.9B.B8.E5.85.B3.E9.99.90.E5.88.B6" target="_blank">安全组限制</a>。</li>
+	<li>请注意单个安全组默认只能关联 2000 个计算实例，如云服务器 CVM 或 弹性容器 Pod，详细请参考 <a href="https://cloud.tencent.com/document/product/213/15379#.E5.AE.89.E5.85.A8.E7.BB.84.E7.9B.B8.E5.85.B3.E9.99.90.E5.88.B6" target="_blank">安全组限制</a>。</li>
 	</ul>
 </td>
 <td> 否。如不填写，则默认关联工作负载绑定同地域的 <code>default</code> 安全组。<br>如填写，请确保同地域已存在该安全组 ID。</td></tr>
