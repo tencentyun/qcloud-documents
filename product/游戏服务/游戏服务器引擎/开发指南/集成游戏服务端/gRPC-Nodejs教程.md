@@ -2,13 +2,14 @@
 ## 安装 gRPC
 1. 前提条件：安装 Nodejs 版本，不低于 v12.16.0。
 2. 安装 gRPC。
-  
 >?具体流程请您参考 [安装 gRPC Nodejs 的说明](https://github.com/grpc/grpc/tree/master/examples/node)。
 
-## 定义服务
- gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过参数和返回类型来指定可以远程调用的方法。
 
- >?我们提供定义服务的 proto 文件，请您在 [proto 文件](https://cloud.tencent.com/document/product/1165/46111) 里下载使用，无需自己生成。
+## 定义服务
+
+gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过参数和返回类型来指定可以远程调用的方法。
+
+>?我们提供定义服务的 proto 文件，请您在 [proto 文件](https://cloud.tencent.com/document/product/1165/46111) 里下载使用，无需自己生成。
 
 ## 生成 gRPC 代码
 1. 定义好服务后，通过 protocol buffer 编译器 protoc 生成客户端和服务端的代码（任意 gRPC 支持的语言）。 
@@ -250,7 +251,7 @@ function getGseGrpcSdkServiceClient() {
 ## Nodejs DEMO
  1. [单击这里](https://gsegrpcdemo-1301007756.cos.ap-guangzhou.myqcloud.com/nodejs-demo.zip)，您可下载 Nodejs DEMO 代码。
  2. 生成 gRPC 代码。
-Nodejs版本使用 grpc/proto-loader 直接加载pb文件，不需要生成gRPC-nodejs代码。
+Nodejs版本使用 grpc/proto-loader 直接加载 pb 文件，不需要生成 gRPC-nodejs 代码。
  3. 启动服务端，供 GSE 调用。
   - 服务端实现。
 在 nodejs-demo/dynamic_code 目录下的 game_server.js，实现了服务端的三个接口。
