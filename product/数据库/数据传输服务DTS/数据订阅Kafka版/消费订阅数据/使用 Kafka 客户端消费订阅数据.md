@@ -1,5 +1,5 @@
 
-数据订阅 Kafka 版中，您可以直接通过0.11版本及以上的 [Kafka 客户端](http://kafka.apache.org/downloads)进行消费订阅数据，本文为您提供了 Java、Go、Python 语言的客户端消费 Demo。
+数据订阅 Kafka 版中，您可以直接通过0.11版本及以上的 [Kafka 客户端](http://kafka.apache.org/downloads) 进行消费订阅数据，本文为您提供了 Java、Go、Python 语言的客户端消费 Demo。
 
 ## 消费 Demo 下载（云数据库 MySQL、MariaDB）
 参考下表下载数据订阅 Kafka 版客户端消费 Demo 代码：
