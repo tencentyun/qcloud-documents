@@ -16,7 +16,7 @@
 2. 在弹出的**确认证书类型**窗口中，单击**确定**。如下图所示：
 ![](https://main.qcloudimg.com/raw/b97b630532f223b5628e86577fd7f55a.png)
 3. 填写证书申请内容，例如 `qcloud.com`，`cloud.tencent.com`，`demo.test.qlcoud.com`，并单击**下一步**。如下图所示：
-![](https://main.qcloudimg.com/raw/94b5d0af2af5a11d5eb7a0c8f11a54bd.png)
+![](https://main.qcloudimg.com/raw/b7142c496f76d90c0922b918434ee588.png)
  - **算法选择**：勾选所需证书的加密算法。加密算法具体内容可查看 [RSA 加密算法与 ECC 加密算法的区别？](https://cloud.tencent.com/document/product/400/54179)
  - **证书绑定域名**：即绑定证书的域名，请填写单个域名。例如 `tencent.com`、`ssl.tencent.com`。
  - **申请邮箱**：请输入您的邮箱地址。
@@ -27,12 +27,12 @@
 >?如需添加标签，请参考 [管理标签](https://cloud.tencent.com/document/product/651/36480)。
  - **所属项目**：请选择您证书所属项目，方便您通过项目管理您的证书。
 4. 选择域名验证方式，并单击**下一步**。如下图所示：
-![](https://main.qcloudimg.com/raw/9adc3968c25a0745988d015a4c1ed1ca.png)
+![](https://main.qcloudimg.com/raw/c69d7ca9df2d0951e7790abf839f03e1.png)
  - **选择自动添加 DNS**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/54499)。
 >?若申请的域名已成功托管在 [DNS 解析 DNSPod 控制台](https://console.cloud.tencent.com/cns/domains)，可支持自动添加 DNS。
  - **选择 DNS 验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/54500)。
  - **选择文件验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/54501)。
-5. 根据【验证操作】提示，完成域名身份验证即可获取证书。
+5. 根据【验证操作】提示，完成域名身份验证并等待机构签发即可获取证书。
 >?单击**查看域名验证状态**，即可查看当前域名验证的状态。
 >- 验证中：系统正在进行验证检查。
 >- 等待验证：等待添加域名验证操作。
