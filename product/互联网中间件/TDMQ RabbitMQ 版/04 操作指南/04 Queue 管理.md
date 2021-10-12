@@ -2,7 +2,7 @@
 
 队列（Queue）用于存储消息，每个消息都会被投入到一个或多个 Queue 里，Producer 生产消息并最终投递到 Queue 中，Consumer 可以从 Queue 中拉取消息进行消费。
 
-多个 Consumer 可以订阅同一个Queue，这时 Queue 中的消息会被平均分摊给多个 Consumer 进行处理，而不是每个 Consumer 都收到所有的消息并处理。
+多个 Consumer 可以订阅同一个 Queue，这时 Queue 中的消息会被平均分摊给多个 Consumer 进行处理，而不是每个 Consumer 都收到所有的消息并处理。
 
 该任务指导您使用消息队列 TDMQ RabbitMQ 版时在控制台上创建，删除和查询 Queue。
 
@@ -23,9 +23,9 @@
    - Queue 说明：填写 Queue 说明，最多128个字符。
 4. 单击**提交**，完成 Queue 创建。
 
-### 查看Queue详情
+### 查看 Queue 详情
 
-在**Queue**列表，单击 Queue 左边的右三角，可查看该 Queue 的详情。
+在 **Queue** 列表，单击 Queue 左边的右三角，可查看该 Queue 的详情。
 
 您可以看到：
 
