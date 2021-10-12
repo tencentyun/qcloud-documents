@@ -34,7 +34,7 @@
 ![](https://main.qcloudimg.com/raw/5190f97b699f9d0d856aeb0412a9428f.png)
  - **服务访问方式**：选择为**公网LB访问**或**内网LB访问**。
  - **网络模式**：勾选**采用负载均衡直连Pod模式**。
- - **Workload绑定**：选择**引用Workload**，并在弹出窗口中选择 VPC-CNI 模式的后端工作负载。
+ - **Workload绑定**：选择**引用Workload**。
 3. 单击**创建服务**，完成创建。 
 		
 :::
@@ -147,7 +147,7 @@ Kubernetes 集群提供了服务注册的机制，只需要将您的服务以 `M
 ![](https://main.qcloudimg.com/raw/5190f97b699f9d0d856aeb0412a9428f.png)
  - **服务访问方式**：选择为**公网LB访问**或**内网LB访问**。
  - **网络模式**：勾选**采用负载均衡直连Pod模式**。
- - **Workload绑定**：选择**引用Workload**，并在弹出窗口中选择 VPC-CNI 模式的后端工作负载。
+ - **Workload绑定**：选择**引用Workload**。
 3. 单击**创建服务**，完成创建。 
 :::
 ::: YAML\s操作指引

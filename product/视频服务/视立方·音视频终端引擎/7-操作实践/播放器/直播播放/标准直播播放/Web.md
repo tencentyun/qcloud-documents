@@ -323,7 +323,7 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 | preload           | String | 'auto'   | 配置 video 标签的 preload 属性，只有部分浏览器生效[v2.3.0+]。|
 | hlsConfig         | Object | 无       | hls.js 初始化配置项 [v2.3.0+]。|
 | flvConfig         | Object | 无       | flv.js 初始化配置项 [v2.3.1+]。|
-| webrtcConfig      | Object | 无       | webrtc 初始化配置项 [v2.4.1+]。<br>支持通过 streamType 指定拉流类型，默认拉取音视频，可选单独拉取视频或单独拉取音频，streamType 可选属性：<li/>auto：拉取视频流和音频流<li/> video：仅拉取视频流<li/> audio：仅拉取音频流<br> 示例：`webrtcConfig: { streamType: 'video' }`|
+| webrtcConfig      | Object | 无       | WebRTC 初始化配置项 [v2.4.1+]。<br>支持通过 streamType 指定拉流类型，默认拉取音视频，可选单独拉取视频或单独拉取音频，streamType 可选属性：<li/>auto：拉取视频流和音频流<li/> video：仅拉取视频流<li/> audio：仅拉取音频流<br> 示例：`webrtcConfig: { streamType: 'video' }`|
 
 >! 
 >- WebRTC 快直播播放地址支持两种格式，除 `webrtc://domain/AppName/StreamName?txSecret=XXX&txTime=XXX` 以外，还支持 `http://domain/AppName/StreamName.sdp?txSecret=XXX&txTime=XXX` 格式的播放地址，但是需要配置播放域名 CNAME 到 `overseas-webrtc.liveplay.myqcloud.com` 。
