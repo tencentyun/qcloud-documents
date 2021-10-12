@@ -26,7 +26,7 @@
 2. 单击左侧更多功能，将跳转到云呼叫中心详情页。
 ![](https://main.qcloudimg.com/raw/87bb3af158af2244abe4fba93af1e33f.png)
 3. 单击左侧**电话客服**-**IVR 管理**，选择对应的 IVR，单击删除。
-4. ![](https://main.qcloudimg.com/raw/da6bee44a6f58023ffa43e3b8904c5bc.png)
+![](https://main.qcloudimg.com/raw/da6bee44a6f58023ffa43e3b8904c5bc.png)
 
 ## IVR 直接编辑
 1. 登录 [云呼叫中心](https://tccc.qcloud.com/login)，单击页面右下角话务图标，进入云呼叫中心操作台。
