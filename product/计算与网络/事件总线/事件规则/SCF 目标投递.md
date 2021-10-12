@@ -4,12 +4,10 @@
 选择函数模版，事件总线将根据提供的默认模版，为您创建一个目标函数，完成事件投递。目前，提供了 Ckafka 投递与 EIS 投递两个函数模版，您可以在**事件规则** > **事件目标**里进行选择与配置。
 <dx-tabs>
 ::: Ckafka 投递模版
-
 <dx-alert infotype="notice" title="">
 如果您的目标 Ckafka 实例配有用户名密码，请注意填写的信息正确性，否则可能导致事件投递失败。
 </dx-alert>
 ![](https://main.qcloudimg.com/raw/f77022aaed716a7ae67b412dbe59bb3d.png)
-
 :::
 ::: SaaS 投递模版
 ![](https://main.qcloudimg.com/raw/2dfd372c14b4ff16709ee05b9aa5bf1f.png)
@@ -35,7 +33,8 @@
 >! 开启批量投递功能后，事件将以数组形式投递，请注意事件消费端的格式适配。
 <dx-tabs>
 ::: 未开启批量投递事件格式
-```json
+<dx-codeblock>
+:::  json
 {
     "specversion": "1.0.2",
     "id": "13a3f42d-7258-4ada-da6d-023a333b4662",
@@ -49,10 +48,12 @@
             $data_value
          }
 }
-```
+:::
+</dx-codeblock>
 :::
 ::: 开启批量投递数组模式
-```json
+<dx-codeblock>
+:::  json
 {
    "EventList":[
       {
@@ -83,8 +84,8 @@
       }
    ]
 }
-```
-
+:::
+</dx-codeblock>
 :::
 </dx-tabs>
 
