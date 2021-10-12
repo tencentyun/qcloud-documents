@@ -34,9 +34,9 @@ Group 用于标识一类 Consumer，这类 Consumer 通常消费同一类消息�
    - 客户端协议：目前仅支持 TCP 协议
    - 总消息堆积：消息堆积的总数量
    - 消费者类型：ACTIVELY 或 PASSIVELY  
-     ![](https://main.qcloudimg.com/raw/dc75a357f6a3f910cd86c099bde6a4b8.png)
+		![](https://main.qcloudimg.com/raw/00892bd0cb97c04e58d3a2ece8250c98.png)
 3. 单击客户端操作栏的**查看详情**可查看消费者详情。
-   ![](https://main.qcloudimg.com/raw/de8b5d914ce93f5140c59dce9652f820.png)
+	 ![](https://main.qcloudimg.com/raw/df9cd4095541cde9a10f5bc8642ded5f.png)
 
 ### 设置 offset
 
