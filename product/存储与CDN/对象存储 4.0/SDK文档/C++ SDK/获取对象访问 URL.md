@@ -17,7 +17,7 @@ qcloud_cos::CosConfig config("./config.json");
 qcloud_cos::CosAPI cos(config);
 
 std::string bucket_name = "examplebucket-1250000000";
-std::string object_name = "sevenyou";
+std::string object_name = "exampleobject";
 //获取对象https url，region为config.json中配置的地域
 cos.GetObjectUrl(bucket_name, object_name);
 //获取对象http url，region为config.json中配置的地域
@@ -32,7 +32,7 @@ std::string object_url = cos.GetObjectUrl(bucket_name, object_name, true, "ap-sh
 | ------ | ------------- | ------ | -------- |
 | bucket | 存储桶名      | string | 是       |
 | object | 对象名        | string | 是       |
-| https  | 是否使用https | bool   | 否       |
+| https  | 是否使用 https | bool   | 否       |
 | region | 地域名        | string | 否       |
 
 #### 返回结果说明
