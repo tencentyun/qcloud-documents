@@ -1,5 +1,5 @@
 ## 介绍
-Hbase Connector 提供了对 Hbase 集群的读写支持。Oceanus 已经提供了内置的`flink-connector-hbase` Connector 组件。
+HBase Connector 提供了对 HBase 集群的读写支持。Oceanus 已经提供了内置的`flink-connector-hbase` Connector 组件。
 
 ## 使用范围
 仅适用于 hbase-1.4.x。
@@ -68,7 +68,7 @@ INSERT INTO dim_hbase SELECT rowkey, ROW(school_name) FROM random_source;
 | table-name                 | HBase 表名                                                    | 是       | -                                                            |
 | zookeeper.quorum           | HBase 的 zookeeper 地址                                         | 是       | -                                     |
 | zookeeper.znode.parent     | HBase 在 zookeeper 中的根目录                                   | 否       | -                                    |
-| null-string-literal        | HBase 字段类型为字符串时，如果 Flink 字段数据为 null，则将该字段赋值为 null-string-literal，并写入 Hbase | 否       | 默认为 null                                                   |
+| null-string-literal        | HBase 字段类型为字符串时，如果 Flink 字段数据为 null，则将该字段赋值为 null-string-literal，并写入 HBase | 否       | 默认为 null                                                   |
 | sink.buffer-flush.max-size | 写入 HBase 前，内存中缓存的数据量（字节）大小。调大该值有利于提高 HBase 写入性能，但会增加写入延迟和内存使用。**仅作为 Sink 时使用** | 否       | 默认值为2MB，支持字节单位 B、KB、MB 和 GB，不区分大小写。设置为0表示不进行缓存 |
 | sink.buffer-flush.max-rows | 写入 HBase 前，内存中缓存的数据条数。调大该值有利于提高 HBase 写入性能，但会增加写入延迟和内存使用。**仅作为 Sink 时使用** | 否       | 默认值为1000，设置为0表示不进行缓存                          |
 | sink.buffer-flush.interval | 将缓存数据周期性写入到 HBase 的间隔，可以控制写入 HBase 的延迟。**仅作为 Sink 时使用**。 | 否       | 默认值为1秒，支持时间单位 ms、s、min、h 和 d。设置为0表示关闭定期写入 |
@@ -79,7 +79,7 @@ HBase 将所有的数据存为字节数组。读写操作时需要将数据进�
 <table>
   <tr>
     <th><b>Flink SQL 类型</th>
-    <th><b>Hbase 转换</th>
+    <th><b>HBase 转换</th>
   </tr>
   <tr>
     <td>CHAR / VARCHAR / STRING</td>
@@ -148,4 +148,4 @@ HBase 将所有的数据存为字节数组。读写操作时需要将数据进�
 </table>
 
 ## 注意事项
-Hbase connector 一般会使用 DDL 语句中定义的主键，以 upsert 模式工作，与外部系统交换变更日志信息。因此，必须在 HBase 的 rowkey 字段上定义主键（必须声明 rowkey 字段）。如果未声明 PRIMARY KEY 子句，则 HBase 连接器默认将 rowkey 作为主键。
+HBase Connector 一般会使用 DDL 语句中定义的主键，以 upsert 模式工作，与外部系统交换变更日志信息。因此，必须在 HBase 的 rowkey 字段上定义主键（必须声明 rowkey 字段）。如果未声明 PRIMARY KEY 子句，则 HBase 连接器默认将 rowkey 作为主键。
