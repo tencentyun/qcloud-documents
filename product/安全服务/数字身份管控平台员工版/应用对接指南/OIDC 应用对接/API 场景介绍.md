@@ -5,7 +5,7 @@
 已完成 [创建 OIDC 应用](https://cloud.tencent.com/document/product/1442/62512)。
 
 ## 单点登录
-OIDC 应用实现单点登录至应用的具体接入流程。
+对于应用实现用户认证的功能，EIAM 产品提供通过认证门户登录并直接单点登录至应用的能力。基于 OIDC 应用协议，提供授权码模式、PKCE 模式等多种认证授权方式。下面以授权码模式为例展示 OIDC 应用实现用户认证的流程。
 1. 登录 [数字身份管控平台（员工版）控制台](https://console.cloud.tencent.com/eiam/app-manager)，在左侧导航栏，单击**应用管理**。
 2. 在应用管理页面，选择已创建的 OIDC 应用，单击**应用配置**。
 ![](https://main.qcloudimg.com/raw/2e87d32dce333b7b5f85dff4a4788cee.png)
@@ -22,18 +22,11 @@ OIDC 应用实现单点登录至应用的具体接入流程。
 >?二次认证功能在 [安全设置页面](https://console.cloud.tencent.com/eiam/security-setting) 中开启。
 >
 1. 登录 [数字身份管控平台（员工版）控制台](https://console.cloud.tencent.com/eiam/app-manager)，在左侧导航栏，单击**应用管理**。
-2. 调用 [密码模式](https://cloud.tencent.com/document/product/1442/62423)，触发二次认证将会返回`mfa_required`的错误码并返回 `mfa_token`。
+2. 调用 [密码模式](https://cloud.tencent.com/document/product/1442/62423)，触发二次认证将会返回 `mfa_required`的错误码并返回 `mfa_token`。
 3. 调用 [ MFA 认证因子质询](https://cloud.tencent.com/document/product/1442/62436) 接口，输入 `mfa_token`，该接口会发送短信验证码，并返回 oob 码。
 4. 调用 oob 模式的[ 短信验证码模式](https://cloud.tencent.com/document/product/1442/62428)，传入 oob 码和短信验证码，验证通过后返回 id_token、access_token 和 refresh_token。
-5. 应用建立用户的登录态，将id_token、access_token 和 refresh_token 与登录态关联起来，完成登录。
+5. 应用建立用户的登录态，将 id_token、access_token 和 refresh_token 与登录态关联起来，完成登录。
 >?应用系统可自行选择合适的方法建立并保持登录态，例如：Web 应用可以使用 session cookie ，单页应用可以使用 localStorage 或 sessionStorage 。
 
 ## 其他 API
 用户应用系统可调用[获取 OpenID Provider 配置信息接口]()，获取 OIDC 授权服务器的配置信息。
-
-
-
-
-
-
-
