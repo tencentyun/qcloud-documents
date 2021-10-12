@@ -41,7 +41,7 @@
        private static final String ACL_SECRET_KEY = "rop";
        public static void main(String[] args) throws Exception {
    
-           // rocketmq-****|namespace指命名空间的名称，在控制台命名空间页面复制，producerGroup指生产者Group的名称，控制台【Group】页面复制；
+           // rocketmq-****|namespace指命名空间的名称，在控制台命名空间页面复制，producerGroup指生产者Group的名称，控制台 Group 页面复制；
            DefaultMQProducer producer = new DefaultMQProducer("rocketmq-xxxx|namespace", "producerGroup", getAclRPCHook());
            // 集群接入地址，在控制台集群管理页面的集群列表操作栏的接入地址处获取。
            producer.setNamesrvAddr("rocketmq-xxxx.rocketmq.ap-sh.public.tencenttdmq.com:xxxx");
@@ -214,4 +214,4 @@ Topic:topic1 send success, queueId is: 1
     body=Hello world——8
    ```
 4. 登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，在**集群管理** > **Group** 页面，可查看与 Group 连接的客户端列表，单击操作列的**查看详情**，可查看消费者详情。
-   ![](https://main.qcloudimg.com/raw/de8b5d914ce93f5140c59dce9652f820.png)
+	 ![](https://main.qcloudimg.com/raw/7187da67219534d767206553e2a383ab.png)
