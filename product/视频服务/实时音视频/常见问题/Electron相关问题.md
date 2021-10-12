@@ -17,8 +17,19 @@ let win = new BrowserWindow({
 
 [](id:que2)
 ###  vscode terminal 启动 electron demo, 进入房间后白屏
-vscode 需有摄像头权限, 参考 [链接](https://github.com/microsoft/vscode/issues/95062) 进行权限添加。
-![](https://main.qcloudimg.com/raw/7183d6478b6f5463b38a0524d92fb071.png)
+vscode 需有摄像头权限, 可采用如下方式进行权限添加。
+```shell script
+cd ~/Library/Application\ Support/com.apple.TCC/
+cp TCC.db TCC.db.bak
+sqlite3 TCC.db    # sqlite> prompt appears.
+
+# for Mojave, Catalina
+INSERT into access VALUES('kTCCServiceCamera',"com.microsoft.VSCode",0,1,1,NULL,NULL,NULL,'UNUSED',NULL,0,1541440109);
+
+# for BigSur
+INSERT into access VALUES('kTCCServiceCamera',"com.microsoft.VSCode",0,1,1,1,NULL,NULL,NULL,'UNUSED',NULL,0,1541440109);
+
+```
 
 [](id:que3)
 ###  windows 32 系统运行报错， 提示需要 32 位的 trtc_electron_sdk.node
