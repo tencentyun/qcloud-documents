@@ -12,7 +12,7 @@
 
 ## 操作步骤
 
-### 创建Queue
+### 创建 Queue
 
 1. 登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，选择地域后，单击目标集群的 ID 进入集群基本信息页面。
 2. 单击顶部 **Queue** 页签，选择Vhost后，单击**新建**进入创建 Queue 页面。
@@ -38,13 +38,13 @@
 
 在 Queue 列表中，单击目标 Queue 操作列的**查看绑定关系**，可查看与该 Queue 绑定的路由关系。
 
-### 编辑Queue
+### 编辑 Queue
 
 1. 在 Queue 列表中，单击目标 Queue 操作列的**编辑**。
 2. 在弹窗中，对 Queue 信息进行编辑。
 3. 单击**提交**，完成修改。
 
-### 删除Queue
+### 删除 Queue
 
 > !Queue 删除后，该 Queue 下的所有配置将会被清空，且无法恢复。
 
