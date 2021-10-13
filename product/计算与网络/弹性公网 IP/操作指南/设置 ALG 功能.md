@@ -1,6 +1,6 @@
 弹性公网 IP 支持针对 FTP 和 SIP 协议设置 ALG 功能。开启 ALG 功能后，则可对指定协议的应用层数据载荷进行 NAT 穿透。
-
->? 该功能目前处于内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/7a8h6lgesmg)。
+>?该功能目前处于内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/7a8h6lgesmg)。
+>
 
 
 ## 背景信息
@@ -11,13 +11,13 @@ ALG（Application Layer Gateway，应用层网关）是由一个扩增防火墙�
 ## 限制说明
 - 目前仅支持 FTP 和 SIP 协议设置 ALG 功能。
 - 目前仅弹性公网 IP 支持设置 ALG 功能，弹性公网 IPv6 不支持。
-- 有部分集群机型不支持设置 ALG 功能，如需使用，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=660&source=0&data_title=%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91%20EIP&level3_id=662&queue=96&scene_code=16400&step=2)。
+- 有部分集群机型不支持设置 ALG 功能，如需使用，请 [联系我们](https://cloud.tencent.com/document/product/1199/59721)。
 
 
 ## 操作步骤
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
 2. 在“弹性公网 IP”页面左上角选择**地域**。
-3. 在弹性公网 IP 列表中选中目标实例，在右侧“操作”列选择**更多 > 设置 ALG**。
+3. 在弹性公网 IP 列表中选中目标实例，在右侧“操作”列选择**更多** > **设置 ALG**。
 4. 在弹出的“设置 ALG”对话框中，设置针对 FTP、SIP 协议开启或关闭 ALG 功能。
 >? 默认情况下，ALG 处于开启状态。
 5. 设置完成后，单击**确认**。
