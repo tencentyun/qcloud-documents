@@ -25,7 +25,7 @@ AMH 是基于 Linux + Nginx + MySQL + PHP（LNMP）环境运行的虚拟主机�
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的**新建**。
 2. 根据页面提示选择机型，并选择**镜像市场** > **从镜像市场选择**。如下图所示：
 <dx-alert infotype="notice" title="">
- 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
+ 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有**镜像市场**，请选择其他支持镜像市场的地域。
 </dx-alert>
 <img src="https://main.qcloudimg.com/raw/079615fcf41610885b6462a478cab823.png"/>
 3. 在“镜像市场”窗口的搜索框中，输入 AMH 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px"/>。如下图所示：
