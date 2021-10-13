@@ -29,4 +29,4 @@
 >?应用系统可自行选择合适的方法建立并保持登录态，例如：Web 应用可以使用 session cookie ，单页应用可以使用 localStorage 或 sessionStorage 。
 
 ## 其他 API
-用户应用系统可调用[获取 OpenID Provider 配置信息接口]()，获取 OIDC 授权服务器的配置信息。
+用户应用系统可调用 [获取 OpenID Provider 配置信息接口]()，获取 OIDC 授权服务器的配置信息。
