@@ -147,8 +147,8 @@ onStatisticsUpdate(statistics: Object): void;
 | nackCount          | NACK（Negative ACKnowledgement）数                          |
 | firCount           | FIR（Full Intra Request），关键帧重传请求数                 |
 | pliCount           | PLI（Picture Loss Indication），视频帧丢失重传数            |
-| frameEncodeAvgTime | 平均编码时间，单位：ms，Safari / Firefox下不存在            |
-| packetSendDelay    | 数据包发送之前本地缓存的平均时间，单位：ms，Firefox下不存在 |
+| frameEncodeAvgTime | 平均编码时间，单位：ms，Safari / Firefox 下不存在            |
+| packetSendDelay    | 数据包发送之前本地缓存的平均时间，单位：ms，Firefox 下不存在 |
 
 ---
 
