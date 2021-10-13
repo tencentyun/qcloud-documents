@@ -100,6 +100,9 @@ onStatisticsUpdate(statistics: Object): void;
 | TXLIVE_WARNING_MICROPHONE_START_FAILED     | -1002 | 打开麦克风失败             |
 | TXLIVE_WARNING_SCREEN_CAPTURE_START_FAILED | -1003 | 打开屏幕录制失败           |
 | TXLIVE_WARNING_MEDIA_FILE_START_FAILED     | -1004 | 打开本地媒体文件失败       |
+| TXLIVE_WARNING_CAMERA_INTERRUPTED     | -1005 | 摄像头被中断（设备被拔出或者权限被用户取消）       |
+| TXLIVE_WARNING_MICROPHONE_INTERRUPTED     | -1006 | 麦克风被中断（设备被拔出或者权限被用户取消）       |
+| TXLIVE_WARNING_SCREEN_CAPTURE_INTERRUPTED     | -1007 | 屏幕录制被中断（Chrome 浏览器单击自带的 **停止共享按钮**）      |
 
 ---
 
