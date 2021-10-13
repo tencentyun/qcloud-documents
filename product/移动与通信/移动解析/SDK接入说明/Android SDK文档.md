@@ -20,7 +20,7 @@
  - **DES 加密密钥**：SDK中 `dnsKey` 参数，加密方式为 DES 时传入此项。
  - **AES 加密密钥**：SDK中 `dnsKey` 参数，加密方式为 AES 时传入此项。
  - **HTTPS 加密 Token**：SDK中 `token` 参数，加密方式为 HTTPS 时传入此项。
- -  **Android APPID**： [Android 端 SDK](https://cloud.tencent.com/document/product/379/17669) 的 `appkey` 鉴权信息。
+ -  **Android APPID**： [Android 端 SDK](https://cloud.tencent.com/document/product/379/17655) 的 `appkey` 鉴权信息。
 
 ## 接入
 ### 权限配置
