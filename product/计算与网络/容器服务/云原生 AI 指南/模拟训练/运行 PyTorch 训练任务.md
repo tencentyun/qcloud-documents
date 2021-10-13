@@ -1,7 +1,7 @@
 本文为您介绍如何运行 PyTorch 训练任务。
 
 
-## 前置条件
+## 前提条件
 
 - AI 环境中已安装 [PyTorch Operator](https://cloud.tencent.com/document/product/457/62633)。
 - AI 环境中有 GPU 资源。
