@@ -10,7 +10,7 @@ onError(code: number, msg: string, extraInfo: Object): void;
 
 **参数**
 
-- `code`：错误码，请参见 [推流错误码](#errocode) 。
+- `code`：错误码，请参见 [推流错误码](#errocode)。
 - `msg`：错误信息。
 - `extraInfo`：扩展信息，目前未用到。
 
@@ -102,7 +102,7 @@ onStatisticsUpdate(statistics: Object): void;
 | TXLIVE_WARNING_MEDIA_FILE_START_FAILED     | -1004 | 打开本地媒体文件失败       |
 | TXLIVE_WARNING_CAMERA_INTERRUPTED     | -1005 | 摄像头被中断（设备被拔出或者权限被用户取消）       |
 | TXLIVE_WARNING_MICROPHONE_INTERRUPTED     | -1006 | 麦克风被中断（设备被拔出或者权限被用户取消）       |
-| TXLIVE_WARNING_SCREEN_CAPTURE_INTERRUPTED     | -1007 | 屏幕录制被中断（Chrome 浏览器单击自带的 **停止共享按钮**）      |
+| TXLIVE_WARNING_SCREEN_CAPTURE_INTERRUPTED     | -1007 | 屏幕录制被中断（Chrome 浏览器单击自带的停止共享按钮）      |
 
 ---
 
