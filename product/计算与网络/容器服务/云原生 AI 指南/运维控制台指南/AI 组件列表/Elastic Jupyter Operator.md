@@ -1,6 +1,6 @@
 ## 简介
 
-[elastic-jupyter-operator](https://github.com/tkestack/elastic-jupyter-operator) 是 Kubernetes 原生的弹性 Jupyter 即服务。为用户按需提供弹性的 Jupyter Notebook 服务。elastic-jupyter-operator 提供以下特性：
+[elastic-jupyter-operator](https://github.com/tkestack/elastic-jupyter-operator) 是 Kubernetes 原生的弹性 Jupyter 服务。为用户按需提供弹性的 Jupyter Notebook 服务。elastic-jupyter-operator 提供以下特性：
 
 - GPU 空闲时自动释放资源到 Kubernetes 集群。
 - 资源延迟申请，在使用时按需申请对应 CPU/内存/GPU 资源。
@@ -15,9 +15,9 @@
 
 | 参数               | 描述         | 默认值                                                       |
 | ------------------ | ------------ | ------------------------------------------------------------ |
-| image.repository | 镜像所在仓库 | `ccr.ccs.tencentyun.com/kubeflow-oteam/elastic-jupyter-operator` |
-| image.tag        | 镜像的版本   | `"v0.1.1"`                                                   |
-| namespace.name   | 命名空间     | `"enterprise-gateway"`                                       |
+| `image.repository` | 镜像所在仓库 | `ccr.ccs.tencentyun.com/kubeflow-oteam/elastic-jupyter-operator` |
+| `image.tag`        | 镜像的版本   | `"v0.1.1"`                                                   |
+| `namespace.name`   | 命名空间     | `"enterprise-gateway"`                                       |
 
 ## 使用
 
