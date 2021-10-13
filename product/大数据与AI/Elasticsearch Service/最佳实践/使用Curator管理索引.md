@@ -16,7 +16,7 @@ pip install elasticsearch-curator
 >!示例代码会执行删除操作清除您的数据，请谨慎确认上述语句已经在非生产环境中进行了测试。可以增加 ` --dry-run ` 参数进行测试，避免实际删除数据。
 >
 ```
-curator_cli --host 10.0.0.2:9200 --http_auth 'user:passwd' delete_indices --filter_list '[{"filtertype": "pattern", "kind": "prefix", "value": "logstash-"}, {"filtertype": "age", "source": "name", "direction": "older", "timestring": "%Y.%m.%d", "unit": "days", unit_count: 7}]'
+curator_cli --host 10.0.0.2:9200 --http_auth 'user:passwd' delete-indices --filter_list '[{"filtertype": "pattern", "kind": "prefix", "value": "logstash-"}, {"filtertype": "age", "source": "name", "direction": "older", "timestring": "%Y.%m.%d", "unit": "days", unit_count: 7}]'
 ```
 
 ### 以配置文件方式运行
