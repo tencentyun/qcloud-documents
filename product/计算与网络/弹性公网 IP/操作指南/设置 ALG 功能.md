@@ -15,7 +15,7 @@ ALG（Application Layer Gateway，应用层网关）是由一个扩增防火墙�
 <table>
   <tbody>
           <tr>
-			<th>实例类型</th>
+			<th>云服务器实例类型</th>
 			<th>机型</th>
   </tr>
    <tr>
