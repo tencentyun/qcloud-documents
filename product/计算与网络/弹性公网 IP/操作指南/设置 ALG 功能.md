@@ -11,7 +11,43 @@ ALG（Application Layer Gateway，应用层网关）是由一个扩增防火墙�
 ## 限制说明
 - 目前仅支持 FTP 和 SIP 协议设置 ALG 功能。
 - 目前仅弹性公网 IP 支持设置 ALG 功能，弹性公网 IPv6 不支持。
-- 有部分集群机型不支持设置 ALG 功能，如需使用，请 [联系我们](https://cloud.tencent.com/document/product/1199/59721)。
+- 以下部分集群机型不支持设置 ALG 功能，如需使用，请 [联系我们](https://cloud.tencent.com/document/product/1199/59721)。
+<table>
+  <tbody>
+          <tr>
+			<th>实例类型</th>
+			<th>机型</th>
+  </tr>
+   <tr>
+		  <td>标准型</td>
+			<td>标准型 S5</td>
+		</tr>
+   <tr>
+		  <td rowspan="6">黑石物理服务器2.0</td>
+			<td>标准型 BMS4</td>
+		</tr>
+		<tr>
+			<td>高 IO 型 BMI5</td>
+		</tr>
+				<tr>
+			<td>大数据型 BMD3</td>
+		</tr>
+				<tr>
+			<td>大数据型 BMD2</td>
+		</tr>
+				<tr>		<td>GPU 型 BMG5t</td>
+		</tr>
+				<tr>
+			<td>GPU 型 BMG5v</td>
+		</tr>
+		<tr>
+		  <td>高性能计算集群</td>
+			<td>GPU 型 HCCG5v</td>
+		</tr>
+</tbody></table>
+
+
+
 
 
 ## 操作步骤
