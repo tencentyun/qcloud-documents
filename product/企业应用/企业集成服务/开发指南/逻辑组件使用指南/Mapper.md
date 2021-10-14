@@ -11,6 +11,7 @@ RecordSet Mapper 的配置界面包含三部分：
 - 逻辑映射：配置输入和输出字段间的映射关系。
 ![image-mapper-1](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Mapper/image-mapper-1.png)
 
+
 #### 配置输入信息
 默认会自动识别 `msg.payload` 包含的字段以及字段类型进行展示。如果识别的结果不准确，用户也可以主动修改。
 ![image-mapper-2](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Mapper/image-mapper-2.png)
@@ -28,43 +29,6 @@ RecordSet Mapper 的配置界面包含三部分：
 - 使用映射逻辑节点：用户需要新增映射逻辑节点。对于每个映射逻辑节点，一般可以配置多个输入和输出，类似于一个函数的入参和出参。用户可以将 Mapper 组件输入信息中的字段连线到映射逻辑节点的输入，然后经过映射逻辑节点内部处理后，将映射逻辑节点的输出连线到 Mapper 组件输出信息中的字段进行赋值。
 ![image-mapper-5](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Mapper/image-mapper-5.png)
 ![image-mapper-7](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Mapper/image-mapper-7.png)
-
-**映射逻辑节点**
-映射逻辑节点内部可以使用多种查找功能（从状态存储中查找、通过连接器查找、从其他流中查找）以及表达式处理功能。
-<table>
-<thead>
-<tr>
-<th>映射逻辑</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>从状态存储中查找</td>
-<td>可以从 mapState、valueState、tableState 中查找数据，并在节点内部进行处理并输出。</td>
-</tr>
-<tr>
-<td>通过连接器查找</td>
-<td>可以通过各种连接器拉取第三方数据，并在节点内部进行处理并输出。</td>
-</tr>
-<tr>
-<td>从其他流中查找</td>
-<td>可以通过其他流来获取数据，并在节点内部进行处理并输出</td>
-</tr>
-<tr>
-<td>通过表达式配置</td>
-<td>可以通过配置 Dataway 表达式来处理输入，然后输出。</td>
-</tr>
-</tbody></table>
-
-![image-mapper-6](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Mapper/image-mapper-6.png)
-
-如果在节点内部使用查找功能，用户还可以配置三种查找策略，合理使用查找策略可以提高执行效率。  
-
-| 查找策略       | 说明                                                         |
-| -------------- | ------------------------------------------------------------ |
-| 每次都重新查找 | 对于输入的数据中的每一行，都重新执行一次新的查找。如果查找的结果随着输入的每行数据而变化，建议采用该策略。 |
-| 只查找一次     | 无论输入的数据有多少行，都只执行一次查找，后续查找都继续使用第一次查找的结果。如果查找的结果不随着输入数据变化，建议采用该策略。 |
-| 周期性查找     | 可以配置一个查找周期，仅当两次查找的时间间隔超过配置的查找周期时，才会重新执行查找，否则，继续使用上一次查找的结果。如果查找的结果是周期性更新的，建议采用该策略。 |
 
 
 ### 输入 message
@@ -89,27 +53,39 @@ RecordSet Mapper 的配置界面包含三部分：
 
 
 ## 映射逻辑配置说明
-### 从状态存储中查找
+映射逻辑节点内部可以使用多种查找功能（从状态存储中查找、通过连接器查找、从其他流中查找）以及表达式处理功能。
+<dx-tabs>
+::: 从状态存储中查找
 可以配置从 mapState、valueState、tableState 中查找数据，然后在映射节点内部进行处理并输出。下文以 mapState 为例进行说明。
 ![image-mapper-8](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Mapper/image-mapper-8.png)
 ![image-mapper-9](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Mapper/image-mapper-9.png)
-
-### 通过连接器查找
+:::
+::: 通过连接器查找
 支持通过连接器来查找第三方数据，然后在映射节点内部进行处理并输出。
 ![image-mapper-10](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Mapper/image-mapper-10.png)
 ![image-mapper-11](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Mapper/image-mapper-11.png)
-
-### 从其他流中查找
+:::
+::: 从其他流中查找
 支持从其他流来获取数据，然后在映射节点内部进行处理并输出。
 ![image-mapper-12](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Mapper/image-mapper-12.png)
 ![image-mapper-13](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Mapper/image-mapper-13.png)
 ![image-mapper-14](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Mapper/image-mapper-14.png)
-
-
-### 通过表达式配置
+:::
+::: 通过表达式配置
 支持通过表达式来转换数据，即通过 Dataway 表达式来处理输入，然后输出。
 ![image-mapper-15](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Mapper/image-mapper-15.png)
 ![image-mapper-16](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Mapper/image-mapper-16.png)
+:::
+</dx-tabs>
+
+如果在节点内部使用查找功能，用户还可以配置三种查找策略，合理使用查找策略可以提高执行效率。  
+
+| 查找策略       | 说明                                                         |
+| -------------- | ------------------------------------------------------------ |
+| 每次都重新查找 | 对于输入的数据中的每一行，都重新执行一次新的查找。如果查找的结果随着输入的每行数据而变化，建议采用该策略。 |
+| 只查找一次     | 无论输入的数据有多少行，都只执行一次查找，后续查找都继续使用第一次查找的结果。如果查找的结果不随着输入数据变化，建议采用该策略。 |
+| 周期性查找     | 可以配置一个查找周期，仅当两次查找的时间间隔超过配置的查找周期时，才会重新执行查找，否则，继续使用上一次查找的结果。如果查找的结果是周期性更新的，建议采用该策略。 |
+
 
 ## 案例
 针对一个学生表进行转换，示例图如下：
