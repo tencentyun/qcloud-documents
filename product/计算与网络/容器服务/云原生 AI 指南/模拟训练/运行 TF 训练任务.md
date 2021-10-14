@@ -23,7 +23,7 @@
 
 ### 任务提交
 
-1. 准备一个 TFJob 的 [YAML 文件](https://raw.githubusercontent.com/kubeflow/tf-operator/master/examples/v1/dist-mnist/tf_job_mnist.yaml)，定义2个 PS 和4个 Worker。
+1. 准备一个 TFJob 的 YAML 文件，定义2个 PS 和4个 Worker。
 <dx-alert infotype="notice" title="">
 用户需要用上传后的训练镜像地址替换 `<训练镜像>` 所在占位。
 </dx-alert>
