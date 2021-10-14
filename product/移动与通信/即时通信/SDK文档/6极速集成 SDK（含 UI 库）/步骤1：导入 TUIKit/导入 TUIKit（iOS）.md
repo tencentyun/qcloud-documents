@@ -4,55 +4,86 @@
 - iOS 8.0 及以上
 >?更多实操教学视频请参见：[极速集成 TUIKit（iOS）](https://cloud.tencent.com/edu/learning/course-3130-56699)。
 
-## 集成说明
-### CocoaPods 集成（推荐）
+## CocoaPods 集成
 
-TUIKit 支持 CocoaPods 方式和手动集成两种方式。我们推荐使用 CocoaPods 方式集成，以便随时更新至最新版本。
+`TUIKit` 从 5.7.1435 版本开始支持模块化集成，您既可以选择集成包含会话、聊天、关系链等功能的 `TUIKit` 组件，也可以选择单独集成会话、聊天、关系链等模块的 UI 组件。
+
+### 集成 TUIKit 组件
 
 <ol><li>在 Podfile 中增加以下内容。
 
-```
-
-// TUIKit 使用到了第三方静态库，这个设置需要屏蔽
-#use_frameworks!
-
-// TXIMSDK_TUIKit_live_iOS 使用了 *.xcassets 资源文件，需要加上这条语句防止与项目中资源文件冲突。
+```objectivec
+// TXIMSDK_TUIKit_live_iOS  使用了 *.xcassets 资源文件，需要加上这条语句防止与您项目中资源文件冲突。
 install! 'cocoapods', :disable_input_output_paths => true  
 
-// 集成聊天，关系链，群组功能
- pod 'TXIMSDK_TUIKit_iOS'  
- 
-// 集成音视频通话、群直播，直播广场，默认依赖 TXLiteAVSDK_TRTC 音视频库
-pod 'TXIMSDK_TUIKit_live_iOS'	
+// TUICalling 和 TXIMSDK_TUIKit_live_iOS 组件使用到了静态库，需要屏蔽下如下设置
+#use_frameworks!
 
-// 集成音视频通话、群直播，直播广场，默认依赖 TXLiteAVSDK_Professional 音视频库
-// pod 'TXIMSDK_TUIKit_live_iOS_Professional' 
+// 集成会话、聊天，关系链，群组、搜索等功能
+pod 'TXIMSDK_TUIKit_iOS'  
+ 
+// 集成音视频通话功能，默认依赖 TXLiteAVSDK_TRTC 音视频库
+pod 'TUICalling'
+
+// 集成音视频通话功能，默认依赖 TXLiteAVSDK_Professional 音视频库
+// pod 'TUICalling/Professional'
+ 
+// 集成群直播功能，默认依赖 TXLiteAVSDK_TRTC 音视频库
+pod 'TXIMSDK_TUIKit_live_iOS'    
+
+// 集成群直播功能，默认依赖 TXLiteAVSDK_Professional 音视频库
+// pod 'TXIMSDK_TUIKit_live_iOS/Professional' 
 
 ```
->! 1、`TXIMSDK_TUIKit_live_iOS` 版本要和 `TXIMSDK_TUIKit_iOS` 保持一致，否则可能出现逻辑异常。
-2、腾讯云的 [音视频库](https://cloud.tencent.com/document/product/647/32689) 不能同时集成，会有符号冲突，如果您使用了非 [TRTC](https://cloud.tencent.com/document/product/647/32689#TRTC) 版本的音视频库，建议先去掉，然后 pod 集成 `TXIMSDK_TUIKit_iOS_Professional` 版本，该版本依赖的 [LiteAV_Professional](https://cloud.tencent.com/document/product/647/32689#.E4.B8.93.E4.B8.9A.E7.89.88.EF.BC.88professional.EF.BC.89) 音视频库包含了音视频的所有基础能力。
+>! 1、腾讯云的 [音视频库](https://cloud.tencent.com/document/product/647/32689) 不能同时集成，会有符号冲突，如果您使用了非 [TRTC](https://cloud.tencent.com/document/product/647/32689#TRTC) 版本的音视频库，建议 pod 集成 `TUICalling/Professional` 和 `TXIMSDK_TUIKit_live_iOS/Professional` 版本，该版本依赖的 [LiteAV_Professional](https://cloud.tencent.com/document/product/647/32689#.E4.B8.93.E4.B8.9A.E7.89.88.EF.BC.88professional.EF.BC.89) 音视频库包含了音视频的所有基础能力。
+>2、如果您不需要音视频通话或群直播功能，可以选择在 Podfile 文件里屏蔽  `TUICalling` 或则 `TXIMSDK_TUIKit_live_iOS` 的 pod 依赖，也可以通过 [TUIBaseChatViewController.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/UI/Chat/TUIBaseChatViewController.h) 里的 `isEnableVideoCall`、`isEnableAudioCall`、`isEnableLive` 参数屏蔽对应功能。
+>3、如果您不需要搜索功能，可以通过 [TUIConversationListController.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIConversation/UI/TUIConversationListController.h) 里的 `isEnableSearch` 参数屏蔽对应功能。
 
 <li> 执行以下命令，安装 TUIKit。<br>
 
 ```bash
 pod install
 ```
- 如果无法安装 SDK 最新版本，执行以下命令更新本地的 CocoaPods 仓库列表。<br>
+ 如果无法安装 TUIKit 最新版本，执行以下命令更新本地的 CocoaPods 仓库列表。<br>
  
 ```bash
  pod repo update
 ```
 </ol></li>
 
-### 手动集成（不推荐）
+###  模块化集成 UI 组件
+<ol><li>在 Podfile 中增加以下内容。
+```objectivec
+// 集成聊天功能
+pod 'TUIChat'
+// 集成会话功能
+pod 'TUIConversation'
+// 集成关系链功能
+pod 'TUIContact'
+// 集成群组功能
+pod 'TUIGroup'
+// 集成搜索功能
+pod 'TUISearch'
+// 集成音视频通话
+pod 'TUICalling'
+// TUICalling 使用到了第三方静态库，这个设置需要屏蔽
+#use_frameworks!   
+```
 
-1. 在 Framework Search Path 中加上 ImSDK 的文件路径，手动地将 TUIKit 和 ImSDK 目录添加到您的工程。
-2. 手动将 TUIKit 使用的第三方库添加到您的工程：
- - [MMLayout - Tag : 0.2.0](https://github.com/annidy/MMLayout)
- - [SDWebImage - Tag : 5.9.0](https://github.com/SDWebImage/SDWebImage/tree/5.9.0)
- - [ReactiveObjC - Tag  : 3.1.1](https://github.com/ReactiveCocoa/ReactiveObjC.git)
- - [Toast - Tag  : 4.0.0](https://github.com/scalessec/Toast)
- - [TXLiteAVSDK_TRTC](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK)
+>! 如果您选择了模块化集成 UI 组件，您需要主动调用 [TUILogin.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUICore/TUILogin.h) 的 `initWithSdkAppID` 和 `login` 接口初始化和登录 `IMSDK`，详情请参考 [TUIKit.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIKit/TUIKit.m) 代码实现。
+
+<li> 执行以下命令，安装 UI 组件。<br>
+
+```bash
+pod install
+```
+ 如果无法安装 UI 组件最新版本，执行以下命令更新本地的 CocoaPods 仓库列表。<br>
+ 
+```bash
+ pod repo update
+```
+</ol></li>
+
 
 ## 引用 TUIKit
 
@@ -62,7 +93,7 @@ pod install
 #import "TUIKit.h"
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	[[TUIKit sharedInstance] setupWithAppId:sdkAppid]; // SDKAppID 可以在 即时通信 IM 控制台中获取
+    [[TUIKit sharedInstance] setupWithAppId:sdkAppid]; // SDKAppID 可以在 即时通信 IM 控制台中获取
 }
 ```
 </li>

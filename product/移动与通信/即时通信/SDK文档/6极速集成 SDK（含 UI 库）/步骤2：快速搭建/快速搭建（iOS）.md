@@ -1,4 +1,4 @@
-﻿
+
 常用的聊天软件都是由聊天窗口、会话列表等几个基本的界面组成。TUIKit 提供一套基本的 UI 实现，简化 IM SDK 的集成过程，只需几行代码即可在项目中使用 IM SDK 提供通信功能。
 >?更多实操教学视频请参见：[极速集成 TUIKit（iOS）](https://cloud.tencent.com/edu/learning/course-3130-56699)。
 
@@ -8,10 +8,9 @@
 
 
 ```objectivec
-// 设置会话监听
-[[TUIKitListenerManager sharedInstance] addConversationListControllerListener:self];
 // 创建会话列表
 TUIConversationListController *vc = [[TUIConversationListController alloc] init];
+conv.delegate = self;
 [self.navigationController pushViewController:vc animated:YES];
 
 
@@ -27,13 +26,16 @@ TUIConversationListController *vc = [[TUIConversationListController alloc] init]
 初始化聊天界面时，上层需要传入当前聊天界面对应的会话信息，示例代码如下：
 
 ```objectivec
-TUIConversationCellData *data = [[TUIConversationCellData alloc] init];
-data.groupID = @"groupID";  // 如果是群会话，传入对应的群 ID
+TUIChatConversationModel *data = [[TUIChatConversationModel alloc] init];
 data.userID = @"userID";    // 如果是单聊会话，传入对方用户 ID
-TUIChatController *vc = [[TUIChatController alloc] initWithConversation:data];
+//data.groupID = @"groupID";  // 如果是群会话，传入对应的群 ID
+TUIC2CChatViewController *vc = [[TUIC2CChatViewController alloc] init];  // c2c 会话
+//TUIGroupChatViewController *vc = [[TUIGroupChatViewController alloc] init];  // 群组会话
+[vc setDelegate:self];
+[vc setConversationData:data];
 [self.navigationController pushViewController:vc animated:YES];
 ```
-TUIChatController 会自动拉取该用户的历史消息并展示出来。
+`TUIC2CChatViewController` 会自动拉取该用户的历史消息并展示出来。
 
 
 

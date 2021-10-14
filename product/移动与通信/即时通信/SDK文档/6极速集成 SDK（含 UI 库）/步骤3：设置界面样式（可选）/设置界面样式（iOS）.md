@@ -1,4 +1,4 @@
-本文介绍如何设置样式（iOS）
+﻿本文介绍如何设置样式（iOS）
 >?更多实操教学视频请参见：[设置样式（iOS）](https://cloud.tencent.com/edu/learning/course-3130-56989)。
 
 ## 修改头像
@@ -9,7 +9,7 @@ TUIKit 的界面在显示用户时，会从用户资料中读取头像地址并
 
 您可以自定义默认头像的图片。
 ```objectivec
-TUIKitConfig *config = [TUIKitConfig defaultConfig]; 
+TUIConfig *config = [TUIConfig defaultConfig]; 
 // 修改默认头像
 config.defaultAvatarImage = [UIImage imageNamed:@"Your Image"];
 // 修改默认群组头像
@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger, TUIKitAvatarType) {
 您可以自定义修改修改头像类型，方式与修改默认头像图片类似。示例代码如下：
 
 ```objectivec
-TUIKitConfig *config = [TUIKitConfig defaultConfig]; 
+TUIConfig *config = [TUIConfig defaultConfig]; 
 // 修改头像类型为圆角矩形，圆角大小为5
 config.avatarType = TAvatarTypeRadiusCorner;
 config.avatarCornerRadius = 5.f;
@@ -46,7 +46,7 @@ config.avatarCornerRadius = 5.f;
 
 ### 设置聊天窗口背景
 ```objectivec
-TUIChatController *vc = ...; // 获取聊天窗口对象
+TUIC2CChatViewController *vc = ...; // 获取 C2C 聊天窗口对象
 vc.messageController.view.backgroundColor = [UIColor greenColor];
 ```
 
@@ -115,23 +115,6 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 [TUIMessageCellData setIncommingNameColor:[UIColor redColor]];
 ```
 
-
-## 配置更多菜单
-
-单击输入框的“+”按钮，可打开更多面板，默认情况下，更多面板中有4个可选项。通过 TUIChatController 的 moreMenus 属性可以配置更多菜单。
-本文以删除文件菜单为例，示例代码如下：
-
-```objectivec
-TUIChatController *vc = [[TUIChatController alloc] initWithConversation:conv];
-NSMutableArray *array = [NSMutableArray arrayWithArray:vc.moreMenus]; 
-[array removeLastObject]; // 删除最后一个菜单
-vc.moreMenus = array; // 重新设置属性，立即生效
-```
-显示效果如下图所示：
-![](https://main.qcloudimg.com/raw/ddf5937ae221699f30dea212303901f2.jpg)
-
-当用户单击菜单中的按钮时，TUIChatController 会通过回调事件通知上层。
->?用户单击默认菜单时，也会有回调通知，您可以不作处理。
 
 
 
