@@ -57,7 +57,7 @@ CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 
 2. 在本地计算机中使用远程登录工具（如 WinSCP），通过用户名密码方式或者 SSH 密钥对方式登录轻量应用服务器。详情请参见 [远程登录Linux实例](https://cloud.tencent.com/document/product/1207/44578)。
 3. 将已获取到的 `1_cloud.tencent.com_bundle.crt` 证书文件和 `2_cloud.tencent.com.key` 私钥文件从本地目录拷贝到轻量应用服务器 Nginx 默认配置文件目录中。
 <dx-alert infotype="explain" title="">
-WordPress 镜像的默认配置文件目录为 `/www/server/nginx/conf` 。您可以在轻量应用服务器实例详情页的**应用管理**页面中查看 Nginx 软件的主安装目录，在主安装目录下的 `./conf/` 即为 Nginx 默认配置文件目录。
+WordPress 镜像的默认配置文件目录为 `/www/server/nginx/conf`。
 </dx-alert>
 4. [](id:Step4)对于 WordPress 镜像创建的实例则执行以下命令，编辑 Nginx 默认配置文件目录中的 `nginx.conf` 文件。
 ```
