@@ -1,5 +1,3 @@
-
-
 ## 简介
 RecordSet Filter 组件用于操作 RecordSet，可以对输入的 RecordSet 进行过滤，并生成一个新的 RecordSet。  
 
