@@ -15,7 +15,6 @@ Crypto 连接器提供常用的对称、非对称和 pgp 加解密功能。
 | 密钥填充模式 | eunm     | PBKDF2、NO_PADDING、ZERO_PADDING | 是           | PBKDF2     |
 
 **PBKDF2 模式**
-密钥填充模式选择“PBKDF2”时，配置如下：
 
 | 参数           | 数据类型 | 描述                                 | **是否必填** | **默认值** |
 | :------------- | -------- | ------------------------------------ | ------------ | ---------- |
@@ -24,27 +23,19 @@ Crypto 连接器提供常用的对称、非对称和 pgp 加解密功能。
 | PBKDF2 迭代次数 | int      | PBKDF2 迭代次数                       | 是           | 0          |
 | 口令           | string   | 密码                                 | 是           |        -    |
 
-![pbe配置](https://main.qcloudimg.com/raw/62ef284c5dc8f9ad879cc6f145959574/pbe_config.png)
-
-**NO_PADDING、ZERO_PADDING 模式**
-密钥填充模式选择“NO_PADDING 或 ZERO_PADDING”时，配置如下：
+**NO_PADDING 或 ZERO_PADDING 模式**
 
 | 参数 | 数据类型 | 描述     | **是否必填** | **默认值** |
 | :--- | -------- | -------- | ------------ | ---------- |
 | 密钥 | string   | 加密密钥 | 是           |    -        |
 
-![pbe配置](https://main.qcloudimg.com/raw/86927ad95c85c26b967ba56ec63129e8/pbe_nopadding.png)
-
-
-### PGP加密配置
+### PGP 加密配置
 
 | 参数        | 数据类型 | 描述             | **是否必填** | **默认值** |
 | :---------- | -------- | ---------------- | ------------ | ---------- |
 | PGP 私钥证书 | string   | PGP 私钥文件      | 是           |       -     |
 | PGP 公钥证书 | string   | PGP 公钥证书      | 是           | -           |
 | PGP 钥匙串   | map      | 指纹和密码对信息 | 是           |    -        |
-
-![pgp配置](https://main.qcloudimg.com/raw/fdd8e8b1f8dfc1e4b8c7a7106665c571/pgp_config.png)
 
 ### 非对称加密配置
 
@@ -53,7 +44,6 @@ Crypto 连接器提供常用的对称、非对称和 pgp 加解密功能。
 | 私钥证书 | string   | 私钥文件 | 是           |      -      |
 | 公钥证书 | string   | 公钥证书 | 是           |       -     |
 
-![ae配置](https://main.qcloudimg.com/raw/6c5eb02f8e2e7df1b803f46cf07fb870/ae_config.png)
 
 
 ## 操作说明
@@ -185,11 +175,10 @@ def dw_process(msg):
 | :----------- | -------- | ---------------------------------------- | ------------ | ----------------- |
 | 加密算法     | enum     | RSA                                      | 是           | RSA               |
 | 内容         | entity   | 待解密内容                               | 是           |        -           |
-| 内容填充模式 | enum     | RSA_PKCS1_PADDING/RSA_PKCS1_OAEP_PADDING | 是           | RSA_PKCS1_PADDING |
+| 内容填充模式 | enum     | RSA_PKCS1_PADDING、RSA_PKCS1_OAEP_PADDING | 是           | RSA_PKCS1_PADDING |
 
 
 **RSA_PKCS1_OAEP_PADDING 模式**
-内容填充模式选择“RSA_PKCS1_OAEP_PADDING”时，配置如下：
 
 | 参数         | 数据类型 | 描述                                 | **是否必填** | **默认值** |
 | :----------- | -------- | ------------------------------------ | ------------ | ---------- |
