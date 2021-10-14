@@ -9,11 +9,11 @@
 1. 登录 [数字身份管控平台（员工版）控制台](https://console.cloud.tencent.com/eiam/app-manager)，在左侧导航栏，单击**应用管理**。
 2. 在应用管理页面，选择已创建的 OIDC 应用，单击**应用配置**。
 ![](https://main.qcloudimg.com/raw/2e87d32dce333b7b5f85dff4a4788cee.png)
-3. 在应用信息页面，获取 Authorize URL，此 URL 为用户在应用系统登录时，应用将用户重定向的认证地址，详情请参见 [授权码模式]()。
+3. 在应用信息页面，获取 Authorize URL，此 URL 为用户在应用系统登录时，应用将用户重定向的认证地址，详情请参见 [授权码模式](https://cloud.tencent.com/document/product/1442/62552)。
 ![](https://main.qcloudimg.com/raw/7c079dfb2523a11f351c7d9dbed45862.png)
 4. 首次访问会跳转到登录页面进行用户身份认证，输入账号密码后单击**登录**，认证通过后重定向到指定地址(redirect_uri)，并在URL 中携带 code 参数。
 ![](https://main.qcloudimg.com/raw/3bb227d96f6a0d2e38e822d155aa182d.png)
-5. 使用应用回调地址，接收到回调请求后，可以通过调用 [获取 Token ]()接口，来获取 id_token、access_token 和 refresh_token。
+5. 使用应用回调地址，接收到回调请求后，可以通过调用 [获取 Token ](https://cloud.tencent.com/document/product/1442/62552)接口，来获取 id_token、access_token 和 refresh_token。
 7. 应用建立用户的登录态，将 id_token、access_token 和 refresh_token 与登录态关联起来，完成登录。
 >?应用系统可自行选择合适的方法建立并保持登录态，例如：Web 应用可以使用 session cookie ，单页应用可以使用 localStorage 或 sessionStorage 。
 
