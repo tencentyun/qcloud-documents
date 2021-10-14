@@ -174,7 +174,7 @@ CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
 ```
 数据库和表都支持本地和分布式两种，分布式方式的创建有以下两种方法：
 - 在每台 clickhouse-server 所在机器上都执行创建语句。
-- 在集群的任意一个机器上使用 ON CLUSTER 子句创建库表，当命令执行成功时即创建分布式库表成功。
+- 在集群的任意一个机器上使用 ON CLUSTER 语句创建库表，命令执行成功时当前 V-cluster 的各节点库表均创建成功。
 
 当使用 clickhouse-client 进行查询时，若在 A 机上查询 B 机的本地表则会报错“Table xxx doesn't exist..”。若希望集群内的所有机器都能查询某张表，推荐使用分布式表。
 
