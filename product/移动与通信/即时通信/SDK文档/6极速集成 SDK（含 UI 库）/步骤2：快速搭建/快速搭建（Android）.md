@@ -1,4 +1,3 @@
-
 常用的聊天软件都是由聊天窗口、会话列表等几个基本的界面组成。TUIKit 提供一套基本的 UI 实现，简化 IM SDK 的集成过程，只需几行代码即可在项目中使用 IM SDK 提供通信功能。
 
 ## 初始化
@@ -59,7 +58,7 @@ TUIKit.login(userId, userSig, new V2TIMCallback() {
 	
 </table>
 
-### 步骤1：设置 `MainActivity` 的布局
+### 步骤1：设置 MainActivity 的布局
 在 `activity_main.xml` 中添加以下代码：
 
 ```xml
@@ -75,7 +74,7 @@ TUIKit.login(userId, userSig, new V2TIMCallback() {
     android:layout_weight = "1"/>
 </LinearLayout>
 ```
-### 步骤2：创建 `FragmentAdapter.java` 文件
+### 步骤2：创建 FragmentAdapter.java 文件
 `FragmentAdapter.java` 用来配合 `ViewPager2` 展示会话和联系人界面。
 ```java
 import androidx.annotation.NonNull;
@@ -124,7 +123,7 @@ public class FragmentAdapter extends FragmentStateAdapter {
     }
 }
 ```
-### 步骤3：在 `MainActivity.java` 中创建 `TUIConversationFragment` 和 `TUIContactFragment`
+### 步骤3：在 MainActivity.java 中创建 TUIConversationFragment 和 TUIContactFragment
 在 `MainActivity.java` 的 `onCreate` 方法中添加：
 
 ```java
