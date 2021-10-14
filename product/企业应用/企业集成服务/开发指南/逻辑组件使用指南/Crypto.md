@@ -1,15 +1,16 @@
 ## 简介
-Crypto 连接器提供常用的对称、非对称和 pgp 加解密功能。
+Crypto 连接器提供常用的对称、非对称和 PGP 加解密功能。
 
 ## 配置
-**配置参数**
+### 配置参数
 
 | 参数     | 数据类型 | 描述                            | **是否必填** | **默认值** |
 | :------- | -------- | ------------------------------- | ------------ | ---------- |
 | 加密方式 | enum     | 对称加密、非对称加密、PGP 混合加密 | 是           |   -         |
 
-### 对称加密配置
-
+### 加密方式配置
+<dx-tabs>
+::: 对称加密配置
 | 参数         | 数据类型 | 描述                           | **是否必填** | **默认值** |
 | :----------- | -------- | ------------------------------ | ------------ | ---------- |
 | 密钥填充模式 | eunm     | PBKDF2、NO_PADDING、ZERO_PADDING | 是           | PBKDF2     |
@@ -29,27 +30,31 @@ Crypto 连接器提供常用的对称、非对称和 pgp 加解密功能。
 | :--- | -------- | -------- | ------------ | ---------- |
 | 密钥 | string   | 加密密钥 | 是           |    -        |
 
-### PGP 加密配置
-
+:::
+::: PGP 加密配置
 | 参数        | 数据类型 | 描述             | **是否必填** | **默认值** |
 | :---------- | -------- | ---------------- | ------------ | ---------- |
 | PGP 私钥证书 | string   | PGP 私钥文件      | 是           |       -     |
 | PGP 公钥证书 | string   | PGP 公钥证书      | 是           | -           |
 | PGP 钥匙串   | map      | 指纹和密码对信息 | 是           |    -        |
-
-### 非对称加密配置
-
+:::
+::: 非对称加密配置
 | 参数     | 数据类型 | 描述     | **是否必填** | **默认值** |
 | :------- | -------- | -------- | ------------ | ---------- |
 | 私钥证书 | string   | 私钥文件 | 是           |      -      |
 | 公钥证书 | string   | 公钥证书 | 是           |       -     |
+:::
+</dx-tabs>
+
+
 
 
 
 ## 操作说明
 Crypto 组件目前支持对称加密、对称解密、非对称加密、非对称解密、PGP 加密、PGP 解密、PGP 签名、PGP 验签等操作。
 
-### 对称加密
+<dx-tabs>
+::: 对称加密
 #### 参数配置
 
 | 参数         | 数据类型 | 描述                                                | **是否必填** | **默认值**    |
@@ -86,7 +91,8 @@ def dw_process(msg):
 3. 执行成功后，message payload 中包含了加密后的二进制内容：
 ![image-20210521114703633](https://main.qcloudimg.com/raw/84a3272f1c8e9b00ac70278e04038bf3.jpg)
 
-### 对称解密
+:::
+::: 对称解密
 #### 参数配置
 
 | 参数         | 数据类型 | 描述                                                | **是否必填** | **默认值**    |
@@ -121,8 +127,8 @@ def dw_process(msg):
 ![image-20210521115044004](https://main.qcloudimg.com/raw/1dfd01e8fba28bdaf51f37be8ef19dca/pbe_encrypt.png)
 3. 执行成功后，message payload 中包含了解密后的二进制内容：
 ![image-20210521114703633](https://main.qcloudimg.com/raw/a8c57a08eb3cdb79a7a3e05a21bd685e.jpg)
-
-### 非对称加密
+:::
+::: 非对称加密
 #### 参数配置
 
 | 参数         | 数据类型 | 描述                                     | **是否必填** | **默认值**        |
@@ -167,8 +173,8 @@ def dw_process(msg):
 ![image-20210521115044004](https://main.qcloudimg.com/raw/096d43d9e95d17c65a7cc03d91ca80d7.jpg)
 3. 执行成功后，message payload 中包含了加密后的二进制内容：
 ![image-20210521114703633](https://main.qcloudimg.com/raw/7bff19c3c65e48807485e387055b70c6.jpg)
-
-### 非对称解密
+:::
+::: 非对称解密
 #### 参数配置
 
 | 参数         | 数据类型 | 描述                                     | **是否必填** | **默认值**        |
@@ -214,8 +220,8 @@ def dw_process(msg):
 ![image-20210521115044004](https://main.qcloudimg.com/raw/096d43d9e95d17c65a7cc03d91ca80d7.jpg)
 3. 执行成功后，message payload中包含了解密后的二进制内容：
 ![image-20210521114703633](https://main.qcloudimg.com/raw/5370e7abc9908663b7b531fdb5fa1813.jpg)
-
-### PGP 加密
+:::
+::: PGP 加密
 #### 参数配置
 
 | 参数     | 数据类型 | 描述                               | **是否必填** | **默认值** |
@@ -250,8 +256,8 @@ def dw_process(msg):
 ![image-20210521115044004](https://main.qcloudimg.com/raw/e7e15db73a35a435ee2825d9b7117b5c.jpg)
 3. 执行成功后，message payload 中包含了加密后的二进制内容：
 ![image-20210521114703633](https://main.qcloudimg.com/raw/fd828fd05a080ee8ddbb6697b1a36e2d.jpg)
-
-### PGP 解密
+:::
+::: PGP 解密
 #### 参数配置
 
 | 参数     | 数据类型 | 描述       | **是否必填** | **默认值** |
@@ -286,7 +292,8 @@ def dw_process(msg):
 3. 执行成功后，message payload 中包含了加密后的二进制内容：
 ![image-20210521114703633](https://main.qcloudimg.com/raw/806709d291ccdb97c121bd0ce8f72d43.jpg)
 
-### PGP 签名
+:::
+::: PGP 签名
 #### 参数配置
 
 | 参数     | 数据类型 | 描述                                 | **是否必填** | **默认值** |
@@ -321,8 +328,8 @@ def dw_process(msg):
    ![image-20210521115044004](https://main.qcloudimg.com/raw/689be566e2f79ca02a80cd21aadbbb2a.jpg)
 3. 执行成功后，message payload 中包含了签名后的二进制内容：
 ![image-20210521114703633](https://main.qcloudimg.com/raw/b50f5833bf610d5ce2b89851db99cb95.jpg)
-
-### PGP 验签
+:::
+::: PGP 验签
 #### 参数配置
 
 | 参数     | 数据类型 | 描述       | **是否必填** | **默认值** |
@@ -359,4 +366,9 @@ def dw_process(msg):
    ![image-20210521115044004](https://main.qcloudimg.com/raw/cb21182d7576364a36081937bf78a89c.jpg)
 3. 执行成功后，message payload 中包含验证签名是否正确的结果：
 ![image-20210521114703633](https://main.qcloudimg.com/raw/2b2ceddf22f289d5a4831402a5459478.jpg)
+
+:::
+</dx-tabs>
+
+
 
