@@ -13,6 +13,6 @@
 - 认证源图标：用于在列表和门户中展示，用户可单击**重新上传**，代替默认图标。
 - 认证源名称：用户标识认证源，必填项。
 - 认证源描述：认证源的简单描述，非必填。
-- APP ID：访问 [QQ 开放平台](https://open.tencent.com/) > **应用管理** > **创建应用**，可获得 APP ID(即clientID)。
-- APP Key：访问 [QQ 开放平台](https://open.tencent.com/) > **应用管理** > **创建应用**，可获得 APP Key(即client secret)。
+- APP ID：访问 [QQ 开放平台](https://connect.qq.com/index.html) > **应用管理** > **创建应用**，可获得 APP ID(即clientID)。
+- APP Key：访问 [QQ 开放平台](https://connect.qq.com/index.html) > **应用管理** > **创建应用**，可获得 APP Key(即client secret)。
 - 属性映射：用于将微信认证过程中返回的属性映射到平台定义的属性，默认包含 openid 和 unionid 两条不可编辑的属性映射；可单击**新增**添加新的映射关系，认证源属性名称为 QQ 认证源属性，平台属性为属性自定义中的属性。
