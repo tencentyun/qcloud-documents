@@ -2307,7 +2307,7 @@ tmeSdk.login(deviceId?: string) => Promise
 **接口定义**
 
 ```typescript
-tmeSdk.getUserInfo(deviceId?: string) => Promise<TMEResponse>
+tmeSdk.logout(deviceId?: string) => Promise<TMEResponse>
 ```
 
 **参数说明**
@@ -2432,7 +2432,6 @@ tmeSdk.play(deviceId?: string) => Promise<TMEResponse>
 
 ```typescript
 tmeSdk.pause(deviceId?: string) => Promise<TMEResponse>
-
 ```
 
 **参数说明**
@@ -2453,7 +2452,6 @@ tmeSdk.pause(deviceId?: string) => Promise<TMEResponse>
 
 ```typescript
 tmeSdk.preSong(deviceId?: string) => Promise<TMEResponse>
-
 ```
 
 **参数说明**
@@ -2474,7 +2472,6 @@ tmeSdk.preSong(deviceId?: string) => Promise<TMEResponse>
 
 ```typescript
 tmeSdk.nextSong(deviceId?: string) => Promise<TMEResponse>
-
 ```
 
 **参数说明**
@@ -2495,7 +2492,6 @@ tmeSdk.nextSong(deviceId?: string) => Promise<TMEResponse>
 
 ```typescript
 tmeSdk.setPlayMode(playMode: number, deviceId?: string) => Promise<TMEResponse>
-
 ```
 
 **参数说明**
@@ -2517,7 +2513,6 @@ tmeSdk.setPlayMode(playMode: number, deviceId?: string) => Promise<TMEResponse>
 
 ```typescript
 tmeSdk.setVolume(volume: number, deviceId?: string) => Promise<TMEResponse>
-
 ```
 
 **参数说明**
@@ -2539,7 +2534,6 @@ tmeSdk.setVolume(volume: number, deviceId?: string) => Promise<TMEResponse>
 
 ```typescript
 tmeSdk.setPlayPosition(playPosition: number, deviceId?: string) => Promise<TMEResponse>
-
 ```
 
 **参数说明**
@@ -2561,7 +2555,6 @@ tmeSdk.setPlayPosition(playPosition: number, deviceId?: string) => Promise<TMERe
 
 ```typescript
 tmeSdk.setPlayQuality(recommendQuality: number, deviceId?: string) => Promise<TMEResponse>
-
 ```
 
 **参数说明**
@@ -2583,7 +2576,6 @@ tmeSdk.setPlayQuality(recommendQuality: number, deviceId?: string) => Promise<TM
 
 ```typescript
 tmeSdk.playSong(songId: string, songIndex: string, newQueueType: string, newQueueId: string | number, deviceId?: string) => Promise<TMEResponse>
-
 ```
 
 **参数说明**
@@ -2614,7 +2606,6 @@ tmeSdk.playSong(songId: string, songIndex: string, newQueueType: string, newQueu
 
 ```typescript
 tmeSdk.requestTMEApi(action: string, params, deviceId?: string) => Promise<TMEResponse>
-
 ```
 
 **参数说明**
@@ -2637,7 +2628,6 @@ tmeSdk.requestTMEApi(action: string, params, deviceId?: string) => Promise<TMERe
 
 ```typescript
 tmeSdk.getCurrentPlaySong(deviceId?: string) => Promise<TMEResponse>
-
 ```
 
 **参数说明**
@@ -2660,7 +2650,6 @@ tmeSdk.getCurrentPlaySong(deviceId?: string) => Promise<TMEResponse>
 
 ```typescript
 tmeSdk.getCurrentPlayQueue(deviceId?: string) => Promise<TMEResponse>
-
 ```
 
 **参数说明**
@@ -2690,7 +2679,6 @@ TMEResponse中data如下
 
 ```typescript
 tmeSdk.getSongDetail(songId: string, deviceId?: string) => Promise<TMEResponse>
-
 ```
 
 通过调用requestTMEApi，请求歌曲播放链接与歌曲信息，返回歌曲的详细信息
@@ -2714,7 +2702,6 @@ tmeSdk.getSongDetail(songId: string, deviceId?: string) => Promise<TMEResponse>
 
 ```typescript
 tmeSdk.getPlaylistDetail(action: string, params, deviceId?: string) => Promise<TMEResponse>
-
 ```
 
 通过调用requestTMEApi，请求歌单列表与歌曲信息，丰富列表中的歌曲信息，返回歌单列表
