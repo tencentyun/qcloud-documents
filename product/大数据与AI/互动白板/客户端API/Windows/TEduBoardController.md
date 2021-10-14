@@ -1,6 +1,6 @@
 ## 互动白板控制器
 
-互动白板控制器，请参考 [互动白板控制器](https://doc.qcloudtiw.com/win32/2.6.4.216/class_t_edu_board_controller.html) 文档
+互动白板控制器，请参考 [互动白板控制器](https://doc.qcloudtiw.com/win32/latest/class_t_edu_board_controller.html) 文档
 
 ## 创建销毁实例
 
@@ -86,6 +86,18 @@ EDUSDK_API bool SetTEduBoardLogFileDir(const char *logDir)
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | logDir | const char * | 要设置的白板日志文件存储目录路径，UTF8 编码，为空或 nullptr 表示使用默认路径  |
+
+### SetLogLevel
+设置输出日志级别 
+``` C++
+EDUSDK_API bool SetLogLevel(const uint32_t *level)
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| SetLogLevel | const uint32_t * | 日志级别  |
 
 #### 返回
 设置白板日志文件存储目录是否成功 
@@ -882,6 +894,23 @@ virtual void Undo()=0
 ``` C++
 virtual void Redo()=0
 ```
+
+### 
+重做当前白板页上一次撤销 
+``` C++
+virtual void Redo()=0
+```
+
+### setScrollBarVisible
+设置白板滚动条是否可见 
+``` C++
+virtual void setScrollBarVisible(bool enable)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | bool | true 显示滚动条 false 不显示滚动条 |
 
 
 ## 白板页操作接口

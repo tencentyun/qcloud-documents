@@ -1,5 +1,5 @@
 ## TEduBoardCallback
-白板事件回调接口，请参考 [回调定义文档](https://doc.qcloudtiw.com/win32/2.6.4.216/struct_t_edu_board_callback.html)
+白板事件回调接口，请参考 [回调定义文档](https://doc.qcloudtiw.com/win32/latest/struct_t_edu_board_callback.html)
 
 ## 通用事件回调
 
@@ -323,7 +323,7 @@ virtual void onTEBSnapshot(const char *path)
 ## 文件操作回调
 
 ### onTEBFileTranscodeProgress
-文件转码进度回调 
+文件转码进度回调，自2.6.5版本起该回调被废弃
 ``` C++
 virtual void onTEBFileTranscodeProgress(const char *path, const char *errorCode, const char *errorMsg, const TEduBoardTranscodeFileResult &result)
 ```
