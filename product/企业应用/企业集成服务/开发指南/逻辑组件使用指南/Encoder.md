@@ -1,5 +1,3 @@
-
-
 ## 简介
 RecordSet Encoder 用于将普通的数据类型组装为 RecordSet 数据类型，用于后续的批量数据处理。在 RecordSet Encoder 中可以配置子流，返回一个普通类型的数据列表。同时在组件配置中指定需要构造的 RecordSet 数据的 schema 和分片数，系统会将根据这些配置信息对子流返回的数据列表进行解析，从而得到一个支持多分区的 RecordSet 数据对象。
 
@@ -47,7 +45,7 @@ RecordSet Encoder 组件会根据配置的输出 schema，将子流输出的 pay
 | variable    | 继承前一个组件输出的 variables 信息                            |
 
 
-## 使用案例
+## 案例
 使用 RecordSet Encoder 组件构造一个具有三个分区的 RecordSet，操作步骤如下：
 1. 添加 RecordSet Encoder 组件，设置输出 schema：
 ![enter image description here](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Encoder/e1bab0a1028b45d4813f3f74b1f4876f.png)
