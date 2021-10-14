@@ -9,13 +9,40 @@
  `TUIKit` 支持以 `module` 源码的方式集成。
 
 ### module 源码集成
-[TUIKit 源码下载地址](https://github.com/tencentyun/TIMSDK/tree/master/Android/TUIKit)
+[TUIKit 源码下载地址](https://github.com/tencentyun/TIMSDK/tree/master/Android)
 
-1. 从 `GitHub` 下载 `Demo` 源码，把其中的 `tuikit` 文件夹拷贝到自己的工程目录下，作为工程中的一个模块。
+1. 从 `GitHub` 下载 `Demo` 和 `TUIKit` 源码，把 `TUIKit` 文件夹拷贝到自己的工程目录下，跟 `Demo` 文件夹同级。
 
 2. 在 `settings.gradle` 中添加：
 ```groovy
+include ':app'
+
 include ':tuikit'
+project(':tuikit').projectDir = new File(settingsDir, '../TUIKit/TUIKit')
+
+include ':tuicore'
+project(':tuicore').projectDir = new File(settingsDir, '../TUIKit/TUICore/tuicore')
+
+include ':tuichat'
+project(':tuichat').projectDir = new File(settingsDir, '../TUIKit/TUIChat/tuichat')
+
+include ':tuicontact'
+project(':tuicontact').projectDir = new File(settingsDir, '../TUIKit/TUIContact/tuicontact')
+
+include ':tuiconversation'
+project(':tuiconversation').projectDir = new File(settingsDir, '../TUIKit/TUIConversation/tuiconversation')
+
+include ':tuisearch'
+project(':tuisearch').projectDir = new File(settingsDir, '../TUIKit/TUISearch/tuisearch')
+
+include ':tuigroup'
+project(':tuigroup').projectDir = new File(settingsDir, '../TUIKit/TUIGroup/tuigroup')
+
+include ':tuicalling'
+project(':tuicalling').projectDir = new File(settingsDir, '../TUIKit/TUICalling/tuicalling')
+
+include ':tuilive'
+
 ```
 3. 在 `APP` 的 `build.gradle` 中添加:
 ```groovy
@@ -35,15 +62,13 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
    ......
 }
 ```
 
-5. 在 `gradle.properties` 文件中加入下行，表示使用 `AndroidX` 中的类替换 `support` 中的类：
+5. 在 `gradle.properties` 文件中加入下行，表示自动转换三方库以兼容 `AndroidX`：
 ```properties
 android.enableJetifier=true
 ```
@@ -59,40 +84,21 @@ allprojects {
 ```
 7. 同步工程，编译运行。
 
-## 初始化
+### 模块动态集成
+TUIKit 已经实现组件化，支持模块动态集成。
 
-在 `Application` 的 `onCreate` 中初始化：
-
-```java
-public class DemoApplication extends Application {
-
-    public static final int SDKAPPID = 0; // 您的 SDKAppID
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-
-       // 配置 Config，请按需配置
-       TUIKitConfigs configs = TUIKit.getConfigs();
-       configs.setSdkConfig(new V2TIMSDKConfig());
-       configs.setCustomFaceConfig(new CustomFaceConfig());
-       configs.setGeneralConfig(new GeneralConfig());
-
-       TUIKit.init(this, SDKAPPID, configs);
-    }
-}
+比如，如果您不需要搜索功能，那么只需要在 `tuikit 模块` 的 `build.gradle` 文件中删除下面一行即可：
+```groovy
+api project(':tuisearch')
 ```
+这样在会话列表界面就不会出现搜索框，如下图所示：
 
-`init` 方法的说明：
+<img src="https://main.qcloudimg.com/raw/2f46dc63648c6d58971c757d844828fb.png" width="500"/>
 
-```java
-/**
- * TUIKit 的初始化函数
- *
- * @param context  应用的上下文，一般为对应应用的 ApplicationContext
- * @param sdkAppID 您在腾讯云注册应用时分配的 SDKAppID
- * @param configs  TUIKit 的相关配置项，一般使用默认即可
- */
-public static void init(Context context, int sdkAppID, TUIKitConfigs configs)
+同样的，如果您不需要音视频通话功能，只需要在 `tuikit 模块` 的 `build.gradle` 文件中删除音视频通话模块集成代码即可：
+```groovy
+api project(':tuicalling')
 ```
+这样，就不再集成音视频通话功能，聊天页面的更多输入界面就不再出现音视频通话按钮：
 
+<img src="https://main.qcloudimg.com/raw/24fa3b50325f158489fda04556c79329.png" width="500"/>
