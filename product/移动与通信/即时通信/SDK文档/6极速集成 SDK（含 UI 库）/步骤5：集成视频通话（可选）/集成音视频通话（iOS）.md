@@ -27,7 +27,7 @@ TUIKit 组件在 4.8.50 以上版本开始支持音视频通话功能，并且�
 
 1. 在 podfile 文件中添加以下内容。
 ```objectivec
-// TUIKit 5.7.1435 以上版本需要再单独集成 TUICalling
+// TUIKit 5.7.1435 以上版本需要集成 TUICalling
 pod 'TUICalling'                  // 默认集成了 TXLiteAVSDK_TRTC 音视频库
 //pod 'TUICalling/Professional'   // 默认集成了 TXLiteAVSDK_Professional 音视频库
 ```
@@ -109,7 +109,7 @@ vc.isEnableAudioCall = NO; // isEnableAudioCall    YES：开启；NO：关闭   
 
 若已分别创建实时音视频 SDKAppID 和即时通信 SDKAppID，即 SDKAppID 不一致场景，则二者帐号与鉴权不可复用，您需要生成实时音视频 SDKAppID 对应的 UserSig 进行鉴权。生成 UserSig 的具体操作请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
  
-获取实时音视频的 SDKAppID 和 UserSig 后，您需要在 `TUICall+TRTC.m` 源码中修改以下代码：
+获取实时音视频的 SDKAppID 和 UserSig 后，您需要在 `TRTCCalling.m` 源码中修改以下代码：
 ```
  - (void)enterRoom {
      TRTCParams *param = [[TRTCParams alloc] init];
@@ -122,7 +122,7 @@ vc.isEnableAudioCall = NO; // isEnableAudioCall    YES：开启；NO：关闭   
 
  
 ### 2. 通话邀请的超时时间默认是多久？怎么修改默认超时时间？
-通话邀请的默认超时时间是30s，您可以修改 `TUICallModel.m` 里的 `SIGNALING_EXTRA_KEY_TIME_OUT` 值来自定义超时时间。
+通话邀请的默认超时时间是30s，您可以修改 `TRTCCallingModel.m` 里的 `SIGNALING_EXTRA_KEY_TIME_OUT` 值来自定义超时时间。
  
 ### 3. 在邀请超时时间内，被邀请者如果离线再上线，能否收到邀请？
 - 如果是单聊通话邀请，被邀请者离线再上线可以收到通话邀请。
