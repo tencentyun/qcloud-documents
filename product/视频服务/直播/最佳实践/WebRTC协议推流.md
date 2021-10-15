@@ -29,6 +29,7 @@ TXLivePusher 推流 SDK 主要用于视频云的快直播（超低延迟直播�
 ```html
 <script src="https://imgcache.qq.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.2.min.js" charset="utf-8"></script>
 ```
+>? 需要在 HTML 的 body 部分引入脚本，如果在 head 部分引入会报错。
 
 如果在域名限制区域，可以引入以下链接：
 
