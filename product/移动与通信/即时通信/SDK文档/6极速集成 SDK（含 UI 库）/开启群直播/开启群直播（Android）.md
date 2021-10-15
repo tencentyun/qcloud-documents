@@ -58,7 +58,7 @@ TUIKit.login(userID, userSig, new V2TIMCallback() {
 
 [](id:step5)
 ## 步骤5：打开/关闭群直播
-`TUILive`中默认打开了群直播，如果您不需要集成群直播，可在通过 `TUILive` 模块中的`TUILiveService.java`文件配置关闭群直播入口即可，代码如下：
+`TUILive`中默认打开了群直播，如果您不需要集成群直播，可在通过 `TUILive` 模块中的 [TUILiveService.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit_live/src/main/java/com/tencent/qcloud/tim/uikit/live/TUILiveService.java) 文件配置关闭群直播入口即可，代码如下：
 
 ```java
 // enableGroupLiveEntry	true：开启；false：关闭	默认：true
