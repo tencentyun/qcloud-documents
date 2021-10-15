@@ -87,7 +87,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [refuseFriendApplication](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#refuseFriendApplication) | 拒绝好友申请。 |
 | [deleteFriendApplication](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteFriendApplication) | 删除好友申请。 |
 | [setFriendApplicationRead](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setFriendApplicationRead) | 上报好友申请已读。 |
-| [getFriendGroupList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getFriendGroupList) | 获取好友分组列表。 |
+| [getFriendGroupList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getFriendGroupList) | 获取 SDK 缓存的好友分组列表。 |
 | [createFriendGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createFriendGroup) | 创建好友分组。 |
 | [deleteFriendGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteFriendGroup) | 删除好友分组。 |
 | [addToFriendGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#addToFriendGroup) | 添加好友到分组列表。 |
