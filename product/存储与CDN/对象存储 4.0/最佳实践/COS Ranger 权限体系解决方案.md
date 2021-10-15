@@ -88,7 +88,7 @@ COS-Ranger-Service 支持一主多备的 HA 部署，DelegationToken 状态持�
 可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-server 目录下获取。
 
 #### 版本
-V1.1版本及以上。
+V5.0.4版本及以上。
 
 #### 部署步骤
 1. 将 COS Ranger Service 服务代码拷贝到集群的几台机器上，生产环境建议至少两台机器（一主一备）。因为涉及到敏感信息，建议是堡垒机或者权限严格管控的机器。
@@ -125,10 +125,10 @@ COS-Ranger-Client 由 hadoop cosn 插件动态加载，并代理访问 COS-Range
 可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-client 目录下获取。
 
 #### 版本
-V1.1版本及以上。
+V3.4版本及以上。
 
 #### 部署方式
-1. 将 cos-ranger-client jar 包拷贝到与 COSN 同一目录下（请选择拷贝与自身 hadoop 大版本一致的  jar 包）。
+1. 将 cos-ranger-client jar 包和cosn-ranger-interface jar 包拷贝到与 COSN 同一目录下（请选择拷贝与自身 hadoop 大版本一致的  jar 包）。
 2. 在 core-site.xml 添加如下配置项：
 <dx-codeblock>
 ::: xml
@@ -154,6 +154,11 @@ V1.1版本及以上。
 					<name>qcloud.object.storage.zk.leader.ip.path</name> 
 					<value>/ranger_qcloud_object_storage_leader_ip</value>
           </property>
+         <!-- zk 上记录的 cos ranger service follower的ip地址路径,这里使用了默认值 必须与 cos-ranger-service 的配置一致,主备节点同时提供服务 -->
+          <property>
+                    <name>qcloud.object.storage.zk.follower.ip.path</name>
+                    <value>/ranger_qcloud_object_storage_follower_ip</value>
+          </property>
 </configuration>
 ```
 :::
@@ -161,7 +166,7 @@ V1.1版本及以上。
 :::
 ::: 部署COSN
 #### 版本
-V5.9.0版本及以上。
+V7.0.5版本及以上。
 
 ####  部署方式
 部署 COSN 插件方法请参考 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884) 文档，但需注意以下几点：

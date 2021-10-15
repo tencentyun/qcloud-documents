@@ -94,7 +94,7 @@ COS-Ranger-Service 支持一主多备的 HA 部署，DelegationToken 状态持�
 
 #### 版本
 
-V1.2版本及以上。
+V5.0.4版本及以上。
 
 #### 部署步骤
 
@@ -132,10 +132,10 @@ COS-Ranger-Client 由 hadoop chdfs 插件动态加载，并代理访问 COS-Rang
 
 #### 版本
 
-V1.0版本及以上。
+V3.4版本及以上。
 
 #### 部署方式
-1. 将 cos-ranger-client jar 包拷贝到与 CHDFS 插件 同一目录下（请选择拷贝与自身 hadoop 大版本一致的  jar 包）。
+1. 将 cos-ranger-client jar 包和cosn-ranger-interface jar 包拷贝到与 CHDFS 插件 同一目录下（请选择拷贝与自身 hadoop 大版本一致的  jar 包）。
 2. 在 core-site.xml 添加如下配置项：
 <dx-codeblock>
 ::: xml
@@ -160,6 +160,11 @@ V1.0版本及以上。
           <property>              
 					<name>qcloud.object.storage.zk.leader.ip.path</name> 
 					<value>/ranger_qcloud_object_storage_leader_ip</value>
+          </property>
+         <!-- zk 上记录的 cos ranger service follower的ip地址路径,这里使用了默认值 必须与 cos-ranger-service 的配置一致,主备节点同时提供服务 -->
+          <property>
+                    <name>qcloud.object.storage.zk.follower.ip.path</name>
+                    <value>/ranger_qcloud_object_storage_follower_ip</value>
           </property>
 </configuration>
 ```
