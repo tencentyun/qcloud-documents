@@ -2,5 +2,5 @@
 - 开发一个数独求解器
 - 开发一款2048小游戏
 
-欢迎前往 [产业人才培养中心](https://cloud.tencent.com/edu/learning/courses?cid=10161) 学习更多实战视频。
+欢迎前往 [产业互联网学堂](https://cloud.tencent.com/edu/learning/courses?cid=10161) 学习更多实战视频。
 
