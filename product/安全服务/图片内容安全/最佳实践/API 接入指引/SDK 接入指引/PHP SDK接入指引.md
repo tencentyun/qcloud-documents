@@ -1,4 +1,4 @@
-### 支持环境
+## 支持环境
 - PHP 5.6.33 版本及以上。
 - 调用地址：`ims.tencentcloudapi.com`。
 >!API 支持就近地域接入，本产品就近地域接入的域名为 ims.tencentcloudapi.com ，也支持指定地域域名访问，例如：广州地域的域名为 ims.ap-guangzhou.tencentcloudapi.com 。详细请参考 [图片内容安全-请求结构](https://cloud.tencent.com/document/product/1125/53276)。
