@@ -45,41 +45,158 @@ SCDN ⽬前提供12个已知公开的 BOT ⼤类，超过1000+的 BOT ⼦类，�
 
 ⾃定义会话特征匹配条件说明如下：
 
-| 分类           | 过滤条件               | 条件说明                                                     |
-| -------------- | ---------------------- | ------------------------------------------------------------ |
-| 会话特征       | 会话平均速度           | 为会话请求总次数 / 会话持续时间，单位为：次/分钟。           |
-| 会话特征       | 会话窗口速度           | 每2分钟（窗口）内的会话访问速度，单位为：次/分钟。           |
-| 会话特征       | 会话总次数             | 一个 BOT 会话发生的总访问次数。                              |
-| 会话特征       | 会话持续时间           | BOT 会话的持续时间。                                         |
-| 会话特征       | 会话存在 Robots.txt    | 会话请求中访问 Robots.txt 文件。                             |
-| 会话特征       | 会话发生在凌晨         | 会话请求发生在凌晨2:00 - 5:00之间。                          |
-| 请求特征       | 请求最多的 URL         | 会话请求中，请求最多的 URL。                                 |
-| 请求特征       | URL 重复比             | 会话请求中 URL 重复比例，取值范围0 - 1，根据实际业务情况，进行参数配置，过高或过低为疑似异常（根据实际情况进行判断）。 |
-| 请求特征       | URL 种类               | 会话请求中 URL 去重后条目数。                                |
-| 请求特征       | 请求最多的参数         | 会话请求出现最多的参数，包括 GET 请求参数（Query 内容）或 POST 请求参数（Body 内容）。 |
-| 请求特征       | 参数重复比             | 会话请求中 GET 请求参数（Query 内容）或 POST 请求参数（Body 内容）重复比例，取值范围0 - 1，根据实际业务情况，进行参数配置，过高或过低疑似异常（根据实际情况进行判断）。 |
-| COOKIE         | COOKIE 存在性          | 会话请求中，判断 HTTP 头部字段是否存在 COOKIE。              |
-| COOKIE         | 请求最多的 COOKIE      | 会话请求中， 出现最多的 COOKIE。                             |
-| COOKIE         | COOKIE 重复比          | 会话请求中 COOKIE 的重复比例，取值范围0 - 1。                |
-| COOKIE         | COOKIE 存在比          | 会话请求中 COOKIE 存在比例，取值范围0 - 1。                  |
-| COOKIE         | COOKIE 滥用            | 多种不同的 UA 使用相同的 COOKIE。                            |
-| COOKIE         | COOKIE 种类            | 会话请求中 COOKIE 去重后的数目。                             |
-| Referer        | Referer 存在性         | 会话请求中，判断 HTTP 头部字段是否存在 Referer。             |
-| Referer        | 请求最多的 Referer     | 会话请求中，HTTP Referer 字段出现最多的值。                  |
-| Referer        | Referer 重复比         | 会话请求中 Referer 的重复比例，取值范围0 - 1，对浏览器访问有效，过高疑似异常（根据实际情况进行判断）。 |
-| Referer        | Referer 存在比         | 会话请求中 Referer 存在比例，取值范围0 - 1，对浏览器访问有效，过低疑似异常（根据实际情况进行判断）。 |
-| Referer        | Referer 滥用           | 多种不同的 UA 使用相同的 Referer。                           |
-| Referer        | Referer 种类           | 会话请求中 Referer 去重后的数目。                            |
-| UA             | UA存在性               | 会话请求中，判断 HTTP 头部字段是否存在 User-Agent。          |
-| UA             | 请求最多的 UA          | 会话请求中，HTTP User-Agent 字段出现最多的值。               |
-| UA             | UA 存在比              | 会话请求中 UA 的存在比例，取值范围0 - 1，过低疑似异常（根据实际情况进行判断）。 |
-| UA             | UA 种类                | 会话请求中 UA 去重后的数目，过多疑似异常（根据实际情况进行判断），对非代理 IP 有效。 |
-| UA             | UA 类型                | UA 类型为浏览器。UA 类型为移动端。UA 类型游戏终端或电视终端。UA 类别为公开 BOT 类型。UA 类别为未公开 BOT 类型。UA 类别为自动化工具。UA 类别为未知类型。UA 类别为公开扫描器。UA 类别为开发框架。UA 类别为语言 HTTP 库。 |
-| UA             | UA 随机性指数          | 会话请求中 UA 的随机分布情况，取值范围0 -1，指数越高越异常。 参考值阈值：超过0.6疑似异常，指数超过0.92基本确定为异常。 |
-| 其他 HTTP 头部 | Accept 存在性          | 会话请求中判断 HTTP 头部字段是否存在 Accept 字段。           |
-| 其他 HTTP 头部 | Accept-Language 存在性 | 会话请求中判断 HTTP 头部字段是否存在 Accept-Language 字段。  |
-| 其他 HTTP 头部 | Accept-Encoding 存在性 | 会话请求中判断 HTTP 头部字段是否存在 Accept-Encoding 字段。  |
-| 其他 HTTP 头部 | Connectiton 存在性     | 会话请求中判断 HTTP 头部字段是否存在 Connectiton 字段。      |
-| 其他 HTTP 头部 | 请求方法占比           | 会话请求中判断请求使用方法。                                 |
-| 其他 HTTP 头部 | HTTP 协议版本占比      | 会话请求中判断请求使用的 HTTP 协议版本比例。                 |
-| 其他 HTTP 头部 | 返回状态码比例         | 会话请中 WAF 返回给客户状态码比例。                          |
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>过滤条件</th>
+<th>条件说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td rowspan = "6">会话特征</td>
+<td>会话平均速度</td>
+<td>为会话请求总次数 / 会话持续时间，单位为：次/分钟。</td>
+</tr>
+<tr>
+<td>会话窗口速度</td>
+<td>每2分钟（窗口）内的会话访问速度，单位为：次/分钟。</td>
+</tr>
+<tr>
+<td>会话总次数</td>
+<td>一个 BOT 会话发生的总访问次数。</td>
+</tr>
+<tr>
+<td>会话持续时间</td>
+<td>BOT 会话的持续时间。</td>
+</tr>
+<tr>
+<td>会话存在 Robots.txt</td>
+<td>会话请求中访问 Robots.txt 文件。</td>
+</tr>
+<tr>
+<td>会话发生在凌晨</td>
+<td>会话请求发生在凌晨2:00 - 5:00之间。</td>
+</tr>
+<tr>
+<td rowspan = "5">请求特征</td>
+<td>请求最多的 URL</td>
+<td>会话请求中，请求最多的 URL。</td>
+</tr>
+<tr>
+<td>URL 重复比</td>
+<td>会话请求中 URL 重复比例，取值范围0 - 1，根据实际业务情况，进行参数配置，过高或过低为疑似异常（根据实际情况进行判断）。</td>
+</tr>
+<tr>
+<td>URL 种类</td>
+<td>会话请求中 URL 去重后条目数。</td>
+</tr>
+<tr>
+<td>请求最多的参数</td>
+<td>会话请求出现最多的参数，包括 GET 请求参数（Query 内容）或 POST 请求参数（Body 内容）。</td>
+</tr>
+<tr>
+<td>参数重复比</td>
+<td>会话请求中 GET 请求参数（Query 内容）或 POST 请求参数（Body 内容）重复比例，取值范围0 - 1，根据实际业务情况，进行参数配置，过高或过低疑似异常（根据实际情况进行判断）。</td>
+</tr>
+<tr>
+<td rowspan = "6">COOKIE</td>
+<td>COOKIE 存在性</td>
+<td>会话请求中，判断 HTTP 头部字段是否存在 COOKIE。</td>
+</tr>
+<tr>
+<td>请求最多的 COOKIE</td>
+<td>会话请求中， 出现最多的 COOKIE。</td>
+</tr>
+<tr>
+<td>COOKIE 重复比</td>
+<td>会话请求中 COOKIE 的重复比例，取值范围0 - 1。</td>
+</tr>
+<tr>
+<td>COOKIE 存在比</td>
+<td>会话请求中 COOKIE 存在比例，取值范围0 - 1。</td>
+</tr>
+<tr>
+<td>COOKIE 滥用</td>
+<td>多种不同的 UA 使用相同的 COOKIE。</td>
+</tr>
+<tr>
+<td>COOKIE 种类</td>
+<td>会话请求中 COOKIE 去重后的数目。</td>
+</tr>
+<tr>
+<td rowspan = "6">Referer</td>
+<td>Referer 存在性</td>
+<td>会话请求中，判断 HTTP 头部字段是否存在 Referer。</td>
+</tr>
+<tr>
+<td>请求最多的 Referer</td>
+<td>会话请求中，HTTP Referer 字段出现最多的值。</td>
+</tr>
+<tr>
+<td>Referer 重复比</td>
+<td>会话请求中 Referer 的重复比例，取值范围0 - 1，对浏览器访问有效，过高疑似异常（根据实际情况进行判断）。</td>
+</tr>
+<tr>
+<td>Referer 存在比</td>
+<td>会话请求中 Referer 存在比例，取值范围0 - 1，对浏览器访问有效，过低疑似异常（根据实际情况进行判断）。</td>
+</tr>
+<tr>
+<td>Referer 滥用</td>
+<td>多种不同的 UA 使用相同的 Referer。</td>
+</tr>
+<tr>
+<td>Referer 种类</td>
+<td>会话请求中 Referer 去重后的数目。</td>
+</tr>
+<tr>
+<td rowspan = "6">UA</td>
+<td>UA存在性</td>
+<td>会话请求中，判断 HTTP 头部字段是否存在 User-Agent。</td>
+</tr>
+<tr>
+<td>请求最多的 UA</td>
+<td>会话请求中，HTTP User-Agent 字段出现最多的值。</td>
+</tr>
+<tr>
+<td>UA 存在比</td>
+<td>会话请求中 UA 的存在比例，取值范围0 - 1，过低疑似异常（根据实际情况进行判断）。</td>
+</tr>
+<tr>
+<td>UA 种类</td>
+<td>会话请求中 UA 去重后的数目，过多疑似异常（根据实际情况进行判断），对非代理 IP 有效。</td>
+</tr>
+<tr>
+<td>UA 类型</td>
+<td>UA 类型为浏览器。UA 类型为移动端。UA 类型游戏终端或电视终端。UA 类别为公开 BOT 类型。UA 类别为未公开 BOT 类型。UA 类别为自动化工具。UA 类别为未知类型。UA 类别为公开扫描器。UA 类别为开发框架。UA 类别为语言 HTTP 库。</td>
+</tr>
+<tr>
+<td>UA 随机性指数</td>
+<td>会话请求中 UA 的随机分布情况，取值范围0 -1，指数越高越异常。 参考值阈值：超过0.6疑似异常，指数超过0.92基本确定为异常。</td>
+</tr>
+<tr>
+<td rowspan = "6">其他 HTTP 头部</td>
+<td>Accept 存在性</td>
+<td>会话请求中判断 HTTP 头部字段是否存在 Accept 字段。</td>
+</tr>
+<tr>
+<td>Accept-Language 存在性</td>
+<td>会话请求中判断 HTTP 头部字段是否存在 Accept-Language 字段。</td>
+</tr>
+<tr>
+<td>Accept-Encoding 存在性</td>
+<td>会话请求中判断 HTTP 头部字段是否存在 Accept-Encoding 字段。</td>
+</tr>
+<tr>
+<td>Connectiton 存在性</td>
+<td>会话请求中判断 HTTP 头部字段是否存在 Connectiton 字段。</td>
+</tr>
+<tr>
+<td>请求方法占比</td>
+<td>会话请求中判断请求使用方法。</td>
+</tr>
+<tr>
+<td>返回状态码比例</td>
+<td>会话请中 WAF 返回给客户状态码比例。</td>
+</tr>
+</tbody></table>
