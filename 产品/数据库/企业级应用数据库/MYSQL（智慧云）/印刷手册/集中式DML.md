@@ -757,7 +757,7 @@ JOIN 优先于逗号运算符，因此 ON 子句的操作数是 t2 和 t3。 由
 ```
 优先级相同的解释也适用于与混合逗号操作语句 INNER JOIN ， CROSS JOIN ， LEFT JOIN ，并且 RIGHT JOIN ，所有这些都具有比逗号操作符更高的优先级。
 
-## UNION语法
+### UNION语法
 语法如下：
 ```
 SELECT ...
@@ -791,7 +791,7 @@ MySQL [test]> SELECT 1, 2 UNION SELECT 'a', 'b';
 +---+---+
 2 rows in set (0.01 sec)
 ```
-## 结果集列名和数据类型
+### 结果集列名和数据类型
 UNION 结果集的列名取自第一个 SELECT 语句的列名。
 每个 SELECT 语句对应位置列出的选定列应具有相同的数据类型。 例如，第一个语句选择的第一列应该与其他语句选择的第一列具有相同的类型。 如果对应的 SELECT 列的数据类型不匹配，则 UNION 结果中列的类型和长度会考虑所有 SELECT 语句检索到的值。 例如，考虑以下情况，其中列长度不受第一个 SELECT 值长度的限制：
 ```
@@ -804,6 +804,179 @@ MySQL [test]> SELECT REPEAT('a',1) UNION SELECT REPEAT('b',20);
 +----------------------+
 2 rows in set (0.02 sec)
 ```
-## UNION DISTINCT 和 UNION ALL
+### UNION DISTINCT 和 UNION ALL
 默认情况下，将从 UNION 结果中删除重复的行。 可选的 DISTINCT 关键字具有相同的效果，但使其明确。 使用可选的 ALL 关键字，不会发生重复行删除，结果包括来自所有 SELECT 语句的所有匹配行。
 您可以在同一查询中混合使用 UNION ALL 和 UNION DISTINCT。 混合 UNION 类型的处理方式是 DISTINCT 联合覆盖其左侧的任何 ALL 联合。 可以通过使用 UNION DISTINCT 显式生成 DISTINCT 联合，也可以通过使用不带 DISTINCT 或 ALL 关键字的 UNION 隐式生成。
+## 子查询语法
+子查询是 SELECT 另一个语句中的语句。
+支持 SQL 标准要求的所有子查询形式和操作，以及一些特定于 TDSQL 的功能。
+下面是一个子查询的示例：
+```
+SELECT * FROM t1 WHERE column1 in (SELECT column1 FROM t2);
+```
+>!通常不推荐使用子查询，一般需要将子查询修改为join或者进行优化改写。
+
+### 子查询错误
+有些错误仅适用于子查询。 本节介绍它们。
+- 不支持的子查询语法：
+```
+ERROR 1235 (ER_NOT_SUPPORTED_YET)
+SQLSTATE = 42000
+Message = "This version of MySQL doesn't yet support
+'LIMIT & IN/ALL/ANY/SOME subquery'"
+```
+-  这意味着TDSQL不支持以下形式的语句：
+```
+SELECT * FROM t1 WHERE s1 IN (SELECT s2 FROM t2 ORDER BY s1 LIMIT 1)
+```
+- 来自子查询的列数不正确：
+```
+ERROR 1241 (ER_OPERAND_COL)
+SQLSTATE = 21000
+Message = "Operand should contain 1 column(s)"
+```
+在这种情况下会发生此错误：
+SELECT (SELECT column1，column2 FROM t2) FROM t1;
+ 如果目的是行比较，您可以使用返回多列的子查询。 在其他上下文中，子查询必须是标量操作数 
+- 子查询中的行数不正确：
+```
+ERROR 1242 (ER_SUBSELECT_NO_1_ROW)
+SQLSTATE = 21000
+Message = "Subquery returns more than 1 row"
+```
+对于子查询必须最多返回一行但返回多行的语句，会发生此错误。 考虑以下示例：
+```
+SELECT * FROM t1 WHERE column1 = (SELECT column1 FROM t2);
+```
+如果 SELECT column1 FROM t2 只返回一行，则前面的查询有效。 如果子查询返回多于一行，则会出现错误 1242。 在这种情况下，查询应改写为：
+```
+SELECT * FROM t1 WHERE column1 = ANY(SELECT column1 FROM t2);
+```
+- 子查询中错误使用的表：
+```
+Error 1093 (ER_UPDATE_TABLE_USED)
+SQLSTATE = HY000
+Message = "You can't specify target table 'x'
+for update in FROM clause"
+```
+在以下情况下会发生此错误，该情况尝试修改表并从子查询中的同一表中进行选择：
+```
+UPDATE t1 SET column2 = (SELECT MAX(column1) FROM t1);
+```
+您可以使用公用表表达式来解决此问题。
+
+### 优化子查询
+开发正在进行中，因此从长远来看，没有优化技巧可靠。 以下列表提供了一些您可能想要使用的有趣技巧。
+- 将子句从外部移动到子查询内部。 例如，使用这个查询： 
+```
+SELECT * FROM t1
+  WHERE s1 IN (SELECT s1 FROM t1 UNION ALL SELECT s1 FROM t2);
+```
+而不是这个：
+```
+SELECT * FROM t1
+  WHERE s1 IN (SELECT s1 FROM t1) OR s1 IN (SELECT s1 FROM t2);
+```
+再举一个例子，使用这个查询：
+```
+SELECT (SELECT column1 + 5 FROM t1) FROM t2;
+```
+而不是这个查询：
+```
+SELECT (SELECT column1 FROM t1) + 5 FROM t2;
+```
+- 使用行子查询而不是相关子查询。 例如，使用此查询：
+```
+SELECT * FROM t1
+  WHERE (column1，column2) IN (SELECT column1，column2 FROM t2);
+```
+而不是这个查询：
+```
+SELECT * FROM t1
+  WHERE EXISTS (SELECT * FROM t2 WHERE t2.column1 = t1.column1
+                AND t2.column2 = t1.column2);
+```
+这些技巧可能会导致程序变得更快或更慢。 使用像 BENCHMARK() 函数 这样的工具 ，你可以了解在你自己的情况下有什么帮助。 
+### 将子查询重写为连接
+有时，除了使用子查询之外，还有其他方法可以测试一组值中的成员资格。 此外，在某些情况下，不仅可以在没有子查询的情况下重写查询，但使用其中一些技术而不是使用子查询可能更有效。 其中一个是 IN() 构造：
+例如，这个查询：
+```
+SELECT * FROM t1 WHERE id IN (SELECT id FROM t2);
+```
+可以改写为：
+```
+SELECT DISTINCT t1.* FROM t1，t2 WHERE t1.id = t2.id;
+```
+查询：
+```
+SELECT * FROM t1 WHERE id NOT IN (SELECT id FROM t2);
+SELECT * FROM t1 WHERE NOT EXISTS (SELECT id FROM t2 WHERE t1.id = t2.id);
+```
+可以改写为：
+```
+SELECT table1.*
+  	FROM table1 LEFT JOIN table2 ON table1.id = table2.id
+ 	 WHERE table2.id IS NULL;
+```
+A LEFT [OUTER] JOIN 可以比等效的子查询更快，因为服务器可能能够更好地优化它 - 这一事实并非仅针对TDSQL服务器。 在SQL-92之前，外连接不存在，因此子查询是执行某些操作的唯一方法。  
+
+## UPDATE语法
+UPDATE 是一个修改表中行的DML语句。
+单表语法：
+```
+UPDATE [IGNORE] table_reference
+    SET assignment_list
+    [WHERE where_condition]
+    [ORDER BY ...]
+    [LIMIT row_count]
+
+value:
+    {expr | DEFAULT}
+
+assignment:
+    col_name = value
+
+assignment_list:
+    assignment [, assignment] ...
+```
+
+多表语法：
+```
+UPDATE [IGNORE] table_references
+SET assignment_list
+[WHERE where_condition]
+```
+对于单表语法，UPDATE 语句使用新值更新命名表中现有行的列。 SET 子句指示要修改的列以及应该给它们的值。每个值都可以作为表达式给出，或者使用关键字 DEFAULT 将列显式设置为其默认值。 WHERE 子句（如果给定）指定标识要更新哪些行的条件。如果没有 WHERE 子句，则更新所有行。如果指定了 ORDER BY 子句，则按指定的顺序更新行。 LIMIT 子句限制了可以更新的行数。
+对于多表语法，UPDATE 更新 table_references 中命名的每个表中满足条件的行。每个匹配行都会更新一次，即使它多次匹配条件。对于多表语法，不能使用 ORDER BY 和 LIMIT。
+对于分区表，该语句的单表和多表形式都支持使用 PARTITION 子句作为表引用的一部分。此选项采用一个或多个分区或子分区（或两者）的列表。只检查列出的分区（或子分区）是否匹配，并且不更新任何不在这些分区或子分区中的行，无论它是否满足 where_condition。
+>!与将 PARTITION 与 INSERT 或 REPLACE 语句一起使用的情况不同，即使列出的分区（或子分区）中没有行与 where_condition 匹配，否则有效的 UPDATE ... PARTITION 语句也被认为是成功的。
+where_condition 是一个表达式，对于要更新的每一行，它的计算结果为真。 
+仅对实际更新的 UPDATE 中引用的列才需要 UPDATE 权限。 对于已读取但未修改的任何列，您只需要 SELECT 权限。
+
+如果在表达式中访问要更新的表中的列，UPDATE 将使用该列的当前值。 例如，以下语句将 col1 设置为比其当前值大 1：
+```
+UPDATE t1 SET col1 = col1 + 1;
+```
+以下语句中的第二个赋值将 col2 设置为当前（更新后的） col1 值，而不是原始 col1 值。 结果是 col1 和 col2 具有相同的值。 此行为不同于标准 SQL。
+```
+UPDATE t1 SET col1 = col1 + 1,col2 = col1;
+```
+单表 UPDATE 分配通常从左到右进行评估。对于多表更新，不能保证按任何特定顺序执行分配。
+如果您将一列设置为它当前拥有的值，TDSQL会注意到这一点并且不会更新它。
+如果通过设置为 NULL 更新已声明为 NOT NULL 的列，则在启用严格 SQL 模式时会发生错误；否则，列被设置为列数据类型的隐式默认值，并且警告计数增加。数字类型的隐式默认值为 0，字符串类型为空字符串 ('')，日期和时间类型为“零”值。
+如果显式更新生成的列，则唯一允许的值是 DEFAULT。
+您可以使用 LIMIT row_count 来限制 UPDATE 的范围。 LIMIT 子句是行匹配限制。只要找到满足 WHERE 子句的 row_count 行，该语句就会立即停止，无论它们是否实际发生了更改。
+如果 UPDATE 语句包含 ORDER BY 子句，则按该子句指定的顺序更新行。这在某些可能导致错误的情况下很有用。假设表 t 包含具有唯一索引的列 id。以下语句可能会因重复键错误而失败，具体取决于行更新的顺序：
+```
+UPDATE t SET id = id + 1;
+```
+例如，如果表的id 列中包含1 和2，并且在2 更新为3 之前将1 更新为2，则会发生错误。 为了避免这个问题，添加一个 ORDER BY 子句，使具有较大 id 值的行在具有较小值的行之前更新：
+```
+UPDATE t SET id = id + 1 ORDER BY id DESC;
+```
+您还可以执行涵盖多个表的 UPDATE 操作。 但是，不能将 ORDER BY 或 LIMIT 用于多表 UPDATE。 
+table_references 子句列出了连接中涉及的表。 下面是一个例子：
+```
+UPDATE  items,month SET items.price=month.price
+WHERE items.id=month.id;
+```
