@@ -6,7 +6,7 @@
 
 ## CocoaPods 集成
 
-`TUIKit` 从 5.7.1435 版本开始支持模块化集成，您既可以选择集成包含会话、聊天、关系链等功能的 `TUIKit` 组件，也可以选择单独集成会话、聊天、关系链等模块的 UI 组件。
+`TUIKit` 从 5.7.1435 版本开始支持模块化集成，您可以选择集成整个 `TUIKit` 组件（包含会话、聊天、关系链、群组、搜索等功能），也可以选择集成单独的功能模块（比如聊天功能）。
 
 ### 集成 TUIKit 组件
 
@@ -51,26 +51,28 @@ pod install
 ```
 </ol></li>
 
-###  模块化集成 UI 组件
+###  集成单独的功能模块
 <ol><li>在 Podfile 中增加以下内容。
 ```objectivec
-// 集成聊天功能
+// 集成聊天功能模块
 pod 'TUIChat'
-// 集成会话功能
+// 集成会话功能模块
 pod 'TUIConversation'
-// 集成关系链功能
+// 集成关系链功能模块
 pod 'TUIContact'
-// 集成群组功能
+// 集成群组功能模块
 pod 'TUIGroup'
-// 集成搜索功能
+// 集成搜索功能模块
 pod 'TUISearch'
-// 集成音视频通话
+// 集成音视频通话模块
 pod 'TUICalling'
 // TUICalling 使用到了第三方静态库，这个设置需要屏蔽
 #use_frameworks!   
 ```
 
->! 如果您选择了模块化集成 UI 组件，您需要主动调用 [TUILogin.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUICore/TUILogin.h) 的 `initWithSdkAppID` 和 `login` 接口初始化和登录 `IMSDK`，详情请参考 [TUIKit.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIKit/TUIKit.m) 代码实现。
+>! 
+>1、功能模块之间是互相独立的，您可以根据业务需求选择需要集成的功能模块。
+>2、在使用功能模块之前，您需要主动调用 [TUILogin.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUICore/TUILogin.h) 的 `initWithSdkAppID` 和 `login` 接口初始化和登录 `IMSDK`，详情请参考 [TUIKit.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIKit/TUIKit.m) 代码实现。
 
 <li> 执行以下命令，安装 UI 组件。<br>
 
