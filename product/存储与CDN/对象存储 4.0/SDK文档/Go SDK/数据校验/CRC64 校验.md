@@ -19,9 +19,9 @@ COS 会对新上传的对象进行 CRC64 计算，并将结果作为对象的属
 
 ## SDK 说明
 
-SDK对应接口可通过响应头部获取CRC64值，SDK 上传文件时默认会进行CRC64校验。
+SDK对应接口可通过响应头部获取 CRC64 值，SDK 上传文件时默认会进行 CRC64 校验。
 
->!  COS Go SDK 版本需要大于等于 v0.7.23
+>!  COS Go SDK 版本需要大于等于 v0.7.23。
 
 #### 请求示例
 ```go
@@ -53,7 +53,7 @@ fmt.Printf("CRC64: %v\n", resp.Header.Get("x-cos-hash-crc64ecma"))
 
 | 参数名称        | 参数描述     | 类型   |
 | --------------- | ------------ | ------ |
-| Response        | http响应     | Struct |
-| Response.Header | http响应头部 | Struct |
-| Response.Body   | http响应数据 | Struct |
+| Response        | HTTP 响应     | Struct |
+| Response.Header | HTTP 响应头部 | Struct |
+| Response.Body   | HTTP 响应数据 | Struct |
 
