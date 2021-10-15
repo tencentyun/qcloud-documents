@@ -62,29 +62,29 @@ if err != nil {
 
 [//]: # (.cssg-snippet-get-bucket2)
 ```go
-    var marker string
-    opt := &cos.BucketGetOptions{
-        Prefix:  "folder/",  // prefix表示要查询的文件夹
-        Delimiter: "/",		 // deliter表示分隔符, 设置为/表示列出当前目录下的object, 设置为空表示列出所有的object
-        MaxKeys: 1000,       // 设置最大遍历出多少个对象, 一次listobject最大支持1000
+var marker string
+opt := &cos.BucketGetOptions{
+    Prefix:  "folder/",  // prefix表示要查询的文件夹
+    Delimiter: "/",		 // deliter表示分隔符, 设置为/表示列出当前目录下的object, 设置为空表示列出所有的object
+    MaxKeys: 1000,       // 设置最大遍历出多少个对象, 一次listobject最大支持1000
+}
+isTruncated := true
+for isTruncated {
+    opt.Marker = marker
+    v, _, err := c.Bucket.Get(context.Background(), opt)
+    if err != nil {
+        fmt.Println(err)
+        break
     }
-    isTruncated := true
-    for isTruncated {
-        opt.Marker = marker
-        v, _, err := c.Bucket.Get(context.Background(), opt)
-        if err != nil {
-            fmt.Println(err)
-            break
-        }
-        for _, content := range v.Contents {
-            fmt.Printf("Object: %v\n", content.Key)
-        }
-        // common prefix表示表示被delimiter截断的路径, 如delimter设置为/, common prefix则表示所有子目录的路径
-        for _, commonPrefix := range v.CommonPrefixes {
-            fmt.Printf("CommonPrefixes: %v\n", commonPrefix)
-        }
-        isTruncated = v.IsTruncated
-        marker = v.NextMarker
+    for _, content := range v.Contents {
+        fmt.Printf("Object: %v\n", content.Key)
+    }
+    // common prefix表示表示被delimiter截断的路径, 如delimter设置为/, common prefix则表示所有子目录的路径
+    for _, commonPrefix := range v.CommonPrefixes {
+        fmt.Printf("CommonPrefixes: %v\n", commonPrefix)
+    }
+    isTruncated = v.IsTruncated    // 是否还有数据
+    marker = v.NextMarker          // 设置下次请求的起始 key
 }
 ```
 
@@ -1537,7 +1537,7 @@ if err != nil {
 
 #### 功能说明
 
-上传接口根据用户文件的长度，自动切分数据， 降低用户的使用门槛，用户无需关心分块上传的每个步骤，当文件大小大于64MB，采用分块上传，用户可通过 PartSize 参数调整。
+上传接口根据用户文件的长度，自动切分数据， 降低用户的使用门槛，用户无需关心分块上传的每个步骤，当文件大小大于16MB，采用分块上传，用户可通过 PartSize 参数调整。
 
 #### 方法原型
 
@@ -1567,9 +1567,9 @@ type MultiUploadOptions struct {
     OptIni             *InitiateMultipartUploadOptions
     PartSize           int64
     ThreadPoolSize     int
+    CheckPoint         bool
 }
 ```
-
 
 | 参数名称       | 参数描述                                                     | 类型   | 是否必填 |
 | -------------- | ------------------------------------------------------------ | ------ | ---- |
@@ -1577,8 +1577,9 @@ type MultiUploadOptions struct {
 | filepath       | 本地文件名                                                   | string | 是   |
 | opt            | 对象属性                                                     | Struct | 否   |
 | OptIni         | 设置对象属性和 ACL，详情请参见 [InitiateMultipartUploadOptions](#.E6.96.B9.E6.B3.95.E5.8E.9F.E5.9E.8B9)          | Struct | 否   |
-| PartSize       | 块大小，单位为 MB，如果用户不指定或者指定 partSize <= 0，由 Go SDK 自动切分，新版本默认大小为64MB   | int    | 否   |
+| PartSize       | 块大小，单位为 MB，如果用户不指定或者指定 partSize <= 0，由 Go SDK 自动切分，新版本默认大小为16MB   | int    | 否   |
 | ThreadPoolSize | 线程池大小，默认为1                                          | int    | 否   |
+| CheckPoint     | 是否开启断点续传，默认为false	                            | bool   | 否   |
 
 #### 返回结果说明
 
@@ -1604,7 +1605,7 @@ type CompleteMultipartUploadResult struct {
 
 #### 功能说明
 
-分块下载接口根据用户对象的长度，自动使用 Range 下载数据，可以实现并发下载，当对象大于64MB时，采用 Range 方式下载文件，可通过 PartSize 参数调整。
+分块下载接口根据用户对象的长度，自动使用 Range 下载数据，可以实现并发下载，当对象大于16MB时，采用 Range 方式下载文件，可通过 PartSize 参数调整。
 
 #### 方法原型
 
@@ -1648,7 +1649,7 @@ type MultiDownloadOptions struct {
 | filepath       | 本地文件名                                                   | string | 是   |
 | opt            | 下载对象参数                                                 | Struct | 否   |
 | Opt            | 请求参数，详情请参见 [ObjectGetOptions](#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1)          | Struct | 否   |
-| PartSize       | 块大小，单位为 MB，如果用户不指定或者指定 partSize <= 0，由 Go SDK 自动切分，新版本中默认64MB   | int64    | 否   |
+| PartSize       | 块大小，单位为 MB，如果用户不指定或者指定 partSize <= 0，由 Go SDK 自动切分，新版本中默认16MB   | int64    | 否   |
 | ThreadPoolSize | 线程池大小，默认为1                                          | int    | 否   |
 | CheckPoint     | 是否开启断点续传，默认为false                                | bool   | 否   |
 | CheckPointFile | 开启断点续传时，表示保存下载进度的文件路径，默认路径为 &lt;filepath>.cosresumabletask，当下载完成后，该进度文件会被清理掉 | string   | 否   |
