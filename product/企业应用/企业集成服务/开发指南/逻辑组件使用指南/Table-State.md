@@ -1,13 +1,13 @@
 ## 简介
-Table-State 组件是一个内置的表结构组件，提供基于 Table-State 的增删改查等操作，仅用于操作 RecordSet。  
+Table 组件是一个内置的表结构组件，提供基于 Table 的增删改查等操作，仅用于操作 RecordSet。  
 
 ## 配置
 
 | 参数   | 数据类型 | 描述             | 是否必填 | 默认值 |
 | :----- | :------- | :--------------- | :------- | ------ |
-| 表名   | string   | 表名             | 是       |        |
-| 列信息 | struct   | 表的列信息       | 是       |        |
-| depend | struct   | 列之间的依赖关系 | 否       |        |
+| 表名   | string   | 表名             | 是       |    -    |
+| 列信息 | struct   | 表的列信息       | 是       |  -      |
+| depend | struct   | 列之间的依赖关系 | 否       |   -     |
 
 ### 列信息
 列信息支持 int、float、bool、string、decimal、data、time、datatime 八种类型，其中 string 类型需要配置长度信息，decimal 类型需要配置精度、小数位信息。
@@ -24,7 +24,7 @@ Table-State 组件是一个内置的表结构组件，提供基于 Table-State �
 ![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Table/4e7b8ff84d0fa7084593e4bfd1309841.png)
 
 ## 操作说明
-Table-State 目前支持查询、插入、合并、删除、计算差值等操作。
+Table 目前支持查询、插入、合并、删除、计算差值等操作。
 <dx-tabs>
 ::: 查询
 #### 参数配置
@@ -61,9 +61,9 @@ Table-State 目前支持查询、插入、合并、删除、计算差值等操�
 | 参数       | 数据类型      | 描述                                                         | **是否必填** | **默认值** |
 | ---------- | ------------- | ------------------------------------------------------------ | ------------ | ---------- |
 | 忽略错误   | bool          | 忽略插入错误                                                 | 否           | true       |
-| 输入数据集 | RecordSet类型 | 输入数据集，若未填写，默认为 message 的 payload                 | 是           |            |
-| 字段校准   | list          | 对输入数据集进行字段校准                                     | 否           |            |
-| 字段映射   | enum          | 字段映射，数据表字段和 RecordSet 类型数据字段的映射，插入数据表字段的值为 RecordSet 类型数据字段的值 | 是           |            |
+| 输入数据集 | RecordSet 类型 | 输入数据集，若未填写，默认为 message 的 payload                 | 是           |   -         |
+| 字段校准   | list          | 对输入数据集进行字段校准                                     | 否           |     -       |
+| 字段映射   | enum          | 字段映射，数据表字段和 RecordSet 类型数据字段的映射，插入数据表字段的值为 RecordSet 类型数据字段的值 | 是           |         -   |
 
 ![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Table/d526c1928541ae32f4015d059a4a21de.png)
 
@@ -91,10 +91,10 @@ Table-State 目前支持查询、插入、合并、删除、计算差值等操�
 | 只执行插入 | bool          | 数据不存在时执行插入操作                                     | 是           | false      |
 | 只执行更新 | bool          | 数据存在时执行更新操作                                       | 是           | false      |
 | 忽略错误   | bool          | 忽略插入错误                                                 | 否           | true       |
-| 输入数据集 | RecordSet类型 | 输入数据集，若未填写，默认为 message 的 payload                 | 是           |            |
-| 字段校准   | list          | 对输入数据集进行字段校准                                     | 否           |            |
-| 过滤条件   | list          | 合并的过滤条件                                               | 是           |            |
-| 字段映射   | enum          | 字段映射，数据表字段和 RecordSet 类型数据字段的映射，插入数据表字段的值为 RecordSet 类型数据字段的值 | 是           |            |
+| 输入数据集 | RecordSet类型 | 输入数据集，若未填写，默认为 message 的 payload                 | 是           | -           |
+| 字段校准   | list          | 对输入数据集进行字段校准                                     | 否           |     -       |
+| 过滤条件   | list          | 合并的过滤条件                                               | 是           |    -        |
+| 字段映射   | enum          | 字段映射，数据表字段和 RecordSet 类型数据字段的映射，插入数据表字段的值为 RecordSet 类型数据字段的值 | 是           |   -         |
 
 ![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Table/47548a63f235d0b25b3059c7a55935bf.png)
 
@@ -119,9 +119,9 @@ Table-State 目前支持查询、插入、合并、删除、计算差值等操�
 
 | 参数       | 数据类型      | 描述                                         | **是否必填** | **默认值** |
 | ---------- | ------------- | -------------------------------------------- | ------------ | ---------- |
-| 输入数据集 | RecordSet 类型 | 输入数据集，若未填写，默认为 message 的 payload | 是           |            |
-| 字段校准   | list          | 对输入数据集进行字段校准                     | 否           |            |
-| 过滤条件   | list          | 删除的过滤条件                               | 是           |            |
+| 输入数据集 | RecordSet 类型 | 输入数据集，若未填写，默认为 message 的 payload | 是           |       -     |
+| 字段校准   | list          | 对输入数据集进行字段校准                     | 否           |       -     |
+| 过滤条件   | list          | 删除的过滤条件                               | 是           |       -     |
 
 ![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Table/1ced4d468aee7f7acaf79c29c5b2a397.png)
 
@@ -146,12 +146,12 @@ Table-State 目前支持查询、插入、合并、删除、计算差值等操�
 
 | 参数       | 数据类型      | 描述                                         | **是否必填** | **默认值** |
 | ---------- | ------------- | -------------------------------------------- | ------------ | ---------- |
-| 输入数据集 | RecordSet 类型 | 输入数据集，若未填写，默认为 message 的 payload | 是           |            |
-| 字段校准   | list          | 对输入数据集进行字段校准                     | 否           |            |
-| 输入模式   | enum          | 全量、增量                                    | 是           |            |
-| 主键配置   | list          | 计算时主键的映射关系                         | 是           |            |
-| 比对字段   | list          | 计算时需要根据主健是否相当                   | 是           |            |
-| 开启缓存   | bool          | 对输出 RecordSet 是否缓存                      | 是           |            |
+| 输入数据集 | RecordSet 类型 | 输入数据集，若未填写，默认为 message 的 payload | 是           |    -        |
+| 字段校准   | list          | 对输入数据集进行字段校准                     | 否           |     -       |
+| 输入模式   | enum          | 全量、增量                                    | 是           |     -       |
+| 主键配置   | list          | 计算时主键的映射关系                         | 是           |      -      |
+| 比对字段   | list          | 计算时需要根据主健是否相当                   | 是           |   -         |
+| 开启缓存   | bool          | 对输出 RecordSet 是否缓存                      | 是           |  -          |
 
 ![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Table/514ca9087fd0651fb72cfa0beb9ee482.png)
 
