@@ -3,13 +3,13 @@
 ## 查看专线信息
 1. 登录 [专线接入控制台](https://console.cloud.tencent.com/dc/dc) ，并在左侧导航栏单击【物理专线】。
 2. 在物理专线列表中单击待查看的专线名称。
-3. 在专线信息详情页面查看该物理专线的基本信息，包含专线供应商、接口类型、接入点、带宽等信息。</br><img src="https://main.qcloudimg.com/raw/3e21755bec31695568212075d53fdf22.png" style="zoom:80%;" />
+3. 在专线信息详情页面查看该物理专线的基本信息，包含专线供应商、接口类型、接入点、带宽等信息。</br><img src="https://main.qcloudimg.com/raw/3e634ca81d425f440f513701a8aa8fee.png" style="zoom:80%;" />
 
 ## 修改专线带宽[](id:xgzxdk)
 若当前物理专线带宽不能满足您的业务需求时，可以在控制台修改物理专线带宽。
 1. 登录 [专线接入控制台](https://console.cloud.tencent.com/dc/dc)，并在左侧导航栏单击【物理专线】。
 2. 在目标专线有的“带宽”列单击<img src="https://main.qcloudimg.com/raw/134ed671d2fa3ec1b82525985c0a6633.svg" style="zoom:6%;" />。
-![](https://main.qcloudimg.com/raw/cfff0aee3f2be4e36f3a21af20148387.png)
+![](https://main.qcloudimg.com/raw/c5eae260854570922d36625575efbaf9.png)
 3. 在编辑框中修改带宽值，然后单击【确定】。
 > ?
 > - 若当前物理专线下没有创建专用通道，则调整带宽不小于1Mbps，且不超过其端口带宽值。
@@ -30,13 +30,12 @@
  1. 在“物理专线”页面上方单击放大镜图标左侧的编辑框，并在下拉菜单中选择【标签】。
  <img src="https://main.qcloudimg.com/raw/623df7a634d09e3988dbe9247acad8a1.png" style="zoom:80%;" />
  2. 在编辑框中输入标签信息，单击放大镜图标。
-![](https://main.qcloudimg.com/raw/9f55c6f02507297688d3056e4f0c86a1.png)
+![](https://main.qcloudimg.com/raw/51b7f45b277dbcbde05e45003e6e78f1.png)
 5. 使用标签管理物理专线。
  1. 在“物理专线”页面上方单击![](https://main.qcloudimg.com/raw/f22b6d803bb59529e530d140ee669a1c.png)图标。
  2. 在“自定义列表字段”页面勾选目标标签，并单击【确定】。
 <img src="https://main.qcloudimg.com/raw/a68cf567e02ff7c3c23cf1ca5d781764.png" style="zoom:80%;" /></br>
-完成后，标签键会出现在物理专线列表第一列。
-<img src="https://main.qcloudimg.com/raw/23b300371c8fd54e99e5c0cf7e923f5f.png" style="zoom:80%;" />
+完成后，标签键会出现在物理专线列表。
 
 ## 删除专线
 当您不需要再使用物理专线时，可以裁撤物理专线。

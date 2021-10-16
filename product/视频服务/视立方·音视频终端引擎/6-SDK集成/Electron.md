@@ -92,7 +92,7 @@ $ npm install native-ext-loader@latest --save-dev
 - 使用 `vue-cli` 创建项目的情况下，webpack 的配置存放在 `vue.config.js` 配置中的 `configureWebpack` 属性中。
 - 如您的工程文件经过了定制化，还请自行查找 webpack 配置。
 
-### 操作说明
+#### 操作说明
 1. 首先使 `webpack.config.js` 在构建时可以接收名为 `--target_platform` 的命令行参数，以使代码构建过程按不同的目标平台特点正确打包，在 `module.exports` 之前添加以下代码：
 ```
 const os = require('os');

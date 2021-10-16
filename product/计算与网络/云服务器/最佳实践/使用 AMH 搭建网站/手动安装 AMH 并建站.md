@@ -2,11 +2,16 @@
 本文介绍如何在腾讯云云服务器（CVM）上手动安装 AMH 并搭建 PHP 网站。
 
 进行手动安装 AMH，您需要熟悉 Linux 命令，例如  [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。
->!腾讯云建议您可以通过云市场的镜像环境部署 AMH，手动安装 AMH需要较长的时间。具体步骤可参考 [镜像部署 AMH 和建站](https://cloud.tencent.com/document/product/213/38357)。
->
+
+
+<dx-alert infotype="notice" title="">
+腾讯云建议您可以通过云市场的镜像环境部署 AMH，手动安装 AMH需要较长的时间。具体步骤可参考 [镜像部署 AMH 和建站](https://cloud.tencent.com/document/product/213/38357)。
+</dx-alert>
+
+
 
 ## 示例软件版本
-本文以在 CentOS 6.9 操作系统的 Linux 云服务器上安装 AMH 4.2 为例，您可前往 [AMH 官网](https://amh.sh/index.htm?amh) 了解更多 AMH 及支持操作系统的信息。
+本文以在 CentOS 7.8 操作系统的 Linux 云服务器上安装 AMH 6.1 为例，您可前往 [AMH 官网](https://amh.sh/index.htm?amh) 了解更多 AMH 及支持操作系统的信息。
 
 
 ## 前提条件
@@ -24,15 +29,14 @@
 ### 步骤2：手动安装 AMH
 1. 执行以下命令，下载并执行 AMH 安装脚本。
 ```
-wget http://amh.sh/file/AMH/4.2/amh.sh && chmod 775 amh.sh && ./amh.sh 2>&1 | tee amh.log
+wget http://dl.amh.sh/amh.sh && bash amh.sh
 ```
-2. <span id="info"></span>根据界面上的信息分别输入以下信息。如下图所示：
-![](https://main.qcloudimg.com/raw/3e619767eb7ac7884f5952d31251af43.png)
- 1.  输入`1`并按 “**Enter**”，表示安装 AMH。
- 2.  输入该云服务器的公网 IP，并按 “**Enter**”。
- 3.  设置 MySQL 的登录密码，并按 “**Enter**”，本文以`123456`为例。
- 4.  设置 AMH 的登录密码，并按 “**Enter**”，本文以`123456`为例。
+2. 根据界面上的信息输入 `1` ，并按 **Enter** 表示使用中国源码镜像。如下图所示：
+![](https://main.qcloudimg.com/raw/5dadf2033f744ff2bad0f956ab5e80a3.png)
 3. 信息输入完成后，请等待 AMH 完成安装。
+4. [](id:info)安装成功后，您可获取 AMH 地址，并请记录 AMH 及数据库管理员帐号及密码。如下图所示：
+![](https://main.qcloudimg.com/raw/9fb2201f06059626f0896ed128da0ff7.png)
+
 
 
 ### 步骤3：登录 AMH
@@ -41,12 +45,12 @@ wget http://amh.sh/file/AMH/4.2/amh.sh && chmod 775 amh.sh && ./amh.sh 2>&1 | te
 http://云服务器公网实例 IP:8888
 ```
 进入 AMH 后台管理登录页面。如下图所示：
-![](https://main.qcloudimg.com/raw/6d2d36d2c192b7c8822fa2c8f64f95c8.png)
-2. 根据以下提示输入相关信息，并单击【登录】。
+![](https://main.qcloudimg.com/raw/0b5891b2a121b005b159c5ed811e1d81.png)
+2. 根据以下提示输入相关信息，并单击**登录**。
  - 管理员账号：`admin`。
- - 管理员密码：输入在 [安装 AMH](#info) 已配置的密码，本文以 `123456` 为例。
+ - 管理员密码：输入在 [安装 AMH](#info) 已获取的密码。
 3. 如下图所示则为登录成功：
-![](https://main.qcloudimg.com/raw/c8233e94cb8ebffe146a05c244098de7.png)
+![](https://main.qcloudimg.com/raw/58990c7ec06e4b55c4693db87c0870fd.png)
 
 ### 步骤4：搭建 PHP 网站
 搭建 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [搭建 PHP 网站](https://cloud.tencent.com/document/product/213/38357#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E6.90.AD.E5.BB.BA-php-.E7.BD.91.E7.AB.99)。

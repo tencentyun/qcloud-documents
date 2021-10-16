@@ -15,9 +15,9 @@
 	
 | 参数 | 是否必选 |说明 | 
 |---------|---------|---------|
-| Entity ID | 必选 |下载的元数据 XM L中，md:EntityDescriptor 元素的 entityID 属性值。
-| ACS URL | 必选 |下载的元数据 XML 中，md:AssertionConsumerService 元素 Location 属性值。
-| RelayState | 可选 | 如果您的企业 IdP 支持设置 RelayState 参数，您可以将 SSO 登录成功后希望跳转到的页面 URL 配置在此处。如果不进行配置，SSO 登录成功以后，将会默认跳转到腾讯云控制台首页
+| Entity ID | 必选 |下载的元数据 XML中，EntityDescriptor 元素的 entityID 属性值。
+| ACS URL | 必选 |下载的元数据 XML 中，AssertionConsumerService 元素 Location 属性值。
+
 
 
 

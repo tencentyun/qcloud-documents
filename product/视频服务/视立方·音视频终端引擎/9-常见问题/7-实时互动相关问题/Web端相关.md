@@ -13,19 +13,15 @@ Web 端和小程序端目前没有客户端接口，可以直接调用云直播�
 
 [](id:que4)
 ###  运行 Web 端 SDK 时，出现错误：“RtcError: no valid ice candidate found”该如何处理？
-出现该错误说明 TRTC Web SDK 在 STUN 打洞失败，请检查防火墙配置。TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://web.sdk.qcloud.com/trtc/webrtc/demo/latest/official-demo/index.html) 检查配置是否生效。
+出现该错误说明 TRTC Web SDK 在 STUN 打洞失败，请检查防火墙配置。TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html) 检查配置是否生效。
 
- - TCP 端口：8687
- - UDP 端口：8000，8080，8800，843，443，16285
- - 域名：qcloud.rtc.qq.com
+具体请参见 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399)。
 
 [](id:que5)
 ###  出现客户端错误："RtcError: ICE/DTLS Transport connection failed" 或 “RtcError: DTLS Transport connection timeout”该如何处理？
-出现该错误说明 TRTC Web SDK 在建立媒体传输通道时失败，请检查防火墙配置。TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://web.sdk.qcloud.com/trtc/webrtc/demo/latest/official-demo/index.html) 检查配置是否生效。
+出现该错误说明 TRTC Web SDK 在建立媒体传输通道时失败，请检查防火墙配置。TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html) 检查配置是否生效。
 
- - TCP 端口：8687
- - UDP 端口：8000，8080，8800，843，443，16285
- - 域名：qcloud.rtc.qq.com
+具体请参见 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399)。
 
 
 [](id:que6)
