@@ -41,14 +41,18 @@ TCM 集成云监控的能力，控制台基于 metric 数据提供网格拓扑�
 
 ## 高级监控
 
-如您有更灵活的自定义 metric 监控数据分析的诉求，TCM 控制台基础监控图表无法满足，您可以为网格开启高级监控，当前 TCM 高级监控功能支持将 metric 数据对接至 [云原生监控](https://cloud.tencent.com/document/product/457/49888) 托管 Prometheus 监控实例。您可以在创建服务网格时或网格创建完成后在网格详情页为网格开启高级监控功能。
+如您有更灵活的自定义 metric 监控数据分析的诉求，TCM 控制台基础监控图表无法满足，您可以为网格开启高级监控，当前 TCM 高级监控功能支持将 metric 数据对接至 [云原生监控](https://cloud.tencent.com/document/product/457/49888) 托管 Prometheus 监控实例，请确认前往 TPS 控制台完成 [TPS 服务相关角色授权](https://console.cloud.tencent.com/tke2/prometheus)。您可以在创建服务网格时或网格创建完成后在网格详情页为网格开启高级监控功能，开启后提供预置的 Service Mesh Grafana Dashboard。
 
 - 创建服务网格时开启高级监控：
-![](https://main.qcloudimg.com/raw/eb56e70773356627a47b0311df9f2e62.png)
-- 网格创建完成后，网格详情页面开启高级监控：在网格详情页面基本信息Tab可开启云原生监控。
-![](https://main.qcloudimg.com/raw/f6d6239b6519fd3352b755162b71f596.png)
-![](https://main.qcloudimg.com/raw/d267595027264f734928567a0c265aaf.png)
+![](https://main.qcloudimg.com/raw/b24448600a62a223aad28da47b310b1f.png)
+- 网格创建完成后，网格详情页面开启高级监控：
+![](https://main.qcloudimg.com/raw/affb975b4e200a77e1483ef402981b61.png)
+![](https://main.qcloudimg.com/raw/dfc5464289a3299482f2c70e84aa4c18.png)
 
 您可以选择自动创建云原生监控实例，或关联已有云原生监控实例。选择自动创建云原生监控实例将在网格所在地域自动创建云原生监控实例，如当前网格的服务发现集群为空，您还需要选择自动创建的云原生监控实例所在的网络，并保证后续添加的服务发现集群与所选网络的连通性，否则 TCM metric 数据无法正常采集。选择关联已有的云原生监控实例，您需要保证所选实例与服务所在网络的连通性，否则 TCM metric 数据无法正常采集。
+
+高级监控-云原生监控开启后，您可以登录 Grafana 查看已预置的 Grafana Dashboard，查看监控数据。
+![](https://main.qcloudimg.com/raw/155a87eabe1c59662c7ab617426f9d9e.png)
+![](https://main.qcloudimg.com/raw/32599053a427f168359122fb2722203f.png)
 
 更多关于云原生监控产品的信息，请参见 [云原生监控](https://cloud.tencent.com/document/product/457/49888) 。

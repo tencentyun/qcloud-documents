@@ -20,7 +20,7 @@ CAM自定义策略核心元素包括：操作（action）、资源（resource）
 
 ### 5. 自定义策略样例
 
-该策略为：允许对广州的两个mesh实例：mesh-abcd1234 和 mesh-1234abcd 做获取列表操作和描述详情操作。
+该策略为：允许对广州的两个mesh实例：mesh-abcd1234 和 mesh-1234abcd 做获取详情操作。
 
 ```
 {
@@ -33,7 +33,6 @@ CAM自定义策略核心元素包括：操作（action）、资源（resource）
                 "qcs::tcm:gz:uin/1234567:mesh/mesh-1234abcd"
             ],
             "action": [
-                "name/tcm:ListMeshes",
                 "name/tcm:DescribeMesh"
             ]
         }
@@ -65,11 +64,11 @@ CAM自定义策略核心元素包括：操作（action）、资源（resource）
 
 | API 操作 | API 描述 | 资源 |
 | :-------- | :--------| :------ |
-| CreateMesh	|  创建服务网格 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
+| CreateMesh	|  创建服务网格 | mesh 资源 ` qcs::tcm:$region:$account:mesh/* ` |
 | DeleteMesh	|  删除服务网格 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
 | DescribeMesh |  获取指定服务网格 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
-| ListMeshes	|  获取所有服务网格 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
-| UpdateMesh	|  更新服务网格 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
+| ListMeshes	|  获取服务网格列表 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
+| ModifyMesh	|  修改服务网格配置 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
 | UpgradeMesh	|  升级服务网格 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
 
 ### Istio 资源相关
@@ -83,17 +82,17 @@ CAM自定义策略核心元素包括：操作（action）、资源（resource）
 
 | API 操作 | API 描述 | 资源 |
 | :-------- | :--------| :------ |
-|  LinkClusters |  关联集群到服务网格实例 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
-| RedoLinkCluster |  重新关联集群到服务网格实例 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
-| UndoLinkCluster |  解除关联集群 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
+|  LinkClusterList |  关联集群到服务网格实例 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
+| UnlinkCluster |  解除关联集群 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
 
 ### 边缘代理网关相关
 
 | API 操作 | API 描述 | 资源 |
 | :-------- | :--------| :------ |
-| CreateGatewayInstance |  创建边缘代理网关 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
-| DeleteGatewayInstance |  删除边缘代理网关 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
-| UpdateGatewayInstance |  更新边缘代理网关 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
+| CreateIngressGateway |  创建 IngressGateway | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
+| DeleteGatewayInstance |  删除 IngressGateway | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
+| DescribeIngressGatewayList |  查询 IngressGateway 列表 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
+| ModifyIngressGateway | 修改 IngressGateway | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
 
 ### 体验环境相关
 

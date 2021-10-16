@@ -6,7 +6,7 @@
 
 ### 授权场景
 
-当您已注册并登录腾讯云账号后，首次登录 [TCM 控制台](https://console.cloud.tencent.com/tke2/mesh) 时，需前往【访问管理】页面对当前账号授予腾讯云服务网格操作容器服务（TKE）、SSL证书（SSL）等云资源的权限。该权限授予通过关联预设策略 ` QcloudAccessForTCMRole ` 至 TCM 服务角色 `TCM_QCSRole` 完成。如您之前未创建过 TCM 服务角色，该授权流程还会涉及 TCM 服务角色的创建。
+当您已注册并登录腾讯云账号后，首次登录 [TCM 控制台](https://console.cloud.tencent.com/tke2/mesh) 时，需前往【访问管理】页面对当前账号授予腾讯云服务网格操作容器服务（TKE）、SSL证书（SSL）、日志服务（CLS）等云资源的权限。该权限授予通过关联预设策略 ` QcloudAccessForTCMRole ` 至 TCM 服务角色 `TCM_QCSRole` 完成。如您之前未创建过 TCM 服务角色，该授权流程还会涉及 TCM 服务角色的创建。
 
 ### 授权步骤
 
@@ -28,7 +28,19 @@
 
 | 权限 | 描述 | 资源 |
 | :-------- | :--------| :------ |
-| DownloadCertificate |  下载证书 | 所有资源 ` * ` |
+| DescribeCertificateDetail | 获取证书详情 | 所有资源 ` * ` |
+
+- **日志服务（CLS）相关**
+
+| 权限 | 描述 | 资源 |
+| :-------- | :--------| :------ |
+| getLogset | 获取日志集详情 | 所有资源 ` * ` |
+| getTopic | 获取日志主题详情 | 所有资源 ` * ` |
+| createLogset | 创建日志集 | 所有资源 ` * ` |
+| createTopic | 创建日志主题 | 所有资源 ` * ` |
+| modifyIndex | 修改索引 | 所有资源 ` * ` |
+| listLogset | 获取日志集列表 | 所有资源 ` * ` |
+| listTopic | 获取日志主题列表 | 所有资源 ` * ` |
 
 
 ## 首次使用 TCM 一键体验功能[](id:TCMRoleInSample)

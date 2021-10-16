@@ -36,9 +36,7 @@
 
 您可以在网格创建时配置采样率，网格创建后，也可以在网格基本信息页面修改采样率配置。
 
-![](https://main.qcloudimg.com/raw/b04b4a72151a1348b8fdb468921ee15a.png)
-
-![](https://main.qcloudimg.com/raw/bb1e6d5a1f64434ba275da557caac613.png)
-
+![](https://main.qcloudimg.com/raw/cd22709601ef09d58b4f696bbe57a4cd.png)
+![](https://main.qcloudimg.com/raw/bf192503ca214c01923a3287257d3c3d.png)
 
 

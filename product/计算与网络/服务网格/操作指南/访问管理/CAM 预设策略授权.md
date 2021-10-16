@@ -9,6 +9,46 @@
 |`QcloudTCMFullAccess` | 服务网格（TCM）全读写访问权限（创建、删除等全部操作） |
 |`QcloudTCMReadOnlyAccess`| 服务网格（TCM）只读访问权限（可以查看TCM下所有资源，但无法创建、更新或删除它们） |
 
+### 服务网格全读写预设策略
+
+策略名：QcloudTCMFullAccess，策略内容：
+
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": [
+                "tcm:*"
+            ],
+            "resource": "*",
+            "effect": "allow"
+        }
+    ]
+}
+```
+
+### 服务网格只读预设策略
+
+策略名：QcloudTCMReadOnlyAccess，策略内容：
+
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": [
+                "tcm:List*",
+                "tcm:Describe*",
+                "tcm:ForwardRequestRead"
+            ],
+            "resource": "*",
+            "effect": "allow"
+        }
+    ]
+}
+```
+
 ## TCM 相关产品的 CAM 权限
 
 使用 TCM 还涉及到关联的 VPC、CCN、CLB、TKE等产品的 CAM 权限，您可以参考相应产品的 CAM 授权文档，为子账号授予合适的权限：
