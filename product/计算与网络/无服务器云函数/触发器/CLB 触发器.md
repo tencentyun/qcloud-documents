@@ -33,6 +33,7 @@ CLB 触发器支持在  **[云函数控制台](https://console.cloud.tencent.com
 
 ## 请求与响应
 CLB 负载均衡发送到云函数的请求处理方式，和云函数响应给 CLB 负载均衡的返回值处理方式，称为请求方法和响应方法。请求方法和响应方法都为 CLB 触发器自动处理。CLB 触发器触发云函数时，必须按照响应方法返回数据结构。
+> 注意：`X-Vip`、`X-Vport`、`X-Uri`、`X-Method`、`X-Real-Port` 字段必须先在 CLB 控制台进行自定义配置后才可以进行传递，自定义配置参考[CLB 产品文档]。(https://cloud.tencent.com/document/product/214/15171)
 
 
 #### CLB 触发器的集成请求事件消息结构[](id:datastructures)
