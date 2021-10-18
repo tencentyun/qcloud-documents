@@ -12,6 +12,7 @@ Upsert Kafka 连接器支持以 upsert 方式从 Kafka topic 中读取数据并�
 | 1.13      | 支持   |
 
 ## 示例
+
 ```sql
 CREATE TABLE pageviews_per_region (
   user_region STRING,
@@ -19,11 +20,12 @@ CREATE TABLE pageviews_per_region (
   uv BIGINT,
   PRIMARY KEY (user_region) NOT ENFORCED
 ) WITH (
-  'connector' = 'upsert-kafka',
-  'topic' = 'pageviews_per_region',
-  'properties.bootstrap.servers' = '...',
-  'key.format' = 'avro',
-  'value.format' = 'avro'
+  -- 定义 Upsert Kafka 参数
+  'connector' = 'upsert-kafka',  -- 选择 connector
+  'topic' = 'pageviews_per_region',  -- 替换为您要消费的 Topic
+  'properties.bootstrap.servers' = '...',  -- 替换为您的 Kafka 连接地址
+  'key.format' = 'avro',  -- 定义 key 数据格式
+  'value.format' = 'avro'  -- 定义value 数据格式
 );
 
 CREATE TABLE pageviews (
@@ -33,10 +35,11 @@ CREATE TABLE pageviews (
   user_region STRING,
   WATERMARK FOR viewtime AS viewtime - INTERVAL '2' SECOND
 ) WITH (
-  'connector' = 'kafka',
-  'topic' = 'pageviews',
-  'properties.bootstrap.servers' = '...',
-  'format' = 'json'
+  -- 定义 Kafka 参数
+  'connector' = 'kafka',  -- 选择 connector
+  'topic' = 'pageviews',  -- 替换为您要消费的 Topic
+  'properties.bootstrap.servers' = '...',  -- 替换为您的 Kafka 连接地址
+  'format' = 'json'  -- 定义数据格式
 );
 
 -- 计算 pv、uv 并插入到 upsert-kafka sink
@@ -49,9 +52,10 @@ FROM pageviews
 GROUP BY user_region;
 ```
 
->! Upsert kafka 确保在 DDL 中定义主键。
+>! Upsert Kafka 确保在 DDL 中定义主键。
 
 ## 通用 WITH 参数
+
 <table class="table table-bordered">
     <thead>
       <tr>
@@ -64,58 +68,65 @@ GROUP BY user_region;
     </thead>
     <tbody>
     <tr>
-      <td>connector</td>
+      <td><h5>connector</h5></td>
       <td>必选</td>
       <td style="word-wrap: break-word;">(none)</td>
       <td>String</td>
       <td>指定要使用的连接器，Upsert Kafka 连接器使用：<code>'upsert-kafka'</code>。</td>
     </tr>
     <tr>
-      <td>topic</td>
+      <td><h5>topic</h5></td>
       <td>必选</td>
       <td style="word-wrap: break-word;">(none)</td>
       <td>String</td>
       <td>用于读取和写入的 Kafka topic 名称。</td>
     </tr>
     <tr>
-      <td>properties.bootstrap.servers</td>
+      <td><h5>properties.bootstrap.servers</h5></td>
       <td>必选</td>
       <td style="word-wrap: break-word;">(none)</td>
       <td>String</td>
       <td>以逗号分隔的 Kafka brokers 列表。</td>
     </tr>
     <tr>
-      <td>properties.*</td>
+      <td><h5>properties.*</h5></td>
       <td>可选</td>
       <td style="word-wrap: break-word;">(none)</td>
       <td>String</td>
-      <td>该选项可以传递任意的 Kafka 参数。选项的后缀名必须匹配定义在 <a href="https://kafka.apache.org/documentation/#configuration">Kafka 参数文档</a> 中的参数名。Flink 会自动移除选项名中的 "properties." 前缀，并将转换后的键名以及值传入 KafkaClient。 例如，您可以通过 <code>'properties.allow.auto.create.topics' = 'false'</code>来禁止自动创建 topic。 但是，某些选项是不允许通过该方式传递参数，例如<code>'key.deserializer'</code> 和 <code>'value.deserializer'</code> ，因为 Flink 会重写这些参数的值。
+      <td>
+         该选项可以传递任意的 Kafka 参数。选项的后缀名必须匹配定义在 <a href="https://kafka.apache.org/documentation/#configuration">Kafka 参数文档</a>中的参数名。
+         Flink 会自动移除 选项名中的 "properties." 前缀，并将转换后的键名以及值传入 KafkaClient。 例如，你可以通过 <code>'properties.allow.auto.create.topics' = 'false'</code>
+         来禁止自动创建 topic。 但是，某些选项，例如<code>'key.deserializer'</code> 和 <code>'value.deserializer'</code> 是不允许通过该方式传递参数，因为 Flink 会重写这些参数的值。
       </td>
     </tr>
     <tr>
-      <td>key.format</td>
+      <td><h5>key.format</h5></td>
       <td>必选</td>
       <td style="word-wrap: break-word;">(none)</td>
       <td>String</td>
-      <td>用于对 Kafka 消息中 key 部分序列化和反序列化的格式。key 字段由 PRIMARY KEY 语法指定。支持的格式包括 'csv'、'json'、'avro'。</td>
+      <td>用于对 Kafka 消息中 key 部分序列化和反序列化的格式。key 字段由 PRIMARY KEY 语法指定。支持的格式包括 <code>'csv'</code>、<code>'json'</code>、<code>'avro'</code>
+      </td>
     </tr>
     <tr>
-      <td>key.fields-prefix</td>
+      <td><h5>key.fields-prefix</h5></td>
       <td>optional</td>
       <td style="word-wrap: break-word;">(none)</td>
       <td>String</td>
-      <td>为 'key.fields' 的所有字段定义自定义前缀，以避免与 'value.fields' 字段名称冲突。默认情况下，前缀为空。如果定义了自定义前缀，则表 schema 和 'key.fields' 将使用前缀名称。构建 'key.fields' 格式的数据类型时候，将删除前缀并使用 key format 中非前缀名称。请注意，此选项要求 'value.fields-include' 必须设置为 'EXCEPT_KEY'。
+      <td>为<code>'key.fields'</code>的所有字段定义自定义前缀，以避免与<code>'value.fields'</code>字段名称冲突。默认情况下，前缀为空。如果定义了自定义前缀，则
+        表 schema 和 <code>'key.fields'</code> 将使用前缀名称。构建<code>'key.fields'</code>格式的数据类型时候，将删除前缀并使用key format中非前缀名称。请注意，此选项要求 <code>'value.fields-include'</code>
+        必须设置为 <code>'EXCEPT_KEY'</code>.
       </td>
     </tr>
     <tr>
-      <td>value.format</td>
+      <td><h5>value.format</h5></td>
       <td>必选</td>
       <td style="word-wrap: break-word;">(none)</td>
       <td>String</td>
-      <td>用于对 Kafka 消息中 value 部分序列化和反序列化的格式。支持的格式包括 'csv'、'json'、'avro'。</td>
+      <td>用于对 Kafka 消息中 value 部分序列化和反序列化的格式。支持的格式包括 <code>'csv'</code>、<code>'json'</code>、<code>'avro'</code>。
+      </td>
     </tr>
     <tr>
-       <td>value.fields-include</td>
+       <td><h5>value.fields-include</h5></td>
        <td>必选</td>
        <td style="word-wrap: break-word;"><code>'ALL'</code></td>
        <td>String</td>
@@ -127,14 +138,14 @@ GROUP BY user_region;
        </td>
     </tr>
     <tr>
-      <td>sink.parallelism</td>
+      <td><h5>sink.parallelism</h5></td>
       <td>可选</td>
       <td style="word-wrap: break-word;">(none)</td>
       <td>Integer</td>
       <td>定义 upsert-kafka sink 算子的并行度。默认情况下，由框架确定并行度，与上游链接算子的并行度保持一致。</td>
     </tr>
     <tr>
-      <td>sink.buffer-flush.max-rows</td>
+      <td><h5>sink.buffer-flush.max-rows</h5></td>
       <td>可选</td>
       <td style="word-wrap: break-word;">0</td>
       <td>Integer</td>
@@ -143,7 +154,7 @@ GROUP BY user_region;
       和 <code>'sink.buffer-flush.interval'</code> 两个选项为大于零的值。</td>
     </tr>
     <tr>
-      <td>sink.buffer-flush.interval</td>
+      <td><h5>sink.buffer-flush.interval</h5></td>
       <td>可选</td>
       <td style="word-wrap: break-word;">0</td>
       <td>Duration</td>
@@ -154,6 +165,7 @@ GROUP BY user_region;
 </table>
 
 ## SASL 认证授权
+
 ### SASL/PLAIN 用户名密码认证授权
 1. 参考 [消息队列 CKafka - 配置 ACL 策略](https://cloud.tencent.com/document/product/597/31528)，设置 Topic 按用户名密码访问的 SASL_PLAINTEXT 认证方式。
 2. 参考 [消息队列 CKafka - 添加路由策略](https://cloud.tencent.com/document/product/597/36348)，选择 SASL_PLAINTEXT 接入方式，并以该接入方式下的网络地址访问 Topic。
@@ -169,6 +181,7 @@ CREATE TABLE `YourTable` (
   ...
 );
 ```
+
 >? `username` 是`实例 ID` + `#` + `刚配置的用户名`，`password` 是刚配置的用户密码。
 
 ### SASL/GSSAPI Kerberos 认证授权
@@ -215,6 +228,7 @@ CREATE TABLE `YourTable` (
 );
 ```
 >? 参数 `properties.sasl.kerberos.service.name` 的值必须与您选取的 principal 匹配，如果您选择的为 `hadoop/${IP}@EMR-OQPO48B9`，那么取值为 hadoop。
+>
 7. 作业 [高级参数](https://cloud.tencent.com/document/product/849/53391) 配置。
 ```
 security.kerberos.login.principal: hadoop/172.28.2.13@EMR-4K3VR5FD
@@ -223,4 +237,3 @@ security.kerberos.login.conf: krb5.conf
 security.kerberos.login.contexts: KafkaClient
 fs.hdfs.hadoop.security.authentication: kerberos
 ```
-
