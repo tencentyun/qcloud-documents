@@ -79,11 +79,11 @@ MongoDB 的 CDC 和 Flink 字段类型对应关系如下：
     </thead>
     <tbody>
     <tr>
-      <td></td>
+      <td>-</td>
       <td>TINYINT</td>
     </tr>
     <tr>
-      <td></td>
+      <td>-</td>
       <td>SMALLINT</td>
     </tr>
     <tr>
@@ -96,7 +96,7 @@ MongoDB 的 CDC 和 Flink 字段类型对应关系如下：
       <td>BIGINT</td>
     </tr>
     <tr>
-      <td></td>
+      <td>-</td>
       <td>FLOAT</td>
     </tr>
     <tr>
