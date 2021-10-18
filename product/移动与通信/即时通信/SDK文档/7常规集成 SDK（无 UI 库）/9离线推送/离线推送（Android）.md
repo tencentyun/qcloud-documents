@@ -115,7 +115,7 @@
 
 1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml)：
 <dx-codeblock>
-::: xml
+:::  xml
     <activity
         android:name="com.tencent.qcloud.tim.demo.main.MainActivity"
         android:launchMode="singleTask"
@@ -135,7 +135,7 @@
 
 2. 获取 intent URL，方式如下：
 <dx-codeblock>
-::: java
+:::  java
     Intent intent = new Intent(this, MainActivity.class);
     intent.setData(Uri.parse("pushscheme://com.tencent.qcloud.tim/detail"));
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -143,10 +143,11 @@
     Log.i(TAG, "intentUri = " + intentUri);
 :::
 </dx-codeblock>
-打印结果:
+
+    打印结果:
 <dx-codeblock>
-::: plaintext
-intent://com.tencent.qcloud.tim/detail#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.main.MainActivity;end
+::: txt
+        intent://com.tencent.qcloud.tim/detail#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.main.MainActivity;end
 :::
 </dx-codeblock>
 
@@ -163,6 +164,7 @@ intent://com.tencent.qcloud.tim/detail#Intent;scheme=pushscheme;launchFlags=0x40
 在发消息前设置每条消息的通知栏自定义内容。
 
 - 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatProvider.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/model/ChatProvider.java) 类的 sendMessage() 方法中对应的逻辑：
+
 <dx-codeblock>
 ::: java
 OfflineMessageContainerBean containerBean = new OfflineMessageContainerBean();
@@ -194,19 +196,23 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
 - 若 [添加证书](#xiaomiStep1_2) 时设置【点击通知后】的操作为【打开应用】，当点击通知栏的消息时，会触发小米推送 SDK 的  `onNotificationMessageClicked(Context context, MiPushMessage miPushMessage)` 回调，自定义内容可以从 `miPushMessage` 中获取，可以参考 [XiaomiMsgReceiver.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/XiaomiMsgReceiver.java) 的解析实现。
 
-  ```
+<dx-codeblock>
+::: java
   Map extra = miPushMessage.getExtra();
   String extContent = extra.get("ext");
-  ```
+:::
+</dx-codeblock>
 
 - 若 [添加证书](#xiaomiStep1_2) 时设置【点击通知后】的操作为【打开应用内指定界面】，封装消息的 `MiPushMessage` 对象通过 `Intent` 传到客户端，客户端在相应的 `Activity` 中获取自定义内容，可以参考  [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 
-    ```
+<dx-codeblock>
+::: java
     Bundle bundle = getIntent().getExtras(); 
     MiPushMessage miPushMessage = (MiPushMessage)bundle.getSerializable(PushMessageHelper.KEY_MESSAGE); 
     Map extra = miPushMessage.getExtra(); 
     String extContent = extra.get("ext");
-    ```
+:::
+</dx-codeblock>
 
 ## 华为推送
 
@@ -256,7 +262,8 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
 1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml)：
 
-    ```xml
+<dx-codeblock>
+::: xml
     <activity
         android:name="com.tencent.qcloud.tim.demo.main.MainActivity"
         android:launchMode="singleTask"
@@ -271,22 +278,27 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
                 android:scheme="pushscheme" />
         </intent-filter>
     </activity>
-    ```
+:::
+</dx-codeblock>
 
 
 2. 获取 intent URL，方式如下：
 
-    ```java
+<dx-codeblock>
+:::  java
     Intent intent = new Intent(this, MainActivity.class);
     intent.setData(Uri.parse("pushscheme://com.tencent.qcloud.tim/detail"));
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     String intentUri = intent.toUri(Intent.URI_INTENT_SCHEME);
     Log.i(TAG, "intentUri = " + intentUri);
-    ```
+:::
+</dx-codeblock>
     打印结果:
-        ```
+<dx-codeblock>
+:::  txt
         intent://com.tencent.qcloud.tim/detail#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.main.MainActivity;end
-        ```
+:::
+</dx-codeblock>
 3. 在 [添加证书](#huaweiStep1_2) 时选择【打开应用内指定界面】并输入上述打印结果。
 
 [](id:huawei_custom)
@@ -299,8 +311,8 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 在发消息前设置每条消息的通知栏自定义内容。
 
 - 下面是 Android 端简单示例，也可以参考 TUIKit 中 [ChatProvider.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/model/ChatProvider.java) 类的 sendMessage() 方法中对应的逻辑：
-
-```java
+<dx-codeblock>
+:::  java
 OfflineMessageContainerBean containerBean = new OfflineMessageContainerBean();
 OfflineMessageBean entity = new OfflineMessageBean();
 entity.content = message.getExtra().toString();
@@ -321,7 +333,9 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
     @Override
     public void onProgress(int progress) {}
 });
-```
+:::
+</dx-codeblock>
+
 
 
 - 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
@@ -330,10 +344,12 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
 - 若 [添加证书](#huaweiStep1_1) 时设置【点击通知后】的操作为【打开应用】或【打开应用内指定界面】，当点击通知栏的消息时，客户端可以在相应的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 
-    ```
+<dx-codeblock>
+:::  java
     Bundle bundle = getIntent().getExtras();
     String value = bundle.getString("ext"); 
-    ```
+:::
+</dx-codeblock>
 
 
 ## OPPO 推送
@@ -347,7 +363,8 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
 2. 按照 OPPO 官网要求，在 OPPO Android 8.0 及以上系统版本必须配置 ChannelID，否则推送消息无法展示。您需要先在 App 中创建对应的 ChannelID（例如 `tuikit`）：
 
-   ```
+<dx-codeblock>
+:::  java
    public void createNotificationChannel(Context context) {
    				// Create the NotificationChannel, but only on API 26+ because
    				// the NotificationChannel class is new and not in the support library
@@ -363,7 +380,8 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
    						notificationManager.createNotificationChannel(channel);
    				}
    		}
-   ```
+ :::
+</dx-codeblock>
 
    [](id:oppoStep1_3)
 
@@ -414,12 +432,14 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
 1. 在 AndroidManifest 要打开的 Activity 中做如下配置，并且必须加上 category 且不能有 data 数据，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml)：
 
-```
+<dx-codeblock>
+:::  xml
 <intent-filter>
 		<action android:name="android.intent.action.VIEW" />
 		<category android:name="android.intent.category.DEFAULT" />
 </intent-filter>
-```
+:::
+</dx-codeblock>
 
 2. 在控制台上填入 `android.intent.action.VIEW`。
 
@@ -434,7 +454,8 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
 - 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatProvider.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/model/ChatProvider.java) 类的 sendMessage() 方法中对应的逻辑：
 
-```java
+<dx-codeblock>
+:::  java
 OfflineMessageContainerBean containerBean = new OfflineMessageContainerBean();
 OfflineMessageBean entity = new OfflineMessageBean();
 entity.content = message.getExtra().toString();
@@ -455,24 +476,27 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
     @Override
     public void onProgress(int progress) {}
 });
-```
+:::
+</dx-codeblock>
 
 - 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
 
 **步骤2：接收端获取自定义内容**
 当点击通知栏的消息时，客户端在启动的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 
-```
+<dx-codeblock>
+:::  java
 Bundle bundle = intent.getExtras();
-	Set<String> set = bundle.keySet();
-	if (set != null) {
-			for (String key : set) {
-				// 其中 key 和 value 分别为发送端设置的 extKey 和 ext content
-					String value = bundle.getString(key);
-					Log.i("oppo push custom data", "key = " + key + ":value = " + value);
-			}
+Set<String> set = bundle.keySet();
+if (set != null) {
+	for (String key : set) {
+		// 其中 key 和 value 分别为发送端设置的 extKey 和 ext content
+		String value = bundle.getString(key);
+		Log.i("oppo push custom data", "key = " + key + ":value = " + value);
 	}
-```
+}
+:::
+</dx-codeblock>
 
 ## vivo 推送
 
@@ -520,7 +544,8 @@ Bundle bundle = intent.getExtras();
 
 1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml)：
 
-    ```xml
+<dx-codeblock>
+:::  xml
     <activity
         android:name="com.tencent.qcloud.tim.demo.main.MainActivity"
         android:launchMode="singleTask"
@@ -535,22 +560,26 @@ Bundle bundle = intent.getExtras();
                 android:scheme="pushscheme" />
         </intent-filter>
     </activity>
-    ```
+:::
+</dx-codeblock>
 
 
 2. 获取 intent URL，方式如下：
-
-    ```java
+<dx-codeblock>
+:::  java
     Intent intent = new Intent(this, MainActivity.class);
     intent.setData(Uri.parse("pushscheme://com.tencent.qcloud.tim/detail"));
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     String intentUri = intent.toUri(Intent.URI_INTENT_SCHEME);
     Log.i(TAG, "intentUri = " + intentUri);
-    ```
+:::
+</dx-codeblock>
     打印结果:
-        ```
+<dx-codeblock>
+:::  txt
         intent://com.tencent.qcloud.tim/detail#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.main.MainActivity;end
-        ```
+:::
+</dx-codeblock>
 
 3. 在 [添加证书](#vivoStep1_2) 时选择【打开应用内指定界面】并输入上述打印结果。
 
@@ -565,7 +594,8 @@ Bundle bundle = intent.getExtras();
 
 - 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatProvider.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/model/ChatProvider.java) 类的 sendMessage() 方法中对应的逻辑：
 
-```java
+<dx-codeblock>
+:::  java
 OfflineMessageContainerBean containerBean = new OfflineMessageContainerBean();
 OfflineMessageBean entity = new OfflineMessageBean();
 entity.content = message.getExtra().toString();
@@ -586,18 +616,20 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
     @Override
     public void onProgress(int progress) {}
 });
-```
-
+:::
+</dx-codeblock>
 
 - 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
 
 **步骤2：接收端获取自定义内容**
 点击通知栏的消息时，会触发 vivo 推送 SDK 的 `onNotificationMessageClicked(Context context, UPSNotificationMessage upsNotificationMessage)` 回调，自定义内容可以从 `upsNotificationMessage` 中获取，可以参考 [VIVOPushMessageReceiverImpl.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/VIVOPushMessageReceiverImpl.java) 的解析实现。
 
-```
+<dx-codeblock>
+:::  java
 Map<String, String> paramMap = upsNotificationMessage.getParams();
 String extContent = paramMap.get("ext");
-```
+:::
+</dx-codeblock>
 
 ## 魅族推送
 
@@ -659,7 +691,8 @@ String extContent = paramMap.get("ext");
 
 - 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatProvider.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/model/ChatProvider.java) 类的 sendMessage() 方法中对应的逻辑：
 
-```java
+<dx-codeblock>
+:::  java
 OfflineMessageContainerBean containerBean = new OfflineMessageContainerBean();
 OfflineMessageBean entity = new OfflineMessageBean();
 entity.content = message.getExtra().toString();
@@ -680,7 +713,8 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
     @Override
     public void onProgress(int progress) {}
 });
-```
+:::
+</dx-codeblock>
 
 
 - 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
@@ -689,16 +723,21 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
 点击通知栏的消息时，会触发魅族推送 SDK 的  `onNotificationClicked(Context context, MzPushMessage mzPushMessage)` 回调 ，自定义内容可以从 `mzPushMessage` 中获取。
 
-```
+<dx-codeblock>
+:::  java
 String extContent = mzPushMessage.getSelfDefineContentString();
-```
+:::
+</dx-codeblock>
 
 另外，客户端也可以在打开的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 
-```
+<dx-codeblock>
+:::  java
 Bundle bundle = getIntent().getExtras();
 String extContent = bundle.getString("ext"); 
-```
+:::
+</dx-codeblock>
+
 
 ## Google FCM 推送
 
@@ -730,7 +769,8 @@ String extContent = bundle.getString("ext");
 在发消息前设置每条消息的通知栏自定义内容。
 
 - 下面是 Android 端简单示例，也可以参考 TUIKit 中 [ChatProvider.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/model/ChatProvider.java) 类的 sendMessage() 方法中对应的逻辑：
-```java
+<dx-codeblock>
+:::  java
 OfflineMessageContainerBean containerBean = new OfflineMessageContainerBean();
 OfflineMessageBean entity = new OfflineMessageBean();
 entity.content = message.getExtra().toString();
@@ -751,16 +791,22 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
     @Override
     public void onProgress(int progress) {}
 });
-```
+:::
+</dx-codeblock>
+
 
 - 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
 
 **步骤2：接收端获取自定义内容**
 当点击通知栏的消息时，客户端在相应的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
-```
+
+<dx-codeblock>
+:::  java
 Bundle bundle = getIntent().getExtras();
 String value = bundle.getString("ext"); 
-```
+:::
+</dx-codeblock>
+
 
 ## 自定义 iOS 推送提示音
 
