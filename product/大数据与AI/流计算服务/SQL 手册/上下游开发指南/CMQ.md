@@ -105,7 +105,7 @@ CREATE TABLE `Data-Input` (
     'max-block-timeout' = '0s'                  -- 批量发送数据的最大等待时间
 );
 ```
-## 参数
+## WITH 参数
 ### 通用 WITH 参数
 
 | 参数值               | 必填 |  默认值  |                             描述                             |
