@@ -1,7 +1,16 @@
 ## 介绍
+
 Flink Connector Doris 目前支持通过 Flink 将数据写入 Doris，基于 [开源版本](https://doris.apache.org/master/zh-CN/extending-doris/flink-doris-connector.html) 实现。
 
+## 版本说明
+
+| Flink 版本 | 说明     |
+| :-------- | :------- |
+| 1.11      | 支持     |
+| 1.13      | 暂不支持 |
+
 ## 使用范围
+
 Flink Connector Doris 目前仅支持 Doris sink。支持的 Doris 版本为0.14.0及以上版本，并且要求开启配置 enable_http_server_v2=true。
 
 ## 示例
@@ -45,13 +54,13 @@ INSERT INTO flink_doris_sink select * from random_source;
 | ------------------- | ------------------------------------------------------------ | -------- | -------------- |
 | connector           | 源表类型                                                     | 是       | 固定值 `doris` |
 | fenodes             | Doris FE http 地址                                           | 是       | -              |
-| table.identifier    | Doris 表名，格式：db1.tbl1                                    | 是       | -              |
-| username            | 访问 Doris 的用户名                                            | 是       | -              |
-| password            | 访问 Doris 的密码                                              | 是       | -              |
-| sink.batch.size     | 单次写 BE 的最大行数                                           | 否       | 默认100       |
-| sink.max-retries    | 写 BE 失败之后的重试次数                                       | 否       | 默认1         |
-| sink.batch.interval | flush 间隔时间，超过该时间后异步线程将缓存中数据写入 BE。默认值为1秒，支持时间单位 ms、s、min、h 和 d。设置为0，表示关闭定期写入。 | 否       | 默认1s        |
-| sink.properties.\*   | Stream load 的导入 [参数](https://doris.apache.org/master/zh-CN/administrator-guide/config/fe_config.html#%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%88%97%E8%A1%A8)。例如 `sink.properties.column_separator' = ','`等 | 否       | -              |
+| table.identifier    | Doris 表名，格式：db1.tbl1                                   | 是       | -              |
+| username            | 访问 Doris 的用户名                                          | 是       | -              |
+| password            | 访问 Doris 的密码                                            | 是       | -              |
+| sink.batch.size     | 单次写 BE 的最大行数                                         | 否       | 默认100        |
+| sink.max-retries    | 写 BE 失败之后的重试次数                                     | 否       | 默认1          |
+| sink.batch.interval | flush 间隔时间，超过该时间后异步线程将缓存中数据写入 BE。默认值为1秒，支持时间单位 ms、s、min、h 和 d。设置为0，表示关闭定期写入。 | 否       | 默认1s         |
+| sink.properties.\*  | Stream load 的导入 [参数](https://doris.apache.org/master/zh-CN/administrator-guide/config/fe_config.html#%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%88%97%E8%A1%A8)。例如 `sink.properties.column_separator' = ','`等 | 否       | -              |
 
 ## 数据类型映射
 
@@ -124,7 +133,6 @@ INSERT INTO flink_doris_sink select * from random_source;
   </tr>
 </table>
 
-
 ## 注意事项
 ### Upsert
 若需要 upsert，则要求 doris 表必须带 UNIQUE KEY 约束，例如 UNIQUE KEY(\`id\`)，doris 底层表建表语句如下：
@@ -143,4 +151,3 @@ DISTRIBUTED BY HASH(`id`) BUCKETS 10;
 CREATE USER 'test' IDENTIFIED BY 'test_passwd';
 GRANT ALL ON test TO test;
 ```
-
