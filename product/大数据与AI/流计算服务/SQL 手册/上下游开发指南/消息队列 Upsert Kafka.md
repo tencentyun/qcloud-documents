@@ -51,8 +51,7 @@ GROUP BY user_region;
 
 >! Upsert kafka 确保在 DDL 中定义主键。
 
-## WITH 参数
-### 通用 WITH 参数
+## 通用 WITH 参数
 <table class="table table-bordered">
     <thead>
       <tr>
