@@ -109,3 +109,4 @@ http://实例公网 IP:15672
 ![](https://main.qcloudimg.com/raw/aacb15db11b5cf80dd6b7ba1dc80d331.png)
 3. 使用 [步骤6](#Step6) 中创建的管理员用户进行登录，即可进入 RabbitMQ 管理界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/7f8d24062541be6ba8b271483343b20a.png)
+
