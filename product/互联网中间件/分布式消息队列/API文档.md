@@ -46,15 +46,7 @@ width: 300px;
 | [SendBatchMessages](https://cloud.tencent.com/document/api/1179/53441) | 批量发送消息 |
 | [SendMessages](https://cloud.tencent.com/document/api/1179/53440) | 发送单条消息 |
 
-## 其他接口
 
-| 接口名称                                                     | 接口功能                     |
-| :----------------------------------------------------------- | :--------------------------- |
-| [DeleteRoles](https://cloud.tencent.com/document/api/1179/62403) | 删除角色                     |
-| [DescribeBindVpcs](https://cloud.tencent.com/document/api/1179/52187) | 获取租户VPC绑定关系          |
-| [DescribeNamespaceBundlesOpt](https://cloud.tencent.com/document/api/1179/59039) | 运营端获取命名空间bundle列表 |
-| [DescribeNodeHealthOpt](https://cloud.tencent.com/document/api/1179/59038) | 运营端获节点健康状态         |
-| [SendMsg](https://cloud.tencent.com/document/api/1179/56772) | 发送消息                     |
 
 ## 生产消费相关接口
 
@@ -76,3 +68,14 @@ width: 300px;
 | [DescribeRoles](https://cloud.tencent.com/document/api/1179/62399) | 获取角色列表     |
 | [ModifyEnvironmentRole](https://cloud.tencent.com/document/api/1179/62398) | 修改环境角色授权 |
 | [ModifyRole](https://cloud.tencent.com/document/api/1179/62397) | 角色修改         |
+
+
+## 其他接口
+
+| 接口名称                                                     | 接口功能                     |
+| :----------------------------------------------------------- | :--------------------------- |
+| [DeleteRoles](https://cloud.tencent.com/document/api/1179/62403) | 删除角色                     |
+| [DescribeBindVpcs](https://cloud.tencent.com/document/api/1179/52187) | 获取租户 VPC 绑定关系          |
+| [DescribeNamespaceBundlesOpt](https://cloud.tencent.com/document/api/1179/59039) | 运营端获取命名空间 bundle 列表 |
+| [DescribeNodeHealthOpt](https://cloud.tencent.com/document/api/1179/59038) | 运营端获节点健康状态         |
+| [SendMsg](https://cloud.tencent.com/document/api/1179/56772) | 发送消息                     |
