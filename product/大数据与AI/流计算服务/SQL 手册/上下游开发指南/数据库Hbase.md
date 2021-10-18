@@ -1,10 +1,20 @@
 ## 介绍
+
 HBase Connector 提供了对 HBase 集群的读写支持。Oceanus 已经提供了内置的`flink-connector-hbase` Connector 组件。
 
+## 版本说明
+
+| Flink 版本 | 说明                            |
+| :-------- | :------------------------------ |
+| 1.11      | 支持 hbase-1.4.x                |
+| 1.13      | 支持 hbase-1.4.x 和 hbase-2.2.x |
+
 ## 使用范围
-仅适用于 hbase-1.4.x。
+
+可以作为源表，以及Tuple、Upsert 数据流的目的表。
 
 ## 示例
+
 ### 用作数据源（Source）
 
 ```
@@ -13,9 +23,9 @@ CREATE TABLE dim_hbase (
   cf ROW < school_name STRING >,
   PRIMARY KEY (rowkey) NOT ENFORCED
 ) WITH (
-  'connector' = 'hbase-1.4',                       -- 固定值为 hbase-1.4
+  'connector' = 'hbase-1.4',                       -- Flink 1.13 支持 hbase-2.2
   'table-name' = 'dim_hbase',                      -- Hbase 表名
-  'zookeeper.quorum' = 'ip:port,ip:port,ip:port'  -- Hbase 的 zookeeper 地址
+  'zookeeper.quorum' = 'ip:port,ip:port,ip:port'   -- Hbase 的 zookeeper 地址
 );
 
 -- Logger Sink 可以将输出数据打印到 TaskManager 的日志中
@@ -50,7 +60,7 @@ CREATE TABLE dim_hbase (
   cf ROW < school_name STRING >,
   PRIMARY KEY (rowkey) NOT ENFORCED
 ) WITH (
-  'connector' = 'hbase-1.4',                          -- 固定值为 hbase-1.4
+  'connector' = 'hbase-1.4',                          -- Flink 1.13 支持 hbase-2.2
   'table-name' = 'dim_hbase',                         -- Hbase 表名
   'zookeeper.quorum' = 'ip:port,ip:port,ip:port',     -- Hbase 的 zookeeper 地址
   'sink.buffer-flush.max-size' = '50KB',              -- 写入 Hbase 前，内存中缓存的数据条数。调大该值有利于提高 Hbase 写入性能，但会增加写入延迟和内存使用。
@@ -63,17 +73,18 @@ INSERT INTO dim_hbase SELECT rowkey, ROW(school_name) FROM random_source;
 ## WITH 参数
 
 | 参数                       | 说明                                                         | 是否必填 | 备注                                                         |
-| :------------------------- | :------------------------------------------------ | :------- | :----------------------------------------------------------- |
-| connector                  | 表类型                                                       | 是       | 固定值为 `hbase-1.4`                   |
-| table-name                 | HBase 表名                                                    | 是       | -                                                            |
-| zookeeper.quorum           | HBase 的 zookeeper 地址                                         | 是       | -                                     |
-| zookeeper.znode.parent     | HBase 在 zookeeper 中的根目录                                   | 否       | -                                    |
-| null-string-literal        | HBase 字段类型为字符串时，如果 Flink 字段数据为 null，则将该字段赋值为 null-string-literal，并写入 HBase | 否       | 默认为 null                                                   |
+| :------------------------- | :----------------------------------------------------------- | :------- | :----------------------------------------------------------- |
+| connector                  | 表类型                                                       | 是       | 固定值为 `hbase-1.4`                                         |
+| table-name                 | HBase 表名                                                   | 是       | -                                                            |
+| zookeeper.quorum           | HBase 的 zookeeper 地址                                      | 是       | -                                                            |
+| zookeeper.znode.parent     | HBase 在 zookeeper 中的根目录                                | 否       | -                                                            |
+| null-string-literal        | HBase 字段类型为字符串时，如果 Flink 字段数据为 null，则将该字段赋值为 null-string-literal，并写入 HBase | 否       | 默认为 null                                                  |
 | sink.buffer-flush.max-size | 写入 HBase 前，内存中缓存的数据量（字节）大小。调大该值有利于提高 HBase 写入性能，但会增加写入延迟和内存使用。**仅作为 Sink 时使用** | 否       | 默认值为2MB，支持字节单位 B、KB、MB 和 GB，不区分大小写。设置为0表示不进行缓存 |
 | sink.buffer-flush.max-rows | 写入 HBase 前，内存中缓存的数据条数。调大该值有利于提高 HBase 写入性能，但会增加写入延迟和内存使用。**仅作为 Sink 时使用** | 否       | 默认值为1000，设置为0表示不进行缓存                          |
 | sink.buffer-flush.interval | 将缓存数据周期性写入到 HBase 的间隔，可以控制写入 HBase 的延迟。**仅作为 Sink 时使用**。 | 否       | 默认值为1秒，支持时间单位 ms、s、min、h 和 d。设置为0表示关闭定期写入 |
 
 ## 类型映射
+
 HBase 将所有的数据存为字节数组。读写操作时需要将数据进行序列化和反序列化。Flink 与 HBase 的数据转换关系如下：
 
 <table>
@@ -147,5 +158,7 @@ HBase 将所有的数据存为字节数组。读写操作时需要将数据进�
   </tr>
 </table>
 
+
 ## 注意事项
+
 HBase Connector 一般会使用 DDL 语句中定义的主键，以 upsert 模式工作，与外部系统交换变更日志信息。因此，必须在 HBase 的 rowkey 字段上定义主键（必须声明 rowkey 字段）。如果未声明 PRIMARY KEY 子句，则 HBase 连接器默认将 rowkey 作为主键。
