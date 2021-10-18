@@ -86,6 +86,19 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
 
 支持向后兼容，建议全量升级。
 
+## 1.23.14-Greenwich-RELEASE（2021-09-05）
+
+### Bug 修复
+- 修复 for 循环调用导致泳道 http header过大的问
+
+### 优化
+- 优化 TSF 加密判断逻辑，只有配置了 TSF 密钥才对 ENC 配置进行解析
+- 优化服务发现相关日志的日志级别
+- 优化和开源 spring cloud consul 依赖的冲突。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
 
 ## 1.23.12-Greenwich-RELEASE（2021-08-16）
 
