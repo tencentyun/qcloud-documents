@@ -93,10 +93,7 @@ GROUP BY user_region;
       <td>可选</td>
       <td style="word-wrap: break-word;">(none)</td>
       <td>String</td>
-      <td>
-         该选项可以传递任意的 Kafka 参数。选项的后缀名必须匹配定义在 <a href="https://kafka.apache.org/documentation/#configuration">Kafka 参数文档</a>中的参数名。
-         Flink 会自动移除 选项名中的 "properties." 前缀，并将转换后的键名以及值传入 KafkaClient。 例如，你可以通过 <code>'properties.allow.auto.create.topics' = 'false'</code>
-         来禁止自动创建 topic。 但是，某些选项，例如<code>'key.deserializer'</code> 和 <code>'value.deserializer'</code> 是不允许通过该方式传递参数，因为 Flink 会重写这些参数的值。
+      <td>该选项可以传递任意的 Kafka 参数。选项的后缀名必须匹配定义在 <a href="https://kafka.apache.org/documentation/#configuration">Kafka 参数文档</a>中的参数名。Flink 会自动移除 选项名中的 "properties." 前缀，并将转换后的键名以及值传入 KafkaClient。例如，您可以通过 <code>'properties.allow.auto.create.topics' = 'false'</code>来禁止自动创建 topic。 但是，某些选项，例如<code>'key.deserializer'</code> 和<code>'value.deserializer'</code> 是不允许通过该方式传递参数，因为 Flink 会重写这些参数的值。
       </td>
     </tr>
     <tr>
@@ -112,9 +109,7 @@ GROUP BY user_region;
       <td>optional</td>
       <td style="word-wrap: break-word;">(none)</td>
       <td>String</td>
-      <td>为<code>'key.fields'</code>的所有字段定义自定义前缀，以避免与<code>'value.fields'</code>字段名称冲突。默认情况下，前缀为空。如果定义了自定义前缀，则
-        表 schema 和 <code>'key.fields'</code> 将使用前缀名称。构建<code>'key.fields'</code>格式的数据类型时候，将删除前缀并使用key format中非前缀名称。请注意，此选项要求 <code>'value.fields-include'</code>
-        必须设置为 <code>'EXCEPT_KEY'</code>.
+      <td>为<code>'key.fields'</code>的所有字段定义自定义前缀，以避免与<code>'value.fields'</code>字段名称冲突。默认情况下，前缀为空。如果定义了自定义前缀，则表 schema 和 <code>'key.fields'</code> 将使用前缀名称。构建<code>'key.fields'</code>格式的数据类型时候，将删除前缀并使用key format中非前缀名称。请注意，此选项要求 <code>'value.fields-include'</code>必须设置为 <code>'EXCEPT_KEY'</code>.
       </td>
     </tr>
     <tr>
@@ -149,18 +144,14 @@ GROUP BY user_region;
       <td>可选</td>
       <td style="word-wrap: break-word;">0</td>
       <td>Integer</td>
-      <td>缓存刷新前，最多能缓存多少条记录。当 sink 收到很多同 key 上的更新时，缓存将保留同 key 的最后一条记录，因此 sink 缓存能帮助减少发往 Kafka topic 的数据量，以及避免发送潜在的 tombstone 消息。
-      可以通过设置为 '0' 来禁用它。默认，该选项是未开启的。注意，如果要开启 sink 缓存，需要同时设置 <code>'sink.buffer-flush.max-rows'</code>
-      和 <code>'sink.buffer-flush.interval'</code> 两个选项为大于零的值。</td>
+      <td>缓存刷新前，最多能缓存多少条记录。当 sink 收到很多同 key 上的更新时，缓存将保留同 key 的最后一条记录，因此 sink 缓存能帮助减少发往 Kafka topic 的数据量，以及避免发送潜在的 tombstone 消息。可以通过设置为 '0' 来禁用它。默认，该选项是未开启的。注意，如果要开启 sink 缓存，需要同时设置 <code>'sink.buffer-flush.max-rows'</code>和 <code>'sink.buffer-flush.interval'</code> 两个选项为大于零的值。</td>
     </tr>
     <tr>
       <td><h5>sink.buffer-flush.interval</h5></td>
       <td>可选</td>
       <td style="word-wrap: break-word;">0</td>
       <td>Duration</td>
-      <td>缓存刷新的间隔时间，超过该时间后异步线程将刷新缓存数据。当 sink 收到很多同 key 上的更新时，缓存将保留同 key 的最后一条记录，因此 sink 缓存能帮助减少发往 Kafka topic 的数据量，以及避免发送潜在的 tombstone 消息。
-        可以通过设置为 '0' 来禁用它。默认，该选项是未开启的。注意，如果要开启 sink 缓存，需要同时设置 <code>'sink.buffer-flush.max-rows'</code>
-        和 <code>'sink.buffer-flush.interval'</code> 两个选项为大于零的值。</td>
+      <td>缓存刷新的间隔时间，超过该时间后异步线程将刷新缓存数据。当 sink 收到很多同 key 上的更新时，缓存将保留同 key 的最后一条记录，因此 sink 缓存能帮助减少发往 Kafka topic 的数据量，以及避免发送潜在的 tombstone 消息。可以通过设置为 '0' 来禁用它。默认，该选项是未开启的。注意，如果要开启 sink 缓存，需要同时设置 <code>'sink.buffer-flush.max-rows'</code>和 <code>'sink.buffer-flush.interval'</code> 两个选项为大于零的值。</td>
     </tbody>
 </table>
 
