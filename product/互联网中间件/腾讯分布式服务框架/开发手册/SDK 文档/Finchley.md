@@ -306,6 +306,7 @@ spring-cloud-tsf-msgw：
 
 ### Bug 修复
 - 修复sdk 调用链数据 输出 log4j组件重复初始化导致写入多个文件的问题
+- spring-cloud-tsf-logger：修复自定义日志格式没有服务名的问题。
 
 ## 1.21.9-Finchley-RELEASE（2021-02-02）
 ### Bug 修复
@@ -313,7 +314,7 @@ spring-cloud-tsf-msgw：
 - 修复本地启动时监听原生 consul 路径的问题。
 
 ### 优化
-- spring-cloud-tsf-logger：修复自定义日志格式没有服务名的问题。
+- 统一第三方组件的版本号
 
 ### 版本建议
 支持向后兼容，建议全量升级。
