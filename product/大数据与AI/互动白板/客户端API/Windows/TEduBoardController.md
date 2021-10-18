@@ -553,7 +553,7 @@ virtual void SetEraseLayerType(const TEduBoardErasableElementType *typeArr=nullp
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| typeArr | const TEduBoardErasableElementType * | 限制可擦除的白板元素类型数组，默认为nullptr则不限制元素类型  |
+| typeArr | const TEduBoardErasableElementType * | 限制可擦除的白板元素类型数组，默认为 nullptr 则不限制元素类型  |
 | typeArrCount | uint32_t | 要限制的可擦除的白板元素类型数量  |
 
 
