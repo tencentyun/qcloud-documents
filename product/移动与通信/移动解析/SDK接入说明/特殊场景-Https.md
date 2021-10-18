@@ -1,4 +1,4 @@
-该文档说明 HTTPDNS 的 HTTPS 场景。
+该文档说明移动解析 HTTPDNS 在 HTTPS 下的证书校验场景。
 
 ### iOS 部分代码
 
