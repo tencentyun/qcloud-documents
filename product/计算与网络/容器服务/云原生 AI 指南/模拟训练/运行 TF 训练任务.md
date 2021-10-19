@@ -8,11 +8,11 @@
 
 ## 操作步骤
 
-以下操作指南参考 `TF-Operator` 官方提供的 PS/Worker 模式的 [分布式训练案例](https://github.com/kubeflow/tf-operator/tree/master/examples/v1/dist-mnist)。
+以下操作指南参考 `TF-Operator` 官方提供的 PS/Worker 模式的 [分布式训练案例](https://github.com/kubeflow/training-operator/tree/master/examples/tensorflow/dist-mnist)。
 
 ### 准备训练代码
 
-本示例中使用 Kubeflow 官方提供的示例代码 [dist_mnist.py](https://github.com/kubeflow/tf-operator/blob/master/examples/v1/dist-mnist/dist_mnist.py)。
+本示例中使用 Kubeflow 官方提供的示例代码 [dist_mnist.py](https://raw.githubusercontent.com/kubeflow/training-operator/master/examples/tensorflow/dist-mnist/dist_mnist.py)。
 
 ### 制作训练镜像
 
@@ -23,7 +23,7 @@
 
 ### 任务提交
 
-1. 准备一个 TFJob 的 YAML 文件，定义2个 PS 和4个 Worker。
+1. 准备一个 TFJob 的 [YAML 文件](https://raw.githubusercontent.com/kubeflow/training-operator/master/examples/tensorflow/dist-mnist/tf_job_mnist.yaml)，定义2个 PS 和4个 Worker。
 <dx-alert infotype="notice" title="">
 用户需要用上传后的训练镜像地址替换 `<训练镜像>` 所在占位。
 </dx-alert>
