@@ -312,7 +312,7 @@
 
 ##### 通过fileID播放
 
-在页面初始化的代码中加入以下初始化脚本，传入在准备工作中获取到的 fileID（[【媒资管理】](https://console.cloud.tencent.com/vod/media)中的视频 ID）与 appID（在【账号信息】>[【基本信息】](https://console.cloud.tencent.com/developer)中查看）。
+在页面初始化的代码中加入以下初始化脚本，传入在准备工作中获取到的 fileID（[**媒资管理**](https://console.cloud.tencent.com/vod/media)中的视频 ID）与 appID（在**账号信息**>[**基本信息**](https://console.cloud.tencent.com/developer)中查看）。
 
 ```
 var player = TCPlayer('player-container-id', { // player-container-id 为播放器容器 ID，必须与 html 中一致
