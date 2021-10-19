@@ -274,7 +274,7 @@
  <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.2/tcplayer.v4.2.2.min.js"></script>
 ```
 
-建议在使用播放器 SDK 的时候自行部署资源，[点击下载播放器资源](https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.2/release.zip) 。
+建议在使用播放器 SDK 的时候自行部署资源，[单击下载播放器资源](https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.2/release.zip) 。
 
 部署解压后的文件夹，不能调整文件夹里面的目录，避免资源互相引用异常。
 
