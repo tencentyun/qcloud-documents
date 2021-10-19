@@ -1,4 +1,4 @@
-﻿## 开发环境要求
+## 开发环境要求
 
 - Xcode 10 及以上
 - iOS 9.0 及以上
@@ -57,10 +57,11 @@ pod 'TUISearch'
 pod 'TUICalling'
 ```
 
->! 1、腾讯云的 [音视频库](https://cloud.tencent.com/document/product/647/32689) 不能同时集成，会有符号冲突，如果您使用了非 [TRTC](https://cloud.tencent.com/document/product/647/32689#TRTC) 版本的音视频库，建议 pod 集成 `TUICalling/Professional` 和 `TXIMSDK_TUIKit_live_iOS/Professional` 版本，该版本依赖的 [LiteAV_Professional](https://cloud.tencent.com/document/product/647/32689#.E4.B8.93.E4.B8.9A.E7.89.88.EF.BC.88professional.EF.BC.89) 音视频库包含了音视频的所有基础能力。
->2、如果您不需要音视频通话功能，可以在 Podfile 文件里屏蔽  `TUICalling` ，也可以通过 [TUIBaseChatViewController.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/UI/Chat/TUIBaseChatViewController.h) 里的 `isEnableVideoCall`、`isEnableAudioCall` 参数屏蔽。
->3、如果您不需要群直播功能，可以在 Podfile 文件里屏蔽 `TXIMSDK_TUIKit_live_iOS` ，也可以通过 [TUIBaseChatViewController.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/UI/Chat/TUIBaseChatViewController.h) 里的 `isEnableLive` 参数屏蔽。
->4、如果您不需要搜索功能，可以在 Podfile 文件里屏蔽  `TXIMSDK_TUIKit_iOS` ，模块化集成所需功能，也可以通过 [TUIConversationListController.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIConversation/UI/TUIConversationListController.h) 里的 `isEnableSearch` 参数屏蔽。
+>! 
+>1. 腾讯云的 [音视频库](https://cloud.tencent.com/document/product/647/32689) 不能同时集成，会有符号冲突，如果您使用了非 [TRTC](https://cloud.tencent.com/document/product/647/32689#TRTC) 版本的音视频库，建议 pod 集成 `TUICalling/Professional` 和 `TXIMSDK_TUIKit_live_iOS/Professional` 版本，该版本依赖的 [LiteAV_Professional](https://cloud.tencent.com/document/product/647/32689#.E4.B8.93.E4.B8.9A.E7.89.88.EF.BC.88professional.EF.BC.89) 音视频库包含了音视频的所有基础能力。
+>2. 如果您不需要音视频通话功能，可以在 Podfile 文件里屏蔽  `TUICalling` ，也可以通过 [TUIBaseChatViewController.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/UI/Chat/TUIBaseChatViewController.h) 里的 `isEnableVideoCall`、`isEnableAudioCall` 参数屏蔽。
+>3. 如果您不需要群直播功能，可以在 Podfile 文件里屏蔽 `TXIMSDK_TUIKit_live_iOS` ，也可以通过 [TUIBaseChatViewController.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/UI/Chat/TUIBaseChatViewController.h) 里的 `isEnableLive` 参数屏蔽。
+>4. 如果您不需要搜索功能，可以在 Podfile 文件里屏蔽  `TXIMSDK_TUIKit_iOS` ，模块化集成所需功能，也可以通过 [TUIConversationListController.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIConversation/UI/TUIConversationListController.h) 里的 `isEnableSearch` 参数屏蔽。
 
 <li> 执行以下命令，安装 TUIKit。<br>
 
