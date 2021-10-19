@@ -75,5 +75,5 @@
 
 ### 配置指南
 
-您已完成 CDN 服务的基础配置，有关 CDN 服务的更多高级配置，可以在 [配置指南](https://cloud.tencent.com/document/product/228/37851) 目录下对应的项目进行了解。
+您已完成 CDN 服务的基础配置，有关 CDN 服务的更多配置，可以在 [配置指南](https://cloud.tencent.com/document/product/228/37851) 目录下对应的项目进行了解。
 
