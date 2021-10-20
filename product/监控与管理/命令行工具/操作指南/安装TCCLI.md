@@ -46,7 +46,10 @@ python setup.py install
 ::: 使用 Homebrew 进行安装
 >! 该方法只适用于 Mac OS 系统。您需要先安装 homebrew，安装方法请参见 [homebrew官网](https://brew.sh/index_zh-cn)。
 
-执行以下命令，安装 TCCLI。
+依次执行以下命令，安装 TCCLI。
+```bash
+brew tap tencentcloud/tccli
+```
 ```bash
 brew install tccli
 ```

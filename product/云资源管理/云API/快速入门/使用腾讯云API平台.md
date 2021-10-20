@@ -23,8 +23,7 @@
 >
 
 ## 获取工具及资源入口
-您可通过平台页面，按需选择进入工具或资源入口。例如，API Explorer、API 中心、SDK 中心、云社区及产业人才培养中心。如下图所示：
-![](https://main.qcloudimg.com/raw/e87620086849a584b5e7eaecd6b15f77.png)
+您可通过平台页面，按需选择进入工具或资源入口。例如，API Explorer、API 中心、SDK 中心、云社区及产业互联网学堂。
 
 
 ## 查看 API 发布动态

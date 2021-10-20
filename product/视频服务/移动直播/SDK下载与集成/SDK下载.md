@@ -6,7 +6,9 @@
 <h2 id="Smart">直播基础版（Smart）</h2>
   
 基础版仅包含直播推流（TXLivePusher）和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用移动直播相关功能的客户。 
-     
+
+>! 基础版的直播推流只支持 RTMP 推流，不支持 RTC 推流。
+      
 <table>
    <tr>
       <th width="0px" style="text-align:center">所属平台</td>

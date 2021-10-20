@@ -1,5 +1,12 @@
 ## 调试 Source 和 Sink 介绍
-当需要检验作业是否可以正常运行、逻辑是否正确时，为了减少外部系统的部署开销，以及避免干扰因素，我们可以使用一些调试专用的  Connector。
+当需要检验作业是否可以正常运行、逻辑是否正确时，为了减少外部系统的部署开销，以及避免干扰因素，我们可以使用一些调试专用的 Connector。
+
+## 版本说明
+
+| Flink 版本 | 说明 |
+| :-------- | :--- |
+| 1.11      | 支持 |
+| 1.13      | 支持 |
 
 ## Datagen Source
 Datagen 是 Flink 自带的随机数据生成器，它可以作为数据源直接引用。详细的使用方式可参考 [Flink 官方文档](https://ci.apache.org/projects/flink/flink-docs-release-1.13/zh/docs/connectors/table/datagen/)。
@@ -25,6 +32,7 @@ CREATE TABLE random_source (
 ```
 
 ## Logger Sink
+
 Logger Sink 是腾讯云 Oceanus 提供的一个自定义 Logger 示例，它可以将最终的结果数据写入 TaskManager 的日志文件中，后续可以通过 Flink UI 或者控制台的日志面板查看这些日志的输出。
 
 1. 使用 Logger Sink 前，需要先 [下载 JAR 包](https://github.com/tencentyun/flink-hello-world/releases)，**如果您希望自定义输出逻辑，也可以自行修改并编译构建程序包**。
@@ -45,4 +53,5 @@ CREATE TABLE CustomSink (
 ```
 
 ## Print Sink（不建议使用）
+
 Flink 内置了输出到 STDOUT（标准输出）的 Print Sink，但是由于打印的格式不符合 Oceanus 日志采集器的规则，目前不能很好地展示在界面上。我们建议使用上述 Logger Sink 来代替 Print Sink。

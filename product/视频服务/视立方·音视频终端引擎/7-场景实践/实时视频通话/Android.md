@@ -9,8 +9,7 @@
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 效果展示
-
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验实时视频通话的效果。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验实时音视频通话的效果。
 <table>
 <tr>
    <th>主动呼叫</th>
@@ -22,23 +21,22 @@
 </tr>
 </table>
 
-如需快速实现视频通话功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TRTCCalling 组件并实现自定义 UI 界面。
 
->! 我们之前提供了 TRTCVideoCall 组件，旧版本组件已经移动到 [组件仓库](https://github.com/tencentyun/LiteAVClassic) 中。TRTCCalling 组件使用了 IM 信令的接口，将不再与旧组件兼容。
+>! 为方便您快速实现音视频通话功能，我们对 TUICalling 组件进行了改造，通话UI在TUICalling 组件内部实现，您可以无需关注UI。
 
 [](id:ui)
 
-## 复用 App 的 UI 界面
+## 运行并体验 App
 
 [](id:ui.step1)
 
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 输入应用名称，例如 `TestVideoCall` ，单击【创建】。
-3. 单击【已下载，下一步】，跳过此步骤。
+1. 登录实时音视频控制台，选择 **开发辅助>[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+2. 输入应用名称，例如 `TestVideoCall` ，单击 **创建**。
+3. 单击 **已下载，下一步**，跳过此步骤。
 
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
->!本功能同时使用了腾讯云视立方音视频通话 TRTC 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+>!本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 
 [](id:ui.step2)
@@ -53,8 +51,8 @@
 <ul style="margin:0"><li/>SDKAPPID：默认为占位符（PLACEHOLDER），请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为占位符（PLACEHOLDER），请设置为实际的密钥信息。</ul>
 <img src="https://main.qcloudimg.com/raw/f9b23b8632058a75b78d1f6fdcdca7da.png">
-4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
-5. 编译完成后，单击【回到控制台概览】即可。
+4. 粘贴完成后，单击 **已复制粘贴，下一步** 即创建成功。
+5. 编译完成后，单击 **回到控制台概览** 即可。
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
@@ -63,17 +61,8 @@
 [](id:ui.step4)
 ### 步骤4：运行 App
 
-使用 Android Studio（3.5 以上的版本）打开源码工程 `TUICalling`，单击【运行】即可开始调试本 App。
+使用 Android Studio（3.5 以上的版本）打开源码工程 `TUICalling`，单击 **运行** 即可开始调试本 App。
 
-[](id:ui.step5)
-### 步骤5：修改 App 源代码
-
-源码文件夹 `Source` 中包含两个子文件夹 ui 和 model，其中 ui 文件夹中均为界面代码：
-
-| 文件或文件夹                     | 功能描述                                                     |
-| -------------------------------- | ------------------------------------------------------------ |
-| TRTCVideoCallActivity.java       | 展示视频通话的主界面，通话的接听和拒绝就是在这个界面中完成的。 |
-| videolayout                      | 用于完成视频影像画面的渲染和排布逻辑。                       |
 
 
 ## 体验应用
@@ -84,7 +73,7 @@
 <img src="https://main.qcloudimg.com/raw/a0c73f6904ac152a84cdf4d619171fc4.png" width="320"/>
 2. 输入要拨打的 userId，单击搜索，如下图示：
 <img src="https://main.qcloudimg.com/raw/61edd11a23197ebce26e91863f9fef63.png" width="320"/>
-3. 单击【呼叫】，选择拨打【视频通话】（**请确保被叫方保持在应用内，否则可能会拨打失败**）。<br>
+3. 单击 **呼叫**，选择拨打 **视频通话** （**请确保被叫方保持在应用内，否则可能会拨打失败**）。<br>
 <img src="https://main.qcloudimg.com/raw/450e50dd4bb58e2950d6574ab88715e2.png" width="320"/>
 
 ### 用户 B
@@ -95,32 +84,33 @@
 
 
 [](id:model)
-## 实现自定义 UI 界面
+## 具体接入流程
 
-[源码](https://github.com/tencentyun/TUICalling/tree/master/Android/Source/src/main/java/com/tencent/liteav/trtccalling) 文件夹 `Source` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCCalling，您可以在  `TRTCCalling.java`  文件中看到该组件提供的接口函数。
-![](https://main.qcloudimg.com/raw/36220937e8689dac4499ce9f2f187889.png)
+[源码](https://github.com/tencentyun/TUICalling/tree/master/Android/Source/src/main/java/com/tencent/liteav/trtccalling) 文件夹 `Source` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们对外暴露的开源组件 TUICallingManager，您可以在  `TUICalling.java`  文件中看到该组件提供的接口函数。
+![](https://main.qcloudimg.com/raw/18e2e6fd62ade4a8bac560d45f4fbab4.png)
 
-您可以使用开源组件 TRTCCalling 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。
+
+您直接使用开源组件 TUICalling 的 TUICallingManager 即可轻松实现音视频通话功能，而无需再自己实现复杂的通话 UI 界面和逻辑。
 
 [](id:model.step1)
 ### 步骤1：集成 SDK
 
-音视频通话组件 TRTCCalling 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
+音视频通话组件 TUICalling 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 #### 方法一：通过 Maven 仓库依赖
 
 1. 在 dependencies 中添加 TRTCSDK 和 IMSDK 的依赖。
-	<dx-codeblock>
-	::: java java
-	dependencies {
+<dx-codeblock>
+::: java java
+dependencies {
     compile "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
     compile 'com.tencent.imsdk:imsdk:latest.release'
 
     // 由于我们使用到了 gson 解析，所以还需要依赖 google 的 Gson
     compile 'com.google.code.gson:gson:latest.release'
-	}
-	:::
-	</dx-codeblock>
+}
+:::
+</dx-codeblock>
 >?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
 <dx-codeblock>
@@ -132,7 +122,7 @@ defaultConfig {
 }
 :::
 </dx-codeblock>
-3. 单击【Sync Now】同步 SDK。
+3. 单击 **Sync Now** 同步 SDK。
 >?若您的网络连接 jcenter 没有问题，SDK 会自动下载集成到工程里。
 
 
@@ -173,20 +163,21 @@ defaultConfig {
 
 [](id:model.step3)
 
-### 步骤3：导入 TRTCCalling 组件
+### 步骤3：导入 TUICalling 组件
 
-拷贝以下目录中的所有文件到您的项目中：
+include App下的 Source 到您的项目中：
 
 ```
-Source/src/main/java/com/tencent/liteav/trtccalling/model 
+include ':Source'
 ```
 
 [](id:model.step4)
 
 ### 步骤4：初始化并登录组件
 
-1. 调用 `TRTCCallingImpl.sharedInstance(context)` 获取组件实例。
-2. 调用 `login(SDKAppID, userId, userSig, callback)` 完成组件的登录，其中几个关键参数的填写请参考下表：
+1. 调用 `TUICallingManager.sharedInstance()` 进行组件初始化。
+2. 调用 `TUILogin.init(context, SDKAppID, config, listener)` 进行登录初始化。
+3. 调用 `TUILogin.login(userId, userSig, callback)` 完成组件的登录，其中几个关键参数的填写请参考下表：
  <table>
 <tr><th>参数名</th><th>作用</th></tr>
 <tr>
@@ -197,101 +188,119 @@ Source/src/main/java/com/tencent/liteav/trtccalling/model
 <td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（_）。</td>
 </tr><tr>
 <td>userSig</td>
-<td>腾讯云设计的一种安全保护签名，计算方式请参见 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
-</tr></table>
-
+<td>腾讯云设计的一种安全保护签名，计算方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
+</tr>
+</tr><tr>
+<td>config</td>
+<td>SDK配置。用于设置日志级别和日志回调（也可传null），详情可参考下方示例代码。</td>
+</tr><tr>
+</tr><tr>
+<td>listener</td>
+<td>IM监听器。用于接收一些必要的系统回调通知，比如：被踢下线、userSig过期等，详情可参考下方示例代码。</td>
+</tr><tr>
+</tr><tr>
+<td>callback</td>
+<td>登录结果监听器。通知登录是否成功，详情可参考下方示例代码。</td>
+</tr><tr>
+</table>
 <dx-codeblock>
 ::: java java
-// 初始化
-sCall = TRTCCallingImpl.sharedInstance(context);
-sCall.login(1400000123, "userA", "xxxx", new ActionCallback());
+     // 组件初始化
+     TUICallingManager manager = TUICallingManager.sharedInstance();
+  // 登录
+  V2TIMSDKConfig config = new V2TIMSDKConfig();
+  config.setLogLevel(V2TIMSDKConfig.V2TIM_LOG_DEBUG);
+  config.setLogListener(new V2TIMLogListener() {
+        @Override
+        public void onLog(int logLevel, String logContent) {
+                
+        }
+  });
+  TUILogin.init(this, ${您的SDKAPPID}, config, new V2TIMSDKListener() {
+
+            @Override
+            public void onKickedOffline() {  // 登录被踢下线通知
+                mIsKickedOffline = true;
+                checkUserStatus();
+            }
+
+            @Override
+            public void onUserSigExpired() { // suerSig过期通知
+                mIsUserSigExpired = true;
+                checkUserStatus();
+            }
+  });
+  TUILogin.login("${您的userId}", "${您的userSig}", new V2TIMCallback() {
+            @Override
+            public void onError(int code, String msg) {
+                Log.d(TAG, "code: " + code + " msg:" + msg);
+            }
+
+            @Override
+            public void onSuccess() {
+                Log.d(TAG, "onSuccess");
+            }
+  });
+
 :::
 </dx-codeblock>
 
 [](id:model.step5)
 
-### 步骤5：实现 1v1 视频通话
+### 步骤5：实现音视频通话
 
-1. 发起方：调用 TRTCCalling 的 `call()` 方法发起通话的请求, 并传入用户 ID（userid）和通话类型（type），通话类型参数传入`TYPE_VIDEO_CALL`。
-2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的事件通知，回调中 `callType` 的参数是发起方填写的通话类型，您可以通过此参数启动相应的界面，如果希望接收方在不处于登录状态时也能收到通话请求，请参见 [离线接听](#model.offline)。
-3. 接收方：如果希望接听电话，接收方可以调用 `accept()` 函数，并同时调用 `openCamera()` 函数打开自己本地的摄像头。接收方也可以调用 `reject()` 拒绝此次通话。
-4. 当双方的音视频通道建立完成后，通话的双方都会接收到名为  `onUserVideoAvailable()` 的事件通知，表示对方的视频画面已经拿到。此时双方用户均可以调用 `startRemoteView()` 展示远端的视频画面。远端的声音默认是自动播放的。
+1. 发起方：调用 TUICallingManager 的 `call();` 方法发起通话的请求, 并传入用户 ID数组（userids）和通话类型（type），通话类型参数传入`TUICalling.Type.AUDIO`（音频通话）或者`TUICalling.Type.VIDEO`（视频通话）。如果用户 ID数组（userids）只有1个userId时视为单人通话，如果用户 ID数组（userids）有多个userId时（>=2）视为多人通话。
+2. 接收方：当接收方处于已登录状态时，会自动启动相应的界面。如果希望接收方在不处于登录状态时也能收到通话请求，请参见 [离线接听](#model.offline)。
 
 
 <dx-codeblock>
 ::: java java
 // 1. 初始化组件
-TRTCCalling sCall = TRTCCallingImpl.sharedInstance(context);
+TUICallingManager manager = TUICallingManager.sharedInstance();
 // 2. 注册监听器
-sCall.addDelegate(new TRTCCallingDelegate() {
-    // ...省略一些监听代码
-    public void onInvited(String sponsor, final List<String> userIdList, boolean isFromGroup, int callType) {
-        // 收到来自 sponsor 发过来的通话请求，此处代码选择接听，您也可以调用 reject() 拒绝之。
-        sCall.accept();
-        // 接受通话请求之后，即可打开自己的摄像头
-        TXCloudVideoView localView = new TXCloudVideoView(mContext);
-        mParentView.add(localView);
-        sCall.openCamera(true, localView);
-    }
-    
-    public void onUserVideoAvailable(final String userId, boolean isVideoAvailable) {
-        if (isVideoAvailable) {
-            //表示对方的视频画面已经拿到，此时可以展示对方的视频影像
-            TXCloudVideoView remoteView = new TXCloudVideoView(mContext);
-            mParentView.add(remoteView);
-            sCall.startRemoteView(userId, remoteView);
-        } else {
-            sCall.stopRemoteView(userId);
-        }
-    }
-});
+manager.setCallingListener(new TUICalling.TUICallingListener() {
+            @Override
+            public boolean shouldShowOnCallView() {
+                return true;
+            }
 
-// 3. 完成组件的登录，登录成功后才可以调用组件的其他功能函数
-sCall.login(sdkappid, "aaa", usersig, new ActionCallback() {
-    public void onSuccess() {
-        // 4. 此处为实例代码：我们在组件登录成功后即打开摄像头并呼叫用户“aaa”
-        TXCloudVideoView localView = new TXCloudVideoView(mContext);
-        mParentView.add(localView);
-        sCall.openCamera(true, localView);
-        sCall.call("aaa", TRTCCalling.TYPE_VIDEO_CALL);
-    }
+            @Override
+            public void onCallStart(String[] userIDs, TUICalling.Type type, TUICalling.Role role, final View tuiCallingView) {
+                if (!shouldShowOnCallView() || null == tuiCallingView) {
+                    return;
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
+                        mCallingView = tuiCallingView;
+                        addContentView(tuiCallingView, params);
+                    }
+                });
+            }
+
+            @Override
+            public void onCallEnd(String[] userIDs, TUICalling.Type type, TUICalling.Role role, long totalTime) {
+                removeView();
+            }
+
+            @Override
+            public void onCallEvent(TUICalling.Event event, TUICalling.Type type, TUICalling.Role role, String message) {
+                if (TUICalling.Event.CALL_FAILED == event) {
+                    removeView();
+                }
+            }
 });
+// 3.拨打电话
+manager.call(userIDs, TUICalling.Type.VIDEO);
 :::
 </dx-codeblock>
 
-[](id:model.step6)
-
-### 步骤6：实现多人视频通话
-
-1. 发起方：多人视频通话需要调用 `TRTCCalling` 中的 `groupCall()` 函数，并传入用户列表（userIdList）、通话类型（type）、 IM 群组 ID（groupId），其中 userIdList 为必填参数，通话类型为必填参数传入`TYPE_VIDEO_CALL`，groupId 为选填参数。
-2. 接收端：通过名为 `onInvited()` 事件通知能够接收到此呼叫请求。
-3. 接收端：收到事件通知后可以调用 `accept()` 方法接听此次通话，也可以选择用 `reject()` 方法拒绝通话。
-4. 如果超过一定时间（默认30s）没有回复，接收方会收到 `onCallingTimeOut()` 的事件通知，发起方会收到 `onNoResp(String userId)` 事件通知。通话发起方在多个接收均未应答时 `hangup()` ，每个接收方均会收到 `onCallingCancel()` 事件通知。
-5. 如果需要离开当前多人通话可以调用 `hangup()` 方法。
-6. 如果通话中有用户中途加入或离开，那么其他用户均会接收到 `onUserEnter()` 或  `onUserLeave()` 事件通知。
-
->?接口 `groupCall()` 中的 `groupID` 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息是通过群消息系统广播出去的，这种消息广播方式比较简单可靠。如果不填写，那么 `TRTCCalling` 组件会采用单发消息逐一通知。
-
-```
-// 前面省略...
-// 拼凑需要拨打的用户列表
-List<String> callList = new ArrayList();
-callList.add("bbb");
-callList.add("ccc");
-callList.add("ddd");
-// 如果您不是在一个 IM 群里发起的, groupId 可以传一个空串；
-sCall.groupCall(callList, TRTCCalling.TYPE_VIDEO_CALL, "");
-// 打开自己的摄像头
-TXCloudVideoView localView = new TXCloudVideoView(mContext);
-mParentView.add(localView);
-sCall.openCamera(true, txCloudVideoView);
-```
-
 [](id:model.offline)
 
-### 步骤7：实现离线接听
+### 步骤6：实现离线接听
 
->?如果您的业务定位是在线客服等不需要离线接听功能的场景，那么完成上述 [步骤1](#model.step1) - [步骤6](#model.step6) 的对接即可。但如果您的业务定位是社交场景，建议实现离线接听。
+>?如果您的业务定位是在线客服等不需要离线接听功能的场景，那么完成上述 [步骤1](#model.step1) - [步骤5](#model.step5) 的对接即可。但如果您的业务定位是社交场景，建议实现离线接听。
 
 IM SDK 支持离线推送，但是 Android 端各个手机厂商均有各自的离线推送服务，因此接入复杂度要高于 iOS 平台，您需要进行相应的设置才能达到可用标准。
 
@@ -302,25 +311,17 @@ IM SDK 支持离线推送，但是 Android 端各个手机厂商均有各自的�
 
 ## 组件 API 列表
 
-TRTCCalling 组件的 API 接口列表如下：
+TUICalling 组件的 API 接口列表如下：
 
 | 接口函数        | 接口功能                                                  |
 | --------------- | --------------------------------------------------------- |
-| addDelegate     | 增加 TRTCCalling 监听器，用户可以通过该监听器获取状态通知 |
-| removeDelegate  | 移除监听器                                                |
-| destroy         | 销毁实例                                                  |
-| login           | 登录 IM，所有功能需要先进行登录后才能使用                 |
-| logout          | 登出 IM，登出后无法再进行拨打操作                         |
-| call            | C2C 邀请通话，被邀请方会收到 onInvited 的事件通知         |
-| groupCall       | IM 群组邀请通话，被邀请方会收到 onInvited 的事件通知      |
-| accept          | 作为被邀请方接听来电                                      |
-| reject          | 作为被邀请方拒绝来电                                      |
-| hangup          | 结束通话                                                  |
-| startRemoteView | 将远端用户的摄像头数据渲染到指定的 TXCloudVideoView 中    |
-| stopRemoteView  | 停止渲染某个远端用户的摄像头数据                          |
-| openCamera      | 开启摄像头，并渲染在指定的 TXCloudVideoView 中            |
-| closeCamera     | 关闭摄像头                                                |
-| switchCamera    | 切换前后摄像头                                            |
-| setMicMute      | 是否静音 mic                                              |
-| setHandsFree    | 是否开启免提                                              |
+| call            | C2C 邀请通话         |
+| receiveAPNSCalled          | 作为被邀请方接听来电                                      |
+| setCallingListener          | 设置监听器                                     |
+| setCallingBell          | 设置铃声(建议在30s以内)                                                 |
+| enableMuteMode | 开启静音模式    |
+| enableFloatWindow  | 开启悬浮窗                      |
+| enableCustomViewRoute      | 开启自定义视图， 开启后，会在呼叫/被叫开始回调中，接收到 CallingView 的实例，由开发者自行决定展示方式。注意：必须全屏或者与屏幕等比例展示，否则会有展示异常            |
+
+
 

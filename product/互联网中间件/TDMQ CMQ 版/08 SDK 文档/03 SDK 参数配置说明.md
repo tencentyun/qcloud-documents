@@ -50,4 +50,3 @@ TDMQ CMQ 版提供了四种 SDK，本文以 Python 为例进行说明。
 | lastModifyTime | 最后一次修改主题属性的时间。返回 Unix 时间戳，精确到秒。 |
 | filterType | 描述用户创建订阅时选择的过滤策略：<br> filterType = 1 表示用户使用 filterTag 标签过滤；<br>filterType = 2 表示用户使用 bindingKey 过滤。 |
 
-[查看主题模型快速入门 >>](https://cloud.tencent.com/document/product/1496/61005)

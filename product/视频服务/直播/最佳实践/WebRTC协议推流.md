@@ -27,13 +27,14 @@ TXLivePusher 推流 SDK 主要用于视频云的快直播（超低延迟直播�
 在需要直播推流的页面（桌面端）中引入初始化脚本。
 
 ```html
-<script src="https://imgcache.qq.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.1.min.js" charset="utf-8"></script>
+<script src="https://imgcache.qq.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.2.min.js" charset="utf-8"></script>
 ```
+>? 需要在 HTML 的 body 部分引入脚本，如果在 head 部分引入会报错。
 
 如果在域名限制区域，可以引入以下链接：
 
 ```html
-<script src="https://cloudcache.tencent-cloud.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.1.min.js" charset="utf-8"></script>
+<script src="https://cloudcache.tencent-cloud.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.2.min.js" charset="utf-8"></script>
 ```
 
 ### 步骤2：在 HTML 中放置容器

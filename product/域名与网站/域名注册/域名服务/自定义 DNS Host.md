@@ -23,7 +23,7 @@
  - **DNS Host**：请输入 DNS Host 的子域名称。
  - **IP 地址**：请输入您的服务器 IP 地址。
 2. 填写完成后，单击**提交**，即可完成添加。
->!为了使添加的 DNS Host 生效，请在对应设置 DNS Host 的域名添加 A 记录。详情请查看 [A 记录](https://cloud.tencent.com/document/product/302/3449)。
+>!为了使添加的 DNS Host 生效，请在域名解析商处对设置 DNS Host 的域名添加 A 记录，记录值为 DNS Host 的服务器 IP 地址。如您的域名解析商为腾讯云，添加 A 记录可查看 [A 记录](https://cloud.tencent.com/document/product/302/3449)。
 
 ### 同步 DNS Host
 如您在其他注册商平台填写过 DNS Host 地址，单击**同步 DNS Host，**即可将注册局已有的 DNS Host 同步到腾讯云控制台。

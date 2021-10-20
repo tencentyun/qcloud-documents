@@ -9,7 +9,7 @@
 GRANT RELOAD, LOCK TABLES, REPLICATION CLIENT, REPLICATION SLAVE, SELECT, SHOW VIEW, PROCESS 
 ON *.* TO '迁移帐号'@'%' 
 IDENTIFIED BY '迁移密码';
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 FLUSH PRIVILEGES;
 ```
 - 需要在目标端 TDSQL PostgreSQL版 或 TDSQL-A PostgreSQL版 实例中创建迁移帐号，需要的帐号权限包括：`DELETE`、`TRUNCATE`、`INSERT`、`REFERENCES`、`SELECT`、`UPDATE`、`TRIGGER`，获取权限的方式如下：
@@ -125,6 +125,10 @@ ON ALL TABLES IN SCHEMA schema_name TO user_name（迁移账号）;
     - 冲突覆盖：在同步时发现表主键冲突，使用新记录覆盖原主键记录。
  - 同步操作类型：目前只支持 DML 操作。
  - 同步对象：在源库中选择待同步的表对象。
+>?
+>- 如果用户在同步过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**同步对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法同步 Online DDL 变更产生的临时表数据到目标数据库。
+>- 如果用户在同步过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**同步对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
+>
 ![](https://main.qcloudimg.com/raw/f2f695b6642285d3310dca726ae92418.png)
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。

@@ -17,7 +17,10 @@
 ![](https://main.qcloudimg.com/raw/ca183a99de22514e405710f23aad7f46.png)
 4. 在账号管理弹窗，单击私钥的【设置】，设置托管私钥。
 ![](https://main.qcloudimg.com/raw/28552914c789ead1032f4f609c9d7022.png)
-5. 如若以上设置托管账号密码密钥无误，请检查资源 SSH 配置文件，设置资源允许密码登录：修改`/etc/ssh/sshd_config` 配置文件，将 PasswordAuthentication 所在行选项改为 yes。
- - 如果资源设置了不允许 root 账号通过 SSH 登录，将会导致使用 root 用户登录资源失败，需要修改 `/etc/ssh/sshd_config `配置文件 找到 PermitRootLogin 所在行，并修改对应的值为yes。
- - 如果资源设置了SSH 白名单，将会导致只允许部分用户吗登录，此时需要将录的的账号加入到明名单中，在  `/etc/ssh/sshd_config` 配置文件中设置 AllowUsers 选项，添加对应的账号。
-
+5. 如若以上设置托管账号密码密钥无误，请检查资源 SSH 配置文件，设置资源允许密码登录：修改`/etc/ssh/sshd_config` 配置文件，将 PasswordAuthentication 所在行选项改为 yes。具体情况如下所示：
+ - **情况1**
+    - 故障原因：如果资源设置了不允许 root 账号通过 SSH 登录，将会导致使用 root 用户登录资源失败。
+    - 解决方法：在修改 `/etc/ssh/sshd_config ` 配置文件中，找到 PermitRootLogin 所在行，并修改对应的值为 yes。
+ - **情况2**
+    - 故障原因：如果资源设置了 SSH 白名单，将会导致只允许部分用户登录，此时，需要把对应的账号加入到白名单中。
+	- 解决方法：在  `/etc/ssh/sshd_config` 配置文件中，设置 AllowUsers 选项，添加对应的账号。
