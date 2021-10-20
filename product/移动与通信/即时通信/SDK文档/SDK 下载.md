@@ -77,14 +77,20 @@
 <tr>
 <td style="text-align:center">Flutter  </td>
 <td style="text-align:center" ><a href="https://pub.dev/packages/tencent_im_sdk_plugin">Github(推荐)</a></td>
-<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/51940">【客户端API】SDK API(Flutter)</a></td>
+<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/51940">【客户端 API】SDK API(Flutter)</a></td>
 <td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/52049">更新日志(开源框架)</a></td>
 </tr>
 <tr>
 <td style="text-align:center">Unity  </td>
 <td style="text-align:center" ><a href="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/imsdk_v1.4.0.zip">ZIP</a></td>
-<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/54111">【客户端API】SDK API(Unity)</a></td>
+<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/54111">【客户端 API】SDK API(Unity)</a></td>
 <td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/56150">更新日志(Unity)</a><br>公测中，技术咨询请加 QQ 群：<a href="https://qm.qq.com/cgi-bin/qm/qr?k=fVHzwGDQ0Hb9Qtn0KzQx7tsChGnzO9vm&jump_from=webapi">764231117</a></td>
+</tr>
+<tr>
+<td style="text-align:center">Electron  </td>
+<td style="text-align:center" ><a href="https://comm.qq.com/im_demo_download/腾讯云即时通讯IM-1.0.0.dmg">Mac OS</a><br><a href="https://comm.qq.com/im_demo_download/腾讯云即时通讯IM Setup 1.0.0.exe">Windows</a></td>
+<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/63008">【客户端 API】SDK API(Electron)</a></td>
+<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/63009">更新日志（Electron）</a></td>
 </tr>
 </table>
 
