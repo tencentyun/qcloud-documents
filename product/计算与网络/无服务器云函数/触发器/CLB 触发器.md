@@ -39,11 +39,9 @@ CLB 负载均衡发送到云函数的请求处理方式，和云函数响应给 
 #### CLB 触发器的集成请求事件消息结构[](id:datastructures)
 在  CLB 负载均衡触发器接收到请求时，会将类似以下 JSON 格式的事件数据发送给绑定的云函数。
 
->! 请求中的图片、文件等数据，直接放入 json 会导致不可见字符丢失，因此需要进行 Base64 编码，此处规定如下：
-> - 如果 Content-type 为 text/*、application/json、application/javascript、application/xml，LB 不会对 body 内容进行转码。
+>! 在 CLB 触发场景下，所有的请求和响应由于需要以 JSON 方式传递，对于一些图片、文件等数据，直接放入 JSON 会导致不可见字符丢失，需要进行 Base64 编码，此处规定如下：
+> - 如果 Content-type 为 text/*、application/json、application/javascript、application/xml，CLB 不会对 body 内容进行转码。
 > - 其他类型一律进行 Base64 转码再转发。
-
-
 
 
 ```
@@ -126,5 +124,3 @@ CLB 负载均衡发送到云函数的请求处理方式，和云函数响应给 
 }
 ```
 
-在 CLB 触发场景下，所有的请求和响应由于需要以 JSON 方式传递，对于一些图片、文件等数据，直接放入 JSON 会导致不可见字符丢失，需要进行 Base64 编码，此处规定如下：
-如果 Content-type 为 text/*、application/json、application/javascript、application/xml，CLB 不会对 body 内容进行转码，其他类型一律进行转码再转发。
