@@ -1,3 +1,32 @@
+### 2.6.6.135 @ 2021.10.09
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.6.134.zip) 
+- 新增接口  
+  1. 设置白板滚动条是否可见(setScrollBarVisible)    
+- 接口调整  
+  1. addImagesFile(urls, title, needSwitch) 支持title,needSwitch
+  2. addH5File(url, title, needSwitch) 支持title,needSwitch
+  3. addVideoFile(url, title, needSwitch) 支持title,needSwitch
+- 实体类调整  
+  1. TEduBoardFileInfo，新增fileType字段
+- 新增常量  
+  1. TEduBoardFileType
+  
+### 2.6.5.131 @ 2021.09.01
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.5.131.zip) 
+- 新增接口  
+  1. 设置输出日志级别(setLogLevel)  
+- 调整全局变量
+  1. 几何元素类型(TEduBoardMathGraphType)  
+  2. 日志级别(TEduBoardLogLevel)  
+- 当前版本废弃的接口与事件
+  1. SDK接口：发起文件转码请求(applyFileTranscode)  
+  2. 回调事件：转码进度回调(TEB_TRANSCODEPROGRESS)  
+  3. 全局常量：文件转码状态(TEduBoardFileTranscodeStatus)  
+- 功能优化  
+  1. 几何画板新增多种几何图形支持  
+- Bug 修复  
+  1. 若干已知问题修复  
+
 ### 2.6.4.126 @ 2021-08-16
 - [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.4.126.zip) 
 - 新增接口

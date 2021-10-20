@@ -1,6 +1,13 @@
 ## 介绍
 消息队列 CMQ（Cloud Message Queue，以下简称 CMQ）是基于腾讯自研消息引擎的分布式消息队列系统，可以用作数据源（Source）和数据目的（Sink）。用户可以把流数据导入到 CMQ 的某个 Queue 中，通过 Flink 算子进行处理后，输出到相同或不同 CMQ 示例的另一个 Queue。
 
+## 版本说明
+
+| Flink 版本 | 说明     |
+| :-------- | :------- |
+| 1.11      | 支持     |
+| 1.13      | 暂不支持 |
+
 ## 使用范围
 CMQ 支持用作数据源表（Source），也可以作为 Tuple 数据流的目的表（Sink），暂不支持 Upsert 数据流。
 
@@ -31,7 +38,6 @@ CREATE TABLE `Data-Input` (
 ```
 
 #### CSV 格式输入
-
 ```sql
 CREATE TABLE `Data-Input` (
     `id` bigint,
@@ -54,7 +60,6 @@ CREATE TABLE `Data-Input` (
 ```
 
 ### 用作数据目的（Sink）
-
 #### JSON 格式输出
 
 ```sql
@@ -100,8 +105,8 @@ CREATE TABLE `Data-Input` (
     'max-block-timeout' = '0s'                  -- 批量发送数据的最大等待时间
 );
 ```
-
-## 通用 WITH 参数
+## WITH 参数
+### 通用 WITH 参数
 
 | 参数值               | 必填 |  默认值  |                             描述                             |
 | :------------------- | :--: | :------: | :----------------------------------------------------------: |
@@ -119,7 +124,7 @@ CREATE TABLE `Data-Input` (
 | retry-times          |  否  |    3     |                     发送消息的重试次数。                     |
 | max-block-timeout    |  否  |    0s    | 批量发送数据的最大等待时间，`'0s'`表示不等待，有数据就直接发送。 |
 
-## JSON 格式 WITH 参数
+### JSON 格式 WITH 参数
 
 | 参数值                         | 必填 | 默认值 | 描述                                                         |
 | ------------------------------ | ---- | ------ | ------------------------------------------------------------ |
@@ -127,7 +132,7 @@ CREATE TABLE `Data-Input` (
 | json.ignore-parse-errors       | 否   | false  | 如果为 true，则遇到解析异常时，会把这个字段设置为 null 并继续处理。如果为 false，则会让作业失败。 |
 | json.timestamp-format.standard | 否   | SQL    | 指定 JSON 时间戳字段的格式，默认是 SQL（格式是`yyyy-MM-dd HH:mm:ss.s{可选精度}`）。也可以选择 ISO-8601，格式是 `yyyy-MM-ddTHH:mm:ss.s{可选精度}`。 |
 
-## CSV 格式 WITH 参数
+### CSV 格式 WITH 参数
 
 | 参数值                      | 必填 | 默认值     | 描述                                                         |
 | --------------------------- | ---- | ---------- | ------------------------------------------------------------ |
@@ -136,7 +141,7 @@ CREATE TABLE `Data-Input` (
 | csv.disable-quote-character | 否   | false      | 禁止字段包围引号。如果为 true，则 'csv.quote-character' 选项不可用。 |
 | csv.quote-character         | 否   | ''         | 字段包围引号，引号内部的作为整体看待。默认是`''`。           |
 | csv.ignore-parse-errors     | 否   | false      | 忽略处理错误。对于无法解析的字段，会输出为 null。            |
-| csv.allow-comments          | 否   | false     | 忽略 # 开头的注释行，并输出为空行（请务必将 csv.ignore-parse-errors 设为 true）。 |
+| csv.allow-comments          | 否   | false    | 忽略 # 开头的注释行，并输出为空行（请务必将 csv.ignore-parse-errors 设为 true）。 |
 | csv.array-element-delimiter | 否   | ;          | 数组元素的分隔符，默认是`;`。                                |
 | csv.escape-character        | 否   | 无         | 指定转义符，默认禁用转义。                                   |
 | csv.null-literal            | 否   | 无         | 将指定的字符串看作 null 值。                                 |

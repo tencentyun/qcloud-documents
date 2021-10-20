@@ -20,7 +20,7 @@
 
 #### 一键配置
 
-如果您的域名商为腾讯云，推荐您使用 CNAME 一键配置功能。
+如果您的域名商为腾讯云，推荐您使用 CNAME 一键配置功能，详情请参见 [DNSPod 一键配置 CNAME](https://cloud.tencent.com/document/product/228/59152)。
 
 ![](https://main.qcloudimg.com/raw/bce6d4d2207f120dfe69a4732b5c82a3.png)
 
@@ -75,5 +75,5 @@
 
 ### 配置指南
 
-您已完成 CDN 服务的基础配置，有关 CDN 服务的更多高级配置，可以在 [配置指南](https://cloud.tencent.com/document/product/228/37851) 目录下对应的项目进行了解。
-![](https://main.qcloudimg.com/raw/6d875ca6a806cd568b1dcc91d1391370.png)
+您已完成 CDN 服务的基础配置，有关 CDN 服务的更多配置，可以在 [配置指南](https://cloud.tencent.com/document/product/228/37851) 目录下对应的项目进行了解。
+

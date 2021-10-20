@@ -102,7 +102,7 @@ java -jar app.jar &
 
 ![](https://main.qcloudimg.com/raw/bfd406578dd8aa7874a766bf0616630b.png)
 
-部署成功后，会在云开发控制台看到版本状态为【正常】：
+部署成功后，会在云开发控制台看到版本状态为**正常**：
 
 ![](https://main.qcloudimg.com/raw/c1eaf2ecef7c9d059fd534349bbbe0ac.png)
 
@@ -124,7 +124,7 @@ java -jar app.jar &
 
 ![](https://main.qcloudimg.com/raw/3c08d7b04f6cc9ef82fef4273bf4107c.png)
 
-部署成功后，会在云开发控制台看到版本状态为【正常】：
+部署成功后，会在云开发控制台看到版本状态为**正常**：
 
 ![](https://main.qcloudimg.com/raw/fbaf54c3e056714fb2a7fe44c679a8a3.png)
 

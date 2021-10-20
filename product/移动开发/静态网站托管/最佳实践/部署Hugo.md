@@ -102,7 +102,7 @@ hugo -D
 
 方式二：手动部署
 
-1. 登录 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击【新建】，选择空模板，单击【下一步】，填写环境名称并开通“按量计费”环境。
+1. 登录 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击**新建**，选择空模板，单击**下一步**，填写环境名称并开通“按量计费”环境。
 ![](https://main.qcloudimg.com/raw/9ba130b28f526df18c7f0497beaf3b8a.jpg)
  开通环境以后，进入 [环境概览](https://console.cloud.tencent.com/tcb/env/overview) 页面请记住您的 `环境Id`，这个 ID 后续部署需要用到。[](id:envid)
 2. 在本地安装 Node.js。如未安装请前往 [Node.js 官网](https://nodejs.org) 下载安装，并确保 Node.js 安装成功。
@@ -116,7 +116,7 @@ tcb login
 ```
  登录成功如下图所示：
  ![](https://main.qcloudimg.com/raw/eb4492e95cac7a0c9c8eeaa7dcf08c62.png)
-5. 在弹出的页面中单击【确认授权】进行授权：
+5. 在弹出的页面中单击**确认授权**进行授权：
 ![](https://main.qcloudimg.com/raw/d24d089ce30054b1978122082bb26ca0.png)
 6. 执行以下命令，在 hugo-site 中部署 public 目录中的文件：
 ```
