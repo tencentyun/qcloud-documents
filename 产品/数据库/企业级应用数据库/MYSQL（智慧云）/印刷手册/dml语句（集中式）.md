@@ -1,9 +1,3 @@
-# SQL参考
-TDSQL集中式实例高度兼容MySQL的协议和语法，以下是一些示例和演示。
-## DDL语句
-本节主要介绍了使用DDL语句创建表和常用DDL语句说明。
-
-
 ## CREATE
 ### CREATE DATABASE语法
 本节介绍CREATE DATABASE语法。
