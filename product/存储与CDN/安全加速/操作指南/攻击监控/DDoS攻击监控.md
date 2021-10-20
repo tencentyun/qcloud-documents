@@ -11,10 +11,10 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/0d81c079dc88a196270d8a2839def61f.jpg)
 2. 查看监控数据
 DDoS攻击监控数据分为三个模块：攻击带宽、攻击类型分布、TOP 10 DDoS IP排名。
-	- 攻击带宽：查看该时间范围内DDoS防护遭受的攻击情况，根据1分钟DDoS攻击总流量除以时间（60秒）折算而来。支持不同时间粒度（每分钟/每5分钟/每小时）查看历史数据，支持数据下载。
-		- 攻击事件：将鼠标悬停在攻击带宽曲线上任意点，可了解该时间节点发生的攻击事件总峰值带宽以及所有攻击类型带宽消耗。
-	![](https://qcloudimg.tencent-cloud.cn/raw/a23a89d24d5f5c37fc5f27b2cb98eafb.jpg)
-	- 攻击类型分布：根据攻击带宽大小，从大到小顺序展示各攻击类型。
-	![](https://qcloudimg.tencent-cloud.cn/raw/141217858ad3434f727ba8c161828311.jpg)
-	- TOP 10 DDoS IP 排名：展示攻击次数排名前十的 DDoS 攻击源 IP 相关信息。
-	![](https://qcloudimg.tencent-cloud.cn/raw/f48b86c7458402e45601357573ba70aa.jpg)
+**攻击带宽**：查看该时间范围内DDoS防护遭受的攻击情况，根据1分钟DDoS攻击总流量除以时间（60秒）折算而来。支持不同时间粒度（每分钟/每5分钟/每小时）查看历史数据，支持数据下载。
+ - 攻击事件：将鼠标悬停在攻击带宽曲线上任意点，可了解该时间节点发生的攻击事件总峰值带宽以及所有攻击类型带宽消耗。
+![](https://qcloudimg.tencent-cloud.cn/raw/a23a89d24d5f5c37fc5f27b2cb98eafb.jpg)
+**攻击类型分布**：根据攻击带宽大小，从大到小顺序展示各攻击类型。
+![](https://qcloudimg.tencent-cloud.cn/raw/141217858ad3434f727ba8c161828311.jpg)
+**TOP 10 DDoS IP 排名**：展示攻击次数排名前十的 DDoS 攻击源 IP 相关信息。
+![](https://qcloudimg.tencent-cloud.cn/raw/f48b86c7458402e45601357573ba70aa.jpg)
