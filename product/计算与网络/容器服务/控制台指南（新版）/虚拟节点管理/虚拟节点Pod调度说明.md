@@ -6,7 +6,7 @@
 
 ## Kubernetes 版本
 
-仅支持 1.16 及以上版本集群。
+仅支持1.16及1.18版本集群。
 
 ## 默认配额
 
@@ -83,7 +83,7 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 <li>intel</li>
 <li>amd</li>
 <li>具体型号，如 S4、S3</li>
-各型号支持的具体配置请参考 <a href="https://console.cloud.tencent.com/cvm/securitygroup" target="_blank">资源规格</a>。</td>
+各型号支持的具体配置请参考 <a href="https://cloud.tencent.com/document/product/457/39808" target="_blank">资源规格</a>。</td>
 <td>否。如果不填写则默认不强制指定 CPU 类型，会根据 <a href="https://cloud.tencent.com/document/product/457/44174" target="_blank">指定资源规格方法</a> 尽量匹配最合适的规格，若匹配到的规格 Intel 和 amd 均支持，则优先选择 Intel。</td>
 </tr>
 <tr>

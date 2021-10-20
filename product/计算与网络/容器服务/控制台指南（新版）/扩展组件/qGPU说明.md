@@ -77,7 +77,7 @@ qGPU 方案通过对 NVIDIA GPU 卡上任务的有效调度，达到给多个容
 <td>fs</td>
 <td>Fixed Share</td>
 <td>固定配额</td>
-<td>每个 Pod 有固定的算力配额，无法超过改配额，即使 GPU 还有空闲算力。</td>
+<td>每个 Pod 有固定的算力配额，无法超过固定配额，即使 GPU 还有空闲算力。</td>
 </tr>
 <tr>
 <td>burst-share</td>

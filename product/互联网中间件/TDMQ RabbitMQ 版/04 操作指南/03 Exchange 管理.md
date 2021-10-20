@@ -1,6 +1,6 @@
 ## 操作场景
 
-Producer 将消息发送到 Exchange 中，Exchange 根据消息的属性或内容将消息路由到一个或多个 Queue 中（或者丢弃），Consumer从 Queue 中拉取消息进行消费。
+生产者将消息发送到 Exchange 中，Exchange 根据消息的属性或内容将消息路由到一个或多个 Queue 中（或者丢弃），Consumer从 Queue 中拉取消息进行消费。
 
 该任务指导您使用消息队列 TDMQ RabbitMQ 版时在控制台上创建，删除和查询 Exchange。
 

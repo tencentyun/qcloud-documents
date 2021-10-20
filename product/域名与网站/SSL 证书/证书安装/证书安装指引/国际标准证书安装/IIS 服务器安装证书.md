@@ -32,8 +32,8 @@
 ![](https://main.qcloudimg.com/raw/d9a68b79c3130e3cf19ffc89fb60472b.png)
 6. 在弹出的 “网站绑定” 窗口中，单击**添加**。如下图所示：
 ![](https://main.qcloudimg.com/raw/83570ec33b564a66f2fd29c46f727016.png)
-7. 在 “添加网站绑定” 的窗口中，将网站类型设置为 https，端口设置为443，主机名请填写您当前申请证书的域名，并指定对应的 SSL 证书，单击**确定**。如下图所示：
-![](https://main.qcloudimg.com/raw/4e536ad37fd30b6d24be9454996f4661.png)
+7. 在 “添加网站绑定” 的窗口中，将网站类型设置为 https，IP 地址设置为全部未分配，端口设置为443，主机名请填写您当前申请证书的域名，并指定对应的 SSL 证书，单击**确定**。如下图所示：
+![](https://main.qcloudimg.com/raw/ba1575aa633cd1d6960aa5ffe510af57.png)
 8. 添加完成后，即可在 “网站绑定” 窗口中查看到新添加的内容。
 9. 请使用 `https://cloud.tencent.com` 进行访问。
 

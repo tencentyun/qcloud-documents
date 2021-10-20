@@ -6,8 +6,8 @@ Cloud-Init 是一个开源工具，运行在云服务器实例内部的一个非
 
 ### 如何确认 Linux 实例内部的 Cloud-Init 服务是否正常运行？
 
-<span id="checkcloud-init"></span>
-#### Cloud-Init 服务运行排查方案
+
+#### Cloud-Init 服务运行排查方案[](id:checkcloud-init)
 首先请登录实例，依次执行以下命令，观察是否报错。显示执行结果则服务正常运行，否则会提示错误原因，请根据提示进行问题排查。
 1. 删除 cloud-init 缓存目录。
 ```
@@ -122,8 +122,9 @@ pkg_resources.DistributionNotFound: pyyaml
 安装 Cloud-Init 时，Python 解释默认使用 Python2（即 `/usr/bin/python` 与 `/bin/python` 这两个软连链向 Python2）。当用户业务有需要时，可能会在实例内部把 Python 的默认解释器改为 Python3（即修改 `/usr/bin/python` 与 `/bin/python` 这两个软连，使其指向 Python3）。由于兼容性问题，导致在开机启动执行 Cloud-Init 时报错。
 - 解决方案：
  1. 修改 `/usr/bin/cloud-init` 文件中指定的 Python 解释器，将 `#/usr/bin/python`或`#/bin/python` 修改为 `#! user/bin/python`。
->! 不要使用软连接，直接指向具体的解释器。
->
+<dx-alert infotype="notice" title="">
+不要使用软连接，直接指向具体的解释器。
+</dx-alert>
  2. 根据 [Cloud-Init 服务运行排查方案](#checkcloud-init) 执行操作，直至全部执行完无错误为止。
 
 ## Cloudbase-Init
@@ -133,13 +134,14 @@ pkg_resources.DistributionNotFound: pyyaml
 
 ### 如何确认 Windows 实例内部的 Cloudbase-Init 服务是否正常运行？
 
-<span id="checkcloudbase-init"></span>
-#### Cloudbase-Init 服务运行排查方案：
+
+#### Cloudbase-Init 服务运行排查方案：[](id:checkcloudbase-init)
 1. 登录实例。
->? 若您忘记密码或因为 Cloudbase-Init 服务异常重置密码失败，可通过 [步骤 2](#step02) 进行密码重置。 
->
-2. <span id="step02">打开**控制面板** > **管理工具** > **服务**。
-3. 找到 cloudbase-init 服务，并右键单击【属性】，打开 cloudbase-init 的属性窗口。</span>
+<dx-alert infotype="explain" title="">
+若您忘记密码或因为 Cloudbase-Init 服务异常重置密码失败，可通过 [步骤 2](#step02) 进行密码重置。 
+</dx-alert>
+2. [](id:step02)打开**控制面板** > **管理工具** > **服务**。
+3. 找到 cloudbase-init 服务，并右键单击**属性**，打开 cloudbase-init 的属性窗口。
  - 查看“启动类型”，确保“启动类型”为“自动”。如下图所示：
 ![](https://main.qcloudimg.com/raw/43f39931ec8932f88ee491f2bdbd7ada.png)
  - 查看“登录身份”，确保“登录身份”为“本地系统帐户”。如下图所示：
