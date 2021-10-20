@@ -18,8 +18,8 @@
   </tr>
 <tr>
 </div></a></td>
-<td><img style="width:110px; max-width: inherit;" src="https://main.qcloudimg.com/raw/d705f9bd3ec330c34329e1763c8added.png" /></td>
-<td><img style="width:110px; max-width: inherit;" src="https://main.qcloudimg.com/raw/f8f2140b89e536ead4a410fea7eee5fd.png" /></td>
+<td style><img style="width:110px; max-width: inherit;" src="https://main.qcloudimg.com/raw/d705f9bd3ec330c34329e1763c8added.png" /></td>
+<td style="text-align:center;"><img  style="width:110px; max-width: inherit;" src="https://main.qcloudimg.com/raw/f8f2140b89e536ead4a410fea7eee5fd.png"  /></td>
 <td style="text-align:center">
       <input type="button" value="Web 基础聊天场景" style="height: 30px;width: 120px;min-width: 24px;padding: 0 0px;background-color: #006eff;
     color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
@@ -28,7 +28,7 @@
     color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
     box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html')" />
     </td>
-<td><img style="width:110px; max-width: inherit;" src="https://main.qcloudimg.com/raw/4dca99a243498c180a1bb274b229919a.png" /></td>
+<td style="text-align:center;"><img style="width:110px; max-width: inherit;" src="https://main.qcloudimg.com/raw/4dca99a243498c180a1bb274b229919a.png" /></td>
 <td style="text-align:center">
       <input type="button" value="Windows 版" style="height: 30px;width: 90px;min-width: 24px;padding: 0 px;background-color: #006eff;
     color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
