@@ -6,17 +6,18 @@
 
 ## 页面说明
 
-1. 查询条件筛选
-	- 单击域名筛选框，进行域名选择或搜索。
-	- 选择防护地域，设置查询时间范围，可查看 BOT 分析数据。
-	![](https://qcloudimg.tencent-cloud.cn/raw/d6d07ad348be608587052cd645128805.jpg)
-2. 查看监控数据
+###  查询条件筛选
+- 单击域名筛选框，进行域名选择或搜索。
+- 选择防护地域，设置查询时间范围，可查看 BOT 分析数据。
+![](https://qcloudimg.tencent-cloud.cn/raw/d6d07ad348be608587052cd645128805.jpg)
+
+###  查看监控数据
 BOT 分析数据分为四个模块：请求次数统计、峰值请求 QPS 详情、TOP BOT IP 排名、TOP BOT 会话数域名。
-**请求次数统计**：提供总请求和 BOT 请求次数趋势统计，单天数据（例如，近1小时、近6小时、今日、昨日）数据统计粒度为2分钟，多天区间数据（例如近7天）数据统计粒度为1小时，支持数据下载。
+1. 请求次数统计：提供总请求和 BOT 请求次数趋势统计，单天数据（例如，近1小时、近6小时、今日、昨日）数据统计粒度为2分钟，多天区间数据（例如近7天）数据统计粒度为1小时。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6d9d67ceed3f2b2f249948b95cd2ef27.jpg)
-**峰值请求 QPS 详情**：根据用户选择的时间区段，展示峰值请求数据。
+2. 峰值请求 QPS 详情：根据用户选择的时间区段，展示峰值请求数据。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1ca77670c5d705e0cf4ad8ab20498949.jpg)
-**TOP BOT IP 排名**：提供攻击源 IP 按攻击次数（从多到少）排名、及其对应的 IP 归属。  
+3. TOP BOT IP 排名：提供攻击源 IP 按攻击次数（从多到少）排名、及其对应的 IP 归属。  
 ![](https://qcloudimg.tencent-cloud.cn/raw/b3856079780da3910456569be40b415f.jpg)
-**TOP BOT 会话数域名**：提供域名 BOT 记录会话数（从多到少）排名。
+4. TOP BOT 会话数域名：提供域名 BOT 记录会话数（从多到少）排名。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ec94525598bd2835c39ddd2efe24cf0f.jpg)
