@@ -388,7 +388,7 @@
 
 | 产品     | CAM 中简称 | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
 | ------------------------------------- -------- | ------------- | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
-| [腾讯云小微](https://cloud.tencent.com/document/product/645) | prophet |服务级   | &#10003; | -                | -        | -        |
+| [腾讯云小微](https://cloud.tencent.com/document/product/645) |  |服务级   | &#10003; | -                | -        | -        |
 | [腾讯同传系统](https://cloud.tencent.com/document/product/1399) | tsi | 服务级   | &#10003; | -                | -        | -        |
 
 ## AI 平台服务  
@@ -562,7 +562,7 @@
 | 产品                                                         | CAM 中简称 | 授权粒度 | 控制台 | 根据标签进行授权 | 服务角色 | 参考文档 |
 | ------------------------------------------------------------ | ---------- | -------- | ------ | ---------------- | -------- | -------- |
 | [CODING   DevOps](https://cloud.tencent.com/product/coding) <sup>1</sup> | coding     | 服务级   | ✓      | -                | ✓        | -        |
-| [压测大师](https://cloud.tencent.com/document/product/653)   | wetest     | 操作级   | ✓      | -                | -        | -        |
+| [压测大师](https://cloud.tencent.com/document/product/653)   |      | 操作级   | ✓      | -                | -        | -        |
 | [标准兼容测试](https://cloud.tencent.com/document/product/369) | sct        | 操作级   | ✓      | -                | -        | -        |
 | [专家兼容测试](https://cloud.tencent.com/document/product/579) | ect        | 操作级   | ✓      | -                | -        | -        |
 | [远程调试](https://cloud.tencent.com/document/product/585)   | rd         | 操作级   | ✓      | -                | -        | -        |
