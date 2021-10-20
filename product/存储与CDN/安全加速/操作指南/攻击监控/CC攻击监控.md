@@ -13,7 +13,7 @@
 	
 ### 查看监控数据
 CC 攻击监控数据分为四个模块：请求数视图、QPS 视图、攻击源排名、攻击请求 TOP UA。
-1. 请求数视图：从请求数维度展示 CC 攻击情况。
+1. 请求数视图：从请求数维度展示 CC 攻击情况，支持数据下载。。
 ![](https://qcloudimg.tencent-cloud.cn/raw/92e35603d433116a35bf0b75ca0f022c.jpg)
 2. QPS 视图：即请求量视图，展示服务器在单位时间内处理的 CC 攻击流量，计算公式为：QPS = 并发量/平均响应时间。该视图支持不同时间粒度（每分钟/每5分钟/每小时）QPS 历史数据查询。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c21b7e9e88063ca072fc5bc9e44a75f0.jpg)
