@@ -1,3 +1,9 @@
+### Xcode13 iOS9编译报UserNotifications.framework无法加载或archive包无法启动
+错误信息：Dyld Error Message:
+Dyld Message: Library not loaded: /System/Library/Frameworks/UserNotifications.framework/UserNotifications
+
+解决：Target->Build Phases->Link Binary With Libraries将UserNotifications.framework设置成Optional或者使用低版本打包
+
 ### iOS 的开发环境 token，被当做生产环境 token 是什么原因？该如何处理？
 
 在 Xcode 开发环境下安装 App，并使用 TPNS 推送开发环境的消息时，出现以下两种错误提示：
