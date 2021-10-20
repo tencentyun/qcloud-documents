@@ -61,4 +61,4 @@ Web 请求包装实例如下代码所示：
   })
 
 ```
->?具体的请求地址和响应，详情请参见 [Web 接口文档](https://cloud.tencent.com/document/product/1156/40338)。相关接口调试可单击 [【在线调试】](https://video-caster-sdk-1258344699.cos-website.ap-guangzhou.myqcloud.com/demo/debug.html)。
+>?具体的请求地址和响应，详情请参见 [Web 接口文档](https://cloud.tencent.com/document/product/1156/40338)。相关接口调试可单击 [ **在线调试** ](https://video-caster-sdk-1258344699.cos-website.ap-guangzhou.myqcloud.com/demo/debug.html)。
