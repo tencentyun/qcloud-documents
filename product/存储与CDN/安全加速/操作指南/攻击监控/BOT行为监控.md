@@ -19,5 +19,5 @@ BOT 分析数据分为四个模块：请求次数统计、峰值请求 QPS 详�
 ![](https://qcloudimg.tencent-cloud.cn/raw/1ca77670c5d705e0cf4ad8ab20498949.jpg)
 3. TOP BOT IP 排名：提供攻击源 IP 按攻击次数（从多到少）排名、及其对应的 IP 归属。  
 ![](https://qcloudimg.tencent-cloud.cn/raw/b3856079780da3910456569be40b415f.jpg)
-4. TOP BOT 会话数域名：提供域名 BOT 记录会话数（从多到少）排名。
+4. TOP BOT 会话数域名：提供按 BOT 会话数（从多到少）的域名排名。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ec94525598bd2835c39ddd2efe24cf0f.jpg)
