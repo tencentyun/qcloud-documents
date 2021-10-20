@@ -1,4 +1,4 @@
-TDMQ RocketMQ 版现已兼容开源 Apache RockerMQ，支持多语言 SDK，以下是 TDMQ RocketMQ 版支持的SDK类型。
+TDMQ RocketMQ 版现已兼容开源 Apache RocketMQ，支持多语言 SDK，以下是 TDMQ RocketMQ 版支持的SDK类型。
 
 <table>
 <tr>
