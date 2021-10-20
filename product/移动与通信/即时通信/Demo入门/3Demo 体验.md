@@ -1,17 +1,26 @@
+## Native Demo
 <table>
   <tr>
-    <th style="text-align:center;" width="180px"><b>Android/iOS<br></b>使用浏览器扫码</th>
-    <th style="text-align:center;" width="180px"><b>Flutter</b></th>
-    <th style="text-align:center;" width="180px"><b>小程序</b></th>
-    <th style="text-align:center;" width="180px"><b>小程序直播电商场景</b></th>
-    <th style="text-align:center;" width="180px"><b>Web</b></th>
+    <th style="text-align:center;" width="180px">iOS</th>
   </tr>
   <tr>
     <td><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/e225271f575b3ddb660d1fc9ec7947e9.png"  /></td>
-    <td><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/4dca99a243498c180a1bb274b229919a.png" /></td>
-    <td><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/d705f9bd3ec330c34329e1763c8added.png" /></td>
-    <td><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/f8f2140b89e536ead4a410fea7eee5fd.png" /></td>
-    <td style="text-align:center">
+</table>
+
+## 跨平台 Demo
+<table>
+  <tr>
+    <th style="text-align:center;" width="180px">微信小程序</th>
+    <th style="text-align:center;" width="180px">小程序直播电商场景</th>
+    <th style="text-align:center;" width="180px">Web</th>
+    <th style="text-align:center;" width="180px">Flutter<br>(iOS & Android)</th>
+    <th style="text-align:center;" width="180px">Electron</th>
+  </tr>
+<tr>
+</div></a></td>
+<td><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/d705f9bd3ec330c34329e1763c8added.png" /></td>
+<td><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/f8f2140b89e536ead4a410fea7eee5fd.png" /></td>
+<td style="text-align:center">
       <input type="button" value="Web 基础聊天场景" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #006eff;
     color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
     box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://web.sdk.qcloud.com/im/demo/latest/index.html')" /><br><br>
@@ -19,7 +28,16 @@
     color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
     box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html')" />
     </td>
-  </tr>
+<td><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/4dca99a243498c180a1bb274b229919a.png" /></td>
+<td style="text-align:center">
+      <input type="button" value="Windows 版" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #006eff;
+    color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://comm.qq.com/im_demo_download/index.html#/pc')" /><br><br>
+      <input type="button" value="Mac OS 版" style="height: 30px;width: 150px;margin-top: 5px;min-width: 24px;padding: 0 20px;background-color: #006eff;
+    color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://comm.qq.com/im_demo_download/index.html#/pc')" />
+</td>
+</tr>
 </table>
 
 **Android/iOS 基本功能演示**
