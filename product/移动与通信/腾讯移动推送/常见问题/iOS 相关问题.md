@@ -1,8 +1,8 @@
-### Xcode13 iOS9编译报UserNotifications.framework无法加载或archive包无法启动
+### Xcode13 iOS9 编译报 UserNotifications.framework 无法加载或 archive 包无法启动，该如何处理？
 错误信息：Dyld Error Message:
 Dyld Message: Library not loaded: /System/Library/Frameworks/UserNotifications.framework/UserNotifications
 
-解决：Target->Build Phases->Link Binary With Libraries将UserNotifications.framework设置成Optional或者使用低版本打包
+解决：Target > Build Phases > Link Binary With Libraries 将 UserNotifications.framework 设置成 Optional 或者使用低版本打包。
 
 ### iOS 的开发环境 token，被当做生产环境 token 是什么原因？该如何处理？
 
