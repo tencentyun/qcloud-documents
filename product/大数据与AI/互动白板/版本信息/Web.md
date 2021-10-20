@@ -1,3 +1,39 @@
+### 2.6.6 @ 2021.09.28
+* 链接地址：https://res.qcloudtiw.com/board/2.6.6/TEduBoard.min.js
+- 新增接口
+	1. 设置白板滚动条是否可见(setScrollBarVisible)
+- 调整接口
+	1. 获取白板中指定文件的文件信息(getFileInfo)
+	2. 获取白板中上传的所有文件的文件信息列表(getFileInfoList)
+	3. 添加 H5 页面(addH5File)
+	4. 批量导入图片到白板(addImagesFile)
+	5. 添加视频文件(addVideoFile)
+- 调整全局变量
+	1. 白板文件类型(TEduBoardFileType)
+- 功能优化
+	1. 涂鸦过多导致渲染卡顿
+	2. 优化日志上报逻辑
+	3. 增加网络探测能力
+	4. 优化SDK体积
+	5. Window端SDK升级CEF内核
+- Bug 修复
+	1. 若干已知问题修复
+### 2.6.5 @ 2021.08.24
+* 链接地址：https://res.qcloudtiw.com/board/2.6.5/TEduBoard.min.js
+- 新增接口
+	1. 设置输出日志级别(setLogLevel)
+- 调整全局变量
+	1. 几何元素类型(TEduBoardMathGraphType)
+	2. 日志级别(TEduBoardLogLevel)
+- 废弃的接口与事件
+	1. SDK接口：发起文件转码请求(applyFileTranscode)
+	2. 回调事件：转码进度回调(TEB_TRANSCODEPROGRESS)
+	3. 全局常量：文件转码状态(TEduBoardTranscodeFileStatus)
+- 功能优化
+	1. 几何画板新增多种几何图形支持
+- Bug 修复
+	1. 若干已知问题修复
+
 ### 2.6.4 @ 2021.08.16
 * 链接地址：https://res.qcloudtiw.com/board/2.6.4/TEduBoard.min.js
 - 新增分组模式

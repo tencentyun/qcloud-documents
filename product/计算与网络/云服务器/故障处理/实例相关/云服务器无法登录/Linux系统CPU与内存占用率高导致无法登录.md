@@ -86,8 +86,9 @@ Load average 是 CPU 负载的评估，其值越高，说明其任务队列越�
 ps -axjf
 ```
 ![](//mc.qcloudimg.com/static/img/32420d3fe022b57d85120c941705dbf6/image.png)
- >? D 状态指不可中断的睡眠状态。该状态进程无法被杀死，也无法自行退出。
- >
+<dx-alert infotype="explain" title="">
+D 状态指不可中断的睡眠状态。该状态进程无法被杀死，也无法自行退出。
+</dx-alert>
 若出现较多 D 状态进程，可通过恢复该进程依赖资源或重启系统进行解决。
 
 ### Kswapd0 进程占用 CPU 较高处理

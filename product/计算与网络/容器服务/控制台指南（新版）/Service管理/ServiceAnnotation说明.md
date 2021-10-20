@@ -17,7 +17,7 @@ metadata:
 <dx-accordion>
 ::: service.kubernetes.io/loadbalance-id
 **说明：**
-只读注解，提供当前 Service 引用的负载均衡 LoadBalanceId。
+只读注解，提供当前 Service 引用的负载均衡 LoadBalanceId。您可以在腾讯云 CLB 控制台查看与集群在同一 VPC 下的 CLB 实例 ID。
 :::
 ::: service.kubernetes.io/qcloud-loadbalancer-internal-subnetid
 **说明：**

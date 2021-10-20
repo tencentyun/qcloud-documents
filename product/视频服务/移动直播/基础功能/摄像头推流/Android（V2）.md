@@ -68,26 +68,24 @@ mLivePusher.startCamera(true);
 ```
 
 [](id:step5)
-### 5. 启动和结束推流  
-
-如果已经启动了摄像头预览，就可以调用 V2TXLivePusher 中的 [startPush](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#ab4f8adaa0616d54d6ed920e49377a08a) 接口开始推流。  
-<dx-codeblock>
-::: java java
-//启动推流
-String rtmpURL = "rtmp://test.com/live/xxxxxx"; //此处填写您的 rtmp 推流地址  
+### 5. 启动和结束推流
+如果已经通过`startCamera`接口启动了摄像头预览，就可以调用 V2TXLivePusher 中的 [startPush](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#ab4f8adaa0616d54d6ed920e49377a08a) 接口开始推流。推流地址可以使用 [TRTC 地址](https://cloud.tencent.com/document/product/454/7915#.E8.87.AA.E4.B8.BB.E6.8B.BC.E8.A3.85-rtc-.E8.BF.9E.E9.BA.A6.2Fpk-url) ，或者使用 [RTMP 地址](https://cloud.tencent.com/document/product/454/7915#.E8.87.AA.E4.B8.BB.E6.8B.BC.E8.A3.85.E6.8E.A8.E6.B5.81-url) ，前者使用 UDP 协议，推流质量更高，并支持连麦互动。
+```objectivec 
+//启动推流， URL 可以使用 trtc:// 或者 rtmp:// 两种协议，前者支持连麦功能
+String rtmpURL = "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxxx";  //支持连麦
+String rtmpURL = "rtmp://test.com/live/streamid?txSecret=xxxxx&txTime=xxxxxxxx";    //不支持连麦，直接推流到直播 CDN
 int ret = mLivePusher.startPush(rtmpURL.trim());  
 if (ret == V2TXLIVE_ERROR_INVALID_LICENSE) {    
     Log.i(TAG, "startRTMPPush: license 校验失败");  
 }       
-:::
-</dx-codeblock>
+```
 
 推流结束后，可以调用 V2TXLivePusher 中的 [stopPush](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#af07c1dcff91b43a2309665b8663ed530) 接口结束推流。
-```java 
+```objectivec
 //结束推流
 mLivePusher.stopPush();
 ```
->!如果已经启动了摄像头预览，请在结束推流时将其关闭。  
+>! 如果已经启动了摄像头预览，请在结束推流时将其关闭。 
 
 - **如何获取可用的推流 URL？** 
 开通直播服务后，可以使用 [【直播控制台】>【直播工具箱】>【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。 
@@ -102,7 +100,9 @@ mLivePusher.stopPush();
 ```java     
 V2TXLivePusher mLivePusher = new V2TXLivePusherImpl(this, V2TXLiveDef.V2TXLiveMode.TXLiveMode_RTMP); //指定对应的直播协议为 RTMP
 mLivePusher.startMicrophone();
-String rtmpURL = "rtmp://test.com/live/xxxxxx"; //此处填写您的 rtmp 推流地址  
+//启动推流， URL 可以使用 trtc:// 或者 rtmp:// 两种协议，前者支持连麦功能
+String rtmpURL = "trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxxx";  //支持连麦
+String rtmpURL = "rtmp://test.com/live/streamid?txSecret=xxxxx&txTime=xxxxxxxx";    //不支持连麦，直接推流到直播 CDN
 int ret = mLivePusher.startPush(rtmpURL.trim());  
 ```
 

@@ -5,12 +5,12 @@
 - 确保您已经创建 云服务器 CVM 实例。对于具体操作，请查阅 [创建 CVM 实例](https://cloud.tencent.com/document/product/213/44264)。
 
 ## 操作步骤
-1. 登录 [凭据管理系统](https://console.cloud.tencent.com/ssm) 控制台，在左侧导航栏中，单击【CVM SSH 密钥管理】，进入CVM SSH 密钥页面。
+1. 登录 [凭据管理系统](https://console.cloud.tencent.com/ssm) 控制台，在左侧导航栏中，单击 **CVM SSH 密钥管理**，进入 CVM SSH 密钥页面。
    ![](https://main.qcloudimg.com/raw/5afcc6fcfee93523a23392d2980103eb.png)
 2. 在 CVM SSH 密钥页面中，单击左上角的“区域下拉框”，切换区域。
    ![](https://main.qcloudimg.com/raw/00d49d1edfdf4dfa90446d02be7002b7.png)
-3. 在 CVM SSH 密钥页面中，单击左上角的【新建】，进入创建 SSH 密钥页面。
-4. 在创建 SSH 密钥页面中，输入相对应的信息后，单击【确定】，返回管理页面，新创建的凭据会出现在列表的首位。
+3. 在 CVM SSH 密钥页面中，单击左上角的**新建**，进入创建 SSH 密钥页面。
+4. 在创建 SSH 密钥页面中，输入相对应的信息后，单击**确定**，返回管理页面，新创建的凭据会出现在列表的首位。
     ![](https://main.qcloudimg.com/raw/aacba6bdc3ac0345303bb8cb23d105f0.png)
  
 **字段说明**

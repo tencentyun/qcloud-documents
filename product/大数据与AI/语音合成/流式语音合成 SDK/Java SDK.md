@@ -39,9 +39,12 @@ package com.tencentcloud.tts;
 
 import com.tencent.SpeechClient;
 import com.tencent.core.model.GlobalConfig;
+import com.tencent.core.utils.ByteUtils;
 import com.tencent.tts.model.*;
+import com.tencent.tts.service.SpeechSynthesisListener;
 import com.tencent.tts.service.SpeechSynthesizer;
 import com.tencent.tts.service.SpeechSynthesisListener;
+import com.tencent.tts.utils.OpusUtils;
 import com.tencent.tts.utils.Ttsutils;
 
 import java.io.*;
@@ -53,32 +56,38 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class SpeechTtsExample {
 
+    private static String codec = "pcm";
+    private static int sampleRate = 16000;
+
+    private static byte[] datas = new byte[0];
+
+
+    /**
+     * 语音合成
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
-        GlobalConfig.ifLog=true;
         //从配置文件读取密钥
         Properties props = new Properties();
-        props.load(new FileInputStream("../config.properties"));
+        props.load(new FileInputStream("../../config.properties"));
         String appId = props.getProperty("appId");
         String secretId = props.getProperty("secretId");
         String secretKey = props.getProperty("secretKey");
-
-
-        //创建 SpeechSynthesizerClient 实例，目前是单例
+        //创建SpeechSynthesizerClient实例，目前是单例
         SpeechClient client = SpeechClient.newInstance(appId, secretId, secretKey);
-        //初始化 SpeechSynthesizerRequest，SpeechSynthesizerRequest 包含请求参数
+        //初始化SpeechSynthesizerRequest，SpeechSynthesizerRequest包含请求参数
         SpeechSynthesisRequest request = SpeechSynthesisRequest.initialize();
-
-
-        //使用客户端 client 创建语音合成实例
-        SpeechSynthesizer speechSynthesizer = client.newSpeechSynthesizer(request, new SpeechTtsExample.MySpeechSynthesizerListener());
+        request.setCodec(codec);
+        //request.setSampleRate(sampleRate);
+        //request.setVolume(10);
+        //request.setSpeed(2f);
+        request.setVoiceType(101007);
+        //使用客户端client创建语音合成实例
+        SpeechSynthesizer speechSynthesizer = client.newSpeechSynthesizer(request, new MySpeechSynthesizerListener());
         //执行语音合成
-        String ttsTextLong = "暖国的雨，向来没有变过冰冷的坚硬的灿烂的雪花。博识的人们觉得他单调，他自己也以为不幸否耶？江南的雪，可是滋润美艳之至了；" +
-                "那是还在隐约着的青春的消息，是极壮健的处子的皮肤。雪野中有血红的宝珠山茶，白中隐青的单瓣梅花，深黄的磬口的蜡梅花；雪下面还有冷绿的杂草。" +
-                "蝴蝶确乎没有；蜜蜂是否来采山茶花和梅花的蜜，我可记不真切了。但我的眼前仿佛看见冬花开在雪野中，有许多蜜蜂们忙碌地飞着，也听得他们嗡嗡地闹着。" +
-                "孩子们呵着冻得通红，像紫芽姜一般的小手，七八个一齐来塑雪罗汉。因为不成功，谁的父亲也来帮忙了。罗汉就塑得比孩子们高得多，虽然不过是上小下大的一堆，" +
-                "终于分不清是壶卢还是罗汉；然而很洁白，很明艳，以自身的滋润相粘结，整个地闪闪地生光。孩子们用龙眼核给他做眼珠，又从谁的母亲的脂粉奁中偷得胭脂来涂在嘴唇上。" +
-                "这回确是一个大阿罗汉了。他也就目光灼灼地嘴唇通红地坐在雪地里。";
-        speechSynthesizer.synthesis(ttsTextLong);
+        String ttsText = "腾讯云语音合成测试";
+        speechSynthesizer.synthesis(ttsText);
     }
 
 
@@ -90,18 +99,27 @@ public class SpeechTtsExample {
         public void onComplete(SpeechSynthesisResponse response) {
             System.out.println("onComplete");
             if (response.getSuccess()) {
-                Ttsutils.printAndSaveResponse(16000, response.getAudio(), response.getSessionId());
+                //根据具体的业务选择逻辑处理
+                //Ttsutils.saveResponseToFile(response.getAudio(),"./111.mp3");
+                if ("pcm".equals(codec)) {
+                    //pcm 转 wav
+                    Ttsutils.responsePcm2Wav(sampleRate, response.getAudio(), response.getSessionId());
+                }
+                if ("opus".equals(codec)) {
+                    //opus
+                    System.out.println("OPUS:" + response.getSessionId() + " length:" + response.getAudio().length);
+                }
             }
-            System.out.println("结束：" + response.getSuccess() + " " + response.getCode() + " " + response.getMessage() + " " + response.getEnd());
+            System.out.println("结束：" + response.getSuccess() + " " + response.getCode()
+                    + " " + response.getMessage() + " " + response.getEnd());
         }
 
         //语音合成的语音二进制数据
         @Override
         public void onMessage(byte[] data) {
-            System.out.println("onMessage:" + data.length);
+            //System.out.println("onMessage:" + data.length);
             // Your own logic.
-            String filePath = "logs/handler_" + "result_" + sessionId + ".pcm";
-            //Ttsutils.saveResponseToFile(data, filePath);
+            System.out.println("onMessage length:" + data.length);
             sessionId.incrementAndGet();
         }
 
@@ -111,9 +129,5 @@ public class SpeechTtsExample {
         }
     }
 }
-
-
 ```
-
-
 

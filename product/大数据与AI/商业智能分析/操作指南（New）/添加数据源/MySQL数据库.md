@@ -1,3 +1,4 @@
+在添加 MySQL 数据库前，请先将商业智能分析 BI 的 IP 地址添加至数据库安全组，详见 [数据库连接方式概览](https://cloud.tencent.com/document/product/590/19294)。
 1. 登录 [商业智能分析 BI 控制台](https://console.cloud.tencent.com/bi)，在添加数据源首页单击 **MySQL 数据库**，进入新建页面。新建的页面如下：
  ![](https://main.qcloudimg.com/raw/39410609e013fad9e8bd744a52946172.png)
 2. 填写驱动、URL、用户、密码等信息。

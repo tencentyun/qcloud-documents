@@ -1,6 +1,6 @@
 ## 接入步骤
 ### 前提条件
-接入验证码前，进入[图形验证](https://console.cloud.tencent.com/captcha/graphical)  页完成新建验证。可在【验证列表】查看 验证码接入所需的 CaptchaAppId 以及 AppSecretKey。
+接入验证码前，进入[图形验证](https://console.cloud.tencent.com/captcha/graphical)  页完成新建验证。可在**验证列表**查看 验证码接入所需的 CaptchaAppId 以及 AppSecretKey。
 ![](https://main.qcloudimg.com/raw/a15105526bbcf8c0b51b5cdafeefb92c.png)
 
 ### 快速接入
@@ -292,7 +292,8 @@ options 提供以下配置参数：
 |sdkOpts|	Object|	示例 {"width": 140, "height": 140}<br>移动端原生 webview 调用时传入，为设置的验证码弹框大小。<br>注意：手机原生端页面弹框通过 webview 加载验证码时须设置此值。若使用验证码 Web 的 loading，可设置一个小的值，然后在 ready 回调后重新设置尺寸。若自己实现 loading，此值可随意设置，等待 ready 回调后，再设置实际大小。|
 |ready|	Function|	验证码加载完成的回调，回调参数为验证码实际的宽高：<br>{"sdkView": {<br>  "width": number,<br>  "height": number<br>}}<br>请勿使用此参数直接设定宽高，手机原生端可参考回调数值，设置弹框大小。|
 |needFeedBack	|Boolean|	隐藏帮助按钮。<br>示例 { needFeedBack: false }|
+|userLanguage|	String	|指定验证码提示文案的语言，优先级高于后台配置，暂时仅支持滑块拼图验证码。支持传入值同navigator.language 用户首选语言，大小写不敏感。|
 
 
 ## 更多信息
-您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击【快速咨询】，了解更多详细信息。
+您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击**快速咨询**，了解更多详细信息。

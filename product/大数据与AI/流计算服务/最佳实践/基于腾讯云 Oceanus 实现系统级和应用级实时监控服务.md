@@ -196,7 +196,7 @@ from DataInput;
 >?需根据实际版本选择。
 
 #### 5. ES 数据查询  
-进入某台同子网的 CVM 下，使用以下命令或者在 ES 控制台的 Kibana 页面查询 ES 数据：
+在 ES 控制台的 Kibana 页面查询数据，或者进入某台相同子网的 CVM 下，使用以下命令进行查询：
 ```shell
 # 查询索引  username:password请替换为实际账号密码
 curl -XGET -u username:password http://xx.xx.xx.xx:xxxx/oceanus_test2/_search -H 'Content-Type: application/json' -d'

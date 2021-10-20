@@ -1,3 +1,23 @@
+## Version 9.2 @ 2021.09.23
+
+**功能新增**
+- Android&iOS：支持 Socks5 代理。
+- Windows：TRTCAudioQualityMusic 高音质场景新增自适应回声消除功能，自动平衡音质与回声消除强度。
+- 全平台：新增设置语音音调功能。
+
+**故障修复**
+- Windows：修复 Mac 安装 Windows 的环境部分摄像头不吐数据问题。
+- Android：修复偶现 CDN/TRTC 互切后没有上行音频的问题。
+- iOS：修复 Web 端屏幕分享导致 iOS 接受端自定义渲染花屏的问题。
+
+**功能优化**
+- Android：优化硬解码时导致 ANR 的问题。
+- Android：优化摄像头本地预览角度兼容的问题。
+- Android：优化首帧秒开速度。
+- Android&iOS：优化合唱模式 3A 策略。
+- Windows：优化 AGC 算法，降低出现声音过小和声音过大的问题的概率。
+- 全平台：优化弱网环境抗抖动算法，视频播放更流畅。
+
 ## Version 9.1 @ 2021.09.04
 
 **功能新增**

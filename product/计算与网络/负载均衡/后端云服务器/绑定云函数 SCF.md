@@ -1,6 +1,4 @@
 您可以通过编写云函数 SCF 来实现 Web 后端服务，然后使用负载均衡 CLB 绑定云函数 SCF 并对外提供服务。
->? 负载均衡 CLB 绑定云函数 SCF 功能目前处于内测阶段，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/h2r3ix3s5vs)。
->
 
 ## 背景信息
 [云函数（Serverless Cloud Function，SCF）](https://cloud.tencent.com/document/product/583)是腾讯云为企业和开发者们提供的无服务器执行环境，帮助您在无需购买和管理服务器的情况下运行代码。在您创建完云函数后，可以通过创建 CLB 触发器将云函数与事件进行关联。CLB 触发器会将请求内容以参数形式传递给云函数，并将云函数返回作为响应返回给请求方。
@@ -41,6 +39,7 @@
 - 仅支持跨 VPC 绑定 SCF，不支持跨地域绑定。
 - 目前仅 IPv4、IPv6 NAT64 版本的负载均衡支持绑定 SCF，IPv6 版本的暂不支持。
 - 仅七层（HTTP、HTTPS）监听器支持绑定 SCF，四层（TCP、UDP、TCP SSL）监听器和七层 QUIC 监听器不支持。
+- CLB 绑定 SCF 仅支持绑定“Event 函数”类型的云函数。
 
 
 ## 前提条件
