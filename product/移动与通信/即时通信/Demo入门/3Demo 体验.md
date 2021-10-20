@@ -32,10 +32,10 @@
 <td style="text-align:center">
       <input type="button" value="Windows 版" style="height: 30px;width: 90px;min-width: 24px;padding: 0 px;background-color: #006eff;
     color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
-    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://comm.qq.com/im_demo_download/index.html#/pc')" /><br><br>
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://comm.qq.com/im_demo_download/腾讯云即时通讯IM Setup 1.0.0.exe')" /><br><br>
       <input type="button" value="Mac OS 版" style="height: 30px;width: 90px;margin-top: 5px;min-width: 24px;padding: 0 0px;background-color: #006eff;
     color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
-    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://comm.qq.com/im_demo_download/index.html#/pc')" />
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://comm.qq.com/im_demo_download/腾讯云即时通讯IM-1.0.0.dmg')" />
 </td>
 </tr>
 </table>
