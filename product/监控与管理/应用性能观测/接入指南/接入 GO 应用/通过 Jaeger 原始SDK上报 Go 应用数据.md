@@ -17,7 +17,7 @@ nohup ./jaeger-agent --reporter.grpc.host-port={{接入点}} --agent.tags=token=
 :::
 </dx-codeblock>
 
->?对于 Jaeger Agent v1.15.0及以下版本，请将启动命令中 --agent.tags 替换为 --jaeger.tags。
+>?对于 Jaeger Agent v1.15.0及以下版本，请将启动命令中 `--agent.tags` 替换为 `--jaeger.tags`。
 
 ### 步骤3：上报数据
 通过 Jaeger 原始 SDK 上报数据：
