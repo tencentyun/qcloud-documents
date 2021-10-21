@@ -160,3 +160,14 @@ public class MApplication extends Application {
 ```
 -keep class com.tencent.** { *; }
 ```
+
+[](id:faq)
+## 常见问题
+### Android 端使用 LiteAVSDK 录屏/屏幕共享功能必现 crash 问题怎么解决？
+请您先检查下项目里面 targetSdkVersion 设置，如果设置的29那么运行 Android 10 设备使用录屏共享会触发闪退问题。原因是安卓隐私策略有更改，解决办法需要启动前台 service，并指定 type为mediaProjection 即可，不需要在 Service 里面调用 startScreenCapture。
+
+### 项目里面同时集成了移动直播/实时音视频/播放器等 LiteAVSDK 系列的多个 SDK 报符号冲突问题怎么解决？
+如果集成了2个或以上产品（直播、播放器、TRTC、短视频）的 LiteAVSDK 版本，编译时会出现库冲突问题，因为有些 SDK 底层库有相同符号文件，这里建议只集成一个专业版或企业版可以解决，直播、播放器、TRTC、短视频这些都包含在一个SDK里面。具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/647/32689)。
+
+
+
