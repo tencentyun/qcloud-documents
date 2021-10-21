@@ -20,7 +20,7 @@
 
 1. 登录 [容器服务](https://console.cloud.tencent.com/tke2/cluster) 控制台。
 2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。
-3. 执行以下 [使用 Secret 管理 ElasticSearch 连接串](#step1) > [部署 Kafka Exporter](#step2) > [验证](#step3) 步骤完成 Exporter 部署。
+3. 执行以下 [使用 Secret 管理 ElasticSearch 连接串](#step1) > [部署 ElasticSearch Exporter](#step2) > [验证](#step3) 步骤完成 Exporter 部署。
 
 [](id:step1)
 
