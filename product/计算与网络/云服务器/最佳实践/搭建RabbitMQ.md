@@ -17,23 +17,23 @@ RabbitMQ 是实现了高级消息队列协议（Advanced Message Queuing Protoco
 1. [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。您也可以根据实际操作习惯，选择其他不同的登录方式：
 	- [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)
 	- [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)
-1. 执行以下命令，安装依赖包。
+2. 执行以下命令，安装依赖包。
 ```
 yum -y install make gcc gcc-c++ m4 ncurses-devel openssl-devel unixODBC-devel
 ```
-2. 执行以下命令，下载 Erlang 安装包。
+3. 执行以下命令，下载 Erlang 安装包。
 ```
 wget http://erlang.org/download/otp_src_19.3.tar.gz
 ```
-3. 执行以下命令，解压 Erlang 安装包。
+4. 执行以下命令，解压 Erlang 安装包。
 ```
 tar xzf otp_src_19.3.tar.gz
 ```
-4. 执行以下命令，创建 erlang 文件夹。
+5. 执行以下命令，创建 erlang 文件夹。
 ```
 mkdir /usr/local/erlang
 ```
-5. 依次执行以下命令，编译安装 Erlang。
+6. 依次执行以下命令，编译安装 Erlang。
 ```
 cd otp_src_19.3
 ```
@@ -43,16 +43,16 @@ cd otp_src_19.3
 ```
 make && make install
 ```
-6. 执行以下命令，打开 profile 配置文件。
+7. 执行以下命令，打开 profile 配置文件。
 ```
 vi /etc/profile
 ```
-7. 按 **i** 进入编辑模式，并在文件末尾输入以下内容。
+8. 按 **i** 进入编辑模式，并在文件末尾输入以下内容。
 ```
 export PATH=$PATH:/usr/local/erlang/bin
 ```
-8. 按 **Esc** 并输入 **:wq** 保存文件并退出。
-9. 执行以下命令，让配置文件生效
+9. 按 **Esc** 并输入 **:wq** 保存文件并退出。
+10. 执行以下命令，使环境变量立即生效。
 ```
 source /etc/profile
 ```
