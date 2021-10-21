@@ -4,7 +4,7 @@ TDMQ RocketMQ 版现已兼容开源 Apache RocketMQ，支持多语言 SDK，以�
 <tr>
 <th>协议类型</th><th>SDK 语言</th>
 </tr><tr>
-<td>TCP 协议（Pulsar 社区版）</td>
+<td>TCP 协议（RocketMQ 社区版）</td>
 <td><li>Java SDK</li><li>Go SDK</li><li>C++ SDK</li></td>
 </tr>
 </table>
