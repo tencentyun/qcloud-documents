@@ -105,6 +105,6 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 出现该错误说明 TRTC Web SDK 在建立媒体传输通道时失败，请根据 [环境要求](#requirements) 检查防火墙配置。
 
 ### 4. 出现10006 error 该如何处理？
-如果出现"Join room failed result: 10006 error: service is suspended,if charge is overdue,renew it"，请确认您的实时音视频应用的服务状态是否为可用状态。
+如果出现"Join room failed result: 10006 error: service is suspended,if charge is overdue,renew it"，请确认您的实时音视频应用的服务状态是否为正常状态。
 登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)，单击您创建的应用，单击 **帐号信息**，在帐号信息面板即可确认服务状态。
-![](https://main.qcloudimg.com/raw/13c9b520ea333804cffb4e2c4273fced.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e0ada374cd9f95fcc8401d5ceacf5358.png)
