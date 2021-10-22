@@ -67,7 +67,7 @@ TestMic();
 | ITMG_TEST_MIC_STATUS_INVALID_MIC = 3 | 没有可用的设备      | 一般是PC设备上，没有可用的麦克风设备会报此错误，请提示插入耳机或麦克风 |
 | ITMG_TEST_MIC_STATUS_NOT_INIT = 5    | 没有初始化          | 在Init之后调用 EnableMic 接口                                |
 
-### 设置 Android 蓝牙
+### 设置 Android 蓝牙设备适配
 
 <dx-alert infotype="explain" title="说明">
 此接口在 GME 2.8.4 以上版本 SDK 上生效。
