@@ -3,12 +3,12 @@ TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、�
 <img style="width:800px" src="https://qcloudimg.tencent-cloud.cn/raw/bb1176efcf5d9242e6ee56f335fa9a62.jpg"  /> 
 
 >?
->1、会话（TUIConversation），主要用于拉取和展示会话列表。
->2、搜索（TUISearch），主要用于搜索和展示会话或消息。
->3、聊天（TUIChat），主要用于收发和展示消息。
->4、音视频通话（TUICalling），主要用于音视频通话。
->5、关系链（TUIContact），主要用于拉取和展示好友列表。
->6、群组（TUIGroup），主要用于拉取和展示群信息。
+>1. 会话（TUIConversation），主要用于拉取和展示会话列表。
+>2. 搜索（TUISearch），主要用于搜索和展示会话或消息。
+>3. 聊天（TUIChat），主要用于收发和展示消息。
+>4. 音视频通话（TUICalling），主要用于音视频通话。
+>5. 关系链（TUIContact），主要用于拉取和展示好友列表。
+>6. 群组（TUIGroup），主要用于拉取和展示群信息。
 ## 如何集成 TUIKit？
 ### 开发环境要求
 - Android Studio 3.6.1
