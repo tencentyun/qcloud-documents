@@ -27,7 +27,7 @@ spec:
         fs.cosn.bucket.region: <COS_REGION>
         fs.cosn.impl: org.apache.hadoop.fs.CosFileSystem
         fs.AbstractFileSystem.cosn.impl: org.apache.hadoop.fs.CosN
-        fs.cosn.userinfo.appid
+        fs.cosn.userinfo.appid: <COS_APP_ID>
   name: hadoop
 	
 ---
