@@ -88,7 +88,7 @@
 </tr>
 <tr>
 <td style="text-align:center">Electron  </td>
-<td style="text-align:center" ><a href="https://comm.qq.com/im_demo_download/腾讯云即时通讯IM-1.0.0.dmg">Mac OS</a><br><a href="https://comm.qq.com/im_demo_download/腾讯云即时通讯IM Setup 1.0.0.exe">Windows</a></td>
+<td style="text-align:center" ><a href="https://comm.qq.com/im_demo_download/index.html#/pc ">Mac OS</a><br><a href="https://comm.qq.com/im_demo_download/index.html#/pc ">Windows</a></td>
 <td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/63008">【客户端 API】SDK API(Electron)</a></td>
 <td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/63009">更新日志（Electron）</a></td>
 </tr>
