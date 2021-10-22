@@ -27,7 +27,7 @@ spec:
         fs.cosn.bucket.region: <COS_REGION>
         fs.cosn.impl: org.apache.hadoop.fs.CosFileSystem
         fs.AbstractFileSystem.cosn.impl: org.apache.hadoop.fs.CosN
-        fs.cos.app.id: <COS_APP_ID>
+        fs.cosn.userinfo.appid: <COS_APP_ID>
   name: hadoop
 	
 ---
@@ -68,7 +68,7 @@ spec:
         fs.cosn.bucket.region: <COS_REGION>
         fs.cosn.impl: org.apache.hadoop.fs.CosFileSystem
         fs.AbstractFileSystem.cosn.impl: org.apache.hadoop.fs.CosN
-        fs.cos.app.id: <COS_APP_ID>
+        fs.cosn.userinfo.appid: <COS_APP_ID>
       name: hadoop
       encryptOptions:
         - name: fs.cosn.userinfo.secretId
