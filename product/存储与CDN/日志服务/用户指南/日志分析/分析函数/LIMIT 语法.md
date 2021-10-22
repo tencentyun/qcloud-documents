@@ -33,6 +33,13 @@ select count(1) as pv from log group by status
 ```
 - 获取第2行到第42行的结果，共计41行：
 ```
-* | select * from log order by ip offset 2 limit 40
+* | select status, count(*) as pv group by status offset 2 limit 40
 ```
+
+## 限制说明
+
+<table>
+	<tr><th>指标</th><th>限制说明</th><th>	备注</th></tr>
+	<tr><td>分析结果条数</td><td>每次分析返回结果条数最大10000条</td><td>limit 默认100条，最大10000条</td></tr>
+</table>
 

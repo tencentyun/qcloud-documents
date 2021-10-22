@@ -12,7 +12,7 @@
 ## 步骤1：登录控制台
 
 登录 [云托管控制台](https://console.cloud.tencent.com/tcb/service)，再按需要切换到指定的环境。
-![](https://main.qcloudimg.com/raw/38110b543ebe9c38b0e25370b1dfaf3a.png)
+![](https://main.qcloudimg.com/raw/23c6ea9af428c46e0f9011d7264b04ad.png)
 
 ## 步骤2：进入服务详情页面
 

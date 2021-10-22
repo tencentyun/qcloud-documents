@@ -32,7 +32,8 @@ query.tencent-cloud.com
 域名白名单：
 
 ```
-qcloud.rtc.qq.com
+*.rtc.qq.com
+yun.tim.qq.com
 ```
 
 ### TRTC web 端内网环境怎么设置代理？

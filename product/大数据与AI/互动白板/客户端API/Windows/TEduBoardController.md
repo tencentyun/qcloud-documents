@@ -58,7 +58,7 @@ EDUSDK_API void ClearTEduBoardSDKEnv()
 #### 警告
 该接口必须在主线程调用 
 
->? 请在确保不再使用白板功能时才调用该接口（建议在应用程序退出前调用），调用了该接口之后，CreateTEduBoardController 接口不再有效 
+>?请在确保不再使用白板功能时才调用该接口（建议在应用程序退出前调用），调用了该接口之后，CreateTEduBoardController 接口不再有效。 
 
 
 
@@ -359,7 +359,7 @@ virtual void AddBackupDomain(const char *domain, const char *backup, uint32_t pr
 | priority | uint32_t | 备用域名优先级，数字越大优先级越高 |
 
 #### 介绍
-主备域名均需要包含协议类型（支持http/https） 当使用主域名访问资源超时后，按优先级逐个尝试使用备用域名去访问，资源访问超时时间默认为5秒 多次调用此接口，可以为同一个主域名添加多个备用域名，重复添加相同的备用域名会被忽略 
+主备域名均需要包含协议类型（支持 http/https） 当使用主域名访问资源超时后，按优先级逐个尝试使用备用域名去访问，资源访问超时时间默认为5秒 多次调用此接口，可以为同一个主域名添加多个备用域名，重复添加相同的备用域名会被忽略 
 
 
 ### RemoveBackupDomain
@@ -553,7 +553,7 @@ virtual void SetEraseLayerType(const TEduBoardErasableElementType *typeArr=nullp
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| typeArr | const TEduBoardErasableElementType * | 限制可擦除的白板元素类型数组，默认为nullptr则不限制元素类型  |
+| typeArr | const TEduBoardErasableElementType * | 限制可擦除的白板元素类型数组，默认为 nullptr 则不限制元素类型  |
 | typeArrCount | uint32_t | 要限制的可擦除的白板元素类型数量  |
 
 
@@ -925,7 +925,7 @@ virtual const char* AddBoard(const char *url=nullptr, const TEduBoardImageFitMod
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | url | const char * | 要使用的背景图片 URL，编码格式为 UTF8，为 nullptr 表示不指定背景图片，只支持 https 协议的图片 URL  |
-| mode | const TEduBoardImageFitMode | 要使用的图片填充对齐模式，当设置url时有效 TEduBoardImageFitMode  |
+| mode | const TEduBoardImageFitMode | 要使用的图片填充对齐模式，当设置 URL 时有效 TEduBoardImageFitMode  |
 | type | const TEduBoardBackgroundType | 背景类型 TEduBoardBackgroundType  |
 | needSwitch | bool | 是否切换到添加的白板页 |
 
@@ -960,7 +960,7 @@ virtual const char* AddElement(TEduBoardElementType type, TEduAddBoardBase *pTag
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| type | TEduBoardElementType | 元素类型，当设置TEDU_BOARD_ELEMENT_IMAGE时，等价于addImageElement方法  |
+| type | TEduBoardElementType | 元素类型，当设置 TEDU_BOARD_ELEMENT_IMAGE 时，等价于 addImageElement 方法  |
 | pTag | TEduAddBoardBase * | 网页或者图片的 URL，只支持 https 协议的网址或者图片 URL，编码格式为 UTF8，为 nullptr 表示不指定 URL  |
 | options | const TEduBoardElementOptions & | 元素参数  |
 
@@ -970,7 +970,7 @@ virtual const char* AddElement(TEduBoardElementType type, TEduAddBoardBase *pTag
 #### 警告
 （1）当 type = TEDU_BOARD_ELEMENT_IMAGE，支持 png、jpg、gif、svg 格式的本地和网络图片，当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS，上传进度回调 onTEBFileUploadStatus 
 （2）当 type = TEDU_BOARD_ELEMENT_CUSTOM_GRAPH，仅支持网络 URL，请与自定义图形工具 TEDU_BOARD_TOOL_TYPE_BOARD_CUSTOM_GRAPH 配合使用 
-（3）当 type = TEDU_BOARD_ELEMENT_AUDIO 或 TEDU_BOARD_ELEMENT_GLOBAL_AUDIO，仅支持网络 URL 对应类型和子类对象的匹配： TEDU_BOARD_ELEMENT_MATH_GRAPH --> TEduAddBoardElementMathGraph TEDU_BOARD_ELEMENT_MATH_BOARD --> TEduAddBoardElementMathBoard 其他类型暂时对应-> TEduAddBoardElementUrl 
+（3）当 type = TEDU_BOARD_ELEMENT_AUDIO 或 TEDU_BOARD_ELEMENT_GLOBAL_AUDIO，仅支持网络 URL 对应类型和子类对象的匹配：TEDU_BOARD_ELEMENT_MATH_GRAPH --> TEduAddBoardElementMathGraph TEDU_BOARD_ELEMENT_MATH_BOARD --> TEduAddBoardElementMathBoard 其他类型暂时对应-> TEduAddBoardElementUrl 
 
 
 ### RemoveElement
@@ -1904,12 +1904,12 @@ virtual void RemoveBoardInClassGroup(const char *group, const char *boardId)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| group | const char * | 分组id  |
-| boardId | const char * | 白板id  |
+| group | const char * | 分组 ID  |
+| boardId | const char * | 白板 ID  |
 
 
 ### GotoClassGroupBoard
-分组内跳转 分组模式下切换白板只能通过此方法进行，必须知道需要跳转的白板id 
+分组内跳转 分组模式下切换白板只能通过此方法进行，必须知道需要跳转的白板 ID 
 ``` C++
 virtual void GotoClassGroupBoard(const char *boardId)=0
 ```
@@ -1942,8 +1942,8 @@ virtual void AddBoardToClassGroup(const char *groupId, const char *boardId)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| groupId | const char * | 分组id  |
-| boardId | const char * | 白板id  |
+| groupId | const char * | 分组 ID  |
+| boardId | const char * | 白板 ID  |
 
 
 ### AddUserToClassGroup
@@ -1956,7 +1956,7 @@ virtual void AddUserToClassGroup(const char *groupId, const char *userId)=0
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | groupId | const char * | 分组 ID  |
-| userId | const char * | 用户ID  |
+| userId | const char * | 用户 ID  |
 
 
 ### GetAllClassGroupIds

@@ -9,7 +9,7 @@
 
 ## 示例软件版本
 本文搭建 Docker 环境使用软件版本及组成说明如下：
-操作系统：Linux 系统，本文以 CentOS 7.6 为例。
+操作系统：Linux 系统，本文以 CentOS 8.2 及 7.6 为例。
 
 
 ## 前提条件
@@ -25,9 +25,36 @@
 
 ### 安装 Docker
 
-1. [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。您也可以根据实际操作习惯，选择其他不同的登录方式：
- - [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)
- - [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)
+可根据实际使用的操作系统版本，对应以下步骤进行操作：
+
+<dx-tabs>
+::: CentOS 8.2
+1. [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
+2. 执行以下命令，添加 Docker 软件源。
+```
+dnf config-manager --add-repo=http://mirrors.tencent.com/docker-ce/linux/centos/docker-ce.repo
+```
+3. 执行以下命令，查看已添加的 Docker 软件源。
+```
+dnf list docker-ce
+```
+4. 执行以下命令，安装 Docker。
+```
+dnf install -y docker-ce --nobest
+```
+5. 执行以下命令，运行 Docker。
+```
+systemctl start docker
+```
+6. 执行以下命令，检查安装结果。
+```
+docker info
+```
+返回如下信息，即表示安装成功。
+![](https://main.qcloudimg.com/raw/113b820e4efc6441d88410488441291f.png)
+:::
+::: CentOS 7.6
+1. [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 2. 依次执行以下命令，添加 yum 源。
 ```
 yum update
@@ -55,6 +82,8 @@ docker info
 ```
 返回如下信息，即表示安装成功。
 ![](https://main.qcloudimg.com/raw/a848737e9d011f528f66dc54fca61c08.png)
+:::
+</dx-tabs>
 
 
 ### 使用 Docker

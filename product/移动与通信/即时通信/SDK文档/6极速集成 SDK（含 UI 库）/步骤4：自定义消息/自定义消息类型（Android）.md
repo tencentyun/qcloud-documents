@@ -47,8 +47,8 @@
 ## 实现自定义消息
 
 ### 步骤1：解析自定义消息
-`MessageInfo.java` 用来存储要在消息列表中渲染的消息数据。`ChatMessageInfoUtil.java` 用来把 `V2TIMMessage` 解析为 `MessageInfo`。
-收到自定义消息之后，在 `ChatMessageInfoUtil.java` 的 `createCustomMessageInfo` 方法中进行解析：
+[MessageInfo.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/bean/MessageInfo.java) 用来存储要在消息列表中渲染的消息数据。[ChatMessageInfoUtil.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/util/ChatMessageInfoUtil.java) 用来把 `V2TIMMessage` 解析为 `MessageInfo`。
+收到自定义消息之后，在 [ChatMessageInfoUtil.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/util/ChatMessageInfoUtil.java) 的 `createCustomMessageInfo` 方法中进行解析：
 ```java
 ...
 
@@ -82,7 +82,7 @@ if (TextUtils.equals(businessId, "text_link")) {
 ```
 
 ### 步骤2：在消息列表中渲染自定义消息
-`MessageCustomHolder.java` 用来渲染各种自定义消息。收到自定义消息之后，`MessageCustomHolder.java` 根据解析出的 `MessageInfo` 在 `layoutViews` 方法中进行自定义消息的渲染：
+[MessageCustomHolder.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/ui/view/message/viewholder/MessageCustomHolder.java) 用来渲染各种自定义消息。收到自定义消息之后，[MessageCustomHolder.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/ui/view/message/viewholder/MessageCustomHolder.java)  根据解析出的 `MessageInfo` 在 `layoutViews` 方法中进行自定义消息的渲染：
 ```java
 ...
 
@@ -111,9 +111,9 @@ if (TextUtils.equals(businessId, TUIChatConstants.BUSINESS_ID_CUSTOM_HELLO)) {
 ...
 ```
 ### 步骤3: 在会话列表中渲染自定义消息
-`ConversationMessageInfo.java` 用来存储要在会话列表中渲染的消息数据。
-`ConversationMessageInfoUtil.java` 用来把 `V2TIMMessage` 解析为 `ConversationMessageInfo`。
-收到自定义消息之后，在 `ConversationMessageInfoUtil` 的 `createCustomMessageInfo` 方法中进行解析：
+[ConversationMessageInfo.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIConversation/tuiconversation/src/main/java/com/tencent/qcloud/tuikit/tuiconversation/bean/ConversationMessageInfo.java) 用来存储要在会话列表中渲染的消息数据。
+[ConversationMessageInfoUtil.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIConversation/tuiconversation/src/main/java/com/tencent/qcloud/tuikit/tuiconversation/util/ConversationMessageInfoUtil.java) 用来把 `V2TIMMessage` 解析为 `ConversationMessageInfo`。
+收到自定义消息之后，在 [ConversationMessageInfoUtil.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIConversation/tuiconversation/src/main/java/com/tencent/qcloud/tuikit/tuiconversation/util/ConversationMessageInfoUtil.java)  的 `createCustomMessageInfo` 方法中进行解析：
 ```java
 // 欢迎消息
 if (TextUtils.equals(businessId, "text_link")) {
@@ -124,7 +124,7 @@ if (TextUtils.equals(businessId, "text_link")) {
 ## 发送自定义消息
  <img src="https://main.qcloudimg.com/raw/80ff0af0e44bde79d099cd5296b3136f.jpg" width = "400" height = "400" align=center />
 
- `ChatLayoutSetting.java` 用来设置聊天界面的控件和样式，在 `ChatLayoutSetting.java` 的 `customizeChatLayout` 方法中添加以下代码，用来添加自定义消息发送按钮和发送按钮点击后的发送消息事件： 
+ [ChatLayoutSetting.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/setting/ChatLayoutSetting.java) 用来设置聊天界面的控件和样式，在  [ChatLayoutSetting.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/setting/ChatLayoutSetting.java) 的 `customizeChatLayout` 方法中添加以下代码，用来添加自定义消息发送按钮和发送按钮点击后的发送消息事件： 
  ```java
 InputMoreActionUnit unit = new InputMoreActionUnit() {};
 unit.setIconResId(R.drawable.custom);

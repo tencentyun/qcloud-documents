@@ -110,7 +110,7 @@ virtual void onTEBOffscreenPaint(const void *buffer, uint32_t width, uint32_t he
 | buffer | const void * | 白板数据  |
 | width | uint32_t | 白板像素数据的宽度  |
 | height | uint32_t | 白板像素数据的高度  |
-| dirtyRects | const TEduBoardRect * | 需要重绘的矩形区域数组（可能有多个）  |
+| dirtyRects | const TEduBoardRect * | 需要重绘的矩形区域数组（有一定概率有多个）  |
 | dirtyRectCount | uint32_t | 需要重绘的矩形区域数组个数  |
 
 #### 警告
@@ -321,21 +321,6 @@ virtual void onTEBSnapshot(const char *path)
 
 
 ## 文件操作回调
-
-### onTEBFileTranscodeProgress
-文件转码进度回调，自2.6.5版本起该回调被废弃
-``` C++
-virtual void onTEBFileTranscodeProgress(const char *path, const char *errorCode, const char *errorMsg, const TEduBoardTranscodeFileResult &result)
-```
-#### 参数
-
-| 参数 | 类型 | 含义 |
-| --- | --- | --- |
-| path | const char * | 正在转码的本地文件路径  |
-| errorCode | const char * | 文件转码错误码，无异常时为空字符串 ""  |
-| errorMsg | const char * | 文件转码错误信息，无异常时为空字符串 ""  |
-| result | const TEduBoardTranscodeFileResult & | 文件转码结果  |
-
 
 ### onTEBAddTranscodeFile
 增加转码文件回调 

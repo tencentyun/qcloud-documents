@@ -97,7 +97,7 @@ V2TIMManager.getInstance().setSelfInfo(v2TIMUserFullInfo, new V2TIMCallback() {
 });
 ```
 
-会话列表设置头像在 ConversationCommonHolder.java 中进行获取展示：
+会话列表设置头像在 [ConversationCommonHolder.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIConversation/tuiconversation/src/main/java/com/tencent/qcloud/tuikit/tuiconversation/ui/view/ConversationCommonHolder.java) 中进行获取展示：
 
 ```java
 conversationIconView.setConversation(conversation);
@@ -130,6 +130,8 @@ MessageRecyclerView getMessageLayout();
 NoticeLayout getNoticeLayout();
 ```
 
+更多详细信息请参见 [ChatLayoutSetting.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/setting/ChatLayoutSetting.java)。
+
 
 ### 修改通知区域 NoticeLayout 样式
 
@@ -159,7 +161,8 @@ noticeLayout.setOnNoticeClickListener(new View.OnClickListener() {
 
 ### 修改消息区域 MessageRecyclerView 样式
 
-MessageRecyclerView 继承自 RecyclerView ，本文提供自定义修改聊天背景、气泡、文字、是否显示昵称等常见的用法，更多详情请参见 [IMessageProperties](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/ui/interfaces/IMessageProperties.java)。
+MessageRecyclerView 继承自 RecyclerView ，本文提供自定义修改聊天背景、气泡、文字、是否显示昵称等常见的用法，更多详情请参见 [IMessageProperties.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/ui/interfaces/IMessageProperties.java)。
+
 ![消息区域](https://main.qcloudimg.com/raw/063933c9ace8f762695af5a75a70c4b8.png)
 
 #### 修改聊天背景
@@ -356,7 +359,7 @@ inputView.addAction(unit);
 
 ```java
 // 从 ChatView 获取 InputView
-inputView inputView = layout.getInputLayout();
+InputView inputView = layout.getInputLayout();
 // 可以用自定义的事件来替换更多功能的入口
 inputView.replaceMoreInput(new View.OnClickListener() {
     @Override
