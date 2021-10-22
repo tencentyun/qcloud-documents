@@ -1,12 +1,12 @@
-﻿为方便开发者调试和接入腾讯云游戏多媒体引擎产品 API，这里向您介绍 GME SDK 高级接口。
+为方便开发者调试和接入腾讯云游戏多媒体引擎产品 API，这里向您介绍 GME SDK 高级接口。
 
 <dx-alert infotype="alarm" title="调用须知">
 此文档接口属于高级接口，非必要无需调用。接口调用前请咨询 GME 开发人员。
 </dx-alert>
 
+## 音频相关高级接口
 
-
-## iOS 音频相关接口
+### iOS 音频相关接口
 
 此部分接口使用 SetAdvanceParams 接口进行调用，在进房前调用。 
 
@@ -32,7 +32,7 @@
 - 如果开启，退房之后将会释放音频焦点，系统恢复后台其他音频相关应用。例如 QQ 音乐。
 - 如果关闭，退房之后将不会恢复其他音频相关应用。
 
-## 检查iPhone静音键是否开启
+### 检查iPhone静音键是否开启
 
 <dx-alert infotype="explain" title="说明">
 此接口在 GME 2.8.4 以上版本 SDK 上生效。
@@ -46,7 +46,7 @@ CheckDeviceMuteState();
 
 返回值为 0 代表关闭物理静音键，返回值为 1 代表打开物理静音键。
 
-## 检查麦克风设备状态
+### 检查麦克风设备状态
 
 <dx-alert infotype="explain" title="说明">
 此接口在 GME 2.8.4 以上版本 SDK 上生效
@@ -67,7 +67,7 @@ TestMic();
 | ITMG_TEST_MIC_STATUS_INVALID_MIC = 3 | 没有可用的设备      | 一般是PC设备上，没有可用的麦克风设备会报此错误，请提示插入耳机或麦克风 |
 | ITMG_TEST_MIC_STATUS_NOT_INIT = 5    | 没有初始化          | 在Init之后调用 EnableMic 接口                                |
 
-## 设置 Android 蓝牙
+### 设置 Android 蓝牙
 
 <dx-alert infotype="explain" title="说明">
 此接口在 GME 2.8.4 以上版本 SDK 上生效。
@@ -79,7 +79,7 @@ TestMic();
 SetAdvanceParams(“BluetoothUseMedia”, “1”);
 ```
 
-## 设置最大混音路数
+### 设置最大混音路数
 
 使用 SetRecvMixStreamCount 接口可以设置最高混音路数，在进房前调用。 各平台均有此接口，下面以 pc 端为例。
 
@@ -95,9 +95,9 @@ virtual int SetRecvMixStreamCount(int nCount) = 0;
 
 
 
-# 房间相关高级接口
+## 房间相关高级接口
 
-## 设置房间音频类型
+### 设置房间音频类型
 
 进房前使用 SetForceUseMediaVol ，可以让流畅音质房间或者标准音质房间使用媒体音量。
 
@@ -113,7 +113,7 @@ virtual int SetRecvMixStreamCount(int nCount) = 0;
 - **2**：房间2开麦克风后为媒体音量（原为通话音量）。
 - **3**：房间1与2都还原为开麦克风后音量为通话音量。
 
-## 获取房间内成员说话音量
+### 获取房间内成员说话音量
 
 调用 TrackingVolume 接口之后，监听 `TIMGContext.ITMG_MAIN_EVENT_TYPE.ITMG_MAIN_EVENT_TYPE_USER_VOLUMES` 事件，里面的键值对为 uin-volume，通过此接口可以根据房间内某 uin 说话的音量强度画出相应的能量柱状图。
 
@@ -129,9 +129,9 @@ public int StopTrackingVolume();
 | -------------- | ----- | --------------------------- |
 | fTrackingTimeS | float | 监听的秒数，建议设置为 0.5f |
 
-# 通用高级接口
+## 通用高级接口
 
-## 修复打印日志大小
+### 修复打印日志大小
 
 <dx-alert infotype="explain" title="说明">
 此接口在 GME 2.8.4 以上版本 SDK 上生效。
@@ -159,6 +159,5 @@ SetAdvanceParams（const char* key, const char* object）
 ```
 SetAdvanceParams("MAX_LOG_FILE_SIZE_MB", "5");
 SetAdvanceParams("MAX_LOG_FILE_COUNT", "1");
-
 ```
 
