@@ -10,20 +10,20 @@
 ## 跨平台 Demo
 <table>
   <tr>
-    <th style="text-align:center;" width="140px">微信小程序</th>
-    <th style="text-align:center;" width="140px">小程序直播电商场景</th>
-    <th style="text-align:center;" width="140px">Web</th>
-    <th style="text-align:center;" width="140px">Flutter<br>(iOS & Android)</th>
-    <th style="text-align:center;" width="140px">Electron</th>
+    <th style="text-align:center;" width="200px">微信小程序</th>
+    <th style="text-align:center;" width="200px">小程序直播电商场景</th>
+    <th style="text-align:center;" width="200px">Web</th>
+    <th style="text-align:center;" width="200px">Flutter<br>(iOS & Android)</th>
+    <th style="text-align:center;" width="200px">Electron</th>
   </tr>
 <tr>
 </div></a></td>
 <td style><img style="width:110px; max-width: inherit;" src="https://main.qcloudimg.com/raw/d705f9bd3ec330c34329e1763c8added.png" /></td>
 <td style="text-align:center;"><img  style="width:110px; max-width: inherit;" src="https://main.qcloudimg.com/raw/f8f2140b89e536ead4a410fea7eee5fd.png"  /></td>
 <td style="text-align:center"width="140px">
-      <input type="button" value="Web 基础聊天场景" style="height: 30px;width: 120px;min-width: 24px;padding: 0 0px;background-color: #006eff;
+      <input type="button" value="Web 基础聊天场景" style="height: 30px;width: 120px;background-color: #006eff;
     color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
-    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://web.sdk.qcloud.com/im/demo/latest/index.html')" /><br><br><input type="button" value="Web 直播互动场景" style="height: 30px;width: 120px;margin-top: 5px;min-width: 24px;padding: 0 0px;background-color: #006eff;
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://web.sdk.qcloud.com/im/demo/latest/index.html')" /><br><br><input type="button" value="Web 直播互动场景" style="height: 30px;width: 120px;margin-top: 5px;background-color: #006eff;
     color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
     box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"W onclick="window.open('https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html')" />
     </td width="140px">
