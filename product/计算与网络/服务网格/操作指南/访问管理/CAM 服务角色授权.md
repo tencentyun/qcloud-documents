@@ -8,14 +8,14 @@
 
 ### 授权场景
 
-当您已注册并登录腾讯云账号后，首次登录 [TCM 控制台](https://console.cloud.tencent.com/tke2/mesh) 时，需前往【访问管理】页面对当前账号授予腾讯云服务网格操作容器服务（TKE）、SSL证书（SSL）、日志服务（CLS）等云资源的权限。该权限授予通过关联预设策略 ` QcloudAccessForTCMRole ` 至 TCM 服务角色 `TCM_QCSRole` 完成。如您之前未创建过 TCM 服务角色，该授权流程还会涉及 TCM 服务角色的创建。
+当您已注册并登录腾讯云账号后，首次登录 [TCM 控制台](https://console.cloud.tencent.com/tke2/mesh) 时，需前往【访问管理**页面对当前账号授予腾讯云服务网格操作容器服务（TKE）、SSL证书（SSL）、日志服务（CLS）等云资源的权限。该权限授予通过关联预设策略 ` QcloudAccessForTCMRole ` 至 TCM 服务角色 `TCM_QCSRole` 完成。如您之前未创建过 TCM 服务角色，该授权流程还会涉及 TCM 服务角色的创建。
 
 ### 授权步骤
 
-1. 首次登陆  [TCM 控制台](https://console.cloud.tencent.com/tke2/mesh)，自动弹出【服务授权】窗口。
+1. 首次登陆  [TCM 控制台](https://console.cloud.tencent.com/tke2/mesh)，自动弹出【服务授权**窗口。
 ![](https://main.qcloudimg.com/raw/58171c5bae40b98c5a09388557853897.png)
-2. 点击【前往访问管理】，进入 CAM 控制台服务授权页面。
-3. 点击【同意授权】，完成身份验证后即可成功授权。
+2. 点击【前往访问管理**，进入 CAM 控制台服务授权页面。
+3. 点击【同意授权**，完成身份验证后即可成功授权。
 ![](https://main.qcloudimg.com/raw/5177ba8f982f5af6099d739adaa24c8e.png)
 
 ### 权限内容
@@ -49,15 +49,15 @@
 
 ### 授权场景
 
-首次使用 TCM 一键体验功能时，您需要前往【访问管理】对当前账号授予腾讯云服务网格操作私有网络（VPC）、云联网（CCN）、容器服务（TKE）、云服务器（CVM）等云资源以及购买云服务器（CVM）的财务权限。该权限授予通过关联预设策略 ` QcloudAccessForTCMRoleInSampleDeployment ` 至 TCM 服务角色 `TCM_QCSRole` 完成。如您之前未创建过 TCM 服务角色，该授权流程还会涉及 TCM 服务角色的创建。
+首次使用 TCM 一键体验功能时，您需要前往【访问管理**对当前账号授予腾讯云服务网格操作私有网络（VPC）、云联网（CCN）、容器服务（TKE）、云服务器（CVM）等云资源以及购买云服务器（CVM）的财务权限。该权限授予通过关联预设策略 ` QcloudAccessForTCMRoleInSampleDeployment ` 至 TCM 服务角色 `TCM_QCSRole` 完成。如您之前未创建过 TCM 服务角色，该授权流程还会涉及 TCM 服务角色的创建。
 
 ### 授权步骤
 
-1. 登陆 [TCM 控制台](https://console.cloud.tencent.com/tke2/mesh)，鼠标移动至【一键体验】按钮，点击【服务授权】弹出授权提示窗口。
+1. 登陆 [TCM 控制台](https://console.cloud.tencent.com/tke2/mesh)，鼠标移动至【一键体验**按钮，点击【服务授权**弹出授权提示窗口。
 ![](https://main.qcloudimg.com/raw/9b4d253fb770bb36656495d71c61488b.png)
 ![](https://main.qcloudimg.com/raw/013e124996a86f1593d8f986ba798c46.png)
-2. 点击【前往访问管理】，进入 CAM 控制台服务授权页面。
-3. 点击【同意授权】，完成身份验证后即可成功授权。
+2. 点击【前往访问管理**，进入 CAM 控制台服务授权页面。
+3. 点击【同意授权**，完成身份验证后即可成功授权。
 ![](https://main.qcloudimg.com/raw/0373980842d048081947d20885555cc5.png)
 
 ### 权限内容

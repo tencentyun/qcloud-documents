@@ -15,7 +15,7 @@ TCM 1.6 及其以上的版本并不是用 `istio-inejction=enabled` 这个 label
 
 ## TCM 如何开启自动注入
 
-在 TCM 控制台，点击 【服务】-【sidecar自动注入】:
+在 TCM 控制台，点击 【服务**-【sidecar自动注入**:
 
 ![img](https://main.qcloudimg.com/raw/1fe8bd87b51230d641e6ee57ad5a57c2.png)
 

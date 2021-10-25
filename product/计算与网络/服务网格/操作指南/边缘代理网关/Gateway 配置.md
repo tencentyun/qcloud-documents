@@ -112,13 +112,13 @@ spec:
 ::: 控制台配置示例
 控制台创建 Gateway 配置 Ingress Gateway HTTPS 协议 SSL 证书从 Kubernetes secret 加载（单向认证）的过程如下：
 
-1. 选择协议为【HTTPS】，TLS 模式为【SIMPLE】
-2. 证书解包选择【边缘代理网关解包】
-3. 证书挂载模式选择【SDS加载】
-4. 证书来源选择【K8S Secret】
-5. K8S Secret 选择【选择已有】，选择当前所选边缘代理网关所在 namespace 下的 Secret，请您确保所选 Secret 中包含合适的证书/私钥/根证书
+1. 选择协议为【HTTPS**，TLS 模式为【SIMPLE**
+2. 证书解包选择【边缘代理网关解包**
+3. 证书挂载模式选择【SDS加载**
+4. 证书来源选择【K8S Secret**
+5. K8S Secret 选择【选择已有**，选择当前所选边缘代理网关所在 namespace 下的 Secret，请您确保所选 Secret 中包含合适的证书/私钥/根证书
 ![](https://main.qcloudimg.com/raw/bedf6f7589c35e39719956148c1c1ecd.png)
-6. 如当前 Secret 中未有合适证书，您可以选择【新建】K8S Secret，复制合适的证书/私钥/跟证书内容至对应输入框
+6. 如当前 Secret 中未有合适证书，您可以选择【新建**K8S Secret，复制合适的证书/私钥/跟证书内容至对应输入框
 ![](https://main.qcloudimg.com/raw/516797c700455ed6a68fb547b49cc744.png)
 :::
 </dx-tabs>
@@ -151,7 +151,7 @@ spec:
 ```
 :::
 ::: 控制台配置示例
-除了通过 YAML 文件配置，您也可以在控制台上通过 UI 创建 Gateway 配置。以下是配置从 SSL 平台加载证书至边缘代理网关的配置示例，您选择证书来源为 【SSL 平台证书】即可选择需要加载的 SSL 平台证书。
+除了通过 YAML 文件配置，您也可以在控制台上通过 UI 创建 Gateway 配置。以下是配置从 SSL 平台加载证书至边缘代理网关的配置示例，您选择证书来源为 【SSL 平台证书**即可选择需要加载的 SSL 平台证书。
  
  ![](https://main.qcloudimg.com/raw/696020c23796f0bd73e6d7daaeb6bfe2.png)
 
@@ -194,10 +194,10 @@ spec:
 ::: 控制台配置示例
 在控制台 UI 创建 Gateway 配置使用证书上移功能流程如下：
 
-1. 选择协议为 HTTPS，出现【TLS 模式选项】。
-2. 选择【TLS 模式】为【SIMPLE】。
-3. 选择【证书解包】为【CLB 解包】，此时端口协议将自动变化为 HTTP（选择证书上移后网关处按照明文 HTTP 处理流量）。
-4. 选择合适的【服务器证书】。
+1. 选择协议为 HTTPS，出现【TLS 模式选项**。
+2. 选择【TLS 模式**为【SIMPLE**。
+3. 选择【证书解包**为【CLB 解包**，此时端口协议将自动变化为 HTTP（选择证书上移后网关处按照明文 HTTP 处理流量）。
+4. 选择合适的【服务器证书**。
 
 ![](https://main.qcloudimg.com/raw/4f87fd189a225bf3c8c702a301031c7f.png)
 

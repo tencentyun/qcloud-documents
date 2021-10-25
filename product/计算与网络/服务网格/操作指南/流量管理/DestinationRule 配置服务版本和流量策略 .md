@@ -44,7 +44,7 @@ DestinationRule 和服务是一一对应的绑定关系，配置 product 服务�
 
 1. 在服务列表页面，点击进入 product 服务的详情页面。
 ![](https://main.qcloudimg.com/raw/83fcacd9c9d8869ebfed3185e74bf268.png)
-2. 在服务详情页【基本信息】Tab，第三个DestinationRule card 区域，点击【新建 DestinationRule】进入新建弹窗。
+2. 在服务详情页【基本信息**Tab，第三个DestinationRule card 区域，点击【新建 DestinationRule**进入新建弹窗。
 ![](https://main.qcloudimg.com/raw/77d8c7f446d9108a7cd614a3ee9922b2.png)
 3. 在弹窗页面为 product 服务添加两个版本，点击保存。
 ![](https://main.qcloudimg.com/raw/7e7723577f38ceba918eaebabda7c6ac.png)
