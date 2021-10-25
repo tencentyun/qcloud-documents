@@ -10,7 +10,7 @@ TrueName （又名：域名指纹）是由 Donuts 注册局推出的一项品牌
 ##  Placement+ 介绍
 
 
-Placement+（又名：垂直行业域名搜索）是由 Donuts 注册局推出的一项为用户提供更加快捷精准的域名注册搜索服务。您通过腾讯云 [域名注册页](https://buy.cloud.tencent.com/domain) 搜索 Donuts 注册局旗下的域名后缀时，将为您提供更加快捷精准的展示结果。Placement+ 域名搜索结果将排在第六位，例如关键词 `tencentltd` 以 **ltd** 结尾，则 **ltd** 在搜索排名第6位；关键词 `tencentlife` 以 **life** 结尾，则 **life** 在搜索排名第6。
+Placement+（又名：垂直行业域名搜索）是由 Donuts 注册局推出的一项为用户提供更加快捷精准的域名注册搜索服务。您通过腾讯云 [域名注册页](https://buy.cloud.tencent.com/domain) 搜索 Donuts 注册局旗下的域名后缀时，将为您提供更加快捷精准的展示结果。
 
 
 ## 腾讯云支持 Donuts 注册局域名后缀
