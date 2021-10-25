@@ -2,6 +2,8 @@
 
 需要服务授权的场景主要包含 [首次登陆 TCM 控制台](#TCMRole) 以及 [首次使用 TCM 一键体验功能](#TCMRoleInSample) 两个场景，分别对应 ` QcloudAccessForTCMRole ` 和 ` QcloudAccessForTCMRoleInSampleDeployment ` 两个预设策略。
 
+
+
 ## 首次登陆 TCM 控制台[](id:TCMRole)
 
 ### 授权场景
