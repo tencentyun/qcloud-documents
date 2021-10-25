@@ -4,7 +4,7 @@
 
 
 
-## 首次登录 服务网格控制台[](id:TCMRole)
+## 首次登录服务网格控制台[](id:TCMRole)
 
 ### 授权场景
 
@@ -12,7 +12,7 @@
 
 ### 授权步骤
 
-1. 首次登录  [服务网格控制台](https://console.cloud.tencent.com/tke2/mesh)，自动弹出**服务授权**窗口。
+1. 首次登录 [服务网格控制台](https://console.cloud.tencent.com/tke2/mesh)，自动弹出**服务授权**窗口。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c084fdc252866cbae3b02656c3302316.png)
 2. 单击**前往访问管理**，进入 CAM 控制台服务授权页面。
 3. 单击**同意授权**，完成身份验证后即可成功授权。
