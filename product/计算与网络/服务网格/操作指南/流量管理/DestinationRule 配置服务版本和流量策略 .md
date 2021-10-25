@@ -42,12 +42,12 @@ spec:
 
 DestinationRule 和服务是一一对应的绑定关系，配置 product 服务的 DestinationRule，需要从服务列表页进入 product 服务的详情页，在基本信息 Tab 配置。控制台配置 product 服务两个版本的步骤如下：
 
-1. 在服务列表页面，点击进入 product 服务的详情页面。
+1. 在服务列表页面，单击进入 product 服务的详情页面。
 ![](https://main.qcloudimg.com/raw/83fcacd9c9d8869ebfed3185e74bf268.png)
-2. 在服务详情页【基本信息**Tab，第三个DestinationRule card 区域，点击【新建 DestinationRule**进入新建弹窗。
+2. 在服务详情页**基本信息**，第三个DestinationRule card 区域，单击**新建 DestinationRule**进入新建弹窗。
 ![](https://main.qcloudimg.com/raw/77d8c7f446d9108a7cd614a3ee9922b2.png)
 3. 在弹窗页面为 product 服务添加两个版本，点击保存。
-![](https://main.qcloudimg.com/raw/7e7723577f38ceba918eaebabda7c6ac.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5adfe509520625b4b401584d3886ad42.png)
 4. product 服务版本配置完成。
 ![](https://main.qcloudimg.com/raw/a18963bf33e8ebeb54a6e4a4925a88a4.png)
 
@@ -72,4 +72,4 @@ spec:
 
 ### 控制台配置示例
 
-![](https://main.qcloudimg.com/raw/97677de08e3d1a407fa5a43a78f104f4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5c45fab53bd927158766179ec7e58efa.png)
