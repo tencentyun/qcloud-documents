@@ -1,4 +1,4 @@
-您可以在这里下载最新的即时通信 IM SDK 以及 Demo 源码。
+您可以参见 [正文模板审核标准](https://cloud.tencent.com/document/product/382/39023)。您可以在这里下载最新的即时通信 IM SDK 以及 Demo 源码。
 ## SDK 下载[](id:TLS)
 <table>
 <tr>
@@ -88,7 +88,7 @@
 </tr>
 <tr>
 <td style="text-align:center">Electron  </td>
-<td style="text-align:center" ><a href="https://comm.qq.com/im_demo_download/index.html#/pc ">Mac OS</a><br><a href="https://comm.qq.com/im_demo_download/index.html#/pc ">Windows</a></td>
+<td style="text-align:center" ><a href="https://comm.qq.com/im_demo_download/index.html#/pc">Mac OS</a><br><a href="https://comm.qq.com/im_demo_download/index.html#/pc-windows">Windows</a></td>
 <td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/63008">【客户端 API】SDK API(Electron)</a></td>
 <td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/63009">更新日志（Electron）</a></td>
 </tr>
