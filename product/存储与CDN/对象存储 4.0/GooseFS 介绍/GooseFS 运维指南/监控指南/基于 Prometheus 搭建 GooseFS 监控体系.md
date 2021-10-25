@@ -28,7 +28,7 @@ curl <WORKER_IP>:<WOKER_PORT>/metrics/prometheus/
 
 ## 上报监控指标到自建 Prometheus
 
-1. 下载 Promethus 安装包并解压，修改 promethus.yml：
+1. 下载 Prometheus 安装包并解压，修改 prometheus.yml：
 <pre class="rno-code-pre"><code class="language-plaintext">
 # prometheus.yml
 global:

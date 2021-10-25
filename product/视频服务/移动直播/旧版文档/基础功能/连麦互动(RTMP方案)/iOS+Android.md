@@ -42,7 +42,7 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 | Android  | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom/ui) |
 
 >?除上述示例外，针对开发者的接入反馈的高频问题，腾讯云提供有更加简洁的 API-Example 工程，方便开发者可以快速的了解相关 API 的使用，欢迎使用。
->- **IOS：[MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)** 
+>- **IOS：[MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example-OC)** 
 >- **Android：[MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example)** 
 
 [](id:Step2)

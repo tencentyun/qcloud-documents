@@ -9,7 +9,7 @@
 #### 命令行执行
 
 ```
-it clone https://github.com/tencentyun/TIMSDK.git
+git clone https://github.com/tencentyun/TIMSDK.git
 ```
 
 #### 进入小程序 TUIKit 项目
