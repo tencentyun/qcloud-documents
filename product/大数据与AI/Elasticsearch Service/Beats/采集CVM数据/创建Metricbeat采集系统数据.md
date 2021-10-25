@@ -5,7 +5,7 @@ Filebeat 是一个轻量型的指标采集器，可用于采集系统和服务�
 
 ## 操作须知
 1. 腾讯云 CVM 实例、腾讯云 ES 集群和 Logstash 实例，必须在同一 VPC 下。且腾讯云 ES 集群和 Logstash 实例的大版本相同。
->!Beats 目前仅支持XXXXX操作系统**（bellen帮确认）**。
+>!Beats 目前仅支持 Linux 操作系统。
 2. 腾讯云 CVM 实例必须安装自动化助手，仅支持为已安装自动化助手的 CVM 实例下发采集器配置。具体操作参见 [安装自动化助手客户端](https://cloud.tencent.com/document/product/1340/51945)。
 
 ## 操作步骤
