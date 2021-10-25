@@ -14,10 +14,10 @@ TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、�
 - Android Studio 3.6.1
 - Gradle-5.1.1
 - Android Gradle Plugin Version-3.4.0
+
 ### module 源码集成
 
 1. 从 [ GitHub 下载](https://github.com/tencentyun/TIMSDK/tree/master/Android) `TUIKit` 源码。使 `TUIKit` 文件夹跟自己的工程文件夹同级，例如：
-
 <img src="https://qcloudimg.tencent-cloud.cn/raw/00bc0470857b850436663d9bf2ef9164.png" width="500"/>
 
 2. 在 `settings.gradle` 中添加：
@@ -79,7 +79,6 @@ allprojects {
 }
 ```
 6. 同步工程，编译运行。工程结构预期效果如图所示：
-
 <img src="https://qcloudimg.tencent-cloud.cn/raw/510872c1232f6cf81d6678c41092164d.png" width="400"/>
 
 ## 常见问题
