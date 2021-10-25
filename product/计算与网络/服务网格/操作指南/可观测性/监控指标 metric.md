@@ -1,8 +1,8 @@
 当前服务网格（Tencent Cloud Mesh，TCM）集成了 [云监控 CM](https://cloud.tencent.com/document/product/248)、 [云原生监控 TPS](https://cloud.tencent.com/document/product/457/49888)，为您提供服务流量 metric 数据的收集、存储与展示。
 
-TCM 控制台集成云监控，提供 metric 数据的基础图表与分析，如您有自定义监控的诉求，您可以开启高级监控，网格 metric 数据将集成至云原生监控托管 Prometheus 监控实例，通过预置 Grafana Dashboard 或自定义 Dashboard 即可实现灵活自定义监控的诉求。
+服务网格控制台集成云监控，提供 metric 数据的基础图表与分析，如您有自定义监控的诉求，您可以开启高级监控，网格 metric 数据将集成至云原生监控托管 Prometheus 监控实例，通过预置 Grafana Dashboard 或自定义 Dashboard 即可实现灵活自定义监控的诉求。
 
-## TCM 控制台基础监控
+## 服务网格控制台基础监控
 
 TCM 集成云监控的能力，控制台基于 metric 数据提供网格拓扑、服务拓扑、服务监控（请求数、请求状态码分布、请求耗时、请求大小）图表的展示分析。
 
@@ -12,7 +12,7 @@ TCM 集成云监控的能力，控制台基于 metric 数据提供网格拓扑�
 
 查看指定网格的网络拓扑流程：
 
-1. 登录 [TCM 控制台](https://console.cloud.tencent.com/tke2/mesh)，在列表页面单击指定网格 ID，进入网格详情页面。
+1. 登录 [服务网格控制台](https://console.cloud.tencent.com/tke2/mesh)，在列表页面单击指定网格 ID，进入网格详情页面。
 2. 单击左侧**网格拓扑**页签，即可查看当前服务网格拓扑图。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/1eaf3b71d5d36af87c91bc07f78a167e.png)
 3. 点击节点可展示该节点相关的监控详情。如下图所示：
@@ -40,7 +40,7 @@ TCM 集成云监控的能力，控制台基于 metric 数据提供网格拓扑�
 
 ## 高级监控
 
-如您有更灵活的自定义 metric 监控数据分析的诉求，TCM 控制台基础监控图表无法满足，您可以为网格开启高级监控，当前 TCM 高级监控功能支持将 metric 数据对接至 [云原生监控](https://cloud.tencent.com/document/product/457/49888) 托管 Prometheus 监控实例，请确认前往 TPS 控制台完成 [TPS 服务相关角色授权](https://console.cloud.tencent.com/tke2/prometheus)。您可以在创建服务网格时或网格创建完成后在网格详情页为网格开启高级监控功能，开启后提供预置的 Service Mesh Grafana Dashboard。
+如您有更灵活的自定义 metric 监控数据分析的诉求，服务网格控制台基础监控图表无法满足，您可以为网格开启高级监控，当前 TCM 高级监控功能支持将 metric 数据对接至 [云原生监控](https://cloud.tencent.com/document/product/457/49888) 托管 Prometheus 监控实例，请确认前往 TPS 控制台完成 [TPS 服务相关角色授权](https://console.cloud.tencent.com/tke2/prometheus)。您可以在创建服务网格时或网格创建完成后在网格详情页为网格开启高级监控功能，开启后提供预置的 Service Mesh Grafana Dashboard。
 
 - 创建服务网格时开启高级监控：
 ![](https://qcloudimg.tencent-cloud.cn/raw/dbaf2ad761b6d75f080ad1cc26971994.png)
