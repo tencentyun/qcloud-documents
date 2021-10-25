@@ -1,6 +1,6 @@
 Packetbeat 是轻量的网络流量包采集器，用于应用程序和性能监测，支持将数据传输至 logstash 实例或 Elaticsearch 集群中进行分析，并在 Kibana 中可视化查看。
 
-## Packetbeat 应用场景
+## 应用场景
 Packetbeat 通过采集应用层的网络流量数据（HTTP、MySQL、Redis 等），使得用户可以密切监测应用程序的延迟和错误、响应时间、SLA 性能、用户访问模式和趋势等。
 
 ## 操作须知
