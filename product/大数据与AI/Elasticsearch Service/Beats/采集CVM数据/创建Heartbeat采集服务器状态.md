@@ -21,7 +21,7 @@ Hearbeat 通过主动探测来检测服务的可用性，可以通过给定 URL 
     - 安装版本：支持6.8.15或7.10.2版本。  
     - 采集器输出：采集的数据支持传送到腾讯云 Elasticsearch 与 Logstash 实例，请选择与需采集数据的 CVM 在同一 VPC 下的 ES 集群和 Logstash 实例。不支持输出至开源版 ES 集群。
     - 用户名密码：若选择输出采集数据到开启用户登录认证的 ES 集群，需要填写用户名和密码，使 Heartbeat 有权限向 ES 集群中写入数据。用户名默认为 elastic，密码为集群创建时设置。
-    - Monitoring：勾选后在 Kibana 内生成监控 Heartbeat 的相关指标。当采集器输出为 ES 集群时，Monitoring 默认使用和采集器输出相同的 ES 集群；当采集器输出为 Logstash 实例时，则需要在配置文件中额外添加用于存储监控数据的 ES 集群地址
+    - Monitoring：勾选后在 Kibana 内生成监控 Heartbeat 的相关指标。当采集器输出为 ES 集群时，Monitoring 默认使用和采集器输出相同的 ES 集群；当采集器输出为 Logstash 实例时，则需要在配置文件中额外添加用于存储监控数据的 ES 集群地址。
     - Kibana Dashboard：勾选后生成默认的 Kibana Dashboard。  
     - 采集器 YML 配置：配置内容如下，更多 YML 配置请参考官方文档 [Configure Hearbeat](https://www.elastic.co/guide/en/beats/heartbeat/current/configuring-howto-heartbeat.html)。
       - type：monitor 类型，支持 icmp、tcp、http。
