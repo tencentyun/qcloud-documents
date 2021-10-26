@@ -36,7 +36,8 @@ string sourceKey = "sourceObject"; //源对象键
 CopySourceStruct copySource = new CopySourceStruct(sourceAppid, sourceBucket, 
     sourceRegion, sourceKey);
 
-string bucket = "examplebucket-1250000000"; //目标存储桶，格式：BucketName-APPID
+// 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+string bucket = "examplebucket-1250000000";
 string key = "exampleobject"; //目标对象的对象键
 
 COSXMLCopyTask copyTask = new COSXMLCopyTask(bucket, key, copySource);
