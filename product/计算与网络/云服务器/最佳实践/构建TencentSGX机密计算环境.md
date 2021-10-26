@@ -98,6 +98,10 @@ cd /opt/intel/sgxsdk/SampleCode/SampleEnclave && make
 ```
 ./app
 ```
+返回如下图所示结果，则说明已启动成功。
+![](https://qcloudimg.tencent-cloud.cn/raw/ae6cf48bfae18e245cb9c22fe85c5c63.png)
+
+
 
 ### 示例2：SGX 远程证明
 Intel sgx 的 code tree 提供了示例代码用于验证 SGX 远程证明功能（DCAP）。本示例为生成和验证 Quote，示例涉及 Quote 生成方（QuoteGenerationSample）和 Quote 验证方（QuoteVerificationSample）。
