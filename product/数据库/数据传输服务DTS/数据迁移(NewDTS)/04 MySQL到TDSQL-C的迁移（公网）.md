@@ -8,7 +8,7 @@
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW
-DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  //源库为阿里云数据库时，不需要授权SHOW DATABASES，其他场景则需要授权。如果您不清楚如何对阿里云数据库进行授权，请参考<a href="https://help.aliyun.com/document_detail/96101.html" target="_blank">阿里云数据库授权指导<a>。
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限 
 GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 ```

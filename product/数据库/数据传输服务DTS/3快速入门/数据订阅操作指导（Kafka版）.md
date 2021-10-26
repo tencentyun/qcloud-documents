@@ -3,7 +3,7 @@
 - [数据订阅功能描述](https://cloud.tencent.com/document/product/571/59388)。
 - [数据订阅支持的数据库](https://cloud.tencent.com/document/product/571/59965)。
 
-## 整理流程
+## 整体流程
 | **操作流程**        | **说明**                                                     |
 | ------------------- | ------------------------------------------------------------ |
 | 1. 准备工作         | 订阅任务前，需要对网络环境做 [准备工作](https://cloud.tencent.com/document/product/571/59968)。                       |
