@@ -1,6 +1,8 @@
+
+
 边缘代理网关的端口、监听规则通过 Gateway CRD 配置。以下是一个 Gateway 配置的示例，重要字段的解释通过注释说明：
 
-```
+```yaml
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
@@ -78,11 +80,14 @@ spec:
 | `spec.servers.tls.privateKey ` | `string` | 设置端口的 TLS 证书密钥通过 file mount 形式（不推荐，推荐采用填写 `credentialName` 字段加载证书私钥）挂载时需要填写的私钥路径字段，Istio 默认使用网关所在命名空间下 istio-ingressgateway-certs secret 加载私钥至路径 `/etc/istio/ingressgateway-certs` |
 | `spec.servers.tls.caCertificates` | `string` | 设置端口的 TLS 证书密钥通过 file mount 形式（不推荐，推荐采用填写 `credentialName` 字段加载证书私钥）挂载时需要填写的跟证书路径字段，Istio 默认使用网关所在命名空间下 istio-ingressgateway-ca-certs 加载根证书至路径 `/etc/istio/ingressgateway-ca-certs`，双向认证时需要配置根证书 |
 
-## 从 Kubernetes Secret 加载证书至边缘代理网关配置示例
 
-### YAML 配置示例
+## 示例
 
-```
+#### 从 Kubernetes Secret 加载证书至边缘代理网关配置示例
+
+<dx-tabs>
+::: YAML 配置示例
+```yaml
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
@@ -103,25 +108,28 @@ spec:
     app: istio-ingressgateway
     istio: ingressgateway
 ```
-
-### 控制台配置示例
-
+:::
+::: 控制台配置示例
 控制台创建 Gateway 配置 Ingress Gateway HTTPS 协议 SSL 证书从 Kubernetes secret 加载（单向认证）的过程如下：
 
-1. 选择协议为【HTTPS】，TLS 模式为【SIMPLE】
-2. 证书解包选择【边缘代理网关解包】
-3. 证书挂载模式选择【SDS加载】
-4. 证书来源选择【K8S Secret】
-5. K8S Secret 选择【选择已有】，选择当前所选边缘代理网关所在 namespace 下的 Secret，请您确保所选 Secret 中包含合适的证书/私钥/根证书
+1. 选择协议为**HTTPS**，TLS 模式为**SIMPLE**
+2. 证书解包选择**边缘代理网关解包**
+3. 证书挂载模式选择**SDS加载**
+4. 证书来源选择**K8S Secret**
+5. K8S Secret 选择**选择已有**，选择当前所选边缘代理网关所在 namespace 下的 Secret，请您确保所选 Secret 中包含合适的证书/私钥/根证书
 ![](https://main.qcloudimg.com/raw/bedf6f7589c35e39719956148c1c1ecd.png)
-6. 如当前 Secret 中未有合适证书，您可以选择【新建】K8S Secret，复制合适的证书/私钥/跟证书内容至对应输入框
+6. 如当前 Secret 中未有合适证书，您可以选择**新建**K8S Secret，复制合适的证书/私钥/跟证书内容至对应输入框
 ![](https://main.qcloudimg.com/raw/516797c700455ed6a68fb547b49cc744.png)
+:::
+</dx-tabs>
 
-## 从 SSL 平台加载证书至边缘代理网关配置示例
 
-### YAML 配置示例
 
-```
+#### 从 SSL 平台加载证书至边缘代理网关配置示例
+
+<dx-tabs>
+::: YAML 配置示例
+```yaml
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
@@ -141,20 +149,25 @@ spec:
     app: istio-ingressgateway
     istio: ingressgateway
 ```
- 
-### 控制台配置示例
- 
- 除了通过 YAML 文件配置，您也可以在控制台上通过 UI 创建 Gateway 配置。以下是配置从 SSL 平台加载证书至边缘代理网关的配置示例，您选择证书来源为 【SSL 平台证书】即可选择需要加载的 SSL 平台证书。
+:::
+::: 控制台配置示例
+除了通过 YAML 文件配置，您也可以在控制台上通过 UI 创建 Gateway 配置。以下是配置从 SSL 平台加载证书至边缘代理网关的配置示例，您选择证书来源为 **SSL 平台证书**即可选择需要加载的 SSL 平台证书。
  
  ![](https://main.qcloudimg.com/raw/696020c23796f0bd73e6d7daaeb6bfe2.png)
 
-## SSL 证书解包上移至 CLB 配置示例
+:::
+</dx-tabs>
 
-### YAML 配置示例
 
+
+
+
+#### SSL 证书解包上移至 CLB 配置示例
+
+<dx-tabs>
+::: YAML 配置示例
 以下是配置 443 端口证书解包上移至 CLB，且为该端口启用 SNI，域名 `sample.hosta.org` 使用证书1，域名 `sample.hostb.org` 使用证书2。
-
-```
+```yaml
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
@@ -177,18 +190,19 @@ spec:
     app: istio-ingressgateway
     istio: ingressgateway
 ```
-
-### 控制台配置示例
-
+:::
+::: 控制台配置示例
 在控制台 UI 创建 Gateway 配置使用证书上移功能流程如下：
 
-1. 选择协议为 HTTPS，出现【TLS 模式选项】。
-2. 选择【TLS 模式】为【SIMPLE】。
-3. 选择【证书解包】为【CLB 解包】，此时端口协议将自动变化为 HTTP（选择证书上移后网关处按照明文 HTTP 处理流量）。
-4. 选择合适的【服务器证书】。
+1. 选择协议为 HTTPS，出现**TLS 模式选项**。
+2. 选择**TLS 模式**为**SIMPLE**。
+3. 选择**证书解包**为**CLB 解包**，此时端口协议将自动变化为 HTTP（选择证书上移后网关处按照明文 HTTP 处理流量）。
+4. 选择合适的**服务器证书**。
 
 ![](https://main.qcloudimg.com/raw/4f87fd189a225bf3c8c702a301031c7f.png)
 
 创建成功将跳转至创建完成的 Gateway CRD 详情页面：
 
 ![](https://main.qcloudimg.com/raw/83becd79146dae9c76fe4f71cfbdabba.png)
+:::
+</dx-tabs>

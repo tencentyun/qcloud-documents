@@ -13,13 +13,10 @@
 2. 如该范围没有任何 `ALLOW` 策略，则允许该请求的访问。
 3. 如当前该范围存在 `ALLOW` 策略，且请求匹配到了任何一条 `ALLOW` 策略，则允许该请求的访问。
 4. 拒绝该请求的访问。
-
 ![](https://main.qcloudimg.com/raw/f513040eef15fbff345791a89cb406a2.png)
 
 以下是两种特殊 AuthorizationPolicy 示例：
-
 - default namespace 的服务允许所有请求访问：
-
 ```
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
@@ -33,7 +30,6 @@ spec:
 ```
 
 - default namespace 的服务拒绝所有请求访问：
-
 ```
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
@@ -44,6 +40,7 @@ spec:
   {} # action 字段没有填写时默认是 ALLOW，此时请求无法匹配任何规则
 ```
 
+
 ## AuthorizationPolicy 重要字段说明
 
 以下是 AuthorizationPolicy 重要字段说明：
@@ -52,7 +49,7 @@ spec:
 | ----- | ---- | ----- |
 | `metadata.name` | `string` | AuthorizationPolicy 名称 | 
 | `metadata.namespace` | `string` | AuthorizationPolicy 命名空间 | 
-| `spec.selector` | `map<string, string>` | AuthorizationPolicy 使用填写的标签键值对，配合填写的namespace，匹配配置下发的 Workload 范围，namespace 填写 istio-system，且 selector 字段不填写时，该策略生效范围为整个网格；namespace 填写非 istio-system 的 namespace，且 selector 字段不填写时，策略生效范围为填写的 namespace；namespace 填写非 istio-system 的 namespace，且 selector 字段填写了有效键值对时，策略的生效范围为在所填 namespace 下根据 selector 匹配到的Workload |
+| `spec.selector` | `map<string, string>` | AuthorizationPolicy 使用填写的标签键值对，配合填写的 namespace，匹配配置下发的 Workload 范围：<li>namespace 填写 istio-system，且 selector 字段不填写时，该策略生效范围为整个网格<li>namespace 填写非 istio-system 的 namespace，且 selector 字段不填写时，策略生效范围为填写的 namespace<li>namespace 填写非 istio-system 的 namespace，且 selector 字段填写了有效键值对时，策略的生效范围为在所填 namespace 下根据 selector 匹配到的 Workload |
 | `spec.action` | - |指定该策略是 `ALLOW` 策略还是 `DENY` 策略 |
 | `spec.rules.from.source.principals` | `string[]` | 源对等身份列表（即 service account），匹配 `source.principal` 字段 ，要求启用 mTLS，未填写时则允许任何 principal |
 | `spec.rules.from.source.requestPrincipals` | `string[]` | 请求身份列表（即 iss/sub claim），匹配 `request.auth.principal` 字段，未填写时则允许任何 requestPrincipals |
@@ -69,7 +66,7 @@ spec:
 
 为查看配置的 AuthorizationPolicy 策略效果，我们首先部署一套测试程序到网格管理的集群，部署完成后位于 test namespace 的 client 服务会自动发起对 base namespace user 服务的访问：
 
-```
+```yaml
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -217,15 +214,15 @@ spec:
 
 ![](https://main.qcloudimg.com/raw/47aa447543f546d5aff80a95c10575dc.png)
 
+
 ## 使用 AuthorizationPolicy 配置 Ingress Gateway 的 IP 黑白名单
 
 您可以使用 AuthorizationPolicy 为边缘代理网关 Ingress Gateway 配置 IP 黑/白名单。
 
 为验证黑白名单的配置效果，您首先需要部署一个测试程序 `httpbin.foo`，并配置通过 Ingress Gateway 暴露此服务到公网：
 
-- 创建 foo namespace，开启 sidecar 自动注入，部署httpbin服务到foo namespace：
-
-```
+- 创建 foo namespace，开启 sidecar 自动注入，部署 httpbin 服务到 foo namespace：
+```yaml
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -283,9 +280,7 @@ spec:
         ports:
         - containerPort: 80
 ```
-
 - 配置通过 Ingress Gateway 暴露 httpbin 服务至公网访问：
-
 ```
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
@@ -323,9 +318,9 @@ spec:
 ```
 
 - 通过 curl 语句 `curl "$INGRESS_IP:80/headers" -s -o /dev/null -w "%{http_code}\n"` 测试服务的连通性，注意您需要将代码中的 `$INGRESS_IP` 替换为您的边缘代理网关 IP 地址，正常情况下会返回 `200` 返回码。
-
 - 为使 Ingress Gateway 能正确获取真实客户端源 IP，我们需要修改 Ingress Gateway Service 的 ExternalTrafficPolicy 为 Local，保证流量仅在本节点转发不做 SNAT。
 ![](https://main.qcloudimg.com/raw/b4c8372cfdf171074df87e76370b7f7d.png)
+
 
 下面将会使用 AuthorizationPolicy 把本机的 IP 地址列入 Ingress Gateway 的黑名单，并验证黑名单是否生效。
 
