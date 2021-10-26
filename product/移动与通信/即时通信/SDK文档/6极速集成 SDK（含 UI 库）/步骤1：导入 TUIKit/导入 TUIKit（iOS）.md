@@ -47,7 +47,7 @@ pod 'TUICalling'
 
 >! 腾讯云的 [音视频库](https://cloud.tencent.com/document/product/647/32689) 不能同时集成，会有符号冲突，如果您使用了非 [TRTC](https://cloud.tencent.com/document/product/647/32689#TRTC) 版本的音视频库，音视频通话建议 pod 集成 `TUICalling/Professional` 版本，该版本依赖的 [LiteAV_Professional](https://cloud.tencent.com/document/product/647/32689#.E4.B8.93.E4.B8.9A.E7.89.88.EF.BC.88professional.EF.BC.89) 音视频库包含了音视频的所有基础能力。
 
-<li> 执行以下命令，安装 TUIKit。<br>
+<li> 执行以下命令，安装 TUI 组件。<br>
 
 ```bash
 pod install
@@ -57,8 +57,13 @@ pod install
 ```bash
  pod repo update
 ```
-</ol></li>
 
+<li> TUI 组件集成后效果。<br>
+
+<img style="width:400px" src="https://qcloudimg.tencent-cloud.cn/raw/05d68a5f5618d319e587fef368eccff7.jpg"  /> 
+
+>? TUI 组件集成后支持文件夹分层显示，方便您阅读和修改源代码。
+</ol></li>
 
 ## 常见问题
 
