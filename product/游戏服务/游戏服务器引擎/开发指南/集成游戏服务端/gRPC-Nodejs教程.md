@@ -23,7 +23,7 @@ gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过�
   Nodejs 版本使用 grpc/proto-loader 直接加载 pb 文件，不需要生成 gRPC-nodejs 代码。
 
 ## 游戏进程集成流程
-![](https://main.qcloudimg.com/raw/8b0ed25c273421c8365b77d1faf900c5.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/50d828929219826bc83f7a2be78e6c71.png)
 
 #### Game Server 回调接口列表
 
