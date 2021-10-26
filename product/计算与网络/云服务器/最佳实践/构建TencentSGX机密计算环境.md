@@ -23,7 +23,7 @@ uname -a
  - 是，请执行以下命令更新 kernel。
 ```
 yum update kernel
-```
+```   
  - 否，则请执行下一步。
 2. 执行以下命令，安装 SGX runtime 所需的软件包。
 ```
@@ -35,8 +35,7 @@ yum install \
     libsgx-launch libsgx-launch-devel libsgx-pce-logic libsgx-qe3-logic libsgx-quote-ex libsgx-quote-ex-devel \
     libsgx-ra-network libsgx-ra-uefi libsgx-uae-service libsgx-urts sgx-ra-service \
 sgx-aesm-service
-```
-<dx-alert infotype="explain" title="">
+``` <dx-alert infotype="explain" title="">
 SGX AESM 服务的默认安装目录为 `/opt/intel/sgx-aesm-service`。
 </dx-alert>
 3. 执行以下命令，安装 intel SGXSDK。
@@ -60,23 +59,22 @@ PCCS_URL=https://sgx-dcap-server.[Region-ID].tencent-cloud.com/sgx/certification
 # To accept insecure HTTPS cert, set this option to FALSE
 USE_SECURE_CERT=TRUE
 ```
-请将 `[Region-ID]` 替换为 SGX 云服务器实例所在地域的 ID。例如：
-
-   - 北京地域修改示例如下：
+请将 `[Region-ID]` 替换为 SGX 云服务器实例所在地域的 ID。例如：<br>
+ 北京地域修改示例如下：
 ```
 # PCCS server address
 PCCS_URL=https://sgx-dcap-server.bj.tencent-cloud.com/sgx/certification/v3/
 # To accept insecure HTTPS cert, set this option to FALSE
 USE_SECURE_CERT=TRUE
 ```
- - 上海地域修改示例如下：
+上海地域修改示例如下：
 ```
 # PCCS server address
 PCCS_URL=https://sgx-dcap-server.sh.tencent-cloud.com/sgx/certification/v3/
 # To accept insecure HTTPS cert, set this option to FALSE
 USE_SECURE_CERT=TRUE
 ```
-  - 广州地域修改示例如下：
+广州地域修改示例如下：
 ```
 # PCCS server address
 PCCS_URL=https://sgx-dcap-server.gz.tencent-cloud.com/sgx/certification/v3/
@@ -109,7 +107,7 @@ source /opt/intel/sgxsdk/environment
 ```
 2. 依次执行以下命令，安装 git 并下载 intel sgx DCAP code tree。
 ```
-cd root && yum install git
+cd /root && yum install git
 ```
 ```
 git clone https://github.com/intel/SGXDataCenterAttestationPrimitives.git
@@ -139,5 +137,5 @@ sgx_sign sign -key Enclave/Enclave_private_sample.pem -enclave enclave.so -out e
 ```
 ./app
 ```
-
-
+返回如下图所示结果，则说明已验证成功。
+![](https://qcloudimg.tencent-cloud.cn/raw/e32430adce18aa76303d9cd73ac9ff2f.png)
