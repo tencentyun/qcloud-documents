@@ -72,7 +72,7 @@ spec:
           number: 80
 ```
 
-也可以用正则匹配:
+也可以用正则匹配：
 
 ```yaml
 apiVersion: networking.istio.io/v1beta1
