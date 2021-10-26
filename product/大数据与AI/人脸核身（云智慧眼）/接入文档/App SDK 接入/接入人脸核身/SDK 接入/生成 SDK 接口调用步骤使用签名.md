@@ -1,4 +1,4 @@
-﻿### 准备步骤
+### 准备步骤
 - 前置条件：请合作方确保 NONCE  ticket 已经正常获取，获取方式见   [NONCE ticket 获取](https://cloud.tencent.com/document/product/1007/57614)。
 -  NONCE 类型的 ticket，其有效期为120秒，且一次性有效，即每次启动 SDK 刷脸都要重新请求 NONCE ticket，重新算 sign。同时建议合作方做前端保护，防止用户连续点击，短时间内频繁启动 SDK。
 - 合作方为人脸核身服务生成签名，需要具有以下参数：
