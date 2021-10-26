@@ -1,6 +1,6 @@
 ## 什么是 TUIKit？
 TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、搜索、关系链、群组、音视频通话等功能，基于 UI 组件您可以像搭积木一样快速搭建起自己的业务逻辑。
-<img style="width:800px" src="https://qcloudimg.tencent-cloud.cn/raw/bb1176efcf5d9242e6ee56f335fa9a62.jpg"  /> 
+![](https://qcloudimg.tencent-cloud.cn/raw/0a88fefe060ab42d4422cdff6d869937.jpg)
 
 >?
 >1. 会话（TUIConversation），主要用于拉取和展示会话列表。
@@ -23,7 +23,6 @@ TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、�
 `TUIKit` 从 5.7.1435 版本开始支持模块化集成，您可以根据自己的需求选择所需模块集成。
 
 <ol><li>在 Podfile 中增加以下内容。
-
 ```
 # 防止 TUI 组件里的 *.xcassets 与您项目里面冲突。
 install! 'cocoapods', :disable_input_output_paths => true  
@@ -47,8 +46,7 @@ pod 'TUICalling'
 
 >! 腾讯云的 [音视频库](https://cloud.tencent.com/document/product/647/32689) 不能同时集成，会有符号冲突，如果您使用了非 [TRTC](https://cloud.tencent.com/document/product/647/32689#TRTC) 版本的音视频库，音视频通话建议 pod 集成 `TUICalling/Professional` 版本，该版本依赖的 [LiteAV_Professional](https://cloud.tencent.com/document/product/647/32689#.E4.B8.93.E4.B8.9A.E7.89.88.EF.BC.88professional.EF.BC.89) 音视频库包含了音视频的所有基础能力。
 
-<li> 执行以下命令，安装 TUIKit。<br>
-
+<li> 执行以下命令，安装 TUI 组件。<br>
 ```bash
 pod install
 ```
@@ -57,8 +55,13 @@ pod install
 ```bash
  pod repo update
 ```
-</ol></li>
 
+<li> TUI 组件集成后效果。<br>
+
+![](https://qcloudimg.tencent-cloud.cn/raw/083905832dcc7f8cc1d14ddaf15232e9.jpg)
+
+>? TUI 组件集成后支持文件夹分层显示，方便您阅读和修改源代码。
+</ol></li>
 
 ## 常见问题
 
