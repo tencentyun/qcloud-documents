@@ -40,7 +40,7 @@ Auditbeat 目前有两种模块：
 ![](https://qcloudimg.tencent-cloud.cn/raw/5fa28e39ad540a9b7a289a09d2ee6923.png)
 
 ### Kibana 查看结果
-1. 在 Kibana 左侧导航栏单击 **Discover**，查询 Auditbeat 采集集的数据：
+1. 在 Kibana 左侧导航栏单击 **Discover**，查询 Auditbeat 采集的数据：
    ![](https://main.qcloudimg.com/raw/7e05fff2cf738d49901f6ecbe25a9a91.png)
 2. 在 Kibana 左侧导航栏，单击 **Dashboard**，在 Dashboard 列表中，单击 **[Auditbeat File Integrity] Overview**，查看监控文件的变动情况：
    ![](https://main.qcloudimg.com/raw/d6faf740ca520cb2968432bf2f83cd94.png)
