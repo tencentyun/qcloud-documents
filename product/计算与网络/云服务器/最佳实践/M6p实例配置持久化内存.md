@@ -51,13 +51,17 @@ ndctl enable-region region0
 
 ### 在 AD 模式下配置 PMEM
 
-#### 将持久内存作为内存使用
+您可按照实际需求，将持久内存作为内存或本地 SSD 盘使用：
 
-PMEM 可作为字符设备提供给上层应用，例如 redis 进行持久内存的分配，可借助 memkind 等 PMDK 框架来使用。其配置方法如下：
+<dx-tabs>
+::: 作为内存使用
+PMEM 可作为字符设备提供给上层应用（例如 redis）进行持久内存的分配，可借助 memkind 等 PMDK 框架来使用。其配置方法如下：
 1. 执行以下命令，生成字符设备。
 ```
 ndctl create-namespace -r region0 -m devdax
 ```
+返回结果如下图所示，表示已生成 `dax0.0` 字符设备。
+![](https://qcloudimg.tencent-cloud.cn/raw/e25e7a26c05b4d09507f571105d5e7c2.png)
 最大规格实例具有两个 region，若您使用最大规格实例，请同时执行以下命令。
 ```
 ndctl create-namespace -r region1 -m devdax -f
@@ -67,6 +71,8 @@ ndctl create-namespace -r region1 -m devdax -f
 ```
 ndctl list -R
 ```
+返回结果如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/b454a36bf3baf0361fe6154639b6c4da.png)
 3. 依次执行以下命令，使用 PMEM 扩充云服务器的内存。
 在高版本的内核（如 TencentOS Server 3.1 的内核）支持下，可将 devdax 模式的 PMEM 进一步配置为 kmemdax，可使用 PMEM 扩充云服务器的内存。
 ```
@@ -81,28 +87,47 @@ reboot
 ```
 daxctl reconfigure-device --mode=system-ram --no-online dax0.0
 ```
+返回结果如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/6cc731b4e6e08be343c284683ac75721.png)
 4. 执行以下命令，查看系统内存扩充的情况。
 ```
 numactl -H
 ```
-
-#### 将持久内存作为本地 SSD 盘使用
+返回结果如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/6cbeee0aeb1bf7d4527297d5eaa747bc.png)
+:::
+::: 作为本地 SSD 盘使用
 AD 模式的 PMEM 也可配置为高速块设备，可用作一般的块设备，进行创建文件系统，裸盘读写等操作。其配置方法如下：
 1. 执行以下命令，在 `/dev` 目录下生成 pmem0 块设备。
 ```
 ndctl create-namespace -r region0 -m fsdax
 ```
+返回结果如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/010dbd1f35b3dfdff08d39546f0ce06e.png)
 最大规格实例具有两个 region，若您使用最大规格实例，请同时执行以下命令。
 ```
 ndctl create-namespace -r region1 -m fsdax -f
 ```
 2. 依次执行以下命令，创建文件系统或挂载使用。
+    1. 创建文件系统。
 ```
 mkfs.ext4 /dev/pmem0
 ```
+返回结果如下图所示，表示已成功创建文件系统。
+![](https://qcloudimg.tencent-cloud.cn/raw/e1c39d0122b4d6bff535d22dd9af0c18.png)
+    2. 挂载至 `/mnt/`。
 ```
 mount -o dax,noatime /dev/pmem0 /mnt/
 ```
+
+
+:::
+</dx-tabs>
+
+
+
+
+
 
 ## 参考资料
 - [Intel® Optane™ DC Persistent Memory](https://www.intel.com/content/dam/support/us/en/documents/memory-and-storage/data-center-persistent-mem/Intel-Optane-DC-Persistent-Memory-Quick-Start-Guide.pdf)
