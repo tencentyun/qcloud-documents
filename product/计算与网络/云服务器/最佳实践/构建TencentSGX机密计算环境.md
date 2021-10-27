@@ -55,7 +55,7 @@ Intel SGXSDK 的默认安装目录为 /`opt/intel/sgxsdk`。您可参考 [intel 
 使用 VIM 编辑器，将 `/etc/sgx_default_qcnl.conf` 修改为如下内容：
 ```
 # PCCS server address
-PCCS_URL=https://sgx-dcap-server-tc.[Region-ID].tencent.com.cn/sgx/certification/v3/
+PCCS_URL=https://sgx-dcap-server-tc.[Region-ID].tencent.cn/sgx/certification/v3/
 # To accept insecure HTTPS cert, set this option to FALSE
 USE_SECURE_CERT=TRUE
 ```
@@ -63,21 +63,21 @@ USE_SECURE_CERT=TRUE
  北京地域修改示例如下：
 ```
 # PCCS server address
-PCCS_URL=https://sgx-dcap-server-tc.bj.tencent.com.cn/sgx/certification/v3/
+PCCS_URL=https://sgx-dcap-server-tc.bj.tencent.cn/sgx/certification/v3/
 # To accept insecure HTTPS cert, set this option to FALSE
 USE_SECURE_CERT=TRUE
 ```
 上海地域修改示例如下：
 ```
 # PCCS server address
-PCCS_URL=https://sgx-dcap-server-tc.sh.tencent.com.cn/sgx/certification/v3/
+PCCS_URL=https://sgx-dcap-server-tc.sh.tencent.cn/sgx/certification/v3/
 # To accept insecure HTTPS cert, set this option to FALSE
 USE_SECURE_CERT=TRUE
 ```
 广州地域修改示例如下：
 ```
 # PCCS server address
-PCCS_URL=https://sgx-dcap-server-tc.gz.tencent.com.cn/sgx/certification/v3/
+PCCS_URL=https://sgx-dcap-server-tc.gz.tencent.cn/sgx/certification/v3/
 # To accept insecure HTTPS cert, set this option to FALSE
 USE_SECURE_CERT=TRUE
 ```
