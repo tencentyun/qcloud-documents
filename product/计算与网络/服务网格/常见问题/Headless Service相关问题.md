@@ -4,7 +4,7 @@
 
 
 #### 原因
-不通过 Kubernetes 的服务发现，而是通过注册中心获取服务 IP 地址，然后服务间调用不经过域名解析，直接向获取到的目的 IP 发起调用。由于 istio 的 LDS 会拦截 headless service 中包含的 PodIP + Port 的请求，然后匹配请求 hosts，如果没有 hosts 或者 hosts 中没有这个 PodIP+Port 的 service 域名（比如直接是 Pod IP），就会匹配失败，最后返回 404。
+网格没有使用 Kubernetes 的服务发现，而是通过注册中心获取服务 IP 地址，服务间调用不经过域名解析，直接向获取到的目的 IP 发起调用。由于 istio 的 LDS 会拦截 headless service 中包含的 PodIP+Port 的请求，然后匹配请求 hosts，如果没有 hosts 或者 hosts 中没有这个 PodIP+Port 的 service 域名 (比如直接是 Pod IP)，就会匹配失败，最后返回 404。
 
 #### 解决方案
 
