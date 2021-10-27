@@ -17,7 +17,7 @@ sudo mv composer.phar /usr/local/bin/composer
 ```
 
 ### 步骤2：添加镜像源
-中国大陆地区（不包含港澳台）的用户可以使用腾讯云镜像源提高下载速度，在打开的命令窗口执行以下命令：
+中国大陆地区的用户可以使用腾讯云镜像源提高下载速度，在打开的命令窗口执行以下命令：
 ```
 composer config -g repos.packagist composer
 https://mirrors.tencent.com/composer/
