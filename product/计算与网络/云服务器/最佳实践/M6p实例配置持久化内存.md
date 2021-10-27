@@ -2,27 +2,29 @@
 本文介绍如何在 M6p 实例上配置持久内存。
 
 
+## 实例配置
+本文使用了以下配置的云服务器实例，获取的相关信息请以实际情况为准：
+ - **实例规格**：内存型 M6p 实例 M6p.LARGE16（4核16GB）。其他规格配置请参见 [内存型 M6p](https://cloud.tencent.com/document/product/213/11518#M6p)。
+ - **操作系统**： TencentOS Server 3.1（TK4）。
+<dx-alert infotype="explain" title="">
+建议您的实例使用以下操作系统：
+ - TencentOS Server 3.1
+ - CentOS 7.6及更高版本
+ - Ubuntu 18.10及更高版本
+</dx-alert>
+
 ## 前提条件
 已创建并登录 M6p 实例。
 - 如何创建实例，请参见 [通过购买页创建实例](https://cloud.tencent.com/document/product/213/4855)。
 - 如何登录实例，请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 
-<dx-alert infotype="explain" title="">
-本文以操作系统为 TencentOS Server 3.1（TK4）的云服务器为例。建议您的实例使用以下内核版本：
- - CentOS 7.6及更高版本
- - Ubuntu 18.10及更高版本
- - TencentOS Server 3.1
-</dx-alert>
-
-
-
 
 ## 英特尔® 傲腾™ DC BSP 硬件（PMEM）模式介绍
 
-### Memory mode
-在 Memory mode 模式下，常规 DRAM 充当最常访问数据的缓存，而持久内存作为后备内存使用，高速缓存管理操作由内存控制器自动处理。
+### Memory 模式
+在 Memory 模式下，常规 DRAM 充当最常访问数据的缓存，而持久内存作为后备内存使用，高速缓存管理操作由内存控制器自动处理。
 
-### AD mode
+### AD 模式
 M6p 机型采用该模式，在 M6p 机型中，平台侧将 BPS 硬件配置为 AD 模式透传给云服务器使用。在 AD 模式下，应用程序可以把 PMEM 设备作为内存使用，或作为本地 SSD 盘使用。
 
 
@@ -73,7 +75,7 @@ ndctl list -R
 ```
 返回结果如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/b454a36bf3baf0361fe6154639b6c4da.png)
-3. 依次执行以下命令，使用 PMEM 扩充云服务器的内存。
+3. （可选）您可通过该步骤进行功能扩展，依次执行以下命令，使用 PMEM 扩充云服务器的内存。
 在高版本的内核（如 TencentOS Server 3.1 的内核）支持下，可将 devdax 模式的 PMEM 进一步配置为 kmemdax，可使用 PMEM 扩充云服务器的内存。
 ```
 yum install -y daxctl
