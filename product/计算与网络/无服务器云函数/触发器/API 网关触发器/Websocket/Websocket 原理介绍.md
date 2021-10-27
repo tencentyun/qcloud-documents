@@ -1,4 +1,4 @@
-> 说明：本文介绍**事件函数**支持 WebSocket 的解决方案，目前 **Web 函数**已经支持原生 WebSocket 协议，详情参考[产品文档]()
+>?本文介绍**事件函数**支持 WebSocket 的解决方案，目前 **Web 函数**已经支持原生 WebSocket 协议，详情请参见 [WebSocket 协议支持](https://cloud.tencent.com/document/product/583/63406)。
 
 ## 实现原理
 
