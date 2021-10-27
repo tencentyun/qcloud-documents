@@ -30,8 +30,8 @@
 
 下面我们将会配置 base namespace 的 mTLS 模式为 STRICT，并验证配置是否生效。
 
-### YAML 配置示例
-
+<dx-tabs>
+::: YAML 配置示例
 ```
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication
@@ -42,14 +42,20 @@ spec:
   mtls:
     mode: STRICT
 ```
-
-### 控制台配置示例
-
+:::
+::: 控制台配置示例
 ![](https://main.qcloudimg.com/raw/548a16f867067d78346a7e441e677573.png)
 
+
+
+
+:::
+</dx-tabs>
 配置完成后，重新以明文的方式访问 base 命名空间下的 product 服务，提示访问失败，mTLS STRICT 模式配置生效。
 
 ![](https://main.qcloudimg.com/raw/a7332a9e838cd6d4f10c6feec12b8ab6.png)
+
+
 
 
 
@@ -176,8 +182,9 @@ spec:
 下面将会为边缘代理网关配置 JWT 认证规则，放通带有符合条件的 JWT 令牌的请求。
 
 
-### YAML 配置示例
 
+<dx-tabs>
+::: YAML 配置示例
 ```
 apiVersion: "security.istio.io/v1beta1"
 kind: "RequestAuthentication"
@@ -194,9 +201,14 @@ spec:
     jwksUri: "https://raw.githubusercontent.com/istio/istio/release-1.9/security/tools/jwt/samples/jwks.json"
 ```
 
-### 控制台配置示例
-
+:::
+::: 控制台配置示例
 ![](https://main.qcloudimg.com/raw/2267dee435e392c0c7d2007d46f0e0d9.png)
+
+:::
+</dx-tabs>
+
+
 
 配置完成后，我们来验证配置的 JWT 验证规则是否生效。
 
