@@ -27,6 +27,6 @@ kubectl -n {命名空间} logs {Pod 名称} -c istio-proxy  --tail 5
 ### 通过日志服务 CLS 日志检索查看
 
 如您开启了访问日志的消费端配置，将 TCM 数据面访问日志 Access Log 采集到了日志服务 CLS，则您可以在 CLS 控制台检索分析处选择对应日志主题查看 TCM 数据面访问日志。CLS 日志检索语法，请参见 [CLS 日志检索语法与规则](https://cloud.tencent.com/document/product/614/47044)。
-![](https://qcloudimg.tencent-cloud.cn/raw/daac42cd23646164bf0e935d627752f6.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a7f9f1ad433011166049977adff7061d.png)
 
 
