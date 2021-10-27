@@ -4,7 +4,7 @@ Istio 使用 Envoy 作为数据面转发 HTTP 请求，而 Envoy 默认要求使
 
 ## 常见的 nginx 场景
 
-如果用 nginx 进行 `proxy_pass` 反向代理，默认会用 HTTP/1.0，你可以显示指定 [proxy_http_version](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_http_version) 为 `1.1`:
+如果用 nginx 进行 `proxy_pass` 反向代理，默认会用 HTTP/1.0，你可以显示指定 [proxy_http_version](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_http_version) 为 `1.1`：
 
 ```nginx
 upstream http_backend {
