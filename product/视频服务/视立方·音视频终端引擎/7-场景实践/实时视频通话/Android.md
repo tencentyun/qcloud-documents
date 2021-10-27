@@ -318,9 +318,8 @@ TUICalling 组件的 API 接口列表如下：
 | call            | C2C 邀请通话         |
 | receiveAPNSCalled          | 作为被邀请方接听来电                                      |
 | setCallingListener          | 设置监听器                                     |
-| setCallingBell          | 设置铃声(建议在30s以内)                                                 |
+| setCallingBell          | 设置铃声（建议在30s以内）                                                 |
 | enableMuteMode | 开启静音模式    |
-| enableFloatWindow  | 开启悬浮窗                      |
 | enableCustomViewRoute      | 开启自定义视图， 开启后，会在呼叫/被叫开始回调中，接收到 CallingView 的实例，由开发者自行决定展示方式。注意：必须全屏或者与屏幕等比例展示，否则会有展示异常            |
 
 
