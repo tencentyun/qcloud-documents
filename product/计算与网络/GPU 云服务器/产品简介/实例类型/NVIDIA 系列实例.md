@@ -184,90 +184,95 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 
 **GPU 云服务器 NVIDIA 系列选型推荐**如下表，其中 **✓** 为支持，**★** 为推荐。
 
+
 <table>
-        <thead>
-        <tr>
-            <th width="20%">功能\实例</th>
-            <th width="11.5%">GN6<br>GN6S</th>
-            <th width="11.5%">GN7</th>
-						<th width="11.5%">GN8</th>
-						<th width="11.5%">GI3X</th>
-            <th width="11.5%">GN10X<br>GN10Xp</th>
-            <th width="11.5%">GN7vw</th>
-            <th width="11.5%">GT4</th>
-						<th width="11.5%">GNV4</th>
-            <th width="11.5%">PNV4</th>
-            <th width="11.5%">GNV4v</th>						
-        </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>图形图像处理</td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
-								<td>✓</td>
-                <td>✓</td>
-                <td>★</td>
-                 <td>-</td> 
-								 <td>★</td>
-								 <td>✓</td>
-                <td>★</td>
-            </tr>
-            <tr>
-                <td>视频编解码</td>
-                <td>✓</td>
-                <td>★</td>
-                <td>✓</td>
-								<td>★</td>
-								<td>✓</td>
-                <td>★</td>
-                <td>-</td> 
-								<td>★</td>
-								<td>★</td>
-                <td>★</td>
-            </tr>
-            <tr>
-                <td>深度学习训练</td>
-                <td>✓</td>
-                <td>✓</td>
-								<td>★</td>
-								<td>✓</td>
-                <td>★</td>
-                <td>-</td>
-                <td>★</td>
-								<td>✓</td>
-								<td>✓</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>深度学习推理</td>
-                <td>★</td>
-                <td>★</td>
-                <td>★</td>
-                <td>★</td>
-								<td>✓</td>
-                <td>-</td>
-                <td>✓</td>
-								<td>✓</td>
-								<td>★</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>科学计算</td>
-								<td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-								<td>★</td>
-                <td>-</td>
-                <td>★</td>
-								<td>-</td> 
-								<td>-</td>
-                <td>-</td>
-            </tr>
-        </tbody>
+  <thead>
+	<tr>
+	  <th width="20%">功能\实例&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+	  <th width="8%">GN6
+	  <br />GN6S</th>
+	  <th width="8%">GN7</th>
+	  <th width="8%">GN8</th>
+	  <th width="8%">GI3X</th>
+	  <th width="8%">GN10X
+	  <br />GN10Xp</th>
+	  <th width="8%">GN7vw</th>
+	  <th width="8%">GT4</th>
+	  <th width="8%">GNV4</th>
+	  <th width="8%">PNV4</th>
+	  <th width="8%">GNV4v</th>
+	</tr>
+  </thead>
+  <tbody>
+	<tr>
+	  <td>图形图像处理</td>
+	  <td>✓</td>
+	  <td>✓</td>
+	  <td>✓</td>
+	  <td>✓</td>
+	  <td>✓</td>
+	  <td>★</td>
+	  <td>-</td>
+	  <td>★</td>
+	  <td>✓</td>
+	  <td>★</td>
+	</tr>
+	<tr>
+	  <td>视频编解码</td>
+	  <td>✓</td>
+	  <td>★</td>
+	  <td>✓</td>
+	  <td>★</td>
+	  <td>✓</td>
+	  <td>★</td>
+	  <td>-</td>
+	  <td>★</td>
+	  <td>★</td>
+	  <td>★</td>
+	</tr>
+	<tr>
+	  <td>深度学习训练</td>
+	  <td>✓</td>
+	  <td>✓</td>
+	  <td>★</td>
+	  <td>✓</td>
+	  <td>★</td>
+	  <td>-</td>
+	  <td>★</td>
+	  <td>✓</td>
+	  <td>✓</td>
+	  <td>-</td>
+	</tr>
+	<tr>
+	  <td>深度学习推理</td>
+	  <td>★</td>
+	  <td>★</td>
+	  <td>★</td>
+	  <td>★</td>
+	  <td>✓</td>
+	  <td>-</td>
+	  <td>✓</td>
+	  <td>✓</td>
+	  <td>★</td>
+	  <td>-</td>
+	</tr>
+	<tr>
+	  <td>科学计算</td>
+	  <td>-</td>
+	  <td>-</td>
+	  <td>-</td>
+	  <td>-</td>
+	  <td>★</td>
+	  <td>-</td>
+	  <td>★</td>
+	  <td>-</td>
+	  <td>-</td>
+	  <td>-</td>
+	</tr>
+  </tbody>
 </table>
+
+
 
 
 ### 图形图像处理
