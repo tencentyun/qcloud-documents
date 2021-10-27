@@ -5,7 +5,7 @@
 
 ## 操作步骤
 1. 登录 [公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip)。
-2. 在公网 IP 页面顶部，选择**地域**，单击**申请**。
+2. 在“公网 IP” 页面顶部，选择**地域**，单击**申请**。
 3. 在弹出的“申请EIP”窗口中，请按照您的账户类型，分别进行如下操作：
 >?若您无法确定账户类型，请参见 [判断账户类型](https://cloud.tencent.com/document/product/1199/49090#judge)。
 <dx-tabs>
