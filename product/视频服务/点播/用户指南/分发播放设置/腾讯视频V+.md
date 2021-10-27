@@ -6,7 +6,7 @@
 
 ## 操作步骤
 
-1. 登录 [云点播控制台](https://console.cloud.tencent.com/vod/overview)，在左侧导航栏选择【分发播放设置】>【腾讯视频 V+】。
+1. 登录 [云点播控制台](https://console.cloud.tencent.com/vod/overview)，在左侧导航栏选择**分发播放设置**>**腾讯视频 V+**。
 ![](https://main.qcloudimg.com/raw/fb50c72888ad26a22e9588e5bc8dcc04.png)
-2. 单击【立即使用】，进入腾讯视频 V+ 认证页面，根据页面提示完成相应认证操作即可。
+2. 单击**立即使用**，进入腾讯视频 V+ 认证页面，根据页面提示完成相应认证操作即可。
 

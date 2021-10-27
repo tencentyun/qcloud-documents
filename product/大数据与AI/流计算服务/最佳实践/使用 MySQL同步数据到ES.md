@@ -1,4 +1,4 @@
-本文主要介绍了从 mysql 数据库采集数据到流计算服务 Oceanus 进行分析，最后输出到 ElasticSearch 服务的实践。
+本文主要介绍了从 mysql 数据库采集数据到流计算服务 Oceanus 进行分析，最后输出到 ElasticSearch 服务的实践。本方案可作为日志搜索场景解决方案使用。使用了云数据库 MySQL、流计算 Oceanus、Elasticsearch、Kibana 和私有网络 VPC。
 
 ## 环境搭建
 ### 创建 Oceanus 集群

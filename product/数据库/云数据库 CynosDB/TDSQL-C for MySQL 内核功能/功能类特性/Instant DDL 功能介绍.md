@@ -39,7 +39,7 @@ ALTER TABLE t1 MODIFY COLUMN c BIGINT, ALGORITHM=INSTANT;
 >!开关关闭后，已经 instant modify 过的表可以正常使用。
 
 #### Instant Modify Column 限制
-- 只支持修改列类型的修改，不支持修改字段的 nullable、unsigned/signed、charset，但支持修改 default 属性。
+- 只支持列类型的修改，不支持修改字段的 nullable、unsigned/signed、charset，但支持修改 default 属性。
 - 只支持部分类型的修改，且只能改大长度，目前仅支持以下类型的转换：char 和 varchar 之间、binary 和 varbinary 之间、tinyint/smallint/mediumint/int/bigint 之间互转。
 - 单个 column 只能 instant modify 一次，可以同时 instant modify 多个 column。单个 column 第一次 instant add/modify 后，第二次修改此列只能以非 instant 方式进行。
 - 支持 instant add columns 和 instant modify columns 的操作需要分开执行，可以先执行 instant add columns 再执行 instant modify columns，或先执行 instant modify columns 再执行 instant add columns。且不能 instant modify 之前 instant add 的列。

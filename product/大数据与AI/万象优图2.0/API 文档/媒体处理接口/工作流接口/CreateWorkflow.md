@@ -28,7 +28,7 @@ Content-Type: application/xml
 
 该请求操作的实现需要有如下请求体：
 
-#### 请求体1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、音视频拼接、智能封面、视频增强、SDR to HDR
+#### 请求体1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、音视频拼接、智能封面、视频增强、SDR to HDR、自定义函数、超分辨率和音视频分段
 
 
 ```plaintext
@@ -38,7 +38,7 @@ Content-Type: application/xml
         <State>Active</State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554,SCF_1581665960566,SuperResolution_1581665960583,Segment_1581665960667</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -48,6 +48,9 @@ Content-Type: application/xml
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
                 <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
                 <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
+                <SCF_1581665960566>End</SCF_1581665960566>
+                <SuperResolution_1581665960583>End</SuperResolution_1581665960583>
+                <Segment_1581665960667>End</Segment_1581665960667>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -65,6 +68,7 @@ Content-Type: application/xml
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -76,6 +80,13 @@ Content-Type: application/xml
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/cover-${Number}.jpg</Object>
                         </Output>
+                        <SmartCover>
+                            <Format>png</Format>
+                            <Width>128</Width>
+                            <Height>128</Height>
+                            <Count>3</Count>
+                            <DeleteDuplicates>false</DeleteDuplicates>
+                        </SmartCover> 
                     </Operation>
                 </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
@@ -86,6 +97,7 @@ Content-Type: application/xml
                             <Region></Region>
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/snapshot-${number}.${Ext}</Object>
+                            <SpriteObject>abc/${RunId}/snapshot-${number}.jpg</SpriteObject>
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
@@ -173,6 +185,43 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </VideoProcess_1581665960554>
+                <SCF_1581665960566>
+                    <Type>SCF</Type>
+                    <Operation>
+                        <SCF>
+                            <Region>ap-chengduRegion>
+                            <FunctionName>test</FunctionName>
+                            <Namespace>testspace</Namespace>
+                        </SCF>
+                    </Operation>
+                </SCF_1581665960566>
+                <SuperResolution_1581665960583>
+                    <Type>SuperResolution</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}/SuperResolution.mkv</Object>
+                        </Output>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
+                    </Operation>
+                </SuperResolution_1581665960583>
+                <Segment_1581665960667>
+                    <Type>Segment</Type>
+                    <Operation>
+                        <Segment>
+                            <Format>mp4</Format>
+                            <Duration>5</Duration>
+                        </Segment>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>test-trans${Number}</Object>
+                        </Output>
+                    </Operation>
+                </Segment_1581665960667>
             </Nodes>
         </Topology>
     </MediaWorkflow>
@@ -210,6 +259,7 @@ Content-Type: application/xml
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -314,6 +364,8 @@ Container 类型 Nodes 的具体数据描述如下：
 | SDRtoHDR\_\*\*\*       | Request.MediaWorkflow.</br>Topology.Nodes | SDRtoHDR 节点    | Container | 否           | 节点名称以 SDRtoHDR 为前缀，可能有多个 SDRtoHDR 节点             |
 | VideoProcess\_\*\*\*   | Request.MediaWorkflow.</br>Topology.Nodes | 视频处理节点    | Container | 否           | 节点名称以 VideoProcess 为前缀，可能有多个视频处理节点         |
 | SCF\_\*\*\*            | Request.MediaWorkflow.</br>Topology.Nodes | SCF 函数节点     | Container | 否           | 节点名称以 SCF 为前缀，可能有多个 SCF 函数节点                   |
+| SuperResolution\_\*\*\* | Request.MediaWorkflow.</br>Topology.Nodes | 超分辨率节点 | Container| 否 | 节点名称以 SuperResolution 为前缀，可能有多个超分辨率节点 |
+| Segment\_\*\*\* | Request.MediaWorkflow.</br>Topology.Nodes | 音视频分段节点 | Container| 否 | 节点名称以 Segment 为前缀，可能有多个音视频分段节点 |
 
 Container 类型 Start 的具体数据描述如下：
 
@@ -352,6 +404,8 @@ Container 类型 Start.Input.ExtFilter 的具体数据描述如下：
 | ContentType        | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 打开 ContentType 限制 | String | 否   | false  | false/true                                                   |
 | Custom             | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 打开自定义后缀限制  | String | 否   | false  | false/true                                                   |
 | CustomExts         | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 自定义后缀          | String | 否   | 无     | 1. 多种文件后缀以/分隔，后缀个数不超过10个</br>2. 当 Custom 为 true 时，该参数必填 |
+| AllFile    | Request.MediaWorkflow.Topology.Nodes.Start.Input.ExtFilter | 所有文件          |  String  |  否   | false    |  false/true  |
+
 
 Container 类型 Animation\_\*\*\* 的具体数据描述如下：
 
@@ -396,7 +450,8 @@ Container 类型 Output 的具体数据描述如下：
 | ------------------ | ------------------------------------------------------------ | ------------ | ------ | ------------ | ------------------------------------------------------------ |
 | Region             | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是           | 无                                                           |
 | Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是           | 无                                                           |
-| Object             | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 结果文件名称 | String | 是           | <li>abc/${RunId}/snapshot-${number}.${Ext}<br/><li>bcd/${RunId}/snapshot-${number}.jpg |
+| Object             | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 结果文件名称 | String | 否           | <li>abc/${RunId}/snapshot-${number}.${Ext}<br/><li>bcd/${RunId}/snapshot-${number}.jpg |
+| SpriteObject       | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 雪碧图的名称 | String | 否           | <li>abc/${RunId}/snapshot-${number}.jpg<br/><li>bcd/${RunId}/snapshot-${number}.jpg  |
 
 Container 类型 SmartCover_*** 的具体数据描述如下：
 
@@ -410,6 +465,7 @@ Container 类型 SmartCover_***.Operation 的具体数据描述如下：
 | 节点名称（关键字） | 父节点                                                       | 描述     | 类型      | 是否必选 | 限制 |
 | ------------------ | ------------------------------------------------------------ | -------- | --------- | -------- | ---- |
 | Output             | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation | 输出地址 | Container | 是       | 无   |
+| SmartCover         | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation | 封面配置      | Container | 否   | 无   |
 
 Container 类型 SmartCover_***.Output 的具体数据描述如下：
 
@@ -418,6 +474,16 @@ Container 类型 SmartCover_***.Output 的具体数据描述如下：
 | Region             | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation.Output | 存储桶的地域 | String | 是       | 无                              |
 | Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation.Output | 存储桶的名称 | String | 是       | 无                              |
 | Object             | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation.Output | 结果文件名称 | String | 是       | 必须包含 ${Number} ${RunId}参数 |
+
+Container 类型 SmartCover_***.SmartCover 的具体数据类型描述如下：
+
+| 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 | 默认值 | 限制 |
+| ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- | ---- | ---- |
+| Format             | Request.Operation.SmartCover | 封面图片类型    | String | 是  | 无 | png、jpg、webp  |
+| Width              | Request.Operation.SmartCover | 封面图片宽度    | String | 是  | 无 | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> |
+| Height             | Request.Operation.SmartCover | 封面图片高度    | String | 是  | 无 | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> |
+| Count              | Request.Operation.SmartCover | 封面数量        | String | 否  | 3 | 值范围：[1，10] |
+| DeleteDuplicates   | Request.Operation.SmartCover | 封面是否去重    | String | 否  | false | true/false |
 
 Container 类型 Transcode_*** 的具体数据描述如下：
 
@@ -547,7 +613,7 @@ Container 类型 VideoStream\_\*\*\*.Operation 的具体数据描述如下：
 | ------------------ | ------- | ------| --------- | ---- | ---- |
 | TemplateId   | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\*.Operation | 模板 ID  | String    | 是   | 无 |
 | Output       | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\*.Operation | 输出地址 | Container | 是   | 无 |
-| WatermarkTemplateId   | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\*.Operation | 水印模板 ID  | String    | 是   | 可以使用多个水印模板 |
+| WatermarkTemplateId   | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\*.Operation | 水印模板 ID  | String    | 是   | 可以使用多个水印模板，不超过3个 |
 | RemoveWatermark       | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\*.Operation | 去除水印参数        | Container | 否   |无|
 
 Container 类型 VideoStream\_\*\*\*.Output 的具体数据描述如下：
@@ -673,6 +739,62 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
 | Namespace          | Request.MediaWorkflow.Topology.</br>Nodes.SCF\_\*\*\*.Operation.SCF | 命名空间 | String | 否   | 无   |
 | Alias              | Request.MediaWorkflow.Topology.</br>Nodes.SCF\_\*\*\*.Operation.SCF | 函数别名 | String | 否   | 无   |
 
+Container 类型 SuperResolution\_\*\*\* 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                 | 描述        | 类型      | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | ------ | ---- | ---- |
+| Type               | Request.MediaWorkflow.<br>Topology.Nodes.SuperResolution\_\*\*\* | 节点类型 | String    | 是 | SuperResolution |
+| Operation          | Request.MediaWorkflow.<br>Topology.Nodes.SuperResolution\_\*\*\* | 操作规则 | Container | 是     | 无       |
+
+Container 类型 SuperResolution\_\*\*\*.Operation 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                 | 描述        | 类型      | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | ------ | ---- | ---- |
+| TemplateId   | Request.MediaWorkflow.Topology.<br>Nodes.SuperResolution\_\*\*\*.Operation | 模板 ID  | String    | 是   | 无 |
+| TranscodeTemplateId | Request.MediaWorkflow.Topology..<br>Nodes.SuperResolution\_\*\*\*.Operation | 转码模板 ID  | String    | 是   | 无 |
+| WatermarkTemplateId | Request.MediaWorkflow.Topology..<br>Nodes.SuperResolution***.Operation | 水印模板 ID  | String    | 否   | 可以使用多个水印模板，不超过3个 |
+| Output       | Request.MediaWorkflow.Topology.<br>Nodes.SuperResolution\_\*\*\*.Operation | 输出地址 | Container | 是   | 无 |
+
+
+Container 类型 Output 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                 | 描述        | 类型      | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | ------ | ---- | ---- |
+| Region             | Request.MediaWorkflow.Topology.<br>Nodes.SuperResolution\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是           | 无                                                     |
+| Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.SuperResolution\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是           | 无                                                     |
+| Object   | Request.MediaWorkflow.Topology.<br>Nodes.SuperResolution\_\*\*\*.Operation.Output | 结果文件名称  | String  | 是  | 无 |
+
+
+Container 类型 Segment\_\*\*\* 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                 | 描述        | 类型      | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | ------ | ---- | ---- |
+| Type               | Request.MediaWorkflow.<br>Topology.Nodes.Segment\_\*\*\* | 节点类型 | String    | 是       | Segment |
+| Operation          | Request.MediaWorkflow.<br>Topology.Nodes.Segment\_\*\*\* | 操作规则 | Container | 是       | 无        |
+
+Container 类型 Segment\_\*\*\*.Operation 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                 | 描述        | 类型      | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | ------ | ---- | ---- |
+| Segment   | Request.MediaWorkflow.Topology.<br>Nodes.Segment\_\*\*\*.Operation | 音视频分段参数  | Container    | 是   | 无 |
+| Output   | Request.MediaWorkflow.Topology.<br>Nodes.Segment\_\*\*\*.Operation | 输出地址 | Container | 是   | 无 |
+
+Container 类型 Segment 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                 | 描述        | 类型      | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | ------ | ---- | ---- |
+| Format            | Request.MediaWorkflow.Topology.<br>Nodes.Segment\_\*\*\*.Operation.Segment | 封装格式 | String | 是  | aac、mp3、flac、mp4、ts、mkv、avi |
+| Duration          | Request.MediaWorkflow.Topology.<br>Nodes.Segment\_\*\*\*.Operation.Segment | 分段时长，单位：秒 | String | 是  | 不小于5的整数|
+
+Container 类型 Output 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                 | 描述        | 类型      | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | ------ | ---- | ---- |
+| Region             | Request.MediaWorkflow.Topology.<br>Nodes.Segment\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是     | 无                                                     |
+| Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.Segment\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是     | 无                                                     |
+| Object   | Request.MediaWorkflow.Topology.<br>Nodes.Segment\_\*\*\*.Operation.Output | 结果文件名称  | String  | 是  | 必须包含${Number}参数，<br>作为自定义分段后每一小段音/视频流的输出序号 |
+
+
 ## 响应
 
 #### 响应头
@@ -683,7 +805,7 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
 
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-#### 响应体1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、音视频拼接、智能封面、视频增强、SDR to HDR
+#### 响应体1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、音视频拼接、智能封面、视频增强、SDR to HDR、自定义函数、超分辨率和音视频分段
 
 
 ```plaintext
@@ -694,7 +816,7 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
         <WorkflowId></WorkflowId>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554,SCF_1581665960566,SuperResolution_1581665960583,Segment_1581665960667</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -704,6 +826,9 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
                 <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
                 <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
+                <SCF_1581665960566>End</SCF_1581665960566>
+                <SuperResolution_1581665960583>End</SuperResolution_1581665960583>
+                <Segment_1581665960667>End</Segment_1581665960667>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -721,6 +846,7 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -732,6 +858,13 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/cover-${Number}.jpg</Object>
                         </Output>
+                        <SmartCover>
+                            <Format>png</Format>
+                            <Width>128</Width>
+                            <Height>128</Height>
+                            <Count>3</Count>
+                            <DeleteDuplicates>false</DeleteDuplicates>
+                        </SmartCover> 
                     </Operation>
                 </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
@@ -742,6 +875,7 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
                             <Region></Region>
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/snapshot-${number}.${Ext}</Object>
+                            <SpriteObject>abc/${RunId}/snapshot-${number}.jpg</SpriteObject>                         
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
@@ -829,6 +963,43 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
                         </Output>
                     </Operation>
                 </VideoProcess_1581665960554>
+                <SCF_1581665960566>
+                    <Type>SCF</Type>
+                    <Operation>
+                        <SCF>
+                            <Region>ap-chengduRegion>
+                            <FunctionName>test</FunctionName>
+                            <Namespace>testspace</Namespace>
+                        </SCF>
+                    </Operation>
+                </SCF_1581665960566>
+                <SuperResolution_1581665960583>
+                    <Type>SuperResolution</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}/SuperResolution.mkv</Object>
+                        </Output>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
+                    </Operation>
+                </SuperResolution_1581665960583>
+                <Segment_1581665960667>
+                    <Type>Segment</Type>
+                    <Operation>
+                        <Segment>
+                            <Format>mp4</Format>
+                            <Duration>5</Duration>
+                        </Segment>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>test-trans${Number}</Object>
+                        </Output>
+                    </Operation>
+                </Segment_1581665960667>
             </Nodes>
         </Topology>
         <BucketId></BucketId>
@@ -871,6 +1042,7 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -961,7 +1133,7 @@ Container节点 MediaWorkflow 的内容：
 
 ## 实际案例
 
-#### 请求1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、智能封面、音视频拼接示例
+#### 请求1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、智能封面、音视频拼接、自定义函数、超分辨率和音视频分段示例
 
 ```plaintext
 POST /workflow HTTP/1.1
@@ -976,7 +1148,7 @@ Content-Type: application/xml
         <State>Active</State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554,SCF_1581665960566,SuperResolution_1581665960583,Segment_1581665960667</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -986,6 +1158,9 @@ Content-Type: application/xml
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
                 <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
                 <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
+                <SCF_1581665960566>End</SCF_1581665960566>
+                <SuperResolution_1581665960583>End</SuperResolution_1581665960583>
+                <Segment_1581665960667>End</Segment_1581665960667>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -1003,6 +1178,7 @@ Content-Type: application/xml
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -1014,6 +1190,13 @@ Content-Type: application/xml
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/cover-${Number}.jpg</Object>
                         </Output>
+                        <SmartCover>
+                            <Format>png</Format>
+                            <Width>128</Width>
+                            <Height>128</Height>
+                            <Count>3</Count>
+                            <DeleteDuplicates>false</DeleteDuplicates>
+                        </SmartCover> 
                     </Operation>
                 </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
@@ -1024,6 +1207,7 @@ Content-Type: application/xml
                             <Region></Region>
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/snapshot-${number}.${Ext}</Object>
+                            <SpriteObject>abc/${RunId}/snapshot-${number}.jpg</SpriteObject>
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
@@ -1111,6 +1295,43 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </VideoProcess_1581665960554>
+                <SCF_1581665960566>
+                    <Type>SCF</Type>
+                    <Operation>
+                        <SCF>
+                            <Region>ap-chengduRegion>
+                            <FunctionName>test</FunctionName>
+                            <Namespace>testspace</Namespace>
+                        </SCF>
+                    </Operation>
+                </SCF_1581665960566>
+                <SuperResolution_1581665960583>
+                    <Type>SuperResolution</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}/SuperResolution.mkv</Object>
+                        </Output>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
+                    </Operation>
+                </SuperResolution_1581665960583>
+                <Segment_1581665960667>
+                    <Type>Segment</Type>
+                    <Operation>
+                        <Segment>
+                            <Format>mp4</Format>
+                            <Duration>5</Duration>
+                        </Segment>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>test-trans${Number}</Object>
+                        </Output>
+                    </Operation>
+                </Segment_1581665960667>
             </Nodes>
         </Topology>
     </MediaWorkflow>
@@ -1132,10 +1353,10 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     <MediaWorkflow>
         <Name>demo</Name>
         <State>Active</State>
-        <WorkflowId></WorkflowId
+        <WorkflowId></WorkflowId>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554,SCF_1581665960566,SuperResolution_1581665960583,Segment_1581665960667</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -1145,6 +1366,9 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
                 <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
                 <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
+                <SCF_1581665960566>End</SCF_1581665960566>
+                <SuperResolution_1581665960583>End</SuperResolution_1581665960583>
+                <Segment_1581665960667>End</Segment_1581665960667>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -1162,6 +1386,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -1173,6 +1398,13 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/cover-${Number}.jpg</Object>
                         </Output>
+                        <SmartCover>
+                            <Format>png</Format>
+                            <Width>128</Width>
+                            <Height>128</Height>
+                            <Count>3</Count>
+                            <DeleteDuplicates>false</DeleteDuplicates>
+                        </SmartCover> 
                     </Operation>
                 </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
@@ -1183,6 +1415,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                             <Region></Region>
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/snapshot-${number}.${Ext}</Object>
+                            <SpriteObject>abc/${RunId}/snapshot-${number}.jpg</SpriteObject>
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
@@ -1270,6 +1503,43 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                         </Output>
                     </Operation>
                 </VideoProcess_1581665960554>
+                <SCF_1581665960566>
+                    <Type>SCF</Type>
+                    <Operation>
+                        <SCF>
+                            <Region>ap-chengduRegion>
+                            <FunctionName>test</FunctionName>
+                            <Namespace>testspace</Namespace>
+                        </SCF>
+                    </Operation>
+                </SCF_1581665960566>
+                <SuperResolution_1581665960583>
+                    <Type>SuperResolution</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}/SuperResolution.mkv</Object>
+                        </Output>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
+                    </Operation>
+                </SuperResolution_1581665960583>
+                <Segment_1581665960667>
+                    <Type>Segment</Type>
+                    <Operation>
+                        <Segment>
+                            <Format>mp4</Format>
+                            <Duration>5</Duration>
+                        </Segment>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>test-trans${Number}</Object>
+                        </Output>
+                    </Operation>
+                </Segment_1581665960667>
             </Nodes>
         </Topology>
         <BucketId></BucketId>
@@ -1392,6 +1662,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -1450,5 +1721,4 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     </MediaWorkflow>
 </Response>
 ```
-
 

@@ -2,6 +2,12 @@
 
 [对象存储（Cloud Object Storage，COS）](https://console.cloud.tencent.com/cos5) 访问日志记录了用户对 COS 资源的访问信息，包括上传对象（PUT），删除对象（DELETE），访问对象（GET）等。通过分析访问日志，用户可以完成审计回溯，如删除资源记录，同时也可以完成资源热门相关的资源统计等能力。本文介绍 COS 如何访问日志。
 
+
+## 前提条件
+
+已将 COS 日志采集至日志服务（Cloud Log Service，CLS），详情请参见 [COS 开启实时日志](https://cloud.tencent.com/document/product/614/62137)。
+
+
 ## 访问日志介绍
 
 COS 访问日志记录了源存储桶，用户 ID，请求方法等信息。
@@ -80,6 +86,9 @@ json-log2019-05-09_00645d9a-1118-4d69-8411-cfd57ede9ea1_000
 ```
 ![image-20210824203857045](https://main.qcloudimg.com/raw/1940741d830d1740d153aa8dd5846680.png)
 - 统计当天某个 bucket 的访问趋势
+```sql
+* | select date_trunc('minute', __TIMESTAMP__) AS time, count(*) as pv, reqMethod group by time, reqMethod order by time limit 200
+```
 ![image-20210824204151584](https://main.qcloudimg.com/raw/25dd0853f46113b934339606950e7c9c.png)
 - 错误请求 Top10的访问者
 ```

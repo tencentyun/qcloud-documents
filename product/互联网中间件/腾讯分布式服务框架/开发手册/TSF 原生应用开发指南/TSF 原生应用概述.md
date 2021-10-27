@@ -24,6 +24,6 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
 | 服务限流         | -                                        | 支持     | 自定义标签，需在 HTTP 请求头添加 tsf-mesh-tag: KEY=VALUE |
 | 服务熔断         | hystrix                                  | 支持     |             -                                          |
 | 服务鉴权         | -                                        | 支持     | 自定义标签，需在 HTTP 请求头添加 tsf-mesh-tag: KEY=VALUE |
-| 配置管理         | Config Server Consul Config              | 支持     | 引入 tsf-sdk                                            |
+| 配置管理         | Config Server Consul Config              | 不支持     | -                                          |
 | 链路追踪         | Spring Cloud Sleuth zipkin               | 兼容     | -                                                      |
 | 微服务网关       | Spring Cloud Gateway Netflix Zuul        | 兼容     | -                                                      |

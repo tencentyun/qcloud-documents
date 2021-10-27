@@ -9,14 +9,13 @@
 > 
 
 ## 操作步骤
-
 ### 步骤一：创建物理专线[](id:buzhou1)
 建设申请发起后，物理专线状态将转换为“申请中”，腾讯云将在3个工作日内进行资源评估和方案设计。
 1. 登录 [专线接入控制台]( https://console.cloud.tencent.com/dc/dc)，在“物理专线”页面上方单击 **+新建**。
 2. 在“新建物理专线”页面阅读《腾讯云专线接入服务协议》，完成后在左下角勾选**我已阅读并同意[《腾讯云专线接入服务协议》](https://cloud.tencent.com/document/product/216/45873)**，并单击**下一步**。
  ![](https://main.qcloudimg.com/raw/311d90253642885ef33eea0d1f844ff4.png)
 3. 在“确认接入信息”页面填写以下信息，然后单击**确定**。
-![](https://main.qcloudimg.com/raw/e277d9fe67be1b5cbfc0bc61647222ab.png)
+![](https://main.qcloudimg.com/raw/34246317d9c9af55079d7809479db7ac.png)
 <table>
 <tr>
 <th width="15%">参数</th>

@@ -1,4 +1,4 @@
->? 当前日志服务已支持大部分地域使用 CLS 函数。北京、上海、广州、南京地域如有需要，请联系 [在线客服](https://cloud.tencent.com/act/event/Online_service)。
+>? Histogram 函数与分析函数中的部分函数不能同时使用，例如 IP 地理函数、估算函数等。若报错信息提示 “Unknown function[函数名称]”，可使用 [时间补全函数](https://cloud.tencent.com/document/product/614/58981#.E6.97.B6.E9.97.B4.E8.A1.A5.E5.85.A8.E5.87.BD.E6.95.B0) 替代该报错函数。
 >
 
 时间函数支持对日志时间进行格式转换，分组聚合等处理，通常应用于根据日志时间做统计分析的场景。

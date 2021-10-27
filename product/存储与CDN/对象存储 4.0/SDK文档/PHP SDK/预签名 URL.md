@@ -44,7 +44,8 @@ try {
             'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
             'UploadId' => 'string',
             'PartNumber' => '1',
-            'Body' => 'string'), '+10 minutes'); //签名的有效时间
+            'Body' => 'string'
+            ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
 } catch (\Exception $e) {
@@ -70,7 +71,7 @@ $cosClient = new Qcloud\Cos\Client(
 try {
     $signedUrl = $cosClient->getPreSignedUrl('getObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
-        'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
+        'Key' => "exampleobject" //对象在存储桶中的位置，即对象键
         ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
@@ -114,7 +115,8 @@ try {
     $signedUrl = $cosClient->getPreSignedUrl('putObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
-        'Body' => 'string'), '+10 minutes'); //签名的有效时间
+        'Body' => 'string'
+        ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
 } catch (\Exception $e) {
@@ -129,7 +131,8 @@ try {
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
         'UploadId' => '',
         'PartNumber' => '1',
-        'Body' => ''), '+10 minutes'); //签名的有效时间
+        'Body' => ''
+        ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
 } catch (\Exception $e) {

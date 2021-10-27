@@ -33,7 +33,7 @@
 ### 6. CURL 示例说明
 请求：
 ```
-curl -u root:le201909 -H 'Content-Type:application/json' -X POST 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test -d'
+curl -u root:le201909 -H 'Content-Type:application/json' -X PUT 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test -d'
 {
     "base_metric": %{base_metric_name},      
     "rollup_metric": %{rollup_metric_name},    

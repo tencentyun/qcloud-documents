@@ -4,7 +4,7 @@ API 监控为您提供 HTTP Code 成功率、API 请求耗时等调用情况监�
 
 ## 操作步骤 
 1. 登录 [前端性能监控控制台](https://console.cloud.tencent.com/rum)。
-2. 在左侧菜单栏中单击【API 监控】。
+2. 在左侧菜单栏中单击 **API 监控**。
 3. 进入 API 监控页面即可查看 API 性能情况。
 
 ### 汇总分析

@@ -1,4 +1,5 @@
 快直播（LEB）是标准直播在超低延迟播放场景下的延伸，比传统直播协议延迟更低，为观众提供毫秒级的极致**直播观看**体验。
+在您使用快直播服务前，建议您提前阅读 [快直播服务费用](https://cloud.tencent.com/document/product/267/39136)，清楚收费项目和价格，避免产生误解。
 
 > ! 由于快直播使用的是 WebRTC 协议的低延迟特性，默认不支持 B 帧且音频编解码方式为 opus 编解码。为了保证快直播流可播放，当推流时带 B 帧或音频编码非 opus 编码时，云直播后台会自动发起转码去B帧并转码为 opus 编码，从而产生 [标准转码费用](https://cloud.tencent.com/document/product/267/39889)。
 
@@ -56,11 +57,14 @@ iOS、Android 上的应用可以通过集成移动直播 SDK 来实现 App 端�
 ### Demo 体验
 
 - **Web 端直播推流**：可通过 **云直播控制台**>[Web 推流工具](https://console.cloud.tencent.com/live/tools/webpush) 进行测试 Web 端推流功能。
-![](https://main.qcloudimg.com/raw/a47e0c7d8b40f94c13339265034b188a.png)
-- **Web 端直播拉流**：可通过 [WebRTC Live Demo](https://webrtc-demo.myqcloud.com/pull-sdk/index.html) 工具进行播放体验。
-![](https://main.qcloudimg.com/raw/bf2fd8d742782450aef50adf7dc654f6.png)
-
-> ! Web 端直播推流和拉流均使用标准 WebRTC 协议，Web 端推流时不包含 B帧 ，且音频编码为 OPUS 音频格式，所以不会产生音频转码及去 B 帧转码费用。
+<img src="https://main.qcloudimg.com/raw/a47e0c7d8b40f94c13339265034b188a.png" width=600>
+- **Web 端直播拉流**：可通过 [WebRTC Live Demo](https://tcplayer.vcube.tencent.com/webrtc-demo/index.html) 工具进行播放体验。
+>?
+>- Web 端直播推流和拉流均使用标准 WebRTC 协议，Web 端推流时不包含 B帧 ，且音频编码为 OPUS 音频格式，所以不会产生音频转码及去 B 帧转码费用。
+>- WebRTC Live Demo 支持多清晰度功能，可在云直播控制台 **功能配置**>[**直播转码**](https://console.cloud.tencent.com/live/config/transcode) 配置高清-HD、标清-SD 的转码模板，将带有转码模板的 WebRTC 流地址填入 Demo 中对应的栏目后测试播放（如不需要测试此功能则只需要在 Demo 中填入一条 WebRTC 原始流即可）。
+>- 直播转码操作指引及转码计费内容，请参见文档 [直播转码](https://cloud.tencent.com/document/product/267/20385)。
+>
+<img src="https://main.qcloudimg.com/raw/1f871aa2d45e2d3529cee8a98ef24673.png" width=600>
 
 [](id:obs)
 ## OBS WebRTC 协议推流接入

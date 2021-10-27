@@ -181,7 +181,7 @@ pusherA.startPush(pushURLA);
 V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
 ...
 /**
- * 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
+ * 这里使用CDN拉流，支持FLV、HLS、WebRTC协议，任选一种协议。FLV、HLS等标准协议价格更合理，WebRTC快直播能够提供更低延迟的互动体验。
  * playURLA= "http://3891.liveplay.myqcloud.com/live/streamidA.flv";
  * playURLA= "http://3891.liveplay.myqcloud.com/live/streamidA.hls";
  * playURLA= "webrtc://3891.liveplay.myqcloud.com/live/streamidA"
@@ -192,7 +192,7 @@ playerA.startPlay(playURLA);
 
 #### 3. 观众发起连麦
 
-其中观众 B 调用 `V2TXLivePusher` 发起推流（后续会称呼为连麦观众B）。
+其中观众 B 调用 `V2TXLivePusher` 发起推流（后续会称呼为连麦观众 B）。
 
 ```java
 V2TXLivePusher pusherB = new V2TXLivePusherImpl(this,V2TXLiveMode.TXLiveMode_RTC);
@@ -327,7 +327,7 @@ playerA.startPlay(playURLA);
 V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
 ...
 /**
- * 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
+ * 这里使用CDN拉流，支持FLV、HLS、WebRTC协议，任选一种协议。FLV、HLS等标准协议价格更合理，WebRTC快直播能够提供更低延迟的互动体验。
  * playURLB= "http://3891.liveplay.myqcloud.com/live/streamidA.flv";
  * playURLB= "http://3891.liveplay.myqcloud.com/live/streamidA.hls";
  * playURLB= "webrtc://3891.liveplay.myqcloud.com/live/streamidA"

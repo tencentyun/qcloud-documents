@@ -44,6 +44,8 @@
 <td>
 <ul style="margin-bottom: 0;">
   <li><a href="#M6">内存型 M6</a> </li>
+	<li><a href="#M6ce">安全增强内存型 M6ce</a> </li>
+	<li><a href="#M6p">内存型 M6p</a> </li>
 	<li><a href="#M5">内存型 M5</a> </li>
 	<li><a href="#MA2">内存型 MA2</a> </li>
 	<li><a href="#M4">内存型 M4</a> </li>
@@ -167,7 +169,7 @@
 					<p>在一个区域中可以启动的实例总数存在限制，有关限制的更多信息，请参阅  <a href="https://cloud.tencent.com/document/product/213/2664">CVM 实例购买限制</a>。</p>
 				</li>
 				<li>
-					<p>实例的系统盘和数据盘挂载限制：为了保证磁盘的 IO 性能体验，腾讯云对于随实例购买的数据盘有的大小和类型的限制，请参考对应实例族的磁盘搭配模块；必要时您可以通过购买独立云硬盘来规避实例的磁盘限制。</p>
+					<p>实例的系统盘和数据盘挂载限制：为了保证磁盘的 IO 性能体验，腾讯云对于随实例购买的数据盘有大小和类型的限制，请参考对应实例族的磁盘搭配模块；必要时您可以通过购买独立云硬盘来规避实例的磁盘限制。</p>
 				</li>
 				<li>
 					<p>请注意实例规格对应的内网带宽能力，该指标为对应规格实例最大内网带宽上限，CVM 内网流量超限后，实例内网可能出现随机丢包。</p>
@@ -11638,6 +11640,704 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
+<h3 id="M6ce">安全增强内存型 M6ce</h3>
+<div class="paragraph">
+<p>安全增强内存型 M6ce 实例是最新一代内存型实例，基于全新优化虚拟化平台，旨在为处理内存中的大型数据集的工作负载交付快速、稳定的性能，是高内存计算应用的最佳选择。</p>
+</div>
+<blockquote class="rno-document-tips rno-document-tips-explain"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
+</blockquote>
+<div class="sect3">
+<h4 id="_实例特点_8">实例特点</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>新一代腾讯云自研星星海双路服务器，搭配第三代 Intel<sup>®</sup> Xeon<sup>®</sup> 可扩展处理器</p>
+</li>
+<li>
+<p>采用 Intel<sup>®</sup> Xeon<sup>®</sup> Ice Lake 处理器，主频2.7GHz，睿频3.3GHz</p>
+</li>
+<li>
+<p>支持 Intel<sup>®</sup> SGX 加密计算，单实例最高含428G加密内存，保障关键数据及代码的机密性和安全性</p>
+</li>
+<li>
+<p>处理器与内存配比为1：8，其中加密内存在内存中的占比约为50%</p>
+</li>
+<li>
+<p>购买相同大小内存实例价格最低</p>
+</li>
+<li>
+<p>实例网络性能与规格对应，规格越高网络转发性能强，内网带宽上限越高</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_使用场景_8">使用场景</h4>
+<div class="paragraph">
+<p>它们非常适用于下列情况：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>数据共享与计算，可保护不同用户或厂商之间共享机密数据</p>
+</li>
+<li>
+<p>区块链应用，可增强事务、密钥存储等的隐私性和安全性</p>
+</li>
+<li>
+<p>高安全可信要求场景，金融、政府机构、医疗等</p>
+</li>
+<li>
+<p>机密计算场景，数据加密应用</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_实例要求_8">实例要求</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>M6ce 实例可以用作包年包月实例和按量计费实例。</p>
+</li>
+<li>
+<p>仅支持在私有网络中启动 M6ce 实例。</p>
+</li>
+<li>
+<p>M6ce 实例支持购买配置，请参阅下方实例规格。</p>
+</li>
+</ul>
+<blockquote class="rno-document-tips rno-document-tips-explain"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>如果您在 Intel SGX Enclave 中使用了与硬件相绑定的密钥加密数据（如 SGX Sealing），在以下场景导致宿主机发生变化后将无法解密对应数据。建议您在应用层做好数据备份，以保证应用的可靠性。<br>
+可能导致宿主机发生变化的场景：如宿主机故障、调整实例规格、使用关机不收费能力、修改实例置放群组等。</p>
+</blockquote>
+更多关于如何使用安全增强内存型 M6ce 实例的信息，请参见 <a href="https://cloud.tencent.com/document/product/213/63353">构建 SGX 机密计算环境</a>。
+<br>
+</div>
+</div>
+<div class="sect3">
+<h4 id="__a_href_instancetype_回到顶部_a_8">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
+
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>规格</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>vCPU</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>内存
+(GB)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>含机密内存(GB)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>网络收发包(pps)(出+入)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>连接数</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>队列数</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>内网带宽能力(Gbps)(出+入)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>主频</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>备注</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>M6ce.MEDIUM16</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>16</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>8</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>30万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>25万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.7/3.3GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>M6ce.LARGE32</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>4</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>32</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>16</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>60万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>50万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>4</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>4</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.7/3.3GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>M6ce.2XLARGE64</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>8</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>64</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>32</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>120万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>100万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>8</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>7</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.7/3.3GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>M6ce.4XLARGE128</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>16</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>128</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>64</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>250万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>200万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>16</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>13</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.7/3.3GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>M6ce.8XLARGE256</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>32</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>256</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>128</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>500万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>400万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>32</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>26</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.7/3.3GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>M6ce.31MEDIUM428</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>62</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>428</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>214</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>1000万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>800万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>48</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>50</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.7/3.3GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>M6ce.31XLARGE856</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>124</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>856</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>428</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>1900万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>800万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>48</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>100</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.7/3.3GHz</p>
+</div></div>
+</td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div>
+</td>
+</tr>
+</tbody>
+</table></div></td>
+</tr>
+</tbody>
+</table>
+
+<table class="tableblock frame-none grid-all spread custom-style">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="sect2">
+<h3 id="M6p">内存型 M6p</h3>
+<div class="paragraph">
+<p>内存型 M6p 实例是最新一代内存型实例，基于全新优化虚拟化平台，旨在为处理内存中的大型数据集的工作负载交付快速、稳定的性能，是高内存计算应用的最佳选择。</p>
+</div>
+<blockquote class="rno-document-tips rno-document-tips-explain"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
+</blockquote>
+<div class="sect3">
+<h4 id="_实例特点_8">实例特点</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>新一代腾讯云自研星星海双路服务器，搭配第三代 Intel<sup>®</sup> Xeon<sup>®</sup> 可扩展处理器</p>
+</li>
+<li>
+<p>采用 Intel<sup>®</sup> Xeon<sup>®</sup> Ice Lake处理器，主频2.7GHz，睿频3.3GHz</p>
+</li>
+<li>
+<p>搭配英特尔<sup>®</sup>第二代傲腾<sup>TM</sup> 持久内存（BPS），提供高性价比的内存介质。 </p>
+</li>
+<li>
+<p>处理器与内存配比为1：8</p>
+</li>
+<li>
+<p>购买相同大小内存实例价格最低</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_使用场景_8">使用场景</h4>
+<div class="paragraph">
+<p>它们非常适用于下列情况：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>高性能数据库、分布式内存缓存等需要大量的内存操作、查找和计算的应用</p>
+</li>
+<li>
+<p>基因计算等自行搭建 Hadoop 集群或 Redis 的用户</p>
+</li>
+<li>
+<p>Hadoop 或 Redis 集群等大内存应用场景</p>
+</li>
+<li>
+<p>高网络包收发场景，如视频弹幕、直播、游戏等</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_实例要求_8">实例要求</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>M6p 实例可以用作包年包月实例和按量计费实例。</p>
+</li>
+<li>
+<p>仅支持在私有网络中启动 M6p 实例。</p>
+</li>
+<li>
+<p>M6p 实例支持购买配置，请参阅下方实例规格。</p>
+</li>
+</ul>
+</div>
+<blockquote class="rno-document-tips rno-document-tips-explain"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p> 持久内存中数据的可靠性取决于物理服务器和持久内存设备的可靠性，有丢失数据的风险（例如宿主机宕机时），建议您将有长期存储可靠性要求的数据存储到云硬盘上。</p>
+</blockquote>
+更多关于如何使用内存型 M6p 实例的信息，请参见 <a href="https://cloud.tencent.com/document/product/213/63360">M6p 实例配置持久内存</a>。
+<br>
+</div>
+<div class="sect3">
+<h4 id="__a_href_instancetype_回到顶部_a_8">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
+
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>规格</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>vCPU</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>内存(GB)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>持久内存(GB)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>网络收发包(pps)(出+入)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>连接数</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>队列数</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>内网带宽能力(Gbps)(出+入)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>主频</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>备注</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>M6p.LARGE16</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>4</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>16</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>62</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>60万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>50万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>4</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>4</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.7GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>M6p.2XLARGE32</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>8</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>32</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>124</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>120万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>100万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>8</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>7</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.7GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>M6p.4XLARGE53</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>16</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>53</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>248</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>250万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>200万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>16</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>13</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.7GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>M6p.8XLARGE106</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>32</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>106</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>496</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>500万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>400万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>32</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>26</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.7GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>M6p.31MEDIUM212</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>62</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>212</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>992</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>1000万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>800万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>48</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>50</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.7GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>M6p.31XLARGE424</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>124</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>424</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>1984</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>1900万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>1600万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>48</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>100</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.7GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+</tr>
+</tbody>
+</table></div></td>
+</tr>
+</tbody>
+</table>
+
+
+<table class="tableblock frame-none grid-all spread custom-style">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="sect2">
 <h3 id="M5">内存型 M5</h3>
 <div class="paragraph">
 <p>内存型 M5 实例是最新一代内存型实例，基于全新优化虚拟化平台，旨在为处理内存中的大型数据集的工作负载交付快速、稳定的性能，是高内存计算应用的最佳选择。</p>
@@ -11989,7 +12689,6 @@
 </tr>
 </tbody>
 </table>
-
 
 
 <table class="tableblock frame-none grid-all spread custom-style">

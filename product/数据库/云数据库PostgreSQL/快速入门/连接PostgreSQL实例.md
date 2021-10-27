@@ -12,14 +12,14 @@
 ### Windows 操作系统连接方法
 1. [登录到 Windows 云服务器](https://cloud.tencent.com/document/product/213/2764) 或在本地，下载并安装一个标准的 SQL 客户端。
 >?本文以 pgAdmin 为例，您可根据自己的系统下载适配版本的安装程序，下载地址请参见https://www.pgadmin.org/download/。
-2. 在 pgAdmin 上方选择【Object】>【Create】>【Server】。
+2. 在 pgAdmin 上方选择 **Object** > **Create** > **Server**。
 ![](https://main.qcloudimg.com/raw/38db0fb15e9de97762362a7afb105796.png)
-3. 在【Create - Server】对话框中，填写名称、主机 IP 地址、端口号、用户名和密码等后，单击【Save】。
- - 主机 IP 地址和端口号：可至 [PostgreSQL 控制台](https://console.cloud.tencent.com/pgsql)， 实例详情页中的【内网地址】或【外网地址】查看。若外网地址未开启，请参见 [开启外网地址](#kqww) 开启。
+3. 在 **Create - Server** 对话框，填写名称、主机 IP 地址、端口号、用户名和密码等后，单击 **Save**。
+ - 主机 IP 地址和端口号：可至 [PostgreSQL 控制台](https://console.cloud.tencent.com/pgsql)， 实例详情页中的**内网地址**或**外网地址**查看。若外网地址未开启，请参见 [开启外网地址](#kqww) 开启。
 >?这里的内网地址为 VIP，是通过接入网关集群统一访问数据库实例，而非直接连接到数据库实例物理机上，因此当主机发生故障或主备切换时，内网 IP 都不会变化。
  - 用户名和密码：使用初始化实例时设置的数据库管理员用户名与密码，如忘记密码，可至 [控制台](https://console.cloud.tencent.com/pgsql) 的帐号管理页重置密码。
 ![](https://main.qcloudimg.com/raw/ef6b1975a212ee352adda4dd4e1159e7.png)
-4. 登录数据库后，在左侧导航选择【Databases】>【postgres】，可看到连接好的服务器（数据库实例）。
+4. 登录数据库后，在左侧导航选择 **Databases** > **postgres**，可看到连接好的服务器（数据库实例）。
 ![](https://main.qcloudimg.com/raw/ede1361fb76d38deaf9cf22d3a43e8f3.png)
 
 ### Linux 操作系统连接方法
@@ -32,8 +32,8 @@ psql -U 用户名 -h 访问地址 -p 端口 -d postgres
 >?如果是在与数据库同 VPC 的 CVM 中，“访问地址”可直接使用数据库内网地址进行访问；如果是使用互联网中的 Linux 服务器，则“访问地址”需要使用数据库外网地址进行访问。
 
 ### [附录：开启外网访问地址](id:kqww)
-1. 登录 [PostgreSQL 控制台](https://console.cloud.tencent.com/pgsql)，在实例列表，单击实例名或“操作”列的【管理】，进入实例详情页面。
-2. 在实例详情页的“基本信息”里找到“外网地址”，单击【开通】。
+1. 登录 [PostgreSQL 控制台](https://console.cloud.tencent.com/pgsql)，在实例列表，单击实例 ID 或**操作**列的**管理**，进入实例详情页面。
+2. 在实例详情页的**基本信息**里找到**外网地址**，单击**开通**。
 ![](https://main.qcloudimg.com/raw/9ca9cd47bbf25fbbf8af012cafcdcfdf.png)
-3. 在弹出的对话框，单击【确定】后，外网开通进入处理状态。
+3. 在弹出的对话框，单击**确定**后，外网开通进入处理状态。
 4. 开启成功后，即可在基本信息中查看到外网地址。
