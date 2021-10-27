@@ -1057,6 +1057,16 @@ GI3X 性价比高 ，适用于如下场景：
 	  <td>110万PPS</td>
 	  <td>14</td>
 	</tr>
+	 <tr>
+			<td>GNV4v.7XLARGE116</td>
+			<td>1颗</td> 
+      <td>1 * 24GB</td>
+			<td>28核</td>
+			<td>116GB</td>
+      <td>13Gbps</td>
+			<td>230万PPS</td>
+      <td>28</td>
+		</tr>
   </tbody>
 </table>
 
