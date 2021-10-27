@@ -23,8 +23,20 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 	</tr>
   </thead>
   <tbody>
+	 <tr>
+      <td rowspan="8">计算型</td>
+			<td><a href="#PNV4">PNV4</a></td> 
+      <td>A10</td>
+      <td>
+			<ul class="params">
+				<li>CentOS 7.2 及以上</li>
+				<li>Ubuntu 16.04 及以上</li>
+				<li>Windows Server 2016 及以上</li>
+			</ul>
+			</td>
+      <td>广州、上海、北京</td>
+  </tr>
 	<tr>
-	  <td rowspan="7">计算型</td>
 	  <td>
 		<a href="#GT4">GT4</a>
 	  </td>
@@ -112,8 +124,20 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 		</ul>
 	  </td>
 	</tr>
+	<tr>
+	  <td rowspan="3">渲染型</td>
+	  <td><a href="#GNV4v">GNV4v</a></td> 
+	  <td>A10</td>
+	  <td>
+		<ul class="params">
+			<li>CentOS 7.2 及以上</li>
+			<li>Ubuntu 16.04 及以上</li>
+			<li>Windows Server 2012 及以上</li>
+		</ul>
+		</td>
+	  <td>北京、上海、广州</td>
+	</tr>	
   <tr>
-	<td rowspan="2">渲染型</td>
 	<td>
 	  <a href="#GNV4">GNV4</a>
 	</td>
@@ -125,7 +149,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 		<li>Windows Server 2012 及以上</li>
 	  </ul>
 	</td>
-	<td>上海</td>
+	<td>北京、上海、广州、重庆</td>
   </tr>
   <tr>
 	<td>
@@ -146,8 +170,11 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 </table>
 
 
+<dx-alert infotype="explain" title="">
+**可用区域**：精确到城市级，细分区域详见下文中的实例配置信息。
+</dx-alert>
 
->?**可用区域**：精确到城市级，细分区域详见下文中的实例配置信息。
+
 
 
 
@@ -169,6 +196,8 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
             <th width="11.5%">GN7vw</th>
             <th width="11.5%">GT4</th>
 						<th width="11.5%">GNV4</th>
+            <th width="11.5%">PNV4</th>
+            <th width="11.5%">GNV4v</th>						
         </tr>
         </thead>
         <tbody>
@@ -182,6 +211,8 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>★</td>
                  <td>-</td> 
 								 <td>★</td>
+								 <td>✓</td>
+                <td>★</td>
             </tr>
             <tr>
                 <td>视频编解码</td>
@@ -193,6 +224,8 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>★</td>
                 <td>-</td> 
 								<td>★</td>
+								<td>★</td>
+                <td>★</td>
             </tr>
             <tr>
                 <td>深度学习训练</td>
@@ -204,6 +237,8 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>-</td>
                 <td>★</td>
 								<td>✓</td>
+								<td>✓</td>
+                <td>-</td>
             </tr>
             <tr>
                 <td>深度学习推理</td>
@@ -215,6 +250,8 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>-</td>
                 <td>✓</td>
 								<td>✓</td>
+								<td>★</td>
+                <td>-</td>
             </tr>
             <tr>
                 <td>科学计算</td>
@@ -226,13 +263,15 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>-</td>
                 <td>★</td>
 								<td>-</td> 
+								<td>-</td>
+                <td>-</td>
             </tr>
         </tbody>
 </table>
 
 
 ### 图形图像处理
-推荐使用 GN7vw，免除了 vDWS License 申请及搭建服务器步骤，是图形图像处理应用场景的首选。目前使用 GNV4 需进行申请，请联系您的售前经理进行实例购买权限开通。
+推荐使用 GN7vw/GNV4/GNV4v，免除了 vDWS License 申请及搭建服务器步骤，是图形图像处理应用场景的首选。目前使用 GNV4 需进行申请，请联系您的售前经理进行实例购买权限开通。
 
 NVIDIA GN* 系列其他实例可以通过安装 GRID Driver 的方式来支持图形图像处理，但是需要额外购买 License，详情请参见 [安装 NVIDIA GRID 驱动](https://cloud.tencent.com/document/product/560/30060)。
 
@@ -246,22 +285,114 @@ NVIDIA GN* 系列其他实例可以通过安装 GRID Driver 的方式来支持�
 
 ### 深度学习推理
 
-推荐使用 GN6/GN6S/GN7/GI3X/GN8 实例。GN6/GN6S/GN7/GI3X/GN8 实例采用 P4、T4、P40 GPU，具备 INT8 计算能力，性价比高 ，适合大规模部署。
+推荐使用 GN6/GN6S/GN7/GI3X/GN8/PNV4 实例。GN6/GN6S/GN7/GI3X/GN8/PNV4  实例采用 P4、T4、P40、A10 GPU，具备 INT8 计算能力，性价比高 ，适合大规模部署。
 
 ### 科学计算
 
 推荐使用 GN10X/GN10Xp/GT4 实例。GN10X/GN10Xp/GT4 实例采用 V100、A100 GPU，具有强大的双精度浮点运算能力，可为科学与工程计算相关的应用软件提供最好的加速能力。
 
->!
->- 以上推荐用途仅供参考，请根据实际需要进行选择。
->- NVIDIA 系列 GPU 实例如用作通用计算，则需安装 Tesla Driver + CUDA，安装方法请参考 [安装 NVIDIA Tesla 驱动指引](https://cloud.tencent.com/document/product/560/8048) 和 [安装 CUDA 驱动指引](https://cloud.tencent.com/document/product/560/8064)。
->- NVIDIA 系列 GPU 实例如用作 3D 图形渲染任务（高性能图形处理，视频编解码等），则需安装 GRID Driver 和配置 License Server，安装方法请参考 [安装 NVIDIA GRID 驱动](https://cloud.tencent.com/document/product/560/30060)。
->
+<dx-alert infotype="notice" title="">
+- 以上推荐用途仅供参考，请根据实际需要进行选择。
+- NVIDIA 系列 GPU 实例如用作通用计算，则需安装 Tesla Driver + CUDA，安装方法请参考 [安装 NVIDIA Tesla 驱动指引](https://cloud.tencent.com/document/product/560/8048) 和 [安装 CUDA 驱动指引](https://cloud.tencent.com/document/product/560/8064)。
+- NVIDIA 系列 GPU 实例如用作 3D 图形渲染任务（高性能图形处理，视频编解码等），则需安装 GRID Driver 和配置 License Server，安装方法请参考 [安装 NVIDIA GRID 驱动](https://cloud.tencent.com/document/product/560/30060)。
+</dx-alert>
+
+
 
 ##  支持范围
 - 支持 [包年包月](/doc/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88) 和 [按量计费]( /doc/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9)。
 - 支持在 [私有网络](/doc/product/213/5227) 中启动。
 - 支持与 [负载均衡](/doc/product/214/524) 等产品的业务对接，不增加额外的管理和运维成本，内网流量免费。
+
+
+## 计算型 PNV4[](id:PNV4) 
+
+**NVIDIA 实例 PNV4** 不仅适用于深度学习等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
+
+<dx-alert infotype="notice" title="">
+该实例暂时处于白名单开放，请联系您的售前经理进行实例购买权限开通。
+</dx-alert>
+
+### 适用场景
+
+性价比高 ，适用于如下场景：
+
+- 深度学习的推理场景和小规模训练场景。例如：
+  - 大规模部署的 AI 推理
+  - 深度学习小规模训练
+- 图形图像处理场景。例如：
+  - 图形图像处理
+  - 视频编解码
+  - 图形数据库
+
+### 硬件规格
+
+- **CPU：**2.55GHz AMD EPYCTM Milan 处理器，睿频3.5GHz。
+- **GPU：**NVIDIA<sup>®</sup>  A10（62.5 TFLOPS 单精度浮点计算，250 INT8 TOPS，500 INT4 TOPS）。
+- **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
+- **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
+
+**PNV4 实例提供以下配置：**
+
+<table>
+		<thead>
+		<tr>
+			<th width=10%>型号</th>
+			<th width=10%>GPU<br>（NVIDIA<br>A10）</th>
+            <th width=12%>GPU 显存<br>（HBM2）</th>
+			<th width=8%>vCPU</th>
+			<th>内存<br>（DDR4）</th>
+            <th width=10%>内网带宽</th>
+            <th>网络收发包</th>
+            <th>队列数</th>
+			<th>可用区</th>
+		</tr>
+		</thead>
+		<tbody>
+        <tr>
+			<td>PNV4.7XLARGE116</td>
+			<td>1颗</td> 
+            <td>1 * 24GB</td>
+			<td>28核</td>
+			<td>116GB</td>
+            <td>13Gbps</td>
+			<td>230万PPS</td>
+            <td>28</td>
+            <td rowspan="4">广州七区，上海五区，北京六区</td>
+		</tr>
+		<tr>
+			<td>PNV4.14XLARGE232</td>
+			<td>2颗</td> 
+            <td>2 * 24GB</td>
+			<td>56核</td>
+			<td>232GB</td>
+            <td>25Gbps</td>
+			<td>470万PPS</td>
+            <td>48</td>
+		</tr>
+        <tr>
+			<td>PNV4.28XLARGE466</td>
+			<td>4颗</td> 
+            <td>4 * 24GB</td>
+			<td>112核</td>
+			<td>466GB</td>
+            <td>50Gbps</td>
+			<td>950万PPS</td>
+            <td>48</td>
+		</tr>
+        <tr>
+			<td>PNV4.56XLARGE932</td>
+			<td>8颗</td> 
+            <td>8 * 24GB</td>
+			<td>224核</td>
+			<td>932GB</td>
+            <td>100Gbps</td>
+			<td>1900万PPS</td>
+            <td>48</td>
+		</tr>
+		</tbody>
+</table>
+
 
 
 ## 计算型 GT4[](id:GT4) 
@@ -350,7 +481,11 @@ GT4 具有强大的双精度浮点运算能力 ，适用于大规模深度学习
 		</tbody>
 </table>
 
->?**GPU 驱动**：NVIDIA A100 系列需要安装 NVIDIA Tesla 450 版本以上驱动，推荐您安装 460.32.03(Linux)/461.33(Windows) 版本驱动，驱动版本信息请参见 [NVIDIA 官方文档](https://docs.nvidia.com/datacenter/tesla/index.html#nvidia-driver-documentation)。
+<dx-alert infotype="explain" title="">
+**GPU 驱动**：NVIDIA A100 系列需要安装 NVIDIA Tesla 450 版本以上驱动，推荐您安装 460.32.03(Linux)/461.33(Windows) 版本驱动，驱动版本信息请参见 [NVIDIA 官方文档](https://docs.nvidia.com/datacenter/tesla/index.html#nvidia-driver-documentation)。
+</dx-alert>
+
+
 
 
 ## 计算型 GN10X/GN10Xp[](id:GN10XGN10Xp) 
@@ -756,9 +891,13 @@ GI3X 性价比高 ，适用于如下场景：
 </table>
 
 
->?**vGPU**：
->- GN7 实例簇支持 vGPU 的实例类型。vGPU 的类型为 vComputeServer，只支持 CUDA 计算 API。
->- vCS 实例需安装 GRID 驱动，且 vCS 的实例不支持 Windows 操作系统。
+<dx-alert infotype="explain" title="">
+**vGPU**：
+- GN7 实例簇支持 vGPU 的实例类型。vGPU 的类型为 vComputeServer，只支持 CUDA 计算 API。
+- vCS 实例需安装 GRID 驱动，且 vCS 的实例不支持 Windows 操作系统。
+</dx-alert>
+
+
 
 
 ## 计算型 GN6/GN6S[](id:GN6GN6S) 
@@ -847,12 +986,92 @@ GI3X 性价比高 ，适用于如下场景：
 		</tbody>
 </table>
 
+## 渲染型 GNV4v[](id:GNV4v)
+
+**NVIDIA 实例 GNV4v** 配置了 vDWS License 服务器并安装 GRID driver 的渲染型实例，适用于图形图像处理（3D 渲染，视频编解码）场景。使用该实例，您可免除手动配置 GPU 图形图像处理基础环境。
+
+<dx-alert infotype="notice" title="">
+该实例暂时处于白名单开放，请联系您的售前经理进行实例购买权限开通。
+</dx-alert>
+
+
+### 适用场景
+
+适用于图形图像处理。例如：
+
+- 图形图像处理
+- 视频编解码
+- 图形数据库
+
+### 硬件规格
+
+- **CPU：**2.55GHz AMD EPYCTM Milan 处理器，睿频3.5GHz。
+- **GPU：**NVIDIA<sup>®</sup>  A10（62.5 TFLOPS 单精度浮点计算，250 INT8 TOPS，500 INT4 TOPS）。
+- **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
+- **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
+
+**GNV4v 实例提供以下配置：**
+
+<table>
+  <thead>
+	<tr>
+	  <th width="10%">型号</th>
+	  <th width="10%">GPU
+	  <br />（NVIDIA
+	  <br />A10）</th>
+	  <th width="12%">GPU 显存
+	  <br />（HBM2）</th>
+	  <th width="8%">vCPU</th>
+	  <th>内存
+	  <br />（DDR4）</th>
+	  <th width="10%">内网带宽</th>
+	  <th>网络收发包</th>
+	  <th>队列数</th>
+	  <th>可用区</th>
+	</tr>
+  </thead>
+  <tbody>
+	<tr>
+	  <td>GNV4v.XLARGE24</td>
+	  <td>1/4颗</td>
+	  <td>6GB vGPU</td>
+	  <td>6核</td>
+	  <td>24GB</td>
+	  <td>3Gbps</td>
+	  <td>50万PPS</td>
+	  <td>6</td>
+	  <td rowspan="3">广州七区，上海五区，北京六区</td>
+	</tr>
+	<tr>
+	  <td>GNV4v.3XLARGE58</td>
+	  <td>1/2颗</td>
+	  <td>12GB vGPU</td>
+	  <td>14核</td>
+	  <td>58GB</td>
+	  <td>7Gbps</td>
+	  <td>110万PPS</td>
+	  <td>14</td>
+	</tr>
+  </tbody>
+</table>
+
+
+<dx-alert infotype="explain" title="">
+**vGPU**：GN7、GN7vw、GNV4实例簇提供支持 vGPU 的实例类型。其中 GN7vw/GNV4 vGPU 的类型为 vDWS/vWs，仅支持 DirectX 和 OpenGL 等图形 API。
+</dx-alert>
+
+
+
 
 ## 渲染型 GNV4[](id:GNV4)
 
 **NVIDIA 实例 GNV4** 配置了 vDWS License 服务器并安装 GRID driver 的渲染型实例，适用于图形图像处理（3D 渲染，视频编解码）场景。使用该实例，您可免除手动配置 GPU 图形图像处理基础环境。
 
->?使用该实例需进行申请，请联系您的售前经理进行实例购买权限开通。
+<dx-alert infotype="explain" title="">
+使用该实例需进行申请，请联系您的售前经理进行实例购买权限开通。
+</dx-alert>
+
+
 
 
 
@@ -897,20 +1116,29 @@ GI3X 性价比高 ，适用于如下场景：
         <td>2Gbps</td>
 				<td>53万PPS</td>
         <td>4</td>
-        <td rowspan="4">上海五区</td>
+        <td rowspan="4">北京六区、上海五区、广州六区、重庆一区</td>
 			</tr>
 		</tbody>
 </table>
 
->?**vGPU**：GN7、GN7vw 、GNV4实例簇提供支持 vGPU 的实例类型。其中 GN7vw/GNV4 vGPU 的类型为 vDWS/vWs，仅支持 DirectX 和 OpenGL 等图形 API。
+
+
+<dx-alert infotype="explain" title="">
+**vGPU**：GN7、GN7vw、GNV4实例簇提供支持 vGPU 的实例类型。其中 GN7vw/GNV4 vGPU 的类型为 vDWS/vWs，仅支持 DirectX 和 OpenGL 等图形 API。
+</dx-alert>
+
+
 
 
 
 ## 渲染型 GN7vw[](id:GN7vw)
 
 **NVIDIA 实例 GN7vw** 是在 GN7 基础上配置 vDWS License 服务器并安装 GRID driver 的渲染型实例，适用于图形图像处理（3D 渲染，视频编解码）场景。使用该实例，您可免除手动配置 GPU 图形图像处理基础环境。
->!GPU 渲染型 GN7vw 现处于限量购买阶段，如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
->
+
+
+<dx-alert infotype="notice" title="">
+GPU 渲染型 GN7vw 现处于限量购买阶段，如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
+</dx-alert>
 
 
 ### 适用场景
@@ -978,7 +1206,11 @@ GI3X 性价比高 ，适用于如下场景：
 </table>
 
 
->?**vGPU**：GN7、GN7vw 实例簇提供支持 vGPU 的实例类型。其中 GN7vw vGPU 的类型为 vDWS，仅支持 DirectX 和 OpenGL 等图形 API。
+<dx-alert infotype="explain" title="">
+**vGPU**：GN7、GN7vw 实例簇提供支持 vGPU 的实例类型。其中 GN7vw vGPU 的类型为 vDWS，仅支持 DirectX 和 OpenGL 等图形 API。
+</dx-alert>
+
+
 
 
 <style>
