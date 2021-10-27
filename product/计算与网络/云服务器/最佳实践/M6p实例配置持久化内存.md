@@ -54,16 +54,14 @@ ndctl enable-region region0
 #### 将持久内存作为内存使用
 
 PMEM 可作为字符设备提供给上层应用，例如 redis 进行持久内存的分配，可借助 memkind 等 PMDK 框架来使用。其配置方法如下：
-1. 依次执行以下命令，生成字符设备。
+1. 执行以下命令，生成字符设备。
 ```
 ndctl create-namespace -r region0 -m devdax
 ```
+最大规格实例具有两个 region，若您使用最大规格实例，请同时执行以下命令。
 ```
 ndctl create-namespace -r region1 -m devdax -f
 ```
-<dx-alert infotype="explain" title="">
-最大规格实例具有两个 region，执行以上命令后，请将 region0 替换为 region1 并再次执行命令。
-</dx-alert>
 配置完成后，`/dev` 目录下已生成 `dax0.0` 字符设备，可映射持久化内存。
 2. 执行以下命令，查看持久内存大小。
 ```
@@ -94,7 +92,7 @@ AD 模式的 PMEM 也可配置为高速块设备，可用作一般的块设备�
 ```
 ndctl create-namespace -r region0 -m fsdax
 ```
-最大规格实例具有两个 region，若您使用了最大规格的实例，则请执行以下命令。
+最大规格实例具有两个 region，若您使用最大规格实例，请同时执行以下命令。
 ```
 ndctl create-namespace -r region1 -m fsdax -f
 ```
