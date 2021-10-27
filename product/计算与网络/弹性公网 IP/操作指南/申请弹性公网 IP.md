@@ -4,11 +4,10 @@
 若需创建计费模式为共享带宽包的 EIP，请先创建共享带宽包，详情请参见 [创建 IP 带宽包](https://cloud.tencent.com/document/product/684/39942)，一个 IP 带宽包可以加入多个 EIP。
 
 ## 操作步骤
-1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
-2. 在 EIP 管理页面，选择**地域**，单击**申请**。
+1. 登录 [公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip)。
+2. 在公网 IP 页面顶部，选择**地域**，单击**申请**。
 3. 在弹出的“申请EIP”窗口中，请按照您的账户类型，分别进行如下操作：
 >?若您无法确定账户类型，请参见 [判断账户类型](https://cloud.tencent.com/document/product/1199/49090#judge)。
-
 <dx-tabs>
 ::: 标准账户类型
 <table>
@@ -109,12 +108,11 @@
 </tbody></table>
 :::
 </dx-tabs>
-
 4. 单击**确定**，完成 EIP 的申请。
 5. 返回 EIP 列表页，可查看已申请的 EIP，此时处于未绑定状态。
 >?IP 资源费按小时计费，精确到秒级，不足一小时，按闲置时间占比收取费用。建议您及时为处于未绑定状态的 EIP 绑定云资源，保障 IP 资源的合理利用，节省 IP 资源费。
 >
- ![](https://main.qcloudimg.com/raw/9492216f61d10704015dac0cf217bd01.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/38630600cb89f1ca836ab6e175563fbc.png)
 
 ## 后续操作
 若需要为 EIP 绑定云资源，请参见 [EIP 绑定云资源](https://cloud.tencent.com/document/product/1199/41702)。
