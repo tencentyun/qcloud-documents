@@ -3,7 +3,7 @@
 
 
 ## 前提条件
-已创建并登录 M6ce 实例。
+已创建并登录 [M6ce 实例](https://cloud.tencent.com/document/product/213/11518#M6ce)。
  - 如何创建实例，请参见 [通过购买页创建实例](https://cloud.tencent.com/document/product/213/4855)。
  - 如何登录实例，请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 
