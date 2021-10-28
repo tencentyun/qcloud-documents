@@ -61,7 +61,7 @@
 
 
 ### 步骤三：绑定云资源
-1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)，并选择中国香港地域。
+1. 登录 [公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip)，并选择中国香港地域。
 2. 在目标 EIP 实例右侧的操作栏下，选择**更多** > **绑定**。
 3. 在弹出的“绑定资源”窗口中，选择需绑定的云资源类型和云资源，单击**确定**。
 >?
