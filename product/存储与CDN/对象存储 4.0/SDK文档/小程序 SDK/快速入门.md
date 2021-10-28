@@ -205,7 +205,7 @@ var cos = new COS({
 
 #### 构造函数参数说明
 
-| 参数名                 | 参数描述                                                     | 类型     | 必填 |
+| 参数名                 | 参数描述                                                     | 类型     | 是否必填 |
 | ---------------------- | ------------------------------------------------------------ | -------- | ---- |
 | SecretId               | 用户的 SecretId                                              | String   | 否   |
 | SecretKey              | 用户的 SecretKey，建议只在前端调试时使用，避免暴露密钥       | String   | 否   |
@@ -243,13 +243,13 @@ getAuthorization 的回调参数说明：
 
 获取完临时密钥后，callback 回传一个对象，回传对象的属性列表如下：
 
-| 属性名            | 参数描述                                                     | 类型   | 必填 |
+| 属性名            | 参数描述                                                     | 类型   | 是否必填 |
 | ----------------- | ------------------------------------------------------------ | ------ | ---- |
 | TmpSecretId       | 获取回来的临时密钥的 tmpSecretId                             | String | 是   |
-| TmpSecretKey      | 获取回来的临时密钥的 tmpSecretKey                            | String | 否   |
-| XCosSecurityToken | 获取回来的临时密钥的 sessionToken，对应 header 的 x-cos-security-token 字段 | String | 否   |
+| TmpSecretKey      | 获取回来的临时密钥的 tmpSecretKey                            | String | 是   |
+| XCosSecurityToken | 获取回来的临时密钥的 sessionToken，对应 header 的 x-cos-security-token 字段 | String | 是   |
 | StartTime         | 密钥获取的开始时间，即获取时刻的时间戳，单位秒，startTime，如：1580000000，用于签名开始时间，传入该参数可避免前端时间偏差签名过期问题 | String | 否   |
-| ExpiredTime       | 获取回来的临时密钥的 expiredTime，超时时刻的时间戳，单位秒，如：1580000900 | String | 否   |
+| ExpiredTime       | 获取回来的临时密钥的 expiredTime，超时时刻的时间戳，单位秒，如：1580000900 | String | 是   |
 
 #### getAuthorization 回调函数说明（使用格式二）
 
@@ -273,7 +273,7 @@ getAuthorization 计算完成后，callback 回传参数支持两种格式：
 格式一：回传鉴权凭证字符串 Authorization。
 格式二：回传一个对象，对象属性列表如下：
 
-| 属性名            | 参数描述                                                     | 类型   | 必填 |
+| 属性名            | 参数描述                                                     | 类型   | 是否必填 |
 | ----------------- | ------------------------------------------------------------ | ------ | ---- |
 | Authorization     | 计算得到的签名字符串                                         | String | 是   |
 | XCosSecurityToken | 获取回来的临时密钥的 sessionToken，对应 header 的 x-cos-security-token 字段 | String | 否   |

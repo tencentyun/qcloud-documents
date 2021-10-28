@@ -1,3 +1,5 @@
+>?本文介绍**事件函数**支持 WebSocket 的解决方案，目前 **Web 函数**已经支持原生 WebSocket 协议，详情请参见 [WebSocket 协议支持](https://cloud.tencent.com/document/product/583/63406)。
+
 ## 实现原理
 
 WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览器与服务器全双工（full-duplex）通信，即允许服务器主动发送信息给客户端。WebSocket 在服务端有数据推送需求时，可以主动发送数据至客户端。而原有 HTTP 协议的服务端对于需推送的数据，仅能通过轮询或 long poll 的方式来让客户端获得。
