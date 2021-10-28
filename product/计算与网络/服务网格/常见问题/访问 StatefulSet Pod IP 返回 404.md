@@ -1,4 +1,4 @@
-在 istio 中业务容器访问同集群一 Pod IP 返回 404，在 istio-proxy 中访问却正常
+在 istio 中业务容器访问同集群一 Pod IP 返回 404，在 istio-proxy 中访问却正常。
 
 ## 原因
 
@@ -6,9 +6,9 @@ Pod 属于 StatefulSet，使用 headless svc，在 istio 中对 headless svc 的
 
 ## 示例场景
 
-使用了自己的服务发现，业务直接使用 Pod IP 调用 StatefulSet 的 Pod IP
+使用了自己的服务发现，业务直接使用 Pod IP 调用 StatefulSet 的 Pod IP。
 
 ## 解决方案
 
-同集群访问 statefulset pod ip 带上 host，以匹配上 headless svc 路由，避免匹配不到就 4
+同集群访问 statefulset pod ip 带上 host，以匹配上 headless svc 路由，避免匹配不到发生404。
 

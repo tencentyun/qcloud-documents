@@ -58,7 +58,15 @@ if err != nil {
 :::
 </dx-tabs>
 
-
-  
-关于 Pulsar 社区版 Go SDK 各种功能的使用方式，请参考 [Pulsar官方文档](http://pulsar.apache.org/docs/en/client-libraries-go/)。
+**关于 Pulsar 社区版 Go SDK 使用 Reader 的特殊说明：**
+如果使用 Reader 方式订阅主题时，需要指定到 Topic 分区级别（默认分区即在 Topic 后面加 `-partition-0`），代码示例如下：
+<dx-codeblock>
+:::  go
+reader, err := client.CreateReader(pulsar.ReaderOptions{
+		Topic:          "persistent://test-tenant/test-ns/test-topic-partition-0",
+		StartMessageID: pulsar.EarliestMessageID(),
+	})
+:::  
+ </dx-codeblock> 
+关于 Pulsar 社区版 Go SDK 各种功能的使用方式，请参考 [Pulsar 官方文档](http://pulsar.apache.org/docs/en/client-libraries-go/)。
 

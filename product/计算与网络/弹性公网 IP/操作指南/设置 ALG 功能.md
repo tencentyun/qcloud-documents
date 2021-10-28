@@ -13,44 +13,45 @@ ALG（Application Layer Gateway，应用层网关）是由一个扩增防火墙�
 - 目前仅弹性公网 IP 支持设置 ALG 功能，弹性公网 IPv6 不支持。
 - 以下部分集群机型不支持设置 ALG 功能，如需使用，请 [联系我们](https://cloud.tencent.com/document/product/1199/59721)。
 <table>
-  <tbody>
-          <tr>
-			<th>云服务器实例类型</th>
-			<th>机型</th>
-  </tr>
-   <tr>
-		  <td>标准型</td>
-			<td>标准型 S5</td>
-		</tr>
-   <tr>
-		  <td rowspan="6">黑石物理服务器2.0</td>
-			<td>标准型 BMS4</td>
-		</tr>
-		<tr>
-			<td>高 IO 型 BMI5</td>
-		</tr>
-				<tr>
-			<td>大数据型 BMD3</td>
-		</tr>
-				<tr>
-			<td>大数据型 BMD2</td>
-		</tr>
-				<tr>		<td>GPU 型 BMG5t</td>
-		</tr>
-				<tr>
-			<td>GPU 型 BMG5v</td>
-		</tr>
-		<tr>
-		  <td>高性能计算集群</td>
-			<td>GPU 型 HCCG5v</td>
-		</tr>
-</tbody></table>
+<tbody>
+<tr>
+<th>云服务器实例类型</th>
+<th>机型</th>
+</tr>
+<tr>
+<td>标准型</td>
+<td>标准型 S5</td>
+</tr>
+<tr>
+<td rowspan="6">黑石物理服务器2.0</td>
+<td>标准型 BMS4</td>
+</tr>
+<tr>
+<td>高 IO 型 BMI5</td>
+</tr>
+<tr>
+<td>大数据型 BMD3</td>
+</tr>
+<tr>
+<td>大数据型 BMD2</td>
+</tr>
+<tr>		<td>GPU 型 BMG5t</td>
+</tr>
+<tr>
+<td>GPU 型 BMG5v</td>
+</tr>
+<tr>
+<td>高性能计算集群</td>
+<td>GPU 型 HCCG5v</td>
+</tr>
+</tbody>
+</table>
 
 
 ## 操作步骤
-1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
-2. 在“弹性公网 IP”页面左上角选择**地域**。
-3. 在弹性公网 IP 列表中选中目标实例，在右侧“操作”列选择**更多** > **设置 ALG**。
+1. 登录 [公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip)。
+2. 在“公网 IP”页面顶部选择**地域**。
+3. 在公网 IP 列表中选中目标实例，在右侧“操作”列选择**更多** > **设置 ALG**。
 4. 在弹出的“设置 ALG”对话框中，设置针对 FTP、SIP 协议开启或关闭 ALG 功能。
 >? 默认情况下，ALG 处于开启状态。
 >

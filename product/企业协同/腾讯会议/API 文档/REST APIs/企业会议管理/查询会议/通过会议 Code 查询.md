@@ -22,6 +22,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |---------|---------|---------|
 | meeting_number | integer | 会议数量。  |
 |meeting_info_list  |Array| 会议列表。  |
+|media_set_type   | String    |该参数仅提供给支持混合云的企业可见，默认值为0。<br>0：外部会议<br>1：内部会议 <br>说明：周期性会议的查询，只展示在父会议的参数中，子会议对象无需展示该参数。   |      
 
 
 <span id="Array"></span>

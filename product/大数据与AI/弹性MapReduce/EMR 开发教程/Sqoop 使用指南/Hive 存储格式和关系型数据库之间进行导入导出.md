@@ -93,7 +93,6 @@ OK
 Time taken: 0.204 seconds
 hive> load data inpath "/$hdfspath/hive_test.data" into table hive_test;   #导入数据
 ```
-
 $hdfspath 为 HDFS 上的您存放文件的路径。
 
 成功后可使用`quit`命令退出 Hive 数据仓库。连接关系型数据库并创建对应的表格：
@@ -184,7 +183,6 @@ Time taken: 0.013 seconds
 hive> create table if not exists orc_test(a int,b string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' stored as orc;
 ```
 可以通过如下指令来查看表格中数据的存储格式：	
-
 ```
 hive> show create table orc_test;
 OK
@@ -241,7 +239,6 @@ mysql> create table table_from_orc (a int,b varchar(255));
 其中 $mysqlIP 为您的关系型数据库的内网 IP 地址，test 为关系型数据库中的数据库名，--table 后跟的参数为您的关系型数据库的表名，--hcatalog-database 后面跟的参数是要导出的 Hive 表所在的数据库的名称，--hcatalog-table 后面跟的参数是要 Hive 中要导出的表的名称。
 
 导入成功后可以在 MySQL 中查看相应表中的数据：
-
 ```
 mysql> select count(*) from table_from_orc;
 +----------+

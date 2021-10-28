@@ -7,7 +7,7 @@ TCM 1.6 及其以上的版本并不是用 `istio-inejction=enabled` 这个 label
 - 1.6 是 `istio.io/rev=1-6-9`
 - 1.8 是 `istio.io/rev=1-8-1`
 
-所以如果用社区常见的 `istio-injection=enalbed` 这样的 label，在 TCM 上是不会生效的，为什么不使用社区常见的 label 呢？请听下文分解。
+所以如果用社区常见的 `istio-injection=enalbed` 这样的 label，在 TCM 上是不会生效的，以下为不使用社区常见的 label 的原因。
 
 ## 网格灰度升级需使用不同 label
 
@@ -15,7 +15,7 @@ TCM 1.6 及其以上的版本并不是用 `istio-inejction=enabled` 这个 label
 
 ## TCM 如何开启自动注入
 
-在 TCM 控制台，点击 【服务】-【sidecar自动注入】:
+在服务网格控制台，选择**服务**>**sidecar自动注入**。如下图所示：
 
 ![img](https://main.qcloudimg.com/raw/1fe8bd87b51230d641e6ee57ad5a57c2.png)
 
@@ -27,4 +27,4 @@ TCM 1.6 及其以上的版本并不是用 `istio-inejction=enabled` 这个 label
 kubectl label namespace xxx istio.io/rev=1-8-1
 ```
 
-> 注意替换 namespace 以及根据版本替换对应的 label
+>! 注意替换 namespace 以及根据版本替换对应的 label。

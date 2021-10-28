@@ -92,6 +92,6 @@
 |平台 |源码地址 |跑通 Demo |
 |:--|--|--|
 |Android |[Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) |[跑通 Demo](https://cloud.tencent.com/document/product/454/60984)|
-|iOS |[Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example) |[跑通 Demo](https://cloud.tencent.com/document/product/454/60985)|
+|iOS |[Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example-OC) |[跑通 Demo](https://cloud.tencent.com/document/product/454/60985)|
 
 ![](https://main.qcloudimg.com/raw/ebcfbafa2bd9cb1ba5db40b5ba87c95f.png) 
