@@ -1,14 +1,14 @@
-移动直播 SDK 提供了3种版本的 SDK，了解3个版本 SDK 的关系和对应的 License 使用可参见 [功能说明](https://cloud.tencent.com/document/product/454/19075)。
-以下视频将为您介绍3个 SDK 之间的区别和各自的特点：
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2343-35187?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
-   
+移动直播 SDK 提供了4种版本的 SDK，了解4个版本 SDK 的关系和对应的 License 使用可参见 [功能说明](https://cloud.tencent.com/document/product/454/19075)。
+以下视频将为您介绍4个 SDK 之间的区别和各自的特点：
 
-<h2 id="Smart">直播基础版（Smart）</h2>
-  
-基础版仅包含直播推流（TXLivePusher）和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用移动直播相关功能的客户。 
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2343-35187?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
+<h2 id="Smart">基础直播版（Smart）</h2>
+
+基础直播版仅包含直播推流（TXLivePusher）和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用移动直播相关功能的客户。 
 
 >! 基础版的直播推流只支持 RTMP 推流，不支持 RTC 推流。
-      
+
 <table>
    <tr>
       <th width="0px" style="text-align:center">所属平台</td>
@@ -51,10 +51,44 @@
 >? 扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
 >![](https://main.qcloudimg.com/raw/23242df893a3ecb11779a59ed9a5629c.jpg)
 
+<h2 id="Professional">互动直播版（Live）</h2>
 
-<h2 id="Professional">专业版（Professional）</h2>
+互动直播版包含**主播开播、主播观众连麦/主播跨房 PK**和**直播观看**三个功能模块。互动直播 Live 是在基础直播 Smart 功能上同时支持基于 RTC 协议连麦，快速实现更加灵活、更低延时、更多人数的直播互动场景。
 
-专业版集合了包含移动直播在内的多个音视频相关的核心功能，这包括 [实时音视频 SDK](https://cloud.tencent.com/product/trtc)、[超级播放器（Player+）](https://cloud.tencent.com/product/player) 和 [短视频（UGSV）](https://cloud.tencent.com/product/ugsv) 等，由于底层模块的高度复用，集成专业版的体积增量要小于同时集成两个独立的 SDK，并且可以避免符号冲突（symbol duplicate）的困恼。
+<table>
+   <tr>
+      <th width="0px" style="text-align:center">所属平台</td>
+      <th width="0px" style="text-align:center">ZIP 包</td>
+      <th width="0px" style="text-align:center">SDK 集成指引</td>
+      <th width="0px" style="text-align:center">64位支持</td>
+      <th width="0px" style="text-align:center">安装包增量</td>
+   </tr>
+   <tr>
+      <td style="text-align:center">iOS</td>
+      <td style="text-align:center"><a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Live_iOS_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/1449/56986">DOC</a></td>
+      <td style="text-align:center">支持</td>
+      <td style="text-align:center">so（arm64）：1.6M<br>so（armv7）：1.6M</td>
+   </tr>
+     <tr>
+      <td style="text-align:center">Android</td>
+      <td style="text-align:center"><a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Live_Android_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/1449/56987">DOC</a></td>
+      <td style="text-align:center">支持</td>
+      <td style="text-align:center">jar：0.8M <br> so(armeabi)：6.2M <br>so(armeabi-v7a)：6.2M <br>so(arm64-v8a)：7.4M</td>
+   </tr>
+   <tr>
+      <td style="text-align:center">微信小程序 </td>
+      <td style="text-align:center">N/A</td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/1449/56990">DOC</a></td>
+      <td style="text-align:center">N/A</td>
+      <td style="text-align:center">N/A</td>
+   </tr>
+</table>
+
+<h2 id="Professional">全功能版（Professional）</h2>
+
+全功能版集合了包含移动直播在内的多个音视频相关的核心功能，这包括 [实时音视频 SDK](https://cloud.tencent.com/product/trtc)、[超级播放器（Player+）](https://cloud.tencent.com/product/player) 和 [短视频（UGSV）](https://cloud.tencent.com/product/ugsv) 等，由于底层模块的高度复用，集成全功能版的体积增量要小于同时集成两个独立的 SDK，并且可以避免符号冲突（symbol duplicate）的困恼。
 
 <table>
    <tr>
@@ -118,26 +152,27 @@
    </tr>
 </table>
 
->! 动效贴纸、AI抠图、美妆特效和手势动作特效需通过额外的素材来使用功能。
+>! 动效贴纸、AI 抠图、美妆特效和手势动作特效需通过额外的素材来使用功能。
 
 ## 各版本差异对照表
- 
-![](https://main.qcloudimg.com/raw/744b80d1c15efaddb50ff11ffeea0f6e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6d55bfc9388d40162599f801a8458dc1.svg)
 
 <table>
   <tr>
     <th width="100px" style="text-align:center">功能模块</th>
     <th width="100px" style="text-align:center">功能项</th>
-    <th width="100px" style="text-align:center"><a href="#Smart">直播基础版</a><br>LiteAV_Smart</th>
+    <th width="100px" style="text-align:center"><a href="#Smart">基础直播版</a><br>LiteAV_Smart</th>
+    <th width="100px" style="text-align:center"><a href="#Live">互动直播版</a><br>LiteAV_Live</th>
     <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/9366">短视频版</a><br>LiteAV_UGC</th>
     <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32689">TRTC版</a><br>LiteAV_TRTC</th>
     <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/881/20205">播放器版</a><br>LiteAV_Player</th>
-    <th width="100px" style="text-align:center"><a href="#Professional">专业版</a><br>Professional</th>
+    <th width="100px" style="text-align:center"><a href="#Professional">全功能版</a><br>Professional</th>
     <th width="100px" style="text-align:center"><a href="#Enterprise">企业版</a><br>Enterprise</th>
   </tr>
   <tr>
     <td rowspan='2' style="text-align:center">直播推流</td>
     <td style="text-align:center">摄像头推流</td>
+    <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
@@ -147,6 +182,7 @@
   </tr>
    <tr>
     <td style="text-align:center">录屏推流</td>
+    <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
@@ -158,6 +194,7 @@
     <td rowspan='4' style="text-align:center">直播播放</td>
     <td style="text-align:center">RTMP 协议</td>
     <td style="text-align:center">&#10003</td>
+    <td style="text-align:center">&#10003</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
@@ -167,6 +204,7 @@
   <tr>
     <td style="text-align:center">HTTP - FLV</td>
     <td style="text-align:center">&#10003</td>
+    <td style="text-align:center">&#10003</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
@@ -175,6 +213,7 @@
   </tr>
   <tr>
     <td style="text-align:center">HLS(m3u8)</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
@@ -188,12 +227,14 @@
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
   </tr>
   <tr>
     <td rowspan='3' style="text-align:center">点播播放</td>
     <td style="text-align:center">MP4 格式</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
@@ -206,12 +247,14 @@
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
   </tr>
    <tr>
     <td style="text-align:center">DRM 加密</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
@@ -225,12 +268,14 @@
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
+    <td style="text-align:center">&#10003</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
   </tr>
   <tr>
     <td style="text-align:center">基础滤镜</td>
+    <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
@@ -241,6 +286,7 @@
   <tr>
     <td rowspan='2' style="text-align:center">直播连麦</td>
     <td style="text-align:center">连麦互动</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
@@ -250,6 +296,7 @@
   </tr>
   <tr>
     <td style="text-align:center">跨房 PK</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
@@ -262,6 +309,7 @@
     <td style="text-align:center">双人通话</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
@@ -269,6 +317,7 @@
   </tr>
   <tr>
     <td style="text-align:center">视频会议</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
@@ -280,6 +329,7 @@
     <td rowspan='4' style="text-align:center">短视频</td>
     <td style="text-align:center">录制和拍摄</td>
     <td style="text-align:center">-</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
@@ -288,6 +338,7 @@
   </tr>
   <tr>
     <td style="text-align:center">裁剪拼接</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">-</td>
@@ -298,6 +349,7 @@
   <tr>
     <td style="text-align:center">“抖音”特效</td>
     <td style="text-align:center">-</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
@@ -306,6 +358,7 @@
   </tr>
   <tr>
     <td style="text-align:center">视频上传</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">-</td>
@@ -321,10 +374,12 @@
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
   </tr>
   <tr>
     <td style="text-align:center">V 脸隆鼻</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
@@ -339,6 +394,7 @@
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
   </tr>
   <tr>
@@ -348,9 +404,11 @@
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
   </tr>
 </table>
+
 
 
 <script>
@@ -366,5 +424,4 @@
   })();
 </script>
    
-
 
