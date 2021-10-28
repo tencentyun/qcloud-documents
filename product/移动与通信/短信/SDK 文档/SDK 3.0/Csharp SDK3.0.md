@@ -26,7 +26,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 1. 执行以下安装命令。
 ```
-dotnet add package TencentCloudSDK --version 3.0.0
+dotnet add package TencentCloudSDK
 ```
  其他信息请通过 [nuget](https://www.nuget.org/packages/TencentCloudSDK/) 获取。
 2. 通过 Visual Studio 添加包。

@@ -58,10 +58,10 @@ private static void initEnv() {
 ```java
 private static void registerSaga() {
     ITransferService transferService = new TransferService();
-    // debit的compensate
+    // debit 的 compensate
     SagaRegistry.register("com.tencent.cloud.dtf.demo.transfer.TransferService.debit",
             SagaRegistry.SAGA.getInstance(transferService, "compensateDebit"));
-    // credit的compensate
+    // credit 的 compensate
     SagaRegistry.register("com.tencent.cloud.dtf.demo.transfer.TransferService.credit",
             SagaRegistry.SAGA.getInstance(transferService, "compensateCredit"));
 }
@@ -79,7 +79,7 @@ private static void registerSaga() {
 public static void main(String[] args) {
         // 设置参数
         initEnv();
-        // 注册Saga
+        // 注册 Saga
         registerSaga();
         // 启动分布式事务客户端
         DtfClient.start();

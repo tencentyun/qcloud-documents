@@ -5,7 +5,7 @@
 
 ## 前提条件
 
-已将 COS 日志采集至日志服务（Cloud Log Service，CLS），详情请参见 [设置日志管理](https://cloud.tencent.com/document/product/436/17040)。
+已将 COS 日志采集至日志服务（Cloud Log Service，CLS），详情请参见 [COS 开启实时日志](https://cloud.tencent.com/document/product/614/62137)。
 
 
 ## 访问日志介绍

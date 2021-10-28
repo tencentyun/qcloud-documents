@@ -21,7 +21,7 @@ table th:nth-of-type(2){ width:84%; }
 ### 第一部分：域名配置
 
 在域名处填充您需要加速的自身的服务域名，为其选择项目、加速区域及业务类型：
-![](https://main.qcloudimg.com/raw/14c8ed2cdc340731c886b28339fb2377.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e1d2d756e3d9f84e715e14cc6a82135e.png" width="85%">
 
 **配置项详解：**
 

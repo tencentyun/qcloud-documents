@@ -1,3 +1,11 @@
+### 如何设置自定义铃声？
+
+使用自定义铃声可以通过创建通知渠道实现：
+1. 创建通知渠道，通过 TPNS 封装 API 或安卓原生 API 创建指定自定义铃声文件的通知渠道，可参考 [创建通知渠道](https://cloud.tencent.com/document/product/548/36659#.E5.88.9B.E5.BB.BA.E9.80.9A.E7.9F.A5.E6.B8.A0.E9.81.93)。
+2. 在 TPNS 推送 REST API 指定相同的通知渠道`n_ch_id `进行推送,厂商通道需指定厂商渠道 ID，如华为通道需指定`hw_ch_id`,小米通道需指定`xm_ch_id`。
+
+>? 目前仅华为、小米、FCM 和 TPNS 通道支持自定义铃声，厂商通道渠道 ID 申请步骤可参考 [厂商通道消息分类功能使用说明](https://cloud.tencent.com/document/product/548/44531)。
+>
 
 ### 如何关闭 TPNS 的保活功能？
 
