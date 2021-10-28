@@ -109,7 +109,7 @@ Status GameServerGrpcSdkServiceImpl::OnStartGameServerSession(ServerContext* con
 	return Status::OK;
 }
 ```
- 4. 当 Game Server 收到 onStartGameServerSession，您自行处理一些逻辑或资源分配，准备就绪后，Game Server 就调用ActivateGameServerSession 接口，通知 GSE 游戏服务器会话已分配给一个进程，现在已准备好接收玩家请求，将服务器状态更改为“活跃”。
+ 4. 当 Game Server 收到 onStartGameServerSession，您自行处理一些逻辑或资源分配，准备就绪后，Game Server 就调用 ActivateGameServerSession 接口，通知 GSE 游戏服务器会话已分配给一个进程，现在已准备好接收玩家请求，将服务器状态更改为“活跃”。
 ```Lua
 static bool luaActivateGameServerSession(const std::string &gameServerSessionId, int maxPlayers) {
 	GseResponse reply;
