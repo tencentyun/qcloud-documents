@@ -92,7 +92,7 @@ https://eip-public-read-1255852779.cos.ap-guangzhou.myqcloud.com/eip_windows_dir
 >?如果主网卡绑定的公网 IP 不是 EIP，则需转换为 EIP，详情请参见 [普通公网 IP 转 EIP]( https://cloud.tencent.com/document/product/1199/41706)。
 >
 完成辅助网卡的配置后，在 EIP 控制台中为主网卡配置 EIP 直通。
-1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1)。
+1. 登录 [公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1)。
 2. 选择云服务器主网卡绑定的 EIP 的地域，并在对应 EIP 的右侧操作栏中，选择**更多** > **直通**即可。
 ![](https://main.qcloudimg.com/raw/56da0588d288d0aa5e1c60855bdb67cf.png)
 3. 在弹出的“EIP 直通”对话框中，单击**确定**。
