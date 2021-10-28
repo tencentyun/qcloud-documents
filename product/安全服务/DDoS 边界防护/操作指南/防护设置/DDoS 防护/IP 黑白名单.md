@@ -6,7 +6,6 @@
 >- 当发生 DDoS 攻击时，IP 黑白名单的过滤才会生效。
 >   - 白名单中的 IP，访问时将被直接放行，不经过任何防护策略过滤。
 >   -	黑名单中的 IP，访问时将会被直接阻断。
->- 目前边界防护产品处于灰度优化中，如有需要，请 [联系我们](https://cloud.tencent.com/online-service?from=doc_1014) 申请。
 
 ## 操作步骤
 1. 登录 [边界防护管理控制台](https://console.cloud.tencent.com/ddos/antiddos-edge/policy/ddos) ，在左侧导航中，单击**防护策略**，并选择 **DDoS 防护**。
