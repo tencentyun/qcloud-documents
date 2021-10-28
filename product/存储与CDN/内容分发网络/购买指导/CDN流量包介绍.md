@@ -21,7 +21,7 @@ CDN 流量包是用于抵扣内容分发网络（Content Delivery Network，CDN�
 ## CDN 流量包定价
 
 
-**连续包月**
+**自动续订价格**
 
 <table style="width:750px;">
     <caption></caption>
