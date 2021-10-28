@@ -19,7 +19,7 @@
 - 如何登录实例，请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 
 
-## 英特尔® 傲腾™ DC BSP 硬件（PMEM）模式介绍
+## 英特尔® 傲腾™ DC BPS 硬件（PMEM）模式介绍
 
 ### Memory 模式
 在 Memory 模式下，常规 DRAM 充当最常访问数据的缓存，而持久内存作为后备内存使用，高速缓存管理操作由内存控制器自动处理。
