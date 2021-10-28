@@ -109,7 +109,7 @@ CDN 流量包是用于抵扣内容分发网络（Content Delivery Network，CDN�
     </tr>
 </table>
 
-## CDN 境外流量包价格定价
+## CDN 境外流量包定价
 <table>
 <thead>
 <tr>
