@@ -123,7 +123,8 @@ Total File Size: 1190133760
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse
 ```
 
-COSDistCp 默认会对拷贝失败的文件重试5次，如果仍然失败，则会将失败文件信息写入 /tmp/${randomUUID}/output/failed/ 目录下，其中，${randomUUID} 为随机字符串。
+
+COSDistCp 默认会对拷贝失败的文件重试5次，如果仍然失败，则会将失败文件信息写入 /tmp/${randomUUID}/output/failed/ 目录下，其中，${randomUUID} 为随机字符串。记录失败文件信息后，COSDistcp 会继续迁移剩余文件，迁移任务并不会因为部分文件迁移失败而失败。在迁移任务完成的时候，COSDistcp 会输出计数器信息，并判断是否存在文件迁移失败，如果存在，则在提交任务的客户端抛出异常。
 
 以下类型的源文件信息包含在输出文件中：
 1. 存在源文件的清单中，但拷贝时源文件不存在，记录为 SRC_MISS
