@@ -1,5 +1,5 @@
 
-本文主要介绍如何快速地将腾讯云 LiteAVSDK（Android）集成到您的项目中，按照如下步骤进行配置，就可以完成 SDK 的集成工作。
+本文主要介绍如何快速地将腾讯云 LiteAVSDK（Android）集成到您的项目中，按照如下步骤进行配置，就可以完成 SDK 的集成工作。下面以全功能的 [全功能版 SDK](https://cloud.tencent.com/document/product/454/7873) 为例：
 
 ## 开发环境要求
 - Android Studio 2.0+。
