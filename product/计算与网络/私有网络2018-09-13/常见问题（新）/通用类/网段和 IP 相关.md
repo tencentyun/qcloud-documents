@@ -19,7 +19,8 @@
     - VPC 间迁移，请参考 [切换私有网络服务](https://cloud.tencent.com/document/product/213/20278#.E7.A7.81.E6.9C.89.E7.BD.91.E7.BB.9C.E4.B9.8B.E9.97.B4.E5.88.87.E6.8D.A2)。
 
 ### VPC 内资源（CVM、数据库等）是否支持修改内网 IP？
-云数据库（TencentDB）支持修改内网 IP，可登录云数据库控制台进行修改；负载均衡（CLB）不支持修改内网IP地址。
+- 云服务器主网卡的主内网 IP 支持修改，辅助网卡的主内网 IP 不支持修改，详情请参见 [修改内网 IP 地址](https://cloud.tencent.com/document/product/213/16561)。
+- 云数据库（TencentDB）支持修改内网 IP，可登录云数据库控制台进行修改；负载均衡（CLB）不支持修改内网IP地址。
 
 ### VPC 内的云服务器或数据库能否切换到其它 VPC？
 - 目前支持云服务器、云数据库 MySQL的迁移，暂不支持其他数据库的迁移。
