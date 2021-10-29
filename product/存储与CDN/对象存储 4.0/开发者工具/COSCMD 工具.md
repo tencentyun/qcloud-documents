@@ -365,6 +365,10 @@ coscmd upload -r <localpath> <cospath>
 ```plaintext
 coscmd upload -r D:/doc /
 ```
+- 操作示例 - 将 dist 文件夹中的内容（不含 dist 文件夹）上传到 COS 根路径
+```shell
+coscmd upload -r dist/ /
+```
 - 操作示例 - 将 D 盘的 doc 文件夹及其文件上传到 COS 的 doc 路径
 ```plaintext
 coscmd upload -r D:/doc doc
