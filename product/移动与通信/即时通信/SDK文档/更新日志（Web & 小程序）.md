@@ -5,7 +5,7 @@
 - 支持国际站。
 - [createLocationMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createLocationMessage)，支持发送地理位置消息。
 - 上传图片、视频、文件等带文件类型，方便下载和预览，兼容 uniapp。
-- [Conversation](https://web.sdk.qcloud.com/im/doc/zh-cn/Conversation.html) `lastMessage` 数据结构新增 `nick` `nameCard` 字段，便于展示群聊会话展示 `lastMessage` 的发送者的信息。
+- [Conversation](https://web.sdk.qcloud.com/im/doc/zh-cn/Conversation.html) `lastMessage` 数据结构新增 `nick` `nameCard` 字段，便于展示群聊会话 `lastMessage` 的发送者的信息。
   
 **变更**
 
