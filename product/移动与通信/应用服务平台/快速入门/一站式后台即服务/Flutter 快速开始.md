@@ -4,14 +4,14 @@
 2. [创建云开发环境](https://cloud.tencent.com/document/product/876/41391)，获得 **环境 ID**；
 3. 安装 [Flutter](https://flutter.cn/docs/get-started/install)。
 
-## 第 1 步：创建 Flutter 项目
+## 步骤1：创建 Flutter 项目
 
 ```sh
 flutter create cloudbase_demo
 cd cloudbase_demo
 ```
 
-## 第 2 步：添加 CloudBase 插件依赖
+## 步骤2：添加 CloudBase 插件依赖
 
 在项目的 `pubspec.yaml` 文件中添加 `dependencies` 。
 
@@ -27,7 +27,7 @@ dependencies:
 flutter pub get
 ```
 
-## 第 3 步：创建移动应用安全来源的凭证
+## 步骤3：创建移动应用安全来源的凭证
 
 打开[安全设置页面](https://console.cloud.tencent.com/tcb/env/safety)中，在移动应用安全来源里**添加应用**.
 
@@ -35,13 +35,13 @@ flutter pub get
 
 >? 因为 Flutter 是跨端开发框架, 所以需要为 Android 和 iOS 各申请一个应用凭证。 应用标识应该是 Android 包名 和 iOS Bundle ID。
 
-## 第 4 步：开启匿名登录
+## 步骤4：开启匿名登录
 
 在[环境设置页面](https://console.cloud.tencent.com/tcb/env/setting)中，单击“登录方式”，然后**启用匿名登录**：
 
 <img src="https://main.qcloudimg.com/raw/0b6a93991575776761137e9558aed3fc.png">
 
-## 第 5 步：初始化环境并调用匿名登录
+## 步骤5：初始化环境并调用匿名登录
 
 在项目的 `lib/main.dart` 文件中初始化环境并进行匿名登录。
 
