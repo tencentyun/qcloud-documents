@@ -266,8 +266,18 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 </table>
 
 >! 
->- 您可以在浏览器中打开 [WebRTC 能力测试](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。
->- 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC 桌面浏览器端 SDK 的正常运行。
+>- 您可以在浏览器中打开 [TRTC Web SDK 能力测试页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 检测当前浏览器是否支持 WebRTC 所有能力。例如 WebView 等浏览器环境。
+>- 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC Web 端 SDK 的正常运行。
+
+## URL 域名协议限制
+| 应用场景     | 协议             | 接收（播放） | 发送（上麦） | 屏幕分享 | 备注 |
+| ------------ | :--------------- | :----------- | ------------ | -------- | ---- |
+| 生产环境     | https协议        | 支持         | 支持         | 支持     | 推荐 |
+| 生产环境     | http协议         | 支持         | 不支持       | 不支持   |      |
+| 本地开发环境 | http://localhost | 支持         | 支持         | 支持     | 推荐 |
+| 本地开发环境 | http://127.0.0.1 | 支持         | 支持         | 支持     |      |
+| 本地开发环境 | http://[本机IP]  | 支持         | 不支持       | 不支持   |      |
+| 本地开发环境 | file:///         | 支持         | 支持         | 支持     |      |
 
 ## API 使用指引
 详细的 API 使用介绍请参见以下指引：

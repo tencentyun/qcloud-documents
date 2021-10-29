@@ -4,6 +4,12 @@
 
 对象存储（Cloud Object Storage，COS）基于 [数据万象（Cloud Infinite，CI）](https://cloud.tencent.com/document/product/460/6962) 产品推出了 WebP 压缩功能，可将图片转换为 webp 压缩图片格式，其在压缩方面相比 jpg 格式更优越。在相同图片质量的情况下，webp 格式图片要比 jpg 格式图片减小25%以上，可以适配多终端使用场景。
 
+## 限制说明
+
+- 支持格式：支持将 jpg、png、bmp、gif、tpg、heif、avif 等格式图片转换为 webp 格式。
+- 体积限制：处理图片原图大小不超过32MB、宽高不超过30000像素且总像素不超过2.5亿像素，处理结果图宽高设置不超过9999像素；针对动图，原图宽 x 高 x 帧数不超过2.5亿像素。
+- 动图帧数限制：gif 帧数限300帧。
+
 ## 使用方式
 
 COS 通过数据万象 imageMogr2 接口提供 WebP 压缩功能。
@@ -14,7 +20,11 @@ COS 通过数据万象 imageMogr2 接口提供 WebP 压缩功能。
 - 上传时处理
 - 云上数据处理
 
->?WebP 压缩为付费服务，费用同基础图片处理，由数据万象收取，具体费用请参见数据万象 [图片处理费用](https://cloud.tencent.com/document/product/460/58117)。
+>?
+>- WebP 压缩为付费服务，费用同基础图片处理，由数据万象收取，具体费用请参见数据万象 [图片处理费用](https://cloud.tencent.com/document/product/460/58117)。
+>- 图片转换为 WebP 格式后，部分浏览器无法读取 WebP 图片的 exif 信息，导致没有旋转。您可参见 [旋转](https://cloud.tencent.com/document/product/436/44882) 文档，增加 auto-orient 参数，对原图旋转后再进行压缩。
+
+
 
 ## 接口示例
 

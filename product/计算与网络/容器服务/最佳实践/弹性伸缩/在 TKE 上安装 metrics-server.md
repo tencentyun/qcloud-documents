@@ -10,32 +10,29 @@ metrics-server 可实现 Kubernetes 的 Resource Metrics API（metrics.k8s.io）
 
 ### 下载 yaml 部署文件
 
-执行以下命令，下载 metrics-server 的最新部署 components.yaml 文件。
+执行以下命令，下载 metrics-server 官方的部署 yaml:
 
 ```bash
-wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.5.0/components.yaml
 ```
 
 ### 修改 metrics-server 启动参数
 
 metrics-server 会请求每台节点的 kubelet 接口来获取监控数据，接口通过 HTTPS 暴露，但 TKE 节点的 kubelet 使用的是自签证书，若 metrics-server 直接请求 kubelet 接口，将产生证书校验失败的错误，因此需要在 components.yaml 文件中加上 `--kubelet-insecure-tls` 启动参数。
-且由于 metrics-server 官方镜像仓库存储在 `k8s.gcr.io` ，国内可能无法直接拉取，您可以自行同步到 CCR 或使用已同步的镜像 `ccr.ccs.tencentyun.com/mirrors/metrics-server:v0.4.0`。
+且由于 metrics-server 官方镜像仓库存储在 `k8s.gcr.io` ，国内可能无法直接拉取，您可以自行同步到 CCR 或使用已同步的镜像 `ccr.ccs.tencentyun.com/mirrors/metrics-server:v0.5.0`。
 
 components.yaml 文件修改示例如下：
 
 ```yaml
-containers:
-- args:
-    - --cert-dir=/tmp
-    - --secure-port=4443 # 请替换为4443
-    - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
-    - --kubelet-use-node-status-port
-    - --kubelet-insecure-tls # 加上该启动参数
-    image: ccr.ccs.tencentyun.com/mirrors/metrics-server:v0.4.0 # 国内集群，请替换成
-    ports:
-    - containerPort: 4443  #请替换为4443
-      name: https
-      protocol: TCP
+      containers:
+      - args:
+        - --cert-dir=/tmp
+        - --secure-port=443
+        - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+        - --kubelet-use-node-status-port
+        - --metric-resolution=15s
+        - --kubelet-insecure-tls # 加上该启动参数
+        image: ccr.ccs.tencentyun.com/mirrors/metrics-server:v0.5.0 # 国内集群，请替换成这个镜像
 ```
 
 ### 部署 metrics-server
@@ -44,11 +41,6 @@ containers:
 
 ```bash
 kubectl apply -f components.yaml
-```
-
->? 通过上述步骤，即可安装部署 metrics-server。您也可以执行以下命令一键安装 metrics-server，但该方式无法保证与最新版同步。
-```bash
-kubectl apply -f https://raw.githubusercontent.com/TencentCloudContainerTeam/manifest/master/metrics-server/components.yaml
 ```
 
 ### 检查运行状态

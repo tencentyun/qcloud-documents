@@ -3,7 +3,7 @@
 
 ## 前提条件
 
-- 已注册 [博睿 Server](https://server.bonree.com/) 账号。若您尚未注册博睿账号，可 [注册新账号](https://passport.bonree.com/cas/user/toRegisterExt) 以获得 Serverless 专属的15天免费产品体验。
+- 已注册 [博睿 Server](https://server.bonree.com/) 账号。
 - 已 [创建云函数](https://cloud.tencent.com/document/product/583/19806#.E5.88.9B.E5.BB.BA.E5.87.BD.E6.95.B0) 并开启公网访问。
 
 >?博睿探针目前支持 Python 和 Node.js 的多数主流框架，且仅在使用支持的框架时，博睿 smartAgent 才可自动捕获。详情请参见 [博睿探针支持列表](#list)。

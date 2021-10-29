@@ -1,3 +1,93 @@
+### 2.6.6.232 @ 2021-10-12
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.6.232.zip)
+
+- 新增接口
+    1. setScrollBarVisible 设置白板滚动条是否可见
+    
+- 调整接口
+    1. getFileInfo 获取白板中指定文件的文件信息 返回fileType字段
+    2. getFileInfoList 获取白板中上传的所有文件的文件信息列表 返回fileType字段
+    3. addH5File 添加H5页面 支持title,needSwitch
+    4. addImagesFile 批量导入图片到白板 支持title,needSwitch
+    5. addVideoFile 添加视频文件 支持title,needSwitch
+    
+- 调整全局变量
+    1. TEduBoardFileType 白板文件类型 
+    
+- 功能优化
+    1. 涂鸦过多导致渲染卡顿
+    2. 优化日志上报逻辑
+    3. 增加网络探测能力
+    4. 优化SDK体积
+    5. Window端SDK升级CEF内核(93版本)
+   
+- Bug 修复
+    1. 若干已知问题修复
+   
+### 2.6.5.224 @ 2021-09-17
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.5.224.zip)
+
+- 新增接口
+    1. 设置输出日志级别(setLogLevel)
+    
+- 调整全局变量
+    1. 几何元素类型(TEduBoardMathGraphType)
+    2. 日志级别(TEduBoardLogLevel)
+ 
+- 当前版本废弃的接口与事件
+    1. SDK接口：发起文件转码请求(applyFileTranscode)
+    2. 回调事件：转码进度回调(TEB_TRANSCODEPROGRESS)
+    3. 全局常量：文件转码状态(TEduBoardTranscodeFileStatus)
+    
+- 功能优化
+    1. 几何画板新增多种几何图形支持
+    
+- Bug修复
+    1. 若干已知问题修复
+    
+### 2.6.5.219 @ 2021-09-01
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.5.219.zip)
+
+
+- 新增接口
+    1、设置输出日志级别(setLogLevel)
+    
+- 调整全局变量
+    1、几何元素类型(TEduBoardMathGraphType)
+    2、日志级别(TEduBoardLogLevel)
+ 
+- 当前版本废弃的接口与事件
+    1、SDK接口：发起文件转码请求(applyFileTranscode)
+    2、回调事件：转码进度回调(TEB_TRANSCODEPROGRESS)
+    3、全局常量：文件转码状态(TEduBoardTranscodeFileStatus)
+    
+- 功能优化
+    1、几何画板新增多种几何图形支持
+    
+- Bug修复
+    1、若干已知问题修复
+
+### 2.6.5.218 @ 2021-09-01
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.5.218.zip)
+
+- 新增接口
+    1、设置输出日志级别(setLogLevel)
+    
+- 调整全局变量
+    1、几何元素类型(TEduBoardMathGraphType)
+    2、日志级别(TEduBoardLogLevel)
+ 
+- 当前版本废弃的接口与事件
+    1、SDK接口：发起文件转码请求(applyFileTranscode)
+    2、回调事件：转码进度回调(TEB_TRANSCODEPROGRESS)
+    3、全局常量：文件转码状态(TEduBoardTranscodeFileStatus)
+    
+- 功能优化
+    1、几何画板新增多种几何图形支持
+    
+- Bug修复
+    1、若干已知问题修复
+    
 ### 2.6.4.216 @ 2021-08-17
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.4.216.zip)
 
@@ -26,6 +116,7 @@
 ### 2.6.4.214 @ 2021-08-06
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.4.214.zip)
 
+
 - 新增接口
     设置几何图形类型(setMathGraphType)，可用于几何画板绘制几何图形
     鼠标模式下的操作权限(setMouseToolBehavior)
@@ -43,11 +134,13 @@
     几何元素类型(TEduBoardMathGraphType)
     
 - 功能优化
+    支持涂鸦点擦
     几何画板新增多种几何图形支持
     新增公式元素的支持
     优化视频加载播放逻辑
     图形涂鸦绘制实时同步显示
     优化ppt资源加载重试逻辑
+    添加本地缓存，提高资源加载速度
     
 - Bug修复
     互动白板宽高变化时滚动条抖动

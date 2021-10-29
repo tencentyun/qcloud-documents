@@ -5,7 +5,7 @@
 - Nginx 版本：Nginx 1.16.1
 
 ## 安装 Nginx
-1. 购买完成后，在云服务器的详情页面，单击【登录】，可以直接登录云服务器，输入自己的用户名密码后，开始搭建 Nginx 环境。有关如何创建云服务器实例，请参见 [创建云服务器实例](https://cloud.tencent.com/document/product/213/4855)。
+1. 购买完成后，在云服务器的详情页面，单击**登录**，可以直接登录云服务器，输入自己的用户名密码后，开始搭建 Nginx 环境。有关如何创建云服务器实例，请参见 [创建云服务器实例](https://cloud.tencent.com/document/product/213/4855)。
 ```
 # 安装 Nginx：
 yum -y install nginx  

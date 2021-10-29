@@ -231,7 +231,7 @@ sqoop import --connect "jdbc:mysql://IP:PORT/mysql" --table sqoop_test --usernam
 
 **示例**
 
-以 HIVE 创建 Location 为 COSN 的表查询为例：：
+以 HIVE 创建 Location 为 COSN 的表查询为例：
 
 ```
 select * from cosn_test_table where bucket is not null limit 1;

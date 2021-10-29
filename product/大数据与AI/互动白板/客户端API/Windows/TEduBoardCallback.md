@@ -1,5 +1,5 @@
 ## TEduBoardCallback
-白板事件回调接口，请参考[回调定义文档](https://doc.qcloudtiw.com/win32/2.6.4.216/struct_t_edu_board_callback.html)
+白板事件回调接口，请参考 [回调定义文档](https://doc.qcloudtiw.com/win32/latest/struct_t_edu_board_callback.html)
 
 ## 通用事件回调
 
@@ -110,14 +110,14 @@ virtual void onTEBOffscreenPaint(const void *buffer, uint32_t width, uint32_t he
 | buffer | const void * | 白板数据  |
 | width | uint32_t | 白板像素数据的宽度  |
 | height | uint32_t | 白板像素数据的高度  |
-| dirtyRects | const TEduBoardRect * | 需要重绘的矩形区域数组（可能有多个）  |
+| dirtyRects | const TEduBoardRect * | 需要重绘的矩形区域数组（有一定概率有多个）  |
 | dirtyRectCount | uint32_t | 需要重绘的矩形区域数组个数  |
 
 #### 警告
 该回调不会从统一回调线程触发，可能来自不同线程调用
 
 #### 介绍
-该回调只有在启用离屏渲染时才会被触发 当width != 0 || height != 0时，buffer指向白板像素数据，大小为 width * height * 4，像素以白板左上方为原点从左到右从上到下按 BGRA 排列 
+该回调只有在启用离屏渲染时才会被触发 当width != 0 || height != 0时，buffer 指向白板像素数据，大小为 width * height * 4，像素以白板左上方为原点从左到右从上到下按 BGRA 排列 
 
 
 ### onTEBAudioCallbackStarted
@@ -206,7 +206,7 @@ virtual void onTEBAddImageElement(const char *url)
 | url | const char * | 调用 AddImageElement 时传入的 URL  |
 
 #### 警告
-该回调已废弃，请使用AddElement接口及onTEBAddElement回调代替
+该回调已废弃，请使用 AddElement 接口及 onTEBAddElement 回调代替
 
 #### 介绍
 只有本地调用 AddImageElement 时会收到该回调 收到该回调表示图片已经上传或下载成功，并且显示出来 
@@ -235,7 +235,7 @@ virtual void onTEBRemoveElement(const TEduBoardStringList *elementIds)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| elementIds | const TEduBoardStringList * | 被删除的元素ID（使用后不需要自行调用 Release 方法释放，SDK 内部自动释放）  |
+| elementIds | const TEduBoardStringList * | 被删除的元素 ID（使用后不需要自行调用 Release 方法释放，SDK 内部自动释放）  |
 
 
 ### onTEBBackgroundH5StatusChanged
@@ -321,21 +321,6 @@ virtual void onTEBSnapshot(const char *path)
 
 
 ## 文件操作回调
-
-### onTEBFileTranscodeProgress
-文件转码进度回调 
-``` C++
-virtual void onTEBFileTranscodeProgress(const char *path, const char *errorCode, const char *errorMsg, const TEduBoardTranscodeFileResult &result)
-```
-#### 参数
-
-| 参数 | 类型 | 含义 |
-| --- | --- | --- |
-| path | const char * | 正在转码的本地文件路径  |
-| errorCode | const char * | 文件转码错误码，无异常时为空字符串 ""  |
-| errorMsg | const char * | 文件转码错误信息，无异常时为空字符串 ""  |
-| result | const TEduBoardTranscodeFileResult & | 文件转码结果  |
-
 
 ### onTEBAddTranscodeFile
 增加转码文件回调 
@@ -461,7 +446,7 @@ virtual void onTEBFileUploadProgress(const char *path, int currentBytes, int tot
 | currentBytes | int | 当前已上传大小，单位 bytes  |
 | totalBytes | int | 文件总大小，单位 bytes  |
 | uploadSpeed | int | 文件上传速度，单位 bytes  |
-| percent | double | 文件上传进度，取值范围 [0, 1]  |
+| percent | double | 文件上传进度，取值范围 [0,1]  |
 
 
 ### onTEBFileUploadStatus
@@ -501,7 +486,7 @@ virtual void onTEBTextElementStatusChanged(const char *status, const char *id, c
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | status | const char * | 文本组件状态（focus：获得焦点，blur：失去焦点）  |
-| id | const char * | 文本组件id  |
+| id | const char * | 文本组件 ID  |
 | value | const char * | 文本内容  |
 | left | int | 文本组件水平偏移  |
 | top | int | 文本组件垂直偏移  |
@@ -518,7 +503,7 @@ virtual void onTEBImageElementStatusChanged(const char *boardId, const char *url
 | --- | --- | --- |
 | boardId | const char * | 白板 ID  |
 | url | const char * | 白板图片 URL  |
-| elementId | const char * | 当前元素id  |
+| elementId | const char * | 当前元素 ID  |
 | status | TEduBoardImageStatus | 新的白板图片状态  |
 
 
@@ -544,7 +529,7 @@ virtual void onTEBSelectedElements(const TEduBoardSelectedElementInfoList &selEl
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| selElementList | const TEduBoardSelectedElementInfoList & | 选中的元素列表ID  |
+| selElementList | const TEduBoardSelectedElementInfoList & | 选中的元素列表 ID  |
 
 
 ### onTEBMathGraphEvent
@@ -556,8 +541,8 @@ virtual void onTEBMathGraphEvent(const char *boardId, const char *graphId, const
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardId | const char * | 函数画板ID  |
-| graphId | const char * | 函数图像ID  |
+| boardId | const char * | 函数画板 ID  |
+| graphId | const char * | 函数图像 ID  |
 | message | const char * | 异常信息  |
 | code | TEduBoardMathGraphCode | 数学函数图像工具状态码(TEduBoardMathGraphCode)  |
 
@@ -571,7 +556,7 @@ virtual void onTEBZoomDragStatus(const char *fid, int32_t scale, int32_t xOffset
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fid | const char * | 文件ID  |
+| fid | const char * | 文件 ID  |
 | scale | int32_t | 文件缩放比  |
 | xOffset | int32_t | 当前可视区域距左上角的横向偏移量  |
 | yOffset | int32_t | 当前可视区域距左上角的纵向偏移量  |
@@ -587,7 +572,7 @@ virtual void onTEBGroupStatusChanged(bool enable, const char *classGroupId, TEdu
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | enable | bool | 分组模式状态  |
-| classGroupId | const char * | 发生变化的分组id  |
+| classGroupId | const char * | 发生变化的分组 ID  |
 | operationType | TEduBoardClassGroupOperationType | 触发状态变更的操作  |
 | messgae | const char * | 操作信息  |
 

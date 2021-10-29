@@ -5,7 +5,11 @@
 
 ## 前提条件
 已安装 Unity Hub、Unity IDE。
->!本文基于 Unity 引擎版本： 2018.3.5f1、2019.4.9f1，操作系统：MacOS。
+<dx-alert infotype="notice" title="">
+本文基于 Unity 引擎版本： 2018.3.5f1、2019.4.9f1，操作系统：MacOS。
+</dx-alert>
+
+
 
 ## Unity 接入 gRPC
 
@@ -13,20 +17,20 @@ gRPC 对 Unity 的支持仍处于实验阶段，更多信息可参见 [README](h
 
 ### 步骤1：创建 Unity 项目 
 
-需要创建一个针对 `.NET 4.x` 等效版本的 Unity 项目，由于 gRPC 使用的 API 仅在 `.NET 4.5+`可用，所以这一步是必需的，通过【Edit】>【Project Setting】>【Player】>【Configuration】>【Scripting Runtime Version】进行设置。
+需要创建一个针对 `.NET 4.x` 等效版本的 Unity 项目，由于 gRPC 使用的 API 仅在 `.NET 4.5+`可用，所以这一步是必需的，通过**Edit**>**Project Setting**>**Player**>**Configuration**>**Scripting Runtime Version**进行设置。
 ![](https://main.qcloudimg.com/raw/c28d0dc10bded3be2e98358a95a374fa.jpg)
 
-<span id="test"></span>
-### 步骤2：下载grpc_unity_package
+[](id:test)
+### 步骤2：下载 grpc_unity_package
 
 下载 `grpc_unity_package.VERSION.zip` 的 [最新开发版本](https://packages.grpc.io/)。单击 `Buidld ID` 跳转到下载页面。
 ![](https://main.qcloudimg.com/raw/9ac9fa93e7de83042e1771cf0c4e6379.jpg)
 单击 `c#` 目录下的 `grpc_unity_package.VERSION.zip` 即可下载成功。
 ![](https://main.qcloudimg.com/raw/8aa7bbbb7ab6076f28e711bc3bd92907.jpg)
 
-### 步骤3： 解压
+### 步骤3：解压
 
-将下载的``` .zip```文件解压到 Unity 项目的```Assets``` 目录中，如下图所示
+将下载的 `.zip` 文件解压到 Unity 项目的 `Assets` 目录中，如下图所示：
 ![](https://main.qcloudimg.com/raw/3d319f3b4acbf2dea17f09e704e083fe.png)
 
 ### 步骤4：测试 
@@ -37,16 +41,16 @@ Unity Editor 将取出文件并自动添加到项目中，您即可在代码中�
 
 Unity 接入 GSE SDK 包括以下几个步骤：
 
-### 步骤1： 获取 GSE SDK Protobuf 文件
+### 步骤1：获取 GSE SDK Protobuf 文件
 
 获取 GSE SDK Protobuf 文件 `GameServerGrpcSdkService.proto` 和 `GseGrpcSdkService.proto`，详情可参见 [proto 文件](https://cloud.tencent.com/document/product/1165/46111)。
-<span id="test2"></span>
-### 步骤2： 根据 Protobuf 生成 C# 代码
+[](id:test2)
+### 步骤2：根据 Protobuf 生成 C# 代码
 1. 下载 gRPC protoc Plugin，再次访问下载 [grpc_unity_package.VERSION.zip](#test) 页面，下载对应操作系统的 protoc 压缩包。
 ![](https://main.qcloudimg.com/raw/0ae70c8558f0a07a04d72554004faa76.png)
 2. 将压缩包解压得到 `protoc` 和 `grpc_csharp_plugin` 可执行程序。
 ![](https://main.qcloudimg.com/raw/026e83a43d6d3d078d7d2acc12771827.png)
-<span id="test3"></span>
+[](id:test3)
 3. 拷贝 `protoc` 和 `grpc_csharp_plugin` 可执行程序到和 Protobuf 文件同一目录下，并在该目录下执行以下两条命令生成 `C#` 代码：
  -  **MAC 和 Linux 环境命令如下：**
     - `protoc -I ./ --csharp_out=. GseGrpcSdkService.proto --grpc_out=. --plugin=protoc-gen-grpc=grpc_csharp_plugin`
@@ -58,7 +62,7 @@ Unity 接入 GSE SDK 包括以下几个步骤：
  如下图所示生成四个 `.cs` 代码文件。
   ![](https://main.qcloudimg.com/raw/dad39ec6bfabea5ee2025b83596fc711.png)
 
-### 步骤3： Unity 服务端开发使用 GSE SDK
+### 步骤3：Unity 服务端开发使用 GSE SDK
 
 将 [步骤2](#test2) 中生成的四个 `.cs` 文件拷贝到 Unity 项目中（可以拷贝到 Assets/Scripts/目录下单独的文件夹中），便可使用 GSE SDK 进行开发，详情可参见 [Unity DEMO](#test5)。
 1. 实现 `gameserver_grpcsdk_service.proto` 定义的三个接口 `OnHealthCheck`、`OnStartGameServerSession` 和 ` OnProcessTerminate` 。
@@ -158,7 +162,7 @@ public class StartServers : MonoBehaviour
 }
 ```
 
-<span id="test5"></span>
+[](id:test5)
 ##	Unity DEMO
 1.	[单击这里]( https://gsegrpcdemo-1301007756.cos.ap-guangzhou.myqcloud.com/unity-demo.zip)，您可以下载 Unity DEMO代码。
 2.	导入 grpc unity package。

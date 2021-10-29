@@ -2,10 +2,10 @@
 
 **各个平台的下载链接：**
 
-- Windows 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Windows)，Windows 快速开始 [集成 IM SDK](https://cloud.tencent.com/document/product/269/33489) 和 [一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)。支持32位/64位系统。
-- iOS 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/iOS)。
-- Mac 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Mac)。
-- Android 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Android)。
+- Windows 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/Windows)，Windows 快速开始 [集成 IM SDK](https://cloud.tencent.com/document/product/269/33489) 和 [一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)。支持32位/64位系统。
+- iOS 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/iOS/IMSDK)。
+- Mac 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/Mac/IMSDK)。
+- Android 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK)。
 
 回调分两种，一种是指调用接口的异步返回，另外一种指后台推送的通知。回调在 IM SDK 内部的逻辑线程触发，跟调用接口的线程可能不是同一线程。
 在 Windows 平台，如果调用 [TIMInit](https://cloud.tencent.com/document/product/269/33546#timinit) 接口进行初始化 IM SDK 之前，已创建了 UI 的消息循环，且调用 [TIMInit](https://cloud.tencent.com/document/product/269/33546#timinit) 接口的线程为主 UI 线程，则 IM SDK 内部会将回调抛到主 UI 线程调用。

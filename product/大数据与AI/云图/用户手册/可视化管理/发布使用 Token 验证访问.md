@@ -9,8 +9,8 @@
 
 ## 如何接入
 ### 获取 accessId/token
-单击【发布】，记录下 accessId 和 token，具体如下图。
-单击【确定】，如果您尝试直接打开您所发布的大屏，会提示：您没有权限访问。
+单击**发布**，记录下 accessId 和 token，具体如下图。
+单击**确定**，如果您尝试直接打开您所发布的大屏，会提示：您没有权限访问。
  
  如果需要打开您的大屏，需要使用 accessId/token 通过加密后生成签名。
 ![](https://main.qcloudimg.com/raw/fac711403227883d9b1813bb98ad346e.png)

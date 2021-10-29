@@ -30,7 +30,6 @@ alter database 库名 owner to 迁移用户;
 grant pg_tencentdb_superuser to 迁移用户;
 ```
 
-
 ## 应用限制
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
 - 为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。如需要跨地域迁移，请选择公网接入方式。
@@ -68,16 +67,30 @@ grant pg_tencentdb_superuser to 迁移用户;
 </table>
 
 ## 操作步骤
-1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
-2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。
+1. （可选）PostgreSQL 9.4、9.5、9.6 版本作为源数据库进行“全量 + 增量迁移”时，需要参考如下指导安装 tencent_decoding 插件，其他场景请跳过该步骤。
+ 1. 根据源数据库所在服务器的系统架构，下载对应的插件。  
+    - 只支持系统架构为 x86_64 和 aarch64。
+    - 插件版本需要和 PostgreSQL 版本保持一致。
+    - Glibc 版本需要满足要求：x86_64 系统不低于 2.17 - 323 版本，aarch64 系统不低于 2.17 - 260 版本。 
+       - 在 Linux 系统上查看 Glibc 版本：
+```
+RHEL/CentOS: rpm -q glibc
+```
+       - 在其他操作系统（Debian/Ubuntu/SUSE 等）上查看 Glibc 版本：
+```
+ldd --version | grep -i libc
+```
+下载地址：  [x86_64 9.4](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.4/tencent_decoding.so)、[x86_64 9.5](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.5/tencent_decoding.so)、[x86_64 9.6](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.6/tencent_decoding.so)、[aarch64 9.4](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.4/tencent_decoding.so)、[aarch64 9.5](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.5/tencent_decoding.so)、[aarch64 9.6](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.6/tencent_decoding.so)。    
+ 2. 将下载得到的 tencent_decoding.so 文件放置于 Postgres 进程目录的 lib 文件夹下，无需重启实例。 
+2. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
+3. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。
 >?迁移任务订购后不支持更换地域，请谨慎选择。
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
 >
+<img src="https://main.qcloudimg.com/raw/414b9b3caf06c106ce894dea9a0ddf2a.png"  style="zoom:50%;">
 <table>
-<thead>
-<tr>
-<th width="10%">设置类型</th><th width="20%">配置项</th><th width="70%">说明</th></tr></thead>
+<thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
 <tr>
 <td rowspan=3>任务设置</td>
@@ -94,12 +107,12 @@ grant pg_tencentdb_superuser to 迁移用户;
 <td>源库类型</td><td>根据您的源数据库类型选择，本场景选择“PostgreSQL”。</td></tr>
 <tr>
 <td>接入类型</td><td>请根据您的场景选择，本场景选择“云数据库”。<br>为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。如需要跨地域迁移，请选择公网接入方式。
-<ul><li>公网：通过公网 IP 接入的自建数据库。</li>
-<li>云主机自建：腾讯云服务器 CVM 上的自建数据库。</li>
-<li>专线接入：通过专线接入的自建数据库。</li>
-<li>VPN接入：通过 VPN 网关接入的自建数据库。</li>
-<li>云数据库：腾讯云数据库。</li>
-<li>云联网：通过云联网接入的数据库。</li></ul>更多接入类型的详情介绍请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+<ul><li>公网：源数据库可以通过公网 IP 访问。</li>
+<li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
+<li>云数据库：源数据库属于腾讯云数据库实例。</li>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul>不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>所属地域</td><td>源库 PostgreSQL 所属地域。</td></tr>
 <tr>
@@ -122,8 +135,8 @@ grant pg_tencentdb_superuser to 迁移用户;
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/414b9b3caf06c106ce894dea9a0ddf2a.png"  style="zoom:60%;">
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
+<img src="https://main.qcloudimg.com/raw/aadd11ed6a095813fa767690e6857276.png"  style="zoom:60%;">
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
@@ -137,16 +150,17 @@ grant pg_tencentdb_superuser to 迁移用户;
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/aadd11ed6a095813fa767690e6857276.png"  style="zoom:60%;">
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
-如果校验任务不通过，可以查看具体检查项和失败原因，根据界面提示修复后重新发起校验任务。
-![](https://main.qcloudimg.com/raw/5ed72bfbcaefe3234e5c08114a2761f3.png)
+    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
+  - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
+ ![](https://main.qcloudimg.com/raw/5ed72bfbcaefe3234e5c08114a2761f3.png)
 6. 返回数据迁移任务列表，任务进入准备运行状态，运行1分钟 - 2分钟后，数据迁移任务开始正式启动。
    - 选择**结构迁移**或者**全量迁移**：任务完成后会自动结束，不需要手动结束。
    - 选择**全量 + 增量迁移**：全量迁移完成后会自动进入增量数据同步阶段，增量数据同步不会自动结束，需要您手动单击**完成**结束增量数据同步。单击完成后任务进入**完成中**的状态。请不要对源端和目标端进行任何修改，此时后端将自动的将部分对象与源端进行对齐。
       - 请选择合适时间手动完成增量数据同步，并完成业务切换。
       - 观察迁移阶段为增量同步，并显示无延迟状态，将源库停写几分钟。
       - 目标与源库数据差距为0MB及目标与源库时间延迟为0秒时，手动完成增量同步。
-![](https://main.qcloudimg.com/raw/d3cbe3342e2fe2f7627b66dae31703e9.png)
+   ![](https://main.qcloudimg.com/raw/d3cbe3342e2fe2f7627b66dae31703e9.png)
 7. （可选）如果您需要进行查看任务、删除任务等操作，请单击对应的任务，在**操作**列进行操作，详情可参考 [任务管理](https://cloud.tencent.com/document/product/571/58674)。
 8. 当迁移任务状态变为**任务成功**时，即可对业务进行正式割接，更多详情可参考 [割接说明](https://cloud.tencent.com/document/product/571/58660)。

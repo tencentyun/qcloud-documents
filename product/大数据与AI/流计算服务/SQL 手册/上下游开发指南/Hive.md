@@ -1,8 +1,12 @@
 ## 介绍
-Hive Sink Connector 提供了对 Hive 的读取和写入支持。当前支持的 Hive 版本有1.1.0、2.3.2、2.3.5和3.1.1版本。
-
-## 使用范围
 Hive Connector 支持作为数据源表，包括流式和维表 source，也支持数据流的目的表，但只支持 append only，不支持 Upsert 数据流。数据格式支持包括 Text、SequenceFile、ORC 和 Parquet 等。
+
+## 版本说明
+
+| Flink 版本 | 说明                                                         |
+| :-------- | :----------------------------------------------------------- |
+| 1.11      | <li>支持 hive 版本1.1.0、2.3.2、2.3.5、3.1.1</li><li>配置项 'connector.type' = 'hive'</li> |
+| 1.13      | <li>支持 hive 版本1.0.0 - 1.2.2、2.0.0 - 2.2.0、2.3.0 - 2.3.6、3.0.0 - 3.1.2</li><li>配置项 'connector' = 'hive'</li>|
 
 ## 示例
 #### 用作数据目的（Sink）
@@ -37,7 +41,7 @@ CREATE TABLE test_sink (
 	hr STRING
 ) PARTITIONED BY (dt, hr)
 with (
-	'connector.type' = 'hive',
+	'connector.type' = 'hive',  -- Flink 1.13 请使用 'connector' = 'hive'
 	'hive-version' = '3.1.1',
 	'hive-database' = 'testdb',
 	'partition.time-extractor.timestamp-pattern'='$dt $hr:00:00',
@@ -48,7 +52,6 @@ with (
 ```
 
 #### 用作数据源（Source）或者 Hive 维表
-
 1. 需要在 Hive 数据库（default_database）创建 Hive 表
 ```sql
 CREATE TABLE if not exists hive_source (
@@ -64,7 +67,7 @@ SET TABLE.sql-dialect = hive;
 CREATE database default_catalog.testdb; -- 新建注册数据库
 
 CREATE TABLE default_catalog.testdb.Hive表名 (id INT, name STRING, dt STRING, hr STRING) PARTITIONED BY (dt, hr) WITH (
-  'connector.type' = 'hive',
+  'connector.type' = 'hive', -- Flink 1.13 请使用 'connector' = 'hive'
   'hive-version' = '2.3.5',
   'partition.time-extractor.timestamp-pattern' = '$dt $hr:00:00',
   'streaming-source.enable' = 'true',
@@ -74,12 +77,12 @@ CREATE TABLE default_catalog.testdb.Hive表名 (id INT, name STRING, dt STRING, 
 );
 ```
 
-
 ## 通用 WITH 参数
 
 | 参数值                                     | 必填 | 默认值       | 描述                                                         |
 | ------------------------------------------ | ---- | ------------ | ------------------------------------------------------------ |
-| connector.type                             | 是   | 无           | 填 'hive' 选择使用 hive connector。                          |
+| connector.type                             | 是   | 无           | Flink-1.11支持，填 'hive' 选择使用 hive connector。          |
+| connector                                  | 是   | 无           | Flink-1.13支持，填 'hive' 选择使用 hive connector。          |
 | hive-version                               | 是   | 无           | EMR 创建的 Hive 集群对应的版本。                             |
 | hive-database                              | 是   | 无           | 数据要写入的 Hive database。                                 |
 | sink.partition-commit.trigger              | 否   | process-time | 分区关闭策略。可选值包括：<li/>process-time：当分区创建超过一定时间之后将这个分区关闭，分区创建时间为分区创建时的物理时间。<li/>partition-time：当分区创建超过一定时间之后将这个分区关闭，分区创建时间从分区中抽取出来。partition-time 依赖于 watermark 生成，需要配合 wartermark 才能支持自动分区发现。当 watermark 时间超过了 `从分区抽取的时间` 与 `delay 参数配置时间` 之和后会提交分区。 |
@@ -97,6 +100,7 @@ CREATE TABLE default_catalog.testdb.Hive表名 (id INT, name STRING, dt STRING, 
 
 ## Hive 配置
 [](id:id)
+
 ### 获取 Hive 连接配置 jar 包
 Flink SQL 任务写 Hive 时需要使用包含 Hive 及 HDFS 配置信息的 jar 包来连接到 Hive 集群。具体获取连接配置 jar 及其使用的步骤如下：
 1. ssh 登录到对应 Hive 集群节点。
@@ -105,25 +109,92 @@ Flink SQL 任务写 Hive 时需要使用包含 Hive 及 HDFS 配置信息的 jar
 /usr/local/service/hive/conf/hive-site.xml
 /usr/local/service/hadoop/etc/hadoop/hdfs-site.xml
 ```
-3. 对步骤2中获取到的 hive-site.xml 和 hdfs-site.xml 打 jar 包。
+3. 修改 hive-site.xml 文件
 ```
-jar -cvf hive-xxx.jar hive-site.xml hdfs-site.xml
+在hive-site增加如下配置，ip的值取配置文件里 hive.server2.thrift.bind.host 的 value
+<property>
+    <name>hive.metastore.uris</name>
+    <value>thrift://ip:7004</value>
+</property>
 ```
-4. 校验 jar 的结构（可以通过 vi 命令查看 `vi hive-xxx.jar`），jar 里面包含如下信息，请确保文件不缺失且结构正确。
+4. 获取 [hivemetastore-site.xml](https://oceanus-public-1257058918.cos.ap-guangzhou.myqcloud.com/hivemetastore-site.xml) 和 [hiveserver2-site.xml](https://oceanus-public-1257058918.cos.ap-guangzhou.myqcloud.com/hiveserver2-site.xml)，点击文件名下载。
+5. 对获取到的配置文件 打 jar 包。
+```
+jar -cvf hive-xxx.jar hive-site.xml hdfs-site.xml hivemetastore-site.xml hiveserver2-site.xml
+```
+6. 校验 jar 的结构（可以通过 vi 命令查看 `vi hive-xxx.jar`），jar 里面包含如下信息，请确保文件不缺失且结构正确。
 ```bash
 META-INF/
 META-INF/MANIFEST.MF
 hive-site.xml
 hdfs-site.xml
+hivemetastore-site.xml
+hiveserver2-site.xml
 ```
 
 ### 在任务中使用配置 jar
-1. Flink SQL 任务作业参数中选择内置 `Connector flink-connector-hive-${version}.jar`，其中 version 为 Hive 对应的版本。
-2. 引用程序包中选择 Hive 连接配置 jar 包（该 jar 包为在 [获取 Hive 连接配置 jar 包](#id) 中得到的 hive-xxx.jar，必须在程序包管理上传后才使用）。
+引用程序包中选择 Hive 连接配置 jar 包（该 jar 包为在 [获取 Hive 连接配置 jar 包](#id) 中得到的 hive-xxx.jar，必须在依赖管理上传后才使用）。
 
->! 请确保您使用的 Hive connector 和 Hive 集群是同一个版本。
+## Kerberos 认证授权
+1. 登录集群 Master 节点，获取 krb5.conf、emr.keytab、core-site.xml、hdfs-site.xml、hive-site.xml 文件，路径如下。
+```
+/etc/krb5.conf
+/var/krb5kdc/emr.keytab
+/usr/local/service/hadoop/etc/hadoop/core-site.xml
+/usr/local/service/hadoop/etc/hadoop/hdfs-site.xml
+/usr/local/service/hive/conf/hive-site.xml
+```
+2. 修改 hive-site.xml 文件
+```
+在hive-site增加如下配置，ip的值取配置文件里 hive.server2.thrift.bind.host 的 value
+<property>
+    <name>hive.metastore.uris</name>
+    <value>thrift://ip:7004</value>
+</property>
+```
+3. 获取 [hivemetastore-site.xml](https://oceanus-public-1257058918.cos.ap-guangzhou.myqcloud.com/hivemetastore-site.xml) 和 [hiveserver2-site.xml](https://oceanus-public-1257058918.cos.ap-guangzhou.myqcloud.com/hiveserver2-site.xml)，点击文件名下载。
+4. 对获取的配置文件打 jar 包。
+```
+jar cvf hive-xxx.jar krb5.conf emr.keytab core-site.xml hdfs-site.xml hive-site.xml hivemetastore-site.xml hiveserver2-site.xml
+```
+5. 校验 jar 的结构（可以通过 vim 命令查看 vim hive-xxx.jar），jar 里面包含如下信息，请确保文件不缺失且结构正确。
+```
+META-INF/
+META-INF/MANIFEST.MF
+emr.keytab
+krb5.conf
+hdfs-site.xml
+core-site.xml
+hive-site.xml
+hivemetastore-site.xml
+hiveserver2-site.xml
+```
+6. 在 [程序包管理](https://console.cloud.tencent.com/oceanus/resource) 页面上传 jar 包，并在作业参数配置里引用该程序包。
+7. 获取 kerberos principal，用于作业 [高级参数](https://cloud.tencent.com/document/product/849/53391) 配置。
+```
+klist -kt /var/krb5kdc/emr.keytab
+
+# 输出如下所示，选取第一个即可：hadoop/172.28.28.51@EMR-OQPO48B9
+KVNO Timestamp     Principal
+---- ------------------- ------------------------------------------------------
+  2 08/09/2021 15:34:40 hadoop/172.28.28.51@EMR-OQPO48B9 
+  2 08/09/2021 15:34:40 HTTP/172.28.28.51@EMR-OQPO48B9 
+  2 08/09/2021 15:34:40 hadoop/VM-28-51-centos@EMR-OQPO48B9 
+  2 08/09/2021 15:34:40 HTTP/VM-28-51-centos@EMR-OQPO48B9 
+```
+8. 作业 [高级参数](https://cloud.tencent.com/document/product/849/53391) 配置。
+```
+containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
+containerized.master.env.HADOOP_USER_NAME: hadoop
+security.kerberos.login.principal: hadoop/172.28.28.51@EMR-OQPO48B9
+security.kerberos.login.keytab: emr.keytab
+security.kerberos.login.conf: krb5.conf
+```
+
+>! 历史 Oceanus 集群可能不支持该功能，您可通过 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_849) 联系我们升级集群管控服务，以支持 Kerberos 访问。
 
 ## 注意事项
+
 1. 如果 Flink 作业正常运行，日志中没有报错，但是客户端查不到这个 Hive 表，可以使用如下命令对 Hive 表进行修复（需要将 `hive_table_xxx` 替换为要修复的表名）。
 ```
 msck repair table hive_table_xxx;

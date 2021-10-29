@@ -4,7 +4,7 @@
 ## 前提条件
 - 已注册腾讯云账号，并开通 [腾讯云直播服务](https://cloud.tencent.com/product/lvb)。
 - 已在 [域名注册](https://dnspod.cloud.tencent.com/?from=qcloudProductDns) 申请域名，并备案成功。
-- 已在【云直播控制台】>【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】中添加推流/播放域名，并 CNAME 成功。详细操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
+- 已在 **云直播控制台**>**[域名管理](https://console.cloud.tencent.com/live/domainmanage)** 中添加推流/播放域名，并 CNAME 成功。详细操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
 
 [](id:push)
 ## 拼装推流 URL
@@ -21,7 +21,7 @@
 开启推流鉴权后需使用包含鉴权 Key 的 URL 进行推流。若未开启推流鉴权，则推流地址中无需 “?” 及其后内容。
  - **txTime（地址有效期）** 
 表示何时该 URL 会过期，格式支持十六进制的 UNIX 时间戳。
-  >?例如`5867D600`代表2017年1月1日0时0点0分过期，我们的客户一般会将 txTime 设置为当前时间24小时以后过期，过期时间不要太短也不要太长，当主播在直播过程中遭遇网络闪断时会重新恢复推流，如果过期时间太短，主播会因为推流 URL 过期而无法恢复推流。
+>?例如`5867D600`代表2017年1月1日0时0点0分过期，我们的客户一般会将 txTime 设置为当前时间24小时以后过期，过期时间不要太短也不要太长，当主播在直播过程中遭遇网络闪断时会重新恢复推流，如果过期时间太短，主播会因为推流 URL 过期而无法恢复推流。
  - **txSecret（防盗链签名）**
 用以防止攻击者伪造您的后台生成推流 URL，计算方法参见 [最佳实践-防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
 
@@ -39,7 +39,7 @@ http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txT
 - **播放前缀**  
 <table>
     <tr><th>播放协议</th><th>播放前缀</th><th>备注</th></tr>
-		<tr>
+    <tr>
         <td>WebRTC</td>
         <td><code>webrtc://</code> </td>
         <td>强烈推荐，秒开效果最好，支持超高并发。</td>
@@ -48,7 +48,7 @@ http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txT
         <td><code>http://</code> 或 <code>https://</code> </td>
         <td>推荐，秒开效果好，支持超高并发。</td>
     </tr><tr>
-				<td>RTMP</td>
+        <td>RTMP</td>
         <td><code>rtmp://</code> </td>
         <td>不推荐，秒开效果差，不支持高并发</td>
     </tr><tr>
@@ -72,6 +72,6 @@ http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txT
 
 [](id:push_code)
 ## 查看推流示例代码
-进入【云直播控制台】>[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，选中事先配置的推流域名，【管理】>【推流配置】页面下半部分有【推流地址示例代码】（PHP 和 Java 两个版本）演示如何生成防盗链地址。更多详情操作请参见 [推流配置](https://cloud.tencent.com/document/product/267/32833#.E6.8E.A8.E6.B5.81.E5.9C.B0.E5.9D.80.E7.A4.BA.E4.BE.8B.E4.BB.A3.E7.A0.81)。
+进入 **云直播控制台**>[**域名管理** ](https://console.cloud.tencent.com/live/domainmanage)，选中事先配置的推流域名，**管理>推流配置** 页面下半部分有 **推流地址示例代码** （PHP 和 Java 两个版本）演示如何生成防盗链地址。更多详情操作请参见 [推流配置](https://cloud.tencent.com/document/product/267/32833#.E6.8E.A8.E6.B5.81.E5.9C.B0.E5.9D.80.E7.A4.BA.E4.BE.8B.E4.BB.A3.E7.A0.81)。
 
 

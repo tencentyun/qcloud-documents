@@ -7,7 +7,7 @@
 - 项目已配置有效的开发者签名。
 
 ## 集成 IM SDK
-您可以选择使用 CocoaPods 自动加载的方式，或者先 [下载](https://github.com/tencentyun/TIMSDK/tree/master/iOS/ImSDK) SDK，再将其导入到您当前的工程项目中。
+您可以选择使用 CocoaPods 自动加载的方式，或者先 [下载](https://github.com/tencentyun/TIMSDK/tree/master/iOS/IMSDK) SDK，再将其导入到您当前的工程项目中。
 
 ### CocoaPods 自动加载
 #### 1. 安装 CocoaPods
@@ -94,7 +94,7 @@ rm ~/Library/Caches/CocoaPods/search_index.json
 
 ### 手动集成
 #### 1. 下载 SDK
-从 [Github](https://github.com/tencentyun/TIMSDK/tree/master/iOS/ImSDK) 下载最新版本 SDK。
+从 [Github](https://github.com/tencentyun/TIMSDK/tree/master/iOS/IMSDK) 下载最新版本 SDK。
 
 - ImSDK.framework 和 ImSDK_Plus.framework 是 IM SDK 的核心动态库文件。
 <table>

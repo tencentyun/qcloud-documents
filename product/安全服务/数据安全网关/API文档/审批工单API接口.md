@@ -31,6 +31,7 @@
 
 ```shell
 {
+	"X-Auth-Token":"fnBIaLG275EtTswn2FwP4tWNjYNCvzqM1JoCabgyHjg=",
 	"applicantUid": "shenpiren",
 	"accountPolicyName": "账号策略",
 	"timePolicyName": "时间策略",

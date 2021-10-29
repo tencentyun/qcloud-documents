@@ -1,12 +1,10 @@
-本文介绍使用 DTS 数据迁移功能，从 MySQL 迁移数据至腾讯云分布式数据库 TDSQL MySQL 的操作指导。
+本文介绍使用 DTS 数据迁移功能，从 MySQL 迁移数据至腾讯云分布式数据库 TDSQL MySQL版 的操作指导。
 
 ## 注意事项
-
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
 - 在全量迁移过程通过有锁迁移来实现，锁表过程中会短暂阻塞写入操作。
 
 ## 前提条件
-
 - 已 [创建分布式数据库 TDSQL MySQL版](https://cloud.tencent.com/document/product/557/10236)。
 - 源数据库和目标数据库符合迁移功能和版本要求，请参见 [数据迁移支持的数据库](https://cloud.tencent.com/document/product/571/58686) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
@@ -16,21 +14,20 @@
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
-GRANT INSERT, UPDATE, DELETE, DROP, SELECT, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
+GRANT INSERT, UPDATE, DELETE, DROP, SELECT, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 GRANT SELECT ON *.* TO '迁移帐号';
 ```
   - “指定对象”迁移，需要的帐号权限如下：
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
-GRANT INSERT, UPDATE, DELETE, DROP, SELECT, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
+GRANT INSERT, UPDATE, DELETE, DROP, SELECT, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 ```
 - 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
 
 ## 应用限制
-
 - 只支持迁移基础表，不支持迁移视图、函数、触发器、存储过程等对象。
 - 不支持迁移系统库表和用户信息，包括 `information_schema`， `sys`， `performance_schema`， `__tencentdb__`， `mysql`。迁移完成后，如果需要调用目标库的视图、存储过程或函数，则要对调用者授予读写权限。 
 - 在导出视图结构时，只允许迁移和目标迁移账号 user@host 相同的 `definer` 。
@@ -42,7 +39,6 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 - 增量迁移过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致迁移失败。
 
 ## 操作限制
-
 - 迁移过程中请勿进行如下操作，否则会导致迁移任务失败。
   - 请勿修改、删除源数据库和目标数据库中用户信息（包括用户名、密码和权限）和端口号。
   - 请勿在源库上执行分布式事务。
@@ -52,14 +48,12 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 - 如果仅执行全量数据迁移，请勿在迁移过程中向源实例中写入新的数据，否则会导致源和目标数据不一致。针对有数据写入的场景，为实时保持数据一致性，建议选择全量 + 增量数据迁移。
 
 ## 支持的 SQL 操作
-
 | 操作类型 | 支持同步的 SQL 操作                                          |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE、REPLACE                              |
-| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE<br>VIEW：CREATE VIEW、ALTER VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br> |
+| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE<br>VIEW：CREATE VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX |
 
 ## 环境要求
-
 > ?如下环境要求，系统会在启动迁移任务前自动进行校验，不符合要求的系统会报错。如果用户能够识别出来，可以参考 [校验项检查要求](https://cloud.tencent.com/document/product/571/58685) 自行修改，如果不能则等系统校验完成，按照报错提示修改。
 
 <table>
@@ -100,13 +94,12 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 </table>
 
 ## 操作步骤
-
 1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
 2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
 <table>
-<thead><tr><th>设置类型</th><th>配置项</th><th>说明</th></tr></thead>
+<thead><tr><th width="15%">设置类型</th><th width="15%">配置项</th><th width="70%">说明</th></tr></thead>
 <tbody><tr>
 <td rowspan=3>任务设置</td>
 <td>任务名称</td>
@@ -124,12 +117,12 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>服务提供商</td><td>选择“普通”。</td></tr>
 <tr>
 <td>接入类型</td><td>请根据您的场景选择，本场景选择“公网”。
-<ul><li>公网：通过公网 IP 接入的自建数据库。</li>
-<li>云主机自建：腾讯云服务器 CVM 上的自建数据库。</li>
-<li>专线接入：通过专线接入的自建数据库。</li>
-<li>VPN接入：通过 VPN 网关接入的自建数据库。</li>
-<li>云数据库：腾讯云数据库。</li>
-<li>云联网：通过云联网接入的数据库。</li></ul>更多接入类型的详情介绍请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+<ul><li>公网：源数据库可以通过公网 IP 访问。</li>
+<li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
+<li>云数据库：源数据库属于腾讯云数据库实例。</li>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul>不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td>所属地域</td><td>源库所属地域为 DTS 服务出口地域，选择离自建实例最近的一个地域即可。</td></tr>
 <tr>
@@ -155,6 +148,11 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>密码</td><td>目标端 TDSQL MySQL版 的数据库帐号的密码。</td></tr>
 </tbody></table>
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
+> ?
+>- 如果用户在迁移过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**迁移对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法迁移 Online DDL 变更产生的临时表数据到目标数据库。
+>- 如果用户在迁移过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**迁移对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
+>
+<img src="https://main.qcloudimg.com/raw/1101e817e99b5a53cc4a088c55b84810.png"  style="margin:0;">
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
@@ -168,10 +166,10 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/1101e817e99b5a53cc4a088c55b84810.png"  style="margin:0;">
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
- -  校验任务通过后，根据选择的运行模式启动迁移任务。
- -  如果校验任务不通过，可以查看具体检查项和失败原因，待问题解决后重新发起校验任务。
+如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+ - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
+ - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
 ![](https://main.qcloudimg.com/raw/c8a82a647ce9d5bc21f902f35011e120.png)
 6. 返回数据迁移任务列表，任务进入创建中状态，运行1分钟 - 2分钟后，数据迁移任务开始正式启动。
    -  选择**结构迁移**或者**全量迁移**：任务完成后会自动结束，不需要手动结束。

@@ -20,6 +20,7 @@
 
 ```shell
 {
+	"X-Auth-Token":"fnBIaLG275EtTswn2FwP4tWNjYNCvzqM1JoCabgyHjg=",
 	"resroleName": "测试",
 	"resList": [{
 		"resIpv4": "1.1.1.1",

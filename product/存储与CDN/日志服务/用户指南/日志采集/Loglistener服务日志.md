@@ -56,7 +56,7 @@ LogListener 服务日志功能支持记录 LogListener 端运行状态和采集�
 
 ## 服务日志仪表盘
 
-开启 LogListener 服务日志后，日志服务系统会根据记录的日志类型自动创建可视化仪表盘 search_log_dashboard，展示 LogListener 采集监控统计。
+开启 LogListener 服务日志后，日志服务系统会根据记录的日志类型自动创建可视化仪表盘 service_log_dashboard，展示 LogListener 采集监控统计。
 
 #### 采集统计仪表盘
 您可以在日志服务控制台的 [仪表盘](https://console.cloud.tencent.com/cls/dashboard) 页面，单击目标仪表盘的 ID，查看 LogListener 采集相关的统计信息，包括 LogListener 状态展示、LogListener 解析失败率、LogListener 发送成功率等指标信息。

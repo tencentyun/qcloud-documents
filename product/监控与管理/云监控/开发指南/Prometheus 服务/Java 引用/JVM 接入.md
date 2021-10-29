@@ -119,7 +119,7 @@ public class Application {
 #### 步骤3：应用部署
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)，选择需要部署的容器集群。
-2. 通过【工作负载】>【Deployment】进入 `Deployment` 管理页面，选择对应的 `命名空间` 来进行部署服务，通过 YAML 来创建对应的 `Deployment`，YAML 配置如下。
+2. 通过**工作负载** > **Deployment**进入 `Deployment` 管理页面，选择对应的 `命名空间` 来进行部署服务，通过 YAML 来创建对应的 `Deployment`，YAML 配置如下。
 >?如需通过控制台创建，请参见 [Spring Boot 接入](https://cloud.tencent.com/document/product/248/49086)。
 
 ``` yaml
@@ -160,7 +160,7 @@ spec:
 #### 步骤4：添加采取任务
 
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
-2. 通过集成容器服务列表点击【集群 ID】进入到容器服务集成管理页面。
+2. 通过集成容器服务列表单击**集群 ID**进入到容器服务集成管理页面。
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
 
 ```yaml
@@ -184,7 +184,7 @@ spec:
 
 #### 步骤5：查看监控
 
-1. 在对应 Prometheus 实例 >【集成中心】中找到 `JVM` 监控，安装对应的 Grafana Dashboard 即可开启 JVM 监控大盘。
+1. 在对应 Prometheus 实例 >**集成中心**中找到 `JVM` 监控，安装对应的 Grafana Dashboard 即可开启 JVM 监控大盘。
 2. 打开 Prometheus 实例对应的 Grafana 地址，在 `Dashboards/Manage/Application` 下查看应用相关的监控大屏。
 	- **应用 JVM**：从应用角度出发，查看该应用下所有实例是否有问题，当发现某个实例有问题时可以下钻到对应的实例监控。
 	- **实例 JVM**：单实例 JVM 详细的监控数据。

@@ -6,17 +6,22 @@
 <table>
 <thead>
 <tr>
-<th>设备型号</th>
-<th>内网带宽</th>
-<th>接入方式</th>
-<th>使用场景</th>
+<th width="20%">设备型号</th>
+<th width="12%">内网带宽</th>
+<th width="35%">接入方式</th>
+<th width="%">使用场景</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>Edge-100</td>
 <td>100Mbps</td>
 <td><ul><li>WAN 侧支持宽带与 4G 接入</li><li>LAN 侧支持有线与 Wi-Fi 接入</li><ul></ul></ul></td>
-<td>智慧零售、连锁酒店、办公职场、多节点小带宽内网互通场景</td>
+<td rowspan="2">智慧零售、连锁酒店、办公职场等多节点小带宽内网互通场景</td>
+</tr>
+<tr>
+<td>Edge-100-5G</td>
+<td>100Mbps</td>
+<td><ul><li>WAN 侧支持宽带与 5G 接入</li><li>LAN 侧支持有线与 Wi-Fi 接入</li></ul</td>
 </tr>
 <tr>
 <td>Edge-1000</td>
@@ -29,10 +34,10 @@
 
 
 ## 申请 Edge 设备
-1. 登录 [SD-WAN 接入服务控制台](https://console.cloud.tencent.com/sas/edge)，并在 “Edge 设备”页面上方，单击【新建】。
-2. 在【新建Edge】页签中，填写设备名称，选择硬件规格等信息。
+1. 登录 [SD-WAN 接入服务控制台](https://console.cloud.tencent.com/sas/edge)，并在 “Edge 设备”页面上方，单击**新建**。
+2. 在**新建 Edge**页签中，填写设备名称，选择硬件规格等信息。
 ![](https://main.qcloudimg.com/raw/0fc9270402447ad91f0b54a167eea902.png)
-3. 单击下一步，选择申请数量并填写收货信息后单击【确定】。
+3. 单击下一步，选择申请数量并填写收货信息后单击**确认**。
 ![](https://main.qcloudimg.com/raw/5326248cff7f9cbc8ff617da952eff74.png)
 
 ## 安装 Edge 设备

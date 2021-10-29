@@ -16,10 +16,6 @@
 metadata:
   name: tf-cnn
   annotations: 
-    eks.tke.cloud.tencent.com/cpu: "8"
-    eks.tke.cloud.tencent.com/gpu-count: "1"
-    eks.tke.cloud.tencent.com/gpu-type: T4
-    eks.tke.cloud.tencent.com/mem: 32Gi
     eks.tke.cloud.tencent.com/eip-attributes: ""  #需求EIP，配置均为默认
 :::
 </dx-codeblock>

@@ -233,7 +233,7 @@ hadoop  jar cos-distcp-${version}.jar --taskNumber=20 --src /data/warehouse --de
 ```plaintext
 hadoop jar cos-distcp-${version}.jar   --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --checkMode=length-checksum
 ```
->! 在未指定 --groupBy，且 --outputCodec 指定为 keep 时生效
+>! 在未指定 --groupBy，且 --outputCodec 为默认值时生效。
 
 
 ### 限制单文件读取带宽
@@ -293,7 +293,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse/logs --dest cosn://examplebucket-1250000000/data/warehouse/logs-gzip --outputCodec=gzip
 ```
 
->! 其中除 keep 选项外，皆会先对文件先解压，随后转换为目标压缩类型。因此，除 keep 选项外，可能会由于压缩参数等不一致，导致目标文件和源文件不一致，但解压后的文件一致；outputCodec 为 keep，且未指定 groupBy 时，可通过 --checkMode 进行数据校验。
+>! 其中除 keep 选项外，皆会先对文件先解压，随后转换为目标压缩类型。因此，除 keep 选项外，可能会由于压缩参数等不一致，导致目标文件和源文件不一致，但解压后的文件一致；在未指定 --groupBy，且 --outputCodec 为默认值时，可通过 --checkMode 进行数据校验。
 >
 
 ### 删除源文件
@@ -344,7 +344,6 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 ```plaintext
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --preserveStatus=ugpt
 ```
-
 
 
 ### 配置 Prometheus 监控
@@ -470,4 +469,4 @@ yarn logs -applicationId application_1610615435237_0021 > application_1610615435
 - 对于非 COS 的目标端，COSDistCp 会尝试删除目标端文件。
 
 ### COS 存储桶中存在一些看不见的未完成上传文件，占用存储空间，如何处理？
-由于机器异常、进程被 Kill 等因素，可能导致 COS 存储桶中存在一些碎片文件占用存储空间，您可参考官网[生命周期文档](https://cloud.tencent.com/document/product/436/14605)配置碎片删除规则，进行清理。
+由于机器异常、进程被 Kill 等因素，可能导致 COS 存储桶中存在一些碎片文件占用存储空间，您可参考官网 [生命周期文档](https://cloud.tencent.com/document/product/436/14605) 配置碎片删除规则，进行清理。

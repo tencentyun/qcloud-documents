@@ -212,3 +212,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandl
 
 自定义消息的离线推送和普通消息不太一样，自定义消息的内容我们无法解析，不能确定推送的内容，所以默认不推送，如果您有推送需求，需要您在 [sendMessage](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a3694cd507a21c7cfdf7dfafdb0959e56) 的时候设置  [offlinePushInfo](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMOfflinePushInfo.html) 的 `desc`字段，推送的时候会默认展示 `desc` 信息。
 
+### 如何关闭离线推送消息的接收？
+
+如果您想关闭离线推送消息的接收，可以通过设置 [setAPNS](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07APNS_08.html#a6aecbdc0edaa311c3e4e0ed3e71495b1) 接口的 `config` 参数为 `nil` 来实现。该功能从5.6.1200版本开始支持。
+

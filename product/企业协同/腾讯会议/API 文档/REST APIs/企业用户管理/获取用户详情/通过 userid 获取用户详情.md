@@ -1,5 +1,5 @@
 ## 接口描述
-**描述**：使用 userid 获取企业用户详情。企业 secret 鉴权用户可获取该用户所属企业下的用户详情，OAuth2.0 鉴权用户只能获取该企业下 OAuth2.0 应用的用户详情。
+**描述**：使用 userid 获取企业用户详情。企业 secret 鉴权用户可获取该用户所属企业下的用户详情，暂不支持 OAuth2.0 鉴权用户通过 userid 查询用户详情。
 **调用方式**：GET
 **接口请求域名**：
 ```Plaintext
@@ -61,7 +61,7 @@ GET https://api.meeting.qq.com/v1/users/9527
     "area": "86",
     "update_time": "2020-04-21 18:01:29",
     "phone": "13000000000",
-    "user_id": "9527",
+    "userid": "9527",
     "email": "",
     "username": "testusername",
     "status": "1",
@@ -72,10 +72,8 @@ GET https://api.meeting.qq.com/v1/users/9527
 	"role_name": "普通成员",
 	"role_code": "NORMAL_ROLE",
 	"department_list": [{
-		"department_id": "e3ce08567893251f05db4de921fc2c2d",
+		"department_id": "e3ce****************4de921fc2c2d",
 		"department_name": "主部门"
 	}]
 }
-
-
 ```

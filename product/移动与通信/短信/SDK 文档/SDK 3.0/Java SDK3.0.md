@@ -14,7 +14,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 - 已开通短信服务，具体操作请参见 [国内短信快速入门](https://cloud.tencent.com/document/product/382/37745)。
 - 如需发送国内短信，需要先 [购买国内短信套餐包](https://cloud.tencent.com/document/product/382/18060)。
 - 已准备依赖环境：JDK 7 及以上版本。
-- 已在访问管理控制台 >【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】页面获取 SecretID 和 SecretKey。
+- 已在访问管理控制台 >**[API密钥管理](https://console.cloud.tencent.com/cam/capi)**页面获取 SecretID 和 SecretKey。
  - SecretID 用于标识 API 调用者的身份。
  - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，**SecretKey 需妥善保管，避免泄露**。
 - 短信的调用地址为`sms.tencentcloudapi.com`。
@@ -366,10 +366,10 @@ public class SendStatusStatistics {
 
             /* 通过 client 对象调用 SendStatusStatistics 方法发起请求。注意请求方法名与请求对象是对应的
              * 返回的 res 是一个 SendStatusStatisticsResponse 类的实例，与请求对象对应 */
-            SendStatusStatisticsResponse res = client.SendStatusStatisticsStatus(req);
+            SendStatusStatisticsResponse res = client.SendStatusStatistics(req);
 
             // 输出json格式的字符串回包
-            System.out.println(SendStatusStatisticsStatusResponse.toJsonString(res));
+            System.out.println(SendStatusStatisticsResponse.toJsonString(res));
 
         } catch (TencentCloudSDKException e) {
             e.printStackTrace();

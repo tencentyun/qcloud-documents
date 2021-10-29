@@ -18,14 +18,14 @@ MariaDB（Percona）到 MariaDB（Percona）的数据迁移、MariaDB 到 MariaD
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
-GRANT INSERT, UPDATE, DELETE, DROP, SELECT, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
+GRANT INSERT, UPDATE, DELETE, DROP, SELECT, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 GRANT SELECT ON *.* TO '迁移帐号';
 ```
   - “指定对象”迁移，需要的帐号权限如下：
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
-GRANT INSERT, UPDATE, DELETE, DROP, SELECT, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
+GRANT INSERT, UPDATE, DELETE, DROP, SELECT, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 ```
@@ -52,10 +52,10 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 
 ## 支持的 SQL 操作
 
-| 操作类型 | 支持同步的 SQL 操作                                            |
+| 操作类型 | 支持同步的 SQL 操作                                          |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE、REPLACE                              |
-| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE<br>VIEW：CREATE VIEW、ALTER VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br> |
+| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE<br>VIEW：CREATE VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br> |
 
 ## 环境要求
 

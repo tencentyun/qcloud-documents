@@ -4,7 +4,7 @@ API 监控为您提供 HTTP Code 成功率、API 请求耗时等调用情况监�
 
 ## 操作步骤 
 1. 登录 [前端性能监控控制台](https://console.cloud.tencent.com/rum)。
-2. 在左侧菜单栏中单击【API 监控】。
+2. 在左侧菜单栏中单击 **API 监控**。
 3. 进入 API 监控页面即可查看 API 性能情况。
 
 ### 汇总分析
@@ -58,6 +58,7 @@ API 监控为您提供 HTTP Code 成功率、API 请求耗时等调用情况监�
 ![](https://main.qcloudimg.com/raw/0ef2339941dc2909a2c47d0f467f6725.png)
 
 ### Version 视图
+本模块用于展示应用各版本异常占比。您可以通过在 new Aegis 的时候传入 version 来自定义研发相关的版本信息，默认使用 sdk 的版本。
 - 您可以将鼠标悬浮在饼图中或在右侧的列表中查看详细数据。
 - 单击上方的图例可取消或展示对应的数据。
 ![](https://main.qcloudimg.com/raw/2a5df05187de5dd574bf8fa6a2932a5f.png)

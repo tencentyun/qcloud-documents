@@ -375,7 +375,8 @@ pusherInstance 是 trtc-wx 帮助您管理 &lt;live-pusher&gt; 的一个实例�
 | setMICVolume(params)  | params.volume | 必填 | [setMICVolume](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.setMICVolume.html) | 设置麦克风的音量，默认是1.0                                |
 | startPreview(options) | Object | 可选        | [startPreview](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.startPreview.html) | 开启预览                                                   |
 | stopPreview()         | Object | 可选        | [stopPreview](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.stopPreview.html) | 停止预览                                                   |
-| toggleTorch(options)  | Object | 可选        | [toggleTorch](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.toggleTorch.html) | 前置或后置摄像头，可选值：front，back                      |
+| switchCamera(options)  | Object | 可选        | [switchCamera](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.switchCamera.html) | 前置或后置摄像头，可选值：front，back                      |
+
 
 [](id:pusherAttributes)
 

@@ -49,7 +49,7 @@ metadata:
 指定创建负载均衡时，负载均衡的最大出带宽，仅对公网属性的 LB 生效。需配合 `kubernetes.io/ingress.internetChargeType` 注解一起使用。
 
 **可选值：**
-范围支持0到2048，单位 Mbps。
+范围支持1到2048，单位 Mbps。
 
 **使用示例：**
 `kubernetes.io/ingress.internetMaxBandwidthOut: "2048"`

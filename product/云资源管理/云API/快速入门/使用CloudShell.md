@@ -1,12 +1,15 @@
 CloudShell 是网页版命令行工具，帮助您通过命令行管理腾讯云资源。您可以通过浏览器启动 CloudShell，启动时将会自动为您分配一台 Linux 管理机供您免费使用，该实例上已经预装 TCCLI 及 Terraform 等多种云管理工具和 SSH 及 VIM 等系统工具。
 
+>? 使用 CloudShell 功能前需填写 [申请]( https://cloud.tencent.com/apply/p/pe2xeott9qc) 并提交，审核通过后即可开始使用。
+>
+
 ## 功能特性
 CloudShell 具备以下功能特性：
 - **自动创建免费虚拟机**
 CloudShell 启动时，会自动创建一台 Linux 虚拟机，供您独享使用。
 当会话处于活跃状态时，CloudShell 实例长期有效。每个登录云账号所拥有的管理权限等同于其在访问管理 CAM 中被授予的操作权限。同时，CloudShell 会对所有的登录用户进行安全认证，并实现虚拟机按用户隔离，保障运行环境的安全。
-- **永久性磁盘存储空间**
-CloudShell 免费提供1GB的永久存储，作为您在 CloudShell 实例上的 `$HOME` 目录。您存储在主目录中的所有文件在不同会话、实例之间保持不变。
+- **持久性磁盘存储空间**
+CloudShell 免费提供1GB的持久存储（ 数据将会在最近一次会话的120天后随机器销毁），作为您在 CloudShell 实例上的 `/home/cloudshell/data/` 目录。您存储在主目录中的所有文件在不同会话、实例之间保持不变。
 - **语言及工具支持**
 CloudShell 实例多种语言支持及预装工具如下：
 <dx-accordion>
@@ -49,11 +52,11 @@ CloudShell 实例多种语言支持及预装工具如下：
   </tr>
   <tr>
 	<td>C++</td>
-	<td>-</td>
+	<td>7.5.0</td>
   </tr>
   <tr>
 	<td>C#</td>
-	<td>-</td>
+	<td>5.0.205</td>
   </tr>
 </tbody>
 </table>
@@ -100,7 +103,7 @@ CloudShell 实例多种语言支持及预装工具如下：
   <tr>
 	<td>腾讯云工具</td>
 	<td>tccli</td>
-	<td>-</td>
+	<td>3.0.469.1</td>
   </tr>
   <tr>
 	<td rowspan=3>在线编辑器</td>
@@ -204,14 +207,9 @@ CloudShell 实例多种语言支持及预装工具如下：
 	<td>最多可以打开5个会话窗口。</td>
   </tr>
   <tr>
-	<td>无操作销毁</td>
-	<td>
-	无交互式操作30分钟或者关闭所有会话窗口将视为终止操作，在终止操作后15分钟 CloudShell 将销毁此台虚拟机。再次启动 CloudShell 时，将会为您创建一台全新的虚拟机。</td>
-  </tr>
-  <tr>
 	<td>文件存储</td>
 	<td>CloudShell 为您免费提供1
-	GB的永久存储空间，您可以将您的文件存放在 <code>/home/shell</code> 目录，该数据将保留120天（在上一次会后结束后）。</td>
+	GB的永久存储空间，您可以将您的文件存放在 <code>/home/cloudshell/data/</code> 目录，该数据将保留120天（在上一次会后结束后）。</td>
   </tr>
   <tr>
 	<td>禁止使用</td>
@@ -273,28 +271,15 @@ tccli cvm DescribeInstances help
 
 ## 相关操作
 ### 上传及下载文件
-CloudShell 提供了文件的上传和下载功能。您可通过以下两种方式传输文件：
+CloudShell 提供了文件的上传和下载功能。您可通过通过 CloudShell 界面传输文件，步骤如下：
 
-<dx-tabs>
-::: 通过\sCloudShell\s界面
 1. 参考 [通过控制台](#startMethodOne) 启动 CloudShell，打开 CloudShell 界面。
 2. 选择 CloudShell 界面上方的 <img src="https://main.qcloudimg.com/raw/ec8d0b471216407ba9afde40f54cfb73.png" style="margin:-3px 0px">。如下图所示：
 ![](https://main.qcloudimg.com/raw/507f98a47f077698a2f3f599eca0212d.png)
 3. 在弹出的菜单中单击**上传**或**下载**，按需传输文件。
  - 上传文件：在弹出的窗口中选择文件后，单击**打开**。
  - 下载文件：在弹出的窗口中，输入需下载文件的绝对路径后，单击**确定**。
-:::
-::: 使用\sCloudShell\s命令
-1.  [启动 CloudShell](#startCloudShell)。
-2. 执行以下命令，将 CloudShell 实例中 `$HOME` 目录下的文件下载到本地。
-```
-cloudshell download <文件名>
-```
-更多 CloudShell 内置命令，可执行 `cloudshell help` 命令查看。
-:::
-</dx-tabs>
-
->!上传文件功能会默认将您的文件上传到 CloudShell 实例的 `$HOME` 目录下。并且您只能下载 CloudShell 实例中 `$HOME` 目录下的文件。
+>!上传文件功能会默认将您的文件上传到 CloudShell 实例的 `/home/cloudshell/data/` 目录下。并且您只能下载 CloudShell 实例中 `/home/cloudshell/data/` 目录下的文件。
 >
 
 

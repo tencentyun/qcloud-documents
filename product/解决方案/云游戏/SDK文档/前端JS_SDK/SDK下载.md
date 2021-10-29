@@ -1,7 +1,7 @@
-腾讯云云游戏提供 JS-SDK 用于 Web 接入，支持端游和手游。SDK 提供了丰富的接口，满足大部分接入需求。接入方法请参见 [快速入门](https://cloud.tencent.com/document/product/1162/46135) 及 [搭建示例](https://cloud.tencent.com/document/product/1162/56337) ，并可通过  [SDK 接口](https://cloud.tencent.com/document/product/1162/46134)，获取更多功能指引。
+腾讯云云游戏提供 JS-SDK 用于 Web 接入，支持端游和手游。SDK 提供了丰富的接口，满足大部分接入需求。接入方法请参见 [快速入门](https://cloud.tencent.com/document/product/1162/46135) 及 [搭建示例](https://cloud.tencent.com/document/product/1162/56337)，并可通过 [SDK 接口](https://cloud.tencent.com/document/product/1162/46134)，获取更多功能指引。
 
 ## SDK 下载 
-| SDK    | 下载地址                                                     | SDK 说明文档                                                 |
+| SDK  | 下载地址                           | SDK 说明文档                         |
 | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | JS SDK | [GitHub下载](https://github.com/tencentyun/cloudgame-js-sdk) | [DOC](https://cloud.tencent.com/document/product/1162/46134) |
 
@@ -38,7 +38,7 @@ onTouchEvent 新增支持多点触控，返回 <code>object[]</code>，object �
 </ul>
 <b>修复</b><ul style="margin:0">
 <li/>心跳启动逻辑导致断连。
-<li/>onConnectSuccess 确保在 ACK  数据通道创建成功后。
+<li/>onConnectSuccess 确保在 ACK 数据通道创建成功后。
 </ul></td></tr>
 <tr>
 <td>2021.04.06</td>

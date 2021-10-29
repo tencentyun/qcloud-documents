@@ -61,7 +61,7 @@ gameId 和 appKey 在腾讯云官网（xxxxxxxxxxxx）注册完新游戏后自�
 ### 设置用户信息
 **函数原型**
 ```
-void Tp2UserLogin (int accountType, int worldId, String openId, String roleId);
+void Tp2UserLogin (int account_type, int  world_id , String  open_id, String role_id);
 ```
 
 **参数说明**

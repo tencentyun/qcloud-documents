@@ -22,6 +22,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |---------|---------|---------|
 | meeting_number | integer | 会议数量。  |
 |meeting_info_list  |Array| 会议列表。  |
+|media_set_type   | String    |该参数仅提供给支持混合云的企业可见，默认值为0。<br>0：外部会议<br>1：内部会议 <br>说明：周期性会议的查询，只展示在父会议的参数中，子会议对象无需展示该参数。   |      
 
 
 <span id="Array"></span>
@@ -38,7 +39,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |type   |Integer  | 会议类型：<br>0：预约会议类型<br>1：快速会议类型   |
 |join_url   |String  | 加入会议 URL。  |
 |hosts   |用户对象数组  | 指定主持人列表，仅商业版和企业版可指定主持人。|
-|participants  |用户对象数组 |邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段。 |
+|participants  |用户对象数组 |邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段，最多返回200个邀请者。|
 |current_hosts  |用户对象数组  | 会议当前主持人列表。|
 |current_co_hosts  |用户对象数组  | 会议联席主持人列表。|
 |start_time  |String | 会议开始时间戳（单位秒）。 |
@@ -87,8 +88,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 | status           | Integer  | 子会议状态。<br> 0：默认（存在）<br> 1：已删除   |
 | start_time       | Integer  | 子会议开始时间（UTC 秒）。               |
 | end_time         | Integer  | 子会议结束时间（UTC 秒）。              |
-| first_start_time | string   | 预定的第一次会议起始时间（UTC 单位:秒）。|
-| first_end_time   | string   | 预定的第一次会议结束时间（UTC 单位:秒）。 |
+
 
 **周期性会议 period_meeting**
 

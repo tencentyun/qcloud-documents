@@ -14,16 +14,16 @@
 
 #### 获取 PushGateway 访问配置
 
-1. 前往【[弹性 MapReduce](https://console.cloud.tencent.com/emr)】>【选择对应的“实例”】>【基本信息】>【实例信息】页面，获取 Pushgateway 地址和 Token。
+1. 前往 [**弹性 MapReduce**](https://console.cloud.tencent.com/emr) > **选择对应的“实例”** > **基本信息** > **实例信息**页面，获取 Pushgateway 地址和 Token。
 ![](https://main.qcloudimg.com/raw/1853a917832e275511cfc7c537815941.png)
 2. 在 [账号信息](https://console.cloud.tencent.com/developer) 页面获取 APPID。
 
 
 #### 修改 Flink 配置
 
-1. 进入【[弹性 MapReduce](https://console.cloud.tencent.com/emr)】>【选择对应的“实例”】>【集群服务】页面。
-2. 找到【Flink】配置项，在右侧选择【操作】>【配置管理】，进入配置管理页面。
-3. 在页面右侧单击【新增配置项】，依次添加以下配置。
+1. 进入 [**弹性 MapReduce**](https://console.cloud.tencent.com/emr) > **选择对应的“实例”** > **集群服务**页面。
+2. 找到 **Flink** 配置项，在右侧选择**操作** > **配置管理**，进入配置管理页面。
+3. 在页面右侧单击**新增配置项**，依次添加以下配置。
 <table>
 <thead>
 <tr>
@@ -134,7 +134,7 @@ metrics.reporter.promgateway.password: token
 ```plaintext
 cd /usr/local/service/flink/lib
 rm flink-metrics-prometheus*jar
-```2. 在【 [弹性 MapReduce 控制台](https://console.cloud.tencent.com/emr)】>【选择对应的“实例”】>【集群资源】>【资源管理】>【Master】页面，查看 Master 节点。
+```2. 在** [弹性 MapReduce 控制台](https://console.cloud.tencent.com/emr)** > **选择对应的“实例”** > **集群资源** > **资源管理** > **Master**页面，查看 Master 节点。
 3. 单击实例 ID 跳转至 CVM 控制台，登录 CVM 执行以下命令安装插件。
 ```plaintext
 cd /usr/local/service/flink/lib
@@ -155,16 +155,16 @@ grep metrics /usr/local/service/flink/log/flink-hadoop-client-*.log
 
 
 ### 查看监控
-1. 在对应 Prometheus 实例 >【集成中心】中找到 `Flink` 监控，安装对应的 Grafana Dashboard 即可开启 Flink 监控大盘。
-2. 进入 Grafana，单击【<img src="https://main.qcloudimg.com/raw/84bd9a98b230d2ebc32bfac82a108a87.png" width="2%">】展开 Flink 监控面板。
+1. 在对应 Prometheus 实例 >**集成中心**中找到 `Flink` 监控，安装对应的 Grafana Dashboard 即可开启 Flink 监控大盘。
+2. 进入 Grafana，单击<img src="https://main.qcloudimg.com/raw/84bd9a98b230d2ebc32bfac82a108a87.png" width="2%">展开 Flink 监控面板。
 ![](https://main.qcloudimg.com/raw/61741ec36dbbd56a6bb3c9072aa6f23f.png)
-3. 单击【Flink Job List】查看监控。
+3. 单击 **Flink Job List**查看监控。
 ![](https://main.qcloudimg.com/raw/c37df281f6dbf8fea48df0de309e8be4.png)
-3. 单击表格中的【Job 名】或【Job ID 列值】，查看 Job 监控详情。
+3. 单击表格中的 **Job 名**或**Job ID 列值**，查看 Job 监控详情。
 ![](https://main.qcloudimg.com/raw/698fcea0aa974550aaaed11b96cab0d8.png)
-4. 单击右上角的【Flink 集群】，查看 Flink 集群监控。
+4. 单击右上角的 **Flink 集群**，查看 Flink 集群监控。
 ![](https://main.qcloudimg.com/raw/490df5dd2b54ab5abfc05abc9295bcb4.png)
-5. 单击表格中的【Task 名列值】，查看 Task 监控详情。
+5. 单击表格中的 **Task 名列值**，查看 Task 监控详情。
 ![](https://main.qcloudimg.com/raw/8548259642643ca56bae8847b54d7ef3.png)
 
 
