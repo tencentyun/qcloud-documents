@@ -127,7 +127,7 @@ except TencentCloudSDKException as err:
 :::
 </dx-codeblock>
 
-## Commont Client 调用方式
+## Common Client 调用方式
 从`3.0.396`开始，腾讯云 Python SDK 支持使用`泛用型的API调用方式(Common Client)`进行请求。您只需安装 tencentcloud-sdk-python-common 包，即可向任何产品发起调用。
 
 >?您必须明确知道您调用的接口所需参数，否则可能会调用失败。 
