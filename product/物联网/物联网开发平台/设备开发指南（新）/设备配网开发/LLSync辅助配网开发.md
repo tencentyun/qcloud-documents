@@ -24,7 +24,7 @@ LLSync 蓝牙辅助配网功能是腾讯云IoT推出的针对`Wi-Fi + BLE` 的�
 
 蓝牙辅助配网功能使用了 [C SDK](https://github.com/tencentyun/qcloud-iot-explorer-sdk-embedded-c) 和 [LLSync SDK](https://github.com/tencentyun/qcloud-iot-explorer-BLE-sdk-embedded)，请下载最新版本使用。您可以下载`ESP32`使用 LLSync 配网 [示例程序](https://github.com/tencentyun/qcloud-iot-explorer-BLE-sdk-embedded-demo/tree/master/qcloud-llsync-config-net-esp32) 参考。
 
-## 四、移植SDK
+## 四、 移植 SDK
 
 蓝牙辅助配网功能使用了 `WI-Fi` 和 `BLE` 的通信能力，因此包括 `C SDK`和 `LLSync SDK` 的移植。
 
