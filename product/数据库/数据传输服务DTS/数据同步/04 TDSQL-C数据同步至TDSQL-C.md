@@ -60,7 +60,7 @@ FLUSH PRIVILEGES;
 <li>源实例为从库时，log_slave_updates 变量必须设置为 ON。</li></ul></li>
 <li>外键依赖：
 <ul>
-<li>外键依赖只能设置为 NO ACTION，RESTRICT，CASCADE 三种类型。</li>
+<li>外键依赖只能设置为 NO ACTION，RESTRICT 两种类型。</li>
 <li>部分库表同步时，有外键依赖的表必须齐全。</li>
 </ul></li></td></tr>
 <tr> 
