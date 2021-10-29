@@ -66,8 +66,8 @@
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/7ceacac7a6817ffe80927af35e0df9c4.png)
 
-## 实现自定义UI界面
-源码中的 Module 模块包含了 对TRTCSDK 以及 IMSDK 的封装，您可以在 `ITXMediaCore.h`、`TXMediaCoreCallback.h`、 `TXMediaDef.h` 等文件中查看改模块提供的接口函数以及其他定义，并使用对应接口实现自定义 UI 界面。
+## 实现自定义 UI 界面
+源码中的 Module 模块包含了 对 TRTCSDK 以及 IMSDK 的封装，您可以在 `ITXMediaCore.h`、`TXMediaCoreCallback.h`、 `TXMediaDef.h` 等文件中查看改模块提供的接口函数以及其他定义，并使用对应接口实现自定义 UI 界面。
 
 ### 步骤1：集成 SDK
 从官网下载 [TRTCSDK](https://cloud.tencent.com/document/product/647/32689) 和 [IMSDK](https://cloud.tencent.com/document/product/269/36887)，替换外层的 SDK 目录中 IMSDK 和 LiteAVSDK 目录下的文件。
