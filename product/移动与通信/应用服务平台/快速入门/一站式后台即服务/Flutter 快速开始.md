@@ -29,7 +29,7 @@ flutter pub get
 
 ## 步骤3：创建移动应用安全来源的凭证
 
-打开[安全设置页面](https://console.cloud.tencent.com/tcb/env/safety)中，在移动应用安全来源里**添加应用**.
+打开 [安全设置页面](https://console.cloud.tencent.com/tcb/env/safety) 中，在移动应用安全来源里**添加应用**。
 
 <img src="https://main.qcloudimg.com/raw/1c088bc3ddb41faad995d2a8c43186e4.png">
 
@@ -37,7 +37,7 @@ flutter pub get
 
 ## 步骤4：开启匿名登录
 
-在[环境设置页面](https://console.cloud.tencent.com/tcb/env/setting)中，单击“登录方式”，然后**启用匿名登录**：
+在 [环境设置页面](https://console.cloud.tencent.com/tcb/env/setting) 中，单击“登录方式”，然后**启用匿名登录**：
 
 <img src="https://main.qcloudimg.com/raw/0b6a93991575776761137e9558aed3fc.png">
 
@@ -85,7 +85,7 @@ void main() async {
 > 
 > <img src="https://main.qcloudimg.com/raw/434baba046148be1d2a0effc444ec0f8.png">
 
-登录成功后，便可以访问和使用云开发的各类资源，详情请参看 Flutter SDK 文档
+登录成功后，便可以访问和使用云开发的各类资源，详情请参见 Flutter SDK 文档。
 
 - [初始化](https://docs.cloudbase.net/api-reference/flutter/initialization.html)
 - [登录认证](https://docs.cloudbase.net/api-reference/flutter/authentication.html)
