@@ -394,7 +394,8 @@ sdk.checkFirmwareUpgrade({
 </tbody></table>
 - **返回值**
   返回一个 Promise，输出参数请参见 [查询设备固件是否升级](https://cloud.tencent.com/document/product/1081/47129)。
-	
+
+
 <span id="sdk-go-firmware-upgrade-page"></span>
 ### 进行固件升级
 跳转到小程序的固件升级页面，进行固件升级。
@@ -1638,6 +1639,7 @@ sdk.blueToothAdapter.searchDevice({
 
 #### 连接蓝牙设备
 
+<span id="bluetoothAdapter-connect-device"></span>
 连接指定蓝牙设备。
 
 - **接口定义**
@@ -1697,6 +1699,62 @@ sdk.blueToothAdapter.getDeviceAdapter(deviceId: string) => DeviceAdapter
 </tbody></table>
 - **返回值**
 返回对应 `deviceId` 的设备适配器实例。
+
+#### 上报设备信息
+
+蓝牙设备不能通过mqtt直接上报设备的mac地址等信息，所以需要H5端进行上报，对应的是设备详情里面的设备信息
+![](https://qcloudimg.tencent-cloud.cn/raw/9360c6faefc368bdba49e0f3f1f974c2.png)
+
+- 注意：图片里面厂家名称和产品型号是在设备量产时在控制台填写的，mac地址,固件版本等由H5端进行上报
+- **接口定义**
+
+```typescript
+sdk.blueToothAdapter.reportDeviceInfo({ productId: string, deviceName: string, deviceInfo: any }) => Promise;
+```
+
+- **参数说明**
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>productId</td>
+<td>产品ID</td>
+<td>string</td>
+</tr>
+<tr>
+<td>deviceName</td>
+<td>设备名称</td>
+<td>string</td>
+</tr>
+<tr>
+<td>deviceInfo</td>
+<td>设备信息</td>
+<td>any,详情见下面示例</td>
+</tr>
+</tbody></table>
+
+```typescript
+deviceInfo: {
+    "module_hardinfo": "模组具体硬件型号 N10",
+    "module_softinfo": "模组软件版本",
+    "fw_ver": "mcu固件版本",
+    "imei": "设备imei号，可选上报",
+    "mac": "设备mac地址，可选上报",
+    "device_label": {
+    "append_info": "设备商自定义的产品附加信息"
+}
+```
+
+#### 
+
+
+
 
 #### 监听事件
 监听蓝牙适配器事件。
@@ -2131,6 +2189,84 @@ deviceAdapter.off(type: string, listener: (...args) => void) => void
 </tr>
 </tbody></table>
 
+
+### BLE + WIFI 双路通信
+
+针对 Wi-Fi + BLE Combo 模组，提供设备端 SDK 和 H5 SDK，支持设备 Wi- Fi 离线状态下，小程序通过 LLSync 标准蓝牙协议与设备通信，为用户提供 Wi-Fi 断网下的更佳体验。设备端 SDK请参考[开发指引](https://github.com/tencentyun/qcloud-iot-explorer-BLE-sdk-embedded/blob/master/docs/LLSync%20SDK%E5%8F%8C%E8%B7%AF%E9%80%9A%E4%BF%A1%E5%8A%9F%E8%83%BD%E6%8E%A5%E5%85%A5%E6%8C%87%E5%BC%95.md)
+
+对于自定义H5面板，配网流程无需开发者关注，开发者需要在面板中关注： 1. 监听设备在线状态，wifi连接是否正常; 2. 当设备离线时启用蓝牙进行通信。下面分开说明。
+
+#### 监听设备在线状态
+
+我们可以通过监听[WebSocket 事件](https://cloud.tencent.com/document/product/1081/49029#websocket-.E4.BA.8B.E4.BB.B6)中的`wsStatusChange`事件来感知设备的在线离线状态。
+
+```js
+sdk.on('wsStatusChange', ({deviceId, deviceStatus}) => {
+	if (deviceStatus === 0) {
+		// 设备已离线，开始启用蓝牙连接进行通信，见第二步
+	}
+})
+```
+
+#### 启用蓝牙通信
+
+我们提供了[双路通信demo](https://github.com/tencentyun/iotexplorer-h5-panel-demo/tree/master/src/DualmodePanel)供参考。
+
+##### STEP1: 添加 BleComboDualModeDeviceAdapter4H5
+
+BleComboDualModeDeviceAdapter4H5 是一个设备适配器实例，如果您还不了解设备适配器，请阅读[设备适配器部分](https://cloud.tencent.com/document/product/1081/49029#.E8.AE.BE.E5.A4.87.E9.80.82.E9.85.8D.E5.99.A8)
+
+```js
+import { BleComboDualModeDeviceAdapter4H5 } from 'qcloud-iotexplorer-appdev-plugin-wificonf-blecombo/lib/protocols/BleComboDualMode';
+
+const sdk = window.h5PanelSdk;
+BleComboDualModeDeviceAdapter4H5.injectOptions({ appDevSdk: sdk.appDevSdk });
+
+// h5 sdk升级后支持下面的 addAdapter
+// sdk.blueToothAdapter.addAdapter(BleComboDualModeDeviceAdapter4H5, true);
+sdk.blueToothAdapter._deviceAdapterFactoryMap[BleComboDualModeDeviceAdapter4H5.serviceId] = BleComboDualModeDeviceAdapter4H5;
+```
+
+##### STEP2: 搜索设备
+
+searchDevice的参数详见 [蓝牙适配器](https://cloud.tencent.com/document/product/1081/49029#.E8.93.9D.E7.89.99.E9.80.82.E9.85.8D.E5.99.A8) 搜索单个蓝牙设备的参数说明部分。
+
+```js
+await blueToothAdapter.init();
+console.log('开始搜索设备', sdk.deviceName);
+const deviceInfo = await blueToothAdapter.searchDevice({
+	deviceName: sdk.deviceName,
+	serviceId: BleComboDualModeDeviceAdapter4H5.serviceId,
+	productId: sdk.productId,
+	disableCache: true,
+});
+```
+
+##### STEP3: 连接设备
+
+使用上一步获取到的 deviceInfo, 我们可以调用 connectDevice 连接设备以获得 deviceAdapter，传入参数定义详见 [连接蓝牙设备](#bluetoothAdapter-connect-device) 部分。
+
+```js
+const deviceAdapter = await blueToothAdapter.connectDevice({
+	...device,
+	productId: sdk.productId,
+});
+console.log('deviceAdapter:', deviceAdapter);
+// authorized之后，才能向设备发送控制数据
+if (!deviceAdapter.authorized) {
+	await deviceAdapter.authenticateConnection({
+		deviceName: sdk.deviceName,
+	});
+}
+```
+
+当小程序和设备间的蓝牙连接成功后，面板就可以对设备进行控制了，sdk会将控制数据通过蓝牙发送到设备。比如进行开关的控制：
+
+```js
+sdk.controlDeviceData({ power_switch: 1 });
+```
+
+## 
 
 ## ASR 语音识别
 
