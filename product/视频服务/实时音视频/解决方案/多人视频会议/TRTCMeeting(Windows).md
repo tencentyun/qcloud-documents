@@ -3,180 +3,181 @@ TRTCMeeting 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务
 - 参会人员之间进行屏幕分享。
 - 支持发送各种文本消息和自定义消息。
 
-TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [多人视频会议(Windows)](https://cloud.tencent.com/document/product/xxxxxx)。
+TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [多人视频会议(Windows)](https://cloud.tencent.com/document/product/647/63494)。
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时视频会议组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 MeetingRoom 实现会议中聊天室的功能。
 
 
-<h2 id="TRTCMeeting">TRTCMeeting API 概览</h2>
+[](id:TRTCMeeting)
+## TRTCMeeting API 概览
 
 ### ITXMediaCore 基础函数
 
 | API | 描述 |
 |-----|-----|
-| [Instance](#Instance) | 获取单例对象。 |
-| [DestroyInstance](#DestroyInstance) | 销毁单例对象。 |
-| [AddCallback](#AddCallback) | 设置事件回调。|
-| [RemoveCallback](#RemoveCallback) | 移除事件回调。 |
-| [login](#login) | 登录。|
-| [logout](#logout) | 登出。|
+| [Instance](#instance) | 获取单例对象。 |
+| [DestroyInstance](#destroyInstance) | 销毁单例对象。 |
+| [AddCallback](#addcallback) | 设置事件回调。|
+| [RemoveCallback](#removecallback) | 移除事件回调。 |
+| [Login](#login) | 登录。|
+| [Logout](#logout) | 登出。|
 
 ### 会议房间相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [CreateRoom](#CreateRoom) | 创建会议房间（主持人调用）。|
-| [DestroyRoom](#DestroyRoom) | 销毁会议房间（主持人调用）。|
-| [EnterRoom](#EnterRoom) | 进入会议房间（参会成员调用）。|
-| [LeaveRoom](#LeaveRoom) | 离开会议房间（参会成员或主持人调用）。|
-| [GetRoomInfo](#GetRoomInfo) | 获取房间信息。|
-| [TransferRoomMasterToOther](#TransferRoomMasterToOther) | 转移会议主持人权限（主持人调用）。|
+| [CreateRoom](#createroom) | 创建会议房间（主持人调用）。|
+| [DestroyRoom](#destroyroom) | 销毁会议房间（主持人调用）。|
+| [EnterRoom](#enterroom) | 进入会议房间（参会成员调用）。|
+| [LeaveRoom](#leaveroom) | 离开会议房间（参会成员或主持人调用）。|
+| [GetRoomInfo](#getroominfo) | 获取房间信息。|
+| [TransferRoomMasterToOther](#transferroommastertoother) | 转移会议主持人权限（主持人调用）。|
 
 ### 远端用户相关接口
 | API | 描述 |
 |-----|-----|
-| [GetRemoteUserInfoList](#GetRemoteUserInfoList) | 获取房间内所有的人员列表，进入房间成功后调用才有效。|
-| [GetRemoteUserInfo](#GetRemoteUserInfo) | 获取房间内指定人员的详细信息，进入房间成功后调用才有效。|
-| [SubscribeRemoteStream](#SubscribeRemoteStream) | 订阅并播放指定成员的远端视频画面。|
-| [UnSubscribeRemoteStream](#UnSubscribeRemoteStream) | 取消订阅并停止播放远端视频画面。 |
-| [MuteRemoteAudioStream](#MuteRemoteAudioStream) | 停止/恢复远端用户的音频流数据。 |
-| [MuteRemoteVideoStream](#MuteRemoteVideoStream) | 停止/恢复远端用户的视频流数据。 |
-| [UpdateRemoteView](#UpdateRemoteView) | 改变远端用户的视频渲染窗口。 |
+| [GetRemoteUserInfoList](#getremoteuserinfolist) | 获取房间内所有的人员列表，进入房间成功后调用才有效。|
+| [GetRemoteUserInfo](#getremoteuserinfo) | 获取房间内指定人员的详细信息，进入房间成功后调用才有效。|
+| [SubscribeRemoteStream](#subscriberemotestream) | 订阅并播放指定成员的远端视频画面。|
+| [UnSubscribeRemoteStream](#unsubscriberemotestream) | 取消订阅并停止播放远端视频画面。 |
+| [MuteRemoteAudioStream](#muteremoteaudiostream) | 停止/恢复远端用户的音频流数据。 |
+| [MuteRemoteVideoStream](#muteremotevideostream) | 停止/恢复远端用户的视频流数据。 |
+| [UpdateRemoteView](#updateremoteview) | 改变远端用户的视频渲染窗口。 |
 
 ### 本地视频操作接口
 
 | API | 描述 |
 |-----|-----|
-| [GetLocalUserInfo](#GetLocalUserInfo) | 获取本地用户信息。|
-| [StartCameraPreview](#StartCameraPreview) | 开启本地视频的预览画面。|
-| [StopCameraPreview](#StopCameraPreview) | 停止本地视频采集及预览。|
-| [UpdateRenderView](#UpdateRenderView) | 改变本地视频渲染窗口。|
-| [PublishVideoStream](#PublishVideoStream) | 开始推送本地视频流到远端。 |
-| [UnPublishVideoStream](#UnPublishVideoStream) | 停止推送本地视频流到远端。|
-| [SetVedioMirror](#SetVedioMirror) | 设置本地画面镜像预览模式。|
+| [GetLocalUserInfo](#getlocaluserinfo) | 获取本地用户信息。|
+| [StartCameraPreview](#startcamerapreview) | 开启本地视频的预览画面。|
+| [StopCameraPreview](#stopcamerapreview) | 停止本地视频采集及预览。|
+| [UpdateRenderView](#updaterenderview) | 改变本地视频渲染窗口。|
+| [PublishVideoStream](#publishvideostream) | 开始推送本地视频流到远端。 |
+| [UnPublishVideoStream](#unpublishvideostream) | 停止推送本地视频流到远端。|
+| [SetVedioMirror](#setvediomirror) | 设置本地画面镜像预览模式。|
 
 ### 本地音频操作接口
 
 | API | 描述 |
 |-----|-----|
-| [StartMicrophone](#StartMicrophone) | 开启麦克风采集。|
-| [StopMicrophone](#StopMicrophone) | 停止麦克风采集。|
-| [PublishAudioStream](#PublishAudioStream) | 推送本地音频数据到远端。|
-| [UnPublishAudioStream](#mutelocalaudio) | 停止推送本地音频数据到远端。|
-| [SystemAudioLoopback](#SystemAudioLoopback) | 开启/关闭系统声音的采集。|
+| [StartMicrophone](#startmicrophone) | 开启麦克风采集。|
+| [StopMicrophone](#stopmicrophone) | 停止麦克风采集。|
+| [PublishAudioStream](#publishaudiostream) | 推送本地音频数据到远端。|
+| [UnPublishAudioStream](#unpublishaudiostream) | 停止推送本地音频数据到远端。|
+| [SystemAudioLoopback](#systemaudioloopback) | 开启/关闭系统声音的采集。|
 
 ### 场控相关接口
 | API | 描述 |
 |-----|-----|
-| [MuteUserMic](#MuteUserMic) | 禁用/恢复某用户的麦克风。|
-| [MuteUserCamera](#MuteUserCamera) | 禁用/恢复某用户的摄像头。|
-| [MuteAllUsersMic](#MuteAllUsersMic) | 禁用/恢复所有用户的麦克风，并且状态会同步到房间信息中。|
-| [MuteAllUsersCamera](#MuteAllUsersCamera) | 禁用/恢复所有用户的摄像头，并且状态会同步到房间信息中。|
-| [MuteUserMessage](#MuteUserMessage) | 禁言/恢复禁言（主持人调用）。|
-| [KickOffUser](#KickOffUser) | 移除房间内的某人（主持人调用）。|
+| [MuteUserMic](#muteusermic) | 禁用/恢复某用户的麦克风。|
+| [MuteUserCamera](#muteusercamera) | 禁用/恢复某用户的摄像头。|
+| [MuteAllUsersMic](#muteallusersmic) | 禁用/恢复所有用户的麦克风，并且状态会同步到房间信息中。|
+| [MuteAllUsersCamera](#mutealluserscamera) | 禁用/恢复所有用户的摄像头，并且状态会同步到房间信息中。|
+| [MuteUserMessage](#muteusermessage) | 禁言/恢复禁言（主持人调用）。|
+| [KickOffUser](#kickoffuser) | 移除房间内的某人（主持人调用）。|
 
 ### 本地设置相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [GetDeviceManager](#GetDeviceManager) | 获取本地设置管理对象 [ITXDeviceManager]()。|
-| [SetVideoQosPreference](#SetVideoQosPreference) | 设置网络流控相关参数。|
+| [GetDeviceManager](#getdevicemanager) | 获取本地设置管理对象 [ITXDeviceManager]()。|
+| [SetVideoQosPreference](#setvideoqospreference) | 设置网络流控相关参数。|
 
 ### 美颜相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [SetBeautyStyle](#SetBeautyStyle) | 美颜设置 。|
+| [SetBeautyStyle](#setbeautystyle) | 美颜设置 。|
 
 ### 屏幕分享相关接口
 
 | API | 描述 |
 |-----|-----|
-| [GetScreenShareManager](#GetScreenShareManager) | 获取屏幕分享管理对象 [IScreenShareManager]()。|
+| [GetScreenShareManager](#getscreensharemanager) | 获取屏幕分享管理对象 [IScreenShareManager]()。|
 
 ### 消息发送相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [SendChatMessage](#SendChatMessage) | 在房间中广播文本消息，用于聊天。|
+| [SendChatMessage](#sendchatmessage) | 在房间中广播文本消息，用于聊天。|
 
-
-<h2 id="TXMediaCoreCallback">TXMediaCoreCallback API 概览</h2>
+[](id:TXMediaCoreCallback)
+## TXMediaCoreCallback API 概览
 
 ### 通用事件回调
 
 | API | 描述 |
 |-----|-----|
-| [onError](#onError) | 错误回调。|
-| [OnLogin](#OnLogin) | 登录回调。|
-| [OnLogout](#OnLogout) | 登出回调。|
+| [onError](#onerror) | 错误回调。|
+| [OnLogin](#onlogin) | 登录回调。|
+| [OnLogout](#onlogout) | 登出回调。|
 
 ### 会议房间事件回调
 
 | API | 描述 |
 |-----|-----|
-| [OnCreateRoom](#OnCreateRoom) | 创建房间回调。|
-| [OnDestroyRoom](#OnDestroyRoom)     | 房间解散回调。   |
-| [OnEnterRoom](#OnEnterRoom) | 进入房间回调。|
-| [OnExitRoom](#OnExitRoom) | 退出房间回调。|
-| [OnRoomMasterChanged](#OnRoomMasterChanged) | 主持人更改回调。|
+| [OnCreateRoom](#oncreateroom) | 创建房间回调。|
+| [OnDestroyRoom](#ondestroyroom)     | 房间解散回调。   |
+| [OnEnterRoom](#onenterroom) | 进入房间回调。|
+| [OnExitRoom](#onexitroom) | 退出房间回调。|
+| [OnRoomMasterChanged](#onroommasterchanged) | 主持人更改回调。|
 
 ### 成员进出事件回调
 
 | API | 描述 |
 |-----|-----|
-| [OnRemoteUserEnterRoom](#OnRemoteUserEnterRoom) | 远端用户进入房间回调。|
-| [OnRemoteUserLeaveRoom](#OnRemoteUserLeaveRoom) | 远端用户离开房间回调。|
+| [OnRemoteUserEnterRoom](#onremoteuserenterroom) | 远端用户进入房间回调。|
+| [OnRemoteUserLeaveRoom](#onremoteuserleaveroom) | 远端用户离开房间回调。|
 
 ### 成员音视频事件回调
 
 | API | 描述 |
 |-----|-----|
-| [OnFirstVideoFrame](#OnFirstVideoFrame) | 开始渲染自己本地或远端用户的首帧画面回调。|
-| [OnUserVoiceVolume](#OnUserVoiceVolume) | 用户音量大小回调通知。|
-| [OnRemoteUserVideoAvailable](#OnRemoteUserVideoAvailable) | 远端用户是否开启摄像头视频回调。|
-| [OnRemoteUserAudioAvailable](#OnRemoteUserAudioAvailable) | 远端用户是否开启音频上行回调。|
-| [OnRemoteUserScreenVideoAvailable](#OnRemoteUserScreenVideoAvailable) | 远端用户是否开启屏幕分享回调。|
+| [OnFirstVideoFrame](#onfirstvideoframe) | 开始渲染自己本地或远端用户的首帧画面回调。|
+| [OnUserVoiceVolume](#onuservoicevolume) | 用户音量大小回调通知。|
+| [OnRemoteUserVideoAvailable](#onremoteuservideoavailable) | 远端用户是否开启摄像头视频回调。|
+| [OnRemoteUserAudioAvailable](#onremoteuseraudioavailable) | 远端用户是否开启音频上行回调。|
+| [OnRemoteUserScreenVideoAvailable](#onremoteuserscreenvideoavailable) | 远端用户是否开启屏幕分享回调。|
 
 ### 场控事件回调
 
 | API | 描述 |
 |-----|-----|
-| [OnMuteMic](#OnMuteMic) | 主持人设置禁用麦克风回调。|
-| [OnMuteCamera](#OnMuteCamera) | 主持人设置禁用摄像头回调。|
+| [OnMuteMic](#onmutemic) | 主持人设置禁用麦克风回调。|
+| [OnMuteCamera](#onmutecamera) | 主持人设置禁用摄像头回调。|
 
 ### 消息事件回调
 
 | API | 描述 |
 |-----|-----|
-| [OnRecevieChatMessage](#OnRecevieChatMessage) | 收到文本消息回调。|
-| [OnMuteChatMessage](#OnMuteChatMessage) | 主持人更改聊天室是否禁言回调。|
+| [OnRecevieChatMessage](#onreceviechatmessage) | 收到文本消息回调。|
+| [OnMuteChatMessage](#onmutechatmessage) | 主持人更改聊天室是否禁言回调。|
 
 ### 统计和质量回调
 
 | API | 描述 |
 |-----|-----|
-| [OnStatistics](#OnStatistics) | 技术指标统计回调。|
-| [OnNetworkQuality](#OnNetworkQuality) | 网络质量回调。|
+| [OnStatistics](#onstatistics) | 技术指标统计回调。|
+| [OnNetworkQuality](#onnetworkquality) | 网络质量回调。|
 
 ### 用户音量回调
 
 | API | 描述 |
 |-----|-----|
-| [OnUserVolumeLevel](#OnUserVolumeLevel) | 用户音量回调。|
+| [OnUserVolumeLevel](#onuservolumelevel) | 用户音量回调。|
 
 ### 本地设备测试回调
 
 | API | 描述 |
 |-----|-----|
-| [OnTestSpeakerVolume](#OnTestSpeakerVolume) | 扬声器大小回调。|
-| [OnTestMicVolume](#OnTestMicVolume) | 麦克风大小回调。|
-| [OnAudioDeviceCaptureVolumeChanged](#OnAudioDeviceCaptureVolumeChanged) | 调节系统采集音量回调。|
-| [OnAudioDevicePlayoutVolumeChanged](#OnAudioDevicePlayoutVolumeChanged) | 调节系统播放音量回调。|
+| [OnTestSpeakerVolume](#ontestspeakervolume) | 扬声器大小回调。|
+| [OnTestMicVolume](#ontestmicvolume) | 麦克风大小回调。|
+| [OnAudioDeviceCaptureVolumeChanged](#onaudiodevicecapturevolumechanged) | 调节系统采集音量回调。|
+| [OnAudioDevicePlayoutVolumeChanged](#onaudiodeviceplayoutvolumechanged) | 调节系统播放音量回调。|
 
 ## ITXMediaCore 基础函数
 
-[Instance](id:Instance)
+
 ### Instance
 
 获取 [TRTCMeeting](https://cloud.tencent.com/document/product/647/45667) 单例对象。
@@ -208,9 +209,9 @@ virtual int Login(const int& sdk_appid, const std::string& user_id, const std::s
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| sdk_appid | int |  您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
+| sdk_appid | int | 您可以在 **实时音视频控制台>[应用管理](https://console.cloud.tencent.com/trtc/app)>应用信息** 中查看 SDKAppID。 |
 | user_id | string | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
-| user_sig | string | 腾讯云设计的一种安全保护签名，获取方式请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
+| user_sig | string | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 
 ### Logout
 
@@ -248,12 +249,12 @@ virtual int CreateRoom(const std::string& room_id, TXSpeechMode speech_mode) = 0
 | speech_mode | TXSpeechMode | 发言模式。 |
 
 主持人正常调用流程如下：
-1. 【主持人】调用 `CreateRoom()` 创建会议，会议房间创建成功与否会通过 OnCreateRoom 通知给主持人。
-2. 【主持人】调用 `EnterRoom()` 进入房间。
-3. 【主持人】调用 `StartCameraPreview()` 打开摄像头采集和预览。
-4. 【主持人】调用 `PublishVideoStream()` 推送本地流到远端。
-5. 【主持人】调用 `StartMicrophone()` 打开本地麦克风。
-6. 【主持人】调用 `PublishAudioStream()` 推送本地音频数据到远端。
+1. **主持人**调用 `CreateRoom()` 创建会议，会议房间创建成功与否会通过 OnCreateRoom 通知给主持人。
+2. **主持人**调用 `EnterRoom()` 进入房间。
+3. **主持人**调用 `StartCameraPreview()` 打开摄像头采集和预览。
+4. **主持人**调用 `PublishVideoStream()` 推送本地流到远端。
+5. **主持人**调用 `StartMicrophone()` 打开本地麦克风。
+6. **主持人**调用 `PublishAudioStream()` 推送本地音频数据到远端。
 
 ### DestroyRoom
 
@@ -282,11 +283,11 @@ virtual int EnterRoom(const std::string& room_id) = 0;
 | room_id | int | 会议房间标识。 |
 
 参会成员进入会议的正常调用流程如下：
-1. 【参会成员】调用`EnterRoom`并传入 room_id 即可进入会议房间。
-2. 【参会成员】调用 `startCameraPreview()` 打开摄像头预览，调用 `startMicrophone()` 打开麦克风采集。
-3. 【参会成员】调用 `PublishVideoStream()` 推送本地流到远端，调用 `PublishAudioStream()` 推送本地音频数据到远端。
-4. 【参会成员】收到`OnRemoteUserVideoAvailable`的事件，调用`SubscribeRemoteStream()`开始播放视频。
-5. 【参会成员】收到`OnRemoteUserAudioAvailable`的事件，调用`MuteRemoteAudioStream()`开始播放声音。
+1. **参会成员**调用`EnterRoom`并传入 room_id 即可进入会议房间。
+2. **参会成员**调用 `startCameraPreview()` 打开摄像头预览，调用 `startMicrophone()` 打开麦克风采集。
+3. **参会成员**调用 `PublishVideoStream()` 推送本地流到远端，调用 `PublishAudioStream()` 推送本地音频数据到远端。
+4. **参会成员**收到`OnRemoteUserVideoAvailable`的事件，调用`SubscribeRemoteStream()`开始播放视频。
+5. **参会成员**收到`OnRemoteUserAudioAvailable`的事件，调用`MuteRemoteAudioStream()`开始播放声音。
 
 ### LeaveRoom
 
@@ -321,7 +322,7 @@ virtual const TXUserInfo* GetRemoteUserInfo(std::string user_id) = 0;
 
 ### SubscribeRemoteStream
 
-订阅并播放指定成员的远端视频画面。在 `OnRemoteUserVideoAvailable()` 的available为true回调时，调用该接口。
+订阅并播放指定成员的远端视频画面。在 `OnRemoteUserVideoAvailable()` 的 available 为 true 回调时，调用该接口。
 ```C++
 virtual int SubscribeRemoteStream(const std::string& user_id, const trtc::TXView& view,
         TXStreamType type = TXStreamType::kStreamTypeVideo) = 0;
@@ -420,7 +421,7 @@ virtual int StopCameraPreview() = 0;
 
 ### UpdateRenderView
 
-更新本地视频预览窗口句柄
+更新本地视频预览窗口句柄。
 ```C++
 virtual int UpdateRenderView(const trtc::TXView& view) = 0;
 ```
@@ -433,20 +434,20 @@ virtual int UpdateRenderView(const trtc::TXView& view) = 0;
 
 ### PublishVideoStream
 
-推送本地视频流到远端
+推送本地视频流到远端。
 
 ```C++
 virtual int PublishVideoStream() = 0;
 ```
 ### UnPublishVideoStream
 
-停止推送本地的视频数据到远端
+停止推送本地的视频数据到远端。
 ```C++
 virtual int UnPublishVideoStream() = 0;
 ```
 ### SetVedioMirror
 
-设置本地画面镜像预览模式
+设置本地画面镜像预览模式。
 ```C++
 virtual void SetVedioMirror(bool is_mirror)
 ```
@@ -455,13 +456,13 @@ virtual void SetVedioMirror(bool is_mirror)
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| is_mirror | bool | 是否镜像模式：true:镜像翻转；false:不翻转 |
+| is_mirror | bool | 是否镜像模式。true：镜像翻转；false：不翻转。 |
 
 ## 本地音频操作接口
 
 ### StartMicrophone
 
-开启麦克风采集
+开启麦克风采集。
 ```C++
 virtual int StartMicrophone(const trtc::TRTCAudioQuality& quality) = 0;
 ```
@@ -474,28 +475,28 @@ virtual int StartMicrophone(const trtc::TRTCAudioQuality& quality) = 0;
 
 ### StopMicrophone
 
-停止麦克风采集
+停止麦克风采集。
 ```C++
 virtual int StopMicrophone() = 0;
 ```
 
 ### PublishAudioStream
 
-开始推送本地的音频数据到远端
+开始推送本地的音频数据到远端。
 ```C++
 virtual int PublishAudioStream() = 0;
 ```
 
 ### UnPublishAudioStream
 
-取消推送本地音频流到远端
+取消推送本地音频流到远端。
 ```C++
 virtual int UnPublishAudioStream() = 0;
 ```
 
 ### SystemAudioLoopback
 
-开启/关闭系统声音的采集
+开启/关闭系统声音的采集。
 ```C++
 virtual int SystemAudioLoopback(bool start_up = true) = 0;
 ```
@@ -504,7 +505,7 @@ virtual int SystemAudioLoopback(bool start_up = true) = 0;
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| start_up | bool |  是否上行采集的系统声音：true：开始上行采集的系统声音，默认为true； false：停止上行采集的系统声音 |
+| start_up | bool | 是否上行采集的系统声音。true：开始上行采集的系统声音，默认为 true； false：停止上行采集的系统声音。 |
 
 ## 录屏接口
 ### StartScreenCapture
@@ -559,7 +560,7 @@ virtual std::vector<ScreenCaptureSourceInfo>& GetScreenCaptureSources(const SIZE
 
 ### ReleaseScreenCaptureSources
 
-释放窗口列表资源
+释放窗口列表资源。
 ```C++
 virtual void ReleaseScreenCaptureSources() = 0;
 ```
@@ -626,6 +627,7 @@ virtual int SendChatMessage(const std::string& message) = 0;
 |-----|-----|-----|
 | message | string | 文本消息。 |
 
+[](id:TXMediaCoreCallback)
 
 ## TXMediaCoreCallback 事件回调
 
@@ -737,7 +739,7 @@ virtual void OnExitRoom(TXExitRoomType code, const std::string& message) = 0;
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| code | TXExitRoomType | 错误码：0正常退出，1踢出房间，2房间解散，3其他端登录挤下线，4网络异常。 |
+| code | TXExitRoomType | 错误码：0—正常退出，1—踢出房间，2—房间解散，3—其他端登录挤下线，4—网络异常。 |
 | message | string | 错误信息。 |
 
 ### OnRemoteUserEnterRoom
@@ -880,6 +882,6 @@ void OnScreenCaptureStopped(int reason);
 
 参数如下表所示：
 
-| 参数   | 类型 | 含义                                               |
-| ------ | ---- | -------------------------------------------------- |
-| reason | int  | 停止原因，0：用户主动停止；1：被其他应用抢占导致停止 |
+| 参数   | 类型 | 含义                                                   |
+| ------ | ---- | ------------------------------------------------------ |
+| reason | int  | 停止原因，0：用户主动停止；1：被其他应用抢占导致停止。 |
