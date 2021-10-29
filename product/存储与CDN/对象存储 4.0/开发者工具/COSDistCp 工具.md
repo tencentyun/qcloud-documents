@@ -196,6 +196,7 @@ hadoop fs  -Ddfs.checksum.combine.mode=COMPOSITE_CRC -checksum /data/test.txt
  - `--diffMode=length`表示根据文件大小是否相同，获取差异文件列表。
  - `--diffMode=length-checksum`，根据文件大小和 CRC 检验和是否相同，获取差异文件列表。
 - `--diffOutput` 指定 diff 操作的输出目录。
+
 如果目标文件系统为 COS，且源文件系统的 CRC 算法与之不同，则 COSDistCp 会拉取源文件计算目的文件系统的 CRC，以进行相同 CRC 算法值的对比。以下示例中，在迁移完成后，使用 --diffMode 参数，根据文件大小和 CRC 值，校验源和目标文件是否相同：
 
 ```plaintext
