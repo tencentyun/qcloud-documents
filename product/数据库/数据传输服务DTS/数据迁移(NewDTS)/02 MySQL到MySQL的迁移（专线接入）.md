@@ -81,7 +81,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 </ul></li>
 <li>外键依赖：
 <ul>
-<li>外键依赖只能设置为 NO ACTION，RESTRICT，CASCADE 三种类型。</li>
+<li>外键依赖只能设置为 NO ACTION，RESTRICT 两种类型。</li>
 <li>部分库表迁移时，有外键依赖的表必须齐全。</li>
 </ul></li>
 <li>DTS 对数据类型为 FLOAT 的迁移精度为38位，对数据类型为 DOUBLE 的迁移精度为308位，需要确认是否符合预期。</li></ul></td></tr>
