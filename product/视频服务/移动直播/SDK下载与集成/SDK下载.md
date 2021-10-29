@@ -4,7 +4,8 @@
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2343-35187?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 [](id:Smart)
-## 基础直播版（Smart）
+## 基础直播 Smart
+
 基础直播版仅包含直播推流（TXLivePusher）和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用移动直播相关功能的客户。 
 
 >! 基础版的直播推流只支持 RTMP 推流，不支持 RTC 推流。
@@ -52,9 +53,9 @@
 >![](https://main.qcloudimg.com/raw/23242df893a3ecb11779a59ed9a5629c.jpg)
 
 [](id:Live)
-## 互动直播版（Live）
+## 互动直播 Live
 
-互动直播版包含**主播开播、主播观众连麦/主播跨房 PK**和**直播观看**三个功能模块。互动直播 Live 是在基础直播 Smart 功能上同时支持基于 RTC 协议连麦，快速实现更加灵活、更低延时、更多人数的直播互动场景。
+互动直播版包含**主播开播、主播观众连麦/主播跨房 PK** 和**直播观看**三个功能模块。互动直播 Live 是在基础直播 Smart 功能上同时支持基于 RTC 协议连麦，快速实现更加灵活、更低延时、更多人数的直播互动场景。
 
 <table>
    <tr>
@@ -88,9 +89,9 @@
 </table>
 
 [](id:ALL)
-## 全功能版（ALL）
+## 全功能版 ALL
 
-全功能版集合了包含移动直播在内的多个音视频相关的核心功能，这包括 [音视频通话（TRTC）](https://cloud.tencent.com/product/trtc)、[播放器（Player）](https://cloud.tencent.com/product/player) 和 [短视频（UGSV）](https://cloud.tencent.com/product/ugsv) 等，由于底层模块的高度复用，集成全功能版的体积增量要小于同时集成两个独立的 SDK，并且可以避免符号冲突（symbol duplicate）的困恼。
+全功能版集合了包含移动直播在内的多个音视频相关的核心功能，这包括 [实时音视频 SDK](https://cloud.tencent.com/product/trtc)、[超级播放器（Player+）](https://cloud.tencent.com/product/player)和 [短视频（UGSV）](https://cloud.tencent.com/product/ugsv)等，由于底层模块的高度复用，集成全功能版的体积增量要小于同时集成两个独立的 SDK，并且可以避免符号冲突（symbol duplicate）的困恼。
 
 <table>
    <tr>
@@ -119,16 +120,16 @@
    </tr>
 </table>
 
->? 根据您具体使用的服务，使用全功能版需先购买对应产品授权，您可按需选购：
+>? 根据您具体使用的服务，使用专业版需先购买对应产品授权，您可按需选购：
 >
 >1. 使用其中的移动直播请购买  [直播推流 License（原移动直播基础版 License）](https://cloud.tencent.com/document/product/454/8008#live_pag_price)。
 >1. 使用其中的短视频请购买 [短视频精简版/基础版 License](https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
 >1. 使用其中的实时音视频请购买 [实时音视频套餐包](https://cloud.tencent.com/document/product/647/37097)。
 
 [](id:Enterprise)
-## 企业版（Enterprise）
+## 企业版 Enterprise
 
-企业版除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力。
+企业版除了包含全功能版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力。
 下载企业版 SDK 后需要解压密码和授权 License 才能运行，获取解压密码和企业版 License，需要先 [申请企业版 License](https://cloud.tencent.com/product/x-magic)，或请 [联系腾讯云商务](https://cloud.tencent.com/apply/p/h1qsz5vhvko) 进行申请。
 
 <table>
@@ -155,10 +156,11 @@
    </tr>
 </table>
 
->! 动效贴纸、AI 抠图、美妆特效和手势动作特效需通过额外的素材来使用功能。
+>! 动效贴纸、AI抠图、美妆特效和手势动作特效需通过额外的素材来使用功能。
 
 ## 各版本差异对照表
-![](https://qcloudimg.tencent-cloud.cn/raw/6d55bfc9388d40162599f801a8458dc1.svg)
+![](https://qcloudimg.tencent-cloud.cn/raw/286d70e01b2201258baa293ebed014c7.svg)
+
 
 <table>
   <tr>
