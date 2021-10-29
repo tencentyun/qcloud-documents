@@ -4,10 +4,10 @@
 ## 复用 App 的 UI 界面
 如需快速接入多人视频会议功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用的 App 内的 Module 模块实现自定义 UI 界面。
 
-### 步骤1：下载App源码
+### 步骤1：下载 App 源码
 单击进入 [MeetingApp](https://github.com/tencentyun/TUIMeeting)，Clone 或者下载源码。
 
-### 步骤2：配置App文件
+### 步骤2：配置 App 文件
 1. 找到并打开 `Windows\MeetingApp\utils\usersig\win\GenerateTestUserSig.h` 文件。
 2. 设置 `GenerateTestUserSig.h` 中的参数：
 	- SDKAPPID， 默认为0，请设置为实际的 SDKAPPID。
