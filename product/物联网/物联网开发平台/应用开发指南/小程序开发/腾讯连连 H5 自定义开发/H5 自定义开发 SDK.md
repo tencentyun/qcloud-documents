@@ -1705,7 +1705,8 @@ sdk.blueToothAdapter.getDeviceAdapter(deviceId: string) => DeviceAdapter
 蓝牙设备不能通过mqtt直接上报设备的mac地址等信息，所以需要H5端进行上报，对应的是设备详情里面的设备信息
 ![](https://qcloudimg.tencent-cloud.cn/raw/9360c6faefc368bdba49e0f3f1f974c2.png)
 
-- 注意：图片里面厂家名称和产品型号是在设备量产时在控制台填写的，mac地址,固件版本等由H5端进行上报
+>! 图片里面厂家名称和产品型号是在设备量产时在控制台填写的，mac 地址，固件版本等由 H5 端进行上报
+
 - **接口定义**
 
 ```typescript
@@ -1724,7 +1725,7 @@ sdk.blueToothAdapter.reportDeviceInfo({ productId: string, deviceName: string, d
 </thead>
 <tbody><tr>
 <td>productId</td>
-<td>产品ID</td>
+<td>产品 ID</td>
 <td>string</td>
 </tr>
 <tr>
@@ -1750,8 +1751,6 @@ deviceInfo: {
     "append_info": "设备商自定义的产品附加信息"
 }
 ```
-
-#### 
 
 
 
