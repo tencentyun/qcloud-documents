@@ -2192,13 +2192,15 @@ deviceAdapter.off(type: string, listener: (...args) => void) => void
 
 ### BLE + WIFI 双路通信
 
-针对 Wi-Fi + BLE Combo 模组，提供设备端 SDK 和 H5 SDK，支持设备 Wi- Fi 离线状态下，小程序通过 LLSync 标准蓝牙协议与设备通信，为用户提供 Wi-Fi 断网下的更佳体验。设备端 SDK请参考[开发指引](https://github.com/tencentyun/qcloud-iot-explorer-BLE-sdk-embedded/blob/master/docs/LLSync%20SDK%E5%8F%8C%E8%B7%AF%E9%80%9A%E4%BF%A1%E5%8A%9F%E8%83%BD%E6%8E%A5%E5%85%A5%E6%8C%87%E5%BC%95.md)
+针对 Wi-Fi + BLE Combo 模组，提供设备端 SDK 和 H5 SDK，支持设备 Wi- Fi 离线状态下，小程序通过 LLSync 标准蓝牙协议与设备通信，为用户提供 Wi-Fi 断网下的更佳体验。设备端 SDK 请参考 [开发指引](https://github.com/tencentyun/qcloud-iot-explorer-BLE-sdk-embedded/blob/master/docs/LLSync%20SDK%E5%8F%8C%E8%B7%AF%E9%80%9A%E4%BF%A1%E5%8A%9F%E8%83%BD%E6%8E%A5%E5%85%A5%E6%8C%87%E5%BC%95.md)。
 
-对于自定义H5面板，配网流程无需开发者关注，开发者需要在面板中关注： 1. 监听设备在线状态，wifi连接是否正常; 2. 当设备离线时启用蓝牙进行通信。下面分开说明。
+对于自定义 H5 面板，配网流程无需开发者关注，开发者需要在面板中关注： 
+1. 监听设备在线状态，wifi连接是否正常; 
+2. 当设备离线时启用蓝牙进行通信。下面分开说明。
 
 #### 监听设备在线状态
 
-我们可以通过监听[WebSocket 事件](https://cloud.tencent.com/document/product/1081/49029#websocket-.E4.BA.8B.E4.BB.B6)中的`wsStatusChange`事件来感知设备的在线离线状态。
+我们可以通过监听 [WebSocket 事件](#websocket-.E4.BA.8B.E4.BB.B6) 中的 `wsStatusChange` 事件来感知设备的在线离线状态。
 
 ```js
 sdk.on('wsStatusChange', ({deviceId, deviceStatus}) => {
@@ -2210,11 +2212,11 @@ sdk.on('wsStatusChange', ({deviceId, deviceStatus}) => {
 
 #### 启用蓝牙通信
 
-我们提供了[双路通信demo](https://github.com/tencentyun/iotexplorer-h5-panel-demo/tree/master/src/DualmodePanel)供参考。
+我们提供了 [双路通信 demo](https://github.com/tencentyun/iotexplorer-h5-panel-demo/tree/master/src/DualmodePanel) 供参考。
 
 ##### STEP1: 添加 BleComboDualModeDeviceAdapter4H5
 
-BleComboDualModeDeviceAdapter4H5 是一个设备适配器实例，如果您还不了解设备适配器，请阅读[设备适配器部分](https://cloud.tencent.com/document/product/1081/49029#.E8.AE.BE.E5.A4.87.E9.80.82.E9.85.8D.E5.99.A8)
+BleComboDualModeDeviceAdapter4H5 是一个设备适配器实例，如果您还不了解设备适配器，请阅读 [设备适配器部分](https://cloud.tencent.com/document/product/1081/49029#.E8.AE.BE.E5.A4.87.E9.80.82.E9.85.8D.E5.99.A8)。
 
 ```js
 import { BleComboDualModeDeviceAdapter4H5 } from 'qcloud-iotexplorer-appdev-plugin-wificonf-blecombo/lib/protocols/BleComboDualMode';
@@ -2229,7 +2231,7 @@ sdk.blueToothAdapter._deviceAdapterFactoryMap[BleComboDualModeDeviceAdapter4H5.s
 
 ##### STEP2: 搜索设备
 
-searchDevice的参数详见 [蓝牙适配器](https://cloud.tencent.com/document/product/1081/49029#.E8.93.9D.E7.89.99.E9.80.82.E9.85.8D.E5.99.A8) 搜索单个蓝牙设备的参数说明部分。
+searchDevice的参数详见 [蓝牙适配器](#.E8.93.9D.E7.89.99.E9.80.82.E9.85.8D.E5.99.A8) 搜索单个蓝牙设备的参数说明部分。
 
 ```js
 await blueToothAdapter.init();
@@ -2265,8 +2267,6 @@ if (!deviceAdapter.authorized) {
 ```js
 sdk.controlDeviceData({ power_switch: 1 });
 ```
-
-## 
 
 ## ASR 语音识别
 
