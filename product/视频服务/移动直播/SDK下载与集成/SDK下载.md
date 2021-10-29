@@ -159,8 +159,8 @@
 >! 动效贴纸、AI抠图、美妆特效和手势动作特效需通过额外的素材来使用功能。
 
 ## 各版本差异对照表
+![](https://qcloudimg.tencent-cloud.cn/raw/286d70e01b2201258baa293ebed014c7.svg)
 
-![](https://qcloudimg.tencent-cloud.cn/raw/897f26db10bdc9ac3ae9d4411e694bb9.svg)
 
 <table>
   <tr>
