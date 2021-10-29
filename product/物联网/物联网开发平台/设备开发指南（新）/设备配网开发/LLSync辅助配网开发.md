@@ -209,7 +209,7 @@ LLSync 蓝牙辅助配网功能是腾讯云IoT推出的针对`Wi-Fi + BLE` 的�
    /* LLSync SDK初始化接口，主要进行蓝牙服务添加。默认在start_device_btcomboconfig内已调用，您也可以选择在其他位置调用。*/
    ble_qiot_ret_status_t ble_qiot_explorer_init(void);
    
-   /* LLSync广播启动接口，请你选择合适的位置调用。例如在蓝牙断开时重新开始广播。
+   /* LLSync广播启动接口，请您选择合适的位置调用。例如在蓝牙断开时重新开始广播。
    ……
    ESP_LOGI(LLSYNC_LOG_TAG, "ESP_GATTS_DISCONNECT_EVT, reason = 0x%x", param->disconnect.reason);
    ble_qiot_advertising_start();
@@ -217,7 +217,7 @@ LLSync 蓝牙辅助配网功能是腾讯云IoT推出的针对`Wi-Fi + BLE` 的�
    */
    ble_qiot_ret_status_t ble_qiot_advertising_start(void);
    
-   /* LLSync广播停止接口，请你选择合适的位置调用。例如在配网结束时停止广播。
+   /* LLSync广播停止接口，请您选择合适的位置调用。例如在配网结束时停止广播。
    int stop_device_btcomboconfig(void)
    {
        ble_qiot_advertising_stop();
