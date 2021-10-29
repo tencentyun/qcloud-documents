@@ -7,8 +7,7 @@ HTTP/1.1 431 Request Header Fields Too Large
 ## 原因分析
 
 此状态码说明 http 请求 header 大小超限了，默认限制为60KiB，由 `HttpConnectionManager` 配置的 `max_request_headers_kb` 字段决定，最大可调整到96KiB：
-
-![img](https://imroc.cc/istio/faq/431-status-code/1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/63489f6754a9d767518c733e347d33e4.png)
 
 ## 解决方案
 
