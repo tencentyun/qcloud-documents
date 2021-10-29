@@ -13,7 +13,7 @@ RabbitMQ 客户端支持的接口列表如下：
 | queueDelete            | 删除 Queue。                                             |
 | queueBind              | 声明 Queue 和某一 Exchange 的绑定关系，没有则绑定。      |
 | queueBindNoWait        | 声明 Queue 和某一 Exchange 的绑定关系，没有则异步绑定。  |
-| queuePurge             | 重置消费位点，从最新消费（原生 RabbitMQ 相应为删除消息） |
+| queuePurge             | 重置消费位点，从最新消费（原生 RabbitMQ 相应为删除消息）。 |
 | queueUnbind            | 取消绑定。                                               |
 | queueUnbindNoWait      | 异步取消绑定。                                           |
 
