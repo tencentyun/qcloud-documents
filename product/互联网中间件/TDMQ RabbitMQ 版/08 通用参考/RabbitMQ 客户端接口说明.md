@@ -4,7 +4,7 @@ RabbitMQ 客户端支持的接口列表如下：
 | ---------------------- | -------------------------------------------------------- |
 | exchangeDeclare        | 声明一个 Exchange，没有则创建。                          |
 | exchangeDeclareNoWait  | 声明一个 Exchange，没有则异步创建。                      |
-| exchangeDeclarePassive | 声明一个Exchange，没有则报异常。                         |
+| exchangeDeclarePassive | 声明一个 Exchange，没有则报异常。                         |
 | exchangeDelete         | 删除 Exchange。                                          |
 | exchangeUnbindNoWait   | 异步取消绑定。                                           |
 | queueDeclare           | 声明一个 Queue，没有则创建。                             |
