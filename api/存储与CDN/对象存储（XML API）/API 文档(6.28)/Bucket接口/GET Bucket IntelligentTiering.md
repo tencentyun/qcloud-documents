@@ -15,7 +15,7 @@ GET Bucket IntelligentTiering 接口用于查询存储桶的智能分层配置�
        <Status>Enabled</Status>
        <Transition>
           <Days>30</Days>
-	  <RequestFrequent>1</RequestFrequent>
+		  <RequestFrequent>1</RequestFrequent>
        </Transition>
 </IntelligentTieringConfiguration>
 ```
