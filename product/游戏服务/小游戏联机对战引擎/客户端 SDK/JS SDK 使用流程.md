@@ -10,7 +10,13 @@
 ## 操作步骤
 
 ### 设置 request 和 socket 域名
->!出于安全考虑，微信小程序/小游戏会限制请求域名，所有的 HTTPS、WebSocket、上传、下载请求域名都需要在 [微信公众平台](https://mp.weixin.qq.com) 进行配置。因此，在正式接入游戏联机对战引擎 JS SDK 前，需要您在微信公众平台配置合法域名。
+
+
+<dx-alert infotype="notice" title="">
+出于安全考虑，微信小程序/小游戏会限制请求域名，所有的 HTTPS、WebSocket、上传、下载请求域名都需要在 [微信公众平台](https://mp.weixin.qq.com) 进行配置。因此，在正式接入游戏联机对战引擎 JS SDK 前，需要您在微信公众平台配置合法域名。
+</dx-alert>
+
+
 
 1. 需要配置的域名包含一条 request 域名和两条 socket 域名记录。您在游戏联机对战引擎控制台上获取域名后，需要配置该域名的默认端口、 5443 端口两条记录。
 ```
@@ -21,7 +27,7 @@ xxx.wxlagame.com
 xxx.wxlagame.com:5443
 ```	
 2. 进入 [游戏联机对战引擎控制台](https://console.cloud.tencent.com/minigamecloud)，将控制台获取的游戏域名信息复制保存。
-3. 登录 [微信公众平台](https://mp.weixin.qq.com)，选择左侧菜单栏【开发】>【开发设置】。
+3. 登录 [微信公众平台](https://mp.weixin.qq.com)，选择左侧菜单栏**开发**>**开发设置**。
 4. 进入开发设置详情页，在 “服务器域名” 中添加合法域名记录。如下图所示：
 ![微信公共平台](https://main.qcloudimg.com/raw/e17421702e5e79ade528a074b047b184.png)
 
@@ -111,7 +117,13 @@ const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 
 此外，在 LayaAir IDE 中，您也可以直接在 bin/index.js 中直接使用 loadLib 函数导入 MGOBE.js，让 JS SDK 文件先执行一遍即可。
 在 TypeScript 环境中，您也可以使用 import/from 语法导入 MGOBE.js，但由于 TS 导入 .d.ts 的优先级高于导入 .js，所以您需要将 MGOBE.js 和 MGOBE.d.ts 文件放在不同文件夹，并使用 import/from 导入 .js 文件。
->!使用 import/from 语法方式导入 .js 将无法使用 .d.ts 提示。
+
+
+<dx-alert infotype="notice" title="">
+使用 import/from 语法方式导入 .js 将无法使用 .d.ts 提示。
+</dx-alert>
+
+
 
 ```
 
@@ -144,8 +156,8 @@ const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 ```
 const gameInfo = {
 	openId: 'xxxxxx',
-	gameId: "xxxxxx",// 替换为控制台上的“游戏ID”
-	secretKey: 'xxxxxx',// 替换为控制台上的“游戏key””
+	gameId: "xxxxxx",// 替换为控制台上的“游戏 ID”
+	secretKey: 'xxxxxx',// 替换为控制台上的“游戏 key”
 };
 
 const config = {
@@ -202,7 +214,13 @@ Room.getMyRoom(event => {
 ```
 
 后续的创建房间、加房、匹配等接口调用直接利用 room 实例即可。
->!getMyRoom、getRoomList、getRoomByRoomId 接口是 Room 对象的静态方法，您需要使用 Room.getMyRoom、Room.getRoomList、Room.getRoomByRoomId 进行调用。Room 的实例无法直接访问 getMyRoom、getRoomList、getRoomByRoomId。
+
+
+<dx-alert infotype="notice" title="">
+getMyRoom、getRoomList、getRoomByRoomId 接口是 Room 对象的静态方法，您需要使用 Room.getMyRoom、Room.getRoomList、Room.getRoomByRoomId 进行调用。Room 的实例无法直接访问 getMyRoom、getRoomList、getRoomByRoomId。
+</dx-alert>
+
+
 
 ### Room 接收广播
 
