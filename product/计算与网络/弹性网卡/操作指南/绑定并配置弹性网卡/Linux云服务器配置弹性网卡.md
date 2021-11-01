@@ -138,7 +138,7 @@ vim /etc/sysconfig/network-scripts/route-eth0    # 编辑 route-eth0 文件
  ```
 default dev eth0 via 192.168.1.1 table 10        # 在 route-eth0 文件中为路由表10增加默认网关
 ```
-		3. 按“ESC”，并输入“:wq!”保存并推出，然后再按照同样操作配置 route-eth1 文件。
+		3. 按“ESC”，并输入“:wq!”保存并退出，然后再按照同样操作配置 route-eth1 文件。
 	
          ```
 	vim /etc/sysconfig/network-scripts/route-eth1     # 编辑 route-eth1 文件
