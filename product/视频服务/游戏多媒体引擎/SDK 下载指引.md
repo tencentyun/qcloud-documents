@@ -12,7 +12,13 @@
 
 下载 SDK 及 Demo 后，如果使用上有问题，您可参见 [Demo 使用问题](https://cloud.tencent.com/document/product/607/51456)，或进行 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 联系腾讯云工作人员。
 
->?下载的 Demo 代码中，需要替换为您申请的 SDKAppid 和 Key 才可编译执行，例如 Unity Demo 需要修改 **UserConfig.cs** 代码文件。申请服务详情请参见 [语音服务开通指引](https://cloud.tencent.com/document/product/607/10782)。
+
+
+<dx-alert infotype="explain" title="">
+下载的 Demo 代码中，需要替换为您申请的 SDKAppid 和 Key 才可编译执行，例如 Unity Demo 需要修改 **UserConfig.cs** 代码文件。申请服务详情请参见 [语音服务开通指引](https://cloud.tencent.com/document/product/607/10782)。
+</dx-alert>
+
+
 
 
 
@@ -33,8 +39,8 @@ v2.8.4 正式版本更新如下：
 <td>发布 SDK v2.8.4 正式版本</td>
 <td ><ul style="margin:0;"><li >新增静音键检测、设备占用检测功能。</li>
 <li >新增支持修改日志文件大小。</li>
-<li >GME Unity引擎 SDK 新增支持 PS5 平台。</li>
-<li >GME Unreal引擎 SDK 新增适配 Unreal 4.26版本。</li>
+<li >GME Unity 引擎 SDK 新增支持 PS5 平台。</li>
+<li >GME Unreal 引擎 SDK 新增适配 Unreal 4.26版本。</li>
 <li >优化网络模块，提升 Windows 平台进房成功率。</li>
 <li >提高流式语音消息转文本速度。</li>
 <li >优化 Android 平台蓝牙耳机体验。</li>
