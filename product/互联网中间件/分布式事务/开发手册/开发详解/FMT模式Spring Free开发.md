@@ -1,13 +1,13 @@
 ## 操作场景
 该任务指导您在 FMT 模式下进行 Spring Free 开发。
 
-FMT 事务，也可以理解为框架托管事务。需要用户仅需要在 **FMT 规范**下正常实现业务逻辑即可实现分布式事务。相对于 TCC事务，省去了编写 Confirm、Cancel 的代码工作。
-FMT 事务的实现原理：代理用户执行 PrepareStatement 和 CreateStatement 操作，对执行的 DML 语句进行解析，记录前后象，并生成UNDO信息。鉴于此，FMT 对用户使用的数据库和 SQL 语句会有一定的要求，详见  [FMT规范](https://cloud.tencent.com/document/product/1224/46038)。
+FMT 事务，也可以理解为框架托管事务。需要用户仅需要在 **FMT 规范**下正常实现业务逻辑即可实现分布式事务。相对于 TCC 事务，省去了编写 Confirm、Cancel 的代码工作。
+FMT 事务的实现原理：代理用户执行 PrepareStatement 和 CreateStatement 操作，对执行的 DML 语句进行解析，记录前后象，并生成 UNDO 信息。鉴于此，FMT 对用户使用的数据库和 SQL 语句会有一定的要求，详见  [FMT 规范](https://cloud.tencent.com/document/product/1224/46038)。
 
 
 ## 准备工作
 - 参考 [准备工作](https://cloud.tencent.com/document/product/1224/45966) 文档，完成环境配置和开发前准备。
-- 参考 [快速部署](https://cloud.tencent.com/document/product/1224/45967) 文档，执行 FMT 初始化脚本
+- 参考 [快速部署](https://cloud.tencent.com/document/product/1224/45967) 文档，执行 FMT 初始化脚本.
 
 ## 开发步骤
 ### Maven 配置
@@ -45,7 +45,7 @@ DtfEnv.addTxmBroker(String groupId, String txmBrokerList);
 | dtf.env.fmt  |  Boolean  | 否  | true  | 启动时会对 DB 进行大量初始化工作，若不需使用 fmt 建议禁用。 |
 
 通常情况下，仅需要在使用`DtfEnv.addTxmBroker()`配置一个事务分组。例如：
-用户 A，创建了一个事务分组`group-x3k9s0ns`，在 [分布式事务控制台](https://console.cloud.tencent.com/dtf/) 获取该分组的 TC 集群地址为`127.0.0.1:8080;127.0.0.1:8081;127.0.0.1:8082`。该用户访问密钥的 SecretId 为`SID`，SecretKey 为`SKEY`。需要在业务应用`app-test`上使用该事物时，配置样例为：
+用户 A，创建了一个事务分组`group-x3k9s0ns`，在 [分布式事务控制台](https://console.cloud.tencent.com/dtf/) 获取该分组的 TC 集群地址为`127.0.0.1:8080;127.0.0.1:8081;127.0.0.1:8082`。该用户访问密钥的 SecretId 为 `SID`，SecretKey 为 `SKEY`。需要在业务应用`app-test`上使用该事物时，配置样例为：
 ``` java
 DtfEnv.setServer("app-test");
 DtfEnv.setSecretId("SID");
@@ -100,7 +100,7 @@ DtfTransaction.begin(Integer timeout, String groupId)
 ```
 
 #### 标识一次FMT事务
-每一次数据库操作都需要进行标识
+每一次数据库操作都需要进行标识。
 ``` java
 DtfContextHolder.get().pushBranchType(DTF.BranchType.FMT);
 ```
@@ -115,7 +115,7 @@ DtfTransaction.rollback();
 
 #### 关闭主事务上下文
 
->!该操作仅关闭**当前线程**的主事务上下文，不会对主事务状态产生影响。
+>?该操作仅关闭**当前线程**的主事务上下文，不会对主事务状态产生影响。
 
 ``` java
 DtfTransaction.end();
@@ -150,7 +150,7 @@ public boolean execute() {
 ### 远程请求时传递分布式事务上下文
 
 #### 主调
-需要从上下文中提取`groupId`，`txId`，`lastBranchId`三个数据传递到下游。
+需要从上下文中提取 `groupId`、`txId`、`lastBranchId` 三个数据传递到下游。
 
 使用以下 API 提取：
 ``` java
@@ -170,7 +170,7 @@ DTF-Last-Branch-ID: ${LastBranchId}
 ```
 
 #### 被调
-根据上游业务的特性手动获取`groupId`，`txId`，`lastBranchId`三个数据。
+根据上游业务的特性手动获取 `groupId`、`txId`、`lastBranchId` 三个数据。
 
 如果上游使用的是 DTF 封装的 RestTemplate 或 Fegin，请从以下请求头中获取：
 ``` properties
