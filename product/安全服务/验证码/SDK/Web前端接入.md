@@ -294,7 +294,7 @@ options 提供以下配置参数：
 |needFeedBack	|Boolean|	隐藏帮助按钮。<br>示例 { needFeedBack: false }|
 |userLanguage|	String	|指定验证码提示文案的语言，优先级高于后台配置，暂时仅支持滑块拼图验证码。支持传入值同 navigator.language 用户首选语言，大小写不敏感。详情请参见 [userLaguage 配置参数](#userLanguage)。 |
 
-userLaguage 配置参数[](id:userLanguage)
+**userLaguage 配置参数**[](id:userLanguage)
 
 | 传入参数 | 语言                 |
 | :------- | :------------------- |
