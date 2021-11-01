@@ -1,6 +1,6 @@
 ## 操作场景
 
-该任务以 Python 客户端为例指导您使用公网网络接入消息队列 CKafka 并收发消息。
+该任务以 Python 客户端为例，指导您使用公网 SASL_SSL 方式接入消息队列 CKafka 并收发消息。
 
 ## 前提条件
 
@@ -20,7 +20,28 @@
 pip install kafka-python
 ```
 
-### 步骤二：生产消息
+### 步骤二：准备工作
+1. 创建接入点
+
+- 【实例列表】界面点击【添加路由策略】，在打开窗口中选择：`路由类型：公网域名接入`, `接入方式：SASL_SSL`。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/e6b811ebd0fc3dd904b2e1cacfb4e803.png)
+
+
+2. 创建角色
+
+- 在【用户管理】页面新建角色，设置密码。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/d328f09985cd4aefbd7da3e02888e4df.png)
+
+
+3. 创建 topic
+
+- 在控制台 topic 管理页面新建 topic
+
+![](https://qcloudimg.tencent-cloud.cn/raw/9b411e3baa587bc68c161e3011f5b83e.png)
+
+### 步骤三：生产消息
 
 1. 修改生产消息程序 `producer.py` 中配置参数。
 
@@ -56,7 +77,8 @@ producer.close()
 | `CARoot.pem`          | 采用 `SASL_SSL` 方式接入时，所需的证书路径。          |
 
 2. 编译并运行 producer.py。
-   
+
+
 3. 查看运行结果。
    
 ![](https://main.qcloudimg.com/raw/312d264676c655838e398ab9fa03b491.png)
@@ -65,7 +87,7 @@ producer.close()
    
 ![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
 
-### 步骤三：消费消息
+### 步骤四：消费消息
 
 1. 修改消费消息程序 consumer.py 中配置参数。
 
