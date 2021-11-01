@@ -9,10 +9,13 @@ Lambda 表达式需与函数一起使用，例如 filter 函数、reduce 函数�
 parameter -> expression
 ```
 
-| 参数       | 说明                                                         |
-| ---------- | ------------------------------------------------------------ |
-| parameter  | 用于传递参数的标识符。                                       |
-| expression | 表达式，大多数的 Mysql 表达式都可以在 Lambda 表达式使用。例如：<br>`x -> x + 1 <br/>(x, y) -> x + y <br/>x -> regexp_like(x, 'a+') <br/>x -> x[1] / x[2] <br/>x -> if(x > 0, x, -x) <br/>x -> coalesce(x, 0) <br/>x -> cast(x AS JSON) <br/>x -> x + try(1 / 0)` |
+<table>
+	<tr><th>参数</th><th>说明</th></tr>
+	<tr><td>parameter</td><td>用于传递参数的标识符。</td></tr>
+	<tr><td>expression</td><td>表达式，大多数的 Mysql 表达式都可以在 Lambda 表达式使用。例如：</br>
+	<pre><code>x -> x + 1 <br/>(x, y) -> x + y <br/>x -> regexp_like(x, 'a+') <br/>x -> x[1] / x[2] <br/>x -> if(x > 0, x, -x) <br/>x -> coalesce(x, 0) <br/>x -> cast(x AS JSON) <br/>x -> x + try(1 / 0)</code></pre></td></tr>
+</table>
+
 
 ### 示例
 
