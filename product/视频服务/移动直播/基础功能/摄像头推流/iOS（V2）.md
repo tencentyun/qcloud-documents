@@ -227,6 +227,10 @@ V2TXLivePusher 默认推出的是竖屏分辨率的视频画面，如果希望�
 :::
 </dx-codeblock>
 
+[](id:step16)
+### 16. 发送 SEI 消息
+播放端 [V2TXLivePlayer](https://liteav.sdk.qcloud.com/doc/api/zh-cn/interfaceV2TXLivePlayer.html) 通过 [V2TXLivePlayerObserver](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#protocolV2TXLivePlayerObserver-p) 中的 `onReceiveSeiMessage` 回调来接收该消息。
+
 
 ## 事件处理
 ### 事件监听
