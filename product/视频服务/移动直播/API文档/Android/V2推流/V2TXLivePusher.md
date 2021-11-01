@@ -419,7 +419,9 @@ public abstract int enableCustomVideoProcess(boolean enable, V2TXLivePixelFormat
 ### sendSeiMessage
 发送 SEI 消息。播放端 [V2TXLivePlayer](https://liteav.sdk.qcloud.com/doc/api/zh-cn/interfaceV2TXLivePlayer.html) 通过 [V2TXLivePlayerObserver](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#protocolV2TXLivePlayerObserver-p) 中的 `onReceiveSeiMessage` 回调来接收该消息。
 ```
-- (V2TXLiveCode)sendSeiMessage:(int)payloadType data:(NSData *)data 
+abstract int sendSeiMessage	(	int 	payloadType,
+                              byte[] 	data 
+                            )		
 ```
 #### 参数
 | 参数 | 类型 | 含义 |
