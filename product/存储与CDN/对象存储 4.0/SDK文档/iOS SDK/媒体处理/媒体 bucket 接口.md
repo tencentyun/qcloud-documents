@@ -15,6 +15,7 @@
 >! COS iOS SDK 版本需要大于等于 v5.9.6。
 
 #### 请求示例
+**Objective-C**
 ```objective-c
 QCloudGetDescribeMediaBucketsRequest * reqeust = [[QCloudGetDescribeMediaBucketsRequest alloc]init];
 
