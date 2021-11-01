@@ -16,11 +16,12 @@ UDP 健康检查的原理是负载均衡发送 UDP 探测报文到后端服务�
 sysctl -q net.ipv4.icmp_ratelimit
 sysctl -q net.ipv4.icmp_ratemask
 ```
-3. 确认 `net.ipv4.icmp_ratelimit` 速率参数的返回值是否为0或为默认值1000。建议改为默认值1000。
-4. 若调整速率限制后，仍出现状态不一致的问题，则执行以下命令关闭 `port unreachable` 类型的 ICMP 消息产生的速率限制。
+3. 确认 `net.ipv4.icmp_ratelimit` 速率参数的返回值是否为0或为默认值1000。建议改为默认值1000，不建议超过1000。
+4. 若调整速率限制后，仍出现状态不一致的问题，则执行以下命令关闭 `port unreachable` 类型的 ICMP 消息的速率限制。
 ```
-# 请根据步骤2的 net.ipv4.icmp_ratemask 参数查询结果，将以下代码中的”xxxx“数值修改为前三位数不变，最后一位数减8的数值，例如：6168改为6160，1819改为1811.
-sysctl -w net.ipv4.icmp_ratemask=xxxx //
+# 请根据以上步骤2的 net.ipv4.icmp_ratemask 参数查询结果，修改以下代码中的“xxxx”数值。
+# 将以下代码中的“xxxx”修改为前三位数不变，最后一位数减8的数值，例如：6168改为6160，1819改为1811。
+sysctl -w net.ipv4.icmp_ratemask=xxxx
 ```
 >!不再限制 `port unreachable` 类型的 ICMP 消息发送速度后，会让暴露在公网的服务器在受到 UDP 端口扫描攻击时，不受限制次数地返回 `port unreachable` 消息。
 
