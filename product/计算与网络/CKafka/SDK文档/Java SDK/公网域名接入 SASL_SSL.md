@@ -105,8 +105,6 @@ public class CKafkaConfigurer {
 }
 ```
 
-
-
 ### 步骤三：发送消息
 
 1. 创建发送消息程序 KafkaSaslProducerDemo.java。
@@ -126,23 +124,16 @@ public class CKafkaConfigurer {
               kafkaProperties.getProperty("bootstrap.servers"));
 
       //
-      //  SASL_PLAINTEXT 公网接入
-      //
-      props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");
-      //  SASL 采用 Plain 方式。
-      props.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
-
-      //
       //  SASL_SSL 公网接入
       //
       //  接入协议。
-      // props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
+      props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
       //  SASL 采用 Plain 方式。
-      // props.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
+      props.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
       //  SSL 加密。
-      // props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, kafkaProperties.getProperty(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG));
-      // props.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, kafkaProperties.getProperty(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG));
-      // props.put(SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG,kafkaProperties.getProperty(SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG));
+      props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, kafkaProperties.getProperty(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG));
+      props.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, kafkaProperties.getProperty(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG));
+      props.put(SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG,kafkaProperties.getProperty(SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG));
 
       //消息队列 Kafka 版消息的序列化方式。
       props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
@@ -216,23 +207,16 @@ public class KafkaSaslConsumerDemo {
               kafkaProperties.getProperty("bootstrap.servers"));
 
       //
-      //  SASL_PLAINTEXT 公网接入
-      //
-      props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");
-      //  SASL 采用 Plain 方式。
-      props.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
-
-      //
       //  SASL_SSL 公网接入
       //
       //  接入协议。
-      // props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
+      props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
       //  SASL 采用 Plain 方式。
-      // props.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
+      props.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
       //  SSL 加密。
-      // props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, kafkaProperties.getProperty(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG));
-      // props.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, kafkaProperties.getProperty(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG));
-      // props.put(SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG,kafkaProperties.getProperty(SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG));
+      props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, kafkaProperties.getProperty(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG));
+      props.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, kafkaProperties.getProperty(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG));
+      props.put(SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG,kafkaProperties.getProperty(SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG));
 
       //两次 Poll 之间的最大允许间隔。
       //消费者超过该值没有返回心跳，服务端判断消费者处于非存活状态，服务端将消费者从Consumer Group移除并触发Rebalance，默认30s。
