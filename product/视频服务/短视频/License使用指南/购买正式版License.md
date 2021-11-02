@@ -4,7 +4,7 @@
 ## 正式版 License
 
 ### 注意事项
-- **正式版 License 不支持信息修改**，若您需要修改 License 信息，购买资源包后请勿用于续期 License，请单击 **创建应用并绑定License ** 重新新增 License 绑定新的包名信息。
+- **正式版 License 不支持信息修改**，若您需要修改 License 信息，购买资源包后请勿用于续期 License，请单击 **创建应用并绑定License** 重新新增 License 绑定新的包名信息。
 - 短视频 SDK License 需要通过 [云点播控制台](https://console.cloud.tencent.com/vod/license/video) 与 [流量资源包](https://cloud.tencent.com/document/product/266/14667#flow_page) 进行绑定。绑定成功后该资源包视为已使用，不支持5天内无理由退款。
 
 [](id:creat_formal)

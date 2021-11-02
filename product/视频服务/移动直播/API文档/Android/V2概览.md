@@ -126,6 +126,10 @@
 | [snapshot](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a2a507ea1cd894a1635dbfd772802fefd) | 截取推流过程中的本地画面。    |
 | [setWatermark](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a4f56a5a937d87e5b1ae6f77c5bab2335)                 | 设置推流器水印。默认情况下，水印不开启。  |
 | [setEncoderMirror](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#ae025945b6f2633d8e3b879a6fe24dd99) | 设置视频编码镜像。  |
+| [enableCustomVideoCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a9d945c58c4e0ff24e55aacef1ef3090f) | 开启/关闭自定义视频采集。|
+| [sendCustomVideoFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a3802124d90bf00434245d2956dad1fe4) | 在自定义视频采集模式下，将采集的视频数据发送到 SDK。 |
+| [enableCustomVideoProcess](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#ab3d49118931e09d1d4954674ff8a8102) | 开启/关闭自定义视频处理。|
+| [sendSeiMessage](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a5ba3762815f11bf5005f151e06ae0b38) | 发送 SEI 消息。                                      |
 
 
 ### 美颜相关接口

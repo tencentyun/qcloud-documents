@@ -16,7 +16,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | API | 描述 |
 |-----|-----|
 | [Instance](#instance) | 获取单例对象。 |
-| [DestroyInstance](#destroyInstance) | 销毁单例对象。 |
+| [DestroyInstance](#destroyinstance) | 销毁单例对象。 |
 | [AddCallback](#addcallback) | 设置事件回调。|
 | [RemoveCallback](#removecallback) | 移除事件回调。 |
 | [Login](#login) | 登录。|
@@ -80,7 +80,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | API | 描述 |
 |-----|-----|
-| [GetDeviceManager](#getdevicemanager) | 获取本地设置管理对象 [ITXDeviceManager]()。|
+| [GetDeviceManager](#getdevicemanager) | 获取本地设置管理对象 ITXDeviceManager。 |
 | [SetVideoQosPreference](#setvideoqospreference) | 设置网络流控相关参数。|
 
 ### 美颜相关接口函数
@@ -93,7 +93,17 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | API | 描述 |
 |-----|-----|
-| [GetScreenShareManager](#getscreensharemanager) | 获取屏幕分享管理对象 [IScreenShareManager]()。|
+| [GetScreenShareManager](#getscreensharemanager) | 获取屏幕分享管理对象 IScreenShareManager。 |
+|[StartScreenCapture](#startscreencapture)|启动屏幕分享。|
+|[StopScreenCapture](#stopscreencapture)|停止屏幕采集。|
+|[PauseScreenCapture](#pausescreencapture)|暂停屏幕分享。|
+|[ResumeScreenCapture](#resumescreencapture)|恢复屏幕分享。|
+|[GetScreenCaptureSources](#getscreencapturesources)|获取所有窗口的小图和图标，用于屏幕分享时的选择。|
+|[ReleaseScreenCaptureSources](#releasescreencapturesources)|释放窗口列表资源。|
+|[SelectScreenCaptureTarget](#selectscreencapturetarget)|置屏幕分享参数，该方法在屏幕分享过程中也可以调用。|
+|[AddExcludedShareWindow](#addexcludedsharewindow)|将指定窗口加入屏幕分享的排除列表中，加入排除列表中的窗口不会被分享出去。|
+|[RemoveAllExcludedShareWindow](#removeallexcludedsharewindow)|将所有窗口从屏幕分享的排除列表中移除。|
+
 
 ### 消息发送相关接口函数
 
@@ -160,11 +170,13 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | [OnStatistics](#onstatistics) | 技术指标统计回调。|
 | [OnNetworkQuality](#onnetworkquality) | 网络质量回调。|
 
-### 用户音量回调
+### 录屏事件回调
 
 | API | 描述 |
 |-----|-----|
-| [OnUserVolumeLevel](#onuservolumelevel) | 用户音量回调。|
+| [OnScreenCaptureStarted](#onscreencapturestarted) | 开始屏幕分享回调。|
+| [OnScreenCaptureStopped](#onscreencapturestopped) |停止屏幕分享回调。|
+
 
 ### 本地设备测试回调
 
@@ -180,7 +192,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### Instance
 
-获取 [TRTCMeeting](https://cloud.tencent.com/document/product/647/45667) 单例对象。
+获取 [TRTCMeeting](https://cloud.tencent.com/document/product/647/63494) 单例对象。
 ```C++
  static ITXMediaCore* Instance();
 ```
@@ -193,9 +205,16 @@ static void DestroyInstance();
 
 ### AddCallback
 
-[TRTCMeeting](https://cloud.tencent.com/document/product/647/45667) 事件回调，您可以通过 TXMediaCoreCallback 获得 [TRTCMeeting](https://cloud.tencent.com/document/product/647/45667) 的各种状态通知。
+[TRTCMeeting](https://cloud.tencent.com/document/product/647/63494) 事件回调，您可以通过 TXMediaCoreCallback 获得 [TRTCMeeting](https://cloud.tencent.com/document/product/647/63494) 的各种状态通知。
+
 ```C++
 virtual void AddCallback(const TXMediaCoreCallback* callback) = 0;
+```
+
+### RemoveCallback
+
+```C++
+virtual void RemoveCallback(const TXMediaCoreCallback* callback) = 0;
 ```
 
 ### Login
@@ -283,11 +302,11 @@ virtual int EnterRoom(const std::string& room_id) = 0;
 | room_id | int | 会议房间标识。 |
 
 参会成员进入会议的正常调用流程如下：
-1. **参会成员**调用`EnterRoom`并传入 room_id 即可进入会议房间。
+1. **参会成员**调用`EnterRoom` 并传入 room_id 即可进入会议房间。
 2. **参会成员**调用 `startCameraPreview()` 打开摄像头预览，调用 `startMicrophone()` 打开麦克风采集。
 3. **参会成员**调用 `PublishVideoStream()` 推送本地流到远端，调用 `PublishAudioStream()` 推送本地音频数据到远端。
-4. **参会成员**收到`OnRemoteUserVideoAvailable`的事件，调用`SubscribeRemoteStream()`开始播放视频。
-5. **参会成员**收到`OnRemoteUserAudioAvailable`的事件，调用`MuteRemoteAudioStream()`开始播放声音。
+4. **参会成员**收到 `OnRemoteUserVideoAvailable` 的事件，调用`SubscribeRemoteStream()`开始播放视频。
+5. **参会成员**收到 `OnRemoteUserAudioAvailable` 的事件，调用 `MuteRemoteAudioStream()` 开始播放声音。
 
 ### LeaveRoom
 
@@ -295,6 +314,21 @@ virtual int EnterRoom(const std::string& room_id) = 0;
 ```C++
 virtual int LeaveRoom() = 0;
 ```
+
+### GetRoomInfo
+
+获取房间信息。
+```C++
+virtual TXRoomInfo GetRoomInfo() = 0;
+```
+
+### TransferRoomMasterToOther
+
+将群转交给其他用户。
+```C++
+virtual int TransferRoomMasterToOther(const std::string& user_id) = 0;
+```
+
 
 ## 远端用户相关接口
 
@@ -395,6 +429,14 @@ virtual int UpdateRemoteView(const std::string& user_id, TXStreamType type, trtc
 | view | TXView | 渲染窗口句柄。|
 
 ## 本地视频操作接口
+### GetLocalUserInfo
+
+获取本地用户的信息。
+```C++
+virtual const TXUserInfo& GetLocalUserInfo() = 0;
+```
+
+
 ### StartCameraPreview
 
 开启本地视频的预览画面。
@@ -507,7 +549,130 @@ virtual int SystemAudioLoopback(bool start_up = true) = 0;
 |-----|-----|-----|
 | start_up | bool | 是否上行采集的系统声音。true：开始上行采集的系统声音，默认为 true； false：停止上行采集的系统声音。 |
 
-## 录屏接口
+## 场控相关接口
+
+禁用/恢复某用户的麦克风。
+### MuteUserMic
+
+```C++
+virtual int MuteUserMic(const std::string& user_id, bool mute) = 0;
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| user_id | string | 用户ID。 |
+| mute | bool | 是否禁用某用户麦克风：true：禁用麦克风；false：恢复使用麦克风。 |
+
+### MuteUserCamera
+禁用/恢复某用户的摄像头。
+
+```C++
+virtual int MuteUserCamera(const std::string& user_id, bool mute) = 0;
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| user_id | string | 用户ID。 |
+| mute | bool | 是否禁用某用户摄像头：true：禁用摄像头；false：恢复使用摄像头。 |
+
+### MuteAllUsersMic
+禁用/恢复所有用户的麦克风，并且状态会同步到房间信息中。
+
+```C++
+virtual int MuteAllUsersMic(bool mute) = 0;
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mute | bool | 是否禁用所有用户的麦克风：true：禁用麦克风；false：恢复使用麦克风。 |
+
+### MuteAllUsersCamera
+禁用/恢复所有用户的摄像头，并且状态会同步到房间信息中。
+
+```C++
+virtual int MuteAllUsersCamera(bool mute) = 0;
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mute | bool | 是否禁用所有用户的摄像头：true：禁用摄像头；false：恢复使用摄像头。 |
+
+### MuteUserMessage
+禁言/恢复禁言（主持人调用）。
+
+```C++
+virtual int MuteUserMessage(bool mute) = 0;
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mute | bool | 是否禁言：true：禁言；false：不禁言。 |
+
+### KickOffUser
+移除房间内的某人（主持人调用）。
+
+```C++
+virtual int KickOffUser(const std::string& user_id) = 0;
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| user_id | string | 用户ID。 |
+
+## 本地设置相关接口函数
+### GetDeviceManager
+获取本地设置管理对象 ITXDeviceManager。
+
+```C++
+virtual trtc::ITXDeviceManager* GetDeviceManager() = 0;
+```
+
+### SetVideoQosPreference
+设置网络流控相关参数。
+
+```C++
+virtual void SetVideoQosPreference(TXVideoQosPreference preference)
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| preference | TXVideoQosPreference | “保清晰”还是“保流畅”，可参考 TXVideoQosPreference 接口。 |
+
+## 美颜相关接口函数
+### SetBeautyStyle
+
+```C++
+virtual void SetBeautyStyle(trtc::TRTCBeautyStyle style, uint32_t beauty_level,
+        uint32_t whiteness_level, uint32_t ruddiness_level) = 0;
+```
+
+通过美颜管理，您可以使用以下功能：
+- 设置“美颜风格”，光滑或者自然，光滑风格磨皮更加明显。
+- 设置“美颜级别”，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显。
+- 设置“美白级别”，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显。
+
+## 屏幕分享相关接口
+### GetScreenShareManager
+
+获取屏幕分享管理对象 IScreenShareManager。
+```C++
+virtual IScreenShareManager* GetScreenShareManager() = 0;
+```
+
 ### StartScreenCapture
 
 启动屏幕分享。
@@ -542,7 +707,6 @@ virtual void PauseScreenCapture() = 0;
 virtual void ResumeScreenCapture() = 0;
 ```
 
-## 屏幕分享接口
 ### GetScreenCaptureSources
 
 获取所有窗口的小图和图标，用于屏幕分享时的选择。
@@ -598,20 +762,6 @@ virtual void AddExcludedShareWindow(void* window) = 0;
 ```C++
 virtual void RemoveAllExcludedShareWindow() = 0;
 ```
-
-## 美颜相关接口函数
-### SetBeautyStyle
-
-```C++
-virtual void SetBeautyStyle(trtc::TRTCBeautyStyle style, uint32_t beauty_level,
-        uint32_t whiteness_level, uint32_t ruddiness_level) = 0;
-```
-
-通过美颜管理，您可以使用以下功能：
-- 设置“美颜风格”，光滑或者自然，光滑风格磨皮更加明显。
-- 设置“美颜级别”，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显。
-- 设置“美白级别”，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显。
-
 
 ## 消息发送相关接口函数
 ### SendChatMessage
@@ -672,7 +822,7 @@ virtual void OnLogout(int code, const std::string& message) = 0;
 | message | string | 错误信息。 |
 
 
-## 房间事件回调
+## 会议房间事件回调
 ### OnCreateRoom
 
 创建房间回调。
@@ -715,6 +865,35 @@ virtual void OnEnterRoom(int code, const std::string& message) = 0;
 | code | int | 错误码。 |
 | message | string | 错误信息。 |
 
+### OnExitRoom
+
+退出房间回调。
+```C++
+virtual void OnExitRoom(TXExitRoomType code, const std::string& message) = 0;
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| code | TXExitRoomType | 错误码，0：正常退出，1：踢出房间，2：房间解散，3：其他端登录挤下线，4：网络异常。 |
+| message | string | 错误信息。 |
+
+### OnRoomMasterChanged
+
+主持人更改回调。
+```C++
+virtual void OnRoomMasterChanged(const std::string& user_id) = 0;
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| code | TXExitRoomType | 错误码，0：正常退出，1：踢出房间，2：房间解散，3：其他端登录挤下线，4：网络异常。 |
+| message | string | 错误信息。 |
+
+## 成员进出事件回调
 ### OnRemoteUserEnterRoom
 
 远端用户进入房间回调。
@@ -728,21 +907,7 @@ virtual void OnRemoteUserEnterRoom(const std::string& user_id) = 0;
 |-----|-----|-----|
 | user_id | string | 用户 ID。 |
 
-### OnExitRoom
-
-退出房间回调。
-```C++
-virtual void OnExitRoom(TXExitRoomType code, const std::string& message) = 0;
-```
-
-参数如下表所示：
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| code | TXExitRoomType | 错误码：0—正常退出，1—踢出房间，2—房间解散，3—其他端登录挤下线，4—网络异常。 |
-| message | string | 错误信息。 |
-
-### OnRemoteUserEnterRoom
+### OnRemoteUserLeaveRoom
 
 远端用户离开房间回调。
 ```C++
@@ -829,6 +994,31 @@ virtual void OnRemoteUserAudioAvailable(const std::string& user_id, bool availab
 | available | bool | true：有视频流数据；false：无视频流数据。 |
 
 
+### 场控事件回调
+### OnMuteMic
+主持人设置禁用麦克风回调。
+```C++
+virtual void OnMuteMic(bool mute) = 0;
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mute | bool | 是否禁用麦克风：true：禁用麦克风；false：恢复使用麦克风。 |
+
+### OnMuteCamera
+主持人设置禁用摄像头回调。
+```C++
+virtual void OnMuteCamera(bool mute) = 0;
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mute | bool | 是否禁用摄像头：true：禁用摄像头；false：恢复使用摄像头。 |
+
 
 ## 消息事件回调
 ### OnRecevieChatMessage
@@ -845,43 +1035,122 @@ virtual void OnRecevieChatMessage(const std::string& user_id, const std::string&
 | user_id | string | 用户 ID。 |
 | message | string | 文本消息。|
 
+### OnMuteChatMessage
+
+主持人更改聊天室是否禁言回调。
+```C++
+virtual void OnMuteChatMessage(bool mute) = 0;
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mute | bool | 是否禁言：true：禁言；false：不禁言。 |
+
+## 统计和质量回调
+### OnStatistics
+
+技术指标统计回调。
+```C++
+virtual void OnStatistics(const trtc::TRTCStatistics& statis)
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| statis | TRTCStatistics | 网络和性能的汇总统计指标。 |
+
+### OnNetworkQuality
+
+网络质量回调。
+```C++
+virtual void OnNetworkQuality(const trtc::TRTCQualityInfo& local_quality, trtc::TRTCQualityInfo* remote_quality,
+        uint32_t remote_quality_count)
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| local_quality | TRTCQualityInfo | 本地上行网络质量。 |
+| remote_quality | TRTCQualityInfo | 下行网络质量（即远端用户的网络质量）。 |
+| remote_quality_count | int | 下行网络质量的数组大小（即远端用户个数）。 |
 
 ## 录屏事件回调
 
 ### OnScreenCaptureStarted
 
 开始屏幕分享回调。
-
 ```C++
 virtual void OnScreenCaptureStarted()
-```
-
-### OnScreenCapturePaused
-
-暂停屏幕分享回调。
-
-```C++
-void OnScreenCapturePaused();
-```
-
-### OnScreenCaptureResumed
-
-恢复屏幕分享回调。
-
-```C++
-void OnScreenCaptureResumed();
 ```
 
 ### OnScreenCaptureStopped
 
 停止屏幕分享回调。
-
 ```C++
 void OnScreenCaptureStopped(int reason);
 ```
 
 参数如下表所示：
 
-| 参数   | 类型 | 含义                                                   |
-| ------ | ---- | ------------------------------------------------------ |
+| 参数   | 类型 | 含义 |
+| ------ | ---- | -------------------------------- |
 | reason | int  | 停止原因，0：用户主动停止；1：被其他应用抢占导致停止。 |
+
+## 本地设备测试回调
+### OnTestSpeakerVolume
+
+扬声器大小回调。
+```C++
+virtual void OnTestSpeakerVolume(uint32_t volume)
+```
+
+参数如下表所示：
+
+| 参数   | 类型 | 含义 |
+| ------ | ---- | -------------------------------- |
+| volume | int | 用户的音量大小，取值范围 0 - 100。 |
+
+### OnTestMicVolume
+
+麦克风大小回调。
+```C++
+virtual void OnTestMicVolume(uint32_t volume)
+```
+
+参数如下表所示：
+
+| 参数   | 类型 | 含义 |
+| ------ | ---- | -------------------------------- |
+| volume | int | 用户的音量大小，取值范围 0 - 100。 |
+
+### OnAudioDeviceCaptureVolumeChanged
+
+调节系统采集音量回调。
+```C++
+virtual void OnAudioDeviceCaptureVolumeChanged(uint32_t volume, bool muted)
+```
+
+参数如下表所示：
+
+| 参数   | 类型 | 含义 |
+| ------ | ---- | -------------------------------- |
+| volume | int | 采集音量大小，取值范围 0 - 100。 |
+| muted | bool | 是否采集。 |
+
+### OnAudioDevicePlayoutVolumeChanged
+
+调节系统播放音量回调。
+```C++
+virtual void OnAudioDevicePlayoutVolumeChanged(uint32_t volume, bool muted)
+```
+
+参数如下表所示：
+
+| 参数   | 类型 | 含义 |
+| ------ | ---- | -------------------------------- |
+| volume | int | 播放音量大小，取值范围 0 - 100。 |
+| muted | bool | 是否播放。 |

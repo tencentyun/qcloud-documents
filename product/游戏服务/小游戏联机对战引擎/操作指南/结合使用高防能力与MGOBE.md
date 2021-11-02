@@ -29,7 +29,7 @@
 
 #### 2.1 购买高防服务
 
-您可购买 [DDoS 高防 IP](https://cloud.tencent.com/product/ddos-advanced?/product/ddos-bgpip)，根据业务需求选择不同的规格套餐。购买成功后可在 [DDoS 防护控制台-实例列表](https://console.cloud.tencent.com/ddos/antiddos-advanced/package) 查看【高防 IP】等信息。
+您可购买 [DDoS 高防 IP](https://cloud.tencent.com/product/ddos-advanced?/product/ddos-bgpip)，根据业务需求选择不同的规格套餐。购买成功后可在 [DDoS 防护控制台-实例列表](https://console.cloud.tencent.com/ddos/antiddos-advanced/package) 查看**高防 IP**等信息。
 
 <dx-alert infotype="explain" title="">
 您购买好高防服务后，请 [联系我们](https://cloud.tencent.com/document/product/1038/33359) 支持您配置回源域名。
@@ -42,8 +42,8 @@
 
 #### 2.3 配置回源域名
 
-1. 登录 [DDoS 防护控制台](https://console.cloud.tencent.com/ddos/antiddos-advanced/access/l4)，在左侧导航栏单击【业务接入】。
-2. 在“业务接入”页面，单击【域名接入】>【添加域名】。
+1. 登录 [DDoS 防护控制台](https://console.cloud.tencent.com/ddos/antiddos-advanced/access/l4)，在左侧导航栏单击**业务接入**。
+2. 在“业务接入”页面，单击**域名接入**>**添加域名**。
 ![](https://main.qcloudimg.com/raw/315d2987ff294e027156e770851e2c02.jpg)
 3. 在添加“转发规则”页面中，根据实际需求配置2条转发规则，以下以配置433端口为例。
 <img src="https://main.qcloudimg.com/raw/c042c6154a9fc767debc96c624f60532.png"  style="width: 65%;"><br>
@@ -57,7 +57,7 @@
 
 <dx-alert infotype="explain" title="">
 - 需要添加2个转发规则，一个对应443端口，一个对应5443端口。
-- 源站域名：通过 【[MGOBE 控制台](https://console.cloud.tencent.com/minigamecloud)】>【游戏概览】>【基础信息】>【域名】获取。
+- 源站域名：通过 **[MGOBE 控制台](https://console.cloud.tencent.com/minigamecloud)**>**游戏概览**>**基础信息**>**域名**获取。
 </dx-alert>
 
 4. 验证域名接入成功
