@@ -10,7 +10,7 @@ MySQL 原有的并发事务是采用 FIFO（First-In-First-Out）规则来决定
 主要适用于高并发并且锁冲突比较严重的场景。
 
 ## 性能数据
-高并发，锁冲突严重的场景下有50%以上的TPS性能提升。
+高并发，锁冲突严重的场景下有50%以上的 TPS 性能提升。
 
 - 测试方法：sysbench-oltp_read_write 场景（RR 隔离级别，8张表10MB条数据，pareto 随机模式）
 - 测试环境：32核128GB线上实例
@@ -30,3 +30,8 @@ MySQL 5.7 版本可以通过全局参数 innodb_trx_schedule_algorithm 来指定
 - cats: 冲突感知调度算法。
 
 MySQL 8.0 版本固定采用 auto 算法，不可设置。
+
+| 参数名                        | 动态 | 类型   | 默认 | 参数值范围       | 说明             |
+| ----------------------------- | ---- | ------ | ---- | ---------------- | ---------------- |
+| innodb_trx_schedule_algorithm | yes  | string | auto | [auto,fcfs,cats] | 事务等待调度算法 |
+

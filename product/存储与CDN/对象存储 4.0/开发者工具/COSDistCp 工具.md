@@ -123,7 +123,8 @@ Total File Size: 1190133760
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse
 ```
 
-COSDistCp 默认会对拷贝失败的文件重试5次，如果仍然失败，则会将失败文件信息写入 /tmp/${randomUUID}/output/failed/ 目录下，其中，${randomUUID} 为随机字符串。
+
+COSDistCp 默认会对拷贝失败的文件重试5次，如果仍然失败，则会将失败文件信息写入 /tmp/${randomUUID}/output/failed/ 目录下，其中，${randomUUID} 为随机字符串。记录失败文件信息后，COSDistcp 会继续迁移剩余文件，迁移任务并不会因为部分文件迁移失败而失败。在迁移任务完成的时候，COSDistcp 会输出计数器信息，并判断是否存在文件迁移失败，如果存在，则在提交任务的客户端抛出异常。
 
 以下类型的源文件信息包含在输出文件中：
 1. 存在源文件的清单中，但拷贝时源文件不存在，记录为 SRC_MISS
@@ -196,14 +197,11 @@ hadoop fs  -Ddfs.checksum.combine.mode=COMPOSITE_CRC -checksum /data/test.txt
  - `--diffMode=length-checksum`，根据文件大小和 CRC 检验和是否相同，获取差异文件列表。
 - `--diffOutput` 指定 diff 操作的输出目录。
 
-以下示例中，在迁移完成后，使用 --diffMode 参数，根据文件大小和 CRC 值，校验源和目标文件是否相同：
+如果目标文件系统为 COS，且源文件系统的 CRC 算法与之不同，则 COSDistCp 会拉取源文件计算目的文件系统的 CRC，以进行相同 CRC 算法值的对比。以下示例中，在迁移完成后，使用 --diffMode 参数，根据文件大小和 CRC 值，校验源和目标文件是否相同：
 
 ```plaintext
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --diffMode=length-checksum --diffOutput=/tmp/diff-output
 ```
-
->! 如果目标文件系统为 COS，且源文件系统的 CRC 算法与之不同，则 COSDistCp 会拉取源文件计算新的 CRC，以进行相同 CRC 算法值的对比。
->
 
 以上命令执行成功后，会在 HDFS 的 `/tmp/diff-output/failed` 目录下（低版本为 /tmp/diff-output），生成差异文件列表，以下类型的源文件信息包含在输出中：
 
@@ -342,7 +340,8 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 
 ### 拷贝文件的元信息
 
-以参数`--preserveStatus`执行命令，将源文件或源目录的 user、group、permission 和 timestamps（modification time 和 access time）拷贝到目标文件或目标目录，示例如下：
+以参数`--preserveStatus`执行命令，将源文件或源目录的 user、group、permission 和 timestamps（modification time 和 access time）拷贝到目标文件或目标目录，该参数在将文件从 HDFS 拷贝到 CHDFS 时生效。
+示例如下：
 ```plaintext
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --preserveStatus=ugpt
 ```

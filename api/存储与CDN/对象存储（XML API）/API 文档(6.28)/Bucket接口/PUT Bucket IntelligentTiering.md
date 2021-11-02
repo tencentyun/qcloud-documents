@@ -40,6 +40,7 @@ Content-Length: Int
   <Status>Enabled</Status>
   <Transition>
     <Days>30|60|90</Days>
+    <RequestFrequent>1</RequestFrequent>
   </Transition>
 </IntelligentTieringConfiguration>
 ```
@@ -52,6 +53,7 @@ Content-Length: Int
 | Status                          | IntelligentTieringConfiguration            | 说明智能分层存储配置是否开启，枚举值：Suspended、Enabled     | Enum      | 是       |
 | Transition                      | IntelligentTieringConfiguration            | 指定智能分层存储配置中有关数据转换的配置信息                 | Container | 是       |
 | Days                            | IntelligentTieringConfiguration.Transition | 指定智能分层存储配置中标准层数据转换为低频层数据的天数限制，默认值为30天 | Int       | 是       |
+|  RequestFrequent                | IntelligentTieringConfiguration.Transition | 指定配置中标准层数据转换为低频层数据的访问次数限制，默认值为1次，和天数搭配使用可以实现转换效果。例如设置该参数为1，访问天数为30，代表连续30天访问次数小于1次的对象会从标准层降到低频层  |  Int  |  是  |
 
 ## 响应
 
@@ -86,6 +88,7 @@ Content-Length: 83
   <Status>Enabled</Status>
   <Transition>
     <Days>30</Days>
+    <RequestFrequent>1</RequestFrequent>
   </Transition>
 </IntelligentTieringConfiguration>
 ```
