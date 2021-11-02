@@ -2,7 +2,7 @@
 本文档以 Windows Server 2016 R2 操作系统云服务器为例，指导您配置多用户远程登录 Windows 云服务器。
 
 <dx-alert infotype="notice" title="">
-微软提供的多用户远程登录功能试用期为120天，若在试用期内未购买多用户登录授权（RDS CALs），则会导致无法通过远程桌面登录云服务器，只能通过 mstsc /admin 登录。Windows Server 默认允许2个用户同时登录，可满足多数需求。请您结合实际业务场景进行评估，若有强烈需求需配置多用户远程登录，请参考本文进行操作。
+微软提供的多用户远程登录功能试用期为120天，若在试用期内未购买多用户登录授权（RDS CALs），则会导致无法通过远程桌面登录云服务器，只能通过 mstsc /admin 命令登录。Windows Server 默认允许2个用户同时登录，可满足多数需求。请您结合实际业务场景进行评估，若有强烈需求需配置多用户远程登录，请参考本文进行操作。
 </dx-alert>
 
 
@@ -31,7 +31,7 @@
 
 ### 激活远程桌面服务许可证服务器
 1. 在操作系统界面单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/10c0728e4d194732be4eb6c1a95e0a8c.png" style="margin: -5px 0px;"/>，在弹出的界面中选择 <img src="https://qcloudimg.tencent-cloud.cn/raw/8a27d0993c99b2564c33df6bbabec4f7.png" style="margin: -5px 0px;"/>，打开“服务器管理器”。
-2. 在“服务器管理器”窗口中，选择右上角的**工具** > **Remote Desktop Services** > **远程桌面授权管理器**.
+2. 在“服务器管理器”窗口中，选择右上角的**工具** > **Remote Desktop Services** > **远程桌面授权管理器**。
 3. 在弹出的 “RD 授权管理器”窗口中，右键单击服务器所在行，并选择**激活服务器**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/862ee285c4eca41f300ef4d516eae8ba.png)
 4. 在弹出的“服务器激活向导”窗口中，单击**下一步**。
@@ -44,8 +44,8 @@
 8. 输入 [步骤6](#Step6) 获取的产品 ID，并根据实际情况填写公司信息后，单击**下一步**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/392afdddbb0bf75578ac5fc19b9924aa.png)
 9. 确认输入信息无误后，单击**下一步**。
-10. 记录许可证服务器 ID，并单击**是**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/bb03988b8d9e10df72991c21dea88988.png)
+10. 记录许可证服务器 ID，并单击**否**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/afc0e93f949553e9db2e599e0654263f.png)
 11. 回到服务器中，在“许可证服务器激活”中，输入上一步获取的许可证服务器 ID，并单击**下一步**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/895e7b811fc170b870416f9aef7693ee.png)
 12. “服务器激活向导”窗口中提示“你已完成服务器激活向导”时，单击**下一步**进入许可证安装步骤。如下图所示：
@@ -53,7 +53,7 @@
 
 
 ### 在远程桌面许可证服务器上安装 RDS 客户端访问许可证
-1. 在“服务器管理器”窗口的许可证安装向导页面中，确认许可证服务器信息，并单击**下一步**。
+1. 在“许可证安装向导”页面中，确认许可证服务器信息，并单击**下一步**。
 2. [](id:Step2)在“获取客户端许可证密钥包”中，记录许可证服务器 ID 并访问 [远程桌面授权网站](https://activate.microsoft.com/)。
 3. 在远程桌面授权网站中，选择“安装客户端访问许可证”，并单击**下一步**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/ee08c61b5611d746a145dba6c909dbab.png)
@@ -61,8 +61,10 @@
 本文授权信息以选择“企业协议”为例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/162cbea63445b30a8e53776ae8d06ce0.png)
 5. 选择产品类型，并输入数量及许可证授权信息。如下图所示：
+<dx-alert infotype="explain" title="">
 您可前往 [微软官网](https://www.microsoftstore.com.cn/software/software)，联系客服购买 RDS CALs 授权。
-![](https://qcloudimg.tencent-cloud.cn/raw/74f7b9020d7953c4bc367ebb87bef1b1.png)
+</dx-alert>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/74f7b9020d7953c4bc367ebb87bef1b1.png"/>
 6. 确认信息无误后，单击**下一步**。
 7. 获取并记录密钥包 ID。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c865378c5da3531f10511a535a9d600f.png)
@@ -70,3 +72,8 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/d92e9fd24c481ac6ee3c0189fd1ebe20.png)
 9. “许可证安装向导”窗口中提示“你已完成许可证安装向导”即表示已成功安装许可证。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e5d6e9522af714a4fa30ba182c45c40e.png)
+
+## 参考资料
+- [License your RDS deployment with client access licenses (CALs)](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-client-access-license)
+- [Activate the Remote Desktop Services license server](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-activate-license-server)
+- [Install RDS client access licenses on the Remote Desktop license server](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-install-cals)
