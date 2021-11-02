@@ -12,7 +12,7 @@
 ## 操作指引
 
 
-您可以在 [公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip) 使用如下普通公网 IP 功能：
+您可以使用如下普通公网 IP 功能：
 
 <table>
   <tr>
