@@ -55,7 +55,7 @@ password="yourpassword";
 ```properties
 ## 配置接入网络，在控制台的实例详情页面接入方式模块的网络列复制。
 bootstrap.servers=xx.xx.xx.xx:xxxx
-## 配置 topic，在控制台上 topic 管理页面复制。
+## 配置 Topic，在控制台上 topic 管理页面复制。
 topic=XXX
 ## 配置 consumer group，您可以自定义设置
 group.id=XXX
@@ -69,7 +69,7 @@ ssl.endpoint.identification.algorithm=
 
 | 参数                                  | 说明                                                         |
 | ------------------------------------- | ------------------------------------------------------------ |
-| `bootstrap.servers`                      | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![](https://main.qcloudimg.com/raw/c5cf200a66f6dcf627d2ca6f1c747ecf.png) |
+| `bootstrap.servers`                      | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![](https://qcloudimg.tencent-cloud.cn/raw/6117de422e8b46cf75b7b249bb88c817.png) |
 | `topic`                                  | Topic 名称，您可以在控制台上 **topic管理**页面复制。<br/>![](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
 | `group.id`                               | 您可以自定义设置，Demo 运行成功后可以在 **Consumer Group** 页面看到该消费者。 |
 | `java.security.auth.login.config.plain` | 填写 JAAS 配置文件 `ckafka_client_jaas.conf` 的路径。          |
@@ -119,9 +119,9 @@ public class CKafkaConfigurer {
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/d961f3f587a3b37d5d9c46ea433a24ec.png)
 
-6. 创建 topic。
-	1. 在控制台 topic 管理页面新建 topic（参考 [创建 topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
-	2. 将 topic 名称替换 `resource/kafka.properties` 文件中的 `topic` 属性。
+6. 创建 Topic。
+	1. 在控制台 **topic 管理**页面新建 Topic（参考 [创建 topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
+	2. 将 Topic 名称替换 `resource/kafka.properties` 文件中的 `topic` 属性。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a7d7ceea8c4e35274826c006fec8f230.png)
 
 ### 步骤三：发送消息
@@ -221,7 +221,7 @@ public class KafkaSaslConsumerDemo {
       Properties kafkaProperties = CKafkaConfigurer.getCKafkaProperties();
 
       Properties props = new Properties();
-      //设置接入点，请通过控制台获取对应Topic的接入点。
+      //设置接入点，请通过控制台获取对应 Topic 的接入点。
       props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
               kafkaProperties.getProperty("bootstrap.servers"));
 
