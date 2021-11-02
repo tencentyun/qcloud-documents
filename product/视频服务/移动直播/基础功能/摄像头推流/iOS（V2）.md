@@ -210,10 +210,7 @@ V2TXLivePusher 默认推出的是竖屏分辨率的视频画面，如果希望�
 ![](https://main.qcloudimg.com/raw/66441cb1356f87caeffb4a3102b938ea.png)  
 
 通过 V2TXLivePusherObserver 里的 [onWarning](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__ios.html#ga5506c2171438841ab3e99c80786c7ba0) 可以捕获 **V2TXLIVE_WARNING_NETWORK_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。此时就可以像上图一样在 UI 上弹出一个“弱网提示”。
-
-
-<dx-codeblock>
-::: objectiveC objectiveC
+```
 - (void)onWarning:(V2TXLiveCode)code
           message:(NSString *)msg
         extraInfo:(NSDictionary *)extraInfo {
@@ -224,12 +221,28 @@ V2TXLivePusher 默认推出的是竖屏分辨率的视频画面，如果希望�
         }
     });
 }
-:::
-</dx-codeblock>
+```
 
 [](id:step16)
 ### 16. 发送 SEI 消息
-播放端 [V2TXLivePlayer](https://liteav.sdk.qcloud.com/doc/api/zh-cn/interfaceV2TXLivePlayer.html) 通过 [V2TXLivePlayerObserver](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#protocolV2TXLivePlayerObserver-p) 中的 `onReceiveSeiMessage` 回调来接收该消息。
+调用 V2TXLivePusher 中的 [sendSeiMessage](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a106dc65c2616b80e193aad95876f7fe6) 接口可以发送 SEI 消息。所谓 SEI，是视频编码数据中规定的一种附加增强信息，平时一般不被使用，但我们可以在其中加入一些自定义消息，这些消息会被直播 CDN 转发到观众端。使用场景有：
+- 答题直播：推流端将题目下发到观众端，可以做到“音-画-题”完美同步。
+- 秀场直播：推流端将歌词下发到观众端，可以在播放端实时绘制出歌词特效，因而不受视频编码的降质影响。
+- 在线教育：推流端将激光笔和涂鸦操作下发到观众端，可以在播放端实时地划圈划线。
+
+由于自定义消息是直接被塞入视频数据中的，所以不能太大（几个字节比较合适），一般常用于塞入自定义的时间戳等信息。
+``` objectiveC
+int payloadType = 5;
+NSString* msg = @"test";
+[_pusher sendSeiMessage:payloadType data:[msg dataUsingEncoding:NSUTF8StringEncoding]];
+```
+常规开源播放器或者网页播放器是不能解析 SEI 消息的，必须使用 LiteAVSDK 中自带的 V2TXLivePlayer 才能解析这些消息：
+1. 设置：
+```objectiveC
+int payloadType = 5;
+[_player enableReceiveSeiMessage:YES payloadType:payloadType];
+```
+2. 当 V2TXLivePlayer 所播放的视频流中有 SEI 消息时，会通过 V2TXLivePlayerObserver 中的 onReceiveSeiMessage 回调来接收该消息。
 
 
 ## 事件处理
