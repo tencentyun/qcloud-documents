@@ -16,6 +16,8 @@
 
 #### 请求示例
 **Objective-C**
+
+[//]: # (.cssg-snippet-media-buckets)
 ```objective-c
 QCloudGetDescribeMediaBucketsRequest * reqeust = [[QCloudGetDescribeMediaBucketsRequest alloc]init];
 
@@ -36,8 +38,11 @@ reqeust.finishBlock = ^(QCloudDescribeMediaInfo * outputObject, NSError *error) 
 };
 [[QCloudCOSXMLService defaultCOSXML] CIGetDescribeMediaBuckets:reqeust];
 ```
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/OC/Examples/cases/GetSnapshot.m) 查看。
 
 **Swift**
+
+[//]: # (.cssg-snippet-media-buckets)
 ```swift
 let request : QCloudGetDescribeMediaBucketsRequest = QCloudGetDescribeMediaBucketsRequest();
 // 地域信息，例如 ap-shanghai、ap-beijing，若查询多个地域以“,”分隔字符串，支持中国大陆地域
@@ -57,4 +62,5 @@ request.finishBlock = { (result, error) in
 }
 QCloudCOSXMLService.defaultCOSXML().CIGetDescribeMediaBuckets(request);
 ```
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/GetSnapshot.swift) 查看。
 
