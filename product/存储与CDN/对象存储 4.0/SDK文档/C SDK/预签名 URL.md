@@ -114,7 +114,7 @@ int cos_gen_presigned_url_safe(const cos_request_options_t *options,
 | method        | HTTP 请求方法枚举类型，分别为 HTTP_GET、HTTP_HEAD、HTTP_PUT、HTTP_POST、HTTP_DELETE | Enum   |
 | headers       | COS 请求附加头域                                             | Struct |
 | params        | COS 请求操作参数                                             | Struct |
-| sign_host     | 是否对host头域进行签名，为了安全性强烈建议开启                    | Int    |
+| sign_host     | 是否对 host 头域进行签名，为了安全性强烈建议开启                    | Int    |
 | presigned_url | 生成的请求预签名 URL                                         | String |
 
 #### 返回结果说明
