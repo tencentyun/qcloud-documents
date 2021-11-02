@@ -229,7 +229,25 @@ public void onWarning(int code, String msg, Bundle extraInfo) {
 
 [](id:step16)
 ### 16. 发送 SEI 消息 
-播放端 [V2TXLivePlayer](https://liteav.sdk.qcloud.com/doc/api/zh-cn/interfaceV2TXLivePlayer.html) 通过 [V2TXLivePlayerObserver](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#protocolV2TXLivePlayerObserver-p) 中的 `onReceiveSeiMessage` 回调来接收该消息。
+调用 V2TXLivePusher 中的 [sendSeiMessage](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a5ba3762815f11bf5005f151e06ae0b38) 接口可以发送 SEI 消息。所谓 SEI，是视频编码数据中规定的一种附加增强信息，平时一般不被使用，但我们可以在其中加入一些自定义消息，这些消息会被直播 CDN 转发到观众端。使用场景有：
+- 答题直播：推流端将题目下发到观众端，可以做到“音-画-题”完美同步。
+- 秀场直播：推流端将歌词下发到观众端，可以在播放端实时绘制出歌词特效，因而不受视频编码的降质影响。
+- 在线教育：推流端将激光笔和涂鸦操作下发到观众端，可以在播放端实时地划圈划线。
+
+由于自定义消息是直接被塞入视频数据中的，所以不能太大（几个字节比较合适），一般常用于塞入自定义的时间戳等信息。
+```java
+//Android 示例代码
+int payloadType = 5;
+String msg = "test";
+mTXLivePusher.sendSeiMessage(payloadType, msg.getBytes("UTF-8"));
+```
+常规开源播放器或者网页播放器是不能解析 SEI 消息的，必须使用 LiteAVSDK 中自带的 V2TXLivePlayer 才能解析这些消息：
+1. 设置：
+```java
+int payloadType = 5;
+mTXLivePlayer.enableReceiveSeiMessage(true, payloadType)
+```
+2. 当 V2TXLivePlayer 所播放的视频流中有 SEI 消息时，会通过 V2TXLivePlayerObserver 中的 onReceiveSeiMessage 回调来接收该消息。
 
 ## 事件处理
 
