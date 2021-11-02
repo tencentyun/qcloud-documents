@@ -4,17 +4,17 @@
 ### 公网 IP 相关操作
 公网 IP 相关操作指南及说明如下所示，您可按需获取对应信息。
 
- #### **获取**
+- **获取**
 在创建云服务器时，在网络中设置带宽大于0Mbps，完成后腾讯云系统会自动从腾讯云公有 IP 地址池中为该实例分配一个公有 IP 地址，此地址可更改，操作详情请参考 [更换公网 IP](https://cloud.tencent.com/document/product/213/16642)。
-#### **配置**
+- **配置**
 您可以在 Internet 上登录有公网 IP 地址的云服务器实例对其进行相应配置，有关登录云服务器实例的更多内容，请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/16515) 和 [登录 Windows 实例](https://cloud.tencent.com/document/product/213/35697)。
-#### **转换**
+- **转换**
 公有 IP 地址通过网络地址转换（NAT）映射到实例的 [内网 IP 地址](https://cloud.tencent.com/document/product/213/5225)。
-#### **维护**
+- **维护**
 腾讯云的所有公网接口统一由 Tencent Gateway(TGW)进行处理。腾讯云云服务器实例的公网网卡在统一接口层 TGW 上配置，云服务器无感知。所以，用户在云服务器中通过 `ifconfig (Linux)` 或 `ipconfig (Windows)` 命令查看网络接口信息时，只能查看到 [内网](https://cloud.tencent.com/document/product/213/5225) 的信息。公网信息需要由用户自行登录 [云服务器控制台](https://console.cloud.tencent.com/cvm) 云服务器列表/详情页进行查看。
-#### **费用**
+- **费用**
 实例通过公网 IP 地址提供服务需要支付相应的费用，具体内容可以参考 [公网计费模式](https://cloud.tencent.com/document/product/213/10578)。
-#### **释放**
+- **释放**
 >!用户无法主动关联或释放与实例关联的公网 IP 地址。
 >
 出现下列情况下时，公网 IP 地址会被释放或重新分配：
