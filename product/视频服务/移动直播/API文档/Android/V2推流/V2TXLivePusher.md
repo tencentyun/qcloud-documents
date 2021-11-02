@@ -425,7 +425,7 @@ public abstract int sendSeiMessage(int payloadType, byte[] data);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | payloadType | int | 数据类型，支持 5、242。推荐填：242 |
-| data | NSData * | 待发送的数据 | 
+| data | byte[]  | 待发送的数据 | 
 
  #### 返回
  返回值 V2TXLiveCode：
