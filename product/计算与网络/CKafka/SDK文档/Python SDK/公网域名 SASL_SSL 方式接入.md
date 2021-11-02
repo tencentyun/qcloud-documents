@@ -1,3 +1,4 @@
+
 ## 操作场景
 
 该任务以 Python 客户端为例，指导您使用公网 SASL_SSL 方式接入消息队列 CKafka 并收发消息。
@@ -29,8 +30,8 @@ pip install kafka-python
 在**用户管理**页面新建角色，设置密码。
 ![](https://qcloudimg.tencent-cloud.cn/raw/07c867370aff9a37d1de3ed9dc9f1a4d.png)
 
-3. 创建 topic。
-在控制台 topic 管理页面新建 topic（参考 [创建 topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
+3. 创建 Topic。
+在控制台 **topic 管理**页面新建 Topic（参考 [创建 Topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
 
 
 ### 步骤三：生产消息
@@ -61,7 +62,7 @@ producer.close()
 
 | 参数                | 描述                                                         |
 | ------------------- | ------------------------------------------------------------ |
-| `bootstrap_servers`   | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/c5cf200a66f6dcf627d2ca6f1c747ecf.png) |
+| `bootstrap_servers`   | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![](https://qcloudimg.tencent-cloud.cn/raw/6117de422e8b46cf75b7b249bb88c817.png)  |
 | `sasl_plain_username` | 用户名，格式为 `实例 ID` + `#` + `用户名`。实例 ID 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的实例详情页面的基本信息获取，用户在**用户管理**创建用户时设置。 |
 | `sasl_plain_password` | 用户密码，在 CKafka 控制台实例详情页面的**用户管理**创建用户时设置。 |
 | `topic_name`          | Topic 名称，您可以在控制台上 **topic管理**页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
