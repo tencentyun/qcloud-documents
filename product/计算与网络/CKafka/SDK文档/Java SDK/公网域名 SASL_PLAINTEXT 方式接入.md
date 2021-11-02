@@ -53,7 +53,7 @@ password="yourpassword";
 ```properties
 ## 配置接入网络，在控制台的实例详情页面接入方式模块的网络列复制。
 bootstrap.servers=xx.xx.xx.xx:xxxx
-## 配置 topic，在控制台上 topic 管理页面复制。
+## 配置 Topic，在控制台上 topic 管理页面复制。
 topic=XXX
 ## 配置 consumer group，您可以自定义设置
 group.id=XXX
@@ -111,9 +111,9 @@ public class CKafkaConfigurer {
 >?此处的 `username` 为 **<实例 id>#<用户名>** 格式。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/742f6cc3ec1cd84cd8bfe570ac271891.png)
-6. 创建 topic。
-	1. 在控制台 topic 管理页面新建 topic（参考 [创建 topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
-	2. 将 topic 名称替换 `resource/kafka.properties` 文件中的 `topic` 属性。
+6. 创建 Topic。
+	1. 在控制台 **topic 管理**页面新建 Topic（参考 [创建 Topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
+	2. 将 Topic 名称替换 `resource/kafka.properties` 文件中的 `topic` 属性。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a09afcb89b840869930bdc7e9de58da8.png)
 
 
