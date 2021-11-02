@@ -120,7 +120,7 @@ public class CKafkaConfigurer {
 ![](https://qcloudimg.tencent-cloud.cn/raw/d961f3f587a3b37d5d9c46ea433a24ec.png)
 
 6. 创建 Topic。
-	1. 在控制台 **topic 管理**页面新建 Topic（参考 [创建 topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
+	1. 在控制台 **topic 管理**页面新建 Topic（参考 [创建 Topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
 	2. 将 Topic 名称替换 `resource/kafka.properties` 文件中的 `topic` 属性。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a7d7ceea8c4e35274826c006fec8f230.png)
 
