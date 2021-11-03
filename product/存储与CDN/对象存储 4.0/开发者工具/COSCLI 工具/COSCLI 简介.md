@@ -26,10 +26,10 @@ COSCLI 使用 Go 编写，基于 Cobra 框架，支持配置多个存储桶和�
       <td><a href="https://cloud.tencent.com/document/product/436/63146">获取不同类型文件的统计信息 - du</a></td>
    </tr>
    <tr>
-      <td><a href="https://cloud.tencent.com/document/product/436/63669">上传下载及拷贝文件 - cp</a></td>
+      <td><a href="https://cloud.tencent.com/document/product/436/63669">上传下载或拷贝文件 - cp</a></td>
    </tr>
    <tr>
-      <td><a href="https://cloud.tencent.com/document/product/436/63670">同步上传下载及拷贝文件 - sync</a></td>
+      <td><a href="https://cloud.tencent.com/document/product/436/63670">同步上传下载或拷贝文件 - sync</a></td>
    </tr>
    <tr>
       <td><a href="https://cloud.tencent.com/document/product/436/63671">删除文件 - rm</a></td>
