@@ -23,7 +23,7 @@
 <td align="left">${部署函数生成的网关url}/logout ， ${部署函数生成的网关url}/release/</td>
 </tr>
 </tbody></table>
->?${部署函数生成的网关url}即为 [步骤1：创建 Express 框架模版](https://cloud.tencent.com/document/product/1441/63582) 中所获取的访问路径的值。
+>?${部署函数生成的网关url}为 [步骤1：创建 Express 框架模版](https://cloud.tencent.com/document/product/1441/63582) 中所获取的访问路径的值。
 
 ## 步骤2：获取初始化参数
 Serverless Express 框架模版(Auth)中需要 `Redirect URI、Logout Redirect URI、clientId ID、userDomain` 参数用于为初始化。
