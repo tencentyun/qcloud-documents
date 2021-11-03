@@ -390,7 +390,7 @@ func main() {
 	     credential := common.NewCredential("secretId", "secretKey")
 	     prof := profile.NewClientProfile()
 	     prof.NetworkFailureMaxRetries = 3                               // 定义最大重试次数
-	     prof.NetworkFailureRetryDuration = profile.ExponentialBackoff   // 定义重试建个时间
+	     prof.NetworkFailureRetryDuration = profile.ExponentialBackoff   // 定义重试间隔时间
 	     client, _ := cvm.NewClient(credential, regions.Guangzhou, prof)
 
 	// ...
@@ -416,7 +416,7 @@ func main() {
 	     credential := common.NewCredential("secretId", "secretKey")
 	     prof := profile.NewClientProfile()
 	     prof.RateLimitExceededMaxRetries = 3                               // 定义最大重试次数
-	     prof.RateLimitExceededRetryDuration = profile.ExponentialBackoff   // 定义重试建个时间
+	     prof.RateLimitExceededRetryDuration = profile.ExponentialBackoff   // 定义重试间隔时间
 	     client, _ := cvm.NewClient(credential, regions.Guangzhou, prof)
 
 	// ...
