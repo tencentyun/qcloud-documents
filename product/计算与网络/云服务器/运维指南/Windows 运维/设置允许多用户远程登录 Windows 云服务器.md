@@ -2,7 +2,7 @@
 本文档以 Windows Server 2016 R2 操作系统云服务器为例，指导您配置多用户远程登录 Windows 云服务器。
 
 <dx-alert infotype="notice" title="">
-微软提供的多用户远程登录功能试用期为120天，若在未购买多用户登录授权（RDS CALs），则试用期结束后会导致无法通过远程桌面登录云服务器，只能通过 mstsc /admin 命令登录。Windows Server 默认允许2个用户同时登录，可满足多数需求。请您结合实际业务场景进行评估，若有强烈需求需配置多用户远程登录，请参考本文进行操作。
+微软提供的多用户远程登录功能试用期为120天，若未购买多用户登录授权（RDS CALs），则试用期结束后会导致无法通过远程桌面登录云服务器，只能通过 mstsc /admin 命令登录。Windows Server 默认允许2个用户同时登录，可满足多数需求。请您结合实际业务场景进行评估，若有强烈需求需配置多用户远程登录，请参考本文进行操作。
 </dx-alert>
 
 
@@ -98,13 +98,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/0c8d32558b22378a71f0f697d1749add.png)
 8. 在弹出的“设置远程桌面授权模式”窗口中，选择“已启用”，并指定 RD 会话主机服务器的授权模式为“按用户”。设置完成后单击**确定**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c2927ba41ff29d9d08eaec3deb9fddc5.png)
-9. 在操作系统界面右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/10c0728e4d194732be4eb6c1a95e0a8c.png" style="margin: -5px 0px;"/>，在弹出菜单中选择**运行**。
-10. 在“运行”窗口中输入 **cmd**，并按 **Enter** 打开命令行工具。
-11. 执行以下命令，强制执行本地组策略。
-```
-gpupdate /force
-```
-12. 重启云服务器。
+9. 重启云服务器。
 
 至此您已完成多用户远程登录配置。
 
