@@ -16,15 +16,15 @@
 
 #### 操作步骤
 1. 登录云服务器，在云服务器中直接执行如下命令下载 nic-hotplug.tgz 工具。 
-```
+```plaintext
 wget https://iso-1255486055.cos.ap-guangzhou.myqcloud.com/nic-hotplug.tgz
 ```
 2. 执行如下命令解压文件。
-```
+```plaintext
 tar -zxvf nic-hotplug.tgz
 ```
 3. 执行如下命令，赋予执行权限后，安装工具。
-```
+```plaintext
 cd nic-hotplug
 chmod +x ./install.sh
 ./install.sh
@@ -81,7 +81,7 @@ NETMASK='255.255.255.192'  # 此处填写子网掩码，请根据实际填写
 		修改后，示例如下：
   	![](https://main.qcloudimg.com/raw/f32f979387be2c27c034a8fe6959bd66.png)
 	+ 方式二：动态获取 IP 地址
-```
+```plaintext
 BOOTPROTO=dhcp     #自动获取 IP 地址
 DEVICE=eth1        # 填写需配置的弹性网卡名
 HWADDR=20:90:6F:63:98:CC    # 请替换为弹性网卡实际的 MAC 地址
@@ -128,26 +128,26 @@ ip route add default dev eth1 via 192.168.1.1 table 20   #192.168.1.1请替换�
 <dx-alert infotype="explain" title="">
 具体网关，请参考 [查看网关](#.E6.9F.A5.E7.9C.8B.E7.BD.91.E5.85.B3) 。</dx-alert>
 
-    + 配置永久路由，即可利用网卡配置文件将策略路由保存下来，此处以 centos7.8 为例。
+    + 配置永久路由，即可利用配置文件将策略路由保存下来，此处以 centos7.8 为例。[](id:pzyjly)
         1. 编辑“/etc/sysconfig/network-scripts/”目录中的配置文件“route-网卡名”，如route-eth0。
-            ```
+            ```plaintext
 vim /etc/sysconfig/network-scripts/route-eth0    # 编辑 route-eth0 文件
 
-```
+```plaintext
 		2. 增加添加一行命令：`default dev [网卡名 如 eth0] via [该网卡的网关 如192.168.1.1] table [策略路由表的代号 如10]`，如下：       
- ```
+ ```plaintext
 default dev eth0 via 192.168.1.1 table 10        # 在 route-eth0 文件中为路由表10增加默认网关
 ```
 		3. 按“ESC”，并输入“:wq!”保存并退出，然后再按照同样操作配置 route-eth1 文件。
 	
-         ```
+         ```plaintext
 	vim /etc/sysconfig/network-scripts/route-eth1     # 编辑 route-eth1 文件
 	default dev eth1 via 192.168.1.1 table 20         # 在 route-eth1 文件中为路由表20增加默认网关
 ```
 
 	   4. 重启网络使配置生效。
 	   
-         ```
+         ```plaintext
 systemctl restart network
 ```
 
