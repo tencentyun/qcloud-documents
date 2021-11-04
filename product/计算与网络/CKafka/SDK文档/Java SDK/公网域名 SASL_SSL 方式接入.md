@@ -24,7 +24,7 @@ SSL 证书的核心功能是保护服务器-客户端通信。数据通过 SSL �
 在**用户管理**页面新建角色，设置密码。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb78b8290232e6342397a30a4c554ef9.png)
 
-3. 创建 topic
+3. 创建 Topic。
 在控制台 **topic 管理**页面新建 Topic（参考 [创建 Topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
 
 
