@@ -202,7 +202,7 @@ hadoop fs  -Ddfs.checksum.combine.mode=COMPOSITE_CRC -checksum /data/test.txt
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --diffMode=length-checksum --diffOutput=/tmp/diff-output
 ```
 
-以上命令执行成功后，会输出以源文件系统文件列表为基准的计数器信息，您可以根据计数器信息，分析是否有源和目的是否相同，计数器信息说明如下：
+以上命令执行成功后，会输出以源文件系统文件列表为基准的计数器信息，您可以根据计数器信息，分析源和目的是否相同，计数器信息说明如下：
 
 1. 源和目的文件相同，记录为 SUCCESS
 2. 目标文件不存在，记录为 DEST_MISS
