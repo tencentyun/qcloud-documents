@@ -40,7 +40,7 @@ ip address
 5. 执行如下命令重新修改弹性网卡的配置文件。[](id:s5)
 >?此处以 Centos7.8 为例，Centos7 系统网卡配置文件一般存放在"/etc/sysconfig/network-scripts"目录，保存在“ ifcfg-网卡名称“ 文件。
 >
-   1. 进入配置文件。
+   1. 执行如下命令，进入配置文件。
    ``` plaintext
  cd /etc/sysconfig/network-scripts/   #进入配置文件所在目录
  vim ifcfg-eth1  #编辑弹性网卡配置文件
