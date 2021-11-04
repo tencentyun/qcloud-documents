@@ -1,3 +1,27 @@
+### 2.6.7.233 @ 2021-10-27
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.7.233.zip)
+
+- 新增接口
+    1. 设置自定义字体(setTextFontFamily)
+    2. 添加自定义字体(addTextFontFamily)
+    3. 获取当前使用字体(getTextFontFamily)
+    
+- 调整初始化参数
+    1. 画笔模式下远端画笔是否显示(remoteCursorVisible)
+    
+- 调整接口
+    1. 设置远端画笔在本地是否可见(setRemoteCursorVisible)
+    
+- 调整全局变量
+    1. 白板警告码(TEduBoardWarningCode)，新增静态ppt重复的告警码
+    
+- 功能优化
+    1. 弱网环境下涂鸦同步
+    2. 优化涂鸦显示效果
+    3. 渲染进程残留进程处理
+
+- Bug 修复
+    若干已知问题修复
 ### 2.6.6.232 @ 2021-10-12
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.6.232.zip)
 

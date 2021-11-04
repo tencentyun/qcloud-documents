@@ -79,4 +79,4 @@ spec:
 
 
 
->! 目前使用 Kafka 能力需要进行集群升级，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1) 联系我们。
+

@@ -26,7 +26,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 | meeting_number | integer | 会议数量。  |
 |meeting_info_list  |Array| 会议列表。  |
 |media_set_type   | String    |该参数仅提供给支持混合云的企业可见，默认值为0。<br>0：外部会议<br>1：内部会议 <br>说明：周期性会议的查询，只展示在父会议的参数中，子会议对象无需展示该参数。   |    
- |   participants  |   用户对象数组      |  邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段，最多返回200个邀请者；需要查询超过200人的会议邀请者请调用“获取会议受邀成员列表”接口。       |   
+ |   participants  |   用户对象数组      |  邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段，最多返回300个邀请者；需要查询超过300人的会议邀请者请调用 [获取会议受邀成员列表](https://cloud.tencent.com/document/product/1095/63648) 接口。      |   
 
 
 
