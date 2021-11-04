@@ -229,13 +229,10 @@ security.kerberos.login.conf: krb5.conf
 >! 历史 Oceanus 集群可能不支持该功能，您可通过 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_849) 联系我们升级集群管控服务，以支持 Kerberos 访问。
 
 ## 注意事项
-
 1. 如果 Flink 作业正常运行，日志中没有报错，但是客户端查不到这个 Hive 表，可以使用如下命令对 Hive 表进行修复（需要将 `hive_table_xxx` 替换为要修复的表名）。
-
 ```
 msck repair table hive_table_xxx;
 ```
-
 2. 将 Hive 作为数据源并在配置中`io.compression.codec.lzo.class = com.hadoop.compression.lzo.LzoCodec`时需要上传 hadoop-lzo-版本号.jar 包到 oceanus。
 3. Hive Streaming Source 最大的不足是，无法读取已经读取过的分区下的新增的文件。
 4. 如若 Hive 版本是2.3.7版本，当 Hive 表作为源（Source）时，可以使用 oceanus 上的 flink-connector-hive 的版本为1.1.0、2.3.2、2.3.5版本。
