@@ -17,5 +17,5 @@
 >?假设已部署好的 WordPress 站点根路径是 `https://WORDPRESS.SITE`。
 6. 在所有用户页面，可查看 WordPress 的用户列表，以及查看用户详情、维护用户信息、重置密码。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a164f40d50dc64d4b5b32266db8e6d7a.jpg)
-7. WordPress 默认的登录页面只支持账号密码认证方式。
+7. 访问站点首页 `https://WORDPRESS.SITE`，单击页面的**登录**，WordPress 默认的登录页面只支持账号密码认证方式。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2a282033d8ae85fc1b3660139996a516.jpg)
