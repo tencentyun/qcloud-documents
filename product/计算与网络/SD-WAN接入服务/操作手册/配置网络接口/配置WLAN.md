@@ -4,7 +4,7 @@ WLAN 配置用于管理 Edge 设备自带的 Wi-Fi 功能，本文将介绍如�
 1. 登录 [SD-WAN 接入服务控制台](https://console.cloud.tencent.com/sas/edge)，并在实例列表中，单击目标实例 ID。
 2. 在实例详情页的左侧导航栏，选择**设备配置** > **WLAN** 配置。
 3. 在“WLAN 设置”页面进行以下配置，完成后单击**保存**。
-![](https://main.qcloudimg.com/raw/c97fb5b443cd50334b461ab440bee5e2.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a1d0deecc8f09cd96cfa2e021aff80ec.png)
 **字段说明**：
 	- **WIFI 能力**：开启后才能使用 Edge 设备自带的 Wi-Fi 功能。
 	- **国家码**：默认为中国。
