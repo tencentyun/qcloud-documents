@@ -30,25 +30,23 @@ CDC 提供了如下同步类型选择，以适用于用户多种场景。
 <table>
 <thead><tr><th>CDC</th><th>初始全量数据</th><th>增量数据</th><th>功能</th><th>场景</th></tr></thead>
 <tbody><tr>
-<td>√</td><td></td><td></td>
+<td>&#10003;</td><td>-</td><td>-</td>
 <td>只将库表结构同步到 LibraSQL 分析引擎。</td>
 <td>做结构验证。</td></tr>
 <tr>
-<td>√</td><td>√</td><td></td>
+<td>&#10003;</td><td>&#10003;</td><td>-</td>
 <td>将库表结构和全量数据同步到 LibraSQL 分析引擎。</td>
 <td>开发测试环境做测试验证。</td></tr>
 <tr>
-<td>√</td>
-<td>√</td>
-<td>√</td>
+<td>&#10003;</td><td>&#10003;</td><td>&#10003;</td>
 <td>将库表结构、全量数据同步到 LibraSQL 分析引擎后继续保持数据同步。将源端在同步过程中的数据，实时同步到目标。</td>
 <td>同步的信息最多，适用于所有场景。</td></tr>
 <tr>
-<td>√</td><td></td><td>√</td>
+<td>&#10003;</td><td>-</td><td>&#10003;</td>
 <td>只做结构同步和增量数据同步。</td>
 <td>日志场景，流式分析等只关注增量数据的场景。</td></tr>
 <tr>
-<td></td><td></td><td>√</td>
+<td>-</td><td>-</td><td>&#10003;</td>
 <td>只将增量数据同步到目标端。</td>
 <td>用户需要定制化的目标表结构，且只需要流式的增量数据。</td></tr>
 </tbody></table>	  
