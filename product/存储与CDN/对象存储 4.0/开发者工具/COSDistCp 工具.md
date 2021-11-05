@@ -24,8 +24,8 @@ Hadoop-2.6.0及以上版本、Hadoop-COS 插件 5.9.3 及以上版本。
 
 #### 获取 COSDistCp jar 包
 
-- Hadoop 2.x 用户可下载 [cos-distcp-1.8-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.8-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.8-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
-- Hadoop 3.x 用户可下载 [cos-distcp-1.8-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.8-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.8-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
+- Hadoop 2.x 用户可下载 [cos-distcp-1.9-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.9-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.9-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
+- Hadoop 3.x 用户可下载 [cos-distcp-1.9-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.9-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.9-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
 
 #### 安装说明
 
@@ -66,7 +66,7 @@ COSDistCp 基于 MapReduce 框架实现，为多进程+多线程的架构，可�
 |         --skipMode=MODE          | 拷贝文件前，校验源文件和目标文件是否相同，相同则跳过，可选 none（不校验）、length （长度）、checksum（CRC值）和 length-checksum（长度 + CRC 值）</br>示例：--skipMode=length |  length-checksum  |    否    |
 |         --checkMode=MODE         | 当文件拷贝完成的时候，校验源文件和目标文件是否相同，可选 none（不校验）、 length （长度）、checksum（CRC值）和 length-checksum（长度 + CRC 值）<br/>示例：--checkMode=length-checksum |  length-checksum  |    否    |
 |         --diffMode=MODE          | 指定获取源和目的目录的差异文件列表，可选 length （长度）、checksum（CRC 值）和 length-checksum（长度 + CRC 值）</br>示例：--diffMode=length-checksum |   无   |    否    |
-|      --diffOutput=LOCATION       | 指定差异文件列表的输出目录，该输出目录必须为空<br/>示例：--diffOutput=/diff-output |   无   |    否    |
+|      --diffOutput=LOCATION       | 指定差异文件列表的 HDFS 输出目录，该输出目录必须为空<br/>示例：--diffOutput=/diff-output |   无   |    否    |
 |      --cosChecksumType=TYPE      | 指定 Hadoop-COS 插件使用的 CRC 算法，可选值为 CRC32C 和 CRC64<br/>示例：--cosChecksumType=CRC32C | CRC32C |    否    |
 |      --preserveStatus=VALUE      | 指定是否将源文件的 user、group、permission、xattr 和 timestamps 元信息拷贝到目标文件，可选值为 ugpxt（即为 user、group、permission、xattr 和 timestamps 的英文首字母）<br/>示例：--preserveStatus=ugpt |   无   |    否    |
 |      --ignoreSrcMiss      | 忽略存在于文件清单中，但拷贝时不存在的文件 |   false   | 否       |
@@ -203,15 +203,17 @@ hadoop fs  -Ddfs.checksum.combine.mode=COMPOSITE_CRC -checksum /data/test.txt
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --diffMode=length-checksum --diffOutput=/tmp/diff-output
 ```
 
-以上命令执行成功后，会在 HDFS 的 `/tmp/diff-output/failed` 目录下（低版本为 /tmp/diff-output），生成差异文件列表，以下类型的源文件信息包含在输出中：
+以上命令执行成功后，会输出以源文件系统文件列表为基准的计数器信息，您可以根据计数器信息，分析源和目的是否相同，计数器信息说明如下：
 
-1. 目标文件不存在，记录为 DEST_MISS
-2. 存在源目录的清单中，但是校验时源文件不存在，记录为 SRC_MISS
-3. 源文件和目标文件大小不同，记录为：LENGTH_DIFF
-4. 源文件和目标文件 CRC 算法值不同，记录为：CHECKSUM_DIFF
-5. 由于读取权限不够等因素导致 diff 操作失败，记录为：DIFF_FAILED
+1. 源和目的文件相同，记录为 SUCCESS
+2. 目标文件不存在，记录为 DEST_MISS
+3. 存在源目录的清单中，但是校验时源文件不存在，记录为 SRC_MISS
+4. 源文件和目标文件大小不同，记录为：LENGTH_DIFF
+5. 源文件和目标文件 CRC 算法值不同，记录为：CHECKSUM_DIFF
+6. 由于读取权限不够等因素导致 diff 操作失败，记录为：DIFF_FAILED
+7. 源为目录，目的为文件，记录为：TYPE_DIFF
 
-您可以通过如下命令，获取除 SRC_MISS 以外的差异文件列表：
+此外，COSDistcp 会在 HDFS 的 `/tmp/diff-output/failed` 目录下（低版本为 /tmp/diff-output），生成差异文件列表，您可以通过如下命令，获取除 SRC_MISS 以外的差异文件列表：
 
 ```plaintext
 hadoop fs -getmerge /tmp/diff-output/failed diff-manifest
