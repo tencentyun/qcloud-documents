@@ -3,14 +3,12 @@
 如下场景的迁移要求与 TDSQL MySQL 到 TDSQL MySQL 的迁移要求一致，可参考本场景相关内容。
 
 - TDSQL MySQL 到腾讯云数据库 MariaDB 的数据迁移
-
 - TDSQL MySQL 到腾讯云数据库 MySQL 的数据迁移
 
-> ?
-> 用户体验本章节中 TDSQL MySQL 的迁移功能时，请先 [提交工单]() 处理。
+>?如需体验本章节中 TDSQL MySQL 的迁移功能时，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
 
 ## 注意事项
-- DTS 在执行全量数据迁移时，会占用一定源端实例资源可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
+DTS 在执行全量数据迁移时，会占用一定源端实例资源可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
 
 ## 前提条件
 - 已 [创建分布式数据库 TDSQL MySQL版](https://cloud.tencent.com/document/product/557/10236)。
@@ -46,8 +44,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 
 - 增量迁移过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致迁移失败。
 
-- 不支持迁移[二级分区](https://cloud.tencent.com/document/product/557/58907)表，如果迁移的库表中包含二级分区表，存量数据会跳过二级分区表的迁移；如果选择整库或全实例迁移，增量过程中遇到二级分区表任务报错暂停。
-
+- 不支持迁移 [二级分区](https://cloud.tencent.com/document/product/557/58907) 表，如果迁移的库表中包含二级分区表，存量数据会跳过二级分区表的迁移；如果选择整库或全实例迁移，增量过程中遇到二级分区表任务报错暂停。
 
 ## 操作限制
 - 迁移过程中请勿进行如下操作，否则会导致迁移任务失败。
@@ -60,14 +57,13 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 - 增量迁移过程中，不支持源库新增分片、调整分片规格，否则迁移任务不会同步新增分片的数据或是任务报错暂停，如果需要长期保持增量同步并且支持源库的新增分片、调整分片操作，请使用[TDSQL 数据同步](tdsql mysql同步到tdsaql mysql)来进行同步。
 
 ## 支持的 SQL 操作
-
 | 操作类型 | 支持同步的 SQL 操作                                          |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE、REPLACE                              |
 | DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE<br>VIEW：CREATE VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX<br>DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
 
 ## 环境要求
-> ?如下环境要求，系统会在启动迁移任务前自动进行校验，不符合要求的系统会报错。如果用户能够识别出来，可以参考 [校验项检查要求](https://cloud.tencent.com/document/product/571/58685) 自行修改，如果不能则等系统校验完成，按照报错提示修改。
+>?如下环境要求，系统会在启动迁移任务前自动进行校验，不符合要求的系统会报错。如果用户能够识别出来，可以参考 [校验项检查要求](https://cloud.tencent.com/document/product/571/58685) 自行修改，如果不能则等系统校验完成，按照报错提示修改。
 
 <table>
 <tr><th width="20%">类型</th><th width="80%">环境要求</th></tr>
@@ -105,7 +101,6 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>其他要求</td>
 <td>环境变量 innodb_stats_on_metadata 必须设置为 off。</td></tr>
 </table>
-
 
 ## 操作步骤
 1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
@@ -151,7 +146,6 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <tr>
 <td>密码</td><td>目标端 TDSQL MySQL版 的数据库帐号的密码。</td></tr>
 </tbody></table>
-
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 > ?
 >- 如果用户在迁移过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**迁移对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法迁移 Online DDL 变更产生的临时表数据到目标数据库。
