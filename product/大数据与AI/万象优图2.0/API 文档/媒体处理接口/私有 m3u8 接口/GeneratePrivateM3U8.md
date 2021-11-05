@@ -1,6 +1,6 @@
 ## 功能描述
 
-GeneratePrivateM3U8 接口用于获取私有 M3U8 ts 资源的下载授权。
+GeneratePrivateM3U8 接口用于获取私有 M3U8 ts 资源的下载授权（此方式直接访问数据万象服务）。
 
 ## 请求
 
