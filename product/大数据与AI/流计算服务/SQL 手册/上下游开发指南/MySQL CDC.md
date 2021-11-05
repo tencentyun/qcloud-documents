@@ -3,7 +3,6 @@
 MySQL 的 CDC 源表，支持对 MySQL 数据库的全量和增量读取，并保证 Exactly Once 语义。MySQL CDC 底层使用了 Debezium 来做 CDC（Change Data Capture）。
 
 其工作机制如下：
-
 1. 获取一个全局读锁，从而阻塞住其他数据库客户端的写操作。 
 2. 开启一个可重复读语义的事务，来保证后续在同一个事务内读操作都是在一个一致性快照中完成的。
 3. 读取 Binlog 的当前位置。
@@ -15,10 +14,10 @@ Flink 作业运行期间会周期性执行快照，记录下 Binlog 位置，当
 
 ## 版本说明
 
-| Flink版本 | 说明                                                         |
+| Flink 版本 | 说明                                                         |
 | :-------- | :----------------------------------------------------------- |
-| 1.11      | <ul><li>支持mysql 版本为 5.6</li></ul>                       |
-| 1.13      | <ul><li>支持mysql 版本为 5.7 以上 和 8.x</li><li>默认配置，需要source 表有pk。 如果source 表没有pk，需要with参数需要设置 'scan.incremental.snapshot.enabled' = 'false'</li></ul> |
+| 1.11      | <li>支持mysql 版本为 5.6</li>                       |
+| 1.13     | <li>支持mysql 版本为 5.7 以上 和 8.x</li><li>默认配置，需要source 表有pk。 如果source 表没有pk，需要with参数需要设置 'scan.incremental.snapshot.enabled' = 'false'</li> |
 
 ## 使用范围
 
