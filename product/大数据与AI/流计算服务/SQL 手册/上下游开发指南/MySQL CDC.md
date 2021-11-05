@@ -17,7 +17,7 @@ Flink 作业运行期间会周期性执行快照，记录下 Binlog 位置，当
 | Flink 版本 | 说明                                                         |
 | :-------- | :----------------------------------------------------------- |
 | 1.11      | <li>支持mysql 版本为 5.6</li>                       |
-| 1.13     | <li>支持mysql 版本为 5.7 以上 和 8.x</li><li>默认配置，需要source 表有pk。 如果source 表没有pk，需要with参数需要设置 'scan.incremental.snapshot.enabled' = 'false'</li> |
+| 1.13     | <li>支持mysql 版本为 5.7 以上 和 8.x</li><li>默认配置，需要 source 表有 pk。如果 source 表没有 pk，需要 with 参数需要设置 'scan.incremental.snapshot.enabled' = 'false'</li> |
 
 ## 使用范围
 
