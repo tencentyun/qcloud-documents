@@ -2,15 +2,15 @@ CIAM 支持应用系统基于标准 OpenID Connect (OIDC) 协议接入。CIAM �
 
 ## 步骤1：安装 WordPress OIDC 插件
 WordPress 站点将通过标准 OIDC 协议与 CIAM 对接，因此，我们首先安装并启用 WordPress 的 OIDC 插件。
-1. 在 WordPress 后台选择 **插件** > **安装插件**，搜索并安装 OpenID Connect Generic Client 插件。
+1. 在 WordPress 后台选择**插件** > **安装插件**，搜索并安装 OpenID Connect Generic Client 插件。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b9bd1074eb2186397902213c8c9a0e1f.jpg)
 2. 启用插件，再次访问登录页面时，发现页面上部增加了一个按钮 **Login with OpenID Connect** 。
 ![](https://qcloudimg.tencent-cloud.cn/raw/debb56803d3d75a380e74255ce6a88f0.jpg)
->!由于还未对 CIAM 进行配置，此功能暂时还不可用。接下来我们配置 CIAM 。
+>!由于还未对 CIAM 进行配置，此功能暂时还不可用，详细操作请参见 [步骤2：配置 CIAM 应用](#step2) 。
 
-## 步骤2：配置 CIAM 应用
+## 步骤2：配置 CIAM 应用[](id:step2)
 ### 前提条件
->?已完成 [新建用户目录](https://cloud.tencent.com/document/product/1441/60657)。
+已完成 [新建用户目录](https://cloud.tencent.com/document/product/1441/60657)。
 
 ### 获取用户目录域名
 1. 登录 [数字身份管控平台（公众版）控制台](https://console.cloud.tencent.com/ciam)，在左侧导航栏，选择**个性化设置** > **域名设置**，进入域名设置页面。
@@ -24,9 +24,7 @@ WordPress 站点将通过标准 OIDC 协议与 CIAM 对接，因此，我们首�
 1. 登录 [数字身份管控平台（公众版）控制台](https://console.cloud.tencent.com/ciam)，在左侧导航栏选择**应用管理**，进入应用管理页面。
 2. 在应用管理页面，单击操作列的**新建应用**，弹出新建应用弹窗。
 ![](https://main.qcloudimg.com/raw/39d602e8747cad6d90f0f22d2afd1b19.png)
-3. 在新建应用弹窗中，根据要求填写相关信息，单击**确定**，即可创建新应用。
->!应用类型需选择 **Web 应用**。
->
+3. 在新建应用弹窗中，根据要求填写相关信息，其中应用类型需选择 **Web 应用**，单击**确定**，即可创建新应用。
 ![](https://main.qcloudimg.com/raw/7e02bdb5f71f412b127c05a305b5ac42.png)
 4. 在应用管理页面，选择刚刚创建的应用，单击操作列的**配置**，进入应用配置的基本信息页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6f459faed85315fcfbab45c200286f4d.png)
@@ -55,7 +53,7 @@ WordPress 站点将通过标准 OIDC 协议与 CIAM 对接，因此，我们首�
 <td align="left">使用默认值</td>
 </tr>
 </tbody></table>
->! 请使用您实际的 WordPress 站点根路径替换`https://WORDPRESS.SITE`。
+>?请使用您实际的 WordPress 站点根路径替换`https://WORDPRESS.SITE`。
 7.  单击**流程配置**，在注册流程处单击**编辑**，配置所需内容，单击**确定**保存。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1c188356ef017c8c4cd68092df82d2eb.png)
 参数说明
