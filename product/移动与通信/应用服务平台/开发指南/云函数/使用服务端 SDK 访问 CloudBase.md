@@ -19,6 +19,10 @@ exports.main = async (event, context) => {
 
 ## 初始化 SDK
 
+<dx-tabs>
+
+::: Node.js
+
 ```js
 const cloudbase = require("@cloudbase/node-sdk");
 const app = cloudbase.init({
@@ -26,8 +30,15 @@ const app = cloudbase.init({
 });
 ```
 
+:::
+
+</dx-tabs>
 
 ## 调用云数据库
+
+<dx-tabs>
+
+::: Node.js
 
 ```js
 const db = app.database();
@@ -36,8 +47,15 @@ exports.main = async (event, context) => {
 };
 ```
 
+:::
+
+</dx-tabs>
 
 ## 调用云存储
+
+<dx-tabs>
+
+::: Node.js
 
 ```js
 exports.main = async (event, context) => {
@@ -49,7 +67,15 @@ exports.main = async (event, context) => {
 };
 ```
 
+:::
+
+</dx-tabs>
+
 ## 调用其它云函数
+
+<dx-tabs>
+
+::: Node.js
 
 ```js
 exports.main = async (event, context) => {
@@ -63,6 +89,9 @@ exports.main = async (event, context) => {
 };
 ```
 
+:::
+
+</dx-tabs>
 
 ## 获取用户信息
 
