@@ -19,8 +19,8 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 	<tr>
 	  <th width="3%">实例</th>
 	  <th width="22%">GPU 类型</th>
-	  <th width="32%">可用镜像</th>
-	  <th width="43%">可用区域</th>
+	  <th width="35%">可用镜像</th>
+	  <th width="40%">可用区域</th>
 	</tr>
   </thead>
 	 <tr>
@@ -131,8 +131,8 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 	<tr>
 	  <th width="3%">实例</th>
 	  <th width="22%">GPU 类型</th>
-	  <th width="32%">可用镜像</th>
-	  <th width="43%">可用区域</th>
+	  <th width="35%">可用镜像</th>
+	  <th width="40%">可用区域</th>
 	</tr>
   </thead>
 	<tr>
@@ -282,26 +282,16 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 
 
 
-
-### 图形图像处理
+- **图形图像处理**
 推荐使用 GN7vw/GNV4/GNV4v，免除了 vDWS License 申请及搭建服务器步骤，是图形图像处理应用场景的首选。目前使用 GNV4 需进行申请，请联系您的售前经理进行实例购买权限开通。
-
-NVIDIA GN* 系列其他实例可以通过安装 GRID Driver 的方式来支持图形图像处理，但是需要额外购买 License，详情请参见 [安装 NVIDIA GRID 驱动](https://cloud.tencent.com/document/product/560/30060)。
-
-### 视频编解码
-
+NVIDIA GN\* 系列其他实例可以通过安装 GRID Driver 的方式来支持图形图像处理，但是需要额外购买 License，详情请参见 [安装 NVIDIA GRID 驱动](https://cloud.tencent.com/document/product/560/30060)。
+- **视频编解码**
 推荐使用 GN7/GI3X/GN7vw 实例。GN7/GI3X/GN7vw 实例采用 T4 GPU，性能好且单路视频转码成本最低，适用于视频编解码的产品。 
-
-### 深度学习训练
-
+- **深度学习训练**
 推荐使用 GN8/GN10X/GN10Xp/GT4 实例。 GN8/GN10X/GN10Xp/GT4 实例采用 P40、V100、A100 中高端 GPU，具有强大的单精度浮点运算能力，并具备较大的 GPU 板载内存，是深度学习训练的首选。
-
-### 深度学习推理
-
+- **深度学习推理**
 推荐使用 GN6/GN6S/GN7/GI3X/GN8/PNV4 实例。GN6/GN6S/GN7/GI3X/GN8/PNV4  实例采用 P4、T4、P40、A10 GPU，具备 INT8 计算能力，性价比高 ，适合大规模部署。
-
-### 科学计算
-
+- **科学计算**
 推荐使用 GN10X/GN10Xp/GT4 实例。GN10X/GN10Xp/GT4 实例采用 V100、A100 GPU，具有强大的双精度浮点运算能力，可为科学与工程计算相关的应用软件提供最好的加速能力。
 
 <dx-alert infotype="notice" title="">
@@ -1214,7 +1204,7 @@ GNV4 实例支持可用区为：北京六区、上海五区、广州六区、重
 	  <td>12核</td>
 	  <td>44GB</td>
 	  <td>2Gbps</td>
-	  <td>53万PPS</td>
+	  <td>53万</td>
 	  <td>4</td>
 	</tr>
   </tbody>
@@ -1249,7 +1239,7 @@ GPU 渲染型 GN7vw 现处于限量购买阶段，如需使用，请前往 [申�
 GN7vw 实例支持可用区为：广州三，四区、上海二，四，五区、南京一，二区、北京五区、成都一区、重庆一区、香港二区、新加坡一区、孟买二区、硅谷二区、弗吉尼亚二区、法兰克福一区
 
 
-### 硬件规格
+#### 硬件规格
 
 - **CPU：**Intel<sup>®</sup> Xeon<sup>®</sup> Platinum 8255C CPU，主频 2.5 GHz。
 - **GPU：** NVIDIA<sup>®</sup> Tesla<sup>®</sup> T4（8.1 TFLOPS 单精度浮点计算，130 INT8 TOPS，260 INT4 TOPS）。
