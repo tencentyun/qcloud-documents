@@ -1047,9 +1047,6 @@ GN6/GN6S 实例支持如下可用区：
 </table>
 
 :::
-::: undefined
-请在此输入 undefined 的正文
-:::
 </dx-accordion>
 
 
