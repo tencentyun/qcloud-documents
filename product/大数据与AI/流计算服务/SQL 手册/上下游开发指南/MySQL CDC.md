@@ -16,8 +16,9 @@ Flink 作业运行期间会周期性执行快照，记录下 Binlog 位置，当
 
 | Flink 版本 | 说明                                                         |
 | :-------- | :----------------------------------------------------------- |
-| 1.11      | <li>支持mysql 版本为 5.6</li>                       |
-| 1.13     | <li>支持mysql 版本为 5.7 以上 和 8.x</li><li>默认配置，需要 source 表有 pk。如果 source 表没有 pk，需要 with 参数需要设置 'scan.incremental.snapshot.enabled' = 'false'</li> |
+| 1.11      | <li>支持 mysql 版本为5.6</li>                       |
+| 1.13      | <li>支持 mysql 版本为5.7以上和8.x版本</li><li>默认配置，需要 source 表有 pk。如果 source 表没有 pk，需要 with 参数需要设置 `'scan.incremental.snapshot.enabled' = 'false'`</li><li>如果 mysql 主键类型是 `bigint unsigned`，请在 with 里添加 `'debezium.bigint.unsigned.handling.mode' = 'precise'`</li> |
+
 
 ## 使用范围
 
@@ -43,21 +44,24 @@ CREATE TABLE `mysql_cdc_source_table` (
 
 ## WITH 参数
 
-| 参数                                     | 说明                                                         | 是否必填 | 备注                                                         |
-| :--------------------------------------- | :-------------------------------------------- | :------- | :------------------------------------- |
-| connector                                | 源表类型                                                     | 是       | 固定值为 `mysql-cdc`                     |
-| hostname                                 | MySQL 数据库的 IP 地址或者 Hostname              | 是       | -                                    |
-| port                                     | MySQL 数据库服务的端口号                      | 否       | 默认值为3306                |
-| username                                 | MySQL 数据库服务的用户名                                     | 是       | 有特定权限（包括 SELECT、RELOAD、SHOW DATABASES、REPLICATION SLAVE 和 REPLICATION CLIENT）的 MySQL 用户 |
-| password                                 | MySQL 数据库服务的密码                                       | 是       | -                                          |
-| database-name             | MySQL 数据库名称            | 是       | 数据库名称支持正则表达式以读取多个数据库的数据               |
-| table-name              | MySQL 表名                        | 是       | 表名支持正则表达式以读取多个表的数据                         |
-| server-id                                | 数据库客户端的一个 ID                                        | 否       | 该 ID 必须是 MySQL 集群中全局唯一的。建议针对同一个数据库的每个作业都设置一个不同的 ID。默认会随机生成一个5400 - 6400的值 |
+| 参数                                     | 说明                              | 是否必填 | 备注                                                         |
+| :---------------------- | :------------------------------------------- | :------- | :----------------------------------------------------------- |
+| connector                                | 源表类型                      | 是       | 固定值为 `mysql-cdc`                                         |
+| hostname                                 | MySQL 数据库的 IP 地址或者 Hostname       | 是       | -                             |
+| port                                     | MySQL 数据库服务的端口号                        | 否       | 默认值为3306                   |
+| username                                 | MySQL 数据库服务的用户名                | 是       | 有特定权限（包括 SELECT、RELOAD、SHOW DATABASES、REPLICATION SLAVE 和 REPLICATION CLIENT）的 MySQL 用户 |
+| password                                 | MySQL 数据库服务的密码                    | 是       | -                             |
+| database-name          | MySQL 数据库名称           | 是       | 数据库名称支持正则表达式以读取多个数据库的数据               |
+| table-name               | MySQL 表名        | 是       | 表名支持正则表达式以读取多个表的数据                         |
+| server-id                                | 数据库客户端的一个 ID         | 否       | 该 ID 必须是 MySQL 集群中全局唯一的。建议针对同一个数据库的每个作业都设置一个不同的 ID，可以设置为一个范围值，例如`5400-5405`。默认会随机生成一个5400 - 6400的值 |
 | server-time-zone                         | 数据库在使用的会话时区                                       | 否       | 例如 Asia/Shanghai，该参数控制了 MySQL 中的 TIMESTAMP 类型如何转成 STRING 类型 |
 | debezium.min.row.count.to.stream.results | 当表的条数大于该值时，会使用分批读取模式                     | 否       | 默认值为1000。Flink 采用以下方式读取 MySQL 源表数据：<li/>全量读取：直接将整个表的数据读取到内存里。优点是速度快，缺点是会消耗对应大小的内存，如果源表数据量非常大，可能会有 OOM 风险<li/>分批读取：分多次读取，每次读取一定数量的行数，直到读取完所有数据。优点是读取数据量比较大的表没有 OOM 风险，缺点是读取速度相对较慢 |
 | debezium.snapshot.fetch.size             | 在 Snapshot 阶段，每次读取 MySQL 源表数据行数的最大值        | 否       | 仅当分批读取模式时，该参数生效                               |
-| debezium.skipped.operations              | 需要过滤的 oplog 操作。操作包括：c 表示插入、u 表示更新、d 表示删除。默认情况下，不跳过任何操作，以逗号分隔 | 否       | -                                                            |
+| debezium.skipped.operations              | 需要过滤的oplog操作。操作包括:c表示插入，u表示更新，d表示删除。默认情况下，不跳过任何操作，以逗号分隔。 | 否       | -                                                            |
 | debezium.\*                              | Debezium 属性参数                                            | 否       | 从更细粒度控制 Debezium 客户端的行为。例如`'debezium.snapshot.mode' = 'never'`，详情请参见 [配置属性](https://debezium.io/documentation/reference/1.2/connectors/mysql.html?spm=a2c4g.11186623.2.9.28af38b6Z3SJlk#mysql-connector-configuration-properties_debezium) |
+| scan.incremental.snapshot.enabled        | 增量快照                                                     | 否       | 1.13支持，默认为true                                         |
+| scan.incremental.snapshot.chunk.size     | 当读取表的快照时，表快照捕获的表的块大小(行数)。             | 否       | 1.13支持，默认为8096                                         |
+| scan.incremental.snapshot.chunk.size     | 当读取表快照时，每次轮询的最大读取大小。                     | 否       | 1.13支持，默认为1024                                         |
 
 ## MySQL 分库分表读取方式
 目前 Oceanus 已支持 MySQL 分库分表的读取。
