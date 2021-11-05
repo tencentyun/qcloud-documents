@@ -11,7 +11,7 @@ MongoDB 的 CDC 源表（即 MongoDB 的流式源表），Connector 会自动跟
 
 ## 使用范围
 
-MongoDB CDC 只支持作为源表，MongoDB 只支持3.6及以上版本，MongoDB 集群必须是副本集或者分片集群。
+MongoDB CDC 只支持作为源表，MongoDB CDC 支持4.0、4.2、5.0版本，MongoDB 集群必须是副本集或者分片集群。
 
 ## DDL 定义
 
@@ -45,7 +45,7 @@ CREATE TABLE mongo_cdc_source_table (
 | password                  | MongoDB 数据库服务的密码                                     | 是       | -                         |
 | database                  | MongoDB 数据库名称                                           | 是       | -                         |
 | collection                | MongoDB Collection 名称                                      | 是       | -                         |
-| connection.options        | MongoDB 的 [连接选项](https://docs.mongodb.com/manual/reference/connection-string/#std-label-connections-connection-options)。有多个时，使用&连接，例如 `replicaSet-test&connectTimeoutMS=300000` | 否       | -    |
+| connection.options        | MongoDB 的 [连接选项](https://docs.mongodb.com/manual/reference/connection-string/#std-label-connections-connection-options)。有多个时，使用&连接，例如 `relicaSet=test&connectTimeoutMS=300000` | 否       | -    |
 | errors.tolerance          | 是否忽略错误记录，接受 none 或者 all。如果设置为 all， 忽略错误记录 | 否       | none                      |
 | errors.log.enable         | 是否需要把错误操作打印到日志文件                             | 否       | 默认值为 true             |
 | copy.existing     | 是否复制库中原有的数据，如果在复制期间对数据有更改，会在数据复制完成后应用更改 | 否       | 默认值为 true|
