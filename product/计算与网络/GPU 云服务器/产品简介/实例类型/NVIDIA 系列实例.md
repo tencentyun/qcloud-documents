@@ -7,24 +7,23 @@
 ## NVIDIA 系列实例总览
 
 NVIDIA 系列实例包括计算型和渲染型两类。其中：
-- **渲染型**：适用于 3D 渲染、视频编解码、CAD 等。
 - **计算型**：适用于深度学习、科学计算、CAE 等。
+- **渲染型**：适用于 3D 渲染、视频编解码、CAD 等。
 
 **GPU 云服务器 NVIDIA 系列提供以下实例：**
+
+### 计算型
 
 <table>
   <thead>
 	<tr>
-	  <th width="11%">类型</th>
 	  <th width="3%">实例</th>
-	  <th width="17%">GPU 类型</th>
-	  <th width="34%">可用镜像</th>
-	  <th style="width: 38%;">可用区域</th>
+	  <th width="22%">GPU 类型</th>
+	  <th width="32%">可用镜像</th>
+	  <th width="43%">可用区域</th>
 	</tr>
   </thead>
-  <tbody>
 	 <tr>
-      <td rowspan="8">计算型</td>
 			<td><a href="#PNV4">PNV4</a></td> 
       <td>A10</td>
       <td>
@@ -124,8 +123,19 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 		</ul>
 	  </td>
 	</tr>
+</table>
+
+### 渲染型
+<table>
+  <thead>
 	<tr>
-	  <td rowspan="3">渲染型</td>
+	  <th width="3%">实例</th>
+	  <th width="22%">GPU 类型</th>
+	  <th width="32%">可用镜像</th>
+	  <th width="43%">可用区域</th>
+	</tr>
+  </thead>
+	<tr>
 	  <td><a href="#GNV4v">GNV4v</a></td> 
 	  <td>A10</td>
 	  <td>
@@ -165,8 +175,6 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 	<td>
 	北京、上海、广州、南京、成都、重庆、香港、新加坡、孟买、硅谷、弗吉尼亚、法兰克福</td>
   </tr>
-
-  </tbody>
 </table>
 
 
@@ -310,15 +318,19 @@ NVIDIA GN* 系列其他实例可以通过安装 GRID Driver 的方式来支持�
 - 支持与 [负载均衡](/doc/product/214/524) 等产品的业务对接，不增加额外的管理和运维成本，内网流量免费。
 
 
-## 计算型 PNV4[](id:PNV4) 
+## 实例详情
 
+### 计算型 
+
+<dx-accordion>
+::: 计算型 PNV4[](id:PNV4) 
 **NVIDIA 实例 PNV4** 不仅适用于深度学习等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
 
 <dx-alert infotype="notice" title="">
 该实例暂时处于白名单开放，请联系您的售前经理进行实例购买权限开通。
 </dx-alert>
 
-### 适用场景
+#### 适用场景
 
 性价比高 ，适用于如下场景：
 
@@ -330,81 +342,83 @@ NVIDIA GN* 系列其他实例可以通过安装 GRID Driver 的方式来支持�
   - 视频编解码
   - 图形数据库
 
-### 硬件规格
+#### 可用区域
+PNV4 实例支持可用区为：广州七区、上海五区、北京六区。
+
+#### 硬件规格
 
 - **CPU：**2.55GHz AMD EPYCTM Milan 处理器，睿频3.5GHz。
 - **GPU：**NVIDIA<sup>®</sup>  A10（62.5 TFLOPS 单精度浮点计算，250 INT8 TOPS，500 INT4 TOPS）。
 - **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
 - **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
 
+
 **PNV4 实例提供以下配置：**
 
 <table>
-		<thead>
-		<tr>
-			<th width=10%>型号</th>
-			<th width=10%>GPU<br>（NVIDIA<br>A10）</th>
-            <th width=12%>GPU 显存<br>（HBM2）</th>
-			<th width=8%>vCPU</th>
-			<th>内存<br>（DDR4）</th>
-            <th width=10%>内网带宽</th>
-            <th>网络收发包</th>
-            <th>队列数</th>
-			<th>可用区</th>
-		</tr>
-		</thead>
-		<tbody>
-        <tr>
-			<td>PNV4.7XLARGE116</td>
-			<td>1颗</td> 
-            <td>1 * 24GB</td>
-			<td>28核</td>
-			<td>116GB</td>
-            <td>13Gbps</td>
-			<td>230万PPS</td>
-            <td>28</td>
-            <td rowspan="4">广州七区，上海五区，北京六区</td>
-		</tr>
-		<tr>
-			<td>PNV4.14XLARGE232</td>
-			<td>2颗</td> 
-            <td>2 * 24GB</td>
-			<td>56核</td>
-			<td>232GB</td>
-            <td>25Gbps</td>
-			<td>470万PPS</td>
-            <td>48</td>
-		</tr>
-        <tr>
-			<td>PNV4.28XLARGE466</td>
-			<td>4颗</td> 
-            <td>4 * 24GB</td>
-			<td>112核</td>
-			<td>466GB</td>
-            <td>50Gbps</td>
-			<td>950万PPS</td>
-            <td>48</td>
-		</tr>
-        <tr>
-			<td>PNV4.56XLARGE932</td>
-			<td>8颗</td> 
-            <td>8 * 24GB</td>
-			<td>224核</td>
-			<td>932GB</td>
-            <td>100Gbps</td>
-			<td>1900万PPS</td>
-            <td>48</td>
-		</tr>
-		</tbody>
+  <thead>
+	<tr>
+	  <th width="10%">型号</th>
+	  <th width="10%">GPU<br>(NVIDIA&nbsp;&nbsp;A10)</th>
+	  <th width="12%">GPU 显存
+	  <br />(HBM2)</th>
+	  <th width="8%">vCPU</th>
+	  <th>内存
+	  <br />(DDR4)</th>
+	  <th width="10%">内网带宽</th>
+	  <th>网络收发包<br/>(PPS)</th>
+	  <th>队列数</th>
+	</tr>
+  </thead>
+  <tbody>
+	<tr>
+	  <td>PNV4.7XLARGE116</td>
+	  <td>1颗</td>
+	  <td>1 * 24GB</td>
+	  <td>28核</td>
+	  <td>116GB</td>
+	  <td>13Gbps</td>
+	  <td>230万</td>
+	  <td>28</td>
+	</tr>
+	<tr>
+	  <td>PNV4.14XLARGE232</td>
+	  <td>2颗</td>
+	  <td>2 * 24GB</td>
+	  <td>56核</td>
+	  <td>232GB</td>
+	  <td>25Gbps</td>
+	  <td>470万</td>
+	  <td>48</td>
+	</tr>
+	<tr>
+	  <td>PNV4.28XLARGE466</td>
+	  <td>4颗</td>
+	  <td>4 * 24GB</td>
+	  <td>112核</td>
+	  <td>466GB</td>
+	  <td>50Gbps</td>
+	  <td>950万</td>
+	  <td>48</td>
+	</tr>
+	<tr>
+	  <td>PNV4.56XLARGE932</td>
+	  <td>8颗</td>
+	  <td>8 * 24GB</td>
+	  <td>224核</td>
+	  <td>932GB</td>
+	  <td>100Gbps</td>
+	  <td>1900万</td>
+	  <td>48</td>
+	</tr>
+  </tbody>
 </table>
 
-
-
-## 计算型 GT4[](id:GT4) 
-
+:::
+::: 计算型 GT4[](id:GT4) 
 **NVIDIA 实例 GT4** 适用于深度学习、科学计算等 GPU 通用计算场景。
 
-### 适用场景
+#### 适用场景
 
 GT4 具有强大的双精度浮点运算能力 ，适用于大规模深度学习训练，推理和科学计算场景。例如：
   - 深度学习
@@ -416,8 +430,11 @@ GT4 具有强大的双精度浮点运算能力 ，适用于大规模深度学习
   - 基因组学及其他
 
 
+#### 可用区域
+GT4 实例支持可用区为：广州四区、上海四区、北京五区。
 
-### 硬件规格
+
+#### 硬件规格
 
 - **CPU：**GT4 配置 AMD EPYC™ ROME 处理器，主频2.6GHz。
 - **GPU：**NVIDIA<sup>®</sup>  A100 NVLink 40GB（19.5TFLOPS单精度浮点计算，9.7TFLOPS双精度浮点计算，600GB/s NVLink）。
@@ -428,92 +445,107 @@ GT4 具有强大的双精度浮点运算能力 ，适用于大规模深度学习
 **GT4 实例提供以下配置：**
 
 <table>
-		<thead>
-		<tr>
-			<th width=10%>型号</th>
-			<th width=10%>GPU<br>（NVIDIA<br>Tesla A100 NVLink 40G）</th>
-            <th width=12%>GPU 显存<br>（HBM2）</th>
-			<th width=8%>vCPU</th>
-			<th>内存<br>（DDR4）</th>
-            <th width=10%>内网带宽</th>
-            <th>网络收发包</th>
-            <th>队列数</th>
-			<th>可用区</th>
-		</tr>
-		</thead>
-		<tbody>
-        <tr>
-			<td>GT4.4XLARGE96</td>
-			<td>1颗</td> 
-            <td>1 * 40GB</td>
-			<td>16核</td>
-			<td>96GB</td>
-            <td>5Gbps</td>
-			<td>120万PPS</td>
-            <td>4</td>
-            <td rowspan="4">广州四区，上海四区，北京五区</td>
-		</tr>
-		<tr>
-			<td>GT4.8XLARGE192</td>
-			<td>2颗</td> 
-            <td>2 * 40GB</td>
-			<td>32核</td>
-			<td>192GB</td>
-            <td>10Gbps</td>
-			<td>235万PPS</td>
-            <td>8</td>
-		</tr>
-        <tr>
-			<td>GT4.20XLARGE474</td>
-			<td>4颗</td> 
-            <td>4 * 40GB</td>
-			<td>82核</td>
-			<td>474GB</td>
-            <td>25Gbps</td>
-			<td>600万PPS</td>
-            <td>16</td>
-		</tr>
-        <tr>
-			<td>GT4.41XLARGE948</td>
-			<td>8颗</td> 
-            <td>8 * 40GB</td>
-			<td>164核</td>
-			<td>948GB</td>
-            <td>50Gbps</td>
-			<td>1200万PPS</td>
-            <td>32</td>
-		</tr>
-		</tbody>
+  <thead>
+	<tr>
+	  <th width="10%">型号</th>
+	  <th width="10%">GPU
+	  <br />(NVIDIA
+	  <br />Tesla A100 NVLink 40G)</th>
+	  <th width="12%">GPU 显存
+	  <br />(HBM2)</th>
+	  <th width="8%">vCPU</th>
+	  <th>内存
+	  <br />(DDR4)</th>
+	  <th width="10%">内网带宽</th>
+	  <th>网络收发包
+	  <br />(PPS)</th>
+	  <th>队列数</th>
+	</tr>
+  </thead>
+  <tbody>
+	<tr>
+	  <td>GT4.4XLARGE96</td>
+	  <td>1颗</td>
+	  <td>1 * 40GB</td>
+	  <td>16核</td>
+	  <td>96GB</td>
+	  <td>5Gbps</td>
+	  <td>120万</td>
+	  <td>4</td>
+	</tr>
+	<tr>
+	  <td>GT4.8XLARGE192</td>
+	  <td>2颗</td>
+	  <td>2 * 40GB</td>
+	  <td>32核</td>
+	  <td>192GB</td>
+	  <td>10Gbps</td>
+	  <td>235万</td>
+	  <td>8</td>
+	</tr>
+	<tr>
+	  <td>GT4.20XLARGE474</td>
+	  <td>4颗</td>
+	  <td>4 * 40GB</td>
+	  <td>82核</td>
+	  <td>474GB</td>
+	  <td>25Gbps</td>
+	  <td>600万</td>
+	  <td>16</td>
+	</tr>
+	<tr>
+	  <td>GT4.41XLARGE948</td>
+	  <td>8颗</td>
+	  <td>8 * 40GB</td>
+	  <td>164核</td>
+	  <td>948GB</td>
+	  <td>50Gbps</td>
+	  <td>1200万</td>
+	  <td>32</td>
+	</tr>
+  </tbody>
 </table>
+
+
+
 
 <dx-alert infotype="explain" title="">
 **GPU 驱动**：NVIDIA A100 系列需要安装 NVIDIA Tesla 450 版本以上驱动，推荐您安装 460.32.03(Linux)/461.33(Windows) 版本驱动，驱动版本信息请参见 [NVIDIA 官方文档](https://docs.nvidia.com/datacenter/tesla/index.html#nvidia-driver-documentation)。
 </dx-alert>
 
 
+:::
+::: 计算型 GN10X/GN10Xp [](id:GN10XGN10Xp) 
 
-
-## 计算型 GN10X/GN10Xp[](id:GN10XGN10Xp) 
 **NVIDIA 实例 GN10X/GN10Xp** 不仅适用于深度学习、科学计算等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
 
-### 适用场景
+
+
+#### 适用场景
 GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景：
 - 大规模深度学习训练，推理和科学计算场景。例如：
-	- 深度学习
-	- 高性能数据库
-	- 计算流体动力学
-	- 计算金融
-	- 地震分析
-	- 分子建模
-	- 基因组学及其他
+	 - 深度学习
+	 - 高性能数据库
+	 - 计算流体动力学
+	 - 计算金融
+	 - 地震分析
+	 - 分子建模
+	 - 基因组学及其他
 - 图形图像处理场景。例如：
-	- 图形图像处理
-	- 视频编解码
-	- 图形数据库
+	 - 图形图像处理
+	 - 视频编解码
+	 - 图形数据库
 
 
+#### 可用区域
+GN10X/GN10Xp 实例支持可用区为：
+- **GN10X.4XLARGE80**：广州三，四区、南京一区、成都一区、重庆一区
+- **GN10X 其他实例**：广州三，四区、上海二，三区、南京一区、北京四，五区、成都一区、重庆一区、新加坡一区、硅谷二区、法兰克福一区、孟买二区
+- **GN10Xp**：广州三，四区、上海二区、南京一区、北京五区、成都一区、重庆一区、香港二区、法兰克福一区
+ 
 
-### 硬件规格
+
+#### 硬件规格
 
 - **CPU：**GN10X 配置 Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6133 CPU，主频2.5GHz。GN10Xp 配置 Intel<sup>®</sup> Xeon<sup>®</sup> Platinum 8255C CPU，主频2.5GHz。
 - **GPU：**NVIDIA<sup>®</sup> Tesla<sup>®</sup> V100 NVLink 32GB（15.7TFLOPS 单精度浮点计算，7.8TFLOPS 双精度浮点计算，125TFLOPS Tensor Core 深度学习加速，300GB/s NVLink）。
@@ -521,126 +553,132 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 - **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
 - **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
 
+
 **GN10X/GN10Xp 实例提供以下配置：**
 
 <table>
-		<thead>
-		<tr>
-			<th width=10%>型号</th>
-			<th width=10%>GPU<br>（NVIDIA<br>Tesla V100 NVLink 32G）</th>
-            <th width=12%>GPU 显存<br>（HBM2）</th>
-			<th width=8%>vCPU</th>
-			<th>内存<br>（DDR4）</th>
-            <th width=10%>内网带宽</th>
-            <th>网络收发包</th>
-            <th>队列数</th>
-			<th>可用区</th>
-		</tr>
-		</thead>
-		<tbody>
-            <tr>
-				<td>GN10X.2XLARGE40</td>
-				<td>1颗</td> 
-                <td>1 * 32GB</td>
-				<td>8核</td>
-				<td>40GB</td>
-                <td>4Gbps</td>
-				<td>80万PPS</td>
-                <td>2</td>
-                <td rowspan="3">广州三、四区，上海二、三区，南京一区，北京四、五区，成都一区，重庆一区，新加坡一区，硅谷二区，法兰克福一区，孟买二区</td>
-			</tr>
-            <tr>
-				<td>GN10X.9XLARGE160</td>
-				<td>4颗</td> 
-                <td>4 * 32GB</td>
-				<td>36核</td>
-				<td>160GB</td>
-                <td>13Gbps</td>
-				<td>250万PPS</td>
-                <td>9</td>
-			</tr>
-            <tr>
-				<td>GN10X.18XLARGE320</td>
-				<td>8颗</td> 
-                <td>8 * 32GB</td>
-				<td>72核</td>
-				<td>320GB</td>
-                <td>25Gbps</td>
-				<td>490万PPS</td>
-                <td>16</td>
-			</tr>
-            <tr>
-				<td>GN10X.4XLARGE80</td>
-				<td>2颗</td> 
-                <td>2 * 32GB</td>
-				<td>18核</td>
-				<td>80GB</td>
-                <td>7Gbps</td>
-				<td>150万PPS</td>
-                <td>4</td>
-                <td rowspan="1">广州三、四区，南京一区，成都一区，重庆一区</td>
-			</tr>
-      <tr>
-			<td>GN10Xp.2XLARGE40</td>
-			<td>1颗</td> 
-            <td>1 * 32GB</td>
-			<td>10核</td>
-			<td>40GB</td>
-            <td>4Gbps</td>
-			<td>80万PPS</td>
-            <td>10</td>
-            <td rowspan="4">广州三、四区，上海二区，南京一区，北京五区，成都一区，重庆一区，香港二区，法兰克福一区</td>
-		</tr>
-		<tr>
-			<td>GN10Xp.5XLARGE80</td>
-			<td>2颗</td> 
-            <td>2 * 32GB</td>
-			<td>20核</td>
-			<td>80GB</td>
-            <td>7Gbps</td>
-			<td>150万PPS</td>
-            <td>16</td>
-		</tr>
-        <tr>
-			<td>GN10Xp.10XLARGE160</td>
-			<td>4颗</td> 
-            <td>4 * 32GB</td>
-			<td>40核</td>
-			<td>160GB</td>
-            <td>13Gbps</td>
-			<td>250万PPS</td>
-            <td>16</td>
-		</tr>
-        <tr>
-			<td>GN10Xp.20XLARGE320</td>
-			<td>8颗</td> 
-            <td>8 * 32GB</td>
-			<td>80核</td>
-			<td>320GB</td>
-            <td>25Gbps</td>
-			<td>490万PPS</td>
-            <td>16</td>
-		</tr>
-		</tbody>
+  <thead>
+	<tr>
+	  <th width="10%">型号</th>
+	  <th width="10%">GPU
+	  <br />(NVIDIA
+	  <br />Tesla V100 NVLink 32G)</th>
+	  <th width="12%">GPU 显存
+	  <br />(HBM2)</th>
+	  <th width="8%">vCPU</th>
+	  <th>内存
+	  <br />(DDR4)</th>
+	  <th width="10%">内网带宽</th>
+	  <th>网络收发包<br />(PPS)</th>
+	  <th>队列数</th>
+	</tr>
+  </thead>
+  <tbody>
+	<tr>
+	  <td>GN10X.2XLARGE40</td>
+	  <td>1颗</td>
+	  <td>1 * 32GB</td>
+	  <td>8核</td>
+	  <td>40GB</td>
+	  <td>4Gbps</td>
+	  <td>80万</td>
+	  <td>2</td>
+	</tr>
+	<tr>
+	  <td>GN10X.9XLARGE160</td>
+	  <td>4颗</td>
+	  <td>4 * 32GB</td>
+	  <td>36核</td>
+	  <td>160GB</td>
+	  <td>13Gbps</td>
+	  <td>250万</td>
+	  <td>9</td>
+	</tr>
+	<tr>
+	  <td>GN10X.18XLARGE320</td>
+	  <td>8颗</td>
+	  <td>8 * 32GB</td>
+	  <td>72核</td>
+	  <td>320GB</td>
+	  <td>25Gbps</td>
+	  <td>490万</td>
+	  <td>16</td>
+	</tr>
+	<tr>
+	  <td>GN10X.4XLARGE80</td>
+	  <td>2颗</td>
+	  <td>2 * 32GB</td>
+	  <td>18核</td>
+	  <td>80GB</td>
+	  <td>7Gbps</td>
+	  <td>150万</td>
+	  <td>4</td>
+	</tr>
+	<tr>
+	  <td>GN10Xp.2XLARGE40</td>
+	  <td>1颗</td>
+	  <td>1 * 32GB</td>
+	  <td>10核</td>
+	  <td>40GB</td>
+	  <td>4Gbps</td>
+	  <td>80万</td>
+	  <td>10</td>
+	</tr>
+	<tr>
+	  <td>GN10Xp.5XLARGE80</td>
+	  <td>2颗</td>
+	  <td>2 * 32GB</td>
+	  <td>20核</td>
+	  <td>80GB</td>
+	  <td>7Gbps</td>
+	  <td>150万</td>
+	  <td>16</td>
+	</tr>
+	<tr>
+	  <td>GN10Xp.10XLARGE160</td>
+	  <td>4颗</td>
+	  <td>4 * 32GB</td>
+	  <td>40核</td>
+	  <td>160GB</td>
+	  <td>13Gbps</td>
+	  <td>250万</td>
+	  <td>16</td>
+	</tr>
+	<tr>
+	  <td>GN10Xp.20XLARGE320</td>
+	  <td>8颗</td>
+	  <td>8 * 32GB</td>
+	  <td>80核</td>
+	  <td>320GB</td>
+	  <td>25Gbps</td>
+	  <td>490万</td>
+	  <td>16</td>
+	</tr>
+  </tbody>
 </table>
 
-## 计算型 GN8[](id:GN8) 
 
+:::
+::: 计算型 GN8 [](id:GN8) 
 **NVIDIA 实例 GN8** 不仅适用于深度学习等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
 
-### 适用场景
+#### 适用场景
 
 适用于如下场景：
 - 深度学习的推理和训练场景。例如：
-	- 大吞吐量的 AI 推理
-	- 深度学习
+	 - 大吞吐量的 AI 推理
+	 - 深度学习
 - 图形图像处理场景。例如：
-	- 图形图像处理
-	- 视频编解码
-	- 图形数据库
+	 - 图形图像处理
+	 - 视频编解码
+	 - 图形数据库
 
 
-### 硬件规格
+#### 可用区域
+GN8 实例支持可用区为：香港二区、广州三区、上海三区、北京二，四区、成都一区、重庆一区、硅谷一区
+
+
+#### 硬件规格
 
 - **CPU：**Intel<sup>®</sup> Xeon<sup>®</sup> E5-2680 v4 CPU，主频2.4GHz。
 - **GPU：**NVIDIA<sup>®</sup> Tesla<sup>®</sup> P40（12TFLOPS 单精度浮点计算，47INT8 TOPS）。
@@ -648,82 +686,90 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 - **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
 - **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
 
+
 **GN8 实例提供以下配置：**
 
 <table>
-		<thead>
-		<tr>
-			<th width=10%>型号</th>
-			<th width=10%>GPU<br>（NVIDIA<br>Tesla P40）</th>
-            <th width=12%>GPU 显存<br>（GDDR5）</th>
-			<th width=8%>vCPU</th>
-			<th>内存<br>（DDR4）</th>
-            <th width=10%>内网带宽</th>
-            <th>网络收发包</th>
-            <th>队列数</th>
-			<th>可用区</th>
-		</tr>
-		</thead>
-		<tbody>
-            <tr>
-				<td>GN8.LARGE56</td>
-				<td>1颗</td> 
-                <td>24GB</td>
-				<td>6核</td>
-				<td>56GB</td>
-                <td>1.5Gbps</td>
-				<td>45万PPS</td>
-                <td>6</td>
-                <td rowspan="4">香港二区，广州三区，上海三区，北京二、四区，成都一区，重庆一区，硅谷一区</td>
-			</tr>
-            <tr>
-                <td>GN8.3XLARGE112</td>
-				<td>2颗</td> 
-                <td>48GB</td>
-				<td>14核</td>
-				<td>112GB</td>
-                <td>2.5Gbps</td>
-				<td>50万PPS</td>
-                <td>8</td>
-			</tr>
-			<tr>
-				<td>GN8.7XLARGE224</td>
-				<td>4颗</td> 
-        <td>96GB</td>
-				<td>28核</td>
-				<td>224GB</td>
-         <td>5Gbps</td>
-				<td>70万PPS</td>
-        <td>8</td>
-			</tr>
-            <tr>
-				<td>GN8.14XLARGE448</td>
-				<td>8颗</td> 
-        <td>192GB</td>
-				<td>56核</td>
-				<td>448GB</td>
-        <td>10Gbps</td>
-				<td>70万PPS</td>
-        <td>8</td>
-			</tr>
-		</tbody>
+  <thead>
+	<tr>
+	  <th width="10%">型号</th>
+	  <th width="10%">GPU
+	  <br />(NVIDIA
+	  <br />Tesla P40)</th>
+	  <th width="12%">GPU 显存
+	  <br />(GDDR5)</th>
+	  <th width="8%">vCPU</th>
+	  <th>内存
+	  <br />(DDR4)</th>
+	  <th width="10%">内网带宽</th>
+	  <th>网络收发包<br />(PPS)</th>
+	  <th>队列数</th>
+	</tr>
+  </thead>
+  <tbody>
+	<tr>
+	  <td>GN8.LARGE56</td>
+	  <td>1颗</td>
+	  <td>24GB</td>
+	  <td>6核</td>
+	  <td>56GB</td>
+	  <td>1.5Gbps</td>
+	  <td>45万</td>
+	  <td>6</td>
+	</tr>
+	<tr>
+	  <td>GN8.3XLARGE112</td>
+	  <td>2颗</td>
+	  <td>48GB</td>
+	  <td>14核</td>
+	  <td>112GB</td>
+	  <td>2.5Gbps</td>
+	  <td>50万</td>
+	  <td>8</td>
+	</tr>
+	<tr>
+	  <td>GN8.7XLARGE224</td>
+	  <td>4颗</td>
+	  <td>96GB</td>
+	  <td>28核</td>
+	  <td>224GB</td>
+	  <td>5Gbps</td>
+	  <td>70万</td>
+	  <td>8</td>
+	</tr>
+	<tr>
+	  <td>GN8.14XLARGE448</td>
+	  <td>8颗</td>
+	  <td>192GB</td>
+	  <td>56核</td>
+	  <td>448GB</td>
+	  <td>10Gbps</td>
+	  <td>70万</td>
+	  <td>8</td>
+	</tr>
+  </tbody>
 </table>
 
-## 推理型 GI3X[](id:GI3X) 
-
+:::
+::: 推理型 GI3X [](id:GI3X) 
 **NVIDIA 实例 GI3X** 适用于深度学习等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
 
-### 适用场景
+#### 适用场景
 GI3X 性价比高 ，适用于如下场景：
 - 深度学习的推理场景和小规模训练场景。例如：
-  - 大规模部署的 AI 推理
-  - 深度学习小规模训练
+   - 大规模部署的 AI 推理
+   - 深度学习小规模训练
 - 图形图像处理场景。例如：
-  - 图形图像处理
-  - 视频编解码
-  - 图形数据库
+   - 图形图像处理
+   - 视频编解码
+   - 图形数据库
 
-### 硬件规格
+
+#### 可用区域
+GI3X 实例支持可用区为：广州三区、上海四区、南京一，二区、北京五区
+
+
+#### 硬件规格
 - **CPU：**2.6GHz AMD EPYC™ ROME 处理器，睿频3.3GHz。
 - **GPU：**NVIDIA<sup>®</sup> Tesla<sup>®</sup> T4（8.1 TFLOPS 单精度浮点计算，130 INT8 TOPS，260 INT4 TOPS）。
 - **内存：**搭配最新八通道 DDR4，内存计算性能稳定。
@@ -733,69 +779,79 @@ GI3X 性价比高 ，适用于如下场景：
 **GI3X 实例提供以下配置：**
 
 <table>
-		<thead>
-		<tr>
-			<th width=10%>型号</th>
-			<th width=10%>GPU<br>（NVIDIA<br>Tesla T4）</th>
-            <th width=12%>GPU 显存<br>（GDDR6）</th>
-			<th width=8%>vCPU</th>
-			<th>内存<br>（DDR4）</th>
-            <th width=10%>内网带宽</th>
-            <th>网络收发包</th>
-            <th>队列数</th>
-			<th>可用区</th>
-		</tr>
-		</thead>
-		<tbody>
-            <tr>
-				<td>GI3X.8XLARGE64</td>
-				<td>1颗</td> 
-        <td>1 * 16GB</td>
-				<td>32核</td>
-				<td>64GB</td>
-        <td>5Gbps</td>
-				<td>140万PPS</td>
-        <td>8</td>
-                <td rowspan="3">广州三区，上海四区，南京一、二区，北京五区</td>
-			</tr>
-            <tr>
-				<td>GI3X.22XLARGE226</td>
-				<td>2颗</td> 
-        <td>2 * 16GB</td>
-				<td>90核</td>
-				<td>226GB</td>
-        <td>13Gbps</td>
-				<td>375万PPS</td>
-        <td>16</td>
-			</tr>
-            <tr>
-				<td>GI3X.45XLARGE452</td>
-				<td>4颗</td> 
-        <td>4 * 16GB</td>
-				<td>180核</td>
-				<td>452GB</td>
-        <td>25Gbps</td>
-				<td>750万PPS</td>
-         <td>32</td>
-			</tr>
-		</tbody>
+  <thead>
+	<tr>
+	  <th width="10%">型号</th>
+	  <th width="10%">GPU
+	  <br />(NVIDIA
+	  <br />Tesla T4)</th>
+	  <th width="12%">GPU 显存
+	  <br />(GDDR6)</th>
+	  <th width="8%">vCPU</th>
+	  <th>内存
+	  <br />(DDR4)</th>
+	  <th width="10%">内网带宽</th>
+	  <th>网络收发包<br />(PPS)</th>
+	  <th>队列数</th>
+	</tr>
+  </thead>
+  <tbody>
+	<tr>
+	  <td>GI3X.8XLARGE64</td>
+	  <td>1颗</td>
+	  <td>1 * 16GB</td>
+	  <td>32核</td>
+	  <td>64GB</td>
+	  <td>5Gbps</td>
+	  <td>140万</td>
+	  <td>8</td>
+	</tr>
+	<tr>
+	  <td>GI3X.22XLARGE226</td>
+	  <td>2颗</td>
+	  <td>2 * 16GB</td>
+	  <td>90核</td>
+	  <td>226GB</td>
+	  <td>13Gbps</td>
+	  <td>375万</td>
+	  <td>16</td>
+	</tr>
+	<tr>
+	  <td>GI3X.45XLARGE452</td>
+	  <td>4颗</td>
+	  <td>4 * 16GB</td>
+	  <td>180核</td>
+	  <td>452GB</td>
+	  <td>25Gbps</td>
+	  <td>750万</td>
+	  <td>32</td>
+	</tr>
+  </tbody>
 </table>
 
-
-## 计算型 GN7[](id:GN7) 
+:::
+::: 计算型 GN7 [](id:GN7) 
 **NVIDIA 实例 GN7** 不仅适用于深度学习等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
 
-### 适用场景
+#### 适用场景
 性价比高 ，适用于如下场景：
 - 深度学习的推理场景和小规模训练场景。例如：
-	- 大规模部署的 AI 推理
-	- 深度学习小规模训练
+	 - 大规模部署的 AI 推理
+	 - 深度学习小规模训练
 - 图形图像处理场景。例如：
-	- 图形图像处理
-	- 视频编解码
-	- 图形数据库
+	 - 图形图像处理
+	 - 视频编解码
+	 - 图形数据库
 
-### 硬件规格
+
+#### 可用区域
+GN7 实例支持可用区为：
+- **GN7.LARGE20 及 GN7.2XLARGE40**：广州三，四区、上海二，四区、南京一，二区、北京三，五区、成都一区，重庆一区，硅谷二区
+- **GN7 其他实例**：广州三，四区、上海二，四区、南京一，二区、北京三，五区、成都一区、重庆一区、新加坡一区、硅谷二区、香港二区、孟买二区、弗吉尼亚二区、法兰克福一区
+
+
+
+#### 硬件规格
 
 - **CPU：**Intel<sup>®</sup> Xeon<sup>®</sup> Platinum 8255C CPU，主频 2.5 GHz。
 - **GPU：**NVIDIA<sup>®</sup> Tesla<sup>®</sup> T4（8.1 TFLOPS 单精度浮点计算，130 INT8 TOPS，260 INT4 TOPS）。
@@ -803,98 +859,99 @@ GI3X 性价比高 ，适用于如下场景：
 - **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
 - **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
 
+
 **GN7 实例提供以下配置：**
 
 <table>
-		<thead>
-		<tr>
-			<th width=10%>型号</th>
-			<th width=10%>GPU<br>（NVIDIA<br>Tesla T4）</th>
-            <th width=12%>GPU 显存<br>（GDDR6）</th>
-			<th width=8%>vCPU</th>
-			<th>内存<br>（DDR4）</th>
-            <th width=10%>内网带宽</th>
-            <th>网络收发包</th>
-            <th>队列数</th>
-			<th>可用区</th>
-		</tr>
-		</thead>
-		<tbody>
-            <tr>
-				<td>GN7.LARGE20</td>
-				<td>1/4颗</td> 
-        <td>4GB vGPU</td>
-				<td>4核</td>
-				<td>20GB</td>
-        <td>1.5Gbps</td>
-				<td>50万PPS</td>
-         <td>4</td>
-         <td rowspan="2">广州三、四区，上海二、四区，南京一、二区，北京三，五区，成都一区，重庆一区，硅谷二区</td>
-			</tr>
-            <tr>
-				<td>GN7.2XLARGE40</td>
-				<td>1/2颗</td> 
-        <td>8GB vGPU</td>
-				<td>10核</td>
-				<td>40GB</td>
-        <td>3Gbps</td>
-				<td>70万PPS</td>
-        <td>10</td>
-			</tr>
-            <tr>
-				<td>GN7.2XLARGE32</td>
-				<td>1颗</td> 
-                <td>1 * 16GB</td>
-				<td>8核</td>
-				<td>32GB</td>
-                <td>3Gbps</td>
-				<td>60万PPS</td>
-                <td>8</td>
-                <td rowspan="5">广州三、四区，上海二、四区，南京一、二区，北京三、五区，成都一区，重庆一区，新加坡一区，硅谷二区，香港二区，孟买二区，弗吉尼亚二区，法兰克福一区</td>
-			</tr>
-			<tr>
-				<td>GN7.5XLARGE80</td>
-				<td>1颗</td> 
-                <td>1 * 16GB</td>
-				<td>20核</td>
-				<td>80GB</td>
-                <td>7Gbps</td>
-				<td>140万PPS</td>
-                <td>16</td>
-			</tr>
-            <tr>
-				<td>GN7.8XLARGE128</td>
-				<td>1 颗</td> 
-        <td>1 * 16GB</td>
-				<td>32核</td>
-				<td>128GB</td>
-        <td>10Gbps</td>
-				<td>240万PPS</td>
-        <td>16</td>
-			</tr>
-            <tr>
-				<td>GN7.10XLARGE160</td>
-				<td>2颗</td> 
-        <td>2 * 16GB</td>
-				<td>40核</td>
-				<td>160GB</td>
-        <td>13Gbps</td>
-				<td>280万PPS</td>
-        <td>16</td>
-			</tr>
-            <tr>
-				<td>GN7.20XLARGE320</td>
-				<td>4颗</td> 
-        <td>4 * 16GB</td>
-				<td>80核</td>
-				<td>320GB</td>
-        <td>25Gbps</td>
-				<td>560万PPS</td>
-         <td>16</td>
-			</tr>
-		</tbody>
+  <thead>
+	<tr>
+	  <th width="10%">型号</th>
+	  <th width="10%">GPU
+	  <br />(NVIDIA
+	  <br />Tesla T4)</th>
+	  <th width="12%">GPU 显存
+	  <br />(GDDR6)</th>
+	  <th width="8%">vCPU</th>
+	  <th>内存
+	  <br />(DDR4)</th>
+	  <th width="10%">内网带宽</th>
+	  <th>网络收发包<br />(PPS)</th>
+	  <th>队列数</th>
+	</tr>
+  </thead>
+  <tbody>
+	<tr>
+	  <td>GN7.LARGE20</td>
+	  <td>1/4颗</td>
+	  <td>4GB vGPU</td>
+	  <td>4核</td>
+	  <td>20GB</td>
+	  <td>1.5Gbps</td>
+	  <td>50万</td>
+	  <td>4</td>
+	</tr>
+	<tr>
+	  <td>GN7.2XLARGE40</td>
+	  <td>1/2颗</td>
+	  <td>8GB vGPU</td>
+	  <td>10核</td>
+	  <td>40GB</td>
+	  <td>3Gbps</td>
+	  <td>70万</td>
+	  <td>10</td>
+	</tr>
+	<tr>
+	  <td>GN7.2XLARGE32</td>
+	  <td>1颗</td>
+	  <td>1 * 16GB</td>
+	  <td>8核</td>
+	  <td>32GB</td>
+	  <td>3Gbps</td>
+	  <td>60万</td>
+	  <td>8</td>
+	</tr>
+	<tr>
+	  <td>GN7.5XLARGE80</td>
+	  <td>1颗</td>
+	  <td>1 * 16GB</td>
+	  <td>20核</td>
+	  <td>80GB</td>
+	  <td>7Gbps</td>
+	  <td>140万</td>
+	  <td>16</td>
+	</tr>
+	<tr>
+	  <td>GN7.8XLARGE128</td>
+	  <td>1 颗</td>
+	  <td>1 * 16GB</td>
+	  <td>32核</td>
+	  <td>128GB</td>
+	  <td>10Gbps</td>
+	  <td>240万</td>
+	  <td>16</td>
+	</tr>
+	<tr>
+	  <td>GN7.10XLARGE160</td>
+	  <td>2颗</td>
+	  <td>2 * 16GB</td>
+	  <td>40核</td>
+	  <td>160GB</td>
+	  <td>13Gbps</td>
+	  <td>280万</td>
+	  <td>16</td>
+	</tr>
+	<tr>
+	  <td>GN7.20XLARGE320</td>
+	  <td>4颗</td>
+	  <td>4 * 16GB</td>
+	  <td>80核</td>
+	  <td>320GB</td>
+	  <td>25Gbps</td>
+	  <td>560万</td>
+	  <td>16</td>
+	</tr>
+  </tbody>
 </table>
-
 
 <dx-alert infotype="explain" title="">
 **vGPU**：
@@ -904,24 +961,29 @@ GI3X 性价比高 ，适用于如下场景：
 
 
 
-
-## 计算型 GN6/GN6S[](id:GN6GN6S) 
-
+:::
+::: 计算型 GN6/GN6S [](id:GN6GN6S) 
 **NVIDIA 实例 GN6/GN6S** 不仅适用于深度学习等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
 
-### 适用场景
+#### 适用场景
 
 性价比高 ，适用于如下场景：
 - 深度学习的推理场景和小规模训练场景。例如：
-	- 大规模部署的 AI 推理
-	- 深度学习小规模训练
+	 - 大规模部署的 AI 推理
+	 - 深度学习小规模训练
 - 图形图像处理场景。例如：
-	- 图形图像处理
-	- 视频编解码
-	- 图形数据库
+	 - 图形图像处理
+	 - 视频编解码
+	 - 图形数据库
 
 
-### 硬件规格
+#### 可用区域
+GN6/GN6S 实例支持如下可用区：
+- **GN6**：成都一区
+- **GN6S**：广州三区、上海二，三，四区、北京四，五区
+
+
+#### 硬件规格
 
 - **CPU：**GN6 配置 Intel<sup>®</sup> Xeon<sup>®</sup> E5-2680 v4 CPU，主频2.4GHz。GN6S 配置 Intel<sup>®</sup> Xeon<sup>®</sup> Silver 4110 CPU，主频2.1GHz。
 - **GPU：**NVIDIA<sup>®</sup> Tesla<sup>®</sup> P4（5.5TFLOPS 单精度浮点计算，22INT8 TOPS）。
@@ -929,70 +991,85 @@ GI3X 性价比高 ，适用于如下场景：
 - **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
 - **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
 
+
 **GN6/GN6S 实例提供以下配置：**
 
+
 <table>
-		<thead>
-		<tr>
-			<th width=10%>型号</th>
-			<th width=14%>GPU<br>（NVIDIA<br>Tesla P4）</th>
-            <th width=10%>GPU 显存<br>（GDDR5）</th>
-			<th width=8%>vCPU</th>
-			<th>内存<br>（DDR4）</th>
-            <th width=10%>内网带宽</th>
-            <th>网络收发包</th>
-            <th>队列数</th>
-			<th>可用区</th>
-		</tr>
-		</thead>
-		<tbody>
-            <tr>
-				<td>GN6.7XLARGE48</td>
-				<td>1颗</td> 
-         <td>8GB</td>
-				<td>28核</td>
-				<td>48GB</td>
-        <td>5Gbps</td>
-				<td>120万PPS</td>
-        <td>16</td>
-        <td rowspan="2">成都一区</td>
-			</tr>
-            <tr>
-         <td>GN6.14XLARGE96</td>
-				<td>2颗</td> 
-        <td>16GB</td>
-				<td>56核</td>
-				<td>96GB</td>
-        <td>10Gbps</td>
-				<td>120万PPS</td>
-        <td>16</td>
-			</tr>
-			<tr>
-				<td>GN6S.LARGE20</td>
-				<td>1颗</td> 
-        <td>8GB</td>
-				<td>4核</td>
-				<td>20GB</td>
-         <td>7Gbps</td>
-				<td>50万PPS</td>
-        <td>2</td>
-        <td rowspan="2">广州三区，上海二、三、四区，北京四、五区</td>
-			</tr>
-            <tr>
-				<td>GN6S.2XLARGE40</td>
-				<td>2颗</td> 
-        <td>16GB</td>
-				<td>8核</td>
-				<td>40GB</td>
-        <td>13Gbps</td>
-				<td>80万PPS</td>
-        <td>2</td>
-			</tr>
-		</tbody>
+  <thead>
+	<tr>
+	  <th width="10%">型号</th>
+	  <th width="14%">GPU
+	  <br />(NVIDIA
+	  <br />Tesla P4)</th>
+	  <th width="10%">GPU 显存
+	  <br />(GDDR5)</th>
+	  <th width="8%">vCPU</th>
+	  <th>内存
+	  <br />(DDR4)</th>
+	  <th width="10%">内网带宽</th>
+	  <th>网络收发包<br />(PPS)</th>
+	  <th>队列数</th>
+	</tr>
+  </thead>
+  <tbody>
+	<tr>
+	  <td>GN6.7XLARGE48</td>
+	  <td>1颗</td>
+	  <td>8GB</td>
+	  <td>28核</td>
+	  <td>48GB</td>
+	  <td>5Gbps</td>
+	  <td>120万</td>
+	  <td>16</td>
+	</tr>
+	<tr>
+	  <td>GN6.14XLARGE96</td>
+	  <td>2颗</td>
+	  <td>16GB</td>
+	  <td>56核</td>
+	  <td>96GB</td>
+	  <td>10Gbps</td>
+	  <td>120万</td>
+	  <td>16</td>
+	</tr>
+	<tr>
+	  <td>GN6S.LARGE20</td>
+	  <td>1颗</td>
+	  <td>8GB</td>
+	  <td>4核</td>
+	  <td>20GB</td>
+	  <td>7Gbps</td>
+	  <td>50万</td>
+	  <td>2</td>
+	</tr>
+	<tr>
+	  <td>GN6S.2XLARGE40</td>
+	  <td>2颗</td>
+	  <td>16GB</td>
+	  <td>8核</td>
+	  <td>40GB</td>
+	  <td>13Gbps</td>
+	  <td>80万</td>
+	  <td>2</td>
+	</tr>
+  </tbody>
 </table>
 
-## 渲染型 GNV4v[](id:GNV4v)
+:::
+::: undefined
+请在此输入 undefined 的正文
+:::
+</dx-accordion>
 
+
+
+
+
+### 渲染型
+
+<dx-accordion>
+::: 渲染型 GNV4v [](id:GNV4v)
 **NVIDIA 实例 GNV4v** 配置了 vDWS License 服务器并安装 GRID driver 的渲染型实例，适用于图形图像处理（3D 渲染，视频编解码）场景。使用该实例，您可免除手动配置 GPU 图形图像处理基础环境。
 
 <dx-alert infotype="notice" title="">
@@ -1000,39 +1077,44 @@ GI3X 性价比高 ，适用于如下场景：
 </dx-alert>
 
 
-### 适用场景
-
+#### 适用场景
 适用于图形图像处理。例如：
 
 - 图形图像处理
 - 视频编解码
 - 图形数据库
 
-### 硬件规格
+
+#### 可用区域
+GNV4v 实例支持可用区为：广州七区、上海五区、北京六区
+
+
+#### 硬件规格
 
 - **CPU：**2.55GHz AMD EPYCTM Milan 处理器，睿频3.5GHz。
 - **GPU：**NVIDIA<sup>®</sup>  A10（62.5 TFLOPS 单精度浮点计算，250 INT8 TOPS，500 INT4 TOPS）。
 - **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
 - **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
 
+
 **GNV4v 实例提供以下配置：**
+
 
 <table>
   <thead>
 	<tr>
 	  <th width="10%">型号</th>
 	  <th width="10%">GPU
-	  <br />（NVIDIA
-	  <br />A10）</th>
+	  <br />(NVIDIA
+	  <br />A10)</th>
 	  <th width="12%">GPU 显存
-	  <br />（HBM2）</th>
+	  <br />(HBM2)</th>
 	  <th width="8%">vCPU</th>
 	  <th>内存
-	  <br />（DDR4）</th>
+	  <br />(DDR4)</th>
 	  <th width="10%">内网带宽</th>
-	  <th>网络收发包</th>
+	  <th>网络收发包<br />(PPS)</th>
 	  <th>队列数</th>
-	  <th>可用区</th>
 	</tr>
   </thead>
   <tbody>
@@ -1043,9 +1125,8 @@ GI3X 性价比高 ，适用于如下场景：
 	  <td>6核</td>
 	  <td>24GB</td>
 	  <td>3Gbps</td>
-	  <td>50万PPS</td>
+	  <td>50万</td>
 	  <td>6</td>
-	  <td rowspan="3">广州七区，上海五区，北京六区</td>
 	</tr>
 	<tr>
 	  <td>GNV4v.3XLARGE58</td>
@@ -1054,32 +1135,30 @@ GI3X 性价比高 ，适用于如下场景：
 	  <td>14核</td>
 	  <td>58GB</td>
 	  <td>7Gbps</td>
-	  <td>110万PPS</td>
+	  <td>110万</td>
 	  <td>14</td>
 	</tr>
-	 <tr>
-			<td>GNV4v.7XLARGE116</td>
-			<td>1颗</td> 
-      <td>1 * 24GB</td>
-			<td>28核</td>
-			<td>116GB</td>
-      <td>13Gbps</td>
-			<td>230万PPS</td>
-      <td>28</td>
-		</tr>
+	<tr>
+	  <td>GNV4v.7XLARGE116</td>
+	  <td>1颗</td>
+	  <td>1 * 24GB</td>
+	  <td>28核</td>
+	  <td>116GB</td>
+	  <td>13Gbps</td>
+	  <td>230万</td>
+	  <td>28</td>
+	</tr>
   </tbody>
 </table>
+
 
 
 <dx-alert infotype="explain" title="">
 **vGPU**：GN7、GN7vw、GNV4实例簇提供支持 vGPU 的实例类型。其中 GN7vw/GNV4 vGPU 的类型为 vDWS/vWs，仅支持 DirectX 和 OpenGL 等图形 API。
 </dx-alert>
 
-
-
-
-## 渲染型 GNV4[](id:GNV4)
-
+:::
+::: 渲染型 GNV4 [](id:GNV4)
 **NVIDIA 实例 GNV4** 配置了 vDWS License 服务器并安装 GRID driver 的渲染型实例，适用于图形图像处理（3D 渲染，视频编解码）场景。使用该实例，您可免除手动配置 GPU 图形图像处理基础环境。
 
 <dx-alert infotype="explain" title="">
@@ -1087,10 +1166,7 @@ GI3X 性价比高 ，适用于如下场景：
 </dx-alert>
 
 
-
-
-
-### 适用场景
+#### 适用场景
 
 适用于图形图像处理。例如：
 
@@ -1098,43 +1174,52 @@ GI3X 性价比高 ，适用于如下场景：
 - 视频编解码
 - 图形数据库
 
-### 硬件规格
+
+#### 可用区域
+GNV4 实例支持可用区为：北京六区、上海五区、广州六区、重庆一区
+
+
+#### 硬件规格
 
 - **CPU：** Intel<sup>®</sup> Xeon<sup>®</sup> Cooper Lake 处理器，基频 3.4 GHz，睿频3.8 GHz。
 - **GPU：** NVIDIA<sup>®</sup>  A10（31.2 TFLOPS 单精度浮点计算，250 INT8 TOPS，500 INT4 TOPS）。
 - **存储：** 可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
 - **网络：** 默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
 
+
 **GNV4实例提供以下配置：**
 
 <table>
-		<thead>
-		<tr>
-			<th width=10%>型号</th>
-			<th width=10%>GPU<br>（NVIDIA<br> A10）</th>
-            <th width=12%>GPU 显存<br>（GDDR6）</th>
-			<th width=8%>vCPU</th>
-			<th>内存<br>（DDR4）</th>
-            <th width=10%>内网带宽</th>
-            <th>网络收发包</th>
-            <th>队列数</th>
-			<th>可用区</th>
-		</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>GNV4.3XLARGE44</td>
-				<td>1颗</td> 
-        <td>24GB</td>
-				<td>12核</td>
-				<td>44GB</td>
-        <td>2Gbps</td>
-				<td>53万PPS</td>
-        <td>4</td>
-        <td rowspan="4">北京六区、上海五区、广州六区、重庆一区</td>
-			</tr>
-		</tbody>
+  <thead>
+	<tr>
+	  <th width="10%">型号</th>
+	  <th width="10%">GPU
+	  <br />(NVIDIA
+	  <br />A10)</th>
+	  <th width="12%">GPU 显存
+	  <br />(GDDR6)</th>
+	  <th width="8%">vCPU</th>
+	  <th>内存
+	  <br />(DDR4)</th>
+	  <th width="10%">内网带宽</th>
+	  <th>网络收发包<br />(PPS)</th>
+	  <th>队列数</th>
+	</tr>
+  </thead>
+  <tbody>
+	<tr>
+	  <td>GNV4.3XLARGE44</td>
+	  <td>1颗</td>
+	  <td>24GB</td>
+	  <td>12核</td>
+	  <td>44GB</td>
+	  <td>2Gbps</td>
+	  <td>53万PPS</td>
+	  <td>4</td>
+	</tr>
+  </tbody>
 </table>
+
 
 
 
@@ -1143,11 +1228,8 @@ GI3X 性价比高 ，适用于如下场景：
 </dx-alert>
 
 
-
-
-
-## 渲染型 GN7vw[](id:GN7vw)
-
+:::
+::: 渲染型 GN7vw [](id:GN7vw)
 **NVIDIA 实例 GN7vw** 是在 GN7 基础上配置 vDWS License 服务器并安装 GRID driver 的渲染型实例，适用于图形图像处理（3D 渲染，视频编解码）场景。使用该实例，您可免除手动配置 GPU 图形图像处理基础环境。
 
 
@@ -1156,11 +1238,16 @@ GPU 渲染型 GN7vw 现处于限量购买阶段，如需使用，请前往 [申�
 </dx-alert>
 
 
-### 适用场景
+#### 适用场景
 适用于图形图像处理。例如：
 - 图形图像处理
 - 视频编解码
 - 图形数据库
+
+
+#### 可用区域
+GN7vw 实例支持可用区为：广州三，四区、上海二，四，五区、南京一，二区、北京五区、成都一区、重庆一区、香港二区、新加坡一区、孟买二区、硅谷二区、弗吉尼亚二区、法兰克福一区
+
 
 ### 硬件规格
 
@@ -1170,61 +1257,68 @@ GPU 渲染型 GN7vw 现处于限量购买阶段，如需使用，请前往 [申�
 - **存储：** 可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
 - **网络：** 默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
 
+
 **GN7vw实例提供以下配置：**
+
 <table>
-		<thead>
-		<tr>
-			<th width=10%>型号</th>
-			<th width=10%>GPU<br>（NVIDIA<br>Tesla T4）</th>
-            <th width=12%>GPU 显存<br>（GDDR6）</th>
-			<th width=8%>vCPU</th>
-			<th>内存<br>（DDR4）</th>
-            <th width=10%>内网带宽</th>
-            <th>网络收发包</th>
-            <th>队列数</th>
-			<th>可用区</th>
-		</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>GN7vw.LARGE16</td>
-				<td>1/4颗</td> 
-        <td>4GB vGPU</td>
-				<td>4核</td>
-				<td>16GB</td>
-        <td>2Gbps</td>
-				<td>50万PPS</td>
-        <td>4</td>
-        <td rowspan="4">广州三、四区，上海二、四、五区，南京一、二区，北京五区，成都一区，重庆一区，香港二区，新加坡一区，孟买二区，硅谷二区，弗吉尼亚二区，法兰克福一区</td>
-			</tr>
-            <tr>
-				<td>GN7vw.2XLARGE32</td>
-				<td>1/2颗</td> 
-        <td>8GB vGPU</td>
-				<td>8核</td>
-				<td>32GB</td>
-        <td>4Gbps</td>
-				<td>80万PPS</td>
-        <td>8</td>
-			</tr>
-            <tr>
-				<td>GN7vw.4XLARGE64</td>
-				<td>1颗</td> 
-        <td>1 * 16GB</td>
-				<td>16核</td>
-				<td>64GB</td>
-        <td>7Gbps</td>
-				<td>150万PPS</td>
-        <td>16</td>
-			</tr>
-		</tbody>
+  <thead>
+	<tr>
+	  <th width="10%">型号</th>
+	  <th width="10%">GPU
+	  <br />(NVIDIA
+	  <br />Tesla T4)</th>
+	  <th width="12%">GPU 显存
+	  <br />(GDDR6)</th>
+	  <th width="8%">vCPU</th>
+	  <th>内存
+	  <br />(DDR4)</th>
+	  <th width="10%">内网带宽</th>
+	  <th>网络收发包<br />(PPS)</th>
+	  <th>队列数</th>
+	</tr>
+  </thead>
+  <tbody>
+	<tr>
+	  <td>GN7vw.LARGE16</td>
+	  <td>1/4颗</td>
+	  <td>4GB vGPU</td>
+	  <td>4核</td>
+	  <td>16GB</td>
+	  <td>2Gbps</td>
+	  <td>50万</td>
+	  <td>4</td>
+	</tr>
+	<tr>
+	  <td>GN7vw.2XLARGE32</td>
+	  <td>1/2颗</td>
+	  <td>8GB vGPU</td>
+	  <td>8核</td>
+	  <td>32GB</td>
+	  <td>4Gbps</td>
+	  <td>80万</td>
+	  <td>8</td>
+	</tr>
+	<tr>
+	  <td>GN7vw.4XLARGE64</td>
+	  <td>1颗</td>
+	  <td>1 * 16GB</td>
+	  <td>16核</td>
+	  <td>64GB</td>
+	  <td>7Gbps</td>
+	  <td>150万</td>
+	  <td>16</td>
+	</tr>
+  </tbody>
 </table>
+
 
 
 <dx-alert infotype="explain" title="">
 **vGPU**：GN7、GN7vw 实例簇提供支持 vGPU 的实例类型。其中 GN7vw vGPU 的类型为 vDWS，仅支持 DirectX 和 OpenGL 等图形 API。
 </dx-alert>
 
+:::
+</dx-accordion>
 
 
 
