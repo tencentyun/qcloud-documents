@@ -1,16 +1,14 @@
 本文为您介绍使用数据传输服务 DTS 从 TDSQL MySQL 数据库同步数据至 TDSQL MySQL 数据库的过程。
 
 如下场景的同步要求与 TDSQL MySQL 到 TDSQL MySQL 的同步要求一致，可参考本场景相关内容。
-
 - TDSQL MySQL 到腾讯云数据库 MariaDB 的数据同步
-- TDSQL MySQL 到腾讯云数据库 MariaDB（Percona） 的数据同步
+- TDSQL MySQL 到腾讯云数据库 MariaDB（Percona）的数据同步
 - TDSQL MySQL 到腾讯云数据库 MySQL 的数据同步 
 - MariaDB 到 TDSQL MySQL（MariaDB）的数据同步
 - Percona 到 TDSQL MySQL（Percona）的数据同步
 - MySQL 到 TDSQL MySQL 的数据同步
->?
+>?如需体验本章节中 TDSQL MySQL 的同步功能，请先 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
 >
->用户体验本章节中 TDSQL MySQL 的同步功能时，请先 [提交工单]() 处理。
 
 ## 注意事项
 - DTS 在执行全量数据同步时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
@@ -32,13 +30,12 @@ FLUSH PRIVILEGES;
 - 只支持同步 InnoDB数据库引擎，如果存在其他数据引擎表则默认跳过不进行同步。
 - 相互关联的数据对象需要同时同步，否则会导致同步失败。
 - 增量同步过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致同步失败。
-- 不支持同步[二级分区](https://cloud.tencent.com/document/product/557/58907)表，如果同步的库表中包含二级分区表，则会跳过二级分区表的同步；如果选择整库或全实例迁移，增量过程中遇到二级分区表任务会报错暂停。
+- 不支持同步 [二级分区](https://cloud.tencent.com/document/product/557/58907) 表，如果同步的库表中包含二级分区表，则会跳过二级分区表的同步；如果选择整库或全实例迁移，增量过程中遇到二级分区表任务会报错暂停。
 - TDSQL 同步功能为了提高增量阶段的同步速度，采用了行级并发策略。因此在增量同步过程中，可能会在极短的时间内在目标库观察到事务的中间值，但最终源库和目标库数据会保持一致。 
 - 目前主键冲突处理策略只支持冲突覆盖，对于增量阶段的主键数据冲突，会直接进行冲突覆盖。但对于全量数据初始化阶段的冲突，任务会报错。
 
 ## 操作限制
 同步过程中请勿进行如下操作，否则会导致同步任务失败。
-
 - 请勿修改、删除源数据库和目标数据库中用户信息（包括用户名、密码和权限）和端口号。
 - 请勿在源库上执行分布式事务。
 - 请勿在源库写入 Binlog 格式为 `STATEMENT` 的数据。
@@ -46,14 +43,12 @@ FLUSH PRIVILEGES;
 - 在同步增量阶段，请勿删除系统库表 `__tencentdb__`。 
 
 ## 支持同步的 SQL 操作
-
 | 操作类型 | SQL 操作语句                                                 |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE                                       |
 | DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE VIEW、DROP VIEW、CREATE INDEX、DROP INDEX |
 
 ## 环境要求
-
 <table>
 <tr><th width="20%">类型</th><th width="80%">环境要求</th></tr>
 <tr>
@@ -112,7 +107,6 @@ FLUSH PRIVILEGES;
 <tr>
 <td>同步任务规格</td><td>目前只支持标准版。//待确认</td></tr>
 </tbody></table>
-
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/593ce1e644f0717809760c4ba84bb840.png)
@@ -140,8 +134,8 @@ FLUSH PRIVILEGES;
 <td>实例 ID</td>
 <td>源实例 ID。</td></tr>
 <tr>
-<td>账号</td>
-<td>源实例账号。</td></tr>
+<td>帐号</td>
+<td>源实例帐号。</td></tr>
 <tr>
 <td>密码</td>
 <td>源实例密码。</td></tr>
@@ -152,31 +146,28 @@ FLUSH PRIVILEGES;
 <td>目标实例地域</td><td>选择的目标实例所在地域，不可修改。</td></tr>
 <tr>
 <td>接入类型</td><td>选择目标数据库类型。</td></tr>
-    <tr>
+<tr>
 <td>实例 ID</td><td>目标实例 ID。</td></tr>
-    <tr>
-<td>账号</td><td>目标实例账号。</td></tr>
-    <tr>
+<tr>
+<td>帐号</td><td>目标实例帐号。</td></tr>
+<tr>
 <td>密码</td><td>目标实例密码。</td></tr>
 </tbody></table>
-
 5. 在设置同步选项和同步对象页面，将对数据初始化选项、数据同步选项、同步对象选项进行设置，在设置完成后单击**保存并下一步**。
 >?
 >- 如果用户在同步过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**同步对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法同步 Online DDL 变更产生的临时表数据到目标数据库。
 >- 如果用户在同步过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**同步对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
-
+>
 ![](https://qcloudimg.tencent-cloud.cn/raw/367d16f2af9fd6b08e9b81632a2951b8.png)
 <strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
-
 <img src="https://qcloudimg.tencent-cloud.cn/raw/7d8260ec27667ef8fadcf32ae9e41e3e.png" style="zoom:70%;" />
-
 <table>
 <thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
 <tbody>
 <tr>
 <td rowspan=2>数据初始化选项</td>
 <td>初始化类型</td>
-    <td><ul><li>结构初始化：同步任务执行时会先将源实例中表结构初始化到目标实例中。</li><li>全量数据初始化：同步任务执行时会先将源实例中数据初始化到目标实例中。</li></ul>默认两者都勾上，可根据实际情况取消。仅选择“全量数据初始化”时，用户需要提前在目标库创建好表结构。
+<td><ul><li>结构初始化：同步任务执行时会先将源实例中表结构初始化到目标实例中。</li><li>全量数据初始化：同步任务执行时会先将源实例中数据初始化到目标实例中。</li></ul>默认两者都勾上，可根据实际情况取消。仅选择“全量数据初始化”时，用户需要提前在目标库创建好表结构。
 </ul></td></tr>
 <tr>
 <td>已存在同名表</td>
@@ -193,7 +184,6 @@ FLUSH PRIVILEGES;
 <tr>
 <td>已选对象</td><td>展示已选择的同步对象，支持库表映射。</td></tr>
 </tbody></table>
-
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
     如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
@@ -201,7 +191,7 @@ FLUSH PRIVILEGES;
 ![](https://qcloudimg.tencent-cloud.cn/raw/99e53691dc68b1a987424a3a91ada555.png)
 7. 返回数据同步任务列表，任务开始进入**运行中**状态。
 >?选择**操作**列的**更多** > **结束**可关闭同步任务，请您确保数据同步完成后再关闭任务。
-
+>
 ![](https://qcloudimg.tencent-cloud.cn/raw/a14d84281ab739bfba84a61b2e09fa79.png)
-8. （可选）您可以单击任务ID，进入任务详情页，查看任务初始化状态和监控数据。
+8. （可选）您可以单击任务 ID，进入任务详情页，查看任务初始化状态和监控数据。
 
