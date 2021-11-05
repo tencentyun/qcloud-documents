@@ -89,7 +89,7 @@ ONBOOT=yes
 PERSISTENT_DHCLIENT=yes
 TYPE=Ethernet
 USERCTL=no
-DEFROUTE=no    # 默认路由，即是否将该网卡设置为默认路由，此处不设置 eth1 为默认路由
+DEFROUTE=no    # 默认路由，即是否将该网卡设置为默认路由，此处为防止路由冲突不设置 eth1 为默认路由
 ```
  修改后如下所示：
  ![](https://qcloudimg.tencent-cloud.cn/raw/8769e7e91b312407f0ecbf46e5b7dc85.png)
