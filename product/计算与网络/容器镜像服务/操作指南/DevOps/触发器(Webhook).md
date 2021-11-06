@@ -8,7 +8,7 @@
 ## 前提条件
 
 在创建并管理 TCR 企业版实例的触发器前，您需要完成以下准备工作：
-- 已成功 [购买 TCR 企业版实例](https://cloud.tencent.com/document/product/1141/40716)。
+- 已成功 [购买 TCR 企业版实例](https://cloud.tencent.com/document/product/1141/40716)。本功能仅适用于企业版实例。
 - 如果使用子账号进行操作，请参考 [企业版授权方案示例](https://cloud.tencent.com/document/product/1141/41417) 提前为子账号授予对应实例的操作权限。
 
 ## 操作步骤
