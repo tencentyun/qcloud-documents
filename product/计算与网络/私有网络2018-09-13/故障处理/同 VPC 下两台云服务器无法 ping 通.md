@@ -20,15 +20,15 @@
 	**正常示例**：
 	![](https://qcloudimg.tencent-cloud.cn/raw/d591b7590bdeb9c88cd290dd1b3f5bdc.png)
 	
-### 检查子网关联的网络ACL规则
+### 检查子网关联的网络 ACL 规则
 1. 单击进入云服务器实例“基本信息”页签，在网络信息中，单击子网 ID 进入子网页面。
-2. 单击“**ACL规则**”页签，查看子网是否绑定了网络 ACL，且 ACL 出入站中，有拒绝 ICMP 协议，及来源/目标 IP 的规则。
-  + 如有，且规则为“拒绝”，请单击 ACL ID，进入 ACL 界面，将对应协议，及来源/目标 IP 的规则修改为“允许”，然后尝试 ping 测试问题是否解决，解决则结束，未解决则继续排查。
-  +  如无，或 ACL 规则已允许相应协议及 IP，请继续排查。
+2. 单击“**ACL规则**”页签，查看子网是否绑定了网络 ACL，且 ACL 出入站规则中，是否有拒绝 ICMP 协议，及来源/目标 IP 的规则。
+  + 如绑定了 ACL，且 ACL 中 ICMP 规则为“拒绝”，或 ACL 中无 ICMP 规则，请单击 ACL ID，进入 ACL 界面，将对应协议，及来源/目标 IP 的规则修改为“允许”，然后尝试 ping 测试问题是否解决，解决则结束，未解决则继续排查。
+  +  如未绑定 ACL，或 ACL 规则已允许相应协议及 IP，请继续排查。
    ![](https://qcloudimg.tencent-cloud.cn/raw/dff28d3b2825b35655084d21c7f03bd7.png)
 	 
 ### 检查云服务器内是否存在容器路由
-1. 登录云服务器，执行 route 查看系统内部路由表。
+1. 进入[云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=16)，单击云服务器右侧的登录，按照界面提示输入密码或密钥，以 [标准方式登录云服务器](https://cloud.tencent.com/document/product/213/5436)，并执行 route 查看系统内部路由表。
     ![](https://qcloudimg.tencent-cloud.cn/raw/3b11c3b313ad0076f3c0d3c80d139701.png)
 2. 查看系统内是否存在 docker 容器网段路由，且与被访问的云服务器所在子网网段相同。
   + 如存在容器网段路由，且容器网段与子网网段相同，容器网段路由与 VPC 系统内路由冲突，也可能导致此问题，可删除对应子网，规避此问题。
