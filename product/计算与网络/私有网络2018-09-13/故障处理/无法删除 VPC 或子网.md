@@ -15,9 +15,9 @@
 ## 处理步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/ccn)。
 2. 首先单击待删除 VPC 右侧的“删除”，查看弹框中提示 VPC 包含的云资源，再单击 VPC ID 进入详情页。
-    ![](https://qcloudimg.tencent-cloud.cn/raw/69b837cee7c6196ad772f733cbefdead.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/69b837cee7c6196ad772f733cbefdead.png" width="70%">
 3. 在详情页单击对应的云资源，系统将跳转到对应的资源界面。
-![](https://qcloudimg.tencent-cloud.cn/raw/13abd0d618b4452956935078b85904ef.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/13abd0d618b4452956935078b85904ef.png" width="70%">
 4. 在对应的云资源界面，释放云资源或服务。
 >?
 >+ 此处负载均衡仅为内网负载均衡。
