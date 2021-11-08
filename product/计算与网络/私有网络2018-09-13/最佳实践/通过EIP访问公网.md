@@ -24,6 +24,5 @@
 
 ### 步骤三：验证通过EIP访问公网
 1. 进入[云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1)，单击云服务器右侧的“登录”，输入密码等信息，进入云服务器界面。
- <img src="https://qcloudimg.tencent-cloud.cn/raw/503687df4970559e0e72cfe50f3783fb.png" width="70%">		
 2. 执行如 `ping www.qq.com` 测试数据连通性，可看到有数据返回，表示该 CVM 可以访问公网。
   ![](https://main.qcloudimg.com/raw/40c8b66f305baac0a63858394ed88766.png)
