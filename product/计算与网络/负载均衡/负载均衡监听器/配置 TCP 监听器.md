@@ -46,7 +46,7 @@
 </tbody>
 </table>	
  <b>b. 健康检查</b></br>
-健康检查详情请参见<a href="https://cloud.tencent.com/document/product/214/50011#tcp"> TCP 健康检查</a></br>
+健康检查详情请参见<a href="https://cloud.tencent.com/document/product/214/50011#tcp"> TCP 健康检查</a>。</br>
 <b>c. 会话保持</b>
 <table>
 <tr>
