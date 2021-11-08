@@ -137,7 +137,7 @@ WordPress 站点将通过标准 OIDC 协议与 CIAM 对接，因此，我们首�
 | Nickname Key                  | nickname                                                     |
 | Email Formatting              | {email}                                                      |
 | 其他参数                      | 使用默认值或留空                                             |
->？
+>?
 >- 请使用实际的 CIAM 用户目录域名替换掉 `https://dev-wordpress.portal.tencentciam.com`。
 >- 请使用实际的 CIAM 应用 Client ID 替换以上的 CLIENT_ID。
 >- 请使用实际的 WordPress 站点根路径替换以上的 `https://WORDPRESS.SITE`。 
