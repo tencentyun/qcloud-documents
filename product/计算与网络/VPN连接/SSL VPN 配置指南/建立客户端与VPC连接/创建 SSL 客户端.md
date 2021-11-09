@@ -1,11 +1,11 @@
-﻿SSL VPN 网关和 SSL 服务端创建完成后，您还需要在腾讯云侧创建 SSL 客户端证书。SSL 客户端证书记录了腾讯云分配给用户 IDC 的 SSL 证书信息，即用于服务端和客户端进行双向认证的 SSL 客户端证书。您可以下载该 SSL 客户端证书至本地，并通过任何内嵌 SSL 客户端证书的浏览器与腾讯云进行通信。
+SSL VPN 网关和 SSL 服务端创建完成后，您还需要在腾讯云侧创建 SSL 客户端证书。SSL 客户端证书记录了腾讯云分配给用户 IDC 的 SSL 证书信息，即用于服务端和客户端进行双向认证的 SSL 客户端证书。您可以下载该 SSL 客户端证书至本地，并通过任何内嵌 SSL 客户端证书的浏览器与腾讯云进行通信。
 
 ## 前提条件
-- 已[创建 SSL  VPN 网关](https://cloud.tencent.com/document/product/554/63605) 
-- 已[创建 SSL 服务端](https://cloud.tencent.com/document/product/554/63606) 
+- 已[创建 SSL  VPN 网关](https://cloud.tencent.com/document/product/554/63605)。 
+- 已[创建 SSL 服务端](https://cloud.tencent.com/document/product/554/63606)。 
 
 ## 注意事项
-客户端支持的操作系统有Windows、MAC、Linux (主流版本）。
+客户端支持的操作系统有 Windows、MAC、Linux (主流版本）。
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
@@ -33,5 +33,6 @@
 </table>
 5. 完成 SSL 客户端参数设置后，单击**创建**启动 SSL 客户务端创建，当**证书状态**为**可用**表示创建完成。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a1377b94b539a8ecd9a4f13b5bea2415.png)
+
 ## 后续操作
 在 SSL 客户端管理页面 [下载配置](http://url.com) 文件，并在本地浏览器嵌入该 SSL 客户端证书。
