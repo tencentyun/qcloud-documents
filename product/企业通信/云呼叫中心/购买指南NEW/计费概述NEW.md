@@ -13,7 +13,7 @@
    <tr>
       <th width="120px" style="text-align:center">收费项目</td>
       <th width="120px" style="text-align:center">计费项</td>
-      <th width="0px"  style="text-align:center">服务说明</td>
+      <th width="300px"  style="text-align:center">服务说明</td>
       <th width="0px"  style="text-align:center">计费说明</td>
    </tr>
    <tr>
