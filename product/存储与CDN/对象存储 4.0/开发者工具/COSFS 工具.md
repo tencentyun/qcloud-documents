@@ -209,8 +209,9 @@ mkdir -p /mnt/cosfs
 cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr -oallow_other
 ```
 
+>cosfs 为提升性能，默认使用系统盘作为上传、下载的临时缓存，文件关闭后会释放空间，通过该选项设置-oensure_diskfree=[size]选项，确保cosfs保留指定的剩余可用硬盘空间，单位为MB。
+
 >! V1.0.5及较早版本的 COSFS，挂载命令为 cosfs &lt;APPID>:&lt;BucketName> &lt;MountPoint> -ourl=&lt;CosDomainName> -oallow_other。
->
 
 
 #### 3. 卸载存储桶
@@ -251,6 +252,10 @@ cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud
 #### -ouid=[uid]
 该选项允许用户 id 为 [uid] 的用户不受挂载目录中文件权限位的限制，可以访问挂载目录中的所有文件。
 获取用户 uid 可以使用 id 命令，格式` id -u username`。例如执行`id -u user_00`，可获取到用户 user_00 的 uid。
+
+#### -oensure_diskfree=[size]
+
+设置磁盘剩余可用空间，单位为MB。 cosfs 为提升性能，默认使用系统盘作为上传、下载的临时缓存，文件关闭后会释放空间，通过该选项设置剩余可用空间。
 
 
 ## 常见问题
