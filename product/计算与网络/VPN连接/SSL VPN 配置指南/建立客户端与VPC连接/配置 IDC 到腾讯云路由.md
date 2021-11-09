@@ -1,8 +1,8 @@
-﻿SSL VPN 网关、SSL 服务端、SSL 客户端配置完成，需要配置客户侧 IDC 流量到达腾讯云  VPC 内的路由转发策略。
+SSL VPN 网关、SSL 服务端、SSL 客户端配置完成，需要配置客户侧 IDC 流量到达腾讯云 VPC 内的路由转发策略。
 
 ## 前提条件
-- 已[ 创建 SSL  VPN 网关](http://url.com) 
-- 已[ 创建 SSL 服务端](http://url.com) 
+- 已[ 创建 SSL VPN 网关](https://cloud.tencent.com/document/product/554/63605)。 
+- 已[ 创建 SSL 服务端](https://cloud.tencent.com/document/product/554/63606)。 
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
