@@ -1,7 +1,7 @@
 ## 准备工作
 
 1. 拥有腾讯云账号；
-2. [创建云开发环境](https://cloud.tencent.com/document/product/876/41391)，获得 **环境 ID**；
+2. [创建云开发环境](https://cloud.tencent.com/document/product/876/41391)，获得 **环境 ID**（目前仅支持上海地域环境）；
 3. 安装 [Flutter](https://flutter.cn/docs/get-started/install)。
 
 ## 步骤1：创建 Flutter 项目

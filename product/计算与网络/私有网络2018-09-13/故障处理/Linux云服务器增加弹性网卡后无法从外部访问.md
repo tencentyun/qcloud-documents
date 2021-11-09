@@ -53,7 +53,7 @@ NM_CONTROLLED='yes'
 ONBOOT='yes'
 IPADDR='10.0.0.14'  # 此处填写弹性网卡上的内网 IP 地址，请根据实际填写   
 NETMASK='255.255.255.0'  # 此处填写子网掩码，请根据实际填写
-GATEWAY='10.0.0.1    # 默认以 eth0 作为默认网关，如果需要使用弹性网卡作为主网关，可以在此处填写弹性网卡的默认网关
+GATEWAY='10.0.0.1    # 填写网卡所在子网的网关 IP 地址，请根据实际填写
 ```
  3. 按“ESC”，并输入“:wq!”保存并退出。
  4. 执行如下命令，重启网络，使配置生效。
@@ -98,8 +98,8 @@ ip route show table 20
 ![](https://qcloudimg.tencent-cloud.cn/raw/711642e9a180f5d2f7f843cce0b03fbe.png)
 3. 执行如下命令为两个路由表分别配置默认网关。[](id:s3)
 ``` plaintext
-ip route add default dev eth0 via 10.0.0.1 table 10   #10.0.0.1为eth0的默认网关，请根据实际情况填写
-ip route add default dev eth1 via 10.0.1.1 table 20   #10.0.0.1为eth1的默认网关，请根据实际情况填写
+ip route add default dev eth0 via 10.0.1.1 table 10   #10.0.1.1为eth0的默认网关，请根据实际情况填写
+ip route add default dev eth1 via 10.0.0.1 table 20   #10.0.0.1为eth1的默认网关，请根据实际情况填写
 ```
 >!
 >+ 每个 table 都需要检查，因为不同的 table 设置了不同网卡的默认路由。

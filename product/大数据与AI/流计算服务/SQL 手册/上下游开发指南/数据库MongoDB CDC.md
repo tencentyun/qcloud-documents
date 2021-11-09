@@ -70,11 +70,11 @@ CREATE TABLE mongo_cdc_source_table (
     </thead>
     <tbody>
     <tr>
-      <td></td>
+      <td>-</td>
       <td>TINYINT</td>
     </tr>
     <tr>
-      <td></td>
+      <td>-</td>
       <td>SMALLINT</td>
     </tr>
     <tr>
@@ -87,7 +87,7 @@ CREATE TABLE mongo_cdc_source_table (
       <td>BIGINT</td>
     </tr>
     <tr>
-      <td></td>
+      <td>-</td>
       <td>FLOAT</td>
     </tr>
     <tr>
