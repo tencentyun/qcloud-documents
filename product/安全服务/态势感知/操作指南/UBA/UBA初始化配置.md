@@ -32,4 +32,4 @@ UBA 功能目前正在试用中，已 [开通安全运营中心高级版](https:
 
 
 ## 后续操作
-UBA 初始化配置完成后，进入 [UBA 概览](https://cloud.tencent.com/document/product/664/41791) 及 [UBA 列表](https://cloud.tencent.com/document/product/664/41792) 进行操作。
+UBA 初始化配置完成后，进入 [UBA 概览](https://cloud.tencent.com/document/product/664/41791) 及 [用户列表](https://cloud.tencent.com/document/product/664/41792) 进行操作。
