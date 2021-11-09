@@ -105,7 +105,7 @@ FLUSH PRIVILEGES;
 <tr>
 <td>目的实例地域</td><td>选择目的实例所在地域。</td></tr>
 <tr>
-<td>同步任务规格</td><td>目前只支持标准版。//待确认</td></tr>
+<td>同步任务规格</td><td>目前只支持标准版。</td></tr>
 </tbody></table>
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
