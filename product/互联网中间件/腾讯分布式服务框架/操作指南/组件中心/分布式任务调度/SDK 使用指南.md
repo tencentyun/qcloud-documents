@@ -20,7 +20,7 @@
 在 application.yml 文件中添加如下配置，启用任务调度 SDK。
 ```xml
 tct
-  // 默认是false 不启用。
+  // 默认是 false 不启用。
   enabled: true
 ```
 
