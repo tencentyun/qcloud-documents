@@ -1,4 +1,4 @@
-﻿VPN 通道创建后，您可以在VPN 通道管理页面查看通道详情。
+VPN 通道创建后，您可以在 VPN 通道管理页面查看通道详情。
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
