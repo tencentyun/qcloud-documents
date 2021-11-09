@@ -1,7 +1,7 @@
-﻿SSL VPN 网关创建完成后，需要在腾讯云侧创建 SSL 服务端，为用户 IDC 侧提供 SSL 服务。
+SSL VPN 网关创建完成后，需要在腾讯云侧创建 SSL 服务端，为用户 IDC 侧提供 SSL 服务。
 
 ## 前提条件
-- 已[ 创建 SSL  VPN 网关](https://cloud.tencent.com/document/product/554/63716) 
+- 已[ 创建 SSL VPN 网关](https://cloud.tencent.com/document/product/554/63716) 
 - 已[ 创建 VPC](https://cloud.tencent.com/document/product/215/36515) 
 
 
@@ -9,7 +9,7 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击 **VPN 连接** > **SSL 服务端**，进入管理页面。
 3. 在 VPN 网关管理页面，单击**+新建**。
-4. 在弹出的**SSL 服务端**对话框中，配置如下网关参数。
+4. 在弹出的 **SSL 服务端**对话框中，配置如下网关参数。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1f05ce498eaec55ac834073bf42f464d.png)
 <table>
 <tr>

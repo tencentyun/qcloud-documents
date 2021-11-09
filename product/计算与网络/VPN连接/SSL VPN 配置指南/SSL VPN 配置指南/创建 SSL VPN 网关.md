@@ -1,4 +1,4 @@
-﻿VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现外部网络到腾讯云 VPC 的网络的安全访问之前，您必须先创建一个SSL VPN 网关，本文指导您如何在控制台创建  SSL VPN 网关。
+VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现外部网络到腾讯云 VPC 的网络的安全访问之前，您必须先创建一个SSL VPN 网关，本文指导您如何在控制台创建  SSL VPN 网关。
 
 ## 前提条件
 如需创建 VPC 类型的 VPN 网关，请提前创建好同地域的 VPC 网络，详情请参考 [创建私有网络](https://cloud.tencent.com/document/product/215/36515)。
