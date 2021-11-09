@@ -1,17 +1,16 @@
-本文主要介绍如何快速运行腾讯云 TRTC Demo（ReactNative）。
+本文主要介绍如何快速运行腾讯云 TRTC Demo（React Native）。
 
 ## 环境要求
-- ReactNative 0.63 及以上版本。
-- Node & Watchman，node版本需在 v12 以上。
+- ReactNative 0.63 及以上版本
+- Node & Watchman，node版本需在 v12 以上
 - **Android 端开发：**
-  - Android Studio 3.5及以上版本。
-  - App 要求 Android 4.1及以上版本设备。
+  - Android Studio 3.5及以上版本
+  - App 要求 Android 4.1及以上版本设备
 - **iOS & macOS 端开发：**
-  - Xcode 11.0及以上版本。
+  - Xcode 11.0及以上版本
   - osx 系统版本要求 10.11 及以上版本
-  - 请确保您的项目已设置有效的开发者签名。
-- 环境安装请参见 [官方文档](https://reactnative.cn/docs/environment-setup)。
-
+  - 请确保您的项目已设置有效的开发者签名
+- 环境安装请参见 [官方文档](https://reactnative.cn/docs/environment-setup)
 
 ## 前提条件
 您已 [注册腾讯云](https://cloud.tencent.com) 账号，并完成实名认证。
@@ -91,6 +90,7 @@ if (Platform.OS === 'android') {
 :::
 </dx-tabs>
 
+[](id:step5)
 ### 步骤5：编译运行
 <dx-tabs>
 :::  Android 端
