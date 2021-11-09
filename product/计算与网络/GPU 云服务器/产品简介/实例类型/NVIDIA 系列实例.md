@@ -19,9 +19,9 @@
   <thead>
 	<tr>
 	  <th width="3%">实例</th>
-	  <th width="17%">GPU 类型</th>
+	  <th width="19%">GPU 类型</th>
 	  <th width="34%">可用镜像</th>
-	  <th style="width: 38%;">可用区域</th>
+	  <th width="38%">可用区域</th>
 	</tr>
   </thead>
   <tbody>
@@ -193,7 +193,7 @@ GNV4v 实例支持可用区为：广州七区、上海五区、北京六区。
 	  <td>6核</td>
 	  <td>24GB</td>
 	  <td>3Gbps</td>
-	  <td>50万PPS</td>
+	  <td>50万</td>
 	  <td>6</td>
 	</tr>
 	<tr>
@@ -203,7 +203,7 @@ GNV4v 实例支持可用区为：广州七区、上海五区、北京六区。
 	  <td>14核</td>
 	  <td>58GB</td>
 	  <td>7Gbps</td>
-	  <td>110万PPS</td>
+	  <td>110万</td>
 	  <td>14</td>
 	</tr>
 	<tr>
@@ -213,7 +213,7 @@ GNV4v 实例支持可用区为：广州七区、上海五区、北京六区。
 	  <td>28核</td>
 	  <td>116GB</td>
 	  <td>13Gbps</td>
-	  <td>230万PPS</td>
+	  <td>230万</td>
 	  <td>28</td>
 	</tr>
   </tbody>
