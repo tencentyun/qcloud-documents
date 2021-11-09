@@ -208,7 +208,7 @@ public class SpringExecuteTaskFactory implements ExecutableTaskFactory, Applicat
 }
 
 ```
-### 2. 定义Bean类型的任务
+### 2. 定义 Bean 类型的任务
 ```java
 // 将任务定义为Bean
 @Component
