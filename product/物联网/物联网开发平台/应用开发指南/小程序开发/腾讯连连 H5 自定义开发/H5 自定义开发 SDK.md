@@ -1898,11 +1898,6 @@ DeviceAdapter.handleBLEMessage: (hexString, { serviceId, characteristicId }) => 
 <td>只读，设备的原始名称，即小程序接口搜索出来时的 name 字段</td>
 <td>string</td>
 </tr>
-<tr>
-<td>explorerDeviceId</td>
-<td>只读，设备的 explorerDeviceId</td>
-<td>string</td>
-</tr>
 </tbody></table>
 
 #### 断开设备连接
