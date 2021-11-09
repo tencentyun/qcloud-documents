@@ -1,4 +1,4 @@
-﻿当 SSL 服务端不再使用时，您可以执行删除操作。
+当 SSL 服务端不再使用时，您可以执行删除操作。
 
 ## 前提条件
 - 已[ 创建 SSL 服务端](https://cloud.tencent.com/document/product/554/63717)。    
