@@ -5,7 +5,7 @@
 - TDSQL MySQL 到腾讯云数据库 MariaDB（Percona）的数据同步
 - TDSQL MySQL 到腾讯云数据库 MySQL 的数据同步 
 - MariaDB 到 TDSQL MySQL（MariaDB）的数据同步
-- Percona 到 TDSQL MySQL（Percona）的数据同步
+- MariaDB（Percona）到 TDSQL MySQL（Percona）的数据同步
 - MySQL 到 TDSQL MySQL 的数据同步
 >?如需体验本章节中 TDSQL MySQL 的同步功能，请先 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
 >
@@ -27,10 +27,11 @@ FLUSH PRIVILEGES;
 ## 应用限制
 - 只支持同步基础表，不支持同步视图、函数、触发器、存储过程等对象。 
 - 源端如果是非 GTID 实例，DTS 不支持源端 HA 切换，一旦源端 MySQL 发生切换可能会导致 DTS 增量同步中断。
-- 只支持同步 InnoDB数据库引擎，如果存在其他数据引擎表则默认跳过不进行同步。
+- 只支持同步 InnoDB 数据库引擎，如果存在其他数据引擎表则任务校验时会报错。
 - 相互关联的数据对象需要同时同步，否则会导致同步失败。
 - 增量同步过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致同步失败。
-- 不支持同步 [二级分区](https://cloud.tencent.com/document/product/557/58907) 表，如果同步的库表中包含二级分区表，则会跳过二级分区表的同步；如果选择整库或全实例迁移，增量过程中遇到二级分区表任务会报错暂停。
+- 不支持同步 [二级分区](https://cloud.tencent.com/document/product/557/58907) 表，如果同步的库表中包含二级分区表，则任务会报错暂停。
+- TDSQL MySQL（MariaDB）作为源或者目标库时，不支持双向同步。
 - TDSQL 同步功能为了提高增量阶段的同步速度，采用了行级并发策略。因此在增量同步过程中，可能会在极短的时间内在目标库观察到事务的中间值，但最终源库和目标库数据会保持一致。 
 - 目前主键冲突处理策略只支持冲突覆盖，对于增量阶段的主键数据冲突，会直接进行冲突覆盖。但对于全量数据初始化阶段的冲突，任务会报错。
 
@@ -46,7 +47,7 @@ FLUSH PRIVILEGES;
 | 操作类型 | SQL 操作语句                                                 |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE                                       |
-| DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE VIEW、DROP VIEW、CREATE INDEX、DROP INDEX |
+| DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE INDEX、DROP INDEX |
 
 ## 环境要求
 <table>
@@ -59,16 +60,16 @@ FLUSH PRIVILEGES;
 <li>实例参数要求：
 <ul>
 <li>源库 server_id 参数需要手动设置，且值不能设置为0。</li>
-<li>源库表的 row_format 不能设置为 FIXDE。</li>
+<li>源库表的 row_format 不能设置为 FIXED。</li>
 <li>源库和目标库 lower_case_table_names 变量必须设置一致。</li>
-<li>源库变量 connect_timeout设置数值必须大于10。</li></ul></li>
+<li>源库变量 connect_timeout 设置数值必须大于10。</li></ul></li>
 <li>Binlog 参数要求：
 <ul>
 <li>源端 log_bin 变量必须设置为 ON。</li>
 <li>源端 binlog_format 变量必须设置为 ROW。</li>
 <li>源端 binlog_row_image 变量必须设置为 FULL。</li>
 <li>MySQL 5.6 及以上版本 gtid_mode 变量不为 ON 时会报警告，建议打开 gtid_mode。</li>
-<li>不允许设置 do_db, ignore_db。//待确认MarinaDB、Percona、TDSQL对应MySQL版本</li>
+<li>不允许设置 do_db, ignore_db。</li>
 <li>源实例为从库时，log_slave_updates 变量必须设置为 ON。</li></ul></li>
 <li>外键依赖：
 <ul>
@@ -83,7 +84,6 @@ FLUSH PRIVILEGES;
 <li>目标库为分布式数据库时，推荐提前手动创建分表，并规划 shardkey，否则 DTS 会按照源库的表样式来在目标库创建表，如果源库为单机实例，则目标库会创建为单表。</li>
 <li>目标库的版本必须大于等于源库的版本。</li>
 <li>目标库需要有足够的存储空间，如果初始类型选择“全量数据初始化”，则目标库的空间大小须是源库待同步库表空间的1.2倍以上。</li>
-<li>目标库不能有和源库同名的表。</li>
 <li>目标库 max_allowed_packet 参数设置数值至少为4M。</li></td></tr>
 <tr> 
 <td>其他要求</td>
