@@ -209,7 +209,7 @@ mkdir -p /mnt/cosfs
 cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr -oallow_other
 ```
 
->! cosfs 为提升性能，默认使用系统盘作为上传、下载的临时缓存，文件关闭后会释放空间，通过该选项设置-oensure_diskfree=[size]选项，确保cosfs保留指定的剩余可用硬盘空间，单位为MB。例如-oensure_diskfree=1024，cosfs会保留1024MB剩余空间。
+>! cosfs 为提升性能，默认使用系统盘作为上传、下载的临时缓存，文件关闭后会释放空间。cosfs默认保留100MB硬盘可用空间，可以通过选项oensure_diskfree=[size]设置cosfs保留可用硬盘空间的大小，单位为MB。例如-oensure_diskfree=1024，cosfs会保留1024MB剩余空间。
 
 >! V1.0.5及较早版本的 COSFS，挂载命令为 cosfs &lt;APPID>:&lt;BucketName> &lt;MountPoint> -ourl=&lt;CosDomainName> -oallow_other。
 
