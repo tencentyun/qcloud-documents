@@ -31,5 +31,5 @@
 1. 进入[云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=16)，单击云服务器右侧的登录，按照界面提示输入密码或密钥，以 [标准方式登录云服务器](https://cloud.tencent.com/document/product/213/5436)，并执行 route 查看系统内部路由表。
     ![](https://qcloudimg.tencent-cloud.cn/raw/3b11c3b313ad0076f3c0d3c80d139701.png)
 2. 查看系统内是否存在 docker 容器网段路由，且与被访问的云服务器所在子网网段相同。
-  + 如存在容器网段路由，且容器网段与子网网段相同，容器网段路由与 VPC 系统内路由冲突，也可能导致此问题，可删除对应子网，规避此问题。
+  + 如存在容器网段路由，且容器网段与子网网段相同，容器网段路由与 VPC 系统内路由冲突，也可能导致此问题，可删除对应子网。
   + 如不存在，请记录问题，并联系 [售后在线支持](https://cloud.tencent.com/online-service)。
