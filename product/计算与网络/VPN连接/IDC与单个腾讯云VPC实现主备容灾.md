@@ -1,4 +1,4 @@
-﻿## 容灾方案
+## 容灾方案
 ![](https://qcloudimg.tencent-cloud.cn/raw/d1ed92e5968c7fb9f35a84ed3063a40e.png)
 用户 IDC 仅需要与单个腾讯云 VPC 实现互通，在用户 IDC 侧，用户可以部署两台 IPsec VPN 设备，分别与腾讯云私有网络型 VPN 建立 IPSec VPN 通道，VPN 网关路由表配置两条目的端一致的路由，通过优先级控制，实现主备通道效果；在发生故障时，可以实现路由自动切换。
 ## 前提条件
