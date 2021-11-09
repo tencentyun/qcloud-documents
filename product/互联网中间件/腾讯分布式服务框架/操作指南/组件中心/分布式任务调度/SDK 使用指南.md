@@ -6,11 +6,11 @@
 ## 添加依赖
 在 pom.xml 文件中添加如下 dependency。
 ```xml
- <dependency>
-	 <groupId>com.tencent.cloud </groupId>
-	 <artifactId>tct-spring-boot-starter </artifactId>
-	 <version>1.2.0 </version>
- </dependency>
+<dependency>
+	<groupId>com.tencent.cloud </groupId>
+	<artifactId>tct-spring-boot-starter </artifactId>
+	<version>1.2.0 </version>
+</dependency>
 ```
 
 >!使用原有 spring-cloud-tsf-schedule 组件依赖的用户仅需将项目中 pom 依赖的 spring-cloud-tsf-schedule 组件移除，重新引入 tct-spring-boot-starter 组件依赖，并将对应的 Java 类文件重新 reload 即可完成 SDK 升级操作。
@@ -173,9 +173,9 @@ tct:
       "task.factory.name": "com.tencent.cloud.task.factory.SimpleExecuteTaskFactory"  
 ```
 
-## 集成Spring框架自定义任务工厂
+## 集成 Spring 框架自定义任务工厂
 
-### 1. 定义Bean类型的任务工厂
+### 1. 定义 Bean 类型的任务工厂
 ```java
 
 package com.tencent.cloud.task.factory;
