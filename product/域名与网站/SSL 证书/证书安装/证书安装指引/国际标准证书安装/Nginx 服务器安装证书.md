@@ -74,6 +74,7 @@ server {
         ssl_prefer_server_ciphers on;
         location / {
 		   #网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
+		   #例如，您的网站运行目录在/etc/www下，则填写/etc/www。
             root html; 
             index  index.html index.htm;
         }
@@ -113,8 +114,9 @@ server {
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     ssl_prefer_server_ciphers on;
     location / {
-			#网站主页路径。此路径仅供参考，具体请您按照实际目录操作。  
-		    root html;
+			#网站主页路径。此路径仅供参考，具体请您按照实际目录操作。 
+			#例如，您的网站运行目录在/etc/www下，则填写/etc/www。
+		root html;
         index index.html index.htm;
     }
 }

@@ -15,33 +15,32 @@
 ### 步骤一：检查弹性网卡是否已正确绑定到了云服务器上
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=16) ，单击云服务器实例 ID，进入实例详情页。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a4f18b41f8b9f84df5a5d587931a5374.png)
-2. 单击“弹性网卡”页签，查看云服务器是否有弹性网卡，以及是否绑定了 EIP。
+2. 单击**弹性网卡**页签，查看云服务器是否有弹性网卡，以及是否绑定了 EIP。
   + 如有弹性网卡，且正确绑定了 EIP，如下图所示，则继续排查 [步骤二](#step2)。
   + 如没有，请参考 [绑定并配置弹性网卡](https://cloud.tencent.com/document/product/576/59351) 和 [绑定弹性公网 IP](https://cloud.tencent.com/document/product/576/18539) 配置后，再尝试外网访问，问题解决则结束，未解决则继续排查。
 ![](https://qcloudimg.tencent-cloud.cn/raw/15a33575cc81970f7bcaff623cb32591.png)
 
 ### 步骤二：检查弹性网卡内网 IP 是否正确配置到弹性网卡上[](id:step2)
-1. 单击云服务器详情页“弹性网卡”页签下的弹性网卡 ID，进入弹性网卡详情页。
+1. 单击云服务器详情页**弹性网卡**页签下的弹性网卡 ID，进入弹性网卡详情页。
   	![](https://qcloudimg.tencent-cloud.cn/raw/5ea336de830e69b40e810261b85a014e.png)
-2. 记录弹性网卡的 MAC 地址，并单击“IPv4 地址管理”页签，记录弹性网卡的内网 IP 地址。[](id:jilu2)
+2. 记录弹性网卡的 MAC 地址，并单击**IPv4 地址管理**页签，记录弹性网卡的内网 IP 地址。[](id:jilu2)
   + **MAC 地址**：
   ![](https://qcloudimg.tencent-cloud.cn/raw/1c2cf84f00b1bd936ef974575e497e13.png)
    + **弹性网卡内网 IP**：
   ![](https://qcloudimg.tencent-cloud.cn/raw/9900d50217c89687170b25a002b37b71.png)
-3. 返回 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=16) ，单击云服务器右侧的“登录”，按照界面提示输入密码或密钥，以 [标准方式登录云服务器](https://cloud.tencent.com/document/product/213/5436)。
+3. 返回 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=16) ，单击云服务器右侧的**登录**，按照界面提示输入密码或密钥，以 [标准方式登录云服务器](https://cloud.tencent.com/document/product/213/5436)。
    ![](https://qcloudimg.tencent-cloud.cn/raw/e0ad83a474a5355b9adfb58a3071a5b7.png)
 4. 执行如下命令，查看弹性网卡的内网 IP 和 MAC 地址与 [步骤2](#jilu2) 记录的是否一致。
    ``` plaintext
 ip address
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/dc1ea97fd1ce7333b886c839d7940e59.png)
- 
    - 如一致，请继续排查[ 步骤三](#step3)。
    - 如不一致或缺失，请执行 [步骤5](#s5) 进行修改。
 5. 执行如下命令重新修改弹性网卡的配置文件。[](id:s5)
 >?此处以 Centos7.8 为例，Centos7 系统网卡配置文件一般存放在"/etc/sysconfig/network-scripts"目录，保存在“ ifcfg-网卡名称“ 文件。
 >
-   1. 进入配置文件。
+   1. 执行如下命令，进入配置文件。
    ``` plaintext
  cd /etc/sysconfig/network-scripts/   #进入配置文件所在目录
  vim ifcfg-eth1  #编辑弹性网卡配置文件
@@ -54,7 +53,7 @@ NM_CONTROLLED='yes'
 ONBOOT='yes'
 IPADDR='10.0.0.14'  # 此处填写弹性网卡上的内网 IP 地址，请根据实际填写   
 NETMASK='255.255.255.0'  # 此处填写子网掩码，请根据实际填写
-GATEWAY='10.0.0.1    # 默认以 eth0 作为默认网关，如果需要使用弹性网卡作为主网关，可以在此处填写弹性网卡的默认网关
+GATEWAY='10.0.0.1    # 填写网卡所在子网的网关 IP 地址，请根据实际填写
 ```
  3. 按“ESC”，并输入“:wq!”保存并退出。
  4. 执行如下命令，重启网络，使配置生效。
@@ -73,7 +72,6 @@ cat /etc/iproute2/rt_tables
 ![](https://qcloudimg.tencent-cloud.cn/raw/74cf5b1c87466569cbf1b3ea911a98b6.png)
  - 如无，请执行 [步骤2](#s2) 创建策略路由表。
  - 如有，请继续排查 [步骤四](#step4)。
-
 2. 创建两张策略路由表。[](id:s2)
 ```plaintext
 echo "10 t1" >> /etc/iproute2/rt_tables    #10为自定义的路由ID，t1为自定义的路由表名称，请根据实际填写。
@@ -100,16 +98,16 @@ ip route show table 20
 ![](https://qcloudimg.tencent-cloud.cn/raw/711642e9a180f5d2f7f843cce0b03fbe.png)
 3. 执行如下命令为两个路由表分别配置默认网关。[](id:s3)
 ``` plaintext
-ip route add default dev eth0 via 10.0.0.1 table 10   #10.0.0.1为eth0的默认网关，请根据实际情况填写
-ip route add default dev eth1 via 10.0.1.1 table 20   #10.0.0.1为eth1的默认网关，请根据实际情况填写
+ip route add default dev eth0 via 10.0.1.1 table 10   #10.0.1.1为eth0的默认网关，请根据实际情况填写
+ip route add default dev eth1 via 10.0.0.1 table 20   #10.0.0.1为eth1的默认网关，请根据实际情况填写
 ```
 >!
 >+ 每个 table 都需要检查，因为不同的 table 设置了不同网卡的默认路由。
 >+ 请一定确认网关与网卡名对应一致，此处经常出现将 eth0 的网关配置到 eth1 上而导致配置问题，因此请务必做好检查。
 >+ 此处配置为临时路由，重启网络后路由会消失，如需配置永久路由，请参见 [配置永久路由](https://cloud.tencent.com/document/product/576/59353#pzyjly)。
-
- 配置后可查询到两个路由表中配置的默认路由条目：
- ![](https://qcloudimg.tencent-cloud.cn/raw/09d21f25ad332cc8e107126558de6d2e.png)
+>
+配置后可查询到两个路由表中配置的默认路由条目：
+![](https://qcloudimg.tencent-cloud.cn/raw/09d21f25ad332cc8e107126558de6d2e.png)
 
 ### 步骤五：检查是否配置了正确的策略路由规则[](id:step5)
 >?配置好默认路由后，目前系统已经知道哪个路由表走哪个网关出去，但还不知道某个网卡来的流量，要到哪个路由表上，因此需要查看是否为每个网卡配置了策略规则。
@@ -117,7 +115,6 @@ ip route add default dev eth1 via 10.0.1.1 table 20   #10.0.0.1为eth1的默认�
 1. 执行 `ip rule list` 命令，查看是否有策略路由规则。
   - 如仅有0、32766、32767三条默认规则，表示弹性网卡未配策略路由规则，请执行[ 步骤2 ](#buzhou2)配置。
   - 如已配置如红框所示的策略规则，且仍然无法 ping 通，请联系 [在线支持](https://cloud.tencent.com/online-service) 。
-
  ![](https://qcloudimg.tencent-cloud.cn/raw/11c5109e0495780c5c883814916ddd6e.png)
 2. 配置策略路由规则。[](id:buzhou2)
 ``` plaintext

@@ -31,6 +31,7 @@ CDC（Change Data Capture）是数据融合的高速链路。数据在 OLTP 与�
 
 #### 功能限制
 - 源表必须包含主键或者不可为 NULL 的唯一键。
+- 源实例不可只读。
 - 若选择增量同步。
   - 要求 MySQL 开启 GTID。
   - 要求开启 binlog，且要求为 ROW 和 FULL 格式。
