@@ -1,4 +1,5 @@
-﻿SSL VPN 网关是 VPN 连接服务的功能实例，可启用 SSL VPN 功能。
+SSL VPN 网关是 VPN 连接服务的功能实例，可启用 SSL VPN 功能。
+
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击 **VPN 连接** > **VPN 网关**，进入管理页。
