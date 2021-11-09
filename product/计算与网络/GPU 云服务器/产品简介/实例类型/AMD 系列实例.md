@@ -250,19 +250,19 @@ PNV4 实例支持可用区为：广州七区、上海五区、北京六区。
 
 <table>
   <thead>
-	<tr>
-	  <th width="10%">型号</th>
-	  <th width="25%">GPU
-	  <br />(NVIDIA A10)</th>
-	  <th width="12%">GPU 显存
-	  <br />(HBM2)</th>
-	  <th width="8%">vCPU</th>
-	  <th>内存
-	  <br />(DDR4)</th>
-	  <th width="10%">内网带宽</th>
-	  <th width="10%">网络收发包<br />(PPS)</th>
-	  <th width="7%">队列数</th>
-	</tr>
+<tr>
+      <th width="10%">型号</th>
+      <th width="25%">GPU
+      <br>(NVIDIA A10)</th>
+      <th width="20%">GPU 显存
+      <br>(HBM2)</th>
+      <th width="12%">vCPU</th>
+      <th>内存
+      <br>(DDR4)</th>
+      <th width="8%">内网带宽</th>
+      <th width="8%">网络收发包<br>(PPS)</th>
+      <th width="6%">队列数</th>
+    </tr>
   </thead>
   <tbody>
 	<tr>
@@ -317,7 +317,7 @@ PNV4 实例支持可用区为：广州七区、上海五区、北京六区。
 
 #### 适用场景
 
-GT4 具有强大的双精度浮点运算能力 ，适用于大规模深度学习训练，推理和科学计算场景。例如：
+GT4 具有强大的双精度浮点运算能力，适用于大规模深度学习训练、推理和科学计算场景。例如：
 - 深度学习
 - 高性能数据库
 - 计算流体动力学
@@ -342,20 +342,20 @@ GT4 实例支持可用区为：广州四区、上海四区、北京五区。
 
 <table>
   <thead>
-	<tr>
-	  <th width="10%">型号</th>
-	  <th width="25%">GPU
-	  <br />(NVIDIA
+  <tr>
+      <th width="10%">型号</th>
+      <th width="20%">GPU
+      <br>(NVIDIA
  Tesla A100 NVLink 40G)</th>
-	  <th width="12%">GPU 显存
-	  <br />(HBM2)</th>
-	  <th width="8%">vCPU</th>
-	  <th>内存
-	  <br />(DDR4)</th>
-	  <th width="10%">内网带宽</th>
-	  <th width="10%">网络收发包<br />(PPS)</th>
-	  <th width="7%">队列数</th>
-	</tr>
+      <th width="12%">GPU 显存
+      <br>(HBM2)</th>
+      <th width="10%">vCPU</th>
+      <th>内存
+      <br>(DDR4)</th>
+      <th width="10%">内网带宽</th>
+      <th width="10%">网络收发包<br>(PPS)</th>
+      <th width="7%">队列数</th>
+    </tr>
   </thead>
   <tbody>
 	<tr>
@@ -596,7 +596,7 @@ GN7 实例支持可用区为：
 	</tr>
 	<tr>
 	  <td>GN7.8XLARGE128</td>
-	  <td>1 颗</td>
+	  <td>1颗</td>
 	  <td>1 * 16GB</td>
 	  <td>32核</td>
 	  <td>128GB</td>
