@@ -75,8 +75,11 @@ ndctl list -R
 ```
 返回结果如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/b454a36bf3baf0361fe6154639b6c4da.png)
-3. （可选）您可通过该步骤进行功能扩展，依次执行以下命令，使用 PMEM 扩充云服务器的内存。
-在高版本的内核（如 TencentOS Server 3.1 的内核）支持下，可将 devdax 模式的 PMEM 进一步配置为 kmemdax，可使用 PMEM 扩充云服务器的内存。
+
+
+#### 高级功能（可选）
+您可通过该步骤进行功能扩展，依次执行以下命令，使用 PMEM 扩充云服务器的内存。
+1. 在高版本的内核（如 TencentOS Server 3.1 的内核）支持下，可将 devdax 模式的 PMEM 进一步配置为 kmemdax，可使用 PMEM 扩充云服务器的内存。
 ```
 yum install -y daxctl
 ```
@@ -91,7 +94,7 @@ daxctl reconfigure-device --mode=system-ram --no-online dax0.0
 ```
 返回结果如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/6cc731b4e6e08be343c284683ac75721.png)
-4. 执行以下命令，查看系统内存扩充的情况。
+2. 执行以下命令，查看系统内存扩充的情况。
 ```
 numactl -H
 ```

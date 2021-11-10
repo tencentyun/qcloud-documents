@@ -1,3 +1,6 @@
+>!新命令行工具 [COSCLI 工具](https://cloud.tencent.com/document/product/436/63143) 已发布，将逐步替代 COSCMD 工具，COSCMD 工具将不再新增功能，只修复现有 Bug。
+
+
 ## 功能说明
 
 使用 COSCMD 工具，用户可通过简单的命令行指令实现对对象（Object）的批量上传、下载、删除等操作。

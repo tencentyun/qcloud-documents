@@ -1,27 +1,27 @@
 ## 介绍
+
 消息队列 CMQ（Cloud Message Queue，以下简称 CMQ）是基于腾讯自研消息引擎的分布式消息队列系统，可以用作数据源（Source）和数据目的（Sink）。用户可以把流数据导入到 CMQ 的某个 Queue 中，通过 Flink 算子进行处理后，输出到相同或不同 CMQ 示例的另一个 Queue。
 
 ## 版本说明
 
-| Flink 版本 | 说明     |
-| :-------- | :------- |
-| 1.11      | 支持     |
-| 1.13      | 暂不支持 |
+| Flink 版本 | 说明 |
+| :-------- | :--- |
+| 1.11      | 支持 |
+| 1.13      | 支持 |
 
 ## 使用范围
 CMQ 支持用作数据源表（Source），也可以作为 Tuple 数据流的目的表（Sink），暂不支持 Upsert 数据流。
 
-## 示例
+## DDL 定义
 ### 用作数据源（Source）
 #### JSON 格式输入
 ```sql
-CREATE TABLE `Data-Input` (
-    `id` bigint,
-    `request_method` varchar(80),
-    `response` varchar(80),
+CREATE TABLE `cmq_source_json_table` (
+    `id` INT,
+    `name`STRING,
     PRIMARY KEY (`id`) NOT ENFORCED	-- 如果想做到数据去重的操作，则需要指定 PK，按照主键来区分不同的数据
 ) WITH (
-	   'connector' = 'cmq',			   -- 必须为 'cmq'
+    'connector' = 'cmq',			   -- 必须为 'cmq'
     'hosts' = 'http://cmq-nameserver-vpc-gz.api.tencentyun.com',	-- cmq 所在地域的 nameServer
     'queue' = 'queue_name',			-- cmq 的队列名
     'secret-id' = 'xxxx',			  -- 账号 secretId
@@ -38,11 +38,11 @@ CREATE TABLE `Data-Input` (
 ```
 
 #### CSV 格式输入
+
 ```sql
-CREATE TABLE `Data-Input` (
-    `id` bigint,
-    `request_method` varchar(80),
-    `response` varchar(80),
+CREATE TABLE `cmq_source_csv_table` (
+    `id` int,
+    `name` STRING,
     PRIMARY KEY (`id`) NOT ENFORCED -- 如果想做到数据去重的操作，则需要指定 PK，按照这个主键来区分不同的数据
 ) WITH (
 	'connector' = 'cmq', 			 -- 必须为 'cmq'
@@ -60,13 +60,13 @@ CREATE TABLE `Data-Input` (
 ```
 
 ### 用作数据目的（Sink）
+
 #### JSON 格式输出
 
 ```sql
-CREATE TABLE `Data-Input` (
-    `id` bigint,
-    `request_method` varchar(80),
-    `response` varchar(80)
+CREATE TABLE `cmq_sink_json_table` (
+    `id` int,
+    `name` STRING
 ) WITH (
 	'connector' = 'cmq', 					 	-- 必须为 'cmq'
     'hosts' = 'http://cmq-nameserver-vpc-gz.api.tencentyun.com',    -- cmq 所在地域的 nameServer
@@ -76,7 +76,7 @@ CREATE TABLE `Data-Input` (
     'sign-method' = 'HmacSHA1',     			-- 签名的方式
     'format' = 'json',             		 	-- 定义数据格式（JSON 格式）
     'json.fail-on-missing-field' = 'false',	 -- 如果设置为 false, 则遇到缺失字段不会报错。
-    'json.ignore-parse-errors' = 'true'         -- 如果设置为 true，则忽略任何解析报错。
+    'json.ignore-parse-errors' = 'true',         -- 如果设置为 true，则忽略任何解析报错。
     'batch-size' = '16',                        -- 批量发送消息的个数
     'request-timeout' = '5000ms',               -- 请求的超时时间
     'retry-times' = '3',                        -- 发送消息的重试次数
@@ -87,10 +87,9 @@ CREATE TABLE `Data-Input` (
 #### CSV 格式输出
 
 ```sql
-CREATE TABLE `Data-Input` (
-    `id` bigint,
-    `request_method` varchar(80),
-    `response` varchar(80)
+CREATE TABLE `cmq_sink_csv_table` (
+    `id` int,
+    `name` STRING
 ) WITH (
 	'connector' = 'cmq', 					     -- 必须为 'cmq'
     'hosts' = 'http://cmq-nameserver-vpc-gz.api.tencentyun.com',    -- cmq 所在地域的 nameServer
@@ -105,6 +104,7 @@ CREATE TABLE `Data-Input` (
     'max-block-timeout' = '0s'                  -- 批量发送数据的最大等待时间
 );
 ```
+
 ## WITH 参数
 ### 通用 WITH 参数
 
@@ -145,6 +145,49 @@ CREATE TABLE `Data-Input` (
 | csv.array-element-delimiter | 否   | ;          | 数组元素的分隔符，默认是`;`。                                |
 | csv.escape-character        | 否   | 无         | 指定转义符，默认禁用转义。                                   |
 | csv.null-literal            | 否   | 无         | 将指定的字符串看作 null 值。                                 |
+
+## 代码示例
+
+```sql
+CREATE TABLE `cmq_source_json_table` (
+    `id` int,
+    `name` STRING,
+    PRIMARY KEY (`id`) NOT ENFORCED	-- 如果想做到数据去重的操作，则需要指定 PK，按照主键来区分不同的数据
+) WITH (
+    'connector' = 'cmq',			   -- 必须为 'cmq'
+    'hosts' = 'http://cmq-nameserver-vpc-gz.api.tencentyun.com',	-- cmq 所在地域的 nameServer
+    'queue' = 'queue_name',			-- cmq 的队列名
+    'secret-id' = 'xxxx',			  -- 账号 secretId
+    'secret-key' = 'xxxx',             -- 账号 secretKey
+    'sign-method' = 'HmacSHA1',        -- 签名的方式
+    'format' = 'json',                 -- 定义数据格式（JSON 格式）
+    'json.fail-on-missing-field' = 'false',	 -- 如果设置为 false, 则遇到缺失字段不会报错。
+    'json.ignore-parse-errors' = 'true',   	 -- 如果设置为 true，则忽略任何解析报错。
+    'batch-size' = '16',               -- 批量消费消息的个数
+    'request-timeout' = '5000ms',  	-- 请求的超时时间
+    'polling-wait-timeout'= '10s', 	-- 获取不到数据情况下的等待时间
+    'key-alive-timeout'= '5min'    	-- 含 primary key 的消息，CMQ 去重的有效时间
+);
+CREATE TABLE `cmq_sink_json_table` (
+    `id` int,
+    `name` STRING
+) WITH (
+	'connector' = 'cmq', 					 	-- 必须为 'cmq'
+    'hosts' = 'http://cmq-nameserver-vpc-gz.api.tencentyun.com',    -- cmq 所在地域的 nameServer
+    'queue' = 'queue_name',			 		-- cmq 的队列名
+    'secret-id' = 'xxxx',				   	-- 账号 secretId
+    'secret-key' = 'xxxx',         		 	-- 账号 secretKey
+    'sign-method' = 'HmacSHA1',     			-- 签名的方式
+    'format' = 'json',             		 	-- 定义数据格式（JSON 格式）
+    'json.fail-on-missing-field' = 'false',	 -- 如果设置为 false, 则遇到缺失字段不会报错。
+    'json.ignore-parse-errors' = 'true',         -- 如果设置为 true，则忽略任何解析报错。
+    'batch-size' = '16',                        -- 批量发送消息的个数
+    'request-timeout' = '5000ms',               -- 请求的超时时间
+    'retry-times' = '3',                        -- 发送消息的重试次数
+    'max-block-timeout' = '0s'                  -- 批量发送数据的最大等待时间
+);
+insert into cmq_sink_json_table select * from cmq_source_json_table;
+```
 
 ## 注意事项
 CMQ 作为数据源（Source）使用的时候，需要考虑如下几点：
