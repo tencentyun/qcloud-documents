@@ -63,7 +63,7 @@ spec:
       fs.cosn.bucket.region: ap-beijing
       fs.cosn.impl: org.apache.hadoop.fs.CosFileSystem
       fs.AbstractFileSystem.cosn.impl: org.apache.hadoop.fs.CosN
-      fs.cos.app.id: "${your appid}"
+      fs.cosn.userinfo.appid: "${your appid}"
     encryptOptions:
       - name: fs.cosn.userinfo.secretKey
         valueFrom:

@@ -11,7 +11,7 @@
 
 ## 步骤3：编写 SQL 语句
 授权完成后，可在开发调试的代码编辑框中输入 SQL 语句，可无需另外准备数据快速创建作业。示例语句具体执行的内容如下：
-1. 使用内置 Connector “datagen” 创建数据源表 Data_Input，包含字段 id（VARCHAR 型）、age（BIGINT 型）、score（BIGINT 型）。datagen 是位于集群本地的数据源，可以不断生成随机数据。
+1. 使用内置 Connector “datagen” 创建数据源表 Data_Input，包含字段 age（BIGINT 型）、score（BIGINT 型）。datagen 是位于集群本地的数据源，可以不断生成随机数据。
 2. 使用内置 Connector “blackhole” 创建数据结果表 Data_Output，包含字段 avg_age（BIGINT 型）、avg_score（BIGINT 型）。blackhole 是位于集群本地的数据目的，可以不断接收数据。
 3. 将 Data_Intput 中的 age 和 score 取平均数之后存储于 Data_Output。
 

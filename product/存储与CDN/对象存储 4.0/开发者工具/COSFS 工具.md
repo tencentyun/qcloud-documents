@@ -213,7 +213,7 @@ cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud
 >
 
 
-#### 3. 卸载存储桶
+### 3. 卸载存储桶
 
 卸载存储桶示例：
 

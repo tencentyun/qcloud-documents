@@ -24,33 +24,82 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos
 [//]: #	".cssg-snippet-transfer-download-object"
 
 ```cs
-// 初始化 TransferConfig
-TransferConfig transferConfig = new TransferConfig();
+using COSXML.Model.Object;
+using COSXML.Auth;
+using COSXML.Transfer;
+using System;
+using COSXML;
 
-// 初始化 TransferManager
-TransferManager transferManager = new TransferManager(cosXml, transferConfig);
-
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
-String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
-string localDir = System.IO.Path.GetTempPath();//本地文件夹
-string localFileName = "my-local-temp-file"; //指定本地保存的文件名
-
-// 下载对象
-COSXMLDownloadTask downloadTask = new COSXMLDownloadTask(bucket, cosPath, 
-  localDir, localFileName);
-
-downloadTask.progressCallback = delegate (long completed, long total)
+namespace COSSnippet
 {
-    Console.WriteLine(String.Format("progress = {0:##.##}%", completed * 100.0 / total));
-};
+    public class TransferDownloadObjectModel {
 
-try {
-  COSXML.Transfer.COSXMLDownloadTask.DownloadTaskResult result = await 
-    transferManager.DownloadAsync(downloadTask);
-  Console.WriteLine(result.GetResultInfo());
-  string eTag = result.eTag;
-} catch (Exception e) {
-    Console.WriteLine("CosException: " + e);
+      private CosXml cosXml;
+
+      TransferDownloadObjectModel() {
+        CosXmlConfig config = new CosXmlConfig.Builder()
+          .SetRegion("COS_REGION") // 设置默认的区域, COS 地域的简称请参照 https://cloud.tencent.com/document/product/436/6224
+          .Build();
+        
+        string secretId = "SECRET_ID";   // 云 API 密钥 SecretId, 获取 API 密钥请参照 https://console.cloud.tencent.com/cam/capi
+        string secretKey = "SECRET_KEY"; // 云 API 密钥 SecretKey, 获取 API 密钥请参照 https://console.cloud.tencent.com/cam/capi
+        long durationSecond = 600;          //每次请求签名有效时长，单位为秒
+        QCloudCredentialProvider qCloudCredentialProvider = new DefaultQCloudCredentialProvider(secretId, 
+          secretKey, durationSecond);
+        
+        this.cosXml = new CosXmlServer(config, qCloudCredentialProvider);
+      }
+
+      /// 高级接口下载对象
+      public async void TransferDownloadObject()
+      {
+        // 初始化 TransferConfig
+        TransferConfig transferConfig = new TransferConfig();
+        
+        // 初始化 TransferManager
+        TransferManager transferManager = new TransferManager(cosXml, transferConfig);
+        
+        String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+        String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
+        string localDir = System.IO.Path.GetTempPath();//本地文件夹
+        string localFileName = "my-local-temp-file"; //指定本地保存的文件名
+        
+        // 下载对象
+        COSXMLDownloadTask downloadTask = new COSXMLDownloadTask(bucket, cosPath, 
+          localDir, localFileName);
+        
+        downloadTask.progressCallback = delegate (long completed, long total)
+        {
+            Console.WriteLine(String.Format("progress = {0:##.##}%", completed * 100.0 / total));
+        };
+
+        try {
+          COSXML.Transfer.COSXMLDownloadTask.DownloadTaskResult result = await 
+            transferManager.DownloadAsync(downloadTask);
+          Console.WriteLine(result.GetResultInfo());
+          string eTag = result.eTag;
+        }
+        catch (COSXML.CosException.CosClientException clientEx)
+        {
+          //请求失败
+          Console.WriteLine("CosClientException: " + clientEx);
+        }
+        catch (COSXML.CosException.CosServerException serverEx)
+        {
+          //请求失败
+          Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+        }
+      }
+
+
+      static void Main(string[] args)
+      {
+        TransferDownloadObjectModel m = new TransferDownloadObjectModel();
+
+        /// 高级接口下载对象
+        m.TransferDownloadObject();
+      }
+    }
 }
 ```
 
@@ -89,7 +138,8 @@ TransferConfig transferConfig = new TransferConfig();
 // 初始化 TransferManager
 TransferManager transferManager = new TransferManager(cosXml, transferConfig);
 
-string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+string bucket = "examplebucket-1250000000";
 string localDir = System.IO.Path.GetTempPath();//本地文件夹
 
 for (int i = 0; i < 5; i++) {
@@ -101,6 +151,30 @@ for (int i = 0; i < 5; i++) {
   await transferManager.DownloadAsync(downloadTask);
 }
 ```
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/dotnet/dist/TransferDownloadObject.cs) 查看。
+>
+
+#### 示例代码四：单链接限速下载
+[//]: #	".cssg-snippet-transfer-download-objects-with-speed-limit"
+```cs
+TransferConfig transferConfig = new TransferConfig();
+
+// 初始化 TransferManager
+TransferManager transferManager = new TransferManager(cosXml, transferConfig);
+
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
+string localDir = System.IO.Path.GetTempPath();//本地文件夹
+string localFileName = "my-local-temp-file"; //指定本地保存的文件名
+        
+GetObjectRequest request = new GetObjectRequest(bucket, 
+        cosPath, localDir, localFileName);
+request.LimitTraffic(8 * 1000 * 1024); // 限制为1MB/s
+
+COSXMLDownloadTask downloadTask = new COSXMLDownloadTask(request);
+await transferManager.DownloadAsync(downloadTask);
+```
+
 
 >? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/dotnet/dist/TransferDownloadObject.cs) 查看。
 >
@@ -113,38 +187,160 @@ for (int i = 0; i < 5; i++) {
 
 下载一个 Object（文件/对象）至本地（GET Object）。
 
-#### 示例代码
+#### 示例代码一：单对象简单下载
 
 [//]: #	".cssg-snippet-get-object"
 
 ```cs
-try
+using COSXML.Model.Object;
+using COSXML.Auth;
+using System;
+using COSXML;
+
+namespace COSSnippet
 {
-  string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
-  string key = "exampleobject"; //对象键
-  string localDir = System.IO.Path.GetTempPath();//本地文件夹
-  string localFileName = "my-local-temp-file"; //指定本地保存的文件名
-  GetObjectRequest request = new GetObjectRequest(bucket, key, localDir, localFileName);
-  //设置进度回调
-  request.SetCosProgressCallback(delegate (long completed, long total)
-  {
-    Console.WriteLine(String.Format("progress = {0:##.##}%", completed * 100.0 / total));
-  });
-  //执行请求
-  GetObjectResult result = cosXml.GetObject(request);
-  //请求成功
-  Console.WriteLine(result.GetResultInfo());
+    public class GetObjectModel {
+
+      private CosXml cosXml;
+
+      GetObjectModel() {
+        CosXmlConfig config = new CosXmlConfig.Builder()
+          .SetRegion("COS_REGION") // 设置默认的区域, COS 地域的简称请参照 https://cloud.tencent.com/document/product/436/6224 
+          .Build();
+        
+        string secretId = "SECRET_ID";   // 云 API 密钥 SecretId, 获取 API 密钥请参照 https://console.cloud.tencent.com/cam/capi
+        string secretKey = "SECRET_KEY"; // 云 API 密钥 SecretKey, 获取 API 密钥请参照 https://console.cloud.tencent.com/cam/capi
+        long durationSecond = 600;          //每次请求签名有效时长，单位为秒
+        QCloudCredentialProvider qCloudCredentialProvider = new DefaultQCloudCredentialProvider(secretId, 
+          secretKey, durationSecond);
+        
+        this.cosXml = new CosXmlServer(config, qCloudCredentialProvider);
+      }
+
+      /// 下载对象
+      public void GetObject()
+      {
+        //.cssg-snippet-body-start:[get-object]
+        try
+        {
+          // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+          string bucket = "examplebucket-1250000000";
+          string key = "exampleobject"; //对象键
+          string localDir = System.IO.Path.GetTempPath();//本地文件夹
+          string localFileName = "my-local-temp-file"; //指定本地保存的文件名
+          GetObjectRequest request = new GetObjectRequest(bucket, key, localDir, localFileName);
+          //设置进度回调
+          request.SetCosProgressCallback(delegate (long completed, long total)
+          {
+            Console.WriteLine(String.Format("progress = {0:##.##}%", completed * 100.0 / total));
+          });
+          //执行请求
+          GetObjectResult result = cosXml.GetObject(request);
+          //请求成功
+          Console.WriteLine(result.GetResultInfo());
+        }
+        catch (COSXML.CosException.CosClientException clientEx)
+        {
+          //请求失败
+          Console.WriteLine("CosClientException: " + clientEx);
+        }
+        catch (COSXML.CosException.CosServerException serverEx)
+        {
+          //请求失败
+          Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+        }
+      }
+
+      static void Main(string[] args)
+      {
+        GetObjectModel m = new GetObjectModel();
+        /// 下载对象
+        m.GetObject();
+      }
+    }
 }
-catch (COSXML.CosException.CosClientException clientEx)
+
+```
+
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/dotnet/dist/GetObject.cs) 查看。
+>
+
+#### 示例代码二：下载对象到内存中
+
+[//]: #	".cssg-snippet-get-object"
+
+```cs
+using COSXML.Model.Object;
+using COSXML.Auth;
+using System;
+using COSXML;
+
+namespace COSSnippet
 {
-  //请求失败
-  Console.WriteLine("CosClientException: " + clientEx);
+    public class GetObjectModel {
+
+      private CosXml cosXml;
+
+      GetObjectModel() {
+        CosXmlConfig config = new CosXmlConfig.Builder()
+          .SetRegion("COS_REGION") // 设置默认的区域, COS 地域的简称请参照 https://cloud.tencent.com/document/product/436/6224 
+          .Build();
+        
+        string secretId = "SECRET_ID";   // 云 API 密钥 SecretId, 获取 API 密钥请参照 https://console.cloud.tencent.com/cam/capi
+        string secretKey = "SECRET_KEY"; // 云 API 密钥 SecretKey, 获取 API 密钥请参照 https://console.cloud.tencent.com/cam/capi
+        long durationSecond = 600;          //每次请求签名有效时长，单位为秒
+        QCloudCredentialProvider qCloudCredentialProvider = new DefaultQCloudCredentialProvider(secretId, 
+          secretKey, durationSecond);
+        
+        this.cosXml = new CosXmlServer(config, qCloudCredentialProvider);
+      }
+
+      /// 下载返回 bytes 数据
+      public void downloadToMem() {
+        try
+        {
+          // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+          string bucket = "examplebucket-1250000000";
+          string key = "exampleobject"; //对象键
+        
+          GetObjectBytesRequest request = new GetObjectBytesRequest(bucket, key);
+          //设置进度回调
+          request.SetCosProgressCallback(delegate (long completed, long total)
+          {
+            Console.WriteLine(String.Format("progress = {0:##.##}%", completed * 100.0 / total));
+          });
+          //执行请求
+          GetObjectBytesResult result = cosXml.GetObject(request);
+          //获取内容到 byte 数组中
+          byte[] content = result.content;
+          //请求成功
+          Console.WriteLine(result.GetResultInfo());
+        }
+        catch (COSXML.CosException.CosClientException clientEx)
+        {
+          //请求失败
+          Console.WriteLine("CosClientException: " + clientEx);
+        }
+        catch (COSXML.CosException.CosServerException serverEx)
+        {
+          //请求失败
+          Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+        }
+      }
+
+      // .cssg-methods-pragma
+
+      static void Main(string[] args)
+      {
+        GetObjectModel m = new GetObjectModel();
+
+        /// 下载对象到内存中
+        m.downloadToMem();
+        // .cssg-methods-pragma
+      }
+    }
 }
-catch (COSXML.CosException.CosServerException serverEx)
-{
-  //请求失败
-  Console.WriteLine("CosServerException: " + serverEx.GetInfo());
-}
+
 ```
 
 >? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/dotnet/dist/GetObject.cs) 查看。

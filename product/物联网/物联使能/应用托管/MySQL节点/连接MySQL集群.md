@@ -21,9 +21,10 @@
 ## 通过数据管理平台 DMC 连接 MySQL 集群
 1. 在 MySQL节点的集群列表页，单击”操作“列的**登录**，进入数据管理控制台的登录界面。
 2. 在数据管理控制台的登录界面，帐号输入 root，密码为之前在创建集群时配置的 root 帐户的密码，单击**登录**。
+![](https://main.qcloudimg.com/raw/d07b1477bd524f23fbaa9450c352c49f.png)
 
 >?DMC 平台可便捷地访问实例、操作库表级、管理实例会话、实时监控、InnoDB 锁等待、SQL 窗口等。
->![](https://main.qcloudimg.com/raw/d07b1477bd524f23fbaa9450c352c49f.png)
+
 
 
 ## 通过内外网连接 MySQL 集群

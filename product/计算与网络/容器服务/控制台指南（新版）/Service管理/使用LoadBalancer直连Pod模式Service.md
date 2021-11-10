@@ -34,7 +34,7 @@
 ![](https://main.qcloudimg.com/raw/5190f97b699f9d0d856aeb0412a9428f.png)
  - **服务访问方式**：选择为**公网LB访问**或**内网LB访问**。
  - **网络模式**：勾选**采用负载均衡直连Pod模式**。
- - **Workload绑定**：选择**引用Workload**，并在弹出窗口中选择 VPC-CNI 模式的后端工作负载。
+ - **Workload绑定**：选择**引用Workload**。
 3. 单击**创建服务**，完成创建。 
 		
 :::
@@ -45,17 +45,17 @@
 kind: Service
 apiVersion: v1
 metadata:
-    annotations:
-  	service.cloud.tencent.com/direct-access: "true" ##开启直连 Pod 模式
-    name: my-service
+  annotations:
+    service.cloud.tencent.com/direct-access: "true" ##开启直连 Pod 模式
+  name: my-service
 spec:
-    selector:
-      app: MyApp
-    ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 9376
-    type: LoadBalancer
+  selector:
+    app: MyApp
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 9376
+  type: LoadBalancer
 ```
 
 ####  annotation 扩展
@@ -138,13 +138,16 @@ Kubernetes 集群提供了服务注册的机制，只需要将您的服务以 `M
 
 <dx-tabs>
 ::: 控制台操作指引
+**前置使用条件**
+在 `kube-system/tke-service-controller-config` ConfigMap 中新增 `GlobalRouteDirectAccess: "true"` 以开启 GlobalRoute 直连能力。
+
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 参考 [控制台创建 Service](https://cloud.tencent.com/document/product/457/45489#.E5.88.9B.E5.BB.BA-service) 步骤，进入 “新建Service” 页面，根据实际需求设置 Service 参数。
     其中，部分关键参数信息需进行如下设置，如下图所示：
 ![](https://main.qcloudimg.com/raw/5190f97b699f9d0d856aeb0412a9428f.png)
  - **服务访问方式**：选择为**公网LB访问**或**内网LB访问**。
  - **网络模式**：勾选**采用负载均衡直连Pod模式**。
- - **Workload绑定**：选择**引用Workload**，并在弹出窗口中选择 VPC-CNI 模式的后端工作负载。
+ - **Workload绑定**：选择**引用Workload**。
 3. 单击**创建服务**，完成创建。 
 :::
 ::: YAML\s操作指引
@@ -153,21 +156,23 @@ Kubernetes 集群提供了服务注册的机制，只需要将您的服务以 `M
 **前置使用条件**
 在 `kube-system/tke-service-controller-config` ConfigMap 中新增 `GlobalRouteDirectAccess: "true"` 以开启 GlobalRoute 直连能力。
 
+**在 Service YAML 里开启直连模式**
+
 ```
 kind: Service
 apiVersion: v1
 metadata:
-    annotations:
-  	service.cloud.tencent.com/direct-access: "true" ##开启直连 Pod 模式
-    name: my-service
+  annotations:
+    service.cloud.tencent.com/direct-access: "true" ##开启直连 Pod 模式
+  name: my-service
 spec:
-    selector:
-      app: MyApp
-    ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 9376
-    type: LoadBalancer
+  selector:
+    app: MyApp
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 9376
+  type: LoadBalancer
 ```
 
 ####  annotation 扩展

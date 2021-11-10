@@ -23,7 +23,8 @@ PUT Bucket domain 用于为存储桶配置自定义域名。
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   
   DomainConfiguration domain = new DomainConfiguration();
   domain.rule = new DomainConfiguration.DomainRule();
@@ -73,7 +74,8 @@ GET Bucket domain 用于查询存储桶的自定义域名信息。
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   GetBucketDomainRequest request = new GetBucketDomainRequest(bucket);   
   //执行请求
   GetBucketDomainResult result = cosXml.GetBucketDomain(request);

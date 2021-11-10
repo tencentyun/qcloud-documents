@@ -9,7 +9,8 @@
 - 需要指定 CLB 的可用区已实现资源的统一管理。
 
 >?
-> 1. 如需使用非本集群所在 VPC 的 CLB，需先通过 [云联网](https://cloud.tencent.com/document/product/877/18752) 打通当前集群 VPC 和 CLB 所在的 VPC。
+> 1. 跨域绑定仅支持“带宽上移账户”。若您无法确定账户类型，请参见 [判断账户类型](https://cloud.tencent.com/document/product/1199/49090#judge)。
+> 2. 如需使用非本集群所在 VPC 的 CLB，需先通过 [云联网](https://cloud.tencent.com/document/product/877/18752) 打通当前集群 VPC 和 CLB 所在的 VPC。
 > 2. 在确保 VPC 已经打通之后，请 [在线咨询](https://cloud.tencent.com/act/event/connect-service) 申请使用该功能。
 > 3. 以下 YAML 中，需要您输入地域 ID ，您可以通过 [地域和可用区](https://cloud.tencent.com/document/product/457/44787#.E4.B8.AD.E5.9B.BD) 查看地域 ID。
 

@@ -13,9 +13,9 @@
 // 初始化监听器 Listener
 static void Listener () {
     var gameInfo = new GameInfoPara {
-        GameId = "xxxxxxxxxxxx",// 替换为控制台上的“游戏ID”
-        OpenId = "xxxxxxxxxxxx", // 开发者定义的玩家唯一ID
-        SecretKey = "xxxxxxxxxxxxx" // 替换为控制台上的“游戏key”
+        GameId = "xxxxxxxxxxxx",// 替换为控制台上的“游戏 ID”
+        OpenId = "xxxxxxxxxxxx", // 开发者定义的玩家唯一 ID
+        SecretKey = "xxxxxxxxxxxxx" // 替换为控制台上的“游戏 key”
     };
 
     var config = new ConfigPara {
@@ -76,7 +76,13 @@ Room.GetMyRoom (eve => {
 ```
 
 后续的创建房间、加房、匹配等接口调用直接利用 room 实例即可。
->?GetMyRoom、GetRoomList、GetRoomByRoomId 接口是 Room 对象的静态方法，您需要使用 Room.GetMyRoom、Room.GetRoomList、Room.GetRoomByRoomId 进行调用。Room 的实例无法直接访问 GetMyRoom、GetRoomList、GetRoomByRoomId。
+
+
+<dx-alert infotype="explain" title="">
+GetMyRoom、GetRoomList、GetRoomByRoomId 接口是 Room 对象的静态方法，您需要使用 Room.GetMyRoom、Room.GetRoomList、Room.GetRoomByRoomId 进行调用。Room 的实例无法直接访问 GetMyRoom、GetRoomList、GetRoomByRoomId。
+</dx-alert>
+
+
 
 ### Room 接收广播
 
@@ -130,18 +136,18 @@ room.OnDismissRoom = eve => {
 ```
 PlayerInfoPara playerInfoPara = new PlayerInfoPara
 {
-	Name = "测试Name",
-	CustomProfile = "测试CustomProfile",
+	Name = "测试 Name",
+	CustomProfile = "测试 CustomProfile",
 	CustomPlayerStatus = 12345,
 };
 
 CreateRoomPara createRoomPara = new CreateRoomPara
 {
-	RoomName = "测试RoomName",
-	RoomType = "测试RoomType",
+	RoomName = "测试 RoomName",
+	RoomType = "测试 RoomType",
 	MaxPlayers = 10,
 	IsPrivate = true,
-	CustomProperties = "测试CustomProperties",
+	CustomProperties = "测试 CustomProperties",
 	PlayerInfo = playerInfoPara,
 };
 
@@ -152,7 +158,7 @@ room.CreateRoom(createRoomPara, eve =>
 		// 创建成功
 		Debug.LogFormat ("创建成功 {0}", eve.Data);
 
-		// 使用 room 调用其他API，如 room.StartFrameSync
+		// 使用 room 调用其他 API，如 room.StartFrameSync
 		// ...
 
 		return;
@@ -248,4 +254,11 @@ room.OnStopFrameSync = eve => {
 	Debug.LogFormat ("停止帧同步: {0}", eve.Data);
 };
 ```
+
+
+
+<dx-alert infotype="notice" title="">
+C# SDK 可正常使用但后续不再进行更新维护。
+</dx-alert>
+
 

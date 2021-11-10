@@ -37,15 +37,19 @@
    import java.util.Date;
    import java.util.concurrent.TimeoutException;
    
-   /**
-    * @author coselding.
-    * @date 2021/6/3
-    */
    public class AoPTest {
    
-       // 填写您的用户名和密钥，在控制台“角色管理”页面获取。
-       private static final String username = "yourusername";
+       // 填写您的用户名和密钥，在控制台“角色管理”页面获取
+       private static final String username = "role";
        private static final String password = "eyJr****";
+       //集群接入地址，在集群管理页面操作列的获取接入地址获取。
+       private static final String uri = "amqp://amqp-****.com:5***";
+       //Vhost 名称，在控制台 Vhost 页面复制，格式是“集群 ID + | + vhost 名称”
+       private static final String vhostname = "amqp-****|vhost";
+       //Exchange 名称，在控制台创建好后复制
+       private static final String exchange = "exchange";
+       //Queue 名称，在控制台创建好后复制
+       private static final String queue = "queue";
    
        private ConnectionFactory connectionFactory;
        private Connection connection;
@@ -71,15 +75,6 @@
            if (connection != null) {
                connection.close();
            }
-       }
-   
-       public void bind(String exchange, String routingKey, String queue) throws IOException {
-           // exchange declare
-           channel.exchangeDeclare(exchange, BuiltinExchangeType.DIRECT, true, false, false, null);
-   
-           // queue declare and bind
-           channel.queueDeclare(queue, true, false, false, null);
-           channel.queueBind(queue, exchange, routingKey);
        }
    
        public void publish(String exchange, String routingKey, int count) throws InterruptedException {
@@ -115,11 +110,11 @@
        }
      
        public static void main(String[] args) throws Exception {
-           // 填写exchange名称
-           String exchange = "yourexchange";
-           String queue = "yourqueue";
-           AoPTest aopTest = new AoPTest("uri", "vhostname");
+           
+           AoPTest aopTest = new AoPTest(uri, vhostname);
+	   //开启持续消费c
            aopTest.consume(queue);
+	   //开始生产消息
            aopTest.publish(exchange, "routingKey", 10);
    
            Thread.sleep(10_000);

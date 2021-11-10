@@ -27,7 +27,7 @@ CLS 提供针对 kubernetes 审计日志的一站式服务，包含采集，存�
 
 1. 登录 [TKE 控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)。
 2. 在左侧导航栏中，单击**集群运维** > **审计检索**。
-3. 在审计检索页面，单击**K8S对象操作概览**标签，指定操作类型为 delete和资源对象。
+3. 在审计检索页面，单击**K8S对象操作概览**标签，指定操作类型为 delete 和资源对象 nginx。
 ![img](https://main.qcloudimg.com/raw/0948e4538dc02116432bf016826680dd.png)
 查询结果如下图所示：
 ![img](https://main.qcloudimg.com/raw/dcb4952282eda70f2072904f0eff5ce8.png)
@@ -54,7 +54,7 @@ CLS 提供针对 kubernetes 审计日志的一站式服务，包含采集，存�
 ![img](https://main.qcloudimg.com/raw/e5eb3310ed5a03fc759ca682b08866f1.png)
 查询结果如下图所示：
 ![img](https://main.qcloudimg.com/raw/eafe73fdcb9dfbbd09f325f4b89feba6.png)
-由图可见，是`10001****7138`这个账号在`2020-1-30T06:22:18`时对`172.16.18.13`这台节点进行了封锁操作。
+由图可见，是`10001****7138`这个账号在`2020-11-30T06:22:18`时对`172.16.18.13`这台节点进行了封锁操作。
 
 
 

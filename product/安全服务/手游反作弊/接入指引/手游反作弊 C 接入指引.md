@@ -61,7 +61,7 @@ LOCAL_SHARED_LIBRARIES:=libtp2
 
 ## SDK 接口调用
 ```
-#include “tp2_sdk.h”//所需头文件
+#include “tp2_sdk.h”；//所需头文件
 int tp2_sdk_init_ex(int game_id  const char* app_key);// 初始化接口 函数原型
 ```
 
@@ -88,7 +88,7 @@ int tp2_setuserinfo(int account_type, int world_id, string open_id, string role_
 | account_type | 与运营平台相关的帐号类型，参考下文的 TssSdkEntryId 填写 |
 | world_id | 用户游戏角色的大区信息 |
 | open_id | 用户唯一身份标识，可自定义字符串。（和处罚相关必须填写） |
-| open_id | 区分用户创建的不同角色的标识 |
+| role_id | 区分用户创建的不同角色的标识 |
 
 account_type 默认 QQ 平台填 1，微信平台填 2，其他平台填 99。国内外主流帐号登录平台可参考以下数值填写。
 ```

@@ -25,7 +25,7 @@ FLUSH PRIVILEGES;
 ```
 
 ## 注意事项
-- 为了避免高权限用户误操作的风险，MySQL 限制了高权限帐号的导入，目前仅支持如下权限帐号的导入：
+- 目标库为腾讯云 MySQL 数据库时，仅支持如下普通权限的导入，不支持高权限的导入。该限制主要是为了避免高权限用户可能的误操作给业务带来风险。
 SELECT, CREATE USER, LOCK TABLES, SHOW VIEW, TRIGGER, ALTER, ALTER ROUTINE, CREATE,CREATE ROUTINE, CREATE TABLESPACE, CREATE TEMPORARY TABLES, CREATE VIEW,DELETE,DROP,EVENT,EXECUTE, INDEX, INSERT, PROCESS, REFERENCES, RELOAD, UPDATE, SHOW DATABASES, REPLICATION CLIENT, REPLICATION SLAVE 权限的账号。
 - pt-show-grants 以源库版本 MySQL 5.7.6 作为界限会生成不同的 SQL 语句，低版本生成的语句无法导入高版本的目标库。
 

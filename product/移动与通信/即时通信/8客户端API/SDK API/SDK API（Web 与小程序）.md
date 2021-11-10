@@ -3,13 +3,13 @@
 
 ## TIM
 
-TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [create()](https://web.sdk.qcloud.com/im/doc/zh-cn//TIM.html#.create) ，以及事件常量 [EVENT](https://web.sdk.qcloud.com/im/doc/zh-cn//module-EVENT.html)，类型常量 [TYPES](https://web.sdk.qcloud.com/im/doc/zh-cn//module-TYPES.html)。
+TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [create()](https://web.sdk.qcloud.com/im/doc/zh-cn/TIM.html#.create) ，以及事件常量 [EVENT](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html)，类型常量 [TYPES](https://web.sdk.qcloud.com/im/doc/zh-cn/module-TYPES.html)。
 
 **初始化**
 
 | API | 描述 |
 | --- | --- |
-| [create](https://web.sdk.qcloud.com/im/doc/zh-cn//TIM.html#.create) | 创建 SDK 实例。 |
+| [create](https://web.sdk.qcloud.com/im/doc/zh-cn/TIM.html#.create) | 创建 SDK 实例。 |
 
 ## SDK 实例
 
@@ -18,6 +18,9 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | Message（消息） | IM SDK 中 [Message](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html) 表示要发送给对方的内容，消息包括若干属性，例如自己是否为发送者，发送人帐号以及消息产生时间等。 |
 | Conversation（会话） | IM SDK 中 [Conversation](https://web.sdk.qcloud.com/im/doc/zh-cn/Conversation.html) 分为两种：<li> C2C（Client to Client）会话，表示单聊情况，自己与对方建立的对话。</li><li> GROUP（群）会话，表示群聊情况下群内成员组成的会话。 |
 | Profile（资料） | IM SDK 中 [Profile](https://web.sdk.qcloud.com/im/doc/zh-cn/Profile.html) 描述个人的常用基本信息，例如昵称、性别、个性签名以及头像地址等。 |
+| Friend（好友） | IM SDK 中 [Friend](https://web.sdk.qcloud.com/im/doc/zh-cn/Friend.html) 描述好友的常用基本信息，例如备注、分组等。 |
+| FriendApplication（好友申请）	| IM SDK 中 [FriendApplication](https://web.sdk.qcloud.com/im/doc/zh-cn/FriendApplication.html) 描述好友申请的常用基本信息，例如加好友来源、备注等。 |
+| FriendGroup（好友分组）| IM SDK 中 [FriendGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/FriendGroup.html) 描述好友分组的常用基本信息，例如分组名、分组成员等。
 | Group（群组） | IM SDK 中 [Group](https://web.sdk.qcloud.com/im/doc/zh-cn/Group.html) 表示一个支持多人聊天的通信系统，支持好友工作群、陌生人社交群、临时会议群以及直播群。 |
 | GroupMember（群成员） | IM SDK 中 [GroupMember](https://web.sdk.qcloud.com/im/doc/zh-cn/GroupMember.html) 描述群内成员的常用基本信息，例如 ID、昵称、群内身份以及入群时间等。 |
 | 群提示消息 | 当有用户被邀请加入群组或被移出群组等事件发生时，群内会产生提示消息，接入侧可以根据实际需求展示给群组用户或忽略。<br/>群提示消息有多种类型，详细描述请参见  [Message.GroupTipPayload](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html#.GroupTipPayload)。|
@@ -44,6 +47,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [createFileMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createFileMessage) | 创建文件消息。 |
 | [createMergerMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createMergerMessage) | 创建合并消息。 |
 | [downloadMergerMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#downloadMergerMessage) | 下载合并消息。 |
+| [createForwardMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createForwardMessage) | 创建转发消息。 |
 | [sendMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#sendMessage) | 发送消息。 |
 | [revokeMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#revokeMessage) | 撤回消息。 |
 | [resendMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#resendMessage) | 重发消息。 |
@@ -57,6 +61,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [getConversationList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getConversationList) | 获取会话列表。 |
 | [getConversationProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getConversationProfile) | 获取会话资料。 |
 | [deleteConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteConversation) | 删除会话。 |
+| [pinConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#pinConversation) | 置顶或取消置顶会话。 |
 
 ### 资料
 | API | 描述 |
@@ -67,6 +72,27 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [getBlacklist](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getBlacklist) | 获取我的黑名单列表。 |
 | [addToBlacklist](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#addToBlacklist) | 添加用户到黑名单列表。 |
 | [removeFromBlacklist](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#removeFromBlacklist) | 将用户从黑名单中移除。 |
+
+### 关系链
+| API | 描述 |
+| --- | --- |
+| [getFriendList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getFriendList) | 获取 SDK 缓存的好友列表。 |
+| [addFriend](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#addFriend) | 添加好友。 |
+| [deleteFriend](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteFriend) | 删除好友。 |
+| [checkFriend](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#checkFriend) | 校验好友关系。 |
+| [getFriendProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getFriendProfile) | 获取指定好友的好友数据和资料数据。 |
+| [updateFriend](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#updateFriend) | 更新好友的关系链数据。 |
+| [getFriendApplicationList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getFriendApplicationList) | 获取 SDK 缓存的好友申请列表。 |
+| [acceptFriendApplication](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#acceptFriendApplication) | 同意好友申请。 |
+| [refuseFriendApplication](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#refuseFriendApplication) | 拒绝好友申请。 |
+| [deleteFriendApplication](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteFriendApplication) | 删除好友申请。 |
+| [setFriendApplicationRead](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setFriendApplicationRead) | 上报好友申请已读。 |
+| [getFriendGroupList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getFriendGroupList) | 获取 SDK 缓存的好友分组列表。 |
+| [createFriendGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createFriendGroup) | 创建好友分组。 |
+| [deleteFriendGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteFriendGroup) | 删除好友分组。 |
+| [addToFriendGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#addToFriendGroup) | 添加好友到分组列表。 |
+| [removeFromFriendGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#removeFromFriendGroup) | 从好友分组移除好友。 |
+| [renameFriendGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#renameFriendGroup) | 修改好友分组的名称。 |
 
 ### 群组
 | API | 描述 |
@@ -82,6 +108,10 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [getGroupOnlineMemberCount](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupOnlineMemberCount) | 获取直播群在线人数。 |
 | [changeGroupOwner](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#changeGroupOwner) | 转让群组。 |
 | [handleGroupApplication](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#handleGroupApplication) | 处理申请加群。 |
+| [initGroupAttributes](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#initGroupAttributes) | 初始化群属性。 |
+| [setGroupAttributes](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupAttributes) | 设置群属性。 |
+| [deleteGroupAttributes](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteGroupAttributes) | 删除群属性。 |
+| [getGroupAttributes](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupAttributes) | 获取群属性。 |
 
 ### 群成员
 | API | 描述 |
@@ -103,6 +133,6 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [off](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#off) | 取消监听事件。 |
 | [registerPlugin](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#registerPlugin) | 注册插件。 |
 | [setLogLevel](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setLogLevel) | 设置日志级别。 |
-
+| [destroy](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#destroy)  | 销毁 SDK 实例。 |
 
 

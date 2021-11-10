@@ -325,7 +325,7 @@ pusherInstance
 
 <dx-codeblock>
 ::: javascript javascript
-this.getPusherInstance().start() // 开始推流
+this.TRTC.getPusherInstance.start() // 开始推流
 :::
 </dx-codeblock>
 
@@ -348,7 +348,7 @@ playerInstance
 
 <dx-codeblock>
 ::: javascript javascript
-this.getPlayerInstance().stop() // 停止这个player的播放
+this.TRTC.getPlayerInstance().stop() // 停止这个player的播放
 :::
 </dx-codeblock>
 

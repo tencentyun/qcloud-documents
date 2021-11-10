@@ -6,16 +6,14 @@ PHP SDK 提供获取请求预签名 URL 接口，请求示例如下。
 > - 如果您一定要使用永久密钥来生成预签名，建议永久密钥的权限范围仅限于上传或下载操作，以规避风险。
 > 
 
-
-
 ## 永久密钥预签名请求示例
 
 ### 上传请求示例
 [//]: # (.cssg-snippet-get-presign-upload-url)
 ```php
-$secretId = "SECRETID"; //替换为您的永久密钥 SecretId
-$secretKey = "SECRETKEY"; //替换为您的永久密钥 SecretKey
-$region = "ap-beijing"; //设置一个默认的存储桶地域
+$secretId = "SECRETID"; //替换为用户的 secretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
+$secretKey = "SECRETKEY"; //替换为用户的 secretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
+$region = "ap-beijing"; //替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
 $cosClient = new Qcloud\Cos\Client(
     array(
         'region' => $region,
@@ -28,9 +26,7 @@ try {
     $signedUrl = $cosClient->getPreSignedUrl('putObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
-        'Body' => 'string', //可为空或任意字符串
-        'Params' => array(), //需要签入签名的请求参数
-        'Headers' => array() //需要签入签名的请求头部
+        'Body' => 'string' //可为空或任意字符串
     ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
@@ -46,9 +42,7 @@ try {
             'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
             'UploadId' => 'string',
             'PartNumber' => '1',
-            'Body' => 'string',
-            'Params' => array(), //需要签入签名的请求参数
-            'Headers' => array() //需要签入签名的请求头部
+            'Body' => 'string'
             ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
@@ -61,9 +55,9 @@ try {
 ### 下载请求示例
 [//]: # (.cssg-snippet-get-presign-download-url)
 ```php
-$secretId = "SECRETID"; //替换为您的永久密钥 SecretId
-$secretKey = "SECRETKEY"; //替换为您的永久密钥 SecretKey
-$region = "ap-beijing"; //设置一个默认的存储桶地域
+$secretId = "SECRETID"; //替换为用户的 secretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
+$secretKey = "SECRETKEY"; //替换为用户的 secretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
+$region = "ap-beijing"; //替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
 $cosClient = new Qcloud\Cos\Client(
     array(
         'region' => $region,
@@ -75,9 +69,7 @@ $cosClient = new Qcloud\Cos\Client(
 try {
     $signedUrl = $cosClient->getPreSignedUrl('getObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
-        'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
-        'Params' => array(), //需要签入签名的请求参数
-        'Headers' => array() //需要签入签名的请求头部
+        'Key' => "exampleobject" //对象在存储桶中的位置，即对象键
         ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
@@ -104,10 +96,10 @@ try {
 ### 上传请求示例
 [//]: # (.cssg-snippet-get-presign-sts-upload-url)
 ```php
-$tmpSecretId = "SECRETID"; //替换为您的临时密钥 SecretId
-$tmpSecretKey = "SECRETKEY"; //替换为您的临时密钥 SecretKey
-$tmpToken = "COS_TOKEN"; //替换为您的临时密钥 token
-$region = "ap-beijing"; //设置一个默认的存储桶地域
+$tmpSecretId = "SECRETID"; //替换为用户的 secretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
+$tmpSecretKey = "SECRETKEY"; //替换为用户的 secretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
+$tmpToken = "COS_TOKEN"; //使用临时密钥需要填入，临时密钥生成和使用指引参见https://cloud.tencent.com/document/product/436/14048
+$region = "COS_REGION"; //替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
 $cosClient = new Qcloud\Cos\Client(
     array(
         'region' => $region,
@@ -121,9 +113,7 @@ try {
     $signedUrl = $cosClient->getPreSignedUrl('putObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
-        'Body' => 'string',
-        'Params' => array(), //需要签入签名的请求参数
-        'Headers' => array() //需要签入签名的请求头部
+        'Body' => 'string'
         ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
@@ -139,9 +129,7 @@ try {
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
         'UploadId' => '',
         'PartNumber' => '1',
-        'Body' => '',
-        'Params' => array(), //需要签入签名的请求参数
-        'Headers' => array() //需要签入签名的请求头部
+        'Body' => ''
         ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
@@ -154,10 +142,10 @@ try {
 ### 下载请求示例
 [//]: # (.cssg-snippet-get-presign-sts-download-url)
 ```php
-$tmpSecretId = "SECRETID"; //替换为您的临时密钥 SecretId
-$tmpSecretKey = "SECRETKEY"; //替换为您的临时密钥 SecretKey
-$tmpToken = "COS_TOKEN"; //替换为您的临时密钥 token
-$region = "ap-beijing"; //设置一个默认的存储桶地域
+$tmpSecretId = "SECRETID"; //替换为用户的 secretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
+$tmpSecretKey = "SECRETKEY"; //替换为用户的 secretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
+$tmpToken = "COS_TOKEN"; //使用临时密钥需要填入，临时密钥生成和使用指引参见https://cloud.tencent.com/document/product/436/14048
+$region = "COS_REGION"; //替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
 $cosClient = new Qcloud\Cos\Client(
     array(
         'region' => $region,
@@ -171,8 +159,6 @@ try {
     $signedUrl = $cosClient->getPreSignedUrl('getObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject" //对象在存储桶中的位置，即对象键
-        'Params' => array(), //需要签入签名的请求参数
-        'Headers' => array() //需要签入签名的请求头部
     ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
