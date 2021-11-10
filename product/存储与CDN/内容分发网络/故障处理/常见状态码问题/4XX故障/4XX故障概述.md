@@ -8,10 +8,9 @@
 |---|---|--|
 |403|禁止访问|[单击查看详情](https://cloud.tencent.com/document/product/228/63824)|
 |404|Not Found|[单击查看详情](https://cloud.tencent.com/document/product/228/63825)|
-|423|当前资源被锁定|[单击查看详情](https://cloud.tencent.com/document/product/228/63826)|
 |410|太多请求|请检查回源 Host 是否正确|
 |416|服务器无法处理所请求的数据区间|[单击查看详情](https://cloud.tencent.com/document/product/228/63827)|
-
+|423|当前资源被锁定|[单击查看详情](https://cloud.tencent.com/document/product/228/63826)|
 
 
 
