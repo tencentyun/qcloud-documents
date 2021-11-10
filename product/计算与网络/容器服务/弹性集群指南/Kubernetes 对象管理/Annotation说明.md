@@ -94,17 +94,22 @@
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/eip-attributes</td>
-<td>表明该 Workload 的 Pod 需要关联 EIP，值为 "" 时表明采用 EIP 默认配置创建。"" 内可填写 EIP 云 API 参数 json，实现自定义配置。例如 annotation 的值为 '{"InternetMaxBandwidthOut":2}' 即为使用2M的带宽。</td>
+<td>表明该 Workload 的 Pod 需要关联 EIP，值为 "" 时表明采用 EIP 默认配置创建。"" 内可填写 EIP 云 API 参数 json，实现自定义配置。例如 annotation 的值为 '{"InternetMaxBandwidthOut":2}' 即为使用2M的带宽。注意，非带宽上移的账号无法使用。</td>
 <td>否 </td>
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/eip-claim-delete-policy</td>
-<td> Pod 删除后，EIP 是否自动回收，“Never” 不回收，默认回收。</td>
+<td> Pod 删除后，EIP 是否自动回收，“Never” 不回收，默认回收。该参数只有在指定eks.tke.cloud.tencent.com/eip-attributes时才生效。注意，非带宽上移的账号无法使用。</td>
+<td>否 </td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/eip-id-list</td>
+<td>如果工作负载为StatefulSet，也可以使用指定已有 EIP 的方式，可指定多个，如"eip-xx1,eip-xx2"。请注意，StatefulSet pod 的数量必须小于等于此 annotation 中指定 EIP Id 的数量，否则分配不到 EIP 的pod会处于 Pending状态。注意，非带宽上移的账号无法使用。</td>
 <td>否 </td>
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/eip-injection</td>
-<td>值为 "true" 时，表明会在 Pod 内暴露 EIP 的 IP 信息。在 Pod 内使用 ip addr 命令可以查看到 EIP 的地址。</td>
+<td>值为 "true" 时，表明会在 Pod 内暴露 EIP 的 IP 信息。在 Pod 内使用 ip addr 命令可以查看到 EIP 的地址。注意，非带宽上移的账号无法使用。</td>
 <td>否 </td>
 </tr>
 <tr>
