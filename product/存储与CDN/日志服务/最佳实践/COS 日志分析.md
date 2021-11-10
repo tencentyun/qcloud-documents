@@ -66,7 +66,7 @@ json-log2019-05-09_00645d9a-1118-4d69-8411-cfd57ede9ea1_000
 ![image-20210824203424637](https://main.qcloudimg.com/raw/a9aed31374180a80bb946a95b2bd62cd.jpg)
 通过快速分析得知，6条非200的请求信息，其中5条 **resHttpCode** 为403的日志信息和一条 **resHttpCode** 为204日志信息，单击快速检索这两个 httpcode 的日志。
 ![image-20210824202954618](https://main.qcloudimg.com/raw/46fa533cbc164a9115e67d47996ea610.png)
-由日志可以得知，5条错误码为 Access Deny 日志均为访问对象失败日志，通过 resHttpCode 为204的日志发现，用户`1000******`在8.24日19点38分，通过 COS 控制台执行了删除 object 操作，导致对象访问失败。
+由日志可以得知，5条错误码为 Access Deny 日志均为访问对象失败日志，通过 resHttpCode 为204的日志发现，用户`1000******`在8月24日20点16分，通过 COS 控制台执行了删除 object 操作，导致对象访问失败。
 
 ### 场景2：运营统计
 
