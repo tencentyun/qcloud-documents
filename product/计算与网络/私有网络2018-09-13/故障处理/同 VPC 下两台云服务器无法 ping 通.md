@@ -24,7 +24,7 @@
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
 2. 单击云服务器实例 ID，进入实例详情界面。
 3. 单击**ACL规则**页签，查看子网是否绑定了网络 ACL，且 ACL 出入站规则中，是否有拒绝 ICMP 协议，及来源/目标 IP 的规则。
-  + 如绑定了 ACL，且 ACL 中 ICMP 规则为**拒绝**，或 ACL 中无 ICMP 规则，请单击 ACL ID，进入 ACL 界面，将对应协议，及来源/目标 IP 的规则修改为**允许**，然后尝试 ping 测试问题是否解决，解决则结束，未解决则继续排查。
+  + 如绑定了 ACL，且 ACL 中 ICMP 规则为**拒绝**，或 ACL 中无 ICMP 规则，请单击 ACL ID，进入 ACL 界面，将对应协议，及来源/目标 IP 的规则修改为**允许**，并将该条规则移到第一条，确保规则有限匹配，然后尝试 ping 测试问题是否解决，解决则结束，未解决则继续排查。
   +  如未绑定 ACL，或 ACL 规则已允许相应协议及 IP，请继续排查。
    ![](https://qcloudimg.tencent-cloud.cn/raw/dff28d3b2825b35655084d21c7f03bd7.png)
 	 
