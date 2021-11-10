@@ -8,6 +8,7 @@ MySQL 数据备份是腾讯云对象存储（Cloud Object Storage，COS）基于
 - 若您此前在对象存储控制台上为存储桶添加了 MySQL 数据备份规则，可以在 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 上看到您所创建的 MySQL  数据备份函数，请**不要**删除该函数，否则可能导致您的规则不生效。
 - 已上线云函数的地域均已支持 MySQL 数据备份，包括有广州、上海、北京、成都、香港、新加坡、孟买、多伦多、硅谷等，更多支持地域可查看 [云函数产品文档](https://cloud.tencent.com/document/product/583)。
 
+
 ## 操作步骤
 
 ### 在应用集成中设置备份
@@ -23,6 +24,8 @@ MySQL 数据备份是腾讯云对象存储（Cloud Object Storage，COS）基于
 ![img](https://main.qcloudimg.com/raw/4b7aea0f5aacac472ba0dad0e491753f.png)
  - **函数名称**：作为函数的唯一标识名称，创建后不可修改。您可以在 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 上查看该函数。
  - **关联存储桶**：存储 MySQL 备份文件的存储桶。
+>!待备份的 MySQL 数据所在的地域，需要与关联存储桶的所属地域相同。
+>
  - **触发器周期**：MySQL 数据备份函数通过定时触发器来触发备份转存操作，触发周期支持每天、每周及自定义周期。
  - **Cron 表达式**：当触发器周期设置为自定义时，可通过 Cron 指定具体的触发周期规则。Cron 当前以 UTC +8 中国标准时间（China Standard Time）运行，即北京时间。详细配置策略请参见 [Cron 相关文档](https://cloud.tencent.com/document/product/583/9708#cron-.E8.A1.A8.E8.BE.BE.E5.BC.8F)。
  - **数据库实例**：当前存储桶所在地域的 MySQL 数据库实例列表。
