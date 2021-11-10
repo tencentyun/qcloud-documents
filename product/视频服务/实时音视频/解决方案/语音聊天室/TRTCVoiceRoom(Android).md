@@ -392,8 +392,8 @@ public abstract void enterSeat(int seatIndex, TRTCVoiceRoomCallback.ActionCallba
 调用该接口会立即修改麦位表。如果是听众申请上麦需要房主同意的场景，可以先调用 `sendInvitation` 向房主申请，收到 `onInvitationAccept`后再调用该函数。
 
 ### moveSeat
-移动麦位 (麦上主播端可调用)
->? 移动麦位成功后，房间内所有成员会收到 `onSeatListChange`、 `onAnchorLeaveSeat` 和 `onAnchorEnterSeat` 的事件通知。(主播调用后，只是修改麦位座位号信息，并不会切换该用户的主播身份)
+移动麦位 (麦上主播端可调用)。
+>? 移动麦位成功后，房间内所有成员会收到 `onSeatListChange`、 `onAnchorLeaveSeat` 和 `onAnchorEnterSeat` 的事件通知。(主播调用后，只是修改麦位座位号信息，并不会切换该用户的主播身份。)
 
 ```java
 public abstract int moveSeat(int seatIndex, TRTCVoiceRoomCallback.ActionCallback callback);
@@ -410,7 +410,7 @@ public abstract int moveSeat(int seatIndex, TRTCVoiceRoomCallback.ActionCallback
 
 | 返回值   | 类型   | 含义                  |
 | -------- | ------ | --------------------- |
-| code | int | 移动麦位操作结果(0为成功,其它为失败,10001为接口调用限频)。 |
+| code | int | 移动麦位操作结果（0为成功，其它为失败，10001 为接口调用限频）。 |
 
 调用该接口会立即修改麦位表。如果是听众申请上麦需要房主同意的场景，可以先调用 `sendInvitation` 向房主申请，收到 `onInvitationAccept` 后再调用该函数。
 
