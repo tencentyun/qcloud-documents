@@ -84,8 +84,8 @@
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMSdkConfigConfigFilePath | string | 只写（选填） | 配置文件路径，默认路径为"/" |
-| kTIMSdkConfigLogFilePath | string | 只写（选填） | 日志文件路径，默认路径为"/" |
+| kTIMSdkConfigConfigFilePath | string | 只写（必填） | 配置文件路径 |
+| kTIMSdkConfigLogFilePath | string | 只写（必填） | 日志文件路径 |
 | kTIMSdkConfigJavaVM | uint64 | 只写（选填） | 配置 Android 平台的 Java 虚拟机指针 |
 
 ### TIMGroupMemberInfoFlag

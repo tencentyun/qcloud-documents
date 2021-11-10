@@ -77,7 +77,7 @@
 
 | 文件 | 功能描述 |
 |:-------:|:--------|
-| ViewController.swift | 页面控制器，负责页面路由工作，以及 RootView 和 ViweModel 的绑定工作。 |
+| ViewController.swift | 页面控制器，负责页面路由工作，以及 RootView 和 ViewModel 的绑定工作。 |
 | RootView.swift | 视图，所有的视图布局。 |
 | ViewModel.swift | 视图控制器，负责响应视图交互，返回视图响应状态。 |
 
@@ -127,12 +127,12 @@ pod 'TXLiteAVSDK_TRTC'
 <tr><th>SDK</th><th>下载页面</th><th>集成指引</th></tr>
 <tr>
 <td>TRTC SDK</td>
-<td><a href="https://vcube.cloud.tencent.com/home.html?sdk=video">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/1449/56986">集成文档</a></td>
+<td><a href="https://cloud.tencent.com/document/product/647/32689">DOWNLOAD</a></td>
+<td><a href="https://cloud.tencent.com/document/product/647/32173">集成文档</a></td>
 </tr><tr>
 <td>IM SDK</td>
 <td><a href="https://cloud.tencent.com/document/product/269/36887">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/269/32679">集成文档</a></td>
+<td><a href="https://cloud.tencent.com/document/product/269/32675">集成文档</a></td>
 </tr></table>
 
 

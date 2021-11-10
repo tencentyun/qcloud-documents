@@ -29,9 +29,9 @@
 
 [](id:ui.step1)
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 输入应用名称，例如  `TestVoiceRoom`，单击【创建】。
-3. 单击【已下载，下一步】，跳过此步骤。
+1. 登录实时音视频控制台，选择 **开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+2. 输入应用名称，例如  `TestVoiceRoom`，单击 **创建**。
+3. 单击 **已下载，下一步**，跳过此步骤。
 
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
@@ -51,8 +51,8 @@
 <ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
 <img src="https://main.qcloudimg.com/raw/a226f5713e06e014515debd5a701fb63.png">
-4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
-5. 编译完成后，单击【回到控制台概览】即可。
+4. 粘贴完成后，单击 **已复制粘贴，下一步** 即创建成功。
+5. 编译完成后，单击 **回到控制台概览** 即可。
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
@@ -60,7 +60,7 @@
 
 [](id:ui.step4)
 ### 步骤4：运行 App
-使用 Xcode（11.0及以上的版本）打开源码工程 `TUIVoiceRoom/TUIVoiceRoomApp.xcworkspace`，单击【运行】即可开始调试本 App。
+使用 Xcode（11.0及以上的版本）打开源码工程 `TUIVoiceRoom/TUIVoiceRoomApp.xcworkspace`，单击 **运行** 即可开始调试本 App。
 
 [](id:ui.step5)
 ### 步骤5：修改 App 源代码
@@ -87,18 +87,18 @@
 
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 ![](https://main.qcloudimg.com/raw/aacadc7ee6d1267f334fd1d155dcf415.png)
-2. 单击【创建房间】，如下图示：
+2. 单击 **创建房间**，如下图示：
 ![](https://main.qcloudimg.com/raw/a3b5fbb862612c7200253a55f703e7b7.png)
-2. 输入房间主题，单击【开始交谈】。
+2. 输入房间主题，单击 **开始交谈**。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 ![](https://main.qcloudimg.com/raw/9ac6eb6a300a8f401389008c411f5ed8.png)
-2. 输入用户 A 创建的房间号，单击【进入房间】。
+2. 输入用户 A 创建的房间号，单击 **进入房间**。
 ![](https://main.qcloudimg.com/raw/bd2945dfe6e9b586c2f71aa94cde18d8.png)
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
-![](https://main.qcloudimg.com/raw/e209c0781abfd2f2e4ca8870a321c1f7.png)
+![](https://main.qcloudimg.com/raw/02d44e3839798d6ab6aebf55de8cc273.png)
 
 [](id:model)
 ## 实现自定义 UI 界面
@@ -111,12 +111,12 @@
 语音聊天组件 TRTCVoiceRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 - **方法一：通过 cocoapods 仓库依赖**
-	<dx-codeblock>
-	::: swift
-	pod 'TXIMSDK_iOS'
-	pod 'TXLiteAVSDK_TRTC'
-	:::
-	</dx-codeblock>
+   <dx-codeblock>
+   ::: swift
+   pod 'TXIMSDK_iOS'
+   pod 'TXLiteAVSDK_TRTC'
+   :::
+   </dx-codeblock>
 >?两个 SDK 产品的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
 - **方法二：通过本地依赖**
 如果您的开发环境访问 cocoapods 仓库较慢，您可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
@@ -310,15 +310,15 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 ### 步骤7：麦位管理
 <dx-tabs>
 ::: 房主端
-1. `pickSeat` 传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
+1. `pickSeat` 传入对应的麦位和听众 userId，可以抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
 2. `kickSeat` 传入对应麦位后，可以踢人下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
 3. `muteSeat` 传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
 4. `closeSeat` 传入对应麦位后，可以封禁/解禁某个麦位，封禁后听众端将不能再上麦，房间内所有成员会收到` onSeatListChange` 和 `onSeatClose` 的事件通知。
 ![](https://main.qcloudimg.com/raw/78a1d790bf994786f5beac8b97660000.png)
 :::
 ::: 听众端
-1. `enterSeat`传入对应的麦位后，可以进行上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
-2. `leaveSeat`主动下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
+1. `enterSeat`传入对应的麦位后，可以进行上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
+2. `leaveSeat` 主动下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
 
 ![](https://main.qcloudimg.com/raw/356fddebf48c7a4ef918104e8f6e64eb.png)
 

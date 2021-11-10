@@ -51,11 +51,6 @@ SDK 中包含了以下 framework 库以及资源文件：
 3. 权限设置
 OCR SDK 需要手机网络、 摄像头、访问相册的使用权限，请添加对应的权限声明。
 ```xml
-<key>NSAppTransportSecurity</key>
-<dict>
-	<key>NSAllowArbitraryLoads</key>
-	<true/>
-</dict>
 <key>Privacy - Camera Usage Description</key>
 <string>OCR 识别需要开启您的摄像头权限，用于识别</string>
 <key>Privacy - Photo Library Usage Description</key>
@@ -85,7 +80,7 @@ ocrSDKConfig.ocrModeType = _ocrModel;
 /// @param secretId  Secret id
 /// @param secretKey Secret key
 /// @param ocrConfig ocr 配置类
-[ocrSDKKit loadSDKConfigWithSecretId:nil withSecretKey:nil withConfig:ocrSdkConfig];
+[[OcrSDKKit sharedInstance] loadSDKConfigWithSecret:nil withSecretKey:nil withConfig:ocrSdkConfig];
 
 ```
 

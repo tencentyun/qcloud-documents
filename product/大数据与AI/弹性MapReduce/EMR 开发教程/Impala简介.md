@@ -96,7 +96,6 @@ select current_database();
 ```
 
 ### 创建 Impala 表
-
 使用`create`指令在 experiments 数据库下创建一个新的名为 impala_test 的内部表：
 ```
 [localhost:27001] > create table t1 (a int, b string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
@@ -128,7 +127,6 @@ Fetched 2 row(s) in 0.01s
 ```
 
 ### 将数据导入表中
-
 对于存放在 HDFS 中的数据，使用如下指令来将其导入表中：
 ```
 LOAD DATA INPATH '$hdfspath/impala_test.data' INTO TABLE t1;
@@ -162,7 +160,6 @@ Fetched 1 row(s) in 0.63s
 最后输出结果为1000000。
 
 ### 删除表
-
 ```
 [localhost:27001] > drop table experiments.t1;
 Query: drop table experiments.t1

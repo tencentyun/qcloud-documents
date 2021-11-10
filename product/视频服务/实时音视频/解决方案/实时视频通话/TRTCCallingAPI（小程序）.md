@@ -92,7 +92,7 @@ TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
 ```javascript
 // videocall.js
 trtcConfig = {
-  sdkAppID: '1401000123', // 开通实时音视频服务创建应用后分配的 SDKAppID
+  sdkAppID: 0, // 开通实时音视频服务创建应用后分配的 SDKAppID
   userID: 'test_user_001', // 用户 ID，可以由您的帐号系统指定
   userSig: 'xxxxxxxxxxxx', // 身份签名，相当于登录密码的作用
   type: 2, // 通话模式
@@ -394,4 +394,3 @@ trtcRoomContext.on(EVENT.ERROR,(event)=>{
 
 - 多实例：一个 userID 重复登入，或在不同端登入，将会引起信令的混乱。 
 - 离线推送：实例在线才能接收消息，实例离线时接收到的信令不会在上线后重新推送。即，小程序在后台与离线状态下，无法收到呼入提醒或来电提醒。
-

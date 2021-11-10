@@ -3,15 +3,15 @@
 ## 查看专线信息
 1. 登录 [专线接入控制台](https://console.cloud.tencent.com/dc/dc) ，并在左侧导航栏单击【物理专线】。
 2. 在物理专线列表中单击待查看的专线名称。
-3. 在专线信息详情页面查看该物理专线的基本信息，包含专线供应商、接口类型、接入点、带宽等信息。</br><img src="https://main.qcloudimg.com/raw/b7b338537758259c5d15c1cb9c58e244.png" style="zoom:80%;" />
+3. 在专线信息详情页面查看该物理专线的基本信息，包含专线供应商、接口类型、接入点、带宽等信息。</br><img src="https://main.qcloudimg.com/raw/3e634ca81d425f440f513701a8aa8fee.png" style="zoom:80%;" />
 
 ## 修改专线带宽[](id:xgzxdk)
 若当前物理专线带宽不能满足您的业务需求时，可以在控制台修改物理专线带宽。
 1. 登录 [专线接入控制台](https://console.cloud.tencent.com/dc/dc)，并在左侧导航栏单击【物理专线】。
 2. 在目标专线有的“带宽”列单击<img src="https://main.qcloudimg.com/raw/134ed671d2fa3ec1b82525985c0a6633.svg" style="zoom:6%;" />。
-![](https://main.qcloudimg.com/raw/bde4f81c3dd10066759ee63161c09b6a.png)
+![](https://main.qcloudimg.com/raw/c5eae260854570922d36625575efbaf9.png)
 3. 在编辑框中修改带宽值，然后单击【确定】。
- > ?
+> ?
 > - 若当前物理专线下没有创建专用通道，则调整带宽不小于1Mbps，且不超过其端口带宽值。
 > - 若当前物理专线下已创建专用通道，则调整带宽不低于所有通道的最大带宽值，且不超过其端口带宽值。
 > - 目前物理专线的各规格端口带宽上限分别为：
@@ -30,13 +30,12 @@
  1. 在“物理专线”页面上方单击放大镜图标左侧的编辑框，并在下拉菜单中选择【标签】。
  <img src="https://main.qcloudimg.com/raw/623df7a634d09e3988dbe9247acad8a1.png" style="zoom:80%;" />
  2. 在编辑框中输入标签信息，单击放大镜图标。
-![](https://main.qcloudimg.com/raw/9f55c6f02507297688d3056e4f0c86a1.png)
+![](https://main.qcloudimg.com/raw/51b7f45b277dbcbde05e45003e6e78f1.png)
 5. 使用标签管理物理专线。
  1. 在“物理专线”页面上方单击![](https://main.qcloudimg.com/raw/f22b6d803bb59529e530d140ee669a1c.png)图标。
  2. 在“自定义列表字段”页面勾选目标标签，并单击【确定】。
 <img src="https://main.qcloudimg.com/raw/a68cf567e02ff7c3c23cf1ca5d781764.png" style="zoom:80%;" /></br>
-完成后，标签键会出现在物理专线列表第一列。
-<img src="https://main.qcloudimg.com/raw/23b300371c8fd54e99e5c0cf7e923f5f.png" style="zoom:80%;" />
+完成后，标签键会出现在物理专线列表。
 
 ## 删除专线
 当您不需要再使用物理专线时，可以裁撤物理专线。
@@ -44,3 +43,11 @@
 2. 在物理专线列表中单击待裁撤专线右侧“操作”列的【删除】。
 3. 在“确认删除”对话框中勾选【确认删除】，并单击确认。
 >?发起裁撤申请后，该物理专线将立即被删除，同时停止计算端口月租费用。
+
+## 专线接入用户服务协议补签
+如果您还未签署《腾讯云专线接入服务协议》，请按如下步骤补签该协议。
+1. 登录 [专线接入控制台](https://console.cloud.tencent.com/dc/dc)。
+2. 在“物理专线”页面，选择需要补签的物理专线。
+4. 在“操作”列单击**补签**，并在弹出的**补签用户服务协议**页面阅读协议内容，阅读完成后勾选**我已阅读并同意《腾讯云专线接入服务协议》**，然后单击**补签**。
+![](https://qcloudimg.tencent-cloud.cn/raw/188fde1549de78bdf036b7b9df360eab.png)
+

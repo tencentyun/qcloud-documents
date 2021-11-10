@@ -8,7 +8,7 @@
 
 1. 登录 [CODING 控制台](https://console.cloud.tencent.com/coding)，单击团队域名进入 CODING 使用页面。
 2. 单击页面右上角的 <img src ="https://main.qcloudimg.com/raw/d94a8e60dd3a41d0af07d72ae0e9d70e.png" style ="margin:0">，进入项目列表页面，单击项目图标进入目标项目。
-3. 进入项目后点击左下角的【项目设置】。
+3. 进入项目后单击左下角的**项目设置**。
 
 ## 功能介绍
 
@@ -21,7 +21,7 @@ CODING 持续集成中内置了 SSH 相关指令，支持您通过 SSH 对远端
 -   sshCommand：在远端机器执行指定命令
 -   sshPut：将当前工作空间的文件/目录放置到远端机器
 -   sshGet：从远端机器获取文件/目录到当前工作空间
--   sshScript：读取本地 shell 脚本，在远端机器执行，而不是执行远端机器上的脚本，否则将会报错：「does not exists」。
+-   sshScript：读取本地 shell 脚本，在远端机器执行，而不是执行远端机器上的脚本，否则将会报错：**does not exists**。
 -   sshRemove：将远端机器的某个文件/目录移除
 
 如何通过账号 + 密码连接远端机器并执行 SSH 相关命令？Jenkinsfile 配置示例如下：

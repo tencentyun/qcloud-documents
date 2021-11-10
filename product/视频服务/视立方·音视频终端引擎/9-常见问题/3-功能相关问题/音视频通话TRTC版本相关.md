@@ -68,8 +68,8 @@ UserID 即用户 ID，用于在一个实时音视频应用中唯一标识一个�
 房间是由腾讯云后台在客户端进房时自动创建的，您无需手动创建房间，只需调用客户端的相关接口“进入房间”即可：
 - [iOS & Mac > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d)
 - [Android > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c)
-- [Windows（C++） > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#ac73c4ad51eda05cd2bcec820c847e84f)
-- [Windows（C#） > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__csharp.html#a28b2d3ec27af8c9bfd5cf687dd8e002b)
+- [Windows（C++） > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#a0fab3ea6c23c6267112bd1c0b64aa50b)
+- [Windows（C#） > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__csharp.html#afbb3a1e6f73f339d47368a7d620a995f)
 - [Electron > enterRoom](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#enterRoom)
 - [Web > join](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#join)
 - [小程序 > enterRoom](https://cloud.tencent.com/document/product/647/17018#enterroom(params))
@@ -355,6 +355,14 @@ TRTC 专门针对在线直播场景推出了10万人低延时互动直播解决�
 [](id:que70)
 ### 音视频通话 TRTC 如何实现云端录制与回放？
 具体请参见 [云端录制与回放](https://cloud.tencent.com/document/product/1449/57121)。
+
+[](id:que71)
+### TRTC 如何实现服务端录制？
+服务端录制需要使用 Linux SDK， Linux SDK 暂未完全开放。若您需咨询或使用，请填写 [Linux SDK 问卷](https://cloud.tencent.com/apply/p/bmpdfyvtui) 。我们会在2个 - 3个工作日内完成评估并反馈结果。
+
+[](id:que72)
+### TRTC 是否支持私有化部署？
+TRTC 私有化部署暂未完全开放。若您需咨询或使用私有化服务，请填写 [私有化问卷](https://cloud.tencent.com/apply/p/1a2ofbzgo1w)。我们会在2个 - 3个工作日内完成评估并反馈结果。
 
 
 

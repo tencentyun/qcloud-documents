@@ -151,7 +151,7 @@ mLivePusher.startPusher(rtmpURL.trim());
 
 调用 TXLivePush 中的`setSpecialRatio`接口可以设定滤镜的浓度，设置的浓度越高，滤镜效果也就越明显。 
 
-从手机 QQ 和 Now 直播的经验来看，单纯通过 `setBeautyStyle` 调整磨皮效果是不够的，只有将美颜效果和`setFilter`配合使用才能达到更加多遍的美颜效果。所以，我们的设计师团队提供了17种默认的色彩滤镜，并将其默认打包在了 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo) 中供您使用。 
+从手机 QQ 和 Now 直播的经验来看，单纯通过 `setBeautyStyle` 调整磨皮效果是不够的，只有将美颜效果和`setFilter`配合使用才能达到更加多变的美颜效果。所以，我们的设计师团队提供了17种默认的色彩滤镜，并将其默认打包在了 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo) 中供您使用。 
 ![](https://main.qcloudimg.com/raw/5850b01bd4cac9c166f7a74a87538bda.jpg)    
 
 ```java 

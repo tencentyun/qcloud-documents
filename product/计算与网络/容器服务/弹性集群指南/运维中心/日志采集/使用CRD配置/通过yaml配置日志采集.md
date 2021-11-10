@@ -12,42 +12,47 @@
 您只需要定义 LogConfig CRD 即可创建采集配置，采集组件根据 LogConfig CRD 的变化修改相应的日志服务 CLS 日志主题，并设置绑定的机器组。CRD 的格式如下:
 ```
 apiVersion: cls.cloud.tencent.com/v1
-    kind: LogConfig                          ## 默认值
+kind: LogConfig                          ## 默认值
 metadata:
-   name: test                                ## CRD资源名，在集群内唯一
+  name: test                                ## CRD资源名，在集群内唯一
 spec:
-   clsDetail:
-     topicId: xxxxxx-xx-xx-xx-xxxxxxxx       ## CLS日志主题的ID，日志主题需要在CLS中提前创建，且没有被其它采集配置占用
-     logType: minimalist_log                 ## 日志采集格式，json_log代表 json 格式，delimiter_log代表分隔符格式，minimalist_log代表单行全文格式，multiline_log代表多行全文格式，fullregex_log代表单行-完全正则格式，multiline_fullregex_log代表多行-完全正则格式
-     extractRule:                            ## 提取、过滤规则
+  clsDetail:
+    # 注意：topic指定后不允许修改
+    # 自动创建日志主题，需要同时指定日志集和主题的name
+    logsetName: test                        ## CLS日志集的name，若无该name的日志集，会自动创建，若有，会在该日志集下创建日志主题
+    topicName: test                         ## CLS日志主题的name，若无该name的日志主题，会自动创建
+     
+    # 选择已有日志主题
+    topicId: xxxxxx-xx-xx-xx-xxxxxxxx       ## CLS日志主题的ID，日志主题需要在CLS中提前创建，且没有被其它采集配置占用
+    logType: minimalist_log                 ## 日志采集格式，json_log代表 json 格式，delimiter_log代表分隔符格式，minimalist_log代表单行全文格式，multiline_log代表多行全文格式，fullregex_log代表单行-完全正则格式，multiline_fullregex_log代表多行-完全正则格式
+    extractRule:                            ## 提取、过滤规则
        ...
-   inputDetail:
-     type: container_stdout                  ## 采集日志的类型，包括container_stdout（容器标准输出）、container_file（容器文件）、host_file（主机文件）
+  inputDetail:
+    type: container_stdout                  ## 采集日志的类型，包括container_stdout（容器标准输出）、container_file（容器文件）、host_file（主机文件）
     
-     containerStdout:                        ## 容器标准输出
-       namespace: default                    ## 采集容器的kubernetes命名空间，如果不指定，代表所有命名空间
-       allContainers: false                  ## 是否采集指定命名空间中的所有容器的标准输出
-       container: xxx                        ## 满足includeLabels的Pod中的容器名，只有在指定includeLabels时使用
+    containerStdout:                        ## 容器标准输出
+      namespace: default                    ## 采集容器的kubernetes命名空间，如果不指定，代表所有命名空间
+      allContainers: false                  ## 是否采集指定命名空间中的所有容器的标准输出
+      container: xxx                        ## 采集日志的容器名，为空时，代表采集所有符合容器的日志名
       includeLabels:                         ## 采集包含指定label的Pod
-         k8s-app: xxx                        ## 只采pod标签中配置"k8s-app=xxx"的pod产生的日志，与workloads、allContainers=true不能同时指定
-       workloads:                            ## 要采集的容器的Pod所属的kubernetes workload
-       - namespace: prod                     ## workload的命名空间
-         name: sample-app                    ## workload的名字
-         kind: deployment                    ## workload类型，支持deployment、daemonset、statefulset、job、cronjob
-         container: xxx                      ## 要采集的容器名，如果不指定，代表workload Pod中的所有容器
+        k8s-app: xxx                        ## 只采pod标签中配置"k8s-app=xxx"的pod产生的日志，与workloads、allContainers=true不能同时指定
+      workloads:                            ## 要采集的容器的Pod所属的kubernetes workload
+      - namespace: prod                     ## workload的命名空间
+        name: sample-app                    ## workload的名字
+        kind: deployment                    ## workload类型，支持deployment、daemonset、statefulset、job、cronjob
+        container: xxx                      ## 要采集的容器名，如果不指定，代表workload Pod中的所有容器
 	
-     containerFile:                          ## 容器内文件
-       namespace: default                    ## 采集容器的kubernetes命名空间
-       container: xxx                        ## 采集容器名
-      includeLabels:                         ## 采集包含指定label的Pod
-         k8s-app: xxx                        ## 只采pod标签中配置"k8s-app=xxx"的pod产生的日志，与workload不能同时指定
-       workload:                             ## 要采集的容器的Pod所属的kubernetes workload
-         name: sample-app                    ## workload的名字                  
-         kind: deployment                    ## workload类型，支持deployment、daemonset、statefulset、job、cronjob
-       logPath: /opt/logs                    ## 日志文件夹，不支持通配符
-       filePattern: app_*.log                ## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
-       customLablels
-         k1: v1
+    containerFile:                          ## 容器内文件
+      namespace: default                    ## 采集容器的kubernetes命名空间，必须指定一个命名空间
+      container: xxx                        ## 采集日志的容器名，为 * 时，代表采集所有符合容器的日志名
+      includeLabels:                        ## 采集包含指定label的Pod
+        k8s-app: xxx                        ## 只采pod标签中配置"k8s-app=xxx"的pod产生的日志，与workload不能同时指定
+      workload:                             ## 要采集的容器的Pod所属的kubernetes workload
+        name: sample-app                    ## workload的名字                  
+        kind: deployment                    ## workload类型，支持deployment、daemonset、statefulset、job、cronjob
+      logPath: /opt/logs                    ## 日志文件夹，不支持通配符
+      filePattern: app_*.log                ## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
+       
 ```
 <dx-alert infotype="notice" title="">
 如果选择采集类型为“容器文件路径”时，对应的“容器文件路径”不能为软链接，否则会导致软链接的实际路径在采集器的容器内不存在，采集日志失败。

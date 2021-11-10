@@ -47,7 +47,7 @@ defaultConfig {
     }
 }
 ```
-  4. 最后点击 Sync Now，编译工程。
+  4. 最后单击 **Sync Now**，编译工程。
 :::
 ::: jar+so 方式集成
 1. **库说明**
@@ -577,35 +577,24 @@ protected void onResume() {
 
 [](id:que2_1)
 
-### 是否支持 Android X？
+### 是否支持 AndroidX？
+ 因为服务客户较多，且大部分客户的工程中目前仍在使用 support 包，基于此，目前 UGCKit 暂时还是基于 support 包。但是考虑到客户对 Androidx 的需求，现提供 UGCKit 迁移 Androidx 方案文档。
 
-**目前还不支持，如果项目编译有 androidX 的引用，请去掉。**具体实现方法如下：
-1. 修改当前项目的 `gradle.properties(Project Properties)`。
-```
-android.useAndroidX=false
-android.enableJetifier=false
-```
-2. 替换 xml 中控件的包名，去掉 androidx 的相关引用。
-```plaintext
-// androidx.constraintlayout.widget.ConstraintLayout
-RelativeLayout
-
-//app:layout_constraintBottom_toBottomOf="parent"
-//app:layout_constraintLeft_toLeftOf="parent"
-//app:layout_constraintRight_toRightOf="parent"
-//app:layout_constraintTop_toTopOf="parent"
-```
-3. 去掉 `build.gradle` 中 androidx。
-```plaintext
-//implementation 'androidx.appcompat:appcompat:1.1.0'
-//implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-//androidTestImplementation 'androidx.test:runner:1.2.0'
-//androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-//testImplementation 'junit:junit:4.12'
-```
+为了方便说明，以腾讯云 UGSVSDK 为例，此 Demo 中同样使用了 UGCKit 模块。
+1. **前提准备：**
+	- 将Android Studio更新至 Android Studio 3.2及以上。
+	- Gradle 插件版本改为 4.6及以上。
+	<img src="https://main.qcloudimg.com/raw/4d71f185511450a40bf1e569d903d37d.png" width="700">
+	- compileSdkVersion 版本升级到 28 及以上。
+	- buildToolsVersion 版本改为 28.0.2 及以上。
+	<img src="https://main.qcloudimg.com/raw/9a31ee56da63f6ca397a8ec2aae6564d.png" width="700">
+2. **开启迁移：**
+	1. 使用 Android Studio 导入项目后，从菜单栏中依次选择 **Refactor > Migrate to AndroidX**。
+<img src="https://main.qcloudimg.com/raw/2df246f4fcbb616aca744c8ad65877ff.png" width="700">
+	2. 单击 **Migrate**，即可将现 有项目迁移到 AndroidX。
+<img src="https://main.qcloudimg.com/raw/aefcbe1331037db4e0bea585c090cf1c.png" width="700">
 
 [](id:que2_2)
-
 ### UGCKit 编译版本错误？
 
 - **报错信息**：

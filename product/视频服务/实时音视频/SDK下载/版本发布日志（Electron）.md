@@ -1,3 +1,15 @@
+## Version 8.9.102 @ 2021.08.11
+
+**功能新增**
+Windows & Mac：onStatistics 回调新增字段 gatewayRtt [onStatistics](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onStatistics)。
+
+**问题修复**
+- Mac：修复特殊机型写日志引起 crash。
+- Mac：修复禁麦的操作使用 API 接口 setAudioCaptureVolume(0) 后，发现麦克风检测音量为 0。
+- Windows：性能优化，修复打开摄像头后黑屏。
+- Windows：修复屏幕捕获自动减低分辨率后不恢复。
+- Windows & Mac：其他 bug 修复。
+
 ## Version 8.6.101 @ 2021.05.28
 
 **功能新增**

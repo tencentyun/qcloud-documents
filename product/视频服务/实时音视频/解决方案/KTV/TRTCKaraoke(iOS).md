@@ -21,7 +21,7 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 | [sharedInstance](#sharedinstance)               | 获取单例对象。           |
 | [destroySharedInstance](#destroysharedinstance) | 销毁单例对象。           |
 | [setDelegate](#setdelegate)                     | 设置事件回调。           |
-| [setDelegateQueue](#setdelegatequeue)	          | 设置事件回调所在的线程。 |
+| [setDelegateQueue](#setdelegatequeue)           | 设置事件回调所在的线程。 |
 | [login](#login)                                 | 登录。                   |
 | [logout](#logout)                               | 登出。                   |
 | [setSelfProfile](#setselfprofile)               | 修改个人信息。           |
@@ -41,10 +41,10 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 
 | API                                 | 描述             |
 | ----------------------------------- | --------------- |
-| [startPlayMusic](#startplaymusic)   | 开始播放音乐。 	|
-| [stopPlayMusic](#stopplaymusic)     | 停止播放音乐。  	|
-| [pausePlayMusic](#pauseplaymusic)   | 暂停播放音乐。		|
-| [resumePlayMusic](#resumeplaymusic) | 恢复播放音乐。		|
+| [startPlayMusic](#startplaymusic)   | 开始播放音乐。         |
+| [stopPlayMusic](#stopplaymusic)     | 停止播放音乐。         |
+| [pausePlayMusic](#pauseplaymusic)   | 暂停播放音乐。         |
+| [resumePlayMusic](#resumeplaymusic) | 恢复播放音乐。         |
 
 ### 麦位管理接口
 
@@ -414,20 +414,22 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 ### startPlayMusic
 
 播放音乐（上麦后调用）。
->?播放音乐后，自身会收到 `onMusicPrepareToPlay` 的事件通知。
->?音乐播放中，房间内所有成员会不断收到 `onMusicProgressUpdate` 的事件通知。
->?音乐播放完成，自身会收到 `onMusicCompletePlaying` 的事件通知。
+>?
+>- 播放音乐后，自身会收到 `onMusicPrepareToPlay` 的事件通知。
+>- 音乐播放中，房间内所有成员会不断收到 `onMusicProgressUpdate` 的事件通知。
+>- 音乐播放完成，自身会收到 `onMusicCompletePlaying` 的事件通知。
 
 ```Objective-C
-- (void)startPlayMusic:(int32_t)musicID url:(NSString *)url NS_SWIFT_NAME(startPlayMusic(musicID:url:));
+- (void)startPlayMusic:(int32_t)musicID originalUrl:(NSString *)originalUrl accompanyUrl:(NSString *)backingUrl NS_SWIFT_NAME(startPlayMusic(musicID:originalUrl:accompanyUrl:));
 ```
 
 参数如下表所示：
 
 | 参数      | 类型            | 含义                 |
 | --------- | -------------- | -------------------- |
-| musicID 	| int32_t        | 音乐的ID。 |
-| url 	    | String 		 | 音乐的绝对路径。           |
+| musicID |  int32_t | 音乐的 ID。|
+|originalUrl  | String | 原唱音乐的绝对路径。|
+|accompanyUrl  | String | 伴奏音乐的绝对路径。|
 
 调用该接口后会停止上一个正在播放的歌曲。
 
@@ -443,8 +445,9 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 ### pausePlayMusic
 
 暂停正在播放的音乐（播放音乐时调用）。
->? `onMusicProgressUpdate` 的事件通知会暂停
->?不会收到 `onMusicCompletePlaying` 的事件通知。
+>?
+>- `onMusicProgressUpdate` 的事件通知会暂停
+>- 不会收到 `onMusicCompletePlaying` 的事件通知。
 
 ```Objective-C
 - (void)pausePlayMusic NS_SWIFT_NAME(pausePlayMusic());
@@ -647,7 +650,7 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 设置麦克风采集音量。
 
 ```Objective-C
-- (void)setAudioCaptureVolume:(NSInteger)voluem NS_SWIFT_NAME(setAudioCaptureVolume(volume:));
+- (void)setAudioCaptureVolume:(NSInteger)volume NS_SWIFT_NAME(setAudioCaptureVolume(volume:));
 ```
 
 参数如下表所示：
@@ -698,7 +701,7 @@ TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，
 
 | 参数 | 类型    | 含义                              |
 | ---- | ------- | --------------------------------- |
-| mute | boolean | true：开启静音；false：关闭静音。 |
+| isMute | boolean | true：开启静音；false：关闭静音。 |
 
 ### setVoiceEarMonitorEnable
 
@@ -913,7 +916,7 @@ NS_SWIFT_NAME(onRoomDestroy(message:));
 
 | 参数   | 类型   | 含义      |
 | ------ | ------ | --------- |
-| roomId | String | 房间 ID。 |
+| message | String | 回调信息。 |
 
 
 ### onRoomInfoChange
@@ -1197,7 +1200,7 @@ NS_SWIFT_NAME(onInviteeRejected(identifier:invitee:));
 | 参数    | 类型   | 含义              |
 | ------- | ------ | ----------------- |
 | id      | String | 邀请 ID。         |
-| inviter | String | 邀请人的用户 ID。 |
+| invitee | String | 邀请人的用户 ID。 |
 
 ## 音乐播放状态回调
 

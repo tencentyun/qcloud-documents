@@ -36,7 +36,7 @@ SCF 默认的配置角色为 `SCF_QcsRole`，其角色详情如下：
 1. 如果您是首次使用 SCF，打开 [SCF 控制台](https://console.cloud.tencent.com/scf/index?rid=1) 时会提示您进行服务授权。如下图所示：
 ![](https://main.qcloudimg.com/raw/e2c9a7755b2f1f1671a6cc12f47bdef6.png)
 
-2. 选择【前往访问管理】进入“角色管理”页面，单击【同意授权】确认授权。如下图所示：
+2. 选择**前往访问管理**进入“角色管理”页面，单击**同意授权**确认授权。如下图所示：
 ![](https://main.qcloudimg.com/raw/59611885715e48011cc4e7de393efa1c.png)
 
 3. 确认授权后，将会为您自动创建角色 `SCF_QcsRole`。可在 [角色](https://console.cloud.tencent.com/cam/role) 中查看。如下图所示：
@@ -47,18 +47,18 @@ SCF 默认的配置角色为 `SCF_QcsRole`，其角色详情如下：
 以 `SCF_QcsRole` 为例，用户也可以选择 `SCF_QcsRole` 作为函数的运行角色，这意味着将 `SCF_QcsRole` 关联策略对应的权限授权给 SCF，使 SCF 获得为用户代码申请访问其他云上资源的权利。
 
 ### 创建运行角色
-1. 登录 SCF 控制台，选择左侧导航栏中的【[函数服务](https://console.cloud.tencent.com/scf)】。
+1. 登录 SCF 控制台，选择左侧导航栏中的 **[函数服务](https://console.cloud.tencent.com/scf)**。
 2. 在“函数服务”列表页面，单击需创建运行角色的函数名，进入函数配置页。
-3. 选择函数配置页右上角的【编辑】。
-4. 勾选“运行角色”中的【启用】，并单击【新建运行角色】。如下图所示：
+3. 选择函数配置页右上角的**编辑**。
+4. 勾选“运行角色”中的**启用**，并单击**新建运行角色**。如下图所示：
 ![](https://main.qcloudimg.com/raw/c8d4e42e246ae3bab15db83c9f7e44df.png)
-5. 在“输入角色载体信息”步骤中勾选【云函数（scf）】，并单击【下一步】。
+5. 在“输入角色载体信息”步骤中勾选**云函数（scf）**，并单击**下一步**。
 ![](https://main.qcloudimg.com/raw/61f45843b7a52b8edb1432c17618ff3c.png)
-6. 在“配置角色策略”步骤中，选择函数所需策略并单击【下一步】。如下图所示：
+6. 在“配置角色策略”步骤中，选择函数所需策略并单击**下一步**。如下图所示：
 >? 本文以选择 `QcloudCOSFullAccess` 对象存储（COS）全读写访问权限为例，请根据实际需求进行选择。
 >
 ![](https://main.qcloudimg.com/raw/f4b2f40ca703f033e61f8a1911e7991e.png)
-7. 在“审阅”步骤中填写“角色名称”，并单击【完成】。本文以 `scf_cos_full_access` 角色名称为例。 
+7. 在“审阅”步骤中填写“角色名称”，并单击**完成**。本文以 `scf_cos_full_access` 角色名称为例。 
 8. 返回函数配置页，单击“运行角色”右侧的<img src="https://main.qcloudimg.com/raw/b32932fe6f9afabb88280c38bb287887.png" style="margin:-3px 0px">，即可在下拉列表中选择刚创建的运行角色。如下图所示：
 ![](https://main.qcloudimg.com/raw/f891ccabd030dfafd3119d10f28b42ea.png)
 >! 在为运行角色添加策略时，除了选择预置策略外，还可以通过自定义策略的方式做更细粒度的权限划分，SCF 的策略语法遵循 CAM 的 [语法结构](https://cloud.tencent.com/document/product/598/10604) 和 [资源描述方式](https://cloud.tencent.com/document/product/598/10606)，策略语法以 JSON 格式为基础，具体可参考 [SCF 策略语法](https://cloud.tencent.com/document/product/583/47934)。

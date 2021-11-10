@@ -116,78 +116,19 @@ __介绍__
 
 ***
 
-### startScreenCapture
-开启屏幕采集。
->? iOS 端暂不支持通过此接口开启屏幕采集。
->*       需要通过 iOS Broadcast Upload Extension 来开启屏幕采集。
->*       然后设置 enableCustomVideoCapture 开启自定义采集支持。 
->*       最后通过 sendCustomVideoFrame 把 Broadcast Upload Extension 中采集到的屏幕画面送出去。
-```
-- (V2TXLiveCode)startScreenCapture:(NSString *)appGroup
-```
-
-#### 参数
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| appGroup |  NSString * | 主 App 与 Broadcast 共享的 Application Group Identifier，可以指定为 nil，但按照文档设置会使功能更加可靠。 |
-
-#### 返回
-
-返回值 V2TXLiveCode：
-- V2TXLIVE_OK：成功。
-
-***
-
-### stopScreenCapture
-关闭屏幕采集。
-```
-- (V2TXLiveCode)stopScreenCapture
-```
-#### 返回
-
-返回值 V2TXLiveCode：
-- V2TXLIVE_OK：成功。
-
-***
 
 ## 视频相关接口
 ### setVideoQuality
-设置推流视频分辨率，以及宽高比模式（横屏 / 竖屏）。
+设置推流视频编码参数。
 ```
-- (V2TXLiveCode)setVideoQuality:(V2TXLiveVideoResolution)resolution
-                 resolutionMode:(V2TXLiveVideoResolutionMode)resolutionMode
+- (V2TXLiveCode)setVideoQuality:(V2TXLiveVideoEncoderParam *)param;
 ```
 #### 参数
 
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| resolution | V2TXLiveVideoResolution | 视频分辨率。 |
-| resolutionMode | V2TXLiveVideoResolutionMode | 视频宽高比模式（横屏或者竖屏模式）。 |
+| 参数  | 类型    |含义           |
+| ---- | ----  | ----  |
+| param | [V2TXLiveVideoEncoderParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveDef__ios.html#interfaceV2TXLiveVideoEncoderParam) | 视频编码参数。 |
 
-#### V2TXLiveVideoResolution 枚举值
-
-| 取值 | 含义 |
-|---------|---------|
-| V2TXLiveVideoResolution160x160 | 分辨率 160*160，码率范围：100Kbps ~ 150Kbps，帧率: 15fps。 |
-| V2TXLiveVideoResolution270x270 | 分辨率 270*270，码率范围：200Kbps ~ 300Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution480x480 | 分辨率 480*480，码率范围：350Kbps ~ 525Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution320x240 | 分辨率 320*240，码率范围：250Kbps ~ 375Kbps，帧率：15fps。|
-| V2TXLiveVideoResolution480x360 | 分辨率 480*360，码率范围：400Kbps ~ 600Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution640x480 | 分辨率 640*480，码率范围：600Kbps ~ 900Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution320x180 | 分辨率 320*180，码率范围：250Kbps ~ 400Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution480x270 | 分辨率 480*270，码率范围：350Kbps ~ 550Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution640x360 | 分辨率 640*360，码率范围：500Kbps ~ 900Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution960x540 | 分辨率 960*540，码率范围：800Kbps ~ 1500Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution1280x720 |  分辨率 1280*720，码率范围：1000Kbps ~ 1800Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution1920x1080 | 分辨率 1920*1080，码率范围：2500Kbps ~ 3000Kbps，帧率：15fps。 |
-
-#### V2TXLiveVideoResolutionMode 枚举值
-
-| 取值 | 含义 |
-|---------|---------|
-| V2TXLiveVideoResolutionModeLandscape | 横屏模式下的分辨率：V2TXLiveVideoResolution640_360 + V2TXLiveVideoResolutionModeLandscape = 640x360 |
-| V2TXLiveVideoResolutionModePortrait | 竖屏模式下的分辨率：V2TXLiveVideoResolution640_360 + V2TXLiveVideoResolutionModePortrait = 360x640 |
 
 ***
 
@@ -253,6 +194,9 @@ __介绍__
 ### startCamera
 
 打开本地摄像头。
+
+>? startVirtualCamera、startCamera 和 startScreenCapture 同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流。
+
 ```
 - (V2TXLiveCode)startCamera:(BOOL)frontCamera
 ```
@@ -271,6 +215,76 @@ __介绍__
 - (V2TXLiveCode)stopCamera
 ```
 
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+### startVirtualCamera
+
+开启图片推流。
+
+>? startVirtualCamera、startCamera 和 startScreenCapture 同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流。
+
+```
+- (V2TXLiveCode)startVirtualCamera:(TXImage *)image
+```
+
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+
+### stopVirtualCamera
+
+关闭图片推流。
+
+```
+- (V2TXLiveCode)stopVirtualCamera
+```
+
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+
+### startScreenCapture
+开启屏幕采集。
+>? 
+>- iOS 端暂不支持通过此接口开启屏幕采集。
+>- startVirtualCamera、startCamera 和 startScreenCapture 同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流。
+
+1. 需要通过 iOS Broadcast Upload Extension 来开启屏幕采集。
+2. 然后设置 enableCustomVideoCapture 开启自定义采集支持。 
+3. 最后通过 sendCustomVideoFrame 把 Broadcast Upload Extension 中采集到的屏幕画面送出去。
+
+```
+- (V2TXLiveCode)startScreenCapture:(NSString *)appGroup
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| appGroup |  NSString * | 主 App 与 Broadcast 共享的 Application Group Identifier，可以指定为 nil，但按照文档设置会使功能更加可靠。 |
+
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+
+### stopScreenCapture
+关闭屏幕采集。
+```
+- (V2TXLiveCode)stopScreenCapture
+```
 #### 返回
 
 返回值 V2TXLiveCode：
@@ -391,6 +405,23 @@ __介绍__
 
 ***
 
+### sendSeiMessage
+发送 SEI 消息。播放端 [V2TXLivePlayer](https://liteav.sdk.qcloud.com/doc/api/zh-cn/interfaceV2TXLivePlayer.html) 通过 [V2TXLivePlayerObserver](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#protocolV2TXLivePlayerObserver-p) 中的 `onReceiveSeiMessage` 回调来接收该消息。
+```
+- (V2TXLiveCode)sendSeiMessage:(int)payloadType data:(NSData *)data;
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| payloadType | int | 数据类型，支持 5、242。推荐填：242 |
+| data | NSData * | 待发送的数据 | 
+
+ #### 返回
+ 返回值 V2TXLiveCode：
+ - V2TXLIVE_OK：成功。
+
+***
+
 ## 美颜相关接口
 ### getBeautyManager
 获取美颜管理对象 [TXBeautyManager](https://cloud.tencent.com/document/product/454/39382)。
@@ -465,6 +496,7 @@ __介绍__
 
 启用采集音量大小提示。
 >? 开启后可以在 `V2TXLivePusherObserver#onMicrophoneVolumeUpdate:(NSInteger)volume` 回调中获取到 SDK 对音量大小值的评估。
+
 ```
 - (V2TXLiveCode)enableVolumeEvaluation:(NSInteger)intervalMs;
 ```

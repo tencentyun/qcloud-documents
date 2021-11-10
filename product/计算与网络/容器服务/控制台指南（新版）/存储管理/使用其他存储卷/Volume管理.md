@@ -51,10 +51,10 @@
 ## Volume 控制台操作指引
 ### 创建工作负载挂载数据卷
 
-1. 登录容器服务控制台，并选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，并选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，单击需要部署 Workload 的集群 ID，进入待部署 Workload 的集群管理页面。
 3. 在**工作负载**下，任意选择 Workload 类型，进入对应的信息页面。
-例如，选择**工作负载**>**DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
+例如，选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/0098359fed5ce7eb42658604962f3165.png)
 4. 单击**新建**，进入 “新建Workload” 页面。
 5. [](id:Step5)根据页面信息，设置工作负载名、命名空间等信息。并在“数据卷”中，单击**添加数据卷**添加数据卷。

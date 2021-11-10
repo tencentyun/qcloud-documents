@@ -31,7 +31,7 @@
         ]
 }
 ```
-6. 在**访问管理控制台**>**[角色](https://console.cloud.tencent.com/cam/role)**中搜索 IPAMD 组件的相关角色 `IPAMDofTKE_QCSRole`，单击角色名称进入角色详情页面。
+6. 在**访问管理控制台** > **[角色](https://console.cloud.tencent.com/cam/role)**中搜索 IPAMD 组件的相关角色 `IPAMDofTKE_QCSRole`，单击角色名称进入角色详情页面。
 7. 在权限设置中，单击**关联策略**。
 8. 在弹出的关联策略窗口中，勾选已创建的自定义策略 `SecurityGroupsAccessForIPAMD`。单击**确定**，完成为 IPAMD 组件角色添加安全组接口访问权限操作。
 

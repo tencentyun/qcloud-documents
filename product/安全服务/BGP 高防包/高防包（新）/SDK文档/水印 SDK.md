@@ -1,3 +1,4 @@
+
 本文将为您介绍如何接入水印 SDK，本文主要包括 Android、iOS 和 Windows 三个版本的接入指南。
 ## SDK 准备
 下载相关 [Demo 及 SDK](https://main.qcloudimg.com/raw/5066e0eda60b0e00c9e78e0acfa7ec55/%E6%B0%B4%E5%8D%B0SDK.zip)。
@@ -137,7 +138,7 @@ s.close();
 ![](https://main.qcloudimg.com/raw/4ab142c35d9d85b6365e9eecce5f66d8.png)
 2. 将 SDK 文件添加到 Xcode。右键工程名，单击 “Add Files to”。
 ![](https://main.qcloudimg.com/raw/babb1d9440fc75f8f79eca4efa007dfe.png)
-3. 在对话框中勾选 “Create folder references”，选中 SDK 的两个文件，单击【Add】。
+3. 在对话框中勾选 “Create folder references”，选中 SDK 的两个文件，单击 **Add**。
 ![](https://main.qcloudimg.com/raw/bb83314a0468f9cc189bb36268ca2853.png)
 4. 左键工程名，选择 General，将 a 文件添加到 “Linked Framews and Libraries”：
 ![](https://main.qcloudimg.com/raw/286f35e15a6e269b62f489fd9c838904.png)

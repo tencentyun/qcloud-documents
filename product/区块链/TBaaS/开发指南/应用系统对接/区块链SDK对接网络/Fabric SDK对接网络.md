@@ -24,7 +24,7 @@
 ## 获取访问地址及证书
 ### VPC 访问
 1. 登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview)。
-2. 选择左侧导航栏中的**Fabric**>**区块链网络**，进入“区块链网络”页面。
+2. 选择左侧导航栏中的**Fabric** > **区块链网络**，进入“区块链网络”页面。
 3. 在“区块链网络”页面中，选择需查看的网络，进入“访问管理”页面。
 4. 在“访问管理”页面中，单击**新建**。在弹出的“新建链接”窗口中，参考以下信息进行创建：
 ![](https://main.qcloudimg.com/raw/aa9b66415677d8e0cc49a9fd6ab66015.png)
@@ -37,7 +37,7 @@
 
 ### 外网访问（仅用于开发测试）[](id:stepwaiwang)
 1. 登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview)。
-2. 选择左侧导航栏中的**Fabric**>**区块链网络**，进入“区块链网络”页面。
+2. 选择左侧导航栏中的**Fabric** > **区块链网络**，进入“区块链网络”页面。
 3.  在“区块链网络”页面中，选择需查看的网络，进入“访问管理”页面。
 4.  在“访问管理”页面中，单击外网域名右侧的**开启**。如下图所示：
 ![](https://main.qcloudimg.com/raw/423f571003ad6d7e549a68e78bb8253a.png)
@@ -53,7 +53,7 @@
 ### 申请证书流程
 1. 前往 [认证信息](https://console.cloud.tencent.com/developer/auth) 页面，查看企业名称。如下图所示：
 <img src="https://main.qcloudimg.com/raw/123d94ea2854ce6cf83f6ab71e7209a1.png" alt="img" style="zoom:40%;" />            
-2. 登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview)，选择左侧导航栏中的**Fabric**>**区块链网络**，进入“区块链网络”页面。
+2. 登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview)，选择左侧导航栏中的**Fabric** > **区块链网络**，进入“区块链网络”页面。
 4. 在“区块链网络”页面中，选择需查看的网络，进入“证书管理”页面。
 5. 在“证书管理”页面中单击**申请**，在“申请证书”弹窗中，填写认证信息中的企业名称。如下图所示：
 ![](https://main.qcloudimg.com/raw/ff07dc48863aff4b78e452ad8d61f4fe.png)           

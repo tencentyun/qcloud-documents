@@ -10,8 +10,8 @@
 #### 创建 StorageClass[](id:create)
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧栏中的**集群**。
 2. 在“集群管理”页中，单击需创建 StorageClass 的集群 ID，进入集群详情页。
-3. 选择左侧菜单栏中的**存储**>**StorageClass**。如下图所示：
-![](https://main.qcloudimg.com/raw/9e4085b33612d7c234c9e868d941e561.png)
+3. 选择左侧菜单栏中的**存储** > **StorageClass**。如下图所示：
+![](https://main.qcloudimg.com/raw/18a3d5587e381e73328839b9186e071b.png)
 4. 单击**新建**进入“新建StorageClass” 页面，参考以下信息进行创建。如下图所示：
 ![](https://main.qcloudimg.com/raw/e3984211f83d506aa1116ffc39f47747.png)
 主要参数信息如下：
@@ -38,7 +38,7 @@
 
 #### 使用指定 StorageClass 创建 PVC[](id:createPVC)
 1. 在“集群管理”页面，选择需创建 PVC 的集群 ID。
-2. 在集群详情页面，选择左侧菜单栏中的**存储**>**PersistentVolumeClaim**，进入 “PersistentVolumeClaim” 信息页面。如下图所示：
+2. 在集群详情页面，选择左侧菜单栏中的**存储** > **PersistentVolumeClaim**，进入 “PersistentVolumeClaim” 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/e771b0d7e010605c3701de3f20831a96.png)
 3. 单击**新建**进入“新建PersistentVolumeClaim” 页面，参考以下信息设置 PVC 关键参数。如下图所示：
 ![](https://main.qcloudimg.com/raw/c1099db788c2f8f284df7616d7273a77.png)
@@ -66,7 +66,7 @@
 #### 创建 StatefulSet 挂载 PVC 类型数据卷
 >?该步骤以创建工作负载 StatefulSet 为例。
 >
-1. 在目标集群详情页，选择左侧菜单栏中的**工作负载**>**StatefulSet**，进入 “StatefulSet” 页面。
+1. 在目标集群详情页，选择左侧菜单栏中的**工作负载** > **StatefulSet**，进入 “StatefulSet” 页面。
 2. 单击**新建**进入“新建Workload” 页面，参考[ 创建 StatefulSet ](https://cloud.tencent.com/document/product/457/31707#createStatefulSet)进行创建，并参考以下信息进行数据卷挂载。如下图所示：
 ![](https://main.qcloudimg.com/raw/f199ac6bdd9f926283916c4258502b55.png)
 	- **数据卷（选填）**：
@@ -111,7 +111,7 @@ parameters:
 <th>参数</th> <th>描述</th>
 </tr>
 <tr>
-<td>type</td> <td>云硬盘类型，包括 <code>CLOUD_HSSD</code>、<code>CLOUD_PREMIUM</code> 和 <code>CLOUD_SSD</code>。</td>
+<td>type</td> <td>包括 CLOUD_PREMIUM（高性能云硬盘）和 CLOUD_SSD（SSD 云硬盘）、CLOUD_HSSD（增强型 SSD 云硬盘）。</td>
 </tr>
 <tr>
 <td>zone</td> <td>用于指定可用区。如果指定，则云硬盘将创建到此可用区。如果不指定，则拉取所有 Node 的可用区信息，进行随机选取。 腾讯云各地域标识符请参见 <a href="https://cloud.tencent.com/document/product/213/6091">地域和可用区</a>。</td>
@@ -134,36 +134,40 @@ parameters:
 <dx-alert infotype="explain" title="">
 资源对象的 apiVersion 可能因为您集群的 Kubernetes 版本不同而不同，您可通过 `kubectl api-versions` 命令查看当前资源对象的 apiVersion。
 </dx-alert>
-``` yaml
+```yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-   name: web
+  name: web
 spec:
-   serviceName: "nginx"
-   replicas: 3
-   template:
-     metadata:
-       labels:
-         app: nginx
-     spec:
-       terminationGracePeriodSeconds: 10
-       containers:
-       - name: nginx
-         image: nginx
-         ports:
-         - containerPort: 80
-           name: web
-         volumeMounts:
-         - name: www
-           mountPath: /usr/share/nginx/html
-   volumeClaimTemplates:  # 自动创建pvc，进而自动创建pv
-   - metadata:
-       name: www
-     spec:
-       accessModes: [ "ReadWriteOnce" ]
-       storageClassName: cloud-premium
-       resources:
-         requests:
-           storage: 10Gi
+  selector:
+    matchLabels:
+      k8s-app: nginx
+      qcloud-app: nginx
+  serviceName: "nginx"
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:  # 自动创建pvc，进而自动创建pv
+  - metadata:
+      name: www
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: cloud-premium
+      resources:
+        requests:
+          storage: 10Gi
 ```

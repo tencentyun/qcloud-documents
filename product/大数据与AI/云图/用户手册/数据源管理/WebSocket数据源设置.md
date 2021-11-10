@@ -28,9 +28,9 @@ server.listen(3000)
 ```
 
 ## 使用 WebSocket 更新大屏图表
-在大屏中添加一个柱状图，然后选择数据源为【WebSocket】，设置 WebSocket 的 URL 地址。
+在大屏中添加一个柱状图，然后选择数据源为 **WebSocket**，设置 WebSocket 的 URL 地址。
 ![](https://main.qcloudimg.com/raw/91f7c98fe4cb424a8fa7c4d4be3b317a.png)
-单击【数据示例】，即可看到 WebSocket 服务器刷新此图标组件的消息格式。
+单击**数据示例**，即可看到 WebSocket 服务器刷新此图标组件的消息格式。
 ![](https://main.qcloudimg.com/raw/d8a92bf1389263126b041cf23ceb77d6.png)
 格式示例如下：
 ![](https://main.qcloudimg.com/raw/95bea557d0ddf1c134c6a42e52461d11.png)
@@ -85,7 +85,7 @@ app.get('/refresh-chart', (req, res, next) => {
 })
 ```
 浏览器每访问一次`http://127.0.0.1:3000/refresh-chart`便会实时刷新柱状图。因为消息中的 body 是数组，因此可以同时发送多个图表组件的数据，刷新多个图表组件。
->!大屏中只用设置一个图表组件的 WebSocket 数据源，便可以控制大屏中所有的图表组件。图表组件的 ID 可以右键编辑界面中的图表组件，单击菜单中的【复制 ID】获取。
+>!大屏中只用设置一个图表组件的 WebSocket 数据源，便可以控制大屏中所有的图表组件。图表组件的 ID 可以右键编辑界面中的图表组件，单击菜单中的**复制 ID** 获取。
 
 ## 使用 WebSocket 控制联动
 WebSocket 也可以用来控制联动，只需要发送更新全局变量的消息。
@@ -162,7 +162,7 @@ function isSignatureOK(body) {
 - 路由器断网
 - 网线断了
 
-而服务端和客户端都不知道连接变慢或已经的断开状态。此时可勾选【需要心跳包】。
+而服务端和客户端都不知道连接变慢或已经的断开状态。此时可勾选**需要心跳包**。
 ![](https://main.qcloudimg.com/raw/5cdc265c3a74435e9b72a943ca518480.png)
 当大屏客户端没有收到服务器的消息时，将每隔设定时间发起 Ping 消息，服务端收到后需要响应 Pong 消息以完成心跳检测。
 

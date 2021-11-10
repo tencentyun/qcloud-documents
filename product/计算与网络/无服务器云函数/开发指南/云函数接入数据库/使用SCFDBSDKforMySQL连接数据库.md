@@ -38,7 +38,7 @@ SCF DB SDK for MySQL 具备以下特点：
 
 
 ### 配置环境变量和私有网络
-1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的【函数服务】。
+1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的**函数服务**。
 2. 单击需连接数据库的函数 ID，进入该函数的“函数配置”页面，参考以下信息进行配置。
  - 新增**环境变量**，请参考以下表格填写，如下图所示：
 ![](https://main.qcloudimg.com/raw/46c8b2aab4d4463dd16e1e063b318e36.png)

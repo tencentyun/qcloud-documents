@@ -18,7 +18,6 @@ Content-Type: application/xml
 ```
 
 >? Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
->
 
 #### 请求头
 
@@ -26,19 +25,19 @@ Content-Type: application/xml
 
 #### 请求体
 
-该请求操作的实现需要有如下请求体：
+该请求操作的实现需要有如下请求体: 
 
-#### 请求体1：更新音视频转码、极速高清、截帧、智能封面、拼接、精彩集锦、人声分离工作流
+#### 请求体1：更新音视频转码、极速高清、截帧、智能封面、拼接、精彩集锦、人声分离、SDR 转 HDR、视频增强工作流
 
 ```plaintext
 <Request>
     <MediaWorkflow>
         <Name>demo</Name>
         <WorkflowId></WorkflowId>
-        <State></State>
+        <State>Active</State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -46,6 +45,8 @@ Content-Type: application/xml
                 <SmartCover_1581665960539>End</SmartCover_1581665960539>
                 <VoiceSeparate_1581665960551>End</VoiceSeparate_1581665960551>
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -53,6 +54,17 @@ Content-Type: application/xml
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <SmartCover_1581665960539>
@@ -83,7 +95,7 @@ Content-Type: application/xml
                         <Output>
                             <Region></Region>
                             <Bucket></Bucket>
-                            <Object>bcd/${RunId}/trans-${number}.mp4</Object>
+                            <Object>bcd/${RunId}/trans.mp4</Object>
                         </Output>
                     </Operation>
                 </Transcode_1581665960537>
@@ -132,6 +144,34 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>
+                    <Type>SDRtoHDR</Type>
+                    <Operation>
+                        <SDRtoHDR>
+                            <HdrMode>HLG</HdrMode>
+                        </SDRtoHDR>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/SDRtoHDR.mp4</Object>
+                        </Output>
+                    </Operation>
+                </SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>
+                    <Type>VideoProcess</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55356fshb18</TemplateId>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/videoProcess.mp4</Object>
+                        </Output>
+                    </Operation>
+                </VideoProcess_1581665960554>
             </Nodes>
         </Topology>
     </MediaWorkflow>
@@ -144,6 +184,7 @@ Content-Type: application/xml
 <Request>
     <MediaWorkflow>
         <Name>demo</Name>
+        <State>Active</State>
         <Topology>
             <Dependencies>
                 <Start>HlsPackConfig_1581665960532</Start>
@@ -158,6 +199,17 @@ Content-Type: application/xml
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <HlsPackConfig_1581665960532>
@@ -194,6 +246,18 @@ Content-Type: application/xml
                 </VideoStream_1581665960537>
                 <HlsPack_1581665960538>
                     <Type>HlsPack</Type>
+                    <Operation>
+                        <HlsPackInfo>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960536</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960537</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                        </HlsPackInfo>
+                    </Operation>
                 </HlsPack_1581665960538>
             </Nodes>
         </Topology>
@@ -203,9 +267,9 @@ Content-Type: application/xml
 
 具体数据描述如下：
 
-| 节点名称（关键字） | 父节点 | 描述                                          | 类型      | 是否必选 |
-| :----------------- | :----- | :---------------------------------------- | :-------- | ---- |
-| Request            | 无     | 保存请求的容器，同 CreateWorkflow 中的 Request | Container | 是   |
+| 节点名称（关键字） | 父节点 | 描述                                           | 类型      | 是否必选 |
+| :----------------- | :----- | :--------------------------------------------- | :-------- | -------- |
+| Request            | 无     | 保存请求的容器，同 CreateWorkflow 中的 Request | Container | 是       |
 
 ## 响应
 
@@ -217,24 +281,26 @@ Content-Type: application/xml
 
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-#### 响应体1：音视频转码、极速高清、截帧、智能封面、拼接、精彩集锦、人声分离
+#### 响应体1：更新音视频转码、极速高清、截帧、智能封面、拼接、精彩集锦、人声分离、SDR 转 HDR、视频增强工作流
 
 ```plaintext
 <Response>
     <MediaWorkflow>
         <Name>demo</Name>
+        <State>Active</State>
         <WorkflowId></WorkflowId>
-        <State></State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
                 <Concat_1581665960539>End</Concat_1581665960539>
                 <SmartCover_1581665960539>End</SmartCover_1581665960539>
-                <VoiceSeparate_1581665960551>End</VoiceSeparate_1581665960551>
+		<VoiceSeparate_1581665960551>End</VoiceSeparate_1581665960551>
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -242,6 +308,17 @@ Content-Type: application/xml
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <SmartCover_1581665960539>
@@ -272,7 +349,7 @@ Content-Type: application/xml
                         <Output>
                             <Region></Region>
                             <Bucket></Bucket>
-                            <Object>bcd/${RunId}/trans-${number}.mp4</Object>
+                            <Object>bcd/${RunId}/trans.mp4</Object>
                         </Output>
                     </Operation>
                 </Transcode_1581665960537>
@@ -321,8 +398,37 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>
+                    <Type>SDRtoHDR</Type>
+                    <Operation>
+                        <SDRtoHDR>
+                            <HdrMode>HLG</HdrMode>
+                        </SDRtoHDR>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/SDRtoHDR.mp4</Object>
+                        </Output>
+                    </Operation>
+                </SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>
+                    <Type>VideoProcess</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55356fshb18</TemplateId>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/videoProcess.mp4</Object>
+                        </Output>
+                    </Operation>
+                </VideoProcess_1581665960554>
             </Nodes>
         </Topology>
+        <BucketId></BucketId>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>
     </MediaWorkflow>
@@ -335,9 +441,8 @@ Content-Type: application/xml
 <Response>
     <MediaWorkflow>
         <Name>demo</Name>
-        <BucketId></BucketId>
+        <State>Active</State>
         <WorkflowId></WorkflowId>
-        <State></State>
         <Topology>
             <Dependencies>
                 <Start>HlsPackConfig_1581665960532</Start>
@@ -352,6 +457,17 @@ Content-Type: application/xml
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <HlsPackConfig_1581665960532>
@@ -388,9 +504,22 @@ Content-Type: application/xml
                 </VideoStream_1581665960537>
                 <HlsPack_1581665960538>
                     <Type>HlsPack</Type>
+                    <Operation>
+                        <HlsPackInfo>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960536</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960537</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                        </HlsPackInfo>
+                    </Operation>
                 </HlsPack_1581665960538>
             </Nodes>
         </Topology>
+        <BucketId></BucketId>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>
     </MediaWorkflow>
@@ -399,9 +528,9 @@ Content-Type: application/xml
 
 具体的数据内容如下：
 
-| 节点名称（关键字） | 父节点 | 描述                                         | 类型      | 是否必选 |
-| :----------------- | :----- | :---------------------------------------- | :-------- | ---- |
-| Response            | 无     | 保存请求的容器，同 POST Workflow 中的 Response | Container | 是   |
+| 节点名称（关键字） | 父节点 | 描述                                           | 类型      | 是否必选 |
+| :----------------- | :----- | :--------------------------------------------- | :-------- | -------- |
+| Response           | 无     | 保存结果的容器，同 Describe Workflow 中的 Response.MediaWorkflowList | Container | 是       |
 
 #### 错误码
 
@@ -409,7 +538,7 @@ Content-Type: application/xml
 
 ## 实际案例
 
-#### 请求1：更新音视频转码、极速高清、截帧、智能封面、拼接、精彩集锦、人声分离工作流
+#### 请求1：更新音视频转码、极速高清、截帧、智能封面、拼接、精彩集锦、人声分离、SDR 转 HDR、视频增强工作流
 
 ```plaintext
 PUT /workflow/<WorkflowId> HTTP/1.1
@@ -422,10 +551,10 @@ Content-Type: application/xml
     <MediaWorkflow>
         <Name>demo</Name>
         <WorkflowId></WorkflowId>
-        <State></State>
+        <State>Active</State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -433,6 +562,8 @@ Content-Type: application/xml
                 <SmartCover_1581665960539>End</SmartCover_1581665960539>
                 <VoiceSeparate_1581665960551>End</VoiceSeparate_1581665960551>
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -440,6 +571,17 @@ Content-Type: application/xml
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <SmartCover_1581665960539>
@@ -470,7 +612,7 @@ Content-Type: application/xml
                         <Output>
                             <Region></Region>
                             <Bucket></Bucket>
-                            <Object>bcd/${RunId}/trans-${number}.mp4</Object>
+                            <Object>bcd/${RunId}/trans.mp4</Object>
                         </Output>
                     </Operation>
                 </Transcode_1581665960537>
@@ -519,6 +661,34 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>
+                    <Type>SDRtoHDR</Type>
+                    <Operation>
+                        <SDRtoHDR>
+                            <HdrMode>HLG</HdrMode>
+                        </SDRtoHDR>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/SDRtoHDR.mp4</Object>
+                        </Output>
+                    </Operation>
+                </SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>
+                    <Type>VideoProcess</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55356fshb18</TemplateId>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/videoProcess.mp4</Object>
+                        </Output>
+                    </Operation>
+                </VideoProcess_1581665960554>
             </Nodes>
         </Topology>
     </MediaWorkflow>
@@ -539,11 +709,11 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 <Response>
     <MediaWorkflow>
         <Name>demo</Name>
-        <WorkflowId></WorkflowId>
-        <State></State>
+        <State>Active</State>
+        <WorkflowId></WorkflowId
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -551,6 +721,8 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                 <SmartCover_1581665960539>End</SmartCover_1581665960539>
                 <VoiceSeparate_1581665960551>End</VoiceSeparate_1581665960551>
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -558,6 +730,17 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <SmartCover_1581665960539>
@@ -588,7 +771,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                         <Output>
                             <Region></Region>
                             <Bucket></Bucket>
-                            <Object>bcd/${RunId}/trans-${number}.mp4</Object>
+                            <Object>bcd/${RunId}/trans.mp4</Object>
                         </Output>
                     </Operation>
                 </Transcode_1581665960537>
@@ -637,14 +820,42 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                         </Output>
                     </Operation>
                 </VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>
+                    <Type>SDRtoHDR</Type>
+                    <Operation>
+                        <SDRtoHDR>
+                            <HdrMode>HLG</HdrMode>
+                        </SDRtoHDR>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/SDRtoHDR.mp4</Object>
+                        </Output>
+                    </Operation>
+                </SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>
+                    <Type>VideoProcess</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55356fshb18</TemplateId>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/videoProcess.mp4</Object>
+                        </Output>
+                    </Operation>
+                </VideoProcess_1581665960554>
             </Nodes>
         </Topology>
+        <BucketId></BucketId>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>
     </MediaWorkflow>
 </Response>
 ```
-
 
 #### 请求2：更新 HLS 自适应打包工作流
 
@@ -657,6 +868,7 @@ Content-Type: application/xml
 <Request>
     <MediaWorkflow>
         <Name>demo</Name>
+        <State>Active</State>
         <Topology>
             <Dependencies>
                 <Start>HlsPackConfig_1581665960532</Start>
@@ -671,6 +883,17 @@ Content-Type: application/xml
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <HlsPackConfig_1581665960532>
@@ -707,6 +930,18 @@ Content-Type: application/xml
                 </VideoStream_1581665960537>
                 <HlsPack_1581665960538>
                     <Type>HlsPack</Type>
+                    <Operation>
+                        <HlsPackInfo>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960536</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960537</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                        </HlsPackInfo>
+                    </Operation>
                 </HlsPack_1581665960538>
             </Nodes>
         </Topology>
@@ -714,13 +949,9 @@ Content-Type: application/xml
 </Request>
 ```
 
-
-
-
-
 #### 响应2
 
-```plaintext
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 100
@@ -728,12 +959,13 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+
 <Response>
     <MediaWorkflow>
-        <BucketId></BucketId>
-        <WorkflowId></WorkflowId>
-        <State></State>
         <Name>demo</Name>
+        <State>Active</State>
+        <WorkflowId></WorkflowId
+        <BucketId></BucketId>
         <Topology>
             <Dependencies>
                 <Start>HlsPackConfig_1581665960532</Start>
@@ -748,6 +980,17 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <HlsPackConfig_1581665960532>
@@ -784,14 +1027,28 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                 </VideoStream_1581665960537>
                 <HlsPack_1581665960538>
                     <Type>HlsPack</Type>
+                    <Operation>
+                        <HlsPackInfo>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960536</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960537</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                        </HlsPackInfo>
+                    </Operation>
                 </HlsPack_1581665960538>
             </Nodes>
         </Topology>
+        <BucketId></BucketId>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>
     </MediaWorkflow>
 </Response>
 ```
+
 
 #### 请求3：停用工作流
 

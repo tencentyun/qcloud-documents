@@ -3,7 +3,7 @@
 >?
 >- 国密标准 SSL 证书目前仅支持 Linux 环境下 Apache 服务器。
 >- 本文档以证书名称 `cloud.tencent.com` 为例。
->- 目前仅提供 `apache-2.4.39` 国密版，请 [单击此处](https://www.wotrus.com/download/apache-2.4.39_gm.tar.gz) 下载，若您需要采用其余版本，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
+>-  Apache 版本建议使用最新版本 `apache-2.4.46` 或 `apache-2.4.48`，您可前往 [Apache 官网](https://www.apache.org/) 进行下载或 [单击此处](http://mirrors.tencent.com/apache/httpd/httpd-2.4.51.tar.gz) 快速下载 `apache-2.4.48`。若您需要采用其余版本，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
 >- 安装 SSL 证书前，请您在 Apache 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。具体可参考 [服务器如何开启443端口？](https://cloud.tencent.com/document/product/400/45144)
 >- SSL 证书文件上传至服务器方法可参考 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
@@ -51,7 +51,7 @@ yum install -y gcc-c++
 #切换至 /usr/local/ 目录下
 cd /usr/local/ 
 #下载 apr 1.7.0
-wget -c http://mirror.bit.edu.cn/apache/apr/apr-1.7.0.tar.gz
+wget -c http://mirrors.tencent.com/apache/apr/apr-1.7.0.tar.gz
 #解压已下载的 apr 1.7.0 压缩包
 tar -zvxf apr-1.7.0.tar.gz
 #进入解压后的 apr 1.7.0 文件夹并指定编译目录路径。
@@ -101,16 +101,16 @@ make && make install
 >- 如果在安装 Apache 的过程中找不到 pcre、apr-util 或 apr 等相关文件，请将 `/pcre/bin`、`/apr-util/bin` 或 `/apr/bin` 等文件加入系统路径。
 >
 ```
-#下载 Apache 国密版
-wget -c https://www.wotrus.com/download/apache-2.4.39_gm.tar.gz
+#下载 Apache httpd-2.4.48 压缩包
+wget -c http://mirrors.tencent.com/apache/httpd/httpd-2.4.48.tar.gz
 #下载国密模块
 wget -c https://www.wotrus.com/download/wotrus_ssl.tar.gz
 #解压已下载的 wotrus_ssl 压缩包
 tar -zvxf wotrus_ssl.tar.gz 
-#解压已下载的 pache-2.4.39_gm 压缩包
-tar -zvxf apache-2.4.39_gm.tar.gz 
-#进入解压后的pcre-8.43文件夹并指定编译目录路径。
-cd httpd-2.4.39_gm/
+#解压已下载的 httpd-2.4.48 压缩包
+tar -zvxf httpd-2.4.48.tar.gz 
+#进入解压后的 httpd-2.4.48 文件夹并指定编译目录路径。
+cd httpd-2.4.48/
 ./configure --prefix=/usr/local/httpd --enable-so --enable-ssl --enable-cgi --enable-rewrite --enable-modules=most --enable-mpms-shared=all --with-mpm=prefork --with-zlib --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util --with-ssl=/usr/local/wotrus_ssl2.0 
 #编译安装 Apache
 make && make install

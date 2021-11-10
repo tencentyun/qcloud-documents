@@ -17,7 +17,7 @@
 
 ## VPN 打通
 ### 步骤 1
-1. 登录腾讯云 [私有网络控制台](https://console.cloud.tencent.com/vpc) ，单击左侧导航栏中的 **VPN 连接**>**VPN 通道**。
+1. 登录腾讯云 [私有网络控制台](https://console.cloud.tencent.com/vpc) ，单击左侧导航栏中的 **VPN 连接** > **VPN 通道**。
 ![](https://main.qcloudimg.com/raw/ffaf709b5d36e54cd416a03c25ea203e.png)
 2. 单击**VPN 通道 ID**进入详情页，在**SPD 策略**下方单击编辑，添加容器网段。 
 ![腾讯云配置 SPD 策略](https://main.qcloudimg.com/raw/07d18b2dd62d06025c0818537dae0e1a.png) 

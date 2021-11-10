@@ -74,6 +74,7 @@ server {
         ssl_prefer_server_ciphers on;
         location / {
 		   #网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
+		   #例如，您的网站运行目录在/etc/www下，则填写/etc/www。
             root html; 
             index  index.html index.htm;
         }
@@ -95,7 +96,7 @@ server {
  - 在后端程序中添加重定向。
  - 通过 Web 服务器实现跳转。
  - Nginx 支持 rewrite 功能。若您在编译时没有去掉 pcre，您可在 HTTP 的 server 中增加 `return 301 https://$host$request_uri;`，即可将默认80端口的请求重定向为 HTTPS。修改如下内容：
- >?
+>?
 >- 未添加注释的配置语句，您按照下述配置即可。
 >- 由于版本问题，配置文件可能存在不同的写法。例如：Nginx 版本为 `nginx/1.15.0` 以上请使用 `listen 443 ssl` 代替 `listen 443` 和 `ssl on`。
 >
@@ -113,8 +114,9 @@ server {
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     ssl_prefer_server_ciphers on;
     location / {
-			#网站主页路径。此路径仅供参考，具体请您按照实际目录操作。  
-		    root html;
+			#网站主页路径。此路径仅供参考，具体请您按照实际目录操作。 
+			#例如，您的网站运行目录在/etc/www下，则填写/etc/www。
+		root html;
         index index.html index.htm;
     }
 }

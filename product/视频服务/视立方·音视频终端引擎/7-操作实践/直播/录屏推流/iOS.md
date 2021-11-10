@@ -12,7 +12,7 @@
 
 录屏功能是 iOS 10 新推出的特性，苹果在 iOS 9 的 ReplayKit 保存录屏视频的基础上，增加了视频流实时直播功能，官方介绍见 [Go Live with ReplayKit](https://developer.apple.com/videos/play/wwdc2016/601/)。iOS 11 增强为 [ReplayKit2](https://developer.apple.com/videos/play/wwdc2017/606/)，进一步提升了 Replaykit 的易用性和通用性，并且可以对整个手机实现屏幕录制，并非只是支持 ReplayKit 功能，因此录屏推流建议直接使用 iOS 11 的 ReplayKit2 屏幕录制方式。系统录屏采用的是扩展方式，扩展程序有单独的进程，iOS 系统为了保证系统流畅，给扩展程序的资源相对较少，扩展程序内存占用过大也会被 Kill 掉。腾讯云 LiteAV SDK 在原有直播的高质量、低延迟的基础上，进一步降低系统消耗，保证了扩展程序稳定。
 
->!本文主要介绍 iOS 11 的 ReplayKit2 录屏使用 SDK 推流的方法，涉及 SDK 的使用介绍同样适用于其它方式的自定义推流。更详细的使用可参考 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) 里 ReplaykitUpload 文件夹的示例代码。
+>!本文主要介绍 iOS 11 的 ReplayKit2 录屏使用 SDK 推流的方法，涉及 SDK 的使用介绍同样适用于其它方式的自定义推流。更详细的使用说明可以参考 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example-OC/Basic/LivePushScreen) 里 TXReplayKit_Screen 文件夹示例代码。
 
 ## 功能体验
 
@@ -29,8 +29,8 @@
 | Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) |
 
 #### 使用步骤
-1. 打开控制中心，长按屏幕录制按钮，选择【视频云工具包】。
-2. 打开【视频云工具包】>【推流演示（录屏推流）】，输入推流地址或单击【New】自动获取推流地址，单击【开始推流】。
+1. 打开控制中心，长按屏幕录制按钮，选择 **视频云工具包**。
+2. 打开 **视频云工具包** > **推流演示（录屏推流）**，输入推流地址或单击 **New** 自动获取推流地址，单击 **开始推流**。
 
 ![](https://main.qcloudimg.com/raw/822ccd7c5acbcbf25e8fb148a6db74d7.png)
 
@@ -43,9 +43,9 @@
 Xcode 9 及以上的版本，手机也必须升级至 iOS 11 以上，否则模拟器无法使用录屏特性。
 
 ### 创建直播扩展
-在现有工程选择【New】>【Target…】，选择【Broadcast Upload Extension】，如图所示。
+在现有工程选择 **New** > **Target…**，选择 **Broadcast Upload Extension**，如图所示。
 ![](https://main.qcloudimg.com/raw/c4c0b0ee049c733640f813a318a25adb.png)
-配置好 Product Name。单击【Finish】后可以看到，工程多了所输 Product Name 的目录，目录下有个系统自动生成的 SampleHandler 类，这个类负责录屏的相关处理。
+配置好 Product Name。单击 **Finish** 后可以看到，工程多了所输 Product Name 的目录，目录下有个系统自动生成的 SampleHandler 类，这个类负责录屏的相关处理。
 
 ### 导入 LiteAV SDK
 直播扩展需要导入 TXLiteAVSDK.framework。扩展导入 framework 的方式和主 App 导入方式相同，SDK 的系统依赖库也没有区别。具体请参见腾讯云官网 [工程配置（iOS）](https://cloud.tencent.com/document/product/1449/56986)。
@@ -68,8 +68,8 @@ static NSString *s_rtmpUrl;
 <dx-codeblock>
 ::: objective objective
  - (void)initPublisher {
-		 if (s_txLivePublisher) {
-			 [s_txLivePublisher stopPush];
+         if (s_txLivePublisher) {
+             [s_txLivePublisher stopPush];
     }
     s_txLivePublisher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTMP];
     [s_txLivePublisher setObserver:self];
@@ -238,10 +238,10 @@ ReplayKit2 录屏只唤起 upload 直播扩展，直播扩展不能进行 UI 操
 <dx-codeblock>
 ::: code 
 CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(),
-									kDarvinNotificationNamePushStart,
-									NULL,
-									nil,
-									YES);
+                                    kDarvinNotificationNamePushStart,
+                                    NULL,
+                                    nil,
+                                    YES);
 :::
 </dx-codeblock>
 扩展中可通过监听此开始推流通知，由于此通知是在 CF 层，需要通过 NSNotificationCenter 发送到 Cocoa 类层方便处理：
@@ -262,14 +262,14 @@ static void onDarwinReplayKit2PushStart(CFNotificationCenterRef center,
                                         const void *object, CFDictionaryRef
                                         userInfo)
 {
-	//转到 cocoa 层框架处理
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"Cocoa_ReplayKit2_Push_Start" object:nil];
+    //转到 cocoa 层框架处理
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Cocoa_ReplayKit2_Push_Start" object:nil];
 }
 
 - (void)handleReplayKit2PushStartNotification:(NSNotification*)noti
 {
-	//通过  NSUserDefault 或剪贴板拿到宿主要传递的数据
-	//  NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:kReplayKit2AppGroupId];
+    //通过  NSUserDefault 或剪贴板拿到宿主要传递的数据
+    //  NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:kReplayKit2AppGroupId];
   
     UIPasteboard* pb = [UIPasteboard generalPasteboard];
     NSDictionary* defaults = [self jsonData2Dictionary:pb.string];

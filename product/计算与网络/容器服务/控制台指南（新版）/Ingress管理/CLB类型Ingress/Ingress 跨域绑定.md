@@ -12,6 +12,7 @@
 >?
 > 1. 如需使用非本集群所在 VPC 的 CLB，需先通过 [云联网](https://cloud.tencent.com/document/product/877/18752) 打通当前集群 VPC 和 CLB 所在的 VPC。
 > 2. 在确保 VPC 已经打通之后，请 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 申请使用该功能。
+> 3. 以下 YAML 中，需要您输入地域 ID ，您可以通过 [地域和可用区](https://cloud.tencent.com/document/product/457/44787#.E4.B8.AD.E5.9B.BD) 查看地域 ID。
 
 
 
@@ -25,7 +26,7 @@ CLB Ingress 跨域绑定和指定可用区支持通过控制台和 YAML 两种�
 ::: 控制台方式
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面，选择需修改 Ingress 的集群 ID。
-3. 在集群详情页，选择左侧**服务与路由**>**Ingress**。如下图所示：
+3. 在集群详情页，选择左侧**服务与路由** > **Ingress**。如下图所示：
    ![](https://main.qcloudimg.com/raw/69e9c55ea644144ea5848c98b9d0462a.png)
 4. 单击**新建**，在“新建 Ingress”页面中配置相关可用区规则。配置规则说明如下：
    - **当前VPC**：使用本集群所在 VPC 内的 CLB，建议使用随机可用区，若指定可用区的资源售罄将无法创建相关实例。

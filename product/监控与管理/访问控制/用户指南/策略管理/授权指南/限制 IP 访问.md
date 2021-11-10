@@ -3,8 +3,8 @@
 ## 前提条件
 需要设置的产品支持按 IP 限制业务访问，详细可参考 [常见问题](https://cloud.tencent.com/document/product/598/18795#.E6.9C.89.E5.93.AA.E4.BA.9B.E4.BA.91.E6.9C.8D.E5.8A.A1.E6.94.AF.E6.8C.81.E9.99.90.E5.88.B6-ip-.E8.AE.BF.E9.97.AE.EF.BC.9F)。
 ## 操作步骤
-1. 进入 [策略](https://console.cloud.tencent.com/cam/policy) 管理页面，单击左上角的【新建自定义策略】。
-3. 在弹出的选择创建方式窗口中，单击【按策略生成器创建】，进入选择服务和操作页面。
+1. 进入 [策略](https://console.cloud.tencent.com/cam/policy) 管理页面，单击左上角的**新建自定义策略**。
+3. 在弹出的选择创建方式窗口中，单击**按策略生成器创建**，进入选择服务和操作页面。
 4. 在选择服务和操作页面，补充以下信息。
   - 效果：必填项，选择 "允许"。如选择 "拒绝"，用户或用户组不能获取授权。
   - 服务：必填项，选择需要添加的产品。
@@ -17,7 +17,7 @@
 ![](https://main.qcloudimg.com/raw/80dae3b183a7682b60188d9ed8fae31e.png)
 
 策略语法如下：
-```
+```json
 {
  "version": "2.0",
  "statement": [

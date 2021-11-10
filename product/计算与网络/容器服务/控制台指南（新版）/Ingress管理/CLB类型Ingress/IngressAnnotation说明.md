@@ -49,14 +49,14 @@ metadata:
 指定创建负载均衡时，负载均衡的最大出带宽，仅对公网属性的 LB 生效。需配合 `kubernetes.io/ingress.internetChargeType` 注解一起使用。
 
 **可选值：**
-范围支持0到2048，单位 Mbps。
+范围支持1到2048，单位 Mbps。
 
 **使用示例：**
 `kubernetes.io/ingress.internetMaxBandwidthOut: "2048"`
 :::
 ::: kubernetes.io/ingress.extensiveParameters
 **说明：**
-参考 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/30692) 为创建负载均衡追加自定义参数。
+参考 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/30692#4.-.E7.A4.BA.E4.BE.8B) 为创建负载均衡追加自定义参数。
 **使用示例：**
 - 创建 NAT64 IPv6 实例：
   `kubernetes.io/ingress.extensiveParameters: '{"AddressIPVersion":"IPV6"}'`
@@ -99,13 +99,13 @@ metadata:
 **说明：**
 通过 tke-service-config 配置负载均衡相关配置，包括监听器、转发规则等。
 **使用示例：**
-`ingress.cloud.tencent.com/tke-service-config: "nginx-config"`，详情可参见 [Ingress 使用 TKEServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
+`ingress.cloud.tencent.com/tke-service-config: "nginx-config"`，详情可参见 [Ingress 使用 TkeServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
 :::
 ::: ingress.cloud.tencent.com/tke-service-config-auto
 **说明：**
 通过该注解可自动创建 TkeServiceConfig 资源，并提供配置的模板，用户可以按需进行配置。
 **使用示例：**
-`ingress.cloud.tencent.com/tke-service-config-auto: "true"`，详情可参见 [Ingress 使用 TKEServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
+`ingress.cloud.tencent.com/tke-service-config-auto: "true"`，详情可参见 [Ingress 使用 TkeServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
 :::
 ::: ingress.cloud.tencent.com/rewrite-support
 **说明：**

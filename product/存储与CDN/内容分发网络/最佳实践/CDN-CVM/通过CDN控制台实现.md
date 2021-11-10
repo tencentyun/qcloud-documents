@@ -1,3 +1,4 @@
+
 <style> 
 table th:nth-of-type(1) { width:16%; } 
 table th:nth-of-type(2){ width:84%; } 
@@ -20,13 +21,13 @@ table th:nth-of-type(2){ width:84%; }
 ### 第一部分：域名配置
 
 在域名处填充您需要加速的自身的服务域名，为其选择项目、加速区域及业务类型：
-![](https://main.qcloudimg.com/raw/14c8ed2cdc340731c886b28339fb2377.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e1d2d756e3d9f84e715e14cc6a82135e.png" width="85%">
 
 **配置项详解：**
 
 | 配置项   | 配置说明                                                     |
 | -------- | ------------------------------------------------------------ |
-| 域名     | 1. 域名长度不超过50个字符。<br/>2. 域名已经在工信部进行过备案。<br/>3.域名为 a.test.com、a.b.test.com 等形式子域名或 \*.test.com、\*.a.test.com 形式泛域名。<br/>4.若域名为泛域名或已被其他用户接入，需要进行 [所有权验证](https://cloud.tencent.com/document/product/228/41215#m1) 后方可接入或取回。<br/><br/><strong>注意事项：</strong><br/>1. 接入泛域名后，暂不支持子域名或二级泛域名在其他账号接入。<br/>2. 暂不支持 *.test.com 与 *.a.test.com 同时接入。 |
+| 域名     | 1. 域名长度不超过81个字符。<br/>2. 域名已经在工信部进行过备案。<br/>3.域名为 a.test.com、a.b.test.com 等形式子域名或 \*.test.com、\*.a.test.com 形式泛域名。<br/>4.若域名为泛域名或已被其他用户接入，需要进行 [所有权验证](https://cloud.tencent.com/document/product/228/41215#m1) 后方可接入或取回。<br/><br/><strong>注意事项：</strong><br/>1. 接入泛域名后，暂不支持子域名或二级泛域名在其他账号接入。<br/>2. 暂不支持 *.test.com 与 *.a.test.com 同时接入。<br/>3. 目前已支持包含下划线域名以及中文域名转 punycode 码接入。<br/>　• 境内中文域名需先以中文形式进行相关备案。<br/>　• 中文域名，例如“中文.域名”，可通过第三方工具转换成 “xn--fiq228c.xn--eqrt2g” 接入。<br/>　• 含下划线域名，例如 “test_qq.tencent.cloud”，可直接添加。<br/>4. 若域名为恶意域名或高风险域名，不可接入。详细说明请见 [使用限制](https://cloud.tencent.com/document/product/228/37848)。 |
 | 所属项目 | 项目为腾讯云所有云产品共享资源集概念，[项目管理](https://console.cloud.tencent.com/project) 中可进行项目相关操作。 |
 | 加速区域 | 中国境内：全球用户访问均会调度至中国境内加速节点进行服务。<br/>中国境外：全球用户访问均会调度至中国境外的加速节点进行服务。<br/>全球：全球用户访问将会择优调度至最近节点进行服务。<br/><br/><strong>注意事项：</strong><br/>中国境内与中国境外加速服务分开计费，计费策略 [单击查看](https://cloud.tencent.com/document/product/228/2949)。 |
 | 业务类型 | 腾讯云 CDN 针对不同业务类型进行了针对性的加速性能优化，<br/>建议选择与自身业务更加贴近的业务类型，来获取更优质的加速效果。<br/><br/>静态加速：适用于电商类、网站类、游戏图片类小型资源加速场景。<br/>下载加速：适用于游戏安装包、音视频源文件下载、手机固件分发等下载场景。<br/>流媒体点播加速：适用于在线教育、在线视频点播等场景。 |
@@ -49,14 +50,14 @@ table th:nth-of-type(2){ width:84%; }
 ### 第三部分：服务配置
 
 配置节点加速服务相关配置：
-![](https://main.qcloudimg.com/raw/b70c312bab350bce39f286bbd7e89a39.png)
+![](https://main.qcloudimg.com/raw/ee565150c442d0968c78685a970398f6.png)
 
 **配置项详解：**
 
 | 配置项   | 配置说明                                                     |
 | -------- | ------------------------------------------------------------ |
-| 基础配置 | 节点缓存资源遵循 Key-Value 映射，其中 Key 为资源 URL 。<br/>开启忽略参数，Key 会忽略 URL 中 “?” 之后参数进行映射。<br/>不开启忽略参数，Key 为完整资源 URL。<br/>静态加速类型默认不开启，下载、流媒体点播加速类型默认开启。详情请参见 [缓存键规则配置](https://cloud.tencent.com/document/product/228/47671)。 |
-| 分片回源 | 配置回源时是否进行分片，源站需要支持分片才可开启，详情请参见 [分片回源配置](https://cloud.tencent.com/document/product/228/7184)。<br/>对象存储源站默认开启分片回源。 |
+| 忽略参数 | 节点缓存资源遵循 Key-Value 映射，其中 Key 为资源 URL 。<br/>开启忽略参数，Key 会忽略 URL 中 “?” 之后参数进行映射。<br/>不开启忽略参数，Key 为完整资源 URL。<br/>静态加速类型默认不开启，下载、流媒体点播加速类型默认开启。详情请参见 [缓存键规则配置](https://cloud.tencent.com/document/product/228/47671)。 |
+| 分片回源 | 配置回源时是否进行分片，源站需要支持分片才可开启，详情请参见 [分片回源配置](https://cloud.tencent.com/document/product/228/7184)。<br/>源站类型为 COS 源默认开启分片回源。 |
 | 缓存规则 | 节点缓存过期时间配置，默认情况下所有文件缓存过期时间为30天。<br/>配置的节点缓存过期时间为最长过期时间，受节点存储资源影响，实际缓存时间视情况而定。详情请参见 [缓存过期配置](https://cloud.tencent.com/doc/product/228/6290)。 |
 
 ### 接入完成

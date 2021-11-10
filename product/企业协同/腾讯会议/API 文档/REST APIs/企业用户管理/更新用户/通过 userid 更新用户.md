@@ -21,7 +21,10 @@ https://api.meeting.qq.com/v1/users/{userid}
 | phone      | 否   | String   | 手机号码。                                                     |
 | userid     | 否   | String   | 调用方用于标示用户的唯一 ID。<br>企业唯一用户标识说明：企业调用创建用户接口时传递的 userid 参数。 |
 | avatar_url | 否   | String   | 头像地址。                                                     |
-
+| staff_id        | 否   | String     | 员工工号。                                                     |
+| job_title       | 否   | String     | 员工职位，长度范围[1,32]。                                     |
+| entry_time      | 否   | Integer    | 入职时间。                                                     |
+| department_list | 否   | String 数组 | 员工部门，暂只支持为用户分配1个部门。  |    
 
 
 ## 输出参数

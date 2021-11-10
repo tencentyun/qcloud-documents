@@ -23,12 +23,12 @@ Tencent Serverless Toolkit for VS Code 是腾讯云 Serverless 产品的 VS Code
 可通过以下两种方式安装 SCF VS Code 插件：  
 
 **a. 通过插件市场直接安装**
-进入 [插件市场](https://marketplace.visualstudio.com/items?itemName=tencentcloud.tencent-cloud-vscode-toolkit) 单击【install】进行安装。
+进入 [插件市场](https://marketplace.visualstudio.com/items?itemName=tencentcloud.tencent-cloud-vscode-toolkit) 单击**install**进行安装。
 
 **b. 通过 VS Code IDE 安装**
 1. 运行 VS Code IDE。
 2. 打开 VS Code 插件市场。
-3. 在搜索框中输入 “Tencent Serverless”，单击搜索框下方列表中的 Tencent Serverless 插件查看详情并选择【install】。如下图所示：      
+3. 在搜索框中输入 “Tencent Serverless”，单击搜索框下方列表中的 Tencent Serverless 插件查看详情并选择**install**。如下图所示：      
 ![](https://main.qcloudimg.com/raw/aad8aa8235fcf68713072d6270ce9e83.png)    
     安装完成后，左侧栏中会展示已安装完毕的 Tencent Serverless 插件。
 
@@ -90,7 +90,7 @@ Tencent Serverless Toolkit for VS Code 是腾讯云 Serverless 产品的 VS Code
 
 #### 设置调试模版
 1. 单击左侧导航栏顶部的<img src="https://main.qcloudimg.com/raw/f51801927eb766c828e721b193539e9e.png" style="margin:-3px 0;">，进入调试页面（或 `Ctrl+Shift+D`）。
-2. 选择【create a launch.json file】，新建调试配置文件。
+2. 选择**create a launch.json file**，新建调试配置文件。
 3. 选择 SCF Debugger For Python 调试模板（Node 项目请选择 SCF Debugger For Node）。如下图所示：
 >!不同的 runtime 须选择对应的调试模板，可根据您当前的调试文件类型，区分选择 Python 和 Node.js。     
 >
@@ -194,7 +194,7 @@ Resources:
 
 云端调用的日志会输出到 VS Code。如下图所示：  
 ![](https://main.qcloudimg.com/raw/3b5672e8d181021b4ed7b57c93a563bc.png)  
-您也可以前往控制台打开函数页面选择【运行日志】，查看所有历史日志，详情请参见 [函数日志](https://cloud.tencent.com/document/product/583/36143)。
+您也可以前往控制台打开函数页面选择**运行日志**，查看所有历史日志，详情请参见 [函数日志](https://cloud.tencent.com/document/product/583/36143)。
 
 #### 下载函数
 
@@ -215,9 +215,9 @@ Resources:
 
 #### 查看监控
 
-1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list)，单击左侧导航栏【函数服务】。
+1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list)，单击左侧导航栏**函数服务**。
 2. 在“函数服务”页面上方选择已创建函数地域，并单击函数 ID。
-3. 在已创建函数的详情页面，选择【监控信息】，即可查看函数调用次数/运行时间等情况。如下图所示：
+3. 在已创建函数的详情页面，选择**监控信息**，即可查看函数调用次数/运行时间等情况。如下图所示：
 >?监控统计的粒度最小为1分钟。您需要等待1分钟后，才可查看当次的监控记录。
 >
 ![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
@@ -225,15 +225,15 @@ Resources:
 
 #### 配置告警
 
-在已创建函数的详情页面，单击【前往新增告警】为云函数配置告警策略，对函数运行状态进行监控。如下图所示：  
+在已创建函数的详情页面，单击**前往新增告警**为云函数配置告警策略，对函数运行状态进行监控。如下图所示：  
 ![](https://main.qcloudimg.com/raw/6850e40bca71bfe7ca976004388294c8.png)
 更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133)。  
 
 #### 切换账号
 如果您有多个账号，可按照以下步骤在 SCF 插件页中添加新账号并切换使用：
-1. 选择云端函数右侧的<img src="https://main.qcloudimg.com/raw/ae8b96f8ee48b4dc003cf8b5173e5b12.png" > > 【切换账号】。如下图所示：
+1. 选择云端函数右侧的<img src="https://main.qcloudimg.com/raw/ae8b96f8ee48b4dc003cf8b5173e5b12.png" > > **切换账号**。如下图所示：
 ![](https://main.qcloudimg.com/raw/f2a93ff675883768ed326f7bd44353ee.png)
-2. 在弹出的菜单中选择【登录新用户】，输入对应信息完成配置，即可使用多用户。
+2. 在弹出的菜单中选择**登录新用户**，输入对应信息完成配置，即可使用多用户。
 
 
 ## 常见问题  
@@ -244,9 +244,9 @@ Resources:
 
 [](id:openCOS)
 ### 设置开启 COS 上传
-1. 选择左下角的<img src="https://main.qcloudimg.com/raw/20fd46098cf037eb003dc41f1f913313.png" style="margin:-3px 0px;"/> >【Settings】。如下图所示：
+1. 选择左下角的<img src="https://main.qcloudimg.com/raw/20fd46098cf037eb003dc41f1f913313.png" style="margin:-3px 0px;"/> >**Settings**。如下图所示：
 ![](https://main.qcloudimg.com/raw/e9e1f63819d29d86d8f9cae9cbb9e31a.png)
-2. 在“Settings”页面，选择【Extensions】>【Tencent-SCF】并勾选【Enable deployed by COS】。如下图所示：
+2. 在“Settings”页面，选择**Extensions** > **Tencent-SCF**并勾选**Enable deployed by COS**。如下图所示：
 ![](https://main.qcloudimg.com/raw/438d40222bd6fcc481c890c052bb6865.png)
 
 
@@ -259,7 +259,7 @@ Resources:
 如果您已为函数创建 API 网管触发器，可通过以下方式获取触发器的 serviceId：
 1. 登录 [SCF 控制台](https://console.cloud.tencent.com/scf/list)，在页面上方选择函数所在地域及命名空间。
 2. 在“函数服务”列表页面中，选择需查看信息的函数名。
-3. 进入“函数配置”页面，选择【触发方式】页签，即可在 “API网关触发器” 中查看 `serviceId`。如下图所示：
+3. 进入“函数配置”页面，选择**触发方式**页签，即可在 “API网关触发器” 中查看 `serviceId`。如下图所示：
 ![](https://main.qcloudimg.com/raw/d90649aac12e8011979148d26e9b7bcc.png)
 
 

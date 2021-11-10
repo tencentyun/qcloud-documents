@@ -7,8 +7,8 @@ Namespace=QCE/CYNOSDB_MYSQL
 
 | 指标英文名                   | 指标中文名             | 单位     | 维度 |
 | ----------------------------- | -------------- | ------ | ------ |
-|BytesReceived|内网入流量|MB/%| InstanceId |
-|BytesSent|内网出流量|MB/%| InstanceId |
+|BytesReceived|内网入流量|B/S| InstanceId |
+|BytesSent|内网出流量|B/S| InstanceId |
 |ComDelete|删除数|次/秒| InstanceId |
 |ComInsert|插入数|次/秒| InstanceId |
 |ComSelect|查询数|次/秒| InstanceId |

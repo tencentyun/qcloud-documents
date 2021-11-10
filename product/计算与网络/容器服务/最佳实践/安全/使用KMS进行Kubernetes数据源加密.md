@@ -34,7 +34,7 @@
 ### 创建并获取访问密钥[](id:createCAM)
 >?如已创建访问密钥，则请跳过此步骤。
 >
-1. 登录[ 访问管理控制台](https://console.cloud.tencent.com/cam/overview)，选择左侧导航栏中的**访问密钥**>**API密钥管理**，进入 “API密钥管理”页面。
+1. 登录[ 访问管理控制台](https://console.cloud.tencent.com/cam/overview)，选择左侧导航栏中的**访问密钥** > **API密钥管理**，进入 “API密钥管理”页面。
 2. 在 “API密钥管理”页面中，单击**新建密钥**并等待创建完成。
 3. 创建完成即可在 “API密钥管理”页面查看该密钥信息，包含 `SecretId`、`SecretKey`。如下图所示：
 ![](https://main.qcloudimg.com/raw/106be1fd3e9f52f0d112b7f583b2d7df.png)
@@ -45,7 +45,7 @@
 2. 在“集群管理”页面中，选择符合条件的集群 ID，进入该集群详情页。
 3. 选择该集群任意界面右上角**YAML创建资源**，进入 YAML 创建资源页，输入 `tke-kms-plugin.yaml` 内容。如下所示：
 > ? 请根据实际情况替换以下参数：
-> - `{{REGION}}`：KMS 密钥所在地域，有效值可取： `ap-beijing`、`ap-guangzhou`、`ap-shanghai`。
+> - `{{REGION}}`：KMS 密钥所在地域，有效值可参见 [地域列表](https://cloud.tencent.com/document/api/573/34406#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
 > - `{{KEY_ID}}`：输入 [创建 KMS 密钥并获取 ID](#createKMS) 步骤中所获取的 KMS 密钥 ID。
 > - `{{SECRET_ID}}` 和 `{{SECRET_KEY}}`：输入 [创建并获取访问密钥](#createCAM) 步骤中创建的 SecretID 和 SecretKey。
 > - `images: ccr.ccs.tencentyun.com/tke-plugin/tke-kms-plugin:1.0.0`：tke-kms-plugin 镜像地址。当您需要使用自己制作的 tke-kms-plugin 镜像时，可自行进行更换。
@@ -116,8 +116,8 @@ spec:
 ```
 vim /etc/kubernetes/encryption-provider-config.yaml
 ```
-3. 按 **i** 切换至编辑模式，对上述 YAML 文件进行编辑。对应实际使用的 K8s 版本，输入如下内容：
- -  K8s v1.13+：
+3. 按 **i** 切换至编辑模式，对上述 YAML 文件进行编辑。对应实际使用的 K8S 版本，输入如下内容：
+ -  K8S v1.13+：
 ```
    apiVersion: apiserver.config.k8s.io/v1
    kind: EncryptionConfiguration
@@ -132,7 +132,7 @@ vim /etc/kubernetes/encryption-provider-config.yaml
              endpoint: unix:///var/run/tke-kms-plugin/server.sock
          - identity: {}
 ```
- - K8s v1.10 - v1.12：
+ - K8S v1.10 - v1.12：
 ```
    apiVersion: v1
    kind: EncryptionConfig
@@ -152,14 +152,14 @@ vim /etc/kubernetes/encryption-provider-config.yaml
 ```
 vi /etc/kubernetes/manifests/kube-apiserver.yaml
 ```
-6. 按 **i** 切换至编辑模式，对应实际使用的 K8s 版本，将以下内容添加至 `args`。
->?K8s v1.10.5 版本的独立集群，需要先将 `kube-apiserver.yaml`  移出 `/etc/kubernetes/manifests` 目录，编辑完成之后再移入。
+6. 按 **i** 切换至编辑模式，对应实际使用的 K8S 版本，将以下内容添加至 `args`。
+>?K8S v1.10.5 版本的独立集群，需要先将 `kube-apiserver.yaml`  移出 `/etc/kubernetes/manifests` 目录，编辑完成之后再移入。
 >
- - K8s v1.13+：
+ - K8S v1.13+：
 ```
  --encryption-provider-config=/etc/kubernetes/encryption-provider-config.yaml
 ```
- - K8s v1.10 - v1.12：
+ - K8S v1.10 - v1.12：
 ```
 --experimental-encryption-provider-config=/etc/kubernetes/encryption-provider-config.yaml
 ```

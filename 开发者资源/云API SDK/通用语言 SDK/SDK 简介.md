@@ -109,8 +109,8 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [Elasticsearch Service](https://cloud.tencent.com/document/api/845/30620) | Elasticsearch  Service，ES                                   | es           |
 | [样本智能分析平台](https://cloud.tencent.com/document/product/1012)      | -                                | habo         |
 | [腾讯知识图谱](https://cloud.tencent.com/document/product/677)             | Tencent  Knowledge Graph，TKG                                | tkgdq        |
-| [文本内容安全](https://cloud.tencent.com/document/product/1124/38207) | Text  Moderation System，TMS                                 | cms          |
-| [图片内容安全](https://cloud.tencent.com/document/product/1125/38206) | Image  Moderation System，IMS                                | cms          |
+| [文本内容安全](https://cloud.tencent.com/document/product/1124/38207) | Text  Moderation System，TMS                                 | tms          |
+| [图片内容安全](https://cloud.tencent.com/document/product/1125/38206) | Image  Moderation System，IMS                                | ims          |
 | [电子合同服务](https://cloud.tencent.com/document/product/869/17778) | Digital  Contract                                            | ds           |
 | [腾讯智学课堂分析](https://cloud.tencent.com/document/product/1059/35988) | Tencent  Classroom Intellisense                              | tci          |
 | [活动防刷](https://cloud.tencent.com/document/product/1189)         | - | aa         |

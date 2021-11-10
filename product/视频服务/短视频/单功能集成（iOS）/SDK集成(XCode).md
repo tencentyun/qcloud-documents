@@ -120,7 +120,7 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
 ```
 录制后的结果将通过 completion block 回调，示例如下：
 ```
-   recordViewController.completion = ^(TCUGCResult *result) {
+   recordViewController.completion = ^(UGCKitResult *result) {
        if (result.error) {
            // 录制出错
           [self showAlertWithError:error];
@@ -148,7 +148,7 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
 ```
 编辑后的结果将通过 completion block 回调，示例如下：
 ```
-       editViewController.completion = ^(TCUGCResult *result) {
+       editViewController.completion = ^(UGCKitResult *result) {
        if (result.error) {
            // 出错
           [self showAlertWithError:error];

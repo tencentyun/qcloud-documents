@@ -19,16 +19,16 @@
 >?  由于云服务器负载高时会导致无法建立远程连接，推荐 [使用 VNC 方式登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。 
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在实例的管理页面，找到目标云服务器实例，单击【登录】。如下图所示：
+2. 在实例的管理页面，找到目标云服务器实例，单击**登录**。如下图所示：
 ![](https://main.qcloudimg.com/raw/038fce530c6c6827796e51d896306a93.png)
-3. 在弹出的 “登录Windows实例” 窗口中，选择【其它方式（VNC）】，单击【立即登录】，登录云服务器。
+3. 在弹出的 “登录Windows实例” 窗口中，选择**其它方式（VNC）**，单击**立即登录**，登录云服务器。
 4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
 
 
 #### 查看进程占用情况
 
-1. 在云服务器中，右键单击 “任务栏”，选择【任务管理器】。如下图所示：
+1. 在云服务器中，右键单击 “任务栏”，选择**任务管理器**。如下图所示：
 ![](//mc.qcloudimg.com/static/img/12539e5b76898e30bbb3bf510b0a5262/image.png)
 2. 在打开的 “任务管理器” 中，即可查看资源占用情况。如下图所示：
 ![](https://main.qcloudimg.com/raw/f4e85ae575a486ea9d6641ce9a7a8e21.png)
@@ -44,7 +44,7 @@
 1. 检查进程名称。
  部分病毒会使用与系统进程相似的名称，例如 svch0st.exe、explore.exe、iexplorer.exe 等。
 2. 检查进程对应的可执行文件的所在位置。
- 系统进程一般位于 `C:\Windows\System32` 目录下，并且会有完善的签名和介绍。您可以在任务管理器中，右键单击待查看的进程，选择【打开文件位置】，即可查看具体可执行文件的位置。例如 `svchost.exe`。如下图所示：
+ 系统进程一般位于 `C:\Windows\System32` 目录下，并且会有完善的签名和介绍。您可以在任务管理器中，右键单击待查看的进程，选择**打开文件位置**，即可查看具体可执行文件的位置。例如 `svchost.exe`。如下图所示：
 ![](https://main.qcloudimg.com/raw/09dca00652a301e804f9411658e4c46e.png)
  - 如果进程位置不在 `C:\Windows\System32` 目录下，则表示该云服务器可能中了病毒，请手动或者使用安全工具进行查杀。
  - 如果进程位置在 `C:\Windows\System32` 目录下，请重启系统或关闭不需要且安全的系统进程。

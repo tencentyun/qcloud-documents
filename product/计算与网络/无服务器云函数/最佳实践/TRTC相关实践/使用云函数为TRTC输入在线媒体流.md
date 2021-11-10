@@ -48,13 +48,13 @@ API 网关调用涉及的参数如下：
 
 ### 创建云函数[](id:step01)
 
-1. 登录云函数控制台，选择左侧导航栏中的【[函数服务](https://console.cloud.tencent.com/scf/list)】。
-2. 在“函数服务”页面上方选择**北京**地域，并单击【新建】进入新建函数页面，根据页面相关信息提示进行配置。如下图所示：
+1. 登录云函数控制台，选择左侧导航栏中的 **[函数服务](https://console.cloud.tencent.com/scf/list)**。
+2. 在“函数服务”页面上方选择**北京**地域，并单击**新建**进入新建函数页面，根据页面相关信息提示进行配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/4e1e5468b371f8478992f6fa8ca07746.jpg)
-   - **创建方式**：选择【模板创建】。
+   - **创建方式**：选择**模板创建**。
    - **模糊搜索**：输入“TRTC直播推流”，并进行搜索。
-     单击模板中的【查看详情】，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
-3. 单击【下一步】，根据页面相关信息提示进行配置。如下图所示：
+     单击模板中的**查看详情**，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
+3. 单击**下一步**，根据页面相关信息提示进行配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/71b0c84a634c8aab0ad86b4cdd21c47f.png)
  - **函数名称**：默认填充。
  - **异步执行**：勾选以开启。开启后，函数将以异步执行模式响应事件，事件调用无需阻塞等待处理结果，事件将在被调用后进入异步执行状态。
@@ -62,7 +62,7 @@ API 网关调用涉及的参数如下：
  - **执行超时时间**：可根据需要自行修改。
 4. 配置 API 网关触发器，默认新建 API 服务，不开启集成响应。您也可以选择自定义创建，自定义创建时确保集成响应关闭。如下图所示：
 ![img](https://main.qcloudimg.com/raw/3a198dac7c94d6712da1f250ef6b074c.png)
-5. 单击【完成】即可完成函数创建和 API 网关触发器创建。
+5. 单击**完成**即可完成函数创建和 API 网关触发器创建。
 6. 如需使用 Redis 实时记录推流进度，由于 Redis 只能私有网络访问，因此必须将云函数的 VPC 配置在与 Redis 在同一个私有网络下。如下图所示：
 ![](https://main.qcloudimg.com/raw/1d81c0ff8aa4eff4ba9f2f6d4e45717f.png)
 
@@ -72,8 +72,8 @@ API 网关调用涉及的参数如下：
 
 ### 创建 TRTC 应用[](id:step02)
 
-1. 登录实时音视频控制台，选择左侧导航栏中的【开发辅助】>【[快速跑通 Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 填写 Demo 名称，单击【创建】完成应用创建。您可以根据自己的客户端选择模板试运行。
+1. 登录实时音视频控制台，选择左侧导航栏中的**开发辅助** >  **[快速跑通 Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+2. 填写 Demo 名称，单击**创建**完成应用创建。您可以根据自己的客户端选择模板试运行。
 ![](https://main.qcloudimg.com/raw/f5126148ae72c78d761a0be0c94710d3.jpg)
 
 
@@ -96,8 +96,8 @@ API 网关调用涉及的参数如下：
  ![](https://main.qcloudimg.com/raw/22f1e55b18e166d0b4ece52284847e09.png)
 2. 请求发送后会收到异步函数响应 “Async run task submitted”，此次函数的 RequstId 会通过 HTTP 头部信息中的 x-scf-reqid 返回。如下图所示：
  ![](https://main.qcloudimg.com/raw/2659951b64f7bd81fe29bdd700fa6590.png)
-3. 在云函数控制台【[函数服务](https://console.cloud.tencent.com/scf/list)】页面中，单击上述 [创建云函数](#step01) 步骤中创建的云函数名称，进入“函数详情”页面。
-4. 在“函数详情”页面中选择【日志查询】页签，可以查看到打印出的推流日志信息。如下图所示：
+3. 在云函数控制台 **[函数服务](https://console.cloud.tencent.com/scf/list)**页面中，单击上述 [创建云函数](#step01) 步骤中创建的云函数名称，进入“函数详情”页面。
+4. 在“函数详情”页面中选择**日志查询**页签，可以查看到打印出的推流日志信息。如下图所示：
     ![](https://main.qcloudimg.com/raw/5dd0744da897f6fb117c10e8e0ed9b7a.jpeg)
 5. 切换至 [实时音视频控制台](https://console.cloud.tencent.com/trtc/monitor)，在“监控仪表盘”页面单击房间 ID，查看推流监控详情信息。如下图所示：
     ![](https://main.qcloudimg.com/raw/b69e2c7f19e22bffbd49e0faf824f4ae.png)

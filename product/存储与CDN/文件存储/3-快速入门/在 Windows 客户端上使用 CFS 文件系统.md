@@ -113,7 +113,7 @@ net start nfsclnt
 若以上界面中出现" locking=yes"，为了避免文件锁导致读写异常（NFS v3 暂不支持锁），请按以下步骤修改注册表：
 
 （1）找到如下注册表路径 【HKEY_LOCAL_MACHINE】 > 【SOFTWARE】 > 【Microsoft】 > 【ClientForNFS】 > 【CurrentVersion】 > 【User】 > 【Default】 > 【Mount】。
-（2）在右侧内容区右键新建【QWORD (64-位)值】，名称为”Locking”，值为”0” 。
+（2）在右侧内容区右键新建【DWORD (32-位)值】，名称为”Locking”，值为”0” 。
 
 
 d. 验证读写

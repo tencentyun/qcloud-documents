@@ -1,10 +1,10 @@
 ## 操作场景
 
-TDMQ 现已支持 Pulsar 社区版 Go SDK。本文介绍如何使用 Pulsar 社区版 Go SDK 完成接入。
+TDMQ Pulsar 版现已支持 Pulsar 社区版 Go SDK。本文介绍如何使用 Pulsar 社区版 Go SDK 完成接入。
 
 ## 前提条件[](id:前提条件)
 - 获取路由 ID 和接入点地址
-在 TDMQ 控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】页面复制接入地址（2.6.1之前版本需进入接入点页面复制路由 ID 和接入点地址）。
+在 TDMQ Pulsar 版控制台 **[集群管理](https://console.cloud.tencent.com/tdmq/cluster)** 页面复制接入地址（2.6.1之前版本需进入接入点页面复制路由 ID 和接入点地址）。
 
 - 获取密钥
 已参考 [角色与鉴权](https://cloud.tencent.com/document/product/1179/47543) 文档配置好了角色与权限，并获取到了对应角色的密钥（Token）。
@@ -58,7 +58,16 @@ if err != nil {
 :::
 </dx-tabs>
 
-
-  
-关于 Pulsar 社区版 Go SDK 各种功能的使用方式，请参考 [Pulsar官方文档](http://pulsar.apache.org/docs/en/client-libraries-go/)。
+**关于 Pulsar 社区版 Go SDK 使用 Reader 的特殊说明：**
+如果使用 Reader 方式订阅主题时，需要指定到 Topic 分区级别（默认分区即在 Topic 后面加 `-partition-0`），代码示例如下：
+<dx-codeblock>
+:::  go
+reader, err := client.CreateReader(pulsar.ReaderOptions{
+		Topic:          "persistent://test-tenant/test-ns/test-topic-partition-0",
+		StartMessageID: pulsar.EarliestMessageID(),
+	})
+:::  
+ </dx-codeblock> 
+ 
+关于 Pulsar 社区版 Go SDK 各种功能的使用方式，请参考 [Pulsar 官方文档](http://pulsar.apache.org/docs/en/client-libraries-go/)。
 

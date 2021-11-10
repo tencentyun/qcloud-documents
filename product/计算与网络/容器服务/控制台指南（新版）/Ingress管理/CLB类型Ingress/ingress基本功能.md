@@ -18,7 +18,7 @@ Ingress 是允许访问到集群内 Service 的规则的集合，您可以通过
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**进入集群管理页面。
 3. 单击需要创建 Ingress 的集群 ID，进入待创建 Ingress 的集群管理页面。
-4. 选择**服务**>**Ingress**，进入 Ingress 信息页面。
+4. 选择**服务** > **Ingress**，进入 Ingress 信息页面。
 5. 单击**新建**，进入“新建Ingress”页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/29d53d98e4c87c3ba903bb315db805f6.png)
 6. 根据实际需求，设置 Ingress 参数。关键参数信息如下：
@@ -41,7 +41,7 @@ Ingress 是允许访问到集群内 Service 的规则的集合，您可以通过
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
-4. 选择**服务**>**Ingress**，进入 Ingress 信息页面。如下图所示：
+4. 选择**服务** > **Ingress**，进入 Ingress 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/ae8618d235c9fff89afa5acfcd53b7b8.png)
 5. 在需要更新 YAML 的 Ingress 行中，单击**编辑YAML**，进入更新 Ingress 页面。
 6. 在 “更新Ingress” 页面，编辑 YAML，单击**完成**，即可更新 YAML。
@@ -49,7 +49,7 @@ Ingress 是允许访问到集群内 Service 的规则的集合，您可以通过
 #### 更新转发规则
 
 1. 集群管理页面，单击需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
-2. 选择**服务**>**Ingress**，进入 Ingress 信息页面。如下图所示：
+2. 选择**服务** > **Ingress**，进入 Ingress 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/3edf3ff889848edeb5dd3ba208ddbc44.png)
 3. 在需要更新转发规则的 Ingress 行中，单击**更新转发配置**，进入更新转发配置页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/3c77770e7542f67b66d25378d7576393.png)

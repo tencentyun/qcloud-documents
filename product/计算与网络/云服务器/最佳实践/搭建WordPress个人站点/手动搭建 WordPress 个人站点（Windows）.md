@@ -32,7 +32,7 @@ WordPress 个人站点可搭建在 PHP 5.6.20及之后版本和 MySQL 5.0及之�
 
 1. 下载 WordPress，并将 WordPress 安装包解压至云服务器中。
 例如，将 WordPress 安装包解压至 `C:\wordpress` 目录下。
-2. 单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;"> >  <img src="https://main.qcloudimg.com/raw/ca83b4e70e201fe9ff98dc1f2b207cee.png" style="margin: 0;"> > 【MySQL 5.6 Command Line Client】，打开 MySQL 命令行客户端。
+2. 单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;"> >  <img src="https://main.qcloudimg.com/raw/ca83b4e70e201fe9ff98dc1f2b207cee.png" style="margin: 0;"> >  **MySQL 5.6 Command Line Client**，打开 MySQL 命令行客户端。
 3. 在 MySQL 命令行客户端中，执行以下命令，创建 WordPress 数据库。
 例如，创建 “wordpress” 数据库。
 ```
@@ -43,16 +43,16 @@ create database wordpress;
 ![](https://main.qcloudimg.com/raw/ed808064e32f8c6c133e74472c934c0b.png)
 6. 保存 `wp-config.php` 文件。
 7. 单击 <img src="https://main.qcloudimg.com/raw/f779581f1ce3edfead8c725ce1504009.png" style="margin: 0;">，打开服务器管理器。
-8. 在服务器管理器的左侧导航栏中，选择【IIS】，并在右侧 IIS 管理窗口中右键单击【服务器】栏中的服务器名称，选择【Internet Information Sevices (IIS)管理器】。
-9. 在打开的 “Internet Information Sevices (IIS)管理器” 窗口中，依次展开左侧导航栏的服务器名称，单击【网站】，进入 “网站” 管理页面。如下图所示：
+8. 在服务器管理器的左侧导航栏中，选择**IIS**，并在右侧 IIS 管理窗口中右键单击**服务器**栏中的服务器名称，选择**Internet Information Sevices (IIS)管理器**。
+9. 在打开的 “Internet Information Sevices (IIS)管理器” 窗口中，依次展开左侧导航栏的服务器名称，单击**网站**，进入 “网站” 管理页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/7b564d224b02512904d5647c1cb243de.png)
-10. 删除【网站】下绑定端口为80的网站。
+10. 删除**网站**下绑定端口为80的网站。
 您也可以将网站的绑定端口修改为其他未被占用的端口号。例如修改为8080端口。
-11. 在右侧的【操作】栏中，单击【添加网站】。
-12. 在弹出的窗口中，填写以下信息，并单击【确定】。如下图所示：
+11. 在右侧的**操作**栏中，单击**添加网站**。
+12. 在弹出的窗口中，填写以下信息，并单击**确定**。如下图所示：
 ![](https://main.qcloudimg.com/raw/3204591ca44496116b156e073b37526a.png)
  - 网站名称：用户自定义，例如 wordpress。
- - 应用程序池：选择为【DefaultAppPool】。
+ - 应用程序池：选择为**DefaultAppPool**。
  - 物理路径：选择为 WordPress 解压后的存放路径，例如 `C:\wordpress`。
 13. 在 PHP 的解压安装路径下，打开 `php.ini` 文件，并修改以下内容。
  1. 根据 PHP 版本不同，修改相应的配置参数：
@@ -64,7 +64,7 @@ create database wordpress;
 ### 步骤4：验证 WordPress 配置
 
 1. 使用浏览器访问 `http://localhost/wp-admin/install.php`，转至 WordPress 安装页，开始配置 WordPress。
-2. 根据 WordPress 安装向导提示输入以下安装信息，单击【安装 WordPress】，完成安装。
+2. 根据 WordPress 安装向导提示输入以下安装信息，单击**安装 WordPress**，完成安装。
 <table>
 	<tr><th>所需信息</th><th>说明</th></tr>
 	<tr><td>站点标题</td><td>WordPress 网站名称。</td></tr>

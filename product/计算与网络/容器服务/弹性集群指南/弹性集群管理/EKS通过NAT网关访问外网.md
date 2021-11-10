@@ -6,12 +6,12 @@
 
 
 ### 创建 NAT 网关[](id:createNAT)
-1. 登录腾讯云私有网络控制台，选择左侧导航栏中的**[NAT 网关](https://console.cloud.tencent.com/vpc/nat)**。
+1. 登录腾讯云私有网络控制台，选择左侧导航栏中的 **[NAT 网关](https://console.cloud.tencent.com/vpc/nat)**。
 2. 在 “NAT网关”页面中，单击**+新建**。
 3. 在弹出的“新建NAT网关”窗口中参考 [创建 NAT 网关](https://cloud.tencent.com/document/product/552/18186#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.88.9B.E5.BB.BA-nat-.E7.BD.91.E5.85.B3)，创建与 EKS 集群同地域、同私有网络 VPC 的 NAT 网关。
 
 ### 创建指向 NAT 网关的路由表[](id:createRouting)
-1. 选择左侧导航栏中的**[路由表](https://console.cloud.tencent.com/vpc/route)**，进入“路由表”管理页面。
+1. 选择左侧导航栏中的 **[路由表](https://console.cloud.tencent.com/vpc/route)**，进入“路由表”管理页面。
 2. 在“路由表”管理页面，单击**+新建**。
 3. 在弹出的“新建路由表”窗口中，参考以下信息创建与 EKS 集群同地域、同 VPC 的路由表。如下图所示：
 ![](https://main.qcloudimg.com/raw/34967197070bfbacc3a93c8ac92b234d.png)

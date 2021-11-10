@@ -12,13 +12,14 @@ H5 SDK 提供产品信息、设备数据、用户信息与家庭信息等基本�
 | roomName          | string                                                       | 当前设备的房间名称                                           |
 | dataTemplate      | string                                                       | 设备所在产品的物模型，与【数据模板】>【查看JSON】中展示的物模型定义一致 |
 | deviceStatus      | number                                                       | 设备在线状态，在线：1，非在线：0                             |
-| deviceDisplayName | string                                                       | 设备展示名称，会依次取：AliasName > productInfo&#46；name > deviceName 来展示 |
+| deviceDisplayName | string                                                       | 设备展示名称，会依次取：AliasName > productInfo；name > deviceName 来展示 |
 | isShareDevice     | boolean                                                      | 是否是分享设备                                               |
 | familyId          | string                                                       | 设备所在家庭 ID，如果是分享设备则无此值                      |
 | roomId            | string                                                       | 设备所在房间 ID，如果是分享设备则无此值                      |
 | familyInfo        | [FamilyList](https://cloud.tencent.com/document/product/1081/40780#familylist) | 设备所在家庭详情，如果是分享设备则无此值                     |
 | isFamilyOwner     | boolean                                                      | 用户是否是当前家庭的所有者                                   |
-| userInfo          | object                                                       | 用户信息<li>Avatar：string；头像 URL<li>CountryCode：string；国家代码<li>Email：string；邮箱地址<li>NickName：string；昵称<li>PhoneNumber：string；手机号码<li>UserID：string；用户 ID |
+| userInfo          | object                                                       | 用户信息<li>Avatar：string；头像 URL</li><li>CountryCode：string；国家代码</li><li>Email：string；邮箱地址</li><li>NickName：string；昵称</li><li>PhoneNumber：string；手机号码</li><li>UserID：string；用户 ID</li> |
+
 
 ## 设备管理
 
@@ -393,7 +394,8 @@ sdk.checkFirmwareUpgrade({
 </tbody></table>
 - **返回值**
   返回一个 Promise，输出参数请参见 [查询设备固件是否升级](https://cloud.tencent.com/document/product/1081/47129)。
-	
+
+
 <span id="sdk-go-firmware-upgrade-page"></span>
 ### 进行固件升级
 跳转到小程序的固件升级页面，进行固件升级。
@@ -552,7 +554,7 @@ sdk.tips.hide() => Promise
 <span id="sdk-tips-show-loading-tips"></span>
 
 #### 展示 loading tips
-  封装后的 `tips.show` 方法，等价于：
+封装后的 `tips.show` 方法，等价于：
 ```javascript
 sdk.tips.show(message, {
   type: 'loading',
@@ -1458,7 +1460,7 @@ sdk.bluetoothAdapter.addAdapter(deviceAdapter: DeviceAdapterConstructor) => void
 </tr>
 </tbody></table>
  - **示例代码**
- ```javascript
+```javascript
 class DemoDeviceAdapter extends DeviceAdapter {
 	static serviceId = '0000FFF0-0000-1000-8000-00805F9B34CC';
 	static deviceFilter(deviceInfo) {
@@ -1487,7 +1489,7 @@ class DemoDeviceAdapter extends DeviceAdapter {
 	}
 }
 sdk.bluetoothAdapter.addAdapter(DemoDeviceAdapter);
- ```
+```
 
 #### 初始化蓝牙模块
 
@@ -1637,6 +1639,7 @@ sdk.blueToothAdapter.searchDevice({
 
 #### 连接蓝牙设备
 
+<span id="bluetoothAdapter-connect-device"></span>
 连接指定蓝牙设备。
 
 - **接口定义**
@@ -1696,6 +1699,61 @@ sdk.blueToothAdapter.getDeviceAdapter(deviceId: string) => DeviceAdapter
 </tbody></table>
 - **返回值**
 返回对应 `deviceId` 的设备适配器实例。
+
+#### 上报设备信息
+
+蓝牙设备不能通过mqtt直接上报设备的mac地址等信息，所以需要H5端进行上报，对应的是设备详情里面的设备信息
+![](https://qcloudimg.tencent-cloud.cn/raw/9360c6faefc368bdba49e0f3f1f974c2.png)
+
+>! 图片里面厂家名称和产品型号是在设备量产时在控制台填写的，mac 地址，固件版本等由 H5 端进行上报
+
+- **接口定义**
+
+```typescript
+sdk.blueToothAdapter.reportDeviceInfo({ productId: string, deviceName: string, deviceInfo: any }) => Promise;
+```
+
+- **参数说明**
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>productId</td>
+<td>产品 ID</td>
+<td>string</td>
+</tr>
+<tr>
+<td>deviceName</td>
+<td>设备名称</td>
+<td>string</td>
+</tr>
+<tr>
+<td>deviceInfo</td>
+<td>设备信息</td>
+<td>any,详情见下面示例</td>
+</tr>
+</tbody></table>
+
+```typescript
+deviceInfo: {
+    "module_hardinfo": "模组具体硬件型号 N10",
+    "module_softinfo": "模组软件版本",
+    "fw_ver": "mcu固件版本",
+    "imei": "设备imei号，可选上报",
+    "mac": "设备mac地址，可选上报",
+    "device_label": {
+    "append_info": "设备商自定义的产品附加信息"
+}
+```
+
+
+
 
 #### 监听事件
 监听蓝牙适配器事件。
@@ -2131,6 +2189,84 @@ deviceAdapter.off(type: string, listener: (...args) => void) => void
 </tbody></table>
 
 
+### BLE + WIFI 双路通信
+
+针对 Wi-Fi + BLE Combo 模组，提供设备端 SDK 和 H5 SDK，支持设备 Wi- Fi 离线状态下，小程序通过 LLSync 标准蓝牙协议与设备通信，为用户提供 Wi-Fi 断网下的更佳体验。设备端 SDK 请参考 [开发指引](https://github.com/tencentyun/qcloud-iot-explorer-BLE-sdk-embedded/blob/master/docs/LLSync%20SDK%E5%8F%8C%E8%B7%AF%E9%80%9A%E4%BF%A1%E5%8A%9F%E8%83%BD%E6%8E%A5%E5%85%A5%E6%8C%87%E5%BC%95.md)。
+
+对于自定义 H5 面板，配网流程无需开发者关注，开发者需要在面板中关注： 
+1. 监听设备在线状态，wifi连接是否正常; 
+2. 当设备离线时启用蓝牙进行通信。下面分开说明。
+
+#### 监听设备在线状态
+
+我们可以通过监听 [WebSocket 事件](#websocket-.E4.BA.8B.E4.BB.B6) 中的 `wsStatusChange` 事件来感知设备的在线离线状态。
+
+```js
+sdk.on('wsStatusChange', ({deviceId, deviceStatus}) => {
+	if (deviceStatus === 0) {
+		// 设备已离线，开始启用蓝牙连接进行通信，见第二步
+	}
+})
+```
+
+#### 启用蓝牙通信
+
+我们提供了 [双路通信 demo](https://github.com/tencentyun/iotexplorer-h5-panel-demo/tree/master/src/DualmodePanel) 供参考。
+
+##### STEP1: 添加 BleComboDualModeDeviceAdapter4H5
+
+BleComboDualModeDeviceAdapter4H5 是一个设备适配器实例，如果您还不了解设备适配器，请阅读 [设备适配器部分](https://cloud.tencent.com/document/product/1081/49029#.E8.AE.BE.E5.A4.87.E9.80.82.E9.85.8D.E5.99.A8)。
+
+```js
+import { BleComboDualModeDeviceAdapter4H5 } from 'qcloud-iotexplorer-appdev-plugin-wificonf-blecombo/lib/protocols/BleComboDualMode';
+
+const sdk = window.h5PanelSdk;
+BleComboDualModeDeviceAdapter4H5.injectOptions({ appDevSdk: sdk.appDevSdk });
+
+// h5 sdk升级后支持下面的 addAdapter
+// sdk.blueToothAdapter.addAdapter(BleComboDualModeDeviceAdapter4H5, true);
+sdk.blueToothAdapter._deviceAdapterFactoryMap[BleComboDualModeDeviceAdapter4H5.serviceId] = BleComboDualModeDeviceAdapter4H5;
+```
+
+##### STEP2: 搜索设备
+
+searchDevice的参数详见 [蓝牙适配器](#.E8.93.9D.E7.89.99.E9.80.82.E9.85.8D.E5.99.A8) 搜索单个蓝牙设备的参数说明部分。
+
+```js
+await blueToothAdapter.init();
+console.log('开始搜索设备', sdk.deviceName);
+const deviceInfo = await blueToothAdapter.searchDevice({
+	deviceName: sdk.deviceName,
+	serviceId: BleComboDualModeDeviceAdapter4H5.serviceId,
+	productId: sdk.productId,
+	disableCache: true,
+});
+```
+
+##### STEP3: 连接设备
+
+使用上一步获取到的 deviceInfo, 我们可以调用 connectDevice 连接设备以获得 deviceAdapter，传入参数定义详见 [连接蓝牙设备](#bluetoothAdapter-connect-device) 部分。
+
+```js
+const deviceAdapter = await blueToothAdapter.connectDevice({
+	...device,
+	productId: sdk.productId,
+});
+console.log('deviceAdapter:', deviceAdapter);
+// authorized之后，才能向设备发送控制数据
+if (!deviceAdapter.authorized) {
+	await deviceAdapter.authenticateConnection({
+		deviceName: sdk.deviceName,
+	});
+}
+```
+
+当小程序和设备间的蓝牙连接成功后，面板就可以对设备进行控制了，sdk会将控制数据通过蓝牙发送到设备。比如进行开关的控制：
+
+```js
+sdk.controlDeviceData({ power_switch: 1 });
+```
+
 ## ASR 语音识别
 
 ### 语音识别
@@ -2156,7 +2292,7 @@ sdk.voiceRecognition({...}) => Promise<{...}>
 | 参数名   | 参数描述             | 类型            | 必填 |
 | -------- | -------------------- | --------------- | ---- |
 | DeviceId | 默认使用当前设备的设备 ID  | string      | 否   |
-| AudioType | 识别场景。<br><li>“录音文件”取值“file”<br><li>“一句话识别”取值“sentence” | string   | 是  |
+| AudioType | 识别场景。<br><li>“录音文件”取值“file”</li><br><li>“一句话识别”取值“sentence”</li> | string   | 是  |
 | Data | 音频文件 | Blob \| File | 是  |
 | ResourceName | 文件名称，如果 Data 类型是 File，则取其“name”作为默认值 | string | 否  |
 | EngineType | 引擎模型类型，默认值为“16k_zh” | string | 否  |
@@ -2193,7 +2329,7 @@ sdk.on('asrResponse', ({ deviceId, data }) => void)
 #### 返回值说明
 | 参数名                 | 参数描述            | 类型     |
 |:--------------------|:----------------|:-------|
-| deviceId            | 设备ID            | string |
+| deviceId            | 设备 ID            | string |
 | data                |  识别结果数据               | object |
 | data.resource_token | 某个设备下，音频文件的唯一标示 | string |
 | data.result_code    | 状态码，0代表成功      | number |
@@ -2223,6 +2359,499 @@ sdk.getAsrDownloadUrl({...}) => Promise<{...}>
 |:--------------------|:----------------|:-------|
 | ResourceURL       | cos 访问链接            | string |
 
+## 音乐服务
+
+### 公共说明
+
+#### 获取实例
+
+```typescript
+const tmeSdk = await sdk.getTMESdk();
+```
+
+
+
+#### 接口通用返回
+
+**接口统一返回值**
+
+TMESDK接口调用的返回值统一为 `Promise<TMEResponse>` 类型
+
+```typescript
+interface TMEResponse {
+  error_code: number,
+  error_msg: string,
+  data?: any;
+}
+```
+
+- 调用成功：返回一个resolved的Promise，其值为TMEResponse类型，error_code=0，data为返回结果
+- 调用失败：返回一个rejected的Promise，包含错误码（error_code）及提示信息（error_msg）
+
+| 属性名     | 描述     | 类型   |
+| ---------- | -------- | ------ |
+| error_code | 错误码   | number |
+| error_msg  | 错误信息 | string |
+| data       | 响应数据 | object |
+
+**错误码列表**
+
+| 错误码 | 说明                                                    |
+| :----- | :------------------------------------------------------ |
+| 200001 | 参数错误                                                |
+| 200002 | 系统繁忙,如幂等接口并发调用等，通常由于用户并发操作造成 |
+| 200003 | 认证信息过期或错误,请重新登录                           |
+| 200004 | 设备未激活                                              |
+| 200005 | 当前sp暂未支持此接口                                    |
+| 200006 | 系统错误,如内部调用超时等，由于服务内部异常导致         |
+| 200200 | 可直充剩余次数为0                                       |
+| 400000 | 登录授权失败                                            |
+| 400001 | 设备端超时无响应                                        |
+| 400002 | 调用SDK参数错误                                         |
+
+
+
+### 登录授权部分
+
+#### 用户设备登录授权
+
+跳转酷狗音乐小程序授权，当再次返回h5时，Promise状态改变。
+
+**接口定义**
+
+```typescript
+tmeSdk.login(deviceId?: string) => Promise
+```
+
+**参数说明**
+
+| 参数名   | 参数描述                          | 类型   | 必填 |
+| -------- | --------------------------------- | ------ | ---- |
+| deviceId | 可选，不传则使用当前设备的设备 ID | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 用户设备登出
+
+原token将登出
+
+**接口定义**
+
+```typescript
+tmeSdk.logout(deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名   | 参数描述                          | 类型   | 必填 |
+| -------- | --------------------------------- | ------ | ---- |
+| deviceId | 可选，不传则使用当前设备的设备 ID | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 校验设备授权
+
+**接口定义**
+
+```typescript
+tmeSdk.checkDeviceAuth(deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名   | 参数描述                          | 类型   | 必填 |
+| -------- | --------------------------------- | ------ | ---- |
+| deviceId | 可选，不传则使用当前设备的设备 ID | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 获取用户信息
+
+**接口定义**
+
+```typescript
+tmeSdk.getUserInfo(deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名   | 参数描述                          | 类型   | 必填 |
+| -------- | --------------------------------- | ------ | ---- |
+| deviceId | 可选，不传则使用当前设备的设备 ID | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`，其中data如下：
+
+| 属性名           | 描述                   | 类型           |
+| ---------------- | ---------------------- | -------------- |
+| userid           | 用户id                 | string         |
+| nick_name        | 用户昵称               | string         |
+| img              | 用户头像               | string         |
+| is_vip           | 是否vip 0:否 1:是      | enum:  `0` `1` |
+| vip_end_time     | vip有效期终止时间      | string         |
+| car_vip_end_time | 车机会员有效期终止时间 | string         |
+| svip_end_time    | 豪V有效期终止时间      | string         |
+
+
+
+### 播控部分
+
+#### 接口描述
+
+调用播控SDK，会下发物模型属性+control_seq，需要设备上报相同的control_seq
+
+- 若在超时范围内收到上报，视为下发播控成功，返回resolved状态的`Promise<TMEResponse>`
+- 若超时未收到上报，返回rejected状态的`Promise<TMEResponse>`
+
+超时设置可以通过 `tmeSdk.config.timeout` 来配置，默认值为10000，单位：毫秒(ms)
+
+
+
+#### 通用播控接口
+
+**接口定义**
+
+```typescript
+tmeSdk.controlKugouDeviceData(deviceData, deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名     | 参数描述                          | 类型   | 必填 |
+| ---------- | --------------------------------- | ------ | ---- |
+| deviceData | 设备物模型数据                    | object | 是   |
+| deviceId   | 可选，不传则使用当前设备的设备 ID | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 播放
+
+**接口定义**
+
+```typescript
+tmeSdk.play(deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名   | 参数描述                          | 类型   | 必填 |
+| -------- | --------------------------------- | ------ | ---- |
+| deviceId | 可选，不传则使用当前设备的设备 ID | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 暂停
+
+**接口定义**
+
+```typescript
+tmeSdk.pause(deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名   | 参数描述                          | 类型   | 必填 |
+| -------- | --------------------------------- | ------ | ---- |
+| deviceId | 可选，不传则使用当前设备的设备 ID | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 上一首
+
+**接口定义**
+
+```typescript
+tmeSdk.preSong(deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名   | 参数描述                          | 类型   | 必填 |
+| -------- | --------------------------------- | ------ | ---- |
+| deviceId | 可选，不传则使用当前设备的设备 ID | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 下一首
+
+**接口定义**
+
+```typescript
+tmeSdk.nextSong(deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名   | 参数描述                          | 类型   | 必填 |
+| -------- | --------------------------------- | ------ | ---- |
+| deviceId | 可选，不传则使用当前设备的设备 ID | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 设置播放模式
+
+**接口定义**
+
+```typescript
+tmeSdk.setPlayMode(playMode: number, deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名   | 参数描述                                   | 类型              | 必填 |
+| -------- | ------------------------------------------ | ----------------- | ---- |
+| playMode | 播放模式：0:顺序播放 1:单曲循环 2:随机播放 | enum: `0` `1` `2` | 是   |
+| deviceId | 可选，不传则使用当前设备的设备 ID          | string            | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 设置音量
+
+**接口定义**
+
+```typescript
+tmeSdk.setVolume(volume: number, deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名   | 参数描述                          | 类型   | 必填 |
+| -------- | --------------------------------- | ------ | ---- |
+| volume   | 音量：0-100之间                   | number | 是   |
+| deviceId | 可选，不传则使用当前设备的设备 ID | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 设置播放进度
+
+**接口定义**
+
+```typescript
+tmeSdk.setPlayPosition(playPosition: number, deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名       | 参数描述                          | 类型   | 必填 |
+| ------------ | --------------------------------- | ------ | ---- |
+| playPosition | 播放进度：单位:秒(s)              | number | 是   |
+| deviceId     | 可选，不传则使用当前设备的设备 ID | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 设置播放质量
+
+**接口定义**
+
+```typescript
+tmeSdk.setPlayQuality(recommendQuality: number, deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名           | 参数描述                          | 类型              | 必填 |
+| ---------------- | --------------------------------- | ----------------- | ---- |
+| recommendQuality | 播放质量：0:标准 1:高清 2:无损    | enum: `0` `1` `2` | 是   |
+| deviceId         | 可选，不传则使用当前设备的设备 ID | string            | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+#### 设置当前播放歌曲
+
+**接口定义**
+
+```typescript
+tmeSdk.playSong(songId: string, songIndex: string, newQueueType: string, newQueueId: string | number, deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名       | 参数描述                                                     | 类型             | 必填 |
+| ------------ | ------------------------------------------------------------ | ---------------- | ---- |
+| songId       | 歌曲ID                                                       | string           | 是   |
+| songIndex    | 歌曲所在播放列表的位置，从0开始                              | number           | 是   |
+| newQueueType | 播放列表的类型： `playlist` `newSongs` `recommendDailty`     | string           | 是   |
+| newQueueId   | 播放列表ID（当类型为"每日推荐"时，不存在id，传 `undefined `） | string \| number | 是   |
+| deviceId     | 可选，不传则使用当前设备的设备 ID                            | string           | 否   |
+
+播放列表目前支持三种类型：歌单(playlist)、新歌首发(newSongs)、每日推荐(recommendDaily)
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+
+
+### 内容部分
+
+#### 拉取内容通用接口
+
+请求酷狗API拉取内容通用接口
+
+**接口定义**
+
+```typescript
+tmeSdk.requestTMEApi(action: string, params, deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名   | 描述                              | 类型   | 必填 |
+| -------- | --------------------------------- | ------ | ---- |
+| action   | 接口action                        | string | 是   |
+| params   | 请求参数                          | object | 否   |
+| deviceId | 可选，不传则使用当前设备的设备 ID | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+注：action、params 及 返回值 data 参考 [音乐服务](https://cloud.tencent.com/document/product/1081/60545)
+
+#### 获取设备当前播放歌曲
+
+**接口定义**
+
+```typescript
+tmeSdk.getCurrentPlaySong(deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名   | 描述                              | 类型   | 必填 |
+| -------- | --------------------------------- | ------ | ---- |
+| deviceId | 可选，不传则使用当前设备的设备 ID | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`，data为歌曲信息
+
+
+
+#### 获取设备当前播放列表
+
+根据目前支持的播放类型(playType)，拉取对应的歌单列表，并查出歌曲的详细信息
+
+**接口定义**
+
+```typescript
+tmeSdk.getCurrentPlayQueue(deviceId?: string) => Promise<TMEResponse>
+```
+
+**参数说明**
+
+| 参数名   | 描述                              | 类型   | 必填 |
+| -------- | --------------------------------- | ------ | ---- |
+| deviceId | 可选，不传则使用当前设备的设备 ID | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`
+
+TMEResponse中data如下
+
+| 属性名   | 描述                                                         | 类型                                         |
+| -------- | ------------------------------------------------------------ | -------------------------------------------- |
+| playType | 播放列表类型                                                 | enum: `playlist` `newSongs` `recommendDaily` |
+| queueId  | 当前播放列表id，根据playType对应playlist_id、album_id、top_id | string \| number                             |
+| total    | 列表中歌曲总数                                               | number                                       |
+| songs    | 歌曲数组，具体歌曲属性参考TME文档中Song属性                  | Array[]                                      |
+
+
+
+#### 获取歌曲详细信息
+
+**接口定义**
+
+```typescript
+tmeSdk.getSongDetail(songId: string, deviceId?: string) => Promise<TMEResponse>
+```
+
+通过调用requestTMEApi，请求歌曲播放链接与歌曲信息，返回歌曲的详细信息
+
+**参数说明**
+
+| 参数名   | 描述                              | 类型   | 必填 |
+| -------- | --------------------------------- | ------ | ---- |
+| songId   | 歌曲ID                            | string | 是   |
+| deviceId | 可选，不传则使用当前设备的设备 ID | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`，data为歌曲信息
+
+
+
+#### 获取歌单详细信息
+
+**接口定义**
+
+```typescript
+tmeSdk.getPlaylistDetail(action: string, params, deviceId?: string) => Promise<TMEResponse>
+```
+
+通过调用requestTMEApi，请求歌单列表与歌曲信息，丰富列表中的歌曲信息，返回歌单列表
+
+**参数说明**
+
+| 参数名   | 描述                                                         | 类型   | 必填 |
+| -------- | ------------------------------------------------------------ | ------ | ---- |
+| action   | 新歌首发(awesome_newsong)、每日推荐(awesome_everyday)、歌单歌曲(playlist_song) | string | 是   |
+| params   | 参考应用端API=>音乐服务中对应API的KugouParams                | object | 是   |
+| deviceId | 可选，不传则使用当前设备的设备 ID                            | string | 否   |
+
+**返回值**
+
+返回一个`Promise<TMEResponse>`，data为歌单列表
 
 
 

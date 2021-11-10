@@ -3,7 +3,7 @@
 
 ## 前提条件
 
-- 已注册 [博睿 Server](https://server.bonree.com/) 账号。若您尚未注册博睿账号，可 [注册新账号](https://passport.bonree.com/cas/user/toRegisterExt) 以获得 Serverless 专属的15天免费产品体验。
+- 已注册 [博睿 Server](https://server.bonree.com/) 账号。
 - 已 [创建云函数](https://cloud.tencent.com/document/product/583/19806#.E5.88.9B.E5.BB.BA.E5.87.BD.E6.95.B0) 并开启公网访问。
 
 >?博睿探针目前支持 Python 和 Node.js 的多数主流框架，且仅在使用支持的框架时，博睿 smartAgent 才可自动捕获。详情请参见 [博睿探针支持列表](#list)。
@@ -23,20 +23,20 @@
 您需要下载博睿探针，将该探针上传到层并绑定在函数上。
 
 1. 下载 [博睿 Serverless 版探针](https://scf.bonree.com/download/last/bonree-serverless-agent.zip)。
-2. 登录云函数控制台，选择左侧菜单栏中的【[层](https://console.cloud.tencent.com/scf/layer)】。
-3. 在“层”管理页面，单击【新建】。
+2. 登录云函数控制台，选择左侧菜单栏中的 **[层](https://console.cloud.tencent.com/scf/layer)**。
+3. 在“层”管理页面，单击**新建**。
 4. 在“新建层”页面，根据提示信息进行配置。如下图所示：
    ![](https://main.qcloudimg.com/raw/19b29b36a09d6adaf8ce55f7dfc9a599.jpg)
  - **层名称**：输入层名称。只能包含字母、数字、下划线、连字符，以字母开头，以数字或字母结尾，2 - 60个字符。
- - **提交方法**：选择【本地上传zip包】。
+ - **提交方法**：选择**本地上传zip包**。
  - **层代码**：选择步骤1下载的探针文件。
  - **运行环境**：根据实际运行环境进行选择。目前支持 Python 和 Node.js。
-5. 单击【确定】即可创建层。
-6. 选择左侧菜单栏中的【函数服务】，进入函数服务页面。
+5. 单击**确定**即可创建层。
+6. 选择左侧菜单栏中的**函数服务**，进入函数服务页面。
 7. 单击需要绑定层的函数名称，进入函数管理页面。
-8. 选择【层管理】>【绑定】，在绑定层窗口按照提示绑定上述步骤创建的层。如下图所示：
+8. 选择**层管理** > **绑定**，在绑定层窗口按照提示绑定上述步骤创建的层。如下图所示：
    ![](https://main.qcloudimg.com/raw/635f496e58943f4cfa7fd5330d00b2bf.jpg)
-9. 单击【确定】即可完成探针的绑定。
+9. 单击**确定**即可完成探针的绑定。
 
 
 
@@ -157,16 +157,16 @@ sls deploy
 
 #### 引入探针
 
-1. 登录云函数控制台，选择左侧菜单栏中的【[函数服务](https://console.cloud.tencent.com/scf/)】。
+1. 登录云函数控制台，选择左侧菜单栏中的 **[函数服务](https://console.cloud.tencent.com/scf/)**。
 2. 在函数服务页面，单击对应的函数名称，进入函数管理页面。
-3. 单击【函数代码】页签，在 `sl_handler.py` 文件中加入引入探针的代码，详细内容可参考上文 [引入探针](#inputagent)。
+3. 单击**函数代码**页签，在 `sl_handler.py` 文件中加入引入探针的代码，详细内容可参考上文 [引入探针](#inputagent)。
 
 
 
 ### 使用博睿 Server 
 
 1. 登录 [博睿 Server 控制台](https://server.bonree.com/)，待数据上报至博睿。
-2. 在博睿 Server 控制台右上角中选择【<img src="https://main.qcloudimg.com/raw/3475d18df76f95b36d1cc5f3708494ac.jpg" width="2.5%">】>【部署状态】，进入部署状态页面查看已进行数据上报的函数。如下图所示：
+2. 在博睿 Server 控制台右上角中选择**<img src="https://main.qcloudimg.com/raw/3475d18df76f95b36d1cc5f3708494ac.jpg" width="2.5%">** > **部署状态**，进入部署状态页面查看已进行数据上报的函数。如下图所示：
    ![](https://main.qcloudimg.com/raw/8ab20877d29235519da69df08861a95a.png)
 3. 将该函数关联一个应用，即可查看应用运行的情况。如下图所示：
    ![](https://main.qcloudimg.com/raw/d4e13fba93cd83a752270817adfe18dc.png)

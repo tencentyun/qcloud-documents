@@ -1,3 +1,6 @@
+>!新命令行工具 [COSCLI 工具](https://cloud.tencent.com/document/product/436/63143) 已发布，将逐步替代 COSCMD 工具，COSCMD 工具将不再新增功能，只修复现有 Bug。
+
+
 ## 功能说明
 
 使用 COSCMD 工具，用户可通过简单的命令行指令实现对对象（Object）的批量上传、下载、删除等操作。
@@ -273,7 +276,9 @@ coscmd -d upload -rs D:/folder/ /
 
 ### Silence 模式执行命令
 
-在各命令前加上`-s`或者`--silence`，在命令执行的过程中，将不会再输出任何信息 。示例如下：
+在各命令前加上`-s`或者`--silence`，在命令执行的过程中，将不会再输出任何信息 。
+
+>?该命令需满足最低版本为1.8.6.24。
 
 - 命令格式
 ```plaintext

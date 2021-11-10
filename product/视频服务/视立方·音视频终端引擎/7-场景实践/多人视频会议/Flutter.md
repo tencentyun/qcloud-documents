@@ -251,7 +251,7 @@ onListener(TRTCMeetingDelegate type, param) {
 2. 调用 startScreenCapture，传入编码参数和录屏过程中的悬浮窗即可实现屏幕分享功能，具体信息请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58)。
 3. 会议中其他成员会收到 onUserVideoAvailable 的事件通知。
 
->! 屏幕分享和摄像头采集是两个互斥的操作，如果需要打开屏幕分享功能，请先调用 stopCameraPreview 关闭摄像头采集。详情请参见 [TRTC SDK](https://cloud.tencent.com/document/product/647/53877)。
+>! 屏幕分享和摄像头采集是两个互斥的操作，如果需要打开屏幕分享功能，请先调用 stopCameraPreview 关闭摄像头采集。详情请参见 [实时屏幕分享(Flutter)](https://cloud.tencent.com/document/product/647/53877)。
 
 <dx-codeblock>
 ::: dart dart

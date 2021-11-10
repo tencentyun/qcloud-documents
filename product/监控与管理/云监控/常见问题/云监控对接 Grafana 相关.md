@@ -10,10 +10,15 @@
  Dashboard 中下拉框便可以进行多选实例，如图所示：
 ![](https://main.qcloudimg.com/raw/041a8658cc5e349ab8a51e6d7c9f6c17.png)
 
+### 对比多个实例时，为什么 Panel 中报错 `Only queries that return single series/table is supported` ？
+![](https://main.qcloudimg.com/raw/35b75a1b7840e96df8b64940664233c7.png)
+
+部分 Panel 类型如`仪表盘`图表仅支持单 query 查询，如需对比多实例请使用折线图 (Line)。
+
 ###  模板变量中的实例下拉框的选项显示的是 `InstanceId` ，如何展示 `InstanceName` ？
 
  可以在模板变量中使用 `InstanceAlias=InstanceName` ，或者使用 `display` 属性进行拼接，例：
   1. `Namespace=QCE/CVM&Action=DescribeInstances&Region=$region&InstanceAlias=InstanceName`
   2. `Namespace=QCE/CVM&Action=DescribeInstances&Region=$region&display=${InstanceId}-${InstanceName}`
 
-如果同时存在 `InstanceAlias` 和 `display` 字段，则仅会展示 `display` 的值。
+>?如果同时存在 `InstanceAlias` 和 `display` 字段，则仅会展示 `display` 的值。

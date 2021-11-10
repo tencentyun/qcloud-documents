@@ -1,22 +1,24 @@
-## 功能概览
 视频录制包括视频变速录制、美颜、滤镜、声音特效、背景音乐设置等功能。 
 
 ## 相关类介绍
 | 类                     | 功能                                           |
 | ---------------------- | ---------------------------------------------- |
-| TXUGCRecord            | 实现视频的录制功能                             | 
+| TXUGCRecord            | 实现视频的录制功能                             |
 | TXUGCPartsManager      | 视频片段管理类，用于视频的多段录制，回删等     |
-| ITXVideoRecordListener | 录制回调                                       | 
+| ITXVideoRecordListener | 录制回调                                       |
 | TXRecordCommon         | 基本参数定义，包括了视频录制回调及发布回调接口 |
 
 ## 使用说明
+
+### 使用流程
+
 视频录制的基本使用流程如下：
 1. 配置录制参数。
 2. 启动画面预览。
 3. 设置录制效果。
 4. 完成录制。
 
-#### 示例
+### 代码示例
 ```
 // 创建一个用户相机预览的 TXCloudVideoView
 mVideoView = (TXCloudVideoView) findViewById(R.id.video_view);
@@ -134,7 +136,7 @@ mTXCameraRecord.resumeRecord();
 // 结束录制
 mTXCameraRecord.stopRecord();
 ```
-录制的过程和结果是通过 TXRecordCommon.ITXVideoRecordListener（位于 TXRecordCommon.java 中定义）接口反馈出来的：
+录制的过程和结果是通过 TXRecordCommon.ITXVideoRecordListener（位于 TXRecordCommon.java 中定义）接口反馈：
 
 - onRecordProgress 用于反馈录制的进度，参数 millisecond 表示录制时长，单位：毫秒。
 ``` 
@@ -148,14 +150,14 @@ void onRecordProgress(long milliSecond);
 void onRecordComplete(TXRecordResult result);
 ```
 
-- onRecordEvent 录制事件回调，包含事件id和事件相关的参数(key,value)格式
+- onRecordEvent 录制事件回调，包含事件id和事件相关的参数 `(key,value)` 格式。
 ```    
 @optional
 void onRecordEvent(final int event, final Bundle param);
 ```
 
 ## 录制属性设置
-### 1.  画面设置
+### 画面设置
 
 ``` 
 // 设置横竖屏录制
@@ -177,7 +179,7 @@ mTXCameraRecord.setRenderRotation(TXLiveConstants.RENDER_ROTATION_PORTRAIT);
 mTXCameraRecord.setAspectRatio(TXRecordCommon.VIDEO_ASPECT_RATIO_9_16);
 ```
 
-### 2. 速度设置
+### 速度设置
 ``` 
 // 设置视频录制速率
 // TXRecordCommon.RECORD_SPEED_SLOWEST(极慢速) 
@@ -185,9 +187,9 @@ mTXCameraRecord.setAspectRatio(TXRecordCommon.VIDEO_ASPECT_RATIO_9_16);
 // TXRecordCommon.RECORD_SPEED_NORMAL(标准) 
 // TXRecordCommon.RECORD_SPEED_FAST(快速) 
 // TXRecordCommon.RECORD_SPEED_FASTEST(极快速) 
-mTXCameraRecord.setRecordSpeed(VIDEO_RECORD_SPEED_NORMAL);
+mTXCameraRecord.setRecordSpeed(TXRecordCommon.VIDEO_RECORD_SPEED_NORMAL);
 ```
-### 3. 声音设置
+### 声音设置
 
 ``` 
 // 设置麦克风的音量大小，播放背景音混音时使用，用来控制麦克风音量大小
@@ -199,7 +201,7 @@ mTXCameraRecord.setMute(isMute);
 
 ## 设置效果
 在视频录制的过程中，您可以给录制视频的画面设置各种特效。
-### 1. 水印
+### 水印
 ``` 
 // 设置全局水印
 // TXRect-水印相对于视频图像的归一化值，sdk 内部会根据水印宽高比自动计算 height
@@ -208,7 +210,7 @@ mTXCameraRecord.setMute(isMute);
 // 540 * 0.1 * watermarkBitmap.height / watermarkBitmap.width）
 mTXCameraRecord.setWatermark(watermarkBitmap, txRect)
 ```
-### 2. 滤镜
+### 滤镜
 ``` 
 // 设置颜色滤镜：浪漫、清新、唯美、粉嫩、怀旧...
 // filterBitmap     : 指定滤镜用的颜色查找表。注意：一定要用 png 格式。
@@ -228,7 +230,7 @@ mTXCameraRecord.setFilter(mLeftBitmap, leftIntensity, mRightBitmap, rightIntensi
 mTXCameraRecord.setSpecialRatio(0.5);
 ```
 
-### 3. 美颜
+### 美颜
 
 ``` 
 // 设置美颜类型

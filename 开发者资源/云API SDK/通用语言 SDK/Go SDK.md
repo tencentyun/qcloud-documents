@@ -363,12 +363,12 @@ func (c *Client) DescribeInstances(request *DescribeInstancesRequest) (response 
 
 
 
-## Common Request
-从 `v1.0.189`开始，腾讯云 GO SDK 支持使用 `泛用型的API调用方式(Common Request)` 进行请求。您只需安装 `common` 包, 即可向任何产品发起调用。
+## Common Client
+从 `v1.0.189`开始，腾讯云 GO SDK 支持使用 `泛用型的API调用方式(Common Client)` 进行请求。您只需安装 `common` 包, 即可向任何产品发起调用。
 
 >?您必须明确知道您调用的接口所需参数，否则可能会调用失败。
 
-目前仅支持使用 POST 方式，且签名方法必须使用 签名方法 v3。详细使用请参阅示例：[使用 Common Request 进行调用](https://github.com/TencentCloud/tencentcloud-sdk-go/blob/master/examples/common/common_request.go)。
+目前仅支持使用 POST 方式，且签名方法必须使用 签名方法 v3。详细使用请参阅示例：[使用 Common Client 进行调用](https://github.com/TencentCloud/tencentcloud-sdk-go/blob/master/examples/common/common_client.go)。
 
 ## 请求重试
 ### 网络错误重试
@@ -390,7 +390,7 @@ func main() {
 	     credential := common.NewCredential("secretId", "secretKey")
 	     prof := profile.NewClientProfile()
 	     prof.NetworkFailureMaxRetries = 3                               // 定义最大重试次数
-	     prof.NetworkFailureRetryDuration = profile.ExponentialBackoff   // 定义重试建个时间
+	     prof.NetworkFailureRetryDuration = profile.ExponentialBackoff   // 定义重试间隔时间
 	     client, _ := cvm.NewClient(credential, regions.Guangzhou, prof)
 
 	// ...
@@ -416,7 +416,7 @@ func main() {
 	     credential := common.NewCredential("secretId", "secretKey")
 	     prof := profile.NewClientProfile()
 	     prof.RateLimitExceededMaxRetries = 3                               // 定义最大重试次数
-	     prof.RateLimitExceededRetryDuration = profile.ExponentialBackoff   // 定义重试建个时间
+	     prof.RateLimitExceededRetryDuration = profile.ExponentialBackoff   // 定义重试间隔时间
 	     client, _ := cvm.NewClient(credential, regions.Guangzhou, prof)
 
 	// ...

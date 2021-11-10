@@ -25,7 +25,7 @@ ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-S
 
 [](id:2)
 ### HTTPS 支持哪些版本的SSL/TLS安全协议？
-负载均衡 HTTPS 目前支持的 ssl_protocols：TLSv1、TLSv1.1、TLSv1.2。
+负载均衡 HTTPS 目前支持的 ssl_protocols：TLSv1、TLSv1.1、TLSv1.2、TLSv1.3。
 
 [[回到顶部]](#1)
 

@@ -6,7 +6,7 @@
 - **点播（VOD）**的视频源是云端的一个视频文件，只要未被从云端移除，视频就可以随时播放， 播放中您可以通过进度条控制播放位置，腾讯视频和优酷、土豆等视频网站上的视频观看就是典型的点播场景。
 
 ### 协议的支持
-通常使用的直播协议如下，标准直播推荐使用 FLV 协议的直播地址（以 `http` 开头，以 `.flv` 结尾），快直播使用 WebRTC协议，更多信息请参见 [快直播拉流](https://cloud.tencent.com/document/product/454/55880)：
+通常使用的直播协议如下，标准直播推荐使用 FLV 协议的直播地址（以 `http` 开头，以 `.flv` 结尾），快直播使用 WebRTC 协议，更多信息请参见 [快直播拉流](https://cloud.tencent.com/document/product/454/55880)：
 
 |直播协议 |优点 |缺点 |播放延迟 |
 |---------|---------|---------|---------|
@@ -26,7 +26,7 @@
 
 | 所属平台 |                         GitHub 地址                          |
 | :------: | :----------------------------------------------------------: |
-|   iOS    | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example) |
+|   iOS    | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example-OC) |
 | Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) |
 
 ## 对接攻略

@@ -1,3 +1,4 @@
+
 本文为您介绍 MyISAM 引擎自动转换为 InnoDB 引擎后，创建表时报错的解决方案。
 
 ## 背景
@@ -39,4 +40,5 @@
 show create table t_complexkey;
 ```
 ![](https://main.qcloudimg.com/raw/8509780314f54ecebe54283c579b49f8.png)
+
 
