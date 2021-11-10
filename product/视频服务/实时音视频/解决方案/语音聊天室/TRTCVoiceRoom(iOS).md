@@ -432,7 +432,7 @@ NS_SWIFT_NAME(moveSeat(seatIndex:callback:))
 
 | 返回值   | 类型   | 含义                  |
 | -------- | --------- | --------------------- |
-| code     | NSInteger | 移动麦位操作结果(0为成功,其它为失败,10001为接口调用限频)。 |
+| code     | NSInteger | 移动麦位操作结果（0为成功，其它为失败，10001为接口调用限频）。 |
 
 调用该接口会立即修改麦位表。如果是听众申请上麦需要房主同意的场景，可以先调用 `sendInvitation` 向房主申请，收到 `onInvitationAccept` 后再调用该函数。
 
