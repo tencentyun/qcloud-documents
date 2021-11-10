@@ -1,0 +1,47 @@
+## 简介
+
+本文档提供快捷查询对象是否存在的示例代码。
+
+| API                                                          | 操作名         | 操作描述                                  |
+| ------------------------------------------------------------ | -------------- | ----------------------------------------- |
+| [HEAD Object](https://cloud.tencent.com/document/product/436/7745) | 查询对象元数据 | 查询对象的元数据信息                  |
+
+## SDK API 参考
+
+SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos-ios-sdk-doc-1253960454.file.myqcloud.com/)。
+
+## 查询对象元数据
+
+#### 功能说明
+
+查询 Object 的 Meta 信息。
+
+#### 示例代码
+**Objective-C**
+
+[//]: # (.cssg-snippet-object-exist)
+```objective-c
+
+//存储桶名称，格式为 BucketName-APPID
+NSString *bucket = @"examplebucket-1250000000";
+// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
+NSString *object = @"exampleobject";
+[[QCloudCOSXMLService defaultCOSXML] doesObjectExistWithBucket:bucket object:object];
+```
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/HeadObject.m) 查看。
+
+**Swift**
+
+[//]: # (.cssg-snippet-head-object) 
+```swift
+// 存储桶名称，格式为 BucketName-APPID
+let bucket = "examplebucket-1250000000";
+// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
+let object  = "exampleobject";
+
+QCloudCOSXMLService.defaultCOSXML().doesObjectExist(withBucket: bucket, object: object);
+        
+```
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/HeadObject.swift) 查看。
+
