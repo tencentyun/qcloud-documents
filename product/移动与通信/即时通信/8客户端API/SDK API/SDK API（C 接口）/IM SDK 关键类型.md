@@ -430,20 +430,20 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMImageElemOrigPath | string | 读写（必填） | 发送图片的路径 |
 | kTIMImageElemLevel | uint [TIMImageLevel](#timimagelevel) | 读写（必填） | 发送图片的质量级别 |
 | kTIMImageElemFormat | int | 读写 | 发送图片格式 |
-| kTIMImageElemOrigId | string | 只读 | 原图的 UUID |
+| kTIMImageElemOrigId | string | 只读 | 原图 ID |
 | kTIMImageElemOrigPicHeight | int | 只读 | 原图的图片高度 |
 | kTIMImageElemOrigPicWidth | int | 只读 | 原图的图片宽度 |
 | kTIMImageElemOrigPicSize | int | 只读 | 原图的图片大小 |
-| kTIMImageElemThumbId | string | 只读 | 略缩图 UUID |
-| kTIMImageElemThumbPicHeight | int | 只读 | 略缩图的图片高度 |
-| kTIMImageElemThumbPicWidth | int | 只读 | 略缩图的图片宽度 |
-| kTIMImageElemThumbPicSize | int | 只读 | 略缩图的图片大小 |
-| kTIMImageElemLargeId | string | 只读 | 大图片 UUID |
+| kTIMImageElemThumbId | string | 只读 | 缩略图 ID |
+| kTIMImageElemThumbPicHeight | int | 只读 | 缩略图的图片高度 |
+| kTIMImageElemThumbPicWidth | int | 只读 | 缩略图的图片宽度 |
+| kTIMImageElemThumbPicSize | int | 只读 | 缩略图的图片大小 |
+| kTIMImageElemLargeId | string | 只读 | 大图片 ID |
 | kTIMImageElemLargePicHeight | int | 只读 | 大图片的图片高度 |
 | kTIMImageElemLargePicWidth | int | 只读 | 大图片的图片宽度 |
 | kTIMImageElemLargePicSize | int | 只读 | 大图片的图片大小 |
 | kTIMImageElemOrigUrl | string | 只读 | 原图 URL |
-| kTIMImageElemThumbUrl | string | 只读 | 略缩图 URL |
+| kTIMImageElemThumbUrl | string | 只读 | 缩略图 URL |
 | kTIMImageElemLargeUrl | string | 只读 | 大图片 URL |
 | kTIMImageElemTaskId | int | 只读 | 任务 ID |
 
@@ -467,7 +467,7 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMSoundElemFilePath | string | 读写（必填） | 语音文件路径，需要开发者自己先保存语言然后指定路径 |
 | kTIMSoundElemFileSize | int | 读写（必填） | 语言数据文件大小，以秒为单位 |
 | kTIMSoundElemFileTime | int | 读写（必填） | 语音时长 |
-| kTIMSoundElemFileId | string | 只读 | 下载声音文件时的 ID |
+| kTIMSoundElemFileId | string | 只读 | 语音 ID |
 | kTIMSoundElemBusinessId | int | 只读 | 下载时用到的 businessID |
 | kTIMSoundElemDownloadFlag | int | 只读 | 是否需要申请下载地址（0：需要申请，1：到 cos 申请，2：不需要申请，直接拿 URL 下载） |
 | kTIMSoundElemUrl | string | 只读 | 下载的 URL |
@@ -550,7 +550,7 @@ free(pBuffer);
 | kTIMFileElemFilePath | string | 读写（必填） | 文件所在路径（包含文件名） |
 | kTIMFileElemFileName | string | 读写（必填） | 文件名，显示的名称。不设置该参数时，kTIMFileElemFileName 默认为 kTIMFileElemFilePath 指定的文件路径中的文件名 |
 | kTIMFileElemFileSize | int | 读写（必填） | 文件大小 |
-| kTIMFileElemFileId | string | 只读 | 下载视频时的 UUID |
+| kTIMFileElemFileId | string | 只读 | 文件 ID |
 | kTIMFileElemBusinessId | int | 只读 | 下载时用到的 businessID |
 | kTIMFileElemDownloadFlag | int | 只读 | 文件下载 flag |
 | kTIMFileElemUrl | string | 只读 | 文件下载的 URL |
@@ -569,7 +569,7 @@ free(pBuffer);
 | kTIMVideoElemVideoSize | uint | 读写（必填） | 视频文件大小 |
 | kTIMVideoElemVideoDuration | uint | 读写（必填） | 视频时长，发送消息时进行设置 |
 | kTIMVideoElemVideoPath | string | 读写（必填） | 适配文件路径 |
-| kTIMVideoElemVideoId | string | 只读 | 下载视频时的 UUID |
+| kTIMVideoElemVideoId | string | 只读 | 视频 ID |
 | kTIMVideoElemBusinessId | int | 只读 | 下载时用到的 businessID |
 | kTIMVideoElemVideoDownloadFlag | int | 只读 | 视频文件下载 flag |
 | kTIMVideoElemVideoUrl | string | 只读 | 视频文件下载的 URL |
@@ -578,7 +578,7 @@ free(pBuffer);
 | kTIMVideoElemImageWidth | uint | 读写（必填） | 截图高度，发送消息时进行设置 |
 | kTIMVideoElemImageHeight | uint | 读写（必填） | 截图宽度，发送消息时进行设置 |
 | kTIMVideoElemImagePath | string | 读写（必填） | 保存截图的路径 |
-| kTIMVideoElemImageId | string | 只读 | 下载视频截图时的 ID |
+| kTIMVideoElemImageId | string | 只读 | 截图 ID |
 | kTIMVideoElemImageDownloadFlag | int | 只读 | 截图文件下载 flag |
 | kTIMVideoElemImageUrl | string | 只读 | 截图文件下载的 URL |
 | kTIMVideoElemTaskId | uint | 只读 | 任务 ID |
@@ -665,12 +665,12 @@ free(pBuffer);
 | kTIMGroupReport_BeKicked | 被管理员踢出群（只有被踢者接收到） |
 | kTIMGroupReport_Delete | 群被解散（全员接收） |
 | kTIMGroupReport_Create | 创建群（创建者接收，不展示） |
-| kTIMGroupReport_Invite | 邀请加群（被邀请者接收） |
+| kTIMGroupReport_Invite | 无需被邀请者同意，拉入群中（例如工作群） |
 | kTIMGroupReport_Quit | 主动退群（主动退出者接收，不展示） |
 | kTIMGroupReport_GrantAdmin | 设置管理员（被设置者接收） |
 | kTIMGroupReport_CancelAdmin | 取消管理员（被取消者接收） |
 | kTIMGroupReport_RevokeAdmin | 群已被回收（全员接收，不展示） |
-| kTIMGroupReport_InviteReq | 邀请加群（只有被邀请者会接收到） |
+| kTIMGroupReport_InviteReq | 被邀请者收到邀请，由被邀请者同意是否接受  |
 | kTIMGroupReport_InviteAccept | 邀请加群被同意（只有发出邀请者会接收到） |
 | kTIMGroupReport_InviteRefuse | 邀请加群被拒绝（只有发出邀请者会接收到） |
 | kTIMGroupReport_ReadReport | 已读上报多终端同步通知（只有上报人自己收到） |
@@ -712,12 +712,12 @@ free(pBuffer);
 | 名称 | 含义 |
 |-----|-----|
 | kTIMFriendChange_None | 未知类型 |
-| kTIMFriendChange_FriendAdd | 好友表增加 |
-| kTIMFriendChange_FriendDel | 好友表删除 |
-| kTIMFriendChange_PendencyAdd | 未决增加 |
-| kTIMFriendChange_PendencyDel | 未决删除 |
-| kTIMFriendChange_BlackListAdd | 黑名单添加 |
-| kTIMFriendChange_BlackListDel | 黑名单删除 |
+| kTIMFriendChange_FriendAdd | 新增好友 |
+| kTIMFriendChange_FriendDel | 删除好友 |
+| kTIMFriendChange_PendencyAdd | 新增好友申请的未决 |
+| kTIMFriendChange_PendencyDel | 删除好友申请的未决 |
+| kTIMFriendChange_BlackListAdd | 加入黑名单 |
+| kTIMFriendChange_BlackListDel | 从黑名单移除 |
 | kTIMFriendChange_PendencyReadedReport | 未决已读上报 |
 | kTIMFriendChange_FriendProfileUpdate | 好友数据更新 |
 | kTIMFriendChange_FriendGroupAdd | 分组增加 |
@@ -738,8 +738,8 @@ free(pBuffer);
 | kTIMFriendChangeElemChangeType | uint [TIMFriendChangeType](#timfriendchangetype) | 只读 | 资料变更类型 |
 | kTIMFriendChangeElemFriendAddIdentifierArray | array string | 只读 | 新增的好友 UserID 列表，只有当`change_type`为`kTIMFriendChange_FriendAdd`时有效 |
 | kTIMFriendChangeElemFriendDelIdentifierArray | array string | 只读 | 删除的好友 UserID 列表，只有当`change_type`为`kTIMFriendChange_FriendDel`时有效 |
-| kTIMFriendChangeElemFriendAddPendencyItemArray | array [FriendAddPendency](#friendaddpendency) | 只读 | 好友添加未决信息列表，只有当`change_type`为`kTIMFriendChange_PendencyAdd`时有效 |
-| kTIMFriendChangeElemPendencyDelIdentifierArray | array string | 只读 | 好友未决信息删除列表，只有当`change_type`为`kTIMFriendChange_PendencyDel`时有效 |
+| kTIMFriendChangeElemFriendAddPendencyItemArray | array [FriendAddPendency](#friendaddpendency) | 只读 | 好友申请的未决列表，只有当`change_type`为`kTIMFriendChange_PendencyAdd`时有效 |
+| kTIMFriendChangeElemPendencyDelIdentifierArray | array string | 只读 | 被删除的好友申请的未决列表，只有当`change_type`为`kTIMFriendChange_PendencyDel`时有效 |
 | kTIMFriendChangeElemPendencyReadedReportTimestamp | uint64 | 只读 | 未决已读上报时间戳，只有当`change_type`为`kTIMFriendChange_PendencyReadedReport`时有效 |
 | kTIMFriendChangeElemBlackListAddIdentifierArray | array string | 只读 | 新增的黑名单 UserID 列表，只有当`change_type`为`kTIMFriendChange_BlackListAdd`时有效 |
 | kTIMFriendChangeElemBlackListDelIdentifierArray | array string | 只读 | 删除的黑名单 UserID 列表，只有当`change_type`为`kTIMFriendChange_BlackListDel`时有效 |
@@ -754,7 +754,7 @@ free(pBuffer);
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMMsgBatchSendParamIdentifierArray | array string | 只写（必填） | 群发的 ID 列表 |
+| kTIMMsgBatchSendParamIdentifierArray | array string | 只写（必填） | 接收群发消息的用户 ID 列表 |
 | kTIMMsgBatchSendParamMsg | object [Message](#message) | 只写（必填） | 群发的消息 |
 
 ### MsgBatchSendResult
@@ -763,7 +763,7 @@ free(pBuffer);
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMMsgBatchSendResultIdentifier | string | 只读 | 群发的单个 ID |
+| kTIMMsgBatchSendResultIdentifier | string | 只读 | 接收群发消息的用户 ID |
 | kTIMMsgBatchSendResultCode | int [错误码](https://cloud.tencent.com/document/product/269/1671) | 只读 | 消息发送结果 |
 | kTIMMsgBatchSendResultDesc | string | 只读 | 消息发送的描述 |
 | kTIMMsgBatchSendResultMsg | object [Message](#message) | 只读 | 发送的消息 |
@@ -800,7 +800,7 @@ free(pBuffer);
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMMsgDeleteParamMsg | object [Message](#message) | 只写（选填） | 指定在会话中要删除的消息 |
+| kTIMMsgDeleteParamMsg | object [Message](#message) | 只写（选填） | 要删除的消息 |
 | kTIMMsgDeleteParamIsRamble | bool | 只写（选填） | 是否删除本地/漫游所有消息。true 删除漫游消息，false 删除本地消息，默认值 false |
 
 ### TIMDownloadType
@@ -1094,7 +1094,7 @@ UUID 类型。
 | kTIMGroupModifyInfoFlag_AddOption | 修改群组添加选项 |
 | kTIMGroupModifyInfoFlag_MaxMmeberNum | 修改群最大成员数 |
 | kTIMGroupModifyInfoFlag_Visible | 修改群是否可见 |
-| kTIMGroupModifyInfoFlag_Searchable | 修改群是否被搜索 |
+| kTIMGroupModifyInfoFlag_Searchable | 修改群是否允许被搜索到 |
 | kTIMGroupModifyInfoFlag_ShutupAll | 修改群是否全体禁言 |
 | kTIMGroupModifyInfoFlag_Custom | 修改群自定义信息 |
 | kTIMGroupModifyInfoFlag_Owner | 修改群主 |
@@ -1111,7 +1111,7 @@ UUID 类型。
 | kTIMGroupModifyInfoParamNotification | string | 只写（选填） | 修改群公告，当`modify_flag`包含`kTIMGroupModifyInfoFlag_Notification`时必填，其他情况不用填 |
 | kTIMGroupModifyInfoParamIntroduction | string | 只写（选填） | 修改群简介，当`modify_flag`包含`kTIMGroupModifyInfoFlag_Introduction`时必填，其他情况不用填 |
 | kTIMGroupModifyInfoParamFaceUrl | string | 只写（选填） | 修改群头像 URL，当`modify_flag`包含`kTIMGroupModifyInfoFlag_FaceUrl`时必填，其他情况不用填 |
-| kTIMGroupModifyInfoParamAddOption | uint | 只写（选填） | 修改群组添加选项，当`modify_flag`包含`kTIMGroupModifyInfoFlag_AddOption`时必填，其他情况不用填 |
+| kTIMGroupModifyInfoParamAddOption | uint | 只写（选填） | 修改加群方式，当`modify_flag`包含`kTIMGroupModifyInfoFlag_AddOption`时必填，其他情况不用填 |
 | kTIMGroupModifyInfoParamMaxMemberNum | uint | 只写（选填） | 修改群最大成员数，当`modify_flag`包含`kTIMGroupModifyInfoFlag_MaxMmeberNum`时必填，其他情况不用填 |
 | kTIMGroupModifyInfoParamVisible | uint | 只写（选填） | 修改群是否可见，当`modify_flag`包含`kTIMGroupModifyInfoFlag_Visible`时必填，其他情况不用填 |
 | kTIMGroupModifyInfoParamSearchAble | uint | 只写（选填） | 修改群是否被搜索，当`modify_flag`包含`kTIMGroupModifyInfoFlag_Searchable`时必填，其他情况不用填 |
@@ -1213,7 +1213,7 @@ UUID 类型。
 |-----|-----|-----|-----|
 | kTIMGroupPendencyGroupId | string | 读写 | 群组 ID |
 | kTIMGroupPendencyFromIdentifier | string | 读写 | 请求者的 ID，例如：请求加群：请求者，邀请加群：邀请人 |
-| kTIMGroupPendencyToIdentifier | string | 读写 | 判决者的 ID，请求加群：""，邀请加群：被邀请人 |
+| kTIMGroupPendencyToIdentifier | string | 读写 | 判决者的 ID，处理此条“加群的未决请求”的管理员ID |
 | kTIMGroupPendencyAddTime | uint64 | 只读 | 未决信息添加时间 |
 | kTIMGroupPendencyPendencyType | uint [TIMGroupPendencyType](#timgrouppendencytype) | 只读 | 未决请求类型 |
 | kTIMGroupPendencyHandled | uint [TIMGroupPendencyHandle](#timgrouppendencyhandle) | 只读 | 群未决处理状态 |
@@ -1412,8 +1412,8 @@ UUID 类型。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMFriendshipGetPendencyListParamType | uint [TIMFriendPendencyType](#timfriendpendencytype) | 只写 | 获取好友添加请求未决类型 |
-| kTIMFriendshipGetPendencyListParamStartSeq | uint64 | 只写 | 获取未决的起始 seq 未决列表序列号。建议客户端保存`seq`和未决列表，请求时填入`server`返回的`seq`。如果`seq`是`server`最新的，则不返回数据 |
+| kTIMFriendshipGetPendencyListParamType | uint [TIMFriendPendencyType](#timfriendpendencytype) | 只写 | 添加好友的未决请求类型 |
+| kTIMFriendshipGetPendencyListParamStartSeq | uint64 | 只写 | 分页获取未决请求的起始 seq，返回的结果包含最大 seq，作为获取下一页的起始 seq |
 | kTIMFriendshipGetPendencyListParamStartTime | uint64 | 只写 | 获取未决信息的开始时间戳 |
 | kTIMFriendshipGetPendencyListParamLimitedSize | int | 只写 | 获取未决信息列表，每页的数量 |
 
@@ -1433,7 +1433,7 @@ UUID 类型。
 | kTIMFriendAddPendencyInfoType | uint [TIMFriendPendencyType](#timfriendpendencytype) | 只读 | 好友添加请求未决类型 |
 | kTIMFriendAddPendencyInfoIdentifier | string | 只读 | 好友添加请求未决的 UserID |
 | kTIMFriendAddPendencyInfoNickName | string | 只读 | 好友添加请求未决的昵称 |
-| kTIMFriendAddPendencyInfoAddTime | uint64 | 只读 | 好友添加请求未决的请求添加时间 |
+| kTIMFriendAddPendencyInfoAddTime | uint64 | 只读 | 发起好友申请的时间 |
 | kTIMFriendAddPendencyInfoAddSource | string | 只读 | 好友添加请求未决的添加来源 |
 | kTIMFriendAddPendencyInfoAddWording | string | 只读 | 好友添加请求未决的添加附言 |
 
@@ -1441,7 +1441,7 @@ UUID 类型。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMFriendshipDeletePendencyParamType | uint [TIMFriendPendencyType](#timfriendpendencytype) | 只读 | 删除好友添加请求未决的类型 |
+| kTIMFriendshipDeletePendencyParamType | uint [TIMFriendPendencyType](#timfriendpendencytype) | 只读 | 添加好友的未决请求类型 |
 | kTIMFriendshipDeletePendencyParamIdentifierArray | array string | 只读 | 删除好友未决请求的 UserID 列表 |
 
 ### TIMFriendResponseAction
