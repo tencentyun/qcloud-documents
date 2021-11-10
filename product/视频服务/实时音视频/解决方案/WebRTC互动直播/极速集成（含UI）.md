@@ -27,11 +27,11 @@
 ### 步骤1：账号准备
 TUIPusher & TUIPlayer 基于腾讯云实时音视频和即时通讯服务进行开发。
 1. [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct%2F647%2F49327) 并开通 [实时音视频](https://console.cloud.tencent.com/trtc) 和 [即时通讯](https://console.cloud.tencent.com/im) 服务。
-2. 在 [实时音视频控制台](https://console.cloud.tencent.com/trtc) 单击 **应用管理>创建应用** 创建新应用。
+2. 在 [实时音视频控制台](https://console.cloud.tencent.com/trtc) 单击 **应用管理 > 创建应用** 创建新应用。
 ![创建应用](https://main.qcloudimg.com/raw/34f87b8c0a817d8d3e49baac5b82a1fa.png)
-2. 在 **应用管理>应用信息** 中获取 SDKAppID 信息。
+2. 在 **应用管理 > 应用信息** 中获取 SDKAppID 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f7915fbbeb48518c2b25a413960f3432.png)
-3. 在 **应用管理>快速上手** 中获取应用的 secretKey 信息。
+3. 在 **应用管理 > 快速上手** 中获取应用的 secretKey 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/06d38bbdbaf43e1f2b444edae00019fa.png)
 
 >!
@@ -49,7 +49,7 @@ npm install
 cd Web/TUIPlayer
 npm install
 ```
-3. 将 sdkAppId 和  secretKey 填入 `TUIPusher/config/basic-info-config.js` 及 `TUIPlayer/config/basic-info-config.js` 配置文件中。
+3. 将 sdkAppId 和  secretKey 填入 `TUIPusher/src/config/basic-info-config.js` 及 `TUIPlayer/src/config/basic-info-config.js` 配置文件中。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9286fcb781fa37179f84e4bdcd85bfae.png)
 4. 本地开发环境运行 TUIPusher & TUIPlayer。
 ```bash
@@ -60,7 +60,7 @@ cd Web/TUIPlayer
 npm run serve
 ```
 5. 可打开 `http://localhost:8080` 和 `http://localhost:8081` 体验 TUIPusher 和 TUIPlayer 功能。
-6. 可更改 `TUIPusher/config/basic-info-config.js` 及 `TUIPusher/config/basic-info-config.js` 文件中的房间，主播及观众等信息，**注意保持 TUIPusher 和 TUIPlayer 的房间信息，主播信息一致**。
+6. 可更改 `TUIPusher/src/config/basic-info-config.js` 及 `TUIPlayer/src/config/basic-info-config.js` 配置文件中的房间，主播及观众等信息，**注意保持 TUIPusher 和 TUIPlayer 的房间信息，主播信息一致**。
 
 >! 完成以上配置，您可以使用 TUIPusher & TUIPlayer 进行超低延时直播，如您需要支持快直播和标准直播，请继续阅读 [步骤3：旁路直播](#step3)。
 >
@@ -74,7 +74,7 @@ TUIPusher & TUIPlayer 实现的快直播和标准直播依托于腾讯云的云�
 1. 在 [**实时音视频控制台**](https://console.cloud.tencent.com/trtc) 中为您正在使用的应用开启旁路推流配置，可按需开启指定流旁路或全局自动旁路。
 ![](https://main.qcloudimg.com/raw/b9846f4a7f5ce1e39b3450963e872c90.png)
 2. 请在 [**域名管理**](https://console.cloud.tencent.com/live/domainmanage) 页面添加自有播放域名，具体请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
-3. 在 `TUIPusher/config/basic-info-config.js` 配置文件中配置播放域名。
+3. 在 `TUIPlayer/src/config/basic-info-config.js` 配置文件中配置播放域名。
 
 完成以上配置，您可以体验 TUIPusher & TUIPlayer 支持超低延时直播，快直播以及标准直播的所有功能。
 
