@@ -9,7 +9,7 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/ccn)，单击**云联网**，进入云联网控制台。
 2. 单击云联网实例 ID，进入详情页面。
 3. 单击**路由表**页签，查看是否有如下图所示的**失效**路由。
-  + 如存在“失效”路由，则可以看出两个 VPC 存在相同 CIDR 的子网，导致云联网路由冲突，请删除相同 CIDR 的子网，更换其他网段的子网。
+  + 如存在**失效**路由，则可以看出两个 VPC 存在相同 CIDR 的子网，导致云联网路由冲突，请删除相同 CIDR 的子网，更换其他网段的子网。
   + 如不存在失效路由，请继续排查 [步骤4](#step4)。
     ![](https://qcloudimg.tencent-cloud.cn/raw/0fb0729a942e7d8adcc208a71b807d7e.png)
 4. <span id="step4">进入[云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=16)，单击云服务器右侧的登录，按照界面提示输入密码或密钥，以 [标准方式登录云服务器](https://cloud.tencent.com/document/product/213/5436)，并执行 route 查看系统内部路由表。
