@@ -1,1132 +1,474 @@
-TRTCVoiceRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的组件，支持以下功能：
-
-- 房主创建新的语音聊天室开播，听众进入语聊房间收听/互动。
-- 房主可以邀请听众上麦、将座位上的麦上主播踢下麦。
-- 房主还能对座位进行封禁，其他听众就不能再进行申请上麦了。
-- 听众可以申请上麦，变成麦上主播，可以和其他人语音互动，也可以随时下麦成为普通的听众。
-- 支持发送各种文本消息和自定义消息，自定义消息可用于实现弹幕、点赞和礼物等。
-
-TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [语音聊天室（iOS）](https://cloud.tencent.com/document/product/647/45753)。
-
-- TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时语音聊天组件。
-- IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 AVChatroom 实现聊天室的功能，同时，通过 IM 的属性接口来存储麦位表等房间信息，邀请信令可以用于上麦申请/抱麦申请。
-
-
-<h2 id="TRTCVoiceRoom">TRTCVoiceRoom API 概览</h2>
-
-### SDK 基础函数
-
-| API                                             | 描述                     |
-| ----------------------------------------------- | ------------------------ |
-| [sharedInstance](#sharedinstance)               | 获取单例对象。           |
-| [destroySharedInstance](#destroysharedinstance) | 销毁单例对象。           |
-| [setDelegate](#setdelegate)                     | 设置事件回调。           |
-| [setDelegateHandler](#setdelegatehandler)       | 设置事件回调所在的线程。 |
-| [login](#login)                                 | 登录。                   |
-| [logout](#logout)                               | 登出。                   |
-| [setSelfProfile](#setselfprofile)               | 修改个人信息。           |
-
-### 房间相关接口函数
-
-| API                                 | 描述                                                         |
-| ----------------------------------- | ------------------------------------------------------------ |
-| [createRoom](#createroom)           | 创建房间（房主调用），若房间不存在，系统将自动创建一个新房间。 |
-| [destroyRoom](#destroyroom)         | 销毁房间（房主调用）。                                       |
-| [enterRoom](#enterroom)             | 进入房间（听众调用）。                                       |
-| [exitRoom](#exitroom)               | 退出房间（听众调用）。                                       |
-| [getRoomInfoList](#getroominfolist) | 获取房间列表的详细信息。                                     |
-| [getUserInfoList](#getuserinfolist) | 获取指定 userId 的用户信息，如果为 nil，则获取房间内所有人的信息。 |
-
-### 麦位管理接口
-
-| API                     | 描述                                |
-| ----------------------- | ----------------------------------- |
-| [enterSeat](#enterseat) | 主动上麦（听众端和房主均可调用）。  |
-| [leaveSeat](#leaveseat) | 主动下麦（主播调用）。  |
-| [pickSeat](#pickseat)   | 抱人上麦（房主调用）。              |
-| [kickSeat](#kickseat)   | 踢人下麦（房主调用）。              |
-| [muteSeat](#muteseat)   | 静音/解除静音某个麦位（房主调用）。 |
-| [closeSeat](#closeseat) | 封禁/解禁某个麦位（房主调用）。     |
-
-### 本地音频操作接口
-
-| API                                             | 描述                 |
-| ----------------------------------------------- | -------------------- |
-| [startMicrophone](#startmicrophone)             | 开启麦克风采集。     |
-| [stopMicrophone](#stopmicrophone)               | 停止麦克风采集。     |
-| [setAudioQuality](#setaudioquality)             | 设置音质。           |
-| [muteLocalAudio](#mutelocalaudio)               | 开启/关闭本地静音。  |
-| [setSpeaker](#setspeaker)                       | 设置开启扬声器。     |
-| [setAudioCaptureVolume](#setaudiocapturevolume) | 设置麦克风采集音量。 |
-| [setAudioPlayoutVolume](#setaudioplayoutvolume) | 设置播放音量。       |
-| [setVoiceEarMonitorEnable](#setvoiceearmonitorenable) | 开启/关闭 耳返。       |
-
-
-### 远端用户音频操作接口
-
-| API                                       | 描述                    |
-| ----------------------------------------- | ----------------------- |
-| [muteRemoteAudio](#muteremoteaudio)       | 静音/解除静音指定成员。 |
-| [muteAllRemoteAudio](#muteallremoteaudio) | 静音/解除静音所有成员。 |
-
-### 背景音乐音效相关接口
-
-| API                                             | 描述                                                         |
-| ----------------------------------------------- | ------------------------------------------------------------ |
-| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXAudioEffectManager__android.html#interfacecom_1_1tencent_1_1liteav_1_1audio_1_1TXAudioEffectManager)。 |
-
-### 消息发送相关接口
-
-| API                                     | 描述                                     |
-| --------------------------------------- | ---------------------------------------- |
-| [sendRoomTextMsg](#sendroomtextmsg)     | 在房间中广播文本消息，一般用于弹幕聊天。 |
-| [sendRoomCustomMsg](#sendroomcustommsg) | 发送自定义文本消息。                     |
-
-### 邀请信令相关接口
-
-| API                                   | 描述             |
-| ------------------------------------- | ---------------- |
-| [sendInvitation](#sendinvitation)     | 向用户发送邀请。 |
-| [acceptInvitation](#acceptinvitation) | 接受邀请。       |
-| [rejectInvitation](#rejectinvitation) | 拒绝邀请。       |
-| [cancelInvitation](#cancelinvitation) | 取消邀请。       |
-
-<h2 id="TRTCVoiceRoomDelegate">TRTCVoiceRoomDelegate API 概览</h2>
-
-### 通用事件回调
-
-| API                       | 描述       |
-| ------------------------- | ---------- |
-| [onError](#onerror)       | 错误回调。 |
-| [onWarning](#onwarning)   | 警告回调。 |
-| [onDebugLog](#ondebuglog) | Log 回调。 |
-
-### 房间事件回调
-
-| API                                       | 描述                   |
-| ----------------------------------------- | ---------------------- |
-| [onRoomDestroy](#onroomdestroy)           | 房间被销毁的回调。     |
-| [onRoomInfoChange](#onroominfochange)     | 语聊房间信息变更回调。 |
-| [onUserVolumeUpdate](#onuservolumeupdate) | 用户通话音量回调。     |
-
-### 麦位变更回调
-
-| API                                     | 描述                                  |
-| --------------------------------------- | ------------------------------------- |
-| [onSeatListChange](#onseatlistchange)   | 全量的麦位列表变化。                  |
-| [onAnchorEnterSeat](#onanchorenterseat) | 有成员上麦（主动上麦/房主抱人上麦）。 |
-| [onAnchorLeaveSeat](#onanchorleaveseat) | 有成员下麦（主动下麦/房主踢人下麦）。 |
-| [onSeatMute](#onseatmute)               | 房主禁麦。                            |
-| [onUserMicrophoneMute](#onusermicrophonemute)               | 用户麦克风是否静音。                          |
-| [onSeatClose](#onseatclose)             | 房主封麦。                            |
-
-### 听众进出事件回调
-
-| API                                 | 描述               |
-| ----------------------------------- | ------------------ |
-| [onAudienceEnter](#onaudienceenter) | 收到听众进房通知。 |
-| [onAudienceExit](#onaudienceexit)   | 收到听众退房通知。 |
-
-### 消息事件回调
-
-| API                                         | 描述             |
-| ------------------------------------------- | ---------------- |
-| [onRecvRoomTextMsg](#onrecvroomtextmsg)     | 收到文本消息。   |
-| [onRecvRoomCustomMsg](#onrecvroomcustommsg) | 收到自定义消息。 |
-
-### 信令事件回调
-
-| API                                               | 描述               |
-| ------------------------------------------------- | ------------------ |
-| [onReceiveNewInvitation](#onreceivenewinvitation) | 收到新的邀请请求。 |
-| [onInviteeAccepted](#oninviteeaccepted)           | 被邀请人接受邀请。 |
-| [onInviteeRejected](#oninviteerejected)           | 被邀请人拒绝邀请。 |
-| [onInvitationCancelled](#oninvitationcancelled)   | 邀请人取消邀请。   |
-
-## SDK 基础函数
-
-[](id:sharedInstance)
-
-### sharedInstance
-
-获取 [TRTCVoiceRoom](https://cloud.tencent.com/document/product/647/45737) 单例对象。
-
-```Objective-C
-/**
-* 获取 TRTCVoiceRoom 单例对象
-*
-* - returns: TRTCVoiceRoom 实例
-* - note: 可以调用 {@link TRTCVoiceRoom#destroySharedInstance()} 销毁单例对象
-*/
-+ (instancetype)sharedInstance NS_SWIFT_NAME(shared());
-```
-
-
-### destroySharedInstance
-
-销毁 [TRTCVoiceRoom](https://cloud.tencent.com/document/product/647/45753) 单例对象。
-
->?销毁实例后，外部缓存的 TRTCVoiceRoom 实例无法再使用，需要重新调用 [sharedInstance](#sharedInstance) 获取新实例。
-
-```Objective-C
-/**
-* 销毁 TRTCVoiceRoom 单例对象
-*
-* - note: 销毁实例后，外部缓存的 TRTCVoiceRoom 实例不能再使用，需要重新调用 {@link TRTCVoiceRoom#sharedInstance()} 获取新实例
-*/
-+ (void)destroySharedInstance NS_SWIFT_NAME(destroyShared());
-```
-
-### setDelegate
-
-[TRTCVoiceRoom](https://cloud.tencent.com/document/product/647/45753) 事件回调，您可以通过 TRTCVoiceRoomDelegate 获得 [TRTCVoiceRoom](https://cloud.tencent.com/document/product/647/45737) 的各种状态通知。
-
-```Objective-C
-/**
-* 设置组件回调接口
-* 
-* 您可以通过 TRTCVoiceRoomDelegate 获得 TRTCVoiceRoom 的各种状态通知
-*
-* - parameter delegate 回调接口
-* - note: TRTCVoiceRoom 中的回调事件，默认是在 Main Queue 中回调给您；如果您需要指定事件回调所在的队列，可使用 {@link TRTCVoiceRoom#setDelegateQueue(queue)}
-*/
-- (void)setDelegate:(id<TRTCVoiceRoomDelegate>)delegate NS_SWIFT_NAME(setDelegate(delegate:));
-```
-
->?setDelegate 是 TRTCVoiceRoom 的代理回调。   
-
-### setDelegateQueue
-
-设置事件回调所在的线程队列，默认发送动主线程 MainQueue 中。
-
-```Objective-C
-/**
-* 设置事件回调所在的队列
-*
-* - parameter queue 队列，TRTCVoiceRoom 中的各种状态通知回调，会派发到您指定的queue。
-*/
-- (void)setDelegateQueue:(dispatch_queue_t)queue NS_SWIFT_NAME(setDelegateQueue(queue:));
-
-```
-
-参数如下表所示：
-
-| 参数  | 类型             | 含义                                                         |
-| ----- | ---------------- | ------------------------------------------------------------ |
-| queue | dispatch_queue_t | TRTCVoiceRoom 中的各种状态通知，会派发到您指定的线程队列里去。 |
-
-   
-
-### login
-
-登录。
-
-```Objective-C
-- (void)login:(int)sdkAppID
-       userId:(NSString *)userId
-      userSig:(NSString *)userSig
-     callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(login(sdkAppID:userId:userSig:callback:));
-
-```
-
-参数如下表所示：
-
-| 参数     | 类型           | 含义                                                         |
-| -------- | -------------- | ------------------------------------------------------------ |
-| sdkAppId | int            | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
-| userId   | String         | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
-| userSig  | String         | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
-| callback | ActionCallback | 登录回调，成功时 code 为0。                                  |
-
-   
-
-### logout
-
-登出。
-
-```Objective-C
-- (void)logout:(ActionCallback _Nullable)callback NS_SWIFT_NAME(logout(callback:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型           | 含义                        |
-| -------- | -------------- | --------------------------- |
-| callback | ActionCallback | 登出回调，成功时 code 为0。 |
-
-   
-
-### setSelfProfile
-
-修改个人信息。
-
-```Objective-C
-- (void)setSelfProfile:(NSString *)userName avatarURL:(NSString *)avatarURL callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(setSelfProfile(userName:avatarURL:callback:));
-```
-
-参数如下表所示：
-
-| 参数      | 类型           | 含义                                |
-| --------- | -------------- | ----------------------------------- |
-| userName  | String         | 昵称。                              |
-| avatarURL | String         | 头像地址。                          |
-| callback  | ActionCallback | 个人信息设置回调，成功时 code 为0。 |
-
-   
-
-
-## 房间相关接口函数
-
-### createRoom
-
-创建房间（房主调用）。
-
-```Objective-C
-- (void)createRoom:(int)roomID roomParam:(VoiceRoomParam *)roomParam callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(createRoom(roomID:roomParam:callback:));
-```
-
-参数如下表所示：
-
-| 参数      | 类型                | 含义                                                         |
-| --------- | ------------------- | ------------------------------------------------------------ |
-| roomId    | int                 | 房间标识，需要由您分配并进行统一管理。多个 roomID 可以汇总成一个语聊房间列表，腾讯云暂不提供语聊房间列表的管理服务，请自行管理您的语聊房间列表。 |
-| roomParam | TRTCCreateRoomParam | 房间信息，用于房间描述的信息。例如房间名称、麦位信息、封面信息等。如果需要麦位管理，必须要填入房间的麦位数。 |
-| callback  | ActionCallback      | 创建房间的结果回调，成功时 code 为0。                        |
-
-房主开播的正常调用流程如下： 
-1. 房主调用 `createRoom` 创建新的语音聊天室，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
-2. 房主创建房间成功后，调用 `enterSeat` 进入座位。
-3. 房主收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
-4. 房主还会收到麦位表有成员进入的 `onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
-
-   
-
-### destroyRoom
-
-销毁房间（房主调用）。房主在创建房间后，可以调用这个函数来销毁房间。
-
-```Objective-C
-- (void)destroyRoom:(ActionCallback _Nullable)callback NS_SWIFT_NAME(destroyRoom(callback:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型           | 含义                                  |
-| -------- | -------------- | ------------------------------------- |
-| callback | ActionCallback | 销毁房间的结果回调，成功时 code 为0。 |
-
-
-### enterRoom
-
-进入房间（听众调用）。
-
-```Objective-C
-- (void)enterRoom:(NSInteger)roomID callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(enterRoom(roomID:callback:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型           | 含义                                  |
-| -------- | -------------- | ------------------------------------- |
-| roomId   | int            | 房间标识。                            |
-| callback | ActionCallback | 进入房间的结果回调，成功时 code 为0。 |
-
-
-听众进房收听的正常调用流程如下： 
-
-1. 听众向您的服务端获取最新的语音聊天室列表，可能包含多个语聊房间的 roomId 和房间信息。
-2. 听众选择一个语音聊天室，调用 `enterRoom` 并传入房间号即可进入该房间。
-3. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
-4. 进房后会收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
-5. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
-
-### exitRoom
-
-退出房间。
-
-```Objective-C
-- (void)exitRoom:(ActionCallback _Nullable)callback NS_SWIFT_NAME(exitRoom(callback:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型           | 含义                                  |
-| -------- | -------------- | ------------------------------------- |
-| callback | ActionCallback | 退出房间的结果回调，成功时 code 为0。 |
-
-   
-
-### getRoomInfoList
-
-获取房间列表的详细信息，其中房间名称、房间封面是房主在创建 `createRoom()` 时通过 roomInfo 设置的。
-
->?如果房间列表和房间信息都由您自行管理，可忽略该函数。
-
-
-```Objective-C
-- (void)getRoomInfoList:(NSArray<NSNumber *> *)roomIdList callback:(VoiceRoomInfoCallback _Nullable)callback NS_SWIFT_NAME(getRoomInfoList(roomIdList:callback:));
-```
-
-参数如下表所示：
-
-| 参数       | 类型                | 含义               |
-| ---------- | ------------------- | ------------------ |
-| roomIdList | List&lt;Integer&gt; | 房间号列表。       |
-| callback   | RoomInfoCallback    | 房间详细信息回调。 |
-
-
-### getUserInfoList
-
-获取指定 userId 的用户信息。
-
-```Objective-C
-- (void)getUserInfoList:(NSArray<NSString *> * _Nullable)userIDList callback:(VoiceRoomUserListCallback _Nullable)callback NS_SWIFT_NAME(getUserInfoList(userIDList:callback:));
-```
-
-参数如下表所示：
-
-| 参数             | 类型               | 含义                                                         |
-| ---------------- | ------------------ | ------------------------------------------------------------ |
-| userIdList       | List&lt;String&gt; | 需要获取的用户 ID 列表，如果为 null，则获取房间内所有人的信息。 |
-| userlistcallback | UserListCallback   | 用户详细信息回调。                                           |
-
-
-## 麦位管理接口
-
-### enterSeat
-
-主动上麦（听众端和房主均可调用）。
-
->?上麦成功后，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
-
-```Objective-C
-- (void)enterSeat:(NSInteger)seatIndex callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(enterSeat(seatIndex:callback:));
-```
-
-参数如下表所示：
-
-| 参数      | 类型           | 含义                 |
-| --------- | -------------- | -------------------- |
-| seatIndex | int            | 需要上麦的麦位序号。 |
-| callback  | ActionCallback | 操作回调。           |
-
-调用该接口会立即修改麦位表。如果是听众申请上麦需要房主同意的场景，可以先调用 `sendInvitation` 向房主申请，收到 `onInvitationAccept ` 后再调用该函数。
-
-### leaveSeat
-
-主动下麦（主播调用）。
-
->? 下麦成功后，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
-
-```Objective-C
-- (void)leaveSeat:(ActionCallback _Nullable)callback NS_SWIFT_NAME(leaveSeat(callback:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型           | 含义       |
-| -------- | -------------- | ---------- |
-| callback | ActionCallback | 操作回调。 |
-
-### pickSeat
-
-抱人上麦（房主调用）。
-
->? 房主抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
-
-```Objective-C
-- (void)pickSeat:(NSInteger)seatIndex userId:(NSString *)userId callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(pickSeat(seatIndex:userId:callback:));
-```
-
-参数如下表所示：
-
-| 参数      | 类型           | 含义                   |
-| --------- | -------------- | ---------------------- |
-| seatIndex | int            | 需要抱上麦的麦位序号。 |
-| userId    | String         | 用户 ID。              |
-| callback  | ActionCallback | 操作回调。             |
-
-调用该接口会立即修改麦位表。如果是房主需要听众同意，听众才会上麦的场景，可以先调用 `sendInvitation` 向听众申请，收到 `onInvitationAccept `后再调用该函数。
-
-
-### kickSeat
-
-踢人下麦（房主调用）。
-
->? 房主踢人下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
-
-```Objective-C
-- (void)kickSeat:(NSInteger)seatIndex callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(kickSeat(seatIndex:callback:));
-```
-
-参数如下表所示：
-
-| 参数      | 类型           | 含义                   |
-| --------- | -------------- | ---------------------- |
-| seatIndex | int            | 需要踢下麦的麦位序号。 |
-| callback  | ActionCallback | 操作回调。             |
-
-调用该接口会立即修改麦位表。
-
-### muteSeat
-
-静音/解除静音某个麦位（房主调用）。
-
->? 静音/解除静音某个麦位，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
-
-```Objective-C
-- (void)muteSeat:(NSInteger)seatIndex isMute:(BOOL)isMute callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(muteSeat(seatIndex:isMute:callback:));
-```
-
-参数如下表所示：
-
-| 参数      | 类型           | 含义                                          |
-| --------- | -------------- | --------------------------------------------- |
-| seatIndex | int            | 需要操作的麦位序号。                          |
-| isMute    | boolean        | true：静音对应麦位；false：解除静音对应麦位。 |
-| callback  | ActionCallback | 操作回调。                                    |
-
-调用该接口会立即修改麦位表。对应 seatIndex 座位上的主播，会自动调用 muteAudio 进行静音/解禁。
-
-### closeSeat
-
-封禁/解禁某个麦位（房主调用）。
-
->? 房主封禁/解禁对应麦位，房间内所有成员会收到 `onSeatListChange` 和 `onSeatClose` 的事件通知。
-
-```Objective-C
-- (void)closeSeat:(NSInteger)seatIndex isClose:(BOOL)isClose callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(closeSeat(seatIndex:isClose:callback:));
-```
-
-参数如下表所示：
-
-| 参数      | 类型           | 含义                                       |
-| --------- | -------------- | ------------------------------------------ |
-| seatIndex | int            | 需要操作的麦位序号。                       |
-| isClose   | boolean        | true：封禁对应麦位； false：解封对应麦位。 |
-| callback  | ActionCallback | 操作回调。                                 |
-
-调用该接口会立即修改麦位表。封禁对应 seatIndex 座位上的主播，会自动下麦。
-
-
-## 本地音频操作接口
-
-### startMicrophone
-
-开启麦克风采集。
-
-```Objective-C
-- (void)startMicrophone;
-```
-
-### stopMicrophone
-
-停止麦克风采集。
-
-```Objective-C
-- (void)stopMicrophone;
-```
-
-### setAudioQuality
-
-设置音质。
-
-```Objective-C
-- (void)setAuidoQuality:(NSInteger)quality NS_SWIFT_NAME(setAuidoQuality(quality:));
-```
-
-参数如下表所示：
-
-| 参数    | 类型 | 含义                                                         |
-| ------- | ---- | ------------------------------------------------------------ |
-| quality | int  | 音频质量，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55)。 |
-
-
-### muteLocalAudio
-
-静音/取消静音本地的音频。
-
-```Objective-C
-- (void)muteLocalAudio:(BOOL)mute NS_SWIFT_NAME(muteLocalAudio(mute:));
-```
-
-参数如下表所示：
-
-| 参数 | 类型    | 含义                                                         |
-| ---- | ------- | ------------------------------------------------------------ |
-| mute | boolean | 静音/取消静音，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86)。 |
-
-
-
-### setSpeaker
-
-设置开启扬声器。
-
-```Objective-C
-- (void)setSpeaker:(BOOL)userSpeaker NS_SWIFT_NAME(setSpeaker(userSpeaker:));
-```
-
-参数如下表所示：
-
-| 参数       | 类型    | 含义                        |
-| ---------- | ------- | --------------------------- |
-| useSpeaker | boolean | true：扬声器；false：听筒。 |
-
-
-
-### setAudioCaptureVolume
-
-设置麦克风采集音量。
-
-```Objective-C
-- (void)setAudioCaptureVolume:(NSInteger)voluem NS_SWIFT_NAME(setAudioCaptureVolume(volume:));
-```
-
-参数如下表所示：
-
-| 参数   | 类型 | 含义                          |
-| ------ | ---- | ----------------------------- |
-| volume | int  | 采集音量，0 - 100， 默认100。 |
-
-
-### setAudioPlayoutVolume
-
-设置播放音量。
-
-```Objective-C
-- (void)setAudioPlayoutVolume:(NSInteger)volume NS_SWIFT_NAME(setAudioPlayoutVolume(volume:));
-```
-
-参数如下表所示：
-
-| 参数   | 类型 | 含义                          |
-| ------ | ---- | ----------------------------- |
-| volume | int  | 播放音量，0 - 100， 默认100。 |
-
-### muteRemoteAudio
-
-静音/解除静音指定成员。
-
-```Objective-C
-- (void)muteRemoteAudio:(NSString *)userId mute:(BOOL)mute NS_SWIFT_NAME(muteRemoteAudio(userId:mute:));
-```
-
-参数如下表所示：
-
-| 参数   | 类型    | 含义                              |
-| ------ | ------- | --------------------------------- |
-| userId | String  | 指定的用户 ID。                   |
-| mute   | boolean | true：开启静音；false：关闭静音。 |
-
-### muteAllRemoteAudio
-
-静音/解除静音所有成员。
-
-```Objective-C
-- (void)muteAllRemoteAudio:(BOOL)isMute NS_SWIFT_NAME(muteAllRemoteAudio(isMute:));
-```
-
-参数如下表所示：
-
-| 参数 | 类型    | 含义                              |
-| ---- | ------- | --------------------------------- |
-| mute | boolean | true：开启静音；false：关闭静音。 |
-
-### setVoiceEarMonitorEnable
-
-开启/关闭 耳返。
-
-```Objective-C
-- (void)setVoiceEarMonitorEnable:(BOOL)enable NS_SWIFT_NAME(setVoiceEarMonitor(enable:));
-```
-参数如下表所示：
-
-| 参数 | 类型    | 含义                              |
-| ---- | ------- | --------------------------------- |
-| enable | boolean | true：开启耳返；false：关闭耳返。 |
-
-
-## 背景音乐音效相关接口函数
-
-### getAudioEffectManager
-
-获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
-
-```Objective-C
-- (TXAudioEffectManager * _Nullable)getAudioEffectManager;
-```
-
-
-## 消息发送相关接口函数
-
-### sendRoomTextMsg
-
-在房间中广播文本消息，一般用于弹幕聊天。
-
-```Objective-C
-- (void)sendRoomTextMsg:(NSString *)message callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(sendRoomTextMsg(message:callback:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型           | 含义           |
-| -------- | -------------- | -------------- |
-| message  | String         | 文本消息。     |
-| callback | ActionCallback | 发送结果回调。 |
-
-   
-
-### sendRoomCustomMsg
-
-发送自定义文本消息。
-
-```Objective-C
-- (void)sendRoomCustomMsg:(NSString *)cmd message:(NSString *)message callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(sendRoomCustomMsg(cmd:message:callback:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型           | 含义                                               |
-| -------- | -------------- | -------------------------------------------------- |
-| cmd      | String         | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
-| message  | String         | 文本消息。                                         |
-| callback | ActionCallback | 发送结果回调。                                     |
-
-   
-
-## 邀请信令相关接口
-
-### sendInvitation
-
-向用户发送邀请。
-
-```Objective-C
-- (NSString *)sendInvitation:(NSString *)cmd
-                      userId:(NSString *)userId
-                     content:(NSString *)content
-                    callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(sendInvitation(cmd:userId:content:callback:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型           | 含义             |
-| -------- | -------------- | ---------------- |
-| cmd      | String         | 业务自定义指令。 |
-| userId   | String         | 邀请的用户 ID。  |
-| content  | String         | 邀请的内容。     |
-| callback | ActionCallback | 发送结果回调。   |
-
-返回值：
-
-| 返回值   | 类型   | 含义                  |
-| -------- | ------ | --------------------- |
-| inviteId | String | 用于标识此次邀请 ID。 |
-
-### acceptInvitation
-
-接受邀请。
-
-```Objective-C
-- (void)acceptInvitation:(NSString *)identifier callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(acceptInvitation(id:callback:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型           | 含义           |
-| -------- | -------------- | -------------- |
-| id       | String         | 邀请 ID。      |
-| callback | ActionCallback | 发送结果回调。 |
-
-### rejectInvitation
-
-拒绝邀请。
-
-```Objective-C
-- (void)rejectInvitation:(NSString *)identifier callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(rejectInvitation(id:callback:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型           | 含义           |
-| -------- | -------------- | -------------- |
-| id       | String         | 邀请 ID。      |
-| callback | ActionCallback | 发送结果回调。 |
-
-
-### cancelInvitation
-
-取消邀请。
-
-```Objective-C
-- (void)cancelInvitation:(NSString *)identifier callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(cancelInvitation(id:callback:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型           | 含义           |
-| -------- | -------------- | -------------- |
-| id       | String         | 邀请 ID。      |
-| callback | ActionCallback | 发送结果回调。 |
-
-[](id:TRTCVoiceRoomDelegate)
-## TRTCVoiceRoomDelegate 事件回调
-
-## 通用事件回调
-
-### onError
-
-错误回调。
-
->? SDK 不可恢复的错误，一定要监听，并分情况给用户适当的界面提示。
-
-```Objective-C
-- (void)onError:(int)code
-                message:(NSString*)message
-NS_SWIFT_NAME(onError(code:message:));
-```
-
-参数如下表所示：
-
-| 参数    | 类型   | 含义       |
-| ------- | ------ | ---------- |
-| code    | int    | 错误码。   |
-| message | String | 错误信息。 |
-
-
-### onWarning
-
-警告回调。
-
-```Objective-C
-- (void)onWarning:(int)code
-                  message:(NSString *)message
-NS_SWIFT_NAME(onWarning(code:message:));
-```
-
-参数如下表所示：
-
-| 参数    | 类型   | 含义       |
-| ------- | ------ | ---------- |
-| code    | int    | 错误码。   |
-| message | String | 警告信息。 |
-
-   
-
-### onDebugLog
-
-Log 回调。
-
-```Objective-C
-- (void)onDebugLog:(NSString *)message
-NS_SWIFT_NAME(onDebugLog(message:));
-```
-
-参数如下表所示：
-
-| 参数    | 类型   | 含义       |
-| ------- | ------ | ---------- |
-| message | String | 日志信息。 |
-
-   
-
-
-## 房间事件回调
-
-### onRoomDestroy
-
-房间被销毁的回调。房主解散房间时，房间内的所有用户都会收到此通知。
-
-```Objective-C
-- (void)onRoomDestroy:(NSString *)roomId
-NS_SWIFT_NAME(onRoomDestroy(roomId:));
-```
-
-参数如下表所示：
-
-| 参数   | 类型   | 含义      |
-| ------ | ------ | --------- |
-| roomId | String | 房间 ID。 |
-
-
-### onRoomInfoChange
-
-进房成功后会回调该接口，roomInfo 中的信息在房主创建房间的时候传入。
-
-```Objective-C
-- (void)onRoomInfoChange:(VoiceRoomInfo *)roomInfo
-NS_SWIFT_NAME(onRoomInfoChange(roomInfo:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型     | 含义       |
-| -------- | -------- | ---------- |
-| roomInfo | RoomInfo | 房间信息。 |
-
-
-### onUserMicrophoneMute
-
-用户麦克风是否静音回调，当用户调用muteLocalAudio，房间内的其他用户都会收到此通知。
-
-```Objective-C
-- (void)onUserMicrophoneMute:(NSString *)userId mute:(BOOL)mute
-NS_SWIFT_NAME(onUserMicrophoneMute(userId:mute:));
-
-```
-
-参数如下表所示：
-
-| 参数   | 类型   | 含义                      |
-| ------ | ------ | ------------------------- |
-| userId | String | 用户 ID。                 |
-| mute | boolean    | 音量大小，取值：0 - 100。 |
-
-
-### onUserVolumeUpdate
-
-启用音量大小提示，会通知每个成员的音量大小。
-
-```Objective-C
-- (void)onUserVolumeUpdate:(NSArray<TRTCVolumeInfo *> *)userVolumes totalVolume:(NSInteger)totalVolume
-NS_SWIFT_NAME(onUserVolumeUpdate(userVolumes:totalVolume:));
-```
-
-参数如下表所示：
-
-| 参数   | 类型   | 含义                      |
-| ------ | ------ | ------------------------- |
-| userVolumes | List | 用户列表。                 |
-| totalVolume | int    | 音量大小，取值：0 - 100。 |
-
-
-## 麦位回调
-
-### onSeatListChange
-
-全量的麦位列表变化，包含了整个麦位表。
-
-```Objective-C
-- (void)onSeatInfoChange:(NSArray<VoiceRoomSeatInfo *> *)seatInfolist
-NS_SWIFT_NAME(onSeatListChange(seatInfoList:));
-```
-
-参数如下表所示：
-
-| 参数         | 类型                 | 含义             |
-| ------------ | -------------------- | ---------------- |
-| seatInfoList | List&lt;SeatInfo&gt; | 全量的麦位列表。 |
-
-### onAnchorEnterSeat
-
-有成员上麦(主动上麦/房主抱人上麦)。
-
-```Objective-C
-- (void)onAnchorEnterSeat:(NSInteger)index
-                              user:(VoiceRoomUserInfo *)user
-NS_SWIFT_NAME(onAnchorEnterSeat(index:user:));
-```
-
-参数如下表所示：
-
-| 参数  | 类型     | 含义                 |
-| ----- | -------- | -------------------- |
-| index | int      | 成员上麦的麦位。     |
-| user  | UserInfo | 上麦用户的详细信息。 |
-
-### onAnchorLeaveSeat
-
-有成员下麦(主动下麦/房主踢人下麦)。
-
-```Objective-C
-- (void)onAnchorLeaveSeat:(NSInteger)index
-                     user:(VoiceRoomUserInfo *)user
-NS_SWIFT_NAME(onAnchorLeaveSeat(index:user:));
-```
-
-参数如下表所示：
-
-| 参数  | 类型     | 含义                 |
-| ----- | -------- | -------------------- |
-| index | int      | 下麦的麦位。         |
-| user  | UserInfo | 上麦用户的详细信息。 |
-
-### onSeatMute
-
-房主禁麦。
-
-```Objective-C
-- (void)onSeatMute:(NSInteger)index
-            isMute:(BOOL)isMute
-NS_SWIFT_NAME(onSeatMute(index:isMute:));
-```
-
-参数如下表所示：
-
-| 参数   | 类型    | 含义                               |
-| ------ | ------- | ---------------------------------- |
-| index  | int     | 操作的麦位。                       |
-| isMute | boolean | true：静音麦位； false：解除静音。 |
-
-### onSeatClose
-
-房主封麦。
-
-```Objective-C
-- (void)onSeatClose:(NSInteger)index
-            isClose:(BOOL)isClose
-NS_SWIFT_NAME(onSeatClose(index:isClose:));
-```
-
-参数如下表所示：
-
-| 参数    | 类型    | 含义                                |
-| ------- | ------- | ----------------------------------- |
-| index   | int     | 操作的麦位。                        |
-| isClose | boolean | true：封禁麦位； false： 解禁麦位。 |
-
-## 听众进出事件回调
-
-### onAudienceEnter
-
-收到听众进房通知。
-
-```Objective-C
-- (void)onAudienceEnter:(VoiceRoomUserInfo *)userInfo
-NS_SWIFT_NAME(onAudienceEnter(userInfo:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型     | 含义           |
-| -------- | -------- | -------------- |
-| userInfo | UserInfo | 进房听众信息。 |
-
-### onAudienceExit
-
-收到听众退房通知。
-
-```Objective-C
-- (void)onAudienceExit:(VoiceRoomUserInfo *)userInfo
-NS_SWIFT_NAME(onAudienceExit(userInfo:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型     | 含义           |
-| -------- | -------- | -------------- |
-| userInfo | UserInfo | 退房听众信息。 |
-
-   
-
-## 消息事件回调
-
-### onRecvRoomTextMsg
-
-收到文本消息。
-
-```Objective-C
-- (void)onRecvRoomTextMsg:(NSString *)message
-                 userInfo:(VoiceRoomUserInfo *)userInfo
-NS_SWIFT_NAME(onRecvRoomTextMsg(message:userInfo:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型     | 含义             |
-| -------- | -------- | ---------------- |
-| message  | String   | 文本消息。       |
-| userInfo | UserInfo | 发送者用户信息。 |
-
-   
-
-### onRecvRoomCustomMsg
-
-收到自定义消息。
-
-```Objective-C
-- (void)onRecvRoomCustomMsg:(NSString *)command
-                    message:(NSString *)message
-                   userInfo:(VoiceRoomUserInfo *)userInfo
-NS_SWIFT_NAME(onRecvRoomCustomMsg(command:message:userInfo:));
-```
-
-参数如下表所示：
-
-| 参数     | 类型     | 含义                                               |
-| -------- | -------- | -------------------------------------------------- |
-| command  | String   | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
-| message  | String   | 文本消息。                                         |
-| userInfo | UserInfo | 发送者用户信息。                                   |
-
-## 邀请信令事件回调
-
-### onReceiveNewInvitation
-
-收到新的邀请请求。
-
-```Objective-C
-- (void)onReceiveNewInvitation:(NSString *)identifier
-                       inviter:(NSString *)inviter
-                           cmd:(NSString *)cmd
-                       content:(NSString *)content
-NS_SWIFT_NAME(onReceiveNewInvitation(id:inviter:cmd:content:));
-```
-
-参数如下表所示：
-
-| 参数    | 类型     | 含义                               |
-| ------- | -------- | ---------------------------------- |
-| id      | String   | 邀请 ID。                          |
-| inviter | String   | 邀请人的用户 ID。                  |
-| cmd     | String   | 业务指定的命令字，由开发者自定义。 |
-| content | UserInfo | 业务指定的内容。                   |
-
-### onInviteeAccepted
-
-被邀请者接受邀请。
-
-```Objective-C
-- (void)onInviteeAccepted:(NSString *)identifier
-                  invitee:(NSString *)invitee
-NS_SWIFT_NAME(onInviteeAccepted(id:invitee:));
-```
-
-参数如下表所示：
-
-| 参数    | 类型   | 含义                |
-| ------- | ------ | ------------------- |
-| id      | String | 邀请 ID。           |
-| invitee | String | 被邀请人的用户 ID。 |
-
-### onInviteeRejected
-
-被邀请者拒绝邀请。
-
-```Objective-C
-- (void)onInviteeRejected:(NSString *)identifier
-                  invitee:(NSString *)invitee
-NS_SWIFT_NAME(onInviteeRejected(id:invitee:));
-```
-
-参数如下表所示：
-
-| 参数    | 类型   | 含义                |
-| ------- | ------ | ------------------- |
-| id      | String | 邀请 ID。           |
-| invitee | String | 被邀请人的用户 ID。 |
-
-### onInvitationCancelled
-
-邀请人取消邀请。
-
-```Objective-C
-- (void)onInvitationCancelled:(NSString *)identifier
-                      invitee:(NSString *)invitee NS_SWIFT_NAME(onInvitationCancelled(id:invitee:));
-```
-
-参数如下表所示：
-
-| 参数    | 类型   | 含义              |
-| ------- | ------ | ----------------- |
-| id      | String | 邀请 ID。         |
-| inviter | String | 邀请人的用户 ID。 |
+## 效果展示
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验语音聊天室的能力，包括麦位管理、低延时语音互动、文字聊天等 TRTC 在语音聊天场景下的相关能力。
+<table>
+     <tr>
+         <th>房主麦位操作</th>  
+         <th>听众麦位操作</th>  
+     </tr>
+<tr>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/voiceroom_pick_seat.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/voiceroom_enter_seat.gif"/></td>
+</tr>
+</table>
+
+如需快速接入语音聊天室功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用我们提供的 TUIVoiceRoom 组件并实现自定义 UI 界面。
+
+[](id:DemoUI)
+## 复用 App 的 UI 界面
+
+[](id:ui.step1)
+### 步骤1：创建新的应用
+1. 登录实时音视频控制台，选择 **开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+2. 输入应用名称，例如 `TestVoiceRoom`，单击 **创建**。
+3. 单击 **已下载，下一步**，跳过此步骤。
+
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
+
+>?本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+
+
+
+[](id:ui.step2)
+### 步骤2：下载 App 源码
+单击进入 [TUIVoiceRoom](https://github.com/tencentyun/TUIVoiceRoom)，Clone 或者下载源码。
+
+[](id:ui.step3)
+### 步骤3：配置 App 工程文件
+1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
+2. 找到并打开 `TUIVoiceRoom/Debug/GenerateTestUserSig.swift` 文件。
+3. 设置 `GenerateTestUserSig.swift` 文件中的相关参数：
+<ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
+<li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
+<img src="https://main.qcloudimg.com/raw/0f2dcf7189d07670343bc8ab9f9697e6.png">
+4. 粘贴完成后，单击 **已复制粘贴，下一步** 即创建成功。
+5. 编译完成后，单击 **回到控制台概览** 即可。
+
+>!
+>- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
+>- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
+
+[](id:ui.step4)
+### 步骤4：运行 App
+使用 Xcode（11.0及以上的版本）打开源码工程 `TUIVoiceRoom/TUIVoiceRoomApp.xcworkspace`，单击 **运行** 即可开始调试本 App。
+
+[](id:ui.step5)
+### 步骤5：修改 App 源代码
+源码中的 `Source` 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码以及涉及界面相关的逻辑，如下表格列出了各个 swift 文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
+
+| 文件或文件夹 | 功能描述 |
+|:-------:|:--------|
+|TRTCVoiceRoomEnteryControl.swift|该文件包含所有 ViewController 的初始化获取方法，您可以通过该实例，快速获取 ViewController 对象。|
+| TRTCCreateVoiceRoomViewController | 创建语音聊天室页面逻辑。 |
+| TRTCVoiceRoomViewController | 主房间页面，包括房主和听众两种界面。 |
+
+每个`TRTC'XXXX'ViewController`文件夹下均包含`ViewController`、`RootView`和`ViewModel`，各个文件的作用如下表所示：
+
+| 文件 | 功能描述 |
+|:-------:|:--------|
+| ViewController.swift | 页面控制器，负责页面路由工作，以及 RootView 和 ViweModel 的绑定工作。 |
+| RootView.swift | 视图，所有的视图布局。 |
+| ViewModel.swift | 视图控制器，负责响应视图交互，返回视图响应状态。 |
+
+## 体验应用
+>! 体验应用至少需要两台设备。
+
+### 用户 A
+
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+![](https://main.qcloudimg.com/raw/aacadc7ee6d1267f334fd1d155dcf415.png)
+2. 单击 **创建房间**，如下图示：
+![](https://main.qcloudimg.com/raw/a3b5fbb862612c7200253a55f703e7b7.png)
+2. 输入房间主题，单击 **开始交谈**。
+
+### 用户 B
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+![](https://main.qcloudimg.com/raw/9ac6eb6a300a8f401389008c411f5ed8.png)
+2. 输入用户 A 创建的房间号，单击 **进入房间**。
+![](https://main.qcloudimg.com/raw/bd2945dfe6e9b586c2f71aa94cde18d8.png)
+
+>! 房间号在用户 A 的房间顶部查看，如下图示：
+![](https://main.qcloudimg.com/raw/e209c0781abfd2f2e4ca8870a321c1f7.png)
+
+[](id:model)
+## 实现自定义 UI 界面
+[源码](https://github.com/tencentyun/TUIVoiceRoom) 中的 `Source` 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在 `TRTCVoiceRoom.h` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+![](https://main.qcloudimg.com/raw/0ebcbb27843bf03a790a945a8c92d560.png)
+
+
+[](id:model.step1)
+### 步骤1：集成 SDK
+语音聊天组件 TRTCVoiceRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
+
+- **方法一：通过 cocoapods 仓库依赖**
+<dx-codeblock>
+::: swift
+pod 'TXIMSDK_iOS'
+pod 'TXLiteAVSDK_TRTC'
+:::
+</dx-codeblock>
+>?两个 SDK 产品的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
+- **方法二：通过本地依赖**
+如果您的开发环境访问 cocoapods 仓库较慢，您可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
+<table>
+<tr><th>SDK</th><th>下载页面</th><th>集成指引</th></tr>
+<tr>
+<td>TRTC SDK</td>
+<td><a href="https://cloud.tencent.com/document/product/647/32689">DOWNLOAD</a></td>
+<td><a href="https://cloud.tencent.com/document/product/647/32175">集成文档</a></td>
+</tr><tr>
+<td>IM SDK</td>
+<td><a href="https://cloud.tencent.com/document/product/269/36887">DOWNLOAD</a></td>
+<td><a href="https://cloud.tencent.com/document/product/269/32679">集成文档</a></td>
+</tr></table>
+
+[](id:model.step2)
+### 步骤2：配置权限
+在 info.plist 文件中需要添加 `Privacy > Camera Usage Description`， `Privacy > Microphone Usage Description` 申请麦克风权限。
+
+[](id:model.step3)
+### 步骤3：导入 TUIVoiceRoom 组件
+**通过 cocoapods 导入组件**，具体操作如下：
+1. 将工程目录下的 `Source`、`Resources`、`TXAppBasic` 文件夹、`TUIVoiceRoom.podspec` 文件拷贝到您的工程目录下。
+2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
+<dx-codeblock>
+::: swift
+pod 'TXAppBasic', :path => "TXAppBasic/"
+pod 'TXLiteAVSDK_TRTC'
+pod 'TUIVoiceRoom', :path => "./", :subspecs => ["TRTC"] 
+:::
+</dx-codeblock>
+
+[](id:model.step4)
+### 步骤4：创建并登录组件
+1. 调用 TRTCVoiceRoom 的 `sharedInstance` 类方法可以创建一个遵守 TRTCVoiceRoom 协议的实例对象。也可以使用调用 `shared` 类方法，获取 TRTCVoiceRoomImp实例对象直接使用，二者在 TRTCVoiceRoom 的接口使用上没有任何区别。
+2. 调用 `setDelegate` 函数注册组件的事件回调通知。
+3. 调用 `login` 函数完成组件的登录，请参考下表填写关键参数：
+<table>    
+<tr><th>参数名</th><th>作用</th></tr><tr>
+<td>sdkAppId</td>
+<td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>
+</tr><tr>
+<td>userId</td>
+<td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。</td>
+</tr><tr>
+<td>userSig</td>
+<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
+</tr></tr>
+<tr>
+<td>callback</td>
+<td>登录回调，成功时 code 为0。</td>
+</tr></table>
+<dx-codeblock>
+::: Swift Swift
+// Swift 示例
+// 您代码里负责业务逻辑的类
+class YourController {
+    // 计算属性获取单例对象
+    var voiceRoom: TRTCVoiceRoomImp {
+        return TRTCVoiceRoomImp.shared()
+    }
+    
+    // 其他代码逻辑
+    ......
+}
+// 设置 voiceroom 代理
+self.vocieRoom. setDelegate(delegate: voiceRoomDelegate)
+
+// 调用方式如下,闭包内建议使用 weak self 防止循环引用（下面示例代码省略 weak self 示例）
+self.vocieRoom.login(sdkAppId: sdkAppID, userId: userId, userSig: userSig) { [weak self] (code, message) in
+    guard let `self` = self else { return }
+    // 您的回调业务逻辑        
+}
+:::
+</dx-codeblock>
+
+[](id:model.step5)
+### 步骤5：房主端开播
+1. 房主执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
+2. 房主调用 `createRoom` 创建新的语音聊天室，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
+3. 房主创建房间成功后，调用 `enterSeat` 进入座位。
+4. 房主收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
+5. 房主还会收到麦位表有成员进入的 `onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
+
+![](https://main.qcloudimg.com/raw/178d40c1ae247fbf7d5171dc4cee1a5a.png)
+
+示例代码：
+<dx-codeblock>
+::: swift
+// 1.房主设置昵称和头像
+self.voiceRoom.setSelfProfile(userName: userName, avatarUrl: avatarURL) { (code, message) in
+    // 结果回调           
+}
+
+// 2.房主端创建房间
+let param = VoiceRoomParam.init()
+param.roomName = "房间名称"
+param.needRequest = true // 听众上麦是否需要房主同意
+param.coverUrl = "封面URL"
+param.seatCount = 7 // 房间座位数，这里一共7个座位，房主占了一个后听众剩下6个座位
+param.seatInfoList = []
+
+for _ in 0..< param.seatCount {
+    let seatInfo = VoiceRoomSeatInfo.init()
+    param.seatInfoList.append(seatInfo)
+}
+
+self.voiceRoom.createRoom(roomID: yourRoomID, roomParam: param) { (code, message) in
+    guard code == 0 else { reutrn }
+    // 创建房间成功后开始占座
+    self.voiceRoom.enterSeat(seatIndex: 0) { [weak self] (code, message) in
+        guard let `self` = self else { return }
+        if code == 0 {
+            // 房主占座成功
+        } else {
+            // 房主占座失败
+        }
+    }
+}
+
+// 3.占座成功后，收到 onSeatListChange 事件通知
+func onSeatListChange(seatInfoList: [VoiceRoomSeatInfo]) {
+    // 刷新您的麦位列表
+}
+
+// 4. 收到 onAnchorEnterSeat 事件通知
+func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
+  // 处理房主上麦事件
+}
+
+:::
+</dx-codeblock>
+
+[](id:model.step6)
+### 步骤6：听众端观看
+1. 听众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
+2. 听众端向业务后台获取最新的语音聊天室房间列表。
+>?App 中的语音聊天室列表仅做演示使用，语音聊天室列表的业务逻辑千差万别，腾讯云暂不提供语音聊天室列表的管理服务，请自行管理您的语音聊天室列表。
+3. 听众端调用 `getRoomInfoList` 获取房间的详细信息，该信息是在房主端调用`createRoom`创建语音聊天室时设置的简单描述信息。
+>!如果您的语音聊天室列表包含了足够全面的信息，可跳过调用 `getRoomInfoList` 相关步骤。
+4. 听众选择一个语音聊天室，调用 `enterRoom` 并传入房间号即可进入该房间。
+5. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
+6. 进房后会收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
+7. 进房后还会收到麦位表有主播进入的` onAnchorEnterSeat` 的事件通知。
+
+
+![](https://main.qcloudimg.com/raw/78fd2cc28f7f336de6fa58248b28cc14.png)
+
+
+<dx-codeblock>
+::: Swift Swift
+// 1.听众设置昵称和头像
+self.voiceRoom.setSelfProfile(userName: userName, avatarUrl: avatarURL) { (code, message) in
+    // 结果回调           
+}
+
+// 2.假定您从业务后台获取房间列表为 roomList
+let roomList: [Int] = getRoomIDList() // 您获取房间ID列表的函数
+
+// 3.通过调用 getRoomInfoList 获取房间的详细信息
+self.voiceRoom.getRoomInfoList(roomIdList: roomIdsInt) { (code, message, roomInfos: [VoiceRoomInfo]) in
+    // 获取结果，此时可以刷新UI
+}
+
+// 4.选择语音聊天室后，传入 roomId 进入房间
+self.voiceRoom.enterRoom(roomID: roomInfo.roomID) { (code, message) in
+    // 进入房间结果回调
+    if code == 0 {
+       // 进房成功
+    }
+}
+
+// 5.进房成功后，收到 onRoomInfoChange 事件通知
+func onRoomInfoChange(roomInfo: VoiceRoomInfo) {
+    // 可以更新房间名称等信息
+}
+
+// 6.进房成功后，收到 onSeatListChange 事件通知
+func onSeatListChange(seatInfoList: [VoiceRoomSeatInfo]) {
+    // 刷新麦位列表
+}
+
+// 7. 收到 onAnchorEnterSeat 事件通知
+func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
+    // 处理上麦事件
+}
+:::
+</dx-codeblock>
+
+[](id:model.step7)
+### 步骤7：麦位管理
+<dx-tabs>
+::: 房主端
+1. `pickSeat` 传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
+2. `kickSeat` 传入对应麦位后，可以踢人下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
+3. `muteSeat` 传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
+4. `closeSeat` 传入对应麦位后，可以封禁/解禁某个麦位，封禁后听众端将不能再上麦，房间内所有成员会收到` onSeatListChange` 和 `onSeatClose` 的事件通知。
+![](https://main.qcloudimg.com/raw/78a1d790bf994786f5beac8b97660000.png)
+:::
+::: 听众端
+1. `enterSeat`传入对应的麦位后，可以进行上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
+2. `leaveSeat`主动下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
+
+![](https://main.qcloudimg.com/raw/356fddebf48c7a4ef918104e8f6e64eb.png)
+
+麦位操作后的事件通知顺序如下：callback > onSeatListChange > onAnchorEnterSeat 等独立事件。
+
+<dx-codeblock>
+::: swift
+// case1: 1. 房主抱人上1号麦位
+self.voiceRoom.pickSeat(seatIndex: 1, userId: "123") { (code, message) in
+    // 2. 结果回调
+	if code == 0 {
+	}
+}
+
+// 3.收到 onSeatListChange 回调，刷新您的麦位列表
+func onSeatListChange(seatInfoList: [VoiceRoomSeatInfo]) {
+    // 刷新的麦位列表
+}
+
+// 4.单个麦位变化的通知，可以在这里判断听众是不是真的上麦成功
+func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
+    // 处理上麦事件
+}
+:::
+</dx-codeblock>
+
+<dx-codeblock>
+::: swift
+// case2: 1. 听众主动上2号麦位
+voiceRoom.enterSeat(seatIndex: 2) { (code, message) in
+    // 2. 上麦结果回调
+	if code == 0 {
+	}
+}
+
+// 3.收到 onSeatListChange 回调，刷新您的麦位列表
+func onSeatListChange(seatInfoList: [VoiceRoomSeatInfo]) {
+    // 刷新的麦位列表
+}
+
+// 4.单个麦位变化的通知，可以在这里判断是不是自己并进行相应处理
+func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
+    // 处理上麦事件
+}
+:::
+</dx-codeblock>
+
+:::
+</dx-tabs>
+
+[](id:model.step8)
+### 步骤8：邀请信令的使用
+在 [麦位管理](#model.step7) 中，听众上下麦、房主抱人上麦都不需要经过对方的同意就可以直接操作。
+如果您的 App 需要对方同意才能进行下一步操作的业务流程，那么邀请信令可以提供相应支持。
+<dx-tabs>
+::: 听众主动申请上麦
+1. 听众端调用 `sendInvitation` 传入房主的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
+2. 房主端收到 `onReceiveNewInvitation` 的事件通知，此时 UI 可以弹窗并询问房主是否同意。
+3. 房主选择同意后，调用 `acceptInvitation` 并传入 inviteId。
+4. 听众端收到 `onInviteeAccepted` 的事件通知，调用 `enterSeat` 进行上麦。
+
+![](https://main.qcloudimg.com/raw/9419f9ae95c89b3bedb0839846e7565c.png)
+
+<dx-codeblock>
+::: Swift Swift
+// 听众端视角
+// 1.调用 sendInvitation，请求上1号麦位
+let inviteId = self.voiceRoom.sendInvitation(cmd: "ENTER_SEAT", userId: ownerUserId, content: "1") { (code, message) in
+    // 发送结果回调
+}
+// 2.收到邀请的同意请求, 正式上麦
+func onInviteeAccepted(identifier: String, invitee: String) {
+    if identifier == selfID {
+        self.voiceRoom.enterSeat(seatIndex: ) { (code, message) in
+            // 上麦结果回调
+        }
+    }
+}
+
+// 房主端视角
+// 1.房主收到请求
+func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, content: String) {
+    if cmd == "ENTER_SEAT" {
+        // 2.房主同意听众请求
+        self.voiceRoom.acceptInvitation(identifier: identifier, callback: nil)
+    }
+}
+:::
+</dx-codeblock>
+:::
+::: 房主邀请听众上麦
+1. 房主端调用 `sendInvitation` 传入听众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
+2. 听众端收到 `onReceiveNewInvitation` 的事件通知，此时 UI 可以弹窗并询问听众是否同意上麦。
+3. 听众选择同意后，调用 `acceptInvitation` 并传入 inviteId。
+4. 房主端收到 `onInviteeAccepted` 的事件通知，调用 `pickSeat` 抱听众上麦。
+
+![](https://main.qcloudimg.com/raw/9a22e5d5f4be720775091bfd3ffef48a.png)
+
+
+<dx-codeblock>
+::: java java
+// 房主端视角
+// 1.房主调用 sendInvitation，请求抱听众“123”上2号麦
+let inviteId = self.voiceRoom.sendInvitation(cmd: "PICK_SEAT", userId: ownerUserId, content: "2") { (code, message) in
+    // 发送结果回调
+}
+
+// 2.收到邀请的同意请求, 正式上麦
+func onInviteeAccepted(identifier: String, invitee: String) {
+    if identifier == selfID {
+        self.voiceRoom.pickSeat(seatIndex: ) { (code, message) in
+            // 上麦结果回调
+        }
+    }
+}
+
+// 听众端视角
+// 1.听众收到请求
+func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, content: String) {
+    if cmd == "PICK_SEAT" {
+        // 2.听众同意房主请求
+        self.voiceRoom.acceptInvitation(identifier: identifier, callback: nil)
+    }
+}
+:::
+</dx-codeblock>
+:::
+</dx-tabs>
+
+[](id:model.step9)
+### 步骤9：实现文字聊天和弹幕消息
+- 通过` sendRoomTextMsg` 可以发送普通的文本消息，所有在该房间内的主播和听众均可以收到 `onRecvRoomTextMsg` 回调。
+即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
+<dx-codeblock>
+::: Swift Swift
+// 发送端：发送文本消息
+self.voiceRoom.sendRoomTextMsg(message: message) { (code, message) in
+         
+}
+// 接收端：监听文本消息
+func onRecvRoomTextMsg(message: String, userInfo: VoiceRoomUserInfo) {
+    //收到的message信息处理方法        
+}
+:::
+</dx-codeblock>
+- 通过 `sendRoomCustomMsg` 可以发送自定义（信令）的消息，所有在该房间内的主播和听众均可以收到 `onRecvRoomCustomMsg` 回调。
+ 自定义消息常用于传输自定义信令，例如用于点赞消息的发送和广播。
+<dx-codeblock>
+::: Swift Swift
+// 例如：发送端：您可以通过自定义Cmd来区分弹幕和点赞消息
+// eg:"CMD_DANMU"表示弹幕消息，"CMD_LIKE"表示点赞消息
+self.vocieRoom.sendRoomCustomMsg(cmd: “CMD_DANMU”, message: "hello world", callback: nil)
+self.voiceRoom.sendRoomCustomMsg(cmd: "CMD_LIKE", message: "", callback: nil)
+// 接收端：监听自定义消息
+func onRecvRoomCustomMsg(cmd: String, message: String, userInfo: VoiceRoomUserInfo) {
+    if cmd == "CMD_DANMU" {
+        // 收到弹幕消息
+    }
+    if cmd == "CMD_LIKE" {
+        // 收到点赞消息
+    }
+}
+:::
+</dx-codeblock>
