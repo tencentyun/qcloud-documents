@@ -9,7 +9,6 @@
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 效果展示
-
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验语音聊天室的能力，包括麦位管理、低延时语音互动、文字聊天等 TRTC 在语音聊天场景下的相关能力。
 <table>
      <tr>
@@ -29,12 +28,12 @@
 
 [](id:ui.step1)
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择 **开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+1. 登录实时音视频控制台，选择 **开发辅助**>**[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
 2. 输入应用名称，例如 `TestVoiceRoom`，单击 **创建**。
 3. 单击 **已下载，下一步**，跳过此步骤。
 
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
->!本功能同时使用了腾讯云视立方音视频通话 TRTC 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+>!本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 
 
@@ -49,7 +48,7 @@
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
 <ul style="margin:0"><li/>SDKAPPID：默认为占位符（PLACEHOLDER），请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为占位符（PLACEHOLDER），请设置为实际的密钥信息。</ul>
-<img src="https://main.qcloudimg.com/raw/09a7c2e06bb792e1c3d651a61aff4000.png">
+<img src="https://main.qcloudimg.com/raw/f9b23b8632058a75b78d1f6fdcdca7da.png">
 4. 粘贴完成后，单击 **已复制粘贴，下一步** 即创建成功。
 5. 编译完成后，单击 **回到控制台概览** 即可。
 
@@ -60,7 +59,7 @@
 
 [](id:ui.step4)
 ### 步骤4：运行 App
-使用 Android Studio（3.5以上的版本）打开源码工程 `TUIVoiceRoom`，单击 **运行** 即可开始调试本 App。
+使用 Android Studio（3.5以上的版本）打开源码工程`TUIVoiceRoom`，单击 **运行** 即可开始调试本 App。
 
 [](id:ui.step5)
 ### 步骤5：修改 App 源代码
@@ -84,7 +83,7 @@
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
-<img src="https://main.qcloudimg.com/raw/43197978659977817e6c09312b71805e.png" width="320"/>
+<img src="https://main.qcloudimg.com/raw/94fcd741becbcfe4cca97778e180e4ca.png" width="320"/>
 2. 输入用户 A 创建的房间号，单击 **进入房间**。<br>
 <img src="https://main.qcloudimg.com/raw/6f9a910770a84aefaa8a08e4043d8a6c.png" width="320"/>
 
@@ -95,7 +94,7 @@
 
 ## 实现自定义 UI 界面
 
-[源码](https://github.com/tencentyun/TUIVoiceRoom/tree/main/Android/Source/src/main/java/com/tencent/liteav/trtcvoiceroom) 中的 Source 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在 `TRTCVoiceRoom.java` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+[源码](https://github.com/tencentyun/TUIVoiceRoom/tree/main/Android/Source/src/main/java/com/tencent/liteav/trtcvoiceroom) 中的 Source 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在`TRTCVoiceRoom.java`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/0ebcbb27843bf03a790a945a8c92d560.png)
 
 [](id:model.step1)
@@ -106,11 +105,11 @@
 1. 在 dependencies 中添加 TRTCSDK 和 IMSDK 的依赖。
 <dx-codeblock>
 ::: java java
-    dependencies {
+dependencies {
        complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
        complie 'com.tencent.imsdk:imsdk:latest.release'
        compile 'com.google.code.gson:gson:2.3.1'
-    }
+}
 :::
 </dx-codeblock>
 >?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
@@ -148,7 +147,7 @@ defaultConfig {
 
 [](id:model.step2)
 ### 步骤2：配置权限及混淆规则
-在 `AndroidManifest.xml` 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请读取存储权限）：
+在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请读取存储权限）：
 <dx-codeblock>
 ::: java java
 <uses-permission android:name="android.permission.INTERNET" />
@@ -199,14 +198,13 @@ Source/src/main/java/com/tencent/liteav/trtcvoiceroom/model
 </tr>
 <tr>
 <td>userSig</td>
-<td>腾讯云设计的一种安全保护签名，获取方式请参见 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
+<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
 </tr>
 <tr>
 <td>callback</td>
 <td>登录回调，成功时 code 为0。</td>
 </tr>
 </table>
-
 <dx-codeblock>
 ::: java java
 TRTCVoiceRoom mTRTCVoiceRoom = TRTCVoiceRoom.sharedInstance(this);
@@ -340,7 +338,7 @@ public void onAnchorEnterSeat(TRTCVoiceRoomDef.UserInfo userInfo) {
 
 <dx-tabs>
 ::: 房主端
-1. `pickSeat ` 传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat `的事件通知。
+1. `pickSeat` 传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat `的事件通知。
 2. `kickSeat` 传入对应麦位后，可以踢人下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
 3. `muteSeat` 传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
 4. `closeSeat` 传入对应麦位后，可以封禁/解禁某个麦位，封禁后听众端将不能再上麦，房间内所有成员会收到 `onSeatListChange` 和 `onSeatClose` 的事件通知。
@@ -348,7 +346,7 @@ public void onAnchorEnterSeat(TRTCVoiceRoomDef.UserInfo userInfo) {
 
 :::
 ::: 听众端
-1. `enterSeat` 传入对应的麦位后，可以进行上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat ` 的事件通知。
+1. `enterSeat` 传入对应的麦位后，可以进行上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat `的事件通知。
 2. `leaveSeat` 主动下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
 
 ![](https://main.qcloudimg.com/raw/356fddebf48c7a4ef918104e8f6e64eb.png)
@@ -448,7 +446,7 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
 1. 房主端调用 `sendInvitation ` 传入听众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
 2. 听众端收到 `onReceiveNewInvitation` 的事件通知，此时 UI 可以弹窗并询问听众是否同意上麦。
 3. 听众选择同意后，调用 `acceptInvitation` 并传入 inviteId。
-4. 房主端收到 `onInviteeAccepted` 的事件通知，调用 `pickSeat` 抱听众上麦。
+4. 房主端收到 `onInviteeAccepted` 的事件通知，调用`pickSeat`抱听众上麦。
 
 ![](https://main.qcloudimg.com/raw/9a22e5d5f4be720775091bfd3ffef48a.png)
 
@@ -521,3 +519,4 @@ mTRTCVoiceRoom.setDelegate(new TRTCVoiceRoomDelegate() {
 });
 :::
 </dx-codeblock>
+

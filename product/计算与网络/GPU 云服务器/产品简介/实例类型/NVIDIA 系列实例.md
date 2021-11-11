@@ -5,8 +5,10 @@
 适用于高性能图形处理，3D 渲染。例如：
  - 非线性编辑
  - 云游戏
- - 图形工作站
- - 云桌面等
+ - 云手机
+ - 云桌面
+ - CloudXR
+ - 图形图像处理等
 
 
 
@@ -133,7 +135,7 @@
 <dx-alert infotype="notice" title="">
 - 以上推荐用途仅供参考，请根据实际需要进行选择。
 - NVIDIA 系列 GPU 实例如用作 3D 图形渲染任务（高性能图形处理，视频编解码等），则需安装 GRID Driver 和配置 License Server，安装方法请参考 [安装 NVIDIA GRID 驱动](https://cloud.tencent.com/document/product/560/30060)。GNV4v、GNV4、GN7vw 实例可选择已预装 GRID 驱动的指定镜像，无需单独安装 GRID Driver 和配置 License Server。
-- GN7vw 、GNV4v 实例簇提供支持 vDWs/vWs 类型的 vGPU 实例类型，支持 DirectX 和 OpenGL 等图形 API。
+- GNV4v、GNV4、GN7vw 实例簇提供支持 vDWs/vWs 类型的 vGPU 实例类型，支持 DirectX 和 OpenGL 等图形 API。
 </dx-alert>
 
 

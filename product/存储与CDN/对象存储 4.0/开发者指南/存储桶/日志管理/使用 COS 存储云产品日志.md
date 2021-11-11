@@ -23,9 +23,9 @@
 | 负载均衡 CLB        | 否                     | 是                     |
 | 消息队列 CKafka     | 是                     | 否                     |
 | API 网关 APIGateway | 否                     | 是                     |
-| 无服务函数 SCF      | 否                     | 是                     |
+| 云函数 SCF      | 否                     | 是                     |
 | 容器服务 TKE        | 否                     | 是                     |
-| 云直播 LVB          | 否                     | 是                     |
+| 云直播 CSS          | 否                     | 是                     |
 | 云开发 TCB          | 否                     | 是，但不支持通过 CLS 投递到 COS |
 | 对象存储 COS        | 是                     |  支持申请开通白名单，请您加入 [技术支持微信群](https://cloud.tencent.com/document/product/436/37708#.E6.8A.80.E6.9C.AF.E6.94.AF.E6.8C.81) 联系我们开通白名单       |
 
