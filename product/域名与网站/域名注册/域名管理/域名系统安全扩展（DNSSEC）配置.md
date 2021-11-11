@@ -8,32 +8,9 @@
 <table>
 <thead>
   <tr>
-    <td rowspan="9">支持 DNSSEC 域名后缀</td>
-    <td>.cn、 .com、 .net、 .xyz、.wang、.ac.cn、.com.cn、.net.cn、 .中国、 .网址、 .在线、</td>
-  </tr>
-  <tr>
-    <td> .top、.club、.vip、.beer、.work、.fashion、.luxe、.yoga、 .love、 .online、 .mobi、 .中文网、</td>
-  </tr>
-  <tr>
-    <td> .ltd、 .chat、 .group、.pub、 .run、 .city、 .live、 .info、 .pro、 .red、 .网店、 .kim、.blue、 .pet、</td>
-  </tr>
-  <tr>
-    <td>.移动、.space、.tech、.host、.site、.fun、.store、.ski、.pink、.design、 .ink、 .wiki、.email、.video、</td>
-  </tr>
-  <tr>
-    <td> .company、.plus、.center、.cool、.fund、.gold、.guru、.life、.show、.team、.today、.world、.zone、.social、</td>
-  </tr>
-  <tr>
-    <td> .bio、.black、.green、.lotto、.organic、.poker、.promo、.vote、.archi、.voto、.网站、.商店、.企业、.娱乐、</td>
-  </tr>
-  <tr>
-    <td> .游戏、.fit、.website、.press、.icu、.art、.asia、.org.cn、.biz、.集团、.我爱你、.games、 .fan、 .sale、</td>
-  </tr>
-  <tr>
-    <td> .media、 .studio、 .band、 .fyi、 .cab、 .market、 .news、 .vin、 .tax、 .shopping、 .mba、</td>
-  </tr>
-  <tr>
-    <td>  .cash、 .cafe、 .technology、 .ren、 .fans、 .co、 .cloud、 .shop、 .law、 .link，.信息</td>
+    <td>支持 DNSSEC 域名后缀</td>
+    <td>cn、 .com、 .net、 .xyz、.wang、.ac.cn、.com.cn、.net.cn、 .中国、 .网址、 .在线、<br>.top、.club、.vip、.beer、.work、.fashion、.luxe、.yoga、 .love、 .online、 .mobi、<br> .中文网、.ltd、 .chat、 .group、.pub、 .run、 .city、 .live、 .info、 .pro、 .red、 .网店、<br> .kim、.blue、 .pet、.移动、.space、.tech、.host、.site、.fun、.store、.ski、.pink、.design、<br> .ink、.wiki、.email、.video、.company、.plus、.center、.cool、.fund、.gold、.guru、.life、<br>.show、.team、.today、.world、.zone、.social、.bio、.black、.green、.lotto、.organic、<br>.poker、.promo、.vote、.archi、.voto、.网站、.商店、.企业、.娱乐、.游戏、.fit、.website、<br>.press、.icu、.art、.asia、.org.cn、.biz、.集团、.我爱你、.games、 .fan、 .sale、.media、
+<br> .studio、 .band、 .fyi、 .cab、 .market、 .news、 .vin、 .tax、 .shopping、 .mba、.cash、<br> .cafe、 .technology、 .ren、 .fans、 .co、 .cloud、 .shop、 .law、 .link，.信息</td>
   </tr>
 </thead>
 </table>
