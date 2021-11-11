@@ -22,7 +22,7 @@
       - 日志保存时间：默认为30天，可自定义设置日志存储时间。
 5. 单击【确定】，即可创建日志主题。
 日志主题新增成功后，可在日志管理页面单击日志主题ID/名称，查看日志主题的详情信息。
-![image-20210512121001919](https://main.qcloudimg.com/raw/3b708711d068dd04b6fdd8675be0bf79.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b5cb91dbc1d0f3b19cc2f87d3650e2c5.png)
 
 >?
 >- 若收集云服务器或其他云产品日志，日志服务地域建议选择相同地域。

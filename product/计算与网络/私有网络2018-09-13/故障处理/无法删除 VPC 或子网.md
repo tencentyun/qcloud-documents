@@ -13,7 +13,7 @@
 
 
 ## 处理步骤
-1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/ccn)。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 首先单击待删除 VPC 右侧的**删除**，查看弹框中提示 VPC 包含的云资源。
 >?此处负载均衡仅为内网负载均衡，公网负载均衡不占用 VPC 内资源。
 >

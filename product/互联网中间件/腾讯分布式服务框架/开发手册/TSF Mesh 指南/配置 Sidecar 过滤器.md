@@ -4,7 +4,7 @@ Service Mesh 应用支持在 Sidecar 上运行用户自定义的 Lua 脚本的�
 
 ## 操作步骤
 ### 新建过滤器
-1. 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf)，在左侧导航栏单击【应用管理】。
+1. 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf)，在左侧导航栏单击**应用管理**。
 2. 在应用管理列表页，单击目标应用的 ID，进入应用详情页。
 3. 访问 Sidecar过滤器 页面，新建过滤器。
    - 填写过滤器名称以及备注。
