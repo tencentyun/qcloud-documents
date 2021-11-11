@@ -81,7 +81,7 @@ if (TIM_SUCC != TIMUninit()) {
 **原型**
 
 ```c
-TIM_DECL const char* const TIMGetSDKVersion(void);
+TIM_DECL const char* TIMGetSDKVersion(void);
 ```
 
 **返回值**
