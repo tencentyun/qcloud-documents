@@ -10,7 +10,7 @@
 回调分两种，一种是指调用接口的异步返回，另外一种指后台推送的通知。回调在 IM SDK 内部的逻辑线程触发，跟调用接口的线程可能不是同一线程。
 在 Windows 平台，如果调用 [TIMInit](https://cloud.tencent.com/document/product/269/33546#timinit) 接口进行初始化 IM SDK 之前，已创建了 UI 的消息循环，且调用 [TIMInit](https://cloud.tencent.com/document/product/269/33546#timinit) 接口的线程为主 UI 线程，则 IM SDK 内部会将回调抛到主 UI 线程调用。
 
->!如果接口的参数字符串包含中文，请使用 UTF-8 编码。
+>!如果接口的参数字符串包含非英文的字符，请使用 UTF-8 编码。
 
 
 
@@ -24,7 +24,9 @@
 | [TIMSetMsgRevokeCallback](https://cloud.tencent.com/document/product/269/33551#timsetmsgrevokecallback) | 设置接收的消息被撤回回调 |
 | [TIMSetMsgElemUploadProgressCallback](https://cloud.tencent.com/document/product/269/33551#timsetmsgelemuploadprogresscallback) | 设置消息内元素相关文件上传进度回调 |
 | [TIMSetGroupTipsEventCallback](https://cloud.tencent.com/document/product/269/33551#timsetgrouptipseventcallback) | 设置群组系统消息回调 |
+| [TIMSetGroupAttributeChangedCallback](https://cloud.tencent.com/document/product/269/33551#timsetgroupattributechangedcallback) | 设置群组属性变更回调 |
 | [TIMSetConvEventCallback](https://cloud.tencent.com/document/product/269/33551#timsetconveventcallback) | 设置会话事件回调 |
+| [TIMSetConvTotalUnreadMessageCountChangedCallback](https://cloud.tencent.com/document/product/269/33551#timsetconvtotalunreadmessagecountchangedcallback) | 设置会话未读消息总数变更的回调 |
 | [TIMSetNetworkStatusListenerCallback](https://cloud.tencent.com/document/product/269/33551#timsetnetworkstatuslistenercallback) | 设置网络连接状态监听回调 |
 | [TIMSetKickedOfflineCallback](https://cloud.tencent.com/document/product/269/33551#timsetkickedofflinecallback) | 设置被踢下线通知回调 |
 | [TIMSetUserSigExpiredCallback](https://cloud.tencent.com/document/product/269/33551#timsetusersigexpiredcallback) | 设置票据过期回调 |
@@ -32,6 +34,10 @@
 | [TIMSetOnDeleteFriendCallback](https://cloud.tencent.com/document/product/269/33551#timsetondeletefriendcallback) | 设置删除好友的回调 |
 | [TIMSetUpdateFriendProfileCallback](https://cloud.tencent.com/document/product/269/33551#timsetupdatefriendprofilecallback) | 设置更新好友资料的回调 |
 | [TIMSetFriendAddRequestCallback](https://cloud.tencent.com/document/product/269/33551#timsetfriendaddrequestcallback) | 设置好友添加请求的回调 |
+| [TIMSetFriendApplicationListDeletedCallback](https://cloud.tencent.com/document/product/269/33551#timsetfriendapplicationlistdeletedcallback) | 设置好友申请被删除的回调 |
+| [TIMSetFriendApplicationListReadCallback](https://cloud.tencent.com/document/product/269/33551#timsetfriendapplicationlistreadcallback) | 设置好友申请已读的回调 |
+| [TIMSetFriendBlackListAddedCallback](https://cloud.tencent.com/document/product/269/33551#timsetfriendblacklistaddedcallback) | 设置黑名单新增的回调 |
+| [TIMSetFriendBlackListDeletedCallback](https://cloud.tencent.com/document/product/269/33551#timsetfriendblacklistdeletedcallback) | 设置黑名单删除的回调 |
 | [TIMSetLogCallback](https://cloud.tencent.com/document/product/269/33551#timsetlogcallback) | 设置日志回调 |
 | [TIMSetMsgUpdateCallback](https://cloud.tencent.com/document/product/269/33551#timsetmsgupdatecallback) | 设置消息在云端被修改后回传回来的消息更新通知回调 |
 
