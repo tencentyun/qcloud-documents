@@ -1,6 +1,6 @@
 ## 操作场景
 
-腾讯云容器镜像服务（Tencent Container Registry，TCR）支持用户配置并使用灵活的触发器功能。可通过在实例内配置合适的触发器，快速接入现有研发流程及 CI/CD 平台，实现镜像更新自动触发应用部署等容器 DevOps 场景。
+腾讯云容器镜像服务（Tencent Container Registry，TCR）支持用户配置并使用灵活的触发器 (Webhook) 功能。可通过在实例内配置合适的触发器，快速接入现有研发流程及 CI/CD 平台，实现镜像更新自动触发应用部署等容器 DevOps 场景。
 
 触发器功能允许用户自定义创建触发器规则，并支持查看触发日志。其中，触发动作同时支持容器镜像及 Helm Chart 的推送，拉取及删除操作。触发规则支持灵活的正则表达式过滤、指定实例内命名空间及通过配置镜像仓库和版本的正则过滤规则，实现仅部分仓库或特殊命名格式的镜像版本可启动触发器。自定义 Header 功能支持以 `Key:Value` 的形式配置访问目标 URL 时的 Header，可用于鉴权等场景。
 
@@ -8,12 +8,12 @@
 ## 前提条件
 
 在创建并管理 TCR 企业版实例的触发器前，您需要完成以下准备工作：
-- 已成功 [购买 TCR 企业版实例](https://cloud.tencent.com/document/product/1141/40716)。
+- 已成功 [购买 TCR 企业版实例](https://cloud.tencent.com/document/product/1141/40716)。本功能仅适用于企业版实例。
 - 如果使用子账号进行操作，请参考 [企业版授权方案示例](https://cloud.tencent.com/document/product/1141/41417) 提前为子账号授予对应实例的操作权限。
 
 ## 操作步骤
 ### 创建触发器
-1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的**触发器**。
+1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的 **触发器**。
 在“触发器”页面即可查看当前实例内的触发器规则列表。如需切换实例，请在页面上方的“实例名称”下拉列表中进行选择。
 2. 单击**新建**，在弹出的“新建触发器”窗口中，参考以下提示进行规则配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/efe4881f8a427899c8c73258e0cfbc4a.png)
@@ -74,7 +74,52 @@
   "operator": "332133xxxx"
 }
 ```
+### 使用正则表达式新建规则 [](id:RE)
+#### 正则匹配规则
+以下是填写“仓库名称”和“版本Tag”时，其正则表达式支持的匹配规则：
+- `*`：匹配所有不包含路径分隔符（`/`）的任意长字符串。
+- `**`：匹配所有的任意长字符串，包括路径分隔符（`/`）。
+<dx-alert infotype="notice" title="">
+`**` 必须作为一段完整的相对路径，如果使用 `/path**`，其作用将等同于 `/path*`，仅能匹配以path为名称前缀的一级仓库。要想匹配path下的所有仓库，应使用 `/path/**`；要想匹配以path为名称前缀的所有仓库，则应使用 `/path*/**`。
+</dx-alert>
+- `?`：匹配除 ‘/’ 以外的任意单个字符。
+- `{alt1, alt2, …}`：同时匹配多个正则表达式。
 
+
+#### 典型场景
+
+<table>
+<tbody>
+<tr>
+<td>匹配选定命名空间内所有仓库</td>
+<td><code>**</code> 或者不填</td>
+</tr>
+<tr>
+<td>匹配选定命名空间内以 path 为名称前缀的所有一级仓库</td>
+<td><code>/path*</code> 
+</tr>
+<tr>
+<td>匹配选定命名空间内以 path1 和 path2 为名称前缀的所有一级仓库</td>
+<td><code>/{path1, path2}*</code></td>
+</tr>
+<tr>
+<td>匹配选定命名空间内 path1 和 path2 目录下的所有仓库</td>
+<td><code>/{path1, path2}/**</code></td>
+</tr>
+<tr>
+<td>匹配选定命名空间内以 path1 和 path2 为名称前缀的所有仓库</td>
+<td><code>/{path1, path2}*/**</code> </td>
+</tr>
+<tr>
+<td>匹配选定仓库内所有 1.x 的版本Tag</td>
+<td><code>1.?</code> </td>
+</tr>
+<tr>
+<td>匹配选定仓库内所有以 env1 和 env2 为名称前缀的版本 Tag</td>
+<td><code>{env1*, env2*}</code> </td>
+</tr>
+</tbody>
+</table>
 
 
 
