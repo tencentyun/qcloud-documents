@@ -39,7 +39,7 @@ ip address
    - 如一致，请继续排查[ 步骤三](#step3)。
    - 如不一致或缺失，请执行 [步骤5](#s5) 进行修改。
 5. 执行如下命令重新修改弹性网卡的配置文件。[](id:s5)
->?此处以 Centos7.8 为例，Centos7 系统网卡配置文件一般存放在"/etc/sysconfig/network-scripts"目录，保存在“ ifcfg-网卡名称“ 文件。
+>?此处以 Centos7.8 为例，Centos7 系统网卡配置文件一般存放在“/etc/sysconfig/network-scripts”目录，保存在“ ifcfg-网卡名称”文件。
 >
    1. 执行如下命令，进入配置文件。
    ``` plaintext
