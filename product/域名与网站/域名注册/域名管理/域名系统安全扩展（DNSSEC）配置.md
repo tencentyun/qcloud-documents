@@ -3,7 +3,42 @@
 本文为您介绍如何在腾讯云域名注册控制台添加及同步 DNSSEC 记录。
 
 ## 前提条件
-已登录 [腾讯云域名注册控制台](https://console.cloud.tencent.com/domain)，并进入 “我的域名” 管理页面。
+- 已登录 [腾讯云域名注册控制台](https://console.cloud.tencent.com/domain)，并进入 “我的域名” 管理页面。
+- 域名需是支持 DNSSEC 的域名后缀。
+<table>
+<thead>
+  <tr>
+    <td rowspan="9">支持 DNSSEC 域名后缀</td>
+    <td>.cn、 .com、 .net、 .xyz、.wang、.ac.cn、.com.cn、.net.cn、 .中国、 .网址、 .在线、</td>
+  </tr>
+  <tr>
+    <td> .top、.club、.vip、.beer、.work、.fashion、.luxe、.yoga、 .love、 .online、 .mobi、 .中文网、</td>
+  </tr>
+  <tr>
+    <td> .ltd、 .chat、 .group、.pub、 .run、 .city、 .live、 .info、 .pro、 .red、 .网店、 .kim、.blue、 .pet、</td>
+  </tr>
+  <tr>
+    <td>.移动、.space、.tech、.host、.site、.fun、.store、.ski、.pink、.design、 .ink、 .wiki、.email、.video、</td>
+  </tr>
+  <tr>
+    <td> .company、.plus、.center、.cool、.fund、.gold、.guru、.life、.show、.team、.today、.world、.zone、.social、</td>
+  </tr>
+  <tr>
+    <td> .bio、.black、.green、.lotto、.organic、.poker、.promo、.vote、.archi、.voto、.网站、.商店、.企业、.娱乐、</td>
+  </tr>
+  <tr>
+    <td> .游戏、.fit、.website、.press、.icu、.art、.asia、.org.cn、.biz、.集团、.我爱你、.games、 .fan、 .sale、</td>
+  </tr>
+  <tr>
+    <td> .media、 .studio、 .band、 .fyi、 .cab、 .market、 .news、 .vin、 .tax、 .shopping、 .mba、</td>
+  </tr>
+  <tr>
+    <td>  .cash、 .cafe、 .technology、 .ren、 .fans、 .co、 .cloud、 .shop、 .law、 .link，.信息</td>
+  </tr>
+</thead>
+</table>
+
+
 >!以 .中国、.cn、.ac.cn、.com.cn、.net.com 为后缀的中文域名不支持添加 DNSSEC 记录，例如 `腾讯云.com.cn`。
 
 ## 操作指南
