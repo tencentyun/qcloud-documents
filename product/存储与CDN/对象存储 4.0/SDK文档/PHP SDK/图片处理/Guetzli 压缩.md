@@ -19,7 +19,7 @@
 ```php
 try {
         $result = $cosClient->PutBucketGuetzli(array(
-        'Bucket' => 'examplebucket-1250000000', //格式：BucketName-APPID
+        'Bucket' => 'examplebucket-1250000000', //存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
     ));
     // 请求成功
     print_r($result);
@@ -70,7 +70,7 @@ Guzzle\Service\Resource\Model Object
 ```php
 try {
         $result = $cosClient->GetBucketGuetzli(array(
-        'Bucket' => 'examplebucket-1250000000', //格式：BucketName-APPID
+        'Bucket' => 'examplebucket-1250000000', //存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
     ));
     // 请求成功
     print_r($result);
@@ -121,7 +121,7 @@ Guzzle\Service\Resource\Model Object
 ```php
 try {
         $result = $cosClient->DeleteBucketGuetzli(array(
-        'Bucket' => 'examplebucket-1250000000', //格式：BucketName-APPID
+        'Bucket' => 'examplebucket-1250000000', //存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
     ));
     // 请求成功
     print_r($result);
