@@ -4,7 +4,7 @@
 
 ## 前提条件
 - 已登录 [腾讯云域名注册控制台](https://console.cloud.tencent.com/domain)，并进入 “我的域名” 管理页面。
-- 域名需是支持 DNSSEC 的域名后缀。
+- 域名需为支持 DNSSEC 的域名后缀。
 <table>
 <thead>
   <tr>
