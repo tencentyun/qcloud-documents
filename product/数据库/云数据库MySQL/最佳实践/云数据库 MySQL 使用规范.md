@@ -80,7 +80,7 @@
 - 尽量避免使用大事务，建议大事务拆小事务，规避主从延迟。
 - 业务代码中事务及时提交，避免产生没必要的锁等待。
 - 少用多表 join，大表禁止 join，两张表 join 必须让小表做驱动表，join 列必须字符集一致并且都建有索引。
-- LIMIT 分页优化，LIMIT 80000，10这种操作是取出80010条记录，再返回后10条，数据库压力很大，推荐先确认首记录的位置再分页，例如`SELECT * FROM test WHERE id = ( SELECT sql_no_cache id FROM test order by id LIMIT 80000,1 ) LIMIT 10 ;`。
+- LIMIT 分页优化，LIMIT 80000，10这种操作是取出80010条记录，再返回后10条，数据库压力很大，推荐先确认首记录的位置再分页，例如`SELECT * FROM test WHERE id >= ( SELECT sql_no_cache id FROM test order by id LIMIT 80000,1 ) LIMIT 10 ;`。
 - 避免多层子查询嵌套的 SQL 语句，MySQL 5.5 之前的查询优化器会把 in 改成 exists，会导致索引失效，若外表很大则性能会很差。
 
 >?
