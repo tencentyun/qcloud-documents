@@ -37,8 +37,6 @@
   </tr>
 </thead>
 </table>
-
-
 >!以 .中国、.cn、.ac.cn、.com.cn、.net.com 为后缀的中文域名不支持添加 DNSSEC 记录，例如 `腾讯云.com.cn`。
 
 ## 操作指南
