@@ -33,6 +33,17 @@
 | kTIMLog_Error | 错误日志 |
 | kTIMLog_Assert | 断言日志 |
 
+### TIMLoginStatus
+
+登陆状态。
+
+| 名称 | 含义 |
+|-----|-----|
+| kTIMLoginStatus_Logined | 已登录 |
+| kTIMLoginStatus_Logining | 登录中 |
+| kTIMLoginStatus_UnLogined | 未登录 |
+| kTIMLoginStatus_Logouting | 登出中 |
+
 ### TIMNetworkStatus
 
 连接事件类型。
@@ -53,6 +64,8 @@
 | kTIMConvEvent_Add | 会话新增，例如收到一条新消息，产生一个新的会话是事件触发 |
 | kTIMConvEvent_Del | 会话删除，例如自己删除某会话时会触发 |
 | kTIMConvEvent_Update | 会话更新，会话内消息的未读计数变化和收到新消息时触发 |
+| kTIMConvEvent_Start | 会话开始 |
+| kTIMConvEvent_Finish | 会话结束 |
 
 ### TIMConvType
 
@@ -318,14 +331,19 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMMsgIsOnlineMsg | bool | 读写（选填） | 消息是否是在线消息，false 表示普通消息，true 表示阅后即焚消息，默认为 false |
 | kTIMMsgIsPeerRead | bool | 只读 | 消息是否被会话对方已读 |
 | kTIMMsgStatus | uint [TIMMsgStatus](#timmsgstatus) | 读写（选填） | 消息当前状态 |
-| kTIMMsgUniqueId | uint64 | 只读 | 消息的唯一标识 |
+| kTIMMsgUniqueId | uint64 | 只读 | 消息的唯一标识，推荐使用 kTIMMsgMsgId |
+| kTIMMsgMsgId | string | 只读 | 消息的唯一标识 |
 | kTIMMsgRand | uint64 | 只读 | 消息的随机码 |
 | kTIMMsgSeq | uint64 | 只读 | 消息序列 |
-| kTIMMsgCustomInt | uint32_t | 读写（选填） | 自定义整数值字段 |
-| kTIMMsgCustomStr | string | 读写（选填） | 自定义数据字段 |
+| kTIMMsgCustomInt | uint32_t | 读写（选填） | 自定义整数值字段（本地保存，不会发送到对端，程序卸载重装后失效） |
+| kTIMMsgCloudCustomStr | string | 读写（选填） | 消息自定义数据（云端保存，会发送到对端，程序卸载重装后还能拉取到） |
+| kTIMMsgIsExcludedFromUnreadCount | bool | 读写（选填） | 消息是否不计入未读计数：默认为 NO，表明需要计入未读计数，设置为 YES，表明不需要计入未读计数 |
+| kTIMMsgGroupAtUserArray | string | 读写（选填） |  群消息中被 @ 的用户 UserID 列表（即该消息都 @ 了哪些人），如果需要 @ALL ，请传入 kImSDK_MesssageAtALL 字段 |
+| kTIMMsgIsForwardMessage | bool | 读写（选填） | 如果需要转发一条消息，不能直接调用 sendMessage 接口发送原消息，原消息 kTIMMsgIsForwardMessage 设置为 true 再发送 |
 | kTIMMsgSenderProfile | object [UserProfile](#userprofile) | 读写（选填） | 消息的发送者的用户资料 |
 | kTIMMsgSenderGroupMemberInfo | object [GroupMemberInfo](#groupmemberinfo) | 读写（选填） | 消息发送者在群里面的信息，只有在群会话有效。目前仅能获取字段kTIMGroupMemberInfoIdentifier、kTIMGroupMemberInfoNameCard 其他的字段建议通过`TIMGroupGetMemberInfoList`接口获取 |
 | kTIMMsgOfflinePushConfig | object [OfflinePushConfig](#offlinepushconfig) | 读写（选填） | 消息的离线推送设置 |
+| kTIMMsgExcludedFromLastMessage | string | 读写（选填） | 是否作为会话的 lasgMessage，true - 不作为，false - 作为 |
 
 >?
 - 对应 Elem 的顺序。
@@ -371,6 +389,7 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMElem_Video | 视频元素 |
 | kTIMElem_FriendChange | 关系链变更消息元素 |
 | kTIMElem_ProfileChange | 资料变更消息元素 |
+| kTIMElem_Merge | 合并消息元素 |
 | kTIMElem_Invalid | 未知元素类型 |
 
 ### Elem
