@@ -36,8 +36,8 @@ CDC（Change Data Capture）是数据融合的高速链路。数据在 OLTP 与�
   - 要求 MySQL 开启 GTID。
   - 要求开启 binlog，且要求为 ROW 和 FULL 格式。
   - 支持高频 DDL 同步。
->!对于删除类操作，为保障数据安全，我们会转义为改名操作。
->
+- DDL支持
+
 <table>
 <thead>
 <tr><th>对象</th><th>DDL</th><th>备注</th></tr></thead>
@@ -58,6 +58,13 @@ CDC（Change Data Capture）是数据融合的高速链路。数据在 OLTP 与�
 <td>add、drop、rename、change、modify、alter</td>
 <td>-</td></tr>
 </tbody></table>
+>!
+> - 对于删除类操作，为保障数据安全，我们会转义为改名操作。
+>
+> - 库表DDL同步说明
+>    - “同步对象”选择“整个实例”，在链路建立后：OLTP新增的对象及其修改均能同步到分析引擎。
+>    - “同步对象”选择“指定对象”，且指定对象为整库时，在链路建立后：OLTP指定库中新增的表及其修改会同步到分析引擎，但不会同步其他库的变化。
+
 - 命名限制
 <table>
 <thead><tr><th>对象</th><th>限制</th></tr></thead>
@@ -68,7 +75,6 @@ CDC（Change Data Capture）是数据融合的高速链路。数据在 OLTP 与�
 <td>指定全局分区键列名</td>
 <td>只支持字母，数字和下划线，长度不超过1024</td></tr>
 <tr>
-<td>集群名</td>
+<td>分析引擎集群名</td>
 <td>default_cluster</td></tr>
 </tbody></table>
-
