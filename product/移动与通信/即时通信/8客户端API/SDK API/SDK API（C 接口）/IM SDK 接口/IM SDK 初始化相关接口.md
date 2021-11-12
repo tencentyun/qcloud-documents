@@ -210,3 +210,21 @@ if (TIM_SUCC != TIMSetConfig(json_config.toStyledString().c_str(), [](int32_t co
     //TIMSetConfig 接口调用失败
 }
 ```
+
+## TIMGetServerTime
+
+获取服务器当前时间。
+
+**原型**
+
+```c
+TIM_DECL uint64_t TIMGetServerTime();
+```
+
+**返回值**
+
+| 类型 | 含义 |
+|-----|-----|
+| uint64_t | 服务器时间，单位 s |
+
+>?可用于信令离线推送场景下超时判断。
