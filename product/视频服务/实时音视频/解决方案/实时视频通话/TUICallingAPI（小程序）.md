@@ -24,7 +24,7 @@ TUICalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
 
 | API | 描述 |
 |---------|---------|
-|[call({userID, type})](#off)|发出 C2C 通话邀请。|
+|[call({userID, type})](#call)|发出 C2C 通话邀请。|
 |[groupCall({userIDList, type, groupID})](#groupCall)|群组邀请通话（请先 [创建 IM 群组](https://cloud.tencent.com/document/product/269/37459)）。|
 
 ### 通用功能函数
@@ -71,7 +71,7 @@ trtcConfig = {
 ```
 
 ### 组件方法
-
+[](id:selectComponent)
 #### selectComponent()
 您可以通过小程序提供的 `this.selectComponent()` 方法获取组件实例。
 ```javascript
