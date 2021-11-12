@@ -171,7 +171,7 @@
 | [私有域解析](https://cloud.tencent.com/document/product/1338) | privatedns | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1338/51643) |
 | [DNSPod](https://docs.dnspod.cn/)                            | dnspod | 资源级   | -        | -                | -        | [访问管理指南](https://docs.dnspod.cn/dns/60a76ee0e4a9cb2bbdbfc47f/) |
 | [开源应用中心](https://cloud.tencent.com/document/product/1298) | oac | 操作级   | &#10003; | -                | &#10003; | -                                                            |
-| [云证通](https://cloud.tencent.com/document/product/1470) | tdcp | 资源级   | &#10003; | -                | -| -                                                            |
+| [云证通](https://cloud.tencent.com/document/product/1470) | tdcp | 资源级   | &#10003; | -                | &#10003;| -                                                            |
 
 ## 网络安全 
 
