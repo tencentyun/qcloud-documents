@@ -602,6 +602,22 @@ free(pBuffer);
 | kTIMVideoElemImageUrl | string | 只读 | 截图文件下载的 URL |
 | kTIMVideoElemTaskId | uint | 只读 | 任务 ID |
 
+
+### MergerElem
+
+合并消息元素。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMMergerElemTitle | string | 读写（必填） | 合并消息 title |
+| kTIMMergerElemAbstractArray | uint | 读写（必填） | 合并消息摘要列表 |
+| kTIMMergerElemCompatibleText | uint | 读写（必填） | 合并消息兼容文本，低版本 SDK 如果不支持合并消息，默认会收到一条文本消息，文本消息的内容为 compatibleText，该参数不能为空 |
+| kTIMMergerElemMsgArray | string | 读写（必填） | 消息列表（最大支持 300 条，消息对象必须是 kTIMMsg_SendSucc 状态，消息类型不能为 GroupTipsElem 或 GroupReportElem） |
+| kTIMMergerElemLayersOverLimit | string | 只读 | 合并消息里面又包含合并消息我们称之为合并嵌套，合并嵌套层数不能超过 100 层，如果超过限制，layersOverLimit 会返回 YES，kTIMMergerElemTitle 和 kTIMMergerElemAbstractArray 为空，DownloadMergerMessage 会返回 ERR_MERGER_MSG_LAYERS_OVER_LIMIT 错误码 |
+| kTIMMergerElemRelayPbKey | int | 只读 | native 端消息列表下载 key |
+| kTIMMergerElemRelayJsonKey | int | 只读 | web 端消息列表下载 key |
+| kTIMMergerElemRelayBuffer | string | 只读 | 转发消息的 buffer |
+
 ### TIMGroupTipGroupChangeFlag
 
 群组信息修改的类型。
@@ -615,6 +631,7 @@ free(pBuffer);
 | kTIMGroupTipChangeFlag_FaceUrl | 修改群头像 URL |
 | kTIMGroupTipChangeFlag_Owner | 修改群所有者 |
 | kTIMGroupTipChangeFlag_Custom | 修改群自定义信息 |
+| kTIMGroupTipChangeFlag_Attribute | 群属性变更 (新增) |
 
 ### GroupTipGroupChangeInfo
 
@@ -660,7 +677,7 @@ free(pBuffer);
 | kTIMGroupTipsElemOpUser | string | 只读 | 操作者 ID |
 | kTIMGroupTipsElemGroupName | string | 只读 | 群组名称 |
 | kTIMGroupTipsElemGroupId | string | 只读 | 群组 ID |
-| kTIMGroupTipsElemTime | uint | 只读 | 群消息时间 |
+| kTIMGroupTipsElemTime | uint | 只读 | 群消息时间，废弃 |
 | kTIMGroupTipsElemUserArray | array string | 只读 | 被操作的帐号列表 |
 | kTIMGroupTipsElemGroupChangeInfoArray | array [GroupTipGroupChangeInfo](#grouptipgroupchangeinfo) | 只读 | 群资料变更信息列表，仅当`tips_type`值为`kTIMGroupTip_GroupInfoChange`时有效 |
 | kTIMGroupTipsElemMemberChangeInfoArray | array [GroupTipMemberChangeInfo](#grouptipmemberchangeinfo) | 只读 | 群成员变更信息列表，仅当`tips_type`值为`kTIMGroupTip_MemberInfoChange`时有效 |
@@ -688,7 +705,7 @@ free(pBuffer);
 | kTIMGroupReport_Quit | 主动退群（主动退出者接收，不展示） |
 | kTIMGroupReport_GrantAdmin | 设置管理员（被设置者接收） |
 | kTIMGroupReport_CancelAdmin | 取消管理员（被取消者接收） |
-| kTIMGroupReport_RevokeAdmin | 群已被回收（全员接收，不展示） |
+| kTIMGroupReport_GroupRecycle | 群已被回收（全员接收，不展示） |
 | kTIMGroupReport_InviteReq | 被邀请者收到邀请，由被邀请者同意是否接受  |
 | kTIMGroupReport_InviteAccept | 邀请加群被同意（只有发出邀请者会接收到） |
 | kTIMGroupReport_InviteRefuse | 邀请加群被拒绝（只有发出邀请者会接收到） |
@@ -812,6 +829,9 @@ free(pBuffer);
 | kTIMMsgGetMsgListParamCount | uint | 只写（选填） | 从指定消息往后的消息数 |
 | kTIMMsgGetMsgListParamIsRamble | bool | 只写（选填） | 是否漫游消息 |
 | kTIMMsgGetMsgListParamIsForward | bool | 只写（选填） | 是否向前排序 |
+| kTIMMsgGetMsgListParamLastMsgSeq | bool | 只写（选填） | 指定的消息的 seq |
+| kTIMMsgGetMsgListParamTimeBegin | bool | 只写（选填） | 开始时间；UTC 时间戳， 单位：秒 |
+| kTIMMsgGetMsgListParamTimePeriod | bool | 只写（选填） | 持续时间；单位：秒 |
 
 ### MsgDeleteParam
 
