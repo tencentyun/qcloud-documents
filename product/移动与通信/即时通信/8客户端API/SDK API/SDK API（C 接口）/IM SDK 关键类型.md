@@ -1712,3 +1712,41 @@ UUID 类型。
 | kTIMFriendshipCheckFriendTypeResultCode | int [错误码](https://cloud.tencent.com/document/product/269/1671) | 只读 | 检测的结果 |
 | kTIMFriendshipCheckFriendTypeResultDesc | string | 只读 | 检测好友失败的描述信息 |
 
+### TIMFriendshipSearchFieldKey
+
+好友搜索的枚举。
+
+| 名称 | 含义 |
+|-----|-----|
+| kTIMFriendshipSearchFieldKey_Identifier | 用户 ID |
+| kTIMFriendshipSearchFieldKey_NikeName | 昵称 |
+| kTIMFriendshipSearchFieldKey_Remark | 备注 |
+
+### FriendSearchParam
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendshipSearchParamKeywordList | array string | 只写 | 搜索的关键字列表，关键字列表最多支持 5 个 |
+| kTIMFriendshipSearchParamSearchFieldList | array int | 只写 | 好友搜索类型 |
+
+### TIMFriendshipRelationType
+
+二者之间的关系。
+
+| 名称 | 含义 |
+|-----|-----|
+| kTIMFriendshipRelationType_None | 未知关系 |
+| kTIMFriendshipRelationType_InMyFriendList | 单向好友：对方是我的好友，我不是对方的好友 |
+| kTIMFriendshipRelationType_InOtherFriendList | 单向好友：对方不是我的好友，我是对方的好友 |
+| kTIMFriendshipRelationType_BothFriend | 双向好友 |
+
+### FriendInfoGetResult
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendshipFriendInfoGetResultIdentifier | string | 只读 | 好友 user_id |
+| kTIMFriendshipFriendInfoGetResultRelationType | uint [TIMFriendshipRelationType] | 只读 | 好友关系 |
+
+| kTIMFriendshipFriendInfoGetResultErrorCode | uint | 只读 | 错误码 |
+| kTIMFriendshipFriendInfoGetResultErrorMessage | string | 只读 | 错误描述 |
+| kTIMFriendshipFriendInfoGetResultFriendInfo | array [FriendProfile] | 只读 | 好友资料 |
