@@ -279,7 +279,7 @@ void onSuccess(AudioRecognizeRequest request, String result);
 </tbody></table>
 - 语音识别请求失败回调函数
 ```
-void onFailure(AudioRecognizeRequest request, ClientException clientException, ServerException serverException);
+void onFailure(AudioRecognizeRequest request, final ClientException clientException, final ServerException serverException,String response);
 ```
 <table>
 <thead>
@@ -303,6 +303,11 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 <td>serverException</td>
 <td>ServerException</td>
 <td>服务端异常</td>
+</tr>
+<tr>
+<td>response</td>
+<td>String</td>
+<td>	服务端返回的 json 字符串</td>
 </tr>
 </tbody></table>
 
