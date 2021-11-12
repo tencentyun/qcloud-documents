@@ -192,9 +192,10 @@ QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法�
  * 一次识别失败回调
  * @param recognizer 实时语音识别实例
  * @param error 错误信息
+ * @param voiceId  如果错误是后端返回的，附带voiceId
  */
-- (void)realTimeRecognizerDidError:(QCloudRealTimeRecognizer *)recognizer error:(NSError *)error;
 
+- (void)realTimeRecognizerDidError:(QCloudRealTimeRecognizer *)recognizer error:(NSError *)error  voiceId:(NSString * _Nullable) voiceId;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**
