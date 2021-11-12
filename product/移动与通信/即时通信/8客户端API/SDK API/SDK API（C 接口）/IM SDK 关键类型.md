@@ -842,6 +842,26 @@ free(pBuffer);
 | kTIMMsgDeleteParamMsg | object [Message](#message) | 只写（选填） | 要删除的消息 |
 | kTIMMsgDeleteParamIsRamble | bool | 只写（选填） | 是否删除本地/漫游所有消息。true 删除漫游消息，false 删除本地消息，默认值 false |
 
+### TIMReceiveMessageOpt
+
+消息接收选项。
+
+| 名称 | 含义 |
+|-----|-----|
+| kTIMRecvMsgOpt_Receive | 在线正常接收消息，离线时会进行 APNs 推送 |
+| kTIMRecvMsgOpt_Not_Receive | 不会接收到消息，离线不会有推送通知 |
+| kTIMRecvMsgOpt_Not_Notify | 在线正常接收消息，离线不会有推送通知 |
+
+### GetC2CRecvMsgOptResult
+
+查询 C2C 消息接收选项的返回。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMMsgGetC2CRecvMsgOptResultIdentifier | string | 只写 | 用户ID |
+| kTIMMsgDeleteParamIsRamble | TIMReceiveMessageOpt | 只写 | 消息接收选项 |
+
+
 ### TIMDownloadType
 
 UUID 类型。
@@ -874,6 +894,53 @@ UUID 类型。
 | kTIMMsgDownloadElemResultCurrentSize | uint | 只读 | 当前已下载的大小 |
 | kTIMMsgDownloadElemResultTotalSize | uint | 只读 | 需要下载的文件总大小 |
 
+### KeywordListMatchType
+
+消息搜索关键字的组合类型。
+
+| 名称 | 含义 |
+|-----|-----|
+| TIMKeywordListMatchType_Or |  |
+| TIMKeywordListMatchType_And |  |
+
+### MessageSearchParam
+
+消息搜索参数。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMMsgSearchParamKeywordArray | array string | 只写(必填) | 搜索关键字列表，最多支持5个。 |
+| kTIMMsgSearchParamMessageTypeArray | array [TIMElemType]() | 只读 | 指定搜索的消息类型集合，传入空数组，表示搜索支持的全部类型消息（FaceElem 和 GroupTipsElem 暂不支持）取值详见 TIMElemType。 |
+| kTIMMsgSearchParamConvId | string | 只写(必填) | 会话 ID |
+| kTIMMsgSearchParamConvType | uint | 只写(必填) | 会话类型，如果设置 kTIMConv_Invalid，代表搜索全部会话。否则，代表搜索指定会话。 |
+| kTIMMsgSearchParamSearchTimePosition | uint | 只写(必填) | 搜索的起始时间点。默认为0即代表从现在开始搜索。UTC 时间戳，单位：秒 |
+| kTIMMsgSearchParamSearchTimePeriod | uint | 只写(必填) | 从起始时间点开始的过去时间范围，单位秒。默认为0即代表不限制时间范围，传24x60x60代表过去一天。 |
+| kTIMMsgSearchParamPageIndex | uint | 只写(必填) | 分页的页号：用于分页展示查找结果，从零开始起步。首次调用：通过参数 pageSize = 10, pageIndex = 0 调用 searchLocalMessage，从结果回调中的 totalCount 可以获知总共有多少条结果。计算页数：可以获知总页数：totalPage = (totalCount % loadCount == 0) ? (totalCount / pageIndex) : (totalCount / pageIndex + 1) 。再次调用：可以通过指定参数 pageIndex （pageIndex < totalPage）返回后续页号的结果。 |
+| kTIMMsgSearchParamPageSize | uint | 只写(必填) | 每页结果数量：用于分页展示查找结果，如不希望分页可将其设置成 0，但如果结果太多，可能会带来性能问题。 |
+| kTIMMsgSearchParamKeywordListMatchType | uint | 只写(必填) | 关键字进行 Or 或者 And 进行搜索 |
+| kTIMMsgSearchParamSenderIdentifierArray | uint | 只写(必填) | 按照发送者的 userid 进行搜索 |
+
+### MessageSearchResultItem
+
+消息搜索结果项。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMMsgSearchResultItemConvId | string | 只读 | 会话 ID |
+| kTIMMsgSearchResultItemConvType | uint | 只读 | 会话类型，如果设置 kTIMConv_Invalid，代表搜索全部会话。否则，代表搜索指定会话。 |
+| kTIMMsgSearchResultItemTotalMessageCount | uint | 只读 | 当前会话一共搜索到了多少条符合要求的消息。 |
+| kTIMMsgSearchResultItemMessageArray | array [Message]() | 只读 | 满足搜索条件的消息列表。 |
+
+### MessageSearchResult
+
+消息搜索结果返回。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMMsgSearchResultTotalCount | uint | 只读 | 如果您本次搜索【指定会话】，那么返回满足搜索条件的消息总数量；如果您本次搜索【全部会话】，那么返回满足搜索条件的消息所在的所有会话总数量。 |
+| kTIMMsgSearchResultItemConvType | uint | 只读 | 会话类型，如果设置 kTIMConv_Invalid，代表搜索全部会话。否则，代表搜索指定会话。 |
+| kTIMMsgSearchResultItemArray | array [TIMMessageSearchResultItem]() | 只读 | 如果您本次搜索【指定会话】，那么返回结果列表只包含该会话结果；如果您本次搜索【全部会话】，那么对满足搜索条件的消息根据会话 ID 分组，分页返回分组结果；。 |
+
 ## 会话关键类型
 
 会话相关宏定义，以及相关结构成员存取 JSON Key 定义。
@@ -887,6 +954,25 @@ UUID 类型。
 | kTIMDraftMsg | object [Message](#message) | 只读 | 草稿内的消息 |
 | kTIMDraftUserDefine | string | 只读 | 用户自定义数据 |
 | kTIMDraftEditTime | uint | 只读 | 草稿最新编辑时间 |
+
+### TIMGroupAtType
+
+@ 类型。
+
+| 名称 | 含义 |
+|-----|-----|
+| kTIMGroup_At_Me | @ 我 |
+| kTIMGroup_At_All | @ 群里所有人 |
+| kTIMGroup_At_All_At_ME | @ 群里所有人并且单独 @ 我 |
+
+### GroupAtInfo
+
+群 @ 信息。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMGroupAtInfoSeq | uint64 | 只读 | @ 消息序列号，即带有 “@我” 或者 “@所有人” 标记的消息的序列号 |
+| kTIMGroupAtInfoAtType | uint [TIMGroupAtType]() | 只读 | @ 提醒类型，分成 “@我” 、“@所有人” 以及 “@我并@所有人” 三类 |
 
 ### ConvInfo
 
@@ -903,6 +989,27 @@ UUID 类型。
 | kTIMConvLastMsg | object [Message](#message) | 只读 | 会话最后一条消息 |
 | kTIMConvIsHasDraft | bool | 只读 | 会话是否有草稿 |
 | kTIMConvDraft | object [Draft](#draft) | 只读（选填） | 会话草稿 |
+| kTIMConvRecvOpt | uint [TIMReceiveMessageOpt]() | 只读（选填） | 消息接收选项 |
+| kTIMConvGroupAtInfoArray | array [GroupAtInfo]() | 只读（选填） | 群会话 @ 信息列表，用于展示 “有人@我” 或 “@所有人” 这两种提醒状态 |
+| kTIMConvIsPinned | object [Draft](#draft) | 只读（选填） | 是否置顶 |
+| kTIMConvShowName | object [Draft](#draft) | 只读（选填） | 获取会话展示名称，其展示优先级如下：1、群组，群名称 C2C; 2、对方好友备注->对方昵称->对方的 userID |
+
+### GetConversationListParam
+
+获取指定的会话列表。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMGetConversationListParamConvId | string | 只写 | 会话 ID |
+| kTIMConvType | uint [TIMConvType](#timconvtype) | 只写 | 会话类型 |
+
+### GetTotalUnreadNumberResult
+
+获取会话未读消息个数。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMConvGetTotalUnreadMessageCountResultUnreadCount | int | 只读 | 会话未读数 |
 
 ## 群组关键类型
 
