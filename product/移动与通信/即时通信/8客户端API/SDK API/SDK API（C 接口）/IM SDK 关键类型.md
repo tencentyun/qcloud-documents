@@ -1397,6 +1397,51 @@ UUID 类型。
 | kTIMGroupHandlePendencyParamHandleMsg | string | 只写（选填） | 同意或拒绝信息，默认为空字符串 |
 | kTIMGroupHandlePendencyParamPendency | object [GroupPendency](#grouppendency) | 只写（必填） | 未决信息详情 |
 
+### GroupGetOnlineMemberCountResult
+
+获取指定群在线人数结果。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| TIMGroupGetOnlineMemberCountResulCount | int | 只读 | 指定群的在线人数 |
+
+### TIMGroupSearchFieldKey
+
+群搜索 Field 的枚举。
+
+| 名称 | 含义 |
+|-----|-----|
+| kTIMGroupSearchFieldKey_GroupId | 群 ID |
+| kTIMGroupSearchFieldKey_GroupName | 群名称 |
+
+### GroupSearchParam
+
+群搜索参数。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| TIMGroupMemberSearchParamGroupidList | array string | 只写（选填） | 指定群 ID 列表，若为不填则搜索全部群中的群成员 |
+| TIMGroupMemberSearchParamKeywordList | array string | 只写（选填） | 搜索关键字列表，最多支持5个 |
+| TIMGroupMemberSearchParamFieldList | array [TIMGroupMemberSearchFieldKey] | 只写（选填） | 搜索域列表 |
+
+### GroupAttributes
+
+设置群属性的 map 对象。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| TIMGroupAttributeKey | string | 只写（选填） | 群属性 map 的 key |
+| TIMGroupAttributeValue | array string | 只写（选填） | 群属性 map 的 value|
+
+### GroupMemberSearchParam
+
+群成员搜索参数。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| TIMGroupSearchParamKeywordList | array string | 只写（选填） | 搜索关键字列表，最多支持5个 |
+| TIMGroupSearchParamFieldList | array [TIMGroupSearchFieldKey] | 只写（选填） | 搜索域列表表 |
+
 ## 关系链和资料关键类型
 
 关系链和资料相关宏定义，以及相关结构成员存取 JSON Key 定义。
