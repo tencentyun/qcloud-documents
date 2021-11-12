@@ -132,4 +132,4 @@ TUICallingContext.groupCall({userIDList, type, groupID})
 - 多实例：一个 userID 重复登入，或在不同端登入，将会引起信令的混乱。 
 - 离线推送：实例在线才能接收消息，实例离线时接收到的信令不会在上线后重新推送。即，小程序在后台与离线状态下，无法收到呼入提醒或来电提醒。
 
-更多常见问题：https://cloud.tencent.com/document/product/647/45532
+更多常见问题，请参见 [小程序端相关问题](https://cloud.tencent.com/document/product/647/45532)。
