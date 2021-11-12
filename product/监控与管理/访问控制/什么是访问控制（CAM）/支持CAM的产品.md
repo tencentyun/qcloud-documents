@@ -49,7 +49,7 @@
 
 | 产品     | CAM 中简称 | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                              |
 | ------------------------------------- -------- | ------------- | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
-| [对象存储](https://cloud.tencent.com/document/product/436) <sup>1</sup>  | cos | 资源级   | &#10003; | &#10003; <sup>1</sup> | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/436/12473) |
+| [对象存储](https://cloud.tencent.com/document/product/436) <sup>1</sup>  | cos | 资源级   | &#10003; | &#10003;  | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/436/12473) |
 | [文件存储](https://cloud.tencent.com/document/product/582)   | cfs | 资源级   | &#10003; | &#10003;              | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/582/14679) |
 | [归档存储](https://cloud.tencent.com/document/product/572)   | cas | 资源级   | -        | -                     | -        | -                                                            |
 | [云 HDFS](https://cloud.tencent.com/document/product/1105)   | chdfs | 资源级   | &#10003; | &#10003;              | -        | [访问管理指南](https://cloud.tencent.com/document/product/1105/37238) |
@@ -624,6 +624,4 @@
 | ---------------------------------------------- | -------- |
 | [腾讯区块链开发平台](https://trustsql.qq.com/) | &#10003; |
 
-|      |      |
-| ---- | ---- |
-|      |      |
+
