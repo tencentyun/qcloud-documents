@@ -1062,12 +1062,16 @@ UUID 类型。
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupMemberInfoIdentifier | string | 读写（必填） | 群组成员 ID |
+| kTIMGroupMemberInfoGroupId | string | 只读 | 群组 ID |
 | kTIMGroupMemberInfoJoinTime | uint | 只读 | 群组成员加入时间 |
 | kTIMGroupMemberInfoMemberRole | uint [TIMGroupMemberRole](#timgroupmemberrole) | 读写（选填） | 群组成员角色 |
 | kTIMGroupMemberInfoMsgFlag | uint | 只读 | 成员接收消息的选项 |
 | kTIMGroupMemberInfoMsgSeq | uint | 只读 | - |
 | kTIMGroupMemberInfoShutupTime | uint | 只读 | 成员禁言时间 |
 | kTIMGroupMemberInfoNameCard | string | 只读 | 成员群名片 |
+| kTIMGroupMemberInfoNickName | string | 只读 | 好友昵称 |
+| kTIMGroupMemberInfoRemark | string | 只读 | 好友备注 |
+| kTIMGroupMemberInfoFaceUrl | string | 只读 | 好友头像 |
 | kTIMGroupMemberInfoCustomInfo | array [GroupMemberInfoCustemString](#groupmemberinfocustemstring) | 只读 | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
 ### GroupInfoCustemString
