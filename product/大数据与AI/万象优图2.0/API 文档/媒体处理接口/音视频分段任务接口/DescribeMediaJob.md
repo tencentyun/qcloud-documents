@@ -97,17 +97,17 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     <Input>
       <Object>test.mp4</Object>
     </Input>
-  <Operation>
-    <Segment>
-      <Format>mp4</Format>
-      <Duration>5</Duration>
-    </Segment>
-    <Output>
-      <Region>ap-beijing</Region>
-      <Bucket>examplebucket-1250000000</Bucket>
-      <Object>test-trans${Number}</Object>
-    </Output>
-  </Operation>
+    <Operation>
+      <Segment>
+        <Format>mp4</Format>
+        <Duration>5</Duration>
+      </Segment>
+      <Output>
+        <Region>ap-beijing</Region>
+        <Bucket>examplebucket-1250000000</Bucket>
+        <Object>test-trans${Number}</Object>
+      </Output>
+    </Operation>
   </JobsDetail>
 </Response>
 ```

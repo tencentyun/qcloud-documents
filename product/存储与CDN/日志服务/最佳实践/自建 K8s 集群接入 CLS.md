@@ -403,7 +403,8 @@ Log-Provisioner 负责发现并监听 LogConfig 资源中 CLS 消费端信息，
 ```shell
 wget https://mirrors.tencent.com/install/cls/k8s/Log-Provisioner.yaml
 ```
->! 配置时，请将 Log-Provisioner.yaml 中环境变量 env 下的 **CLS_HOST** 字段配置为目标日志主题所在地域的域名。 不同地域的域名请参见 [可用地域](https://cloud.tencent.com/document/product/614/18940) 文档。
+>! 配置时，请将 Log-Provisioner.yaml 中环境变量 env 下的 **CLS_HOST** 字段配置为目标日志主题所在地域的域名。 不同地域的域名请参见 [可用地域](https://cloud.tencent.com/document/product/614/18940) 文档。同时， 环境变量 env 下的 **CLUSTER_ID** 字段需配置为与您账号下的所有机器组名称不同的任意名称。 您可在 CLS 控制台中的机器组管理页面查看您账号下的所有机器组。
+>
 2. 使用 kubectl 以 Deployment 的方式部署 Log-Provisioner。
 ```shell
 kubectl create -f /usr/local/Log-Provisioner.yaml
@@ -422,7 +423,7 @@ kubectl create -f /usr/local/Log-Provisioner.yaml
 wget https://mirrors.tencent.com/install/cls/k8s/Log-Agent.yaml
 ```
 >! 
-> - 配置时，请将 Log-Agent.yaml 中环境变量 env 下的 CLS_HOST 字段配置为目标日志主题所在地域的域名。 不同地域的域名请参见 [可用地域](https://cloud.tencent.com/document/product/614/18940) 文档。
+> - 置时，请将 Log-Agent.yaml 中环境变量 env 下的 **CLS_HOST** 字段配置为目标日志主题所在地域的域名。 不同地域的域名请参见 [可用地域](https://cloud.tencent.com/document/product/614/18940) 文档。同时， 环境变量 env 下的 **CLUSTER_ID** 字段需配置为与您账号下的所有机器组名称不同的任意名称。 您可在 CLS 控制台中的机器组管理页面查看您账号下的所有机器组。
 > - 如果宿主机的 docker 根目录不在 /var/lib/docker（即在宿主机的根目录）下，需要在 Log-Agent.yaml 声明文件中把 docker 的根目录映射到容器中，如下图所示，将 /data/docker 挂载到容器中：
 > ![](https://main.qcloudimg.com/raw/7a6dd1f80f7e33cdf2f4db3695f15555.png)
 2. 使用 kubectl 命令，以 DaemonSet 的方式部署 Log-Agent 和 Loglistener。

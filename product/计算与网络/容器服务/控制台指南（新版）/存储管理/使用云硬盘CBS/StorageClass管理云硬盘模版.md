@@ -140,6 +140,10 @@ kind: StatefulSet
 metadata:
   name: web
 spec:
+  selector:
+    matchLabels:
+      k8s-app: nginx
+      qcloud-app: nginx
   serviceName: "nginx"
   replicas: 3
   template:

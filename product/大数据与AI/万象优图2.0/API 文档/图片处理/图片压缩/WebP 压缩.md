@@ -20,8 +20,10 @@
 - 上传时处理
 - 云上数据处理
 
->? WebP 压缩为付费服务，费用同基础图片处理，具体费用请参见 [图片处理费用](https://cloud.tencent.com/document/product/460/58117)。
->
+>? 
+>- WebP 压缩为付费服务，费用同基础图片处理，具体费用请参见 [图片处理费用](https://cloud.tencent.com/document/product/460/58117)。
+>- 图片转换为 WebP 格式后，部分浏览器无法读取 WebP 图片的 exif 信息，导致没有旋转。您可参见 [旋转](https://cloud.tencent.com/document/product/460/36542) 文档，增加 auto-orient 参数，对原图旋转后再进行压缩。
+
 
 ## 接口示例
 

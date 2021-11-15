@@ -25,7 +25,7 @@
 <!-- COS SDK -->
 <script src="https://res.qcloudtiw.com/board/third/cos/5.1.0/cos.min.js"></script>
 <!-- TEduBoard SDK -->
-<script src="https://res.qcloudtiw.com/board/2.6.6/TEduBoard.min.js"></script>
+<script src="https://res.qcloudtiw.com/board/2.6.7/TEduBoard.min.js"></script>
 ```
 
 如果您需要添加视频文件还需要添加以下代码：

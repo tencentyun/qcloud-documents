@@ -45,7 +45,8 @@
 1. 登录 [文件存储CFS控制台](https://console.cloud.tencent.com/cfs/overview)，单击**创建**，新增文件系统。
 ![](https://main.qcloudimg.com/raw/45df6a1f8a8504a3a148d3112a70871f.jpg)
 2. **选择网络**字段请务必**选择在 [步骤1](#step1) 中查询到的 VPC 和子网**。
-![](https://main.qcloudimg.com/raw/a65f5f297d8db5ec7ee91c17cf85174e.jpg)
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/a65f5f297d8db5ec7ee91c17cf85174e.jpg" style="width: 80%"> 
+
 
 ### 步骤5：通过 API 创建云托管服务版本
 1. 在文件存储 CFS 控制台，查找所需使用的 CFS 的**挂载点信息**。
