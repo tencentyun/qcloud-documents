@@ -2,8 +2,8 @@
 
 如下场景的迁移要求与 MySQL 到 TDSQL MySQL 的迁移要求一致，可参考本场景相关内容。
 
-- MariaDB 到腾讯云数据库 TDSQL MySQL的数据迁移
-- MariaDB（Percona）到腾讯云数据库 TDSQL MySQL的数据迁移
+- MariaDB 到腾讯云数据库 TDSQL MySQL 的数据迁移
+- MariaDB（Percona）到腾讯云数据库 TDSQL MySQL 的数据迁移
 
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
@@ -167,7 +167,6 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
 </tbody></table>
-
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。

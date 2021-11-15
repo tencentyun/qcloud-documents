@@ -5,7 +5,7 @@
 
 | 参数名 | 说明 | 来源 |
 |---------|---------|---------|
-| wbappId | 业务流程唯一标识 | 参考 获取 WBappid 指引在人脸核身控制台内申请 | 
+| wbappId | 业务流程唯一标识 | 参考 [获取 WBappid](https://cloud.tencent.com/document/product/1007/49634) 指引在人脸核身控制台内申请 | 
 | userId | 用户唯一标识 | 合作方自行分配（和 SDK 里面定义的 userId 保持一致） | 
 | version | 参数值为：1.0.0 | - |
 | ticket | 合作伙伴服务端获取的 ticket，注意是 NONCE 类型 | 获取方式见 [NONCE ticket 获取](https://cloud.tencent.com/document/product/1007/57614) |

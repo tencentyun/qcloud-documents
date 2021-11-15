@@ -14,10 +14,23 @@ SSL 证书的核心功能是保护服务器-客户端通信。数据通过 SSL �
 
 ## 操作步骤
 
-### 步骤一：添加 Java 依赖库
+### 步骤一：控制台配置
+1. 创建接入点。
+	1. 在 **[实例列表](https://console.cloud.tencent.com/ckafka/index)** 页面，单击目标实例 ID，进入实例详情页。
+	2. 在 **基本信息** > **接入方式** 中，单击**添加路由策略**，在打开窗口中选择：`路由类型：公网域名接入`,`接入方式：SASL_SSL`。
+![](https://qcloudimg.tencent-cloud.cn/raw/46e6b0bb08a7b73084cb51fabe9d03f2.png)
 
-在 pom.xml 中添加以下依赖。
+2. 创建角色。
+在**用户管理**页面新建角色，设置密码。
+![](https://qcloudimg.tencent-cloud.cn/raw/fb78b8290232e6342397a30a4c554ef9.png)
 
+3. 创建 Topic。
+在控制台 **topic 管理**页面新建 Topic（参考 [创建 Topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
+
+
+### 步骤二：添加配置文件
+
+1. 在 pom.xml 中添加以下依赖。
 ```xml
 <dependency>
    <dependency>
@@ -39,9 +52,7 @@ SSL 证书的核心功能是保护服务器-客户端通信。数据通过 SSL �
 
 ```
 
-### 步骤二：准备配置
-
-1. 创建 JAAS 配置文件 ckafka_client_jaas.conf。
+2. 创建 JAAS 配置文件 `ckafka_client_jaas.conf`，使用**用户管理**界面创建的用户进行修改。
 ```properties
 KafkaClient {
 org.apache.kafka.common.security.plain.PlainLoginModule required
@@ -51,11 +62,11 @@ password="yourpassword";
 ```
 >?username 是`实例 ID` + `#` + `配置的用户名`，password 是配置的用户密码。
 
-2. 创建消息队列 CKafka 配置文件 kafka.properties。
+3. 创建消息队列 CKafka 配置文件 kafka.properties。
 ```properties
 ## 配置接入网络，在控制台的实例详情页面接入方式模块的网络列复制。
 bootstrap.servers=xx.xx.xx.xx:xxxx
-## 配置 topic，在控制台上 topic 管理页面复制。
+## 配置 Topic，在控制台上 topic 管理页面复制。
 topic=XXX
 ## 配置 consumer group，您可以自定义设置
 group.id=XXX
@@ -69,13 +80,14 @@ ssl.endpoint.identification.algorithm=
 
 | 参数                                  | 说明                                                         |
 | ------------------------------------- | ------------------------------------------------------------ |
-| `bootstrap.servers`                      | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![](https://main.qcloudimg.com/raw/c5cf200a66f6dcf627d2ca6f1c747ecf.png) |
+| `bootstrap.servers`                      | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![](https://qcloudimg.tencent-cloud.cn/raw/6117de422e8b46cf75b7b249bb88c817.png) |
 | `topic`                                  | Topic 名称，您可以在控制台上 **topic管理**页面复制。<br/>![](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
 | `group.id`                               | 您可以自定义设置，Demo 运行成功后可以在 **Consumer Group** 页面看到该消费者。 |
 | `java.security.auth.login.config.plain` | 填写 JAAS 配置文件 `ckafka_client_jaas.conf` 的路径。          |
 | `client.truststore.jks`                  | 采用 `SASL_SSL` 方式接入时，所需的证书路径。          |
 
-3. 创建配置文件加载程序 CKafkaConfigurer.java。
+
+4. 创建配置文件加载程序 CKafkaConfigurer.java。
 ```java
 public class CKafkaConfigurer {
 
@@ -106,23 +118,6 @@ public class CKafkaConfigurer {
     }
 }
 ```
-4. 创建接入点
-	1. 在**实例列表**界面单击**添加路由策略**，在打开窗口中选择：`路由类型：公网域名接入`, `接入方式：SASL_SSL`。
-![](https://qcloudimg.tencent-cloud.cn/raw/1d34e2c5ef38c3834a68f4ad03f5226c.png)
-	2. 创建完成后，复制**接入方式**中的**网络**属性，替换 `resource/kafka.properties` 文件中的 `bootstrap_servers` 属性。
-![](https://qcloudimg.tencent-cloud.cn/raw/16bf4ca61cd5577063d3c2c540ad4cd8.png)
-
-5. 创建角色。
-在**用户管理**页面新建角色，设置密码，并将用户名和密码替换 `resource/ckafka_client_jaas.conf` 文件中的 `username` 和 `password`。
-![](https://qcloudimg.tencent-cloud.cn/raw/d4e9e844c75eb9c3011eb4cf4915a951.png)
->?此处的 `username` 为 **<实例 id>#<用户名>** 格式。
->
-![](https://qcloudimg.tencent-cloud.cn/raw/d961f3f587a3b37d5d9c46ea433a24ec.png)
-
-6. 创建 topic。
-	1. 在控制台 topic 管理页面新建 topic（参考 [创建 topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
-	2. 将 topic 名称替换 `resource/kafka.properties` 文件中的 `topic` 属性。
-![](https://qcloudimg.tencent-cloud.cn/raw/a7d7ceea8c4e35274826c006fec8f230.png)
 
 ### 步骤三：发送消息
 
@@ -197,6 +192,7 @@ public class CKafkaConfigurer {
 }
 ```
 2. 编译并运行 KafkaSaslProducerDemo.java 发送消息。
+   
 3. 运行结果（输出）。
 ```bash
 Produce ok:ckafka-topic-demo-0@198
@@ -283,6 +279,7 @@ public class KafkaSaslConsumerDemo {
 }
 ```
 2. 编译并运行 KafkaSaslConsumerDemo.java 消费消息。
+   
 3. 运行结果。
 ```bash
    Consume partition:0 offset:298

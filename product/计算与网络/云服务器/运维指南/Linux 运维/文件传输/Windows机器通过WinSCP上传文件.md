@@ -15,8 +15,9 @@ WinSCP 是一个在 Windows 环境下使用 SSH 的开源图形化 SFTP 客户�
  - **主机名**：云服务器的公网 IP。登录 [云服务器控制台](https://console.cloud.tencent.com/cvm) 即可查看对应云服务器的公网 IP。
  - **端口**：默认为22。
  - **用户名**：登录云服务器的用户名。
-	 - SUSE/CentOS/Debian 系统：root
-	 - Ubuntu 系统：ubuntu
+ <dx-alert infotype="explain" title="">
+ Linux 实例默认管理员用户名为 root，Ubuntu 系统实例为 ubuntu。若您使用 Ubuntu 操作系统，则请参考 [Ubuntu 系统如何使用 root 用户登录实例](https://cloud.tencent.com/document/product/213/17278#ubuntu-.E7.B3.BB.E7.BB.9F.E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8-root-.E7.94.A8.E6.88.B7.E7.99.BB.E5.BD.95.E5.AE.9E.E4.BE.8B.EF.BC.9F) 配置后，使用 root 登录。
+</dx-alert>
  - **密码**：用户名对应的密码。
 	 - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
 	 - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
