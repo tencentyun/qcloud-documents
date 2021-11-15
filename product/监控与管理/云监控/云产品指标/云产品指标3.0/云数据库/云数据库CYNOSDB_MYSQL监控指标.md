@@ -87,7 +87,6 @@ Namespace=QCE/CYNOSDB_MYSQL
 &Namespace=QCE/CYNOSDB_MYSQL
 &Instances.N.Dimensions.0.Name=InstanceId
 &Instances.N.Dimensions.0.Value=CynosDB 数据库中具体实例的 ID
-&Namespace=QCE/CYNOSDB_MYSQL
 &Instances.N.Dimensions.1.Name=ClusterId 
 &Instances.N.Dimensions.1.Value=数据库具体的集群 ID  
 
