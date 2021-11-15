@@ -110,6 +110,6 @@ player.src(https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/path/e
 2. 成功解密并播放视频。
 ![播放视频](https://qcloudimg.tencent-cloud.cn/raw/2fc23e71f3675e0e98ce9a42c3a1d34c.png)
 
-### 体验
+## 体验
 
 以上实践，我们准备了一个 [线上体验 demo](https://ci-exhibition.cloud.tencent.com/tools/video/)，欢迎体验。
