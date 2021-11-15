@@ -29,7 +29,7 @@
  <img src="https://qcloudimg.tencent-cloud.cn/raw/324ab047e029238098ec728a2b2b4950.png" width="70%">
 
 
-### 步骤三：配置健康检查
+### 步骤三：[配置健康检查](https://cloud.tencent.com/document/product/216/56667)
 1. 在**专用通道**页面，单击创建好的通道名称。
  ![](https://main.qcloudimg.com/raw/2cb0d8961eb1c91772db03439fbe3ee4.png)
 2.在通道详情页的**高级通道**页签中，单击**路由模式**右侧**编辑**。
