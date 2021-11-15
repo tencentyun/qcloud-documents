@@ -10,7 +10,7 @@
 <th>操作场景</th>
 </tr>
 <tr>
-<td rowspan="3">获取弹性公网 IP</td>
+<td rowspan="3">获取 EIP</td>
 <td><a href="https://cloud.tencent.com/document/product/1199/41698">申请 EIP</a></td>
 <td>申请弹性公网 IP。</td>
 </tr>
@@ -23,7 +23,7 @@
 <td>若您误操作释放或退还了公网 IP 地址（包含弹性公网 IP 和普通公网 IP），可以在弹性公网 IP 控制台找回，找回后的公网 IP 为弹性公网 IP。</td>
 </tr>
 <tr>
-<td rowspan="3">绑定弹性公网 IP</td>
+<td rowspan="3">绑定 EIP</td>
 <td><a href="https://cloud.tencent.com/document/product/1199/41702">EIP 绑定云资源</a></td><td>将弹性公网 IP 绑定到云服务器实例、NAT 网关等云资源上，利用弹性公网 IP 灵活地容灾与提供公网通信服务等。</td>
 </tr>
 <tr>
@@ -35,7 +35,7 @@
 <td>若单台云服务器实例可绑定公网 IP 的限额不满足您的需求，您可以通过添加辅助网卡来绑定多个公网 IP，以实现流量转移，提高云服务器的利用率。</td>
 </tr>
 <tr>
-<td rowspan="7">获取弹性公网 IP</td>
+<td rowspan="7">管理 EIP</td>
 <td><a href="https://cloud.tencent.com/document/product/1199/41709">EIP 直通</a></td>
 <td>EIP 直通功能适用于云服务器内需要查看公网 IP 的场景，例如，将内网流量和外网流量分别转发到不同的 IP 地址。</td>
 </tr>
@@ -68,7 +68,7 @@
 <td>弹性公网 IP 支持针对 FTP 和 SIP 协议设置 ALG 功能。开启 ALG 功能后，则可对指定协议的应用层数据载荷进行 NAT 穿透。</td>
 </tr>
 <tr>
-<td rowspan="2">解绑/释放弹性公网 IP</td>
+<td rowspan="2">解绑/释放 EIP</td>
 <td><a href="https://cloud.tencent.com/document/product/1199/41703">解绑 EIP</a></td>
 <td>您可以随时将弹性公网 IP 与云资源解绑，解绑后您可以将其与其他云资源重新绑定。</td>
 </tr>
