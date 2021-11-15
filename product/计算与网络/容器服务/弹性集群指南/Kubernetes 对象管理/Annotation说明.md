@@ -99,12 +99,12 @@
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/eip-claim-delete-policy</td>
-<td> Pod 删除后，EIP 是否自动回收，“Never” 不回收，默认回收。该参数只有在指定eks.tke.cloud.tencent.com/eip-attributes时才生效。注意，非带宽上移的账号无法使用。</td>
+<td> Pod 删除后，EIP 是否自动回收，“Never” 不回收，默认回收。该参数只有在指定 eks.tke.cloud.tencent.com/eip-attributes 时才生效。注意，非带宽上移的账号无法使用。</td>
 <td>否 </td>
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/eip-id-list</td>
-<td>如果工作负载为StatefulSet，也可以使用指定已有 EIP 的方式，可指定多个，如"eip-xx1,eip-xx2"。请注意，StatefulSet pod 的数量必须小于等于此 annotation 中指定 EIP Id 的数量，否则分配不到 EIP 的pod会处于 Pending状态。注意，非带宽上移的账号无法使用。</td>
+<td>如果工作负载为 StatefulSet，也可以使用指定已有 EIP 的方式，可指定多个，如 "eip-xx1,eip-xx2"。请注意，StatefulSet pod 的数量必须小于等于此 annotation 中指定 EIP Id 的数量，否则分配不到 EIP 的 Pod 会处于 Pending 状态。注意，非带宽上移的账号无法使用。</td>
 <td>否 </td>
 </tr>
 <tr>
