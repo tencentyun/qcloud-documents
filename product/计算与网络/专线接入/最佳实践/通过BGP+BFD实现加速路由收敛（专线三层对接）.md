@@ -10,7 +10,7 @@
 
 ## 前提条件
 - 已创建腾讯云 VPC，具体操作请参见[ 快速搭建 IPv4 私有网络](https://cloud.tencent.com/document/product/215/30716)。
-- 已[ 申请物理专线](https://cloud.tencent.com/document/product/216/48585) ，并完成建设。
+- 已[ 申请物理专线](https://cloud.tencent.com/document/product/216/48586) ，并完成建设。
 
 
 ## 配置指引
@@ -73,7 +73,7 @@ peer <bgp_peer_address> bfd min-tx-interval
 ```
 
 
-- **方式二：二层Vlanif口+BGP（二层接口建议关闭STP生成树协议）**：
+- **方式二：二层Vlanif口+BGP（二层接口建议关闭 STP 生成树协议）**：
 ``` 
 # 设置物理接口
 interfaces
