@@ -3,6 +3,8 @@
 
 针对以上问题，TBaaS 引入 Bulletproofs 零知识范围证明的能力，保证了数据隐私性、链上透明性和数据可操作性。Bulletproofs 零知识范围证明可以利用 Pedersen 承诺算法将明文数值隐藏，实现数据加密。同时 Pedersen 承诺是一个支持同态加法、减法、部分乘法运算的算法，因此在对已经制成承诺的数据进行运算时，不使用“解密-运算-加密”流程，而是直接对承诺进行计算。
 
+
+
 ## TBaaS 的零知识范围证明能力特点
 TBaaS 的零知识范围证明能力，主要体现在以下两个方面：
 - TBaaS 提供了零知识范围证明使用的两个工具 [Bulletproofs](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/bulletproofs) 和 [Pedersen](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/pedersen)。Bulletproofs 工具提供生成范围证明、验证范围证明与承诺的有效性、范围证明的同态运算（加、减、乘）等功能。Pedersen 工具提供生成承诺、验证承诺、致盲因子的随机生成、同态加法、减法、乘法及求相反数运算。
