@@ -1,3 +1,4 @@
+
 ## 操作场景
 用户可以利用 TBaaS 提供的同态加密的能力，便捷的在智能合约中使用同态加密。使用同态加密可以分为以下三个步骤：
 1.  使用 TBaaS 提供的 paitool 生成同态公私钥，同时使用生成的公钥对用户数据线下加密。
@@ -238,6 +239,8 @@ func (t *SimpleChaincode) query(stub shim.ChaincodeStubInterface, args []string)
 ./paitool decrypt -skin=sk2.pai -cipherin=cipher2new.pai
 ```
 其中，cipher1new.pai 对应的是智能合约中 KEY1_NAME 存储的值，cipher2new.pai 对应的是智能合约中 KEY2_NAME 存储的值。
+
+
 
 
 
