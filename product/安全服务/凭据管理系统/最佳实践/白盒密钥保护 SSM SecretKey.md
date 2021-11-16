@@ -9,7 +9,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/7740e927a8a436b0415854b47dfc0201.png)
 1. 用户在凭据管理系统（SSM）中创建一个凭据对象，关于创建凭据，详情请参见 [创建凭据](https://cloud.tencent.com/document/product/1140/40865)。
 2. 用户使用密钥管理系统（KMS）的白盒密钥对 SecretKey 进行加密：
- - 具体步骤： 创建白盒密钥 → 获取 SecretKey →  使用白盒密钥加密 SecretKey →  获取密文+初始化向量，下载解密密钥+解密 SDK 文件 
+ - 具体步骤： 创建白盒密钥 → 获取 SecretKey →  使用白盒密钥加密 SecretKey →  获取密文+初始化向量，下载解密密钥+解密 SDK 文件 。
  - 白盒加密的整体操作，详情请参见 [使用 KMS 白盒密钥保护 SecretKey 最佳实践](https://cloud.tencent.com/document/product/573/54236) 。
 3. 当应用系统需要访问 SSM 时：
  - 首先在业务逻辑中调用白盒 SDK 的解密函数，获取到 SecretKey 的明文，接口详情请参见 [白盒密钥解密代码示例](https://cloud.tencent.com/document/product/573/54237)。
