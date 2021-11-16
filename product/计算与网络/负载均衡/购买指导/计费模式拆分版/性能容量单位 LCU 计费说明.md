@@ -207,3 +207,7 @@ LCU 费用仅在“性能容量型”负载均衡实例上收取，共享型负�
 该实例的 LCU 费用 = 标准型 LCU 价格 × 购买时长 = 423.36元/月 × 6个月 = 2540.16元
 
 
+
+## 相关文档
+- [购买方式](https://cloud.tencent.com/document/product/214/8849)
+- [升级负载均衡实例](https://cloud.tencent.com/document/product/214/61413)

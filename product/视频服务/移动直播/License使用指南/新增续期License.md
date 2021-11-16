@@ -74,4 +74,4 @@
 
 ## 企业版 License
 
-相比于专业版，企业版增加了基于腾讯优图实验室专利技术的人脸特效功能。使用企业版 License 可以开启优图实验室的 AI 功能，具体详情请参见 [美颜特效](https://cloud.tencent.com/product/x-magic)。
+相比于全功能版，企业版增加了基于腾讯优图实验室专利技术的人脸特效功能。使用企业版 License 可以开启优图实验室的 AI 功能，具体详情请参见 [美颜特效](https://cloud.tencent.com/product/x-magic)。
