@@ -171,7 +171,7 @@
     <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/9366">短视频版</a><br>LiteAV_UGC</th>
     <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32689">TRTC版</a><br>LiteAV_TRTC</th>
     <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/881/20205">播放器版</a><br>LiteAV_Player</th>
-    <th width="100px" style="text-align:center"><a href="#Professional">全功能版</a><br>Professional</th>
+    <th width="100px" style="text-align:center"><a href="#ALL">全功能版</a><br>ALL</th>
     <th width="100px" style="text-align:center"><a href="#Enterprise">企业版</a><br>Enterprise</th>
   </tr>
   <tr>
