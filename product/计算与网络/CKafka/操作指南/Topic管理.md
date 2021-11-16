@@ -60,7 +60,7 @@ Topic（主题）是某一种分类的名字，消息在 Topic 中可以被存�
 1. 在实例列表页，单击目标实例的“ID/名称”，进入实例详情页。
 2. 在实例详情页，单击**topic管理**标签页。
 3. 单击操作列的**编辑**>**展示高级配置**，设置如下参数：
-<img src="https://main.qcloudimg.com/raw/c910a98c3e0247c778f753e0173ee06c.png" width="586px">
+   ![](https://qcloudimg.tencent-cloud.cn/raw/195ac6fb705396398f6bdc7da262d915.png)
 
 参数说明如下：
 
@@ -71,4 +71,5 @@ Topic（主题）是某一种分类的名字，消息在 Topic 中可以被存�
 | unclean.leader.election.enable | true                     | true/false       | 指定是否能够设置不在 ISR 中 replicas 作为 leader。           |
 | segment.ms                     | -                        | 1day - 90days    | Segment 分片滚动的时长，单位为 ms，最小值为86400000ms。      |
 | retention.ms                   | 默认为实例的消息保留时间 | 60000ms - 90days | Topic 维度的消息保留时间。                                   |
-| max.message.bytes              | -                        | 1KB - 12MB         | Topic 维度的最大消息大小。不填写则默认实例维度消息大小为1MB。 |
+| retention.bytes                | 默认为实例的消息保留大小 | 1 MB到1024 GB    | Topic 维度的消息保留大小。对于一个 Topic，如果同时设置了消息保留时间和消息保留大小，实际保留消息时会以先达到的阈值为准 |
+| max.message.bytes              | -                        | 1KB - 12MB       | Topic 维度的最大消息大小。不填写则默认实例维度消息大小为1MB。 |
