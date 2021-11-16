@@ -82,12 +82,12 @@ Container 类型 ConcatTemplate 的具体数据描述如下：
 
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 是否必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| ConcatFragment      |  Request.Operation.ConcatTemplate | 拼接节点    | Container数组    | 是   | 无  | 支持多个文件，按照文件顺序拼接 |
-| Audio               |  Request.Operation.ConcatTemplate | 音频参数 同创建拼接模板中Request.ConcatTemplate.Audio  | Container    | 否   | 无  | 无 |
-| Video               |  Request.Operation.ConcatTemplate | 视频参数 同创建拼接模板中Request.ConcatTemplate.Video  | Container    | 否   | 无  | 无 |
-| Container           |  Request.Operation.ConcatTemplate | 封装格式 同创建拼接模板中Request.ConcatTemplate.Container   | Container    | 是   | 无  | 无 |
-| Index               |  Request.Operation.ConcatTemplate | Input节点对象位于ConcatFragment序列位置索引    | String    | 否   | 0  | 不能大于ConcatFragment数组元素个数 |
-| DirectConcat | Request.Operation.ConcatTemplate | 简单拼接方式（不转码直接拼接），其他的视频和音频参数失效 | String | 否 | false | true、false |
+| ConcatFragment      |  Request.Operation.<br/>ConcatTemplate | 拼接节点    | Container数组    | 是   | 无  | 支持多个文件，按照文件顺序拼接 |
+| Audio               |  Request.Operation.<br/>ConcatTemplate | 音频参数 同创建拼接模板中 <br/>Request.ConcatTemplate.Audio  | Container    | 否   | 无  | 无 |
+| Video               |  Request.Operation.<br/>ConcatTemplate | 视频参数 同创建拼接模板中 <br/>Request.ConcatTemplate.Video  | Container    | 否   | 无  | 无 |
+| Container           |  Request.Operation.<br/>ConcatTemplate | 封装格式 同创建拼接模板中 <br/>Request.ConcatTemplate.Container   | Container    | 是   | 无  | 无 |
+| Index               |  Request.Operation.<br/>ConcatTemplate| Input节点位于ConcatFragment序列索引    | String    | 否   | 0  | 不能大于ConcatFragment长度 |
+| DirectConcat | Request.Operation.<br/>ConcatTemplate | 简单拼接方式（不转码直接拼接），其他的视频和音频参数失效 | String | 否 | false | true、false |
 
 Container 类型 ConcatFragment 的具体数据描述如下：
 
