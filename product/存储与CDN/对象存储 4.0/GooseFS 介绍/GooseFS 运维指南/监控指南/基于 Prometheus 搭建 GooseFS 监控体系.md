@@ -78,6 +78,8 @@ http://<PROMETHEUS_BI_IP>:<PROMETHEUS_BI_PORT>/targets
 wget https://rig-1258344699.cos.ap-guangzhou.myqcloud.com/prometheus-agent/agent_install && chmod +x agent_install && ./agent_install prom-12kqy0mw agent-grt164ii ap-guangzhou &lt;secret_id> &lt;secret_key>
 </code></pre>
 2. 配置 master 和 worker 的抓取任务：
+
+**方式一：**
 <pre class="rno-code-pre"><code class="language-plaintext">
  job_name: goosefs-masters
  honor_timestamps: true
@@ -97,7 +99,31 @@ file_sd_configs:
 	refresh_interval: 1m
 </code></pre>
 
- >! job_name 中没有空格，而单机的 Prometheus 的 job_name 中可以包含空格。
+>! job_name 中没有空格，而单机的 Prometheus 的 job_name 中可以包含空格。
+>
+
+**方式二：**
+<pre class="rno-code-pre"><code class="language-plaintext">
+job_name: goosefs masters
+honor_timestamps: true
+metrics_path: /metrics/prometheus
+scheme: http
+static_configs:
+- targets:
+ - "&lt;TARGERTS_MASTER_IP>:&lt;TARGERTS_MASTER_PORT>"
+ refresh_interval: 1m
+ 
+job_name: goosefs workers
+honor_timestamps: true
+metrics_path: /metrics/prometheus
+scheme: http
+static_configs:
+- targets:
+ - "&lt;TARGERTS_WORKER_IP>:&lt;TARGERTS_WORKER_PORT>"
+ refresh_interval: 1m
+</code></pre>
+
+>! 抓取任务按方式二配置，则无需创建 targets/cluster/masters/masters.yml和targets/cluster/workers/workers.yml
 >
 
 ## 使用 Grafana 查看监控指标
