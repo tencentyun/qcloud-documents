@@ -1,9 +1,7 @@
 本文介绍使用 DTS 数据迁移功能，从通过 MySQL 迁移数据至腾讯云云原生数据库 TDSQL-C 的操作指导。
 
 如下场景的迁移要求与 MySQL 到 TDSQL-C 的迁移要求一致，可参考本场景相关内容。
-
 - MariaDB 到 TDSQL-C 的数据迁移
-
 - MariaDB（Percona）到 TDSQL-C 的数据迁移
 
 ## 前提条件
