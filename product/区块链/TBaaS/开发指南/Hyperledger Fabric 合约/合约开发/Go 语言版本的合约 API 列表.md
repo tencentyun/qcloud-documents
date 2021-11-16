@@ -5,6 +5,7 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 - [参数处理](#parametersProcess)
 - [其他辅助类](#otherClass)
 
+
 [](id:informationExtraction)
 ### 交易信息提取
 
