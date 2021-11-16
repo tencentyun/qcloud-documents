@@ -21,7 +21,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要 Chrome72+ 版本）</td>
+<td>支持 Chrome72+ 版本</td>
 </tr>
 <tr>
 <td>桌面版 QQ 浏览器（极速内核）</td>
@@ -37,7 +37,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>v4.7.0+</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要 Firefox66+ 版本）</td>
+<td>支持 Firefox66+ 版本</td>
 </tr>
 <tr>
 <td>桌面版 Edge 浏览器</td>
@@ -69,7 +69,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>v4.7.0+</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要 Opera60+ 版本）</td>
+<td>支持 Opera60+ 版本</td>
 </tr>
 <tr>
 <td>桌面版 360 安全浏览器（极速模式）</td>
@@ -110,7 +110,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要 Safari13+ 版本）</td>
+<td>支持 Safari13+ 版本</td>
 </tr>
 <tr>
 <td>桌面版 Chrome 浏览器</td>
@@ -118,7 +118,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要 Chrome72+ 版本）</td>
+<td>支持 Chrome72+ 版本</td>
 </tr>
 <tr>
 <td>桌面版 Firefox 浏览器</td>
@@ -126,7 +126,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>v4.7.0+</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要 Firefox66+ 版本）</td>
+<td>支持 Firefox66+ 版本<a href="#attention3">（注意[3]）</a></td>
 </tr>
 <tr>
 <td>桌面版 Edge 浏览器</td>
@@ -142,7 +142,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>v4.7.0+</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要 Opera60+ 版本）</td>
+<td>支持 Opera60+ 版本</td>
 </tr>
 <tr>
 <td>桌面版微信内嵌浏览器</td>
@@ -266,8 +266,9 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 </table>
 
 >! 
->- 您可以在浏览器中打开 [TRTC Web SDK 能力测试页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 检测当前浏览器是否支持 WebRTC 所有能力。例如 WebView 等浏览器环境。
->- 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC Web 端 SDK 的正常运行。
+> 1. 您可以在浏览器中打开 [TRTC Web SDK 能力测试页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 检测当前浏览器是否支持 WebRTC 所有能力。例如 WebView 等浏览器环境。
+> 2. 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC Web 端 SDK 的正常运行。
+> 3. <span id="attention3"></span>Mac OS 下的 Firefox 屏幕分享效果比较差且暂无解决方案，建议使用 Chrome 或者 Safari 进行屏幕分享。
 
 ## URL 域名协议限制
 | 应用场景     | 协议             | 接收（播放） | 发送（上麦） | 屏幕分享 | 备注 |
