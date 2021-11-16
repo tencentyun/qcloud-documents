@@ -32,6 +32,6 @@
 
 
 ## 相关链接
-- 添加子账号：可参考集团账号功能 [添加组织成员](https://cloud.tencent.com/document/product/850/58721)，系统默认勾选**查看账单**权限，即可在账单存 COS 配置界面选择到子账号。
+- 添加成员账号：可参考集团账号功能 [添加组织成员](https://cloud.tencent.com/document/product/850/58721)，系统默认勾选**查看账单**权限，即可在账单存 COS 配置界面选择到子账号。
 - COS API 获取账单压缩包名称：[GET Bucket（List Objects）](https://cloud.tencent.com/document/product/436/7734)。
 - COS API 下载压缩包：[GET Object](https://cloud.tencent.com/document/product/436/7753)。
