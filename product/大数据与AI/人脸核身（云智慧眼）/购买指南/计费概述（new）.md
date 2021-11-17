@@ -210,3 +210,5 @@ E证通服务与计费标签对应关系说明如下：
 <td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
     </tr>
 </table>
+
+>?目前意愿核身服务为内测阶段，如需接入使用，欢迎您 [点此链接](https://cloud.tencent.com/document/product/1007/56130) 扫描二维码添加腾讯云人脸核身小助手进行询问。
