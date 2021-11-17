@@ -1,8 +1,8 @@
 SSL VPN 网关创建完成后，需要在腾讯云侧创建 SSL 服务端，为用户侧提供 SSL 服务。
 
 ## 前提条件
-- 已[ 创建 SSL VPN 网关](https://cloud.tencent.com/document/product/554/63716) 。
-- 已[ 创建 VPC](https://cloud.tencent.com/document/product/215/36515) 。
+- 已[ 创建 SSL VPN 网关](https://cloud.tencent.com/document/product/554/63716)。
+- 已[ 创建 VPC](https://cloud.tencent.com/document/product/215/36515)。
 
 
 ## 操作步骤
