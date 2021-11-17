@@ -1,7 +1,7 @@
 ## 简介
 
 ### 组件介绍
-内存溢出（Out of Memory，OOM）是指应用系统中存在无法回收的内存或使用的内存过多，最终使得程序运行要用到的内存大于能提供的最大内存。当 cgroup 内存不足时，Linux 内核会触发 cgroup OOM 来选择一些进程杀掉，以便能回收一些内存从而尽量继续保持系统继续运行。但 Linux 内核对 cgroup OOM 的处理存在很多问题，频繁的 cgroup OOM 经常会带来节点故障（例如卡死、重启或进程异常但无法杀死）的情况。
+内存溢出（Out of Memory，OOM）是指应用系统中存在无法回收的内存或使用的内存过多，最终使得程序运行要用到的内存大于能提供的最大内存。当 cgroup 内存不足时，Linux 内核会触发 cgroup OOM 来选择一些进程杀掉，以便能回收一些内存从而尽量继续保持系统继续运行。但 Linux 内核（尤其是3.10等低版本内核）对 cgroup OOM 的处理存在很多问题，频繁的 cgroup OOM 经常会带来节点故障（例如卡死、重启或进程异常但无法杀死）的情况。
 
 OOM-Guard 是容器服务 TKE 提供用于在用户态处理容器 cgroup OOM 的组件。当 cgroup OOM 情况出现时，在系统内核杀死相关容器进程之前，OOM-Guard 组件会直接在用户空间杀掉超过内存限制的容器，从而减少了在内核态回收内存失败而触发各种节点故障的概率。
 
@@ -17,13 +17,13 @@ oom-guard 会给 memory cgroup 设置 threshold notify，接受内核的通知�
 ```
 margin = 1000M * margin_ratio = 20M // 缺省 margin_ratio 是 0.02
 ```
-另外 margin 最小不小于 mim_margin（缺省1M），最大不大于 max_margin（缺省为30M）。如果超出范围，则取 mim_margin 或 max_margin。
+另外 margin 最小不小于 min_margin（缺省1M），最大不大于 max_margin（缺省为50M）。如果超出范围，则取 min_margin 或 max_margin。
 
 然后计算 threshold：
 ```
 threshold = limit - margin // 即 1000M - 20M = 980M
 ```
-把 980M 作为阈值设置给内核。当这个 pod 的内存使用量达到 980M 时，oom-guard 会收到内核的通知。
+把980M作为阈值设置给内核。当这个 pod 的内存使用量达到980M时，oom-guard 会收到内核的通知。
 
 在触发阈值之前，oom-gurad 会先通过 memory.force_empty 触发相关 cgroup 的内存回收。另外，如果触发阈值时，相关 cgroup 的 memory.stat 显示还有较多 cache，则不会触发后续处理策略，这样当 cgroup 内存达到 limit 时，会内核会触发内存回收。这个策略也会造成部分容器内存增长太快时，仍然触发内核 cgroup OOM。
 
