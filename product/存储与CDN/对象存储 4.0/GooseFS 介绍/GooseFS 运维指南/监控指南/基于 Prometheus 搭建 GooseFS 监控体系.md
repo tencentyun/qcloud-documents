@@ -123,8 +123,8 @@ static_configs:
  refresh_interval: 1m
 </code></pre>
 
->! 抓取任务按方式二配置，则无需创建 targets/cluster/masters/masters.yml和targets/cluster/workers/workers.yml
->
+>! 抓取任务按方式二配置，则无需在 targets/cluster/masters/ 路径下创建 masters.yml 和 workers.yml 文件。
+> 
 
 ## 使用 Grafana 查看监控指标
 
