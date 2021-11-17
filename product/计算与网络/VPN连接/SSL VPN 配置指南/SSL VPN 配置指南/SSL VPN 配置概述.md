@@ -11,9 +11,9 @@
 创建 SSL 协议类型的 VPN 网关。
 2. [创建 SSL 服务端](https://cloud.tencent.com/document/product/554/63717)。
 在 SSL 服务端中指定要连接的腾讯云侧网段和客户端网段。
-3. [创建客户端证书](https://iwiki.woa.com/pages/viewpage.action?pageId=1059338353)。
+3. [创建客户端证书](https://cloud.tencent.com/document/product/554/63718)。
 用户使用证书和密钥与 VPN 网关建连，用户侧验证服务端证书，服务端验证用户端证书，校验通过后，服务端从客户端 IP 地址池中分配一个 IP 给用户，该 IP 用于和 VPC 内 CVM 通信时使用。
-4. [配置 VPC 内路由](https://cloud.tencent.com/document/product/554/52860)。
+4. [配置 VPC 内路由](https://cloud.tencent.com/document/product/554/63767)。
 在 VPC 内配置流量从 IDC 到腾讯云 VPC 内的路由转发策略，目的地址为客户端网段，下一跳类型为 VPN 网关，下一跳为 SSL VPN 网关。
 5. 配置用户移动端。
 在用户移动端完成客户端配置。
