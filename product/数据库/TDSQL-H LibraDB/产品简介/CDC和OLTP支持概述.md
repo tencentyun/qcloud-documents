@@ -58,6 +58,7 @@ CDC（Change Data Capture）是数据融合的高速链路。数据在 OLTP 与�
 <td>-</td></tr>
 </tbody></table>
 >!
+>- 当分析引擎是LibraSQL 10.3.203及更早期版本时，由于Database Engine不支持[atomic engine](https://clickhouse.com/docs/en/engines/database-engines/atomic/)，下述DDL不支持：rename、drop、truncate、alter rename table，drop database。
 >- 对于删除类操作，为保障数据安全，我们会转义为改名操作。
 >- 库表 DDL 同步说明：
 >  - “同步对象”选择“整个实例”，在链路建立后：OLTP 新增的对象及其修改均能同步到分析引擎。
