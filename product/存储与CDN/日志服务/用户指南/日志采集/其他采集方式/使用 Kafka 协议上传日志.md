@@ -30,7 +30,7 @@
 	<tr><td>外网</td><td>gz-producer.cls.tencentcs.comgzproducer.cls.tencentcs.com/...</td></tr>
 </table>
 
->? 以广州为例，内外网域名用不同端口标识，其他地域请替换地址前缀。
+>? 本文档以广州地域为例，由于内外网域名用不同端口标识，其他地域请替换地址前缀。
 >
   
 ## 示例
