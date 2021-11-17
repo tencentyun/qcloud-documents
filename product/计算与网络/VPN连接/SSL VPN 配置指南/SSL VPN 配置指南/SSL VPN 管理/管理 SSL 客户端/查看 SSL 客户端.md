@@ -11,5 +11,4 @@
  ![](https://qcloudimg.tencent-cloud.cn/raw/97398baae192ce6579365aa3ea7d444e.png)
   单击 SSL 服务端 ID 可以跳转至相连的 SSL 服务端，并查看服务端信息。
 
-## 启停 SSL 客户端证书
-在 SSL 客户端创建 SSL 客户端证书默认是开启的，需要关闭在**启动证书**列操作即可。
+
