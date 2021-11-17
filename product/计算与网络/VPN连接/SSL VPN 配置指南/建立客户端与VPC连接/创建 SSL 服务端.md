@@ -1,4 +1,5 @@
-SSL VPN 网关创建完成后，需要在腾讯云侧创建 SSL 服务端，为用户 IDC 侧提供 SSL 服务。
+SSL VPN 网关创建完成后，需要在腾讯云侧创建 SSL 服务端，为客户侧提供 SSL 服务。
+
 
 ## 前提条件
 - 已[ 创建 SSL  VPN 网关](https://cloud.tencent.com/document/product/554/63605)。
@@ -8,12 +9,12 @@ SSL VPN 网关创建完成后，需要在腾讯云侧创建 SSL 服务端，为�
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击 **VPN 连接** > **SSL 服务端**，进入管理页面。
-3. 在 VPN 网关管理页面，单击**+新建**。
-4. 在弹出的 “SSL 服务端”对话框中，配置如下网关参数。
-![](https://qcloudimg.tencent-cloud.cn/raw/a694b044e10331401af39f52b2efa80e.png)
+3. 在 SSL 服务端管理页面，单击**+新建**。
+4. 在弹出的 “新建 SSL 服务端”对话框中，配置如下参数。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/0810ba2d7d69957fd70c6fe60675136d.png" width="70%">
 <table>
 <tr>
-<th width="12%">参数名称</th>
+<th width="15%">参数名称</th>
 <th>参数说明</th>
 </tr>
 <tr>
@@ -30,15 +31,15 @@ SSL VPN 网关创建完成后，需要在腾讯云侧创建 SSL 服务端，为�
 </tr>
 <tr>
 <td>本端网段</td>
-<td>填写腾讯云侧用于提供 SSL 服务的网段，该网段需要在当前网关所在的 VPC 内。</td>
+<td>为客户移动端需要和云上通信的网段</td>
 </tr>
 <tr>
 <td>客户端网段</td>
-<td>填写分配给用户 IDC 侧进行通信的网段，该网段不可和 SSL 服务端网段重叠，且地址池掩码需小于29。</td>
+<td>填写分配给客户侧进行通信的网段，该网段不可和 SSL 服务端网段重叠，且地址池掩码需小于29。</td>
 </tr>
 <tr>
 <td>协议</td>
-<td>展示 SSL 服务端协议，默认为 UDP。</td>
+<td>服务端传输协议。</td>
 </tr>
 <tr>
 <td>端口</td>
@@ -46,7 +47,7 @@ SSL VPN 网关创建完成后，需要在腾讯云侧创建 SSL 服务端，为�
 </tr>
 <tr>
 <td>认证算法</td>
-<td>目前支持 SHA1 和  MD5 两种认证算法，默认不选，请依据实际情况选择。</td>
+<td>目前支持 SHA1 和 MD5 两种认证算法。。</td>
 </tr>
 <tr>
 <td>加密算法</td>
