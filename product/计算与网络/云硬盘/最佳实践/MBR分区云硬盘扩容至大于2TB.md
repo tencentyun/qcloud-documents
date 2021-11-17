@@ -52,7 +52,7 @@ parted /dev/vdb
 - 选择的截止容量小于扩容前的原分区容量的值。
 </dx-alert> 
 11. 输入 `p` 并按 **Enter**，查看新分区是否替换成功。回显信息类似如下图所示，则表示已成功替换：
-![](https://qcloudimg.tencent-cloud.cn/raw/4c1600f74d20cab26336bd0b90cf41ba.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a48c842ae52e696d7ad03cca217638f3.png)
 12. 输入 `q` 并按 **Enter**，退出 parted 分区工具。
 12. 执行以下命令，挂载分区。
 ```
