@@ -51,7 +51,7 @@ CDC（Change Data Capture）是数据融合的高速链路。数据在 OLTP 与�
 <tr>
 <td>truncate 操作转义为：将表名修改为“deleted_unix时间戳_原表名”并新建本地表</td></tr>
 <tr>
-<td>rename 操作不支持移动表：`RENAME TABLE;current_db.tbl_name TO other_db.tbl_name;`</td></tr>
+<td>rename 操作不支持移动表：`RENAME TABLE current_db.tbl_name TO other_db.tbl_name;`</td></tr>
 <tr>
 <td>Column</td>
 <td>add、drop、rename、change、modify、alter</td>
@@ -77,3 +77,4 @@ CDC（Change Data Capture）是数据融合的高速链路。数据在 OLTP 与�
 <td>分析引擎集群名</td>
 <td>default_cluster</td></tr>
 </tbody></table>
+
