@@ -7,6 +7,35 @@ OOM-Guard 是容器服务 TKE 提供用于在用户态处理容器 cgroup OOM �
 
 在触发阈值进行 OOM 之前，OOM-Guard 会先通过写入 `memory.force_empty` 触发相关 cgroup 的内存回收，如果 `memory.stat` 显示还有较多 cache，则不会触发后续处理策略。在 cgroup OOM 杀掉容器后，会向 Kubernetes 上报 `OomGuardKillContainer` 事件，可以通过 `kubectl get event` 命令进行查看。
 
+### 原理介绍
+核心思想是在发生内核 cgroup OOM kill 之前，在用户空间杀掉超限的容器， 减少走到内核 cgroup 内存回收失败后的代码分支从而触发各种内核故障的机会。
+
+oom-guard 会给 memory cgroup 设置 threshold notify，接受内核的通知。详情见 [threshold notify](https://lwn.net/Articles/529927/)。
+
+#### 示例
+假如一个 pod 设置的 memory limit 是1000M，oom-guard 会根据配置参数计算出 margin。
+```
+margin = 1000M * margin_ratio = 20M // 缺省 margin_ratio 是 0.02
+```
+另外 margin 最小不小于 mim_margin（缺省1M），最大不大于 max_margin（缺省为30M）。如果超出范围，则取 mim_margin 或 max_margin。
+
+然后计算 threshold：
+```
+threshold = limit - margin // 即 1000M - 20M = 980M
+```
+把 980M 作为阈值设置给内核。当这个 pod 的内存使用量达到 980M 时，oom-guard 会收到内核的通知。
+
+在触发阈值之前，oom-gurad 会先通过 memory.force_empty 触发相关 cgroup 的内存回收。另外，如果触发阈值时，相关 cgroup 的 memory.stat 显示还有较多 cache，则不会触发后续处理策略，这样当 cgroup 内存达到 limit 时，会内核会触发内存回收。这个策略也会造成部分容器内存增长太快时，仍然触发内核 cgroup OOM。
+
+#### 达到阈值后的处理策略
+通过`--policy`参数来控制处理策略。目前有以下三个策略，缺省策略是 container。
+
+| 策略 | 描述|
+|---------|---------|
+|process | 采用跟内核 cgroup OOM killer 相同的策略，在该 cgroup 内部，选择一个 oom_score 得分最高的进程杀掉。通过 oom-guard 发送 SIGKILL 来杀掉进程。 | 
+| container | 在该 cgroup 下选择一个 docker 容器，杀掉整个容器。| 
+| noop |  只记录日志，并不采取任何措施。| 
+
 ### 部署在集群内的 Kubernetes 对象
 
 | Kubernetes 对象名称 | 类型               | 默认占用资源            | 所属 Namespaces |
