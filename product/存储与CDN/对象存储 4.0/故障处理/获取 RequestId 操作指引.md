@@ -129,7 +129,7 @@ cos.putObject({
     Region: 'COS_REGION',    /* 必须 */
     Key: 'test.js',              /* 必须 */
     StorageClass: 'STANDARD',
-    Body: Buffer.from('Hello COS'),
+    Body: 'Hello COS',
     onProgress: function(progressData) {
         console.log(JSON.stringify(progressData));
     }
@@ -179,7 +179,7 @@ cos.putObject({
     Region: 'COS_REGION',    /* 必须 */
     Key: 'test.js',              /* 必须 */
     StorageClass: 'STANDARD',
-    Body: Buffer.from('Hello COS'),
+    Body: 'Hello COS',
     onProgress: function(progressData) {
         console.log(JSON.stringify(progressData));
     }
