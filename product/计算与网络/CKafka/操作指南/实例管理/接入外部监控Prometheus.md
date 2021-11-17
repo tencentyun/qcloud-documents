@@ -7,7 +7,7 @@
 
 ## 操作步骤
 
-1. 登录 [CKafka 控制台](http://console.tencent.com/ckafka)。
+1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏选择**实例列表**，单击目标实例的“ID”，进入实例基本信息页面。
 3. 在**使用Prometheus监控**模块单击右上角的**获取监控目标**，选择 VPC 和子网。
 ![](https://qcloudimg.tencent-cloud.cn/raw/38ced4a030cd8e901e5c5f89b7da92fc.png)
