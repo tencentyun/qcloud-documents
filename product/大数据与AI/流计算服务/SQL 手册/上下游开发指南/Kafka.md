@@ -234,7 +234,7 @@ CREATE TABLE `kafka_canal_json_sink_table`
 | debezium-json.ignore-parse-errors | 否   | false  | 忽略处理错误。对于无法解析的字段，会输出为 null。            |
 | canal-json.\*                      | 否   | -      | 参考 [Format Options](https://nightlies.apache.org/flink/flink-docs-release-1.13/docs/connectors/table/formats/canal/#format-options) |
 
-### Canal 格式支持的元数据(仅支持 Flink1.13 版本集群)
+### Canal 格式支持的元数据（仅支持 Flink1.13 版本集群）
 
 以下元数据只能作为表定义中的只读（VIRTUAL）列，若元数据列与物理列冲突，元数据列可以使用`meta.`列名：
 
