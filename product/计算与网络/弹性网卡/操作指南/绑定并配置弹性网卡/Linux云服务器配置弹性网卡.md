@@ -89,6 +89,7 @@ ONBOOT=yes
 PERSISTENT_DHCLIENT=yes
 TYPE=Ethernet
 USERCTL=no
+PEERDNS=no
 DEFROUTE=no    # 默认路由，即是否将该网卡设置为默认路由，此处为防止路由冲突不设置 eth1 为默认路由
 ```
  修改后如下所示：
@@ -127,27 +128,25 @@ ip route add default dev eth1 via 192.168.1.1 table 20   #192.168.1.1请替换�
 <dx-alert infotype="explain" title="">
 具体网关，请参考 [查看网关](#.E6.9F.A5.E7.9C.8B.E7.BD.91.E5.85.B3) 。</dx-alert>
     + 配置永久路由，即可利用配置文件将策略路由保存下来，此处以 centos7.8 为例。[](id:pzyjly)
-        1. 编辑“/etc/sysconfig/network-scripts/”目录中的配置文件“route-网卡名”，如route-eth0。
+       1. 编辑“/etc/sysconfig/network-scripts/”目录中的配置文件“route-网卡名”，如route-eth0。
   ```plaintext
 vim /etc/sysconfig/network-scripts/route-eth0    # 编辑 route-eth0 文件
       ```
-		2. 增加添加一行命令：`default dev [网卡名 如 eth0] via [该网卡的网关 如192.168.1.1] table [策略路由表的代号 如10]`，如下：       
+       2. 增加添加一行命令：`default dev [网卡名 如 eth0] via [该网卡的网关 如192.168.1.1] table [策略路由表的代号 如10]`，如下：       
  ```plaintext
 default dev eth0 via 192.168.1.1 table 10        # 在 route-eth0 文件中为路由表10增加默认网关
 ```
 		3. 按“ESC”，并输入“:wq!”保存并退出，然后再按照同样操作配置 route-eth1 文件。
-	
-         ```plaintext
-	vim /etc/sysconfig/network-scripts/route-eth1     # 编辑 route-eth1 文件
-	default dev eth1 via 192.168.1.1 table 20         # 在 route-eth1 文件中为路由表20增加默认网关
+      ```plaintext
+vim /etc/sysconfig/network-scripts/route-eth1     # 编辑 route-eth1 文件
+default dev eth1 via 192.168.1.1 table 20         # 在 route-eth1 文件中为路由表20增加默认网关
 ```
-
 	   4. 重启网络使配置生效。
-	   
-         ```plaintext
+>!如果您配置了内网 DNS，在重启网络后可能导致 resolv.conf 文件被重置，影响 DNS 解析，请评估后操作。
+>
+```plaintext
 systemctl restart network
 ```
-
  3. 配置策略路由规则。
 ```plaintext
 ip rule add from 192.168.1.5 table 10     #IP 请替换为主网卡上的 IP，请根据实际情况填写。
