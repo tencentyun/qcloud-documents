@@ -36,6 +36,7 @@ Namespace=QCE/TXMR_HDFS
 | EmrHdfsOverviewHdfs<br/>NnDatanodesCountNumstale<br/>datanodes | 集群数据节点_NumStaleDataNodes           | 个   | 由于心跳延迟而标记为过期的 DataNodes 当前数量 | id4hdfsoverview |
 | EmrHdfsOverviewHdfsNn<br/>SnapshotsSnapshots                 | SNAPSHOT 相关_Snapshots                  | 个   | Snapshots 数量                                | id4hdfsoverview |
 | EmrHdfsOverviewHdfs<br/>NnVolumeFailures<br/>Volumefailurestotal | 磁盘故障_VolumeFailuresTotal             | 次   | 所有 Datanodes 的全故障总数                   | id4hdfsoverview |
+|HdfsStatUsageRatio<br>Capacityusedrate | 	HDFS存储空间使用率         |%  | HDFS存储空间使用率              | id4hdfsoverview |
 
 ## HDFS-OverviewAggregation
 
@@ -148,6 +149,8 @@ Namespace=QCE/TXMR_HDFS
 | HdfsNnThreadCountPeakthreadcount                             | 线程数量_PeakThreadCount                                     | 个       | 峰值线程数                                           | host4hdfsnamenode、<br> id4hdfsnamenode |
 | HdfsNnThreadCountThreadcount                                 | 线程数量_ThreadCount                                         | 个       | 线程数量                                             | host4hdfsnamenode、<br> id4hdfsnamenode |
 | HdfsNnThreadCount<br>Daemonthreadcount                       | 线程数量_DaemonThreadCount                                   | 个       | 后台线程数量                                         | host4hdfsnamenode、<br> id4hdfsnamenode |
+| HdfsNnPort4007Rt<br>Rpcprocessingtimeavgtime                     | 请求处理延迟_ RpcProcessingTimeAvgTime	                                  | ms       | 请求处理延迟                                  | host4hdfsnamenode、<br> id4hdfsnamenode |
+
 
 ### HDFS-DataNode
 
