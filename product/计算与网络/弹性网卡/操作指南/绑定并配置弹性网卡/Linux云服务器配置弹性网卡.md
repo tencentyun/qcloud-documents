@@ -92,7 +92,7 @@ DEFROUTE=no    # 默认路由，即是否将该网卡设置为默认路由，此
 ```
   4. 修改后保存配置文件并退出（在 vim 的末行模式下按 “Esc”，输入 “wq!” 并回车）。
 4. 输入如下命令，重启网络服务使配置生效。
->!如果您配置了内网 DNS，在重启网络后可能导致 resolv.conf 文件被重置，影响 DNS 解析，请评估后操作。
+>!如果您配置了 DNS，在重启网络后可能导致 resolv.conf 文件被重置，影响 DNS 解析，请评估后操作。
 >
 ```plaintext
 systemctl restart network
