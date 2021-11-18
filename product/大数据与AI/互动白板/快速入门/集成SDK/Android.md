@@ -3,7 +3,7 @@
 ## 开发环境
 
 - Android Studio 2.0+
-- Android 4.2 （SDK API 17）及以上系统
+- Android 4.2（SDK API 17）及以上系统
 
 ## 集成 TEduBoard SDK
 

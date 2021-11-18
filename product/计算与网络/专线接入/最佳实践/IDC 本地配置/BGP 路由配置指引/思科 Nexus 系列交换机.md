@@ -7,25 +7,19 @@
 # 配置物理接口
 interfaces <interface_number>
 description <interface_desc>
-switchport mode trunk
 no shutdown
+no switchport
 speed <interface_speed>
 duplex full
 no negotiation auto
-commit
+end
 
-# 配置虚拟通道
-vlan <subinterface_vlanid>
-description <subinterface_desc>
-!
-interface Vlan <subinterface_vlanid>
-description <subinterface_desc>
+# 配置三层子接口
+interface  interface-number.subnumber
+description <vlan_description>
+encapsulation dot1q <vlanid>
 ip address <subinterface_ipaddress> <subinterface_netmask>
-!
-interfaces <interface_number>
-switchport trunk allowed vlan <subinterface_vlanid> add
-commit
-
+end
 # 设置 eBGP
 router bgp <as_number>
 bgp router-id <router_id>

@@ -7,26 +7,21 @@
 # 配置物理接口
 interfaces <interface_number>
 description <interface_desc>
-switchport mode trunk
 no shutdown
+no switchport
 speed <interface_speed>
 duplex full
 no negotiation auto
+end
 
-# 配置虚拟通道
-feature interface-vlan
-!
-vlan <subinterface_vlanid>
-description <subinterface_desc>
-!
-interface Vlan <subinterface_vlanid>
-description <subinterface_desc>
+# 配置三层子接口
+interface  interface-number.subnumber
+description <vlan_description>
+encapsulation dot1q <vlanid>
 ip address <subinterface_ipaddress> <subinterface_netmask>
-!
-interfaces <interface_number>
-switchport trunk allowed vlan <subinterface_vlanid> add
+end
 
 # 设置静态路由
-ip route <ip_prefix/netmask> <interface_number | vlan_id> <next_hop_ip> <name nexthop_name>
+ip route <ip_prefix> <netmask> <interface_number.subnumber> <next_hop_ip> <name nexthop_name>
 <distance> <tag tag_value>
 ```

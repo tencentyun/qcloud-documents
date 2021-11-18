@@ -3,23 +3,18 @@
 
 ## 路由配置
 ``` 
-# 配置 VLAN
-vlan <vlanid>
-description <vlan_description>
-
-# 配置物理接口
-interface <interface_name>
-port link-mode bridge
-description <XXXX>
-port link-type trunk
-undo port trunk permit vlan 1
-port trunk permit vlan <vlanid>
+# 配置物理接口
+interfaces <interface_number>
+description <interface_desc>
+port link-mode route
+undo shutdown
 speed <interface_speed>
 duplex full
 
-# 配置 vlan-interface
-interface Vlan-interface<vlanid>
+# 配置三层子接口
+interface  interface-number.subnumber
 description <vlan_description>
+dot1q termination vid <vlanid>
 ip address <subinterface_ipaddress> <subinterface_netmask>
 
 # 设置 eBGP
@@ -28,4 +23,5 @@ bgp <as_number>
 peer <bgp_peer_address> as-number <bgp_peer_as_number>
 peer <bgp_peer_address> password cipher <bgp_auth_key>
 peer <bgp_peer_address> description <bgp_desc>
+
 ```

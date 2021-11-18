@@ -1,0 +1,57 @@
+## 接口描述
+JWT 公钥用于对 JWT 格式的 ID Token 和 Access Token 进行验证。
+>?JWT 密钥在创建用户目录时自动生成，不同用户目录的密钥不同。
+
+
+## 请求方法
+GET
+
+## 请求地址
+```
+/oauth2/jwks
+```
+
+## 请求示例
+```
+GET /oauth2/jwks HTTP/1.1
+Host: localhost:8080
+```
+
+
+## 请求参数
+
+| 参数       | 数据类型 | 描述               |
+| :--------- | :------- | :----------------- |
+| keys       | Array    | 包含公钥的数组。   |
+| keys[].kty | String   | 密钥类型，如 RSA。 |
+| keys[].kid | String   | 密钥标识。         |
+| keys[].e   | String   | RSA 公钥。         |
+| keys[].n   | String   | RSA 公钥。         |
+
+
+## 响应参数
+| 参数          | 数据类型 | 描述                                 |
+| :------------ | :------- | :----------------------------------- |
+| access_token  | String   | OAuth 2.0 Access Token (JWT)。       |
+| refresh_token | String   | OAuth 2.0 Refresh Token。            |
+| scope         | String   | Access Token 的 Scope。              |
+| id_token      | String   | OIDC ID Token (JWT)。                |
+| token_type    | String   | Token 类型，目前取固定值 'Bearer' 。 |
+| expires_in    | Number   | Access Token 有效期，单位秒。        |
+
+
+## 正常响应示例
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "keys" : [ {
+    "kty" : "RSA",
+    "e" : "AQAB",
+    "kid" : "d49bc505-5572-4ed6-9e48-388c3d44bb46",
+    "n" : "reCXJ_FkaMcjS6Qia3g4giV1IkGckkx_l9YSoP-bo2GpK948qGnn7sS4ji501cn8TTEU2MKYywEvB6eR-Mj6THEReTzxhMEwGoytZYxpkSj9t5gGZ9-EXOZBAqFirI3AG3_oVvCxwoFncqcKR5AidZONc0lO4Lf5U4tXa5ArrKRbRGczm3kQky-Vxy13f23y5yc_VPjnRgyhScIJOPzBMWXZ-jKD4Bc1UaPHwbE3fx5ayMUqjZXID1-0VpTxAvMLpEhrbfrlGjHAbljqwmt_yKBSiPP8vJAfyv0WOLHus6BnvhpVNKMvd2WXtk6njPDTibvFm9tkAhsrQ1Q5ZTbgRQ"
+  } ]
+}
+```
+>?CIAM 返回的是 JWT 格式的 Access Token 和 ID Token，使用 Token 前需对 JWT 进行解密与验证。请参考 [RFC 9068 ](https://www.rfc-editor.org/rfc/rfc9068.html)和[ OIDC 官方文档 ](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)对 JWT 进行解密与验证。也可以直接使用相关的开发库完成解密验证。验证所需的公钥通过调用 [获取 JWT 公钥 ](https://cloud.tencent.com/document/product/1441/64397)接口获得。

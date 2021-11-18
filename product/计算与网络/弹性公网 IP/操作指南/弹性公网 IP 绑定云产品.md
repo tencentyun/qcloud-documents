@@ -13,7 +13,7 @@
 <tbody><tr>
 <td>传统账户类型</td>
 <td align="center">-</td>
-<td>EIP 本身不收取任何费用，仅在 CVM 上收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
+<td>EIP 本身不收取任何费用，在绑定的云资源上收取公网网络费用 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
 </tr>
 <tr>
 <td rowspan="4">标准账户类型</td>

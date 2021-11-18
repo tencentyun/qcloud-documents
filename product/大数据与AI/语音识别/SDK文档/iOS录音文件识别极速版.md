@@ -1,6 +1,6 @@
 ## 开发准备  
 ### SDK 获取
-录音文件识别的 iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_IOS_v2.6.2.zip)。
+录音文件识别的 iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_IOS_v2.6.4.zip)。
 
 ### 使用须知
 - QCloudSDK 支持 **iOS 9.0** 及以上版本。
