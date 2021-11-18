@@ -1,7 +1,7 @@
 ## 前言
 如果您正在为直播活动寻找一个推拉流的应用，如果您想要办一场讲座且在讲课的同时满足分享 PPT 的需求，如果您想要满足不同延迟度要求的直播场景，如果您需要在直播的过程中和在线观众进行互动，那么腾讯云快速推拉流场景化解决方案就是为解决您的需求而准备。
 
-借鉴市场中推拉流场景的常见解决方案，我们提供了包含 UI 的推拉流解决方案 [TUIPusher](https://github.com/tencentyun/TUILiveRoom/tree/main/Web/TUIPusher) 和 [TUIPlayer](https://github.com/tencentyun/TUILiveRoom/tree/main/Web/TUIPlayer) 供您使用和参考。TUIPusher 及 TUIPlayer 功能演示请观看以下视频。同时，为了您更加快速的体验 TUIPusher & TUIPlayer 的功能，我们结合用户管理系统和房间管理系统提供了 [TUIPusher 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html) 及 [TUIPlayer 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html)。
+借鉴市场中推拉流场景的常见解决方案，我们提供了包含 UI 的推拉流解决方案 [TUIPusher](https://github.com/tencentyun/TUILiveRoom/tree/main/Web/TUIPusher) 和 [TUIPlayer](https://github.com/tencentyun/TUILiveRoom/tree/main/Web/TUIPlayer) 供您使用和参考。TUIPusher 及 TUIPlayer 功能演示请观看以下图。同时，为了您更加快速的体验 TUIPusher & TUIPlayer 的功能，我们结合用户管理系统和房间管理系统提供了 [TUIPusher 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html) 及 [TUIPlayer 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html)。
 ![TUIPusher演示](https://web.sdk.qcloud.com/component/tuiliveroom/assets/pusher.gif)
 ![TUIPlayer演示](https://web.sdk.qcloud.com/component/tuiliveroom/assets/player.gif)
 

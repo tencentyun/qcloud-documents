@@ -6,24 +6,18 @@
 # 设置物理接口
 interfaces <interface_number>
 description <interface_desc>
-port link-type trunk
+undo portswitch
 undo shutdown
 speed <interface_speed>
 duplex full
 undo negotiation auto
 commit
 
-# 设置虚拟通道
-vlan <subinterface_vlanid>
+# 设置虚拟通道(三层子接口)
+interface  <interface_number>.subinterface-number
 description <subinterface_desc>
-#
-interface Vlanif <subinterface_vlanid>
-description <subinterface_desc>
+dot1q termination vid <vlanid>
 ip address <subinterface_ipaddress> <subinterface_netmask>
-#
-interfaces <interface_number>
-port trunk allow-pass vlan <subinterface_vlanid>
-commit
 
 # 设置 eBGP 
 bgp <as_number>
@@ -34,4 +28,5 @@ peer <bgp_peer_address> description <bgp_desc>
 ipv4-family unicast
 peer <bgp_peer_address> enable
 commit
+
 ```
