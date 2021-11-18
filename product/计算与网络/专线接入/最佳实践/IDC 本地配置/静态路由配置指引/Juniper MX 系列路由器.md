@@ -30,4 +30,5 @@ set routing-instances <vrf_name> routing-options static route <customer_prefix/m
 <customer_interface_ip>
 例如:set routing-instances cap routing-options static route 1.1.1.0/24 next-hop 192.168.1.2
 commit
+
 ```
