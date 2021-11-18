@@ -78,8 +78,6 @@ IPADDR='192.168.1.62'  # 此处填写弹性网卡上的 IP 地址，请根据实
 NETMASK='255.255.255.192'  # 此处填写子网掩码，请根据实际填写
 #GATEWAY='192.168.1.1'  # 填写网卡所在子网的网关 IP 地址，请根据实际填写，本例由于 eth1 和 eth0 在同一个子网，已经定义了网关，这里不再重复填写，避免网关冲突
 ```
-		修改后，示例如下：
-  	![](https://main.qcloudimg.com/raw/f32f979387be2c27c034a8fe6959bd66.png)
 	+ 方式二：动态获取 IP 地址
 ```plaintext
 BOOTPROTO=dhcp     #自动获取 IP 地址
@@ -92,10 +90,10 @@ USERCTL=no
 PEERDNS=no
 DEFROUTE=no    # 默认路由，即是否将该网卡设置为默认路由，此处为防止路由冲突不设置 eth1 为默认路由
 ```
- 修改后如下所示：
- ![](https://qcloudimg.tencent-cloud.cn/raw/8769e7e91b312407f0ecbf46e5b7dc85.png)
   4. 修改后保存配置文件并退出（在 vim 的末行模式下按 “Esc”，输入 “wq!” 并回车）。
 4. 输入如下命令，重启网络服务使配置生效。
+>!如果您配置了内网 DNS，在重启网络后可能导致 resolv.conf 文件被重置，影响 DNS 解析，请评估后操作。
+>
 ```plaintext
 systemctl restart network
 ```
@@ -142,8 +140,6 @@ vim /etc/sysconfig/network-scripts/route-eth1     # 编辑 route-eth1 文件
 default dev eth1 via 192.168.1.1 table 20         # 在 route-eth1 文件中为路由表20增加默认网关
 ```
 	   4. 重启网络使配置生效。
->!如果您配置了内网 DNS，在重启网络后可能导致 resolv.conf 文件被重置，影响 DNS 解析，请评估后操作。
->
 ```plaintext
 systemctl restart network
 ```
