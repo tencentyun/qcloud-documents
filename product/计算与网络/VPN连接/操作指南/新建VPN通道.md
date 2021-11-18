@@ -13,8 +13,8 @@ VPN 通道的建立包括以下配置信息：
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
-2. 在左侧目录中单击**VPN 连接**>**VPN 通道**，进入管理页。
-3. 在“VPN 通道”管理页面，单击**新建**。
+2. 在左侧目录中单击**VPN 连接** > **VPN 通道**，进入管理页。
+3. 在 **VPN 通道**管理页面，单击**新建**。
 4. 在弹出的新建对话框中，配置 VPN 通道基本信息。[](id:buzhou4)
   ![](https://main.qcloudimg.com/raw/cb32f21fa41c5f34d8a8d0f8a8d660c1.png)
 <table>

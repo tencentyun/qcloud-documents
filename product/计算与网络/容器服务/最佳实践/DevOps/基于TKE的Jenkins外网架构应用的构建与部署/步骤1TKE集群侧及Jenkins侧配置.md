@@ -2,11 +2,19 @@
 此步骤中介绍了开启集群访问入口，以及获取配置 Jenkins 时所需的集群访问地址、token 及集群 CA 证书信息。
 
 ### 获取集群凭证[](id:proof)
+
+
+
+
+
 1. 登录 [TKE 控制台](https://console.cloud.tencent.com/tke2) 并单击左侧导航栏中的**集群**，进入集群管理界面。
 2. 选择目标集群所在行右侧的**更多** > **查看集群凭证**，进入集群基本信息页。
 3. 在“集群APIServer信息”中，执行以下操作。如下图所示：
 ![](https://main.qcloudimg.com/raw/6adfa8b2059ca81f1d6cfc8b114d2c1a.png)
    1. 查看并记录集群的**访问地址**及 Kubeconfig 中 **token**。
+   <dx-alert infotype="notice" title="">
+如果您的集群未切换至 RBAC，则需要在 Kubeconfig 中获取 **token** 以进行 Jenkins 侧配置。
+</dx-alert>
    2. 开启内网访问，需配置子网为 Jenkins Master 和 TKE node 共同的 VPC 子网。
 
 

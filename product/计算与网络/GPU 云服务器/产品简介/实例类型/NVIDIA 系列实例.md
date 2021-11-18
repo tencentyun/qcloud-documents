@@ -5,14 +5,16 @@
 适用于高性能图形处理，3D 渲染。例如：
  - 非线性编辑
  - 云游戏
- - 图形工作站
- - 云桌面等
+ - 云手机
+ - 云桌面
+ - CloudXR
+ - 图形图像处理等
 
 
 
 ## 渲染型实例总览
 
-**GPU 云服务器计算型系列提供以下实例：**
+**GPU 云服务器渲染型系列提供以下实例：**
 
 
 <table>
@@ -67,6 +69,12 @@
 	  <td>
 	  北京、上海、广州、南京、成都、重庆、香港、新加坡、孟买、硅谷、弗吉尼亚、法兰克福</td>
 	</tr>
+	<tr>
+	  <td><a href="#GI1">GI1</a></td> 
+	  <td>Intel SG1</td>
+	  <td><ul class="params"><li>CentOS 7.6 64位 + SG1-pv1.3</li><li>CentOS 7.6 64位 + SG1-pv1.4</li></td>
+	  <td>北京、上海、广州、南京、重庆</td>
+	 </tr>
   </tbody>
 </table>
 
@@ -92,6 +100,7 @@
             <th width="11.5%">GNV4v</th>
             <th width="11.5%">GNV4</th>
             <th width="11.5%">GN7vw</th>
+						<th width="11.5%">GI1</th>
         </tr>
         </thead>
         <tbody>
@@ -100,30 +109,35 @@
                 <td>★</td>
                 <td>★</td>
                 <td>★</td>
+								<td>★</td>
             </tr>
             <tr>
                 <td>视频编解码</td> 
                 <td>★</td>
                 <td>★</td>
                 <td>★</td>
+								<td>★</td>
             </tr>
             <tr>
                 <td>深度学习训练</td>
                 <td>-</td>
                 <td>✓</td>
                 <td>-</td>
+								<td>-</td>
             </tr>
             <tr>
                 <td>深度学习推理</td> 
                 <td>-</td>
                 <td>✓</td>
                 <td>-</td>
+								<td>-</td>
             </tr>
             <tr>
                 <td>科学计算</td>
                 <td>-</td>
                 <td>-</td>
                 <td>-</td>
+								<td>-</td>
             </tr>
         </tbody>
 </table>
@@ -133,7 +147,7 @@
 <dx-alert infotype="notice" title="">
 - 以上推荐用途仅供参考，请根据实际需要进行选择。
 - NVIDIA 系列 GPU 实例如用作 3D 图形渲染任务（高性能图形处理，视频编解码等），则需安装 GRID Driver 和配置 License Server，安装方法请参考 [安装 NVIDIA GRID 驱动](https://cloud.tencent.com/document/product/560/30060)。GNV4v、GNV4、GN7vw 实例可选择已预装 GRID 驱动的指定镜像，无需单独安装 GRID Driver 和配置 License Server。
-- GN7vw 、GNV4v 实例簇提供支持 vDWs/vWs 类型的 vGPU 实例类型，支持 DirectX 和 OpenGL 等图形 API。
+- GNV4v、GNV4、GN7vw 实例簇提供支持 vDWs/vWs 类型的 vGPU 实例类型，支持 DirectX 和 OpenGL 等图形 API。
 </dx-alert>
 
 
@@ -348,6 +362,72 @@ GN7vw 实例支持可用区为：广州三，四区、上海二，四，五区�
 	</tr>
   </tbody>
 </table>
+
+
+### 渲染型 GI1[](id:GI1)
+
+**GPU 渲染型 GI1 实例**搭载 H3C XG310 加速卡，单张加速卡包含 4 颗 Intel SG1 芯片，适用于安卓云游戏、安卓云应用、视频转码处理等场景。
+
+<dx-alert infotype="notice" title="">
+该实例暂时处于白名单开放，请您通过 [售前在线咨询](https://cloud.tencent.com/online-service?source=PRESALE&from=doc_560) 进行实例购买权限开通。
+</dx-alert>
+
+#### 适用场景
+
+- 安卓云手机
+- 安卓云游戏
+- 安卓云应用
+- 视频转码
+
+#### 可用区
+GI1 实例支持可用区为：北京六区、上海五区、广州七区、南京三区、重庆一区。
+
+
+#### 硬件规格 
+- **CPU：**Intel<sup>®</sup> Xeon<sup>®</sup> Platinum 8255c CPU，主频2.5GHz。
+- **GPU：**Intel<sup>®</sup> SG1，采用 H3C XG310 加速卡，单张加速卡包含4颗 SG1 芯片。
+- **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。
+- **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
+
+**GI1 实例提供以下配置：**
+
+<table>
+		<thead>
+		<tr>
+			<th width=8%>型号</th>
+			<th width=25%>GPU<br>(Intel<br>SG1)</th>
+      <th width=15%>GPU 显存</th>
+			<th width=8%>vCPU</th>
+			<th width=10%>内存<br>(DDR4)</th>
+      <th>内网带宽</th>
+      <th>网络收发包<br>(PPS)</th>
+      <th>队列数</th>
+		</tr>
+		</thead>
+		<tbody>
+      <tr>
+			  <td>GI1.10XLARGE160</td>
+			  <td>1*H3C XG310（4颗 Intel SG1 芯片）</td> 
+        <td>32GB（4* 8GB）</td>
+			  <td>42核</td>
+			  <td>160GB</td>
+        <td>13Gbps</td>
+			  <td>250万</td>
+        <td>32</td> 
+		  </tr>
+      <tr>
+			  <td>GI1.21XLARGE320</td>
+			  <td>2*H3C XG310（8颗 Intel SG1 芯片）</td> 
+        <td>64GB（8 * 8GB）</td>
+			  <td>84核</td>
+			  <td>320GB</td>
+        <td>25Gbps</td>
+			  <td>600万</td>
+        <td>32</td>
+		  </tr>
+  </tbody>
+
+
 
 
 

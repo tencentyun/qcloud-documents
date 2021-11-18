@@ -90,11 +90,6 @@
 <td>HTTP</td>
 </tr>
 <tr>
-<td>后端协议</td>
-<td>后端协议是指 CLB 与后端服务之间的协议：<ul style="margin-bottom:0px;"> <li>后端协议选择 HTTP 时，后端服务需部署 HTTP 服务。</li><li>后端协议选中 HTTPS 时，后端服务需部署 HTTPS 服务，HTTPS 服务的加解密会让后端服务消耗更多资源。</li></ul></td>
-<td>HTTP</td>
-</tr>
-<tr>
 <td>获取客户端 IP</td>
 <td>默认启用</td>
 <td>已开启</td>

@@ -31,7 +31,7 @@ M6p 机型采用该模式，在 M6p 机型中，平台侧将 BPS 硬件配置为
 ## 操作步骤
 
 ### PMEM 初始化
-依次执行以下命令，对 PMEM 设备初始化。
+首次使用实例时请依次执行以下命令，对 PMEM 设备初始化。若您已执行过 PMEM 初始化，则请跳过该步骤。
 ```
 yum install -y ndctl
 ```
@@ -77,9 +77,9 @@ ndctl list -R
 ![](https://qcloudimg.tencent-cloud.cn/raw/b454a36bf3baf0361fe6154639b6c4da.png)
 
 
-#### 高级功能（可选）
+#### 扩展功能（可选）
 您可通过该步骤进行功能扩展，依次执行以下命令，使用 PMEM 扩充云服务器的内存。
-1. 在高版本的内核（如 TencentOS Server 3.1 的内核）支持下，可将 devdax 模式的 PMEM 进一步配置为 kmemdax，可使用 PMEM 扩充云服务器的内存。
+1. 在高版本的内核（5.1 以上且使用了 KMEM DAX 的驱动，如 TencentOS Server 3.1 的内核）支持下，可将 devdax 模式的 PMEM 进一步配置为 kmemdax，可使用 PMEM 扩充云服务器的内存。
 ```
 yum install -y daxctl
 ```

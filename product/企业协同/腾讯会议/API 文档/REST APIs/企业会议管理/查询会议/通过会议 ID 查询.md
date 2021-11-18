@@ -30,10 +30,9 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | meeting_number | integer | 会议数量。  |
 |meeting_info_list  |Array| 会议列表。 |
 |media_set_type   | String    |该参数仅提供给支持混合云的企业可见，默认值为0。<br>0：外部会议<br>1：内部会议 <br>说明：周期性会议的查询，只展示在父会议的参数中，子会议对象无需展示该参数。   |    
-  |   participants  |   用户对象数组      |  邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段，最多返回300个邀请者；需要查询超过300人的会议邀请者请调用 [获取会议受邀成员列表](https://cloud.tencent.com/document/product/1095/63648) 接口。       |   
 
 
-<span id="Array"></span>
+
 **会议对象**
 
 | 参数名称 |参数类型 | 参数描述 |
@@ -49,7 +48,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |hosts   |用户对象数组  |指定主持人列表，仅商业版和企业版可指定主持人。|
 |current_hosts  |用户对象数组  | 会议当前主持人列表。|
 |current_co_hosts  |用户对象数组  | 联席主持人列表。|
-|participants  |用户对象数组 |邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段，最多返回200个邀请者。 |
+|participants  |用户对象数组 |邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段，最多返回200个邀请者；需要查询超过200人的会议邀请者请调用 [获取会议受邀成员列表](https://cloud.tencent.com/document/product/1095/63648) 接口。    |
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。  |
 |settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
@@ -64,9 +63,10 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |enable_doc_upload_permission    | Boolean       | 是否允许成员上传文档，默认为允许。                                                     |
 |guests   | Guest数组     | 会议嘉宾列表（会议创建人才有权限查询）。                                                 |
 |has_vote   | Boolean     | 是否有投票（会议创建人和主持人才有权限查询）。                                                     |
+|enable_enroll   | Boolean     | 是否激活报名。                                                     |
 
 
-<span id="settings"></span>
+
 
 **用户对象**
 
