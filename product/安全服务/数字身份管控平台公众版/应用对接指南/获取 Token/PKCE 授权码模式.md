@@ -30,7 +30,7 @@ client_id=TENANT_CLIENT_ID&grant_type=authorization_code&code=MOCK_CODE&redirect
 | code          | false | 获取授权时返回的授权码。                                     |
 | redirect_uri  | false | 授权成功后的重定向地址。需要与获取授权时指定的地址一致。     |
 | code_verifier | false | PKCE code_verifier 。需要与获取授权时用于生成 code_challenge 的 code_verifier 一致。 |
->?此处的获取授权时使用的一致，指的是和使用认证门户登录中的 [PKCE 授权码模式](https://cloud.tencent.com/document/product/1441/64348) 保持一致。
+
 
 ## 响应参数
 | 参数          | 数据类型 | 描述                                 |
