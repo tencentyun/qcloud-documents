@@ -66,47 +66,21 @@ x-cos-request-id: NWRlODY0ZWRfMjNiMjU4NjRfOGQ4Ml81MDEw****
 
 #### 请求示例
 ```cpp
-cos_pool_t *p = NULL;
-int is_cname = 0; 
-cos_status_t *s = NULL;
-cos_request_options_t *options = NULL;
-cos_string_t bucket;
-cos_table_t *resp_headers;
-cos_table_t *headers = NULL;
-cos_list_t buffer;
-cos_list_t download_buffer;
-cos_string_t object;
-cos_buf_t *content = NULL;
-char *str = "This is my test data.";
+qcloud_cos::CosConfig config("./config.json");
+qcloud_cos::CosAPI cos(config);
 
-// 基本配置
-cos_pool_create(&p, NULL);
-options = cos_request_options_create(p);
-options->config = cos_config_create(options->pool);
-cos_str_set(&options->config->endpoint, TEST_COS_ENDPOINT);   
-cos_str_set(&options->config->access_key_id, TEST_ACCESS_KEY_ID);
-cos_str_set(&options->config->access_key_secret, TEST_ACCESS_KEY_SECRET);
-cos_str_set(&options->config->appid, TEST_APPID);
-options->config->is_cname = is_cname;
-options->ctl = cos_http_controller_create(options->pool, 0);
-options->ctl->options->enable_crc = COS_TRUE;   // 开启crc校验，默认也是开启的
-cos_str_set(&bucket, TEST_BUCKET_NAME);
-cos_str_set(&object, TEST_OBJECT_NAME1);
+std::string bucket_name = "examplebucket-1250000000"; // 修改为用户的存储桶名
+std::string object_name = "exampleobject"; // 修改为用户的对象名
+std::string local_file = "./test"; // 修改为用户的本地文件名
 
-// 上传对象，开启crc校验
-cos_list_init(&buffer);
-content = cos_buf_pack(options->pool, str, strlen(str));
-cos_list_add_tail(&content->node, &buffer);
-s = cos_put_object_from_buffer(options, &bucket, &object, 
-                &buffer, headers, &resp_headers);
-log_status(s);
-
-// 下载对象，开启crc校验
-cos_list_init(&download_buffer);
-s = cos_get_object_to_buffer(options, &bucket, &object, 
-                       headers, NULL, &download_buffer, &resp_headers);
-log_status(s);
-
-// 销毁内存池
-cos_pool_destroy(p);
+qcloud_cos::MultiUploadObjectReq req(bucket_name, object_name, local_file); // 默认开启了CRC64校验
+req.SetRecvTimeoutInms(1000 * 60);
+qcloud_cos::MultiUploadObjectResp resp;
+qcloud_cos::CosResult result = cos.MultiUploadObject(req, &resp); // 内部自动校验CRC64
+// 调用成功，调用 resp 的成员函数获取返回内容
+if (result.IsSucc()) {
+    // ...
+} else {
+    // 可以调用 CosResult 的成员函数输出错误信息，例如 requestID 等
+} 
 ```
