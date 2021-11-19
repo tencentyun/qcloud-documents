@@ -22,10 +22,10 @@ client_id=TENANT_CLIENT_ID&client_secret=TENANT_CLIENT_SECRET&grant_type=refresh
 ## 请求参数
 | 参数          | 可选  | 描述                                                         |
 | :------------ | :---- | :----------------------------------------------------------- |
-| client_id     | false | 应用的 client_id 。需要与获取授权时使用的一致。              |
-| client_secret | false | 应用的 client_secret 。可通过租户管理平台的应用基本信息页面查看。 |
+| client_id     | false | 应用的 `client_id`。需要与获取授权时使用的一致。              |
+| client_secret | false | 应用的 `client_secret`。可通过租户管理平台的应用基本信息页面查看。 |
 | grant_type    | false | 填固定值 'refresh_token'。                                   |
-| refresh_token | true  | 获取 Token 时返回的 refresh_token 。                         |
+| refresh_token | true  | 获取 Token 时返回的 `refresh_token`。                         |
 
 
 
