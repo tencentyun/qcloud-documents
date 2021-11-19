@@ -15,9 +15,9 @@
    <th>微信小程序演示：</th>
  </tr>
 <tr>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/android-uniapp.gif" height = "400"/></td>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/ios-uniapp.gif" height = "400"/></td>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/wx-uniapp.gif" height = "400"/></td>
+<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/android-uniapp.gif" height = "150"/></td>
+<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/ios-uniapp.gif" height = "150"/></td>
+<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/wx-uniapp.gif" height = "150"/></td>
 </tr>
 </table>
 
@@ -25,7 +25,7 @@
 ### 步骤1：注册并创建 uni-app 账号
 1. 搭建 app 开发环境，请下载 [HBuilderX 编辑器](https://www.dcloud.io/hbuilderx.html)。
 >!项目中 HBuilderX 目前使用的最新版本，如果此前下载过 HBuilderX，为保证开发环境统一请更新到最新版本。
-2. 在 [DCloud 开发者中心注册](https://dev.dcloud.net.cn/) 后登陆 HBuilderX 编辑器。
+2. 在 [DCloud 开发者中心注册](https://dev.dcloud.net.cn/) 后登录 HBuilderX 编辑器。
 
 ### 步骤2：创建应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
