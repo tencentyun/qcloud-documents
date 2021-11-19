@@ -21,11 +21,12 @@
 
 #### 控制台登录云服务器
 
-1. 在 [云服务器](https://console.cloud.tencent.com/cvm/index) 列表的操作列，单击【登录】即可通过 VNC 连接至 Windows 云服务器。
-2. 通过单击左上角发送【Ctrl-Alt-Delete】命令进入系统登录界面。
+1. 在 [云服务器](https://console.cloud.tencent.com/cvm/index) 列表的操作列，单击**登录**即可通过 VNC 连接至 Windows 云服务器。
+2. 通过单击左上角发送**Ctrl-Alt-Delete**命令进入系统登录界面。
 3. 输入帐号（Administrator）和密码即可登录。
 
-> !该终端为独享，即同一时间只有一个用户可以使用控制台登录。
+>! 该终端为独享，即同一时间只有一个用户可以使用控制台登录。
+>
 
 #### 验证网络通信
 
@@ -39,13 +40,16 @@
 
 
 ## 步骤三: 挂载文件系统
-从最佳实践的角度建议您使用SMB挂载CFS文件系统。
+
+从最佳实践的角度建议您使用 SMB 挂载 CFS 文件系统。
+
 ### 挂载 CIFS/SMB 文件系统
 
 挂载 CIFS/SMB 文件系统有两种方式：通过图形界面挂载和通过命令行挂载。
 
 #### 通过命令行挂载文件系统
-请使用 FSID 进行挂载文件系统，挂载命令如下。
+
+请使用 FSID 进行挂载文件系统，挂载命令如下：
 ```bash
 net use <共享目录名称>: \\10.10.11.12\FSID 
 ```
@@ -55,7 +59,7 @@ net use <共享目录名称>: \\10.10.11.12\FSID
 net use X: \\10.10.11.12\fjie120
 ```
 
->! FSID 可以到【[文件存储控制台](https://console.cloud.tencent.com/cfs)】>【文件系统详情】>【挂载点信息】中获取。
+>! FSID 可以到**[文件存储控制台](https://console.cloud.tencent.com/cfs) > 文件系统详情 > 挂载点信息**中获取。
 >
 
 #### 通过图形界面挂载文件系统
@@ -78,7 +82,7 @@ net use X: \\10.10.11.12\fjie120
 
 挂载前，请确保系统已经启动 NFS 服务。
 
-选择【控制面板】>【程序】>【打开或关闭 Windows 功能】>【特性】页签中勾选【NFS 客户端】，勾选【NFS 客户端】即可开启 Windows NFS 客户端服务。
+选择**控制面板 > 程序 > 打开或关闭 Windows 功能 > 特性**页签中勾选**NFS 客户端**，勾选 **NFS 客户端**即可开启 Windows NFS 客户端服务。
 <img src="https://mc.qcloudimg.com/static/img/4f9d7ac7b877ceffc5bc2b1d7c050a24/image.png" width="80%">
 
 #### 2. 验证 NFS 服务是否启动
@@ -102,7 +106,7 @@ mount -h
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 ```
 
-在右边空白处右键单击，弹出【new】, 在菜单中选择【DWORD(32-bit) Value】 或者【QWORD(64-bit) Value】（根据您的操作系统位数选择）。此时，在列表中会出现一条新的记录，把名称栏修改为 AnonymousUid 即可，数据值采用默认的0。使用同样方法继续添加一条名称为 AnonymousGid 的记录，数据也采用默认的0。
+在右边空白处右键单击，弹出**new**, 在菜单中选择 **DWORD(32-bit) Value** 或者 **QWORD(64-bit) Value**（根据您的操作系统位数选择）。此时，在列表中会出现一条新的记录，把名称栏修改为 AnonymousUid 即可，数据值采用默认的0。使用同样方法继续添加一条名称为 AnonymousGid 的记录，数据也采用默认的0。
 <img src="https://mc.qcloudimg.com/static/img/381cdc3b68fb35be5dcceb2a4c962e33/image.png" width="80%">
 
 添加完毕如下图所示：
@@ -136,7 +140,7 @@ mount  <挂载点IP>:/<FSID> <共享目录名称>:
 ```bash
 mount 10.10.0.12:/z3r6k95r X:
 ```
-> ! FSID 挂载命令可以到【文件存储控制台】>【文件系统详情】>【挂载点信息】中获取。
+> ! FSID 挂载命令可以到**文件存储控制台 > 文件系统详情 > 挂载点信息**中获取。
 
 
 #### 通过图形界面挂载文件系统
@@ -158,17 +162,14 @@ c. 检查文件系统权限
   
 若以上界面中出现" locking=yes"，为了避免文件锁导致读写异常（NFS v3 暂不支持锁），请按以下步骤修改注册表：
 
-（1）找到如下注册表路径 【HKEY_LOCAL_MACHINE】 > 【SOFTWARE】 > 【Microsoft】 > 【ClientForNFS】 > 【CurrentVersion】 > 【User】 > 【Default】 > 【Mount】。
+（1）找到如下注册表路径 **HKEY_LOCAL_MACHINE > SOFTWARE > Microsoft > ClientForNFS > CurrentVersion > User > Default > Mount**。
 
-（2）在右侧内容区右键新建【DWORD (32-位)值】，名称为”Locking”，值为”0” 。
+（2）在右侧内容区右键新建 **DWORD (32-位)值**，名称为“Locking”，值为“0”。
 
 
 d. 验证读写
   确认后，页面直接进入到已经挂载的文件系统中。可以右键新建一个文件来验证读写的正确性。
 	<img src="https://main.qcloudimg.com/raw/208537681d0ab96cd801e22332a419a9.jpeg" width="80%">
-
-
-
 
 
 ## 步骤四: 卸载文件系统
@@ -188,9 +189,8 @@ SMB示例：
 
 #### 通过图形界面卸载共享目录
 
-要断开已经挂载的文件系统，只需鼠标右键单击磁盘，再出现的菜单中单击【断开】选项，即可断开文件系统的连接。
+要断开已经挂载的文件系统，只需鼠标右键单击磁盘，再出现的菜单中单击**断开**选项，即可断开文件系统的连接。
  <img src="https://mc.qcloudimg.com/static/img/376cd0547aa64f4d519e5444c5a58f93/image.png" width="80%">
-
 
 
 ## 步骤五: 终止资源
@@ -198,6 +198,6 @@ SMB示例：
 >! 文件系统删除后，资源不可恢复，建议您删除文件系统之前，先备份资源。
 >
 
-您可以从腾讯云控制台终止文件系统。进入腾讯云 [文件存储控制台](https://console.cloud.tencent.com/cfs/fs)，选中需要终止的文件系统，单击【删除】并【确认】，即可删除文件系统。
+您可以从腾讯云控制台终止文件系统。进入腾讯云 [文件存储控制台](https://console.cloud.tencent.com/cfs/fs)，选中需要终止的文件系统，单击**删除**并**确认**，即可删除文件系统。
 
 
