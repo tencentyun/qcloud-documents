@@ -53,7 +53,7 @@ SDK中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、**
 #### SDK 初始化：
 用户初始化智能扫码 SDK，SECRET_ID 与 SECRET_KEY 传入云服务后台申请的密钥信息（申请地址：[智能扫码申请](https://console.cloud.tencent.com/ocr/is)），同时需要导入 QBarCodeKit.h、QBarSDKUIConfig.h 和 QbarCodeRes.bundle 资源文件
 
-```objective-c
+```c
 #import "QBarCodeKit.h"
    
 static NSString* const SECRET_ID     = @""; // SECRET_ID 信息
@@ -75,7 +75,7 @@ static const NSString *CONTENT = @"content"; // 识别结果信息对应的Key
 #### 摄像头数据实时识别：
 智能扫码 SDK 提供摄像头实时数据扫码功能，满足您在自定义 UI 布局中的使用需求。	
 
-```objective-c
+```c
 /**
   摄像头视频流数据解码
   sampleBuffer 桢数据
@@ -92,7 +92,7 @@ static const NSString *CONTENT = @"content"; // 识别结果信息对应的Key
 
 如果您只关注扫码功能不需支持自定义 UI 界面，可以使用智能扫码 SDK 内自带的默认界面完成扫描操作。
 
-```objective-c
+```c
 [sdk startDefaultQBarScan:self withResult:^(NSDictionary * _Nonnull resultDic) {
        NSString *msg = [self convertToJsonData:resultDic];
  }];
@@ -102,7 +102,7 @@ static const NSString *CONTENT = @"content"; // 识别结果信息对应的Key
 
 除了主动扫描以外，智能扫码 SDK 还支持图片识别功能，只需传入需要识别的图像：
 
-```objective-c
+```c
 /**
    image  需解码图片 图片大小建议小于1M
 */
