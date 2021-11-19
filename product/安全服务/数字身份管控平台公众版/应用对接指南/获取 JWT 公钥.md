@@ -29,17 +29,6 @@ Host: localhost:8080
 | keys[].n   | String   | RSA 公钥。         |
 
 
-## 响应参数
-| 参数          | 数据类型 | 描述                                 |
-| :------------ | :------- | :----------------------------------- |
-| access_token  | String   | OAuth 2.0 Access Token (JWT)。       |
-| refresh_token | String   | OAuth 2.0 Refresh Token。            |
-| scope         | String   | Access Token 的 Scope。              |
-| id_token      | String   | OIDC ID Token (JWT)。                |
-| token_type    | String   | Token 类型，目前取固定值 'Bearer' 。 |
-| expires_in    | Number   | Access Token 有效期，单位秒。        |
-
-
 ## 正常响应示例
 ```
 HTTP/1.1 200 OK
