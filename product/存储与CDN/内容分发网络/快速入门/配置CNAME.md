@@ -10,10 +10,48 @@
 
 ### 配置步骤
 
-根据您DNS服务商的不同，需要去域名所在服务商处进行设置，本文提供本文提供腾讯云和阿里云配置步骤说明：
+您需要在您的域名注册商处，配置您的加速域名解析到腾讯云 CDN 分配的 CNAME 域名上。在您完成 CNAME 解析配置后，当用户请求您的加速域名时，DNS 才会将用户请求解析到腾讯云 CDN 平台，实现加速效果。
+根据您在域名接入时输入的加速域名的方式，您在域名注册商处建议按如下示例进行配置：
 
-- [腾讯云设置方法](#m1)
-- [阿里云设置方法](#m2)
+<table>
+<thead>
+<tr>
+<th colspan="2">腾讯云CDN</th>
+<th colspan="2">域名注册商</th>
+</tr>
+</thead>
+<tbody
+<tr>
+<td>加速域名</td>
+<td>CNAME 域名</td>
+<td>主机记录 / Host (Name)</td>
+<td>记录类型 / Type</td>
+</tr>
+<tr>
+<td>dnspod.com</td>
+<td>dnspod.com.cdn.dnsv1.com</td>
+<td>@</td>
+<td>CNAME</td>
+</tr>
+<tr>
+<td>www.dnspod.com</td>
+<td>www.dnspod.com.cdn.dnsv1.com</td>
+<td>www</td>
+<td>CNAME</td>
+</tr>
+<tr>
+<td>support.dnspod.com</td>
+<td>support.dnspod.com.cdn.dnsv1.com</td>
+<td>support</td>
+<td>CNAME</td>
+</tr>
+<tr>
+<td>*.dnspod.com</td>
+<td>a31aea03.dnspod.com.cdn.dnsv1.com</td>
+<td>*</td>
+<td>CNAME    a31aea03.dnspod.com.cdn.dnsv1.com</td>
+</tr>
+</tbody></table>
 
 [](id:m1)
 ### 腾讯云设置方法
