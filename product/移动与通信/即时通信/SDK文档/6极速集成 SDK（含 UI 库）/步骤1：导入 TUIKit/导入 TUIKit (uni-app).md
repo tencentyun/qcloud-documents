@@ -25,14 +25,13 @@ uni-app TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、�
 - 微信小程序
 
 ## 如何集成 TUIKit？
-### uni-app TUIKit 支持源码集成
-请下载 [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master)。将 TUIKit 文件夹与自己的工程文件夹置于同级，例如：
-![](https://qcloudimg.tencent-cloud.cn/raw/096980f3029fae3e2750d4b77082cb55.png)
 
 ### 步骤1：安装依赖
-根据 package.json 进行对应依赖安装、
+1. uni-app TUIKit 支持源码集成，下载 [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master)。将 TUIKit 文件夹与自己的工程文件夹置于同级，例如：
+![](https://qcloudimg.tencent-cloud.cn/raw/096980f3029fae3e2750d4b77082cb55.png)
+2. 根据 package.json 进行对应依赖安装。
 ![](https://qcloudimg.tencent-cloud.cn/raw/69b4ec0b2df2121226b83bc5caa21ae6.png)
->?可参见 [uni-app 官网](https://www.cxybb.com/article/weixin_44168109/111037919)
+>?可参见 [uni-app 官网](https://www.cxybb.com/article/weixin_44168109/111037919)。
 
 ### 步骤2：初始化TUIKit
 将 app.vue 中的代码复制到 myApplication 项目中，填写 SDKAppID。
@@ -43,9 +42,9 @@ uni-app TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、�
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb8de22dac2e222b1e4f508865b416fa.png)
 
 ### 步骤4：集成所需模块
-将 pages 和 components 复制到 myApplication 项目中。
+1. 将 pages 和 components 复制到 myApplication 项目中。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2ca7b29c78e0d05779413cc2f49370b2.png)
-也可以只集成自己所需要的模块，将 pages 和其对应的 components 复制到 myApplication 项目目录下。
+2. 也可以只集成自己所需要的模块，将 pages 和其对应的 components 复制到 myApplication 项目目录下。
 ![](https://qcloudimg.tencent-cloud.cn/raw/19769b954a6448f3148275291515c5db.png)
  
 ### 步骤5：更新路由
@@ -126,14 +125,13 @@ uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
 - **通过本地起定时器记录时间，计算出 duration。**
 - **本地计算文件大小，fileSize ＝ (音频码率) x 时间长度(单位:秒) / 8，粗略估算。**
 详细代码请参见 [uni-app TUIKit](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)。
->!
->- 语音消息对象中必须包括 `duration` 和 `fileSize`，如果没有 `fileSize`，语音消息时长是一串错误的数字
+>!语音消息对象中必须包括 `duration` 和 `fileSize`，如果没有 `fileSize`，语音消息时长是一串错误的数字
 
 [](id:Q5)
 ### 5. video 视频消息层级过高无法滑动怎么办？
  在项目中通过视频图片代替，没有直接渲染 `video`，在播放时渲染的方式规避了层级过高问题。
- 详细代码请参见 [uni-app TUIKit](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)。
->!请参见官方 [原生组件说明](https://uniapp.dcloud.io/component/native-component)。
+ - 详细代码请参见 [uni-app TUIKit](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)。
+ - 请参见官方 [原生组件说明](https://uniapp.dcloud.io/component/native-component)。
 
 [](id:Q6)
 ### 6. 微信小程序环境，真机预览，报系统错误，体积过大怎么办？
