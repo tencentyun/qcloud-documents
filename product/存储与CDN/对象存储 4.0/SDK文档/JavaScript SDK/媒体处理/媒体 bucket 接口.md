@@ -12,7 +12,7 @@
 
 用于查询已经开通媒体处理功能的存储桶。
 
->! COS Javascript SDK 版本需要大于等于 v1.3.0。
+>! COS Javascript SDK 版本需要大于等于 v1.3.1。
 
 
 #### 使用示例
