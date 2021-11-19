@@ -57,7 +57,7 @@
 <td>*</td>
 <td>CNAME</td>
 <td>a31aea03.dnspod.com.cdn.dnsv1.com</td>
-<td>泛解析，支持用户访问其他所以域名*.dnspod.com</td>
+<td>泛解析，支持用户访问其他所有域名*.dnspod.com</td>
 </tr>
 </tbody></table>
 
