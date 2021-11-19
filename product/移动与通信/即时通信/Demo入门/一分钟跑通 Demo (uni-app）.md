@@ -176,7 +176,7 @@ v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
 |:-------:|---------|----|
 |`https://cos.ap-shanghai.myqcloud.com` | 文件下载域名 | 必须|
 
-## 参见文档：
+## 参见文档
 
 - [SDK API 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
