@@ -43,7 +43,7 @@ Location: http://localhost:8080/portal/login?p_state=MOCK_LOGIN_PORTAL_STATE
 HTTP/1.1 302 Found
 Location: https://TENANT.APP.DOMAIN/login/oauth2/code/TENANT_APP_ID?code=rGdq86P6LQaHb-QA25DTcZKgi_TtGefDDjKNReM_nYtxExn0Nh-46TYGWlIlYXjxo1bDR07kUZQSgzHj_emwbnq5YajUSmBthaXZMCu2QsPBGd4p8t6nc471Wp22kcvp&state=MOCK_STATE
 ```
->?用户登录成功后，认证门户将把用户重定向到应用的 `redirect_uri` 地址，并在参数中携带授权码 `code`。应用系统获取到 `code` 参数后，[调用 PKCE 模式]() 获取 Token 接口获取 Access Token 和 ID Token，完成登录。
+>?用户登录成功后，认证门户将把用户重定向到应用的 `redirect_uri` 地址，并在参数中携带授权码 `code`。应用系统获取到 `code` 参数后，调用 [ PKCE 模式 获取 Token](https://cloud.tencent.com/document/product/1441/64396) 接口获取 Access Token 和 ID Token，完成登录。
 >
 
 ## 异常响应示例
