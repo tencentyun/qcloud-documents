@@ -18,7 +18,7 @@ Host: localhost:8080
 ```
 
 
-## 请求参数
+## 响应参数
 
 | 参数       | 数据类型 | 描述               |
 | :--------- | :------- | :----------------- |
@@ -54,4 +54,4 @@ Content-Type: application/json
   } ]
 }
 ```
->?CIAM 返回的是 JWT 格式的 Access Token 和 ID Token，使用 Token 前需对 JWT 进行解密与验证。请参考 [RFC 9068 ](https://www.rfc-editor.org/rfc/rfc9068.html)和[ OIDC 官方文档 ](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)对 JWT 进行解密与验证。也可以直接使用相关的开发库完成解密验证。验证所需的公钥通过调用 [获取 JWT 公钥 ](https://cloud.tencent.com/document/product/1441/64397)接口获得。
+
