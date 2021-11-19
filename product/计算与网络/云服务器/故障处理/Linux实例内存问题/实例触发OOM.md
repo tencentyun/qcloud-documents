@@ -19,14 +19,13 @@ Linux 云服务器在内存使用率未占满的情况下触发了 OOM（Out Of 
 ```
 sysctl -a | grep min_free
 ```
- - `min_free_kbytes` 值单位为 kbytes，下图所示 `min_free_kbytes = 1024000` 即为1GB。
+`min_free_kbytes` 值单位为 kbytes，下图所示 `min_free_kbytes = 1024000` 即为1GB。
 ![](https://main.qcloudimg.com/raw/18ac6c04962abfbf67132eab1a604167.png)
- - 若未查询到 `vm.min_free_kbytes` 项，则请参考 [步骤5](#Step5)，在配置文件中增加该项。
 4. 执行以下命令，使用 VIM 编辑器打开 `/etc/sysctl.conf` 配置文件。
 ```
 vim /etc/sysctl.conf
 ```
-5. [](id:Step5)按 **i** 进入编辑模式，修改 `vm.min_free_kbytes` 配置项。
+5. 按 **i** 进入编辑模式，修改 `vm.min_free_kbytes` 配置项。若该配置项不存在，则直接在文件中增加即可。
 <dx-alert infotype="explain" title="">
 建议修改 `vm.min_free_kbytes` 值为不超过总内存的1%即可。
 </dx-alert>
