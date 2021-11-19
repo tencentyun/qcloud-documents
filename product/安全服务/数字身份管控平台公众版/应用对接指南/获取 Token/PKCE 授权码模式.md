@@ -25,8 +25,8 @@ client_id=TENANT_CLIENT_ID&grant_type=authorization_code&code=MOCK_CODE&redirect
 
 | 参数          | 可选  | 描述                                                         |
 | :------------ | :---- | :----------------------------------------------------------- |
-| client_id     | false | 应用的 client_id 。需要与获取授权时使用的一致。              |
-| grant_type     | false | 填固定值 'authorization_code'。                              |
+| client_id     | false | 应用的 `client_id` 。需要与获取授权时使用的一致。              |
+| grant_type     | false | 填固定值 `authorization_code`。                              |
 | code          | false | 获取授权时返回的授权码。                                     |
 | redirect_uri  | false | 授权成功后的重定向地址。需要与获取授权时指定的地址一致。     |
 | code_verifier | false | PKCE code_verifier 。需要与获取授权时用于生成 code_challenge 的 code_verifier 一致。 |
@@ -39,7 +39,7 @@ client_id=TENANT_CLIENT_ID&grant_type=authorization_code&code=MOCK_CODE&redirect
 | refresh_token | String   | OAuth 2.0 Refresh Token。            |
 | scope         | String   | Access Token 的 Scope。              |
 | id_token      | String   | OIDC ID Token (JWT)。                |
-| token_type    | String   | Token 类型，目前取固定值 'Bearer' 。 |
+| token_type    | String   | Token 类型，目前取固定值 `Bearer` 。 |
 | expires_in    | Number   | Access Token 有效期，单位秒。        |
 
 
