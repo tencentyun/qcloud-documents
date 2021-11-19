@@ -1,5 +1,5 @@
 
-在 [TDSQL-H LibraDB 控制台](https://console.cloud.tencent.com/txln/instance)，单击实例 ID 或**操作**列的**详情**，进入实例管理页面，切换到 **CDC** 页，即进入 CDC 列表页。
+在 [TDSQL-H LibraDB 控制台](https://console.cloud.tencent.com/libradb/instance)，单击实例 ID 或**操作**列的**详情**，进入实例管理页面，切换到 **CDC** 页，即进入 CDC 列表页。
 
 CDC 列表页展示了该实例所关联的 OLTP，以及数据同步的状态。通过该页面**添加CDC**，即可创建新的 CDC 任务。
 - **CDC ID**：全局唯一 ID，用以标识独立的 CDC 链路。

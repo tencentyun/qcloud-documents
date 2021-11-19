@@ -31,7 +31,8 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |meeting_info_list  |Array| 会议列表。 |
 |media_set_type   | String    |该参数仅提供给支持混合云的企业可见，默认值为0。<br>0：外部会议<br>1：内部会议 <br>说明：周期性会议的查询，只展示在父会议的参数中，子会议对象无需展示该参数。   |    
 
-<span id="Array"></span>
+
+
 **会议对象**
 
 | 参数名称 |参数类型 | 参数描述 |
@@ -62,9 +63,10 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |enable_doc_upload_permission    | Boolean       | 是否允许成员上传文档，默认为允许。                                                     |
 |guests   | Guest数组     | 会议嘉宾列表（会议创建人才有权限查询）。                                                 |
 |has_vote   | Boolean     | 是否有投票（会议创建人和主持人才有权限查询）。                                                     |
+|enable_enroll   | Boolean     | 是否激活报名。                                                     |
 
 
-<span id="settings"></span>
+
 
 **用户对象**
 
