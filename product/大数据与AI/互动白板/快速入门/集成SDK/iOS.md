@@ -98,7 +98,27 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 
 >!1. `onTEBInit` 表示白板创建并鉴权完成。<br>2. `onTEBHistroyDataSyncCompleted` 表示历史数据加载完成，此时可调用白板的相关接口。<br>3. SDK 所有回调都在主线程内执行，因此可以在回调里直接执行 UI 操作。
 
-#### 4. 白板数据同步
+#### 4. 监听白板关键事件
+在 `onTEBError`和`onTEBWarning` 回调方法内监听白板事件
+
+- [onTEBError 错误详情](https://cloud.tencent.com/document/product/1137/60711#.E9.94.99.E8.AF.AF.E4.BA.8B.E4.BB.B6)
+- [onTEBWarning 警告详情](https://cloud.tencent.com/document/product/1137/60711#.E8.AD.A6.E5.91.8A.E4.BA.8B.E4.BB.B6)
+
+```objc
+// 监听白板错误事件
+- (void)onTEBError:(TEduBoardErrorCode)code msg:(NSString *)msg
+{
+
+}
+
+// 监听白板告警事件
+- (void)onTEBWarning:(TEduBoardWarningCode)code msg:(NSString *)msg
+{
+
+}
+```
+
+#### 5. 白板数据同步
 白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
 步骤1：初始化 IMSDK
 ```objc
@@ -152,7 +172,7 @@ __weak typeof(self) ws = self;
 
 >!1. 推荐业务后台使用 [IM REST API](https://cloud.tencent.com/document/product/269/1615) 提前创建群组。<br>2. 不同的群组类型，群组功能以及成员数量有所区别，具体请查看 [IM 群组系统](https://cloud.tencent.com/document/product/269/1502)。
 
-#### 5. 销毁白板
+#### 6. 销毁白板
 调用 `unInit` 方法后，内部将彻底销毁白板并停止计费，请您确保此接口的调用。
 ```objc
 [_boardController unInit];
