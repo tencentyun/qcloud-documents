@@ -15,9 +15,8 @@
    <th>微信小程序演示：</th>
  </tr>
 <tr>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/android-uniapp.gif" height = "150"/></td>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/ios-uniapp.gif" height = "150"/></td>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/wx-uniapp.gif" height = "150"/></td>
+<td><img style="width:200px; max-width: inherit;" src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/android-uniapp.gif" /></td>
+<td><img  style="width:200px; max-width: inherit;" src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/ios-uniapp.gif"></td><td><img  style="width:200px; max-width: inherit;" src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/wx-uniapp.gif" </td>
 </tr>
 </table>
 
