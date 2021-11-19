@@ -1,4 +1,8 @@
-本文介绍使用DTS数据迁移功能，从通过 MySQL 迁移数据至腾讯云云原生数据库 TDSQL-C 的操作指导。
+本文介绍使用 DTS 数据迁移功能，从通过 MySQL 迁移数据至腾讯云云原生数据库 TDSQL-C 的操作指导。
+
+如下场景的迁移要求与 MySQL 到 TDSQL-C 的迁移要求一致，可参考本场景相关内容。
+- MariaDB 到 TDSQL-C 的数据迁移
+- MariaDB（Percona）到 TDSQL-C 的数据迁移
 
 ## 前提条件
 - 已 [创建云原生数据库 TDSQL-C（兼容 MySQL 版）](https://cloud.tencent.com/document/product/1003/30505)。
@@ -8,7 +12,7 @@
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW
-DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限 
 GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 ```

@@ -34,8 +34,8 @@
 </tbody></table>
 
 ## 操作步骤
-1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
-2. 在 EIP 管理页面，选择需要释放的 EIP 地域，并在对应 EIP 所在行的操作栏下，选择**更多** > **释放**。
+1. 登录 [公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip)。
+2. 在公网 IP 页面顶部，选择需要释放的 EIP 地域，并在对应 EIP 所在行的操作栏下，选择**更多** > **释放**。
 3. 在弹出的“确定释放所选EIP?”窗口中，勾选**确定释放以上 IP**，单击**释放**。
 > ?找回公网 IP 地址有相应的限制条件，请参见 [使用限制](https://cloud.tencent.com/document/product/1199/41708#.E4.BD.BF.E7.94.A8.E9.99.90.E5.88.B6)，因此 EIP 释放后可能无法找回。
 >

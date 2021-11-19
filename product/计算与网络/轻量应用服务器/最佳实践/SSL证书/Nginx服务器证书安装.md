@@ -1,9 +1,14 @@
 ## 操作场景
-本文以使用 **WordPress 5.4.2 社区版应用镜像**的轻量应用服务器为例，介绍如何在服务器中安装 SSL 证书并开启 HTTPS 访问。该服务器中默认已安装 Nginx 软件，您可参考本文并结合实际情况进行操作。
+本文以使用 **WordPress 5.7.1 社区版**的轻量应用服务器为例，介绍如何在服务器中安装 SSL 证书并开启 HTTPS 访问。该服务器中默认已安装 Nginx 软件，您可参考本文并结合实际情况进行操作。
 
->?
->- 本文档以通过腾讯云SSL证书服务申请的付费、免费证书为例。腾讯云 SSL 证书服务相关信息可参考 [SSL 证书产品介绍](https://cloud.tencent.com/document/product/400/7572)、[SSL 证书购买指南](https://cloud.tencent.com/document/product/400/7994) 和 [申请免费 SSL 证书](https://cloud.tencent.com/document/product/400/6814)。
->- 如您的轻量应用服务器使用 Discuz! Q 应用镜像，则可通过内置的宝塔 Linux 面板进行 SSL 证书安装，详情请参考宝塔 Linux 面板官方用户文档。
+
+
+<dx-alert infotype="explain" title="">
+- 本文档以通过腾讯云SSL证书服务申请的付费、免费证书为例。腾讯云 SSL 证书服务相关信息可参考 [SSL 证书产品介绍](https://cloud.tencent.com/document/product/400/7572)、[SSL 证书购买指南](https://cloud.tencent.com/document/product/400/7994) 和 [申请免费 SSL 证书](https://cloud.tencent.com/document/product/400/6814)。
+- 如您的轻量应用服务器使用 Discuz! Q 应用镜像，则可通过内置的宝塔 Linux 面板进行 SSL 证书安装，详情请参考宝塔 Linux 面板官方用户文档。
+</dx-alert>
+
+ 
 
 
 ## 前提条件
@@ -29,8 +34,11 @@
 <td>登录轻量应用服务器操作系统所使用的用户名对应的密码，或者已绑定的 SSH 密钥。</td>
 </tr>
 </table>
+<dx-alert infotype="notice" title="">
+您可以登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse) 找到对应的服务器实例，进入实例详情页查看服务器的公网 IP 地址。如果该实例创建后未执行重置密码或者绑定 SSH 密钥操作，请您执行重置密码操作并牢记密码，或绑定 SSH 密钥并保存私钥文件。详情请参见 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 和 [绑定密钥](https://cloud.tencent.com/document/product/1207/44573)。
+</dx-alert>
 
->!您可以登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse) 找到对应的服务器实例，进入实例详情页查看服务器的公网 IP 地址。如果该实例创建后未执行重置密码或者绑定 SSH 密钥操作，请您执行重置密码操作并牢记密码，或绑定 SSH 密钥并保存私钥文件。详情请参见 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 和 [绑定密钥](https://cloud.tencent.com/document/product/1207/44573)。
+
 
 
 ## 操作步骤
@@ -43,15 +51,17 @@
      - `1_cloud.tencent.com_bundle.crt` 证书文件
      - `2_cloud.tencent.com.key` 私钥文件
   - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
->?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
->
+<dx-alert infotype="explain" title="">
+CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
+</dx-alert>
 2. 在本地计算机中使用远程登录工具（如 WinSCP），通过用户名密码方式或者 SSH 密钥对方式登录轻量应用服务器。详情请参见 [远程登录Linux实例](https://cloud.tencent.com/document/product/1207/44578)。
 3. 将已获取到的 `1_cloud.tencent.com_bundle.crt` 证书文件和 `2_cloud.tencent.com.key` 私钥文件从本地目录拷贝到轻量应用服务器 Nginx 默认配置文件目录中。
->?WordPress 镜像的默认配置文件目录为 `/usr/local/lighthouse/softwares/nginx/conf` 。您可以在轻量应用服务器实例详情页的【应用管理】页面中查看 Nginx 软件的主安装目录，在主安装目录下的 `./conf/` 即为 Nginx 默认配置文件目录。
->
+<dx-alert infotype="explain" title="">
+WordPress 镜像的默认配置文件目录为 `/www/server/nginx/conf`。
+</dx-alert>
 4. [](id:Step4)对于 WordPress 镜像创建的实例则执行以下命令，编辑 Nginx 默认配置文件目录中的 `nginx.conf` 文件。
 ```
-sudo vim /usr/local/lighthouse/softwares/nginx/conf/nginx.conf
+sudo vim /www/server/nginx/conf/nginx.conf
 ```
 找到以下配置信息：
 ```
@@ -84,8 +94,9 @@ server {
 }
 ```
 参考以下配置对 `nginx.conf` 文件进行修改：
->?此配置仅供参考，请参考注释并按照实际环境进行修改。您也可以参考 Nginx 官方文档按需进行配置。
->
+<dx-alert infotype="explain" title="">
+此配置仅供参考，请参考注释并按照实际环境进行修改。您也可以参考 Nginx 官方文档按需进行配置。
+</dx-alert>
 ```
 server {
     listen 443 ssl;
@@ -93,9 +104,9 @@ server {
     keepalive_timeout 5;
     root /usr/local/lighthouse/softwares/wordpress; #填写您的网站根目录，例如：/usr/local/lighthouse/softwares/wordpress
     index index.php index.html;
-    access_log logs/wordpress.log combinediox;
+    access_log logs/wordpress.log;
     error_log logs/wordpress.error.log;
-    server_name cloud.tencent.com; #填写您的证书绑定的域名，例如：cloud.tencent.com
+    server_name cloud.tencent.com; #填写您的证书绑定的域名，例如：www.cloud.tencent.com
     ssl_certificate 1_cloud.tencent.com_bundle.crt; #填写您的证书文件名称，例如：1_cloud.tencent.com_bundle.crt
     ssl_certificate_key 2_cloud.tencent.com.key; #填写您的私钥文件名称，例如：2_cloud.tencent.com.key
     ssl_session_timeout 5m;
@@ -121,14 +132,14 @@ ssl_certificate_key 2_cloud.tencent.com.key;    #填写您的私钥文件名称�
 6. 保存修改后的 `nginx.conf` 文件后退出。
 7. [](id:Step7)执行以下命令，验证配置文件是否存在问题。
 ```
-sudo /usr/local/lighthouse/softwares/nginx/sbin/nginx -t
+sudo nginx -t
 ```
  - 若输出信息如下如所示，则为配置成功，请继续执行 [步骤8](#Step8)。
-![](https://main.qcloudimg.com/raw/e2be8baf455c0c4cfa8f0f5f3c4bb494.png)
+![](https://main.qcloudimg.com/raw/bead4ecd767b34c600f1ce4d5844cac0.png)
  - 若存在错误提示，请您重新配置或者根据提示修改存在问题。
 8. [](id:Step8)执行以下命令，重启 Nginx。
 ```
-sudo /usr/local/lighthouse/softwares/nginx/sbin/nginx -s reload
+sudo systemctl reload nginx
 ```
 至此已安装成功。您可使用 `https://cloud.tencent.com`（示例）正常进行访问。
 

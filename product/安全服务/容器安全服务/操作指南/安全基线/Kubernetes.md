@@ -56,14 +56,14 @@ Kubernetes 页面基于 CIS Kubernetes Benchmark 标准展示 K8S 资产的基�
 2. 在安全基线 Kubernetes 页面，单击![](https://main.qcloudimg.com/raw/21ff3bd68750cb41c5ce662a24629cb3.png)图标勾选所需 Kubernetes 基线检测项后，单击**重新检测** > **确认**，可对 Kubernetes 基线检测项进行重新检测。
 >?选定多个 Kubernetes 基线检测项，单击②处的**重新检测**，可进行批量检测。
 >
-![](https://main.qcloudimg.com/raw/f935958bfb305c90572bcdce5fa5826f.png)
+![](https://main.qcloudimg.com/raw/6254bb97cbd6b8443a2f84da180c4c98.png)
 
 ### 忽略基线检测项
 1. 登录 [容器安全服务控制台](https://console.cloud.tencent.com/tcss)，在左侧导航中，单击**安全基线** > **Kubernetes**，进入安全基线 Kubernetes 页面。
 2. 在安全基线 Kubernetes 页面，单击![](https://main.qcloudimg.com/raw/21ff3bd68750cb41c5ce662a24629cb3.png)图标勾选所需 Kubernetes 基线检测项后，单击**忽略** > **确定**，可对 Kubernetes 基线检测项进行忽略。
 >?选定多个 Kubernetes 基线检测项，单击②处的**忽略**，可进行批量忽略。
 >
-![](https://main.qcloudimg.com/raw/45c0c8a347580c2a915fb3214f1476f9.png)
+![](https://main.qcloudimg.com/raw/bf2a00bad60a7a2fad3d777f76403f8b.png)
 
 ### 自定义列表管理
 1. 登录 [容器安全服务控制台](https://console.cloud.tencent.com/tcss)，在左侧导航中，单击**安全基线** > **Kubernetes**，进入安全基线 Kubernetes 页面。

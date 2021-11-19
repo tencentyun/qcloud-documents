@@ -73,9 +73,9 @@ plugins 参数可以配置播放器插件的功能，支持的属性有：
 |  requestFullscreen()|  无|  无|  进入全屏模式。|  
 |  exitFullscreen()|  无|  无|  退出全屏模式。|  
 |  isFullscreen()|  无|  Boolean|  返回是否进入了全屏模式。|  
-|  on(type，listerner)|  (String, Function)|  无|  监听事件。|  
-|  one(type，listerner)|  (String, Function)|  无|  监听事件，事件处理函数最多只执行1次。|  
-|  off(type，listerner)|  (String, Function)|  无|  解绑事件监听。|  
+|  on(type，listener)|  (String, Function)|  无|  监听事件。|  
+|  one(type，listener)|  (String, Function)|  无|  监听事件，事件处理函数最多只执行1次。|  
+|  off(type，listener)|  (String, Function)|  无|  解绑事件监听。|  
 |  buffered()|  无|  TimeRanges|  返回视频缓冲区间。|  
 |  bufferedPercent()|  无|  值范围[0，1]|  返回缓冲长度占视频时长的百分比。|  
 |  width()|  (Number)[可选]|  (Number)/设置时无返回|  获取或设置播放器区域宽度，如果通过 CSS 设置播放器尺寸，该方法将无效。|

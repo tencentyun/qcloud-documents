@@ -8,7 +8,7 @@
 - **子账号**：包括子用户和协作者。
 - **子用户**： 由主账号创建，完全归属于创建该子用户的主账号。
 - **协作者**：本身拥有主账号身份，被添加作为当前主账号的协作者，则为当前主账号的子账号之一，可切换回主账号身份。
-- **身份凭证**：包括登录凭证和访问证书两种，**登录凭证** 指用户登录名和密码，**访问证书** 指云 API 密钥（SecretId 和 SecretKey）。
+- **身份凭证**：包括登录凭证和访问证书两种，**登录凭证**指用户登录名和密码，**访问证书**指云 API 密钥（SecretId 和 SecretKey）。
 
 #### 资源与权限
 
@@ -34,33 +34,33 @@ TDMQ RabbitMQ版支持资源级授权，您可以指定子账号拥有特定资�
 
 | API名                        | API描述                  | 资源类型      | 资源六段式示例                                               |
 | ---------------------------- | ------------------------ | ------------- | ------------------------------------------------------------ |
-| DeleteAMQPCluster            | 删除AMQP集群             | cluster       | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
-| ModifyAMQPCluster            | 修改AMQP集群             | cluster       | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
-| CreateAMQPVHost              | 创建AMQP VHost           | cluster       | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
-| DescribeAMQPClusters         | 查询AMQP 集群列表        | cluster       | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
-| DescribeAMQPCluster          | 获取单个Amqp集群信息     | cluster       | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
-| CreateAMQPExchange           | 创建AMQP Exchange        | vHost         | qcs::tdmq:${region}:uin/${uin}:vHost/${clusterId}/${vHostId} |
-| ModifyAMQPVHost              | 修改AMQP VHost           | vHost         | qcs::tdmq:${region}:uin/${uin}:vHost/${clusterId}/${vHostId} |
-| DeleteAMQPVHost              | 删除AMQP VHost           | vHost         | qcs::tdmq:${region}:uin/${uin}:vHost/${clusterId}/${vHostId} |
-| CreateAMQPQueue              | 创建AMQP队列             | vHost         | qcs::tdmq:${region}:uin/${uin}:vHost/${clusterId}/${vHostId} |
-| CreateAMQPRouteRelation      | 创建AMQP路由关系         | vHost         | qcs::tdmq:${region}:uin/${uin}:vHost/${clusterId}/${vHostId} |
-| DescribeAMQPVHostConnections | 查询AMQP VHost连接列表   | vHost         | qcs::tdmq:${region}:uin/${uin}:vHost/${clusterId}/${vHostId} |
-| DescribeAMQPVHosts           | 查询AMQP VHost列表       | vHost         | qcs::tdmq:${region}:uin/${uin}:vHost/${clusterId}/${vHostId} |
-| DeleteAMQPExchange           | 删除AMQP Exchange        | exchange      | qcs::tdmq:${region}:uin/${uin}:exchange/${clusterId}/${vHostId}/${exchangeName} |
-| ModifyAMQPExchange           | 修改AMQP Exchange        | exchange      | qcs::tdmq:${region}:uin/${uin}:exchange/${clusterId}/${vHostId}/${exchangeName} |
-| DescribeAMQPExchanges        | 查询AMQP Exchange列表    | exchange      | qcs::tdmq:${region}:uin/${uin}:exchange/${clusterId}/${vHostId}/${exchangeName} |
-| DeleteAMQPQueue              | 删除AMQP队列             | queue         | qcs::tdmq:${region}:uin/${uin}:queue/${clusterId}/${vHostId}/${queueName} |
+| DeleteAMQPCluster            | 删除 AMQP 集群             | cluster       | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
+| ModifyAMQPCluster            | 修改 AMQP 集群             | cluster       | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
+| CreateAMQPVHost              | 创建 AMQP VHost           | cluster       | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
+| DescribeAMQPClusters         | 查询 AMQP 集群列表        | cluster       | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
+| DescribeAMQPCluster          | 获取单个 AMQP 集群信息     | cluster       | qcs::tdmq:${region}:uin/${uin}:cluster/${clusterId}          |
+| CreateAMQPExchange           | 创建 AMQP Exchange        | vHost         | qcs::tdmq:${region}:uin/${uin}:vHost/${clusterId}/${vHostId} |
+| ModifyAMQPVHost              | 修改 AMQP VHost           | vHost         | qcs::tdmq:${region}:uin/${uin}:vHost/${clusterId}/${vHostId} |
+| DeleteAMQPVHost              | 删除 AMQP VHost           | vHost         | qcs::tdmq:${region}:uin/${uin}:vHost/${clusterId}/${vHostId} |
+| CreateAMQPQueue              | 创建 AMQP 队列             | vHost         | qcs::tdmq:${region}:uin/${uin}:vHost/${clusterId}/${vHostId} |
+| CreateAMQPRouteRelation      | 创建 AMQP 路由关系         | vHost         | qcs::tdmq:${region}:uin/${uin}:vHost/${clusterId}/${vHostId} |
+| DescribeAMQPVHostConnections | 查询 AMQP VHost 连接列表   | vHost         | qcs::tdmq:${region}:uin/${uin}:vHost/${clusterId}/${vHostId} |
+| DescribeAMQPVHosts           | 查询 AMQP VHost 列表       | vHost         | qcs::tdmq:${region}:uin/${uin}:vHost/${clusterId}/${vHostId} |
+| DeleteAMQPExchange           | 删除 AMQP Exchange        | exchange      | qcs::tdmq:${region}:uin/${uin}:exchange/${clusterId}/${vHostId}/${exchangeName} |
+| ModifyAMQPExchange           | 修改 AMQP Exchange        | exchange      | qcs::tdmq:${region}:uin/${uin}:exchange/${clusterId}/${vHostId}/${exchangeName} |
+| DescribeAMQPExchanges        | 查询 AMQP Exchange 列表    | exchange      | qcs::tdmq:${region}:uin/${uin}:exchange/${clusterId}/${vHostId}/${exchangeName} |
+| DeleteAMQPQueue              | 删除 AMQP 队列             | queue         | qcs::tdmq:${region}:uin/${uin}:queue/${clusterId}/${vHostId}/${queueName} |
 | DescribeAMQPQueueConsumers   | 获取指定队列下消费者列表 | queue         | qcs::tdmq:${region}:uin/${uin}:queue/${clusterId}/${vHostId}/${queueName} |
-| ModifyAMQPQueue              | 修改AMQP队列             | queue         | qcs::tdmq:${region}:uin/${uin}:queue/${clusterId}/${vHostId}/${queueName} |
-| DescribeAMQPQueues           | 查询AMQP队列列表         | queue         | qcs::tdmq:${region}:uin/${uin}:queue/${clusterId}/${vHostId}/${queueName} |
-| DescribeAMQPRouteRelations   | 查询AMQP 路由关系列表    | routeRelation | qcs::tdmq:${region}:uin/${uin}:routeRelation/${clusterId}/${vHostId}/${routeRelationId} |
-| DeleteAMQPRouteRelation      | 删除AMQP路由关系         | routeRelation | qcs::tdmq:${region}:uin/${uin}:routeRelation/${clusterId}/${vHostId}/${routeRelationId} |
+| ModifyAMQPQueue              | 修改 AMQP 队列             | queue         | qcs::tdmq:${region}:uin/${uin}:queue/${clusterId}/${vHostId}/${queueName} |
+| DescribeAMQPQueues           | 查询 AMQP 队列列表         | queue         | qcs::tdmq:${region}:uin/${uin}:queue/${clusterId}/${vHostId}/${queueName} |
+| DescribeAMQPRouteRelations   | 查询 AMQP 路由关系列表    | routeRelation | qcs::tdmq:${region}:uin/${uin}:routeRelation/${clusterId}/${vHostId}/${routeRelationId} |
+| DeleteAMQPRouteRelation      | 删除 AMQP 路由关系         | routeRelation | qcs::tdmq:${region}:uin/${uin}:routeRelation/${clusterId}/${vHostId}/${routeRelationId} |
 
 ## 不支持资源级授权的 API 列表
 
 | API 名                  | API 描述     | 资源六段式 |
 | ----------------------- | ------------ | ---------- |
-| CreateAMQPCluster       | 创建AMQP集群 | *          |
+| CreateAMQPCluster       | 创建 AMQP 集群 | *          |
 | DescribeAMQPCreateQuota | 获取用户配额 | *          |
 
 ## 授权方案示例

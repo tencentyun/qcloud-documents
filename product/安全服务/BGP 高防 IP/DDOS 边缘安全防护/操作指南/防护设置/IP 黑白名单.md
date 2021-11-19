@@ -2,9 +2,11 @@ DDoS 边界防护支持通过配置 IP 黑名单和白名单，实现对访问 D
 
 ## 前提条件
 您需要成功[ 购买 DDoS 边界防护](https://cloud.tencent.com/document/product/1014/60842)，并设置防护对象。
->?当发生 DDoS 攻击时，IP 黑白名单的过滤才会生效。
->- 白名单中的 IP，访问时将被直接放行，不经过任何防护策略过滤。
->-	黑名单中的 IP，访问时将会被直接阻断。
+>?
+>- 当发生 DDoS 攻击时，IP 黑白名单的过滤才会生效。
+>   - 白名单中的 IP，访问时将被直接放行，不经过任何防护策略过滤。
+>   -	黑名单中的 IP，访问时将会被直接阻断。
+>- 目前 DDoS 边界防护产品处于灰度优化中，如有需要，请 [联系我们](https://cloud.tencent.com/online-service?from=doc_1014) 申请。
 
 ## 操作步骤
 1. 登录 [DDoS 边界防护管理控制台](https://console.cloud.tencent.com/ddos/antiddos-edge/policy/ddos) ，在左侧导航中，单击**防护策略**，并选择 **DDoS防护**。

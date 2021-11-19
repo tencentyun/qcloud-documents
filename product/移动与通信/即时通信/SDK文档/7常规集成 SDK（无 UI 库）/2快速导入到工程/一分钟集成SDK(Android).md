@@ -1,4 +1,4 @@
-﻿本文主要介绍如何快速地将腾讯云即时通信 IM SDK 集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
+本文主要介绍如何快速地将腾讯云即时通信 IM SDK 集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
 ## 开发环境要求
 - JDK 1.6。
 - Android 4.1（SDK API 16）及以上系统。
@@ -34,7 +34,7 @@ dependencies {
 		api 'com.tencent.imsdk:imsdk-plus:版本号'
 }
 ```
->?“版本号”应替换为 SDK 的实际版本号，建议使用 [最新版本]( https://github.com/tencentyun/TIMSDK/tree/master/Android/Demo/tuikit/libs)。
+>?“版本号”应替换为 SDK 的实际版本号，建议使用 [最新版本]( https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK)。
 >以版本号是`5.4.666`为例：
 >```
 dependencies {

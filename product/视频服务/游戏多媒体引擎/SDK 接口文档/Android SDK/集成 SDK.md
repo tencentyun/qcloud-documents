@@ -6,7 +6,13 @@
 2. 解压获取到的 SDK 资源。
 3. 文件夹内容 libs 为开发 SDK 资源。
 
->?SDK 支持 在 Android 4.2 及以上系统上运行，但只有 ( Android 4.3）API 18 以上的系统才能开启硬件编码。
+
+
+<dx-alert infotype="explain" title="">
+SDK 支持 在 Android 4.2 及以上系统上运行，但只有（Android 4.3）API 18 以上的系统才能开启硬件编码。
+</dx-alert>
+
+
 
 ## 配置指引
 

@@ -1,0 +1,8 @@
+当需要把 MySQL 中的数据同步到 Elasticsearch 时，根据应用场景、数据规模、同步延迟需求的不同，可以选择不同的同步方案。本文介绍了常见的同步方案以及适用的场景，帮助您选择合适的方案进行数据同步。
+
+|             同步方案        |              基本原理                |             适用场景        |       使用限制       |            相关文档         |
+| :------------------------------: | :----------------------: | :------------: | :--------------------: | :-----------------------------------------: |
+| 使用 go-elasticsearch 实现实时同步 |    通过解析 binlog 的方式实现数据的实时同步            |    实时性要求比较高的场景        | 1. MySQL 的 binlog 必须是 ROW 模式（腾讯云 TencentDB for MySQL 产品默认开启）</br>2. 要同步的 MySQL 数据表必须包含主键 </br> 3. 不支持在同步过程中修改正在执行同步的 MySQL 表的结构</br>4. 要赋予用于连接 MySQL 的账号以 RELOAD 权限、REPLICATION 权限 | [MySQL 数据实时同步到 ES](https://cloud.tencent.com/document/product/845/35562) |
+|  Logstash 实现全量同步与增量同步  | Logstash 的 input-jdbc 插件可以实现数据全量地从 MySQL 同步到 Elasticsearch，通过批量拉取 MySQL 表中的数据再批量写入到 ES 的方式实现全量同步；另外，在 MySQL 表只有新增数据的情况下，可以在 Logstash 的配置中设置定时任务定期地查询最近一段时间内新增的数据实现简单的增量同步 | 需要进行全表数据导入到 ES 的场景，以及对实时性要求不高的场景 | 1. 增量同步时需要 MySQL 表中需要有自增字段或者有时间戳字段，例如 UpdateTime <br>2. 增量同步不能支持数据的删除<br>3. 增量同步的实时性较差 | [使用腾讯云 Logstash 同步 MySQL 中的数据到 Elasticsearch](https://cloud.tencent.com/document/product/845/55159) |
+|     使用 Oceanus 实现实时同步      | 使用腾讯云的流计算服务 Oceanus 实现实时同步 mysql 的数据到 Elasticsearch，通过解析 binlog 的方式实现实时同步 |                     实时性要求高的场景                     | 1. MySQL 的 binlog 必须是 ROW 模式（腾讯云 TencentDB for MySQL 产品默认开启）<br>2. 要同步的 MySQL 数据表必须包含主键 <br>3. 不支持在同步过程中修改正在执行同步的 MySQL 表的结构<br>4. 要赋予用于连接 MySQL 的账号以 RELOAD 权限、REPLICATION 权限 | [使用腾讯云 Oceanus 实时同步 MySQL 中的数据到 Elasticsearch](https://cloud.tencent.com/document/product/849/60520) |
+

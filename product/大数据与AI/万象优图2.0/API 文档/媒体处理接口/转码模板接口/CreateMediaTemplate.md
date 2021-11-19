@@ -108,9 +108,9 @@ Container 类型 Container 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点            | 描述                                  | 类型   | 是否必选 |
 | ------------------ | ----------------- | ------------------------------------- | ------ | -------- |
-| Format             | Request.Container | 容器格式：mp4、flv、hls、ts、mp3、aac | String | 是       |
+| Format             | Request.Container | 容器格式：mp4、flv、hls、ts、mp3、aac、WebM | String | 是       |
 
-设定 container，音频视频支持的格式如下表：
+设定 container，音频视频支持的格式如下表所示：
 
 | Container | Audio Codecs | Video Codecs |
 | --------- | ------------ | ------------ |
@@ -121,27 +121,28 @@ Container 类型 Container 的具体数据描述如下：
 | mp3       | mp3          | 不支持       |
 | flac      | flac         | 不支持       |
 | amr       | amr          | 不支持       |
+| WebM      | Vorbis、opus | VP8         |
 
 
 Container 类型 Video 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点        | 描述               | 类型   | 是否必选 | 默认值       | 限制                                                         |
 | ------------------ | ------------- | ------------------ | ------ | -------- | ------------ | ------------------------------------------------------------ |
-| Codec              | Request.Video | 编解码格式         | String | 否       | H.264        | 1. H.264<br/>2. H.265                                        |
+| Codec              | Request.Video | 编解码格式         | String | 否       | H.264，当 format 为 WebM 时，为 VP8        | 1. H.264<br/>2. H.265<br/>3. VP8                                        |
 | Width              | Request.Video | 宽                 | String | 否       | 视频原始宽度 | 1. 值范围：[128, 4096]<br/>2. 单位：px<br/>3. 若只设置 Width 时, 按照视频原始比例计算 Height<br/>4. 必须为偶数 |
 | Height             | Request.Video | 高                 | String | 否       | 视频原始高度 | 1. 值范围：[128, 4096]<br/>2. 单位：px<br/>3. 若只设置 Height 时，按照视频原始比例计算 Width<br/>4. 必须为偶数 |
 | Fps                | Request.Video | 帧率               | String | 否       | 无           | 1. 值范围：(0, 60]<br>2. 单位：fps                           |
 | Remove             | Request.Video | 是否删除视频流     | String | 否       | false        |  true、false                                               |
-| Profile            | Request.Video | 编码级别           | String | 否       | high         | 1. 支持 baseline、main、high<br/>2. baseline：适合移动设备；<br/>3. main：适合标准分辨率设备；<br/>4. high：适合高分辨率设备；<br/>5. 仅H.264支持此参数。 |
+| Profile            | Request.Video | 编码级别           | String | 否       | high         | 1. 支持 baseline、main、high<br/>2. baseline：适合移动设备；<br/>3. main：适合标准分辨率设备；<br/>4. high：适合高分辨率设备；<br/>5. 仅H.264支持此参数。<br/>6. Codec 为 VP8 不支持此参数。 |
 | Bitrate            | Request.Video | 视频输出文件的码率 | String | 否       | 无           | 1. 值范围：[10, 50000]<br/>2. 单位：Kbps                     |
 | Crf                | Request.Video | 码率-质量控制因子  | String | 否       | 无           | 1. 值范围：(0, 51]<br/>2. 如果设置了 Crf，则 Bitrate 的设置失效<br/>3. 当 Bitrate 为空时，默认为25 |
 | Gop                | Request.Video | 关键帧间最大帧数   | String | 否       | 无           | 值范围：[0, 100000]                                       |
-| Preset             | Request.Video | 视频算法器预置     | String | 否       | medium       | 1. 仅H.264支持该参数<br/>2. 取值 veryfast、fast、medium、slow、slower |
-| Bufsize            | Request.Video | 缓冲区大小         | String | 否       | 无           | 1. 值范围：[1000, 128000]<br/>2. 单位：Kb<br/>               |
-| Maxrate            | Request.Video | 视频码率峰值       | String | 否       | 无           | 1. 值范围：[10, 50000]<br/>2. 单位：Kbps<br/>                |
-| HlsTsTime          | Request.Video | hls分片时间        | String | 否       | 5            | 1. (0 视频时长] <br/> 2. 单位为秒                            |
-| Pixfmt             | Request.Video | 视频颜色格式       | String | 否       | 无           | H.264支持：yuv420p、yuv422p、yuv444p、yuvj420p、yuvj422p、yuvj444p<br/>H.265支持：yuv420p |
-| LongShortMode              | Request.Video | 长短边自适应          | String | 否   | false        | true、false|  
+| Preset             | Request.Video | 视频算法器预置     | String | 否       | medium，当 Codec 为 VP8 时，为 good       | 1. H.264支持该参数，取值 veryfast、fast、medium、slow、slower<br/>2. VP8 支持该参数，取值 good、realtime |
+| Bufsize            | Request.Video | 缓冲区大小         | String | 否       | 无           | 1. 值范围：[1000, 128000]<br/>2. 单位：Kb<br/>3. Codec 为 VP8 不支持此参数               |
+| Maxrate            | Request.Video | 视频码率峰值       | String | 否       | 无           | 1. 值范围：[10, 50000]<br/>2. 单位：Kbps<br/>3. Codec 为 VP8 不支持此参数                |
+| HlsTsTime          | Request.Video | hls分片时间        | String | 否       | 5            | 1. (0 视频时长] <br/> 2. 单位为秒<br/>3. Codec 为 VP8 不支持此参数                            |
+| Pixfmt             | Request.Video | 视频颜色格式       | String | 否       | 无           | 1. H.264支持：yuv420p、yuv422p、yuv444p、yuvj420p、yuvj422p、yuvj444p<br/>2. H.265支持：yuv420p<br/>3. Codec 为 VP8 不支持此参数 |
+| LongShortMode              | Request.Video | 长短边自适应          | String | 否   | false        | 1. true、false<br/>2. Codec 为 VP8 不支持此参数|  
 
 Container 类型 TimeInterval 的具体数据描述如下：
 
@@ -155,11 +156,11 @@ Container 类型 Audio 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点        | 描述         | 类型   | 是否必选 | 默认值 | 限制                                                         |
 | ------------------ | ------------- | ------------ | ------ | -------- | ------ | ------------------------------------------------------------ |
-| Codec              | Request.Audio | 编解码格式   | String | 否       | aac    | 取值 aac、mp3、flac、amr                                     |
-| Samplerate         | Request.Audio | 采样率       | String | 否       | 44100  | <li>单位：Hz<br/><li> 可选 11025、22050、32000、44100、48000、96000<br/><li>不同的封装，mp3 支持不同的采样率，如下表所示<br/><li>当 Codec 设置为 amr 时，只支持8000 |
+| Codec              | Request.Audio | 编解码格式   | String | 否       | aac，当 format 为 WebM 时，为 Vorbis    | 取值 aac、mp3、flac、amr、Vorbis、opus                                     |
+| Samplerate         | Request.Audio | 采样率       | String | 否       | 44100，当 Codec 为 opus 时，默认值为48000  | <li>单位：Hz<br/><li> 可选 8000、11025、12000、16000、22050、24000、32000、44100、48000、88200、96000<br/><li>不同的封装，mp3 支持不同的采样率，如下表所示<br/><li>当 Codec 设置为 amr 时，只支持8000<br/><li>当 Codec 设置为 opus 时，仅支持8000，16000，24000，48000 |
 | Bitrate            | Request.Audio | 原始音频码率 | String | 否       | 无     | <li>单位：Kbps<br/><li>值范围：[8，1000]                     |
-| Channels           | Request.Audio | 声道数       | String | 否       | 无     | <li>当 Codec 设置为 aac/flac，支持1、2、4、5、6、8<br/><li>当 Codec 设置为 mp3，支持1、2<br/><li>当 Codec 设置为 amr，只支持1 |
-| Remove             | Request.Audio | 是否删除音频流 | String | 否   | false    | 取值 true、false。当 Video.Codec 为H.265时，此参数无效。      
+| Channels           | Request.Audio | 声道数       | String | 否       | 无     | <li>当 Codec 设置为 aac/flac，支持1、2、4、5、6、8<br/><li>当 Codec 设置为 mp3/opus 时，支持1、2<br/><li>当 Codec 设置为 Vorbis 时，只支持2<br/><li>当 Codec 设置为 amr，只支持1 |
+| Remove             | Request.Audio | 是否删除源音频流 | String | 否   | false    | 取值 true、false。当 Video.Codec 为H.265时，此参数无效。      
 | KeepTwoTracks      | Request.Audio | 保持双音轨 | String | 否   | false    | 取值 true、false。 当 Video.Codec 为H.265时，此参数无效。
 | SwitchTrack        | Request.Audio | 转换轨道 | String | 否   | false    | 取值 true、false。 当 Video.Codec 为H.265时，此参数无效。                                       |
 | SampleFormat       | Request.Audio | 采样位宽  | String | 否   | 无      | 1. 当 Codec 设置为 aac, 支持 fltp<br/>2. 当 Codec 设置为 mp3, 支持 fltp、s16p、s32p<br/>3. 当 Codec 设置为 flac, 支持s16、s32<br/>4. 当 Codec 设置为 amr, 支持s16<br/>5.当 Video.Codec 为H.265时，此参数无效。|
@@ -167,13 +168,119 @@ Container 类型 Audio 的具体数据描述如下：
 >? Y 表示支持这种采样率，N 表示不支持。
 >
 
-| 封装格式/音频采样率 | 8000 | 11025 | 22050 | 32000 | 44100 | 48000 | 96000 |
-| ------------------- | ---- | ----- | ----- | ----- | ----- | ----- | ----- |
-| flv                 | N    | Y     | Y     | N     | Y     | N     | N     |
-| mp4                 | N    | N     | Y     | Y     | Y     | Y     | N     |
-| hls/ts/mp3/mkv      | N    | Y     | Y     | Y     | Y     | Y     | N     |
-| arm                 | Y    | N     | N     | N     | N     | N     | N     |
-| aac/flac            | Y    | Y     | Y     | Y     | Y     | Y     | Y     |
+
+Audio.Codec 采样率支持情况，如下表所示：
+
+<table>
+   <tr>
+      <th>Audio.Codec</td>
+      <th>aac</td>
+      <th>amr</td>
+      <th>flac</td>
+      <th>opus</td>
+      <th>Vorbis</td>
+      <th>mp3</td>
+   </tr>
+   <tr>
+      <td>8000</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td rowspan=11>封装不同，支持不同</td>
+   </tr>
+   <tr>
+      <td>11025</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+   </tr>
+   <tr>
+      <td>12000</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+   </tr>
+   <tr>
+      <td>16000</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
+   </tr>
+   <tr>
+      <td>22050</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+   </tr>
+   <tr>
+      <td>24000</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
+   </tr>
+   <tr>
+      <td>32000</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+   </tr>
+   <tr>
+      <td>44100</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+   </tr>
+   <tr>
+      <td>48000</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
+   </tr>
+   <tr>
+      <td>88200</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+   </tr>
+   <tr>
+      <td>96000</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+   </tr>
+</table>
+
+当 Audio.Codec 为 mp3 时，Container.Format 的采样率兼容情况如下所示：
+
+| 封装格式/音频采样率 | 8000 | 11025 | 12000 | 16000 | 22050 | 24000 | 32000 | 44100 | 48000 | 88200 | 96000 |
+| ------------------- | ---- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| flv	              | N    | Y     | N     | N     | Y     | N     | N     | Y     | N     | N     | N     |
+| mp4                 | N    | N     | N     | Y     | Y     | Y     | Y     | Y     | Y     | N     | N     |
+| hls/ts/mp3/mkv      | N    | Y     | Y     | Y     | Y     | Y     | Y     | Y     | Y     | N     | N     |
+
+
 
 Container 类型 TransConfig 的具体数据描述如下：
 
@@ -186,7 +293,7 @@ Container 类型 TransConfig 的具体数据描述如下：
 | VideoBitrateAdjMethod | Request.TransConfig                        | 视频码率调整方式             | String    | 否       | 0      | <li>取值0、1；0 表示使用原视频码率；1表示返回转码失败<br/><li>当 IsCheckVideoBitrate 为 true 时生效<br/><li>当 Video.Codec 为H.265时，此参数无效 |
 | IsCheckAudioBitrate   | Request.TransConfig                        | 是否检查音频码率             | String    | 否       | false  | <li>true、false <br/><li>当为false时，按照配置参数转码<br/><li>当 Video.Codec 为H.265时，此参数无效 |
 | AudioBitrateAdjMethod | Request.TransConfig                        | 音频码率调整方式             | String    | 否       | 0      | <li>取值0、1；0 表示使用原音频码率；1表示返回转码失败<br/><li>当IsCheckAudioBitrate为true时生效 <br/><li>当 Video.Codec 为H.265时，此参数无效 |
-| DeleteMetadata        | Response.TransConfig                         | 是否删除文件中的 MetaData 信息 | String    | 否       | false  | 1. true、false <br/>2. 当为 false 时, 保留源文件信息<br/>3. 当 Video.Codec 为H.265时，此参数无效 |
+| DeleteMetadata        | Request.TransConfig                         | 是否删除文件中的 MetaData 信息 | String    | 否       | false  | 1. true、false <br/>2. 当为 false 时, 保留源文件信息<br/>3. 当 Video.Codec 为H.265时，此参数无效 |
 | IsHdr2Sdr             | Request.TransConfig                        | 是否开启 HDR 转 SDR             | String    | 否       | false  | true/false                                                   |
 | HlsEncrypt            | Request.TransConfig                        | hls 加密配置                  | Container | 否       | 无     | 无                                                           |
 
@@ -199,7 +306,7 @@ Container 类型 HlsEncrypt 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                         | 描述            | 类型   | 是否必选 | 默认值 | 限制                                                         |
 | ------------------ | ------------------------------ | --------------- | ------ | ---- | ------ | ------------------------------------------------------------ |
-| IsHlsEncrypt       | Request.TransConfig.HlsEncrypt | 是否开启 HLS 加密 | String | 否   | false  | 1. true/false<br/>2. 仅当 Video.Codec 为H264并且 Container.Format 为 hls 时支持加密 |
+| IsHlsEncrypt       | Request.TransConfig.HlsEncrypt | 是否开启 HLS 加密 | String | 否   | false  | 1. true/false<br/>2. 当 Container.Format 为 hls 时支持加密 |
 | UriKey             | Request.TransConfig.HlsEncrypt | HLS 加密的 key    | String | 否   | 无     | 当 IsHlsEncrypt 为 true 时，该参数才有意义                       |
 
 ## 响应

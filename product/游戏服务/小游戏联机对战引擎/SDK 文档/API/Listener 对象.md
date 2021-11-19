@@ -14,9 +14,12 @@ Listener 对象为 MGOBE 的子属性，该对象方法全为静态方法，不�
 |config|[MGOBE.types.ConfigPara](https://cloud.tencent.com/document/product/1038/35534#configpara)|游戏配置|
 |callback|[MGOBE.types.ReqCallback](https://cloud.tencent.com/document/product/1038/33331#.E5.93.8D.E5.BA.94.E5.9B.9E.E8.B0.83.E5.87.BD.E6.95.B0-mgobe.types.reqcallback)&lt;null&gt;|初始化回调函数|
 
->?
+<dx-alert infotype="explain" title="">
 - 该方法为静态方法。初始化 Listener 时需要传入 gameInfo 和 config 两个参数。
 - 初始化结果在 callback 中异步返回，错误码为0表示初始化成功。
+</dx-alert>
+
+
 
 #### 返回值说明
 
@@ -62,9 +65,11 @@ Listener 对象为 MGOBE 的子属性，该对象方法全为静态方法，不�
 |:---|---|---|
 |entity|Room 或 Group|需要监听的房间/队组对象|
 
->?
+<dx-alert infotype="explain" title="">
 - 该方法为静态方法。实例化 Room/Group 对象之后，需要通过该方法给 Room/Group 注册广播事件监听。
 - Listener 完成初始化之后才能添加监听。
+</dx-alert>
+
 
 #### 返回值说明
 
@@ -89,7 +94,13 @@ Listener 对象为 MGOBE 的子属性，该对象方法全为静态方法，不�
 |:---|---|---|
 |entity|Room 或 Group|需要移除监听的房间/队组对象|
 
->?该方法为静态方法。如果不再需要监听某个 Room/Group 对象的广播事件，可以通过该方法进行移除。
+
+
+<dx-alert infotype="explain" title="">
+该方法为静态方法。如果不再需要监听某个 Room/Group 对象的广播事件，可以通过该方法进行移除。
+</dx-alert>
+
+
 
 #### 返回值说明
 
@@ -114,7 +125,13 @@ Listener 对象为 MGOBE 的子属性，该对象方法全为静态方法，不�
 
 无
 
->?该方法为静态方法。
+
+
+<dx-alert infotype="explain" title="">
+该方法为静态方法。
+</dx-alert>
+
+
 
 
 #### 返回值说明

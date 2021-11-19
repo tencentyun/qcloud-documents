@@ -75,11 +75,11 @@ spec:
 behavior:
     scaleUp:
       policies:
-      - type: percent
+      - type: Percent
         value: 900%
     scaleDown:
       policies:
-      - type: pods
+      - type: Pods
         value: 1
         periodSeconds: 600 # 每10分钟缩掉1个 Pod
 ```
@@ -104,7 +104,7 @@ behavior:
 behavior:
     scaleUp:
       policies:
-      - type: pods
+      - type: Pods
         value: 1 # 每次扩容只新增1个 Pod
 ```
 
@@ -120,9 +120,7 @@ behavior:
 ```yaml
 behavior:
     scaleDown:
-      policies:
-      - type: pods
-        value: 0
+      selectPolicy: Disabled
 ```
 
 ### 示例5：延长缩容时间窗口
@@ -134,7 +132,7 @@ behavior:
     scaleDown:
       stabilizationWindowSeconds: 600 # 等待600s（10分钟）再开始缩容
       policies:
-      - type: pods
+      - type: Pods
         value: 5 # 每次只缩掉5个 Pod
 ```
 

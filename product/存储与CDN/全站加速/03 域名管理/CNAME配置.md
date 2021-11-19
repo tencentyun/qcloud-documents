@@ -1,3 +1,4 @@
+
 您的域名接入 ECDN 后，系统会为您自动分配一个 CNAME 域名（以`.dsa.dnsv1.com`为后缀）。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受 ECDN 加速服务。
 ![](https://main.qcloudimg.com/raw/69802e106ed7b373195179d6b9773438.png)
 

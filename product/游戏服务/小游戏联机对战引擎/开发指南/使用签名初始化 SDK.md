@@ -17,7 +17,7 @@
 
 1. 拼接字符串 str：
 ```
-// 注意字段的顺序为game_id、nonce、open_id、timestamp
+// 注意字段的顺序为 game_id、nonce、open_id、timestamp
 // 字段和值之间使用 = 连接
 // 不同字段之间使用 & 连接
 const str = "game_id=您的游戏ID&nonce=1655790837&open_id=玩家openId&timestamp=1571902273"
@@ -43,8 +43,8 @@ const HmacSHA1 = require("crypto-js/hmac-sha1");
 /**
  * 生成SDK初始化签名
  * @param secretKey {string} 游戏密钥
- * @param gameId {string} 游戏ID
- * @param openId {string} 玩家ID
+ * @param gameId {string} 游戏 ID
+ * @param openId {string} 玩家 ID
  */
 function getSignature(secretKey: string, gameId: string, openId: string): { sign: string, nonce: number, timestamp: number } {
 
@@ -108,4 +108,9 @@ Listener.init(gameInfo, config, event => {
     }
 });
 ```
->?示例代码帮助您理解如何使用签名的方式初始化 SDK，具体业务里的服务端部署、请求方式、请求协议格式，由您自行实现。
+
+
+<dx-alert infotype="explain" title="">
+示例代码帮助您理解如何使用签名的方式初始化 SDK，具体业务里的服务端部署、请求方式、请求协议格式，由您自行实现。
+</dx-alert>
+

@@ -13,13 +13,17 @@
 
 ### 使用 sysprep 修改 SID
 
->! 
-> - 使用 sysprep 修改 SID 后，系统参数很多都被重新设置，包括 IP 配置信息等，您必须手动重新设置。
-> - 使用 sysprep 修改 SID 后，C:\Users\Administrator 将会被重置，系统盘部分数据将被清理，请注意做好数据备份。
-> 
+
+
+<dx-alert infotype="notice" title="">
+- 使用 sysprep 修改 SID 后，系统参数很多都被重新设置，包括 IP 配置信息等，您必须手动重新设置。
+- 使用 sysprep 修改 SID 后，C:\Users\Administrator 将会被重置，系统盘部分数据将被清理，请注意做好数据备份。
+</dx-alert>
+
+
 1. [使用 VNC 方式登录云服务器](https://cloud.tencent.com/document/product/213/35704)。
-2. 在操作系统界面，右键单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;"> >【运行】，输入 **cmd**，按 **Enter**，打开管理员命令行工具。
-3. <span id="step_03">在管理员命令行工具中，执行以下命令，保存当前网络配置。</span>
+2. 在操作系统界面，右键单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: -3px 0px;"> > **运行**，输入 **cmd**，按 **Enter**，打开管理员命令行工具。
+3. [](id:step_03)在管理员命令行工具中，执行以下命令，保存当前网络配置。
 ```
 ipconfig /all
 ```
@@ -29,11 +33,11 @@ C:\Windows\System32\Sysprep\sysprep.exe
 ```
 5. 在打开的 “系统准备工具 3.14” 窗口中，进行以下设置。如下图所示：
 ![](https://main.qcloudimg.com/raw/d94e4a96b8ca82052d91e9bb9d8fecbf.png)
- - 将【系统清理操作】设置为【**进入系统全新体验 (OOBE)**】，并勾选【通用】。
- - 将【关机选项】设置为【**重新启动**】。
-6. 单击【确定】，系统自动重新启动。
+ - 将**系统清理操作**设置为**进入系统全新体验 (OOBE)**，并勾选“通用”。
+ - 将**关机选项**设置为**重新启动**。
+6. 单击**确定**，系统自动重新启动。
 7. 待完成启动后，按照向导完成配置（选择语言、重设密码等）。
-8. 在操作系统界面，右键单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;"> >【运行】，输入 **cmd**，按 **Enter**，打开管理员命令行工具。
+8. 在操作系统界面，右键单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: -3px 0px;"> > **运行**，输入 **cmd**，按 **Enter**，打开管理员命令行工具。
 9. 执行以下命令，验证 SID 是否已修改。
 ```
 whoami /user
@@ -55,10 +59,10 @@ sidchg 工具下载地址：`http://www.stratesave.com/html/sidchg.html`
 4. 根据界面提示，输入 license key 或者  trial key，按 **Enter**。
 5. 根据界面提示，输入 **Y**，按 **Enter**。如下图所示：
 ![](https://main.qcloudimg.com/raw/43c19634475517b183402d15fa32e962.png)
-6. 在修改 SID 的提示框中，单击【确定】，进行 SID 重置。如下图所示：
+6. 在修改 SID 的提示框中，单击**确定**，进行 SID 重置。如下图所示：
 重置过程中，系统将会被重启。
 ![](https://main.qcloudimg.com/raw/406a1669402ecc33e85f7c42a51bc25d.png)
-7. 待完成启动后，右键单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;"> >【运行】，输入 **cmd**，按 **Enter**，打开管理员命令行工具。
+7. 待完成启动后，右键单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;"> > **运行**，输入 **cmd**，按 **Enter**，打开管理员命令行工具。
 8. 执行以下命令，验证 SID 是否已修改。
 ```
 whoami /user

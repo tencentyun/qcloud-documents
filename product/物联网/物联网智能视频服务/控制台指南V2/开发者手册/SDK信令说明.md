@@ -7,6 +7,9 @@
 
 
 #### ipc 设备
+**点播参数**
+`ipc.flv?action=playback&channel=xxx&start_time=xxx&end_time=yyy`
+参数说明：start_time 和 end_time 秒为单位，差值不得小于5s，UNIX 时间戳
 
 ##### 设备查询
 

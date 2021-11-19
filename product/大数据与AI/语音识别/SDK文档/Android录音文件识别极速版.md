@@ -1,6 +1,6 @@
 ## 开发准备
 ### SDK 下载
-录音文件识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_2.6.3.zip)。
+录音文件识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_v2.6.5.zip)。
 
 ### 接入须知
 - 开发者使用录音文件极速版识别功能前，需要先在 [腾讯云控制台](https://console.cloud.tencent.com/) 注册账号，并获得 AppID、SecretId 和 SecretKey 信息。

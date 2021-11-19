@@ -1,3 +1,58 @@
+### 2.6.7.82 @ 2021-10-29
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.7.82.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.7.82.zip)
+
+- 新增接口
+  1.设置自定义字体(setTextFontFamily)
+  2.添加自定义字体(addTextFontFamily) 
+  3.获取当前使用字体(getTextFontFamily)
+    
+- 调整初始化参数
+  1.画笔模式下远端画笔是否显示(remoteCursorVisible) 
+    
+- 调整接口
+  1.设置远端画笔在本地是否可见(setRemoteCursorVisible)
+    
+- 调整全局变量
+  1.白板警告码(TEduBoardWarningCode)，新增静态ppt重复的告警码
+    
+- 功能优化
+  1.弱网环境下涂鸦同步
+  2.优化涂鸦显示效果
+
+- Bug 修复
+  1.若干已知问题修复
+
+### 2.6.6.78 @ 2021-10-12
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.6.78.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.6.78.zip)
+
+- 新增接口  
+  1. 设置白板滚动条是否可见(setScrollBarVisible)    
+- 接口调整  
+  1. addImagesFile(urls, title, needSwitch) 支持title,needSwitch
+  2. addH5File(url, title, needSwitch) 支持title,needSwitch
+  3. addVideoFile(url, title, needSwitch) 支持title,needSwitch
+- 实体类调整  
+  1. TEduBoardFileInfo，新增fileType字段
+
+### 2.6.5.75 @ 2021-09-01
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.5.75.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.5.75.zip)
+
+- 新增接口  
+  1. 设置输出日志级别(setLogLevel)  
+- 调整全局变量
+  1. 几何元素类型(TEduBoardMathGraphType)  
+  2. 日志级别(TEduBoardLogLevel)  
+- 当前版本废弃的接口与事件
+  1. SDK接口：发起文件转码请求(applyFileTranscode)  
+  2. 回调事件：转码进度回调(TEB_TRANSCODEPROGRESS)  
+  3. 全局常量：文件转码状态(TEduBoardTranscodeFileStatus)  
+- 功能优化  
+  1. 几何画板新增多种几何图形支持  
+- Bug 修复  
+  1. 若干已知问题修复  
 
 ### 2.6.4.69 @ 2021-08-25
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.4.66.zip)
@@ -197,7 +252,7 @@ Bug 修复
     4. 激光笔功能性能优化
 - Bug 修复
     1. 图片旋转后缩放比例不对的问题
-    2. chrome 88版本纵向滚动条缺失
+    2. Chrome 88版本纵向滚动条缺失
     3. 滚动条触发异常滚动问题
     4. 添加自定义元素时点选框范围错误
     5. 文本工具相关问题

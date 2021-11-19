@@ -1,8 +1,9 @@
+
 本文档将指导您进行 Linux 客户端离线排查，包括客户端进程未启动排查及网络故障排查。
 ## 客户端进程未启动排查
 1. 请查询主机安全进程是否存在。输入：`ps -ef|grep YD`。
 	- 正常状态下，主机安全存在两个进程，如下图所示：
-  ![1](https://main.qcloudimg.com/raw/f999a58033d7ddca296e4eb74f2758a9.png)
+![](https://main.qcloudimg.com/raw/80b75da06e95eaa1704035a0c1c5370e.png)
 	- 如果进程不存在，可能存在以下情况：
 	 - 服务器未安装主机安全或者客户端已被卸载，请根据 [快速入门](https://cloud.tencent.com/document/product/296/12236) 安装指引，进行客户端安装。
 	 - 客户端可能出现异常冲突或者崩溃，导致进程没有启动。

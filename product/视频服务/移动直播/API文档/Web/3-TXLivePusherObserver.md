@@ -10,7 +10,7 @@ onError(code: number, msg: string, extraInfo: Object): void;
 
 **参数**
 
-- `code`：错误码，请参见 [推流错误码](#errocode) 。
+- `code`：错误码，请参见 [推流错误码](#errocode)。
 - `msg`：错误信息。
 - `extraInfo`：扩展信息，目前未用到。
 
@@ -100,6 +100,9 @@ onStatisticsUpdate(statistics: Object): void;
 | TXLIVE_WARNING_MICROPHONE_START_FAILED     | -1002 | 打开麦克风失败             |
 | TXLIVE_WARNING_SCREEN_CAPTURE_START_FAILED | -1003 | 打开屏幕录制失败           |
 | TXLIVE_WARNING_MEDIA_FILE_START_FAILED     | -1004 | 打开本地媒体文件失败       |
+| TXLIVE_WARNING_CAMERA_INTERRUPTED     | -1005 | 摄像头被中断（设备被拔出或者权限被用户取消）       |
+| TXLIVE_WARNING_MICROPHONE_INTERRUPTED     | -1006 | 麦克风被中断（设备被拔出或者权限被用户取消）       |
+| TXLIVE_WARNING_SCREEN_CAPTURE_INTERRUPTED     | -1007 | 屏幕录制被中断（Chrome 浏览器单击自带的停止共享按钮）      |
 
 ---
 
@@ -144,8 +147,8 @@ onStatisticsUpdate(statistics: Object): void;
 | nackCount          | NACK（Negative ACKnowledgement）数                          |
 | firCount           | FIR（Full Intra Request），关键帧重传请求数                 |
 | pliCount           | PLI（Picture Loss Indication），视频帧丢失重传数            |
-| frameEncodeAvgTime | 平均编码时间，单位：ms，Safari / Firefox下不存在            |
-| packetSendDelay    | 数据包发送之前本地缓存的平均时间，单位：ms，Firefox下不存在 |
+| frameEncodeAvgTime | 平均编码时间，单位：ms，Safari / Firefox 下不存在            |
+| packetSendDelay    | 数据包发送之前本地缓存的平均时间，单位：ms，Firefox 下不存在 |
 
 ---
 

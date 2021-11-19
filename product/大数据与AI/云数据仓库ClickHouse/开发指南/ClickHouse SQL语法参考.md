@@ -174,7 +174,7 @@ CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
 ```
 数据库和表都支持本地和分布式两种，分布式方式的创建有以下两种方法：
 - 在每台 clickhouse-server 所在机器上都执行创建语句。
-- 使用 ON CLUSTER 子句，配合 ZooKeeper 服务完成创建动作。
+- 在集群的任意一个机器上使用 ON CLUSTER 语句创建库表，命令执行成功时当前 V-cluster 的各节点库表均创建成功。
 
 当使用 clickhouse-client 进行查询时，若在 A 机上查询 B 机的本地表则会报错“Table xxx doesn't exist..”。若希望集群内的所有机器都能查询某张表，推荐使用分布式表。
 
@@ -219,9 +219,14 @@ TRUNCATE TABLE [IF EXISTS] [db.]name [ON CLUSTER cluster]
 ## 修改表结构
 ClickHouse 使用 ALTER 语句来完成表结构修改。
 ```
-# 对表的列操作ALTER TABLE [db].name [ON CLUSTER cluster] ADD COLUMN [IF NOT EXISTS] name [type] [default_expr] [codec] [AFTER name_after]ALTER TABLE [db].name [ON CLUSTER cluster] DROP COLUMN [IF EXISTS] nameALTER TABLE [db].name [ON CLUSTER cluster] CLEAR COLUMN [IF EXISTS] name IN PARTITION partition_nameALTER TABLE [db].name [ON CLUSTER cluster] COMMENT COLUMN [IF EXISTS] name 'comment'ALTER TABLE [db].name [ON CLUSTER cluster] MODIFY COLUMN [IF EXISTS] name [type] [default_expr] [TTL]
-# 对表的分区操作ALTER TABLE table_name DETACH PARTITION partition_exprALTER TABLE table_name DROP PARTITION partition_exprALTER TABLE table_name CLEAR INDEX index_name IN PARTITION partition_expr
-# 对表的属性操作ALTER TABLE table-name MODIFY TTL ttl-expression
+# 对表的列操作
+ALTER TABLE [db].name [ON CLUSTER cluster] ADD COLUMN [IF NOT EXISTS] name [type] [default_expr] [codec] [AFTER name_after]ALTER TABLE [db].name [ON CLUSTER cluster] DROP COLUMN [IF EXISTS] nameALTER TABLE [db].name [ON CLUSTER cluster] CLEAR COLUMN [IF EXISTS] name IN PARTITION partition_nameALTER TABLE [db].name [ON CLUSTER cluster] COMMENT COLUMN [IF EXISTS] name 'comment'ALTER TABLE [db].name [ON CLUSTER cluster] MODIFY COLUMN [IF EXISTS] name [type] [default_expr] [TTL]
+
+# 对表的分区操作
+ALTER TABLE table_name DETACH PARTITION partition_exprALTER TABLE table_name DROP PARTITION partition_exprALTER TABLE table_name CLEAR INDEX index_name IN PARTITION partition_expr
+
+# 对表的属性操作
+ALTER TABLE table-name MODIFY TTL ttl-expression
 ```
 
 相关官方文档 [ALTER](https://clickhouse.tech/docs/en/query_language/alter/)。

@@ -8,17 +8,17 @@ GROUP BY 语法用于结合聚合函数，根据一个或多个列对分析结�
 * | SELECT 列名, 聚合函数 GROUP BY [ 列名 | 别名 | 序号 ]
 ```
 
->? 在 SQL 语句中，如果您使用了 GROUP BY 语法，则在执行 SELECT 语句时，智能选择 GROUP BY 的列或者对任意列进行聚合计算，不允许选择非 GROUP BY 的列。例如 `* | SELECT status, request_time, COUNT(*) AS PV GROUP BY status` 为非法分析语句，因为 **request_time** 不是 GROUP BY 的列。
+>? 在 SQL 语句中，如果您使用了 GROUP BY 语法，则在执行 SELECT 语句时，只能选择 GROUP BY 的列或聚合计算函数，不允许选择非 GROUP BY 的列。例如 `* | SELECT status, request_time, COUNT(*) AS PV GROUP BY status` 为非法分析语句，因为 **request_time** 不是 GROUP BY 的列。
 >
 
 GROUP BY语法支持按照列名、别名或序号进行分组，详细说明如下表所示：
 
 | 参数     | 说明                                                         |
 | -------- | ------------------------------------------------------------ |
-| 列名     | 列名即为日志字段名称或聚合函数计算结果列，即支持按照日志字段名称（KEY）或聚合函数计算结果列进行分组。GROUP BY 语法支持单列或多列。</br>GROUP BY 语法支持单列或多列。 |
+| 列名     | 列名即为日志字段名称或聚合函数计算结果列，即支持按照日志字段名称（KEY）或聚合函数计算结果列进行分组。GROUP BY 语法支持单列或多列。 |
 | 别名     | 按照日志字段或聚合函数计算结果的别名进行分组。<br/>您可以在字段索引中配置日志字段的别名。 |
 | 序号     | 某列在 SELECT 语句中的序号（从1开始）。<br>例如 status 列的序号为1，所以下面两个语句为等同关系。<ul  style="margin: 0;"><li>`* \|SELECT status, count(*) AS PV GROUP BY status`</li><li>`* \|SELECT status, count(*) AS PV GROUP BY 1` </li></ul>|
-| 聚合函数 | GROUP BY 语法常与 MIN、MAX、AVG、SUM、COUNT 等聚合函数搭配使用。更多信息请参见 [聚合函数](https://cloud.tencent.com/document/product/614/44067)。 |
+| 聚合函数 | GROUP BY 语法常与 MIN、MAX、AVG、SUM、COUNT 等聚合函数搭配使用。更多信息请参见 [聚合函数](https://cloud.tencent.com/document/product/614/60028)。 |
 
 
 ## 示例
@@ -45,20 +45,5 @@ GROUP BY语法支持按照列名、别名或序号进行分组，详细说明如
 * | SELECT histogram(cast(__TIMESTAMP__ as timestamp),interval 5 minute) as dt, count(*) as pv,count(distinct(remote_addr)) as uv group by dt order by dt
 ```
 ![image-20210719173252866](https://main.qcloudimg.com/raw/b1bf9e31f1aa826e83af2e94083ef202.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

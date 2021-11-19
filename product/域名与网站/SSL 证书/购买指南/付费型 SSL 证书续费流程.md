@@ -76,6 +76,7 @@ DNSPod 品牌国密标准（SM2）OV/EV 型证书续费后需人工审核及域�
  - 若您购买使用的服务器是 Windows 系统，建议您使用以下方式：
    - [IIS 服务器证书安装](https://cloud.tencent.com/document/product/400/35225)
    - [Weblogic 服务器证书安装部署](https://cloud.tencent.com/document/product/400/47358)
+   - [Apache 服务器 SSL 证书安装部署（Windows）](https://cloud.tencent.com/document/product/400/61400)
 - 国密标准证书：
  - 若您购买使用的服务器是 Linux 系统，建议您使用以下方式：
    - [Apache 服务器国密证书安装部署](https://cloud.tencent.com/document/product/400/47359)

@@ -752,7 +752,7 @@ spec:
 
 #### 接入 TSW — 获取接入点信息
 
-1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏种的**服务观测** > **服务列表**。
+1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm)，选择左侧导航栏种的**服务观测** > **服务列表**。
 2. 单击**接入服务**，选择 Java 语言与 SkyWalking 的数据采集方式。接入方式下提供了如下接入信息：**接入点**和 **Token**。
 ![](https://main.qcloudimg.com/raw/b6333d66cf38310a9fe2403bee7bbb4a.png)
 
@@ -769,7 +769,7 @@ Skywalking agent 也支持使用环境变量方式进行配置，PiggyMetrics �
 如下图所示：
 ![](https://main.qcloudimg.com/raw/8754378056b4627fc6a4699a606c050d.png)
 
-至此 TSW 接入工作已完成，启动容器服务后，在 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw) 即可查看调用链、服务拓扑、SQL 分析等功能。
+至此 TSW 接入工作已完成，启动容器服务后，在 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm) 即可查看调用链、服务拓扑、SQL 分析等功能。
 
 
 ### 使用 TSW 观测服务
@@ -777,7 +777,7 @@ Skywalking agent 也支持使用环境变量方式进行配置，PiggyMetrics �
 #### 通过服务接口和调用链查看调用异常
 
 
-1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的**服务观测** > **接口观测**。
+1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm)，选择左侧导航栏中的**服务观测** > **接口观测**。
 2. 在接口观测页面可查看一个服务下所有接口的调用情况，包括请求量、成功率、错误率、响应时间等指标。如下图所示：
 ![](https://main.qcloudimg.com/raw/be6a75b0051e2b1e4dd391e5fd8bf421.png)
 图中展示的是最近1小时内 gateway 和 account-service 响应时间过大，statistic-service 所有请求全部失败。
@@ -790,7 +790,7 @@ Skywalking agent 也支持使用环境变量方式进行配置，PiggyMetrics �
 
 #### 查看服务拓扑
 
-1.  登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的**链路追踪** > **分布式依赖拓扑**。
+1.  登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm)，选择左侧导航栏中的**链路追踪** > **分布式依赖拓扑**。
 2.  在“分布式依赖拓扑”页面可查看完成的服务依赖情况，以及调用次数和平均延迟等信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/b10385d0e2721effa6a0652cd243ab6b.png)
 

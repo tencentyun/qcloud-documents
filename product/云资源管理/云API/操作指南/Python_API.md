@@ -9,7 +9,13 @@
 
 API 支持就近地域接入（例如：cvm 产品域名为 `cvm.tencentcloudapi.com`），也支持指定地域域名访问（例如：广州地域的域名为 `cvm.ap-guangzhou.tencentcloudapi.com`），各地域参数见下文公共参数中的地域列表，详情请参见各产品的“请求结构”文档说明判断是否支持该地域。
 
->!对时延敏感的业务，建议指定带地域的域名。
+
+
+<dx-alert infotype="notice" title="">
+对时延敏感的业务，建议指定带地域的域名。
+</dx-alert>
+
+
 
 ### 2. 通信协议
 
@@ -38,7 +44,11 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 
 ## 公共参数
 
->?  公共参数是用于标识用户和接口签名的参数，每次请求均需要携带这些参数，才能正常发起请求。 
+<dx-alert infotype="explain" title="">
+公共参数是用于标识用户和接口签名的参数，每次请求均需要携带这些参数，才能正常发起请求。 
+</dx-alert>
+
+
 
 ### 签名方法 V3 公共参数
 
@@ -101,7 +111,13 @@ curl -X POST https://cvm.tencentcloudapi.com \
 - SecretId：用于标识 API 调用者身份，可以简单类比为用户名。
 - SecretKey：用于验证 API 调用者的身份，可以简单类比为密码。
 
->! **用户必须严格保管安全凭证，避免泄露，否则将危及财产安全。如已泄漏，请立刻禁用该安全凭证。**
+
+
+<dx-alert infotype="notice" title="">
+**用户必须严格保管安全凭证，避免泄露，否则将危及财产安全。如已泄漏，请立刻禁用该安全凭证。**
+</dx-alert>
+
+
 
 前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取。如下图所示：
 ![](https://main.qcloudimg.com/raw/665e5334b0d5db156ef48a19072ba8bd.png)
@@ -109,8 +125,12 @@ curl -X POST https://cvm.tencentcloudapi.com \
 ### 步骤2
 ### 1. 获取 API 3.0 V3 版本签名
 签名方法 v3 （TC3-HMAC-SHA256）功能上覆盖了以前的签名方法 v1，而且更安全，支持更大的请求，支持 json 格式，性能有一定提升，推荐使用该签名方法计算签名。如下图所示：
->?首次接触，建议使用 [API Explorer](https://console.cloud.tencent.com/api/explorer) 中的“签名串生成”功能，选择签名版本为 “API 3.0 签名 v3”，可以生成签名过程进行验证，也可直接生成 SDK 代码。推荐使用腾讯云 API 配套的7种常见的编程语言 SDK，已经封装了签名和请求过程，均已开源，支持 [Python](https://github.com/TencentCloud/tencentcloud-sdk-python)、[Java](https://github.com/TencentCloud/tencentcloud-sdk-java)、[PHP](https://github.com/TencentCloud/tencentcloud-sdk-php)、[Go](https://github.com/TencentCloud/tencentcloud-sdk-go)、[NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)、[.NET](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)、[C++](https://github.com/TencentCloud/tencentcloud-sdk-cpp)。
->
+
+
+<dx-alert infotype="explain" title="">
+首次接触，建议使用 [API Explorer](https://console.cloud.tencent.com/api/explorer) 中的“签名串生成”功能，选择签名版本为 “API 3.0 签名 v3”，可以生成签名过程进行验证，也可直接生成 SDK 代码。推荐使用腾讯云 API 配套的7种常见的编程语言 SDK，已经封装了签名和请求过程，均已开源，支持 [Python](https://github.com/TencentCloud/tencentcloud-sdk-python)、[Java](https://github.com/TencentCloud/tencentcloud-sdk-java)、[PHP](https://github.com/TencentCloud/tencentcloud-sdk-php)、[Go](https://github.com/TencentCloud/tencentcloud-sdk-go)、[NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)、[.NET](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)、[C++](https://github.com/TencentCloud/tencentcloud-sdk-cpp)。
+</dx-alert>
+
 ![](https://main.qcloudimg.com/raw/f35b61c6b76765f4aae33e9b99673984.png)
 
 
@@ -172,9 +192,13 @@ StringToSign =
 | CredentialScope        | 凭证范围，格式为 Date/service/tc3_request，包含日期、所请求的服务和终止字符串（tc3_request）。**Date 为 UTC 标准时间的日期，取值需要和公共参数 X-TC-Timestamp 换算的 UTC 标准时间日期一致**；service 为产品名，必须与调用的产品域名一致。此示例计算结果是 2019-02-25/cvm/tc3_request。 |
 | HashedCanonicalRequest | 前述步骤拼接所得规范请求串的哈希值，计算伪代码为 Lowercase(HexEncode(Hash.SHA256(CanonicalRequest)))。此示例计算结果是 `5ffe6a04c0664d6b969fab9a13bdab201d63ee709638e2749d62a09ca18d7031`。 |
 
->!
-> - Date 必须从时间戳 X-TC-Timestamp 计算得到，且时区为 UTC+0。如果加入系统本地时区信息，例如东八区，将导致白天和晚上调用成功，但是凌晨时调用必定失败。假设时间戳为 1551113065，在东八区的时间是 2019-02-26 00:44:25，但是计算得到的 Date 取 UTC+0 的日期应为 2019-02-25，而不是 2019-02-26。
-> - Timestamp 必须是当前系统时间，且需确保系统时间和标准时间是同步的，如果相差超过五分钟则必定失败。如果长时间不和标准时间同步，可能导致运行一段时间后，请求必定失败，返回签名过期错误。
+
+
+<dx-alert infotype="notice" title="">
+- Date 必须从时间戳 X-TC-Timestamp 计算得到，且时区为 UTC+0。如果加入系统本地时区信息，例如东八区，将导致白天和晚上调用成功，但是凌晨时调用必定失败。假设时间戳为 1551113065，在东八区的时间是 2019-02-26 00:44:25，但是计算得到的 Date 取 UTC+0 的日期应为 2019-02-25，而不是 2019-02-26。
+- Timestamp 必须是当前系统时间，且需确保系统时间和标准时间是同步的，如果相差超过五分钟则必定失败。如果长时间不和标准时间同步，可能导致运行一段时间后，请求必定失败，返回签名过期错误。
+</dx-alert>
+ 
 
  根据以上规则，示例中得到的待签名字符串如下： 
 
@@ -352,9 +376,13 @@ print('curl -X POST ' + endpoint
 #### 1. 对参数排序
 
 首先对所有请求参数按参数名的字典序（ ASCII 码）升序排序。
->! 1. 只按参数名进行排序，参数值保持对应即可，不参与比大小。 
->2. 按 ASCII 码比大小，如 InstanceIds.2 要排在 InstanceIds.12 后面，不是按字母表，也不是按数值。用户可以借助编程语言中的相关排序函数来实现这一功能，如 PHP 中的 ksort 函数。
->
+
+<dx-alert infotype="notice" title="">
+- 只按参数名进行排序，参数值保持对应即可，不参与比大小。 
+- 按 ASCII 码比大小，如 InstanceIds.2 要排在 InstanceIds.12 后面，不是按字母表，也不是按数值。用户可以借助编程语言中的相关排序函数来实现这一功能，如 PHP 中的 ksort 函数。
+</dx-alert>
+
+
 上述示例参数的排序结果如下：
 
 ```
@@ -376,7 +404,12 @@ print('curl -X POST ' + endpoint
 #### 2. 拼接规范请求串
 
 此步骤生成请求字符串。 将把上一步排序好的请求参数格式化成“参数名称=参数值”的形式，如对 Action 参数，其参数名称为 "Action" ，参数值为 "DescribeInstances" ，因此格式化后就为 Action=DescribeInstances。
->! “参数值”为原始值而非 url 编码后的值。
+
+
+<dx-alert infotype="notice" title="">
+“参数值”为原始值而非 url 编码后的值。
+</dx-alert>
+
 
 然后将格式化后的各个参数用"&"拼接在一起，最终生成的请求字符串为:
 
@@ -415,13 +448,13 @@ Signature = base64.b64encode(hmac_str)
 
  #### 5. 获取调用信息并发送请求
 
-  ```python
+```python
 data["Signature"] = base64.b64encode(hmac_str)
 print(data["Signature"])  # 最终签名串
 # 此处会实际调用，成功后可能产生计费
 resp = requests.get("https://" + endpoint, params=data)
 print(resp.url)
-  ```
+```
 
 
 | 字段名称 | 解释                                                         |
@@ -429,7 +462,10 @@ print(resp.url)
 | endpoint | 服务地址， 例如：`cvm.tencentcloudapi.com`                   |
 | data     | API 3.0 签名 V1 所举示例接口参数，**注意** 这里需要将计算的签名已键值对的形式加入 data 中 |
 
->!由于示例中的密钥是虚构的，时间戳也不是系统当前时间，因此如果将此 url 在浏览器中打开或者用 curl 等命令调用时会返回鉴权错误：签名过期。为了得到一个可以正常返回的 url ，需要修改示例中的 SecretId 和 SecretKey 为真实的密钥，并使用系统当前时间戳作为 Timestamp 。 
+<dx-alert infotype="notice" title="">
+由于示例中的密钥是虚构的，时间戳也不是系统当前时间，因此如果将此 url 在浏览器中打开或者用 curl 等命令调用时会返回鉴权错误：签名过期。为了得到一个可以正常返回的 url ，需要修改示例中的 SecretId 和 SecretKey 为真实的密钥，并使用系统当前时间戳作为 Timestamp 。 
+</dx-alert>
+
 
 为了更清楚的解释签名过程，下面以 Python 语言为例，将上述的签名过程具体实现。请求的域名、调用的接口和参数的取值都以上述签名过程为准，代码只为解释签名过程，并不具备通用性，实际开发请尽量使用 SDK 。
 
@@ -439,16 +475,24 @@ print(resp.url)
 
 如上一步生成的签名串为 `Eli*****************cGeI=`，最终得到的签名串请求参数（Signature）为：`EliP***********************eI%3D`，它将用于生成最终的请求 URL。
 
->!
+
+<dx-alert infotype="notice" title="">
  - 如果用户的请求方法是 GET，或者请求方法为 POST 同时 Content-Type 为 application/x-www-form-urlencoded，则发送请求时所有请求参数的值均需要做 URL 编码，参数键和=符号不需要编码。非 ASCII 字符在 URL 编码前需要先以 UTF-8 进行编码。
  - 有些编程语言的网络库会自动为所有参数进行 urlencode，在这种情况下，就不需要对签名串进行 URL 编码了，否则两次 URL 编码会导致签名失败。
  - 其他参数值也需要进行编码，编码采用 [RFC 3986](http://tools.ietf.org/html/rfc3986)。使用 %XY 对特殊字符例如汉字进行百分比编码，其中“X”和“Y”为十六进制字符（0-9 和大写字母 A-F），使用小写将引发错误。
+</dx-alert>
+
+
+
 
 
 #### 7. API 3.0 签名 V1示例
 
->!如果是在 Python 2环境中运行，需要先安装 requests 依赖包：`pip install requests`。 
->
+<dx-alert infotype="notice" title="">
+如果是在 Python 2环境中运行，需要先安装 requests 依赖包：`pip install requests`。 
+</dx-alert>
+
+
 ```python
 # -*- coding: utf8 -*-
 import base64

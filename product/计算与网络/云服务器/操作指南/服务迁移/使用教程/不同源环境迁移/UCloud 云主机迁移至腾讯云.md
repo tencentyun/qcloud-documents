@@ -16,10 +16,13 @@
 	<tr><th>Linux 源端主机</th><td><ol  style="margin: 0;"><li>检查和安装 Virtio，操作详情可参考 <a href="https://cloud.tencent.com/document/product/213/9929">Linux 系统检查 Virtio 驱动</a>。</li><li>检查是否安装了 rsync，可执行 <code>which rsync</code> 命令进行验证。</li><li>检查 SELinux 是否已打开。如果 SELinux 已打开，请关闭 SELinux。</li><li>向腾讯云 API 发起迁移请求后，云 API 会使用当前 UNIX 时间检查生成的 Token，请确保当前系统时间无误。</li></ol></td></tr>
 </table>
 
->? 
-> - 源端主机检查可以使用工具命令自动检查，如 `sudo ./go2tencentcloud_x64 --check`。
-> - go2tencentcloud 迁移工具在开始运行时，默认自动检查。如果需要略过检查强制迁移，请将 client.json 文件中的`Client.Extra.IgnoreCheck`字段配置为`true`。
-> - go2tencentcloud 迁移工具详细信息，请参见 [迁移工具说明](https://cloud.tencent.com/document/product/213/38783)。
+<dx-alert infotype="explain" title="">
+ - 源端主机检查可以使用工具命令自动检查，如 `sudo ./go2tencentcloud_x64 --check`。
+- go2tencentcloud 迁移工具在开始运行时，默认自动检查。如果需要略过检查强制迁移，请将 client.json 文件中的`Client.Extra.IgnoreCheck`字段配置为`true`。
+- go2tencentcloud 迁移工具详细信息，请参见 [迁移工具说明](https://cloud.tencent.com/document/product/213/38783)。
+</dx-alert>
+
+
 
 ## 5. 开始迁移
  

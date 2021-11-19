@@ -1,3 +1,4 @@
+
 本文档为 Tcaplus RESTful API v1.0 用户手册。
 
 ## 概述
@@ -551,7 +552,7 @@ FieldSetRecord操作支持resultflag设置以下取值：
 
 | 名称                         | 类型   | 取值                    |
 | ---------------------------- | ------ | ----------------------- |
-| x-tcaplus-target             | String | Tcaplus.SetRecord       |
+| x-tcaplus-target             | String | FieldSetRecord      |
 | x-tcaplus-version            | String | Tcaplus3.32.0           |
 | x-tcaplus-pwd-md5            | String | MD5 of AppKey(Password) |
 | x-tcaplus-result-flag        | Int    | 2                       |
@@ -835,3 +836,4 @@ http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7B%22na
  "TotalNum": 3
 }
 ```
+

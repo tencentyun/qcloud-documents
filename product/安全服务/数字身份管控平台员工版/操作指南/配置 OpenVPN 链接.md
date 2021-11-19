@@ -42,4 +42,4 @@ $ source /etc/profile //配置文件立即生效
 默认的 exec.sh 脚本使用的是8080端口，shared 是随机参数的。如果需要改动，可以编辑 exec.sh 进行修改。
 #### 启动脚本
 执行 exe.sh 启动脚本。
-
+ 

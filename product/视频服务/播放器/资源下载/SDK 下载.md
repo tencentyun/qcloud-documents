@@ -1,7 +1,7 @@
 <style>
 .markdown-text-box table td, .markdown-text-box table th{text-align:center}
 </style>
-
+ 
 播放器 SDK 支持支持 Web、iOS、Android 和 Flutter 四大终端, 详情请参见表格中的文档。
 
 <table>

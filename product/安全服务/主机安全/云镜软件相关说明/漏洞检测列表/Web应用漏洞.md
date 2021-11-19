@@ -1,3 +1,4 @@
+
 | name | level | vul_type |
 |---------|---------|---------|	
 |ADOBE ColdFusion Java RMI 反序列化 RCE 漏洞	| 高	| 远程代码执行 |

@@ -1,7 +1,5 @@
 本文介绍 URL 函数的语法及示例。
 
->? 当前日志服务已支持大部分地域使用 CLS 函数。上海、广州地域部分用户暂未开通，如有需要，请联系 [在线客服](https://cloud.tencent.com/act/event/Online_service)。
->
 
 ## 语法格式
 
