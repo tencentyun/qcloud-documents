@@ -7,7 +7,7 @@
 ### 步骤1：查看验证信息[](id:details)
 1. 登录 [证书管理控制台](https://console.cloud.tencent.com/certoverview)。
 2. 选择**验证中**的证书，进入 “验证域名” 页面，并在规定时间内完成验证操作。如下图所示：
-![](https://main.qcloudimg.com/raw/3045fe28981b8dbd78f3474057c1ee03.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/364718e7fbc1afb7ea870d7c6f33952a.png)
 
 ### 步骤2：添加解析记录
 >!以下操作仅针对域名对应的**域名解析商**在腾讯云的情况下，若不在腾讯云，请您到域名对应的**域名解析商**处进行解析。
