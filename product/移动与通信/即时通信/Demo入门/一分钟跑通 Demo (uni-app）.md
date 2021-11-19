@@ -8,7 +8,7 @@
 
 ## 效果展示：
 平台支持 Android、iOS 和微信小程序：
-<table style="width: 600px;">
+<table>
 <tr>
    <th>Android 演示：</th>
    <th>iOS 演示：</th>
