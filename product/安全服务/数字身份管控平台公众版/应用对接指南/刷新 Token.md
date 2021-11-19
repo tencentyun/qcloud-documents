@@ -36,7 +36,7 @@ client_id=TENANT_CLIENT_ID&client_secret=TENANT_CLIENT_SECRET&grant_type=refresh
 | refresh_token | String   | 刷新后的 OAuth 2.0 Refresh Token。      |
 | scope         | String   | Access Token 的 Scope。                 |
 | id_token      | String   | 刷新后的 OIDC ID Token (JWT)。          |
-| token_type    | String   | Token 类型，目前取固定值 'Bearer' 。    |
+| token_type    | String   | Token 类型，目前取固定值 `Bearer`。    |
 | expires_in    | Number   | Access Token 有效期，单位秒。           |
 
 
