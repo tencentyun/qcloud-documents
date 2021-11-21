@@ -53,6 +53,9 @@ output[json]:
 $ tccli configure set region ap-guangzhou  output json  --profile test
 $ tccli configure get secretKey      --profile test
 $ tccli configure list      --profile test
+# tccli还支持使用remove子命令删除指定的配置文件
+$ tccli configure remove -profile test
+注意：当remove子命令不指定账户名时，会删除default配置文件
 在调用接口时指定账户（以 cvm DescribeZones 接口为例）
 $ tccli cvm DescribeZones --profile test
 ```

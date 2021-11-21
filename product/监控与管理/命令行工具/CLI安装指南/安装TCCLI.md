@@ -19,7 +19,7 @@
 1. Windows 系统按 Win+R 打开运行窗口输入 cmd 并单击**确定**，本文以 Linux 为例。
 2. 在命令行窗口中，执行以下命令进行 TCCLI 安装。
 ```bash
-pip install tccli
+sudo pip install tccli
 ```
 >!如果您是从3.0.252.3以下版本进行升级，需要执行以下命令：
 >```bash
