@@ -13,9 +13,9 @@ uni-app TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、�
 		 <th style="text-align:center">群组聊天界面</th>
      </tr>
 	 <tr>
-	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-9.jpeg" width="320"/></td>
+	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-9.jpeg" width="300"/></td>
 	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-10.jpeg" width="320"/></td>
-	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-11.jpeg" width="320"/></td>
+	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-11.jpeg" width="300"/></td>
      </tr>
 </table>
 
@@ -174,12 +174,16 @@ v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
 |:-------:|---------|----|
 |`https://cos.ap-shanghai.myqcloud.com` | 文件下载域名 | 必须|
 
-### 参见文档：
+[](id:QQ)
+## 技术咨询
+了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="QQ 添加好友">309869925</dx-tag-link>
+
+## 参见文档：
 
 - [SDK API 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
 - [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)
-- [快速跑通 uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/blob/master/uni-app/README.md)
+- [一分钟跑通 Demo (uni-app）](https://cloud.tencent.com/document/product/269/64506)
 - [快速集成微信小程序原生 TUIKit](https://cloud.tencent.com/document/product/269/62766)
 - [微信小程序原生 TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram)
 
