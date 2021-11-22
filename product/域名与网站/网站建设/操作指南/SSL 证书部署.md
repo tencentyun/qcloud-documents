@@ -15,7 +15,7 @@
 1. 登录腾讯云 [网站建设控制台](https://console.cloud.tencent.com/wds)，选择您需要进行建站服务的 “服务名称”，单击**管理**。
 2. 在网站服务详情中，单击 “网站管理” 模块下的**管理后台地址**。
 3. 由网站建设控制台跳转到建站引导页面后，选择您需要部署的网站，单击**免费开启**。如下图所示：
-![](https://main.qcloudimg.com/raw/f16f634a703e7b3c6e2c3b26f4c0114e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/64726d0c23668f5abe4e75d26abb9678.png)
 4. 在弹出的 “开启 https 窗口” 中，单击**浏览**上传证书与私钥文件。如下图所示：
 >?请您在 [SSL 证书控制台](https://console.cloud.tencent.com/ssl) 下载证书文件，并上传 Nginx 文件内容至证书与私钥文件。
 >
@@ -28,8 +28,6 @@
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 如果您需要将 HTTP 请求自动重定向到 HTTPS。您可以通过以下操作设置：
-1. 在建站引导页面。选择您需要进行安全配置的网站，单击**301跳转**旁开启按钮。如下图所示：
-
-![](https://qcloudimg.tencent-cloud.cn/raw/78af5534d172e80399d1dd206bc2f9b7.png)
-
-2. 完成以上操作后，在次使用 HTTP 协议访问网站时将自动重定向到 HTTPS 进行访问。
+1. 在建站引导页面，选择您需要部署的网站，单击<img src="https://qcloudimg.tencent-cloud.cn/raw/3f2c893c274d7d76d81b5658b54a3c0a.png" style="margin-bottom:-5px;"/></span>开启**301跳转**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/4950e1a7ec0196350986e1d098b9cfa1.png)
+2. 继续完成操作后，使用 HTTP 协议访问网站时，即可自动重定向到 HTTPS 访问网站。
