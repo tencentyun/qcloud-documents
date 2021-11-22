@@ -1,8 +1,8 @@
 
-本文为您介绍如何通过控制台创建将 OLTP 同步到分析引擎的CDC数据链路。
+本文为您介绍如何通过控制台创建将 OLTP 同步到分析引擎的 CDC 数据链路。
 
 ## 操作步骤
-1. 登录 [TDSQL-H LibraDB 控制台](https://console.cloud.tencent.com/txln/instance)，在实例列表，单击实例 ID 或**操作**列的**详情**，进入实例管理页面。
+1. 登录 [TDSQL-H LibraDB 控制台](https://console.cloud.tencent.com/libradb/instance)，在实例列表，单击实例 ID 或**操作**列的**详情**，进入实例管理页面。
 2. 在实例管理页面，选择 **CDC** 页，单击**添加CDC**，可创建将 OLTP 同步到分析引擎的数据链路。
 或在实例详情页的架构图中，选择**添加OLTP**创建链路。
 3. 在新建页面，填写源端 MySQL 实例的信息。**测试连通性**通过后，即可单击**下一步**，进入**设置对象**。

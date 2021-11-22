@@ -35,7 +35,7 @@
 
 ### TIMLoginStatus
 
-登陆状态。
+登录状态。
 
 | 名称 | 含义 |
 |-----|-----|
@@ -1440,7 +1440,7 @@ UUID 类型。
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | TIMGroupSearchParamKeywordList | array string | 只写（选填） | 搜索关键字列表，最多支持5个 |
-| TIMGroupSearchParamFieldList | array [TIMGroupSearchFieldKey] | 只写（选填） | 搜索域列表表 |
+| TIMGroupSearchParamFieldList | array [TIMGroupSearchFieldKey] | 只写（选填） | 搜索域列表 |
 
 ## 关系链和资料关键类型
 

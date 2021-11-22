@@ -50,6 +50,7 @@
 | [TIMUninit](https://cloud.tencent.com/document/product/269/33546#timuninit) | IM SDK 卸载 |
 | [TIMGetSDKVersion](https://cloud.tencent.com/document/product/269/33546#timgetsdkversion) | 获取 IM SDK 版本号 |
 | [TIMSetConfig](https://cloud.tencent.com/document/product/269/33546#timsetconfig) | 设置额外的用户配置 |
+| [TIMGetServerTime](https://cloud.tencent.com/document/product/269/33546#timgetservertime) | 获取服务器当前时间 |
 
 
 ### 登录登出相关接口
@@ -58,33 +59,48 @@
 |-----|-----|
 | [TIMLogin](https://cloud.tencent.com/document/product/269/33547#timlogin) | 登录 |
 | [TIMLogout](https://cloud.tencent.com/document/product/269/33547#timlogout) | 登出 |
+| [TIMGetLoginStatus](https://cloud.tencent.com/document/product/269/33547#timgetloginstatus) | 获取登录状态 |
+| [TIMGetLoginUserID](https://cloud.tencent.com/document/product/269/33547#timgetloginuserid) | 获取登录用户的 userID |
 
 
 ### 会话相关接口
 
 | API | 描述 |
 |-----|-----|
-| [TIMConvCreate](https://cloud.tencent.com/document/product/269/33548#timconvcreate) | 创建会话 |
 | [TIMConvDelete](https://cloud.tencent.com/document/product/269/33548#timconvdelete) | 删除会话 |
 | [TIMConvGetConvList](https://cloud.tencent.com/document/product/269/33548#timconvgetconvlist) | 获取最近联系人的会话列表 |
+| [TIMConvGetConvInfo](https://cloud.tencent.com/document/product/269/33548#timconvgetconvinfo) | 查询一组会话列表 |
 | [TIMConvSetDraft](https://cloud.tencent.com/document/product/269/33548#timconvsetdraft) | 设置指定会话的草稿 |
 | [TIMConvCancelDraft](https://cloud.tencent.com/document/product/269/33548#timconvcanceldraft) | 删除指定会话的草稿 |
+| [TIMConvPinConversation](https://cloud.tencent.com/document/product/269/33548#timconvpinconversation) | 设置会话置顶 |
+| [TIMConvGetTotalUnreadMessageCount](https://cloud.tencent.com/document/product/269/33548#timconvgettotalunreadmessagecount) | 获取所有会话总的未读消息数 |
 
 
 ### 消息相关接口
 
 | API | 描述 |
 |-----|-----|
-| [TIMMsgSendNewMsg](https://cloud.tencent.com/document/product/269/33549#timmsgsendnewmsg) | 发送新消息 |
+| [TIMMsgSendMessage](https://cloud.tencent.com/document/product/269/33549#timmsgsendmessage) | 发送新消息 |
+| [TIMMsgCancelSend](https://cloud.tencent.com/document/product/269/33549#timmsgcancelsend) | 根据消息 messageID 取消发送中的消息 |
+| [TIMMsgFindMessages](https://cloud.tencent.com/document/product/269/33549#timmsgfindmessages) | 根据消息 messageID 查询本地的消息列表 |
 | [TIMMsgReportReaded](https://cloud.tencent.com/document/product/269/33549#timmsgreportreaded) | 消息上报已读 |
+| [TIMMsgMarkAllMessageAsRead](https://cloud.tencent.com/document/product/269/33549#timmsgmarkallmessageasread) | 标记所有消息为已读（5.8及其以上版本支持） |
 | [TIMMsgRevoke](https://cloud.tencent.com/document/product/269/33549#timmsgrevoke) | 消息撤回 |
 | [TIMMsgFindByMsgLocatorList](https://cloud.tencent.com/document/product/269/33549#timmsgfindbymsglocatorlist) | 根据消息定位精准查找指定会话的消息 |
 | [TIMMsgImportMsgList](https://cloud.tencent.com/document/product/269/33549#timmsgimportmsglist) | 导入消息列表到指定会话 |
 | [TIMMsgSaveMsg](https://cloud.tencent.com/document/product/269/33549#timmsgsavemsg) | 保存自定义消息 |
 | [TIMMsgGetMsgList](https://cloud.tencent.com/document/product/269/33549#timmsggetmsglist) | 获取指定会话的消息列表 |
 | [TIMMsgDelete](https://cloud.tencent.com/document/product/269/33549#timmsgdelete) | 删除指定会话的消息 |
+| [TIMMsgListDelete](https://cloud.tencent.com/document/product/269/33549#timmsglistdelete) | 删除指定会话的本地及漫游消息列表 |
+| [TIMMsgClearHistoryMessage](https://cloud.tencent.com/document/product/269/33549#timmsgclearhistorymessage) | 清空指定会话的消息 |
+| [TIMMsgSetC2CReceiveMessageOpt](https://cloud.tencent.com/document/product/269/33549#timmsgsetc2creceivemessageopt) | 设置针对某个用户的 C2C 消息接收选项（支持批量设置） |
+| [TIMMsgGetC2CReceiveMessageOpt](https://cloud.tencent.com/document/product/269/33549#timmsggetc2creceivemessageopt) | 查询针对某个用户的 C2C 消息接收选项 |
+| [TIMMsgSetGroupReceiveMessageOpt](https://cloud.tencent.com/document/product/269/33549#timmsgsetgroupreceivemessageopt) | 设置群消息的接收选项 |
 | [TIMMsgDownloadElemToPath](https://cloud.tencent.com/document/product/269/33549#timmsgdownloadelemtopath) | 下载消息内元素到指定文件路径（图片、视频、音频、文件） |
+| [TIMMsgDownloadMergerMessage](https://cloud.tencent.com/document/product/269/33549#timmsgdownloadmergermessage) | 下载合并消息 |
 | [TIMMsgBatchSend](https://cloud.tencent.com/document/product/269/33549#timmsgbatchsend) | 群发消息，该接口不支持向群组发送消息。 |
+| [TIMMsgSearchLocalMessages](https://cloud.tencent.com/document/product/269/33549#timmsgsearchlocalmessages) | 搜索本地消息。 |
+| [TIMMsgSetLocalCustomData](https://cloud.tencent.com/document/product/269/33549#timmsgsetlocalcustomdata) | 设置消息自定义数据。 |
 
 
 ### 群组相关接口
@@ -105,6 +121,13 @@
 | [TIMGroupGetPendencyList](https://cloud.tencent.com/document/product/269/33550#timgroupgetpendencylist) | 获取群未决信息列表。<br/>群未决信息是指还没有处理的操作，例如，邀请加群或者请求加群操作还没有被处理，称之为群未决信息 |
 | [TIMGroupReportPendencyReaded](https://cloud.tencent.com/document/product/269/33550#timgroupreportpendencyreaded) | 上报群未决信息已读 |
 | [TIMGroupHandlePendency](https://cloud.tencent.com/document/product/269/33550#timgrouphandlependency) | 处理群未决信息 |
+| [TIMGroupGetOnlineMemberCount](https://cloud.tencent.com/document/product/269/33550#timgroupgetonlinemembercount) | 获取指定群在线人数 |
+| [TIMGroupSearchGroups](https://cloud.tencent.com/document/product/269/33550#timgroupsearchgroups) | 搜索群列表 |
+| [TIMGroupSearchGroupMembers](https://cloud.tencent.com/document/product/269/33550#timgroupsearchgroupmembers) | 搜索群成员列表 |
+| [TIMGroupInitGroupAttributes](https://cloud.tencent.com/document/product/269/33550#timgroupinitgroupattributes) | 初始化群属性，会清空原有的群属性列表 |
+| [TIMGroupSetGroupAttributes](https://cloud.tencent.com/document/product/269/33550#timgroupsetgroupattributes) | 设置群属性，已有该群属性则更新其 value 值，没有该群属性则添加该群属性 |
+| [TIMGroupDeleteGroupAttributes](https://cloud.tencent.com/document/product/269/33550#timgroupdeletegroupattributes) | 删除群属性 |
+| [TIMGroupGetGroupAttributes](https://cloud.tencent.com/document/product/269/33550#timgroupgetgroupattributes) | 获取群指定属性，keys 传 nil 则获取所有群属性。 |
 
 
 ### 用户资料相关接口
@@ -135,6 +158,13 @@
 | [TIMFriendshipGetPendencyList](https://cloud.tencent.com/document/product/269/37662#timfriendshipgetpendencylist) | 获取好友添加请求未决信息列表 |
 | [TIMFriendshipDeletePendency](https://cloud.tencent.com/document/product/269/37662#timfriendshipdeletependency) | 删除指定好友添加请求未决信息 |
 | [TIMFriendshipReportPendencyReaded](https://cloud.tencent.com/document/product/269/37662#timfriendshipreportpendencyreaded) | 上报好友添加请求未决信息已读 |
+| [TIMFriendshipSearchFriends](https://cloud.tencent.com/document/product/269/37662#timfriendshipsearchfriends) | 搜索好友 |
+| [TIMFriendshipGetFriendsInfo](https://cloud.tencent.com/document/product/269/37662#timfriendshipgetfriendsinfo) | 获取好友信息 |
 
 
+### 废弃接口
 
+| API | 描述 |
+|-----|-----|
+| [TIMConvCreate](https://cloud.tencent.com/document/product/269/37661#timconvcreate) | 创建会话 |
+| [TIMMsgSendNewMsg](https://cloud.tencent.com/document/product/269/33549#timmsgsendnewmsg) | 发送新消息（推荐使用 TIMMsgSendMessage 接口） |

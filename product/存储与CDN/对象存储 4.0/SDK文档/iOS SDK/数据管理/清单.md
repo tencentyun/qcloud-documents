@@ -25,7 +25,7 @@ PUT Bucket inventory 用于在存储桶中创建清单任务。
 ```objective-c
 QCloudPutBucketInventoryRequest *putReq = [QCloudPutBucketInventoryRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 putReq.bucket= @"examplebucket-1250000000";
 
 // 清单任务的名称
@@ -54,7 +54,7 @@ btDes.cs = @"CSV";
 // 存储桶的所有者 ID
 btDes.account = @"1278687956";
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 btDes.bucket  = @"qcs::cos:ap-guangzhou::examplebucket-1250000000";
 
 // 清单分析结果的前缀
@@ -112,7 +112,7 @@ putReq.inventoryConfiguration = config;
 ```swift
 let putReq = QCloudPutBucketInventoryRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 putReq.bucket = "examplebucket-1250000000";
 
 // 清单任务的名称
@@ -217,7 +217,7 @@ GET Bucket inventory 用于查询存储桶中用户的清单任务信息。
 ```objective-c
 QCloudGetBucketInventoryRequest *getReq = [QCloudGetBucketInventoryRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 getReq.bucket = @"examplebucket-1250000000";
 
 // 清单任务的名称
@@ -237,7 +237,7 @@ getReq.inventoryID = @"list1";
 ```swift
 let req = QCloudGetBucketInventoryRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 req.bucket = "examplebucket-1250000000";
 // 清单任务的名称
 req.inventoryID = "list1";
@@ -267,7 +267,7 @@ DELETE Bucket inventory 用于删除存储桶中指定的清单任务。
 ```objective-c
 QCloudDeleteBucketInventoryRequest *delReq = [QCloudDeleteBucketInventoryRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 delReq.bucket = @"examplebucket-1250000000";
 
 // 清单任务的名称
@@ -288,7 +288,7 @@ delReq.inventoryID = @"list1";
 ```swift
 let delReq = QCloudDeleteBucketInventoryRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 delReq.bucket = "examplebucket-1250000000";
 
 // 清单任务的名称

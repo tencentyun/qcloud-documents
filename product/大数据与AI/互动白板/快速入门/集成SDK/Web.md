@@ -53,7 +53,10 @@ var teduBoard = new TEduBoard(initParams);
 
 #### 2. 监听白板关键事件
 
-使用 on 监听白板事件
+使用 on 监听白板关键事件
+
+- [onTEBError 错误详情](https://cloud.tencent.com/document/product/1137/60716#.E9.94.99.E8.AF.AF.E4.BA.8B.E4.BB.B6)
+- [onTEBWarning 警告详情](https://cloud.tencent.com/document/product/1137/60716#.E8.AD.A6.E5.91.8A.E4.BA.8B.E4.BB.B6)
 
 ```
 // 监听白板错误事件
