@@ -1031,7 +1031,7 @@ UUID 类型。
 
 | 名称 | 含义 |
 |-----|-----|
-| kTIMGroup_Public | 公开群 |
+| kTIMGroup_Public | 公开群（Public），成员上限 2000 人，任何人都可以申请加群，但加群需群主或管理员审批，适合用于类似 QQ 中由群主管理的兴趣群。 |
 | kTIMGroup_Private | 私有群 |
 | kTIMGroup_ChatRoom | 聊天室 |
 | kTIMGroup_BChatRoom | 在线成员广播大群 |
