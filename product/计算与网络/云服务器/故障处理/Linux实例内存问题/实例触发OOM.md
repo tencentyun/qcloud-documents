@@ -25,9 +25,10 @@ sysctl -a | grep min_free
 ```
 vim /etc/sysctl.conf
 ```
-5. 按 **i** 进入编辑模式，修改 `vm.min_free_kbytes` 配置项。
->?建议修改 `vm.min_free_kbytes` 值为不超过总内存的1%即可。
->
+5. 按 **i** 进入编辑模式，修改 `vm.min_free_kbytes` 配置项。若该配置项不存在，则直接在配置文件中增加即可。
+<dx-alert infotype="explain" title="">
+建议修改 `vm.min_free_kbytes` 值为不超过总内存的1%即可。
+</dx-alert>
 6. 按 **Esc** 并输入 **:wq** 后，按 **Enter** 保存并退出 VIM 编辑器。
 7. 执行以下命令，使配置生效即可。
 ```

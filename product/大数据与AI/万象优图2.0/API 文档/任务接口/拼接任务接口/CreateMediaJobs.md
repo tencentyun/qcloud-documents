@@ -56,7 +56,7 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Tag                | Request | 创建任务的Tag：Concat。 | String    | 是   |
+| Tag                | Request | 创建任务的 Tag：Concat | String    | 是   |
 | Input              | Request | 待操作的媒体信息                                         | Container | 是   |
 | Operation          | Request | 操作规则，支持对单个文件执行多个不同任务，最多可填写6个                                                 | Container | 是   |
 | QueueId            | Request | 任务所在的队列 ID                                         | String    | 是   |
@@ -66,7 +66,7 @@ Container 类型 Input 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点        | 描述            | 类型   | 是否必选 |
 | ------------------ | ------------- | --------------- | ------ | ---- |
-| Object             | Request.Input | 媒体文件名 | String | 是   |
+| Object             | Request.Input | 媒体文件名 | String | 否   |
 
 Container 类型 Operation 的具体数据描述如下：
 
@@ -82,11 +82,11 @@ Container 类型 ConcatTemplate 的具体数据描述如下：
 
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 是否必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| ConcatFragment      |  Request.Operation.<br/>ConcatTemplate | 拼接节点    | Container数组    | 是   | 无  | 支持多个文件，按照文件顺序拼接 |
-| Audio               |  Request.Operation.<br/>ConcatTemplate | 音频参数 同创建拼接模板中 <br/>Request.ConcatTemplate.Audio  | Container    | 否   | 无  | 无 |
-| Video               |  Request.Operation.<br/>ConcatTemplate | 视频参数 同创建拼接模板中 <br/>Request.ConcatTemplate.Video  | Container    | 否   | 无  | 无 |
-| Container           |  Request.Operation.<br/>ConcatTemplate | 封装格式 同创建拼接模板中 <br/>Request.ConcatTemplate.Container   | Container    | 是   | 无  | 无 |
-| Index               |  Request.Operation.<br/>ConcatTemplate| Input节点位于ConcatFragment序列索引    | String    | 否   | 0  | 不能大于ConcatFragment长度 |
+| ConcatFragment      |  Request.Operation.<br/>ConcatTemplate | 拼接节点    | Container 数组    | 是   | 无  | 支持多个文件，按照文件顺序拼接 |
+| Audio               |  Request.Operation.<br/>ConcatTemplate | 音频参数，同创建拼接模板中 <br/>Request.ConcatTemplate.Audio  | Container    | 否   | 无  | 无 |
+| Video               |  Request.Operation.<br/>ConcatTemplate | 视频参数，同创建拼接模板中 <br/>Request.ConcatTemplate.Video  | Container    | 否   | 无  | 无 |
+| Container           |  Request.Operation.<br/>ConcatTemplate | 封装格式，同创建拼接模板中 <br/>Request.ConcatTemplate.Container   | Container    | 是   | 无  | 无 |
+| Index               |  Request.Operation.<br/>ConcatTemplate| Input 节点位于 ConcatFragment 序列索引    | String    | 否   | 0  | 不能大于 ConcatFragment 长度 |
 | DirectConcat | Request.Operation.<br/>ConcatTemplate | 简单拼接方式（不转码直接拼接），其他的视频和音频参数失效 | String | 否 | false | true、false |
 
 Container 类型 ConcatFragment 的具体数据描述如下：
@@ -161,11 +161,11 @@ Container 节点 JobsDetail 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| Code | Response.JobsDetail | 错误码，只有State为 Failed时有意义 |  String |
-| Message | Response.JobsDetail | 错误描述，只有State为 Failed时有意义 |  String |
-| JobId | Response.JobsDetail | 新创建任务的ID |  String |
-| Tag | Response.JobsDetail | 新创建任务的Tag：Concat | String |
-| State | Response.JobsDetail | 任务的状态，为 Submitted、Running、Success、Failed、Pause、Cancel其中一个 |  String |
+| Code | Response.JobsDetail | 错误码，只有 State 为 Failed 时有意义 |  String |
+| Message | Response.JobsDetail | 错误描述，只有 State 为 Failed 时有意义 |  String |
+| JobId | Response.JobsDetail | 新创建任务的 ID |  String |
+| Tag | Response.JobsDetail | 新创建任务的 Tag：Concat | String |
+| State | Response.JobsDetail | 任务的状态，为 Submitted、Running、Success、<br/>Failed、Pause、Cancel 其中一个 |  String |
 | CreationTime | Response.JobsDetail | 任务的创建时间 |  String |
 | StartTime | Response.JobsDetail | 任务的开始时间 |  String |
 | EndTime | Response.JobsDetail | 任务的结束时间 |  String |
@@ -286,11 +286,9 @@ Content-Type: application/xml
   <Operation>
     <ConcatTemplate>
         <ConcatFragment>
-            <Mode>Start</Mode>
             <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/start.mp4</Url>
         </ConcatFragment>
         <ConcatFragment>
-            <Mode>End</Mode>
             <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/end.mp4</Url>
         </ConcatFragment>
         <Audio>
@@ -350,11 +348,9 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
     <Operation>
         <ConcatTemplate>
             <ConcatFragment>
-                <Mode>Start</Mode>
                 <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/start.mp4</Url>
             </ConcatFragment>
             <ConcatFragment>
-                <Mode>End</Mode>
                 <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/end.mp4</Url>
             </ConcatFragment>
             <Audio>

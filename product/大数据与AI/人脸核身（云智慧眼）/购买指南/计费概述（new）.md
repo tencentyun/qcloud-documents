@@ -196,17 +196,19 @@ E证通服务与计费标签对应关系说明如下：
 			<th>定价</th>
     </tr>
 			   <tr>
-                   <td ><a href="https://cloud.tencent.com/document/product/1007/54116">意愿核身（权威库）</a>
+                   <td>意愿核身（权威库）</a>
 				</td>
 				<td>跟权威库比对</td>
 				<td>意愿核身（权威库）</td>
 <td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
     </tr>
 		 <tr>
-                   <td ><a href="https://cloud.tencent.com/document/product/1007/54116">意愿核身（自传照片）</a>
+                   <td>意愿核身（自传照片）</a>
 				</td>
 				<td>跟上传照片比对</td>
 				<td>意愿核身（自传照片）</td>
 <td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
     </tr>
 </table>
+
+>?目前意愿核身服务为内测阶段，如需接入使用，欢迎您 [点此链接](https://cloud.tencent.com/document/product/1007/56130) 扫描二维码添加腾讯云人脸核身小助手进行询问。
