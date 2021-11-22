@@ -1,206 +1,189 @@
-﻿
-`TUIKit` 默认实现了文本、图片、语音、视频、文件等基本消息类型的发送和展示，如果这些消息类型满足不了您的需求，您可以新增自定义消息类型。
+## 什么是 uni-app TUIKit？
+uni-app TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、群组管理等功能，基于 UI 组件您可以像搭积木一样快速搭建起自己的业务逻辑。
 
-## 基本消息类型
+目前我们提供了示例客服群、示例好友的基础模版，在线客服功能包括：
+- 支持发送文本消息、图片消息、语音消息、视频消息等常见消息。
+- 支持常用语、订单、服务评价等自定义消息。
+- 支持创建群聊会话、群成员管理等。
+
 <table>
      <tr>
-         <th width="20%" style="text-align:center">消息类型</th>  
-         <th style="text-align:center">显示效果图</th>  
+         <th style="text-align:center">会话列表界面</th>
+         <th style="text-align:center">C2C 聊天界面</th>
+		 <th style="text-align:center">群组聊天界面</th>
      </tr>
-     <tr>      
-         <td style="text-align:center">文本类消息</td>   
-     <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/6535b0a414d4dd51aabab464f0980ca3.png" width="320"/></td>   
-     </tr> 
-     <tr>      
-         <td style="text-align:center">图片类消息</td>   
-     <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/1f5330a92c688b6288bbd47f97202867.png" width="320"/></td>   
-     </tr> 
-     <tr>      
-         <td style="text-align:center">语音类消息</td>   
-     <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/5387ea2450e7fe37daa59efb163e93b6.png" width="320"/></td>   
-     </tr> 
-     <tr>      
-         <td style="text-align:center">视频类消息</td>   
-     <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/eb50c8cefa0decf1eef1c896c44e6188.png" width="320"/></td>   
-     </tr> 
-     <tr>      
-         <td style="text-align:center">文件类消息</td>   
-     <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/4be73ac319f7693916ee08b98f14c4c6.png" width="320"/></td>   
-     </tr> 
+	 <tr>
+	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-9.jpeg" width="200"/></td>
+	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-10.jpeg" width="200"/></td>
+	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-11.jpeg" width="200"/></td>
+     </tr>
 </table>
 
-## 自定义消息
->- 如果基本消息类型不能满足您的需求，您可以根据实际业务需求自定义消息。
->- 本文以发送一条可跳转至浏览器的超文本作为自定义消息为例，帮助您快速了解实现流程。**本文以 `5.7.1435` 版本为例，与之前版本有所不同。**
+## uni-app TUIKit 支持平台
+- Android
+- iOS
+- 微信小程序
 
- <img src="https://main.qcloudimg.com/raw/77082a09b210baae30e41ce35e07af6b.png" width = "500"/>
+## 如何集成 TUIKit？
 
-上图自定义消息类型可以实现点击后跳转到指定链接地址，具体实现请参考后文。
+### 步骤1：安装依赖
+1. uni-app TUIKit 支持源码集成，下载 [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master)。将 TUIKit 文件夹与自己的工程文件夹置于同级，例如：
+![](https://qcloudimg.tencent-cloud.cn/raw/096980f3029fae3e2750d4b77082cb55.png)
+2. 根据 package.json 进行对应依赖安装。
+![](https://qcloudimg.tencent-cloud.cn/raw/69b4ec0b2df2121226b83bc5caa21ae6.png)
+>?可参见 [uni-app 官网](https://www.cxybb.com/article/weixin_44168109/111037919)。
 
-## 如何接收和展示自定义消息
-<img src="https://qcloudimg.tencent-cloud.cn/raw/2197774fe6b963c25d5b2464146596ef.jpg" width = "500"/>
+### 步骤2：初始化TUIKit
+将 app.vue 中的代码复制到 myApplication 项目中，填写 SDKAppID。
+![](https://qcloudimg.tencent-cloud.cn/raw/506dba53308bcf85239e13a6f82eec4a.png)
 
-您可以在 [TUIMessageDataProvider.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/DataProvider/TUIMessageDataProvider.m) 的 `onRecvNewMessage` 函数内接收自定义消息，收到的自定义消息最终会以 `Cell` 的形式展示在消息列表中，`Cell` 绘制所需的数据我们称之为 `CellData` ，下面我们分步骤讲解下如何展示自定义消息。
+### 步骤3：集成静态资源文件
+在 myApplication 项目中集成静态资源文件 （工具、图片等）。
+![](https://qcloudimg.tencent-cloud.cn/raw/fb8de22dac2e222b1e4f508865b416fa.png)
 
-### 步骤一：创建自定义 CellData
-1. 在 `TUIChat -> Cell -> CellData -> Custom` 文件夹下新建  [TUILinkCellData.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/Cell/CellData/Custom/TUILinkCellData.h) 和 [TUILinkCellData.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/Cell/CellData/Custom/TUILinkCellData.h) 文件，继承自`TUIMessageCellData` ，用于存储显示的文字和跳转的链接。
+### 步骤4：集成所需模块
+1. 将 pages 和 components 复制到 myApplication 项目中。
+![](https://qcloudimg.tencent-cloud.cn/raw/2ca7b29c78e0d05779413cc2f49370b2.png)
+2. 也可以只集成自己所需要的模块，将 pages 和其对应的 components 复制到 myApplication 项目目录下。
+![](https://qcloudimg.tencent-cloud.cn/raw/19769b954a6448f3148275291515c5db.png)
+ 
+### 步骤5：更新路由
 
-```java
-@interface TUILinkCellData : TUIMessageCellData
-@property NSString *text;
-@property NSString *link;
-@end
+根据页面更新路由：更新 pages.json  中的 pages 路由。
+![](https://qcloudimg.tencent-cloud.cn/raw/40afe0526582a95c7d08008552534936.png)
+
+### 步骤6：获取签名和登录
+>! 
+>- 正确的 `UserSig` 签发方式是将 `UserSig` 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 `UserSig` 时由您的 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
+
+```javascript
+uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
+.then(function(imResponse) {
+  console.log(imResponse.data); // 登录成功
+  if (imResponse.data.repeatLogin === true) {
+    // 标识账号已登录，本次登录操作为重复登录。v2.5.1 起支持
+    console.log(imResponse.data.errorInfo);
+  }
+})
+.catch(function(imError) {
+  console.warn('login error:', imError); // 登录失败的相关信息
+});
 ```
 
-2. 重写父类的 `getCellData:` 方法，用于把 `V2TIMMessage` 转换成消息列表 `Cell` 的绘制数据 `TUILinkCellData`。
-
-```java
-@implementation TUILinkCellData
-+ (TUIMessageCellData *)getCellData:(V2TIMMessage *)message{
-    NSDictionary *param = [NSJSONSerialization JSONObjectWithData:message.customElem.data options:NSJSONReadingAllowFragments error:nil];
-    TUILinkCellData *cellData = [[TUILinkCellData alloc] initWithDirection:message.isSelf ? MsgDirectionOutgoing : MsgDirectionIncoming];
-    cellData.innerMessage = message;
-    cellData.msgID = message.msgID;
-    cellData.text = param[@"text"];
-    cellData.link = param[@"link"];
-    cellData.avatarUrl = [NSURL URLWithString:message.faceURL];
-    return cellData;
-}
-@end
-```
-
-3. 重写父类的 `getDisplayString：` 方法，用于把 `V2TIMMessage` 转换成会话列表 `lastMsg` 的展示文本信息。
- <img src="https://main.qcloudimg.com/raw/428e6fab209b3cf9aae25ad504c0c4a3.jpg" width = "500" />
-```java
-@implementation TUILinkCellData
-+ (NSString *)getDisplayString:(V2TIMMessage *)message {
-    NSDictionary *param = [NSJSONSerialization JSONObjectWithData:message.customElem.data options:NSJSONReadingAllowFragments error:nil];
-    return param[@"text"];
-}
-@end
-```
-
-4. 重写父类的 `contentSize：` 方法，用于计算 `cellData` 内容所占绘制区域的大小。
-```java
-- (CGSize)contentSize
-{
-    CGRect rect = [self.text boundingRectWithSize:CGSizeMake(300, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:15] } context:nil];
-    CGSize size = CGSizeMake(ceilf(rect.size.width)+1, ceilf(rect.size.height));
-    // 加上气泡边距
-    size.height += 60;
-    size.width += 20;
-    return size;
-}
-```
-
-### 步骤二：创建自定义 Cell
-1. 在 `TUIChat -> Cell -> CellUI -> Custom` 文件夹下新建 [TUILinkCell](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/Cell/CellUI/Custom/TUILinkCell.h) 类，继承自 `TUIMessageCell` ，用于绘制 `TUILinkCellData` 数据。
-
-```java
-@interface TUILinkCell : TUIMessageCell
-@property UILabel *myTextLabel;  // 展示文本
-@property UILabel *myLinkLabel;  // 链接跳转文本
-- (void)fillWithData:(TUILinkCellData *)data; // 绘制 UI
-@end
-```
-
-2. 重写父类 `initWithStyle:` 方法，创建 `myTextLabel` 和 `myLinkLabel` 文本展示对象，并添加至 `container` 容器。
-
-```java
-@implementation TUILinkCell
-// 初始化控件
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        self.myTextLabel = [[UILabel alloc] init];
-        [self.container addSubview:self.myTextLabel];
-        self.myLinkLabel = [[UILabel alloc] init];
-        self.myLinkLabel.text = @"查看详情>>";
-        [self.container addSubview:_myLinkLabel];
-    }
-    return self;
-}
-@end
-```
-
-3. 重写父类 `fillWithData:` 方法，在 `TUILinkCell` 中自定义展示 `TUILinkCellData` 数据。
-
-```java
-@implementation TUILinkCell
-// 根据 cellData 绘制 cell
-- (void)fillWithData:(TUILinkCellData *)data;
-{
-    [super fillWithData:data];
-    self.myTextLabel.text = data.text;
-}
-@end
-```
-
-4. 重写父类 `layoutSubviews` 方法，自定义控件的坐标。
-
-```java
-// 设置控件坐标
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    self.myTextLabel.mm_top(10).mm_left(10).mm_flexToRight(10).mm_flexToBottom(50);
-    self.myLinkLabel.mm_sizeToFit().mm_left(10).mm_bottom(10);
-}
-@end
-```
-
-### 步骤三：注册自定义 Cell  和 CellData
-当 `cell` 和 `cellData` 创建完成后，需要您在 [TUIMessageDataProvider.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/DataProvider/TUIMessageDataProvider.m) 的 `load` 函数里内主动注册 `cell` 和 `cellData` 信息，注册完成后，消息列表在收到消息时会根据 `businessID` 自动找到对应的 `cellData` 处理消息数据，消息列表在刷新 UI 的时候，也会根据 `businessID` 自动创建对应 `Cell` 绘制 `cellData` 数据。
-```java
-@implementation TUIMessageDataProvider
-+ (void)load {
-    // 以下代码需要您自己实现
-    customMessageInfo = @[@{@"businessID" : @"custom_message_link",  // 自定义消息唯一标识（注意不要重复）
-                            @"cell_name" :  @"TUILinkCell"           // cell 的类名
-                            @"cell_data_name" : @"TUILinkCellData"   // cellData 的类名
-                          },
-                          // 如果您需要多种类型的自定义消息，可以在下面继续添加自定义消息信息
-                          @{@"businessID" : @"custom_message_link2",
-                            @"cell_name" : @"TUILinkCell2"          
-                            @"cell_data_name" : @"TUILinkCellData2"
-                          }];
-}
-@end
-```
-
-## 如何发送自定义消息
- <img src="https://qcloudimg.tencent-cloud.cn/raw/52006404950bf1adc1c4ad84fe7d521e.jpg" width = "500"/>
+## 常见问题
+[](id:Q1)
+### 1. uni-app  同时支持 Android，iOS， 微信小程序平台，IM SDK 如何选择？
+请选择 `tim-wx-sdk` ，npm 安装或者静态引入：
+```javascript
+    // 从v2.11.2起，SDK 支持了 WebSocket，推荐接入；v2.10.2及以下版本，使用 HTTP
+	npm install tim-wx-sdk@2.15.0 --save
+	import TIM from 'tim-wx-sdk';
+	// 创建 SDK 实例，`TIM.create()`方法对于同一个 `SDKAppID` 只会返回同一份实例
+	uni.$TUIKit = TIM.create({
+		SDKAppID: 0  // 接入时需要将0替换为您的即时通信 IM 应用的 SDKAppID
+	});
 	
-如上图所示，自定义消息发送按钮主要由文本 `title` 和图片 `image` 组成，您可以在 [TUIChatDataProvider.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/DataProvider/TUIMessageDataProvider.m) 的 `load` 函数注册发送按钮信息。
-```java
-@implementation TUIChatDataProvider
-+ (void)load {
-    // 以下代码需要您自己实现
-    customButtonInfo = @[@{@"SendBtn_Key" : @"custom_link_btn",  // 按钮唯一标识
-                           @"SendBtn_Title" :  @"自定义"          // 按钮文本信息
-                           @"SendBtn_ImageName" : @"custom_link_image"   // 按钮图片名称
-                          }];
-}
-@end
+	// 设置 SDK 日志输出级别，详细分级请参见 setLogLevel 接口的说明
+	uni.$TUIKit.setLogLevel(0); // 普通级别，日志量较多，接入时建议使用
+	// uni.$TUIKit.setLogLevel(1); // release 级别，SDK 输出关键信息，生产环境时建议使用
+```
+如果您的项目需要关系链功能，请使用 `tim-wx-friendship.js`：
+```javascript
+	import TIM from 'tim-wx-sdk/tim-wx-friendship.js';
+```
+>?
+>- **为了 uni-app 更好地接入使用 tim，快速定位和解决问题，请勿修改 uni.$TUIKit 命名，如果您已经接入 tim ，请将 uni.tim 修改为 uni.$TUIKit。**
+>- 请将 IM SDK 升级到 [2.15.0](https://cloud.tencent.com/document/product/269/38492)，该版本支持了 iOS 语音播放。
+>- 若同步依赖过程中出现问题，请切换 npm 源后再次重试。
+```javascript
+	切换 cnpm 源
+	>npm config set registry http://r.cnpmjs.org/
+	>
+	>
 ```
 
-当按钮被点击后，可以在 [TUIC2CChatViewController.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/UI/Chat/TUIC2CChatViewController.m) 的 `didSelectMoreCell` 回调通过 [createCustomMessage](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a7a38c42f63a4e0c9e89f6c56dd0da316) 接口创建一条自定义消息，其中参数 `data` 可以由 `json` 数据组成， 可以在 `json` 数据里面自定义一个 `businessID` 字段来唯一标识这条消息。
-
-```java
-@implementation TUIMessageController
-- (void)inputController:(TUIInputController *)inputController didSelectMoreCell:(TUIInputMoreCell *)cell
-{
-    if ([cell.data.key isEqualToString:@"custom_link_btn"]) { 
-        // 创建自定义消息，设置消息的 businessID、展示文本、跳转链接（以下代码需要您自己实现）
-        NSString *businessID = @"custom_message_link";
-        NSString *text = @"欢迎加入腾讯·云通信大家庭！";
-        NSString *link = @"https://cloud.tencent.com/document/product/269/3794";
-        NSDictionary *param = @{@"businessID": businessID, @"text":text, @"link":link};
-        NSData *data = [NSJSONSerialization dataWithJSONObject:param options:0 error:&error];
-        V2TIMMessage *message = [[V2TIMManager sharedInstance] createCustomMessage:data];
-        [self sendMessage:message];
-    }
-}
-@end
+[](id:Q2)
+### 2. 如何上传图片、视频、语音消息等富媒体消息？
+请使用 `cos-wx-sdk-v5`：
+```javascript
+    // 发送图片、语音、视频等消息需要 cos-wx-sdk-v5 上传插件
+	npm install cos-wx-sdk-v5@0.7.11 --save
+	import COS from "cos-wx-sdk-v5";
+	// 注册 COS SDK 插件
+	uni.$TUIKit.registerPlugin({
+		'cos-wx-sdk': COS
+	});
 ```
+
+[](id:Q3)
+### 3. uni-app  打包 iOS 语音消息无法播放怎么办？
+  请将 IM SDK 升级到 [2.15.0](https://cloud.tencent.com/document/product/269/38492)，该版本支持了 iOS 语音消息播放。
+
+[](id:Q4)
+### 4. uni-app  打包 app 发送语音消息时间显示错误怎么办？
+   uni-app 打包 app，`recorderManager.onStop` 回调中没有 `duration` 和 `fileSize`，需要用户自己补充 duration 和 fileSize。
+- **通过本地起定时器记录时间，计算出 duration。**
+- **本地计算文件大小，fileSize ＝ (音频码率) x 时间长度(单位:秒) / 8，粗略估算。**
+详细代码请参见 [uni-app TUIKit](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)。
+>!语音消息对象中必须包括 `duration` 和 `fileSize`，如果没有 `fileSize`，语音消息时长是一串错误的数字
+
+[](id:Q5)
+### 5. video 视频消息层级过高无法滑动怎么办？
+ 在项目中通过视频图片代替，没有直接渲染 `video`，在播放时渲染的方式规避了层级过高问题。
+ - 详细代码请参见 [uni-app TUIKit](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)。
+ - 请参见官方 [原生组件说明](https://uniapp.dcloud.io/component/native-component)。
+
+[](id:Q6)
+### 6. 微信小程序环境，真机预览，报系统错误，体积过大怎么办？
+运行时请勾选代码压缩，运行到小程序模拟器>运行时是否压缩代码。
+
+[](id:Q7)
+### 7. 微信小程序如果需要上线或者部署正式环境怎么办？
+请在**微信公众平台**>**开发**>**开发设置**>**服务器域名**中进行域名配置：
+
+将以下域名添加到 **request 合法域名**：
+
+从v2.11.2起，SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
+
+| 域名 | 说明 |  是否必须 |
+|:-------:|---------|----|
+|`wss://wss.im.qcloud.com`| Web IM 业务域名 | 必须|
+|`wss://wss.tim.qq.com`| Web IM 业务域名 | 必须|
+|`https://web.sdk.qcloud.com`| Web IM 业务域名 | 必须|
+|`https://webim.tim.qq.com` | Web IM 业务域名 | 必须|
+
+v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
+
+| 域名 | 说明 |  是否必须 |
+|:-------:|---------|----|
+|`https://webim.tim.qq.com` | Web IM 业务域名 | 必须|
+|`https://yun.tim.qq.com` | Web IM 业务域名 | 必须|
+|`https://events.tim.qq.com` | Web IM 业务域名 | 必须|
+|`https://grouptalk.c2c.qq.com`| Web IM 业务域名 | 必须|
+|`https://pingtas.qq.com` | Web IM 统计域名 | 必须|
+
+将以下域名添加到 **uploadFile 合法域名**：
+
+| 域名 | 说明 |  是否必须 |
+|:-------:|---------|----|
+|`https://cos.ap-shanghai.myqcloud.com` | 文件上传域名 | 必须|
+
+将以下域名添加到 **downloadFile 合法域名**：
+
+| 域名 | 说明 |  是否必须 |
+|:-------:|---------|----|
+|`https://cos.ap-shanghai.myqcloud.com` | 文件下载域名 | 必须|
+
+[](id:QQ)
+## 技术咨询
+了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">309869925</dx-tag-link>
+
+## 参见文档
+
+- [SDK API 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
+- [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
+- [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)
+- [一分钟跑通 Demo (uni-app）](https://cloud.tencent.com/document/product/269/64506)
+- [快速集成微信小程序原生 TUIKit](https://cloud.tencent.com/document/product/269/62766)
+- [微信小程序原生 TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram)
+
