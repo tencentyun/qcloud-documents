@@ -44,7 +44,7 @@
 <img src="https://qcloudimg.tencent-cloud.cn/raw/59461a84d152d33377491b8e45476b79.png
 " width = "750"/>
 
-您可以在 `ChatPresenter.java` 的 `onRecvNewMessage` 方法中接收自定义消息。收到的自定义消息最终会以 `MessageViewHolder` 的形式展示在消息列表中，`MessageViewHolder` 绘制所需的数据我们称之为 `MessageBean` ，下面我们分步骤讲解下如何展示自定义消息。
+您可以在 [ChatPresenter.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/presenter/ChatPresenter.java) 的 `onRecvNewMessage` 方法中接收自定义消息。收到的自定义消息最终会以 `MessageViewHolder` 的形式展示在消息列表中，`MessageViewHolder` 绘制所需的数据我们称之为 `MessageBean` ，下面我们分步骤讲解下如何展示自定义消息。
 
 ### 步骤一：实现自定义消息 `MessageBean` 类 
 1. 在 `TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/bean/message/` 文件夹下新建 `CustomLinkMessageBean.java` 文件，`CustomLinkMessageBean` 类继承自 `TUIMessageBean`，用于存储显示的文字和要跳转的链接。
