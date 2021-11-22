@@ -1,3 +1,13 @@
+## Native Demo
+<table style="width: 150px;">
+  <tr >
+    <th style="text-align:center;" width="50px">Android/iOS<br>使用浏览器扫码</th>
+  </tr>
+  <tr>
+    <td><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/e225271f575b3ddb660d1fc9ec7947e9.png"  /></td>
+</table>
+
+## 跨平台 Demo
 <table>
   <tr>
     <th style="text-align:center;" width="200px">微信小程序</th>
@@ -37,3 +47,20 @@
     box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://comm.qq.com/im_demo_download/index.html#/pc')" />
 </tr>
 </table>
+
+
+## 功能演示
+<dx-tabs>
+::: Android & iOS 基本功能演示
+<img src="https://main.qcloudimg.com/raw/a60cd107fa2f3e2a9d6caccdeb473dee.gif" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://main.qcloudimg.com/raw/1c642a25bda2c78ca5ac71cd5c715f5a.gif" />
+:::
+::: Android & iOS 自定义功能演示
+<img src="https://main.qcloudimg.com/raw/b3641b1aaa5fe4d8d031b328c411fbe0.gif" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://main.qcloudimg.com/raw/eaa6f517e6aacdd973a85174ed0aca68.gif" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://main.qcloudimg.com/raw/d389b703fe98e10fd005d8401c4dd652.gif" />
+:::
+</dx-tabs>
+
+
+>?
+>- 想快速跑通 Demo，请参见 [实操教学视频](https://cloud.tencent.com/edu/learning/course-3130-56294)。
+>- 想了解更多 Demo 相关信息，请参见 [一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)。
+>- 想了解更多产品优惠信息，请参见 [折扣活动](https://cloud.tencent.com/document/product/269/46181)。
