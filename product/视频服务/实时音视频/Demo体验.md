@@ -32,7 +32,8 @@
 </td>
 <td>
 <input type="button" value="视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html')" /><br><br>
-<input type="button" value="互动直播" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html')" />
+<input type="button" value="互动直播推流端" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html')" /><br><br>
+<input type="button" value="互动直播拉流端" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html')" />
 </td>
 <td>
 <a onclick="window.open('https://www.pgyer.com/TtEk')" value="Flutter_ios_版">
@@ -55,7 +56,9 @@
 
 
 ## 视频通话场景
-视频通话场景即两人或多人视频通话，支持720P、1080P高清画质；单个房间最多支持300人同时在线，最多支持50人同时开启摄像头。常见应用场景有1对1视频通话、300人视频会议、在线问诊、视频聊天、视频客服、视频面审、视频双录、在线理赔、视频狼人杀等。
+视频通话场景即两人或多人视频通话，支持 720P、1080P 高清画质；单个房间最多支持300人同时在线，最多支持50人同时开启摄像头。常见应用场景有1对1视频通话、300人视频会议、在线问诊、视频聊天、视频客服、视频面审、视频双录、在线理赔、视频狼人杀等。
+>?作为腾讯云推出的音视频解决方案，微信小程序和其他端都能互通，您可以在微信小程序内获得媲美 iOS/Android 的绝佳体验，欢迎使用。
+
 <dx-tabs>
 ::: iOS&Android
 <table>
@@ -66,6 +69,15 @@
 <tr>
 <td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-call.gif"/></td>
 <td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-recv.gif"/></td>
+</tr>
+</table>
+:::
+::: 小程序
+<table>
+<tr><th>主动呼叫</th><th>被叫接听</th> </tr>
+<tr>
+<td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/videocall.gif"/></td>
+<td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/videoaccept.gif"/></td>
 </tr>
 </table>
 :::
@@ -80,15 +92,6 @@
 :::
 ::: Web
 ![](https://imgcache.qq.com/operation/dianshi/other/058ffcf5-60f0-430c-96c7-e1760b93e444.fdd0f2c10a8242dadbf99108a48a59124124b437.gif)
-:::
-::: 小程序
-<table>
-<tr><th>主动呼叫</th><th>被叫接听</th> </tr>
-<tr>
-<td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/videocall.gif"/></td>
-<td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/videoaccept.gif"/></td>
-</tr>
-</table>
 :::
 </dx-tabs>
 

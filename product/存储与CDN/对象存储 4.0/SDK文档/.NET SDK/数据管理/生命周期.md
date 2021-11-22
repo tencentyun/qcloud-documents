@@ -23,7 +23,8 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   PutBucketLifecycleRequest request = new PutBucketLifecycleRequest(bucket);
   //设置 lifecycle
   LifecycleConfiguration.Rule rule = new LifecycleConfiguration.Rule();
@@ -71,7 +72,8 @@ catch (COSXML.CosException.CosServerException serverEx)
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   GetBucketLifecycleRequest request = new GetBucketLifecycleRequest(bucket);
   //执行请求
   GetBucketLifecycleResult result = cosXml.GetBucketLifecycle(request);
@@ -104,7 +106,8 @@ catch (COSXML.CosException.CosServerException serverEx)
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   DeleteBucketLifecycleRequest request = new DeleteBucketLifecycleRequest(bucket);
   //执行请求
   DeleteBucketLifecycleResult result = cosXml.DeleteBucketLifecycle(request);

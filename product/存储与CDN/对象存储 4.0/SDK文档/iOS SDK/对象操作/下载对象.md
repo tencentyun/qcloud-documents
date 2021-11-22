@@ -16,14 +16,16 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos
 
 高级接口支持暂停、恢复以及取消下载请求，同时支持断点下载功能。
 
-#### 示例代码一: 下载对象
+
+#### 示例代码一：下载单个对象
+
 **Objective-C**
 
 [//]: # (.cssg-snippet-transfer-download-object)
 ```objective-c
 QCloudCOSXMLDownloadObjectRequest * request = [QCloudCOSXMLDownloadObjectRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
@@ -62,7 +64,7 @@ request.localCacheDownloadOffset = 100;
 ```swift
 let request : QCloudCOSXMLDownloadObjectRequest = QCloudCOSXMLDownloadObjectRequest();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = "examplebucket-1250000000";
 
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
@@ -97,7 +99,7 @@ QCloudCOSTransferMangerService.defaultCOSTransferManager().downloadObject(reques
 
 >?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/TransferDownloadObject.swift) 查看。
 
-#### 示例代码二: 下载暂停、继续与取消
+#### 示例代码二：下载暂停、继续与取消
 **Objective-C**
 
 对于下载任务，可以通过以下方式暂停：
@@ -153,7 +155,7 @@ request.cancel();
 
 >?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/TransferDownloadObject.swift) 查看。
 
-#### 示例代码三: 断点下载
+#### 示例代码三：断点下载
 **Objective-C**
 
 [//]: # (.cssg-snippet-transfer-batch-download-resumable)
@@ -161,7 +163,7 @@ request.cancel();
    QCloudCOSXMLDownloadObjectRequest *getObjectRequest = [[QCloudCOSXMLDownloadObjectRequest alloc] init];
     //支持断点下载，默认不支持
     getObjectRequest.resumableDownload = true;
-    // 存储桶名称，格式为 BucketName-APPID
+    // 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
     getObjectRequest.bucket = transferTestBucket.name;
     // 设置下载的路径 URL，如果设置了，文件将会被下载到指定路径中
     getObjectRequest.downloadingURL = [NSURL URLWithString:QCloudTempFilePathWithExtension(@"downding")];
@@ -194,7 +196,7 @@ request.cancel();
 ```swift
         let request : QCloudCOSXMLDownloadObjectRequest = QCloudCOSXMLDownloadObjectRequest();
         
-        // 存储桶名称，格式为 BucketName-APPID
+        // 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
         request.bucket = "examplebucket-1250000000";
         
         // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
@@ -231,7 +233,7 @@ request.cancel();
 
 >?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/TransferDownloadObject.swift) 查看。
 
-#### 示例代码三: 批量下载
+#### 示例代码四：批量下载
 **Objective-C**
 
 [//]: # (.cssg-snippet-transfer-batch-download-objects)
@@ -239,7 +241,7 @@ request.cancel();
 for (int i = 0; i<20; i++) {
     QCloudCOSXMLDownloadObjectRequest * request = [QCloudCOSXMLDownloadObjectRequest new];
     
-    // 存储桶名称，格式为 BucketName-APPID
+    // 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
     request.bucket = @"examplebucket-1250000000";
     
    // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
@@ -280,7 +282,7 @@ for (int i = 0; i<20; i++) {
 for i in 1...10 {
     let request : QCloudCOSXMLDownloadObjectRequest = QCloudCOSXMLDownloadObjectRequest();
     
-    // 存储桶名称，格式为 BucketName-APPID
+    // 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
     request.bucket = "examplebucket-1250000000";
     
     // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
@@ -316,6 +318,221 @@ for i in 1...10 {
 
 >?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/TransferDownloadObject.swift) 查看。
 
+#### 示例代码四：下载文件夹及其文件
+**Objective-C**
+
+[//]: # (.cssg-snippet-transfer-download-folder)
+```objective-c
+    QCloudGetBucketRequest* request = [QCloudGetBucketRequest new];
+
+    // 存储桶名称，格式为 BucketName-APPID
+    request.bucket = @"examplebucket-1250000000";
+    // 单次返回的最大条目数量，默认1000
+    request.maxKeys = 100;
+
+    //要下载的文件夹在cos上的完整路径
+
+    request.prefix = @"cos_path";
+
+
+    [request setFinishBlock:^(QCloudListBucketResult * result, NSError* error) {
+        if(!error){
+            for (QCloudBucketContents *content in result.contents) {
+                QCloudCOSXMLDownloadObjectRequest * request = [QCloudCOSXMLDownloadObjectRequest new];
+                
+                // 存储桶名称，格式为 BucketName-APPID
+                request.bucket = @"examplebucket-1250000000";
+                
+                // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "dir1/object1"
+                request.object = content.key;
+                
+                // 设置下载的路径 URL，如果设置了，文件将会被下载到指定路径中
+                request.downloadingURL = [NSURL fileURLWithPath:[@"Local File Path" stringByAppendingFormat:@"/%@",content.key]];
+                
+                // 监听下载结果
+                [request setFinishBlock:^(id outputObject, NSError *error) {
+                    // outputObject 包含所有的响应 http 头部
+                    NSDictionary* info = (NSDictionary *) outputObject;
+                }];
+                
+                // 监听下载进度
+                [request setDownProcessBlock:^(int64_t bytesDownload,
+                                               int64_t totalBytesDownload,
+                                               int64_t totalBytesExpectedToDownload) {
+                    
+                    // bytesDownload                   新增字节数
+                    // totalBytesDownload              本次下载接收的总字节数
+                    // totalBytesExpectedToDownload    本次下载的目标字节数
+                }];
+                
+                [[QCloudCOSTransferMangerService defaultCOSTransferManager] DownloadObject:request];
+            }
+           
+            
+        }
+    }];
+
+    [[QCloudCOSXMLService defaultCOSXML] GetBucket:request];
+```
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/TransferDownloadObject.m) 查看。
+
+**Swift**
+
+[//]: # (.cssg-snippet-transfer-download-folder)
+```swift
+        let getBucketReq = QCloudGetBucketRequest.init();
+        
+        // 存储桶名称，格式为 BucketName-APPID
+        getBucketReq.bucket = "examplebucket-1250000000";
+        
+        // 单次返回的最大条目数量，默认1000
+        getBucketReq.maxKeys = 100;
+        
+        //要下载的文件夹在cos上的完整路径
+        getBucketReq.prefix = "cos_path";
+        
+        getBucketReq.setFinish { (result, error) in
+            if let result = result {
+                let contents = result.contents;
+                for content in contents {
+                    let info = QCloudDeleteObjectInfo.init();
+                    let request : QCloudCOSXMLDownloadObjectRequest = QCloudCOSXMLDownloadObjectRequest();
+                    
+                    // 存储桶名称，格式为 BucketName-APPID
+                    request.bucket = "examplebucket-1250000000";
+                    
+                    // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "dir1/object1"
+                    request.object = content.key;
+                    
+                    // 设置下载的路径 URL，如果设置了，文件将会被下载到指定路径中
+                    
+                    request.downloadingURL = NSURL.fileURL(withPath: "Local File Path" ) as URL?;
+                    
+                    // 本地已下载的文件大小，如果是从头开始下载，请不要设置
+                    request.localCacheDownloadOffset = 100;
+
+                    // 监听下载进度
+                    request.sendProcessBlock = { (bytesDownload, totalBytesDownload,
+                        totalBytesExpectedToDownload) in
+                        
+                        // bytesDownload                   新增字节数
+                        // totalBytesDownload              本次下载接收的总字节数
+                        // totalBytesExpectedToDownload    本次下载的目标字节数
+                    }
+
+                    // 监听下载结果
+                    request.finishBlock = { (result, error) in
+                        if let result = result {
+                            // result 包含响应的 header 信息
+                        } else {
+                            print(error!);
+                        }
+                    }
+                    
+                    QCloudCOSTransferMangerService.defaultCOSTransferManager().downloadObject(request);
+                }
+            } else {
+                print(error!);
+            }
+        }
+        QCloudCOSXMLService.defaultCOSXML().getBucket(getBucketReq);
+```
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/TransferDownloadObject.swift) 查看。
+
+
+#### 示例代码五：下载时限速
+
+>! 需要 COS iOS SDK v5.9.5 及以上版本。
+
+
+**Objective-C**
+
+[//]: # (.cssg-snippet-transfer-download-object)
+```objective-c
+QCloudCOSXMLDownloadObjectRequest * request = [QCloudCOSXMLDownloadObjectRequest new];
+
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
+request.bucket = @"examplebucket-1250000000";
+
+// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
+request.object = @"exampleobject";
+
+// 设置下载的路径 URL，如果设置了，文件将会被下载到指定路径中
+request.downloadingURL = [NSURL fileURLWithPath:@"Local File Path"];
+
+// 本地已下载的文件大小，如果是从头开始下载，请不要设置
+request.localCacheDownloadOffset = 100;
+
+// 使用trafficLimit参数设置下载限速，单位为bit/s，限速值设置范围为819200 - 838860800，即100KB/s - 100MB/s。
+request.trafficLimit = 819200;
+
+// 监听下载结果
+[request setFinishBlock:^(id outputObject, NSError *error) {
+    // outputObject 包含所有的响应 http 头部
+    NSDictionary* info = (NSDictionary *) outputObject;
+}];
+
+// 监听下载进度
+[request setDownProcessBlock:^(int64_t bytesDownload,
+                               int64_t totalBytesDownload,
+                               int64_t totalBytesExpectedToDownload) {
+    
+    // bytesDownload                   新增字节数
+    // totalBytesDownload              本次下载接收的总字节数
+    // totalBytesExpectedToDownload    本次下载的目标字节数
+}];
+
+[[QCloudCOSTransferMangerService defaultCOSTransferManager] DownloadObject:request];
+```
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/TransferDownloadObject.m) 查看。
+
+**Swift**
+
+[//]: # (.cssg-snippet-transfer-download-object)
+```swift
+let request : QCloudCOSXMLDownloadObjectRequest = QCloudCOSXMLDownloadObjectRequest();
+
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
+request.bucket = "examplebucket-1250000000";
+
+// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
+request.object = "exampleobject";
+
+// 设置下载的路径 URL，如果设置了，文件将会被下载到指定路径中
+request.downloadingURL = NSURL.fileURL(withPath: "Local File Path") as URL?;
+
+// 本地已下载的文件大小，如果是从头开始下载，请不要设置
+request.localCacheDownloadOffset = 100;
+
+// 使用trafficLimit参数设置下载限速，单位为bit/s，限速值设置范围为819200 - 838860800，即100KB/s - 100MB/s。
+request.trafficLimit = 819200;
+
+// 监听下载进度
+request.sendProcessBlock = { (bytesDownload, totalBytesDownload,
+    totalBytesExpectedToDownload) in
+    
+    // bytesDownload                   新增字节数
+    // totalBytesDownload              本次下载接收的总字节数
+    // totalBytesExpectedToDownload    本次下载的目标字节数
+}
+
+// 监听下载结果
+request.finishBlock = { (result, error) in
+    if let result = result {
+        // result 包含响应的 header 信息
+    } else {
+        print(error!);
+    }
+}
+
+QCloudCOSTransferMangerService.defaultCOSTransferManager().downloadObject(request);
+```
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/TransferDownloadObject.swift) 查看。
+
 ## 简单操作
 
 ### 下载对象
@@ -324,7 +541,7 @@ for i in 1...10 {
 
 下载一个 Object（文件/对象）至本地（GET Object）。
 
-#### 示例代码
+#### 示例代码一：下载对象
 **Objective-C**
 
 [//]: # (.cssg-snippet-get-object)
@@ -337,12 +554,16 @@ request.downloadingURL = [NSURL URLWithString:QCloudTempFilePathWithExtension(@"
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
 request.object = @"exampleobject";
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 
 [request setFinishBlock:^(id outputObject, NSError *error) {
     // 可以从 outputObject 中获取 response 中 etag 或者自定义头部等信息
     NSDictionary* info = (NSDictionary *) outputObject;
+    // 服务端文件的crc64
+    result[@"x-cos-hash-crc64ecma"] 
+    // 下载到本地的文件crc64 若返回的crc64与本地计算一致，则表示下载的文件与远端文件完整一致；
+    uint64_t localCrc64 = [本地文件data qcloud_crc64];
 }];
 [request setDownProcessBlock:^(int64_t bytesDownload, int64_t totalBytesDownload,
     int64_t totalBytesExpectedToDownload) {
@@ -365,7 +586,7 @@ request.bucket = @"examplebucket-1250000000";
 ```swift
 let getObject = QCloudGetObjectRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 getObject.bucket = "examplebucket-1250000000";
 
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
@@ -375,7 +596,90 @@ getObject.downloadingURL = URL.init(string: NSTemporaryDirectory())!
     .appendingPathComponent(getObject.object);
 getObject.finishBlock = {(result,error) in
     if let result = result {
+        // 服务端文件的crc64
+        result["x-cos-hash-crc64ecma"] 
+        // 下载到本地的文件crc64 若返回的crc64与本地计算一致，则表示下载的文件与远端文件完整一致；
+        uint64_t localCrc64 = 本地文件data.qcloud_crc64();
+    } else {
+        print(error!);
+    }
+};
+getObject.downProcessBlock = {(bytesDownload, totalBytesDownload,
+    totalBytesExpectedToDownload) in
+    // bytesDownload       一次下载的字节数，
+    // totalBytesDownload  总过接受的字节数
+    // totalBytesExpectedToDownload 文件一共多少字节
+}
+QCloudCOSXMLService.defaultCOSXML().getObject(getObject);
+```
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/GetObject.swift) 查看。
+
+#### 示例代码二：下载时限速
+>! 需要 COS iOS SDK v5.9.5 及以上版本。
+>
+**Objective-C**
+
+[//]: # (.cssg-snippet-get-object)
+```objective-c
+QCloudGetObjectRequest* request = [QCloudGetObjectRequest new];
+
+// 设置下载的路径 URL，如果设置了，文件将会被下载到指定路径中
+request.downloadingURL = [NSURL URLWithString:QCloudTempFilePathWithExtension(@"downding")];
+
+// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
+request.object = @"exampleobject";
+
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
+request.bucket = @"examplebucket-1250000000";
+
+// 使用trafficLimit参数设置下载限速，单位为bit/s，限速值设置范围为819200 - 838860800，即100KB/s - 100MB/s。
+request.trafficLimit = 819200;
+
+[request setFinishBlock:^(id outputObject, NSError *error) {
+    // 可以从 outputObject 中获取 response 中 etag 或者自定义头部等信息
+    NSDictionary* info = (NSDictionary *) outputObject;
+    // 获取文件crc64
+    NSString * crc64 = [[outputObject __originHTTPURLResponse__].allHeaderFields valueForKey:@"x-cos-hash-crc64ecma"];
+}];
+[request setDownProcessBlock:^(int64_t bytesDownload, int64_t totalBytesDownload,
+    int64_t totalBytesExpectedToDownload) {
+    
+    // 下载过程中的进度
+    // bytesDownload       一次下载的字节数，
+    // totalBytesDownload  总过接受的字节数
+    // totalBytesExpectedToDownload 文件一共多少字节
+
+}];
+
+[[QCloudCOSXMLService defaultCOSXML] GetObject:request];
+```
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/GetObject.m) 查看。
+
+**Swift**
+
+[//]: # (.cssg-snippet-get-object)
+```swift
+let getObject = QCloudGetObjectRequest.init();
+
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
+getObject.bucket = "examplebucket-1250000000";
+
+// 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
+getObject.object = "exampleobject";
+// 设置下载的路径 URL，如果设置了，文件将会被下载到指定路径中
+getObject.downloadingURL = URL.init(string: NSTemporaryDirectory())!
+    .appendingPathComponent(getObject.object);
+    
+// 使用trafficLimit参数设置下载限速，单位为bit/s，限速值设置范围为819200 - 838860800，即100KB/s - 100MB/s。
+getObject.trafficLimit = 819200;
+
+getObject.finishBlock = {(result,error) in
+    if let result = result {
         // result 包含响应的 header 信息
+        // 获取文件crc64
+        let crc64 = result?.__originHTTPURLResponse__.allHeaderFields["x-cos-hash-crc64ecma"];
     } else {
         print(error!);
     }

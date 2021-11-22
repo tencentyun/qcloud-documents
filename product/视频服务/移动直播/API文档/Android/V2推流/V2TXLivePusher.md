@@ -376,12 +376,13 @@ public abstract int sendCustomVideoFrame(V2TXLiveVideoFrame videoFrame);
 |-----|-----|-----|
 | videoFrame | V2TXLiveVideoFrame | 向 SDK 发送的 视频帧数据。 |
 
-
 #### 返回
 返回值 V2TXLiveCode：
 - V2TXLIVE_OK：成功。
 - V2TXLIVE_ERROR_INVALID_PARAMETER：发送失败，视频帧数据不合法。
 - V2TXLIVE_ERROR_REFUSED：发送失败，您必须先调用 enableCustomVideoCapture 开启自定义视频采集。
+
+***
 
 ### enableCustomVideoProcess
 开启/关闭自定义视频处理。
@@ -412,6 +413,23 @@ public abstract int enableCustomVideoProcess(boolean enable, V2TXLivePixelFormat
 | V2TXLiveBufferTypeByteBuffer|  DirectBuffer，装载 I420 等 buffer，在 native 层使用。 |
 |  V2TXLiveBufferTypeByteArray|  byte[]，装载 I420 等 buffer，在 Java 层使用。 |
 |  V2TXLiveBufferTypeTexture| 直接操作纹理 ID，性能最好，画质损失最少。 |
+
+***
+
+### sendSeiMessage
+发送 SEI 消息。播放端 [V2TXLivePlayer](https://liteav.sdk.qcloud.com/doc/api/zh-cn/interfaceV2TXLivePlayer.html) 通过 [V2TXLivePlayerObserver](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#protocolV2TXLivePlayerObserver-p) 中的 `onReceiveSeiMessage` 回调来接收该消息。
+```
+public abstract int sendSeiMessage(int payloadType, byte[] data);
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| payloadType | int | 数据类型，支持 5、242。推荐填：242 |
+| data | byte[]  | 待发送的数据 | 
+
+ #### 返回
+ 返回值 V2TXLiveCode：
+ - V2TXLIVE_OK：成功。
 
 ***
 

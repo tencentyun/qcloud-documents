@@ -8,10 +8,8 @@ Kubernetes-csi-tencentcloud COS 插件实现 CSI 的接口，可帮助您在容�
 
 | Kubernetes 对象名称             | 类型                       | 默认占用资源 | 所属 Namespaces |
 | -------------------------- | ------------------------ | ------ | ------------ |
-| csi-cosplugin-external-runner  | StatefulSet | -     | -           |kube-system |
 | csi-coslauncher        | DaemonSet       | -    | kube-system             |
 | csi-cosplugin        | DaemonSet              | -     | kube-system            |
-| csi-cosplugin-external-runner	          | Service           | -      | kube-system       |
 | csi-cos-tencentcloud-token | Secret              | -  | kube-system      |
 
 ## 使用场景

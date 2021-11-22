@@ -2,7 +2,10 @@
 ## 安装 gRPC
 1. Java gRPC 除了 JDK 外不需要其他工具。
 2. 在本地安装 gRPC Java 库 SNAPSHOT，包括代码生成插件。
->?具体安装流程请您参考 [安装 gRPC Java的说明](https://github.com/grpc/grpc-java/blob/master/COMPILING.md)。
+<dx-alert infotype="explain" title="">
+具体安装流程请您参考 [安装 gRPC Java的说明](https://github.com/grpc/grpc-java/blob/master/COMPILING.md)。
+</dx-alert>
+
 ## 定义服务
 gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过参数和返回类型来指定可以远程调用的方法。
 
@@ -17,7 +20,7 @@ gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过�
 1. 定义好服务后，通过 protocol buffer 编译器 protoc 生成客户端和服务端的代码（任意 gRPC 支持的语言）。 
 2. 生成的代码包括客户端的存根和服务端要实现的抽象接口。
 3. 生成 gRPC 代码步骤：
- - 方法一：在 java-demo/src/main/proto下执行脚本，需要从 gprc 官网下载 protoc 和 protoc-gen-grpc-java 生成工具：
+ - 方法一：在 java-demo/src/main/proto 下执行脚本，需要从 gprc 官网下载 protoc 和 protoc-gen-grpc-java 生成工具：
 ```
 sh gen_pb.sh
 ```
@@ -64,7 +67,7 @@ protoc --plugin=protoc-gen-grpc-java=`which protoc-gen-grpc-java` --grpc-java_ou
 
 
 ## 游戏进程集成流程
-![](https://main.qcloudimg.com/raw/7573bff913544f74ff384d5f491db735.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2ece2bd5732ff6fa39b80554c7beb7d1.png)
 
 #### Game Server 回调接口列表
 
@@ -253,8 +256,8 @@ public GseResponseBo onProcessTerminate(long terminationTime) {
 ```
  9. Game Server 调用 ProcessEnding 接口会立刻结束进程，将服务器进程状态更改为“已终止”，并回收资源。
 ```Java
-//主动调用：一局游戏对应一个进程，当一局游戏结束后主动调用ProcessEnding接口
-//被动调用：当缩容或进程异常健康检查失败时，根据保护策略被动调用ProcessEnding接口，配置完全保护和时限保护策略时需要先判断游戏服务器会话上有无玩家，再被动调用
+//主动调用：一局游戏对应一个进程，当一局游戏结束后主动调用 ProcessEnding 接口
+//被动调用：当缩容或进程异常健康检查失败时，根据保护策略被动调用 ProcessEnding 接口，配置完全保护和时限保护策略时需要先判断游戏服务器会话上有无玩家，再被动调用
 public GseResponseBo processEnding() {
 	logger.info("processEnding begin");
 	GseResponseBo responseBo = new GseResponseBo();
@@ -393,7 +396,7 @@ Java DEMO 代码示例里已生成 gRPC 代码，在 java-demo/src/main/java/ten
   - 连接服务端。
 创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
  5. 编译运行。
-  1. 安装 java 版本要求1.8及以上，linux 下可以使用 yum 安装 openjdk：
+  1. 安装 Java 版本要求1.8及以上，linux 下可以使用 yum 安装 openjdk：
 ```
 yum install -y java-1.8.0-openjdk
 ```

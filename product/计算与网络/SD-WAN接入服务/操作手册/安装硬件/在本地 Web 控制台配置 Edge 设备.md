@@ -32,7 +32,7 @@
 
 ## 步骤3：配置 Edge 设备
 1. 启动 Edge 设备。
-2. 在本地 PC 端浏览器访问本地 Web 控制台，即`192.168.3.1`或使用域名方式访问`edge.cloud.tencent.com`，初次访问本地 Web 控制台时，需要设置登录密码。
+2. 在本地 PC 端浏览器访问本地 Web 控制台，即`192.168.2.1`或使用域名方式访问`edge.cloud.tencent.com`，初次访问本地 Web 控制台时，需要设置登录密码。
 >?请妥善保管您的登录密码，则需登录 [SD-WAN 接入服务控制台](https://console.cloud.tencent.com/sas/edge) 重新配置。具体操作请参见 [配置 WLAN](https://cloud.tencent.com/document/product/1277/47272)。
 >
 ![](https://main.qcloudimg.com/raw/9c9bd9852c51a58a0b7d2e157d142f3c.png)

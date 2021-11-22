@@ -29,7 +29,7 @@ Content-Type: application/xml
 
 ```shell
 <Request>
-  <Tag>Transcode</Tag>
+  <Tag>Animation</Tag>
   <Input>
     <Object></Object>
   </Input>

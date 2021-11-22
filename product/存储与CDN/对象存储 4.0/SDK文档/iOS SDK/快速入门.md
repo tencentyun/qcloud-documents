@@ -43,9 +43,9 @@ pod 'QCloudCOSXML/Transfer'
 
 #### 1. 导入二进制库
 
-将 **QCloudCOSXML.framework、QCloudCore.framework 和 BeaconAPI_Base.framework 以及 BeaconId.framework** 拖入到工程中。
+将 **QCloudCOSXML.framework、QCloudCore.framework 和 BeaconAPI_Base.framework 以及 QimeiSDK.framework** 拖入到工程中。
 
-![](https://main.qcloudimg.com/raw/5bdcb1f0bb6ac5dc80e82b1cd1960a19.png)  
+![](https://qcloudimg.tencent-cloud.cn/raw/a461545c9de56424126943fc16a3d381.png)  
 
 并添加以下依赖库：
  - CoreTelephony
@@ -129,7 +129,9 @@ SDK 在发出请求时，需要获取临时密钥计算签名，因此需要您�
 
     QCloudServiceConfiguration* configuration = [QCloudServiceConfiguration new];
     QCloudCOSXMLEndPoint* endpoint = [[QCloudCOSXMLEndPoint alloc] init];
-    // 服务地域简称，例如广州地域是 ap-guangzhou
+    
+    // 替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
+    // COS支持的所有region列表参见https://www.qcloud.com/document/product/436/6224
     endpoint.regionName = @"COS_REGION";
     // 使用 HTTPS
     endpoint.useHTTPS = true;
@@ -154,11 +156,15 @@ SDK 在发出请求时，需要获取临时密钥计算签名，因此需要您�
         //这里同步从后台服务器获取临时密钥，强烈建议将获取临时密钥的逻辑放在这里，最大程度上保证密钥的可用性
     //...
     QCloudCredential* credential = [QCloudCredential new];
-    // 临时密钥 SecretId
+
+    // 临时密钥 SecretId 
+    // sercret_id替换为用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
     credential.secretID = @"SECRETID";
     // 临时密钥 SecretKey
+    // sercret_key替换为用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
     credential.secretKey = @"SECRETKEY";
     // 临时密钥 Token
+    // 如果使用永久密钥不需要填入token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见https://cloud.tencent.com/document/product/436/14048
     credential.token = @"TOKEN";
     /** 强烈建议返回服务器时间作为签名的开始时间, 用来避免由于用户手机本地时间偏差过大导致的签名不正确(参数startTime和expiredTime单位为秒)
     */
@@ -190,7 +196,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
         let config = QCloudServiceConfiguration.init();
 
         let endpoint = QCloudCOSXMLEndPoint.init();
-        //服务地域简称，例如广州地域是 ap-guangzhou
+
+        // 替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
+        // COS支持的所有region列表参见https://www.qcloud.com/document/product/436/6224
         endpoint.regionName = "COS_REGION";
         // 使用 HTTPS
         endpoint.useHTTPS = true;
@@ -217,11 +225,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
         //...
 
         let credential = QCloudCredential.init();
-        // 临时密钥 SecretId
+        // 临时密钥 SecretId 
+        // sercret_id替换为用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
         credential.secretID = "SECRETID";
         // 临时密钥 SecretKey
+        // sercret_key替换为用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
         credential.secretKey = "SECRETKEY";
         // 临时密钥 Token
+        // 如果使用永久密钥不需要填入token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见https://cloud.tencent.com/document/product/436/14048
         credential.token = "TOKEN";
         /** 强烈建议返回服务器时间作为签名的开始时间, 用来避免由于用户手机本地时间偏差过大导致的签名不正确(参数startTime和expiredTime单位为秒)
         */
@@ -274,7 +285,9 @@ SDK 提供了一个 `QCloudCredentailFenceQueue` 的脚手架，实现对临时�
         didFinishLaunchingWithOptions:(NSDictionary * )launchOptions {
     QCloudServiceConfiguration* configuration = [QCloudServiceConfiguration new];
     QCloudCOSXMLEndPoint* endpoint = [[QCloudCOSXMLEndPoint alloc] init];
-    // 服务地域简称，例如广州地域是 ap-guangzhou
+
+    // 替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
+    // COS支持的所有region列表参见https://www.qcloud.com/document/product/436/6224
     endpoint.regionName = @"COS_REGION";
     // 使用 HTTPS
     endpoint.useHTTPS = true;
@@ -299,11 +312,14 @@ SDK 提供了一个 `QCloudCredentailFenceQueue` 的脚手架，实现对临时�
     //...
 
     QCloudCredential* credential = [QCloudCredential new];
-    // 临时密钥 SecretId
+    // 临时密钥 SecretId 
+    // sercret_id替换为用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
     credential.secretID = @"SECRETID";
     // 临时密钥 SecretKey
+    // sercret_key替换为用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
     credential.secretKey = @"SECRETKEY";
     // 临时密钥 Token
+    // 如果使用永久密钥不需要填入token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见https://cloud.tencent.com/document/product/436/14048
     credential.token = @"TOKEN";
     /** 强烈建议返回服务器时间作为签名的开始时间, 用来避免由于用户手机本地时间偏差过大导致的签名不正确(参数startTime和expiredTime单位为秒)
     */
@@ -355,7 +371,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
         let config = QCloudServiceConfiguration.init();
 
         let endpoint = QCloudCOSXMLEndPoint.init();
-        //服务地域简称，例如广州地区是 ap-guangzhou
+
+        // 替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
+        // COS支持的所有region列表参见https://www.qcloud.com/document/product/436/6224
         endpoint.regionName = "COS_REGION";
         // 使用 HTTPS
         endpoint.useHTTPS = true;
@@ -382,11 +400,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
         //...
 
         let credential = QCloudCredential.init();
-        // 临时密钥 SecretId
+        // 临时密钥 SecretId 
+        // sercret_id替换为用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
         credential.secretID = "SECRETID";
         // 临时密钥 SecretKey
+        // sercret_key替换为用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
         credential.secretKey = "SECRETKEY";
         // 临时密钥 Token
+        // 如果使用永久密钥不需要填入token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见https://cloud.tencent.com/document/product/436/14048
         credential.token = "TOKEN";
         /** 强烈建议返回服务器时间作为签名的开始时间, 用来避免由于用户手机本地时间偏差过大导致的签名不正确(参数startTime和expiredTime单位为秒)
         */
@@ -443,10 +464,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 {
     
     QCloudCredential* credential = [QCloudCredential new];
-    //SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
-    credential.secretID = @"SECRETID"; // 永久密钥 SecretId
-    credential.secretKey = @"SECRETKEY"; // 永久密钥 SecretKey
-
+    
+    // 永久密钥 secretID 
+    // sercret_id替换为用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+    credential.secretID = @"SECRETID";
+    // 永久密钥 SecretKey
+    // sercret_key替换为用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+    credential.secretKey = @"SECRETKEY"; 
     // 使用永久密钥计算签名
     QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc] 
         initWithCredential:credential];
@@ -463,9 +487,13 @@ func signature(with fileds: QCloudSignatureFields!,
                 urlRequest urlRequst: NSMutableURLRequest!, 
                 compelete continueBlock: QCloudHTTPAuthentationContinueBlock!) {
     let credential = QCloudCredential.init();
-    //SECRETID和SECRETKEY请登录访问管理控制台进行查看和管理
-    credential.secretID = "SECRETID"; // 永久密钥 SecretId
-    credential.secretKey = "SECRETKEY"; // 永久密钥 SecretKey
+    
+    // 永久密钥 secretID 
+    // sercret_id替换为用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+    credential.secretID = "SECRETID";
+    // 永久密钥 SecretKey
+    // sercret_key替换为用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+    credential.secretKey = "SECRETKEY"; 
 
     // 使用永久密钥计算签名
     let auth = QCloudAuthentationV5Creator.init(credential: credential);
@@ -522,7 +550,7 @@ SDK 支持上传本地文件与二进制数据 NSData。下面以上传本地文
 QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
 // 本地文件路径
 NSURL* url = [NSURL fileURLWithPath:@"文件的URL"];
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 put.bucket = @"examplebucket-1250000000";
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
 put.object = @"exampleobject";
@@ -554,7 +582,7 @@ put.body =  url;
 
 ```swift
 let put:QCloudCOSXMLUploadObjectRequest = QCloudCOSXMLUploadObjectRequest<AnyObject>();
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 put.bucket = "examplebucket-1250000000";
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
 put.object = "exampleobject";
@@ -600,7 +628,7 @@ QCloudCOSTransferMangerService.defaultCOSTransferManager().uploadObject(put);
 ```objective-c
 QCloudCOSXMLDownloadObjectRequest * request = [QCloudCOSXMLDownloadObjectRequest new];
     
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
 request.object = @"exampleobject";
@@ -633,7 +661,7 @@ request.downloadingURL = [NSURL fileURLWithPath:@"Local File Path"];
 ```swift
 let request : QCloudCOSXMLDownloadObjectRequest = QCloudCOSXMLDownloadObjectRequest();
         
-// 文件所在桶
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = "examplebucket-1250000000";
 // 对象键
 request.object = "exampleobject";

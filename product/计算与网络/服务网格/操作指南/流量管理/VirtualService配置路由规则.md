@@ -1,10 +1,10 @@
 VirtualService 定义了指定 hosts 的一系列路由规则和流量操作（权重路由，故障注入等），其中每一条路由规则都定义了指定流量协议的匹配规则，如流量匹配，则被路由至指定的服务或服务的版本。VirtualService 配置主要包含以下部分：
 
-- hosts：定义路由规则关联的 hosts，可以是带有通配符的 DNS 名称或者 IP 地址。
-- gateways：定义应用路由规则的来源流量，可以是：
+- **hosts**：定义路由规则关联的 hosts，可以是带有通配符的 DNS 名称或者 IP 地址。
+- **gateways**：定义应用路由规则的来源流量，可以是：
 	- 一个或多个网关。
 	- 网格内部的 sidecar。
-- 路由规则：定义详细的路由规则，包括 HTTP，TLS/HTTPS，TCP 三种协议类型的路由规则。
+- **路由规则**：定义详细的路由规则，包括 HTTP，TLS/HTTPS，TCP 三种协议类型的路由规则。
 	- http：定义一组有序的应用于 HTTP 流量的路由规则。
 	- tcp：定义一组有序的应用于 TCP 流量的路由规则。
 	- tls：定义一组有序的应用于未终止的 TLS 或 HTTPS 流量的路由规则。
@@ -59,8 +59,8 @@ spec:
     istio: ingressgateway
 ```
 
-### YAML 配置示例
-
+<dx-tabs>
+::: YAML 配置示例
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -77,10 +77,12 @@ spec:
         - destination:
             host: frontend.base.svc.cluster.local # 路由目的地填写 frontend 服务的 host 全称
 ```
-
-### 控制台配置示例
-
+:::
+::: 控制台配置示例
 ![](https://main.qcloudimg.com/raw/8f7ee1c7bae86cc8c64b06bf3acd6c03.png)
+:::
+</dx-tabs>
+
 
 
 ## 配置来自 Mesh 内部流量（东西向）的路由规则
@@ -104,8 +106,8 @@ spec:
         version: v2
 ```
 
-### YAML 配置示例
-
+<dx-tabs>
+::: YAML 配置示例
 ```
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -134,6 +136,9 @@ spec: # 缺省 gateway 参数，表示该路由配置应用于 mesh 内部 sidec
           weight: 50
 ```
 
-### 控制台配置示例
-
+:::
+::: 控制台配置示例
 ![](https://main.qcloudimg.com/raw/4de8befe5c17f08022f2c60517144a7f.png)
+:::
+</dx-tabs>
+

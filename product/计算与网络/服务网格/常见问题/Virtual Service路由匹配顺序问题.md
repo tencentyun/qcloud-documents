@@ -1,4 +1,4 @@
-在写 VirtualService 路由规则时，通常会 match 各种不同路径转发到不同的后端服务，有时候不小心命名冲突了，导致始终只匹配到前面的服务，比如:
+在写 VirtualService 路由规则时，通常会 match 各种不同路径转发到不同的后端服务，有时候不小心命名冲突了，导致始终只匹配到前面的服务，例如：
 
 ```yaml
 apiVersion: networking.istio.io/v1beta1
@@ -37,7 +37,7 @@ istio 匹配是按顺序匹配，不像 nginx 那样使用最长前缀匹配。�
 
 ## 解决方案
 
-这种情况可以调整下匹配顺序，如果前缀有包含的冲突关系，越长的放在越前面:
+这种情况可以调整下匹配顺序，如果前缀有包含的冲突关系，越长的放在越前面：
 
 ```yaml
 apiVersion: networking.istio.io/v1beta1
@@ -72,7 +72,7 @@ spec:
           number: 80
 ```
 
-也可以用正则匹配:
+也可以用正则匹配：
 
 ```yaml
 apiVersion: networking.istio.io/v1beta1

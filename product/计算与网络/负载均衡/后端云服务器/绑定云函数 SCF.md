@@ -36,7 +36,7 @@
 - 仅标准账户类型支持绑定 SCF，传统账户类型不支持。建议升级为标准账户类型，详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。 
 - 传统型负载均衡不支持绑定 SCF。
 - 基础网络类型不支持绑定 SCF。
-- 仅支持跨 VPC 绑定 SCF，不支持跨地域绑定。
+- CLB 默认支持绑定同地域下的所有 SCF，可支持跨 VPC 绑定 SCF，不支持跨地域绑定。
 - 目前仅 IPv4、IPv6 NAT64 版本的负载均衡支持绑定 SCF，IPv6 版本的暂不支持。
 - 仅七层（HTTP、HTTPS）监听器支持绑定 SCF，四层（TCP、UDP、TCP SSL）监听器和七层 QUIC 监听器不支持。
 - CLB 绑定 SCF 仅支持绑定“Event 函数”类型的云函数。
