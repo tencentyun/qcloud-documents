@@ -15,9 +15,8 @@
    <th>微信小程序演示：</th>
  </tr>
 <tr>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/android-uniapp.gif" height = "150"/></td>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/ios-uniapp.gif" height = "150"/></td>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/wx-uniapp.gif" height = "150"/></td>
+<td><img style="width:200px; max-width: inherit;" src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/android-uniapp.gif" /></td>
+<td><img  style="width:200px; max-width: inherit;" src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/ios-uniapp.gif"></td><td><img  style="width:200px; max-width: inherit;" src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/wx-uniapp.gif" </td>
 </tr>
 </table>
 
@@ -176,12 +175,15 @@ v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
 |:-------:|---------|----|
 |`https://cos.ap-shanghai.myqcloud.com` | 文件下载域名 | 必须|
 
+[](id:QQ)
+## 技术咨询
+了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">309869925</dx-tag-link>
+
 ## 参见文档
 
 - [SDK API 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
 - [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)
-- [快速跑通 uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/blob/master/uni-app/README.md)
-- [快速集成 uni-app TUIKit 源码]()
+- [快速集成 uni-app TUIKit 源码](https://cloud.tencent.com/document/product/269/64507)
 - [快速集成微信小程序原生 TUIKit](https://cloud.tencent.com/document/product/269/62766)
 - [微信小程序原生 TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram)
