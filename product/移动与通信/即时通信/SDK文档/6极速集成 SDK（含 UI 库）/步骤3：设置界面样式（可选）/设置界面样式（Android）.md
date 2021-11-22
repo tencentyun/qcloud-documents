@@ -1,8 +1,7 @@
 本文介绍如何设置样式（Android）
->?更多实操教学视频请参见：[设置样式（Android）](https://cloud.tencent.com/edu/learning/course-3130-57629)。
 
 ## 设置会话列表
-会话列表 Layout 由标题区 TitleBarLayout 与列表区 ConversationListLayout 组成，每部分都提供了 UI 样式以及事件注册的接口可供修改。
+会话列表由标题区 TitleBarLayout 与列表区 ConversationListLayout 组成，每部分都提供了 UI 样式以及事件注册的接口可供修改。
 ![会话列表](https://main.qcloudimg.com/raw/8adef6cec9f943958bbcbd0959130ce6.png)
 
 ### 修改<font color=Red> 标题区 TitleBarLayout </font>样式

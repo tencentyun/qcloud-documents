@@ -1,4 +1,4 @@
-
+﻿
 `TUIKit` 默认实现了文本、图片、语音、视频、文件等基本消息类型的发送和展示，如果这些消息类型满足不了您的需求，您可以新增自定义消息类型。
 
 ## 基本消息类型
@@ -31,7 +31,7 @@
 
 ## 自定义消息
 >- 如果基本消息类型不能满足您的需求，您可以根据实际业务需求自定义消息。
->- 本文以发送一条可跳转至浏览器的超文本作为自定义消息为例，帮助您快速了解实现流程。**本文以 `5.7.1435` 版本为例，与之前版本有所不同。**
+>- 本文以发送一条可跳转至浏览器的超文本作为自定义消息为例，帮助您快速了解实现流程。**本文以 `5.8.1668` 版本为例，与之前版本有所不同。**
 
  <img src="https://main.qcloudimg.com/raw/77082a09b210baae30e41ce35e07af6b.png" width = "500"/>
 
@@ -43,7 +43,7 @@
 您可以在 [TUIMessageDataProvider.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/DataProvider/TUIMessageDataProvider.m) 的 `onRecvNewMessage` 函数内接收自定义消息，收到的自定义消息最终会以 `Cell` 的形式展示在消息列表中，`Cell` 绘制所需的数据我们称之为 `CellData` ，下面我们分步骤讲解下如何展示自定义消息。
 
 ### 步骤一：创建自定义 CellData
-1. 在 `TUIChat -> Cell -> CellData -> Custom` 文件夹下新建  [TUILinkCellData.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/Cell/CellData/Custom/TUILinkCellData.h) 和 [TUILinkCellData.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/Cell/CellData/Custom/TUILinkCellData.h) 文件，继承自`TUIMessageCellData` ，用于存储显示的文字和跳转的链接。
+1. 在 `TUIChat -> Cell -> CellData -> Custom` 文件夹下新建  [TUILinkCellData.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/Cell/CellData/Custom/TUILinkCellData.h) 和 [TUILinkCellData.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/Cell/CellData/Custom/TUILinkCellData.m) 文件，继承自`TUIMessageCellData` ，用于存储显示的文字和跳转的链接。
 
 ```java
 @interface TUILinkCellData : TUIMessageCellData
@@ -94,7 +94,7 @@
 ```
 
 ### 步骤二：创建自定义 Cell
-1. 在 `TUIChat -> Cell -> CellUI -> Custom` 文件夹下新建 [TUILinkCell](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/Cell/CellUI/Custom/TUILinkCell.h) 类，继承自 `TUIMessageCell` ，用于绘制 `TUILinkCellData` 数据。
+1. 在 `TUIChat -> Cell -> CellUI -> Custom` 文件夹下新建 [TUILinkCell.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/Cell/CellUI/Custom/TUILinkCell.h) 和 [TUILinkCell.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/Cell/CellUI/Custom/TUILinkCell.m) 文件，继承自 `TUIMessageCell` ，用于绘制 `TUILinkCellData` 数据。
 
 ```java
 @interface TUILinkCell : TUIMessageCell
@@ -172,7 +172,7 @@
 ## 如何发送自定义消息
  <img src="https://qcloudimg.tencent-cloud.cn/raw/52006404950bf1adc1c4ad84fe7d521e.jpg" width = "500"/>
 	
-如上图所示，自定义消息发送按钮主要由文本 `title` 和图片 `image` 组成，您可以在 [TUIChatDataProvider.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/DataProvider/TUIMessageDataProvider.m) 的 `load` 函数注册发送按钮信息。
+如上图所示，自定义消息发送按钮主要由文本 `title` 和图片 `image` 组成，您可以在 [TUIChatDataProvider.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/DataProvider/TUIChatDataProvider.m) 的 `load` 函数注册发送按钮信息。
 ```java
 @implementation TUIChatDataProvider
 + (void)load {
@@ -185,7 +185,7 @@
 @end
 ```
 
-当按钮被点击后，可以在 [TUIC2CChatViewController.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/UI/Chat/TUIC2CChatViewController.m) 的 `didSelectMoreCell` 回调通过 [createCustomMessage](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a7a38c42f63a4e0c9e89f6c56dd0da316) 接口创建一条自定义消息，其中参数 `data` 可以由 `json` 数据组成， 可以在 `json` 数据里面自定义一个 `businessID` 字段来唯一标识这条消息。
+当按钮被点击后，可以在 [TUIC2CChatViewController.m](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKit/TUIChat/UI/Chat/TUIC2CChatViewController.m) 的 `didSelectMoreCell` 回调通过 [createCustomMessage](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a7a38c42f63a4e0c9e89f6c56dd0da316) 接口创建一条自定义消息，其中参数 `data` 可以由 `json` 数据组成， 可以在 `json` 数据里面自定义一个 `businessID` 字段来唯一标识这条消息。
 
 ```java
 @implementation TUIMessageController
