@@ -2,9 +2,8 @@
 
 WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器、桌面版 Edge 浏览器、桌面版 Firefox 浏览器、桌面版 Safari 浏览器以及移动版 Safari 浏览器上有较为完整的支持，其他平台（例如 Android 平台的浏览器）支持情况均比较差。
 
-- 在移动端推荐使用 [小程序](https://cloud.tencent.com/document/product/647/17018) 解决方案，微信和手机 QQ 小程序均已支持，都是由各平台的 Native 技术实现，音视频性能更好，且针对主流手机品牌进行了定向适配。
-- 如果您的应用场景为教育场景，教师端推荐使用兼容性更好的 Electron 解决方案，Electron 相较于 Web 端拥有更灵活的屏幕分享方案以及更强大的弱网络恢复能力。
-- 如果您希望 Web 端在推流时支持双声道编码，请 [提交工单申请](https://console.cloud.tencent.com/workorder/category) WebRTC 双声道编码。
+在移动端推荐使用 [小程序](https://cloud.tencent.com/document/product/647/17018) 解决方案，微信和手机 QQ 小程序均已支持，都是由各平台的 Native 技术实现，音视频性能更好，且针对主流手机品牌进行了定向适配。
+
 
 
 
@@ -273,6 +272,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 - 您可以在浏览器中打开 [TRTC Web SDK 能力测试页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 检测当前浏览器是否支持 WebRTC 所有能力。例如 WebView 等浏览器环境。
 - 由于 H.264 版权限制，如果您希望在华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器正常运行 TRTC Web 端请 [提交工单申请](https://console.cloud.tencent.com/workorder/category) 开通 VP8 编解码。
 - Mac OS 下的 Firefox 屏幕分享效果比较差且暂无解决方案，建议使用 Chrome 或者 Safari 进行屏幕分享。[](id:attention3)
+- 如果您希望 Web 端在推流时支持双声道编码，请 [提交工单申请](https://console.cloud.tencent.com/workorder/category) WebRTC 双声道编码。
 
 
 ## URL 域名协议限制
