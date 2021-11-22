@@ -1089,7 +1089,7 @@ UUID 类型。
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMCreateGroupParamGroupName | string | 只写（必填） | 群组名称 |
-| kTIMCreateGroupParamGroupId | string | 只写（选填） | 群组 ID，不填时创建成功回调会返回一个后台分配的群 ID |
+| kTIMCreateGroupParamGroupId | string | 只写（选填） | 群组ID,不填时创建成功回调会返回一个后台分配的群ID。如果创建社群（Community）需要自定义群组 ID ，那必须以 "@TGS#_" 作为前缀。 |
 | kTIMCreateGroupParamGroupType | uint [TIMGroupType](#timgrouptype) | 只写（选填） | 群组类型，默认为 Public |
 | kTIMCreateGroupParamGroupMemberArray | array [GroupMemberInfo](#groupmemberinfo) | 只写（选填） | 群组初始成员数组 |
 | kTIMCreateGroupParamNotification | string | 只写（选填） | 群组公告 |
