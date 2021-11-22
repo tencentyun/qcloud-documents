@@ -1,23 +1,22 @@
 腾讯云即时通信 IM 正式推出基于 Web IM SDK 在 HBuilderX 中编译 Android、iOS 以及微信小程序的应用，可实现一套代码多端打包。
 
-### 在线客服场景
+## 在线客服场景
 提供了示例客服群、示例好友的基础模版，在线客服场景功能包括：
 - 支持发送文本消息、图片消息、语音消息、视频消息等常见消息。
 - 支持常用语、订单、服务评价等自定义消息。
 - 支持创建群聊会话、群成员管理等。
 
-### 效果展示：
+## 效果展示
 平台支持 Android、iOS 和微信小程序：
-<table style="width: 600px;">
+<table>
 <tr>
    <th>Android 演示：</th>
    <th>iOS 演示：</th>
    <th>微信小程序演示：</th>
  </tr>
 <tr>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/android-uniapp.gif" height = "150"/></td>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/ios-uniapp.gif" height = "150"/></td>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/wx-uniapp.gif" height = "150"/></td>
+<td><img style="width:200px; max-width: inherit;" src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/android-uniapp.gif" /></td>
+<td><img  style="width:200px; max-width: inherit;" src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/ios-uniapp.gif"></td><td><img  style="width:200px; max-width: inherit;" src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/wx-uniapp.gif" </td>
 </tr>
 </table>
 
@@ -25,7 +24,7 @@
 ### 步骤1：注册并创建 uni-app 账号
 1. 搭建 app 开发环境，请下载 [HBuilderX 编辑器](https://www.dcloud.io/hbuilderx.html)。
 >!项目中 HBuilderX 目前使用的最新版本，如果此前下载过 HBuilderX，为保证开发环境统一请更新到最新版本。
-2. 在 [DCloud 开发者中心注册](https://dev.dcloud.net.cn/) 后登录 HBuilderX 编辑器。
+2. 在 [DCloud 开发者中心](https://dev.dcloud.net.cn/) 注册后登录 HBuilderX 编辑器。
 
 ### 步骤2：创建应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
@@ -176,12 +175,15 @@ v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
 |:-------:|---------|----|
 |`https://cos.ap-shanghai.myqcloud.com` | 文件下载域名 | 必须|
 
-## 参见文档：
+[](id:QQ)
+## 技术咨询
+了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">309869925</dx-tag-link>
+
+## 参见文档
 
 - [SDK API 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
 - [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)
-- [快速跑通 uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/blob/master/uni-app/README.md)
-- [快速集成 uni-app TUIKit 源码]()
+- [快速集成 uni-app TUIKit 源码](https://cloud.tencent.com/document/product/269/64507)
 - [快速集成微信小程序原生 TUIKit](https://cloud.tencent.com/document/product/269/62766)
 - [微信小程序原生 TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram)

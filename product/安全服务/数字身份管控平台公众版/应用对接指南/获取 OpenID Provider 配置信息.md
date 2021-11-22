@@ -4,7 +4,7 @@
 ## 请求方法
 GET
 
-## 请求地址
+## 请求路径
 ```
 /.well-known/openid-configuration
 ```

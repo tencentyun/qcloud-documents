@@ -1,11 +1,11 @@
 ## 接口描述
-注销 OAuth 2.0 Token 。如果传入的是 access_token ，则仅注销该 access_token ；如果传入的是 refresh_token ，则该 refresh_token 以及与它相关联的 access_token 都将被注销。
+注销 OAuth 2.0 Token 。如果传入的是 access_token ，则仅注销该 access_token；如果传入的是 refresh_token，则该 refresh_token 以及与它相关联的 access_token 都将被注销。
 
 
 ## 请求方法
 POST
 
-## 请求地址
+## 请求路径
 ```
 /oauth2/revoke
 ```
