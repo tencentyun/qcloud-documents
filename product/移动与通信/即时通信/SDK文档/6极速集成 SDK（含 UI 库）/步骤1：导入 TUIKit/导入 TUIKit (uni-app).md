@@ -174,7 +174,11 @@ v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
 |:-------:|---------|----|
 |`https://cos.ap-shanghai.myqcloud.com` | 文件下载域名 | 必须|
 
-### 参见文档：
+[](id:QQ)
+## 技术咨询
+了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="QQ 添加好友">309869925</dx-tag-link>
+
+## 参见文档：
 
 - [SDK API 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
