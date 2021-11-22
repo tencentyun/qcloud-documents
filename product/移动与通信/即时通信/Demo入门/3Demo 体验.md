@@ -16,7 +16,7 @@
   </tr>
 <tr>
 </div></a></td>
-<td style><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/d705f9bd3ec330c34329e1763c8added.png" /></td>
+<td style="text-align:center;"><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/d705f9bd3ec330c34329e1763c8added.png" /></td>
 <td style="text-align:center;"><img  style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/f8f2140b89e536ead4a410fea7eee5fd.png"  /></td>
 <td style="text-align:center"width="140px">
       <input type="button" value="Web 基础聊天场景" style="height: 30px;width: 150px;background-color: #006eff;
