@@ -30,11 +30,11 @@ vue create vue-spa
 ```
 3. 执行如下命令，在项目根目录下安装 vue-router：
 ```
-npm install vue-router -S`  （Vue2.x）
+npm install vue-router -S  （Vue2.x）
 ```
 或者
 ```
-npm install vue-router@4 -S`  （Vue3.x）
+npm install vue-router@4 -S  （Vue3.x）
 ```
 4. 修改项目里的 main.js 和 App.vue 文件。
 main.js 如下图：
@@ -67,7 +67,7 @@ npm install react-router-dom -S
 ```
 4. 修改项目里的 App.js 文件。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/c35e3011b1c4f083782bcc11834673f4.png" style="width: 70%" /></br>
->? 由于篇幅有限，这里仅节选部分关键代码，完整代码可 [单击](https://cos-code-demo-1253960454.cos.ap-shanghai.myqcloud.com/react-spa.zip) 下载。
+>? 由于篇幅有限，这里仅节选部分关键代码，完整代码可 [单击此处](https://cos-code-demo-1253960454.cos.ap-shanghai.myqcloud.com/react-spa.zip) 下载。
 >
 5. 修改好代码后，执行如下命令，进行本地预览。
 ```
@@ -96,7 +96,7 @@ npm run build
 3. 访问存储桶的静态网站域名（如下图中的访问节点）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5cc44a50b5e3cfd34223242915279351.png)
 即可看到已经部署完成的应用主页，这里以 Vue 应用举例。
-![](https://qcloudimg.tencent-cloud.cn/raw/fd30598c42c81f702b1f4dfe65401cc3.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/e4be083f712287f399051d84ceea866c.png)
 4. 尝试切换路由（Home、Foo、Bar），并刷新页面，验证是否符合预期（即在路由下刷新不会出现404报错）。
 
 ## 常见问题
