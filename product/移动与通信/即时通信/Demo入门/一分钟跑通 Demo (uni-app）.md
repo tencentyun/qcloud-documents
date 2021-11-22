@@ -179,12 +179,11 @@ v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
 
 
 
-## 参见文档：
+## 参见文档
 
 - [SDK API 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
 - [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)
-- [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/blob/master/uni-app/README.md)
 - [快速集成 uni-app TUIKit](https://cloud.tencent.com/document/product/269/64507)
 - [微信小程序原生 TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram)
 
