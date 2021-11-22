@@ -1,3 +1,8 @@
+### 2.6.7.139 @ 2021.11.17
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.7.139.zip)  
+- 功能优化
+  1. 优化白板日志模块频繁获取设备版本信息
+
 ### 2.6.7.137 @ 2021.10.29
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.7.137.zip) 
 - 新增接口
