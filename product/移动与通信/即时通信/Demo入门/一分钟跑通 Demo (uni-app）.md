@@ -1,73 +1,74 @@
-## 什么是 uni-app TUIKit？
-uni-app TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、群组管理等功能，基于 UI 组件您可以像搭积木一样快速搭建起自己的业务逻辑。
+腾讯云即时通信 IM 正式推出基于 Web IM SDK 在 HBuilderX 中编译 Android、iOS 以及微信小程序的应用，可实现一套代码多端打包。
 
-目前我们提供了示例客服群、示例好友的基础模版，在线客服功能包括：
+## 在线客服场景
+提供了示例客服群、示例好友的基础模版，在线客服场景功能包括：
 - 支持发送文本消息、图片消息、语音消息、视频消息等常见消息。
 - 支持常用语、订单、服务评价等自定义消息。
 - 支持创建群聊会话、群成员管理等。
 
+## 效果展示
+平台支持 Android、iOS 和微信小程序：
 <table>
-     <tr>
-         <th style="text-align:center">会话列表界面</th>
-         <th style="text-align:center">C2C 聊天界面</th>
-		 <th style="text-align:center">群组聊天界面</th>
-     </tr>
-	 <tr>
-	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-9.jpeg" width="300"/></td>
-	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-10.jpeg" width="320"/></td>
-	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-11.jpeg" width="300"/></td>
-     </tr>
+<tr>
+   <th>Android 演示：</th>
+   <th>iOS 演示：</th>
+   <th>微信小程序演示：</th>
+ </tr>
+<tr>
+<td><img style="width:200px; max-width: inherit;" src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/android-uniapp.gif" /></td>
+<td><img  style="width:200px; max-width: inherit;" src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/ios-uniapp.gif"></td><td><img  style="width:200px; max-width: inherit;" src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/wx-uniapp.gif" </td>
+</tr>
 </table>
 
-## uni-app TUIKit 支持平台
-- Android
-- iOS
-- 微信小程序
+## 操作步骤
+### 步骤1：注册并创建 uni-app 账号
+1. 搭建 app 开发环境，请下载 [HBuilderX 编辑器](https://www.dcloud.io/hbuilderx.html)。
+>!项目中 HBuilderX 目前使用的最新版本，如果此前下载过 HBuilderX，为保证开发环境统一请更新到最新版本。
+2. 在 [DCloud 开发者中心](https://dev.dcloud.net.cn/) 注册后登录 HBuilderX 编辑器。
 
-## 如何集成 TUIKit？
-### 步骤1：安装依赖
-1. uni-app TUIKit 支持源码集成，下载 [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master)。将 TUIKit 文件夹与自己的工程文件夹置于同级，例如：
-![](https://qcloudimg.tencent-cloud.cn/raw/096980f3029fae3e2750d4b77082cb55.png)
-2. 根据 package.json 进行对应依赖安装。
-![](https://qcloudimg.tencent-cloud.cn/raw/69b4ec0b2df2121226b83bc5caa21ae6.png)
->?可参见 [uni-app 官网](https://www.cxybb.com/article/weixin_44168109/111037919)。
+### 步骤2：创建应用
+1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
+>?
+>- 如果您已有应用，请记录其 SDKAppID 并 [获取密钥信息](#step2)。
+>- 同一个腾讯云账号，最多可创建100个即时通信 IM 应用。若已有100个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
+>
+2. 单击**创建新应用**，在**创建应用**对话框中输入您的应用名称，单击**确定**。
+![](https://main.qcloudimg.com/raw/78340e403359fcf4d753ade29ae9aace.png)
+3. 请保存 SDKAppID 信息。可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。
+  ![](https://main.qcloudimg.com/raw/ed34d9294a485d8d06b3bb7e0cc5ae59.png)
+4. 单击创建后的应用，左侧导航栏单击**辅助工具**>**UserSig 生成&校验**，创建一个 UserID 及其对应的 UserSig，复制签名信息，后续登录使用。
+![](https://main.qcloudimg.com/raw/8315da2551bf35ec85ce10fd31fe2f52.png)
+>!请妥善保管密钥信息，谨防泄露。
 
-### 步骤2：初始化TUIKit
-将 app.vue 中的代码复制到 myApplication 项目中，填写 SDKAppID。
-![](https://qcloudimg.tencent-cloud.cn/raw/506dba53308bcf85239e13a6f82eec4a.png)
+### 步骤3：下载并配置 uni-app 源码
+1. 根据您的实际业务需求，下载 SDK 及配套的 [Demo 源码](https://cloud.tencent.com/document/product/269/36887)。
+```javascript
+# 命令行执行
+git clone https://github.com/tencentyun/TIMSDK.git
 
-### 步骤3：集成静态资源文件
-在 myApplication 项目中集成静态资源文件 （工具、图片等）。
-![](https://qcloudimg.tencent-cloud.cn/raw/fb8de22dac2e222b1e4f508865b416fa.png)
+# 进入 uni-app TUIKit 项目
+cd TIMSDK/uni-app/TUIKit
+```
+2. 将 uni-app 中 TUIKit 工程文件，导入自己的 HBuilderX 工程（版本3.2.11.20211021-alpha），请参见官方 [uni-app 开发](https://uniapp.dcloud.io/quickstart-hx)。
+3. 设置 GenerateTestUserSig 文件中的相关参数。
+- 找到并打开 `debug/GenerateTestUserSig.js` 文件。
+- 设置 `GenerateTestUserSig.js` 文件中的相关参数。
+  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
+  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
+  <img src="https://main.qcloudimg.com/raw/575902219de19b4f2d4595673fa755d4.png">
 
-### 步骤4：集成所需模块
-1. 将 pages 和 components 复制到 myApplication 项目中。
-![](https://qcloudimg.tencent-cloud.cn/raw/2ca7b29c78e0d05779413cc2f49370b2.png)
-2. 也可以只集成自己所需要的模块，将 pages 和其对应的 components 复制到 myApplication 项目目录下。
-![](https://qcloudimg.tencent-cloud.cn/raw/19769b954a6448f3148275291515c5db.png)
- 
-### 步骤5：更新路由
-
-根据页面更新路由：更新 pages.json  中的 pages 路由。
-![](https://qcloudimg.tencent-cloud.cn/raw/40afe0526582a95c7d08008552534936.png)
-
-### 步骤6：获取签名和登录
 >! 
+>- 本文提到的生成 `UserSig` 的方案是在客户端代码中配置 `SECRETKEY`，该方法中 `SECRETKEY` 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 uni-app 和功能调试**。
 >- 正确的 `UserSig` 签发方式是将 `UserSig` 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 `UserSig` 时由您的 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
-```javascript
-uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
-.then(function(imResponse) {
-  console.log(imResponse.data); // 登录成功
-  if (imResponse.data.repeatLogin === true) {
-    // 标识账号已登录，本次登录操作为重复登录。v2.5.1 起支持
-    console.log(imResponse.data.errorInfo);
-  }
-})
-.catch(function(imError) {
-  console.warn('login error:', imError); // 登录失败的相关信息
-});
-```
+###  步骤4：编译运行
+请参见官方 [uni-app 运行](https://uniapp.dcloud.io/quickstart-hx?id=%e8%bf%90%e8%a1%8cuni-app)。
+
+###  步骤5：打包发布
+
+ 请参见官方 [uni-app 打包](https://uniapp.dcloud.io/quickstart-hx?id=%e5%8f%91%e5%b8%83uni-app)。
+- 原生 App - 云打包：**HBuilderX 编辑器** > **发行** > **原生 App** - **云打包** （app 图标，启动页等详细配置可在 manifest.json 进行配置）。
+- 原生 App - 离线打包：**HBuilderX 编辑器** > **发行** > 生成本地打包 App 资源 （详细打包方案请看 iOS、Android 本地打包指南）。
 
 ## 常见问题
 [](id:Q1)
@@ -124,13 +125,14 @@ uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
 - **通过本地起定时器记录时间，计算出 duration。**
 - **本地计算文件大小，fileSize ＝ (音频码率) x 时间长度(单位:秒) / 8，粗略估算。**
 详细代码请参见 [uni-app TUIKit](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)。
->!语音消息对象中必须包括 `duration` 和 `fileSize`，如果没有 `fileSize`，语音消息时长是一串错误的数字
+>!
+>- 语音消息对象中必须包括 `duration` 和 `fileSize`，如果没有 `fileSize`，语音消息时长是一串错误的数字
 
 [](id:Q5)
 ### 5. video 视频消息层级过高无法滑动怎么办？
  在项目中通过视频图片代替，没有直接渲染 `video`，在播放时渲染的方式规避了层级过高问题。
- - 详细代码请参见 [uni-app TUIKit](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)。
- - 请参见官方 [原生组件说明](https://uniapp.dcloud.io/component/native-component)。
+ 详细代码请参见 [uni-app TUIKit](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)。
+>!请参见官方 [原生组件说明](https://uniapp.dcloud.io/component/native-component)。
 
 [](id:Q6)
 ### 6. 微信小程序环境，真机预览，报系统错误，体积过大怎么办？
@@ -175,15 +177,13 @@ v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
 
 [](id:QQ)
 ## 技术咨询
-了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="QQ 添加好友">309869925</dx-tag-link>
-
-
+了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">309869925</dx-tag-link>
 
 ## 参见文档
 
 - [SDK API 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
 - [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)
-- [快速集成 uni-app TUIKit](https://cloud.tencent.com/document/product/269/64507)
+- [快速集成 uni-app TUIKit 源码](https://cloud.tencent.com/document/product/269/64507)
+- [快速集成微信小程序原生 TUIKit](https://cloud.tencent.com/document/product/269/62766)
 - [微信小程序原生 TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram)
-
