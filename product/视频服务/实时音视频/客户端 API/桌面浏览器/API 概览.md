@@ -271,7 +271,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 
 >! 
 - 您可以在浏览器中打开 [TRTC Web SDK 能力测试页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 检测当前浏览器是否支持 WebRTC 所有能力。例如 WebView 等浏览器环境。
-- 由于 H.264 版权限制，如果您希望在华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器正常运行 TRTC Web 端请提交工单申请开通 VP8 编解码。
+- 由于 H.264 版权限制，如果您希望在华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器正常运行 TRTC Web 端请 [提交工单申请](https://console.cloud.tencent.com/workorder/category) 开通 VP8 编解码。
 - Mac OS 下的 Firefox 屏幕分享效果比较差且暂无解决方案，建议使用 Chrome 或者 Safari 进行屏幕分享。[](id:attention3)
 
 
