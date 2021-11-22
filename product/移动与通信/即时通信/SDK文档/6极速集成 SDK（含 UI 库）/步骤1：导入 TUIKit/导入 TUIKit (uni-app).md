@@ -13,9 +13,9 @@ uni-app TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、�
 		 <th style="text-align:center">群组聊天界面</th>
      </tr>
 	 <tr>
-	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-9.jpeg" width="300"/></td>
-	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-10.jpeg" width="320"/></td>
-	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-11.jpeg" width="300"/></td>
+	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-9.jpeg" width="200"/></td>
+	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-10.jpeg" width="200"/></td>
+	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-11.jpeg" width="200"/></td>
      </tr>
 </table>
 
@@ -176,7 +176,7 @@ v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
 
 [](id:QQ)
 ## 技术咨询
-了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="QQ 添加好友">309869925</dx-tag-link>
+了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">309869925</dx-tag-link>
 
 ## 参见文档：
 
