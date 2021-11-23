@@ -25,7 +25,7 @@ threshold = limit - margin // 即 1000M - 20M = 980M
 ```
 把980M作为阈值设置给内核。当这个 pod 的内存使用量达到980M时，oom-guard 会收到内核的通知。
 
-在触发阈值之前，oom-gurad 会先通过 memory.force_empty 触发相关 cgroup 的内存回收。另外，如果触发阈值时，相关 cgroup 的 memory.stat 显示还有较多 cache，则不会触发后续处理策略，这样当 cgroup 内存达到 limit 时，内核会触发内存回收。这个策略也会造成部分容器内存增长太快时，仍然触发内核 cgroup OOM。
+在触发阈值之前，oom-gurad 会先通过 memory.force_empty 触发相关 cgroup 的内存回收。另外，如果触发阈值时，相关 cgroup 的 memory.stat 显示还有较多 cache，则不会触发后续处理策略，这样当 cgroup 内存达到 limit 时，内核还是会触发 cgroup OOM。
 
 #### 达到阈值后的处理策略
 通过`--policy`参数来控制处理策略。目前有以下三个策略，缺省策略是 container。

@@ -58,8 +58,8 @@ mkdir <待挂载目标目录>
 ```
 示例：
 ```plaintext
-mkdir /local/
-mkdir /local/test
+mkdir /localfolder/
+mkdir /localfolder/test
 ```
 
 #### 3. 挂载文件系统
