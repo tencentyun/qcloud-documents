@@ -51,13 +51,14 @@ CDC（Change Data Capture）是数据融合的高速链路。数据在 OLTP 与�
 <tr>
 <td>truncate 操作转义为：将表名修改为“deleted_unix时间戳_原表名”并新建本地表</td></tr>
 <tr>
-<td>rename 操作不支持移动表：`RENAME TABLE;current_db.tbl_name TO other_db.tbl_name;`</td></tr>
+<td>rename 操作不支持移动表：`RENAME TABLE current_db.tbl_name TO other_db.tbl_name;`</td></tr>
 <tr>
 <td>Column</td>
 <td>add、drop、rename、change、modify、alter</td>
 <td>-</td></tr>
 </tbody></table>
 >!
+>- 当分析引擎是 LibraSQL 10.3.203 及更早期版本时，由于 Database Engine 不支持 [atomic engine](https://clickhouse.com/docs/en/engines/database-engines/atomic/)，下述 DDL 不支持：rename、drop、truncate、alter rename table、drop database。
 >- 对于删除类操作，为保障数据安全，我们会转义为改名操作。
 >- 库表 DDL 同步说明：
 >  - “同步对象”选择“整个实例”，在链路建立后：OLTP 新增的对象及其修改均能同步到分析引擎。
@@ -76,3 +77,4 @@ CDC（Change Data Capture）是数据融合的高速链路。数据在 OLTP 与�
 <td>分析引擎集群名</td>
 <td>default_cluster</td></tr>
 </tbody></table>
+

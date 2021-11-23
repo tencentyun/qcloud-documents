@@ -7,8 +7,7 @@ QUIC 协议能帮您大幅提升 App 访问速度，在弱网络、Wi-Fi 和4G�
 - 连接迁移。
 
 CLB 开启 QUIC 后，客户端可以和 CLB 之间建立 QUIC 连接，当二者协商无法建立 QUIC 连接时自动降级到 HTTPS 或 HTTP/2，但 CLB 和后端服务器之间仍然使用 HTTP1.x 协议。
->?当前 CLB 支持的 QUIC 版本列表为 h3-27、h3-28、h3-29、h3-32、Q043、Q046、Q050。
->
+
 
 ## 使用限制
 - 目前 CLB 中的 QUIC 协议正在内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/9e084vdqdw) 进行使用。

@@ -261,7 +261,7 @@ JSON类型。
 <span id="json_size"></span>
 ## json_size 函数
 
-json_format 函数用于计算 JSON 对象或 JSON 数组中元素的数量。
+json_size 函数用于计算 JSON 对象或 JSON 数组中元素的数量。
 
 ### 语法
 
@@ -286,7 +286,7 @@ bigint 类型。
 
 - 查询和分析语句
 ```
-* | SELECT json_format(json_parse('[1, 2, 3]'))
+* | SELECT json_size(json_parse('[1, 2, 3]'))
 ```
 - 查询和分析结果
 ![image-20211101050932641](https://qcloudimg.tencent-cloud.cn/raw/3a5681b58d100b8527a32ebac9810866.png)

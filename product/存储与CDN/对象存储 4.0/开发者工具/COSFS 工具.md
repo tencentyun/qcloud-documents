@@ -212,6 +212,7 @@ cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud
 >!
 >- COSFS 工具为提升性能，默认使用系统盘存放上传、下载的临时缓存，文件关闭后会释放空间。在并发打开的文件数较多或者读写大文件的时候，COSFS 工具会尽量多的使用硬盘来提高性能，默认只保留 100MB 硬盘可用空间给其他程序使用，可以通过选项 oensure_diskfree=[size] 设置 COSFS 工具保留可用硬盘空间的大小，单位为 MB。例如`-oensure_diskfree=1024`，COSFS 工具会保留1024MB剩余空间。
 >- V1.0.5及较早版本的 COSFS，挂载命令为 cosfs &lt;APPID>:&lt;BucketName> &lt;MountPoint> -ourl=&lt;CosDomainName> -oallow_other。
+>
 
 
 ### 3. 卸载存储桶

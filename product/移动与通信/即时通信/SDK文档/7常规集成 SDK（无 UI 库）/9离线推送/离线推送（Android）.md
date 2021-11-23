@@ -544,7 +544,7 @@ if (set != null) {
         <intent-filter>
             <action android:name="android.intent.action.VIEW" />
             <data
-                android:host="com.tencent.qcloud"
+                android:host="com.tencent.qcloud.tim"
                 android:path="/detail"
                 android:scheme="pushscheme" />
         </intent-filter>

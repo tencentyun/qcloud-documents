@@ -60,7 +60,7 @@
 | [TIMLogin](https://cloud.tencent.com/document/product/269/33547#timlogin) | 登录 |
 | [TIMLogout](https://cloud.tencent.com/document/product/269/33547#timlogout) | 登出 |
 | [TIMGetLoginStatus](https://cloud.tencent.com/document/product/269/33547#timgetloginstatus) | 获取登录状态 |
-| [TIMGetLoginUserID](https://cloud.tencent.com/document/product/269/33547#timgetloginuserid) | 获取登陆用户的 userID |
+| [TIMGetLoginUserID](https://cloud.tencent.com/document/product/269/33547#timgetloginuserid) | 获取登录用户的 userID |
 
 
 ### 会话相关接口

@@ -99,7 +99,7 @@
    </script>
 ```
 4. 查看效果。
-![3](https://qcloudimg.tencent-cloud.cn/raw/b579e864ce42cb872afa24882685927a.png)
+![3](https://qcloudimg.tencent-cloud.cn/raw/2fc23e71f3675e0e98ce9a42c3a1d34c.png)
 
 ### 场景4：播放私有读 HLS 视频文件
 
