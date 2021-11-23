@@ -131,7 +131,7 @@
 <td style="text-align:center" >包含IM 主要功能以及在线客服场景能力</td>
 <td style="text-align:center" >uni-app</td>
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/uni-app">Github(推荐)</a></td>
-<td style="text-align:center" ><a href="https://upload-dianshi-1255598498.cos.ap-guangzhou.myqcloud.com/nodir/TencentImSDKPlugin-1610442889170.zip">ZIP</a></td>
+<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/uni-app">Gitee</a></td>
 <td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/64506">一分钟跑通 Demo (uni-app）</a></td>
 </tr>
 
@@ -141,7 +141,7 @@
 <td style="text-align:center" >包含 IM 主要功能。</td>
 <td style="text-align:center" >Flutter</td>
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TencentIMFlutterDemo/tree/master">Github(推荐)</a></td>
-<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/uni-app">Gitee</a></td>
+<td style="text-align:center" ><a href="https://upload-dianshi-1255598498.cos.ap-guangzhou.myqcloud.com/nodir/TencentImSDKPlugin-1610442889170.zip">ZIP</a></td>
 <td style="text-align:left" >参考 github README</td>
 </tr>
 <tr>
