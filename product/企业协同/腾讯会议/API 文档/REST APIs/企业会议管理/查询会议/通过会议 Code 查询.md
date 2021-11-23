@@ -17,7 +17,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |---------|---------|---------|---------|
 |meeting_code | 是 | String |有效的9位数字会议号码。|
 | operator_id      | 否   | String   | 操作者 ID。operator_id 必须与 operator_id_type 配合使用。根据 operator_id_type的 值，operator_id 代表不同类型。userid 字段和 operator_id 字段二者必填一项。若两者都填，以 operator_id 字段为准。 |
-| operator_id_type | 否   | Integer  | 操作者ID的类型：3. rooms_id，当前仅支持 rooms_id。如操作者为企业内 userid 或 openId，请使用 userid 字段。 |
+| operator_id_type | 否   | Integer  | 操作者 ID 的类型：3. rooms_id，当前仅支持 rooms_id。如操作者为企业内 userid 或 openId，请使用 userid 字段。 |
 |userid | 否 | String |调用方用于标示用户的唯一 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>企业唯一用户标识说明：<br>1. 企业对接 SSO 时使用的员工唯一标识 ID；<br>2. 企业调用创建用户接口时传递的 userid 参数。 |
 |instanceid | 是 | Integer |用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序|
 
