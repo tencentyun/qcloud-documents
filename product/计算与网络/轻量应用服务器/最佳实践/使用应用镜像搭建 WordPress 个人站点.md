@@ -1,10 +1,15 @@
 ## 操作场景
 
 WordPress 是全球最流行的开源的博客和内容管理网站的建站平台，具备使用简单、功能强大、灵活可扩展的特点，提供丰富的主题插件。腾讯云轻量应用服务器提供 WordPress 应用镜像，您可以使用它快速搭建博客、企业官网、电商、论坛等各类网站。
->? 本文档示例 WordPress 应用镜像底层基于 CentOS 7.6 64位操作系统。应用镜像会进行不定期更新，请以购买页面实际镜像信息为准。
->
 
-同时，轻量应用服务器还提供了 WordPress 插件版镜像，其中已预置 Nginx、MariaDB、PHP 软件，并集成腾讯云验证码、CDN、对象存储、图片内容安全、文本内容安全和短信等插件。您可在购买实例时选择 WorsPress 插件版作为镜像。插件使用方法请参见 [腾讯云开源应用插件中心](https://openapp.qq.com/docs/)。
+
+<dx-alert infotype="explain" title="">
+ 本文档示例 WordPress 应用镜像底层基于 CentOS 7.6 64位操作系统。应用镜像会进行不定期更新，请以购买页面实际镜像信息为准。
+</dx-alert>
+
+
+
+同时，轻量应用服务器还提供了 WordPress 插件版镜像，其中已预置 Nginx、MariaDB、PHP 软件，并集成腾讯云验证码、CDN、对象存储、图片内容安全、文本内容安全和短信等插件。您可在购买实例时选择 WordPress 插件版作为镜像。插件使用方法请参见 [腾讯云开源应用插件中心](https://openapp.qq.com/docs/)。
 
 ## 说明事项
 - CentOS 系统在安装了宝塔面板后，会默认开启操作系统防火墙（可通过命令行 `systemctl status firewalld.service` 查看）。若您需访问指定端口（例如8080端口），则需通过配置轻量应用服务器网络防火墙及操作系统防火墙放通指定端口。具体操作请参见 [管理防火墙](https://cloud.tencent.com/document/product/1207/44577) 及 [配置操作系统防火墙](#updatePort)。

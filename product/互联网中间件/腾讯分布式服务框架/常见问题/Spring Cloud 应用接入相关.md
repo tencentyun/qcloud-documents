@@ -1,10 +1,11 @@
 ### TSF 支持哪些 Spring Cloud 版本？
-TSF目前支持 Spring Cloud Edgware、Spring Cloud Finchley、Spring Cloud Greenwich 三个版本。
+TSF 目前支持 Spring Cloud Edgware、Spring Cloud Finchley、Spring Cloud Greenwich、Spring Cloud Hoxton 四个版本。
 - Spring Cloud Edgwar 对应 Spring Boot 1.5.x
 - Spring Cloud Finchley 对应 Spring Boot 2.0.x
 - Spring Cloud Greenwich 对应 Spring Boot 2.1.x
+- Spring Cloud Hoxton	对应 Spring Boot 2.3.x
 
-TSF 在开源 Spring Cloud 的基础上做了加强，用户只需要替换掉部分依赖并开启注解即可将改造后的应用部署在 TSF 平台上。更多关于 Spring Cloud 的兼容性说明请参考 [Spring Cloud 概述](https://cloud.tencent.com/document/product/649/36285)、[SDK 下载](https://cloud.tencent.com/document/product/649/20231)、[SDK 更新日志](https://cloud.tencent.com/document/product/649/38982) 文档。
+TSF 在开源 Spring Cloud 的基础上做了加强，用户只需要替换掉部分依赖并开启注解即可将改造后的应用部署在 TSF 平台上。更多关于 Spring Cloud 的兼容性说明请参考 [Spring Cloud 概述](https://cloud.tencent.com/document/product/649/36285)、[SDK 下载](https://cloud.tencent.com/document/product/649/20231)、[SDK 版本更新日志](https://cloud.tencent.com/document/product/649/38982) 文档。
 
 
 ### 在工程的配置文件中，是否需要填写服务注册中心地址？

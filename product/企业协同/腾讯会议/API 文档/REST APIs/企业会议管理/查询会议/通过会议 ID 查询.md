@@ -19,8 +19,11 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | 参数名称 | 必选 | 参数类型 | 参数描述 |
 |---------|---------|---------|---------|
 | meetingId | 是 | String| 有效的会议 ID。  |
-| userid | 是 | String| 调用方用于标示用户的唯一 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>企业唯一用户标识说明：<br>1. 企业对接 SSO 时使用的员工唯一标识 ID；<br>2. 企业调用创建用户接口时传递的 userid 参数。  |
-| instanceid | 是 | Integer|用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序。 |
+| operator_id      | 否   | String   | 操作者 ID。operator_id 必须与 operator_id_type 配合使用。根据 operator_id_type的值，operator_id 代表不同类型。<br>**说明**：userid 字段和 operator_id 字段二者必填一项。若两者都填，以 operator_id 字段为准。 |
+| operator_id_type | 否   | Integer  | 操作者 ID 的类型：<br>3. rooms_id<br>**说明**：当前仅支持 rooms_id。如操作者为企业内 userid 或 openId，请使用 userid 字段。 |
+| userid |否 | String| 调用方用于标示用户的唯一 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>企业唯一用户标识说明：<br>1. 企业对接 SSO 时使用的员工唯一标识 ID；<br>2. 企业调用创建用户接口时传递的 userid 参数。  |
+| instanceid | 是 | Integer|用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序 |
+
 
                
 
@@ -29,11 +32,10 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |---------|---------|---------|
 | meeting_number | integer | 会议数量。  |
 |meeting_info_list  |Array| 会议列表。 |
-|media_set_type   | String    |该参数仅提供给支持混合云的企业可见，默认值为0。<br>0：外部会议<br>1：内部会议 <br>说明：周期性会议的查询，只展示在父会议的参数中，子会议对象无需展示该参数。   |    
-  |   participants  |   用户对象数组      |  邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段，最多返回300个邀请者；需要查询超过300人的会议邀请者请调用 [获取会议受邀成员列表](https://cloud.tencent.com/document/product/1095/63648) 接口。       |   
 
 
-<span id="Array"></span>
+
+
 **会议对象**
 
 | 参数名称 |参数类型 | 参数描述 |
@@ -49,11 +51,11 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |hosts   |用户对象数组  |指定主持人列表，仅商业版和企业版可指定主持人。|
 |current_hosts  |用户对象数组  | 会议当前主持人列表。|
 |current_co_hosts  |用户对象数组  | 联席主持人列表。|
-|participants  |用户对象数组 |邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段，最多返回200个邀请者。 |
+|participants  |用户对象数组 |邀请的参会者，仅商业版和企业版可邀请参会用户，且只有会议创建者、邀请列表中的成员以及在会议中的成员才可以查询该字段，最多返回200个邀请者；需要查询超过200人的会议邀请者请调用 [获取会议受邀成员列表](https://cloud.tencent.com/document/product/1095/63648) 接口。    |
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。  |
 |settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
-| meeting_type           | Integer        | 会议类型：<br>0：普通会议<br>1：周期性会议 |
+| meeting_type           | Integer        | 会议类型：<br>0：普通会议<br>1：周期性会议<br>5：个人会议号 |
 | recurring_rule         | period_meeting | 周期性会议设置。                           |
 | sub_meetings           | 子会议对象数组 | 周期性子会议列表。                         |
 | has_more_sub_meeting   | Integer        | 0：无更多子会议特例   <br>1：有更多子会议特例      |
@@ -64,9 +66,10 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |enable_doc_upload_permission    | Boolean       | 是否允许成员上传文档，默认为允许。                                                     |
 |guests   | Guest数组     | 会议嘉宾列表（会议创建人才有权限查询）。                                                 |
 |has_vote   | Boolean     | 是否有投票（会议创建人和主持人才有权限查询）。                                                     |
+|enable_enroll   | Boolean     | 是否激活报名。                                                     |
 
 
-<span id="settings"></span>
+
 
 **用户对象**
 
