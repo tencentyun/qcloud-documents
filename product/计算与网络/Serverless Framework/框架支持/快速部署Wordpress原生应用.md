@@ -54,7 +54,7 @@
 
 ### 版本升级
    Serverless Wordpress 应用的旧版部署架构中，存在访问速度慢的问题。为此 Serverless 应用开发团队针对此问题进行了 Serverless Wordpress 应用的优化工作，改进了部署架构，大幅提升了站点的访问速度。本指引仅适用于 Serverless Wordpress 应用旧版本的部署升级。
->? 您可通过如下方法确认您的应用是否需要升级：如您的站点可正常访问并且 Wordpress 云函数代码中仅包含一个'scf_bootstrap'文件，则可进行升级。
+>? 您可通过如下方法确认您的应用是否需要升级：如您的站点可正常访问并且 Wordpress 云函数代码中仅包含一个 'scf_bootstrap' 文件，则可进行升级。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/e8900e455a4b37af87e0d4762933a7f2.png)
    
