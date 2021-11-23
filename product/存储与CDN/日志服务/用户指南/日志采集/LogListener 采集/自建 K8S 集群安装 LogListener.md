@@ -13,7 +13,7 @@
 wget https://mirrors.tencent.com/install/cls/k8s/tencentcloud-cls-k8s-install.sh
 ```
 ```
-bash +x tencentcloud-cls-k8s-install.sh
+chmod 744 tencentcloud-cls-k8s-install.sh
 ```
 ```
 ./tencentcloud-cls-k8s-install.sh --region xxx --secretid xxx --secretkey xxx 
