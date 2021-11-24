@@ -40,19 +40,19 @@ du 命令包含以下可选 flag：
 ./coscli du cos://bucket1
 ```
 
-### 列出 bucket1 存储桶 pictrue 文件夹下文件的统计信息
+### 列出 bucket1 存储桶 picture 文件夹下文件的统计信息
 
 ```plaintext
-./coscli du cos://bucket1/pictrue/
+./coscli du cos://bucket1/picture/
 ```
 
-### 列出 bucket1 存储桶 pictrue 文件夹下所有 .mp4 类型文件的统计信息
+### 列出 bucket1 存储桶 picture 文件夹下所有 .mp4 类型文件的统计信息
 
 ```plaintext
 ./coscli du cos://bucket1/picture/ --include .*.mp4
 ```
 
-### 列出 bucket1 存储桶 pictrue 文件夹下所有非 .md 类型文件的统计信息
+### 列出 bucket1 存储桶 picture 文件夹下所有非 .md 类型文件的统计信息
 
 ```plaintext
 ./coscli du cos://bucket1/picture/ --exclude .*.md
