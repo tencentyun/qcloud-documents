@@ -1,6 +1,6 @@
 ## 操作场景
 
-您可以通过 API 网关直接接入TKE 集群的 Pod，不需要经过 CLB。本文档指导您如何操作 TKE 通道的创建和使用。
+您可以通过 API 网关直接接入TKE 集群的 Pod，不需要经过 CLB。本文档指导您通过控制台创建 TKE 通道，并在 API 的后端中，配置后端类型为 TKE 通道，让 API 网关的请求，直接转到 TKE 通道的对应的 Pod 上。
 
 **功能优势**
 - API 网关直接连接 TKE 集群的 Pod，减少中间节点（例如 CLB）。
@@ -9,10 +9,11 @@
 >?目前仅在**专享**类型的 API 网关上支持 TKE 通道。
 
 ## 前提条件
-
-已有容器服务 TKE 的集群，并且已获取集群 admin 角色。
+1. 已有专享型的服务。
+2. 已有容器服务 TKE 的集群，并且已获取集群 admin 角色。
 
 ## 操作步骤
+### 步骤1：创建 TKE 通道
 
 1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index)。
 2. 在左侧导航栏选择**后端通道**，单击**新建**。
@@ -32,7 +33,16 @@
 
 一个完整的 TKE 通道配置如下：
 
-![](https://qcloudimg.tencent-cloud.cn/raw/1091058afb38b1e33f3c6ec269b7dd4f.png)                         
+![](https://qcloudimg.tencent-cloud.cn/raw/1091058afb38b1e33f3c6ec269b7dd4f.png)  
+
+### 步骤2：API 后端对接 TKE 通道
+1. 在 API 网关控制台的 [服务](https://console.cloud.tencent.com/apigateway/service)页面，单击目标服务的“ID”，进入管理 API 页面。
+2. 单击**新建**，创建通用 API。
+3. 输入前端配置，然后点击**下一步**。
+	 ![](https://qcloudimg.tencent-cloud.cn/raw/d0afa98fcc4c5a83bc1a8f1ddd5e464e.png)
+4. 选择后端类型为 **VPC内资源**，并且选择后端通道类型为 **TKE通道**，单击**下一步**。  
+	 ![](https://qcloudimg.tencent-cloud.cn/raw/d3365999710dea204a252c2619230616.png)
+5. 设置响应结果，并单击**完成**。
 
 ## 网络架构
 TKE 通道被 API 绑定后，整个网络的架构如下：
@@ -63,3 +73,4 @@ spec:
 
 - 一个 TKE 通道最多只能对接20个 TKE 服务。
 - 用户需要拥有 TKE 集群的 admin 角色。
+- TKE 通道和 API 网关专享在同一个 VPC 下才能使用，目前 API 网关暂时不支持直接跨 VPC。
