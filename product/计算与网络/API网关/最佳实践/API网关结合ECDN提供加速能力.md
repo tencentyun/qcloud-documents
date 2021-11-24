@@ -16,11 +16,11 @@
 1. 在 [API 网关控制台](https://console.cloud.tencent.com/apigateway/service) 创建 API 网关服务，生成默认访问地址。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a57d11d46cb8dff3426616e702def406.png)
 2. 在 ECDN 控制台接入自定义域名。
-![](https://qcloudimg.tencent-cloud.cn/raw/91371935d7c1b73598c49229214e96f5.png)        
+<img src="https://qcloudimg.tencent-cloud.cn/raw/91371935d7c1b73598c49229214e96f5.png" width="500px">
 	- 加速域名填写需要接入的自定义域名
 	- 源站类型选择“源站域名”
 	- 回源策略选择“择优回源”
-	- 回源地址填写第一步生成的API网关默认域名，不带协议和端口号
+	- 回源地址填写第一步生成的 API 网关默认域名，不带协议和端口号
 	- 回源协议、加速区域根据自己的需求选择
 	
 单击**保存**完成配置，需要等待一段时间，在 CDN 控制台上会生成一个 CNAME 域名。
@@ -33,7 +33,7 @@
 
 4. 配置 cname。
 为本次接入的域名配置 CNAME 到 ECDN 生成的 CNAME 域名。
-![](https://qcloudimg.tencent-cloud.cn/raw/dd319421876fa6f71895808fe41bdba9.png)                   
+![](https://qcloudimg.tencent-cloud.cn/raw/4ce80b56098ea1d99503078675f4c86a.png)
 
 5. 发起调用，可以看到已经连通。
 
