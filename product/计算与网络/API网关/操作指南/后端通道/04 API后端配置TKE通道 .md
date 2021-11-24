@@ -4,7 +4,8 @@
 
 ## 前提条件
 
-已 [配置 TKE 类型的后端通道](https://cloud.tencent.com/document/product/628/64688)。
+- 已有专享型的服务。
+- 已 [配置 TKE 类型的后端通道](https://cloud.tencent.com/document/product/628/64688)。
 
 
 ## 操作步骤
