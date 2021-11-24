@@ -131,7 +131,7 @@ if __name__ == '__main__':
 | route_queue1    | Queue名称，在控制台 Queue 列表获取。                         |
 | routingKey      | 消息的路由规则，在控制台 绑定关系列表的**绑定 Key**列获取。![img](https://main.qcloudimg.com/raw/66d31e7d7ec8519843a8fc67bff87265.png) |
 
-### 步骤5：查看消息
+### 步骤4：查看消息
 
 如果您想确认消息是否成功发送至 TDMQ RabbitMQ 版，可以在控制台 **[集群管理](https://console.cloud.tencent.com/tdmq/rocket-cluster)** > **Queue** 页面查看接入的消费者情况。
 
