@@ -11,21 +11,19 @@
 
 ## 操作步骤
 
-### 步骤1. 添加依赖
+### 步骤1：添加依赖
 
 在 pom.xml 中添加`Stream RabbitMQ`相关依赖。
-
 ```xml
 <dependency>
-     <groupId>org.springframework.cloud</groupId>
-     <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-stream-rabbit</artifactId>
 </dependency>
 ```
 
-### 步骤2. 准备配置
+### 步骤2：准备配置
 
-1. 在配置文件中进行相应配置 (以`direct`交换机配置为例)。
-
+1. 在配置文件中进行相应配置 （以`direct`交换机配置为例）。
 ```yaml
 spring:
   application:
@@ -93,9 +91,7 @@ spring:
 | virtual-host      | Vhost 名称，在控制台 Vhost 页面复制，格式是**“集群 ID + \| + vhost 名称”**。![img](https://main.qcloudimg.com/raw/ae6ec1a5a94c9befea289ad7f5b46aed.png) |
 
 2. 创建配置文件加载程序。
-
    - OutputMessageBinding.java
-
      ```java
      public interface OutputMessageBinding {
          /**
@@ -109,7 +105,6 @@ spring:
      ```
 
    - InputMessageBinding.java
-
      ```java
      public interface InputMessageBinding {
      
@@ -123,10 +118,9 @@ spring:
      }xxxxxxxxxx public interface InputMessageBinding {    /**     * 要使用的通道名称     */    String INPUT = "input";    @Input(INPUT)    SubscribableChannel input();}public interface OutputMessageBinding {    /**     * 要使用的通道名称(输出channel名称)     */    String OUTPUT = "output";    @Output(OUTPUT)    MessageChannel output();}
      ```
 
-### 步骤3. 发送消息
+### 步骤3：发送消息
 
 创建并编译消息发送程序 IMessageSendProvider.java。
-
 ```java
 // 引入配置类
 @EnableBinding(OutputMessageBinding.class)
@@ -153,10 +147,9 @@ public class MessageSendProvider {
 
 在要发送消息的类中注入`MessageSendProvider` 即可进行发送消息。
 
-### 步骤4. 消费消息
+### 步骤4：消费消息
 
 创建并编译消息消费程序 MessageConsumer.java。**可配置多个通道，可对不同消息队列的监听。**
-
 ```java
 @Service
 @EnableBinding(InputMessageBinding.class)
@@ -173,11 +166,11 @@ public class MessageConsumer {
 }
 ```
 
-### 步骤5. 查看消息
+### 步骤5：查看消息
 
 如果您想确认消息是否成功发送至 TDMQ RabbitMQ 版，可以在控制台 **[集群管理](https://console.cloud.tencent.com/tdmq/rocket-cluster)** > **Queue** 页面查看接入的消费者情况。
 
 ![img](https://main.qcloudimg.com/raw/a7d78cc58efadfb614b890cc33d08632.png)
 
-上述是基于 RabbitMQ 的发布订阅模型的一个简单示例，可根据实际使用进行不同配置，具体可参考 [Demo 示例](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rabbitmq-demo/tdmq-rabbitmq-springcloud-stream-demo.zip)或 [Spring cloud stream官网](https://github.com/spring-cloud/spring-cloud-stream-binder-rabbit#rabbit-prod-props)。
+上述是基于 RabbitMQ 的发布订阅模型的一个简单示例，可根据实际使用进行不同配置，具体可参考 [Demo 示例](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rabbitmq-demo/tdmq-rabbitmq-springcloud-stream-demo.zip) 或 [Spring cloud stream官网](https://github.com/spring-cloud/spring-cloud-stream-binder-rabbit#rabbit-prod-props)。
 
