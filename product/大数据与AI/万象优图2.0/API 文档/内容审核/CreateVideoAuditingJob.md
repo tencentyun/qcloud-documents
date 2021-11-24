@@ -130,6 +130,7 @@ Container 类型 Snapshot 的具体数据描述如下：
       <State></State>
       <CreationTime></CreationTime>
     </JobsDetail>
+    <RequestId></RequestId>
 </Response>
 ```
 
@@ -141,9 +142,10 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 Container 节点 Response 的内容：
 
-| 节点名称（关键字） | 父节点   | 描述                     | 类型      |
-| :----------------- | :------- | :----------------------- | :-------- |
-| JobsDetail         | Response | 视频审核任务的详细信息。 | Container |
+| 节点名称（关键字） | 父节点   | 描述                                                         | 类型      |
+| :----------------- | :------- | :----------------------------------------------------------- | :-------- |
+| JobsDetail         | Response | 视频审核任务的详细信息。                                     | Container |
+| RequestId          | Response | 每次请求发送时，服务端将会自动为请求生成一个 ID，遇到问题时，该 ID 能更快地协助定位问题。 | String    |
 
 Container 节点 JobsDetail 的内容：
 
@@ -203,6 +205,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     <State>Submitted</State>
     <CreationTime>2021-08-07T12:12:12+0800</CreationTime>
   </JobsDetail>
+  <RequestId>xxxxxxxxxxxxxx</RequestId>
 </Response>
 ```
 
