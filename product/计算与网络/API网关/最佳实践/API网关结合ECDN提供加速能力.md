@@ -17,6 +17,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/a57d11d46cb8dff3426616e702def406.png)
 2. 在 ECDN 控制台接入自定义域名。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/91371935d7c1b73598c49229214e96f5.png" width="500px">
+
 	- 加速域名填写需要接入的自定义域名
 	- 源站类型选择“源站域名”
 	- 回源策略选择“择优回源”
