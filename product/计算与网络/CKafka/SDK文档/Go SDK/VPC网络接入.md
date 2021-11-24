@@ -46,11 +46,11 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
 :::  go
    package main
    import (
-   		"fmt"
-   		"gokafkademo/config"
-   		"log"
-   		"strings"
-       "github.com/confluentinc/confluent-kafka-go/kafka"
+					"fmt"
+					"gokafkademo/config"
+					"log"
+					"strings"	
+					"github.com/confluentinc/confluent-kafka-go/kafka"
    )
    func main() {
        cfg, err := config.ParseConfig("../config/kafka.json")
