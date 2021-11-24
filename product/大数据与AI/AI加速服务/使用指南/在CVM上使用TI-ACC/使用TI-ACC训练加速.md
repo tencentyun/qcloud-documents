@@ -46,7 +46,7 @@ docker pull tiacc-test.tencentcloudcr.com/tiacc/tiacc_pytorch:[tag]
 docker run -it --net=host --privileged --rm --gpus all --shm-size=32g --ulimit memlock=-1 --ulimit stack=67108864 --name TI-ACC-gpu tiacc-test.tencentcloudcr.com/tiacc/tiacc_pytorch:[tag]
 ```
 
-#### 配置多实例镜像间免密登陆
+#### 配置多实例镜像间免密登录
 在容器实例中修改 docker 的 ssh 端⼝，确保和宿主机的端口不冲突。
 ```
 sed -i 's/#Port 22/Port 2222/' /etc/ssh/sshd_config
