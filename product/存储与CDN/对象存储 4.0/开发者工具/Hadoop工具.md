@@ -328,5 +328,178 @@ File Output Format Counters
 Bytes Written=40
 ```
 
+### 通过Java代码访问COSN
+
+```
+package com.qcloud.chdfs.demo;
+
+import org.apache.commons.io.IOUtils;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FSDataInputStream;
+import org.apache.hadoop.fs.FSDataOutputStream;
+import org.apache.hadoop.fs.FileChecksum;
+import org.apache.hadoop.fs.FileStatus;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+
+import java.io.IOException;
+import java.net.URI;
+import java.nio.ByteBuffer;
+
+public class Demo {
+    private static FileSystem initFS() throws IOException {
+        Configuration conf = new Configuration();
+        // COSN 的配置项可参见 https://cloud.tencent.com/document/product/436/6884#hadoop-.E9.85.8D.E7.BD.AE
+        // 以下配置是必填项
+        conf.set("fs.cosn.impl", "org.apache.hadoop.fs.CosFileSystem");
+        conf.set("fs.AbstractFileSystem.cosn.impl", "org.apache.hadoop.fs.CosN");
+        conf.set("fs.cosn.tmp.dir", "/tmp/hadoop_cos");
+        conf.set("fs.cosn.bucket.region", "ap-guangzhou");
+        conf.set("fs.cosn.userinfo.secretId", "AKXXXXXXXXXXXX");
+        conf.set("fs.cosn.userinfo.secretKey", "SKXXXXXXXXXXXX");
+        conf.set("fs.ofs.user.appid", "XXXXXXXXXXX");
+        // 其他配置参考官网文档https://cloud.tencent.com/document/product/436/6884#hadoop-.E9.85.8D.E7.BD.AE
+        // 是否开启 CRC64 校验。默认不开启，此时无法使用 hadoop fs -checksum 命令获取文件的 CRC64 校验值
+        conf.set("fs.cosn.crc64.checksum.enabled", "true");
+        String cosnUrl = "cosn://f4ma0l3qctu-1259378398";
+        return FileSystem.get(URI.create(cosnUrl), conf);
+    }
+
+    private static void mkdir(FileSystem fs, Path filePath) throws IOException {
+        fs.mkdirs(filePath);
+    }
+
+    private static void createFile(FileSystem fs, Path filePath) throws IOException {
+        // 创建一个文件（如果存在则将其覆盖）
+        // if the parent dir does not exist, fs will create it!
+        FSDataOutputStream out = fs.create(filePath, true);
+        try {
+            // 写入一个文件
+            String content = "test write file";
+            out.write(content.getBytes());
+        } finally {
+            IOUtils.closeQuietly(out);
+        }
+    }
+
+    private static void readFile(FileSystem fs, Path filePath) throws IOException {
+        FSDataInputStream in = fs.open(filePath);
+        try {
+            byte[] buf = new byte[4096];
+            int readLen = -1;
+            do {
+                readLen = in.read(buf);
+            } while (readLen >= 0);
+        } finally {
+            IOUtils.closeQuietly(in);
+        }
+    }
+
+    private static void queryFileOrDirStatus(FileSystem fs, Path path) throws IOException {
+        FileStatus fileStatus = fs.getFileStatus(path);
+        if (fileStatus.isDirectory()) {
+            System.out.printf("path %s is dir\n", path);
+            return;
+        }
+        long fileLen = fileStatus.getLen();
+        long accessTime = fileStatus.getAccessTime();
+        long modifyTime = fileStatus.getModificationTime();
+        String owner = fileStatus.getOwner();
+        String group = fileStatus.getGroup();
+
+        System.out.printf("path %s is file, fileLen: %d, accessTime: %d, modifyTime: %d, owner: %s, group: %s\n",
+                path, fileLen, accessTime, modifyTime, owner, group);
+    }
+    
+    private static void getFileCheckSum(FileSystem fs, Path path) throws IOException {
+        FileChecksum checksum = fs.getFileChecksum(path);
+        System.out.printf("path %s, checkSumType: %s, checkSumCrcVal: %d\n",
+                path, checksum.getAlgorithmName(), ByteBuffer.wrap(checksum.getBytes()).getInt());
+    }
+
+    private static void copyFileFromLocal(FileSystem fs, Path cosnPath, Path localPath) throws IOException {
+        fs.copyFromLocalFile(localPath, cosnPath);
+    }
+
+    private static void copyFileToLocal(FileSystem fs, Path cosnPath, Path localPath) throws IOException {
+        fs.copyToLocalFile(cosnPath, localPath);
+    }
+
+    private static void renamePath(FileSystem fs, Path oldPath, Path newPath) throws IOException {
+        fs.rename(oldPath, newPath);
+    }
+
+    private static void listDirPath(FileSystem fs, Path dirPath) throws IOException {
+        FileStatus[] dirMemberArray = fs.listStatus(dirPath);
+
+        for (FileStatus dirMember : dirMemberArray) {
+            System.out.printf("dirMember path %s, fileLen: %d\n", dirMember.getPath(), dirMember.getLen());
+        }
+    }
+
+    // 递归删除标志用于删除目录
+    // 如果递归为 false 并且 dir 不为空，则操作将失败
+    private static void deleteFileOrDir(FileSystem fs, Path path, boolean recursive) throws IOException {
+        fs.delete(path, recursive);
+    }
+
+    private static void closeFileSystem(FileSystem fs) throws IOException {
+        fs.close();
+    }
+
+    public static void main(String[] args) throws IOException {
+        // 初始化文件
+        FileSystem fs = initFS();
+
+        // 创建文件
+        Path cosnFilePath = new Path("/folder/exampleobject.txt");
+        createFile(fs, cosnFilePath);
+
+        // 读取文件
+        readFile(fs, cosnFilePath);
+
+        // 查询文件或目录
+        queryFileOrDirStatus(fs, cosnFilePath);
+
+        // 获取文件校验和
+        getFileCheckSum(fs, cosnFilePath);
+
+        // 从本地复制文件
+        Path localFilePath = new Path("file:///home/hadoop/ofs_demo/data/exampleobject.txt");
+        copyFileFromLocal(fs, cosnFilePath, localFilePath);
+
+        // 获取文件到本地
+        Path localDownFilePath = new Path("file:///home/hadoop/ofs_demo/data/exampleobject.txt");
+        copyFileToLocal(fs, cosnFilePath, localDownFilePath);
+
+        listDirPath(fs, cosnFilePath);
+        // 重命名
+        mkdir(fs, new Path("/doc"));
+        Path newPath = new Path("/doc/example.txt");
+        renamePath(fs, cosnFilePath, newPath);
+
+        // 删除文件
+        deleteFileOrDir(fs, newPath, false);
+
+        // 创建目录
+        Path dirPath = new Path("/folder");
+        mkdir(fs, dirPath);
+
+        // 在目录中创建文件
+        Path subFilePath = new Path("/folder/exampleobject.txt");
+        createFile(fs, subFilePath);
+
+        // 列出目录
+        listDirPath(fs, dirPath);
+
+        // 删除目录
+        deleteFileOrDir(fs, dirPath, true);
+        deleteFileOrDir(fs, new Path("/doc"), true);
+
+        // 关闭文件系统
+        closeFileSystem(fs);
+    }
+}
+```
 ## 常见问题
 如果您在使用 Hadoop 工具过程中，有相关的疑问，请参见 [Hadoop 工具类常见问题](https://cloud.tencent.com/document/product/436/36897)。
