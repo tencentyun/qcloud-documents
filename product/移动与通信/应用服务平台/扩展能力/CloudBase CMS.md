@@ -28,5 +28,5 @@ CMS 扩展还可以用来配合开发网站应用和小程序应用，提升开�
 
 ## 相关文档
 
-CMS 详细使用说明，请参见 [CMS 文档](https://docs.cloudbase.net/cms/intro.html)。
+CMS 详细使用说明，请参见 [CMS 文档](https://docs.cloudbase.net/cms/intro)。
 

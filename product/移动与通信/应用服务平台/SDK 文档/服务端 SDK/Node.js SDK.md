@@ -2,7 +2,7 @@ Cloudbase Server Node.js SDK 让您可以在服务端（例如腾讯云云函数
 
 需要 Node.js v8.9 及以上版本。
 
->? 当您计划在项目中使用 @cloudbase/node-sdk 替代 [tcb-admin-node](https://docs.cloudbase.net/api-reference/server/node/introduction.html#an-zhuang) 时，请务必阅读 [迁移文档](https://docs.cloudbase.net/api-reference/server/node-sdk/packageUpgrade.html)。
+>? 当您计划在项目中使用 @cloudbase/node-sdk 替代 [tcb-admin-node](https://docs.cloudbase.net/api-reference/server/node/introduction) 时，请务必阅读 [迁移文档](https://docs.cloudbase.net/api-reference/server/node-sdk/packageUpgrade)。
 
 ## 安装
 
