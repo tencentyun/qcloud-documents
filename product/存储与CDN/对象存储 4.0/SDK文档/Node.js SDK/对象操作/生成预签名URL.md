@@ -67,9 +67,9 @@ var Authorization = COS.getAuthorization({
 [//]: # (.cssg-snippet-get-presign-download-url-nosign)
 ```js
 var url = cos.getObjectUrl({
-    Bucket: 'examplebucket-1250000000',
-    Region: 'COS_REGION',
-    Key: '1.jpg',
+    Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Sign: false
 });
 ```
@@ -79,9 +79,9 @@ var url = cos.getObjectUrl({
 [//]: # (.cssg-snippet-get-presign-download-url)
 ```js
 var url = cos.getObjectUrl({
-    Bucket: 'examplebucket-1250000000',
-    Region: 'COS_REGION',
-    Key: '1.jpg'
+    Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
 });
 ```
 
@@ -90,9 +90,9 @@ var url = cos.getObjectUrl({
 [//]: # (.cssg-snippet-get-presign-download-url-callback)
 ```js
 cos.getObjectUrl({
-    Bucket: 'examplebucket-1250000000',
-    Region: 'COS_REGION',
-    Key: '1.jpg',
+    Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Sign: false
 }, function (err, data) {
     console.log(err || data.Url);
@@ -104,9 +104,9 @@ cos.getObjectUrl({
 [//]: # (.cssg-snippet-get-presign-download-url-expiration)
 ```js
 cos.getObjectUrl({
-    Bucket: 'examplebucket-1250000000',
-    Region: 'COS_REGION',
-    Key: '1.jpg',
+    Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Sign: true,
     Expires: 3600, // 单位秒
 }, function (err, data) {
@@ -121,9 +121,9 @@ cos.getObjectUrl({
 var request = require('request');
 var fs = require('fs');
 cos.getObjectUrl({
-    Bucket: 'examplebucket-1250000000',
-    Region: 'COS_REGION',
-    Key: '1.jpg',
+    Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Sign: true
 }, function (err, data) {
     if (err) return console.log(err);
@@ -136,6 +136,28 @@ cos.getObjectUrl({
 });
 ```
 
+示例六：生成预签名URL，并在签名中携带Query和Header
+
+[//]: # (.cssg-snippet-get-obejct-url-with-params)
+```js
+cos.getObjectUrl({
+    Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
+    Sign: true,
+    /* 传入的请求参数需与实际请求相同，能够防止用户篡改此HTTP请求的参数 */
+    Query: {
+      'imageMogr2/thumbnail/200x/': '' 
+    },
+    /* 传入的请求头部需包含在实际请求中，能够防止用户篡改签入此处的HTTP请求头部 */
+    Headers: {
+      host: 'xxx' /* 指定host访问，非指定的host访问会报错403 */
+    },
+}, function (err, data) {
+    console.log(err || data.Url);
+});
+```
+
 ### 上传请求示例
 
 示例一：获取预签名 Put Object 上传 Url
@@ -145,10 +167,10 @@ cos.getObjectUrl({
 var request = require('request');
 var fs = require('fs');
 cos.getObjectUrl({
-    Bucket: 'examplebucket-1250000000',
-    Region: 'COS_REGION',
+    Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Method: 'PUT',
-    Key: '1.jpg',
     Sign: true
 }, function (err, data) {
     if (err) return console.log(err);

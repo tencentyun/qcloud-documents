@@ -1,6 +1,6 @@
 ## 简介
 
-JavaScript SDK 提供获取对象 URL、获取请求预签名 URL 接口。
+小程序 SDK 提供获取对象 URL、获取请求预签名 URL 接口。
 
 >?
 > - 建议用户使用临时密钥生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
@@ -66,9 +66,9 @@ var Authorization = COS.getAuthorization({
 [//]: # (.cssg-snippet-get-presign-download-url)
 ```js
 var url = cos.getObjectUrl({
-    Bucket: 'examplebucket-1250000000',
-    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
-    Key: 'exampleobject',
+    Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Sign: false
 });
 ```
@@ -78,9 +78,9 @@ var url = cos.getObjectUrl({
 [//]: # (.cssg-snippet-get-presign-download-url-signed)
 ```js
 var url = cos.getObjectUrl({
-    Bucket: 'examplebucket-1250000000',
-    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
-    Key: 'exampleobject'
+    Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
 });
 ```
 
@@ -91,9 +91,9 @@ var url = cos.getObjectUrl({
 [//]: # (.cssg-snippet-get-presign-download-url-callback)
 ```js
 cos.getObjectUrl({
-    Bucket: 'examplebucket-1250000000',
-    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
-    Key: 'exampleobject',
+    Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Sign: false
 }, function (err, data) {
     console.log(err || data.Url);
@@ -105,9 +105,9 @@ cos.getObjectUrl({
 [//]: # (.cssg-snippet-get-presign-download-url-expiration)
 ```js
 cos.getObjectUrl({
-    Bucket: 'examplebucket-1250000000',
-    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
-    Key: 'exampleobject',
+    Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Sign: true,
     Expires: 3600, // 单位秒
 }, function (err, data) {
@@ -120,14 +120,43 @@ cos.getObjectUrl({
 [//]: # (.cssg-snippet-get-presign-download-url-then-fetch)
 ```js
 cos.getObjectUrl({
-    Bucket: 'examplebucket-1250000000',
-    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
-    Key: 'exampleobject',
+    Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Sign: true
 }, function (err, data) {
-    if (err) return console.log(err);
-    var downloadUrl = data.Url + (data.Url.indexOf('?') > -1 ? '&' : '?') + 'response-content-disposition=attachment'; // 补充强制下载的参数
-    window.open(downloadUrl); // 这里是新窗口打开 url，如果需要在当前窗口打开，可以使用隐藏的 iframe 下载，或使用 a 标签 download 属性协助下载
+    if (!err) return console.log(err);
+    wx.downloadFile({
+        url: data.Url, // 需要加 url 的域名作为下载白名单
+        success (res) {
+            console.log(res.statusCode, res.tempFilePath);
+        },
+        fail: function (err) {
+            console.log(err);
+        },
+    });
+});
+```
+
+示例六：生成预签名URL，并在签名中携带Query和Header
+
+[//]: # (.cssg-snippet-get-obejct-url-with-params)
+```js
+cos.getObjectUrl({
+    Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
+    Sign: true,
+    /* 传入的请求参数需与实际请求相同，能够防止用户篡改此HTTP请求的参数 */
+    Query: {
+      'imageMogr2/thumbnail/200x/': '' 
+    },
+    /* 传入的请求头部需包含在实际请求中，能够防止用户篡改签入此处的HTTP请求头部 */
+    Headers: {
+      host: 'xxx' /* 指定host访问，非指定的host访问会报错403 */
+    },
+}, function (err, data) {
+    console.log(err || data.Url);
 });
 ```
 
@@ -138,10 +167,10 @@ cos.getObjectUrl({
 [//]: # (.cssg-snippet-get-presign-upload-url)
 ```js
 cos.getObjectUrl({
-    Bucket: 'examplebucket-1250000000',
-    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
+    Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Method: 'PUT',
-    Key: 'exampleobject',
     Sign: true
 }, function (err, data) {
     if (err) return console.log(err);
@@ -172,7 +201,7 @@ cos.getObjectUrl({
 | Domain    | 存储桶访问域名，默认为 {BucketName-APPID}.cos.{Region}.myqcloud.com     | String | 否   |
 | Method  | 操作方法，例如 GET，POST，DELETE，HEAD 等 HTTP 方法，默认为 GET | String  | 否   |
 | Query   | 参与签名计算的 query 参数对象，{key: 'val'} 的格式                                | Object  | 否   |
-| Headers | 参与签名计算的 header 参数对象                               | Object  | 否   |
+| Headers | 参与签名计算的 header 参数对象，{key: 'val'} 的格式                               | Object  | 否   |
 | Expires | 签名几秒后失效，默认为900秒                                  | Number  | 否   |
 
 #### 返回值说明
