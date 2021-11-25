@@ -8,8 +8,8 @@
 
 
 ## 步骤1：开通服务并创建平台[](id:step1)
-1. 登录 [腾讯云剪控制台](https://console.cloud.tencent.com/cme)。
-2. 单击 **前往一键授权**，进入授权页面，单击 **同意授权** 授权成功，并返回腾讯云剪控制台。
+1. 登录 [腾讯多媒体创作引擎控制台](https://console.cloud.tencent.com/cme)。
+2. 单击 **前往一键授权**，进入授权页面，单击 **同意授权** 授权成功，并返回腾讯多媒体创作引擎控制台。
 3. 单击左侧导航栏的 **平台配置**，进入平台配置页面。
 4. 单击 **创建新平台**，填写平台名称，选择该平台绑定的云点播子应用，单击 **确定**。
 
@@ -25,7 +25,7 @@
 
 ## 步骤3：下载并部署 Demo[](id:step3)
 ### 环境准备
-云剪提供的 Demo 是基于 Node.js 开发的，在运行 Demo 之前需要检查本地是否安装了 Node.js，若没有安装 Node.js 的可以登录官网进行包进行快速安装，详情请参见：[Node.js 安装包下载](https://nodejs.org)。
+多媒体创作引擎提供的 Demo 是基于 Node.js 开发的，在运行 Demo 之前需要检查本地是否安装了 Node.js，若没有安装 Node.js 的可以登录官网进行包进行快速安装，详情请参见：[Node.js 安装包下载](https://nodejs.org)。
 
 ### 源码下载
 Demo 的代码托管在 Github 上，开发者可以登录上去直接进行下载，详情请参见：[Demo Github 地址](https://github.com/tencentyun/cme-node-demo)。
