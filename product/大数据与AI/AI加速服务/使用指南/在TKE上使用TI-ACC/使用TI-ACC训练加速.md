@@ -20,7 +20,7 @@ kubectl create secret docker-registry tiacc-reg --docker-server=
 tiacc-test.tencentcloudcr.com --docker-username=<your-name> --docker-password=<your-pword>
 ```
 
-### 步骤3：使用 TI-ACC 训练加速
+### 步骤3：使用加速
 
 #### 使用训练加速
 训练加速中的通信加速能力通过兼容原生的 DDP 工具提供，用户无需修改原生的使用代码可直接进行使用，数据 IO 优化、自适应 FP16 都通过封装好的简单函数/类进行提供，用户仅需增加几行代码便可使用。
