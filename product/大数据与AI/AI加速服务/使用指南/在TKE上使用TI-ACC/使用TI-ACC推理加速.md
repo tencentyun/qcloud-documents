@@ -20,7 +20,7 @@ kubectl create secret docker-registry tiacc-inference-reg --docker-server=
 tiacc-test.tencentcloudcr.com --docker-username=<your-name> --docker-password=<your-pword>
 ```
 
-## 使用加速
+### 步骤3：使用加速
 #### 使用推理加速
 推理加速容器构建，执行命令如下：
 
