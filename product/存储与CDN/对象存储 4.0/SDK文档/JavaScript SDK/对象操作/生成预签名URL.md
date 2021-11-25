@@ -49,8 +49,8 @@ var Authorization = COS.getAuthorization({
 | SecretKey | 用户的 SecretKey                                             | String | 是   |
 | Method    | 操作方法，例如 GET，POST，DELETE，HEAD 等 HTTP 方法           | String | 是   |
 | Key       | 对象键（Object 的名称），对象在存储桶中的唯一标识，**如果请求操作是对文件的，则为文件名，且为必须参数**。如果操作是对于存储桶，则为空 | String | 否   |
-| Query     | 请求的 query 参数对象                                        | Object | 否   |
-| Headers   | 请求的 header 参数对象                                       | Object | 否   |
+| Query     | 签名中要签入的请求参数，{key: 'val'} 的格式                                        | Object | 否   |
+| Headers   | 签名中要签入的请求头部，{key: 'val'} 的格式                                       | Object | 否   |
 | Expires   | 签名几秒后失效，默认为900秒                                  | Number | 否   |
 
 #### 返回值说明
@@ -193,8 +193,8 @@ cos.getObjectUrl({
 | Protocol    | 可选填为`http:`或`https:`，默认为`http:`（带冒号）                    | String | 否   |
 | Domain    | 存储桶访问域名，默认为 {BucketName-APPID}.cos.{Region}.myqcloud.com     | String | 否   |
 | Method  | 操作方法，例如 GET，POST，DELETE，HEAD 等 HTTP 方法，默认为 GET | String  | 否   |
-| Query   | 参与签名计算的 query 参数对象，{key: 'val'} 的格式                                | Object  | 否   |
-| Headers | 参与签名计算的 header 参数对象，{key: 'val'} 的格式                               | Object  | 否   |
+| Query   | 签名中要签入的请求参数，{key: 'val'} 的格式                                | Object  | 否   |
+| Headers | 签名中要签入的请求头部，{key: 'val'} 的格式                               | Object  | 否   |
 | Expires | 签名几秒后失效，默认为900秒                                  | Number  | 否   |
 
 #### 返回值说明
