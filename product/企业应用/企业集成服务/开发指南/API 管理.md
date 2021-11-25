@@ -1,208 +1,75 @@
-## 使用场景
-各大企业每天都有大量的 API 增长，同时越来越多公司开始公开 Web API，API 的使用场景正在累积。日前，每日 API 调用量不断飙升，如何能够安全有效管理 API 对于企业而言并不容易。 
+各大企业每天都有大量的 API 增长，同时越来越多公司开始公开 Web API，API 的使用场景正在累积。日前，每日 API 调用量不断飙升，如何能够安全有效管理 API 对于企业而言并不容易。
 
-企业集成服务提供 API 发布功能，可以一键将已发布的应用打包生成 API，方便用户进行管理和调用；同时提供 API 管理能力，可以针对 API 进行访问权限管控和流量调度。页面内可以进行 API 的创建和查看工作，API 列表中展示有 API 名称、协议、接口数、创建时间和特殊操作等内容。如下图：
-![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/eis/54.png)  
+企业集成服务提供 API 发布功能，可以一键将已发布的应用打包生成 API，方便用户进行管理和调用；同时提供 API 管理能力，可以针对 API 进行访问权限管控和流量调度。
 
-## 操作步骤
-### 步骤1：创建 API
-API 管理功能支持 3.0.0 版本的 OpenAPI 规范。登录 [企业集成服务控制台](https://console.cloud.tencent.com/eis)，选择**深度集成 > API 管理**，选择对应项目名称后单击**创建 API** 进入 API 创建界面。当前支持两种创建模式，用户可以选择手动编辑一个 API 描述文件，也可以上传填写好的 JSON 或者 YAML 文件进行 API 的生成，按照页面提示全部填写完成并且内容校验通过后，单击**下一步**即可进入 API 的管理详情配置界面。
->?
-- OpenAPI 3.0.0 规范的对象定义请参考 [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)。
-- 如果您需要更多帮助，如获取 API 描述文档样例文件，请参考 [API 描述文件样例](#sample)。
-![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/eis/55.png)  
+## API 管理主页
+登录 [企业集成服务控制台](https://console.cloud.tencent.com/eis)，单击左侧工具栏 **API 中心 > API 管理**，即可进入 API 管理的主页面。您可以创建或查看 API，API 列表中展示有 API 服务名称、API 服务状态、API 服务域名、API 更新时间、endpoint 统计、API 服务的鉴权方式以及操作等内容。
+![API管理](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/API%E7%AE%A1%E7%90%86%E9%A6%96%E9%A1%B5png.png)
 
-### 步骤2：API 管理配置
-企业集成服务会根据用户上传或者填写的 API 描述文件内容生成对应的 API，在此页面中，将会基于描述文件展示 API 的基本信息，包括 API 名称、API 版本和 API ID。此外，用户可以进行 API 绑定行为，用户可以从该项目中**有权限**且**拥有 HTTP Listener** 的应用中进行选择（如果所选应用没有正在运行的 HTTP Listener，则无法正确生成 API），从而将此应用与 API 进行绑定，绑定后用户即可通过调用此 API 来访问应用的服务。
->!只有激活状态的 API 可以成功访问对应的应用服务。 
+## 创建 API 服务
+API 管理功能支持 3.0.0 版本的 OpenAPI 规范。OpenAPI 3.0.0 规范的对象定义请参考 [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)。用户可以通过单击**创建 API 服务**进入 API 创建界面。
+**创建步骤：**
+1. 配置 API 服务的基本配置，包括 API 服务名称、API 服务支持的协议类型、API 服务的版本号以及对此 API 服务的简单描述（非必填）。![API创建](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E5%88%9B%E5%BB%BAAPI%E6%9C%8D%E5%8A%A1.png)
+2. 配置 API 服务的策略信息，包括 API 服务的鉴权策略和频控、流控策略。
+ - 配置鉴权策略：暂时支持 basic Auth，OAuth2.0 和无验证（即不填写检测策略）。
+ - 请求频率策略：指从配置时间起，每单位时间内允许的最大请求次数，填写范围为1-5000。
+ - 访问限制策略：指从配置时间算起，每单位自然时间内允许的最大访问次数，填写范围为1-5000。![API服务策略](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/API%E6%9C%8D%E5%8A%A1%E7%AD%96%E7%95%A5.png)
 
-- API 状态：企业集成服务会根据 API 绑定的应用状态来判断 API 的状态，当前支持的状态有：
-  - 已激活：若已经成功绑定正在运行的应用，则此 API 为已激活状态。
-  - 未激活：若绑定的应用为非发布状态或者未绑定任何应用，则此 API 为未激活状态。  
-![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/eis/56.png)  
-- API 控制策略：企业集成服务允许用户对所发布的 API 的访问权限进行配置。当前版本仅支持 Basic Auth（账户密码模式），其他验证方式敬请关注！
- ![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/eis/57.png)  
 
-### 步骤3：使用 API 
-1. 当 API 配置完成后，您即可通过 API 进行应用的控制和管理。打开绑定 API 的应用及其具体的流，通过流中 trigger 上的“复制域名”方式即可获取 API 的请求地址；或者在流左侧边栏“连接器配置”中找到对应的请求配置，并复制请求地址。地址构成方式一般为："HTTP Listener 监听端口"-"HTTP Listener 监听路径".ipaas.ap-"环境".mycloud.com/。
->!同应用下不同的流则会拥有不同 HTTP Listener 监听端口和监听路径，请在使用 API 服务时注意区分，避免调用不正确的服务。
+## API Endpoint 管理
+当我们创建一个 API 服务后，则代表此 API 已经生成，可以开始编辑其具体行为。API Endpoint 指一个 API 服务可以连接的后端服务信息，包括 API 的访问路径（API Path）、API 的调用方式、API endpoint 绑定的后端服务类型，最近修改时间以及相关操作。默认新创建好的 API 服务没有已绑定的 Endpoint 信息，需要进行创建完成首次的绑定工作。单击**添加 API Endpoint**，即可开启编辑工作。![endpoint](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/endpoint.png)
+**创建步骤：**
+1. 基本配置：填写 endpoint 的基本信息，包括访问路径、后端服务类型（支持选择现成的集成流或者绑定第三方的 BASE URL）和后端服务地址。![APIendpoint基本配置](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/APIendpoint%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE.png)
+>!
+>- 访问路径必须要以“/”开头。
+>- 当选择的后端服务为“集成流”模式时，集成流只可以选择已发布的，并且配置了拥有 HTTP 监听能力组件的流。
+2. 策略信息：与 API 服务的策略信息配置方式类似，允许用户在此 endpoint 所归属的 API 服务的策略限制基础上，配置第二层策略限制。两层限制共同生效。
+>!此处可选择的鉴权策略范围为上层 API 服务的鉴权策略，即若上层API服务只允许 OAuth 2.0 的鉴权方式，则下层的 API Endpoint 只允许配置 OAuth 2.0，而不能配置 Basic Auth。![endpoint策略](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/endpoint%E7%AD%96%E7%95%A5.png)
+3. 参数信息：在此步骤中，我们允许用户配置访问此 API endpoint 时可以选用的方法（API Method）和每种方法对应的调用参数信息。
+   ![endpoint参数](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/endpoint%E5%8F%82%E6%95%B0.png)
+  - API 调用方法可以多选，配置过参数信息的方法将会以浅蓝色底色标注。若想取消，则可以选中想要删除的方法之后，单击其格子内的**删除**即可取消选中。
+  - 每一个参数后都提供了一系列操作，分别为：向上移动、向下移动、删除此参数、为此参数添加备注以及选择该参数是否必填。
+4. 当上述三步全部配置完成之后，单击**完成**，则会返回 endpoint 列表，同时已经创建好的 endpoint 信息将会展现在此。![配置完成的endpoint](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E9%85%8D%E7%BD%AE%E5%AE%8C%E6%88%90%E7%9A%84endpoint.png)
 
-2. 获取请求地址后，通过该地址以及配置好的 Basic Auth 的账号密码（如有）即可访问，此处以绑定 helloworld 模板为例：
- - 复制触发链接地址：
-![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/eis/58.png)  
- - 配置 API 后增加身份校验：
-![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/eis/58.1.png) 
->!您在此过程中所使用的请求参数会作为被绑定的流的入参使用，如果正在使用的是正式环境中的 API 服务，请谨慎使用避免对生产数据造成影响。
- - [API 描述文件样例](id:sample)：
-```plaintext
-`{
-    "openapi": "3.0.0",
-    "info": {
-        "title": "Simple API overview1",
-        "version": "2.0.0",
-        "description": "test desc"
-    },
-    "paths": {
-        "/": {
-            "get": {
-                "description": "get desc",
-                "operationId": "listVersionsv2",
-                "summary": "List API versions",
-                "responses": {
-                    "200": {
-                        "description": "200 response",
-                        "content": {
-                            "application/json": {
-                                "examples": {
-                                    "foo": {
-                                        "value": {
-                                            "versions": [
-                                                {
-                                                    "status": "CURRENT",
-                                                    "updated": "2011-01-21T11:33:21Z",
-                                                    "id": "v2.0",
-                                                    "links": [
-                                                        {
-                                                            "href": "http://127.0.0.1:8774/v2/",
-                                                            "rel": "self"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "status": "EXPERIMENTAL",
-                                                    "updated": "2013-07-23T11:33:21Z",
-                                                    "id": "v3.0",
-                                                    "links": [
-                                                        {
-                                                            "href": "http://127.0.0.1:8774/v3/",
-                                                            "rel": "self"
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "300": {
-                        "description": "300 response",
-                        "content": {
-                            "application/json": {
-                                "examples": {
-                                    "foo": {
-                                        "value": "{\n \"versions\": [\n       {\n         \"status\": \"CURRENT\",\n         \"updated\": \"2011-01-21T11:33:21Z\",\n         \"id\": \"v2.0\",\n         \"links\": [\n             {\n                 \"href\": \"http://127.0.0.1:8774/v2/\",\n                 \"rel\": \"self\"\n             }\n         ]\n     },\n     {\n         \"status\": \"EXPERIMENTAL\",\n         \"updated\": \"2013-07-23T11:33:21Z\",\n         \"id\": \"v3.0\",\n         \"links\": [\n             {\n                 \"href\": \"http://127.0.0.1:8774/v3/\",\n                 \"rel\": \"self\"\n             }\n         ]\n     }\n ]\n}\n"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/v2": {
-            "get": {
-                "description": "get v2 desc",
-                "operationId": "getVersionDetailsv2",
-                "summary": "Show API version details",
-                "responses": {
-                    "200": {
-                        "description": "200 response",
-                        "content": {
-                            "application/json": {
-                                "examples": {
-                                    "foo": {
-                                        "value": {
-                                            "version": {
-                                                "status": "CURRENT",
-                                                "updated": "2011-01-21T11:33:21Z",
-                                                "media-types": [
-                                                    {
-                                                        "base": "application/xml",
-                                                        "type": "application/vnd.openstack.compute+xml;version=2"
-                                                    },
-                                                    {
-                                                        "base": "application/json",
-                                                        "type": "application/vnd.openstack.compute+json;version=2"
-                                                    }
-                                                ],
-                                                "id": "v2.0",
-                                                "links": [
-                                                    {
-                                                        "href": "http://127.0.0.1:8774/v2/",
-                                                        "rel": "self"
-                                                    },
-                                                    {
-                                                        "href": "http://docs.openstack.org/api/openstack-compute/2/os-compute-devguide-2.pdf",
-                                                        "type": "application/pdf",
-                                                        "rel": "describedby"
-                                                    },
-                                                    {
-                                                        "href": "http://docs.openstack.org/api/openstack-compute/2/wadl/os-compute-2.wadl",
-                                                        "type": "application/vnd.sun.wadl+xml",
-                                                        "rel": "describedby"
-                                                    },
-                                                    {
-                                                        "href": "http://docs.openstack.org/api/openstack-compute/2/wadl/os-compute-2.wadl",
-                                                        "type": "application/vnd.sun.wadl+xml",
-                                                        "rel": "describedby"
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "203": {
-                        "description": "203 response",
-                        "content": {
-                            "application/json": {
-                                "examples": {
-                                    "foo": {
-                                        "value": {
-                                            "version": {
-                                                "status": "CURRENT",
-                                                "updated": "2011-01-21T11:33:21Z",
-                                                "media-types": [
-                                                    {
-                                                        "base": "application/xml",
-                                                        "type": "application/vnd.openstack.compute+xml;version=2"
-                                                    },
-                                                    {
-                                                        "base": "application/json",
-                                                        "type": "application/vnd.openstack.compute+json;version=2"
-                                                    }
-                                                ],
-                                                "id": "v2.0",
-                                                "links": [
-                                                    {
-                                                        "href": "http://23.253.228.211:8774/v2/",
-                                                        "rel": "self"
-                                                    },
-                                                    {
-                                                        "href": "http://docs.openstack.org/api/openstack-compute/2/os-compute-devguide-2.pdf",
-                                                        "type": "application/pdf",
-                                                        "rel": "describedby"
-                                                    },
-                                                    {
-                                                        "href": "http://docs.openstack.org/api/openstack-compute/2/wadl/os-compute-2.wadl",
-                                                        "type": "application/vnd.sun.wadl+xml",
-                                                        "rel": "describedby"
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}`
-```
+## API 用户中心
+鹊桥平台会根据用户已经配置完成的 API 服务（包括其 endpoint）生成用户可以调用的开放 API。在 API 用户中心中，我们将会帮助您更好的管理每个 API 服务的用户，以及分配用户对于 API 的使用权限。API 用户中心首页是以列表的形式展示当前可以配置的所有 API 服务信息，但是展示维度与“API 管理”略有不同。
+![API用户中心](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/API%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83.png)
+
+### 用户管理
+- “用户管理”功能允许 API 的提供者帮助其用户添加及管理账号、分配权限，并获取请求 API 时所需要的所有必要信息。
+- API 服务提供方可以将会以类似管理者的视角去统一管理用户，允许查看用户的 OAuth 信息并分享给用户以便用户调用，或者进行用户的封禁和启用。
+![用户管理](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86.png)
+- 添加用户时需提供以下用户信息，以便能够更好的记录和维护。同时，该处的用户名称和用户密码也将作为对应 API 服务的 basic auth 验证方式。
+![添加用户](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7.png)
+- 当创建好用户后，则可以通过单击 **OAuth 信息**获取用户的 client ID，client Secret 以及 Token 获取地址。
+![oauth信息](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/oauth%E4%BF%A1%E6%81%AF.png)
+- 当前仅支持 API 服务提供方手动帮助客户添加成员信息和账户信息，而客户的自助注册的能力将在近期开放，敬请期待！
+
+### 审批管理
+当前版本暂不开放，后期将会随客户自助注册能力同时开放。
+
+## 使用流程
+1. 创建 API 服务及其 API Endpoint，流程参考上方页面介绍。
+2. 获取 API 请求地址。
+ 1. 在 API 服务列表中获取 API 服务的域名。![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E5%A4%8D%E5%88%B6%E6%9C%8D%E5%8A%A1%E5%9F%9F%E5%90%8D.png)
+ 2. 在 API Endpoint 列表中获取需要请求的 endpoint 路径。![获取路径](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84.png)
+ 3. 将 endpoint 路径拼接在 API 服务域名之后，即可获取完整的 API 请求域名。
+3. 获取用户请求 API 的权限。
+ 1. 在 API 用户中心首页单击**用户管理**。![点击用户管理](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E7%82%B9%E5%87%BB%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86.png)
+ 2. 添加用户。![用户管理界面添加用户](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7.png)
+ 3. 帮助用户填写必要信息并选择需要访问的 API 服务名称。![用户信息](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF.png)
+ 4. 绑定好 API 服务后，返回用户管理列表获取此用户的 OAuth 信息（当前系统会默认给添加的用户进行自动审批，所以无需手动审批操作），并复制保存 OAuth 的 Token 获取地址、Client ID、Client Secret 等信息，连同用户的账号和密码一同分享给用户。![获取OAuth](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E8%8E%B7%E5%8F%96OAuth.png)
+![OAuth](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/OAuth.png)
+4. 从用户侧调用 API，以 postman 为例：
+   - API 服务无需验证的情况：![noauth](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/noauth.png)
+   - API 服务需要 basic Auth 的情况：![basicauth](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/basicauth.png)
+   - API 服务需要 OAuth 2.0 的情况：
+    1. 首先在用户信息处获取 Access Token URL、Client ID 和 Client Secret。![获取OAuth信息](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E8%8E%B7%E5%8F%96OAuth%E4%BF%A1%E6%81%AF.png)
+    2. 复制后，在 postman 中创建一个新的请求，填入上方的 token 获取地址并使用“GET”方法。**请注意，该处的鉴权方式应为“NoAuth”。**
+    3. 选择 Params 标签页，输入 client 信息。输入方式：
+       - 第一列 key 为 client_id，value 为从上方复制的 Client ID 对应的内容。
+       - 第二轮 key 为 client_sectet，value 为从上方复制的 Client Secret 对应的内容。
+   ![获取token](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E8%8E%B7%E5%8F%96token.png)
+    4. 单击 **send**，从界面下方的“body”处复制“access_token”字段的值，即为本次调用时需要用到的 token 信息。![取得token](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E5%8F%96%E5%BE%97token.png)
+    5. 重新打开一个请求界面，填入需要请求的 API 域名，并选择 Bearer Token 模式。在右侧的“Token”处输入前面获得的 token，单击 **send**，即可看到访问结果。![调用API](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E8%B0%83%E7%94%A8API.png)
+
