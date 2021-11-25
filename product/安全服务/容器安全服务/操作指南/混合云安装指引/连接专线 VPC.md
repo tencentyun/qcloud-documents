@@ -1,12 +1,12 @@
 ## 背景信息
-目前 VPC 专线接入暂时只支持华南地区（广州）、华北地区（北京）、华东地区（上海、上海金融、南京）， 西南地区（成都），已经支持公有云与客户机房网络在VPC内互通，可以直接安装客户端。
+目前 VPC 专线接入暂时只支持华南地区（广州）、华北地区（北京）、华东地区（上海、上海金融、南京）， 西南地区（成都），已经支持公有云与客户机房网络在 VPC 内互通，可以直接安装客户端。
 
-若需要接入的地区不在 VPC 专线接入的范围之内，需要通过 [云联网](https://cloud.tencent.com/document/product/877/18675)，将专线网关（VPN）与 VPC打通。专线网关需要客户另行 [购买](https://cloud.tencent.com/document/product/877/18676) 和搭建完成对 VPC 专线接入的工作。
+若需要接入的地区不在 VPC 专线接入的范围之内，需要通过 [云联网](https://cloud.tencent.com/document/product/877/18675)，将专线网关（VPN）与 VPC 打通。专线网关需要客户另行 [购买](https://cloud.tencent.com/document/product/877/18676) 和搭建完成对 VPC 专线接入的工作。
 
 ## 操作指南
 ### 步骤1：确认是否需要通过云联网进行接入[](id:steps1)
 1. 登录 [容器安全服务控制台](https://console.cloud.tencent.com/tcss)，在左侧导航中单击**资产管理**，进入资产管理页面。
-2. 在资产管理页面，单击容器的**主机节点**> **安装容器安全服务 Agent**，在右侧弹窗中查看安装指引详情。
+2. 在资产管理页面，单击容器的**主机节点** > **安装容器安全服务 Agent**，在右侧弹窗中查看安装指引详情。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5cab64e3b38ecf185bbe448a7d45ea64.png)
 2.  在安装指引中，服务器类型单击选择**非腾讯云**，推荐安装方式单击选择**专线**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d23f650509baaa8e46fbf4327d467ba8.png)
