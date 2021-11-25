@@ -15,12 +15,10 @@
 SDK 中包含了以下 framework 库以及资源文件：
 
 - **OcrSDKKit.framework** - OCR 对外接口、页面设置及网络请求库
-- **YtSDKKit.framework** - 边缘检测逻辑
 - **YTImageRefiner_pub.framework** - 图片解析
 - **tiny_opencv2.framework** - opencv 库
 - **tnn.framework** - 底层深度学习库
 - **OcrSDK.bundle** - 资源文件
-- **ocr-001.bundle** -模型文件
 
 ### 环境依赖
 
@@ -32,7 +30,6 @@ SDK 中包含了以下 framework 库以及资源文件：
 1. 将 ocr Framework、系统 Framework 库以及 bundle 文件都添加至项目中。
 ```
 ├── OcrSDKKit.framework
-├── YtSDKKit.framework
 ├── YTImageRefiner_pub.framework
 ├── tiny_opencv2.framework
 └── tnn.framework
@@ -42,8 +39,7 @@ SDK 中包含了以下 framework 库以及资源文件：
 ```
 ```
 //资源文件
-├── OcrSDK.bundle
-└── ocr-001.bundle
+└── OcrSDK.bundle
 ```
 2. 添加编译选项
 	- 将**调用 SDK 的 ViewController** 设置为 **Objective-C++Source** 或者更改后缀为 **.mm** (sdk 内部使用了 Objective-C++ 语法)
@@ -80,7 +76,7 @@ ocrSDKConfig.ocrModeType = _ocrModel;
 /// @param secretId  Secret id
 /// @param secretKey Secret key
 /// @param ocrConfig ocr 配置类
-[[OcrSDKKit sharedInstance] loadSDKConfigWithSecret:nil withSecretKey:nil withConfig:ocrSdkConfig];
+[[OcrSDKKit sharedInstance] loadSDKConfigWithSecretId:nil withSecretKey:nil withConfig:ocrSdkConfig];
 
 ```
 
