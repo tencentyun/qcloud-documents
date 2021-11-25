@@ -15,15 +15,15 @@ npm install --save @cloudbase/node-sdk
 
 ## API 文档
 
-* [介绍](https://docs.cloudbase.net/api-reference/server/node-sdk/introduction.html)
+* [介绍](https://docs.cloudbase.net/api-reference/server/node-sdk/introduction)
 
-* [初始化](https://docs.cloudbase.net/api-reference/server/node-sdk/initialization.html)
+* [初始化](https://docs.cloudbase.net/api-reference/server/node-sdk/initialization)
 
-* [登录认证](https://docs.cloudbase.net/api-reference/server/node-sdk/auth.html)
+* [登录认证](https://docs.cloudbase.net/api-reference/server/node-sdk/auth)
 
-* [云函数](https://docs.cloudbase.net/api-reference/server/node-sdk/functions.html)
+* [云函数](https://docs.cloudbase.net/api-reference/server/node-sdk/functions)
 
-* [数据库](https://docs.cloudbase.net/api-reference/server/node-sdk/database/database.html)
+* [数据库](https://docs.cloudbase.net/api-reference/server/node-sdk/database/database)
 
-* [文件存储](https://docs.cloudbase.net/api-reference/server/node-sdk/storage.html)
+* [文件存储](https://docs.cloudbase.net/api-reference/server/node-sdk/storage)
 

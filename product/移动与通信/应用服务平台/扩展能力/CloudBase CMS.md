@@ -23,7 +23,7 @@ CMS 扩展还可以用来配合开发网站应用和小程序应用，提升开�
 
 ## 工作原理
 
-使用 CMS 扩展时将在当前环境创建云函数、云数据库等资源，详情请参见 [部署详情](https://docs.cloudbase.net/cms/intro.html)。
+使用 CMS 扩展时将在当前环境创建云函数、云数据库等资源，详情请参见 [部署详情](https://docs.cloudbase.net/cms/intro)。
 ![](https://main.qcloudimg.com/raw/af882d4cb9d5262efe7cc1ee05ae3659.png)
 
 ## 相关文档
