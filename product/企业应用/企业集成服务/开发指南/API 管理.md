@@ -6,7 +6,7 @@
 登录 [企业集成服务控制台](https://console.cloud.tencent.com/eis)，单击左侧工具栏 **API 中心 > API 管理**，即可进入 API 管理的主页面。您可以创建或查看 API，API 列表中展示有 API 服务名称、API 服务状态、API 服务域名、API 更新时间、endpoint 统计、API 服务的鉴权方式以及操作等内容。
 ![API管理](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/API%E7%AE%A1%E7%90%86%E9%A6%96%E9%A1%B5png.png)
 
-## 创建 API 服务
+## [创建 API 服务](id:create)
 API 管理功能支持 3.0.0 版本的 OpenAPI 规范。OpenAPI 3.0.0 规范的对象定义请参考 [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)。用户可以通过单击**创建 API 服务**进入 API 创建界面。
 **创建步骤：**
 1. 配置 API 服务的基本配置，包括 API 服务名称（必填）、API 服务支持的协议类型（必填）、版本号（必填）以及针对该 API 服务的简单描述（非必填）。![API创建](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E5%88%9B%E5%BB%BAAPI%E6%9C%8D%E5%8A%A1.png)
@@ -51,7 +51,7 @@ API 管理功能支持 3.0.0 版本的 OpenAPI 规范。OpenAPI 3.0.0 规范的�
 
 
 ## 使用流程
-1. 创建 API 服务及其 API Endpoint，流程参考上方页面介绍。
+1. 创建 API 服务及其 API Endpoint，流程参考上方 [创建 API 服务](#create)。
 2. 获取 API 请求地址。
  1. 在 API 服务列表中获取 API 服务的域名。![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E5%A4%8D%E5%88%B6%E6%9C%8D%E5%8A%A1%E5%9F%9F%E5%90%8D.png)
  2. 在 API Endpoint 列表中获取需要请求的 Endpoint 路径。![获取路径](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84.png)
