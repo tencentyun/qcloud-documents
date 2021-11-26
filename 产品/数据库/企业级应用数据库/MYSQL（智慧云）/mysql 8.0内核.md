@@ -30,7 +30,7 @@
 - 升级xtrabackup，支持备份和回档有sm4算法加密的库
 
 
->!因为工具不支持解析加密的binlog, 目前还不支持物理回档加密binlog的实例。
+>!国密加密算法为选配组件，需要额外付费才能使用。
 
 
 - 支持oracle语法 for update wait n, 单独设置sql的等锁时间
