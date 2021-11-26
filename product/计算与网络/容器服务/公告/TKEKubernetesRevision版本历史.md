@@ -48,7 +48,7 @@
 	<li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/99336" target="_blank">pr99336</a>，改进 kubelet 启动时节点信息的同步机制。(kubelet)</li>
 	<li> 修复 <a href="https://github.com/kubernetes/kubernetes/pull/104340" target="_blank">CVE-2021-25741</a>，避免通过软链不合法访问主机文件。(kubelet)</li>
 	<li> 优化 cbs 磁盘创建失败导致调度超时的错误信息。(kube-scheduler)</li>
-	<li> 优化 grpc 日志，避免 kubelet 采集 volumezhu 状态时打印过多日志。(kubelet)</li>
+	<li> 优化 grpc 日志，避免 kubelet 采集 volume 状态时打印过多日志。(kubelet)</li>
 	<li> 避免使用了 cbs 的 Pod 调度到外部 CHC 节点。(kube-scheduler)</li></ul></td></tr>
 	<tr>
 	<tr><td>2021-08-23</td><td>v1.18.4-tke.14</td>
