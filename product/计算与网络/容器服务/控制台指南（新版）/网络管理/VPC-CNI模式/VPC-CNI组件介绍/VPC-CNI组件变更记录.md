@@ -79,8 +79,8 @@ kubectl -nkube-system get deploy tke-eni-ip-scheduler -o jsonpath={.spec.templat
 * 修复 CVM 已关机下不断重试解绑网卡的问题
 * 修复异步日志同步写导致的 panic 问题
 * 优化非固定 IP 模式的网卡同步逻辑，保证内部数据一致性，避免解绑正在使用的网卡
-* 修复从 v3.2 升级的非固定 IP 集群由于子网 IP 不足导致网卡信息不能正确保留的问题
-* 修复存量使用主 IP 的网卡可能在只剩余这个网卡 IP 时被错误释放的问题
+* 修复从 v3.2 升级的非固定 IP 集群由于子网 IP 不足导致存量节点不能分配 IP 的问题
+* 修复存量网卡主 IP 被 Pod 使用的网卡可能会被错误释放的问题
 
     </td><td>对业务无影响</td>
 </tr>
@@ -100,8 +100,8 @@ kubectl -nkube-system get deploy tke-eni-ip-scheduler -o jsonpath={.spec.templat
 * ip-scheduler 支持抢占，但只支持默认资源不足导致的抢占，暂不支持 ip 资源不足导致的抢占
 * 重构共享网卡的安全组功能逻辑，支持与节点设置安全组强同步，保证安全组绑定顺序与优先级与用户设置一致
 * 支持 cilium cni-chain 模式
-* 支持使用社区的 portmap 插件实现 Pod `hostPort` 字段
-* 支持 Pod、vip、veni 打上注解 `tke.cloud.tencent.com/claim-expired-duration` 实现特定的固定 IP 回收时间，Pod 注解只影响增量
+* eni-agent 支持`--port-mapping` 参数实现 Pod `hostPort` 字段支持
+* 支持 Pod 打上注解 `tke.cloud.tencent.com/claim-expired-duration` 实现特定的固定 IP 回收时间，Pod 注解只影响增量
 
     </td><td>对业务无影响</td>
 </tr>
@@ -116,7 +116,7 @@ kubectl -nkube-system get deploy tke-eni-ip-scheduler -o jsonpath={.spec.templat
 * 修复由于 VPC 任务不存在导致的 VPC 任务轮询超时问题
 * 修复由于网卡创建任务失败导致的 eni-ipamd panic 问题
 * 优化路由对账逻辑，只清除属于 eni-agent 管理的 IP 路由
-* 修复独立网卡非固定 IP 模式在删除 CRD veni 的时候可能由于网卡已经释放导致的异常 panic 问题
+* 修复独立网卡非固定 IP 模式在释放网卡的时候可能由于网卡已经释放导致的异常 panic 问题
 
     </td><td>对业务无影响</td>
 </tr>
@@ -133,9 +133,9 @@ kubectl -nkube-system get deploy tke-eni-ip-scheduler -o jsonpath={.spec.templat
     <td>
 
 * 减少独占网卡模式下绑定网卡的重试时间，提高绑定效率
-* 绑定和解绑网卡时增加 instance 粒度的锁，提高绑定和解绑的效率
-* 非固定 IP 模式添加子网分配器，实现给网卡精准分配子网。
-* eni-agent 使用 node 对象里的 containerRuntime 信息来连接 CRI
+* 通过并发控制，减少并发绑定和解绑网卡的失败，提高绑定和解绑的效率
+* 非固定 IP 模式优化网卡子网分配逻辑，修复并发加节点时，部分节点在 IP 充足的情况下拿不到 IP 的问题
+* eni-agent 垃圾回收机制支持自感知底层运行时，并支持 containerd
 
     </td><td>对业务无影响</td>
 </tr>
@@ -146,9 +146,7 @@ kubectl -nkube-system get deploy tke-eni-ip-scheduler -o jsonpath={.spec.templat
 * eni-ipamd 和 ip-scheduler 部署时增加 dnsConfig，避免用户自建 DNS 带来的问题
 * 共享网卡固定 IP 模式下，每个节点绑定的网卡的 subnetID 信息会同步到节点的 label 上，key 为 `tke.cloud.tencent.com/route-eni-subnet-ids`
 * eni-agent 会尝试获取 IP 申请分配失败的原因，并返回给 CNI 插件，最终体现在 Pod event 中
-* eni-ipamd 自动定时删除存活超时的非本集群占用的 VpcIP，默认超时时间为 `7d`
 * 支持裸 Pod 指定 IP，通过注解 `tke.cloud.tencent.com/nominated-vpc-ip` 可指定
-* 固定 IP 模式将定时垃圾回收无 Pod 使用的 CRD
 * eni-agent 支持定时测试和 APIServer 的连接情况，若超时则自动重启
 * 修复由于内部数据不一致导致的 ip 浪费的问题
 
