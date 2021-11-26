@@ -4,8 +4,6 @@
 - 新增关闭lvs机器lro功能。
 - keepalived调整拨测方式，默认采用misc_check方式对网关进行拨测。
 - keepalived探活方式可以通过zk配置下发。
-- 
-
 
 
 ## 功能优化
