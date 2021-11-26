@@ -33,17 +33,16 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
-	<tr>
 	<tr><td>2021-11-26</td><td>v1.18.4-tke.15</td>
-<td><ul class="params"><li>合并<a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/96444" target="_blank">pr96444</a>，在同步RBAC策略时，如果有错误则返回重试(kube-apiserver)</li>
-	<li>添加混合云外部节点支持定制化安装其他cni(kube-controller-manager)</li>
-	<li>支持云游安卓容器分组绑核需求(kubelet)</li>
-	<li>支持扩展调度器Prebind及Unreserve操作(kube-scheduler)</li>
-	<li>合并<a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/99336" target="_blank">pr99336</a>，改进kubelet启动时节点信息的同步机制(kubelet)</li>
-	<li>修复<a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/104340" target="_blank">CVE-2021-25741</a>，避免通过软链不合法访问主机文件(kubelet)</li>
-	<li>优化cbs磁盘创建失败导致调度超时的错误信息(kube-scheduler)</li>
-	<li>优化grpc日志，避免kubelet采集volumezhu状态时打印过多日志(kubelet)</li>
-	<li>避免使用了cbs的Pod调度到外部CHC节点(kube-scheduler)</li></ul></td></tr>
+<td><ul class="params"><li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/96444" target="_blank">pr96444</a>，在同步 RBAC 策略时，如果有错误则返回重试。(kube-apiserver)</li>
+	<li> 添加混合云外部节点支持定制化安装其他 cni。(kube-controller-manager)</li>
+	<li> 支持云游安卓容器分组绑核需求。(kubelet)</li>
+	<li> 支持扩展调度器 Prebind 及 Unreserve 操作。(kube-scheduler)</li>
+	<li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/99336" target="_blank">pr99336</a>，改进 kubelet 启动时节点信息的同步机制。(kubelet)</li>
+	<li> 修复 <a href="https://github.com/kubernetes/kubernetes/pull/104340" target="_blank">CVE-2021-25741</a>，避免通过软链不合法访问主机文件。(kubelet)</li>
+	<li> 优化 cbs 磁盘创建失败导致调度超时的错误信息。(kube-scheduler)</li>
+	<li> 优化 grpc 日志，避免 kubelet 采集 volumezhu 状态时打印过多日志。(kubelet)</li>
+	<li> 避免使用了 cbs 的 Pod 调度到外部 CHC 节点。(kube-scheduler)</li></ul></td></tr>
 	<tr>
 	<tr><td>2021-08-23</td><td>v1.18.4-tke.14</td>
 <td><ul class="params"><li>从 TKE 集群扩容到 EKS：支持固定 IP   (kube-scheduler)</li>
