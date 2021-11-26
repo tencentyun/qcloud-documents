@@ -17,7 +17,7 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 
 #### sharedInstance()
 
-```objective-c
+```c
 + (nonnull instancetype)sharedInstance;
 ```
 
@@ -30,7 +30,7 @@ OcrSDKKit 的单例对象。
 [](id:clearInstance)
 #### clearInstance()
 
-```objective-c
+```c
 /// 清理 SDK 资源
 + (void)clearInstance;
 ```
@@ -42,7 +42,7 @@ OcrSDKKit 的单例对象。
 [](id:getVersion())
 #### getVersion()
 
-```objective-c
+```c
 - (NSString *_Nonnull)getVersion;
 ```
 
@@ -55,7 +55,7 @@ OcrSDKKit 的单例对象。
 [](id:loadSDKConfig)
 #### loadSDKConfig()
 
-```objective-c
+```c
 /// SDKKIt 加载 OCR 配置信息 这里使用的密钥为固定密钥，当使用临时密钥时，secretId secretKey 填入 nil 空值
 /// @param secretId  Secret id
 /// @param secretKey Secret key
@@ -78,7 +78,7 @@ OcrSDKKit 的单例对象。
 [](id:updateFederationToken())
 #### updateFederationToken()
 
-```objective-c
+```c
 /// @param tmpSecretId 临时 SecretId
 /// @param tmpSecretKey 临时密钥信息
 /// @param token 临时兑换 token
@@ -99,7 +99,7 @@ OcrSDKKit 的单例对象。
 [](id:startProcessOcr())
 #### startProcessOcr()
 
-```objective-c
+```c
 /// 启动 SDK 模块，运行带有 UI 界面的功能识别模块
 /// @param ocrType  识别模式
 /// @param CustomConfigUI ocrUI 配置类 当传入 nil 时使用默认配置
