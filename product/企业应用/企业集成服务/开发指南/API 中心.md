@@ -16,7 +16,7 @@ API 管理功能支持 3.0.0 版本的 OpenAPI 规范。OpenAPI 3.0.0 规范的�
  - 访问限制策略：指从配置时间算起，每单位自然时间内允许的最大访问次数，填写范围为1-5000。![API服务策略](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/API%E6%9C%8D%E5%8A%A1%E7%AD%96%E7%95%A5.png)
 
 
-## API Endpoint 管理
+## [API Endpoint](id:manage)
 当我们创建一个 API 服务后，则代表此 API 已经生成，可以开始编辑其具体行为。API Endpoint 指一个 API 服务可以连接的后端服务信息，包括 API 的访问路径（API Path）、API 的调用方式、API Endpoint 绑定的后端服务类型、最近修改时间以及相关操作。默认新创建好的 API 服务没有已绑定的 Endpoint 信息，需要进行创建完成首次的绑定工作。单击**添加 API Endpoint**，即可开启编辑工作。![endpoint](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/endpoint.png)
 **创建步骤：**
 1. 基本配置：填写 Endpoint 的基本信息，包括访问路径、后端服务类型（支持选择现成的集成流或者绑定第三方服务 BASE URL）和后端服务地址。![APIendpoint基本配置](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/APIendpoint%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE.png)
@@ -51,7 +51,7 @@ API 管理功能支持 3.0.0 版本的 OpenAPI 规范。OpenAPI 3.0.0 规范的�
 
 
 ## 使用流程
-1. 创建 API 服务及其 API Endpoint，流程参考上方 [创建 API 服务](#create)。
+1. [创建 API 服务](#create)及其 [API Endpoint](#manage)，流程参考上方 。
 2. 获取 API 请求地址。
  1. 在 API 服务列表中获取 API 服务的域名。![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E5%A4%8D%E5%88%B6%E6%9C%8D%E5%8A%A1%E5%9F%9F%E5%90%8D.png)
  2. 在 API Endpoint 列表中获取需要请求的 Endpoint 路径。![获取路径](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84.png)
