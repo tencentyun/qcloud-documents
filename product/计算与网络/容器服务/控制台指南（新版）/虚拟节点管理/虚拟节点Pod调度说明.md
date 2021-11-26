@@ -124,11 +124,6 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 <td>如果工作负载为 StatefulSet，也可以使用指定已有 EIP 的方式，可指定多个，如"eip-xx1,eip-xx2"。请注意，StatefulSet pod 的数量必须小于等于此 annotation 中指定 EIP Id 的数量，否则分配不到 EIP 的 pod 会处于 Pending 状态。注意，非带宽上移的账号无法使用。</td>
 <td>否 </td>
 </tr>
-<tr>
-<td>eks.tke.cloud.tencent.com/eip-injection</td>
-<td>值为 "true" 时，表明会在 Pod 内暴露 EIP 的 IP 信息。在 Pod 内使用 ip addr 命令可以查看到 EIP 的地址。注意，非带宽上移的账号无法使用。</td>
-<td>否 </td>
-</tr>
 </tbody></table>
 
 
