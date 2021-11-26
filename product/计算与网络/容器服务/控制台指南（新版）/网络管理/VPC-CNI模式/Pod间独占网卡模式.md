@@ -1,6 +1,6 @@
 
 Pod 间独占网卡模式在原有 VPC-CNI 模式单网卡多 IP 模式的基础上，进阶为容器直接独享使用弹性网卡。无缝对接腾讯云私有网络产品的全部功能，同时在性能做了极大的提升。
->! 目前该功能正处于内测阶段，您可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 申请开通使用。
+>! 目前该功能正处于内测阶段，您可通过 [内测申请](https://cloud.tencent.com/apply/p/85p1zs6x777) 开通使用。
 
 ## 功能简介
 
