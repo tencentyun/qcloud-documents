@@ -60,7 +60,7 @@ OCR SDK 需要手机网络、 摄像头、访问相册的使用权限，请添�
 
 客户初始化 OCR SDK
 
-```objective-c
+```c
 #import <OcrSDKKit/OcrSDKKit.h>
 #import <OcrSDKKit/OcrSDKConfig.h>
    
@@ -82,7 +82,7 @@ ocrSDKConfig.ocrModeType = _ocrModel;
 
 #### 	进入 OCR 主页面
 
-```objective-c
+```c
 /*!
 *	OCR UI 配置类：
 */
@@ -106,7 +106,7 @@ customConfigUI.remindConfirmColor = [UIColor blueColor];
 
 OCR SDK 支持使用临时密钥接口，使用临时密钥的好处主要有以下两点，第一将固定密钥与终端分离可以增加安全性；第二因为兑换临时密钥是您完全可控的行为，因此您可以根据自定义规则来控制最终用户的接口访问权限。因此建议您使用临时密钥的方式，具体可以参考文档 [(**临时密钥文档与流程链接**)](https://github.com/TencentCloud/tc-ocr-sdk/tree/master/%E4%B8%B4%E6%97%B6%E5%AF%86%E9%92%A5%E5%85%91%E6%8D%A2)
 
-```objective-c
+```c
 /// @param tmpSecretId 临时 SecretId
 /// @param tmpSecretKey 临时密钥信息
 /// @param token 临时兑换 token
@@ -115,7 +115,7 @@ OCR SDK 支持使用临时密钥接口，使用临时密钥的好处主要有以
 
 #### SDK 资源释放
 
-```objective-c
+```c
 /// 清理 SDK 资源
 [OcrSDKKit clearInstance];
 ```
