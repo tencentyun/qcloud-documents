@@ -4,6 +4,13 @@
     <tr><th> 时间         </th><th> 版本                 </th><th> 更新内容                           </th></tr>
   </thead>
   <tbody>
+	<tr><td>2021-11-26</td><td>v1.20.6-tke.7</td><td><li> 添加混合云外部节点支持定制化安装其他 cni。(kube-controller-manager)</li> 
+<li> 避免对 Pod Assumed 之后的更新进行不必要的处理。(kube-scheduler)</li> 
+<li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/99336">pr99336</a>，改进 kubelet 启动时节点信息的同步机制。(kubelet)</li> </td></tr>
+<tr><td>2021-10-13</td><td>v1.20.6-tke.6</td><td>合并 89465，修复滚动更新时基于 pod 指标的 HPA 错误计算实例个数的问题。(kube-controller-manager)</td></tr>
+<tr><td>2021-09-27</td><td>v1.20.6-tke.5</td><td>支持收集 containerd 运行时的磁盘用量指标。(kubelet)</td></tr>
+<tr><td>2021-09-23</td><td>v1.20.6-tke.4</td><td><li>修复使用 cgroup v2 时存储指标没有数据的问题。(kubelet)</li>
+<li> 修复 <a href="https://github.com/kubernetes/kubernetes/pull/104348">CVE-2021-25741</a>，避免通过软链不合法访问主机文件。(kubelet)</td></tr>
 <tr><td>2021-07-19 </td><td> v1.20.6-tke.3</td><td><ul class="params">
 <li>从 TKE 集群扩容到 EKS，在批量调度 Pod 时，能正确感知子网剩余 ip，调度正确数量的 Pod 到虚拟节点上。  (kube-scheduler)</li>
 <li>移植 upstream 对 kubelet 及 cadvisor 的修改，修复使用 cgroupv2 时指标收集统计的问题。  (kubelet)</li></td></ul></tr>
