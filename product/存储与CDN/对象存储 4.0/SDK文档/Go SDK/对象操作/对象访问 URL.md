@@ -21,7 +21,7 @@ func (s *ObjectService) GetObjectURL(key string) *url.URL
 
 [//]: # (.cssg-snippet-get-object-url-alias)
 ```go
-name := "exampleobject"
+key := "exampleobject"
 ourl := c.Object.GetObjectURL(name)
 ```
 
