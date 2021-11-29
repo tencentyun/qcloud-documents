@@ -28,7 +28,6 @@ remote-as <bgp_peer_as_number>
 password encrypted <bgp_auth_key>
 description <bgp_peer_desc>
 remote-as <bgp_peer_as_number> fall-over bfd //设置 BGP 联动 BFD
-
 commit
 
 ```
