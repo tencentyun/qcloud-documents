@@ -147,6 +147,7 @@ imageView.sd_CI_setImage(with: NSURL.init(string: "图片链接"), transformatio
 pod 'CloudInfinite/AVIF'
 ```
 
+
 ### 调用 UIImageView+CI 加载 AVIF
 
 **Objective-C**
