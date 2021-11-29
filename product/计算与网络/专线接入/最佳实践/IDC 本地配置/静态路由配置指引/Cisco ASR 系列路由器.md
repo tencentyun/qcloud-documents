@@ -38,4 +38,5 @@ vrf <vrf-name> //如果没有指定 VRF，静态路由在 default VRF 下
   address-family <ipv4 | ipv6> unicast
   <ip-prefix/netmask> <next_hop_ip> <interface_number> <description_text> <distance> <tag tag_value> track <operation-number>
 commit
+
 ```
