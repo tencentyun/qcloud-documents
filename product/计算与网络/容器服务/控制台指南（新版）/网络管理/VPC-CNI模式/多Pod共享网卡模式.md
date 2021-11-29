@@ -41,17 +41,17 @@ VPC-CNI 多 Pod 共享网卡模式使用原理图如下所示：
 
 ### 多网卡数据面原理
 
-**注：当前仅非固定 IP 模式支持多网卡**
+>! 当前仅非固定 IP 模式支持多网卡。
 
 当节点绑定了多张网卡时，Pod 发出的网络包遵循策略路由转发到对应的网卡上：
 - 在节点上执行 `ip link` 可看到节点所有的网络设备信息，通过弹性网卡的 mac 地址比对，可知道其中弹性网卡对应的网络设备。一般情况下，`eth0`为主网卡，`eth1`、`eth2`等为辅助弹性网卡：
 ![](https://qcloudimg.tencent-cloud.cn/raw/b4b357d3b4991195c8a618e817bc8c81.jpg)
 
 - 在节点上执行 `ip rule` 可看到策略路由表的信息，TKE 网络组件通过弹性网卡的 `<link index>+2000` 得到路由表号，绑定了对应网卡 IP 的 Pod 网络包都将转发到该路由表，如此例中，eth1 对应的路由表即为 2003，eth2 对应的路由表即为 2010：
-![](https://qcloudimg.tencent-cloud.cn/raw/ba602ef34fa68c6de1308beaf2e43b1e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0c3a14cb4402a5c108ac6f9b1f72f5cf.png)
 
 - 对应的路由表则设置了到对应网卡的默认路由，节点上执行 `ip route show table <id>` 可查看：
-![](https://qcloudimg.tencent-cloud.cn/raw/295af0a7dce03e3961e3bc8b781b4f34.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/881653493b4188b34a78e3b3e769adc6.png)
 
 而欲发送给 Pod 的网络包到达节点时，同样遵循策略路由，直接通过主路由表发送给 Pod 的 Veth 网卡。
 
