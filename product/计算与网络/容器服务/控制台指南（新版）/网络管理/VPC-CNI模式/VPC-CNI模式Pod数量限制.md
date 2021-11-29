@@ -22,7 +22,7 @@
 </tr>
 </table>
 
-各机型可绑定的网卡数量和单网卡可绑定的 IP 数量略有差异，详见[弹性网卡使用限制](https://cloud.tencent.com/document/product/576/18527)。
+各机型可绑定的网卡数量和单网卡可绑定的 IP 数量略有差异， 详情见 [弹性网卡使用限制](https://cloud.tencent.com/document/product/576/18527)。
 
 ## 独占网卡模式 Pod 数量限制
 
