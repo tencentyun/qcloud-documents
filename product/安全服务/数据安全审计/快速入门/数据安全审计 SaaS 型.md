@@ -18,7 +18,7 @@
 
 
 ## 步骤2： 部署 Agent
-1. 完成资产添加，并开启审计权限后，进入 **配置管理** > **Agent 管理** > **[Agent 部署](https://console.cloud.tencent.com/dsaudit/agent)** 页面。
+1. 完成资产添加，并开启审计权限后，进入 **[Agent 管理](https://console.cloud.tencent.com/dsaudit/agent)** > **Agent 部署** 页面。
 2. 在 Agent 部署中，根据数据库和应用系统所在位置和操作系统，下载对应的 Agent，进行部署。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6524df86f03e724323ef4fcd44c95e21.png)
 3. Agent 部署完成后，单击 **Agent 列表**，切换至 Agent 列表页面，验证 Agent 状态是否正常。
