@@ -27,7 +27,7 @@
 ## 独占网卡模式 Pod 数量限制
 
 独占网卡的 Pod 数量只受限于节点可绑定的网卡数量，同时只支持 S5、SA2、IT5、SA3 等部分机型，默认情况详见下表：
-<table style="width:300px;">
+<table style="width:600px;">
 <tr>
 <th style ="width:95px;height:45px;position:relative;font-weight:700;" valign="top"><div style="position:absolute;width:1px;height:115px;top:0;left:0;background-color: #d9d9d9;transform:rotate(-60deg);transform-origin:top;"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CPU核数<br>机型</th><th>1</th><th>2</th><th>4</th><th>>=8</th><th>>=128</th>
 </tr>
