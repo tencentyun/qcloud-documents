@@ -15,10 +15,10 @@
 	<td>单网卡可绑定辅助 IP 数</td><td>5</td><td>9</td><td>19</td><td>29</td>
 </tr>
 <tr>
-	<td>非固定IP模式（多网卡）单节点 Pod IP 上限</td><td>5</td><td>27</td><td>95</td><td>203</td>
+	<td>非固定 IP 模式（多网卡）单节点 Pod IP 上限</td><td>5</td><td>27</td><td>95</td><td>203</td>
 </tr>
 <tr>
-	<td>固定IP模式（单网卡）单节点 Pod IP 上限</td><td>5</td><td>9</td><td>19</td><td>29</td>
+	<td>固定 IP 模式（单网卡）单节点 Pod IP 上限</td><td>5</td><td>9</td><td>19</td><td>29</td>
 </tr>
 </table>
 
