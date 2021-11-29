@@ -25,7 +25,7 @@
 7. 在“事件规则”顶部选框，选择与之前创建一致的事件集信息，并单击**新建事件规则**，如下图所示：
   ![](https://main.qcloudimg.com/raw/722e3a30a77d81c606a929d20191e349.jpg)
 8. 根据页面提示填写相关信息，如下图所示：
-![](https://main.qcloudimg.com/raw/32611f2ffc4a1f9696401e317e9b8521.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/0894ccd23860b71196fb868282e8c9c7.png)
    其中**云服务类型**选择**消息队列（TDMQ）**，并配置触发目标端。
 9. 单击**确定**即可创建 TDMQ 连接器。
 
@@ -63,12 +63,14 @@
 | 参数             | 描述                                                         |
 | ---------------- | ------------------------------------------------------------ |
 | topic            | Topic 完整路径 `persistent://appid/namespace/topic-1`。      |
+| tags             | TDMQ 标签。                                                  |
+| topictype        | topic 类型描述：<br><li>0：普通消息。<br><li>1：全局顺序消息。<br><li>2：局部顺序消息。<br><li>3：重试队列。<br><li>4：死信队列。 |
 | subscriptionName | 订阅名称。                                                   |
 | timestamp        | 时间戳，精确到毫秒。                                         |
-| tags             | TDMQ 标签。                                                  |
+|partitions|TMDQ 队列消费的 partition。|
 | msgId            | TDMQ 消息 ID。                                               |
 | msgBody          | TDMQ 消息体。                                                |
-| topictype        | topic 类型描述：<br><li>0：普通消息。<br><li>1：全局顺序消息。<br><li>2：局部顺序消息。<br><li>3：重试队列。<br><li>4：死信队列。 |
+
 
 
 

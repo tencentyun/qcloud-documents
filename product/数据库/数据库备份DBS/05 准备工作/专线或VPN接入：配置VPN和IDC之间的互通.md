@@ -9,9 +9,8 @@
 请参考 [建立 VPC 到 IDC 的连接](https://cloud.tencent.com/document/product/554/18988)。
 
 ## 后续步骤
-1. VPN 与 IDC 连通后，在 DBS 配置备份计划页面选择**VPN 接入**，关键参数配置说明如下：
+1. VPN 与 IDC 连通后，在 [DBS 配置备份计划页面](https://console.cloud.tencent.com/dbs) 选择**VPN 接入**，关键参数配置说明如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/07d57b0b12dd15feaf675a54a8d21fd8.png)
-
 <table>
 <thead><tr><th><strong>参数</strong></th><th><strong>说明</strong></th><th><strong>参数示例</strong></th></tr></thead>
 <tbody><tr>
@@ -49,4 +48,3 @@
      - 帐号或密码不正确。
      
 
- 
