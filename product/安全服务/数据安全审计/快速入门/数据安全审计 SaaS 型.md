@@ -18,22 +18,23 @@
 
 
 ## 步骤2： 部署 Agent
-1. 完成资产添加，并开启审计权限后，进入 **配置管理** > **Agent 管理**页面，在 Agent 部署中，根据数据库和应用系统所在位置和操作系统，下载对应的 Agent，进行部署。
+1. 完成资产添加，并开启审计权限后，进入 **[配置管理](https://console.cloud.tencent.com/dsaudit/agent)** > **Agent 管理**页面。
+2. 在 Agent 部署中，根据数据库和应用系统所在位置和操作系统，下载对应的 Agent，进行部署。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6524df86f03e724323ef4fcd44c95e21.png)
-2. Agent 部署完成后，单击**Agent 列表**，切换至 Agent 列表页面，验证 Agent 状态是否正常。
+3. Agent 部署完成后，单击**Agent 列表**，切换至 Agent 列表页面，验证 Agent 状态是否正常。
 ![](https://qcloudimg.tencent-cloud.cn/raw/162d9eee630c7edf951accf1e930950a.png)
 
 ## 步骤3：配置审计规则
-1. 在审计规则页面，可查看系统中的审计规则，若内置规则无法满足您的特定需要，您可以单击**新建**创建自定义规则。
+1. 在 **[审计规则](https://console.cloud.tencent.com/dsaudit/rule)** > **规则列表**页面，可查看系统中的审计规则，若内置规则无法满足您的特定需要，您可以单击**新建**创建自定义规则。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e0cef05f6f25ef6b459ffc8b8852b686.png)
 2. 单击**规则启用**，进入规则启用页面，选择数据资产，为其启用需要的审计规则。
 ![](https://qcloudimg.tencent-cloud.cn/raw/57607f148276a893738fb00ca4e46b3d.png)
 
 
 ## 步骤4：查看审计日志
-1. 完成以上配置后，在审计日志页面，查看数据库的操作日志。
+1. 完成以上配置后，在 [审计日志](https://console.cloud.tencent.com/dsaudit/log) 页面，可查看数据库的操作日志。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ef4f3fadafe426e2bdeb4aebb30a33d5.png)
-2. 在审计风险页面，可查看发现的数据安全风险，安全管理人员可根据风险提示，判断是否需要采取进一步措施。
+2. 在 [审计风险](https://console.cloud.tencent.com/dsaudit/risk) 页面，可查看发现的数据安全风险，安全管理人员可根据风险提示，判断是否需要采取进一步措施。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bb22bea5912ec790ce9d5033ff06dbda.png)
 
 
