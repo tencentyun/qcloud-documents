@@ -16,21 +16,6 @@ kubectl -nkube-system get deploy tke-eni-ip-scheduler -o jsonpath={.spec.templat
 ## 变更记录
 
 
-VPC-CNI 组件总共包括3个 kubernetes 集群组件，分别是 `tke-eni-agent`、`tke-eni-ipamd` 和 `tke-eni-ip-scheduler`。一般情况下，三个组件版本相同，但`tke-eni-ip-scheduler` 组件变更较少，版本可能会稍微落后。
-
-## 查看当前组件的版本信息
-
-组件的版本即为镜像的 Tag，通过 kubernetes API 可查看：
-```
-# 查看 tke-eni-agent 的版本
-kubectl -nkube-system get ds tke-eni-agent -o jsonpath={.spec.template.spec.containers[0].image}
-# 查看 tke-eni-ipamd 的版本
-kubectl -nkube-system get deploy tke-eni-ipamd -o jsonpath={.spec.template.spec.containers[0].image}
-# 查看 tke-eni-ip-scheduler 的版本
-kubectl -nkube-system get deploy tke-eni-ip-scheduler -o jsonpath={.spec.template.spec.containers[0].image}
-```
-
-## 变更记录
 
 <table>
 <tr>
