@@ -69,7 +69,7 @@ $ sudo mtr www.baidu.com
 sudo mtr -rw 192.168.1.1
 # 也可以直接 sudo mtr 192.168.1.1
 ```
-![](https://qcloudimg.tencent-cloud.cn/raw/baaffb47aea084d473a5407656e4f34d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0ad46fd5d06e1897e52adf794ec97f75.png)
 
 常见可选参数说明：
 - -r 或 --report：以报告模式显示输出。
