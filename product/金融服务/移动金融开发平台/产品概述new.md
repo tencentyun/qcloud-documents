@@ -148,5 +148,5 @@
 </table>
 
 ## 产品使用流程
-![](https://qcloudimg.tencent-cloud.cn/raw/d7d1bd868fe3544d6c4701a77b78c50a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/284a825dedc3d8c07efedd73ca36c0a9.png)
 
