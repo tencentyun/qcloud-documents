@@ -160,5 +160,5 @@ TMF 移动开发平台是一款金融级平台，全面拥抱国家隐私安全�
 </table>
 
 ## 产品使用流程
-![](https://qcloudimg.tencent-cloud.cn/raw/284a825dedc3d8c07efedd73ca36c0a9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/189c7d74d5ad68b2e2de57218959738a.png)
 
