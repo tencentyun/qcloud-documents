@@ -24,9 +24,11 @@ cos.getObjectUrl({
     Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Sign: true,    /* 获取带签名的对象URL */
 }, function(err, data) {
-  if (err) return console.log(err);
-  // 复制downloadUrl的值到浏览器打开会自动触发下载
-  var downloadUrl = data.Url + (data.Url.indexOf('?') > -1 ? '&' : '?') + 'response-content-disposition=attachment'; // 补充强制下载的参数
+    if (err) return console.log(err);
+    /* url为对象访问url */
+    var url = data.Url;
+    /* 复制downloadUrl的值到浏览器打开会自动触发下载 */
+    var downloadUrl = data.Url + (data.Url.indexOf('?') > -1 ? '&' : '?') + 'response-content-disposition=attachment'; // 补充强制下载的参数
 });
 ```
 
