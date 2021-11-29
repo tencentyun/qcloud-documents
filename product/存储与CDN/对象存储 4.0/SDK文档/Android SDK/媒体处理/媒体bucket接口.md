@@ -17,6 +17,7 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](http
 用于查询已经开通媒体处理功能的存储桶。
 
 >! COS Android SDK 版本需要大于等于 v5.7.6。
+>
 
 #### 示例代码
 
@@ -52,4 +53,5 @@ cosXmlService.getDescribeMediaBucketsAsync(request, new CosXmlResultListener() {
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/MediaOperation.java) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/MediaOperation.java) 查看。
+>
