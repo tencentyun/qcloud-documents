@@ -1,6 +1,9 @@
+
 如您有自定义的权限管理诉求，您可以通过创建 CAM 自定义策略，并关联至子账号实现自定义授权。您可参考文本并根据实际业务诉求进行配置。
 
-CAM自定义策略核心元素包括：操作（action）、资源（resource）、生效条件（condition）以及效力（effect）。
+## CAM 元素参考
+
+CAM 自定义策略核心元素包括：操作（action）、资源（resource）、生效条件（condition）以及效力（effect）。
 
 ### 1. 操作（action）
 
@@ -75,8 +78,8 @@ CAM自定义策略核心元素包括：操作（action）、资源（resource）
 
 | API 操作 | API 描述 | 资源 |
 | :-------- | :--------| :------ |
-|  ForwardRequestRead |  读Istio的CRD资源 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
-| ForwardRequestWrite |  写Istio的CRD资源 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
+|  ForwardRequestRead |  读 Istio 的 CRD 资源 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
+| ForwardRequestWrite |  写 Istio 的 CRD 资源 | mesh 资源 ` qcs::tcm:$region:$account:mesh/$meshid ` |
 
 ### 服务发现相关
 
@@ -98,6 +101,6 @@ CAM自定义策略核心元素包括：操作（action）、资源（resource）
 
 | API 操作 | API 描述 | 资源 |
 | :-------- | :--------| :------ |
-| CreateTrial |  创建服务网格一键体验环境 | 只对接口进行鉴权 ` * ` |
-| DeleteTrial |  删除服务网格一键体验环境 | 只对接口进行鉴权 ` * ` |
-| RetryTrialTask |  重试创建服务网格一键体验环境 | 只对接口进行鉴权 ` * ` |
+| CreateTrial |  创建服务网格一键体验环境 | 只对接口进行鉴权 `*` |
+| DeleteTrial |  删除服务网格一键体验环境 | 只对接口进行鉴权 `*` |
+| RetryTrialTask |  重试创建服务网格一键体验环境 | 只对接口进行鉴权 `*` |

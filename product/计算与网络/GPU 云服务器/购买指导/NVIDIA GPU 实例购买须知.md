@@ -27,7 +27,7 @@ GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共�
 ![](https://main.qcloudimg.com/raw/7b249eacc1ab6d29bd9bb92bc0efcbfe.png)
 <dx-alert infotype="notice" title="">
 **GPU 云服务器必须具备相应的 GPU 驱动才能正常运行。** 您可通过以下4种方式，安装相应驱动：
- - 若选择**公共镜像**，则勾选**后台自动安装GPU驱动**即可预装相应办版本驱动，建议您选择该方式。该方式仅支持部分 Linux 公共镜像，详情请参见 [GPU 驱动预装信息](#PreloadGPUDrive)。
+ - 若选择**公共镜像**，则勾选**后台自动安装GPU驱动**即可预装相应版本驱动，建议您选择该方式。该方式仅支持部分 Linux 公共镜像，详情请参见 [GPU 驱动预装信息](#PreloadGPUDrive)。
  - 若选择**公有镜像**，则在 GPU 实例创建成功后，可参照 [安装 NVIDIA 驱动指引](https://cloud.tencent.com/document/product/560/8048) 手动安装相应驱动。
  - 若选择**镜像市场**，则可选择预装了 GPU 驱动的镜像，详情请参见 [使用预装 GPU 驱动的镜像](https://cloud.tencent.com/document/product/560/30129)。
  - 若您购买的是 vGPU 实例，则可选择已预装了 GRID 驱动的公共镜像，无需单独安装驱动。

@@ -19,6 +19,8 @@ TkeServiceConfig 不会帮您配置并修改协议、端口、域名以及转发
  - `spec.loadBalancer.l7Listeners.port`：监听端口
  - `spec.loadBalancer.l7Listeners.domains[].domain`：域名
  - `spec.loadBalancer.l7Listeners.domains[].rules[].url`：转发路径
+ - `spec.loadBalancer.l7listeners.protocol.domain.rules.url.forwardType`: 指定后端协议
+    - 后端协议是指 CLB 与后端服务之间的协议：后端协议选择 HTTP 时，后端服务需部署 HTTP 服务。后端协议选中 HTTPS 时，后端服务需部署 HTTPS 服务，HTTPS 服务的加解密会让后端服务消耗更多资源。更多请查看 [CLB 配置 HTTPS 监听器](https://cloud.tencent.com/document/product/214/36385)
 
 >?当您的域名配置为默认值，即公网或内网 VIP 时，可以通过 domain 填空值的方式进行配置。
 
@@ -165,6 +167,7 @@ spec:
       - domain: ""     # domain为空表示使用VIP作为域名
         rules:
         - url: "/health"
+          forwardType: HTTP # 指定后端协议为 HTTP
           healthCheck:
             enable: false
     - protocol: HTTPS
@@ -173,6 +176,7 @@ spec:
       - domain: "sample.tencent.com"
         rules:
         - url: "/"
+          forwardType: HTTPS # 指定后端协议为 HTTPS
           session:
             enable: true
             sessionExpireTime: 3600
@@ -182,7 +186,7 @@ spec:
             healthNum: 2
             unHealthNum: 2
             httpCheckPath: "/checkHealth"
-            httpCheckDomain: "sample.tencent.com"
+            httpCheckDomain: "sample.tencent.com" #注意：健康检查必须使用固定域名进行探测，如果您在.spec.loadBalancer.l7Listeners.protocol.domains.domain 里填写的是泛域名，一定要使用 httpCheckDomain 字段明确具体需要健康检查的域名，否则泛域名不支持健康检查。
             httpCheckMethod: HEAD
           scheduler: WRR
 ```

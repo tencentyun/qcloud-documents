@@ -18,7 +18,7 @@
 步骤一：登录 [即时通讯控制台](https://console.cloud.tencent.com/im)，单击 SDKAppID 对应的应用。
 步骤二：在**基本配置**>**基本信息**中获取 SDKAppID 和密钥。（注意保密您的密钥）
 ![](https://main.qcloudimg.com/raw/927dbd204b483c778a73eabd2492033e.png)
-步骤三：打开 src/config/index.js文件，将该文件的 sdkAppId 和 secretKey 替换为您自己的信息即可。
+步骤三：打开 src/config/index.js 文件，将该文件的 sdkAppId 和 secretKey 替换为您自己的信息即可。
 ![](https://main.qcloudimg.com/raw/97031b62881d1f16afdb7226c5033ba6.png)
 
 如果您需要体验完整功能，请根据 Demo 源码配置文件的提示进行配置。

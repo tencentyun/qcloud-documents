@@ -1,7 +1,7 @@
 
 数据订阅 Kafka 版中，您可以直接通过0.11版本及以上的 [Kafka 客户端](http://kafka.apache.org/downloads) 进行消费订阅数据，本文为您提供了 Java、Go、Python 语言的客户端消费 Demo。
 
-## 消费 Demo 下载（云数据库 MySQL、MariaDB）
+## 消费 Demo 下载（云数据库 MySQL、MariaDB、TDSQL-C）
 参考下表下载数据订阅 Kafka 版客户端消费 Demo 代码：
 
 | Demo 语言 | 下载地址                                             |
@@ -184,7 +184,7 @@ message Event {
 2. 创建一个或多个消费组，详情请参见 [新增消费组](https://cloud.tencent.com/document/product/571/52377)。
 3. 下载 Golang Demo，然后解压该文件。
 4. 进入解压后的目录，运行`go build -o subscribe ./main`，生成可执行文件 subscribe。
-5. 运行 `./subscribe --brokers=xxx --topic=xxx --group=xxx --user=xxx \--password=xxx --trans2sql=true`。
+5. 运行 `./subscribe --brokers=xxx --topic=xxx --group=xxx --user=xxx --password=xxx --trans2sql=true`。
 6. 观察消费情况。
 ![](https://main.qcloudimg.com/raw/c94d9cfe2a62e903a6593e22ce2c60bf.png)
 
@@ -200,7 +200,7 @@ pip install protobuf
 1. 创建新版数据订阅通道，详情请参见 [数据订阅 Kafka版](https://cloud.tencent.com/document/product/571/52412)。
 2. 创建一个或多个消费组，详情请参见 [新增消费组](https://cloud.tencent.com/document/product/571/52377)。
 3. 下载 Python3 Demo ，然后解压该文件。
-4. 运行`python main.py --brokers=xxx --topic=xxx --group=xxx --user=xxx \--password=xxx --trans2sql=1`。
+4. 运行`python main.py --brokers=xxx --topic=xxx --group=xxx --user=xxx --password=xxx --trans2sql=1`。
 5. 观察消费情况。
 ![](https://main.qcloudimg.com/raw/6055041985904335b43d7df8f4e75561.png)
 

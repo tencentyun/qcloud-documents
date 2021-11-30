@@ -1,9 +1,9 @@
 TUIKit 组件在 4.8.50 版本之后基于 [TRTC](https://cloud.tencent.com/document/product/647/16788) 实现了单聊和群组的视频通话和语音通话功能， 并且实现了 iOS 和 Android 平台的互通。需要注意的是不同的版本在集成方式上有一定的区别：
 >! 
 >- **4.8.50 ~ 5.1.60 版本**的 `TUIKit` 组件默认集成了音视频通话 UI 组件和 [TRTC](https://cloud.tencent.com/document/product/647/16788) 音视频库，默认支持音视频通话相关功能。
->- **5.4.666** 及之后的版本 `TUIKit` 组件默认不再集成音视频通话 UI 组件和 [TRTC](https://cloud.tencent.com/document/product/647/16788) 音视频库，音视频相关逻辑都移到了 TUIKitLive 组件里面。
+>- **5.4.666 ~ 5.6.1200 版本**的 `TUIKit` 组件默认不再集成音视频通话 UI 组件和 [TRTC](https://cloud.tencent.com/document/product/647/16788) 音视频库，音视频相关逻辑都移到了 TUIKitLive 组件里面。
 >- **5.7.1435** 及以后的版本，音视频通话相关逻辑都移到了 TUICalling 组件中。
->- **TUILive , TUICalling 和 TUIKit 的版本要一致，否则音视频通话功能会出现异常，无法正常使用。**
+>- **TUIKitLive , TUICalling 和 TUIKit 的版本要一致，否则音视频通话功能会出现异常，无法正常使用。**
 
 <table style="text-align:center;vertical-align:middle;width: 400px">
   <tr>
@@ -25,47 +25,40 @@ TUIKit 组件在 4.8.50 版本之后基于 [TRTC](https://cloud.tencent.com/docu
 
 [](id:Step2)
 ## 步骤2：配置工程文件
-建议使用源码集成 TUIKit 和 TUICalling，以便于您修改源码满足自身的业务需求。
-在 `APP` 的 `build.gradle` 文件中添加对 `tuikit` 的依赖：
-```groovy
-implementation project(':tuikit')
-```
-在 `tuikit` 的 `build.gradle` 文件中添加依赖：
+在 `APP` 的 `build.gradle` 文件中添加对 `tuicalling` 的依赖：
 ```groovy
 api project(':tuicalling')
 ```
 
 [](id:Step3)
-## 步骤3：初始化 TUIKit 
-初始化 TUIKit 需要传入 [步骤1](#Step1) 生成的 SDKAppID。
-```
-TUIKit.init(this, SDKAPPID, null, null);
-```
+## 步骤3：TUI 组件初始化和登录 
+初始化 TUI 组件需要传入 [步骤1](#Step1) 生成的 SDKAppID。
 
-[](id:Step4)
-## 步骤4：登录 TUIKit
-登录 IM 需要通过 TUIKit 提供的 `login` 接口，其中 UserSig 生成的具体操作请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
+```java
+// 在程序启动的时候初始化 TUI 组件，通常是在 Application 的 onCreate 中进行初始化：
+TUILogin.init(this, SDKAPPID, null, null);
 ```
-TUIKit.login(userID, userSig, new V2TIMCallback() {
-    @Override
-    public void onError(int code, String desc) {
-        // 登录失败
-    }
+`userSig` 生成的具体操作请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
+```java   
+// 在用户 UI 点击登录的时候登录 UI 组件：
+TUILogin.login(userId, userSig, new V2TIMCallback() {
+	@Override
+	public void onError(final int code, final String desc) {
+	}
 
-    @Override
-    public void onSuccess() {
-        // 登录成功
-    }
+	@Override
+	public void onSuccess() {
+	}
 });
 ```
 
-[](id:Step5)
-## 步骤5：发起视频或语音通话
+[](id:Step4)
+## 步骤4：发起视频或语音通话
 <img style="width:180px" src="https://main.qcloudimg.com/raw/17698afaedf9ba86045c03ef85159bec.png"  /> 
 
 当用户点击聊天界面的视频通话或则语音通话时，TUIKit 会自动展示通话邀请 UI，并给对方发起通话邀请请求。
 
-## 步骤6：接受视频或语音通话
+## 步骤5：接受视频或语音通话
 
 <table style="text-align:center;vertical-align:middle;width: 400px">
   <tr>
@@ -79,13 +72,13 @@ TUIKit.login(userID, userSig, new V2TIMCallback() {
 </table>
 
 - 当用户**在线并且应用在前台时**收到通话邀请时，TUIKit 会自动展示通话接收 UI，用户可以选择同意或则拒绝通话。
-- 当用户**离线**收到通话邀请时，如需唤起 App 通话，就要使用到离线推送能力，离线推送的实现请参考 [步骤7](#Step7)。
+- 当用户**离线**收到通话邀请时，如需唤起 App 通话，就要使用到离线推送能力，离线推送的实现请参考 [步骤6](#Step6)。
 
-## 步骤7：离线推送[](id:Step7)
+## 步骤6：离线推送[](id:Step6)
 实现音视频通话的离线推送能力，请参考以下几个步骤：
 1. 配置 App 的 [离线推送](https://cloud.tencent.com/document/product/269/44516)。
-2. 升级 TUIKit 到4.9.1以上版本。
-3. 通过 TUIKit 发起通话邀请的时候，默认会生成一条离线推送消息，消息生成的具体逻辑请参考 `TUICalling` 模块中 [TRTCCallingImpl.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUICalling/tuicalling/src/main/java/com/tencent/liteav/trtccalling/model/impl/TRTCCallingImpl.java) 类里面的 `sendOnlineMessageWithOfflinePushInfo` 方法。
+2. 集成 `TUICalling` 组件。
+3. 通过 `TUICalling` 发起通话邀请的时候，默认会生成一条离线推送消息，消息生成的具体逻辑请参考 `TUICalling` 模块中 [TRTCCallingImpl.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUICalling/tuicalling/src/main/java/com/tencent/liteav/trtccalling/model/impl/TRTCCallingImpl.java) 类里面的 `sendOnlineMessageWithOfflinePushInfo` 方法。
 4. 接收通话的一方，在收到离线推送的消息时，请参考 `App` 中 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类里面 `redirect` 方法唤起通话界面。
 
 ## 常见问题

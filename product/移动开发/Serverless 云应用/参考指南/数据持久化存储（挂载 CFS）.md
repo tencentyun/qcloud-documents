@@ -25,8 +25,7 @@
 3. VPC 默认提供了一个 default 安全组，单击进入详情后，检查入站规则与出站规则是否如下图所示使用了默认值。
 4. 如果您有其他安全组诉求无法直接使用上述 default 安全组默认值，则至少需保证您的安全组入站规则与出站规则符合以下条件：
 	- **来源：**包含挂载 CFS 的服务所在的子网 IP 段。
-	- **协议端口：**包含2049（对应 NFS4.0 协议要求）。
-
+	- **协议端口：**包含2049（对应 NFS 4.0 协议要求）。
 ![](https://main.qcloudimg.com/raw/e17c6c78e67ec7f31ed958c620d993de.jpg)
 ![](https://main.qcloudimg.com/raw/0c0dd045239e457d8fb4435000b6745f.png)
 
@@ -39,19 +38,19 @@
 4. 如果您有其他 ACL 诉求无法直接使用上述默认值，则至少需保证您的 ACL 入站规则与出站规则符合以下条件：
 	- **来源：**包含挂载 CFS 的服务所在的子网 IP 段。
 	- **协议端口：**包含2049（对应 NFS4.0 协议要求）。
-
 ![](https://main.qcloudimg.com/raw/be9abc7bf87535830e90d673a8ea58e3.jpg)
 ![](https://main.qcloudimg.com/raw/998c49084850e7ee45be91ed46be471a.png)
 
-### 步骤4: 创建文件存储 CFS[](id:step4)
+### 步骤4：创建文件存储 CFS[](id:step4)
 1. 登录 [文件存储CFS控制台](https://console.cloud.tencent.com/cfs/overview)，单击**创建**，新增文件系统。
 ![](https://main.qcloudimg.com/raw/45df6a1f8a8504a3a148d3112a70871f.jpg)
 2. **选择网络**字段请务必**选择在 [步骤1](#step1) 中查询到的 VPC 和子网**。
-![](https://main.qcloudimg.com/raw/a65f5f297d8db5ec7ee91c17cf85174e.jpg)
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/a65f5f297d8db5ec7ee91c17cf85174e.jpg" style="width: 80%"> 
+
 
 ### 步骤5：通过 API 创建云托管服务版本
 1. 在文件存储 CFS 控制台，查找所需使用的 CFS 的**挂载点信息**。
-![img](https://main.qcloudimg.com/raw/186c72ed05b8f0abf16fc90f76cdad27.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/691fbf82760263f5df2f0c73f0eed2d9.jpg)
 2. 通过 API 创建服务版本接口，传入文件存储 CFS 信息。创建服务版本接口文档请参见 [接口文档](https://cloud.tencent.com/document/product/876/49627)。CFS 信息参数 MountVolumeInfo 示例如下所示：
 ```json
 {

@@ -40,7 +40,7 @@ protoc --go_out=plugins=grpc:. *.proto```
 	会自动生成包含 proto 的 go_package 路径，而用户可以根据需要修改成适合自己的 go_package 路径，但不能修改 package。
 
 ## 游戏进程集成流程
-![](https://main.qcloudimg.com/raw/af6fae70ec6d55b8e7cb9337e78dc9ce.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/44ec190d35fdb5e4b2189ea58d274927.png)
 
 #### Game Server 回调接口列表
 
@@ -214,8 +214,8 @@ func _GameServerGrpcSdkService_OnProcessTerminate_Handler(srv interface{}, ctx c
 ```
  9. Game Server 调用 ProcessEnding 接口会立刻结束进程，将服务器进程状态更改为“已终止”，并回收资源。
 ```Go
-//主动调用：一局游戏对应一个进程，当一局游戏结束后主动调用ProcessEnding接口
-//被动调用：当缩容或进程异常健康检查失败时，根据保护策略被动调用ProcessEnding接口，配置完全保护和时限保护策略时需要先判断游戏服务器会话上有无玩家，再被动调用
+//主动调用：一局游戏对应一个进程，当一局游戏结束后主动调用 ProcessEnding 接口
+//被动调用：当缩容或进程异常健康检查失败时，根据保护策略被动调用 ProcessEnding 接口，配置完全保护和时限保护策略时需要先判断游戏服务器会话上有无玩家，再被动调用
 func (g *gsemanager) ProcessEnding() (*grpcsdk.GseResponse, error) {
 	logger.Info("start to ProcessEnding")
 	req := &grpcsdk.ProcessEndingRequest{
@@ -318,7 +318,7 @@ Go DEMO 代码示例里已生成 gRPC 代码，在 go-demo/grpcsdk 目录下，�
   - 服务端实现。
 在 go-demo/api 目录下的 grpcserver.go，实现了服务端的三个接口。
   - 服务端运行。
-在 go-demo/api 目录下的grpcserver.go，将 GrpcServer 启动起来。
+在 go-demo/api 目录下的 grpcserver.go，将 GrpcServer 启动起来。
  4. 客户端连接GSE的gRPC服务端。
   - 客户端实现。
 在 go-demo/gsemanager 目录下的 gsemanager.go，实现了客户端的九个接口。

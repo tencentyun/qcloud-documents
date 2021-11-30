@@ -1,3 +1,11 @@
+### 如何设置自定义铃声？
+
+使用自定义铃声可以通过创建通知渠道实现：
+1. 创建通知渠道，通过 TPNS 封装 API 或安卓原生 API 创建指定自定义铃声文件的通知渠道，可参考 [创建通知渠道](https://cloud.tencent.com/document/product/548/36659#.E5.88.9B.E5.BB.BA.E9.80.9A.E7.9F.A5.E6.B8.A0.E9.81.93)。
+2. 在 TPNS 推送 REST API 指定相同的通知渠道`n_ch_id `进行推送,厂商通道需指定厂商渠道 ID，如华为通道需指定`hw_ch_id`,小米通道需指定`xm_ch_id`。
+
+>? 目前仅华为、小米、FCM 和 TPNS 通道支持自定义铃声，厂商通道渠道 ID 申请步骤可参考 [厂商通道消息分类功能使用说明](https://cloud.tencent.com/document/product/548/44531)。
+>
 
 ### 如何关闭 TPNS 的保活功能？
 
@@ -52,7 +60,7 @@ android:value="true" />
 开发者在集成 vivo 厂商通道推送服务后，部分安全检测工具可能会提示 “APP 包含未使用的权限字符串”，详情如下： 
 问题来源：vivo 厂商通道推送 SDK 版本名 2.3.4。
 涉及类文件：com.vivo.push.util.z 涉及敏感权限字符串：android.permission.GET_ACCOUNTS。
->! 经检查发现最新的 vivo 厂商通道推送 SDK 版本名 3.0.0.0 中同样包含此问题。
+>! 经检查发现最新的 vivo 厂商通道推送 SDK 版本名 3.0.0.3 中同样包含此问题。
 
 问题代码来源为 vivo 厂商通道推送 SDK，TPNS 项目组无法变更其内容；此问题已向 vivo 推送服务相关人员反馈，表示相关静态字段为 SDK 遗留代码，并无实际使用，会尽快排期修复。 当前可参考的快速解决办法如下：
 - 方式一（推荐）： 在《APP隐私声明》里增加 [移动推送 TPNS 的隐私说明](https://cloud.tencent.com/document/product/548/36652#.E9.9A.90.E7.A7.81.E5.8D.8F.E8.AE.AE.E5.A3.B0.E6.98.8E.E5.BB.BA.E8.AE.AE)。 
@@ -174,7 +182,7 @@ android:value="true" />
 }
 ```
 
-适配后的具体效果如下，建议参考 Demo logo 图标进行作图。
+适配后的具体效果如下，[建议参考 Demo logo 图标进行作图](https://git.code.tencent.com/tpns/TPNS-Demo-Android/blob/master/app/src/main/res/drawable/notification_icon.png)。
 
 <img src="https://main.qcloudimg.com/raw/d9f92fb413aa98a01af64b2c17680bef.jpg" width="60%"></img>
 

@@ -30,8 +30,8 @@ FISCO BCOS 分层架构设计如下图所示：
 
 ## 开源社区
 - FISCO BCOS 开源社区：`https://github.com/fisco-bcos`
-- FISCO BCOS 文档地址：`https://fisco-bcos-documentation.readthedocs.io/zh_CN/release-2.0/docs/introduction.html`
+- FISCO BCOS 文档地址：`https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/index.html`
 
 ## 常见问题
 
-FISCO BCOS FAQ 文档：`https://fisco-bcos-documentation.readthedocs.io/zh_CN/release-2.0/docs/faq.html`
+FISCO BCOS FAQ 文档：`https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/faq/index.html`

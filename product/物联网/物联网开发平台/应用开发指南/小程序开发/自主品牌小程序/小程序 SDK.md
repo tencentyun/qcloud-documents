@@ -1406,7 +1406,15 @@ try{
 
 ```
 
-### 6. deviceAdapter事件
+### 6. 断开设备
+
+我们可以通过 `deviceAdapter.disconnectDevice()` 断开设备连接：
+
+```
+await deviceAdapter.disconnectDevice()
+```
+
+### 7. deviceAdapter 事件
 
 |事件|描述|参数|
 |---|---|---|

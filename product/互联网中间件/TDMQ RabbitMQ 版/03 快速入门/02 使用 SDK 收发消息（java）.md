@@ -129,7 +129,7 @@
    | username   | 角色名称，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制。 |
    | password   | 角色密钥，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制**密钥**列复制。![](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
    | exchange   | Exchange 名称，在控制台 Exchange 列表获取。                  |
-   | qu1        | Queue名称，在控制台 Queue 列表获取。                         |
+   | queue        | Queue名称，在控制台 Queue 列表获取。                         |
    | uri        | 集群接入地址，在**集群管理**页面操作列的**获取接入地址**获取。![](https://main.qcloudimg.com/raw/0238d2d64bd896704ebef400fc08a7f1.png) |
    | vhostname  | Vhost 名称，在控制台 Vhost 页面复制，格式是**“集群 ID + \| + vhost 名称”**。![](https://main.qcloudimg.com/raw/ae6ec1a5a94c9befea289ad7f5b46aed.png) |
    | routingKey | 消息的路由规则，在控制台 绑定关系列表的**绑定 Key**列获取。![](https://main.qcloudimg.com/raw/66d31e7d7ec8519843a8fc67bff87265.png) |

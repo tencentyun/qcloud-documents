@@ -81,7 +81,7 @@ QCBM 是一个 Dubbo 容器化的 Demo 项目，因此容器镜像服务个人�
 
 ### TSW 介绍
 
-[腾讯微服务观测平台 TSW](https://cloud.tencent.com/product/tsw)（Tencent Service Watcher）提供云原生服务可观察性解决方案，能够追踪到分布式架构中的上下游依赖关系，绘制拓扑图，提供服务、接口、实例、中间件等多维度调用观测。详细介绍如下图所示：
+[腾讯微服务观测平台 TSW](https://console.cloud.tencent.com/apm)（Tencent Service Watcher）提供云原生服务可观察性解决方案，能够追踪到分布式架构中的上下游依赖关系，绘制拓扑图，提供服务、接口、实例、中间件等多维度调用观测。详细介绍如下图所示：
 ![](https://main.qcloudimg.com/raw/6f66070b3859087a2350215d0fb281b9.jpeg)
 
 TSW 在架构上分为以下四大模块：
@@ -702,7 +702,7 @@ TSW 目前处于内测阶段，可在广州和上海进行部署，本文选择�
 
 #### 接入 TSW — 获取接入点信息
 
-1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏种的**服务观测** > **服务列表**。
+1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm)，选择左侧导航栏种的**服务观测** > **服务列表**。
 2. 单击**接入服务**，选择 Java 语言与 SkyWalking 的数据采集方式。接入方式下提供了如下接入信息：**接入点**和 **Token**。
    ![](https://main.qcloudimg.com/raw/b6333d66cf38310a9fe2403bee7bbb4a.png)
 
@@ -729,7 +729,7 @@ Skywalking agent 也支持使用环境变量方式进行配置，QCBM 使用 Con
 
 #### 通过服务接口和调用链查看调用异常
 
-1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的**服务观测** > **接口观测**。
+1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm)，选择左侧导航栏中的**服务观测** > **接口观测**。
 2. 在接口观测页面可查看一个服务下所有接口的调用情况，包括请求量、成功率、错误率、响应时间等指标。如下图所示：
    ![](https://main.qcloudimg.com/raw/d35983cddeb99eb027cd4f76fa927cab.png)
 3. 上图中 qcbm-gateway 的两个接口：查询用户收藏夹 `/api/favorites/query/{userId}` 和查询用户订单 `/api/order/{userId}` 出现调用异常。单击查询用户收藏夹接口，可以查看到该接口的所有调用记录，找到异常的调用链，单击进入可以查看具体异常原因。如下图所示：
@@ -740,7 +740,7 @@ Skywalking agent 也支持使用环境变量方式进行配置，QCBM 使用 Con
 
 #### 使用 TSW 分析 SQL 和缓存等组件调用情况
 
-1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的**组件调用观测** > **SQL 调用**。
+1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm)，选择左侧导航栏中的**组件调用观测** > **SQL 调用**。
 2. 在“SQL 调用”页面可查看 SQL、NOSQL、MQ 及其它组件的调用情况。例如，通过 SQL 的请求量及耗时，可以快速定位应用中的高频 SQL 和慢查询。如下图所示：
    ![](https://main.qcloudimg.com/raw/43376cf371bc037bd7a07b3a1782a5e6.png)
 
@@ -748,6 +748,6 @@ Skywalking agent 也支持使用环境变量方式进行配置，QCBM 使用 Con
 
 #### 查看服务拓扑
 
-1.  登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的**链路追踪** > **分布式依赖拓扑**。
+1.  登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm)，选择左侧导航栏中的**链路追踪** > **分布式依赖拓扑**。
 2.  在“分布式依赖拓扑”页面可查看完成的服务依赖情况，以及调用次数和平均延迟等信息。如下图所示：
     ![](https://main.qcloudimg.com/raw/f17189bbf5e40ce6a4132caa2b00e0ee.png)
