@@ -19,10 +19,10 @@ func (s *ObjectService) GetObjectURL(key string) *url.URL
 #### 请求示例
 
 
-[//]: # (.cssg-snippet-get-object-url-alias)
+[//]: # ".cssg-snippet-get-object-url-alias"
 ```go
 key := "exampleobject"
-ourl := c.Object.GetObjectURL(name)
+ourl := c.Object.GetObjectURL(key)
 ```
 
 #### 参数说明
