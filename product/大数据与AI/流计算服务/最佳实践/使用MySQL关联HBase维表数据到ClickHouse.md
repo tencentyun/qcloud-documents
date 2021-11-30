@@ -1,4 +1,4 @@
-实时及未来，最近在腾讯云流计算 Oceanus 进行实时计算服务，以下为 mysql-cdc 结合维表 hbase 到 flink 到 ClickHouse 的实践。
+本文介绍了结合 MySQL 数据库、流计算 Oceanus、HBase 以及云数据仓库 ClickHouse 来构建实时数仓，并通过流计算 Oceanus 读取 MySQL 数据、关联 HBase 中的维表，最终将数据存入云数据仓库 ClickHouse 进行指标分析，实现完整实时数仓的全流程操作指导。
 
 ## 环境搭建
 ### 创建 Oceanus 集群
