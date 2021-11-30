@@ -1,6 +1,5 @@
-# 智能合约开发（Solidity）
 
-## 使用 Solidity 进行智能合约开发
+
 
 本章节主要描述使用 Solidity 进行 ChainMaker 合约编写的方法，主要面向于使用 Solidity 进行 ChainMaker 的合约开发的开发者。
 
@@ -8,7 +7,8 @@
 
 ChainMaker 官方已经将容器发布至 [docker hub](https://hub.docker.com/u/chainmakerofficial)。
 
-1. 首先拉取镜像
+1. 拉取镜像
+代码示例如下：
 
 ```
 docker pull chainmakerofficial/chainmaker-solidity-contract:1.2.0
@@ -25,6 +25,7 @@ docker exec -it chainmaker-solidity-contract /bin/sh
 ```
 
 2. 编译合约
+代码示例如下：
 
 ```
 cd /home/
@@ -35,7 +36,7 @@ cd contract_solidity
 solc --abi --bin --hashes --overwrite -o . token.sol
 ```
 
-生成合约的字节码文件在
+生成合约的字节码文件路径如下：
 
 ```
 /home/contract_solidity/Token.bin
@@ -44,7 +45,7 @@ solc --abi --bin --hashes --overwrite -o . token.sol
 `Token.bin` 文件可在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 上传并部署。
 
 3. 合约开发框架描述
-   解压缩 contract_solidity_template.tar.gz 后，文件描述如下：
+解压缩 contract_solidity_template.tar.gz 后，文件描述如下：
 
 ```
 /home/contract_solidity# ls -l

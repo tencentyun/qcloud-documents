@@ -1,4 +1,4 @@
-# 合约 API 列表（Solidity）
+
 
 ChainMake Solidity 语言版本智能合约有丰富的 API 接口，供用户在撰写智能合约的时候与链进行交互，代码实现详情可以参考 [API 接口代码实现](https://docs.chainmaker.org.cn/dev/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#solidity)。
 
@@ -132,4 +132,3 @@ ChainMake Solidity 语言版本智能合约有丰富的 API 接口，供用户�
 
 ChainMake Solidity 语言版本智能合约完全兼容EVM，Solidity 的具体使用详情可参见 [Solidity官方文档](https://docs.soliditylang.org/en/v0.5.6/units-and-global-variables.html)。
 
-# 
