@@ -1,4 +1,0 @@
-您在使用访问管理时，可能碰到诸如如何正确使用 VPC 访问管理策略、VPC API 操作支持的资源级权限等问题。本文将介绍使用访问管理以及与其相关的产品的常用操作，供您参考。
-## 常用操作
-- [VPC 访问管理策略示例](https://cloud.tencent.com/document/product/215/20170)
-- [VPC API 操作支持的资源级权限](https://cloud.tencent.com/document/product/215/20171)

@@ -10,13 +10,13 @@
 
 请确认密钥信息，Bucket 信息，Region 信息是否正确，并且是否具有操作权限。如果是子账号，请让父账号授予相应的权限；如果是本地迁移和其他云存储迁移，需要对 Bucket 具有数据写入和读取权限；如果是 Bucket copy，还需要对源 Bucket 具有数据读取权限。
 
-### 从其他云存储迁移COS 失败，显示 Read timed out，该如何处理？
+### 从其他云存储迁移 COS 失败，显示 Read timed out，该如何处理？
 
-一般来说，这种失败情况是由网络带宽不足所造成，导致从其他云存储下载数据超时。比如，将 AWS 海外的数据迁移到 COS，在下载数据到本地时由于带宽能力不足，导致时延较高，可能会出现 read time out。因此，解决方法为增大机器的网络带宽能力，建议在迁移之前用 wget 测试下载速度。
+一般来说，这种失败情况是由网络带宽不足所造成，导致从其他云存储下载数据超时。例如，将 AWS 海外的数据迁移到 COS，在下载数据到本地时由于带宽能力不足，导致时延较高，可能会出现 read time out。因此，解决方法为增大机器的网络带宽能力，建议在迁移之前用 wget 测试下载速度。
 
 ### 迁移失败，日志显示503 Slow Down，该如何处理？
 
-这是触发频控所导致，COS 目前对一个账号具有每秒800QPS 的操作限制。建议调小配置中小文件的并发度,，并重新运行工具，则会将失败的重新运行。
+这是触发频控所导致，COS 目前对一个账号具有每秒30000QPS 的操作限制。建议调小配置中小文件的并发度,，并重新运行工具，则会将失败的重新运行。
 
 ### 迁移失败，日志显示404 NoSuchBucket，该如何处理？
 
@@ -33,4 +33,26 @@
 ### 如何修改日志级别？
 修改文件 src/main/resources/log4j.properties，把 log4j.rootLogger 的值复制为对应的日志级别，如 DEBUG、INFO、ERROR。
 
-如遇其他问题，请您尝试重新运行迁移工具。若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [提交工单](https://console.cloud.tencent.com/workorder/category)。
+### 在 Linux 环境下，报 /tmp/librocksdbjnixxx.so: ELF file OS ABI invalid 的错误，该如何处理？
+在 Linux 环境下，工具需要 IFUNC 支持，请检查并确保运行环境的 binutils 版本大于 2.20。
+
+如遇其他问题，请您尝试重新运行迁移工具。若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [联系我们](https://cloud.tencent.com/document/product/436/37708)。
+
+
+### 使用 COS Migration 迁移第三方数据到腾讯云，需要本地拉取数据吗？
+
+COS Migration 可以直接将第三方源地址数据快速迁移至 COS 中，不需要本地拉取数据。详情请参见 [COS Migration 工具](https://cloud.tencent.com/document/product/436/15392) 文档。
+
+目前支持的迁移类型如下：
+
+| migrateType       | 描述                          |
+| :---------------- | :---------------------------- |
+| migrateLocal      | 从本地迁移至 COS              |
+| migrateAws        | 从 AWS S3 迁移至 COS          |
+| migrateAli        | 从阿里 OSS 迁移至 COS         |
+| migrateQiniu      | 从七牛迁移至 COS              |
+| migrateUrl        | 下载 URL 迁移到 COS           |
+| migrateBucketCopy | 从源 Bucket 复制到目标 Bucket |
+| migrateUpyun      | 从又拍云迁移到 COS            |
+
+

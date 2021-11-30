@@ -1,3 +1,6 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
 ## 功能描述
 
 DescribeDeviceClassPartition接口用来获取设备类型对应的 RAID 方式。
@@ -17,11 +20,11 @@ https://bm.api.qcloud.com/v2/index.php?
 
 ### 请求参数
 
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，其它参数参见 [公共请求参数](/doc/api/456/6718) 页面。其中，此接口的Action字段为DescribeDeviceClassPartition。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，其它参数参见 [公共请求参数](/doc/api/456/6718) 页面。其中，此接口的 Action 字段为 DescribeDeviceClassPartition。
 
 |参数名称     |            必选     |            类型          |     描述  |
 |-----|------|----|-----|
-|deviceClassCode   | 否    |            String    |       设备类型。腾讯的设备类型 deviceClass，通过接口 [查询设备型号(DescribeDeviceClass)](https://cloud.tencent.com/document/api/386/6636) 获得设备类型。标准机型需要传入此参数 。|  
+|deviceClassCode   | 否    |            String    |       设备类型。腾讯的设备类型 deviceClass，通过接口 [查询设备型号（DescribeDeviceClass）](https://cloud.tencent.com/document/api/386/6636) 获得设备类型。标准机型需要传入此参数。|  
 |instanceId   |           否      |          String      |      需要查询自定义机型 RAID 信息时，传入自定义机型实例 ID。instanceId 存在时 deviceClassCode 失效。  |
 
 ## 响应
@@ -67,29 +70,29 @@ https://bm.api.qcloud.com/v2/index.php?
 ```
 
 ### 响应参数
-响应参数部分包含两层结构，外层展示接口的响应结果，内层展示具体的接口内容，包括RAID等信息。
+响应参数部分包含两层结构，外层展示接口的响应结果，内层展示具体的接口内容，包括 RAID 等信息。
 
 | 参数名称    | 类型     | 描述                                       |
 | ------- | ------ | ---------------------------------------- |
-| code    | Int    | 错误码，0：成功， 其他值：失败，具体含义参见[错误码](/doc/api/456/6725)。 |
+| code    | Int    | 错误码，0：成功， 其他值：失败，具体含义参见 [错误码](/doc/api/456/6725)。 |
 | message | String | 错误信息。                                    |
-| data    | Object | 以RAID ID为key，对应的值为对象，对象为RAID信息的描述。具体结构描述如RAID结构所示。 |
+| data    | Object | 以 RAID ID 为 key，对应的值为对象，对象为 RAID 信息的描述。具体结构描述如 RAID 结构所示。 |
 
-RAID结构
+**RAID 结构**
 
 | 参数名称               | 类型      | 描述                                   |
 | ------------------ | ------- | ------------------------------------ |
-| raidId             | Int     | RAID类型ID。                            |
-| raid               | String  | RAID名称。                              |
-| raidDisplay        | String  | RAID前台展示。                            |
-| description        | String  | RAID描述。                              |
+| raidId             | Int     | RAID 类型 ID。                            |
+| raid               | String  | RAID 名称。                              |
+| raidDisplay        | String  | RAID 前台展示。                            |
+| description        | String  | RAID 描述。                              |
 | systemDiskSize     | Int     | 系统盘大小。在购买机器和重装机器分区指定时，可以参考此值设定分区大小。 |
 | dataDiskSize       | Int     | 数据盘大小。                               |
-| sysIsUefiType      | Boolean | 标识是否是uefi启动。决定了分区中是否有/boot/efi分区。    |
+| sysIsUefiType      | Boolean | 标识是否是 uefi 启动。决定了分区中是否有 /boot/efi 分区。    |
 | sysRootSpace       | Int     | 根分区默认大小。 用户调用无须关注。                   |
-| sysSwaporuefiSpace | Int     | swap或/boot/efi分区默认大小。 用户调用无须关注。      |
-| sysUsrlocalSpace   | Int     | /usr/local分区默认大小。 用户调用无须关注。          |
-| sysDataSpace       | Int     | /data分区默认大小。 用户调用无须关注。               |
+| sysSwaporuefiSpace | Int     | swap 或 /boot/efi 分区默认大小。 用户调用无须关注。      |
+| sysUsrlocalSpace   | Int     | /usr/local 分区默认大小。 用户调用无须关注。          |
+| sysDataSpace       | Int     | /data 分区默认大小。 用户调用无须关注。               |
 
 ## 错误码
 | 错误码  | 英文提示                  | 错误描述    |

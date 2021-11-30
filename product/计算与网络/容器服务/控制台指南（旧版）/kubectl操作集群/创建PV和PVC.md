@@ -1,4 +1,5 @@
 当前仅支持 CBS 类型的 PV&PVC。
+
 ## 静态创建 CBS 类型 PV&PVC
 ### 1. 创建 PV（可选）
 通过已有 CBS 创建 PV。若未通过本步骤创建 PV，直接执行步骤2时，创建 PVC 将自动创建对应的 PV。
@@ -80,7 +81,7 @@ metadata:
 provisioner: cloud.tencent.com/qcloud-cbs ## TKE 集群自带的 provisioner
 parameters:
   type: CLOUD_PREMIUM
-  # 支持 CLOUD_BASIC,CLOUD_PREMIUM,CLOUD_SSD  如果不识别则当做 CLOUD_BASIC
+  # 支持 CLOUD_BASIC,CLOUD_PREMIUM,CLOUD_SSD  如果不识别则当做 CLOUD_BASIC，注意全大写
   # paymode: PREPAID
   # paymode为云盘的计费模式，PREPAID模式（包年包月：仅支持Retain保留的回收策略），默认是 POSTPAID（按量计费：支持 Retain 保留和 Delete 删除策略，Retain 仅在高于1.8的集群版本生效）
   # aspid:asp-123

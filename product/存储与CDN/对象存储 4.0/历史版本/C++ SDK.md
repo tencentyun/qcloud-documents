@@ -1,3 +1,7 @@
+
+>!您目前查阅的是历史版本 SDK 文档，已不再更新和维护，我们建议您查阅新版 [SDK 文档](https://cloud.tencent.com/document/product/436/6474)。
+
+
 ## 开发准备
 
 ### 相关资源
@@ -13,10 +17,10 @@
 5. 安装 [cmake](http://www.cmake.org/download/) 工具。
 6. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) 获取 APPID、SecretID、SecretKey。
 
->**注意：**
+>!
 >1. 本 SDK 仅适用于 Linux 系统和编译环境，暂不支持 Windows 环境。
 >2. sdk 中提供了curl 和 jsoncpp 的库以及头文件，以上库编译好后替换掉 sdk 中相应的库和头文件即可，如果以上库已经安装到系统里，也可删除 sdk 中相应的库和头文件。
->3. curl 默认不支持多线程环境，如果项目使用多线程，在编译 curl 执行 configure 时需指定 --enable-ares 参数来开启异步 DNS 解析，依赖 c-ares 库，如果系统没有，可到[http://c-ares.haxx.se/](http://c-ares.haxx.se/) 下载安装。
+>3. curl 默认不支持多线程环境，如果项目使用多线程，在编译 curl 执行 configure 时需指定 --enable-ares 参数来开启异步 DNS 解析，依赖 c-ares 库，如果系统没有，可到 [c-ares](http://c-ares.haxx.se/) 下载安装。
 >4. jsoncpp 的 1.y.x 版本需要 c++11 的支持，如果编译器不支持，可以换成 0.y.x 版本。
 （本版本 SDK 基于 JSON API 封装组成）
 
@@ -356,7 +360,6 @@ string CosAPI::FileUpload(FileUploadReq& request);
 | srcPath    | String | 无       | 构造函数                 | 待上传的本地文件路径                             |
 | cosPath    | String | 无       | 构造函数                 | 文件的全路径                                 |
 | bizAttr    | string | 无       | setBizAttr()         | 文件属性                                   |
-| insertOnly | int    | 1       | 构造函数及setInsertOnly() | 同名文件是否覆盖。0：表示覆盖同名文件，1：表示不覆盖, 当文件存在返回错误 |
 | sliceSize  | int    | 1048576 | setSliceSize()       | 分片大小，可选值512K/1M/2M/3M；默认1M，均需转换为字节数值   |
 
 #### 返回结果说明

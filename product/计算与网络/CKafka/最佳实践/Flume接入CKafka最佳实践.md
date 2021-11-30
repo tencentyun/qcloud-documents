@@ -1,44 +1,44 @@
-## Apache Flume简介
-Apache Flume 是一个从可以收集例如日志，事件等数据资源，并将这些数量庞大的数据从各项数据资源中集中起来存储的工具/服务，或者数集中机制。flume具有高可用，分布式，配置工具，其设计的原理也是基于将数据流。
- 
- Flume基本结构如下图所示：
-![Alt text](https://mc.qcloudimg.com/static/img/291cf61049ab4820c10c05c6f0900850/00.png)
+Apache Flume 是一个分布式、可靠、高可用的日志收集系统，支持各种各样的数据来源（如 HTTP、Log 文件、JMS、监听端口数据等），能将这些数据源的海量日志数据进行高效收集、聚合、移动，最后存储到指定存储系统中（如 Kafka、分布式文件系统、Solr 搜索服务器等）。
 
-Flume以agent为最小的独立运行单位。一个agent就是一个JVM。单agent由Source、Sink和Channel三大组件构成。
-![Alt text](https://mc.qcloudimg.com/static/img/17244b0d3460b838f7b6764db5497c98/11.png)
+Flume 基本结构如下：
+![](https://mc.qcloudimg.com/static/img/291cf61049ab4820c10c05c6f0900850/00.png)
 
-## Why Flume + Kafka
-把数据存储到hdfs或者hbase等下游存储模块或者计算模块时需要考虑各种复杂的场景，比如并发写入的量以及系统承载压力，网络延迟等等问题。flume设计为灵活的分布式系统具有多种接口，同时提供可定制化的管道。
-在成产处理环节中，往往出现生产处理速度不一致的情况，此时kafka可以充当缓存角色。拥用partition结构以及采用append追加数据，使kafka具有优秀的吞吐能力。同时其拥有replication具有很高的容错性。
-所以将两者结合起来，可以满足生产环境中绝大多数要求。
+Flume 以 agent 为最小的独立运行单位。一个 agent 就是一个 JVM，单个 agent 由 Source、Sink 和 Channel 三大组件构成。
+![](https://mc.qcloudimg.com/static/img/17244b0d3460b838f7b6764db5497c98/11.png)
 
-## 开源Kafka接入方式
-### 版本支持
-1.	Flume当前版本 – Apache Flume 1.7.0 Released （October 17, 2016发布，1.6之后才兼容kafka）
-2.	支持Kafka 0.9.x series， 0.8已经不支持
+**Flume 与 Kafka**
+
+把数据存储到 HDFS 或者 HBase 等下游存储模块或者计算模块时需要考虑各种复杂的场景，例如并发写入的量以及系统承载压力、网络延迟等问题。Flume 作为灵活的分布式系统具有多种接口，同时提供可定制化的管道。
+在生产处理环节中，当生产与处理速度不一致时，Kafka 可以充当缓存角色。Kafka 拥有 partition 结构以及采用 append 追加数据，使 Kafka 具有优秀的吞吐能力；同时其拥有 replication 结构，使 Kafka 具有很高的容错性。
+所以将 Flume 和 Kafka 结合起来，可以满足生产环境中绝大多数要求。
+
+## Flume 接入开源 Kafka
 
 ### 准备工作
-1.	Apache Flume （版本1.6.0以上）
-2.	Kafka （版本0.9.x以上）
-3.	Flume的Kafka –Source、 Sink组件（确认已经在Flume中）
-### Flume与Kafka
 
-Kafka可作为Source或者Sink端对消息进行导入或者导出。
-**1.	Kafka Source**
-配置kafka作为消息来源，即将自己作为消费者，从Kafka中拉取数据传入到指定Sink中
-主要配置选项：
+-	 下载 [Apache Flume](http://flume.apache.org/download.html) （1.6.0以上版本兼容 Kafka）
+-	 下载 [Kafka工具包](https://kafka.apache.org/downloads) （0.9.x以上版本，0.8已经不支持）
+-	 确认 Kafka 的 Source、 Sink 组件已经在 Flume 中。
 
-| 配置项 |  说明  |  
-| :-------- | :--------| 
-| channels |   自己配置的channel | 
-| type	| 必须为：org.apache.flume.source.kafka.KafkaSource|
-| kafka.bootstrap.servers	| Kafka broker的服务器 |
-|kafka.consumer.group.id	| 作为Kafka消费端的group id |
-|kafka.topics	| Kafka中数据来源topic.|
-|batchSize	| 每次写入channel的大小|
-|batchDurationMillis	 | 每次写入最大间隔时间|
+### 接入方式
 
-example：
+Kafka 可作为 Source 或者 Sink 端对消息进行导入或者导出。
+
+<dx-tabs>
+::: Kafka\sSource
+配置 kafka 作为消息来源，即将自己作为消费者，从 Kafka 中拉取数据传入到指定 Sink 中。主要配置选项如下：
+
+| 配置项                  | 说明                                              |
+| :---------------------- | :------------------------------------------------ |
+| channels                | 自己配置的 Channel                                |
+| type                    | 必须为：org.apache.flume.source.kafka.KafkaSource |
+| kafka.bootstrap.servers | Kafka Broker 的服务器地址                         |
+| kafka.consumer.group.id | 作为 Kafka 消费端的 Group ID                      |
+| kafka.topics            | Kafka 中数据来源 Topic                            |
+| batchSize               | 每次写入 Channel 的大小                           |
+| batchDurationMillis     | 每次写入最大间隔时间                              |
+
+示例：
 
 ```
 tier1.sources.source1.type = org.apache.flume.source.kafka.KafkaSource 
@@ -50,19 +50,22 @@ tier1.sources.source1.kafka.topics = test1, test2
 tier1.sources.source1.kafka.consumer.group.id = custom.g.id
 ```
 
-2.	Kafka Sink
-配置kafka作为内容接收方，即将自己作为生产者，推到Kafka Server中等待后续操作
+更多内容请参考 [Apache Flume 官网](https://flume.apache.org/FlumeUserGuide.html)。
 
-主要配置选项：
+:::
+:::Kafka\sSink
+配置 Kafka 作为内容接收方，即将自己作为生产者，推到 Kafka Server 中等待后续操作。主要配置选项如下：
 
-| 配置项 |  说明  |  
-| :-------- | :--------| 
-| channel |   自己配置的channel | 
-| type	| 必须为：org.apache.flume.sink.kafka.KafkaSink |
-| kafka.bootstrap.servers	| Kafka broker的服务器 |
-|kafka.topics	| Kafka中数据来源topic.|
-|flumeBatchSize	| 每次写入的Bacth大小 |
-|kafka.producer.acks	 | 	Kafka生产者的生产策略 |
+| 配置项                  | 说明                                          |
+| :---------------------- | :-------------------------------------------- |
+| channel                 | 自己配置的 Channel                            |
+| type                    | 必须为：org.apache.flume.sink.kafka.KafkaSink |
+| kafka.bootstrap.servers | Kafka Broker 的服务器                         |
+| kafka.topics            | Kafka 中数据来源 Topic                        |
+| kafka.flumeBatchSize    | 每次写入的 Bacth 大小                         |
+| kafka.producer.acks     | Kafka 生产者的生产策略                        |
+
+示例：
 
 ```
 a1.sinks.k1.channel = c1
@@ -73,55 +76,82 @@ a1.sinks.k1.kafka.flumeBatchSize = 20
 a1.sinks.k1.kafka.producer.acks = 1
 ```
 
-更详细的内容可以参考官网链接：
-https://flume.apache.org/FlumeUserGuide.html
+更多内容请参考 [Apache Flume 官网](https://flume.apache.org/FlumeUserGuide.html)。
 
-## Flume接入CKafka
+:::
 
-### 准备工作
-- 在Ckafka申请页中申请实例，并且创建对应的Topic
-- apache flume ，本教程使用的是最新的flume 1.7.0 （http://flume.apache.org/download.html)
+</dx-tabs>
 
-### Ckafka创建
-1）	拥有实例后，可从控制台中可以看到自己的实例信息
- ![Alt text](https://mc.qcloudimg.com/static/img/67f19ef17a73e768fba188d58ae08f9a/22.png)
-2）	点击实例名称可以看到实例分配的具体信息：
-![](https://mc.qcloudimg.com/static/img/3841d4eb19ad992d35e60196b38498ce/33.png)
-3）	点击topic管理，创建topic，此处名字为flume_test
- ![](https://mc.qcloudimg.com/static/img/9f069263c59539be5dcf845bba0b0455/44.png)
+## Flume 接入 CKafka
 
-至此，Ckafka相关的工作环境完成。
+<dx-tabs>
+:::使用\sCKafka\s作为\sSink
 
-### Flume
-1）	从官方下载Apache flume压缩包，进行解压
-2）	配置Flume选项
-- 使用 Ckafka 作为Sink
-a)	编写配置文件，此处重点放在flume 与ckafka作为Sink结合上，所以Source和Channel使用默认配置，不做详细介绍。以下是一个简单的demo （配置在解压目录的conf文件夹下），需要注意的是，若无特殊要求则将自己的实例ip与topic替换到配置文件当中即可：
- ![](https://mc.qcloudimg.com/static/img/daf5063d3c2c74eddb93f729eb6feb5b/55.png)
-b)	此处使用的source为tail -F flume-test ，即文件中新增的信息
-c)	启动flume ：
-```
-./bin/flume-ng agent -n agentckafka -c conf -f conf/flume-kafka-sink.properties
-```
-d)	写入消息到flume-test文件中，此时消息将由flume写入到ckafka
-![](https://mc.qcloudimg.com/static/img/c9dc1f539e00f21fca1ead546f4e007e/66.png)
-e)	启动ckafka客户端进行消费：
-```
-./kafka-console-consumer.sh --bootstrap-server 172.16.16.12:9092 --topic flume_test --from-beginning --new-consumer
-```
-可以看到刚刚的消息被消费出来了
- ![](https://mc.qcloudimg.com/static/img/ee394af9d8280bfef988d71ccc30f805/77.png)
+#### 步骤1：获取 CKafka 实例接入地址
+1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
+2. 在左侧导航栏选择【实例列表】，单击实例的“ID”，进入实例基本信息页面。
+3. 在实例的基本信息页面的【接入方式】模块，可获取实例的接入地址。
+   ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
 
-- 使用 Ckafka 作为Source
-a)	编写配置文件，此处重点放在flume 与ckafka作为Source结合上，所以Sink和Channel使用默认配置，不做详细介绍。以下是一个简单的demo （配置在解压目录的conf文件夹下）。需要注意的是，若无特殊要求则将自己的实例ip与topic替换到配置文件当中即可：
- ![](https://mc.qcloudimg.com/static/img/18e5d3b3a533ef8e385e18301cc08961/88.png)
 
-b)	此处使用的sink为logger
-c)	启动flume ：
-```
-./bin/flume-ng agent -n agentckafka -c conf -f conf/flume-kafka-source.properties
-```
-d)	查看logger输出信息（默认路径 logs/flume.log）
-![](https://mc.qcloudimg.com/static/img/d6b51f8de1a063e51171b2996764f40d/99.png)
- 
+#### 步骤2：创建 Topic
+1. 在实例基本信息页面，选择顶部【Topic管理】页签。
+2. 在Topic管理页面，单击【新建】，创建一个名为 flume_test 的 Topic。
+   ![](https://main.qcloudimg.com/raw/63f4119691d504bb759a11fbded9e4b0.png)
 
+
+#### 步骤3：配置 Flume 
+1. 下载 [Apache Flume 工具包并解压](http://flume.apache.org/download.html) 。
+2. 编写配置文件 flume-kafka-sink.properties，以下是一个简单的 Demo（配置在解压目录的 conf 文件夹下），若无特殊要求则将自己的实例 IP 与 Topic 替换到配置文件当中即可。本例使用的 source 为 tail -F flume-test ，即文件中新增的信息。
+   ![](https://mc.qcloudimg.com/static/img/daf5063d3c2c74eddb93f729eb6feb5b/55.png)
+3. 执行如下命令启动 Flume。
+   ```bash
+   ./bin/flume-ng agent -n agentckafka -c conf -f conf/flume-kafka-sink.properties
+   ```
+4. 写入消息到 flume-test 文件中，此时消息将由 Flume 写入到 CKafka。
+   ![](https://mc.qcloudimg.com/static/img/c9dc1f539e00f21fca1ead546f4e007e/66.png)
+5. 启动 CKafka 客户端进行消费。
+   ```bash
+   ./kafka-console-consumer.sh --bootstrap-server xx.xx.xx.xx:xxxx --topic flume_test --from-beginning --new-consumer
+   ```
+	 
+	 <dx-alert infotype="explain" title="">
+	bootstrap-server 填写刚创建的 CKafka 实例的接入地址，topic 填写刚创建的 Topic 名称。
+	</dx-alert>
+   可以看到刚才的消息被消费出来。
+   ![](https://mc.qcloudimg.com/static/img/ee394af9d8280bfef988d71ccc30f805/77.png)
+
+:::
+
+:::使用\sCKafka\s作为\sSource
+
+#### 步骤1：获取 CKafka 实例接入地址
+
+1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
+2. 在左侧导航栏选择【实例列表】，单击实例的“ID”，进入实例基本信息页面。
+3. 在实例的基本信息页面的【接入方式】模块，可获取实例的接入地址。
+   ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
+
+
+#### 步骤2：创建 Topic
+
+1. 在实例基本信息页面，选择顶部【Topic管理】页签。
+2. 在 Topic 管理页面，单击【新建】，创建一个名为 flume_test 的 Topic。
+   ![](https://main.qcloudimg.com/raw/63f4119691d504bb759a11fbded9e4b0.png)
+
+
+#### 步骤3：配置 Flume
+
+1. 下载 [Apache Flume 工具包并解压](http://flume.apache.org/download.html) 。
+2. 编写配置文件 flume-kafka-source.properties，以下是一个简单的 Demo（配置在解压目录的 conf 文件夹下）。若无特殊要求则将自己的实例 IP 与 Topic 替换到配置文件当中即可。此处使用的 sink 为 logger。
+   ![](https://mc.qcloudimg.com/static/img/18e5d3b3a533ef8e385e18301cc08961/88.png)
+3. 执行如下命令启动 Flume。
+   ```bash
+   ./bin/flume-ng agent -n agentckafka -c conf -f conf/flume-kafka-source.properties
+   ```
+4. 查看 logger 输出信息（默认路径为`logs/flume.log`）。
+   ![](https://mc.qcloudimg.com/static/img/d6b51f8de1a063e51171b2996764f40d/99.png)
+
+:::
+
+</dx-tabs>

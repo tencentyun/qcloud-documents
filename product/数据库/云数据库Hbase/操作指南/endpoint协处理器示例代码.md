@@ -2,7 +2,7 @@
 使用协处理，需要将jar包提供给我们，我们安装后提供hdfs地址，您可以再通过shell或者api方式（代码中有示例）安装。强烈建议开发好协处理器jar包后，经过充分测试再安装，避免安装后影响Hbase服务的正常使用。
 
 ## 协处理器开发步骤
-1.编写proto文件（示例：RowCount.proto）；因为hbase使用google的protoc-2.5.0版本，所以最好使用相同版本编译proto文件，生成java文件（示例：RowCountService.java）；
+1.编写proto文件（示例：RowCount.proto）；因为hbase使用google的protoc-2.5.0版本，所以最好使用相同版本编译proto文件，生成Java文件（示例：RowCountService.java）；
 2.编写服务端EndPoint代码（示例：RowCountEndPoint.java）；
 3.编写客户端调用Client代码（示例：RowCountClient.java）；
 4.编译jar包

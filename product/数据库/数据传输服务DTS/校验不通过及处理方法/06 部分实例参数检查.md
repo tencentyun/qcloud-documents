@@ -1,0 +1,123 @@
+
+## MySQL/TDSQL MySQL/TDSQL-C/MariaDB/Percona 检查详情
+- 源库表的 `row_format` 不能为 `FIXED`。
+- 源库和目标库 `lower_case_table_names` 变量必须一致。
+- 目标库 `max_allowed_packet` 参数设置至少为4M。
+- 源库变量 `connect_timeout` 必须大于10。
+- 在 MySQL/TDSQL MySQL/TDSQL-C 迁移到 MySQL 的场景中，如果源实例存在耗时较长的 SQL 在运行，会报警告，提示“源实例有耗时较长的 SQL 在运行，可能导致锁表，请稍后重试或对源实例中的 SQL 进行处理”。 
+
+## 修复方法
+### 修改源库 row_format 参数
+数据库中表的 `row_format` 的取值为 `FIXED` 时，表格中每行的存储长度超过限制值时会溢出，发生报错。因此需要修改为其他模式，如 `DYNAMIC`，使每行的存储长度会随内容的长度而变化。 
+
+如发生此类报错，请参考如下指导进行修复。
+1. 登录源数据库。
+2. 修改 `row_format` 参数为 `DYNAMIC`。  
+```
+alter table table_name row_format = DYNAMIC
+```
+3. 查看配置是否生效。
+```
+show table status like '%row_format%';
+```
+系统显示结果类似如下：
+```
+mysql> show table status like '%row_format%';
++---------------+----------+
+| Variable_name | Value    |
++---------------+----------+
+| row_format    | DYNAMIC  |
++---------------+----------+
+1 row in set (0.00 sec)
+```
+4. 重新执行校验任务。
+
+### 修改源库和目标库 lower_case_table_names 变量保持一致
+`lower_case_table_names` 是 MySQL 设置大小写是否敏感的一个参数，不同的取值情况如下：
+Windows 或 macOS 环境对大小写是不敏感的，但是 Linux 环境却是敏感的，为了保证不同系统的兼容性，需要将大小写敏感规则设置统一。
+
+- 0：表名存储为给定的大小写，比较的时候区分大小写。
+- 1：表名存储在磁盘是小写的，比较的时候不区分大小写。
+- 2：表名存储为给定的大小写，比较的时候是小写的。
+
+如发生此类报错，请参考如下指导将源库和目标库的参数改为统一。
+1. 登录源数据库。
+2. 查看源库和目标库中的 `lower_case_table_names` 取值。
+```
+show variables like '%lower_case_table_names%';
+```
+3. 修改 `lower_case_table_names` 参数。
+```
+alter global lower_case_table_names = 1
+```
+4. 参考如下命令重启数据库。
+```
+[\$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
+[\$Mysql_Dir]/bin/safe_mysqld &
+```
+5. 查看配置是否生效。
+```
+show variables like '%lower_case_table_names%';
+```
+系统显示结果类似如下：
+```
+mysql> show variables like '%lower_case_table_names%';
++------------------------+-------+
+| Variable_name          | Value |
++------------------------+-------+
+| lower_case_table_names | 1     |
++------------------------+-------+
+1 row in set (0.00 sec)
+```
+6. 重新执行校验任务。
+
+### 修改目标库 max_allowed_packet 参数 
+`max_allowed_packet` 为最大允许的传输包。设置太大，会使用更多内存导致丢包，无法捕捉异常大事物包 SQL；设置太小，可能会导致程序报错，备份失败，也会导致频繁的收发网络报，影响系统性能。
+
+如发生此类报错，请参考如下指导进行修复。
+1.  登录目标数据库。
+2. 修改 `max_allowed_packet` 参数。 
+```
+set global max_allowed_packet = 4M
+```
+3. 查看配置是否生效。
+```
+show global variables like '%max_allowed_packet%';
+```
+系统显示结果类似如下：
+```
+mysql> show global variables like '%max_allowed_packet%';
++------------------------+---------+
+| Variable_name          | Value   |
++------------------------+---------+
+| max_allowed_packet     | 4194304 |
++------------------------+---------+
+1 row in set (0.00 sec)
+```
+4. 重新执行校验任务。
+
+### 修改源库变量 connect_timeout
+`connect_timeout` 为数据库的连接时间，超过 `connect_timeout` 设置值的连接请求将会被拒绝。如果设置过小，会导致数据库连接频繁断开，影响处理效率，因此建议该参数取值大于10。
+
+如发生此类报错，请参考如下指导进行修复。
+1. 登录源数据库。
+2. 修改 `connect_timeout` 参数。
+```
+set global connect_timeout = 10
+```
+3. 查看参数是否修改成功。
+```
+show global variables like '%connect_timeout%';
+```
+系统显示结果类似如下：
+```
+mysql> show global variables like '%connect_timeout%';
++------------------------+-------+
+| Variable_name          | Value |
++------------------------+-------+
+| connect_timeout        | 10    |
++------------------------+-------+
+1 row in set (0.00 sec)
+```
+4. 重新执行校验任务。
+

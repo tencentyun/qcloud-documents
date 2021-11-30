@@ -1,0 +1,153 @@
+
+
+## 简介
+
+本文档提供关于图片持久化处理的 API 概览以及 SDK 示例代码。
+
+| API                                                          | 说明                                 |
+| :----------------------------------------------------------- | :----------------------------------- |
+| [图片持久化处理](https://cloud.tencent.com/document/product/436/54050) |  对象存储提供的上传时处理功能可以帮助使用者在上传时实现图片处理。此外能够对已存储在 COS 的图片进行相应处理操作，并将结果存入到对象存储（Cloud Object Storage，COS）|
+
+
+## 上传时处理
+
+#### 功能说明
+
+COS 提供的上传时处理功能可以帮助使用者在上传时实现图片处理。您只需要在请求包头部中加入 Pic-Operations 项并设置好相应参数，即可在图片上传时实现相应的图片处理，并可将原图和处理结果存入到 COS。目前支持20M 以内文件处理。
+
+#### 方法原型
+
+```c
+cos_status_t *ci_put_object_from_file(const cos_request_options_t *options,
+                                         const cos_string_t *bucket, 
+                                         const cos_string_t *object, 
+                                         const cos_string_t *filename,
+                                         cos_table_t *headers, 
+                                         cos_table_t **resp_headers,
+                                         ci_operation_result_t **results)
+```
+
+
+#### 请求示例
+
+```c
+cos_pool_t *p = NULL;
+int is_cname = 0;
+cos_status_t *s = NULL;
+cos_request_options_t *options = NULL;
+cos_string_t bucket;
+cos_string_t object;
+cos_string_t file;
+cos_table_t *headers = NULL;
+cos_table_t *resp_headers = NULL;
+ci_operation_result_t *results = NULL;
+
+//创建内存池
+cos_pool_create(&p, NULL);
+
+//初始化请求选项
+options = cos_request_options_create(p);
+options->config = cos_config_create(options->pool);
+cos_str_set(&options->config->endpoint, TEST_COS_ENDPOINT);
+cos_str_set(&options->config->access_key_id, TEST_ACCESS_KEY_ID);
+cos_str_set(&options->config->access_key_secret, TEST_ACCESS_KEY_SECRET);
+cos_str_set(&options->config->appid, TEST_APPID);
+options->config->is_cname = is_cname;
+options->ctl = cos_http_controller_create(options->pool, 0);
+cos_str_set(&bucket, TEST_BUCKET_NAME);
+
+//上传时处理
+headers = cos_table_make(p, 1);
+apr_table_addn(headers, "pic-operations", "{\"is_pic_info\":1,\"rules\":[{\"fileid\":\"test.png\",\"rule\":\"imageView2/format/png\"}]}");
+cos_str_set(&file, "test.jpg");
+cos_str_set(&object, "test.jpg");
+s = ci_put_object_from_file(options, &bucket, &object, &file, headers, &resp_headers, &results);
+if (!cos_status_is_ok(s)) {
+    printf("put object failed: %s\n", s->req_id);
+}
+printf("origin key: %s\n", results.origin.key.data);
+printf("process key: %s\n", results.object.key.data);
+
+//销毁内存池
+cos_pool_destroy(p); 
+```
+
+#### 参数说明
+
+| 参数名称     | 参数描述                                                     | 类型   |
+| :----------- | :----------------------------------------------------------- | :----- |
+| options      | COS 请求选项                                                 | Struct |
+| bucket       | 存储桶名称，存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式 | String |
+| object       | Object 名称                                                  | String |
+| filename     | Object 本地保存文件名称                                      | String |
+| headers      | COS 请求附加头域                                             | Struct |
+| resp_headers | 返回 HTTP 响应消息的头域                                     | Struct |
+| results      | 云上数据处理返回信息                                         | Struct |
+
+
+
+## 云上数据处理
+#### 功能说明
+
+该接口能够对已存储在 COS 的图片进行相应处理操作，并将结果存入到 COS。
+
+#### 方法原型
+```c
+cos_status_t *ci_image_process(const cos_request_options_t *options,
+								const cos_string_t *bucket,
+								const cos_string_t *object,
+								cos_table_t *headers,
+								cos_table_t **resp_headers,
+								ci_operation_result_t *results);
+```
+
+#### 请求示例
+
+```c
+cos_pool_t *p = NULL;
+int is_cname = 0; 
+cos_status_t *s = NULL;
+cos_request_options_t *options = NULL;
+cos_string_t bucket;
+cos_string_t object;
+cos_table_t *resp_headers;
+cos_table_t *headers = NULL;
+ci_operation_result_t results;
+  
+cos_pool_create(&p, NULL);
+options = cos_request_options_create(p);
+options->config = cos_config_create(options->pool);
+cos_str_set(&options->config->endpoint, TEST_COS_ENDPOINT);
+cos_str_set(&options->config->access_key_id, TEST_ACCESS_KEY_ID);
+cos_str_set(&options->config->access_key_secret, TEST_ACCESS_KEY_SECRET);
+cos_str_set(&options->config->appid, TEST_APPID);
+options->config->is_cname = is_cname;
+options->ctl = cos_http_controller_create(options->pool, 0);
+cos_str_set(&bucket, TEST_BUCKET_NAME);
+
+cos_str_set(&object, "test.jpg");
+headers = cos_table_make(p, 1);
+apr_table_addn(headers, "pic-operations", "{\"is_pic_info\":1,\"rules\":[{\"fileid\":\"test.png\",\"rule\":\"imageView2/format/png\"}]}");
+      
+s = ci_image_process(options, &bucket, &object, headers, &resp_headers, &results);
+if (!cos_status_is_ok(s)) {
+    printf("ci image process fail, req_id:%s\n", s->req_id);
+}
+printf("origin key: %s\n", results.origin.key.data);
+printf("process key: %s\n", results.object.key.data);
+cos_pool_destroy(p);
+```
+
+
+
+#### 参数说明
+
+| 参数名称  | 参数描述                                                     | 类型   |
+| --------- | ------------------------------------------------------------ | ------ |
+| options | COS 请求选项 | Struct |
+| bucket | 存储桶名称，Bucket 的命名规则为 BucketName-APPID，此处填写的存储桶名称必须为此格式 | string |
+| object | Object 名称 | string |
+| headers | COS 请求附加头域，需要自行添加 Pic-Operations 万象处理头部 | Struct |
+| resp_headers | 返回 HTTP 响应消息的头域 | Struct |
+| results | 云上数据处理返回信息 | Struct |
+

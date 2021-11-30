@@ -1,0 +1,25 @@
+`BULK COLLECT` 使 `SELECT` 语句通过一次提取来检索多行，从而提高了数据检索的速度。
+
+示例：
+```
+create table t5(f1 integer,f2 varchar(10));
+    
+insert into t5 values(1,'tbase1'); 
+    
+insert into t5 values(2,'tbase2'); 
+    
+DECLARE
+TYPE name_tbl IS TABLE OF VARCHAR2(50);
+emp_name name_tbl;
+BEGIN
+SELECT f2 
+  BULK COLLECT INTO emp_name
+  FROM t5;
+FOR i IN emp_name.FIRST .. emp_name.LAST
+LOOP
+perform Dbms_output.put_line(i);
+END LOOP;
+    
+END;
+/
+```

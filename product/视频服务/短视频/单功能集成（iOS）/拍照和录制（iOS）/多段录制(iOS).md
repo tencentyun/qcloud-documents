@@ -1,18 +1,20 @@
 
 
-视频多段录制基本使用流程如下 :
+视频多段录制基本使用流程如下：
 
-1. 启动画面预览；
-2. 开始录制；
-3. 开始播放 BGM；
-4. 暂停录制；
-5. 暂停播放 BGM；
-6. 继续播放 BGM；
-7. 继续录制；
-8. 停止录制；
-9. 停止播放 BGM；
+1. 启动画面预览。 
+2. 开始录制。
+3. 开始播放 BGM。
+4. 暂停录制。
+5. 暂停播放 BGM。
+6. 继续播放 BGM。
+7. 继续录制。
+8. 停止录制。
+9. 停止播放 BGM。
 
-```objc
+
+<dx-codeblock>
+::: ios objc
 //开启画面预览
 recorder = [TXUGCRecord shareInstance];
 [recorder startCameraCustom:param preview:preview];
@@ -73,4 +75,5 @@ TXUGCPartsManager *partsManager = recorder.partsManager;
 
 //合成所有片段视频
 [partsManager joinAllParts: videoOutputPath complete:complete];
-```
+:::
+</dx-codeblock>

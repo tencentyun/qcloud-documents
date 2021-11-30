@@ -1,12 +1,12 @@
 ## 接口描述
-**RefreshCdnUrl**删除 CDN 全网节点上缓存的指定资源。
+**RefreshCdnUrl** 删除 CDN 全网节点上缓存的指定资源。
 请求域名：`cdn.api.qcloud.com`
 + 默认情况下，每一个账号每日可刷新 URL 10000条，每次最多可提交1000条。
 + 全网 URL 刷新生效时间约为5分钟。
 + 提交的 URL 必须以`http://`或`https://`开头。
 + 提交的 URL 中域名必须为该账号下已接入的加速域名。
-+ 提交的 URL 中域名的状态需要为【已启动】或【部署中】。
-+ 调用频次限制为10000次/分钟。
++ 提交的 URL 中域名的状态需要为“已启动”或“部署中”。
++ 调用频次限制为1200次/分钟
 + 接口已支持子账号调用，权限配置可参考权限 [配置示例](https://cloud.tencent.com/document/product/228/14867)。
 
 查看 [调用示例](https://cloud.tencent.com/document/product/228/1734)。
@@ -21,23 +21,23 @@
 #### 详细说明
 支持刷新一个或多个 URL，刷新多个 URL 时，参数传入方式可参考：
 ```
-urls.0=http://www.abc.com/1.jpg&urls.1=http://www.abc.com/2.jpg
+urls.0=http://cloud.tencent.com/1.jpg&urls.1=http://cloud.tencent.com/2.jpg
 ```
 
 ### 过滤参数影响
 1. 若域名开启了过滤参数配置，此时提交如下 URL 进行刷新：
 
  ```
-https: //www.test.com/index.php?name=1
-https: //www.test.com/index.php?name=2
+https://www.example.com/index.php?name=1
+https://www.example.com/index.php?name=2
 ```
 
- 由于缓存时忽略参数，因此均刷新 URL：```https://www.test.com/index.php```。为节省配额，提交刷新任务时可不带参去重。
+ 由于缓存时忽略参数，因此均刷新 URL：```https://www.example.com/index.php```。为节省配额，提交刷新任务时可不带参去重。
 2. 若域名关闭了过滤参数配置，此时提交如下 URL 进行刷新：
 
  ```
-https: //www.test.com/index.php?name=1
-https: //www.test.com/index.php?name=2
+https://www.example.com/index.php?name=1
+https://www.example.com/index.php?name=2
 ```
  由于缓存时未忽略参数，因此将会删除对应的两个资源。
 
@@ -60,7 +60,7 @@ https: //www.test.com/index.php?name=2
 ## 调用案例
 ### 示例参数
 ```
-urls.0：https://www.test.com/1.jpg
+urls.0：https://www.example.com/1.jpg
 ```
 
 ### GET 请求
@@ -72,7 +72,7 @@ Action=RefreshCdnUrl
 &Timestamp=1462521223
 &Nonce=123456789
 &Signature=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-&urls.0=https%3A%2F%2www.test.com%2F1.jpg
+&urls.0=https://www.example.com/1.jpg
 ```
 
 >!GET 请求大小限制为32KB，超出大小限制则会返回状态码501。若需提交较多 URL，可采用 POST 请求。
@@ -91,7 +91,7 @@ array (
   'Timestamp' => 1462864833,
   'Nonce' => 1149033341,
   'Signature' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-  'urls.0' => 'https://www.test.com/1.jpg'
+  'urls.0' => 'https://www.example.com/1.jpg'
 )
 ```
 

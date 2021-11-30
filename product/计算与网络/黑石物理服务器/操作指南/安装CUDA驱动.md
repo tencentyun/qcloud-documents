@@ -34,7 +34,7 @@ Toolkit:  Installed in /usr/local/cuda-10.0
 ## Windows 系列安装指引
 本教程适用于以下条件下的安装：
 - 机型：PG103v2
-- 操作系统版本： Windwos SERVER 2012 R2
+- 操作系统版本： Windows Server 2012 R2
 - CUDA 版本：CUDA_9.1.85
 
 其他条件下的安装请参考 [Nvdia 官网](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html)。  
@@ -62,12 +62,10 @@ $client.DownloadFile('http://mirrors.tencentyun.com/install/monitor_bm/cuda_9.1.
 
 ### 验证是否安装成功
 1. 进入目录
-
 ```
 c:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\1_Utilities\deviceQuery
 ```
-
 2. 打开文件夹内的 Visual Studio 工程。
-
 3. 编译运行后，出现如下图示现象，即证明安装成功。
 ![]( https://main.qcloudimg.com/raw/813fe93e57615ebf0d42bda71fdc0c86.jpg)
+

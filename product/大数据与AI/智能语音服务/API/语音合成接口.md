@@ -72,7 +72,7 @@ https://aai.qcloud.com/tts/v1/<appid>?
 "volume":"3",
 "person":"0",
 "speed":"0",
-"secretid":"AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5",
+"secretid":"AKIDlfdHxN0ntSVt4KPH0xXWnGl21UU*****",
 "timestamp":"1484109983",
 "expired":"1484113583",
 "nonce":"1675199141"
@@ -80,7 +80,7 @@ https://aai.qcloud.com/tts/v1/<appid>?
 ```
 这里以< appid > = 20170111, < SecretKey >=oaYWFO70LGDmcpfwo8uF1IInayysGtgZ 为例拼接签名原文，则拼接的签名原文为：
 ```
-POSTaai.qcloud.com/tts/v1/20170111?expired=1484113583&nonce=1675199141&person=0&projectid=0&secretid=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5&speech_format=mp3&speed=0&sub_service_type=0&timestamp=1484109983&volume=3
+POSTaai.qcloud.com/tts/v1/20170111?expired=1484113583&nonce=1675199141&person=0&projectid=0&secretid=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UU*****&speech_format=mp3&speed=0&sub_service_type=0&timestamp=1484109983&volume=3
 ```
 对原文进行加密处理：
 ```

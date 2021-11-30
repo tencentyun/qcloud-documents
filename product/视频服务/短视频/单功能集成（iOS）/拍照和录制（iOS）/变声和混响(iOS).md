@@ -1,6 +1,8 @@
-录制变声混响：
-```objc
-//获取recorder对象
+**录制变声混响：**
+
+<dx-codeblock>
+::: ios 
+//获取 recorder 对象
 recorder = [TXUGCRecord shareInstance];
 
 // 设置混响
@@ -27,5 +29,7 @@ recorder = [TXUGCRecord shareInstance];
 // TXRecordCommon.VIDOE_VOICECHANGER_TYPE_10 重机械
 // TXRecordCommon.VIDOE_VOICECHANGER_TYPE_11 空灵
 [record setVoiceChangerType:VIDOE_VOICECHANGER_TYPE_1];
-```
->Tips：变声混响只针对录制人声有效，针对 BGM 无效。
+:::
+</dx-codeblock>
+
+>?变声混响只针对录制人声有效，针对 BGM 无效。

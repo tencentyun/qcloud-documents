@@ -33,9 +33,9 @@ http://stia.tencentcloudapi.comAction=DeleteJob
 ```
 #### 输出：
 ```
- {
-  Response {
-    RequestId xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-  }
+{
+	"Response": {
+		"RequestId": "xxxxxxxx - xxxx - xxxx - xxxx - xxxxxxxxxxxx"
+	}
 }
 ```

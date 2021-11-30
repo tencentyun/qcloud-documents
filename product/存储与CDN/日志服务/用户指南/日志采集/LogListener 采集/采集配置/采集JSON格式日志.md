@@ -1,103 +1,133 @@
-## 概述
+## 操作场景
 
 JSON 格式日志会自动提取首层的 key 作为对应字段名，首层的 value 作为对应的字段值，以该方式将整条日志进行结构化处理，每条完整的日志以换行符`\n`为结束标识符。
 
-### 示例
-假设您的一条 json 日志原始数据为：
-```
-{"remote_ip":"10.135.46.123","time_local":"21/Dec/2018:17:06:56 +0800","body_sent":142,"responsetime":0.961,"upstreamtime":"0.961","upstreamhost":"unix:/tmp/php-cgi.sock","http_host":"127.0.0.1","method":"GET","url":"/admin/cloud/ad","request":"GET /admin/cloud/ad HTTP/1.1","xff":"-","referer":"http://127.0.0.1/admin/","agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0","response_code":"200"}
+## 前提条件
+
+假设您的一条 JSON 日志原始数据为：
+
+```plaintext
+{"remote_ip":"10.135.46.111","time_local":"22/Jan/2019:19:19:34 +0800","body_sent":23,"responsetime":0.232,"upstreamtime":"0.232","upstreamhost":"unix:/tmp/php-cgi.sock","http_host":"127.0.0.1","method":"POST","url":"/event/dispatch","request":"POST /event/dispatch HTTP/1.1","xff":"-","referer":"http://127.0.0.1/my/course/4","agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0","response_code":"200"}
 ```
 
 经过日志服务结构化处理后，该条日志将变为如下：
 
-```
-agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0
-body_sent: 334
+```plaintext
+agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0
+body_sent: 23
 http_host: 127.0.0.1
 method: POST
-referer: http://127.0.0.1/admin/
+referer: http://127.0.0.1/my/course/4
 remote_ip: 10.135.46.111
-request: POST /admin/operation/analysis HTTP/1.1
+request: POST /event/dispatch HTTP/1.1
 response_code: 200
-responsetime: 0.219
-time_local: 21/Dec/2018:17:06:56 +0800
+responsetime: 0.232
+time_local: 22/Jan/2019:19:19:34 +0800
 upstreamhost: unix:/tmp/php-cgi.sock
-upstreamtime: 0.219
-url: /admin/operation/analysis
-xff: - 
+upstreamtime: 0.232
+url: /event/dispatch
+xff: -
 ```
-## 采集配置
 
-### 1. 登录控制台
+## 操作步骤
 
-登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，左侧选择【日志集管理】。
+### 登录控制台
 
-### 2. 新建 LogListener 采集
+1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
+2. 在左侧导航栏中，单击【日志主题】，进入日志主题管理页面。
 
-选择目标日志集，单击【新建日志主题】，输入日志主题名称：test-json ，单击 【确定】即可。
-![](https://main.qcloudimg.com/raw/33a572bbd59fb6c35f2937a1e124e38d.png)
+### 创建日志主题
 
-### 3. 配置 LogListener 采集
+1. 单击【创建日志主题】。
+2. 在弹出的对话框中，将“日志主题名称”填写为“test-json”，单击【确定】，即可新增日志主题。如下图所示：
+<img src="https://main.qcloudimg.com/raw/d8a526443fdf0ce6a2ccd011d90c318d.png" alt="屏幕快照 2021-03-11 上午12.19.14" style="zoom:50%;" />
 
-单击 LogListener 采集的日志主题，在采集配置界面中单击右上角【编辑】按钮，进入到编辑模式，然后开启**采集状态**和**使用 LogListener**。 
-![](https://main.qcloudimg.com/raw/b8d6b810b8958dc1504e1db3d05490f4.png)
+### 机器组管理
 
-### 4. 配置日志文件采集路径
+1. 日志主题创建成功后，进入该日志主题管理页面。
+2. 选择【采集配置】页签，单击您需要采集的日志数据源格式。
+3. 在“机器组管理”页面，勾选需要与当前日志主题进行绑定的机器组，单击【下一步】。
+即可进入采集配置阶段，更多详情请参阅 [管理机器组](https://cloud.tencent.com/document/product/614/17412)。
+![](https://main.qcloudimg.com/raw/75dff5fb6dcfa8a66a2927b3b873d6b8.png)
 
-采集路径处需要填写需要采集的完整路径，而非目录格式（即需要以 / 开头，非 / 结尾），文件名支持正则，目前暂不支持通配符。
+### 采集配置
 
->!采集路径中仅允许日志文件名称使用正则，目录不支持正则。
+#### 配置日志文件采集路径
 
-#### 配置方式
-|方式|路径|
-| ------------------------ | ------------------ |
-| 使用绝对路径匹配日志文件 | /usr/local/nginx/logs/example.com.access.log |
-| 使用正则匹配日志文件 | /usr/local/nginx/logs/.*.access.log          |
+在“采集配置”页面，根据日志采集路径格式，填写“采集路径”。如下图所示：
+日志采集路径格式：`[目录前缀表达式]/**/[文件名表达式]`。
+<img src="https://main.qcloudimg.com/raw/d18fdc6631d5c76fa86593b2c3d673f9.png" alt="屏幕快照 2021-01-21 下午12.45.01" style="zoom:50%;" />
+填写日志采集路径后，LogListener 会按照**[目录前缀表达式]**匹配所有符合规则的公共前缀路径，并监听这些目录（包含子层目录）下所有符合**[文件名表达式]**规则的日志文件。其参数详细说明如下：
 
-### 5. 关联机器组
+| 字段     | 说明                                                         |
+| -------- | ------------------------------------------------------------ |
+| 目录前缀 | 日志文件前缀目录结构，仅支持通配符 \* 和 ? ，\* 表示匹配多个任意字符，? 表示匹配单个任意字符 |
+| /**/     | 表示当前目录以及所有子目录                                   |
+| 文件名   | 日志文件名，仅支持通配符 \* 和 ? ，\* 表示匹配多个任意字符，? 表示匹配单个任意字符 |
 
-从机器组列表中选择目标机器组，将其与当前日志主题进行关联，值得注意的是，关联的机器组与日志主题所在的地域需保持一致。操作详情请参阅 [如何创建机器组](https://cloud.tencent.com/document/product/614/17412#.E5.88.9B.E5.BB.BA.E6.9C.BA.E5.99.A8.E7.BB.84) 文档。
-![](https://main.qcloudimg.com/raw/769ab308eaf3f59d9de97fcb358a9a83.png)
+常用的配置模式如下：
+- [公共目录前缀]/\*\*/[公共文件名前缀]\*
+- [公共目录前缀]/\*\*/\*[公共文件名后缀]
+- [公共目录前缀]/\*\*/[公共文件名前缀]\*[公共文件名后缀]
+- [公共目录前缀]/\*\*/\*[公共字符串]\*
 
-### 6. JSON 模式选择
+填写示例如下：
 
-键值提取模式选择 **JSON**。
-![](https://main.qcloudimg.com/raw/c043a155c49a655b443fce56a7a910c8.png)
+| 序号 | 目录前缀表达式 | 文件名表达式 | 说明                                                         |
+| ---- | -------------- | ------------ | ------------------------------------------------------------ |
+| 1.   | /var/log/nginx | access.log   | 此例中，日志路径配置为`/var/log/nginx/**/access.log`，LogListener 将会监听`/var/log/nginx`前缀路径下所有子目录中以`access.log`命名的日志文件 |
+| 2.   | /var/log/nginx | \*.log       | 此例中，日志路径配置为`/var/log/nginx/**/*.log`，LogListener 将会监听`/var/log/nginx`前缀路径下所有子目录中以`.log`结尾的日志文件 |
+| 3.   | /var/log/nginx | error\*      | 此例中，日志路径配置为`/var/log/nginx/**/error*`，LogListener 将会监听`/var/log/nginx`前缀路径下所有子目录中以`error`开头命名的日志文件 |
 
-### 7. 采集时间配置
+>!
+> - Loglistener 2.3.9及以上版本才可以添加多个采集路径。
+> - 暂不支持上传的日志内容中含有多种文本格式，可能会导致写入失败，例如 key:"{"substream":XXX}"。
+> - 建议配置采集路径为 `log/*.log`，rename日志轮转后的老文件命名为 `log/*.log.xxxx`。
+> - 默认情况下，一个日志文件只能被一个日志主题采集。如果一个文件需要对应多个采集配置，请给源文件添加一个软链接，并将其加到另一组采集配置中。
+> 
 
->?
->- 日志时间单位为：秒。
->- 日志的时间属性有两种方式来定义：采集时间和原始时间戳。
->- 采集时间：日志的时间属性由日志服务 CLS 采集该条日志的时间决定。
->- 原始时间戳：日志的时间属性由原始日志中时间戳决定。
+#### 配置 JSON 模式
 
-#### 7.1 采集时间作为日志的时间属性
+在“采集配置”页面，将“提取模式”设置为【JSON】。如下图所示：
+![](https://main.qcloudimg.com/raw/bc10b5eec0581b01a8f2fb71e75f8eb4.png)
 
-保持采集时间状态为开启状态即可，如图：
-![](https://main.qcloudimg.com/raw/837a8946234f580f977f623dd6df5e7a.png)
+#### 配置采集策略
 
-#### 7.2 日志的原始时间戳作为日志时间属性
+- 全量采集：Loglistener 采集文件时，从文件的开头开始读。
+- 增量采集：Loglistener 采集文件时，从距离文件末尾1M处开始读取（若文件小于1M，等价全量采集）。
 
-关闭采集时间状态，填写原始时间戳的时间键以及对应的时间解析格式，转换格式支持 strftime 的所有函数。
-![](https://main.qcloudimg.com/raw/c548153ae42a2329b9be91b4b1c10178.png)
 
-这里举例说明时间格式解析规则填写：  
+#### 配置采集时间
+
+>? 
+> - 日志时间单位为：秒，若时间格式填写错误日志时间将以采集时间为准。
+> - 日志的时间属性有两种方式来定义：采集时间和原始时间戳。
+> - 采集时间：日志的时间属性由日志服务 CLS 采集该条日志的时间决定。
+> - 原始时间戳：日志的时间属性由原始日志中时间戳决定。
+> 
+
+
+- **采集时间作为日志的时间属性**：保持采集时间状态为开启状态即可。
+- **日志的原始时间戳作为日志时间属性**：关闭采集时间状态，在时间键和时间格式解析处，填写原始时间戳的时间键以及对应的时间解析格式。时间解析格式详情参见 [配置时间格式](https://cloud.tencent.com/document/product/614/38614)。
+这里举例说明时间格式解析规则填写：
 例1：日志样例原始时间戳：`10/Dec/2017:08:00:00`，解析格式为：`%d/%b/%Y:%H:%M:%S`。
-例2：日志样例原始时间戳：`2017-12-10 08:00:00`，解析格式为：`%Y-%m-%d %H:%M:%S`。  
-例3：日志样例原始时间戳：`12/10/2017, 08:00:00`，解析格式为：`%m/%d/%Y, %H:%M:%S`。  
+例2：日志样例原始时间戳：`2017-12-10 08:00:00`，解析格式为：`%Y-%m-%d %H:%M:%S`。
+例3：日志样例原始时间戳：`12/10/2017, 08:00:00`，解析格式为：`%m/%d/%Y, %H:%M:%S`。
 
->!日志时间支持以秒为单位，若时间格式填写错误日志时间将以采集时间为准。
 
-### 8. 过滤器条件
+#### 配置过滤器条件
 
-过滤器旨在您根据业务需要添加日志采集过滤规则，帮助您方便筛选出有价值的日志数据。对于JSON格式日志，可以根据所解析成的键值对配置过滤规则，过滤规则为正则表达式。所创建的过滤规则为命中规则，即匹配上正则表达式的日志才会被采集上报。
+过滤器旨在您根据业务需要添加日志采集过滤规则，帮助您筛选出有价值的日志数据。过滤规则为 Perl 正则表达式，所创建的过滤规则为命中规则，即匹配上正则表达式的日志才会被采集上报。
 
-例如，您希望指定 status = 400或500的日志数据被采集。key 处配置 status，过滤规则处配置（400|500）。
+对于 JSON 格式日志，可以根据所解析成的键值对配置过滤规则。例如，您希望原始 JSON 格式日志内容中 response_code 为400或500的所有日志数据被采集，那么 key 处配置 response_code，过滤规则处配置400|500。
 
-### 9. 检索结果
+>! 多条过滤规则之间关系是"与"逻辑；若同一 key 名配置多条过滤规则，规则会被覆盖。
+>
 
-登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，左侧导航栏单击【日志检索】，然后在日志检索界面选择日志集与日志主题，单击【搜索】，即可检索日志。
-![](https://main.qcloudimg.com/raw/f9d5c022abf274fb9bb6b71b386c9d3c.png)
+## 相关操作
 
->!检索必须开启索引配置，否则无法进行检索。
+### 检索日志
+1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
+2. 在左侧导航栏中，单击【检索分析】，进入检索分析页面。
+3. 根据实际需求，选择地域、日志集与日志主题，单击【检索分析】，即可开始按照设定的查询条件检索日志。
+
