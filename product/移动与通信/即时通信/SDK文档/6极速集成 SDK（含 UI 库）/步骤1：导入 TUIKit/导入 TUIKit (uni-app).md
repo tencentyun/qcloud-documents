@@ -61,7 +61,7 @@ uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
 .then(function(imResponse) {
   console.log(imResponse.data); // 登录成功
   if (imResponse.data.repeatLogin === true) {
-    // 标识账号已登录，本次登录操作为重复登录。v2.5.1 起支持
+    // 标识帐号已登录，本次登录操作为重复登录。v2.5.1 起支持
     console.log(imResponse.data.errorInfo);
   }
 })
