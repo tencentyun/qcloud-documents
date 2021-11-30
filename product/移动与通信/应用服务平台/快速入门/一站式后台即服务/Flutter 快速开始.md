@@ -87,8 +87,8 @@ void main() async {
 
 登录成功后，便可以访问和使用云开发的各类资源，详情请参见 Flutter SDK 文档。
 
-- [初始化](https://docs.cloudbase.net/api-reference/flutter/initialization.html)
-- [登录认证](https://docs.cloudbase.net/api-reference/flutter/authentication.html)
-- [云函数](https://docs.cloudbase.net/api-reference/flutter/functions.html)
-- [数据库](https://docs.cloudbase.net/api-reference/flutter/database.html)
-- [文件存储](https://docs.cloudbase.net/api-reference/flutter/storage.html)
+- [初始化](https://docs.cloudbase.net/api-reference/flutter/initialization)
+- [登录认证](https://docs.cloudbase.net/api-reference/flutter/authentication)
+- [云函数](https://docs.cloudbase.net/api-reference/flutter/functions)
+- [数据库](https://docs.cloudbase.net/api-reference/flutter/database)
+- [文件存储](https://docs.cloudbase.net/api-reference/flutter/storage)
