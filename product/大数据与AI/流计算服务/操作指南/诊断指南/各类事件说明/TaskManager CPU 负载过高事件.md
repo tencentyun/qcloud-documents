@@ -4,9 +4,9 @@ Flink 作业的 TaskManager 负责执行用户定义的各类算子逻辑，CPU 
 > !该功能目前为 Beta 版，告警推送和规则配置能力会陆续上线。
 
 ## 判定标准
-系统每5分钟会检测一次 Flink 作业中所有 TaskManager 的 CPU 使用率指标。
-当某个 TaskManager 的 CPU 使用率连续5个数据点的值都超过90%，则说明这个 TaskManager 处于 CPU 超高负载状态。
-如果该作业超过80%的 TaskManager 都处于超高负载状态，则会触发该事件的推送。
+- 系统每5分钟会检测一次 Flink 作业中所有 TaskManager 的 CPU 使用率指标。
+- 当某个 TaskManager 的 CPU 使用率连续5个数据点的值都超过90%，则说明这个 TaskManager 处于 CPU 超高负载状态。
+- 如果该作业超过80%的 TaskManager 都处于超高负载状态，则会触发该事件的推送。
 
 > !为了避免频繁告警，每个作业的每个运行实例 ID 每小时最多触发一次该事件的推送。
 
