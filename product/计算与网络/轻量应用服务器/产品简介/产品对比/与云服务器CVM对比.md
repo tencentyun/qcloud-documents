@@ -17,7 +17,7 @@
 <tr>
 <th style="font-weight:700;" colspan=2>更聚焦的用户群体</th>
 <td>中小企业、开发者、云计算入门者</td>
-<td>所有上云用户</td>
+<td>了解并熟悉云计算，业务场景相对复杂的企业级⽤户</td>
 </tr>
 <tr>
 <th style="font-weight:700;" colspan=2>更轻量的业务场景</th>
