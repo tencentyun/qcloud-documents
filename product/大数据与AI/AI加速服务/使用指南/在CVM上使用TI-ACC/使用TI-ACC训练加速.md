@@ -1,7 +1,7 @@
 目前 TI-ACC 处于内测阶段，请先进行 [申请内测权限](https://cloud.tencent.com/apply/p/vl6fzemdq1) 拿到私有镜像临时登录指令，然后进行使用。
 
 ## 使用要求
-TI-ACC 推理加速敏捷版仅支持以下操作系统、Python 版本、设备类型及框架版本：
+TI-ACC 训练加速仅支持以下操作系统、Python 版本、设备类型及框架版本：
 - 操作系统：Linux
 - Python 版本：Python 3.6
 - 设备类型：GPU 支持 CUDA 10.1、10.2、11.1
