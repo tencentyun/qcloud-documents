@@ -1,13 +1,13 @@
 ## 操作场景
-Serverless SSR 为您提供了完整的命令行开发流程，该任务指导您通过 [Serverless Framework](https://cloud.tencent.com/document/product/1154) 命令行工具完成 Next.js 应用的部署与开发。
+Serverless SSR 为您提供了完整的命令行开发流程，该任务指导您通过 [Serverless Framework](https://cloud.tencent.com/document/product/1154) 命令行工具完成 Next.js 应用的部署与开发。 
 
 ## 架构说明
 
 Next.js 组件将在腾讯云账号中使用到如下 Serverless 服务：
 
-- **API 网关**：API 网关将会接收外部请求并且转发到 SCF 云函数中。
-- **SCF 云函数**：云函数将承载 Next.js 应用。
-- **CAM 访问控制**：该组件会创建默认 CAM 角色用于授权访问关联资源。
+- **API 网关**：API 网关将会接收外部请求并且转发到 SCF 云函数中。 
+- **SCF 云函数**：云函数将承载 Next.js 应用。 
+- **CAM 访问控制**：该组件会创建默认 CAM 角色用于授权访问关联资源。 
 - **COS 对象存储**：为确保上传速度和质量，云函数压缩并上传代码时，会默认将代码包存储在特定命名的 COS 桶中
 
 ## 操作步骤
@@ -72,7 +72,7 @@ $ npm run build
 $ sls deploy
 ```
 
-部署时需要进行身份验证，如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
+部署时需要进行身份验证，如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。 
 
 >?如果希望查看更多部署过程的信息，可以通过`sls deploy --debug` 命令查看部署过程中的实时日志信息（`sls`是 `serverless` 命令的缩写）。
 
@@ -87,7 +87,7 @@ $ serverless info
 
 ### 5. 移除
 
-在`serverless.yml`文件所在的目录下，通过以下命令移除部署通过以下命令移除部署的 API 网关，移除后该组件会对应删除云上部署时所创建的所有相关资源。
+在`serverless.yml`文件所在的目录下，通过以下命令移除部署通过以下命令移除部署的 API 网关，移除后该组件会对应删除云上部署时所创建的所有相关资源。 
 
 ```bash
 $ sls remove
@@ -156,17 +156,17 @@ TENCENT_SECRET_KEY=123
 
 ### 自定义监控
 
-当您在部署 Next.js 应用时，如果 `serverless.yml` 中未指定 `role`，默认会尝试绑定 `QCS_SCFExcuteRole`，并且开启自定义监控，帮助您收集应用监控指标。对于为自定义入口文件的项目，会默认上报除含有 `/_next` 和 `/static` 的路由。
+当您在部署 Next.js 应用时，如果 `serverless.yml` 中未指定 `role`，默认会尝试绑定 `QCS_SCFExcuteRole`，并且开启自定义监控，帮助您收集应用监控指标。 对于为自定义入口文件的项目，会默认上报除含有 `/_next` 和 `/static` 的路由。 
 
-如果您想自定义上报自己的路由性能，可以自定义 `sls.js` 入口文件。
-对于无需上报的路由，在 express 服务的 `req` 对象上添加 `__SLS_NO_REPORT__` 属性值为 `true` 即可。例如：
+如果您想自定义上报自己的路由性能，可以自定义 `sls.js` 入口文件。 
+对于无需上报的路由，在 express 服务的 `req` 对象上添加 `__SLS_NO_REPORT__` 属性值为 `true` 即可。 例如：
 ```js
 server.get('/no-report', (req, res) => {
   req.__SLS_NO_REPORT__ = true
   return handle(req, res)
 })
 ```
-配置后，用户在访问 `GET /no-report` 路由时，就不会上报自定义监控指标。
+配置后，用户在访问 `GET /no-report` 路由时，就不会上报自定义监控指标。 
 
 
 

@@ -60,12 +60,12 @@
 
 实现离线消息推送的过程如下：
 
-1. 开发者到厂商的平台注册账号，开通推送服务并创建应用，得到AppID、AppKey、AppSecret 等信息。
+1. 开发者到厂商的平台注册帐号，开通推送服务并创建应用，得到AppID、AppKey、AppSecret 等信息。
 2. 将厂商提供的推送 SDK 集成到开发者的项目工程中，并在厂商控制台测试通知消息，确保成功集成。
 3. 登录 [即时通信 IM 控制台](https://console.qcloud.com/avc) 填写推送证书及相关信息，即时通信 IM 服务端会为每个证书生成不同的证书 ID。
 4. 集成即时通信 IM SDK 到项目后，将证书 ID、设备信息等上报至即时通信 IM 服务端。
 
-当客户端 App 在即时通信 IM 没有退出登录的情况下被系统或者用户 kill 时，即时通信 IM 服务端会将其他账号发来的消息通过厂商的通道推送下去。
+当客户端 App 在即时通信 IM 没有退出登录的情况下被系统或者用户 kill 时，即时通信 IM 服务端会将其他帐号发来的消息通过厂商的通道推送下去。
 
 ## 小米推送
 
@@ -731,7 +731,7 @@ String extContent = bundle.getString("ext");
 ### 集成 SDK
 
 [](id:fcmStep1_1)
-1. 打开 [Firebase 云消息传递](https://firebase.google.com) 注册账号并创建应用。
+1. 打开 [Firebase 云消息传递](https://firebase.google.com) 注册帐号并创建应用。
 [](id:fcmStep1_2)
 2. 登录 [Firebase 控制台](https://console.firebase.google.com)，单击您的应用卡片，进入应用配置页面。单击 Project Overview 右侧的 <img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择【项目设置】>【服务帐号】，单击【生成新的私钥】下载私钥文件。
 [](id:fcmStep1_3)
