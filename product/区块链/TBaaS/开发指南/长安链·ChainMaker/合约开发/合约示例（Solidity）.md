@@ -110,4 +110,3 @@ contract Token {
 - setName: 设置 token 名字函数，该函数具有一个入参 `_name`，将 token 的名字设置为 `_name`。
 - burn: 销毁函数，该函数具有一个入参 `_value`，将调用者 `msg.sender` 的余额减去 `_value`。
 
-# 
