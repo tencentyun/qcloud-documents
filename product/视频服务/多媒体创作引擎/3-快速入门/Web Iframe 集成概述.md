@@ -1,14 +1,11 @@
 <!-- 目录：/开发指南/在线视频剪辑/Web Iframe 集成概述 -->
 
-Web Iframe 集成综述
-
 ## 界面形态
 Web Iframe 集成模式中，业务前端以 Iframe 方式集成剪辑界面。剪辑界面负责剪辑轨道数据的编辑与预览，视频在云端合成。示例如下，红色区域内为`多媒体创作引擎`剪辑页，其它为业务方界面。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/dd04fccf9bddeb7675771fbaadd09361.png" width="960">
+![](https://qcloudimg.tencent-cloud.cn/raw/887bc5299437b5a3b59c0bb076fd1aaf.png)
 ## 集成架构
 业务架构图如下，虚线表示媒体创作引擎内部通信，实线表示与您的业务通信。
-
-<img src="https://qcloudimg.tencent-cloud.cn/raw/03411630576ede280c968feaefe7cfba.png" width="960">
+![](https://qcloudimg.tencent-cloud.cn/raw/a5268db0c5d6e8f4678f57cfc372d5e5.png)
 
 整个业务系统涉及五部分，包括**多媒体创作引擎前端**、**业务前端**、**业务后端**、**多媒体创作引擎后端** 以及 **素材存储**。其中**多媒体创作引擎前端**与**业务前端**使用 Javascript API 进行通信，**多媒体创作引擎后端**与**业务后端**以云 API 进行通信。
 
@@ -20,8 +17,7 @@ Web Iframe 集成模式中，业务前端以 Iframe 方式集成剪辑界面。�
 4. 导出视频：发起云端视频合成，生成视频。
 5. 查看结果：轮询任务，成功后，在 VOD 上查看结果。
 
-<img src="https://qcloudimg.tencent-cloud.cn/raw/433360aefae4542ff147d01acd1fc7eb.png" width="960">
-
+![](https://qcloudimg.tencent-cloud.cn/raw/b1322033d1d03c332f28cedf5b0fd93c.png)
 
 流程时序如下：
 
@@ -33,11 +29,19 @@ Web Iframe 集成模式中，业务前端以 Iframe 方式集成剪辑界面。�
 
 ## 集成教程
 接下来将通过具体案例，来介绍集成流程。分为如下几个步骤：
-1. [准备工作](TODO)：秘钥获取、云服务准备、示例视频准备等。
-2. [后端集成](TODO)：搭建业务服务，为下一步前端集成提供必要的接口。
-3. [前端集成](TODO)：集成`多媒体创作引擎`剪辑页面，并和上一步已经搭建好的后端服务进行通信，完成前后端联调并导出视频。
+1. [准备工作](https://cloud.tencent.com/document/product/1156/65099)：秘钥获取、云服务准备、示例视频准备等。
+2. [后端集成](https://cloud.tencent.com/document/product/1156/65100)：搭建业务服务，为下一步前端集成提供必要的接口。
+3. [前端集成](https://cloud.tencent.com/document/product/1156/65101)：集成`多媒体创作引擎`剪辑页面，并和上一步已经搭建好的后端服务进行通信，完成前后端联调并导出视频。
 <!-- 4. [高级功能](TODO)：在完成基础教程的前提下，针对具体业务需求，进行更高级的业务开发。 -->
 
 ## 更多参考
 
 - [SDK参考](https://cloud.tencent.com/document/product/1156/51217)
+
+
+
+
+
+
+
+
