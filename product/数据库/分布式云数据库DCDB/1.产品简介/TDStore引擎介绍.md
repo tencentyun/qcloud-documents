@@ -3,7 +3,7 @@ TDStore 是腾讯云全自研的金融级新敏态引擎，该引擎可以有效
 
 ## TDStore 引擎特性
 ### 高度兼容 MySQL 语法
-TDSQL TDStore 引擎版计算节点基于 MySQL 8.0 实现，除过个别受限的系统操作，TDStore 可以100%兼容原生 MySQL 语法。单机 MySQL 的业务可以无损迁移到 TDStore 上，真正实现对业务应用无入侵。
+TDSQL TDStore 引擎版计算节点基于 MySQL 8.0 实现，除个别受限的系统操作，TDStore 可以100%兼容原生 MySQL 语法。单机 MySQL 的业务可以无损迁移到 TDStore 上，真正实现对业务应用无入侵。
 
 ###  存储计算分离/独立弹性伸缩
 TDStore 采用计算和存储分离的原生分布式的架构设计，计算层和存储层的节点均可根据业务需求独立弹性扩缩容，而且无须额外的人工运维干预，实现扩缩容过程对业务零感知。
@@ -20,7 +20,7 @@ TDStore 支持原生 Online DDL 操作，用户在业务运行过程中，有动
 TDStore 覆盖 MySQL 原生可支持的 instant 类型 DDL 操作，并且对于大部分类型（除涉及主键外的）DDL，均能以不阻塞业务的正常 DML 请求下完成。同时，TDStore 的 Online DDL 可以在多个计算节点之间保持一致性，不同表对象的 Online DDL 可以并行执行。
 
 ### 完整分布式事务支持
-TDStore 以原生分布式的架构完整支持事务 ACID 特性，默认的事务隔离级别为快照隔离级别（Snapshot Isolation），支持全局一致性读特性，整体事务并发控制框架基于 MVCC + Time-Ordering 的方式实现。
+TDStore 以原生分布式的架构完整支持事务 [ACID](https://cloud.tencent.com/document/product/1121/36888#A) 特性，默认的事务隔离级别为快照隔离级别（Snapshot Isolation），支持全局一致性读特性，整体事务并发控制框架基于 MVCC + Time-Ordering 的方式实现。
 
 分布式事务协调者由分布式存储层节点担任，而当存储节点在线扩容遇到数据分裂或切主等状态变更的场景时，TDStore 均可实现不中断事务，将底层数据状态的变更对事务请求的影响降到最低，从而做到无感知的集群扩缩容。
 
@@ -32,12 +32,16 @@ TDStore 存储层基于 LSM-Tree + SSTable 结构存放和管理数据，具有�
 
 ### 计算节点 SQLEngine
 SQLEngine 是计算节点，负责接收和响应客户端的 SQL 请求。SQLEngine 基于 MySQL 8.0 实现，完全兼容原生 MySQL 语法，从原生 MySQL 迁移过来的业务在使用时无须对业务语句进行任何改造。
+
 SQLEngine 采用无状态化的设计方式，节点本身不保存任何用户数据，并将多线程框架替换为协程框架，与集群内的 TDStore 节点进行交互。
+
 一个实例内可以包含多个 SQLEngine 节点，节点之间彼此独立，均可读写。
 
 ### 存储节点 TDStore
 TDStore 是存储节点，负责用户数据的存储。它是一个基于 Multi-Raft 协议实现的分布式存储集群。
+
 Region 是 TDStore 存储和管理数据的最小单位，以及 TDStore 节点之间进行数据复制同步的单位，一个 Region 代表一段左闭右开的数据区间，每个 Region 包含一主 N 备的多个副本，不同副本分散在不同的 TDStore 节点上。客户端对某一行数据的访问，在经过 SQLEngine 编码后，会将请求发送到对应的 TDStore 上对应的 Region 上。
+
 在分布式事务中，TDStore 承担协调者的角色，由 Region 的 Leader 副本进行响应。
 
 ### 管控节点 TDMC
