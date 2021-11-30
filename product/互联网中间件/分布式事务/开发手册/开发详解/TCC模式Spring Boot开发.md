@@ -25,8 +25,8 @@ TCC 事务，也可以理解为手动事务。需要用户提供 Try、Confirm�
 
 ```
 <dependency>
-<groupId>com.tencent.cloud</groupId>
-<artifactId>spring-boot-dtf-druid</artifactId>
+	<groupId>com.tencent.cloud</groupId>
+	<artifactId>spring-boot-dtf-druid</artifactId>
 </dependency>  
 ```
 

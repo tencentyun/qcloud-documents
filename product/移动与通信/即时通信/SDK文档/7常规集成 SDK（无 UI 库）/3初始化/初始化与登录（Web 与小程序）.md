@@ -189,7 +189,7 @@ let promise = tim.login({userID: 'your userID', userSig: 'your userSig'});
 promise.then(function(imResponse) {
   console.log(imResponse.data); // 登录成功
   if (imResponse.data.repeatLogin === true) {
-    // 标识账号已登录，本次登录操作为重复登录。v2.5.1 起支持
+    // 标识帐号已登录，本次登录操作为重复登录。v2.5.1 起支持
     console.log(imResponse.data.errorInfo);
   }
 }).catch(function(imError) {
@@ -205,8 +205,8 @@ promise.then(function(imResponse) {
 
 >!
 >- 调用此接口的实例会发布 [`SDK_NOT_READY`](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.SDK_NOT_READY) 事件，此时该实例下线，无法收、发消息。
->- 如果您在[即时通信 IM 控制台](https://console.cloud.tencent.com/im)配置的“Web端实例同时在线个数”大于 1，且同一账号登录了`a1`和`a2`两个实例（含小程序端），当执行`a1.logout()`后，`a1`会下线，无法收、发消息。而`a2`实例不会受影响。
->- 多实例被踢：基于第 2 点，如果“Web端实例同时在线个数”配置为 2，且您的某一账号已经登录了 `a1`，`a2`两个实例，当使用此账号成功登录第三个实例`a3`时，`a1`或`a2`中的一个实例会被踢下线（通常是最先处在登录态的实例会触发），这种情况称之为**“多实例被踢”**。假设`a1`实例被踢下线，`a1`实例内部会执行登出流程，然后抛出[`KICKED_OUT`](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.KICKED_OUT)事件，接入侧可以监听此事件，并在触发时跳转到登录页。此时`a1`实例下线，而`a2`、`a3`实例可以正常运行。
+>- 如果您在[即时通信 IM 控制台](https://console.cloud.tencent.com/im)配置的“Web端实例同时在线个数”大于 1，且同一帐号登录了`a1`和`a2`两个实例（含小程序端），当执行`a1.logout()`后，`a1`会下线，无法收、发消息。而`a2`实例不会受影响。
+>- 多实例被踢：基于第 2 点，如果“Web端实例同时在线个数”配置为 2，且您的某一帐号已经登录了 `a1`，`a2`两个实例，当使用此帐号成功登录第三个实例`a3`时，`a1`或`a2`中的一个实例会被踢下线（通常是最先处在登录态的实例会触发），这种情况称之为**“多实例被踢”**。假设`a1`实例被踢下线，`a1`实例内部会执行登出流程，然后抛出[`KICKED_OUT`](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.KICKED_OUT)事件，接入侧可以监听此事件，并在触发时跳转到登录页。此时`a1`实例下线，而`a2`、`a3`实例可以正常运行。
 
 **接口名**
 
