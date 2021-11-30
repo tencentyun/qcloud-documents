@@ -75,7 +75,7 @@
   - 目前不支持生成备案授权码。
  轻量应用服务器具体使用限制说明，请参见 [使用限制](https://cloud.tencent.com/document/product/1207/44376)。
 - 轻量应用服务器在内网连通性上也存在一定限制，详情请参见 [地域与网络连通性](https://cloud.tencent.com/document/product/1207/50103)。
-- 轻量应用服务器的 [云硬盘](https://cloud.tencent.com/document/product/1207/44361#.E5.AD.98.E5.82.A8) 和云服务器 CVM 的 [云硬盘](https://cloud.tencent.com/document/product/213/4953) 相互独立。轻量应用服务器的云硬盘仅支持挂载至轻量应用服务器实例，无法挂载至云服务器 CVM。
+- 轻量应用服务器的 [云硬盘](https://cloud.tencent.com/document/product/1207/63920) 和云服务器 CVM 的 [云硬盘](https://cloud.tencent.com/document/product/213/4953) 相互独立。轻量应用服务器的云硬盘仅支持挂载至轻量应用服务器实例，无法挂载至云服务器 CVM。
 </dx-alert>
 
 
