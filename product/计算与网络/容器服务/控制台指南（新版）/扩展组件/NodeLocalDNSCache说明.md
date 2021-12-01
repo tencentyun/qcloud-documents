@@ -39,6 +39,17 @@ NodeLocal DNSCache 通过在集群节点上作为 DaemonSet 运行 DNS 缓存代
 ```
 - IPVS 的独立集群和托管集群，都需要确保 tke-eni-ip-webhook Namespace 下的 add-pod-eni-ip-limit-webhook Deployment 镜像版本大于等于 v0.0.5。
 
+## 推荐配置
+当安装 NodeLocal DNSCache 后，推荐为 CoreDNS 增加如下配置：
+```
+template ANY HINFO . {
+  rcode NXDOMAIN
+}
+forward . /etc/resolv.conf {
+  prefer_udp
+}
+```
+
 ## 操作步骤
 
 
