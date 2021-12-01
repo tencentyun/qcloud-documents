@@ -21,7 +21,7 @@
 </table>
 
 ## 操作步骤
-### 步骤1：注册并创建 uni-app 账号
+### 步骤1：注册并创建 uni-app 帐号
 1. 搭建 app 开发环境，请下载 [HBuilderX 编辑器](https://www.dcloud.io/hbuilderx.html)。
 >!项目中 HBuilderX 目前使用的最新版本，如果此前下载过 HBuilderX，为保证开发环境统一请更新到最新版本。
 2. 在 [DCloud 开发者中心](https://dev.dcloud.net.cn/) 注册后登录 HBuilderX 编辑器。
@@ -30,7 +30,7 @@
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
 >?
 >- 如果您已有应用，请记录其 SDKAppID 并 [获取密钥信息](#step2)。
->- 同一个腾讯云账号，最多可创建100个即时通信 IM 应用。若已有100个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
+>- 同一个腾讯云帐号，最多可创建300个即时通信 IM 应用。若已有300个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
 >
 2. 单击**创建新应用**，在**创建应用**对话框中输入您的应用名称，单击**确定**。
 ![](https://main.qcloudimg.com/raw/78340e403359fcf4d753ade29ae9aace.png)

@@ -1,6 +1,6 @@
 ## 简介
 
-Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供给开发者的接口，本文将提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式。
+本文内容引导集成 TPNS SDK 在线通道推送能力，提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式指引。如需在应用进程被杀时也能收到推送，请在完成本文的集成操作后，参考 [厂商通道接入指南](https://cloud.tencent.com/document/product/548/61135) 文档，完成各厂商通道的接入。
 
 >! 为了避免您的 App 被监管部门通报或下架，请您在接入 SDK 之前务必按照 [Android 合规指南](https://cloud.tencent.com/document/product/548/57361) 在《隐私政策》中增加 TPNS 相关说明，并且在用户同意《隐私政策》后再初始化 TPNS SDK。
 >
