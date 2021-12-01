@@ -189,8 +189,9 @@ spec:
 
 接下来将配置 Authorization 策略，不允许 base namespace 的服务被 test namespace 的服务访问（需要开启 mTLS）。
 
-### YAML 配置示例
 
+<dx-tabs>
+::: YAML 配置示例
 ```
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
@@ -205,10 +206,14 @@ spec:
             namespaces:
               - test
 ```
-
-### 控制台配置示例
-
+:::
+::: 控制台配置示例
 ![](https://main.qcloudimg.com/raw/ab0cacaa38cdb23a784f37c5b25d4d59.png)
+:::
+</dx-tabs>
+
+
+
 
 配置完成后再次查看 client 的容器日志，发现所有访问均失败，没有返回 user 信息，AuthorizationPolicy 生效。
 
@@ -324,8 +329,9 @@ spec:
 
 下面将会使用 AuthorizationPolicy 把本机的 IP 地址列入 Ingress Gateway 的黑名单，并验证黑名单是否生效。
 
-### YAML 配置示例
 
+<dx-tabs>
+::: YAML 配置示例
 ```
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
@@ -344,9 +350,13 @@ spec:
               - $您的本机 IP 地址
   action: DENY
 ```
-
-### 控制台配置示例
-
+:::
+::: 控制台配置示例
 ![](https://main.qcloudimg.com/raw/aaec6a1f51df3706f17593ff6976a222.png)
+:::
+</dx-tabs>
+
+
+
 
 配置完成后再次通过 curl 语句 `curl "$INGRESS_IP:80/headers" -s -o /dev/null -w "%{http_code}\n"` 测试服务的连通性，注意您需要将代码中的 `$INGRESS_IP` 替换为您的边缘代理网关 IP 地址，此时访问失败，返回 `403` 返回码，黑名单策略生效。

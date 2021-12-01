@@ -195,6 +195,7 @@ V2TXLivePusher 默认推出的是竖屏分辨率的视频画面，如果希望�
 mLivePusher.setVideoQuality(mVideoResolution, isLandscape ? V2TXLiveVideoResolutionModeLandscape : V2TXLiveVideoResolutionModePortrait);   
 ```
 
+[](id:step13)
 ### 13. 音效设置
 
 调用 V2TXLivePusher 中的 `getAudioEffectManager` 获取 TXAudioEffectManager 实例可以实现背景混音、耳返、混响等音效功能。背景混音是指主播在直播时可以选取一首歌曲伴唱，歌曲会在主播的手机端播放出来，同时也会被混合到音视频流中被观众端听到，所以被称为“混音”。
@@ -206,6 +207,7 @@ mLivePusher.setVideoQuality(mVideoResolution, isLandscape ? V2TXLiveVideoResolut
 ![](https://main.qcloudimg.com/raw/a90a110e2950568b9d7cd6bef8e0893b.png)
 >? 详细用法请参见 [TXAudioEffectManager API](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXDeviceManager__android.html)。
 
+[](id:step14)
 ### 14. 设置 Logo 水印  
 
 设置 V2TXLivePusher 中的 [setWatermark](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a4f56a5a937d87e5b1ae6f77c5bab2335) 可以让 SDK 在推出的视频流中增加一个水印，水印位置位是由传入参数 `(x, y, scale)` 所决定。
@@ -218,6 +220,7 @@ mLivePusher.setVideoQuality(mVideoResolution, isLandscape ? V2TXLiveVideoResolut
 mLivePusher.setWatermark(BitmapFactory.decodeResource(getResources(),R.drawable.watermark), 0.03f, 0.015f, 1f);
 ```
 
+[](id:step15)
 ### 15. 主播端弱网提醒 
 如果主播在推流时遇到网络很差的情况，需要有一个友好的提示，提示主播应当检查网络。    
 通过 V2TXLivePusherObserver 里的 [onWarning](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusherObserver__android.html#abd54414cbd5d52c096f9cc090cfe1fec) 可以捕获 **V2TXLIVE_WARNING_NETWORK_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。此时可以在 UI 上弹出一个“弱网提示”来强提醒主播检查网络。
@@ -231,6 +234,30 @@ public void onWarning(int code, String msg, Bundle extraInfo) {
 } 
 :::
 </dx-codeblock>
+
+[](id:step16)
+### 16. 发送 SEI 消息 
+调用 V2TXLivePusher 中的 [sendSeiMessage](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html#a5ba3762815f11bf5005f151e06ae0b38) 接口可以发送 SEI 消息。所谓 SEI，是视频编码数据中规定的一种附加增强信息，平时一般不被使用，但我们可以在其中加入一些自定义消息，这些消息会被直播 CDN 转发到观众端。使用场景有：
+- 答题直播：推流端将题目下发到观众端，可以做到“音-画-题”完美同步。
+- 秀场直播：推流端将歌词下发到观众端，可以在播放端实时绘制出歌词特效，因而不受视频编码的降质影响。
+- 在线教育：推流端将激光笔和涂鸦操作下发到观众端，可以在播放端实时地划圈划线。
+
+由于自定义消息是直接被塞入视频数据中的，所以不能太大（几个字节比较合适），一般常用于塞入自定义的时间戳等信息。
+```java
+//Android 示例代码
+int payloadType = 5;
+String msg = "test";
+mTXLivePusher.sendSeiMessage(payloadType, msg.getBytes("UTF-8"));
+```
+常规开源播放器或者网页播放器是不能解析 SEI 消息的，必须使用 LiteAVSDK 中自带的 V2TXLivePlayer 才能解析这些消息：
+1. 设置：
+```java
+int payloadType = 5;
+mTXLivePlayer.enableReceiveSeiMessage(true, payloadType)
+```
+2. 当 V2TXLivePlayer 所播放的视频流中有 SEI 消息时，会通过 V2TXLivePlayerObserver 中的 onReceiveSeiMessage 回调来接收该消息。
+
+
 
 ## 事件处理
 

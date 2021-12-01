@@ -19,8 +19,8 @@ DestinationRule 定义服务的版本和路由发生后的流量策略，包括�
 
 DestinationRule 可定义服务的版本（subsets），而 subset 则是腾讯云服务网格的最小流量管理单元。例如，您可以配置将流量路由至某个指定服务的指定 subset。以下是 DestinationRule 定义 product 服务两个 subset 的配置示例。
 
-### YAML 配置示例
-
+<dx-tabs>
+::: YAML 配置示例
 ```
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
@@ -37,9 +37,8 @@ spec:
       labels:
         version: v2 # subset v2 通过标签 version:v2 来匹配该服务的endpoint
 ```
-
-### 控制台配置示例
-
+:::
+::: 控制台配置示例
 DestinationRule 和服务是一一对应的绑定关系，配置 product 服务的 DestinationRule，需要从服务列表页进入 product 服务的详情页，在基本信息 Tab 配置。控制台配置 product 服务两个版本的步骤如下：
 
 1. 在服务列表页面，单击进入 product 服务的详情页面。
@@ -51,12 +50,17 @@ DestinationRule 和服务是一一对应的绑定关系，配置 product 服务�
 4. product 服务版本配置完成。
 ![](https://main.qcloudimg.com/raw/a18963bf33e8ebeb54a6e4a4925a88a4.png)
 
+:::
+</dx-tabs>
+
+
+
 ## 配置一致性哈希负载均衡
 
 以下是用 DestinationRule 配置 cart 服务按照 http header name 做一致性哈希负载均衡的配置示例。
 
-### YAML 配置示例
-
+<dx-tabs>
+::: YAML 配置示例
 ```
 kind: DestinationRule
 metadata:
@@ -69,7 +73,9 @@ spec:
       consistentHash:
         httpHeaderName: UserID # 配置访问 cart 服务的流量按照 header UserID 做一致性哈希负载均衡
 ```
-
-### 控制台配置示例
-
+:::
+::: 控制台配置示例
 ![](https://qcloudimg.tencent-cloud.cn/raw/5c45fab53bd927158766179ec7e58efa.png)
+:::
+</dx-tabs>
+

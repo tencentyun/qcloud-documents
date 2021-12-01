@@ -2,7 +2,7 @@
 
 腾讯云 CDN 支持增加回源请求头部：
 
-- 支持通过 X-Forward-For 头部携带真实客户端 IP 至源站。
+- 支持通过 X-Forwarded-For 头部携带真实客户端 IP 至源站。
 - 支持通过 X-Forward-Port 头部携带真实客户端端口至源站，用于源站侧分析。
 - 支持添加各类自定义头部。
 
@@ -31,7 +31,7 @@
 
 | 头部参数       | 说明                                                         |
 | -------------- | ------------------------------------------------------------ |
-| X-Forward-For  | 用于携带用户端真实 IP 的头部。其值默认为 $client_ip 变量，不允许修改。 |
+| X-Forwarded-For  | 用于携带用户端真实 IP 的头部。其值默认为 $client_ip 变量，不允许修改。 |
 | X-Forward-Port | 用于携带用户端真实端口的头部。其值默认为 $remote_port 变量，不允许修改。 |
 | 自定义头部     | 自定义头部的Key 值长度默认为1 - 100个字符，由数字0 - 9、字符a - z、A - Z，及特殊符 `-` 组成。<br>Value 长度为1 - 1000个字符，不支持中文。<br>部分标准头部不支持自助设置/增加/删除，具体清单请参见文档 [注意事项](#noice)。 |
 
@@ -47,7 +47,7 @@
 ![](https://main.qcloudimg.com/raw/cd018a8767ffdbd57862db197af48141.png)
 若访问资源为：`http://cloud.tencent.com/test/test.mp4`
 
-1. 命中 `*` 规则，增加头部 `X-Forward-For:$client_ip` 头部，回源时将 $client_ip 替换为真实客户端 IP。
+1. 命中 `*` 规则，增加头部 `X-Forwarded-For:$client_ip` 头部，回源时将 $client_ip 替换为真实客户端 IP。
 2. 命中 `.mp4` 文件类型及/test路径，因是同一头部操作类型 - 增加，则底部优先级大于顶部，因此增加 `x-cdn:Tencent` 头部。
 
 ## 注意事项[](id:noice)

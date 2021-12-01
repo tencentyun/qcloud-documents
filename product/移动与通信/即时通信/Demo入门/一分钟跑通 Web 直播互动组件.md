@@ -94,7 +94,7 @@ im.on(TWebLive.EVENT.IM_TEXT_MESSAGE_RECEIVED, onTextMessageReceived);
 im.login({userID: 'your userID', userSig: 'your userSig'}).then((imResponse) => {
   console.log(imResponse.data); // 登录成功
   if (imResponse.data.repeatLogin === true) {
-    // 标识账号已登录，本次登录操作为重复登录
+    // 标识帐号已登录，本次登录操作为重复登录
     console.log(imResponse.data.errorInfo);
   }
 }).catch((imError) => {
@@ -237,7 +237,7 @@ Web 推流和 Web 低延时观看用到了 WebRTC 技术。
 [](id:sos)
 ## 注意事项
 
-- 实时音视频应用与 IM 应用的 SDKAppID 一致，才能复用账号与鉴权。
+- 实时音视频应用与 IM 应用的 SDKAppID 一致，才能复用帐号与鉴权。
 - IM 应用针对文本消息，提供基础版本的 [安全打击](https://cloud.tencent.com/document/product/269/47170) 能力，如果希望使用自定义不雅词功能，可以单击**升级**或在 [购买页](https://buy.cloud.tencent.com/avc?position=1400399435) 购买**安全打击 - 高级版**服务。
 - 本地计算 UserSig 的方式仅用于本地开发调试，请勿直接发布到线上，一旦 SECRETKEY 泄露，攻击者就可以盗用您的腾讯云流量。正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 

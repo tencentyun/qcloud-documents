@@ -1,4 +1,4 @@
-实时及未来，最近在腾讯云流计算 Oceanus 进行实时计算服务，以下为 mysql-cdc 结合维表 hbase 到 flink 到 ClickHouse 的实践。
+本文介绍了结合 MySQL 数据库、流计算 Oceanus、HBase 以及云数据仓库 ClickHouse 来构建实时数仓，并通过流计算 Oceanus 读取 MySQL 数据、关联 HBase 中的维表，最终将数据存入云数据仓库 ClickHouse 进行指标分析，实现完整实时数仓的全流程操作指导。
 
 ## 环境搭建
 ### 创建 Oceanus 集群
@@ -52,7 +52,7 @@ create table `student` (
 ```
 
 ### 创建 EMR 集群
-弹性 MapReduce 是云端托管的弹性开源泛 Hadoop 服务，支持 Spark、HBase、Presto、Flink、Druid 等大数据框架，本次示例主要需要使用 Flume、Hive、YARN、HUE、Oozie 组件。
+弹性 MapReduce 是云端托管的弹性开源泛 Hadoop 服务，支持 Spark、HBase、Presto、Flink、Druid 等大数据框架，本次示例主要需要使用 HBase 组件。
 1. 登录 [弹性 MapReduce 控制台](https://console.cloud.tencent.com/emr)，选择**集群列表 > 新建集群**，开始新建集群，具体可参考 [创建 EMR 集群](https://cloud.tencent.com/document/product/589/10981)。新建集群时，需选择安装 HBase 组件。
 ![](https://main.qcloudimg.com/raw/b8de93e041489aed3d8d9f847bd32f95.png)
 如果是生产环境，服务器配置可根据实际情况选择。网络需要选择之前创建好的 VPC 网络，始终保持服务组件在同一 VPC 下。
