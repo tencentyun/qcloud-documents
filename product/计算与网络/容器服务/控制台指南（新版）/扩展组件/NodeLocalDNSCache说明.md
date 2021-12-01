@@ -26,6 +26,8 @@ NodeLocal DNSCache 通过在集群节点上作为 DaemonSet 运行 DNS 缓存代
 - apiGroups:
   - ""
   resources:
+  - configmaps
+  - secrets
   - namespaces
   - services
   verbs:
