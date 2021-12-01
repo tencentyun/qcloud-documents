@@ -20,6 +20,24 @@ NodeLocal DNSCache 通过在集群节点上作为 DaemonSet 运行 DNS 缓存代
 - 集群创建后没有调整过 dns 服务对应工作负载的相关 name 和 label，检查集群 kube-system 命名空间中存在以下 dns 服务的相关工作负载：
   - service/kube-dns
   - deployment/kube-dns 或者 deployment/coredns，且存在 k8s-app: kube-dns 的 label
+- 由于 Ubuntu 20.04 LTS 主机默认启动 named 服务，该服务会与 NodeLocal DNSCache 冲突，因此暂不能添加该 OS 的节点。
+- IPVS 的独立集群，需要确保 add-pod-eni-ip-limit-webhook ClusterRole 具备以下权限：
+```
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  - services
+  verbs:
+  - list
+  - watch
+  - get
+  - create
+  - update
+  - delete
+  - patch
+```
+- IPVS 的独立集群和托管集群，都需要确保 tke-eni-ip-webhook Namespace 下的 add-pod-eni-ip-limit-webhook Deployment 镜像版本大于等于 v0.0.5。
 
 ## 操作步骤
 
