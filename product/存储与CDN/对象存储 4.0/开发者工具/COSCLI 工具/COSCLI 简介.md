@@ -8,7 +8,7 @@ COSCLI 使用 Go 编写，基于 Cobra 框架，支持配置多个存储桶和�
 
 - [生成与修改配置文件 -  config](https://cloud.tencent.com/document/product/436/63679)
 - [创建存储桶 - mb](https://cloud.tencent.com/document/product/436/63145)
-- [删除存储桶 - rb](https://cloud.tencent.com/document/product/436/63145)
+- [删除存储桶 - rb](https://cloud.tencent.com/document/product/436/63667)
 - [查询存储桶或文件列表 - ls](https://cloud.tencent.com/document/product/436/63668)
 - [获取不同类型文件的统计信息   - du](https://cloud.tencent.com/document/product/436/63146)
 - [上传下载或拷贝文件 - cp](https://cloud.tencent.com/document/product/436/63669)
