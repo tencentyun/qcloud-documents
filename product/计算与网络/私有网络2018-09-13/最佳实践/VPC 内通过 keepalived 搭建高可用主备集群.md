@@ -14,7 +14,7 @@
 
 ## 注意事项
 + 推荐使用单播方式进行 VRRP 通信。
->?本文演示配置为单播模式，如果使用组播方式进行 VRRP 通信，需提单 [组播内测申请](https://cloud.tencent.com/apply/p/rkx852nifjh)，待内测申请通过后参考 [开启或关闭组播功能](https://cloud.tencent.com/document/product/215/53428) 打开 VPC 组播开关；同时在 keepalived 配置文件中无需配置对端设备的 IP 地址，即**不配置** “unicast_peer”参数。
+>?本文演示配置为单播模式，如果使用组播方式进行 VRRP 通信，需提交 [组播内测申请](https://cloud.tencent.com/apply/p/rkx852nifjh)，待内测申请通过后参考 [开启或关闭组播功能](https://cloud.tencent.com/document/product/215/53428) 打开 VPC 组播开关；同时在 keepalived 配置文件中无需配置对端设备的 IP 地址，即**不配置** “unicast_peer”参数。
 >
 + 推荐使用 Keepalived（**1.2.24版本及以上**）。
 + 确保已经配置以下 garp 相关参数。因为 keepalived 依赖 ARP 报文更新 IP 信息，如果缺少以下参数，会导致某些场景下，主设备不发送 ARP 导致通信异常。
