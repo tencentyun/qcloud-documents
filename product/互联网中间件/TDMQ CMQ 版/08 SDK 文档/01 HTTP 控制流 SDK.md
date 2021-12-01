@@ -1,3 +1,4 @@
+## 操作场景
 本文主要介绍消息队列 CMQ 版控制流接口列表和 SDK 使用方式。
 
 消息队列 CMQ 版控制流接口列表如下：
@@ -22,15 +23,18 @@
 | [RewindCmqQueue](https://cloud.tencent.com/document/api/1179/55902) | 回溯 TDMQ CMQ 版队列           |
 | [UnbindCmqDeadLetter](https://cloud.tencent.com/document/api/1179/55901) | 解绑 TDMQ CMQ 版死信队列       |
 
-消息队列 CMQ 版控制流 SDK 使用新版 API，具体使用方式如下。
 
-以**创建 TDMQ CMQ 版队列接口**为例。
+## 操作步骤
+消息队列 CMQ 版控制流 SDK 使用新版 API，以**创建 TDMQ CMQ 版队列接口**为例，具体使用方式如下。
 
-**登录 [云 API 控制台](https://console.cloud.tencent.com/api/explorer)**
 
-选择 **API Explore** > **分布式消息队列** > **CMQ 管理相关接口**。
 
-**输入参数说明**
+#### 1. 登录 [云 API 控制台](https://console.cloud.tencent.com/api/explorer)。
+
+#### 2. 选择 **API Explore** > **分布式消息队列** > **CMQ 管理相关接口**。
+
+#### 3. 选择具体的接口，并填写输入参数。
+输入参数说明如下：
 
 | 参数名称            | 描述                                                         |
 | ------------------- | ------------------------------------------------------------ |
@@ -50,13 +54,13 @@
 | MaxTimeToLive       | polic 为1时必选。最大未消费过期时间。范围300-43200，单位秒，需要小于消息最大保留时间msgRetentionSeconds。 |
 | Trace               | 是否开启消息轨迹追踪，当不设置字段时，默认为不开启，该字段为 true 表示开启，为 false  表示不开启。 |
 
-**在线调用**
+#### 4. 在线调用
 
 输入参数填写完成后，在页面上方选择**在线调用**页签，单击**发送请求**，返回结果如下。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/cdb47132f961ffbb7573417b905db6a4.png)
 
-**生成代码示例**
+#### 5. 生成代码示例
 
 验证完成后，在**代码生成**页签的代码框中选择自己需要的语言，即可生成对应的代码示例。
 以 Java 语言为例：
@@ -73,27 +77,27 @@ public class CreateCmqQueue
 {
     public static void main(String [] args) {
         try{
-            // 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey,此处还需注意密钥对的保密
+            // 实例化一个认证对象，入参需要传入腾讯云账户 secretId，secretKey,此处还需注意密钥对的保密
             // 密钥可前往https://console.cloud.tencent.com/cam/capi网站进行获取
             Credential cred = new Credential("SecretId", "SecretKey");
-            // 实例化一个http选项，可选的，没有特殊需求可以跳过
+            // 实例化一个 http 选项，可选的，没有特殊需求可以跳过
             HttpProfile httpProfile = new HttpProfile();
             httpProfile.setEndpoint("tdmq.tencentcloudapi.com");
             // 实例化一个client选项，可选的，没有特殊需求可以跳过
             ClientProfile clientProfile = new ClientProfile();
             clientProfile.setHttpProfile(httpProfile);
-            // 实例化要请求产品的client对象,clientProfile是可选的
+            // 实例化要请求产品的 client 对象,clientProfile 是可选的
             TdmqClient client = new TdmqClient(cred, "ap-guangzhou", clientProfile);
-            // 实例化一个请求对象,每个接口都会对应一个request对象
+            // 实例化一个请求对象,每个接口都会对应一个 request 对象
             CreateCmqQueueRequest req = new CreateCmqQueueRequest();
             req.setQueueName("queen");
             req.setPollingWaitSeconds(10L);
             req.setVisibilityTimeout(10L);
             req.setMaxMsgSize(1048576L);
             req.setMsgRetentionSeconds(345600L);
-            // 返回的resp是一个CreateCmqQueueResponse的实例，与请求对象对应
+            // 返回的 resp 是一个 CreateCmqQueueResponse 的实例，与请求对象对应
             CreateCmqQueueResponse resp = client.CreateCmqQueue(req);
-            // 输出json格式的字符串回包
+            // 输出 json 格式的字符串回包
             System.out.println(CreateCmqQueueResponse.toJsonString(resp));
         } catch (TencentCloudSDKException e) {
             System.out.println(e.toString());
