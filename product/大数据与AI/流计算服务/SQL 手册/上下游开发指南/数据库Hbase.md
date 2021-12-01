@@ -30,7 +30,7 @@ CREATE TABLE hbase_table (
 
 | 参数                       | 说明                                | 是否必填 | 备注                                                         |
 | :------------------------- | :----------------------------- | :------- | :----------------------------------------------------------- |
-| connector                  | 表类型                                   | 是       | `hbase-1.4` 或者 `hbase-2.2`<br>如果您用了 hbase 2.3.x 版本，那么，connector 参数值需要替换为 hbase 2.2                              |
+| connector                  | 表类型                                   | 是       | `hbase-1.4` 或者 `hbase-2.2`<br>如果您用了 hbase 2.3.x 版本，那么，connector 参数值需要替换为 hbase-2.2 |
 | table-name                 | HBase 表名                                                   | 是       | -                                  |
 | zookeeper.quorum           | HBase 的 zookeeper 地址                                      | 是       | -                                     |
 | zookeeper.znode.parent     | HBase 在 zookeeper 中的根目录                                | 否       | -                                |
