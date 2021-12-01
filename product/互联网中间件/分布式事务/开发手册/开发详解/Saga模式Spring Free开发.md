@@ -40,12 +40,12 @@ DtfEnv.addTxmBroker(String groupId, String txmBrokerList);
 
 | 配置项        | 数据类型 | 必填 | 默认值 | 描述                                                         |
 | ------------- | -------- | ---- | ------ | ------------------------------------------------------------ |
-| groupId       | String   | 是   | 无     | 用户的事务分组 ID。                                             |
-| txmBrokerList | String   | 是   | 无     | TC 集群节点列表。                                               |
-| secretId      | String   | 是   | 无     | 用户的腾讯云 SecretID。                                         |
-| secretKey     | String   | 是   | 无     | 用户的腾讯云 SecretKey。                                        |
-| server        | String   | 是   | 无     | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识。 |
-| dtf.env.fmt  |  Boolean  | 否  | true  | 启动时会对 DB 进行大量初始化工作，若不需使用 fmt 建议禁用。 |
+| groupId       | String   | 是   | 无     | 用户的事务分组 ID                                            |
+| txmBrokerList | String   | 是   | 无     | TC 集群节点列表                                               |
+| secretId      | String   | 是   | 无     | 用户的腾讯云 SecretID                                         |
+| secretKey     | String   | 是   | 无     | 用户的腾讯云 SecretKey                                        |
+| server        | String   | 是   | 无     | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识 |
+| dtf.env.fmt  |  Boolean  | 否  | true  | 启动时会对 DB 进行大量初始化工作，若不需使用 fmt 建议禁用 |
 
 >?通常情况下，仅需要在 dtf.env.groups 下配置一个事务分组。
 
