@@ -41,13 +41,13 @@ NodeLocal DNSCache 通过在集群节点上作为 DaemonSet 运行 DNS 缓存代
 
 ## 推荐配置
 当安装 NodeLocal DNSCache 后，推荐为 CoreDNS 增加如下配置：
-```
-template ANY HINFO . {
-  rcode NXDOMAIN
-}
-forward . /etc/resolv.conf {
-  prefer_udp
-}
+```yaml
+            template ANY HINFO . {
+                rcode NXDOMAIN
+            }
+            forward . /etc/resolv.conf {
+                prefer_udp
+            }
 ```
 
 ## 操作步骤
