@@ -17,22 +17,22 @@ COS 会对新上传的对象进行 CRC64 计算，并将结果作为对象的属
 - 执行 [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881) 时，如果源对象存在 CRC64 值，则返回 CRC64，否则不返回。
 - 执行 [HEAD Object](https://cloud.tencent.com/document/product/436/7745) 和 [GET Object](https://cloud.tencent.com/document/product/436/7753) 时，如果对象存在 CRC64，则返回。用户可以根据 COS 返回的 CRC64 值和本地计算的 CRC64 进行比较验证。
 
+## SDK API 参考
+
+SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos-android-sdk-doc-1253960454.file.myqcloud.com/)。
+
 ## SDK 说明
 
-SDK 对应接口可通过响应头部获取 CRC64 值，通过 `TransferService` 进行分片上传和下载文件时默认会对文件进行整体 CRC64 校验，您无需进行任何其他操作。
+您在上传或者下载成功后，可以在响应头部中获取 CRC64 值。
 
 >!  COS Android SDK 版本需要大于等于 v5.7.5。
 
 #### 上传请求示例
+[//]: # (.cssg-snippet-upload-verify-crc64)
 ```java
-// 将 examplebucket-1250000000 和 COS_REGION 修改为真实的信息
 // 1. 初始化 TransferService。在相同配置的情况下，您应该复用同一个 TransferService
 TransferConfig transferConfig = new TransferConfig.Builder()
         .build();
-CosXmlServiceConfig cosXmlServiceConfig = new CosXmlServiceConfig.Builder()
-        .setRegion(COS_REGION)
-        .builder();
-CosXmlService cosXmlService = new CosXmlService(context, cosXmlServiceConfig, credentialProvider);
 TransferService transferService = new TransferService(cosXmlService, transferConfig);
 
 // 2. 初始化 PutObjectRequest
@@ -63,21 +63,17 @@ uploadTask.setCosXmlResultListener(new CosXmlResultListener() {
     }
 });
 ```
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/CRC64Verify.java) 查看。
 
 #### 下载请求示例
-
+[//]: # (.cssg-snippet-download-verify-crc64)
 ```java
-// 将 examplebucket-1250000000 和 COS_REGION 修改为真实的信息
 // 1. 初始化 TransferService。在相同配置的情况下，您应该复用同一个 TransferService
 TransferConfig transferConfig = new TransferConfig.Builder()
         .build();
-CosXmlServiceConfig cosXmlServiceConfig = new CosXmlServiceConfig.Builder()
-        .setRegion(COS_REGION)
-        .builder();
-CosXmlService cosXmlService = new CosXmlService(context, cosXmlServiceConfig, credentialProvider);
 TransferService transferService = new TransferService(cosXmlService, transferConfig);
 
-// 2. 初始化 PutObjectRequest
+// 2. 初始化 GetObjectRequest
 String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 String savePathDir = context.getCacheDir().toString(); //本地目录路径
@@ -107,11 +103,13 @@ downloadTask.setCosXmlResultListener(new CosXmlResultListener() {
     }
 });
 ```
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/CRC64Verify.java) 查看。
 
 #### CRC64 校验
 
 通过 `TransferService` 进行上传和下载时，SDK 默认进行了数据校验的工作，如果您仍然希望能够自己进行 CRC64 校验，可以参考如下代码。
 
+[//]: # (.cssg-snippet-self-verify-crc64)
 ```java
 // 1. 参考以上上传或者下载请求示例代码获取 COS 上文件的 CRC64 值
 String cosCRC64 = "examplecoscrc64";
@@ -119,9 +117,10 @@ String cosCRC64 = "examplecoscrc64";
 // 2. 计算本地文件的 CRC64
 File localFile = new File("examplefilepath");
 String localCRC64 = DigestUtils.getCRC64String(localFile);
-    
+
 // 3. 比对 localCRC64 和 cosCRC64 是否一致
 if (localCRC64.equals(cosCRC64)) {
     // CRC64 对比正确
 }
 ```
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/CRC64Verify.java) 查看。

@@ -1,0 +1,57 @@
+## 简介
+
+本文档提供关于存储桶策略的 API 概览以及 SDK 示例代码。
+
+| API                                                          | 操作名         | 操作描述                 |
+| ------------------------------------------------------------ | -------------- | ------------------------ |
+| [PUT Bucket policy](https://cloud.tencent.com/document/product/436/8282) | 设置存储桶策略 | 设置指定存储桶的权限策略 |
+| [GET Bucket policy](https://cloud.tencent.com/document/product/436/8276) | 查询存储桶策略 | 查询指定存储桶的权限策略 |
+| [DELETE Bucket policy](https://cloud.tencent.com/document/product/436/8285) | 删除存储桶策略 | 删除指定存储桶的权限策略 |
+
+## SDK API 参考
+
+SDK 所有接口的具体参数与方法说明，请参考 [SDK API](cssg://api-doc)。
+
+## 设置存储桶策略
+
+#### 功能说明
+
+设置指定存储桶的权限策略。
+
+#### 示例代码${i}
+
+[//]: # (.cssg-snippet-put-bucket-policy)
+```
+```
+
+>?更多完整示例，请前往 [GitHub](cssg://code-example/put-bucket-policy) 查看。
+
+## 查询存储桶策略
+
+#### 功能说明
+
+查询指定存储桶的权限策略。
+
+#### 示例代码${i}
+
+[//]: # (.cssg-snippet-get-bucket-policy)
+```
+```
+
+>?更多完整示例，请前往 [GitHub](cssg://code-example/get-bucket-policy) 查看。
+
+## 删除存储桶策略
+
+#### 功能说明
+
+DELETE Bucket policy 请求删除指定存储桶的权限策略。
+
+> !只有 Bucket 所有者有权限发起该请求。如果权限策略不存在，将返回204 No Content。
+
+#### 示例代码${i}
+
+[//]: # (.cssg-snippet-delete-bucket-policy)
+```
+```
+
+>?更多完整示例，请前往 [GitHub](cssg://code-example/delete-bucket-policy) 查看。
