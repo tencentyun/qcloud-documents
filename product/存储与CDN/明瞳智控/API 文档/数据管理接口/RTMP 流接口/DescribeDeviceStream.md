@@ -90,7 +90,7 @@ Container 节点 Response 的内容：
 | 节点名称（关键字） | 父节点   | 描述     | 类型   |
 | :----------------- | :------- | :------- | :----- |
 | RequestId          | Response | 请求 id   | String |
-| Code               | Response | 错误码   | int    |
+| Code               | Response | 错误码   | Int    |
 | Message            | Response | 错误描述 | String |
 | ChannelList        | Response | 成功列表 | Array  |
 
