@@ -3,7 +3,7 @@
 ## 操作步骤
 
 ### 创建 NodeGroup
-1. [边缘计算平台](https://console.cloud.tencent.com/tke2)，单击左侧导航栏中**边缘单元**，进入“边缘单元”页面。
+1. [边缘计算平台](https://console.cloud.tencent.com/iecp)，单击左侧导航栏中**边缘单元**，进入“边缘单元”页面。
 2. 单击需要配置区域的单元**管理**，进入该单元详情页。
 3. 选择页面左侧 **Service Group**，单击 **NodeGroup**，进入 NodeGroup 列表页面
 4. 单击**新建**，设置区域名称、所属命名空间、区域包含的节点等
@@ -13,7 +13,7 @@
 	-	区域：选择区域。
 
 ### 删除 NodeGroup
-1. [边缘计算平台](https://console.cloud.tencent.com/tke2)，单击左侧导航栏中**边缘单元**，进入“边缘单元”页面。
+1. [边缘计算平台](https://console.cloud.tencent.com/iecp)，单击左侧导航栏中**边缘单元**，进入“边缘单元”页面。
 2. 单击需要配置区域的单元**管理**，进入该单元详情页。
 3. 选择页面左侧 **Service Group**，单击 **NodeGroup**，进入区域列表页面
 ![](https://qcloudimg.tencent-cloud.cn/raw/c951d5177fc745afe4c2bd300167405e.png)

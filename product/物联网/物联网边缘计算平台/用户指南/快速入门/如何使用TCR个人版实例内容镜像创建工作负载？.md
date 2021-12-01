@@ -50,9 +50,10 @@ sudo docker pull ccr.ccs.tencentyun. com/project-a/nginx:latest
 
 
 ### 步骤2：使用 TCR个人版 实例内容器镜像创建工作负载
-1. 登录 [边缘计算平台](https://console.cloud.tencent.com/tke2)。单击左侧导航栏中**边缘单元**，进入“边缘单元”页面。
+1. 登录 [边缘计算平台](https://console.cloud.tencent.com/iecp)。单击左侧导航栏中**边缘单元**，进入“边缘单元”页面。
 2. 单击需要安装节点的单元**管理**，进入该单元详情页。
 3. 选择页面左侧**应用管理** > **工作负载**/**Grid 应用**，进入工作负载/Grid应用列表页面，单击**新建应用**
 ![](https://qcloudimg.tencent-cloud.cn/raw/709f589e5b53699fcd1ee4bf121431fe.png)
+
 	i.	镜像版本：选择好镜像后，单击选择镜像版本，在弹出的“选择镜像版本”窗口中，根据需要选择该镜像仓库的某个版本。若不选择则默认为 latest。
 4. 完成其他参数设置后，单击确认完成工作负载的创建。

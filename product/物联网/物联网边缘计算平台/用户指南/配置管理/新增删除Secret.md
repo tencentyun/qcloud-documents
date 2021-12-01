@@ -2,7 +2,7 @@
 本文介绍如何通过腾讯云边缘计算平台新增或删除 Secret。
 
 ## 前提条件
-已登录 [边缘计算平台](https://console.cloud.tencent.com/tke2)。
+已登录 [边缘计算平台](https://console.cloud.tencent.com/iecp)。
 
 ## 操作步骤
 ### 新增 Secret

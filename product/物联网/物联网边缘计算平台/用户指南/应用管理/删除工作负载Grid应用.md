@@ -2,7 +2,7 @@
 本文介绍如何通过腾讯云边缘计算平台删除不再使用的工作负载/Grid 应用。删除应用单元内的工作负载/Grid 应用后，应用的 Pod 将不再运行于节点中，请确保您是在知晓操作风险的情况下进行删除操作。
 
 ## 前提条件
-已登录 [边缘计算平台](https://console.cloud.tencent.com/tke2) 。
+已登录 [边缘计算平台](https://console.cloud.tencent.com/iecp) 。
 
 ## 操作步骤
 
