@@ -67,7 +67,8 @@ public class Demo {
 						String content = "test write file";
 						out.write(content.getBytes());
 				} finally {
-						IOUtils.closeQuietly(out);
+						// close 返回成功, 表示数据写入成功, 若抛出异常, 表示数据写入失败
+						out.close();
 				}
 			}
 
