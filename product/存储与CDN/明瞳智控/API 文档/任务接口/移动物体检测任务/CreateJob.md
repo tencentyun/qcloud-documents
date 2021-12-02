@@ -99,14 +99,14 @@ Container 类型 MovingObjectDetect 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                   | 描述             | 类型   | 是否必选 |
 | ------------------ | ------------------------ | ---------------- | ------ | ---- |
-| Type             | Request.Operation.AI.MovingObjectDetect |  检测物体类型。可选值为 Pet、Baby。  | String | 是   |
+| Type             | Request.Operation.AI.MovingObjectDetect |  检测物体类型。可选值为 Pet、Baby   | String | 是   |
 
 Container 类型 Notify 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                   | 描述                           | 类型   | 是否必选 | 默认值 |
 | ------------------ | ------------------------ | ------------------------------ | ------ | ---- | ------ |
 | Url                | Request.Operation.Notify | 通知地址                       | String | 是   | 无     |
-| ContentType        | Request.Operation.Notify | 内容格式。可选值为 XML、JSON。 | String | 否   | XML    |
+| ContentType        | Request.Operation.Notify | 内容格式。可选值为 XML、JSON  | String | 否   | XML    |
 
 ## 响应
 
