@@ -67,7 +67,7 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                  | 类型      | 是否必选 |
 | ------------------ | ------- | ------------------------- | --------- | ---- |
-| Tag                | Request | 创建任务的 Tag：AI。 | String    | 是   |
+| Tag                | Request | 创建任务的 Tag：AI  | String    | 是   |
 | Input              | Request | 待操作的媒体文件          | Container | 是   |
 | Operation          | Request | 操作规则                  | Container | 是   |
 
@@ -104,15 +104,15 @@ Container 类型 SnapshotAnalysis 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                   | 描述             | 类型   | 是否必选 |
 | ------------------ | ------------------------ | ---------------- | ------ | ---- |
-| Type             | Request.Operation.AI.SnapshotAnalysis |  截图分析类型。可选值为 Pet。  | String | 是   |
-| TimeInterval             | Request.Operation.AI.SnapshotAnalysis |  抽帧时间间隔，单位为秒，支持 float 格式，需要>=0.3  | String | 是   |
+| Type             | Request.Operation.AI.SnapshotAnalysis |  截图分析类型。可选值为 Pet   | String | 是   |
+| TimeInterval             | Request.Operation.AI.SnapshotAnalysis |  抽帧时间间隔，单位为秒，支持 float 格式，需要 >= 0.3  | String | 是   |
 
 Container 类型 Notify 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                   | 描述                           | 类型   | 是否必选 | 默认值 |
 | ------------------ | ------------------------ | ------------------------------ | ------ | ---- | ------ |
 | Url                | Request.Operation.Notify | 通知地址                       | String | 是   | 无     |
-| ContentType        | Request.Operation.Notify | 内容格式。可选值为 XML、JSON。 | String | 否   | XML    |
+| ContentType        | Request.Operation.Notify | 内容格式。可选值为 XML、JSON  | String | 否   | XML    |
 
 ## 响应
 
