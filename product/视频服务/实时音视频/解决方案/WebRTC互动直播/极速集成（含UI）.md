@@ -130,9 +130,9 @@ TUIPusher & TUIPlayer 依赖以下端口进行数据传输，请将其加入防�
 - 域名：qcloud.rtc.qq.com
 
 ## 结语
-在后续的迭代中, TRTC Web 端推拉流组件会逐渐与 iOS, Andriod 等各端连通，并在 Web端实现观众连麦、高级美颜、自定义布局、转推多平台、上传图片文字音乐等能力，欢迎大家多多使用、提出您的宝贵意见。<br>
-如果有任何需要或者反馈，可扫描下方二维码，或者点击[反馈链接](https://cloud.tencent.com/apply/p/jpkje0im7a)同步给我们。<br>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/d2e33e2d5bc6c584ddd5eb7830e92311.png" width="200px" height="200px"><br>
+在后续的迭代中, TRTC Web 端推拉流组件会逐渐与 iOS、Andriod 等各端连通，并在 Web 端实现观众连麦、高级美颜、自定义布局、转推多平台、上传图片文字音乐等能力，欢迎大家多多使用、提出您的宝贵意见。
 
-此外，我们欢迎加入TUI组件使用交流 QQ 群（群号：592465424）进行技术交流和问题反馈。<br>
-<img src="https://main.qcloudimg.com/raw/1ea3ab1ff36d37c889f4140499585a4a.png" width="330px" height="350px">
+如果有任何需要或者反馈，可扫描下方二维码，或者单击 [反馈链接](https://cloud.tencent.com/apply/p/jpkje0im7a) 同步给我们。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/d2e33e2d5bc6c584ddd5eb7830e92311.png" width="200px" height="200px">
+此外，我们欢迎加入 TUI 组件使用交流 QQ 群（群号：592465424）进行技术交流和问题反馈。
+<img src="https://main.qcloudimg.com/raw/1ea3ab1ff36d37c889f4140499585a4a.png" width="200px" height="350px">
