@@ -39,7 +39,7 @@ ssh <username>@<IP address or domain name>
  - 如果您的本地电脑为 Mac OS 系统，需先打开系统自带的终端（Terminal），再执行以下命令。
  - 如果您的本地电脑为 Linux 系统，可直接执行以下命令。
 ```
-chmod 400 <下载的与实例关联的私钥的绝对路径>
+chmod 400 <已下载的与实例关联的私钥的绝对路径>
 ```
  - 如果您的本地电脑为 Windows 10 或 Windows Server 2019 系统，需先打开命令提示符（CMD），再依次执行以下命令。
 ```
