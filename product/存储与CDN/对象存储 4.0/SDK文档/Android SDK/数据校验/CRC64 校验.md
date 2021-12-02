@@ -19,7 +19,7 @@ COS 会对新上传的对象进行 CRC64 计算，并将结果作为对象的属
 
 ## SDK API 参考
 
-SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos-android-sdk-doc-1253960454.file.myqcloud.com/)。
+SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](https://cos-android-sdk-doc-1253960454.file.myqcloud.com/)。
 
 ## SDK 说明
 
