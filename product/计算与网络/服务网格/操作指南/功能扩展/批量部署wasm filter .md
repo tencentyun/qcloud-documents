@@ -55,7 +55,7 @@ Location: xxx/filter.wasm
 ```
 
 
-以下是一个使用示例，实现 wasm 的扩展部署
+以下为实现 wasm 的扩展部署的使用示例：
 
 #### 从镜像仓库获取 wasm 扩展并部署
 
