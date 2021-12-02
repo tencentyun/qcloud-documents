@@ -133,6 +133,8 @@ kubectl apply -f aw.yaml
 - 检查 aw CR 
 ```shell
 kubectl get aw
+```
+```
 NAME   SECRET   MATCH               SOURCE                                                                     APPLYPORTS   TIME                   PHASE
 test   test     {"app":"details"}   {"registry":{"image":"ccr.ccs.tencentyun.com/xxx/wasm-add-header:v0.3"}}   [9080]       2021-10-27T10:00:36Z   Synced
 ```
@@ -140,7 +142,8 @@ test   test     {"app":"details"}   {"registry":{"image":"ccr.ccs.tencentyun.com
 - 查看 EnvoyFilter
 ```
 kubectl get envoyfilter test -o yaml
-
+```
+```
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
@@ -190,7 +193,8 @@ spec:
 - 检查效果
 ```shell
 kubectl get pod -o wide
-
+```
+```
 NAME                              READY   STATUS    RESTARTS      AGE   IP             NODE      NOMINATED NODE   READINESS GATES
 details-v1-79f774bdb9-2vhjx       2/2     Running   0             4m   172.16.0.10     cwd-dev   <none>           <none>
 
