@@ -1959,7 +1959,6 @@ deviceAdapter.characteristicsMap[serviceId] = {
 - **接口定义**
 ```typescript
 deviceAdapter.setBLEMTU({
-	deviceId: string,
 	mtu: number
 }) => Promise
 ```
@@ -1973,12 +1972,7 @@ deviceAdapter.setBLEMTU({
 <th>必填</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>deviceId</td>
-<td>蓝牙设备 id</td>
-<td>string</td>
-<td>是</td>
-</tr>
+<tbody>
 <tr>
 <td>mtu</td>
 <td>最大传输单元。设置范围为 (22,512) 区间内，单位为 bytes</td>
@@ -2335,8 +2329,7 @@ import { BleComboDualModeDeviceAdapter4H5 } from 'qcloud-iotexplorer-appdev-plug
 const sdk = window.h5PanelSdk;
 BleComboDualModeDeviceAdapter4H5.injectOptions({ appDevSdk: sdk.appDevSdk });
 
-// h5 sdk升级后支持下面的 addAdapter
-// sdk.blueToothAdapter.addAdapter(BleComboDualModeDeviceAdapter4H5, true);
+
 sdk.blueToothAdapter.addAdapter(BleComboDualModeDeviceAdapter4H5, true);
 ```
 
@@ -2480,9 +2473,10 @@ sdk.getAsrDownloadUrl({...}) => Promise<{...}>
 sdk.TRTCManager.goTRTCPage()
 ```
 ### 参数说明
+
 | 参数名   | 参数描述                    | 类型   | 必填 |
 | :------- | :-------------------------- | :----- | :--- |
-| callType | 呼叫类型：`video`  | `audio` | string | 是 |
+| callType | 呼叫类型：`video`  \| `audio` | string | 是 |
 
 
 
