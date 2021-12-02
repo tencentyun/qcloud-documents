@@ -64,7 +64,7 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                  | 类型      | 是否必选 |
 | ------------------ | ------- | ----------------------- | --------- | ---- |
-| Tag                | Request | 创建任务的 Tag：Concat。 | String    | 是   |
+| Tag                | Request | 创建任务的 Tag：Concat | String    | 是   |
 | Operation          | Request | 操作规则                | Container | 是   |
 
 Container 类型 Operation 的具体数据描述如下：
@@ -82,11 +82,11 @@ Container 类型 Concat 的具体数据描述如下：
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---|
 | Fragments     |  Request.Operation.Concat | 拼接节点    | Container 数组    | 是   | 无  |
 | Container | Request.Operation.Concat | 封装格式 | Container | 是 | 无 |
-| Effect | Request.Operation.Concat | 拼接特效。可选 FADE(淡入淡出)、GRADIENT(渐变)。| String | 否 | 无 |
+| Effect | Request.Operation.Concat | 拼接特效。可选 FADE(淡入淡出)、GRADIENT(渐变)| String | 否 | 无 |
 | Time | Request.Operation.Concat | 场景变化的时间，单位为秒，支持浮点型 | String | 否 | 1 |
 | Audio               | Request.Operation.Concat | 音频参数  | Container    | 否   | 无  |
 | Video               | Request.Operation.Concat | 视频参数  | Container    | 否   | 无  |
-| Index               | Request.Operation.Concat | Fragments 中 Index 下标的视频作为主视频，用于获取默认参数为原视频值的参数。 | Integer | 否   | 0  |
+| Index               | Request.Operation.Concat | Fragments 中 Index 下标的视频作为主视频，用于获取默认参数为原视频值的参数 | Integer | 否   | 0  |
 | AudioMix      | Request.Operation.Concat | 混音参数 | Container | 否   | 无  |
 
 
@@ -191,10 +191,10 @@ Container 类型 Watermark 的具体数据描述如下：
 | 节点名称（关键字） | 描述         | 类型      | 是否必选 | 默认值 | 取值介绍                                                     |
 | ------------------ | ------------ | --------- | ---- | ------ | ------------------------------------------------------------ |
 | Type               | 水印类型     | String    | 是   | 无     | Text：文字水印、Image：图片水印                          |
-| Pos                | 基准位置     | String    | 是   | 无     | 1. TopRight、TopLeft、BottomRight、BottomLeft<br/>2.当 Image.Mode 为 Cover 时，此参数值无效。 |
-| LocMode            | 偏移方式     | String    | 是   | 无     | 1. Relativity：按比例、Absolute：固定位置<br/>2.当 Image.Mode 为 Cover 时，此参数值无效。 |
-| Dx                 | 水平偏移     | String    | 是   | 无     | 1. 当 LocMode 为 Relativity 时，单位为%，取值范围：[0 100] <br/>2. 当 LocMode 为 Absolute 时，单位为 px，取值范围：[0 4096]<br/>3.当 Image.Mode 为 Cover 时，此参数值无效。 |
-| Dy                 | 垂直偏移     | String    | 是   | 无     | 1. 当 LocMode 为 Relativity 时，单位为%，取值范围：[0 100] <br/>2. 当 LocMode 为 Absolute 时，单位为px，值范围：[0 4096]<br/>3.当 Image.Mode 为 Cover 时，此参数值无效。 |
+| Pos                | 基准位置     | String    | 是   | 无     | 1. TopRight、TopLeft、BottomRight、BottomLeft<br/>2.当 Image.Mode 为 Cover 时，此参数值无效 |
+| LocMode            | 偏移方式     | String    | 是   | 无     | 1. Relativity：按比例、Absolute：固定位置<br/>2.当 Image.Mode 为 Cover 时，此参数值无效 |
+| Dx                 | 水平偏移     | String    | 是   | 无     | 1. 当 LocMode 为 Relativity 时，单位为%，取值范围：[0 100] <br/>2. 当 LocMode 为 Absolute 时，单位为 px，取值范围：[0 4096]<br/>3.当 Image.Mode 为 Cover 时，此参数值无效 |
+| Dy                 | 垂直偏移     | String    | 是   | 无     | 1. 当 LocMode 为 Relativity 时，单位为%，取值范围：[0 100] <br/>2. 当 LocMode 为 Absolute 时，单位为px，值范围：[0 4096]<br/>3.当 Image.Mode 为 Cover 时，此参数值无效 |
 | Image              | 图片水印节点 | Container | 否   | 无     | 无                                                           |
 | Text               | 文本水印节点 | Container | 否   | 无     | 无                                                           |
 

@@ -1,5 +1,5 @@
 ## 操作场景
-本文介绍如何在 Linux、Mac OS 或者 Windows 系统的本地计算机中通过 SSH 登录 Linux 实例。
+本文介绍如何在 Linux、Mac OS 或者 Windows 系统的本地计算机中通过 SSH 登录 Linux 轻量应用服务器实例。
 
 ## 适用本地操作系统
 Linux、Mac OS 或 Windows（Windows 10 和 Windows Server 2019 版本）
@@ -19,12 +19,12 @@ Linux、Mac OS 或 Windows（Windows 10 和 Windows Server 2019 版本）
 
 <dx-tabs>
 ::: 使用密码登录
-1. 执行以下命令，连接 Linux 云服务器。
->?
->- 如果您的本地计算机使用非桌面版的 Linux 系统，可直接在系统界面执行以下命令。
->- 如果您的本地计算机使用桌面版 Linux 系统或 MacOS 系统，请先打开系统自带的终端（如 MacOS 的 Terminal），再执行以下命令。
->- 如果您的本地电脑为 Windows 10 或 Windows Server 2019 系统，需先打开命令提示符（CMD），再执行以下命令。
->
+1. 执行以下命令，连接 Linux 实例。
+<dx-alert infotype="explain" title="">
+- 如果您的本地计算机使用非桌面版的 Linux 系统，可直接在系统界面执行以下命令。
+- 如果您的本地计算机使用桌面版 Linux 系统或 MacOS 系统，请先打开系统自带的终端（如 MacOS 的 Terminal），再执行以下命令。
+- 如果您的本地电脑为 Windows 10 或 Windows Server 2019 系统，需先打开命令提示符（CMD），再执行以下命令。
+</dx-alert>
 ```
 ssh <username>@<IP address or domain name>
 ```
@@ -39,7 +39,7 @@ ssh <username>@<IP address or domain name>
  - 如果您的本地电脑为 Mac OS 系统，需先打开系统自带的终端（Terminal），再执行以下命令。
  - 如果您的本地电脑为 Linux 系统，可直接执行以下命令。
 ```
-chmod 400 <下载的与云服务器关联的私钥的绝对路径>
+chmod 400 <已下载的与实例关联的私钥的绝对路径>
 ```
  - 如果您的本地电脑为 Windows 10 或 Windows Server 2019 系统，需先打开命令提示符（CMD），再依次执行以下命令。
 ```
