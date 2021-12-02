@@ -1,8 +1,8 @@
 腾讯云支持绑定 IP 的 SSL 证书请参考下表：
 >?
 >- 免费证书仅支持申请单域名类型，不支持泛域名、多域名。
->- 单域名、多域名指在[SSL 证书购买页](https://buy.cloud.tencent.com/ssl?fromSource=ssl)的域名类型，详情可查看购买页介绍。
->- `-`符号表示该类型证书在腾讯云暂无售卖。
+>- 单域名、多域名是指您在 [SSL 证书购买页](https://buy.cloud.tencent.com/ssl?fromSource=ssl) 选择的域名类型。
+>- `-` 符号表示该类型证书在腾讯云暂无售卖。
 <table>
 <thead>
   <tr>
