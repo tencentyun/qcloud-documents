@@ -3,6 +3,8 @@
 此步骤中介绍了通过在 [TKE 中自定义 RBAC 授权](https://cloud.tencent.com/document/product/457/51683) ServiceAccount ，以及获取配置 Jenkins 时所需的集群访问地址、token 及集群 CA 证书信息。
 
 ### 获取集群凭证[](id:proof)
+>? 当前集群需要开启内网访问。详情见 [Service 控制台操作指引](https://cloud.tencent.com/document/product/457/45489#service-.E6.8E.A7.E5.88.B6.E5.8F.B0.E6.93.8D.E4.BD.9C.E6.8C.87.E5.BC.95)。
+>
 1. 使用以下 Shell 脚本，创建测试命名空间 ci、ServiceAccount 类型的测试用户 jenkins 并获取集群访问凭证（token）认证。
 ```
 # 创建测试命名空间ci
