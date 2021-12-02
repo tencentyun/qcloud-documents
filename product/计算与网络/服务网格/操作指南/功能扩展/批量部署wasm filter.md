@@ -26,7 +26,6 @@ wasmer：一个服务端程序，用于实现 wasm 的快速部署。
 ### 组件部署
 
 - wasmc：[点击下载](https://mesh-1251707795.cos.ap-guangzhou.myqcloud.com/wasmc)
-
 - wasmer：
 ```shell
 helm repo add servicemesh-tcm https://servicemesh.tencentcloudcr.com/chartrepo/tcm
@@ -61,7 +60,7 @@ Location: xxx/filter.wasm
 
 #### 从镜像仓库获取 wasm 扩展并部署
 
-wasm 部署文件 aw.yaml
+wasm 部署文件 aw.yaml 如下所示：
 
 ```yaml
 apiVersion: wasm.tcm.io/v1alpha1
@@ -86,12 +85,12 @@ spec:
 
 
 说明：
-spec.filter.applyPorts: 需要生效的端口（该字段选填，默认所有端口）
-spec.filter.rootID: 唯一 ID 用于共享 wasm 的 RootContext and Contexts（选填）
-spec.filter.vmID: wasm 虚机 ID（选填，不填会自动生成）
-spec.filter.sourc: wasm 文件来源，支持 registry 和 object，代表镜像仓库和对象存储
-spec.selector.matchLabels: 用于匹配需要生效的 Pod
-spec.secret：镜像仓库密码，公开镜像可以不填写 secret
+spec.filter.applyPorts：需要生效的端口（该字段选填，默认所有端口）。
+spec.filter.rootID：唯一 ID 用于共享 wasm 的 RootContext and Contexts（选填）。
+spec.filter.vmID：wasm 虚机 ID（选填，不填会自动生成）。
+spec.filter.sourc：wasm 文件来源，支持 registry 和 object，代表镜像仓库和对象存储。
+spec.selector.matchLabels：用于匹配需要生效的 Pod。
+spec.secret：镜像仓库密码，公开镜像可以不填写 secret。
 
 其中，source.registry 部分表示从镜像仓库获取 wasm 扩展。
 
@@ -132,7 +131,6 @@ kubectl apply -f aw.yaml
 >? aw. yaml 文件内容如上文所述，wasm 文件从镜像仓库获取。
 
 - 检查 aw CR 
-
 ```shell
 kubectl get aw
 NAME   SECRET   MATCH               SOURCE                                                                     APPLYPORTS   TIME                   PHASE
@@ -190,7 +188,6 @@ spec:
 
 
 - 检查效果
-
 ```shell
 kubectl get pod -o wide
 
