@@ -1,18 +1,18 @@
-TCM提供了2个工具来帮助用户快速部署wasm filter。工具支持二进制和镜像两种格式的wasm filter，可按照Label筛选部署范围。
+TCM 提供了 2 个工具来帮助用户快速部署 wasm filter。工具支持二进制和镜像两种格式的 wasm filter，可按照 Label 筛选部署范围。
 
 ### 前提条件
 
-TCM >= 1.8
-K8s >= 1.16
+- TCM >= 1.8
+- K8s >= 1.16
 
 ### 实现原理
 
-目前业界主要的实现，都是通过挂载hostPath，将wasm文件挂载到容器内，这样的实现存在2个不足之处：
+目前业界主要的实现，都是通过挂载 hostPath，将 wasm 文件挂载到容器内，这样的实现存在 2 个不足之处：
 
-- 存量的Pod无法做到文件挂载，必须重启Pod加上路径挂载。
-- 通过文件挂载的方式需要机器上存在对应的文件，否则EnvoyFilter创建之后可能导致envoy异常，此处存在潜在时序问题。
+- 存量的 Pod 无法做到文件挂载，必须重启 Pod 加上路径挂载。
+- 通过文件挂载的方式需要机器上存在对应的文件，否则 EnvoyFilter 创建之后可能导致 envoy 异常，此处存在潜在时序问题。
 
-TCM基于envoy原生支持的remoteSource，可以在Pod启动之后拉取wasm，这样就可以不重启Pod同时支持wasm。其次，我们简化了架构，每个节点不再需要一个damonset的pod, 一定程度上节省了节点资源。TCM定义了一个名为`AutoWasm`的CRD，支持用户从镜像仓库或者其余数据源拉取wasm扩展文件。我们实现的controller会进行该自定义资源的List/Watch，并且生成最终的EnvoyFilter，同时会拉取并缓存wasm文件，该controller可以支持水平扩展。
+TCM 基于 envoy 原生支持的 remoteSource，可以在 Pod 启动之后拉取 wasm，这样就可以不重启 Pod 同时支持 wasm。其次，我们简化了架构，每个节点不再需要一个 damonset 的 pod, 一定程度上节省了节点资源。TCM 定义了一个名为 `AutoWasm` 的 CRD，支持用户从镜像仓库或者其余数据源拉取 wasm 扩展文件。我们实现的 controller 会进行该自定义资源的 List/Watch，并且生成最终的 EnvoyFilter，同时会拉取并缓存 wasm 文件，该 controller 可以支持水平扩展。
 
 ![wasm.png](https://qcloudimg.tencent-cloud.cn/raw/e9db35e68b28da16216311da84b0c3dc.png)
 
@@ -20,16 +20,16 @@ TCM基于envoy原生支持的remoteSource，可以在Pod启动之后拉取wasm�
 
 ### 组件获取
 
-wasmc：与docker类似，该工具可以实现将.wasm上传到OCI标准的镜像仓库。
-wasmer: 一个服务端程序，用于实现wasm的快速部署。
+wasmc：与 docker 类似，该工具可以实现将.wasm 上传到 OCI 标准的镜像仓库。
+wasmer: 一个服务端程序，用于实现 wasm 的快速部署。
 
 ### 组件部署
 
-wasmc:
+- wasmc:
 
 [点击下载](https://mesh-1251707795.cos.ap-guangzhou.myqcloud.com/wasmc)
 
-wasmer：
+- wasmer：
 
 ```shell
 helm repo add servicemesh-tcm https://servicemesh.tencentcloudcr.com/chartrepo/tcm
@@ -40,16 +40,16 @@ helm install servicemesh-tcm/wasmer --generate-name
 
 ### 使用示例
 
-##### 将wasm推到镜像仓库
+#### 将 wasm 推到镜像仓库
 
 ```shell
-# 将准备好的exaple.wasm文件push到OCI标准的镜像仓库，支持二进制或镜像格式
+# 将准备好的 exaple.wasm 文件 push 到 OCI 标准的镜像仓库，支持二进制或镜像格式
 wasmc push ccr.ccs.tencentyun.com/xxx/wasm-add-header:v0.3 -f ./example.wasm
 
 Pushed ccr.ccs.tencentyun.com/xxx/wasm-add-header:v0.3
 Digest: sha256:xxxx
 
-# 从仓库将文件pull到本地
+# 从仓库将文件 pull 到本地
 wasmc pull ccr.ccs.tencentyun.com/xxx/wasm-add-header-wadecai:v0.3
 
 Pulled ccr.ccs.tencentyun.com/xxx/wasm-add-header-wadecai:v0.3
@@ -58,11 +58,11 @@ Location: xxx/filter.wasm
 ```
 
 
-以下是一个使用示例，实现wasm的扩展部署
+以下是一个使用示例，实现 wasm 的扩展部署
 
-##### 从镜像仓库获取wasm扩展并部署
+#### 从镜像仓库获取 wasm 扩展并部署
 
-wasm部署文件aw.yaml
+wasm 部署文件 aw.yaml
 
 ```yaml
 apiVersion: wasm.tcm.io/v1alpha1
@@ -79,7 +79,7 @@ spec:
       registry:
         image: ccr.ccs.tencentyun.com/xxx/wasm-add-header:v0.3
     vmID: test
-  secret: test # 镜像仓库secret
+  secret: test # 镜像仓库 secret
   selector:
     matchLabels:
       app: details
@@ -88,15 +88,15 @@ spec:
 
 
 > spec.filter.applyPorts: 需要生效的端口（该字段选填，默认所有端口）
-> spec.filter.rootID: 唯一ID用于共享wasm的RootContext and Contexts（选填）
-> spec.filter.vmID: wasm虚机ID（选填，不填会自动生成）
-> spec.filter.sourc: wasm文件来源，支持registry和object，代表镜像仓库和对象存储
-> spec.selector.matchLabels: 用于匹配需要生效的Pod
-> spec.secret：镜像仓库密码，公开镜像可以不填写secret
+> spec.filter.rootID: 唯一 ID 用于共享 wasm 的 RootContext and Contexts（选填）
+> spec.filter.vmID: wasm 虚机 ID（选填，不填会自动生成）
+> spec.filter.sourc: wasm 文件来源，支持 registry 和 object，代表镜像仓库和对象存储
+> spec.selector.matchLabels: 用于匹配需要生效的 Pod
+> spec.secret：镜像仓库密码，公开镜像可以不填写 secret
 
-其中，source.registry部分表示从镜像仓库获取wasm扩展。
+其中，source.registry 部分表示从镜像仓库获取 wasm 扩展。
 
-##### 从cos获取wasm扩展并部署
+#### 从 cos 获取 wasm 扩展并部署
 
 ```yaml
 apiVersion: wasm.tcm.io/v1alpha1
@@ -120,9 +120,9 @@ spec:
 
 
 
-> 当前只支持获取Public对象存储。
+>? 当前只支持获取 Public 对象存储。
 
-##### 创建并查看效果
+#### 创建并查看效果
 
 ```shell
 kubectl apply -f aw.yaml
@@ -130,9 +130,9 @@ kubectl apply -f aw.yaml
 
 
 
-> aw. yaml文件内容如上文所述，wasm文件从镜像仓库获取
+>? aw. yaml 文件内容如上文所述，wasm 文件从镜像仓库获取。
 
-- 检查aw CR已经EnvoyFilter
+- 检查 aw CR 已经 EnvoyFilter
 
 ```shell
 kubectl get aw
@@ -197,7 +197,7 @@ details-v1-79f774bdb9-2vhjx       2/2     Running   0             4m   172.16.0.
 
 curl -s 172.16.0.10:9080 -vvv
 
-* About to connect() to 10.244.0.157 port 9080 (#0)
+* About to connect () to 10.244.0.157 port 9080 (#0)
 *   Trying 10.244.0.157...
 * Connected to 10.244.0.157 (10.244.0.157) port 9080 (#0)
 > GET / HTTP/1.1
@@ -229,4 +229,4 @@ curl -s 172.16.0.10:9080 -vvv
 </HTML>
 ```
 
-可以看到`hello: world`已经添加成功
+可以看到 `hello: world` 已经添加成功。
