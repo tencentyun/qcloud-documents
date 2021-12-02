@@ -20,33 +20,25 @@
 
 1. 登录源数据库。
 2. 参考如下内容修改源数据库的配置文件 `my.cnf`。
-
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
-
+>
 ```
 log_bin = MYSQL_BIN
 binlog_format = ROW
 server_id = 2         //建议设为大于1的整数，此处仅为示例。
 binlog_row_image = FULL
 ```
-
 3. 参考如下命令重启源数据库。
-
 ```
 [\$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
 [\$Mysql_Dir]/bin/safe_mysqld &
 ```
-
 >?[\$Mysql_Dir] 指源数据库的安装路径，请替换为实际的源数据库安装目录。
-
 4. 确认 binlog 功能是否已启用。
-
 ```
 show variables like '%log_bin%';
 ```
-
 系统显示结果类似如下：
-
 ```
 mysql> show variables like '%log_bin%';
 +---------------+-------+
@@ -56,7 +48,6 @@ mysql> show variables like '%log_bin%';
 +---------------+-------+
 1 row in set (0.00 sec)
 ```
-
 5. 重新执行校验任务。
 
 ### 修改 binlog_format 参数
@@ -73,21 +64,16 @@ mysql> show variables like '%log_bin%';
 
 1. 登录源数据库。
 2. 参考如下内容修改配置文件 `my.cnf`。
-
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
-
+>
 ```
 binlog_format = ROW
 ```
-
 3. 查看参数修改是否生效。
-
 ```
 show variables like "%binlog_format%";
 ```
-
 系统显示结果类似如下：
-
 ```
 mysql> show variables like '%binlog_format%';
 +---------------+-------+
@@ -97,7 +83,6 @@ mysql> show variables like '%binlog_format%';
 +---------------+-------+
 1 row in set (0.00 sec)
 ```
-
 5. 重新执行校验任务。
 
 ### 修改 binlog_row_image 参数
@@ -114,21 +99,16 @@ mysql> show variables like '%binlog_format%';
 
 1. 登录源数据库。
 2. 参考如下内容修改源数据库的配置文件 `my.cnf`。
-
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
-
+>
 ```
 binlog_row_image = FULL
 ```
-
 3. 确认参数修改是否生效。
-
 ```
 show variables like "%binlog_row_image%";
 ```
-
 系统显示结果类似如下：
-
 ```
 mysql> show variables like '%binlog_row_image%';
 +------------------+-------+
@@ -138,7 +118,6 @@ mysql> show variables like '%binlog_row_image%';
 +------------------+-------+
 1 row in set (0.00 sec)
 ```
-
 4. 重新执行校验任务。
 
 ### 修改 gtid_mode 参数
@@ -159,25 +138,18 @@ GTID 是 MySQL 5.6 的新特性，所以 MySQL 5.6 及之后版本存在此问�
 
 1. 登录源数据库。
 2. 在主从复制结构两边都设置 `gtid_mode = OFF_PERMISSIVE`。
-
 ```
 set global gtid_mode = OFF_PERMISSIVE;
 ```
-
 3. 在主从复制结构两边都设置 `gtid_mode = ON_PERMISSIVE`。
-
 ```
 set global gtid_mode = ON_PERMISSIVE;
 ```
-
 4. 在各个实例节点上执行如下命令，检查匿名事务是否消耗完毕，参数值为`0`则代表消耗完毕。
-
 ```
 show variables like "%ONGOING_ANONYMOUS_TRANSACTION_COUNT%";
 ```
-
 系统显示结果类似如下：
-
 ```
 mysql> show variables like '%ONGOING_ANONYMOUS_TRANSACTION_COUNT%';
 +-------------------------------------+-------+
@@ -187,29 +159,22 @@ mysql> show variables like '%ONGOING_ANONYMOUS_TRANSACTION_COUNT%';
 +-------------------------------------+-------+
 1 row in set (0.00 sec)
 ```
-
 5. 在主从复制结构两边都设置 `gtid_mode = ON`。
-
 ```
 set global gtid_mode = ON;
 ```
-
 6. 在 `my.cnf` 文件中添加如下内容。
-
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
-
+>
 ```
 gtid_mode = on
 enforce_gtid_consistency = on
 ```
-
 7. （可选）参考如下命令重启数据库。MySQL 5.7.6 之前的版本需要重启，5.7.6 及之后的版本不需要重启，但是需要中断所有业务连接。
-
 ```
 [\$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
 [\$Mysql_Dir]/bin/safe_mysqld &
 ```
-
 8. 重新执行校验任务。 
 
 ### 修改 server_id 参数
@@ -220,21 +185,16 @@ enforce_gtid_consistency = on
 
 1. 登录源数据库。
 2. 参考如下内容修改源数据库的配置文件 `my.cnf`。
-
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
-
+>
 ```
 server_id = 2    //建议设为大于1的整数，此处仅为示例
 ```
-
 3. 确认参数修改是否生效。
-
 ```
 show global variables like "%server_id%";
 ```
-
 系统显示结果类似如下：
-
 ```
 mysql> show global variables like '%server_id%';
 +---------------+-------+
@@ -244,7 +204,6 @@ mysql> show global variables like '%server_id%';
 +---------------+-------+
 1 row in set (0.00 sec)
 ```
-
 4. 重新执行校验任务。
 
 ### 删除 do_db，ignore_db 设置
@@ -258,26 +217,19 @@ binlog 会记录数据库所有执行的 DDL 和 DML 语句，而 do_db，ignore
 
 1. 登录源数据库。
 2. 修改源数据库的配置文件 `my.cnf`，删除 do_db，ignore_db相关设置。
-
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
-
 3. 参考如下命令重启源数据库。
-
 ```
 [\$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
 [\$Mysql_Dir]/bin/safe_mysqld &
 ```
-
 >?[\$Mysql_Dir] 指源数据库的安装路径，请替换为实际的源数据库安装目录。
-
+>
 4. 确认参数修改是否生效。
-
 ```
 show master status;
 ```
-
 系统显示结果类似如下：
-
 ```
 mysql> show master status;
 +---------------+----------+--------------+------------------+-------------------+
@@ -286,7 +238,6 @@ mysql> show master status;
 | binlog.000011 | 154      |              |                  |                   |
 +---------------+----------+--------------+------------------+-------------------+
 ```
-
 5. 重新执行校验任务。
 
 ### 修改 log_slave_updates 参数
@@ -295,28 +246,20 @@ mysql> show master status;
 
 1. 登录源数据库。
 2. 修改 `log_slave_updates` 参数为`1`。
-
 ```
 set global log_slave_updates = 1;
 ```
-
 3. 参考如下命令重启源数据库。
-
 ```
 [\$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
 [\$Mysql_Dir]/bin/safe_mysqld &
 ```
-
 >?[\$Mysql_Dir] 指源数据库的安装路径，请替换为实际的源数据库安装目录。
-
 4. 查看配置是否生效。
-
 ```
 show global variables like '%log_slave_updates%';
 ```
-
 系统显示结果类似如下：
-
 ```
 mysql> show global variables like '%log_slave_updates%';
 +-------------------+-------+
@@ -326,5 +269,5 @@ mysql> show global variables like '%log_slave_updates%';
 +-------------------+-------+
 1 row in set (0.00 sec)
 ```
-
 5. 重新执行校验任务。
+
