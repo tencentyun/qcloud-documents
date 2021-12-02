@@ -1,4 +1,4 @@
-## 简介
+简介
 
 数据在客户端和服务器间传输时可能会出现错误，COS 除了可以通过 [MD5 和自定义属性](https://cloud.tencent.com/document/product/436/36427) 验证数据完整性外，还可以通过 CRC64 检验码来进行数据校验。
 
@@ -61,10 +61,8 @@ x-cos-request-id: NWRlODY0ZWRfMjNiMjU4NjRfOGQ4Ml81MDEw****
   - [Upload Part](https://cloud.tencent.com/document/product/436/7750)：默认使用MD5校验，暂不支持CRC64校验。
   - [Complete Multipart Upload](https://cloud.tencent.com/document/product/436/7742)：默认使用CRC64校验，暂不支持MD5校验。
 
-用于在对象上传和下载的时候对对象数据做 crc64 一致性校验。
 
-
-#### 请求示例
+#### 分块上传-请求示例
 ```cpp
 qcloud_cos::CosConfig config("./config.json");
 qcloud_cos::CosAPI cos(config);
