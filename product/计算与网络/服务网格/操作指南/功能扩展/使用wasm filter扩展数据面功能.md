@@ -4,7 +4,7 @@ Wasm 是 WebAssembly 的缩写，可以编写二进制形式的指令加载到 e
 
 通常编写 wasm 文件扩展网格数据面能力主要分为以下几步：
 
-1. 编写 wasm filter，可请参见 [样例](https://github.com/envoyproxy/envoy-wasm/tree/19b9fd9a22e27fcadf61a06bf6aac03b735418e6/examples/wasm)。
+1. 编写 wasm filter，可请参见 [示例](https://github.com/envoyproxy/envoy-wasm/tree/19b9fd9a22e27fcadf61a06bf6aac03b735418e6/examples/wasm)。
 2. 将 wasm filter 注入到 configmap 中，通过 configmap 将 wasm filter 挂载到任意工作负载，避免将 wasm filter 拷贝到多个 node 上。
    ```bash
    kubectl create cm -n foo example-filter --from-file=example-filter.wasm
