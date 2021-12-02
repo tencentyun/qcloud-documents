@@ -25,12 +25,9 @@ wasmer：一个服务端程序，用于实现 wasm 的快速部署。
 
 ### 组件部署
 
-- wasmc:
-
-[点击下载](https://mesh-1251707795.cos.ap-guangzhou.myqcloud.com/wasmc)
+- wasmc：[点击下载](https://mesh-1251707795.cos.ap-guangzhou.myqcloud.com/wasmc)
 
 - wasmer：
-
 ```shell
 helm repo add servicemesh-tcm https://servicemesh.tencentcloudcr.com/chartrepo/tcm
 helm install servicemesh-tcm/wasmer --generate-name
