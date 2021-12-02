@@ -12,7 +12,7 @@ TCM 提供了 2 个工具来帮助用户快速部署 wasm filter。工具支持�
 - 存量的 Pod 无法做到文件挂载，必须重启 Pod 加上路径挂载。
 - 通过文件挂载的方式需要机器上存在对应的文件，否则 EnvoyFilter 创建之后可能导致 envoy 异常，此处存在潜在时序问题。
 
-TCM 基于 envoy 原生支持的 remoteSource，可以在 Pod 启动之后拉取 wasm，这样就可以不重启 Pod 同时支持 wasm。其次，我们简化了架构，每个节点不再需要一个 damonset 的 pod, 一定程度上节省了节点资源。TCM 定义了一个名为 `AutoWasm` 的 CRD，支持用户从镜像仓库或者其余数据源拉取 wasm 扩展文件。我们实现的 controller 会进行该自定义资源的 List/Watch，并且生成最终的 EnvoyFilter，同时会拉取并缓存 wasm 文件，该 controller 可以支持水平扩展。
+TCM 基于 envoy 原生支持的 remoteSource，可以在 Pod 启动之后拉取 wasm，这样就可以不重启 Pod 同时支持 wasm。其次，我们简化了架构，每个节点不再需要一个 damonset 的 pod, 一定程度上节省了节点资源。TCM 定义了一个名为 AutoWasm 的 CRD，支持用户从镜像仓库或者其余数据源拉取 wasm 扩展文件。我们实现的 controller 会进行该自定义资源的 List/Watch，并且生成最终的 EnvoyFilter，同时会拉取并缓存 wasm 文件，该 controller 可以支持水平扩展。
 
 ![wasm.png](https://qcloudimg.tencent-cloud.cn/raw/e9db35e68b28da16216311da84b0c3dc.png)
 
@@ -33,9 +33,11 @@ helm repo add servicemesh-tcm https://servicemesh.tencentcloudcr.com/chartrepo/t
 helm install servicemesh-tcm/wasmer --generate-name
 ```
 
-
+>! 多集群场景下使用时：需要每个集群都部署，需要在多个集群同时创建 AutoWasm。
 
 ### 使用示例
+以下为使用示例，将在 details 应用中，使用 wasm 在应用 header 中添加 KEY hello:world。
+
 
 #### 将 wasm 推到镜像仓库
 
@@ -55,7 +57,7 @@ Location: xxx/filter.wasm
 ```
 
 
-以下为实现 wasm 的扩展部署的使用示例：
+
 
 #### 从镜像仓库获取 wasm 扩展并部署
 
@@ -129,13 +131,16 @@ kubectl apply -f aw.yaml
 
 >? aw. yaml 文件内容如上文所述，wasm 文件从镜像仓库获取。
 
-- 检查 aw CR 已经 EnvoyFilter
+- 检查 aw CR 
 
 ```shell
 kubectl get aw
 NAME   SECRET   MATCH               SOURCE                                                                     APPLYPORTS   TIME                   PHASE
 test   test     {"app":"details"}   {"registry":{"image":"ccr.ccs.tencentyun.com/xxx/wasm-add-header:v0.3"}}   [9080]       2021-10-27T10:00:36Z   Synced
+```
 
+- 查看 EnvoyFilter
+```
 kubectl get envoyfilter test -o yaml
 
 apiVersion: networking.istio.io/v1alpha3
@@ -184,7 +189,7 @@ spec:
 
 
 
-- 校验效果
+- 检查效果
 
 ```shell
 kubectl get pod -o wide
