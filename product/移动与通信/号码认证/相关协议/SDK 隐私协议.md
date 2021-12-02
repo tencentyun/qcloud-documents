@@ -1,5 +1,3 @@
-【腾讯云号码认证】SDK 隐私保护指引
-## 引言
 腾讯严格遵守法律法规，按照业界成熟的安全与隐私标准，保护第三方开发者和其终端用户的个人信息。 
 **腾讯云号码认证是一款由腾讯云计算（北京）有限责任公司（以下简称“我们”）提供服务的产品，号码认证区别于传统的短信下发验证，集成了三大运营商特有的网关取号、验证能力，通过运营商底层数据网关和短信网关识别本机号码，从源头规避数据泄漏风险，安全、快速地验证用户身份，实现一键免密注册、登录、校验，提升用户使用体验。**我们的注册地为北京市海淀区知春路49号3层西部309。**腾讯云号码认证产品对接方式包括【SDK】**，由于目前相关法律法规、政策及标准中主要对 SDK 产品的应用提供相关指引，以下将统一以 SDK 视角描述相关内容，如果您是集成、调用 API 能力或 H5 页面的第三方开发者，本指引中的内容同样适用于您。
 
@@ -16,13 +14,13 @@
 关于腾讯云号码认证 SDK 所收集的个人信息清单如下表所示：
 <table>
    <tr>
-      <th width="0px" style="text-align:center">服务方案</td>
-      <th width="0px" style="text-align:center">收集的个人信息类型</td>
+      <th width="15px" style="text-align:center">服务方案</td>
+      <th width="30px" style="text-align:center">收集的个人信息类型</td>
       <th width="0px"  style="text-align:center">处理目的</td>
-      <th width="300px"  style="text-align:center">处理方式</td>
+      <th width="280px"  style="text-align:center">处理方式</td>
       <th width="0px" style="text-align:center">申请的权限</td>
       <th width="0px"  style="text-align:center">接入方式</td>
-      <th width="0px"  style="text-align:center">敏感个人信息处理的必要性说明</td>
+      <th width="0px"  style="text-align:center" word-wrap:break-word>敏感个人信息<br>处理的必要性说明</td>
    </tr>
    <tr>
       <td rowspan='5'>一键登录能力</td>
@@ -30,7 +28,7 @@
       <td rowspan='5'>实现电话号码一键认证注册、登录</td>
       <td>性能分析，分仅数据流量、仅 WiFi、数据流量+WiFi 三种情况；分析不同网络环境对取号成功率和时延的影响，进行针对性优化</td>
       <td>ACCESS_NETWORK_STATE、ACCESS_WIFI_STATE</td>
-      <td rowspan='5'>SDK接入</td>
+      <td rowspan='5'>SDK 接入</td>
       <td>无</td>
    </tr>
    <tr>
@@ -41,7 +39,7 @@
    </tr>
    <tr>
       <td>设备类型、系统</td>
-      <td>性能分析，采集机型、系统信息进行机型适配和优化；</td>
+      <td>性能分析，采集机型、系统信息进行机型适配和优化</td>
       <td>无</td>
       <td>无</td>
    </tr>
