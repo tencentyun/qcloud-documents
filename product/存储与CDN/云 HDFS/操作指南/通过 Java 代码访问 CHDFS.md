@@ -150,7 +150,7 @@ public class Demo {
 
 
 			public static void main(String[] args) throws IOException {
-				// 初始化文件
+				// 初始化文件系统
 				FileSystem fs = initFS();
 
 
