@@ -16,7 +16,7 @@ std::string GetObjectUrl(const std::string& bucket, const std::string& object, b
 qcloud_cos::CosConfig config("./config.json");
 qcloud_cos::CosAPI cos(config);
 
-std::string bucket_name = "examplebucket-1250000000";
+std::string bucket_name = "examplebucket-1250000000"; // 替换为用户的存储桶名，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称：https://console.cloud.tencent.com/cos5/bucket
 std::string object_name = "exampleobject";
 //获取对象https url，region为config.json中配置的地域
 cos.GetObjectUrl(bucket_name, object_name);
