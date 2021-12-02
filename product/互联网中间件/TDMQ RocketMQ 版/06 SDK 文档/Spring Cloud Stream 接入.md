@@ -10,8 +10,8 @@
 - [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-springcloud-stream-demo.zip)
 
 ## 操作步骤
-
-1. 在 pom.xml 中引入 `stream-rocketmq` 相关依赖。
+### 步骤1：引入依赖
+在 pom.xml 中引入 `stream-rocketmq` 相关依赖。
 ```xml
 <dependency>
 		<groupId>org.apache.rocketmq</groupId>
@@ -42,7 +42,8 @@
 </dependency>
 ```
 
-2. 在配置文件中增加 RocketMQ 相关配置。
+### 步骤2：添加配置
+在配置文件中增加 RocketMQ 相关配置。
 ```yaml
 spring:
  cloud:
@@ -125,7 +126,8 @@ spring:
 </tr>
 </tbody></table>
 
-3. 配置 channel，channel 分为输入和输出，可根据自己的业务进行单独配置。
+### 步骤3：配置 channel
+channel 分为输入和输出，可根据自己的业务进行单独配置。
 ```java
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.cloud.stream.annotation.Output;
@@ -160,51 +162,52 @@ public interface CustomChannelBinder {
 }
 ```
 
-4. 在配置类或启动类上添加相应注解，如果有多个binder配置，都要在此注解中进行指定。
+### 步骤4：添加注解
+在配置类或启动类上添加相应注解，如果有多个binder配置，都要在此注解中进行指定。
+```java
+@EnableBinding({CustomChannelBinder.class})
+```
+
+### 步骤5：发送消息
+
+1. 在要发送消息的类中，注入 `CustomChannelBinder`。
+	```java
+	@Autowired
+	private CustomChannelBinder channelBinder;
+	```
+2. 发送消息，调用对应的输出流channel进行消息发送。
+	```java
+	Message<String> message = MessageBuilder.withPayload("This is a new message.").build();
+	channelBinder.sendChannel().send(message);
+	```
+
+### 步骤6：消费消息
  ```java
- @EnableBinding({CustomChannelBinder.class})
+ @Service
+ public class TestStreamConsumer {
+		 private final Logger logger = LoggerFactory.getLogger(DemoApplication.class);
+
+		 /**
+			* 监听channel (配置中的channel名称)
+			*
+			* @param messageBody 消息内容
+			*/
+		 @StreamListener("Topic-test1")
+		 public void receive(String messageBody) {
+				 logger.info("Receive1: 通过stream收到消息，messageBody = {}", messageBody);
+		 }
+
+		 /**
+			* 监听channel (配置中的channel名称)
+			*
+			* @param messageBody 消息内容
+			*/
+		 @StreamListener("Topic-test2")
+		 public void receive2(String messageBody) {
+				 logger.info("Receive2: 通过stream收到消息，messageBody = {}", messageBody);
+		 }
+ }
  ```
-
-5. 发送消息。
-
-   1. 在要发送消息的类中，注入 `CustomChannelBinder`。
-      ```java
-      @Autowired
-      private CustomChannelBinder channelBinder;
-      ```
-   2. 发送消息，调用对应的输出流channel进行消息发送。
-      ```java
-      Message<String> message = MessageBuilder.withPayload("This is a new message.").build();
-      channelBinder.sendChannel().send(message);
-      ```
-
-6. 消费消息。
-   ```java
-   @Service
-   public class TestStreamConsumer {
-       private final Logger logger = LoggerFactory.getLogger(DemoApplication.class);
-   
-       /**
-        * 监听channel (配置中的channel名称)
-        *
-        * @param messageBody 消息内容
-        */
-       @StreamListener("Topic-test1")
-       public void receive(String messageBody) {
-           logger.info("Receive1: 通过stream收到消息，messageBody = {}", messageBody);
-       }
-   
-       /**
-        * 监听channel (配置中的channel名称)
-        *
-        * @param messageBody 消息内容
-        */
-       @StreamListener("Topic-test2")
-       public void receive2(String messageBody) {
-           logger.info("Receive2: 通过stream收到消息，messageBody = {}", messageBody);
-       }
-   }
-   ```
 
 具体使用可参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-springcloud-stream-demo.zip) 或 [Spring cloud stream 官网](https://github.com/alibaba/spring-cloud-alibaba/wiki/RocketMQ-en)。
 
