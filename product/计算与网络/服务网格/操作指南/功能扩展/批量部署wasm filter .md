@@ -21,7 +21,7 @@ TCM 基于 envoy 原生支持的 remoteSource，可以在 Pod 启动之后拉取
 ### 组件获取
 
 wasmc：与 docker 类似，该工具可以实现将.wasm 上传到 OCI 标准的镜像仓库。
-wasmer: 一个服务端程序，用于实现 wasm 的快速部署。
+wasmer：一个服务端程序，用于实现 wasm 的快速部署。
 
 ### 组件部署
 
