@@ -63,5 +63,5 @@ Wasm 是 WebAssembly 的缩写，可以编写二进制形式的指令加载到 e
 
 至此，wasm filter 部署完成，另一种 wasm filter 的使用形式是镜像，请参见 [制作 wasm filter 镜像](https://docs.solo.io/web-assembly-hub/latest/tutorial_code/getting_started/)，利用 WASME 工具部署，请参见 [使用 wasme 部署 wasm filter](https://docs.solo.io/web-assembly-hub/latest/tutorial_code/deploy_tutorials/deploying_with_istio/)。
 
-可以看出，wasm filter 的部署较为繁琐，尤其是需要大规模部署的时候，没有工具将难以进行批量部署和管理，TCM 提供了便捷的部署工具，可以利用工具将二进制或者镜像形式的 wasm filter 批量部署到业务中，详情见 [使用 TCM 工具批量部署 wasm filter](./ 批量部署 wasm filter)。
+可以看出，wasm filter 的部署较为繁琐，尤其是需要大规模部署的时候，没有工具将难以进行批量部署和管理，TCM 提供了便捷的部署工具，可以利用工具将二进制或者镜像形式的 wasm filter 批量部署到业务中，详情见 [使用 TCM 工具批量部署 wasm filter](https://cloud.tencent.com/document/product/1261/65362)。
 
