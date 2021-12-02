@@ -37,4 +37,4 @@
  - **服务条款**：[《云数据库服务条款》](https://cloud.tencent.com/document/product/236/39102)
 2. 支付完成后，返回实例列表，会看到实例显示**发货中**（大概需要3min - 5min中，请耐心等待），待实例状态变为**未初始化**，即可进行初始化操作。
 ## 后续操作
-通过 Windows 云服务器或 Linux 云服务器，以内外网两种不同的方式连接云数据库 MySQL，请参见 [连接 MySQL 实例](https://cloud.tencent.com/document/product/236/3130)。
+创建 MySQL 实例后，需要进行 MySQL 实例的初始化，以轻松启用实例，请参见 [初始化 MySQL 实例](https://cloud.tencent.com/document/product/236/3128)。
