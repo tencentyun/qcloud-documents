@@ -177,10 +177,12 @@ Events:               <none>
 
 ```
 
-**注意**：如果需要更新 TCR Assistant 部署的 `Secret` 资源，无需删除重建 `ImagePullSecret` 资源，只需要编辑其中 `docker.username` 和 `docker.password` 字段即可生效。例如：
+>! 如果需要更新 TCR Assistant 部署的 `Secret` 资源，无需删除重建 `ImagePullSecret` 资源，只需要编辑其中 `docker.username` 和 `docker.password` 字段即可生效。例如：
 ```bash
 $ kubectl edit ipss imagepullsecret-sample
 ```
+>
+
 
 #### Namespace 变更
 TCR Assistant 在观察到有新的 k8s `Namespace` 资源创建后，会首先检查名称是否和 `ImagePullSecret` 资源中的 `namespaces` 字段匹配。如果资源名称**不匹配**跳过后续流程；资源名称匹配的情况下，会调用 k8s API 创建 `Secret` 资源，并添加 `Secret` 资源名称到 `ServiceAccount` 资源的 `imagePullSecrets` 字段当中。示例如下：
