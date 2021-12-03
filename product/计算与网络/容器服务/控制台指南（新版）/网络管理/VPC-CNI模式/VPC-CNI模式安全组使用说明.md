@@ -35,7 +35,7 @@
 7. 在权限设置中，单击**关联策略**。
 8. 在弹出的关联策略窗口中，勾选已创建的自定义策略 `SecurityGroupsAccessForIPAMD`。单击**确定**，完成为 IPAMD 组件角色添加安全组接口访问权限操作。
 
-## IPAMD 组件开启安全特性
+## IPAMD 组件开启安全组特性
 
 
 
@@ -45,13 +45,13 @@
 
 - 执行以下命令，在 `spec.template.spec.containers[0].args` 中加入启动参数。
 修改后，ipamd 会自动重启并生效。
-生效后，存量节点上的弹性网卡没有关联安全组的会按以下策略绑定安全组，如果绑定了则不做操作。增量节点的弹性网卡则都会绑定以下安全组。
+生效后，存量节点上的辅助弹性网卡没有关联安全组的会按以下策略绑定安全组，如果绑定了也会与设置的安全组强同步，除非之前已开启特性，节点安全组已设置。增量节点的弹性网卡则都会绑定以下安全组。
 ```yaml
 - --enable-security-groups
 # 如果希望默认继承自主网卡/实例的安全组，则不添加 security-groups 参数
 - --security-groups=sg-xxxxxxxx,sg-xxxxxxxx
 ```
- 如果想让已绑定安全组的存量节点也生效，需要手动禁用安全组，再开启来达到同步。以下为存量节点的同步方法：
+ 如果想让已设置安全组的存量节点也生效，需要手动禁用安全组，再开启来达到同步。以下为存量节点的同步方法：
  1. 给节点加上注解清空并禁用节点的弹性网卡绑定安全组,添加后，节点的存量弹性网卡会解绑所有安全组：
 ```shell
 kubectl annotate node <nodeName> --overwrite tke.cloud.tencent.com/disable-node-eni-security-groups="yes"
@@ -76,6 +76,10 @@ kubectl annotate node <nodeName> --overwrite tke.cloud.tencent.com/disable-node-
 
 - 特性开启以后，如果设置了 `--security-groups`，则各节点安全组设置为该安全组集合。
 
+- 特性开启以后，如果变更 `--security-groups` 参数，增量节点安全组设置会与全局参数同步，存量节点安全组设置不会改变，若需同步存量节点安全组设置，则需禁用节点安全组再开启，来达到同步。操作方法见[IPAMD 组件开启安全组特性]()。
+
+- 安全组设置的优先级与节点安全组设置的顺序一致，若继承自主网卡，则与主网卡保持一致。
+
 - 执行以下命令可查看节点安全组。其中 `spec.securityGroups` 域包含了节点安全组信息。
 ```
 kubectl get nec <nodeName> -oyaml
@@ -85,4 +89,4 @@ kubectl get nec <nodeName> -oyaml
 kubectl edit nec <nodeName> 
 ```
 
-- 特性开启以后，节点同步时，存量网卡如果没绑定安全组，则会绑定节点安全组。如果绑定了则不做操作，保留原绑定。增量网卡都会绑定节点安全组。
+- 特性开启以后，节点同步时，存量网卡如果没绑定安全组，则会绑定节点安全组。存量网卡的安全组会与节点安全组强同步，保证与设置的节点安全组保持一致。增量网卡都会绑定节点安全组。

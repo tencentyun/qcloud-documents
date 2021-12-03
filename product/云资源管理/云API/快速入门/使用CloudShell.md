@@ -1,7 +1,7 @@
 CloudShell 是网页版命令行工具，帮助您通过命令行管理腾讯云资源。您可以通过浏览器启动 CloudShell，启动时将会自动为您分配一台 Linux 管理机供您免费使用，该实例上已经预装 TCCLI 及 Terraform 等多种云管理工具和 SSH 及 VIM 等系统工具。
 
->? 使用 CloudShell 功能前需填写 [申请]( https://cloud.tencent.com/apply/p/pe2xeott9qc) 并提交，审核通过后即可开始使用。
->
+
+
 
 ## 功能特性
 CloudShell 具备以下功能特性：
@@ -216,6 +216,11 @@ CloudShell 实例多种语言支持及预装工具如下：
 	<td>
 	长时间使用以及计算或网络密集型等恶意进程将不受支持，并可能会导致会话在没有任何警告的情况下被终止甚至禁用。</td>
   </tr>
+	  <tr>
+	<td>机器销毁</td>
+	<td>
+当您30分钟无任何命令行会话操作即视为停止，停止30分钟后机器销毁。当您再次使用 CloudShell 时，会重新分配 Linux 机器。</td>
+  </tr>
 </tbody>
 </table>
 
@@ -242,9 +247,13 @@ CloudShell 实例多种语言支持及预装工具如下：
 :::
 </dx-tabs>
 
->?
->- 第一次连接 CloudShell 时会为您创建虚拟机，会消耗一些时间。打开多个 CloudShell 窗口时，所有窗口都会连接到同一台虚拟机。虚拟机数量不会因为您打开新的命令行窗口而增加。
->- 您可以根据实际需要打开多个 CloudShell 窗口，但最多可同时打开5个。
+
+<dx-alert infotype="explain" title="">
+- 第一次连接 CloudShell 时会为您创建虚拟机，会消耗一些时间。打开多个 CloudShell 窗口时，所有窗口都会连接到同一台虚拟机。虚拟机数量不会因为您打开新的命令行窗口而增加。
+- 您可以根据实际需要打开多个 CloudShell 窗口，但最多可同时打开5个。
+</dx-alert>
+
+
 
 
 ### 使用 TCCLI 命令管理云资源
@@ -279,8 +288,11 @@ CloudShell 提供了文件的上传和下载功能。您可通过通过 CloudShe
 3. 在弹出的菜单中单击**上传**或**下载**，按需传输文件。
  - 上传文件：在弹出的窗口中选择文件后，单击**打开**。
  - 下载文件：在弹出的窗口中，输入需下载文件的绝对路径后，单击**确定**。
->!上传文件功能会默认将您的文件上传到 CloudShell 实例的 `/home/cloudshell/data/` 目录下。并且您只能下载 CloudShell 实例中 `/home/cloudshell/data/` 目录下的文件。
->
+<dx-alert infotype="notice" title="">
+上传文件功能会默认将您的文件上传到 CloudShell 实例的 `/home/cloudshell/data/` 目录下。并且您只能下载 CloudShell 实例中 `/home/cloudshell/data/` 目录下的文件。
+</dx-alert>
+
+
 
 
 

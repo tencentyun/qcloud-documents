@@ -12,10 +12,24 @@
 
 ## 操作步骤
 
-### 步骤一：添加 Java 依赖库
+### 步骤一：控制台配置
+1. 创建接入点。
+	1. 在 **[实例列表](https://console.cloud.tencent.com/ckafka/index)** 页面，单击目标实例 ID，进入实例详情页。
+	2. 在 **基本信息** > **接入方式** 中，单击**添加路由策略**，在打开窗口中选择：`路由类型：公网域名接入`, `接入方式：SASL_PLAINTEXT`。
+![](https://qcloudimg.tencent-cloud.cn/raw/4ac0033364e13d3f2c81d464c878d7f4.png)
 
-在 pom.xml 中添加以下依赖。
+2. 创建角色。
+在**用户管理**页面新建角色，设置密码。
+![](https://qcloudimg.tencent-cloud.cn/raw/b4fd547ddb7d4fdac1c24d59bb4806bc.png)
 
+3. 创建 Topic。
+在控制台 **topic 管理**页面新建 Topic（参考 [创建 Topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
+
+
+
+### 步骤二：添加配置文件
+
+1. 在 pom.xml 中添加以下依赖。
 ```xml
 <dependency>
    <dependency>
@@ -37,9 +51,7 @@
 
 ```
 
-### 步骤二：准备配置
-
-1. 创建 JAAS 配置文件 ckafka_client_jaas.conf。
+2. 创建 JAAS 配置文件 `ckafka_client_jaas.conf`，使用**用户管理**界面创建的用户进行修改。
 ```properties
 KafkaClient {
 org.apache.kafka.common.security.plain.PlainLoginModule required
@@ -49,11 +61,12 @@ password="yourpassword";
 ```
 >?username 是`实例 ID` + `#` + `配置的用户名`，password 是配置的用户密码。
 
-2. 创建消息队列 CKafka 配置文件 kafka.properties。
+
+3. 创建消息队列 CKafka 配置文件 kafka.properties。
 ```properties
 ## 配置接入网络，在控制台的实例详情页面接入方式模块的网络列复制。
 bootstrap.servers=xx.xx.xx.xx:xxxx
-## 配置 topic，在控制台上 topic 管理页面复制。
+## 配置 Topic，在控制台上 topic 管理页面复制。
 topic=XXX
 ## 配置 consumer group，您可以自定义设置
 group.id=XXX
@@ -68,7 +81,8 @@ java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
 | `group.id`                               | 您可以自定义设置，Demo 运行成功后可以在 **Consumer Group** 页面看到该消费者。 |
 | `java.security.auth.login.config.plain` | 填写 JAAS 配置文件 `ckafka_client_jaas.conf` 的路径。          |
 
-3. 创建配置文件加载程序 CKafkaConfigurer.java。
+
+4. 创建配置文件加载程序 CKafkaConfigurer.java。
 ```java
 public class CKafkaConfigurer {
 
@@ -99,25 +113,6 @@ public class CKafkaConfigurer {
     }
 }
 ```
-4. 创建接入点。
-	1. 在**实例列表**界面单击**添加路由策略**，在打开窗口中选择：`路由类型：公网域名接入`， `接入方式：SASL_PLAINTEXT`。
-	![](https://qcloudimg.tencent-cloud.cn/raw/13822a948396fda9cc3d39fb93147d90.png)
-	2. 创建完成后，复制**接入方式**中的**网络**属性，替换 `resource/kafka.properties` 文件中的 `bootstrap_servers` 属性。
-![](https://qcloudimg.tencent-cloud.cn/raw/04d8774490d31383aef184a65781bdf4.png)
-
-5. 创建角色。
-在**用户管理**页面新建角色，设置密码，并将用户名和密码替换 `resource/ckafka_client_jaas.conf` 文件中的 `username` 和 `password`。
-![](https://qcloudimg.tencent-cloud.cn/raw/8b4e8f1d63c61936ee54fe4ea22d2b61.png)
->?此处的 `username` 为 **<实例 id>#<用户名>** 格式。
->
-![](https://qcloudimg.tencent-cloud.cn/raw/742f6cc3ec1cd84cd8bfe570ac271891.png)
-6. 创建 topic。
-	1. 在控制台 topic 管理页面新建 topic（参考 [创建 topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
-	2. 将 topic 名称替换 `resource/kafka.properties` 文件中的 `topic` 属性。
-![](https://qcloudimg.tencent-cloud.cn/raw/a09afcb89b840869930bdc7e9de58da8.png)
-
-
-
 
 ### 步骤三：发送消息
 
@@ -187,6 +182,7 @@ public class CKafkaConfigurer {
 }
 ```
 2. 编译并运行 KafkaSaslProducerDemo.java 发送消息。
+   
 3. 运行结果（输出）。
 ```bash
 Produce ok:ckafka-topic-demo-0@198
@@ -194,7 +190,6 @@ Produce ok:ckafka-topic-demo-0@199
 ```
 4. 在 CKafka 控制台 **topic管理**页面，选择对应的 Topic，单击**更多** > **消息查询**，查看刚刚发送的消息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/236b886212bd8dc2e53242bbaab6cb2c.png)
-
 
 
 ### 步骤四：消费消息
@@ -268,6 +263,7 @@ public class KafkaSaslConsumerDemo {
 }
 ```
 2. 编译并运行 KafkaSaslConsumerDemo.java 消费消息。
+   
 3. 运行结果。
 ```bash
    Consume partition:0 offset:298

@@ -43,8 +43,8 @@ mkdir /var/lib/pgsql/9.5/recovery
 ```
 
 ### 3. 下载全量备份文件
-1. 登录 [PostgreSQL 控制台](https://console.cloud.tencent.com/pgsql)，在实例列表，单击操作列的【管理】进入管理页面。
-2. 选择【备份管理】页，在备份列表中，根据备份时间选择需要恢复的备份版本，单击操作列的【下载】。
+1. 登录 [PostgreSQL 控制台](https://console.cloud.tencent.com/pgsql)，在实例列表，单击**操作**列的**管理**进入管理页面。
+2. 选择**备份管理**页，在备份列表中，根据备份时间选择需要恢复的备份版本，单击**操作**列的**下载**。
 3. 根据提供的 VPC 网络地址或外网地址链接下载备份文件。
 >?
 >- 使用 VPC 网络地址下载备份时，云数据库须与云服务器处于同一 VPC，备份需下载至`/var/lib/pgsql/10/recovery`目录。

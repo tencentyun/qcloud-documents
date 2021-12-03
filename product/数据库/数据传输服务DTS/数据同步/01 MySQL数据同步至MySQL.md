@@ -8,7 +8,7 @@
 - 源数据库和目标数据库符合同步功能和版本要求，请参考 [数据同步支持的数据库](https://cloud.tencent.com/document/product/571/58672) 进行核对。
 - 需要具备源数据库的权限如下：
 ```sql
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW VIEW,PROCESS,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 FLUSH PRIVILEGES;
 ```
@@ -39,7 +39,6 @@ FLUSH PRIVILEGES;
 | DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE VIEW、DROP VIEW、CREATE INDEX、DROP INDEX |
 
 ## 环境要求
-
 <table>
 <tr><th width="20%">类型</th><th width="80%">环境要求</th></tr>
 <tr>
@@ -98,7 +97,7 @@ FLUSH PRIVILEGES;
 3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
 ![](https://main.qcloudimg.com/raw/b21f1336854375bb1343c7ccb144900b.png)
 4. 在配置同步任务页面，配置源端实例、帐号密码，配置目标端实例、帐号和密码，测试连通性后，单击**下一步**。
-<img src="https://main.qcloudimg.com/raw/d5ed42367196f718c62a90c3a3a37088.png"  style="margin:0;">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/0a61f9b3a78e0dbd165d745f90e320a7.png" style="zoom:70%;" />
 <table>
 <thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
 <tbody><tr>
@@ -125,7 +124,7 @@ FLUSH PRIVILEGES;
 <li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
 <li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
-<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据和目标数据库都部署在腾讯云上，且有 <a href="https://cloud.tencent.com/document/product/215">私有网络</a>。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据和目标数据库都部署在腾讯云上，且有 <a href="https://cloud.tencent.com/document/product/215">私有网络</a>。如果需要使用私用网络 VPC接入类型，请 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a> 申请。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
 <td rowspan=3 >目标实例设置</td>
 <td>目标实例类型</td><td>所选择的目标实例类型，不可修改。</td></tr>

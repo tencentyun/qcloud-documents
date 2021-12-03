@@ -64,7 +64,7 @@ private static extern string WGGetHostByName(string domain);
 
 在需要进行域名解析的部分，调用 WGGetHostByName(string domain) 方法，并建议进行如下处理：
 ```
-string ips = WGGetHostByName(domainStr);
+string ips = WGGetHostByName(string domain);
 string[] sArray=ips.Split(new char[] {';'});
 if (sArray != null && sArray.Length > 1) {
 	  if (!sArray[1].Equals("0")) {

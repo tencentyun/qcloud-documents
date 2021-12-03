@@ -223,28 +223,6 @@ if (msgType.integerValue == 1) {
 
 
 ## 高级配置（可选）
-<span id="zhuxiao"></span>
-### 注销信鸽平台推送服务
-如果 App 的推送服务是从 [信鸽平台](https://xg.qq.com) 迁移到腾讯移动推送平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在信鸽平台中进行反注册。
-
-#### 接口
-
-```objective-c
-// 信鸽平台的 accessId(支持信鸽 SDK V2、V3版本)
-@property uint32_t freeAccessId;
-```
-
-#### 用法
-
-- 引入头文件：`XGForFreeVersion.h` 。
-- 在`startXGWithAccessID:accessKey:delegate:`之前调用此接口，参考示例：
-
-```objective-c
-[XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
-[[XGPush defaultManager] startXGWithAccessID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
-```
->!如果未做以上配置，在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
-
 
 <span id="QHToken"></span>
 ### 获取 TPNS Token 交互建议

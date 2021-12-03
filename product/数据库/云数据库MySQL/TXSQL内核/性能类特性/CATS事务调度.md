@@ -29,9 +29,10 @@ MySQL 5.7 版本可以通过全局参数 innodb_trx_schedule_algorithm 来指定
 - fcfs：先来先服务算法。
 - cats: 冲突感知调度算法。
 
-MySQL 8.0 版本固定采用 auto 算法，不可设置。
 
 | 参数名                        | 动态 | 类型   | 默认 | 参数值范围       | 说明             |
 | ----------------------------- | ---- | ------ | ---- | ---------------- | ---------------- |
 | innodb_trx_schedule_algorithm | yes  | string | auto | [auto,fcfs,cats] | 事务等待调度算法 |
+
+MySQL 8.0 版本固定采用 auto 算法，不可设置。
 
