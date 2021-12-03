@@ -2976,6 +2976,73 @@ tmeSdk.getPlaylistDetail(action: string, params, deviceId?: string) => Promise<T
 
 
 
+## 背景音乐
+
+### 获取实例
+
+```js
+const bam = await h5PanelSdk.wxapi.getBackgroundAudioManager();
+```
+
+### 获取属性
+
+获取BackgroundAudioManager实例的属性
+
+**接口定义**
+
+```js
+bam.getBackgroundAudioAttribute(keys: Array<string>) => Promise<any>
+```
+
+**参数说明**
+
+| 参数名 | 描述       | 类型            | 必填 |
+| ------ | ---------- | --------------- | ---- |
+| keys   | 属性名数组 | `Array<string>` | 是   |
+
+### 设置属性
+
+设置BackgroundAudioManager实例的属性
+
+**接口定义**
+
+```js
+bam.setBackgroundAudioAttribute(parmas: Object) => Promise<any>
+```
+
+**参数说明**
+
+| 参数名 | 描述                         | 类型     | 必填 |
+| ------ | ---------------------------- | -------- | ---- |
+| params | key为属性名称，value为属性值 | `Object` | 是   |
+
+### 其他方法
+
+所有 api 使用方法与微信官方文档相同
+
+[微信背景音乐接口(BackgroundAudioManager)](https://developers.weixin.qq.com/miniprogram/dev/api/media/background-audio/BackgroundAudioManager.html)
+
+### 使用示例
+
+```js
+// 播放音乐
+bam.setBackgroundAudioAttribute({
+  title: '歌曲名称',
+  singer: '歌手',
+  epname: '专辑名',
+  src: 'https://***.mp3',
+  coverImgUrl: 'https://***.png',
+});
+// 事件监听
+bam.onTimeUpdate((currentTime) => {
+  // 更新播放进度
+  setCurrentTime(currentTime);
+});
+```
+
+
+
+
 ## 底层 SDK 能力
 
 ### 应用开发 SDK
