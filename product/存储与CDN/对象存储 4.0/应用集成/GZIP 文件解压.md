@@ -1,6 +1,13 @@
 ## 简介
 
- GZIP 文件解压功能是腾讯云对象存储（Cloud Object Storage，COS）基于 [云函数（Serverless Cloud Function，SCF）](https://cloud.tencent.com/document/product/583) 为用户提供的数据处理解决方案。用户为存储桶添加 GZIP 文件解压规则后，当 GZIP 压缩文件上传到对象存储时，将自动触发对象存储为您预配置的云函数，自动将文件解压到指定的存储桶和路径中。
+GZIP 文件解压功能是腾讯云对象存储（Cloud Object Storage，COS）基于 [云函数（Serverless Cloud Function，SCF）](https://cloud.tencent.com/document/product/583) 为用户提供的数据处理解决方案。用户为存储桶添加 GZIP 文件解压规则后，当 GZIP 压缩文件上传到对象存储时，将自动触发对象存储为您预配置的云函数，自动将文件解压到指定的存储桶和路径中。
+
+用户可以通过以下两种方式使用 GZIP 文件解压功能：
+- 通过控制台使用：您可以在控制台配置 GZIP 文件解压函数，配置完成后，对于新上传到存储桶内的 GZIP 文件，将会自动进行解压。
+- 通过 API 使用：您可以通过 API 调用的方式，主动触发 GZIP 文件的解压操作。
+
+本篇文档主要讲解如何通过控制台使用 GZIP 文件解压功能，通过 API 使用的方式请参见 [通过 API 进行 GZIP 文件解压]()。
+
 
 ## 注意事项
 
