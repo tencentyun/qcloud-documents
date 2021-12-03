@@ -3,7 +3,7 @@
 [](id:install_q1)
 ### trtc-electron-sdk 是否兼容官方 Electron v12.0.1 版本?
 
-兼容的，trtc-electron-sdk 没有特别依赖 elecron 自身的 sdk，所以没有相关的版本依赖。
+兼容的，trtc-electron-sdk 没有特别依赖 elecron 自身的 SDK，所以没有相关的版本依赖。
 
 
 [](id:install_q2)
