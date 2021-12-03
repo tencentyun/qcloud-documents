@@ -20,14 +20,14 @@
 1. 打开终端。
 2. 在终端输入以下命令以导出开源 RabbitMQ 元数据文件。
 	- 导出 All Vhosts 的元数据文件：
-	```
+	```plaintext
 	wget http://<开源 RabbitMQ IP 地址>:15672/api/definitions --user <开源 RabbitMQ 用户名>  --password <开源 RabbitMQ 密码>  -O <元数据文件保存路径>
 	```
 	- 导出某一个 Vhost 的元数据文件：
-	```
+	```plaintext
 	wget http://<开源 RabbitMQ IP 地址>:15672/api/definitions/<Vhost 名称> --user <开源 RabbitMQ 用户名>  --password <开源 RabbitMQ 密码>  -O <元数据文件保存路径>
 	```
->!若 <Vhost 名称> 中含有 “/”，请将 “/” 替换为 “2%F”，例如 “/vhost” 需修改为 “2%Fvhost”。
+>!若  &lt;Vhost 名称&gt; 中含有 “/”，请将 “/” 替换为 “2%F”，例如 “/vhost” 需修改为 “2%Fvhost”。
 
 ### 在消息队列 RabbitMQ 版控制台导入元数据
 
@@ -97,7 +97,7 @@
 | :---------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | rabbitmq_version  | 开源 RabbitMQ 的集群版本                                     | 否                                                           |
 | users             | 开源 RabbitMQ 的用户信息                                     | 否                                                           |
-| vhosts            | 开源 RabbitMQ 中的 Vhost 列表                                | 是，开源 RabbitMQ 默认创建的名为“/” 的Vhost，由于消息队列 RabbitMQ 版命名限制，将被自动更名为“\__default_vhost__” |
+| vhosts            | 开源 RabbitMQ 中的 Vhost 列表                                | 是，开源 RabbitMQ 默认创建的名为“/” 的Vhost，由于消息队列 RabbitMQ 版命名限制，将被自动更名为“\_\_default_vhost\_\_” |
 | permissions       | 开源 RabbitMQ 用户管理 Vhost 权限                            | 否                                                           |
 | parameters        | 开源 RabbitMQ 运行参数                                       | 否                                                           |
 | global_parameters | 开源 RabbitMQ 全局参数                                       | 否                                                           |
