@@ -67,7 +67,7 @@ mTtsController.init(this,
 //更多音色id可查看官网文档https://cloud.tencent.com/document/product/1073/37995
 public enum VoiceType {
     VOICE_TYPE_Zhi_Yu(1001, "智瑜"),
-    VOICE_TYPE_Zhi_Xia(1000, "智侠"),
+    VOICE_TYPE_Zhi_yun(1004, "智云"),
     VOICE_TYPE_Zhi_Ling(1002, "智聆"),
     VOICE_TYPE_Zhi_Mei(1003, "智美"),
     VOICE_TYPE_We_Jack(1050, "WeJack，英文男声"),
