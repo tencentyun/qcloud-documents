@@ -27,7 +27,8 @@
 	```
 	wget http://<开源 RabbitMQ IP 地址>:15672/api/definitions/<Vhost 名称> --user <开源 RabbitMQ 用户名>  --password <开源 RabbitMQ 密码>  -O <元数据文件保存路径>
 	```
-	
+>!若 <Vhost 名称> 中含有 “/”，请将 “/” 替换为 “2%F”，例如 “/vhost” 需修改为 “2%Fvhost”。
+
 ### 在消息队列 RabbitMQ 版控制台导入元数据
 
 1. 登录 [消息队列 RabbitMQ 版控制台](https://console.cloud.tencent.com/tdmq/rabbit-cluster)，在左侧导航栏单击**迁移上云**。
