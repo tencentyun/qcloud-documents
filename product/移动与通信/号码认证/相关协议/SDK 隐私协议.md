@@ -12,55 +12,52 @@
 ### （一）第三方开发者和/或终端用户主动提供或我们直接收集的个人信息
 为实现本 SDK 的功能，我们可能需要向第三方开发者和/或终端用户收集相关个人信息。以下将详细列出腾讯云号码认证 SDK 的业务功能及为实现该功能所需收集的个人信息情况。
 关于腾讯云号码认证 SDK 所收集的个人信息清单如下表所示：
-<table>
+<table style="border-collapse:collapse;">
+    <tbody>
         <tr>
-            <td style="background-color:#f5f7fa;font-size:13px;text-align:center;">服务方案</td>
-            <td style="background-color:#f5f7fa;font-size:13px;text-align:center;">收集的个人信息类型</td>
-            <td style="background-color:#f5f7fa;font-size:13px;text-align:center;">处理目的</td>
-            <td style="background-color:#f5f7fa;font-size:13px;text-align:center;">处理方式</td>
-            <td style="background-color:#f5f7fa;font-size:13px;text-align:center;">申请的权限</td>
-            <td style="background-color:#f5f7fa;font-size:13px;text-align:center;">接入方式</td>
-            <td style="background-color:#f5f7fa;font-size:13px;text-align:center;">敏感个人信息<br>处理的必要性说明</td>
+            <td style="background-color:#f5f7fa;">服务方案</td>
+            <td style="background-color:#f5f7fa;">收集的个人信息类型</td>
+            <td style="background-color:#f5f7fa;">处理目的</td>
+            <td  width="250px" style="background-color:#f5f7fa;">处理方式</td>
+            <td style="background-color:#f5f7fa;">申请的权限</td>
+            <td style="background-color:#f5f7fa;">接入方式</td>
+            <td  width="90px" style="background-color:#f5f7fa;">敏感个人信息<br>处理的必要性说明</td>
         </tr>
-   <tr>
-      <td  rowspan=5 height="85" align="left">一键登录能力</td>
-      <td>网络类型</td>
-      <td rowspan='5'>实现电话号码一键认证注册、登录</td>
-      <td >性能分析，分仅数据流量、仅 WiFi、数据流量+WiFi 三种情况；分析不同网络环境对取号成功率和时延的影响，进行针对性优化</td>
-      <td>ACCESS_NETWORK_STATE、ACCESS_WIFI_STATE</td>
-      <td rowspan='5'>SDK 接入</td>
-      <td>无</td>
-   </tr>
-   <tr>
-      <td>网络制式</td>
-      <td>性能分析，分2G、3G、4G三种情况；分析不同网络环境对取号成功率和时延的影响，进行针对性优化</td>
-      <td>READ_PHONE_STATE</td>
-      <td>无</td>
-   </tr>
-   <tr>
-      <td>设备类型、系统</td>
-      <td>性能分析，采集机型、系统信息进行机型适配和优化</td>
-      <td>无</td>
-      <td>无</td>
-   </tr>
-   <tr>
-      <td>imsi（仅 Android）</td>
-      <td>业务逻辑处理需要（识别双卡和换卡）</td>
-      <td>READ_PHONE_STATE，有权限时会加密上报</td>
-      <td>无</td>
-   </tr>
-   <tr>
-      <td>idfv（仅 iOS）</td>
-      <td>用于问题定位</td>
-      <td>无</td>
-      <td>无</td>
-   </tr>
+        <tr>
+            <td colspan="1" rowspan="5" style="color:#666666;text-align:left;">一键登录能力</td>
+            <td style="color:#666666;text-align:left;">网络类型</td>
+            <td colspan="1" rowspan="5" style="color:#666666;text-align:left;">实现电话号码一键认证注册、登录</td>
+            <td style="color:#666666;text-align:left;">性能分析，分仅数据流量、仅 WiFi、数据流量+WiFi 三种情况；分析不同网络环境对取号成功率和时延的影响，进行针对性优化</td>
+            <td style="color:#666666;text-align:left;">ACCESS_NETWORK_STATE、ACCESS_WIFI_STATE</td>
+            <td colspan="1" rowspan="5" style="color:#666666;text-align:left;">SDK 接入</td>
+            <td style="color:#666666;text-align:left;">无</td>
+        </tr>
+        <tr>
+            <td style="color:#666666;text-align:left;">网络制式</td>
+            <td style="color:#666666;text-align:left;">性能分析，分2G、3G、4G三种情况；分析不同网络环境对取号成功率和时延的影响，进行针对性优化</td>
+            <td style="color:#666666;text-align:left;">READ_PHONE_STATE</td>
+            <td style="color:#666666;text-align:left;">无</td>
+        </tr>
+        <tr>
+            <td style="color:#666666;text-align:left;">设备类型、系统</td>
+            <td style="color:#666666;text-align:left;">性能分析，采集机型、系统信息进行机型适配和优化</td>
+            <td style="color:#666666;text-align:left;">无</td>
+            <td style="color:#666666;text-align:left;">无</td>
+        </tr>
+        <tr>
+            <td style="color:#666666;text-align:left;">imsi（仅 Android）</td>
+            <td style="color:#666666;text-align:left;">业务逻辑处理需要（识别双卡和换卡）</td>
+            <td style="color:#666666;text-align:left;">READ_PHONE_STATE，有权限时会加密上报</td>
+            <td style="color:#666666;text-align:left;">无</td>
+        </tr>
+        <tr>
+            <td style="color:#666666;text-align:left;">idfv（仅 iOS）</td>
+            <td style="color:#666666;text-align:left;">用于问题定位</td>
+            <td style="color:#666666;text-align:left;">无</td>
+            <td style="color:#666666;text-align:left;">无</td>
+        </tr>
+    </tbody>
 </table>
-
-
-
-
-
 本 SDK 除自身提供相关服务并需收集相关信息外，还会集成其他可供第三方开发者选择是否接入的第三方 SDK，此部分第三方 SDK 所收集的个人信息请开发者和终端用户查看第三方 SDK 的隐私政策或类似文件。
 本 SDK接入的第三方 SDK 以及第三方 SDK 的个人信息处理清单具体如下：
 <table>

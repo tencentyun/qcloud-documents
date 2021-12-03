@@ -94,21 +94,21 @@ Container 类型 AI 的具体数据描述如下：
 
 | 节点名称（关键字） | 描述                                    | 类型      |
 | ------------------ | --------------------------------------- | --------- |
-| Mode               | 分析类型。可选值为 MovingObjectDetect。 | String    |
-| MovingObjectDetect | 当 Mode 为 MovingObjectDetect 时此值有效。  | Container |
+| Mode               | 分析类型。可选值为 MovingObjectDetect  | String    |
+| MovingObjectDetect | 当 Mode 为 MovingObjectDetect 时此值有效   | Container |
 
 Container 类型 AI.MovingObjectDetect 的具体数据描述如下：
 
 | 节点名称（关键字） | 描述                           | 类型   |
 | ------------------ | ------------------------------ | ------ |
-| Type               | 分析类型。可选值为 Pet、Baby。 | String |
+| Type               | 分析类型。可选值为 Pet、Baby  | String |
 
 Container 类型 AIResult 的具体数据描述如下：
 
 | 节点名称（关键字） | 描述                                    | 类型      |
 | ------------------ | --------------------------------------- | --------- |
-| Mode               | 分析类型。可选值为 MovingObjectDetect。 | String    |
-| MovingObjectDetect | 当 Mode 为 MovingObjectDetect 时此值有效。  | Container |
+| Mode               | 分析类型。可选值为 MovingObjectDetect  | String    |
+| MovingObjectDetect | 当 Mode 为 MovingObjectDetect 时此值有效   | Container |
 
 Container 节点 AIResult.MovingObjectDetect 的内容：
 
@@ -123,15 +123,15 @@ Container 节点 Labels 的内容：
 | ------------------ | ------------------------------------------------------ | --------- |
 | Name               | 标签名称：baby 等                                       | String    |
 | FirstTime          | 当前标签首次出现在视频中的时间，单位：毫秒             | Integer   |
-| FirstLocation      | 当前标签首次出现在视频中的坐标，数组类型，可能有多个。 | Container |
-| Actions            | 当前标签在视频中的动作，数组类型，可能有多个。         | Container |
+| FirstLocation      | 当前标签首次出现在视频中的坐标，数组类型，可能有多个  | Container |
+| Actions            | 当前标签在视频中的动作，数组类型，可能有多个         | Container |
 
 Container 节点 FirstLocation 的内容：
 
 | 节点名称（关键字） | 描述                                 | 类型    |
 | ------------------ | ------------------------------------ | ------- |
-| X                  | X坐标，原点为视频左上角，X 轴为横向。 | Integer |
-| Y                  | Y坐标，原点为视频左上角，Y 轴为纵向。 | Integer |
+| X                  | X坐标，原点为视频左上角，X 轴为横向  | Integer |
+| Y                  | Y坐标，原点为视频左上角，Y 轴为纵向  | Integer |
 
 >!该坐标为检测到的婴儿左上角在视频中的坐标。
 
@@ -139,7 +139,7 @@ Container 节点 Actions 的内容：
 
 | 节点名称（关键字） | 描述                   | 类型   |
 | ------------------ | ---------------------- | ------ |
-| Name               | 动作名称：smile、cry等 | String |
+| Name               | 动作名称：smile、cry 等 | String |
 
 #### 错误码
 常见的错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/1344/50457) 文档。

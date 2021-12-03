@@ -62,7 +62,7 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                      | 类型      | 是否必选 |
 | ------------------ | ------- | ------------------------- | --------- | ---- |
-| Tag                | Request | 创建任务的 Tag：AI。 | String    | 是   |
+| Tag                | Request | 创建任务的 Tag：AI  | String    | 是   |
 | Input              | Request | 待操作的媒体文件          | Container | 是   |
 | Operation          | Request | 操作规则                  | Container | 是   |
 
@@ -78,7 +78,7 @@ Container 类型 Decrypt 的具体数据描述如下：
 | 节点名称（关键字） | 父节点                | 描述                                            | 类型   | 是否必选 | 默认值 |
 | ------------------ | --------------------- | ----------------------------------------------- | ------ | ---- | ------ |
 | Key                | Request.Input.Decrypt | 解密的 Key，当 Method 为 XIAOYI 时，此值对应 pwd      | String | 是   | 无     |
-| Salt               | Request.Input.Decrypt | 额外的处理参数，当Method为XIAOYI时，此值对应uid | String | 否   | 无     |
+| Salt               | Request.Input.Decrypt | 额外的处理参数，当 Method 为 XIAOYI 时，此值对应 uid | String | 否   | 无     |
 | Method             | Request.Input.Decrypt | 解密方法。可选值为 XIAOYI                      | String | 否   | AES    |
 
 Container 类型 Operation 的具体数据描述如下：
@@ -99,14 +99,14 @@ Container 类型 Highlights 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                   | 描述             | 类型   | 是否必选 |
 | ------------------ | ------------------------ | ---------------- | ------ | ---- |
-| Type             | Request.Operation.AI.Highlights |  精彩集锦类型，可选值为 Basketball。  | String | 是   |
+| Type             | Request.Operation.AI.Highlights |  精彩集锦类型，可选值为 Basketball   | String | 是   |
 
 Container 类型 Notify 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                   | 描述                           | 类型   | 是否必选 | 默认值 |
 | ------------------ | ------------------------ | ------------------------------ | ------ | ---- | ------ |
 | Url                | Request.Operation.Notify | 通知地址                       | String | 是   | 无     |
-| ContentType        | Request.Operation.Notify | 内容格式。可选值为 XML、JSON。 | String | 否   | XML    |
+| ContentType        | Request.Operation.Notify | 内容格式。可选值为 XML、JSON  | String | 否   | XML    |
 
 ## 响应
 

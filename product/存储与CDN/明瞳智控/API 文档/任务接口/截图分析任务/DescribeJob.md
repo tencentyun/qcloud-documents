@@ -94,22 +94,22 @@ Container 类型 AI 的具体数据描述如下：
 
 | 节点名称（关键字） | 描述                                    | 类型      |
 | ------------------ | --------------------------------------- | --------- |
-| Mode               | 分析类型。可选值为 SnapshotAnalysis。 | String    |
-| SnapshotAnalysis | 当 Mode 为 SnapshotAnalysis 时此值有效。  | Container |
+| Mode               | 分析类型。可选值为 SnapshotAnalysis  | String    |
+| SnapshotAnalysis | 当 Mode 为 SnapshotAnalysis 时此值有效   | Container |
 
 Container 类型 AI.SnapshotAnalysis 的具体数据描述如下：
 
 | 节点名称（关键字） | 描述                           | 类型   |
 | ------------------ | ------------------------------ | ------ |
-| Type               | 分析类型。可选值为 Pet。 | String |
+| Type               | 分析类型。可选值为 Pet  | String |
 | TimeInterval       | 时间间隔。                    | Integer |
 
 Container 类型 AIResult 的具体数据描述如下：
 
 | 节点名称（关键字） | 描述                                    | 类型      |
 | ------------------ | --------------------------------------- | --------- |
-| Mode               | 分析类型。可选值为 SnapshotAnalysis。 | String    |
-| SnapshotAnalysis | 当 Mode 为 SnapshotAnalysis 时此值有效。  | Container |
+| Mode               | 分析类型。可选值为 SnapshotAnalysis  | String    |
+| SnapshotAnalysis | 当 Mode 为 SnapshotAnalysis 时此值有效   | Container |
 
 Container 节点 AIResult.SnapshotAnalysis 的内容：
 

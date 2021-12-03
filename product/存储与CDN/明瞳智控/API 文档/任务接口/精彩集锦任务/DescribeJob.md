@@ -96,34 +96,34 @@ Container 类型 AI 的具体数据描述如下：
 
 | 节点名称（关键字） | 描述                                    | 类型      |
 | ------------------ | ------------------------------------ | --------- |
-| Mode               | 分析类型。可选值为 Highlights。        | String    |
-| Highlights         | 当Mode为Highlights时此值有效。         | Container |
+| Mode               | 分析类型。可选值为 Highlights         | String    |
+| Highlights         | 当Mode为Highlights时此值有效          | Container |
 
 Container 类型 AI.Highlights 的具体数据描述如下：
 
 | 节点名称（关键字） | 描述                           | 类型   |
 | ------------------ | ------------------------------ | ------ |
-| Type               | 分析类型。可选值为 Basketball。 | String |
+| Type               | 分析类型。可选值为 Basketball  | String |
 
 Container 类型 AIResult 的具体数据描述如下：
 
 | 节点名称（关键字） | 描述                                    | 类型      |
 | ------------------ | --------------------------------------- | --------- |
-| Mode               | 分析类型。可选值为 Highlights。        | String    |
-| Highlights         | 当 Mode 为 Highlights 时此值有效。         | Container |
+| Mode               | 分析类型。可选值为 Highlights         | String    |
+| Highlights         | 当 Mode 为 Highlights 时此值有效          | Container |
 
 Container 节点 AIResult.Highlights 的内容：
 
 | 节点名称（关键字） | 描述                                         | 类型      |
 | ------------------ | -------------------------------------------- | --------- |
-| Urls              | 生成的精彩集锦视频地址，包含多个。                  | String   |
+| Urls              | 生成的精彩集锦视频地址，包含多个                   | String   |
 
 Container 类型 Notify 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                   | 描述                           | 类型   | 是否必选 | 默认值 |
 | ------------------ | ------------------------ | ------------------------------ | ------ | ---- | ------ |
 | Url                | Request.Operation.Notify | 通知地址                       | String | 是   | 无     |
-| ContentType        | Request.Operation.Notify | 内容格式。可选值为 XML、JSON。 | String | 否   | XML    |
+| ContentType        | Request.Operation.Notify | 内容格式。可选值为 XML、JSON  | String | 否   | XML    |
 
 #### 错误码
 常见的错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/1344/50457) 文档。
