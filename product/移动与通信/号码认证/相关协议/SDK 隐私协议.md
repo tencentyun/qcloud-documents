@@ -13,20 +13,20 @@
 为实现本 SDK 的功能，我们可能需要向第三方开发者和/或终端用户收集相关个人信息。以下将详细列出腾讯云号码认证 SDK 的业务功能及为实现该功能所需收集的个人信息情况。
 关于腾讯云号码认证 SDK 所收集的个人信息清单如下表所示：
 <table>
-        <tr>
-            <td style="background-color:#f5f7fa;font-size:13px;text-align:center;">服务方案</td>
-            <td style="background-color:#f5f7fa;font-size:13px;text-align:center;">收集的个人信息类型</td>
-            <td style="background-color:#f5f7fa;font-size:13px;text-align:center;">处理目的</td>
-            <td style="background-color:#f5f7fa;font-size:13px;text-align:center;">处理方式</td>
-            <td style="background-color:#f5f7fa;font-size:13px;text-align:center;">申请的权限</td>
-            <td style="background-color:#f5f7fa;font-size:13px;text-align:center;">接入方式</td>
-            <td style="background-color:#f5f7fa;font-size:13px;text-align:center;">敏感个人信息<br>处理的必要性说明</td>
-        </tr>
    <tr>
-      <td  rowspan=5 height="85" align="left">一键登录能力</td>
+      <th width="15px" style="text-align:center">服务方案</td>
+      <th width="30px" style="text-align:center">收集的个人信息类型</td>
+      <th width="0px"  style="text-align:center">处理目的</td>
+      <th width="280px"  style="text-align:center">处理方式</td>
+      <th width="0px" style="text-align:center">申请的权限</td>
+      <th width="0px"  style="text-align:center">接入方式</td>
+      <th width="0px"  style="text-align:center" word-wrap:break-word>敏感个人信息<br>处理的必要性说明</td>
+   </tr>
+   <tr>
+      <td rowspan='5'>一键登录能力</td>
       <td>网络类型</td>
       <td rowspan='5'>实现电话号码一键认证注册、登录</td>
-      <td >性能分析，分仅数据流量、仅 WiFi、数据流量+WiFi 三种情况；分析不同网络环境对取号成功率和时延的影响，进行针对性优化</td>
+      <td>性能分析，分仅数据流量、仅 WiFi、数据流量+WiFi 三种情况；分析不同网络环境对取号成功率和时延的影响，进行针对性优化</td>
       <td>ACCESS_NETWORK_STATE、ACCESS_WIFI_STATE</td>
       <td rowspan='5'>SDK 接入</td>
       <td>无</td>
@@ -56,11 +56,6 @@
       <td>无</td>
    </tr>
 </table>
-
-
-
-
-
 本 SDK 除自身提供相关服务并需收集相关信息外，还会集成其他可供第三方开发者选择是否接入的第三方 SDK，此部分第三方 SDK 所收集的个人信息请开发者和终端用户查看第三方 SDK 的隐私政策或类似文件。
 本 SDK接入的第三方 SDK 以及第三方 SDK 的个人信息处理清单具体如下：
 <table>
