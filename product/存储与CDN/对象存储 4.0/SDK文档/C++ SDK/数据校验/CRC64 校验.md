@@ -62,7 +62,7 @@ x-cos-request-id: NWRlODY0ZWRfMjNiMjU4NjRfOGQ4Ml81MDEw****
   - [Complete Multipart Upload](https://cloud.tencent.com/document/product/436/7742)：默认使用CRC64校验，暂不支持MD5校验。
 
 
-#### 分块上传-请求示例
+#### 请求示例1：分块上传
 ```cpp
 qcloud_cos::CosConfig config("./config.json");
 qcloud_cos::CosAPI cos(config);
