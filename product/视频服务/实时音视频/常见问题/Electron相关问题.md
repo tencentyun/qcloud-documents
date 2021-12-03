@@ -14,7 +14,7 @@ Downloading tmp-3320-1-SHASUMS256.txt-6.1.9
 [=>                                    ] 1.0% of 5.56 kB (0 B/s)
 ```
 
-- **解决方案 A：**如果您是在家中办公，可以切换到国内的 npm 镜像：
+- **解决方案 A：**如果您是在家中办公，可以切换到国内的 npm 镜像。
 ```
 # 指定 npm 国内镜像
 $ npm config set registry=https://registry.npm.taobao.org/
@@ -22,16 +22,16 @@ $ npm config set registry=https://registry.npm.taobao.org/
 $ npm config set ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ 
 $ npm install
 ```
-- **解决方案 B：**如果您是在公司办公，那么您公司的网络管理员可能已经设置了代理，需要确认 npm 的 proxy 配置是否指向了公司的代理服务器，以及是否配置了环境变量 `ELECTRON_GET_USE_PROXY`，如均无配置，请按以下步骤执行：
+- **解决方案 B：**如果您是在公司办公，那么您公司的网络管理员可能已经设置了代理，需要确认 npm 的 proxy 配置是否指向了公司的代理服务器，以及是否配置了环境变量 `ELECTRON_GET_USE_PROXY`，如均无配置，请按以下步骤执行。
 	1. 设置 npm 代理 ： `npm config set all_proxy=[您的代理地址]`。
 	2. 配置 `ELECTRON_GET_USE_PROXY` 环境变量，这样 Electron 的安装脚本就会通过 npm 的代理下载。
 	
-- **解决方案 C：**如果您是 Mac 环境：
+- **解决方案 C：**如果您是 Mac 环境。
 ```
     $ export ELECTRON_GET_USE_PROXY=true
 ```
 
-- **解决方案 D：**如果您是 Windows 环境：
+- **解决方案 D：**如果您是 Windows 环境。
 	1. 右键单击 **计算机 > 属性 > 高级系统设置 > 环境变量**。
 	2. 按下图操作设置环境变量 ELECTRON_GET_USE_PROXY ，然后执行 `npm install` 或 `npm install --proxy=[您的代理地址]`：
 ![](https://qcloudimg.tencent-cloud.cn/raw/2788a541f1f409a1e68bc25ade65ca27.png)
@@ -211,7 +211,7 @@ module: {
 > - 使用 `vue-cli` 创建的项目，webpack 配置存放在 `vue.config.js` 文件中的 `configureWebpack` 选项中。
 > - 使用 `create-react-app` 创建的项目，webpack 配置文件为 `[项目目录]/node_modules/react-scripts/config/webpack.config.js` 。
 3. 配置 packages.json 文件，添加打包配置和构建脚本。
-	- 添加 `electron-builder` 打包配置（注意大小写）：
+	1. 添加 `electron-builder` 打包配置（注意大小写）：
 ```
 "build": {
 	"省略": "...",
@@ -237,7 +237,7 @@ module: {
 	}
 },
 ```
-	- 添加 scripts 构建、打包脚本 `create-react-app` 项目请参考以下配置：
+	2. 添加 scripts 构建、打包脚本 `create-react-app` 项目请参考以下配置：
 ```
 "scripts": {
 	"build:mac": "react-scripts build --target_platform=darwin",
@@ -248,7 +248,7 @@ module: {
 	"pack:win64": "npm run build:win && npm run compile:win64"
 }
 ```
-	- `vue-cli` 项目请参考以下配置：
+	3. `vue-cli` 项目请参考以下配置：
 ```
 "scripts": {
 	"build:mac": "vue-cli-service build --target_platform=darwin",
