@@ -35,7 +35,7 @@ apiObj.ttsDelegate = self;
 // 更多音色id可查看官网文档https://cloud.tencent.com/document/product/1073/37995
 typedef NS_ENUM(NSUInteger, VoiceType) {
     VoiceTypeZhiYu            = 1001,   // 1001：智瑜，情感女声
-    VoiceTypeZhiyun           = 1004,   // 1000：智云，通用男声
+    VoiceTypeZhiyun           = 1004,   // 1004：智云，通用男声
     VoiceTypeZhiLing          = 1002,   // 1002：智聆，通用女声
     VoiceTypeZhiMei           = 1003,   // 1003：智美，客服女声
     VoiceTypeWeJack           = 1050,   // 1050：WeJack，英文男声
