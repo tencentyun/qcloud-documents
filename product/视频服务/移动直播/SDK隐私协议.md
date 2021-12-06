@@ -27,10 +27,10 @@
 <thead>
 <tr>
 <th>服务方案</th>
-<th>个人信息类型</th>
+<th width=25%>个人信息类型</th>
 <th>处理<br>目的</th>
-<th width=30%>处理方式</th>
-<th >申请的权限</th>
+<th width=25%>处理方式</th>
+<th width=20%>申请的权限</th>
 <th>接入<br>方式</th>
 <th>涉及的产品版本</th>
 </tr>
