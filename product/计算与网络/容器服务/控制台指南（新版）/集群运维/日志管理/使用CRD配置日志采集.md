@@ -4,6 +4,8 @@
 ## 前提条件
 已在容器服务控制台的 **[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=8)** 中开启日志采集，详情参见 [开启日志采集](https://cloud.tencent.com/document/product/457/36771)。
 
+
+
 ## 创建 CRD 投递日志到 CLS 
 您只需要定义 LogConfig CRD 即可创建采集配置，log-agent 根据 LogConfig CRD 的变化修改相应的日志服务 CLS 日志主题，并设置绑定的机器组。CRD 的格式如下:
 ``` yaml
@@ -60,7 +62,7 @@ spec:
 </dx-alert>
 
 
-## 配置 CLS 日志解析格式
+### 配置 CLS 日志解析格式
 <dx-tabs>
 ::: 单行全文格式
 单行全文日志是指一行日志内容为一条完整的日志。日志服务在采集的时候，将使用换行符 `\n` 来作为一条日志日志的结束符。为了统一结构化管理，每条日志都会存在一个默认的键值 `__CONTENT__`，但日志数据本身不再进行日志结构化处理，也不会提取日志字段，日志属性的时间项由日志采集的时间决定。详情请参见 [单行全文格式](https://cloud.tencent.com/document/product/614/17421)。
@@ -293,6 +295,61 @@ time: [Tue Jan 22 14:49:45 CST 2019 +0800]
 </dx-tabs>
 
 
+
+
+
+## 创建 CRD 投递日志到 CKafka
+当前支持通过配置 CRD 采集 TKE 上的 Pod 日志至自建 Kafka 或者 CKafka，需要按如下配置自行定义日志源及日志消费端，CRD 配置完成后，日志采集器会按规则进行日志采集。
+CRD 具体配置如下：
+```
+apiVersion: cls.cloud.tencent.com/v1
+kind: LogConfig                          ## 默认值
+metadata:
+  name: test                                ## CRD资源名，在集群内唯一
+spec:
+  kafkaDetail:
+    kafkaType:       ## 必填，kafka 类型，“ckafka” 表示ckafka，“” 表示自建 kafka
+      type: string
+    instanceId:     ## ckafka实例ID
+      type: string
+    brokers: xxxxxx       ## 必填，broker地址，一般是域名:端口，多个地址以“,”分隔
+    topic: xxxxxx         ## 必填，topic名称        
+    messageKey:           ## 选填，指定pod字段作为key上传到指定分区
+      valueFrom:
+        fieldRef:
+          fieldPath: metadata.name   
+    timestampKey:          ## 时间戳的key，默认是@timestamp
+    timestampFormat:       ## 时间戳的格式，默认是double
+  inputDetail:
+    type: container_stdout                  ## 采集日志的类型，包括container_stdout（容器标准输出）、container_file（容器文件）
+
+    containerStdout:                        ## 容器标准输出
+      namespace: default                    ## 采集容器的kubernetes命名空间，如果不指定，代表所有命名空间
+      allContainers: false                  ## 是否采集指定命名空间中的所有容器的标准输出
+      container: xxx                        ## 采集日志的容器名，此处可不填
+      includeLabels:                        ## 采集包含指定label的Pod
+        k8s-app: xxx                        ## 只采pod标签中配置"k8s-app=xxx"的pod产生的日志，与workloads、allContainers=true不能同时指定
+      workloads:                            ## 要采集的容器的Pod所属的kubernetes workload
+      - namespace: prod                     ## workload的命名空间
+        name: sample-app                    ## workload的名字
+        kind: deployment                    ## workload类型，支持deployment、daemonset、statefulset、job、cronjob
+        container: xxx                      ## 要采集的容器名，如果填空，代表workload Pod中的所有容器
+
+    containerFile:                          ## 容器内文件
+      namespace: default                    ## 采集容器的kubernetes命名空间，必须指定一个命名空间
+      container: xxx                        ## 采集日志的容器名，此处可填*
+      includeLabels:                        ## 采集包含指定label的Pod
+        k8s-app: xxx                        ## 只采pod标签中配置"k8s-app=xxx"的pod产生的日志，与workload不能同时指定
+      workload:                             ## 要采集的容器的Pod所属的kubernetes workload
+        name: sample-app                    ## workload的名字                  
+        kind: deployment                    ## workload类型，支持deployment、daemonset、statefulset、job、cronjob
+      logPath: /opt/logs                    ## 日志文件夹，不支持通配符
+      filePattern: app_*.log                ## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
+     
+      ...
+```
+
+
 ## 采集日志的类型
 ### 容器标准输出
 #### 示例1：采集 default 命名空间中的所有容器的标准输出
@@ -427,61 +484,6 @@ spec:
 </td>
 	</tr>
 </table>
-
-
-## 创建 CRD 投递日志到 CKafka
-当前支持通过配置 CRD 采集 TKE 上的 Pod 日志至自建 Kafka 或者 CKafka，需要按如下配置自行定义日志源及日志消费端，CRD 配置完成后，日志采集器会按规则进行日志采集。
-CRD 具体配置如下：
-```
-apiVersion: cls.cloud.tencent.com/v1
-kind: LogConfig                          ## 默认值
-metadata:
-  name: test                                ## CRD资源名，在集群内唯一
-spec:
-  kafkaDetail:
-    kafkaType:       ## 必填，kafka 类型，“ckafka” 表示ckafka，“” 表示自建 kafka
-      type: string
-    instanceId:     ## ckafka实例ID
-      type: string
-    brokers: xxxxxx       ## 必填，broker地址，一般是域名:端口，多个地址以“,”分隔
-    topic: xxxxxx         ## 必填，topic名称        
-    messageKey:           ## 选填，指定pod字段作为key上传到指定分区
-      valueFrom:
-        fieldRef:
-          fieldPath: metadata.name   
-    timestampKey:          ## 时间戳的key，默认是@timestamp
-    timestampFormat:       ## 时间戳的格式，默认是double
-  inputDetail:
-    type: container_stdout                  ## 采集日志的类型，包括container_stdout（容器标准输出）、container_file（容器文件）
-
-    containerStdout:                        ## 容器标准输出
-      namespace: default                    ## 采集容器的kubernetes命名空间，如果不指定，代表所有命名空间
-      allContainers: false                  ## 是否采集指定命名空间中的所有容器的标准输出
-      container: xxx                        ## 采集日志的容器名，此处可不填
-      includeLabels:                        ## 采集包含指定label的Pod
-        k8s-app: xxx                        ## 只采pod标签中配置"k8s-app=xxx"的pod产生的日志，与workloads、allContainers=true不能同时指定
-      workloads:                            ## 要采集的容器的Pod所属的kubernetes workload
-      - namespace: prod                     ## workload的命名空间
-        name: sample-app                    ## workload的名字
-        kind: deployment                    ## workload类型，支持deployment、daemonset、statefulset、job、cronjob
-        container: xxx                      ## 要采集的容器名，如果填空，代表workload Pod中的所有容器
-
-    containerFile:                          ## 容器内文件
-      namespace: default                    ## 采集容器的kubernetes命名空间，必须指定一个命名空间
-      container: xxx                        ## 采集日志的容器名，此处可填*
-      includeLabels:                        ## 采集包含指定label的Pod
-        k8s-app: xxx                        ## 只采pod标签中配置"k8s-app=xxx"的pod产生的日志，与workload不能同时指定
-      workload:                             ## 要采集的容器的Pod所属的kubernetes workload
-        name: sample-app                    ## workload的名字                  
-        kind: deployment                    ## workload类型，支持deployment、daemonset、statefulset、job、cronjob
-      logPath: /opt/logs                    ## 日志文件夹，不支持通配符
-      filePattern: app_*.log                ## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
-     
-      ...
-```
-
-
-
 
 
 
