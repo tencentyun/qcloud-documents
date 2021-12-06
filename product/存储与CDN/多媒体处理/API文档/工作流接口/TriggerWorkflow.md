@@ -1,6 +1,6 @@
 ## 功能描述
 
-Trigger Workflow 用于手动触发工作流。
+TriggerWorkflow 用于手动触发工作流。
 
 ## 请求
 
