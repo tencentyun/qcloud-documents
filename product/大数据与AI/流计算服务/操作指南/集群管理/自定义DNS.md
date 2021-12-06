@@ -1,4 +1,4 @@
-﻿# 什么是自定义 DNS 
+## 什么是自定义 DNS 
 
 为了方便运维管理，您的作业可能会使用域名的方式访问外部资源（消息队列 CKafka、云数据库 MySQL等），您可以使用自定义 DNS 的方式进行域名解析。自定义 DNS 的原理请参考 Kubernetes 官网文档[自定义 DNS 服务](https://kubernetes.io/zh/docs/tasks/administer-cluster/dns-custom-nameservers/)。您一般会使用两种方式来完成域名解析。
 
@@ -10,7 +10,7 @@
 
      ``` example.com { forward . 172.17.0.253 172.17.0.254 } ```
 
-# 如何自定义 DNS 
+## 如何自定义 DNS 
 
 您可以在集群详情页里设置自定义 DNS。请注意：若您同时配置了 host 映射和 DNS 域名解析，优先选择 DNS 域名解析。 
 
