@@ -91,7 +91,7 @@ Container 类型 Input 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点        | 描述                                                         | 类型   | 是否必选 |
 | ------------------ | ------------- | ------------------------------------------------------------ | ------ | -------- |
-| Object             | Request.Input | 当前 COS 存储桶中的视频文件名称，例如在目录 test 中的文件 video.mp4，则文件名称为 test/video.mp4。 | String | 是       |
+| Object             | Request.Input | 当前 COS 存储桶中的视频文件名称，例如在目录 test 中的文件 video.mp4，则文件名称为 test/video.mp4。 | String | 否       |
 | Url                | Request.Input | 视频文件的链接地址，例如 http://examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/test.mp4。Object 和 Url 只能选择其中一种。 | String | 否       |
 
 Container 类型 Conf 的具体数据描述如下：
@@ -109,8 +109,8 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | :-------------------- | ------------------------------------------------------------ | --------- | -------- |
-| Mode               | Request.Conf.Snapshot | 截帧模式。Interval 表示间隔模式；Average 表示平均模式；Fps 表示固定帧率模式。</br><li> Interval 模式：TimeInterval，Count 参数生效。当设置 Count，未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片。</br><li> Average 模式：Count 参数生效。表示整个视频，按平均间隔截取共 Count 张图片。</br><li> Fps 模式：TimeInterval 表示每秒截取多少帧，Count 表示共截取多少帧。 | String | 否       |
-| Count              | Request.Conf.Snapshot | 视频截帧数量，范围为(0, 10000]。                             | String | 是       |
+| Mode               | Request.Conf.Snapshot | 截帧模式，默认值为 Interval。Interval 表示间隔模式；Average 表示平均模式；Fps 表示固定帧率模式。</br><li> Interval 模式：TimeInterval，Count 参数生效。当设置 Count，未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片。</br><li> Average 模式：Count 参数生效。表示整个视频，按平均间隔截取共 Count 张图片。</br><li> Fps 模式：TimeInterval 表示每秒截取多少帧，未设置 TimeInterval 时，表示截取所有帧，Count 表示共截取多少帧。 | String | 否       |
+| Count              | Request.Conf.Snapshot | 视频截帧数量，范围为(0, 10000]。                             | Integer | 是       |
 | TimeInterval       | Request.Conf.Snapshot | 视频截帧频率，范围为(0, 60]，单位为秒，支持 float 格式，执行精度精确到毫秒。 | Float  | 否       |
 
 ## 响应
@@ -130,6 +130,7 @@ Container 类型 Snapshot 的具体数据描述如下：
       <State></State>
       <CreationTime></CreationTime>
     </JobsDetail>
+    <RequestId></RequestId>
 </Response>
 ```
 
@@ -141,9 +142,10 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 Container 节点 Response 的内容：
 
-| 节点名称（关键字） | 父节点   | 描述                     | 类型      |
-| :----------------- | :------- | :----------------------- | :-------- |
-| JobsDetail         | Response | 视频审核任务的详细信息。 | Container |
+| 节点名称（关键字） | 父节点   | 描述                                                         | 类型      |
+| :----------------- | :------- | :----------------------------------------------------------- | :-------- |
+| JobsDetail         | Response | 视频审核任务的详细信息。                                     | Container |
+| RequestId          | Response | 每次请求发送时，服务端将会自动为请求生成一个 ID，遇到问题时，该 ID 能更快地协助定位问题。 | String    |
 
 Container 节点 JobsDetail 的内容：
 
@@ -203,6 +205,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     <State>Submitted</State>
     <CreationTime>2021-08-07T12:12:12+0800</CreationTime>
   </JobsDetail>
+  <RequestId>xxxxxxxxxxxxxx</RequestId>
 </Response>
 ```
 

@@ -1,15 +1,16 @@
 ## 介绍
-Redis Connector 提供了对 Redis 写入支持。
+Redis Connector 提供了对 Redis 写入和维表的支持。
 
 ## 版本说明
 
 | Flink 版本 | 说明 |
 | :-------- | :--- |
-| 1.11      | 支持 |
-| 1.13      | 支持 |
+| 1.11      | 支持（写入，维表）|
+| 1.13      | 支持（写入） |
 
 ## 使用范围
-可以作为 Tuple、Upsert 数据流的目的表。
+- 可以作为维表的使用。
+- 可以作为 Tuple、Upsert 数据流的目的表。
 
 ## DDL 定义
 ### set 命令（字符串键）
@@ -98,6 +99,25 @@ CREATE TABLE `redis_zadd_sink_table` (
 
 ```
 
+### get 命令（维表）
+
+```sql
+CREATE TABLE `redis_dimension_table` (  
+ `key`   STRING,
+ `value` STRING
+) WITH (
+  'connector' = 'redis',          
+  'command' = 'get',              -- get命令
+  'nodes' = '<host>:<port>',     -- redis连接地址,集群模式多个节点使用'',''分隔。
+  'lookup.cache.max-rows' = '500', -- 查询缓存中最多缓存的数据条数。
+  'lookup.cache.ttl' = '10 min', -- 每条记录的最长缓存时间。
+  'lookup.max-retries' = '5', -- 查询失败，最多重试次数。
+  -- 'password' = '<password>',   -- 可选参数，密码
+  -- 'database' = '<database>',   -- 可选参数，数据库：默认0
+  -- 'redis-mode' = 'standalone' -- 可选参数，redis 部署模式，默认standalone。(可选：standalone 单机模式，cluster 集群模式)     
+);
+```
+
 ## WITH 参数
 
 | 参数值         | 必填 |   默认值   | 描述                                                         |
@@ -111,6 +131,10 @@ CREATE TABLE `redis_zadd_sink_table` (
 | ignore-delete  |  否  |   false    | 是否忽略 Retraction 消息                                     |
 | additional-ttl |  否  |     -      | 过期时间，单位：秒。示例：60，设置过期是时间为60秒。**只有 set 命令支持设置过期时间** |
 | additional-key |  -   |     -      | 用于指定 hset 和 zadd 的 key。执行 hset 和 zadd 命令时必须设置 |
+| lookup.cache.max-rows |  否  |     -      | 查询缓存中最多缓存的数据条数                                 |
+| lookup.cache.ttl      |  否  |    10s     | 每条记录的最长缓存时间                                       |
+| lookup.max-retries    |  否  |     1      | 查询失败最多重试次数                                         |
+
 
 ## 代码示例
 
