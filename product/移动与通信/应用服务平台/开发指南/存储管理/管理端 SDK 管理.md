@@ -194,4 +194,4 @@ listDirectoryFiles();
 
 管理端 SDK 还可以获取文件临时链接、获取/设置文件存储权限，更多详细信息请参考：
 
-[管理端 manager-node sdk ](https://docs.cloudbase.net/api-reference/manager/node/introduction.html)
+[管理端 manager-node sdk ](https://docs.cloudbase.net/api-reference/manager/node/introduction)

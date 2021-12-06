@@ -1,8 +1,7 @@
 本文介绍如何设置样式（Android）
->?更多实操教学视频请参见：[设置样式（Android）](https://cloud.tencent.com/edu/learning/course-3130-57629)。
 
 ## 设置会话列表
-会话列表 Layout 由标题区 TitleBarLayout 与列表区 ConversationListLayout 组成，每部分都提供了 UI 样式以及事件注册的接口可供修改。
+会话列表由标题区 TitleBarLayout 与列表区 ConversationListLayout 组成，每部分都提供了 UI 样式以及事件注册的接口可供修改。
 ![会话列表](https://main.qcloudimg.com/raw/8adef6cec9f943958bbcbd0959130ce6.png)
 
 ### 修改<font color=Red> 标题区 TitleBarLayout </font>样式
@@ -12,17 +11,13 @@
 ![标题区结构](https://main.qcloudimg.com/raw/832fd209cbc6061b47ff5434740b210c.png)
 
 您可参见 [ITitleBarLayout](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUICore/tuicore/src/main/java/com/tencent/qcloud/tuicore/component/interfaces/ITitleBarLayout.java) 进行自定义修改。
-例如，在 ConversationLayout 中，隐藏左边的 LeftGroup，设置中间的标题，隐藏右边的文本和图片按钮，代码如下：
-
+例如，在会话列表中，隐藏左边的 LeftGroup，设置中间的标题，隐藏右边的文本和图片按钮，代码如下：
+（参见 [MainActivity](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/main/MainActivity.java) 中的实现）
 ```java
-// 获取 TitleBarLayout
-TitleBarLayout titleBarLayout = mConversationLayout.findViewById(R.id.conversation_title);
-// 设置标题
-titleBarLayout.setTitle(getResources().getString(R.string.conversation_title), TitleBarLayout.Position.MIDDLE);
-// 隐藏左侧 Group
-titleBarLayout.getLeftGroup().setVisibility(View.GONE);
-// 设置右侧的菜单图标
-titleBarLayout.setRightIcon(R.drawable.conversation_more);
+mainTitleBar.setTitle(getResources().getString(R.string.conversation_title), ITitleBarLayout.Position.MIDDLE);
+mainTitleBar.getLeftGroup().setVisibility(View.GONE);
+mainTitleBar.getRightGroup().setVisibility(View.VISIBLE);
+mainTitleBar.setRightIcon(R.drawable.more_btn);
 ```
 
 效果如下图所示：
@@ -32,16 +27,17 @@ titleBarLayout.setRightIcon(R.drawable.conversation_more);
 另外，您也可以定制点击事件：
 
 ```java
-// 菜单类
-mMenu = new Menu(getActivity(), titleBarLayout);
-// 响应菜单按钮的点击事件
-titleBarLayout.setOnRightClickListener(new View.OnClickListener() {
+Menu menu = new Menu(this, mainTitleBar);
+mainTitleBar.setOnRightClickListener(new View.OnClickListener() {
     @Override
-    public void onClick(View view) {
-        if (mMenu.isShowing()) {
-            mMenu.hide();
+    public void onClick(View v) {
+        if (menu == null) {
+            return;
+        }
+        if (menu.isShowing()) {
+            menu.hide();
         } else {
-            mMenu.show();
+            menu.show();
         }
     }
 });

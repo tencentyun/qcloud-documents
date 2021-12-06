@@ -5,7 +5,7 @@
 ## 请求方法
 POST
 
-## 请求地址
+## 请求路径
 ```
 /oauth2/revoke
 ```
@@ -28,16 +28,6 @@ client_id=TENANT_CLIENT_ID&client_secret=TENANT_CLIENT_SECRET&token=MOCK_ACCESS_
 
 
 
-
-## 响应参数
-| 参数          | 数据类型 | 描述                                    |
-| :------------ | :------- | :-------------------------------------- |
-| access_token  | String   | 刷新后的 OAuth 2.0 Access Token (JWT)。 |
-| refresh_token | String   | 刷新后的 OAuth 2.0 Refresh Token。      |
-| scope         | String   | Access Token 的 Scope。                 |
-| id_token      | String   | 刷新后的 OIDC ID Token (JWT)。          |
-| token_type    | String   | Token 类型，目前取固定值 `Bearer`。    |
-| expires_in    | Number   | Access Token 有效期，单位秒。           |
 
 
 

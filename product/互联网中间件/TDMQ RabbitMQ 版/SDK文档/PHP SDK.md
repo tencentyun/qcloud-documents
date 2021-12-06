@@ -10,12 +10,11 @@
 
 ## 操作步骤
 
-### 步骤1. 安装 php-amqplib 库
+### 步骤1：安装 php-amqplib 库
 
 根据 RabbitMQ 官网推荐使用 php-amqplib Client，首先需要在项目中引入 php-amqplib 库。
 
-1. 在项目中添加 `composer.json` 文件
-
+1. 在项目中添加 `composer.json` 文件。
    ```json
    {
        "require": {
@@ -25,19 +24,16 @@
    ```
 
 2. 使用 Composer 进行安装。
-
    ```shell
    composer.phar install
    ```
 
-   或者使用。
-
+   或者使用下述命令：
    ```shell
    composer install
    ```
 
 3. 创建客户端需要引入库文件，在客户端文件中引入库文件。
-
    ```php
    require_once('../vendor/autoload.php');
    ```
@@ -45,7 +41,7 @@
    完成上述步骤即可创建连接与服务端进行交互。
 
 
-### 步骤2. 发送消息
+### 步骤2：发送消息
 
 创建并编译生产消息程序（以 direct 类型交换机为例）。
 
@@ -91,7 +87,7 @@ $connection->close();
 | 参数              | 说明                                                         |
 | :---------------- | :----------------------------------------------------------- |
 | $exchange_name    | Exchange 名称，在控制台 Exchange 列表获取。                  |
-| $exchange_type    | 类型需与上述exchange的类型保持一致。                         |
+| $exchange_type    | 类型需与上述 Exchange 的类型保持一致。                         |
 | $host             | 集群接入地址，在**集群管理**页面操作列的**获取接入地址**获取。![img](https://main.qcloudimg.com/raw/0238d2d64bd896704ebef400fc08a7f1.png) |
 | $port             | 集群接入地址中的端口号。                                     |
 | $username         | 角色名称，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制。 |
@@ -99,7 +95,7 @@ $connection->close();
 | $vhost            | Vhost 名称，在控制台 Vhost 页面复制，格式是**“集群 ID + \| + vhost 名称”**。![img](https://main.qcloudimg.com/raw/ae6ec1a5a94c9befea289ad7f5b46aed.png) |
 | $routing_keys[$x] | 消费者消息队列绑定的 routing key，消息的路由规则，在控制台绑定关系列表的**绑定 Key**列获取。![img](https://main.qcloudimg.com/raw/66d31e7d7ec8519843a8fc67bff87265.png) |
 
-### 步骤3. 消费消息
+### 步骤3：消费消息
 
 创建并编译消费消息程序。
 
@@ -170,7 +166,7 @@ $connection->close();
 
 
 
-### 步骤5. 查看消息
+### 步骤4：查看消息
 
 如果您想确认消息是否成功发送至 TDMQ RabbitMQ 版，可以在控制台 **[集群管理](https://console.cloud.tencent.com/tdmq/rocket-cluster)** > **Queue** 页面查看接入的消费者情况。
 

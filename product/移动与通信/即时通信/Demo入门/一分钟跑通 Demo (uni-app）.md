@@ -15,14 +15,13 @@
    <th>微信小程序演示：</th>
  </tr>
 <tr>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/android-uniapp.gif" height = "150"/></td>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/ios-uniapp.gif" height = "150"/></td>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/wx-uniapp.gif" height = "150"/></td>
+<td><img style="width:200px; max-width: inherit;" src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/android-uniapp.gif" /></td>
+<td><img  style="width:200px; max-width: inherit;" src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/ios-uniapp.gif"></td><td><img  style="width:200px; max-width: inherit;" src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/wx-uniapp.gif" </td>
 </tr>
 </table>
 
 ## 操作步骤
-### 步骤1：注册并创建 uni-app 账号
+### 步骤1：注册并创建 uni-app 帐号
 1. 搭建 app 开发环境，请下载 [HBuilderX 编辑器](https://www.dcloud.io/hbuilderx.html)。
 >!项目中 HBuilderX 目前使用的最新版本，如果此前下载过 HBuilderX，为保证开发环境统一请更新到最新版本。
 2. 在 [DCloud 开发者中心](https://dev.dcloud.net.cn/) 注册后登录 HBuilderX 编辑器。
@@ -31,7 +30,7 @@
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
 >?
 >- 如果您已有应用，请记录其 SDKAppID 并 [获取密钥信息](#step2)。
->- 同一个腾讯云账号，最多可创建100个即时通信 IM 应用。若已有100个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
+>- 同一个腾讯云帐号，最多可创建300个即时通信 IM 应用。若已有300个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
 >
 2. 单击**创建新应用**，在**创建应用**对话框中输入您的应用名称，单击**确定**。
 ![](https://main.qcloudimg.com/raw/78340e403359fcf4d753ade29ae9aace.png)
@@ -176,12 +175,15 @@ v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
 |:-------:|---------|----|
 |`https://cos.ap-shanghai.myqcloud.com` | 文件下载域名 | 必须|
 
+[](id:QQ)
+## 技术咨询
+了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">309869925</dx-tag-link>
+
 ## 参见文档
 
 - [SDK API 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
 - [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)
-- [快速跑通 uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/blob/master/uni-app/README.md)
-- [快速集成 uni-app TUIKit 源码]()
+- [快速集成 uni-app TUIKit 源码](https://cloud.tencent.com/document/product/269/64507)
 - [快速集成微信小程序原生 TUIKit](https://cloud.tencent.com/document/product/269/62766)
 - [微信小程序原生 TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram)

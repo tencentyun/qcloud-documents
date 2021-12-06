@@ -1,4 +1,4 @@
-### 投递描述
+## 投递描述
 
 CMQ 通过发送 POST 请求将主题消息推送到订阅的 HTTP Endpoint 端，消息格式支持两种：JSON 格式和 SIMPLIFIED 精简格式。
 
@@ -7,7 +7,7 @@ CMQ 通过发送 POST 请求将主题消息推送到订阅的 HTTP Endpoint 端�
 
 订阅方的 HTTP 服务返回标准的 2xx 响应（如200），代表投递成功，否则为投递失败，并触发重试投递策略；超时不响应，CMQ 也会认为失败，同样触发重试投递策略，检测超时时间约为15秒。
 
-### 投递的 HTTP 请求 Header
+## 投递的 HTTP 请求 Header
 
 | 参数名称          | 描述                     |
 | :---------------- | :----------------------- |
@@ -15,7 +15,7 @@ CMQ 通过发送 POST 请求将主题消息推送到订阅的 HTTP Endpoint 端�
 | x-cmq-message-id  | 此次推送消息的 msgId     |
 | x-cmq-message-tag | 此次推送消息的消息标签   |
 
-### 投递的 HTTP 请求 Body
+## 投递的 HTTP 请求 Body
 
 在 JSON 格式下，HTTP Body 包含消息的正文和消息的属性信息。
 
@@ -30,11 +30,11 @@ CMQ 通过发送 POST 请求将主题消息推送到订阅的 HTTP Endpoint 端�
 
 在 SIMPLIFIED 格式下，HTTP Body 即为发布者发布的消息正文。
 
-### 投递的 HTTP 请求响应
+## 投递的 HTTP 请求响应
 
 订阅方 HTTP 服务正常处理投递消息，返回 2xx 响应；其他响应码或者超时不响应，当作错误，并触发重试投递策略。
 
-### 请求示例
+## 请求示例
 
 本示例中，订阅的 HTTP Endpoint 为`http://test.com/cgi`。
 JSON 格式：
@@ -69,7 +69,7 @@ test message
 
 
 
-### 订阅消息示例
+## 订阅消息示例
 
 如下为订阅消息 Demo，投递消息均为 POST 方法，因此只需重写 do_POST 方法即可。
 本示例会打印接收到的 HTTP POST 请求内容，并将 post data json 反序列化，实现遍历打印请求数据。

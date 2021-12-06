@@ -1,7 +1,7 @@
 ## 操作场景
 使用 VPN 网关接入方式，需要用户新建 VPC 和 VPN，然后建立 VPN 和 IDC 之间的通道，实现 VPN 和 IDC 之间的互通。
 
-本场景中，用户所属的 VPC 网络为“TomVPC”，子网为“子网A”，子网A的网段为`192.168.1.0/24`。新建 VPN 网关为“TomVPNGW”，VPN 网关的公网 IP 为`203.195.147.82`。用户 IDC 中的子网网段为`10.0.1.0/24`，IDC 中 VPN 网关的公网 IP 为`202.108.22.5`，源端数据库的主机IP地址为`10.0.1.8`。
+本场景中，用户所属的 VPC 网络为“TomVPC”，子网为“子网 A”，子网 A 的网段为`192.168.1.0/24`。新建 VPN 网关为“TomVPNGW”，VPN 网关的公网 IP 为`203.195.147.82`。用户 IDC 中的子网网段为`10.0.1.0/24`，IDC 中 VPN 网关的公网 IP 为`202.108.22.5`，源端数据库的主机 IP 地址为`10.0.1.8`。
 
 ![](https://main.qcloudimg.com/raw/4a66ef79cd81a25f5ddafdc6a5d27d3d.png)
 
@@ -9,9 +9,8 @@
 请参考 [建立 VPC 到 IDC 的连接](https://cloud.tencent.com/document/product/554/18988)。
 
 ## 后续步骤
-1. VPN 与 IDC 连通后，在 DBS 配置备份计划页面选择**VPN 接入**，关键参数配置说明如下：
+1. VPN 与 IDC 连通后，在 [DBS 配置备份计划页面](https://console.cloud.tencent.com/dbs) 选择 **VPN 接入**，关键参数配置说明如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/07d57b0b12dd15feaf675a54a8d21fd8.png)
-
 <table>
 <thead><tr><th><strong>参数</strong></th><th><strong>说明</strong></th><th><strong>参数示例</strong></th></tr></thead>
 <tbody><tr>
@@ -49,4 +48,3 @@
      - 帐号或密码不正确。
      
 
- 

@@ -469,11 +469,11 @@ coscmd download <cospath> <localpath>
 ```plaintext
 coscmd download doc/picture.jpg D:/picture.jpg
 ```
-- 操作示例 - 下载COS上的 doc/picture.jpg 到 D:/picture.jpg
+- 操作示例 - 下载 COS 上的 doc/picture.jpg 到 D 盘
 ```plaintext
 coscmd download doc/picture.jpg D:/
 ```
-- 操作示例 - 下载一个带有版本 ID 的 picture.jpg 文件到 D盘
+- 操作示例 - 下载一个带有版本 ID 的 picture.jpg 文件到 D 盘
 ```plaintext
 coscmd download picture.jpg --versionId MTg0NDUxMzc2OTM4NTExNTg7Tjg D:/
 ```

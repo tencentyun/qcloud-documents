@@ -84,6 +84,9 @@ type=migrateLocal
 | migrateBucketCopy| 从源 Bucket 复制到目标 Bucket|
 |migrateUpyun  | 从又拍云迁移到 COS |
 
+>? 如果想从上述未提及的源站进行迁移，若源站兼容 AWS S3 的API，即可使用 AWS 的配置进行迁移。
+>
+
 #### 3.2 配置迁移任务
 用户根据实际的迁移需求进行相关配置，主要包括迁移至目标 COS 信息配置及迁移任务相关配置。
 ```plaintext

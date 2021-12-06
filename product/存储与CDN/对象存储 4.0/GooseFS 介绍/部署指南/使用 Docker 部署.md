@@ -24,8 +24,8 @@ docker run -d  --rm \
 goosefs:v1.0.0 master
 ```
  <dx-alert infotype="explain" title="说明">
-- goosefs.master.hostname：设置 master 地址。
-- goosefs.master.mount.table.root.ufs：设置 GooseFS 根目录挂载点。
+- -Dgoosefs.master.hostname：设置 master 地址。
+- -Dgoosefs.master.mount.table.root.ufs：设置 GooseFS 根目录挂载点。
 - -v /tmp/goosefs_ufs:/opt/data：将本地目录映射到 docker 容器内。
 - --net=host：docker 采用 host 网络。
 </dx-alert>

@@ -53,6 +53,7 @@
 <li><a href="https://docs.dnspod.cn/dns/5ffbccf346757d460d99eccd/">易名注册域名如何配置为 DNSPod 的 DNS 服务器</a></li>
 <li><a href="https://docs.dnspod.cn/dns/5ffbc4f146757d460d99ecc4/">西部数码注册域名如何配置为 DNSPod 的 DNS 服务器</a></li>
 <li><a href="https://docs.dnspod.cn/dns/5ffbbd8346757d460d99ecba/">百度智能云注册域名如何配置为 DNSPod 的 DNS 服务器</a></li>
+<li><a href="https://docs.dnspod.cn/dns/61978bc898b4774596a983e5/">华为云注册域名如何配置为 DNSPod 的 DNS 服务器</a></li>
 </ul>
 
 

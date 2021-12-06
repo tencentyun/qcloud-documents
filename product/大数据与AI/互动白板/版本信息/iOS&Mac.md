@@ -1,3 +1,10 @@
+### 2.6.7.84 @ 2021-11-04
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.7.84.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.7.84.zip)
+
+- Bug 修复
+  1.Mac SDK 在低版本系统中加载白板自定义协议出现的询问弹窗
+
 ### 2.6.7.82 @ 2021-10-29
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.7.82.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.7.82.zip)

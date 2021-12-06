@@ -153,9 +153,9 @@ public class MessageConsumer implements RocketMQListener<String> {
 
 可根据业务需求配置多个消费者。消费者其他配置可根据具体业务需求进行配置。
 
-完整示例参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-springboot-demo.zip) 或参考 [RocketMQ Spring](https://github.com/apache/rocketmq-spring)
+完整示例参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-springboot-demo.zip) 或参考 [RocketMQ Spring](https://github.com/apache/rocketmq-spring)。
 
-### 步骤5. 查看消费详情
+### 步骤5：查看消费详情
 
 登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，在**集群管理** > **Group** 页面，可查看与 Group 连接的客户端列表，单击操作列的**查看详情**，可查看消费者详情。
 ![img](https://main.qcloudimg.com/raw/7187da67219534d767206553e2a383ab.png)

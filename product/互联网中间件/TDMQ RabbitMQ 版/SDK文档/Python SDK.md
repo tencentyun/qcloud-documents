@@ -5,7 +5,6 @@
 ## 前提条件
 
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1495/61829)
-
 - [安装 Python](https://www.python.org/downloads/)
 - [安装 pip](https://pip-cn.readthedocs.io/en/latest/installing.html)
 - [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rabbitmq-demo/tdmq-rabbitmq-python-sdk-demo.zip)
@@ -14,26 +13,23 @@
 
 ## 操作步骤
 
-### 步骤1. 添加依赖
+### 步骤1：添加依赖
 
-1. 根据 RabbitMQ 官网推荐使用 pika，首先要在客户端使用环境中安装pika。
-
+1. 根据 RabbitMQ 官网推荐使用 pika，首先要在客户端使用环境中安装 pika。
    ```shell
    python -m pip install pika --upgrade
    ```
 
-2. 在创建客户端时导入pika。
-
+2. 在创建客户端时导入 pika。
    ```python
    import pika
    ```
 
 
 
-### 步骤2. 生产消息
+### 步骤2：生产消息
 
 创建并编译运行生产消息程序 messageProducer.py。
-
 ```python
 import pika
 
@@ -72,12 +68,10 @@ connection.close()
 | direct_exchange | Exchange 名称，在控制台 Exchange 列表获取。                  |
 | routingKeys     | 消息的路由规则，在控制台 绑定关系列表的**绑定 Key**列获取。![img](https://main.qcloudimg.com/raw/66d31e7d7ec8519843a8fc67bff87265.png) |
 
-### 步骤3. 消费消息
+### 步骤3：消费消息
 
 创建并编译运行消费消息程序 messageConsumer.py。
-
-
-   ```python
+```python
 import os
 import pika
 import sys
@@ -137,10 +131,10 @@ if __name__ == '__main__':
 | route_queue1    | Queue名称，在控制台 Queue 列表获取。                         |
 | routingKey      | 消息的路由规则，在控制台 绑定关系列表的**绑定 Key**列获取。![img](https://main.qcloudimg.com/raw/66d31e7d7ec8519843a8fc67bff87265.png) |
 
-### 步骤5. 查看消息
+### 步骤4：查看消息
 
 如果您想确认消息是否成功发送至 TDMQ RabbitMQ 版，可以在控制台 **[集群管理](https://console.cloud.tencent.com/tdmq/rocket-cluster)** > **Queue** 页面查看接入的消费者情况。
 
 ![img](https://main.qcloudimg.com/raw/a7d78cc58efadfb614b890cc33d08632.png)
 
-完整示例或其他使用可参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rabbitmq-demo/tdmq-rabbitmq-python-sdk-demo.zip) 或者 [RabbitMQ官方使用文档](
+完整示例或其他使用可参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rabbitmq-demo/tdmq-rabbitmq-python-sdk-demo.zip) 或者 [RabbitMQ 官方使用文档](https://www.rabbitmq.com/getstarted.html)。

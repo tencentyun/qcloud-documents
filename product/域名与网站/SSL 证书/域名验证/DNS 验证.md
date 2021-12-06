@@ -6,8 +6,10 @@
 
 ### 步骤1：查看验证信息[](id:details)
 1. 登录 [证书管理控制台](https://console.cloud.tencent.com/certoverview)。
-2. 选择**验证中**的证书，进入 “验证域名” 页面，并在规定时间内完成验证操作。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/364718e7fbc1afb7ea870d7c6f33952a.png)
+2. 选择**验证中**的证书，进入 “验证域名” 页面，获取主机记录和记录值。如下图所示：
+>?保存主机记录以及记录值后，请按照步骤2添加解析记录。
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/30b6e505df02807dfd107d5ad9c62e5d.png)
 
 ### 步骤2：添加解析记录
 >!以下操作仅针对域名对应的**域名解析商**在腾讯云的情况下，若不在腾讯云，请您到域名对应的**域名解析商**处进行解析。
@@ -21,7 +23,7 @@
 <dx-tabs>
 ::: 其他品牌证书
 其他品牌证书需填写记录类型为 TXT 的解析记录。如下图所示：
-![](https://main.qcloudimg.com/raw/ab7f65ad2f88d607024c578329f888a4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2c78fa31341c63114c941d81be14671c.png)
  - **主机记录**：请按照 [步骤1](#details) 执行并获取主机记录值。
  - **记录类型**：选择 “TXT”。
  - **线路类型**：选择 “默认” 类型，否则会导致 CA 机构无法进行扫描认证。

@@ -223,6 +223,6 @@ Reflog 记录中，"to <分支名>"（如 moving from master to dev/pilot-001）
 
 ![](https://help-assets.codehub.cn/enterprise/20210408200046.png)
 
-此外，总体来讲，回滚要谨填，不要过于依赖回滚功能，避免使用"git push -f"。正如某哲人所说：**如果用到"git push -f"，你肯定哪里做错了！**
+此外，总体来讲，回滚要谨填，不要过于依赖回滚功能，避免使用"git push -f"。正如某哲人所说：**如果用到"git push -f"，您肯定哪里做错了！**
 
 ![](https://help-assets.codehub.cn/enterprise/20210408200104.png)
