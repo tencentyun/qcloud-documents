@@ -1,4 +1,4 @@
-﻿## bucket 权限控制
+## bucket 权限控制
 
 ### 开通 bucket 文档预览功能
 

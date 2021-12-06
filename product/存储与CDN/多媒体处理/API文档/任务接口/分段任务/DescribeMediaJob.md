@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 DescribeMediaJob 接口用来查询指定的任务。
 
 ## 请求
@@ -19,7 +19,7 @@ Authorization: <Auth String>
 
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/1545/65182) 文档。
 
-### 请求体
+#### 请求体
 该请求无请求体。
 
 

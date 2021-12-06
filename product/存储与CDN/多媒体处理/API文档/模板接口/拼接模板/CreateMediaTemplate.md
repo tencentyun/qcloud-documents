@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 CreateMediaTemplate 用于新增拼接模板。
 
 <div class="rno-api-explorer">
