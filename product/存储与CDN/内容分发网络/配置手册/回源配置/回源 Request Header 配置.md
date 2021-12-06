@@ -11,7 +11,7 @@
 ### 查看配置
 
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可在【回源配置】中看到回源 HTTP 请求头配置，默认情况下为关闭状态，无任何配置：
-![](https://main.qcloudimg.com/raw/9d5777902e46cdbe037a7ea9eb78d567.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/74c6b1b281a8e72476d27a2a092f632e.png)
 
 ### 操作类型
 
@@ -44,8 +44,7 @@
 ![](https://main.qcloudimg.com/raw/cd018a8767ffdbd57862db197af48141.png)
 若访问资源为：`http://cloud.tencent.com/test/test.mp4`
 
-1. 命中 `*` 规则，增加头部 `X-Forwarded-For:$client_ip` 头部，回源时将 $client_ip 替换为真实客户端 IP。
-2. 命中 `.mp4` 文件类型及/test路径，因是同一头部操作类型 - 增加，则底部优先级大于顶部，因此增加 `x-cdn:Tencent` 头部。
+命中 `mp4` 文件后缀及 `/test` 目录，因是同一头部操作类型 - 增加，则底部优先级大于顶部，因此增加 `x-cdn:Tencent` 头部。
 
 ## 注意事项[](id:noice)
 
