@@ -216,7 +216,7 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
 [](id:huaweiStep1_1)
 
-1. 打开 [华为开发者联盟官网](https://developer.huawei.com/consumer/cn/) 进行注册并通过开发者认证。进入管理中心，选择**应用服务**>**开发服务**>**PUSH**，创建华为推送服务应用。记录**`包名`**、**`APP ID`**、**`APP SECRET`**信息。
+1. 打开 [华为开发者联盟官网](https://developer.huawei.com/consumer/cn/) 进行注册并通过开发者认证。进入管理中心，选择**应用服务**>**开发服务**>**PUSH**，创建华为推送服务应用。记录**`包名`**、**`APP ID`**、**`Client ID`**、**`Client SECRET`**信息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/4b6aee44ab3a9026f2bda728cfc4d3f4.png)
    [](id:huaweiStep1_2)
 2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击**Android平台推送设置**区域的**添加证书**。根据 [步骤1](#huaweiStep1_1) 中获取的信息设置以下参数：
@@ -224,7 +224,8 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
  - **推送平台**：选择**华为**
  - **应用包名称**：填写华为推送服务应用的**包名**
  - **AppID**：填写华为推送服务应用的 **APP ID**
- - **AppSecret**：填写华为推送服务应用的 **APP SECRET**
+ -  **Client ID**：填写华为推送服务应用的 **Client ID**
+ - **Client SECRET**：填写华为推送服务应用的 **Client SECRET**
  - **角标参数**：填写应用入口完整 `Activity` 类名，用作华为桌面应用角标显示，请参考华为推送服务开发文档中的“桌面角标”说明。
  - **点击通知后**：选择点击通知栏消息后的响应操作， 支持**打开应用**、**打开网页**和**打开应用内指定界面**，更多详情请参见 [配置点击通知栏消息事件](#huawei_click)
    当设置为**打开应用**或**打开应用内指定界面**操作时，支持 [透传自定义内容](#huawei_custom)。
