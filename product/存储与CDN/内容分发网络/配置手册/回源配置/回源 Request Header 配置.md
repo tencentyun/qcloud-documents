@@ -44,7 +44,7 @@
 ![](https://main.qcloudimg.com/raw/cd018a8767ffdbd57862db197af48141.png)
 若访问资源为：`http://cloud.tencent.com/test/test.mp4`
 
-命中 `.mp4` 文件类型及/test路径，因是同一头部操作类型 - 增加，则底部优先级大于顶部，因此增加 `x-cdn:Tencent` 头部。
+命中 `mp4` 文件后缀及/test路径，因是同一头部操作类型 - 增加，则底部优先级大于顶部，因此增加 `x-cdn:Tencent` 头部。
 
 ## 注意事项[](id:noice)
 
