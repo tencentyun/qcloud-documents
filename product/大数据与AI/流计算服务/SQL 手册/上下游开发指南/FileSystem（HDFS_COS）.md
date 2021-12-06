@@ -1,12 +1,12 @@
 ## 介绍
-FileSystem connector 提供了对 HDFS 和 COS 等常见文件系统的写入支持。
+FileSystem connector 提供了对 `HDFS` 和 [COS](https://cloud.tencent.com/document/product/436) 等常见文件系统的写入支持。
 
 ## 版本说明
 
-| Flink 版本 | 说明              |
-| :-------- | :---------------- |
-| 1.11      | 支持              |
-| 1.13      | 暂时不支持 cos 写入 |
+| Flink 版本 | 说明 |
+| :-------- | :--- |
+| 1.11      | 支持 |
+| 1.13      | 支持 |
 
 ## 使用范围
 FileSystem 支持作为 Append-Only 数据流的目的表 (Sink)，目前还不支持 Upsert 数据流的目的表。FileSystem 目前支持以下格式的数据写入：
@@ -16,19 +16,19 @@ FileSystem 支持作为 Append-Only 数据流的目的表 (Sink)，目前还不�
 - Parquet
 - Orc
 
->!目前使用数据格式 Avro、Parquet、Orc 写入时，需要 [手动上传额外的 jar 包](#jump) 才能使用。
+>?目前使用数据格式 Avro、Parquet、Orc 写入时，需要 [手动上传额外的 jar 包](#jump) 才能使用。
 
-## 示例
+## DDL 定义
 #### 用作数据目的
 ```sql
-CREATE TABLE `DataOutput` (
-    f1 INT,
-    f2 STRING,
-    part1 INT,
-    part2 INT
+CREATE TABLE `hdfs_sink_table` (
+    `id` INT,
+    `name` STRING,
+    `part1` INT,
+    `part2` INT
 ) PARTITIONED BY (part1, part2) WITH (
     'connector' = 'filesystem',
-      'path' = 'hdfs://HDFS10000/data/',
+    'path' = 'hdfs://HDFS10000/data/',
     'format' = 'json',
     'sink.rolling-policy.file-size' = '1M',
     'sink.rolling-policy.rollover-interval' = '10 min',
@@ -37,7 +37,7 @@ CREATE TABLE `DataOutput` (
 );
 ```
 
-## 通用 WITH 参数
+## WITH 参数
 
 | 参数值                                     | 必填 | 默认值       | 描述                                                         |
 | ------------------------------------------ | ---- | ------------ | ------------------------------------------------------------ |
@@ -54,9 +54,11 @@ CREATE TABLE `DataOutput` (
 | sink.partition-commit.policy.class         | 否   | 无           | 分区提交类，这个类必须实现 PartitionCommitPolicy。           |
 
 ## HDFS 配置
+
 在 HDFS 上创建数据目录后，需为目录开启写权限，才可成功写入数据。流计算 Oceanus 写入 HDFS 的 user 是 flink。进行配置前，需要先导出 Hadoop 集群的 hdfs-site.xml 文件，以获取下列配置中所需的参数值，导出方式可参考 [导出软件配置](https://cloud.tencent.com/document/product/589/37098)。
 
 HDFS 路径的形式为 `hdfs://${dfs.nameserivces}/${path}`，`${dfs.nameserivces}` 的值可在 hdfs-site.xml 中查找，`${path}` 为要写入的数据目录。
+
 - 若目标 Hadoop 集群只有单个 Master，仅需要为 path 参数传入 HDFS 路径即可，无需使用高级参数。
 - 若目标 Hadoop 集群为高可用的双 Master 集群，为 path 参数传入 HDFS 路径后，还需要在作业参数的 [高级参数](https://cloud.tencent.com/document/product/849/53391) 中对两个 Master 的地址和端口进行配置。以下是一个配置示例，相应的参数值都可在 hdfs-site.xml 中查找并替换。
 ```yml
@@ -72,7 +74,6 @@ fs.hdfs.dfs.client.failover.proxy.provider.HDFS12345: org.apache.hadoop.hdfs.ser
 ```
 
 >? Flink 作业默认以 flink 用户操作 HDFS，若没有 HDFS 路径的写入权限，可通过作业 [高级参数](https://cloud.tencent.com/document/product/849/53391) 设置为有权限的用户，或者设置为超级用户 hadoop。
->
 >```
 containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
 containerized.master.env.HADOOP_USER_NAME: hadoop
@@ -107,6 +108,7 @@ fs.cosn.userinfo.appid: COS 所属用户的 appid
 4. 发布作业。
 
 ## HDFS Kerberos 认证授权
+
 1. 登录集群 Master 节点，获取 krb5.conf、emr.keytab、core-site.xml、hdfs-site.xml 文件，路径如下。
 ```
 /etc/krb5.conf
@@ -148,7 +150,7 @@ security.kerberos.login.principal: hadoop/172.28.28.51@EMR-OQPO48B9
 security.kerberos.login.keytab: emr.keytab
 security.kerberos.login.conf: krb5.conf
 ```
-如果是 Flink-1.13 版本，需要在高级参数额外增加如下参数，其中参数的值需要为对应 `hdfs-site.xml` 里面的值
+如果是 Flink-1.13 版本，需要在高级参数额外增加如下参数，其中参数的值需要为对应 `hdfs-site.xml` 中的值。
 ```
 fs.hdfs.dfs.nameservices: HDFS17995
 fs.hdfs.dfs.ha.namenodes.HDFS17995: nn2,nn1
@@ -163,3 +165,40 @@ fs.hdfs.hadoop.security.authentication: kerberos
 ```
 
 >! 历史 Oceanus 集群可能不支持该功能，您可通过 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_849) 联系我们升级集群管控服务，以支持 Kerberos 访问。
+
+## 代码示例
+```sql
+CREATE TABLE datagen_source_table (
+  id INT, 
+  name STRING,
+  part1 INT,
+  part2 INT 
+) WITH ( 
+  'connector' = 'datagen',
+  'rows-per-second'='1',  -- 每秒产生的数据条数
+  'fields.part1.min'='1',
+  'fields.part1.max'='2',
+  'fields.part2.min'='1',
+  'fields.part2.max'='2'
+);
+
+CREATE TABLE `hdfs_sink_table` (
+    id INT,
+    name STRING,
+    part1 INT,
+    part2 INT
+) PARTITIONED BY (part1, part2) WITH (
+    'connector' = 'filesystem',
+    'path' = 'hdfs://HDFS10000/data/',
+    'format' = 'json',
+    'sink.rolling-policy.file-size' = '1M',
+    'sink.rolling-policy.rollover-interval' = '10 min',
+    'sink.partition-commit.delay' = '1 s',
+    'sink.partition-commit.policy.kind' = 'success-file'
+);
+
+INSERT INTO `hdfs_sink_table` 
+SELECT id, name, part1, part2
+FROM datagen_source_table;
+```
+

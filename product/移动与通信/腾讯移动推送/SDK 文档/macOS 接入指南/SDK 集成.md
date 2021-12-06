@@ -49,14 +49,6 @@ pod 'TPNS-macOS'
 //    [[XGPush defaultManager] setEnableDebug:YES];
     [XGPush defaultManager].launchOptions = [[aNotification userInfo] mutableCopy];
     [[XGPush defaultManager] startXGWithAccessID:TPNS_ACCESS_ID accessKey:TPNS_ACCESS_KEY delegate:self];
-    if (@available(macOS 10.14, *)) {
-        /// 系统版本高于10.14内部处理无需上报
-    } else {
-        UNNotificationResponse *rep = [aNotification userInfo][NSApplicationLaunchUserNotificationKey];
-        if (rep) {
-            [[XGPush defaultManager] reportXGNotificationInfo:rep.notification.request.content.userInfo];
-        }
-    }
 }
 ```
 2. 在 `AppDelegate`中选择实现 `XGPushDelegate ` 协议中的方法：

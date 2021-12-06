@@ -36,13 +36,15 @@ ping 不可达告警原因和处理方法对照表：
 
 ### 步骤二：检查云服务器状态
 
-  > ?云监控事件告警暂未过滤手动关机导致的 “ping 不可达”告警，后期我们将对该功能进行优化。
 
  1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。 
  2. 在“实例列表”页面中，查看“ping 不可达”告警相关的实例状态是否正常。
 - 若状态显示已关机，则说明手动关机导致的 “ping 不可达” 告警。您可以单击**更多** > **实例状态** > **开机**，重启实例，若实例状态已显示运行中，仍未解决问题。可进行下一步：[检查云服务器实例关联的安全组是否允许 ICMP](#buzhou3)。
  ![](https://main.qcloudimg.com/raw/a311287dc25eb7ce7a7d445dfa6c0dbe.png)
 - 若状态显示运行中可进行下一步：[检查云服务器实例关联的安全组是否允许 ICMP](#buzhou3)。
+
+
+>?云监控事件告警暂未过滤手动关机导致的 “ping 不可达”告警，后期我们将对该功能进行优化。
 
 [](id:buzhou3)
 
@@ -82,8 +84,8 @@ ping 不可达告警原因和处理方法对照表：
 ```plaintext
 cat /proc/sys/net/ipv4/icmp_echo_ignore_all
 ```
-- 若返回结果为0，表示系统允许所有的 ICMP Echo 请求，请 [检查 iptables 设置](#CheckLinuxIptables)。
-- 若返回结果为1，表示系统限制所有的 ICMP Echo 请求，则说明 Linux 内核参数限制，导致的 “ping 不可达” 告警，请执行下文步骤3关闭限制。
+ - 若返回结果为0，表示系统允许所有的 ICMP Echo 请求，请 [检查 iptables 设置](#CheckLinuxIptables)。
+ - 若返回结果为1，表示系统限制所有的 ICMP Echo 请求，则说明 Linux 内核参数限制，导致的 “ping 不可达” 告警，请执行下文关闭限制。
 3. [](id:Linux_step03)使用拥有 root 权限的账户执行以下命令，修改内核参数 icmp_echo_ignore_all 的设置。
 ```plaintext
 echo "0" >/proc/sys/net/ipv4/icmp_echo_ignore_all
@@ -99,7 +101,7 @@ iptables -L
 ```
 	- 若返回结果如下图所示，则表示 iptables 的 ICMP 未限制。
 		![](https://main.qcloudimg.com/raw/4edec2beb0d2cc175dddadd64ca6c51f.png)
-	- 若返回如下图所示，则表示 iptables 的 ICMP 被限制。说明  Linux iptables 的 ICMP 限制到导致的 “ping 不可达” 告警。请参考下文步骤2关闭 iptables 的 ICMP 限制。
+	- 若返回如下图所示，则表示 iptables 的 ICMP 被限制。说明  Linux iptables 的 ICMP 限制到导致的 “ping 不可达” 告警。请参见下文关闭 iptables 的 ICMP 限制。
 	![](https://main.qcloudimg.com/raw/004ce1d45e02a4dc5faa2ad0d3c56a9d.png)
 [](id:LinuxIptables)
 2. 请执行以下命令，关闭 iptables 的 ICMP 限制。

@@ -11,22 +11,32 @@ df -ihT
  - 返回结果如下图所示，则文件系统类型为 XFS。
 ![](https://main.qcloudimg.com/raw/50ecea03c960daa2d04b734226ad69a0.png)
 2. 根据云硬盘文件系统的类型，执行不同的命令进行扩容。
->?EXT 文件系统具备以下容量限制：
-> - EXT3 文件系统最大支持16TB，单个文件2TB。
-> - EXT4 文件系统最大支持1EB，单个文件16TB。
->
- - 执行以下命令扩容 EXT 文件系统（以 `/dev/vdb` 为例）。
+<dx-alert infotype="explain" title="">
+EXT 文件系统具备以下容量限制：
+ - EXT3 文件系统最大支持16TB，单个文件2TB。
+ - EXT4 文件系统最大支持1EB，单个文件16TB。
+</dx-alert>
+ <dx-tabs>
+::: 扩容 EXT 文件系统
+执行以下命令扩容 EXT 文件系统（以 `/dev/vdb` 为例）。
 ```
 resize2fs /dev/vdb
 ```
 执行结果如下图所示，则扩容成功。
 ![](https://main.qcloudimg.com/raw/9f68b0ab1e6446943da4e426df92919b.png)
- - 执行以下命令扩容 XFS 文件系统（以 `/dev/vdc` 为例）。
+
+:::
+::: 扩容 XFS 文件系统
+执行以下命令扩容 XFS 文件系统（以 `/dev/vdc` 为例）。
 ```
 xfs_growfs /dev/vdc
 ```
 执行结果如下图所示，则扩容成功。
 ![](https://main.qcloudimg.com/raw/56fac50edbb153585adb67b2eb246cf4.png)
+
+:::
+</dx-tabs>
+
 3. 执行以下命令，查看文件系统的硬盘空间情况。
 ```
 df -h

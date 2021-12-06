@@ -2,7 +2,6 @@
 
 即时通信 IM 的终端用户需要随时都能够得知最新的消息，而由于移动端设备的性能与电量有限，当 App 处于后台时，为了避免维持长连接而导致的过多资源消耗，即时通信 IM 推荐您使用各厂商提供的系统级推送通道来进行消息通知，系统级的推送通道相比第三方推送拥有更稳定的系统级长连接，可以做到随时接受推送消息，且资源消耗大幅降低。
 
-即时通信 IM 支持小米推送、华为推送、魅族推送、vivo 推送、OPPO 推送以及 Google FCM 推送，即时通信 IM Demo 中使用的厂商通道由 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 统一提供和维护。当您需要集成离线推送功能时，您可通过集成 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 服务或集成所需厂商的离线推送服务实现。
 目前支持的厂商通道如下：
 
 
@@ -60,12 +59,12 @@
 
 实现离线消息推送的过程如下：
 
-1. 开发者到厂商的平台注册账号，开通推送服务并创建应用，得到AppID、AppKey、AppSecret 等信息。
+1. 开发者到厂商的平台注册帐号，开通推送服务并创建应用，得到AppID、AppKey、AppSecret 等信息。
 2. 将厂商提供的推送 SDK 集成到开发者的项目工程中，并在厂商控制台测试通知消息，确保成功集成。
 3. 登录 [即时通信 IM 控制台](https://console.qcloud.com/avc) 填写推送证书及相关信息，即时通信 IM 服务端会为每个证书生成不同的证书 ID。
 4. 集成即时通信 IM SDK 到项目后，将证书 ID、设备信息等上报至即时通信 IM 服务端。
 
-当客户端 App 在即时通信 IM 没有退出登录的情况下被系统或者用户 kill 时，即时通信 IM 服务端会将其他账号发来的消息通过厂商的通道推送下去。
+当客户端 App 在即时通信 IM 没有退出登录的情况下被系统或者用户 kill 时，即时通信 IM 服务端会将其他帐号发来的消息通过厂商的通道推送下去。
 
 ## 小米推送
 
@@ -544,7 +543,7 @@ if (set != null) {
         <intent-filter>
             <action android:name="android.intent.action.VIEW" />
             <data
-                android:host="com.tencent.qcloud"
+                android:host="com.tencent.qcloud.tim"
                 android:path="/detail"
                 android:scheme="pushscheme" />
         </intent-filter>
@@ -731,7 +730,7 @@ String extContent = bundle.getString("ext");
 ### 集成 SDK
 
 [](id:fcmStep1_1)
-1. 打开 [Firebase 云消息传递](https://firebase.google.com) 注册账号并创建应用。
+1. 打开 [Firebase 云消息传递](https://firebase.google.com) 注册帐号并创建应用。
 [](id:fcmStep1_2)
 2. 登录 [Firebase 控制台](https://console.firebase.google.com)，单击您的应用卡片，进入应用配置页面。单击 Project Overview 右侧的 <img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择【项目设置】>【服务帐号】，单击【生成新的私钥】下载私钥文件。
 [](id:fcmStep1_3)

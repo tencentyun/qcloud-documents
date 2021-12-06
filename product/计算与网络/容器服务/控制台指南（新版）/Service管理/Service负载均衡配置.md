@@ -160,7 +160,7 @@ spec:
          healthNum: 2
          unHealthNum: 2
          timeout: 5
-       scheduler: LEAST_CONN
+       scheduler: WRR
 ```
 该示例中包含以下配置：
 名称为 `jetty-service-config`。且在四层监听器配置中，声明了以下两段配置：
@@ -169,7 +169,7 @@ spec:
  2. 443端口的 TCP 监听器将会被配置。
   - 打开健康检查，健康检查间隔调整为10s，健康阈值2次，不健康阈值2次，超时5s。
   - 打开会话保持功能，会话保持的超时时间设置为3600s。
-  - 转发策略配置为最小连接数。
+  - 转发策略配置为：按权重轮询。
 
 ### kubectl 配置命令
 ```

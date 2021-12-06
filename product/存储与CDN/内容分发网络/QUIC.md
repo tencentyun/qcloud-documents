@@ -1,16 +1,3 @@
-<blockquote class="d-mod-alarm">
-<div class="d-mod-title d-alarm-title">
-<i class="d-icon-alarm"></i>公告：
-</div>
-<p><ul><li>QUIC 访问属于增值服务，目前腾讯云 CDN 正在免费内测中。<strong>后续进行线上计费时，我们会提前推送消息给您，请您关注确认。</strong></li>
-<li>收到计费提示消息后，您仍可管理 QUIC 访问功能：</li>
-<ul>
-<li> 若您通过官网内测申请使用：请自行于控制台管理 QUIC 访问功能。</li>
-<li> 若您通过后端配置开启了 QUIC：请联系您的售后人员。</li>
-</ul></ul>
-QUIC 访问增值服务将按 QUIC 请求数次数计费，按量后付费，详细说明请见 <a href="https://cloud.tencent.com/document/product/228/2949#m8">计费说明</a>。</p>
-</blockquote>
-
 
 
 ## 功能介绍

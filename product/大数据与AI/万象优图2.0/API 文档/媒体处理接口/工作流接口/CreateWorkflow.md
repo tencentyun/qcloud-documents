@@ -189,7 +189,7 @@ Content-Type: application/xml
                     <Type>SCF</Type>
                     <Operation>
                         <SCF>
-                            <Region>ap-chengduRegion>
+                            <Region>ap-chengdu</Region>
                             <FunctionName>test</FunctionName>
                             <Namespace>testspace</Namespace>
                         </SCF>
@@ -967,7 +967,7 @@ Container 类型 Output 的具体数据描述如下：
                     <Type>SCF</Type>
                     <Operation>
                         <SCF>
-                            <Region>ap-chengduRegion>
+                            <Region>ap-chengdu</Region>
                             <FunctionName>test</FunctionName>
                             <Namespace>testspace</Namespace>
                         </SCF>
@@ -1299,7 +1299,7 @@ Content-Type: application/xml
                     <Type>SCF</Type>
                     <Operation>
                         <SCF>
-                            <Region>ap-chengduRegion>
+                            <Region>ap-chengdu</Region>
                             <FunctionName>test</FunctionName>
                             <Namespace>testspace</Namespace>
                         </SCF>
@@ -1507,7 +1507,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                     <Type>SCF</Type>
                     <Operation>
                         <SCF>
-                            <Region>ap-chengduRegion>
+                            <Region>ap-chengdu</Region>
                             <FunctionName>test</FunctionName>
                             <Namespace>testspace</Namespace>
                         </SCF>

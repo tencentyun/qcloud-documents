@@ -4,7 +4,7 @@
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2343-35187?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 [](id:Smart)
-## 基础直播 Smart
+## 基础直播 Smart 
 
 基础直播版仅包含直播推流（TXLivePusher）和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用移动直播相关功能的客户。 
 
@@ -120,7 +120,7 @@
    </tr>
 </table>
 
->? 根据您具体使用的服务，使用专业版需先购买对应产品授权，您可按需选购：
+>? 根据您具体使用的服务，使用全功能版需先购买对应产品授权，您可按需选购：
 >
 >1. 使用其中的移动直播请购买  [直播推流 License（原移动直播基础版 License）](https://cloud.tencent.com/document/product/454/8008#live_pag_price)。
 >1. 使用其中的短视频请购买 [短视频精简版/基础版 License](https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
@@ -171,7 +171,7 @@
     <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/9366">短视频版</a><br>LiteAV_UGC</th>
     <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32689">TRTC版</a><br>LiteAV_TRTC</th>
     <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/881/20205">播放器版</a><br>LiteAV_Player</th>
-    <th width="100px" style="text-align:center"><a href="#Professional">全功能版</a><br>Professional</th>
+    <th width="100px" style="text-align:center"><a href="#ALL">全功能版</a><br>ALL</th>
     <th width="100px" style="text-align:center"><a href="#Enterprise">企业版</a><br>Enterprise</th>
   </tr>
   <tr>
