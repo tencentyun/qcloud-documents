@@ -179,7 +179,7 @@ offlinePushInfo 参数 (仅限于v1.0.0及其之后的版本)
 | title | String | 离线推送标题（选填）     |
 | description          | String | 离线推送内容（选填)      |
 | androidOPPOChannelID | String | 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID（选填） |
-| extension            | String | 离线推送透传内容（选填）**仅限于TRTCCalling 版本>=1.0.2, tsignaling 版本 >= 0.9.0** |
+| extension            | String | 离线推送透传内容（选填），**仅限于TRTCCalling 版本>=1.0.2, tsignaling 版本 >= 0.9.0** |
 
 [](id:groupCall)
 #### groupCall({userIDList, type, groupID, offlinePushInfo})
@@ -217,7 +217,7 @@ offlinePushInfo 参数 (仅限于v1.0.0及其之后的版本)
 | title | String | 离线推送标题（选填）     |
 | description          | String | 离线推送内容（选填)      |
 | androidOPPOChannelID | String | 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID（选填） |
-| extension            | String | 离线推送透传内容（选填）**仅限于TRTCCalling 版本>=1.0.2, tsignaling 版本 >= 0.9.0** |
+| extension            | String | 离线推送透传内容（选填），**仅限于TRTCCalling 版本>=1.0.2, tsignaling 版本 >= 0.9.0** |
 
 [](id:accept)
 #### accept()
