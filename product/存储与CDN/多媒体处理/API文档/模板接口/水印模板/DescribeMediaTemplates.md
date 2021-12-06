@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 DescribeMediaTemplates 搜索水印模板。
 
 ## 请求
@@ -209,7 +209,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 </Response>
 ```
 
-### 请求
+#### 请求
 
 ```shell
 GET /template?pageSize=10&pageNumber=1 HTTP/1.1
@@ -220,7 +220,7 @@ Content-Type: application/xml
 
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK
