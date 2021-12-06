@@ -2,7 +2,7 @@
 
 为了方便运维管理，您的作业可能会使用域名的方式访问外部资源（消息队列 CKafka、云数据库 MySQL等），您可以使用自定义 DNS 的方式进行域名解析。自定义 DNS 的原理请参考 Kubernetes 官网文档 [自定义 DNS 服务](https://kubernetes.io/zh/docs/tasks/administer-cluster/dns-custom-nameservers/)。您一般会使用两种方式来完成域名解析。
 
-1. host 映射。如下示例，您可以使用 kafka.example.com 来访问 IP 为172.17.0.2的 CKafka 实例。
+1. host 映射。如下示例，您可以使用 `kafka.example.com` 来访问 IP 为`172.17.0.2`的 CKafka 实例。
 ``` 
 172.17.0.2 kafka.example.com 172.17.0.3 mysql.example.com 
 ``` 
