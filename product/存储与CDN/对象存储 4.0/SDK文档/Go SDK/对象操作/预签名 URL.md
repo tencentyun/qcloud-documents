@@ -9,10 +9,18 @@ Go SDK 提供获取请求预签名 URL 接口，详细操作请查看本文示�
 ## 获取请求预签名 URL 
 
 ```go
-func (s *ObjectService) GetPresignedURL(ctx context.Context, httpMethod, name, ak, sk string, expired time.Duration, opt interface{}) (*url.URL, error)
+func (s *ObjectService) GetPresignedURL(ctx context.Context, httpMethod, name, ak, sk string, expired time.Duration, opt interface{}, signHost ...bool) (*url.URL, error)
 ```
 
 #### 参数说明
+
+```go
+type PresignedURLOptions struct {
+    Query      *url.Values
+    Header     *http.Header
+}
+```
+
 | 参数名称           | 类型                         | 描述                            |
 | ------------------ | ---------------------------- | ------------------------------- |
 | httpMethod            | string                   | HTTP 请求方法                        |
@@ -20,7 +28,11 @@ func (s *ObjectService) GetPresignedURL(ctx context.Context, httpMethod, name, a
 | ak             | string                       | SecretId                    |
 | sk               | string                       | SecretKey         |
 | expired            | time.Duration | 签名有效时长             |
-| opt    | interface{} | 扩展项，可填 nil |
+| opt    | interface{} | 扩展项，建议填写 \*PresignedURLOptions 类型的参数。可填nil |
+| PresignedURLOptions | struct | 指定签入的请求参数和请求头部。 |
+| Query | struct | 签名中要签入的请求参数。 |
+| Header | struct | 签名中要签入的请求头部。 |
+| signHost | bool | 可选参数，默认为true，获取签名时是否签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞。 |
 
 ## 永久密钥预签名请求示例
 
@@ -114,23 +126,7 @@ func main() {
 	name := "exampleobject"
 	ctx := context.Background()
 
-	// 方法1 通过 tag 设置 x-cos-security-token
-	// 获取预签名
-	presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodGet, name, tak, tsk, time.Hour, token)
-	if err != nil {
-		fmt.Printf("Error: %v\n", err)
-		return
-	}
-	// 通过预签名访问对象
-	resp, err := http.Get(presignedURL.String())
-	if err != nil {
-		fmt.Printf("Error: %v\n", err)
-	}
-	defer resp.Body.Close()
-	fmt.Println(presignedURL.String())
-	fmt.Printf("resp:%v\n", resp)
-
-	// 方法2 通过 PresignedURLOptions 设置 x-cos-security-token
+    // 方法1 通过 PresignedURLOptions 设置 x-cos-security-token
     // PresignedURLOptions 提供用户添加请求参数和请求头部
 	opt := &cos.PresignedURLOptions{
 		Query:  &url.Values{},
@@ -138,7 +134,23 @@ func main() {
 	}
 	opt.Query.Add("x-cos-security-token", "<token>")
 	// 获取预签名
-	presignedURL, err = c.Object.GetPresignedURL(ctx, http.MethodGet, name, tak, tsk, time.Hour, opt)
+    presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodGet, name, tak, tsk, time.Hour, opt)
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+	// 通过预签名访问对象
+    resp, err := http.Get(presignedURL.String())
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+	}
+	defer resp.Body.Close()
+	fmt.Println(presignedURL.String())
+	fmt.Printf("resp:%v\n", resp)
+
+	// 方法2 通过 tag 设置 x-cos-security-token
+	// 获取预签名
+	presignedURL, err = c.Object.GetPresignedURL(ctx, http.MethodGet, name, tak, tsk, time.Hour, token)
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 		return
@@ -200,7 +212,9 @@ func main() {
 
 	// PresignedURLOptions 提供用户添加请求参数和请求头部
 	opt := &cos.PresignedURLOptions{
+	    // http 请求参数，传入的请求参数需与实际请求相同，能够防止用户篡改此HTTP请求的参数
 		Query:  &url.Values{},
+		// http 请求头部，传入的请求头部需包含在实际请求中，能够防止用户篡改签入此处的HTTP请求头部
 		Header: &http.Header{},
 	}
 	// 添加请求参数, 返回的预签名url将包含该参数
@@ -208,8 +222,11 @@ func main() {
 	// 添加请求头部，返回的预签名url只是将请求头部设置到签名里，请求时还需要自行设置对应的header。
 	opt.Header.Add("Content-Type", "text/html")
 
-	// 获取预签名
-	presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodPut, name, tak, tsk, time.Hour, opt)
+	// SDK 默认签入 Header Host，不传递 signHost 参数或者 SignHost = true 时，表示签入 Header Host。
+	// signHost = false 时，表示不签入Header Host，不签入 Header Host 可能导致请求失败或安全漏洞。
+	bool signHost = true
+	// 获取预签名, 签名中携带host。
+	presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodPut, name, tak, tsk, time.Hour, opt, signHost)
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 		return

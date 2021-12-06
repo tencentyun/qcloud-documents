@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 
 GeneratePrivateM3U8 接口用于获取私有 M3U8 ts 资源的下载授权。
 

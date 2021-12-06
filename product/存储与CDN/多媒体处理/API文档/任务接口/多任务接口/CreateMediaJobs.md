@@ -1,4 +1,4 @@
-﻿ ## 功能描述
+## 功能描述
  
 Create Media Jobs 接口用来提交多个任务。
 
@@ -106,7 +106,7 @@ Container 类型 Output 的具体数据描述如下：
 
 此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/1545/65183) 文档。
 
-### 响应体
+#### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
 ``` shell

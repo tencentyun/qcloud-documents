@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 DescribeMediaTemplates用于搜索人声分离模板。
 
 ## 请求

@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 DeleteMediaTemplate 用于删除人声分离模板。
 
 ## 请求

@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 DescribeMediaTemplates 用于搜索极速高清转码模板。
 
 ## 请求
