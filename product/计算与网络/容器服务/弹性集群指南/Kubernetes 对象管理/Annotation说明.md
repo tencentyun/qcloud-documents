@@ -83,11 +83,6 @@
 <td>否。如填写，请确保填写的 CAM 角色名存在。</td>
 </tr>
 <tr>
-<td>eks.tke.cloud.tencent.com/monitor-port</td>
-<td>为 Pod 设置监控数据暴露端口，以便被 Prometheus 等组件采集。</td>
-<td>否。不填写默认为 9100。</td>
-</tr>
-<tr>
 <td>eks.tke.cloud.tencent.com/custom-metrics-url</td>
 <td>为 Pod 设置自定义监控指标拉取地址，通过该地址暴露的监控数据会自动被监控组件读取并上报。</td>
 <td>否。如填写，请确保暴露的数据协议可被监控系统识别，如 Prometheus 协议、云监控数据协议。</td>

@@ -6,7 +6,7 @@ clip 组件作为插件快速接入方式的入口组件，只需要将其引用
 1. 在页面对应的配置文件 test.json 中加入以下代码，引入插件提供的 clip 组件。名称可自定义，以 my-clip 为例：
 ```
 {
-  "usingComponents": {
+  "usingComponents": { 
     "my-clip": "plugin://myPlugin/clip" // “myPlugin”需与app.json中定义一致，“clip”为固定值
   }
 }
