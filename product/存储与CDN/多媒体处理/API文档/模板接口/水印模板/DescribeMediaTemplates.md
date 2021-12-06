@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 DescribeMediaTemplates 搜索水印模板。
 
 ## 请求
