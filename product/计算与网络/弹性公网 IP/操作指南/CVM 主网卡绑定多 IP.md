@@ -16,7 +16,8 @@
 >?若选择手动填写要分配的内网 IP，请确认填写的内网 IP 在所属子网网段内，且不属于系统保留 IP。
 >例如，所属子网网段为：`10.0.0.0/24`，则可填的内网 IP 范围 为：`10.0.0.2 - 10.0.0.254`，本次操作以手动填写 `10.0.0.3` 为例。
 >
-![](https://main.qcloudimg.com/raw/230608e14e90b0b4848661eb337e4d0c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/33a3ee70ea03fae9b6ddccb0b9b5327c.png)
+
 
 ### 步骤二：绑定 EIP[](id:bindEIP)
 1. 在“弹性网卡”页面，单击 <img src="https://main.qcloudimg.com/raw/57a0c76b72cd97bd80bf857cd30c867a.png" style="margin: 0;">，以展开主网卡信息。
