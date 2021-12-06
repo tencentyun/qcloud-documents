@@ -95,11 +95,12 @@ TRTC Web SDK 对浏览器的详细支持度，请参见 [TRTC Web SDK 对浏览�
 ### TRTCCalling 在 CALL 之后 主动 reject 后 无法在呼叫?
 
 - **原因**：call之后主动 reject 后，calling 状态没重置导致。
-- **解决方案**：升级 TRTCCalling 版本>=1.0.3
+- **解决方案**：升级 TRTCCalling 版本>=1.0.3。
 
 [](id:i11)
-
 ### Error: TRTCCalling.call - 获取用户设备权限失败？
 
 - **原因**：TRTCCalling 没有设备权限或者没有对于设备。
-- **解决方案**：1.使用 [TRTC设备检测](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html)进行检查；2. 访问：chrome://settings/content 查看使用TRTCCalling的网站是否开启摄像头/麦克风权限
+- **解决方案**：
+	- 使用 [TRTC设备检测](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 进行检查。
+	- 访问 [网站设置](chrome://settings/content) 查看使用 TRTCCalling 的网站是否开启摄像头/麦克风权限。
