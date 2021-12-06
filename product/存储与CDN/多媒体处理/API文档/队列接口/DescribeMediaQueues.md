@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 
 DescribeMediaQueues 接口用于搜索队列。
 
