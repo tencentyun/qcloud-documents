@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 
 CreateMediaTemplate 用于新增视频增强模板。
 
