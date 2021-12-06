@@ -175,6 +175,7 @@ offlinePushInfo 参数 (仅限于v1.0.0及其之后的版本)
 | title                | String | 离线推送标题（选填）                                   |
 | description          | String | 离线推送内容（选填)                                    |
 | androidOPPOChannelID | String | 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID（选填） |
+| extension            | String | 离线推送透传内容（选填）**仅限于TRTCCalling 版本>=1.0.2, tsignaling 版本 >= 0.9.0** |
 
 [](id:groupCall)
 #### groupCall({userIDList, type, groupID, offlinePushInfo})
@@ -212,6 +213,7 @@ offlinePushInfo 参数 (仅限于v1.0.0及其之后的版本)
 | title                | String | 离线推送标题（选填）                                   |
 | description          | String | 离线推送内容（选填)                                    |
 | androidOPPOChannelID | String | 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID（选填） |
+| extension            | String | 离线推送透传内容（选填）**仅限于TRTCCalling 版本>=1.0.2, tsignaling 版本 >= 0.9.0** |
 
 [](id:accept)
 #### accept()
@@ -227,6 +229,7 @@ import TRTCCalling from 'trtc-calling-js';
 trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
   // v1.0.0之前
+  const { roomID, callType } = inviteData;
   trtcCalling.accept({inviteID, roomID, callType})
   // v1.0.0及其之后
   trtcCalling.accept();
@@ -238,9 +241,9 @@ trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 
 | 参数     | 类型   | 含义                                                  |
 | -------- | ------ | ----------------------------------------------------- |
-| inviteID | String | 邀请 ID，标识一次邀请。**仅限于v1.0.0之前的版本**    |
-| roomID   | Number | 通话房间号 ID。**仅限于v1.0.0之前的版本**            |
-| callType | Number | 1：语音通话，2：视频通话。**仅限于v1.0.0之前的版本** |
+| inviteID | String | 邀请 ID，标识一次邀请（监听事件 INVITED 回调数据 inviteID）。**仅限于v1.0.0之前的版本**    |
+| roomID   | Number | 通话房间号 ID（监听事件 INVITED 回调数据 inviteData.roomID）。**仅限于v1.0.0之前的版本**            |
+| callType | Number | 1：语音通话，2：视频通话（监听事件 INVITED 回调数据 inviteData.callType）。**仅限于v1.0.0之前的版本** |
 
 
 [](id:reject)
@@ -255,6 +258,7 @@ import TRTCCalling from 'trtc-calling-js';
 trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
   // v1.0.0之前
+  const { callType } = inviteData;
   trtcCalling.reject({inviteID, isBusy, callType})
   // v1.0.0及其以后
   trtcCalling.reject();
@@ -266,9 +270,9 @@ trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 
 | 参数     | 类型    | 含义                                                  |
 | -------- | ------- | ----------------------------------------------------- |
-| inviteID | String  | 邀请 ID, 标识一次邀请。**仅限于v1.0.0之前的版本**   |
+| inviteID | String  | 邀请 ID, 标识一次邀请（监听事件 INVITED 回调数据 inviteID）。**仅限于v1.0.0之前的版本**   |
 | isBusy   | Boolean | 是否是忙线中。**仅限于v1.0.0之前的版本**             |
-| callType | Number  | 1：语音通话，2：视频通话。**仅限于v1.0.0之前的版本** |
+| callType | Number  | 1：语音通话，2：视频通话（监听事件 INVITED 回调数据 inviteData.callType）。**仅限于v1.0.0之前的版本** |
 
 [](id:hangup)
 #### hangup()
