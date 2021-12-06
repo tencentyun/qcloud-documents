@@ -31,7 +31,7 @@
 - Producer 负责将消息均衡分配到对应的 Partition。
 - Partition 内消息是有序的。 
 
-## Consumer Group
+## 消费者分组（Consumer Group）
 - 消息队列 CKafka 不删除已消费的消息。
 - 任何 Consumer 必须属于一个 Group。
 - 同一 Consumer Group 中的多个 Consumer 不同时消费同一个 Partition。

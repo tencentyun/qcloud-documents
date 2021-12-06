@@ -26,9 +26,10 @@
 3. 在弹出的“绑定弹性公网IP”窗口中：
  - 若有可选的 EIP，选中并单击**确定**即可。
  - 若无可选的 EIP，可单击弹框上方的**新建**进行申请，详情请参见 [申请 EIP](https://cloud.tencent.com/document/product/1199/41698)，申请成功后返回弹出框并单击**刷新**，即可看见申请的 EIP，选中并单击**确定**即可。
-![](https://main.qcloudimg.com/raw/ac5172d56f2dc436a5b0c16d1be5ece1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6b742de292a1d10ecb7e14a7a8d0938f.png)
 4. 在主网卡的列表中，即可查看相关内网 IP 绑定公网 IP 的信息。
-![](https://main.qcloudimg.com/raw/4898e542a669a4591fcde007fc554aee.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f1fef47ab8957e36cb911995433d6eb0.png)
+
 
 ### 步骤三：配置网卡
 请根据您的云服务器操作系统类型，选择对应的配置网卡操作：
