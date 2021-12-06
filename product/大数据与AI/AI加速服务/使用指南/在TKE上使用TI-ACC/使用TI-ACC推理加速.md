@@ -116,9 +116,9 @@ output_model,optimized_report = tiacc_inference.optimize(input_model,optimizatio
          <th>硬件环境</th>  
          <th>模型</th>  
          <th>batch</th> 
-				 <th>torchscript</th>
-				 <th>TI-ACC</th>
-				 <th>TI-ACC（fp16）</th>
+				 <th>torchscript（时延，ms）</th>
+				 <th>TI-ACC（时延，ms）</th>
+				 <th>TI-ACC（fp16）（时延，ms）</th>
      </tr>
   <tr>      
       <td rowspan="12">腾讯云GN7.2XLARGE32</td>   
@@ -208,7 +208,7 @@ output_model,optimized_report = tiacc_inference.optimize(input_model,optimizatio
 | input_model        | 多种（STRING+torch.jit.ScriptModule类型）   | 是       | 输入待优化的原始模型。Pytorch 模型格式，支持以下格式：torch.jit.ScriptModule 导出的模型文件，以 .pt、.pth 为后缀（计算图结构+参数的模型）；torch.jit.ScriptModule 对象 | 无     | 字符串格式的路径，'./lzz'、'./lzz.pb                         |
 | optimization_level | INT                                         | 是       | 推理加速的优化级别。0：无损；1：FP16                         | 无     | 0                                                            |
 | device_type        | INT                                         | 是       | 运行设备。0：GPU                                             | 无     | 0                                                            |
-| input_shapes       | 多种（LIST[STRING]+LIST[LIST)]+LIST[DICT]） | 是       | 模型输入的相关信息，主要包括形状 shape 和类型 data_type 最外层是 list，其中每个元素代表一个输入节点 input，每个 input 允许 str、list、dict 的格式，允许嵌套：str 用于单一节点固定输入尺寸；list 用于多节点固定尺寸；dict 用于输入非固定尺寸或者非 float 类型，对应的 key 为 'seperate\|range,int\|float\|half'，seperate 静态，value 填写的是 range 表示动态，value 填写的是 min 和 max | 无     | 单一节点固定尺寸：[ '1*3*224*224' ]多节点固定尺寸：[[ '1*3*224*224' ],[ '1*3*512*512' ]]单节点非固定静态尺寸：[{'seperate': ['1*3*224*224','2*3*224*224']}]单节点非固定动态尺寸：[{'range': ['1*3*224*224','10*3*224*224']}] |
+| input_shapes       | 多种（LIST[STRING]+LIST[LIST)]+LIST[DICT]） | 是       | 模型输入的相关信息，主要包括形状 shape 和类型 data_type 最外层是 list，其中每个元素代表一个输入节点 input，每个 input 允许 str、list、dict 的格式，允许嵌套：str 用于单一节点固定输入尺寸；list 用于多节点固定尺寸；dict 用于输入非固定尺寸或者非 float 类型，对应的 key 为 'seperate\|range,int\|float\|half'，seperate 静态，value 填写的是 range 表示动态，value 填写的是 min 和 max | 无     | 单一节点固定尺寸：[ '1 * 3 * 224 * 224' ]多节点固定尺寸：[[ '1 * 3 * 224 * 224' ],[ '1 * 3 * 512 * 512' ]]单节点非固定静态尺寸：[{'seperate': ['1 * 3 * 224 * 224','2 * 3 * 224 * 224']}]单节点非固定动态尺寸：[{'range': ['1 * 3 * 224 * 224','10 * 3 * 224 * 224']}] |
 | test_data          | 多种（LIST[Tuple[torch.tensor, ]]）         | 否       | 用于模型推理速度对比的测试数据。用户给出则使用用户给出的测试数据；如果用户不给出，那么 TI-ACC 来自动提供测试数据。对于不同类型的模型，其测试数据格式存在差异， PyTorch 模型的测试数据为若干组输入Tensor Tuple，类型为 LIST[Tuple[torch.tensor, ]] | None   | /                                                            |
 | save_path          | STRING                                      | 否       | 优化模型的保存路径。如果需要将优化后的模型进行保存，则必填。如果是 pytorch 模型格式，支持以下方式：torch.jit.ScriptModule 保存方式，即填写导出的模型文件，以 .pt/.pth 为后缀 | None   | ‘../lzz’、‘../lzz.pb’、‘../lzz.pbt                           |
 

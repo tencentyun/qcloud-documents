@@ -293,7 +293,7 @@ options 提供以下配置参数：
 | sdkOpts        | Object          | 示例 {"width": 140, "height": 140}<br>仅支持移动端原生 webview 调用时传入，为设置的验证码元素 loading 弹框大小。 |
 | ready          | Function        | 验证码加载完成的回调，回调参数为验证码实际的宽高：<br>{"sdkView": {<br>"width": number,<br>"height": number<br>}}<br>请勿使用此参数直接设定宽高。 |
 | needFeedBack   | Boolean         | 隐藏帮助按钮。 示例 { needFeedBack: false }                  |
-| userLanguage   | String          | 指定验证码提示文案的语言，优先级高于后台配置，暂时仅支持滑块拼图验证码。支持传入值同 navigator.language 用户首选语言，大小写不敏感。详情请参见 [userLaguage 配置参数](https://yehe.woa.com/document/doc-editor#userLanguage)。 |
+| userLanguage   | String          | 指定验证码提示文案的语言，优先级高于后台配置，暂时仅支持滑块拼图验证码。支持传入值同 navigator.language 用户首选语言，大小写不敏感。详情请参见 [userLaguage 配置参数](#userLanguage)。 |
 
 **userLaguage 配置参数**[](id:userLanguage)
 
