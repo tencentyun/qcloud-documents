@@ -124,7 +124,7 @@ int cos_gen_presigned_url_safe(const cos_request_options_t *options,
 | -------- | ------ | ---- |
 | code     | 错误码 | Int  |
 
-#### 安全预签名请求示例
+#### 请求示例1: 生成预签名URL，并在签名中携带host
 
 可在 options 参数中设置永久密钥或临时密钥来获取预签名 URL：
 
@@ -135,8 +135,9 @@ cos_request_options_t *options = NULL;
 cos_string_t bucket;
 cos_string_t object;
 cos_string_t presigned_url;
-cos_table_t *params;
-cos_table_t *headers;
+cos_table_t *params = NULL;
+cos_table_t *headers = NULL;
+int sign_host = 1;
 
 //create memory pool
 cos_pool_create(&p, NULL);
@@ -144,7 +145,46 @@ cos_pool_create(&p, NULL);
 //init request options
 options = cos_request_options_create(p);
 options->config = cos_config_create(options->pool);
-init_test_config(options->config, is_cname);
+cos_str_set(&options->config->endpoint, TEST_COS_ENDPOINT);
+cos_str_set(&options->config->access_key_id, TEST_ACCESS_KEY_ID);
+cos_str_set(&options->config->access_key_secret, TEST_ACCESS_KEY_SECRET);
+/* 可以通过设置 sts_token 来使用临时密钥，当使用临时密钥时，access_key_id 和 access_key_secret 均需要设置为对应临时密钥所配套的 SecretId 和 SecretKey */
+//cos_str_set(&options->config->sts_token, "MyTokenString");
+cos_str_set(&options->config->appid, TEST_APPID);
+options->config->is_cname = is_cname;
+options->ctl = cos_http_controller_create(options->pool, 0);
+cos_str_set(&bucket, TEST_BUCKET_NAME);
+cos_str_set(&object, TEST_OBJECT_NAME);
+
+// 强烈建议sign_host为1，这样强制把host头域加入签名列表，防止越权访问问题
+cos_gen_presigned_url_safe(options, &bucket, &object, 300, HTTP_GET, headers, params, sign_host, &presigned_url);
+printf("presigned_url_safe: %s\n", presigned_url.data);
+
+//destroy memory pool
+cos_pool_destroy(p); 
+```
+
+#### 请求示例2: 生成预签名URL，并在签名中携带request param和request header
+
+可在 options 参数中设置永久密钥或临时密钥来获取预签名 URL：
+
+```cpp
+cos_pool_t *p = NULL;
+int is_cname = 0;
+cos_request_options_t *options = NULL;
+cos_string_t bucket;
+cos_string_t object;
+cos_string_t presigned_url;
+cos_table_t *params = NULL;
+cos_table_t *headers = NULL;
+int sign_host = 1;
+
+//create memory pool
+cos_pool_create(&p, NULL);
+
+//init request options
+options = cos_request_options_create(p);
+options->config = cos_config_create(options->pool);
 cos_str_set(&options->config->endpoint, TEST_COS_ENDPOINT);
 cos_str_set(&options->config->access_key_id, TEST_ACCESS_KEY_ID);
 cos_str_set(&options->config->access_key_secret, TEST_ACCESS_KEY_SECRET);
@@ -157,8 +197,10 @@ cos_str_set(&bucket, TEST_BUCKET_NAME);
 cos_str_set(&object, TEST_OBJECT_NAME);
 
 // 添加您自己的params和headers
-params = cos_table_make(p, 0);
-headers = cos_table_make(p, 0);
+params = cos_table_make(options->pool, 0);
+//cos_table_add(params, "param1", "value");
+headers = cos_table_make(options->pool, 0);
+//cos_table_add(headers, "header1", "value");
 
 // 强烈建议sign_host为1，这样强制把host头域加入签名列表，防止越权访问问题
 cos_gen_presigned_url_safe(options, &bucket, &object, 300, HTTP_GET, headers, params, 1, &presigned_url);
