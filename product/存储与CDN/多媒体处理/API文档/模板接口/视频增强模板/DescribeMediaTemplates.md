@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 
 DescribeMediaTemplates用于搜索视频增强模板。
 
