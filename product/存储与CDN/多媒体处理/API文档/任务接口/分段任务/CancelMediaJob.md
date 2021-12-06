@@ -26,12 +26,12 @@ Authorization: <Auth String>
 
 
 ## 响应
-#### 响应头
+##### 响应头
 
 此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/1545/65183) 文档。
 
 
-### 响应体
+#### 响应体
 该请求无响应体。
 
 #### 错误码
