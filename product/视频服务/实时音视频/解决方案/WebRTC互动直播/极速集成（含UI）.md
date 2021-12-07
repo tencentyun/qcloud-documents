@@ -68,7 +68,7 @@
 </dx-tabs>
 
 [](id:step2)
-### 步骤2：项目准备
+### 步骤二：项目准备
 1. 在 [GitHub](https://github.com/tencentyun/TUILiveRoom/tree/main/Web) 下载 TUIPusher & TUIPlayer 代码。
 2. 为 TUIPusher & TUIPlayer 安装依赖。
 ```bash
@@ -97,7 +97,7 @@ npm run serve
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
 [](id:step3)
-### 步骤3：旁路直播
+### 步骤三：旁路直播
 
 TUIPusher & TUIPlayer 实现的快直播和标准直播依托于腾讯云的云直播服务，因此支持快直播和标准直播线路需要您开启旁路推流功能。
 
@@ -110,7 +110,7 @@ TUIPusher & TUIPlayer 实现的快直播和标准直播依托于腾讯云的云�
 
 [](id:step4)
 
-### 步骤4：生产环境应用
+### 步骤四：生产环境应用
 当您将 TUIPusher & TUIPlayer 用于生产应用时，在接入 TUIPusher & TUIPlayer 之外，您需要：
 - 创建用户管理系统，用于管理产品用户信息，包括但不限于用户 ID，用户名，用户头像等。
 - 创建房间管理系统，用于管理产品直播间信息，包括但不限于直播间 ID、直播间名称，直播间主播信息等。
