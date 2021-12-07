@@ -1,4 +1,4 @@
-﻿## Iceberg表管理
+## Iceberg表管理
 数据湖计算 DLC 服务支持创建和管理 Apache Iceberg 表。Apache Iceberg 是一种用于复杂分析的开放表格式，详细信息可以参考[ Apache Iceberg官网说明](https://iceberg.apache.org/)。
 数据湖计算 DLC 支持将普通数据表转换成 Iceberg 表。数据表对应的数据文件必须以 Parquet、ORC、Avro 的格式存储在 COS 桶路径中。
 ## 将 COS 中的数据文件创建为普通表
