@@ -116,7 +116,7 @@
 <tbody style="font-style:italic;"><tr>
 <td>硬件耳返</td>
 <td>在华为设备上开启/关闭硬件耳返功能</td>
-<td>采集本终端的音频信息并在本终端上进行实时播放（仅限连接有耳机时）</td>
+<td>采集华为设备终端的音频信息并在本终端上进行实时播放（仅限连接有耳机时）</td>
 <td>音频数据</td>
 <td><a href="https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/introduction_services-0000001053333356#section4862331393">参考文档</a></td>
 <td>基础直播 Smart SDK、互动直播 Live SDK、音视频通话 TRTC SDK、全功能版视立方 SDK</td>
