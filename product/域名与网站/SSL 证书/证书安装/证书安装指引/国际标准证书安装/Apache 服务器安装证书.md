@@ -40,13 +40,13 @@
 解压缩后，可获得相关类型的证书文件。 其中包含 Apache 文件夹和 CSR 文件：
  - **文件夹名称**：`cloud.tencent.com_apache`
  - **文件夹内容**：
-    - `1_root_bundle.crt` 证书文件
-    - `2_cloud.tencent.com.crt` 证书文件
-    - `3_cloud.tencent.com.key` 私钥文件
+    - `root_bundle.crt` 证书文件
+    - `cloud.tencent.com.crt` 证书文件
+    - `cloud.tencent.com.key` 私钥文件
   - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Apache 服务器。
-3. 将已获取到的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.crt` 证书文件以及 `3_cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Apache 服务器的 `/etc/httpd/ssl` 目录下。
+3. 将已获取到的 `root_bundle.crt` 证书文件、`cloud.tencent.com.crt` 证书文件以及 `cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Apache 服务器的 `/etc/httpd/ssl` 目录下。
 >? 若无 `/etc/httpd/ssl` 目录，可通过 `mkdir /etc/httpd/ssl` 命令行创建。
 4. 远程登录 Apache 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 >?首次安装的 Apache 服务器，`conf.d`、`conf`、`conf.modules.d` 等目录默认在 `/etc/httpd` 目录下。
@@ -63,11 +63,11 @@
 		#启用 SSL 功能
 		SSLEngine on 
 		#证书文件的路径
-		SSLCertificateFile /etc/httpd/ssl/2_cloud.tencent.com.crt 
+		SSLCertificateFile /etc/httpd/ssl/cloud.tencent.com.crt 
 		#私钥文件的路径
-		SSLCertificateKeyFile /etc/httpd/ssl/3_cloud.tencent.com.key 
+		SSLCertificateKeyFile /etc/httpd/ssl/cloud.tencent.com.key 
 		#证书链文件的路径
-		SSLCertificateChainFile /etc/httpd/ssl/1_root_bundle.crt 
+		SSLCertificateChainFile /etc/httpd/ssl/root_bundle.crt 
 </VirtualHost>
 ```
 8. 重新启动 Apache 服务器，即可使用 `https://cloud.tencent.com` 进行访问。
