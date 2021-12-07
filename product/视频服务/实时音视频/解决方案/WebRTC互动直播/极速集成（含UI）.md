@@ -23,20 +23,49 @@
 
 
 ## 接入方式
+### 注意事项
+- TUIPusher & TUIPlayer 基于腾讯云实时音视频和即时通讯服务进行开发。实时音视频 TRTC 应用与 即时通信 IM 应用的 SDKAppID 一致，才能复用账号与鉴权。
+- 即时通信 IM 应用针对文本消息，提供基础版本的 [安全打击](https://cloud.tencent.com/document/product/269/47170) 能力，如果希望使用自定义不雅词功能，可以单击 **升级** 或在 [购买页](https://buy.cloud.tencent.com/avc?position=1400399435) 购买 **安全打击-高级版** 服务。
+- 本地计算 UserSig 的方式仅用于本地开发调试，请勿直接发布到线上，一旦 SECRETKEY 泄露，攻击者就可以盗用您的腾讯云流量。正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
+
+### 步骤一：开通腾讯云服务
+<dx-tabs>
+::: 方式1：基于实时音视频
 [](id:step1)
-### 步骤1：账号准备
-TUIPusher & TUIPlayer 基于腾讯云实时音视频和即时通讯服务进行开发。
+#### 步骤1：创建实时音视频 TRTC 应用
+
 1. [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct%2F647%2F49327) 并开通 [实时音视频](https://console.cloud.tencent.com/trtc) 和 [即时通讯](https://console.cloud.tencent.com/im) 服务。
 2. 在 [实时音视频控制台](https://console.cloud.tencent.com/trtc) 单击 **应用管理 > 创建应用** 创建新应用。
 ![创建应用](https://main.qcloudimg.com/raw/34f87b8c0a817d8d3e49baac5b82a1fa.png)
-2. 在 **应用管理 > 应用信息** 中获取 SDKAppID 信息。
+
+#### 步骤2: 获取 TRTC 密钥信息
+
+1. 在 **应用管理 > 应用信息** 中获取 SDKAppID 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f7915fbbeb48518c2b25a413960f3432.png)
-3. 在 **应用管理 > 快速上手** 中获取应用的 secretKey 信息。
+2. 在 **应用管理 > 快速上手** 中获取应用的 secretKey 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/06d38bbdbaf43e1f2b444edae00019fa.png)
 
->!
+>?
 >- 首次创建实时音视频应用的腾讯云账号，可获赠一个10000分钟的音视频资源免费试用包。
 >- 创建实时音视频应用之后会自动创建一个 SDKAppID 相同的即时通信 IM 应用，可在 [即时通讯控制台](https://console.cloud.tencent.com/im) 配置该应用的套餐信息。
+
+:::
+::: 方式2：基于即时通信\sIM
+#### 步骤1：创建即时通信 IM 应用
+1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击 **创建新应用** 将弹出对话框。
+   ![](https://main.qcloudimg.com/raw/c8d1dc415801404e30e49ddd4e0c0c13.png)
+2. 输入您的应用名称，单击 **确认** 即可完成创建。
+   ![](https://main.qcloudimg.com/raw/496cdc614f7a9d904cb462bd4d1e7120.png)
+3. 您可在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 总览页面查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
+
+#### 步骤2：获取 IM 密钥并开通实时音视频服务
+1. 在 [即时通讯 IM 控制台](https://console.cloud.tencent.com/im) 总览页单击您创建完成的即时通信 IM 应用，随即跳转至该应用的基础配置页。在 **基本信息** 区域，单击 **显示密钥**，复制并保存密钥信息。
+![](https://main.qcloudimg.com/raw/030440f94a14cd031476ce815ed8e2bc.png)
+>!请妥善保管密钥信息，谨防泄露。
+2. 在该应用的基础配置页，开通腾讯云实时音视频服务。
+![](https://main.qcloudimg.com/raw/1c2ce5008dad434d9206aabf0c07fd04.png)
+:::
+</dx-tabs>
 
 [](id:step2)
 ### 步骤2：项目准备
@@ -62,11 +91,12 @@ npm run serve
 5. 可打开 `http://localhost:8080` 和 `http://localhost:8081` 体验 TUIPusher 和 TUIPlayer 功能。
 6. 可更改 `TUIPusher/src/config/basic-info-config.js` 及 `TUIPlayer/src/config/basic-info-config.js` 配置文件中的房间，主播及观众等信息，**注意保持 TUIPusher 和 TUIPlayer 的房间信息，主播信息一致**。
 
->! 完成以上配置，您可以使用 TUIPusher & TUIPlayer 进行超低延时直播，如您需要支持快直播和标准直播，请继续阅读 [步骤3：旁路直播](#step3)。
->
+>! 
+>- 完成以上配置，您可以使用 TUIPusher & TUIPlayer 进行超低延时直播，如您需要支持快直播和标准直播，请继续阅读 [步骤3：旁路直播](#step3)。
+>- 本地计算 UserSig 的方式仅用于本地开发调试，请勿直接发布到线上，一旦您的 `SECRETKEY` 泄露，攻击者就可以盗用您的腾讯云流量。
+>- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
 [](id:step3)
-
 ### 步骤3：旁路直播
 
 TUIPusher & TUIPlayer 实现的快直播和标准直播依托于腾讯云的云直播服务，因此支持快直播和标准直播线路需要您开启旁路推流功能。
@@ -86,7 +116,7 @@ TUIPusher & TUIPlayer 实现的快直播和标准直播依托于腾讯云的云�
 - 创建房间管理系统，用于管理产品直播间信息，包括但不限于直播间 ID、直播间名称，直播间主播信息等。
 - 服务端生成  UserSig。
 > !
-> - 本文使用生成 UserSig 的方式，是在客户端根据您填入的 sdkAppId 及 secretKey 生成 userSig，该方式的 secretKey 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 TUIPusher & TUIPlayer 进行功能调试**。
+> - 本文生成 UserSig 的方式，是在客户端根据您填入的 sdkAppId 及 secretKey 生成 userSig，该方式的 secretKey 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 TUIPusher & TUIPlayer 进行功能调试**。
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的应用向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 - 参考 `TUIPusher/src/pusher.vue` 及 `TUIPlayer/src/player.vue` 文件，将用户信息、直播间信息、SDKAppId 及 UserSig 等账号信息提交到 vuex 的 store 进行全局存储，您就可以跑通推拉流两个客户端的所有功能。详细业务流程参见下图：
 ![](https://qcloudimg.tencent-cloud.cn/raw/d2cafd2e0f029908859f7498e9d92297.png)
