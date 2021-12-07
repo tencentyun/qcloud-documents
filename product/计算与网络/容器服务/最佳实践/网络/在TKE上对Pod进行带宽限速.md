@@ -132,5 +132,3 @@ iperf -c <服务 IP> -p <服务端口> -i 1
  [  3]  9.0-10.0 sec  1.12 MBytes  9.38 Mbits/sec
  [  3]  0.0-10.3 sec   268 MBytes   218 Mbits/se
 ```
-
-   
