@@ -37,7 +37,7 @@
 
 ### 证书安装
 1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
-解压缩后，可获得相关类型的证书文件。 其中包含 Apache 文件夹和 CSR 文件：
+解压缩后，可获得相关类型的证书文件。 其中包含 `cloud.tencent.com_apache` 文件夹：
  - **文件夹名称**：`cloud.tencent.com_apache`
  - **文件夹内容**：
     - `root_bundle.crt` 证书文件
