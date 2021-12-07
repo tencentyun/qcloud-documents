@@ -45,9 +45,9 @@
  - **文件夹名称**：`cloud.tencent.com_nginx`
  - **文件夹内容**：
      - `cloud.tencent.com_bundle.crt` 证书文件
+     - `cloud.tencent.com_bundle.pem` 证书文件
      - `cloud.tencent.com.key` 私钥文件
-     - `cloud.tencent.com_bundle.pem` 
-  - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
+     - `cloud.tencent.com.csr` CSR 文件
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Nginx 服务器。
 3. 将已获取到的 `cloud.tencent.com_bundle.crt` 证书文件和 `cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的 `/usr/local/nginx/conf` 目录（此处为 Nginx 默认安装目录，请根据实际情况操作）下。
