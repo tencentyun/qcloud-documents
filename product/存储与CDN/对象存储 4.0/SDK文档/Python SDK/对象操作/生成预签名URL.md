@@ -88,7 +88,7 @@ url = client.get_presigned_url(
     Method='PUT',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    SignHost=False, # 请求域名不算入签名
+    SignHost=False, # 请求域名不算入签名，允许使用者修改请求域名，有一定安全风险
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(url)
@@ -156,7 +156,7 @@ url = client.get_presigned_url(
     Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    SignHost=False, # 请求域名不算入签名
+    SignHost=False, # 请求域名不算入签名，允许使用者修改请求域名，有一定安全风险
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(url)
@@ -200,7 +200,7 @@ url = client.get_presigned_url(
         'x-cos-security-token': 'string' # 使用临时密钥需要填入Token到请求参数
     },
     Expired=120,  # 120秒后过期，过期时间请根据自身场景定义
-    SignHost=False # 请求域名不算入签名，签名后使用者需要修改请求域名时使用
+    SignHost=False # 请求域名不算入签名，签名后使用者需要修改请求域名时使用，有一定安全风险
 )
 print(url)
 
@@ -224,7 +224,8 @@ response = client.get_presigned_url(
     Params={
         'param1': 'string',
         'param2': 'string'
-    }
+    },
+    SignHost=True|False
 )
 ```
 
@@ -315,7 +316,7 @@ url = client.get_presigned_download_url(
     Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    SignHost=False, # 请求域名不算入签名
+    SignHost=False, # 请求域名不算入签名，允许使用者修改请求域名，有一定安全风险
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(url)
@@ -348,7 +349,8 @@ response = client.get_presigned_download_url(
     Params={
         'param1': 'string',
         'param2': 'string'
-    }
+    },
+    SignHost=True|False
 )
 ```
 
@@ -447,7 +449,7 @@ response = client.get_auth(
     Method='PUT',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    SignHost=False, # 请求域名不算入签名
+    SignHost=False, # 请求域名不算入签名，允许使用者修改请求域名，有一定安全风险
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(response)
@@ -511,7 +513,7 @@ response = client.get_auth(
     Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    SignHost=False, # 请求域名不算入签名
+    SignHost=False, # 请求域名不算入签名，允许使用者修改请求域名，有一定安全风险
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(response)
@@ -542,7 +544,8 @@ response = client.get_auth(
     Params={
         'param1': 'string',
         'param2': 'string'
-    }
+    },
+    SignHost=True|False
 )
 ```
 
