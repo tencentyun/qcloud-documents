@@ -42,14 +42,15 @@
 ### 证书安装
 1.  已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
 解压缩后，可获得相关类型的证书文件。其中包含 Nginx 文件夹和 CSR 文件：
- - **文件夹名称**：Nginx
+ - **文件夹名称**：`cloud.tencent.com_nginx`
  - **文件夹内容**：
-     - `1_cloud.tencent.com_bundle.crt` 证书文件
-     - `2_cloud.tencent.com.key` 私钥文件
+     - `cloud.tencent.com_bundle.crt` 证书文件
+     - `cloud.tencent.com.key` 私钥文件
+     - `cloud.tencent.com_bundle.pem` 
   - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Nginx 服务器。
-3. 将已获取到的 `1_cloud.tencent.com_bundle.crt` 证书文件和 `2_cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的 `/usr/local/nginx/conf` 目录（此处为 Nginx 默认安装目录，请根据实际情况操作）下。
+3. 将已获取到的 `cloud.tencent.com_bundle.crt` 证书文件和 `cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的 `/usr/local/nginx/conf` 目录（此处为 Nginx 默认安装目录，请根据实际情况操作）下。
 4. 远程登录 Nginx 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 5. 编辑 Nginx 根目录下的 `conf/nginx.conf` 文件。修改内容如下：
 >?
@@ -63,9 +64,9 @@ server {
 	    #填写绑定证书的域名
         server_name cloud.tencent.com; 
 		#证书文件名称
-        ssl_certificate 1_cloud.tencent.com_bundle.crt; 
+        ssl_certificate cloud.tencent.com_bundle.crt; 
 		#私钥文件名称
-        ssl_certificate_key 2_cloud.tencent.com.key; 
+        ssl_certificate_key cloud.tencent.com.key; 
         ssl_session_timeout 5m;
 	    #请按照以下协议配置
         ssl_protocols TLSv1 TLSv1.1 TLSv1.2; 
@@ -106,9 +107,9 @@ server {
 	#填写绑定证书的域名
     server_name cloud.tencent.com; 
 	#证书文件名称
-	ssl_certificate  1_cloud.tencent.com_bundle.crt; 
+	ssl_certificate  cloud.tencent.com_bundle.crt; 
 	#私钥文件名称
-    ssl_certificate_key 2_cloud.tencent.com.key; 
+    ssl_certificate_key cloud.tencent.com.key; 
     ssl_session_timeout 5m;
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
