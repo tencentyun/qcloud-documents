@@ -209,11 +209,13 @@ mkdir -p /mnt/cosfs
 cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr -oallow_other
 ```
 
->! V1.0.5及较早版本的 COSFS，挂载命令为 cosfs &lt;APPID>:&lt;BucketName> &lt;MountPoint> -ourl=&lt;CosDomainName> -oallow_other。
+>!
+>- COSFS 工具为提升性能，默认使用系统盘存放上传、下载的临时缓存，文件关闭后会释放空间。在并发打开的文件数较多或者读写大文件的时候，COSFS 工具会尽量多的使用硬盘来提高性能，默认只保留 100MB 硬盘可用空间给其他程序使用，可以通过选项 oensure_diskfree=[size] 设置 COSFS 工具保留可用硬盘空间的大小，单位为 MB。例如`-oensure_diskfree=1024`，COSFS 工具会保留1024MB剩余空间。
+>- V1.0.5及较早版本的 COSFS，挂载命令为 cosfs &lt;APPID>:&lt;BucketName> &lt;MountPoint> -ourl=&lt;CosDomainName> -oallow_other。
 >
 
 
-#### 3. 卸载存储桶
+### 3. 卸载存储桶
 
 卸载存储桶示例：
 
@@ -232,7 +234,7 @@ cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud
 如果要允许其他用户访问挂载文件夹，可以在运行 COSFS 的时候指定该参数。
 
 #### -odel_cache
-默认情况下， COSFS 为了优化性能，在 umount 后，不会清除本地的缓存数据。 如果需要在 COSFS 退出时，自动清除缓存，可以在挂载时加入该选项。
+默认情况下，COSFS 工具为了优化性能，在 umount 后，不会清除本地的缓存数据。 如果需要在 COSFS 退出时，自动清除缓存，可以在挂载时加入该选项。
 
 ####  -onoxattr
 禁用 getattr/setxattr 功能，在1.0.9之前版本的 COSFS 不支持设置和获取扩展属性，如果在挂载时使用了 use_xattr 选项，可能会导致 mv 文件到 Bucket 失败。
@@ -251,6 +253,10 @@ cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud
 #### -ouid=[uid]
 该选项允许用户 id 为 [uid] 的用户不受挂载目录中文件权限位的限制，可以访问挂载目录中的所有文件。
 获取用户 uid 可以使用 id 命令，格式` id -u username`。例如执行`id -u user_00`，可获取到用户 user_00 的 uid。
+
+#### -oensure_diskfree=[size]
+
+COSFS 工具为提升性能，默认使用系统盘存放上传、下载的临时缓存，文件关闭后会释放空间。在并发打开的文件数较多或者读写大文件的时候，COSFS 工具会尽量多的使用硬盘来提高性能，默认只保留 100MB 硬盘可用空间给其他程序使用，可以通过选项 oensure_diskfree=[size] 设置 COSFS 工具保留可用硬盘空间的大小，单位为 MB。例如`-oensure_diskfree=1024`，COSFS 工具会保留1024MB剩余空间。
 
 
 ## 常见问题

@@ -17,15 +17,22 @@
 ```
 sysctl  -a | grep pid_max
 ```
-`pid_max` 默认值为32768，返回结果如下图所示：
+根据返回结果，进行对应操作：
+ - 返回结果如下图所示，`pid_max` 默认值为32768，请执行下一步。
 ![](https://main.qcloudimg.com/raw/816a0bd183244aadf14e04c6ed200d68.png)
+ - 返回报错信息 “fork：Cannot allocate memory”，则需执行以下命令，临时调大 `pid_max`。
+```
+echo 42768 > /proc/sys/kernel/pid_max
+```
+您可再次执行命令，查看系统 `pid_max` 值。
 3. 执行以下命令，查看系统内部总进程数。
 ```
 pstree -p | wc -l
 ```
 若总进程数达到了 `pid_max`，则系统在创建新进程时会报 “fork Cannot allocate memory” 错。
->?您可执行 `ps -efL` 命令，定位启动进程较多的程序。
->
+<dx-alert infotype="explain" title="">
+您可执行 `ps -efL` 命令，定位启动进程较多的程序。
+</dx-alert>
 4. 将 `/etc/sysctl.conf` 配置文件中的 `kernel.pid_max` 值修改为65535，以增加进程数。修改完成后如下图所示：
 ![](https://main.qcloudimg.com/raw/a4bbf49b3236b9f50988e914298adb31.png)
 5. 执行以下命令，使配置立即生效。

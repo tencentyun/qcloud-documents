@@ -57,7 +57,7 @@ https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/access_token?app_id=xxx&s
 
 
 >!
-1. code 不为0则表示获取失败，可以根据 code 和 msg 字段进行定位和调试。code 详情请参见 [SaaS 服务错误码](https://cloud.tencent.com/document/product/1007/47912)。
+1. code 不为0则表示获取失败，可以根据 code 和 msg 字段进行定位和调试，code 详情请参见 [SaaS 服务错误码](https://cloud.tencent.com/document/product/1007/47912)。
 2. expire_in 为 access_token 的最大生存时间，单位秒，合作伙伴在 判定有效期时以此为准。
 3. expire_time 为 access_token 失效的绝对时间，由于各服务器时间差异，不能使用作为有效期的判定依据，只展示使用。
 4. 修改 secret 之后，该 app_id 生成的 access_token 和 ticket 都失效。

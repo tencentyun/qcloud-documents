@@ -1,5 +1,5 @@
 
-本文主要介绍如何快速地将腾讯云视立方·移动直播 LiteAVSDK（iOS）集成到您的项目中，按照如下步骤进行配置，就可以完成 SDK 的集成工作。下面以全功能的 [移动直播专业版 SDK](https://cloud.tencent.com/document/product/454/7873#Professional) 为例：
+本文主要介绍如何快速地将腾讯云视立方·移动直播 LiteAVSDK（iOS）集成到您的项目中，按照如下步骤进行配置，就可以完成 SDK 的集成工作。下面以全功能的 [全功能版 SDK](https://cloud.tencent.com/document/product/454/7873) 为例：
 
 ## 开发环境要求
 - Xcode 9.0+。
@@ -124,4 +124,4 @@ OpenAL.framework
 ![](https://main.qcloudimg.com/raw/ee8a9e445c6af84b5d1cec3869ed7a3a.jpg)
 
 ### 2. 项目里面同时集成了移动直播/实时音视频/播放器等 LiteAVSDK 系列的多个 SDK 报符号冲突问题怎么解决？
-如果集成了2个或以上产品（直播、播放器、TRTC、短视频）的 LiteAVSDK 版本，编译时会出现库冲突问题，因为有些 SDK 底层库有相同符号文件，这里建议只集成一个专业版或企业版可以解决，直播、播放器、TRTC、短视频这些都包含在一个 SDK 里面。具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/647/32689)。
+如果集成了2个或以上产品（直播、播放器、TRTC、短视频）的 LiteAVSDK 版本，编译时会出现库冲突问题，因为有些 SDK 底层库有相同符号文件，这里建议只集成一个专业版或企业版可以解决，直播、播放器、TRTC、短视频这些都包含在一个 SDK 里面。具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/454/7873)。

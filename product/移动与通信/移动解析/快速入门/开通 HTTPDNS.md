@@ -1,7 +1,6 @@
 ## 概述
 本文档将指导您如何开通移动解析 HTTPDNS。
->!目前仅支持企业认证的账号进行开通。
->
+
 ## 操作步骤
 ### 开通移动解析 HTTPDNS 服务
 1. 登录 [移动解析 HTTPDNS 管理控制台](https://console.cloud.tencent.com/httpdns)，进入 “概览” 管理页面。

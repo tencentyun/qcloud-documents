@@ -70,6 +70,31 @@ authParam.userSig = USER_SIG;       // 填写用户签名
 boardCtrl->Init(authParam, ROOM_ID);
 ```
 
+#### 监听白板关键事件
+
+白板事件回调接口 `TEduBoardCallback`的`onTEBError`和`onTEBWarning` 回调方法内监听白板事件 
+
+- [onTEBError 错误详情](https://cloud.tencent.com/document/product/1137/39985#onteberror)
+- [onTEBWarning 警告详情](https://cloud.tencent.com/document/product/1137/39985#ontebwarning)
+
+```cpp
+/**
+* 白板错误回调
+* 
+* @param code 错误码，参见TEduBoardErrorCode定义
+* @param msg  错误信息，编码格式为 UTF8
+*/
+virtual void onTEBError(TEduBoardErrorCode code,const char* msg)		
+
+/**
+* 白板警告回调
+*
+* @param code 警告码，参见TEduBoardWarningCode定义
+* @param msg  警告信息，编码格式为 UTF8
+*/
+virtual void onTEBWarning(TEduBoardWarningCode code,const char* msg)	
+```
+
 #### 白板窗口获取及显示
 
 在 onTEBInit 回调方法内，使用如下代码获取并显示白板窗口：
@@ -124,4 +149,3 @@ DestroyTEduBoardController(&boardCtrl);
 #### 步骤4：白板数据同步
 
 白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
-

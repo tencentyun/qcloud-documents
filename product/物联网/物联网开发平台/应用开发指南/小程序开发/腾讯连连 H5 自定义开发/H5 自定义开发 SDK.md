@@ -394,7 +394,8 @@ sdk.checkFirmwareUpgrade({
 </tbody></table>
 - **返回值**
   返回一个 Promise，输出参数请参见 [查询设备固件是否升级](https://cloud.tencent.com/document/product/1081/47129)。
-	
+
+
 <span id="sdk-go-firmware-upgrade-page"></span>
 ### 进行固件升级
 跳转到小程序的固件升级页面，进行固件升级。
@@ -1436,10 +1437,10 @@ sdk.off(type: string, listener: (...args) => void) => void
 ### 蓝牙适配器
 
 #### 添加设备适配器
-添加一个设备适配器。默认无任何设备适配器，使用蓝牙模块时需要根据具体设备情况创建一个设备适配器，并调用本接口将其构造函数添加到蓝牙适配器中。
+添加一个设备适配器。使用蓝牙模块时需要根据具体设备情况创建一个设备适配器，并调用本接口将其构造函数添加到蓝牙适配器中。H5 SDK 默认添加了一个支持 LLSync 蓝牙协议的设备适配器。
  - **接口定义**
 ```typescript
-sdk.bluetoothAdapter.addAdapter(deviceAdapter: DeviceAdapterConstructor) => void
+sdk.blueToothAdapter.addAdapter(deviceAdapter: DeviceAdapterConstructor) => void
 ```
  - **参数说明**
 <table>
@@ -1487,7 +1488,7 @@ class DemoDeviceAdapter extends DeviceAdapter {
 		};
 	}
 }
-sdk.bluetoothAdapter.addAdapter(DemoDeviceAdapter);
+sdk.blueToothAdapter.addAdapter(DemoDeviceAdapter);
 ```
 
 #### 初始化蓝牙模块
@@ -1638,6 +1639,7 @@ sdk.blueToothAdapter.searchDevice({
 
 #### 连接蓝牙设备
 
+<span id="bluetoothAdapter-connect-device"></span>
 连接指定蓝牙设备。
 
 - **接口定义**
@@ -1676,7 +1678,7 @@ blueToothAdapter.connectDevice(deviceInfo: DeviceInfo, options?: { autoNotify?: 
 
 - **接口定义**
 ```typescript
-sdk.blueToothAdapter.getDeviceAdapter(deviceId: string) => DeviceAdapter
+sdk.blueToothAdapter.getDeviceAdapter({explorerDeviceId: string}) => DeviceAdapter
 ```
 - **参数说明**
 <table>
@@ -1689,14 +1691,70 @@ sdk.blueToothAdapter.getDeviceAdapter(deviceId: string) => DeviceAdapter
 </tr>
 </thead>
 <tbody><tr>
-<td>deviceId</td>
-<td>要获取设备适配器实例的 deviceId</td>
+<td>explorerDeviceId</td>
+<td>设备适配器实例的 explorerDeviceId,可以通过 `sdk.deviceId` 获得</td>
 <td>string</td>
 <td>是</td>
 </tr>
 </tbody></table>
 - **返回值**
-返回对应 `deviceId` 的设备适配器实例。
+返回与传入 `explorerDeviceId` 相匹配的设备适配器实例，如果找不到，则返回  `undefined`。
+
+#### 上报设备信息
+
+蓝牙设备不能通过mqtt直接上报设备的mac地址等信息，所以需要H5端进行上报，对应的是设备详情里面的设备信息
+![](https://qcloudimg.tencent-cloud.cn/raw/9360c6faefc368bdba49e0f3f1f974c2.png)
+
+>! 图片里面厂家名称和产品型号是在设备量产时在控制台填写的，mac 地址，固件版本等由 H5 端进行上报
+
+- **接口定义**
+
+```typescript
+sdk.blueToothAdapter.reportDeviceInfo({ productId: string, deviceName: string, deviceInfo: any }) => Promise;
+```
+
+- **参数说明**
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>productId</td>
+<td>产品 ID</td>
+<td>string</td>
+</tr>
+<tr>
+<td>deviceName</td>
+<td>设备名称</td>
+<td>string</td>
+</tr>
+<tr>
+<td>deviceInfo</td>
+<td>设备信息</td>
+<td>any,详情见下面示例</td>
+</tr>
+</tbody></table>
+
+```typescript
+deviceInfo: {
+    "module_hardinfo": "模组具体硬件型号 N10",
+    "module_softinfo": "模组软件版本",
+    "fw_ver": "mcu 固件版本",
+    "imei": "设备 imei 号，可选上报",
+    "mac": "设备 mac 地址，可选上报",
+    "device_label": {
+    "append_info": "设备商自定义的产品附加信息"
+    }
+}
+```
+
+
+
 
 #### 监听事件
 监听蓝牙适配器事件。
@@ -1823,7 +1881,7 @@ DeviceAdapter.handleBLEMessage: (hexString, { serviceId, characteristicId }) => 
 </tr>
 <tr>
 <td>isConnected</td>
-<td>只读，设备当前是否连接状态</td>
+<td>只读，当前是否已连接设备</td>
 <td>boolean</td>
 </tr>
 <tr>
@@ -1833,17 +1891,12 @@ DeviceAdapter.handleBLEMessage: (hexString, { serviceId, characteristicId }) => 
 </tr>
 <tr>
 <td>serviceId</td>
-<td>只读，设备的主服务 ID，实际上既是挂在构造函数上的静态属性 DeviceAdapter.serviceId</td>
+<td>只读，设备的主服务 ID，与构造函数上的静态属性 DeviceAdapter.serviceId 一致</td>
 <td>string</td>
 </tr>
 <tr>
 <td>originName</td>
 <td>只读，设备的原始名称，即小程序接口搜索出来时的 name 字段</td>
-<td>string</td>
-</tr>
-<tr>
-<td>explorerDeviceId</td>
-<td>只读，设备的 explorerDeviceId</td>
 <td>string</td>
 </tr>
 </tbody></table>
@@ -1898,6 +1951,35 @@ deviceAdapter.characteristicsMap[serviceId] = {
 	readIds: string[]
 }
 ```
+
+#### 协商设置蓝牙最大传输单元
+
+本接口仅支持在安卓系统下调用，iOS 因系统限制不支持。
+
+- **接口定义**
+```typescript
+deviceAdapter.setBLEMTU({
+	mtu: number
+}) => Promise
+```
+- **参数说明**
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+<th>必填</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mtu</td>
+<td>最大传输单元。设置范围为 (22,512) 区间内，单位为 bytes</td>
+<td>number</td>
+<td>是</td>
+</tr>
+</tbody></table>
 
 #### 读取指定特征值的二进制数据
 
@@ -2015,7 +2097,7 @@ deviceAdapter.write(hexString: string, options?: {
 <td>可选，需要写入的特征值 ID，默认会取主服务下的第一个 writeId</td>
 <td>string</td>
 <td>否</td>
-</tr>
+</tr>监听
 <tr>
 <td>options.serviceId</td>
 <td>可选，需要写入的服务 ID，默认会取主服务 ID</td>
@@ -2026,7 +2108,7 @@ deviceAdapter.write(hexString: string, options?: {
 
 #### 监听事件
 
-监听设备适配器事件。
+可以使用 `deviceAdapter.on` 来 [监听设备适配器事件](#jianting)。
 
 - **接口定义**
 ```typescript
@@ -2087,6 +2169,7 @@ deviceAdapter.off(type: string, listener: (...args) => void) => void
 </tr>
 </tbody></table>
 
+[](id:jianting)
 #### 设备适配器事件
 - **connect 事件**：设备连接后触发。
 - **disconnect 事件**：设备断开后触发。
@@ -2131,6 +2214,163 @@ deviceAdapter.off(type: string, listener: (...args) => void) => void
 </tr>
 </tbody></table>
 
+### 标准蓝牙协议
+
+LLSync 标准蓝牙协议设备的绑定流程在小程序中进行，开发者只需在自定义 H5 面板中关注设备的连接、控制操作与事件监听。自定义 H5 面板已默认添加 LLSync 标准蓝牙协议的设备适配器（StandardDeviceAdapter），支持通过 LLSync 标准蓝牙协议与设备通信。H5 面板 Demo 中提供了 [标准蓝牙协议 demo](https://github.com/tencentyun/iotexplorer-h5-panel-demo/tree/master/src/StandardBleDemo) 供开发者参考。
+
+#### 搜索并连接设备
+
+与标准蓝牙协议设备建立连接的过程分为三个步骤：搜索设备、连接设备、连接鉴权。示例代码如下：
+
+```javascript
+import { StandardDeviceAdapter } from 'qcloud-iotexplorer-h5-panel-sdk';
+
+// 初始化蓝牙适配器
+await sdk.blueToothAdapter.init();
+
+// 搜索设备
+const deviceInfo = await sdk.blueToothAdapter.searchDevice({
+	deviceName: sdk.deviceName,
+	serviceId: StandardDeviceAdapter.serviceId,
+	productId: sdk.productId,
+	disableCache: true,
+});
+
+if (!deviceInfo) {
+	throw new Error('未搜索到设备');
+}
+
+// 连接设备
+const deviceAdapter = await sdk.blueToothAdapter.connectDevice({
+	...device,
+	productId: sdk.productId,
+});
+
+// 连接鉴权
+if (!deviceAdapter.authorized) {
+	await deviceAdapter.authenticateConnection({
+		deviceName: sdk.deviceName,
+	});
+}
+```
+
+#### 设备通信
+
+通过上述流程与设备建立连接后，H5 面板即可控制设备，接收设备的属性、事件上报。
+- 控制设备
+接口定义请参见 [控制设备属性](#.E6.8E.A7.E5.88.B6.E8.AE.BE.E5.A4.87.E5.B1.9E.E6.80.A7)，示例代码如下：
+```javascript
+sdk.controlDeviceData({
+	// 要控制的设备属性
+	power_switch: 1
+});
+```
+- 监听设备事件
+接口定义请参见 [事件监听](#.E4.BA.8B.E4.BB.B6.E7.9B.91.E5.90.AC)，示例代码如下：
+```javascript
+// 监听设备属性上报
+sdk.on('wsReport', ({ deviceId, deviceData }) => {
+	console.log('device', deviceId, 'report_property', deviceData);
+});
+
+// 监听设备事件上报
+sdk.on('wsEventReport', ({ deviceId, Payload }) => {
+	console.log('device', deviceId, 'report_event', Payload);
+});
+```
+
+#### 设备适配器属性
+| 属性名   | 属性描述             | 类型        |
+| -------- | -------------------- | --------- |
+| explorerDeviceId  | 只读，设备在物联网开发平台的 DeviceId                        | string  |
+| isConnected       | 只读，当前是否已连接设备                                   | boolean |
+| deviceId          | 只读，小程序蓝牙接口提供的 deviceId                          | string  |
+| serviceId         | 只读，设备的主服务 ID，与构造函数上的静态属性 DeviceAdapter.serviceId 一致 | string  |
+| originName        | 只读，设备的原始名称，即小程序接口搜索出来时的 name 字段     | string |
+| bleVersion | 只读，LLSync 协议版本号 | number |
+| mtu | 只读，设备要求设置的最大传输单元 (MTU) 大小 | number |
+| otaVersion | 只读，设备固件版本号 | string |
+| extendInfo.macStr | 只读，设备的 mac 地址 | string |
+| authorized | 只读，是否与设备完成鉴权 | boolean |
+
+
+
+### BLE + WIFI 双路通信
+
+针对 Wi-Fi + BLE Combo 模组，提供设备端 SDK 和 H5 SDK，支持设备 Wi- Fi 离线状态下，小程序通过 LLSync 标准蓝牙协议与设备通信，为用户提供 Wi-Fi 断网下的更佳体验。设备端 SDK 请参考 [开发指引](https://github.com/tencentyun/qcloud-iot-explorer-BLE-sdk-embedded/blob/master/docs/LLSync%20SDK%E5%8F%8C%E8%B7%AF%E9%80%9A%E4%BF%A1%E5%8A%9F%E8%83%BD%E6%8E%A5%E5%85%A5%E6%8C%87%E5%BC%95.md)。
+
+对于自定义 H5 面板，配网流程无需开发者关注，开发者需要在面板中关注： 
+1. 监听设备在线状态，wifi连接是否正常; 
+2. 当设备离线时启用蓝牙进行通信。下面分开说明。
+
+#### 监听设备在线状态
+
+我们可以通过监听 [WebSocket 事件](#websocket-.E4.BA.8B.E4.BB.B6) 中的 `wsStatusChange` 事件来感知设备的在线离线状态。
+
+```js
+sdk.on('wsStatusChange', ({deviceId, deviceStatus}) => {
+	if (deviceStatus === 0) {
+		// 设备已离线，开始启用蓝牙连接进行通信，见第二步
+	}
+})
+```
+
+#### 启用蓝牙通信
+
+我们提供了 [双路通信 demo](https://github.com/tencentyun/iotexplorer-h5-panel-demo/tree/master/src/DualmodePanel) 供参考。
+
+##### STEP1: 添加 BleComboDualModeDeviceAdapter4H5
+
+BleComboDualModeDeviceAdapter4H5 是一个设备适配器实例，如果您还不了解设备适配器，请阅读 [设备适配器部分](https://cloud.tencent.com/document/product/1081/49029#.E8.AE.BE.E5.A4.87.E9.80.82.E9.85.8D.E5.99.A8)。
+
+```js
+import { BleComboDualModeDeviceAdapter4H5 } from 'qcloud-iotexplorer-appdev-plugin-wificonf-blecombo/lib/protocols/BleComboDualMode';
+
+const sdk = window.h5PanelSdk;
+BleComboDualModeDeviceAdapter4H5.injectOptions({ appDevSdk: sdk.appDevSdk });
+
+
+sdk.blueToothAdapter.addAdapter(BleComboDualModeDeviceAdapter4H5, true);
+```
+
+##### STEP2: 搜索设备
+
+searchDevice的参数详见 [蓝牙适配器](#.E8.93.9D.E7.89.99.E9.80.82.E9.85.8D.E5.99.A8) 搜索单个蓝牙设备的参数说明部分。
+
+```js
+await blueToothAdapter.init();
+console.log('开始搜索设备', sdk.deviceName);
+const deviceInfo = await blueToothAdapter.searchDevice({
+	deviceName: sdk.deviceName,
+	serviceId: BleComboDualModeDeviceAdapter4H5.serviceId,
+	productId: sdk.productId,
+	disableCache: true,
+});
+```
+
+##### STEP3: 连接设备
+
+使用上一步获取到的 deviceInfo, 我们可以调用 connectDevice 连接设备以获得 deviceAdapter，传入参数定义详见 [连接蓝牙设备](#bluetoothAdapter-connect-device) 部分。
+
+```js
+const deviceAdapter = await blueToothAdapter.connectDevice({
+	...device,
+	productId: sdk.productId,
+});
+console.log('deviceAdapter:', deviceAdapter);
+// authorized之后，才能向设备发送控制数据
+if (!deviceAdapter.authorized) {
+	await deviceAdapter.authenticateConnection({
+		deviceName: sdk.deviceName,
+	});
+}
+```
+
+当小程序和设备间的蓝牙连接成功后，面板就可以对设备进行控制了，sdk会将控制数据通过蓝牙发送到设备。比如进行开关的控制：
+
+```js
+sdk.controlDeviceData({ power_switch: 1 });
+```
 
 ## ASR 语音识别
 
@@ -2223,6 +2463,22 @@ sdk.getAsrDownloadUrl({...}) => Promise<{...}>
 | 参数名                 | 参数描述            | 类型     |
 |:--------------------|:----------------|:-------|
 | ResourceURL       | cos 访问链接            | string |
+
+
+## TRTC音视频
+腾讯云物联网开发平台实时音视频服务，调用该接口从 h5 跳转至腾讯连连小程序 TRTC 页面。
+
+### 接口定义
+```
+sdk.TRTCManager.goTRTCPage()
+```
+### 参数说明
+
+| 参数名   | 参数描述                    | 类型   | 必填 |
+| :------- | :-------------------------- | :----- | :--- |
+| callType | 呼叫类型：`video`  \| `audio` | string | 是 |
+
+
 
 ## 音乐服务
 
@@ -2717,6 +2973,73 @@ tmeSdk.getPlaylistDetail(action: string, params, deviceId?: string) => Promise<T
 **返回值**
 
 返回一个`Promise<TMEResponse>`，data为歌单列表
+
+
+
+### 背景音乐
+
+#### 获取实例
+
+```js
+const bam = await h5PanelSdk.wxapi.getBackgroundAudioManager();
+```
+
+#### 获取属性
+
+获取BackgroundAudioManager实例的属性
+
+**接口定义**
+
+```js
+bam.getBackgroundAudioAttribute(keys: Array<string>) => Promise<any>
+```
+
+**参数说明**
+
+| 参数名 | 描述       | 类型            | 必填 |
+| ------ | ---------- | --------------- | ---- |
+| keys   | 属性名数组 | `Array<string>` | 是   |
+
+#### 设置属性
+
+设置BackgroundAudioManager实例的属性
+
+**接口定义**
+
+```js
+bam.setBackgroundAudioAttribute(parmas: Object) => Promise<any>
+```
+
+**参数说明**
+
+| 参数名 | 描述                         | 类型     | 必填 |
+| ------ | ---------------------------- | -------- | ---- |
+| params | key为属性名称，value为属性值 | `Object` | 是   |
+
+#### 其他方法
+
+所有 api 使用方法与微信官方文档相同
+
+[微信背景音乐接口(BackgroundAudioManager)](https://developers.weixin.qq.com/miniprogram/dev/api/media/background-audio/BackgroundAudioManager.html)
+
+#### 使用示例
+
+```js
+// 播放音乐
+bam.setBackgroundAudioAttribute({
+  title: '歌曲名称',
+  singer: '歌手',
+  epname: '专辑名',
+  src: 'https://***.mp3',
+  coverImgUrl: 'https://***.png',
+});
+// 事件监听
+bam.onTimeUpdate((currentTime) => {
+  // 更新播放进度
+  setCurrentTime(currentTime);
+});
+```
+
 
 
 

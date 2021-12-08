@@ -2,7 +2,8 @@
 
 腾讯云提供定期将账单数据以文件形式存储至您指定的对象存储（Cloud Object Storage，COS）存储桶的功能。对于账单明细数据量级很大（例如每月账单明细量级超过20w）的客户，通过 API 调用账单数据效率较低，建议您开通账单数据存储功能，通过存储桶中获取账单文件进行分析。
 
->?该功能可能产生费用，详情请参见 [COS 计费计费概述](https://cloud.tencent.com/document/product/436/16871)。
+>? 该功能可能产生费用，详情请参见 [COS 计费计费概述](https://cloud.tencent.com/document/product/436/16871)。
+>
 
 
 ## 开启账单存储至 COS 功能
@@ -13,7 +14,7 @@
 在弹出的窗口中，单击**进入授权**，并在授权页面，同意授权。
 <img src="https://main.qcloudimg.com/raw/30d935403805ae73cdb1763300666cef.png" style="width: 70%"/></br>
 3. 设置存储信息。
-根据实际需求，选择需要存储到 COS 桶的文件类型，将其存到特定的 COS 桶。如果您存在子账号（可合并出账的成员账号），也可以选择子账号的账单文件，将其存至您的 COS 桶中。
+根据实际需求，选择需要存储到 COS 桶的文件类型，将其存到特定的 COS 桶。如果您存在集团成员账号，也可以选择成员账号的账单文件，将其存至您的 COS 桶中。
 <img src="https://main.qcloudimg.com/raw/f1f27951392a135d9304cf9186d54066.png" style="width: 70%"/></br>
 账单文件类型
  - 日明细账单：用户开通后，Day+1上午3点（每月1日出账日为20点），新增的账单明细会存储到 COS 存储 Bucket 中。
@@ -31,6 +32,6 @@
 
 
 ## 相关链接
-- 添加子账号：可参考集团账号功能 [添加组织成员](https://cloud.tencent.com/document/product/850/58721)，勾选**合并出账**，即可在账单存 COS 配置界面选择到子账号。
+- 添加成员账号：可参考集团账号功能 [添加组织成员](https://cloud.tencent.com/document/product/850/58721)，系统默认勾选**查看账单**权限，即可在账单存 COS 配置界面选择到子账号。
 - COS API 获取账单压缩包名称：[GET Bucket（List Objects）](https://cloud.tencent.com/document/product/436/7734)。
 - COS API 下载压缩包：[GET Object](https://cloud.tencent.com/document/product/436/7753)。

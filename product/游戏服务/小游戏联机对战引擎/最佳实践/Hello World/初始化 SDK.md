@@ -25,9 +25,9 @@ import "./view/GameView.js";
 const gameInfo = {
     // 随机生成 玩家 ID
     openId: Util.mockOpenId(),
-    // 替换 为控制台上的“游戏ID”
+    // 替换 为控制台上的“游戏 ID”
     gameId: "xxxxxx",
-    // 替换 为控制台上的“游戏Key”
+    // 替换 为控制台上的“游戏 Key”
     secretKey: 'xxxxxxxxxxxxxxxxxxx',
 };
 

@@ -6,7 +6,7 @@
 - keytab 文件分发到了各台服务器上（假设 keytab 文件路径为 `/var/krb5kdc/emr.keytab`）。
 
 ## Hadoop 接入 kerberos
-Hadoop 主要包含 HDFS 与 Yarn 服务，需要分别修改这两部分配置并重启服务进程。
+Hadoop 主要包含 HDFS 和 Yarn 服务，需要分别修改这两部分配置并重启服务进程。
 
 ### HDFS 接入
 #### 修改 core-site.xml

@@ -71,7 +71,6 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 
 创建自定义消息接口文档请参考 [TIM 提供的文档](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a313b1ea616f082f535946c83edd2cc7f)。
 
-
 ```java
 // 1. 将 TEduBoardInitParam 的 timSync 参数初始为 NO (关闭互动白板内置的信令通道)
 TEduBoardController.TEduBoardInitParam initParam = new TEduBoardController.TEduBoardInitParam(); 

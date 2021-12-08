@@ -3,7 +3,7 @@
 
 
 ## 前提条件
-已创建并登录 M6ce 实例。
+已创建并登录 [M6ce 实例](https://cloud.tencent.com/document/product/213/11518#M6ce)。
  - 如何创建实例，请参见 [通过购买页创建实例](https://cloud.tencent.com/document/product/213/4855)。
  - 如何登录实例，请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 
@@ -55,7 +55,7 @@ Intel SGXSDK 的默认安装目录为 /`opt/intel/sgxsdk`。您可参考 [intel 
 使用 VIM 编辑器，将 `/etc/sgx_default_qcnl.conf` 修改为如下内容：
 ```
 # PCCS server address
-PCCS_URL=https://sgx-dcap-server.[Region-ID].tencent-cloud.com/sgx/certification/v3/
+PCCS_URL=https://sgx-dcap-server-tc.[Region-ID].tencent.cn/sgx/certification/v3/
 # To accept insecure HTTPS cert, set this option to FALSE
 USE_SECURE_CERT=TRUE
 ```
@@ -63,21 +63,21 @@ USE_SECURE_CERT=TRUE
  北京地域修改示例如下：
 ```
 # PCCS server address
-PCCS_URL=https://sgx-dcap-server.bj.tencent-cloud.com/sgx/certification/v3/
+PCCS_URL=https://sgx-dcap-server-tc.bj.tencent.cn/sgx/certification/v3/
 # To accept insecure HTTPS cert, set this option to FALSE
 USE_SECURE_CERT=TRUE
 ```
 上海地域修改示例如下：
 ```
 # PCCS server address
-PCCS_URL=https://sgx-dcap-server.sh.tencent-cloud.com/sgx/certification/v3/
+PCCS_URL=https://sgx-dcap-server-tc.sh.tencent.cn/sgx/certification/v3/
 # To accept insecure HTTPS cert, set this option to FALSE
 USE_SECURE_CERT=TRUE
 ```
 广州地域修改示例如下：
 ```
 # PCCS server address
-PCCS_URL=https://sgx-dcap-server.gz.tencent-cloud.com/sgx/certification/v3/
+PCCS_URL=https://sgx-dcap-server-tc.gz.tencent.cn/sgx/certification/v3/
 # To accept insecure HTTPS cert, set this option to FALSE
 USE_SECURE_CERT=TRUE
 ```

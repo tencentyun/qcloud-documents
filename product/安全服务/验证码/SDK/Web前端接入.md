@@ -81,7 +81,7 @@ function TCaptchaLoadError(){
     window.callback({
       ret: 0,
       randstr: '@'+Math.random().toString(36).substr(2),
-      ticket: ticket,
+     ticket: ticket,
       errorCode: 1001,
       errorMessage: 'jsload_error'
     })
@@ -227,7 +227,7 @@ function loadErrorCallback() {
   callback({
     ret: 0,
     randstr: '@'+ Math.random().toString(36).substr(2),
-    ticket,
+    ticket: ticket,
     errorCode: 1001,
     errorMessage: 'jsload_error',
   });
@@ -282,17 +282,48 @@ TencentCaptcha 的实例提供一些操作验证码的常用方法：
 ### [配置参数](id:pzcs)
 options 提供以下配置参数：
 >!
-- 验证码更新可能会改变元素的 id，class 等属性，请勿依赖验证码元素属性值覆盖样式。
+- 验证码弹窗内部不支持调整样式大小，如果需要调整，可在弹窗最外层用 `class=tcaptcha-transform` 的元素设置 `transform:scale();`。验证码更新可能会改变元素的 id，class 等属性，请勿依赖其他验证码元素属性值覆盖样式。
 - 如果手机原生端有设置左右滑动手势，需在调用验证码 show 方法前禁用，验证完成后再打开，防止与验证码滑动事件冲突。
 
-|配置名	|值类型|	说明|
-|---------|---------|---------|
-|bizState|	Any|	自定义透传参数，业务可用该字段传递少量数据，该字段的内容会被带入 callback 回调的对象中。|
-|enableDarkMode|	Boolean,'force'	|	开启自适应深夜模式, 'force'将强制深夜模式。|
-|sdkOpts|	Object|	示例 {"width": 140, "height": 140}<br>移动端原生 webview 调用时传入，为设置的验证码弹框大小。<br>注意：手机原生端页面弹框通过 webview 加载验证码时须设置此值。若使用验证码 Web 的 loading，可设置一个小的值，然后在 ready 回调后重新设置尺寸。若自己实现 loading，此值可随意设置，等待 ready 回调后，再设置实际大小。|
-|ready|	Function|	验证码加载完成的回调，回调参数为验证码实际的宽高：<br>{"sdkView": {<br>  "width": number,<br>  "height": number<br>}}<br>请勿使用此参数直接设定宽高，手机原生端可参考回调数值，设置弹框大小。|
-|needFeedBack	|Boolean|	隐藏帮助按钮。<br>示例 { needFeedBack: false }|
-|userLanguage|	String	|指定验证码提示文案的语言，优先级高于后台配置，暂时仅支持滑块拼图验证码。支持传入值同navigator.language 用户首选语言，大小写不敏感。|
+
+| 配置名         | 值类型          | 说明                                                         |
+| :------------- | :-------------- | :----------------------------------------------------------- |
+| bizState       | Any             | 自定义透传参数，业务可用该字段传递少量数据，该字段的内容会被带入 callback 回调的对象中。 |
+| enableDarkMode | Boolean,'force' | 开启自适应深夜模式, 'force'将强制深夜模式。                  |
+| sdkOpts        | Object          | 示例 {"width": 140, "height": 140}<br>仅支持移动端原生 webview 调用时传入，为设置的验证码元素 loading 弹框大小。 |
+| ready          | Function        | 验证码加载完成的回调，回调参数为验证码实际的宽高：<br>{"sdkView": {<br>"width": number,<br>"height": number<br>}}<br>请勿使用此参数直接设定宽高。 |
+| needFeedBack   | Boolean         | 隐藏帮助按钮。 示例 { needFeedBack: false }                  |
+| userLanguage   | String          | 指定验证码提示文案的语言，优先级高于后台配置，暂时仅支持滑块拼图验证码。支持传入值同 navigator.language 用户首选语言，大小写不敏感。详情请参见 [userLaguage 配置参数](#userLanguage)。 |
+
+**userLaguage 配置参数**[](id:userLanguage)
+
+| 参数名 | 说明                 |
+| :------- | :------------------- |
+| zh-cn    | 简体中文             |
+| zh-hk    | 繁体中文（中国香港） |
+| zh-tw    | 繁体中文（中国台湾） |
+| en       | 英文                 |
+| ar       | 阿拉伯语             |
+| my       | 缅甸语               |
+| fr       | 法语                 |
+| de       | 德语                 |
+| he       | 希伯来语             |
+| hi       | 印地语               |
+| id       | 印尼语               |
+| it       | 意大利语             |
+| ja       | 日语                 |
+| ko       | 朝鲜语               |
+| lo       | 老挝语               |
+| ms       | 马来语               |
+| pl       | 波兰语               |
+| pt       | 葡萄牙语             |
+| ru       | 俄语                 |
+| es       | 西班牙语             |
+| th       | 泰语                 |
+| tr       | 土耳其语             |
+| vi       | 越南语               |
+
+
 
 
 ## 更多信息

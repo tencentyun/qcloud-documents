@@ -162,7 +162,6 @@ Namespace=QCE/CES
 | NodeDiskWrite<br/>TrafficHotwarmAvg               | 节点磁盘写流量_平均值_冷热                                  | KB/S  | uInstanceId、hotwarm                | 60s、300s、3600s、86400s |
 | IsReadOnly                                        | 集群是否只读                                                | -     | uInstanceId                         | 60s、300s、3600s、86400s |
 | IsIndexBlock                                      | 是否有索引只读                                              | -     | uInstanceId                         | 60s、300s、3600s、86400s |
-| ErrorLog                                          | 是否出现错误日志                                            | -     | uInstanceId                         | 300s、3600s、86400s      |
 | KibanaStatus                                      | kibana进程状态                                              | -     | uInstanceId                         | 60s、300s、3600s、86400s |
 
 

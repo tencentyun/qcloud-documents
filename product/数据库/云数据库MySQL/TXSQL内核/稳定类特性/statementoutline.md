@@ -14,8 +14,8 @@ SQL 调优是数据库性能优化中非常重要的一环。为了避免优化�
 
 ## 使用说明
 OUTLINE 语法设置采用新的语法形式：
-- 设置 OUTLINE 信息： `outline "sql" set outline_info "outline";`
-- 清空 OUTLINE 信息： `outline reset ""; outline reset all;`
+- 设置 OUTLINE 信息：`outline "sql" set outline_info "outline";`
+- 清空 OUTLINE 信息：`outline reset ""; outline reset all;`
 - 刷新 OUTLINE 信息：`outline flush;`
 
 下面介绍 OUTLINE 的主要使用方法，用以下 schema 为例说明：
@@ -24,6 +24,10 @@ create table t1(a int, b int, c int, primary key(a));
 create table t2(a int, b int, c int, unique key idx2(a));
 create table t3(a int, b int, c int, unique key idx3(a));
 ```
+
+| 参数名                  | 动态 | 类型 | 默认  | 参数值范围 | 说明                |
+| ----------------------- | ---- | ---- | ----- | ---------- | ------------------- |
+| cdb_opt_outline_enabled | yes  | bool | fasle | true/false | 是否打开 outline 功能 |
 
 ### 绑定 OUTLINE
 直接绑定 OUTLINE 的方式是将一条 SQL 替换成另一条，SQL 的语义没有改变，仅是加入了一些 HINT 信息告知优化器如何去执行。

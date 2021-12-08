@@ -17,7 +17,6 @@ TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务�
 | [setCallingListener](#setCallingListener)               | 设置监听器。                                   |
 | [setCallingBell](#setCallingBell)                             | 设置铃声（建议在30s以内）   |
 | [enableMuteMode](#enableMuteMode)                                 | 开启静音模式 |
-| [enableFloatWindow](#enableFloatWindow)                               | 开启悬浮窗      |
 | [enableCustomViewRoute](#enableCustomViewRoute)                               | 开启自定义视图       |
 
 
@@ -149,21 +148,6 @@ void enableMuteMode(boolean enable);
 | 参数      | 类型    | 含义               |
 | --------- | ------- | ------------------ |
 | enable    | boolean  | 是否开启静音模式   |
-
-### enableFloatWindow
-[](id:enableFloatWindow)
-
-开启悬浮窗。
-
-```java
-void enableFloatWindow(boolean enable);
-```
-
-参数如下表所示：
-
-| 参数      | 类型    | 含义               |
-| --------- | ------- | ------------------ |
-| enable    | boolean  | 是否开启悬浮窗   |
 
 ### enableCustomViewRoute
 [](id:enableCustomViewRoute)

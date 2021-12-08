@@ -15,7 +15,8 @@ TransferConfig transferConfig = new TransferConfig();
 // 初始化 TransferManager
 TransferManager transferManager = new TransferManager(cosXml, transferConfig);
 
-string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+string bucket = "examplebucket-1250000000";
 string cosPath = "dir/exampleObject"; // 对象键
 string srcPath = @"temp-source-file";//本地文件绝对路径
 
@@ -40,8 +41,9 @@ TransferConfig transferConfig = new TransferConfig();
 // 初始化 TransferManager
 TransferManager transferManager = new TransferManager(cosXml, transferConfig);
 
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
-String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
+// 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+string bucket = "examplebucket-1250000000";
+string cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 string localDir = System.IO.Path.GetTempPath();//本地文件夹
 string localFileName = "my-local-temp-file"; //指定本地保存的文件名
 

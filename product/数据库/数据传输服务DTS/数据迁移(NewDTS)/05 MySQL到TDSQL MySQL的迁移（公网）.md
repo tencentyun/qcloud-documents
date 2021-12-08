@@ -1,5 +1,10 @@
 本文介绍使用 DTS 数据迁移功能，从 MySQL 迁移数据至腾讯云分布式数据库 TDSQL MySQL版 的操作指导。
 
+如下场景的迁移要求与 MySQL 到 TDSQL MySQL 的迁移要求一致，可参考本场景相关内容。
+
+- MariaDB 到腾讯云数据库 TDSQL MySQL 的数据迁移
+- MariaDB（Percona）到腾讯云数据库 TDSQL MySQL 的数据迁移
+
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
 - 在全量迁移过程通过有锁迁移来实现，锁表过程中会短暂阻塞写入操作。
@@ -14,14 +19,14 @@
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
-GRANT INSERT, UPDATE, DELETE, DROP, SELECT, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
+GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 GRANT SELECT ON *.* TO '迁移帐号';
 ```
   - “指定对象”迁移，需要的帐号权限如下：
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
-GRANT INSERT, UPDATE, DELETE, DROP, SELECT, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
+GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 ```
@@ -30,10 +35,6 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 ## 应用限制
 - 只支持迁移基础表，不支持迁移视图、函数、触发器、存储过程等对象。
 - 不支持迁移系统库表和用户信息，包括 `information_schema`， `sys`， `performance_schema`， `__tencentdb__`， `mysql`。迁移完成后，如果需要调用目标库的视图、存储过程或函数，则要对调用者授予读写权限。 
-- 在导出视图结构时，只允许迁移和目标迁移账号 user@host 相同的 `definer` 。
-- 视图限制：
-  - 全量迁移阶段，源端的视图会忽略，不予迁移。
-  - 增量阶段，源端产生的视图 DDL，只会回放在目标实例的第一个分片。
 - 只支持迁移 InnoDB 数据库引擎，如果存在其他的数据引擎表则默认跳过不进行迁移。
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。
 - 增量迁移过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致迁移失败。
@@ -51,7 +52,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 | 操作类型 | 支持同步的 SQL 操作                                          |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE、REPLACE                              |
-| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE<br>VIEW：CREATE VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX |
+| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE<br>VIEW：CREATE VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX<br>DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
 
 ## 环境要求
 > ?如下环境要求，系统会在启动迁移任务前自动进行校验，不符合要求的系统会报错。如果用户能够识别出来，可以参考 [校验项检查要求](https://cloud.tencent.com/document/product/571/58685) 自行修改，如果不能则等系统校验完成，按照报错提示修改。
@@ -84,10 +85,10 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <tr> 
 <td>目标数据库要求</td>
 <td>
-<li>目标库的版本必须大于等于源库的版本。</li>
+<li>目标库为分布式数据库时，推荐提前手动创建分表，并规划 shardkey，否则 DTS 会按照源库的表样式来在目标库创建表，如果源库为单机实例，则目标库会创建为单表。</li><li>目标库的版本必须大于等于源库的版本。</li>
 <li>目标库的空间大小须是源库待迁移库表空间的1.2倍以上。</li>
 <li>目标库不能有和源库冲突的库表。</li>
-<li>源数据库实例为分布式数据库时，需要提前在目标库建立分表，否则这些表被迁移后都将是单表。</li></td></tr>
+</td></tr>
 <tr> 
 <td>其他要求</td>
 <td>环境变量 innodb_stats_on_metadata 必须设置为 off。</td></tr>
@@ -157,7 +158,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
 <td>迁移类型</td>
-<td>请根据您的场景选择。<ul><li>结构迁移：迁移数据库中的库、表等结构化的数据。</li><li>全量迁移：迁移整个数据库。</li><li>全量 + 增量迁移：迁移整个数据库和后续增量数据，如果迁移过程中有数据写入，需要不停机平滑迁移，请选择此场景。</li></ul></td></tr>
+<td>请根据您的场景选择。<ul><li>全量迁移：迁移整个数据库。</li><li>全量 + 增量迁移：迁移整个数据库和后续增量数据，如果迁移过程中有数据写入，需要不停机平滑迁移，请选择此场景。</li></ul></td></tr>
 <tr>
 <td>迁移对象</td>
 <td><ul><li>整个实例：迁移整个实例，但不包括系统库，如information_schema、mysql、performance_schema、sys。</li>

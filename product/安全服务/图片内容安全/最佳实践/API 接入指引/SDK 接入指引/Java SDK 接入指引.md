@@ -37,9 +37,9 @@ Maven 是 Java 的依赖管理工具，支持您项目所需的依赖项，并�
 1.  前往[ Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-java) 下载源码压缩包。
 2.  解压源码包到您项目合适的位置。
 3.  需要将 vendor 目录下的 jar 包放在 Java 可找到的路径中。
-4.  引用方法可参考示例。
+4.  引用方法可参考 [使用 SDK](#SDK) 。
 
-## 使用 SDK
+## 使用 SDK[](id:SDK)
 以下为 ImageModeration 接口的 demo 示例，其中 region 配置为广州，实际请按需配置。
 
 ```
@@ -49,22 +49,32 @@ import com.tencentcloudapi.common.profile.HttpProfile;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 import com.tencentcloudapi.ims.v20201229.ImsClient;
 import com.tencentcloudapi.ims.v20201229.models.*;
-public class ImageModeration {
-	public static void main(String[] args) {
-		try {
-			// 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey,此处还需注意密钥对的保密 
-			// 密钥可前往https://console.cloud.tencent.com/cam/capi网站进行获取 Credential cred = new Credential("SecretId", "SecretKey"); 
-			// 实例化一个http选项，可选的，没有特殊需求可以跳过 
-			HttpProfile httpProfile = new HttpProfile();
-			httpProfile.setEndpoint("ims.tencentcloudapi.com"); // 实例化一个client选项，可选的，没有特殊需求可以跳过 
-			ClientProfile clientProfile = new ClientProfile();
-			clientProfile.setHttpProfile(httpProfile); // 实例化要请求产品的client对象,clientProfile是可选的 
-			ImsClient client = new ImsClient(cred, "ap-guangzhou", clientProfile); // 实例化一个请求对象,每个接口都会对应一个request对象 
-			ImageModerationRequest req = new ImageModerationRequest(); // 返回的resp是一个ImageModerationResponse的实例，与请求对象对应 
-			ImageModerationResponse resp = client.ImageModeration(req); // 输出json格式的字符串回包 
-			System.out.println(ImageModerationResponse.toJsonString(resp));
-		} catch (TencentCloudSDKException e) {
-			System.out.println(e.toString());
-		}
-	}
+
+public class ImageModeration
+{
+    public static void main(String [] args) {
+        try{
+            // 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey,此处还需注意密钥对的保密
+            // 密钥可前往https://console.cloud.tencent.com/cam/capi网站进行获取
+            Credential cred = new Credential("SecretId", "SecretKey");
+            // 实例化一个http选项，可选的，没有特殊需求可以跳过
+            HttpProfile httpProfile = new HttpProfile();
+            httpProfile.setEndpoint("ims.tencentcloudapi.com");
+            // 实例化一个client选项，可选的，没有特殊需求可以跳过
+            ClientProfile clientProfile = new ClientProfile();
+            clientProfile.setHttpProfile(httpProfile);
+            // 实例化要请求产品的client对象,clientProfile是可选的
+            ImsClient client = new ImsClient(cred, "ap-guangzhou", clientProfile);
+            // 实例化一个请求对象,每个接口都会对应一个request对象
+            ImageModerationRequest req = new ImageModerationRequest();
+            
+            // 返回的resp是一个ImageModerationResponse的实例，与请求对象对应
+            ImageModerationResponse resp = client.ImageModeration(req);
+            // 输出json格式的字符串回包
+            System.out.println(ImageModerationResponse.toJsonString(resp));
+        } catch (TencentCloudSDKException e) {
+            System.out.println(e.toString());
+        }
+    }
+}
 ```

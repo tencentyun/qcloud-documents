@@ -1,0 +1,50 @@
+## 事件描述
+**事件名：**webinar.participant-role-changed
+**事件说明：**网络研讨会（Webinar）用户角色变更时触发该事件通知。
+
+
+
+
+## 示例
+```json
+{
+    "event":"webinar.participant-role-changed",//事件名
+    "trace_id":"e7aa65dd-f7e6-4b62-912c-2035173b34a9",// 事件的唯一序列值
+    "payload":[
+        {
+             "operate_time":1609313201465,//毫秒级别事件操作时间戳
+             "operator":{ //事件操作者
+                 "userid":"tester",//事件操作者id（同企业用户才返回用户id，OAuth用户返回openId,rooms返回roomsId）
+                 "ms_open_id":"WMfgHRYj6m36mcDGtK",//用户会中身份ID
+                 "user_name":"tester_name",//事件操作者名称
+                 "instance_id":"2"//用户的终端设备类型
+             }, 
+             "to_operator":{//被操作者，即角色变更的用户
+                 "userid":"tester-2",//被操作者id（OAuth用户返回openId）
+                 "ms_open_id":"WMfgHRYj6m36mcDGtK",//用户会中身份ID
+                 "user_name":"tester-2_name",//被操作者名称
+                 "instance_id":"2",//用户的终端设备类型
+                 "role":1//被操作者变更后的角色
+                 // 0: 普通成员角色 1: 是创建者权限 2: 主持人权限 3: 创建者权限+主持人权限 4: 游客 5: 游客+主持人权限 6: 联席主持人 7: 创建者+联席主持人 8: restApi接口指派的主持人 30：研讨会内部嘉宾 31: 研讨会外部嘉宾 32：研讨会邀请链接入会嘉宾 33：研讨会观众 34：有音视频权限的研讨会观众
+             },         
+             "meeting_info":{//会议信息
+                 "meeting_id":"13339451618278424869",// 会议id
+                 "meeting_code":"445999969",//会议code
+                 "subject":"tester-2的快速会议",// 会议主题
+                 "creator":{
+                     "userid":"tester-2",//创建人id（OAuth用户返回openId）
+                     "ms_open_id":"WMfgHRYj6m36mcDGtK",//用户会中身份ID
+                     "user_name":"tester-2_name",//创建人名称
+                     "instance_id":"2",//用户的终端设备类型
+                 },
+                 "meeting_type":0,// 会议类型(0-一次性会议，1-周期性会议，2-微信专属会议，4-rooms投屏会议，5-个人会议号会议)
+                 "start_time":1608522626,//秒级别的会议开始时间戳
+                 "end_time":1609415039,//秒级别的会议结束时间戳
+                 "meeting_create_mode":0 //会议创建类型 0:普通会议；1:快速会议
+            }
+        }
+    ]
+}
+
+```
+
