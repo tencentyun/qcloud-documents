@@ -103,7 +103,7 @@ net start nfsrdr
 net start nfsclnt
 ```
 
-#### 4. 挂载NFS文件系统
+#### 4. 挂载 NFS 文件系统
 
 挂载文件系统有两种方式：通过 CMD 命令行挂载和通过图形界面挂载。
 
