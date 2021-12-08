@@ -72,7 +72,7 @@ QcloudError:
 | FailedOperation                    | Content-Type must in...                                            | 检查 Header 中的 Content-Type，参照入参说明         |
 | FailedOperation                    | Mime-Version must in...                                            | 检查 Header 中的 Mime-Version，参照入参说明         |
 | FailedOperation                    | The email is too large. Remove some content...                     | 除了附件之外的邮件正文不能超过1M                     |
-| FailedOperation                    | Incorrect attachment content. Make sure the base64 content is...   | 附件的内容需要base64加密                       |
+| FailedOperation                    | Incorrect attachment content. Make sure the base64 content is...   | 附件的内容需要 base64 加密                       |
 | FailedOperation                    | The attachments are too large. Make sure they do not exceed the... | 单个附件超过5M。或所有附件大小超过10M(具体大小可能会调整)      |
 | RequestLimitExceeded.SmtpRateLimit | smtp sending frequency limit...                                    | 触发 SMTP 调用频率限制                          |
 
