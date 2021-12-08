@@ -2976,15 +2976,15 @@ tmeSdk.getPlaylistDetail(action: string, params, deviceId?: string) => Promise<T
 
 
 
-## 背景音乐
+### 背景音乐
 
-### 获取实例
+#### 获取实例
 
 ```js
 const bam = await h5PanelSdk.wxapi.getBackgroundAudioManager();
 ```
 
-### 获取属性
+#### 获取属性
 
 获取BackgroundAudioManager实例的属性
 
@@ -3000,7 +3000,7 @@ bam.getBackgroundAudioAttribute(keys: Array<string>) => Promise<any>
 | ------ | ---------- | --------------- | ---- |
 | keys   | 属性名数组 | `Array<string>` | 是   |
 
-### 设置属性
+#### 设置属性
 
 设置BackgroundAudioManager实例的属性
 
@@ -3016,13 +3016,13 @@ bam.setBackgroundAudioAttribute(parmas: Object) => Promise<any>
 | ------ | ---------------------------- | -------- | ---- |
 | params | key为属性名称，value为属性值 | `Object` | 是   |
 
-### 其他方法
+#### 其他方法
 
 所有 api 使用方法与微信官方文档相同
 
 [微信背景音乐接口(BackgroundAudioManager)](https://developers.weixin.qq.com/miniprogram/dev/api/media/background-audio/BackgroundAudioManager.html)
 
-### 使用示例
+#### 使用示例
 
 ```js
 // 播放音乐
