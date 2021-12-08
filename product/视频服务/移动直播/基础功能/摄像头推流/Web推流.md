@@ -1,5 +1,5 @@
 TXLivePusher 推流 SDK 主要用于视频云的快直播（超低延迟直播）推流，负责将浏览器采集的音视频画面通过 WebRTC 推送到直播服务器。目前支持摄像头推流、屏幕录制推流和本地媒体文件推流。
->! 使用 WebRTC 协议推流，每个推流域名默认限制**100并发**推流数，如您需要超过此推流限制，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 的方式联系我们进行申请。
+>! 使用 WebRTC 协议推流，每个推流域名默认限制**100路并发**推流数，如您需要超过此推流限制，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 的方式联系我们进行申请。
 
 ## 基础知识
 
