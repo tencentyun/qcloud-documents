@@ -1,17 +1,19 @@
 ## 介绍
-CLS 提供了一站式的日志数据解决方案，在 Oceanus 中可以作为数据源（Source）。用户可以通过新建 CLS 日志主题，将 CLS 日志数据投递到 CLS 自行维护的 Kafka 中，通过 Kafka 的形式供 Oceanus 消费。
+CLS （Cloud Log Service）日志服务，可以作为 Oceanus 的数据源（Source），用户可以将 CLS 日志主题，通过 CLS 实时消费功能，将日志导出到 Oceanus，参与后续流计算。
 
 ## 版本说明
 
 | Flink 版本 | 说明 |
-| :-------- | :--- |
-| 1.11      | 支持 |
-| 1.13      | 支持 |
+| :--------- | :--- |
+| 1.11       | 支持 |
+| 1.13       | 支持 |
 
 ## 使用范围
+
 CLS 支持用作数据源表（Source）。
 
 ## 配置网络
+
 建立 CLS Source 表前，需要配置网络信息，具体步骤如下：
 1. 打开 [CLS 日志主题](https://console.cloud.tencent.com/cls/topic?region=ap-guangzhou) 页面中选择**日志主题 > 创建日志主题**，创建日志主题。
    ![](https://main.qcloudimg.com/raw/cfff31fc07d67bc51056788d90a6baf2.png)
@@ -31,10 +33,22 @@ CLS 支持用作数据源表（Source）。
  - 目的端：ping CLS 开放出的地址域名获取 IP 填写（IP 地址为上文提到的从 CLS 团队中提供的地址）
  - 下一跳类型：选择 NAT 网关
    ![](https://main.qcloudimg.com/raw/7f78c8bd464fd33a1439b77a52240c87.png)
-5. NAT 网关配置完成后，即可使用 CLS 的实时消费功能。
-   与消费 Kafka 数据方式一样，若有参数不清楚的地方，可参考 [消息队列 Kafka](https://cloud.tencent.com/document/product/849/48310)。
+5. NAT 网关配置完成后，即可使用 CLS 的实时消费功能。与消费 Kafka 方式一样，若有参数不清楚的地方，可参考 [消息队列 Kafka](https://cloud.tencent.com/document/product/849/48310)。
+
+
+
+## 数据加工
+
+消费 CLS Kafka 数据之前可以对原始数据进行加工处理
+
+1、数据加工官网：[CLS 数据加工](https://cloud.tencent.com/document/product/614/63923)
+
+2、数据加工示例：[加工示例](https://cloud.tencent.com/document/product/614/63924)
+
+
 
 ## DDL 定义
+
 ```sql 
 -- 建表语句如下
 CREATE TABLE `cls_source_table` (
@@ -59,8 +73,6 @@ CREATE TABLE `cls_source_table` (
 ```
 
 ## 注意事项
-1. 支持实时消费的地域如下：
-   广州、广州 Open、深圳金融、上海、上海金融、北京、北京金融、成都、重庆、中国台北、中国香港、新加坡、曼谷、孟买、首尔、东京、硅谷、弗吉尼亚（美国）、法兰克福、莫斯科。
-2. CLS 提供的 Topic，集群带宽50MB/s（待定），您将和其它正在消费日志的租户共享这个带宽。如果需要高性能吞吐，可以单独购买 Ckafka 进行消费。
-3. 需要找 CLS 团队给账号开白名单（暂时）。
-4. CLS 实时消费功能使用费用：0.8元/GB的公网流量。
+
+1. CLS 提供的 Topic，集群带宽198M/s。如果需要高性能吞吐，可以单独购买 Ckafka 进行消费。
+2. CLS 实时消费功能使用费用：0.8元/GB的公网流量。
