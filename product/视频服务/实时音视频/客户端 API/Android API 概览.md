@@ -74,7 +74,8 @@
 | [stopAudioRecording](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a7d55e5f15d1291afc89f7e1dfe0a25d8) | 停止录音 |
 | [startLocalRecording](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a5d6bf60e9d3051f601988e55106b296c) | 开启本地媒体录制 |
 | [stopLocalRecording](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ae982c3c04c0195711ee4e56132522c4b) | 停止本地媒体录制 |
-| [checkAudioCapabilitySupport](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a225161d0c1028708b4c043653ea0ee4b) | 查询是否支持音频某种能力（仅适用于 Android） |
+| [checkAudioCapabilitySupport](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a225161d0c1028708b4c043653ea0ee4b) | 查询是否支持音频某种能力（仅适用于Android） |
+| [setRemoteAudioParallelParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a6d7f5080d804137be1bd3541f533b275) | 设置远端音频流智能并发播放策略 |
 
 ### 设备管理相关接口
 | API | 描述 |
@@ -99,7 +100,7 @@
 | [stopScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ab6c3014f6f88c775aa91fccea19ce8a4) | 停止屏幕分享 |
 | [pauseScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a56af9ada2d43cfb497fe44fa6d4b99cf) | 暂停屏幕分享 |
 | [resumeScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a155ed7b6bcf2edf3259d26b8f8fdfe7e) | 恢复屏幕分享 |
-| [setSubStreamEncoderParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a34d994fbba559994aaf3a1f20420a885) | 设置屏幕分享（即辅路）的视频编码参数（该接口仅支持桌面系统） |
+| [setSubStreamEncoderParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a34d994fbba559994aaf3a1f20420a885) | 设置屏幕分享（即辅路）的视频编码参数（桌面系统和移动系统均已支持） |
 
 ### 自定义采集和自定义渲染
 | API | 描述 |
@@ -131,7 +132,7 @@
 ### 网络测试接口
 | API | 描述 |
 |-----|-----|
-| [startSpeedTest](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a0dbceb18d61d99ca33e967427dd0a344) | 开始进行网络测速（进入房间前使用） |
+| [startSpeedTest](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a6db053500be88a8735bfc69730447912) | 开始进行网速测试（进入房间前使用） |
 | [stopSpeedTest](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3e862cef0e818ddecdc3dc4d66a6f8f9) | 停止网络测速 |
 
 ### 调试相关接口
@@ -211,6 +212,7 @@
 | [startScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aacbe76e164030701d261a2edbc43668f) | 启动屏幕分享（Android） |
 | [muteLocalVideo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ac334d2c625c487d38eb3311de6831643) | 暂停/恢复发布本地的视频流 |
 | [muteRemoteVideoStream](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a4048ba6edaa0a959d0918a72cf98b576) | 暂停 / 恢复订阅远端用户的视频流 |
+| [startSpeedTest](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a6db053500be88a8735bfc69730447912) |  开始进行网络测速（进入房间前使用） |
 
 ### 错误和警告事件
 | API | 描述 |
@@ -247,6 +249,7 @@
 |-----|-----|
 | [onNetworkQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#aba07d4191391dadef900422521f34e5b) | 网络质量的实时统计回调 |
 | [onStatistics](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#a24a6ee3b3709a42af226be7258521612) | 音视频技术指标的实时统计回调 |
+| [onSpeedTestResult](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#a0dc9967589d6d3277f0e429e520f2c51) | 网速测试的结果回调 |
 
 ### 与云端连接情况的事件回调
 | API | 描述 |
@@ -254,7 +257,6 @@
 | [onConnectionLost](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#aed43a70b4a95eb95181e2b410013bf54) | SDK 与云端的连接已经断开 |
 | [onTryToReconnect](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#a1c8654b64e4bde42a8a24954ecf2cb2d) | SDK 正在尝试重新连接到云端 |
 | [onConnectionRecovery](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#a36d96a42ec4b00a0e3808f7f8460cd7f) | SDK 与云端的连接已经恢复 |
-| [onSpeedTest](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#ab77a0dff287e1642527cd414fc5fe5f5) | 服务器测速的结果回调 |
 
 ### 硬件设备相关事件回调
 | API | 描述 |
@@ -301,6 +303,7 @@
 | [onUserEnter](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#aff18b3bc5b1e448b21b7614e5716e73e) | 有主播加入当前房间（已废弃） |
 | [onUserExit](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#a0d1361e52e96b4c7c1a5f1b89f4ef0fb) | 有主播离开当前房间（已废弃） |
 | [onAudioEffectFinished](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#abe967d855abae66836877fe0dacf8b5f) | 音效播放已结束（已废弃） |
+| [onSpeedTest](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#ab77a0dff287e1642527cd414fc5fe5f5) | 服务器测速的结果回调（已废弃） |
 
 ### 视频数据自定义回调
 | API | 描述 |
@@ -358,7 +361,7 @@
 | [TRTCReverbType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#amgrp30e899d6cb29154e1d73867d199b7191) | 声音混响模式 |
 | [TRTCVoiceChangerType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#amgrpac19166c196a2905657f2a3b52a68ce0) | 变声类型 |
 | [TRTCSystemVolumeType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#amgrp70bfa071c4ebab5e7ed1811a780a53d9) | 系统音量类型（仅适用于移动设备） |
-| [TRTCAudioCapabilityType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#amgrp29e12a3869cc165605dc0121e56888a3) | 系统支持的音频能力类型（仅适用于 Android 设备） |
+| [TRTCAudioCapabilityType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#amgrp29e12a3869cc165605dc0121e56888a3) | 系统支持的音频能力类型（仅适用于Android设备） |
 
 ### 更多枚举值定义
 | API | 描述 |
@@ -379,6 +382,7 @@
 | [TRTCRenderParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCRenderParams) | 视频画面的渲染参数 |
 | [TRTCQualityInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCQualityInfo) | 网络质量 |
 | [TRTCVolumeInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCVolumeInfo) | 音量大小 |
+| [TRTCSpeedTestParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCSpeedTestParams) | 测速参数 |
 | [TRTCSpeedTestResult](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCSpeedTestResult) | 网络测速结果 |
 | [TRTCTexture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCTexture) | 视频纹理数据（仅适用于 Android 平台，包含纹理 ID 及 EGL 环境） |
 | [TRTCVideoFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCVideoFrame) | 视频帧信息 |
@@ -391,9 +395,5 @@
 | [TRTCAudioEffectParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#ad82a59c2209c0596dabaee1152820494) | 音效参数（已废弃） |
 | [TRTCSwitchRoomConfig](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#a1b79e0e45a5f137df2e1995af7c0885c) | 房间切换参数 |
 | [TRTCAudioFrameCallbackFormat](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#a9b833660fc60bd0b4e0c0625d2ad84f6) | 音频自定义回调的格式参数 |
-
-
-
-
-
+| [TRTCScreenShareParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCScreenShareParams) | 屏幕分享参数（仅适用于 Android 平台） |
 
