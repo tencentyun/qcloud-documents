@@ -74,7 +74,7 @@
 | [stopAudioRecording](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a7d55e5f15d1291afc89f7e1dfe0a25d8) | 停止录音 |
 | [startLocalRecording](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a5d6bf60e9d3051f601988e55106b296c) | 开启本地媒体录制 |
 | [stopLocalRecording](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ae982c3c04c0195711ee4e56132522c4b) | 停止本地媒体录制 |
-| [checkAudioCapabilitySupport](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a225161d0c1028708b4c043653ea0ee4b) | 查询是否支持音频某种能力（仅适用于Android） |
+| [checkAudioCapabilitySupport](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a225161d0c1028708b4c043653ea0ee4b) | 查询是否支持音频某种能力（仅适用于 Android） |
 | [setRemoteAudioParallelParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a6d7f5080d804137be1bd3541f533b275) | 设置远端音频流智能并发播放策略 |
 
 ### 设备管理相关接口
@@ -361,7 +361,7 @@
 | [TRTCReverbType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#amgrp30e899d6cb29154e1d73867d199b7191) | 声音混响模式 |
 | [TRTCVoiceChangerType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#amgrpac19166c196a2905657f2a3b52a68ce0) | 变声类型 |
 | [TRTCSystemVolumeType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#amgrp70bfa071c4ebab5e7ed1811a780a53d9) | 系统音量类型（仅适用于移动设备） |
-| [TRTCAudioCapabilityType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#amgrp29e12a3869cc165605dc0121e56888a3) | 系统支持的音频能力类型（仅适用于Android设备） |
+| [TRTCAudioCapabilityType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#amgrp29e12a3869cc165605dc0121e56888a3) | 系统支持的音频能力类型（仅适用于 Android 设备） |
 
 ### 更多枚举值定义
 | API | 描述 |
