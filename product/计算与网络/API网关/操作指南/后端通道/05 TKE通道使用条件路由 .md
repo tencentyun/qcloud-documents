@@ -16,10 +16,10 @@
 2. API 发布后，创建一个条件路由插件。
    1. 控制台左侧导航栏**插件** > **系统插件**。
    2. 点击**新建**，类型选择**条件路由**。
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/2291584bab61ecc63b2e1dec59879783.png" width="450px">                         
+      <img src="https://qcloudimg.tencent-cloud.cn/raw/2291584bab61ecc63b2e1dec59879783.png" width="450px">                         
    3. 创建条件路由策略：下面举例中的条件路由语义是，请求 Header 中 UserName 的值是 admin 的时候，就转发到 TKE 通道upstream-1ca1d6yi。
-      ![](https://qcloudimg.tencent-cloud.cn/raw/92310810ca45862f631f66e552bd68a3.png)        
-策略详细：
+      ![](https://qcloudimg.tencent-cloud.cn/raw/2dfe8aa99b540e172305f4d4d6d0cb3e.png)        
+      策略详情：
 ```yaml
 ServiceType: HTTP
 ServiceConfig:
@@ -32,6 +32,7 @@ ServiceConfig:
 ```
 3. 条件路由插件绑定到 **[步骤1](#step1)** 创建的 API 中。
 4. 请求如果匹配到条件路由的策略（Header 带上 UserName 为 admin），就转发到 upstream-1ca1d6yi；如果请求没有匹配到条件路由的策略，就使用 API 配置的默认后端。
+
 
 ## 注意事项
 
