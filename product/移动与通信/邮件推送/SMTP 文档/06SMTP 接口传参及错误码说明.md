@@ -76,5 +76,5 @@ QcloudError:
 | FailedOperation                    | The attachments are too large. Make sure they do not exceed the... | 单个附件超过5M。或所有附件大小超过10M(具体大小可能会调整)      |
 | RequestLimitExceeded.SmtpRateLimit | smtp sending frequency limit...                                    | 触发 SMTP 调用频率限制                          |
 
-### 其他业务报错：
+### 其他业务报错
 您可参见 [发送邮件](https://cloud.tencent.com/document/product/1288/51034) 中错误码描述。
