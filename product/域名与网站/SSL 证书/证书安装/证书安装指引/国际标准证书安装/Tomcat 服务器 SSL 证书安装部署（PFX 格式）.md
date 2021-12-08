@@ -35,9 +35,6 @@
 
 >!
 >- 在腾讯云官网购买的云服务器，您可以登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)  获取服务器 IP 地址、用户名及密码。
-- 当您申请 SSL 证书时选择 “粘贴 CSR” 方式，或购买的品牌证书为 Wotrus，则不提供 Tomcat 证书文件的下载，需要您通过手动转换格式的方式生成密钥库。其操作方法如下： 
- - 访问 [转换工具](https://myssl.com/cert_convert.html)。
- - 将 Nginx 文件夹中的证书文件和私钥文件上传至转换工具中，并填写密钥库密码，单击**提交**，转换为 jks 格式证书。
 - 当前 Tomcat 服务器安装在`/usr`目录下，例如，Tomcat 文件夹名称为 `tomcat9.0.40`。则 `/usr/*/conf` 实际为 `/usr/tomcat9.0.40/conf`。
 
 # 操作步骤
