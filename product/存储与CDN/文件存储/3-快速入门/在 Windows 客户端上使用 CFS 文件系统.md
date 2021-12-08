@@ -51,8 +51,7 @@ net use X: \\10.10.11.12\fjie120
 ![](https://qcloudimg.tencent-cloud.cn/raw/4c83cd3c42e4baef67471acac5663872.png)
 3. 在弹出的窗口中，设置"驱动器"盘符名称及文件夹（即在 CIFS/SMB 文件系统中看到的挂载目录），单击**完成**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d3367db4c535db5533f8b1a137a7ccfc.png)
-4. 验证读写
-页面直接进入到已经挂载的文件系统中。您可以右键新建一个文件来验证读写的正确性。
+4. 进入已经挂载的文件系统中，右键新建一个文件验证读写的正确性。
 <img src="https://main.qcloudimg.com/raw/208537681d0ab96cd801e22332a419a9.jpeg" width="80%">
 
 
@@ -129,17 +128,15 @@ mount 10.10.0.12:/z3r6k95r X:
 ![](https://qcloudimg.tencent-cloud.cn/raw/4c83cd3c42e4baef67471acac5663872.png)
 3. 在弹出的窗口中，设置"驱动器"盘符名称及文件夹（即在 NFS 文件系统中看到的挂载目录），单击**完成**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d3367db4c535db5533f8b1a137a7ccfc.png)
-4. 检查文件系统权限
-检查上述文件系统是否使用了 root 权限进行挂载，打开 Windows 系统命令行工具，输入`mount`命令：
+4. 打开 CMD 命令行工具，输入`mount`命令，检查上述文件系统是否使用了 root 权限进行挂载。
 ![](https://qcloudimg.tencent-cloud.cn/raw/99f9f7193c869d5f5dc3a61c2f4cf83e.png)
 UID 与 GID 分别为0，即表示文件系统使用了 root 权限挂载，此时可以开始正常使用文件系统了。若 UID 与GID 分别为 -2 等其他值，则可能导致无法正常写入数据等，请重复前面的步骤、保证文件系统是以 root 权限挂载。
 
  若以上界面中出现" locking=yes"，为了避免文件锁导致读写异常（NFS v3 暂不支持锁），请按以下步骤修改注册表：
  1. 找到如下注册表路径 **HKEY_LOCAL_MACHINE > SOFTWARE > Microsoft > ClientForNFS > CurrentVersion > User > Default > Mount**。
  2. 在右侧内容区右键新建 **DWORD (32 位)值**，名称为“Locking”，值为“0”。
-5. 验证读写
-  确认后，页面直接进入到已经挂载的文件系统中。可以右键新建一个文件来验证读写的正确性。
-	<img src="https://main.qcloudimg.com/raw/208537681d0ab96cd801e22332a419a9.jpeg" width="80%">
+5. 进入已经挂载的文件系统中，右键新建一个文件验证读写的正确性。
+<img src="https://main.qcloudimg.com/raw/208537681d0ab96cd801e22332a419a9.jpeg" width="80%">
 
 
 ## 步骤4：卸载文件系统
