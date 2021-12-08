@@ -40,18 +40,18 @@
 
 
 ## 操作步骤
-1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
-解压缩后，可获得相关类型的证书文件。其中包含 Tomcat 文件夹和 CSR 文件：
- - **文件夹名称**：Tomcat
+1. 请在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中选择您需要安装的证书并单击**下载**。
+2. 在弹出的 “证书下载” 窗口中，服务器类型选择 **JKS**，单击**下载**并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
+解压缩后，可获得相关类型的证书文件。其中包含 `cloud.tencent.com_jks` 文件夹：
+ - **文件夹名称**：`cloud.tencent.com_jks`
  - **文件夹内容**：
     - `cloud.tencent.com.jks` 密钥库
+    - `cloud.tencent.com.key` 私钥文件
     - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
-  - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
->?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
-2. 远程登录 JBoss 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
-3. 进入部署证书步骤，在 `/usr/local/jboss-7.1.1/standalone/configuration` 目录下执行命令 `mkdir cert` 创建 cert 文件夹。
-4. 使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 JBoss 服务器，将已获取到的 `cloud.tencent.com.jks` 密钥库文件从本地目录拷贝至 cert 文件夹。
-5. 编辑在 `/usr/local/jboss-7.1.1/standalone/configuration` 目录下的 `standalone.xml` 文件。修改端口配置，如下所示：
+3. 远程登录 JBoss 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
+4. 进入部署证书步骤，在 `/usr/local/jboss-7.1.1/standalone/configuration` 目录下执行命令 `mkdir cert` 创建 cert 文件夹。
+5. 使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 JBoss 服务器，将已获取到的 `cloud.tencent.com.jks` 密钥库文件从本地目录拷贝至 cert 文件夹。
+6. 编辑在 `/usr/local/jboss-7.1.1/standalone/configuration` 目录下的 `standalone.xml` 文件。修改端口配置，如下所示：
  - 第一部分：
 ```
 <interfaces>
@@ -101,9 +101,9 @@
             </virtual-server>
         </subsystem>
 ```
-6. 进入 `/usr/local/jboss-7.1.1/bin` 目录下，执行启动命令 `./standalone.sh`，确保正常启动。如下图所示：
+7. 进入 `/usr/local/jboss-7.1.1/bin` 目录下，执行启动命令 `./standalone.sh`，确保正常启动。如下图所示：
 ![](https://main.qcloudimg.com/raw/0dc9c0ee84b92f7978a7a133d35bcf27.png)
-7. 证书已部署完成，即可使用 `https://cloud.tencent.com` 访问。
+8. 证书已部署完成，即可使用 `https://cloud.tencent.com` 访问。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 
