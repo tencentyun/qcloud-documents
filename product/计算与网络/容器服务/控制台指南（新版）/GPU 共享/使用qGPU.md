@@ -1,27 +1,5 @@
-## 简介
-### qGPU 概述
-
-
-qGPU 是腾讯云推出的 GPU 共享技术，支持在多个容器间共享 GPU 卡并提供容器间显存、算力强隔离的能力，从而在更小粒度的使用 GPU 卡的基础上，保证业务安全，达到提高 GPU 使用率、降低客户成本的目的。
-qGPU 依托 TKE 对外开源的 Nano GPU 框架，可实现对 GPU 算力与显存的细粒度调度，并支持多容器共享 GPU 与多容器跨 GPU 资源分配。同时依赖底层强大的 qGPU 隔离技术，可做到 GPU 显存和算力的强隔离，在通过共享使用 GPU 的同时，尽量保证业务性能与资源不受干扰。
-
->? qGPU 目前正在内测中，如需使用请 [在线咨询](https://cloud.tencent.com/online-service?from=sales&source=PRESALE) 我们。
-
-### qGPU 功能及优势
-
-qGPU 方案通过对 NVIDIA GPU 卡上任务的有效调度，达到给多个容器共享使用的目的，功能优势如下：
-
-- 灵活性：用户可以自由配置 GPU 的显存大小和算力占比。
-- 云原生：支持标准的 Kubernetes 和 NVIDIA Docker 方案。
-- 兼容性：镜像不修改、CUDA 库不替换、业务不重编、易部署实现业务无感知。
-- 高性能：在底层对 GPU 设备进行操作，高效收敛，吞吐接近0损耗。
-- 强隔离：支持显存和算力的严格隔离。
-
-### 方案框架图
-
-![](https://main.qcloudimg.com/raw/ac99fd3de566decc2510df90394fb44a.png)
-
 ## 使用须知
+
 - TKE 版本限制 ≥ v1.14.x
 - OS 限制：仅支持特定的 Tencent OS 3.1 镜像。
 - 机型限制：仅支持使用 V100 和 T4 卡的 CVM 机型（后续会规划支持黑石机器以及更多的 GPU 卡类型）。
@@ -37,7 +15,7 @@ qGPU 方案通过对 NVIDIA GPU 卡上任务的有效调度，达到给多个容
 
 >? 由于使用 qGPU 能力需要使用特定镜像以及设置相关 Label，因此强烈建议您使用 TKE 的节点池能力来对节点进行分组管理（节点池的节点具备统一的 Label 以及镜像属性），详情请参见 [新建节点池](https://cloud.tencent.com/document/product/457/43735) 。
 
-
+### 安装 qGPU 
 1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**组件管理**，进入“组件列表”页面。
@@ -46,15 +24,17 @@ qGPU 方案通过对 NVIDIA GPU 卡上任务的有效调度，达到给多个容
    - **spread**：多个 Pod 会分散在不同节点、不同显卡上，优先选择资源剩余量较多的节点，适用于高可用场景，避免把同一个应用的副本放到同一个设备上。
    - **binpack**：多个 Pod 会优先使用同一个节点，适用于提高 GPU 利用率的场景。
 6. 单击**完成**即可创建组件。安装成功后，需要为集群准备 GPU 资源。
-7. 准备 GPU 资源：
-	1. 单击【新建节点池】，选中**qGPU 专用市场镜像**：
-	![](https://main.qcloudimg.com/raw/af37f83b8a65b4772587c9138fdfbb1e.png)
-通过 qGPU 指定的镜像创建节点后，tke 后台会自动给节点添加 label qgpu-device-enable:"enable"，设置了该 label 后，DaemonSet qgpu-manager 会调度到对应节点上，并自动进行 qGPU 相关的设置。
-	2. 通过节点池的高级配置来设置 Label，从而指定 qGPU 隔离策略（填写 Label value 时，可填写全称或者缩写） ：
- - Label 键：`tke.cloud.tencent.com/qgpu-schedule-policy`。
- - Label 值：fixed-share（更多取值可参考下方隔离策略说明 [表格](#table) ）。
-![](https://main.qcloudimg.com/raw/0d062a7c9b0cf648298e53f6ecddc267.png)
- 当前 qGPU 支持以下三种隔离策略：[](id:table)
+
+
+### 准备 GPU 资源
+1. 单击**新建节点池**，选中**qGPU 专用市场镜像**。如下图所示：
+     ![](https://main.qcloudimg.com/raw/af37f83b8a65b4772587c9138fdfbb1e.png)
+     通过 qGPU 指定的镜像创建节点后，tke 后台会自动给节点添加 label qgpu-device-enable:"enable"，设置了该 label 后，DaemonSet qgpu-manager 会调度到对应节点上，并自动进行 qGPU 相关的设置。
+2. 通过节点池的高级配置来设置 Label，从而指定 qGPU 隔离策略（填写 Label value 时，可填写全称或者缩写）：
+      - Label 键：`tke.cloud.tencent.com/qgpu-schedule-policy`。
+      - Label 值：fixed-share（更多取值可参考下方 [隔离策略说明](#table) ）。
+   ![](https://main.qcloudimg.com/raw/0d062a7c9b0cf648298e53f6ecddc267.png)
+    当前 qGPU 支持以下三种隔离策略：[](id:table)
 <table>
 <thead>
 <tr>
@@ -70,7 +50,7 @@ qGPU 方案通过对 NVIDIA GPU 卡上任务的有效调度，达到给多个容
 <td>be</td>
 <td>Best Effort</td>
 <td>争抢模式</td>
-<td>默认值。各个 Pods 不限制算力，只要卡上有剩余算力就可使用。 如果一共启动 N 个 Pods，每个 Pod 负载都很重，则最终结果就是 1/N 的算力</td>
+<td>默认值。各个 Pods 不限制算力，只要卡上有剩余算力就可使用。 如果一共启动 N 个 Pods，每个 Pod 负载都很重，则最终结果就是 1/N 的算力。</td>
 </tr>
 <tr>
 <td>fixed-share</td>
@@ -87,14 +67,16 @@ qGPU 方案通过对 NVIDIA GPU 卡上任务的有效调度，达到给多个容
 <td>调度器保证每个 Pod 有保底的算力配额，但只要 GPU 还有空闲算力，就可被 Pod 使用。例如，当 GPU 有空闲算力时（没有分配给其他 Pod），Pod 可以使用超过它的配额的算力。注意，当它所占用的这部分空闲算力再次被分配出去时，Pod 会回退到它的算力配额。</td>
 </tr>
 </tbody></table>
-8. 为应用分配 GPU 资源。通过给容器设置 qGPU 对应资源可以允许 Pod 使用 qGPU，您可以通过控制台或者 YAML 方式来设置：
-<dx-tabs>
-::: 通过控制台设置
-在“新建 Workload 页面”，直接填写 GPU 相关资源，如下图所示：
-![](https://main.qcloudimg.com/raw/fb79f151acdc1918fa9d5019073c6bb4.png)
-:::
-::: 通过 YAML 设置
-通过 YAML 来设置相关 qGPU 资源：
+
+3. 为应用分配 GPU 资源。通过给容器设置 qGPU 对应资源可以允许 Pod 使用 qGPU，您可以通过控制台或者 YAML 方式来设置：
+   <dx-tabs>
+   ::: 通过控制台设置
+   在“新建 Workload 页面”，直接填写 GPU 相关资源，如下图所示：
+   ![](https://main.qcloudimg.com/raw/fb79f151acdc1918fa9d5019073c6bb4.png)
+   :::
+   ::: 通过 YAML 设置
+   通过 YAML 来设置相关 qGPU 资源：
+
 ```yaml
 spec:
   containers:
@@ -106,28 +88,29 @@ spec:
         tke.cloud.tencent.com/qgpu-memory: "5"
         tke.cloud.tencent.com/qgpu-core: "30"
 ```
+
 其中：
+
 - requests 和 limits 中和 qGPU 相关的资源值必须一致（根据 K8S 的规则，可以省略掉 requests 中对 qGPU 的设置，这种情况下 requests 会被自动设置为和 limits 相同的值）。
 - tke.cloud.tencent.com/qgpu-memory 表示容器申请的显存（单位G），**整数分配，不支持小数**。
 - tke.cloud.tencent.com/qgpu-core 代表容器申请的算力，每个 GPU 卡可以提供100%算力，**qgpu-core 的设置应该小于100**，设置值超过剩余算力比例值，则设置失败，设置后容器可以得到一张 GPU 卡 n% 的算力。
-:::
-</dx-tabs>
+  :::
+  </dx-tabs>
 
 
 
 
 ## 部署在集群内的 Kubernetes 对象
 
-| Kubernetes 对象名称 | 类型 | 请求资源 |Namespace |
-|---------|---------|---------|---------|
-|qgpu-manager|	DaemonSet|	每 GPU 节点一个 Memory: 300M, CPU:0.2|	kube-system|
-|qgpu-manager|	ClusterRole	|-|	-|
-|qgpu-manager|	ServiceAccount|-|		kube-system|
-|qgpu-manager|	ClusterRoleBinding|-|		kube-system|
-|qgpu-scheduler|	Deployment	| 单一副本 Memory: 800M, CPU:1	|kube-system|
-|qgpu-scheduler|	ClusterRole|-|		-|
-|qgpu-scheduler|	ClusterRoleBinding	|-|	kube-system|
-|qgpu-scheduler|	ServiceAccount	|-|	kube-system|
-|qgpu-scheduler|	Service|-|		kube-system|
-
+| Kubernetes 对象名称 | 类型               | 请求资源                              | Namespace   |
+| ------------------- | ------------------ | ------------------------------------- | ----------- |
+| qgpu-manager        | DaemonSet          | 每 GPU 节点一个 Memory: 300M, CPU:0.2 | kube-system |
+| qgpu-manager        | ClusterRole        | -                                     | -           |
+| qgpu-manager        | ServiceAccount     | -                                     | kube-system |
+| qgpu-manager        | ClusterRoleBinding | -                                     | kube-system |
+| qgpu-scheduler      | Deployment         | 单一副本 Memory: 800M, CPU:1          | kube-system |
+| qgpu-scheduler      | ClusterRole        | -                                     | -           |
+| qgpu-scheduler      | ClusterRoleBinding | -                                     | kube-system |
+| qgpu-scheduler      | ServiceAccount     | -                                     | kube-system |
+| qgpu-scheduler      | Service            | -                                     | kube-system |
 
