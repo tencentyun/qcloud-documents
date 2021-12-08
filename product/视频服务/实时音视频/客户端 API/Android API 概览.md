@@ -147,7 +147,7 @@
 | [showDebugView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ad2cdb5d447114534f53bad5bdc48afba) | 显示仪表盘 |
 | [setDebugViewMargin](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa2014c293033e9ea60aa6ffd525ee2fa) | 设置仪表盘的边距 |
 | [callExperimentalAPI](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a37f331dd0cfff51ab5a3becf4950a55e) | 调用实验性接口 |
-| [setNetEnv](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a28ae49c86c5e5ba7e5ad2eae171bde76) | 设置 TRTC 的后台集群(仅适用于腾讯云研发团队) |
+| [setNetEnv](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a28ae49c86c5e5ba7e5ad2eae171bde76) | 设置 TRTC 的后台集群（仅适用于腾讯云研发团队） |
 
 ### 废弃接口
 | API | 描述 |
