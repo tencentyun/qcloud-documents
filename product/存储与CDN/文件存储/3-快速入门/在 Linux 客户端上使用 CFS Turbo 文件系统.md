@@ -18,7 +18,7 @@
 4. 在打开的 WebShell 登录页面，输入用户名和密码，单击【确定】。
 5. 执行如下命令，下载自动化工具。
 ```
-wget https://cfsturbo-client-1251013638.cos.ap-guangzhou.myqcloud.com/tools/cfs_turbo_client_setup
+wget https://cfsturbo-client-1251013638.cos.ap-guangzhou.myqcloud.com/2.12.4/cfs_turbo_client_setup
 ```
 6. 执行如下命令，设置自动化工具的权限。
 ```
