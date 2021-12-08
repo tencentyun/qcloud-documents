@@ -80,18 +80,18 @@ spec:
     name: nginx-deployment
     namespace: default 
   crons:
-- name: "scale-down"
-  excludeDates:
-    - "* * * 15 11 *"
-    - "* * * * * 5"
-  schedule: "30 */1 * * * *"
-  targetSize: 1
-- name: "scale-up"
-  excludeDates:
-    - "* * * 15 11 *"
-    - "* * * * * 5"
-  schedule: "0 */1 * * * *"
-  targetSize: 3
+  - name: "scale-down"
+    excludeDates:
+      - "* * * 15 11 *"
+      - "* * * * * 5"
+    schedule: "30 */1 * * * *"
+    targetSize: 1
+  - name: "scale-up"
+    excludeDates:
+      - "* * * 15 11 *"
+      - "* * * * * 5"
+    schedule: "0 */1 * * * *"
+    targetSize: 3
 :::
 </dx-codeblock>
 

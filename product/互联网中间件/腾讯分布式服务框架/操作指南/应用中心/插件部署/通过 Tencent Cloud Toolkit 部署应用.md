@@ -14,7 +14,7 @@
 
 ### 虚拟机部署
 1. 在 IntelliJ IDEA 中打开 consumer-demo 工程。
-2. 在 IntelliJ IDEA 顶部菜单栏中选择【Tools】>【Tencent Cloud Toolkit】>【Deploy to TSF for CVM Application...】。
+2. 在 IntelliJ IDEA 顶部菜单栏中选择 **Tools** > **Tencent Cloud Toolkit** > **Deploy to TSF for CVM Application...**。
 3. 在 Deploy to CVM 对话框中部署配置。根据部署的程序包来源以及是否部署，插件提供三种选项：
    - Maven build：使用 maven 编译项目并打包、上传程序包至 TSF、部署。
    - Local file：选择本地文件上传至 TSF、部署。
@@ -75,7 +75,7 @@
 ### 容器部署
 
 1. 在 IDEA 中打开 consumer-demo 工程。
-2. 在 IntelliJ IDEA 顶部菜单栏中选择【Tools】>【Tencent Cloud Toolkit】>【Deploy to TSF for Kubernetes Application...】。
+2. 在 IntelliJ IDEA 顶部菜单栏中选择 **Tools** > **Tencent Cloud Toolkit** > **Deploy to TSF for Kubernetes Application...**。
 3. 在 TSF Deploy Container 中部署配置，跟虚拟机部署一样，根据镜像来源以及是否部署，插件提供三种选项:
    - Build image：制作镜像、上传镜像至TSF镜像仓库、部署。
    - Select image：选择镜像仓库中的镜像部署。
@@ -180,8 +180,7 @@ Settings 页签部署参数配置说明如下：
 <td>容器应用环境变量。</td>
 </tr>
 </tbody></table>
+>?相关参数详可参考 [TSF 容器部署](https://cloud.tencent.com/document/product/649/15525)。
 
-	>?相关参数详可参考 [TSF 容器部署](https://cloud.tencent.com/document/product/649/15525)。
-
-5. 先单击 Apply，然后单击 Run。
+5. 先单击 **Apply**，然后单击 **Run**。
 6. 在 TSF 平台即可查看部署结果。

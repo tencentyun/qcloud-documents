@@ -186,6 +186,5 @@ while (true) {
         // Message failed to process, redeliver later
         consumer.negativeAcknowledge(msg);
     }
-    consumer.negativeAcknowledge(msg);
 }
 ```

@@ -67,8 +67,23 @@ grant pg_tencentdb_superuser to 迁移用户;
 </table>
 
 ## 操作步骤
-1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
-2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。
+1. （可选）PostgreSQL 9.4、9.5、9.6 版本作为源数据库进行“全量 + 增量迁移”时，需要参考如下指导安装 tencent_decoding 插件，其他场景请跳过该步骤。
+ 1. 根据源数据库所在服务器的系统架构，下载对应的插件。  
+    - 只支持系统架构为 x86_64 和 aarch64。
+    - 插件版本需要和 PostgreSQL 版本保持一致。
+    - Glibc 版本需要满足要求：x86_64 系统不低于 2.17 - 323 版本，aarch64 系统不低于 2.17 - 260 版本。 
+       - 在 Linux 系统上查看 Glibc 版本：
+```
+RHEL/CentOS: rpm -q glibc
+```
+       - 在其他操作系统（Debian/Ubuntu/SUSE 等）上查看 Glibc 版本：
+```
+ldd --version | grep -i libc
+```
+下载地址：  [x86_64 9.4](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.4/tencent_decoding.so)、[x86_64 9.5](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.5/tencent_decoding.so)、[x86_64 9.6](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.6/tencent_decoding.so)、[aarch64 9.4](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.4/tencent_decoding.so)、[aarch64 9.5](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.5/tencent_decoding.so)、[aarch64 9.6](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.6/tencent_decoding.so)。    
+ 2. 将下载得到的 tencent_decoding.so 文件放置于 Postgres 进程目录的 lib 文件夹下，无需重启实例。 
+2. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
+3. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。
 >?迁移任务订购后不支持更换地域，请谨慎选择。
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。

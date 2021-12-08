@@ -69,8 +69,8 @@ Harbor 支持添加第三方 Registry 并配置数据复制规则，本文以 Ha
 	- **目标名**：自定义该同步目标名称，例如 tencent-tcr。
 	- **描述**：该同步目标的描述。
 	- **目标 URL**：企业版实例访问域名，例如 `https://harbor-sync.tencentcloudcr.com`。
-	- **访问 ID**：填写已在**访问管理**>**[API密钥管理](https://console.cloud.tencent.com/cam/capi)**中获取的 SecretId。
-	- **访问密码**：填写已在**访问管理**>**[API密钥管理](https://console.cloud.tencent.com/cam/capi)**中获取的 SecretKey。
+	- **访问 ID**：填写已在**访问管理** > **[API密钥管理](https://console.cloud.tencent.com/cam/capi)**中获取的 SecretId。
+	- **访问密码**：填写已在**访问管理** > **[API密钥管理](https://console.cloud.tencent.com/cam/capi)**中获取的 SecretKey。
 	- **验证远程证书**：保持默认设置。
 4. 单击**测试连接**。
  - 如显示“测试连接成功”，则说明当前自建 Harbor 服务可以正常访问该企业版实例。

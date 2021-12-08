@@ -1,3 +1,23 @@
+### 2.15.0 @2021.10.29
+
+**新增**
+
+- 支持国际站。
+- [createLocationMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createLocationMessage)，支持发送地理位置消息。
+- 上传图片、视频、文件等带文件类型，方便下载和预览，兼容 uniapp。
+- [Conversation](https://web.sdk.qcloud.com/im/doc/zh-cn/Conversation.html) `lastMessage` 数据结构新增 `nick` `nameCard` 字段，便于展示群聊会话 `lastMessage` 的发送者的信息。
+  
+**变更**
+
+- [getConversationList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getConversationList) 支持批量获取指定会话。
+- 提高了长连接的稳定性。
+
+**修复**
+
+- 无会话列表缓存，最近联系人没有分页的情况下，登录后未派发事件 [CONVERSATION_LIST_UPDATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.CONVERSATION_LIST_UPDATED)。
+- 部分场景 [getMessageList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageList) 回包 `isCompleted` 始终为 `false`。
+- [createFaceMessage](createFaceMessage)设置 `index` 为0接收方丢失 `index` 字段。
+
 ### 2.14.0 @2021.9.24
 
 **新增**
@@ -7,7 +27,8 @@
 
 **变更**
 
-发送群聊消息自动补齐消息体 `nameCard` 属性，便于接入侧展示。
+- 发送群聊消息自动补齐消息体 `nameCard` 属性，便于接入侧展示。
+- 因多端登录或多实例登录被踢下线时，不再触发服务端的 logout 回调。
 
 **修复**
 
@@ -333,7 +354,7 @@ Taro 3.x 集成 WebIM 时的兼容性问题。
 
 **变更**
 
-[login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login) 成功时的回调对象 `imResponse.data` 新增 `repeatLogin: true` 键值对，用于标识某账号已登录后重复登录的情况。
+[login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login) 成功时的回调对象 `imResponse.data` 新增 `repeatLogin: true` 键值对，用于标识某帐号已登录后重复登录的情况。
 
 **修复**
 

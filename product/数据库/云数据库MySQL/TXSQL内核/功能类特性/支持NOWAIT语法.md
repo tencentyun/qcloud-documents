@@ -9,7 +9,7 @@
 - 内核版本 MySQL 5.7 20200630 及以上（该功能从 MySQL 8.0 移植，因此8.0版本原生支持），SELECT FOR UPDATE 语句支持 NOWAIT 和 SKIP LOCKED 选项。
 
 ## 适用场景
-DevAPI/XPlugin 暂不支持 SELECT FOR UPDATE/SHARE 语句中使用 SKIP_LOCKED 和 NOWAIT 选项。由于历史原因，DDL 的 NO_WAIT 关键字和 SELECT FOR UPDATE 的 NOWAIT 关键字是两个不同的关键字，需要注意区分。
+DevAPI/XPlugin 暂不支持 SELECT FOR UPDATE/SHARE 语句中使用 SKIP LOCKED 和 NOWAIT 选项。由于历史原因，DDL 的 NO_WAIT 关键字和 SELECT FOR UPDATE 的 NOWAIT 关键字是两个不同的关键字，需要注意区分。
 
 ## 使用说明
 #### SELECT FOR UPDATE NOWAIT/SKIP LOCKED

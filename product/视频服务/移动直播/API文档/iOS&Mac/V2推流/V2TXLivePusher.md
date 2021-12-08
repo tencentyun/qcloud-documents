@@ -405,6 +405,23 @@ __介绍__
 
 ***
 
+### sendSeiMessage
+发送 SEI 消息。播放端 [V2TXLivePlayer](https://liteav.sdk.qcloud.com/doc/api/zh-cn/interfaceV2TXLivePlayer.html) 通过 [V2TXLivePlayerObserver](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#protocolV2TXLivePlayerObserver-p) 中的 `onReceiveSeiMessage` 回调来接收该消息。
+```
+- (V2TXLiveCode)sendSeiMessage:(int)payloadType data:(NSData *)data;
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| payloadType | int | 数据类型，支持 5、242。推荐填：242 |
+| data | NSData * | 待发送的数据 | 
+
+ #### 返回
+ 返回值 V2TXLiveCode：
+ - V2TXLIVE_OK：成功。
+
+***
+
 ## 美颜相关接口
 ### getBeautyManager
 获取美颜管理对象 [TXBeautyManager](https://cloud.tencent.com/document/product/454/39382)。

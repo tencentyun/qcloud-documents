@@ -12,7 +12,7 @@ pip install --upgrade tencentcloud-sdk-python
 ```
 >?
 >- 若您的项目环境未安装 pip，请前往 [pip 官网](https://pip.pypa.io/en/stable/installation/) 完成安装。
->- 若同时具备 Python2 及 Python3 环境，则需使用 pip3 命令进行安装。中国大陆地区（不包含港澳台）的用户可以使用国内镜像源提高下载速度，例如：`pip install -i https://mirrors.tencent.com/pypi/simple/ --upgrade tencentcloud-sdk-python`。
+>- 若同时具备 Python2 及 Python3 环境，则需使用 pip3 命令进行安装。中国大陆地区的用户可以使用国内镜像源提高下载速度，例如：`pip install -i https://mirrors.tencent.com/pypi/simple/ --upgrade tencentcloud-sdk-python`。
 >- 如果只想使用某个具体产品的包，例如云服务器 CVM，可以单独安装，但是注意不能和总包同时工作。
 >- 更多 SDK 支持的云产品，请参见 [云产品名列表](https://cloud.tencent.com/document/product/494/42698#.E6.94.AF.E6.8C.81-sdk-3.0.E7.89.88.E6.9C.AC.E7.9A.84.E4.BA.91.E4.BA.A7.E5.93.81.E5.88.97.E8.A1.A8)。
 

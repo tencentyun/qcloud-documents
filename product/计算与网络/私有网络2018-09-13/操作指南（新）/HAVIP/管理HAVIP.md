@@ -22,7 +22,7 @@ HAVIP 用于配合第三方 HA 软件使用，创建后还需要在第三方 HA 
 >
 在 HA 软件指定 VIP 时（配置文件），填入您创建的 HAVIP 即可，配置示例如下：
 <pre><code class="language-html">
-vrrp_instanceVI_1 {
+vrrp_instance VI_1 {
 #注意主备参数选择
     state MASTER               #设置初始状态为"备"。
     interface eth0             #设置绑定 VIP 的网卡，例如 eth0

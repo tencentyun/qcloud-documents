@@ -1,3 +1,35 @@
+### 2.6.7.84 @ 2021-11-04
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.7.84.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.7.84.zip)
+
+- Bug 修复
+  1.Mac SDK 在低版本系统中加载白板自定义协议出现的询问弹窗
+
+### 2.6.7.82 @ 2021-10-29
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.7.82.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.7.82.zip)
+
+- 新增接口
+  1.设置自定义字体(setTextFontFamily)
+  2.添加自定义字体(addTextFontFamily) 
+  3.获取当前使用字体(getTextFontFamily)
+    
+- 调整初始化参数
+  1.画笔模式下远端画笔是否显示(remoteCursorVisible) 
+    
+- 调整接口
+  1.设置远端画笔在本地是否可见(setRemoteCursorVisible)
+    
+- 调整全局变量
+  1.白板警告码(TEduBoardWarningCode)，新增静态ppt重复的告警码
+    
+- 功能优化
+  1.弱网环境下涂鸦同步
+  2.优化涂鸦显示效果
+
+- Bug 修复
+  1.若干已知问题修复
+
 ### 2.6.6.78 @ 2021-10-12
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.6.78.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.6.78.zip)
@@ -227,7 +259,7 @@ Bug 修复
     4. 激光笔功能性能优化
 - Bug 修复
     1. 图片旋转后缩放比例不对的问题
-    2. chrome 88版本纵向滚动条缺失
+    2. Chrome 88版本纵向滚动条缺失
     3. 滚动条触发异常滚动问题
     4. 添加自定义元素时点选框范围错误
     5. 文本工具相关问题

@@ -68,5 +68,6 @@ reader, err := client.CreateReader(pulsar.ReaderOptions{
 	})
 :::  
  </dx-codeblock> 
+ 
 关于 Pulsar 社区版 Go SDK 各种功能的使用方式，请参考 [Pulsar 官方文档](http://pulsar.apache.org/docs/en/client-libraries-go/)。
 

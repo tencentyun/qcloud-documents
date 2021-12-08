@@ -1,6 +1,6 @@
+
 ## 简介
 为方便您接入游戏数据库 TcaplusDB，本文为您介绍 TcaplusDB SDK 的下载指引。
-
 
 ## 变更历史
 下载 SDK 之前，请查阅 [变更历史](https://cloud.tencent.com/document/product/596/31926)。

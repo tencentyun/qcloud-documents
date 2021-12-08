@@ -215,7 +215,7 @@ recorder.reset({
 
 ### 示例 Demo
 您可以通过单击 [示例](https://tec.qq.com/ai/soe#demos)，体验在线使用智聆口语测评（英文版）的 Web 版本。
-sdk 调试可单击 [这里](https://test-v.campus.qq.com/aiedu/soe/demo/)
+sdk 调试可单击 [这里](https://test-v.campus.qq.com/aiedu/soe/demo/index.html)
 
 
 ### 微信端说明

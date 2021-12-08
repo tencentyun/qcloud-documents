@@ -24,7 +24,8 @@ PUT Bucket website 用于为存储桶配置静态网站。
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   PutBucketWebsiteRequest putRequest = new PutBucketWebsiteRequest(bucket);
   putRequest.SetIndexDocument("index.html");
   putRequest.SetErrorDocument("eroror.html");
@@ -60,7 +61,8 @@ GET Bucket website 用于查询与存储桶关联的静态网站配置信息。
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   DeleteBucketTaggingRequest request = new DeleteBucketTaggingRequest(bucket);   
   //执行请求
   DeleteBucketTaggingResult result = cosXml.DeleteBucketTagging(request);
@@ -94,7 +96,8 @@ DELETE Bucket website 用于删除存储桶中的静态网站配置。
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   DeleteBucketTaggingRequest request = new DeleteBucketTaggingRequest(bucket);   
   //执行请求
   DeleteBucketTaggingResult result = cosXml.DeleteBucketTagging(request);

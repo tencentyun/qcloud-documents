@@ -27,7 +27,7 @@ Content-Type: application/xml
 
 该请求操作的实现需要有如下请求体: 
 
-#### 请求体1：更新音视频转码、极速高清、截帧、智能封面、拼接、精彩集锦、人声分离、SDR 转 HDR、视频增强工作流
+#### 请求体1：更新音视频转码、极速高清、截帧、智能封面、拼接、精彩集锦、人声分离、SDR 转 HDR、视频增强、自定义函数和音视频分段工作流
 
 ```plaintext
 <Request>
@@ -37,7 +37,7 @@ Content-Type: application/xml
         <State>Active</State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554,SCF_1581665960566,SuperResolution_1581665960583,Segment_1581665960667</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -47,6 +47,9 @@ Content-Type: application/xml
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
                 <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
                 <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
+                <SCF_1581665960566>End</SCF_1581665960566>
+                <SuperResolution_1581665960583>End</SuperResolution_1581665960583>
+                <Segment_1581665960667>End</Segment_1581665960667>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -64,6 +67,7 @@ Content-Type: application/xml
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -75,6 +79,13 @@ Content-Type: application/xml
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/cover-${Number}.jpg</Object>
                         </Output>
+                        <SmartCover>
+                            <Format>png</Format>
+                            <Width>128</Width>
+                            <Height>128</Height>
+                            <Count>3</Count>
+                            <DeleteDuplicates>false</DeleteDuplicates>
+                        </SmartCover> 
                     </Operation>
                 </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
@@ -85,6 +96,7 @@ Content-Type: application/xml
                             <Region></Region>
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/snapshot-${number}.${Ext}</Object>
+                            <SpriteObject>abc/${RunId}/snapshot-${number}.jpg</SpriteObject>
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
@@ -172,6 +184,43 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </VideoProcess_1581665960554>
+                <SCF_1581665960566>
+                    <Type>SCF</Type>
+                    <Operation>
+                        <SCF>
+                            <Region>ap-chengdu</Region>
+                            <FunctionName>test</FunctionName>
+                            <Namespace>testspace</Namespace>
+                        </SCF>
+                    </Operation>
+                </SCF_1581665960566>
+                <SuperResolution_1581665960583>
+                    <Type>SuperResolution</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}/SuperResolution.mkv</Object>
+                        </Output>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
+                    </Operation>
+                </SuperResolution_1581665960583>
+                <Segment_1581665960667>
+                    <Type>Segment</Type>
+                    <Operation>
+                        <Segment>
+                            <Format>mp4</Format>
+                            <Duration>5</Duration>
+                        </Segment>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>test-trans${Number}</Object>
+                        </Output>
+                    </Operation>
+                </Segment_1581665960667>
             </Nodes>
         </Topology>
     </MediaWorkflow>
@@ -209,6 +258,7 @@ Content-Type: application/xml
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -281,7 +331,7 @@ Content-Type: application/xml
 
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-#### 响应体1：更新音视频转码、极速高清、截帧、智能封面、拼接、精彩集锦、人声分离、SDR 转 HDR、视频增强工作流
+#### 响应体1：更新音视频转码、极速高清、截帧、智能封面、拼接、精彩集锦、人声分离、SDR 转 HDR、视频增强、自定义函数和音视频分段工作流
 
 ```plaintext
 <Response>
@@ -291,7 +341,7 @@ Content-Type: application/xml
         <WorkflowId></WorkflowId>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554,SCF_1581665960566,SuperResolution_1581665960583,Segment_1581665960667</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -301,6 +351,9 @@ Content-Type: application/xml
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
                 <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
                 <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
+                <SCF_1581665960566>End</SCF_1581665960566>
+                <SuperResolution_1581665960583>End</SuperResolution_1581665960583>
+                <Segment_1581665960667>End</Segment_1581665960667>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -318,6 +371,7 @@ Content-Type: application/xml
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -329,6 +383,13 @@ Content-Type: application/xml
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/cover-${Number}.jpg</Object>
                         </Output>
+                        <SmartCover>
+                            <Format>png</Format>
+                            <Width>128</Width>
+                            <Height>128</Height>
+                            <Count>3</Count>
+                            <DeleteDuplicates>false</DeleteDuplicates>
+                        </SmartCover> 
                     </Operation>
                 </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
@@ -339,6 +400,7 @@ Content-Type: application/xml
                             <Region></Region>
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/snapshot-${number}.${Ext}</Object>
+                            <SpriteObject>abc/${RunId}/snapshot-${number}.jpg</SpriteObject>
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
@@ -426,6 +488,43 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </VideoProcess_1581665960554>
+                <SCF_1581665960566>
+                    <Type>SCF</Type>
+                    <Operation>
+                        <SCF>
+                            <Region>ap-chengdu</Region>
+                            <FunctionName>test</FunctionName>
+                            <Namespace>testspace</Namespace>
+                        </SCF>
+                    </Operation>
+                </SCF_1581665960566>
+                <SuperResolution_1581665960583>
+                    <Type>SuperResolution</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}/SuperResolution.mkv</Object>
+                        </Output>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
+                    </Operation>
+                </SuperResolution_1581665960583>
+                <Segment_1581665960667>
+                    <Type>Segment</Type>
+                    <Operation>
+                        <Segment>
+                            <Format>mp4</Format>
+                            <Duration>5</Duration>
+                        </Segment>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>test-trans${Number}</Object>
+                        </Output>
+                    </Operation>
+                </Segment_1581665960667>
             </Nodes>
         </Topology>
         <BucketId></BucketId>
@@ -467,6 +566,7 @@ Content-Type: application/xml
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -538,7 +638,7 @@ Content-Type: application/xml
 
 ## 实际案例
 
-#### 请求1：更新音视频转码、极速高清、截帧、智能封面、拼接、精彩集锦、人声分离、SDR 转 HDR、视频增强工作流
+#### 请求1：更新音视频转码、极速高清、截帧、智能封面、拼接、精彩集锦、人声分离、SDR 转 HDR、视频增强、自定义函数和音视频分段工作流
 
 ```plaintext
 PUT /workflow/<WorkflowId> HTTP/1.1
@@ -554,7 +654,7 @@ Content-Type: application/xml
         <State>Active</State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554,SCF_1581665960566</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -564,6 +664,7 @@ Content-Type: application/xml
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
                 <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
                 <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
+                <SCF_1581665960566>End</SCF_1581665960566>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -581,6 +682,7 @@ Content-Type: application/xml
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -592,6 +694,13 @@ Content-Type: application/xml
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/cover-${Number}.jpg</Object>
                         </Output>
+                        <SmartCover>
+                            <Format>png</Format>
+                            <Width>128</Width>
+                            <Height>128</Height>
+                            <Count>3</Count>
+                            <DeleteDuplicates>false</DeleteDuplicates>
+                        </SmartCover> 
                     </Operation>
                 </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
@@ -689,6 +798,16 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </VideoProcess_1581665960554>
+                <SCF_1581665960566>
+                    <Type>SCF</Type>
+                    <Operation>
+                        <SCF>
+                            <Region>ap-chengdu</Region>
+                            <FunctionName>test</FunctionName>
+                            <Namespace>testspace</Namespace>
+                        </SCF>
+                    </Operation>
+                </SCF_1581665960566>
             </Nodes>
         </Topology>
     </MediaWorkflow>
@@ -713,7 +832,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
         <WorkflowId></WorkflowId
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554,SCF_1581665960566</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -723,6 +842,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
                 <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
                 <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
+                <SCF_1581665960566>End</SCF_1581665960566>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -740,6 +860,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -751,6 +872,13 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/cover-${Number}.jpg</Object>
                         </Output>
+                        <SmartCover>
+                            <Format>png</Format>
+                            <Width>128</Width>
+                            <Height>128</Height>
+                            <Count>3</Count>
+                            <DeleteDuplicates>false</DeleteDuplicates>
+                        </SmartCover> 
                     </Operation>
                 </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
@@ -761,6 +889,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                             <Region></Region>
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/snapshot-${number}.${Ext}</Object>
+                            <SpriteObject>abc/${RunId}/snapshot-${number}.jpg</SpriteObject>
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
@@ -848,6 +977,16 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                         </Output>
                     </Operation>
                 </VideoProcess_1581665960554>
+                <SCF_1581665960566>
+                    <Type>SCF</Type>
+                    <Operation>
+                        <SCF>
+                            <Region>ap-chengdu</Region>
+                            <FunctionName>test</FunctionName>
+                            <Namespace>testspace</Namespace>
+                        </SCF>
+                    </Operation>
+                </SCF_1581665960566>
             </Nodes>
         </Topology>
         <BucketId></BucketId>
@@ -893,6 +1032,7 @@ Content-Type: application/xml
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -990,6 +1130,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>

@@ -13,7 +13,7 @@
 <tbody><tr>
 <td>传统账户类型</td>
 <td align="center">-</td>
-<td>EIP 本身不收取任何费用，仅在 CVM 上收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
+<td>EIP 本身不收取任何费用，在绑定的云资源上收取公网网络费用 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
 </tr>
 <tr>
 <td rowspan="4">标准账户类型</td>
@@ -38,8 +38,8 @@
 - EIP 与高可用虚拟 IP 绑定，通过高可用虚拟 IP 搭建高可用主备集群，快速恢复故障的公网通信服务。
 
 ## 操作步骤
-1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
-2. 在 EIP 管理页面，选择需要绑定云资源的 EIP 的地域，并在对应 EIP 的操作栏下，单击**更多** > **绑定**。
+1. 登录 [公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip)。
+2. 在公网 IP 页面顶部，选择需要绑定云资源的 EIP 的地域，并在对应 EIP 的操作栏下，单击**更多** > **绑定**。
 > ? 若绑定时，EIP 已绑定云资源，请先解绑，例如，需更换故障 CVM 实例的 EIP 到健康的 CVM 实例上。
 > 
 3. 在弹出的“绑定资源”窗口中，选择 EIP 要绑定的云资源，单击**确定**。

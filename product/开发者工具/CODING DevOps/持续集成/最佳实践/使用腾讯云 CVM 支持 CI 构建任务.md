@@ -19,13 +19,12 @@ CODING 中提供了内置云服务器用来执行持续集成（CI）中的构�
 ## 开通安全组
 
 在购买了 [腾讯云 CVM ](https://buy.cloud.tencent.com/cvm?tab=lite&regionId=1&projectId=-1) 后，第一件要做的事情就是开放相应的 [安全组策略](https://cloud.tencent.com/document/product/213/34601)，入站和出站规则都需要设置。
-
-![](https://main.qcloudimg.com/raw/fd079fce665d2f38a01072c32935543f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0155ee0e2b8a7a92af6182049083b592.png)
 
 ## 登录服务器
 
 在操作栏中单击**登录**，按照提示输入 root 密码。如果忘记密码可以在**更多** > **密码/密钥**中单击**重置密码**后再次输入即可。
-![](https://main.qcloudimg.com/raw/aa685c6b090edbda9f1174f210e43083.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/746fb31f6b23e6ad5f11a490c50dab59.png)
 做完上述操作并成功登录服务器后，可以选择 Docker 或 cci-agent 两种方式将服务器接入至构建节点池。如果想使用与 CODING 官方提供的运行节点一致的环境，请选择使用 Docker 运行构建节点。如果想使用节点上自带的环境，譬如需要使用 MacOS 上的 Xcode 编译 iOS 应用，请选择 cci-agent 方式进行接入。
 
 ## 接入构建节点池
@@ -46,7 +45,7 @@ curl -fsSL https://get.docker.com/ | sh
 待 Docker 安装完成后，前往 CODING 进入**项目** > **持续集成** > **构建节点**，在构建节点页复制配置命令。
 ![](https://main.qcloudimg.com/raw/5d1168f061bd1f37cad89f86abfddfd2.png)
 等待一小会，等镜像构建完成后便会提示构建成功。
-![](https://main.qcloudimg.com/raw/9e0424cbfa6b0713ab6d606110948bba.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b821d036c1e9ab9203b7bd282cb90b6a.png)
 在 CODING 构建节点页也可以看到新注册上线的服务器。
 ![](https://main.qcloudimg.com/raw/92ee62f7a5c076f445e151a49b1bf1aa.png)
 
@@ -59,7 +58,7 @@ curl -fsSL https://get.docker.com/ | sh
 ```
 
 等待配置运行安装完成。
-![](https://main.qcloudimg.com/raw/1b6cfc63815a42cf227f7548a1949254.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d275fdf77aafb3b477be7a071f46581c.png)
 配置完成后会出现在节点池中。
 ![](https://main.qcloudimg.com/raw/8c0653db3bd8058e630afc71928a7f6c.png)
 在安装过程中，节点状态会不断变化。关于节点的状态说明：

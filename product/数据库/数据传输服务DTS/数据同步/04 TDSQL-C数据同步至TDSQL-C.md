@@ -10,7 +10,7 @@ MySQL 到 TDSQL-C MySQL 的数据同步、TDSQL-C MySQL 到 MySQL 的数据同�
 - 已 [创建云原生数据库 TDSQL-C](https://cloud.tencent.com/document/product/1003/30505)。
 - 需要具备源数据库的权限如下：
 ```
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW VIEW,PROCESS,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 FLUSH PRIVILEGES;
 ```
@@ -60,7 +60,7 @@ FLUSH PRIVILEGES;
 <li>源实例为从库时，log_slave_updates 变量必须设置为 ON。</li></ul></li>
 <li>外键依赖：
 <ul>
-<li>外键依赖只能设置为 NO ACTION，RESTRICT，CASCADE 三种类型。</li>
+<li>外键依赖只能设置为 NO ACTION，RESTRICT 两种类型。</li>
 <li>部分库表同步时，有外键依赖的表必须齐全。</li>
 </ul></li></td></tr>
 <tr> 
@@ -114,8 +114,8 @@ FLUSH PRIVILEGES;
 <tr>
 <td>接入类型</td>
 <td>根据实际情况选择，本场景选择“云数据库”。
-    <ul>
-    <li>公网：源数据库可以通过公网 IP 访问。</li>
+<ul>
+<li>公网：源数据库可以通过公网 IP 访问。</li>
 <li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
 <li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
 <li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
@@ -141,7 +141,7 @@ FLUSH PRIVILEGES;
 <tr>
 <td>密码</td><td>目标数据库密码。</td></tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/b40bd5a54eaeef3d23bb3464312b0097.png" style="zoom:67%;" />
+<img src="https://main.qcloudimg.com/raw/b40bd5a54eaeef3d23bb3464312b0097.png" style="zoom:50%;" />
 5. 在设置同步选项和同步对象页面，将对数据初始化选项、数据同步选项、同步对象选项进行设置，在设置完成后单击**保存并下一步**。
 >? 
 >- 当**初始化类型**仅选择**全量数据初始化**，系统默认用户在目标库已经创建了表结构，不会进行表结构迁移，也不会校验源库和目标库是否有同名表，所以当用户同时在**已存在同名表**项选择**前置校验并报错**，则校验并报错功能不生效。
@@ -171,9 +171,9 @@ FLUSH PRIVILEGES;
 <tr>
 <td>已选对象</td><td>展示已选择的同步对象，支持库表映射。</td></tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/272026696de9d8dd15b0034f7bf8f0dd.png"  style="margin:0;">
+<img src="https://main.qcloudimg.com/raw/272026696de9d8dd15b0034f7bf8f0dd.png"  style="zoom:50%;">
 <strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
-<img src="https://main.qcloudimg.com/raw/533a454e1edc2dded72ac92b65948f31.png"  style="margin:0;">
+<img src="https://main.qcloudimg.com/raw/533a454e1edc2dded72ac92b65948f31.png"  style="zoom:50%;">
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
