@@ -1,5 +1,5 @@
 ## 介绍
-CLS （Cloud Log Service）日志服务，可以作为 Oceanus 的数据源（Source），用户可以将 CLS 日志主题，通过 CLS 实时消费功能，将日志导出到 Oceanus，参与后续流计算。
+CLS（Cloud Log Service）日志服务，可以作为 Oceanus 的数据源（Source），用户可以将 CLS 日志主题，通过 CLS 实时消费功能，将日志导出到 Oceanus，参与后续流计算。
 
 ## 版本说明
 
@@ -42,7 +42,6 @@ CLS 支持用作数据源表（Source）。
 消费 CLS Kafka 数据之前可以对原始数据进行加工处理
 
 1. 数据加工官网：[CLS 数据加工](https://cloud.tencent.com/document/product/614/63923)
-
 2. 数据加工示例：[加工示例](https://cloud.tencent.com/document/product/614/63924)
 
 
