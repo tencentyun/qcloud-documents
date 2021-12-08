@@ -2,14 +2,14 @@
 
 **功能新增：**
 - 全平台：增加语音聚焦功能，您可以通过 [setRemoteAudioParallelParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a0e6e6434aaa03ce878280125a9c0fa4b) 接口让 SDK 只播放房间中音量最大的几路音频，这对于提升大型语音房间的性能表现非常有帮助。
-- Mac：增加对系统声音采集[startSystemAudioLoopback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a2979e32c019708dcc9209bb6d2db9486)的双声道支持。
+- Mac：增加对系统声音采集 [startSystemAudioLoopback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a2979e32c019708dcc9209bb6d2db9486) 的双声道支持。
 - iOS：增加对 24 位 wav 格式的背景音乐文件的支持。
-- Android & iOS：本版本符合国家隐私安全规范的规定，已经经过腾讯内部多款产品的验证。
+- Android&iOS：本版本符合国家隐私安全规范的规定，已经经过腾讯内部多款产品的验证。
 
 **问题修复：**
 - 全平台：修复快速调用 [switchRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a1f3bed34f92b3ff908beb2d0ed2866c9) 可能导致切换房间失败的问题。
-- iOS：修复在应用内录屏[startScreenCaptureInApp](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#abf51acf26b2212192f7145468886b791)过程中设置 [setVideoEncoderRotation](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a200c174b27bbe7397b0639e707ee6547) 无效的问题。
-- iOS：修复系统录屏[startScreenCaptureByReplaykit](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#abebcd402e310d5d7dcbef9f6b601cfc4)过程中偶现的内存上涨问题。
+- iOS：修复在应用内录屏 [startScreenCaptureInApp](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#abf51acf26b2212192f7145468886b791) 过程中设置 [setVideoEncoderRotation](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a200c174b27bbe7397b0639e707ee6547) 无效的问题。
+- iOS：修复系统录屏 [startScreenCaptureByReplaykit](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#abebcd402e310d5d7dcbef9f6b601cfc4) 过程中偶现的内存上涨问题。
 
 **功能优化：**
 - 全平台：提升进房速度，减少进房耗时的波动。
@@ -23,7 +23,7 @@
 **故障修复**
 - 全平台：修复 point2PointDelay 有时获取不到，数值为0的问题。
 - 全平台：修复偶现解析失败 SEI 消息丢失的问题。
-- Mac：修复在MacOS 12 beta 上摄像头不出帧的问题。
+- Mac：修复在 MacOS 12 beta 上摄像头不出帧的问题。
 - iOS&Mac：修复特定顺序提前调用 startRemoteView 看不到画面的问题。
 - Windows：修复使用竖屏编码并开启美颜的情况下画面出现锯齿的问题。
 - Windows：修复第三方美颜开启情况下，切换分辨率后自定义渲染不回调的问题。
