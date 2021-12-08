@@ -483,7 +483,7 @@ trtcCalling.getMicrophones() // 获取麦克风列表
 [](id:switchDevice)
 ####  switchDevice({deviceType, deviceId}) 
 
-您可以调用此接口切换摄像头或麦克风设备
+您可以调用此接口切换摄像头或麦克风设备。
 
 >?v1.0.0 及其之后版本，新增该方法。
 
@@ -498,7 +498,7 @@ trtcCalling.switchDevice({deviceType: 'audio', deviceId: deviceId}) // 切换设
 | 参数       | 类型   | 含义          |
 | ---------- | ------ | ------------------------------- |
 | deviceType | String | video：摄像头，audio：麦克风   |
-| deviceId   | String | <li/>摄像头设备标识通过 getCameras() 获取。<li/>麦克风设备标识通过 getMicrophones() 获取 |
+| deviceId   | String | <li/>摄像头设备标识通过 getCameras() 获取<li/>麦克风设备标识通过 getMicrophones() 获取 |
 
 
 [](id:event)
