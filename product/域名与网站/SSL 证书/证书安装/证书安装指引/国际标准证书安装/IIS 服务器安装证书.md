@@ -10,31 +10,32 @@
 ## 操作步骤
 
 ### 证书安装
-1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
-解压缩后，可获得相关类型的证书文件。其中包含 IIS 文件夹和 CSR 文件：
- - 文件夹名称：cloud.tencent.com_iis
+1. 请在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中选择您需要安装的证书并单击**下载**。
+2. 在弹出的 “证书下载” 窗口中，服务器类型选择 **IIS**，单击**下载**并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
+解压缩后，可获得相关类型的证书文件。其中包含 `cloud.tencent.com.iis` 文件夹：
+ - 文件夹名称： `cloud.tencent.com.iis`
  - 文件夹内容：
+    - `cloud.tencent.com.key` 密钥文件
     - `cloud.tencent.com.pfx` 证书文件
     - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
-    - `cloud.tencent.com.key` 密钥文件
-2. 打开 IIS 服务管理器，选择计算机名称，双击打开 “服务器证书”。如下图所示：
+3. 打开 IIS 服务管理器，选择计算机名称，双击打开 “服务器证书”。如下图所示：
 ![](https://main.qcloudimg.com/raw/f81cfa90c5bed2470837ab1e04dd029e.png)
-3. 在服务器证书窗口的右侧 “操作” 栏中，单击**导入**。如下图所示：
+4. 在服务器证书窗口的右侧 “操作” 栏中，单击**导入**。如下图所示：
 ![](https://main.qcloudimg.com/raw/b1b6d531d89ea5b70a348521a9568740.png)
-4. 在弹出的 “导入证书” 窗口中，选择证书文件存放路径，输入密码，单击**确定**。如下图所示：
+5. 在弹出的 “导入证书” 窗口中，选择证书文件存放路径，输入密码，单击**确定**。如下图所示：
 >? 
->- 申请证书时若设置了私钥密码，输入密码时，请输入私钥密码。若申请证书时未设置私钥密码，输入密码时，请输入 IIS 文件夹中 keystorePass.txt 文件的密码。
+>- 申请证书时若设置了私钥密码，输入密码时，请输入私钥密码。若申请证书时未设置私钥密码，输入密码时，请输入 `cloud.tencent.com.iis` 文件夹中 keystorePass.txt 文件的密码。
 >- 如果私钥密码不慎遗忘，请 [工单联系](https://console.cloud.tencent.com/workorder/category) 腾讯云工程师删除该证书，然后重新申请该域名证书。
 >
 ![](https://main.qcloudimg.com/raw/b3084eae5e0502d1ea730e130adc6b61.png)
-5. 选择网站下的站点名称，并单击右侧 “操作” 栏的**绑定**。如下图所示：
+6. 选择网站下的站点名称，并单击右侧 “操作” 栏的**绑定**。如下图所示：
 ![](https://main.qcloudimg.com/raw/d9a68b79c3130e3cf19ffc89fb60472b.png)
-6. 在弹出的 “网站绑定” 窗口中，单击**添加**。如下图所示：
+7. 在弹出的 “网站绑定” 窗口中，单击**添加**。如下图所示：
 ![](https://main.qcloudimg.com/raw/83570ec33b564a66f2fd29c46f727016.png)
-7. 在 “添加网站绑定” 的窗口中，将网站类型设置为 https，IP 地址设置为全部未分配，端口设置为443，主机名请填写您当前申请证书的域名，并指定对应的 SSL 证书，单击**确定**。如下图所示：
+8. 在 “添加网站绑定” 的窗口中，将网站类型设置为 https，IP 地址设置为全部未分配，端口设置为443，主机名请填写您当前申请证书的域名，并指定对应的 SSL 证书，单击**确定**。如下图所示：
 ![](https://main.qcloudimg.com/raw/ba1575aa633cd1d6960aa5ffe510af57.png)
-8. 添加完成后，即可在 “网站绑定” 窗口中查看到新添加的内容。
-9. 请使用 `https://cloud.tencent.com` 进行访问。
+9. 添加完成后，即可在 “网站绑定” 窗口中查看到新添加的内容。
+10. 请使用 `https://cloud.tencent.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 
