@@ -109,8 +109,7 @@ protocol="HTTP/1.1"
 如果您需要将 HTTP 请求自动重定向到 HTTPS。您可以通过以下操作设置：
 
 1. 编辑  `/usr/*/conf` 目录下的 `web.xml` 文件，找到 <\/welcome-file-list> 标签。
-2. 请在结束标签 <\/welcome-file-list> 后面换行，并添加以下内容
-
+2. 请在结束标签 <\/welcome-file-list> 后面换行，并添加以下内容。
 ```
 <login-config>  
     <!-- Authorization setting for SSL -->  
@@ -128,7 +127,7 @@ protocol="HTTP/1.1"
     </user-data-constraint>  
 </security-constraint>
 ```
-. 编辑 `/usr/*/conf` 目录下的 `server.xml` 文件，将 redirectPort 参数修改为 SSL 的 connector 的端口，即443端口。如下所示：
+3. 编辑 `/usr/*/conf` 目录下的 `server.xml` 文件，将 redirectPort 参数修改为 SSL 的 connector 的端口，即443端口。如下所示：
 ```
 <Connector port="80" protocol="HTTP/1.1"
   connectionTimeout="20000"
@@ -150,5 +149,4 @@ protocol="HTTP/1.1"
 ```
 ./startup.sh
 ```
-
 
