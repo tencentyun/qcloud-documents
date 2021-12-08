@@ -131,9 +131,10 @@ mount 10.10.0.12:/z3r6k95r X:
 ![](https://qcloudimg.tencent-cloud.cn/raw/d3367db4c535db5533f8b1a137a7ccfc.png)
 4. 检查文件系统权限
 检查上述文件系统是否使用了 root 权限进行挂载，打开 Windows 系统命令行工具，输入`mount`命令：
-在命令行中确认，若 UID 与 GID 分别为0，则表示文件系统是使用 root 权限挂载，此时可以开始正常使用文件系统了；若 UID 与GID 分别为 -2 等其他值，则可能导致无法正常写入数据等，请重复前面的步骤、保证文件系统是以 root 权限挂载。
-![](https://qcloudimg.tencent-cloud.cn/raw/aa046627b5acfa3d448938335cf07fac.png)
-若以上界面中出现" locking=yes"，为了避免文件锁导致读写异常（NFS v3 暂不支持锁），请按以下步骤修改注册表：
+![](https://qcloudimg.tencent-cloud.cn/raw/99f9f7193c869d5f5dc3a61c2f4cf83e.png)
+UID 与 GID 分别为0，即表示文件系统使用了 root 权限挂载，此时可以开始正常使用文件系统了。若 UID 与GID 分别为 -2 等其他值，则可能导致无法正常写入数据等，请重复前面的步骤、保证文件系统是以 root 权限挂载。
+
+ 若以上界面中出现" locking=yes"，为了避免文件锁导致读写异常（NFS v3 暂不支持锁），请按以下步骤修改注册表：
  1. 找到如下注册表路径 **HKEY_LOCAL_MACHINE > SOFTWARE > Microsoft > ClientForNFS > CurrentVersion > User > Default > Mount**。
  2. 在右侧内容区右键新建 **DWORD (32 位)值**，名称为“Locking”，值为“0”。
 5. 验证读写
