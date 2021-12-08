@@ -497,8 +497,8 @@ trtcCalling.switchDevice({deviceType: 'audio', deviceId: deviceId}) // 切换设
 
 | 参数       | 类型   | 含义          |
 | ---------- | ------ | ------------------------------- |
-| deviceType | String | video: 摄像头, audio: 麦克风   |
-| deviceId   | String | <li/>摄像头设备标识通过 getCameras() 获取。<li/>麦克风设备标识通过 getMicrophones() 获取。 |
+| deviceType | String | video：摄像头，audio：麦克风   |
+| deviceId   | String | <li/>摄像头设备标识通过 getCameras() 获取。<li/>麦克风设备标识通过 getMicrophones() 获取 |
 
 
 [](id:event)
