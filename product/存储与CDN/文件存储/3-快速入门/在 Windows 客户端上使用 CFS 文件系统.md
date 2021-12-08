@@ -87,8 +87,8 @@ mount -h
 ![](https://qcloudimg.tencent-cloud.cn/raw/56dbb35c25d52e8610321e51ab2b10cf.png)
 3. 在打开的注册表中，找到并进入 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default` 路径。 
 4. 在右边空白处单击右键，选择**新建 > DWORD(32 位)值**或者 **QWORD(64 位)值**（根据您的操作系统位数选择）。
-5. 在列表中出现的新记录中，将名称设置为 **AnonymousUid** 即可，数据值采用默认的0。
-6. 重复执行**步骤4**，再添加一条新记录，并将名称设置为 **AnonymousGid**，数据也采用默认的0。
+5. 在列表中出现的新记录中，将名称设置为 **AnonymousUid**，数据值采用默认的0。
+6. 重复执行**步骤4**，再添加一条新记录，并将名称设置为 **AnonymousGid**，数据采用默认的0。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f1d86f18ccbae6664065a2d9d6bc585e.png)
 7. 关闭注册表，并在 CMD 命令行工具中依次执行如下命令，重启 NFS 客户端服务，使修改的注册表生效。或者通过重启 Windows 系统，使修改的注册表生效。
 ```
