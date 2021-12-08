@@ -3,6 +3,8 @@
 配置 ECDN 您需要注册腾讯云账号、开通 ECDN、接入域名和配置 CNAME，本文将依次为您介绍。
 
 
+若您是第一次使用全站加速网络，请参考 [CDN 产品文档](https://cloud.tencent.com/document/product/228) 进行入门配置。
+
 ## 步骤一：注册腾讯云账号
 如果您已在腾讯云注册，可忽略此步骤。
 <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.3149.btn1">点此注册腾讯云账号</a></div>
