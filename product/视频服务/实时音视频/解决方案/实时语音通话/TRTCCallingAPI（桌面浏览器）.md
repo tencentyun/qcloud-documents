@@ -51,7 +51,7 @@
 | [switchToVideoCall()](#switchToVideoCall) | 语音通话切换视频通话   |
 | [getCameras()](#getCameras)  | 获取摄像头设备列表   |
 | [getMicrophones()](#getMicrophones)     | 获取麦克风设备列表   |
-| [switchDevice({deviceType, deviceID})](#switchDevice) | 切换摄像头或麦克风设备 |
+| [switchDevice({deviceType, deviceId}) ](#switchDevice) | 切换摄像头或麦克风设备 |
 
 
 ## TRTCCalling 详解
@@ -481,7 +481,7 @@ trtcCalling.getMicrophones() // 获取麦克风列表
 </dx-codeblock>
 
 [](id:switchDevice)
-####  switchDevice({deviceType,deviceID}) 
+####  switchDevice({deviceType, deviceId}) 
 
 您可以调用此接口切换摄像头或麦克风设备
 
@@ -489,7 +489,7 @@ trtcCalling.getMicrophones() // 获取麦克风列表
 
 <dx-codeblock>
 ::: javascript javascript
-trtcCalling.switchDevice(deviceType, deviceID) // 切换设备
+trtcCalling.switchDevice({deviceType: 'audio', deviceId: deviceId}) // 切换设备
 :::
 </dx-codeblock>
 
@@ -498,7 +498,7 @@ trtcCalling.switchDevice(deviceType, deviceID) // 切换设备
 | 参数       | 类型   | 含义          |
 | ---------- | ------ | ------------------------------- |
 | deviceType | String | video: 摄像头, audio: 麦克风   |
-| deviceID   | String | <li/>摄像头设备标识通过 getCameras() 获取。<li/>麦克风设备标识通过 getMicrophones() 获取。 |
+| deviceId   | String | <li/>摄像头设备标识通过 getCameras() 获取。<li/>麦克风设备标识通过 getMicrophones() 获取。 |
 
 
 [](id:event)
