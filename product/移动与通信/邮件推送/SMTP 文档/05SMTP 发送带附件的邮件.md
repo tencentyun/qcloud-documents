@@ -4,28 +4,49 @@
 >?MIME 消息由消息头和消息体两大部分组成。分别称为 [邮件头](#head)、[邮件体](#body)。
 [](id:head)
 ## 邮件头
-包含了发件人、收件人、主题、时 间、MIME版本、邮件内容的类型等重要信息。每条信息称为一个域，由域名后加“: ”和信息内容构成，可以是一行，较长的也可以占用多行。域的首行必须“顶头”写，即左边不能有空白字符（空格和制表符）；续行则必须以空白字符打头，且第 一个空白字符不是信息本身固有的，解码时要过滤掉。
+包含了发件人、收件人、主题、时间、MIME 版本、邮件内容的类型等重要信息。
+
+>?每条信息称为一个域，由域名后加“: ”和信息内容构成，可以是一行，较长的也可以占用多行。
+>- 域的首行必须“顶头”写，即左边不能有空白字符（空格和制表符）。
+>- 续行则必须以空白字符打头，且一个空白字符不是信息本身固有的（解码时要过滤掉）。
 
 邮件头中不允许出现空行。有一些邮件不能被邮件客户端软件识别，显示的是原始码，就是因为首行是空行。
 
 例如：
-
-Date: Mon, 29 Jun 2009 18:39:03 +0800
-
-From:  <abc@123.com>
-
-To:  <abc1@123.com>
-
-Cc: <abc2@123.com>
-
-BCC: <abc3@123.com>
-
-Subject: test
-
-Message-ID: <123@123.c0m>
-
-Mime-Version: 1.0
-
+<table style="width: 400px;">
+   <tr>
+      <th width="50px" >内容</td>
+      <th width="50px" >示例 </td>
+   </tr>
+   <tr>
+      <td>Date</td>
+      <td>Mon, 29 Jun 2009 18:39:03 +0800</td>
+   </tr>
+   <tr>
+      <td>From</td>
+      <td>abc@123.com</td>
+   </tr>
+   <tr>
+      <td>To</td>
+      <td>abc1@123.com</td>
+   </tr>
+   <tr>
+      <td>BCC</td>
+      <td>abc3@123.com</td>
+   </tr>
+   <tr>
+      <td>Subject</td>
+      <td>test</td>
+   </tr>
+   <tr>
+      <td>Message-ID</td>
+      <td>123@123.com</td>
+   </tr>
+   <tr>
+      <td>Mime-Version</td>
+      <td>1.0</td>
+   </tr>
+</table>
 
 <table style="width: 400px;">
    <tr>
