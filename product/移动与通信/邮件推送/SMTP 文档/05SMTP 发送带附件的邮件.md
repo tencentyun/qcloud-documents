@@ -329,6 +329,5 @@ func writeFile(buffer *bytes.Buffer, fileName string) {
 func main() {
 	Test465Attachment()
 }
-
 :::
 </dx-codeblock>
