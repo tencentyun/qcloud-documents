@@ -185,6 +185,50 @@ sdk.controlDeviceData(data, deviceId?: string) => Promise
 - **返回值**
   返回一个 Promise，输出参数请参见 [用户控制设备](https://cloud.tencent.com/document/product/1081/40805)。
 
+### 调用设备行为(action)
+
+- **接口定义**
+
+```typescript
+sdk.callDeviceAction(actionPayload: ActionPayload, actionId: string, deviceId?: string) => Promise
+```
+
+- **参数说明**
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+<th>必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>actionPayload</td>
+<td>物模型中定义的行为调用入参</td>
+<td>object</td>
+<td>是</td>
+</tr>
+<tr>
+<td>actionId</td>
+<td>在物模型中定义的该行为的标志符</td>
+<td>string</td>
+<td>是</td>
+</tr>
+<tr>
+<td>deviceId</td>
+<td>可选，不传则使用当前设备的设备 ID</td>
+<td>string</td>
+<td>否</td>
+</tr>
+</tbody></table>
+
+- **返回值**
+  返回一个 Promise，输出参数请参见 [同步调用设备行为](https://cloud.tencent.com/document/product/1081/61347)。
+
+
+
 ### 获取设备物模型数据
 
 - **接口定义**
