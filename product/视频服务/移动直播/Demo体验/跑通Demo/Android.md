@@ -38,13 +38,12 @@
 3. 成功 [配置域名 CNAME](https://cloud.tencent.com/document/product/267/19908)。
 4. 配置好推流/播放域名后，在推流/播放域名的 **基本信息** 页面可以获得 `CNAME` 和 `API Key` 两个信息
 <img src="https://main.qcloudimg.com/raw/479d9da3f5da8068431beb796609d932.png" width=500px>
-5. 打开 `LiteAVSDK_Professional_Android版本号/MLVB-API-Example/Debug/src/main/java/com/tencent/mlvb/debug/AddressUtils.java` 文件。
-设置 `AddressUtils.java` 文件中的相关参数：
+5. 打开 `LiteAVSDK_Professional_Android版本号/MLVB-API-Example/Debug/src/main/java/com/tencent/mlvb/debug/GenerateTestUserSig.java` 文件。
+设置 `GenerateTestUserSig.java` 文件中的相关参数：
 	- **PUSH_DOMAIN**：请设置为您的推流域名的 `CNAME`。
 	- **PLAY_DOMAIN**：请设置为您的播放域名的 `CNAME`。
-	- **KEY**：非必需，用于生成 txSecret 等鉴权信息，具体计算请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915).
-	- **APP_NAME**：直播的应用名称，默认为 live，可自定义。
-<img src="https://main.qcloudimg.com/raw/65c0bd0b07c9dfa594845376b0a6797f.png" width=600px>
+	- **LIVE_URL_KEY**：非必需，用于生成 txSecret 等鉴权信息，具体计算请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915).
+<img src="https://qcloudimg.tencent-cloud.cn/raw/bb4e9ea8e62489ec908c51bfa0a0132b.png" width=600px>
 
 [](id:step4)
 ### 步骤四：配置连麦或 PK 能力
