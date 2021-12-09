@@ -44,28 +44,27 @@
 2. 在“日志采集”页面上方选择地域和需要配置日志采集规则的集群，单击**新建**。如下图所示：
 ![](https://main.qcloudimg.com/raw/613b3a7d3be13dd04f4290dc4182b1c0.png)
 3. 在“新建日志采集规则”页面中，选择采集类型，并配置日志源。目前采集类型支持**容器标准输出**、**容器文件路径**和**节点文件路径**。
-选择**容器标准输出**采集类型，并根据需求配置日志源。该类型日志源支持一次选择多个 Namespace 的工作负载。如下图所示：
+ - [](id:stout)**容器标准输出**：选择**容器标准输出**采集类型，并根据需求配置日志源。该类型日志源支持一次选择多个 Namespace 的工作负载。如下图所示：
 ![](https://main.qcloudimg.com/raw/be30d351e22a44945daabc6166480d3f.png)
-   
-选择**容器文件路径**采集类型，并配置日志源。如下图所示：
+ - [](id:insideDocker)**容器文件路径**：选择**容器文件路径**采集类型，并配置日志源。如下图所示：
 ![](https://main.qcloudimg.com/raw/887763942bdc76c78f220bdc98d0508d.png)
 采集文件路径支持文件路径和通配规则，例如当容器文件路径为 `/opt/logs/*.log`，可以指定采集路径为 `/opt/logs`，文件名为 `*.log`。
 <dx-alert infotype="notice" title="">
 如果选择采集类型为“容器文件路径”时，对应的“容器文件路径”<b>不能为软链接</b>，否则会导致软链接的实际路径在采集器的容器内不存在，采集日志失败。
 </dx-alert>
-
+ - [](id:inside)**节点文件路径**：选择<b>节点文件路径</b>采集类型，如下图所示：
+<img src = "https://main.qcloudimg.com/raw/6cd447c70be92c95c614c9604cd90484.png" style="width: 100%">
 路径支持文件路径和通配规则，例如当需要采集所有文件路径形式为 `/opt/logs/service1/*.log`，`/opt/logs/service2/*.log`，可以指定采集路径的文件夹为 `/opt/logs/service*`，文件名为 `*.log`。
-
 4. 配置日志服务消费端。
 支持用户选择写入 CKafka 或用户自建 Kafka ，当选择 CKafka 时，需要填写实例 ID 和实例 Topic ；当选择自建 Kafka 时，需按要求填写 Broker 地址和 Topic。
 ![](https://qcloudimg.tencent-cloud.cn/raw/db8dca5860ed168e47fcaf63046a2a65.png)
->
->- 如果 Kafka 实例与节点不在同一个 VPC 下，会提示创建 Kafka 实例接入点后再进行日志投递。
->- 在集群的 daemonSet 资源中，选择 kube-system 命名空间，找到 tke-log-agent pod 下的 kafkalistener 容器，可以查询 kafka 采集器的日志。
->
-
+<dx-alert infotype="explain" title="">
+- 如果 Kafka 实例与节点不在同一个 VPC 下，会提示创建 Kafka 实例接入点后再进行日志投递。
+- 在集群的 daemonSet 资源中，选择 kube-system 命名空间，找到 tke-log-agent pod 下的 kafkalistener 容器，可以查询 kafka 采集器的日志。
+</dx-alert>
 支持在高级设置内通过指定 Key 值将日志投递到指定分区，该功能默认不开启，日志随机投放，当开启后，带有同样 Key 值的日志，将投递到相同的分区。支持输入 TimestampKey（默认@timestamp）和指定时间戳格式。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/4d2bb5f6d5b94f3741e39858a88346f8.png)
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/4d2bb5f6d5b94f3741e39858a88346f8.png" style="width: 100%">
+
 
 
 ### 更新日志规则
