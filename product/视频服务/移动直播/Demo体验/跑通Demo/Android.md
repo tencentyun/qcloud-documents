@@ -15,8 +15,7 @@
 1. 根据实际业务需求 [下载](https://cloud.tencent.com/document/product/454/7873) 相应的压缩包，这里以 [Professional](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Professional_Android_latest.zip) 为例。
 2. 下载完成后，解压。<br>
 <img src="https://main.qcloudimg.com/raw/f51b3a0a56a870e8b8d38de88397fe43.png" width=300px>
->!
->源码也可以从 [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) 获得。
+>!源码也可以从 [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) 获得。
 
 [](id:step2)
 ### 步骤二：配置 License
