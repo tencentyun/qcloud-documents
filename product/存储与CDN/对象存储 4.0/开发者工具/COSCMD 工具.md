@@ -1,5 +1,3 @@
->!新命令行工具 [COSCLI 工具](https://cloud.tencent.com/document/product/436/63143) 已发布，将逐步替代 COSCMD 工具，COSCMD 工具将不再新增功能，只修复现有 Bug。
-
 
 ## 功能说明
 
@@ -469,11 +467,11 @@ coscmd download <cospath> <localpath>
 ```plaintext
 coscmd download doc/picture.jpg D:/picture.jpg
 ```
-- 操作示例 - 下载COS上的 doc/picture.jpg 到 D:/picture.jpg
+- 操作示例 - 下载 COS 上的 doc/picture.jpg 到 D 盘
 ```plaintext
 coscmd download doc/picture.jpg D:/
 ```
-- 操作示例 - 下载一个带有版本 ID 的 picture.jpg 文件到 D盘
+- 操作示例 - 下载一个带有版本 ID 的 picture.jpg 文件到 D 盘
 ```plaintext
 coscmd download picture.jpg --versionId MTg0NDUxMzc2OTM4NTExNTg7Tjg D:/
 ```

@@ -1,4 +1,7 @@
-**新接入的开发者推荐使用 [新版本 API](https://cloud.tencent.com/document/product/269/44499)。**
+，同旧版本中的 Private
+
+
+，同旧版本中的 ChatRoom**新接入的开发者推荐使用 [新版本 API](https://cloud.tencent.com/document/product/269/44499)。**
 
 ## TIMManager
 
@@ -135,9 +138,9 @@ TIMConversation 提供的接口函数都是围绕消息的相关操作，包括�
 ### 创建/删除/加入/退出群组
 | API | 描述 |
 | --- | --- |
-| [createPrivateGroup](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMGroupManager.html#createprivategroup) | 创建私有群。 |
+| [createPrivateGroup](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMGroupManager.html#createprivategroup) | 创建私有群，同新版本中的 Work。 |
 | [createPublicGroup](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMGroupManager.html#createpublicgroup) | 创建公开群。 |
-| [createChatRoomGroup](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMGroupManager.html#createchatroomgroup) | 创建聊天室。 |
+| [createChatRoomGroup](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMGroupManager.html#createchatroomgroup) | 创建聊天室，同新版本中的 Meeting。 |
 | [createAVChatRoomGroup](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMGroupManager.html#createavchatroomgroup) | 创建音视频聊天室。 |
 | [createGroup](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMGroupManager.html#creategroup) | 创建指定类型和 ID 的群组。 |
 | [createGroup](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMGroupManager.html#creategroup2) | 创建自定义群组。 |

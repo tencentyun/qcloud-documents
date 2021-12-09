@@ -50,7 +50,9 @@ iOS、Android 上的应用可以通过集成移动直播 SDK 来实现 App 端�
 若您有网站需要进行直播推流和播放，推荐您使用以下方式进行接入：
 
 - **Web 端直播推流**：基于浏览器通用的 WebRTC 标准进行设计和封装，通过引入代码片段就能实现在浏览器中进行直播推流，详情请参见 [WebRTC 推流](https://cloud.tencent.com/document/product/267/56505)。
-> ! WebRTC 推流时音频编码方式为 opus 编码，若使用标准直播的播放协议（RTMP、FLV、HLS）进行播放时，为保证能正常观看，云直播后台会自动发起音频转码转为 aac 编码，从而会产生音频转码费用，详情请参见[音频转码费用说明](https://cloud.tencent.com/document/product/267/39889#a_trans)。（若只使用快直播则不会发起音频转码）
+> ! 
+> - WebRTC 推流时音频编码方式为 opus 编码，若使用标准直播的播放协议（RTMP、FLV、HLS）进行播放时，为保证能正常观看，云直播后台会自动发起音频转码转为 aac 编码，从而会产生音频转码费用，详情请参见[音频转码费用说明](https://cloud.tencent.com/document/product/267/39889#a_trans)。（若只使用快直播则不会发起音频转码）
+> - 使用 WebRTC 协议推流，每个推流域名默认限制**100路并发**推流数，如您需要超过此推流限制，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 的方式联系我们进行申请。
 - **Web 端直播播放**：推荐您选用播放器 SDK 的 [TCPlayerLite](https://cloud.tencent.com/document/product/454/7503) ，支持在手机浏览器和 PC 浏览器上播放**快直播 WebRTC 协议**直播流，相比传统的直播协议延迟更低，为观众提供毫秒级的极致直播观看体验。
 > ! 在不支持 WebRTC 的浏览器环境，传入播放器的 WebRTC 地址会自动进行协议转换来更好的支持媒体播放，在移动端浏览器会默认转换为 HLS，PC 端浏览器默认转换为 FLV。
 

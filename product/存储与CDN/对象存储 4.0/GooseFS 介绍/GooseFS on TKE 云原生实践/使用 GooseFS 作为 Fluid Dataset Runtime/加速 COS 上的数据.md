@@ -12,8 +12,7 @@
  - 创建一个 Dataset CRD 对象，描述了数据集的来源，例如示例中的 test-bucket。
  - 创建一个 GooseFSRuntime，相当于启动一个 GooseFS 的集群来提供缓存服务。
 
- <dx-codeblock>
-::: yaml yaml
+ ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
 metadata:
@@ -22,8 +21,8 @@ spec:
   mounts:
     - mountPoint: cosn://test-bucket/
       options:
-        fs.cosn.userinfo.secretId: <COS_ACCESS_KEY_ID>
-        fs.cosn.userinfo.secretKey: <COS_ACCESS_KEY_SECRET>
+        fs.cosn.userinfo.secretId: <COS_SECRET_ID>
+        fs.cosn.userinfo.secretKey: <COS_SECRET_KEY>
         fs.cosn.bucket.region: <COS_REGION>
         fs.cosn.impl: org.apache.hadoop.fs.CosFileSystem
         fs.AbstractFileSystem.cosn.impl: org.apache.hadoop.fs.CosN
@@ -44,18 +43,16 @@ spec:
         quota: 100G
         high: "0.9"
         low: "0.2"
-:::
-</dx-codeblock>
+```
 为了 AK 等密钥信息的安全性，建议使用 secret 来保存相关密钥信息，secret 使用请参考 <a href="https://cloud.tencent.com/document/product/436/59502">使用参数加密</a>。
-<dx-codeblock>
-::: yaml yaml
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
   name: mysecret
 stringData:
-  fs.cosn.userinfo.secretId: <COS_ACCESS_KEY_ID>
-  fs.cosn.userinfo.secretKey: <COS_ACCESS_KEY_SECRET>
+  fs.cosn.userinfo.secretId: <COS_SECRET_ID>
+  fs.cosn.userinfo.secretKey: <COS_SECRET_KEY>
 ---
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
@@ -95,13 +92,11 @@ spec:
         quota: 100G
         high: "0.9"
         low: "0.2"
-:::
-</dx-codeblock>
- 
+```
  - Dataset：
     - mountPoint：表示挂载 UFS 的路径，路径中不需要包含 endpoint 信息。
     - options：在 options 需要指定存储桶的必要信息，具体可参考 [API 术语信息](https://cloud.tencent.com/document/product/436/7751)。
-    - fs.cos.accessKeyId/fs.cos.accessKeySecret：拥有权限访问该 COS 存储桶的密钥信息。
+    - fs.cosn.userinfo.secretId/fs.cosn.userinfo.secretKey：拥有权限访问该 COS 存储桶的密钥信息。
  - GooseFSRuntime：更多 API 可参考 [api_doc.md](https://github.com/fluid-cloudnative/fluid/blob/master/docs/en/dev/api_doc.md)。
     - replicas：表示创建 GooseFS 集群节点的数量。
     - mediumtype： GooseFS 支持 HDD/SSD/MEM 三种类型缓存介质，提供多级缓存配置。

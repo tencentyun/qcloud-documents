@@ -4,7 +4,7 @@
 
 ### 语法
 
-Lambda 表达式需与函数一起使用，例如 filter 函数、reduce 函数、transform 函数、map_filter 函数。Lambda 表达式的语法如下：
+Lambda 表达式需与函数一起使用，例如 [filter 函数](https://cloud.tencent.com/document/product/614/63800#filter)、[reduce 函数](https://cloud.tencent.com/document/product/614/63800#reduce)、[transform 函数](https://cloud.tencent.com/document/product/614/63800#transform)、[zip_with 函数](https://cloud.tencent.com/document/product/614/63800#zip_with)。Lambda 表达式的语法如下：
 ```
 parameter -> expression
 ```

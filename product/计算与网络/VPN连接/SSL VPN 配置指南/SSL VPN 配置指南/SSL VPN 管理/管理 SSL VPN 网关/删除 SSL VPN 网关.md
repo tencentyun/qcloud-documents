@@ -1,8 +1,8 @@
-﻿当 SSL VPN 网关不再使用时，您可以执行删除操作。
+当 SSL VPN 网关不再使用时，您可以执行删除操作。
 
 ## 前提条件
-- 已删除挂载的 SSL 服务端，具体操作请参考[ 删除 SSL 服务端]()。   
-- 已删除挂载的 SSL 客户端，具体操作请参考[ 删除 SSL 客户端]()。  
+- 已删除挂载的 SSL 服务端，具体操作请参考[ 删除 SSL 服务端](https://cloud.tencent.com/document/product/554/63724)。   
+- 已删除挂载的 SSL 客户端，具体操作请参考[ 删除 SSL 客户端](https://cloud.tencent.com/document/product/554/63728)。  
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。

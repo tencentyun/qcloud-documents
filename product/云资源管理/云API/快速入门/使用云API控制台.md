@@ -1,12 +1,17 @@
 [云 API 控制台](https://console.cloud.tencent.com/api/overview) 提供了用户查看调用产品情况的可视化界面，方便用户了解腾讯云 API 调用次数、错误率、使用 API 调用的产品分布以及错误码分布。同时还提供了 API 库、API Explorer 工具及错误码中心，您可按需选择并开始使用。
->!
->- 云 API 控制台仅展示您使用 API 3.0调用的数据情况（包括 API Explorer、TCCLI 及 SDK 调用），不包括控制台关联的 API 调用。
->- [API 中心](https://cloud.tencent.com/document/api) 具有3.0标识代表该产品具备 API 3.0。
 
-## 查看 API 调用概览
-您可通过云 API 控制台概览页查看以下信息：
-- 可查看1小时、24小时、7天或30天内的 API 调用次数及错误率分布情况。如下图所示：
-![](https://main.qcloudimg.com/raw/a307cad3077309266256051607ee96df.png)
+<dx-alert infotype="notice" title="">
+- 云 API 控制台仅展示您使用 API 3.0调用的数据情况（包括 API Explorer、TCCLI 及 SDK 调用），不包括控制台关联的 API 调用。
+- [API 中心](https://cloud.tencent.com/document/api) 具有3.0标识代表该产品具备 API 3.0。
+</dx-alert>
+
+
+
+## 使用信息中心
+您可通过云 API 控制台信息中心页查看以下信息：
+- 可根据账号、产品、接口及时间段进行筛选，查看对应条件下的 API 调用次数及错误率分布情况。如下图所示：
+若当前账号为主账号，则可选择查看主账号或对应子账号的 API 调用信息。若当前账号为子账号，则仅能查看当前账号的 API 调用信息。
+![](https://qcloudimg.tencent-cloud.cn/raw/5a1e55b2ebb328de6fbaf532eb48210e.png)
 - 可查看 API 产品使用分布，了解具体产品的调用情况。如下图所示：
 ![](https://main.qcloudimg.com/raw/1ebdb6ddfd6822bec849afe9ca26e8ab.png)
 - 可查看错误码分布详情。如下图所示：

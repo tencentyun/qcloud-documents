@@ -32,7 +32,8 @@
 </td>
 <td>
 <input type="button" value="视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html')" /><br><br>
-<input type="button" value="互动直播" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html')" />
+<input type="button" value="互动直播推流端" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html')" /><br><br>
+<input type="button" value="互动直播拉流端" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html')" />
 </td>
 <td>
 <a onclick="window.open('https://www.pgyer.com/TtEk')" value="Flutter_ios_版">

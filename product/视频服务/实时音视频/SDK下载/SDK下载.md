@@ -87,16 +87,25 @@ TRTC 是腾讯云 LiteAV 系列产品之一，由于 LiteAV 体系的 SDK 都使
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32399">DOC</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32183">DOC</a></td>
       <td style="text-align:center">N/A</td>
-   </tr>
-	    <tr>
+</tr>
+<tr>
       <td style="text-align:center">Flutter</td>
-      <td style="text-align:center">N/A</td>
+      <td style="text-align:center"><a href="https://pub.dev/packages/tencent_trtc_cloud/versions">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/c1avie/trtc_demo">Github</a></td>
       <td style="text-align:center">N/A</td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/51601">DOC</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/51602">DOC</a></td>
-      <td style="text-align:center">13M</td>
-   </tr>
+      <td style="text-align:center">N/A</td>
+</tr>
+<tr>
+      <td style="text-align:center">React Native</td>
+      <td style="text-align:center">N/A</td>
+      <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCReactNative">Github</a></td>
+      <td style="text-align:center">N/A</td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/63790">DOC</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/63791">DOC</a></td>
+      <td style="text-align:center">N/A</td>
+</tr>
 </table>
 
 >? 

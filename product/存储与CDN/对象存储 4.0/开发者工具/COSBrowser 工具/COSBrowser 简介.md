@@ -49,7 +49,7 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
    <tr>
       <td>Uploader 插件</td>
       <td>Web</td>
-      <td>Chrome浏览器</td>
+      <td>Chrome 浏览器</td>
       <td><a href="https://chrome.google.com/webstore/detail/cosbrowser-uploader/mggpkimgmmdbdbakdkaebhjhgomcmlnd">应用商店</a>/<a href="https://cos5.cloud.tencent.com/cosbrowser/latest-chrome.zip">离线下载</a></td>
    </tr>
 </table>
@@ -83,16 +83,18 @@ COSBrowser 桌面端支持以下功能：
 | [新建文件夹](https://cloud.tencent.com/document/product/436/38103#newfolder) | 支持在存储桶中新建文件夹                                     |
 | [查看文件详情](https://cloud.tencent.com/document/product/436/38103#view) | 支持查看存储桶中的文件基本信息                               |
 | [生成文件链接](https://cloud.tencent.com/document/product/436/38103#generatelinks) | 支持通过请求临时签名的方式生成带有时效的文件访问链接         |
+| [文件/文件夹分享](https://cloud.tencent.com/document/product/436/38103#share) | 支持分享文件和文件夹，支持设置分享的有效时间         |
+| [导出文件 URL](https://cloud.tencent.com/document/product/436/38103#export) | 支持批量导出文件 URL         |
 | [文件预览](https://cloud.tencent.com/document/product/436/38103#preview) | 支持预览存储桶中的媒体文件（图片、视频、音频）               |
 | [搜索文件](https://cloud.tencent.com/document/product/436/38103#searchfile) | 支持以前缀搜索的方式对存储桶中的文件进行搜索                 |
 | [搜索存储桶](https://cloud.tencent.com/document/product/436/38103#searchbuckete) | 支持搜索已创建的存储桶                                       |
-| [查看历史版本/文件碎片](https://cloud.tencent.com/document/product/436/38103#viewfiles) | <li>支持在已开启版本控制的存储桶中，查看文件的历史版本<br><li>支持查看存储桶内的文件碎片详情           |
+| [查看历史版本或文件碎片](https://cloud.tencent.com/document/product/436/38103#viewfiles) | <li>支持在已开启版本控制的存储桶中，查看文件的历史版本<br><li>支持查看存储桶内的文件碎片详情           |
 | [设置网络代理](https://cloud.tencent.com/document/product/436/38103#sets) | 支持设置网络代理来访问 COS                                   |
 | [设置传输并发数](https://cloud.tencent.com/document/product/436/38103#sets) | 支持设置文件上传、下载的传输并发数                           |
 | [设置传输分块数](https://cloud.tencent.com/document/product/436/38103#sets) | 支持设置文件分块上传、下载的分块数                           |
 | [设置传输失败重试数](https://cloud.tencent.com/document/product/436/38103#sets) | 支持设置文件上传、下载失败时的重试次数                       |
 | [设置上传二次校验](https://cloud.tencent.com/document/product/436/38103#sets) | 支持对上传至存储桶中的文件进行二次校验                       |
-| [设置上传计算 md5](https://cloud.tencent.com/document/product/436/38103#sets) | 支持对上传至存储桶中的文件计算其 md5 并添加至自定义的 Headers |
+| [设置单线程限速](https://cloud.tencent.com/document/product/436/38103#sets) | 支持设置单线程上传限速和下载限速 |
 | [查看本地日志](https://cloud.tencent.com/document/product/436/38103#sets) | 支持将用户对 COSBrowser 的操作记录以本地日志的形式保存       |
 
 ## 移动端功能列表

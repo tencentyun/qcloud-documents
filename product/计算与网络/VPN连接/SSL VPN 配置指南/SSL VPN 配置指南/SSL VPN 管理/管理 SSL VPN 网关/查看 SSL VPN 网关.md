@@ -1,7 +1,7 @@
-﻿## 查看 VPN 网关
+## 查看 VPN 网关
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击 **VPN 连接** > **VPN 网关**，进入管理页。
-  该页面罗列了 SSL VPN 网关 ID、名称、状态、公网 IP、所属网络、带宽上限等信息。
+  该页面展示了 SSL VPN 网关 ID、名称、状态、公网 IP、所属网络、带宽上限等信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/196b453fd6fd3c997d0dda0c4e5ca3dd.png)
 3. 单击具体的 SSL VPN 网关 ID，进入 SSL VPN 网关详情页。
  ![](https://qcloudimg.tencent-cloud.cn/raw/d1139111b966fdea6a9245fe739b07bd.png)
