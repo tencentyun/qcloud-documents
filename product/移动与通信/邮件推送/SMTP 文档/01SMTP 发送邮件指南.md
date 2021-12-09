@@ -11,8 +11,8 @@
 
 
 ## 使用 SMTP 接口发信
-SMTP 调用方法示例，及具体请求参数，返回参数，错误码说明，请参见  [SMTP 调用示例](https://iwiki.woa.com/pages/viewpage.action?pageId=1276060335) 。
->?支持发送带附件的邮件，具体请参见 [SMTP 发送带附件的邮件](https://iwiki.woa.com/pages/viewpage.action?pageId=1276061445) 。
+SMTP 调用方法示例，及具体请求参数，返回参数，错误码说明，请参见  [SMTP 调用示例](https://cloud.tencent.com/document/product/1288/65751) 。
+>?支持发送带附件的邮件，具体请参见 [SMTP 发送带附件的邮件](https://cloud.tencent.com/document/product/1288/65753) 。
 
 ## 使用 SMTP 发信频率
 目前 SMTP 接口调用频率限制为：同一个 appId 发信频率为20/1s (appId 即腾讯云账号的 appId)。同时同一发信人对同一收信人发信频率限制为10/1h。
