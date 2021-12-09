@@ -10,7 +10,7 @@
 
 ## 操作步骤
 
-### 步骤 1 ：在 API 网关中关联公网 HTTP/HTTPS 请求
+### 步骤1：在 API 网关中关联公网 HTTP/HTTPS 请求
 
 1. 前往 [API网关控制台](https://console.cloud.tencent.com/apigateway)，在左侧导航栏，单击**服务**，进入服务列表页。
 2. 选择与部署TEM应用相同的地域，单击页面左上角的**新建**，新建一个服务。
@@ -23,7 +23,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/500c72ee8d3fb382605fafbc739d33c9.png)
 6. 设置应用的返回类型，此处为 HTML，RESTful 服务可选择为 JSON，点击完成。发布服务。
 
-### 步骤 2 ：验证公网请求连通性
+### 步骤2：验证公网请求连通性
 
 1. 前往 API 网关服务基础配置页面，复制服务的内网 VPC 访问地址。
 ![](https://qcloudimg.tencent-cloud.cn/raw/12787f416718171cd1d95e85aa4243cc.png)
