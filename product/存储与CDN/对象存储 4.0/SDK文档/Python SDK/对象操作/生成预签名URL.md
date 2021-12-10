@@ -241,7 +241,7 @@ response = client.get_presigned_url(
 |Headers| 签名中要签入的请求头部| Dict| 否|
 |SignHost | 请求域名是否算入签名，默认值True，签名后使用者需要修改请求域名时设置为False| Bool| 否|
 
-可以签入的Header、Params和具体的方法相关，比如上传对象可以签入的Headers参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述，下载对象可以签入的Headers和Params参见 [GET Object 中的请求参数和请求头](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述。
+可以签入的Header、Params和具体的方法相关，例如上传对象可以签入的Headers参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述，下载对象可以签入的Headers和Params参见 [GET Object 中的请求参数和请求头](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述。
 
 #### 返回结果说明
 
@@ -365,7 +365,7 @@ response = client.get_presigned_download_url(
 |Headers| 签名中要签入的请求头部| Dict| 否|
 |SignHost | 请求域名是否算入签名，默认值True，签名后使用者需要修改请求域名时设置为False| Bool| 否|
 
-可以签入的Header、Params和具体的方法相关，比如上传对象可以签入的Headers参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述，下载对象可以签入的Headers和Params参见 [GET Object 中的请求参数和请求头](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述。
+可以签入的Header、Params和具体的方法相关，例如上传对象可以签入的Headers参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述，下载对象可以签入的Headers和Params参见 [GET Object 中的请求参数和请求头](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述。
 
 #### 返回结果说明
 
@@ -561,7 +561,7 @@ response = client.get_auth(
 |Params | 需要签入签名的请求参数| Dict| 否|
 |SignHost | 请求域名是否算入签名，默认值True，签名后使用者需要修改请求域名时设置为False| Bool| 否|
 
-可以签入的Header、Params和具体的方法相关，比如上传对象可以签入的Headers参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述，下载对象可以签入的Headers和Params参见 [GET Object 中的请求参数和请求头](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述。
+可以签入的Header、Params和具体的方法相关，例如上传对象可以签入的Headers参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述，下载对象可以签入的Headers和Params参见 [GET Object 中的请求参数和请求头](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述。
 
 #### 返回结果说明
 
