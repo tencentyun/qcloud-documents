@@ -1,8 +1,10 @@
 ## 操作场景
 
-本文介绍通过 TSE 控制台使用 K8s 集群的能力。该能力将 K8s 集群关联到 Polarismesh ，Polaris Controller 可以同步您 Kubernetes 集群上的 Namespace，Service，Endpoints 等资源到 Polaris 中，从而实现 K8s Service 自动注册到 Polarismesh ，使用 Polarismesh API 和多语言 SDK 可以访问，使用 gRPC 和 Spring Cloud 等开源框架也可以访问。主要适用于以下场景：
+微服务引擎 TSE 提供将 K8s 集群关联到 Polarismesh 的能力，Polaris Controller 可以同步您 Kubernetes 集群上的 Namespace，Service，Endpoints 等资源到 Polaris 中，从而实现 K8s Service 自动注册到 Polarismesh ，使用 Polarismesh API 和多语言 SDK 可以访问，使用 gRPC 和 Spring Cloud 等开源框架也可以访问。主要适用于以下场景：
 场景一：异构系统与多技术栈场景下，SpringCloud等框架服务调用 K8s 集群服务。
 场景二：跨集群场景下的服务调用。
+
+本文介绍通过 TSE 控制台使用 K8s 集群的能力。
 
 
 ## 操作步骤
