@@ -21,7 +21,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/f3ecf9cf75b1b625beae7d6dfd8a8395.png)
 5. 在后端配置中，选择 公网URL/IP，配置您需要访问的公网域名以及路径（此处以腾讯云官网为例），单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/500c72ee8d3fb382605fafbc739d33c9.png)
-6. 设置应用的返回类型，此处为 HTML，RESTful 服务可选择为 JSON，点击完成。发布服务。
+6. 设置应用的返回类型，此处为 HTML，RESTful 服务可选择为 JSON，单击完成。发布服务。
 
 ### 步骤2：验证公网请求连通性
 
