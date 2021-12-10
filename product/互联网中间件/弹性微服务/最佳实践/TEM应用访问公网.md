@@ -38,7 +38,7 @@ TEM 中的应用部署在用户的环境中，环境和用户的 VPC 关联，�
 
 ### 步骤3：在 VPC 控制台中配置 NAT 网关信息[](id:step3)
 
-1. 在 TEM 控制台**[环境](https://console.cloud.tencent.com/tem/env)**页面单击 TEM 应用所在的环境卡片，进入环境基本信息页面。
+1. 在 TEM 控制台 [**环境**](https://console.cloud.tencent.com/tem/env) 页面单击 TEM 应用所在的环境卡片，进入环境基本信息页面。
 2. 在集群网络处单击 VPC，跳转至 VPC 网络基本信息页面。
 	<img src="https://main.qcloudimg.com/raw/bcaabe271f748c1632c20d4d18f241be.png" width="450px">
 3. 单击**路由表**模块，进入路由表配置页面。
@@ -55,7 +55,7 @@ TEM 中的应用部署在用户的环境中，环境和用户的 VPC 关联，�
 
 ### 步骤4：验证公网访问[](id:step4)
 
-1. 在 TEM 控制台的**[应用管理](https://console.cloud.tencent.com/tem/application?rid=4)**页面单击 TEM 应用的“ID”，进入应用实例列表页面。
+1. 在 TEM 控制台的 [**应用管理**](https://console.cloud.tencent.com/tem/application?rid=4) 页面单击 TEM 应用的“ID”，进入应用实例列表页面。
 2. 单击应用实例操作栏的**Webshell**，进入到 Webshell 中。
    ![](https://main.qcloudimg.com/raw/fc3adda3cc164fe7d9597fc24f223901.png)
 3. 验证是否可以访问公网。
@@ -65,7 +65,7 @@ TEM 中的应用部署在用户的环境中，环境和用户的 VPC 关联，�
 
 ###  步骤5：(可选)查询访问公网的 IP[](id:step5)
 
-1. 在 TEM 控制台**[环境](https://console.cloud.tencent.com/tem/env)**页面单击 TEM 应用所在的环境卡片，进入环境基本信息页面。
+1. 在 TEM 控制台 [**环境**](https://console.cloud.tencent.com/tem/env) 页面单击 TEM 应用所在的环境卡片，进入环境基本信息页面。
 2. 在集群网络处单击 VPC，跳转至 VPC 网络基本信息页面。
 	<img src="https://main.qcloudimg.com/raw/bcaabe271f748c1632c20d4d18f241be.png" width="450px">
 3. 单击**NAT 网关**模块，进入NAT 网关列表页面。
