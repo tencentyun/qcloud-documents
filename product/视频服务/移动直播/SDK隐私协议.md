@@ -99,6 +99,29 @@
 <td>美颜特效 SDK</td>
 </tr>
 </tbody></table>
+本 SDK 除自身提供相关服务并需收集相关信息外，还会集成其他可供第三方开发者选择是否接入的第三方 SDK，此部分第三方 SDK 所收集的个人信息请开发者和终端用户查看第三方 SDK 的隐私政策或类似文件。
+
+本 SDK 接入的第三方 SDK 以及第三方 SDK 的个人信息处理清单具体如下：
+<table>
+<thead>
+<tr>
+<th width=10%>接入的 SDK 名称</th>
+<th>处理目的</th>
+<th>处理方式</th>
+<th>个人信息类型</th>
+<th>隐私政策</th>
+<th>涉及的产品版本</th>
+</tr>
+</thead>
+<tbody style="font-style:italic;"><tr>
+<td>硬件耳返</td>
+<td>在华为设备上开启/关闭硬件耳返功能</td>
+<td>采集华为设备终端的音频信息并在本终端上进行实时播放（仅限连接有耳机时）</td>
+<td>音频数据</td>
+<td><a href="https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/introduction_services-0000001053333356#section4862331393">参考文档</a></td>
+<td>基础直播 Smart SDK、互动直播 Live SDK、音视频通话 TRTC SDK、全功能版视立方 SDK</td>
+</tr>
+</tbody></table>
 
 #### （二）我们从第三方获得的第三方开发者和/或终端用户的个人信息
 

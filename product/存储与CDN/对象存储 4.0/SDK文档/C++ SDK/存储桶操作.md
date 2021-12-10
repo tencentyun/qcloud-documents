@@ -29,7 +29,7 @@ CosResult GetService(const GetServiceReq& request, GetServiceResp* response)
 qcloud_cos::CosConfig config("./config.json");
 qcloud_cos::CosAPI cos(config);
 
-std::string bucket_name = "examplebucket-1250000000";
+std::string bucket_name = "examplebucket-1250000000"; // 替换为用户的存储桶名，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称：https://console.cloud.tencent.com/cos5/bucket
 
 qcloud_cos::GetServiceReq req;
 qcloud_cos::GetServiceResp resp;
@@ -107,7 +107,7 @@ CosResult PutBucket(const PutBucketReq& req, PutBucketResp* resp)
 qcloud_cos::CosConfig config("./config.json");
 qcloud_cos::CosAPI cos(config);
 
-std::string bucket_name = "examplebucket-1250000000";
+std::string bucket_name = "examplebucket-1250000000"; // 替换为用户的存储桶名，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称：https://console.cloud.tencent.com/cos5/bucket
 
 qcloud_cos::PutBucketReq req(bucket_name);
 qcloud_cos::PutBucketResp resp;
@@ -170,7 +170,7 @@ CosResult HeadBucket(const HeadBucketReq& req, HeadBucketResp* resp)
 qcloud_cos::CosConfig config("./config.json");
 qcloud_cos::CosAPI cos(config);
 
-std::string bucket_name = "examplebucket-1250000000";
+std::string bucket_name = "examplebucket-1250000000"; // 替换为用户的存储桶名，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称：https://console.cloud.tencent.com/cos5/bucket
 
 qcloud_cos::HeadBucketReq req(bucket_name);
 qcloud_cos::HeadBucketResp resp;
@@ -210,7 +210,7 @@ CosResult DeleteBucket(const DeleteBucketReq& req, DeleteBucketResp* resp)
 qcloud_cos::CosConfig config("./config.json");
 qcloud_cos::CosAPI cos(config);
 
-std::string bucket_name = "examplebucket-1250000000";
+std::string bucket_name = "examplebucket-1250000000"; // 替换为用户的存储桶名，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称：https://console.cloud.tencent.com/cos5/bucket
 
 // DeleteBucketReq 的构造函数需要传入 bucket_name
 qcloud_cos::DeleteBucketReq req(bucket_name);
