@@ -3,14 +3,14 @@
 
 ## 操作步骤
 ### 实例级 MongoDB Status
-1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/performance/monitor)，在左侧导航选择**诊断优化**，在上方选择**性能趋势**页。
-2. 在上方选择对应 MongoDB 实例，然后选择**实例** > **MongoStaus**。
+1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/performance/monitor)，在左侧导航选择**诊断优化**，在上方选择对应数据库，然后选择**性能趋势**页。
+2. 选择**实例** > **MongoStaus**。
 3. 单击右上方暂停按钮，可以暂停后观看数据情况。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3d2e438d2552c9de27211fd0e21189ae.png)
 
 ### 单节点 MongoDB Status
-1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/performance/monitor)，在左侧导航选择**诊断优化**，在上方选择**性能趋势**页。
-2. 在上方选择对应 MongoDB 实例，然后选择**mongod节点** > **MongoStaus**。
+1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/performance/monitor)，在左侧导航选择**诊断优化**，在上方选择对应数据库，然后选择**性能趋势**页。
+2. 选择**mongod节点** > **MongoStaus**。
 3. 通过下拉列表，选择一个您要查看的节点。
 3. 单击右上方暂停按钮，可以暂停后观看数据情况。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a6b976a83db094e0fe6bb9c98f462554.png)
