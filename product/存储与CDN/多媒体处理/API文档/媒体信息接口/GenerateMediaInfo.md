@@ -1,6 +1,6 @@
 ## 功能描述
 
-GenerateMediainfo 接口用于获取媒体文件的信息。
+GenerateMediainfo 接口用于获取多媒体文件的信息。
 
 ## 请求
 
