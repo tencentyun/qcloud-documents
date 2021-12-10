@@ -1,15 +1,13 @@
 ## 操作场景
-腾讯云容器服务 TKE 支持使用社区的 bandwidth 插件对网络进行限速，目前适用于 Global Router 模式和 VPC-CNI 共享网卡模式
+腾讯云容器服务 TKE 暂不支持 Pod 限速，但可通过修改 CNI 插件来支持此功能。本文档介绍如何在 TKE 上实现对 Pod 的带宽限速，您可结合实际场景进行操作。
 
 
 ## 使用提醒
-- 腾讯云容器服务TKE支持 Global Router 模式限速，适用于常规场景，但开启后将不支持 HostPort 功能，可以用 HostNetwork 替代。
-- 腾讯云容器服务TKE同时也支持 VPC-CNI 模式限速，适用于对时延有较高要求的场景。
+- 腾讯云容器服务 TKE 支持使用社区的 bandwidth 插件对网络进行限速，目前适用于 Global Router 模式和 VPC-CNI 共享网卡模式。
+- 暂不支持 VPC-CNI 独占网卡模式。
 
-##操作步骤
-
-###修改CNI插件
-
+## 操作步骤
+### 修改CNI插件
 #### Global Router 模式
 Global Router 网络模式是容器服务 TKE 基于底层私有网络 VPC 的全局路由能力，实现了容器网络和 VPC 互访的路由策略。GlobalRouter 网络模式适用于常规场景，可与标准 Kuberentes 功能无缝,使用详细介绍参阅[Global Router模式介绍](https://cloud.tencent.com/document/product/457/50354)。
 
@@ -21,15 +19,15 @@ kubectl edit daemonset tke-bridge-agent -n kube-system
 之后添加 args ` --bandwidth`，开启bandwidth 插件支持。
 
 #### VPC-CNI 共享网卡模式
-VPC-CNI 模式是容器服务 TKE 基于 CNI 和 VPC 弹性网卡实现的容器网络能力，适用于对时延有较高要求的场景。开源组件 Bandwidth 能够支持 Pod 出口和入口流量整形，以及支持带宽控制,使用详细介绍参阅[VPC-CNI 模式介绍](https://cloud.tencent.com/document/product/457/50355)。
+VPC-CNI 模式是容器服务 TKE 基于 CNI 和 VPC 弹性网卡实现的容器网络能力，适用于对时延有较高要求的场景。   
+开源组件 Bandwidth 能够支持 Pod 出口和入口流量整形，以及支持带宽控制,使用详细介绍参阅[VPC-CNI 模式介绍](https://cloud.tencent.com/document/product/457/50355)。
 1. 请参考 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)，登录 Pod 所在节点。
 2. 执行以下命令，查看 `tke-eni-agent`配置。
 ```
 kubectl edit daemonset tke-eni-agent -n kube-system
 ```
-之后添加 args ` --bandwidth`，开启bandwidth 插件支持。
+之后添加 args ` --bandwidth`，开启bandwidth 插件支持。  
 tke-eni-agent 加入以上参数即可开启该特性，去掉即可关闭。支持部署、变更开启和变更关闭，只影响增量的 Pod。
-
 
 ### Pod 指定 annotation
 可使用社区提供的方式设置：
