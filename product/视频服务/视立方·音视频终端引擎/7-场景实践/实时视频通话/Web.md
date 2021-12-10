@@ -2,7 +2,6 @@
 - 第一部分：介绍如何开通服务并跑通我们提供的演示 Demo。
 - 第二部分：介绍如何使用 TRTCCalling 组件快速搭建自己的视频通话功能。
 
-
 ## 版本支持
 本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
@@ -33,13 +32,14 @@ TRTCCalling 依赖以下端口进行数据传输，请将其加入防火墙白�
 | Windows  | 桌面版 QQ 浏览器（极速内核） |       10.4+        |
 | Windows  |    桌面版 Firefox 浏览器     |        56+         |
 | Windows  |      桌面版 Edge 浏览器      |        80+         |
+...
 
 详细兼容性查询，具体请参见 [浏览器支持情况](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-05-info-browser.html)。同时，您可通过 [TRTC 检测页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 在线检测。
 
 ## 跑通测试 Demo
 [](id:step1)
 ### 步骤1：创建新的应用
-1. [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 实名认证。
+1. [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成实名认证。
 2. 登录实时音视频控制台，选择 **开发辅助>[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
 3. 输入应用名称，例如 TestTRTC ，单击 **创建**。
 
@@ -131,7 +131,7 @@ const trtcCalling = new TRTCCalling(options);
 </dx-codeblock>
 
 ### 步骤3：完成登录
-调用 login 函数完成登录操作，参数中的 userID 为用户名，userSig 为用户签名，userSig 的计算方式请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/1449/58939)。
+调用 login 函数完成登录操作，参数中的 userID 为用户名，userSig 为用户签名，userSig 的计算方式请参见 [如何计算 userSig](https://cloud.tencent.com/document/product/647/17275)。
 
 ```javascript
 trtcCalling.login({
@@ -152,16 +152,9 @@ trtcCalling.call({
 - **被叫方：接听新的呼叫**
 ```javascript
 // 接听
-trtcCalling.accept({
-  inviteID, //邀请 ID, 标识一次邀请
-  roomID,   //通话房间号 ID
-  callType  //0-未知， 1-语音通话，2-视频通话
-});
+trtcCalling.accept();
 //拒绝
-trtcCalling.reject({ 
-  inviteID, //邀请 ID, 标识一次邀请
-  isBusy //是否是忙线中， 0-未知， 1-语音通话，2-视频通话
-})
+trtcCalling.reject()
 ```
 - **打开本地摄像头**
 ```javascript

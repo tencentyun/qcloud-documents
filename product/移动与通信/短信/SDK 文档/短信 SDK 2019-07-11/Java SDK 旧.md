@@ -33,8 +33,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 1. 访问 [Maven 官网](https://maven.apache.org/) 下载对应系统 Maven 安装包进行安装。
 2. 添加 Maven 依赖项，只需在 Maven pom.xml 添加以下依赖项即可：
-
- >!版本号仅为示例，请在 [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 获取最新的版本号并替换。
+>!版本号仅为示例，请在 [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 获取最新的版本号并替换。
 
 <pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.tencentcloudapi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>

@@ -19,7 +19,7 @@ cp 命令包含以下可选 flag：
 |   无       | --include       | 包含特定模式的文件                   |
 |   无       | --exclude       | 排除特定模式的文件                   |
 | -r        | --recursive     | 是否递归遍历文件夹下所有文件       |
-|   无       | --srotage-class | 指定上传至文件的类型（默认 STANDARD） |
+|   无       | --storage-class | 指定上传至文件的类型（默认 STANDARD） |
 |   无       | --part-size     | 文件分块大小（默认32MB）     |
 |   无       | --thread-num    | 并发线程数（默认并发5）      |
 |   无       | --rate-limiting | 单链接速率限制（0.1~100MB/s）       |

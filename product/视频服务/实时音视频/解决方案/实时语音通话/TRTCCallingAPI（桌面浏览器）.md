@@ -51,7 +51,7 @@
 | [switchToVideoCall()](#switchToVideoCall) | 语音通话切换视频通话   |
 | [getCameras()](#getCameras)  | 获取摄像头设备列表   |
 | [getMicrophones()](#getMicrophones)     | 获取麦克风设备列表   |
-| [switchDevice({deviceType, deviceID})](#switchDevice) | 切换摄像头或麦克风设备 |
+| [switchDevice({deviceType, deviceId}) ](#switchDevice) | 切换摄像头或麦克风设备 |
 
 
 ## TRTCCalling 详解
@@ -179,6 +179,7 @@ offlinePushInfo 参数 (仅限于v1.0.0及其之后的版本)
 | title | String | 离线推送标题（选填）     |
 | description          | String | 离线推送内容（选填)      |
 | androidOPPOChannelID | String | 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID（选填） |
+| extension            | String | 离线推送透传内容（选填），**仅限于TRTCCalling 版本>=1.0.2, tsignaling 版本 >= 0.9.0** |
 
 [](id:groupCall)
 #### groupCall({userIDList, type, groupID, offlinePushInfo})
@@ -216,6 +217,7 @@ offlinePushInfo 参数 (仅限于v1.0.0及其之后的版本)
 | title | String | 离线推送标题（选填）     |
 | description          | String | 离线推送内容（选填)      |
 | androidOPPOChannelID | String | 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID（选填） |
+| extension            | String | 离线推送透传内容（选填），**仅限于TRTCCalling 版本>=1.0.2, tsignaling 版本 >= 0.9.0** |
 
 [](id:accept)
 #### accept()
@@ -231,6 +233,7 @@ import TRTCCalling from 'trtc-calling-js';
 trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
   // v1.0.0之前
+  const { roomID, callType } = inviteData;
   trtcCalling.accept({inviteID, roomID, callType})
   // v1.0.0及其之后
   trtcCalling.accept();
@@ -240,11 +243,11 @@ trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 
 参数如下表所示：
 
-| 参数     | 类型   | 含义 |
-| -------- | ------ | --------------------- |
-| inviteID | String | 邀请 ID，标识一次邀请。**仅限于v1.0.0之前的版本**    |
-| roomID   | Number | 通话房间号 ID。**仅限于v1.0.0之前的版本**   |
-| callType | Number | 1：语音通话，2：视频通话。**仅限于v1.0.0之前的版本** |
+| 参数     | 类型   | 含义                                                  |
+| -------- | ------ | ----------------------------------------------------- |
+| inviteID | String | 邀请 ID，标识一次邀请（监听事件 INVITED 回调数据 inviteID）。**仅限于v1.0.0之前的版本**    |
+| roomID   | Number | 通话房间号 ID（监听事件 INVITED 回调数据 inviteData.roomID）。**仅限于v1.0.0之前的版本**            |
+| callType | Number | 1：语音通话，2：视频通话（监听事件 INVITED 回调数据 inviteData.callType）。**仅限于v1.0.0之前的版本** |
 
 [](id:reject)
 #### reject()
@@ -258,6 +261,7 @@ import TRTCCalling from 'trtc-calling-js';
 trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
   // v1.0.0之前
+  const { callType } = inviteData;
   trtcCalling.reject({inviteID, isBusy, callType})
   // v1.0.0及其以后
   trtcCalling.reject();
@@ -267,11 +271,11 @@ trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 
 参数如下表所示：
 
-| 参数     | 类型    | 含义 |
-| -------- | ------- | --------------------- |
-| inviteID | String  | 邀请 ID, 标识一次邀请。**仅限于v1.0.0之前的版本**   |
-| isBusy   | Boolean | 是否是忙线中。**仅限于v1.0.0之前的版本**    |
-| callType | Number  | 1：语音通话，2：视频通话。**仅限于v1.0.0之前的版本** |
+| 参数     | 类型    | 含义                                                  |
+| -------- | ------- | ----------------------------------------------------- |
+| inviteID | String  | 邀请 ID, 标识一次邀请（监听事件 INVITED 回调数据 inviteID）。**仅限于v1.0.0之前的版本**   |
+| isBusy   | Boolean | 是否是忙线中。**仅限于v1.0.0之前的版本**             |
+| callType | Number  | 1：语音通话，2：视频通话（监听事件 INVITED 回调数据 inviteData.callType）。**仅限于v1.0.0之前的版本** |
 
 [](id:hangup)
 #### hangup()
@@ -477,15 +481,15 @@ trtcCalling.getMicrophones() // 获取麦克风列表
 </dx-codeblock>
 
 [](id:switchDevice)
-####  switchDevice({deviceType,deviceID}) 
+####  switchDevice({deviceType, deviceId}) 
 
-您可以调用此接口切换摄像头或麦克风设备
+您可以调用此接口切换摄像头或麦克风设备。
 
 >?v1.0.0 及其之后版本，新增该方法。
 
 <dx-codeblock>
 ::: javascript javascript
-trtcCalling.switchDevice(deviceType, deviceID) // 切换设备
+trtcCalling.switchDevice({deviceType: 'audio', deviceId: deviceId}) // 切换设备
 :::
 </dx-codeblock>
 
@@ -493,8 +497,8 @@ trtcCalling.switchDevice(deviceType, deviceID) // 切换设备
 
 | 参数       | 类型   | 含义          |
 | ---------- | ------ | ------------------------------- |
-| deviceType | String | video: 摄像头, audio: 麦克风   |
-| deviceID   | String | <li/>摄像头设备标识通过 getCameras() 获取。<li/>麦克风设备标识通过 getMicrophones() 获取。 |
+| deviceType | String | video：摄像头，audio：麦克风   |
+| deviceId   | String | <li/>摄像头设备标识通过 getCameras() 获取<li/>麦克风设备标识通过 getMicrophones() 获取 |
 
 
 [](id:event)

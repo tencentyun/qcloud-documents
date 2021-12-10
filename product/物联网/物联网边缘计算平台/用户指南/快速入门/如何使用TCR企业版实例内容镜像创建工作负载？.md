@@ -53,9 +53,9 @@ echo  '172.21.17.69  demo.tencentcloudcr. com' >> /etc/hosts
 echo 172.21.17.69 demo. tencentcloudcr.com' >> /etc/hosts
 ```
  `172.21.17.69` 及 `demo.tencentcloudcr.com` 请替换为您实际使用的内网解析 IP 及 TCR 实例域名。
- 
+
 ### 步骤3：使用 TCR 实例内容器镜像创建工作负载
-1. 已登录 [边缘计算平台](https://console.cloud.tencent.com/tke2)。单击左侧导航栏中**边缘单元**，进入“边缘单元”页面。
+1. 已登录 [边缘计算平台](https://console.cloud.tencent.com/iecp)。单击左侧导航栏中**边缘单元**，进入“边缘单元”页面。
 2. 单击需要安装节点的单元**管理**，进入该单元详情页。
 3. 选择页面左侧**应用管理** > **工作负载**/**Grid 应用**，进入工作负载/Grid应用列表页面，单击**新建应用**
 	a. 主要参数信息如下，其他参数请按需设置：命名空间：选择已下发访问凭证的命名空间。

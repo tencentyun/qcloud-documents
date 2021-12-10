@@ -2,7 +2,7 @@
 本文档指导您如何在 Apache 服务器中安装 SSL 证书。
 >?
 >- 本文档以证书名称 `cloud.tencent.com` 为例。
->- Apache 版本以 `Apache/2.4.6` 为例。默认端口为 `80`。
+>- Apache 版本以 `Apache/2.4.6` 为例。默认端口为 `80`。您可前往 [Apache 官网](https://www.apache.org/) 进行下载，若您需要采用其余版本，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
 >- 安装 SSL 证书前，请您在 Apache 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。具体可参考 [服务器如何开启443端口？](https://cloud.tencent.com/document/product/400/45144)
 >- SSL 证书文件上传至服务器方法可参考 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
@@ -36,25 +36,26 @@
 ## 操作步骤
 
 ### 证书安装
-1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
-解压缩后，可获得相关类型的证书文件。 其中包含 Apache 文件夹和 CSR 文件：
- - **文件夹名称**：Apache
+1. 请在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中选择您需要安装的证书并单击**下载**。
+2. 在弹出的 “证书下载” 窗口中，服务器类型选择 **Apache**，单击**下载**并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
+    解压缩后，可获得相关类型的证书文件。 其中包含 `cloud.tencent.com_apache` 文件夹：
+ - **文件夹名称**：`cloud.tencent.com_apache`
  - **文件夹内容**：
-    - `1_root_bundle.crt` 证书文件
-    - `2_cloud.tencent.com.crt` 证书文件
-    - `3_cloud.tencent.com.key` 私钥文件
+    - `root_bundle.crt` 证书文件
+    - `cloud.tencent.com.crt` 证书文件
+    - `cloud.tencent.com.key` 私钥文件
   - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
-2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Apache 服务器。
-3. 将已获取到的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.crt` 证书文件以及 `3_cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Apache 服务器的 `/etc/httpd/ssl` 目录下。
+3. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Apache 服务器。
+4. 将已获取到的 `root_bundle.crt` 证书文件、`cloud.tencent.com.crt` 证书文件以及 `cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Apache 服务器的 `/etc/httpd/ssl` 目录下。
 >? 若无 `/etc/httpd/ssl` 目录，可通过 `mkdir /etc/httpd/ssl` 命令行创建。
-4. 远程登录 Apache 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
+5. 远程登录 Apache 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 >?首次安装的 Apache 服务器，`conf.d`、`conf`、`conf.modules.d` 等目录默认在 `/etc/httpd` 目录下。
-5. 在 `/etc/httpd/conf` 目录下的 httpd.conf 配置文件找到 `Include conf.modules.d/*.conf`（用于加载配置 SSL 的配置目录）配置语句，并确认该配置语句未被注释。若已注释，请去掉首行的注释符号（`#`），保存配置文件。
-6. 在 `/etc/httpd/conf.modules.d` 目录下的 00-ssl.conf 配置文件找到 `LoadModule ssl_module modules/mod_ssl.so`（用于加载 SSL 模块）配置语句，并确认该配置语句未被注释，若已注释，请去掉首行的注释符号（`#`），保存配置文件。
+6. 在 `/etc/httpd/conf` 目录下的 httpd.conf 配置文件找到 `Include conf.modules.d/*.conf`（用于加载配置 SSL 的配置目录）配置语句，并确认该配置语句未被注释。若已注释，请去掉首行的注释符号（`#`），保存配置文件。
+7. 在 `/etc/httpd/conf.modules.d` 目录下的 00-ssl.conf 配置文件找到 `LoadModule ssl_module modules/mod_ssl.so`（用于加载 SSL 模块）配置语句，并确认该配置语句未被注释，若已注释，请去掉首行的注释符号（`#`），保存配置文件。
 >! 由于操作系统的版本不同，目录结构也不同，请根据实际操作系统版本进行查找。
 > 若以上配置文件中均未找到 `LoadModule ssl_module modules/mod_ssl.so` 和 `Include conf.modules.d/*.conf` 配置语句，请确认是否已经安装 mod_ssl.so 模块。若未安装 mod_ssl.so 模块，您可通过执行`yum install mod_ssl` 命令进行安装。
-7. 编辑 `/etc/httpd/conf.d` 目录下的 ssl.conf 配置文件。修改如下内容：
+8. 编辑 `/etc/httpd/conf.d` 目录下的 ssl.conf 配置文件。修改如下内容：
 ```
 <VirtualHost 0.0.0.0:443>
 		DocumentRoot "/var/www/html" 
@@ -63,14 +64,14 @@
 		#启用 SSL 功能
 		SSLEngine on 
 		#证书文件的路径
-		SSLCertificateFile /etc/httpd/ssl/2_cloud.tencent.com.crt 
+		SSLCertificateFile /etc/httpd/ssl/cloud.tencent.com.crt 
 		#私钥文件的路径
-		SSLCertificateKeyFile /etc/httpd/ssl/3_cloud.tencent.com.key 
+		SSLCertificateKeyFile /etc/httpd/ssl/cloud.tencent.com.key 
 		#证书链文件的路径
-		SSLCertificateChainFile /etc/httpd/ssl/1_root_bundle.crt 
+		SSLCertificateChainFile /etc/httpd/ssl/root_bundle.crt 
 </VirtualHost>
 ```
-8. 重新启动 Apache 服务器，即可使用 `https://cloud.tencent.com` 进行访问。
+9. 重新启动 Apache 服务器，即可使用 `https://cloud.tencent.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 如果您需要将 HTTP 请求自动重定向到 HTTPS。您可以通过以下操作设置：

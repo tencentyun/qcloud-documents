@@ -89,6 +89,17 @@ Namespace=QCE/TXMR_HBASE
 
 | 指标中文名                                                   | 指标中文名                                         | 指标单位 | 指标含义           | 维度                                         |
 | ------------------------------------------------------------ | -------------------------------------------------- | -------- | ------------------ | -------------------------------------------- |
+| HbaseHsGcUtilGcCountYgc | GC 次数_YGC      | 次   | GC 次数      | host4hbaseregionserver、 id4hbaseregionserver |
+| HbaseHsGcUtilGcCountFgc | GC 次数_FGC      | 次   | GC 次数      | host4hbaseregionserver、 id4hbaseregionserver |
+| HbaseHsGcUtilGcTimeFgct | GC 时间_FGCT     | s    | GC 时间      | host4hbaseregionserver、 id4hbaseregionserver |
+| HbaseHsGcUtilGcTimeGct  | GC 时间_GCT      | s    | GC 时间      | host4hbaseregionserver、 id4hbaseregionserver |
+| HbaseHsGcUtilGcTimeYgct | GC 时间_YGCT     | s    | GC 时间      | host4hbaseregionserver id4hbaseregionserver   |
+| HbaseHsGcUtilMemoryS0   | 内存区域占比_S0  | %    | 内存区域占比 | host4hbaseregionserver、 id4hbaseregionserver |
+| HbaseHsGcUtilMemoryE    | 内存区域占比_E   | %    | 内存区域占比 | host4hbaseregionserver、 id4hbaseregionserver |
+| HbaseHsGcUtilMemoryCcs  | 内存区域占比_CCS | %    | 内存区域占比 | host4hbaseregionserver、 id4hbaseregionserver |
+| HbaseHsGcUtilMemoryS1   | 内存区域占比_S1  | %    | 内存区域占比 | host4hbaseregionserver、 id4hbaseregionserver |
+| HbaseHsGcUtilMemoryO    | 内存区域占比_O   | %    | 内存区域占比 | host4hbaseregionserver、 id4hbaseregionserver |
+| HbaseHsGcUtilMemoryM    | 内存区域占比_M   | %    | 内存区域占比 | host4hbaseregionserver、 id4hbaseregionserver |
 | HbaseRegionserver<br>AvgsizeAverageregionsize                | Region平均大小_averageRegionSize                   | B        | Region平均大小     | host4hbaseregionserver、id4hbaseregionserver |
 | HbaseRegionserver<br/>HlogcountHlogfilecount                 | WAL文件数量_hlogFileCount                          | 个       | WAL文件数量        | host4hbaseregionserver、id4hbaseregionserver |
 | HbaseRegionserver<br/>HlogsizeHlogfilesize                   | WAL文件大小_hlogFileSize                           | B        | WAL文件大小        | host4hbaseregionserver、id4hbaseregionserver |
