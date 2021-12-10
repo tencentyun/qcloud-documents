@@ -7,12 +7,14 @@
 - 腾讯云容器服务TKE同时也支持 VPC-CNI 模式限速，适用于对时延有较高要求的场景。
 
 ##操作步骤
+
 ###修改CNI插件
+
 #### Global Router 模式
 Global Router 网络模式是容器服务 TKE 基于底层私有网络 VPC 的全局路由能力，实现了容器网络和 VPC 互访的路由策略。GlobalRouter 网络模式适用于常规场景，可与标准 Kuberentes 功能无缝,使用详细介绍参阅[Global Router模式介绍](https://cloud.tencent.com/document/product/457/50354)。
 
 1. 请参考 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)，登录 Pod 所在节点。
-2. 执行以下命令，查看 `tke-bridge-agent`。
+2. 执行以下命令，查看 `tke-bridge-agent`配置。
 ```
 kubectl edit daemonset tke-bridge-agent -n kube-system
 ```
