@@ -188,15 +188,15 @@ Namespace=QCE/CES
 | Instances.N.Dimensions.0.Name  | hotwarm     | ES 节点冷热属性的维度名称        | 输入 String 类型维度名称：hotwarm                            |
 | Instances.N.Dimensions.0.Value | hotwarm     | ES 具体节点冷热属性              | 输入实例具体节点冷热属性，根据节点数据盘确定，数据盘为高性能云盘填warm，为SSD云盘填hot |
 | Instances.N.Dimensions.0.Name  | nodeId      | ES 节点 ID 的维度名称            | 输入 String 类型维度名称：nodeId                             |
-| Instances.N.Dimensions.0.Value | nodeId      | ES 具体节点 ID                   | 输入实例具体 ID，例如：1111111111111111111                   |
+| Instances.N.Dimensions.0.Value | nodeId      | ES 具体节点 ID                   | 输入节点 ID，例如：1111111111111111111                   |
 | Instances.N.Dimensions.0.Name  | setid       | ES 节点所属可用区 ID 的维度名称 | 输入 String 类型维度名称：setid                              |
-| Instances.N.Dimensions.0.Value | setid       | ES 具体节点所属可用区 ID        | 输入实例具体 ID，例如广州六区为：100006                      |
+| Instances.N.Dimensions.0.Value | setid       | ES 具体节点所属可用区 ID        | 输入可用区 ID，例如广州六区为：100006                      |
 | Instances.N.Dimensions.0.Name  |device      |磁盘 ID 所属维度名称| 输入 String 类型维度名称：device                        |
-| Instances.N.Dimensions.0.Value | device    | 磁盘具体 ID      | 输入实例具体 ID，例如:disk-123456|
+| Instances.N.Dimensions.0.Value | device    | 磁盘具体 ID      | 输入磁盘具体 ID，例如:disk-123456|
 | Instances.N.Dimensions.0.Name  |env    |磁盘所属环境的维度名称  | 输入 String 类型维度名称： env                          |
-| Instances.N.Dimensions.0.Value |env     | 具体环境名称      | 输入实例具体 ID，例如：cvm            |
+| Instances.N.Dimensions.0.Value |env     | 具体环境名称      | 输入具体环境名称，例如：cvm            |
 | Instances.N.Dimensions.0.Name  | ip      | 所属 IP 的维度名称  | 输入 String 类型维度名称：ip                            |
-| Instances.N.Dimensions.0.Value | ip      | 具体 ip       | 输入实例具体 ID，例如：111.111.111.111                  |
+| Instances.N.Dimensions.0.Value | ip      | 具体 ip       | 输入 IP，例如：111.111.111.111                  |
 
 ## 入参说明
 
@@ -213,8 +213,8 @@ Namespace=QCE/CES
 &Instances.N.Dimensions.1.Value= 磁盘具体 ID
 &Instances.N.Dimensions.2.Name=env
 &Instances.N.Dimensions.2.Value= 磁盘所属环境
-&Instances.N.Dimensions.2.Name=ip
-&Instances.N.Dimensions.2.Value= 磁盘所属 ip
+&Instances.N.Dimensions.3.Name=ip
+&Instances.N.Dimensions.3.Value= 磁盘所属 ip
 
 3. 查询 Elasticsearch Service -节点指标监控数据，入参取值如下：
 &Namespace=QCE/CES
