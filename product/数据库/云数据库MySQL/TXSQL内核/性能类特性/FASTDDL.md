@@ -24,6 +24,9 @@ Query OK, 0 rows affected (0.00 sec)
 通过参数 innodb_fast_ddl 开启或关闭该功能。
 通过参数 innodb_parallel_merge_threads 来控制在并发外部排序过程中使用的并发线程数目，默认为8，最大为32。
 
+>?用户目前无法直接修改以上参数的参数值，如需修改可 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行修改。
+>
+
 | 参数名                        | 动态 | 类型    | 默认 | 参数值范围 | 说明                         |
 | ----------------------------- | ---- | ------- | ---- | ---------- | ---------------------------- |
 | innodb_fast_ddl               | Yes  | bool    | OFF  | {ON,OFF}   | 开启或关闭 FAST DDL           |
