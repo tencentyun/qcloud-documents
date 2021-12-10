@@ -20,7 +20,7 @@ Python SDK 提供获取签名、预签名 URL 、下载预签名 URL 的接口�
 get_presigned_url(Bucket, Key, Method, Expired=300, Params={}, Headers={})
 ```
 
-#### 请求示例1：生成上传预签名URL
+#### 请求示例1：生成上传预签名 URL
 
 ```python
 # -*- coding=utf-8
@@ -98,7 +98,7 @@ response = requests.put(url)
 print(response)
 ```
 
-#### 请求示例2：生成下载预签名URL
+#### 请求示例2：生成下载预签名 URL
 
 ```python
 # -*- coding=utf-8
@@ -166,7 +166,7 @@ response = requests.get(url)
 print(response)
 ```
 
-#### 请求示例3：使用临时密钥生成下载预签名URL
+#### 请求示例3：使用临时密钥生成下载预签名 URL
 
 ```python
 # -*- coding=utf-8
