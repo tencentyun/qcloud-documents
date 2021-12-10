@@ -185,6 +185,50 @@ sdk.controlDeviceData(data, deviceId?: string) => Promise
 - **返回值**
   返回一个 Promise，输出参数请参见 [用户控制设备](https://cloud.tencent.com/document/product/1081/40805)。
 
+### 调用设备行为(action)
+
+- **接口定义**
+
+```typescript
+sdk.callDeviceAction(actionPayload: ActionPayload, actionId: string, deviceId?: string) => Promise
+```
+
+- **参数说明**
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+<th>必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>actionPayload</td>
+<td>物模型中定义的行为调用入参</td>
+<td>object</td>
+<td>是</td>
+</tr>
+<tr>
+<td>actionId</td>
+<td>在物模型中定义的该行为的标志符</td>
+<td>string</td>
+<td>是</td>
+</tr>
+<tr>
+<td>deviceId</td>
+<td>可选，不传则使用当前设备的设备 ID</td>
+<td>string</td>
+<td>否</td>
+</tr>
+</tbody></table>
+
+- **返回值**
+  返回一个 Promise，输出参数请参见 [同步调用设备行为](https://cloud.tencent.com/document/product/1081/61347)。
+
+
+
 ### 获取设备物模型数据
 
 - **接口定义**
@@ -2976,15 +3020,15 @@ tmeSdk.getPlaylistDetail(action: string, params, deviceId?: string) => Promise<T
 
 
 
-## 背景音乐
+### 背景音乐
 
-### 获取实例
+#### 获取实例
 
 ```js
 const bam = await h5PanelSdk.wxapi.getBackgroundAudioManager();
 ```
 
-### 获取属性
+#### 获取属性
 
 获取BackgroundAudioManager实例的属性
 
@@ -3000,7 +3044,7 @@ bam.getBackgroundAudioAttribute(keys: Array<string>) => Promise<any>
 | ------ | ---------- | --------------- | ---- |
 | keys   | 属性名数组 | `Array<string>` | 是   |
 
-### 设置属性
+#### 设置属性
 
 设置BackgroundAudioManager实例的属性
 
@@ -3016,13 +3060,13 @@ bam.setBackgroundAudioAttribute(parmas: Object) => Promise<any>
 | ------ | ---------------------------- | -------- | ---- |
 | params | key为属性名称，value为属性值 | `Object` | 是   |
 
-### 其他方法
+#### 其他方法
 
 所有 api 使用方法与微信官方文档相同
 
 [微信背景音乐接口(BackgroundAudioManager)](https://developers.weixin.qq.com/miniprogram/dev/api/media/background-audio/BackgroundAudioManager.html)
 
-### 使用示例
+#### 使用示例
 
 ```js
 // 播放音乐
