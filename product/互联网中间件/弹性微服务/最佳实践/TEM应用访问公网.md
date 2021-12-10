@@ -29,7 +29,7 @@ TEM 中的应用部署在用户的环境中，环境和用户的 VPC 关联，�
 
 ### 步骤2：创建 NAT 网关实例[](id:step2)
 
-登录 [NAT 网关控制台](https://console.cloud.tencent.com/vpc/nat?rid=4)，在左侧导航栏选择**NAT网关**，选择 TEM 应用所在的地域，单击**新建**购买 NAT 网关实例。
+登录 [NAT 网关控制台](https://console.cloud.tencent.com/vpc/nat?rid=4)，在左侧导航栏选择 **NAT 网关**，选择 TEM 应用所在的地域，单击**新建**购买 NAT 网关实例。
 <img src="https://main.qcloudimg.com/raw/dbdc9cc093cd253f17b0a3d9ae08dafc.png" width="600px">
 - **所属网络**：与 TEM 应用所在环境的 VPC 保持一致。
 - **弹性IP**：若没有可用的公网弹性 IP (EIP)，一键跳转进行购买，购买后在 NAT 网关购买页面中刷新即可查到。
