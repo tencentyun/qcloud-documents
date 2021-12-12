@@ -1,6 +1,6 @@
-# PHP服务应用接入polarismesh
+# Golang服务应用接入polarismesh
 
-您可以将php服务应用接入polarismesh治理中心，使用polarismesh提供的一系列服务治理能力，大幅提升线上php服务的稳定性和开发效率。
+您可以将golang服务应用接入polarismesh治理中心，使用polarismesh提供的一系列服务治理能力，大幅提升线上golang服务的稳定性和开发效率。
 
 > 说明：
 >
@@ -10,14 +10,9 @@
 ## 前提条件
 
 - 已创建PolarisMesh服务治理中心，请参考[创建PolarisMesh治理中心]()。
-- 下载github的polaris-php源码
-  - [php-5.x](https://github.com/polarismesh/polaris-php/tree/php-5.x)
-  - [php-7.x](https://github.com/polarismesh/polaris-php/tree/php-7.x)
-- 下载github的demo源码到本地并解压
-  - [php-5.x](https://github.com/polarismesh/polaris-php/tree/php-5.x/examples/quickstart)
-  - [php-7.x](https://github.com/polarismesh/polaris-php/tree/php-7.x/examples/quickstart)
+- 下载github的[demo源码](https://github.com/polarismesh/polaris-go/tree/main/sample/quickstart)到本地并解压
 - 【虚拟机部署】已创建CVM虚拟机，请参考[创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)
-- 【php环境安装】CVM需要安装了php-5.x或php-7.x的环境
+- 【golang环境安装】CVM需要安装了golang环境
 
 ## 操作步骤
 
@@ -47,65 +42,44 @@
          - 192.168.100.9:8091
    ```
 
-4. 上传demo源码以及`polaris-php`插件到CVM环境中。
+4. 上传demo源码
 
-   a. 安装`php`环境以及`php`插件编译开发以来
+   a. 安装`golang`环境[Download and install - go.dev](https://go.dev/doc/install)
 
-   ```shell
-   ## 下载php-5.x版本
-   yum -y install --enablerepo=remi --enablerepo=remi-php56 php
-   yum -y install --enablerepo=remi --enablerepo=remi-php56 php-devel
+   b. 分别将`consumer`以及`provider`的demo源码上传到不同的CVM实例中，这里假定上传的路径均为`/data/polaris/golang_examples`
    
-   ## 下载php-7.x版本
-   yum -y install --enablerepo=remi --enablerepo=remi-php74 php
-   yum -y install --enablerepo=remi --enablerepo=remi-php74 php-devel
-   ```
-
-   b. 编译`polaris-php`插件，[构建文档]([polaris-php/HowToBuild_ZH.md at php-5.x · polarismesh/polaris-php (github.com)](https://github.com/polarismesh/polaris-php/blob/php-5.x/doc/HowToBuild_ZH.md))
-
-   c. 确认插件安装完成
-
-   ```shell
-   [root@VM-50-33-centos ~]# php -m | grep polaris
-   polaris
-   ```
-
-   d. 分别将`consumer`以及`provider`的demo源码上传到不同的CVM实例中，这里假定上传的路径均为`/data/polaris/php_examples`
-
 5. 将demo示例运行
 
    a. 运行`provider`
 
    ```shell
    # 进入provider目录
-   cd /data/polaris/php_examples/provider
-   # 设置Provider的IP信息
-   export PHP_PROVIDER_IP={内网 or 外网IP}
+   cd /data/polaris/golang_examples/provider
    # 运行 provider
-   php provider.php
+   ./provider --service="polaris_go_test" --namespace="default" --host="{CVM内网 or 公网IP}" --port=9999
    ```
-
+   
    b. 运行`consumer`
 
    ```shell
    # 进入consumer目录
-   cd /data/polaris/php_examples/consumer
+   cd /data/polaris/golang_examples/consumer
    # 运行 consumer
-   php consumer.php
+   ./consumer --service="polaris_go_test" --namespace="default"
    
    # 确认是否收到输出
-   [root@VM-50-33-centos ~/Github/polaris-php/examples/quickstart/consumer]# php consumer.php 
+   [root@VM-50-33-centos ./consumer]# php consumer.php 
    Attempting to connect to '10.0.50.33' on port '9996'...Connect success. 
    Client send success 
    Reading response:
    hello. I`m provider
    ```
-
+   
 6. 确认部署结果
 
    a. 进入微服务引擎控制台，选择前提条件中创建的polarismesh治理中心实例
 
-   b. 选择`服务管理` > `服务列表`，查看服务`polaris_php_test`的实例数量
+   b. 选择`服务管理` > `服务列表`，查看服务`polaris_go_test`的实例数量
 
    - 若实例数量值不为0，则表示已经成功接入微服务引擎
    - 若实例数量为0，或者找不到`polaris_php_test`服务名，则表示微服务应用接入微服务引擎失败。
@@ -113,4 +87,3 @@
    ![](https://qcloudimg.tencent-cloud.cn/raw/c75595d9d8ece9633427a8206f9ecb63.png)
    
    
-
