@@ -6,7 +6,7 @@ JWT 公钥用于对 JWT 格式的 ID Token 和 Access Token 进行验证。
 ## 请求方法
 GET
 
-## 请求地址
+## 请求路径
 ```
 /oauth2/jwks
 ```
@@ -18,7 +18,7 @@ Host: localhost:8080
 ```
 
 
-## 请求参数
+## 响应参数
 
 | 参数       | 数据类型 | 描述               |
 | :--------- | :------- | :----------------- |
@@ -27,17 +27,6 @@ Host: localhost:8080
 | keys[].kid | String   | 密钥标识。         |
 | keys[].e   | String   | RSA 公钥。         |
 | keys[].n   | String   | RSA 公钥。         |
-
-
-## 响应参数
-| 参数          | 数据类型 | 描述                                 |
-| :------------ | :------- | :----------------------------------- |
-| access_token  | String   | OAuth 2.0 Access Token (JWT)。       |
-| refresh_token | String   | OAuth 2.0 Refresh Token。            |
-| scope         | String   | Access Token 的 Scope。              |
-| id_token      | String   | OIDC ID Token (JWT)。                |
-| token_type    | String   | Token 类型，目前取固定值 'Bearer' 。 |
-| expires_in    | Number   | Access Token 有效期，单位秒。        |
 
 
 ## 正常响应示例
@@ -54,4 +43,4 @@ Content-Type: application/json
   } ]
 }
 ```
->?CIAM 返回的是 JWT 格式的 Access Token 和 ID Token，使用 Token 前需对 JWT 进行解密与验证。请参考 [RFC 9068 ](https://www.rfc-editor.org/rfc/rfc9068.html)和[ OIDC 官方文档 ](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)对 JWT 进行解密与验证。也可以直接使用相关的开发库完成解密验证。验证所需的公钥通过调用 [获取 JWT 公钥 ](https://cloud.tencent.com/document/product/1441/64397)接口获得。
+

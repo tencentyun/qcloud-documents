@@ -8,20 +8,21 @@
 | 云函数 SCF | 负责 Serverless WordPress 的接入层实现，从而运行 WordPress。 |
 | API 网关| WordPress 的对外入口，实现了 RESTful API。 |
 | 文件储存 CFS  | WordPress 的 Serverless 存储仓库。 |
-| <nobr>云原生数据库 TDSQL-C</nobr> <br>（默认数据库）| 通过创建 TDSQL-C（原 CynosDB）的 MySQL 类型数据库，实现数据库按量计费，自动扩缩容。<br>您可以选择不使用默认数据库，连接自建的 MySQL 类型数据库。|
+| <nobr>云原生数据库 TDSQL-C</nobr> <br>（可选）| 通过创建 TDSQL-C（原 CynosDB）的 MySQL 类型数据库，实现数据库按量计费，自动扩缩容。<br>您可以选择不使用默认数据库，连接自建的 MySQL 类型数据库。|
 | 私有网络 VPC <br>（默认 VPC）| 内网打通云函数 SCF、CFS、TDSQL-C Serverless 之间的网络，保障网络隔离。<br>您也可以选择不使用默认VPC，连接自己指定的VPC。|
 
 ## 功能优势
-- **支持 WordPress 原生框架**
-使用 Serverless WordPress 组件，您无需对原生 WordPress 项目进行任何改造，即可直接完成部署，做到对框架无入侵，也支持后续的版本升级。
+- **支持使用自建数据库**
+  支持直接使用您自己的 MySQL 数据库，省去冷启动问题。
+  
 - **降低使用成本**
-从接入层到计算层到存储层，全部使用 Serverless 资源，真正做到按量计费，弹性伸缩，极大节省成本。
+  计算层使用 Serverless 资源，真正做到按量计费，弹性伸缩，极大节省成本。
+  
 - **部署步骤简单**
-通过 Serverless WordPress 组件，只需几行 YAML 文件配置，即可快速完成 WordPress 应用部署，极大降低部署门槛。
->?新用户第一次部署 WordPress 应用，即可获得**30元 TDSQL-C** 和**5元 CFS 文件存储**代金券，欢迎免费体验。
+  通过 Serverless 应用控制台， 仅需几步配置，即可快速完成 WordPress 应用部署，极大降低部署门槛。
 
 ## 部署步骤
-您可以通过**控制台**或**命令行**完成 Serverless WordPress 部署，步骤如下：
+您可以通过**控制台**快速完成 Serverless WordPress 部署，步骤如下：
 
 ### 前提条件
 - 已开通 [云函数 SCF 服务](https://console.cloud.tencent.com/scf)。
@@ -50,65 +51,46 @@
 您也可以单击您的应用名称，查看资源列表和部署日志。在资源列表页，您可以单机**新增**配置您的自定义域名。
 ![](https://main.qcloudimg.com/raw/55218c4f1a6f83f3a1e1ff58a2f15006.png)
 
-### 命令行部署
->!目前只支持 `ap-beijing-3`、`ap-shanghai-2`、`ap-guangzhou-4` 三个地域。其中 `ap-shanghai-2` 为默认区域。
+### 版本升级
+   Serverless Wordpress 应用的旧版部署架构中，存在访问速度慢的问题。为此 Serverless 应用开发团队针对此问题进行了 Serverless Wordpress 应用的优化工作，改进了部署架构，大幅提升了站点的访问速度。本指引仅适用于 Serverless Wordpress 应用旧版本的部署升级。
+>? 您可通过如下方法确认您的应用是否需要升级：如您的站点可正常访问并且 Wordpress 云函数代码中仅包含一个 'scf_bootstrap' 文件，则可进行升级。
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/e8900e455a4b37af87e0d4762933a7f2.png)
+   
+   
+#### 前期准备 
+   您已经部署了 Serverless Wordpress 应用，站点所对应的云函数前缀为 wp-server-*。
 
-1. 本地创建 `wordpress-demo` 文件夹。
-2. 在文件夹内创建 `serverless.yml` 配置文件，完成应用信息配置，参考如下（更多配置内容，请参见 [全量配置文档](https://github.com/serverless-components/tencent-wordpress/blob/master/docs/configure.md)）：
-<dx-codeblock>
-:::  yaml
-app: wordpress
-stage: dev
-component: wordpress
-name: wordpressDemo
-:::
-</dx-codeblock>
-完成后，您的项目结构如下：
-<dx-codeblock>
-:::  sh
-.wordpress-demo
-├── serverless.yml # 配置文件
-└── .env # 环境变量文件
-:::
-</dx-codeblock>
-3. 在根目录下，执行 `sls deploy`，即可完成部署。示例如下：
-<dx-codeblock>
-:::  sh
-$ sls deploy
+#### 操作步骤 
+>! 请严格按照如下步骤升级您的站点，并使用本指引中提供的 Wordpress 源码包进行代码更新。
 
-serverless ⚡components
-Action: "deploy" - Stage: "dev" - App: "wordpress" - Name: "wordpressDemo"
+1. 发布函数版本和流量切换
+  为了确保升级操作期间您的站点的正常访问，请首先为 wp-server-* 发布一个版本。
+  ![](https://qcloudimg.tencent-cloud.cn/raw/d6e6e9427c239136198148addbe98f0b.png)
+  发布版本后，将函数的默认流量配置到新版本。
+  ![](https://qcloudimg.tencent-cloud.cn/raw/6e9382de942e9f68849ad2e11b6fe9cb.png)
 
-region:       ap-shanghai
-zone:         ap-shanghai-2
-vpc: 
-  region:     ap-shanghai
-  zone:       ap-shanghai-2
-  ...
-cfs: 
-  region:       ap-shanghai
-  ...
-db: 
-  dbMode:        SERVERLESS
-  region:        ap-shanghai
-  zone:          ap-shanghai-2
-  ...
-  dbBuildInfo:   SERVERLESS
-apigw: 
-  created:     true
-  url:         https://service-xxxxxxxx-0000000000.sh.apigw.tencentcs.com/release/
-  ...
-layer: 
-  region:      ap-shanghai
-  description: Created by Serverless Component
-  ...
-wpInitFaas: 
-  ...
-wpServerFaas: 
-  ...
-:::
-</dx-codeblock>
-4. 部署成功后，单击 `apigw` 部分输出的 URL，根据指引完成账号密码配置，即可开始使用您的 WordPress 应用。
+2. 更新 $LATEST 版本的函数代码
+  下载 wordpress 源码包（[source.zip](https://docs.qq.com/scenario/link.html?url=https%3A%2F%2Fserverless-template-1300862921.cos.ap-guangzhou.myqcloud.com%2Fwp-deploy-update%2Fsource.zip&pid=300000000$cSeVtSLsJmVv&cid=159036837884)），并上传更新函数代码。
+>! 切勿轻易修改代码中的 handler.php 和 wp-config.php 文件，否则将导致您的站点访问异常。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/f906cb0252baea977d6461fe4a69c88c.png)
+
+3. 更新 Php 版本（可选）
+    
+   此步骤为可选，Serverless Wordpress 应用站点的 Php 依赖位于函数的挂载 Layer 中，您可以选择是否升级站点的 Php Runtime 环境，升级后的 Php Runtime 版本为 php 7.4.25。在此版本中，使用了 Php Opcache 功能，在函数实例预置场景下，可进一步提高您的站点访问速度。下载 Php Runtime 源码包（php74.zip），并上传更新函数的 Layer。更新完成后，直接解绑老版本的 Layer 即可。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/475cfd1618350d3f164b5d77bdc5473a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e5e1d9a200510be895849d804eadb603.png)
+
+
+4. 流量切换
+完成以上步骤后，参考步骤1中的函数流量配置操作，重新将您的 wp-server-* 函数的流量切换到 $LATEST，即可完成升级。
+
+#### 功能限制
+
+  无论是经过升级的存量 Serverless Wrodpress 站点，还是增量站点，都**不支持原生的 Wordpress 版本升级功能。**
+
 
 
 ## 常见问题

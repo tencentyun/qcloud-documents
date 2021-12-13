@@ -11,7 +11,7 @@
 > ?云联网仅提供所有地域间 10Kbps 以下的免费带宽，使用 DBS 数据备份时需要更高带宽，所以链接中的配置带宽是必选操作。
 
 ## 后续步骤
-1. 在 DBS 配置备份计划页面选择**云联网**，关键参数配置说明如下：
+1. 在 [DBS 配置备份计划页面](https://console.cloud.tencent.com/dbs) 选择**云联网**，关键参数配置说明如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/698a750e0af1ef9688bab596634d7cb8.png)
 <table>
 <thead><tr><th><strong>参数</strong></th><th><strong>说明</strong></th><th><strong>参数示例</strong></th></tr></thead>
@@ -48,6 +48,4 @@
  - Telnet 测试通过，Database Connect 失败。
      - 备份帐号授权问题。
      - 帐号或密码不正确。
-
-
 

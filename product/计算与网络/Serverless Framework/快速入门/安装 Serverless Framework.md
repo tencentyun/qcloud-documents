@@ -5,7 +5,7 @@
 ## 安装方式
 
 [](id:npm)
-### 方式一：NPM 安装
+### 方式1：NPM 安装
 #### 安装前提
 使用 npm 安装前，需要确保您的环境中已安装好了 Node（版本需要 > 10）以及 npm（查看 [Node.js 安装指南](https://nodejs.org/zh-cn/download/)）。
 ```sh
@@ -39,7 +39,7 @@ serverless -v
 
 
 [](id:binary)
-### 方式二：二进制安装
+### 方式2：二进制安装
 
 如果您的本地环境没有安装 Node.js，您可以直接使用二进制的方式进行安装：
 

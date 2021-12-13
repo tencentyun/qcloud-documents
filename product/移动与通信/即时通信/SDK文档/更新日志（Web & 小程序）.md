@@ -354,7 +354,7 @@ Taro 3.x 集成 WebIM 时的兼容性问题。
 
 **变更**
 
-[login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login) 成功时的回调对象 `imResponse.data` 新增 `repeatLogin: true` 键值对，用于标识某账号已登录后重复登录的情况。
+[login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login) 成功时的回调对象 `imResponse.data` 新增 `repeatLogin: true` 键值对，用于标识某帐号已登录后重复登录的情况。
 
 **修复**
 

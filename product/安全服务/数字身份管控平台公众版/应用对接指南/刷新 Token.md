@@ -5,7 +5,7 @@
 ## 请求方法
 POST
 
-## 请求地址
+## 请求路径
 ```
 /oauth2/token
 ```
@@ -22,10 +22,10 @@ client_id=TENANT_CLIENT_ID&client_secret=TENANT_CLIENT_SECRET&grant_type=refresh
 ## 请求参数
 | 参数          | 可选  | 描述                                                         |
 | :------------ | :---- | :----------------------------------------------------------- |
-| client_id     | false | 应用的 client_id 。需要与获取授权时使用的一致。              |
-| client_secret | false | 应用的 client_secret 。可通过租户管理平台的应用基本信息页面查看。 |
-| grant_type    | false | 填固定值 'refresh_token'。                                   |
-| refresh_token | true  | 获取 Token 时返回的 refresh_token 。                         |
+| client_id     | false | 应用的 `client_id`。需要与获取授权时使用的一致。              |
+| client_secret | false | 应用的 `client_secret`。可通过租户管理平台的应用基本信息页面查看。 |
+| grant_type    | false | 填固定值 `refresh_token`。                                   |
+| refresh_token | true  | 获取 Token 时返回的 `refresh_token`。                         |
 
 
 
@@ -36,7 +36,7 @@ client_id=TENANT_CLIENT_ID&client_secret=TENANT_CLIENT_SECRET&grant_type=refresh
 | refresh_token | String   | 刷新后的 OAuth 2.0 Refresh Token。      |
 | scope         | String   | Access Token 的 Scope。                 |
 | id_token      | String   | 刷新后的 OIDC ID Token (JWT)。          |
-| token_type    | String   | Token 类型，目前取固定值 'Bearer' 。    |
+| token_type    | String   | Token 类型，目前取固定值 `Bearer`。    |
 | expires_in    | Number   | Access Token 有效期，单位秒。           |
 
 

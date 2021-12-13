@@ -26,8 +26,8 @@
 
 <table>
 	<tr><th>地域</th><th>网络类型</th><th>服务入口</th></tr>
-	<tr><td rowspan=2>广州</td><td>内网</td><td>gz-producer.cls.tencentyun.comgzproducer.cls.tencentyun.com/...</td></tr>
-	<tr><td>外网</td><td>gz-producer.cls.tencentcs.comgzproducer.cls.tencentcs.com/...</td></tr>
+	<tr><td rowspan=2>广州</td><td>内网</td><td>gz-producer.cls.tencentyun.com:9095</td></tr>
+	<tr><td>外网</td><td>gz-producer.cls.tencentcs.com:9096</td></tr>
 </table>
 
 >? 本文档以广州地域为例，由于内外网域名用不同端口标识，其他地域请替换地址前缀。

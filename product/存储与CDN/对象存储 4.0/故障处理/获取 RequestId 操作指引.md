@@ -129,7 +129,7 @@ cos.putObject({
     Region: 'COS_REGION',    /* 必须 */
     Key: 'test.js',              /* 必须 */
     StorageClass: 'STANDARD',
-    Body: Buffer.from('Hello COS'),
+    Body: 'Hello COS',
     onProgress: function(progressData) {
         console.log(JSON.stringify(progressData));
     }
@@ -156,6 +156,30 @@ cos.putObject({
     Key: 'test.nodejs',              /* 必须 */
     StorageClass: 'STANDARD',
     Body: Buffer.from('Hello COS'),
+    onProgress: function(progressData) {
+        console.log(JSON.stringify(progressData));
+    }
+}, function(err, data) {
+    var requestId = (err || data).headers['x-cos-request-id'];
+    console.log(requestId );
+});
+```
+
+### 通过 微信小程序 SDK 获取
+
+```
+var COS = require('cos-wx-sdk-v5');
+var cos = new COS({
+    SecretId: 'SECRETID',
+    SecretKey: 'SECRETKEY'
+});
+ 
+cos.putObject({
+    Bucket: 'examplebucket-1250000000', /* 必须 */
+    Region: 'COS_REGION',    /* 必须 */
+    Key: 'test.js',              /* 必须 */
+    StorageClass: 'STANDARD',
+    Body: 'Hello COS',
     onProgress: function(progressData) {
         console.log(JSON.stringify(progressData));
     }

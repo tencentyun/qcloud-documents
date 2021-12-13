@@ -6,7 +6,7 @@
 ## 请求方法
 GET
 
-## 请求地址
+## 请求路径
 ```
 /oauth2/authorize
 ```
@@ -22,10 +22,10 @@ Host: localhost:8080
 
 | 参数                    | 可选    | 描述                                                         |
 | :---------------------- | :------ | :----------------------------------------------------------- |
-| scope                 | false | 授权请求的 scope，必须包含 `openid`，可以包含 `profile`、`email`、`address` 和 `phone`。多个值之间使用空格分隔，例如  `openid profile email`。 |
-| client_id            | false | 应用的 client_id 。可参考 **[应用管理页面](https://console.cloud.tencent.com/eiam)** > **选定指定应用 **> 单击**应用配置** > 对应的“Client Id” |
+| scope                 | false | 填固定值 `openid`。 |
+| client_id            | false | 应用的 `client_id`。可参考 **[应用管理页面](https://console.cloud.tencent.com/ciam/app-management)** > **选定指定应用** > 单击**应用配置** > 对应的“Client Id”。 |
 | redirect_uri         | false | 授权成功后的重定向地址。需要与控制台配置的地址一致。         |
-| response_type        | false| 填固定值 `code`                                              |
+| response_type        | false| 填固定值 `code`。                                              |
 | state               | true  | 应用随机生成的一个字符串，服务器会以 HTTP 响应参数的形式原样返回给应用。为防止 CSRF 攻击，建议携带此参数。 |
 | code_challenge_method | false | 计算 PKCE code_challenge 的算法。目前仅支持固定值 `S256` 。  |
 | code_challenge        | false | PKCE code_challenge ，计算方法请参考 RFC 7636，或直接使用开发库来生成。 |
@@ -43,7 +43,7 @@ Location: http://localhost:8080/portal/login?p_state=MOCK_LOGIN_PORTAL_STATE
 HTTP/1.1 302 Found
 Location: https://TENANT.APP.DOMAIN/login/oauth2/code/TENANT_APP_ID?code=rGdq86P6LQaHb-QA25DTcZKgi_TtGefDDjKNReM_nYtxExn0Nh-46TYGWlIlYXjxo1bDR07kUZQSgzHj_emwbnq5YajUSmBthaXZMCu2QsPBGd4p8t6nc471Wp22kcvp&state=MOCK_STATE
 ```
->?用户登录成功后，认证门户将把用户重定向到应用的 `redirect_uri` 地址，并在参数中携带授权码 `code`。应用系统获取到 `code` 参数后，[调用 PKCE 模式]() 获取 Token 接口获取 Access Token 和 ID Token，完成登录。
+>?用户登录成功后，认证门户将把用户重定向到应用的 `redirect_uri` 地址，并在参数中携带授权码 `code`。应用系统获取到 `code` 参数后，调用 [ PKCE 模式 获取 Token](https://cloud.tencent.com/document/product/1441/64396) 接口获取 Access Token 和 ID Token，完成登录。
 >
 
 ## 异常响应示例

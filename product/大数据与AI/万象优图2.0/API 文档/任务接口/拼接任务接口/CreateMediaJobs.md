@@ -66,7 +66,7 @@ Container 类型 Input 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点        | 描述            | 类型   | 是否必选 |
 | ------------------ | ------------- | --------------- | ------ | ---- |
-| Object             | Request.Input | 媒体文件名 | String | 是   |
+| Object             | Request.Input | 媒体文件名 | String | 否   |
 
 Container 类型 Operation 的具体数据描述如下：
 
@@ -286,11 +286,9 @@ Content-Type: application/xml
   <Operation>
     <ConcatTemplate>
         <ConcatFragment>
-            <Mode>Start</Mode>
             <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/start.mp4</Url>
         </ConcatFragment>
         <ConcatFragment>
-            <Mode>End</Mode>
             <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/end.mp4</Url>
         </ConcatFragment>
         <Audio>
@@ -350,11 +348,9 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
     <Operation>
         <ConcatTemplate>
             <ConcatFragment>
-                <Mode>Start</Mode>
                 <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/start.mp4</Url>
             </ConcatFragment>
             <ConcatFragment>
-                <Mode>End</Mode>
                 <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/end.mp4</Url>
             </ConcatFragment>
             <Audio>
