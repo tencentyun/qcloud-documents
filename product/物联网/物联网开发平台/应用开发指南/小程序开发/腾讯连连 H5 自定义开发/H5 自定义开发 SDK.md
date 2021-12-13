@@ -3020,7 +3020,7 @@ tmeSdk.getPlaylistDetail(action: string, params, deviceId?: string) => Promise<T
 
 
 
-### 背景音乐
+### 蓝牙设备调用微信背景音乐
 
 说明：蓝牙设备可在自定义H5面板中，调用微信背景音乐接口。
 
