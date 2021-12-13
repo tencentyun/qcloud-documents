@@ -1,6 +1,6 @@
 ## 功能描述
 
-GenerateSnapshot 接口用于获取媒体文件某个时间的截图，输出的截图统一为 jpeg 格式。
+GenerateSnapshot 接口用于获取多媒体文件某个时间的截图，输出的截图统一为 jpeg 格式。
 
 ## 请求
 
