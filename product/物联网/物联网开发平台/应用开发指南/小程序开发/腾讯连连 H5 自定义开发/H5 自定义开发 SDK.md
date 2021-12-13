@@ -3022,6 +3022,10 @@ tmeSdk.getPlaylistDetail(action: string, params, deviceId?: string) => Promise<T
 
 ### 背景音乐
 
+说明：蓝牙设备可在自定义H5面板中，调用微信背景音乐接口。
+
+应用场景：开发者可通过BT+BLE的蓝牙设备对接到连连小程序，在H5页面中，BLE作为播控的通道，通过小程序到手机端的BT链路进行音乐播放。
+
 #### 获取实例
 
 ```js
@@ -3062,7 +3066,7 @@ bam.setBackgroundAudioAttribute(parmas: Object) => Promise<any>
 
 #### 其他方法
 
-所有 api 使用方法与微信官方文档相同
+所有api使用方法与微信官方文档相同
 
 [微信背景音乐接口(BackgroundAudioManager)](https://developers.weixin.qq.com/miniprogram/dev/api/media/background-audio/BackgroundAudioManager.html)
 
@@ -3083,6 +3087,7 @@ bam.onTimeUpdate((currentTime) => {
   setCurrentTime(currentTime);
 });
 ```
+
 
 
 
