@@ -12,8 +12,8 @@
 <th>证书安装方式</th>
 </tr>
 <tr>
-<td rowspan="10">国际标准证书（RSA/ECC）</td>
-<td rowspan="7">Linux 系统</td>
+<td rowspan="11">国际标准证书（RSA/ECC）</td>
+<td rowspan="8">Linux 系统</td>
 <td> <a href="https://cloud.tencent.com/document/product/400/50874">宝塔面板 SSL 证书安装</a></td>
 </tr>
 <tr><td> <a href="https://cloud.tencent.com/document/product/400/35243">Apache 服务器证书安装</a></td></tr>
@@ -21,7 +21,10 @@
 <td><a href="https://cloud.tencent.com/document/product/400/35244">Nginx 服务器证书安装</a></td>
 </tr>
 <tr>
-<td><a href="https://cloud.tencent.com/document/product/400/35224">Tomcat 服务器证书安装</a></td>
+<td><a href="https://cloud.tencent.com/document/product/400/35224">Tomcat 服务器 SSL 证书安装部署（JKS 格式）</a></td>
+</tr>
+<tr>
+<td><a href="https://cloud.tencent.com/document/product/400/65706">Tomcat 服务器 SSL 证书安装部署（PFX 格式）</a></td>
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/400/44759">GlassFish 服务器证书安装</a></td>
