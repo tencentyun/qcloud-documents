@@ -1,6 +1,5 @@
 
 
-
 本文为您介绍以 iOS 平台 Objective-C 代码进行房间管理示例演示。如果需要使用此功能，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系开发人员提供对应库文件。
 
 ## 工程配置
