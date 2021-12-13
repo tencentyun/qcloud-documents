@@ -1,6 +1,6 @@
 GooseFS-FUSE 可以在一台 Unix 机器上的本地文件系统中挂载一个 GooseFS 分布式文件系统。通过使用该特性，一些标准的命令行工具（例如 ls、cat 以及 echo）可以直接访问 GooseFS 分布式文件系统中的数据。此外更重要的是使用不同语言实现的应用程序，例如 C、C++、Python、Ruby、Perl、Java 都可以通过标准的 POSIX 接口（例如 open、write、read）来读写 GooseFS，而不需要任何 GooseFS 的客户端整合与设置。
 
-GooseFS-FUSE 是基于 [FUSE](http://fuse.sourceforge.net/) 这个项目，并且都支持大多数的文件系统操作。但是由于 GooseFS 固有的属性，例如它的一次写、不可改变的文件数据模型，该挂载的文件系统与 POSIX 标准不完全一致，尚有一定的局限性。因此，请先阅读 [局限性](https://docs.alluxio.io/os/user/stable/cn/api/POSIX-API.html?q=fuse#局限性)，从而了解该特性的作用以及局限。
+GooseFS-FUSE 是基于 [FUSE](http://fuse.sourceforge.net/) 这个项目，并且都支持大多数的文件系统操作。但是由于 GooseFS 固有的属性，例如它的一次写、不可改变的文件数据模型，该挂载的文件系统与 POSIX 标准不完全一致，尚有一定的局限性。因此，请先阅读 [局限性](https://docs.alluxio.io/os/user/stable/cn/api/POSIX-API.html#%E5%B1%80%E9%99%90%E6%80%A7)，从而了解该特性的作用以及局限。
 
 ## 安装要求
 
