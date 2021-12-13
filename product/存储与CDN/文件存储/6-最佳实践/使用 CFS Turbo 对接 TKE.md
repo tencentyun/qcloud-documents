@@ -13,10 +13,10 @@
 ### 下载和配置 kubectl
 
 1. 参考 [kubectl 官方文档](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)，下载 kubectl。
-2. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
+2. 登录容器服务控制台，选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 3. 在“集群管理”页面，选择需要对接的集群 ID，进入集群详情页。
-4. 在集群详情页面，选择左侧【基本信息】，进入基本信息页面。
-5. 在“集群APIServer信息”栏中，单击【下载】，将 kubeconfig 文件保存至默认环境变量地址中，并命名为 config，即`/usr/local/bin/config`。
+4. 在集群详情页面，选择左侧**基本信息**，进入基本信息页面。
+5. 在“集群APIServer信息”栏中，单击**下载**，将 kubeconfig 文件保存至默认环境变量地址中，并命名为 config，即`/usr/local/bin/config`。
 ![](https://main.qcloudimg.com/raw/7ae1ece13d759989ecdabe7cf7feeda0.png)
 6. <span id="step6"></span>在“集群APIServer信息”栏中，将内网访问设置为 ![](https://main.qcloudimg.com/raw/557ab76a34a9a1af96a81237e12882c3.png)，单击 ![](https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png)，复制配置 host 的命令。
 7. 切换至访问机，并在访问机上执行 [步骤6](#step6) 复制的命令。
