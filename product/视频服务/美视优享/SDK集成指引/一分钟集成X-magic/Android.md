@@ -48,7 +48,7 @@ dependencies{
 
 
 ## 集成步骤
-### 步骤1：鉴权[](id:step1)
+### 步骤一：鉴权[](id:step1)
 1. 获取鉴权证书，将授权文件放入 `../app/src/main/assets/` 目录下。
 2. 调用 `Auth.auth(...)`  对 SDK 进行鉴权。
 ```
