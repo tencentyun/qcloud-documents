@@ -149,7 +149,7 @@ HTTP Request 操作配置包括基本配置、高级配置两项：
 <td>表达式</td>
 <td>用于指定发送请求的请求参数，结构为：dict&lt;string,string&gt;</td>
 <td>否</td>
-<td>1</td>
+<td>无</td>
 </tr>
 <tr>
 <td>最大重定向数</td>
