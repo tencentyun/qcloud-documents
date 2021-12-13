@@ -18,9 +18,9 @@
 2. 开始共享桌面后，被控用户可通过单击屏幕上方的工具栏**远程控制**按钮，邀请会中的某个用户进行远程控制。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3c4bb7f3fd62a4d3045fee1725c8981e.png)
 3. 开始共享桌面后，主控用户可通过窗口上方共享观看下拉菜单“请求远程控制”选项，向被控用户发起远程控制申请。
-![](https://qcloudimg.tencent-cloud.cn/raw/e826fb4c359a46b3c419b7e1864f746f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c8dc87a60c3e659e3bdec8c1032a2286.png)
 4. 被控用户的邀请或主控用户的申请通过后，双方进入远程控制会话链接过程，链接成功后，主控用户可在被控用户的可见画面区域内进行鼠标或键盘操作。
-![](https://qcloudimg.tencent-cloud.cn/raw/a1202e61df6373022712699981880509.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7a8465c3289fe68f70722d88284fa1af.png)
 5. 被控用户如需要临时进行本地操作，可以直接移动鼠标，或通过屏幕上方的工具栏中远程控制下拉菜单，选择**临时禁止鼠标/键盘**操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e9b7724bccf43d91661afce696cc2d28.png)
 6. 被控用户或主控用户可随时结束远程控制。 
