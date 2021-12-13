@@ -90,7 +90,7 @@ Web 端支持发起混流，具体请参见 [如何调用混流转码接口](htt
 ## 四、其他
 [](id:o0)
 ### 2.x、3.x 版本的 SDK，在 Chrome 96+ 版本无法正常通话该如何处理？
-最新版本的 [Chrome 96 废弃了 Plan-B](https://www.chromestatus.com/feature/5823036655665152)，将会导致 TRTC 实时音视频老版本的(2.x，3.x ) Web SDK 会出现无法通话的情况，请您尽快将 Web SDK 升级至我们的最新版本。4.x 版本SDK 的接口与老版本(2.x, 3.x)不兼容，请参考 [快速集成(Web)](https://cloud.tencent.com/document/product/647/16863) 升级接入 4.x 版本 SDK。
+最新版本的 [Chrome 96 废弃了 Plan-B](https://www.chromestatus.com/feature/5823036655665152)，将会导致 TRTC 实时音视频老版本的(2.x, 3.x) Web SDK 会出现无法通话的情况，请您尽快将 Web SDK 升级至我们的最新版本(4.x)。4.x 版本 SDK 的接口与老版本(2.x, 3.x)不兼容，请参考 [快速集成(Web)](https://cloud.tencent.com/document/product/647/16863) 升级接入 4.x 版本 SDK。
 
 [](id:o1)
 ###  运行 Web 端 SDK 时，出现错误：“RtcError: no valid ice candidate found”该如何处理？
