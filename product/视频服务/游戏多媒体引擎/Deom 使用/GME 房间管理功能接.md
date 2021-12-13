@@ -32,6 +32,7 @@ EnableMic 相当于同时调用 EnableAudioSend 及 EnableAudioCaptureDevice。
 ```
 -(QAVResult)EnableMic:(BOOL)enable Receiver:(NSString *)receiverID;
 ```
+
 | 参数       | 类型      | 含义                                                    |
 | ---------- | --------- | ------------------------------------------------------- |
 | enable     | BOOL      | <li> YES：打开某用户麦克风<li>NO：关闭某用户麦克风 |
