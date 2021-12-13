@@ -8,7 +8,7 @@ Podfile 中添加：
   pod 'TCGVKey', :git => "https://github.com/tencentyun/cloudgame-ios-sdk.git"
 ```
 ## 调用示例 [](id:example)
-```objective-c
+```objectivec
 - (void)createGamePlayer {
     if (self.gamePlayer) {
         return;
