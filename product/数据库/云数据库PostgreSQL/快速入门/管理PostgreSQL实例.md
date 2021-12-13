@@ -1,6 +1,6 @@
 ## 实例列表页
 登录 [PostgreSQL 控制台](https://console.cloud.tencent.com/pgsql)，在实例列表可查看实例相关信息，以及管理实例。
-![](https://main.qcloudimg.com/raw/8e622ffa9ddd9c42a68802b46ad1bead.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7e8f3491117be739582bc19a60e61f04.png)
 
 ### 实例重启
 >?
@@ -26,8 +26,16 @@
 在**系统监控**页面，您可以查看当前数据库运行的众多核心指标的监控，分为访问、负载、缓存命中率、SQL 执行时延、XLOG 同步差异等监控。
 详细实例监控功能和告警功能的介绍，请参见 [监控功能](https://cloud.tencent.com/document/product/409/7564) 和 [告警功能](https://cloud.tencent.com/document/product/409/7563)。
 
+### 参数设置
+在参数设置页面，您可批量或单个修改参数，也可查询最近修改记录，详细功能请参见 [参数设置](https://cloud.tencent.com/document/product/409/62971)。
+
 ### 账号管理
 在**账号管理**页面，您可以对管理账号进行管理，如修改备注，重置密码。
+
+### 安全组
+在安全组页面，您可对实例进行安全组生效对象查询，配置安全组，规则预览等操作，具体详见 [管理安全组](https://cloud.tencent.com/document/product/409/54749)。
+>?云数据库 PostgreSQL 安全组不支持出站规则，入站仅对当前数据库服务中的内网地址和端口相关的规则生效。
+
 
 ### 备份管理
 在**备份管理**页面，您可以进行查看和下载备份和 xlog 操作，详细介绍请参见 [备份数据](https://cloud.tencent.com/document/product/409/33945)。
@@ -35,3 +43,5 @@
 ### 性能优化
 在**性能优化**页面，您可以查看和下载慢查询、错误日志。
 
+### 只读实例
+在只读实例页，您可以查询和新建只读实例 在新建只读实例时可指定或新建RO组。
