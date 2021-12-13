@@ -56,7 +56,7 @@
    # 进入provider目录
    cd /data/polaris/golang_examples/provider
    # 运行 provider
-   ./provider --service="polaris_go_test" --namespace="default" --host="{CVM内网 or 公网IP}" --port=9999
+   ./provider --service="polaris_go_test" --namespace="default" --host="{CVM内网 or 公网IP}" --port=7879
    ```
    
    b. 运行`consumer`
@@ -64,15 +64,12 @@
    ```shell
    # 进入consumer目录
    cd /data/polaris/golang_examples/consumer
-   # 运行 consumer
-   ./consumer --service="polaris_go_test" --namespace="default"
    
-   # 确认是否收到输出
-   [root@VM-50-33-centos ./consumer]# php consumer.php 
-   Attempting to connect to '10.0.50.33' on port '9996'...Connect success. 
-   Client send success 
-   Reading response:
-   hello. I`m provider
+   # 运行 consumer
+   [root@VM-50-33-centos ./consumer]# ./consumer --service="polaris_go_test" --namespace="default"
+   2021/12/13 14:40:03 start to invoke getOneInstance operation
+   2021/12/13 14:40:03 instance getOneInstance is 10.0.50.33:7879
+   2021/12/13 14:40:03 Hello, I'm Provider
    ```
    
 6. 确认部署结果
@@ -82,8 +79,8 @@
    b. 选择`服务管理` > `服务列表`，查看服务`polaris_go_test`的实例数量
 
    - 若实例数量值不为0，则表示已经成功接入微服务引擎
-   - 若实例数量为0，或者找不到`polaris_php_test`服务名，则表示微服务应用接入微服务引擎失败。
+   - 若实例数量为0，或者找不到`polaris_go_test`服务名，则表示微服务应用接入微服务引擎失败。
    
-   ![](https://qcloudimg.tencent-cloud.cn/raw/c75595d9d8ece9633427a8206f9ecb63.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/a0167bfcec91615b572a5576c97b68b0.png)
    
    
