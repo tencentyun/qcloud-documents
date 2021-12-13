@@ -14,7 +14,7 @@
 
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
 2. 在**治理中心**下的 **polarismesh** 页面，单击目标引擎的“ID”，进入基本信息页面。
-3. 在左侧页签单击 **K8s 集群**，单击**关联集群**。根据自身业务需求选择目标关联的 K8s 集群，支持 [TKE](https://cloud.tencent.com/product/tke) (容器集群) / [EKS](https://cloud.tencent.com/product/eks) （弹性容器集群)。
+3. 在左侧页签单击 **K8s 集群**，单击**关联集群**。根据自身业务需求选择目标关联的 K8s 集群，支持 [TKE](https://cloud.tencent.com/product/tke) (容器集群) / [EKS](https://cloud.tencent.com/product/eks) (弹性容器集群)。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/455c1e3826f61d957c94f8130d45af00.png)
 
