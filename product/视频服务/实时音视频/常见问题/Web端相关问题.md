@@ -25,6 +25,10 @@ TRTC Web SDK 对浏览器的详细支持度，请参见 [TRTC Web SDK 对浏览�
 ### 是否支持混流、旁路推流、大小流、美颜、水印？
 您可请参见 [混流](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#startMixTranscode)、[旁路推流](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-26-advanced-publish-cdn-stream.html)、[大小流](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-27-advanced-small-stream.html)、[美颜](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-28-advanced-beauty.html) 、[水印](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-29-advance-water-mark.html)文档实现高级功能。
 
+[](id:b6)
+### WebRTC 有哪些已知问题？
+具体请参见 [WebRTC 已知问题及规避方案](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-02-info-webrtc-issues.html)。
+
 ## 二、推拉流问题
 [](id:p1)
 ### Web 端 SDK 日志中报错 NotFoundError、NotAllowedError、NotReadableError、OverConstrainedError 以及 AbortError 分别是什么意思？
