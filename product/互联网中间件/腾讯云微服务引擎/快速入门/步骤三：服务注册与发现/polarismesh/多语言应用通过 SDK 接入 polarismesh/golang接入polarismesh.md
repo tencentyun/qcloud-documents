@@ -1,11 +1,6 @@
 # Golang服务应用接入polarismesh
 
-您可以将golang服务应用接入polarismesh治理中心，使用polarismesh提供的一系列服务治理能力，大幅提升线上golang服务的稳定性和开发效率。
-
-> 说明：
->
-> - 本章节将使用一个provider服务和一个consumer服务接入微服务引擎。
-> - 本章节涉及的demo部署环境使用CVM服务
+本文通过一个demo进行 Golang 应用接入微服务引擎托管的 PolarisMesh 治理中心的全流程操作演示，帮助您快速了解如何使用服务治理中心。
 
 ## 前提条件
 
@@ -16,23 +11,20 @@
 
 ## 操作步骤
 
-1. 登录微服务引擎控制台
-  - 登录[腾讯云控制台](https://cloud.tencent.com/)
-  - 单击左上角云产品，搜索”微服务引擎”，选择并进入微服务引擎控制台。
-    ![console](https://qcloudimg.tencent-cloud.cn/raw/7f7daff61aff9aface98161c61a56239.png)
+1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
 
-2. 获取微服务引擎服务治理中心地址
-  - 点击左边栏polarismesh按钮，进入polarismesh引擎列表：![pm_icon](https://qcloudimg.tencent-cloud.cn/raw/bdd06200187fff733eb1222f794a014a.png)
-  - 点击页面上方下拉列表，选择地域：![region_icon](https://qcloudimg.tencent-cloud.cn/raw/b5153fa452844ee19e24436e11b2376e.png)
-  - 在引擎列表中，选择已经创建好的polarismesh服务治理中心引擎，点击进入：![instance_icon](https://qcloudimg.tencent-cloud.cn/raw/c75a4b2c7b53a6cb2bec33bde7fa8c99.png)
-  - 进入“基本信息”页，查看访问地址，PHP应用访问使用gRPC端口（8091）：
+2. 在**治理中心**下的 **polarismesh** 页面，点击页面上方下拉列表，选择目标地域：![region_icon](https://qcloudimg.tencent-cloud.cn/raw/b5153fa452844ee19e24436e11b2376e.png)
+
+3. 单击目标引擎的“ID”，进入基本信息页面。
+
+4. 查看访问地址，Golang 应用访问使用gRPC端口（8091）：
     ![access](https://qcloudimg.tencent-cloud.cn/raw/561460943b0404c44c29d2c0dd09c56f.png)
 
-3. 修改demo中的注册中心地址
+5. 修改demo中的注册中心地址
 
-   a. 在下载到本地的demo源码目录下，分别找到`quickstart/consumer/polaris.yaml`以及`quickstart/provider/polaris.yaml`文件
+- 在下载到本地的demo源码目录下，分别找到`quickstart/consumer/polaris.yaml`以及`quickstart/provider/polaris.yaml`文件
 
-   b. 添加polarismesh治理中心的地址到项目的配置文件中（这里已`quickstart/consumer/polaris.yaml`为例）。
+- 添加polarismesh治理中心的地址到项目的配置文件中（这里已`quickstart/consumer/polaris.yaml`为例）。
 
    ```yaml
    global:
@@ -42,15 +34,14 @@
          - 192.168.100.9:8091
    ```
 
-4. 上传demo源码
+6. 上传demo源码
 
-   a. 安装`golang`环境[Download and install - go.dev](https://go.dev/doc/install)
+- 安装`golang`环境[Download and install - go.dev](https://go.dev/doc/install)
 
-   b. 分别将`consumer`以及`provider`的demo源码上传到不同的CVM实例中，这里假定上传的路径均为`/data/polaris/golang_examples`
-   
-5. 将demo示例运行
+- 分别将`consumer`以及`provider`的demo源码上传到不同的CVM实例中，这里假定上传的路径均为`/data/polaris/golang_examples`
+7. 将demo示例运行
 
-   a. 运行`provider`
+- 运行`provider`
 
    ```shell
    # 进入provider目录
@@ -59,7 +50,7 @@
    ./provider --service="polaris_go_test" --namespace="default" --host="{CVM内网 or 公网IP}" --port=7879
    ```
    
-   b. 运行`consumer`
+- 运行`consumer`
 
    ```shell
    # 进入consumer目录
@@ -71,16 +62,15 @@
    2021/12/13 14:40:03 instance getOneInstance is 10.0.50.33:7879
    2021/12/13 14:40:03 Hello, I'm Provider
    ```
-   
-6. 确认部署结果
+8. 确认部署结果
 
-   a. 进入微服务引擎控制台，选择前提条件中创建的polarismesh治理中心实例
+- 进入微服务引擎控制台，选择前提条件中创建的polarismesh治理中心实例
 
-   b. 选择`服务管理` > `服务列表`，查看服务`polaris_go_test`的实例数量
+- 选择`服务管理` > `服务列表`，查看服务`polaris_go_test`的实例数量
 
-   - 若实例数量值不为0，则表示已经成功接入微服务引擎
-   - 若实例数量为0，或者找不到`polaris_go_test`服务名，则表示微服务应用接入微服务引擎失败。
-   
-   ![](https://qcloudimg.tencent-cloud.cn/raw/a0167bfcec91615b572a5576c97b68b0.png)
-   
+- 若实例数量值不为0，则表示已经成功接入微服务引擎
+- 若实例数量为0，或者找不到`polaris_go_test`服务名，则表示微服务应用接入微服务引擎失败。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/a0167bfcec91615b572a5576c97b68b0.png)
+
    
