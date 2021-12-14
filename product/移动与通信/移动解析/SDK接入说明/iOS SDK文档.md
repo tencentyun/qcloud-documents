@@ -97,17 +97,21 @@ typedef enum {
 	配置结构体
 	以下鉴权信息可在腾讯云控制台（https://console.cloud.tencent.com/httpdns/configure）开通服务后获取
 **/
-struct DnsConfig {
-    NSString* appId; // 应用ID，腾讯云控制台申请获得，用于上报
-    int dnsId; // 授权ID，用于域名解析鉴权
-    NSString* dnsKey; // 加密密钥，加密方式为 AES、DES 时必传
-    NSString* token; // 加密方式为 HTTPS 时必传
-    NSString* dnsIp; // HTTPDNS 服务器 IP
+typedef struct DnsConfigStruct {
+    NSString* appId; // 可选，应用ID，腾讯云控制台申请获得，用于灯塔数据上报（未集成灯塔时该参数无效）
+    int dnsId; // 授权ID，腾讯云控制台申请后，通过邮件发送，用于域名解析鉴权
+    NSString* dnsKey; // 加密密钥，加密方式为AES、DES时必传。腾讯云控制台申请后，通过邮件发送，用于域名解析鉴权
+    NSString* token; // 加密token，加密方式为 HTTPS 时必传
+    NSString* dnsIp; // HTTPDNS 服务器 IP。HTTP 协议服务地址为 `119.29.29.98`，HTTPS 协议服务地址为 `119.29.29.99`
     BOOL debug; // 是否开启Debug日志，YES：开启，NO：关闭。建议联调阶段开启，正式上线前关闭
-    int timeout; // 超时时间，单位ms，如设置0，则设置为默认值2000ms
+    int timeout; // 可选，超时时间，单位ms，如设置0，则使用默认值2000ms
     HttpDnsEncryptType encryptType; // 控制加密方式
-    NSString* routeIp; // 查询线路 IP 地址
-};
+    NSString* routeIp; // 可选，DNS 请求的 ECS（EDNS-Client-Subnet）值，默认情况下 HTTPDNS 服务器会查询客户端出口 IP 为 DNS 线路查询 IP，可以指定线路 IP 地址。支持 IPv4/IPv6 地址传入
+    BOOL httpOnly;// 可选，是否仅返回 httpDns 解析结果。默认 false，即当 httpDns 解析失败时会返回 localDns 解析结果，设置为 true 时，仅返回 httpDns 的解析结果
+    NSUInteger retryTimesBeforeSwitchServer; // 可选，切换ip之前重试次数, 默认3次
+    NSUInteger minutesBeforeSwitchToMain; // 可选，设置切回主ip间隔时长，默认10分钟
+    BOOL enableReport; // 是否开启解析异常上报，默认NO，不上报
+} DnsConfig;
 ```
 
 #### 接口声明
@@ -134,7 +138,7 @@ struct DnsConfig {
 接口调用示例：
 - 在 Objective-C 项目中。
 ```objc
-	DNSConfig *config = new DnsConfig();
+	DnsConfig *config = new DnsConfig();
 	config->dnsIp = @"HTTPDNS 服务器IP";
 	config->dnsId = @"dns授权id";
 	config->dnsKey = @"加密密钥";
