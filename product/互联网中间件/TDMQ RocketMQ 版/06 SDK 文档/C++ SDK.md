@@ -13,7 +13,7 @@
 1. 需要在客户端环境安装 RocketMQ-Client-CPP 库，根据官方文档进行安装即可 [安装CPP动态库](https://github.com/apache/rocketmq-client-cpp)，**推荐使用 master 分支构建**。
 2. 在项目中引入 RocketMQ-Client-CPP 相关头文件及动态库。
 
-### 步骤2：初始化消息生产者
+### 步骤2：生产消息
 1. 创建消息生产者。
 <dx-codeblock>
 :::  c++
