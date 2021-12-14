@@ -1,12 +1,12 @@
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 适用场景
 
@@ -127,7 +127,7 @@ _trtcCloud.delegate = self;
     </dx-codeblock>
 
 >! 
->- 如果进房失败，SDK 同时还会回调 `onError` 事件，并返回参数 `errCode`（[错误码](https://cloud.tencent.com/document/product/1449/57187?!preview&!editLang=zh)）、`errMsg`（错误原因）以及 `extraInfo`（保留参数）。
+>- 如果进房失败，SDK 同时还会回调 `onError` 事件，并返回参数 `errCode`（[错误码](https://cloud.tencent.com/document/product/1449/57187)）、`errMsg`（错误原因）以及 `extraInfo`（保留参数）。
 >- 如果已在某一个房间中，则必须先调用 `exitRoom()` 退出当前房间，才能进入下一个房间。
 >- 每个端在应用场景 appScene 上必须要进行统一，否则会出现一些不可预料的问题。
 
@@ -175,7 +175,7 @@ SDK 支持自动订阅和手动订阅。
 3. 调用 [setLocalViewFillMode()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a961596f832657bfca81fd675878a2d15) 可以设定本地视频画面的显示模式：
  - Fill 模式表示填充，画面可能会被等比放大和裁剪，但不会有黑边。
  - Fit 模式表示适应，画面可能会等比缩小以完全显示其内容，可能会有黑边。
-4. 调用 [setVideoEncoderParam()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a57938e5b62303d705da2ceecf119d74e) 接口可以设定本地视频的编码参数，该参数将决定房间里其他用户观看您的画面时所感受到的 [画面质量](https://cloud.tencent.com/document/product/1449/57122?!preview&!editLang=zh)。
+4. 调用 [setVideoEncoderParam()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a57938e5b62303d705da2ceecf119d74e) 接口可以设定本地视频的编码参数，该参数将决定房间里其他用户观看您的画面时所感受到的 [画面质量](https://cloud.tencent.com/document/product/1449/57122)。
 
 <dx-codeblock>
 ::: iOS object-c

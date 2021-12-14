@@ -41,7 +41,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 标识符（实体 ID）：intl.cloud.tencent.com
 回复 URL（断言使用者服务 URL）：https://intl.cloud.tencent.com/login/saml
 >
-3. 在 “SAML 单一登录”概览界面，单击“用户属性和声明右上角的<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">，打开“用户属性声明”编辑页面。如下图所示：
+3. 在 “SAML 单一登录”概览界面，单击“用户属性和声明”右上角的<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">，打开“用户属性声明”编辑页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/012441d7e961f9f784e05cc347c66294.png)
 4. 在“用户属性和声明”编辑页面，单击【添加新的声明】，进入“管理用户声明”页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/4116fdd96ea5815f79db7c4aef508289.png)

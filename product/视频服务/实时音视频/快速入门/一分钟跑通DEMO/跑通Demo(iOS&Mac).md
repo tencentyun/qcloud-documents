@@ -61,9 +61,9 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
   - 切换为新版本算法 HMAC-SHA256：
    ![](https://main.qcloudimg.com/raw/b0412153935704abc9e286868ad8a916.png)
 
-#### 2. 两台手机同时运行工程，为什么看不到彼此的画面？
+### 2. 两台手机同时运行工程，为什么看不到彼此的画面？
 请确保两台手机在运行工程时使用的是不同的 UserID，TRTC 不支持同一个 UserID （除非 SDKAppID 不同）在两个终端同时使用。
 ![](https://main.qcloudimg.com/raw/51b2a802be9130b15c79686a7ebd13a9.png)
 
-#### 3. 防火墙有什么限制？
+### 3. 防火墙有什么限制？
 由于 SDK 使用 UDP 协议进行音视频传输，所以在对 UDP 有拦截的办公网络下无法使用。如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399) 排查并解决。

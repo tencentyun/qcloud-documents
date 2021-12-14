@@ -1,5 +1,3 @@
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
-2. 单击左侧目录中的【路由表】。
-3. 在列表上方筛选地域和私有网络。
-4. 单击您要查看的路由表 ID，进入详情页，在相关路由策略中即可看到：下一跳是云联网的路由策略信息。
-![](https://main.qcloudimg.com/raw/8850300072f7281a00220a8ae6473b29.png)
+1. 登录 [路由表控制台](https://console.cloud.tencent.com/vpc/route?rid=1) ，在列表上方筛选地域和私有网络。
+2. 单击您要查看的路由表 ID，进入详情页，在相关路由策略中即可看到：下一跳是云联网的路由策略信息。
+![](https://main.qcloudimg.com/raw/bc39deced6a08eed4e99079a5406260a.png)

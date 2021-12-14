@@ -5,7 +5,7 @@
 
 ## 操作步骤
 
-1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/cds/dasb)，并使用管理员账号登录堡垒机。
+1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/dsgc/bh)，并使用管理员账号登录堡垒机。
 2. 在右上角单击【系统管理】，进入系统管理页面。
 3. 在系统管理页面，选择【系统配置】>【Syslog】，进入 Syslog 配置页面。
 4. 配置如下相关信息：

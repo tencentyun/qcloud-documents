@@ -51,7 +51,7 @@ PUT _cluster/settings
 ```
 GET /_cluster/allocation/explain
 ```
-5. 等待分片下发完成后，查看集群状态。如果集群状态依然为 Red，请 [提交工单](https://console.cloud.tencent.com/workorder/category)，联系腾讯云技术支持。
+5. 等待分片下发完成后，查看集群状态。如果集群状态依然为 Red，请通过 [售后支持](https://cloud.tencent.com/online-service?from=connect-us) 联系腾讯云技术支持。
 6. 为避免磁盘使用率过高影响 Elasticsearch 服务，建议开启磁盘使用率监控报警，及时查收报警短信，提前做好防御措施，具体可参考 [监控告警配置建议](https://cloud.tencent.com/document/product/845/35572)。
 
 ### 扩容云盘空间

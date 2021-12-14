@@ -20,7 +20,10 @@ https://api.meeting.qq.com/v1/users?uuid={uuid}
 | username   | 否   | String   | 新的用户昵称。                                                 |
 | phone      | 否   | String   | 手机号码。                                                     |
 | avatar_url | 否   | String   | 头像地址。                                                     |
-
+| staff_id        | 否   | String     | 员工工号。                                                     |
+| job_title       | 否   | String     | 员工职位，长度范围[1,32]。                                     |
+| entry_time      | 否   | Integer    | 入职时间。                                                     |
+| department_list | 否   | String 数组 | 员工部门，暂只支持为用户分配1个部门。  |    
 
 
 ## 输出参数
@@ -37,6 +40,7 @@ PUT https://api.meeting.qq.com/v1/users?uuid=WM4Fs4Th56ogU13JiK
 {
   "username": "testusername"
 }
+
 ```
 
 

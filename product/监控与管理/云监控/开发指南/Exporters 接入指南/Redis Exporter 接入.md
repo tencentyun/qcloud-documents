@@ -11,7 +11,7 @@
 
 
 - 在 Proemtheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [Kubernetes 集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)，并为集群创建 [命名空间](https://cloud.tencent.com/document/product/1141/41803)。
-- 在【[云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)】  >【选择“对应的 Prometheus 实例”】 >【集成容器服务】中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
+- 在**[云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)**  >**选择“对应的 Prometheus 实例”** >**集成容器服务**中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
 
 
 
@@ -29,8 +29,8 @@
 
 #### 使用 Secret 管理 Redis 密码
 
-1. 在左侧菜单中选择【工作负载】>【Deployment】，进入 Deployment 页面。
-2. 在页面右上角单击【YAML创建资源】，创建 YAML 配置，配置说明如下：
+1. 在左侧菜单中选择**工作负载** > **Deployment**，进入 Deployment 页面。
+2. 在页面右上角单击**YAML创建资源**，创建 YAML 配置，配置说明如下：
 使用 Kubernetes 的 Secret 来管理密码并对密码进行加密处理，在启动 Redis Exporter 的时候直接使用 Secret Key，需要调整对应的 `password`，YAML 配置示例如下：
 ```
 apiVersion: v1
@@ -47,7 +47,7 @@ stringData:
 
 #### 部署 Redis Exporter
 
-在 Deployment 管理页面，单击【新建】，选择对应的**命名空间**来进行部署服务。可以通过控制台的方式创建，如下以 YAML 的方式部署 Exporter，YAML 配置示例如下：
+在 Deployment 管理页面，单击**新建**，选择对应的**命名空间**来进行部署服务。可以通过控制台的方式创建，如下以 YAML 的方式部署 Exporter，YAML 配置示例如下：
 >?更多 Exporter 详细参数介绍请参见 [redis_exporter](https://github.com/oliver006/redis_exporter)。
 ```
 apiVersion: apps/v1
@@ -102,10 +102,10 @@ spec:
 #### 验证
 
 1. 在 Deployment 页面单击上述步骤创建的 Deployment，进入 Deployment 管理页面。
-2. 单击【日志】页签，可以查看到 Exporter 成功启动并暴露对应的访问地址，如下图所示：
+2. 单击**日志**页签，可以查看到 Exporter 成功启动并暴露对应的访问地址，如下图所示：
 	 ![](https://main.qcloudimg.com/raw/4f38e24d2363579014719e303f5667d1.png)
-3. 单击【Pod管理】页签，进入 Pod 页面。
-4. 在右侧的操作项下单击【远程登录】登录 Pod，在命令行窗口中执行以下 curl 命令对应 Exporter 暴露的地址，可以正常得到对应的 Redis 指标。如发现未能得到对应的数据，请检查一下 `REDIS_ADDR` 和 `REDIS_PASSWORD` 是否正确。示例如下：
+3. 单击**Pod管理**页签，进入 Pod 页面。
+4. 在右侧的操作项下单击**远程登录**登录 Pod，在命令行窗口中执行以下 curl 命令对应 Exporter 暴露的地址，可以正常得到对应的 Redis 指标。如发现未能得到对应的数据，请检查一下 `REDIS_ADDR` 和 `REDIS_PASSWORD` 是否正确。示例如下：
 ```
 curl localhost:9121/metrics
 ```
@@ -118,7 +118,7 @@ curl localhost:9121/metrics
 ### 添加采取任务
 
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
-2. 通过集成容器服务列表单击【集群 ID】进入到容器服务集成管理页面。
+2. 通过集成容器服务列表单击**集群 ID**进入到容器服务集成管理页面。
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
 
 ```yaml
@@ -161,7 +161,7 @@ curl localhost:9121/metrics
 
 
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
-2. 单击【集成中心】，进入集成中心页面。找到 Redis 监控，安装对应的 Grafana Dashboard 即可开启 Redis 监控大盘，查看实例相关的监控数据，如下图所示：
+2. 单击**集成中心**，进入集成中心页面。找到 Redis 监控，安装对应的 Grafana Dashboard 即可开启 Redis 监控大盘，查看实例相关的监控数据，如下图所示：
 ![](https://main.qcloudimg.com/raw/ce0215baf6137d35341d56419bfb6d36.png)
 
 ### 告警以及接入

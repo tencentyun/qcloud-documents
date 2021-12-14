@@ -25,10 +25,10 @@ Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并�
      <version>3.1.322</version>
 </dependency>
 ```
-	>!
-	>- 这里的版本号只是举例，您可以在 [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 上找到最新的版本。
-	>- [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 中显示的4.0.11是废弃版本，由于 Maven 索引更新问题尚未完全删除。
-	>- 若上面的引用方式会将腾讯云所有产品 SDK 下载到本地，可以将 artifactId 换成 tencentcloud-sdk-java-cvm/cbs/vpc 等，即可引用特定产品的 SDK，代码中使用方式和大包相同，可参考示例。最新版本也可在 [Maven仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 查询，可大大节省存储空间。
+>!
+>- 这里的版本号只是举例，您可以在 [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 上找到最新的版本。
+>- [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 中显示的4.0.11是废弃版本，由于 Maven 索引更新问题尚未完全删除。
+>- 若上面的引用方式会将腾讯云所有产品 SDK 下载到本地，可以将 artifactId 换成 tencentcloud-sdk-java-cvm/cbs/vpc 等，即可引用特定产品的 SDK，代码中使用方式和大包相同，可参考示例。最新版本也可在 [Maven仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 查询，可大大节省存储空间。
 3. 设置镜像源以加快下载速度，编辑 maven 的 settings.xml 配置文件，在 mirrors 段落增加镜像配置：
 ```
     <mirror>
@@ -178,7 +178,7 @@ SDK 支持 http 协议和 https 协议，通过设置 HttpProfile 的 setProtoco
 
 ## 支持打印日志
 自3.1.80版本开始，SDK 支持打印日志。
-首先，在创建 CLientProfile 对象时，设置 debug 模式为真,会打印 sdk 异常信息和流量信息。
+首先，在创建 CLientProfile 对象时，设置 debug 模式为真，会打印 sdk 异常信息和流量信息。
 ```
       ClientProfile clientProfile = new ClientProfile();
       clientProfile.setDebug(true);

@@ -1,18 +1,18 @@
-TRTCKtvRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的组件，支持以下功能：
+TRTCKaraokeRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的组件，支持以下功能：
 
-- 房主创建新的 KTV 房间开播，听众进入 KTV 房间收听/互动。
+- 房主创建新的 Karaoke 房间开播，听众进入 Karaoke 房间收听/互动。
 - 房主可以管理点歌、将座位上的麦上主播踢下麦。
 - 房主还能对座位进行封禁，其他听众就不能再进行申请上麦了。
 - 听众可以申请上麦，变成麦上主播，上麦后可以点歌和唱歌，也可以随时下麦成为普通的听众。
 - 支持发送礼物和各种文本、自定义消息，自定义消息可用于实现弹幕、点赞等。
 
-TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [KTV（iOS）](https://cloud.tencent.com/document/product/647/45753)。
+TRTCKaraokeRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [Karaoke（Android）](https://cloud.tencent.com/document/product/647/59403)。
 
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时语音聊天组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 AVChatroom 实现聊天室的功能，同时，通过 IM 的属性接口来存储麦位表等房间信息，邀请信令可以用于上麦申请/抱麦申请。
 
-[](id:TRTCKtvRoom)
-## TRTCKtvRoom API 概览
+[](id:TRTCKaraokeRoom)
+## TRTCKaraokeRoom API 概览
 
 ### SDK 基础函数
 
@@ -41,10 +41,10 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | API                                 | 描述             |
 | ----------------------------------- | --------------- |
-| [startPlayMusic](#startplaymusic) | 开始播放音乐。 	|
-| [stopPlayMusic](#stopplaymusic)   | 停止播放音乐。  	|
-| [pausePlayMusic](#pauseplaymusic) | 暂停播放音乐。		|
-| [resumePlayMusic](#resumeplaymusic) | 恢复播放音乐。		|
+| [startPlayMusic](#startplaymusic)   | 开始播放音乐。     |
+| [stopPlayMusic](#stopplaymusic)     | 停止播放音乐。     |
+| [pausePlayMusic](#pauseplaymusic)   | 暂停播放音乐。     |
+| [resumePlayMusic](#resumeplaymusic) | 恢复播放音乐。     |
 
 ### 麦位管理接口
 
@@ -100,11 +100,8 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | [rejectInvitation](#rejectinvitation) | 拒绝邀请。       |
 | [cancelInvitation](#cancelinvitation) | 取消邀请。       |
 
-
-
-[](id:TRTCKtvRoomDelegate)
-
-## TRTCKtvRoomDelegate API 概览
+[](id:TRTCKaraokeRoomDelegate)
+## TRTCKaraokeRoomDelegate API 概览
 
 ### 通用事件回调
 
@@ -119,7 +116,7 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | API                                       | 描述                   |
 | ----------------------------------------- | ---------------------- |
 | [onRoomDestroy](#onroomdestroy)           | 房间被销毁的回调。     |
-| [onRoomInfoChange](#onroominfochange)     | KTV 房间信息变更回调。 |
+| [onRoomInfoChange](#onroominfochange)     | Karaoke 房间信息变更回调。 |
 | [onUserVolumeUpdate](#onuservolumeupdate) | 用户通话音量回调。     |
 
 ### 麦位变更回调
@@ -167,28 +164,27 @@ TRTCKtvRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 ## SDK 基础函数
 
 [](id:sharedInstance)
-
 ### sharedInstance
 
-获取 [TRTCKtvRoom](https://cloud.tencent.com/document/product/647/59403) 单例对象。
+获取 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59403) 单例对象。
 
 ```java
- public static synchronized TRTCKtvRoom sharedInstance(Context context);
+ public static synchronized TRTCKaraokeRoom sharedInstance(Context context);
 ```
 
 参数如下表所示：
 
 | 参数    | 类型    | 含义                                                         |
 | ------- | ------- | ------------------------------------------------------------ |
-| context | Context | Android 上下文，内部会转为 ApplicationContext 用于系统 API 调用。 |
+| context | Context | Android 上下文，内部会转为 ApplicationContext 用于系统 API 调用 |
 
    
 
 ### destroySharedInstance
 
-销毁 [TRTCKtvRoom](https://cloud.tencent.com/document/product/647/59403) 单例对象。
+销毁 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59403) 单例对象。
 
->?销毁实例后，外部缓存的 TRTCKtvRoom 实例无法再使用，需要重新调用 [sharedInstance](#sharedInstance) 获取新实例。
+>?销毁实例后，外部缓存的 TRTCKaraokeRoom 实例无法再使用，需要重新调用 [sharedInstance](#sharedInstance) 获取新实例。
 
 ```java
 public static void destroySharedInstance();
@@ -196,13 +192,13 @@ public static void destroySharedInstance();
 
 ### setDelegate
 
-[TRTCKtvRoom](https://cloud.tencent.com/document/product/647/59403) 事件回调，您可以通过 TRTCKtvRoomDelegate 获得 [TRTCKtvRoom](https://cloud.tencent.com/document/product/647/59403) 的各种状态通知。
+[TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59403) 事件回调，您可以通过 TRTCKaraokeRoomDelegate 获得 [TRTCKaraokeRoom](https://cloud.tencent.com/document/product/647/59403) 的各种状态通知。
 
 ```java
-public abstract void setDelegate(TRTCKtvRoomDelegate delegate);
+public abstract void setDelegate(TRTCKaraokeRoomDelegate delegate);
 ```
 
->?setDelegate 是 TRTCKtvRoom 的代理回调。   
+>?setDelegate 是 TRTCKaraokeRoom 的代理回调。   
 
 ### setDelegateHandler
 
@@ -216,7 +212,7 @@ public abstract void setDelegateHandler(Handler handler);
 
 | 参数    | 类型    | 含义                                                         |
 | ------- | ------- | ------------------------------------------------------------ |
-| handler | Handler | TRTCKtvRoom 中的各种状态通知，会派发到您指定的 handler 线程。 |
+| handler | Handler | TRTCKaraokeRoom 中的各种状态通知，会派发到您指定的 handler 线程。 |
 
    
 
@@ -227,7 +223,7 @@ public abstract void setDelegateHandler(Handler handler);
 ```java
 public abstract void login(int sdkAppId,
  String userId, String userSig,
-TRTCKtvRoomCallback.ActionCallback callback);
+TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -236,7 +232,7 @@ TRTCKtvRoomCallback.ActionCallback callback);
 | -------- | -------------- | ------------------------------------------------------------ |
 | sdkAppId | int            | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
 | userId   | String         | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
-| userSig  | String         | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
+| userSig  | String         | 腾讯云设计的一种安全保护签名，获取方式请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 | callback | ActionCallback | 登录回调，成功时 code 为0。                                  |
 
    
@@ -246,7 +242,7 @@ TRTCKtvRoomCallback.ActionCallback callback);
 登出。
 
 ```java
-public abstract void logout(TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void logout(TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -262,7 +258,7 @@ public abstract void logout(TRTCKtvRoomCallback.ActionCallback callback);
 修改个人信息。
 
 ```java
-public abstract void setSelfProfile(String userName, String avatarURL, TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void setSelfProfile(String userName, String avatarURL, TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -283,22 +279,22 @@ public abstract void setSelfProfile(String userName, String avatarURL, TRTCKtvRo
 创建房间（房主调用）。
 
 ```java
-public abstract void createRoom(int roomId, TRTCKtvRoomDef.RoomParam roomParam, TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void createRoom(int roomId, TRTCKaraokeRoomDef.RoomParam roomParam, TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
 
 | 参数      | 类型                | 含义                                                         |
 | --------- | ------------------- | ------------------------------------------------------------ |
-| roomId    | int                 | 房间标识，需要由您分配并进行统一管理。多个 roomID 可以汇总成一个 KTV 房间列表，腾讯云暂不提供 KTV 房间列表的管理服务，请自行管理您的 KTV 房间列表。 |
+| roomId    | int                 | 房间标识，需要由您分配并进行统一管理。多个 roomID 可以汇总成一个 Karaoke 房间列表，腾讯云暂不提供 Karaoke 房间列表的管理服务，请自行管理您的 Karaoke 房间列表。 |
 | roomParam | TRTCCreateRoomParam | 房间信息，用于房间描述的信息。例如房间名称、麦位信息、封面信息等。如果需要麦位管理，必须要填入房间的麦位数。 |
 | callback  | ActionCallback      | 创建房间的结果回调，成功时 code 为0。                        |
 
 房主开播的正常调用流程如下： 
-1. 房主调用 `createRoom` 创建新的 KTV 房间，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
-2. 房主创建房间成功后，调用 `enterSeat` 进入座位。
-3. 房主收到组件的 `onSeatListChange `麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
-4. 房主还会收到麦位表有成员进入的`onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
+1. 房主调用`createRoom`创建新的 Karaoke 房间，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
+2. 房主创建房间成功后，调用`enterSeat`进入座位。
+3. 房主收到组件的`onSeatListChange`麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
+4. 房主还会收到麦位表有成员进入的`onAnchorEnterSeat`的事件通知，此时会自动打开麦克风采集。
 
    
 
@@ -307,7 +303,7 @@ public abstract void createRoom(int roomId, TRTCKtvRoomDef.RoomParam roomParam, 
 销毁房间（房主调用）。房主在创建房间后，可以调用这个函数来销毁房间。
 
 ```java
-public abstract void destroyRoom(TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void destroyRoom(TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -322,7 +318,7 @@ public abstract void destroyRoom(TRTCKtvRoomCallback.ActionCallback callback);
 进入房间（听众调用）。
 
 ```java
-public abstract void enterRoom(int roomId, TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void enterRoom(int roomId, TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -335,18 +331,18 @@ public abstract void enterRoom(int roomId, TRTCKtvRoomCallback.ActionCallback ca
 
 听众进房收听的正常调用流程如下： 
 
-1. 听众向您的服务端获取最新的 KTV 房间列表，可能包含多个 KTV 房间的 roomId 和房间信息。
-2. 听众选择一个 KTV 房间，调用 `enterRoom` 并传入房间号即可进入该房间。
-3. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
-4. 进房后会收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
-5. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
+1. 听众向您的服务端获取最新的 Karaoke 房间列表，可能包含多个 Karaoke 房间的 roomId 和房间信息。
+2. 听众选择一个 Karaoke 房间，调用`enterRoom`并传入房间号即可进入该房间。
+3. 进房后会收到组件的`onRoomInfoChange`房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
+4. 进房后会收到组件的`onSeatListChange`麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
+5. 进房后还会收到麦位表有主播进入的`onAnchorEnterSeat`的事件通知。
 
 ### exitRoom
 
 退出房间。
 
 ```java
-public abstract void exitRoom(TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void exitRoom(TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -365,7 +361,7 @@ public abstract void exitRoom(TRTCKtvRoomCallback.ActionCallback callback);
 
 
 ```java
-public abstract void getRoomInfoList(List<Integer> roomIdList, TRTCKtvRoomCallback.RoomInfoCallback callback);
+public abstract void getRoomInfoList(List<Integer> roomIdList, TRTCKaraokeRoomCallback.RoomInfoCallback callback);
 ```
 
 参数如下表所示：
@@ -381,7 +377,7 @@ public abstract void getRoomInfoList(List<Integer> roomIdList, TRTCKtvRoomCallba
 获取指定userId的用户信息。
 
 ```java
-public abstract void getUserInfoList(List<String> userIdList, TRTCKtvRoomCallback.UserListCallback userlistcallback);
+public abstract void getUserInfoList(List<String> userIdList, TRTCKaraokeRoomCallback.UserListCallback userlistcallback);
 ```
 
 参数如下表所示：
@@ -402,22 +398,23 @@ public abstract void getUserInfoList(List<String> userIdList, TRTCKtvRoomCallbac
 >- 音乐播放完成，自身会收到 `onMusicCompletePlaying` 的事件通知。
 
 ```java
-public abstract void startPlayMusic(int musicID, String url);
+public abstract void startPlayMusic(int musicID, String originalUrl, String accompanyUrl);
 ```
 
 参数如下表所示：
 
 | 参数      | 类型            | 含义                 |
 | --------- | -------------- | -------------------- |
-| musicID 	| int            | 音乐的 ID。 |
-| url 	    | String 		 | 音乐的绝对路径。           |
+|musicID   |   int | 音乐的 ID。  |
+|originalUrl  | String | 原唱音乐的绝对路径。   |
+|accompanyUrl |  String | 伴奏音乐的绝对路径。  |
 
 调用该接口后会停止上一个正在播放的歌曲。
 
 ### stopPlayMusic
 
 停止播放音乐（播放音乐时调用）。
->? 停止播放后，会收到 `onMusicCompletePlaying` 的事件通知。
+>?停止播放后，会收到 `onMusicCompletePlaying` 的事件通知。
 
 ```java
 public abstract void stopPlayMusic();
@@ -449,10 +446,10 @@ public abstract void resumePlayMusic();
 
 主动上麦（听众端和房主均可调用）。
 
->?上麦成功后，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
+>?上麦成功后，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 
 ```java
-public abstract void enterSeat(int seatIndex, TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void enterSeat(int seatIndex, TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -468,10 +465,10 @@ public abstract void enterSeat(int seatIndex, TRTCKtvRoomCallback.ActionCallback
 
 主动下麦（主播调用）。
 
->? 下麦成功后，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
+>? 下麦成功后，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 
 ```java
-public abstract void leaveSeat(TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void leaveSeat(TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -484,10 +481,10 @@ public abstract void leaveSeat(TRTCKtvRoomCallback.ActionCallback callback);
 
 抱人上麦（房主调用）。
 
->? 房主抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
+>? 房主抱人上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 
 ```java
-public abstract void pickSeat(int seatIndex, String userId, TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void pickSeat(int seatIndex, String userId, TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -508,7 +505,7 @@ public abstract void pickSeat(int seatIndex, String userId, TRTCKtvRoomCallback.
 >? 房主踢人下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
 
 ```java
-public abstract void kickSeat(int seatIndex, TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void kickSeat(int seatIndex, TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -527,7 +524,7 @@ public abstract void kickSeat(int seatIndex, TRTCKtvRoomCallback.ActionCallback 
 >? 静音/解除静音某个麦位，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
 
 ```java
-public abstract void muteSeat(int seatIndex, boolean isMute, TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void muteSeat(int seatIndex, boolean isMute, TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -547,7 +544,7 @@ public abstract void muteSeat(int seatIndex, boolean isMute, TRTCKtvRoomCallback
 >? 房主封禁/解禁对应麦位，房间内所有成员会收到 `onSeatListChange` 和 `onSeatClose` 的事件通知。
 
 ```java
-public abstract void closeSeat(int seatIndex, boolean isClose, TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void closeSeat(int seatIndex, boolean isClose, TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -716,7 +713,7 @@ public abstract TXAudioEffectManager getAudioEffectManager();
 在房间中广播文本消息，一般用于弹幕聊天。
 
 ```java
-public abstract void sendRoomTextMsg(String message, TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void sendRoomTextMsg(String message, TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -733,7 +730,7 @@ public abstract void sendRoomTextMsg(String message, TRTCKtvRoomCallback.ActionC
 发送自定义文本消息。
 
 ```java
-public abstract void sendRoomCustomMsg(String cmd, String message, TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void sendRoomCustomMsg(String cmd, String message, TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -753,7 +750,7 @@ public abstract void sendRoomCustomMsg(String cmd, String message, TRTCKtvRoomCa
 向用户发送邀请。
 
 ```java
-public abstract String sendInvitation(String cmd, String userId, String content, TRTCKtvRoomCallback.ActionCallback callback);
+public abstract String sendInvitation(String cmd, String userId, String content, TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -776,7 +773,7 @@ public abstract String sendInvitation(String cmd, String userId, String content,
 接受邀请。
 
 ```java
-public abstract void acceptInvitation(String id, TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void acceptInvitation(String id, TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -791,7 +788,7 @@ public abstract void acceptInvitation(String id, TRTCKtvRoomCallback.ActionCallb
 拒绝邀请。
 
 ```java
-public abstract void rejectInvitation(String id, TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void rejectInvitation(String id, TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -807,7 +804,7 @@ public abstract void rejectInvitation(String id, TRTCKtvRoomCallback.ActionCallb
 取消邀请。
 
 ```java
-public abstract void cancelInvitation(String id, TRTCKtvRoomCallback.ActionCallback callback);
+public abstract void cancelInvitation(String id, TRTCKaraokeRoomCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -817,8 +814,8 @@ public abstract void cancelInvitation(String id, TRTCKtvRoomCallback.ActionCallb
 | id       | String         | 邀请 ID。      |
 | callback | ActionCallback | 发送结果回调。 |
 
-[](id:TRTCKtvRoomDelegate)
-## TRTCKtvRoomDelegate 事件回调
+[](id:TRTCKaraokeRoomDelegate)
+## TRTCKaraokeRoomDelegate 事件回调
 
 ## 通用事件回调
 
@@ -871,7 +868,7 @@ void onDebugLog(String message);
 | ------- | ------ | ---------- |
 | message | String | 日志信息。 |
 
- [](id:room)
+   
 
 
 ## 房间事件回调
@@ -896,7 +893,7 @@ void onRoomDestroy(String roomId);
 进房成功后会回调该接口，roomInfo 中的信息在房主创建房间的时候传入。
 
 ```java
-void onRoomInfoChange(TRTCKtvRoomDef.RoomInfo roomInfo);
+void onRoomInfoChange(TRTCKaraokeRoomDef.RoomInfo roomInfo);
 ```
 
 参数如下表所示：
@@ -960,7 +957,7 @@ void onSeatListChange(List<SeatInfo> seatInfoList);
 有成员上麦(主动上麦/房主抱人上麦)。
 
 ```java
-void onAnchorEnterSeat(int index, TRTCKtvRoomDef.UserInfo user);
+void onAnchorEnterSeat(int index, TRTCKaraokeRoomDef.UserInfo user);
 ```
 参数如下表所示：
 
@@ -974,7 +971,7 @@ void onAnchorEnterSeat(int index, TRTCKtvRoomDef.UserInfo user);
 有成员下麦(主动下麦/房主踢人下麦)。
 
 ```java
-void onAnchorLeaveSeat(int index, TRTCKtvRoomDef.UserInfo user);
+void onAnchorLeaveSeat(int index, TRTCKaraokeRoomDef.UserInfo user);
 ```
 
 参数如下表所示：
@@ -982,7 +979,7 @@ void onAnchorLeaveSeat(int index, TRTCKtvRoomDef.UserInfo user);
 | 参数  | 类型     | 含义                 |
 | ----- | -------- | -------------------- |
 | index | int      | 下麦的麦位。         |
-| user  | UserInfo | 上麦用户的详细信息。 |
+| user  | UserInfo | 下麦用户的详细信息。 |
 
 ### onSeatMute
 
@@ -1021,7 +1018,7 @@ void onSeatClose(int index, boolean isClose);
 收到听众进房通知。
 
 ```java
-void onAudienceEnter(TRTCKtvRoomDef.UserInfo userInfo);
+void onAudienceEnter(TRTCKaraokeRoomDef.UserInfo userInfo);
 ```
 
 参数如下表所示：
@@ -1035,7 +1032,7 @@ void onAudienceEnter(TRTCKtvRoomDef.UserInfo userInfo);
 收到听众退房通知。
 
 ```java
-void onAudienceExit(TRTCKtvRoomDef.UserInfo userInfo);
+void onAudienceExit(TRTCKaraokeRoomDef.UserInfo userInfo);
 ```
 
 参数如下表所示：
@@ -1053,7 +1050,7 @@ void onAudienceExit(TRTCKtvRoomDef.UserInfo userInfo);
 收到文本消息。
 
 ```java
-void onRecvRoomTextMsg(String message, TRTCKtvRoomDef.UserInfo userInfo);
+void onRecvRoomTextMsg(String message, TRTCKaraokeRoomDef.UserInfo userInfo);
 ```
 
 参数如下表所示：
@@ -1070,7 +1067,7 @@ void onRecvRoomTextMsg(String message, TRTCKtvRoomDef.UserInfo userInfo);
 收到自定义消息。
 
 ```java
-void onRecvRoomCustomMsg(String cmd, String message, TRTCKtvRoomDef.UserInfo userInfo);
+void onRecvRoomCustomMsg(String cmd, String message, TRTCKaraokeRoomDef.UserInfo userInfo);
 ```
 
 参数如下表所示：
@@ -1098,7 +1095,7 @@ void onReceiveNewInvitation(String id, String inviter, String cmd, String conten
 | id      | String   | 邀请 ID。                          |
 | inviter | String   | 邀请人的用户 ID。                  |
 | cmd     | String   | 业务指定的命令字，由开发者自定义。 |
-| content | UserInfo | 业务指定的内容。                   |
+| content | String | 业务指定的内容。                   |
 
 ### onInviteeAccepted
 

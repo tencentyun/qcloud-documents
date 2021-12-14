@@ -59,4 +59,4 @@
 | --------------------- | --------------------------------- | ------ |
 | xpack.watcher.enabled | `true`表示开启 X-Pack 的 Watcher 功能 | true   |
 
-具体配置项详细含义，可参见 [Elasticsearch 官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/index.html)。如果有其他配置项自定义设置需求，可 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行反馈。
+具体配置项详细含义，可参见 [Elasticsearch 官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/index.html)。如果有其他配置项自定义设置需求，可通过 [售后支持](https://cloud.tencent.com/online-service?from=connect-us) 进行反馈。

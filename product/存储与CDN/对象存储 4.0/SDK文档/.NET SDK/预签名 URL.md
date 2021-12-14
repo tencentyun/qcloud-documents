@@ -2,10 +2,10 @@
 
 .NET SDK 提供获取对象 URL、计算签名和获取请求预签名 URL 接口。
 
-## 获取对象 URL 
+## 获取对象 URL (不带签名)
 
 ```C#
-string GetAccessURL(CosRequest request);
+string GetObjectUrl(string bucket, string key);
 ```
 
 ## 计算签名
@@ -80,7 +80,8 @@ try
   preSignatureStruct.httpMethod = "PUT"; //HTTP 请求方法
   preSignatureStruct.isHttps = true; //生成 HTTPS 请求 URL
   preSignatureStruct.signDurationSecond = 600; //请求签名时间为 600s
-  preSignatureStruct.headers = null;//签名中需要校验的 header
+  preSignatureStruct.headers = new Dictionary<string, string>();//签名中需要校验的 header
+  preSignatureStruct.headers.Add("host", preSignatureStruct.bucket + ".cos." + preSignatureStruct.region + ".myqcloud.com");
   preSignatureStruct.queryParameters = null; //签名中需要校验的 URL 中请求参数
 
   //上传预签名 URL (使用永久密钥方式计算的签名 URL)
@@ -142,7 +143,8 @@ try
   preSignatureStruct.httpMethod = "GET"; //HTTP 请求方法
   preSignatureStruct.isHttps = true; //生成 HTTPS 请求 URL
   preSignatureStruct.signDurationSecond = 600; //请求签名时间为600s
-  preSignatureStruct.headers = null;//签名中需要校验的 header
+  preSignatureStruct.headers = new Dictionary<string, string>();//签名中需要校验的 header
+  preSignatureStruct.headers.Add("host", preSignatureStruct.bucket + ".cos." + preSignatureStruct.region + ".myqcloud.com");
   preSignatureStruct.queryParameters = null; //签名中需要校验的 URL 中请求参数
 
   string requestSignURL = cosXml.GenerateSignURL(preSignatureStruct); 

@@ -20,12 +20,12 @@ Hive 中集成了 Thrift 服务。Thrift 是 Facebook 开发的一个软件框�
 [hadoop@172 hive]$ vim conf/hive-site.xml
 
 <property>
-        <name>hive.server2.thrift.bind.host</name>
-        <value>$hs2host</value>
+	<name>hive.server2.thrift.bind.host</name>
+	<value>$hs2host</value>
 </property>
 <property>
-        <name>hive.server2.thrift.port</name>
-        <value>$hs2port</value>
+	<name>hive.server2.thrift.port</name>
+	<value>$hs2port</value>
 </property>
 ```
 其中 $hs2host 为您的 HiveServer2 的 hostID，$hs2port 为您的 HiveServer2 的端口号。
@@ -51,7 +51,6 @@ conn = pyhs2.connect(host='$hs2host',
                                   user='hadoop',
                                   password='',
                                   database='default',)
-
 
 tablename = 'HiveByPython'
 cur = conn.cursor()
@@ -88,20 +87,16 @@ for i in cur.fetch():
 show the databases: 
 [['default', ''], ['hue_test', ''], ['test', '']]
 
-
 show the tables in default: 
 ['dd']
 ['ext_table']
 ['hive_test']
 ['hivebypython']
 
-
 show the new table: 
 ['hivebypython']
-
 
 contents from HiveByPython:
 [42, 'hello']
 [48, 'world']
-
 ```

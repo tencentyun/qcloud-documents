@@ -1,3 +1,81 @@
+### 2.15.0 @2021.10.29
+
+**新增**
+
+- 支持国际站。
+- [createLocationMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createLocationMessage)，支持发送地理位置消息。
+- 上传图片、视频、文件等带文件类型，方便下载和预览，兼容 uniapp。
+- [Conversation](https://web.sdk.qcloud.com/im/doc/zh-cn/Conversation.html) `lastMessage` 数据结构新增 `nick` `nameCard` 字段，便于展示群聊会话 `lastMessage` 的发送者的信息。
+  
+**变更**
+
+- [getConversationList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getConversationList) 支持批量获取指定会话。
+- 提高了长连接的稳定性。
+
+**修复**
+
+- 无会话列表缓存，最近联系人没有分页的情况下，登录后未派发事件 [CONVERSATION_LIST_UPDATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.CONVERSATION_LIST_UPDATED)。
+- 部分场景 [getMessageList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageList) 回包 `isCompleted` 始终为 `false`。
+- [createFaceMessage](createFaceMessage)设置 `index` 为0接收方丢失 `index` 字段。
+
+### 2.14.0 @2021.9.24
+
+**新增**
+
+- [pinConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#pinConversation)，支持会话置顶。
+- [initGroupAttributes](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#initGroupAttributes) 等群属性相关接口，支持 TRTC 语聊房的麦位管理。
+
+**变更**
+
+- 发送群聊消息自动补齐消息体 `nameCard` 属性，便于接入侧展示。
+- 因多端登录或多实例登录被踢下线时，不再触发服务端的 logout 回调。
+
+**修复**
+
+- C2C 会话拉漫游消息偶现丢消息。
+- 加群附言（applyMessage）缺失。
+
+### 2.13.1 @2021.8.27
+
+**变更**
+
+- 未登录时，连续调用 [login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login)，返回错误码 `2025`，表示【重复登录】。
+- WebSocket 重连后，SDK 重新登录并同步未读消息，保障消息的可靠性。
+
+
+**修复**
+
+- 未登录时，连续调用 [login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login) 后会话的未读数错误。
+- 调用 [setGroupMemberNameCard](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupMemberNameCard) 接口，`nameCard` 传入空字符串后报错。
+- 调用 [getGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMemberList) 接口，回包数据 `muteUntil` 的值错误。
+
+
+### 2.13.0 @2021.8.23
+
+**新增**
+
+支持好友关系链，请参见 [使用指引](https://web.sdk.qcloud.com/im/doc/zh-cn/tutorial-03-sns.html)。
+
+**修复**
+
+WebSocket 长连接断开时偶现的报错。
+
+### 2.12.2 @2021.8.6
+
+**新增**
+
+小程序视频上传支持进度回调。
+
+**变更**
+
+修改群自定义字段等不存漫游的群提示消息，SDK 不再计入会话未读数。
+
+**修复**
+
+- 加入直播群偶现收不到自己进群的提示消息。
+- 使用 restapi 发送 c2c 消息 random 设置为0时，接收端触发2次 [MESSAGE_RECEIVED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.MESSAGE_RECEIVED) 事件。
+
+
 ### 2.12.1 @2021.7.20
 
 **新增**
@@ -276,7 +354,7 @@ Taro 3.x 集成 WebIM 时的兼容性问题。
 
 **变更**
 
-[login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login) 成功时的回调对象 `imResponse.data` 新增 `repeatLogin: true` 键值对，用于标识某账号已登录后重复登录的情况。
+[login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login) 成功时的回调对象 `imResponse.data` 新增 `repeatLogin: true` 键值对，用于标识某帐号已登录后重复登录的情况。
 
 **修复**
 

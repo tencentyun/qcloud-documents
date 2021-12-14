@@ -10,32 +10,32 @@
 ## 操作步骤
 
 ### 证书安装
-1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
-解压缩后，可获得相关类型的证书文件。其中包含 IIS 文件夹和 CSR 文件：
- - 文件夹名称：IIS
+1. 请在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中选择您需要安装的证书并单击**下载**。
+2. 在弹出的 “证书下载” 窗口中，服务器类型选择 **IIS**，单击**下载**并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
+解压缩后，可获得相关类型的证书文件。其中包含 `cloud.tencent.com.iis` 文件夹：
+ - 文件夹名称： `cloud.tencent.com.iis`
  - 文件夹内容：
+    - `cloud.tencent.com.key` 密钥文件
     - `cloud.tencent.com.pfx` 证书文件
     - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
-  - CSR 文件内容：	`cloud.tencent.com.csr` 文件
-  >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
-2. 打开 IIS 服务管理器，选择计算机名称，双击打开 “服务器证书”。如下图所示：
+3. 打开 IIS 服务管理器，选择计算机名称，双击打开 “服务器证书”。如下图所示：
 ![](https://main.qcloudimg.com/raw/f81cfa90c5bed2470837ab1e04dd029e.png)
-3. 在服务器证书窗口的右侧 “操作” 栏中，单击【导入】。如下图所示：
+4. 在服务器证书窗口的右侧 “操作” 栏中，单击**导入**。如下图所示：
 ![](https://main.qcloudimg.com/raw/b1b6d531d89ea5b70a348521a9568740.png)
-4. 在弹出的 “导入证书” 窗口中，选择证书文件存放路径，输入密码，单击【确定】。如下图所示：
+5. 在弹出的 “导入证书” 窗口中，选择证书文件存放路径，输入密码，单击**确定**。如下图所示：
 >? 
->- 申请证书时若设置了私钥密码，输入密码时，请输入私钥密码。若申请证书时未设置私钥密码，输入密码时，请输入 IIS 文件夹中 keystorePass.txt 文件的密码。
+>- 申请证书时若设置了私钥密码，输入密码时，请输入私钥密码。若申请证书时未设置私钥密码，输入密码时，请输入 `cloud.tencent.com.iis` 文件夹中 keystorePass.txt 文件的密码。
 >- 如果私钥密码不慎遗忘，请 [工单联系](https://console.cloud.tencent.com/workorder/category) 腾讯云工程师删除该证书，然后重新申请该域名证书。
 >
 ![](https://main.qcloudimg.com/raw/b3084eae5e0502d1ea730e130adc6b61.png)
-5. 选择网站下的站点名称，并单击右侧 “操作” 栏的【绑定】。如下图所示：
+6. 选择网站下的站点名称，并单击右侧 “操作” 栏的**绑定**。如下图所示：
 ![](https://main.qcloudimg.com/raw/d9a68b79c3130e3cf19ffc89fb60472b.png)
-6. 在弹出的 “网站绑定” 窗口中，单击【添加】。如下图所示：
+7. 在弹出的 “网站绑定” 窗口中，单击**添加**。如下图所示：
 ![](https://main.qcloudimg.com/raw/83570ec33b564a66f2fd29c46f727016.png)
-7. 在 “添加网站绑定” 的窗口中，将网站类型设置为 https，端口设置为443，主机名请填写您当前申请证书的域名，并指定对应的 SSL 证书，单击【确定】。如下图所示：
-![](https://main.qcloudimg.com/raw/4e536ad37fd30b6d24be9454996f4661.png)
-8. 添加完成后，即可在 “网站绑定” 窗口中查看到新添加的内容。
-9. 请使用 `https://cloud.tencent.com` 进行访问。
+8. 在 “添加网站绑定” 的窗口中，将网站类型设置为 https，IP 地址设置为全部未分配，端口设置为443，主机名请填写您当前申请证书的域名，并指定对应的 SSL 证书，单击**确定**。如下图所示：
+![](https://main.qcloudimg.com/raw/ba1575aa633cd1d6960aa5ffe510af57.png)
+9. 添加完成后，即可在 “网站绑定” 窗口中查看到新添加的内容。
+10. 请使用 `https://cloud.tencent.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 
@@ -48,9 +48,9 @@
 >!执行该步骤前请下载安装 [rewrite 模块](https://www.iis.net/downloads/microsoft/url-rewrite)。
 >
 ![](https://main.qcloudimg.com/raw/1598d33791e582e133e847ed5a79e129.png)
-3. 进入 “URL 重写” 页面，并单击右侧 “操作” 栏的【添加规则】。如下图所示：
+3. 进入 “URL 重写” 页面，并单击右侧 “操作” 栏的**添加规则**。如下图所示：
 ![](https://main.qcloudimg.com/raw/2c9ac65d66166b8618e3bb58aa237db4.png)
-4. 在弹出的 “添加规则”窗口中，选择【空白规则】，单击【确定】。如下图所示：
+4. 在弹出的 “添加规则”窗口中，选择**空白规则**，单击**确定**。如下图所示：
 ![](https://main.qcloudimg.com/raw/26df81828a18a24198ccc8136f836dfb.png)
 5. 进入 “编辑入站规则” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/13ee58091b5b006f00dbe004f2740564.png)
@@ -64,8 +64,8 @@
 	  - 操作类型：选择重定向。
 	  - 重定向 URL：`https://{HTTP_HOST}/{R:1}`。
 	  - 重定向类型：选择参阅其他（303）。
-6. 单击 "操作" 栏的【应用】保存。
-7. 返回网站首页，单击右侧 “管理网站” 栏的【重新启动】。即可使用 `http://cloud.tencent.com` 进行访问。
+6. 单击 "操作" 栏的**应用**保存。
+7. 返回网站首页，单击右侧 “管理网站” 栏的**重新启动**。即可使用 `http://cloud.tencent.com` 进行访问。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 

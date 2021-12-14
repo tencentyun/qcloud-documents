@@ -6,7 +6,23 @@
 
 上图是一个简单的使用示例，您可以通过 trtc-wx 提供的 API 方法对您的推拉流状态进行设置，之后通过 setData 的方式，在微信页面上的原生标签上更新生效，您通过事件订阅的接口可以捕获服务端的一些状态通知，trtc-wx 也会在这些事件通知中，返回更新部分的状态，您可以及时的将这些属性更新到页面当中。
 
+## 环境要求
 
+- 微信 App iOS 最低版本要求：7.0.9
+- 微信 App Android 最低版本要求：7.0.8
+- 小程序基础库最低版本要求：2.10.0
+- 由于小程序测试号不具备 &lt;live-pusher&gt; 和 &lt;live-player&gt; 的使用权限，请使用企业小程序账号申请相关权限进行开发。
+- 由于微信开发者工具不支持原生组件（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签），需要在真机上进行运行体验。
+- 不支持 uniapp 等开发框架，请使用原生小程序开发环境。
+
+## 前提条件
+1. 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+2. **开通小程序类目与推拉流标签权限（如不开通则无法正常使用）**。
+出于政策和合规的考虑，微信暂未放开所有小程序对实时音视频功能（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签）的支持：
+ - 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
+ - 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
+ - 符合类目要求的小程序，需要在 **[微信公众平台](https://mp.weixin.qq.com)**>**开发**>**开发管理**>**接口设置** 中自助开通该组件权限，如下图所示：
+![](https://main.qcloudimg.com/raw/dc6d3c9102bd81443cb27b9810c8e981.png)
 
 ## API 概览
 
@@ -25,14 +41,14 @@
 | [exitRoom()](#exitroom())                                    | 停止推流和取消订阅所有远端音视频，并退出房间            |
 | [getPlayerList()](#getplayerlist())                          | 获取当前远端 player 的列表                              |
 
-### pusher && player 状态变更方法
+### pusher & player 状态变更方法
 
 您可以通过这些 API 主动改变推拉流的状态。
 
 | API                                                          | 描述             |
 | :----------------------------------------------------------- | :--------------- |
-| [setPusherAttributes(config)](#setpusherattributes(config))  | 设置推流参数变更 |
-| [setPlayerAttributes(id, config)](#setplayerattributes(id.2C-config)) | 设置拉流参数变更 |
+| [setPusherAttributes(config)](#setpusherattributes(config))  | 设置推流的参数 |
+| [setPlayerAttributes(id, config)](#setplayerattributes(id.2C-config)) | 改变拉流 player 的参数 |
 
 ### 获取实例
 
@@ -151,6 +167,7 @@ this.TRTC.createPusher({'frontCamera': 'back'})
 | userSig  | String | -      | 必填，您服务器签发的 userSig                                 |
 | roomID   | Number | -      | 必填，您要进入的房间号，如该房间不存在，系统会为您自动创建   |
 | strRoomID   | String | -      | 选填，您要进入的字符串房间号，如填写该参数，将优先进入字符串房间   |
+| userDefineRecordId   | String | -      | 选填，设置云端录制完成后的回调消息中的 "userdefinerecordid" 字段内容，便于您更方便的识别录制回调。<li>**推荐取值：**限制长度为64字节，只允许包含大小写英文字母（a-zA-Z）、数字（0-9）及下划线和连词符。</li><li>**参考文档：**[云端录制](https://cloud.tencent.com/document/product/647/16823)。 </li>   |
 | scene    | String | 'rtc'  | 选填，必填参数，使用场景：<li>rtc：实时通话，采用优质线路，同一房间中的人数不应超过300人。</li><li>live：直播模式，采用混合线路，支持单一房间十万人在线（同时上麦的人数应控制在50人以内）</li> |
 
 >! 
@@ -308,7 +325,7 @@ pusherInstance
 
 <dx-codeblock>
 ::: javascript javascript
-this.getPusherInstance().start() // 开始推流
+this.TRTC.getPusherInstance.start() // 开始推流
 :::
 </dx-codeblock>
 
@@ -331,7 +348,7 @@ playerInstance
 
 <dx-codeblock>
 ::: javascript javascript
-this.getPlayerInstance().stop() // 停止这个player的播放
+this.TRTC.getPlayerInstance().stop() // 停止这个player的播放
 :::
 </dx-codeblock>
 
@@ -358,7 +375,8 @@ pusherInstance 是 trtc-wx 帮助您管理 &lt;live-pusher&gt; 的一个实例�
 | setMICVolume(params)  | params.volume | 必填 | [setMICVolume](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.setMICVolume.html) | 设置麦克风的音量，默认是1.0                                |
 | startPreview(options) | Object | 可选        | [startPreview](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.startPreview.html) | 开启预览                                                   |
 | stopPreview()         | Object | 可选        | [stopPreview](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.stopPreview.html) | 停止预览                                                   |
-| toggleTorch(options)  | Object | 可选        | [toggleTorch](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.toggleTorch.html) | 前置或后置摄像头，可选值：front，back                      |
+| switchCamera(options)  | Object | 可选        | [switchCamera](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.switchCamera.html) | 前置或后置摄像头，可选值：front，back                      |
+
 
 [](id:pusherAttributes)
 
@@ -600,7 +618,7 @@ this.TRTC.on(EVENT.REMOTE_AUDIO_REMOVE, onRemoteAudioRemove)
 ::: javascript javascript
 let onRemoteStateUpdate = function(event){
   // id 是对应触发的 player 的 id，目前 streamid 和 id 是相同的
-  const id = event.currentTarget.dataset.streamid
+  const id = event.data.currentTarget.dataset.streamid
   const data = event.data // 这里是微信原生组件抛出的关于player的信息，若有需要您可以自主获取
 }
 this.TRTC.on(EVENT.REMOTE_STATE_UPDATE, onRemoteStateUpdate)
@@ -687,7 +705,7 @@ this.TRTC.on(EVENT.VIDEO_FULLSCREEN_UPDATE, onVideoFullscreenUpdate)
 [](id:BGM_PLAY_PROGRESS)
 ### BGM_PLAY_PROGRESS
 
-远端视图全屏状态变更。
+BGM 播放时间戳变更通知。
 
 <dx-codeblock>
 ::: javascript javascript
@@ -703,7 +721,7 @@ this.TRTC.on(EVENT.BGM_PLAY_PROGRESS, onBgmPlayProgress)
 [](id:BGM_PLAY_COMPLETE)
 ### BGM_PLAY_COMPLETE
 
-BGM 播放完成。
+BGM 播放结束通知。
 
 <dx-codeblock>
 ::: javascript javascript

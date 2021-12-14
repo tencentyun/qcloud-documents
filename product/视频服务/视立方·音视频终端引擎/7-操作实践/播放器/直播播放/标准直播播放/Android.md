@@ -1,35 +1,14 @@
 本文主要介绍腾讯云视立方 SDK 的直播播放功能。
 
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | &#10003;  | &#10003;                                                            |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
-
-## 基础知识
-### 直播和点播
-- **直播（LIVE）**的视频源是主播实时推送的。因此，主播停止推送后，播放端的画面也会随即停止，而且由于是实时直播，所以播放器在播直播 URL 的时候是没有进度条的。
-- **点播（VOD）**的视频源是云端的一个视频文件，只要未被从云端移除，视频就可以随时播放， 播放中您可以通过进度条控制播放位置，腾讯视频和优酷、土豆等视频网站上的视频观看就是典型的点播场景。
-
-### 协议的支持
-通常使用的直播协议如下，标准直播推荐使用 FLV 协议的直播地址（以 `http` 开头，以 `.flv` 结尾），快直播使用 WebRTC协议，更多信息请参见 [快直播拉流](https://cloud.tencent.com/document/product/454/55880)：
-
-|直播协议 |优点 |缺点 |播放延迟 |
-|---------|---------|---------|---------|
-|FLV |成熟度高、高并发无压力 |需集成 SDK 才能播放 |2s - 3s |
-|RTMP |延迟较低 |高并发情况下表现不佳 |1s - 3s |
-|HLS(m3u8) |手机浏览器支持度高 |延迟非常高 |10s - 30s |
-|WebRTC |延迟最低 |需集成 SDK 才能播放 |< 1s |
-
->?标准直播与快直播计费价格不同，更多计费详情请参见 [标准直播计费](https://cloud.tencent.com/document/product/267/34175) 和 [快直播计费](https://cloud.tencent.com/document/product/267/39136)。
-
-
-## 特别说明
-腾讯云视立方 SDK **不会对播放地址的来源做限制**，即您可以用它来播放腾讯云或非腾讯云的播放地址。但腾讯云视立方 SDK 中的播放器只支持 FLV 、RTMP、HLS（m3u8）和 WebRTC 四种格式的直播地址，以及 MP4、 HLS（m3u8）和 FLV 三种格式的点播地址。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 示例代码
 针对开发者的接入反馈的高频问题，腾讯云提供有更加简洁的 API-Example 工程，方便开发者可以快速的了解相关 API 的使用，欢迎使用。
@@ -41,7 +20,11 @@
 
 ## 对接攻略
 [](id:step1)
-### 步骤1：添加渲染 View
+### 步骤1：下载 SDK 开发包
+[下载](https://cloud.tencent.com/document/product/1449/56978) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/1449/56987) 将 SDK 嵌入您的 App 工程中。
+
+[](id:step2)
+### 步骤2：添加渲染 View
 为了能够展示播放器的视频画面，我们第一步要做的就是在布局 xml 文件里加入渲染 View：
 ```xml
 <com.tencent.rtmp.ui.TXCloudVideoView
@@ -52,8 +35,8 @@
             android:visibility="visible"/>
 ```
 
-[](id:step2)
-### 步骤2：创建 Player
+[](id:step3)
+### 步骤3：创建 Player
 腾讯云视立方 SDK 中的 **V2TXLivePlayer** 模块负责实现直播播放功能，并使用 **setRenderView** 接口将它与我们刚刚添加到界面上的 **video_view** 渲染控件进行关联。
 ```java
 //mPlayerView 即 step1 中添加的界面 view
@@ -64,17 +47,17 @@ V2TXLivePlayer mLivePlayer = new V2TXLivePlayerImpl(mContext);
 mLivePlayer.setRenderView(mView);
 ```
 
-[](id:step3)
-### 步骤3：启动播放
+[](id:step4)
+### 步骤4：启动播放
 ```java
 String flvUrl = "http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 mLivePlayer.startPlay(flvUrl); 
 ```
 
-[](id:step4)
-### 步骤4：画面调整
+[](id:step5)
+### 步骤5：画面调整
 - **view：大小和位置**
-如需修改画面的大小及位置，直接调整 [步骤1](#step1) 中添加的 `video_view` 控件的大小和位置即可。
+如需修改画面的大小及位置，直接调整 [步骤2](#step2) 中添加的 `video_view` 控件的大小和位置即可。
 - **setRenderFillMode：铺满 or 适应**
 <table><tr><th>可选值</th><th>含义</th>
 </tr><tr>
@@ -107,7 +90,7 @@ mLivePlayer.setRenderRotation(V2TXLiveRotation0);
 
 ![](https://main.qcloudimg.com/raw/89e7b5b2b6b944fe8377cf9f2bcff573.jpg)
 
-[](id:step5)
+[](id:step6)
 ### 步骤5：暂停播放
 对于直播播放而言，并没有真正意义上的暂停，所谓的直播暂停，只是**画面冻结**和**关闭声音**，而云端的视频源还在不断地更新着，所以当您调用 resume 的时候，会从最新的时间点开始播放，这是和点播对比的最大不同点（点播播放器的暂停和继续与播放本地视频文件时的表现相同）。
 
@@ -120,15 +103,15 @@ mLivePlayer.resumeAudio();
 mLivePlayer.resumeVideo();
 ```
 
-[](id:step6)
-### 步骤6：结束播放
+[](id:step7)
+### 步骤7：结束播放
 结束播放非常简单，直接调用 `stopPlay` 即可。
 ```java
 mLivePlayer.stopPlay();  
 ```
 
-[](id:step7)
-### 步骤7：屏幕截图
+[](id:step8)
+### 步骤8：屏幕截图
 通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 Android 的系统 API 来实现。
 ![](https://main.qcloudimg.com/raw/1439eff8e2b9629abf92960e1b784f56.jpg)
 
@@ -147,7 +130,7 @@ private class MyPlayerObserver extends V2TXLivePlayerObserver  {
 
 [](id:Delay)
 ## 延时调节
-腾讯云视立方 SDK 的云直播播放功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场、游戏以及混合场景。
+腾讯云视立方 SDK 的直播播放功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场、游戏以及混合场景。
 
 - **三种模式的特性对比**
 <table>
@@ -182,7 +165,7 @@ mLivePlayer.setCacheParams(5.0f, 5.0f);
 //设置完成之后再启动播放
 ```
 
->? 更多关于卡顿和延迟优化的技术知识，请参见 [优化视频卡顿](https://cloud.tencent.com/document/product/1449/58943?!preview&!editLang=zh)。
+>? 更多关于卡顿和延迟优化的技术知识，请参见 [优化视频卡顿](https://cloud.tencent.com/document/product/1449/58943)。
 
 [](id:sdklisten)
 ## SDK 事件监听

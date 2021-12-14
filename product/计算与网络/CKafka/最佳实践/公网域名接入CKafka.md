@@ -17,8 +17,8 @@
 3. 在实例基本信息页面，单击【接入方式】模块的【添加路由策略】。
    - 路由类型：公网域名接入
    - 接入方式：目前只支持 SASL_PLAINTEXT
-  ![](https://main.qcloudimg.com/raw/65be6a54e2a2abcf1cd5c3b1507dca7d.png)
-3. 单击【提交】，接入方式下将显示该路由策略。
+     ![](https://main.qcloudimg.com/raw/65be6a54e2a2abcf1cd5c3b1507dca7d.png)
+4. 单击【提交】，接入方式下将显示该路由策略。
    ![](https://main.qcloudimg.com/raw/642337483d8e59cbdc55cb96e81faf4b.png)
 
 
@@ -28,7 +28,7 @@
 
 1. 在实例基本信息页面，选择顶部的【用户管理】页签。
 2. 在用户管理页面，单击【新建】，填写用户名和密码，创建一个用户。
-  ![](https://main.qcloudimg.com/raw/971325c47e11c07ee728f82b50d54a7b.png)
+   ![](https://main.qcloudimg.com/raw/971325c47e11c07ee728f82b50d54a7b.png)
 3. 单击【提交】，新增的用户将显示在用户管理列表中。
    ![](https://main.qcloudimg.com/raw/c427790899d8ff8e0d4d8f88ddd126fe.png)
 
@@ -53,7 +53,7 @@
 
 ```java
 Properties props = new Properties();
-        //公网接入域名地址,即公网路由地址
+        //公网接入域名地址,即公网路由地址,在实例详情页的接入方式模块获取。
         props.put("bootstrap.servers", "your_public_network_route_addr");
         props.put("acks", "all");
         props.put("retries",0);
@@ -64,7 +64,7 @@ Properties props = new Properties();
         props.put("max.block.ms", 30000);
         props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");
         props.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
-        //用户名密码，注：用户名是需要拼接，并非控制台的用户名：instanceId#username
+        //用户名和密码，注：用户名是需要拼接，并非控制台的用户名：instanceId#username。
         props.put("sasl.jaas.config",
                 "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"yourinstance#yourusername\" password=\"yourpassword\";");
         Producer<String, String> producer = new KafkaProducer<String, String>(props);
@@ -81,7 +81,7 @@ Properties props = new Properties();
 
 ```java
 Properties props = new Properties();
-        //公网接入域名地址
+        //公网接入域名地址,即公网路由地址,在实例详情页的接入方式模块获取。
         props.put("bootstrap.servers", "your_public_network_route_addr");
         props.put("group.id", "yourconsumegroup");
         props.put("enable.auto.commit", "true");
@@ -91,7 +91,7 @@ Properties props = new Properties();
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");
         props.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
-        //用户名密码，注：用户名是需要拼接，并非控制台的用户名：instanceId#username
+        //用户名和密码，注：用户名是需要拼接，并非控制台的用户名：instanceId#username。
         props.put("sasl.jaas.config",
                 "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"yourinstance#yourusername\" password=\"yourpassword\";");
 
@@ -106,8 +106,10 @@ Properties props = new Properties();
 ```
 
 >?除了使用 properties 添加 sasl.jaas.config 配置的方式，您也可以通过 System.setProperty 或 -D 的方式传入。
+>
 >- System.setProperty("java.security.auth.login.config", "/etc/ckafka_client_jaas.conf");
->- `ckafka_client_jaas.conf` 文件的内容如下：
+
+ckafka_client_jaas.conf` 文件的内容如下：
 
 ```java
 KafkaClient {
@@ -116,4 +118,6 @@ KafkaClient {
   password="yourpassword";
 }; 
 ```
+
+>?username 是`实例 ID` + `#` + `配置的用户名`，password 是配置的用户密码。
 

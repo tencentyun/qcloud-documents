@@ -1,5 +1,9 @@
+
+
+
+
 ## 前提条件
-接入验证码前，进入[图形验证](https://console.cloud.tencent.com/captcha/graphical)  页完成新建验证。可在【验证列表】查看 验证码接入所需的 CaptchaAppId 及 AppSecretKey。
+接入验证码前，进入[图形验证](https://console.cloud.tencent.com/captcha/graphical)  页完成新建验证。可在**验证列表**查看 验证码接入所需的 CaptchaAppId 及 AppSecretKey。
 ![](https://main.qcloudimg.com/raw/a15105526bbcf8c0b51b5cdafeefb92c.png)
 
 ## 接入步骤
@@ -220,5 +224,28 @@ parameter[@"params"]
 ```
 >!验证码客户端接入完成后，验证码后台需二次核查验证码票据结果，请进行 [后台 API 接入](https://console.cloud.tencent.com/api/explorer?Product=captcha&Version=2019-07-22&Action=DescribeCaptchaResult&SignVersion=) 操作，确保验证安全性。更多详情请参见 [核查验证码票据文档](https://cloud.tencent.com/document/product/1110/36926) 。
 
+
+## 热点问题
+#### Android 使用 Web 前端 H5 方式进行接入，调试过程中先弹出空白背景，后弹出验证码页面如何调整？
+- 调试过程中，正常情况下会首先调起 webview 加载网页，然后弹出验证码页面。
+- 如果出现先弹出空白背景，后弹出图形验证页面的现象。形成原因如下：
+    - 加载验证码 js 的时间导致白屏。
+    - 空白层形成原因是页面没有内容时，加载的 webview 就显示出来，需要等待 ready 事件触发后再进行 webview 展示。
+- 因此，Android 需要先加载页面但不进行展示，等待 ready 回调后，再通知 Android 进行展示。ready 配置说明，请参见 [Web 前端接入-配置参数](https://cloud.tencent.com/document/product/1110/36841#.3Ca-id.3D.22pzcs.22.3E.E9.85.8D.E7.BD.AE.E5.8F.82.E6.95.B0.3C.2Fa.3E) 文档。
+```
+options={ready: function(size){
+  // 与Android通信
+}}
+new TencentCaptcha(appId, callback, options);
+```
+
+####  App 端接入验证码显示不完整如何调整？
+验证码根据容器宽高进行居中显示，验证码显示不完整可能由于容器本身设置较宽，导致展示的验证码被截断，该情况需要对客户端的弹框进行调整。此外随意加载其他 webview 都可能会出现截断的情况。
+
+####  验证码是否支持使用 uni-app 原生插件进行接入？
+验证码 App 端（iOS 和 Android）皆使用 Web 前端 H5 方式进行接入，暂不支持使用 uni-app 原生插件进行接入。
+
+
 ## 更多信息
-您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击【快速咨询】，了解更多详细信息。
+您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击**快速咨询**，了解更多详细信息。
+

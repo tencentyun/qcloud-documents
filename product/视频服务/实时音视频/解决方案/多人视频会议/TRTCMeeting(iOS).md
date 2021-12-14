@@ -5,7 +5,7 @@ TRTCMeeting 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务
 - 支持发送各种文本消息和自定义消息。
 
 TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [多人视频会议(iOS)](https://cloud.tencent.com/document/product/647/45681)。
- 
+
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时视频会议组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 MeetingRoom 实现会议中聊天室的功能。
 
@@ -944,7 +944,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | 参数    | 类型                | 含义             |
 | ------- | ------------------- | ---------------- |
 | message | NSString            | 文本消息。       |
-| user    | TRTCMeetingUserInfo | 发送者用户信息。 |
+| userInfo | TRTCMeetingUserInfo | 发送者用户信息。 |
 
 ### onRecvRoomCustomMsg
 
@@ -956,11 +956,11 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 参数如下表所示：
 
-| 参数    | 类型                | 含义                                               |
-| ------- | ------------------- | -------------------------------------------------- |
-| command | NSString            | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
-| message | NSString            | 文本消息。                                         |
-| user    | TRTCMeetingUserInfo | 发送者用户信息。                                   |
+| 参数     | 类型                | 含义                                               |
+| -------- | ------------------- | -------------------------------------------------- |
+| cmd      | NSString            | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
+| message  | NSString            | 文本消息。                                         |
+| userInfo | TRTCMeetingUserInfo | 发送者用户信息。                                   |
 
 
 

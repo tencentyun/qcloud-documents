@@ -40,12 +40,12 @@ subscribeEvents = (rtcCloud) => {
 subscribeEvents(this.rtcCloud);
 ```
 
-### 创建与销毁 ITRTCCloud 单例
+### 创建与销毁 TRTCCloud 单例
 
 | API | 描述 |
 |-----|-----|
-| [getTRTCShareInstance](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#.getTRTCShareInstance) | 用于动态加载 dll 时，创建 [ITRTCCloud](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html) 对象单例。 |
-| [destroyTRTCShareInstance](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#.destroyTRTCShareInstance) | 释放 [ITRTCCloud](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html) 单例对象并清理资源。 |
+| [getTRTCShareInstance](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#.getTRTCShareInstance) | 用于动态加载 dll 时，创建 [TRTCCloud](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html) 对象单例。 |
+| [destroyTRTCShareInstance](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#.destroyTRTCShareInstance) | 释放 [TRTCCloud](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html) 单例对象并清理资源。 |
 
 ### 房间相关接口函数
 
@@ -57,6 +57,7 @@ subscribeEvents(this.rtcCloud);
 | [switchRole](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#switchRole) | 切换角色，仅适用于直播场景（TRTCAppSceneLIVE 和 TRTCAppSceneVoiceChatRoom）。 |
 | [connectOtherRoom](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#connectOtherRoom) | 请求跨房连麦（主播跨房 PK）。 |
 | [disconnectOtherRoom](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#disconnectOtherRoom)| 关闭跨房连麦（主播跨房 PK）。 |
+| [setDefaultStreamRecvMode](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setDefaultStreamRecvMode) | 设置音视频数据接收模式（需要在进房前设置才能生效）。 |
 
 
 ### CDN 相关接口函数

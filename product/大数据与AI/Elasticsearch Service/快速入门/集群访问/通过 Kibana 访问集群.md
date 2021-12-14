@@ -6,7 +6,7 @@ Kibana 页面有两个入口，分别位于集群列表页和集群详情页，�
 > ?默认情况下，Kibana 通过公网地址访问， 如果您担心通过公网访问 Kibana 会造成安全问题，我们也支持在集群详情页关闭 Kibana 公网地址，开启 Kibana 内网地址来进行访问。
 > 
 ![](https://main.qcloudimg.com/raw/a286bf6ca026fe0d903c21aee017425a.png)
-![](https://main.qcloudimg.com/raw/c488592500ebdb99e892ffc1f35f5501.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a8eb732f137ad1929733542e096f2ab2.png)
 
 ### 登录
 Kibana 页面访问需要登录，帐号为 elastic，密码为用户创建集群时设置的 Kibana 密码。如果忘记密码，可以在集群详情页重置密码。出于安全考虑，用户可以配置 Kibana 公网地址的访问黑白名单来提高安全防护，详见 [Kibana 访问设置](https://cloud.tencent.com/document/product/845/16992)。
@@ -22,7 +22,7 @@ Kibana 页面访问需要登录，帐号为 elastic，密码为用户创建集�
 
 [](id:jump)
 ## 索引添加及访问（存储数据）
-在 Kibana 页面左侧菜单，单击【Dev Tools】进入开发工具页面，用户可以通过控制台，向集群发送各种操作请求。下面将通过城市信息的数据存储操作的示例，演示如何通过控制台操作集群和存储数据。
+在 Kibana 页面左侧菜单，单击 **Dev Tools** 进入开发工具页面，用户可以通过控制台，向集群发送各种操作请求。下面将通过城市信息的数据存储操作的示例，演示如何通过控制台操作集群和存储数据。
 
 ### 添加索引
 #### 定义索引的 mapping
@@ -89,20 +89,20 @@ GET /china/city/_search
 
 ### 访问索引
 #### 配置 Kibana 访问索引
-为了使用 Kibana，需要配置至少一个可以匹配到的索引。输入上文创建的索引 china，单击【Next step】进入下一步。
+为了使用 Kibana，需要配置至少一个可以匹配到的索引。输入上文创建的索引 china，单击 **Next step** 进入下一步。
 ![](https://main.qcloudimg.com/raw/62c1496812dbab3bb7b9a87ec269929f.png)
-**配置时间过滤字段**用于通过时间过滤索引中的数据，如果索引中没有表示时间的字段，可以选择不使用时间过滤功能。单击【Create index pattern】创建索引模式。
+**配置时间过滤字段**用于通过时间过滤索引中的数据，如果索引中没有表示时间的字段，可以选择不使用时间过滤功能。单击 **Create index pattern** 创建索引模式。
 ![](https://main.qcloudimg.com/raw/69338e77375c153c3d381e52dbccd4d5.png)
 查看索引对应的字段。
 ![](https://main.qcloudimg.com/raw/dba7c606063277a509f79c5838d2f34a.png)
-单击左侧菜单【Discover】，查看该索引下已经添加的文档。
+单击左侧菜单 **Discover**，查看该索引下已经添加的文档。
 ![](https://main.qcloudimg.com/raw/8a4eb067893549fe16f38e0e05e44fcb.png)
 
 ## 可视化查询分析
-Kibana 拥有可视化统计分析数据的能力，单击左侧菜单【Visualize】， 可以配置各种可视化的图表进行数据的分析。例如，要统计上文中，china 索引下的不同等级。
+Kibana 拥有可视化统计分析数据的能力，单击左侧菜单 **Visualize**， 可以配置各种可视化的图表进行数据的分析。例如，要统计上文中，china 索引下的不同等级。
 ![](https://main.qcloudimg.com/raw/21bb9c91da491cf4cdfddbd12c64f4b4.png)
 ![](https://main.qcloudimg.com/raw/8cf36db4d3988ba69485719b650dd39e.png)
-配置指标是 count，按字段 level.level 进行分组聚合统计，单击【Save】保存。
+配置指标是 count，按字段 level.level 进行分组聚合统计，单击 **Save** 保存。
 ![](https://main.qcloudimg.com/raw/55aa1cee4f2aa3b33c8b6756f75d573e.png)
 
 Kibana 其他使用方式，可查阅 [Kibana 官方文档](https://www.elastic.co/guide/en/kibana/6.4/getting-started.html)。

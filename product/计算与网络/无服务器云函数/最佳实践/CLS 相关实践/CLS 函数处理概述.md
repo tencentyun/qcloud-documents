@@ -2,7 +2,7 @@
 
 通过函数处理服务，可以快速完成云服务器 CVM 等云上资源的运行日志采集、ETL（Extraction-Transformation-Loading）加工和消息转储等复杂日志处理任务。函数处理为异步过程，凡是收集到日志服务的数据，均能通过配置将数据投递到云函数进行消费处理，您只需要在日志服务控制台进行简单的配置即可完成日志服务 CLS 对接云函数消费。
 
-通过 [CLS 触发器](https://cloud.tencent.com/document/product/583/49587) 将日志源信息提交到 SCF，再通过 Serverless 无服务架构的函数计算提供数据加工与分析、事件触发、弹性伸缩，无需运维，按需付费。整体数据处理流程如下：
+通过 [CLS 触发器](https://cloud.tencent.com/document/product/583/49587) 将日志源信息提交到 SCF，再通过 Serverless 无服务架构的函数计算提供数据加工与分析、事件触发、弹性伸缩，无需运维，按需付费。整体数据处理流程如下所示：
 ![](https://main.qcloudimg.com/raw/d00cc3cd47209169d809298f220caff5.svg)
 
 

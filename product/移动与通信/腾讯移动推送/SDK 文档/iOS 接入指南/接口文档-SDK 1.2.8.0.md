@@ -22,7 +22,8 @@
 - accessKey：通过前台申请的 AccessKey。
 - Delegate：回调对象。 
 
-> ! 接口所需参数必须要正确填写，否则腾讯移动推送服务将不能正确为应用推送消息。
+>! 接口所需参数必须要正确填写，否则腾讯移动推送服务将不能正确为应用推送消息。
+>
 
 #### 示例代码
 
@@ -126,9 +127,8 @@ SDK 1.3.1.0 新增，通知弹窗授权的结果会走此回调。
 
 ```
 
-> ? 此接口应该在 xgPushDidRegisteredDeviceToken:error: 返回正确之后被调用。
-
-
+>? 此接口应该在 xgPushDidRegisteredDeviceToken:error: 返回正确之后被调用。
+>
 
 #### 参数说明 
 
@@ -139,7 +139,7 @@ accountsDict：账号字典。
 > - 需要使用字典类型，key 为账号类型，value 为账号，示例：@{@(accountType):@"account"}。
 > - Objective-C的写法 : @{@(0):@"account0",@(1):@"account1"}；Swift的写法：[NSNumber(0):@"account0",NSNumber(1):@"account1"]。
 > - 更多 accountType 请参照 SDK Demo 包内的 XGPushTokenAccountType 枚举或 [账号类型取值表](https://cloud.tencent.com/document/product/548/56434)。
-> - TPNS 控制台「账号推送」仅支持账号类型取值为0的账号 ID，其他类型的账号 ID 可通过 [REST API](https://cloud.tencent.com/document/product/548/39064#.E5.8F.AF.E9.80.89.E5.8F.82.E6.95.B0) 进行推送。
+> 
 
 #### 示例代码
 
@@ -218,7 +218,8 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 
 ```
 
-> ?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+>? 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+>
 
 #### 示例代码
 
@@ -243,17 +244,18 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 
 ```
 
-> ?
->
+>?
 > - 此接口为追加方式。
-> - 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用
-> - 单个应用最多可以有10000个自定义 tag， 每个设备 Token 最多可绑定100个自定义 tag，如需提高该限制，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，每个自定义 tag 可绑定的设备 Token 数量无限制。
+> - 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+> - 单个应用最多可以有10000个自定义 tag， 每个设备 Token 最多可绑定100个自定义 tag，如需提高该限制，请联系 [在线客服](https://cloud.tencent.com/act/event/Online_service)，每个自定义 tag 可绑定的设备 Token 数量无限制。
+> 
 
 #### 参数说明
 
 tags：标签数组。
 
-> ? 标签操作 tags 为标签字符串数组（标签字符串不允许有空格或者是 tab 字符）。
+>? 标签操作 tags 为标签字符串数组（标签字符串不允许有空格或者是 tab 字符）。
+>
 
 #### 示例代码
 
@@ -279,16 +281,17 @@ tags：标签数组。
 
 ```
 
-> ?
->
+>?
 > - 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
 > - 此接口会将当前 Token 对应的旧有的标签全部替换为当前的标签。
+> 
 
 #### 参数说明 
 
 tags：标签数组。
 
-> ? 标签操作 tags 为标签字符串数组（标签字符串不允许有空格或者是 tab 字符）。
+>? 标签操作 tags 为标签字符串数组（标签字符串不允许有空格或者是 tab 字符）。
+>
 
 
 
@@ -310,7 +313,8 @@ tags：标签数组。
 
 ```
 
-> ? 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+>? 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+>
 
 #### 示例代码
 
@@ -408,13 +412,15 @@ attributes：用户属性字符串字典，字符串不允许有空格或者是 
 
 ```
 
-> ?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+>? 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+>
 
 #### 参数说明 
 
 attributeKeys：用户属性 key 组成的集合，字符串不允许有空格或者是 tab 字符。
 
-> ?使用集合且key是固定要求。
+>? 使用集合且key是固定要求。
+>
 
 #### 示例代码
 
@@ -504,6 +510,30 @@ badgeNumber：应用的角标数。
 
 ```
 
+##  应用内消息展示
+### 轮询时间设置
+
+#### 接口说明
+
+此接口可以设置应用内消息的轮询时间，最小为10s，默认为258s。
+
+```objective-c
+/// 设置消息轮询时间间隔，最小值为10s，此方法需要在单例初始化之前调用
+- (void)setMessageTimerInterval:(NSTimeInterval)interval;
+```
+#### 参数说明
+NSTimeInterval：NSTimeInterval类型，应用内消息轮询时间间隔。
+
+### 自定义事件处理
+
+#### XGInAppMessageActionDelegate 代理说明
+
+用户通过代理方法 `onClickWithCustomAction`获取自定义事件参数来处理相关业务。
+
+```objective-c
+/// 按钮事件响应代理
+@property (weak, nonatomic, nullable) id<XGInAppMessageActionDelegate> actionDelegate;
+```
 
 
 ## 查询设备通知权限
@@ -552,7 +582,7 @@ handler：查询结果的返回方法。
 
 #### 接口说明
 
-开发者如果发现推送相关功能异常，可以调用该接口，触发本地 push 日志的上报，反馈问题 [提交工单](https://console.cloud.tencent.com/workorder/category) 时，请将文件地址提供给我们，便于排查问题。
+开发者如果发现推送相关功能异常，可以调用该接口，触发本地 push 日志的上报，通过联系 [在线客服](https://cloud.tencent.com/act/event/Online_service) 反馈问题时，请将文件地址提供给我们，便于排查问题。
 
 ```
 /// @note TPNS SDK1.2.4.1+

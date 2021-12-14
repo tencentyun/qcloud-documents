@@ -1,12 +1,12 @@
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 功能介绍
 
@@ -47,14 +47,14 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 
 | 所属平台 |                          LiteAVSDK                           |                            TIMSDK                            |                      MLVBLiveRoom 组件                       |                           示例代码                           |
 | :------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|   iOS    | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/iOS/ImSDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LiveLinkMicDemoOld/LiveRoom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LiveLinkMicDemoOld/LiveRoomUI) |
-| Android  | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom/ui) |
+|   iOS    | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/iOS/IMSDK ) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LiveLinkMicDemoOld/LiveRoom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LiveLinkMicDemoOld/LiveRoomUI) |
+| Android  | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom/ui) |
 
 
 
 
 ### Step2. 申请 License 
-下载 LiteAVSDK 后需要 License 授权才能使用，请阅读 [License 申请](https://cloud.tencent.com/document/product/1449/56981?!preview&!editLang=zh) 了解 License 的申请方法和使用方法。
+下载 LiteAVSDK 后需要 License 授权才能使用，请阅读 [License 申请](https://cloud.tencent.com/document/product/1449/56981) 了解 License 的申请方法和使用方法。
 
 - iOS
  建议在`[AppDelegate application:didFinishLaunchingWithOptions:]`中添加：
@@ -109,8 +109,8 @@ MLVBLiveRoom 的 login 函数需要指定相关参数：
 >? 如果您希望使用自己的房间列表，该步骤可跳过，但需要您在 [Step7](#Step7) 中自行指定 roomID。为避免房间号重复，建议使用主播的 userID 作为 roomID。
 
 不管是主播还是观众都需要有一个房间列表，调用 MLVBLiveRoom 的 **getRoomList** 接口可以获得一个简单的房间列表：
-- 当主播通过`createRoom`创建一个新房间时，房间列表中会相应地增加一条新的房间信息。
-- 当主播通过`exitRoom`退出房间时，房间列表中会移除该房间。
+- 当主播通过 `createRoom` 创建一个新房间时，房间列表中会相应地增加一条新的房间信息。
+- 当主播通过 `exitRoom` 退出房间时，房间列表中会移除该房间。
 
 列表中每个房间都有对应的 roomInfo，由主播通过 `createRoom` 创建房间时传入，为提高扩展性，建议将 roomInfo 定义为 JSON 格式。
 
@@ -148,7 +148,7 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 | 第六步 |    观众    | 观众调用 `joinAnchor()` 正式进入连麦状态。                   |
 | 第七步 |    主播    | 当观众进入连麦状态后，主播就会收到 `MLVBLiveRoomDelegate#onAnchorEnter(AnchorInfo)` 通知。 |
 | 第八步 |    主播    | 主播调用 `startRemoteView()` 就可以看到连麦观众的视频画面。  |
-| 第九步 |    观众    | 如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 `onAnchorJoin() `通知，用于展示（`startRemoteView()`）其他连麦者的视频画面。 |
+| 第九步 |    观众    | 如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 `onAnchorJoin()` 通知，用于展示（`startRemoteView()`）其他连麦者的视频画面。 |
 | 第九步 | 主播或观众 | 主播或观众随时都可以通过 `quitJoinAnchor()` 接口退出连麦状态，同时，主播还可以通过 `kickoutJoinAnchor()` 接口移除连麦观众。 |
 
 >?MLVBLiveRoom 在设计上最多支持10人同时连麦，但出于兼容低端 Android 终端和实际体验效果的考虑，建议将同时连麦人数控制在6人以下。

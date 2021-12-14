@@ -24,10 +24,10 @@
 ### 准备迁移配置信息
 
 1. 获取镜像仓库访问凭证
-   - 个人版镜像仓库访问凭证：用户名为需迁移镜像所属腾讯云账号 UIN，密码为初始化个人版服务时所设置密码。如忘记密码，可在【[容器服务控制台](https://console.cloud.tencent.com/tke2/registry/user/self?rid=1)】>【镜像仓库】>【个人版】中选择【重置密码】，并在弹出的“重置密码”窗口中重新设置密码。
-   - 企业版镜像仓库访问凭证：可前往【[容器镜像服务控制台](https://console.cloud.tencent.com/tcr/instance?rid=1)】>【实例列表】，选择已创建的企业版实例，在访问凭证页中单击【新建】，生成迁移专用的长期访问凭证，已包含用户名及密码。请注意，生成该访问凭证用户需具备该实例的全读写权限。
+   - 个人版镜像仓库访问凭证：用户名为需迁移镜像所属腾讯云账号 UIN，密码为初始化个人版服务时所设置密码。如忘记密码，可前往 **[容器镜像服务控制台](https://console.cloud.tencent.com/tcr/instance?rid=1)** > **实例列表**，选择个人版实例，进入更多中单击**重置登录密码**来重置密码。
+   - 企业版镜像仓库访问凭证：可前往 **[容器镜像服务控制台](https://console.cloud.tencent.com/tcr/instance?rid=1)** > **访问凭证**，选择已创建的企业版实例，单击**新建**，生成迁移专用的长期访问凭证，已包含用户名及密码。请注意，生成该访问凭证用户需具备该实例的全读写权限。
 2. 获取 API 调用凭证
-   迁移镜像过程中将自动在企业版实例内新建命名空间及镜像仓库，需调用腾讯云 API 完成该操作。您可前往【[访问管理控制台](https://console.cloud.tencent.com/cam/capi)】>【访问密钥】>【API密钥管理】 新建密钥或查看已有密钥。请谨慎保管该密钥信息。
+   迁移镜像过程中将自动在企业版实例内新建命名空间及镜像仓库，需调用腾讯云 API 完成该操作。您可前往**[访问管理控制台](https://console.cloud.tencent.com/cam/capi)** > **访问密钥** > **API密钥管理** 新建密钥或查看已有密钥。请谨慎保管该密钥信息。
 
 ### 下载并执行迁移工具
 
@@ -61,7 +61,7 @@ docker run --network=host --rm ccr.ccs.tencentyun.com/tcrimages/image-transfer:c
 ### 查看及确认运行结果
 
 因个人版迁移至企业版默认使用全量迁移模式，迁移时间直接与当前个人版内镜像仓库数量及大小有关，请耐心等待。
-若运行后展示如下代码，即表示全量迁移成功。否则请重新运行该迁移工具进行重试，或 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请协助。
+若运行后展示如下代码，即表示全量迁移成功。否则请重新运行该迁移工具进行重试。您可以通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_1141) 申请协助。
 
 ```bash
 ################# Finished, 0 transfer jobs failed, 0 normal urlPair generate failed, 0 jobs generate failed #################

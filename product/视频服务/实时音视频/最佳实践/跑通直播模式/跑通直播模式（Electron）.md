@@ -70,7 +70,7 @@ trtcCloud.on('onError',onError);
 | sdkAppId | 数字   | 应用 ID，您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) >【应用管理】>【应用信息】中查找到。 | 1400000123             |
 | userId   | 字符串 | 只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。 | test_user_001|
 | userSig  | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275) 。 | eJyrVareCeYrSy1SslI... |
-| roomId   | 数字   | 默认不支持字符串类型的房间号，字符串类型的房间号会影响进房速度。如果您确实需要支持字符串类型的房间号，可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。 | 29834  |
+| roomId   | 数字   | 数字类型的房间号。如果您想使用字符串形式的房间号，请使用 TRTCParams 中的 strRoomId。 | 29834  |
 
 <dx-codeblock>
 ::: javascript javascript

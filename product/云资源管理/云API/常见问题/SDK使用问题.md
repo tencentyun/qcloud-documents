@@ -5,8 +5,9 @@
 Error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1056).
 ```
 执行以下命令，安装证书即可解决问题。
->?Mac 操作系统下的 Python 不再使用系统默认的证书，且本身也不提供证书。在进行 HTTPS 请求时，需使用 `certifi` 库提供的证书。
->
+<dx-alert infotype="explain" title="">
+Mac 操作系统下的 Python 不再使用系统默认的证书，且本身也不提供证书。在进行 HTTPS 请求时，需使用 `certifi` 库提供的证书。
+</dx-alert>
 ```
 sudo "/Applications/Python 3.6/Install Certificates.command"
 ```

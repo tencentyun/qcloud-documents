@@ -60,3 +60,4 @@ cloudbase service:create -p /server -f server
 curl https://${env}.service.tcloudbase.com/server
 Hello World
 ```
+

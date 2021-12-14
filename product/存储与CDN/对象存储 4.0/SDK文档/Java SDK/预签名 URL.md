@@ -3,6 +3,12 @@ Java SDK 提供获取请求预签名 URL 和生成签名接口，可以分发给
 生成的预签名 URL 包含协议名（HTTP 或者 HTTPS），该协议名与发起预签名请求的对象存储（Cloud Object Storage，COS）客户端设置的协议保持一致。
 具体使用请参见请求示例。
 
+>?
+> - 建议用户使用临时密钥生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
+> - 如果您一定要使用永久密钥来生成预签名，建议永久密钥的权限范围仅限于上传或下载操作，以规避风险。
+> 
+
+
 ## 获取请求预签名 URL 
 
 #### 方法原型
@@ -24,7 +30,7 @@ Request 成员说明：
 | method          | 构造函数或 set 方法 | HTTP 方法，可选：GET、POST、PUT、DELETE、HEAD                | HttpMethodName          |
 | bucketName      | 构造函数或 set 方法 | 存储桶名称，存储桶的命名格式为 BucketName-APPID，详情请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | String |
 | key             | 构造函数或 set 方法 | 对象键（Key）是对象在存储桶中的唯一标识，详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324#.E5.AF.B9.E8.B1.A1.E9.94.AE) | String                  |
-| expiration      | set 方法            | 签名过期的时间                                               | Date                    |
+| expiration      | set 方法            | 签名过期的时间，可以设置任意一个未来的时间，不设置则默认是1小时之后过期              | Date                    |
 | contentType     | set 方法            | 要签名的请求中的 Content-Type                                | String                  |
 | contentMd5      | set 方法            | 要签名的请求中的 Content-Md5                                 | String                  |
 | responseHeaders | set 方法            | 签名的下载请求中要覆盖的返回的 HTTP 头                       | ResponseHeaderOverrides |
@@ -55,9 +61,16 @@ String key = "exampleobject";
 GeneratePresignedUrlRequest req =
         new GeneratePresignedUrlRequest(bucketName, key, HttpMethodName.GET);
 // 设置签名过期时间(可选), 若未进行设置, 则默认使用 ClientConfig 中的签名过期时间(1小时)
+// 可以设置任意一个未来的时间，推荐是设置 10 分钟到 3 天的过期时间
 // 这里设置签名在半个小时后过期
 Date expirationDate = new Date(System.currentTimeMillis() + 30L * 60L * 1000L);
 req.setExpiration(expirationDate);
+
+// 填写本次请求的参数
+req.addRequestParameter("param1", "value1");
+// 填写本次请求的头部。Host 头部会自动补全，不需要填写
+req.putCustomRequestHeader("header1", "value1");
+
 URL url = cosClient.generatePresignedUrl(req);
 System.out.println(url.toString());
 cosClient.shutdown();
@@ -83,11 +96,18 @@ COSClient cosClient = new COSClient(cred, clientConfig);
 String bucketName = "examplebucket-1250000000";
 // 此处的key为对象键，对象键是对象在存储桶内的唯一标识
 String key = "exampleobject";
+
 GeneratePresignedUrlRequest req =
         new GeneratePresignedUrlRequest(bucketName, key, HttpMethodName.GET);
 // 设置签名过期时间为很久远的时间，例如这里的 3000年12月31日
 Date expirationDate = new Date(3000, 12, 31);
 req.setExpiration(expirationDate);
+
+// 填写本次请求的参数
+req.addRequestParameter("param1", "value1");
+// 填写本次请求的头部。Host 头部会自动补全，不需要填写
+req.putCustomRequestHeader("header1", "value1");
+
 URL url = cosClient.generatePresignedUrl(req);
 System.out.println(url.toString());
 cosClient.shutdown();
@@ -137,6 +157,12 @@ req.setResponseHeaders(responseHeaders);
 // 这里设置签名在半个小时后过期
 Date expirationDate = new Date(System.currentTimeMillis() + 30L * 60L * 1000L);
 req.setExpiration(expirationDate);
+
+// 填写本次请求的参数
+req.addRequestParameter("param1", "value1");
+// 填写本次请求的头部。Host 头部会自动补全，不需要填写
+req.putCustomRequestHeader("header1", "value1");
+
 URL url = cosClient.generatePresignedUrl(req);
 System.out.println(url.toString());
 cosClient.shutdown();
@@ -180,7 +206,13 @@ String key = "exampleobject";
 // 设置签名过期时间(可选), 若未进行设置, 则默认使用 ClientConfig 中的签名过期时间(1小时)
 // 这里设置签名在半个小时后过期
 Date expirationTime = new Date(System.currentTimeMillis() + 30L * 60L * 1000L);
-URL url = cosClient.generatePresignedUrl(bucketName, key, expirationTime, HttpMethodName.PUT);
+
+// 填写本次请求的 header。Host 头部会自动补全，只需填入其他头部
+Map<String, String> headers = new HashMap<String,String>();
+// 填写本次请求的 params。
+Map<String, String> params = new HashMap<String,String>();
+
+URL url = cosClient.generatePresignedUrl(bucketName, key, expirationTime, HttpMethodName.PUT, headers, params);
 System.out.println(url.toString());
 cosClient.shutdown();
 ```
@@ -193,12 +225,7 @@ COSSigner 类提供构造 COS 签名的方法，用于分发给移动端 SDK，�
 
 ```java
 // 构造 COS 签名
-public String buildAuthorizationStr(HttpMethodName methodName, String resouce_path,
-        COSCredentials cred, Date expiredTime);
-
-// 构造 COS 签名
-// 第二个方法比第一个方法额外提供对部分 HTTP Header 和所有传入的 URL 中的参数进行签名
-// 用于更复杂的签名控制, 生成的签名必须在上传下载等操作时，也要携带对应的 header 和 param
+// 生成的签名必须在上传下载等操作时，也要携带对应的 header 和 param
 public String buildAuthorizationStr(HttpMethodName methodName, String resouce_path,
         Map<String, String> headerMap, Map<String, String> paramMap, COSCredentials cred,
         Date expiredTime);
@@ -212,7 +239,7 @@ public String buildAuthorizationStr(HttpMethodName methodName, String resouce_pa
 | resouce_path | 要签名的路径, 同上传文件的 key，需要以`/`开始                | HttpMethodName |
 | cred         | 密钥信息                                                     | COSCredentials |
 | expiredTime  | 过期时间                                                     | Date           |
-| headerMap    | 要签名的 HTTP Header map，只对传入的 Content-Type，Content-Md5 和以 x 开头的 header 进行签名 | Map            |
+| headerMap    | 要签名的 HTTP Header map，对传入的 Host, Content-Type，Content-Md5 和以 x 开头的 header 进行签名 | Map            |
 | paramMap     | 要签名的 URL Param map                                        | Map            |
 
 #### 返回值
@@ -233,7 +260,13 @@ Date expiredTime = new Date(System.currentTimeMillis() + 3600L * 1000L);
 // 要签名的 key, 生成的签名只能用于对应此 key 的上传
 // 此处的key为对象键，对象键是对象在存储桶内的唯一标识
 String key = "exampleobject";
-String sign = signer.buildAuthorizationStr(HttpMethodName.PUT, key, cred, expiredTime);
+
+// 填写本次请求的 header。Host 头部会自动补全，只需填入其他头部
+Map<String, String> headers = new HashMap<String,String>();
+// 填写本次请求的 params。
+Map<String, String> params = new HashMap<String,String>();
+
+String sign = signer.buildAuthorizationStr(HttpMethodName.PUT, key, headers, params, cred, expiredTime);
 ```
 
 #### 示例2：生成一个下载签名
@@ -250,7 +283,13 @@ Date expiredTime = new Date(System.currentTimeMillis() + 3600L * 1000L);
 // 要签名的 key, 生成的签名只能用于对应此 key 的下载
 // 此处的key为对象键，对象键是对象在存储桶内的唯一标识
 String key = "exampleobject";
-String sign = signer.buildAuthorizationStr(HttpMethodName.GET, key, cred, expiredTime);
+
+// 填写本次请求的 header。Host 头部会自动补全，只需填入其他头部
+Map<String, String> headers = new HashMap<String,String>();
+// 填写本次请求的 params。
+Map<String, String> params = new HashMap<String,String>();
+
+String sign = signer.buildAuthorizationStr(HttpMethodName.GET, key, headers, params, cred, expiredTime);
 ```
 
 #### 示例3：生成一个删除签名
@@ -267,5 +306,11 @@ Date expiredTime = new Date(System.currentTimeMillis() + 3600L * 1000L);
 // 要签名的 key, 生成的签名只能用于对应此 key 的删除
 // 此处的key为对象键，对象键是对象在存储桶内的唯一标识
 String key = "exampleobject";
-String sign = signer.buildAuthorizationStr(HttpMethodName.DELETE, key, cred, expiredTime);
+
+// 填写本次请求的 header。Host 头部会自动补全，只需填入其他头部
+Map<String, String> headers = new HashMap<String,String>();
+// 填写本次请求的 params。
+Map<String, String> params = new HashMap<String,String>();
+
+String sign = signer.buildAuthorizationStr(HttpMethodName.DELETE, key, headers, params, cred, expiredTime);
 ```

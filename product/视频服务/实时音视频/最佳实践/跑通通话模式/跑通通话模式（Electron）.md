@@ -70,7 +70,7 @@ trtcCloud.on('onError',onError);
 | sdkAppId | 数字   | 应用 ID，您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) >【应用管理】>【应用信息】中查找到。 | 1400000123  |
 | userId   | 字符串 | 只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。 | test_user_001 |
 | userSig  | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275) 。 | eJyrVareCeYrSy1SslI... |
-| roomId   | 数字   | 默认不支持字符串类型的房间号，字符串类型的房间号会影响进房速度。如果您确实需要支持字符串类型的房间号，可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。 | 29834 |
+| roomId   | 数字   | 数字类型的房间号。如果您想使用字符串形式的房间号，请使用 TRTCParams 中的 strRoomId。 | 29834 |
 
 <dx-codeblock>
 ::: javascript javascript
@@ -99,7 +99,7 @@ param.userSig = 'eJyrVareCeYrSy1SslI...';
 2. 请根据应用场景设置合适的  `appScene`  参数，使用错误可能会导致卡顿率或画面清晰度不达预期。
    - 视频通话，请设置为 `TRTCAppScene.TRTCAppSceneVideoCall`。
    - 语音通话，请设置为 `TRTCAppScene.TRTCAppSceneAudioCall`。
-   >? 关于 `TRTCAppScene` 的详细介绍，请参见 [TRTCAppScene ](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/global.html#TRTCAppScene)。
+>? 关于 `TRTCAppScene` 的详细介绍，请参见 [TRTCAppScene ](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/global.html#TRTCAppScene)。
 3. 进房成功后，SDK 会回调 [onEnterRoom(result)](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onEnterRoom) 事件。其中，参数 `result` 大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当 `result` 小于0时表示进房失败，具体数值为进房失败的错误码。
 
 <dx-codeblock>
@@ -142,7 +142,7 @@ SDK 支持自动订阅和手动订阅两种模式，自动订阅追求秒开速�
 
 1.  当房间中有其他用户在上行音频数据时，您会收到 [onUserAudioAvailable()](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onUserAudioAvailable) 事件通知，SDK 会自动播放这些远端用户的声音。
 2.  您可以通过 [muteRemoteAudio(userId,  true)](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#muteRemoteAudio) 屏蔽某一个 userId 的音频数据，也可以通过 [muteAllRemoteAudio(true)](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#muteAllRemoteAudio) 屏蔽所有远端用户的音频数据，屏蔽后 SDK 不再继续拉取对应远端用户的音频数据。
-3.  当房间中有其他用户在上行视频数据时，您会收到 [onUserVideoAvailable()](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onUserVideoAvailable) 事件通知，但此时 SDK 未收到该如何展示视频数据的指令，因此不会自动处理视频数据。您需要通过调用 [startRemoteView(userId, view)](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#startRemoteView) 方法将远端用户的视频数据和显示 `view` 关联起来。
+3.  当房间中有其他用户在上行视频数据时，您会收到 [onUserVideoAvailable()](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onUserVideoAvailable) 事件通知，但此时 SDK 未收到该如何展示视频数据的指令，因此不会自动处理视频数据。您需要通过调用 [startRemoteView(userId, view, streamType)](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#startRemoteView) 方法将远端用户的视频数据和显示 `view` 关联起来。
 4.  您可以通过  [setLocalViewFillMode()](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setLocalViewFillMode)  指定视频画面的显示模式：
     -   `TRTCVideoFillMode.TRTCVideoFillMode_Fill` 模式：表示填充，画面可能会等比放大和裁剪，但不会有黑边。
     -   `TRTCVideoFillMode.TRTCVideoFillMode_Fit` 模式：表示适应，画面可能会等比缩小以完全显示其内容，可能会有黑边。

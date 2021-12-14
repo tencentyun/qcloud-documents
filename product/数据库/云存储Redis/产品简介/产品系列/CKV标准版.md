@@ -1,4 +1,3 @@
-
 >?云数据库 Redis CKV 版已暂停售卖，建议您选择 [云数据库 Redis 内存版](https://cloud.tencent.com/document/product/239/36151)。
 
 云数据库 Redis CKV 版（标准架构）采用主从节点部署架构，提供数据持久化和备份，适用于对数据可靠性、可用性均有要求的场景。

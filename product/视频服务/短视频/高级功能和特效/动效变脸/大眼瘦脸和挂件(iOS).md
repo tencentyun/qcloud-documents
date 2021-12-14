@@ -24,8 +24,8 @@
 
 ### 步骤2：添加链接参数
 
-1. 在工程【Build Setting】>【Other Link Flags】里，增加 `-ObjC` 选项。
-2. 如果使用了 AI 抠背功能，需要把【Product】>【Edit Scheme】>【Run】>【Options】>【Metal API Validation】设置为 Disabled。
+1. 在工程 **Build Setting** > **Other Link Flags** 里，增加 `-ObjC` 选项。
+2. 如果使用了 AI 抠背功能，需要把 **Product** > **Edit Scheme** > **Run** > **Options** > **Metal API Validation** 设置为 Disabled。
 
 ### 步骤3：添加动效资源
 
@@ -44,7 +44,7 @@
 > - v1
 
 ### 步骤4：导入 Licence 文件
-企业版需要 Licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费30天的调试用 Licence。
+企业版需要 Licence 验证通过后，相应功能才能生效。您可以向我们的商务人员申请一个免费30天的调试用 Licence。
 得到 Licence 后，您需要将其命名为 **YTFaceSDK.licence**，然后如上图所示添加到工程。
 >?
 >- 每个 Licence 都有绑定具体的 Bundle Identifier，修改 app 的 Bundle Identifier 会导致验证失败。
@@ -52,15 +52,14 @@
 >- iOS 和 Android 不需要重复申请 licence，一个 Licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
 
 
-**从4.9版本开始，SDK 支持二合一的 Licence，这种方式不再需要 YTFaceSDK.licence，在从商务同学处获取到 Licence 对应的 key 和 url 后，设置方式和标准版 Licence 设置方式相同。**
+**从9.4版本开始，SDK 支持二合一的 Licence，这种方式不再需要 YTFaceSDK.licence，在从商务人员处获取到 Licence 对应的 key 和 url 后，设置方式和标准版 Licence 设置方式相同。**
 
 ## 功能调用
 
 ### 动效贴纸
 
 #### 示例
-
-<img src="https://mc.qcloudimg.com/static/img/a320624ee8d3a82ee07feb05969e5290/A8B81CB6-DBD3-4111-9BF0-90BD02779BFC.png" width="450">
+<img src="https://main.qcloudimg.com/raw/c59d34f627b87faef0603a711010176d.png" width="450">
 
 一个动效模板是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数和文件大小也不尽相同。
 
@@ -71,7 +70,7 @@
 >?建议客户将动效资源放在自己的服务器上，以防短视频变动造成不必要的影响。
 
 当解压完成后，即可通过以下接口开启动效效果：
-```objective-c
+```objectivec
 /**
  * 选择动效
  *
@@ -84,11 +83,10 @@
 ### AI 抠背
 
 #### 示例
-
-<img src="https://mc.qcloudimg.com/static/img/0f79b78687753f88af7685530745a8d4/98B403B8-1DEC-4130-B691-D9EB5E321162.png" width="450">
+<img src="https://main.qcloudimg.com/raw/7c6b11672e8b8ae0a8080ab81cd76f71.png" width="450">
 
 需要下载 AI 抠背的资源，接口跟动效接口相同：
-```objective-c
+```objectivec
 /**
  * 选择抠背动效
  *
@@ -102,7 +100,7 @@
 
 您可以通过 TXUGCRecord 的 getBeautyManager 方法获取 TXBeautyManager 对象来进行设置各项美颜参数，其方法如下。
 <dx-codeblock>
-::: objective-c objective-c
+::: objective-c objectivec
 /**
  * 设置美颜（磨皮）算法
  *

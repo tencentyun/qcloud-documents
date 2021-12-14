@@ -4,7 +4,7 @@
 
 **介绍**
 
-可以接收 [V2TXLivePusher](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html) 播放器的一些推流通知，包括推流器连接状态、音视频首帧回调、统计数据、警告和错误信息等。
+可以接收 [V2TXLivePusher](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__android.html) 推流器的一些推流通知，包括推流器连接状态、音视频首帧回调、统计数据、警告和错误信息等。
 
 
 ## SDK 基础回调
@@ -88,6 +88,7 @@ public void onSnapshotComplete(Bitmap image)
 
 自定义视频处理回调。
 >? 调用 `V2TXLivePusher#enableCustomVideoProcess(boolean, V2TXLiveDef.V2TXLivePixelFormat, V2TXLiveDef.V2TXLiveBufferType)` 开启自定义视频处理后，会收到这个回调通知。
+
 ```
 public void onProcessVideoFrame(V2TXLiveVideoFrame srcFrame, V2TXLiveVideoFrame dstFrame)
 ```

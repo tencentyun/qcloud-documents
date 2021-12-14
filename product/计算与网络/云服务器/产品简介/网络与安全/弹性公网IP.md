@@ -12,5 +12,3 @@
 	<tr><td>弹性公网 IP 配额限制</td><td>详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41648#eip-.E9.85.8D.E9.A2.9D.E9.99.90.E5.88.B6">EIP 配额限制</a>。</td></tr>
 	<tr><td>云服务器绑定公网 IP 限制</td><td>详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41648#.E7.BB.91.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.99.90.E5.88.B6">绑定云服务器限制</a>。</td></tr>
 </table>
-
-

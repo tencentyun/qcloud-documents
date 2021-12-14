@@ -4,7 +4,7 @@
 已 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F)，并 [完成实名认证](https://console.cloud.tencent.com/developer)。
 
 ## 操作步骤
-1. 登录 [PostgreSQL 购买页](https://buy.cloud.tencent.com/pgsql)，根据需求指定数据库实例信息，确认无误后，单击【立即购买】。
+1. 登录 [PostgreSQL 购买页](https://buy.cloud.tencent.com/pgsql)，根据需求指定数据库实例信息，确认无误后，单击**立即购买**。
  - **计费模式**：支持包年包月和按量计费。
  - **地域**：实例实际部署的地域；建议与需要对接的云服务器保持一致，以便延迟最低。
  - **可用区**：在同一地域内电力和网络互相独立的物理数据中心；建议与需要对接的云服务器保持一致，以便延迟最低。
@@ -21,7 +21,7 @@
  - **指定项目**：如果您期望不同团队管理不同数据库，请指定到不同团队所处的项目中。
  - **购买数量**：指一次性可购买的实例个数，为避免误操作，我们设置了一次购买上限10个，如果您期望购买更多个数，请多次购买。
  - **购买时长**：由于采用包年包月的模式，您需要预估数据库期望使用时长。
-2. 购买完成后，返回 [实例列表](https://console.cloud.tencent.com/postgres)，待实例状态变为“运行中”，即可进行连接操作。
+2. 购买完成后，返回 [实例列表](https://console.cloud.tencent.com/postgres)，待实例状态变为**运行中**，即可进行连接操作。
 
 ## 后续操作
 您可以使用标准的 SQL 客户端，通过内网地址或外网地址连接到云数据库 PostgreSQL，请参见 [连接 PostgreSQL 实例](https://cloud.tencent.com/document/product/409/40429)。

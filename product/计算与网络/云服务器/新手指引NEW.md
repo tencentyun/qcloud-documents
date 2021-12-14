@@ -63,7 +63,7 @@
 ## 6. 反馈与建议
 使用腾讯云云服务器产品和服务中有任何问题或建议，您可以通过以下渠道反馈，将有专人跟进解决您的问题：
 - 如果发现产品文档的问题，如链接、内容、API 错误等，您可以单击文档页右侧 【文档反馈】或选中存在问题的内容进行反馈。
-- 如果遇到产品相关问题，您可咨询 [智能客服](https://cloud.tencent.com/act/event/smarty-service) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 寻求帮助。
+- 如果遇到产品相关问题，您可通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213) 寻求帮助。
 - 如果您有其他疑问，可前往 [云+社区](https://cloud.tencent.com/developer/tag/105) 进行提问。
 
 

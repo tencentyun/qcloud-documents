@@ -122,7 +122,7 @@ void removeDelegate(TRTCCallingDelegate listener);
 ```java
 void login( int sdkAppId,
             final String userId, 
-            String userSign, 
+            String userSig, 
             final ActionCallBack callback);
 ```
 
@@ -130,8 +130,8 @@ void login( int sdkAppId,
 
 | 参数     | 类型           | 含义                                                         |
 | -------- | -------------- | ------------------------------------------------------------ |
-| sdkAppID | UInt32         | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
-| user     | String         | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
+| sdkAppID | int         | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
+| userId     | String         | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
 | userSig  | String         | 腾讯云设计的一种安全保护签名，获取方式请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 | callback | ActionCallBack | 登录回调，`onSuccess` 表示登录成功。                         |
 
@@ -324,9 +324,9 @@ void onInvited(String sponsor, List<String> userIdList, boolean isFromGroup, int
 | 参数        | 类型               | 含义                             |
 | ----------- | ------------------ | -------------------------------- |
 | sponsor     | String             | 发起方的 ID。                    |
-| userIds     | List&lt;String&gt; | 除自己外被邀请 ID 列表。         |
+| userIdList     | List&lt;String&gt; | 除自己外被邀请 ID 列表。         |
 | isFromGroup | boolean            | 是否多人通话邀请。               |
-| type        | int                | 1 表示语音通话，2 表示视频通话。 |
+| callType        | int                | 1 表示语音通话，2 表示视频通话。 |
 
 ### onCallingCancel
 

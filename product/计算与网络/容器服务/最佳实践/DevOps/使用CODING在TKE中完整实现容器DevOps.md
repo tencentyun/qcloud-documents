@@ -51,45 +51,45 @@ Coding 是实现 CICD 流程的工具。Coding 提供整套的研发流程管理
 ### 开通 DevOps 服务
 > ! 该步骤以初次使用 DevOps 服务的主账号用户为例，如已开通服务则可跳过此步骤，进行 [创建项目并创建代码仓库](#createProduct)。
 
-1. 登录容器服务控制台，选择左侧导航栏中的【[DevOps](https://console.cloud.tencent.com/coding/container-devops)】。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**。
 2. 进入“容器 DevOps”页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/6f1e13d45996ec30637a0c8d3db9348b.png)
-3. 选择【开通服务】>【前往访问管理】，进入“角色管理”页面。如下图所示：
+3. 选择**开通服务** > **前往访问管理**，进入“角色管理”页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/ed82a514b85c63f9ac26554f8d27bbbb.png)   
-4. 单击【同意授权】，授权成功即跳转至【开通服务】页面。如下图所示：
+4. 单击**同意授权**，授权成功即跳转至**开通服务**页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/e8c6f297a755bf151ef8ea0d91ed60cb.png)
-5. 完善团队信息后单击【确定】，即可开通 DevOps 服务。
+5. 完善团队信息后单击**确定**，即可开通 DevOps 服务。
 
 ### 创建项目并创建代码仓库[](id:createProduct)
-1. 登录容器服务控制台，选择左侧导航栏中的【[DevOps](https://console.cloud.tencent.com/coding/container-devops)】。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**。
 2. 进入“容器 DevOps”页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/8c30f351eb48428dfaef9ef7afa3f252.png)
-3. 单击【立即使用】，跳转至【Coding DevOps】页面。
-4. 在左侧导航中选择【项目】，进入项目详情页。
-5. 在项目详情页，单击页面右上角【+创建项目】。如下图所示：
+3. 单击**立即使用**，跳转至**Coding DevOps**页面。
+4. 在左侧导航中选择**项目**，进入项目详情页。
+5. 在项目详情页，单击页面右上角**+创建项目**。如下图所示：
 ![](https://main.qcloudimg.com/raw/ee0f237acf7d50d9a4d2ed78f95769f0.png)
 6. 在“选择项目模板”步骤中，单击 “DevOps 项目”进入下一页。
 7. 在“填写项目基本信息”步骤中，自定义设置项目基本信息。本次创建项目名称以 coding-test 为例。如下图所示：
 ![](https://main.qcloudimg.com/raw/e4838a93eb724a1dc865ef408db55e9a.png)
-8. 单击【完成创建】即可创建项目，项目创建完成即跳转至该项目概览页。
-9. 单击该概览页左侧导航栏中【代码仓库】，进入代码仓库详情页。如下图所示：
+8. 单击**完成创建**即可创建项目，项目创建完成即跳转至该项目概览页。
+9. 单击该概览页左侧导航栏中**代码仓库**，进入代码仓库详情页。如下图所示：
 ![](https://main.qcloudimg.com/raw/67d2b83d9ab4e8400505b8d1dc22d8bc.png)
-10. 单击【新建代码仓库】，自定义设置仓库基本信息。本次创建代码仓库名称以 coding-test 为例。如下图所示：
+10. 单击**新建代码仓库**，自定义设置仓库基本信息。本次创建代码仓库名称以 coding-test 为例。如下图所示：
 ![](https://main.qcloudimg.com/raw/2fc4fee7e595b8c88def7a66c9ee7678.png)
-11. 单击【确定】即可完成创建代码仓库。
+11. 单击**确定**即可完成创建代码仓库。
 
 ### 创建制品库
 软件制品是指由源码编译打包生成的二进制文件，不同的开发语言对应着不同格式的二进制文件，通常可以直接在服务器运行。
 
 #### 创建流程
-1. 登录 Coding DevOps，选择左侧导航中的【[项目](https://tencent-test.coding.net/user/projects)】，进入项目管理页。
+1. 登录 Coding DevOps，选择左侧导航中的 **[项目](https://tencent-test.coding.net/user/projects)**，进入项目管理页。
 2. 在“项目管理页”中，单击需要创建制品库的项目名称，进入该项目详情页。
-3. 在左侧导航栏中选择【制品库】>【创建仓库】，进入【新建仓库】页面。如下图所示：
+3. 在左侧导航栏中选择**制品库** > **创建仓库**，进入**新建仓库**页面。如下图所示：
 ![zhipin1.png](https://main.qcloudimg.com/raw/5536f4ed912f23c83341de47bbf70137/8.png)
 4. 在“新建仓库”页面，根据实际需求进行关键信息自定义设置。如下图所示：
 ![](https://main.qcloudimg.com/raw/3542899f0b0790ca5929be907bd92887.png)
-5. 单击【确认】即可完成仓库创建，并自动跳转至仓库详情页。如下图所示：
-6. 单击【使用访问令牌生成配置】，身份验证通过之后进行配置。
+5. 单击**确认**即可完成仓库创建，并自动跳转至仓库详情页。如下图所示：
+6. 单击**使用访问令牌生成配置**，身份验证通过之后进行配置。
 > ! 在设置好访问令牌后，需自行记录访问令牌，用于后续 TKE 拉取镜像。
 > 
 ![](https://main.qcloudimg.com/raw/115292dfd2ab72317c0a22e00b7e7c76.png)
@@ -101,20 +101,20 @@ Coding 是实现 CICD 流程的工具。Coding 提供整套的研发流程管理
 kubectl  create secret docker-registry coding --docker-server=coding的registry地址 --docker-username=用户名 --docker-password=密码 --docker-email=邮箱地址
 ```
 
-1. 登录 Coding DevOps ，选择左侧导航中的【[项目](https://tencent-test.coding.net/user/projects)】，进入项目管理页。
+1. 登录 Coding DevOps ，选择左侧导航中的 **[项目](https://tencent-test.coding.net/user/projects)**，进入项目管理页。
 2. 在“项目管理页”中，单击需要创建制品库的项目名称，进入该项目详情页。
-3. 在左侧导航栏中选择【持续集成】>【构建计划】>【创建构建计划】，进入【选择构建计划模版】页面。如下图所示：
+3. 在左侧导航栏中选择**持续集成** > **构建计划** > **创建构建计划**，进入**选择构建计划模版**页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/82dd4540bab7095f50c4eb78805899d2.png)
-4. 根据实际情况选择构建计划模板，并确认模板默认设置信息，单击【确认】即可完成。
+4. 根据实际情况选择构建计划模板，并确认模板默认设置信息，单击**确认**即可完成。
 本文以选择 Golang+Gin+Docker 模板为例，进行 go 项目演示。以下视频将为您介绍具体的操作步骤：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2962-55143?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 
 ### 持续部署
 
-1. 登录 Coding DevOps ，选择左侧导航中的【[项目](https://tencent-test.coding.net/user/projects)】，进入项目管理页。
+1. 登录 Coding DevOps ，选择左侧导航中的 **[项目](https://tencent-test.coding.net/user/projects)**，进入项目管理页。
 2. 在“项目管理页”中，单击需要创建制品库的项目名称，进入该项目详情页。
-3. 在左侧导航栏中选择【持续部署】>【Kubernetes】，单击【立即配置】。如下图所示：
+3. 在左侧导航栏中选择**持续部署** > **Kubernetes**，单击**立即配置**。如下图所示：
 ![](https://main.qcloudimg.com/raw/56e23db59118408abd1709ef875192f5.png)
 4. 在“部署控制台”页面，自定义选择需要配置的云账号类型即可继续进行配置应用和流程、关联项目和应用及开始部署等后续步骤。
 本文以配置“腾讯云 TKE”类型账号为例，以下视频将为您介绍具体的操作步骤：

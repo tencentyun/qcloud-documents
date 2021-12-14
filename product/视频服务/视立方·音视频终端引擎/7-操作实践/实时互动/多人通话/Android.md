@@ -1,12 +1,12 @@
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 适用场景
 
@@ -32,7 +32,7 @@
 ## 操作步骤
 [](id:step1)
 ### 步骤1：集成 SDK
-您可以选择以下方式将 **音视频通话TRTC SDK** 集成到项目中。
+您可以选择以下方式将**音视频通话 TRTC SDK** 集成到项目中。
 #### 方式一：自动加载（aar）
 音视频通话 TRTC SDK 已发布到 jcenter 库，您可以通过配置 gradle 自动下载更新。
 您只需用 Android Studio 打开待集成 SDK 的工程（[TRTC-API-Example](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTC-API-Example) 已完成集成，示例代码可以供您参考），然后通过简单的步骤修改 `app/build.gradle` 文件，即可完成 SDK 集成：
@@ -115,7 +115,7 @@ public void onError(int errCode, String errMsg, Bundle extraInfo) {
 |---------|---------|---------|---------|
 | sdkAppId | 数字 | 应用 ID，您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。|1400000123 |
 | userId | 字符串 | 只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。 |test_user_001 |
-| userSig | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/1449/58939?!preview&!editLang=zh)。| eJyrVareCeYrSy1SslI... |
+| userSig | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/1449/58939)。| eJyrVareCeYrSy1SslI... |
 | roomId | 数字 | 默认不支持字符串类型的房间号，字符串类型的房间号会影响进房速度。如果您确实需要支持字符串类型的房间号，可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。 | 29834 |
 
 >!TRTC 同一时间不支持两个相同的 userId 进入房间，否则会相互干扰。
@@ -148,7 +148,7 @@ public void onEnterRoom(long result) {
 }
 ```
 >! 
->- 如果进房失败，SDK 同时还会回调 `onError` 事件，并返回参数 `errCode`（[错误码](https://cloud.tencent.com/document/product/1449/57189?!preview&!editLang=zh)）、`errMsg`（错误原因）以及 `extraInfo`（保留参数）。
+>- 如果进房失败，SDK 同时还会回调 `onError` 事件，并返回参数 `errCode`（[错误码](https://cloud.tencent.com/document/product/1449/57189)）、`errMsg`（错误原因）以及 `extraInfo`（保留参数）。
 >- 如果已在某一个房间中，则必须先调用 `exitRoom()`退出当前房间，才能进入下一个房间。
 >- 每个端在应用场景 appScene 上必须要进行统一，否则会出现一些不可预料的问题。
 
@@ -196,7 +196,7 @@ public void onUserVideoAvailable(String userId, boolean available) {
 3. 调用 [setLocalViewFillMode()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#af36ab721c670e5871e5b21a41518b51d) 可以设定本地视频画面的显示模式：
  - Fill 模式表示填充，画面可能会被等比放大和裁剪，但不会有黑边。
  - Fit 模式表示适应，画面可能会等比缩小以完全显示其内容，可能会有黑边。
-4. 调用 [setVideoEncoderParam()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ae047d96922cb1c19135433fa7908e6ce) 接口可以设定本地视频的编码参数，该参数将决定房间里其他用户观看您的画面时所感受到的 [画面质量](https://cloud.tencent.com/document/product/1449/57122?!editLang=zh&!preview)。
+4. 调用 [setVideoEncoderParam()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ae047d96922cb1c19135433fa7908e6ce) 接口可以设定本地视频的编码参数，该参数将决定房间里其他用户观看您的画面时所感受到的 [画面质量](https://cloud.tencent.com/document/product/1449/57122)。
 ```java
 //示例代码：发布本地的音视频流
 mTRTCCloud.setLocalViewFillMode(TRTC_VIDEO_RENDER_MODE_FIT);

@@ -1,17 +1,17 @@
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+本文介绍如何实现一套可以在浏览器上运行的语音通话解决方案，文章分成两个部分：
+- 第一部分：介绍如何开通服务并跑通我们提供的演示 Demo。
+- 第二部分：介绍如何使用 TRTCCalling 组件快速搭建自己的语音通话功能。
+
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
-本文介绍如何实现一套可以在浏览器上运行的语音通话解决方案，文章分成两个部分：
-
-- 第一部分：介绍如何开通服务并跑通我们提供的演示 Demo。
-- 第二部分：介绍如何使用 TRTCCalling 组件快速搭建自己的语音通话功能。
 
 ## 环境要求
 请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
@@ -33,19 +33,22 @@ TRTCCalling 依赖以下端口进行数据传输，请将其加入防火墙白�
 | Windows  | 桌面版 QQ 浏览器（极速内核） |       10.4+        |
 | Windows  |    桌面版 Firefox 浏览器     |        56+         |
 | Windows  |      桌面版 Edge 浏览器      |        80+         |
+...
+
+详细兼容性查询，具体请参见 [浏览器支持情况](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-05-info-browser.html)。同时，您可通过 [TRTC 检测页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 在线检测。
 
 ## 跑通测试 Demo
 
 [](id:step1)
 ### 步骤1：创建新的应用
 1. [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 实名认证。
-2. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-3. 输入应用名称，例如 `TestTRTC` ，单击【创建】。
+2. 登录实时音视频控制台，选择 **开发辅助>[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+3. 输入应用名称，例如 `TestTRTC` ，单击 **创建**。
 
 [](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
-2. 下载完成后，单击【已下载，下一步】。
+2. 下载完成后，单击 **已下载，下一步**。
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:step3)
@@ -55,10 +58,9 @@ TRTCCalling 依赖以下端口进行数据传输，请将其加入防火墙白�
 3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-<img src="https://main.qcloudimg.com/raw/99c0bf40a7b6267c5c398336a97f3335.png">
-
-4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
-5. 编译完成后，单击【回到控制台概览】即可。
+  <img src="https://main.qcloudimg.com/raw/99c0bf40a7b6267c5c398336a97f3335.png">
+4. 粘贴完成后，单击 **已复制粘贴，下一步** 即创建成功。
+5. 编译完成后，单击 **回到控制台概览** 即可。
 
 
 >!
@@ -74,9 +76,9 @@ npm run serve
 ```
 2. 启动 Chrome 浏览器中打开链接 `http://localhost:8080/` ，如果一切正常，Demo 运行界面如图所示：
 ![](https://main.qcloudimg.com/raw/03cc2aa792a0f885fe070eb86ada4ce4.png)
-3. 输入用户 userid，单击【登录】，并选择【语音通话】：
+3. 输入用户 userid，单击 **登录**，并选择 **语音通话**：
 ![](https://main.qcloudimg.com/raw/c1243956fe79d1361f3f0329e85f41d9.png)
-4. 输入呼叫用户 userid，单击【呼叫】：
+4. 输入呼叫用户 userid，单击 **呼叫**：
 ![](https://main.qcloudimg.com/raw/cdb27d63a75c83e99452923d5da05999.png)
 5. 即可进行语音通话：
 ![](https://main.qcloudimg.com/raw/37f1e43114ea2ab6dc4b419d60002d09.png)
@@ -118,7 +120,10 @@ import TRTCCalling from 'trtc-calling-js';
 
 
 let options = {
-  SDKAppID: 0 // 接入时需要将0替换为您的 SDKAppID
+  SDKAppID: 0, // 接入时需要将0替换为您的 SDKAppID
+  // 从v0.10.2起，新增 tim 参数
+  // tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性
+  tim: tim
 };
 const trtcCalling = new TRTCCalling(options);
 ```
@@ -132,31 +137,23 @@ trtcCalling.login({
 ```
 
 ### 步骤4：实现 1v1 通话
-#### 主叫方：呼叫某个用户
+- **主叫方：呼叫某个用户**
 ```javascript
 trtcCalling.call({
   userID,  //用户 ID
-  type: 2, //通话类型，0-未知， 1-语音通话，2-视频通话
+  type: 1, //通话类型，0-未知， 1-语音通话，2-视频通话
   timeout  //邀请超时时间, 单位 s(秒)
 });
 ```
-
-#### 被叫方：接听新的呼叫
+- **被叫方：接听新的呼叫**
 ```javascript
 // 接听
-trtcCalling.accept({
-  inviteID, //邀请 ID, 标识一次邀请
-  roomID,   //通话房间号 ID
-  callType  //0-未知， 1-语音通话，2-视频通话
-});
+trtcCalling.accept();
 //拒绝
-trtcCalling.reject({ 
-  inviteID, //邀请 ID, 标识一次邀请
-  isBusy //是否是忙线中， 0-未知， 1-语音通话，2-视频通话
-  })
+trtcCalling.reject()
 ```
-
-#### 挂断
+- **挂断**
 ```javascript
 trtcCalling.hangup()
 ```
+

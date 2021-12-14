@@ -136,7 +136,7 @@ Content-MD5: MD5
 | NoncurrentVersionExpiration    | LifecycleConfiguration.Rule                                  | 指明非当前版本对象何时过期                                   | Container | 否       |
 | NoncurrentVersionTransition    | LifecycleConfiguration.Rule                                  | 指明非当前版本对象何时进行存储类型的转换和转换的存储类型        | Container | 否       |
 | NoncurrentDays                 | LifecycleConfiguration.Rule<br>.NoncurrentVersionExpiration <br>或 NoncurrentVersionTransition | 指明规则对应的动作在对象变成非当前版本多少天后执行<br><li>如果是 Transition，该字段有效值是非负整数<br><li>如果是 Expiration，该字段有效值为正整数，最大支持3650天 | Integer   | 否       |
-| StorageClass                   | LifecycleConfiguration.Rule<br>.Transition 或 <br>NoncurrentVersionTransition | 指定 Object 沉降后的存储类型，枚举值： STANDARD_IA，MAZ_STANDARD_IA，INTELLIGENT_TIERING，MAZ_INTELLIGENT_TIERING，ARCHIVE，DEEP_ARCHIVE | String    | 是       |
+| StorageClass                   | LifecycleConfiguration.Rule<br>.Transition 或 <br>NoncurrentVersionTransition | 指定 Object 沉降后的存储类型，枚举值： STANDARD_IA，MAZ_STANDARD_IA，INTELLIGENT_TIERING，MAZ_INTELLIGENT_TIERING，ARCHIVE，DEEP_ARCHIVE。关于存储类型的介绍，请参见 [存储类型概述](https://cloud.tencent.com/document/product/436/33417) | String    | 是       |
 
 ## 响应
 

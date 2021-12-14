@@ -11,15 +11,29 @@
 
 ## 配置指南
 
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧菜单栏选择【域名管理】，单击域名操作列的【管理】，进入域名配置页面，切换 Tab 至【回源配置】，即可找到【分片回源配置】。
+### 添加域名
 
-默认情况下为关闭状态，若为 COS 源站类型的域名，则默认为开启状态，您可按需自主开启/关闭配置。
-![](https://main.qcloudimg.com/raw/e7d71301e5656c91f424e27ce2528ecb.png)
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧菜单栏选择**域名管理**，添加域名时，会根据所选加速类型和源站类型，默认配置针对全部文件的分片回源，您可按需自主开启/关闭配置：
+- 内容分发网络 CDN - 静态加速类型下，默认关闭分片回源。
+- 内容分发网络 CDN - 下载加速和流媒体点播加速 类型下，默认开启分片回源。
+- 若源站类型为 COS 源，所有加速类型下，均默认开启分片回源。
 
+
+![](https://main.qcloudimg.com/raw/a1f2dcb7c34df4db7a8c66f9217763dc.png)
+
+
+
+### 管理域名
+域名添加后，单击域名操作列的**管理**，进入域名配置页面，切换 Tab 至**回源配置**，即可找到**分片回源配置**。
+![](https://main.qcloudimg.com/raw/57126fb0be1b941813f9e4661ca549bf.png)
+
+**配置约束**
+1. 全部文件规则 - 默认最低优先级，不可调整优先级，不可删除。
+2. 支持添加按文件后缀/文件目录/全路径文件配置的规则，最多可添加20条规则，可调整优先级。
 
 
 ## 配置示例
 若域名`cloud.tencent.com`的分片回源配置如下：
-![](https://main.qcloudimg.com/raw/426c2f72f65ac624d6d833bc2ae4db3e.png)
+![](https://main.qcloudimg.com/raw/724500ca5aa62e924bd96e1251945ecb.png)
 用户 A 请求资源：`http://cloud.tencent.com/test.apk`，节点收到请求后，发现缓存的`test.apk`文件已过期，此时发起回源请求，节点回源使用 Range 请求，分片获取资源并缓存。若此时用户 B 发起的也为 Range 请求，当节点上存储的分片已满足 Range 中指定的字节段，则会直接返回给用户，无需等所有分片获取完毕。
 

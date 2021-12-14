@@ -28,16 +28,16 @@ LogListener 版本支持新功能如下：
 
 ### 1. 下载安装 LogListener
 
-LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.2.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.2.tar.gz)
+LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.4.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.4.tar.gz)
 
 以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`loglistener/tools`，执行安装命令 。
 - 公网环境下，操作命令如下：
 ```plaintext
-wget https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.2.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.2.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.2/tools && ./loglistener.sh install
+wget https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.4.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.4.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.4/tools && ./loglistener.sh install
 ```
 - 内网环境下，操作命令如下：
 ```plaintext
-wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.2.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.2.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.2/tools && ./loglistener.sh install
+wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.4.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.4.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.4/tools && ./loglistener.sh install
 ```
 
 ### 2. 初始化 LogListener
@@ -58,7 +58,7 @@ wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.2.tar.g
 | secretkey | [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 的一部分，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥 |
 | region    | region 表示日志服务所在的 [地域](https://cloud.tencent.com/document/product/614/18940)，此处填写域名简称，例如 ap-beijing、ap-guangzhou 等 |
 | network   | 表示 loglistener 通过哪种方式访问服务域名，取值：intra 内网访问（默认），internet 外网访问 |
-| ip        | 机器的 ip 标识。若不填写，loglistener 会自动获取本机的 ip 地址 |
+| ip        | 机器的 IP 标识。若不填写，loglistener 会自动获取本机的 IP 地址 |
 | label     | 机器组标示，标示机器组需要填写标示信息，多个标示按逗号分隔 |
 
 默认使用内网域名：
@@ -89,7 +89,8 @@ wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.2.tar.g
 
 ## LogListener 常用操作
 
-> ? 本文档示例的操作命令说明仅适用于 LogListener-2.2.4 及以上版本，低版本操作命令请参见 [低版本 LogListener 安装指南](https://cloud.tencent.com/document/product/614/39211)。
+>? 本文档示例的操作命令说明仅适用于 LogListener-2.2.4 及以上版本，低版本操作命令请参见 [低版本 LogListener 安装指南](https://cloud.tencent.com/document/product/614/39211)。
+>
 
 ### 1. 查看 LogListener 版本
 

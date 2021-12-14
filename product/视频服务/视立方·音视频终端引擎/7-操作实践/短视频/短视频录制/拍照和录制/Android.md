@@ -1,14 +1,14 @@
 视频录制包括视频变速录制、美颜、滤镜、声音特效、背景音乐设置等功能。 
 
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | -  | &#10003;  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 
 ## 相关类介绍
@@ -198,7 +198,7 @@ mTXCameraRecord.setAspectRatio(TXRecordCommon.VIDEO_ASPECT_RATIO_9_16);
 // TXRecordCommon.RECORD_SPEED_NORMAL(标准) 
 // TXRecordCommon.RECORD_SPEED_FAST(快速) 
 // TXRecordCommon.RECORD_SPEED_FASTEST(极快速) 
-mTXCameraRecord.setRecordSpeed(VIDEO_RECORD_SPEED_NORMAL);
+mTXCameraRecord.setRecordSpeed(TXRecordCommon.VIDEO_RECORD_SPEED_NORMAL);
 ```
 ### 声音设置
 
@@ -284,9 +284,9 @@ TXUGCBase.getInstance().getLicenceInfo(Context context);
 
 ## 高级功能
 
-- [多段录制](https://cloud.tencent.com/document/product/1449/57029?!preview&!editLang=zh)
-- [录制草稿箱](https://cloud.tencent.com/document/product/1449/57031?!preview&!editLang=zh)
-- [添加背景音乐](https://cloud.tencent.com/document/product/1449/57037?!preview&!editLang=zh)
-- [变声和混响](https://cloud.tencent.com/document/product/1449/57039?!preview&!editLang=zh)
-- [定制视频数据](https://cloud.tencent.com/document/product/1449/57061?!preview&!editLang=zh)
+- [多段录制](https://cloud.tencent.com/document/product/1449/57029)
+- [录制草稿箱](https://cloud.tencent.com/document/product/1449/57031)
+- [添加背景音乐](https://cloud.tencent.com/document/product/1449/57037)
+- [变声和混响](https://cloud.tencent.com/document/product/1449/57039)
+- [定制视频数据](https://cloud.tencent.com/document/product/1449/57061)
 

@@ -1,12 +1,12 @@
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 功能说明
 腾讯云视立方音视频通话 TRTC 在 iOS 平台下支持两种不同的屏幕分享方案：
@@ -15,8 +15,6 @@
 即只能分享当前 App 的画面，该特性需要 iOS 13 及以上版本的操作系统才能支持。由于无法分享当前 App 之外的屏幕内容，因此适用于对隐私保护要求高的场景。
 - **跨应用分享**
 基于苹果的 Replaykit 方案，能够分享整个系统的屏幕内容，但需要当前 App 额外提供一个 Extension 扩展组件，因此对接步骤也相对应用内分享要多一点。
-
->! 需要注意的一点是，音视频通话 TRTC SDK 的移动端版本并不像桌面端版本一样支持“辅路分享”，因为 iOS 和 Android 系统都对运行于后台的 App 限制了摄像头使用权，因此支持辅路分享的意义并不大。
 
 ## 支持的平台
 
@@ -108,7 +106,6 @@ iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以�
     ![AddGroup](https://main.qcloudimg.com/raw/b4904a8b425cf55e58497b35c0700966.png)
 5. 选中主 App 的 Target ，**并按照上述步骤对主 App 的 Target 做同样的处理。**
 6. 在新创建的 Target 中，Xcode 会自动创建一个名为 "SampleHandler.m" 的文件，用如下代码进行替换。**需将代码中的 APPGROUP 改为上文中的创建的 App Group Identifier**。
-
 <dx-codeblock>
 ::: iOS object-c
 #import "SampleHandler.h"
@@ -190,7 +187,6 @@ iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以�
 3. 等待用户触发屏幕分享。如果不实现 [步骤4](#launch) 中的“触发按钮”，屏幕分享就需要用户在 iOS 系统的控制中心，通过长按录屏按钮来触发，这一操作步骤如下图所示：
 ![](https://main.qcloudimg.com/raw/4082c8bcc7f41328a17f7ede78577bd9.png)
 4. 通过调用 [stopScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#aa8ea0235691fc9cde0a64833249230bb) 接口可以随时中止屏幕分享。
-
 <dx-codeblock>
 ::: iOS object-c
 // 开始屏幕分享，需要将 APPGROUP 替换为上述步骤中创建的 App Group Identifier。
@@ -223,12 +219,14 @@ iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以�
 
 1. 在 [Demo](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTC-API-Example-OC/Basic/ScreenShare) 中寻找 `TRTCBroadcastExtensionLauncher` 这个类，并将其加入到您的工程中。
 2. 在您的界面上放置一个按钮，并在按钮的响应函数中调用 `TRTCBroadcastExtensionLauncher` 中的 `launch` 函数，就可以唤起屏幕分享功能了。
-```
+<dx-codeblock>
+::: code 
 // 自定义按钮响应方法
 - (IBAction)onScreenButtonTapped:(id)sender {
     [TRTCBroadcastExtensionLauncher launch];
 }
-```
+:::
+</dx-codeblock>
 
 >!
 >- 苹果在 iOS 12.0 中增加了 `RPSystemBroadcastPickerView` 可以从应用中弹出启动器供用户确认启动屏幕分享，到目前为止, `RPSystemBroadcastPickerView` 尚不支持自定义界面，也没有官方的唤起方法。

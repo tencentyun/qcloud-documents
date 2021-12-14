@@ -3,7 +3,7 @@ TSF 目前支持 Spring Cloud Edgware、Spring Cloud Finchley、Spring Cloud Gre
 
 | Spring Cloud | Spring Boot |
 | ------------ | ----------- |
-| Hoxton     | 2.2.x       |
+| Hoxton     | 2.3.x       |
 | Greenwich     | 2.1.x       |
 | Finchley     | 2.0.x       |
 | Edgware      | 1.5.x       |
@@ -32,11 +32,11 @@ TSF 长期维护 LTS (Long Term Support) 版本，SDK 的第三位版本号会�
 
 对于 TSF 私有云的用户，SDK 版本号需要和 TSF 平台版本**保持一致**，SDK 的缺陷会在第三位版本号上体现，例如用户使用 TSF 1.12.4 版本，推荐使用的 SDK 版本为 1.12.x。
 
-|TSF 私有化平台版本| Edgware|Finchley|Greenwich|
-|----|------|----|------|
-|1.29.x|-|1.29.0-Finchley-RELEASE|1.29.0-Greenwich-RELEASE|
-|1.23.x|-|1.23.7-Finchley-RELEASE|1.23.8-Greenwich-RELEASE|
-|1.21.x|1.21.5-Edgware-RELEASE|1.21.9-Finchley-RELEASE|1.21.4-Greenwich-RELEASE|
-|1.18.x|1.18.1-Edgware-RELEASE|1.18.5-Finchley-RELEASE|1.18.1-Greenwich-RELEASE|
-|1.12.x|1.12.5-Edgware-RELEASE|1.12.5-Finchley-RELEASE|-|
+|TSF 私有化平台版本| Edgware|Finchley|Greenwich| Hoxton |
+|----|------|----|------|------|
+|1.29.x|-|1.29.4-Finchley-RELEASE|1.29.0-Greenwich-RELEASE|1.29.2-Hoxton-Higher-RELEASE|
+|1.23.x|-|1.23.11-Finchley-RELEASE|1.23.14-Greenwich-RELEASE|-|
+|1.21.x|-|1.21.12-Finchley-RELEASE|1.21.4-Greenwich-RELEASE|-|
+|1.18.x|-|1.18.5-Finchley-RELEASE|1.18.1-Greenwich-RELEASE|-|
+|1.12.x|1.12.5-Edgware-RELEASE|1.12.5-Finchley-RELEASE|-|-|
 

@@ -75,6 +75,7 @@
 | [stopAudioRecording](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#ac8c12476bbcf3d691060954fcdb6ebe6) | 停止录音 |
 | [startLocalRecording](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a5075d55a6fc31895eedd5b23a1b8826b) | 开启本地媒体录制 |
 | [stopLocalRecording](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#affae72630393980fee79c21f2d20f602) | 停止本地媒体录制 |
+| [setRemoteAudioParallelParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a02ad0bcebe3962fefee9af07039f0657) | 设置远端音频流智能并发播放策略 |
 
 ### 设备管理相关接口
 | API | 描述 |
@@ -84,7 +85,7 @@
 ### 美颜特效和图像水印
 | API | 描述 |
 |-----|-----|
-| [getDeviceManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a950f3f1c949def9e1e470f467db7b27a) | 获取美颜管理类（TXBeautyManager） |
+| [getBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a4fb05ae6b5face276ace62558731280a) | 获取美颜管理类（TXBeautyManager） |
 | [setWatermark](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#ad0bedbddf415d26cff8242d5842a0908) | 添加水印 |
 
 ### 背景音乐和声音特效
@@ -93,7 +94,7 @@
 | [getAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#af962213fefe6988a08820ac9af00df66) | 获取音效管理类（TXAudioEffectManager） |
 | [startSystemAudioLoopback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a2979e32c019708dcc9209bb6d2db9486) | 开启系统声音采集（仅适用于 Mac 系统） |
 | [stopSystemAudioLoopback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#adef486f26a2c7d74a8cccb537367e66a) | 停止系统声音采集（仅适用于桌面系统） |
-| [setSystemAudioLoopbackVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#afc45226807d84673bab78b21d1be54ae) | 设置系统声音的采集音量（仅适用于桌面系统） |
+| [setSystemAudioLoopbackVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#afc45226807d84673bab78b21d1be54ae) | 设置系统声音的采集音量 |
 
 ### 屏幕分享相关接口
 | API | 描述 |
@@ -103,10 +104,10 @@
 | [startScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a59b16baa51d86cc0465dc6edd3cbfc97) | 开始桌面端屏幕分享（该接口仅支持桌面系统） |
 | [stopScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#aa8ea0235691fc9cde0a64833249230bb) | 停止屏幕分享 |
 | [pauseScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a6f536bcc3df21b38885809d840698280) | 暂停屏幕分享 |
-| [pauseScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a6f536bcc3df21b38885809d840698280) | 恢复屏幕分享 |
+| [resumeScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#af257a8fb6969fe908ca68a039e6dba15) | 恢复屏幕分享 |
 | [getScreenCaptureSourcesWithThumbnailSize](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a37df498cbc8d9b1135e3caafdcee906f) | 枚举可分享的屏幕和窗口（该接口仅支持 Mac OS 系统） |
 | [selectScreenCaptureTarget](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a01ead6fb3106ea266caa922f5901bf18) | 选取要分享的屏幕或窗口（该接口仅支持 Mac OS 系统） |
-| [setSubStreamEncoderParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#abc0f3cd5c320d0e65163bd07c3c0a735) | 设置屏幕分享（即辅路）的视频编码参数（该接口仅支持桌面系统） |
+| [setSubStreamEncoderParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#abc0f3cd5c320d0e65163bd07c3c0a735) | 设置屏幕分享（即辅路）的视频编码参数（桌面系统和移动系统均已支持） |
 | [setSubStreamMixVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a18d3fb6535c9884784c5ad5f8dfd0b12) | 设置屏幕分享时的混音音量大小（该接口仅支持桌面系统） |
 | [addExcludedShareWindow](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#aa567171999b17a7f5655213b193415a7) | 将指定窗口加入屏幕分享的排除列表中（该接口仅支持桌面系统） |
 | [removeExcludedShareWindow](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a95b1f3fbc6ff755f67f7e9b86240ea5f) | 将指定窗口从屏幕分享的排除列表中移除（该接口仅支持桌面系统） |
@@ -124,6 +125,7 @@
 | [sendCustomAudioData](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a62cab4ec7c336ae135c2f681aca25da1) | 向 SDK 投送自己采集的音频数据 |
 | [enableMixExternalAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a1101d883d65882f735e3d17f874a25cb) | 启用/关闭自定义音轨 |
 | [mixExternalAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a9f408915460e86e889056066ca4e0908) | 向 SDK 混入自定义音轨 |
+| [setMixExternalAudioVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#abd8823c40d31e122ed34f7ac33c678a6) | 设置推流时混入外部音频的推流音量和播放音量 |
 | [generateCustomPTS](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#ae5f2a974fa23954c5efd682dc464cdee) | 生成自定义采集时的时间戳 |
 | [setLocalVideoProcessDelegete](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a2f73c33b1010a63bd3a06e639b3cf348) | 设置第三方美颜的视频数据回调 |
 | [setLocalVideoRenderDelegate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#aba3d309645d27304b6d4ea31b21a4cda) | 设置本地视频自定义渲染回调 |
@@ -144,7 +146,7 @@
 ### 网络测试接口
 | API | 描述 |
 |-----|-----|
-| [startSpeedTest](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a058556b224315dcde3601ab621a09dee) | 开始进行网络测速（进入房间前使用） |
+| [startSpeedTest](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a914bc4bdd1f0f0e02f27f873acb7e576) | 开始进行网速测试（进入房间前使用） |
 | [stopSpeedTest](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a58d732ba648d1f9a3a460c02de79bb9b) | 停止网络测速 |
 
 ### 调试相关接口
@@ -250,6 +252,7 @@
 | [startScreenCaptureByReplaykit](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#abebcd402e310d5d7dcbef9f6b601cfc4) | 开始全系统的屏幕分享（iOS） |
 | [muteLocalVideo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#ac3a158f935a99abd4965d308c0f88977) | 暂停/恢复发布本地的视频流 |
 | [muteRemoteVideoStream](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#ae5b271bc92a7a4d8ffbcbd4c2e509305) | 暂停 / 恢复订阅远端用户的视频流 |
+| [startSpeedTest](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a914bc4bdd1f0f0e02f27f873acb7e576) |  开始进行网络测速（进入房间前使用） |
 
 ### 错误和警告事件
 | API | 描述 |
@@ -286,6 +289,7 @@
 |-----|-----|
 | [onNetworkQuality](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#a723002319845fbfc03db501aa9da6c28) | 网络质量的实时统计回调 |
 | [onStatistics](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#afb0811035e97c8544dbc9ecbef461dd9) | 音视频技术指标的实时统计回调 |
+| [onSpeedTestResult](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#a6ca73040b7226a8297814694e95478fc) | 网速测试的结果回调 |
 
 ### 与云端连接情况的事件回调
 | API | 描述 |
@@ -386,6 +390,7 @@
 | [TRTCRoleType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#gad147b9b0249d0c2759cf1514c8978881) | 角色 |
 | [TRTCQosControlMode](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#ga915f86fec1b00787147d40a189444823) | 流控模式（已废弃） |
 | [TRTCVideoQosPreference](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#ga2c460e7365ad67ee0213545b0a67aa6d) | 画质偏好 |
+| [TRTCQualityInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCQualityInfo) | 网络质量 |
 | [TRTCAVStatusType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#ga0a200753a7e0c539ce4f584cd8d17510) | 视频状态类型 |
 | [TRTCAVStatusChangeReason](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#ga349e42c3f8a2de5a031e90a1240d7f54) | 视频状态变化原因类型 |
 
@@ -418,13 +423,19 @@
 | [TRTCVideoEncParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCVideoEncParam) | 视频编码参数 |
 | [TRTCNetworkQosParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCNetworkQosParam) | 网络流控（Qos）参数集 |
 | [TRTCRenderParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCRenderParams) | 视频画面的渲染参数 |
+| [TRTCQualityInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCQualityInfo) | 网络质量 |
 | [TRTCVolumeInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCVolumeInfo) | 音量大小 |
+| [TRTCSpeedTestParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCSpeedTestParams) | 测速参数 |
 | [TRTCSpeedTestResult](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCSpeedTestResult) | 网络测速结果 |
 | [TRTCVideoFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCVideoFrame) | 视频帧信息 |
 | [TRTCAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCAudioFrame) | 音频帧数据 |
 | [TRTCMixUser](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCMixUser) | 云端混流中各路画面的描述信息 |
 | [TRTCTranscodingConfig](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCTranscodingConfig) | 云端混流的排版布局和转码参数 |
 | [TRTCPublishCDNParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCPublishCDNParam) | 向非腾讯云 CDN 上发布音视频流时需设置的转推参数 |
+| [TRTCAudioRecordingParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCAudioRecordingParams) | 本地音频文件的录制参数 |
 | [TRTCLocalRecordingParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCLocalRecordingParams) | 本地媒体文件的录制参数 |
 | [TRTCAudioEffectParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCAudioEffectParam) | 音效参数（已废弃） |
+| [TRTCSwitchRoomConfig](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCSwitchRoomConfig) | 房间切换参数 |
+| [TRTCAudioFrameDelegateFormat](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCAudioFrameDelegateFormat) | 音频自定义回调的格式参数 |
+| [TRTCScreenCaptureSourceInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCScreenCaptureSourceInfo) | 屏幕分享的目标信息（仅适用于桌面系统） |
 

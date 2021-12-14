@@ -11,20 +11,20 @@
 2. [申请通道](https://cloud.tencent.com/document/product/216/19250)
 3. [创建专线网关](https://cloud.tencent.com/document/product/216/19256)
 4. 验证容器节点与 IDC 互通。（**请保证本步骤验证通过**）
-6. 准备地域，appId，集群 Id，vpcId，专线网关 Id 等信息，[在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 打通容器网络。
+6. 准备地域，appId，集群 Id，vpcId，专线网关 Id 等信息，[在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 打通容器网络。
 7. 若 IDC 使用的是 BGP 协议，容器网段路由将自动同步。若是其他协议，需在 IDC 内配置访问容器网段下一跳路由到专线网关。
 8. 验证容器与 IDC 互通。
 
 ## VPN 打通
 ### 步骤 1
-1. 登录腾讯云 [私有网络控制台](https://console.cloud.tencent.com/vpc) ，单击左侧导航栏中的 【VPN 连接】>【VPN 通道】。
+1. 登录腾讯云 [私有网络控制台](https://console.cloud.tencent.com/vpc) ，单击左侧导航栏中的 **VPN 连接** > **VPN 通道**。
 ![](https://main.qcloudimg.com/raw/ffaf709b5d36e54cd416a03c25ea203e.png)
-2. 单击【VPN 通道 ID】进入详情页，在【SPD 策略】下方单击编辑，添加容器网段。 
+2. 单击**VPN 通道 ID**进入详情页，在**SPD 策略**下方单击编辑，添加容器网段。 
 ![腾讯云配置 SPD 策略](https://main.qcloudimg.com/raw/07d18b2dd62d06025c0818537dae0e1a.png) 
 同理您对端 VPN 通道也需要 SPD 策略，添加腾讯云容器所在网段。
 
 ### 步骤 2
-单击左侧导航栏中【路由表】找到之前的 VPN 添加对端子机路由的那张路由表，追加容器网段，并关联子机所在的子网。
+单击左侧导航栏中**路由表**找到之前的 VPN 添加对端子机路由的那张路由表，追加容器网段，并关联子机所在的子网。
 ![腾讯云](https://main.qcloudimg.com/raw/fe58e868249a7730c1aa9913f49ee55f.png)  
 同理您对端的路由设备上，添加腾讯云容器所在网段。
 

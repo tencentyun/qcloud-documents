@@ -11,13 +11,13 @@
 
 ## 下载并配置 GooseFS
 
-1. 从官方仓库下载 GooseFS 安装包到本地。官方仓库下载链接：[goosefs-1.0.0-bin.tar.gz](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs/goosefs-1.0.0-bin.tar.gz)。
+1. 从官方仓库下载 GooseFS 安装包到本地。官方仓库下载链接：[goosefs-1.1.0-bin.tar.gz](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs/1.1.0/release/goosefs-1.1.0-bin.tar.gz)。
 2. 执行如下命令，对安装包进行解压。
 ```shell
-tar -zxvf goosefs-1.0.0-bin.tar.gz
-cd goosefs-1.0.0
+tar -zxvf goosefs-1.1.0-bin.tar.gz
+cd goosefs-1.1.0
 ```
- 解压后，得到 goosefs-1.0.0，即 GooseFS 的主目录。下文将以 `${GOOSEFS_HOME}` 代指该目录的绝对路径。
+ 解压后，得到 goosefs-1.1.0，即 GooseFS 的主目录。下文将以 `${GOOSEFS_HOME}` 代指该目录的绝对路径。
 3. 在 `${GOOSEFS_HOME}/conf` 的目录下，创建 `conf/goosefs-site.properties` 的配置文件，可以使用内置的配置模板：
 ```shell
 $ cp conf/goosefs-site.properties.template conf/goosefs-site.properties

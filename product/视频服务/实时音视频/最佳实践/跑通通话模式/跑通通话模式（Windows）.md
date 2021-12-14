@@ -140,7 +140,7 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
   基于 SDKAppID 和 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 - **roomId**
-  房间号是数字类型，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomId**。
+  房间号是数字类型，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomId**。如果您想使用字符串形式的房间号，请使用 TRTCParams 中的 strRoomId。
 
 ### 3. 进入（或创建）房间
 调用 `enterRoom` 可以加入 TRTCParams 参数中 roomId 所指定的音视频房间。如果该房间不存在，SDK 会自动创建一个以 roomId 为房间号的新房间。

@@ -1,7 +1,7 @@
 ## 基于 Android 平台
 腾讯云视立方音视频通话 TRTC 在 Android 系统上支持屏幕分享，即将当前系统的屏幕内容通过音视频通话 TRTC SDK 分享给房间里的其他用户。关于此功能，有两点需要注意：
 
-- 音视频通话TRTC Android 版本的屏幕分享并不像桌面端版本一样支持“辅路分享”，因此在启动屏幕分享时，摄像头的采集需要先被停止，否则会相互冲突。
+- 音视频通话 TRTC Android 8.6 之前的版本屏幕分享并不像桌面端版本一样支持“辅路分享”，因此在启动屏幕分享时，摄像头的采集需要先被停止，否则会相互冲突；8.6 及之后的版本支持“辅路分享”，则不需要停止摄像头的采集。
 - 当一个 Android 系统上的后台 App 在持续使用 CPU 时，很容易会被系统强行杀掉，而且屏幕分享本身又必然会消耗 CPU。要解决这个看似矛盾的冲突，我们需要在 App 启动屏幕分享的同时，在 Android 系统上弹出悬浮窗。由于 Android 不会强杀包含前台 UI 的 App 进程，因此该种方案可以让您的 App 可以持续进行屏幕分享而不被系统自动回收。如下图所示：
 ![](https://main.qcloudimg.com/raw/e7dad1db0a99add95ac372634bddc2bf.png)
 
@@ -29,7 +29,7 @@
 <td>分辨率自适应</td><td>enableAdjustRes</td><td>NO</td><td>NO</td>
 </tr></table>
 
-	>?
+>?
  - 由于屏幕分享的内容一般不会剧烈变动，所以设置较高的 FPS 并不经济，推荐10 FPS即可。
  - 如果您要分享的屏幕内容包含大量文字，可以适当提高分辨率和码率设置。
  - 最高码率（videoBitrate）是指画面在剧烈变化时的最高输出码率，如果屏幕内容变化较少，实际编码码率会比较低。
@@ -62,8 +62,6 @@
 即只能分享当前 App 的画面，该特性需要 iOS 13 及以上版本的操作系统才能支持。由于无法分享当前 App 之外的屏幕内容，因此适用于对隐私保护要求高的场景。
 - **[跨应用分享](#Cross)**
 基于苹果的 Replaykit 方案，能够分享整个系统的屏幕内容，但需要当前 App 额外提供一个 Extension 扩展组件，因此对接步骤也相对应用内分享要多一点。
-
->! 需要注意的一点是，音视频通话TRTC SDK 的移动端版本并不像桌面端版本一样支持“辅路分享”，因为 iOS 和 Android 系统都对运行于后台的 App 限制了摄像头使用权，因此支持辅路分享的意义并不大。
 
 [](id:Internal)
 
@@ -276,7 +274,7 @@ onShareClick() async {
 ```
 
 ## 观看屏幕分享
-- **观看 Android / iOS 屏幕分享**
+**观看 Android / iOS 屏幕分享**
   若用户通过 Android / iOS 进行屏幕分享，会通过主流进行分享。房间里的其他用户会通过 TRTCCloudListener 中的 [onUserVideoAvailable](https://pub.flutter-io.cn/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html) 事件获得这个通知。
   希望观看屏幕分享的用户可以通过 [startRemoteView](https://pub.flutter-io.cn/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/startRemoteView.html) 接口来启动渲染远端用户主流画面。
 

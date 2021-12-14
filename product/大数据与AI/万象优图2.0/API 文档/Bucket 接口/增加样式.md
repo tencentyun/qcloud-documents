@@ -1,5 +1,5 @@
 ## 功能描述
-该接口用于对某一个存储桶设置样式功能，后续上传到该存储桶的图片文件都会被添加指定的样式。
+该接口用于对某一个存储桶设置样式功能，设置样式后，可以方便地对图片进行统一的处理。
 
 >? Bucket 接口目前频控存在限制要求，写请求最多1qps，读请求最多10qps。
 >
@@ -43,8 +43,8 @@ Authorization: Auth String
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <AddStyle>
-  <StyleName>string</StyleName>
-  <StyleBody>string</StyleBody>
+    <StyleName>string</StyleName>
+    <StyleBody>string</StyleBody>
 </AddStyle>
 ```
 
@@ -85,8 +85,8 @@ Authorization:XXXXXXXXXXXX
 
 <?xml version="1.0" encoding="UTF-8" ?>
 <AddStyle>
-  <StyleName>style_name</StyleName>
-  <StyleBody>imageMogr2/thumbnail/!50px</StyleBody>
+    <StyleName>style_name</StyleName>
+    <StyleBody>imageMogr2/thumbnail/!50px</StyleBody>
 </AddStyle>
 ```
 

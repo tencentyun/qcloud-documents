@@ -18,6 +18,34 @@
 ### 版本建议
 支持向后兼容，建议全量升级。
 
+## 1.29.4-Finchley-RELEASE（2021-10-18）
+### 优化
+- 支持通过 -Dtsf.discovery.zeroInstanceProtect=false 关闭零实例保护。
+- 优化 TSF 加密判断逻辑，只有配置了 TSF 密钥才对 ENC 配置进行解析。
+  
+### Bug 修复
+- 修复 for 循环调用导致泳道 HTTP Header过大的问题。
+- 修复服务发现时无本地缓存文件导致延迟。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.29.2-Finchley-RELEASE（2021-08-16）
+### 优化
+- 增加 catalog 内存 cache 的优化。
+- 优化熔断模块不必要的日志输出。
+- 优化去除 TSF日志配置后，使用 log4j2 时出现 `${sys:LOG_FILE}` 的情况。
+- 统一第三方组件的版本号。
+  
+### Bug 修复
+- 修复 Feign 在指定 URL 的模式下无法请求的问题。
+- 修复日志组件 log4j 和 log4j2 输出调用链数据问题。
+- 修复 sleuth 模块 debug 日志打印异常。
+- 修复 scg metrics duration 异常问题。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
 ## 1.29.0-Finchley-RELEASE（2020-05-07）
 ### 新特性
 - 微服务网关增加单元化功能。
@@ -91,6 +119,29 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
  
 ### 版本建议
 
+支持向后兼容，建议全量升级。
+
+## 1.23.11-Finchley-RELEASE（2021-09-28）
+### Bug 修复
+- 修复sdk 调用链数据 输出 log4j组件重复初始化导致写入多个文件的问题
+
+### 优化
+- 优化零实例保护优化引起的，服务发现实例为空时的 warn 提示
+- 优化 TSF 加密判断逻辑，只有配置了 TSF 密钥才对 ENC 配置进行解析
+- 增加 catalog 内存 cache 的优化
+- consul 异常时，避免一直刷日志。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.23.10-Finchley-RELEASE（2021-08-16）
+### Bug 修复
+修复 for 循环调用导致泳道 HTTP Header过大的问题。
+
+### 优化
+优化限流的 httpclient。
+
+### 版本建议
 支持向后兼容，建议全量升级。
 
 ## 1.23.9-Finchley-RELEASE（2021-06-23）
@@ -247,6 +298,15 @@ spring-cloud-tsf-msgw：
 
 - 优化默认日志配置支持容器部署场景。
 - 优化 TSF MSGW zuul 依赖。
+
+## 1.21.12-Finchley-RELEASE（2021-07-15）
+### 新特性
+- 新增对 CMQ TCP SDK 的支持。
+- 新增对 CMQ 异步接收方法的调用链支持。
+
+### Bug 修复
+- 修复 SDK 调用链数据输出 log4j 组件重复初始化导致写入多个文件的问题。
+- spring-cloud-tsf-logger：修复自定义日志格式没有服务名的问题。
 
 ## 1.21.9-Finchley-RELEASE（2021-02-02）
 ### Bug 修复

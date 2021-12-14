@@ -1,6 +1,6 @@
-基于 Spring Cloud Hoxton 版本 SDK，支持 spring boot 2.2.1。
+基于 Spring Cloud Hoxton SR9 版本 SDK，支持 spring boot 2.3.1。
 
-## 1.27.0-Hoxton-RELEASE（2021-01-25）
+## 1.29.2-Hoxton-Higher-RELEASE（2021-10-18）
 
 ### 新特性
 

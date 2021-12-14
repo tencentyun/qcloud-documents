@@ -1,27 +1,28 @@
 IP 地理函数可用于判断 IP 地址属于内网还是外网，也可用于分析 IP 地址所属的国家、省份、城市。本文介绍 IP 地理函数的基本语法及示例。
 
->? 当前日志服务已支持大部分地域使用 CLS 函数。北京、上海、广州、南京地域如有需要，请 [提交工单](https://console.cloud.tencent.com/workorder/category)。
->
 
 
 ## IP 地址函数
 
 >?
-> - 如下函数中的 KEY 参数表示日志字段（例如 ip），其值为 IP 地址；若其值为内部 IP 地址或非法字段将无法被解析，以 NULL 展示。
+> - 如下函数中的 KEY 参数表示日志字段（例如 ip），其值为 IP 地址；若其值为内部 IP 地址或非法字段将无法被解析，以 “NULL”或“未知”展示。
 > - IP 目前仅支持 IPv4 地址，IPv6 暂不支持。
-> - 目前暂不支持展示国内外城市及其经纬度信息。
+> - 基于 IP 地址分配机制的限制，IP 地址库无法100%准确涵盖所有 IP 地址的地理信息，极少部分 IP 地址可能会查询不到详细地理信息或地理信息存在错误。
 > 
 
-| 函数名称                 | 说明                                                         | 示例                                |
-| ------------------------ | ------------------------------------------------------------ | ----------------------------------- |
-| ip_to_domain(KEY)        | 判断目标 IP 地址是内网地址还是外网地址。内网则返回 intranet，外网则返回 internet，非法 ip 则返回 invalid。 | `* | SELECT ip_to_domain(ip)`        |
+| 函数名称                 | 说明                                                         | 示例                                 |
+| ------------------------ | ------------------------------------------------------------ | ------------------------------------ |
+| ip_to_domain(KEY)        | 判断目标 IP 地址是内网地址还是外网地址。内网则返回 intranet，外网则返回 internet，非法 IP 地址则返回 invalid。 | `* | SELECT ip_to_domain(ip)`        |
 | ip_to_country(KEY)       | 分析目标 IP 地址所属国家或地区。返回结果为国家或地区的中文名称。 | `* | SELECT ip_to_country(ip)`       |
-| ip_to_country_code(KEY)  | 分析目标 IP 地址所属国家或地区的代码。返回结果为国家或地区的代码。 | `* | SELECT ip_to_country_code(ip)`   |
-| ip_to_country_geo(KEY)   | 分析目标 IP 地址所属国家或地区的经纬度。返回结果为国家或地区的纬度，经度信息。 | `* | SELECT ip_to_country_geo(ip`)    |
-| ip_to_province(KEY)      | 分析目标 IP 地址所属省份。返回结果为省份的中文名称。           | `* | SELECT ip_to_province(ip)`      |
+| ip_to_country_code(KEY)  | 分析目标 IP 地址所属国家或地区的代码。返回结果为国家或地区的代码。 | `* | SELECT ip_to_country_code(ip)`  |
+| ip_to_country_geo(KEY)   | 分析目标 IP 地址所属国家或地区的经纬度。返回结果为国家或地区的经纬度。 | `* | SELECT ip_to_country_geo(ip`)   |
+| ip_to_province(KEY)      | 分析目标 IP 地址所属省份。返回结果为省份的中文名称。         | `* | SELECT ip_to_province(ip)`      |
 | ip_to_province_code(KEY) | 分析目标 IP 地址所属省份的代码。返回结果为省份的行政区划代码。 | `* | SELECT ip_to_province_code(ip)` |
-| ip_to_province_geo(KEY)  | 分析目标 IP 地址所属省份的经纬度。返回结果为省份的纬度，经度信息。 | `* | SELECT ip_to_province_geo(ip)`  |
-| ip_to_provider(KEY)      | 分析目标 IP 地址对应的网络运营商，返回结果为网络运营商名称。   | `* | SELECT ip_to_provider(ip)`      |
+| ip_to_province_geo(KEY)  | 分析目标 IP 地址所属省份的经纬度。返回结果为省份的经纬度。   | `* | SELECT ip_to_province_geo(ip)`  |
+| ip_to_city               | 分析目标 IP 地址所属城市。返回结果为城市的中文名称，国外城市为英文名。 | `* | SELECT ip_to_city(ip)`          |
+| ip_to_city_code          | 分析目标 IP 地址所属城市的代码。返回结果为城市的行政区规划代码，暂不支持台湾省城市。 | `* | SELECT ip_to_city_code(ip)`     |
+| ip_to_city_geo           | 分析目标 IP 地址所属城市的经纬度。返回结果为城市的经纬度，不支持国外城市。 | `* | SELECT ip_to_city_geo(ip)`      |
+| ip_to_provider(KEY)      | 分析目标 IP 地址对应的网络运营商，返回结果为网络运营商名称。 | `* | SELECT ip_to_provider(ip)`      |
 
 ## IP 网段函数
 

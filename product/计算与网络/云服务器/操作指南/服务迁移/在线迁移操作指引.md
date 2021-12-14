@@ -29,7 +29,7 @@
 目前在线迁移工具支持的源端主机操作系统包括但不限于以下操作系统（32位或64位均可）：
 <table>
 	<tr><th>Linux 操作系统</th><th>Windows 操作系统</th></tr>
-	<tr><td>CentOS 5/6/7/8</td><td rowspan=7>-</td></tr>
+	<tr><td>CentOS 5/6/7/8</td><td rowspan=7>暂不支持</td></tr>
 	<tr><td>Ubuntu 10/12/14/16/18	</td></tr>
 	<tr><td>Debian 7/8/9	</td></tr>
 	<tr><td>SUSE 11/12/15</td></tr>

@@ -11,7 +11,7 @@
 
 3. 上传 Spring Cloud 应用镜像文件至 TKE 镜像仓库。具体操作请参见 [镜像仓库快速入门](https://cloud.tencent.com/document/product/1141/50332)。
 
-4. 在 [TSE 控制台](https://console.cloud.tencent.com/tse) 创建 Eureka 注册中心实例。具体操作请参见 [创建 Eureka 实例](https://cloud.tencent.com/document/product/1364/58416)。
+4. 在 [TSE 控制台](https://console.cloud.tencent.com/tse) 创建 Eureka 注册中心实例。具体操作请参见 [创建 Eureka 实例](https://cloud.tencent.com/document/product/1364/58408)。
 <dx-alert infotype="explain" title="">
 创建 Eureka 注册中心实例时，若不开启公网访问，则所选定的 VPC 需要与 TKE 容器集群的 VPC 保持一致。
 </dx-alert>

@@ -22,9 +22,9 @@
 
 
 1. 登录 [容器实例控制台](https://console.cloud.tencent.com/tke2/eksci)，进入容器实例页面。
-2. 单击【新建实例】，如下图所示：
+2. 单击**新建实例**，如下图所示：
 ![](https://main.qcloudimg.com/raw/4e76f7ed424a9e8ca35af5d77f295fe5.png)
-2. 根据实际需求，设置容器实例的参数，详情请参见 [创建容器实例](https://cloud-doc.isd.com/document/product/457/57341#step2)。完成后，单击【下一步】。
+2. 根据实际需求，设置容器实例的参数，详情请参见 [创建容器实例](https://cloud-doc.isd.com/document/product/457/57341#step2)。完成后，单击**下一步**。
 3. 开启绑定弹性公网 IP，支持以下两种绑定方式，如下图所示：
 ![](https://main.qcloudimg.com/raw/a419b90448e11ca2b40b665073c9abea.png)
 <dx-tabs>
@@ -38,4 +38,4 @@
 容器实例同步支持您选择已有的弹性公网 IP，该方式需要您提前创建好弹性公网 IP，若无合适选项，请单击 [新建弹性公网 IP](https://console.cloud.tencent.com/cvm/eip)。
 :::
 </dx-tabs>
-4. 单击【配置确认】，完成弹性公网 IP 绑定。
+4. 单击**配置确认**，完成弹性公网 IP 绑定。

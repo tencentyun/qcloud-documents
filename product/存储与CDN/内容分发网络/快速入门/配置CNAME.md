@@ -1,70 +1,132 @@
-您的域名接入 CDN 后，系统会为您自动分配一个以 `.cdn.dnsv1.com` 或 `.dsa.dnsv1.com` 为后缀的 CNAME 域名，可在 CDN 控制台 [域名管理页](https://console.cloud.tencent.com/cdn/domains) 查看。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受 CDN 加速服务。
-![img](https://main.qcloudimg.com/raw/64aa3f78c45b66f2387d64b54d77f75d.png)
+![](https://main.qcloudimg.com/raw/705a1315248316e32c25a8093fd9f799.png)
 
-## 配置步骤
+## 准备工作
 
-本文提供腾讯云和阿里云的 CNAME 配置步骤说明，您可以根据域名所在的服务商进行设置：
+### 接入域名
+配置 CNAME 前，您需要完成 [域名接入](https://cloud.tencent.com/document/product/228/41215)。如果您已完成域名接入，请继续后续操作步骤
 
-- [腾讯云设置方法](#m1)
-- [阿里云设置方法](#m2)
+
+## 操作步骤
+
+### 配置步骤
+
+您需要在您的域名注册商处，配置您的加速域名解析到腾讯云 CDN 分配的 CNAME 域名上。在您完成 CNAME 解析配置后，当用户请求您的加速域名时，DNS 才会将用户请求解析到腾讯云 CDN 平台，实现加速效果。
+根据您在域名接入时输入的加速域名的方式，您在域名注册商处建议按如下示例进行配置：
+
+<table width="718px">
+<tbody>
+<tr>
+<th colspan="2">腾讯云 CDN</th>
+<th colspan="3">域名注册商</th>
+<th rowspan="2">说明</th>
+</tr>
+<tr>
+<td>加速域名</td>
+<td>CNAME 域名</td>
+<td>主机记录 / Host (Name)</td>
+<td>记录类型 / Type</td>
+<td>记录值/Value (Points to)</td>
+</tr>
+<tr>
+<td>dnspod.com</td>
+<td>dnspod.com.cdn.dnsv1.com</td>
+<td>@</td>
+<td>CNAME</td>
+<td>dnspod.com.cdn.dnsv1.com</td>
+<td>支持用户直接请求域名 dnspod.com</td>
+</tr>
+<tr>
+<td>www.dnspod.com</td>
+<td>www.dnspod.com.cdn.dnsv1.com</td>
+<td>www</td>
+<td>CNAME</td>
+<td>www.dnspod.com.cdn.dnsv1.com</td>
+<td>支持用户请求www.dnspod.com</td>
+</tr>
+<tr>
+<td>support.dnspod.com</td>
+<td>support.dnspod.com.cdn.dnsv1.com</td>
+<td>support</td>
+<td>CNAME</td>
+<td>support.dnspod.com.cdn.dnsv1.com</td>
+<td>支持用户请求二级域名support.dnspod.com</td>
+</tr>
+<tr>
+<td>*.dnspod.com</td>
+<td>a31aea03.dnspod.com.cdn.dnsv1.com</td>
+<td>*</td>
+<td>CNAME</td>
+<td>a31aea03.dnspod.com.cdn.dnsv1.com</td>
+<td>泛解析，支持用户访问其他所有域名*.dnspod.com</td>
+</tr>
+</tbody></table>
+
+>!
+>1. 为避免解析冲突，若域名解析原来有配置 A 记录或 MX 记录，则添加 CNAME 记录时，应当将原 A 或 MX 记录暂停解析或删除。
+>2. 因为 DNS 变更解析到实际生效需要一段时间，期间可能会导致网站暂时不可访问，请您留意变更操作对业务的影响。
+>3. 为避免业务受到影响，当暂停或停用 CDN 加速时，域名解析应注意从 CDN CNAME 域名改回到源站。
+
+如下提供腾讯云和阿里云的域名解析配置步骤说明：
 
 [](id:m1)
 ### 腾讯云设置方法
 
-> !域名解析各种记录类型之间是有优先级差异的，在主机记录相同的情况下，同一条线路有几种不同的记录类型不能共存，否则将会提示冲突。CNAME 记录与除 CNAME 记录以外的任何记录类型都冲突，需要先删除掉其他记录，再进行配置。详情请参见 [为什么添加解析记录的时候提示 "记录有冲突" ](https://cloud.tencent.com/document/product/302/3468#.E4.B8.BA.E4.BB.80.E4.B9.88.E6.B7.BB.E5.8A.A0.E8.A7.A3.E6.9E.90.E8.AE.B0.E5.BD.95.E7.9A.84.E6.97.B6.E5.80.99.E6.8F.90.E7.A4.BA-.26quot.3B.E8.AE.B0.E5.BD.95.E6.9C.89.E5.86.B2.E7.AA.81.26quot.3B-.EF.BC.9F)。
+#### 一键配置
 
-以下视频将为您演示如何在腾讯云中对 CDN 的接入域名、CNAME 记录进行配置，从而实现使用 CDN 进行加速的效果：
+如果您的域名商为腾讯云，推荐您使用 CNAME 一键配置功能，详情请参见 [DNSPod 一键配置 CNAME](https://cloud.tencent.com/document/product/228/59152)。
 
-<iframe src="https://cloud.tencent.com/edu/learning/quick-play/2209-31077?source=gw.doc.media&amp;withPoster=1&amp;notip=1" allowfullscreen="true" style="border-width: 0px; border-style: none; box-sizing: border-box; list-style: inherit; display: block; width: 610px; height: 380px;"></iframe>
+![](https://main.qcloudimg.com/raw/bce6d4d2207f120dfe69a4732b5c82a3.png)
 
-1. 登录 [域名服务](https://console.cloud.tencent.com/domain) 控制台，在列表中，找到需要添加 CNAME 记录的域名所在行，单击操作栏的【解析】。
-   ![CNAME配置](https://main.qcloudimg.com/raw/dd299f2ef44538523622a7de978d5995.png)
-2. 在跳转到的DNSPOD页面中，单击【添加记录】，通过如下步骤添加 CNAME 记录。
-   ![img](https://main.qcloudimg.com/raw/489791e8d992b47ed300e30899050c67.png)
-	- **主机记录**：填写子域名。例如，要添加 `www.dnspod.com`这个域名的解析，您在 “主机记录” 处选择 “www” 即可。如果只是想添加 `dnspod.com` 这个域名的解析，您在 “主机记录” 处选择 “@” 即可。
-	- **记录类型**：选择 “CNAME”。
-	- **线路类型**：选择 “默认” 类型。DNSPod 支持按多种方式划分线路，让指定用户访问该记录。详细说明请查看[解析线路说明](https://docs.dnspod.cn/dns/5f4775898ae73e11c5b01afc/)
-	- **记录值**：指向的域名，一般填写加速域名的 CNAME 值：xxx.xxx.com.cdn.dnsv1.com。记录生成后会自动在域名后面补一个“.”，这是正常现象。
-	- **权重**：同一条主机记录相同的线路,可以针对不同的记录值设置权重,解析时将根据设置的权重比例进行返回。输入范围
-		为0-100的整数。
-	- **MX 优先级**：不需要填写。
-	- **TTL**：为缓存时间，数值越小，修改记录各地生效时间越快，默认为600秒。
-3. 填写完成后，单击【确认】，即可完成CNAME配置。
+#### 手动配置
 
-   
+1. 在 [CDN 控制台](https://console.cloud.tencent.com/cdn) 复制 CNAME 地址。
+   在您域名成功解析前，CNAME 处会有提示 icon。复制此处的 CNAME 值。
+![](https://main.qcloudimg.com/raw/953d05b2e06eb8de643a52bc8d175285.png)
+2. 登录 [DNS 解析 DNSPod 控制台](https://console.cloud.tencent.com/cns)，单击**解析**按钮。
+![](https://main.qcloudimg.com/raw/5ad4678bc71367d14e97cf038fe131e2.png)
+3. 添加 CNAME 记录，单击**确认**。
+![](https://main.qcloudimg.com/raw/a76c964c1008726ff39eb237338c2a52.png)
+4. 等待配置生效。
 
-####  扩展设置
-- 您可以将单个主机记录的【线路类型】设置为 “默认” ，则是为整站开启加速服务。
-例如，您需要将所有用户都指向 `1.com`，您可以通过添加线路类型为默认、记录值为`1.com`的这一条 CANME 记录来实现。
-![img](https://main.qcloudimg.com/raw/be770e0f8b91c33ae7c41f1e50e633af.png)
+**配置项详解：**
 
-- 您也可以分线路开启加速服务。
-如果您需要将移动用户指向 `1.com`，联通用户都指向 `2.com`。您可以通过添加【线路类型】为“移动”、记录值为`1.com` 和【线路类型】为“联通”、记录值为 `2.com` 的两条 CNAME 记录来实现。
- ![](https://main.qcloudimg.com/raw/a10e6be051e2b90a323cb8e07081fb63.png)
-
->?更多线路配置说明请查看 [解析线路说明](https://docs.dnspod.cn/dns/5f4775898ae73e11c5b01afc/)。
-
-
+| 配置项   | 配置说明                                                     |
+| :------- | :----------------------------------------------------------- |
+| 主机记录 | 主机记录相当于域名的前缀。<br><br>**例:** 添加 `dnspod.com` 域名的解析，在 “主机记录” 处选择 “@” ；添加 `www.dnspod.com` 域名的解析，在 “主机记录” 处选择 “www” 。 |
+| 记录类型 | 选择 “CNAME”。                                               |
+| 线路类型 | 选择 “默认” 类型。DNSPod 支持按多种方式划分线路，让指定用户访问该记录。详细说明请查看 [解析线路说明](https://docs.dnspod.cn/dns/5f4775898ae73e11c5b01afc/)。 |
+| 记录值   | 指向的域名，填写加速域名的 CNAME 值：xxx.xxx.com.cdn.dnsv1.com。记录生成后会自动在域名后面补一个“.”。 |
+| 权重     | 同一条主机记录相同的线路，可以针对不同的记录值设置权重。解析时将根据设置的权重比例进行返回。输入范围：0-100 |
+| MX       | 优先级设置。数值越低，优先级别越高，推荐保持默认空值。       |
+| TTL      | 缓存时间。数值越小，修改记录各地生效时间越快，默认为600秒。  |
 
 [](id:m2)
 ### 阿里云设置方法
 
 若您的 DNS 服务商为阿里云，您可通过如下步骤添加 CNAME 记录。
 
-1. 登录阿里云控制台云解析DNS。
-2. 单击要解析的域名，进入解析记录页。
-3. 进入解析记录页后，单击【添加记录】按钮，开始设置解析记录。
-4. 若要设置 CNAME 解析记录，将记录类型选择为 CNAME。主机记录即域名前缀，可任意填写（如：`www`）。记录值填写为当前域名指向的另一个域名。解析线路，TTL 默认即可。
-![img](https://main.qcloudimg.com/raw/1e5d2b3e6e142b5f0900cc4065bd0864.png)
-5. 填写完成后，单击【确认】，即可完成解析设置。
+1. 在 [腾讯云 CDN 控制台](https://console.cloud.tencent.com/cdn) 复制 CNAME 地址
+   在您域名成功解析前，CNAME 处会有提示 icon。复制此处的 CNAME 值。
+![](https://main.qcloudimg.com/raw/1103227249112935d45d0c963446e1cc.png)
+2. 登录阿里云控制台云解析DNS。
+3. 单击要解析的域名，进入解析记录页。
+4. 进入解析记录页后，单击**添加记录**按钮，开始设置解析记录。
+5. 将记录类型选择为 CNAME。主机记录即域名前缀，可任意填写（如：www）。记录值填写为步骤1中复制的CNAME值。解析线路，TTL 默认即可。
+<img src="https://main.qcloudimg.com/raw/19d27d39d0ed39d3fe319410b5ef6439.png" width="80%">
+6. 填写完成后，单击**确认**，即可完成解析设置。
 
+## 后续步骤
 
+### 验证 CNAME 是否生效
 
-## 验证 CNAME 是否生效
+不同的 DNS 服务商CNAME 生效的时间略有不同，一般在半个小时之内生效。您可以通过 nslookup 或 dig 的方式来查询 CNAME 是否生效，若应答的CNAME记录是我们配置的CNAME，则说明配置成功，此时您已成功开启加速服务。
 
-最后，不同的 DNS 服务商，CNAME 生效的时间略有不同，一般在半个小时之内生效。您可以通过 nslookup 或 dig 的方式来查询 CNAME 是否生效，若应答的CNAME记录是我们配置的CNAME，则说明配置成功，此时您已成功开启加速服务。
+- nslookup -qt=cname <加速域名>
+<img src="https://main.qcloudimg.com/raw/1f94ea7e3ee46fc761e8e839ce68a86d.png" width="70%">
+- dig <加速域名></br>
+<img src="https://main.qcloudimg.com/raw/fe9b8f9a1a26d3a7df5db614762caeaf.png" width="70%">
 
-- `nslookup -qt=cname <加速域名>`
-  ![img](https://main.qcloudimg.com/raw/ed15d49b7d2fee9cf8830d4bf9ca51a2.png)
-- `dig <加速域名>`
-  ![img](https://main.qcloudimg.com/raw/2ba5ec76f1671c3b8ee345cef896de10.png)
+### 配置指南
+
+您已完成 CDN 服务的基础配置，有关 CDN 服务的更多配置，可以在 [配置指南](https://cloud.tencent.com/document/product/228/37851) 目录下对应的项目进行了解。
+

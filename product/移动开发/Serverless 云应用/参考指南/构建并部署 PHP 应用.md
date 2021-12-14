@@ -8,29 +8,32 @@
 
 
 
-## 第 1 步：编写基础应用
+## 步骤1：编写基础应用
 
-创建名为 `helloworld-php` 的新目录，并转到此目录中：
-
-```plaintext
+1. 创建名为 `helloworld-php` 的新目录，并转到此目录中：
+<dx-codeblock>
+:::  plaintext
 mkdir helloworld-php
 cd helloworld-php
-```
-
-创建名为 `index.php` 的文件，并将以下代码粘贴到其中：
-
-```php
+:::
+</dx-codeblock>
+2. 创建名为 `index.php` 的文件，并将以下代码粘贴到其中：
+<dx-codeblock>
+:::  php
 <?php
 echo sprintf("Hello World!");
-```
-
+:::
+</dx-codeblock>
+<dx-alert infotype="explain" title="">
 此代码会对所有请求响应“Hello World”，HTTP 处理由容器中的 Apache Web 服务器进行。
+</dx-alert>
 
-## 第 2 步：将应用容器化
 
-在项目根目录下，创建一个名为 `Dockerfile` 的文件，内容如下：
+## 步骤2：将应用容器化
 
-```docker
+1. 在项目根目录下，创建一个名为 `Dockerfile` 的文件，内容如下：
+<dx-codeblock>
+:::  docker
 # 使用官方 PHP 7.3 镜像.
 # https://hub.docker.com/_/php
 FROM php:7.3-apache
@@ -46,33 +49,35 @@ RUN sed -i 's/80/8080/g' /etc/apache2/sites-available/000-default.conf /etc/apac
 # RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 # 参考：https://hub.docker.com/_/php#configuration
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
-```
-
-添加一个 `.dockerignore` 文件，以从容器映像中排除文件：
-
-```
+:::
+</dx-codeblock>
+2. 添加一个 `.dockerignore` 文件，以从容器映像中排除文件：
+<dx-codeblock>
+:::  sh
 Dockerfile
 README.md
 vendor
-```
+:::
+</dx-codeblock>
 
-## 第 3 步（可选）：本地构建镜像
 
-如果您本地已经安装了 Docker，可以运行以下命令，在本地构建 Docker 镜像：
+## 步骤3（可选）：本地构建镜像
 
-```sh
-docker build -t helloworld-php .
-```
-
-构建成功后，运行 `docker images`，可以看到构建出的镜像：
-
-```
+1. 如果您本地已经安装了 Docker，可以运行以下命令，在本地构建 Docker 镜像：
+<dx-codeblock>
+:::  sh
+docker build -t helloworld-php
+:::
+</dx-codeblock>
+2. 构建成功后，运行 `docker images`，可以看到构建出的镜像，随后您可以将此镜像上传至您的镜像仓库。
+<dx-codeblock>
+:::  sh
 REPOSITORY        TAG       IMAGE ID         CREATED           SIZE
 helloworld-php   latest    1c8dfb88c823     8 seconds ago      411MB
-```
+:::
+</dx-codeblock>
 
-随后您可以将此镜像上传至您的镜像仓库。
 
-## 第 4 步：部署到 CloudBase 云托管
+## 步骤4：部署到 CloudBase 云托管
 
-请参考 [部署服务](https://cloud.tencent.com/document/product/1243/46127) 与 [版本配置说明](https://cloud.tencent.com/document/product/1243/49177)。
+详情请参见 [部署服务](https://cloud.tencent.com/document/product/1243/46127) 与 [版本配置说明](https://cloud.tencent.com/document/product/1243/49177)。

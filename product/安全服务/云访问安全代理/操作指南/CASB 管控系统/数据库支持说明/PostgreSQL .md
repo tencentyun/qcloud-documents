@@ -78,7 +78,7 @@
 | 类型                                       | 支持情况 | SQL 样例                                                     |
 | ------------------------------------------ | -------- | ------------------------------------------------------------ |
 | 等值匹配删除，策略配置在其中某个条件字段上 | 支持     | delete from public.table_a where col2 != 'n2' and id != 2;   |
-| 带 in 的删除，策略配置在 in 字段上         | 支持     | delete from public.table_a where id in (1,2)                 |
+| 带 in 的删除，策略配置在 in 字段上         | 支持     | delete from public.table_a where id in (1,2);                  |
 | 带子查询的删除，策略在子查询的条件字段上   | 支持     | select * from table_a t1 where t1.col2 in (select col2 from table_b) and t1.id = 1; |
 
 
@@ -87,7 +87,7 @@
 
 | 类型                 | 支持情况 | SQL 样例                                                 |
 | -------------------- | -------- | -------------------------------------------------------- |
-| 策略配置在查询条件上 | 支持     | UPDATE public.table_a SET id=1, col1='c11' where col2='c |
+| 策略配置在查询条件上 | 支持     | UPDATE public.table_a SET id=1, col1='c11' where col2='c; |
 | 策略配置在更新字段上 | 支持     | UPDATE public.table_a SET id=1, col1='c11' where id=1;   |
 
 - **查询语句**：

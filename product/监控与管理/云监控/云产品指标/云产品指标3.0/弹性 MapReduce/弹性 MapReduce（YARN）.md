@@ -8,19 +8,19 @@ Namespace=QCE/TXMR_YARN
 
 | 指标英文名                                            | 指标中文名                    | 指标单位 | 指标含义 | 维度                                    |
 | ----------------------------------------------------- | ----------------------------- | -------- | -------- | --------------------------------------- |
-| EmrHdfsOverview<br>YarnRmNumsNumactivenms             | 节点个数_NumActiveNMs         | 个       | 节点个数 | host4yarnoverview、<br>id4yarnoverview  |
-| EmrHdfsOverview<br>YarnRmNumsNumde<br>commissionednms | 节点个数_NumDecommissionedNMs | 个       | 节点个数 | host4yarnoverview、<br/>id4yarnoverview |
-| EmrHdfsOverviewYarn<br>RmNumsNumlostnms               | 节点个数_NumLostNMs           | 个       | 节点个数 | host4yarnoverview、<br/>id4yarnoverview |
-| EmrHdfsOverview<br>YarnRmNumsNumun<br>healthynms      | 节点个数_NumUnhealthyNMs      | 个       | 节点个数 | host4yarnoverview、<br/>id4yarnoverview |
+| EmrYarnOverviewYarn<br>RmNumsNumactivenms          | 节点个数_NumActiveNMs         | 个       | 节点个数 | host4yarnoverview、<br>id4yarnoverview  |
+| EmrYarnOverviewYarnRmNums<br>Numdecommissionednms | 节点个数_NumDecommissionedNMs | 个       | 节点个数 | host4yarnoverview、<br/>id4yarnoverview |
+| EmrYarnOverviewYarn<br>RmNumsNumlostnms               | 节点个数_NumLostNMs           | 个       | 节点个数 | host4yarnoverview、<br/>id4yarnoverview |
+| EmrYarnOverviewYarn<br>RmNumsNumunhealthynms        | 节点个数_NumUnhealthyNMs      | 个       | 节点个数 | host4yarnoverview、<br/>id4yarnoverview |
 
 ### Yarn-OverviewAggregation
 
 | 指标英文名                                                   | 指标中文名                    | 指标单位 | 指标含义 | 维度            |
 | ------------------------------------------------------------ | ----------------------------- | -------- | -------- | --------------- |
-| EmrHdfsOverviewAggregation<br>YarnRmNumsNumactivenms         | 节点个数_NumActiveNMs         | 个       | 节点个数 | id4yarnoverview |
-| EmrHdfsOverviewAggregation<br>YarnRmNumsNumde<br>commissionednms | 节点个数_NumDecommissionedNMs | 个       | 节点个数 | id4yarnoverview |
-| EmrHdfsOverviewAggregation<br> RmNumsNumlostnms              | 节点个数_NumLostNMs           | 个       | 节点个数 | id4yarnoverview |
-| EmrHdfsOverviewAggregation<br> YarnRmNumsNumun healthynms    | 节点个数_NumUnhealthyNMs      | 个       | 节点个数 | id4yarnoverview |
+| EmrYarnOverviewAggregation<br>YarnRmNumsNumactivenms  | 节点个数_NumActiveNMs         | 个       | 节点个数 | id4yarnoverview |
+| EmrYarnOverviewAggregationYarn<br>RmNumsNumdecommissionednms | 节点个数_NumDecommissionedNMs | 个       | 节点个数 | id4yarnoverview |
+| EmrYarnOverviewAggregation<br>YarnRmNumsNumlostnms           | 节点个数_NumLostNMs           | 个       | 节点个数 | id4yarnoverview |
+| EmrYarnOverviewAggregation<br>YarnRmNumsNumunhealthynms   | 节点个数_NumUnhealthyNMs      | 个       | 节点个数 | id4yarnoverview |
 
 ### YARN-Cluster
 
@@ -226,19 +226,19 @@ Namespace=QCE/TXMR_YARN
 | Instances.N.Dimensions.0.Name  | id4yarnoverview           | EMR 实例 ID 的维度名称        | 输入  String 类型维度名称：id4yarnoverview                   |
 | Instances.N.Dimensions.0.Value | id4yarnoverview           | EMR  实例具体 ID              | 输入  EMR 具体实例 ID，例如 ：emr-mm8bs222                   |
 | Instances.N.Dimensions.1.Name  | host4yarnoverview         | EMR  实例中节点 IP 的维度名称 | 输入String  类型维度名称：host4yarnoverview                  |
-| Instances.N.Dimensions.1.Value | host4yarnoverview         | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Value | host4yarnoverview         | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.0.Name  | id4yarnresourcemanager    | EMR 实例 ID 的维度名称        | 输入 String  类型维度名称：id4yarnresourcemanager            |
 | Instances.N.Dimensions.0.Value | id4yarnresourcemanager    | EMR 实例具体 ID               | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222                   |
 | Instances.N.Dimensions.1.Name  | host4yarnresourcemanager  | EMR 实例中节点 IP 的维度名称  | 输入String  类型维度名称：host4yarnresourcemanager           |
-| Instances.N.Dimensions.1.Value | host4yarnresourcemanager  | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Value | host4yarnresourcemanager  | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.0.Name  | id4yarnjobhistoryserver   | EMR  实例 ID 的维度名称       | 输入 String  类型维度名称：id4yarnjobhistoryserver           |
 | Instances.N.Dimensions.0.Value | id4yarnjobhistoryserver   | EMR  实例具体 ID              | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222                   |
 | Instances.N.Dimensions.1.Name  | host4yarnjobhistoryserver | EMR  实例中节点 IP 的维度名称 | 输入String  类型维度名称：host4yarnjobhistoryserver          |
-| Instances.N.Dimensions.1.Value | host4yarnjobhistoryserver | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Value | host4yarnjobhistoryserver | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.0.Name  | id4yarnnodemanager        | EMR 实例 ID 的维度名称        | 输入 String  类型维度名称：id4yarnnodemanager                |
 | Instances.N.Dimensions.0.Value | id4yarnnodemanager        | EMR 实例具体 ID               | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222                   |
 | Instances.N.Dimensions.1.Name  | host4yarnnodemanager      | EMR 实例中节点 IP 的维度名称  | 输入String  类型维度名称：host4yarnnodemanager               |
-| Instances.N.Dimensions.1.Value | host4yarnnodemanager      | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Value | host4yarnnodemanager      | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 
 ## 入参说明
 

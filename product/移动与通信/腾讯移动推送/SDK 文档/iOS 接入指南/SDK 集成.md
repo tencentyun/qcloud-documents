@@ -11,9 +11,9 @@
 ## SDK 集成
 ### 接入前准备
 1. 接入 SDK 之前，请前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241)。
-   ![](https://main.qcloudimg.com/raw/29089bca0d0378db21e2df69930346fe.png)
+   ![](https://main.qcloudimg.com/raw/47d9802945ecc9d4c84a2c1f3d45d40b.png)
 2. 单击【配置管理】，进入管理页面。
-   ![](https://main.qcloudimg.com/raw/69d6c1d7d8729a17e0b829a648019cff.png)
+   ![](https://main.qcloudimg.com/raw/30da757263936244ba3967f280202ab9.png)
 3. 单击【上传证书】，完成上传操作。推送证书获取详情请参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664)。
    ![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
 4. 证书上传成功后，在应用信息栏中，获取应用 Access ID 和 Access KEY。
@@ -31,7 +31,7 @@ pod 'TPNS-iOS', '~> 版本'  // 如果不指定版本则默认为本地 pod TPNS
 	pod repo update
 	pod search TPNS-iOS
 	pod install //安装 SDK 
-	```  
+``` 
 
 #### 方式二：手动导入
 1. 进入腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏中【下载】即可。
@@ -39,7 +39,7 @@ pod 'TPNS-iOS', '~> 版本'  // 如果不指定版本则默认为本地 pod TPNS
 3. 将 InAppMessage 文件夹导入到工程并在【Build Setting】>【Framework Search Paths】 添加查找路径（若您 SDK 版本低于1.2.8.0，则可以忽略此步骤）。
 4. 在 Build Phases 下，添加以下 Framework：
  ```
- * TPNSInAppMessage.framework
+ * XGInAppMessage.framework
  * XGMTACloud.framework
  * CoreTelephony.framework
  * SystemConfiguration.framework
@@ -51,16 +51,19 @@ pod 'TPNS-iOS', '~> 版本'  // 如果不指定版本则默认为本地 pod TPNS
  * libc++.tbd
 ```
 5. 添加完成后，库的引用如下：
-![](https://main.qcloudimg.com/raw/79976648574060954cebfb894cc5cdd4.png)
+![](https://main.qcloudimg.com/raw/34383748ef77f8e5026d3cb30eb829e4.png)
+
 
 ### 工程配置
 1. 在工程配置和后台模式中打开推送，如下图所示：
 ![](https://main.qcloudimg.com/raw/549acb8c1cf61c1d2f41de4762baf47b.png)
+1.1 如需使用 iOS15 新增的"时效性通知功能"，请在`Capabilities`中开启`Time Sensitive Notifications`
+![](https://qcloudimg.tencent-cloud.cn/raw/f07a8d6912cc85830a99358dcf66d28a.png)
 2. 添加编译参数 `-ObjC` 。
 ![](https://main.qcloudimg.com/raw/b0b74cec883f69fb0287fedc7bad4140.png)
 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
-
 >! 如果您的应用服务接入点为广州，SDK 默认实现该配置，广州域名为 `tpns.tencent.com`。
+>
 
 如果您的应用服务接入点为上海、新加坡或者中国香港，请按照下文步骤完成其他服务接入点域名配置。
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
@@ -222,28 +225,6 @@ if (msgType.integerValue == 1) {
 
 
 ## 高级配置（可选）
-<span id="zhuxiao"></span>
-### 注销信鸽平台推送服务
-如果 App 的推送服务是从 [信鸽平台](https://xg.qq.com) 迁移到腾讯移动推送平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在信鸽平台中进行反注册。
-
-#### 接口
-
-```objective-c
-// 信鸽平台的 accessId(支持信鸽 SDK V2、V3版本)
-@property uint32_t freeAccessId;
-```
-
-#### 用法
-
-- 引入头文件：`XGForFreeVersion.h` 。
-- 在`startXGWithAccessID:accessKey:delegate:`之前调用此接口，参考示例：
-
-```objective-c
-[XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
-[[XGPush defaultManager] startXGWithAccessID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
-```
->!如果未做以上配置，在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
-
 
 <span id="QHToken"></span>
 ### 获取 TPNS Token 交互建议
@@ -279,14 +260,9 @@ pasteboard.string = errorMessage;
 
 您可在申请 App 权限使用时，使用以下内容声明授权的用途：
 
-
-
-
 <pre>
 我们使用 <a href="https://cloud.tencent.com/product/tpns">腾讯云移动推送 TPNS</a> 用于实现产品信息的推送，在您授权我们“访问网络连接”和“访问网络状态”权限后，表示您同意 <a href="https://cloud.tencent.com/document/product/548/50955">腾讯 SDK 隐私协议</a>。您可以通过关闭终端设备中的通知选项来拒绝接受此 SDK 推送服务。
 </pre>
-
-
 
 其中上述声明授权的两个链接如下：
 - 腾讯云移动推送 TPNS ：`https://cloud.tencent.com/product/tpns`

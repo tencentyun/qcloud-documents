@@ -5,7 +5,7 @@
 
 1. 在 [TEM控制台](https://console.cloud.tencent.com/tem) 中创建环境。具体操作请参见 [创建环境](https://cloud.tencent.com/document/product/1371/53293)。
 
-2. 在 [TSE 控制台](https://console.cloud.tencent.com/tse) 创建eureka注册中心实例。具体操作请参见 [创建微服务引擎实例](https://cloud.tencent.com/document/product/1364/58416)。
+2. 在 [TSE 控制台](https://console.cloud.tencent.com/tse) 创建 Eureka 注册中心实例。具体操作请参见 [创建 Eureka 实例](https://cloud.tencent.com/document/product/1364/58408)。
 <dx-alert infotype="explain" title="">
 创建 Eureka 注册中心实例时，若不开启公网访问，则所选定的 VPC 需要与 TEM 已创建的环境的 VPC 保持一致。
 </dx-alert>

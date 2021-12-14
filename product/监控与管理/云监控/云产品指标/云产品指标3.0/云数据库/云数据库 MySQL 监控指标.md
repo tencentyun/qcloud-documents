@@ -157,7 +157,7 @@ Namespace=QCE/CDB
 | MasterSlaveSyncDistance | 主从延迟距离 | 主从 binlog 差距 | MB                                  | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | SecondsBehindMaster     | 主从延迟时间 | 主从延迟时间     | 秒                                  | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | SlaveIoRunning          | IO 线程状态  | IO 线程运行状态  | 状态值（0-Yes，1-No，2-Connecting） | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
-| SlaveSqlRunning         | SQL 线程状态 | SQL 线程运行状态 | 状态值（0-Yes，1-No）               | InstanceId、InstanceTyp          | 5s、60s、300s、3600s、86400s |
+| SlaveSqlRunning         | SQL 线程状态 | SQL 线程运行状态 | 状态值（0-Yes，1-No）               | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 
 > ?每个指标的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度。
 
@@ -172,7 +172,7 @@ Namespace=QCE/CDB
 
 > ? InstanceType 说明：
 >
-> - 假设 InstanceId 入参值为主实例的ID，仅 InstanceType 支持拉取主机（取值为1）、从机（取值为2）、第二从机（取值为3）的监控数据。
+> - 假设 InstanceId 入参值为主实例的ID，仅 InstanceType 支持拉取主机（取值为1）、从机（取值为2）、只读实例（取值为3）、第二从机（取值为4）的监控数据。
 > - 假设 InstanceId 入参值为主实例的ID，InstanceType入参为 2 （从机），且该主实例是三节点（一主两从）。由于拉取从机监控数据仅支持单节点和双节点，会导致缺少一个监控节点数据。
 > - 若需要拉取只读实例监控数据，InstanceId 需入参为只读实例 ID。
 

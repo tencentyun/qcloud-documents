@@ -8,21 +8,10 @@
 2. 执行 `zypper service-list` 或 `zypper sl` 命令，列出软件源。
 例如，执行 `zypper sl` 命令，返回类似如下信息：
 ![](https://main.qcloudimg.com/raw/ee336605784eca333f10777ccb7cf5ed.png)
- - 如果软件源中已经添加了可用源，请 [安装软件包](#SearchPackage)。
- - 如果软件源未添加可用源，请 [添加软件源](#AddSoftwareSource)。
 
-<spam id="AddSoftwareSource"></span>
-### 添加软件源
 
-执行 `zypper service-add` 或 `zypper sa` 命令，手动添加软件源。
-例如，执行 `zypper sa` 命令，其示例如下：
-```
-zypper sa -t YaST http://mirrors.cloud.tencent.com/opensuse opensuse
-zypper sa -t YaST http://mirrors.cloud.tencent.com/opensuse/update update
-```
 
-<span id="SearchPackage"></span>
-### 安装软件包
+### 安装软件包[](id:SearchPackage)
 
 1. 执行 `zypper search` 或 `zypper se` 命令，搜索软件包。
 例如，搜索 Nginx 软件包，则可执行以下命令：
@@ -32,9 +21,9 @@ zypper se nginx
 返回类似如下结果：
 ![](https://main.qcloudimg.com/raw/292106a01b048171007247cb9cdf00c0.png)
 2. 根据搜索到的软件包名，执行 `zypper install` 或 `zypper in` 命令，安装软件。
->? 如果您需要安装多个软件，软件包名之间用空格隔开。
-> 安装软件时，如果该软件需要依赖包，会自动下载安装，无需自己安装依赖包。
-> 
+<dx-alert infotype="explain" title="">
+如果您需要安装多个软件，软件包名之间用空格隔开。安装软件时，如果该软件需要依赖包，会自动下载安装，无需自己安装依赖包。
+</dx-alert>
 例如，安装 Nginx，则可执行以下命令：
 ```
 zypper install nginx

@@ -9,7 +9,7 @@ Namespace=QCE/WAF
 
 | 指标英文名  | 指标中文名      | 单位 | 维度            |
 | ----------- | --------------- | ---- | --------------- |
-| Access      | 访问总次数      |  次    | domainedition   |
+| Access      | 访问总次数      |  次    | domain、edition   |
 | Attack      | Web 攻击次数    |    次  | domain、edition |
 | Cc          | CC 攻击         |  次    | domain、edition |
 | Down        | 下行带宽        | B/S  | domain、edition |

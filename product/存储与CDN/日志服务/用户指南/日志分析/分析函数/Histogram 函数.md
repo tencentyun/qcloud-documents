@@ -1,5 +1,4 @@
->? 当前日志服务已支持大部分地域使用 CLS 函数。北京、上海、广州、南京地域如有需要，请 [提交工单](https://console.cloud.tencent.com/workorder/category)。
->
+
 
 时间函数支持对日志时间进行格式转换，分组聚合等处理，通常应用于根据日志时间做统计分析的场景。
 
@@ -50,7 +49,7 @@ histogram(long, interval)
 
 统计每5分钟访问次数 PV 值。
 ```
-* | select histogram(cast(__TIMESTAMP__ as timestamp),INTERVAL 5 MINUTE) AS dt, count(*) as PV group by dt order by dt
+* | select histogram(cast(__TIMESTAMP__ as timestamp),INTERVAL 5 MINUTE) AS dt, count(*) as PV group by dt order by dt limit 1000
 ```
 ![image-20210719003224086](https://main.qcloudimg.com/raw/13bfe6019fb000314de02acbeb7b68f7.png)
 

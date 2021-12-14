@@ -47,7 +47,7 @@ Metal.framework
     在工程【Build Setting】>【Other Link Flags】中，增加【-ObjC】选项。
     ![](https://main.qcloudimg.com/raw/41cb5945d9298763319e8ebba597f345.jpg)
 5. 添加动效资源：
- >!请正确添加下述资源，否则切换到换脸类素材时会发生 Crash 等问题。
+>!请正确添加下述资源，否则切换到换脸类素材时会发生 Crash 等问题。
 
   将 SDK/Resource 下的文件以`groups`的形式添加到工程中。
  ![](https://main.qcloudimg.com/raw/222ead2a8eef518ab7d0893a233715cb.png)
@@ -58,7 +58,7 @@ Metal.framework
     在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。
   - **Privacy - Microphone Usage Description**，并填入麦克风使用目的提示语。
   - **Privacy - Camera Usage Description**，并填入摄像头使用目的提示语。
-
+  
  ![](https://main.qcloudimg.com/raw/107480eac7337164e99fe803c414b754.jpg)
 
 ### 4. 给 SDK 配置 License 授权
@@ -296,7 +296,7 @@ Metal.framework
 [UIDevice wmcUniqueGlobalDeviceIdentifier]: unrecognized selector sent to instance
 ```
 ### 工程特效不生效？  
-- 检查是否已调用`+[TXLiveBase setLicenceURL:key:]`方法，以及参数是否正确。
+- 检查是否已调用 `+[TXLiveBase setLicenceURL:key:]` 方法，以及参数是否正确。
 - 调用 TXLiveBase 的 getLicenseInfo() 方法，带有动效的 Licence 会包含`pituLicense`字段。
 - 检查 pitu 资源是否添加正确，尤其要注意 `handdetect`，`handtrack`，`res18_3M`三个文件夹要以 folder refrence 形式添加，最简单的方法就是比对您工程中添加的动效文件是否和 demo 添加的完全一致  。
 - SDK 会把 Licence 下载到沙盒的 Documents 目录当中, 可以在开发过程中使用 Xcode 菜单中 “Window > Devices and Simulators” 工具导出并使用 [License 校验工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 查看有效期。

@@ -1,54 +1,36 @@
 本文主要介绍腾讯云视立方 SDK 的直播播放功能。
-## 视立方版本支持
-本页文档所描述功能，在视立方中支持情况如下：
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
 | 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | &#10003;  | &#10003;                                                            |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/dev/home.html?sdk=allPart) |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978?!preview&!editLang=zh)。
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
-## 基础知识
-### 直播和点播 
-- **直播（LIVE）**的视频源是主播实时推送的。因此，主播停止推送后，播放端的画面也会随即停止，而且由于是实时直播，所以播放器在播直播 URL 的时候是没有进度条的。
-- **点播（VOD）**的视频源是云端的一个视频文件，只要未被从云端移除，视频就可以随时播放， 播放中您可以通过进度条控制播放位置，腾讯视频和优酷土豆等视频网站上的视频观看就是典型的点播场景。
-
-### 协议的支持
-通常使用的直播协议如下，标准直播推荐使用 FLV 协议的直播地址（以 `http` 开头，以 `.flv` 结尾），快直播使用 WebRTC 协议，更多信息请参见 [快直播拉流](https://cloud.tencent.com/document/product/454/55880)：
-
-|直播协议 |优点 |缺点 |播放延迟 |
-|---------|---------|---------|---------|
-|FLV |成熟度高、高并发无压力 |需集成 SDK 才能播放 |2s - 3s |
-|RTMP |延迟较低 |高并发情况下表现不佳 |1s - 3s |
-|HLS(m3u8) |手机浏览器支持度高 |延迟非常高 |10s - 30s |
-|WebRTC |延迟最低 |需集成 SDK 才能播放 |< 1s |
-
-
->?标准直播与快直播计费价格不同，更多计费详情请参见 [标准直播计费](https://cloud.tencent.com/document/product/267/34175) 和 [快直播计费](https://cloud.tencent.com/document/product/267/39136)。
-
-
-## 特别说明
-腾讯云视立方 SDK **不会对播放地址的来源做限制**，即您可以用它来播放腾讯云或非腾讯云的播放地址。但视频云 SDK 中的播放器只支持 FLV 、RTMP、HLS（m3u8）和 WebRTC 四种格式的直播地址，以及 MP4、 HLS（m3u8）和 FLV 三种格式的点播地址。
 
 ## 示例代码
 针对开发者的接入反馈的高频问题，腾讯云提供有更加简洁的 API-Example 工程，方便开发者可以快速的了解相关 API 的使用，欢迎使用。
 
 | 所属平台 |                         GitHub 地址                          |
 | :------: | :----------------------------------------------------------: |
-|   iOS    | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example) |
+|   iOS    | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example-OC) |
 | Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) |
 
 ## 对接攻略
-[](id:step1)
-### 步骤1：创建 Player
+### 步骤1：下载 SDK 开发包
+[下载](https://cloud.tencent.com/document/product/1449/56978) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/1449/56986) 将 SDK 嵌入您的 App 工程中。
+
+[](id:step2)
+### 步骤2：创建 Player
 腾讯云视立方 SDK 中的 V2TXLivePlayer 模块负责实现直播播放功能。
 ```objectivec
 V2TXLivePlayer *_txLivePlayer = [[V2TXLivePlayer alloc] init];
 ```
 
-[](id:step2)
-### 步骤2：渲染 View
+[](id:step3)
+### 步骤3：渲染 View
 接下来我们要给播放器的视频画面找个地方来显示，iOS 系统中使用 view 作为基本的界面渲染单位，所以您只需要准备一个 view 并调整好布局就可以了。
 
 ```objectivec
@@ -71,15 +53,15 @@ V2TXLivePlayer *_txLivePlayer = [[V2TXLivePlayer alloc] init];
 }];
 ```
 
-[](id:step3)
-### 步骤3：启动播放
+[](id:step4)
+### 步骤4：启动播放
 ```objectivec
 NSString* url = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 [_txLivePlayer startPlay:url];
 ```
 
-[](id:step4)
-### 步骤4：画面调整
+[](id:step5)
+### 步骤5：画面调整
 
 - **setRenderFillMode：铺满 or 适应**
 <table>
@@ -110,8 +92,8 @@ NSString* url = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 
 ![](https://main.qcloudimg.com/raw/f3c65504a98c38857ff3e78bcb6c9ae9.jpg)
 
-[](id:step5)
-### 步骤5：暂停播放
+[](id:step6)
+### 步骤6：暂停播放
 对于直播播放而言，并没有真正意义上的暂停，所谓的直播暂停，只是**画面冻结**和**关闭声音**，而云端的视频源还在不断地更新着，所以当您调用 resume 的时候，会从最新的时间点开始播放，这是和点播对比的最大不同点（点播播放器的暂停和继续与播放本地视频文件时的表现相同）。
 
 ```objectivec
@@ -123,16 +105,16 @@ NSString* url = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 [_txLivePlayer resumeVideo];
 ```
 
-[](id:step6)
-### 步骤6：结束播放
+[](id:step7)
+### 步骤7：结束播放
 
 ```objectivec
 // 停止播放
 [_txLivePlayer stopPlay];
 ```
 
-[](id:step7)
-### 步骤7：屏幕截图
+[](id:step8)
+### 步骤8：屏幕截图
 通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕通过 V2TXLivePlayerObserver 的 [onSnapshotComplete](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#a5754eb816b91fd0d0ac1559dd7884dad) 回调截屏图片，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 iOS 的系统 API 来实现。
 ![](https://main.qcloudimg.com/raw/d86e665e3fc709c07d170e2ab3e2a7ef.jpg)
 ```
@@ -187,7 +169,7 @@ NSString* url = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 //设置完成之后再启动播放
 ```
 
->? 更多关于卡顿和延迟优化的技术知识，请参见 [优化视频卡顿](https://cloud.tencent.com/document/product/1449/58943?!preview&!editLang=zh)。
+>? 更多关于卡顿和延迟优化的技术知识，请参见 [优化视频卡顿](https://cloud.tencent.com/document/product/1449/58943)。
 
 [](id:sdklisten)
 ## SDK 事件监听

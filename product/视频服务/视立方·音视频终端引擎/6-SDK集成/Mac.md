@@ -1,5 +1,15 @@
-本文主要介绍如何快速地将腾讯云视立方 SDK（Mac）集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
+本文主要介绍如何快速地在 Mac 端将腾讯云视立方 SDK 集成到您的项目中，腾讯云视立方 SDK Mac 端仅**音视频通话 TRTC 版本**支持。按照如下步骤进行配置，就可以完成 SDK 在 Mac 端的集成工作。
 
+## 版本支持
+
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
+
+| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| 支持情况 | - | - | - | &#10003; | - | - |
+| SDK 下载 <div style="width: 90px"/>  | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
+
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 开发环境要求
 - Xcode 9.0+。
@@ -59,7 +69,7 @@ pod update
 pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工程文件，双击打开即可。
 
 ### 手动集成
-1. 下载 [TRTC-SDK ](https://vcube.cloud.tencent.com/dev/home.html?sdk=video) 的 Mac 版本。
+1. 下载 [TRTC-SDK ](https://vcube.cloud.tencent.com/home.html?sdk=video) 的 Mac 版本。
 2. 打开您的 Xcode 工程项目，将第一步中下载的 framework 导入到您的工程。
 3. 选择要运行的 target，选中 Build Phases 项。
 ![](https://main.qcloudimg.com/raw/b5097f8ac4cbaa5044d92b2a96ea2b9e.jpg)
@@ -72,7 +82,7 @@ pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工�
 ## 授权摄像头和麦克风使用权限
 使用 SDK 的音视频功能，需要授权麦克风和摄像头的使用权限。在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。
 - **Privacy - Microphone Usage Description**，并填入麦克风使用目的提示语。
-- **Privacy - Camera Usage Description**，并填入摄像头使用目的提示语 。
+- **Privacy - Camera Usage Description**，并填入摄像头使用目的提示语。
 如下图所示：
 ![](https://main.qcloudimg.com/raw/be76bd6f3f22d31385d871710b51b771.jpg) 
 
@@ -106,4 +116,4 @@ pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工�
 using namespace trtc;
 ```
 
->? 对于 C++ 接口的使用方式，请参见 [全平台（C++）API 概览](https://tcloud-doc.isd.com/document/product/1449/58932?!preview&!editLang=zh)。
+>? 对于 C++ 接口的使用方式，请参见 [全平台（C++）API 概览](https://cloud.tencent.com/document/product/1449/58932)。
