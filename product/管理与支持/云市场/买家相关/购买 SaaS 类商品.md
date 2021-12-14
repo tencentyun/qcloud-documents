@@ -23,8 +23,8 @@
  ![](https://qcloudimg.tencent-cloud.cn/raw/5d2d9ecc0914e1748e8e94b3a08336e6.png)
 
 ### 涉及人工交付的 SaaS 商品
-如您购买的 SaaS 商品涉及人工交付，支付成功后，需要进入 [买家中心 > 交付中心](https://console.cloud.tencent.com/servicemarket/deliver/details?id=20211118656000710908461) 页面提交需求，并及时跟踪订单服务的进度。
-1. 购买服务后，进入 [买家中心 > 交付中心](https://console.cloud.tencent.com/servicemarket/deliver/details?id=20211118656000710908461)页面提交需求。
+如您购买的 SaaS 商品涉及人工交付，支付成功后，需要进入 [买家中心 > 交付中心](https://console.cloud.tencent.com/servicemarket/deliver) 页面提交需求，并及时跟踪订单服务的进度。
+1. 购买服务后，进入 [买家中心 > 交付中心](https://console.cloud.tencent.com/servicemarket/deliver)页面提交需求。
  ![](https://qcloudimg.tencent-cloud.cn/raw/9f928d0431c45d212a3015cfe063ebca.png)
 2. 填写需求信息，上传需求附件，单击**提交**。
  ![](https://qcloudimg.tencent-cloud.cn/raw/61264f2037276bfa05a60ad83b2b714c.png)
@@ -34,7 +34,7 @@
 
 
 ## 验收服务
-1. 进入 [买家中心 > 交付中心](https://console.cloud.tencent.com/servicemarket/deliver/details?id=20211118656000710908461) 页面查看服务进展。
+1. 进入 [买家中心 > 交付中心](https://console.cloud.tencent.com/servicemarket/deliver) 页面查看服务进展。
 2. 服务商实施服务完成后，提交您确认及验收服务，交付状态为“待用户验收”，您可以操作验收。
  ![](https://qcloudimg.tencent-cloud.cn/raw/bcb48f36338f575abc31d258f35af4ce.png)
 3. 确认服务商已实施并完成服务交付后，单击**验收服务**，完成服务交付。
