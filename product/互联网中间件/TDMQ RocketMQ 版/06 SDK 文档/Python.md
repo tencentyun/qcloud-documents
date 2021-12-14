@@ -194,7 +194,7 @@ consumer.shutdown()
 ### 步骤4：查看消费详情
 
 登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，在**集群管理** > **Group** 页面，可查看与 Group 连接的客户端列表，单击操作列的**查看详情**，可查看消费者详情。
-![img](https://main.qcloudimg.com/raw/7187da67219534d767206553e2a383ab.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/924898b7a5568be778449bf51034396d.png)
 
 >?上述是对消息的发布和订阅方式的简单介绍。更多操作可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-python-sdk-demo.zip) 或 [RocketMQ-Client-Python 示例](https://github.com/apache/rocketmq-client-python/tree/master/samples) 。
 
