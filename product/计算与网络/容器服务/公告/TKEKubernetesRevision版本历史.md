@@ -42,7 +42,7 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
-<tr><td>2021-12-09</td><td>v1.18.4-tke.17</td><td><li> 解决当集群中有大量 volumeattachmant 对象时，kube-controller-manage 访问 api-server 被限频的问题 。(kube-controller-manager)</li><li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/95650"> PR95650</a>，HPA 计算副本数时忽略已删除 Pod。(kube-controller-manager)</li><li>修复 EKS 计算 cpu 资源时与前端不一致的问题。(kube-scheduler)</li></td></tr>
+<tr><td>2021-12-09</td><td>v1.18.4-tke.17</td><td><li> 解决当集群中有大量 volume attachment 对象时，kube-controller-manager 访问 api-server 被限频的问题 。(kube-controller-manager)</li><li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/95650"> PR95650</a>，HPA 计算副本数时忽略已删除 Pod。(kube-controller-manager)</li><li>修复 EKS 计算 cpu 资源时与前端不一致的问题。(kube-scheduler)</li></td></tr>
 <tr><td>2021-12-02</td><td>v1.18.4-tke.16</td><td><li>修复调度到虚拟节点时的 bug。(kkube-scheduler)</li><li>优化虚拟节点调度算法。(kube-scheduler)</li></td></tr>
 	<tr><td>2021-11-26</td><td>v1.18.4-tke.15</td>
 <td><ul class="params"><li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/96444" target="_blank">pr96444</a>，在同步 RBAC 策略时，如果有错误则返回重试。(kube-apiserver)</li>
