@@ -9,10 +9,12 @@
 
 ## 操作步骤
 
-1. 准备环境。
-   1. 需要在客户端环境安装 RocketMQ-Client-CPP 库，根据官方文档进行安装即可 [安装CPP动态库](https://github.com/apache/rocketmq-client-cpp)，**推荐使用 master 分支构建**。
-   2. 在项目中引入 RocketMQ-Client-CPP 相关头文件及动态库。
-2. 初始化消息生产者。
+### 步骤1：准备环境
+1. 需要在客户端环境安装 RocketMQ-Client-CPP 库，根据官方文档进行安装即可 [安装CPP动态库](https://github.com/apache/rocketmq-client-cpp)，**推荐使用 master 分支构建**。
+2. 在项目中引入 RocketMQ-Client-CPP 相关头文件及动态库。
+
+### 步骤2：初始化消息生产者
+1. 创建消息生产者。
 <dx-codeblock>
 :::  c++
    // 设置生产组名称
@@ -62,7 +64,7 @@
         </td>
     </tr>
 </table>
-3. 发送消息。
+2. 发送消息。
 <dx-codeblock>
 :::  c++
    // 初始化消息内容
@@ -103,14 +105,16 @@
         <td>设置消息业务 key。</td>
     </tr>
 </table>
-4. 资源释放。
+3. 资源释放。
 <dx-codeblock>
 :::  c++
    // 释放资源
    producer.shutdown();
 :::
 </dx-codeblock>
-5. 初始化消费者。
+
+### 步骤3：初始化消费者
+1. 创建消费者。
 <dx-codeblock>
 :::  c++
    // 消息监听
@@ -196,14 +200,17 @@
         <td>用来设置订阅消息的 TAG。</td>
     </tr>
 </table>
-6. 资源释放。
+2. 资源释放。
 <dx-codeblock>
 :::  c++
    // 资源释放
    consumer->shutdown();
 :::
 </dx-codeblock>
-7. 查看消费详情。登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，在**集群管理** > **Group** 页面，可查看与 Group 连接的客户端列表，单击操作列的**查看详情**，可查看消费者详情。
+
+
+### 步骤4：查看消费详情
+登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，在**集群管理** > **Group** 页面，可查看与 Group 连接的客户端列表，单击操作列的**查看详情**，可查看消费者详情。
 ![](https://qcloudimg.tencent-cloud.cn/raw/924898b7a5568be778449bf51034396d.png)
 
 
