@@ -2,7 +2,7 @@
 ## 选购商品
 1. 登录 [腾讯云云市场](https://market.cloud.tencent.com/categories?dt=saas)，选购 SaaS 类商品。
 2. 寻找到您所需要的商品后，选择您所需的商品规格以及周期，单击**立即购买**。
-![](https://main.qcloudimg.com/raw/c58004cd4150b82cf0272fbbf448c150.png)  
+![](https://qcloudimg.tencent-cloud.cn/raw/baf122b05f01bd19e19c025658019652.png)
 
 ## 核对信息并支付 
 核对订单信息，单击**立即购买**后进行支付。
