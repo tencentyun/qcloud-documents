@@ -38,6 +38,11 @@ import tiacc_training.torch
 import tiacc_training.torch.distributed as tdist
 tdist.init_tiacc_training()
 ```
+以兼容原生 ddp 的方式启动脚本，参考示例如下：
+```
+python3 -u -m tiacc_training.torch.distributed.launch --nproc_per_node $GPUS_PER_NODE --nnodes $NNODES --node_rank $NODE_RANK --master_addr $MASTER_ADDR --master_port $MASTER_PORT main.py
+```
+
 以 mpirun 的方式启动训练脚本，2机16卡训练脚本的内容参考示例如下：
 ```
 node_list=node1:8,node2:8   //node1和node2为服务器IP或主机名
