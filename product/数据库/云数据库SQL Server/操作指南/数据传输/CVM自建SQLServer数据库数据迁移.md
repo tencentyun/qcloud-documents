@@ -8,7 +8,7 @@
 
 ## 操作步骤
 ### 步骤一：创建迁移任务
-1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)，在左侧栏选择【数据传输】页。
+1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)，在左侧栏选择【数据迁移旧版】。
 2. 单击【创建任务】，填写任务名称、源库信息、目标库信息，源实例类型选择【云服务器自建SQL Server数据库】。
 ![](https://main.qcloudimg.com/raw/da77fa7fe6ed5dc4c493861d1850ee3d.png)
 3. 单击【下一步】后，需先对 [源 SQL Server 实例进行相关配置](#step2) 再继续 [配置迁移任务](#step3)。
