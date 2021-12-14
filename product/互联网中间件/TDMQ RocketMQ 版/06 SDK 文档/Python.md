@@ -106,7 +106,7 @@ producer.shutdown()
     </tr>
 </table>
 
-### 步骤3. 消费消息
+### 步骤3：消费消息
 
 创建并编译运行消费消息程序。
 <dx-codeblock>
