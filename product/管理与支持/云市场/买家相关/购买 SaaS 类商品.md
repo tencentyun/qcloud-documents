@@ -30,14 +30,14 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/dc4624324f50a6f8340dffbbbb026d49.png)
 >?对于“待确认需求”状态下的需求，如需求有变动，用户可单击**编辑**，重新提交需求。如服务商已确认需求，则不支持再次编辑。
 3. 提交需求成功后，等待服务商确认需求及实施服务。您可以在交付中心列表或详情页面查看服务状态及历史记录。
-![](https://qcloudimg.tencent-cloud.cn/raw/c89f0c0d002288b90d0f3ef91700fd9a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/37df21509a244398d7fc727f6bf4524e.png)
 
 
 ## 验收服务
 1. 进入 [买家中心 > 交付中心](https://console.cloud.tencent.com/servicemarket/deliver) 页面查看服务进展。
 2. 服务商实施服务完成后，提交您确认及验收服务，交付状态为“待用户验收”，您可以操作验收。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4adf04a651bfae01fc6fc1db6e61440f.png)
-3. 确认服务商已实施并完成服务交付后，单击**验收服务**，完成服务交付。
+3. 确认服务商已实施并完成服务交付后，单击**提交**，完成服务交付。
 ![](https://qcloudimg.tencent-cloud.cn/raw/537ef7f95fd56da3fdbf2e2ad9ffcaa1.png)
 >! 
 >- 如果服务商的服务实施和交付有问题，您可以操作点击“驳回验收”，驳回后服务商从新进入实施服务环节。
