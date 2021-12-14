@@ -234,7 +234,7 @@ width: 25%;
 | 身份信息核验       | 0.3元/次                   | 0.3元/次                     | 0.28元/次                    | 0.26元/次                     | [联系商务](https://cloud.tencent.com/about/connect) |
 | 银行卡信息核验     | 0.4元/次                   | 0.38元/次                    | 0.36元/次                    | 0.34元/次                     | [联系商务](https://cloud.tencent.com/about/connect) |
 | 手机号在网时长/状态查询    | 0.4元/次                   | 0.38元/次                    | 0.36元/次                    | 0.36元/次                     | [联系商务](https://cloud.tencent.com/about/connect) |
-| 手机号信息核验（二要素）    | 0.38元/次                   | 0.38元/次                   | 0.37元/次                    | 0.36元/次                     | [联系商务](https://cloud.tencent.com/about/connect) |
+| 手机号信息核验（二要素）    | 0.38元/次                   | 0.4元/次                   | 0.37元/次                    | 0.36元/次                     | [联系商务](https://cloud.tencent.com/about/connect) |
 | 银行卡基础信息查询 | 0.3元/次                   | 0.3元/次                     | 0.3元/次                     | 0.2元/次                      | [联系商务](https://cloud.tencent.com/about/connect) |
 
 |计费标签    |定价|
