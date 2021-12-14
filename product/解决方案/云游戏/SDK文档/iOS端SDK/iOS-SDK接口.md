@@ -296,7 +296,7 @@ SDK 初始化成功回调。
 
 [](id:showKeyGamepad)
 ### [TCGVKeyGamepad showKeyGamepad:]
-加载虚拟按键布局并生成按键，虚拟按键配置文件与 Android SDK、JS SDK 通用
+加载虚拟按键布局并生成按键，虚拟按键配置文件与 Android SDK、JS SDK 通用。
 
 | 参数 | 类型     | 描述                |
 | ---- | -------- | ------------------- |
@@ -336,7 +336,7 @@ SDK 初始化成功回调。
 | image      | UIImage | 鼠标指针图标                 |
 | imageFrame | CGRect  | view的大小位置，云端主动下发 |
 
-[](id:)
+[](id:clickKeyboard)
 ### [TCGGameController clickKeyboard:isDown:]
 发送键盘事件，推荐使用 [TCGVKeyGamepad](#initWithFrame)。
 
@@ -345,7 +345,7 @@ SDK 初始化成功回调。
 | keycode | int  | 按键值                        |
 | isDown  | BOOL | true 表示按下，false 表示抬起 |
 
-[](id:)
+[](id:clickGamepadKey)
 ### [TCGGameController clickGamepadKey:isDown:]
 发送游戏手柄按键事件，推荐使用 [TCGVKeyGamepad](#initWithFrame)。
 
@@ -354,7 +354,7 @@ SDK 初始化成功回调。
 | keycode | int  | 按键值                                    |
 | isDown  | BOOL | YES 表示发送按下消息，NO 表示发送抬起消息 |
 
-[](id:)
+[](id:turnJoyStickX)
 ### [TCGGameController turnJoyStickX:y:isLeft:]
 转动游戏手柄的（左/右）摇杆，推荐使用 [TCGVKeyGamepad](#initWithFrame)。
 
@@ -395,7 +395,7 @@ return：数据通道对象，与云端连接的结果通过代理异步回调�
 ### [TCGCustomTransChannel sendData:]
 给云端 UDP 端口发送数据。
 
-return：发送状态。**0**发送成功，**-1** 数据超过长度， **-2** 当前通道未连接成功。
+return：发送状态。**0**发送成功，**-1** 数据超过长度，**-2** 当前通道未连接成功。
 
 | 参数 | 类型   | 描述                                           |
 | ---- | ------ | ---------------------------------------------- |
@@ -440,7 +440,7 @@ return：发送状态。**0**发送成功，**-1** 数据超过长度， **-2** 
 | remotePort | int    | 云端应用监听的端口号 |
 
 ## 调试及日志相关接口
-[](id:)
+[](id:setLogger)
 ### [TCGGamePlayer setLogger:withMinLevel:]
 设置日志回调接收者及过滤等级。
 
