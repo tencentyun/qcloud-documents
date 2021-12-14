@@ -25,6 +25,10 @@ TRTC Web SDK 对浏览器的详细支持度，请参见 [TRTC Web SDK 对浏览�
 ### 是否支持混流、旁路推流、大小流、美颜、水印？
 您可请参见 [混流](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#startMixTranscode)、[旁路推流](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-26-advanced-publish-cdn-stream.html)、[大小流](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-27-advanced-small-stream.html)、[美颜](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-28-advanced-beauty.html) 、[水印](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-29-advance-water-mark.html)文档实现高级功能。
 
+[](id:b6)
+### WebRTC 有哪些已知问题？
+具体请参见 [WebRTC 已知问题及规避方案](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-02-info-webrtc-issues.html)。
+
 ## 二、推拉流问题
 [](id:p1)
 ### Web 端 SDK 日志中报错 NotFoundError、NotAllowedError、NotReadableError、OverConstrainedError 以及 AbortError 分别是什么意思？
@@ -84,6 +88,10 @@ Web 端支持发起混流，具体请参见 [如何调用混流转码接口](htt
 若您使用 [TRTC.createStream](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#createStream) 接口进行采集，则无需手动设置 3A 参数，SDK 默认开启 3A。
 
 ## 四、其他
+[](id:o0)
+### 2.x、3.x 版本的 SDK，在 Chrome 96+ 版本无法正常通话该如何处理？
+最新版本的 [Chrome 96 废弃了 Plan-B](https://www.chromestatus.com/feature/5823036655665152)，将会导致 TRTC 实时音视频老版本的(2.x, 3.x) Web SDK 会出现无法通话的情况，请您尽快将 Web SDK 升级至我们的最新版本(4.x)。4.x 版本 SDK 的接口与老版本(2.x, 3.x)不兼容，请参考 [快速集成(Web)](https://cloud.tencent.com/document/product/647/16863) 升级接入 4.x 版本 SDK。
+
 [](id:o1)
 ###  运行 Web 端 SDK 时，出现错误：“RtcError: no valid ice candidate found”该如何处理？
 出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请检查防火墙配置。TRTC 桌面浏览器 SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html) 检查配置是否生效。
