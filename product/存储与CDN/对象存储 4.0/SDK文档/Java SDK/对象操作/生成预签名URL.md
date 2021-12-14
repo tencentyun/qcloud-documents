@@ -151,8 +151,8 @@ cosClient.shutdown();
 | bucketName      | 存储桶名称，存储桶的命名格式为 BucketName-APPID，详情请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | String |
 | key             | 对象键（Key）是对象在存储桶中的唯一标识，详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324#.E5.AF.B9.E8.B1.A1.E9.94.AE) | String                  |
 | expiration      | 签名过期的时间，可以设置任意一个未来的时间，不设置则默认是1小时之后过期              | Date                    |
-| headers         | 签名头部   | Map<String, String> |
-| params         | 签名参数   | Map<String, String> |
+| headers         | 签名头部   | Map&lt;String, String> |
+| params         | 签名参数   | Map&lt;String, String> |
 
 ### 生成覆盖返回头部的预签名下载 URL
 
