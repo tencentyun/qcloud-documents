@@ -71,6 +71,8 @@ Port 2222
 ### 步骤2：使用加速
 #### 使用训练加速
 训练加速中的通信加速能力通过兼容原生的 DDP 工具提供，用户无需修改原生的使用代码可直接进行使用，数据 IO 优化、自适应 FP16 都通过封装好的简单函数/类进行提供，用户仅需增加几行代码便可使用。
+
+
 ##### 引入训练加速库
 
 ```
@@ -84,6 +86,11 @@ import tiacc_training.torch
 import tiacc_training.torch.distributed as tdist
 tdist.init_tiacc_training()
 ```
+以兼容原生 DPP 的方式启动脚本，参考示例如下：
+```
+python3 -u -m tiacc_training.torch.distributed.launch --nproc_per_node $GPUS_PER_NODE --nnodes $NNODES --node_rank $NODE_RANK --master_addr $MASTER_ADDR --master_port $MASTER_PORT main.py
+```
+
 以 mpirun 的方式启动训练脚本，2机16卡训练脚本的内容参考示例如下：
 ```
 node_list=node1:8,node2:8   //node1和node2为服务器IP或主机名
