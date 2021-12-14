@@ -160,7 +160,7 @@
 			  </tr>
 				<tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/33848">手机号三要素核验</a></td>
-			 <td> 手机号三要素</td>
+			 <td> 手机号信息核验（三要素）</td>
 <td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
 			  </tr>			
 </table>
