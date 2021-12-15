@@ -46,7 +46,7 @@
 	  <ol style="margin: 0;">
 		<li>
 		存储空间：目标云服务器的云硬盘（包括系统盘和数据盘）必须具备足够的存储空间用来装载源端的数据。</li>
-		<li>安全组：Linux 作为待迁移系统时，安全组中不能限制443端口和80端口。若为 Windows，那么迁移安全组中不能限制3389端口和80端口。</li>
+		<li>安全组：安全组中不能限制3389端口和80端口。</li>
 		<li>
 		带宽设置：建议尽可能调大两端的带宽，以便更快迁移。迁移过程中，会产生约等于数据量的流量消耗，如有必要请提前调整网络计费模式。</li>
 		<li>
@@ -59,20 +59,20 @@
 	<th>Windows 源端主机</th>
 	<td>
 	  <ol style="margin: 0;">
-		<li>检查和安装 Virtio。Windows 系统默认未安装 Virtio 驱动，用户可安装 Windows Virtio 驱动后导出本地镜像。Windows Virtio 驱动 <a href="http://mirrors.tencent.com/install/windows/virtio_64_1.0.9.exe">下载地址</a>。
-		<li>检查和安装 cloudbaseinit，详情请参见 <a href="https://cloud.tencent.com/document/product/213/30000">Windows 操作系统安装 Cloudbase-Init</a>。您可以选择迁移前在源端主机安装，也可迁移后在目标实例安装。在迁移前安装，迁移后将会进行自动配置网络、激活等初始化操作，若未在迁移前安装，您可能需要 <a href="https://cloud.tencent.com/document/product/213/35704">使用 VNC 登录实例</a> 并手动修改网络配置。</li>
+		<li>检查和安装 Virtio。Windows 系统默认未安装 Virtio 驱动，您可在安装 Windows Virtio 驱动后导出本地镜像。<a href="http://mirrors.tencent.com/install/windows/virtio_64_1.0.9.exe">点击此处</a> 下载 Windows Virtio 驱动 。
+		<li>检查和安装 Cloudbase-Init，详情请参见 <a href="https://cloud.tencent.com/document/product/213/30000">Windows 操作系统安装 Cloudbase-Init</a>。您可以选择迁移前在源端主机安装，也可迁移后在目标实例安装。若在迁移前安装，则迁移后将会进行自动配置网络、激活等初始化操作。若未在迁移前安装，您可能需要 <a href="https://cloud.tencent.com/document/product/213/35704">使用 VNC 登录实例</a> 并手动修改网络配置。</li>
 	  </ol>
 	</td>
   </tr>
 </table>
 <dx-alert infotype="explain" title="">
-源端主机的所有磁盘都将迁移，若有多块磁盘（这里指的并非分区），那么您需要按顺序购买对应数量和大小的磁盘挂载到目标云服务器上。
+源端主机的所有磁盘都将迁移，若有多块磁盘（这里指的并非分区），那么您需要按顺序购买对应数量和大小的磁盘挂载至目标云服务器。
 </dx-alert>
 
 
 
 ### 发起迁移
-1. 以 Administrator 用户登录源端主机，使用管理员权限运行 cmd.exe。
+1. 使用 Administrator 用户登录源端主机，并以管理员权限运行 cmd.exe。
 2. 在打开的 cmd 窗口中，进入 go2tencentcloud 文件目录，并执行以下命令，运行工具。
 ```sh
 go2tencentcloud_windows_x64.exe
@@ -93,7 +93,7 @@ go2tencentcloud_windows_x64.exe
 开始迁移后目标云服务器将进入迁移模式，请不要对目标云服务器进行重装系统、关机、销毁、重置密码等操作，直至迁移完成退出迁移模式。 
 </dx-alert>
 
-一般公网迁移模式下，迁移成功将会输出 Migrate successfully 信息。如下图所示：
+迁移成功将会输出 Migrate successfully 信息。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/96525aa2e9ffa861fd244ca20734d7f3.png)
 此时，您可以按任意键退出迁移模式，并登录目标服务器检查是否迁移完成。
 
