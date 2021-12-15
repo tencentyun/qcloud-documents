@@ -1,4 +1,4 @@
-本文介绍如何将 CLB 健康检查的源 IP 由默认的 CLB 的虚拟服务地址（[VIP](https://cloud.tencent.com/document/product/214/33040#V)）设置为100.64网段。
+本文介绍如何将 CLB 健康检查的源 IP 由默认的 CLB 的虚拟服务地址（[VIP](https://cloud.tencent.com/document/product/214/33040#93)）设置为100.64网段。
 
 ## 使用场景
 1. **收敛后端服务器安全组**
