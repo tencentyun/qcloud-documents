@@ -155,7 +155,7 @@ defaultConfig {
 
 ### 步骤3：导入 TUICalling 组件
 
-include App下的 Source 到您的项目中：
+拷贝 Source 目录到您的工程中，并在 `setting.gradle` 中完成导入，参考如下：
 
 ```
 include ':Source'
