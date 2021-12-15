@@ -236,7 +236,7 @@ Request 成员说明：
 | contentType     | set 方法            | 要签名的请求中的 Content-Type                                | String                  |
 | contentMd5      | set 方法            | 要签名的请求中的 Content-Md5                                 | String                  |
 | responseHeaders | set 方法            | 签名的下载请求中要覆盖的返回的 HTTP 头                       | ResponseHeaderOverrides |
-| versionId | set 方法            | 在存储桶开启多版本的时候，指定对象的版本号                       | String |
+| versionId | set 方法            | 在存储桶开启版本控制的时候，指定对象的版本号                       | String |
 
 ### 生成签名
 
