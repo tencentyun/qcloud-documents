@@ -4,7 +4,7 @@
 
 ## 前提条件
 
-- 已创建PolarisMesh服务治理中心，请参考[创建PolarisMesh治理中心]()。
+- 已创建PolarisMesh服务治理中心，请参考[创建PolarisMesh治理中心](https://cloud.tencent.com/document/product/1364/65866)。
 - 下载github的[demo源码](https://github.com/Tencent/spring-cloud-tencent/tree/main/spring-cloud-tencent-examples/polaris-quickstart-example)到本地并解压。
 - 本地编译构建打包机器环境已安装了Java JDK、Maven，并且能够访问Maven中央库。
 - 【虚拟机部署】已创建CVM虚拟机，请参考[创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)
