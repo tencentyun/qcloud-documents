@@ -482,9 +482,9 @@
 ### HDFS-DataNode
 <table>
 <tr>
-<th width=15%>标题 </th>
+<th width=18%>标题 </th>
 <th width=20%>指标名称 </th>
-<th width=15%>指标单位</th>
+<th width=12%>指标单位</th>
 <th width=50%>指标含义 </th>
 </tr><tr>
 <td >XCEIVER数量 </td>
@@ -1027,7 +1027,6 @@
 <td >ms </td>
 <td >RPC 平均延迟时间 </td>
 </tr><tr>
-
 <td rowspan=4>验证和授权 </td>
 <td >RpcAuthenticationFailures </td>
 <td >次/s </td>
