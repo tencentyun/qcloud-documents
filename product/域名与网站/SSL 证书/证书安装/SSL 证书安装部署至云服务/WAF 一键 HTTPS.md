@@ -32,21 +32,26 @@
 >
 ![](https://main.qcloudimg.com/raw/e327528f08706299fef120e04c993099.png)
 3. 在弹出的 “一键添加” 窗口中，配置相关信息。如下图所示：
-![](https://main.qcloudimg.com/raw/5e8f1474ff34ca297f5ccf9f7ae57e6a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4d0655561f4fd92c1d16dca808b66f7e.png)
  - **填写域名：**请输入您需要进行一键 HTTPS 的域名。
-<dx-alert infotype="explain" title="">
- 填写的域名需要在工信部完成备案，否则将无法进行接入。详情请参见 [备案概述](https://cloud.tencent.com/document/product/243/18907)。
-</dx-alert>
+>? 填写的域名需要在工信部完成备案，否则将无法进行接入。详情请参见 [备案概述](https://cloud.tencent.com/document/product/243/18907)。
+>
  - **选择证书：**请选择已成功申请的证书。
-<dx-alert infotype="explain" title="">
-选择的证书需与**填写域名输入框**填写的域名对应。例如，填写的域名为 `cloud.tencent.com`，则选择绑定域名为 `cloud.tencent.com` 的证书。
-</dx-alert>
- - **源站地址：**请根据您的实际需求选择**IP**与**域名**。
+>?选择的证书需与**填写域名输入框**填写的域名对应。例如，填写的域名为 `cloud.tencent.com`，则选择绑定域名为 `cloud.tencent.com` 的证书。
+>
+ - **源站地址：**请根据您的实际需求选择 **IP** 与**域名**。
     - **IP**：请输入需要防护网站的真实 IP 源站地址，即源站的公网 IP 地址。
     - **域名**：请输入需要防护网站的真实源站域名。
  - **强制 HTTPS：**开启该功能，浏览器端的每个 HTTP 请求都会被跳转成 HTTPS 请求。例如，当浏览器使用 HTTP 协议访问 `http://cloud.tencent.com ` 时，将返回302状态码重定向到 HTTPS 协议访问 `https://cloud.tencent.com`。
  - **回源协议：**	开启该功能，腾讯云将使用 HTTP 协议访问源站。例如，当浏览器使用 HTTP 或 HTTPS 协议访问 `cloud.tencent.com` 时，无论 HTTP 或 HTTPS 协议都将使用 HTTP 协议访问源站。
- - **回源端口：**请根据您的实际需求选择回源端口。默认情况下支持443与8443，若您开启回源协议，则为80与8080。
+>!若源站尚不支持 HTTPS 访问，请务必使用 HTTP 作为回源协议。
+>
+ - **回源端口：**请根据您的实际需求选择回源端口。默认情况下支持80与8080端口，若回源协议勾选 HTTPS ，则为443与8443。
+ - **高级选项（可选）**：
+![](https://qcloudimg.tencent-cloud.cn/raw/a12a55c0bf89753cfb30fda0bf0fa2ca.png)
+    -  **回源连接方式**：默认使用长连接回源，请确认源站是否支持长连接，若不支持，即使设置长连接，也会使用短连接回源。
+    -  **开启 HTTP2.0**：若您的源站不支持 HTTP2.0，从腾讯云到源站链路将降级为 HTTP1.1。源站支持 HTTP2.0 情况下建议您选择开启 HTTP2.0，将提高您网站的访问速率。
+    -  **开启 WebSocket**：若您的网站使用了 WebSocket 建议您选择开启 WebSocket，将提高轮询的效率以及降低资源浪费。
 4. 单击**确定**，即可生成配置实例。如下图所示：
 ![](https://main.qcloudimg.com/raw/2c548a3cf3bc61f73512a57150319cec.png)
 
@@ -68,7 +73,7 @@
 ![](https://main.qcloudimg.com/raw/c0efc2dc88bb465e19f3b58e960f7c1e.png)
 :::
 ::: 手动添加\sCNAME\s记录
-1. 登录  [DNSPod 管理控制台](https://console.dnspod.cn/dns/list)。
+1. 登录 [DNSPod 管理控制台](https://console.dnspod.cn/dns/list)。
 2. 在 “我的域名” 中，选择需要配置记录的一键 HTTPS 域名，单击域名名称，即可进入该域名的**记录管理**页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/3888e10fc99f01d0cbb0058411f0e662.png)
 3. 单击**添加记录**，填写记录信息。如下图所示：

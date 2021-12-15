@@ -40,35 +40,63 @@ type PresignedURLOptions struct {
 
 [//]: # (.cssg-snippet-get-presign-upload-url)
 ```go
-ak := "SECRETID"
-sk := "SECRETKEY"
+package main
 
-name := "exampleobject"
-ctx := context.Background()
-f := strings.NewReader("test")
+import (
+        "context"
+        "github.com/tencentyun/cos-go-sdk-v5"
+        "net/http"
+        "net/url"
+        "os"
+        "strings"
+        "time"
+)
 
-// 1. 通过普通方式上传对象
-_, err := client.Object.Put(ctx, name, f, nil)
-if err != nil {
-    panic(err)
-}
-// 获取预签名URL
-presignedURL, err := client.Object.GetPresignedURL(ctx, http.MethodPut, name, ak, sk, time.Hour, nil)
-if err != nil {
-    panic(err)
-}
-// 2. 通过预签名方式上传对象
-data := "test upload with presignedURL"
-f = strings.NewReader(data)
-req, err := http.NewRequest(http.MethodPut, presignedURL.String(), f)
-if err != nil {
-    panic(err)
-}
-// 用户可自行设置请求头部
-req.Header.Set("Content-Type", "text/html")
-_, err = http.DefaultClient.Do(req)
-if err != nil {
-    panic(err)
+func main() {
+        // 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+        // 替换为用户的 region，存储桶region可以在COS控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
+        u, _ := url.Parse("https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
+        b := &cos.BaseURL{BucketURL: u}
+        client := cos.NewClient(b, &http.Client{
+                Transport: &cos.AuthorizationTransport{
+                        // 通过环境变量获取密钥
+                        // 环境变量 SECRETID 表示用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+                        SecretID: os.Getenv("SECRETID"),
+                        // 环境变量 SECRETKEY 表示用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+                        SecretKey: os.Getenv("SECRETKEY"),
+                },
+        })
+
+        ak := "SECRETID"
+        sk := "SECRETKEY"
+
+        name := "exampleobject"
+        ctx := context.Background()
+        f := strings.NewReader("test")
+
+        // 1. 通过普通方式上传对象
+        _, err := client.Object.Put(ctx, name, f, nil)
+        if err != nil {
+                panic(err)
+        }
+        // 获取预签名URL
+        presignedURL, err := client.Object.GetPresignedURL(ctx, http.MethodPut, name, ak, sk, time.Hour, nil)
+        if err != nil {
+                panic(err)
+        }
+        // 2. 通过预签名方式上传对象
+        data := "test upload with presignedURL"
+        f = strings.NewReader(data)
+        req, err := http.NewRequest(http.MethodPut, presignedURL.String(), f)
+        if err != nil {
+                panic(err)
+        }
+        // 用户可自行设置请求头部
+        req.Header.Set("Content-Type", "text/html")
+        _, err = http.DefaultClient.Do(req)
+        if err != nil {
+                panic(err)
+        }
 }
 ```
 
@@ -76,37 +104,78 @@ if err != nil {
 
 [//]: # (.cssg-snippet-get-presign-download-url)
 ```go
-ak := "SECRETID"
-sk := "SECRETKEY"
-name := "exampleobject"
-ctx := context.Background()
-// 1. 通过普通方式下载对象
-resp, err := client.Object.Get(ctx, name, nil)
-if err != nil {
-    panic(err)
-}
-bs, _ := ioutil.ReadAll(resp.Body)
-resp.Body.Close()
-// 获取预签名URL
-presignedURL, err := client.Object.GetPresignedURL(ctx, http.MethodGet, name, ak, sk, time.Hour, nil)
-if err != nil {
-    panic(err)
-}
-// 2. 通过预签名URL下载对象
-resp2, err := http.Get(presignedURL.String())
-if err != nil {
-    panic(err)
-}
-bs2, _ := ioutil.ReadAll(resp2.Body)
-resp2.Body.Close()
-if bytes.Compare(bs2, bs) != 0 {
-    panic(errors.New("content is not consistent"))
+package main
+
+import (
+        "bytes"
+        "context"
+        "errors"
+        "github.com/tencentyun/cos-go-sdk-v5"
+        "io/ioutil"
+        "net/http"
+        "net/url"
+        "os"
+        "time"
+)
+
+func main() {
+        // 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+        // 替换为用户的 region，存储桶region可以在COS控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
+        u, _ := url.Parse("https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
+        b := &cos.BaseURL{BucketURL: u}
+        client := cos.NewClient(b, &http.Client{
+                Transport: &cos.AuthorizationTransport{
+                        // 通过环境变量获取密钥
+                        // 环境变量 SECRETID 表示用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+                        SecretID: os.Getenv("SECRETID"),
+                        // 环境变量 SECRETKEY 表示用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+                        SecretKey: os.Getenv("SECRETKEY"),
+                },
+        })
+
+        ak := "SECRETID"
+        sk := "SECRETKEY"
+        name := "exampleobject"
+        ctx := context.Background()
+        // 1. 通过普通方式下载对象
+        resp, err := client.Object.Get(ctx, name, nil)
+        if err != nil {
+                panic(err)
+        }
+        bs, _ := ioutil.ReadAll(resp.Body)
+        resp.Body.Close()
+        // 获取预签名URL
+        presignedURL, err := client.Object.GetPresignedURL(ctx, http.MethodGet, name, ak, sk, time.Hour, nil)
+        if err != nil {
+                panic(err)
+        }
+        // 2. 通过预签名URL下载对象
+        resp2, err := http.Get(presignedURL.String())
+        if err != nil {
+                panic(err)
+        }
+        bs2, _ := ioutil.ReadAll(resp2.Body)
+        resp2.Body.Close()
+        if bytes.Compare(bs2, bs) != 0 {
+                panic(errors.New("content is not consistent"))
+        }
 }
 ```
 
 ## 临时密钥预签名请求示例
 
 ```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "github.com/tencentyun/cos-go-sdk-v5"
+    "net/http"
+    "net/url"
+    "os"
+    "time"
+)
 // 通过tag的方式，用户可以将请求参数或者请求头部放进签名中。
 type URLToken struct {
 	SessionToken string `url:"x-cos-security-token,omitempty" header:"-"`
@@ -168,8 +237,19 @@ func main() {
 
 ## 自定义域名生成预签名示例
 ```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "github.com/tencentyun/cos-go-sdk-v5"
+    "net/http"
+    "net/url"
+    "os"
+    "time"
+)
 func main() {
-    // 替换成您的临时密钥
+    // 替换成您的密钥
     tak := os.Getenv("SECRETID")
     tsk := os.Getenv("SECRETKEY")
     // 修改成用户的自定义域名
@@ -199,6 +279,17 @@ func main() {
 
 ## 添加请求参数或请求头部
 ```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "github.com/tencentyun/cos-go-sdk-v5"
+    "net/http"
+    "net/url"
+    "os"
+    "time"
+)
 func main() {
 	// 替换成您的临时密钥
 	tak := os.Getenv("SECRETID")
@@ -224,7 +315,7 @@ func main() {
 
 	// SDK 默认签入 Header Host，不传递 signHost 参数或者 SignHost = true 时，表示签入 Header Host。
 	// signHost = false 时，表示不签入Header Host，不签入 Header Host 可能导致请求失败或安全漏洞。
-	bool signHost = true
+	var signHost bool = true
 	// 获取预签名, 签名中携带host。
 	presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodPut, name, tak, tsk, time.Hour, opt, signHost)
 	if err != nil {

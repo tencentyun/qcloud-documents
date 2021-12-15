@@ -1,6 +1,4 @@
 
-性能趋势分析目前支持云数据库 Redis、云数据库 MySQL（不含单节点 - 基础型）、云原生数据库 TDSQL-C（TDSQL-C for MySQL）、自建数据库 MySQL。
-
 >?Redis 性能趋势与其他数据库略有不同，本篇单独介绍 Redis 性能趋势分析。
 
 ## 性能趋势简介

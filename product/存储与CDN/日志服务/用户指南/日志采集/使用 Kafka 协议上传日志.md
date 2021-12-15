@@ -16,7 +16,7 @@
 | 参数 | 说明 |
 |---------|---------|
 | 链接类型 | 当前支持 SASL_PLAINTEXT |
-| hosts | 初始连接的集群地址，详细参见服务入口：</br><ul  style="margin: 0;"><li>内网使用：端口为 9095。例如：gz-producer.cls.tencentyun.com:9095</li><li>公网使用：端口为 9095。例如：gz-producer.cls.tencent.com:9095</li></ul> |
+| hosts | 初始连接的集群地址，详细参见服务入口：</br><ul  style="margin: 0;"><li>内网使用：端口为 9095。例如：gz-producer.cls.tencentyun.com:9095</li><li>外网使用：端口为 9096。例如：gz-producer.cls.tencent.com:9096</li></ul> |
 | topic | 配置为日志主题 ID。例如：76c63473-c496-466b-XXXX-XXXXXXXXXXXX |
 | username | 配置为日志集 ID。  例如：0f8e4b82-8adb-47b1-XXXX-XXXXXXXXXXXX |
 | password | 格式为 `${SecurityId}#${SecurityKey}`。例如：XXXXXXXXXXXXXX#YYYYYYYY |

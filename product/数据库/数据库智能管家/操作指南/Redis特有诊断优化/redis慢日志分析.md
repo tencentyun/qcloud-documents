@@ -1,6 +1,4 @@
 
-## 慢日志介绍
-慢日志分析目前支持云数据库 Redis、云数据库 MySQL（不含单节点 - 基础型）、云原生数据库 TDSQL-C（TDSQL-C for MySQL）、自建数据库 MySQL。
 >?agent 接入的自建数据库实例在使用慢日志分析前，需确认慢日志采集是否开启，具体参见 [慢日志分析配置](https://console.cloud.tencent.com/dbbrain/instance?product=dbbrain-mysql)。
 
 ## 操作场景

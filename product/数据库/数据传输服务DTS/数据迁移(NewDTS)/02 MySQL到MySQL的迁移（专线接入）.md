@@ -1,5 +1,11 @@
 本文介绍使用 DTS 数据迁移功能从 MySQL 迁移数据至腾讯云数据库 MySQL 的操作指导。
 
+如下场景的迁移要求与 MySQL 到 MySQL 的迁移要求一致，可参考本场景相关内容。
+
+- MySQL 到 TDSQL-C 的数据迁移
+- MariaDB 到 TDSQL-C 的数据迁移
+- Percona 到 TDSQL-C 的数据迁移
+
 ## 注意事项 
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您的数据库配置过低，建议您在业务低峰期进行迁移。
 - 全量迁移过程通过有锁迁移来实现，锁表过程中会短暂（秒级）阻塞写入操作。
@@ -28,7 +34,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 
 ## 应用限制
 - 只支持迁移基础表和视图，不支持迁移函数、触发器、存储过程等对象。
-- 不支持迁移系统库表和用户信息，包括 `information_schema`， `sys`， `performance_schema`，`__cdb_recycle_bin__`， `__recycle_bin__`， `__tencentdb__`， `mysql`。迁移完成后，如果需要调用目标库的视图、存储过程或函数，则要对调用者授予读写权限。 
+- 不支持迁移系统库表，包括 `information_schema`， `sys`， `performance_schema`，`__cdb_recycle_bin__`， `__recycle_bin__`， `__tencentdb__`， `mysql`。迁移完成后，如果需要调用目标库的视图、存储过程或函数，则要对调用者授予读写权限。 
 - 在导出视图结构时，DTS 会检查源库中 `DEFINER` 对应的 user1（ [DEFINER = user1]）和迁移目标的 user2 是否一致，如果不一致，则会修改 user1 在目标库中的 `SQL SECURITY` 属性，由 `DEFINER` 转换为 `INVOKER`（ [INVOKER = user1]），同时设置目标库中 `DEFINER` 为迁移目标的 user2（[DEFINER = 迁移目标 user2]）。
 - 源端如果是非 GTID 实例，DTS 不支持源端 HA 切换，一旦源端 MySQL 发生切换可能会导致 DTS 增量同步中断。
 - 只支持迁移 InnoDB、MySIAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行迁移。
@@ -165,7 +171,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 >- 如果用户在迁移过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**迁移对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法迁移 Online DDL 变更产生的临时表数据到目标数据库。
 >- 如果用户在迁移过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**迁移对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。 
 >
-<img src="https://main.qcloudimg.com/raw/51d26749a5a208f84c3750e9afc9ea32.png"  style="margin:0;">
+![](https://qcloudimg.tencent-cloud.cn/raw/3561b68b040ae0bd747ef769745e0cbe.png)
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
@@ -178,12 +184,16 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <tr>
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
+<tr>
+<td>是否迁移账号</td>
+<td>如果需要对源数据中的账号信息进行迁移，请勾选该按钮。</td></tr>
 </tbody></table>
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
-    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
- - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
- - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
-![](https://main.qcloudimg.com/raw/652fd77b719de63ad40a00a4d56d8967.png)
+ - 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+    - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
+    - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
+ - 如果选择账号迁移，则会对源库的账号信息进行检查，检查详情请参考 [账号迁移](https://cloud.tencent.com/document/product/571/65702)。
+![](https://qcloudimg.tencent-cloud.cn/raw/32ae94770e6ce95b75295586d1d13e82.png)
 6. 返回数据迁移任务列表，任务进入准备运行状态，运行1分钟 - 2分钟后，数据迁移任务开始正式启动。
    - 选择**结构迁移**或者**全量迁移**：任务完成后会自动结束，不需要手动结束。
    - 选择**全量 + 增量迁移**：全量迁移完成后会自动进入增量数据同步阶段，增量数据同步不会自动结束，需要您手动单击**完成**结束增量数据同步。
