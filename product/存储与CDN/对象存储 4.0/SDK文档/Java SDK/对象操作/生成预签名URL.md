@@ -2,9 +2,12 @@
 
 本文档提供关于生成对象预签名链接的示例代码。
 
+关于使用预签名url上传的说明详见文档 [预签名授权上传](https://cloud.tencent.com/document/product/436/14114)， 使用预签名url下载的说明详见文档 [预签名授权下载](https://cloud.tencent.com/document/product/436/14116)。
+
 >?
 > - 建议用户[使用临时密钥](https://cloud.tencent.com/document/product/436/14048)生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
 > - 如果您一定要使用永久密钥来生成预签名，建议永久密钥的权限范围仅限于上传或下载操作，以规避风险。
+> - 获取签名/预签名函数，默认签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞
 > 
 
 ## 简单操作
@@ -104,7 +107,7 @@ COSClient createCOSClient() {
 #### 方法原型
 
 ```java
-public URL generatePresignedUrl(String bucketName, String key, Date expirationDate, HttpMethodName method, Map<String, String> headers, Map<String, String> params) throws CosClientException
+public URL generatePresignedUrl(String bucketName, String key, Date expiration, HttpMethodName method, Map<String, String> headers, Map<String, String> params, Boolean signPrefixMode, Boolean signHost) throws CosClientException
 ```
 
 #### 请求示例
@@ -123,11 +126,11 @@ String key = "exampleobject";
 // 这里设置签名在半个小时后过期
 Date expirationDate = new Date(System.currentTimeMillis() + 30 * 60 * 1000);
 
-// 填写本次请求的参数
+// 填写本次请求的参数，需与实际请求相同，能够防止用户篡改此签名的 HTTP 请求的参数 
 Map<String, String> params = new HashMap<String, String>();
 params.put("param1", "value1");
 
-// 填写本次请求的头部
+// 填写本次请求的头部，需与实际请求相同，能够防止用户篡改此签名的 HTTP 请求的头部
 Map<String, String> headers = new HashMap<String, String>();
 headers.put("header1", "value1");
 
@@ -145,21 +148,23 @@ cosClient.shutdown();
 
 #### 参数说明
 
-| 参数名称 | 描述         | 类型                        |
-| -------- | ------------ | --------------------------- |
-| method          | HTTP 方法，可选：GET、POST、PUT、DELETE、HEAD                | HttpMethodName          |
-| bucketName      | 存储桶名称，存储桶的命名格式为 BucketName-APPID，详情请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | String |
-| key             | 对象键（Key）是对象在存储桶中的唯一标识，详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324#.E5.AF.B9.E8.B1.A1.E9.94.AE) | String                  |
-| expiration      | 签名过期的时间，可以设置任意一个未来的时间，不设置则默认是1小时之后过期              | Date                    |
-| headers         | 签名头部   | Map&lt;String, String> |
-| params         | 签名参数   | Map&lt;String, String> |
+| 参数名称 | 描述         | 类型                        |     是否必填 |        
+| -------- | ------------ | --------------------------- | --------- |
+| method          | HTTP 方法，可选：GET、POST、PUT、DELETE、HEAD                | HttpMethodName          | 是 |
+| bucketName      | 存储桶名称，存储桶的命名格式为 BucketName-APPID，详情请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | String | 是 |
+| key             | 对象键（Key）是对象在存储桶中的唯一标识，详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324#.E5.AF.B9.E8.B1.A1.E9.94.AE) | String                  |  是 |
+| expiration      | 签名过期的时间，可以设置任意一个未来的时间，不设置则默认是1小时之后过期              | Date                    |  否 |
+| headers         | 签名头部   | Map<String, String> | 否 |
+| params         | 签名参数   | Map<String, String> | 否 |
+| signPrefixMode | 是否以 sign 参数指定签名（不推荐）默认 false | boolean | 否 |
+| signHost  | 是否签入 Host 头部（推荐）默认 true |  boolean | 否 |
 
 ### 生成覆盖返回头部的预签名下载 URL
 
 #### 方法原型
 
 ```java
-public URL generatePresignedUrl(GeneratePresignedUrlRequest req) throws CosClientException
+public URL generatePresignedUrl(GeneratePresignedUrlRequest req, boolean signHost) throws CosClientException
 ```
 
 #### 请求示例
@@ -215,9 +220,10 @@ cosClient.shutdown();
 
 #### 参数说明
 
-| 参数名称 | 描述         | 类型                        |
-| -------- | ------------ | --------------------------- |
-| req      | 预签名请求类 | GeneratePresignedUrlRequest |
+| 参数名称 | 描述         | 类型                        | 是否必填 |
+| -------- | ------------ | ------------------------ | ------- |
+| req      | 预签名请求类 | GeneratePresignedUrlRequest | 是  |
+| signHost  | 是否签入 Host 头部（推荐）默认 true |  boolean | 否 |
 
 Request 成员说明：
 
