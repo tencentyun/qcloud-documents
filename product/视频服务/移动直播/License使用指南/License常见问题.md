@@ -102,3 +102,8 @@ iOS 可在工程配置中的`General->Identity`中获取，如下图所示：
 为用户/用户组关联策略以授权相关操作权限的关联指引请参见 [策略授权管理](https://cloud.tencent.com/document/product/598/10602)。
 
 >? License 界面所有功能操作已独立于云直播、云点播策略外，即原 QcloudVODFullAccess、QcloudLIVEFullAccess 策略已不包含 License 相关接口，需按照上述说明单独授权。
+
+[](id:que17)
+### 为什么接收不到 License 到期等相关消息通知？
+移动直播 SDK 的直播推流 License 用于腾讯云视立方·音视频终端引擎管理功能模块的授权解锁，您可以通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端引擎，接收 License 到期提醒，以及更多各渠道消息通知。直播推流 License 将在到期时间距离当前时间为30天、15天、7天、1天时向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。
+
