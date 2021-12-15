@@ -51,7 +51,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/a12a55c0bf89753cfb30fda0bf0fa2ca.png)
     -  **回源连接方式**：默认使用长连接回源，请确认源站是否支持长连接，若不支持，即使设置长连接，也会使用短连接回源。
     -  **开启 HTTP2.0**：若您的源站不支持 HTTP2.0，从腾讯云到源站链路将降级为 HTTP1.1。源站支持 HTTP2.0 情况下建议您选择开启 HTTP2.0，将提高您网站的访问速率。
-    -  **开启 WebSocket**：若您的网站使用了 Websocket 建议您选择开启 WebSocket，将提高轮询的效率以及降低资源浪费。
+    -  **开启 WebSocket**：若您的网站使用了 WebSocket 建议您选择开启 WebSocket，将提高轮询的效率以及降低资源浪费。
 4. 单击**确定**，即可生成配置实例。如下图所示：
 ![](https://main.qcloudimg.com/raw/2c548a3cf3bc61f73512a57150319cec.png)
 
