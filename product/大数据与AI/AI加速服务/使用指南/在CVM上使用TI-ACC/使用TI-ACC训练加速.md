@@ -1,7 +1,7 @@
 目前 TI-ACC 处于内测阶段，请先进行 [申请内测权限](https://cloud.tencent.com/apply/p/vl6fzemdq1) 拿到私有镜像临时登录指令，然后进行使用。
 
 ## 使用要求
-TI-ACC 推理加速敏捷版仅支持以下操作系统、Python 版本、设备类型及框架版本：
+TI-ACC 训练加速仅支持以下操作系统、Python 版本、设备类型及框架版本：
 - 操作系统：Linux
 - Python 版本：Python 3.6
 - 设备类型：GPU 支持 CUDA 10.1、10.2、11.1
@@ -71,6 +71,8 @@ Port 2222
 ### 步骤2：使用加速
 #### 使用训练加速
 训练加速中的通信加速能力通过兼容原生的 DDP 工具提供，用户无需修改原生的使用代码可直接进行使用，数据 IO 优化、自适应 FP16 都通过封装好的简单函数/类进行提供，用户仅需增加几行代码便可使用。
+
+
 ##### 引入训练加速库
 
 ```
@@ -84,6 +86,11 @@ import tiacc_training.torch
 import tiacc_training.torch.distributed as tdist
 tdist.init_tiacc_training()
 ```
+以兼容原生 ddp 的方式启动脚本，参考示例如下：
+```
+python3 -u -m tiacc_training.torch.distributed.launch --nproc_per_node $GPUS_PER_NODE --nnodes $NNODES --node_rank $NODE_RANK --master_addr $MASTER_ADDR --master_port $MASTER_PORT main.py
+```
+
 以 mpirun 的方式启动训练脚本，2机16卡训练脚本的内容参考示例如下：
 ```
 node_list=node1:8,node2:8   //node1和node2为服务器IP或主机名
@@ -122,7 +129,7 @@ DDP 分布式训练通信优化实测效果：
 			<td>215</td> 
      </tr>
 		 <tr>        
-      <td>16（单机）</td>   
+      <td>16（双机）</td>   
       <td>116</td>   
 			<td>158.6</td> 
      </tr>
@@ -271,3 +278,5 @@ scaler.update()
 | 输出参数        | 类型 | 参数说明                                                     |
 | --------------- | ---- | ------------------------------------------------------------ |
 | mixed_precision | BOOL | 输入的参数得到当前 epoch 是否需要开启自动混合精度，是返回 TRUE，否则返回 FLASE。 |
+
+	

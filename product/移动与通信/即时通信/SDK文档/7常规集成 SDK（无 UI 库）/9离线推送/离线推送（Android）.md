@@ -2,12 +2,11 @@
 
 即时通信 IM 的终端用户需要随时都能够得知最新的消息，而由于移动端设备的性能与电量有限，当 App 处于后台时，为了避免维持长连接而导致的过多资源消耗，即时通信 IM 推荐您使用各厂商提供的系统级推送通道来进行消息通知，系统级的推送通道相比第三方推送拥有更稳定的系统级长连接，可以做到随时接受推送消息，且资源消耗大幅降低。
 
-即时通信 IM 支持小米推送、华为推送、魅族推送、vivo 推送、OPPO 推送以及 Google FCM 推送，即时通信 IM Demo 中使用的厂商通道由 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 统一提供和维护。当您需要集成离线推送功能时，您可通过集成 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 服务或集成所需厂商的离线推送服务实现。
 目前支持的厂商通道如下：
 
 
 
->?如您需提升推送的抵达率，或进行多样化推送，推荐安装 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 的 [SDK](https://cloud.tencent.com/document/product/548/36649) 体验完整的推送服务。若您同时使用即时通信 IM 和 [移动推送 TPNS](https://cloud.tencent.com/product/tpns)，则无需重复集成厂商通道。
+>?如您需提升推送的抵达率，或进行多样化推送，推荐安装 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 的 [SDK](https://cloud.tencent.com/document/product/548/36649) 体验完整的推送服务。若您同时使用即时通信 IM 和 [移动推送 TPNS](https://cloud.tencent.com/product/tpns)，则无需重复集成厂商通道。您可通过 [开通并授权 TPNS 服务](https://cloud.tencent.com/document/product/548/59144) 实现 IM 离线消息下发与统计。
 <table> 
    <tr> 
      <th nowrap="nowrap">推送通道</th> 
@@ -73,19 +72,19 @@
 
 [](id:xiaomiStep1_1)
 
-1. 打开 [小米开放平台官网](https://dev.mi.com/console/) 进行注册并通过开发者认证。登录小米开放平台的管理控制台，选择【应用服务】>【PUSH服务】，创建小米推送服务应用，记录**`主包名`**、**`AppID`**、**`AppSecret`**信息。
+1. 打开 [小米开放平台官网](https://dev.mi.com/console/) 进行注册并通过开发者认证。登录小米开放平台的管理控制台，选择**应用服务**>**PUSH服务**，创建小米推送服务应用，记录**`主包名`**、**`AppID`**、**`AppSecret`**信息。
    ![](https://main.qcloudimg.com/raw/7a291196c6f4800d5d1c9b9e23aed617.jpg)
    [](id:xiaomiStep1_2)
-2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。根据 [步骤1](#Step1_1) 中获取的信息设置以下参数：
+2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击**Android平台推送设置**区域的**添加证书**。根据 [步骤1](#Step1_1) 中获取的信息设置以下参数：
 
  - **推送平台**：选择**小米**
  - **应用包名称**：填写小米推送服务应用的**主包名**
  - **AppID**：填写小米推送服务应用的 **AppID**
  - **AppSecret**：填写小米推送服务应用的 **AppSecret**
  - **点击通知后**：选择点击通知栏消息后的响应操作， 支持**打开应用**、**打开网页**和**打开应用内指定界面**，更多详情请参见 [配置点击通知栏消息事件](#xiaomi_click)
-   当设置为【打开应用】或【打开应用内指定界面】操作时，支持 [透传自定义内容](#xiaomi_custom)。
+   当设置为**打开应用**或**打开应用内指定界面**操作时，支持 [透传自定义内容](#xiaomi_custom)。
     ![](https://main.qcloudimg.com/raw/b9acf23fb00144aa86be20dba7627699.png)
-   单击【确认】保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
+   单击**确认**保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
     ![](https://main.qcloudimg.com/raw/2a28ec48998579c84a3f3786c9a4b667.png)
 
 ### 集成推送 SDK
@@ -108,7 +107,7 @@
 
 #### 打开网页
 
-您需要在 [添加证书](#xiaomiStep1_2) 时选择【打开网页】并输入以`http://`或`https://`开头的网址，例如`https://cloud.tencent.com/document/product/269`。
+您需要在 [添加证书](#xiaomiStep1_2) 时选择**打开网页**并输入以`http://`或`https://`开头的网址，例如`https://cloud.tencent.com/document/product/269`。
 ![](https://main.qcloudimg.com/raw/bb336d3e2bd799b4dfe443833782e322.png)
 
 #### 打开应用内指定界面
@@ -151,14 +150,14 @@
 :::
 </dx-codeblock>
 
-3. 在 [添加证书](#xiaomiStep1_2) 时选择【打开应用内指定界面】并输入上述打印结果。
+3. 在 [添加证书](#xiaomiStep1_2) 时选择**打开应用内指定界面**并输入上述打印结果。
    ![](https://main.qcloudimg.com/raw/26a2bb370cfb5525f3eb1ddeef47c490.png)
 
 [](id:xiaomi_custom)
 
 ### 透传自定义内容
 
-[添加证书](#xiaomiStep1_2) 时设置【点击通知后】为【打开应用】或【打开应用内指定界面】操作才支持透传自定义内容。
+[添加证书](#xiaomiStep1_2) 时设置**点击通知后**为**打开应用**或**打开应用内指定界面**操作才支持透传自定义内容。
 
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
@@ -193,7 +192,7 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
 **步骤2：接收端获取自定义内容**
 
-- 若 [添加证书](#xiaomiStep1_2) 时设置【点击通知后】的操作为【打开应用】，当点击通知栏的消息时，会触发小米推送 SDK 的  `onNotificationMessageClicked(Context context, MiPushMessage miPushMessage)` 回调，自定义内容可以从 `miPushMessage` 中获取，可以参考 [XiaomiMsgReceiver.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/XiaomiMsgReceiver.java) 的解析实现。
+- 若 [添加证书](#xiaomiStep1_2) 时设置**点击通知后**的操作为**打开应用**，当点击通知栏的消息时，会触发小米推送 SDK 的  `onNotificationMessageClicked(Context context, MiPushMessage miPushMessage)` 回调，自定义内容可以从 `miPushMessage` 中获取，可以参考 [XiaomiMsgReceiver.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/XiaomiMsgReceiver.java) 的解析实现。
 <dx-codeblock>
 ::: java
   Map extra = miPushMessage.getExtra();
@@ -201,7 +200,7 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 :::
 </dx-codeblock>
 
-- 若 [添加证书](#xiaomiStep1_2) 时设置【点击通知后】的操作为【打开应用内指定界面】，封装消息的 `MiPushMessage` 对象通过 `Intent` 传到客户端，客户端在相应的 `Activity` 中获取自定义内容，可以参考  [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
+- 若 [添加证书](#xiaomiStep1_2) 时设置**点击通知后**的操作为**打开应用内指定界面**，封装消息的 `MiPushMessage` 对象通过 `Intent` 传到客户端，客户端在相应的 `Activity` 中获取自定义内容，可以参考  [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 <dx-codeblock>
 ::: java
     Bundle bundle = getIntent().getExtras(); 
@@ -217,20 +216,20 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
 [](id:huaweiStep1_1)
 
-1. 打开 [华为开发者联盟官网](https://developer.huawei.com/consumer/cn/) 进行注册并通过开发者认证。进入管理中心，选择【应用服务】>【开发服务】>【PUSH】，创建华为推送服务应用。记录**`包名`**、**`APP ID`**、**`APP SECRET`**信息。
-   ![](https://main.qcloudimg.com/raw/50d36c2cfb7a32acefd8ace44e1ef71f.png)
+1. 打开 [华为开发者联盟官网](https://developer.huawei.com/consumer/cn/) 进行注册并通过开发者认证。进入管理中心，选择**应用服务**>**开发服务**>**PUSH**，创建华为推送服务应用。记录**`包名`**、**`APP ID`**、**`Client ID`**、**`Client SECRET`**信息。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/4b6aee44ab3a9026f2bda728cfc4d3f4.png)
    [](id:huaweiStep1_2)
-2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。根据 [步骤1](#huaweiStep1_1) 中获取的信息设置以下参数：
+2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击**Android平台推送设置**区域的**添加证书**。根据 [步骤1](#huaweiStep1_1) 中获取的信息设置以下参数：
 
  - **推送平台**：选择**华为**
  - **应用包名称**：填写华为推送服务应用的**包名**
  - **AppID**：填写华为推送服务应用的 **APP ID**
- - **AppSecret**：填写华为推送服务应用的 **APP SECRET**
+ - **AppSecret**：填写华为推送应用服务的 **Client Secret**
  - **角标参数**：填写应用入口完整 `Activity` 类名，用作华为桌面应用角标显示，请参考华为推送服务开发文档中的“桌面角标”说明。
  - **点击通知后**：选择点击通知栏消息后的响应操作， 支持**打开应用**、**打开网页**和**打开应用内指定界面**，更多详情请参见 [配置点击通知栏消息事件](#huawei_click)
-   当设置为【打开应用】或【打开应用内指定界面】操作时，支持 [透传自定义内容](#huawei_custom)。
+   当设置为**打开应用**或**打开应用内指定界面**操作时，支持 [透传自定义内容](#huawei_custom)。
     ![](https://main.qcloudimg.com/raw/852b40d2a8a5aacd4327f94130976563.png)
-   单击【保存】保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
+   单击**保存**保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
    ![](https://main.qcloudimg.com/raw/4f4b2a5c01c524d13434f0b5ca4c4b2c.png)
 
 ### 集成推送 SDK
@@ -252,7 +251,7 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
 #### 打开网页
 
-您需要在 [添加证书](#huaweiStep1_2) 时选择【打开网页】并输入以`http://`或`https://`开头的网址，例如`https://cloud.tencent.com/document/product/269`。
+您需要在 [添加证书](#huaweiStep1_2) 时选择**打开网页**并输入以`http://`或`https://`开头的网址，例如`https://cloud.tencent.com/document/product/269`。
 ![](https://main.qcloudimg.com/raw/bb336d3e2bd799b4dfe443833782e322.png)
 
 #### 打开应用内指定界面
@@ -295,7 +294,7 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 :::
 </dx-codeblock>
 
-3. 在 [添加证书](#huaweiStep1_2) 时选择【打开应用内指定界面】并输入上述打印结果。
+3. 在 [添加证书](#huaweiStep1_2) 时选择**打开应用内指定界面**并输入上述打印结果。
 
 [](id:huawei_custom)
 
@@ -337,7 +336,7 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 - 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
 
 **步骤2：接收端获取自定义内容**
-- 若 [添加证书](#huaweiStep1_1) 时设置【点击通知后】的操作为【打开应用】或【打开应用内指定界面】，当点击通知栏的消息时，客户端可以在相应的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
+- 若 [添加证书](#huaweiStep1_1) 时设置**点击通知后**的操作为**打开应用**或**打开应用内指定界面**，当点击通知栏的消息时，客户端可以在相应的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 <dx-codeblock>
 :::  java
     Bundle bundle = getIntent().getExtras();
@@ -352,7 +351,7 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
 [](id:oppoStep1_1)
 
-1. 打开 [OPPO PUSH 服务开启指南](https://open.oppomobile.com/wiki/doc#id=10195) 开通 PUSH 服务。在 [OPPO 推送平台](https://push.oppo.com/) >【配置管理】>【应用配置】页面，您可以查看详细的应用信息，记录 `AppId`、`AppKey`、`AppSecret`和`MasterSecret`信息。
+1. 打开 [OPPO PUSH 服务开启指南](https://open.oppomobile.com/wiki/doc#id=10195) 开通 PUSH 服务。在 [OPPO 推送平台](https://push.oppo.com/) >**配置管理**>**应用配置**页面，您可以查看详细的应用信息，记录 `AppId`、`AppKey`、`AppSecret`和`MasterSecret`信息。
    [](id:oppoStep1_2)
 
 2. 按照 OPPO 官网要求，在 OPPO Android 8.0 及以上系统版本必须配置 ChannelID，否则推送消息无法展示。您需要先在 App 中创建对应的 ChannelID（例如 `tuikit`）：
@@ -378,7 +377,7 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
    [](id:oppoStep1_3)
 
-3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。根据 [步骤1](#oppoStep1_1) 中获取的信息设置以下参数：
+3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击**Android平台推送设置**区域的**添加证书**。根据 [步骤1](#oppoStep1_1) 中获取的信息设置以下参数：
 
  - **推送平台**：选择**OPPO**
  - **AppKey**：填写 OPPO 推送服务应用的 **AppKey**
@@ -386,9 +385,9 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
  - **MasterSecret**：填写 OPPO 推送服务应用的 **MasterSecret**
  - **ChannelID**：填写您在 App 中创建的 **ChannelID**
  - **点击通知后**：选择点击通知栏消息后的响应操作， 支持**打开应用**、**打开网页**和**打开应用内指定界面**，更多详情请参见 [配置点击通知栏消息事件](#oppo_click)
-   当设置为【打开应用】或【打开应用内指定界面】操作时，支持 [透传自定义内容](#oppo_custom)。
+   当设置为**打开应用**或**打开应用内指定界面**操作时，支持 [透传自定义内容](#oppo_custom)。
     ![](https://main.qcloudimg.com/raw/8b94fde206c9fa8cd0dee774e12df0ac.png)
-   单击【确认】保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
+   单击**确认**保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
     ![](https://main.qcloudimg.com/raw/23dc3500472be773bf5499299e511444.png)
 
 ### 集成推送 SDK
@@ -411,7 +410,7 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
 #### 打开网页
 
-您需要在 [添加证书](#oppoStep1_3) 时选择【打开网页】并输入以`http://`或`https://`开头的网址，例如`https://cloud.tencent.com/document/product/269`。
+您需要在 [添加证书](#oppoStep1_3) 时选择**打开网页**并输入以`http://`或`https://`开头的网址，例如`https://cloud.tencent.com/document/product/269`。
 ![](https://main.qcloudimg.com/raw/bb336d3e2bd799b4dfe443833782e322.png)
 
 #### 打开应用内指定界面
@@ -439,7 +438,7 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
 ### 透传自定义内容
 
-[添加证书](#oppoStep1_3) 时设置【点击通知后】为【打开应用】或【打开应用内指定界面】操作支持透传自定义内容。
+[添加证书](#oppoStep1_3) 时设置**点击通知后**为**打开应用**或**打开应用内指定界面**操作支持透传自定义内容。
 
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
@@ -494,18 +493,18 @@ if (set != null) {
 
 [](id:vivoStep1_1)
 
-1. [vivo 开放平台官网](https://dev.vivo.com.cn/home) 进行注册并通过开发者认证。登录其开放平台的管理中心，选择【消息推送】>【创建】>【测试推送】，创建 vivo 推送服务应用。记录**APP ID**、**APP key**和**APP secret**信息。
+1. [vivo 开放平台官网](https://dev.vivo.com.cn/home) 进行注册并通过开发者认证。登录其开放平台的管理中心，选择**消息推送**>**创建**>**测试推送**，创建 vivo 推送服务应用。记录**APP ID**、**APP key**和**APP secret**信息。
    [](id:vivoStep1_2)
-2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。根据 [步骤1](#vivoStep1_1) 中获取的信息设置以下参数：
+2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击**Android平台推送设置**区域的**添加证书**。根据 [步骤1](#vivoStep1_1) 中获取的信息设置以下参数：
 
  - **推送平台**：选择 **vivo**
  - **AppKey**：填写 vivo 推送服务应用的 **APP key**
  - **AppID**：填写 vivo 推送服务应用的 **APP ID**
  - **AppSecret**：填写 vivo 推送服务应用的 **APP secret**
  - **点击通知后**：选择点击通知栏消息后的响应操作， 支持**打开应用**、**打开网页**和**打开应用内指定界面**，更多详情请参见 [配置点击通知栏消息事件](#vivo_click)
-   当设置为【打开应用】或【打开应用内指定界面】操作时，支持 [透传自定义内容](#vivo_custom)。
+   当设置为**打开应用**或**打开应用内指定界面**操作时，支持 [透传自定义内容](#vivo_custom)。
     ![](https://main.qcloudimg.com/raw/ac890d834dd7f069f936094180634cd7.png)
-   单击【确认】保存信息，记录证书的**ID**。证书信息保存后10分钟内生效。
+   单击**确认**保存信息，记录证书的**ID**。证书信息保存后10分钟内生效。
     ![](https://main.qcloudimg.com/raw/3442e00debac668c42fa4be89903ac90.png)
 
 ### 集成推送 SDK
@@ -527,7 +526,7 @@ if (set != null) {
 
 #### 打开网页
 
-您需要在 [添加证书](#vivoStep1_2) 时选择【打开网页】并输入以`http://`或`https://`开头的网址，例如`https://cloud.tencent.com/document/product/269`。
+您需要在 [添加证书](#vivoStep1_2) 时选择**打开网页**并输入以`http://`或`https://`开头的网址，例如`https://cloud.tencent.com/document/product/269`。
 ![](https://main.qcloudimg.com/raw/bb336d3e2bd799b4dfe443833782e322.png)
 
 #### 打开应用内指定界面
@@ -570,13 +569,13 @@ if (set != null) {
 :::
 </dx-codeblock>
 
-3. 在 [添加证书](#vivoStep1_2) 时选择【打开应用内指定界面】并输入上述打印结果。
+3. 在 [添加证书](#vivoStep1_2) 时选择**打开应用内指定界面**并输入上述打印结果。
 
 [](id:vivo_custom)
 
 ### 透传自定义内容
 
-[添加证书](#vivoStep1_2) 时设置【点击通知后】为【打开应用】或【打开应用内指定界面】操作支持透传自定义内容。
+[添加证书](#vivoStep1_2) 时设置**点击通知后**为**打开应用**或**打开应用内指定界面**操作支持透传自定义内容。
 
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
@@ -625,19 +624,19 @@ String extContent = paramMap.get("ext");
 
 [](id:meizuStep1_1)
 
-1. 打开 [魅族开放平台官网](http://open.flyme.cn) 进行注册并通过开发者认证。登录其控制台，选择【开发服务】>【Flyme推送】，创建魅族推送服务应用。记录**`应用包名`**、**`App ID`**、**`App Secret`**信息。
+1. 打开 [魅族开放平台官网](http://open.flyme.cn) 进行注册并通过开发者认证。登录其控制台，选择**开发服务**>**Flyme推送**，创建魅族推送服务应用。记录**`应用包名`**、**`App ID`**、**`App Secret`**信息。
    ![](https://main.qcloudimg.com/raw/e0674cc1bca92fd549c03a3523b2144c.png)
    [](id:meizuStep1_2)
-2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。根据 [步骤1](#meizuStep1_1) 中获取的信息设置以下参数：
+2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击**Android平台推送设置**区域的**添加证书**。根据 [步骤1](#meizuStep1_1) 中获取的信息设置以下参数：
 
  - **推送平台**：选择**魅族**
  - **应用包名称**：填写魅族推送服务应用的**应用包名**
  - **AppID**：填写魅族推送服务应用的 **App ID**
  - **AppSecret**：填写魅族推送服务应用的 **App Secret**
  - **点击通知后**：选择点击通知栏消息后的响应操作， 支持**打开应用**、**打开网页**和**打开应用内指定界面**，更多详情请参见 [配置点击通知栏消息事件](#meizu_click)
-   当设置为【打开应用】或【打开应用内指定界面】操作时，支持 [透传自定义内容](#meizu_custom)。
+   当设置为**打开应用**或**打开应用内指定界面**操作时，支持 [透传自定义内容](#meizu_custom)。
     ![](https://main.qcloudimg.com/raw/7151cfff6d8e82a41bfb9b718a49bf2f.png)
-   单击【确认】保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
+   单击**确认**保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
     ![](https://main.qcloudimg.com/raw/b8701c4c69847ae711055df0727f01ab.png)
 
 ### 集成推送 SDK
@@ -660,19 +659,19 @@ String extContent = paramMap.get("ext");
 
 #### 打开网页
 
-您需要在 [添加证书](#meizuStep1_2) 时选择【打开网页】并输入以`http://`或`https://`开头的网址，例如`https://cloud.tencent.com/document/product/269`。
+您需要在 [添加证书](#meizuStep1_2) 时选择**打开网页**并输入以`http://`或`https://`开头的网址，例如`https://cloud.tencent.com/document/product/269`。
 ![](https://main.qcloudimg.com/raw/bb336d3e2bd799b4dfe443833782e322.png)
 
 #### 打开应用内指定界面
 
-您需要在 [添加证书](#meizuStep1_2) 时选择【打开应用内指定界面】并输入需要打开的 Activity 的完整类名，例如 `com.tencent.qcloud.tim.demo.main.MainActivity`。
+您需要在 [添加证书](#meizuStep1_2) 时选择**打开应用内指定界面**并输入需要打开的 Activity 的完整类名，例如 `com.tencent.qcloud.tim.demo.main.MainActivity`。
 ![](https://main.qcloudimg.com/raw/64d67e324cc53b0ff0631586d9ec1ef5.png)
 
 [](id:meizu_custom)
 
 ### 透传自定义内容
 
-[添加证书](#meizuStep1_2) 时设置【点击通知后】为【打开应用】或【打开应用内指定界面】操作才支持透传自定义内容。
+[添加证书](#meizuStep1_2) 时设置**点击通知后**为**打开应用**或**打开应用内指定界面**操作才支持透传自定义内容。
 
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
@@ -733,11 +732,11 @@ String extContent = bundle.getString("ext");
 [](id:fcmStep1_1)
 1. 打开 [Firebase 云消息传递](https://firebase.google.com) 注册帐号并创建应用。
 [](id:fcmStep1_2)
-2. 登录 [Firebase 控制台](https://console.firebase.google.com)，单击您的应用卡片，进入应用配置页面。单击 Project Overview 右侧的 <img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择【项目设置】>【服务帐号】，单击【生成新的私钥】下载私钥文件。
+2. 登录 [Firebase 控制台](https://console.firebase.google.com)，单击您的应用卡片，进入应用配置页面。单击 Project Overview 右侧的 <img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择**项目设置**>**服务帐号**，单击**生成新的私钥**下载私钥文件。
 [](id:fcmStep1_3)
-3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。上传 [步骤2](#fcmStep1_2) 中获取的私钥文件。
+3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击**Android平台推送设置**区域的**添加证书**。上传 [步骤2](#fcmStep1_2) 中获取的私钥文件。
  ![](https://main.qcloudimg.com/raw/b18e2414561c6733b24c56cd1e866f21.png)
-4. 单击【确认】保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
+4. 单击**确认**保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
  ![](https://main.qcloudimg.com/raw/2199bbf955cf52f09b78af6a97ab8122.png)
 
 ### 集成推送 SDK

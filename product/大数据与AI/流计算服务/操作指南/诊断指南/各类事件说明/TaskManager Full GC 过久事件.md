@@ -13,7 +13,7 @@ Flink 作业的 TaskManager 是一个 JVM 进程，它有自己的堆内存空�
 > ! 为了避免频繁告警，每个作业的每个运行实例 ID 每小时最多触发一次该事件的推送。
 
 ## 处理建议
-收到该事件推送后，我们建议增加作业的 [资源配置](https://cloud.tencent.com/document/product/849/57772)，例如调大 TaskManager 的规格（提升 TaskManager 堆内存的最大可用空间），提升作业的算子并行度（降低单个 TaskManager 的处理压力）等。
+收到该事件推送后，我们建议增加作业的 [资源配置](https://cloud.tencent.com/document/product/849/57772)，例如调大 TaskManager 的规格（提升 TaskManager 堆内存的最大可用空间，可以容纳更多的状态数据），提升作业的算子并行度（降低单个 TaskManager 的数据处理量，减少内存占用）等。
 
 此外，调整 Flink [高级参数](https://cloud.tencent.com/document/product/849/53391)，例如减少 `taskmanager.memory.managed.size` 的值，也可以起到增加堆内存空间的效果。但请务必在熟悉 Flink 内存分配机制的专家指导下进行调优，否则极有可能造成其他问题。
 

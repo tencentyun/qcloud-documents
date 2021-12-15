@@ -3,7 +3,6 @@
 
 ## 前提条件
 - 源数据库符合备份功能和版本要求，请参见 [支持的备份能力](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
-- 已完成 [准备工作](https://cloud.tencent.com/document/product/1513/64040)。
 - 备份账号需要具备源数据库的对应权限，请参考如下指导进行授权。
   - “整个实例”备份：
 ```
@@ -29,15 +28,14 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 - **计费模式**：包年包月。
 - **备份计划地域**：该地域为数据库备份存储和恢复所属地域，购买后不可修改。
 - **数据库类型**：选择源端的数据库类型。
-- **规格**：选择备份计划的规格，规格越高，性能越好，请根据您的数据量选择，不同规格计费详情请参考 [备份计划计费详情](https://cloud.tencent.com/document/product/1513/64028)。
+- **规格**：选择备份计划的规格，规格越高，性能越好，请根据您的数据量选择，不同规格计费详情请参考 [计费概述](https://cloud.tencent.com/document/product/1513/64028)。
 - **备份方式**：当前仅支持逻辑备份。
 - **标签**：设置标签，当备份实例较多时，用于区分。
 
 ### 配置备份计划
 1. 登录 [DBS 控制台](https://console.cloud.tencent.com/dbs)，在左侧导航选择**备份计划**页，然后在右侧选择已购买的备份计划，单击**配置**。
-![](https://qcloudimg.tencent-cloud.cn/raw/54be63d739b15942fb14768570521e42.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c8febe50a84a788546ca461860150b34.png)
 2. 在**设置备份源**页面配置备份计划和数据源，单击**测试连通性**，通过后进入**下一步**。
-如果测试不通过，请参考 [连通性测试不通过处理方法](https://cloud.tencent.com/document/product/1513/64057) 进行处理。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ad89d7899a6fa05f7c2680e8b3548a17.png)
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="20%">配置项</th><th width="70%">说明</th></tr></thead>
@@ -62,7 +60,7 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
 <li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li>
-<li>私用网络 VPC：源数据部署在腾讯云上，且有<a href"https://cloud.tencent.com/document/product/215">私有网络</a>。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/1513/64040">准备工作概述</a>。</td></tr>
+<li>私用网络 VPC：源数据部署在腾讯云上，且有<a href"https://cloud.tencent.com/document/product/215">私有网络</a>。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。</td></tr>
 <tr>
 <td>所属地域</td><td>备份计划中的地域，该地域为备份数据存储和恢复所在的地域。</td></tr> 
 <tr>
@@ -73,6 +71,7 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <td>帐号</td><td>源库 MySQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
 <td>密码</td><td>源库 MySQL 的数据库帐号的密码。</td></tr></tbody></table>
+
 3. 在**设置备份对象**页面，选择备份对象后，单击**下一步**。
 备份对象：
   - 整个实例：备份整个实例，当前仅支持备份库、表和视图，暂不支持备份用户权限、存储过程、Function等。  
@@ -109,10 +108,8 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <td>支持将当前配置的策略保存为模板，方便后续直接使用。</td></tr>
 </tbody></table>
 5. 在**预检查及启动**页面，执行校验任务通过后，单击**立即启动**。
-如果校验任务不通过，可以参考 [校验不通过处理方法](链接到校验项的第一个页面) 修复问题后重新发起校验任务。
-   - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
-   - 警告：表示检验项检查不完全符合要求，用户需要根据警告评估对业务的影响，确认影响可接受，则可以忽略警告继续任务。
-![](https://qcloudimg.tencent-cloud.cn/raw/64f747205b2e8b00462dd0af6f34e357.png)
+ - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
+ - 警告：表示检验项检查不完全符合要求，用户需要根据警告评估对业务的影响，确认影响可接受，则可以忽略警告继续任务。
+![](https://qcloudimg.tencent-cloud.cn/raw/7e3d527a2f3d8113734223e4748dd0cb.png)
 6. 备份计划会在后续按系统指示启动备份任务。
-7. （可选）用户如果需要对备份计划进行修改、暂停等操作，请参考 [备份任务管理](https://cloud.tencent.com/document/product/1513/64046)。
 

@@ -6,7 +6,8 @@
 - 支持对视频文件进行自动检测，从 OCR 文本识别、物体检测（实体、广告台标、二维码等）、图像识别及音频审核四个维度，通过深度学习技术，识别视频中的违规内容。
 - 支持设置回调地址 Callback 获取检测结果，或通过 [查询视频审核任务结果接口](https://cloud.tencent.com/document/product/460/46926) 主动轮询获取审核结果详情。
 - 支持识别多种违规场景，包括：色情、违法、广告等场景。
-- 支持根据不同的业务场景配置自定义的审核策略。
+<span id=1></span>
+- 支持根据不同的业务场景 [配置自定义的审核策略](https://cloud.tencent.com/document/product/460/56345)。
 - 支持用户 [自定义配置黑白图片库](https://cloud.tencent.com/document/product/436/59080)，打击自定义违规内容。
 
 ## 费用说明
@@ -91,7 +92,7 @@ Container 类型 Input 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点        | 描述                                                         | 类型   | 是否必选 |
 | ------------------ | ------------- | ------------------------------------------------------------ | ------ | -------- |
-| Object             | Request.Input | 当前 COS 存储桶中的视频文件名称，例如在目录 test 中的文件 video.mp4，则文件名称为 test/video.mp4。 | String | 是       |
+| Object             | Request.Input | 当前 COS 存储桶中的视频文件名称，例如在目录 test 中的文件 video.mp4，则文件名称为 test/video.mp4。 | String | 否       |
 | Url                | Request.Input | 视频文件的链接地址，例如 http://examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/test.mp4。Object 和 Url 只能选择其中一种。 | String | 否       |
 
 Container 类型 Conf 的具体数据描述如下：
@@ -102,15 +103,15 @@ Container 类型 Conf 的具体数据描述如下：
 | Snapshot           | Request.Conf | 视频画面的审核通过视频截帧能力截取出一定量的截图，通过对截图逐一审核而实现的，该参数用于指定视频截帧的配置。 | Container | 是       |
 | Callback           | Request.Conf | 回调地址，以`http://`或者`https://`开头的地址。              | String    | 否       |
 | CallbackVersion    | Request.Conf | 回调内容的结构，有效值：Simple（回调内容包含基本信息）、Detail（回调内容包含详细信息）。默认为 Simple。 | String    | 否       |
-| BizType            | Request.Conf | 审核策略，不带审核策略时使用默认策略。                       | String    | 否       |
+| BizType            | Request.Conf | 审核策略，不带审核策略时使用默认策略。可在控制台进行配置，详情请参见 [设置公共审核策略](#1)。 | String    | 否       |
 | DetectContent      | Request.Conf | 用于指定是否审核视频声音，当值为0时：表示只审核视频画面截图；值为1时：表示同时审核视频画面截图和视频声音。默认值为0。 | Integer   | 否       |
 
 Container 类型 Snapshot 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | :-------------------- | ------------------------------------------------------------ | --------- | -------- |
-| Mode               | Request.Conf.Snapshot | 截帧模式。Interval 表示间隔模式；Average 表示平均模式；Fps 表示固定帧率模式。</br><li> Interval 模式：TimeInterval，Count 参数生效。当设置 Count，未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片。</br><li> Average 模式：Count 参数生效。表示整个视频，按平均间隔截取共 Count 张图片。</br><li> Fps 模式：TimeInterval 表示每秒截取多少帧，Count 表示共截取多少帧。 | String | 否       |
-| Count              | Request.Conf.Snapshot | 视频截帧数量，范围为(0, 10000]。                             | String | 是       |
+| Mode               | Request.Conf.Snapshot | 截帧模式，默认值为 Interval。Interval 表示间隔模式；Average 表示平均模式；Fps 表示固定帧率模式。</br><li> Interval 模式：TimeInterval，Count 参数生效。当设置 Count，未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片。</br><li> Average 模式：Count 参数生效。表示整个视频，按平均间隔截取共 Count 张图片。</br><li> Fps 模式：TimeInterval 表示每秒截取多少帧，未设置 TimeInterval 时，表示截取所有帧，Count 表示共截取多少帧。 | String | 否       |
+| Count              | Request.Conf.Snapshot | 视频截帧数量，范围为(0, 10000]。                             | Integer | 是       |
 | TimeInterval       | Request.Conf.Snapshot | 视频截帧频率，范围为(0, 60]，单位为秒，支持 float 格式，执行精度精确到毫秒。 | Float  | 否       |
 
 ## 响应
@@ -130,6 +131,7 @@ Container 类型 Snapshot 的具体数据描述如下：
       <State></State>
       <CreationTime></CreationTime>
     </JobsDetail>
+    <RequestId></RequestId>
 </Response>
 ```
 
@@ -141,9 +143,10 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 Container 节点 Response 的内容：
 
-| 节点名称（关键字） | 父节点   | 描述                     | 类型      |
-| :----------------- | :------- | :----------------------- | :-------- |
-| JobsDetail         | Response | 视频审核任务的详细信息。 | Container |
+| 节点名称（关键字） | 父节点   | 描述                                                         | 类型      |
+| :----------------- | :------- | :----------------------------------------------------------- | :-------- |
+| JobsDetail         | Response | 视频审核任务的详细信息。                                     | Container |
+| RequestId          | Response | 每次请求发送时，服务端将会自动为请求生成一个 ID，遇到问题时，该 ID 能更快地协助定位问题。 | String    |
 
 Container 节点 JobsDetail 的内容：
 
@@ -203,6 +206,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     <State>Submitted</State>
     <CreationTime>2021-08-07T12:12:12+0800</CreationTime>
   </JobsDetail>
+  <RequestId>xxxxxxxxxxxxxx</RequestId>
 </Response>
 ```
 

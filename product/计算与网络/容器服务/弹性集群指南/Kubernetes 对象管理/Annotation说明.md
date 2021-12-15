@@ -83,11 +83,6 @@
 <td>否。如填写，请确保填写的 CAM 角色名存在。</td>
 </tr>
 <tr>
-<td>eks.tke.cloud.tencent.com/monitor-port</td>
-<td>为 Pod 设置监控数据暴露端口，以便被 Prometheus 等组件采集。</td>
-<td>否。不填写默认为 9100。</td>
-</tr>
-<tr>
 <td>eks.tke.cloud.tencent.com/custom-metrics-url</td>
 <td>为 Pod 设置自定义监控指标拉取地址，通过该地址暴露的监控数据会自动被监控组件读取并上报。</td>
 <td>否。如填写，请确保暴露的数据协议可被监控系统识别，如 Prometheus 协议、云监控数据协议。</td>
@@ -105,11 +100,6 @@
 <tr>
 <td>eks.tke.cloud.tencent.com/eip-id-list</td>
 <td>如果工作负载为 StatefulSet，也可以使用指定已有 EIP 的方式，可指定多个，如 "eip-xx1,eip-xx2"。请注意，StatefulSet pod 的数量必须小于等于此 annotation 中指定 EIP Id 的数量，否则分配不到 EIP 的 Pod 会处于 Pending 状态。注意，非带宽上移的账号无法使用。</td>
-<td>否 </td>
-</tr>
-<tr>
-<td>eks.tke.cloud.tencent.com/eip-injection</td>
-<td>值为 "true" 时，表明会在 Pod 内暴露 EIP 的 IP 信息。在 Pod 内使用 ip addr 命令可以查看到 EIP 的地址。注意，非带宽上移的账号无法使用。</td>
 <td>否 </td>
 </tr>
 <tr>
