@@ -59,7 +59,7 @@
 	<th>Windows 源端主机</th>
 	<td>
 	  <ol style="margin: 0;">
-		<li>检查和安装 Virtio。Windows 系统默认未安装 Virtio 驱动，您可在安装 Windows Virtio 驱动后导出本地镜像。<a href="http://mirrors.tencent.com/install/windows/virtio_64_1.0.9.exe">点击此处</a> 下载 Windows Virtio 驱动 。
+		<li>检查和安装 Virtio。Windows 系统默认未安装 Virtio 驱动，您可在安装 Windows Virtio 驱动后导出本地镜像。<a href="http://mirrors.tencent.com/install/windows/virtio_64_1.0.9.exe">点击此处</a> 下载 Windows Virtio 驱动。
 		<li>检查和安装 Cloudbase-Init，详情请参见 <a href="https://cloud.tencent.com/document/product/213/30000">Windows 操作系统安装 Cloudbase-Init</a>。您可以选择迁移前在源端主机安装，也可迁移后在目标实例安装。若在迁移前安装，则迁移后将会进行自动配置网络、激活等初始化操作。若未在迁移前安装，您可能需要 <a href="https://cloud.tencent.com/document/product/213/35704">使用 VNC 登录实例</a> 并手动修改网络配置。</li>
 	  </ol>
 	</td>
