@@ -33,7 +33,7 @@
 <td >个 </td>
 <td >总文件数量 </td>
 </tr><tr>
-<td rowspan=8>BLOCKS数量 </td>
+<td rowspan=8>BLOCKS 数量 </td>
 <td >BlocksTotal </td>
 <td >个 </td>
 <td >总 BLOCK 数量 </td>
@@ -66,7 +66,7 @@
 <td >个 </td>
 <td >被推迟处理的异常块数量 </td>
 </tr><tr>
-<td >BLOCK容量 </td>
+<td >BLOCK 容量 </td>
 <td >BlockCapacity </td>
 <td >个 </td>
 <td >BLOCK 容量 </td>
@@ -94,14 +94,14 @@
 </tr><tr>
 <td >NumStaleDataNodes </td>
 <td >个 </td>
-<td >标记为过期状态的DataNode数目</td>
+<td >标记为过期状态的 DataNode 数目</td>
 </tr><tr>
-<td >HDFS存储空间使用率 </td>
+<td >HDFS 存储空间使用率 </td>
 <td >CapacityUsedRate </td>
 <td >个 </td>
-<td >HDFS集群存储空间使用率 </td>
+<td >HDFS 集群存储空间使用率 </td>
 </tr><tr>
-<td >SNAPSHOT相关 </td>
+<td >SNAPSHOT 相关 </td>
 <td >Snapshots </td>
 <td >次 </td>
 <td >Snapshots 数量 </td>
@@ -166,12 +166,12 @@
 <td >1/个 </td>
 <td >当前连接数量 </td>
 </tr><tr>
-<td >RPC处理队列长度 </td>
+<td >RPC 处理队列长度 </td>
 <td >CallQueueLength </td>
 <td >1/个 </td>
 <td >当前 RPC 处理队列长度 </td>
 </tr><tr>
-<td rowspan=6>JVM内存 </td>
+<td rowspan=6>JVM 内存 </td>
 <td >MemNonHeapUsedM </td>
 <td >MB </td>
 <td >JVM 当前已经使用的 NonHeapMemory 的大小 </td>
@@ -201,7 +201,7 @@
 <td >次/s </td>
 <td >每秒处理 DataNode Blcok 平均延迟 </td>
 </tr><tr>
-<td rowspan=6>JVM线程数量 </td>
+<td rowspan=6>JVM 线程数量 </td>
 <td >ThreadsNew </td>
 <td >个 </td>
 <td >处于 NEW 状态的线程数量 </td>
@@ -226,22 +226,22 @@
 <td >个 </td>
 <td >处于 Terminated 状态的线程数量 </td>
 </tr><tr>
-<td rowspan=4>JVM日志数量 </td>
+<td rowspan=4>JVM 日志数量 </td>
 <td >LogFatal </td>
-<td >个 </td>
+<td >个 </td >
 <td >FATAL级别日志数量 </td>
 </tr><tr>
 <td >LogError </td>
 <td >个 </td>
-<td >ERROR级别日志数量 </td>
+<td >ERROR 级别日志数量 </td>
 </tr>			<tr>
 <td >LogWarn </td>
 <td >个 </td>
-<td >WARN级别日志数量 </td>
+<td >WARN 级别日志数量 </td>
 </tr><tr>
 <td >LogInfo </td>
 <td >个 </td>
-<td >	INFO级别日志数量 </td>
+<td >	INFO 级别日志数量 </td>
 </tr><tr>
 <td rowspan=2>GC 次数 </td>
 <td >YGC </td>
@@ -268,11 +268,11 @@
 <td rowspan=6>内存区域占比 </td>
 <td >S0</td>
 <td >% </td>
-<td >Survivor 0 区内存使用占比 </td>
+<td >Survivor 0区内存使用占比 </td>
 </tr><tr>
 <td >S1 </td>
 <td >% </td>
-<td >Survivor 1 区内存使用占比 </td>
+<td >Survivor 1区内存使用占比 </td>
 </tr><tr>
 <td >E </td>
 <td >% </td>
@@ -293,9 +293,9 @@
 <td >被标记为过期的存储的数量 </td>
 <td >NumStaleStorages </td>
 <td >个 </td>
-<td >所有过期DataNode的存储目总数 </td>
+<td >所有过期 DataNode 的存储目总数 </td>
 </tr><tr>
-<td >备NN上挂起的与BLOCK相关操作的消息数量 </td>
+<td >备 NN 上挂起的与 BLOCK 相关操作的消息数量 </td>
 <td >PendingDataNodeMessageCount </td>
 <td >个/s </td>
 <td >DATANODE 的请求被 QUEUE 在 standby namenode 中的个数</td>
@@ -309,7 +309,7 @@
 <td >个 </td>
 <td >缺失的数据库数量（rf = 1） </td>
 </tr><tr>
-<td rowspan=7>SNAPSHOT操作 </td>
+<td rowspan=7>SNAPSHOT 操作 </td>
 <td >AllowSnapshotOps </td>
 <td >次/s </td>
 <td >每秒执行 AllowSnapshot 操作的次数 </td>
@@ -397,7 +397,7 @@
 <td >次/s </td>
 <td >每秒执行 PutImageNumOps 的次数 </td>
 </tr><tr>
-<td >SYNC操作 </td>
+<td >SYNC 操作 </td>
 <td >SyncsNumOps </td>
 <td >次/s </td>
 <td >每秒处理 Journal syncs 操作的次数 </td>
@@ -421,12 +421,12 @@
 <td >次/s </td>
 <td >每秒处理 DataNode Blcok 上报操作的次数 </td>
 </tr><tr>
-<td >SYNCS操作延迟 </td>
+<td >SYNCS 操作延迟 </td>
 <td >SyncsAvgTime </td>
 <td >ms </td>
 <td >处理 Journal syncs 操作的平均延迟 </td>
 </tr><tr>
-<td >Cache汇报延迟 </td>
+<td >Cache 汇报延迟 </td>
 <td >CacheReportAvgTime </td>
 <td >ms </td>
 <td >缓存上报动作平均延迟 </td>
@@ -457,12 +457,12 @@
 <td >主备情况 </td>
 <td >State </td>
 <td >1 </td>
-<td >NN HA状态 </td>
+<td >NN HA 状态 </td>
 </tr><tr>
 <td >主备情况 </td>
 <td >State </td>
 <td >1:主，0:备 </td>
-<td >NameNode主备情况 </td>
+<td >NameNode 主备情况 </td>
 </tr><tr>
 <td rowspan=3>线程数量 </td>
 <td >PeakThreadCount </td>
@@ -487,7 +487,7 @@
 <th width=12%>指标单位</th>
 <th width=50%>指标含义 </th>
 </tr><tr>
-<td >XCEIVER数量 </td>
+<td >XCEIVER 数量 </td>
 <td >XceiverCount </td>
 <td >个 </td>
 <td >Xceiver 数量 </td>
@@ -546,7 +546,7 @@
 <td >ms </td>
 <td >心跳接口平均时间 </td>
 </tr><tr>
-<td >心跳QPS </td>
+<td >心跳 QPS </td>
 <td >HeartbeatsNumOps </td>
 <td >次/s </td>
 <td >心跳接口 QPS </td>
@@ -593,12 +593,12 @@
 <td >次/s </td>
 <td >每秒处理 ACK ROUND TRIP 次数 </td>
 </tr><tr>	
-<td >FSYNC操作 </td>
+<td >FSYNC 操作 </td>
 <td >FsyncNanosNumOps </td>
 <td >次/s </td>
 <td >每秒处理 FSYNC 操作次数 </td>
 </tr><tr>
-<td >FLUSH操作 </td>
+<td >FLUSH 操作 </td>
 <td >FlushNanosNumOps </td>
 <td >次/s </td>
 <td >每秒处理 Flush 操作次数 </td>
@@ -640,12 +640,12 @@
 <td >ms </td>
 <td >处理 ACK ROUND TRIP 平均时间 </td>
 </tr><tr>
-<td >FLUSH延迟 </td>
+<td >FLUSH 延迟 </td>
 <td >FlushNanosAvgTime </td>
 <td >ms </td>
 <td >Flush 操作平均时间 </td>
 </tr><tr>
-<td >FSYNC延迟 </td>
+<td >FSYNC 延迟 </td>
 <td >FsyncNanosAvgTime </td>
 <td >ms </td>
 <td >Fsync 操作平均时间 </td>
@@ -683,12 +683,12 @@
 <td >Bytes/s </td>
 <td >由惰性写入器写入磁盘的总字节数 </td>
 </tr><tr>
-<td >RAMDISK写入速度 </td>
+<td >RAMDISK 写入速度 </td>
 <td >RamDiskBytesWrite </td>
 <td >Bytes/s </td>
 <td >写入内存的总字节数 </td>
 </tr><tr>
-<td rowspan=6>JVM内存 </td>
+<td rowspan=6>JVM 内存 </td>
 <td >MemNonHeapUsedM </td>
 <td >MB </td>
 <td >JVM 当前已经使用的 NonHeapMemory 的大小 </td>
@@ -713,18 +713,18 @@
 <td >MB </td>
 <td >JVM 运行时可以使用的最大内存大小 </td>
 </tr><tr>
-<td rowspan=6>JVM线程数量 </td>
+<td rowspan=6>JVM 线程数量 </td>
 <td >ThreadsNew </td>
 <td >个 </td>
-<td >处于新建状态的线程数量 </td>
+<td >处于 NEW 状态的线程数量 </td>
 </tr><tr>
 <td >ThreadsRunnable </td>
 <td >个 </td>
-<td >处于可运行状态的线程数量 </td>
+<td >处于 RUNNABLE 状态的线程数量 </td>
 </tr><tr>
 <td >ThreadsBlocked </td>
 <td >个 </td>
-<td >处于阻塞状态的线程数量 </td>
+<td >处于 BLOCKED 状态的线程数量 </td>
 </tr><tr>
 <td >ThreadsWaiting </td>
 <td >个 </td>
@@ -738,7 +738,7 @@
 <td >个 </td>
 <td >处于 Terminated 状态的线程数量 </td>
 </tr><tr>
-<td  rowspan=4>JVM日志数量 </td>
+<td  rowspan=4>JVM 日志数量 </td>
 <td >LogFatal </td>
 <td >个 </td>
 <td >Fatal 日志数量 </td>
@@ -780,7 +780,7 @@
 <td rowspan=6>内存区域占比 </td>
 <td >S0 </td>
 <td >% </td>
-<td >Survivor 0 区内存使用占比 </td>
+<td >Survivor 0区内存使用占比 </td>
 </tr><tr>
 <td >E </td>
 <td >% </td>
@@ -792,7 +792,7 @@
 </tr><tr>
 <td >S1 </td>
 <td >% </td>
-<td >Survivor 1 区内存使用占比 </td>
+<td >Survivor 1区内存使用占比 </td>
 </tr><tr>
 <td >O </td>
 <td >% </td>
@@ -847,12 +847,12 @@
 <td >个 </td>
 <td >当前链接数量 </td>
 </tr><tr>
-<td >RPC处理队列长度 </td>
+<td >RPC 处理队列长度 </td>
 <td >CallQueueLength </td>
 <td >1 </td>
 <td >当前 RPC 处理队列长度 </td>
 </tr><tr>
-<td rowspan=2>CPU时间 </td>
+<td rowspan=2>CPU 时间 </td>
 <td >CurrentThreadSystemTime </td>
 <td >ms </td>
 <td >系统时间 </td>
@@ -884,7 +884,7 @@
 <td >ms </td>
 <td >读操作耗时</td>
 </tr><tr>
-<td >包传输操作QPS </td>
+<td >包传输操作 QPS </td>
 <td >DataPacketOps </td>
 <td >次/s </td>
 <td >包传输操作 QPS </td>
@@ -899,7 +899,7 @@
 <th width=15%>指标单位</th>
 <th width=50%>指标含义 </th>
 </tr><tr>
-<td rowspan=6>JVM内存 </td>
+<td rowspan=6>JVM 内存 </td>
 <td >MemNonHeapUsedM </td>
 <td >MB </td>
 <td >JVM 当前已经使用的 NonHeapMemory 的大小</td>
@@ -924,7 +924,7 @@
 <td >MB </td>
 <td >JVM 运行时可以使用的最大内存大小 </td>
 </tr><tr>
-<td rowspan=6>JVM线程数量 </td>
+<td rowspan=6>JVM 线程数量 </td>
 <td >ThreadsNew </td>
 <td >个 </td>
 <td >处于 NEW 状态的线程数量 </td>
@@ -949,7 +949,7 @@
 <td >个 </td>
 <td >处于 Terminated 状态的线程数量 </td>
 </tr><tr>
-<td rowspan=4>JVM日志数量 </td>
+<td rowspan=4>JVM 日志数量 </td>
 <td >LogFatal </td>
 <td >个 </td>
 <td >FATAL 级别日志数量 </td>
@@ -991,7 +991,7 @@
 <td rowspan=6>内存区域占比 </td>
 <td >S0 </td>
 <td >% </td>
-<td >Survivor 0 区内存使用占比 </td>
+<td >Survivor 0区内存使用占比 </td>
 </tr><tr>
 <td >E </td>
 <td >% </td>
@@ -1003,7 +1003,7 @@
 </tr><tr>
 <td >S1 </td>
 <td >% </td>
-<td >Survivor 1 区内存使用占比 </td>
+<td >Survivor 1区内存使用占比 </td>
 </tr><tr>
 <td >O </td>
 <td >% </td>
@@ -1054,7 +1054,7 @@
 <td >1 </td>
 <td >当前 RPC 处理队列长度 </td>
 </tr><tr>
-<td rowspan=2>CPU时间 </td>
+<td rowspan=2>CPU 时间 </td>
 <td >CurrentThreadSystemTime </td>
 <td >ms </td>
 <td >系统时间 </td>
@@ -1112,7 +1112,7 @@
 <td rowspan=6>内存区域占比 </td>
 <td >S0 </td>
 <td >% </td>
-<td >Survivor 0 区内存使用占比 </td>
+<td >Survivor 0区内存使用占比 </td>
 </tr><tr>
 <td >E </td>
 <td >% </td>
@@ -1124,7 +1124,7 @@
 </tr><tr>
 <td >S1 </td>
 <td >% </td>
-<td >Survivor 1 区内存使用占比 </td>
+<td >Survivor 1区内存使用占比 </td>
 </tr><tr>
 <td >O </td>
 <td >% </td>
