@@ -1,6 +1,6 @@
 ## 产品概述
 
-腾讯云消息队列 CKafka 正式上线数据中心接入服务模块 DataHub。DataHub具有强大的数据接入及分析处理的功能，可以从 APP、WEB、MongoDB 等数据源中进行持续不断的数据采集，存储和处理，并得到各种实时的数据处理结果，可用于日志分析、网页活动追踪、IoT 分析应用等。
+腾讯云消息队列 CKafka 正式上线数据中心接入服务模块 DataHub。DataHub 具有强大的数据接入及分析处理的功能，可以从 APP、Web、MongoDB 等数据源中进行持续不断的数据采集，存储和处理，并得到各种实时的数据处理结果，可用于日志分析、网页活动追踪、IoT 分析应用等。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/b0718ca8cac2bc1a58671c07095bf125.jpeg)
 
