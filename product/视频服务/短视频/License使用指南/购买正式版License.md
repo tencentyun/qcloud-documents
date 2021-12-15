@@ -6,6 +6,7 @@
 ### 注意事项
 - **正式版 License 不支持信息修改**，若您需要修改 License 信息，购买资源包后请勿用于续期 License，请单击 **创建应用并绑定License** 重新新增 License 绑定新的包名信息。
 - 短视频 SDK License 需要通过 [云点播控制台](https://console.cloud.tencent.com/vod/license/video) 与 [流量资源包](https://cloud.tencent.com/document/product/266/14667#flow_page) 进行绑定。绑定成功后该资源包视为已使用，不支持5天内无理由退款。
+- 短视频 License 用于腾讯云视立方·音视频终端引擎管理功能模块的授权解锁，您可以通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端引擎，接收 License 到期提醒，以及更多各渠道消息通知。短视频 License 将在到期时间距离当前时间为30天、15天、7天、1天时向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。
 
 [](id:creat_formal)
 

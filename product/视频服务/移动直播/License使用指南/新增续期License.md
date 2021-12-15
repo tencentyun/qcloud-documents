@@ -1,4 +1,6 @@
 移动直播 SDK 推荐配合腾讯云直播服务使用，购买指定直播流量资源包，即送直播推流 License（原移动直播基础版 License）1年使用权限，资源包与 SDK License 版本对应关系请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
+>? 移动直播 SDK 的直播推流 License 用于腾讯云视立方·音视频终端引擎管理功能模块的授权解锁，您可以通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅**音视频终端引擎**，接收 License 到期提醒，以及更多各渠道消息通知。直播推流 License 将在到期时间距离当前时间为30天、15天、7天、1天时向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。
+
 
 [](id:test)
 

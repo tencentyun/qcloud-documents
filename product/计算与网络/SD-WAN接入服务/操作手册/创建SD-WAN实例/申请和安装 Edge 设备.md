@@ -1,6 +1,5 @@
 为满足您的业务需求，腾讯云提供 Edge-100 和 Edge-1000 两种 Edge 设备。本文将介绍如何在 SD-WAN 接入服务控制台申请 Edge 设备。
->?SD-WAN 接入服务目前处于内测阶段，如需使用请提交 [内测申请](https://cloud.tencent.com/apply/p/v70vi3xrgr)，内测阶段暂不支持 Edge-1000 设备。
->
+
 ## 背景信息
 **Edge 设备**：硬件设备形态，在用户 IDC、分支和门店安装 Edge 设备后，可自动与腾讯云网络连接。Edge 设备详情如下：
 <table>

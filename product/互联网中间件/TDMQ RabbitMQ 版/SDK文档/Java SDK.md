@@ -48,7 +48,7 @@ public class MessageProducer {
         // 连接工厂
         ConnectionFactory factory = new ConnectionFactory();
         // 设置服务地址 (完整复制控制台接入点地址)
-        factory.setUri("http://***");
+        factory.setUri("amqp://***");
         // 设置Virtual Hosts (Vhost控制台复制完整Vhost名称)
         factory.setVirtualHost(VHOST_NAME);
         // 设置用户名 (具体使用Vhost的配置权限中的角色名称)
@@ -115,7 +115,7 @@ public class MessageConsumer1 {
         // 连接工厂
         ConnectionFactory factory = new ConnectionFactory();
         // 设置服务地址 (完整复制控制台接入点地址)
-        factory.setUri("http://***");
+        factory.setUri("amqp://***");
         // 设置Virtual Hosts (Vhost控制台复制完整Vhost名称)
         factory.setVirtualHost(VHOST_NAME);
         // 设置用户名 (具体使用Vhost的配置权限中的角色名称)

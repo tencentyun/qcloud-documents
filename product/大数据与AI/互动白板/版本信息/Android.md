@@ -1,3 +1,24 @@
+### 2.6.8.144 @ 2021.12.10
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.8.144.zip)  
+- 新增接口  
+  1. gotoStep(boardId, step)跳转到指定动画步数  
+  2. getBoardScroll()获取白板滚动位置  
+  3. setPiecewiseErasureEnable(enable)是否启用点擦（分段擦除）功能  
+  4. isPiecewiseErasureEnable()获取分段擦除模式开启状态  
+  5. setEraserSize(radius)设置橡皮擦大小  
+  6. getEraserSize()获取橡皮擦大小  
+  7. setGlobalBackgroundPic(url, mode, type)设置白板背景图  
+  8. getGlobalBackgroundPic()获取白板背景图  
+- 新增初始化参数  
+  globalBackgroundPic
+- 调整接口  
+  1. addElement 新增添加文本元素 TEDU_BOARD_ELEMENT_TEXT  
+- 新增事件  
+  1. onTEBScrollChanged 白板移动回调  
+- 调整事件  
+  1. onTEBSelectElement ElementItem 新增 boundingbox 属性  
+ 
+
 ### 2.6.7.139 @ 2021.11.17
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.7.139.zip)  
 - 功能优化

@@ -1,13 +1,11 @@
 
-性能趋势分析目前支持云数据库 Redis、云数据库 MySQL（不含单节点 - 基础型）、云原生数据库 TDSQL-C（TDSQL-C for MySQL）、自建数据库 MySQL。
-
 >?Redis 性能趋势与其他数据库略有不同，本篇单独介绍 Redis 性能趋势分析。
 
 ## 性能趋势简介
 Redis 性能趋势支持多种性能指标的选择，实例（Redis 数据库实例）、Redis 节点（节点间，如A节点 - B节点之间）、Proxy（中间件集群节点）节点切换，性能指标选择，实时/历史视图切换，监控粒度切换，单个或对比视图切换，实例、Redis 节点、Proxy 节点的多种视图及对比视图等。
 
 ## 操作步骤
-1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/slow-sql)，在左侧导航选择【诊断优化】，在上方选择对应数据库，选择【性能趋势】页。
+1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain)，在左侧导航选择**诊断优化**，在上方选择对应数据库，选择**性能趋势**页。
 ![](https://main.qcloudimg.com/raw/83e776bc61da0ebd1f04229039efe63f.png)
 2. 在性能趋势页，可查看各维度的监控、选择不同监控指标、过滤指标、切换视图、图表联动。
  - 监控维度：提供了 Redis 实例监控、Redis 节点监控、Proxy 节点监控。

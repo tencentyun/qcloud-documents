@@ -1,6 +1,4 @@
 
-## 慢日志介绍
-慢日志分析目前支持云数据库 Redis、云数据库 MySQL（不含单节点 - 基础型）、云原生数据库 TDSQL-C（TDSQL-C for MySQL）、自建数据库 MySQL。
 >?agent 接入的自建数据库实例在使用慢日志分析前，需确认慢日志采集是否开启，具体参见 [慢日志分析配置](https://console.cloud.tencent.com/dbbrain/instance?product=dbbrain-mysql)。
 
 ## 操作场景
@@ -9,7 +7,7 @@ Redis 的慢日志分析与 MySQL 和 TDSQL-C 不同，Redis 慢日志分别统�
 - proxy（中间件集群节点）维度，可以看到 proxy 的慢日志统计、分段耗时情况，还有详细的慢日志列表信息。
 
 ## 操作步骤
-1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/slow-sql)，在左侧导航选择【诊断优化】，在上方选择对应数据库，选择【慢日志分析】页。
+1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain)，在左侧导航选择**诊断优化**，在上方选择对应数据库，选择**慢日志分析**页。
 ![](https://main.qcloudimg.com/raw/540e4d8ce49f62a7cf9c1e03cef6c081.png)
 2. 在慢日志分析页，可查看实例级别和 proxy 级别慢日志。
  - 实例级别慢日志：
@@ -24,7 +22,7 @@ Redis 的慢日志分析与 MySQL 和 TDSQL-C 不同，Redis 慢日志分别统�
 3. 图表日志联动。
 在慢日志统计模块，单击您要定位的时间点，会同步定位当前时间产生的慢日志信息，以及具体耗时情况。
 ![](https://main.qcloudimg.com/raw/8d0596fc23190dffd3371d15a4c3374b.png)
-4. 在慢日志分析页，单击右上角的【监控详情】，可以添加多个时间段，多个监控指标进行对比。
+4. 在慢日志分析页，单击右上角的**监控详情**，可以添加多个时间段，多个监控指标进行对比。
 ![](https://main.qcloudimg.com/raw/2c8b8f1be41ed82699aa8f1ef31f3124.png)
 5. 在下方的慢日志列表，单击某条聚合的命令模板行，可在右侧弹出命令的具体分析和统计数据。
  - 在分析页可查看：
