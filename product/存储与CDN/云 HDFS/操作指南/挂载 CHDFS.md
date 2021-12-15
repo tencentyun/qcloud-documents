@@ -37,7 +37,7 @@
 
 <!--flush语义, 默认false(异步刷盘), 请参考下图数据可见性与持久化详细说明 -->      
 <property>
-		 <name>fs.ofs.upload.flush.flag/name>
+		 <name>fs.ofs.upload.flush.flag</name>
 		 <value>false</value>
 </property>
 

@@ -40,11 +40,11 @@
 3. 成功 [配置域名 CNAME](https://cloud.tencent.com/document/product/267/19908)。
 4. 配置好推流/播放域名后，在推流/播放域名的 **基本信息** 页面可以获得 `CNAME` 和 `API Key` 两个信息。
 <img src="https://main.qcloudimg.com/raw/479d9da3f5da8068431beb796609d932.png" width=500px>
-5. 打开 `LiteAVSDK_Professional_iOS_版本号/MLVB-API-Example-OC/Debug/App/Common/LiveUrl.m` 文件。
-设置 `LiveUrl.` 文件中的相关参数：
-  - generateRtmpPushUrl 中推流地址请设置为您的推流域名的 `CNAME`。
-  - generateRtmpPlayUrl 中拉流地址请设置为您的播放域名的 `CNAME`。
-  - KEY：非必需，用于生成 txSecret 等鉴权信息，具体计算请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
+5. 打开 `LiteAVSDK_Professional_iOS_版本号/MLVB-API-Example-OC/Debug/GenerateTestUserSig.h` 文件。
+设置 `GenerateTestUserSig.h` 文件中的相关参数：
+  - PUSH_DOMAIN 中推流地址请设置为您的推流域名的 `CNAME`。
+  - PLAY_DOMAIN 中拉流地址请设置为您的播放域名的 `CNAME`。
+  - LIVE_URL_KEY：非必需，用于生成 txSecret 等鉴权信息，具体计算请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 
 [](id:step4)
 ### 步骤四：配置连麦或 PK 能力

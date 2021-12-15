@@ -6,7 +6,7 @@
 
 
 
->?如您需提升推送的抵达率，或进行多样化推送，推荐安装 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 的 [SDK](https://cloud.tencent.com/document/product/548/36649) 体验完整的推送服务。若您同时使用即时通信 IM 和 [移动推送 TPNS](https://cloud.tencent.com/product/tpns)，则无需重复集成厂商通道。
+>?如您需提升推送的抵达率，或进行多样化推送，推荐安装 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 的 [SDK](https://cloud.tencent.com/document/product/548/36649) 体验完整的推送服务。若您同时使用即时通信 IM 和 [移动推送 TPNS](https://cloud.tencent.com/product/tpns)，则无需重复集成厂商通道。您可通过 [开通并授权 TPNS 服务](https://cloud.tencent.com/document/product/548/59144) 实现 IM 离线消息下发与统计。
 <table> 
    <tr> 
      <th nowrap="nowrap">推送通道</th> 
@@ -224,8 +224,7 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
  - **推送平台**：选择**华为**
  - **应用包名称**：填写华为推送服务应用的**包名**
  - **AppID**：填写华为推送服务应用的 **APP ID**
- -  **Client ID**：填写华为推送服务应用的 **Client ID**
- - **Client SECRET**：填写华为推送服务应用的 **Client SECRET**
+ - **AppSecret**：填写华为推送应用服务的 **Client Secret**
  - **角标参数**：填写应用入口完整 `Activity` 类名，用作华为桌面应用角标显示，请参考华为推送服务开发文档中的“桌面角标”说明。
  - **点击通知后**：选择点击通知栏消息后的响应操作， 支持**打开应用**、**打开网页**和**打开应用内指定界面**，更多详情请参见 [配置点击通知栏消息事件](#huawei_click)
    当设置为**打开应用**或**打开应用内指定界面**操作时，支持 [透传自定义内容](#huawei_custom)。
