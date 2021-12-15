@@ -61,8 +61,6 @@
 </dx-alert>
 
 
-
-
 [](id:que9)
 ### 创建了多个腾讯云视立方 License， License URL 和 License Key 一样吗？
 
@@ -107,3 +105,7 @@
 #### 相关问题：
 - [子账户为什么无法访问直播控制台 License 相关界面？](https://cloud.tencent.com/document/product/454/43500#que16)
 - [子账户为什么无法访问点播控制台 License 相关界面？](https://cloud.tencent.com/document/product/266/50296#que12)
+
+[](id:que14)
+### 为什么接收不到音视频终端引擎产品和 License 相关消息通知？
+您可以通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅**音视频终端引擎**，接收 License 到期提醒，以及更多各渠道消息通知。License 将在到期时间距离当前时间为30天、15天、7天、1天时向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。
