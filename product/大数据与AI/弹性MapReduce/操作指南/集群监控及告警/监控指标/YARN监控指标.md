@@ -1,6 +1,7 @@
-### HDFS-概览
+### YARN-概览
 <table>
-<tr><th width=20%>标题 </th>
+<tr>
+<th width=20%>标题 </th>
 <th width=20%>指标名称</th>
 <th width=15%>指标单位</th>
 <th width=45%>指标含义 </th>
@@ -217,7 +218,7 @@
 </tr>
 </table>
 
-### Yarn-ResourceManager
+### YARN-ResourceManager
 <table>
 <tr>
 <tr><th width=20%>标题 </th>
@@ -326,7 +327,7 @@
 <td >% </td>
 <td >Metaspace 区内存使用占比 </td>
 </tr><tr>
-<td rowspan=6>JVM线程数量 </td>
+<td rowspan=6>JVM 线程数量 </td>
 <td >ThreadsNew </td>
 <td >个 </td>
 <td >处于 NEW 状态的线程数量 </td>
