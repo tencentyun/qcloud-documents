@@ -38,7 +38,7 @@ import tiacc_training.torch
 import tiacc_training.torch.distributed as tdist
 tdist.init_tiacc_training()
 ```
-以兼容原生 ddp 的方式启动脚本，参考示例如下：
+以兼容原生 DDP 的方式启动训练脚本，参考示例如下：
 ```
 python3 -u -m tiacc_training.torch.distributed.launch --nproc_per_node $GPUS_PER_NODE --nnodes $NNODES --node_rank $NODE_RANK --master_addr $MASTER_ADDR --master_port $MASTER_PORT main.py
 ```
