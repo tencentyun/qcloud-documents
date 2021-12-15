@@ -9,7 +9,7 @@ implementation 'com.github.bumptech.glide:glide:version'
 
 ## 基础图片处理
 
-与 Glide 配合使用数据万象基础图片处理操作（除 TPG和AVIF 相关功能外）。
+与 Glide 配合使用数据万象基础图片处理操作（除 TPG 和 AVIF 相关功能外）。
 
 1. 使用 CloudInfinite 和 CITransformation 构建 CIImageLoadRequest。
 ```
@@ -23,7 +23,7 @@ CIImageLoadRequest request = cloudInfinite.requestWithBaseUrlSync(url, transform
 Glide.with(activity).load(request.getUrl().toString()).into(imageview);
 ```
 
-## 使用基础数据万象Glide功能
+## 使用基础数据万象 Glide 功能
 
 安装 cloud-infinite-glide SDK 以及 glide:compiler。
 ```
