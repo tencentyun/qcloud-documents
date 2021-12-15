@@ -32,7 +32,7 @@
 >
 ![](https://main.qcloudimg.com/raw/e327528f08706299fef120e04c993099.png)
 3. 在弹出的 “一键添加” 窗口中，配置相关信息。如下图所示：
-![](https://main.qcloudimg.com/raw/5e8f1474ff34ca297f5ccf9f7ae57e6a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/efb4e419723d263b035c2c9ffb6b625b.png)
  - **填写域名：**请输入您需要进行一键 HTTPS 的域名。
 <dx-alert infotype="explain" title="">
  填写的域名需要在工信部完成备案，否则将无法进行接入。详情请参见 [备案概述](https://cloud.tencent.com/document/product/243/18907)。
@@ -46,10 +46,18 @@
     - **域名**：请输入需要防护网站的真实源站域名。
  - **强制 HTTPS：**开启该功能，浏览器端的每个 HTTP 请求都会被跳转成 HTTPS 请求。例如，当浏览器使用 HTTP 协议访问 `http://cloud.tencent.com ` 时，将返回302状态码重定向到 HTTPS 协议访问 `https://cloud.tencent.com`。
  - **回源协议：**	开启该功能，腾讯云将使用 HTTP 协议访问源站。例如，当浏览器使用 HTTP 或 HTTPS 协议访问 `cloud.tencent.com` 时，无论 HTTP 或 HTTPS 协议都将使用 HTTP 协议访问源站。
- - **回源端口：**请根据您的实际需求选择回源端口。默认情况下支持443与8443，若您开启回源协议，则为80与8080。
+
+>!若源站尚不支持HTTPS访问，请务必使用 HTTP 作为回源协议。
+
+- **回源端口：**请根据您的实际需求选择回源端口。默认情况下支持80与8080d端口，若回源协议勾选 HTTPS ，则为443与8443。
+- **高级选项（可选）**：
+![](https://qcloudimg.tencent-cloud.cn/raw/a12a55c0bf89753cfb30fda0bf0fa2ca.png)
+ -  **回源连接方式**：默认使用长连接回源，请确认源站是否支持长连接，若不支持，即使设置长连接，也会使用短连接回源。
+ -  **开启HTTP2.0**：若您的源站不支持HTTP2.0，从腾讯云到源站链路将降级为HTTP1.1。源站支持 HTTP2.0 情况下建议您选择是，将提高您网站的访问速率。
+ -  **开启WebSocket**：如果您的网站使用了Websocket，建议您选择是。将提高轮询的效率以及降低资源浪费。
+
 4. 单击**确定**，即可生成配置实例。如下图所示：
 ![](https://main.qcloudimg.com/raw/2c548a3cf3bc61f73512a57150319cec.png)
-
 ### 步骤2：配置 CNAME 记录
 
 >?
