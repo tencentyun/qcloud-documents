@@ -16,14 +16,12 @@
   - 登录[腾讯云控制台](https://cloud.tencent.com/)
   - 单击左上角云产品，搜索”微服务引擎”，选择并进入微服务引擎控制台。
     ![console](https://qcloudimg.tencent-cloud.cn/raw/7f7daff61aff9aface98161c61a56239.png)
-    
 2. 获取微服务引擎服务治理中心地址
   - 点击左边栏polarismesh按钮，进入polarismesh引擎列表：![pm_icon](https://qcloudimg.tencent-cloud.cn/raw/bdd06200187fff733eb1222f794a014a.png)
   - 点击页面上方下拉列表，选择地域：![region_icon](https://qcloudimg.tencent-cloud.cn/raw/b5153fa452844ee19e24436e11b2376e.png)
   - 在引擎列表中，选择已经创建好的polarismesh服务治理中心引擎，点击进入：![instance_icon](https://qcloudimg.tencent-cloud.cn/raw/c75a4b2c7b53a6cb2bec33bde7fa8c99.png)
   - 进入“基本信息”页，查看访问地址，gRPC-Go 应用访问使用gRPC端口（8091）：
     ![access](https://qcloudimg.tencent-cloud.cn/raw/561460943b0404c44c29d2c0dd09c56f.png)
-    
 3. 修改demo中的注册中心地址。
   - 在下载到本地的demo源码目录下，分别找到
 “\examples\quickstart\provider\polaris.yaml”和“\examples\quickstart\consumer\polaris.yaml”两个文件。
@@ -48,7 +46,7 @@ global:
 | \examples\quickstart\consumer | consumer | 服务消费者 |
 
 5. 【虚拟机部署】部署provider和consumer微服务。
- - 上传二进制至 CVM 实例。
+ - 上传二进制以及配置文件至 CVM 实例。
  - 执行启动命令进行启动：
 ```shell
 nohup [二进制名称] &

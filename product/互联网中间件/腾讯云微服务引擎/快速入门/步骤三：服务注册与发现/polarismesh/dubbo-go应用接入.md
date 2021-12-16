@@ -6,8 +6,10 @@
 
 - 已创建PolarisMesh服务治理中心，请参考[创建PolarisMesh治理中心]()。
 - 下载github的[demo源码](https://github.com/apache/dubbo-go-samples/tree/master/registry/polaris)到本地并解压
-- 【虚拟机部署】已创建CVM虚拟机，请参考[创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)
+- 【虚拟机部署】已创建CVM虚拟机，请参考[创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)。
+- 【容器化部署】已创建TKE容器集群，请参考[创建 TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
 - 【golang环境安装】CVM需要安装了golang环境
+- 当前仅支持dubbo-go的接口注册模型
 
 ## 操作步骤
 
@@ -44,43 +46,62 @@
           version: myInterfaceVersion # dubbo interface version must be same with server
   ```
 
-6. 上传demo源码
+6. 将源码编译成可执行程序。
 
-- 安装`golang`环境[Download and install - go.dev](https://go.dev/doc/install)
+  - 分别在`consumer`和`provider`这2个目录下，打开cmd命令，执行以下命令，对项目进行编译：
 
-- 分别将`go-client`以及`go-server`的demo源码上传到不同的CVM实例中，这里假定上传的路径均为`/data/polaris/dubbogo_examples`
+    - 编译consumer：`CGO_ENABLED=0 go build -ldflags "-s -w" -o consumer`
+    - 编译provider：`CGO_ENABLED=0 go build -ldflags "-s -w" -o provider`
 
-7. 将demo示例运行
+- 编译成功后，生成如表1所示的2个二进制包。
+      表1 软件包列表
 
-- 运行`go-server`
+  | 软件包所在目录    | 软件包名称 | 说明       |
+  | ----------------- | ---------- | ---------- |
+  | \dubbogo\provider | provider   | 服务生产者 |
+  | \dubbogo\consumer | consumer   | 服务消费者 |
+
+
+7. 【虚拟机部署】部署provider和consumer微服务。
+
+- 上传二进制以及配置文件至 CVM 实例。
+
+- 运行`provider`
 
   ```shell
   # 进入provider目录
-  cd /data/polaris/dubbogo_examples/go-server/cmd
+  cd /data/polaris/dubbogo_examples/provider
   # 设置配置文件目录
-  export DUBBO_GO_CONFIG_PATH="../conf/dubbogo.yml"
+  export DUBBO_GO_CONFIG_PATH="./dubbogo.yml"
   # 运行 provider
-  [root@VM-50-33-centos ./go-server/cmd]# go run .
-  go run .
+  ./provider
   ```
 
-- 运行`go-client`
+- 运行`consumer`
 
   ```shell
   # 进入consumer目录
-  cd /data/polaris/dubbogo_examples/go-client/cmd
+  cd /data/polaris/dubbogo_examples/consumer
   # 设置配置文件目录
-  export DUBBO_GO_CONFIG_PATH="../conf/dubbogo.yml"
+  export DUBBO_GO_CONFIG_PATH="./dubbogo.yml"
   # 运行 consumer
-  [root@VM-50-33-centos ./go-client/cmd]# go run .
-  ...
-  start to test dubbo
-  2021-12-16T12:51:46.102+0800    INFO    cmd/main.go:71  response result: &{A001 Alex Stocks 18 2021-12-16 12:51:46.102 +0800 CST}
-  
-  2021-12-16T12:51:46.103+0800    INFO    cmd/main.go:79  response result: &{A001 Alex Stocks from UserProviderWithCustomGroupAndVersion 18 2021-12-16 12:51:46.103 +0800 CST}
+  ./consumer
   ```
 
-8. 确认部署结果
+8. 【容器化部署】部署provider和consumer微服务。
+
+- 编写dockerfile生成镜像，参考：
+
+  ```
+  FROM golang:alpine
+  WORKDIR /root
+  ADD . /root
+  ENTRYPOINT ./[二进制名称] [启动参数命令]
+  ```
+
+- 通过TKE部署并运行镜像
+
+9. 确认部署结果
 
 - 进入微服务引擎控制台，选择前提条件中创建的polarismesh治理中心实例
 - 选择`服务管理` > `服务列表`，查看一下服务的实例数量
@@ -93,4 +114,12 @@
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/27547973537c1f6bcbee0b6560295abe.png)
 
-   
+ - 调用consumer的HTTP接口
+
+   - 执行http调用，其中${app.port}替换为consumer的监听端口（默认为18080），${add.address}则替换为consumer暴露的地址。
+
+    ```
+   curl -L -X GET 'http://${add.address}:${app.port}/echo'
+   预期返回值：{"UserProvider":{"id":"A001","name":"Alex Stocks","age":18,"time":"2021-12-16T16:57:27.945+08:00"},"UserProviderWithCustomGroupAndVersion":{"id":"A001","name":"Alex Stocks from UserProviderWithCustomGroupAndVersion","age":18,"time":"2021-12-16T16:57:27.946+08:00"}}
+    ```
+

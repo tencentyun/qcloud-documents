@@ -6,11 +6,11 @@
 
 - 已创建PolarisMesh服务治理中心，请参考[创建PolarisMesh治理中心]()。
 - 下载github的polaris-php源码
-  - [php-5.x](https://github.com/polarismesh/polaris-php/tree/php-5.x)
   - [php-7.x](https://github.com/polarismesh/polaris-php/tree/php-7.x)
+  - [php-5.x](https://github.com/polarismesh/polaris-php/tree/php-5.x)
 - 下载github的demo源码到本地并解压
-  - [php-5.x](https://github.com/polarismesh/polaris-php/tree/php-5.x/examples/quickstart)
   - [php-7.x](https://github.com/polarismesh/polaris-php/tree/php-7.x/examples/quickstart)
+  - [php-5.x](https://github.com/polarismesh/polaris-php/tree/php-5.x/examples/quickstart)
 - 【虚拟机部署】已创建CVM虚拟机，请参考[创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)
 - 【php环境安装】CVM需要安装了php-5.x或php-7.x的环境
 
@@ -61,7 +61,7 @@
 
 - 分别将`consumer`以及`provider`的demo源码上传到不同的CVM实例中，这里假定上传的路径均为`/data/polaris/php_examples`
 
-7. 将demo示例运行
+7. 【虚拟机部署】部署provider和consumer微服务。
 
 - 运行`provider`
 
@@ -92,11 +92,11 @@
 
 8. 确认部署结果
 - 进入微服务引擎控制台，选择前提条件中创建的polarismesh治理中心实例
-- 选择`服务管理` > `服务列表`，查看服务`polaris_php_test`的实例数量
+- 选择`服务管理` > `服务列表`，查看服务`EchoServerPHP`的实例数量
 - 若实例数量值不为0，则表示已经成功接入微服务引擎
-- 若实例数量为0，或者找不到`polaris_php_test`服务名，则表示微服务应用接入微服务引擎失败。
+- 若实例数量为0，或者找不到`EchoServerPHP`服务名，则表示微服务应用接入微服务引擎失败。
 
-   ![](https://qcloudimg.tencent-cloud.cn/raw/c75595d9d8ece9633427a8206f9ecb63.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/679fa9f05664606803c018182c52b697.png)
 
    
 

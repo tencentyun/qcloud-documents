@@ -5,8 +5,9 @@
 ## 前提条件
 
 - 已创建PolarisMesh服务治理中心，请参考[创建PolarisMesh治理中心]()。
-- 下载github的[demo源码](https://github.com/polarismesh/polaris-go/tree/main/sample/quickstart)到本地并解压
-- 【虚拟机部署】已创建CVM虚拟机，请参考[创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)
+- 下载github的[demo源码](https://github.com/polarismesh/polaris-go/tree/main/sample/quickstart)到本地并解压。
+- 【虚拟机部署】已创建CVM虚拟机，请参考[创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)。
+- 【容器化部署】已创建TKE容器集群，请参考[创建 TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
 - 【golang环境安装】CVM需要安装了golang环境
 
 ## 操作步骤
@@ -34,12 +35,24 @@
          - 192.168.100.9:8091
    ```
 
-6. 上传demo源码
+6. 将源码编译成可执行程序。
 
-- 安装`golang`环境[Download and install - go.dev](https://go.dev/doc/install)
+  - 分别在`consumer`和`provider`这2个目录下，打开cmd命令，执行以下命令，对项目进行编译：
 
-- 分别将`consumer`以及`provider`的demo源码上传到不同的CVM实例中，这里假定上传的路径均为`/data/polaris/golang_examples`
-7. 将demo示例运行
+    - 编译consumer：`CGO_ENABLED=0 go build -ldflags "-s -w" -o consumer`
+    - 编译provider：`CGO_ENABLED=0 go build -ldflags "-s -w" -o provider`
+- 编译成功后，生成如表1所示的2个二进制包。
+      表1 软件包列表
+
+  | 软件包所在目录                | 软件包名称 | 说明       |
+  | ----------------------------- | ---------- | ---------- |
+  | \examples\quickstart\provider | provider   | 服务生产者 |
+  | \examples\quickstart\consumer | consumer   | 服务消费者 |
+
+- 分别将`consumer`以及`provider`的二进制上传到不同的CVM实例中，这里假定上传的路径均为`/data/polaris/golang_examples`
+7. 【虚拟机部署】部署provider和consumer微服务。
+
+- 上传二进制以及配置文件至 CVM 实例。
 
 - 运行`provider`
 
@@ -47,7 +60,7 @@
    # 进入provider目录
    cd /data/polaris/golang_examples/provider
    # 运行 provider
-   ./provider --service="polaris_go_test" --namespace="default" --host="{CVM内网 or 公网IP}" --port=7879
+   ./provider --host="{CVM内网 or 公网IP}" --port=7879
    ```
    
 - 运行`consumer`
@@ -57,20 +70,37 @@
    cd /data/polaris/golang_examples/consumer
    
    # 运行 consumer
-   [root@VM-50-33-centos ./consumer]# ./consumer --service="polaris_go_test" --namespace="default"
-   2021/12/13 14:40:03 start to invoke getOneInstance operation
-   2021/12/13 14:40:03 instance getOneInstance is 10.0.50.33:7879
-   2021/12/13 14:40:03 Hello, I'm Provider
+   [root@VM-50-33-centos ./consumer]# ./consumer --service="EchoServerGolang" --namespace="default"
    ```
-8. 确认部署结果
+8. 【容器化部署】部署provider和consumer微服务。
+
+- 编写dockerfile生成镜像，参考：
+
+   ```
+   FROM golang:alpine
+   WORKDIR /root
+   ADD . /root
+   ENTRYPOINT ./[二进制名称] [启动参数命令]
+   ```
+- 通过TKE部署并运行镜像
+
+9. 确认部署结果
 
 - 进入微服务引擎控制台，选择前提条件中创建的polarismesh治理中心实例
 
-- 选择`服务管理` > `服务列表`，查看服务`polaris_go_test`的实例数量
+- 选择`服务管理` > `服务列表`，查看服务`EchoServerGolang`的实例数量
 
 - 若实例数量值不为0，则表示已经成功接入微服务引擎
-- 若实例数量为0，或者找不到`polaris_go_test`服务名，则表示微服务应用接入微服务引擎失败。
+- 若实例数量为0，或者找不到`EchoServerGolang`服务名，则表示微服务应用接入微服务引擎失败。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/a0167bfcec91615b572a5576c97b68b0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ee84221306724bc6b45e055c1859b8df.png)
 
-   
+ - 调用consumer的HTTP接口
+
+   - 执行http调用，其中${app.port}替换为consumer的监听端口（默认为18080），${add.address}则替换为consumer暴露的地址。
+
+    ```
+   curl -L -X GET 'http://${add.address}:${app.port}/echo'
+   预期返回值：Hello, I'm EchoServerGolang Provider
+    ```
+
