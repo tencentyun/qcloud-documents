@@ -20,13 +20,13 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/37fbc79bfa0ad798fc6292c857364fe5.png)
 
 
-### 上传本地Excel文件创建
+### 上传本地 Excel 文件创建
 支持上传本地符合格式规范的 Excel 文件，也可以通过下载示例 Excel 模板，在示例模板基础上进行数据修改后上传：
-![](https://qcloudimg.tencent-cloud.cn/raw/2e4cd9eee5a1e3bb77d438c41a3f2d00.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ee962ff91942f772b99c78a6c9ea5516.png)
 >? **Excel 文件格式要求：**
 - 表头字段名支持中文和英文，英文以字母开头，避免使用特殊字符。
 >2. 文件格式仅支持 csv/xls/xlsx 格式，大小不超过 2MB。
->3. 需要确保 Excel 表单中不存在合并的单元格，可参考示例模板。
+>3. 需要确保 Excel 表单中不存在合并的单元格，详情可单击上图的**示例模板**下载参考。
 
 ### 使用腾讯文档创建
 1. 通过将腾讯文档账号授权给微搭，读取并解析腾讯文档下的 Excel 文件来进行应用的创建。
