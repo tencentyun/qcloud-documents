@@ -1,6 +1,6 @@
 ## 简介
 
-数据在客户端和服务器间传输时可能会出现错误，COS 除了可以通过 [MD5 和自定义属性](https://cloud.tencent.com/document/product/436/36427) 验证数据完整性外，还可以通过 CRC64 检验码来进行数据校验。
+数据在客户端和服务器间传输时可能会出现错误，对象存储（Cloud Object Storage，COS）除了可以通过 [MD5 和自定义属性](https://cloud.tencent.com/document/product/436/36427) 验证数据完整性外，还可以通过 CRC64 检验码来进行数据校验。
 
 COS 会对新上传的对象进行 CRC64 计算，并将结果作为对象的属性进行存储，随后在返回的响应头部中携带 x-cos-hash-crc64ecma，该头部表示上传对象的 CRC64 值，根据 [ECMA-182标准](https://www.ecma-international.org/publications/standards/Ecma-182.htm) 计算得到。对于 CRC64 特性上线前就已经存在于 COS 的对象，COS 不会对其计算 CRC64 值，所以获取此类对象时不会返回其 CRC64 值。
 
@@ -29,7 +29,8 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](http
 
 您在上传或者下载成功后，可以在响应头部中获取 CRC64 值。
 
->!  COS Android SDK 版本需要大于等于 v5.7.5。
+>! COS Android SDK 版本需要大于等于 v5.7.5。
+>
 
 #### 上传请求示例
 [//]: # (.cssg-snippet-upload-verify-crc64)
@@ -67,7 +68,9 @@ uploadTask.setCosXmlResultListener(new CosXmlResultListener() {
     }
 });
 ```
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/CRC64Verify.java) 查看。
+
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/CRC64Verify.java) 查看。
+>
 
 #### 下载请求示例
 [//]: # (.cssg-snippet-download-verify-crc64)
@@ -107,7 +110,9 @@ downloadTask.setCosXmlResultListener(new CosXmlResultListener() {
     }
 });
 ```
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/CRC64Verify.java) 查看。
+
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/CRC64Verify.java) 查看。
+>
 
 #### CRC64 校验
 
@@ -127,4 +132,5 @@ if (localCRC64.equals(cosCRC64)) {
     // CRC64 对比正确
 }
 ```
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/CRC64Verify.java) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/CRC64Verify.java) 查看。
+>
