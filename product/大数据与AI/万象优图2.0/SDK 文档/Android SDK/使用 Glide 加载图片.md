@@ -23,7 +23,7 @@ CIImageLoadRequest request = cloudInfinite.requestWithBaseUrlSync(url, transform
 Glide.with(activity).load(request.getUrl().toString()).into(imageview);
 ```
 
-## 使用基础数据万象 Glide 功能
+## 使用数据万象 Glide 功能
 
 安装 cloud-infinite-glide SDK 以及 glide:compiler。
 ```
