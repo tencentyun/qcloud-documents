@@ -1,9 +1,9 @@
 ### CLICKHOUSE-Metrics
 <table>
 <tr>
-<th width=20%>标题 </th>
+<th width=25%>标题 </th>
 <th width=20%>指标名称</th>
-<th width=15%>指标单位</th>
+<th width=10%>指标单位</th>
 <th width=45%>指标含义 </th>
 </tr><tr>
 <td rowspan=2>网络连接数 </td>
@@ -195,9 +195,9 @@
 ### CLICKHOUSE-Events
 <table>
 <tr>
-<th width=20%>标题 </th>
+<th width=25>标题 </th>
 <th width=20%>指标名称</th>
-<th width=15%>指标单位</th>
+<th width=10%>指标单位</th>
 <th width=45%>指标含义 </th>
 </tr><tr>
 <td rowspan=3>查询数 </td>
@@ -279,9 +279,9 @@
 
 <table>
 <tr>
-<th width=20%>标题 </th>
+<th width=25>标题 </th>
 <th width=20%>指标名称</th>
-<th width=15%>指标单位</th>
+<th width=10>指标单位</th>
 <th width=45%>指标含义 </th>
 </tr><tr>
 <td >StorageMergeTree 的 marks 的缓存大小</td>
