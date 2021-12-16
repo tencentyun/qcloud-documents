@@ -63,6 +63,23 @@
 
 <dx-codeblock>
 ::: javascript javascript
+  npm i trtc-js-sdk --save
+  npm i tim-js-sdk --save
+  npm i tsignaling --save
+  npm i trtc-calling-js --save
+  // 如果是通过node下载的依赖，则使用 import 引入
+  import TRTCCalling from 'trtc-calling-js';
+ 
+  // 如果您通过 script 方式使用 trtc-calling-js，需要按顺序
+  // 手动引入 trtc.js
+  <script src="./trtc.js"></script>
+  // 接着手动引入 tim-js.js
+  <script src="./tim-js.js"></script>
+  // 然后再手动引入 tsignaling.js
+  <script src="./tsignaling.js"></script>
+  // 最后再手动引入 trtc-calling-js.js
+  <script src="./trtc-calling-js.js"></script>
+
 let options = {
   SDKAppID: 0, // 接入时需要将0替换为您的即时通信IM应用的 SDKAppID
   // 从v0.10.2起，新增 tim 参数
@@ -827,3 +844,6 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 > - **多实例**：一个 UserID 重复登入，或在不同端登入，将会引起信令的混乱。
 > - **离线推送**：实例在线才能接收消息，实例离线时接收到的信令不会在上线后重新推送。
 
+### 技术咨询
+
+了解更多详情您可以 QQ 咨询：646165204 技术支持

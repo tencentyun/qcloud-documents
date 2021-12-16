@@ -175,3 +175,6 @@ TUICallingContext.groupCall({userIDList, type, groupID})
 
 更多常见问题，请参见 [小程序端相关问题](https://cloud.tencent.com/document/product/647/45532)。
 
+### 技术咨询
+
+了解更多详情您可以 QQ 咨询：646165204 技术支持
