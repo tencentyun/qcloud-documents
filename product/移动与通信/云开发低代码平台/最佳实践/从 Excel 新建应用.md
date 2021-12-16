@@ -1,7 +1,7 @@
 
 本文主要讲解如何使用 Excel 文件来实现应用的快速创建。
 
-## 步骤1：使用Excel文件创建应用
+## 步骤1：使用 Excel 文件创建应用
 在 [创建应用入口](https://console.cloud.tencent.com/lowcode/create) 中单击**从 Excel 创建**的应用创建卡片，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/bf78aa097d41ffa219a392e1141a3a4b.png)
 
@@ -35,7 +35,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/cea20339e05552b9fe01aa1299c02a7b.png)
 3. 对 Excel 文件的解析结果进行确认和字段编辑。
 ![](https://qcloudimg.tencent-cloud.cn/raw/63be132a28a3307871cdf4c5fb42a585.png)
->!由于目前 腾讯文档 双向同步机制正在支持中，故应用发布运行后的数据修改，仅存在微搭数据源中，不会同步到腾讯文档。
+>!由于目前**腾讯文档**双向同步机制正在支持中，故应用发布运行后的数据修改，仅存在微搭数据源中，不会同步到腾讯文档。
 
 
 ## 步骤3：生成数据模型应用
