@@ -5,9 +5,9 @@
 - 优化 swagger 依赖。
   
 ### Bug 修复
-- 修复kafka调用链span异常
-- 修复kafka调用链丢失parentId的问题
-- 修复rocketmq调用链显示内部异常的问题
+- 修复 kafka 调用链 span 异常。
+- 修复 kafka 调用链丢失 parentId 的问题。
+- 修复 rocketmq 调用链显示内部异常的问题。
 
 ## 1.29.2-Hoxton-Higher-RELEASE（2021-10-18）
 
