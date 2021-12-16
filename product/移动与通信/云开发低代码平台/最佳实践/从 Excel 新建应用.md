@@ -26,7 +26,7 @@
 >? **Excel 文件格式要求：**
 - 表头字段名支持中文和英文，英文以字母开头，避免使用特殊字符。
 >2. 文件格式仅支持 csv/xls/xlsx 格式，大小不超过 2MB。
->3. 需要确保 Excel 表单中不存在合并的单元格，可参考示例模板。
+>3. 需要确保 Excel 表单中不存在合并的单元格，可参考[示例模板](https://weda-prod-1258344699.cos.ap-shanghai.myqcloud.com/excel_template/excel_file/%E7%A4%BA%E4%BE%8B.xlsx) 。
 
 ### 使用腾讯文档创建
 1. 通过将腾讯文档账号授权给微搭，读取并解析腾讯文档下的 Excel 文件来进行应用的创建。
