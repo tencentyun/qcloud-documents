@@ -28,8 +28,8 @@
 6. [](id:step06)在“应用内软件信息”栏中，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin: 0;">，复制获取宝塔 Linux 面板的用户名与密码的命令。
 7. 在“应用内软件信息”栏中，单击**登录**。
 8. 在弹出的登录窗口中，粘贴 [步骤6](#step06) 获取的命令，按 **Enter**。
-![](https://main.qcloudimg.com/raw/398a98028b70d1697fa20c14782c2b23.png)
 9. 复制并记录宝塔 Linux 面板的用户名与密码（即 “username” 和 “password”）。
+![](https://qcloudimg.tencent-cloud.cn/raw/cfeecc8912438fd877df507a54ff3f24.png)
 10. 关闭登录窗口，并返回该实例的应用管理详情页。
 11. 在“应用内软件信息”栏中获取宝塔 Linux 面板的“首页地址”，并使用浏览器访问。如下图所示：
 ![](https://main.qcloudimg.com/raw/8f90703fc72c53d17aa7fd50f0729809.png)

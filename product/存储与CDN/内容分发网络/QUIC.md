@@ -28,7 +28,7 @@ QUIC (Quick UDP Internet Connections) 是一个通用的网络协议，能够保
 ![](https://main.qcloudimg.com/raw/cb7d9ab0a9026574363f7308047c04c6.png)
 **配置约束：**
 
-- 流媒体点播加速业务类型的域名暂不支持 QUIC。
+- 音视频点播业务类型的域名暂不支持 QUIC。
 - 开启IPv6访问后不可开启 QUIC。
 
 成功添加域名后，可进入域名管理，切换 Tab 至 **HTTPS 配置**，即可找到 **QUIC** 配置：默认为关闭状态，您可自助开启。
