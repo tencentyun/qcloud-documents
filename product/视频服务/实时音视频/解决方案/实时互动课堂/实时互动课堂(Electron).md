@@ -16,8 +16,8 @@
 ## 复用 Demo 的 UI 界面
 [](id:ui.step1)
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 输入应用名称，例如  `TestEduDemo`，单击【创建】。
+1. 登录实时音视频控制台，选择**开发辅助**>**[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+2. 输入应用名称，例如  `TestEduDemo`，单击**创建**。
 
 >?本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
@@ -25,7 +25,7 @@
 [](id:ui.step2)
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
-2. 下载完成后，单击【已下载，下一步】。
+2. 下载完成后，单击**已下载，下一步**。
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:ui.step3)
@@ -37,8 +37,8 @@
  <li/>SDKAPPID：默认为0 ，请设置为实际的 SDKAppID。
  <li/>SECRETKEY：默认为空字符串 ，请设置为实际的密钥信息。</ul>
  <img src="https://main.qcloudimg.com/raw/c8ed13a3bc40c8b5d676e933adc402f9.png"/>
-4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
-5. 编译完成后，单击【回到控制台概览】即可。
+4. 粘贴完成后，单击**已复制粘贴，下一步**即创建成功。
+5. 编译完成后，单击**回到控制台概览**即可。
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
@@ -119,7 +119,7 @@ const params = {
       nickName // 昵称
 }
 rtcClient.createRoom(params).then(() => {
-	//成功创建教室
+  //成功创建教室
 })
 ```
 2. 老师端调用组件的 [enterRoom](https://cloud.tencent.com/document/product/647/45466#enterRoom) 方法开始上课。
@@ -188,7 +188,7 @@ rtcClient.sendTextMessage(params) // 发送聊天室消息
 ## 技术咨询
 了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">695855795</dx-tag-link>
 
-## 参见文档：
+## 参考文档
 
 - [SDK API 手册](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/index.html)
 - [SDK 更新日志](https://cloud.tencent.com/document/product/647/43117)
