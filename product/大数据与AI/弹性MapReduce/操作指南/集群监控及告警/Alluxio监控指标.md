@@ -32,11 +32,11 @@
 <td >Bytes</td>
 <td >所有 worker 从所有 Alluxio UFSes 读取的吞吐量</td>
 </tr><tr>
-<td >数据读写吞吐量_BytesWrittenAlluxioThroughput</td>
+<td >BytesWrittenAlluxioThroughput</td>
 <td >Bytes</td>
 <td >所有 worker 写入 Alluxio 存储的吞吐量</td>
 </tr><tr>
-<td >数据读写吞吐量_BytesWrittenUfsThroughput</td>
+<td >BytesWrittenUfsThroughput</td>
 <td >Bytes</td>
 <td >所有 worker 写入所有 Alluxio UFSes 的吞吐量</td>
 </tr><tr>
