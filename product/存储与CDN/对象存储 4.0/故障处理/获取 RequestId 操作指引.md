@@ -259,3 +259,47 @@ put.body =  url;
 [[QCloudCOSTransferMangerService defaultCOSTransferManager] UploadObject:put];
 ```
 
+
+### 通过 Android SDK 获取
+
+```
+// 1. 初始化 TransferService。在相同配置的情况下，您应该复用同一个 TransferService
+TransferConfig transferConfig = new TransferConfig.Builder()
+        .build();
+CosXmlServiceConfig cosXmlServiceConfig = new CosXmlServiceConfig.Builder()
+        .setRegion(COS_REGION)
+        .builder();
+CosXmlService cosXmlService = new CosXmlService(context, cosXmlServiceConfig, credentialProvider);
+TransferService transferService = new TransferService(cosXmlService, transferConfig);
+
+// 2. 初始化 PutObjectRequest
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
+String srcPath = "examplefilepath"; //本地文件的绝对路径
+PutObjectRequest putObjectRequest = new PutObjectRequest(bucket,
+        cosPath, srcPath);
+
+// 3. 调用 upload 方法上传文件
+final COSUploadTask uploadTask = transferService.upload(putObjectRequest);
+uploadTask.setCosXmlResultListener(new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+        // 上传成功，可以在这里拿到 requestId
+        String requestId = result.getHeader("x-cos-request-id");
+    }
+
+    @Override
+    public void onFail(CosXmlRequest request,
+                       CosXmlClientException clientException,
+                       CosXmlServiceException serviceException) {
+        // 只有 CosXmlServiceException 异常才会有 requestId
+        if (serviceException != null) {
+            String requestId = serviceException.getRequestId();
+        }
+    }
+});
+```
+
+
+
+

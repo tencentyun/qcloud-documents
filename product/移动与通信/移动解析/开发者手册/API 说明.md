@@ -113,7 +113,7 @@
 以 ID 为 `xxx` 为例。
 
 >!
->- 以下示例为 AES/DES 加密方式，其中域名和 IP 参数均需要加密，如 `cloud.tencent.com` 为域名需要进行加密，授权 ID 不需要进行加密。
+>- 以下示例为 AES/DES 加密方式，其中域名和 IP 参数均需要加密，例如，域名为 `cloud.tencent.com` 需要进行加密，授权 ID 不需要进行加密。
 >- 若 HTTPDNS 未查询到解析结果，将返回为空值。
 >- HTTP 已接入 BGP Anycast，并实现多地机房容灾，但为了服务质量更高的保障，建议您采用 [Failed over 策略](https://cloud.tencent.com/document/product/379/3523) 进行接入。 
 
@@ -122,7 +122,7 @@
 ```
 curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串}&id=xxx"
 ```
-- **返回格式：**
+- **解密后返回格式：**
 ```
 2.3.3.4;2.3.3.5;2.3.3.6
 ```
@@ -134,7 +134,7 @@ curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串}&id=xxx"
 ```
 curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串}&id=xxx&ttl=1"
 ```
-- **返回格式：**
+- **解密后返回格式：**
 ```
 2.3.3.4;2.3.3.5;2.3.3.6,120
 ```
@@ -146,7 +146,7 @@ curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串}&id=xxx&ttl
 ```
 curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串}&id=xxx&clientip=1&ip={DNS 请求的 ECS 值加密后字符串}&ttl=1"
 ```
-- **返回格式：**
+- **解密后返回格式：**
 ```
 12.3.3.4;2.3.3.5;2.3.3.6,120|1.2.3.4
 ```
@@ -157,7 +157,7 @@ curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串}&id=xxx&cli
 ```
 curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串}&id=xxx&clientip=1&ip={DNS 请求的 ECS 值加密后字符串}&type=addrs&ttl=1"
 ```
-- **返回格式：**
+- **解密后返回格式：**
 ```
 2.3.3.4;2.3.3.5;2.3.3.6,120-2402:4e00:0123:4567:0::2345;2403:4e00:0123:4567:0::2346,120|1.2.3.4
 ```
@@ -169,7 +169,7 @@ curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串}&id=xxx&cli
 ```
 curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串}&id=xxx&clientip=1&ip={DNS 请求的 ECS 值加密后字符串}&query=1&ttl=1"
 ```
-- **返回格式：**
+- **解密后返回格式：**
 ```
 cloud.tencent.com.:2.3.3.4;2.3.3.5;2.3.3.6,120|1.2.3.4
 ```
@@ -178,26 +178,26 @@ cloud.tencent.com.:2.3.3.4;2.3.3.5;2.3.3.6,120|1.2.3.4
 ### 批量域名请求
 - **输入示例：**
 ```
-curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串},{ www.qq.com 加密后字符串},{www.dnspod.cn 加密后字符串}&id=xxx&clientip=1&ip={DNS 请求的 ECS 值加密后字符串}&ttl=1"
+curl "http://119.29.29.98/d?dn={cloud.tencent.com,www.qq.com,www.dnspod.cn 加密后字符串}&id=xxx&clientip=1&ip={DNS 请求的 ECS 值加密后字符串}&ttl=1"
 ```
 - **解密后返回格式：**
 ```
 cloud.tencent.com.:2.3.3.4;2.3.3.5;2.3.3.6,120
-www.qq.co.:3.3.3.4;3.3.3.5;3.3.3.6,180
+www.qq.com.:3.3.3.4;3.3.3.5;3.3.3.6,180
 www.dnspod.cn.:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
 ```
 - **格式说明：**多个域名返回内容之间以 “换行符” 分隔，ip 地址附加在所有记录值的最后。
 
 ## 请求异常或无记录说明
 >!
->- 以下示例为 AES/DES 加密方式，其中域名和 IP 参数均需要加密，如 `cloud.tencent.com` 为域名需要加密，授权 ID 不需要进行加密。
+>- 以下示例为 AES/DES 加密方式，其中域名和 IP 参数均需要加密，例如域名为 `cloud.tencent.com` 需要加密，授权 ID 不需要进行加密。
 >- 如使用 HTTPS 加密方式，请求地址改为 `119.29.29.99` 并且必须要传入 token。
 ### 查询 A 记录
 - **输入示例：**
 ```
 curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串}&id=xxx"
 ```
-- **返回格式：** 空。
+- **解密后返回格式：** 空。
 - **格式说明：** 没有记录，则返回空字符串。
 
 ### 返回结果中包含域名
@@ -205,7 +205,7 @@ curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串}&id=xxx"
 ```
 curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串}&id=xxx&type=addrs&query=1&ip={DNS 请求的 ECS 值加密后字符串}"
 ```
-- **返回格式：**
+- **解密后返回格式：**
 ```
 cloud.tencent.com|1.2.3.4
 ```
@@ -218,7 +218,7 @@ cloud.tencent.com|1.2.3.4
 ```
 curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串}&id=xxx&type=addrs&query=1&ip={DNS 请求的 ECS 值加密后字符串}"
 ```
-- **返回格式：**
+- **解密后返回格式：**
 ```
 cloud.tencent.com.:0-0|1.2.3.4
 ```
@@ -228,13 +228,13 @@ cloud.tencent.com.:0-0|1.2.3.4
 ### 批量域名请求
 - **输入示例：**
 ```
-curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串},{www.qq.com 加密后字符串},{www.dnspod.cn 加密后字符串}&id=xxx&clientip=1&ip={DNS 请求的 ECS 值加密后字符串}&ttl=1"
+curl "http://119.29.29.98/d?dn={cloud.tencent.com,www.qq.com,www.dnspod.cn 加密后字符串}&id=xxx&clientip=1&ip={DNS 请求的 ECS 值加密后字符串}&ttl=1"
 ```
 - **解密返回格式**：
 ```
 cloud.tencent.com.:0
 www.qq.com.:3.3.3.4;3.3.3.5;3.3.3.6,180
-www.dnspod.cn:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
+www.dnspod.cn.:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
 ```
 - **格式说明：**未查询到数据的域名则返回0。如果某个记录存在，则该记录正常返回在结果中。
 
