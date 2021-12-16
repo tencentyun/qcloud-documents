@@ -179,6 +179,6 @@ TUICallingContext.groupCall({userIDList, type, groupID})
 了解更多详情您可以 QQ 咨询：646165204 技术支持
 
 ### 参考文档
-[TUICalling 组件源码](https://github.com/tencentyun/TUICalling/tree/main/MiniProgram)
-[TUICalling demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/TRTCScenesDemo/trtc-calling-miniapp)
-[小程序端相关问题](https://cloud.tencent.com/document/product/647/45532)
+- [TUICalling 组件源码](https://github.com/tencentyun/TUICalling/tree/main/MiniProgram)
+- [TUICalling demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/TRTCScenesDemo/trtc-calling-miniapp)
+- [小程序端相关问题](https://cloud.tencent.com/document/product/647/45532)

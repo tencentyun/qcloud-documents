@@ -69,7 +69,7 @@
   npm i trtc-calling-js --save
   // 如果是通过node下载的依赖，则使用 import 引入
   import TRTCCalling from 'trtc-calling-js';
- 
+
   // 如果您通过 script 方式使用 trtc-calling-js，需要按顺序
   // 手动引入 trtc.js
   <script src="./trtc.js"></script>
@@ -849,8 +849,8 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 了解更多详情您可以 QQ 咨询：646165204 技术支持
 
 ### 参考文档
-[TRTCCalling web 官网体验](https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html#/login)
-[TRTCCalling npm](https://www.npmjs.com/package/trtc-calling-js)
-[TRTCCalling web demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Web/TRTCScenesDemo/trtc-calling-web)
-[TUICalling web API](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/TRTCCalling.html)
-[TRTCCalling web 相关问题](https://cloud.tencent.com/document/product/647/62484)
+- [TRTCCalling web 官网体验](https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html#/login)
+- [TRTCCalling npm](https://www.npmjs.com/package/trtc-calling-js)
+- [TRTCCalling web demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Web/TRTCScenesDemo/trtc-calling-web)
+- [TUICalling web API](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/TRTCCalling.html)
+- [TRTCCalling web 相关问题](https://cloud.tencent.com/document/product/647/62484)
