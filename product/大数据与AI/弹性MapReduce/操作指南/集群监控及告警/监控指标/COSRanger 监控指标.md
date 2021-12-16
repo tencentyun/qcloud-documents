@@ -1,10 +1,10 @@
 ### COSRANGER-CosRangerServer
 <table>
 <tr>
-<th width=25%>标题 </th>
+<th width=30%>标题 </th>
 <th width=20%>指标名称</th>
 <th width=15%>指标单位</th>
-<th width=40%>指标含义 </th>
+<th width=35%>指标含义 </th>
 </tr><tr>
 <td rowspan=2>GC 次数 </td>
 <td >YGC </td>
@@ -417,7 +417,7 @@
 </tr><tr>
 <td >Cost_Max</td>
 <td >μs(微秒)</td>
-<td 当前一秒内最大耗时</td>
+<td >当前一秒内最大耗时</td>
 </tr><tr>
 <td >Cost_Max_1m</td>
 <td >μs(微秒)</td>
@@ -455,7 +455,7 @@
 </tr><tr>
 <td >Cost_Max</td>
 <td >μs(微秒)</td>
-<td 当前一秒内最大耗时</td>
+<td >当前一秒内最大耗时</td>
 </tr><tr>
 <td >Cost_Max_1m</td>
 <td >μs(微秒)</td>
@@ -493,7 +493,7 @@
 </tr><tr>
 <td >Cost_Max</td>
 <td >μs(微秒)</td>
-<td 当前一秒内最大耗时</td>
+<td >当前一秒内最大耗时</td>
 </tr><tr>
 <td >Cost_Max_1m</td>
 <td >μs(微秒)</td>
@@ -531,7 +531,7 @@
 </tr><tr>
 <td >Cost_Max</td>
 <td >μs(微秒)</td>
-<td 当前一秒内最大耗时</td>
+<td >当前一秒内最大耗时</td>
 </tr><tr>
 <td >Cost_Max_1m</td>
 <td >μs(微秒)</td>
@@ -569,7 +569,7 @@
 </tr><tr>
 <td >Cost_Max</td>
 <td >μs(微秒)</td>
-<td 当前一秒内最大耗时</td>
+<td >当前一秒内最大耗时</td>
 </tr><tr>
 <td >Cost_Max_1m</td>
 <td >μs(微秒)</td>
@@ -607,7 +607,7 @@
 </tr><tr>
 <td >Cost_Max</td>
 <td >μs(微秒)</td>
-<td 当前一秒内最大耗时</td>
+<td >当前一秒内最大耗时</td>
 </tr><tr>
 <td >Cost_Max_1m</td>
 <td >μs(微秒)</td>
