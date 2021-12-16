@@ -4,12 +4,12 @@
 
 ## 在控制台通过浏览器获取
 
-1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)，在左侧导航栏中单击【存储桶列表】，进入存储桶列表页。
+1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)，在左侧导航栏中单击**存储桶列表**，进入存储桶列表页。
 2. 单击并进入想要访问的存储桶。
 3. 按`F12`键，进入浏览器的开发者工具页面。
-4. 单击开发者工具上方的【Network】。
+4. 单击开发者工具上方的**Network**。
 ![](https://main.qcloudimg.com/raw/0a201a890f54bfabc4267e9c86c89338.png)
-5. 在需要下载的文件名右侧，单击【下载】，并在开发者工具页面中输入要下载的文件名进行过滤，选择文件，单击【Headers】，在 **Response Headers** 区域中获取 RequestId 信息。
+5. 在需要下载的文件名右侧，单击**下载**，并在开发者工具页面中输入要下载的文件名进行过滤，选择文件，单击**Headers**，在 **Response Headers** 区域中获取 RequestId 信息。
 ![](https://main.qcloudimg.com/raw/f5e5453f257fbd86a38d2c8508c968bd.png)
 
 ## 访问文件失败时获取
@@ -19,7 +19,7 @@
 
 也可以进行如下操作获取：
 1. 按`F12`键，进入浏览器的开发者工具页面。
-2. 单击页面上方的【Network】，选择 All 类型，便能在 Response Headers 中找到 RequestId 字段信息。
+2. 单击页面上方的**Network**，选择 All 类型，便能在 Response Headers 中找到 RequestId 字段信息。
 ![](https://main.qcloudimg.com/raw/ac6902c6ac615a9ec2978a5999a49073.png)
 
 ## 通过 SDK 获取
