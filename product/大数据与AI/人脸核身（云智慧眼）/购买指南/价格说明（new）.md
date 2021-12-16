@@ -251,7 +251,7 @@ width: 25%;
 | 银行卡信息核验 | 380元              |  <nobr>3,700元</nobr>  | <nobr>35,000元 </nobr> | <nobr>66,000元</nobr>   | <nobr>-</nobr>  |<nobr>-</nobr>  |
 | 手机号在网时长/状态查询  | 380元              |  <nobr>3,800元</nobr>  | <nobr>37,000元 </nobr> | <nobr>72,000元</nobr>   | <nobr>-</nobr>  |<nobr>-</nobr>  |
 |  银行卡基础信息查询|  280元              | <nobr>2,700元</nobr>  | <nobr>26,000元 </nobr> | <nobr>36,000元</nobr>   | <nobr>-</nobr>  |<nobr>-</nobr>  |
-|  手机号信息核验（三要素）|  1,050元              | <nobr>1,0000元</nobr>  | <nobr>9,5000元 </nobr> | <nobr>180,000元</nobr>   | <nobr>-</nobr>  |<nobr>-</nobr>  |
+|  手机号信息核验（三要素）|  1,050元              | <nobr>10,000元</nobr>  | <nobr>95,000元 </nobr> | <nobr>180,000元</nobr>   | <nobr>-</nobr>  |<nobr>-</nobr>  |
 
 
 ### E证通价格说明
