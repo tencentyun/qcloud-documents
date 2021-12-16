@@ -178,12 +178,12 @@ cloud.tencent.com.:2.3.3.4;2.3.3.5;2.3.3.6,120|1.2.3.4
 ### 批量域名请求
 - **输入示例：**
 ```
-curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串},{www.qq.com 加密后字符串},{www.dnspod.cn 加密后字符串}&id=xxx&clientip=1&ip={DNS 请求的 ECS 值加密后字符串}&ttl=1"
+curl "http://119.29.29.98/d?dn={cloud.tencent.com,www.qq.com,www.dnspod.cn 加密后字符串}&id=xxx&clientip=1&ip={DNS 请求的 ECS 值加密后字符串}&ttl=1"
 ```
 - **解密后返回格式：**
 ```
 cloud.tencent.com.:2.3.3.4;2.3.3.5;2.3.3.6,120
-www.qq.com:3.3.3.4;3.3.3.5;3.3.3.6,180
+www.qq.com.:3.3.3.4;3.3.3.5;3.3.3.6,180
 www.dnspod.cn.:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
 ```
 - **格式说明：**多个域名返回内容之间以 “换行符” 分隔，ip 地址附加在所有记录值的最后。
@@ -228,13 +228,13 @@ cloud.tencent.com.:0-0|1.2.3.4
 ### 批量域名请求
 - **输入示例：**
 ```
-curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串},{www.qq.com 加密后字符串},{www.dnspod.cn 加密后字符串}&id=xxx&clientip=1&ip={DNS 请求的 ECS 值加密后字符串}&ttl=1"
+curl "http://119.29.29.98/d?dn={cloud.tencent.com,www.qq.com,www.dnspod.cn 加密后字符串}&id=xxx&clientip=1&ip={DNS 请求的 ECS 值加密后字符串}&ttl=1"
 ```
 - **解密返回格式**：
 ```
 cloud.tencent.com.:0
 www.qq.com.:3.3.3.4;3.3.3.5;3.3.3.6,180
-www.dnspod.cn:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
+www.dnspod.cn.:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
 ```
 - **格式说明：**未查询到数据的域名则返回0。如果某个记录存在，则该记录正常返回在结果中。
 
