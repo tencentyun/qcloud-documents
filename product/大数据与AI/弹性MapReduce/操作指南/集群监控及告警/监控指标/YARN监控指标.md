@@ -442,9 +442,9 @@
 ### YARN-JobHistoryServer
 <table>
 <tr>
-<tr><th width=20%>标题 </th>
+<tr><th width=25%>标题 </th>
 <th width=20%>指标名称</th>
-<th width=15%>指标单位</th>
+<th width=10%>指标单位</th>
 <th width=45%>指标含义 </th>
 </tr><tr>
 </tr><tr>
@@ -600,9 +600,9 @@
 ### TARN-NodeManager
 <table>
 <tr>
-<th width=25%>标题 </th>
+<th width=28%>标题 </th>
 <th width=20%>指标名称</th>
-<th width=10%>指标单位</th>
+<th width=7%>指标单位</th>
 <th width=45%>指标含义 </th>
 </tr><tr>
 <td rowspan=2>GC 次数 </td>
