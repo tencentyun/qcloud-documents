@@ -183,3 +183,15 @@ const params = {
 }
 rtcClient.sendTextMessage(params) // 发送聊天室消息
 ```
+
+[](id:QQ)
+## 技术咨询
+了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">695855795</dx-tag-link>
+
+## 参见文档：
+
+- [SDK API 手册](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/index.html)
+- [SDK 更新日志](https://cloud.tencent.com/document/product/647/43117)
+- [Simple Demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Electron/TRTCSimpleDemo)
+- [API Example 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Electron/TRTC-API-Example)
+- [Electron 常见问题](https://cloud.tencent.com/document/product/647/62562)
