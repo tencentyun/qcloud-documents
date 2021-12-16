@@ -113,7 +113,7 @@
 以 ID 为 `xxx` 为例。
 
 >!
->- 以下示例为 AES/DES 加密方式，其中域名和 IP 参数均需要加密，如 `cloud.tencent.com` 为域名需要进行加密，授权 ID 不需要进行加密。
+>- 以下示例为 AES/DES 加密方式，其中域名和 IP 参数均需要加密，例如，域名为 `cloud.tencent.com` 需要进行加密，授权 ID 不需要进行加密。
 >- 若 HTTPDNS 未查询到解析结果，将返回为空值。
 >- HTTP 已接入 BGP Anycast，并实现多地机房容灾，但为了服务质量更高的保障，建议您采用 [Failed over 策略](https://cloud.tencent.com/document/product/379/3523) 进行接入。 
 
@@ -178,7 +178,7 @@ cloud.tencent.com.:2.3.3.4;2.3.3.5;2.3.3.6,120|1.2.3.4
 ### 批量域名请求
 - **输入示例：**
 ```
-curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串},{ www.qq.com 加密后字符串},{www.dnspod.cn 加密后字符串}&id=xxx&clientip=1&ip={DNS 请求的 ECS 值加密后字符串}&ttl=1"
+curl "http://119.29.29.98/d?dn={cloud.tencent.com 加密后字符串},{www.qq.com 加密后字符串},{www.dnspod.cn 加密后字符串}&id=xxx&clientip=1&ip={DNS 请求的 ECS 值加密后字符串}&ttl=1"
 ```
 - **解密后返回格式：**
 ```
