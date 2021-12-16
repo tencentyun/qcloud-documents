@@ -246,5 +246,14 @@ $ npm run pack:win64
 - 如果您在集成 Electron 过程中遇到异常：例如安装超时或失败，打包后出现 trtc_electron_sdk.node 文件加载失败等情况，相关问题解答请参见 [Electron 相关常见问题](https://cloud.tencent.com/document/product/647/62562)。
 - 若相关答疑仍未能解决问题，那推荐您参见 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668) 的手动离线安装 Electron章节。
 
+[](id:QQ)
+## 技术咨询
+了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">695855795</dx-tag-link>
 
+## 参见文档：
 
+- [SDK API 手册](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/index.html)
+- [SDK 更新日志](https://cloud.tencent.com/document/product/647/43117)
+- [Simple Demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Electron/TRTCSimpleDemo)
+- [API Example 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Electron/TRTC-API-Example)
+- [Electron 常见问题](https://cloud.tencent.com/document/product/647/62562)
