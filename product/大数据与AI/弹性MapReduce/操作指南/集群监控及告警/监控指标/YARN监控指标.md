@@ -1,9 +1,9 @@
 ### YARN-概览
 <table>
 <tr>
-<th width=20%>标题 </th>
+<th width=27%>标题 </th>
 <th width=20%>指标名称</th>
-<th width=15%>指标单位</th>
+<th width=8%>指标单位</th>
 <th width=45%>指标含义 </th>
 </tr><tr><td rowspan=4>节点个数 </td>
 <td >NumActiveNMs </td>
@@ -221,9 +221,9 @@
 ### YARN-ResourceManager
 <table>
 <tr>
-<tr><th width=20%>标题 </th>
+<tr><th width=27%>标题 </th>
 <th width=20%>指标名称</th>
-<th width=15%>指标单位</th>
+<th width=8%>指标单位</th>
 <th width=45%>指标含义 </th>
 </tr><tr>
 <td rowspan=4>RPC 认证授权数 </td>
@@ -600,9 +600,9 @@
 ### TARN-NodeManager
 <table>
 <tr>
-<tr><th width=20%>标题 </th>
+<th width=25%>标题 </th>
 <th width=20%>指标名称</th>
-<th width=15%>指标单位</th>
+<th width=10%>指标单位</th>
 <th width=45%>指标含义 </th>
 </tr><tr>
 <td rowspan=2>GC 次数 </td>
