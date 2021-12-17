@@ -34,11 +34,11 @@
 8. 在云函数的**函数配置**中修改 VPC 网络，将云函数 VPC 网络与云数据库 VPC 网络设为一致即可。
    ![](https://main.qcloudimg.com/raw/d31e7ff8e6204845ab7c1e885dc81b8a.png)
 9. 在云数据库 MySQL [DMC控制台](https://gz-dmc.cloud.tencent.com/v2/) 添加相关数据库，数据表与表结构。
-   - 创建数据库，与环境变量中的数据库名相同：
+   1. 创建数据库，与环境变量中的数据库名相同：
      ![](https://main.qcloudimg.com/raw/6484600b6b921d650d04e9f98c9835ec.png)
-   - 创建数据表，与环境变量中的数据库表相同：
+   2. 创建数据表，与环境变量中的数据库表相同：
      ![](https://main.qcloudimg.com/raw/7016f3759b1af5eb80e7d6c006daace5.png)
-   - 创建表结构，与函数代码中的插入结构相同，默认插入 offset、msgBody 列，可在 index.py 文件的33行修改相关插入结构：
+   3. 创建表结构，与函数代码中的插入结构相同，默认插入 offset、Megs 列，可在 index.py 文件的33行修改相关插入结构：
      ![](https://main.qcloudimg.com/raw/d303ec0ac0dda1641e120ac5c8a65868.png)
      数据表与数据结构创建亦可直接通过 MySQL 命令直接创建：
      ```
