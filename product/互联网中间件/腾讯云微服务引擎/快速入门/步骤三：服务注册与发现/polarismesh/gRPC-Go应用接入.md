@@ -74,7 +74,7 @@ ENTRYPOINT ./[二进制名称]
  - 调用consumer的HTTP接口
    - 执行http调用，其中${app.port}替换为consumer的监听端口（默认为16011），${add.address}则替换为consumer暴露的地址。
     ```
-    curl -L -X GET 'http://${add.address}:${app.port}/echo?value=hello_world''
+    curl -L -X GET 'http://${add.address}:${app.port}/echo?value=hello_world'
     预期返回值：echo: hello_world
     ```
 

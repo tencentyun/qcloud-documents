@@ -11,8 +11,9 @@
 - 下载github的demo源码到本地并解压
   - [php-7.x](https://github.com/polarismesh/polaris-php/tree/php-7.x/examples/quickstart)
   - [php-5.x](https://github.com/polarismesh/polaris-php/tree/php-5.x/examples/quickstart)
-- 【虚拟机部署】已创建CVM虚拟机，请参考[创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)
 - 【php环境安装】CVM需要安装了php-5.x或php-7.x的环境
+- 根据您自身的业务，已准备好业务部署的资源，虚拟机部署和容器化部署选择其中一种方式即可。
+  - 【虚拟机部署】已创建CVM虚拟机，请参考[创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)
 
 ## 操作步骤
 
@@ -26,8 +27,8 @@
     ![access](https://qcloudimg.tencent-cloud.cn/raw/561460943b0404c44c29d2c0dd09c56f.png)
     
 5. 修改demo中的注册中心地址
-- 在下载到本地的demo源码目录下，分别找到`quickstart/consumer/polaris.yaml`以及`quickstart/provider/polaris.yaml`文件
-- 添加polarismesh治理中心的地址到项目的配置文件中（这里已`quickstart/consumer/polaris.yaml`为例）。
+- 在下载到本地的[demo源码](https://github.com/polarismesh/polaris-php/tree/php-7.x)目录下，分别找到“quickstart/consumer/polaris.yaml”以及“quickstart/provider/polaris.yaml”文件
+- 添加微服务引擎服务治理中心地址到项目配置文件中（这里已“quickstart/consumer/polaris.yaml”为例）。
   
    ```yaml
    global:
@@ -36,9 +37,9 @@
        addresses:
          - 192.168.100.9:8091
    ```
-6. 上传demo源码以及`polaris-php`插件到CVM环境中。
+6. 上传demo源码以及polaris-php插件到CVM环境中。
 
-- 安装`php`环境以及`php`插件编译开发以来
+- 安装php环境以及php插件编译开发以来
 
    ```shell
    ## 下载php-5.x版本
@@ -50,7 +51,7 @@
    yum -y install --enablerepo=remi --enablerepo=remi-php74 php-devel
    ```
 
-- 编译`polaris-php`插件，[构建文档]([polaris-php/HowToBuild_ZH.md at php-5.x · polarismesh/polaris-php (github.com)](https://github.com/polarismesh/polaris-php/blob/php-5.x/doc/HowToBuild_ZH.md))
+- 编译polaris-php插件，[构建文档]([polaris-php/HowToBuild_ZH.md at php-5.x · polarismesh/polaris-php (github.com)](https://github.com/polarismesh/polaris-php/blob/php-5.x/doc/HowToBuild_ZH.md))
 
 - 确认插件安装完成
 
@@ -59,44 +60,31 @@
    polaris
    ```
 
-- 分别将`consumer`以及`provider`的demo源码上传到不同的CVM实例中，这里假定上传的路径均为`/data/polaris/php_examples`
+- 分别将`consumer`以及`provider`的demo源码上传到不同的CVM实例中，这里假定上传的路径均为/data/polaris/php_examples
 
-7. 【虚拟机部署】部署provider和consumer微服务。
+7. 部署provider和consumer微服务应用，虚拟机部署方式和容器化部署根据您业务实际的部署方式选择一种即可。
 
-- 运行`provider`
+   （1）【虚拟机部署】部署provider和consumer微服务应用。
 
-   ```shell
-   # 进入provider目录
-   cd /data/polaris/php_examples/provider
-   # 设置Provider的IP信息
-   export PHP_PROVIDER_IP={内网 or 外网IP}
-   # 运行 provider
-   php provider.php
-   ```
+```
+- 上传demo源码至 CVM 实例。
 
-- 运行`consumer`
+- 执行启动命令进行启动：
 
-   ```shell
-   # 进入consumer目录
-   cd /data/polaris/php_examples/consumer
-   # 运行 consumer
-   php consumer.php
-   
-   # 确认是否收到输出
-   [root@VM-50-33-centos ~/Github/polaris-php/examples/quickstart/consumer]# php consumer.php 
-   Attempting to connect to '10.0.50.33' on port '9996'...Connect success. 
-   Client send success 
-   Reading response:
-   hello. I`m provider
-   ```
+cd /data/polaris/php_examples/{provider | consumer}
+
+export PHP_PROVIDER_IP={内网 or 外网IP}
+
+php [php文件名称]
+```
 
 8. 确认部署结果
-- 进入微服务引擎控制台，选择前提条件中创建的polarismesh治理中心实例
-- 选择`服务管理` > `服务列表`，查看服务`EchoServerPHP`的实例数量
-- 若实例数量值不为0，则表示已经成功接入微服务引擎
+- 进入前面提到的微服务治理中心实例页面。
+- 选择“服务管理 > 服务列表”，查看微服务EchoServerPHP的实例数量：
+- 若实例数量值不为0，则表示已经成功接入微服务引擎。
 - 若实例数量为0，或者找不到`EchoServerPHP`服务名，则表示微服务应用接入微服务引擎失败。
 
-   ![](https://qcloudimg.tencent-cloud.cn/raw/679fa9f05664606803c018182c52b697.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/a74a63d171ff0f47b273b9a13b94ce6e.png)
 
    
 

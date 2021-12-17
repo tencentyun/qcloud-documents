@@ -1,4 +1,4 @@
-# Dubbo-Go服务应用接入polarismesh
+## 操作场景
 
 本文通过一个demo进行 dubbo-go 应用接入微服务引擎托管的 PolarisMesh 治理中心的全流程操作演示，帮助您快速了解如何使用服务治理中心。
 
@@ -6,10 +6,11 @@
 
 - 已创建PolarisMesh服务治理中心，请参考[创建PolarisMesh治理中心]()。
 - 下载github的[demo源码](https://github.com/polarismesh/examples/tree/main/dubbo3/dubbogo)到本地并解压
-- 【虚拟机部署】已创建CVM虚拟机，请参考[创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)。
-- 【容器化部署】已创建TKE容器集群，请参考[创建 TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
-- 【golang环境安装】CVM需要安装了golang环境
+- 本地编译构建打包机器环境已安装了golang环境，并且能够访问Github
 - 当前仅支持dubbo-go的接口注册模型
+- 根据您自身的业务，已准备好业务部署的资源，虚拟机部署和容器化部署选择其中一种方式即可。
+  - 【虚拟机部署】已创建CVM虚拟机，请参考[创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)
+  - 【容器化部署】已创建TKE容器集群，请参考[创建 TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
 
 ## 操作步骤
 
@@ -24,16 +25,16 @@
 
 5. 修改demo中的注册中心地址
 
-- 在下载到本地的demo源码目录下，分别找到`go-client/conf/dubbogo.yaml`以及`go-server/conf/dubbogo.yaml`文件
+- 在下载到本地的[demo源码](https://github.com/polarismesh/examples/tree/main/dubbo3/dubbogo)目录下，分别找到“”以及“dubbo\dubbogo\consumer\dubbogo.yaml”文件
 
-- 添加polarismesh治理中心的地址到项目的配置文件中（这里已`go-client/conf/dubbogo.yaml`为例）。
+- 添加微服务引擎服务治理中心地址到项目配置文件中（这里已“dubbo\dubbogo\provider\dubbogo.yaml”为例）。
 
   ```yaml
   dubbo:
     registries:
       polarisMesh:
         protocol: polaris
-        address: 127.0.0.1:8091
+        address: 192.168.100.9:8091
         namespace: default
     consumer:
       references:
@@ -48,7 +49,7 @@
 
 6. 将源码编译成可执行程序。
 
-  - 分别在`consumer`和`provider`这2个目录下，打开cmd命令，执行以下命令，对项目进行编译：
+  - 分别在consumer和provider这2个目录下，打开cmd命令，执行以下命令，对项目进行编译：
 
     - 编译consumer：`CGO_ENABLED=0 go build -ldflags "-s -w" -o consumer`
     - 编译provider：`CGO_ENABLED=0 go build -ldflags "-s -w" -o provider`
@@ -62,57 +63,44 @@
   | \dubbogo\consumer | consumer   | 服务消费者 |
 
 
-7. 【虚拟机部署】部署provider和consumer微服务。
+7. 部署provider和consumer微服务应用，虚拟机部署方式和容器化部署根据您业务实际的部署方式选择一种即可【虚拟机部署】部署provider和consumer微服务。
 
-- 上传二进制以及配置文件至 CVM 实例。
+   （1）【虚拟机部署】部署provider和consumer微服务应用。
 
-- 运行`provider`
+```
+- 上传二进制包至 CVM 实例。
 
-  ```shell
-  # 进入provider目录
-  cd /data/polaris/dubbogo_examples/provider
-  # 设置配置文件目录
-  export DUBBO_GO_CONFIG_PATH="./dubbogo.yml"
-  # 运行 provider
-  ./provider
-  ```
+- 执行启动命令进行启动：
 
-- 运行`consumer`
+# 进入provider目录
+cd /data/polaris/dubbogo_examples/provider
+# 设置配置文件目录
+export DUBBO_GO_CONFIG_PATH="./dubbogo.yml"
+# 运行 provider
+./provider
+```
 
-  ```shell
-  # 进入consumer目录
-  cd /data/polaris/dubbogo_examples/consumer
-  # 设置配置文件目录
-  export DUBBO_GO_CONFIG_PATH="./dubbogo.yml"
-  # 运行 consumer
-  ./consumer
-  ```
-
-8. 【容器化部署】部署provider和consumer微服务。
+​	（2）【容器化部署】部署provider和consumer微服务应用。
 
 - 编写dockerfile生成镜像，参考：
 
-  ```
-  FROM golang:alpine
-  WORKDIR /root
-  ADD . /root
-  ENTRYPOINT ./[二进制名称] [启动参数命令]
-  ```
+```
+FROM golang:alpine
+WORKDIR /root
+ADD . /root
+ENTRYPOINT ./[二进制名称] [启动参数命令]
+```
 
 - 通过TKE部署并运行镜像
 
 9. 确认部署结果
 
-- 进入微服务引擎控制台，选择前提条件中创建的polarismesh治理中心实例
-- 选择`服务管理` > `服务列表`，查看一下服务的实例数量
-  - `consumers:org.apache.dubbo.UserProvider.Test2`
-  - `consumers:org.apache.dubbo.UserProvider.Test`
-  - `provider:org.apache.dubbo.UserProvider.Test2`
-  - `provider:org.apache.dubbo.UserProvider.Test`
+- 进入前面提到的微服务治理中心实例页面。
+- 选择“服务管理 > 服务列表”，查看一下服务的实例数量：
 - 若实例数量值不为0，则表示已经成功接入微服务引擎
 - 若实例数量为0，或者找不到上述服务名，则表示`Dubbo-Go`应用接入微服务引擎失败。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/27547973537c1f6bcbee0b6560295abe.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7cc1d0a8766e6a175ab10fc6e4dac517.png)
 
  - 调用consumer的HTTP接口
 
