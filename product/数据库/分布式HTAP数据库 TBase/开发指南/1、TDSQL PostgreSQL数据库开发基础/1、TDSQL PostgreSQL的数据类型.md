@@ -48,6 +48,6 @@
 
 ### **更多的数据类型介绍**
 
-请点击连接https://www.postgresql.org/docs/10/static/datatype.html查看更多的数据类型说明
+请点击连接 https://www.postgresql.org/docs/10/static/datatype.html 查看更多的数据类型说明
 
  
