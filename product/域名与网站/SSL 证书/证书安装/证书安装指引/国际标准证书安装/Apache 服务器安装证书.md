@@ -2,7 +2,7 @@
 本文档指导您如何在 Apache 服务器中安装 SSL 证书。
 >?
 >- 本文档以证书名称 `cloud.tencent.com` 为例。
->- Apache 版本以 `Apache/2.4.6` 为例。默认端口为 `80`。您可前往 [Apache 官网](https://www.apache.org/) 进行下载，若您需要采用其余版本，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
+>- Apache 版本以 `Apache/2.4.51` 为例。默认端口为 `80`。您可前往 [Apache 官网](https://httpd.apache.org/download.cgi) 进行下载，若您需要采用其余版本，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
 >- 安装 SSL 证书前，请您在 Apache 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。具体可参考 [服务器如何开启443端口？](https://cloud.tencent.com/document/product/400/45144)
 >- SSL 证书文件上传至服务器方法可参考 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
@@ -14,8 +14,8 @@
 - 安装 SSL 证书前需准备的数据如下：
 <table>
 <tr>
-<td>名称</td>
-<td>说明</td>
+<th>名称</th>
+<th>说明</th>
 </tr>
 <tr>
 <td>服务器的 IP 地址</td>
