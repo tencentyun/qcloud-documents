@@ -830,7 +830,7 @@ virtual int SetVideoQosPreference(TUIVideoQosPreference preference) = 0;
 |-----|-----|-----|
 | preference | TUIVideoQosPreference | 网络流控策略。 |
 
-## 获取SDK版本接口
+## 获取 SDK 版本接口
 
 ### GetSDKVersion
 
@@ -838,10 +838,6 @@ virtual int SetVideoQosPreference(TUIVideoQosPreference preference) = 0;
 ```C++
 virtual const char* GetSDKVersion() = 0;
 ```
-
-
-
-## TUIRoomCoreCallback 事件回调[](id:TUIRoomCoreCallback)
 
 ## 错误事件回调
 ### OnError
