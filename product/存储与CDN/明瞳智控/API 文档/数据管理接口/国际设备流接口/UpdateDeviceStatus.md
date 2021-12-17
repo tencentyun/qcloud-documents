@@ -72,7 +72,7 @@ Array 类型 Devicelist 的具体数据描述如下：
 
 
 
-## 响应
+## 启动响应
 
 #### 响应头
 
@@ -140,7 +140,7 @@ Container 类型 Channel 的具体数据描述如下：
 #### 错误码
 常见的错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/1344/50457) 文档。
 
-## 实际案例
+## 实际案例（启动）
 
 
 #### 开启设备详情
@@ -259,7 +259,7 @@ Array 类型 Devicelist 的具体数据描述如下：
 
 
 
-## 响应
+## 关闭响应
 
 #### 响应头
 
@@ -316,7 +316,7 @@ Container 类型 Channel 的具体数据描述如下：
 #### 错误码
 常见的错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/1344/50457) 文档。
 
-## 实际案例
+## 实际案例（关闭）
 
 #### 关闭设备详情
 
