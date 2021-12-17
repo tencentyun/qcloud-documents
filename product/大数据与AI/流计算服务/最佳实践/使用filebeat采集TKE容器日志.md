@@ -1,4 +1,4 @@
-﻿## 背景
+## 背景
 
 当业务使用腾讯云容器服务 TKE 进行部署时，可以通过 filebeat 来采集 TKE 中各个 pod 的日志，写入到下游的 Elasticsearch 集群中，然后在 kibana 上进行日志的查询与分析。本文介绍如何使用 filebeat daemonset 的方式采集容器中的日志。
 
