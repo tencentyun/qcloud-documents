@@ -1,6 +1,4 @@
-腾讯云提供了云渲染终端程序 Android 入门  Demo  供参考，本章演示如何快速配置  Demo  运行简单端游。
-
-入门 Demo 提供了基础的云试玩能力，包含简单示例、虚拟键盘和一些常见 API 的使用，您可以在入门 Demo 的基础上运行您自己的游戏，详细使用步骤如下：
+腾讯云提供了云渲染终端程序 Android 入门  Demo  供参考，本章演示如何快速配置  Demo  运行简单端游。Android 入门 Demo 提供了基础的云试玩能力，包含简单示例、虚拟键盘和一些常见 API 的使用，您可以在入门 Demo 的基础上运行您自己的游戏，详细使用步骤如下：
 
 ## 步骤1：下载 Demo[](id:step1)
 单击 [下载](https://github.com/tencentyun/cloudgame-android-sdk) Android  端入门 Demo 工程，将工程导入 AndroidStudio 工具。
