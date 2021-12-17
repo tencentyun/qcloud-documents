@@ -7,7 +7,7 @@
 
 2. 选择指定的备份计划，单击任务ID或者在**操作**列单击**查看**，进入基本信息页面。
 
-   ![](https://qcloudimg.tencent-cloud.cn/raw/016a4029502c589fe6778c2d9a014717.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/53cda8a2928d1967a31f7fa654eb5e45.png)
 
 3. 切换页签，单击**恢复数据库**，然后单击**恢复数据库**。
 
