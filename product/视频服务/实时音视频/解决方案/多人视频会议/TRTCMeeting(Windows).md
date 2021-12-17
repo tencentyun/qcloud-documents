@@ -5,22 +5,22 @@ TUIRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组�
 
 TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [多人视频聊天室(Windows)](https://cloud.tencent.com/document/product/647/63494)。
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时视频会议组件。
-- IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 实现聊天室的功能。
-> ! IM SDK 使用 C++ 版本。
+- IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 实现聊天室的功能（**IM SDK 使用 C++ 版本**）。
+
 
 ## TUIRoom API 概览[](id:TUIRoom)
 
 ### TUIRoomCore 基础函数
 
-| API | 描述 |
+| API                                 | 描述           |
 |-----|-----|
-| [GetInstance](#getinstance) | 获取单例对象。 |
+| [GetInstance](#getinstance)         | 获取单例对象。 |
 | [DestroyInstance](#destroyinstance) | 销毁单例对象。 |
-| [SetCallback](#setcallback) | 设置事件回调。|
+| [SetCallback](#setcallback)         | 设置事件回调。 |
 
 ### 房间相关接口函数
 
-| API           | 描述       |
+| API | 描述 |
 |-----|-----|
 | [login](#login)                           | 登录。                             |
 | [logout](#logout)                         | 登出。                             |
@@ -35,7 +35,7 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 
 ### 本地音视频操作接口
 
-| API                       | 描述           |
+| API                                                   | 描述                       |
 |-----|-----|
 | [StartCameraPreview](#startcamerapreview)             | 开启本地视频的预览画面。   |
 | [StopCameraPreview](#stopcamerapreview)               | 停止本地视频采集及预览。   |
@@ -48,7 +48,7 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 
 ### 远端用户相关接口
 
-| API       | 描述       |
+| API                                   | 描述                               |
 |-----|-----|
 | [StartRemoteView](#startremoteview)   | 订阅并播放指定成员的远端视频画面。 |
 | [StopRemoteView](#stopremoteview)     | 取消订阅并停止播放远端视频画面。   |
@@ -56,14 +56,14 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 
 ### 发送聊天消息接口
 
-| API         | 描述             |
+| API                                     | 描述             |
 |-----|-----|
 | [SendChatMessage](#sendchatmessage)     | 发送聊天消息。   |
 | [SendCustomMessage](#sendcustommessage) | 发送自定义消息。 |
 
 ### 场控相关接口
 
-| API                     | 描述                |
+| API                                                 | 描述                                                    |
 |-----|-----|
 | [MuteUserMicrophone](#muteusermicrophone)           | 禁用/恢复某用户的麦克风。                               |
 | [MuteAllUsersMicrophone](#muteallusersmicrophone)   | 禁用/恢复所有用户的麦克风，并且状态会同步到房间信息中。 |
@@ -83,133 +83,133 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 | [ForbidSpeechApplication](#forbidspeechapplication) | 主持人禁止申请发言。                                    |
 | [SendOffSpeaker](#sendoffspeaker)                   | 主持人令成员停止发言。                                  |
 | [SendOffAllSpeakers](#sendoffallspeakers)           | 主持人令全体停止发言。                                  |
-| [ExitSpeechState](#exitspeechstate)                 | 成员停止发言，转变为观众。                              |
+| [ExitSpeechState](#exitspeechstate)                 | 成员停止发言，转变为观众。                               |
 
 ### 基础组件接口函数
 
-| API                 | 描述               |
+| API                                             | 描述                                       |
 |-----|-----|
 | [GetDeviceManager](#getdevicemanager)           | 获取本地设置管理对象 ITXDeviceManager。    |
 | [GetScreenShareManager](#getscreensharemanager) | 获取屏幕分享管理对象 IScreenShareManager。 |
 
 ### 云录制接口函数
 
-| API       | 描述          |
+| API                                   | 描述          |
 |-----|-----|
 | [StartCloudRecord](#startcloudrecord) | 开始云录制 。 |
 | [StopCloudRecord](#stopcloudrecord)   | 停止云录制 。 |
 
 ### 美颜相关接口函数
 
-| API                               | 描述       |
+| API | 描述 |
 |-----|-----|
-| [SetBeautyStyle](#setbeautystyle) | 美颜设置。 |
+| [SetBeautyStyle](#setbeautystyle) | 美颜设置 。|
 
 ### 相关设置接口
 
-| API                 | 描述       |
+| API | 描述 |
 |-----|-----|
-| [SetVideoQosPreference](#setvideoqospreference) | 设置网络流控相关参数。 |
+| [SetVideoQosPreference](#setvideoqospreference) | 设置网络流控相关参数。|
 
 ### 获取 SDK 版本接口函数
 
-| API                             | 描述             |
+| API | 描述 |
 |-----|-----|
-| [GetSDKVersion](#getsdkversion) | 获取 SDK 版本 。 |
+| [GetSDKVersion](#getsdkversion) | 获取 SDK 版本。|
 
 ## TUIRoomCoreCallback API 概览[](id:TUIRoomCoreCallback)
 
 ### 错误事件回调
 
-| API     | 描述       |
+| API | 描述 |
 |-----|-----|
-| [OnError](#onerror) | 错误回调。 |
+| [OnError](#OnError) | 错误回调。|
 
 ### 基础事件回调
 
-| API                 | 描述               |
+| API                                         | 描述               |
 |-----|-----|
-| [OnLogin](#onlogin) | 登录回调。         |
-| [OnLogout](#onlogout) | 登出回调。         |
-| [OnCreateRoom](#oncreateroom) | 创建房间回调。     |
-| [OnDestroyRoom](#ondestroyroom) | 房间解散回调。     |
-| [OnEnterRoom](#onenterroom) | 进入房间回调。     |
-| [OnExitRoom](#onexitroom) | 退出房间回调。     |
-| [OnFirstVideoFrame](#onfirstvideoframe) | 首帧画面回调。     |
-| [OnUserVoiceVolume](#onuservoicevolume) | 音量大小回调回调。 |
+| [OnLogin](#onlogin)                         | 登录回调。         |
+| [OnLogout](#onlogout)                       | 登出回调。         |
+| [OnCreateRoom](#oncreateroom)               | 创建房间回调。     |
+| [OnDestroyRoom](#ondestroyroom)             | 房间解散回调。     |
+| [OnEnterRoom](#onenterroom)                 | 进入房间回调。     |
+| [OnExitRoom](#onexitroom)                   | 退出房间回调。     |
+| [OnFirstVideoFrame](#onfirstvideoframe)     | 首帧画面回调。     |
+| [OnUserVoiceVolume](#onuservoicevolume)     | 音量大小回调回调。 |
 | [OnRoomMasterChanged](#onroommasterchanged) | 主持人更改回调。   |
 
 ### 远端用户事件回调
 
-| API                              | 描述                 |
+| API                                                          | 描述                             |
 |-----|-----|
-| [OnRemoteUserEnter](#onremoteuserenter) | 远端用户进入房间回调。           |
-| [OnRemoteUserLeave](#onremoteuserleave) | 远端用户离开房间回调。           |
-| [OnRemoteUserCameraAvailable](#onremoteusercameraavailable) | 远端用户是否开启摄像头视频回调。 |
+| [OnRemoteUserEnter](#onremoteuserenter)                      | 远端用户进入房间回调。           |
+| [OnRemoteUserLeave](#onremoteuserleave)                      | 远端用户离开房间回调。           |
+| [OnRemoteUserCameraAvailable](#onremoteusercameraavailable)  | 远端用户是否开启摄像头视频回调。 |
 | [OnRemoteUserScreenVideoAvailable](#onremoteuserscreenvideoavailable) | 远端用户是否开启屏幕分享回调。   |
-| [OnRemoteUserAudioAvailable](#onremoteuseraudioavailable) | 远端用户是否开启音频上行回调。   |
+| [OnRemoteUserAudioAvailable](#onremoteuseraudioavailable)    | 远端用户是否开启音频上行回调。   |
 | [OnRemoteUserEnterSpeechState](#onremoteuserenterspeechstate) | 远端用户开始发言回调。           |
-| [OnRemoteUserExitSpeechState](#onremoteuserexitspeechstate) | 远端用户结束发言回调。           |
+| [OnRemoteUserExitSpeechState](#onremoteuserexitspeechstate)  | 远端用户结束发言回调。           |
 
 ### 消息事件回调
 
-| API                    | 描述               |
+| API                                               | 描述               |
 |-----|-----|
-| [OnReceiveChatMessage](#onreceivechatmessage) | 收到文本消息回调。 |
-| [OnReceiveCustomMessage](#onreceivechatmessage) | 收到文本消息回调。 |
+| [OnReceiveChatMessage](#onreceivechatmessage)     | 收到文本消息回调。 |
+| [OnReceiveCustomMessage](#onreceivecustommessage) | 收到文本消息回调。 |
 
 ### 场控事件回调
 
-| API                               | 描述       |
+| API                                                          | 描述                               |
 |-----|-----|
-| [OnReceiveSpeechInvitation](#onreceivespeechinvitation) | 用户收到主持人发言邀请回调。       |
+| [OnReceiveSpeechInvitation](#onreceivespeechinvitation)      | 用户收到主持人发言邀请回调。       |
 | [OnReceiveInvitationCancelled](#onreceiveinvitationcancelled) | 用户收到主持人取消发言邀请回调。   |
 | [OnReceiveReplyToSpeechInvitation](#onreceivereplytospeechinvitation) | 主持人收到用户同意邀请发言的回调。 |
-| [OnReceiveSpeechApplication](#onreceivespeechapplication) | 主持人收到用户发言申请的回调。     |
+| [OnReceiveSpeechApplication](#onreceivespeechapplication)    | 主持人收到用户发言申请的回调。     |
 | [OnSpeechApplicationCancelled](#onspeechapplicationcancelled) | 用户取消申请发言回调。             |
 | [OnReceiveReplyToSpeechApplication](#onreceivereplytospeechapplication) | 主持人同意发言申请回调。           |
 | [OnSpeechApplicationForbidden](#onspeechapplicationforbidden) | 主持人禁止申请发言回调。           |
-| [OnOrderedToExitSpeechkState](#onorderedtoexitspeechkstate) | 成员被请求停止发言的回调。         |
-| [OnCallingRollStarted](#oncallingrollstarted) | 主持人开始点名，成员收到的回调。   |
-| [OnCallingRollStopped](#oncallingrollstopped) | 主持人结束点名，成员收到的回调。   |
-| [OnMemberReplyCallingRoll](#onmemberreplycallingroll) | 成员回复点名，主持人收到的回调。   |
-| [OnChatRoomMuted](#onchatroommuted) | 主持人更改聊天室是否禁言回调。     |
-| [OnMicrophoneMuted](#onmicrophonemuted) | 主持人设置禁用麦克风回调。         |
-| [OnCameraMuted](#oncameramuted)   | 主持人设置禁用摄像头回调。         |
+| [OnOrderedToExitSpeechkState](#onorderedtoexitspeechkstate)  | 成员被请求停止发言的回调。         |
+| [OnCallingRollStarted](#oncallingrollstarted)                | 主持人开始点名，成员收到的回调。   |
+| [OnCallingRollStopped](#oncallingrollstopped)                | 主持人结束点名，成员收到的回调。   |
+| [OnMemberReplyCallingRoll](#onmemberreplycallingroll)        | 成员回复点名，主持人收到的回调。   |
+| [OnChatRoomMuted](#onchatroommuted)                          | 主持人更改聊天室是否禁言回调。     |
+| [OnMicrophoneMuted](#onmicrophonemuted)                      | 主持人设置禁用麦克风回调。         |
+| [OnCameraMuted](#oncameramuted)                              | 主持人设置禁用摄像头回调。         |
 
 ### 统计和质量回调
 
-| API              | 描述               |
+| API | 描述 |
 |-----|-----|
-| [OnStatistics](#onstatistics) | 技术指标统计回调。 |
+| [OnStatistics](#onstatistics)         | 技术指标统计回调。 |
 | [OnNetworkQuality](#onnetworkquality) | 网络质量回调。     |
 
 ### 屏幕分享相关回调
 
-| API                    | 描述               |
+| API                                               | 描述               |
 |-----|-----|
 | [OnScreenCaptureStarted](#onscreencapturestarted) | 开始屏幕分享回调。 |
 | [OnScreenCaptureStopped](#onscreencapturestopped) | 停止屏幕分享回调。 |
 
 ### 视频录制回调
 
-| API              | 描述           |
+| API                                   | 描述           |
 |-----|-----|
-| [OnRecordError](#onrecorderror) | 录制错误回调。 |
+| [OnRecordError](#onrecorderror)       | 录制错误回调。 |
 | [OnRecordComplete](#onrecordcomplete) | 录制完成回调。 |
 | [OnRecordProgress](#onrecordprogress) | 录制进度回调。 |
 
 
 ### 本地设备测试回调
 
-| API                               | 描述       |
+| API                                                          | 描述                   |
 |-----|-----|
-| [OnTestSpeakerVolume](#ontestspeakervolume) | 扬声器大小回调。       |
-| [OnTestMicrophoneVolume](#ontestmicrophonevolume) | 麦克风大小回调。       |
+| [OnTestSpeakerVolume](#ontestspeakervolume)                  | 扬声器大小回调。       |
+| [OnTestMicrophoneVolume](#ontestmicrophonevolume)            | 麦克风大小回调。       |
 | [OnAudioDeviceCaptureVolumeChanged](#onaudiodevicecapturevolumechanged) | 调节系统采集音量回调。 |
 | [OnAudioDevicePlayoutVolumeChanged](#onaudiodeviceplayoutvolumechanged) | 调节系统播放音量回调。 |
 
-## TUIRoomCore 基础函数[](id:TUIRoomCore)
+## TUIRoomCore 基础函数
 
 ### GetInstance
 
@@ -243,7 +243,7 @@ virtual int Login(int sdk_appid, const std::string& user_id, const std::string& 
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| sdk_appid | int | 您可以在实时音视频控制台 > **[应用管理](https://console.cloud.tencent.com/trtc/app)** > 应用信息中查看 SDKAppID。 |
+| sdk_appid | int |  您可以在实时音视频控制台 >**[应用管理](https://console.cloud.tencent.com/trtc/app)**> 应用信息中查看 SDKAppID。 |
 | user_id | string | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
 | user_sig | string | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 
@@ -295,9 +295,9 @@ virtual int EnterRoom(const std::string& room_id) = 0;
 | room_id | string | 房间标识。 |
 
 参会成员进入房间的正常调用流程如下：
-1. **参会成员**调用 `EnterRoom` 并传入 room_id 即可进入房间房间。
+1. **参会成员**调用`EnterRoom`并传入 room_id 即可进入房间房间。
 2. **参会成员**调用 `startCameraPreview()` 打开摄像头预览，调用 `StartLocalAudio()` 打开麦克风采集。
-3. **参会成员**收到 `OnRemoteUserCameraAvailable` 的事件，调用 `StartRemoteView()` 开始播放视频。
+3. **参会成员**收到`OnRemoteUserCameraAvailable`的事件，调用`StartRemoteView()`开始播放视频。
 
 ### LeaveRoom
 
@@ -834,7 +834,7 @@ virtual int SetVideoQosPreference(TUIVideoQosPreference preference) = 0;
 
 ### GetSDKVersion
 
-获取SDK版本信息。
+获取 SDK 版本信息。
 ```C++
 virtual const char* GetSDKVersion() = 0;
 ```
@@ -1343,7 +1343,7 @@ virtual void OnRecordComplete(const std::string& path) {}
 
 | 参数   | 类型 | 含义                                               |
 | ------ | ---- | -------------------------------------------------- |
-| path | string  | 错误描述。 |
+| path | string  | 错误描述 |
 
 ### OnRecordProgress
 
@@ -1419,4 +1419,3 @@ virtual void OnAudioDevicePlayoutVolumeChanged(uint32_t volume, bool muted) {}
 | ------ | ---- | -------------------------------------------------- |
 | volume | uint32_t  | 音量大小。 |
 | muted | bool  | 是否被禁用。 |
-
