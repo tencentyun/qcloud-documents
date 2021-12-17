@@ -1,17 +1,18 @@
 ## 效果展示
 您可以[下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验多人视频聊天室的效果，包括聊天室、屏幕分享、美颜、低延时视频等 TRTC 在多人视频聊天室场景下的相关能力。
 
+[](id:step1)
 ## 复用 App 的 UI 界面
 如需快速接入多人视频聊天室功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用的 App 内的 Module 模块实现自定义 UI 界面。
 
 [](id:step1_1)
-### 步骤1：下载App源码
+### 步骤1：下载 App 源码
 单击进入 [RoomApp](https://github.com/tencentyun/TUIMeeting)，Clone 或者下载源码。
 
 [](id:step1_2)
 ### 步骤2：配置App文件
 1. 找到并打开 `Windows\RoomApp\utils\usersig\win\GenerateTestUserSig.h` 文件。
-2. 设置 GenerateTestUserSig.h 中的参数：
+2. 设置 `GenerateTestUserSig.h` 中的参数：
 	- **SDKAPPID**：默认为0，请设置为实际的 SDKAPPID。
 	- **SECRETKEY**：默认为空，请设置为实际的 SECRETKEY。
 ![](https://main.qcloudimg.com/raw/3e83f6ed266617afbe637edc51eb0543.png)
@@ -56,61 +57,54 @@
 
 ### 设置窗口
 设置窗口可以对选择设备，设置美颜等参数。
-![](https://qcloudimg.tencent-cloud.cn/raw/8554f7904403ef2b2f40f9ba48f057ea.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/eb7f3d3f4eda424b800796affb40f58f.png)
 
 ### 聊天室
 聊天室可以进行群成员聊天，主持人可以对全员进行禁言/解除禁言。
 ![](https://qcloudimg.tencent-cloud.cn/raw/198aff7b09cb93c2658eae922fe0a64b.png)
 
 ### 退出房间
-主持人退出房间时可以有两种选择，分为以下两种：
+主持人退出房间时可以有两种选择，分别为：
 - 解散房间，即所有人退出房间，所有人都需要退出。
 - 自己离开房间，将房间主持人权限转交给其他用户作为主持人。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/7ceacac7a6817ffe80927af35e0df9c4.png)
 
-## 实现自定义 UI 界面
-源码中的 Module 模块包含了对 TRTCSDK 以及 IM SDK 的封装，您可以在 `TUIRoomCore.h`、`TUIRoomCoreCallback.h`、`TUIRoomDef.h` 等文件中查看改模块提供的接口函数以及其他定义，并使用对应接口实现自定义 UI 界面。
+## 实现自定义UI界面
+源码中的 Module 模块包含了对 TRTC SDK 以及 IM SDK 的封装，您可以在 `TUIRoomCore.h`、`TUIRoomCoreCallback.h`、`TUIRoomDef.h` 等文件中查看改模块提供的接口函数以及其他定义，并使用对应接口实现自定义 UI 界面。
 
 [](id:step2_1)
-### 步骤1：集成SDK
-从官网下载 [TRTCSDK](https://cloud.tencent.com/document/product/647/32689) 和 [IM SDK](https://cloud.tencent.com/document/product/269/36887)，替换外层的 SDK 目录中 IM SDK 和 LiteAVSDK 目录下的文件。
->!  IM SDK 使用 C++ 版本。
+### 步骤1：集成 SDK
+从官网下载 [TRTC SDK](https://cloud.tencent.com/document/product/647/32689) 和 [IM SDK](https://cloud.tencent.com/document/product/269/36887)，替换外层的 SDK 目录中 IM SDK 和 LiteAVSDK 目录下的文件。
+>! IM SDK 需使用 C++ 版本。
 
-|SDK   |下载页面   |集成指引   |
+| SDK      | 下载页面  | 集成指引  |
 | ------ | ------ | ------ |
-|TRTC SDK|[DOWNLOAD](https://cloud.tencent.com/document/product/647/32689)|[集成文档](https://cloud.tencent.com/document/product/647/32178)|
-|IM SDK|[DOWNLOAD](https://cloud.tencent.com/document/product/269/36887)|[集成文档](https://cloud.tencent.com/document/product/269/33489)|
+| TRTC SDK | [DOWNLOAD](https://cloud.tencent.com/document/product/647/32689) | [集成文档](https://cloud.tencent.com/document/product/647/32178) |
+| IM SDK   | [DOWNLOAD](https://cloud.tencent.com/document/product/269/36887) | [集成文档](https://cloud.tencent.com/document/product/269/33489) |
+
 
 [](id:step2_2)
-### 步骤2：工程配置 SDK 目录以及库文件
+### 步骤2：工程配置SDK目录以及库文件
 在 VS 中配置头文件目录，静态库目录，以及依赖的静态库文件。
 
 [](id:step2_3)
-### 步骤3：创建并登录
+### 步骤3：创建并登录 
 1. 使用 `IUIRoomCore::Instance` 接口创建并使用 IUIRoomCore 单例。
 2. 调用 AddCallback 接口设置回调类，接受 SDK 的回调通知。
 3. 调用 Login 接口进行登录。
 <table>
-<thead>
+<tr><th>参数名</th><th>说明</th></tr>
 <tr>
-<th>参数名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
 <td>sdk_appid</td>
 <td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID</td>
-</tr>
-<tr>
+</tr><tr>
 <td>user_id</td>
 <td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。</td>
-</tr>
-<tr>
+</tr><tr>
 <td>user_sig</td>
 <td>腾讯云设计的一种安全保护签名，获取方式请参见 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a></td>
-</tr>
-</tbody></table>
+</tr></table>
 
 [](id:step2_4)
 ### 步骤4：设置昵称
@@ -152,7 +146,7 @@
 1. 调用 StartScreenCapture 接口进行屏幕分享。
 2. 其他成员收到 OnRemoteUserScreenVideoAvailable 回调，通知有成员正在分享屏幕。
 
->? 屏幕分享模块需要做窗口选择的逻辑，具体实现请参考 App 中的 ScreenShareWindow.h 的实现。
+>? 屏幕分享模块需要做窗口选择的逻辑，具体实现请参考 App 中的`ScreenShareWindow.h` 的实现。
 
 [](id:step2_11)
 ### 步骤11：实现文字聊天和禁言消息
