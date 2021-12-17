@@ -59,5 +59,5 @@ SaaS 型堡垒机到资源 CVM 网络或者端口不通，导致堡垒机无法�
 1. 参考文档 [设置允许多用户远程登录 Windows 云服务器](https://cloud.tencent.com/document/product/213/36267) 进行配置。
 2. 设置已中断会话的时间限制为“已启用”，并将“结束已断开连接的会话”设置为1分钟。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0290e11fb6f59f62a2959d631a76c213.png)
-3. 将用户添加到Remote Desktop Users 组。
+3. 将用户添加到 Remote Desktop Users 组。
 

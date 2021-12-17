@@ -25,7 +25,7 @@ iOS 可在工程配置中的`General->Identity`中获取，如下图所示：
 [](id:que13)
 ### 测试版 License 能否更改 Android 的 Package Name 和 iOS 的 Bundle ID?
 测试版 License 能更改 Android 的 Package Name 和 iOS 的 Bundle ID。
-具体操作：进入【云直播控制台】>[【License 管理】](https://console.cloud.tencent.com/live/license)，单击测试版 License 信息右侧的【编辑】，进入编辑页面即可修改 Android 的 Package Name 和 iOS 的 Bundle ID。
+具体操作：进入**云直播控制台**>[**License 管理**](https://console.cloud.tencent.com/live/license)，单击测试版 License 信息右侧的**编辑**，进入编辑页面即可修改 Android 的 Package Name 和 iOS 的 Bundle ID。
 
 [](id:que14)
 ### 正式版 License 能否更改 Android 的 Package Name 和 iOS 的 Bundle ID?
@@ -105,5 +105,4 @@ iOS 可在工程配置中的`General->Identity`中获取，如下图所示：
 
 [](id:que17)
 ### 为什么接收不到 License 到期等相关消息通知？
-移动直播 SDK 的直播推流 License 用于腾讯云视立方·音视频终端引擎管理功能模块的授权解锁，您可以通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端引擎，接收 License 到期提醒，以及更多各渠道消息通知。直播推流 License 将在到期时间距离当前时间为30天、15天、7天、1天时向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。
-
+移动直播 SDK 的直播推流 License 用于腾讯云视立方·音视频终端引擎管理功能模块的授权解锁，您可以通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端引擎，配置**站内信**/**邮件**/**短信**/**微信**/**企微**等消息接收渠道，接收正式版 License 到期提醒。直播推流正式版 License 将在到期时间距离当前时间为30天、15天、7天、1天时各向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。
