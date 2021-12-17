@@ -37,6 +37,8 @@ TRTCCalling 依赖以下端口进行数据传输，请将其加入防火墙白�
 详细兼容性查询，具体请参见 [浏览器支持情况](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-05-info-browser.html)。同时，您可通过 [TRTC 检测页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 在线检测。
 
 ## 跑通测试 Demo
+
+
 [](id:step1)
 ### 步骤1：创建新的应用
 1. [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成实名认证。
@@ -178,3 +180,15 @@ trtcCalling.startLocalView({
 ```javascript
 trtcCalling.hangup()
 ```
+
+## 技术咨询[](id:QQ)
+了解更多详情您可以 QQ 咨询：646165204 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
+
+
+
+## 参考文档
+- [TRTCCalling web 官网体验](https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html#/login)
+- [TRTCCalling npm](https://www.npmjs.com/package/trtc-calling-js)
+- [TRTCCalling web demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Web/TRTCScenesDemo/trtc-calling-web)
+- [TRTCCalling web API](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/TRTCCalling.html)
+- [TRTCCalling web 相关问题](https://cloud.tencent.com/document/product/647/62484)

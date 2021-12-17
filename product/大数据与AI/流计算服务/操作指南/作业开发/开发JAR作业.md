@@ -29,7 +29,7 @@
 若用户程序需要使用外部依赖文件，可以自行在依赖管理中上传外部依赖后，在作业参数中添加外部依赖，并选择版本。
 外部依赖的上传和版本管理方式请参考 [依赖管理](https://cloud.tencent.com/document/product/849/48295)。
 
-作业参数中指定的外部依赖文件会被放置到 Flink 容器的指定目录下（当前默认路径为 `/var/flink-data/user-depenedncy/`），并且会同时被放置于 classpath 的根目录中。用户可以通过手动指定路径或读取 classpath 的方式获取到外部依赖文件。
+作业参数中指定的外部依赖文件会被放置到 Flink 容器的指定目录下（当前默认路径为 `/var/flink-data/user-dependency/`），并且会同时被放置于 classpath 的根目录中。用户可以通过手动指定路径或读取 classpath 的方式获取到外部依赖文件。
 
 下面以 properties 配置文件为例，介绍如何引用并获取配置内容。
 1. 手动指定配置文件路径，获取配置内容

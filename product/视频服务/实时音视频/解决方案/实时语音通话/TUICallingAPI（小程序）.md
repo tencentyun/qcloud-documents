@@ -18,11 +18,9 @@ TUICalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
  - 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
  - 符合类目要求的小程序，需要在 **[微信公众平台](https://mp.weixin.qq.com)** > **开发** > **开发管理** > **接口设置** 中自助开通该组件权限，如下图所示：
 ![](https://main.qcloudimg.com/raw/dc6d3c9102bd81443cb27b9810c8e981.png)
- - **配置推流域名及 IM 域名**到小程序控制台 request 合法域名。
-
+3. **配置推流域名及 IM 域名**到小程序控制台 request 合法域名。
   因 TUICalling 使用 TSignalling（IM） 进行信令交互，涉及使用 [IM 的受信域名](https://web.sdk.qcloud.com/im/doc/zh-cn/tutorial-02-upgradeguideline.html)。
-
-  ```js
+```js
   https://official.opensso.tencent-cloud.com
   https://yun.tim.qq.com
   https://cloud.tencent.com
@@ -31,9 +29,8 @@ TUICalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
   wss://wss.im.qcloud.com
   wss://wss.tim.qq.com
   https://web.sdk.qcloud.com
-  ```
-
- - 不支持 uniapp、taro 开发环境，请使用原生小程序开发环境。
+```
+4. 不支持 uniapp、taro 开发环境，请使用原生小程序开发环境。
 
 ## 支持平台
 
@@ -174,11 +171,12 @@ TUICallingContext.groupCall({userIDList, type, groupID})
 
 更多常见问题，请参见 [小程序端相关问题](https://cloud.tencent.com/document/product/647/45532)。
 
-### 技术咨询
+## 技术咨询[](id:QQ)
 
-了解更多详情您可以 QQ 咨询：646165204 技术支持
+了解更多详情您可以 QQ 咨询：646165204<dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
 
-### 参考文档
+
+## 参考文档
 - [TUICalling 组件源码](https://github.com/tencentyun/TUICalling/tree/main/MiniProgram)
 - [TUICalling demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/TRTCScenesDemo/trtc-calling-miniapp)
 - [小程序端相关问题](https://cloud.tencent.com/document/product/647/45532)
