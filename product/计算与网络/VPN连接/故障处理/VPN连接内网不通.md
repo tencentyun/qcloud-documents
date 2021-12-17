@@ -1,6 +1,6 @@
 ## 现象描述
-使用VPN连接建立 VPC 与 IDC 的通信，VPN 通道显示为【已联通】状态，但内网无法联通，现象如下：
-VPN 通道状态为【已联通】：
+使用VPN连接建立 VPC 与 IDC 的通信，VPN 通道显示为**已联通**状态，但内网无法联通，现象如下：
+VPN 通道状态为**已联通**：
 ![](https://main.qcloudimg.com/raw/f4b080f601219303fab74ad4aa4ddc40.png)
 VPC 侧服务器 ping IDC侧内网 IP，无法 ping 通：
 ![](https://main.qcloudimg.com/raw/5a4bf0112e8a761e80a69ab05031303c.png)

@@ -7,4 +7,4 @@
 访问地址需要进行身份验证，用户名为 root，默认密码为创建集群时输入的密码。如果需要修改密码，可以在此页面中单击**重置原生 UI 密码**进行修改。
 >!访问会产生网络流量费用，费用按流量计费。
 >
-![](https://main.qcloudimg.com/raw/a2eb64784c9e6679e60848f2d3a2f03c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e078b8ec38564d8be6e1126a178997e5.png)

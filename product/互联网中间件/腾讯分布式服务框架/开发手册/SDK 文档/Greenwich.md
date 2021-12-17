@@ -25,67 +25,6 @@
 ### 版本建议
 支持向后兼容，建议全量升级。
 
-## 1.26.2-Greenwich-RELEASE（2021-04-25）
-### 优化
-支持通过配置 `-Dspring.cloud.consul.enabled=false` 关闭连接 consul ，适配单元测试场景时的启动。
-
-### 版本建议
-支持向后兼容，建议全量升级。
-
-## 1.26.1-Greenwich-RELEASE（2020-12-31）
-### 优化
-spring-cloud-tsf-sleuth 新增 CMQ 调用支持。
-
-### 版本建议
-支持向后兼容，建议全量升级。
-
-
-## 1.26.0-Greenwich-RELEASE（2020-12-07）
-
-### 新特性
-- spring-cloud-tsf-msgw-scg：
-  - 补齐 Spring Cloud Gateway 网关的服务治理能力，支持用户按照需求灵活选择 Zuul 或 Spring Cloud Gateway。
-  - 支持托管外部 API。
-- spring-cloud-tsf-msgw-zuul：支持托管外部 API。
-- spring-cloud-tsf-swagger：支持添加注解 @IgnoreGatewayApi 来忽略某个网关 API 不被发现（忽略该网关的 API，但服务治理 API 不受影响）。
-
-### 版本建议
-
-支持向后兼容，建议全量升级。
-
-## 1.25.0-Greenwich-RELEASE（2020-12-04）
-
-### 新特性
-spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
-
-### Bug 修复
-
-- spring-cloud-tsf-ratelimit：修复多个限流规则时，全局限流无法关闭的问题。
-- spring-cloud-tsf-route：修复当只有一个路由规则时，路由规则关闭不生效的问题。
-- spring-cloud-tsf-lane：修复泳道规则内存可见性 Bug。
-
-### 版本建议
-
-支持向后兼容，建议全量升级。
-
-## 1.24.0-Greenwich-RELEASE（2020-09-25）
-
-### 新特性
-- 支持云上 Spring Cloud 应用平滑迁移 TSF。
-- 支持 PostgreSQL 组件调用链。
-
-### Bug 修复
-
-- spring-cloud-tsf-consul-config：
-  - 修复本地加密配置不能正确解密的问题。
-  - 修复 MySQL 调用链对多数据源支持。
-- spring-cloud-tsf-core：
-  增加线程上下文接口，在父亲线程中塞入线程局部变量后，子线程不论是线程池反复使用还是一次性使用都能正确继承父线程局部变量。
-  
-### 版本建议
-
-支持向后兼容，建议全量升级。
-
 ## 1.23.14-Greenwich-RELEASE（2021-09-05）
 
 ### Bug 修复
@@ -250,36 +189,6 @@ spring-cloud-tsf-msgw：
   - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到9.0.36版本。
 - spring-cloud-tsf-sleuth：修复 Kafka 中的类型转发错误。
   
-  
-
-## 1.22.1-Greenwich-RELEASE（2020-05-06）
-
-### 优化
-
-优化 TSF MSGW scg 使用，用户无需显示配置全局路由。
-
-### 版本建议
-
-支持向后兼容，建议全量升级。
-
-## 1.22.0-Greenwich-RELEASE（2020-04-29）
-
-### 新特性
-
-- 支持 SpringCloud Gateway 链路追踪和调用监控。
-- TSF MSGW scg 版本发布。
-- TSF MSGW zuul1 版本发布。
-
-### Bug 修复
-
-- 修复在使用 redis，自定义多个 LettuceConnectionFactory 时，不能链路追踪所有请求的问题。
-- 修复调用监控禁用场景内存泄露问题。
-- 修复 Spring Cloud Gateway 无法使用 TSF 服务注册和发现的问题。
-
-### 优化
-
-优化默认日志配置支持容器部署场景。
-
 ## 1.21.4-Greenwich-RELEASE (2020-08-20)
 ### bug 修复
 - 处理 MySQL 中 SQL 获取截断的问题。
@@ -328,30 +237,6 @@ spring-cloud-tsf-msgw：
 
 支持 swagger 自动扫描包多路径特性。
 
-## 1.20.0-Greenwich-RELEASE（2020-03-02）
-
-### 新特性
-
-- 新增`分布式任务调度`功能。
-- spring-cloud-tsf-sleuth 支持`kafka`和`rocketmq`链路追踪功能。
-
-### Bug 修复
-
-处理 tomcat 组件开源漏洞风险。
-  - 升级 org.apache.tomcat.embed.tomcat-embed-core 到9.0.31版本。
-  - 升级 org.apache.tomcat.embed.tomcat-embed-el 到9.0.31版本。
-  - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到9.0.31版本。
-
-## 1.19.0-Greenwich-RELEASE（2020-01-16）
-
-### 新特性
-
-新增`服务熔断`功能。
-
-### 版本建议
-
-支持向后兼容，建议全量升级。
-
 ## 1.18.1-Greenwich-RELEASE（2020-01-14）
 
 ### Bug 修复
@@ -391,55 +276,3 @@ spring-cloud-tsf-sleuth 优化 TraceStatementProxyHandler  JDBC 代理过程内�
 
 支持向后兼容，建议全量升级。
 
-## 1.16.2-Greenwich-RELEASE（2020-03-02）
-
-### Bug 修复
-
-- spring-cloud-tsf-sleuth bug fixed：
-  - 处理 Custom Metadata 设置接口不兼容。
-  - 调用链输出用户自定义 Tag 和 Metadata。
-  - 修复druid连接池事务兼容问题。
-  - 修复同时依赖多个数据库连接池问题。
-
-## 1.16.1-Greenwich-RELEASE（2019-12-3）
-
-### Bug 修复
-
-API 注册兼容从环境变量和启动参数中读取 TSF 参数信息。
-
-## 1.16.0-Greenwich-RELEASE（2019-11-5）
-
-### 新特性
-
-#### 服务限流（spring-cloud-tsf-rate-limit）
-
-- 支持针对所有请求、单个服务的请求进行流量控制。
-- 支持服务下单个 API 请求级别的限流。
-
-#### 服务路由（spring-cloud-tsf-route）
-
-- 支持基于部署组、系统标签、自定义标签的路由设置。
-- 支持服务下单个 API 请求级别的路由。
-- 支持自动重注册，服务鉴权/路由/限流策略本地缓存。
-- 服务路由支持基于可用区和地域就近访问策略。
-
-#### 服务鉴权
-
-支持基于服务名和标签的鉴权设置。
-
-#### 链路跟踪（spring-cloud-tsf-sleuth）
-
-- 支持微服务调用全链路跟踪。
-- 支持 MySQL JDBC、Redis、MongoDB、CMQ 组件调用链。
-- 支持在调用链上设置标签和自定义 Metada。
-
-#### 分布式配置（spring-cloud-tsf-config）
-
-- 支持分布式配置功能。
-- 配置回调。
-- 配置加密 spring-cloud-tsf-encrypt。
-
-#### API注册（spring-cloud-tsf-swagger）
-
-- API 注册：支持服务下 API 信息自动注册，查看 API 出入参请求结构。
-- 集成 spring-cloud-tsf-swagger 包，支持本地使用 swagger-ui 进行调试。
