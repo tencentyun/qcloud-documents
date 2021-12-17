@@ -1,5 +1,5 @@
 ## Agent 部署
-1.登录 [数据安全审计控制台](https://console.cloud.tencent.com/dsaudit)，在左侧导航栏中，单击**配置管理** > **Agent 管理** > **Agent 部署**，进入 Agent 部署页面。
+1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/dsaudit)，在左侧导航栏中，单击**配置管理** > **Agent 管理** > **Agent 部署**，进入 Agent 部署页面。
 2. 在 Agent 部署页面，根据数据资产添加位置，提供下载链接。配置步骤以及配置注意事项，详情请参见 [传统型- Agent 部署](https://cloud.tencent.com/document/product/856/17385)。
 3. 在 Agent 部署页面，分为腾讯云内网 Agent 和 腾讯云外 Agent。
  - 腾讯云内网 Agent
@@ -10,7 +10,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/d2a196af563c93b1fd11bef5a08a5cbe.png)
 
 ## Agent 列表
-1.登录 [数据安全审计控制台](https://console.cloud.tencent.com/dsaudit)，在左侧导航栏中，单击**配置管理** > **Agent 管理** > **Agent 列表**，进入 Agent 列表页面。
+1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/dsaudit)，在左侧导航栏中，单击**配置管理** > **Agent 管理** > **Agent 列表**，进入 Agent 列表页面。
 2.在 Agent 列表页面，可以查看所有已配置成功的 Agent。Agent 列表默认展示内容包括：部署 IP、流量来源、VPC、地域、操作系统、最后上报时间、运行状态、开启状态及相关操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/cea0da9df20e4aac101fe28aa7a55b1b.png)
 3. 在 Agent 列表页面，您可以按**流量来源、地域、数据资产、部署 IP、运行状态**对 Agent 进行搜索。
