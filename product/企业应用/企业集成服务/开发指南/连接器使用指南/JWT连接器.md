@@ -18,18 +18,18 @@ JWT 连接器提供生成 Json Web Token 以及校验 Json Web Toke 的相关功
 
 选择“HMAC-SHA-256/HMAC-SHA-384/HMAC-SHA-512”时，配置参数如下：
 
-| 参数     | 数据类型 | 描述     | **是否必填** |
-| :------- | -------- | -------- | ------------ |
-| HMAC 密钥 | string   | HMAC密钥 | 是           |   
+| 参数     | 数据类型 | 描述     | **是否必填** | 默认值 |
+| :------- | -------- | -------- | ------------ | ------------ |
+| HMAC 密钥 | string   | HMAC密钥 | 是           |   无 |
 
 ![配置](https://qcloudimg.tencent-cloud.cn/raw/bb4feee9a3477b366fca1efb0fa681a5.png)
 
 选择”RSA-SHA-256/RSA-SHA-384/RSA-SHA-512/RSAPSS-SHA-256/RSAPSS-SHA-384/RSAPSS-SHA-512“时，配置参数如下：
 
-| 参数         | 数据类型 | 描述            | **是否必填** | 
-| :----------- | -------- | --------------- | ------------ | 
-| 私钥证书文件 | string   | RSA 私钥证书文件 | 是           |  
-| 公钥证书文件 | string   | RSA 公钥证书文件 | 是           |   
+| 参数         | 数据类型 | 描述            | **是否必填** | 默认值 | 
+| :----------- | -------- | --------------- | ------------ | ------------ |
+| 私钥证书文件 | string   | RSA 私钥证书文件 | 是           |  无 | 
+| 公钥证书文件 | string   | RSA 公钥证书文件 | 是           |    无 | 
 
 
 
@@ -45,13 +45,14 @@ JWT 组件目前支持生成  JWT 和校验 JWT 操作。
 
 | 参数                | 数据类型 | 描述                                                 | **是否必填** | **默认值** |
 | :------------------ | -------- | ---------------------------------------------------- | ------------ | ---------- |
-| 签发者（iss）         | string   | JWT 签发者                                            | 否           |            |
-| 主题（sub）           | string   | JWT 主题                                              | 否           |            |
-| 唯一身份标识 ID（jti） | string   | JWT 的唯一身份标识 ID                                  | 否           |            |
-| 接收者列表（aud）    | []string | 接收 JWT 的对象列表                                    | 否           |            |
-| 签发时间（iat）       | datetime | JWT 的签发时间                                        | 否           |            |
-| 有效起始时间（nbf）   | datetime | JWT 的有效起始时间，定义在该时间之前，JWT 都是不可用的 | 否           |            |
-| 有效时间（exp）  | int      | 有效起始时间加上有效时间为 JWT 的过期时间，单位：秒              | 否           | 3600       |
+| 签发者（iss）         | string   | JWT 签发者                                            | 否           |    无        |
+| 主题（sub）           | string   | JWT 主题                                              | 否           |        无    |
+| 唯一身份标识 ID（jti） | string   | JWT 的唯一身份标识 ID                                  | 否           |  无          |
+| 接收者列表（aud）    | []string | 接收 JWT 的对象列表                                    | 否           |        无    |
+| 签发时间（iat）       | datetime | JWT 的签发时间                                        | 否           |        无    |
+| 有效起始时间（nbf）   | datetime | JWT 的有效起始时间，定义在该时间之前，JWT 都是不可用的 | 否           |    无        |
+| 有效时间（exp）  | int      | 有效起始时间加上有效时间为 JWT 的过期时间              | 否           | 3600（单位：秒）       |
+| 自定义声明 |  dict   | JWT 自定义声明  | 否 | 无 | 
 
 
 ![pbkdf2配置](https://qcloudimg.tencent-cloud.cn/raw/3b6dd3f15f35f0632aaf3e674f27b449.png)
@@ -70,7 +71,7 @@ JWT 组件目前支持生成  JWT 和校验 JWT 操作。
 | variable    | 继承上个组件的 variable 信息。                                   |
 
 
-#### 案例
+#### 案例1
 
 1. 添加 JWT 组件，选择生成 JsonWebToken 操作：
 ![对称加密选择](https://qcloudimg.tencent-cloud.cn/raw/169ae00329f8d0955499f516d6b2d2da.png)
@@ -79,7 +80,7 @@ JWT 组件目前支持生成  JWT 和校验 JWT 操作。
    ![image-20210521115044004](https://qcloudimg.tencent-cloud.cn/raw/9b055ac523a641e2a1c05c9a4d0f3a7f.png)
 
 3. 在操作配置填写参数如下：
-![image-20210521115044004](https://qcloudimg.tencent-cloud.cn/raw/714c7f6544667c66940ae01b0fea9e0d.png)
+![image-20210521115044004](https://qcloudimg.tencent-cloud.cn/raw/f26d82810198c538ce22a968d352cfe8.png)
 
 4. 执行成功后，message payload 中为 JsonWebToken 内容：
 ![image-20210521114703633](https://qcloudimg.tencent-cloud.cn/raw/eab57c1baf54a294f0009a90fa3d6ecc.png)
@@ -108,7 +109,7 @@ JWT 组件目前支持生成  JWT 和校验 JWT 操作。
 | attribute   | 继承上个组件的 attribute 信息。                                 |
 | variable    | 继承上个组件的 variable 信息。                                   |
 
-#### 案例
+#### 案例2
 
 1. 添加 JWT 组件，选择校验 JsonWebToken 操作
 ![对称加密选择](https://qcloudimg.tencent-cloud.cn/raw/169ae00329f8d0955499f516d6b2d2da.png)
@@ -117,7 +118,7 @@ JWT 组件目前支持生成  JWT 和校验 JWT 操作。
    ![image-20210521115044004](https://qcloudimg.tencent-cloud.cn/raw/9b055ac523a641e2a1c05c9a4d0f3a7f.png)
 
 3. 在操作配置填写参数如下：
-![image-20210521115044004](https://qcloudimg.tencent-cloud.cn/raw/3111a67d71ec0dfe38b706f38809888a.png)
+![image-20210521115044004](https://qcloudimg.tencent-cloud.cn/raw/efc8f32e81b04a91dc1f18c68759ef2d.png)
 
 4. 执行成功后，message payload 中为校验解析后的 JsonWebToken 内容：
 ![image-20210521114703633](https://qcloudimg.tencent-cloud.cn/raw/9a40c0e13540b3dbc9ed0d33ab707cbb.png)
