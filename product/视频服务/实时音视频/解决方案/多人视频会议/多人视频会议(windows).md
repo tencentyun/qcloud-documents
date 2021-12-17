@@ -70,7 +70,7 @@
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/7ceacac7a6817ffe80927af35e0df9c4.png)
 
-## 实现自定义UI界面
+## 实现自定义 UI 界面
 源码中的 Module 模块包含了对 TRTC SDK 以及 IM SDK 的封装，您可以在 `TUIRoomCore.h`、`TUIRoomCoreCallback.h`、`TUIRoomDef.h` 等文件中查看改模块提供的接口函数以及其他定义，并使用对应接口实现自定义 UI 界面。
 
 [](id:step2_1)
