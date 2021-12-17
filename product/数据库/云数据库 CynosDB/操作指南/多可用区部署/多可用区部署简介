@@ -1,48 +1,49 @@
 TDSQL-C for MySQL 引擎支持创建多可用区的集群，相比单可用区集群，多可用区集群具备更高的容灾能力，可以保护数据库，以防数据库实例发生故障或可用区中断，可以抵御机房级别的故障。
-云数据库 TDSQL-C for MySQL 多可用区部署为数据库实例提供高可用性和故障转移支持。多可用区是在单可用区的级别上，将同一地域的多个单可用区组合成的物理区域。
 
-本文将为您介绍如何实施多可用区部署。
+TDSQL-C for MySQL 多可用区部署为数据库实例提供高可用性和故障转移支持。多可用区是在单可用区的级别上，将同一地域的多个单可用区组合成的物理区域。
+
 ## 前提条件
 - 集群所在的地域需要包含两个及以上的可用区。
 - 目标可用区拥有足够计算资源。
 - 数据库版本要求：
- - 数据库版本5.7需满足内核小版本不低于2.0.15
- - 数据库版本8.0需满足内核小版本不低于3.0.1
+ - 数据库版本5.7需满足内核小版本不低于2.0.15。
+ - 数据库版本8.0需满足内核小版本不低于3.0.1。
 
 ## 多可用区部署架构
 ![](https://qcloudimg.tencent-cloud.cn/raw/18401647ebddd08e3987e0c2299a0ec9.png)
-## 多可用区部署支持的地域和可用区
+
+## 支持的地域和可用区
 - 目前此功能为公测期间，暂时仅支持如下表所示的地域和可用区。
 - 此功能会逐渐扩充支持地域和可用区。
-- 如因业务需要，您可 [提交工单](https://console.cloud.tencent.com/workorder/category)申请其他地域和可用区部署。
+- 如因业务需要，您可 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请其他地域和可用区部署。
 
 <table class="table-striped">
 <tbody>
 <tr><th>支持地域</th><th>支持可用区</th></tr>
 <tr>
 <td rowspan="2">华北地区（北京）<br>ap-beijing</td>
-<td>北京五区<br>ap-beijing-1</td></tr>
+<td>北京五区</td></tr>
 <tr>
-<td>北京七区<br>ap-beijing-2</td></tr>
+<td>北京七区</td></tr>
 <td rowspan="2">华南地区（广州）<br>ap-guangzhou</td>
-<td>广州四区<br>ap-guangzhou-1</td></tr>
+<td>广州四区</td></tr>
 <tr>
-<td>广州六区<br>ap-guangzhou-2</td></tr>
+<td>广州六区</td></tr>
 <td rowspan="2">华东地区（上海）<br>ap-shanghai</td>
-<td>上海二区<br>ap-shanghai-1</td></tr>
+<td>上海二区</td></tr>
 <tr>
-<td>上海四区<br>ap-shanghai-2</td></tr>
-<tr>
+<td>上海四区</td></tr>
 </tbody></table>
 
 ## 如何实现多可用区架构
-关于多可用区架构，可通过 TDSQL-C for MySQL控制台新建集群实现，存量的单可用区集群也会升级至多可用区集群，该升级通过在线迁移数据的方式自动完成，对您的业务无任何影响。详情请参见 [设置多可用区部署]()。
+关于多可用区架构，可通过 TDSQL-C for MySQL 控制台新建集群实现，存量的单可用区集群也会升级至多可用区集群，该升级通过在线迁移数据的方式自动完成，对您的业务无任何影响。详情请参见 [设置多可用区部署](https://cloud.tencent.com/document/product/1003/66270)。
+
 ## 多可用区费用说明
 多可用区功能暂时不需要支付额外费用。
 >?当前单可用区集群也可免费升级为至多可用区集群。
 
 ## 多可用区信息展示
-1. **集群列表**页展示集群可用区信息（展示主可用区），并且支持筛选。
+1. **[集群列表](https://console.cloud.tencent.com/cynosdb)** 页展示集群可用区信息（展示主可用区），并且支持筛选。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9c58c0c50be13a5604ff9b9cdf83a11b.png)
-2. 在集群详情页>**基本信息**页面和**可用性信息**页面可查看数据分布的可用区。
+2. 在集群详情页的**基本信息**和**可用性信息**处可查看数据分布的可用区。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4855ee405c5769c6c0926e1bd010e96e.png)![](https://qcloudimg.tencent-cloud.cn/raw/87e0d0d56abc5fd1dc68b8155535fc5b.png)
