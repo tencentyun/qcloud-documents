@@ -26,7 +26,7 @@ Content-Type: application/xml
 |节点名称（关键字）|父节点     |描述                    |   类型    |   是否必选    |
 |:---           |:--       |:--                    |   :--     |   :--    |
 | projectId | 无 | 项目 ID | String |是|
-| pageSize | 无 |  | Int |否|
+| pageSize | 无 | 页大小 | Int |否|
 | pageNumber | 无 | 页码 | Int |否|
 
 #### 请求头
@@ -90,8 +90,8 @@ Container 节点 Response 的内容：
 | RequestId          | Response | 请求 ID   | String |
 | DeviceList         | Response | 设备集合 | array  |
 | TotalCount         | Response | 总数     | Int    |
-| PageNumber         | Response |          |        |
-| PageSize           | Response |          |        |
+| PageNumber         | Response | 页码         | Int       |
+| PageSize           | Response |  页大小        | Int       |
 
 Array 类型 Devicelist 的具体数据描述如下：
 
