@@ -61,9 +61,9 @@
 ### 步骤2：配置 CNAME 记录
 
 >?
->- 添加一键 HTTPS 域名后，还需配置对应的 CNAME 记录后，接入才可正常生效。[什么是 CNAME 记录？](https://cloud.tencent.com/document/product/302/3450)
+>- 添加一键 HTTPS 域名后，还需配置对应的 CNAME 记录后，接入才可正常生效。 CNAME 记录可查看 [什么是 CNAME 记录？](https://cloud.tencent.com/document/product/302/3450)
 >- 配置 CNAME 记录步骤以腾讯云配置 CNAME 记录为例，若您的一键 HTTPS 域名解析未在 DNSPod DNS 解析托管，具体操作请咨询您的域名解析商或将域名托管至 DNSPod DNS 解析后，再进行配置 CNAME 记录。详情请参见 [域名托管至 DNSPod DNS 解析](https://docs.dnspod.cn/dns/60b99ba0e90008112f815bde/)。
->- 若您需了解更新 DNS 知识详情可参考：[DNS 解析 DNSPod 产品文档](https://cloud.tencent.com/document/product/302)。
+>- 若您需进一步了解 DNS 知识，详情请参考：[DNS 解析 DNSPod](https://cloud.tencent.com/document/product/302)。
 
 
 
