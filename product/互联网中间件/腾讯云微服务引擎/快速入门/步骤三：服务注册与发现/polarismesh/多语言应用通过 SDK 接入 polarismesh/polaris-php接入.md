@@ -1,4 +1,4 @@
-# PHP服务应用接入polarismesh
+# Polaris-PHP服务应用接入
 
 本文通过一个demo进行 PHP 应用接入微服务引擎托管的 PolarisMesh 治理中心的全流程操作演示，帮助您快速了解如何使用服务治理中心。
 
