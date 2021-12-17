@@ -206,7 +206,7 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 |-----|-----|
 | [OnTestSpeakerVolume](#ontestspeakervolume) | 扬声器大小回调。       |
 | [OnTestMicrophoneVolume](#ontestmicrophonevolume) | 麦克风大小回调。       |
-| [OnAudioDeviceCaptureVolumeChanged](onaudiodevicecapturevolumechanged) | 调节系统采集音量回调。 |
+| [OnAudioDeviceCaptureVolumeChanged](#onaudiodevicecapturevolumechanged) | 调节系统采集音量回调。 |
 | [OnAudioDevicePlayoutVolumeChanged](#onaudiodeviceplayoutvolumechanged) | 调节系统播放音量回调。 |
 
 ## TUIRoomCore 基础函数[](id:TUIRoomCore)
