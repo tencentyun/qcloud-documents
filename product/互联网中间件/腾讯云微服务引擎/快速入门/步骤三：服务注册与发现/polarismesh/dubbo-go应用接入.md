@@ -5,7 +5,7 @@
 ## 前提条件
 
 - 已创建PolarisMesh服务治理中心，请参考[创建PolarisMesh治理中心]()。
-- 下载github的[demo源码](https://github.com/polarismesh/samples/tree/main/dubbogo)到本地并解压
+- 下载github的[demo源码](https://github.com/polarismesh/examples/tree/main/dubbo3/dubbogo)到本地并解压
 - 【虚拟机部署】已创建CVM虚拟机，请参考[创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)。
 - 【容器化部署】已创建TKE容器集群，请参考[创建 TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
 - 【golang环境安装】CVM需要安装了golang环境
