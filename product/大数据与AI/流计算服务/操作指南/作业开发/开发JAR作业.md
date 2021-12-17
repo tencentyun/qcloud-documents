@@ -35,7 +35,7 @@
 1. 手动指定配置文件路径，获取配置内容
 用户首先需要在作业参数中引用配置文件。
 ![](https://main.qcloudimg.com/raw/59a0a39520d1cb256c67994845277dff.jpg)
-随后在主类入参中指定依赖文件的绝对路径（当前默认路径为 `/var/flink-data/user-depenedncy/` + 依赖文件名）。
+随后在主类入参中指定依赖文件的绝对路径（当前默认路径为 `/var/flink-data/user-dependency/` + 依赖文件名）。
 ![](https://main.qcloudimg.com/raw/93fb1379c6566bd12b77df8f930c5179.jpg)
 之后就可以在 Flink 主类中使用如下的方式获取外部依赖中的配置内容。
 ```
@@ -76,4 +76,3 @@ pc.load("flink-config-1.properties");
 ### 算子默认并行度
 
 当没有在 JAR 包中通过代码显式定义算子并行度时，作业将采用用户指定的算子默认并行度。并行度与TaskManager 规格大小决定作业所占用的计算资源。1个并行度将占用1 个 TaskManager  规格大小的CU 计算资源（当 TaskManager 规格大小为1时，1个并行度将占用1 CU 计算资源。当 TaskManager 规格大小为0.5时，1个并行度将占用0.5 CU 计算资源）。
-
