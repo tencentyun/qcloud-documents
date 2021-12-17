@@ -59,8 +59,24 @@
 首先，您需要在 [实时音视频控制台](https://console.cloud.tencent.com/trtc/app) 中创建一个应用，并取得 SDKAppID。
 之后，就可以通过 `new TRTCCalling()` 方法获取 TRTCCalling 组件的一个实例。
 
-<dx-codeblock>
-::: javascript javascript
+```js
+  npm i trtc-js-sdk --save
+  npm i tim-js-sdk --save
+  npm i tsignaling --save
+  npm i trtc-calling-js --save
+  // 如果是通过node下载的依赖，则使用 import 引入
+  import TRTCCalling from 'trtc-calling-js';
+
+  // 如果您通过 script 方式使用 trtc-calling-js，需要按顺序
+  // 手动引入 trtc.js
+  <script src="./trtc.js"></script>
+  // 接着手动引入 tim-js.js
+  <script src="./tim-js.js"></script>
+  // 然后再手动引入 tsignaling.js
+  <script src="./tsignaling.js"></script>
+  // 最后再手动引入 trtc-calling-js.js
+  <script src="./trtc-calling-js.js"></script>
+
 let options = {
   SDKAppID: 0, // 接入时需要将0替换为您的即时通信IM应用的 SDKAppID
   // 从v0.10.2起，新增 tim 参数
@@ -68,8 +84,9 @@ let options = {
   tim: tim
 };
 let trtcCalling = new TRTCCalling(options);
-:::
-</dx-codeblock>
+```
+
+
 
 ### 事件订阅/取消订阅相关接口函数 
 
@@ -821,3 +838,14 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 > ?
 > - **多实例**：一个 UserID 重复登入，或在不同端登入，将会引起信令的混乱。
 > - **离线推送**：实例在线才能接收消息，实例离线时接收到的信令不会在上线后重新推送。
+
+### 技术咨询
+
+了解更多详情您可以 QQ 咨询：646165204 技术支持
+
+### 参考文档
+- [TRTCCalling web 官网体验](https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html#/login)
+- [TRTCCalling npm](https://www.npmjs.com/package/trtc-calling-js)
+- [TRTCCalling web demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Web/TRTCScenesDemo/trtc-calling-web)
+- [TRTCCalling web API](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/TRTCCalling.html)
+- [TRTCCalling web 相关问题](https://cloud.tencent.com/document/product/647/62484)
