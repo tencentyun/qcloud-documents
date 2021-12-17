@@ -40,7 +40,7 @@
    kafka_topic_name： Kafka Topic 名称
 
    > ?
-   > - 如 CKafka 跨地域转储，修改相关环境变量即可，VPC 网络需配置**[对等连接](https://cloud.tencent.com/document/product/553/18836)**。
+   > - 如 CKafka 跨地域转储，修改相关环境变量即可，VPC 网络需配置[**对等连接**](https://cloud.tencent.com/document/product/553/18836)。
    > - 如 CVM 自建 Kafka，需修改为与自建 Kafka 相同的 VPC 及 Kafka Topic 信息。
    > - 如其他自建 Kafka，需修改环境变量的 IP 及 Topic 信息为自建信息；如无专线需用云函数公网传输。
 
