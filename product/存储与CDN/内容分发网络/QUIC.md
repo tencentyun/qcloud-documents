@@ -1,3 +1,10 @@
+<blockquote class="d-mod-alarm">
+<div class="d-mod-title d-alarm-title">
+<i class="d-icon-alarm"></i>公告：
+</div>
+<p>关于腾讯云 CDN 将于2022年1月5日正式发布 QUIC 访问功能及计费的周知<br>腾讯云内容分发网络 CDN 将于2022年1月5日正式发布 QUIC 访问功能。CDN 届时将增加增值服务计费项 - 按 QUIC 请求数次数计费。<li>当您启用 QUIC 访问功能后， 产生的 QUIC 请求数将按量后付费，默认按小时结算。详见 计费说明- QUIC 访问请求数计费</li><li>若您已使用或即将使用 QUIC 访问功能，请您关注确认，谢谢！</li></p>
+</blockquote>
+
 
 
 ## 功能介绍
