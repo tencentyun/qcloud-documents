@@ -1343,7 +1343,7 @@ virtual void OnRecordComplete(const std::string& path) {}
 
 | 参数   | 类型 | 含义                                               |
 | ------ | ---- | -------------------------------------------------- |
-| path | string  | 错误描述 |
+| path | string  | 错误描述。 |
 
 ### OnRecordProgress
 
