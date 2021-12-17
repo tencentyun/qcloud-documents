@@ -836,7 +836,6 @@
     <tr>
     <td rowspan=34 >浙江</td>
     <td rowspan=5 >杭州市</td>
-    <td>阿里云</td>
     </tr>
     <tr>
     <td>华数宽带</td>
