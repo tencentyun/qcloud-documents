@@ -14,8 +14,8 @@
 - 安装 SSL 证书前需准备的数据如下：
 <table>
 <tr>
-<td>名称</td>
-<td>说明</td>
+<th>名称</th>
+<th>说明</th>
 </tr>
 <tr>
 <td>服务器的 IP 地址</td>

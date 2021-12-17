@@ -326,7 +326,6 @@ void onFailure(AudioRecognizeRequest request, final ClientException clientExcept
 | ----------------------- | ------- | -------- | -------------------------------------------------- | ------ |
 | setSilentDetectTimeOut  | Boolean | 否       | 是否开启静音检测，开启后说话前的静音部分不进行识别 | true   |
 | audioFlowSilenceTimeOut | Int     | 否       | 开启检测说话启始超时，开启后超时会自动停止录音     | 5000ms |
-| minAudioFlowSilenceTime | Int     | 否       | 两个语音流最短分割时间                             | 2000ms |
 | minVolumeCallbackTime   | Int     | 否       | 音量回调时间                                       | 80ms   |
 
 **示例：**
@@ -334,7 +333,6 @@ void onFailure(AudioRecognizeRequest request, final ClientException clientExcept
 AudioRecognizeConfiguration audioRecognizeConfiguration = new AudioRecognizeConfiguration.Builder()
 	.setSilentDetectTimeOut(true)// 是否使能静音检测，false 表示不检查静音部分
         .audioFlowSilenceTimeOut(5000) // 静音检测超时停止录音
-        .minAudioFlowSilenceTime(2000) // 语音流识别时的间隔时间
     	.minVolumeCallbackTime(80) // 音量回调时间
     	.build();
 
