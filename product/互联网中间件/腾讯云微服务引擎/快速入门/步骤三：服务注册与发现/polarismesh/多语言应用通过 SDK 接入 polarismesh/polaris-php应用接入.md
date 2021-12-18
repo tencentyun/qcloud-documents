@@ -66,17 +66,17 @@
 
    （1）【虚拟机部署】部署provider和consumer微服务应用。
 
-```
-- 上传demo源码至 CVM 实例。
+      - 上传demo源码至 CVM 实例。
 
-- 执行启动命令进行启动：
+      - 执行启动命令进行启动：
 
-cd /data/polaris/php_examples/{provider | consumer}
+      ```
+      cd /data/polaris/php_examples/{provider | consumer}
 
-export PHP_PROVIDER_IP={内网 or 外网IP}
+      export PHP_PROVIDER_IP={内网 or 外网IP}
 
-php [php文件名称]
-```
+      php [php文件名称]
+      ```
 
 8. 确认部署结果
 - 进入前面提到的微服务治理中心实例页面。
