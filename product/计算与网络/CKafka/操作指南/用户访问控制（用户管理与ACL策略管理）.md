@@ -8,16 +8,16 @@
 ## 操作步骤
 
 ###  步骤一：创建实例
-单击实例列表页的【新建】，创建并购买实例。详情请参见 [创建实例](https://cloud.tencent.com/document/product/597/30931) 文档。
+单击实例列表页的**新建**，创建并购买实例。详情请参见 [创建实例](https://cloud.tencent.com/document/product/597/30931) 文档。
 
 
 ### 步骤二：配置用户信息
 您可以通过 Client 端或 CKafka 实例两种方式配置用户信息。
 
 ####  Client 端配置
-1. 在 CKafka 实例的用户管理页面，单击【新建】，创建用户。
+1. 在 CKafka 实例的用户管理页面，单击**新建**，创建用户。
 ![](https://main.qcloudimg.com/raw/43fc21203648cbb27b91ba1d37b218f2.png)
-2. 输入用户名和密码信息，单击【提交】完成用户新增。
+2. 输入用户名和密码信息，单击**提交**完成用户新增。
 ![](https://main.qcloudimg.com/raw/8c8e2e57d320ba2b25e0aecf0dbb3b28.png)
 
 ####  CKafka 实例配置
@@ -49,7 +49,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 ```
 
 ###  步骤三：配置 ACL 策略
-1. 在 ACL 策略管理列表页，选择需要配置策略的 Topic 资源，单击操作列的【编辑 acl 策略】。
+1. 在 ACL 策略管理列表页，选择需要配置策略的 Topic 资源，单击操作列的**编辑 acl 策略**。
 2. 在新增 ACL 策略的弹窗中，填选配置用户及 IP，不选为默认所有用户/host 都支持。
     ACL 策略示例： 允许/拒绝用户 user 通过 IP 读/写 Topic 资源  resource。
 ![](https://main.qcloudimg.com/raw/09d00ca8725b9f8ad080a05f5f3b8f7f.png)

@@ -169,6 +169,19 @@
 <td >个</td>
 <td >采样周期内集群中已提交的作业数</td>
 </tr><tr>
+<td rowspan=3>Containers</td>
+<td >containersAllocated</td>
+<td >个</td>
+<td >集群中已分配的 Container 数目</td>
+</tr><tr>
+<td >containersPending</td>
+<td >个</td>
+<td >集群中请求中的 Container 数目</td>
+</tr><tr>
+<td >containersReserved</td>
+<td >个</td>
+<td >集群中保留的 Container 数目</td>
+</tr><tr>
 <td >内存使用率</td>
 <td >usageRatio</td>
 <td >%</td>
@@ -597,7 +610,7 @@
 </tr>
 </table>
 
-### TARN-NodeManager
+### YARN-NodeManager
 <table>
 <tr>
 <th width=28%>标题 </th>
