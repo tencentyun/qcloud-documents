@@ -13,7 +13,7 @@
 Demo 中使用了 QBImagePicker 这样一个开源库实现了多个文件的选择功能，相关代码在 Demo 的 MainViewController 里有所体现。
 
 ### 2. 设置预览 View
-视频合成需要创建 TXUGCJoiner 对象，同 TXUGCEditer 类似，预览功能也需要上层提供预览 UIView：
+视频合成需要创建 TXVideoJoiner 对象，同 TXUGCEditer 类似，预览功能也需要上层提供预览 UIView：
 
 
 <dx-codeblock>
@@ -23,8 +23,8 @@ TXPreviewParam *param = [[TXPreviewParam alloc] init];
 param.videoView = _videoPreview.renderView;
 param.renderMode = PREVIEW_RENDER_MODE_FILL_EDGE;
 
-// 创建 TXUGCJoiner 对象并设置预览 view
-TXUGCJoiner* _ugcJoin = [[TXUGCJoiner alloc] initWithPreview:param];
+// 创建 TXVideoJoiner 对象并设置预览 view
+TXVideoJoiner* _ugcJoin = [[TXVideoJoiner alloc] initWithPreview:param];
 _ugcJoin.previewDelegate = _videoPreview;
 
 // 设置待拼接的视频文件组 _composeArray，也就是第一步中选择的若干个文件
