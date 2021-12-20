@@ -10,7 +10,7 @@ JWT 连接器提供生成 Json Web Token 以及校验 Json Web Toke 的相关功
 
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
 | :------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
-| 签名方法 | enum     | NONE/HMAC-SHA-256/HMAC-SHA-384/HMAC-SHA-512/RSA-SHA-256/RSA-SHA-384/RSA-SHA-512/RSAPSS-SHA-256/RSAPSS-SHA-384/RSAPSS-SHA-512 | 是           | NONE       |
+| 签名方法 | enum     | NONE/HMAC-SHA-256/HMAC-SHA-384/HMAC-SHA-512/RSA-SHA-256/RSA-SHA-384/RSA-SHA-512/RSAPSS-SHA-256/RSAPSS-SHA-384/RSAPSS-SHA-512 | 是           | 无       |
 
 选择“NONE”时，无配置参数，如下图：
 
