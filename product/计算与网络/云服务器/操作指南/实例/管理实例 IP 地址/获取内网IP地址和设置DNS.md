@@ -15,8 +15,9 @@
 ::: 使用实例元数据获取
 1. 登录云服务器。
 2. 使用 cURL 工具或者 HTTP 的 GET 请求访问实例元数据。
->? 以下操作以 cURL 工具为例。
->
+<dx-alert infotype="explain" title="">
+以下操作以 cURL 工具为例。
+</dx-alert>
 执行以下命令，获取内网 IP。
 ```
 curl http://metadata.tencentyun.com/meta-data/local-ipv4
@@ -46,12 +47,12 @@ options timeout:1 rotate
 :::
 ::: Windows\s系统
 1. 登录 Windows 云服务器。
-2. 在操作系统界面，打开【控制面板】>【网络和共享中心】>【更改适配器设备】。
-3. 右键单击【以太网】，选择【属性】，打开 “以太网 属性” 窗口。
-4. 在 “以太网 属性” 窗口，双击打开【Internet 协议版本 4 (TCP/IPv4)】。如下图所示：
+2. 在操作系统界面，打开**控制面板** > **网络和共享中心** > **更改适配器设备**。
+3. 右键单击**以太网**，选择**属性**，打开 “以太网 属性” 窗口。
+4. 在 “以太网 属性” 窗口，双击打开 **Internet 协议版本 4 (TCP/IPv4)**。如下图所示：
 ![](https://main.qcloudimg.com/raw/023e97de00a08b44a19c510798d2d1c6.png)
-5. 选择【使用下面的 DNS 服务器地址】，根据 [内网 DNS](https://cloud.tencent.com/document/product/213/5225#.E5.86.85.E7.BD.91-dns) 列表中对应的不同地域，修改 DNS IP。
+5. 选择**使用下面的 DNS 服务器地址**，根据 [内网 DNS](https://cloud.tencent.com/document/product/213/5225#.E5.86.85.E7.BD.91-dns) 列表中对应的不同地域，修改 DNS IP。
 ![](https://main.qcloudimg.com/raw/8921862c0b6ea5e407de4796f2806c8e.png)
-6. 单击【确定】。
+6. 单击**确定**。
 :::
 </dx-tabs>

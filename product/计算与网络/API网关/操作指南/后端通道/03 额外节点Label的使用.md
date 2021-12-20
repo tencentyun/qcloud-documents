@@ -2,7 +2,7 @@
 
 通过额外节点 Label 的使用，您可以直接将请求转发到某个服务下的具有指定 Label 的 Pod，精细需要控制转发的 Pod。
 
-例如：defaul 命名空间下，存在 Label 为 app: httpbin 和 version: v1 的 Pod， 也存在 app: httpbin 和 version: v2 的 Pod，存在一个 httpbin 服务（selector 选择的是 app:httpbin）。如果希望 API 网关只转发到 Label 为 app: httpbin 和 version: v1 的 Pod， 可以通过额外节点 Label，加上version: v1的配置，就可以实现。
+例如：default 命名空间下，存在 Label 为 app: httpbin 和 version: v1 的 Pod， 也存在 app: httpbin 和 version: v2 的 Pod，存在一个 httpbin 服务（selector 选择的是 app:httpbin）。如果希望 API 网关只转发到 Label 为 app: httpbin 和 version: v1 的 Pod， 可以通过额外节点 Label，加上version: v1的配置，就可以实现。
 
 ## 操作步骤
 

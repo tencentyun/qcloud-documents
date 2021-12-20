@@ -33,21 +33,21 @@ import tiacc_training.torch
 ```
 
 #### 使用 DDP 分布式训练通信优化
-在原生 DPP 的训练代码里，仅需在开头增加如下代码即可：
-```
-import tiacc_training.torch.distributed as tdist
-tdist.init_tiacc_training()
-```
-以兼容原生 DDP 的方式启动训练脚本，参考示例如下：
+以兼容原生 DDP 的方式启动训练脚本，无需进行训练代码的修改，启动命令参考示例如下：
 ```
 python3 -u -m tiacc_training.torch.distributed.launch --nproc_per_node $GPUS_PER_NODE --nnodes $NNODES --node_rank $NODE_RANK --master_addr $MASTER_ADDR --master_port $MASTER_PORT main.py
 ```
 
-以 mpirun 的方式启动训练脚本，2机16卡训练脚本的内容参考示例如下：
+以 mpirun 的方式启动训练脚本，需要在原生 DPP 的训练代码里进行修改，在开头增加如下代码：
+```
+import tiacc_training.torch.distributed as tdist
+tdist.init_tiacc_training()
+```
+
+mpirun 方式2机16卡训练脚本的启动命令，参考示例如下：
 ```
 node_list=node1:8,node2:8   //node1和node2为服务器IP或主机名
 gpu_num=16  //总的gpu卡数
-
 mpirun --allow-run-as-root -np ${gpu_num} -H ${node_list} -map-by slot -mca btl_tcp_if_include eth0 -mca oob_tcp_if_include eth0 \
 -x NCCL_DEBUG=INFO \
 -x NCCL_SOCKET_IFNAME=eth0 \

@@ -335,13 +335,13 @@ gcc -lrdkafka ./producer.c -o producer
 
 | **参数** | **描述**                                                     |
 | :------- | ------------------------------------------------------------ |
-| broker   | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
-| topic    | Topic 名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
+| broker   | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
+| topic    | Topic 名称，您可以在控制台上**topic管理**页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
 
 运行结果如下：
 <img src="https://main.qcloudimg.com/raw/a7a4a02e8636045b7aeb852f47270059.png" width="520px">
 
-4. 在 Ckafka 控制台【topic 管理】页面，选择对应的 Topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
+4. 在 Ckafka 控制台**topic 管理**页面，选择对应的 Topic，单击**更多** > **消息查询**，查看刚刚发送的消息。
    ![](https://main.qcloudimg.com/raw/7d5143969f3f1c799420cf7a388f3a6d.png)
 
 
@@ -642,13 +642,13 @@ gcc -lrdkafka ./consumer.c -o consumer
 
 | **参数**        | **描述**                                                     |
 | :-------------- | ------------------------------------------------------------ |
-| broker          | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
-| group.id        | 消费分组名称，您可以自定义设置，Demo 运行成功后可以在【Consumer Group】页面看到该消费者。 |
-| topic1 topic2.. | Topic 名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
+| broker          | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
+| group.id        | 消费分组名称，您可以自定义设置，Demo 运行成功后可以在**Consumer Group**页面看到该消费者。 |
+| topic1 topic2.. | Topic 名称，您可以在控制台上**topic管理**页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
 
 运行结果如下：
 <img src="https://main.qcloudimg.com/raw/e131edb96559186eeba25beb26994a2e.png" width="700px">
 
-4. 在 CKafka 控制台【Consumer Group】页面，选择对应的消费者组，在主题名称输入 Topic 名称，单击【查询详情】查看消费详情。
+4. 在 CKafka 控制台**Consumer Group**页面，选择对应的消费者组，在主题名称输入 Topic 名称，单击**查询详情**查看消费详情。
    ![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)
 

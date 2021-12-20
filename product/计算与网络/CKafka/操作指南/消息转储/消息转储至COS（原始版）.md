@@ -8,8 +8,8 @@
 ### Ckafka 转储对象存储（COS）
 1. 登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在实例列表页，单击目标实例 ID，进入topic 管理标签页。
-3. 在 topic 管理标签页，单击操作列的【消息转储】。
-4. 单击【添加消息转储】，选择转储类型为对象存储（COS），填写以下信息：
+3. 在 topic 管理标签页，单击操作列的**消息转储**。
+4. 单击**添加消息转储**，选择转储类型为对象存储（COS），填写以下信息：
 ![](https://main.qcloudimg.com/raw/ddb3f3d079f0ec8ab288f934facd8dce.png)
  - 转储类型：选择希望转储的函数模板，支持 COS 和通用模板两种转储类型。
  - 时间粒度：根据消息量的大小，选取汇聚消息的时间间隔，时间间隔为5 - 60分钟不等。为保证转储性能，聚合文件数量与 Partition 数量，partition_max 设置数值有关，具体详见文档底部产品限制说明。
@@ -23,14 +23,14 @@
 ### Ckafka 转储通用模板
 1. 登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在实例列表页，单击目标实例 ID，进入topic 管理标签页。
-3. 在 topic 管理标签页，单击操作列的【消息转储】。
-4. 单击【添加消息转储】，选择转储类型为通用模板，填写以下信息：
+3. 在 topic 管理标签页，单击操作列的**消息转储**。
+4. 单击**添加消息转储**，选择转储类型为通用模板，填写以下信息：
 ![](https://main.qcloudimg.com/raw/c9a8ce56182f59f086db1fb99d29e50a.png)
  - 转储类型：选择希望转储的函数模板，支持 COS 和通用模板两种转储类型。
  - 起始位置：转储时历史消息的处理方式，topic offset 设置。
  - 角色授权：使用 SCF 产品功能，您需要授予一个第三方角色代替您执行访问相关产品权限。
  - 云函数授权：知晓并同意开通创建云函数，该函数创建后需用户前往云函数设置更多高级配置及查看监控信息。
-5. 单击【提交】，完成消息转储。
+5. 单击**提交**，完成消息转储。
 
 >?
 >- 通用模板默认将不开启 Ckafka 触发器，选择通用模板需跳转云函数或本地使用 [SCF 通用模板](https://github.com/tencentyun/scf-demo-repo/tree/master/Python2.7-CkafkaTriggerTemplate) 进行代码编辑，请创建完成后在消息转储列表跳转到云函数控制台修改相关代码并开启 Ckafka 触发器。
@@ -39,7 +39,7 @@
 ### Ckafka 转储角色授权指引
 #### COS 转储角色授权：
 
-1. 在 CKafka 控制台的消息转储页，单击【新建运行角色】。
+1. 在 CKafka 控制台的消息转储页，单击**新建运行角色**。
 ![](https://main.qcloudimg.com/raw/1945e5c557b5dcee7ba1da4ce16f2ae0.png)
 2. 在跳转后的新页面选择角色载体信息，COS 转储推荐添加角色载体为云函数（SCF）：
 （支持角色的服务列表动态更新，SCF 在列表中的具体位置以控制台显示为准）
@@ -51,7 +51,7 @@ QcloudCOSFullAccess
 QcloudCKafkaFullAccess
 ```
 ![](https://main.qcloudimg.com/raw/482cdacc368f9a43a297725299588ce8.png)
-4. 定义角色名称，单击【完成】。
+4. 定义角色名称，单击**完成**。
 ![](https://main.qcloudimg.com/raw/a4b6fe1e4a7119283d7a67dc0daf6e92.png)
 5. 在 Ckafka 控制台，刷新消息转储页面并选择相应角色。
 ![](https://main.qcloudimg.com/raw/bbd89e73e9f1e1f1cffbb09a7728b7cc.png)
