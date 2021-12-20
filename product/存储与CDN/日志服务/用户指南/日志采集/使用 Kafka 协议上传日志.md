@@ -35,27 +35,6 @@
   
 ## 示例
 
-### Java 上传日志到 CLS
-
-#### Java SDK 示例
-
-```java
-Properties props = new Properties(); 
-props.put("bootstrap.servers", "xxxxxxxxxxxxxxxx:9895");    //produce 服务域名
-props.put("acks", "all");
-props.put("retries", xxx); 
-props.put("batch.size", xxxx); 
-props.put("tinger.ms", x); 
-props.put("buffer.memory", xxxxxx) 
-props.put("key.seriaLizer", "org.apache.kafka.common.serialization.StringSeriatizer");
-props.put("vatue.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-props.put("security.protocol", "SASL_PLAINTEXT"); 
-props.put("sasl.mechanism", "PLAIN");
-props.put("sasl.jaas.config", "org.apache.kafka..common.security.plain.PlainLoginModule required username='xxxxxxxx', password='xxxxxxxxxx#xxxxxxxxx';")    //username 填写日志集 ID，格式为 ${SecurityID}#${SecurityKey}#
-return props;
-```
-
-
 ### 通过 filebeat 采集日志到日志服务
 
 #### Filebeat 
