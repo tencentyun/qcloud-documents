@@ -30,6 +30,11 @@ tccli cvm RunInstances
 --SecurityGroupIds '["sg-0rszg2vb"]'
 --HostName TCCLI-HOST-NAME1
 ```
+- TCCLI 支持调用 octet-stream 类型的接口，如果调用的接口使用的是 octet-stream 协议，您可以使用标准输入`< /path/to/file`来传输您的二进制文件
+```bash
+# 以 cls 的 UploadLog 接口为例，上传日志可使用如下命令
+tccli cls UploadLog --TopicId xxx < /path/to/file
+```
 - 若调用接口参数为复杂类型时，可以增加 `--cli-unfold-argument` 参数，并进行参数补全，使用复杂类型点(`.`)展开的方式调用，降低输入难度。
 ```bash
 tccli cvm RunInstances --cli-unfold-argument \
