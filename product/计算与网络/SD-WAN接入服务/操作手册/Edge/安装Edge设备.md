@@ -1,4 +1,4 @@
-﻿为满足您的业务需求，腾讯云提供 Edge-100、Edge-100-5G 和 Edge-1000 两种 Edge 设备。本文将介绍如何安装 Edge 设备。
+为满足您的业务需求，腾讯云提供 Edge-100、Edge-100-5G 和 Edge-1000 两种 Edge 设备。本文将介绍如何安装 Edge 设备。
 >?Edge-100-5G 目前处于 POC 测试阶段，如需体验请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
 
 
