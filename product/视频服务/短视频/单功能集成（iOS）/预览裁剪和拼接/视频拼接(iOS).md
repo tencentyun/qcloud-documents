@@ -17,7 +17,7 @@ Demo 中使用了 QBImagePicker 这样一个开源库实现了多个文件的选
 
 
 <dx-codeblock>
-::: ios objective-c
+::: ios objectivec
 //准备预览 View
 TXPreviewParam *param = [[TXPreviewParam alloc] init];
 param.videoView = _videoPreview.renderView;
