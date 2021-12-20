@@ -27,7 +27,10 @@ Log4J 是 Apache 的一个开源项目。通过使用 Log4J，我们可以控制
     <artifactId>tencentcloud-cls-logback-appender</artifactId>
     <version>1.0.1</version>
 </dependency>
-修改logback配置文件
+```
+
+### 修改 logback 配置文件
+```
   <appender name="LoghubAppender" class="com.tencentcloud.cls.LoghubAppender">
         <!--必选项-->
         <endpoint>ap-guangzhou.cls.tencentcs.com</endpoint>
@@ -56,7 +59,7 @@ Log4J 是 Apache 的一个开源项目。通过使用 Log4J，我们可以控制
   </appender>
 ```
 
-### Logback Appender SDK
+## Logback Appender SDK
 
 请使用 [tencentcloud-cls-logback-appender](https://github.com/TencentCloud/tencentcloud-cls-logback-appender)。
 
