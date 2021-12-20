@@ -32,14 +32,14 @@
    + 云服务器：仅当**源网段粒度**为**云服务器**时，需要指定云服务器，可添加多个云服务器。
    + 公网 IP：指定访问公网的弹性公网IP。
    + 描述：自定义描述信息，最多支持60个字符。
-![](https://main.qcloudimg.com/raw/6d7cfff1507c9442b70ad008f72cb892.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5881eaa1ef888dc9db4b2b0c4a4b8d12.png)
 6.  完成 SNAT 规则的参数设置后，单击**提交**。    
 
 ## 编辑 SNAT 规则
 >?修改存量 SNAT 规则中的公网 IP，可能导致原有业务连接中断，重连后即可恢复，请谨慎操作。
 >
 1. 在 SNAT 规则标签页，单击 SNAT 规则条目右侧的**编辑**，进入编辑对话框。
-![](https://main.qcloudimg.com/raw/32cb6cd5d8a19f5e07ae80a76264faa0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/bc129e3317b4ae9b7b1c3ac261c1e0cb.png)
 2. 修改 SNAT 规则中的公网IP地址或描述，然后单击**提交**完成修改。
 3. 单击 SNAT 规则中的描述信息旁的编辑图标，直接进行修改。
     ![](https://main.qcloudimg.com/raw/64525964961cc447f448819213b0ff8e.png)
