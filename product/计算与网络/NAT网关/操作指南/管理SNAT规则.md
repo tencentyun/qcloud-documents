@@ -5,6 +5,7 @@
 >- 当 CVM 实例负载激增时，1个 EIP 可能无法支撑巨大的访问量，可选择配置多个 EIP 分担访问量。
 >- 每个 EIP 到同一个目的服务的连接数最大为5.5万个，超限时可能会引起 NAT 实例连接数超限丢包告警。
 >- NAT 网关支持将同一个 EIP 同时用于配置 SNAT 规则和端口转发规则，端口转发规则的详细信息请参考[管理端口转发规则](https://cloud.tencent.com/document/product/552/53621)。
+>
 
 
 本文介绍如何创建和管理 SNAT 规则。
@@ -46,9 +47,9 @@
 
 ## 查询 SNAT 规则
 1. 在 SNAT 规则标签页右上方的搜索框中，单击选择如下筛选条件，并在输入框中填写相应的参数值。
-![](https://main.qcloudimg.com/raw/61057a1b9194a4937056aad3b6694c0e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9af33fd59cdb99eddfad12beeb15385a.png)
 2. 单击搜索图标进行快速检索。
-![](https://main.qcloudimg.com/raw/0f794a33ac4d48d33ff8838126e9b5b9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f63bd2cb193115f281f320bb7c74ce1a.png)
 3. 单击子网/云服务器 ID，可跳转到相应资源详情界面。
 
 
@@ -57,9 +58,9 @@
 - **单条删除**
  1. 在 SNAT 规则标签页，单击 SNAT 规则条目右侧的**删除**。
  2. 单击**确认**，删除该条 SNAT 规则。
-![](https://main.qcloudimg.com/raw/686a27e91f884856ea74b2279696567f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0409fe10968ba576de4667821e7237b6.png)
 - **批量删除**
  1. 在 SNAT 规则标签页，勾选多条 SNAT 规则，单击上方的**删除**。
-![](https://main.qcloudimg.com/raw/8c1fa2675cf1159e662661328bd388d8.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f75f3d94ba4e6b109625faf231ecea6c.png)
  2. 在弹出的提示框中，单击**删除**，完成批量删除。
 ![](https://main.qcloudimg.com/raw/364b44365a78ac81f691a23baa3f0138.png)
