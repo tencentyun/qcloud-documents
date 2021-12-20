@@ -3,7 +3,7 @@ Android SDK 接入请观看视频：
 
 ## 接入准备
 ### SDK 获取
-实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_v2.6.5.zip)。
+实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_v2.6.6.zip)。
 
 ### 接入须知
 - 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。
@@ -52,11 +52,17 @@ try {
 * **/
   // aaiClient = new AAIClient(MainActivity.this, appid, projectId,"临时secretId", "临时secretKey","对应的token" ,credentialProvider);
 
-
-    // 2、初始化语音识别请求。
-    final AudioRecognizeRequest audioRecognizeRequest = new AudioRecognizeRequest.Builder()
-            .pcmAudioDataSource(new AudioRecordDataSource()) // 设置语音源为麦克风输入
-            .build();
+	 // 2、初始化语音识别请求。
+	final AudioRecognizeRequest audioRecognizeRequest = builder
+				.pcmAudioDataSource(new AudioRecordDataSource()) // 设置数据源
+				.template(new AudioRecognizeTemplate(
+				EngineModelType.EngineModelType16K.getType(),0)) 
+				// 设置自定义模板
+				.setFilterDirty(0)  // 0 ：默认状态 不过滤脏话 1：过滤脏话
+				.setFilterModal(0) // 0 ：默认状态 不过滤语气词  1：过滤部分语气词 2:严格过滤
+				.setFilterPunc(0) // 0 ：默认状态 不过滤句末的句号 1：滤句末的句号
+				.setNeedvad(1) //0：关闭 vad，1：默认状态 开启 vad。语音时长超过一分钟需要开启,如果对实时性要求较高,并且时间较短的识别,建议关闭,可以显著降低onSliceSuccess结果返回的时延以及stop后onSegmentSuccess和onSuccess返回的时延
+				.build();
 
     // 3、初始化语音识别结果监听器。
     final AudioRecognizeResultListener audioRecognizeResultListener = new AudioRecognizeResultListener() {
@@ -320,7 +326,6 @@ void onFailure(AudioRecognizeRequest request, final ClientException clientExcept
 | ----------------------- | ------- | -------- | -------------------------------------------------- | ------ |
 | setSilentDetectTimeOut  | Boolean | 否       | 是否开启静音检测，开启后说话前的静音部分不进行识别 | true   |
 | audioFlowSilenceTimeOut | Int     | 否       | 开启检测说话启始超时，开启后超时会自动停止录音     | 5000ms |
-| minAudioFlowSilenceTime | Int     | 否       | 两个语音流最短分割时间                             | 2000ms |
 | minVolumeCallbackTime   | Int     | 否       | 音量回调时间                                       | 80ms   |
 
 **示例：**
@@ -328,7 +333,6 @@ void onFailure(AudioRecognizeRequest request, final ClientException clientExcept
 AudioRecognizeConfiguration audioRecognizeConfiguration = new AudioRecognizeConfiguration.Builder()
 	.setSilentDetectTimeOut(true)// 是否使能静音检测，false 表示不检查静音部分
         .audioFlowSilenceTimeOut(5000) // 静音检测超时停止录音
-        .minAudioFlowSilenceTime(2000) // 语音流识别时的间隔时间
     	.minVolumeCallbackTime(80) // 音量回调时间
     	.build();
 

@@ -4,10 +4,20 @@
 >?
 >- 当 CVM 实例负载激增时，1个 EIP 可能无法支撑巨大的访问量，可选择配置多个 EIP 分担访问量。
 >- 每个 EIP 到同一个目的服务的连接数最大为5.5万个，超限时可能会引起 NAT 实例连接数超限丢包告警。
->
+>- NAT 网关支持将同一个 EIP 同时用于配置 SNAT 规则和端口转发规则，端口转发规则的详细信息请参考[管理端口转发规则](https://cloud.tencent.com/document/product/552/53621)。
 
 
 本文介绍如何创建和管理 SNAT 规则。
+
+## SNAT 规则限制
+- 当 NAT 网关解关联 EIP 时，若该 EIP 为 SNAT 规则的唯一 EIP，则同时删除此条 SNAT 规则；若该 EIP 为此 SNAT 规则的非唯一 EIP，则 SNAT 规则中删除此 EIP。
+- SNAT 规则中使用的子网不存在时，联动删除该 SNAT 规则。
+- SNAT 规则中使用的云服务器不存在时，联动从 SNAT 规则中删除该云服务器；若为 SNAT 规则中最后一台云服务器，则联动删除 SNAT 规则。
+
+
+## 前提条件
+创建 SNAT 规则前，请确保子网所在的路由表需指向对应的 NAT 网关，详细操作请参见 [配置指向 NAT 网关的路由](https://cloud.tencent.com/document/product/552/19697)。
+
 
 ## 创建 SNAT 规则[](id:cjgz)
 1. 登录 [NAT 网关控制台](https://console.cloud.tencent.com/vpc/nat?fromNav)。

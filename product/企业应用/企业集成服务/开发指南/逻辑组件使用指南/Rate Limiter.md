@@ -51,7 +51,7 @@ Rate Limiter 使用的算法为令牌桶算法，会以一定速度匀速地补�
 
 - 配置：限制每分最大处理2次。选择：“在2分内处理超限部分”。
 
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/0d65e86737a51105b27cd23e02c6aea5.png" alt="https://qcloudimg.tencent-cloud.cn/raw/0d65e86737a51105b27cd23e02c6aea5.png.png" style="zoom:50%;" />
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/0d65e86737a51105b27cd23e02c6aea5.png" alt="https://qcloudimg.tencent-cloud.cn/raw/0d65e86737a51105b27cd23e02c6aea5.png" style="zoom:50%;" />
 
 
 - 若获取不到令牌，并且超过最大等待时间。

@@ -142,8 +142,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      k8s-app: nginx
-      qcloud-app: nginx
+      app: nginx
   serviceName: "nginx"
   replicas: 3
   template:
