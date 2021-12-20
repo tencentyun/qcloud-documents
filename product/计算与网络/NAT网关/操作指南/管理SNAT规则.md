@@ -63,4 +63,4 @@
  1. 在 SNAT 规则标签页，勾选多条 SNAT 规则，单击上方的**删除**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f75f3d94ba4e6b109625faf231ecea6c.png)
  2. 在弹出的提示框中，单击**删除**，完成批量删除。
-![](https://main.qcloudimg.com/raw/364b44365a78ac81f691a23baa3f0138.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/40b3f697fce8d6fad09be8b4f756bd50.png)
