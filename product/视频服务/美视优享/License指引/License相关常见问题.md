@@ -6,7 +6,7 @@ License 可以理解是为获取 SDK 功能授权所需要的秘钥和路径，�
 
 [](id:q2)
 ### 如何获取腾讯特效正式版 License？
-若您需要在您的业务中使用腾讯特效 SDK 功能，你可参见计费概述，根据您的需求选择 SDK 套餐进行购买。通过购买相应的SDK 套餐获取 License 解锁授权，在腾讯云视立方控制台进行绑定，使用相应的功能。具体操作请参见 [购买正式版 License](https://cloud.tencent.com/document/product/616/65879)。
+若您需要在您的业务中使用腾讯特效 SDK 功能，您可参见计费概述，根据您的需求选择 SDK 套餐进行购买。通过购买相应的SDK 套餐获取 License 解锁授权，在腾讯云视立方控制台进行绑定，使用相应的功能。具体操作请参见 [购买正式版 License](https://cloud.tencent.com/document/product/616/65879)。
 
 [](id:q3)
 ### License 的有效期是多长？过期后如何更新 License？
