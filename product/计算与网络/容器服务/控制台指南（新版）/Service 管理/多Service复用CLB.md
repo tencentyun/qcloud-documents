@@ -10,7 +10,7 @@
 开启复用功能的集群，其中 Service 创建的 CLB 将默认配置 `<serviceUUID>:tke-lb-serviceId` 和 `<serviceUUID>_<lb_listener_id>:<lb_listener_id>` 两个标签。每个 CLB 具备单独的 key 和 value，生成的标签数量较多。您可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 联系我们关闭此类型集群的复用 CLB 功能，并清理标签。
 - **于2020年8月17日起创建的集群，默认关闭多 Service 复用相同 CLB 的功能。**
 关闭复用功能的集群，其中 Service 创建的 CLB 将默认配置 `tke-lb-serviceuuid:<serviceUUID>` 标签。所有 Service 使用同一批标签 Key，标签 Key 数量可控。您可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 联系我们开启需要使用多个 Service 复用相同 CLB 的功能。
-- 如果您的集群是 EKS 集群，需要添加额外的 Annotation：`service.kubernetes.io/qcloud-share-existed-lb: true`
+- 如果您的集群是 EKS 集群，相较于 TKE 会多一个 Annotation：`service.kubernetes.io/qcloud-share-existed-lb: true`
 
 ## 使用限制
 - 在 Service 复用场景下，单个负载均衡管理的监听器数量不能超过10个。
