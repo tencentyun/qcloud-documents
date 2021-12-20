@@ -91,7 +91,7 @@ status:>200 | select time_series(__TIMESTAMP__, '1m', '%Y-%m-%d %H:%i:%s', '0') 
 
 http_host 记录了访问的请求域名，通过统计请求域名的 pv，uv，可以统计 top host 排序。
 ```
-* | select http_host, count(*) as pv, count(distinct(remote_addr)) as uv group by http_host order by pv desc limit 100
+* | select http_host, count(*) as pv, approx_distinct(remote_addr) as uv group by http_host order by pv desc limit 100
 ```
 ![image-20210827111351091](https://main.qcloudimg.com/raw/56a8a27c7b8c4c46c5cd6418f8b13bb5.png)
 

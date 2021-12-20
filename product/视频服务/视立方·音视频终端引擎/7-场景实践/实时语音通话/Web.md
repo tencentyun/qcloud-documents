@@ -1,5 +1,4 @@
 本文介绍如何实现一套可以在浏览器上运行的语音通话解决方案，文章分成两个部分：
-
 - 第一部分：介绍如何开通服务并跑通我们提供的演示 Demo。
 - 第二部分：介绍如何使用 TRTCCalling 组件快速搭建自己的语音通话功能。
 
@@ -12,6 +11,7 @@
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
+
 
 ## 环境要求
 请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
@@ -33,10 +33,12 @@ TRTCCalling 依赖以下端口进行数据传输，请将其加入防火墙白�
 | Windows  | 桌面版 QQ 浏览器（极速内核） |       10.4+        |
 | Windows  |    桌面版 Firefox 浏览器     |        56+         |
 | Windows  |      桌面版 Edge 浏览器      |        80+         |
+...
 
 详细兼容性查询，具体请参见 [浏览器支持情况](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-05-info-browser.html)。同时，您可通过 [TRTC 检测页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 在线检测。
 
 ## 跑通测试 Demo
+
 [](id:step1)
 ### 步骤1：创建新的应用
 1. [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 实名认证。
@@ -56,7 +58,7 @@ TRTCCalling 依赖以下端口进行数据传输，请将其加入防火墙白�
 3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-<img src="https://main.qcloudimg.com/raw/99c0bf40a7b6267c5c398336a97f3335.png">
+  <img src="https://main.qcloudimg.com/raw/99c0bf40a7b6267c5c398336a97f3335.png">
 4. 粘贴完成后，单击 **已复制粘贴，下一步** 即创建成功。
 5. 编译完成后，单击 **回到控制台概览** 即可。
 
@@ -139,25 +141,30 @@ trtcCalling.login({
 ```javascript
 trtcCalling.call({
   userID,  //用户 ID
-  type: 2, //通话类型，0-未知， 1-语音通话，2-视频通话
+  type: 1, //通话类型，0-未知， 1-语音通话，2-视频通话
   timeout  //邀请超时时间, 单位 s(秒)
 });
 ```
 - **被叫方：接听新的呼叫**
 ```javascript
 // 接听
-trtcCalling.accept({
-  inviteID, //邀请 ID, 标识一次邀请
-  roomID,   //通话房间号 ID
-  callType  //0-未知， 1-语音通话，2-视频通话
-});
+trtcCalling.accept();
 //拒绝
-trtcCalling.reject({ 
-  inviteID, //邀请 ID, 标识一次邀请
-  isBusy //是否是忙线中， 0-未知， 1-语音通话，2-视频通话
-})
+trtcCalling.reject()
 ```
 - **挂断**
 ```javascript
 trtcCalling.hangup()
 ```
+
+## 技术咨询[](id:QQ)
+
+了解更多详情您可以 QQ 咨询：646165204 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
+
+
+## 参考文档
+- [TRTCCalling web 官网体验](https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html#/login)
+- [TRTCCalling npm](https://www.npmjs.com/package/trtc-calling-js)
+- [TRTCCalling web demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Web/TRTCScenesDemo/trtc-calling-web)
+- [TRTCCalling web API](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/TRTCCalling.html)
+- [TRTCCalling web 相关问题](https://cloud.tencent.com/document/product/647/62484)

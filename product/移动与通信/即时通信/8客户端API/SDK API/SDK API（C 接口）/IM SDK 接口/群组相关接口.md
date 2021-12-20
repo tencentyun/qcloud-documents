@@ -749,7 +749,7 @@ json_param 的示例。 json key 请参考 [GroupGetOnlineMemberCountResult](TIM
 
 ## TIMGroupSearchGroups
 
-搜索群列表。
+搜索群资料（5.4.666 及以上版本支持，需要您购买旗舰版套餐）。
 
 **原型**
 
@@ -828,7 +828,7 @@ TIMGroupSearchGroups(json_array.toStyledString().c_str(), [](int32_t code, const
 
 ## TIMGroupSearchGroupMembers
 
-搜索群成员列表。
+搜索群成员（5.4.666 及以上版本支持，需要您购买旗舰版套餐）。
 
 **原型**
 

@@ -30,14 +30,14 @@ Authorization: <Auth String>
 
 |节点名称（关键字）|父节点|描述|类型|是否必选|
 |:---|:-- |:--|:--|:--|
-|queueId|无|拉取该队列 ID 下的任务|String|是|
-| tag |无| 任务的 Tag：VideoMontage | String |是|
-| orderByTime |无| Desc 或者 Asc。默认为 Desc | String |否|
-| nextToken |无| 请求的上下文，用于翻页。上次返回的值 | String |否|
-| size |无| 拉取的最大任务数。默认为10。最大为100 | Integer |否|
-| states |无| 拉取该状态的任务，以,分割支持多状态 <br> All，Submitted，Running，Success，Failed，Pause，Cancel。默认为 All | String |否|
-| startCreationTime |无| 拉取创建时间大于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z` | String |否|
-| endCreationTime |无| 拉取创建时间小于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z` | String |否|
+|QueueId|无|拉取该队列 ID 下的任务|String|是|
+| Tag |无| 任务的 Tag：VideoMontage | String |是|
+| OrderByTime |无| Desc 或者 Asc。默认为 Desc | String |否|
+| NextToken |无| 请求的上下文，用于翻页。上次返回的值 | String |否|
+| Size |无| 拉取的最大任务数。默认为10。最大为100 | Integer |否|
+| States |无| 拉取该状态的任务，以,分割支持多状态 <br> All，Submitted，Running，Success，Failed，Pause，Cancel。默认为 All | String |否|
+| StartCreationTime |无| 拉取创建时间大于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z` | String |否|
+| EndCreationTime |无| 拉取创建时间小于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z` | String |否|
 
 ## 响应
 

@@ -29,15 +29,15 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
       "xxx-.ap-changsha-ec.ckafka.tencentcloudmq.com:6000"
   ],
   "consumerGroupId": "yourConsumerId"
- }  
+}  
 
 ```
 
 | 参数             | 描述                                                         |
 | ---------------- | :----------------------------------------------------------- |
-| topic            | Topic名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
-| bootstrapServers | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
-| consumerGroupId  | 您可以自定义设置，Demo 运行成功后可以在【Consumer Group】页面看到该消费者。 |
+| topic            | Topic名称，您可以在控制台上**topic管理**页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
+| bootstrapServers | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
+| consumerGroupId  | 您可以自定义设置，Demo 运行成功后可以在**Consumer Group**页面看到该消费者。 |
 
 ### 步骤二：发送消息
 
@@ -46,11 +46,11 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
 :::  go
    package main
    import (
-   		"fmt"
-   		"gokafkademo/config"
-   		"log"
-   		"strings"
-       "github.com/confluentinc/confluent-kafka-go/kafka"
+					"fmt"
+					"gokafkademo/config"
+					"log"
+					"strings"	
+					"github.com/confluentinc/confluent-kafka-go/kafka"
    )
    func main() {
        cfg, err := config.ParseConfig("../config/kafka.json")
@@ -114,7 +114,7 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
    Delivered message to test[0]@629
    ```
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic管理】页面，选择对应的 Topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**topic管理**页面，选择对应的 Topic，单击**更多** > **消息查询**，查看刚刚发送的消息。
    ![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
 
 ### 步骤三：消费消息
@@ -187,5 +187,6 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
 	Message on test[0]@629: Golang Client Message
 	```
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 Topic 名称，单击【查询详情】，查看消费详情。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**Consumer Group**页面，选择对应的消费组名称，在主题名称输入 Topic 名称，单击**查询详情**，查看消费详情。
    ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)
+

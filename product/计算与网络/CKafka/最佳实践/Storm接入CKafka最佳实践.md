@@ -33,14 +33,14 @@ Storm 可以把 CKafka 作为`spout`，消费数据进行处理；也可以作�
 ### 步骤1：获取 CKafka 实例接入地址
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
-2. 在左侧导航栏选择【实例列表】，单击实例的“ID”，进入实例基本信息页面。
-3. 在实例的基本信息页面的【接入方式】模块，可获取实例的接入地址。
+2. 在左侧导航栏选择**实例列表**，单击实例的“ID”，进入实例基本信息页面。
+3. 在实例的基本信息页面的**接入方式**模块，可获取实例的接入地址。
    ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
 
 ### 步骤2：创建 Topic
 
-1. 在实例基本信息页面，选择顶部【Topic管理】页签。
-2. 在 Topic 管理页面，单击【新建】，创建一个 Topic。
+1. 在实例基本信息页面，选择顶部**Topic管理**页签。
+2. 在 Topic 管理页面，单击**新建**，创建一个 Topic。
    ![](https://main.qcloudimg.com/raw/f3ea93d866767a3a26dd80b0a8d5ad8f.png)
 
 ### 步骤3：添加 Maven 依赖
