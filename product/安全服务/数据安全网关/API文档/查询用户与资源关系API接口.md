@@ -14,7 +14,7 @@
 ## 请求示例
 
 ```shell
-https://ip/iam/api/user/user_res
+https://ip/iam/api/user/user_res?X-Auth-Token=fnBIaLG275EtTswn2FwP4tWNjYNCvzqM1JoCabgyHjg=
 ```
 
 ## 响应参数

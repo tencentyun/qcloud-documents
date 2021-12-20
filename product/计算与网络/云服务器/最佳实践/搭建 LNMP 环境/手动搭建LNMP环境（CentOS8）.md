@@ -3,7 +3,11 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 
 进行手动搭建 LNMP 环境，您需要熟悉 Linux 命令，并对所安装软件的使用及版本兼容性比较了解。
 
->!腾讯云建议您可以通过云市场的镜像环境部署 LNMP 环境，手动搭建 LNMP 环境可能需要较长的时间。具体步骤可参考 [镜像部署 LNMP 环境](https://cloud.tencent.com/document/product/213/38053)。
+<dx-alert infotype="notice" title="">
+腾讯云建议您可以通过云市场的镜像环境部署 LNMP 环境，手动搭建 LNMP 环境可能需要较长的时间。具体步骤可参考 [镜像部署 LNMP 环境](https://cloud.tencent.com/document/product/213/38053)。
+
+</dx-alert>
+
 
 
 ## 示例软件版本
@@ -24,8 +28,9 @@ PHP：脚本语言，本文以 PHP 7.4.11 为例。
 
 ### 步骤2：安装及配置 Nginx
 1. 执行以下命令，安装 Nginx。
->?本文以安装 Nginx 1.18.0 为例，您可通过 [Nginx 官方安装包](http://nginx.org/packages/centos/8/x86_64/RPMS/?spm=a2c4g.11186623.2.31.557423bfYPMd6u) 获取适用于 CentOS 8的更多版本。
->
+<dx-alert infotype="explain" title="">
+本文以安装 Nginx 1.18.0 为例，您可通过 [Nginx 官方安装包](http://nginx.org/packages/centos/8/x86_64/RPMS/?spm=a2c4g.11186623.2.31.557423bfYPMd6u) 获取适用于 CentOS 8的更多版本。
+</dx-alert>
 ```
 dnf -y install http://nginx.org/packages/centos/8/x86_64/RPMS/nginx-1.18.0-1.el8.ngx.x86_64.rpm
 ```
@@ -126,8 +131,9 @@ dnf clean all
 dnf makecache
 ```
 3. 执行以下命令，安装 remi 源。
->?安装 PHP 7.4.11 需安装 remi 源，请对应您实际安装的 PHP 版本执行此命令。
->
+<dx-alert infotype="explain" title="">
+安装 PHP 7.4.11 需安装 remi 源，请对应您实际安装的 PHP 版本执行此命令。
+</dx-alert>
 ```
 dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 ```
@@ -168,8 +174,9 @@ systemctl enable php-fpm
 
 ### 验证环境配置
 1. 执行以下命令，创建测试文件。
->? `/usr/share/nginx/html` 为您在 Nginx 中已配置的网站根目录，本文以该目录为例。
->
+<dx-alert infotype="explain" title="">
+`/usr/share/nginx/html` 为您在 Nginx 中已配置的网站根目录，本文以该目录为例。
+</dx-alert>
 ```
 echo "<?php phpinfo(); ?>" >> /usr/share/nginx/html/index.php
 ```

@@ -8,9 +8,9 @@ TRTC 支持四种不同的进房模式，其中视频通话（VideoCall）和语
 TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口机”和“代理机”：
 
 -   **接口机**
-    该类节点都采用最优质的线路和高性能的机器，善于处理端到端的低延时连麦通话，单位时长计费较高。
+    该类节点都采用最优质的线路和高性能的机器，善于处理端到端的低延时连麦通话。
 -   **代理机**
-    该类节点都采用普通的线路和性能一般的机器，善于处理高并发的拉流观看需求，单位时长计费较低。
+    该类节点都采用普通的线路和性能一般的机器，善于处理高并发的拉流观看需求。
 
 在通话模式下，TRTC 房间中的所有用户都会被分配到接口机上，相当于每个用户都是“主播”，每个用户随时都可以发言（最高的上行并发限制为50路），因此适合在线会议等场景，但单个房间的人数限制为300人。
 
@@ -70,7 +70,7 @@ trtcCloud.on('onError',onError);
 | sdkAppId | 数字   | 应用 ID，您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) >【应用管理】>【应用信息】中查找到。 | 1400000123             |
 | userId   | 字符串 | 只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。 | test_user_001|
 | userSig  | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275) 。 | eJyrVareCeYrSy1SslI... |
-| roomId   | 数字   | 默认不支持字符串类型的房间号，字符串类型的房间号会影响进房速度。如果您确实需要支持字符串类型的房间号，可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。 | 29834  |
+| roomId   | 数字   | 数字类型的房间号。如果您想使用字符串形式的房间号，请使用 TRTCParams 中的 strRoomId。 | 29834  |
 
 <dx-codeblock>
 ::: javascript javascript
@@ -128,9 +128,9 @@ trtcCloud.setVideoEncoderParam(encParam);
     -   style： 美颜风格，光滑或者自然，光滑风格磨皮更加明显，适合娱乐场景。
         -   `TRTCBeautyStyle.TRTCBeautyStyleSmooth`: 光滑，适用于美女秀场，效果比较明显。
         -   `TRTCBeautyStyle.TRTCBeautyStyleNature`: 自然，磨皮算法更多地保留了面部细节，主观感受上会更加自然。
-    -   beauty：美颜级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显
-    -   white：美白级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显
-    -   ruddiness：红润级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显，该参数 Windows 平台暂未生效
+    -   beauty：美颜级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显。
+    -   white：美白级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显。
+    -   ruddiness：红润级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显，该参数 Windows 平台暂未生效。
 
 ```javascript
 // 开启美颜 

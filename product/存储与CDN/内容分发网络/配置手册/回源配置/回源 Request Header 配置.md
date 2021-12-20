@@ -1,19 +1,18 @@
-## 配置场景
+## 功能介绍
 
-腾讯云 CDN 支持增加回源请求头部：
+腾讯云 CDN 默认支持携带一些头部回源，也支持自定义配置回源 HTTP 请求头部，供您统计和分析源站业务状况。
 
-- 支持通过 X-Forward-For 头部携带真实客户端 IP 至源站。
-- 支持通过 X-Forward-Port 头部携带真实客户端端口至源站，用于源站侧分析。
-- 支持添加各类自定义头部。
+>!
+>- 腾讯云 CDN 默认支持携带 X-Forwarded-For（真实客户端 IP）和 X-Forwarded-Proto（真实客户端请求协议），您无需再配置。
+>- 若您已对全部文件配置增加头部 X-Forward-For，建议您删除该规则，使用默认的标准头部 X-Forwarded-For 即可 **（请注意此处头部参数的名称变化）**。
+>- 2021年12月6日后创建的域名，会默认配置头部 Tencent-Acceleration-Domain-Name（加速域名），您可在配置处修改删除。
 
-也支持设置和删除自定义回源请求头部。
-
-## 配置指南
+## 操作指南
 
 ### 查看配置
 
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可在【回源配置】中看到回源 HTTP 请求头配置，默认情况下为关闭状态，无任何配置：
-![](https://main.qcloudimg.com/raw/9d5777902e46cdbe037a7ea9eb78d567.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/74c6b1b281a8e72476d27a2a092f632e.png)
 
 ### 操作类型
 
@@ -31,8 +30,8 @@
 
 | 头部参数       | 说明                                                         |
 | -------------- | ------------------------------------------------------------ |
-| X-Forward-For  | 用于携带用户端真实 IP 的头部。其值默认为 $client_ip 变量，不允许修改。 |
 | X-Forward-Port | 用于携带用户端真实端口的头部。其值默认为 $remote_port 变量，不允许修改。 |
+| Tencent-Acceleration-Domain-Name | 用于携带用户加速域名的头部，其值为 $host 变量。 |
 | 自定义头部     | 自定义头部的Key 值长度默认为1 - 100个字符，由数字0 - 9、字符a - z、A - Z，及特殊符 `-` 组成。<br>Value 长度为1 - 1000个字符，不支持中文。<br>部分标准头部不支持自助设置/增加/删除，具体清单请参见文档 [注意事项](#noice)。 |
 
 > !
@@ -47,12 +46,11 @@
 ![](https://main.qcloudimg.com/raw/cd018a8767ffdbd57862db197af48141.png)
 若访问资源为：`http://cloud.tencent.com/test/test.mp4`
 
-1. 命中 `*` 规则，增加头部 `X-Forward-For:$client_ip` 头部，回源时将 $client_ip 替换为真实客户端 IP。
-2. 命中 `.mp4` 文件类型及/test路径，因是同一头部操作类型 - 增加，则底部优先级大于顶部，因此增加 `x-cdn:Tencent` 头部。
+命中 `mp4` 文件后缀及 `/test` 目录，因是同一头部操作类型 - 增加，则底部优先级大于顶部，因此增加 `x-cdn:Tencent` 头部。
 
 ## 注意事项[](id:noice)
 
-以下标准头部暂时不支持设置/增加/删除回源 HTTP 响应头：
+以下标准头部暂时不支持设置/增加/删除回源 HTTP 请求头：
 
 | www-authenticate              | authorization                    | proxy-authenticate             | proxy-authorization                 |
 | ----------------------------- | -------------------------------- | ------------------------------ | ----------------------------------- |

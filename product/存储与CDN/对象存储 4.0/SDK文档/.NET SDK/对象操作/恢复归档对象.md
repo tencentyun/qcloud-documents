@@ -22,7 +22,8 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   string key = "exampleobject"; //对象键
   RestoreObjectRequest request = new RestoreObjectRequest(bucket, key);
   //恢复时间

@@ -234,3 +234,4 @@ int ret = TIMGroupCreate(json_param.c_str(), [](int32_t code, const char* desc, 
 ### 群组消息
 群组消息与 C2C （单聊）消息相同，仅在发送时填写群组的 ID 和类型`kTIMConv_Group`，可参阅 SDK 文档 [消息发送](https://cloud.tencent.com/document/product/269/33549) 部分。
 
+

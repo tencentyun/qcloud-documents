@@ -8,7 +8,7 @@
 
 |   计费方式|  描述  | 结算方式|
 |-----------|-------|-------|
-|后付费|后付费方式是人脸核身服务默认的计费方式，根据您使用腾讯云慧眼人脸核身相关产品产生的调用量进行计费，当月1-5号为您推送上个自然月账单并进行扣费结算。 |按调用量月结|
+|后付费|后付费方式是人脸核身服务默认的计费方式，根据您使用腾讯云慧眼人脸核身相关产品产生的调用量进行计费，当月1-3号为您推送上个自然月账单并进行扣费结算。 |按调用量月结|
 |预付费|通过购买资源包的方式抵扣人脸核身产品的计费量，资源包有效期均为1年（过期作废），支持 [7天内无理由退款](https://cloud.tencent.com/document/product/1007/31008)。|[购买资源包](https://buy.cloud.tencent.com/iai_faceid)|
 
 >?人脸核身产品的结算顺序：免费资源包>付费资源包>后付费；
@@ -136,14 +136,6 @@
 			 <td><a href="https://cloud.tencent.com/document/product/1007/35775">银行卡四要素</a></td>
 			  </tr>
 				<tr>
-				 <td><a href="https://cloud.tencent.com/document/product/1007/39765">手机号三要素核验</a></td>
-			 <td rowspan =2>手机号信息核验</td>
-<td rowspan =2><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
-			  </tr>
-			 <tr>
-			 <td><a href="https://cloud.tencent.com/document/product/1007/50364">手机号二要素核验</a></td>
-			  </tr>
-				<tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/40546">手机号在网时长核验</a></td>
 			  <td rowspan =2>手机号在网时长/状态查询</td>
 <td rowspan =2><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
@@ -153,15 +145,30 @@
 			  </tr>
 				<tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/47837">银行卡基础信息查询</a></td>
-			 <td>增值服务</td>
+			 <td>银行卡基础信息查询</td>
 <td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
 			  </tr>
+				<tr>
+			 <td><a href="https://cloud.tencent.com/document/product/1007/60075">身份信息及有效期核验</a></td>
+			 <td>身份信息及有效期核验</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
+			  </tr>
+	<tr>
+			 <td><a href="https://cloud.tencent.com/document/product/1007/50364">手机号二要素核验</a></td>
+			 <td>手机号信息核验（二要素）</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
+			  </tr>
+				<tr>
+			 <td><a href="https://cloud.tencent.com/document/product/1007/33848">手机号三要素核验</a></td>
+			 <td> 手机号信息核验（三要素）</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
+			  </tr>			
 </table>
 
 
 ### E证通
 
-E证通服务与计费标签对应关系说明如下：。
+E证通服务与计费标签对应关系说明如下：
 
 <table>
     <tr>
@@ -179,4 +186,31 @@ E证通服务与计费标签对应关系说明如下：。
     </tr>
 </table>
 
+### 意愿核身
 
+意愿核身服务与计费标签对应关系说明如下：
+
+<table>
+    <tr>
+        <th>接入渠道</th>
+				<th>比对库源</th>
+        <th>计费标签</th>
+			<th>定价</th>
+    </tr>
+			   <tr>
+                   <td>意愿核身（权威库）</a>
+				</td>
+				<td>跟权威库比对</td>
+				<td>意愿核身（权威库）</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
+    </tr>
+		 <tr>
+                   <td>意愿核身（自传照片）</a>
+				</td>
+				<td>跟上传照片比对</td>
+				<td>意愿核身（自传照片）</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
+    </tr>
+</table>
+
+>?目前意愿核身服务为内测阶段，如需接入使用，欢迎您 [点此链接](https://cloud.tencent.com/document/product/1007/56130) 扫描二维码添加腾讯云人脸核身小助手进行询问。

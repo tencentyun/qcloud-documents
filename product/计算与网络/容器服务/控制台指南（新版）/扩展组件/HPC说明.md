@@ -2,7 +2,7 @@
 
 ### 组件介绍
 
-HPC（HorizontalPodCronscaler）是一种可以对 K8s workload 副本数进行定时修改的自研组件，配合 HPC CRD 使用，最小支持秒级的定时任务。
+HPC（HorizontalPodCronscaler）是一种可以对 K8S workload 副本数进行定时修改的自研组件，配合 HPC CRD 使用，最小支持秒级的定时任务。
 
 ### 组件功能
 
@@ -48,18 +48,18 @@ HPC（HorizontalPodCronscaler）是一种可以对 K8s workload 副本数进行�
 
 #### 被控资源要求
 
-在创建 HPC 资源时，被控制的 workload（K8s 资源）需要存在于集群中。
+在创建 HPC 资源时，被控制的 workload（K8S 资源）需要存在于集群中。
 
 
 ## 操作步骤
 
 ### 安装 HPC
 
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择【集群】。
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
-3. 选择左侧菜单栏中的【组件管理】，进入 “组件列表” 页面。
-4. 在“组件列表”页面中选择【新建】，并在“新建组件”页面中勾选 HPC。
-5. 单击【完成】即可创建组件。
+3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
+4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 HPC。
+5. 单击**完成**即可创建组件。
 
 
 ### 创建并使用 HPC 工作负载示例
@@ -80,18 +80,18 @@ spec:
     name: nginx-deployment
     namespace: default 
   crons:
-- name: "scale-down"
-  excludeDates:
-    - "* * * 15 11 *"
-    - "* * * * * 5"
-  schedule: "30 */1 * * * *"
-  targetSize: 1
-- name: "scale-up"
-  excludeDates:
-    - "* * * 15 11 *"
-    - "* * * * * 5"
-  schedule: "0 */1 * * * *"
-  targetSize: 3
+  - name: "scale-down"
+    excludeDates:
+      - "* * * 15 11 *"
+      - "* * * * * 5"
+    schedule: "30 */1 * * * *"
+    targetSize: 1
+  - name: "scale-up"
+    excludeDates:
+      - "* * * 15 11 *"
+      - "* * * * * 5"
+    schedule: "0 */1 * * * *"
+    targetSize: 3
 :::
 </dx-codeblock>
 

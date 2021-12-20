@@ -26,7 +26,7 @@
 4. 清理旧告警策略
 新策略类型验证完成后删除原“EMR”策略类型下配置的告警策略。在告警策略筛选条件中按【策略类型】选择“EMR”策略类型对应的告警策略进行查询，对照步骤1中下载策略表，进行删除。
 ![](https://main.qcloudimg.com/raw/e17098fecacf63c0957e298fe39e70ab.png)
-如果您在迁移中遇到问题，请及时 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行处理。
+如果您在迁移中遇到问题，请及时通过 [售后支持](https://cloud.tencent.com/online-service?from=connect-us) 联系我们进行处理。
 
 [](id:jump)
 ## 新老指标对照表

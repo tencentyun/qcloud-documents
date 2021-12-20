@@ -17,24 +17,24 @@ yarn add @cloudbase/manager-node
 
 ## API 文档
 
-* [介绍](https://docs.cloudbase.net/api-reference/manager/node/introduction.html)
+* [介绍](https://docs.cloudbase.net/api-reference/manager/node/introduction)
 
-* [初始化](https://docs.cloudbase.net/api-reference/manager/node/initialization.html)
+* [初始化](https://docs.cloudbase.net/api-reference/manager/node/initialization)
 
-* [环境管理](https://docs.cloudbase.net/api-reference/manager/node/env.html)
+* [环境管理](https://docs.cloudbase.net/api-reference/manager/node/env)
 
-* [云函数](https://docs.cloudbase.net/api-reference/manager/node/function.html)
+* [云函数](https://docs.cloudbase.net/api-reference/manager/node/function)
 
-* [数据库](https://docs.cloudbase.net/api-reference/manager/node/database.html)
+* [数据库](https://docs.cloudbase.net/api-reference/manager/node/database)
 
-* [文件存储](https://docs.cloudbase.net/api-reference/manager/node/storage.html)
+* [文件存储](https://docs.cloudbase.net/api-reference/manager/node/storage)
 
-* [静态网站托管](https://docs.cloudbase.net/api-reference/manager/node/hosting.html)
+* [静态网站托管](https://docs.cloudbase.net/api-reference/manager/node/hosting)
 
-* [HTTP 访问服务](https://docs.cloudbase.net/api-reference/manager/node/access.html)
+* [HTTP 访问服务](https://docs.cloudbase.net/api-reference/manager/node/access)
 
-* [安全规则](https://docs.cloudbase.net/api-reference/manager/node/rule.html)
+* [安全规则](https://docs.cloudbase.net/api-reference/manager/node/rule)
 
-* [安全来源](https://docs.cloudbase.net/api-reference/manager/node/safeSource.html)
+* [安全来源](https://docs.cloudbase.net/api-reference/manager/node/safeSource)
 
-* [公共接口](https://docs.cloudbase.net/api-reference/manager/node/common.html)
+* [公共接口](https://docs.cloudbase.net/api-reference/manager/node/common)

@@ -81,7 +81,7 @@ QCBM 是一个 Dubbo 容器化的 Demo 项目，因此容器镜像服务个人�
 
 ### TSW 介绍
 
-[腾讯微服务观测平台 TSW](https://cloud.tencent.com/product/tsw)（Tencent Service Watcher）提供云原生服务可观察性解决方案，能够追踪到分布式架构中的上下游依赖关系，绘制拓扑图，提供服务、接口、实例、中间件等多维度调用观测。详细介绍如下图所示：
+[腾讯微服务观测平台 TSW](https://console.cloud.tencent.com/apm)（Tencent Service Watcher）提供云原生服务可观察性解决方案，能够追踪到分布式架构中的上下游依赖关系，绘制拓扑图，提供服务、接口、实例、中间件等多维度调用观测。详细介绍如下图所示：
 ![](https://main.qcloudimg.com/raw/6f66070b3859087a2350215d0fb281b9.jpeg)
 
 TSW 在架构上分为以下四大模块：
@@ -230,8 +230,8 @@ docker images
 QCBM 项目采用个人版镜像仓库（建议企业客户使用企业版镜像仓库）。
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2) 。
-2. 选择【镜像仓库】>【个人版】> 【命名空间】进入“命名空间”页面。
-3. 单击【新建】，在弹出的新建命名窗口中新建命名空间 qcbm。QCBM 项目所有的镜像都存放于该命名空间下。如下图所示：
+2. 选择**镜像仓库** > **个人版** > **命名空间**进入“命名空间”页面。
+3. 单击**新建**，在弹出的新建命名窗口中新建命名空间 qcbm。QCBM 项目所有的镜像都存放于该命名空间下。如下图所示：
    ![](https://main.qcloudimg.com/raw/d41dc91e084a7b21f44078445360895d.png)
 
 
@@ -263,7 +263,7 @@ docker push ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
 3. 在 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user/self?rid=1) 中可以查看上传的所有镜像，下图展示的是上传到腾讯云镜像仓库中 QCBM 的5个镜像。
    ![](https://main.qcloudimg.com/raw/05c412370fb69e675bfb9149b33063a6.png)
 <dx-alert infotype="explain" title="">
-默认镜像类型为“私有”，如需提供镜像给他人使用，可在【镜像信息】中将镜像类型设置为公有。如下图所示：
+默认镜像类型为“私有”，如需提供镜像给他人使用，可在**镜像信息**中将镜像类型设置为公有。如下图所示：
 ![](https://main.qcloudimg.com/raw/88b73306c07a4ea281cef52a77d3246c.png)
 </dx-alert>
 <br>
@@ -290,7 +290,7 @@ docker push ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
    ![](https://main.qcloudimg.com/raw/8de9b997674164f32a05104d613a24b9.png)
 4. （可选）如需使用 Kubectl 和 lens 等 k8s 管理工具，还需进行以下两步操作：
    1. 开启外网访问。
-   2. 将 API 认证 Token 保存在本地 `用户 home/.kube` 下的 config 文件中（若 config 文件已有内容，则需要替换），以确保每次访问都能进入默认集群中。如果选择不将 API 认证 Token 保存在 `.kube` 下的 config 文件中，则可参考控制台【集群APIServer信息】下的 【通过Kubectl连接Kubernetes集群操作说明】。如下图所示：
+   2. 将 API 认证 Token 保存在本地 `用户 home/.kube` 下的 config 文件中（若 config 文件已有内容，则需要替换），以确保每次访问都能进入默认集群中。如果选择不将 API 认证 Token 保存在 `.kube` 下的 config 文件中，则可参考控制台**集群APIServer信息**下的 **通过Kubectl连接Kubernetes集群操作说明**。如下图所示：
       ![](https://main.qcloudimg.com/raw/fc1ce98044d792325b75c3eb4c34feae.jpeg)
 
 
@@ -308,7 +308,7 @@ Namespaces 是 Kubernetes 在同一个集群中进行逻辑环境划分的对象
 :::
 ::: 方式2：使用控制台
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击集群 ID/名称进入集群详情页面。  
-2. 单击【命名空间】>【新建】，创建名称为 qcbm 的 Namespace。
+2. 单击**命名空间** > **新建**，创建名称为 qcbm 的 Namespace。
 :::
 ::: 方式3：使用\sYAML\s部署
 执行以下命令使用 YAML 创建 Namespace：
@@ -363,7 +363,7 @@ data:
 :::
 ::: 方式2：使用控制台
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击集群 ID/名称进入集群详情页面。 
-2. 单击【配置管理】>【ConfigMap】>【新建】，创建名称为 qcbm-env 的 ConfigMap 用于存放相关配置。其中命名空间 qcbm，如下图所示:
+2. 单击**配置管理** > **ConfigMap** > **新建**，创建名称为 qcbm-env 的 ConfigMap 用于存放相关配置。其中命名空间 qcbm，如下图所示:
    ![](https://main.qcloudimg.com/raw/48845cae9238f2bc45ef1b197c343618.png)
    :::
    </dx-tabs>
@@ -403,7 +403,7 @@ type: Opaque
 :::
 ::: 方式2：使用控制台
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击集群 ID/名称进入集群详情页面。 
-2. 单击【配置管理】>【Secret】>【新建】，创建名称为 qcbm-keys  的 Secret，如下图所示：
+2. 单击**配置管理** > **Secret** > **新建**，创建名称为 qcbm-keys  的 Secret，如下图所示：
    ![](https://main.qcloudimg.com/raw/8f97446c6d7ab3e75415a19a636c1081.png)
    :::
    </dx-tabs>
@@ -422,7 +422,7 @@ Deployment 声明了 Pod 的模板和控制 Pod 的运行策略，适用于部�
 | ---------------- | ------------------------------------------------------------ |
 | replicas         | 表示需要创建的 pod 数量                                      |
 | image            | 镜像的地址                                                   |
-| imagePullSecrets | 拉取镜像时需要使用的 key，可在【[集群](https://console.cloud.tencent.com/tke2/)】>【配置管理】>【Secret】中获取。使用公共镜像时可省略 |
+| imagePullSecrets | 拉取镜像时需要使用的 key，可在 **[集群](https://console.cloud.tencent.com/tke2/)**>**配置管理** > **Secret**中获取。使用公共镜像时可省略 |
 | env              | <li>定义了 pod 的环境变量和取值<br><li>ConfigMap 中定义的 key-value 可使用 configMapKeyRef 引用<br><li>Secret 中定义的 key-value 可使用 secretKeyRef 引用 |
 | ports            | 指定容器的端口号，由于是 Dubbo 应用，所以端口号为20880       |
 
@@ -595,7 +595,7 @@ spec:
 至此，您已完成 QCBM 在容器服务 TKE 上的部署，可通过以下步骤查看部署结果：
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/)，单击集群 ID/名称进入集群详情页面。
-2. 单击【服务与路由】>【Ingress】进入 Ingress 页面，可查看到创建的 Ingress。通过 Ingress 的 VIP 即可访问 Q 云书城页面。
+2. 单击**服务与路由** > **Ingress**进入 Ingress 页面，可查看到创建的 Ingress。通过 Ingress 的 VIP 即可访问 Q 云书城页面。
    ![](https://main.qcloudimg.com/raw/bbdd5e7a884adc639f12a4c5b21815e8.png)
 
 
@@ -606,12 +606,12 @@ spec:
 
 容器日志采集功能默认关闭，使用前需要开启，步骤如下：
 
-1. 登录容器服务控制台，选择左侧导航栏中的【集群运维】>【[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=1)】。
-2. 在“功能管理”页面上方选择地域，单击需要开启日志采集的集群右侧的【设置】。
+1. 登录容器服务控制台，选择左侧导航栏中的**集群运维** > **[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=1)**。
+2. 在“功能管理”页面上方选择地域，单击需要开启日志采集的集群右侧的**设置**。
    ![](https://main.qcloudimg.com/raw/2402b7869f3687bf6237bfb5d3940817.png)
-3. 在“设置功能”页面，单击日志采集【编辑】并勾选【开启日志采集】。如下图所示：
+3. 在“设置功能”页面，单击日志采集**编辑**并勾选**开启日志采集**。如下图所示：
    ![](https://main.qcloudimg.com/raw/3720d6096ce9486419475ebb5efbaf99.png)
-4. 单击【确定】即可开启容器日志采集功能。
+4. 单击**确定**即可开启容器日志采集功能。
 
 
 
@@ -620,12 +620,12 @@ spec:
 QCBM 部署在南京地域，因此在创建日志集时应当选择南京地域：
 
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls/topic)，在“日志主题”页面选择南京地域。
-2. 单击【创建日志主题】，在弹出的窗口中根据页面提示填写相关信息，如下图所示：
+2. 单击**创建日志主题**，在弹出的窗口中根据页面提示填写相关信息，如下图所示：
    <img src="https://main.qcloudimg.com/raw/402a29ab53c4a048b350ced921009a52.jpg" width="70%"><br>
  - **日志主题名称**：输入 qcbm。
- - **日志集操作**：选择【创建日志集】。
+ - **日志集操作**：选择**创建日志集**。
  - **日志集名称**：输入 qcbm-logs。
-3. 单击【确定】即可创建日志主题和日志集。
+3. 单击**确定**即可创建日志主题和日志集。
 >?QCBM 有多个后端微服务，为每个微服务建个日志主题便于日志归类。
 >- QCBM 每个服务都建立了一个日志主题。
 >- 日志主题 ID，为容器创建日志规则时需要用到。
@@ -642,12 +642,12 @@ QCBM 部署在南京地域，因此在创建日志集时应当选择南京地域
 ::: 方式1：使用控制台
 日志规则指定了日志在容器内的位置：
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/)，选择左侧导航栏中的【集群运维】>【日志规则】。
-2. 在“日志规则”页面，单击【新建】新建日志规则：
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/)，选择左侧导航栏中的**集群运维** > **日志规则**。
+2. 在“日志规则”页面，单击**新建**新建日志规则：
    - **日志源**：指定容器日志位置，QCBM 的日志都统一输出到 /app/logs 目录下，因而使用容器文件路径并指定具体的工作负载和日志位置。
    - **消费端**：选择之前创建的日志集和主题。
      ![](https://main.qcloudimg.com/raw/84a02a836cb2fa7e40bb55880153767c.png)
-3. 单击【下一步】进入 “日志解析方式”， 其中本文示例 QCBM 使用单行文本方式。 了解更多 CLS 支持的日志格式，请参见 [采集文本日志](https://cloud.tencent.com/document/product/614/17418) 文档。
+3. 单击**下一步**进入 “日志解析方式”， 其中本文示例 QCBM 使用单行文本方式。 了解更多 CLS 支持的日志格式，请参见 [采集文本日志](https://cloud.tencent.com/document/product/614/17418) 文档。
    :::
    ::: 方式2：使用\sCRD
    您还可通过自定义资源定义（CustomResourceDefinitions，CRD）的方式配置日志采集。QCBM 使用了容器文件路径的采集方式，日志格式为单行文本。下文是 user-service 日志采集具体的配置 YAML。了解更多 CRD 采集配置请参见 [使用 CRD 配置日志采集](https://cloud.tencent.com/document/product/457/48425) 文档。
@@ -686,7 +686,7 @@ QCBM 部署在南京地域，因此在创建日志集时应当选择南京地域
 #### 查看日志
 
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls/search)，进入“检索分析”页面。
-2. 检索分析中可先为日志【新建索引】，索引完毕之后再单击【检索分析】即可查看日志。
+2. 检索分析中可先为日志**新建索引**，索引完毕之后再单击**检索分析**即可查看日志。
    ![](https://main.qcloudimg.com/raw/e42971d17c20115d12ace2adb861e6a6.png)
 
 >!若未新建索引，则检索不到日志。
@@ -702,8 +702,8 @@ TSW 目前处于内测阶段，可在广州和上海进行部署，本文选择�
 
 #### 接入 TSW — 获取接入点信息
 
-1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏种的【服务观测】>【服务列表】。
-2. 单击【接入服务】，选择 Java 语言与 SkyWalking 的数据采集方式。接入方式下提供了如下接入信息：**接入点**和 **Token**。
+1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm)，选择左侧导航栏种的**服务观测** > **服务列表**。
+2. 单击**接入服务**，选择 Java 语言与 SkyWalking 的数据采集方式。接入方式下提供了如下接入信息：**接入点**和 **Token**。
    ![](https://main.qcloudimg.com/raw/b6333d66cf38310a9fe2403bee7bbb4a.png)
 
 
@@ -729,7 +729,7 @@ Skywalking agent 也支持使用环境变量方式进行配置，QCBM 使用 Con
 
 #### 通过服务接口和调用链查看调用异常
 
-1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的【服务观测】>【接口观测】。
+1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm)，选择左侧导航栏中的**服务观测** > **接口观测**。
 2. 在接口观测页面可查看一个服务下所有接口的调用情况，包括请求量、成功率、错误率、响应时间等指标。如下图所示：
    ![](https://main.qcloudimg.com/raw/d35983cddeb99eb027cd4f76fa927cab.png)
 3. 上图中 qcbm-gateway 的两个接口：查询用户收藏夹 `/api/favorites/query/{userId}` 和查询用户订单 `/api/order/{userId}` 出现调用异常。单击查询用户收藏夹接口，可以查看到该接口的所有调用记录，找到异常的调用链，单击进入可以查看具体异常原因。如下图所示：
@@ -740,7 +740,7 @@ Skywalking agent 也支持使用环境变量方式进行配置，QCBM 使用 Con
 
 #### 使用 TSW 分析 SQL 和缓存等组件调用情况
 
-1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的【组件调用观测】>【SQL 调用】。
+1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm)，选择左侧导航栏中的**组件调用观测** > **SQL 调用**。
 2. 在“SQL 调用”页面可查看 SQL、NOSQL、MQ 及其它组件的调用情况。例如，通过 SQL 的请求量及耗时，可以快速定位应用中的高频 SQL 和慢查询。如下图所示：
    ![](https://main.qcloudimg.com/raw/43376cf371bc037bd7a07b3a1782a5e6.png)
 
@@ -748,6 +748,6 @@ Skywalking agent 也支持使用环境变量方式进行配置，QCBM 使用 Con
 
 #### 查看服务拓扑
 
-1.  登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的【链路追踪】> 【分布式依赖拓扑】。
+1.  登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm)，选择左侧导航栏中的**链路追踪** > **分布式依赖拓扑**。
 2.  在“分布式依赖拓扑”页面可查看完成的服务依赖情况，以及调用次数和平均延迟等信息。如下图所示：
     ![](https://main.qcloudimg.com/raw/f17189bbf5e40ce6a4132caa2b00e0ee.png)

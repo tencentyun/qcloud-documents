@@ -10,6 +10,6 @@
 >- 200MB、500MB和1000MB带宽仅支持新建网关，存量量网关暂不支持。
 >- 如果 VPN 网关使用200MB、500MB和1000MB规格的带宽，VPN 通道加密协议建议使用 AES128+MD5。
 >
-![](https://main.qcloudimg.com/raw/bac4553ea54d1bf01374bdca084f4ba5.png)
+![](https://main.qcloudimg.com/raw/a83b3302580faaa5faec4e1d79d96f66.png)
 5. 单击【创建】。VPN 网关创建完成后，系统随机分配公网 IP，如：`124.156.239.133`。
   ![](https://main.qcloudimg.com/raw/e906f7c547bb29fb267c3370039c3541.png)

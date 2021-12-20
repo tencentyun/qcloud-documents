@@ -1,3 +1,67 @@
+
+## 2021年09月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.2.7.1 版本发布</td>
+	<td>修复：偶现的跨进程存储不一致问题</td>
+        <td>2021-09-1</td><td><li>使用新增的应用内消息能力时，请注意高版本安卓使用 WebView 的兼容性，参考 <a href="https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA">Android 接口文档</a></li>
+<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
+<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li></td>
+    </tr>
+<tr>
+</table>
+
+## 2021年08月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.2.7.0 版本发布</td><td>
+		<li>  新增：新增应用内消息展示
+		<li>  优化：推送服务注册流程优化
+		<li>  修复：同意隐私协议前获取设备型号问题</td>
+        <td>2021-08-27</td><td><li>使用新增的应用内消息能力时，请注意高版本安卓使用 WebView 的兼容性，参考 <a href="https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA">Android 接口文档</a></li>
+<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li></td>
+    </tr>
+<tr>
+</table>
+
+## 2021年07月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.2.6.0 版本发布</td><td><li> 新增：接口调用 API 支持限频
+<li>  新增：FCM 前台通知、TPNS 本地通知支持通知渠道配置
+<li>  优化：优化长连接重连策略
+<li>  优化：优化日活，启动上报
+<li>  优化：SDK 日志放置在隐藏目录下
+<li>  优化：默认关闭联合保活，如需开启请参考 Android 常见问题文档
+		<li>  修复：修复 IPv6 请求失败</td>
+        <td>2021-07-06</td><td><li>
+<a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
+<li><a href="https://cloud.tencent.com/document/product/548/36674">Android 常见问题</a></li></td>
+    </tr>
+<tr>
+</table>
+
 ## 2021年05月
 
 <table>
@@ -15,7 +79,7 @@
 <li>  修复：“清除全部通知”接口兼容清除小米厂商推送通知（MIUI 11 及以下版本小米设备）
 <li>  修复：支持荣耀手机应用角标展示</td>
         <td>2021-05-26</td><td><li> 由于 Jcenter 下线，您可能遇到 SDK 依赖拉取问题，请参考 <a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a> 配置依赖仓库镜像源</li>
-<li> 新增的标签查询接口，需要注意在继承 <code>XGPushBaseReceiver</code> 的实现类中增加实现方法 <code>onQueryTagsResult</code></li><li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</li></li></td>
+<li> 新增的标签查询接口，需要注意在继承 <code>XGPushBaseReceiver</code> 的实现类中增加实现方法 <code>onQueryTagsResult</code></li></td>
     </tr>
 <tr>
 </table>
@@ -98,7 +162,7 @@
 </tr>
         <tr>
         <td>SDK 1.2.1.1 版本发布</td>
-				<td><li>新增「<b>用户属性</b>」相关接口，用于个性化推送</li> <li>新增「<b>应用内消息</b>」功能，以及若干应用内消息模板</li><li>SO 文件优化更新</li><li>SDK 内部优化</li></td>
+				<td><li>新增<b>用户属性</b>相关接口，用于个性化推送</li> <li>新增<b>应用内消息</b>功能，以及若干应用内消息模板</li><li>SO 文件优化更新</li><li>SDK 内部优化</li></td>
         <td>2020-10-12</td>
         <td>-</td>
     </tr>

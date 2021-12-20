@@ -40,8 +40,8 @@ kubectl create -f kibana.yaml
 ### 搭建 Logstash 收集 Kafka 指定 Topic 数据
 Logstash 是开源的日志分析处理程序，能够从多种源采集转换数据，例如 Syslog、Filebeat、Kafka 等，并支持将数据发送到 Elasticsearch。
 本示例搭建的 Logstash 默认从配置的 Kafka 中读取数据并将其发送至已部署的 Elasticsearch 服务。
-1. 登录 [TKE 控制台](https://console.cloud.tencent.com/tke2)，单击已部署 Elasticsearch + Kibana 的集群，进入集群 Deployment 页面。
-2. [](id:step2)选择【服务】>【Service】，进入 Service 详情页，即可查看已创建 Elasticsearch 的服务 IP。如下图所示：
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击已部署 Elasticsearch + Kibana 的集群，进入集群 Deployment 页面。
+2. [](id:step2)选择**服务** > **Service**，进入 Service 详情页，即可查看已创建 Elasticsearch 的服务 IP。如下图所示：
 ![](https://main.qcloudimg.com/raw/f9671468af487a04b6e5871b5d968a71.png)
 3. 依次执行以下命令，修改 `/tmp/kubernetes-elasticsearch/logstash-config.yaml`。
 ```
@@ -63,8 +63,8 @@ kubectl create -f logstash-consumer.yaml
 
 ### 在 Kibana 页面查看日志数据
 本文以在 TKE 集群中部署 ELK 并从 Kafka 读取日志数据为例，ELK 更多使用说明以及问题指导请查阅网络资料。
-1. 登录 [TKE 控制台](https://console.cloud.tencent.com/tke2)，单击已部署服务的集群，进入集群 Deployment 页面。
-2. 选择【服务】>【Service】，进入 Service 详情页，可获取已创建 Kibana 服务负载均衡 IP。如下图所示：
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击已部署服务的集群，进入集群 Deployment 页面。
+2. 选择**服务** > **Service**，进入 Service 详情页，可获取已创建 Kibana 服务负载均衡 IP。如下图所示：
 ![](https://main.qcloudimg.com/raw/45d534ce91f072c963fc27ea1f9d803f.png)
 3. 访问其公网负载均衡 IP ，即可打开 Kibana dashboard 进行日志查阅。如下图所示：
 ![](https://mc.qcloudimg.com/static/img/a233130efb256ef5836b294e9ec65a35/ccs-log-visual.jpeg)

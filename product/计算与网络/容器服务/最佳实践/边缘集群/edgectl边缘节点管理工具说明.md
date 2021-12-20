@@ -1,6 +1,6 @@
 
 
-edgectl 是边缘节点管理工具，用于远程添加边缘节点。您可通过【节点管理】>【[脚本添加节点](https://cloud.tencent.com/document/product/457/42890#.E8.84.9A.E6.9C.AC.E6.B7.BB.E5.8A.A0.E8.8A.82.E7.82.B9)】操作获取该工具。
+edgectl 是边缘节点管理工具，用于远程添加边缘节点。您可通过**节点管理** > **[脚本添加节点](https://cloud.tencent.com/document/product/457/42890#.E8.84.9A.E6.9C.AC.E6.B7.BB.E5.8A.A0.E8.8A.82.E7.82.B9)**操作获取该工具。
 
 
 

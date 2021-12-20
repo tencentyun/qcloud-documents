@@ -42,6 +42,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | API                     | 描述                                  |
 | ----------------------- | ------------------------------------- |
 | [enterSeat](#enterseat) | 主动上麦（听众端和房主均可调用）。    |
+| [moveSeat](#moveseat) | 移动麦位（麦上主播端可调用）。    |
 | [leaveSeat](#leaveseat) | 主动下麦（主播调用）。    |
 | [pickSeat](#pickseat)   | 抱人上麦（房主调用）。                  |
 | [kickSeat](#kickseat)   | 踢人下麦（房主调用）。                  |
@@ -118,7 +119,6 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | [onAnchorLeaveSeat](#onanchorleaveseat) | 有成员下麦（主动下麦/房主踢人下麦）。 |
 | [onSeatMute](#onseatmute)               | 房主禁麦。                          |
 | [onUserMicrophoneMute](#onusermicrophonemute)               | 用户麦克风是否静音。                          |
-
 | [onSeatClose](#onseatclose)             | 房主封麦。                          |
 
 ### 听众进出事件回调
@@ -214,12 +214,10 @@ TRTCVoiceRoomCallback.ActionCallback callback);
 
 | 参数     | 类型           | 含义                                                         |
 | -------- | -------------- | ------------------------------------------------------------ |
-| sdkAppId | int            | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
+| sdkAppId | int            | 您可以在**实时音视频控制台 >[应用管理](https://console.cloud.tencent.com/trtc/app)**> 应用信息中查看 SDKAppID。 |
 | userId   | String         | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
 | userSig  | String         | 腾讯云设计的一种安全保护签名，获取方式请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 | callback | ActionCallback | 登录回调，成功时 code 为0。                                  |
-
-   
 
 ### logout
 
@@ -392,6 +390,29 @@ public abstract void enterSeat(int seatIndex, TRTCVoiceRoomCallback.ActionCallba
 | callback  | ActionCallback | 操作回调。           |
 
 调用该接口会立即修改麦位表。如果是听众申请上麦需要房主同意的场景，可以先调用 `sendInvitation` 向房主申请，收到 `onInvitationAccept`后再调用该函数。
+
+### moveSeat
+移动麦位 (麦上主播端可调用)。
+>? 移动麦位成功后，房间内所有成员会收到 `onSeatListChange`、 `onAnchorLeaveSeat` 和 `onAnchorEnterSeat` 的事件通知。(主播调用后，只是修改麦位座位号信息，并不会切换该用户的主播身份。)
+
+```java
+public abstract int moveSeat(int seatIndex, TRTCVoiceRoomCallback.ActionCallback callback);
+```
+
+参数如下表所示：
+
+| 参数      | 类型           | 含义                 |
+| --------- | -------------- | -------------------- |
+| seatIndex | int            | 需要移动到的麦位序号。 |
+| callback  | ActionCallback | 操作回调。           |
+
+返回值：
+
+| 返回值   | 类型   | 含义                  |
+| -------- | ------ | --------------------- |
+| code | int | 移动麦位操作结果（0为成功，其它为失败，10001 为接口调用限频）。 |
+
+调用该接口会立即修改麦位表。如果是听众申请上麦需要房主同意的场景，可以先调用 `sendInvitation` 向房主申请，收到 `onInvitationAccept` 后再调用该函数。
 
 ### leaveSeat
 
@@ -850,7 +871,7 @@ void onUserMicrophoneMute(String userId, boolean mute);
 | 参数   | 类型   | 含义                      |
 | ------ | ------ | ------------------------- |
 | userId | String | 用户 ID。                 |
-| mute | boolean    | 音量大小，取值：0 - 100。 |
+| mute | boolean    | true：静音麦位； false：解除静音。 |
 
 ### onUserVolumeUpdate
 
@@ -865,7 +886,7 @@ void onUserVolumeUpdate(List<TRTCCloudDef.TRTCVolumeInfo> userVolumes, int total
 
 | 参数   | 类型   | 含义                      |
 | ------ | ------ | ------------------------- |
-| userVolumes | List | 用户列表。                 |
+| userVolumes | ListList<TRTCCloudDef.TRTCVolumeInfo> | 用户列表。                 |
 | totalVolume | int    | 音量大小，取值：0 - 100。 |
 
 
@@ -1006,7 +1027,7 @@ void onRecvRoomCustomMsg(String cmd, String message, TRTCVoiceRoomDef.UserInfo u
 
 | 参数     | 类型     | 含义                                               |
 | -------- | -------- | -------------------------------------------------- |
-| command  | String   | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
+| cmd      | String   | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
 | message  | String   | 文本消息。                                         |
 | userInfo | UserInfo | 发送者用户信息。                                   |
 
@@ -1027,7 +1048,7 @@ void onReceiveNewInvitation(String id, String inviter, String cmd, String conten
 | id      | String   | 邀请 ID。                          |
 | inviter | String   | 邀请人的用户 ID。                  |
 | cmd     | String   | 业务指定的命令字，由开发者自定义。 |
-| content | UserInfo | 业务指定的内容。                   |
+| content | String   | 业务指定的内容。                   |
 
 ### onInviteeAccepted
 

@@ -12,7 +12,7 @@ dependencies {
     implementation 'com.tencent.iot.hub:hub-device-java:x.x.x'
 }
 ```
->?用户可根据 [版本说明](https://cloud.tencent.com/document/product/634/48712) 把上述x.x.x设置成最新版本。
+>?用户可根据 [版本说明](https://cloud.tencent.com/document/product/634/48713) 把上述x.x.x设置成最新版本。
 - 如果您需要通过代码集成方式进行项目开发，可访问 [Github](https://github.com/tencentyun/iot-device-java/tree/master/hub/hub-device-java) 下载 Java SDK 源码。
 
 ## 认证连接 ##

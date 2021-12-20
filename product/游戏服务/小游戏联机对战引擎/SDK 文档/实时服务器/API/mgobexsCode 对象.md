@@ -1,4 +1,5 @@
 
+
 mgobexsCode 对象是实时服务器的入口，您需要在代码中导出该对象。
 
 ### gameServer 属性
@@ -96,9 +97,9 @@ exports.mgobexsCode = {
     onInitGameServer: (tcb) => {
         // 可以在此初始化 TCB
         const tcbApp = tcb.init({
-            secretId: "请填写腾讯云API密钥ID",
-            secretKey: "请填写腾讯云API密钥KEY",
-            env: "请填写云开发环境ID",
+            secretId: "请填写腾讯云 API 密钥 ID",
+            secretKey: "请填写腾讯云 API 密钥 KEY",
+            env: "请填写云开发环境 ID",
             serviceUrl: 'http://tcb-admin.tencentyun.com/admin',
             timeout: 5000,
         });
@@ -122,7 +123,7 @@ gameInfo 是 mgobexsCode 对象的一个属性，类型为 object。您如果需
 ```
 exports.mgobexsCode = {
 	gameInfo: {
-		gameId: "请填写游戏ID，从控制台获取",
+		gameId: "请填写游戏 ID，从控制台获取",
 		serverKey: "请填写后端密钥，从控制台获取",
 	},
     gameServer

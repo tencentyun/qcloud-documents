@@ -1,10 +1,10 @@
 ## 操作场景
-腾讯云第五代实例 S5、M5、C4、IT5、D3 全面采用第二代智能英特尔<sup>®</sup>至强<sup>®</sup>可扩展处理器 Cascade Lake。提供了更多的指令集和特性，可用于加速人工智能的应用，同时集成的大量硬件增强技术，其中 AVX-512（高级矢量扩展）能够为 AI 推理过程提供强劲的并行计算能力，使用户获得更好的深度学习效果。
+腾讯云第六代实例 S6 及第五代实例 S5、M5、C4、IT5、D3 全面采用第二代智能英特尔<sup>®</sup>至强<sup>®</sup>可扩展处理器 Cascade Lake。提供了更多的指令集和特性，可用于加速人工智能的应用，同时集成的大量硬件增强技术，其中 AVX-512（高级矢量扩展）能够为 AI 推理过程提供强劲的并行计算能力，使用户获得更好的深度学习效果。
 
 本文以 S5、M5 实例为例，介绍如何在 CVM 上通过 AVX512 加速人工智能应用。
 
 ## 选型推荐[](id:RecommendedSelection)
-云服务器的多种实例规格可用于多种应用开发，其中 [标准型 S5](https://cloud.tencent.com/document/product/213/11518#S5) 及 [内存型 M5](https://cloud.tencent.com/document/product/213/11518#M5) 适用于机器学习或深度学习。这些实例配备了第二代 Intel<sup>®</sup> Xeon<sup>®</sup> 处理器，适配 Intel<sup>®</sup> DL boost 学习能力。推荐配置如下表：
+云服务器的多种实例规格可用于多种应用开发，其中 [标准型 S6](https://cloud.tencent.com/document/product/213/11518#S6)、[标准型 S5](https://cloud.tencent.com/document/product/213/11518#S5) 及 [内存型 M5](https://cloud.tencent.com/document/product/213/11518#M5) 适用于机器学习或深度学习。这些实例配备了第二代 Intel<sup>®</sup> Xeon<sup>®</sup> 处理器，适配 Intel<sup>®</sup> DL boost 学习能力。推荐配置如下表：
 <table>
 <tr>
 <th>平台类型</th><th>实例规格</th>
@@ -53,9 +53,9 @@ TensorFlow\* 是用于大规模机器学习及深度学习的热门框架之一�
 #### 部署 TensorFlow\* 框架
 1. 在云服务器中，安装 Python。本文以 Python 3.7 为例。
 2. 执行以下命令，安装 Intel<sup>®</sup> 优化的 TensorFlow\* 版本 intel-tensorflow。
->?建议使用**2.4.0及以上版本**，以获得最新的功能与优化。
->
-```
+<dx-alert infotype="explain" title="">
+建议使用**2.4.0及以上版本**，以获得最新的功能与优化。
+</dx-alert> ```
 pip install intel-tensorflow
 ```
 
@@ -80,7 +80,7 @@ lscpu | grep "Core(s) per socket" | cut -d':' -f2 | xargs
  export TF_NUM_INTEROP_THREADS=1
  export TF_ENABLE_MKL_NATIVE_FORMAT=0
 ```
- - 在代码中增加环境变化设置。在运行的 Python 代码中，加入以下环境变化配置：
+ - 在代码中增加环境变量设置。在运行的 Python 代码中，加入以下环境变量配置：
 ```
 import os
 os.environ["KMP_BLOCKTIME"] = "1"

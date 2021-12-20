@@ -812,7 +812,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 ### 在线消息
 
-对于某些场景，需要发送在线消息，即用户在线时收到消息，如果用户不在线，下次登录也不会看到消息，可用于通知类消息，这种消息不会进行存储，也不会计入未读计数。发送接口与 `sendMessage` 类似。
+对于某些场景，需要发送在线消息，即用户在线时收到消息，如果用户不在线，下次登录也不会看到消息，可用于通知类消息，这种消息不会进行存储，也不会计入未读计数。发送接口与 `sendMessage` 类似。如果您不希望收到离线推送，可以调用消息中的 `setOfflinePushSettings` 接口，设置参数 `TIMOfflinePushSettings` 关闭推送 `setEnabled(false)`。
 
 >!2.5.3版本以前只针对单聊消息有效。2.5.3版本以后对群组消息有效(暂不支持 AVChatRoom 和 BChatRoom 类型)
 
@@ -1585,7 +1585,7 @@ IM SDK 支持删除会话的本地及漫游消息，消息删除后，无法�
  * 该接口会删除本地历史的同时也会把漫游消息即保存在服务器上的消息也删除，卸载重装后无法再拉取到。需要注意的是：
  *  1. 一次最多只能删除 30 条消息。
  *  2. 一秒钟最多只能调用一次。
- *  3. 如果该账号在其他设备上拉取过这些消息，那么调用该接口删除后，这些消息仍然会保存在那些设备上，即删除消息不支持多端同步。
+ *  3. 如果该帐号在其他设备上拉取过这些消息，那么调用该接口删除后，这些消息仍然会保存在那些设备上，即删除消息不支持多端同步。
  */
 public void deleteMessages(List<TIMMessage> messages, TIMCallBack callback)
 ```
@@ -1703,3 +1703,4 @@ Notification notify = mBuilder.build();
 notify.flags |= Notification.FLAG_AUTO_CANCEL;
 mNotificationManager.notify(pushId, notify);
 ```
+

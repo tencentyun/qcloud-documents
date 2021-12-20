@@ -6,6 +6,7 @@ ELK 组件提供了丰富的数据处理功能，包括数据采集、数据清�
 ## 组件的使用 
 ### Filebeat 
 Filebeat 是一个轻量级开源日志文件数据搜集器，作为 agent 安装到服务器上，Filebeat 读取文件内容，发送到 Logstash 进行解析后进入 CTSDB，或直接发送到 CTSDB 进行集中式存储和分析。
+
 #### Filebeat 的使用流程 
 1. **安装** 
 Filebeat 安装介绍请参见 [该地址](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)。
@@ -17,7 +18,7 @@ Filebeat 启动时可以指定配置文件路径，若不指定则默认使用 f
 #### Filebeat 使用示例 
 1. 首先，将 Filebeat 的安装包解压缩到某一目录，如下所示： 
 ![](https://main.qcloudimg.com/raw/62440378c4f5dbde3169363178491623.png)
-2. 然后，配置 filebeat.yml，配置参考如下： 
+2. 然后，配置 filebeat.yml，配置参考如下： <br>
 ```
 filebeat.shutdown_timeout: 5 # How long filebeat waits on shutdown for the publisher to finish.
 max_procs: 4 # 可同时执行的最大cpu数，默认为操作系统可用的逻辑cpu数
@@ -267,7 +268,7 @@ Kibana 是一个旨在为 Elasticsearch 设计的开源的分析和可视化平�
 
 #### Kibana 使用流程 
 1. **安装**
-下载与 Elasticseach 对应的 Kibanna 版本，并解压到某一目录。
+下载与 Elasticseach 对应的 Kibana 版本，并解压到某一目录。
 2. **配置**
 Kibana 的配置很简单，下节会给出样例。具体配置项含义参考 [该地址](https://www.elastic.co/guide/en/kibana/current/settings.html)。
 3. **运行**
@@ -334,4 +335,4 @@ sudo service grafana-server start
 ![](https://main.qcloudimg.com/raw/858e82acd2d5dcb4872445b9085fa6d8.png)
 
 ## 小结  
-以上为 ELK 生态组件及 Grafana 对接 CTSDB 的详细使用过程，如在使用过程中遇到问题需要解决，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
+以上为 ELK 生态组件及 Grafana 对接 CTSDB 的详细使用过程，如在使用过程中遇到问题，可通过 [在线支持](https://cloud.tencent.com/online-service?from=connect-us) 解决。

@@ -12,3 +12,4 @@
 | Flutter | [官方地址](https://github.com/TencentCloud/TPNS-Flutter-Plugin) | 
 | React-Native | [官方地址](https://git.code.tencent.com/tpns/TPNS-RN-Plugin.git) | 
 | Swift Demo | [官方地址](https://git.code.tencent.com/tpns/TPNS-Demo-Swift.git) | 
+| Cordova | [官方地址](https://www.npmjs.com/package/cordova-plugin-tpns) |

@@ -1,6 +1,6 @@
 ## 集成 SDK
 
-本文主要介绍如何快速的将腾讯云 互动白板 SDK 集成到您的项目中。
+本文主要介绍如何快速的将腾讯云互动白板 SDK 集成到您的项目中。
 
 ## 开发环境要求
 
@@ -31,12 +31,12 @@
 
 在 Visual Studio 开发环境下，按如下步骤导入 SDK：
 
-1. 从菜单中依次选择【视图】>【解决方案资源管理器】；
-2. 在【解决方案资源管理器】中，右键单击要导入 SDK 的项目名称；
-3. 在弹出菜单内单击【属性】选项，弹出项目属性对话框；
-4. 从左侧配置属性列表中，选择【VC++目录】项；
-5. 将 SDK 头文件所在目录路径添加到右侧【包含目录】中；
-6. 将 SDK 导入库所在目录路径添加到右侧【库目录】中；
+1. 从菜单中依次选择【视图】>【解决方案资源管理器】。
+2. 在【解决方案资源管理器】中，右键单击要导入 SDK 的项目名称。
+3. 在弹出菜单内单击【属性】选项，弹出项目属性对话框。
+4. 从左侧配置属性列表中，选择【VC++目录】项。
+5. 将 SDK 头文件所在目录路径添加到右侧【包含目录】中。
+6. 将 SDK 导入库所在目录路径添加到右侧【库目录】中。
 7. 在需要使用 SDK 的源码文件内添加如下代码导入 SDK。
 
 ```cpp
@@ -68,6 +68,31 @@ authParam.userSig = USER_SIG;       // 填写用户签名
 
 // 初始化白板控制器（配合腾讯云 IMSDK 4.0 以上版本使用时，initParam 参数可以不填）
 boardCtrl->Init(authParam, ROOM_ID);
+```
+
+#### 监听白板关键事件
+
+白板事件回调接口 `TEduBoardCallback`的`onTEBError`和`onTEBWarning` 回调方法内监听白板事件 
+
+- [onTEBError 错误详情](https://cloud.tencent.com/document/product/1137/39985#onteberror)
+- [onTEBWarning 警告详情](https://cloud.tencent.com/document/product/1137/39985#ontebwarning)
+
+```cpp
+/**
+* 白板错误回调
+* 
+* @param code 错误码，参见TEduBoardErrorCode定义
+* @param msg  错误信息，编码格式为 UTF8
+*/
+virtual void onTEBError(TEduBoardErrorCode code,const char* msg)		
+
+/**
+* 白板警告回调
+*
+* @param code 警告码，参见TEduBoardWarningCode定义
+* @param msg  警告信息，编码格式为 UTF8
+*/
+virtual void onTEBWarning(TEduBoardWarningCode code,const char* msg)	
 ```
 
 #### 白板窗口获取及显示
@@ -124,4 +149,3 @@ DestroyTEduBoardController(&boardCtrl);
 #### 步骤4：白板数据同步
 
 白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
-

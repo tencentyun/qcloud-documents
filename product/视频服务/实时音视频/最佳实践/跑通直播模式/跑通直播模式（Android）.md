@@ -5,9 +5,9 @@ TRTC 支持四种不同的进房模式，其中视频通话（VideoCall）和语
 ## 原理解析
 TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口机”和“代理机”：
 - **接口机**
-该类节点都采用最优质的线路和高性能的机器，善于处理端到端的低延时连麦通话，单位时长计费较高。
+该类节点都采用最优质的线路和高性能的机器，善于处理端到端的低延时连麦通话。
 - **代理机**
-该类节点都采用普通的线路和性能一般的机器，善于处理高并发的拉流观看需求，单位时长计费较低。
+该类节点都采用普通的线路和性能一般的机器，善于处理高并发的拉流观看需求。
 
 在直播模式下，TRTC 引入了角色的概念，用户被分成“主播”和“观众”两种角色，“主播”会被分配到接口机上，“观众”则被分配在代理机，同一个房间的观众人数上限为10万人。
 如果“观众”要上麦，需要先切换角色（switchRole）为“主播”才能发言。切换角色的过程也伴随着用户从代理机到接口机的迁移，TRTC 特有的低延时观看技术和平滑上下麦切换技术，可以让整个切换时间变得非常短暂。
@@ -43,7 +43,7 @@ dependencies {
       }
   }
 ```
-3. 单击【Sync Now】同步 SDK。
+3. 单击 **Sync Now** 同步 SDK。
  如果您的网络连接 jcenter 没有问题，SDK 会自动下载集成到工程中。
 
 #### 方式二：下载 ZIP 包手动集成
@@ -105,7 +105,7 @@ public void onError(int errCode, String errMsg, Bundle extraInfo) {
 | sdkAppId | 数字 | 应用 ID，您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。|1400000123 | 
 | userId | 字符串 | 只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。 |test_user_001 | 
 | userSig | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。| eJyrVareCeYrSy1SslI... |
-| roomId | 数字 | 默认不支持字符串类型的房间号，字符串类型的房间号会影响进房速度。如果您确实需要支持字符串类型的房间号，可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。 | 29834 |
+| roomId | 数字 | 数字类型的房间号。如果您想使用字符串形式的房间号，请使用 TRTCParams 中的 strRoomId。 | 29834 |
 
 >!
 >- TRTC 同一时间不支持两个相同的 userId 进入房间，否则会相互干扰。
@@ -142,8 +142,8 @@ mTRTCCloud.startLocalAudio();
  - Smooth：光滑，效果比较明显，类似网红风格。
  - Nature：自然，磨皮算法更多地保留了面部细节，主观感受上会更加自然。
  - Pitu ：仅 [企业版](https://cloud.tencent.com/document/product/647/32689#Enterprise) 才支持。
-3. 主播端调用 [setBeautyLevel()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#a7f388122cf319218b629fb8e192a2730) 可以设置磨皮的级别，一般设置为5即可。
-4. 主播端调用 [setWhitenessLevel()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#aa4e57d02a4605984f4dc6d3508987746) 可以设置美白级别，一般设置为5即可。
+3. 主播端调用 [setBeautyLevel()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#a3931ccd8fa54bb846783ab4d6ca2874b) 可以设置磨皮的级别，一般设置为5即可。
+4. 主播端调用 [setWhitenessLevel()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#ab08c07ce725dbb8769b61fe0c76b0e95) 可以设置美白级别，一般设置为5即可。
 
 
 [](id:step7)

@@ -16,7 +16,7 @@ pip install elasticsearch-curator
 >!示例代码会执行删除操作清除您的数据，请谨慎确认上述语句已经在非生产环境中进行了测试。可以增加 ` --dry-run ` 参数进行测试，避免实际删除数据。
 >
 ```
-curator_cli --host 10.0.0.2:9200 --http_auth 'user:passwd' delete_indices --filter_list '[{"filtertype": "pattern", "kind": "prefix", "value": "logstash-"}, {"filtertype": "age", "source": "name", "direction": "older", "timestring": "%Y.%m.%d", "unit": "days", unit_count: 7}]'
+curator_cli --host 10.0.0.2:9200 --http_auth 'user:passwd' delete-indices --filter_list '[{"filtertype": "pattern", "kind": "prefix", "value": "logstash-"}, {"filtertype": "age", "source": "name", "direction": "older", "timestring": "%Y.%m.%d", "unit": "days", unit_count: 7}]'
 ```
 
 ### 以配置文件方式运行
@@ -27,7 +27,7 @@ curator_cli --config PATH
 ```
 
 ### 定时执行
-如需要定时执行，可以将命令配置到 Linux 系统的 crontab 中，也可以直接使用上面提到的腾讯云无服务器云函数的定时触发功能。
+如需要定时执行，可以将命令配置到 Linux 系统的 crontab 中，也可以直接使用上面提到的腾讯云云函数的定时触发功能。
 
 ### 使用 API
 Python API 的使用可参考 [文档](https://curator.readthedocs.io/en/latest/)。

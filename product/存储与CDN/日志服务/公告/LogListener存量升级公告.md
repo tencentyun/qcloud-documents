@@ -1,11 +1,16 @@
 尊敬的腾讯云用户，您好！
 
-为了提升产品体验，避免存量版本历史遗留问题影响您的业务，建议您尽快将 LogListener 版本实例升级至2.5.0以上，体验日志服务更多新功能，登录 [日志服务控制台](https://console.cloud.tencent.com/cls/hosts) 立即升级，点击了解更多 [LogListener 升级指南](https://cloud.tencent.com/document/product/614/55468)。
+为了提升产品体验，避免存量版本历史遗留问题影响您的业务，建议您尽快将 LogListener 版本实例 [升级至2.5.0以上](https://cloud.tencent.com/document/product/614/17414)。
+
+登录 [日志服务控制台](https://console.cloud.tencent.com/cls/hosts)，体验日志服务更多新功能。
+
 
 LogListener 版本支持新功能如下：
 
-| LogListener 版本 | 功能支持                    | 功能说明                                                     | 相关文档                                                     |
-| --------------- | --------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| LogListener 版本 | 功能支持                    | 功能说明                                 | 相关文档                                 |
+| --------------- | ----------------------- | ------------------------------- | -------------------------------------- |
+| v2.6.2         | 支持增量采集功能 | 支持用户在配置采集配置时，选择全量/增量采集策略。 | -     |
+| v2.6.0         | 支持腾讯云 CVM 批量部署功能 | 支持在云服务器上批量部署 Loglistener 实例，对云服务器日志进行采集，用户无须再手动安装 Loglistener 相关配置。 | -     |
 | v2.5.4          | 支持 LogListener 服务日志功能 | LogListener 服务日志功能支持记录 LogListener 端运行状态和采集监控的日志数据并配置可视化视图，提供重要指标数据。 | [LogListener 服务日志](https://cloud.tencent.com/document/product/614/55281) |
 | v2.5.2          | 支持上传解析失败日志        | 所有解析失败的日志，均以 LogParseFailure 作为键名称（Key），原始日志内容作为值（Value）进行上传。 | -                                                            |
 | v2.5.0          | 支持 LogListener 自动升级功能 | 支持用户在控制台预设时间段指定机器组进行 agent 自动升级，也可对目标机器实行手动升级。 | [LogListener 升级指南](https://cloud.tencent.com/document/product/614/55468) |

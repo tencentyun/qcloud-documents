@@ -1,14 +1,12 @@
 使用 IPsec VPN 建立腾讯云 VPC 到用户 IDC 的连接时，在配置完腾讯云 VPN 网关后，您还需在用户 IDC 本地站点的网关设备中进行 VPN 配置。本文以 Juniper 防火墙为例介绍如何在本地站点中进行 VPN 配置。
 
 >?
-> + 支持 Juniper SRX 系列防火墙以及 vSRX 系列虚拟防火墙。
+> + 支持 Juniper SRX 系列防火墙以及 vSRX 系列虚拟防火墙，所有版本均支持。
 > + 本文所有 IP、接口等参数取值均仅用于举例，请具体配置时，使用实际值进行替换。
 ## 前提条件
 请确保您已经在腾讯云 VPC 内[ 创建 VPN](https://cloud.tencent.com/document/product/554/52861)，并完成 并完成 [VPN 通道配置](https://cloud.tencent.com/document/product/554/52864)。
 
 ## 数据准备
-
-
 本文 IPsec VPN 配置数据举例如下：
 <table>
 <th colspan="3">配置项</th>
@@ -183,10 +181,6 @@ set security ipsec proposal ipsec-proposal-cfgr lifetime-seconds 3600
 # 定义IPSEC阶段生存时间（范围：180～86400）
 set security ipsec policy ipsec-policy-cfgr proposals ipsec-proposal-cfgr
 # 调用之前定义的IPSEC算法定义
-set security ipsec vpn-monitor-options interval 4
-set security ipsec vpn-monitor-options threshold 3
-set security ipsec vpn ipsec-vpn-cfgr vpn-monitor
-# 以上3项建议配置，设置通道状态监控参数以及调用（实例设置为4s一次ping间隔，3次丢失判断通道异常）可根据实际情况选择阈值。
 :::
 </dx-codeblock>
 6. 应用 IPsec 策略。
@@ -325,10 +319,6 @@ set security ipsec vpn ipsec-vpn-cfgr ike proxy-identity remote 10.1.1.0/24
 #设置 TS（Traffic Selector）或者 SPD 配置，默认为0.0.0.0/0，如果对端也指定了网段，则需要和对端匹配
 set security ipsec vpn ipsec-vpn-cfgr bind-interface st0.0
 # 绑定 VPN 通道接口
-set security ipsec vpn-monitor-options interval 4
-set security ipsec vpn-monitor-options threshold 3
-set security ipsec vpn ipsec-vpn-cfgr vpn-monitor
-# 以上3项为建议配置，设置通道状态监控参数以及调用（实例设置为4s一次 ping 间隔，3次丢失判断通道异常）可根据实际情况选择阈值
 :::
 </dx-codeblock>
 6. 应用 IPsec 策略。

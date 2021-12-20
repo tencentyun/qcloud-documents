@@ -49,7 +49,7 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
    <tr>
       <td>Uploader 插件</td>
       <td>Web</td>
-      <td>Chrome浏览器</td>
+      <td>Chrome 浏览器</td>
       <td><a href="https://chrome.google.com/webstore/detail/cosbrowser-uploader/mggpkimgmmdbdbakdkaebhjhgomcmlnd">应用商店</a>/<a href="https://cos5.cloud.tencent.com/cosbrowser/latest-chrome.zip">离线下载</a></td>
    </tr>
 </table>
@@ -83,41 +83,23 @@ COSBrowser 桌面端支持以下功能：
 | [新建文件夹](https://cloud.tencent.com/document/product/436/38103#newfolder) | 支持在存储桶中新建文件夹                                     |
 | [查看文件详情](https://cloud.tencent.com/document/product/436/38103#view) | 支持查看存储桶中的文件基本信息                               |
 | [生成文件链接](https://cloud.tencent.com/document/product/436/38103#generatelinks) | 支持通过请求临时签名的方式生成带有时效的文件访问链接         |
+| [文件/文件夹分享](https://cloud.tencent.com/document/product/436/38103#share) | 支持分享文件和文件夹，支持设置分享的有效时间         |
+| [导出文件 URL](https://cloud.tencent.com/document/product/436/38103#export) | 支持批量导出文件 URL         |
 | [文件预览](https://cloud.tencent.com/document/product/436/38103#preview) | 支持预览存储桶中的媒体文件（图片、视频、音频）               |
 | [搜索文件](https://cloud.tencent.com/document/product/436/38103#searchfile) | 支持以前缀搜索的方式对存储桶中的文件进行搜索                 |
 | [搜索存储桶](https://cloud.tencent.com/document/product/436/38103#searchbuckete) | 支持搜索已创建的存储桶                                       |
-| [查看历史版本/文件碎片](https://cloud.tencent.com/document/product/436/38103#viewfiles) | <li>支持在已开启版本控制的存储桶中，查看文件的历史版本<br><li>支持查看存储桶内的文件碎片详情           |
+| [查看历史版本或文件碎片](https://cloud.tencent.com/document/product/436/38103#viewfiles) | <li>支持在已开启版本控制的存储桶中，查看文件的历史版本<br><li>支持查看存储桶内的文件碎片详情           |
 | [设置网络代理](https://cloud.tencent.com/document/product/436/38103#sets) | 支持设置网络代理来访问 COS                                   |
 | [设置传输并发数](https://cloud.tencent.com/document/product/436/38103#sets) | 支持设置文件上传、下载的传输并发数                           |
 | [设置传输分块数](https://cloud.tencent.com/document/product/436/38103#sets) | 支持设置文件分块上传、下载的分块数                           |
 | [设置传输失败重试数](https://cloud.tencent.com/document/product/436/38103#sets) | 支持设置文件上传、下载失败时的重试次数                       |
 | [设置上传二次校验](https://cloud.tencent.com/document/product/436/38103#sets) | 支持对上传至存储桶中的文件进行二次校验                       |
-| [设置上传计算 md5](https://cloud.tencent.com/document/product/436/38103#sets) | 支持对上传至存储桶中的文件计算其 md5 并添加至自定义的 Headers |
+| [设置单线程限速](https://cloud.tencent.com/document/product/436/38103#sets) | 支持设置单线程上传限速和下载限速 |
 | [查看本地日志](https://cloud.tencent.com/document/product/436/38103#sets) | 支持将用户对 COSBrowser 的操作记录以本地日志的形式保存       |
 
 ## 移动端功能列表
 
-COSBrowser 移动端注重对资源的查看及监控，用户可以随时随地监控 COS 的存储量、流量等数据。
-
-COSBrowser 移动端支持以下功能：
-
-| 操作名                                                       | 操作描述                                                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [快捷登录](https://cloud.tencent.com/document/product/436/38105#dulu) | 支持微信快捷登录                                             |
-| [数据概览](https://cloud.tencent.com/document/product/436/38105#dateview) | 支持展示近期的数据使用情况                                   |
-| [文件批量操作](https://cloud.tencent.com/document/product/436/38105#filebatch) | 支持批量上传、下载、删除、复制、移动存储桶中的文件           |
-| [分享上传](https://cloud.tencent.com/document/product/436/38105#shareupload) | 支持从第三方软件中分享上传文件至存储桶                       |
-| [文件重命名](https://cloud.tencent.com/document/product/436/38105#rename) | 支持重命名存储桶中的文件                                     |
-| [新建文件夹](https://cloud.tencent.com/document/product/436/38105#newfolder) | 支持在存储桶中新建文件夹                                     |
-| [查看文件详情](https://cloud.tencent.com/document/product/436/38105#view) | 支持查看存储桶中的文件基本信息                               |
-| [文件预览](https://cloud.tencent.com/document/product/436/38105#filepreview) | 支持预览存储桶中的媒体文件（图片、视频、音频）               |
-| [生成文件链接](https://cloud.tencent.com/document/product/436/38105#generatelinks) | 支持通过请求临时签名的方式，生成带有时效的文件访问链接       |
-| [搜索文件](https://cloud.tencent.com/document/product/436/38105#searchfile) | 支持以前缀搜索的方式对存储桶中的文件进行搜索                 |
-| [搜索存储桶](https://cloud.tencent.com/document/product/436/38105#searchbuckete) | 支持搜索已创建的存储桶                                       |
-| [查看存储桶详情](https://cloud.tencent.com/document/product/436/38105#viewbucket) | 支持查看存储桶的基本信息和域名信息                             |
-| [创建存储桶](https://cloud.tencent.com/document/product/436/38105#createbucket) | 支持创建新的存储桶                                           |
-| [添加访问路径](https://cloud.tencent.com/document/product/436/38105#addaccess) | 支持无访问存储桶列表权限的子账号，通过添加访问路径的方式进入存储桶管理资源 |
-| [查看资源包详情](https://cloud.tencent.com/document/product/436/38105#package)          | 支持查看您当前资源包的使用情况                          |
+COSBrowser 移动端注重对资源的查看及监控，用户可以随时随地监控 COS 的存储量、流量等数据。关于 COSBrowser 移动端所支持的功能，请参见 [移动端功能列表](https://cloud.tencent.com/document/product/436/38105)。
 
 ## 更新日志
 

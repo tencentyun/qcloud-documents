@@ -12,14 +12,14 @@
 1) 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1) 。
 2) 单击私有网络列表页的 ID/名称（如：vpc-xxxxx）。
 ![](//mc.qcloudimg.com/static/img/33830d9c88d9cb332b1ce148588cdbf5/image.png)
-3) 在私有网络详情页，选择数据库目录下的 **MySQL**，单击右侧【添加】。
+3) 在私有网络详情页，选择数据库目录下的 **MySQL**，单击右侧**添加**。
 ![](//mc.qcloudimg.com/static/img/6b93fb0bc0ea4937a77ce77564934ed5/image.png)
 4) 选择购买配置，完成系列支付操作。相关详情请参见 [数据库MySQL](/doc/product/236/5147)。
 5) 购买的 MySQL 将出现在 MySQL 实例列表中。
 ![](//mc.qcloudimg.com/static/img/d5d50b0f9406856b875ba1171e7e8a1f/image.png)
-6) 初始化 MySQL 实例。单击右侧 **操作** 栏下的【初始化】。
+6) 初始化 MySQL 实例。单击右侧 **操作** 栏下的**初始化**。
 ![](//mc.qcloudimg.com/static/img/2f548123653b1b80b90bd61c74ac495f/image.png)
-7) 配置初始化相关参数，然后单击【确定】开始初始化。
+7) 配置初始化相关参数，然后单击**确定**开始初始化。
  - **支持字符集**：选择 MySQL 数据库支持的字符集。
  - **表名大小写敏感**：表名是否大小写敏感，默认为是。
  - **自定义端口**：数据库的访问端口，默认为 3306。
@@ -32,7 +32,7 @@
 
 ### 第二步：创建使用 CDB 的 WordPress 服务
 1) 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/ccs) 。
-2) 单击左侧导航栏中的【服务】，单击服务列表页的【+ 新建】。
+2) 单击左侧导航栏中的**服务**，单击服务列表页的**+ 新建**。
 ![](//mc.qcloudimg.com/static/img/11f7f75d7b051a815da8bfe1e744a8e8/image.png)
 3) 设置服务的基本信息。
  - **服务名称**：要创建的服务的名称。服务名称由小写字母、数字和 - 组成，且由小写字母开头，小写字母或数字结尾。
@@ -47,7 +47,7 @@
  - **版本（Tag）**：填写 latest。
 ![](//mc.qcloudimg.com/static/img/b5c035081625c15a1dcbdf0a3cabf6a7/image.png)
 
-5) 单击运行容器下的 【显示高级设置】，在弹出的下拉列表中，单击环境变量下的【新增变量】。依次填写：
+5) 单击运行容器下的 **显示高级设置**，在弹出的下拉列表中，单击环境变量下的**新增变量**。依次填写：
 WORDPRESS_DB_HOST = 云数据库 MySQL 的地址
 WORDPRESS_DB_PASSWORD = 初始化时填写的密码
 ![](//mc.qcloudimg.com/static/img/6508b3858d0bba46510a81279aad2e15/image.png)
@@ -61,9 +61,9 @@ WORDPRESS_DB_PASSWORD = 初始化时填写的密码
 
 ## 访问 WordPress 服务
 1) 提供三种方式访问 WordPress 服务。
- - 通过**负载均衡 IP**来访问 WordPress 服务。单击服务页面的【服务信息】查看负载均衡 IP和负载均衡ID。 
+ - 通过**负载均衡 IP**来访问 WordPress 服务。单击服务页面的**服务信息**查看负载均衡 IP和负载均衡ID。 
 ![](//mc.qcloudimg.com/static/img/f92f30a3360c46ac0e6e76d045f4484f/image.png) 
- - 通过 **域名** 来访问 WordPress 服务。在容器服务控制台左侧导航栏中，单击【负载均衡】，单击【TCP/UDP】，找到对应的负载均衡ID，复制域名访问服务。
+ - 通过 **域名** 来访问 WordPress 服务。在容器服务控制台左侧导航栏中，单击**负载均衡**，单击**TCP/UDP**，找到对应的负载均衡ID，复制域名访问服务。
  - 集群内的其他服务或容器可以直接通过服务名称访问。
  
 2) 进入 WordPress 服务器的默认欢迎页。

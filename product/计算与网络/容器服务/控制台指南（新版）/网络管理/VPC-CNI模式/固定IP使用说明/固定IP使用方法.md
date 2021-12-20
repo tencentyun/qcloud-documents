@@ -20,10 +20,10 @@
 ### 创建集群选择固定 IP 模式的 VPC-CNI
 >? 使用此方式启用 VPC-CNI，通过控制台或通过 yaml 创建工作负载，Pod 均默认使用弹性网卡。
 >
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击左侧导航栏中【集群】。
-2. 在“集群管理”页面，单击集群列表上方的【新建】。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击左侧导航栏中**集群**。
+2. 在“集群管理”页面，单击集群列表上方的**新建**。
 3. 在“创建集群”页面，在容器网络插件中选择 “VPC-CNI”。
-4. 选择“容器网络插件”为【VPC-CNI】，并勾选“开启支持”固定 Pod IP 即可。如下图所示：
+4. 选择“容器网络插件”为**VPC-CNI**，并勾选“开启支持”固定 Pod IP 即可。如下图所示：
 ![](https://main.qcloudimg.com/raw/f36911bf904ebd35867e24e3b6bb6bb1.png)
 
 
@@ -33,16 +33,16 @@
 - 为 GlobalRouter 模式附加固定 IP VPC-CNI 模式即创建集群时选择 Global Router 网络插件，后续在集群基本信息页面开启 VPC-CNI 模式（两种模式默认混用）。
 - 使用此方式启用 VPC-CNI，Pod 默认不使用弹性网卡。
 >
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，单击左侧导航栏中【集群】。
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，单击左侧导航栏中**集群**。
 2. 在“集群管理”页面，选择需开启 VPC-CNI 的集群 ID，进入集群详情页。
-3. 在集群详情页面，选择左侧【基本信息】。
+3. 在集群详情页面，选择左侧**基本信息**。
 4. 在集群“基本信息”页面的集群信息模块，在 VPC-CNI 字段中单击开启。
 5. 在弹出窗口中选择子网，并确认 IP 回收策略。如下图所示：
 ![](https://main.qcloudimg.com/raw/cda22252025915b5bb264570c924958a.png)
 >! 
 >- 针对固定 IP 场景，启用 VPC-CNI 后需要设置 IP 回收策略，即设置 Pod 销毁后需要退还 IP 的时长。
 >- 非固定 IP 的 Pod 销毁后可立即释放 IP（非释放回 VPC，释放回容器管理的 IP 池），不受此设置的影响。
-6. 单击【提交】，即可完成为已有集群开启 VPC-CNI。
+6. 单击**提交**，即可完成为已有集群开启 VPC-CNI。
 
 
 #### 创建固定 Pod IP 类型 StatefulSet
@@ -57,16 +57,16 @@
 >
 您可通过以下两种方法创建固定 IP：
 - 通过控制台创建固定 IP 类型 StatefulSet
- 1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，单击左侧导航栏中【集群】。
+ 1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，单击左侧导航栏中**集群**。
  2. 选择需要使用固定 IP 模式的集群 ID 名称，进入该集群的管理页面。
- 3. 选择【工作负载】>【StatefulSet】，进入【StatefulSet】的集群管理页面。
- 4. 单击【新建】，查看【实例数量】。如下图所示：
+ 3. 选择**工作负载** > **StatefulSet**，进入**StatefulSet**的集群管理页面。
+ 4. 单击**新建**，查看**实例数量**。如下图所示：
    ![](https://main.qcloudimg.com/raw/2dbd219d6bd76b8fe90971390daacc3c.png)
- 5. 单击【显示高级设置】，根据您实际需求，设置【StatefulSet】参数。关键参数信息如下：
+ 5. 单击**显示高级设置**，根据您实际需求，设置**StatefulSet**参数。关键参数信息如下：
    ![创建StatefulSet](https://main.qcloudimg.com/raw/2a5bf4e7b3e5c85c62fef2b7b09e02f3.png)
-   - 网络模式：勾选【使用 VPC-CNI 模式】。
+   - 网络模式：勾选**使用 VPC-CNI 模式**。
       - IP 地址范围：目前仅支持随机。
-      - 固定 Pod IP：选择【开启】。
+      - 固定 Pod IP：选择**开启**。
 
 - 通过 Yaml 创建
 ```yaml

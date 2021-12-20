@@ -1,7 +1,7 @@
 ## 注意事项
 - **前置条件：**确保 Access Token 已经正常获取，获取方式见 Access Token 获取。
-- NONCE ticket 是合作方 前端包含 App 和 H5 等 生成签名鉴权参数之一，启动 H5 或 SDK 人脸核身。
-- API ticket 的 NONCE 类型，其有效期为 120秒，且一次性有效, 即每次启动 SDK 刷脸都要重新请求 NONCE ticket。
+- **用途**：NONCE ticket 是合作方 前端包含 App 和 H5 等 生成签名鉴权参数之一，启动 H5 或 SDK 人脸核身。
+- API ticket 的 NONCE 类型，其有效期为120秒，且一次性有效, 即每次启动 SDK 刷脸都要重新请求 NONCE ticket。
 
 ## 请求
 - **请求 URL：**`https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket`	
@@ -17,7 +17,7 @@
 </tbody></table>
 - **请求示例：**
 ```
-https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket?app_id=xxx&access_token=
+https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=NONCE&version=1.0.0&user_id=xxx
 ```
 
 ## 响应

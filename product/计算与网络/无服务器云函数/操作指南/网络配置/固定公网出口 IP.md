@@ -12,12 +12,14 @@
 - 弹性公网 IP 基于私有网络的子网共享。
  某个云函数配置了私有网络，且同时开启了固定公网出口 IP 功能，则该云函数会获得一个随机分配的弹性公网 IP。同一私有网络子网下的云函数在开启固定出口 IP 功能时，会共享此固定出口 IP。
 
+#### 示例
 为了便于您理解固定公网出口 IP 的使用限制，以下为您进行一个简单的示例说明。
->?假设您的账号在某地域有如下场景：
-> - 命名空间 A 下已创建了云函数 a 和云函数 b。
-> - 命名空间 B 下已创建了云函数 c 和云函数 d。
-> - 弹性公网 IP-x、弹性公网 IP-y 和弹性公网 IP-z 分别表示三个不同的弹性公网 IP。
-> 
+
+假设您的账号在某地域有如下场景：
+- 命名空间 A 下已创建了云函数 a 和云函数 b。
+- 命名空间 B 下已创建了云函数 c 和云函数 d。
+- 弹性公网 IP-x、弹性公网 IP-y 分别表示两个不同的弹性公网 IP。
+ 
 它们的弹性公网 IP 和云函数的绑定关系如下表所示：
 <table>
 <tr><th rowspan=2 align="center"><b>网络配置</b></th><th colspan=2 align="center"><b>命名空间 A</b></th><th colspan=2  align="center"><b>命名空间 B</b></th></tr>
@@ -42,29 +44,29 @@
 	<td>公网访问且固定公网出口 IP </td>
 	<td>弹性公网 IP-x</td>
 	<td>弹性公网 IP-x </td>
-	<td>弹性公网 IP-y </td>
-	<td>弹性公网 IP-y</td>
+	<td>弹性公网 IP-x </td>
+	<td>弹性公网 IP-x</td>
 	</tr>
 			<tr>
 	<td>同一私有网络访问且固定公网出口 IP </td>
-	<td>弹性公网 IP-z</td>
-	<td>弹性公网 IP-z</td>
-	<td>弹性公网 IP-z </td>
-	<td>弹性公网 IP-z</td>
+	<td>弹性公网 IP-y</td>
+	<td>弹性公网 IP-y</td>
+	<td>弹性公网 IP-y </td>
+	<td>弹性公网 IP-y</td>
 	</tr>
 </table>
 
 ## 操作步骤
->!每个用户在每个地域固定 IP 限额为5个，如有更高需求可以通过 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=668&source=0&data_title=%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BA%91%E5%87%BD%E6%95%B0%20SCF&step=1) 申请提升配额。
+>!每个用户在每个地域固定 IP 限额为5个。
 >
-1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=19)，单击左侧导航栏中的【函数服务】。
+1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=19)，单击左侧导航栏中的**函数服务**。
 2. 在页面上方选择云函数所在地域，单击函数名。
-3. 进入“函数配置”页签，单击右上角的【编辑】。
+3. 进入“函数配置”页签，单击右上角的**编辑**。
 4. 根据您的实际需求，进行该云函数的网络配置。如下图所示：
 >!
 >- 云函数开启公网访问后，才可选择开启固定公网出口 IP。
 >- 您无法手动选择或编辑随机生成的弹性公网 IP。
 >
 ![](https://main.qcloudimg.com/raw/adedb9d862ec5d22a9df64b8ffdb2a01.png)
-配置完成后，单击【保存】即可。
+配置完成后，单击**保存**即可。
 

@@ -1,10 +1,10 @@
-**功能**
+__功能__
 
 腾讯云直播的推流的回调通知。
 
 **介绍**
 
-可以接收 [V2TXLivePusher](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html) 播放器的一些推流通知，包括推流器连接状态、音视频首帧回调、统计数据、警告和错误信息等。
+可以接收 [V2TXLivePusher](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html) 推流器的一些推流通知，包括推流器连接状态、音视频首帧回调、统计数据、警告和错误信息等。
 
 
 ## SDK 基础回调
@@ -31,7 +31,7 @@
 ```
 - (void)onWarning:(V2TXLiveCode)code message:(NSString *)msg extraInfo:(NSDictionary *)extraInfo
 ```
-
+ 
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -92,6 +92,7 @@
 
 自定义视频处理回调。
 >? 调用 `V2TXLivePusher#enableCustomVideoProcess:(BOOL)enable pixelFormat:(V2TXLivePixelFormat)pixelFormat bufferType:(V2TXLiveBufferType)bufferType` 开启自定义视频处理后，会收到这个回调通知。
+
 ```
 - (void)onProcessVideoFrame:(V2TXLiveVideoFrame * _Nonnull)srcFrame dstFrame:(V2TXLiveVideoFrame * _Nonnull)dstFrame
 ```

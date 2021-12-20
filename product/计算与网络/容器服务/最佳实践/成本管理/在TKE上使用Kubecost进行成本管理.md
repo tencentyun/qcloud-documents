@@ -175,8 +175,8 @@ kubectl get pods -n kubecost -o wide
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster)。
 2. 单击对应的集群 ID/名称，进入集群管理页面。
-3. 单机【服务和路由】>【Service】进入 Service 页面。
-4. 找到您想要更改的 Service，在其右侧操作栏下单击【更改访问方式】进入更新访问方式页面。
+3. 单机**服务和路由** > **Service**进入 Service 页面。
+4. 找到您想要更改的 Service，在其右侧操作栏下单击**更新访问方式**进入更新访问方式页面。
 ![](https://main.qcloudimg.com/raw/7949fd01702d5f779cb2ccb00b6efe3a.jpg)
 5. service cost-analyzer-cost-analyzer 的访问方式为负载均衡方式，更新服务访问方式之后会得到一个公网 IPv4 地址，便可在公网进行访问。
  - 访问地址：` http://[服务公网地址]:9090`

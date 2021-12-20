@@ -1,4 +1,3 @@
-## Spark Streaming 简介
 Spark Streaming 是 Spark Core 的一个扩展，用于高吞吐且容错地处理持续性的数据，目前支持的外部输入有 Kafka、Flume、HDFS/S3、Kinesis、Twitter 和 TCP socket。
 ![Alt text](https://mc.qcloudimg.com/static/img/b95ad071d2273bde7b9d8b64894c7ce6/111.png)
 
@@ -7,63 +6,76 @@ Spark Streaming 将连续数据抽象成 DStream（Discretized Stream），而 D
 
 使用 Spark Streaming 作为 Kafka 的数据输入时，可支持 Kafka 稳定版本与实验版本：
 
-| Kafka Version | spark-streaming-kafka-0.8 |   spark-streaming-kafka-0.10   |
-| :-------- | :--------| :------|
-| Broker Version	| 0.8.2.1 or higher |	0.10.0 or higher |
-| Api Stability	| Stable |	Experimental |
-| Language Support	| Scala、Java、Python |	Scala、Java |
-| Receiver DStream	| Yes	| No |
-| Direct DStream	| Yes	| Yes |
-| SSL / TLS Support	| No	| Yes |
-| Offset Commit Api	| No |	Yes |
-| Dynamic Topic Subscription |	No|	Yes|
+| Kafka Version              | spark-streaming-kafka-0.8 | spark-streaming-kafka-0.10 |
+| :------------------------- | :------------------------ | :------------------------- |
+| Broker Version             | 0.8.2.1 or higher         | 0.10.0 or higher           |
+| Api Maturity               | Deprecated                | Stable                     |
+| Language Support           | Scala、Java、Python       | Scala、Java                |
+| Receiver DStream           | Yes                       | No                         |
+| Direct DStream             | Yes                       | Yes                        |
+| SSL / TLS Support          | No                        | Yes                        |
+| Offset Commit Api          | No                        | Yes                        |
+| Dynamic Topic Subscription | No                        | Yes                        |
 
 
-目前 CKafka 支持 0.9.0.x、0.10.0.x、0.10.1.x、0.10.2.x 版本，本次实践使用 0.10.2.1 版本的 Kafka 依赖。
+目前 CKafka 兼容 0.9及以上的版本，本次实践使用 0.10.2.1 版本的 Kafka 依赖。
 
 此外，EMR 中的 Spark Streaming 也支持直接对接 CKafka，详见 [SparkStreaming 对接 CKafka 服务](https://cloud.tencent.com/document/product/589/12305)。
 
-## Spark Streaming 接入 CKafka
+## 操作步骤
 
-### 申请 CKafka 实例
-登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)，创建一个 CKafka 实例（参考 [创建实例](https://cloud.tencent.com/document/product/597/30931)）。
->?确认网络类型是否与当前使用网络相符。
+### 步骤1：获取 CKafka 实例接入地址
 
-![](https://main.qcloudimg.com/raw/41cdd13de9e1fe2f602f9e66daf46da7.png)
+1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
+2. 在左侧导航栏选择**实例列表**，单击实例的“ID”，进入实例基本信息页面。
+3. 在实例的基本信息页面的**接入方式**模块，可获取实例的接入地址，接入地址是生产消费需要用到的 bootstrap-server。
+   ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
 
-### 创建 Topic
-在实例下创建一个 Topic（参考 [创建 Topic](https://cloud.tencent.com/document/product/597/40415)）。
-![](https://main.qcloudimg.com/raw/175cc4f3defcb58ef5e7166d07b929f5.png)
-内网 IP 与端口：是生产消费需要用到的 bootstrap-server。
-这里创建了一个名为 spark_test 的 Topic，接下来将以该 Topic 为例介绍如何生产消费。
+### 步骤2：创建 Topic
 
-### 云服务器环境
+1. 在实例基本信息页面，选择顶部**Topic管理**页签。
+2. 在 Topic 管理页面，单击**新建**，创建一个名为 test 的 Topic，接下来将以该 Topic 为例介绍如何生产消费。
+   ![](https://main.qcloudimg.com/raw/3576875138eb4447622571433312907f.png)
+
+
+
+### 步骤3：准备云服务器环境
+
 **Centos6.8 系统**
 
-| package  | version | 
-| :-------- | :--------| 
-| sbt    |   0.13.16 |  
-| hadoop | 2.7.3 |
-| spark | 2.1.0 |
-| protobuf | 2.5.0 |
-| ssh | CentOS 默认安装 |
-| Java | 1.8 |
+| package  | version         |
+| :------- | :-------------- |
+| sbt      | 0.13.16         |
+| hadoop   | 2.7.3           |
+| spark    | 2.1.0           |
+| protobuf | 2.5.0           |
+| ssh      | CentOS 默认安装 |
+| Java     | 1.8             |
 
-### 向 CKafka 中生产
-目前 CKafka 支持 0.9.0.x、0.10.0.x、0.10.1.x、0.10.2.x 版本。这里使用 0.10.2.1 版本的 Kafka 依赖。
-1. 在`build.sbt`添加依赖：
+具体安装步骤参考 [配置环境](#配置环境)。
+
+### 步骤4：对接 CKafka
+
+<dx-tabs>
+:::向\sCKafka\s中生产消息
+
+这里使用 0.10.2.1 版本的 Kafka 依赖。
+
+1. 在 `build.sbt` 添加依赖：
+
 ```scala
 name := "Producer Example"
 version := "1.0"
 scalaVersion := "2.11.8"
 libraryDependencies += "org.apache.kafka" % "kafka-clients" % "0.10.2.1"
 ```
-2. 配置`producer_example.scala`：
-<dx-codeblock>
-:::  scala
-import java.util.Properties
-import org.apache.kafka.clients.producer._
-object ProducerExample extends App {
+
+2. 配置 `producer_example.scala`：
+   <dx-codeblock>
+   :::  scala
+   import java.util.Properties
+   import org.apache.kafka.clients.producer._
+   object ProducerExample extends App {
     val  props = new Properties()
     props.put("bootstrap.servers", "172.16.16.12:9092") //实例信息中的内网 IP 与端口
 
@@ -73,22 +85,29 @@ object ProducerExample extends App {
     val producer = new KafkaProducer[String, String](props)
     val TOPIC="test"  //指定要生产的 Topic
     for(i<- 1 to 50){
-	        val record = new ProducerRecord(TOPIC, "key", s"hello $i") //生产 key 是"key",value 是 hello i 的消息
-	        producer.send(record)
+           val record = new ProducerRecord(TOPIC, "key", s"hello $i") //生产 key 是"key",value 是 hello i 的消息
+           producer.send(record)
     }
     val record = new ProducerRecord(TOPIC, "key", "the end "+new java.util.Date)
     producer.send(record)
     producer.close() //最后要断开
-}
-:::
-</dx-codeblock>
+   }
+   :::
+   </dx-codeblock>
+
 
 更多有关 ProducerRecord 的用法请参考 [ProducerRecord](https://kafka.apache.org/0100/javadoc/org/apache/kafka/clients/producer/ProducerRecord.html) 文档。
 
-### 从 CKafka 消费
+:::
+
+:::从\sCKafka\s消费消息
+
 <span id="build.sbt"></span>
+
 #### DirectStream
-1. 在`build.sbt`添加依赖：
+
+1. 在 `build.sbt` 添加依赖：
+
 ```scala
 name := "Consumer Example"
 version := "1.0"
@@ -98,7 +117,8 @@ libraryDependencies += "org.apache.spark" %% "spark-streaming" % "2.1.0"
 libraryDependencies += "org.apache.spark" %% "spark-streaming-kafka-0-10" % "2.1.0"
 ```
 
-2. 配置`DirectStream_example.scala`：
+2. 配置 `DirectStream_example.scala`：
+
 ```scala
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.common.serialization.StringDeserializer
@@ -163,9 +183,12 @@ object Kafka {
 }
 ```
 
+
 #### RDD
+
 1. 配置`build.sbt`（配置同上，[单击查看](#build.sbt)）。
 2. 配置`RDD_example`：
+
 ```scala
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.common.serialization.StringDeserializer
@@ -208,10 +231,17 @@ object Kafka {
     }
 }
 ```
-更多`kafkaParams`用法参考 [kafkaParams](http://kafka.apache.org/documentation.html#newconsumerconfigs) 文档。
 
-### 配置环境
+更多 `kafkaParams` 用法参考 [kafkaParams](http://kafka.apache.org/documentation.html#newconsumerconfigs) 文档。
+
+:::
+
+</dx-tabs>
+
+### 配置环境[](id:配置环境)
+
 #### 安装 sbt
+
 1. 在 [sbt 官网](http://www.scala-sbt.org/download.html) 上下载 sbt 包。
 2. 解压后在 sbt 的目录下创建一个 sbt_run.sh 脚本并增加可执行权限，脚本内容如下：
 ```bash
@@ -221,15 +251,17 @@ java $SBT_OPTS -jar `dirname $0`/bin/sbt-launch.jar "$@"
 ```
  ```bash
 chmod u+x ./sbt_run.sh
-```
-
+ ```
+ 
 3. 执行以下命令。
 ```bash
 ./sbt-run.sh sbt-version
 ```
+
 若能看到 sbt 版本说明可以正常运行。
 
 #### 安装 protobuf
+
 1. 下载 [protobuf](https://github.com/google/protobuf/releases) 相应版本。
 2. 解压后进入目录。
 ```bash
@@ -237,29 +269,35 @@ chmod u+x ./sbt_run.sh
 make && make install
 ```
  需要预先安装 gcc-g++，执行中可能需要 root 权限。
+
 3. 重新登录，在命令行中输入下述内容。
 ```bash
 protoc --version
 ```
+
 4. 若能看到 protobuf 版本说明可以正常运行。
 
 #### 安装 Hadoop
+
 1. 访问 [Hadoop 官网](http://hadoop.apache.org/releases.html) 下载所需要的版本。
 2. 增加 Hadoop 用户。
 ```bash
 useradd -m hadoop -s /bin/bash
 ```
+
 3. 增加管理员权限。
 ```bash
 visudo
 ```
+
 4. 在`root ALL=(ALL) ALL`下增加一行。
-`hadoop ALL=(ALL) ALL`
-保存退出。
+   `hadoop ALL=(ALL) ALL`
+   保存退出。
 5. 使用 Hadoop 进行操作。
 ```bash
 su hadoop
 ```
+
 6. SSH 无密码登录。
 ```bash
 cd ~/.ssh/                     # 若没有该目录，请先执行一次ssh localhost
@@ -267,10 +305,12 @@ ssh-keygen -t rsa              # 会有提示，都按回车就可以
 cat id_rsa.pub >> authorized_keys  # 加入授权
 chmod 600 ./authorized_keys    # 修改文件权限
 ```
+
 7. 安装 Java。
 ```bash
 sudo yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel
 ```
+
 8. 配置 ${JAVA_HOME}。
 ```bash
 vim /etc/profile
@@ -281,11 +321,13 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jr
 export PATH=$PATH:$JAVA_HOME
 ```
  根据安装情况修改对应路径。
+
 9. 解压 Hadoop，进入目录。
 ```bash
 ./bin/hadoop version
 ```
  若能显示版本信息说明能正常运行。
+
 10. 配置单机伪分布式（可根据需要搭建不同形式的集群）。
 ```bash
 vim /etc/profile
@@ -296,22 +338,28 @@ export HADOOP_HOME=/usr/local/hadoop
 export PATH=$HADOOP_HOME/bin:$PATH
 ```
  根据安装情况修改对应路径。
-11. 修改`/etc/hadoop/core-site.xml`。
-```xml
-<configuration>
-    <property>
-        <name>hadoop.tmp.dir</name>
-        <value>file:/usr/local/hadoop/tmp</value>
-        <description>Abase for other temporary directories.</description>
-    </property>
-    <property>
-        <name>fs.defaultFS</name>
-        <value>hdfs://localhost:9000</value>
-    </property>
+
+11. 修改 `/etc/hadoop/core-site.xml`。
+<dx-codeblock>
+:::  xml
+<configuration>    
+	<property>       
+		<name>hadoop.tmp.dir</name>       
+		<value>file:/usr/local/hadoop/tmp</value>
+		<description>Abase for other temporary directories.</description>
+	</property>    
+	<property>        
+		<name>fs.defaultFS</name>
+		<value>hdfs://localhost:9000</value> 
+	</property>
 </configuration>
-```
-12. 修改`/etc/hadoop/hdfs-site.xml`。
-```xml
+:::
+</dx-codeblock>
+
+
+12. 修改 `/etc/hadoop/hdfs-site.xml`。
+<dx-codeblock>
+:::  xml
 <configuration>
     <property>
         <name>dfs.replication</name>
@@ -326,26 +374,33 @@ export PATH=$HADOOP_HOME/bin:$PATH
         <value>file:/usr/local/hadoop/tmp/dfs/data</value>
     </property>
 </configuration>
-```
-13. 修改`/etc/hadoop/hadoop-env.sh`中的 JAVA_HOME 为Java 的路径。
+:::
+</dx-codeblock>
+
+
+13. 修改 `/etc/hadoop/hadoop-env.sh` 中的 JAVA_HOME 为 Java 的路径。
 ```vim
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre
 ```
+
 14. 执行 NameNode 格式化。
 ```bash
 ./bin/hdfs namenode -format
 ```
  显示`Exitting with status 0`则表示成功。
+
 15. 启动 Hadoop。
 ```bash
 ./sbin/start-dfs.sh
 ```
-成功启动会存在`NameNode`进程，`DataNode`进程，`SecondaryNameNode`进程。
+成功启动会存在 `NameNode` 进程，`DataNode` 进程，`SecondaryNameNode` 进程。
 
 #### 安装 Spark
+
 访问 [Spark 官网](http://spark.apache.org/downloads.html) 下载所需要的版本。
 因为之前安装了 Hadoop，所以选择使用 *Pre-build with user-provided Apache Hadoop*。
-**本示例同样使用`hadoop`用户进行操作**。
+>?本示例同样使用 `hadoop` 用户进行操作。
+
 1. 解压进入目录。
 2. 修改配置文件。
 ```bash
@@ -357,9 +412,11 @@ vim ./conf/spark-env.sh
 export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
 ```
  根据 hadoop 安装情况修改路径。
+
 3. 运行示例。
 ```bash
 bin/run-example SparkPi
 ```
+
  若成功安装可以看到程序输出 π 的近似值。
 

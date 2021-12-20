@@ -2,8 +2,11 @@
 本文档介绍如何在腾讯云云服务器（CVM）上手动部署 Node.js 环境，并创建示例项目。
 
 进行手动搭建 Node.js 环境，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件使用、配置和兼容性比较了解。
->!腾讯云建议您可以通过云市场的镜像环境部署 Node.js 环境，手动搭建 Node.js 环境可能需要较长的时间。具体步骤可参考 [镜像部署 Node.js 环境](https://cloud.tencent.com/document/product/213/38236)。
->
+<dx-alert infotype="explain" title="">
+腾讯云建议您可以通过云市场的镜像环境部署 Node.js 环境，手动搭建 Node.js 环境可能需要较长的时间。具体步骤可参考 [镜像部署 Node.js 环境](https://cloud.tencent.com/document/product/213/38236)。
+</dx-alert>
+
+
 
 ## 示例软件版本
 本文搭建 Node.js 环境使用软件版本及组成说明如下：
@@ -26,8 +29,9 @@
 ```
 wget https://nodejs.org/dist/v10.16.3/node-v10.16.3-linux-x64.tar.xz
 ```
->?您可前往 [Node.js 官网](https://nodejs.org/zh-cn/download/) 获取更多安装信息。
->
+<dx-alert infotype="explain" title="">
+您可前往 [Node.js 官网](https://nodejs.org/zh-cn/download/) 获取更多安装信息。
+</dx-alert>
 2. 执行以下命令，解压安装包。
 ```
 tar xvf node-v10.16.3-linux-x64.tar.xz
@@ -49,8 +53,13 @@ npm -v
 ```
 
 ### 步骤3：安装 Node.js 多版本（可选）
->?此步骤通过 npm 安装多个版本的 Node.js，并可快速进行切换。适用于开发人员，您可根据实际需求进行安装。
->
+
+
+<dx-alert infotype="explain" title="">
+此步骤通过 npm 安装多个版本的 Node.js，并可快速进行切换。适用于开发人员，您可根据实际需求进行安装。
+</dx-alert>
+
+
 1. 执行以下命令，安装 git。
 ```
 yum install -y git
@@ -99,7 +108,7 @@ cd ~
 ```
 vim index.js
 ```
-2. 按 “**i**” 切换至编辑模式，并将以下内容输入 `index.js` 文件中。
+2. 按 **i** 切换至编辑模式，并将以下内容输入 `index.js` 文件中。
 ```
 const http = require('http');
 const hostname = '0.0.0.0';
@@ -113,9 +122,10 @@ server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
 ```
->?本文在 `index.js` 项目文件中使用端口号为7500，您可根据实际需求自行修改。
->
-3. 按“**Esc**”，输入“**:wq**”，保存文件并返回。
+<dx-alert infotype="explain" title="">
+本文在 `index.js` 项目文件中使用端口号为7500，您可根据实际需求自行修改。
+</dx-alert>
+3. 按 **Esc**，输入 **:wq** 并按 **Enter**，保存文件并返回。
 4. 执行以下命令，运行 Node.js 项目。
 ```
 node index.js

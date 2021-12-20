@@ -1,4 +1,6 @@
 本文将为您介绍 Edge-100 设备的硬件特性。
+>?Edge-100 和 Edge-100-5G 仅在 WAN 侧接入方式不同。
+>
 
 
 ## 基本信息
@@ -6,16 +8,15 @@
 | 属性         | 规格                                                         |
 | ------------ | ------------------------------------------------------------ |
 | 产品         | Edge-100                                                     |
-| LAN 口       | 支持1Gbps接入带宽，提供3个 GE 电口                                                  |
-| WAN 口       | 支持1Gbps接入带宽，提供2个 GE 电口                                                 |
-| LTE 模组      | <ul><li>LTE FDD：B1、B3、 B5、 B8</li><li>LTE TDD：B38、B39、B40、B41</li><li>WCDMA：B1、B5、B8</li><li>TD SCDMA：B34、B39</li><li>GSM：B3、B8</li><li>CDMA EVDO/1x：800M</li>  </ul>               |
+| LAN 口       | 支持 1Gbps 接入带宽，提供3个 GE 电口                                                  |
+| WAN 口       | 支持 1Gbps 接入带宽，提供2个 GE 电口                                                 |
+| LTE 模组      | <ul><li>LTE FDD：B1、B3、 B5、 B8</li><li>LTE TDD：B38、B39、B40、B41</li><li>WCDMA：B1、B5、B8</li><li>TD SCDMA：B34、B39</li><li>GSM：B3、B8</li><li>CDMA EVDO/1x：800M</li>  </ul>  |
 | Wi-Fi        | 支持接入20个终端，覆盖范围100平方米                |
 | USB          | 一个 USB 2.0 Type-A 接口                                     |
-| 指示灯       | <ul><li>电口 RJ-45 自带 LED 指示灯</li><li>面板绿色指示灯 SYS、POWER、WIFI、LT、蜂窝信号强度1/2/3档 LED、CLOUD </li></ul> |
+| 指示灯       | <ul><li>电口 RJ-45 自带 LED 指示灯</li><li>面板绿色指示灯 SYS、PWR、WIFI、LT、蜂窝信号强度1/2/3档 LED、CLOUD </li></ul> |
 | 天线         | 默认配置4根天线，其中2根 Wi-Fi 天线，2根 LTE 天线 |
-| 电源         | 12V电源适配器规格：AC 100~240V @50 - 60 Hz |
+| 电源         | 本地供电 DC 12V/3A |
 | 工作环境     | <ul><li>工作环境温度0°C - 45°C</li><li>存储温度-40°C - +70°C</li><li>工作海拔高度小于5000m</li><li>工作相对湿度5% - 95%，非凝露</li> </ul> |
-| 支持证书         |<a href="https://main.qcloudimg.com/raw/61075c3b66a000dcc4acde282921a3e6/A2020CCC1608-3418137%C2%A0%E6%80%BB%E6%8A%A5%E5%91%8A%E5%8F%8A%E5%AE%89%E5%85%A8%E6%8F%8F%E8%BF%B0%E6%8A%A5%E5%91%8ACCC.pdf" dowmload="A2020CCC1608-3418137 总报告及安全描述报告CCC.pdf"> 国家强制性产品认证试验报告（CCC）</a>、<a href="https://main.qcloudimg.com/raw/bfe6b112bc3f156d49a9604fcb7b0513.pdf" dowmload="腾讯科技Edge-100型号核准证书.pdf">无线电发射设备型号核准证（SRRC）</a>、进网许可证（CTA） |
 
 
 ## 指示灯说明
@@ -27,7 +28,7 @@
 | PWR    | 电源指示灯                                 |
 | SYS    | 系统指示灯                                 |
 | WIFI   | 无线 WIFI 指示灯                             |
-| LTE    | 4G LTE 指示灯（包含额外三个信号强度指示灯） |
+| LTE    | LTE 指示灯（包含额外三个信号强度指示灯） |
 | CLOUD  | 云连接（IPSec VPN）指示灯                  |
 
 ### 指示灯亮灯方式
@@ -77,6 +78,7 @@
 #### LTE 信号强度亮灯方式
 
 >?有三格信号指示灯，由小到大依次标记为 LTE0，LTE1，LTE2，且 LTE 信号强度区分4级。
+>
 
 | 信号强度 | 亮灯           | 软件处理方式                                                 |
 | -------- | -------------- | ------------------------------------------------------------ |

@@ -9,7 +9,13 @@
  - libGMESDK.a：Unity iOS 开发相关资源（Unity 引擎开发者才需关注此文件）。
 
 
->?SDK 支持在 iOS7.0 及以上系统上运行。
+
+
+<dx-alert infotype="explain" title="">
+SDK 支持在 iOS7.0 及以上系统上运行。
+</dx-alert>
+
+
 
 
 

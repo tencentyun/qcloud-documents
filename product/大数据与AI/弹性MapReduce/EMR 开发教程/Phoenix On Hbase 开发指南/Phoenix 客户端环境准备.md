@@ -6,7 +6,7 @@ EMR Phoenix 编译的是4.8.1版本，首先下载一个 phoenix-4.8.1-HBase-1.2
 ``` shell
 cp /usr/local/service/hbase/conf/hbase-site.xml 目的路径
 ```
-切换成 Hadoop 用户，使用 Phoenix 的 Python 命令行工具：
+ 切换成 Hadoop 用户，使用 Phoenix 的 Python 命令行工具：
 ``` 
 ./sqlline.py
 ```

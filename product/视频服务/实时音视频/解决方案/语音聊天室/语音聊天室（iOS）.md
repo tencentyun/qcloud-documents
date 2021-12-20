@@ -18,13 +18,13 @@
 
 [](id:ui.step1)
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 输入应用名称，例如  `TestVoiceRoom`  ，单击【创建】。
-3. 单击【已下载，下一步】，跳过此步骤。
+1. 登录实时音视频控制台，选择 **开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+2. 输入应用名称，例如 `TestVoiceRoom`，单击 **创建**。
+3. 单击 **已下载，下一步**，跳过此步骤。
 
-![](https://main.qcloudimg.com/raw/f588650274a85b74893ff96eb563d3b4.png)
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
->?本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+>?本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 
 
@@ -39,9 +39,9 @@
 3. 设置 `GenerateTestUserSig.swift` 文件中的相关参数：
 <ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
-<img src="https://main.qcloudimg.com/raw/adb7a596acda92d41aee235c441f2623.png">
-4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
-5. 编译完成后，单击【回到控制台概览】即可。
+<img src="https://main.qcloudimg.com/raw/0f2dcf7189d07670343bc8ab9f9697e6.png">
+4. 粘贴完成后，单击 **已复制粘贴，下一步** 即创建成功。
+5. 编译完成后，单击 **回到控制台概览** 即可。
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
@@ -49,7 +49,7 @@
 
 [](id:ui.step4)
 ### 步骤4：运行 App
-使用 Xcode（11.0及以上的版本）打开源码工程 `TUIVoiceRoom/TUIVoiceRoomApp.xcworkspace`，单击【运行】即可开始调试本 App。
+使用 Xcode（11.0及以上的版本）打开源码工程 `TUIVoiceRoom/TUIVoiceRoomApp.xcworkspace`，单击 **运行** 即可开始调试本 App。
 
 [](id:ui.step5)
 ### 步骤5：修改 App 源代码
@@ -76,14 +76,14 @@
 
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 ![](https://main.qcloudimg.com/raw/aacadc7ee6d1267f334fd1d155dcf415.png)
-2. 单击【创建房间】，如下图示：
+2. 单击 **创建房间**，如下图示：
 ![](https://main.qcloudimg.com/raw/a3b5fbb862612c7200253a55f703e7b7.png)
-2. 输入房间主题，单击【开始交谈】。
+2. 输入房间主题，单击 **开始交谈**。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 ![](https://main.qcloudimg.com/raw/9ac6eb6a300a8f401389008c411f5ed8.png)
-2. 输入用户 A 创建的房间号，单击【进入房间】。
+2. 输入用户 A 创建的房间号，单击 **进入房间**。
 ![](https://main.qcloudimg.com/raw/bd2945dfe6e9b586c2f71aa94cde18d8.png)
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
@@ -106,8 +106,7 @@ pod 'TXIMSDK_iOS'
 pod 'TXLiteAVSDK_TRTC'
 :::
 </dx-codeblock>
-
-	>?两个 SDK 产品的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
+>?两个 SDK 产品的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
 - **方法二：通过本地依赖**
 如果您的开发环境访问 cocoapods 仓库较慢，您可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
 <table>
@@ -244,9 +243,9 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 ### 步骤6：听众端观看
 1. 听众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 听众端向业务后台获取最新的语音聊天室房间列表。
- >?App 中的语音聊天室列表仅做演示使用，语音聊天室列表的业务逻辑千差万别，腾讯云暂不提供语音聊天室列表的管理服务，请自行管理您的语音聊天室列表。
+>?App 中的语音聊天室列表仅做演示使用，语音聊天室列表的业务逻辑千差万别，腾讯云暂不提供语音聊天室列表的管理服务，请自行管理您的语音聊天室列表。
 3. 听众端调用 `getRoomInfoList` 获取房间的详细信息，该信息是在房主端调用`createRoom`创建语音聊天室时设置的简单描述信息。
- >!如果您的语音聊天室列表包含了足够全面的信息，可跳过调用 `getRoomInfoList` 相关步骤。
+>!如果您的语音聊天室列表包含了足够全面的信息，可跳过调用 `getRoomInfoList` 相关步骤。
 4. 听众选择一个语音聊天室，调用 `enterRoom` 并传入房间号即可进入该房间。
 5. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
 6. 进房后会收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
@@ -316,9 +315,11 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 
 <dx-codeblock>
 ::: swift
-// case1: 房主抱人上1号麦位
+// case1: 1. 房主抱人上1号麦位
 self.voiceRoom.pickSeat(seatIndex: 1, userId: "123") { (code, message) in
-    // 结果回调
+    // 2. 结果回调
+	if code == 0 {
+	}
 }
 
 // 3.收到 onSeatListChange 回调，刷新您的麦位列表
@@ -335,9 +336,11 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 
 <dx-codeblock>
 ::: swift
-// case2: 听众主动上2号麦位
+// case2: 1. 听众主动上2号麦位
 voiceRoom.enterSeat(seatIndex: 2) { (code, message) in
-    // 上麦结果回调
+    // 2. 上麦结果回调
+	if code == 0 {
+	}
 }
 
 // 3.收到 onSeatListChange 回调，刷新您的麦位列表
@@ -351,6 +354,7 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 }
 :::
 </dx-codeblock>
+
 :::
 </dx-tabs>
 
