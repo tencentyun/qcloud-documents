@@ -52,27 +52,27 @@
 - 分别将consumer以及provider的二进制上传到不同的CVM实例中，这里假定上传的路径均为/data/polaris/golang_examples
 7. 部署provider和consumer微服务应用，虚拟机部署方式和容器化部署根据您业务实际的部署方式选择一种即可。
 
-   （1）【虚拟机部署】部署provider和consumer微服务应用。
+    （1）【虚拟机部署】部署provider和consumer微服务应用。
 
-```运行consumer
-- 上传二进制文件以及配置文件（polaris.yaml）至 CVM 实例。
+    - 上传二进制文件以及配置文件（polaris.yaml）至 CVM 实例。
+    
+    - 执行启动命令进行启动：
+    
+    ```运行consumer
+    ./[二进制文件名称]
+    ```
 
-- 执行启动命令进行启动：
+    （2）【容器化部署】部署provider和consumer微服务应用。
 
-./[二进制文件名称]
-```
-
-​	（2）【容器化部署】部署provider和consumer微服务应用。
-
-- 编写dockerfile生成镜像，参考：
-
-```
-FROM golang:alpine
-WORKDIR /root
-ADD . /root
-ENTRYPOINT ./[二进制名称] [启动参数命令]
-```
-- 通过TKE部署并运行镜像
+    - 编写dockerfile生成镜像，参考：
+    
+    ```
+    FROM golang:alpine
+    WORKDIR /root
+    ADD . /root
+    ENTRYPOINT ./[二进制名称] [启动参数命令]
+    ```
+    - 通过TKE部署并运行镜像
 
 9. 确认部署结果
 

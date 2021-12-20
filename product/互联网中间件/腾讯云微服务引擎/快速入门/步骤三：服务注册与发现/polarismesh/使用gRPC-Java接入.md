@@ -42,25 +42,25 @@ global:
 
 7. 部署provider和consumer微服务应用，虚拟机部署方式和容器化部署根据您业务实际的部署方式选择一种即可。
 
-​       （1）【虚拟机部署】部署provider和consumer微服务应用。
+    （1）【虚拟机部署】部署provider和consumer微服务应用。
 
-```shell
-- 上传  Jar 包至 CVM 实例。
+     - 上传  Jar 包至 CVM 实例。
 
-- 执行启动命令进行启动：
+     - 执行启动命令进行启动：
 
-nohup java -Djava.security.egd=file:/dev/./urandom -jar [jar包名称] &
-```
+    ```shell
+    nohup java -Djava.security.egd=file:/dev/./urandom -jar [jar包名称] &
+    ```
 
-​       （2）【容器化部署】部署provider和consumer微服务应用。
+    （2）【容器化部署】部署provider和consumer微服务应用。
 
- - 编写dockerfile生成镜像，参考：
-```
-FROM java:8
-ADD quickstart-provider-${version}-SNAPSHOT.jar /root/app.jar
-ENTRYPOINT  ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/root/app.jar"]
-```
- - 通过TKE部署并运行镜像
+    - 编写dockerfile生成镜像，参考：
+    ```
+    FROM java:8
+    ADD quickstart-provider-${version}-SNAPSHOT.jar /root/app.jar
+    ENTRYPOINT  ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/root/app.jar"]
+    ```
+     - 通过TKE部署并运行镜像
 
 8. 确认部署结果。
 

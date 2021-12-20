@@ -67,31 +67,31 @@
 
    （1）【虚拟机部署】部署provider和consumer微服务应用。
 
-```
-- 上传二进制包至 CVM 实例。
+    - 上传二进制包至 CVM 实例。
+		
+    - 执行启动命令进行启动：
+		
+    ```
+		# 进入provider目录
+		cd /data/polaris/dubbogo_examples/provider
+		# 设置配置文件目录
+		export DUBBO_GO_CONFIG_PATH="./dubbogo.yml"
+		# 运行 provider
+		./provider
+    ```
 
-- 执行启动命令进行启动：
+   （2）【容器化部署】部署provider和consumer微服务应用。
 
-# 进入provider目录
-cd /data/polaris/dubbogo_examples/provider
-# 设置配置文件目录
-export DUBBO_GO_CONFIG_PATH="./dubbogo.yml"
-# 运行 provider
-./provider
-```
-
-​	（2）【容器化部署】部署provider和consumer微服务应用。
-
-- 编写dockerfile生成镜像，参考：
-
-```
-FROM golang:alpine
-WORKDIR /root
-ADD . /root
-ENTRYPOINT ./[二进制名称] [启动参数命令]
-```
-
-- 通过TKE部署并运行镜像
+    - 编写dockerfile生成镜像，参考：
+    
+    ```
+    FROM golang:alpine
+    WORKDIR /root
+    ADD . /root
+    ENTRYPOINT ./[二进制名称] [启动参数命令]
+    ```
+    
+    - 通过TKE部署并运行镜像
 
 9. 确认部署结果
 

@@ -62,7 +62,7 @@
 
 - 分别将`consumer`以及`provider`的demo源码上传到不同的CVM实例中，这里假定上传的路径均为/data/polaris/php_examples
 
-7. 部署provider和consumer微服务应用，虚拟机部署方式和容器化部署根据您业务实际的部署方式选择一种即可。
+7. 部署provider和consumer微服务应用，当前仅提供quickstart的虚拟机部署方式。
 
    （1）【虚拟机部署】部署provider和consumer微服务应用。
 
@@ -71,11 +71,11 @@
       - 执行启动命令进行启动：
 
       ```
-      cd /data/polaris/php_examples/{provider | consumer}
+   cd /data/polaris/php_examples/{provider | consumer}
 
-      export PHP_PROVIDER_IP={内网 or 外网IP}
+   export PHP_PROVIDER_IP={内网 or 外网IP}
 
-      php [php文件名称]
+   php [php文件名称]
       ```
 
 8. 确认部署结果
