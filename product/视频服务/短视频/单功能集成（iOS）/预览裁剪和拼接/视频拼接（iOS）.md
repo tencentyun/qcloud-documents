@@ -14,23 +14,19 @@ Demo 中使用了 QBImagePicker 这样一个开源库实现了多个文件的选
 
 ### 2. 设置预览 View
 视频合成需要创建 TXVideoJoiner 对象，同 TXUGCEditer 类似，预览功能也需要上层提供预览 UIView：
-
-
-<dx-codeblock>
-::: ios objectivec
+```objectivec
 //准备预览 View
 TXPreviewParam *param = [[TXPreviewParam alloc] init];
 param.videoView = _videoPreview.renderView;
 param.renderMode = PREVIEW_RENDER_MODE_FILL_EDGE;
 
 // 创建 TXVideoJoiner 对象并设置预览 view
-TXVideoJoiner* _ugcJoin = [[TXVideoJoiner alloc] initWithPreview:param];
-_ugcJoin.previewDelegate = _videoPreview;
+TXVideoJoiner* _videoJoin = [[TXVideoJoiner alloc] initWithPreview:param];
+_videoJoin.previewDelegate = _videoPreview;
 
 // 设置待拼接的视频文件组 _composeArray，也就是第一步中选择的若干个文件
-[_ugcJoin setVideoPathList:_composeArray];
-:::
-</dx-codeblock>
+[_videoJoin setVideoPathList:_composeArray];
+```
 
 设置好预览 view 同时传入待合成的视频文件数组后，可以开始播放预览，合成模块提供了一组接口来做视频的播放预览：
 
@@ -40,9 +36,9 @@ _ugcJoin.previewDelegate = _videoPreview;
 
 ### 3. 生成最终文件
 预览效果满意后调用生成接口即可生成合成后的文件：
-```objective-c
-_ugcJoin.joinerDelegate = self;
-[_ugcJoin joinVideo:VIDEO_COMPRESSED_540P videoOutputPath:_outFilePath];
+```objectivec
+_videoJoin.joinerDelegate = self;
+[_videoJoin joinVideo:VIDEO_COMPRESSED_540P videoOutputPath:_outFilePath];
 ```
 
 合成时指定文件压缩质量和输出路径，输出的进度和结果会通过`joinerDelegate`以回调的形式通知用户。
