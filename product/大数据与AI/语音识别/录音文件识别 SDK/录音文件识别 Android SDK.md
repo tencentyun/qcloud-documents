@@ -3,7 +3,7 @@ Android SDK 接入请观看视频：
 
 ## 开发准备
 ### SDK 下载
-录音文件识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_2.6.0.zip)。
+录音文件识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_v2.6.6.zip)。
 
 ### 接入须知
 - 开发者使用录音文件识别功能前，需要先在 [腾讯云控制台](https://console.cloud.tencent.com/) 注册账号，并获得 APPID、SecretId 和 SecretKey 信息。
@@ -24,12 +24,7 @@ Android SDK 接入请观看视频：
 ```
 3. 在 AndroidManifest.xml 添加如下权限。
 ```
-< uses-permission android:name="android.permission.RECORD_AUDIO"/>
 < uses-permission android:name="android.permission.INTERNET"/>
-< uses-permission android:name="android.permission.WRITE_SETTINGS" />
-< uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-< uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-< uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 ```
 
 ## 快速接入
@@ -76,13 +71,24 @@ recognizer.setCallback(this);
 **QCloudFileRecognizer**：录音文件识别入口类
 ```
 /**
- * 初始化方法
- * @param activity app activity
+ * 初始化方法 - 直接鉴权
  * @param appId 腾讯云 appid
  * @param secretId 腾讯云 secretId
  * @param secretKey 腾讯云 secretKey
  */
-public QCloudFileRecognizer(AppCompatActivity activity, String appId, String secretId, String secretKey);
+public QCloudFileRecognizer( String appId, String secretId, String secretKey);
+
+/**
+ * 初始化方法 - 使用临时sts证书鉴权
+ * 1.通过sts 获取到临时证书 ,此步骤应在您的服务器端实现，
+ * 见https://cloud.tencent.com/document/product/598/33416
+ * 2.通过临时密钥调用接口
+ * @param appId 腾讯云 appid
+ * @param secretId 腾讯云 临时secretId
+ * @param secretKey 腾讯云 临时secretKey
+ * @param secretKey 腾讯云 token
+ */
+public QCloudFileRecognizer(String appId, String secretId, String secretKey, String token)；
 
 /**
  * 通过 url 或语音数据调用录音文件识别

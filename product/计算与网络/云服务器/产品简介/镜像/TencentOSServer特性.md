@@ -1,5 +1,5 @@
 ## 内核定制
-基于内核社区长期支持的4.14.105版本定制而成，增加适用于云场景的新特性、改进内核性能并修复重大缺陷。
+基于内核社区长期支持的版本定制而成，增加适用于云场景的新特性、改进内核性能并修复重大缺陷。
 
 ## 容器场景性能优化
 针对容器场景进行优化，提供了隔离增强和性能优化特性：
@@ -16,6 +16,9 @@
 ## 容器定制特性
 ### 容器资源展示隔离
 - 增加主机级开关：内核已实现了类似 LXCFS 特性。用户无需在节点部署 LXCFS 文件系统及修改 POD spec，仅需在节点开启全局开关（`sysctl -w kernel.stats_isolated=1`），`/proc/cpuinfo` 及 `/proc/meminfo` 等文件获取即可按容器隔离。
+<dx-alert infotype="notice" title="">
+仅 TencentOS Server 2.4 版本支持 `kernel.stats_isolated` 参数，TencentOS Server 2.4（TK4）及 3.1 后续更新版本不支持。
+</dx-alert>
 - 增加容器级开关：针对类似节点监控组件等特殊容器，增加了容器级开关 `kernel.container_stats_isolated`。在主机级开关开启时，仅需在容器启动脚本中关闭容器级开关（`sysctl -w kernel.container_stats_isolated=0`），即可在容器中读取 `/proc/cpuinfo` 及 `/proc/meminfo` 文件时获取到主机信息。
 
 ### 内核参数隔离
@@ -36,9 +39,9 @@
 - 限制系统 page cache 占用内存比例，从而避免内存不足影响业务的性能或者 OOM。
 
 ## 软件包支持
-- 基于 CentOS 7 版本的软件包定制而成。
-- 用户态软件包与 CentOS 7 版本兼容，该版本用户态软件包可直接在 TencentOS Server 环境使用。
-- 使用 YUM 更新和安装软件包。
+- TencentOS Server 2用户态软件包保持与最新版 CentOS 7兼容，即 CentOS 7版本的软件包可以直接在 TencentOS Server 2.4 中使用。
+- TencentOS Server 3用户态软件包保持与最新版 RHEL 8兼容，即 RHEL 8版本的软件包可以直接在 TencentOS Server 3.1 中使用。
+- 支持使用 YUM 更新和安装软件包。
 - 通过 YUM 安装 epel-release 包后，可以使用 epel 源中的软件包。
 
 ## 缺陷支持

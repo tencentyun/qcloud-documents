@@ -10,9 +10,9 @@
 ### 创建 iOS 平台应用
 
 1. 接入 SDK 之前，需要您前往 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详情请参见 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
-   ![](https://main.qcloudimg.com/raw/a6f7bd9a751cde939069d8ef2c3e5e12.png)
+   ![](https://main.qcloudimg.com/raw/e6e1805c3198704a0d24ed20fe65f25a.png)
 2. 在【配置管理】页面上传推送证书，您可以参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664) 操作获取推送证书。
-   ![](https://main.qcloudimg.com/raw/aea977e64071e69ad4743aa9217efb25.png)
+   ![](https://main.qcloudimg.com/raw/d7ed258ecf2eda9d32e986039bc9bb3c.png)
    ![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
 3. 完成以上步骤后，单击快速接入，下载快速集成工具。
    ![](https://main.qcloudimg.com/raw/bbe22b0a4ea25ed313c5c3785814f922.png)
@@ -60,10 +60,22 @@
 ### 配置项6 - 通知服务扩展插件
 
 通知服务扩展插件：主要用于统计推送数据的触达率以及实现富媒体推送等功能。
+- 若您的 `Xcode` 选择是**自动签名**，则 `Xcode` 会在苹果开发者平台为您的通知扩展插件生成描述文件（Provisioning File）。
+- 若您的 `Xcode` 选择是**手动签名**，则需要到苹果开发者平台手动生成描述文件（Provisioning File），否则将导致应用程序无法安装到真机调试，操作步骤如下：
 
+
+1. 前往 [苹果开发者平台](https://developer.apple.com/account/resources/identifiers/list) 为通知服务扩展插件申请 `Bundle Identifier`。
+>?`Bundle Identifier` 命名规则 (主tartget Bundle Identifier).TPNSService。
+2. 申请包含 `Bundle Identifier` 的描述文件。
+![](https://main.qcloudimg.com/raw/62cffd22ab74e0505abc54e61787e0a4.png)
+3. 将扩展插件的 `Bundle Identifier` 指定为上述申请的 `Bundle Identifier` 并将 `Provisioning Profile` 指定为上述申请的描述文件。
+![](https://main.qcloudimg.com/raw/eb8edae0c798ac9434c930eba3178fa8.png)
 > ?
 >- 若您是**初次集成 TPNS**，建议同时勾选5和6，否则无法获取推送抵达数据且无法下发富媒体推送。
 >- 您可以单独集成配置项5或者6，也可以同时集成5和6，请根据您的项目情况自行选择。
+
+
+
 
 ### 进行 TPNS SDK 集成
 
@@ -77,7 +89,7 @@
 - 如果集成成功，项目结构和工程配置应该如下图所示：
   ![](https://main.qcloudimg.com/raw/e8afaa08424282986e0d0d83b93d5f14.jpg)
   ![](https://main.qcloudimg.com/raw/f830b564e0c6736bb77abff6224c693c.jpg)
-- 如果出现编译失败、收不到推送、没有触达率统计数据等情况，请先将您项目的配置与上图进行对比，找出集成错误的地方，[提交工单](https://console.cloud.tencent.com/workorder/category) 反馈。
+- 如果出现编译失败、收不到推送、没有触达率统计数据等情况，请先将您项目的配置与上图进行对比，找出集成错误的地方，并联系 [在线客服](https://cloud.tencent.com/act/event/Online_service)。
 
 ## 接入结果验证
 

@@ -1,9 +1,73 @@
+## TKE kubernetes 1.20.6 revisions
+<table>
+  <thead>
+    <tr><th> 时间         </th><th> 版本                 </th><th> 更新内容                           </th></tr>
+  </thead>
+  <tbody>
+	<tr><td>2021-12-09</td><td>v1.20.6-tke.9</td><td><li> 优化 EKS 虚拟节点调度及 HPA。(kube-controller-manager,kube-scheduler)</li><li> 修复 EKS 计算 cpu 资源时与前端不一致的问题 。(kube-scheduler)</li></td></tr>
+	<tr><td>2021-12-02</td><td>v1.20.6-tke.8</td><td><li>  优化 grpc 日志，避免 kubelet 采集 volume 状态时打印过多日志。（kubelet）</li><li>  避免使用了 cbs 的 Pod 调度到外部 CHC 节点。（kube-scheduler）</li></td></tr>
+	<tr><td>2021-11-26</td><td>v1.20.6-tke.7</td><td><li> 添加混合云外部节点支持定制化安装其他 cni。(kube-controller-manager)</li> 
+<li> 避免对 Pod Assumed 之后的更新进行不必要的处理。(kube-scheduler)</li> 
+<li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/99336">pr99336</a>，改进 kubelet 启动时节点信息的同步机制。(kubelet)</li> </td></tr>
+<tr><td>2021-10-13</td><td>v1.20.6-tke.6</td><td>合并 89465，修复滚动更新时基于 pod 指标的 HPA 错误计算实例个数的问题。(kube-controller-manager)</td></tr>
+<tr><td>2021-09-27</td><td>v1.20.6-tke.5</td><td>支持收集 containerd 运行时的磁盘用量指标。(kubelet)</td></tr>
+<tr><td>2021-09-23</td><td>v1.20.6-tke.4</td><td><li>修复使用 cgroup v2 时存储指标没有数据的问题。(kubelet)</li>
+<li> 修复 <a href="https://github.com/kubernetes/kubernetes/pull/104348">CVE-2021-25741</a>，避免通过软链不合法访问主机文件。(kubelet)</td></tr>
+<tr><td>2021-07-19 </td><td> v1.20.6-tke.3</td><td><ul class="params">
+<li>从 TKE 集群扩容到 EKS，在批量调度 Pod 时，能正确感知子网剩余 ip，调度正确数量的 Pod 到虚拟节点上。  (kube-scheduler)</li>
+<li>移植 upstream 对 kubelet 及 cadvisor 的修改，修复使用 cgroupv2 时指标收集统计的问题。  (kubelet)</li></td></ul></tr>
+    <tr><td>2021-06-21 </td><td> v1.20.6-tke.2</td><td>默认开启 CSIMigration 及 CSIMigrationQcloudCbs，以 CSI 方式挂载 CBS 盘。</td></tr>
+    <tr><td> 2021-05-25   </td><td> v1.20.6-tke.1</td><td><ul class="params"><li>revert pr63066，修复 LB 健康检查与 IPVS 的问题。（kube-proxy）</li>
+<li>合并 pr90260，修复 containerd 集群网络监控缺失问题。（kubelet）</li>
+<li>ubuntu16下 lxcfs 升级造成  Pod  退出问题修复。（kubelet）</li>
+<li>合并 pr72914，修复删除 Pod 后立即创建并调度到同一个节点可能导致无法挂载成功的问题。（kube-controller-manager）</li>
+<li>解决在 CentOS 下创建容器会导致 cgroup 泄露的问题。（kubelet）</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/98262" rel="nofollow">pr98262</a>，支持 kube-controller-manager 动态调整日志级别。（kube-controller-manager）</li>
+<li>合并 pr97752，修复 describe deployment 时 NewReplicaSet 显示为的问题。（kubectl）</li>
+<li>合并 pr94833，修复当 Pod 镜像有多个 tag 时，status 中镜像 tag 不匹配的问题。（kubelet）</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/100060" rel="nofollow">pr100060</a>，自动删除孤儿 Pod 遗留的 volume 目录。（kubelet）</li>
+<li>kube-controller-manager 支持虚拟节点。（kube-controller-manager）</li>
+<li>kube-scheduler 支持混合云扩容到 EKS 时，保留固定数目的本地副本。（kube-scheduler）</li>
+<li>支持 cbs csi migration。（kube-controller-manager，kubelet）</li>
+<li>合并 pr93260，解决 AWS Credential Provider 导致节点启动变慢的问题。（kubelet）</li>
+<li>为调度器增加命令行参数 eks-config-namespace：指定扩容 eks 相关配置所在的 namespace。（kube-scheduler）</li>
+<li> TKE支持混合云节点。（kube-controller-manager）</li></ul></td></tr>
+  </tbody>
+</table>
+
+
 ## TKE kubernetes 1.18.4 revisions
 
 <table><thead>
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr><td>2021-12-09</td><td>v1.18.4-tke.17</td><td><li> 解决当集群中有大量 volume attachment 对象时，kube-controller-manager 访问 api-server 被限频的问题 。(kube-controller-manager)</li><li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/95650"> PR95650</a>，HPA 计算副本数时忽略已删除 Pod。(kube-controller-manager)</li><li>修复 EKS 计算 cpu 资源时与前端不一致的问题。(kube-scheduler)</li></td></tr>
+<tr><td>2021-12-02</td><td>v1.18.4-tke.16</td><td><li>修复调度到虚拟节点时的 bug。(kkube-scheduler)</li><li>优化虚拟节点调度算法。(kube-scheduler)</li></td></tr>
+	<tr><td>2021-11-26</td><td>v1.18.4-tke.15</td>
+<td><ul class="params"><li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/96444" target="_blank">pr96444</a>，在同步 RBAC 策略时，如果有错误则返回重试。(kube-apiserver)</li>
+	<li> 添加混合云外部节点支持定制化安装其他 cni。(kube-controller-manager)</li>
+	<li> 支持云游安卓容器分组绑核需求。(kubelet)</li>
+	<li> 支持扩展调度器 Prebind 及 Unreserve 操作。(kube-scheduler)</li>
+	<li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/99336" target="_blank">pr99336</a>，改进 kubelet 启动时节点信息的同步机制。(kubelet)</li>
+	<li> 修复 <a href="https://github.com/kubernetes/kubernetes/pull/104340" target="_blank">CVE-2021-25741</a>，避免通过软链不合法访问主机文件。(kubelet)</li>
+	<li> 优化 cbs 磁盘创建失败导致调度超时的错误信息。(kube-scheduler)</li>
+	<li> 优化 grpc 日志，避免 kubelet 采集 volume 状态时打印过多日志。(kubelet)</li>
+	<li> 避免使用了 cbs 的 Pod 调度到外部 CHC 节点。(kube-scheduler)</li></ul></td></tr>
+	<tr>
+	<tr><td>2021-08-23</td><td>v1.18.4-tke.14</td>
+<td><ul class="params"><li>从 TKE 集群扩容到 EKS：支持固定 IP   (kube-scheduler)</li>
+	<li>从 TKE 集群扩容到 EKS：当匹配 EKS 固定 IP 时，跳过其他预选策略   (kube-scheduler)</li><li>从 TKE 集群扩容到 EKS：针对 EKS 节点的调度优化 EKS 节点资源感知重调度；EKS 节点优先机型调度；优化了针对 EKS 节点的优选/预选策略   (kube-scheduler)</li>
+	<li>记录已加载的 ipvs 内核模块，避免 ipvs 模式时 kube-proxy 崩溃   (kube-proxy)</li>
+	<li>写入 cpu manager 状态文件发生错误时，避免 panic   (kubelet)</li></ul></td></tr>
+	<tr><td>2021-07-22</td><td>v1.18.4-tke.13</td><td>合并 <a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/91859" target="_blank">PR91859</a>，修复 CRD 类型只有一个字母时导致 kube-apiserver panic 的问题   (kube-apiserver)</td></tr>
+<tr><td>2021-07-13</td><td>v1.18.4-tke.12</td><td><ul class="params"><li>从 TKE 集群扩容到 EKS：在批量调度 Pod 时，能正确感知子网剩余 IP ，调度正确数量的 Pod 到虚拟节点上   (kube-scheduler)</li>
+<li>支持收集 Containerd 运行时的磁盘用量指标   (kubelet)</li><li>缩容时支持指定 Pod   (kube-controller-manager)</li></td></ul></tr>
+    <td>2021-06-05</td>	
+    <td>v1.18.4-tke.11</td>	
+    <td>
+TKE 支持混合云节点。（kube-controller-manager）</td>
+</tr>
 <tr>
     <td>2021-05-14</td>	
     <td>v1.18.4-tke.9</td>	
@@ -107,6 +171,9 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr><td>2021-12-09</td><td>v1.16.3-tke.24</td><td>修复 EKS 本地副本数策略在 statefulset 类型的 Pod 上失效的问题。(kube-scheduler)</td></tr>
+<tr><td>2021-12-02</td><td>v1.16.3-tke.23</td><td><li>支持扩展调度器 Prebind 及 Unreserve 操作。(kube-scheduler)</li><li> 避免使用了 cbs 的 Pod 调度到外部 CHC 节点。(kube-scheduler)</li><li> 修复调度到虚拟节点时的 bug。(kube-scheduler)</li></td></tr>
+<tr><td>2021-09-03</td><td>v1.16.3-tke.22</td><td>写入 cpu manager 状态文件发生错误时，避免 panic (kubelet)</td></tr><tr><td>2021-08-17</td><td>v1.16.3-tke.21</td><td><ul class="params"><li>针对 EKS 节点的调度优化：针对 EKS 节点的调度优化 EKS 节点资源感知重调度；EKS 节点优先机型调度；优化了针对 EKS 节点的优选 / 预选策略 (kube-scheduler)</li><li>移植 <a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/87692" target="_blank">87692</a>，修复调度器 pending_pods 和 schedule_attempts_total 指标没有数据的问题 (kube-scheduler)</li></ul></td></tr><tr><td>2021-07-19</td><td>v1.16.3-tke.20</td><td><ul class="params"><li>移植 <a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/87688" target="_blank">87688 </a>及 <a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/87693" target="_blank">87693</a>，优化 Node Authorizer 性能 (kube-apiserver)</li><li> 从 TKE 集群扩容到 EKS： 在批量调度 Pod 时，能正确感知子网剩余 IP，调度正确数量的 Pod 到虚拟节点上 (kube-scheduler)</li><li>合并 <a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/88507" target="_blank">pr88507</a>，解决更新 Pod 状态时 podIP 和 podIPs 不一致的问题 (kube-apiserver)</li></ul></td></tr>
 <tr>
     <td>2021-05-24</td>	
     <td>v1.16.3-tke.17</td>	
@@ -230,6 +297,7 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr><td>2021-12-02</td><td>v1.14.3-tke.23</td><td><li>从 TKE 集群扩容到 EKS，在批量调度 Pod 时，能正确感知子网剩余 ip，调度正确数量的 Pod 到虚拟节点上。(kube-scheduler)</li><li> 针对 EKS 节点的调度优化：EKS 节点资源感知重调度；EKS 节点优先机型调度；优化了针对 EKS 节点的优选/预选策略。(kube-scheduler)</li><li> 支持扩展调度器 Prebind 及 Unreserve 操作。(kube-scheduler)</li><li> 避免使用了 cbs 的 Pod 调度到外部 CHC 节点。(kube-scheduler)</li><li> 修复调度到虚拟节点时的 bug。(kkube-scheduler)</li></td></tr>
 <tr>
     <td>2021-05-06</td>	
     <td>v1.14.3-tke.22</td>	

@@ -8,14 +8,15 @@
 - Step2. App 向您的业务服务器申请上传签名（App 将 MP4 文件上传到腾讯云视频分发平台的“许可证”）。为了确保安全性，上传签名由您的业务 Server 进行签发，而不能由终端 App 生成。
 - Step3. 使用 TXUGCPublish 接口发布视频，发布成功后，SDK 会将观看地址的 URL 回调给您。
 
-#### 注意事项
+## 注意事项
 
 - App 不能把计算上传签名的 SecretID 和 SecretKey 写在客户端代码里，这两个关键信息泄露将导致安全隐患，如果恶意攻击者通过破解 App 来获取该信息，则可以免费使用您的流量和存储服务。
 - 正确的做法是在您的服务器上，用  SecretID 和 SecretKey 生成一次性的上传签名，然后将签名交给 App。
 - 发布短视频时，请务必正确传递 Signature 字段，否则会发布失败。
 
 ## 对接攻略
-![](https://main.qcloudimg.com/raw/b3023cee1814e777e8458aa9b1047cbb.png)
+![](https://main.qcloudimg.com/raw/2f3d9a54ac3eb6436512b6a1fde98d9c.png)
+
 请参见 [Android 上传 SDK](https://cloud.tencent.com/document/product/266/9539) 来接入短视频上传功能。
 
 [](id:step1)

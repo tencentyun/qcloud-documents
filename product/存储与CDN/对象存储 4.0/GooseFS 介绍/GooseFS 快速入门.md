@@ -1,4 +1,3 @@
-
 本文档主要提供 GooseFS 快速部署、调试的相关指引，提供在本地机器上部署 GooseFS，并将对象存储（Cloud Object Storage，COS）作为远端存储的步骤指引，具体步骤如下：
 
 
@@ -12,13 +11,13 @@
 
 ## 下载并配置 GooseFS
 
-1. 从官方仓库下载 GooseFS 安装包到本地。官方仓库下载链接：[goosefs-1.0.0-bin.tar.gz](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs/goosefs-1.0.0-bin.tar.gz)。
+1. 从官方仓库下载 GooseFS 安装包到本地。官方仓库下载链接：[goosefs-1.1.0-bin.tar.gz](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs/1.1.0/release/goosefs-1.1.0-bin.tar.gz)。
 2. 执行如下命令，对安装包进行解压。
 ```shell
-tar -zxvf goosefs-1.0.0-bin.tar.gz
-cd goosefs-1.0.0
+tar -zxvf goosefs-1.1.0-bin.tar.gz
+cd goosefs-1.1.0
 ```
- 解压后，得到 goosefs-1.0.0，即 GooseFS 的主目录。下文将以 `${GOOSEFS_HOME}` 代指该目录的绝对路径。
+ 解压后，得到 goosefs-1.1.0，即 GooseFS 的主目录。下文将以 `${GOOSEFS_HOME}` 代指该目录的绝对路径。
 3. 在 `${GOOSEFS_HOME}/conf` 的目录下，创建 `conf/goosefs-site.properties` 的配置文件，可以使用内置的配置模板：
 ```shell
 $ cp conf/goosefs-site.properties.template conf/goosefs-site.properties
@@ -28,7 +27,7 @@ $ cp conf/goosefs-site.properties.template conf/goosefs-site.properties
 $ echo"goosefs.master.hostname=localhost">> conf/goosefs-site.properties
 ```
 
-## 启用 GooseFS 
+## 启用 GooseFS
 
 1. 启用 GooseFS 前，检查系统环境，确保 GooseFS 可以在本地环境中正确运行：
 ```shell
@@ -45,6 +44,83 @@ $ ./bin/goosefs-start.sh local SudoMount
  该命令执行完毕后，可以访问 http://localhost:9201 和 http://localhost:9204，分别查看  Master 和 Worker 的运行状态。
 
 ## 使用 GooseFS 挂载 COS（COSN） 或腾讯云 HDFS（CHDFS）
+
+如果 GooseFS 需要挂载 COS（COSN）或腾讯云 HDFS（CHDFS）到 GooseFS 的根路径上，则需要先在 `conf/core-site.xml` 配置中指定 COSN 或 CHDFS 的必需配置项，其中包括但不限于：`fs.cosn.impl` 、 `fs.AbstractFileSystem.cosn.impl` 以及 `fs.cosn.userinfo.secretId` 和 `fs.cosn.userinfo.secretKey` 等，如下所示：
+
+```xml
+
+<!-- COSN related configurations -->
+<property>
+  <name>fs.cosn.impl</name>
+  <value>org.apache.hadoop.fs.CosFileSystem</value>
+</property>
+
+
+
+<property>
+   <name>fs.AbstractFileSystem.cosn.impl</name>
+   <value>com.qcloud.cos.goosefs.CosN</value>
+</property>
+
+
+
+<property>
+    <name>fs.cosn.userinfo.secretId</name>
+    <value></value>
+</property>
+
+
+
+<property>
+    <name>fs.cosn.userinfo.secretKey</name>
+    <value></value>
+</property>
+
+
+
+<property>
+    <name>fs.cosn.bucket.region</name>
+    <value></value>
+</property>
+
+
+
+<!-- CHDFS related configurations -->
+<property>
+   <name>fs.AbstractFileSystem.ofs.impl</name>
+   <value>com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter</value>
+</property>
+
+
+
+<property>
+   <name>fs.ofs.impl</name>
+   <value>com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter</value>
+</property>
+
+
+
+<property>
+   <name>fs.ofs.tmp.cache.dir</name>
+   <value>/data/chdfs_tmp_cache</value>
+</property>
+
+
+
+<!--appId-->      
+<property>
+   <name>fs.ofs.user.appid</name>
+   <value>1250000000</value>
+</property>
+
+```
+
+>?
+>- COSN 的完整配置可参考：[Hadoop 工具](https://cloud.tencent.com/document/product/436/6884)。
+>- CHDFS 的完整配置可参考：[ 挂载 CHDFS](https://cloud.tencent.com/document/product/1105/36368)。
+
+下面将介绍一下如何通过创建 Namespace 来挂载 COS 或 CHDFS 的方法和步骤。
+
 1. 创建一个命名空间 namespace 并挂载 COS：
 ```shell
 $ goosefs ns create myNamespace cosn://bucketName-1250000000/3TB \
@@ -52,14 +128,14 @@ $ goosefs ns create myNamespace cosn://bucketName-1250000000/3TB \
 --secret fs.cosn.userinfo.secretKey=XXXXXXXXXXXX \
 --attribute fs.cosn.bucket.region=ap-xxx \
 ```
- >! 
+>! 
 > - 创建挂载 COSN 的 namespace 时，必须使用 `–-secret` 参数指定访问密钥，并且使用 `--attribute` 指定 Hadoop-COS（COSN）所有必选参数，具体的必选参数可参考 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884)。
 > - 创建 Namespace 时，如果没有指定读写策略（rPolicy/wPolicy），默认会使用配置文件中指定的 read/write type，或使用默认值（CACHE/CACHE_THROUGH）。
 >
 同理，也可以创建一个命名空间 namespace 用于挂载腾讯云 HDFS：
 ```shell
 goosefs ns create MyNamespaceCHDFS ofs://xxxxx-xxxx.chdfs.ap-guangzhou.myqcloud.com/3TB \
---attribute fs.user.appid=1250000000
+--attribute fs.ofs.user.appid=1250000000
 --attribute fs.ofs.tmp.cache.dir=/tmp/chdfs
 ```
 2. 创建成功后，可以通过 `list` 命令列出集群中创建的所有 namespace：
@@ -106,7 +182,7 @@ NamespaceStatus{name=myNamespace, path=/myNamespace, ttlTime=-1, ttlAction=DELET
 $ goosefs table attachdb --db test_db hive thrift://
 172.16.16.22:7004 test_for_demo
 ```
- >! 命令中的 thrift 需要填写实际的 Hive Metastore 的地址。
+>! 命令中的 thrift 需要填写实际的 Hive Metastore 的地址。
 >
 2. 添加完 DB 后，可以通过 ls 命令查看当前关联的 DB 和 Table 的信息：
 ```shell
@@ -214,4 +290,3 @@ sys	 0m0.243s
 ```shell
 $ ./bin/goosefs-stop.sh local
 ```
-

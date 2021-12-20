@@ -15,7 +15,8 @@
 2. 在 Windows PowerShell 窗口中，输入 **diskmgmt.msc**，按 **Enter**，打开 “磁盘管理”。
 3. 右键单击需要检查的磁盘 >【属性】，选择【卷】页签，查看磁盘分区形式。
 2. 判断磁盘分区形式是否为 GPT 分区。
- - 是，因服务迁移暂不支持 GPT 分区，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&step=1) 反馈。
+ - 是，因服务迁移暂不支持 GPT 分区，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 反馈。
  - 否，请执行下一步。
 3. 使用管理员身份打开 CMD，并执行以下命令，检验操作系统是否以 EFI 方式启动。
 ```
@@ -41,7 +42,8 @@ resumeobject            {1bcd0c6f-1935-11e8-8d3e-3464a915af28}
 nx                      OptIn
 bootmenupolicy          Standard
 ```
- - 若 `path` 参数中含有 efi，则表示当前操作系统以 EFI 方式启动，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&step=1) 反馈。
+ - 若 `path` 参数中含有 efi，则表示当前操作系统以 EFI 方式启动，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
+) 反馈。
  - 若 `path` 参数中没有 efi，请执行下一步。
 
 #### 卸载软件
@@ -92,6 +94,9 @@ bootmenupolicy          Standard
 :::
 </dx-tabs>
 
+
+### 转换镜像格式（可选）
+参考 [转换镜像镜像](https://cloud.tencent.com/document/product/213/62569#windows)，使用 `qemu-img` 将镜像文件转换为支持的格式。
 
 ### 检查镜像
 

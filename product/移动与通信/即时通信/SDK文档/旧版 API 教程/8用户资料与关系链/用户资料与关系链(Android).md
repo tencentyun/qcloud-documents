@@ -1238,3 +1238,4 @@ public class TIMProfileSystemType {
 当自己的资料或者好友的资料变更时，会收到用户资料变更系统消息。例如好友修改了头像，那么 `TIMProfileSystemElem` 中的 `itemMap` 的 `key` 为`Tag_Profile_IM_Image` ， `value` 值为头像的 `url` 地址，其中 `key` 常量值定义在 `TIMUserProfile` 中。
 
 
+

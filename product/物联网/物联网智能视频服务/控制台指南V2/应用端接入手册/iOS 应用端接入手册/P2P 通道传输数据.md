@@ -139,7 +139,7 @@ self.player.shouldAutoplay = YES;
 
 ```
 
-具体示例代码详情请参见 [TIoTPlayMovieVC](https://github.com/tencentyun/iot-link-ios/blob/master/Source/LinkSDKDemo/Home/Controllers/Device/TIoTPlayMovieVC.m)。
+具体示例代码详情请参见 [TIoTPlayMovieVC](https://github.com/tencentyun/iot-link-ios/blob/master/Source/LinkSDKDemo/Video/P2P/Controller/PreviousPath/TIoTPlayMovieVC.m)。
 
 #### 发送语音对讲数据
 ```
@@ -150,7 +150,7 @@ self.player.shouldAutoplay = YES;
 [[TIoTCoreXP2PBridge sharedInstance] stopVoiceToServer];
 
 ```
-具体示例代码详情请参见 [TIoTPlayMovieVC](https://github.com/tencentyun/iot-link-ios/blob/master/Source/LinkSDKDemo/Home/Controllers/Device/TIoTPlayMovieVC.m)。
+具体示例代码详情请参见 [TIoTPlayMovieVC](https://github.com/tencentyun/iot-link-ios/blob/master/Source/LinkSDKDemo/Video/P2P/Controller/PreviousPath/TIoTPlayMovieVC.m)。
 
 #### P2P 通道传输自定义数据
 <dx-codeblock>
@@ -182,7 +182,7 @@ char* XP2PMsgHandle(const char *idd, XP2PType type, const char* msg) {
 
 ```
 
-具体示例代码详情请参见 [TIoTPlayMovieVC](https://github.com/tencentyun/iot-link-ios/blob/master/Source/LinkSDKDemo/Home/Controllers/Device/TIoTPlayMovieVC.m)。
+具体示例代码详情请参见 [TIoTPlayMovieVC](https://github.com/tencentyun/iot-link-ios/blob/master/Source/LinkSDKDemo/Video/P2P/Controller/PreviousPath/TIoTPlayMovieVC.m)。
 
 ## Video SDK 相关说明
 

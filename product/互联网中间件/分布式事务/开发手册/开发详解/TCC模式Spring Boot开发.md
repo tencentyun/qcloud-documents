@@ -44,13 +44,13 @@ dtf:
     server: ${Server}
 ```
 
-| 配置项                    | 数据类型 | 必填 | 默认值                                     | 描述                                                         |
-| ------------------------- | -------- | ---- | ------------------------------------------ | ------------------------------------------------------------ |
-| dtf.env.groups.${GroupId} | String   | 是   | 共享集群 TC 列表，如果是独占集群则需要填写 | 用户的事务分组ID，单客户端使用多个事务分组时可以配置多项。   |
-| dtf.env.groups.secretId   | String   | 是   | 无                                         | 用户的腾讯云 SecretID。                                      |
-| dtf.env.groups.secretKey  | String   | 是   | 无                                         | 用户的腾讯云 SecretKey。                                     |
-| dtf.env.groups.server     | String   | 否   | ${spring.application.name}                 | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识。 |
-| dtf.env.fmt               | Boolean  | 否   | true                                       | 启动时会对 DB 进行大量初始化工作，若不需使用 fmt 建议禁用。  |
+| 配置项                    | 数据类型 | 必填 | 默认值                                   | 描述                                                         |
+| ------------------------- | -------- | ---- | ---------------------------------------- | ------------------------------------------------------------ |
+| dtf.env.groups.${GroupId} | String   | 是   | 共享集群 TC 列表，如果是独占集群则需要填写 | 用户的事务分组 ID，单客户端使用多个事务分组时可以配置多项     |
+| dtf.env.secretId   | String   | 是   | 无                                       | 用户的腾讯云 SecretID                                         |
+| dtf.env.secretKey  | String   | 是   | 无                                       | 用户的腾讯云 SecretKey                                        |
+| dtf.env.server     | String   | 否   | ${spring.application.name}               | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识 |
+| dtf.env.fmt  |  Boolean  | 否  | true  | 启动时会对 DB 进行大量初始化工作，若不需使用 fmt 建议禁用 |
 
 通常情况下，仅需要在 dtf.env.groups 下配置一个事务分组。例如：
 用户A，创建了一个事务分组`group-x3k9s0ns`，在 [分布式事务控制台](https://console.cloud.tencent.com/dtf/) 获取该分组的 TC 集群地址为`127.0.0.1:8080;127.0.0.1:8081;127.0.0.1:8082`。该用户访问密钥的 SecretId 为`SID`，SecretKey 为`SKEY`。需要在业务应用`app-test`上使用该事物时，配置样例为：
@@ -84,7 +84,7 @@ public class OrderApplication {
 }
 ```
 
-> ?通常建议同时启用本地事务管理`@EnableTransactionManagement`。
+>?通常建议同时启用本地事务管理`@EnableTransactionManagement`。
 
 ## 主事务管理
 
@@ -231,16 +231,16 @@ public interface IOrderService {
 | confirmMethod | String                       | 否   | confirm 前缀 + @DtfTcc 注解方法名首字母大写 | Confirm 操作方法名                                   |
 | cancelClass   | String                       | 否   | @DtfTcc 注解所在 Class                      | Cancel 操作类名，建议填写 beanname                   |
 | cancelMethod  | String                       | 否   | Cancel 前缀 + @DtfTcc 注解方法名首字母大写  | Cancel 操作方法名                                    |
-| rollbackFor   | Class<? extends Throwable>[] | 否   | {}                                          | 分支事务在识别到以下异常时回滚主事务，未配置时不回滚 |
+| rollbackFor   | Class &lt;? extends Throwable&gt;[] | 否   | {}                                          | 分支事务在识别到以下异常时回滚主事务，未配置时不回滚 |
 
 在上面的例子中：
 
-- `try`：IOrderService.order(Long txId, Long branchId, Order order)
+- `name`：IOrderService.order(Long txId, Long branchId, Order order)
 - `confirmClass`：IOrderService
 - `confirmMethod`：confirmOrder(Long txId, Long branchId, Order order)
 - `cancelClass`：IOrderService
 - `cancelMethod`：cancelOrder(Long txId, Long branchId, Order order)
-- rollbackFor：默认为空。若想要在发生异常时回滚，可设置为 Exception
+- `rollbackFor`：默认为空。若想要在发生异常时回滚，可设置为 Exception
 
 ### 通过 API 管理分支事务（不推荐）
 
@@ -250,7 +250,7 @@ public interface IOrderService {
 
 ## 远程请求时传递分布式事务上下文
 
-使用`RestTemplate`或`FeginClient`时，DTF 框架支持自动化的分布式事务上下文传递。
+使用`RestTemplate`或`FeignClient`时，DTF 框架支持自动化的分布式事务上下文传递。
 
 如果使用了其他的通信框架，也可以**手动处理分布式事务上下文**。
 
@@ -270,9 +270,9 @@ DTF-Last-Branch-ID: ${LastBranchId}
 
 ```
 
-### 主调 - FeginClient
+### 主调 - FeignClient
 
-使用`FeginClient`访问下游服务时，DTF 框架自动注入了 TxFeignInterceptor，向请求头中装载分布式事务上下文信息。
+使用`FeignClient`访问下游服务时，DTF 框架自动注入了 TxFeignInterceptor，向请求头中装载分布式事务上下文信息。
 
 需要引入 feign 依赖：
 
@@ -298,7 +298,7 @@ DTF-Last-Branch-ID: ${LastBranchId}
 
 ### 主调 - 手动处理
 
-可以参考 [Spring Free开发指导](https://cloud.tencent.com/document/product/1224/45970) 中的**远程请求时传递分布式事务上下文**章节。
+可以参考 [Spring Free 开发指导](https://cloud.tencent.com/document/product/1224/45970) 中的**远程请求时传递分布式事务上下文**章节。
 
 ### 被调 - Spring MVC - Controller
 
@@ -324,11 +324,9 @@ DTF-Last-Branch-ID: ${LastBranchId}
 引入依赖后（注意 SDK 版本），直接正常使用 TSF 即可。
 
 ### 使用方式
-
 目前支持 Greenwich（G）和 Finchley（F）版本的 TSF SDK。您可以单击以下页签，查看对应的使用方式。
 <dx-tabs>
-::: G&nbsp;版本&nbsp;TSF&nbsp;SDK&nbsp;使用方式
-
+::: G\s版本\sTSF\sSDK\s使用方式
 ```xml
 <!-- TSF 启动器 -->
 <dependency>
@@ -337,11 +335,11 @@ DTF-Last-Branch-ID: ${LastBranchId}
     <version>1.23.0-Greenwich-RELEASE</version>
 </dependency>
 ```
-
 :::
-::: F&nbsp;版本&nbsp;TSF&nbsp;SDK&nbsp;使用方式
-
-> !需要再排除 DTF 中的一些依赖。
+::: F\s版本\sTSF\sSDK\s使用方式
+<dx-alert infotype="notice" title="">
+需要再排除 DTF 中的一些依赖。
+</dx-alert>
 
 ```xml
 <!-- TSF 启动器 -->
@@ -379,12 +377,14 @@ DTF-Last-Branch-ID: ${LastBranchId}
         </exclusions>
 </dependency>
 ```
-
 :::
 </dx-tabs>
 
-### 启用 TSF
 
+
+
+
+### 启用 TSF
 <dx-codeblock>
 :::  java
 @SpringBootApplication

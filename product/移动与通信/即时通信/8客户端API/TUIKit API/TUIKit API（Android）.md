@@ -160,3 +160,4 @@
 | [getRightTitle](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/base/ITitleBarLayout.html#getrighttitle) | 返回右边标题的文字。 |
 
 
+

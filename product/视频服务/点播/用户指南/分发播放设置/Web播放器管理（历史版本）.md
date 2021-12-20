@@ -4,9 +4,9 @@
 
 ## 操作步骤
 
-1. 登录 [云点播控制台](https://console.cloud.tencent.com/vod/overview)，选择左侧导航栏的【分发播放设置】>【超级播放器配置】，单击[【这里】](https://console.cloud.tencent.com/vod/distribute-play/web-player)进入旧版 Web 播放器管理页面。
+1. 登录 [云点播控制台](https://console.cloud.tencent.com/vod/overview)，选择左侧导航栏的**分发播放设置**>**超级播放器配置**，单击[**这里**](https://console.cloud.tencent.com/vod/distribute-play/web-player)进入旧版 Web 播放器管理页面。
 >?该页面展示为一个播放器列表，您可以新建并维护最多10个自定义播放器。
-2. 单击左上角的【新建播放器】，弹出“新增播放器”对话框，按提示进行以下设置：
+2. 单击左上角的**新建播放器**，弹出“新增播放器”对话框，按提示进行以下设置：
 ![](https://main.qcloudimg.com/raw/19df12286ce87efb2d01b3c33f86299b.png)
 	- 基本设置：您可以配置播放器名称、描述及默认画质。
 		- 播放器名称：输入格式支持汉字、英文字母、数字及下划线，长度不超过20个字符。

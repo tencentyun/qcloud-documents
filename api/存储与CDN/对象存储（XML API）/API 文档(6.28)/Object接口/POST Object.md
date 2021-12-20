@@ -45,6 +45,9 @@ Content-Length: Content Length
 [Multipart Form Data]
 ```
 
+>? Host: &lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com，其中 &lt;BucketName-APPID> 为带 APPID 后缀的存储桶名字，例如 examplebucket-1250000000，可参阅 [存储桶概览 > 基本信息](https://cloud.tencent.com/document/product/436/48921#.E5.9F.BA.E6.9C.AC.E4.BF.A1.E6.81.AF) 和 [存储桶概述 > 存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) 文档；&lt;Region> 为 COS 的可用地域，可参阅 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
+> 
+
 #### 请求表单
 
 此接口请求体通过 multipart/form-data 编码，在 HTML 网页中通过 &lt;form&gt; 元素发送请求时，需将 &lt;form&gt; 元素的 enctype 属性设置为 multipart/form-data，随后使用 HTML 表单元素（例如 &lt;input&gt;、&lt;select&gt; 等）添加所需表单字段。

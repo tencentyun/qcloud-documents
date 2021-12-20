@@ -1,4 +1,4 @@
-
+目前，仅原移动直播企业版 SDK，短视频企业版 SDK 以及短视频企业版 Pro SDK 支持高级美颜特效，需要购买原 [移动直播企业版 License](https://cloud.tencent.com/document/product/454/8008)、[短视频企业版 License 或短视频企业版 Pro License](https://cloud.tencent.com/document/product/584/9368) 后，使用对应的功能。
 
 ## 功能说明
 
@@ -10,7 +10,7 @@
 
 ## 版本下载
 
-在 [SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载商用版本 SDK 压缩包，压缩包有加密（解压密码和 Licence 文件 可以跟我们的商务同学获取）, 成功解压后在 SDK 目录下得到一个`aar`和`zip`，分别对应两种集成方式。
+在 [SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载商用版本 SDK 压缩包，压缩包有加密（解压密码和 Licence 文件 可以跟我们的商务同学获取）, 成功解压后在 SDK 目录下得到一个 `aar` 和 `zip`，分别对应两种集成方式。
 
 ## 工程设置
 
@@ -25,45 +25,70 @@
 #### 使用 jar 包方式集成
 
 1. 需要解压 zip，把 libs 下的 so 拷贝到您的 jni 加载路径下。其中跟动效有关的 so 如下：
-
-| so                        |                      |                           |
-| ------------------------- | -------------------- | ------------------------- |
-| libYTCommon.so            | libnnpack.so         | libpitu_device.so         |
-| libpitu_tools.so          | libWXVoice.so        | libgameplay.so            |
-| libCameraFaceJNI.so       | libYTFaceTrackPro.so | libimage_filter_gpu.so    |
-| libimage_filter_common.so | libpitu_voice.so     | libvoicechanger_shared.so | 
-| libParticleSystem.so      | libYTHandDetector.so | libGestureDetectJni.so    |
-| libsegmentern.so          |||
-
+<table>
+<thead>
+<tr>
+<th>so</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>libYTCommon.so</td>
+<td>libnnpack.so</td>
+<td>libpitu_device.so</td>
+</tr>
+<tr>
+<td>libpitu_tools.so</td>
+<td>libWXVoice.so</td>
+<td>libgameplay.so</td>
+</tr>
+<tr>
+<td>libCameraFaceJNI.so</td>
+<td>libYTFaceTrackPro.so</td>
+<td>libimage_filter_gpu.so</td>
+</tr>
+<tr>
+<td>libimage_filter_common.so</td>
+<td>libpitu_voice.so</td>
+<td>libvoicechanger_shared.so</td>
+</tr>
+<tr>
+<td>libParticleSystem.so</td>
+<td>libYTHandDetector.so</td>
+<td>libGestureDetectJni.so</td>
+</tr>
+<tr>
+<td>libsegmentern.so</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 2. 把解压后的 assets 文件夹下的所有资源拷贝到工程的 assets 目录下，包括 asset 根目录下的文件和 camera 文件夹下的文件。
 
-### 导入 Licence 文件
+### 导入 License 文件
 
-商用版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费30天的调试用 Licence。
-得到 licence 后，您需要将其命名为 **YTFaceSDK.licence**，放到工程的 assets 目录下。
+商用版需要 License 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费30天的调试用 License。
+得到 Licence 后，您需要将其命名为 **YTFaceSDK.licence**，放到工程的 assets 目录下。
 >!
->- 每个 Licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
+>- 每个 License 都有绑定具体的 package name，修改 App 的 package name 会导致验证失败。
 >- YTFaceSDK.licence 的文件名固定，不可修改、且必须放在 assets 目录下。
->- iOS 和 Android 不需要重复申请 licence，一个 Licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
+>- iOS 和 Android 不需要重复申请 Licence，一个 License 可以同时授权一个 iOS 的 BundleID 和一个 Android 的 PackageName。
 
 
-**从4.9版本开始，SDK 支持二合一的 Licence，这种方式不再需要 YTFaceSDK.licence，在从商务同学处获取到 licence 对应的 key 和 url 后，设置方式和标准版 licence 设置方式相同。**
+**从9.4版本开始，SDK 支持二合一的 License，这种方式不再需要 YTFaceSDK.licence，在从商务同学处获取到 License 对应的 Key 和 URL 后，设置方式和标准版 License 设置方式相同。**
 
 ## 功能调用
 
-### 1. 动效功能
+### 动效功能
 
-#### 示例
-
-<img src="https://mc.qcloudimg.com/static/img/a320624ee8d3a82ee07feb05969e5290/A8B81CB6-DBD3-4111-9BF0-90BD02779BFC.png" width="450">
+<img src="https://main.qcloudimg.com/raw/487dc3482f0ab432a3e8eccf8b9ba5d4.png" width="300">
 
 一个动效模板是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数以和文件大小也不尽相同。
 Demo 中的示例代码是从后台下载动效资源，再统一解压到 sdcard。您可以在 Demo 代码中找到动效资源的下载地址，格式如下：
-
 ```
 http://dldir1.qq.com/hudongzhibo/AISpecial/Android/156/(动效name).zip
 ```
-
 >?建议您将动效资源放在自己的服务器上，以防 Demo 变动造成不必要的影响。
 
 当解压完成后，即可通过以下接口开启动效效果。
@@ -75,11 +100,9 @@ http://dldir1.qq.com/hudongzhibo/AISpecial/Android/156/(动效name).zip
 public void setMotionTmpl(String tmplPath);
 ```
 
-### 2. AI 抠背
+### AI 抠背
 
-#### 示例
-
-<img src="https://mc.qcloudimg.com/static/img/0f79b78687753f88af7685530745a8d4/98B403B8-1DEC-4130-B691-D9EB5E321162.png" width="450">
+<img src="https://main.qcloudimg.com/raw/996d47fa97f4b13ac020efacedc15b8d.png" width="300">
 
 需要下载 AI 抠背的资源，接口跟动效接口相同。
 
@@ -91,7 +114,7 @@ public void setMotionTmpl(String tmplPath);
 public void setMotionTmpl(String tmplPath);
 ```
 
-### 3. 高级美颜接口（大眼、瘦脸等）
+### 高级美颜接口（大眼、瘦脸等）
 
 ```
 // 大眼效果 0~9
@@ -134,7 +157,7 @@ mTXCameraRecord.getBeautyManager().setLipsThicknessLevel(lipsThicknessLevel);
 mTXCameraRecord.getBeautyManager().setFaceBeautyLevel(faceBeautyLevel);
 ```
 
-### 4. 绿幕功能
+### 绿幕功能
 
 使用绿幕需要先准备一个用于播放的 MP4 文件，通过调用以下接口即可开启绿幕效果。
 
@@ -151,8 +174,8 @@ public void setGreenScreenFile(String path);
 ```
 
 ## 问题排查              
-### 1. Licence 是否正常使用中？
-Licence 设置成功后（需等待一段时间，具体时间视网络情况而定），SDK 会下载 Licence 文件到手机。可以通过 TXUGCBase 的 getLicenceInfo() 方法查看 Licence 信息，包含 Licence 的生效和过期时间，绑定的 app package name 信息等。
+### 1. License 是否正常使用中？
+License 设置成功后（需等待一段时间，具体时间视网络情况而定），SDK 会下载 License 文件到手机。可以通过 TXUGCBase 的 getLicenceInfo() 方法查看 Licence 信息，包含 License 的生效和过期时间，绑定的 app package name 信息等。
 
 ```java
 public void onCreate() {
@@ -173,7 +196,7 @@ public void onCreate() {
 
 ```
 
-若您需要其他协助，可将打印出来的 Licence 信息保存，并联系我们的 [技术支持](https://cloud.tencent.com/document/product/584/9374)。
+若您需要其他协助，可将打印出来的 License 信息保存，并联系我们的 [技术支持](https://cloud.tencent.com/document/product/584/9374)。
 
 ### 2. 集成遇到异常怎么解决？
 ```
@@ -196,8 +219,8 @@ packagingOptions {
 添加配置后，请 clean 工程后再重新 build。
 
 ### 3. 美容（例如大眼瘦脸）、动效等功能不起作用怎么解决？
-- 检查移动直播 Licence 的有效期`TXUGCBase.getInstance().getLicenceInfo(mContext)`。
-- 检查优图实验室 Licence 有效期（购买时通过商务获取）。
+- 检查移动直播 License 的有效期 `TXUGCBase.getInstance().getLicenceInfo(mContext)`。
+- 检查优图实验室 License 有效期（购买时通过商务获取）。
 - 检查您下载的 SDK 版本和购买的 SDK 版本是否一致。
 
 移动直播只有 [企业版](https://cloud.tencent.com/product/x-magic) 支持 AI 特效（大眼瘦脸、V 脸隆鼻、动效贴纸、绿幕抠图）。
@@ -205,13 +228,13 @@ packagingOptions {
 如果您调用接口发现不生效，请查看 Logcat 是否存在 log：`support EnterPrise above!!!`。如果存在，说明下载的 SDK 版本和您使用的 Licence 版本不匹配。
 >!美颜动效请使用最新接口`TXUGCRecord getBeautyManager()`。
 
-[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 可以查询 Licence 的有效期，是一个 xcode 工程，目前仅支持在 mac 上使用，后续会开放其他查询方式。
+[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 可以查询 License 的有效期，是一个 xcode 工程，目前仅支持在 mac 上使用，后续会开放其他查询方式。
 
 ### 4. 采用动态加载 jar + so 方式集成需要注意什么？
 
-- 检查动态下发的 so 包个数是否存在下发不全的情况，通过`TXLiveBase.setLibraryPath(soPath);`设置 so 包地址。
+- 检查动态下发的 so 包个数是否存在下发不全的情况，通过 `TXLiveBase.setLibraryPath(soPath);` 设置 so 包地址。
 >!不可以一部分放在本地，一部分动态下发，只能全部动态下发或全部本地集成。
-- jar + so 方式解压后的资源分为`assets-static`和`assets-dynamic`两类，其中`assets-static`只能放在本地，不可以动态下发，`asset-dynamic`需要保证动态下发，跟 so 同一个目录下。
+- jar + so 方式解压后的资源分为 `assets-static`和`assets-dynamic` 两类，其中 `assets-static` 只能放在本地，不可以动态下发，`asset-dynamic` 需要保证动态下发，跟 so 同一个目录下。
 - SDK 6.8 以后，请不要人为通过系统的方法加载 so 包，SDK 内部会保证 so 包的加载顺序。
 
 如果您出现以下问题，请按上述几点进行检查。

@@ -198,7 +198,7 @@ DtfTccBranch.begin(String name, Object[] params);
 | 参数  | 说明 |
 | ---- | ---- |
 | `name` | TCC 名称 |
-|`params` | Try 方法的业务参数，前两个参数（即`Long txId`和`Long branchId`） 填null |
+|`params` | Try 方法的业务参数，前两个参数（即`Long txId`和`Long branchId`） 填 null |
 
 #### 检查主事务状态是否为 Trying
 仅在 Trying 状态时允许提交分支事务，该接口主要用于防止分支事务 Try 阶段延迟提交本地事务。
@@ -221,7 +221,7 @@ DtfTccBranch.end();
 
 // 开启分支事务1：扣款
 Long branchId1 = DtfTccBranch.begin("debit", new Object[] { null, null, this.to, this.amount });
-// 执行Try方法1
+// 执行 Try 方法1
 transferService.debit(txId, branchId1, this.to, this.amount);
 // 关闭分支事务1上下文
 DtfTccBranch.end();
@@ -254,11 +254,11 @@ Long lastBranchId = DtfContextHolder.get().getBranchIdStack().peek();
 
 建议放到下列 Header 的 key 中，下游可以通过 DTF SDK 自行注入。
 ``` properties
-# Header key的常量ClientConstant.HTTP_HEADER.GROUP_ID
+# Header key 的常量 ClientConstant.HTTP_HEADER.GROUP_ID
 DTF-Group-ID: ${GroupId}
-# Header key的常量ClientConstant.HTTP_HEADER.TX_ID
+# Header key 的常量 ClientConstant.HTTP_HEADER.TX_ID
 DTF-Tx-ID: ${TxId}
-# Header key的常量 ClientConstant.HTTP_HEADER.LAST_BRANCH_ID
+# Header key 的常量 ClientConstant.HTTP_HEADER.LAST_BRANCH_ID
 DTF-Last-Branch-ID: ${LastBranchId}
 ```
 
@@ -267,11 +267,11 @@ DTF-Last-Branch-ID: ${LastBranchId}
 
 如果上游使用的是 DTF 封装的 RestTemplate 或 Fegin，请从以下请求头中获取：
 ``` properties
-# Header key的常量ClientConstant.HTTP_HEADER.GROUP_ID
+# Header key 的常量 ClientConstant.HTTP_HEADER.GROUP_ID
 DTF-Group-ID: ${GroupId}
-# Header key的常量ClientConstant.HTTP_HEADER.TX_ID
+# Header key 的常量 ClientConstant.HTTP_HEADER.TX_ID
 DTF-Tx-ID: ${TxId}
-# Header key的常量 ClientConstant.HTTP_HEADER.LAST_BRANCH_ID
+# Header key 的常量 ClientConstant.HTTP_HEADER.LAST_BRANCH_ID
 DTF-Last-Branch-ID: ${LastBranchId}
 ```
 

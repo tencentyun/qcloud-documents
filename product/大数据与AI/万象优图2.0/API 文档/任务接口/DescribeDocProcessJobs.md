@@ -1,6 +1,6 @@
 ## 功能描述
 
-DescribeDocProcessJobs 用于拉取符合条件的文档预览任务。
+DescribeDocProcessJobs 用于拉取符合条件的文档转码任务。
 
 ## 请求
 

@@ -54,6 +54,7 @@ GET _snapshot/my_cos_backup/snapshot_1
 ```
 该命令会返回快照的相关信息：
 >?当信息中的`state`字段为`SUCCESS`时，说明快照备份完成。
+>
 ```
 {
     "snapshots": [

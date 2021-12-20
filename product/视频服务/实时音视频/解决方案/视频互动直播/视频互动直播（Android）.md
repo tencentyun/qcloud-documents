@@ -23,7 +23,7 @@
 2. 输入应用名称，例如 `TestLiveRoom`，单击【创建】。
 3. 单击【已下载，下一步】，跳过此步骤。
 
-![](https://main.qcloudimg.com/raw/c4884da10fe7751953e91294ca95acb0.png)
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 >! 本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 
@@ -39,7 +39,7 @@
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
 <ul style="margin:0"><li/>SDKAPPID：默认为占位符（PLACEHOLDER），请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为占位符（PLACEHOLDER），请设置为实际的密钥信息。</ul>
-<img src="https://main.qcloudimg.com/raw/09a7c2e06bb792e1c3d651a61aff4000.png">
+<img src="https://main.qcloudimg.com/raw/f9b23b8632058a75b78d1f6fdcdca7da.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -76,10 +76,10 @@
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**），如下图示：
 <img src="https://main.qcloudimg.com/raw/94fcd741becbcfe4cca97778e180e4ca.png" width="320"/>
-2. 输入用户 A 创建的房间号，单击进入房间，如下图示：
+2. 输入用户 A 创建的房间号，单击进入房间，如下图示：<br>
 <img src="https://main.qcloudimg.com/raw/ed912e973f04f208a5dacb9139f01234.png" width="320"/>
 
-	>! 房间号在用户 A 的房间顶部查看，如下图示：
+>! 房间号在用户 A 的房间顶部查看，如下图示：
 <img src="https://main.qcloudimg.com/raw/27ae2f5036cf9ec20b48a2eeb46273a1.png" width="320"/>
 
 
@@ -152,9 +152,7 @@ dependencies {
 }
 :::
 </dx-codeblock>
-
-	>?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
-
+>?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
 <dx-codeblock>
 ::: java java
@@ -282,7 +280,7 @@ mLiveRoom.login(SDKAPPID, userId, userSig, config,
 ### 步骤5：主播端开播
 1. 主播执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 主播在开播前可先调用 `startCameraPreview` 开启摄像头预览，界面上可以配置美颜调节按钮调用，通过 `getBeautyManager` 进行美颜设置。
- >?非企业版 SDK 不支持变脸和贴图挂件等高级美颜功能。
+>?非企业版 SDK 不支持变脸和贴图挂件等高级美颜功能。
 3. 主播调整美颜效果后，可以调用 `createRoom` 创建新的直播间。
 4. 主播调用 `startPublish` 开始推流。如需支持 CDN 观看，请在 login 时传入的 `TRTCLiveRoomConfig` 参数中指定 `useCDNFirst` 和 `CDNPlayDomain` 并在 `startPublish` 时指定直播拉流用的 streamID。
 
@@ -319,9 +317,9 @@ mLiveRoom.createRoom(123456789, param, new TRTCLiveRoomCallback.ActionCallback()
 ### 步骤6：观众端观看
 1. 观众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 观众端向业务后台获取最新的直播房间列表。
- >?App 中的直播间列表仅做演示使用，直播间列表的业务逻辑千差万别，腾讯云暂不提供直播间列表的管理服务，请自行管理您的直播间列表。
+>?App 中的直播间列表仅做演示使用，直播间列表的业务逻辑千差万别，腾讯云暂不提供直播间列表的管理服务，请自行管理您的直播间列表。
 3. 观众端调用 `getRoomInfos` 获取房间的详细信息，该信息是在主播端调用 `createRoom` 创建直播间时设置的简单描述信息。
- >!如果您的直播间列表包含了足够全面的信息，可跳过调用`getRoomInfos`相关步骤。
+>!如果您的直播间列表包含了足够全面的信息，可跳过调用`getRoomInfos`相关步骤。
 4. 观众选择一个直播间，调用 `enterRoom`并传入房间号即可进入该房间。
 5. 调用 `startPlay` 并传入主播的 userId 开始播放。
  - 若直播间列表已包含主播端的 userId 信息，观众端可直接调用 `startPlay` 并传入主播的 userId 即可开始播放。

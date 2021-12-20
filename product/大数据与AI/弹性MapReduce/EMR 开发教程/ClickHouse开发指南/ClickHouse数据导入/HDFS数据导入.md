@@ -1,6 +1,6 @@
 ## 概述
 本文介绍了 HDFS 数据导入 ClickHouse 集群的两种方案。本文介绍两种可行的实践方案，一种适合数据量较少的场景。另一种适合大数据场景。**本文实战基于版本19.16.12.49。**
->?想获取更多关于 ClickHouse 技术交流，可 [提交工单](https://console.cloud.tencent.com/workorder/category)，我们将您拉入 ClickHouse 技术交流群。
+>?想获取更多关于 ClickHouse 技术交流，可通过 [售后支持](https://cloud.tencent.com/online-service?from=connect-us) 联系我们，届时会将您拉入 ClickHouse 技术交流群。
 
 ## 详细步骤
 ### 外表导入方案

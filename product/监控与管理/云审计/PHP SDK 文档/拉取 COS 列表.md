@@ -9,15 +9,15 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| cosBucketsList | Array | COS Bucket 列表 |
+| cosBucketsList | Array | COS Bucket 列表。 |
 
 其中 cosBucketsList 的参数如下：
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| name | String | COS Bucket 名称 |
-| region | String | Bucket 所在的地域 |
-| appId | String | 账号 APPID 或者项目 APPID |
+| name | String | COS Bucket 名称。 |
+| region | String | Bucket 所在的地域。 |
+| appId | String | 账号 APPID 或者项目 APPID。 |
 
 ## 实际案例
 ### 请求示例
@@ -42,6 +42,7 @@ echo "\nRequest :" . $ca->getLastRequest();
 echo "\nResponse :" . $ca->getLastResponse();
 echo "\n";
 ```
+
 ### 响应示例
 
 ```

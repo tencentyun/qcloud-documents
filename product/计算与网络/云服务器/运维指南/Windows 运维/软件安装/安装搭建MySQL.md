@@ -1,5 +1,5 @@
 ## 操作场景
-本文档以 Windows Server 2012 R2 数据中心版 64位中文版操作系统云服务器为例，介绍搭建 MySQL 8.0 的具体步骤。
+本文档以 Windows Server 2012 R2 数据中心版 64位中文版操作系统云服务器为例，介绍搭建 MySQL 8.0.19 的具体步骤。
 通常情况下 Windows 系统经常使用 SQL Server 数据库，但由于 SQL Server 属于收费产品需要您自行授权，您也可购买 [腾讯云云数据库 TencentDB for SQL Server 实例](http://cloud.tencent.com/product/sqlserver.html)。
 
 ## 操作步骤

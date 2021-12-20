@@ -48,10 +48,7 @@ putACL.grantFullControl = grantString;
 // 赋予被授权者读权限
 putACL.grantRead = grantString;
 
-// 赋予被授权者写权限
-putACL.grantWrite = grantString;
-
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 putACL.bucket = @"examplebucket-1250000000";
 
 [putACL setFinishBlock:^(id outputObject, NSError *error) {
@@ -71,7 +68,7 @@ putACL.bucket = @"examplebucket-1250000000";
 ```swift
 let putBucketACLReq = QCloudPutBucketACLRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 putBucketACLReq.bucket = "examplebucket-1250000000";
 
 // 授予权限的账号 ID
@@ -132,7 +129,7 @@ getBucketACl.bucket = @"examplebucket-1250000000";
 ```swift
 let getBucketACLReq = QCloudGetBucketACLRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 getBucketACLReq.bucket = "examplebucket-1250000000";
 
 getBucketACLReq.setFinish { (result, error) in
@@ -166,7 +163,7 @@ QCloudPutObjectACLRequest* request = [QCloudPutObjectACLRequest new];
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
 request.object = @"exampleobject";
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 
 NSString *grantString = [NSString stringWithFormat:@"id=\"%@\"",@"100000000001"];
@@ -176,8 +173,6 @@ NSString *grantString = [NSString stringWithFormat:@"id=\"%@\"",@"100000000001"]
 request.grantFullControl = grantString;
 // 赋予被授权者读权限。
 request.grantRead = grantString;
-// 赋予被授权者写权限。
-request.grantWrite = grantString;
 
 [request setFinishBlock:^(id outputObject, NSError *error) {
     // 可以从 outputObject 中获取 response 中 etag 或者自定义头部等信息
@@ -195,7 +190,7 @@ request.grantWrite = grantString;
 ```swift
 let putObjectACl = QCloudPutObjectACLRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 putObjectACl.bucket = "examplebucket-1250000000";
 
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
@@ -236,7 +231,7 @@ QCloudGetObjectACLRequest *request = [QCloudGetObjectACLRequest new];
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
 request.object = @"exampleobject";
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 
 __block QCloudACLPolicy* policy;
@@ -260,7 +255,7 @@ __block QCloudACLPolicy* policy;
 ```swift
 let getObjectACL = QCloudGetObjectACLRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 getObjectACL.bucket = "examplebucket-1250000000";
 
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"

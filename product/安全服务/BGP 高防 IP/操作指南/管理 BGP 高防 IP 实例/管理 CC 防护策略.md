@@ -1,4 +1,5 @@
 DDoS 高防 IP 支持 HTTP/HTTPS CC 防护功能。当高防 IP 统计的 HTTP/HTTPS 请求量超过设定的【http/https 请求数阈值】时，将自动触发 HTTP/HTTPS CC 防护。
+
 DDoS 高防 IP 提供设置访问控制策略功能。开启 HTTP/HTTPS CC 防护功能，用户可以使用常见 HTTP/HTTPS 报文的字段（如 host 参数、CGI 参数、Referer 和 User-Agent 等）设置匹配条件，对公网用户的访问请求进行管控，对命中条件的请求执行阻断、人机识别动作。用户也可以设置限速规则，对访问 IP 执行限速处理。
 DDoS 高防 IP 还支持 URL 白名单、IP 白名单、IP 黑名单策略配置：
 -  白名单中的 URL，其访问请求将无需执行 CC 攻击检测，直接被放行。

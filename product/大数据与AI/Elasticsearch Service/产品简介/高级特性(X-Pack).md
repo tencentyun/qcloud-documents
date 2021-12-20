@@ -2,7 +2,7 @@
 高级特性，是指 Elasticsearch 官方商业特性（原 X-Pack 商业版插件包含的特性），包含了安全（Security）、SQL、机器学习（Machine Learning）、监控（Monitor）等高级功能，可以为 Elasticsearch 服务的应用开发和运维管理，提供更有力的帮助。腾讯云 ES 已提供了包含高级特性的版本，您可以在创建购买集群时选择，下文介绍各版本详细功能。
 
 ## 购买指引
-![](https://main.qcloudimg.com/raw/718c1da8f743676dea93c048751b53fb.png)
+![](https://main.qcloudimg.com/raw/24601df6d24efe0d711db1569ff4a0f8.png)
 如上图所示，在腾讯云 ES 创建购买页，有高级特性版本选项。腾讯云 ES 提供了3种可选的高级特性版本，版本说明如下：
 
 | 对比项            | 基础版 | 白金版 | 开源版 |
@@ -11,13 +11,13 @@
 | X-Pack 功能完整度 | 部分   | 全部   | 无     |
 
 **购买推荐**  
-为了能够使用腾讯云 Elasticsearch 更多高级功能，我们建议您在创建购买集群时，选择**白金版**，各版本具体功能介绍及区别见下文，产品的定价信息详见 [产品定价](https://cloud.tencent.com/document/product/845/18376)。
+为了能够使用腾讯云 Elasticsearch 更多高级功能，我们建议您在创建购买集群时，选择**白金版**，各版本具体功能介绍及区别见下文，产品的定价信息详见 [Elasticsearch Service 集群定价](https://cloud.tencent.com/document/product/845/18376)。
 
 ## 高级特性介绍
 本文对部分常用高级特性进行了说明，完整的高级特性及说明，可查看官方说明 [Elastic Stack 订阅](https://www.elastic.co/cn/subscriptions) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
 >! 
 >- 部分功能在不同的高级特性版本（基础、白金、开源）间有区别。
->- 部分功能在较老的腾讯云 ES 版本不支持，若您遇到此问题可 [提工单](https://console.cloud.tencent.com/workorder/category) 咨询。
+>- 部分功能在较老的腾讯云 ES 版本不支持，若您遇到此问题，可通过 [售后支持](https://cloud.tencent.com/online-service?from=connect-us) 咨询。
 
 - **安全（Security）**  
 支持索引和字段级别读写等细分权限的控制管理，实现数据安全防护、业务访问隔离，向正确的人员授予访问权限，阻止恶意破坏和数据泄露，有效的保障数据安全。

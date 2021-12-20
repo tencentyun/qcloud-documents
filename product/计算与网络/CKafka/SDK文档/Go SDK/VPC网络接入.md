@@ -1,4 +1,4 @@
-## 操作背景
+## 操作场景
 
 该任务以 Go 客户端为例指导您使用 VPC 网络接入消息队列 CKafka 并收发消息。
 
@@ -29,34 +29,34 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
       "xxx-.ap-changsha-ec.ckafka.tencentcloudmq.com:6000"
   ],
   "consumerGroupId": "yourConsumerId"
- }  
+}  
 
 ```
 
 | 参数             | 描述                                                         |
 | ---------------- | :----------------------------------------------------------- |
-| topic            | Topic名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
-| bootstrapServers | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
-| consumerGroupId  | 您可以自定义设置，Demo 运行成功后可以在【Consumer Group】页面看到该消费者。 |
+| topic            | Topic名称，您可以在控制台上**topic管理**页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
+| bootstrapServers | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
+| consumerGroupId  | 您可以自定义设置，Demo 运行成功后可以在**Consumer Group**页面看到该消费者。 |
 
 ### 步骤二：发送消息
 
 1. 编写生产消息程序。
-
-   ```go
+<dx-codeblock>
+:::  go
    package main
    import (
-   "fmt"
-   "gokafkademo/config"
-   "log"
-   "strings"
-       "github.com/confluentinc/confluent-kafka-go/kafka"
+					"fmt"
+					"gokafkademo/config"
+					"log"
+					"strings"	
+					"github.com/confluentinc/confluent-kafka-go/kafka"
    )
    func main() {
-       cfg, err := config.ParseConfig("../../config/kafka.json")
-   if err != nil {
-       log.Fatal(err)
-   }
+       cfg, err := config.ParseConfig("../config/kafka.json")
+   		if err != nil {
+       		log.Fatal(err)
+   		}
        p, err := kafka.NewProducer(&kafka.ConfigMap{
        // 设置接入点，请通过控制台获取对应Topic的接入点。
        "bootstrap.servers": strings.Join(cfg.Servers, ","),
@@ -70,36 +70,39 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
        "socket.timeout.ms": 6000,
        // 设置客户端内部重试间隔。
        "reconnect.backoff.max.ms": 3000,
-   })
-   if err != nil {
-       log.Fatal(err)
-   }
+   		})
+   		if err != nil {
+       		log.Fatal(err)
+   		}
        defer p.Close()
        // 产生的消息 传递至报告处理程序
-   go func() {
-       for e := range p.Events() {
-           switch ev := e.(type) {
-           case *kafka.Message:
-               if ev.TopicPartition.Error != nil {
-                   fmt.Printf("Delivery failed: %v\n", ev.TopicPartition)
-               } else {
-                   fmt.Printf("Delivered message to %v\n", ev.TopicPartition)
-               }
-           }
-       }
-   }()
+   		go func() {
+       		for e := range p.Events() {
+           		switch ev := e.(type) {
+           		case *kafka.Message:
+               		if ev.TopicPartition.Error != nil {
+                   		fmt.Printf("Delivery failed: %v\n", ev.TopicPartition)
+                 	} else {
+                     fmt.Printf("Delivered message to %v\n",ev.TopicPartition)
+               		}
+           		}
+       		}
+   		}()
        // 异步发送消息
-   topic := cfg.Topic[0]
-   for _, word := range []string{"Confluent-Kafka", "Golang Client Message"} {
-       _ = p.Produce(&kafka.Message{
-           TopicPartition: kafka.TopicPartition{Topic: &topic, Partition: kafka.PartitionAny},
-           Value:          []byte(word),
-       }, nil)
-   }
+   		topic := cfg.Topic[0]
+   		for _, word := range []string{"Confluent-Kafka", "Golang Client Message"} {
+       		_ = p.Produce(&kafka.Message{
+           		TopicPartition: kafka.TopicPartition{Topic: &topic, Partition: 		kafka.PartitionAny},
+           		Value:          []byte(word),
+       		}, nil)
+   		}
        // 等待消息传递
-   p.Flush(10 * 1000)
-   ```
+   		p.Flush(10 * 1000)
+   }
+:::
+</dx-codeblock>
 
+  
 2. 编译并运行程序发送消息。
    ```go
    go run main.go
@@ -111,14 +114,14 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
    Delivered message to test[0]@629
    ```
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic管理】页面，选择对应的 Topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**topic管理**页面，选择对应的 Topic，单击**更多** > **消息查询**，查看刚刚发送的消息。
    ![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
 
 ### 步骤三：消费消息
 
 1. 编写消费消息程序。。
-
-```go
+<dx-codeblock>
+:::  go
   package main
   
   import (
@@ -132,7 +135,7 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
   
   func main() {
   
-      cfg, err := config.ParseConfig("../../config/kafka.json")
+      cfg, err := config.ParseConfig("../config/kafka.json")
       if err != nil {
           log.Fatal(err)
       }
@@ -170,19 +173,20 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
   
       c.Close()
   }
-```
+:::
+</dx-codeblock>
 
 2. 编译并运行程序消费消息。
-```bash
-  go run main.go
-```
+	```bash
+		go run main.go
+	```
 
 3. 查看运行结果，示例如下。
-```bash
-Message on test[0]@628: Confluent-Kafka
-Message on test[0]@629: Golang Client Message
-```
+	```bash
+	Message on test[0]@628: Confluent-Kafka
+	Message on test[0]@629: Golang Client Message
+	```
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 Topic 名称，单击【查询详情】，查看消费详情。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**Consumer Group**页面，选择对应的消费组名称，在主题名称输入 Topic 名称，单击**查询详情**，查看消费详情。
    ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)
 

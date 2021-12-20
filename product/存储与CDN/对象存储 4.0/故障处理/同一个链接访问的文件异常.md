@@ -24,10 +24,10 @@
 >
 1. 打开 Google 浏览器。
 2. 按 **F12**，打开调试窗口。
-3. 选择【Network】页签，查看是否勾选了【Disable cache】。
+3. 选择**Network**页签，查看是否勾选了**Disable cache**。
 ![](https://main.qcloudimg.com/raw/453ea5fdaa0d69be6f13fd809a815d22.png)
  - 是，请 [检查访问的文件是否被劫持](#UseHTTPS)。
- - 否，请勾选【Disable cache】，并重启浏览器。
+ - 否，请勾选**Disable cache**，并重启浏览器。
 
 <span id="UseHTTPS"></span>
 ### 检查访问的文件是否被劫持

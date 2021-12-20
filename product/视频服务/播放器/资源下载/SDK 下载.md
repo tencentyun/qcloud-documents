@@ -1,122 +1,70 @@
-## SDK 功能列表
-<table width="850px">
-  <tr align="center">
-     <th style="text-align:center">功能</th>
-     <th style="text-align:center">iOS</th>
-     <th style="text-align:center">Android</th>
-  </tr>
-  <tr align="center">
-     <td>版本</td>
-        <td style="text-align:center">SDK（8.8.10257）@2021.06.18</td>
-        <td style="text-align:center">SDK（8.8.10254）@2021.06.18</td>
-  </tr>
-  <tr align="center">
-    <td>小窗播放</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
-  <tr align="center">
-    <td>多手势操作</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
-  <tr align="center">
-    <td>播放列表</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
-  <tr align="center">
-    <td>进度条打点、进度缩略图</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
-  <tr align="center">
-    <td>互动浮窗</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
-  <tr align="center">
-    <td>首屏秒开+预加载</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
-  <tr align="center">
-    <td>视频截图</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
-  <tr align="center">
-    <td>弹幕</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
-  <tr align="center">
-    <td>直播时移</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
-  <tr align="center">
-    <td>视频加密、视频试看</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
-  <tr align="center">
-    <td>码率自适应</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
-  <tr align="center">
-    <td>变速播放、镜像播放</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
-  <tr align="center">
-    <td>清晰度流畅切换</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
-  <tr align="center">
-    <td>多格式支持</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
-  <tr align="center">
-    <td>H.265 解码</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
- 
-  <tr align="center">
-     <th>SDK 下载</th>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_play") href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Player_iOS_latest.zip">iOS 下载</a></td>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_play") href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Player_Android_latest.zip">Android 下载</a></td>
-  </tr>
-  <tr align="center">
-     <th>超级播放器</th>
-        <td style="text-align:center"><a href="https://github.com/tencentyun/SuperPlayer">GitHub</a></td>
-        <td style="text-align:center"><a href="https://github.com/tencentyun/SuperPlayer_Android">GitHub</a></td>
-  </tr>
-</table>
+<style>
+.markdown-text-box table td, .markdown-text-box table th{text-align:center}
+</style>
+  
+播放器 SDK 支持支持 Web、iOS、Android 和 Flutter 四大终端, 详情请参见表格中的文档。
 
->? 详细介绍请参见 [此文档](https://github.com/tencentyun/SuperPlayer)。
+<table>
+   <tr>
+      <th width="12%">终端类别</td>
+      <th width="20%">播放器类型</td>
+      <th>SDK & Demo<br>下载地址</td>
+      <th>Demo 展示</td>
+      <th>   使用文档</td>
+   </tr>
+   <tr>
+      <td rowspan='2'>Web 端</td>
+      <td>超级播放器</td>
+      <td><a href="https://cloud.tencent.com/document/product/881/30818">SDK</a></td>
+      <td><a href="https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-base.html">Demo</a></td>
+      <td><a href="https://cloud.tencent.com/document/product/881/30818">Web - 超级播放器</a></td>
+   </tr>
+   <tr>
+      <td>超级播放器 Adapter</td>
+      <td><a href="https://cloud.tencent.com/document/product/881/30824">SDK</a></td>
+      <td>-</td>
+      <td><a href="https://cloud.tencent.com/document/product/881/30824">Web - 超级播放器 Adapter</a></td>
+   </tr>
+   <tr>
+      <td rowspan='2'>iOS 端</td>
+      <td>超级播放器</td>
+      <td><a href="https://github.com/tencentyun/SuperPlayer_iOS">SDK + Demo</a></td>
+      <td><a><button style="width:120px;height: 120px;border:none;background-image:url(https://main.qcloudimg.com/raw/12c7da97cc910eda673cb19b66fc7cb3.png);background-size: cover;">
+</button></a></td>
+      <td><a href="https://cloud.tencent.com/document/product/881/20208">iOS - 超级播放器</a></td>
+   </tr>
+   <tr>
+      <td>超级播放器 Adapter</td>
+      <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_iOS.zip">SDK</a></td>
+      <td>-</td>
+      <td><a href="https://cloud.tencent.com/document/product/881/20209">iOS - 超级播放器 Adapter</a></td>
+   </tr>
+   <tr>
+      <td rowspan='2'>Android 端</td>
+      <td>超级播放器</td>
+      <td><a href="https://github.com/tencentyun/SuperPlayer_Android">SDK + Demo</a></td>
+      <td><a><button style="width:120px;height: 120px;border:none;background-image:url(https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png);background-size: cover;">
+</button></a></td>
+      <td><a href="https://cloud.tencent.com/document/product/881/20213">Android - 超级播放器</a></td>
+   </tr>
+   <tr>
+      <td>超级播放器 Adapter</td>
+      <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip">SDK</a></td>
+      <td>-</td>
+      <td><a href="https://cloud.tencent.com/document/product/881/20214">Android- 超级播放器 Adapter</a></td>
+   </tr>
+   <tr>
+      <td >Flutter 端</td>
+      <td>超级播放器</td>
+      <td><a href="https://github.com/tencentyun/SuperPlayer/tree/main/Flutter">SDK + Demo</a></td>
+         <td><a href="https://github.com/tencentyun/SuperPlayer/tree/main/Flutter">Demo</a></td>
+         <td><a href="https://cloud.tencent.com/document/product/881/60729">Flutter - 超级播放器</a></td>
+   </tr>
+</table>
 
 
 ## 技术交流
-关注公众号“腾讯云视频云”，在聊天窗口发送“技术支持”，将有专人和您联系。
+
+关注公众号"腾讯云音视频"，了解腾讯云视频最新资讯。
 <img src="https://main.qcloudimg.com/raw/1c414d4d70e910289eac02b2e14e8c03.jpg" width="150">
-
-<script>
-  var _mtac = {"senseHash":0};
-  (function() {
-    var mta = document.createElement("script");
-    mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
-    mta.setAttribute("name", "MTAH5");
-    mta.setAttribute("sid", "500695331");
-    mta.setAttribute("cid", "500695332");
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(mta, s);
-  })();
-</script>
-
-
 

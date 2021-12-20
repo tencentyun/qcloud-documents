@@ -7,7 +7,6 @@
 | 操作系统平台  | 浏览器/Webview  | 版本要求  |  备注|
 | ------------------------- | -------- | ---------------------- |------- |
 | Windows  | Chrome | 50+   |   Win7+   |
-| Windows  | IE | 10+ | Win7+    |
 | Windows  | Firefox | 50+ | Win7+    |
 | Mac  | Chrome | 50+   |   -   |
 | Mac  | Safari | 8+ | -    |
@@ -25,7 +24,7 @@
 <!-- COS SDK -->
 <script src="https://res.qcloudtiw.com/board/third/cos/5.1.0/cos.min.js"></script>
 <!-- TEduBoard SDK -->
-<script src="https://res.qcloudtiw.com/board/2.6.0/TEduBoard.min.js"></script>
+<script src="https://res.qcloudtiw.com/board/2.6.8/TEduBoard.min.js"></script>
 ```
 
 如果您需要添加视频文件还需要添加以下代码：
@@ -53,7 +52,10 @@ var teduBoard = new TEduBoard(initParams);
 
 #### 2. 监听白板关键事件
 
-使用 on 监听白板事件
+使用 on 监听白板关键事件
+
+- [onTEBError 错误详情](https://cloud.tencent.com/document/product/1137/60716#.E9.94.99.E8.AF.AF.E4.BA.8B.E4.BB.B6)
+- [onTEBWarning 警告详情](https://cloud.tencent.com/document/product/1137/60716#.E8.AD.A6.E5.91.8A.E4.BA.8B.E4.BB.B6)
 
 ```
 // 监听白板错误事件

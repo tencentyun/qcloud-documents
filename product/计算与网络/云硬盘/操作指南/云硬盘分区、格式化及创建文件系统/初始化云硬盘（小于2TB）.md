@@ -14,32 +14,40 @@
 
 <dx-tabs>
 ::: 初始化云硬盘（Windows） [](id:Windows2008)
->?本文将以 Windows Server 2012 R2 操作系统为例，不同操作系统的格式化操作可能不同，本文仅供参考。
->
+
+
+<dx-alert infotype="explain" title="">
+本文将以 Windows Server 2012 R2 操作系统为例，不同操作系统的格式化操作可能不同，本文仅供参考。
+</dx-alert>
+
+
 1. [登录 Windows 云服务器](https://cloud.tencent.com/document/product/213/5435)。
 2. 在云服务器桌面，右键单击左下角的 <img src="https://main.qcloudimg.com/raw/3d815ac1c196b47b2eea7c3a516c3d88.png" style="margin:-6px 0px">。
-3. 在弹出的菜单中，选择【磁盘管理】打开“磁盘管理”窗口。如下图所示：
+3. 在弹出的菜单中，选择**磁盘管理**打开“磁盘管理”窗口。如下图所示：
 ![](https://main.qcloudimg.com/raw/fcf4fe5cafbbf4e3a52db750a4c3e2e2.png)
->?若新增磁盘处于脱机状态（如上图），需要先执行 [步骤4](#online) 联机后再执行 [步骤5](#initialize) 进行初始化。否则直接执行 [步骤5](#initialize) 进行初始化。
-4. [](id:online)在右侧窗格中出现磁盘列表，右键单击磁盘1区域，在菜单列表中选择【联机】，进行联机。联机后，磁盘1由【脱机】状态变为【没有初始化】。如下图所示：
+<dx-alert infotype="explain" title="">
+若新增磁盘处于脱机状态（如上图），需要先执行 [步骤4](#online) 联机后再执行 [步骤5](#initialize) 进行初始化。否则直接执行 [步骤5](#initialize) 进行初始化。
+</dx-alert>
+4. [](id:online)在右侧窗格中出现磁盘列表，右键单击磁盘1区域，在菜单列表中选择**联机**，进行联机。联机后，磁盘1由**脱机**状态变为**没有初始化**。如下图所示：
 ![](https://main.qcloudimg.com/raw/4d3c952ca5ffdd3b1a4874191c33dc8c.png)
-5. [](id:initialize)右键单击磁盘1区域，在菜单列表中选择【初始化磁盘】。如下图所示：
+5. [](id:initialize)右键单击磁盘1区域，在菜单列表中选择**初始化磁盘**。如下图所示：
 ![](https://main.qcloudimg.com/raw/e20181dc979f1b018baba0ccaa0c5291.png)
-6. 在【初始化磁盘】对话框中显示需要初始化的磁盘，选中【MBR（主启动记录）】或【GPT（GUID 分区表）】，单击【确定】。如下图所示：
->!磁盘投入使用后再切换磁盘分区形式，磁盘上的原有数据将会清除，因此请根据实际需求合理选择分区形式。
->
+6. 在**初始化磁盘**对话框中显示需要初始化的磁盘，选中 **MBR（主启动记录）**或 **GPT（GUID 分区表）**，单击**确定**。如下图所示：
+<dx-alert infotype="notice" title="">
+磁盘投入使用后再切换磁盘分区形式，磁盘上的原有数据将会清除，因此请根据实际需求合理选择分区形式。
+</dx-alert>
 ![](https://main.qcloudimg.com/raw/688d59f40d9d26ae59ee201e433cee2e.png)
-7. 右键单击磁盘上未分配的区域，选择【新建简单卷】。如下图所示：
+7. 右键单击磁盘上未分配的区域，选择**新建简单卷**。如下图所示：
 ![](https://main.qcloudimg.com/raw/912b77a52bb1e531d4c6bf5403841657.png)
-8. 弹出【新建简单卷向导】对话框，根据界面提示，单击【下一步】。
-9. 根据实际情况指定卷大小，默认为最大值，单击【下一步】。
-10. 分配驱动器号，单击【下一步】。如下图所示：
+8. 弹出**新建简单卷向导**对话框，根据界面提示，单击**下一步**。
+9. 根据实际情况指定卷大小，默认为最大值，单击**下一步**。
+10. 分配驱动器号，单击**下一步**。如下图所示：
 ![](https://main.qcloudimg.com/raw/1f61b5dcd5c965fa3e3bc11983475d38.png)
-11. 选择【按下列设置格式化这个卷】，并根据实际情况设置参数，格式化新分区，单击【下一步】完成分区创建。
+11. 选择**按下列设置格式化这个卷**，并根据实际情况设置参数，格式化新分区，单击**下一步**完成分区创建。
 ![](https://main.qcloudimg.com/raw/608ffc67e52b53691bf64f2b2411b948.png)
-12. 单击【完成】完成向导。需要等待片刻让系统完成初始化操作，当卷状态为【状态良好】时，表示初始化磁盘成功。
+12. 单击**完成**完成向导。需要等待片刻让系统完成初始化操作，当卷状态为**状态良好**时，表示初始化磁盘成功。
 ![](https://main.qcloudimg.com/raw/148e9db3163df781b0832df1da25059f.png)
-  初始化成功后，进入【计算机】界面可以查看到新磁盘。
+  初始化成功后，进入“计算机”界面可以查看到新磁盘。
 ![](https://main.qcloudimg.com/raw/05261659e6d9eed38da84a933c20ba12.png)
 :::
 ::: 初始化云硬盘（Linux） [](id:Linux)
@@ -63,7 +71,9 @@ mkfs -t <文件系统格式> /dev/vdb
 ```
 mkfs -t ext4 /dev/vdb
 ```
->! 格式化需要等待一段时间，请观察系统运行状态，不要退出。
+<dx-alert infotype="notice" title="">
+格式化需要等待一段时间，请观察系统运行状态，不要退出。
+</dx-alert>
 4. 执行以下命令，新建挂载点。
 ```
 mkdir <挂载点>
@@ -82,7 +92,9 @@ mount /dev/vdb /data
 ```
 df -TH
 ```
->? 若无需设置开机自动挂载磁盘，则跳过后续步骤。
+<dx-alert infotype="explain" title="">
+若无需设置开机自动挂载磁盘，则跳过后续步骤。
+</dx-alert>
 7. 确认挂载方式并获取对应信息。
 您可以根据业务需求选择使用弹性云硬盘的软链接、文件系统的 UUID（universally unique identifier）或设备名称自动挂载磁盘，相关说明和信息获取方式如下：
 <table>
@@ -107,7 +119,7 @@ df -TH
 		 <td nowrap="nowrap">执行以下命令，查看设备名称。</br><pre style="color:white;">fdisk -l</pre></td>
  </tr>
 </table>
-8. 执行以下命令，备份 `/etc/fstab`  文件。以备份到  /home 目录下为例：
+8. 执行以下命令，备份 `/etc/fstab`  文件。以备份到  `/home` 目录下为例：
 ```
 cp -r /etc/fstab /home
 ```
@@ -115,16 +127,18 @@ cp -r /etc/fstab /home
 ```
 vi /etc/fstab
 ```
-10. 按 **i**，进入编辑模式。
+10. 按 **i** 进入编辑模式。
 11. 将光标移至文件末尾，按 **Enter**，添加如下内容。
 ```plaintext
-<设备信息> <挂载点> <文件系统格式> <文件系统安装选项> <文件系统转储频率> 
-<启动时的文件系统检查顺序>
+<设备信息> <挂载点> <文件系统格式> <文件系统安装选项> <文件系统转储频率> <启动时的文件系统检查顺序>
 ```
  - **（推荐）**以使用弹性云硬盘的软链接自动挂载为例，结合前文示例则添加：
 ```
 /dev/disk/by-id/virtio-disk-drkhklpe /data ext4 defaults 0 0
 ```
+<dx-alert infotype="explain" title="">
+若您有多块弹性云硬盘，则可使用 `disk-xxxxx` 与 [控制台](https://console.cloud.tencent.com/cvm/cbs/index) 中的云硬盘 ID 对比以进行区分。
+</dx-alert>
  - 以使用磁盘分区的 UUID 自动挂载为例，结合前文示例则添加：
 ```
 UUID=d489ca1c-5057-4536-81cb-ceb2847f9954 /data  ext4 defaults     0   0
@@ -143,8 +157,13 @@ mount -a
 
 ### 在分区上构建文件系统 [](id:CreateFileSystemOnPartition)
 
->?本操作将以在 CentOS 7.5 操作系统中使用 fdisk 分区工具将数据盘 `/dev/vdb` 设置为主分区，分区形式默认设置为 MBR，文件系统设置为 EXT4 格式，挂载在 `/data/newpart` 下，并设置开机启动自动挂载为例，不同操作系统的格式化操作可能不同，本文仅供参考。
->
+
+
+<dx-alert infotype="explain" title="">
+本操作将以在 CentOS 7.5 操作系统中使用 fdisk 分区工具将数据盘 `/dev/vdb` 设置为主分区，分区形式默认设置为 MBR，文件系统设置为 EXT4 格式，挂载在 `/data/newpart` 下，并设置开机启动自动挂载为例，不同操作系统的格式化操作可能不同，本文仅供参考。
+</dx-alert>
+
+
 
 1. [登录 Linux 云服务器](https://cloud.tencent.com/document/product/213/5436)。
 2. 以 root 用户执行以下命令，查看磁盘名称。
@@ -160,35 +179,36 @@ fdisk <新增数据盘>
 fdisk /dev/vdb
 ```  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/db1fe212e2559ac635c52e5e397e7531.png)
-4. 输入`n`，按 **Enter**，开始新建分区。
+4. 输入**n**，按 **Enter**，开始新建分区。
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/c89b572c0ac2af1302189f8e7e1a849e.png)
  表示磁盘有两种分区类型：
-  - 【p】表示主要分区。
-  - 【e】表示延伸分区。
-5. 以创建一个主要分区为例，输入 `p`，按 **Enter**，开始创建一个主分区。
+  - **p** 表示主要分区。
+  - **e** 表示延伸分区。
+5. 以创建一个主要分区为例，输入 **p**，按 **Enter**，开始创建一个主分区。
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/efb65b60631d95e9b0213e6fd6125bbb.png)
- 【Partition number】表示主分区编号，可以选择1-4。
-6. 以选择分区编号1为例，输入主分区编号`1`，按 **Enter**。
+**Partition number** 表示主分区编号，可以选择1 - 4。
+6. 以选择分区编号1为例，输入主分区编号 **1**，按 **Enter**。
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/e1a1a7755a3bb392ec6d623e6774c315.png)
- 【First sector】表示初始磁柱区域，可以选择2048 - 20971519，默认为2048。
+**First sector** 表示初始磁柱区域，可以选择2048 - 20971519，默认为2048。
 7. 以选择默认初始磁柱编号2048为例，按 **Enter**。
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/58a8202531b239a73fd3182d0ea0cf34.png)
- 【Last sector】表示截止磁柱区域，可以选择2048 - 20971519，默认为20971519。
+**Last sector** 表示截止磁柱区域，可以选择2048 - 20971519，默认为20971519。
 8. 以选择默认截止磁柱编号20971519为例，按 **Enter**。
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/ad3a6459a6eaf154aed578b37dfc89d0.png)
  表示分区完成，即为60GB的数据盘新建了1个分区。
-9. 输入 `p`，按 **Enter**，查看新建分区的详细信息。
+9. 输入 **p**，按 **Enter**，查看新建分区的详细信息。
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/98427c11e0a181e02eb23a95fc1e908c.png)
- 表示新建分区`/dev/vdb1`的详细信息。
->?若上述分区操作有误，请输入 `q`，退出 fdisk 分区工具，之前的分区结果将不会被保留。
->
-10. 输入`w`，按 **Enter**，将分区结果写入分区表中。
+ 表示新建分区 `/dev/vdb1` 的详细信息。
+<dx-alert infotype="explain" title="">
+若上述分区操作有误，请输入 **q**，退出 fdisk 分区工具，之前的分区结果将不会被保留。
+</dx-alert>
+10. 输入 **w**，按 **Enter**，将分区结果写入分区表中。
  回显信息类似如下图，表示分区创建完成。
  ![](https://main.qcloudimg.com/raw/7011369be260150fcddf272b4a4ab2fa.png)
 11. 执行以下命令，将新的分区表变更同步至操作系统。
@@ -196,10 +216,10 @@ fdisk /dev/vdb
 partprobe
 ```
 12. 执行以下命令，将新建分区文件系统设置为系统所需格式。
- ```
+```
 mkfs -t <文件系统格式> /dev/vdb1
 ``` 不同文件系统支持的分区大小不同，请根据实际需求合理选择文件系统。以设置文件系统为 EXT4 为例：
- ```
+```
 mkfs -t ext4 /dev/vdb1
 ``` 回显信息类似如下图：
 ![](https://main.qcloudimg.com/raw/6de097cea77634f8847816dd795292a7.png)
@@ -224,8 +244,9 @@ df -TH
 ```  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/b7e5501fed8d7d648b48dc66685baf94.png)
  表示新建分区 `/dev/vdb1` 已挂载至 `/data/newpart`。
->?若无需设置开机自动挂载磁盘，则跳过后续步骤。
->
+<dx-alert infotype="explain" title="">
+若无需设置开机自动挂载磁盘，则跳过后续步骤。
+</dx-alert>
 16. 确认挂载方式并获取对应信息。
  您可以根据业务需求选择使用弹性云硬盘的软链接、文件系统的 UUID（universally unique identifier）或设备名称自动挂载磁盘，相关说明和信息获取方式如下：
  <table>
@@ -250,24 +271,26 @@ df -TH
 	       <td>执行以下命令，查看设备名称。</br><pre style="color:white;">fdisk -l</pre></td>
      </tr> 
 </table>
-17. 执行以下命令，备份 `/etc/fstab 文件`。以备份到 /home 目录下为例：
+17. 执行以下命令，备份 `/etc/fstab 文件`。以备份到 `/home` 目录下为例：
 ```
 cp -r /etc/fstab /home
 ```
-18. 执行以下命令，使用 VI 编辑器打开`/etc/fstab`文件。
+18. 执行以下命令，使用 VI 编辑器打开 `/etc/fstab` 文件。
  ```
 vi /etc/fstab
 ```
-19. 按 **i**，进入编辑模式。 
+19. 按 **i** 进入编辑模式。 
 20. 将光标移至文件末尾，按 **Enter**，添加如下内容。
 ```plaintext
-<设备信息> <挂载点> <文件系统格式> <文件系统安装选项> <文件系统转储频率> 
-<启动时的文件系统检查顺序>
+<设备信息> <挂载点> <文件系统格式> <文件系统安装选项> <文件系统转储频率> <启动时的文件系统检查顺序>
 ```
  - **（推荐）**以使用弹性云硬盘的软链接自动挂载为例，结合前文示例则添加：
  ```
 /dev/disk/by-id/virtio-disk-drkhklpe-part1 /data/newpart   ext4 defaults     0   2
 ```
+<dx-alert infotype="explain" title="">
+若您有多块弹性云硬盘，则可使用 `disk-xxxxx` 与 [控制台](https://console.cloud.tencent.com/cvm/cbs/index) 中的云硬盘 ID 对比以进行区分。
+</dx-alert>
  - 以使用磁盘分区的 UUID 自动挂载为例，结合前文示例则添加：
 ```
 UUID=d489ca1c-5057-4536-81cb-ceb2847f9954 /data/newpart   ext4 defaults     0   2

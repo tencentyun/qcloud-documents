@@ -1,0 +1,370 @@
+[](id:que1)
+
+### 音视频通话 TRTC 的 RoomID 是什么？取值区间值是多少？
+RoomID 即房间号，用于唯一标识一个房间。房间号取值区间为1 - 4294967295，由开发者自行维护和分配。
+
+[](id:que2)
+### 音视频通话 TRTC 进房 UserID 是什么？取值范围是多少？ 
+UserID 即用户 ID，用于在一个实时音视频应用中唯一标识一个用户。取值范围长度建议不超过32字节。请使用英文字母、数字或下划线，区分大小写。
+
+
+[](id:que3)
+### 音视频通话 TRTC 房间的生命周期是多久？
+- 第一个加入房间的用户为当前房间的所有者，但该用户无法主动解散房间。
+- **通话模式下**：所有用户都主动退房时，后台立即解散房间。
+- **直播模式下**：最后一个退房的用户是主播角色时，后台立即解散房间；最后一个退房的用户是观众角色时，后台等待10分钟后解散房间。
+- 如果房间内的单个用户异常掉线，90秒后服务端会将该用户清理出当前房间。如果房间内的所有用户都异常掉线，90秒后服务端会自动解散当前房间。**用户异常掉线等待时长会被纳入计费用时统计。**
+- 当用户要加入的房间不存在时，后台会自动创建一个房间。
+
+[](id:que4)
+### 音视频通话 TRTC 是否支持不订阅音视频流？ 
+为了实现“秒开”效果，默认是进房自动订阅流，可以通过 setDefaultStreamRecvMode 接口切换手动订阅模式。
+
+[](id:que5)
+### 音视频通话 TRTC 是否支持自定义旁路推流的流 ID？  
+支持，您可以通过 enterRoom 的参数 TRTCParams 指定 streamId，也可以调用 startPublishing 接口传参数 streamId。
+
+[](id:que6)
+### 音视频通话 TRTC 直播支持什么角色？有什么区别？
+直播场景（TRTCAppSceneLIVE 和 TRTCAppSceneVoiceChatRoom）支持 TRTCRoleAnchor（主播）和 TRTCRoleAudience（观众）两种角色，区别是主播角色可以同时上行、下行音视频数据，观众角色只支持下行播放其他人的数据。您可以通过调用 switchRole() 进行角色切换。
+
+[](id:que7)
+### 怎么理解音视频通话 TRTC 的角色 Role？ 
+只有在直播场景下，可以设置主播和观众角色。主播角色 TRTCRoleAnchor 具有上行和下行音视频的权限，最高并发支持50人，观众 TRTCRoleAudience 只具有下行音视频的权限，最高并发支持10万人。
+
+
+[](id:que8)
+### 音视频通话 TRTC 房间支持哪些应用场景?  
+支持以下场景：
+- TRTCAppSceneVideoCall ：视频通话场景，适合1对1视频通话、300人视频会议、在线问诊、视频聊天、远程面试等。
+- TRTCAppSceneLIVE ：视频互动直播，适合视频低延时直播、十万人互动课堂、视频直播 PK、视频相亲房、互动课堂、远程培训、超大型会议等。
+- TRTCAppSceneAudioCall ：语音通话场景，适合1对1语音通话、300人语音会议、语音聊天、语音会议、在线狼人杀等。
+- TRTCAppSceneVoiceChatRoom：语音互动直播，适合：语音低延时直播、语音直播连麦、语聊房、K 歌房、FM 电台等。
+
+
+[](id:que9)
+### 音视频通话 TRTC 支持哪些平台？
+支持的平台包括 iOS、Android、Windows(C++)、Windows(C#)、Mac、Web、Electron、微信小程序，更多详情请参见 [平台支持](https://cloud.tencent.com/document/product/647/16788#.E5.B9.B3.E5.8F.B0.E6.94.AF.E6.8C.81)。
+
+[](id:que10)
+
+### 音视频通话 TRTC 支持直播连麦吗?
+支持，具体操作指南请参见：
+- [跑通直播模式(iOS&Mac)](https://cloud.tencent.com/document/product/1449/57106)
+- [跑通直播模式(Android)](https://cloud.tencent.com/document/product/1449/57107)
+- [跑通直播模式(Windows)](https://cloud.tencent.com/document/product/1449/57108)
+- [跑通直播模式(Electron)](https://cloud.tencent.com/document/product/1449/57109)
+- [跑通直播模式(Web)](https://cloud.tencent.com/document/product/1449/57110)
+- [跑通直播模式(小程序)](https://cloud.tencent.com/document/product/1449/57111)
+
+[](id:que11)
+
+### 音视频通话 TRTC 最多可以同时创建多少个房间？
+支持同时并发存在4294967294个房间，累计房间数量无限制。
+
+[](id:que12)
+
+### 如何创建房间？
+房间是由腾讯云后台在客户端进房时自动创建的，您无需手动创建房间，只需调用客户端的相关接口“进入房间”即可：
+- [iOS & Mac > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d)
+- [Android > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c)
+- [Windows（C++） > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#a0fab3ea6c23c6267112bd1c0b64aa50b)
+- [Windows（C#） > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__csharp.html#afbb3a1e6f73f339d47368a7d620a995f)
+- [Electron > enterRoom](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#enterRoom)
+- [Web > join](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#join)
+- [小程序 > enterRoom](https://cloud.tencent.com/document/product/647/17018#enterroom(params))
+
+[](id:que13)
+
+### 音视频通话 TRTC 的视频服务端最大支持带宽是多少？
+没有限制。
+
+[](id:que14)
+
+### 音视频通话 TRTC 是否支持私有化部署？
+目前不支持。
+
+[](id:que15)
+
+### 音视频通话 TRTC 开通旁路直播，域名是否需要进行备案使用？
+如需开通旁路直播，依据国家相关部门要求，播放域名需要备案才能使用，更多详情请参见 [CDN 直播观看](https://cloud.tencent.com/document/product/1449/57112)。
+
+[](id:que16)
+
+### 音视频通话 TRTC 延时大约多少？
+全球端到端平均延时小于300ms。
+
+[](id:que17)
+
+### 音视频通话 TRTC 是否支持主动呼叫功能？
+需要结合信令通道解决，例如使用 [即时通信 IM](https://cloud.tencent.com/product/im) 服务的自定义消息实现呼叫，可以参考 [SDK](https://cloud.tencent.com/document/product/1449/56978) 源码中的场景化 Demo 示例。
+
+[](id:que18)
+
+### 音视频通话 TRTC 双人视频通话是否支持蓝牙耳机？
+支持。
+
+[](id:que19)
+### 音视频通话 TRTC 是否支持在国外使用？
+支持。
+
+[](id:que20)
+### 音视频通话 TRTC 接入 PC 端是否支持屏幕分享功能？
+支持，您可以参考如下文档：
+- [屏幕分享（Windows）](https://cloud.tencent.com/document/product/1449/57116)
+- [屏幕分享（Mac）](https://cloud.tencent.com/document/product/1449/57117)
+- [屏幕分享（Web）](https://cloud.tencent.com/document/product/1449/57118)
+
+屏幕分享接口详情请参见 [Windows（C++）API](https://cloud.tencent.com/document/product/1449/58932#.E5.B1.8F.E5.B9.95.E5.88.86.E4.BA.AB.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3) 或 [Windows（C#）API](https://cloud.tencent.com/document/product/1449/58933#.E5.B1.8F.E5.B9.95.E5.88.86.E4.BA.AB.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3.E5.87.BD.E6.95.B0)。另外，您也可以使用 [Electron 接口](https://cloud.tencent.com/document/product/1449/58934#.E8.BE.85.E6.B5.81.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3.E5.87.BD.E6.95.B0)。
+
+[](id:que21)
+
+### 音视频通话 TRTC 是否支持在微信公众号中使用？
+
+因公众号限制，建议在微信中使用 [小程序端 SDK](https://cloud.tencent.com/document/product/647/32399) 获得更好的使用体验。
+
+[](id:que22)
+
+### 是否支持将本地视频文件分享到音视频通话 TRTC 中？
+
+支持，可以通过 [自定义采集](https://cloud.tencent.com/document/product/1449/57128) 功能来实现。
+
+[](id:que23)
+
+### 音视频通话 TRTC 能否把直播视频录制后存储在手机本地？
+不支持直接存储在手机本地，录制后视频文件默认存储在云点播平台，您可以自行下载并保存到手机中，更多详情请参见 [云端录制与回放](https://cloud.tencent.com/document/product/1449/57121)。
+
+[](id:que24)
+
+### 音视频通话 TRTC 是否支持单纯的实时音频？
+支持纯音频。
+
+[](id:que25)
+
+### 一个房间里可以同时有多路屏幕分享吗？
+目前一个房间只能有一路辅流的屏幕分享。
+
+[](id:que26)
+
+### 指定窗口分享（SourceTypeWindow），当窗口大小变化时，视频流的分辨率会不会也跟着变化？
+默认情况下，SDK 内部会自动根据分享的窗口大小进行编码参数的调整。
+如需固定分辨率，需调用 setSubStreamEncoderParam 接口设置屏幕分享的编码参数，或在调用 startScreenCapture 时指定对应的编码参数。
+
+[](id:que27)
+
+### 音视频通话 TRTC 是否支持1080P？
+支持，您可以通过 SDK 的视频编码参数 setVideoEncoderParam 对分辨率进行设置。
+
+[](id:que28)
+
+### 音视频通话 TRTC 是否可以自定义采集数据？
+部分平台支持，详细信息请参见 [自定义采集和渲染](https://cloud.tencent.com/document/product/1449/57128)。
+
+[](id:que29)
+
+### 音视频通话 TRTC 可以跟互动直播 SDK 通信吗？
+不可以。
+
+[](id:que30)
+
+### 音视频通话 TRTC 是否可以与移动直播通信？ 
+音视频通话 TRTC 与移动直播后台方案架构不同，所以不支持直接相互通信，仅可从 TRTC 后台旁路推流到 CDN。
+
+[](id:que31)
+
+### 音视频通话 TRTC进房模式 AppScene 有什么区别？
+音视频通话 TRTC 支持四种不同的进房模式，其中视频通话（VideoCall）和语音通话（VoiceCall）统称为通话模式，视频互动直播（Live）和语音互动直播（VoiceChatRoom）统称为 直播模式。
+- 通话模式下的 TRTC，支持单个房间最多300人同时在线，支持最多50人同时发言。适合1对1视频通话、300人视频会议、在线问诊、远程面试、视频客服、在线狼人杀等应用场景。
+- 直播模式下的 TRTC，支持单个房间最多10万人同时在线，具备小于300ms的连麦延迟和小于1000ms的观看延迟，以及平滑上下麦切换技术。适用低延时互动直播、十万人互动课堂、视频相亲、在线教育、远程培训、超大型会议等应用场景。
+
+[](id:que32)
+
+### 音视频通话 TRTC 是否支持音视频通话免提模式？
+支持，免提模式通过设置音频路由实现，Native SDK 通过 setAudioRoute 接口切换，小程序端通过 &lt;live-player&gt; 标签的 sound-mode 属性设置。
+
+[](id:que33)
+
+### 音视频通话 TRTC 是否支持音量大小提示？
+支持，通过 enableAudioVolumeEvaluation 接口启用。
+
+[](id:que34)
+
+###  音视频通话 TRTC 是否支持设置镜像画面？ 
+支持，通过 setLocalViewMirror 接口设置本地摄像头预览画面的镜像模式，或通过 setVideoEncoderMirror 接口设置编码器输出的画面镜像模式。
+
+[](id:que35)
+
+### 音视频通话 TRTC 是否支持录制通话过程中的音频到本地文件？ 
+支持，通过 startAudioRecording 接口可以将通话过程中的所有音频（包括本地音频，远端音频，BGM 等）录制到一个文件里，目前支持的音频格式有 PCM、WAV、AAC。
+
+[](id:que36)
+
+### 音视频通话 TRTC 是否支持音视频互通过程中的视频录制成文件？
+支持自有服务端录制（即录音/录像），如需使用请 [提工单](https://console.cloud.tencent.com/workorder/category) 联系我们获取 SDK 及相关指引。您也可以使用 [云端录制与回放](https://cloud.tencent.com/document/product/1449/57121) 录制视频。
+
+[](id:que37)
+
+### 音视频通话 TRTC 是否支持类似微信视频通话的悬浮窗、大小画面切换等功能？
+此类功能属于 UI 布局逻辑，SDK 并不限制 UI 上的展示处理。在官方 Demo 中提供了画面前后堆叠和九宫格布局模式的示例代码，并且支持悬浮窗、大小画面切换和画面拖动，更多详情请参见 [官方 Demo](https://github.com/tencentyun/TRTCSDK)。
+
+[](id:que38)
+
+### 音视频通话 TRTC 怎么实现纯音频通话？
+音视频通话 TRTC 没有音频和视频通道的区分，只调用 startLocalAudio 不调用 startLocalPreview 时即为纯音频通话模式。
+
+[](id:que39)
+
+### 音视频通话 TRTC 纯音频通话怎么实现旁路推流和录制？
+- 6.9 以前版本：进房时需要构造 `json{\"Str_uc_params\":{\"pure_audio_push_mod\":1}}` 传入 TRTCParams.businessInfo 中，1表示旁路推流 2表示旁路推流+录制。
+- TRTC SDK 6.9 及以后版本：在进房时选择场景参数为 TRTCAppSceneAudioCall 或 TRTCAppSceneVoiceChatRoom 即可。
+
+[](id:que40)
+
+### 音视频通话 TRTC 房间支不支持踢人、禁止发言、静音？  
+支持。
+- 如果是简单的信令操作，可以使用 TRTC 的自定义信令接口 sendCustomCmdMsg，开发者自己定义相应的控制信令，收到控制信令的通话方执行对应操作即可。例如，踢人就是定义一个踢人的信令，收到此信令的用户就自行退出房间。
+- 如果是需要实现更完善的操作逻辑，建议开发者通过 [即时通信 IM](https://cloud.tencent.com/document/product/269) 来实现相关逻辑，将 TRTC 的房间与 IM 群组进行映射，在 IM 群组中收发自定义消息来实现相应的操作。
+
+[](id:que41)
+
+### 音视频通话 TRTC 支持拉流播放 RTMP/FLV 流吗？  
+支持，目前 TRTC SDK 中已打包 TXLivePlayer。如果有更多播放器功能需求，可以直接使用 LiteAVSDK_Professional 版本，包含了全部功能。
+
+[](id:que42)
+
+### 音视频通话 TRTC 最多可以支持多少个人同时通话？
+- 通话模式下，单个房间最多支持300人同时在线，最多支持50人同时开启摄像头或麦克风。
+- 直播模式下，单个房间支持10万人以观众身份在线观看，最多支持50人以主播身份开启摄像头或麦克风。
+
+[](id:que43)
+
+###  音视频通话 TRTC 怎么实现直播场景类应用？
+TRTC 专门针对在线直播场景推出了10万人低延时互动直播解决方案，能保证主播与连麦主播的最低延时到200ms，普通观众的延时在1s以内，并且超强的抗弱网能力适应移动端复杂的网络环境。具体操作指引请参考 [跑通直播模式](https://cloud.tencent.com/document/product/1449/57106)。
+
+[](id:que45)
+### 能用音视频通话 TRTC 发送自定义消息接口实现聊天室、弹幕等功能吗？
+不能，音视频通话 TRTC 发送自定义消息适用于简单低频的信令传输场景，具体限制请参考 [使用限制](https://cloud.tencent.com/document/product/1449/57127#.E4.BD.BF.E7.94.A8.E9.99.90.E5.88.B6)。
+
+[](id:que46)
+### 音视频通话 TRTC 的 SDK 播放背景音是否支持循环播放？是否支持调整背景音的播放进度？  
+支持，循环播放可以在完成回调里面重新调用播放，播放进度可以通过 TXAudioEffectManager seekMusicToPosInMS 设置。
+
+>?  setBGMPosition() 在 v7.3 版本废弃，通过 TXAudioEffectManager seekMusicToPosInMS 替代。
+
+[](id:que47)
+### 音视频通话 TRTC 有没有房间成员进出房间的监听回调？onUserEnter/onUserExit 是否可以用？
+有，TRTC 使用 onRemoteUserEnterRoom/onRemoteUserLeaveRoom 监听房间成员进出房间（有上行音视频权限的用户才会触发）。
+>?onUserEnter/onUserExit 在 6.8 版本废弃，通过 onRemoteUserEnterRoom/onRemoteUserLeaveRoom 替代。
+
+[](id:que48)
+### 音视频通话 TRTC 怎么监测断网和重连？
+通过以下监听回调监听：
+- onConnectionLost：SDK 跟服务器的连接断开。
+- onTryToReconnect：SDK 尝试重新连接到服务器。
+- onConnectionRecovery：SDK 跟服务器的连接恢复。
+
+[](id:que49)
+### 音视频通话 TRTC 有没有首帧渲染回调？能否监听画面开始渲染，声音开始播放？
+支持，通过 onFirstVideoFrame/onFirstAudioFrame 可以监听。
+
+[](id:que50)
+### 音视频通话 TRTC 是否支持视频画面截图功能？
+目前在 iOS/Android 端调用 snapshotVideo() 支持本地及远端视频画面截图。
+
+[](id:que51)
+### 音视频通话 TRTC 接入蓝牙耳机等外设异常？
+目前 TRTC 有对主流的蓝牙耳机和外设做兼容，但是还会遇到某些设备上有兼容问题。建议使用官方 Demo 以及微信、QQ音视频通话测试对比下是否都正常。
+
+[](id:que52)
+### 音视频通话 TRTC 音视频过程中的上下行码率、分辨率、丢包率、音频采样率等信息怎么获取到？
+可以通过 SDK 接口 onStatistics() 获取到这些统计信息。
+
+[](id:que53)
+### 音视频通话 TRTC 播放背景音乐接口 playBGM() 是否支持在线音乐？
+目前只支持本地音乐，可以先下载至本地再调用 playBGM() 播放。
+
+[](id:que54)
+### 音视频通话 TRTC 是否支持设置本地采集音量？是否支持设置每个远端用户的播放音量？
+支持，通过 setAudioCaptureVolume() 接口可以设置 SDK 的采集音量，通过 setRemoteAudioVolume() 接口可以设置某个远程用户的播放音量。
+
+[](id:que55)
+### stopLocalPreview 和 muteLocalVideo 有什么区别？
+- stopLocalPreview 是停止本地视频采集，调用该接口后自己本地和远端画面都将是黑屏。
+- muteLocalVideo 是设置是否向后台发送自己的视频画面，调用该接口后其他用户观看的画面将变成黑屏，自己本地的预览还是能看到画面。
+
+[](id:que56)
+### stopLocalAudio 和 muteLocalAudio 的区别是什么？ 
+- stopLocalAudio 是关闭本地音频的采集和上行。
+- muteLocalAudio 并不会停止发送音视频数据，而是会继续发送码率极低的静音包。
+
+[](id:que57)
+### 音视频通话 TRTC 的 SDK 都支持哪些分辨率？
+建议参见 [设定画面质量](https://cloud.tencent.com/document/product/1449/57122) 配置分辨率达到更合适的画面质量。
+
+[](id:que58)
+### 音视频通话 TRTC 的 SDK 怎么设置上行视频码率、分辨率、帧率？ 
+可以通过 TRTCCloud 的 setVideoEncoderParam() 接口设置 TRTCVideoEncParam 参数中 videoResolution（分辨率）、videoFps（帧率）、videoBitrate（码率）。
+
+[](id:que59)
+### 音视频通话 TRTC 控制画面角度与方向是如何实现的？  
+详情请参见 [视频画面旋转和缩放](https://cloud.tencent.com/document/product/1449/57123)。
+
+[](id:que60)
+### 怎样实现横屏视频通话？ 
+详情请参见 [实现横屏视频通话](https://cloud.tencent.com/developer/article/1492095) 和 [视频画面旋转和缩放](https://cloud.tencent.com/document/product/1449/57123)。
+
+[](id:que61)
+### 音视频通话 TRTC 本地和远端画面方向不一致怎么调整？  
+详情请参见 [视频画面旋转和缩放](https://cloud.tencent.com/document/product/647/32237)。
+
+
+[](id:que62)
+### 音视频通话 TRTC 有没有推荐的画面质量（码率、分辨率、帧率）相关参数配置？
+详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/1449/57122)。
+
+[](id:que63)
+### 音视频通话 TRTC 是否支持对网络测速？如何操作？  
+详情请参见 [通话前网络测试](https://cloud.tencent.com/document/product/1449/57125)。
+
+[](id:que64)
+### 音视频通话 TRTC 是否支持对房间进行权限校验，例如会员才能进入的场景？ 
+支持，详情请参见 [开启高级权限控制](https://cloud.tencent.com/document/product/1449/57126)。
+
+[](id:que65)
+### 音视频通话 TRTC 音视频流是否支持通过 CDN 拉流观看？ 
+支持，详情请参见 [实现 CDN 直播观看](https://cloud.tencent.com/document/product/1449/57112)。
+
+[](id:que66)
+
+### 音视频通话 TRTC  自定义渲染支持哪些格式？ 
+- iOS 端支持 i420、NV12 和 BGRA。
+- Android 端支持 I420 和 texture2d。
+
+[](id:que67)
+### 音视频通话 TRTC 是什么？
+音视频通话 TRTC 是腾讯视立方·音视频终端引擎版本之一，包含**音视频通话**一个功能模块，与视频产品实时音视频使用相同的底层基础模块。 音视频通话 TRTC 主打全平台互通的多人音视频通话和低延时互动直播解决方案，致力于帮助开发者快速搭建低成本、低延时、高品质的音视频互动解决方案。
+
+[](id:que68)
+### 音视频通话 TRTC Demo 怎么体验？
+具体请参见 [Demo 体验](https://cloud.tencent.com/document/product/1449/56977)。
+
+[](id:que69)
+### 音视频通话 TRTC 如何快速入门？
+音视频通话 TRTC 为您提供了各个平台的 Demo 源码，您只需花费极少的时间即可快速搭建属于您自己的小应用，具体请参见 [新手入门](https://cloud.tencent.com/document/product/647/49327#.E6.96.B0.E6.89.8B.E5.85.A5.E9.97.A8)。
+
+[](id:que70)
+### 音视频通话 TRTC 如何实现云端录制与回放？
+具体请参见 [云端录制与回放](https://cloud.tencent.com/document/product/1449/57121)。
+
+[](id:que71)
+### TRTC 如何实现服务端录制？
+服务端录制需要使用 Linux SDK， Linux SDK 暂未完全开放。若您需咨询或使用，请填写 [Linux SDK 问卷](https://cloud.tencent.com/apply/p/bmpdfyvtui) 。我们会在2个 - 3个工作日内完成评估并反馈结果。
+
+[](id:que72)
+### TRTC 是否支持私有化部署？
+TRTC 私有化部署暂未完全开放。若您需咨询或使用私有化服务，请填写 [私有化问卷](https://cloud.tencent.com/apply/p/1a2ofbzgo1w)。我们会在2个 - 3个工作日内完成评估并反馈结果。
+
+
+
+
+

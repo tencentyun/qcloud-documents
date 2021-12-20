@@ -31,3 +31,4 @@ Namespace=QCE/VPNX
 &Namespace=QCE/VPNX
 &Instances.N.Dimensions.0.Name=vpnConnId
 &Instances.N.Dimensions.0.Value=VPN 通道 ID
+

@@ -13,8 +13,8 @@
 
 ## 相关文档
 - [一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)
-- [IM SDK（小程序） Demo 运行](https://github.com/tencentyun/TIMSDK/tree/master/WXMini)
-- [IM SDK（Web） Demo 运行](https://github.com/tencentyun/TIMSDK/tree/master/H5)
+- [IM SDK（小程序）TUIKit 运行](https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram/TUIKit)
+- [IM SDK（Web） Demo 运行](https://github.com/tencentyun/TIMSDK/tree/master/Web/Demo)
 - [集成 SDK 上传插件（Web & 小程序）](https://cloud.tencent.com/document/product/269/52962)
 
 ## 集成 SDK
@@ -26,14 +26,12 @@
 #### **Web 项目**
 ```javascript
 // IM Web SDK
-// 从v2.11.0起，SDK 支持了 WebSocket，推荐接入
-npm install tim-js-sdk-ws --save
-// v2.10.2及以下版本，使用 HTTP
-// npm install tim-js-sdk --save
+// 从v2.11.2起，SDK 支持了 WebSocket，推荐接入；v2.10.2及以下版本，使用 HTTP
+npm install tim-js-sdk --save
 // 发送图片、文件等消息需要腾讯云即时通信 IM 上传插件
 npm install tim-upload-plugin --save
 ```
- >?若同步依赖过程中出现问题，请切换 npm 源后再次重试。
+>?若同步依赖过程中出现问题，请切换 npm 源后再次重试。
 >```
 >// 切换 cnpm 源
 >npm config set registry http://r.cnpmjs.org/
@@ -41,9 +39,8 @@ npm install tim-upload-plugin --save
  
  在项目脚本里引入模块。
 ```
-// 从v2.11.0起，SDK 支持了 WebSocket，推荐接入
-import TIM from 'tim-js-sdk-ws';
-// import TIM from 'tim-js-sdk'; // HTTP 版本
+// 从v2.11.2起，SDK 支持了 WebSocket，推荐接入；v2.10.2及以下版本，使用 HTTP
+import TIM from 'tim-js-sdk';
 import TIMUploadPlugin from 'tim-upload-plugin';
 
 let options = {
@@ -63,10 +60,8 @@ tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 #### **小程序项目**
 ```javascript
 // IM 小程序 SDK
-// 从v2.11.0起，SDK 支持了 WebSocket，推荐接入
-npm install tim-wx-sdk-ws --save
-// v2.10.2及以下版本，使用 HTTP
-// npm install tim-wx-sdk --save
+// 从v2.11.2起，SDK 支持了 WebSocket，推荐接入；v2.10.2及以下版本，使用 HTTP
+npm install tim-wx-sdk --save
 // 发送图片、文件等消息需要腾讯云 即时通信 IM 上传插件
 npm install tim-upload-plugin --save
 ```
@@ -78,9 +73,8 @@ npm install tim-upload-plugin --save
 
  在项目脚本里引入模块，并初始化。
 ```
-// 从v2.11.0起，SDK 支持了 WebSocket，推荐接入
-import TIM from 'tim-wx-sdk-ws';
-// import TIM from 'tim-js-sdk'; // HTTP 版本
+// 从v2.11.2起，SDK 支持了 WebSocket，推荐接入；v2.10.2及以下版本，使用 HTTP
+import TIM from 'tim-wx-sdk';
 import TIMUploadPlugin from 'tim-upload-plugin';
 
 let options = {
@@ -103,7 +97,7 @@ tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 在您的项目中使用 script 标签引入 SDK，并初始化。
 
 ```html
-<!-- tim-js.js 和 tim-upload-plugin.js 可以从 https://github.com/tencentyun/TIMSDK/tree/master/H5/sdk 获取 -->
+<!-- tim-js.js 和 tim-upload-plugin.js 可以从 https://github.com/tencentyun/TIMSDK/tree/master/Web/Demo/sdk 获取 -->
 <script src="./tim-js.js"></script>
 <script src="./tim-upload-plugin.js"></script>
 <script>
@@ -131,18 +125,18 @@ tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
 - [SDK 接口文档](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html)
 - [常见问题](https://web.sdk.qcloud.com/im/doc/zh-cn//tutorial-01-faq.html)
-- [IM Web Demo](https://github.com/tencentyun/TIMSDK/tree/master/H5)
+- [IM Web Demo](https://github.com/tencentyun/TIMSDK/tree/master/Web/Demo)
 - [腾讯云即时通信 IM 上传插件下载地址](https://www.npmjs.com/package/tim-upload-plugin)
 
 
 ## 常见问题
 
 **1. 小程序如果需要上线或者部署正式环境怎么办？**
-请在【微信公众平台】>【开发】>【开发设置】>【服务器域名】中进行域名配置：
+请在**微信公众平台**>**开发**>**开发设置**>**服务器域名**中进行域名配置：
 
 将以下域名添加到 **request 合法域名**：
 
-从v2.11.0起，SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
+从v2.11.2起，SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
 
 | 域名 | 说明 |  是否必须 |
 |:-------:|---------|----|

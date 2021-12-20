@@ -1,10 +1,8 @@
 腾讯云为您提供丰富的解决方案，可以满足 VPC 内的云服务器、数据库等实例连接公网（Internet）、连接其他 VPC 内实例、或与本地数据中心（IDC）互联的需求。您可通过如下视频了解私有网络 VPC 及其多种连接方式。
-
- <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2571-44483?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2571-44483?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
  
 ## 连接公网
 您可使用如下产品或功能，实现 VPC 与公网间的访问。
-
 <table>
 <thead>
 <tr>

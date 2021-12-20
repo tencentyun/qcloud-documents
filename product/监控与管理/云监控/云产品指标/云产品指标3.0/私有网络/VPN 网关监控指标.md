@@ -7,8 +7,8 @@ Namespace=QCE/VPNGW
 
 | 指标英文名 | 指标中文名 | 指标含义                  | 单位  | 维度    |
 | ---------- | ---------- | --------------------- | ----- | ------- |
-| Intraffic  | 外网入带宽 | VPN 网关平均每秒入流量 | Mbps  | vpnGwId |
-| Outtraffic | 外网出带宽 | VPN 网关平均每秒出流量 | Mbps  | vpnGwId |
+| InBandwidth  | 外网入带宽 | VPN 网关平均每秒入流量 | Mbps  | vpnGwId |
+| OutBandwidth | 外网出带宽 | VPN 网关平均每秒出流量 | Mbps  | vpnGwId |
 | Inpkg      | 入包量     | VPN 网关平均每秒入包量 | 个/秒 | vpnGwId |
 | Outpkg     | 出包量     | VPN 网关平均每秒出包量 | 个/秒 | vpnGwId |
 
@@ -28,4 +28,5 @@ Namespace=QCE/VPNGW
 &Namespace=QCE/VPNGW
 &Instances.N.Dimensions.0.Name=vpnGwId
 &Instances.N.Dimensions.0.Value为 VPN 网关 ID
+
 

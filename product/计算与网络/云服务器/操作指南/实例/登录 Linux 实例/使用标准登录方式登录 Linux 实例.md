@@ -1,7 +1,4 @@
 ## 操作场景
-以下视频介绍了如何登录 Linux 实例：
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2445-39783?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
-
 WebShell 为腾讯云推荐的登录方式。无论您的本地系统为 Windows，Linux 或者 Mac OS，只要实例购买了公网 IP，都可以通过 WebShell 登录。本文介绍如何使用标准登录方式（WebShell）登录 Linux 实例。
 WebShell 优点如下：
 - 支持快捷键复制粘贴。
@@ -9,32 +6,35 @@ WebShell 优点如下：
 - 支持中文输入法。
 - 安全性高，每次登录需要输入密码或密钥。
 
-## 适用本地操作系统
-
-Window，Linux 或者 Mac OS
-
 ## 鉴权方式
 
 **密码**或**密钥**
 
-## 前提条件
+## 前提条件[](id:Prerequisites)
 
-- 已获取登录实例的管理员帐号及密码（或密钥）。
- - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
- - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
-- 您的云服务器实例已购买公网 IP，且该实例已开通云服务器实例的22号端口（对于通过快速配置购买的云服务器实例已默认开通）。
+- 已获取登录 Linux 实例的管理员帐号及密码（或密钥）。
+ - 如在创建实例时选择系统随机生成密码，则请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
+ - 如已设置登录密码，则请使用该密码登录。如忘记密码，则请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
+ - 如已给实例绑定密钥，则可使用密钥登录。如需进一步了解密钥，请参考 [SSH 密钥](https://cloud.tencent.com/document/product/213/6092)。
+- 您的云服务器实例已购买公网 IP，且已在实例关联的安全组中放通来源为 WebShell 代理 IP 的远程登录端口（默认为22）。
+ - 如通过快速配置购买云服务器，则默认已开通。
+ -  如通过自定义配置购买云服务器，则可参考 [允许 SSH 远程连接 Linux 云服务器](https://cloud.tencent.com/document/product/213/34601#.E5.9C.BA.E6.99.AF.E4.B8.80.EF.BC.9A.E5.85.81.E8.AE.B8-ssh-.E8.BF.9C.E7.A8.8B.E8.BF.9E.E6.8E.A5-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8) 手动放通。
 
 ## 操作步骤
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在实例的管理页面，选择需要登录的 Linux 云服务器，单击【登录】。如下图所示：
-![](https://main.qcloudimg.com/raw/b7f0594ddecad128707ee720502e10b0.png)
-3. 在弹出的【登录Linux实例】窗口，选择【标准登录方式】，单击【立即登录】。如下图所示：
-![](https://main.qcloudimg.com/raw/75e9c0a87910d6ad7d517668f4e82459.png)
-4. 在打开的 WebShell 登录页面，根据实际需求，选择【密码登录】或者【密钥登录】方式进行登录。如下图所示：
-![](https://main.qcloudimg.com/raw/22e2e003bf407076596f615c4b92ff53.png)
-如果登录成功，WebShell 界面会出现 Socket connection established 提示。如下图所示：
-![](https://main.qcloudimg.com/raw/a810f534d55fb5609e3323efc23689d0.png)
+2. 在实例的管理页面，选择需要登录的 Linux 云服务器，单击**登录**。如下图所示：
+![](https://main.qcloudimg.com/raw/7ab9564c491eb1d0a2bc12a4dc862563.png)
+3. 在打开的“标准登录 | Linux 实例”窗口，根据实际需求选择**密码登录**或者**密钥登录**方式进行登录。如下图所示：
+![](https://main.qcloudimg.com/raw/ec0f1315e3aacd5553fb63b645bb5387.png)
+请参考以下说明填写登录所需信息：
+ -  **端口**：默认为22，请按需填写。
+ -  **用户名**：Linux 实例用户名默认为 root（Ubuntu 系统实例用户名默认为 ubuntu），请按需填写。
+ -  **密码**：填写已从 [前提条件](#Prerequisites) 步骤中获取的登录密码。
+ - **密钥**：选择已绑定实例的密钥。
+4. 单击**登录**，即可登录 Linux 实例。
+如果登录成功，WebShell 界面会出现如下提示。如下图所示：
+![](https://main.qcloudimg.com/raw/bdeded2dc1eb8e0bfe6daf1173d7a62e.png)
 
 ## 后续操作
 
@@ -42,3 +42,8 @@ Window，Linux 或者 Mac OS
 - [搭建 WordPress 个人站点](https://cloud.tencent.com/document/product/213/34064)
 - [搭建 Discuz! 论坛](https://cloud.tencent.com/document/product/213/34065)
 
+
+## 相关文档
+- [重置实例密码](https://cloud.tencent.com/document/product/213/16566)
+- [管理 SSH 密钥](https://cloud.tencent.com/document/product/213/16691)
+- [实例自助检测](https://cloud.tencent.com/document/product/213/56784)

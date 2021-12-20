@@ -1,9 +1,9 @@
 ## 版本配套关系说明
-TSF 目前支持 Spring Cloud Edgware、Spring Cloud Finchley、Spring Cloud Greenwich 三个版本。Spring Cloud 、Spring Boot 及 TSF SDK 版本之间的关系如下表所示。
+TSF 目前支持 Spring Cloud Edgware、Spring Cloud Finchley、Spring Cloud Greenwich、Spring Cloud Hoxton 四个版本。Spring Cloud 、Spring Boot 及 TSF SDK 版本之间的关系如下表所示。
 
 | Spring Cloud | Spring Boot |
 | ------------ | ----------- |
-| Hoxton     | 2.2.x       |
+| Hoxton     | 2.3.x       |
 | Greenwich     | 2.1.x       |
 | Finchley     | 2.0.x       |
 | Edgware      | 1.5.x       |
@@ -12,7 +12,7 @@ TSF 目前支持 Spring Cloud Edgware、Spring Cloud Finchley、Spring Cloud Gre
 
 ### 长期维护 SDK 版本
 
-TSF 长期维护 LTS (Long Term Support) 版本，SDK的第三位版本号会根据缺陷修复递增。详情参考 [SDK 版本更新日志](https://cloud.tencent.com/document/product/649/38982) 。
+TSF 长期维护 LTS (Long Term Support) 版本，SDK 的第三位版本号会根据缺陷修复递增。详情参考 [SDK 版本更新日志](https://cloud.tencent.com/document/product/649/38982) 。
 
 |SDK 版本号|新增特性|
 |----|----|
@@ -30,13 +30,13 @@ TSF 长期维护 LTS (Long Term Support) 版本，SDK的第三位版本号会根
 
 ### 私有化 TSF
 
-对于 TSF 私有云的用户，SDK 版本号需要和 TSF 平台版本**保持一致**，SDK的缺陷会在第三位版本号上体现，例如用户使用 TSF 1.12.4 版本，推荐使用的 SDK 版本为 1.12.x。
+对于 TSF 私有云的用户，SDK 版本号需要和 TSF 平台版本**保持一致**，SDK 的缺陷会在第三位版本号上体现，例如用户使用 TSF 1.12.4 版本，推荐使用的 SDK 版本为 1.12.x。
 
-|TSF 私有化平台版本| Edgware|Finchley|Greenwich|
-|----|------|----|------|
-|1.29.x|-|1.29.0-Finchley-RELEASE|-|
-|1.23.x|-|1.23.7-Finchley-RELEASE|1.23.8-Greenwich-RELEASE|
-|1.21.x|1.21.5-Edgware-RELEASE|1.21.9-Finchley-RELEASE|1.21.4-Greenwich-RELEASE|
-|1.18.x|1.18.1-Edgware-RELEASE|1.18.5-Finchley-RELEASE|1.18.1-Greenwich-RELEASE|
-|1.12.x|1.12.5-Edgware-RELEASE|1.12.5-Finchley-RELEASE|-|
+|TSF 私有化平台版本| Edgware|Finchley|Greenwich| Hoxton |
+|----|------|----|------|------|
+|1.29.x|-|1.29.4-Finchley-RELEASE|1.29.0-Greenwich-RELEASE|1.29.3-Hoxton-Higher-RELEASE|
+|1.23.x|-|1.23.11-Finchley-RELEASE|1.23.14-Greenwich-RELEASE|-|
+|1.21.x|-|1.21.12-Finchley-RELEASE|1.21.4-Greenwich-RELEASE|-|
+|1.18.x|-|1.18.5-Finchley-RELEASE|1.18.1-Greenwich-RELEASE|-|
+|1.12.x|1.12.5-Edgware-RELEASE|1.12.5-Finchley-RELEASE|-|-|
 

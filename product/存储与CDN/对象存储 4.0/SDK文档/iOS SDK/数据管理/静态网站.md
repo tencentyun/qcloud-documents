@@ -23,7 +23,7 @@ PUT Bucket website 用于为存储桶配置静态网站。
 
 [//]: # (.cssg-snippet-put-bucket-website)
 ```objective-c
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 NSString *bucket = @"examplebucket-1250000000";
 
 NSString *indexDocumentSuffix = @"index.html";
@@ -96,7 +96,7 @@ putReq.websiteConfiguration  = config;
 ```swift
 let req = QCloudPutBucketWebsiteRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 req.bucket = "examplebucket-1250000000";
 
 let indexDocumentSuffix = "index.html";
@@ -178,7 +178,7 @@ GET Bucket website 用于查询与存储桶关联的静态网站配置信息。
 ```objective-c
 QCloudGetBucketWebsiteRequest *getReq = [QCloudGetBucketWebsiteRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 getReq.bucket = @"examplebucket-1250000000";
 [getReq setFinishBlock:^(QCloudWebsiteConfiguration *  result,
                          NSError * error) {
@@ -207,7 +207,7 @@ getReq.bucket = @"examplebucket-1250000000";
 ```swift
 let req = QCloudGetBucketWebsiteRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 req.bucket = "examplebucket-1250000000";
 
 req.setFinish {(result,error) in
@@ -235,7 +235,7 @@ DELETE Bucket website 用于删除存储桶中的静态网站配置。
 ```objective-c
 QCloudDeleteBucketWebsiteRequest *delReq = [QCloudDeleteBucketWebsiteRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 delReq.bucket = @"examplebucket-1250000000";
 
 [delReq setFinishBlock:^(id outputObject, NSError *error) {
@@ -253,7 +253,7 @@ delReq.bucket = @"examplebucket-1250000000";
 ```swift
 let delReq = QCloudDeleteBucketWebsiteRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 delReq.bucket = "examplebucket-1250000000";
 
 delReq.finishBlock = {(result,error) in

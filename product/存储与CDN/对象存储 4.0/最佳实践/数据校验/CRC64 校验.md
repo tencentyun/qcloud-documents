@@ -53,6 +53,8 @@ x-cos-request-id: NWRlODY0ZWRfMjNiMjU4NjRfOGQ4Ml81MDEw****
 
 ## SDK 示例
 
+### Python SDK
+
 下面以 Python SDK 为例演示如何校验对象，完整的示例代码如下。
 
 > ?代码基于 Python 2.7，其中 Python SDK 详细使用方式，请参见 Python SDK 的 [对象操作](https://cloud.tencent.com/document/product/436/35151) 文档。
@@ -166,3 +168,42 @@ if crc64ecma != local_crc64:			# 数据检验
     exit(-1)
 ```
 
+### Java SDK
+
+上传对象，推荐使用 Java SDK 的高级接口，参见 Java SDK [对象操作](https://cloud.tencent.com/document/product/436/35215#.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1.EF.BC.88.E8.8E.B7.E5.8F.96.E8.BF.9B.E5.BA.A6.EF.BC.89)。
+
+#### 如何在本地计算文件的 crc64
+
+```java
+String calculateCrc64(File localFile) throws IOException {
+    CRC64 crc64 = new CRC64();
+
+    try (FileInputStream stream = new FileInputStream(localFile)) {
+        byte[] b = new byte[1024 * 1024];
+        while (true) {
+            final int read = stream.read(b);
+            if (read <= 0) {
+                break;
+            }
+            crc64.update(b, read);
+        }
+    }
+
+    return Long.toUnsignedString(crc64.getValue());
+}
+```
+
+#### 如何获得 COS 上文件的 crc64 值, 并与本地文件做校验
+
+```java
+// COSClient 的创建参考：[快速入门](https://cloud.tencent.com/document/product/436/10199);
+ObjectMetadata cosMeta = COSClient().getObjectMetadata(bucketName, cosFilePath); 
+String cosCrc64 = cosMeta.getCrc64Ecma();
+String localCrc64 = calculateCrc64(localFile);
+
+if (cosCrc64.equals(localCrc64)) {
+    System.out.println("ok");
+} else {
+    System.out.println("fail");
+}
+```

@@ -1,4 +1,4 @@
-域名接入云直播后，系统会为您自动分配一个 CNAME 域名（以`.liveplay.myqcloud.com`为后缀)，可在【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】列表中查看。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受云直播服务。
+域名接入云直播后，系统会为您自动分配一个 CNAME 域名（以`.tlivecdn.com`为后缀)，可在 **[域名管理](https://console.cloud.tencent.com/live/domainmanage)** 列表中查看。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受云直播服务。
 
 以下视频将为您介绍如何在腾讯云配置域名 CNAME 解析的过程：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2751-53266?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
@@ -10,8 +10,10 @@
 - 若 CNAME 设置完成后长时间未显示成功，请参见 [域名配置相关](https://cloud.tencent.com/document/product/267/45252)。
 
 ## 前提条件
-- 已在 [域名注册](https://dnspod.cloud.tencent.com/?from=qcloudProductDns) 申请域名，并备案成功。
-- 已在云直播控制台的【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】中成功 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)，且域名 CNAME 地址状态为![](https://main.qcloudimg.com/raw/ed1ac2f8541f629814a3f2420b1eb79c.png)（CNAME 未配置）。
+- 已准备域名，并完成域名备案。
+	- 若您需要购买自有域名，可前往[ ](https://cloud.tencent.com/document/product/242/9595)[**域名注册**](https://cloud.tencent.com/document/product/242/9595)[ ](https://cloud.tencent.com/document/product/242/9595)完成 [域名购买](https://buy.cloud.tencent.com/domain?from=console)。您也可以前往其它域名服务商进行购买。
+	- 若您的域名未完成备案，您可前往腾讯云的 [网站备案](https://cloud.tencent.com/product/ba) 完成域名备案。
+- 已在云直播控制台的 **[域名管理](https://console.cloud.tencent.com/live/domainmanage)** 中成功 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)，且域名 CNAME 地址状态为![](https://main.qcloudimg.com/raw/ed1ac2f8541f629814a3f2420b1eb79c.png)（CNAME 未配置）。
 
 
 
@@ -24,8 +26,8 @@
 若您的 DNS 服务商为腾讯云，您可根据如下步骤添加 CNAME 记录。
 
 1. 登录 [域名服务控制台](https://console.cloud.tencent.com/domain)。
-2. 选择您需添加 CNAME 的域名，单击【解析】。
-3. 进入指定域名的域名解析页，单击【添加记录】。
+2. 选择您需添加 CNAME 的域名，单击 **解析**。
+3. 进入指定域名的域名解析页，单击 **添加记录**。
 4. 在该新增列填写域名 CNAME 记录，具体填写内容如下所示：
 <table>
     <tr><th width="12%" >参数名</th><th width="38%">参数描述</th><th width="50%">如何配置</th></tr>
@@ -52,11 +54,11 @@
     </tr>
     <tr>
         <td><a href="https://cloud.tencent.com/document/product/302/3468#.E8.AE.B0.E5.BD.95.E5.80.BC.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F">记录值</a></td>
-        <td>需指向的域名，填写腾讯云控制台【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】域名对应的 CNAME 值</td>
-        <td>在【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】里查看对应域名分配的未配置 CNAME，复制填至【记录值】。填写格式为：<ul style="margin:0">
-				<li/><code><b style="color:red;">xxxx</b>.liveplay.com</code>
-				<li/><code><b style="color:red;">xxxx</b>.tlivecdn.com</code>
-				</ul></td>
+        <td>需指向的域名，填写腾讯云控制台 **<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>** 域名对应的 CNAME 值</td>
+        <td>在 **<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>** 里查看对应域名分配的未配置 CNAME，复制填至 **记录值**。填写格式为：<ul style="margin:0">
+            <li/><code><b style="color:red;">xxxx</b>.tlivecdn.com</code>
+            <li/><code><b style="color:red;">xxxx</b>.tlivepush.com</code>
+            </ul></td>
     </tr>
     <tr>
         <td><a href="https://cloud.tencent.com/document/product/302/3468#.E8.AE.B0.E5.BD.95.E5.80.BC.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F">TTL(秒)</a></td>
@@ -64,8 +66,8 @@
         <td>建议填写<b>600秒</b></td>
     </tr>
 </table>
-5. 单击【保存】，配置 CNAME 完毕。
-![](https://main.qcloudimg.com/raw/ede56d6523c4351102ec80d51b30ebae.png)
+5. 单击 **保存**，配置 CNAME 完毕。
+![](https://main.qcloudimg.com/raw/d7babb75869f1b8285e32bff75ccf817.png)
 
 >! 
 >- 更多域名解析记录相关问题，请参见 [主机记录和记录值](https://cloud.tencent.com/document/product/302/3468)。
@@ -75,32 +77,32 @@
 ### 阿里云设置方法
 若您的 DNS 服务商为阿里云，且已完成域名备案，可参考下述步骤进行 CNAME 设置。
 
-1.  登录阿里云控制台，进入【云解析DNS】>[【域名解析】](https://dns.console.aliyun.com/#/dns/domainList)。
-2. 选择您需添加 CNAME 的域名，单击【解析设置】。
-3. 选择【添加记录】，在添加记录页进行如下设置：
+1.  登录阿里云控制台，进入 **云解析DNS** >[ **域名解析** ](https://dns.console.aliyun.com/#/dns/domainList)。
+2. 选择您需添加 CNAME 的域名，单击 **解析设置**。
+3. 选择 **添加记录**，在添加记录页进行如下设置：
   -  记录类型：选择 `CNAME`。
   -  主机记录：填写子域名的前缀。若播放域名为`play.myqcloud.com`，则添加`play`；若需要直接解析主域名`myqloud.com`，则输入`@`；若需要解析泛域名，则输入`\*`。
   -  解析路线：建议选择`默认`。
-  -  记录值：填写腾讯云控制台域名管理页域名对应的 CNAME 值，格式为`domain.livecdn.liveplay.myqcloud.com`。
+  -  记录值：填写腾讯云控制台域名管理页域名对应的 CNAME 值，格式为`domain.tlivecdn.com`。
   -  TTL：建议填写`10分钟`。
-4. 单击【确定】即可。
+4. 单击 **确定** 即可。
 
-![](https://main.qcloudimg.com/raw/8c9d4b75c7f863c1b40fc8cf59160b45.png)
+![](https://main.qcloudimg.com/raw/28612fcd318e59e517165caf60591648.png)
 
 
 [](id:baidu)
 ### 百度云设置方法
 若您的域名服务商为百度云，您可通过如下步骤添加 CNAME 记录。
-1. 登录百度云控制台，选择[【域名管理】](https://console.bce.baidu.com/bcd/?_=1550137564099#/bcd/manage/list)，进入域名管理列表页。
-2. 选择云直播添加的域名，在操作列单击【解析】进入 DNS 解析页面。
+1. 登录百度云控制台，选择[ **域名管理** ](https://console.bce.baidu.com/bcd/?_=1550137564099#/bcd/manage/list)，进入域名管理列表页。
+2. 选择云直播添加的域名，在操作列单击 **解析** 进入 DNS 解析页面。
 3. 添加解析记录，在该页面进行如下配置：
  - 主机记录：填写二级域名，即域名前缀。若播放域名为`play.myqcloud.com`，则添加`play`；若需要直接解析主域名`myqloud.com`，则输入`@`；若需要解析泛域名，则输入`\*`。
  - 记录类型：选择 `CNAME 记录`。
  - 解析路线：建议选择`默认`。
- - 记录值：云直播控制台域名管理页域名对应的 CNAME 值，格式为`domain.livecdn.liveplay.myqcloud.com`。
+ - 记录值：云直播控制台域名管理页域名对应的 CNAME 值，格式为`domain.tlivecdn.com`。
  - TTL：建议填写`10分钟`。
-4. 单击【确定】提交即可。
-![](https://main.qcloudimg.com/raw/a021aaa59e562ad76757d19c2b675621.png)
+4. 单击 **确定** 提交即可。
+![](https://main.qcloudimg.com/raw/cd4305b5313e8d4a61772745e3c10e12.png)
 
 [](id:dnspod)
 ### DNSPod 设置方法
@@ -122,12 +124,12 @@
 若您的 DNS 服务商为万网，您可通过如下步骤添加 CNAME 记录。
 
 1. 登录万网会员中心。
-2. 单击会员中心左侧导航栏中的【产品管理】-> 【我的云解析】进入万维网云解析列表页。
+2. 单击会员中心左侧导航栏中的 **产品管理** ->  **我的云解析** 进入万维网云解析列表页。
 3. 单击要解析的域名，进入解析记录页。
-4. 进入解析记录页后，单击【新增解析】，开始设置解析记录。
+4. 进入解析记录页后，单击 **新增解析**，开始设置解析记录。
 5. 若要设置 CNAME 解析记录，将记录类型选择为 CNAME。主机记录即域名前缀，可任意填写（如：`www`）。记录值填写为当前域名指向的另一个域名。解析线路，TTL 默认即可。
 ![](https://main.qcloudimg.com/raw/3ffd9282393424cd721b48b26f166d4d.png)
-6. 填写完成后，单击【保存】，完成解析设置。
+6. 填写完成后，单击 **保存**，完成解析设置。
 
 
 [](id:xinnet)
@@ -139,12 +141,12 @@
 [](id:check)
 ## 验证 CNAME 是否生效
 不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您可通过以下方式查询 CNAME 是否配置生效。
-- **方法1：**进入云直播控制台的【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】查询后缀为`.myqcloud.com`的域名状态符号是否变成![](https://main.qcloudimg.com/raw/0fc346399ae095d69113d4944e511a20.png)表明 CNAME 已成功。
+- **方法1：**进入云直播控制台的 **[域名管理](https://console.cloud.tencent.com/live/domainmanage)** 查询后缀为`.myqcloud.com`的域名状态符号是否变成![](https://main.qcloudimg.com/raw/0fc346399ae095d69113d4944e511a20.png)表明 CNAME 已成功。
 ![](https://main.qcloudimg.com/raw/b5150f5442f48a38bf9a972a84f43122.png)
 - **方法2：**Linux/Mac 系统下，通过 dig 命令查看，命令格式为：`dig 自有域名`。若第一行显示解析到云直播提供的目标域名，表明 CNAME 已成功。 
-![](https://main.qcloudimg.com/raw/49aa30e1edc3884c2ae93ec5fdeeb1fb.png)
-- **方法3：**Windows 系统，可通过【开始】→【运行】→输入 cmd 并回车，在命令行模式下输入：`nslookup 自有域名`。若已解析至云直播提供的目标域名，表明 CNAME 已成功。
-![](https://main.qcloudimg.com/raw/8bad41428852a7c32111933b33e8853c.png)
+![](https://main.qcloudimg.com/raw/2cbe7fdc1c9d7dbed7851aa86dd64ff1.png)
+- **方法3：**Windows 系统，可通过 **开始** → **运行** →输入 cmd 并回车，在命令行模式下输入：`nslookup 自有域名`。若已解析至云直播提供的目标域名，表明 CNAME 已成功。
+![](https://main.qcloudimg.com/raw/765ac099e7c79a70496563f00cdab9a7.png)
 
 
 >!若 CNAME 设置完成后长时间未显示成功，可参考 [域名配置相关](https://cloud.tencent.com/document/product/267/45252)。

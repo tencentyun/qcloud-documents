@@ -9,7 +9,7 @@
 
 | 内容 | 说明 |
 |---------|---------|
-| 语言种类 | 中文普通话、英文、粤语、韩语、日语、泰语、上海话方言，可通过接口参数 engine_model_type 设置对应引擎类型。新增四川话、南京话、南昌话，更多方言需求可填写 [方言服务需求申请单](https://cloud.tencent.com/apply/p/75h8nunsh9) 进行申请 |
+| 语言种类 | 中文普通话、英文、粤语、韩语、日语、泰语、上海话方言。可通过接口参数 engine_model_type 设置对应引擎类型。若有四川话、南京话、南昌话需求，可填写 [表单](https://cloud.tencent.com/apply/p/75h8nunsh9) 申请|
 | 支持行业 | 通用、金融、游戏、教育、医疗 |
 | 音频属性 | 采样率：16000Hz或8000Hz<br>采样精度：16bits<br>声道：单声道（mono） |
 | 音频格式 | pcm、wav、opus、speex、silk、mp3、m4a、aac |

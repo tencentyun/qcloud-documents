@@ -1,17 +1,18 @@
-## Storm 简介
-
 Storm 是一个分布式实时计算框架，能够对数据进行流式处理和提供通用性分布式 RPC 调用，可以实现处理事件亚秒级的延迟，适用于对延迟要求比较高的实时数据处理场景。
 
 ## Storm 工作原理
+
 在 Storm 的集群中有两种节点，控制节点`Master Node`和工作节点`Worker Node`。`Master Node`上运行`Nimbus`进程，用于资源分配与状态监控。`Worker Node`上运行`Supervisor`进程，监听工作任务，启动`executor`执行。整个 Storm 集群依赖`zookeeper`负责公共数据存放、集群状态监听、任务分配等功能。
 
 用户提交给 Storm 的数据处理程序称为`topology`，它处理的最小消息单位是`tuple`，一个任意对象的数组。`topology`由`spout`和`bolt`构成，`spout`是产生`tuple`的源头，`bolt`可以订阅任意`spout`或`bolt`发出的`tuple`进行处理。
 ![](https://mc.qcloudimg.com/static/img/93eb9e2621f5ad49fee536ab9d6e8799/image.png)
 
 ## Storm with CKafka
+
 Storm 可以把 CKafka 作为`spout`，消费数据进行处理；也可以作为`bolt`，存放经过处理后的数据提供给其它组件消费。
 
 ### 测试环境
+
 **Centos6.8系统**
 
 | package | version |
@@ -21,18 +22,32 @@ Storm 可以把 CKafka 作为`spout`，消费数据进行处理；也可以作�
 | ssh     | 5.3     |
 | Java    | 1.8     |
 
+## 前提条件
 
-### 申请创建 CKafka 实例
-登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)，创建一个 CKafka 实例（参考 [创建实例](https://cloud.tencent.com/document/product/597/30931)）。
-![](https://main.qcloudimg.com/raw/bf723ed1332095a76b37e1299898a2ee.png)
+- 下载并安装 JDK 8。具体操作，请参见 [Download JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
+- 下载并安装 Storm，参考 [Apache Storm downloads](http://storm.apache.org/downloads.html)。
+- 已 [创建 CKafka 实例](https://cloud.tencent.com/document/product/597/53207)。
 
-### 创建 Topic
-在实例下创建一个 Topic（参考 [创建Topic](https://cloud.tencent.com/document/product/597/40415)）。
-![](https://main.qcloudimg.com/raw/3e1909c802351381113a66c6fcb1efb6.png)
+## 操作步骤
 
-### maven 依赖
+### 步骤1：获取 CKafka 实例接入地址
+
+1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
+2. 在左侧导航栏选择**实例列表**，单击实例的“ID”，进入实例基本信息页面。
+3. 在实例的基本信息页面的**接入方式**模块，可获取实例的接入地址。
+   ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
+
+### 步骤2：创建 Topic
+
+1. 在实例基本信息页面，选择顶部**Topic管理**页签。
+2. 在 Topic 管理页面，单击**新建**，创建一个 Topic。
+   ![](https://main.qcloudimg.com/raw/f3ea93d866767a3a26dd80b0a8d5ad8f.png)
+
+### 步骤3：添加 Maven 依赖
+
 pom.xml 配置如下：
-```xml
+<dx-codeblock>
+:::  xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>storm</groupId>
@@ -107,13 +122,18 @@ pom.xml 配置如下：
         </plugins>
     </build>
 </project>
-```
+:::
+</dx-codeblock>
 
 
-### 写入 CKafka 
+
+### 步骤4：生产消息
+
 #### 使用 spout/bolt
+
 topology 代码：
-```java
+<dx-codeblock>
+:::  java
 //TopologyKafkaProducerSpout.java
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
@@ -128,9 +148,9 @@ import java.util.Properties;
 
 public class TopologyKafkaProducerSpout {
     //申请的ckafka实例ip:port
-    private final static String BOOTSTRAP_SERVERS = "111.230.216.45:9092";
+    private final static String BOOTSTRAP_SERVERS = "xx.xx.xx.xx:xxxx";
     //指定要将消息写入的topic
-    private final static String TOPIC = "storm-topology-test";
+    private final static String TOPIC = "storm_test";
     public static void main(String[] args) throws Exception {
         //设置producer属性
         //函数参考：https://kafka.apache.org/0100/javadoc/index.html?org/apache/kafka/clients/consumer/KafkaConsumer.html
@@ -172,11 +192,13 @@ public class TopologyKafkaProducerSpout {
 
     }
 }
-```
+:::
+</dx-codeblock>
+
 
 创建一个顺序生成消息的 spout 类：
-
-```java
+<dx-codeblock>
+:::  java
 import org.apache.storm.spout.SpoutOutputCollector;
 import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.OutputFieldsDeclarer;
@@ -209,13 +231,13 @@ public class SerialSentenceSpout extends BaseRichSpout {
         outputFieldsDeclarer.declare(new Fields("sentence"));
     }
 }
-```
+:::
+</dx-codeblock>
 
 
-
-为`tuple`加上 key、message 两个字段，当 key 为 null 时，生产的消息均匀分配到各个 partition，指定了 key 后将按照 key 值 hash 到特定 partition 上：
-
-```java
+为 `tuple` 加上 key、message 两个字段，当 key 为 null 时，生产的消息均匀分配到各个 partition，指定了 key 后将按照 key 值 hash 到特定 partition 上：
+<dx-codeblock>
+:::  java
 //AddMessageKeyBolt.java
 import org.apache.storm.topology.BasicOutputCollector;
 import org.apache.storm.topology.OutputFieldsDeclarer;
@@ -241,11 +263,15 @@ public class AddMessageKeyBolt extends BaseBasicBolt {
         outputFieldsDeclarer.declare(new Fields("key", "message"));
     }
 }
-```
+:::
+</dx-codeblock>
+
 
 #### 使用 trident
-使用 trident 类生成 topology
-```java
+
+使用 trident 类生成 topology：
+<dx-codeblock>
+:::  java
 //TopologyKafkaProducerTrident.java
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
@@ -266,9 +292,9 @@ import java.util.Properties;
 
 public class TopologyKafkaProducerTrident {
     //申请的ckafka实例ip:port
-    private final static String BOOTSTRAP_SERVERS = "111.230.216.45:9092";
+    private final static String BOOTSTRAP_SERVERS = "xx.xx.xx.xx:xxxx";
     //指定要将消息写入的topic
-    private final static String TOPIC = "storm-trident-test";
+    private final static String TOPIC = "storm_test";
     public static void main(String[] args) throws Exception {
         //设置producer属性
         //函数参考：https://kafka.apache.org/0100/javadoc/index.html?org/apache/kafka/clients/consumer/KafkaConsumer.html
@@ -319,11 +345,13 @@ public class TopologyKafkaProducerTrident {
         }
     }
 }
-```
+:::
+</dx-codeblock>
+
 
 创建一个批量生成消息的 spout 类：
-
-```java
+<dx-codeblock>
+:::  java
 //TridentSerialSentenceSpout.java
 import org.apache.storm.Config;
 import org.apache.storm.task.TopologyContext;
@@ -379,14 +407,16 @@ public class TridentSerialSentenceSpout implements IBatchSpout {
         return new Fields("sentence");
     }
 }
-```
+:::
+</dx-codeblock>
 
 
 
-### 从 CKafka 消费
+### 步骤5：消费消息
 
 #### 使用 spout/bolt
-```java
+<dx-codeblock>
+:::  java
 //TopologyKafkaConsumerSpout.java
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.storm.Config;
@@ -410,9 +440,9 @@ import static org.apache.storm.kafka.spout.FirstPollOffsetStrategy.LATEST;
 
 public class TopologyKafkaConsumerSpout {
     //申请的ckafka实例ip:port
-    private final static String BOOTSTRAP_SERVERS = "111.230.216.45:9092";
+    private final static String BOOTSTRAP_SERVERS = "xx.xx.xx.xx:xxxx";
     //指定要将消息写入的topic
-    private final static String TOPIC = "storm-topology-test";
+    private final static String TOPIC = "storm_test";
 
     public static void main(String[] args) throws Exception {
         //设置重试策略
@@ -476,9 +506,13 @@ public class TopologyKafkaConsumerSpout {
         }
     }
 }
-```
+:::
+</dx-codeblock>
+
+
 #### 使用 trident
-```java
+<dx-codeblock>
+:::  java
 //TopologyKafkaConsumerTrident.java
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.storm.Config;
@@ -504,9 +538,9 @@ import static org.apache.storm.kafka.spout.FirstPollOffsetStrategy.LATEST;
 
 public class TopologyKafkaConsumerTrident {
     //申请的ckafka实例ip:port
-    private final static String BOOTSTRAP_SERVERS = "111.230.216.45:9092";
+    private final static String BOOTSTRAP_SERVERS = "xx.xx.xx.xx:xxxx";
     //指定要将消息写入的topic
-    private final static String TOPIC = "storm-trident-test";
+    private final static String TOPIC = "storm_test";
 
     public static void main(String[] args) throws Exception {
         ByTopicRecordTranslator<String, String> trans = new ByTopicRecordTranslator<>(
@@ -553,10 +587,14 @@ public class TopologyKafkaConsumerTrident {
         }
     }
 }
-```
+:::
+</dx-codeblock>
 
-### 提交 Storm
+
+### 步骤6：提交 Storm
+
 使用 mvn package 编译后，可以提交到本地集群进行 debug 测试，也可以提交到正式集群进行运行。
+
 ```bash
 storm jar your_jar_name.jar topology_name
 ```

@@ -7,9 +7,9 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 | API                                                 | 功能描述                |
 | --------------------------------------------------- | :---------------------- |
 | [sharedInstance()](#shareInstance)                  | 创建 OcrSDKKit 的单例     |
-| [clearInstance()](#clearInstance())                 | 主动释放资源            |
+| [clearInstance()](#clearInstance)                 | 主动释放资源            |
 | [getVersion()](#getVersion())                       | 获取当前 SDK 的版本号信息 |
-| [loadSDKConfig](#loadSDKConfig())                   | 初始化 SDK 配置信息       |
+| [loadSDKConfig](#loadSDKConfig)                   | 初始化 SDK 配置信息       |
 | [updateFederationToken()](#updateFederationToken()) | 主动更新临时密钥        |
 | [startProcessOcr()](#startProcessOcr())             | 启动 OCR 识别             |
 
@@ -17,7 +17,7 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 
 #### sharedInstance()
 
-```objective-c
+```c
 + (nonnull instancetype)sharedInstance;
 ```
 
@@ -30,7 +30,7 @@ OcrSDKKit 的单例对象。
 [](id:clearInstance)
 #### clearInstance()
 
-```objective-c
+```c
 /// 清理 SDK 资源
 + (void)clearInstance;
 ```
@@ -42,7 +42,7 @@ OcrSDKKit 的单例对象。
 [](id:getVersion())
 #### getVersion()
 
-```objective-c
+```c
 - (NSString *_Nonnull)getVersion;
 ```
 
@@ -55,7 +55,7 @@ OcrSDKKit 的单例对象。
 [](id:loadSDKConfig)
 #### loadSDKConfig()
 
-```objective-c
+```c
 /// SDKKIt 加载 OCR 配置信息 这里使用的密钥为固定密钥，当使用临时密钥时，secretId secretKey 填入 nil 空值
 /// @param secretId  Secret id
 /// @param secretKey Secret key
@@ -78,7 +78,7 @@ OcrSDKKit 的单例对象。
 [](id:updateFederationToken())
 #### updateFederationToken()
 
-```objective-c
+```c
 /// @param tmpSecretId 临时 SecretId
 /// @param tmpSecretKey 临时密钥信息
 /// @param token 临时兑换 token
@@ -99,7 +99,7 @@ OcrSDKKit 的单例对象。
 [](id:startProcessOcr())
 #### startProcessOcr()
 
-```objective-c
+```c
 /// 启动 SDK 模块，运行带有 UI 界面的功能识别模块
 /// @param ocrType  识别模式
 /// @param CustomConfigUI ocrUI 配置类 当传入 nil 时使用默认配置
@@ -153,19 +153,19 @@ CustomConfigUI 是在启动 SDK 模块时需要传入的 SDK 的 UI 配置信息
 
 支持参数及其默认值如下：
 
-| 类型     | 名称               | 含义                         | 默认值                                |
-| -------- | ------------------ | ---------------------------- | ------------------------------------- |
-| BOOL     | isShowTips         | 是否显示中间提示语           | YES                                   |
-| NSString | remindDialogText   | dialog 模式转换提示文字      | "未能识别证件，是否切换模式拍照上传?" |
-| UIColor  | remindConfirmColor | dialog 模式转换提示,按钮颜色 | RGBA：5 106 1 1                       |
-| UIColor  | cardFrameColor     | 卡片框选中颜色               | RGBA：5 106 1 1                       |
-| UIImage  | takePictureImage   | 拍照按钮图标 80x80           | 默认图标                              |
-| UIImage  | lightONImage       | 打开手电筒按钮图标 40x40     | 默认图标                              |
-| UIImage  | lightOFFImage      | 关闭手电筒按钮图标 40x40      | 默认图标                              |
-| UIImage  | albumImage         | 相册按钮图标 40x40            | 默认图标                              |
-| BOOL     | isShowAlbumBtn     | 是否显示相册按钮             | YES                                   |
-| BOOL | isHorizontal | 是否横屏显示 | NO |
-
+| 类型     | 名称               | 含义                           | 默认值                                |
+| -------- | ------------------ | ------------------------------ | ------------------------------------- |
+| BOOL     | isShowTips         | 是否显示中间提示语             | YES                                   |
+| NSString | tipsShowText       | 中间提示语内容(限制15个中文字) | "请避免识别内容折角、遮挡和反光"      |
+| NSString | remindDialogText   | dialog 模式转换提示文字        | "未能识别证件，是否切换模式拍照上传?" |
+| UIColor  | remindConfirmColor | dialog 模式转换提示,按钮颜色   | RGBA：5 106 1 1                       |
+| UIColor  | cardFrameColor     | 卡片框选中颜色                 | RGBA：5 106 1 1                       |
+| UIImage  | takePictureImage   | 拍照按钮图标 80x80             | 默认图标                              |
+| UIImage  | lightONImage       | 打开手电筒按钮图标 40x40       | 默认图标                              |
+| UIImage  | lightOFFImage      | 关闭手电筒按钮图标40x40        | 默认图标                              |
+| UIImage  | albumImage         | 相册按钮图标40x40              | 默认图标                              |
+| BOOL     | isShowAlbumBtn     | 是否显示相册按钮               | YES                                   |
+| BOOL     | isHorizontal       | 是否横屏显示                   | NO                                    |
 
 [](id:OcrType)
 ### OcrType

@@ -1,4 +1,4 @@
-登录 [腾讯云对象存储](https://console.cloud.tencent.com/cos5) 控制台，选择【存储桶列表】>【创建存储桶】，新建存储桶。
+登录腾讯云 [对象存储](https://console.cloud.tencent.com/cos5) 控制台，选择【存储桶列表】>【创建存储桶】，新建存储桶。
 ![](https://main.qcloudimg.com/raw/1b1bdc9e8338c587b6665001ad37f132.png)
 查看存储桶的域名。
 ![](https://main.qcloudimg.com/raw/ac6931d37f4de6bf0a12acba0aa8090a.png)

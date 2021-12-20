@@ -70,3 +70,4 @@ server {
 单击【Send request】可以进行测试，然后单击【Create alert】即可。
  - `Create advanced watch` 通过 API 设置 Watcher 各参数，API 详情请参见 [PUT Watch](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/watcher-api-put-watch.html)。
 6. 以上步骤配置完成后，即可在自己创建的企业微信群中接收到机器人发来的告警信息。
+![](https://main.qcloudimg.com/raw/7b3bd3d2ab9c94c12f6260ff0a3e0dde.png)

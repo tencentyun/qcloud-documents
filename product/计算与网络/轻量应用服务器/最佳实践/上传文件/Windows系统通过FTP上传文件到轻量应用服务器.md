@@ -11,7 +11,7 @@
 
 ### 连接轻量应用服务器
 1. 在本地下载并安装开源软件 FileZilla。
->? 使用 3.5.3 版本的 FileZilla 进行 FTP 上传将会出现上传失败等问题，建议您从 [官方网站](https://www.filezilla.cn/) 获取与使用 FileZilla 的 3.5.1 或 3.5.2 版本。
+>? 使用 3.5.3 版本的 FileZilla 进行 FTP 上传将会出现上传失败等问题，建议您从 [官方网站](https://filezilla-project.org/) 获取与使用 FileZilla 的 3.5.1 或 3.5.2 版本。
 >
 2. 打开 FileZilla。
 3. 在 FileZilla 窗口中，填写主机、用户名、密码和端口等信息，单击【快速连接】。如下图所示：

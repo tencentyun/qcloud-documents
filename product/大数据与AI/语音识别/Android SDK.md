@@ -3,7 +3,7 @@ Android SDK 接入请观看视频：
 
 ## 接入准备
 ### SDK 获取
-一句话识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_2.6.0.zip)。
+一句话识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_v2.6.6.zip)。
 
 ### 接入须知
 - 开发者在调用前请先查看一句话识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的使用要求和使用步骤。  
@@ -11,7 +11,7 @@ Android SDK 接入请观看视频：
 
 ### 开发环境
 1. **添加一句话识别 SDK aar**
-将 **speech_release.aar** 放在 libs 目录下，在 App 的 build.gradle 文件中添加以下代码。
+   将 **speech_release.aar** 放在 libs 目录下，在 App 的 build.gradle 文件中添加以下代码。
 ```
   implementation(name: 'speech_release', ext: 'aar')
 ```
@@ -26,10 +26,7 @@ Android SDK 接入请观看视频：
 ```
 < uses-permission android:name="android.permission.RECORD_AUDIO"/>
 < uses-permission android:name="android.permission.INTERNET"/>
-< uses-permission android:name="android.permission.WRITE_SETTINGS" />
-< uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-< uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-< uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 4. **在 AndroidManifest.xml 声明如下 service：**
 ```
@@ -38,7 +35,9 @@ Android SDK 接入请观看视频：
 ```
 
 ## 快速接入
+
 ### 开发流程及接入示例
+
 1. **创建 QCloudOneSentenceRecognizer 示例**
 ```
 QCloudOneSentenceRecognizer recognizer = new QCloudOneSentenceRecognizer(this, appid, secretId, secretKey);
@@ -71,13 +70,25 @@ recognizer.recognizeWithRecorder();
 **QCloudOneSentenceRecognizer**：一句话识别入口类
 ```
 /**
- * 初始化方法，关于 AppId, SecretId, SecretKey 的获取见一句话识别接口说明中的使用步骤
+ * 初始化方法-直接鉴权，关于 AppId, SecretId, SecretKey 的获取见一句话识别接口说明中的使用步骤
  * @param activity app activity
  * @param appId 腾讯云appid
  * @param secretId 腾讯云secretId
  * @param secretKey 腾讯云secretKey
  */
 public QCloudOneSentenceRecognizer(AppCompatActivity activity, String appId, String secretId, String secretKey);
+
+
+/**
+ * 初始化方法-使用STS临时证书鉴权，详见https://cloud.tencent.com/document/product/598/33416
+ * @param activity app activity
+ * @param appId 腾讯云appid
+ * @param secretId 腾讯云 临时的secretId
+ * @param secretKey 腾讯云 临时的secretKey
+ * @param token 腾讯云 token
+ */
+public QCloudOneSentenceRecognizer(Activity activity, String appId, String secretId, String secretKey, String token);
+
  /**
   * 通过语音url进行一句话识别的快捷入口, 本地参数校验不通过抛出异常
   * @param audioUrl 资源url 如http://www.qq.music/hello.mp3
@@ -122,5 +133,4 @@ public interface QCloudOneSentenceRecognizerListener {
  public abstract void recognizeResult(QCloudOneSentenceRecognizer recognizer, String result, Exception exception);
 }
 ```
-
 

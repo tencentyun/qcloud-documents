@@ -1,4 +1,4 @@
-LogListener 是腾讯云日志服务 CLS 所提供的专用日志采集器，将它安装部署到服务器上，可快速采集日志到日志服务。
+LogListener 是腾讯云日志服务（Cloud Log Service，CLS）所提供的专用日志采集器，将它安装部署到服务器上，可快速采集日志到日志服务。
 
 ## 安装环境
 
@@ -11,21 +11,33 @@ LogListener 仅支持64位 Linux 操作系统环境（暂不支持 Windows），
 | Debian（64位）                                               | Debian_8.2_64位、Debian_9.0_64位                             |
 | openSUSE（64位）                                             | openSUSE_42.3_64位                                           |
 
+## 支持功能
+
+LogListener 版本支持新功能如下：
+
+| LogListener 版本 | 支持功能                    | 功能说明                                                     | 相关文档                                                     |
+| --------------- | --------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| v2.5.4          | 支持 LogListener 服务日志功能 | LogListener 服务日志功能支持记录 LogListener 端运行状态和采集监控的日志数据并配置可视化视图，提供重要指标数据。 | [LogListener 服务日志](https://cloud.tencent.com/document/product/614/55281) |
+| v2.5.2          | 支持上传解析失败日志        | 所有解析失败的日志，均以 LogParseFailure 作为键名称（Key），原始日志内容作为值（Value）进行上传。 | -                                                            |
+| v2.5.0          | 支持 LogListener 自动升级功能 | 支持用户在控制台预设时间段指定机器组进行 agent 自动升级，也可对目标机器实行手动升级。 | [LogListener 升级指南](https://cloud.tencent.com/document/product/614/55468) |
+| v2.4.5          | 支持多行-完全正则采集模式   | LogListener 采集配置规则新增【多行-完全正则】提取模式采集日志。 | [完全正则（多行）](https://cloud.tencent.com/document/product/614/52366) |
+
+
 
 ## 安装启动
 
 ### 1. 下载安装 LogListener
 
-LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.1.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.1.tar.gz)
+LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.5.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.5.tar.gz)
 
 以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`loglistener/tools`，执行安装命令 。
 - 公网环境下，操作命令如下：
 ```plaintext
-wget https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.1.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.1.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.1/tools && ./loglistener.sh install
+wget https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.5.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.5.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.5/tools && ./loglistener.sh install
 ```
 - 内网环境下，操作命令如下：
-```
-wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.1.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.1.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.1/tools && ./loglistener.sh install
+```plaintext
+wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.5.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.5.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.5/tools && ./loglistener.sh install
 ```
 
 ### 2. 初始化 LogListener
@@ -46,7 +58,7 @@ wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.1.tar.g
 | secretkey | [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 的一部分，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥 |
 | region    | region 表示日志服务所在的 [地域](https://cloud.tencent.com/document/product/614/18940)，此处填写域名简称，例如 ap-beijing、ap-guangzhou 等 |
 | network   | 表示 loglistener 通过哪种方式访问服务域名，取值：intra 内网访问（默认），internet 外网访问 |
-| ip        | 机器的 ip 标识。若不填写，loglistener 会自动获取本机的 ip 地址 |
+| ip        | 机器的 IP 标识。若不填写，loglistener 会自动获取本机的 IP 地址 |
 | label     | 机器组标示，标示机器组需要填写标示信息，多个标示按逗号分隔 |
 
 默认使用内网域名：
@@ -64,6 +76,8 @@ wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.1.tar.g
 > - 若主账号已授权协作者日志服务的读写权限，建议使用协作者密钥。
 > - region 为您所使用的日志服务区域，而非您的业务机器所处的区域。
 > - 云服务器与日志集同地域的情况下，建议使用内网方式访问服务域名。云服务器与日志集在不同地域的情况下，建议使用外网方式访问服务域名。
+> - 关于日志采集权限详情，可参考 [授权子账号对 CLS 某个日志主题具有日志采集权限](https://cloud.tencent.com/document/product/614/50498) 文档。
+> 
 
 ### 3. 启动 LogListener
 
@@ -75,7 +89,8 @@ wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.1.tar.g
 
 ## LogListener 常用操作
 
-> ? 本文档示例的操作命令说明仅适用于 LogListener-2.2.4 及以上版本，低版本操作命令请参见 [低版本 LogListener 安装指南](https://cloud.tencent.com/document/product/614/39211)。
+>? 本文档示例的操作命令说明仅适用于 LogListener-2.2.4 及以上版本，低版本操作命令请参见 [低版本 LogListener 安装指南](https://cloud.tencent.com/document/product/614/39211)。
+>
 
 ### 1. 查看 LogListener 版本
 

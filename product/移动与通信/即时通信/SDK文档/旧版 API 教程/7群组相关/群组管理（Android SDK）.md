@@ -1860,3 +1860,4 @@ getOpUser	| 操作人
 ---|---
 getSubtype	|	TIM_GROUP_SYSTEM_REVOKE_GROUP_TYPE
 getGroupId	| 群组 ID，表示哪个群被回收了
+

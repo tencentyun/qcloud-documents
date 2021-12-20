@@ -10,7 +10,13 @@ SDK 内部日志打印工具，记录接口关键调用步骤。
 |callback|Function|日志回调函数|
 
 
->?设置回调函数后，每一条日志将作为该函数的参数。
+
+
+<dx-alert infotype="explain" title="">
+设置回调函数后，每一条日志将作为该函数的参数。
+</dx-alert>
+
+
 
 
 ### 使用示例

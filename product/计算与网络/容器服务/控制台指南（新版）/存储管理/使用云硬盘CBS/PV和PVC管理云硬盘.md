@@ -21,16 +21,16 @@
 #### 静态创建 PV[](id:pv)
 >? 静态创建 PV 适用于已有存量云盘，并在集群内使用的场景。
 >
-1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 选择需创建 PV 的集群 ID，进入该集群详情页面。
-3. 选择左侧菜单栏中的【存储】>【PersistentVolume】，进入 “PersistentVolume” 页面。如下图所示：
+3. 选择左侧菜单栏中的**存储** > **PersistentVolume**，进入 “PersistentVolume” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/f643eb293a3cbb42073218e478ebc6cf.png)
-4. 选择【新建】进入“新建PersistentVolume” 页面，参考以下信息进行创建。如下图所示：
+4. 选择**新建**进入“新建PersistentVolume” 页面，参考以下信息进行创建。如下图所示：
 ![](https://main.qcloudimg.com/raw/82016b390657386de0b204aecac0703f.png)
 主要参数信息如下：
-   - **来源设置**：选择【静态创建】。
+   - **来源设置**：选择**静态创建**。
    - **名称**：自定义，本文以 `cbs-pv` 为例。
-   - **Provisioner**：选择【云硬盘CBS】。
+   - **Provisioner**：选择**云硬盘CBS**。
    - **读写权限**：云硬盘仅支持单机读写。
    - **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#create) 步骤中创建的 `cbs-test` 为例。
 >?
@@ -38,19 +38,19 @@
 >- 不指定意味着该 PV 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
    - **云盘**：选择已经创建好的云硬盘。
    - **文件系统**：默认为 ext4。
-5. 单击【创建PersistentVolume】即可完成创建。
+5. 单击**创建PersistentVolume**即可完成创建。
 
 
 
 #### 创建 PVC[](id:createPVC2)
-1. 在集群详情页，选择左侧菜单栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 页面。如下图所示：
+1. 在集群详情页，选择左侧菜单栏中的**存储** > **PersistentVolumeClaim**，进入 “PersistentVolumeClaim” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/df6c4f1d31510fdcfa6cf9d914e8f382.png)
-2. 选择【新建】进入 “新建PersistentVolumeClaim” 页面，参考以下信息进行创建。如下图所示：
+2. 选择**新建**进入 “新建PersistentVolumeClaim” 页面，参考以下信息进行创建。如下图所示：
 ![](https://main.qcloudimg.com/raw/8073733fd2606a48d2af18a863b30ca1.png)
 主要参数信息如下：
    - **名称**：自定义，本文以 `cbs-pvc` 为例。
    - **命名空间**：选择 “default”。
-   - **Provisioner**：选择【云硬盘CBS】。
+   - **Provisioner**：选择**云硬盘CBS**。
    - **读写权限**：云硬盘只支持单机读写。
    - **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#create) 步骤中创建的 `cbs-test` 为例。
 >? 
@@ -61,25 +61,25 @@
 >? 
 >- 只有与指定的 StorageClass 相同并且状态为 Available 和 Released 的 PV 为可选状态，如果当前集群内没有满足条件的 PV 可选，请选择“不指定”PersistVolume。
 >- 如果选择的 PV 状态为 Released，还需手动删除该 PV 对应 YAML 配置文件中的 `claimRef` 字段，该 PV 才能顺利与 PVC 绑定。详情请参见 [查看 PV 和 PVC 的绑定规则](https://cloud.tencent.com/document/product/457/47014)。
-3. 单击【创建PersistentVolumeClaim】，即可完成创建。
+3. 单击**创建PersistentVolumeClaim**，即可完成创建。
 
 
 #### 创建 Workload 使用 PVC 数据卷
 >?该步骤以创建工作负载 Deployment 为例。
 >
 1. 在“集群管理”页面，选择目标集群 ID，进入待部署 Workload 的集群的 “Deployment” 页面。
-2. 单击【新建】，进入“新建Workload” 页面，参考 [创建 Deployment](https://cloud.tencent.com/document/product/457/31705#.E5.88.9B.E5.BB.BA-deployment) 进行创建，并参考以下信息进行数据卷挂载。如下图所示：
+2. 单击**新建**，进入“新建Workload” 页面，参考 [创建 Deployment](https://cloud.tencent.com/document/product/457/31705#.E5.88.9B.E5.BB.BA-deployment) 进行创建，并参考以下信息进行数据卷挂载。如下图所示：
 ![](https://main.qcloudimg.com/raw/168fec34c65f192be3981ae17c4b7144.png)
 	- **数据卷（选填）**：
 		- **挂载方式**：选择“使用已有PVC”。
 		- **数据卷名称**：自定义，本文以 `cbs-vol` 为例。
-		- **选择 PVC**：选择在步骤 [创建 PVC](#createPVC2) 中已创建的 “cfs-pvc”。
-	- **实例内容器**：单击【添加挂载点】，进行挂载点设置。
+		- **选择 PVC**：选择在步骤 [创建 PVC](#createPVC2) 中已创建的 “cbs-pvc”。
+	- **实例内容器**：单击**添加挂载点**，进行挂载点设置。
        - **数据卷**：选择该步骤中已添加的数据卷 “cbs-vol”。
        - **目标路径**：填写目标路径，本文以 `/cache` 为例。
        - **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如，`/data` 或 `/test.txt`。
-4. 单击【创建Workload】即可完成创建。
- > ! 如使用 CBS 的 PVC 挂载模式，则数据卷只能挂载到一台 Node 主机上。
+4. 单击**创建Workload**即可完成创建。
+> ! 如使用 CBS 的 PVC 挂载模式，则数据卷只能挂载到一台 Node 主机上。
 
 ### Kubectl 操作指引
 

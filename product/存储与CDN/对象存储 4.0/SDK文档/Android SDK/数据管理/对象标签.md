@@ -1,5 +1,6 @@
 ## 简介
 
+
 本文档提供关于对象标签的 API 概览以及 SDK 示例代码。
 
 | API                                                          | 操作名       | 操作描述                     |
@@ -23,7 +24,13 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](http
 
 #### 示例代码
 
-```
+[//]: # (.cssg-snippet-put-upload-object-tagging)
+```java
+// 初始化 TransferConfig，这里使用默认配置，如果需要定制，请参考 SDK 接口文档
+TransferConfig transferConfig = new TransferConfig.Builder().build();
+//初始化 TransferManager
+TransferManager transferManager = new TransferManager(cosXmlService,
+        transferConfig);
 String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 String srcPath = new File(context.getCacheDir(), "exampleobject")
@@ -61,28 +68,32 @@ cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
 });
 ```
 
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/ObjectTagging.java) 查看。
+
 ### 为已存在的对象添加标签
 
 #### 功能说明
 
-COS 支持为已存在的对象设置标签。通过为对象添加键值对作为对象标签，可以协助您分组管理已有的对象资源，
+COS 支持为已存在的对象设置标签。通过为对象添加键值对作为对象标签，可以协助您分组管理已有的对象资源。
 
 #### 示例代码
 
-```
+[//]: # (.cssg-snippet-put-object-tagging)
+```java
 String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
-PutObjectTaggingRequest putObjectTaggingRequest = new PutObjectTaggingRequest(TestConst.PERSIST_BUCKET, TestConst.PERSIST_BUCKET_SMALL_OBJECT_PATH);
-putObjectTaggingRequest.addTag("Key1", "Value1");
-putObjectTaggingRequest.addTag("Key2", "您好");
+PutObjectTaggingRequest putObjectTaggingRequest = new PutObjectTaggingRequest(bucket, cosPath);
+putObjectTaggingRequest.addTag("key", "value");
 try {
-    PutObjectTaggingResult result = cosXmlService.putObjectTagging(putObjectTaggingRequest);
+    PutObjectTaggingResult putObjectTaggingResult = cosXmlService.putObjectTagging(putObjectTaggingRequest);
 } catch (CosXmlClientException clientException) {
     clientException.printStackTrace();
 } catch (CosXmlServiceException serviceException) {
     serviceException.printStackTrace();
 }
 ```
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/ObjectTagging.java) 查看。
 
 ## 查询对象标签
 
@@ -92,10 +103,11 @@ try {
 
 #### 示例代码
 
-```
+[//]: # (.cssg-snippet-get-object-tagging)
+```java
 String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
-GetObjectTaggingRequest getObjectTaggingRequest = new GetObjectTaggingRequest(bucket, cosPath);  
+GetObjectTaggingRequest getObjectTaggingRequest = new GetObjectTaggingRequest(bucket, cosPath);
 try {
     GetObjectTaggingResult getObjectTaggingResult = cosXmlService.getObjectTagging(getObjectTaggingRequest);
 } catch (CosXmlClientException clientException) {
@@ -105,6 +117,8 @@ try {
 }
 ```
 
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/ObjectTagging.java) 查看。
+
 ## 删除对象标签
 
 #### 功能说明
@@ -113,7 +127,8 @@ try {
 
 #### 示例代码
 
-```
+[//]: # (.cssg-snippet-delete-object-tagging)
+```java
 String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 DeleteObjectTaggingRequest deleteObjectTaggingRequest = new DeleteObjectTaggingRequest(bucket, cosPath);
@@ -125,3 +140,5 @@ try {
     serviceException.printStackTrace();
 }
 ```
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/ObjectTagging.java) 查看。

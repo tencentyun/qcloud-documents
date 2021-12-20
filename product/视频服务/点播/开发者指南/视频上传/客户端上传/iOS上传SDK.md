@@ -1,7 +1,7 @@
 对于在 iOS 平台上传视频的场景，云点播提供了 iOS 上传 SDK 。上传流程请参见 [客户端上传指引](/document/product/266/9219)。
 
 ## 源码下载
-1. [单击下载](https://ugcupload-1252463788.file.myqcloud.com/TXUGCUploadDemo_iOS.zip) iOS 上传 Demo 及源码。
+1. [单击下载](https://liteav.sdk.qcloud.com/download/ugc/LiteAVSDK_UGC_Upload_iOS.zip) iOS 上传 Demo 及源码。
 2. 将下载好的压缩包解压，可以看到 TXUGCUploadDemo 目录，上传源码在`TXUGCUploadDemo/upload`目录下。
 
 ## 集成上传库和源码
@@ -60,7 +60,9 @@ publishParam.videoPath  = @"视频文件路径";
 ```objc
 [_videoPublish publishVideo:publishParam];
 ```
->?上传方法根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。
+>?
+>- 上传方法根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。
+>- 如需上传至指定子应用下，请参见 [子应用体系 - 客户端上传](https://cloud.tencent.com/document/product/266/14574#.E5.AE.A2.E6.88.B7.E7.AB.AF.E4.B8.8A.E4.BC.A0)。
 
 ## 高级功能
 #### 携带封面
