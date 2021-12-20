@@ -67,10 +67,9 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至 COS 以�
 ## 产品限制和费用计算
 
 - 转储速度与 CKafka 实例峰值带宽上限有关，如出现消费速度过慢，请检查 CKafka 实例的峰值带宽或增加 CKafka partition 数。
-- 转储速度与 CKafka 单个文件大小相关，如超过该500M，会自动分包上传。
 - 当前仅支持和 CKafka 实例同个地域的 COS 进行消息存储，为保证延时，不支持跨地域存储。
 - 使用COS消息转储，文件内容是 CKafka 消息里的 value 用 utf-8 String 序列化拼接而成，暂不支持二进制的数据格式。
 - 开启转 COS 的操作账号必须对目标 COS Bucket 具备写权限。
 - 使用 COS 消息转储必须至少拥有一个 VPC 网络环境，如在创建时选择基础网络请参考 [路由接入方式](https://cloud.tencent.com/document/product/597/36348) 绑定 VPC 网络。
 - 该功能基于云函数 SCF 服务提供。SCF 为用户提供了一定 [免费额度](https://cloud.tencent.com/document/product/583/12282) ，超额部分产生的收费，请以 SCF 服务的 [计费规则](https://cloud.tencent.com/document/product/583/17299) 为准。
-- 转储方案价格与 CKafka Partition 数有关，当前 Partition 个数与函数并发个数保持一致。若需修改函数并发个数请检查 schedule 函数逻辑。
+
