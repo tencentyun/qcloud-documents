@@ -15,12 +15,12 @@
 
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
 
-2. 在**治理中心**下的 **polarismesh** 页面，点击页面上方下拉列表，选择目标地域：![region_icon](https://qcloudimg.tencent-cloud.cn/raw/b5153fa452844ee19e24436e11b2376e.png)
+2. 在**治理中心**下的 **polarismesh** 页面，点击页面上方下拉列表，选择目标地域，如：![region_icon](https://qcloudimg.tencent-cloud.cn/raw/b5153fa452844ee19e24436e11b2376e.png)
 
 3. 单击目标引擎的“ID”，进入基本信息页面。
 
 4. 查看访问地址，Spring Cloud应用访问使用gRPC端口（8091）：
-    ![access](https://qcloudimg.tencent-cloud.cn/raw/561460943b0404c44c29d2c0dd09c56f.png)
+    ![access](https://qcloudimg.tencent-cloud.cn/raw/29eb8647e119d0d284f36d417f3bb551.png)
     
 5. 修改demo中的注册中心地址。
   - 在下载到本地的[demo源码目录](https://github.com/Tencent/spring-cloud-tencent/tree/main/spring-cloud-tencent-examples/polaris-quickstart-example)下，分别找到
@@ -34,7 +34,7 @@ spring:
     name: EchoServer
   cloud:
     polaris:
-      address: grpc://192.168.100.9:8091
+      address: grpc://10.0.4.6:8091
 ```
 
 6. 打包demo源码成jar包。

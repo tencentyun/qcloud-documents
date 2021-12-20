@@ -16,12 +16,12 @@
 
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
 
-2. 在**治理中心**下的 **polarismesh** 页面，点击页面上方下拉列表，选择目标地域：![region_icon](https://qcloudimg.tencent-cloud.cn/raw/b5153fa452844ee19e24436e11b2376e.png)
+2. 在**治理中心**下的 **polarismesh** 页面，点击页面上方下拉列表，选择目标地域，如：![region_icon](https://qcloudimg.tencent-cloud.cn/raw/b5153fa452844ee19e24436e11b2376e.png)
 
 3. 单击目标引擎的“ID”，进入基本信息页面。
 
 4. 查看访问地址，Dubbo-Go 应用访问使用gRPC端口（8091）：
-   ![access](https://qcloudimg.tencent-cloud.cn/raw/561460943b0404c44c29d2c0dd09c56f.png)
+   ![access](https://qcloudimg.tencent-cloud.cn/raw/29eb8647e119d0d284f36d417f3bb551.png)
 
 5. 修改demo中的注册中心地址
 
@@ -34,7 +34,7 @@
     registries:
       polarisMesh:
         protocol: polaris
-        address: 192.168.100.9:8091
+        address: 10.0.4.6:8091
         namespace: default
     consumer:
       references:
@@ -57,43 +57,42 @@
 - 编译成功后，生成如表1所示的2个二进制包。
       表1 软件包列表
 
-  | 软件包所在目录    | 软件包名称 | 说明       |
-  | ----------------- | ---------- | ---------- |
-  | \dubbogo\provider | provider   | 服务生产者 |
-  | \dubbogo\consumer | consumer   | 服务消费者 |
+  | 软件包所在目录          | 软件包名称 | 说明       |
+  | ----------------------- | ---------- | ---------- |
+  | dubbo3\dubbogo\provider | provider   | 服务生产者 |
+  | dubbo3\dubbogo\consumer | consumer   | 服务消费者 |
 
 
-7. 部署provider和consumer微服务应用，虚拟机部署方式和容器化部署根据您业务实际的部署方式选择一种即可【虚拟机部署】部署provider和consumer微服务。
+7. 部署provider和consumer微服务应用，虚拟机部署方式和容器化部署根据您业务实际的部署方式选择一种即可。
 
    （1）【虚拟机部署】部署provider和consumer微服务应用。
 
     - 上传二进制包至 CVM 实例。
 		
     - 执行启动命令进行启动：
-		
-    ```
-		# 进入provider目录
+	```
+   	# 进入provider目录
 		cd /data/polaris/dubbogo_examples/provider
 		# 设置配置文件目录
 		export DUBBO_GO_CONFIG_PATH="./dubbogo.yml"
 		# 运行 provider
 		./provider
-    ```
-
+	```
+   
    （2）【容器化部署】部署provider和consumer微服务应用。
-
+   
     - 编写dockerfile生成镜像，参考：
-    
-    ```
+   
+   ```
     FROM golang:alpine
     WORKDIR /root
     ADD . /root
     ENTRYPOINT ./[二进制名称] [启动参数命令]
-    ```
-    
+   ```
+   
     - 通过TKE部署并运行镜像
-
-9. 确认部署结果
+   
+8. 确认部署结果
 
 - 进入前面提到的微服务治理中心实例页面。
 - 选择“服务管理 > 服务列表”，查看一下服务的实例数量：

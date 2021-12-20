@@ -6,21 +6,21 @@
 
 - 已创建PolarisMesh服务治理中心，请参考[创建PolarisMesh治理中心]()。
 - 下载github的[demo源码](https://github.com/polarismesh/polaris-go/tree/main/sample/quickstart)到本地并解压。
-- 【golang环境安装】CVM需要安装了golang环境
+- 本地编译构建打包机器环境已安装了golang环境，并且能够访问Github
 - 根据您自身的业务，已准备好业务部署的资源，虚拟机部署和容器化部署选择其中一种方式即可。
-  - 【虚拟机部署】已创建CVM虚拟机，请参考[创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)
+  - 【虚拟机部署】已创建CVM虚拟机，请参考[创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)。
   - 【容器化部署】已创建TKE容器集群，请参考[创建 TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
 
 ## 操作步骤
 
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
 
-2. 在**治理中心**下的 **polarismesh** 页面，点击页面上方下拉列表，选择目标地域：![region_icon](https://qcloudimg.tencent-cloud.cn/raw/b5153fa452844ee19e24436e11b2376e.png)
+2. 在**治理中心**下的 **polarismesh** 页面，点击页面上方下拉列表，选择目标地域，如：![region_icon](https://qcloudimg.tencent-cloud.cn/raw/b5153fa452844ee19e24436e11b2376e.png)
 
 3. 单击目标引擎的“ID”，进入基本信息页面。
 
 4. 查看访问地址，Golang 应用访问使用gRPC端口（8091）：
-    ![access](https://qcloudimg.tencent-cloud.cn/raw/561460943b0404c44c29d2c0dd09c56f.png)
+    ![access](https://qcloudimg.tencent-cloud.cn/raw/29eb8647e119d0d284f36d417f3bb551.png)
 
 5. 修改demo中的注册中心地址
 
@@ -32,7 +32,7 @@
    global:
      serverConnector:
        addresses:
-         - 192.168.100.9:8091
+         - 10.0.4.6:8091
    ```
 
 6. 将源码编译成可执行程序。
