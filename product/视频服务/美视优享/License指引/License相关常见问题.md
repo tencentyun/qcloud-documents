@@ -28,7 +28,10 @@ License 可以理解是为获取 SDK 功能授权所需要的密钥和路径，�
 ###  License 支持的包名个数是多少？授权台数是多少？
 每添加一个 License 会支持 Bundle ID 和 Package Name 两个不同的包名，整个账号可以添加的 License 数量是没有限制的。目前 License 对授权终端的台数也是没有限制的。
 
-
-
+[](id:q6)
+### License 的有效期是多长？过期后如何更新 License？
+- **测试版 License**：的有效期是审批通过后，从签发 License 之日开始往后计算一个月（28天）的时长。比如您在2022年01月01日申请了测试版 License，2022年01月02日申请通过审批并自动签发了 License，测试版 License 将在2022年01月31日的00:00:00过期。
+- **正式版 License**：的有效期是审批通过后，从签发 License 之日开始往后计算一年（365天）的时长。比如您在2022年01月01日申请了正式版 License，2022年01月02日申请通过审批并自动签发了 License，正式版 License 将在2023年01月03日的00:00:00过期。
+正式版 License 过期后需要重新购买新的 License 进行续期，正式版 License 续期指引，请参见 [续期正式 License](https://cloud.tencent.com/document/product/616/65879#renewal)。
 
 
