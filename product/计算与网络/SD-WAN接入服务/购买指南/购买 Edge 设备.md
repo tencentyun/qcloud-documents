@@ -8,7 +8,7 @@ SD-WAN 接入服务有 Edeg-100、Edeg-100-5G、Edeg-1000三种硬件设备，�
 
 ### 退货说明
 1. 目前暂不支持无理由退货。
-2. 当出现如下非人力因素的质量问题可提交工单申请退货：
+2. 当出现如下非人力因素的质量问题可提交 [工单申请](https://console.cloud.tencent.com/workorder/category) 退货：
  - 收到设备后出现设备破损。
  - 设备故障无法上电激活。
 
@@ -22,13 +22,13 @@ SD-WAN 接入服务有 Edeg-100、Edeg-100-5G、Edeg-1000三种硬件设备，�
  - 维保起止日期：发货日起一年内。
 
 #### 维保期限内 
- - 激活后7天内，设备故障可进行换货
- - 激活后7天到维保期限内，设备故障可发货备机进行替代，故障机进行返厂维修
- - 换货运费：运费无需客户承担
+ - 激活后7天内，设备故障可进行换货。
+ - 激活后7天到维保期限内，设备故障可发货备机进行替代，故障机进行返厂维修。
+ - 换货运费：运费无需客户承担。
 
 ## 后续操作
 您收到设备后，您需要将设备进行安装、在 SD-WAN 接入服务控制创建 Edge 实例、绑定设备 SN、购买带宽等操作后您的 SD-WAN 接入服务才可以运行。
 - [安装与调测 Edge 设备](https://cloud.tencent.com/document/product/1277/47255)。
-- [创建 Edge 实例](http://url.com) 。
-- [绑定 SN](http://url.com) 。
-- [购买带宽](http://url.com) 。
+- [创建 Edge 实例](https://cloud.tencent.com/document/product/1277/47255)。
+- [绑定 Edge 实例 SN](https://cloud.tencent.com/document/product/1277/64769)。
+- [购买带宽](https://cloud.tencent.com/document/product/1277/66362)。
