@@ -97,7 +97,7 @@ url = client.get_presigned_url(
 print(url)
 
 # 使用上传URL
-response = requests.put(url)
+response = requests.put(url=url, data=b'123')
 print(response)
 ```
 
