@@ -17,7 +17,7 @@
 
 ## Agent 下载
 1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/dsaudit)，在左侧导航栏中，单击**配置管理** > **Agent 管理** > **Agent 部署**，进入 Agent 部署页面。
-2. 在 Agent 部署页面，选择下载 Linux Agent 或 Windows Agent 进行配置 Agent。
+2. 在 Agent 部署页面，选择下载 Linux Agent 或 Windows Agent。
 >!Agent 安装包已通过文件名区分部署场景，在部署前仔细检查，避免出错。
 >  - 如 dsaagent_innernet_linux _xxx.zip 是腾讯云内网 Linux Agent。
 >  - 如 dsaagent_outnet_win_xxx.zip 是腾讯云外 Windows Agent。
