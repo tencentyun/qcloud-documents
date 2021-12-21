@@ -65,14 +65,17 @@
 ### 视频相关回调
 | API       | 描述                 |
 | --------- | --------------- |
-| [onVideoPlayStatusUpdate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#ab5d1818293008fc16bed308d8b2b71a3)   | 直播播放器视频状态变化通知。|
-| [onSnapshotComplete](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#a2ae183e19890e89e216051653ccdfb89) | 截图回调。 |
+| [onVideoResolutionChanged](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#a3c69dfdfb02e1a3f3520b1a5a7a6c8e6)   | 直播播放器分辨率变化通知。|
+| [onVideoLoading](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#a8a1796d37d96e925a4f2809f73ce8326) | 视频加载事件。 |
+| [onVideoPlaying](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#a5aaa9225a1d37b8f48ec825af0049945) | 视频播放事件。|
+| [onSnapshotComplete](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#a2ae183e19890e89e216051653ccdfb89) | 截图回调。|
 | [onRenderVideoFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#a346a3206ad4d0f38385844c1456a012f) | 自定义视频渲染回调。|
 
 ### 音频相关回调
 | API       | 描述                 |
 | --------- | --------------- |
-| [onAudioPlayStatusUpdate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#a316fd3f01f22b0be2ad0c406b5786170)   | 直播播放器音频状态变化通知。|
+| [onAudioLoading](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#a9ecbc1b3ff1a907c8110a2b3d00a703a)   | 音频加载事件。|
+| [onAudioPlaying](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#a00baf0a363714f7eca4baf94400d8a97)   | 音频播放事件。|
 | [onPlayoutVolumeUpdate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#a57fc000bf5e935f7253fa94e1750359e) | 播放器音量大小回调。 |
 
 ### 统计回调
