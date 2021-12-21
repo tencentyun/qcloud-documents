@@ -45,7 +45,7 @@
             log_slave_updates = 1           
 ```
 6. 修改变量值。
-  a.  对于自建 MySQL 数据库，修改源库 MySQL 配置文件`my.cnf`，需重启：
+    a.  对于自建 MySQL 数据库，修改源库 MySQL 配置文件`my.cnf`，需重启：
 ```
   	        log-bin=[自定义binlog文件名]
 ```
@@ -73,12 +73,16 @@
 #### b. 源库设置
 源库类型：支持有公网 IP 的 MySQL、云服务器上的自建 MySQL、专线接入腾讯云的 MySQL、VPN 接入等 MySQL 源库类型。
 
-| 源库类型 | 说明 | 
+> ?
+>
+> 源数据库的账号长度不能超过16位。如果账号超过16位需要用户重新创建一个符合要求的账号。
+
+| 源库类型 | 说明 |
 |---------|---------|
-| 有公网 IP 的 MySQL | 能够通过公网 IP 访问的 MySQL 数据库，所需信息：<li> MySQL 主机地址<li> MySQL 端口<li> MySQL 帐号<li> MySQL 密码	 | 
-| 云服务器上的自建 MySQL | 支持基础网络和私有网络两种环境下基于 CVM 的自建 MySQL 数据库，使用时需要指定 CVM 的实例 ID，所需信息：<li>所属地域：CVM 自建 MySQL，均可通过腾讯云内网迁移到云数据库 MySQL<li>云服务器实例 ID<li>MySQL 端口<li> MySQL 帐号<li>MySQL 密码			 | 
-| 专线接入腾讯云的 MySQL | 本地 IDC 自建 MySQL 使用 [专线接入 DC](https://cloud.tencent.com/product/dc) 服务与腾讯云相连接后，可使用DTS数据迁移至腾讯云。所需信息：<li>专线网关：接入腾讯云的数据库服务器所使用的专线网关，了解 [专线网关](https://cloud.tencent.com/document/product/216/19256)<li>私有网络：专线网关所属的私有网络<li>MySQL 主机地址：IDC 内的 MySQL 主机地址，DTS 数据迁移将通过专线网关映射 IP 后访问<li> MySQL 端口<li> MySQL 帐号<li> MySQL 密码 | 
-| VPN 接入的 MySQL | 本地 IDC 自建 MySQL 通过 [腾讯云 VPN 连接服务](https://cloud.tencent.com/product/vpn) 或云服务器上自建 VPN 服务接入与腾讯云相连接后，可使用 DTS 数据迁移至腾讯云。所需信息：<li>所属地域：目前仅支持同地域内的 VPN 服务<li>VPN 类型：云 VPN 服务或云服务器上自建 VPN <li>VPN 网关：仅云 VPN 服务需要补充 VPN 网关信息，了解 [VPN](https://cloud.tencent.com/document/product/215/20084)<li> 私有网络：VPN 服务所属的私有网络 <li> MySQL 主机地址：IDC 内的 MySQL 主机地址，DTS 数据迁移将通过专线网关映射 IP 后访问<li> MySQL 端口<li> MySQL 帐号<li> MySQL 密码	 | 
+| 有公网 IP 的 MySQL | 能够通过公网 IP 访问的 MySQL 数据库，所需信息：<li> MySQL 主机地址<li> MySQL 端口<li> MySQL 帐号<li> MySQL 密码	 |
+| 云服务器上的自建 MySQL | 支持基础网络和私有网络两种环境下基于 CVM 的自建 MySQL 数据库，使用时需要指定 CVM 的实例 ID，所需信息：<li>所属地域：CVM 自建 MySQL，均可通过腾讯云内网迁移到云数据库 MySQL<li>云服务器实例 ID<li>MySQL 端口<li> MySQL 帐号<li>MySQL 密码			 |
+| 专线接入腾讯云的 MySQL | 本地 IDC 自建 MySQL 使用 [专线接入 DC](https://cloud.tencent.com/product/dc) 服务与腾讯云相连接后，可使用DTS数据迁移至腾讯云。所需信息：<li>专线网关：接入腾讯云的数据库服务器所使用的专线网关，了解 [专线网关](https://cloud.tencent.com/document/product/216/19256)<li>私有网络：专线网关所属的私有网络<li>MySQL 主机地址：IDC 内的 MySQL 主机地址，DTS 数据迁移将通过专线网关映射 IP 后访问<li> MySQL 端口<li> MySQL 帐号<li> MySQL 密码 |
+| VPN 接入的 MySQL | 本地 IDC 自建 MySQL 通过 [腾讯云 VPN 连接服务](https://cloud.tencent.com/product/vpn) 或云服务器上自建 VPN 服务接入与腾讯云相连接后，可使用 DTS 数据迁移至腾讯云。所需信息：<li>所属地域：目前仅支持同地域内的 VPN 服务<li>VPN 类型：云 VPN 服务或云服务器上自建 VPN <li>VPN 网关：仅云 VPN 服务需要补充 VPN 网关信息，了解 [VPN](https://cloud.tencent.com/document/product/215/20084)<li> 私有网络：VPN 服务所属的私有网络 <li> MySQL 主机地址：IDC 内的 MySQL 主机地址，DTS 数据迁移将通过专线网关映射 IP 后访问<li> MySQL 端口<li> MySQL 帐号<li> MySQL 密码	 |
 
 #### c. 目标库设置
 选择目标数据库实例，并输入目标库上的帐号及密码。
@@ -103,7 +107,7 @@
  - 通过：表示校验完全通过
  - 警告：表示校验不通过，迁移过程中或迁移后可能影响数据库正常运行但不影响迁移任务的执行。
  - 失败：表示校验不通过，无法进行迁移。如果校验失败，请根据出错的校验项，检查并修改迁移任务信息，然后重试校验。失败原因可单击【查看详情】查看“校验详情”。
- 
+
 ![](https://main.qcloudimg.com/raw/a884ae48b08083d1a60e267d01f7124b.png)
 
 ### 5. 启动迁移
