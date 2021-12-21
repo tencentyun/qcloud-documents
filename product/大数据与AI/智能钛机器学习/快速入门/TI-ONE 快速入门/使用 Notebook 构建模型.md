@@ -1,12 +1,12 @@
 ## 操作背景
-- Notebook 是智能钛机器学习平台为开发者量身打造的灵活的交互式开发工具，您可以在智能钛 Notebook 中完成数据准备、数据预处理、算法调试与模型训练，无需多平台切换，更多详情请见 [Notebook 简介](https://cloud.tencent.com/document/product/851/44449)。
-- 为了方便您有效地使用智能钛机器学习平台的 Notebook，本文档将通过一个案例向您演示使用流程。
+- Notebook 是腾讯云 TI 平台 TI-ONE 为开发者量身打造的灵活的交互式开发工具，您可以在腾讯云 TI 平台 Notebook 中完成数据准备、数据预处理、算法调试与模型训练，无需多平台切换，更多详情请见 [Notebook 简介](https://cloud.tencent.com/document/product/851/44449)。
+- 为了方便您有效地使用腾讯云 TI 平台 TI-ONE 的 Notebook，本文档将通过一个案例向您演示使用流程。
 - 在使用之前，请确保您已经完成了 [注册与开通服务](https://cloud.tencent.com/document/product/851/39086)。
 
 ## 操作步骤
 
 ### 步骤1：创建实例
-1. 登录 [智能钛机器学习平台控制台](https://console.cloud.tencent.com/tione/notebook) ，单击左侧导航栏的【Notebook】，页面将跳转至 Notebook 的实例列表页面，此页面将罗列用户创建的所有 Notebook 实例。
+1. 登录 [腾讯云 TI 平台 TI-ONE 控制台](https://console.cloud.tencent.com/tione/notebook) ，单击左侧导航栏的【Notebook】，页面将跳转至 Notebook 的实例列表页面，此页面将罗列用户创建的所有 Notebook 实例。
 2. 在 Notebook 实例列表页，单击左上角【新增实例】，跳转至创建 Notebook 实例的设置页面。
 3. 在【新增实例】页面，可填写以下相关字段：
    - **地区**：此字段不可修改，将自动显示平台选择的地区。
@@ -193,4 +193,4 @@ inputs = ti_session.upload_data(path="result_file", bucket="demo-project-ap-guan
 #### 2. 结果文件查看
 您可以到 COS 中您指定的路径下查看结果文件。此外，您可以自行下载文件，单击【详情】，还可在详情页面获取【对象地址】。
 ![](https://main.qcloudimg.com/raw/4386d90ad0f6a9016dd5fc4cde7fe8df.png)
-至此，我们完成了使用智能钛机器学习平台的 Notebook 训练模型的流程。
+至此，我们完成了使用腾讯云 TI 平台 TI-ONE 的 Notebook 训练模型的流程。
