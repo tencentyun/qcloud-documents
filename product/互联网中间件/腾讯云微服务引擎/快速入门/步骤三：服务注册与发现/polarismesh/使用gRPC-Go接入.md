@@ -1,11 +1,11 @@
 ## 操作场景
 
-本文通过一个demo进行 gRPC-Go 应用接入微服务引擎托管的 PolarisMesh 治理中心的全流程操作演示，帮助您快速了解如何使用服务治理中心。
+本文通过一个 demo 进行 gRPC-Go 应用接入微服务引擎托管的 PolarisMesh 治理中心的全流程操作演示，帮助您快速了解如何使用服务治理中心。
 
 ## 前提条件
 
 - 已创建 PolarisMesh 服务治理中心，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
-- 下载 Github 的 [demo 源码](https://github.com/polarismesh/grpc-go-polaris/tree/main/examples/quickstart)到本地并解压。
+- 下载 Github 的 [demo 源码](https://github.com/polarismesh/grpc-go-polaris/tree/main/examples/quickstart) 到本地并解压。
 - 本地编译构建打包机器环境已安装了 [Go](https://go.dev/doc/devel/release)，并且能够使用 Go mod 拉取依赖。
 - 根据您自身的业务，已准备好业务部署的资源，虚拟机部署和容器化部署选择其中一种方式即可。
   - **虚拟机部署**已创建 CVM 虚拟机，请参见 [创建 CVM 虚拟机](https://cloud.tencent.com/document/product/213/2936)。
