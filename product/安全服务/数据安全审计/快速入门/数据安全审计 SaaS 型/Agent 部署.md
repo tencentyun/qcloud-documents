@@ -38,7 +38,7 @@
 ### Windows 版本
 数据安全审计 Agent Windows 版本只支持 Windows vista/2008 及以上版本。
 1. 下载 Windows 版本 Agent 后，解压到安装目录。
-2. 进入 CapAgent下的 bin 目录，执行. start.bat。
+2. 进入 CapAgent下的 bin 目录，执行 `start.bat`。
 3. 执行成功后，Console 显示结果如下图所示。同时，可以在任务管理器中，看到 CapAgentForWin.exe 进程。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d7bfc6e6d21ac23cbb2fd9e35f146d26.png)
 4. 检查 CapAgentForWin 是否成功启动并连接审计服务成功。
