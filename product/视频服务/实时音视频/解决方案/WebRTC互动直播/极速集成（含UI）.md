@@ -33,29 +33,25 @@
 ::: 方式1：基于实时音视频
 [](id:step1)
 #### 步骤1：创建实时音视频 TRTC 应用
-
 1. [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct%2F647%2F49327) 并开通 [实时音视频](https://console.cloud.tencent.com/trtc) 和 [即时通信](https://console.cloud.tencent.com/im) 服务。
 2. 在 [实时音视频控制台](https://console.cloud.tencent.com/trtc) 单击 **应用管理 > 创建应用** 创建新应用。
 ![创建应用](https://main.qcloudimg.com/raw/34f87b8c0a817d8d3e49baac5b82a1fa.png)
 
 #### 步骤2: 获取 TRTC 密钥信息
-
 1. 在 **应用管理 > 应用信息** 中获取 SDKAppID 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f7915fbbeb48518c2b25a413960f3432.png)
 2. 在 **应用管理 > 快速上手** 中获取应用的 secretKey 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/06d38bbdbaf43e1f2b444edae00019fa.png)
-
 >?
 >- 首次创建实时音视频应用的腾讯云账号，可获赠一个10000分钟的音视频资源免费试用包。
 >- 创建实时音视频应用之后会自动创建一个 SDKAppID 相同的即时通信 IM 应用，可在 [即时通信控制台](https://console.cloud.tencent.com/im) 配置该应用的套餐信息。
-
 :::
 ::: 方式2：基于即时通信\sIM
 #### 步骤1：创建即时通信 IM 应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击 **创建新应用** 将弹出对话框。
-   ![](https://main.qcloudimg.com/raw/c8d1dc415801404e30e49ddd4e0c0c13.png)
+![](https://main.qcloudimg.com/raw/c8d1dc415801404e30e49ddd4e0c0c13.png)
 2. 输入您的应用名称，单击 **确认** 即可完成创建。
-   ![](https://main.qcloudimg.com/raw/496cdc614f7a9d904cb462bd4d1e7120.png)
+![](https://main.qcloudimg.com/raw/496cdc614f7a9d904cb462bd4d1e7120.png)
 3. 您可在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 总览页面查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
 
 #### 步骤2：获取 IM 密钥并开通实时音视频服务
@@ -71,36 +67,28 @@
 ### 步骤二：项目准备
 
 1. 在 [GitHub](https://github.com/tencentyun/TUILiveRoom/tree/main/Web) 下载 TUIPusher & TUIPlayer 代码。
-
 2. 为 TUIPusher & TUIPlayer 安装依赖。
+```bash
+cd Web/TUIPusher
+npm install
 
-   ```bash
-   cd Web/TUIPusher
-   npm install
-   
-   cd Web/TUIPlayer
-   npm install
-   ```
-
+cd Web/TUIPlayer
+npm install
+```
 3. 将 sdkAppId 和 secretKey 填入 `TUIPusher/src/config/basic-info-config.js` 及 `TUIPlayer/src/config/basic-info-config.js` 配置文件中。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/9286fcb781fa37179f84e4bdcd85bfae.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/9286fcb781fa37179f84e4bdcd85bfae.png)
 4. 本地开发环境运行 TUIPusher & TUIPlayer。
+```bash
+cd Web/TUIPusher
+npm run serve
 
-   ```bash
-   cd Web/TUIPusher
-   npm run serve
-   
-   cd Web/TUIPlayer
-   npm run serve
-   ```
-
+cd Web/TUIPlayer
+npm run serve
+```
 5. 可打开 `http://localhost:8080` 和 `http://localhost:8081` 体验 TUIPusher 和 TUIPlayer 功能。
-
 6. 可更改 `TUIPusher/src/config/basic-info-config.js` 及 `TUIPlayer/src/config/basic-info-config.js` 配置文件中的房间，主播及观众等信息，**注意保持 TUIPusher 和 TUIPlayer 的房间信息，主播信息一致**。
 
 >!
->
 > - 完成以上配置，您可以使用 TUIPusher & TUIPlayer 进行超低延时直播，如您需要支持快直播和标准直播，请继续阅读 [步骤三：旁路直播](#step3)。
 > - 本地计算 UserSig 的方式仅用于本地开发调试，请勿直接发布到线上，一旦您的 `SECRETKEY` 泄露，攻击者就可以盗用您的腾讯云流量。
 > - 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
@@ -124,34 +112,31 @@ TUIPusher & TUIPlayer 实现的快直播和标准直播依托于腾讯云 [云�
 - 创建用户管理系统，用于管理产品用户信息，包括但不限于用户 ID，用户名，用户头像等。
 - 创建房间管理系统，用于管理产品直播间信息，包括但不限于直播间 ID、直播间名称，直播间主播信息等。
 - 服务端生成 UserSig。
-
 > !
->
 > - 本文生成 UserSig 的方式，是在客户端根据您填入的 sdkAppId 及 secretKey 生成 userSig，该方式的 secretKey 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 TUIPusher & TUIPlayer 进行功能调试**。
 > - 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的应用向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
-
-- 参考 `TUIPusher/src/pusher.vue` 及 `TUIPlayer/src/player.vue` 文件，将用户信息、直播间信息、SDKAppId 及 UserSig 等账号信息提交到 vuex 的 store 进行全局存储，您就可以跑通推拉流两个客户端的所有功能。详细业务流程参见下图： ![img](https://qcloudimg.tencent-cloud.cn/raw/d2cafd2e0f029908859f7498e9d92297.png)
+- 参考 `TUIPusher/src/pusher.vue` 及 `TUIPlayer/src/player.vue` 文件，将用户信息、直播间信息、SDKAppId 及 UserSig 等账号信息提交到 vuex 的 store 进行全局存储，您就可以跑通推拉流两个客户端的所有功能。详细业务流程参见下图：
+![](https://qcloudimg.tencent-cloud.cn/raw/9081ef3bc0837e76aef05ea6265f84ea.png)
 
 ## 相关问题
+### Web 端如何实现美颜功能？
+请参见 [开启美颜](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-28-advanced-beauty.html)。
 
-1. Web 端如何实现美颜功能？
-   请参考 [开启美颜](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-28-advanced-beauty.html)。
+### Web 端如何实现屏幕共享？
+请参见 [屏幕分享](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-16-basic-screencast.html)。
 
-2. Web 端如何实现屏幕共享？
-   请参考 [屏幕分享](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-16-basic-screencast.html)。
+### Web 端如何实现云端录制?
+1. 开启 云端录制，请参见 [实现云端录制与回放](https://cloud.tencent.com/document/product/647/16823)。
+2. 开启**云端录制**> **指定用户录制**之后，Web 端可通过在调用 [TRTC.createClient](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#createClient) 接口时传入 userDefineRecordId 参数开启录制。
+	 
+### Web 端如何实现推流到 CDN ？
+Web 端推流到 CDN 请参见 [实现推流到 CDN](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-26-advanced-publish-cdn-stream.html)。
 
-3. Web 端如何实现云端录制?
-   开启 云端录制，请参考 [实现云端录制与回放](https://cloud.tencent.com/document/product/647/16823)。
-   开启【云端录制】> 【指定用户录制】之后，Web 端可通过在调用 [TRTC.createClient](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#createClient) 接口时传入 userDefineRecordId 参数开启录制。
+### Web 端如何实现快直播拉流？
+实现快直播拉流的方式是通过 Web SDK 推流到 CDN 之后使用 WebRTC 协议拉流，具体请参见参见 [快直播拉流 > Web（H5）播放器](https://cloud.tencent.com/document/product/454/56880)。
 
-4. Web 端如何实现推流到 CDN ？
-   Web 端推流到 CDN 请参考 [实现推流到 CDN](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-26-advanced-publish-cdn-stream.html)。
-
-5. Web 端如何实现快直播拉流？
-   实现快直播拉流的方式是通过 Web SDK 推流到 CDN 之后使用 webrtc 协议拉流；参考 [快直播拉流 > Web（H5）播放器](https://cloud.tencent.com/document/product/454/56880)。
-
-6. Web 端如何实现标准直播拉流？
-   实现标准直播直播拉流请参考 [标准直播拉流 > Web（H5）播放器](https://cloud.tencent.com/document/product/454/7503)。
+### Web 端如何实现标准直播拉流？
+实现标准直播直播拉流，请参见 [标准直播拉流 > Web（H5）播放器](https://cloud.tencent.com/document/product/454/7503)。
 
 ## 注意事项
 ###  平台支持
@@ -194,8 +179,8 @@ TUIPusher & TUIPlayer 依赖以下端口进行数据传输，请将其加入防�
 ## 结语
 在后续的迭代中, TRTC Web 端推拉流组件会逐渐与 iOS、Andriod 等各端连通，并在 Web 端实现观众连麦、高级美颜、自定义布局、转推多平台、上传图片文字音乐等能力，欢迎大家多多使用、提出您的宝贵意见。
 
-如果有任何需要或者反馈，可扫描下方二维码，或者单击 [反馈链接](https://cloud.tencent.com/apply/p/jpkje0im7a) 同步给我们。<br>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/d2e33e2d5bc6c584ddd5eb7830e92311.png" width="200px" height="200px"><br>
-此外，我们欢迎加入 TUI 组件使用交流 QQ 群（群号：592465424）进行技术交流和问题反馈。<br>
-<img src="https://main.qcloudimg.com/raw/1ea3ab1ff36d37c889f4140499585a4a.png" width="320px" height="350px">
+如果有任何需要或者反馈，可扫描下方二维码，或者单击 [反馈链接](https://cloud.tencent.com/apply/p/jpkje0im7a) 同步给我们。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/d2e33e2d5bc6c584ddd5eb7830e92311.png" width="250px" height="200px">
+此外，我们欢迎加入 TUI 组件使用交流 QQ 群（群号：592465424）进行技术交流和问题反馈。
+<img src="https://main.qcloudimg.com/raw/1ea3ab1ff36d37c889f4140499585a4a.png" width="250">
 
