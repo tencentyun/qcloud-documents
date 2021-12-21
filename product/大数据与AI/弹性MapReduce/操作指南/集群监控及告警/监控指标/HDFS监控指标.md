@@ -894,9 +894,9 @@
 ### HDFS-Journal Node
 <table>
 <tr>
-<th width=15%>标题 </th>
+<th width=20%>标题 </th>
 <th width=20%>指标名称 </th>
-<th width=15%>指标单位</th>
+<th width=10%>指标单位</th>
 <th width=50%>指标含义 </th>
 </tr><tr>
 <td rowspan=6>JVM 内存 </td>
