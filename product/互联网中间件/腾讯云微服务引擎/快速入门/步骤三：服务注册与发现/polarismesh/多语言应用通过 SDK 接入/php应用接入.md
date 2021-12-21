@@ -12,7 +12,7 @@
   - [php-7.x](https://github.com/polarismesh/polaris-php/tree/php-7.x/examples/quickstart)
   - [php-5.x](https://github.com/polarismesh/polaris-php/tree/php-5.x/examples/quickstart)
 - 根据您自身的业务，已准备好业务部署的资源，当前 php 的 quickstart 仅提供虚拟机部署方式。
-  - **虚拟机部署**已创建 CVM 虚拟机，请参考[创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)。CVM 需要安装了 php-5.x 或 php-7.x 的环境。
+  - **虚拟机部署**已创建 CVM 虚拟机，请参见 [创建CVM虚拟机](https://cloud.tencent.com/document/product/213/2936)。CVM 需要安装了 php-5.x 或 php-7.x 的环境。
 
 ## 操作步骤
 
@@ -69,7 +69,7 @@
 </dx-codeblock>
 8. 确认部署结果
  1. 进入前面提到的微服务治理中心实例页面。
- - 选择“服务管理 > 服务列表”，查看微服务EchoServerPHP的实例数量：
+ - 选择**服务管理** > **服务列表**，查看微服务 EchoServerPHP 的实例数量：
     - 若实例数量值不为0，则表示已经成功接入微服务引擎。
     - 若实例数量为0，或者找不到`EchoServerPHP`服务名，则表示微服务应用接入微服务引擎失败。
    ![](https://qcloudimg.tencent-cloud.cn/raw/a74a63d171ff0f47b273b9a13b94ce6e.png)
