@@ -20,7 +20,7 @@
 2. 在 Agent 部署页面，选择下载 Linux Agent 或 Windows Agent 进行配置 Agent。
 >!Agent 安装包已通过文件名区分部署场景，在部署前仔细检查，避免出错。
 >  - 如 dsaagent_innernet_linux _xxx.zip 是腾讯云内网 Agent。
->  - 如 dsaagent_outnet_linux_xx.zip 是腾讯云外 Agent。
+>  - 如 dsaagent_outnet_win_xx.zip 是腾讯云外 Agent。
 
 ## Agent 安装
 下载 Agent 完成后，需要将 Agent 安装在相应服务器上才能实现审计效果。
