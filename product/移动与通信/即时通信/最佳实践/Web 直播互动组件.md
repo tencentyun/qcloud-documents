@@ -88,9 +88,7 @@
 ### 步骤二：项目准备
 
 1. 在 [GitHub](https://github.com/tencentyun/TUILiveRoom/tree/main/Web) 下载 TUIPusher & TUIPlayer 代码。
-
 2. 为 TUIPusher & TUIPlayer 安装依赖。
-
    ```bash
    cd Web/TUIPusher
    npm install
@@ -98,12 +96,9 @@
    cd Web/TUIPlayer
    npm install
    ```
-
 3. 将 sdkAppId 和 secretKey 填入 `TUIPusher/src/config/basic-info-config.js` 及 `TUIPlayer/src/config/basic-info-config.js` 配置文件中。
    ![](https://qcloudimg.tencent-cloud.cn/raw/9286fcb781fa37179f84e4bdcd85bfae.png)
-
 4. 本地开发环境运行 TUIPusher & TUIPlayer。
-
    ```bash
    cd Web/TUIPusher
    npm run serve
@@ -111,11 +106,8 @@
    cd Web/TUIPlayer
    npm run serve
    ```
-
 5. 可打开 `http://localhost:8080` 和 `http://localhost:8081` 体验 TUIPusher 和 TUIPlayer 功能。
-
 6. 可更改 `TUIPusher/src/config/basic-info-config.js` 及 `TUIPlayer/src/config/basic-info-config.js` 配置文件中的房间，主播及观众等信息，**注意保持 TUIPusher 和 TUIPlayer 的房间信息，主播信息一致**。
-
 >!
 >
 > - 完成以上配置，您可以使用 TUIPusher & TUIPlayer 进行超低延时直播，如您需要支持快直播和标准直播，请继续阅读 [步骤三：旁路直播](#step3)。
@@ -218,7 +210,7 @@ TUIPusher & TUIPlayer 依赖以下端口进行数据传输，请将其加入防�
 
 ## 结语
 
-在后续的迭代中, 本文 的 Web 端推拉流组件会逐渐与 iOS、Andriod 等各端连通，并在 Web 端利用实现观众连麦、高级美颜、自定义布局、转推多平台、上传图片文字音乐等能力，针对电商直播场景，计划利用 [即时通信IM](https://cloud.tencent.com/product/im) 实现商城上下架、口令抽奖、答题抽奖等多样性的玩法。欢迎大家多多使用、提出您的宝贵意见。
+在后续的迭代中, 本文的 Web 端推拉流组件会逐渐与 iOS、Andriod 等各端连通，并在 Web 端利用实现观众连麦、高级美颜、自定义布局、转推多平台、上传图片文字音乐等能力，针对电商直播场景，计划利用 [即时通信IM](https://cloud.tencent.com/product/im) 实现商城上下架、口令抽奖、答题抽奖等多样性的玩法。欢迎大家多多使用、提出您的宝贵意见。
 
 如果有任何需要或者反馈，可扫描下方二维码，或者单击 [反馈链接](https://cloud.tencent.com/apply/p/jpkje0im7a) 同步给我们。<br>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/d2e33e2d5bc6c584ddd5eb7830e92311.png" width="200px" height="200px"><br>
