@@ -1,6 +1,6 @@
 本文介绍使用 DTS 数据迁移功能从 MariaDB 或者 Percona 迁移数据至腾讯云数据库 MySQL 的操作指导。
 
- 如下场景的迁移要求与迁移与 MariaDB 或者 Percona 迁移到 MySQL 的要求基本一致，请参考本场景相关内容。
+ 如下场景的迁移要求与 MariaDB 或者 Percona 迁移到 MySQL 的要求基本一致，请参考本场景相关内容。
 
 - MariaDB 到 MariaDB 的数据迁移
 

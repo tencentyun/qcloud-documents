@@ -45,7 +45,7 @@
 
 ## 后续操作
 - [创建Edge实例](https://cloud.tencent.com/document/product/1277/47255)
-- [购买带宽]()
+- [购买带宽](https://cloud.tencent.com/document/product/1277/66362)
 - [新建静态路由](https://cloud.tencent.com/document/product/1277/47273)
 - [配置防火墙](https://cloud.tencent.com/document/product/1277/47266)
 - [关联云联网](https://cloud.tencent.com/document/product/1277/47262)

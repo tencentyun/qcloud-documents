@@ -5,9 +5,9 @@
 
 ## 步骤2：集成游戏[](id:step2)
 1. 完成 [接入准备 - 步骤4](https://cloud.tencent.com/document/product/1162/46135#step4) 的部署后,会在**云游戏控制台** > **游戏管理**中生成对应的 GAME_ID。您需将 GAME_ID 拷贝到工程中 Constant 类的手游或者端游的 GAME_ID下（**请注意不要填错位置**）。
-![img](https://qcloudimg.tencent-cloud.cn/raw/4916b0e037eee3b6dbdfe7fee0376173.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/bc38016605a950f5ac5be7de61b6ebbf.png)
 2. 将您在 [创建后台程序 - 导入云函数](https://cloud.tencent.com/document/product/1162/65429#upload) 中获取到的 SERVER 地址拷贝到工程中 CloudGameApi 类的 SERVER 下。
-![img](https://qcloudimg.tencent-cloud.cn/raw/b6e0a88f5dc616410ddd2cd0f801f74b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/496f77549dc99e729ac3a7b4789c9caf.png)
 3. 编译并运行到手机上，其中前三个是端游的体验（需要您提前部署端游），最后一个是手游的体验（需要您提前部署手游）。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/821db57e335fb3993b7e8d23303836db.png)
 
