@@ -2,7 +2,7 @@
 
 不同于 TWebLive 提供集成 SDK 的方式，TUIPusher & TUIPlayer 具有以下特点：
 
-- 直接接入腾讯云即时通信 IM，腾讯云实时音视频 TRTC 以及腾讯云超级播放器 TCPlayer 等基础 SDK，可灵活扩展业务功能；
+- 直接接入腾讯云即时通信 IM、腾讯云实时音视频 TRTC 以及腾讯云超级播放器 TCPlayer 等基础 SDK，可灵活扩展业务功能；
 - 提供带 UI 的组件源码，开箱即用，助力业务快速上线；
 
 > ?TUIPusher & TUIPlayer 与 TWebLive 在设计方案和代码逻辑上互不兼容，如果您已经接入 TWebLive SDK，使用 TUIPusher & TUIPlayer 需要重新接入。
@@ -315,7 +315,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 ## 结语
 
-本文为您介绍了腾讯云新的 Web 直播互动组件：TWebLive，通过接入此 SDK，开发者可以快速轻便地实现 Web 推流、Web 低延时观看、CDN 观看以及实时聊天互动（或弹幕）等功能，能够很好替换传统的 Flash 推流方案。
+本文为您介绍了腾讯云 Web 直播互动组件：TWebLive，通过接入此 SDK，开发者可以快速轻便地实现 Web 推流、Web 低延时观看、CDN 观看以及实时聊天互动（或弹幕）等功能，能够很好替换传统的 Flash 推流方案。
 
 同时，提供详细的接入方案和 [在线 Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html#/) 供您体验。目前 TWebLive 在主流的桌面浏览器上也有较好的支持，在移动端支持小程序的解决方案。
 
