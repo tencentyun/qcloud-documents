@@ -36,5 +36,3 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/ef4f3fadafe426e2bdeb4aebb30a33d5.png)
 2. 在 [审计风险](https://console.cloud.tencent.com/dsaudit/risk) 页面，可查看发现的数据安全风险，安全管理人员可根据风险提示，判断是否需要采取进一步措施。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bb22bea5912ec790ce9d5033ff06dbda.png)
-
-

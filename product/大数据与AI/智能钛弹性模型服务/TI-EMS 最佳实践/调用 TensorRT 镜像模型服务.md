@@ -94,4 +94,4 @@ DATA_DIR：测试数据集所在路径。
 
 不同模型输入的数据类型、数据 shape 可能不同，或对数据预处理要求不同。请根据具体模型，设计相应的访问程序。了解更多 [客户端程序](https://github.com/tencentyun/ti-ems-client-examples) 。
 
-TI-EMS 使用过程中如遇任何问题，欢迎加入 [智能钛 AI 开发者社区](https://cloud.tencent.com/developer/timl/ask)，与腾讯云 AI 专家和众多 AI 爱好者交流技术。
+TI-EMS 使用过程中如遇任何问题，欢迎加入 [腾讯云 TI 平台开发者社区](https://cloud.tencent.com/developer/timl/ask)，与腾讯云 AI 专家和众多 AI 爱好者交流技术。

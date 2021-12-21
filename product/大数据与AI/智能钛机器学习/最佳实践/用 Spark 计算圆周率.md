@@ -1,8 +1,8 @@
 ## 案例背景
-Spark 框架面向使用 Scala/Java 的 Spark 用户，用户编写 Spark 应用程序并编译打包成 jar 包后，可通过智能钛机器学习平台提供的 Spark 框架运行自定义代码。本案例以利用 Spark 计算圆周率为例，向用户介绍：如何在智能钛机器学习平台上使用 Spark 框架，如何上传 jar 包，如何通过工作流页面向自定义代码传参，在自定义代码中如何读取 COS 上的文件，以及如何查看代码日志/报错信息。整个工作流运行耗时约几十秒。
+Spark 框架面向使用 Scala/Java 的 Spark 用户，用户编写 Spark 应用程序并编译打包成 jar 包后，可通过腾讯云 TI 平台 TI-ONE 提供的 Spark 框架运行自定义代码。本案例以利用 Spark 计算圆周率为例，向用户介绍：如何在 TI-ONE 上使用 Spark 框架，如何上传 jar 包，如何通过工作流页面向自定义代码传参，在自定义代码中如何读取 COS 上的文件，以及如何查看代码日志/报错信息。整个工作流运行耗时约几十秒。
 
 ## 整体流程
-在智能钛机器学习平台运行用户自定义 Spark 代码，主要包含以下步骤：
+在腾讯云 TI 平台 TI-ONE 运行用户自定义 Spark 代码，主要包含以下步骤：
 1. 本地编译源代码，完成打包。
 2. 利用 Spark 框架完成圆周率计算。
 3. 查看工作流运行状态和结果。
@@ -65,10 +65,10 @@ object SparkPi {
 ```
 
 2. 本地打包
-由于智能钛机器学习平台内置的 Spark 版本是2.4，所以用户在本地打包时请引入 Spark 2.4 相关的依赖。您可以选择 sbt 或者 maven 作为打包工具，并将打包后的 jar 包命名为 pi-1.0.jar 。您也可以直接下载我们打包好的 [jar 包](https://csy-classification-1256633383.cos.ap-shanghai.myqcloud.com/pi-1.0.jar) 进行以下步骤的使用体验。
+由于腾讯云 TI 平台 TI-ONE 内置的 Spark 版本是2.4，所以用户在本地打包时请引入 Spark 2.4 相关的依赖。您可以选择 sbt 或者 maven 作为打包工具，并将打包后的 jar 包命名为 pi-1.0.jar 。您也可以直接下载我们打包好的 [jar 包](https://csy-classification-1256633383.cos.ap-shanghai.myqcloud.com/pi-1.0.jar) 进行以下步骤的使用体验。
 
 #### 二、利用 Spark 框架完成圆周率计算
-1. 在 [智能钛机器学习平台控制台](https://console.cloud.tencent.com/tione/project/list) 的左侧导航栏，选择【框架】>【机器学习】>【Spark】，并拖入画布中。
+1. 在 [腾讯云 TI 平台 TI-ONE 控制台](https://console.cloud.tencent.com/tione/project/list) 的左侧导航栏，选择【框架】>【机器学习】>【Spark】，并拖入画布中。
 2. 配置组件参数
 >?Spark 框架需用户上传自己的 jar 包，PySpark 框架需用户上传 Python 文件。
 

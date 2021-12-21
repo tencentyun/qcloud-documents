@@ -1,9 +1,9 @@
 ## 效果展示
-您可以[下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验多人视频聊天室的效果，包括聊天室、屏幕分享、美颜、低延时视频等 TRTC 在多人视频聊天室场景下的相关能力。
+您可以[下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验多人音视频房间的效果，包括聊天室、屏幕分享、美颜、低延时视频等 TRTC 在多人音视频房间场景下的相关能力。
 
 [](id:step1)
 ## 复用 App 的 UI 界面
-如需快速接入多人视频聊天室功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用的 App 内的 Module 模块实现自定义 UI 界面。
+如需快速接入多人音视频房间功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用的 App 内的 Module 模块实现自定义 UI 界面。
 
 [](id:step1_1)
 ### 步骤1：下载 App 源码
@@ -71,7 +71,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/7ceacac7a6817ffe80927af35e0df9c4.png)
 
 ## 实现自定义 UI 界面
-源码中的 Module 模块包含了对 TRTC SDK 以及 IM SDK 的封装，您可以在 `TUIRoomCore.h`、`TUIRoomCoreCallback.h`、`TUIRoomDef.h` 等文件中查看改模块提供的接口函数以及其他定义，并使用对应接口实现自定义 UI 界面。
+源码中的 Module 模块包含了对 TRTC SDK 以及 IM SDK 的封装，您可以在 `TUIRoomCore.h`、`TUIRoomCoreCallback.h`、`TUIRoomDef.h` 等文件中查看该模块提供的接口函数以及其他定义，并使用对应接口实现自定义 UI 界面。
 
 [](id:step2_1)
 ### 步骤1：集成 SDK

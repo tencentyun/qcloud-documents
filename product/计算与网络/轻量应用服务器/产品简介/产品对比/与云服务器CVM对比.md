@@ -21,7 +21,7 @@
 </tr>
 <tr>
 <th style="font-weight:700;" colspan=2>更轻量的业务场景</th>
-<td>轻量级应用场景，如下：
+<td>轻量级应用场景，典型场景如下：
 <ul style="margin:-3px 0px">
 <li>企业官网、博客、论坛、资讯、商品展示等各类网站</li>
 <li>通用 Web 应用</li>
@@ -32,7 +32,7 @@
 <li>云端开发测试环境、学习环境</li>
 </ul>
 </td>
-<td>架构复杂的应用场景，如下：
+<td>架构复杂的应用场景，典型场景如下：
 <ul style="margin:-3px 0px">
 <li>高并发网站</li>
 <li>大型游戏</li>
@@ -55,10 +55,10 @@
 <td>固定带宽/流量用量</td>
 </tr>
 <tr>
-<th style="font-weight:700;" rowspan=5>更简化的功能设计</th>
+<th style="font-weight:700;" rowspan=5>更简单的使用体验</th>
 <th style="font-weight:700;">管理控制台</th>
 <td>一站式整合，独立且简化的控制台</td>
-<td>面向全业务，涉及 CVM、VPC、EIP 及安全组等细节较多的控制台</td>
+<td>面向全业务，涉及 CVM、VPC、EIP 及安全组等细节较多</td>
 </tr>
 <tr>
 <th style="font-weight:700;">应用构建</th>

@@ -240,9 +240,9 @@
 ### HBASE-RegionServer
 <table>
 <tr>
-<th width=20%>标题 </th>
+<th width=23%>标题 </th>
 <th width=20%>指标名称</th>
-<th width=15%>指标单位</th>
+<th width=12%>指标单位</th>
 <th width=45%>指标含义 </th>
 </tr><tr>
 <td rowspan=2>GC 次数 </td>
@@ -606,7 +606,7 @@
 <td >bytes/s</td>
 <td >接收数据量</td>
 </tr><tr>
-<td rowspan=10>写请求量</td>
+<td rowspan=10>读写请求量</td>
 <td >Total</td>
 <td >个/s</td>
 <td >总请求量，当有Scan请求时，该值会小于读写请求之和</td>

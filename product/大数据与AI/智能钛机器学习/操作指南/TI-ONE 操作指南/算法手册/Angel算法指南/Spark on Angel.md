@@ -25,7 +25,7 @@ Angel 是由腾讯自研并开源的高性能分布式机器学习和图计算�
 
 
 ## 案例说明
-本案例向您阐述如何在智能钛机器学习平台使用 Spark on Angel 组件离线训练自己实现的算法模型。
+本案例向您阐述如何在腾讯云 TI 平台 TI-ONE 使用 Spark on Angel 组件离线训练自己实现的算法模型。
 
 ### 示例代码
 平台内置的 Spark on Angel 版本是 2.3.1，所以用户在本地打包时请引入 Spark on Angel 2.3.1 相关的依赖。使用  maven 作为打包工具，此时打包后的 jar 包我们命名为 spark-on-angel-examples.jar。

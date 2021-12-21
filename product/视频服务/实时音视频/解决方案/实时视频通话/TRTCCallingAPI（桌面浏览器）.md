@@ -5,6 +5,9 @@
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频通话组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
 
+## 环境要求
+请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。具体请参见 [环境要求](https://cloud.tencent.com/document/product/647/49789#.E7.8E.AF.E5.A2.83.E8.A6.81.E6.B1.82)。
+
 ## TRTCCalling API 
 
 #### 事件订阅/取消订阅相关接口函数 
@@ -605,7 +608,7 @@ trtcCalling.on(TRTCCalling.EVENT.USER_LEAVE, handleUserLeave);
 
 #### GROUP_CALL_INVITEE_LIST_UPDATE
 
-群聊更新邀请列表收到该回调
+群聊更新邀请列表收到该回调。
 
 >?v1.0.0 及其之后版本，新增此事件。
 
@@ -831,6 +834,15 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 | 60004 | 权限获取失败 | 没有可用的摄像头设备       |
 | 60005 | 权限获取失败 | 用户禁止使用设备           |
 
+## 升级指引
+
+- **升级 TRTCCalling 版本 >= 1.0.2**
+	- 注意：需升级 TSignaling 版本 >= 0.9.0
+	- 原因：[更新日志](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/tutorial-CHANGELOG.html#h2-3)
+- **升级  1.0.2 >= TRTCCalling 版本 >=1.0.0**
+	- 注意：需升级 TSignaling 版本 >= 0.8.0
+	- 原因：[更新日志](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/tutorial-CHANGELOG.html#h2-5)
+
 ## 常见问题
 
 #### 为什么拨打不通，或者被踢下线？
@@ -838,6 +850,7 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 > ?
 > - **多实例**：一个 UserID 重复登入，或在不同端登入，将会引起信令的混乱。
 > - **离线推送**：实例在线才能接收消息，实例离线时接收到的信令不会在上线后重新推送。
+更多常见问题，请参见 [TRTCCalling Web 相关问题](https://cloud.tencent.com/document/product/647/62484)。
 
 ## 技术咨询[](id:QQ)
 了解更多详情您可以 QQ 咨询：646165204 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>

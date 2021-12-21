@@ -10,7 +10,7 @@
 
 ## Agent 列表
 1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/dsaudit)，在左侧导航栏中，单击**配置管理** > **Agent 管理** > **Agent 列表**，进入 Agent 列表页面。
-2.在 Agent 列表页面，可以查看所有已配置成功的 Agent。Agent 列表默认展示内容包括：部署 IP、流量来源、VPC、地域、操作系统、最后上报时间、运行状态、开启状态及相关操作。
+2. 在 Agent 列表页面，可以查看所有已配置成功的 Agent。Agent 列表默认展示内容包括：部署 IP、流量来源、VPC、地域、操作系统、最后上报时间、运行状态、开启状态及相关操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/cea0da9df20e4aac101fe28aa7a55b1b.png)
 3. 在 Agent 列表页面，您可以按**流量来源、地域、数据资产、部署 IP、运行状态**对 Agent 进行搜索。
 ![](https://qcloudimg.tencent-cloud.cn/raw/af8c89875e236a70e99373452fc4c4c7.png)
