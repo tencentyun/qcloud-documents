@@ -3,7 +3,7 @@ Python SDK 提供获取签名、预签名 URL 、下载预签名 URL 的接口�
 使用永久密钥或临时密钥获取预签名 URL 的调用方法相同，使用临时密钥时需要在 header 或 query_string 中加上 x-cos-security-token。
 
 >?
-> - 在获取签名时强烈建议将敏感请求头和请求参数算入签名，这样可以避免相关请求头和请求参数被使用者篡改，杜绝权限越界的情况发生。同时 SDK 会默认将请求域名算入签名，如果分发后修改了访问域名会导致访问失败，此时可以在获取签名时传入参数忽略请求域名，详细方法参见下面的请求示例。 
+> - 在获取签名时强烈建议将敏感请求头部和请求参数算入签名，这样可以避免相关请求头部和请求参数被使用者篡改，杜绝权限越界的情况发生。同时 SDK 会默认将请求域名算入签名，如果分发后修改了请求域名会导致访问失败，此时可以在获取签名时传入参数忽略请求域名，详细方法参见下面的请求示例。 
 > - 建议用户使用临时密钥生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
 > - 如果您一定要使用永久密钥来生成预签名，建议永久密钥的权限范围仅限于上传或下载操作，以规避风险。
 > 
@@ -44,7 +44,7 @@ scheme = 'https'           # 指定使用 http/https 协议来访问 COS，默�
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
 client = CosS3Client(config)
 
-# 生成上传URL，未限制头域和请求参数
+# 生成上传URL，未限制请求头部和请求参数
 url = client.get_presigned_url(
     Method='PUT',
     Bucket='examplebucket-1250000000',
@@ -58,7 +58,10 @@ url = client.get_presigned_url(
     Method='PUT',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Headers={'x-cos-storage-class':'STANDARD_IA', 'x-cos-traffic-limit':'819200'},
+    Headers={
+        'x-cos-storage-class':'STANDARD_IA', 
+        'x-cos-traffic-limit':'819200' # 预签名URL本身是不包含请求头部的，但请求头部会算入签名，那么使用URL时就必须携带请求头部，并且请求头部的值必须是这里指定的值
+    },
     Expired=300  # 300秒后过期，过期时间请根据自身场景定义
 )
 print(url)
@@ -68,7 +71,7 @@ url = client.get_presigned_url(
     Method='PUT',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Headers={'Content-MD5':'string'}, 
+    Headers={'Content-MD5':'string'}, # 约定使用此URL上传对象的人必须携带MD5请求头部，并且请求头部的值必须是这里指定的值，这样就限定了文件的内容
     Expired=300  # 300秒后过期，过期时间请根据自身场景定义
 )
 print(url)
@@ -78,7 +81,7 @@ url = client.get_presigned_url(
     Method='PUT',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Params={'acl':''},
+    Params={'acl':''}, # 指定了请求参数，则URL中会携带此请求参数，并且请求参数会算入签名，不允许使用者修改请求参数的值
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(url)
@@ -94,7 +97,7 @@ url = client.get_presigned_url(
 print(url)
 
 # 使用上传URL
-response = requests.put(url)
+response = requests.put(url=url, data=b'123')
 print(response)
 ```
 
@@ -122,11 +125,25 @@ scheme = 'https'           # 指定使用 http/https 协议来访问 COS，默�
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
 client = CosS3Client(config)
 
-# 生成下载URL，未限制头域和请求参数
+# 生成下载URL，未限制请求头部和请求参数
 url = client.get_presigned_url(
     Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
+    Expired=120  # 120秒后过期，过期时间请根据自身场景定义
+)
+print(url)
+
+# 生成下载URL，同时指定响应的content-disposition头部，让文件在浏览器另存为，而不是显示
+url = client.get_presigned_url(
+    Method='GET',
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    Params={
+        'response-content-disposition':'attachment; filename=example.xlsx' # 下载时保存为指定的文件
+        # 除了response-content-disposition，还支持response-cache-control、response-content-encoding、response-content-language、
+        # response-content-type、response-expires等请求参数，详见下载对象API，https://cloud.tencent.com/document/product/436/7753
+    }, 
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(url)
@@ -136,7 +153,7 @@ url = client.get_presigned_url(
     Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Headers={'x-cos-traffic-limit':'819200'},
+    Headers={'x-cos-traffic-limit':'819200'}, # 预签名URL本身是不包含请求头部的，但请求头部会算入签名，那么使用URL时就必须携带请求头部，并且请求头部的值必须是这里指定的值
     Expired=300  # 300秒后过期，过期时间请根据自身场景定义
 )
 print(url)
@@ -146,7 +163,7 @@ url = client.get_presigned_url(
     Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Params={'acl':''},
+    Params={'acl':''}, # 指定了请求参数，则URL中会携带此请求参数，并且请求参数会算入签名，不允许使用者修改请求参数的值
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(url)
@@ -195,7 +212,7 @@ url = client.get_presigned_url(
     Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Headers={'x-cos-traffic-limit':'819200'}, # 限制下载速度
+    Headers={'x-cos-traffic-limit':'819200'}, # 预签名URL本身是不包含请求头部的，但请求头部会算入签名，那么使用URL时就必须携带请求头部，并且请求头部的值必须是这里指定的值
     Params={
         'x-cos-security-token': 'string' # 使用临时密钥需要填入Token到请求参数
     },
@@ -237,12 +254,9 @@ response = client.get_presigned_url(
 | Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String | 是 | 
 | Method  |对应操作的 Method, 可选值为 'PUT'，'POST'，'GET'，'DELETE'，'HEAD'|  String |  是 | 
 |Expired| 签名过期时间，单位为秒| Int| 否|
-|Params| 签名中要签入的请求参数| Dict| 否|
-|Headers| 签名中要签入的请求头部| Dict| 否|
+|Params| 预签名URL中的请求参数。指定了请求参数，则URL中会携带此请求参数，并且请求参数会算入签名，不允许使用者修改请求参数的值。可以携带的Params和具体的操作相关，例如下载对象可以携带和签入的Params参见 [GET Object 中的请求参数](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
+|Headers| 预签名URL中要签入的请求头部。预签名URL本身是不包含请求头部的，但请求头部会算入签名，那么使用URL时就必须携带请求头部，并且请求头部的值必须是这里指定的值。可以签入的Headers和具体的操作相关，例如上传对象可以签入的Headers参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
 |SignHost | 请求域名是否算入签名，默认值True，签名后使用者需要修改请求域名时设置为False| Bool| 否|
-
-可以签入的Header、Params和具体的方法相关，例如上传对象可以签入的Headers参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述，下载对象可以签入的Headers和Params参见 [GET Object 中的请求参数和请求头](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述。
-
 #### 返回结果说明
 
 该方法返回值为预签名的 URL。
@@ -282,38 +296,47 @@ scheme = 'https'           # 指定使用 http/https 协议来访问 COS，默�
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
 client = CosS3Client(config)
 
-# 生成下载URL，未限制头域和请求参数
+# 生成下载URL，未限制请求头部和请求参数
 url = client.get_presigned_download_url(
-    Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
+    Expired=120  # 120秒后过期，过期时间请根据自身场景定义
+)
+print(url)
+
+# 生成下载URL，同时指定响应的content-disposition头部，让文件在浏览器另存为，而不是显示
+url = client.get_presigned_download_url(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    Params={
+        'response-content-disposition':'attachment; filename=example.xlsx' # 下载时保存为指定的文件
+        # 除了response-content-disposition，还支持response-cache-control、response-content-encoding、response-content-language、
+        # response-content-type、response-expires等请求参数，详见下载对象API，https://cloud.tencent.com/document/product/436/7753
+    }, 
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(url)
 
 # 生成下载URL，同时限制下载速度
 url = client.get_presigned_download_url(
-    Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Headers={'x-cos-traffic-limit':'819200'},
+    Headers={'x-cos-traffic-limit':'819200'}, # 预签名URL本身是不包含请求头部的，但请求头部会算入签名，那么使用URL时就必须携带请求头部，并且请求头部的值必须是这里指定的值
     Expired=300  # 300秒后过期，过期时间请根据自身场景定义
 )
 print(url)
 
 # 生成下载URL，只能用于下载ACL
 url = client.get_presigned_download_url(
-    Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Params={'acl':''},
+    Params={'acl':''}, # 指定了请求参数，则URL中会携带此请求参数，并且请求参数会算入签名，不允许使用者修改请求参数的值
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(url)
 
 # 生成下载URL，请求域名不算入签名，签名后使用者需要修改请求域名时使用
 url = client.get_presigned_download_url(
-    Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
     SignHost=False, # 请求域名不算入签名，允许使用者修改请求域名，有一定安全风险
@@ -361,12 +384,9 @@ response = client.get_presigned_download_url(
 | Bucket  |存储桶名称，由 BucketName-APPID 构成 |  String |  是 | 
 | Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String | 是 | 
 |Expired| 签名过期时间，单位为秒| Int| 否|
-|Params| 签名中要签入的请求参数| Dict| 否|
-|Headers| 签名中要签入的请求头部| Dict| 否|
+|Params| 预签名URL中的请求参数。指定了请求参数，则URL中会携带此请求参数，并且请求参数会算入签名，不允许使用者修改请求参数的值。可以携带的Params和具体的操作相关，例如下载对象可以携带和签入的Params参见 [GET Object 中的请求参数](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
+|Headers| 预签名URL中要签入的请求头部。预签名URL本身是不包含请求头部的，但请求头部会算入签名，那么使用URL时就必须携带请求头部，并且请求头部的值必须是这里指定的值。可以签入的Headers和具体的操作相关，例如上传对象可以签入的Headers参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
 |SignHost | 请求域名是否算入签名，默认值True，签名后使用者需要修改请求域名时设置为False| Bool| 否|
-
-可以签入的Header、Params和具体的方法相关，例如上传对象可以签入的Headers参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述，下载对象可以签入的Headers和Params参见 [GET Object 中的请求参数和请求头](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述。
-
 #### 返回结果说明
 
 该方法返回值为预签名的下载 URL。
@@ -405,7 +425,7 @@ scheme = 'https'           # 指定使用 http/https 协议来访问 COS，默�
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
 client = CosS3Client(config)
 
-# 生成上传签名，未限制头域和请求参数
+# 生成上传签名，未限制请求头部和请求参数
 response = client.get_auth(
     Method='PUT',
     Bucket='examplebucket-1250000000',
@@ -419,17 +439,20 @@ response = client.get_auth(
     Method='PUT',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Headers={'x-cos-storage-class':'STANDARD_IA', 'x-cos-traffic-limit':'819200'},
+    Headers={
+        'x-cos-storage-class':'STANDARD_IA', 
+        'x-cos-traffic-limit':'819200' # 约定使用此签名的人必须携带链接限速请求头部，并且请求头部的值必须是这里指定的值
+    },
     Expired=300  # 300秒后过期，过期时间请根据自身场景定义
 )
 print(response)
 
-# 生成上传URL，只能上传指定的文件内容
+# 生成上传签名，只能上传指定的文件内容
 response = client.get_auth(
     Method='PUT',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Headers={'Content-MD5':'string'}, 
+    Headers={'Content-MD5':'string'}, # 约定使用此签名的人必须携带MD5请求头部，并且请求头部的值必须是这里指定的值，这样就限定了文件的内容
     Expired=300  # 300秒后过期，过期时间请根据自身场景定义
 )
 print(response)
@@ -439,7 +462,7 @@ response = client.get_auth(
     Method='PUT',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Params={'acl':''},
+    Params={'acl':''}, # 约定使用此签名的人携带此ACL请求参数，这样请求就只能用于上传对象ACL
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(response)
@@ -479,7 +502,7 @@ config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Toke
 client = CosS3Client(config)
 
 
-# 生成下载签名，未限制头域和请求参数
+# 生成下载签名，未限制请求头部和请求参数
 response = client.get_auth(
     Method='GET',
     Bucket='examplebucket-1250000000',
@@ -493,7 +516,7 @@ response = client.get_auth(
     Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Headers={'x-cos-traffic-limit':'819200'},
+    Headers={'x-cos-traffic-limit':'819200'}, # 约定使用此签名的人必须携带链接限速请求头部，并且请求头部的值必须是这里指定的值
     Expired=300  # 300秒后过期，过期时间请根据自身场景定义
 )
 print(response)
@@ -503,7 +526,7 @@ response = client.get_auth(
     Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Params={'acl':''},
+    Params={'acl':''}, # 约定使用此签名的人携带此ACL请求参数，这样请求就只能用于下载对象ACL
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(response)
@@ -557,11 +580,9 @@ response = client.get_auth(
 | Bucket  |存储桶名称，由 BucketName-APPID 构成 |  String |  是 | 
 | Key  | Bucket 操作填入根路径`/`，object 操作填入文件的路径| String | 是| 
 |Expired| 签名过期时间，单位为秒| Int| 否|
-|Headers| 需要签入签名的请求头部| Dict| 否|
-|Params | 需要签入签名的请求参数| Dict| 否|
+|Params| 签名中要签入的请求参数。使用此签名时必须携带这里指定的请求参数，并且参数的值必须是这里指定的值。可以签入的Params和具体的操作相关，例如下载对象可以携带和签入的Params参见 [GET Object 中的请求参数](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
+|Headers| 签名中要签入的请求头部。使用此签名时必须携带这里指定的请求头部，并且头部的值必须是这里指定的值。可以签入的Headers和具体的操作相关，例如上传对象可以签入的Headers参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
 |SignHost | 请求域名是否算入签名，默认值True，签名后使用者需要修改请求域名时设置为False| Bool| 否|
-
-可以签入的Header、Params和具体的方法相关，例如上传对象可以签入的Headers参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述，下载对象可以签入的Headers和Params参见 [GET Object 中的请求参数和请求头](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述。
 
 #### 返回结果说明
 
