@@ -33,7 +33,8 @@
 <td>
 <input type="button" value="视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html')" /><br><br>
 <input type="button" value="互动直播推流端" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html')" /><br><br>
-<input type="button" value="互动直播拉流端" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html')" />
+<input type="button" value="互动直播拉流端" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html')" /><br><br>
+<input type="button" value="1V1音视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html')" />
 </td>
 <td>
 <a onclick="window.open('https://www.pgyer.com/TtEk')" value="Flutter_ios_版">
@@ -191,7 +192,7 @@ KTV 场景支持主播与观众上麦唱歌；支持平滑上下麦，切换过�
 <td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_experience_audience.gif"/></td>
 </tr>
 </table>
- 
+
 ## 实时合唱（Chorus 场景）
 
 Chorus 场景支持房主主唱与一名观众上麦唱歌；支持平滑上下麦，切换过程无需等待，主播延时小于100ms；低延时直播模式下，支持10万观众同时播放，播放延时低至1000ms；CDN 旁路直播模式下，观众数量无限制。常见应用场景有双人合唱、K 歌房、FM 电台等。
