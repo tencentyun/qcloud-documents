@@ -2,7 +2,6 @@
 ## 前提条件
 已购买 [数据安全审计SaaS型](https://cloud.tencent.com/document/product/856/64697)。
 已完成配置数据资产实例，操作详情请参见 [管理自建数据库]()。
-已开启审计权限，操作详情请参见 [管理云数据库]()。
 
 ## 步骤1：同步数据资产
 1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/dsgc/dsaudit)，单击**立即进入**。
