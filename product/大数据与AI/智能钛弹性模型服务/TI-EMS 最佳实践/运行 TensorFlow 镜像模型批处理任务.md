@@ -48,4 +48,4 @@
 1. 在【批处理任务】页面找到创建的批处理任务，点击列表上方搜索框右侧的刷新按钮刷新服务状态。
 2. 服务状态由【运行中】变为【运行成功】时，前往所配置的输出数据 COS 路径查看推理结果。
 
-TI-EMS 使用过程中如遇任何问题，欢迎加入 [智能钛 AI 开发者社区](https://cloud.tencent.com/developer/timl/ask)，与腾讯云 AI 专家和众多 AI 爱好者交流技术。
+TI-EMS 使用过程中如遇任何问题，欢迎加入 [腾讯云 TI 平台开发者社区](https://cloud.tencent.com/developer/timl/ask)，与腾讯云 AI 专家和众多 AI 爱好者交流技术。
