@@ -1,9 +1,9 @@
 ### Zookeeper
 <table>
 <tr>
-<th width=15%>标题 </th>
+<th width=18%>标题 </th>
 <th width=20%>指标名称</th>
-<th width=25%>指标单位</th>
+<th width=22%>指标单位</th>
 <th width=40%>指标含义 </th>
 <tr></tr>
 <td rowspan=2>GC 次数 </td>
@@ -154,7 +154,7 @@
 <td >1：主，0：备，2：单机</td>
 <td >zk 节点类型</td>
 </tr><tr>
-<td rowspan=2>接收发送包</td>
+<td rowspan=2>接收发送包量</td>
 <td >zk_packets_received</td>
 <td >个/s</td>
 <td >zk 接收的数据包速率</td>
