@@ -5,8 +5,7 @@
 - 直接接入腾讯云即时通信 IM，腾讯云实时音视频 TRTC 以及腾讯云超级播放器 TCPlayer 等基础 SDK，可灵活扩展业务功能；
 - 提供带 UI 的组件源码，开箱即用，助力业务快速上线；
 
-> ?
-> TUIPusher & TUIPlayer 与 TWebLive 在设计方案和代码逻辑上互不兼容，如果您是正在使用的 TWebLive 方案的客户，使用 TUIPusher & TUIPlayer 需要重新接入。
+> ?TUIPusher & TUIPlayer 与 TWebLive 在设计方案和代码逻辑上互不兼容，如果您已经接入 TWebLive SDK，使用 TUIPusher & TUIPlayer 需要重新接入。
 
 ## TWebLive 简介
 TWebLive 即腾讯云 Web 直播互动组件，是腾讯云终端研发团队推出的 Web 端直播场景 SDK，集成了腾讯云实时音视频 TRTC、腾讯云即时通信以及腾讯云超级播放器 TCPlayer，覆盖了 Web 直播互动场景常见的功能（如推流、开/关麦、开/关摄像头、微信分享观看、聊天点赞等），并封装了简单易用的 [API](https://web.sdk.qcloud.com/component/tweblive/doc/zh-cn/TWebLive.html)，接入后可快速实现 Web 端推流、拉流以及实时聊天互动功能。您可以进入 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 来体验。
