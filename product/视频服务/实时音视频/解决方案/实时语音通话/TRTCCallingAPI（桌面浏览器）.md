@@ -6,8 +6,8 @@
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
 
 ## 环境要求
-请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
-具体请参见 [环境要求](https://cloud.tencent.com/document/product/647/49795#.E7.8E.AF.E5.A2.83.E8.A6.81.E6.B1.82)。
+请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。具体请参见 [环境要求](https://cloud.tencent.com/document/product/647/49795#.E7.8E.AF.E5.A2.83.E8.A6.81.E6.B1.82)。
+
 ## TRTCCalling API 
 
 #### 事件订阅/取消订阅相关接口函数 
@@ -841,13 +841,12 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 
 ## 升级指引
 
-升级 TRTCCalling 版本 >= 1.0.2
-注意：需升级 TSignaling 版本 >= 0.9.0
-原因：[更新日志](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/tutorial-CHANGELOG.html#h2-3)
-
-升级  1.0.2 >= TRTCCalling 版本 >=1.0.0
-注意：需升级 TSignaling 版本 >= 0.8.0
-原因：[更新日志](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/tutorial-CHANGELOG.html#h2-5)
+- **升级 TRTCCalling 版本 >= 1.0.2**
+	- 注意：需升级 TSignaling 版本 >= 0.9.0
+	- 原因：[更新日志](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/tutorial-CHANGELOG.html#h2-3)
+- **升级  1.0.2 >= TRTCCalling 版本 >=1.0.0**
+	- 注意：需升级 TSignaling 版本 >= 0.8.0
+	- 原因：[更新日志](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/tutorial-CHANGELOG.html#h2-5)
 
 ## 常见问题
 
