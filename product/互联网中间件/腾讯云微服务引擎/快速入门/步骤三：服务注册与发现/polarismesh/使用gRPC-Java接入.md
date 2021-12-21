@@ -40,7 +40,7 @@ global:
 <th>说明</th>
 </tr>
 <tr>
-<td>\grpc-java-polaris-examples\quickstart-example\provider\target | quickstart-provider-${version}.jar</td>
+<td>\grpc-java-polaris-examples\quickstart-example\provider\target</td>
 <td>quickstart-provider-${version}.jar</td>
 <td>服务生产者</td>
 </tr>
