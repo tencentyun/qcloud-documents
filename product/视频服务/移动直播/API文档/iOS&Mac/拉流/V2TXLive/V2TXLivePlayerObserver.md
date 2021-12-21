@@ -52,15 +52,12 @@ __参数__
 
 ***
 
-## 视频相关回调
-### onVideoPlayStatusUpdate
+### onConnected
 
-直播播放器视频状态变化通知。
+已经成功连接到服务器通知。
 ```
-- (void)onVideoPlayStatusUpdate:(id<V2TXLivePlayer>)player
-                          status:(V2TXLivePlayStatus)status
-                          reason:(V2TXLiveStatusChangeReason)reason
-                       extraInfo:(NSDictionary *)extraInfo
+- (void)onConnected:(id<V2TXLivePlayer>)player 
+			extraInfo:(NSDictionary *)extraInfo
 ```
 
 __参数__
@@ -68,19 +65,63 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | player | V2TXLivePlayer |  回调该通知的播放器对象。 |
-| status | [V2TXLivePlayStatus](#V2TXLivePlayStatus) | 状态码。 |
-| reason | V2TXLiveStatusChangeReason |  状态对应的原因。 |
 | extraInfo | NSDictionary * |  扩展信息。 |
 
-[](id:V2TXLivePlayStatus)
+***
 
-#### V2TXLivePlayStatus 枚举类
+## 视频相关回调
+### onVideoPlaying
 
-| 取值                      | 含义                                        |
-| ------------------------- | ------------------------------------------- |
-| V2TXLivePlayStatusStopped | 播放停止。                                  |
-| V2TXLivePlayStatusPlaying | 正在播放。                                  |
-| V2TXLivePlayStatusLoading | 正在缓冲（首次加载不会抛出 Loading 事件）。 |
+视频播放事件通知。
+```
+- (void)onVideoPlaying:(id<V2TXLivePlayer>)player
+			   firstPlay:(BOOL)firstPlay 
+			   extraInfo:(NSDictionary *)extraInfo
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| player | V2TXLivePlayer |  回调该通知的播放器对象。 |
+| firstPlay | BOOL |  第一次播放标志。 |
+| extraInfo | NSDictionary * |  扩展信息。 |
+
+***
+
+### onVideoLoading
+
+视频加载事件通知。
+```
+- (void)onVideoLoading:(id<V2TXLivePlayer>)player
+			   extraInfo:(NSDictionary *)extraInfo;
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| player | V2TXLivePlayer |  回调该通知的播放器对象。 |
+| extraInfo | NSDictionary * |  扩展信息。 |
+
+***
+
+### onVideoResolutionChanged
+
+直播播放器分辨率变化通知。
+```
+- (void)onVideoResolutionChanged:(id<V2TXLivePlayer>)player 
+								width:(NSInteger)width 
+							  height:(NSInteger)height;
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| player | V2TXLivePlayer |  回调该通知的播放器对象。 |
+| width | NSInteger | 视频宽 |
+| height | NSInteger | 视频高 |
 
 ***
 
@@ -120,14 +161,14 @@ __参数__
 
 
 ## 音频相关回调
-### onAudioPlayStatusUpdate
 
-直播播放器音频状态变化通知。
+### onAudioPlaying
+
+音频播放事件通知。
 ```
-- (void)onAudioPlayStatusUpdate:(id<V2TXLivePlayer>)player
-                          status:(V2TXLivePlayStatus)status
-                          reason:(V2TXLiveStatusChangeReason)reason
-                       extraInfo:(NSDictionary *)extraInfo
+- (void)onAudioPlaying:(id<V2TXLivePlayer>)player 
+			   firstPlay:(BOOL)firstPlay 
+			   extraInfo:(NSDictionary *)extraInfo;
 ```
 
 __参数__
@@ -135,11 +176,28 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | player | V2TXLivePlayer |  回调该通知的播放器对象。 |
-| status | [V2TXLivePlayStatus](#V2TXLivePlayStatus) | 状态码。 |
-| reason | V2TXLiveStatusChangeReason |  状态对应的原因。 |
+| firstPlay | BOOL |  第一次播放标志。 |
 | extraInfo | NSDictionary * |  扩展信息。 |
 
 ***
+
+### onAudioLoading
+
+音频加载事件通知。
+```
+- (void)onAudioLoading:(id<V2TXLivePlayer>)player 
+			   extraInfo:(NSDictionary *)extraInfo;
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| player | V2TXLivePlayer |  回调该通知的播放器对象。 |
+| extraInfo | NSDictionary * |  扩展信息。 |
+
+***
+
 
 ### onPlayoutVolumeUpdate
 
