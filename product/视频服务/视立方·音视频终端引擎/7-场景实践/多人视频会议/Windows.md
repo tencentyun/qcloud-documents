@@ -23,8 +23,8 @@
 ### 步骤2：配置App文件
 1. 找到并打开 `Windows\RoomApp\utils\usersig\win\GenerateTestUserSig.h` 文件。
 2. 设置 `GenerateTestUserSig.h` 中的参数：
-	- **SDKAPPID**：默认为0，请设置为实际的 SDKAPPID。
-	- **SECRETKEY**：默认为空，请设置为实际的 SECRETKEY。
+        - **SDKAPPID**：默认为0，请设置为实际的 SDKAPPID。
+        - **SECRETKEY**：默认为空，请设置为实际的 SECRETKEY。
 ![](https://main.qcloudimg.com/raw/3e83f6ed266617afbe637edc51eb0543.png)
 
 >!
@@ -81,7 +81,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/7ceacac7a6817ffe80927af35e0df9c4.png)
 
 ## 实现自定义 UI 界面
-源码中的 Module 模块包含了对 TRTC SDK 以及 IM SDK 的封装，您可以在 `TUIRoomCore.h`、`TUIRoomCoreCallback.h`、`TUIRoomDef.h` 等文件中查看改模块提供的接口函数以及其他定义，并使用对应接口实现自定义 UI 界面。
+源码中的 Module 模块包含了对 TRTC SDK 以及 IM SDK 的封装，您可以在 `TUIRoomCore.h`、`TUIRoomCoreCallback.h`、`TUIRoomDef.h` 等文件中查看该模块提供的接口函数以及其他定义，并使用对应接口实现自定义 UI 界面。
 
 [](id:step2_1)
 ### 步骤1：集成 SDK
