@@ -19,7 +19,7 @@
 4. 查看访问地址，Spring Cloud 应用访问使用 gRPC 端口（8091）：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e7dc5ac5f7c76a316ae68b667d8a365f.png)
 5. 修改 demo 中的注册中心地址。
-  - 在下载到本地的 [demo 源码目录](https://github.com/Tencent/spring-cloud-tencent/tree/main/spring-cloud-tencent-examples/polaris-quickstart-example) 下，分别找到
+  1. 在下载到本地的 [demo 源码目录](https://github.com/Tencent/spring-cloud-tencent/tree/main/spring-cloud-tencent-examples/polaris-quickstart-example) 下，分别找到
     `spring-cloud-tencent-examples\polaris-quickstart-example\quickstart-provider\src\main\resources\bootstrap.yml`和`spring-cloud-tencent-examples\polaris-quickstart-example\quickstart-consumer\src\main\resources\bootstrap.yml`两个文件。
   - 添加微服务引擎服务治理中心地址到项目配置文件中（以`\polaris-quickstart-example\quickstart-provider\src\main\resources\bootstrap.yml`为例）。
 <dx-codeblock>
@@ -35,7 +35,7 @@ spring:
 :::
 </dx-codeblock>
 6. 打包 demo 源码成jar包。
-  - 在 polaris-quickstart-example 源码根目录下，打开 cmd 命令，执行 mvn clean package 命令，对项目进行打包编译。
+  1. 在 polaris-quickstart-example 源码根目录下，打开 cmd 命令，执行 mvn clean package 命令，对项目进行打包编译。
   - 编译成功后，生成如下表所示的2个 Jar 包。
 <table>
 <tr>
@@ -74,7 +74,7 @@ spring:
 </dx-codeblock>        
       - 通过TKE部署并运行镜像
 8. 确认部署结果。
- - 进入前面提到的微服务治理中心实例页面。
+ 1. 进入前面提到的微服务治理中心实例页面。
  - 选择**服务管理** > **服务列表**，查看微服务 EchoServer（quickstart-provider）和 EchoClient（quickstart-consumer）的实例数量：
     - 若实例数量值不为0，则表示已经成功接入微服务引擎。
     - 若实例数量为0，或者找不到 EchoServer 和 EchoClient 服务名，则表示微服务应用接入微服务引擎失败。
