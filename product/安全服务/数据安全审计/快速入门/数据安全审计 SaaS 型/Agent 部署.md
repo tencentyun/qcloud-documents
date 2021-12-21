@@ -46,5 +46,6 @@ i. 在任务管理器中确认 CapAgentForWin 进程已运行。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5ebac0aaadfc5ceaa350f14c1fd04062.png)
 ii. 在 cmd 控制台，执行 `netstat -ano | findstr 7000`，如下图即确认连接成功。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0fa3c0a35ba97567d719d44f0782cbcd.png)
+>?如果 CapAgentForWin 不能运行或 `netstat -ano | findstr 7000` 命令执行不成功，请  [联系我们](https://cloud.tencent.com/online-service) 获得支持。
 5. Agent 停止。
 在 CapAgent_win/bin 目录下执行 stop.bat 即可。
