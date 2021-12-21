@@ -57,7 +57,7 @@ __参数__
 已经成功连接到服务器通知。
 ```
 - (void)onConnected:(id<V2TXLivePlayer>)player 
-			extraInfo:(NSDictionary *)extraInfo
+          extraInfo:(NSDictionary *)extraInfo
 ```
 
 __参数__
@@ -75,8 +75,8 @@ __参数__
 视频播放事件通知。
 ```
 - (void)onVideoPlaying:(id<V2TXLivePlayer>)player
-			   firstPlay:(BOOL)firstPlay 
-			   extraInfo:(NSDictionary *)extraInfo
+             firstPlay:(BOOL)firstPlay 
+             extraInfo:(NSDictionary *)extraInfo
 ```
 
 __参数__
@@ -94,7 +94,7 @@ __参数__
 视频加载事件通知。
 ```
 - (void)onVideoLoading:(id<V2TXLivePlayer>)player
-			   extraInfo:(NSDictionary *)extraInfo;
+             extraInfo:(NSDictionary *)extraInfo;
 ```
 
 __参数__
@@ -111,8 +111,8 @@ __参数__
 直播播放器分辨率变化通知。
 ```
 - (void)onVideoResolutionChanged:(id<V2TXLivePlayer>)player 
-								width:(NSInteger)width 
-							  height:(NSInteger)height;
+                           width:(NSInteger)width 
+                          height:(NSInteger)height;
 ```
 
 __参数__
@@ -148,7 +148,7 @@ __参数__
 
 ```
 - (void)onRenderVideoFrame:(id<V2TXLivePlayer>)player
-                      frame:(V2TXLiveVideoFrame *)videoFrame
+                     frame:(V2TXLiveVideoFrame *)videoFrame
 ```
 
 __参数__
@@ -168,8 +168,8 @@ __参数__
 音频播放事件通知。
 ```
 - (void)onAudioPlaying:(id<V2TXLivePlayer>)player 
-			   firstPlay:(BOOL)firstPlay 
-			   extraInfo:(NSDictionary *)extraInfo;
+             firstPlay:(BOOL)firstPlay 
+             extraInfo:(NSDictionary *)extraInfo;
 ```
 
 __参数__
@@ -187,7 +187,7 @@ __参数__
 音频加载事件通知。
 ```
 - (void)onAudioLoading:(id<V2TXLivePlayer>)player 
-			   extraInfo:(NSDictionary *)extraInfo;
+             extraInfo:(NSDictionary *)extraInfo;
 ```
 
 __参数__
@@ -223,7 +223,7 @@ __参数__
 直播播放器统计数据回调。
 ```
 - (void)onStatisticsUpdate:(id<V2TXLivePlayer>)player
-                 statistics:(V2TXLivePlayerStatistics *)statistics
+                statistics:(V2TXLivePlayerStatistics *)statistics
 ```
 
 __参数__
