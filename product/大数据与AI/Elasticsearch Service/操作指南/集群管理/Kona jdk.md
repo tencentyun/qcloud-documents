@@ -1,4 +1,4 @@
-﻿## Kona JDK 介绍
+## Kona JDK 介绍
 
 ### Kona JDK 是什么？
 
