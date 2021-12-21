@@ -45,7 +45,7 @@
    yum -y install --enablerepo=remi --enablerepo=remi-php74 php-devel
 :::
 </dx-codeblock>
-  - 编译 polaris-php 插件，[构建文档]([polaris-php/HowToBuild_ZH.md at php-5.x · polarismesh/polaris-php (github.com)](https://github.com/polarismesh/polaris-php/blob/php-5.x/doc/HowToBuild_ZH.md))
+  - 编译 polaris-php 插件，详情请参见 [构建文档](https://github.com/polarismesh/polaris-php/blob/php-5.x/doc/HowToBuild_ZH.md)。
  - 确认插件安装完成
 <dx-codeblock>
 :::  shell
