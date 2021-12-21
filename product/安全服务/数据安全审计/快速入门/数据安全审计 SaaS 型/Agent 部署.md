@@ -13,14 +13,14 @@
 
 - 配置数据资产有两种方式：
  - 腾讯云内网 Agent：确保部署 Agent 的 VPC 已在 VPC 通道列表中，添加该 VPC 的资产即可自动创建VPC通道。
- - 腾讯云外 Agent：需要开通白名单，腾讯云外 Agent 才能正常上报流量。请联系客服协助开通。   
+ - 腾讯云外 Agent：需要开通白名单，腾讯云外 Agent 才能正常上报流量。请 [联系我们](https://cloud.tencent.com/online-service) 协助开通。   
 
 ## Agent 下载
 1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/dsaudit)，在左侧导航栏中，单击**配置管理** > **Agent 管理** > **Agent 部署**，进入 Agent 部署页面。
 2. 在 Agent 部署页面，选择下载 Linux Agent 或 Windows Agent 进行配置 Agent。
 >!Agent 安装包已通过文件名区分部署场景，在部署前仔细检查，避免出错。
->  - 如 dsaagent_innernet_linux _xxx.zip 是腾讯云内网 Agent。
->  - 如 dsaagent_outnet_win_xxx.zip 是腾讯云外 Agent。
+>  - 如 dsaagent_innernet_linux _xxx.zip 是腾讯云内网 Linux Agent。
+>  - 如 dsaagent_outnet_win_xxx.zip 是腾讯云外 Windows Agent。
 
 ## Agent 安装
 下载 Agent 完成后，需要将 Agent 安装在相应服务器上才能实现审计效果。
@@ -41,7 +41,7 @@
 2. 进入 CapAgent下的 bin 目录，执行. start.bat。
 3. 执行成功后，Console 显示结果如下图所示。同时，可以在任务管理器中，看到 CapAgentForWin.exe 进程。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d7bfc6e6d21ac23cbb2fd9e35f146d26.png)
-4. 检查CapAgentForWin成功启动并连接审计服务成功。
+4. 检查 CapAgentForWin 是否成功启动并连接审计服务成功。
 i. 在任务管理器中确认 CapAgentForWin 进程已运行。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5ebac0aaadfc5ceaa350f14c1fd04062.png)
 ii. 在 cmd 控制台，执行 `netstat -ano | findstr 7000`，如下图即确认连接成功。
