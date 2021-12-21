@@ -145,6 +145,7 @@ __参数__
 
 自定义视频渲染回调。
 > ? 调用 `[V2TXLivePlayer enableCustomRendering:pixelFormat:bufferType:]` 开启自定义渲染之后，会收到这个回调通知。
+
 ```
 - (void)onRenderVideoFrame:(id<V2TXLivePlayer>)player
                       frame:(V2TXLiveVideoFrame *)videoFrame
