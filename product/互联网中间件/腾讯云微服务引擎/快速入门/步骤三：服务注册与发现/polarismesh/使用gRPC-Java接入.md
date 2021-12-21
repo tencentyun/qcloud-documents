@@ -32,8 +32,7 @@ global:
 </dx-codeblock>
 6. 将源码编译成可执行程序。
   - 在 quickstart-example 源码根目录下，打开 cmd 命令，执行 mvn clean package 命令，对项目进行打包编译。
-  - 编译成功后，生成如表1所示的2个二进制包。
-    表1 软件包列表
+  - 编译成功后，生成如下表所示的2个二进制包。
 <table>
 <tr>
 <th>软件包所在目录</th>
@@ -76,7 +75,7 @@ global:
     - 若实例数量值不为0，则表示已经成功接入微服务引擎。
     - 若实例数量为0，或者找不到 EchoServerGRPCJava 服务名，则表示微服务应用接入微服务引擎失败。
    ![](https://qcloudimg.tencent-cloud.cn/raw/86d397ddba81b5dfdb54a6771e5e53c2.png)
- - 调用 consumer 的 HTTP 接口
+ - 调用 consumer 的 HTTP 接口：
     - 执行 http 调用，其中`${app.port}`替换为 consumer 的监听端口（默认为40041），`${add.address}`则替换为 consumer 暴露的地址。
    <dx-codeblock>
 :::  shell
