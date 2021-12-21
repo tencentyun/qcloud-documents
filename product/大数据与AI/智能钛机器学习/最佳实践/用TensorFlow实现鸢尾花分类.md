@@ -156,7 +156,7 @@ if __name__ == '__main__':
 ```
 
 #### 二、利用 TensorFlow 组件搭建分类模型
-TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提供了 GPU 集群平台，用户只需申请权限就可以简单配置深度学习任务。Tensorflow 组件中使用的 Python 版本和支持的第三方模块版本信息如下：
+TensorFlow 是 Google 开源的一种深度学习系统，腾讯云 TI 平台为用户提供了 GPU 集群平台，用户只需申请权限就可以简单配置深度学习任务。Tensorflow 组件中使用的 Python 版本和支持的第三方模块版本信息如下：
  - Python 3.5
  - SciPy 1.0.0
  - NumPy 1.14.0
