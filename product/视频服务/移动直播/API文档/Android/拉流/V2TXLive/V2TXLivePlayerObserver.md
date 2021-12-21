@@ -106,7 +106,8 @@ public void onSnapshotComplete(V2TXLivePlayer player, Bitmap image)
 ### onRenderVideoFrame
 
 自定义视频渲染回调。
-> 调用 `[V2TXLivePlayer enableCustomRendering:pixelFormat:bufferType:]` 开启自定义渲染之后，会收到这个回调通知。
+>? 调用 `[V2TXLivePlayer enableCustomRendering:pixelFormat:bufferType:]` 开启自定义渲染之后，会收到这个回调通知。
+
 ```
 public void onRenderVideoFrame(V2TXLivePlayer player, V2TXLiveVideoFrame videoFrame)
 ```
