@@ -1,7 +1,7 @@
 数据安全审计部署的核心目标是把 Agent 安装到数据库服务器或访问数据库的应用服务器中。Agent 部署流程如下图所示：
 <dx-steps>
--配置数据资产实例，操作详情请参见 [管理自建数据库]()。
--开启审计权限，操作详情请参见 [管理云数据库]()。
+-配置数据资产实例，操作详情请参见 [管理自建数据库](https://cloud.tencent.com/document/product/856/66075#since)。
+-开启审计权限，操作详情请参见 [管理云数据库](https://cloud.tencent.com/document/product/856/66075#cloud)。
 -下载 Agent。
 -Agent 安装。
 </dx-steps>
@@ -12,7 +12,7 @@
  - 云数据库：Agent 程序需要部署在对应的应用服务器上，通常为访问数据库的应用系统所在服务器。
 
 - 配置数据资产有两种方式：
- - 腾讯云内网 Agent：确保部署 Agent 的 VPC 已在 VPC 通道列表中，添加该 VPC 的资产即可自动创建VPC通道。
+ - 腾讯云内网 Agent：确保部署 Agent 的 VPC 已在 VPC 通道列表中，添加该 VPC 的资产即可自动创建 VPC 通道。
  - 腾讯云外 Agent：需要开通白名单，腾讯云外 Agent 才能正常上报流量。请 [联系我们](https://cloud.tencent.com/online-service) 协助开通。   
 
 ## Agent 下载
