@@ -1,6 +1,7 @@
 为满足您的业务需求，腾讯云提供 Edge-100 、Edge-100-5G 和 Edge-1000 三种 Edge 设备。本文将介绍如何在 SD-WAN 接入服务控制台创建 Edge 实例。
 >?Edge-1000 目前POC测试中，如需体验，请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
 >
+
 ## 操作步骤
 1. 登录 [SD-WAN 接入服务控制台](https://console.cloud.tencent.com/sas/edge)。
 2. “Edge” 页面单击**新建**。
@@ -27,11 +28,11 @@
 </tr>
 <tr>
 </table>
-3. 单击**下一步**，选择申请数量并填写收货信息后单击**确认**。
+4. 单击**下一步**，选择申请数量并填写收货信息后单击**确认**。
 
 ## 后续操作
-- [绑定 SN]()
-- [购买 Edge 带宽]()
+- [绑定 Edge 实例 SN](https://cloud.tencent.com/document/product/1277/64770)
+- [购买 Edge 带宽](https://cloud.tencent.com/document/product/1277/64713)
 - [新建静态路由](https://cloud.tencent.com/document/product/1277/47273)
 - [配置防火墙](https://cloud.tencent.com/document/product/1277/47266)
 - [关联云联网](https://cloud.tencent.com/document/product/1277/47262)
