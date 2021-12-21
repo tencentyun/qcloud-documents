@@ -1,7 +1,11 @@
 ## 操作场景
 本文介绍如何使用标准登录方式（WebRDP）登录 Windows 实例。 
->?该方式不区分本地机器操作系统，支持通过控制台直接登录 Windows 实例。
->
+
+<dx-alert infotype="explain" title="">
+该方式不区分本地机器操作系统，支持通过控制台直接登录 Windows 实例。
+</dx-alert>
+
+
 
 ## 前提条件[](id:Prerequisites)
 - 已获取远程登录 Windows 实例需要使用实例的管理员帐号和对应的密码。
@@ -16,8 +20,19 @@
 ## 操作步骤
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在实例的管理页面，选择需要登录的 Windows 云服务器，单击**登录**。如下图所示：
+2. 在实例的管理页面，根据实际使用的视图模式进行操作：
+<dx-tabs>
+::: 列表视图
+选择需要登录的 Windows 云服务器，单击**登录**。如下图所示：
 ![](https://main.qcloudimg.com/raw/7aabbe513f5fe4012c0ca98d7475b16c.png)
+
+:::
+::: 页签视图
+选择需要登录的 Windows 云服务器，单击**登录**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/986818e2c39ac3745d2c58ad88d61464.png)
+
+:::
+</dx-tabs>
 3. 在打开的“标准登录 | Windows 实例”窗口中，根据实际情况填写登录信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/5ebd8128311bb94edbacbd8cc5763793.png)
  - **端口**：默认为3389，请按需填写。
