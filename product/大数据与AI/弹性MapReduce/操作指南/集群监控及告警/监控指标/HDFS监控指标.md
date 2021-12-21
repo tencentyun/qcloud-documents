@@ -116,9 +116,9 @@
 ### HDFS-NameNode
 <table>
 <tr>
-<th width=20%>标题 </th>
+<th width=22%>标题 </th>
 <th width=20%>指标名称</th>
-<th width=15%>指标单位</th>
+<th width=13%>指标单位</th>
 <th width=45%>指标含义 </th>
 </tr><tr>
 <td rowspan=2> 数据流量 </td>
@@ -1082,9 +1082,9 @@
 ### HDFS-ZKFC
 <table>
 <tr>
-<th width=15%>标题 </th>
+<th width=20%>标题 </th>
 <th width=20%>指标名称 </th>
-<th width=15%>指标单位</th>
+<th width=10%>指标单位</th>
 <th width=50%>指标含义 </th>
 </tr><tr>
 <td rowspan=2>GC 次数 </td>
