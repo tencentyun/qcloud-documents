@@ -8,26 +8,32 @@ Cloud-Init 是一个开源工具，运行在云服务器实例内部的一个非
 
 
 #### Cloud-Init 服务运行排查方案[](id:checkcloud-init)
-首先请登录实例，依次执行以下命令，观察是否报错。显示执行结果则服务正常运行，否则会提示错误原因，请根据提示进行问题排查。
+
+参考 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436) 登录实例，并依次执行以下命令。观察是否报错，若显示执行结果则服务正常运行，否则会提示错误原因，请根据提示进行问题排查。
+<dx-alert infotype="explain" title="">
+该步骤仅适用于使用 Linux 公共镜像创建的云服务器实例。若您自行安装了 Cloud-Init，请结合实际情况调整执行命令。
+</dx-alert>
+
+
 1. 删除 cloud-init 缓存目录。
 ```
 rm -rf /var/lib/cloud
 ```
 2. 执行完整的 cloud-init 初始化。
 ```
-cloud-init init --local
+/usr/bin/cloud-init init --local
 ```
 3. 根据配置的数据源拉取数据。
 ```
-cloud-init init
+/usr/bin/cloud-init init
 ```
 4. Cloud-Init 初始化分为多个 stage，为保证各个 stage 的依赖充分，cloud-init modules 指定运行 config stage。
 ```
-cloud-init modules --mode=config
+/usr/bin/cloud-init modules --mode=config
 ```
 5. cloud-init modules 指定运行 final stage。
 ```
-cloud-init modules --mode=final
+/usr/bin/cloud-init modules --mode=final
 ```
 
 ### Cloud-Init 执行了哪些实例初始化的操作？
