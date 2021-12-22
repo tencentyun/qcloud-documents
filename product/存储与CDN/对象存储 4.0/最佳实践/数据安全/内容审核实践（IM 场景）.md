@@ -324,7 +324,7 @@ public static function cmdC2cMsgBefore($allData) {
       $result = $cosClient->getObjectSensitiveContentRecognition(array(
           'Bucket' => 'examplebucket-125000000', //格式：BucketName-APPID
           'Key' => '/', // 链接图片资源路径写 / 即可
-          'DetectType' => 'porn,ads',//可选四种参数：porn,politics,terrorist,ads，可使用多种规则，注意规则间不要加空格
+          'DetectType' => 'porn,ads',//可选参数：porn,ads，可使用多种规则，注意规则间不要加空格
           'DetectUrl' => $imgUrl,
   //      'Interval' => 5, // 审核gif时使用 截帧的间隔
   //      'MaxFrames' => 5, // 针对 GIF 动图审核的最大截帧数量，需大于0。
@@ -405,7 +405,7 @@ public static function cmdC2cMsgBefore($allData) {
               'Content' => base64_encode($content) // 文本需base64_encode
           ),
           'Conf' => array(
-              'DetectType' => 'Porn,Terrorism,Politics,Ads', //Porn,Terrorism,Politics,Ads,Illegal,Abuse类型
+              'DetectType' => 'Porn,Ads', //Porn,Ads,Illegal,Abuse类型
               'BizType' => '',
           ),
       ));
@@ -445,19 +445,7 @@ public static function cmdC2cMsgBefore($allData) {
                       [HitFlag] => 1
                       [Count] => 1
                   )
-  
-              [TerrorismInfo] => Array
-                  (
-                      [HitFlag] => 0
-                      [Count] => 0
-                  )
-  
-              [PoliticsInfo] => Array
-                  (
-                      [HitFlag] => 0
-                      [Count] => 0
-                  )
-  
+
               [AdsInfo] => Array
                   (
                       [HitFlag] => 0
@@ -476,23 +464,7 @@ public static function cmdC2cMsgBefore($allData) {
                                       [Score] => 97
                                       [Keywords] => 敏感词
                                   )
-  
-                              [TerrorismInfo] => Array
-                                  (
-                                      [Code] => 0
-                                      [HitFlag] => 0
-                                      [Score] => 0
-                                      [Keywords] => 
-                                  )
-  
-                              [PoliticsInfo] => Array
-                                  (
-                                      [Code] => 0
-                                      [HitFlag] => 0
-                                      [Score] => 0
-                                      [Keywords] => 
-                                  )
-  
+ 
                               [AdsInfo] => Array
                                   (
                                       [Code] => 0
@@ -650,7 +622,7 @@ try {
             'Url' => 'http://example.com/sound01.mp3',
         ),
         'Conf' => array(
-            'DetectType' => 'Porn,Terrorism,Politics,Ads',
+            'DetectType' => 'Porn,Ads',
             'Callback' => 'https://example.com/callback',
             'BizType' => '',
         ),
@@ -707,16 +679,6 @@ GuzzleHttp\Command\Result Object
         "trace_id": "ashdiashdiuahdiahdiahdi",
         "event": "ReviewAudio",
         "porn_info": {
-            "hit_flag": 0,
-            "score": 0,
-            "label": ""
-        },
-        "terrorist_info": {
-            "hit_flag": 0,
-            "score": 0,
-            "label": ""
-        },
-        "politics_info": {
             "hit_flag": 0,
             "score": 0,
             "label": ""
