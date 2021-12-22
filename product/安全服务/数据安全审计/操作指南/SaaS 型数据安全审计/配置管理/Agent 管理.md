@@ -1,6 +1,7 @@
 ## Agent 部署
 1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/dsaudit)，在左侧导航栏中，单击**配置管理** > **Agent 管理** > **Agent 部署**，进入 Agent 部署页面。
-2. 在 Agent 部署页面，分为腾讯云内网 Agent 和 腾讯云外 Agent。
+2. 在 Agent 部署页面，根据数据资产添加位置，提供下载链接。配置步骤以及配置注意事项，详情请参见 [Agent 部署](https://cloud.tencent.com/document/product/856/66492)。
+3. 在 Agent 部署页面，分为腾讯云内网 Agent 和 腾讯云外 Agent。
  - 腾讯云内网 Agent
 以腾讯云内网 Agent 为例。数据资产为腾讯云内资产（关系型云数据库、NoSQL 云数据库、企业分布式云数据库、自建数据库），即可下载 Linux Agent 或下载 Windows Agent。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c65640511285a11d7eb9e64e529bcec3.png)

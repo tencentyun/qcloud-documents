@@ -19,7 +19,7 @@
 4. 查看访问地址，gRPC-Go 应用访问使用 gRPC 端口（8091）：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e7dc5ac5f7c76a316ae68b667d8a365f.png)
 5. 修改 demo 中的注册中心地址。
-  - 在下载到本地的 [demo 源码目录](https://github.com/polarismesh/grpc-go-polaris/tree/main/examples/quickstart) 下，分别找到
+  1. 在下载到本地的 [demo 源码目录](https://github.com/polarismesh/grpc-go-polaris/tree/main/examples/quickstart) 下，分别找到
 `\examples\quickstart\provider\polaris.yaml`和`\examples\quickstart\consumer\polaris.yaml`两个文件。
   - 添加微服务引擎服务治理中心地址到项目配置文件中（以`\examples\quickstart\provider\polaris.yaml`为例）。
   <dx-codeblock>
@@ -31,7 +31,7 @@ global:
 :::
 </dx-codeblock>
 6. 将源码编译成可执行程序。
-  - 分别在`consumer`和`provider`这2个目录下，打开 cmd 命令，执行以下命令，对项目进行编译：
+  1. 分别在`consumer`和`provider`这2个目录下，打开 cmd 命令，执行以下命令，对项目进行编译：
     - 编译 consumer：`CGO_ENABLED=0 go build -ldflags "-s -w" -o consumer`
     - 编译 provider：`CGO_ENABLED=0 go build -ldflags "-s -w" -o provider`
   - 编译成功后，生成如下表所示的2个二进制包。
@@ -73,7 +73,7 @@ global:
 </dx-codeblock>        
      - 通过 TKE 部署并运行镜像
 8. 确认部署结果。
- - 进入前面提到的微服务治理中心实例页面。
+ 1. 进入前面提到的微服务治理中心实例页面。
  - 选择**服务管理** > **服务列表**，查看微服务 EchoServerGRPC（provider）的实例数量：
     - 若实例数量值不为0，则表示已经成功接入微服务引擎。
     - 若实例数量为0，或者找不到 EchoServerGRPC 服务名，则表示微服务应用接入微服务引擎失败。

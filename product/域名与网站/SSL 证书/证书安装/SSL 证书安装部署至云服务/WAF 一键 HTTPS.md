@@ -32,7 +32,7 @@
 >
 ![](https://main.qcloudimg.com/raw/e327528f08706299fef120e04c993099.png)
 3. 在弹出的 “一键添加” 窗口中，配置相关信息。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/4d0655561f4fd92c1d16dca808b66f7e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1826e7be5d496b037f12f684149bd79c.png)
  - **填写域名：**请输入您需要进行一键 HTTPS 的域名。
 >? 填写的域名需要在工信部完成备案，否则将无法进行接入。详情请参见 [备案概述](https://cloud.tencent.com/document/product/243/18907)。
 >
@@ -43,9 +43,7 @@
     - **IP**：请输入需要防护网站的真实 IP 源站地址，即源站的公网 IP 地址。
     - **域名**：请输入需要防护网站的真实源站域名。
  - **强制 HTTPS：**开启该功能，浏览器端的每个 HTTP 请求都会被跳转成 HTTPS 请求。例如，当浏览器使用 HTTP 协议访问 `http://cloud.tencent.com ` 时，将返回302状态码重定向到 HTTPS 协议访问 `https://cloud.tencent.com`。
- - **回源协议：**	开启该功能，腾讯云将使用 HTTP 协议访问源站。例如，当浏览器使用 HTTP 或 HTTPS 协议访问 `cloud.tencent.com` 时，无论 HTTP 或 HTTPS 协议都将使用 HTTP 协议访问源站。
->!若源站尚不支持 HTTPS 访问，请务必使用 HTTP 作为回源协议。
->
+ - **回源协议：**	开启该功能，腾讯云将使用 HTTP 协议访问源站。
  - **回源端口：**请根据您的实际需求选择回源端口。默认情况下支持80与8080端口，若回源协议勾选 HTTPS ，则为443与8443。
  - **高级选项（可选）**：
 ![](https://qcloudimg.tencent-cloud.cn/raw/a12a55c0bf89753cfb30fda0bf0fa2ca.png)

@@ -891,7 +891,7 @@
 </tr>
 </table>
 
-### HDFS-Journal Node
+### HDFS-JournalNode
 <table>
 <tr>
 <th width=20%>标题 </th>

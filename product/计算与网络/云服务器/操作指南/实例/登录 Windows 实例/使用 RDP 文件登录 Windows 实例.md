@@ -26,9 +26,9 @@ Windows，Linux 和 Mac OS 都可以使用 RDP 方式登录云服务器。
 ::: Windows\s系统使用\sRDP\s登录[](id:windowsRDP)
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在实例的管理页面，根据实际使用的视图模式进行操作：
- - **列表模式**：选择需要登录的 Windows 云服务器，单击**登录**。如下图所示：
+ - **列表模式**：找到需要登录的 Windows 云服务器，单击右侧的**登录**。如下图所示：
 ![](https://main.qcloudimg.com/raw/b590c38d3b0b64048098f2848abbf162.png)
- - **页签模式**：选择需要登录的 Windows 云服务器，单击**登录**。如下图所示：
+ - **页签模式**：选择需要登录的 Windows 云服务器页签，单击**登录**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/986818e2c39ac3745d2c58ad88d61464.png)
 3. 在打开的“标准登录 | Windows 实例”窗口中，选择 **RDP文件下载**，将 RDP 文件下载到本地。
 <dx-alert infotype="explain" title="">
