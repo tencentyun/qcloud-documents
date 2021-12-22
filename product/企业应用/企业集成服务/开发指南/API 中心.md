@@ -4,17 +4,16 @@
 
 ## API 管理主页
 登录 [企业集成服务控制台](https://console.cloud.tencent.com/eis)，单击左侧工具栏 **API 中心 > API 管理**，即可进入 API 管理的主页面。您可以创建或查看 API，API 列表中展示有 API 服务名称、API 服务状态、API 服务域名、API 更新时间、endpoint 统计、API 服务的鉴权方式以及操作等内容。
-![API管理](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/API%E7%AE%A1%E7%90%86%E9%A6%96%E9%A1%B5png.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/599505cd8c3caf9f779f2f450c7732bb.png)
 
 ## [创建 API 服务](id:create)
 API 管理功能支持 3.0.0 版本的 OpenAPI 规范。OpenAPI 3.0.0 规范的对象定义请参考 [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)。用户可以通过单击**创建 API 服务**进入 API 创建界面。
 **创建步骤：**
-1. 配置 API 服务的基本配置，包括 API 服务名称（必填）、API 服务支持的协议类型（必填）、版本号（必填）以及针对该 API 服务的简单描述（非必填）。![API创建](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E5%88%9B%E5%BB%BAAPI%E6%9C%8D%E5%8A%A1.png)
+1. 配置 API 服务的基本配置，包括 API 服务名称（必填）、API 服务支持的协议类型（必填）、版本号（必填）以及针对该 API 服务的简单描述（非必填）。![](https://qcloudimg.tencent-cloud.cn/raw/6a323ae00afece0f7d5f1743b196e90e.png)
 2. 配置 API 服务的策略信息，包括 API 服务的鉴权策略和频控、流控策略。
  - 配置鉴权策略：暂时支持 basic Auth，OAuth2.0 和无验证（即不填写检测策略）。
  - 请求频率策略：指从配置时间起，每单位时间内允许的最大请求次数，填写范围为1-5000。
- - 访问限制策略：指从配置时间算起，每单位自然时间内允许的最大访问次数，填写范围为1-5000。![API服务策略](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/API%E6%9C%8D%E5%8A%A1%E7%AD%96%E7%95%A5.png)
-
+ - 访问限制策略：指从配置时间算起，每单位自然时间内允许的最大访问次数，填写范围为1-5000。![](https://qcloudimg.tencent-cloud.cn/raw/a70cf263c32a49230534c01e22493a87.png)
 
 ## [API Endpoint](id:manage)
 当我们创建一个 API 服务后，则代表此 API 已经生成，可以开始编辑其具体行为。API Endpoint 指一个 API 服务可以连接的后端服务信息，包括 API 的访问路径（API Path）、API 的调用方式、API Endpoint 绑定的后端服务类型、最近修改时间以及相关操作。默认新创建好的 API 服务没有已绑定的 Endpoint 信息，需要进行创建完成首次的绑定工作。单击**添加 API Endpoint**，即可开启编辑工作。![endpoint](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/endpoint.png)
@@ -53,15 +52,14 @@ API 管理功能支持 3.0.0 版本的 OpenAPI 规范。OpenAPI 3.0.0 规范的�
 ## 使用流程
 1. [创建 API 服务](#create)及其 [API Endpoint](#manage)，流程参考上方 。
 2. 获取 API 请求地址。
- 1. 在 API 服务列表中获取 API 服务的域名。![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E5%A4%8D%E5%88%B6%E6%9C%8D%E5%8A%A1%E5%9F%9F%E5%90%8D.png)
- 2. 在 API Endpoint 列表中获取需要请求的 Endpoint 路径。![获取路径](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84.png)
+ 1. 在 API 服务列表中获取 API 服务的域名。![](https://qcloudimg.tencent-cloud.cn/raw/702570b98731d5bb9e5fcfa1cd7e670b.png)
+ 2. 在 API Endpoint 列表中获取需要请求的 Endpoint 路径。![](https://qcloudimg.tencent-cloud.cn/raw/9855177b7a84d30cde8c7a33931f8ab2.png)
  3. 将 Endpoint 路径拼接在 API 服务域名后，即可获取完整的 API 请求域名。
 3. 获取用户请求 API 的权限。
- 1. 在 API 用户中心首页单击**用户管理**。![点击用户管理](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E7%82%B9%E5%87%BB%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86.png)
- 2. 添加用户。![用户管理界面添加用户](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7.png)
+ 1. 在 API 用户中心首页单击**用户管理**。![](https://qcloudimg.tencent-cloud.cn/raw/a0ffc2ebf03d2de849c65ac188f7ffd7.png)
+ 2. 添加用户。![](https://qcloudimg.tencent-cloud.cn/raw/41d7135dbd3d24f512d5c1f12d69f696.png)
  3. 帮助用户填写必要信息并选择需要访问的 API 服务名称。![用户信息](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF.png)
- 4. 绑定好 API 服务后，返回用户管理列表获取此用户的 OAuth 信息（当前系统会默认给添加的用户进行自动审批，所以无需手动审批操作），并复制保存 OAuth 的 Token 获取地址、Client ID、Client Secret 等信息，连同用户的账号和密码一同分享给用户。![获取OAuth](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/%E8%8E%B7%E5%8F%96OAuth.png)
-![OAuth](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/OAuth.png)
+ 4. 绑定好 API 服务后，返回用户管理列表获取此用户的 OAuth 信息（当前系统会默认给添加的用户进行自动审批，所以无需手动审批操作），并复制保存 OAuth 的 Token 获取地址、Client ID、Client Secret 等信息，连同用户的账号和密码一同分享给用户。![](https://qcloudimg.tencent-cloud.cn/raw/7fecb7127ac56c20c58648aa695e92d6.png)
 4. 从用户侧调用 API，以 postman 为例：
    - API 服务无需验证的情况：![noauth](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/noauth.png)
    - API 服务需要 basic Auth 的情况：![basicauth](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/basicauth.png)
