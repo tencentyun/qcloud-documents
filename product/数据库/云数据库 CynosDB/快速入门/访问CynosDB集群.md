@@ -47,10 +47,13 @@ yum install mysql
  - **内网连接时：**
     1. 执行如下命令，登录到 TDSQL-C 集群。
 ```
-mysql -h hostname -u username -p
+mysql -h hostname -P port -u username -p
 ```
       - hostname：替换为目标 TDSQL-C 集群的内网地址，在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 的集群详情页可查看内网地址。
+      - port：替换为内网端口号
 		- username：替换为默认的用户名 root。
+示例：
+内网地址为10.0.168.14:5308，用户名为 root，连接命令输入为`mysql -h 10.0.168.14 -P 5308 -u root -p`。
     2. 在提示`Enter password：`后输入 TDSQL-C 集群的 root 帐号对应的密码，如忘记密码可在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。
     本例中提示`MySQL [(none)]>`说明成功登录到 TDSQL-C。![](https://main.qcloudimg.com/raw/83b8a95cf4b99919b5899510691289b4.png)
    - **外网连接时：**
@@ -120,3 +123,4 @@ psql -h hostname -U username -p 5432 -d postgres
 >?
 >- 开启成功后，即可在连接信息中查看外网地址。
 >- 通过开关可以关闭外网访问权限，重新开启外网，域名对应的外网 IP 不变。
+
