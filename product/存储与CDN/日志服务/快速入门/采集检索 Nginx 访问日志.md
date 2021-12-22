@@ -16,7 +16,7 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request"'
 
 | 字段名               | 含义                                                 |
 | -------------------- | ---------------------------------------------------- |
-| remote_addr          | 客户端IP地址                                         |
+| remote_addr          | 客户端 IP 地址                                         |
 | remote_user          | 客户端名称                                           |
 | time_local           | 服务器本地时间                                       |
 | method               |HTTP 请求方法                                        |
