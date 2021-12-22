@@ -99,11 +99,11 @@ Container 类型 Conf 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点       | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | ------------ | ------------------------------------------------------------ | --------- | -------- |
-| DetectType         | Request.Conf | 审核的场景类型，有效值：Porn（涉黄）、Ads（广告），可以传入多种类型，不同类型以逗号分隔，例如：Porn,Ads。 | String    | 是       |
+| BizType            | Request.Conf | 审核策略，不带审核策略时使用默认策略。可在控制台进行配置，详情请参见 [设置公共审核策略](#1)。 | String    | 否       |
+| DetectType         | Request.Conf | 审核的场景类型，有效值：Porn（涉黄）、Ads（广告），可以传入多种类型，不同类型以逗号分隔，例如：Porn,Ads。 | String    | 否       |
 | Snapshot           | Request.Conf | 视频画面的审核通过视频截帧能力截取出一定量的截图，通过对截图逐一审核而实现的，该参数用于指定视频截帧的配置。 | Container | 是       |
 | Callback           | Request.Conf | 回调地址，以`http://`或者`https://`开头的地址。              | String    | 否       |
 | CallbackVersion    | Request.Conf | 回调内容的结构，有效值：Simple（回调内容包含基本信息）、Detail（回调内容包含详细信息）。默认为 Simple。 | String    | 否       |
-| BizType            | Request.Conf | 审核策略，不带审核策略时使用默认策略。可在控制台进行配置，详情请参见 [设置公共审核策略](#1)。 | String    | 否       |
 | DetectContent      | Request.Conf | 用于指定是否审核视频声音，当值为0时：表示只审核视频画面截图；值为1时：表示同时审核视频画面截图和视频声音。默认值为0。 | Integer   | 否       |
 
 Container 类型 Snapshot 的具体数据描述如下：
