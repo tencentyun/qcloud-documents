@@ -2,15 +2,9 @@
 - 第一部分：介绍如何开通服务并跑通我们提供的演示 Demo。
 - 第二部分：介绍如何使用 TRTCCalling 组件快速搭建自己的视频通话功能。
 
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
-
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
+本文介绍如何实现一套可以在浏览器上运行的视频通话解决方案，文章分成两个部分：
+- 第一部分：介绍如何开通服务并跑通我们提供的演示 Demo。
+- 第二部分：介绍如何使用 TRTCCalling 组件快速搭建自己的视频通话功能。
 
 ## 环境要求
 请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
@@ -19,7 +13,9 @@ TRTCCalling 依赖以下端口进行数据传输，请将其加入防火墙白�
   - TCP 端口：8687
   - UDP 端口：8000，8080，8800，843，443，16285
   - 域名：qcloud.rtc.qq.com
+具体请参见 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399)。
 
+## 平台支持
 目前该方案支持如下平台：
 
 | 操作系统 |          浏览器类型          | 浏览器最低版本要求 |
@@ -32,13 +28,22 @@ TRTCCalling 依赖以下端口进行数据传输，请将其加入防火墙白�
 | Windows  | 桌面版 QQ 浏览器（极速内核） |       10.4+        |
 | Windows  |    桌面版 Firefox 浏览器     |        56+         |
 | Windows  |      桌面版 Edge 浏览器      |        80+         |
-...
 
-详细兼容性查询，具体请参见 [浏览器支持情况](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-05-info-browser.html)。同时，您可通过 [TRTC 检测页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 在线检测。
+>? 详细兼容性查询，具体请参见 [浏览器支持情况](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-05-info-browser.html)。同时，您可通过 [TRTC 检测页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 在线检测。
+
+
+## URL 域名协议限制
+| 应用场景     | 协议             | 接收（播放） | 发送（上麦） | 屏幕分享 | 备注 |
+| ------------ | :--------------- | :----------- | ------------ | -------- | ---- |
+| 生产环境     | HTTPS 协议        | 支持         | 支持         | 支持     | 推荐 |
+| 生产环境     | HTTP 协议         | 支持         | 不支持       | 不支持   |  -    |
+| 本地开发环境 | http://localhost | 支持         | 支持         | 支持     | 推荐 |
+| 本地开发环境 | http://127.0.0.1 | 支持         | 支持         | 支持     |  -    |
+| 本地开发环境 | http://[本机IP]  | 支持         | 不支持       | 不支持   |   -   |
+| 本地开发环境 | file:///         | 支持         | 支持         | 支持     |   -   |
+
 
 ## 跑通测试 Demo
-
-
 [](id:step1)
 ### 步骤1：创建新的应用
 1. [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成实名认证。
@@ -180,6 +185,14 @@ trtcCalling.startLocalView({
 ```javascript
 trtcCalling.hangup()
 ```
+## 常见问题
+
+#### 为什么拨打不通，或者被踢下线？
+组件暂不支持多实例登入，不支持**离线推送信令**功能，请您确认登入账号的唯一性。
+> ?
+> - **多实例**：一个 UserID 重复登入，或在不同端登入，将会引起信令的混乱。
+> - **离线推送**：实例在线才能接收消息，实例离线时接收到的信令不会在上线后重新推送。
+更多常见问题，请参见 [TRTCCalling Web 相关问题](https://cloud.tencent.com/document/product/647/62484)。
 
 ## 技术咨询[](id:QQ)
 了解更多详情您可以 QQ 咨询：646165204 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>

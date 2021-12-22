@@ -126,7 +126,7 @@
 </tr><tr>
 <td >GC 额外睡眠时间</td>
 <td >ExtraSleepTime</td>
-<td >s</td>
+<td >ms/s</td>
 <td >GC 额外睡眠时间</td>
 </tr>
 </table>
@@ -301,8 +301,8 @@
 </tr><tr>
 <td> GC 额外睡眠时间 </td>
 <td> ExtraSleepTime </td>
-<td >-</td>
-<td >-</td>
+<td >ms/s</td>
+<td >GC 额外睡眠时间</td>
 </tr>
 </table>
 

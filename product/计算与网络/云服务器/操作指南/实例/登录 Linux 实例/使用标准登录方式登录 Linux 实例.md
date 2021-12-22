@@ -23,8 +23,19 @@ WebShell 优点如下：
 ## 操作步骤
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在实例的管理页面，选择需要登录的 Linux 云服务器，单击**登录**。如下图所示：
+2. 在实例的管理页面，根据实际使用的视图模式进行操作：
+<dx-tabs>
+::: 列表视图
+找到需要登录的 Linux 云服务器，单击右侧的**登录**。如下图所示：
 ![](https://main.qcloudimg.com/raw/7ab9564c491eb1d0a2bc12a4dc862563.png)
+
+:::
+::: 页签视图
+选择需要登录的 Linux 云服务器页签，单击**登录**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/7d7635ef8e9066bbc65c73de494d79ba.png)
+
+:::
+</dx-tabs>
 3. 在打开的“标准登录 | Linux 实例”窗口，根据实际需求选择**密码登录**或者**密钥登录**方式进行登录。如下图所示：
 ![](https://main.qcloudimg.com/raw/ec0f1315e3aacd5553fb63b645bb5387.png)
 请参考以下说明填写登录所需信息：

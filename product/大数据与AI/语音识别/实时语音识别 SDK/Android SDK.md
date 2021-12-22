@@ -326,7 +326,7 @@ void onFailure(AudioRecognizeRequest request, final ClientException clientExcept
 | ----------------------- | ------- | -------- | -------------------------------------------------- | ------ |
 | setSilentDetectTimeOut  | Boolean | 否       | 是否开启静音检测，开启后说话前的静音部分不进行识别 | true   |
 | audioFlowSilenceTimeOut | Int     | 否       | 开启检测说话启始超时，开启后超时会自动停止录音     | 5000ms |
-| minVolumeCallbackTime   | Int     | 否       | 音量回调时间                                       | 80ms   |
+| minVolumeCallbackTime   | Int     | 否       | 两个语音流最短分割时间                                       | 2000ms   |
 
 **示例：**
 ```

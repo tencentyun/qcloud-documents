@@ -3,8 +3,8 @@
 如下场景的迁移要求与 MySQL 到 MySQL 的迁移要求一致，可参考本场景相关内容。
 
 - MySQL 到 TDSQL-C 的数据迁移
-- MariaDB 到 TDSQL-C 的数据迁移
-- Percona 到 TDSQL-C 的数据迁移
+- TDSQL-C 到 TDSQL-C 的数据迁移
+- TDSQL-C 到 MySQL 的数据迁移
 
 ## 注意事项 
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您的数据库配置过低，建议您在业务低峰期进行迁移。

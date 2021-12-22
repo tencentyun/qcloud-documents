@@ -21,9 +21,11 @@
 <td style="text-align:center"width="140px">
       <input type="button" value="Web 基础聊天场景" style="height: 30px;width: 150px;background-color: #006eff;
     color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
-    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://web.sdk.qcloud.com/im/demo/latest/index.html')" /><br><br><input type="button" value="Web 直播互动场景" style="height: 30px;width: 150px;margin-top: 5px;background-color: #006eff;
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://web.sdk.qcloud.com/im/demo/latest/index.html')" /><br><br><input type="button" value="Web 直播互动推流" style="height: 30px;width: 150px;background-color: #006eff;
     color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
-    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"W onclick="window.open('https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html')" />
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html')" /><br><br><input type="button" value="Web 直播互动拉流" style="height: 30px;width: 150px;margin-top: 5px;background-color: #006eff;
+    color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"W onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html')" />
     </td width="140px">
 </tr>
 </table>
