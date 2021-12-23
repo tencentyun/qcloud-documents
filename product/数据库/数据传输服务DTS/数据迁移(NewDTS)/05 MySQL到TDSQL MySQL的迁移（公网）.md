@@ -7,10 +7,8 @@
 - Percona 到腾讯云数据库 TDSQL MySQL 的数据迁移
 
 > ? 
->
 > - 云数据库 MariaDB 支持三种内核 MariaDB、MySQL 和 Percona，用户在使用时不需要区分哪种内核，如果源数据库为腾讯云 MariaDB，不论源数据库的内核是 MariaDB、Percona 还是 MySQL，在设置源数据库的类型时，都选择 MariaDB。
->
-> - 如果用户需要体验腾讯云数据库 MariaDB 三种内核相关链路功能，请提交工单处理。
+> - 如果用户需要体验腾讯云数据库 MariaDB 三种内核相关链路功能，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
 
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
