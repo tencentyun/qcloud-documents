@@ -52,7 +52,7 @@ Kubernetes Dashboard 默认端口为9090。
 2. 在“应用内软件信息”栏中，单击**登录**。
 3. 在弹出的登录窗口中，执行以下命令，加入集群节点 IP。
 ```
-k3s-add-node {node-ip}, node-ip
+k3s-add-node {node-ip}
 ```
 <dx-alert infotype="explain" title="">
 - master 节点操作系统为 CentOS 8.2，建议您添加相似机型实例作为集群其他节点。如需创建实例，可选择在同地域下使用 CentOS 8.2 系统镜像参考 [快速创建 Linux 实例](https://cloud.tencent.com/document/product/1207/44548) 进行创建。
