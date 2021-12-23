@@ -150,6 +150,10 @@ public class CKafkaConfigurer {
       props.put(ProducerConfig.RETRIES_CONFIG, 5);
       //设置客户端内部重试间隔。
       props.put(ProducerConfig.RECONNECT_BACKOFF_MS_CONFIG, 3000);
+      //ack=0   producer 将不会等待来自 broker 的确认，重试配置不会生效。注意如果被限流了后，就会被关闭连接。
+      //ack=1   broker leader 将不会等待所有 broker follower 的确认，就返回 ack。
+      //ack=all broker leader 将等待所有 broker follower 的确认，才返回 ack。
+      props.put(ProducerConfig.ACKS_CONFIG, "all");
       //构造 Producer 对象，注意，该对象是线程安全的，一般来说，一个进程内一个Producer对象即可。
       KafkaProducer<String, String> producer = new KafkaProducer<>(props);
 
