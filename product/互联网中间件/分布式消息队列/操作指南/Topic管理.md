@@ -14,32 +14,56 @@ Topic 是 TDMQ Pulsar 版中的核心概念。Topic 通常用来对系统生产�
 ### 创建 Topic
 
 1. 登录 [TDMQ Pulsar 版控制台](https://console.cloud.tencent.com/tdmq)，在左侧导航栏单击 **Topic 管理**。
-
 2. 在 Topic 管理页面，单击**新建**，弹出新建 Topic 的对话框。
-
 3. 在新建 Topic 对话框中，填写以下信息：
-
    ![](https://qcloudimg.tencent-cloud.cn/raw/1b8c62a5fd0e3ec2d29ac5e7a3f3cc66.png)
-
-    - Topic 名称：不能为空，支持数字字母以及符号 “-_=:.”，长度不超过128个字符
-    - 类型：选择消息类型，包括：普通、全局顺序、局部顺序（关于消息类型的说明，请参考 [消息类型](https://cloud.tencent.com/document/product/1179/44833)）
-    - 分区数：全局顺序只有1个分区，其他为1-128个分区。多分区可以提高单个Topic的生产消费性能，但是无法保证顺序性
-    - 说明：填写 Topic 的说明信息，不超过256字符
-
+    - Topic 名称：不能为空，支持数字字母以及符号 “-_=:.”，长度不超过128个字符。
+    - 类型：选择消息类型，包括：普通、全局顺序、局部顺序（关于消息类型的说明，请参见 [消息类型](https://cloud.tencent.com/document/product/1179/44833)）。
+    - 分区数：全局顺序只有1个分区，其他为1-128个分区。多分区可以提高单个Topic的生产消费性能，但是无法保证顺序性。
+    - 说明：填写 Topic 的说明信息，不超过256字符。
 4. 单击**保存**，在 Topic 列表中即可看见创建好的 Topic。
-
-   ![](https://qcloudimg.tencent-cloud.cn/raw/04f619f9c877debdc9dcfcd63bee6f37.png)
-
-   | 参数       | 说明                                                         |
-   | ---------- | ------------------------------------------------------------ |
-   | Topic 名称 | Topic 名称，格式为`pulsar-****/namespace/topicName`。        |
-   | 监控       | 点击![](https://qcloudimg.tencent-cloud.cn/raw/ac572a960433508f64f226e6ea218c10.png)查看 Topi监控详情，关于监控指标说明请参考[查看监控]()。 |
-   | 类型       | 消息类型，包括：普通、全局顺序、局部顺序（关于消息类型的说明，请参考 [消息类型](https://cloud.tencent.com/document/product/1179/44833)）。 |
-   | 创建来源   | 用户创建或系统创建。                                         |
-   | 分区       | Topic 的分区数量。                                           |
-   | 客户端     | <li>生产者：生产者数量/生产者数量上限，点击可跳转至生产详情页，详情参考[查看生产者详情]()。</li><li>消费者：展示消费者数量/消费者数量上限，点击可跳转至消费详情页，详情参考[查看订阅详情](https://cloud.tencent.com/document/product/1179/44821#.E6.9F.A5.E7.9C.8B.E8.AE.A2.E9.98.85.E8.AF.A6.E6.83.85)。</li><br>**说明：**当展示为 warning 的橙色， 代表分数数值达到80%，当展示为 Error 红色，则代表分数数值达到90%，请及时断开不需要使用的客户端链接。 |
-   | 创建时间   | Topic 的创建时间。                                           |
-   | 说明       | Topic 的说明信息。                                           |
+![](https://qcloudimg.tencent-cloud.cn/raw/d0328e4a60fb563b8f45a3808912de61.png)
+<table>
+<tr>
+<th>参数	</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>Topic 名称</td>
+<td>Topic 名称，格式为 pulsar-****/namespace/topicName。</td>
+</tr>
+<tr>
+<td>监控</td>
+<td>单击 <img src = "https://qcloudimg.tencent-cloud.cn/raw/ac572a960433508f64f226e6ea218c10.png"> 查看 Topic 监控详情，关于监控指标说明请参见 <a href = "https://cloud.tencent.com/document/product/1179/66709">查看监控</a>。 </td>
+</tr>
+<tr>
+<td>类型</td>
+<td>消息类型，包括：普通、全局顺序、局部顺序（关于消息类型的说明，请参见 <a href = "https://cloud.tencent.com/document/product/1179/44833"><b>消息类型</b></a>）。</td>
+</tr>
+<tr>
+<td>创建来源</td>
+<td>用户创建或系统创建。</td>
+</tr>
+<tr>
+<td>分区</td>
+<td>Topic 的分区数量。</td>
+</tr>
+<tr>
+<td>客户端</td>
+<td><ul><li>生产者：生产者数量/生产者数量上限，点击可跳转至生产详情页，详情参见 <a href = "https://cloud.tencent.com/document/product/1179/66708"><b>查看生产者详情</b></a>。</li>
+<li>消费者：展示消费者数量/消费者数量上限，点击可跳转至消费详情页，详情参见 <a href = "https://cloud.tencent.com/document/product/1179/44821#.E6.9F.A5.E7.9C.8B.E8.AE.A2.E9.98.85.E8.AF.A6.E6.83.85"><b>查看订阅详情</b></a>。</li></ul>
+<b>说明：</b>当展示为 warning 的橙色， 代表分数数值达到80%，当展示为 Error 红色，则代表分数数值达到90%，请及时断开不需要使用的客户端链接。
+</td>
+</tr>
+<tr>
+<td>创建时间</td>
+<td>Topic 的创建时间。</td>
+</tr>
+<tr>
+<td>说明</td>
+<td>Topic 的说明信息。</td>
+</tr>
+</table>
 
    
 
@@ -72,12 +96,10 @@ TDMQ Pulsar 版控制台支持手动创建订阅，在控制台进行相应的�
 
 1. 在 [Topic 管理](https://console.cloud.tencent.com/tdmq/topic) 中，找到需要创建订阅的 Topic ，单击操作列中的**新增订阅**。
 2. 在弹出的对话框中输入订阅的名称和说明。
-
  - 订阅名称：长度不超过128个字符
  - 自动创建重试&死信队列：可以选择是否自动创建重试和死信 Topic
  - 说明：不超过2字符
    ![](https://qcloudimg.tencent-cloud.cn/raw/9b47f5db34b6dfc3bf1540773eff6e67.png)
-
 3. 单击**提交**完成创建。
    创建后可通过单击操作列的**查看订阅**，查看订阅了该 Topic 的订阅，即可在列表中看到刚刚创建的订阅。
 
