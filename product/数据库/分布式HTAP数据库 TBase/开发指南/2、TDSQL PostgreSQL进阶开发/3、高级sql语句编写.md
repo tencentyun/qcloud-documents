@@ -1,5 +1,4 @@
-## 高级sql语句编写
-### 窗口函数的使用
+## 窗口函数的使用
 #### 环境准备
 ```
 drop table if  exists bills ;
@@ -55,7 +54,8 @@ VALUES(default,'设备','上海市','上海市','2015-10-05 07:59:35',ROUND((ran
 INSERT INTO bills(id,goodsdesc,beginunit,begincity,pubtime,amount) 
 VALUES(default,'普货40吨需13米半挂一辆','上海市','上海市','2015-10-05 08:13:59',ROUND((random()*10000)::NUMERIC,2));
 ```
-#### row_number() --返回行号，不分组
+
+#### row_number()  返回行号，不分组
 ```
 postgres=# select row_number() over(),* from bills limit 2;  
  row_number | id | goodsdesc | beginunit | begincity |       pubtime       | amount  
@@ -89,7 +89,8 @@ postgres=# select row_number() over(order by amount),* from bills;
          11 |  5 | 普货40吨需13米半挂一辆 | 上海市    | 上海市    | 2015-10-05 08:13:59 | 9886.15
 (11 rows)
 ```
-#### row_number() --返回行号，按begincity分组，pubtime排序
+
+#### row_number()  返回行号，按 begincity 分组，pubtime 排序
 ```
 postgres=# select row_number() over(partition by begincity order by pubtime),* from bills; 
  row_number | id |       goodsdesc        | beginunit | begincity |       pubtime       | amount  
@@ -108,7 +109,7 @@ postgres=# select row_number() over(partition by begincity order by pubtime),* f
 (11 rows)
 ```
 
-#### rank()--返回行号,对比值重复时行号重复并间断，即返回1,2,2,4...
+#### rank() 返回行号，对比值重复时行号重复并间断，即返回1,2,2,4...
 ```
 postgres=# select rank() over(partition by begincity order by pubtime),* from bills;  
  rank | id |       goodsdesc        | beginunit | begincity |       pubtime       | amount  
@@ -126,7 +127,8 @@ postgres=# select rank() over(partition by begincity order by pubtime),* from bi
     2 |  5 | 普货40吨需13米半挂一辆 | 上海市    | 上海市    | 2015-10-05 08:13:59 | 9886.15
 (11 rows)
 ```
-#### dance_rank()--返回行号,对比值重复时行号重复但不间断，即返回1,2,2,3...
+
+#### dance_rank() 返回行号，对比值重复时行号重复但不间断，即返回1,2,2,3...
 ```
 postgres=# select dense_rank() over(partition by begincity order by pubtime),* from bills;    
  dense_rank | id |       goodsdesc        | beginunit | begincity |       pubtime       | amount  
@@ -144,7 +146,8 @@ postgres=# select dense_rank() over(partition by begincity order by pubtime),* f
           2 |  5 | 普货40吨需13米半挂一辆 | 上海市    | 上海市    | 2015-10-05 08:13:59 | 9886.15
 (11 rows)
 ```
-#### percent_rank()从当前开始，计算在分组中的比例 (行号-1)*(1/(总记录数-1))
+
+#### percent_rank() 从当前开始，计算在分组中的比例 (行号-1)*(1/(总记录数-1))
 ```
 postgres=# select percent_rank() over(partition by begincity order by id),* from bills;  
  percent_rank | id |       goodsdesc        | beginunit | begincity |       pubtime       | amount  
@@ -162,7 +165,8 @@ postgres=# select percent_rank() over(partition by begincity order by id),* from
             1 | 11 | 设备                   | 上海市    | 上海市    | 2015-10-05 07:59:35 |  971.54
 (11 rows)
 ```
-#### cume_dist() --返回行数除以记录数值
+
+#### cume_dist()  返回行数除以记录数值
 ```
 postgres=# select ROUND((cume_dist() over(partition by begincity order by id))::NUMERIC,2) AS cume_dist,* from bills;   
  cume_dist | id |       goodsdesc        | beginunit | begincity |       pubtime       | amount  
@@ -180,7 +184,8 @@ postgres=# select ROUND((cume_dist() over(partition by begincity order by id))::
       1.00 | 11 | 设备                   | 上海市    | 上海市    | 2015-10-05 07:59:35 |  971.54
 (11 rows)
 ```
-#### ntile(分组数量)--让所有记录尽可以的均匀分布
+
+#### ntile(分组数量) 让所有记录尽可以的均匀分布
 ```
 postgres=# select ntile(2) over(partition by begincity order by id),* from bills;  
  ntile | id |       goodsdesc        | beginunit | begincity |       pubtime       | amount  
@@ -214,9 +219,9 @@ postgres=# select ntile(3) over(partition by begincity order by id),* from bills
      2 | 11 | 设备                   | 上海市    | 上海市    | 2015-10-05 07:59:35 |  971.54
 (11 rows)
 ```
-#### lag(value any [, offset integer [, default any]] )--返回偏移量值
-offset integer是偏移值，正数时取前值，负数时取后值，没有取到值时用default代替
 
+#### lag(value any [, offset integer [, default any]] ) 返回偏移量值
+offset integer 是偏移值，正数时取前值，负数时取后值，没有取到值时用 default 代替。
 ```
 postgres=# select lag(amount,1,null) over(partition by begincity order by id),* from bills;   
    lag   | id |       goodsdesc        | beginunit | begincity |       pubtime       | amount  
@@ -266,10 +271,10 @@ postgres=# select lag(amount,-2,0::float8) over(partition by begincity order by 
        0 | 11 | 设备                   | 上海市    | 上海市    | 2015-10-05 07:59:35 |  971.54
 (11 rows)
 ```
-#### lead(value any [,offset integer [, default any]] )--返回偏移量值
-offset integer是偏移值，正数时取后值，负数时取前值，没有取到值时用default代替
-```
 
+#### lead(value any [,offset integer [, default any]] ) 返回偏移量值
+offset integer 是偏移值，正数时取后值，负数时取前值，没有取到值时用 default 代替。
+```
 postgres=# select lead(amount,2,null) over(partition by begincity order by id),* from bills;
   lead   | id |       goodsdesc        | beginunit | begincity |       pubtime       | amount  
 ---------+----+------------------------+-----------+-----------+---------------------+---------
@@ -302,7 +307,8 @@ postgres=# select lead(amount,-2,null) over(partition by begincity order by id),
          | 11 | 设备                   | 上海市    | 上海市    | 2015-10-05 07:59:35 |  971.54
 (11 rows)
 ```
-#### first_value(value any)返回第一值
+
+#### first_value(value any) 返回第一值
 ```
 postgres=# select first_value(amount) over(partition by begincity order by  id),* from bills;
  first_value | id |       goodsdesc        | beginunit | begincity |       pubtime       | amount  
@@ -320,7 +326,8 @@ postgres=# select first_value(amount) over(partition by begincity order by  id),
      9886.15 | 11 | 设备                   | 上海市    | 上海市    | 2015-10-05 07:59:35 |  971.54
 (11 rows)
 ```
-#### last_value(value any)返回最后值  
+
+#### last_value(value any) 返回最后值  
 ```
 postgres=# select last_value(amount) over(partition by begincity order by pubtime),* FROM bills;  
  last_value | id |       goodsdesc        | beginunit | begincity |       pubtime       | amount  
@@ -354,10 +361,8 @@ postgres=# select last_value(amount) over(partition by begincity),* FROM bills;
      971.54 | 11 | 设备                   | 上海市    | 上海市    | 2015-10-05 07:59:35 |  971.54
 (11 rows)
 ```
-
-注意不要加上order by id，默认情况下，带了order by 参数会从分组的起始值开始一直叠加，
-直到当前值（不是当前记录）不同为止，当忽略order by 参数则是整个分组。下面通过修改分组的统计范围就可以实现order by参数取最后值  
-
+注意不要加上 order by id，默认情况下，带了 order by 参数会从分组的起始值开始一直叠加，直到当前值（不是当前记录）不同为止，当忽略 order by 参数则是整个分组。
+下面通过修改分组的统计范围就可以实现 order by 参数取最后值。
 ```
 postgres=# select last_value(amount) over(partition by begincity order by id range between unbounded preceding and unbounded following),* FROM bills;
  last_value | id |       goodsdesc        | beginunit | begincity |       pubtime       | amount  
@@ -375,6 +380,7 @@ postgres=# select last_value(amount) over(partition by begincity order by id ran
      971.54 | 11 | 设备                   | 上海市    | 上海市    | 2015-10-05 07:59:35 |  971.54
 (11 rows)
 ```
+
 #### nth_value(value any, nth integer)：返回窗口框架中的指定值
 ```
 postgres=# select nth_value(amount,2) over(partition by begincity order by id),* from bills;
@@ -393,6 +399,7 @@ postgres=# select nth_value(amount,2) over(partition by begincity order by id),*
     971.54 | 11 | 设备                   | 上海市    | 上海市    | 2015-10-05 07:59:35 |  971.54
 (11 rows)
 ```
+
 #### 统计各个城市的总运费及平均每单的运费
 ```
 postgres=# select sum(amount) over(partition by begincity),avg(amount) over(partition by begincity),begincity,amount from bills;
@@ -411,6 +418,7 @@ postgres=# select sum(amount) over(partition by begincity),avg(amount) over(part
  10857.69 |         5428.845 | 上海市    |  971.54
 (11 rows)
 ```
+
 #### 窗口函数别名使用
 ```
 postgres=# select sum(amount) over w,avg(amount) over w,begincity,amount from bills window w as (partition by begincity);
@@ -429,6 +437,7 @@ postgres=# select sum(amount) over w,avg(amount) over w,begincity,amount from bi
  10857.69 |         5428.845 | 上海市    |  971.54
 (11 rows)
 ```
+
 #### 获取每个城市运费前两名订单
 ```
 postgres=# select * from (select row_number() over(partition by begincity order by amount desc),* from bills) where row_number<3;     
@@ -443,3 +452,4 @@ postgres=# select * from (select row_number() over(partition by begincity order 
           2 | 11 | 设备                   | 上海市    | 上海市    | 2015-10-05 07:59:35 |  971.54
 (7 rows)
 ```
+
