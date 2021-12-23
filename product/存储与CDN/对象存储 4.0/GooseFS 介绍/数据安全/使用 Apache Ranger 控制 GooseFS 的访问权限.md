@@ -30,7 +30,7 @@ Apache Ranger 是大数据生态系统中用于控制访问权限的一个标准
 
 #### 在 Ranger Admin 侧部署 GooseFS Ranger Plugin 并注册对应服务
 
->? 单击 [此处](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/ranger-goosefs-plugin-1.0.0.jar) 下载 GooseFS Ranger Plugin。
+>? 单击 [此处](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs/extensions/ranger-plugin/1.0.0/release/ranger-goosefs-plugin-1.0.0.jar) 下载 GooseFS Ranger Plugin。
 >
 
 部署步骤如下：

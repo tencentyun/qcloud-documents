@@ -5,6 +5,9 @@
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频通话组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
 
+## 环境要求
+请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。具体请参见 [环境要求](https://cloud.tencent.com/document/product/647/49795#.E7.8E.AF.E5.A2.83.E8.A6.81.E6.B1.82)。
+
 ## TRTCCalling API 
 
 #### 事件订阅/取消订阅相关接口函数 
@@ -51,7 +54,7 @@
 | [switchToVideoCall()](#switchToVideoCall) | 语音通话切换视频通话   |
 | [getCameras()](#getCameras)  | 获取摄像头设备列表   |
 | [getMicrophones()](#getMicrophones)     | 获取麦克风设备列表   |
-| [switchDevice({deviceType, deviceID})](#switchDevice) | 切换摄像头或麦克风设备 |
+| [switchDevice({deviceType, deviceId}) ](#switchDevice) | 切换摄像头或麦克风设备 |
 
 
 ## TRTCCalling 详解
@@ -63,6 +66,23 @@
 
 <dx-codeblock>
 ::: javascript javascript
+  npm i trtc-js-sdk --save
+  npm i tim-js-sdk --save
+  npm i tsignaling --save
+  npm i trtc-calling-js --save
+  // 如果是通过node下载的依赖，则使用 import 引入
+  import TRTCCalling from 'trtc-calling-js';
+
+  // 如果您通过 script 方式使用 trtc-calling-js，需要按顺序
+  // 手动引入 trtc.js
+  <script src="./trtc.js"></script>
+  // 接着手动引入 tim-js.js
+  <script src="./tim-js.js"></script>
+  // 然后再手动引入 tsignaling.js
+  <script src="./tsignaling.js"></script>
+  // 最后再手动引入 trtc-calling-js.js
+  <script src="./trtc-calling-js.js"></script>
+
 let options = {
   SDKAppID: 0, // 接入时需要将0替换为您的即时通信IM应用的 SDKAppID
   // 从v0.10.2起，新增 tim 参数
@@ -481,15 +501,15 @@ trtcCalling.getMicrophones() // 获取麦克风列表
 </dx-codeblock>
 
 [](id:switchDevice)
-####  switchDevice({deviceType,deviceID}) 
+####  switchDevice({deviceType, deviceId}) 
 
-您可以调用此接口切换摄像头或麦克风设备
+您可以调用此接口切换摄像头或麦克风设备。
 
 >?v1.0.0 及其之后版本，新增该方法。
 
 <dx-codeblock>
 ::: javascript javascript
-trtcCalling.switchDevice(deviceType, deviceID) // 切换设备
+trtcCalling.switchDevice({deviceType: 'audio', deviceId: deviceId}) // 切换设备
 :::
 </dx-codeblock>
 
@@ -497,8 +517,8 @@ trtcCalling.switchDevice(deviceType, deviceID) // 切换设备
 
 | 参数       | 类型   | 含义          |
 | ---------- | ------ | ------------------------------- |
-| deviceType | String | video: 摄像头, audio: 麦克风   |
-| deviceID   | String | <li/>摄像头设备标识通过 getCameras() 获取。<li/>麦克风设备标识通过 getMicrophones() 获取。 |
+| deviceType | String | video：摄像头，audio：麦克风   |
+| deviceId   | String | <li/>摄像头设备标识通过 getCameras() 获取<li/>麦克风设备标识通过 getMicrophones() 获取 |
 
 
 [](id:event)
@@ -819,6 +839,15 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 | 60004 | 权限获取失败 | 没有可用的摄像头设备       |
 | 60005 | 权限获取失败 | 用户禁止使用设备  |
 
+## 升级指引
+
+- **升级 TRTCCalling 版本 >= 1.0.2**
+	- 注意：需升级 TSignaling 版本 >= 0.9.0
+	- 原因：[更新日志](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/tutorial-CHANGELOG.html#h2-3)
+- **升级  1.0.2 >= TRTCCalling 版本 >=1.0.0**
+	- 注意：需升级 TSignaling 版本 >= 0.8.0
+	- 原因：[更新日志](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/tutorial-CHANGELOG.html#h2-5)
+
 ## 常见问题
 
 #### 为什么拨打不通，或者被踢下线？
@@ -826,4 +855,16 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 > ?
 > - **多实例**：一个 UserID 重复登入，或在不同端登入，将会引起信令的混乱。
 > - **离线推送**：实例在线才能接收消息，实例离线时接收到的信令不会在上线后重新推送。
+更多常见问题，请参见 [TRTCCalling Web 相关问题](https://cloud.tencent.com/document/product/647/62484)。
 
+## 技术咨询[](id:QQ)
+
+了解更多详情您可以 QQ 咨询：646165204 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
+
+
+## 参考文档
+- [TRTCCalling web 官网体验](https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html#/login)
+- [TRTCCalling npm](https://www.npmjs.com/package/trtc-calling-js)
+- [TRTCCalling web demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Web/TRTCScenesDemo/trtc-calling-web)
+- [TRTCCalling web API](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/TRTCCalling.html)
+- [TRTCCalling web 相关问题](https://cloud.tencent.com/document/product/647/62484)

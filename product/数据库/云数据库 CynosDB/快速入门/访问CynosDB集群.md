@@ -41,18 +41,20 @@
 ```
 yum install mysql
 ```
-提示`Complete!`说明 MySQL 客户端安装完成。
+提示 `Complete!` 说明 MySQL 客户端安装完成。
 ![](https://main.qcloudimg.com/raw/16c77e28c40ae9be9a182b1c61843ecd.png)
 3. 根据不同连接方式，选择相应的操作：
  - **内网连接时：**
     1. 执行如下命令，登录到 TDSQL-C 集群。
 ```
-mysql -h hostname -u username -p
+mysql -h hostname -P port -u username -p
 ```
       - hostname：替换为目标 TDSQL-C 集群的内网地址，在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 的集群详情页可查看内网地址。
+      - port：替换为内网端口号。
 		- username：替换为默认的用户名 root。
-    2. 在提示`Enter password：`后输入 TDSQL-C 集群的 root 帐号对应的密码，如忘记密码可在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。
-    本例中提示`MySQL [(none)]>`说明成功登录到 TDSQL-C。![](https://main.qcloudimg.com/raw/83b8a95cf4b99919b5899510691289b4.png)
+示例：内网地址为10.0.168.14:5308，用户名为 root，连接命令输入为 `mysql -h 10.0.168.14 -P 5308 -u root -p`。
+    2. 在提示 `Enter password：` 后输入 TDSQL-C 集群的 root 帐号对应的密码，如忘记密码可在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。
+    本例中提示 `MySQL [(none)]>` 说明成功登录到 TDSQL-C。![](https://main.qcloudimg.com/raw/83b8a95cf4b99919b5899510691289b4.png)
    - **外网连接时：**
     1. 执行如下命令，登录到 TDSQL-C 集群。
 ```
@@ -61,10 +63,10 @@ mysql -h hostname -P port -u username -p
       - hostname：替换为目标 TDSQL-C 集群的外网地址，在  [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 的集群详情页可查看外网地址和端口号。若外网地址未开启，请参见 [开启外网地址](#waiwang) 开启。
       - port：替换为外网端口号。
       - username：替换为外网连接用户名，用于外网连接，建议您在控制台单独创建帐号便于连接控制管理。
-    2. 在提示`Enter password：`后输入外网连接用户名对应的密码，如忘记密码可在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。
+    2. 在提示 `Enter password：` 后输入外网连接用户名对应的密码，如忘记密码可在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。
     本例中 hostname 为 59281c4exxx.myqcloud.com，外网端口号为15311。
 ![](https://main.qcloudimg.com/raw/16839344da3a588be93d814de224277a.png)
-4. 在`MySQL \[(none)]>`提示符下可以发送 SQL 语句到要执行的 TDSQL-C 服务器，具体命令行请参见 [mysql Client Commands](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
+4. 在 `MySQL \[(none)]>` 提示符下可以发送 SQL 语句到要执行的 TDSQL-C 服务器，具体命令行请参见 [mysql Client Commands](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
 下图中以`show databases;`为例：
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 
@@ -120,3 +122,4 @@ psql -h hostname -U username -p 5432 -d postgres
 >?
 >- 开启成功后，即可在连接信息中查看外网地址。
 >- 通过开关可以关闭外网访问权限，重新开启外网，域名对应的外网 IP 不变。
+

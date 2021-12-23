@@ -69,7 +69,7 @@
 | ST_Distance(Geometry, Geometry) → double | 计算两个实体之间的最小距离。                                 |
 | ST_IsClosed(Geometry) → boolean          | 当实体是一个闭合空间时，返回 true。                           |
 | ST_IsEmpty(Geometry) → boolean           | 当参数是一个空的几何实体集合或者多边形或者点时，返回 true。   |
-| ST_IsRing(Geometry) → boolean            | 当参数是一条线，并且时闭合的简单的线时，返回 true。           |
+| ST_IsRing(Geometry) → boolean            | 当参数是一条线，并且是闭合的简单的线时，返回 true。           |
 | ST_Length(Geometry) → double             | 在二维投影平面上，使用欧几里得测量法计算一个线段或者多条线段的长度。返回一个行字符串或多行字符串的长度。该长度是采用欧几里得测量法基于空间参考对二维平面的预测。 |
 | ST_XMax(Geometry) → double               | 返回几何体边框的 X 最大值。                                    |
 | ST_YMax(Geometry) → double               | 返回几何体边框的 Y 最大值。                                    |

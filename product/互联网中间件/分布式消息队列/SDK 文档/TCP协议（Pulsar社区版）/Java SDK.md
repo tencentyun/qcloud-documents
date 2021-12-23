@@ -11,47 +11,54 @@
 
 ## 操作步骤
 
-1.  Java 项目中引入相关依赖，以 Maven 工程为例，在 pom.xml 添加以下依赖：
-
-   ```xml
-   <dependency>
-       <groupId>org.apache.pulsar</groupId>
-       <artifactId>pulsar-client</artifactId>
-       <version>2.7.2</version>
-   </dependency>
-   ```
-
-   > ? 建议使用 2.7.2 及以上版本。
-
+1. Java 项目中引入相关依赖，以 Maven 工程为例，在 pom.xml 添加以下依赖：
+<dx-codeblock>
+:::  xml
+ <dependency>
+		 <groupId>org.apache.pulsar</groupId>
+		 <artifactId>pulsar-client</artifactId>
+		 <version>2.7.2</version>
+ </dependency>
+:::
+</dx-codeblock>
+>? 建议使用 2.7.2 及以上版本。
 2. 创建 Pulsar 客户端。
-
-   ```java
+<dx-codeblock>
+:::  java
     PulsarClient pulsarClient = PulsarClient.builder()
                    // 服务接入地址
                    .serviceUrl(SERVICE_URL)
                    // 授权角色密钥
                    .authentication(AuthenticationFactory.token(AUTHENTICATION)).build();
-   ```
-
-   | 参数           | 说明                                                         |
-   | :------------- | :----------------------------------------------------------- |
-   | SERVICE_URL    | 集群接入地址，可以在控制台 **[集群管理](https://console.cloud.tencent.com/tdmq/cluster)** 页面查看并复制。 ![](https://main.qcloudimg.com/raw/a1bbc4b3857903e04f16fc46d9194c57.png) |
-   | AUTHENTICATION | 角色密钥，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制**密钥**列复制。![img](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
-
+:::
+</dx-codeblock>
+<table>
+<tr>
+<th>参数	</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>SERVICE_URL</td>
+<td>集群接入地址，可以在控制台 <a href = "https://console.cloud.tencent.com/tdmq/cluster"><b>集群管理</b></a> 页面查看并复制。<br><img src = "https://qcloudimg.tencent-cloud.cn/raw/1221f6b1be8ad150a6544a3f9394a8eb.png"></td>
+</tr>
+<tr>
+<td>AUTHENTICATION</td>
+<td>	角色密钥，在 <a href = "https://console.cloud.tencent.com/tdmq/role"><b>角色管理</b></a> 页面复制密钥列复制。<br><img src = "https://qcloudimg.tencent-cloud.cn/raw/fe61f06117eb0aaf85974545e72e1637.png"></td>
+</tr>
+</table>
 3. 创建生产者。
-
-   ```java
+<dx-codeblock>
+:::  java
    // 构建byte[]类型的生产者
    Producer<byte[]> producer = pulsarClient.newProducer()
        // topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称
        .topic("persistent://pulsar-xxx/sdk_java/topic1").create();
-   ```
-
-   > ?Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
-
+:::
+</dx-codeblock>
+> ?Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Topic`，`clusterid/namespace/topic` 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
 4. 发送消息。
-
-   ```java
+<dx-codeblock>
+:::  java
    //发送消息
    MessageId msgId = producer.newMessage()
        // 消息内容
@@ -60,20 +67,20 @@
        .key("youKey")
        // 业务相关参数
        .property("mykey", "myvalue").send();
-   ```
-
+:::
+</dx-codeblock>
 5. 资源释放。
-
-   ```java
+<dx-codeblock>
+:::  java
    // 关闭生产者
    producer.close();
    // 关闭客户端
    pulsarClient.close();
-   ```
-
+:::
+</dx-codeblock>
 6. 创建消费者。
-
-   ```java
+<dx-codeblock>
+:::  java
    // 构建byte[]类型（默认类型）的消费者
    Consumer<byte[]> consumer = pulsarClient.newConsumer()
        // topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称，从【Topic管理】处复制
@@ -86,17 +93,15 @@
        .subscriptionInitialPosition(SubscriptionInitialPosition.Earliest)
        // 订阅
        .subscribe();
-   ```
-
-   > ?
-   >
-   > - Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
-   >   ![img](https://main.qcloudimg.com/raw/a2e32b311b825df9798b8c98df7c3416.png)
-   > - subscriptionName需要写入订阅名，可在**消费管理**界面查看。
-
+:::
+</dx-codeblock>
+> ?
+> - Topic 名称需要填入完整路径，即`persistent://clusterid/namespace/Topic`，`clusterid/namespace/topic` 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
+>   ![](https://qcloudimg.tencent-cloud.cn/raw/dc1bc50c434546755565c6dcb8d3e7f0.png)
+> - subscriptionName 需要写入订阅名，可在**消费管理**界面查看。
 7. 消费消息。
-
-   ```java
+<dx-codeblock>
+:::  java
    // 接收当前offset对应的一条消息
    Message<byte[]> msg = consumer.receive();
    MessageId msgId = msg.getMessageId();
@@ -104,11 +109,11 @@
    System.out.println("receive msg " + msgId + ",value:" + value);
    // 接收到之后必须要ack，否则offset会一直停留在当前消息，导致消息积压
    consumer.acknowledge(msg);
-   ```
-
+:::
+</dx-codeblock>
 8. 使用监听器进行消费。
-
-   ```java
+<dx-codeblock>
+:::  java
    // 消息监听器
    MessageListener<byte[]> myMessageListener = (consumer, msg) -> {
        try {
@@ -132,10 +137,9 @@
        // 配置从最早开始消费，否则可能会消费不到历史消息
        .subscriptionInitialPosition(SubscriptionInitialPosition.Earliest)
        .subscribe();
-   ```
-
-9. 登录 [TDMQ Pulsar 版控制台](https://console.cloud.tencent.com/tdmq)，依次点击 **Topic管理** > **Topic名称**进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
-
+:::
+</dx-codeblock>
+9. 登录 [TDMQ Pulsar 版控制台](https://console.cloud.tencent.com/tdmq)，依次点击 **Topic 管理** > **Topic 名称**进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
 ![img](https://main.qcloudimg.com/raw/da7ce2bc5ac606c91982efecdb3b53bb.png)
 
-上述是对消息的发布和订阅方式的简单介绍。更多操作可参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/tdmq-pulsar-java-sdk-demo.zip) 或 [Pulsar 官方文档](https://pulsar.apache.org/docs/en/client-libraries-java/)。
+>?上述是对消息的发布和订阅方式的简单介绍。更多操作可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/tdmq-pulsar-java-sdk-demo.zip) 或 [Pulsar 官方文档](https://pulsar.apache.org/docs/en/client-libraries-java/)。

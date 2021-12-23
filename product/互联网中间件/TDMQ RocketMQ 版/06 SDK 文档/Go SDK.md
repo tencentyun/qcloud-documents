@@ -9,16 +9,20 @@
 - [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-go-sdk-demo.zip)
 
 ## 操作步骤
-
-1. 在客户端环境执行如下命令下载 RocketMQ 客户端相关的依赖包。
-
-   ```go
+### 步骤1：准备环境
+在客户端环境执行如下命令下载 RocketMQ 客户端相关的依赖包。
+<dx-codeblock>
+:::  go
    go get github.com/apache/rocketmq-client-go/v2
-   ```
+:::
+</dx-codeblock>
 
-2. 创建生产者。
 
-   ```go
+### 步骤2：生产消息
+
+1. 创建并编译运行生产消息程序。
+<dx-codeblock>
+:::  go
    // 服务接入地址  (注意：需要在接入地址前面加上  http:// 或 https:// 否则无法解析)
    var serverAddress = "https://rocketmq-xxx.rocketmq.ap-bj.public.tencenttdmq.com:9876"
    // 授权角色名
@@ -51,19 +55,44 @@
        fmt.Printf("start producer error: %s", err.Error())
        os.Exit(1)
    }
-   ```
-
-   | 参数          | 说明                                                         |
-   | :------------ | :----------------------------------------------------------- |
-   | secretKey     | 角色名称，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制。 |
-   | accessKey     | 角色密钥，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制**密钥**列复制。![img](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
-   | nameSpace     | <li> 命名空间全称在控制台集群管理中`Topic` 页签中页面复制，格式是**集群 ID +｜+命名空间**。![](https://qcloudimg.tencent-cloud.cn/raw/9251db01de6d447bbba7d3ca7f3591ef.png) |
-   | serverAddress | 集群接入地址，在控制台**集群管理**页面的集群列表操作栏的**接入地址**处获取。 (**注意：需要在接入地址前面加上  http:// 或 https:// 否则无法解析**)。![](https://qcloudimg.tencent-cloud.cn/raw/45b3582e4d089041cae7030797bc447e.png) |
-   | groupName     | 生产者组名称，在控制台 **Group** 页面复制。                  |
-
-3. 发送消息（以同步发送方式为例）
-
-   ```go
+:::
+</dx-codeblock>
+<table>
+    <tr>
+        <th>参数</th>
+        <th>说明</th>
+    </tr>
+    <tr>
+        <td>groupName</td>
+        <td>生产者组名称，在控制台集群管理 Group 页签中获取。</td>
+    </tr>
+    <tr>
+        <td>serverAddress</td>
+				<td>集群接入地址，在控制台<b>集群管理</b>页面操作列的<b>接入地址</b>获取。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/88046dcc0b052e11dc5c7c2ee8a901e4.png" style="width: 100%">
+						<b>注意：</b>需要在接入地址前面加上 <code>http://</code> 或 <code>https://</code> 否则无法解析。
+        </td>
+    </tr>
+    <tr>
+        <td>secretKey</td>
+        <td>角色名称，在 <a href = "https://console.cloud.tencent.com/tdmq/role"><b>角色管理</b></a> 页面复制。</td>
+    </tr>
+    <tr>
+        <td>accessKey</td>
+        <td>角色密钥，在 <a href = "https://console.cloud.tencent.com/tdmq/role"><b>角色管理</b></a> 页面复制<b>密钥</b>列复制。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/738800581043835d6123385964281f37.png" style="width: 100%">
+        </td>
+    </tr>
+    <tr>
+        <td>nameSpace</td>
+        <td>命名空间全称可在控制台集群管理 Topic 页签中复制，格式是<code>集群 ID</code> +<code>｜</code>+<code>命名空间</code>。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/c483d23c09d2f728aaa08b195d9ddd40.png" style="width: 100%">
+        </td>
+    </tr>
+</table>
+2. 发送消息（以同步发送方式为例）。
+<dx-codeblock>
+:::  go
    // topic名称
    var topicName = "topic1"
    // 构造消息内容
@@ -83,29 +112,49 @@
    } else {
        fmt.Printf("send message success: result=%s\n", res.String())
    }
-   ```
-
-   | 参数      | 说明                                                         |
-   | :-------- | :----------------------------------------------------------- |
-   | topicName | Topic 名称在控制台集群管理中`Topic`页签中复制具体 Topic 名称。![](https://qcloudimg.tencent-cloud.cn/raw/f27fdecdf352468ef411cfdafc096d86.png) |
-   | TAG       | 消息TAG标识。                                                |
-   | yourKey   | 消息业务key。                                                |
-
-   资源释放。
-
-   ```go
+:::
+</dx-codeblock>
+<table>
+    <tr>
+        <th>参数</th>
+        <th>说明</th>
+    </tr>
+    <tr>
+        <td>topicName</td>
+        <td>Topic 名称在控制台集群管理 Topic 页签中复制具体 Topic 名称。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/4b096254ae2fa8db0f45c1f864718915.png" style="width: 100%">
+        </td>
+    </tr>
+    <tr>
+        <td>TAGS</td>
+        <td>用来设置消息的 TAG。</td>
+    </tr>
+    <tr>
+        <td>yourKey</td>
+        <td>设置消息业务 key。</td>
+    </tr>
+</table>
+3. 资源释放。
+<dx-codeblock>
+:::  go
    // 关闭生产者
    err = p.Shutdown()
    if err != nil {
        fmt.Printf("shutdown producer error: %s", err.Error())
    }
-   ```
+:::
+</dx-codeblock>
+ 
 
-   异步发送、单向发送等，可参考demo示例 或参考 [rocketmq-client-go 示例](https://github.com/apache/rocketmq-client-go/tree/master/examples)
+<dx-alert infotype="explain" title="">
+异步发送、单向发送等，可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-go-sdk-demo.zip) 示例或参见 [rocketmq-client-go 示例](https://github.com/apache/rocketmq-client-go/tree/master/examples)。
 
-4. 创建消费者。
+</dx-alert>
 
-   ```go
+### 步骤3：消费消息
+1.创建消费者。
+<dx-codeblock>
+:::  go
    // 服务接入地址  (注意：需要在接入地址前面加上  http:// 或 https:// 否则无法解析)
    var serverAddress = "https://rocketmq-xxx.rocketmq.ap-bj.public.tencenttdmq.com:9876"
    // 授权角色名
@@ -138,19 +187,44 @@
        fmt.Println("init consumer2 error: " + err.Error())
        os.Exit(0)
    }
-   ```
-
-   | 参数          | 说明                                                         |
-   | :------------ | :----------------------------------------------------------- |
-   | secretKey     | 角色名称，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制。 |
-   | accessKey     | 角色密钥，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制**密钥**列复制。![img](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
-   | nameSpace     | <li> 命名空间全称在控制台集群管理中`Topic` 页签中页面复制，格式是**集群 ID +｜+命名空间。**![](https://qcloudimg.tencent-cloud.cn/raw/9251db01de6d447bbba7d3ca7f3591ef.png) |
-   | serverAddress | 集群接入地址，在控制台**集群管理**页面的集群列表操作栏的**接入地址**处获取。(**注意：需要在接入地址前面加上  http:// 或 https:// 否则无法解析**)![](https://qcloudimg.tencent-cloud.cn/raw/45b3582e4d089041cae7030797bc447e.png) |
-   | groupName     | 生产者组名称，在控制台 **Group** 页面复制。                  |
-
-5. 消费消息。
-
-   ```go
+:::
+</dx-codeblock>
+<table>
+    <tr>
+        <th>参数</th>
+        <th>说明</th>
+    </tr>
+    <tr>
+        <td>groupName</td>
+        <td>消费者组名称，在控制台集群管理 Group 页签中获取。</td>
+    </tr>
+    <tr>
+        <td>serverAddress</td>
+				<td>集群接入地址，在控制台<b>集群管理</b>页面操作列的<b>接入地址</b>获取。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/88046dcc0b052e11dc5c7c2ee8a901e4.png" style="width: 100%">
+						<b>注意：</b>需要在接入地址前面加上 <code>http://</code> 或 <code>https://</code> 否则无法解析。
+        </td>
+    </tr>
+    <tr>
+        <td>secretKey</td>
+        <td>角色名称，在 <a href = "https://console.cloud.tencent.com/tdmq/role"><b>角色管理</b></a> 页面复制。</td>
+    </tr>
+    <tr>
+        <td>accessKey</td>
+        <td>角色密钥，在 <a href = "https://console.cloud.tencent.com/tdmq/role"><b>角色管理</b></a> 页面复制<b>密钥</b>列复制。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/738800581043835d6123385964281f37.png" style="width: 100%">
+        </td>
+    </tr>
+    <tr>
+        <td>nameSpace</td>
+        <td>命名空间全称可在控制台集群管理 Topic 页签中复制，格式是<code>集群 ID</code> +<code>｜</code>+<code>命名空间</code>。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/c483d23c09d2f728aaa08b195d9ddd40.png" style="width: 100%">
+        </td>
+    </tr>
+</table>
+2. 发送消息。
+<dx-codeblock>
+:::  go
    // topic名称
    var topicName = "topic1"
    // 设置订阅消息的tag
@@ -184,17 +258,31 @@
    if err != nil {
        fmt.Println(err.Error())
    }
-   ```
-
-   | 参数       | 说明                                                         |
-   | :--------- | :----------------------------------------------------------- |
-   | topicName  | Topic 的名称，在控制台 **Topic** 页面复制。![](https://qcloudimg.tencent-cloud.cn/raw/f27fdecdf352468ef411cfdafc096d86.png) |
-   | Expression | 消息TAG标识。                                                |
-   | delayLevel | 设置重新消费的延迟级别，共支持18种延迟级别。                 |
-
-6. 消费消息 （消费者消费消息必须在订阅之后）
-
-   ```go
+:::
+</dx-codeblock>
+<table>
+    <tr>
+        <th>参数</th>
+        <th>说明</th>
+    </tr>
+    <tr>
+        <td>topicName</td>
+        <td>Topic 名称在控制台集群管理 Topic 页签中复制具体 Topic 名称。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/4b096254ae2fa8db0f45c1f864718915.png" style="width: 100%">
+        </td>
+    </tr>
+    <tr>
+        <td>Expression</td>
+        <td>消息 TAG 标识。</td>
+    </tr>
+    <tr>
+        <td>delayLevel</td>
+        <td>设置重新消费的延迟级别，共支持18种延迟级别。</td>
+    </tr>
+</table>
+3. 资源释放 （消费者消费消息必须在订阅之后）。
+<dx-codeblock>
+:::  go
    // 开始消费
    err = c.Start()
    if err != nil {
@@ -207,12 +295,15 @@
    if err != nil {
        fmt.Printf("shundown Consumer error: %s", err.Error())
    }
-   ```
+:::
+</dx-codeblock>
 
-7. 查看消费详情。登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，在**集群管理** > **Group** 页面，可查看与 Group 连接的客户端列表，单击操作列的**查看详情**，可查看消费者详情。
-   ![img](https://main.qcloudimg.com/raw/7187da67219534d767206553e2a383ab.png)
+
+### 步骤4：查看消费详情
+登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，在**集群管理** > **Group** 页面，可查看与 Group 连接的客户端列表，单击操作列的**查看详情**，可查看消费者详情。
+![](https://qcloudimg.tencent-cloud.cn/raw/924898b7a5568be778449bf51034396d.png)
 
    
 
-本文简单介绍了使用 Go 客户端进行简单的收发消息，更多操作可参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-go-sdk-demo.zip) 或 [rocketmq-client-go 示例](https://github.com/apache/rocketmq-client-go/tree/master/examples)
+>?本文简单介绍了使用 Go 客户端进行简单的收发消息，更多操作可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-go-sdk-demo.zip) 或 [rocketmq-client-go 示例](https://github.com/apache/rocketmq-client-go/tree/master/examples)。
 

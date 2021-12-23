@@ -1,7 +1,7 @@
 ## 案例背景
-智能钛机器学习平台的 Tensorflow 框架为用户提供了基于 Python API 的 Tensorflow 运行环境，用户可将编写好的脚本及依赖文件上传至框架进行算法训练。
+腾讯云 TI 平台 TI-ONE 的 Tensorflow 框架为用户提供了基于 Python API 的 Tensorflow 运行环境，用户可将编写好的脚本及依赖文件上传至框架进行算法训练。
 
-本文以鸢尾花分类任务为例，向用户演示，如何利用智能钛机器学习平台的深度学习框架 TensorFlow 运行自定义代码，如何通过工作流页面向自定义代码传参，如何查看代码日志/报错信息等。整个工作流运行耗时仅几十秒。
+本文以鸢尾花分类任务为例，向用户演示，如何利用 TI-ONE 的深度学习框架 TensorFlow 运行自定义代码，如何通过工作流页面向自定义代码传参，如何查看代码日志/报错信息等。整个工作流运行耗时仅几十秒。
 
 ## 数据集介绍
 本案例代码修改自 Tensorflow 官方项目。
@@ -13,7 +13,7 @@ SPECIES = ['Setosa', 'Versicolor', 'Virginica']
 ```
 
 ## 整体流程
-在智能钛机器学习平台运行用户自定义 TensorFlow 代码，主要包含以下步骤：
+在腾讯云 TI 平台 TI-ONE 运行用户自定义 TensorFlow 代码，主要包含以下步骤：
 1.数据与代码准备。
 2.利用 TensorFlow 框架搭建分类模型。
 3.运行自定义代码及评估效果查看。
@@ -156,12 +156,12 @@ if __name__ == '__main__':
 ```
 
 #### 二、利用 TensorFlow 组件搭建分类模型
-TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提供了 GPU 集群平台，用户只需申请权限就可以简单配置深度学习任务。Tensorflow 组件中使用的 Python 版本和支持的第三方模块版本信息如下：
+TensorFlow 是 Google 开源的一种深度学习系统，腾讯云 TI 平台为用户提供了 GPU 集群平台，用户只需申请权限就可以简单配置深度学习任务。Tensorflow 组件中使用的 Python 版本和支持的第三方模块版本信息如下：
  - Python 3.5
  - SciPy 1.0.0
  - NumPy 1.14.0
 
-1. 在 [智能钛机器学习平台控制台](https://console.cloud.tencent.com/tione/project/list) 的左侧导航栏，选择【框架】>【深度学习】>【 TensorFlow】，并拖入画布中。
+1. 在 [腾讯云 TI 平台 TI-ONE 控制台](https://console.cloud.tencent.com/tione/project/list) 的左侧导航栏，选择【框架】>【深度学习】>【 TensorFlow】，并拖入画布中。
 2. 单击该组件，在右侧弹窗中配置组件参数和资源参数。
 ![](https://main.qcloudimg.com/raw/9009730a50d712f8066118a0ff3a2682.png)
  - 程序脚本：
@@ -188,6 +188,6 @@ TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提�
 单击画布上方运行按钮可运行工作流，更多详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/45653#.E8.BF.90.E8.A1.8C.E5.B7.A5.E4.BD.9C.E6.B5.81)。运行成功后在组件上右击，在【Tensorflow 日志】>【日志详情】中查看日志，模型效果如下图展示：
 ![](https://main.qcloudimg.com/raw/5baec332b121ffd37aba6bbc441befe1.png)
 
-至此，我们完成了利用智能钛机器学习平台的深度学习框架 TensorFlow 运行自定义代码的全部流程。
+至此，我们完成了利用腾讯云 TI 平台 TI-ONE 的深度学习框架 TensorFlow 运行自定义代码的全部流程。
 
 

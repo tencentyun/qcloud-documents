@@ -6,7 +6,8 @@
 - 支持对视频文件进行自动检测，从 OCR 文本识别、物体检测（实体、广告台标、二维码等）、图像识别及音频审核四个维度，通过深度学习技术，识别视频中的违规内容。
 - 支持设置回调地址 Callback 获取检测结果，或通过 [查询视频审核任务结果接口](https://cloud.tencent.com/document/product/460/46926) 主动轮询获取审核结果详情。
 - 支持识别多种违规场景，包括：色情、违法、广告等场景。
-- 支持根据不同的业务场景配置自定义的审核策略。
+<span id=1></span>
+- 支持根据不同的业务场景 [配置自定义的审核策略](https://cloud.tencent.com/document/product/460/56345)。
 - 支持用户 [自定义配置黑白图片库](https://cloud.tencent.com/document/product/436/59080)，打击自定义违规内容。
 
 ## 费用说明
@@ -61,7 +62,7 @@ Content-Type: application/xml
     <Object></Object>
   </Input>
   <Conf>
-    <DetectType>Porn,Terrorism,Politics,Ads</DetectType>
+    <DetectType>Porn,Ads</DetectType>
     <Snapshot>
         <Mode>Interval</Mode>
         <TimeInterval></TimeInterval>
@@ -98,11 +99,11 @@ Container 类型 Conf 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点       | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | ------------ | ------------------------------------------------------------ | --------- | -------- |
-| DetectType         | Request.Conf | 审核的场景类型，有效值：Porn（涉黄）、Terrorism（涉暴恐）、Politics（政治敏感）、Ads（广告），可以传入多种类型，不同类型以逗号分隔，例如：Porn,Terrorism。 | String    | 是       |
+| BizType            | Request.Conf | 审核策略，不带审核策略时使用默认策略。可在控制台进行配置，详情请参见 [设置公共审核策略](#1)。 | String    | 否       |
+| DetectType         | Request.Conf | 审核的场景类型，有效值：Porn（涉黄）、Ads（广告），可以传入多种类型，不同类型以逗号分隔，例如：Porn,Ads。 | String    | 否       |
 | Snapshot           | Request.Conf | 视频画面的审核通过视频截帧能力截取出一定量的截图，通过对截图逐一审核而实现的，该参数用于指定视频截帧的配置。 | Container | 是       |
 | Callback           | Request.Conf | 回调地址，以`http://`或者`https://`开头的地址。              | String    | 否       |
 | CallbackVersion    | Request.Conf | 回调内容的结构，有效值：Simple（回调内容包含基本信息）、Detail（回调内容包含详细信息）。默认为 Simple。 | String    | 否       |
-| BizType            | Request.Conf | 审核策略，不带审核策略时使用默认策略。                       | String    | 否       |
 | DetectContent      | Request.Conf | 用于指定是否审核视频声音，当值为0时：表示只审核视频画面截图；值为1时：表示同时审核视频画面截图和视频声音。默认值为0。 | Integer   | 否       |
 
 Container 类型 Snapshot 的具体数据描述如下：
@@ -175,7 +176,7 @@ Content-Type: application/xml
     <Object>a.mp4</Object>
   </Input>
   <Conf>
-    <DetectType>Porn,Terrorism,Politics,Ads</DetectType>
+    <DetectType>Porn,Ads</DetectType>
     <Snapshot>
         <Mode>Interval</Mode>
         <TimeInterval>50</TimeInterval>

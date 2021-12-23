@@ -32,8 +32,8 @@ Content-Type: application/xml
 | ---------- | ------------------------------------------------------------ | ------ | -------- |
 | queueIds   | 队列 ID，以“,”符号分割字符串                                 | string | 否       |
 | state      | 1. Active 表示队列内的作业会被文档预览服务调度执行<br>2. Paused  表示队列暂停，作业不再会被文档预览服务调度执行，队列内的所有作业状态维持在暂停状态，已经处于执行中的任务将继续执行，不受影响 | string | 否       |
-| pageNumber | 第几页                                                       | string | 否       |
-| pageSize   | 每页个数                                                     | string | 否       |
+| pageNumber | 第几页，默认第一页                                                       | string | 否       |
+| pageSize   | 每页个数，默认10个                                                     | string | 否       |
 
 
 

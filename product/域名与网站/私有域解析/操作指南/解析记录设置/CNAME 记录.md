@@ -19,9 +19,7 @@
  - **MX 优先级**：不需要填写。
  -  **TTL**：为缓存时间，数值越小，修改记录生效时间越快，默认设置为300，支持自定义1 - 86400区间的整数。
 4. 单击**保存**，完成添加。
->?
->- 相同主机记录的 CNAME 记录类型只能添加一条，且不能与其他任何记录共存。
->- 操作过程中如果出现问题，请您 [联系我们](https://cloud.tencent.com/act/event/connect-service)。
+>? 操作过程中如果出现问题，请您 [联系我们](https://cloud.tencent.com/act/event/connect-service)。
 
 
 

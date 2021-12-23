@@ -9,14 +9,14 @@
 
 ## 操作步骤
 
-1. 准备环境。
+### 步骤1：准备环境
+1. 需要在客户端环境安装 RocketMQ-Client-CPP 库，根据官方文档进行安装即可 [安装CPP动态库](https://github.com/apache/rocketmq-client-cpp)，**推荐使用 master 分支构建**。
+2. 在项目中引入 RocketMQ-Client-CPP 相关头文件及动态库。
 
-   1. 需要在客户端环境安装 RocketMQ-Client-CPP库，根据官方文档进行安装即可 [安装CPP动态库](https://github.com/apache/rocketmq-client-cpp)，**推荐使用 master 分支构建**。
-   2. 在项目中引入RocketMQ-Client-CPP相关头文件及动态库。
-
-2. 初始化消息生产者。
-
-   ```c++
+### 步骤2：生产消息
+1. 创建消息生产者。
+<dx-codeblock>
+:::  c++
    // 设置生产组名称
    DefaultMQProducer producer(groupName);
    // 设置服务接入地址
@@ -30,19 +30,43 @@
    producer.setNameSpace(nameserver);
    // 请确保参数设置完成在启动之前
    producer.start();
-   ```
-
-   | 参数       | 说明                                                         |
-   | :--------- | :----------------------------------------------------------- |
-   | groupName  | 生产者组名称，在控制台集群管理中`Group` tab中获取。          |
-   | nameserver | 集群接入地址，在控制台**集群管理**页面操作列的**获取接入地址**获取。![](https://qcloudimg.tencent-cloud.cn/raw/45b3582e4d089041cae7030797bc447e.png) |
-   | secretKey  | 角色名称，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制。 |
-   | accessKey  | 角色密钥，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制**密钥**列复制。![img](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
-   | namespace  | 命名空间全称在控制台集群管理中`Topic` 页签中页面复制，格式是**集群 ID +｜+命名空间**。![](https://qcloudimg.tencent-cloud.cn/raw/9251db01de6d447bbba7d3ca7f3591ef.png) |
-
-3. 发送消息
-
-   ```c++
+:::
+</dx-codeblock>
+<table>
+    <tr>
+        <th>参数</th>
+        <th>说明</th>
+    </tr>
+    <tr>
+        <td>groupName</td>
+        <td>生产者组名称，在控制台集群管理 Group 页签中获取。</td>
+    </tr>
+    <tr>
+        <td>nameserver</td>
+				<td>集群接入地址，在控制台<b>集群管理</b>页面操作列的<b>接入地址</b>获取。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/88046dcc0b052e11dc5c7c2ee8a901e4.png" style="width: 100%">
+        </td>
+    </tr>
+    <tr>
+        <td>secretKey</td>
+        <td>角色名称，在 <a href = "https://console.cloud.tencent.com/tdmq/role"><b>角色管理</b></a> 页面复制。</td>
+    </tr>
+    <tr>
+        <td>accessKey</td>
+        <td>角色密钥，在 <a href = "https://console.cloud.tencent.com/tdmq/role"><b>角色管理</b></a> 页面复制<b>密钥</b>列复制。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/738800581043835d6123385964281f37.png" style="width: 100%">
+        </td>
+    </tr>
+    <tr>
+        <td>namespace</td>
+        <td>命名空间全称可在控制台集群管理 Topic 页签中复制，格式是<code>集群 ID</code> +<code>｜</code>+<code>命名空间</code>。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/c483d23c09d2f728aaa08b195d9ddd40.png" style="width: 100%">
+        </td>
+    </tr>
+</table>
+2. 发送消息。
+<dx-codeblock>
+:::  c++
    // 初始化消息内容
    MQMessage msg(
        topicName,  // topic名称
@@ -59,24 +83,40 @@
    } catch (MQException e) {
        std::cout << "ErrorCode: " << e.GetError() << " Exception:" << e.what() << std::endl;
    }
-   ```
-
-   | 参数      | 说明                                                         |
-   | :-------- | :----------------------------------------------------------- |
-   | topicName | Topic 名称在控制台集群管理中`Topic`页签中复制具体 Topic 名称。![](https://qcloudimg.tencent-cloud.cn/raw/f27fdecdf352468ef411cfdafc096d86.png) |
-   | TAGS      | 用来设置消息的TAG。                                          |
-   | KEYS      | 设置消息业务key。                                            |
-
-4. 资源释放
-
-   ```c++
+:::
+</dx-codeblock>
+<table>
+    <tr>
+        <th>参数</th>
+        <th>说明</th>
+    </tr>
+    <tr>
+        <td>topicName</td>
+        <td>Topic 名称在控制台集群管理 Topic 页签中复制具体 Topic 名称。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/4b096254ae2fa8db0f45c1f864718915.png" style="width: 100%">
+        </td>
+    </tr>
+    <tr>
+        <td>TAGS</td>
+        <td>用来设置消息的 TAG。</td>
+    </tr>
+    <tr>
+        <td>KEYS</td>
+        <td>设置消息业务 key。</td>
+    </tr>
+</table>
+3. 资源释放。
+<dx-codeblock>
+:::  c++
    // 释放资源
    producer.shutdown();
-   ```
+:::
+</dx-codeblock>
 
-5. 初始化消费者
-
-   ```c++
+### 步骤3：消费消息
+1. 创建消费者。
+<dx-codeblock>
+:::  c++
    // 消息监听
    class ExampleMessageListener : public MessageListenerConcurrently {
    public:
@@ -116,30 +156,62 @@
    
    // 准备工作完成，必须调用启动函数，才可以正常工作。
    consumer->start();
-   ```
-
-   | 参数       | 说明                                                         |
-   | :--------- | :----------------------------------------------------------- |
-   | groupName  | 消费者组名称。在控制台集群管理中`Group` 页签中获取。         |
-   | nameserver | 集群接入地址，在**集群管理**页面操作列的**获取接入地址**获取。![](https://qcloudimg.tencent-cloud.cn/raw/45b3582e4d089041cae7030797bc447e.png) |
-   | secretKey  | 角色名称，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制。 |
-   | accessKey  | 角色密钥，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制**密钥**列复制。![img](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
-   | namespace  | 命名空间全称在控制台集群管理中`Topic` 页签中页面复制，格式是**集群 ID +｜+命名空间**。![](https://qcloudimg.tencent-cloud.cn/raw/9251db01de6d447bbba7d3ca7f3591ef.png) |
-   | topicName  | Topic 名称在控制台集群管理中`Topic`页签中复制具体 Topic 名称。![](https://qcloudimg.tencent-cloud.cn/raw/f27fdecdf352468ef411cfdafc096d86.png) |
-   | TAGS       | 用来设置订阅消息的TAG。                                      |
-
-6. 资源释放。
-
-   ```c++
+:::
+</dx-codeblock>
+<table>
+    <tr>
+        <th>参数</th>
+        <th>说明</th>
+    </tr>
+    <tr>
+        <td>groupName</td>
+        <td>消费者组名称。在控制台集群管理中 Group 页签中获取。</td>
+    </tr>
+    <tr>
+        <td>nameserver</td>
+        <td>集群接入地址，在<b>集群管理</b>页面操作列的<b>接入地址</b>获取。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/88046dcc0b052e11dc5c7c2ee8a901e4.png" style="width: 100%">
+        </td>
+    </tr>
+    <tr>
+        <td>secretKey</td>
+        <td>角色名称，在 <a href = "https://console.cloud.tencent.com/tdmq/role"><b>角色管理</b></a> 页面复制。</td>
+    </tr>
+    <tr>
+        <td>accessKey</td>
+        <td>角色密钥，在 <a href = "https://console.cloud.tencent.com/tdmq/role"><b>角色管理</b></a> 页面复制<b>密钥</b>列复制。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/738800581043835d6123385964281f37.png" style="width: 100%">
+        </td>
+    </tr>
+    <tr>
+        <td>namespace</td>
+        <td>命名空间全称可在控制台集群管理 Topic 页签中复制，格式是<code>集群 ID</code> +<code>｜</code>+<code>命名空间</code>。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/c483d23c09d2f728aaa08b195d9ddd40.png" style="width: 100%">
+        </td>
+    </tr>
+    <tr>
+        <td>topicName</td>
+        <td>Topic 名称在控制台集群管理 Topic 页签中复制具体 Topic 名称。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/4b096254ae2fa8db0f45c1f864718915.png" style="width: 100%">
+        </td>
+    </tr>
+    <tr>
+        <td>TAGS</td>
+        <td>用来设置订阅消息的 TAG。</td>
+    </tr>
+</table>
+2. 资源释放。
+<dx-codeblock>
+:::  c++
    // 资源释放
    consumer->shutdown();
-   ```
-
-7. 查看消费详情。登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，在**集群管理** > **Group** 页面，可查看与 Group 连接的客户端列表，单击操作列的**查看详情**，可查看消费者详情。
-   ![img](https://main.qcloudimg.com/raw/7187da67219534d767206553e2a383ab.png)
+:::
+</dx-codeblock>
 
 
+### 步骤4：查看消费详情
+登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，在**集群管理** > **Group** 页面，可查看与 Group 连接的客户端列表，单击操作列的**查看详情**，可查看消费者详情。
+![](https://qcloudimg.tencent-cloud.cn/raw/924898b7a5568be778449bf51034396d.png)
 
 
-
-上述是对消息的发布和订阅方式的简单介绍。更多操作可参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-cpp-sdk-demo.zip) 或 [RocketMQ-Client-CPP示例](https://github.com/apache/rocketmq-client-cpp/tree/master/example) 。
+>?上述是对消息的发布和订阅方式的简单介绍。更多操作可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-cpp-sdk-demo.zip) 或 [RocketMQ-Client-CPP 示例](https://github.com/apache/rocketmq-client-cpp/tree/master/example) 。

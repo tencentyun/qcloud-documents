@@ -28,3 +28,6 @@ Query OK, 0 rows affected (0.00 sec)
 | ----------------------------- | ---- | ------- | ---- | ---------- | ---------------------------- |
 | innodb_fast_ddl               | Yes  | bool    | OFF  | {ON,OFF}   | 开启或关闭 FAST DDL           |
 | innodb_parallel_merge_threads | Yes  | Integer | 8    | 1 - 32       | merge sort 时使用的并发线程数 |
+
+>?用户目前无法直接修改以上参数的参数值，如需修改可 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行修改。
+>

@@ -21,7 +21,7 @@ TKE 组件在每个节点维护一个可弹性伸缩的独占网卡/IP 池。已
 ## 使用方法
 
 
-您可以通过以下方式启用固定 IP：
+您可以通过以下方式启用非固定 IP：
 - 创建集群选择非固定 IP 模式的 VPC-CNI：集群创建时不勾选**固定Pod IP** 选项。
 ![](https://qcloudimg.tencent-cloud.cn/raw/851c0378d547b63f3c1d1ab960046db8.png)
 
