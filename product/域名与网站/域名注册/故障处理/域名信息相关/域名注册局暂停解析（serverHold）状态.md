@@ -1,7 +1,7 @@
 ## 现象描述
 1. 登录 [域名注册管理控制台](https://console.cloud.tencent.com/domain)。
 2. 在**我的域名**管理页面，选择您需要查看的域名，单击相应域名进入**域名信息**页签，查看**域名状态**为注册局暂停解析（serverHold）状态。如下图所示：
-![](https://main.qcloudimg.com/raw/db845f17d1ac8614b2fa0a7deeb9644e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3aaf6b3156361b07c017bf7833344b80.png)
 
 ## 可能原因
 - 域名未实名认证。
