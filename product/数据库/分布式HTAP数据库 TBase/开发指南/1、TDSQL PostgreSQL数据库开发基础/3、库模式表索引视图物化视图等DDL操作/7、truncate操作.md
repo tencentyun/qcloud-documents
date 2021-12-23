@@ -1,28 +1,21 @@
-### truncate操作
 
-truncate功能用于对表数据进行快速清除，truncate属于ddl级别，会给truncate表加上ACCESS EXCLUSIVE最高级别的锁
+truncate 功能用于对表数据进行快速清除，truncate 属于 ddl 级别，会给 truncate 表加上 ACCESS EXCLUSIVE 最高级别的锁。
 
-#### truncate普通表
-
+## truncate 普通表
 ```
 postgres=# truncate table t1;
 TRUNCATE TABLE
 ```
 
-也可以一次truncate多个数据表
-
+也可以一次 truncate 多个数据表。
 ```
 postgres=# truncate table t1,t2;
 TRUNCATE TABLE
 postgres=# 
 ```
 
-
-
-#### truncate分区表
-
-- truncate一个时间分区表
-
+## truncate 分区表
+- truncate 一个时间分区表。
 ```
 postgres=# \d+ t_time_range 
                 Table "pgxz.t_time_range"
@@ -58,10 +51,7 @@ postgres=#
 
 ```
 
-  
-
-- truncate一个数字分区表
-
+- truncate 一个数字分区表。
 ```
 postgres=# \d+ t_range 
                   Table "pgxz.t_range"
@@ -99,4 +89,3 @@ postgres=# select * from t_range ;
 ```
 
  
-
