@@ -1,6 +1,6 @@
 <style>
 .markdown-text-box table th,.markdown-text-box table td{text-align: center;}
-.inbuttom{height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #ffffff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;}
+.inbuttom{height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #ffffff;color:#ffffff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;}
 </style>
 
 
