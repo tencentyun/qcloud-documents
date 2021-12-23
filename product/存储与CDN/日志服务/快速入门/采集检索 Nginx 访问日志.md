@@ -16,7 +16,7 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request"'
 
 | 字段名               | 含义                                                 |
 | -------------------- | ---------------------------------------------------- |
-| remote_addr          | 客户端IP地址                                         |
+| remote_addr          | 客户端 IP 地址                                         |
 | remote_user          | 客户端名称                                           |
 | time_local           | 服务器本地时间                                       |
 | method               |HTTP 请求方法                                        |
@@ -26,7 +26,7 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request"'
 | body_bytes_sent      | 发送给客户端的字节数                                 |
 | http_referer         | 访问来源的页面链接地址                               |
 | http_user_agent      | 客户端浏览器信息                                     |
-| http_x_forwarded_for | 当前端有代理服务器时，追踪记录客户端真实 IP 地址的配置 |
+| http_x_forwarded_for | 当前端有代理服务器时，记录客户端真实 IP 地址的配置 |
 
 ## 操作步骤
 

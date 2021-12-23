@@ -47,4 +47,4 @@ data:
 
 
 ### 自定义配置 Corefile
-您可以通过修改 CoreDNS Corefile 的 ConfigMap，以更改服务发现的相关配置。其用法与原生 kubernates 使用方式保持一致，详情见 [自定义 DNS 服务](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/)。
+您可以通过修改 CoreDNS Corefile 的 ConfigMap，以更改服务发现的相关配置。其用法与原生 Kubernetes 使用方式保持一致，详情见 [自定义 DNS 服务](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/)。
