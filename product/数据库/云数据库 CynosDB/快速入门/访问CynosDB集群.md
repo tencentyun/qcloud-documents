@@ -50,7 +50,7 @@ yum install mysql
 mysql -h hostname -P port -u username -p
 ```
       - hostname：替换为目标 TDSQL-C 集群的内网地址，在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 的集群详情页可查看内网地址。
-      - port：替换为内网端口号
+      - port：替换为内网端口号。
 		- username：替换为默认的用户名 root。
 示例：内网地址为10.0.168.14:5308，用户名为 root，连接命令输入为 `mysql -h 10.0.168.14 -P 5308 -u root -p`。
     2. 在提示 `Enter password：` 后输入 TDSQL-C 集群的 root 帐号对应的密码，如忘记密码可在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。
