@@ -14,7 +14,7 @@ Connection cnct = DriverManager.getConnection(url, secretId, secretKey);
 
 ## url 格式
 ```
-jdbc:dlc:<dlc_endpoint>?task_type=SQLTask&database_name=abc&datasource_connection_name=CosDataCatalog&region=ap-nanjing
+jdbc:dlc:<dlc_endpoint>?task_type=SQLTask&database_name=abc&datasource_connection_name=DataLakeCatalog&region=ap-nanjing
 ```
 <table>
 <tr>
@@ -92,7 +92,7 @@ public class MetaTest {
       return;
     }
     Connection connection = DriverManager.getConnection(
-            "jdbc:dlc:<dlc_endpoint>?task_type=<task_type>&database_name=<database_name>&datasource_connection_name=CosDataCatalog&region=<region>",
+            "jdbc:dlc:<dlc_endpoint>?task_type=<task_type>&database_name=<database_name>&datasource_connection_name=DataLakeCatalog&region=<region>",
             "<secret_id>",
             "secret_key");
     Statement statement = connection.createStatement();
@@ -160,7 +160,7 @@ public class DataTest {
       return;
     }
     Connection connection = DriverManager.getConnection(
-            "jdbc:dlc:<dlc_endpoint>?task_type=<task_type>&database_name=<database_name>&datasource_connection_name=CosDataCatalog&region=<region>",
+            "jdbc:dlc:<dlc_endpoint>?task_type=<task_type>&database_name=<database_name>&datasource_connection_name=DataLakeCatalog&region=<region>",
             "<secret_id>",
             "secret_key");
     Statement statement = connection.createStatement();
