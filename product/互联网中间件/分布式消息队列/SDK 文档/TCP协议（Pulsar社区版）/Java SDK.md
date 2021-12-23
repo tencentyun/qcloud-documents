@@ -96,7 +96,7 @@
 :::
 </dx-codeblock>
 > ?
-> - Topic 名称需要填入完整路径，即`persistent://clusterid/namespace/Topic`，`clusterid/namespace/topic` 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
+> - Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Topic`，`clusterid/namespace/topic` 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
 >   ![](https://qcloudimg.tencent-cloud.cn/raw/dc1bc50c434546755565c6dcb8d3e7f0.png)
 > - subscriptionName 需要写入订阅名，可在**消费管理**界面查看。
 7. 消费消息。
