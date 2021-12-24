@@ -30,7 +30,7 @@ postgres=# select * from tdsql_pg order by id;
  3 | tdsql_pg好
  4 | tdsql_pg default
 ```
-TDSQL PostgreSQL 完全支持 ACID 特性，没提交前开启另一个连接查询，会看到是5条记录，这是 TDSQL PostgreSQL 隔离性和多版本视图的实现，如下所示。
+TDSQL PostgreSQL版 完全支持 ACID 特性，没提交前开启另一个连接查询，会看到是5条记录，这是 TDSQL PostgreSQL版 隔离性和多版本视图的实现，如下所示。
 进程#2访问。
 ```
 postgres=# select * from tdsql_pg order by id;
@@ -49,7 +49,7 @@ postgres=# commit;
 COMMIT
 postgres=# 
 ```
-进程#2再查询数据，这时能看到已经提交的数据了，这个级别叫“读已提交”。
+进程#2再查询数据，这时已经能看到提交的数据，这个级别叫“读已提交”。
 ```
 postgres=# select * from tdsql_pg order by id;
  id |  nickname   
@@ -76,7 +76,6 @@ postgres=# select * from tdsql_pg;
  
 postgres=# rollback;
 ROLLBACK
- 
 ```
 
 Rollback 后数据又回来了。
@@ -119,7 +118,6 @@ postgres=# select * from t_repeatable_read;
  1 | tdsql_pg
  1 | pgxz
 (2 rows)
- 
 ```
 
 \#session1
@@ -188,7 +186,6 @@ postgres=# select * from t_row_lock where mc='pgxz' for update;
  2 | pgxz
 (1 row)
 ```
-
 
 \#session2 
  ```
