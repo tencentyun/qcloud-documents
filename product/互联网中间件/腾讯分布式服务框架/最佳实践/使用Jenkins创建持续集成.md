@@ -19,11 +19,11 @@ TSF 应用可以使用 Jenkins 构建持续集成方案。
    Credentials：安全凭证，选择“无”（前提是运行 Jenkins 软件的用户的 SSH RSA 公匙已添加到该 Git 项目所在的 GitLab 或 GitHub 中，否则这里会报错）或者添加用户名密码。
    ![git info](https://main.qcloudimg.com/raw/a3d8d5ab5062a00fd47394e753f89eb1/add_git_url.png)
    ![add username](https://main.qcloudimg.com/raw/3b129735c76cdae1799c17625ed2324e/add_username.png)
-   4.3 单击**构建触发器**页签，勾选**Build when a change is pushed to GitLab**。 GitLab webhook URL 中的 IP 要确保能通过 GitLab 访问。
+   4.3 单击**构建触发器**页签，勾选 **Build when a change is pushed to GitLab**。 GitLab webhook URL 中的 IP 要确保能通过 GitLab 访问。
    ![GitLab hook](https://main.qcloudimg.com/raw/9d572d105e3180dea218047dc2e3246d/add_gitlib_hook.png)
-   4.4 单击**构建环境**页签，勾选**Add timestamps to the Console Output**，为控制台输出的信息添加时间戳。  
+   4.4 单击**构建环境**页签，勾选 **Add timestamps to the Console Output**，为控制台输出的信息添加时间戳。  
    ![add timestamps](https://main.qcloudimg.com/raw/dec56acb45abcd738117cbde1c7c895b/add_timestamps.png)
-   4.5 单击**构建**页签，然后单击**增加构建步骤**，选择**Invoke top-level Maven targets**。
+   4.5 单击**构建**页签，然后单击**增加构建步骤**，选择 **Invoke top-level Maven targets**。
    ![maven targets](https://main.qcloudimg.com/raw/ac6fb1792129776c6ee1da0c84cc611c/invoke%20maven.png)
    目标：填入 clean package （如有其它参数，请根据实际情况填入）
    ![mvn terminal](https://main.qcloudimg.com/raw/e36f220c63547f447a6f97f9e20d65cb/maven_clean.png)
@@ -50,9 +50,9 @@ TSF 应用可以使用 Jenkins 构建持续集成方案。
    ![cancel end point](https://main.qcloudimg.com/raw/aa898eedb091735372c530e795f01187/cancel_endpoint.png)
 
 5. 配置 GitLab 的 Web Hook，实现自动构建  
-   5.1 项目 > Settings > Integrations 进入添加webhook界面
+   5.1 项目 > Settings > Integrations 进入添加 webhook 界面
    ![gitlib add webhook](https://main.qcloudimg.com/raw/bfbe6dd37c4c7fe109ab8bb913279c4e/gitlib_add_webhook.png)
-   5.2 将 4.3 中Jenkins产生的GitLab webhook URL填入URL，其他选项使用默认设置，单击"Add webhook"。
+   5.2 将 4.3 中Jenkins产生的 GitLab webhook URL填入URL，其他选项使用默认设置，单击 "Add webhook"。
    ![gitlib add jenkens url](https://main.qcloudimg.com/raw/59c4bf4c29f8844a745fd531b2df7050/gitlib_add_jenkens_url.png)
    5.3 测试 WebHook
    ![test webhook](https://main.qcloudimg.com/raw/bef07b027653b2ee74af88b186a2cdab/test_webhook.png)
