@@ -100,8 +100,8 @@ typedef enum {
 typedef struct DnsConfigStruct {
     NSString* appId; // 可选，应用ID，腾讯云控制台申请获得，用于灯塔数据上报（未集成灯塔时该参数无效）
     int dnsId; // 授权ID，腾讯云控制台申请后，通过邮件发送，用于域名解析鉴权
-    NSString* dnsKey; // 加密密钥，加密方式为AES、DES时必传。腾讯云控制台申请后，通过邮件发送，用于域名解析鉴权
-    NSString* token; // 加密token，加密方式为 HTTPS 时必传
+    NSString* dnsKey; // 加密密钥，加密方式为 AES、DES 时必传。腾讯云控制台申请后，通过邮件发送，用于域名解析鉴权
+    NSString* token; // 加密 token，加密方式为 HTTPS 时必传
     NSString* dnsIp; // HTTPDNS 服务器 IP。HTTP 协议服务地址为 `119.29.29.98`，HTTPS 协议服务地址为 `119.29.29.99`
     BOOL debug; // 是否开启Debug日志，YES：开启，NO：关闭。建议联调阶段开启，正式上线前关闭
     int timeout; // 可选，超时时间，单位ms，如设置0，则使用默认值2000ms
