@@ -54,7 +54,7 @@ filebeat 以 filebeat.yml 文件为主配置文件，首先创建一个 filebeat
 
 ### 通过 YML 配置部署一个可以获取到 Pod 元信息的 filebeat demonset
 
-在实际的业务场景中，通常需要通过 filebeat 采集部署在相同 host 上的多个 pod 的日志，通常也需要获取到采集到的 pod 的元信息，比如命令空间、pod 名称、标签等信息，以方便进行过滤或者检索。获取到 pod 的元信息需要调用 k8s 的 API, filebeat 内部也实现了这个功能，因此可以直接使用 filebeat 的[container input](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-container.html)以及[add\_kubernetes\_metadata](https://www.elastic.co/guide/en/beats/filebeat/7.10/add-kubernetes-metadata.html) processors 来实现。
+在实际的业务场景中，通常需要通过 filebeat 采集部署在相同 host 上的多个 pod 的日志，通常也需要获取到采集到的 pod 的元信息，例如命令空间、pod 名称、标签等信息，以方便进行过滤或者检索。获取到 pod 的元信息需要调用 k8s 的 API, filebeat 内部也实现了这个功能，因此可以直接使用 filebeat 的[container input](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-container.html)以及[add\_kubernetes\_metadata](https://www.elastic.co/guide/en/beats/filebeat/7.10/add-kubernetes-metadata.html) processors 来实现。
 
 在 TKE 控制台上，单击 **YML 创建资源**按钮，直接使用如下 yml 配置创建 filebeat demonset。
 ```
