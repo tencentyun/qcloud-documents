@@ -97,7 +97,7 @@ new XmagicApi.OnXmagicPropertyErrorListener());
 </tr><tr>
 <td>String resDir</td><td>资源文件目录，V1版本固定写法</td>
 </tr><tr>
-<td>XmagicResParser.getResPath() `OnXmagicPropertyErrorListener errorListener</td><td>回调函数实现类</td>
+<td>OnXmagicPropertyErrorListener errorListener</td><td>回调函数实现类</td>
 </tr></table>
 	- **返回**
 错误码含义对照表：
