@@ -255,7 +255,7 @@ e. 法律、行政法规规定的其他情形。
 ##  十、如何联系我们 [](id:connectservice)
 
 我们设立了专门的个人信息保护团队和个人信息保护负责人，如果第三方开发者和/或终端用户对本隐私政策或个人信息保护相关事宜有任何疑问或投诉、建议时，可以通过以下方式与我们联系：
-（i）通过 [腾讯客服](https://kf.qq.com/) 或者 [腾讯云工单](https://console.cloud.tencent.com/workorder/category)/客服与我们联系进行在线咨询；
+（i）通过 [腾讯客服](https://kf.qq.com/) 或者 [腾讯云工单](https://console.cloud.tencent.com/workorder/category)/[客服](https://cloud.tencent.com/document/product/269/59590) 与我们联系进行在线咨询；
 （ii）发送邮件至 Dataprivacy@tencent.com；
 （iii）邮寄信件至：中国广东省深圳市南山区海天二路33号腾讯滨海大厦 数据隐私保护部（收）邮编：518054。我们将尽快审核所涉问题，并在15个工作日或法律法规规定的期限内予以反馈。
 
