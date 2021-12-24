@@ -159,11 +159,11 @@ Xcode（11.0及以上的版本）打开源码工程 `TUICalling/Example/TUICalli
 TUICallingManager.sharedInstance();
 // 登录
 TUILogin.initWithSdkAppID(SDKAPPID)
-   TUILogin.login(userId, userSig) {
-       print("login success")
-   } fail: { code, errorDes in
-       print("login failed, code:\(code), error: \(errorDes ?? "nil")")
-   }
+TUILogin.login(userId, userSig) {
+   print("login success")
+} fail: { code, errorDes in
+   print("login failed, code:\(code), error: \(errorDes ?? "nil")")
+}
 :::
 </dx-codeblock>
 
