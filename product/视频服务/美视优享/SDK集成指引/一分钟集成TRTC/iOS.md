@@ -11,7 +11,8 @@
 
 ### 步骤一：初始化授权 [](id:step1)
 
-1. 离线授权方式。
+<dx-tabs>
+::: 离线授权方式
 ```objectivec
 NSString *licensePath = [[NSBundle mainBundle] pathForResource:@"dev_test_v2_S1-04_2022-01-17.lic1.4.1" ofType:@""];
 NSLog(@"youtu auth ret0 : %@", licensePath);
@@ -20,8 +21,9 @@ NSString *version = [XMagicAuthManager getVersion];
 NSLog(@"youtu auth ret : %i", authRet);
 NSLog(@"youtu auth version : %@", version);
 ```
-2. 线上授权方式。
-首先在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码：
+:::
+::: 线上授权方式
+在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码：
 ```objectivec
 [TXLiveBase setLicenceURL:@"" key:@""];
 ```
@@ -40,6 +42,8 @@ NSLog(@"xmagic auth version : %@", [XMagicAuthManager getVersion]);
 ```
 
 > ! key 字段为申请 lic 时提供的 SecretKey。
+:::
+</dx-tabs>
 
 ### 步骤二：设置 SDK 素材资源路径[](id:step2)
 
