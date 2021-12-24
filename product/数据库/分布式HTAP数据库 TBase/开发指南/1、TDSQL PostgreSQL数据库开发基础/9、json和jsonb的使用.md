@@ -1,5 +1,5 @@
 
-TDSQL PostgreSQL不只是一个分布式关系型数据库系统，同时它还支持非关系数据类型 json。json 数据类型用来存储 json（JavaScript Object Notation）数据。这种数据也可以被存储为 text，但是 json 数据类型的优势在于能强制要求每个被存储的值符合 json 规则。 也有很多 JSON 相关的函数和操作符可以用于存储在这些数据类型中的数据。
+TDSQL PostgreSQL版 不只是一个分布式关系型数据库系统，同时它还支持非关系数据类型 json。json 数据类型用来存储 JSON（JavaScript Object Notation）数据。这种数据也可以被存储为 text，但是 json 数据类型的优势在于能强制要求每个被存储的值符合 json 规则。 也有很多 json 相关的函数和操作符可以用于存储在这些数据类型中的数据。
 
 json 数据类型有 json 和 jsonb，它们接受完全相同的值集合作为输入，主要的区别是效率。json 数据类型存储输入文本的精准拷贝，处理函数必须在每次执行时必须重新解析该数据。而 jsonb 数据被存储在一种分解好的二进制格式中，它在输入时要稍慢一些，因为需要做附加的转换。但是 jsonb 在处理时要快很多，因为不需要解析。jsonb 也支持索引，这也是其优势。 
 
@@ -51,7 +51,6 @@ postgres=# select f_json ->>'col2' as col2 ,f_json ->> 'col3' as col3 from t_jso
 (1 row)
 ```
 
-
 ## jsonb 应用
 #### 创建 jsonb 类型字段表
 ```
@@ -74,9 +73,7 @@ postgres=# select * from t_jsonb;
  1 | {"col1": 1, "col2": "tdsql_pg"}
  2 | {"col1": 1, "col2": "tdsql_pg", "col3": "pgxz"}
 (2 rows)
- 
 ```
-
 jsonb 插入时会移除重复的键，如下所示。
 ```
 postgres=# insert into t_jsonb values(3,'{"col1":1,"col2":"tdsql_pg","col2":"pgxz"}');
@@ -95,7 +92,6 @@ postgres=# select * from t_jsonb;
 ```
 postgres=# update t_jsonb set f_jsonb = f_jsonb || '{"col3":"pgxz"}'::jsonb where id=1;  
 UPDATE 1
- 
 ```
 
 更新原来的元素。
@@ -145,7 +141,6 @@ postgres=# select * from t_jsonb;
  3 | {"col1": 1, "col2": "pgxz"}
 (3 rows)
 ```
-
 
 ## jsonb 函数应用
 #### jsonb_each() 将 json 对象转变键和值

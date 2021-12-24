@@ -23,7 +23,7 @@ postgres=# insert into tdsql_pg(nickname,id) values('tdsql_pg swap',5);
 INSERT 0 1
 ```
 
-使用default关键字，即值为建表时指定的默认值方式。
+使用 default 关键字，即值为建表时指定的默认值方式。
 ```
 postgres=#  insert into tdsql_pg(id,nickname) values(default,'tdsql_pg default');     
 INSERT 0 1
@@ -135,4 +135,3 @@ postgres=# select * from t;
  1 | tdsql_pg
 (1 row)
 ```
-
