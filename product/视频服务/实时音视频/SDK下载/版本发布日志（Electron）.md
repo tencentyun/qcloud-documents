@@ -33,7 +33,7 @@ Windows & Mac：onStatistics 回调新增字段 gatewayRtt [onStatistics](https:
 
 **质量优化**
 - 全平台：优化 [Music](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#ga865e618ff3a81236f9978723c00e86fb) 模式下的声音质量，更加适合类似 cloubhouse 的语音直播场景。
--  全平台：优化音视频链路的网络抗性，在 70% 的极端查网络环境下，音视频依然较为流畅。
+-  全平台：优化音视频链路的网络抗性，在 70% 的极端差网络环境下，音视频依然较为流畅。
 -  Windows：优化部分场景下的直播音质，大幅减少了声音损伤问题。
 -  Windows：性能优化，在部分使用场景下的性能较旧版本有 20%-30% 的提升。
 
