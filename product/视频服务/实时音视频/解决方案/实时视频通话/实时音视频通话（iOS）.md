@@ -155,10 +155,10 @@ Xcode（11.0及以上的版本）打开源码工程 `TUICalling/Example/TUICalli
 
 <dx-codeblock>
 ::: swift
-	 // 组件初始化
-	 TUICallingManager.sharedInstance();
-   // 登录
-	 TUILogin.initWithSdkAppID(SDKAPPID)
+// 组件初始化
+TUICallingManager.sharedInstance();
+// 登录
+TUILogin.initWithSdkAppID(SDKAPPID)
    TUILogin.login(userId, userSig) {
        print("login success")
    } fail: { code, errorDes in
