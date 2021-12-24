@@ -31,7 +31,7 @@
       <th width="0px"  style="text-align:center"><b>敏感个人信息处理的必要性说明</b></td>
    </tr>
    <tr>
-      <td>IMSDK</td>
+      <td>IM SDK</td>
       <td>网络类型</td>
       <td>用于连网优化</td>
       <td>调用系统 API ，获取网络类型，进行逻辑判断</td>
@@ -40,18 +40,18 @@
       <td><b>当网络类型发生切换时，需要根据当前连接的网络类型，重新连接后台服务器</b></td>
    </tr>
    <tr>
-      <td>IMSDK</td>
+      <td>IM SDK</td>
       <td>设备类型</td>
       <td>用于离线推送和 SDK 内部逻辑优化</td>
       <td>调用系统 API ，获取设备类型，进行逻辑判断</td>
       <td>无</td>
       <td>SDK</td>
-      <td><b>（1）Android 和 iOS 的 IMSDK 需要根据手机类型来判断走哪一个厂商的离线推送通道 
+      <td><b>（1）Android 和 iOS 的 IM SDK 需要根据手机类型来判断走哪一个厂商的离线推送通道 
 <br>（2）Web、小程序、Windows 和 macOS 的 IM SDK 根据用户使用设备类型做逻辑优化</b>
 </td>
    </tr>
    <tr>
-      <td>IMSDK</td>
+      <td>IM SDK</td>
       <td>系统版本</td>
       <td>用于 SDK 内部逻辑优化</td>
       <td>调用系统 API ，获取系统版本，进行逻辑判断</td>
