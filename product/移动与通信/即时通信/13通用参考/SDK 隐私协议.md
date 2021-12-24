@@ -44,8 +44,8 @@
       <td>调用系统 API ，获取设备类型，进行逻辑判断</td>
       <td>无</td>
       <td>SDK</td>
-      <td><b>（1）Android和iOS 的IMSDK需要根据手机类型来判断走哪一个厂商的离线推送通道 
-<br>（2）Web、小程序、Windows和macOS的IM SDK根据用户使用设备类型做逻辑优化</b>
+      <td><b>（1）Android 和 iOS 的 IMSDK 需要根据手机类型来判断走哪一个厂商的离线推送通道 
+<br>（2）Web、小程序、Windows 和 macOS 的 IM SDK 根据用户使用设备类型做逻辑优化</b>
 </td>
    </tr>
    <tr>
