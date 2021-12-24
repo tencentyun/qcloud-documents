@@ -1,0 +1,61 @@
+本文为您介绍腾讯云 PostgreSQL内核版本的背景信息和优势。
+## 背景信息
+PostgreSQL（简称PG）是一款全球流行的企业级开源数据库，2017、2018连续两年蝉联DB-Engine年度数据库，2019年荣获OSCON（The O'Reilly Open Source Convention）开源软件终身成就奖，2020再次获得年度数据库冠军。
+腾讯云 PostgreSQL是经过腾讯多年的业务沉淀和积累，在社区版本的PostgreSQL之上，根据不同的业务特征加入了特色功能和优化的内核版本。其不仅对PostgreSQL数据库引擎、权限管理、复制性能等方面进行了大量优化，同时提升了在云上的易用性和可维护性。
+
+
+## 内核版本号
+內核版本号由两部分组成：**社区版本号**和**内部版本号**
+```
+v{社区主版本号.社区次版本号}_r{不兼容版本号.兼容版本号}
+如：v12.7_r1.1
+```
+v代表Version，r代表Release，如：v12.7_r1.1对应的社区版本是12.7，r1.1是代表腾讯云迭代版本，由r {不兼容版本号}.{兼容版本号} 这两部分构成。
+
+>?
+- Version：PostgreSQL社区版本号，与社区对应。包含有两个数字，分别是Major Version、Minor Version；Major Version 从 10 开始(9.3,9.4,9.5,9.6按照旧递进关系)，Minor Version 从 1 开始。当社区次要版本released后，腾讯云会定时跟随社区版本进行版本更新。
+- Release：腾讯云PostgreSQL迭代用的版本号，表达腾讯云对PostgreSQL所做的修改。包含有两个数字，分别是Incompatible Version和Compatible Version；Incompatible Version 从 1 开始，Compatible Version 从 0 开始。
+ - 不兼容版本号
+不兼容定义：用新的数据库内核程序启动数据库实例，若启动失败或功能无法正常使用，该修改就是不兼容的。
+当内核支持了不兼容的功能，需要将不兼容版本号增加1。不兼容版本号将用于判断能否直接进行二进制小版本升级。
+ - 兼容性版本号
+增加兼容性的修改时，需要将兼容版本号增加1。
+
+## 版本支持列表
+- PostgreSQL 10
+- PostgreSQL 11
+- PostgreSQL 12
+- PostgreSQL 13
+
+您可通过 [PostgreSQL控制台](https://console.cloud.tencent.com/postgres) 实例列表，查看云数据库 PostgreSQL 的数据库版本。不同的版本号代表对应兼容的社区版本，如：PostgreSQL 12 兼容社区 PostgreSQL 12.x的所有子版本，12.1、12.2、12.3等。
+
+|内核版本号| 发布时间 | 兼容社区版本 | Release Notes |支持情况|
+|---------|---------|---------|---------|---------|
+| v9.3.5_r1.0 |2017-07-24| PostgreSQL 9.3.x | [release note](https://www.postgresql.org/docs/release/9.3.5/) |已不支持新购|
+| v9.5.4_r1.0 |2017-07-24| PostgreSQL 9.5.x | [release note](https://www.postgresql.org/docs/release/9.5.4/) |已不支持新购|
+| v9.3.25_r1.1 |2021-12-09| PostgreSQL 9.3.x | [release note](https://www.postgresql.org/docs/release/9.3.5/) |已不支持新购|
+| v9.5.25_r1.1 |2021-12-09| PostgreSQL 9.5.x | [release note](https://www.postgresql.org/docs/release/9.5.4/) |已不支持新购|
+| v10.4_r1.0 |2018-11-24| PostgreSQL 10.x | [release note](https://www.postgresql.org/docs/release/9.3.5/) |支持|
+| v10.17_r1.1 |2021-12-09| PostgreSQL 10.x | [release note](https://www.postgresql.org/docs/release/9.3.5/) |支持|
+| v11.8_r1.0 |2020-05-12| PostgreSQL 11.x | [release note](https://www.postgresql.org/docs/release/9.3.5/) |支持|
+| v11.12_r1.1 |2021-12-09| PostgreSQL 11.x | [release note](https://www.postgresql.org/docs/release/9.3.5/) |支持|
+| v12.4_r1.0 |2020-12-24| PostgreSQL 12.x | [release note](https://www.postgresql.org/docs/release/9.3.5/) |支持|
+| v12.7_r1.1 |2021-12-09| PostgreSQL 12.x | [release note](https://www.postgresql.org/docs/release/9.3.5/) |支持|
+| v13.3_r1.0 |2021-12-09| PostgreSQL 13.x | [release note](https://www.postgresql.org/docs/release/9.3.5/) |支持|
+
+
+## 版本规则
+- Version + Release 一起组成完整版本，称数据库内核版本。
+- Major Version 对应一个社区演化分支，各自迭代，比如10、11、12等，分别拥有自己的版本号序列。
+- 当社区宣布Major Version不再维护时，相应版本将停止新购。但腾讯云会一直维护此版本的数据库实例,直到用户实例主动销毁或迁移。
+- Minor Version跟随社区的变更，Release 根据 腾讯云数据库内核所做功能的变更而变更。
+
+## 优势
+
+相比开源版本PostgreSQL具有如下特点：
+- 更强的稳定性
+  腾讯云在开源PostgreSQL的基础上，优化了部分数据库底层实现，使数据库因外界影响受到崩溃的问题极大减少，提升了数据库的稳定性。
+- 主从同步性能增强
+  社区版PostgreSQL在大量DDL处理时，主从同步性能变得极其差，腾讯云数据库PostgreSQL在此方面进行极大优化,整体提升高达10W倍。
+- 更短的访问延迟
+  腾讯云在大量短连接场景进行了建连优化，使数据库连接性能消耗减少80%，极大提升了短连接场景的性能体验。
