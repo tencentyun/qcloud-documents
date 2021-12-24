@@ -23,9 +23,8 @@
 <tbody>
 <tr>
 <td>美颜相机 X - magic</td>
-<td><a onclick="window.open('填写地址')"><button class="abuttom">
-</button></a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/9bef4ee690791736fa723a65ca979876.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic-demo-2.4.0.103-signed.apk" class="inbuttom">单击下载</td>
+<td><a href="">下载套餐 ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/0ca2361fd9184b03eda2b1e101d159ca.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic-demo-2.4.0.103-signed.apk" class="inbuttom">单击下载</td>
 <td><a onclick="window.open('https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic_S1-04_android_2.4.0.103.zip')"><button class="abuttom">
 </button></a></td>
 <td><a href="">DOC</a></td></tr>
