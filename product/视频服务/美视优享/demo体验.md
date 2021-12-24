@@ -1,7 +1,6 @@
 <style>
 .markdown-text-box table th,.markdown-text-box table td{text-align: center;}
 .inbuttom{height: 30px;width: 120px;min-width: 24px;padding: 0 20px;background-color: #ffffff;color:#ffffff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;}
-.abuttom{width:120px;height: 120px;border:none;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;}
 </style>
 
 ## Demo 体验
