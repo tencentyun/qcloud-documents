@@ -325,7 +325,7 @@ pusherInstance
 
 <dx-codeblock>
 ::: javascript javascript
-this.TRTC.getPusherInstance.start() // 开始推流
+this.TRTC.getPusherInstance().start() // 开始推流
 :::
 </dx-codeblock>
 

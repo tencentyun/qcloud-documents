@@ -45,7 +45,7 @@ $ npm install electron@latest --save-dev
 ```shell
 $ npm install trtc-electron-sdk@latest --save
 ```
-	>?TRTC Electron SDK 最新版可在 [trtc-electron-sdk](https://www.npmjs.com/package/trtc-electron-sdk) 中查看。
+>?TRTC Electron SDK 最新版可在 [trtc-electron-sdk](https://www.npmjs.com/package/trtc-electron-sdk) 中查看。
 2. 在项目脚本里引入模块并使用：
 ```javascript
 const TRTCCloud = require('trtc-electron-sdk').default;
@@ -54,7 +54,7 @@ this.rtcCloud = new TRTCCloud();
 // 获取 SDK 版本号
 this.rtcCloud.getSDKVersion();
 ```
-	从v7.9.348起，TRTC Electron SDK 增加了 trtc.d.ts 文件，方便使用 TypeScript 的开发者：
+从v7.9.348起，TRTC Electron SDK 增加了 trtc.d.ts 文件，方便使用 TypeScript 的开发者：
 ```
 import TRTCCloud from 'trtc-electron-sdk';
 const rtcCloud: TRTCCloud = new TRTCCloud();
@@ -97,7 +97,7 @@ const targetPlatform = (function(){
 		return target;
 })();
 ```
-	>! `os.platform()` 返回的结果中，"darwin" 表示 Mac 平台。"win32" 表示 Windows 平台，不论 64 位还是 32 位。
+>! `os.platform()` 返回的结果中，"darwin" 表示 Mac 平台。"win32" 表示 Windows 平台，不论 64 位还是 32 位。
 2. 然后在 `rules` 选项中添加以下配置，`targetPlatform` 变量可以使 `rewritePath` 可以根据不同的目标平台切换不同的配置：
 ```js
 rules: [
@@ -182,18 +182,39 @@ rules: [
 }
 :::
 </dx-codeblock>
-
->? 
-> -   `main` ：Electron 的入口文件，一般情况下可以自由配置。但如果项目使用 `create-react-app` 脚手架创建，则入口文件必须配置为 `public/electron.js` 。
-> -   `build.win.extraFiles` ：打包 Windows 程序时，`electron-builder` 会把 `from` 所指目录下的所有文件复制到 bin/win-unpacked/resources（全小写）。
-> -   `build.mac.extraFiles` ：打包 Mac 程序时，`electron-builder` 会把 `from` 指向的 `trtc_electron_sdk.node` 文件复制到 bin/mac/your-app-name.app/Contents/Resources（首字母大写）。
-> -   `build.directories.output` ：打包文件的输出路径。例如这个配置会输出到 `bin` 目录下，可根据实际需要修改。
-> -   `build.scripts.build:mac` ：以 Mac 平台为目标构建脚本。
-> -   `build.scripts.build:win` ：以 Windows 平台为目标构建脚本。
-> -   `build.scripts.compile:mac` ：编译为 Mac 下的 .dmg 安装文件。
-> -   `build.scripts.compile:win64` ：编译为 Windows 下的 .exe 安装文件。
-> -   `build.scripts.pack:mac` ：先调用 build:mac 构建代码，再调用 compile:mac 打包成 .dmg 安装文件。
-> -   `build.scripts.pack:win64` ：先调用 build:win 构建代码，再调用 compile:win64 打包成 .exe 安装文件。
+<table>
+<tr><th>参数</th><th>说明</th></tr>
+<tr>
+<td>main</td>
+<td>Electron 的入口文件，一般情况下可以自由配置。但如果项目使用 <code>create-react-app</code> 脚手架创建，则入口文件必须配置为 <code>public/electron.js</code></td>
+</tr><tr>
+<td>build.win.extraFiles</td>
+<td>打包 Windows 程序时，<code>electron-builder</code> 会把 <code>from</code> 所指目录下的所有文件复制到 bin/win-unpacked/resources（全小写）</td>
+</tr><tr>
+<td>build.mac.extraFiles</td>
+<td>打包 Mac 程序时，<code>electron-builder</code> 会把 <code>from</code> 指向的 <code>trtc_electron_sdk.node</code> 文件复制到 bin/mac/your-app-name.app/Contents/Resources（首字母大写）</td>
+</tr><tr>
+<td>build.directories.output</td>
+<td>打包文件的输出路径。例如这个配置会输出到 <code>bin</code> 目录下，可根据实际需要修改</td>
+</tr><tr>
+<td>build.scripts.build:mac</td>
+<td>以 Mac 平台为目标构建脚本</td>
+</tr><tr>
+<td>build.scripts.build:win</td>
+<td>以 Windows 平台为目标构建脚本</td>
+</tr><tr>
+<td>build.scripts.compile:mac</td>
+<td>编译为 Mac 下的 .dmg 安装文件</td>
+</tr><tr>
+<td>build.scripts.compile:win64</td>
+<td>编译为 Windows 下的 .exe 安装文件</td>
+</tr><tr>
+<td>build.scripts.pack:mac</td>
+<td>先调用 build:mac 构建代码，再调用 compile:mac 打包成 .dmg 安装文件</td>
+</tr><tr>
+<td>build.scripts.pack:win64</td>
+<td>先调用 build:win 构建代码，再调用 compile:win64 打包成 .exe 安装文件</td>
+</tr></table>
 
 
 
@@ -222,9 +243,17 @@ $ npm run pack:win64
 由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
 
 ### 2. Electron 安装或打包异常
+- 如果您在集成 Electron 过程中遇到异常：例如安装超时或失败，打包后出现 trtc_electron_sdk.node 文件加载失败等情况，相关问题解答请参见 [Electron 相关常见问题](https://cloud.tencent.com/document/product/647/62562)。
+- 若相关答疑仍未能解决问题，那推荐您参见 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668) 的手动离线安装 Electron章节。
 
-如果您在集成 Electron 过程中遇到异常：例如安装超时或失败，打包后出现 trtc_electron_sdk.node 文件加载失败等情况，请参见 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668)。
+[](id:QQ)
+## 技术咨询
+了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">695855795</dx-tag-link>
 
+## 参考文档
 
-
-
+- [SDK API 手册](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/index.html)
+- [SDK 更新日志](https://cloud.tencent.com/document/product/647/43117)
+- [Simple Demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Electron/TRTCSimpleDemo)
+- [API Example 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Electron/TRTC-API-Example)
+- [Electron 常见问题](https://cloud.tencent.com/document/product/647/62562)

@@ -116,9 +116,9 @@ output_model,optimized_report = tiacc_inference.optimize(input_model,optimizatio
          <th>硬件环境</th>  
          <th>模型</th>  
          <th>batch</th> 
-				 <th>torchscript</th>
-				 <th>TI-ACC</th>
-				 <th>TI-ACC（fp16）</th>
+				 <th>torchscript（时延，ms）</th>
+				 <th>TI-ACC（时延，ms）</th>
+				 <th>TI-ACC（fp16）（时延，ms）</th>
      </tr>
   <tr>      
       <td rowspan="12">腾讯云GN7.2XLARGE32</td>   

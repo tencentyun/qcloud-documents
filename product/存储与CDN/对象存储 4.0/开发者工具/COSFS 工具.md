@@ -90,7 +90,7 @@ sudo zypper install gcc-c++ automake make libcurl-devel libxml2-devel openssl-de
 - macOS 系统下安装依赖软件：
 ```shell
 brew install automake git curl libxml2 make pkg-config openssl 
-brew cask install osxfuse
+brew install cask osxfuse
 ```
 
 #### 2. 获取源码 

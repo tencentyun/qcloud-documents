@@ -7,7 +7,7 @@
 1. 配置 JSON 文件：
 ```
   {
-      "usingComponents": {
+      "usingComponents": { 
         "export": "plugin://myPlugin/wj-export"
       }
     }

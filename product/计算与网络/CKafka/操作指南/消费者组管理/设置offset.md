@@ -5,8 +5,8 @@
 ## 操作步骤
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
-2. 在左侧导航栏单击【实例列表】，单击目标实例的“ID/名称”，进入实例详情页。
-3. 在实例详情页，点击【Consumer Group】标签页，单击【offset 设置】。
+2. 在左侧导航栏单击**实例列表**，单击目标实例的“ID/名称”，进入实例详情页。
+3. 在实例详情页，点击**Consumer Group**标签页，单击**offset 设置**。
 4. 在 offset 设置窗口，选取需要重置 offset 的 Topic 信息（不选则默认全部 Topic 的 offset 均重置）。
 5. 对 offset 进行指定。
 	 ![](https://main.qcloudimg.com/raw/c31019d4f42f6c8536a97e389d746f4d.jpg)

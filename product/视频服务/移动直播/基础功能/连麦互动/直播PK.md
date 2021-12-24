@@ -57,7 +57,7 @@
 - 主播 B：开始播放主播 A 的流，同时发起混流指令，把 B 和 A 的内容合成一路，供主播 B 的观众观看。
 - 观众 A 和 B：无需变化，继续 CDN 播放即可，只不过会看到各自主播混流后的 PK 画面。
 
-<img src="https://main.qcloudimg.com/raw/638542d7e0bbb8fb3979ebfb00177f9d.png">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/a917bf9068f5890ddc55e5ff2b7cd32a.png">
 
 [](id:step1)
 ### 1. 主播 A 开始推流

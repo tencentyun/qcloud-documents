@@ -46,12 +46,12 @@ return [
 
 | 参数               | 描述                                                         |
 | ------------------ | ------------------------------------------------------------ |
-| bootstrap_servers  | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/c5cf200a66f6dcf627d2ca6f1c747ecf.png) |
-| topic_name         | Topic 名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
-| group_id           | 消费者的组 Id，根据业务需求自定义，demo运行成功后可以在【Consumer Group】页面看到该消费者。 |
+| bootstrap_servers  | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/c5cf200a66f6dcf627d2ca6f1c747ecf.png) |
+| topic_name         | Topic 名称，您可以在控制台上**topic管理**页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
+| group_id           | 消费者的组 Id，根据业务需求自定义，demo运行成功后可以在**Consumer Group**页面看到该消费者。 |
 | ckafka_instance_id | 实例 ID，在 CKafka 控制台的实例详情页面的基本信息获取。<br/>![](https://main.qcloudimg.com/raw/9c417da4953669372fa4c13973096d3b.png) |
-| sasl_username      | 用户名，在控制台【用户管理】页面创建用户时设置。               |
-| sasl_password      | 用户密码，在控制台【用户管理】页面创建用户时设置。             |
+| sasl_username      | 用户名，在控制台**用户管理**页面创建用户时设置。               |
+| sasl_password      | 用户密码，在控制台**用户管理**页面创建用户时设置。             |
 
 
 
@@ -69,9 +69,9 @@ $conf->set('bootstrap.servers', $setting['bootstrap_servers']);
 // ---------- 启用 SASL 验证时需要设置 ----------
 // SASL 验证机制类型默认选用 PLAIN
 $conf->set('sasl.mechanism', 'PLAIN');
-// 设置用户名：实例 ID + # + 【用户管理】中配置的用户名
+// 设置用户名：实例 ID + # + **用户管理**中配置的用户名
 $conf->set('sasl.username', $setting['ckafka_instance_id'] . '#' . $setting['sasl_username']);
-// 设置密码：【用户管理】中配置的密码
+// 设置密码：**用户管理**中配置的密码
 $conf->set('sasl.password', $setting['sasl_password']);
 // 在本地配置 ACL 策略。
 $conf->set('security.protocol', 'SASL_PLAINTEXT');
@@ -96,11 +96,11 @@ $conf->set('reconnect.backoff.max.ms', 3000);
 
 // 注册发送消息的回调
 $conf->setDrMsgCb(function ($kafka, $message) {
-    echo '【Producer】发送消息：message=' . var_export($message, true) . "\n";
+    echo '**Producer**发送消息：message=' . var_export($message, true) . "\n";
 });
 // 注册发送消息错误的回调
 $conf->setErrorCb(function ($kafka, $err, $reason) {
-    echo "【Producer】发送消息错误：err=$err reason=$reason \n";
+    echo "**Producer**发送消息错误：err=$err reason=$reason \n";
 });
 
 $producer = new RdKafka\Producer($conf);
@@ -119,7 +119,7 @@ while ($producer->getOutQLen() > 0) {
     $producer->poll(50);
 }
 
-echo "【Producer】消息发送成功\n";
+echo "**Producer**消息发送成功\n";
   ```
 
 2. 运行 Producer.php 发送消息。
@@ -129,7 +129,7 @@ php Producer.php
 
 3. 查看运行结果。
   ```bash
->【Producer】发送消息：message=RdKafka\Message::__set_state(array(
+>**Producer**发送消息：message=RdKafka\Message::__set_state(array(
 >   'err' => 0,
 >   'topic_name' => 'topic_name',
 >   'timestamp' => 1618800895159,
@@ -140,7 +140,7 @@ php Producer.php
 >   'offset' => 0,
 >   'headers' => NULL,
 >))
->【Producer】发送消息：message=RdKafka\Message::__set_state(array(
+>**Producer**发送消息：message=RdKafka\Message::__set_state(array(
 >   'err' => 0,
 >   'topic_name' => 'topic_name',
 >   'timestamp' => 1618800895159,
@@ -154,10 +154,10 @@ php Producer.php
 
 ...
 
->【Producer】消息发送成功
+>**Producer**消息发送成功
   ```
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic 管理】页面，选择对应的 Topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**topic 管理**页面，选择对应的 Topic，单击**更多** > **消息查询**，查看刚刚发送的消息。
 ![](https://main.qcloudimg.com/raw/c18f71eecfa5f2d9ef9df19b7eb876fc.png)
 
 
@@ -176,9 +176,9 @@ $conf->set('bootstrap.servers', $setting['bootstrap_servers']);
 // ---------- 启用 SASL 验证时需要设置 ----------
 // SASL 验证机制类型默认选用 PLAIN
 $conf->set('sasl.mechanism', 'PLAIN');
-// 设置用户名：实例 ID + # + 【用户管理】中配置的用户名
+// 设置用户名：实例 ID + # + **用户管理**中配置的用户名
 $conf->set('sasl.username', $setting['ckafka_instance_id'] . '#' . $setting['sasl_username']);
-// 设置密码：【用户管理】中配置的密码
+// 设置密码：**用户管理**中配置的密码
 $conf->set('sasl.password', $setting['sasl_password']);
 // 在本地配置 ACL 策略。
 $conf->set('security.protocol', 'SASL_PLAINTEXT');
@@ -207,13 +207,13 @@ while ($isConsuming) {
     $message = $consumer->consume(10 * 1000);
     switch ($message->err) {
         case RD_KAFKA_RESP_ERR_NO_ERROR:
-            echo "【消费者】接收到消息：" . var_export($message, true) . "\n";
+            echo "**消费者**接收到消息：" . var_export($message, true) . "\n";
             break;
         case RD_KAFKA_RESP_ERR__PARTITION_EOF:
-            echo "【消费者】等待信息消息中\n";
+            echo "**消费者**等待信息消息中\n";
             break;
         case RD_KAFKA_RESP_ERR__TIMED_OUT:
-            echo "【消费者】等待超时\n";
+            echo "**消费者**等待超时\n";
             $isConsuming = false;
             break;
         default:
@@ -231,7 +231,7 @@ php Consumer.php
 
 3. 查看运行结果。
   ```bash
-  >【消费者】接收到消息：RdKafka\Message::__set_state(array(
+  >**消费者**接收到消息：RdKafka\Message::__set_state(array(
   >   'err' => 0,
   >   'topic_name' => 'topic_name',
   >   'timestamp' => 1618800895159,
@@ -242,7 +242,7 @@ php Consumer.php
   >   'offset' => 0,
   >   'headers' => NULL,
   >))
-  >【消费者】接收到消息：RdKafka\Message::__set_state(array(
+  >**消费者**接收到消息：RdKafka\Message::__set_state(array(
   >   'err' => 0,
   >   'topic_name' => 'topic_name',
   >   'timestamp' => 1618800895159,
@@ -257,5 +257,5 @@ php Consumer.php
   ...
   ```
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费者组，在主题名称输入 Topic 名称，单击【查询详情】查看消费详情。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**Consumer Group**页面，选择对应的消费者组，在主题名称输入 Topic 名称，单击**查询详情**查看消费详情。
 ![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)

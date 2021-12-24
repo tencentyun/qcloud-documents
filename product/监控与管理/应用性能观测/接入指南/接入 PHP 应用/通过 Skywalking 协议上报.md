@@ -33,9 +33,7 @@ yum 安装的版本也较低，因此采用从源码安装方式。
 ### 步骤2：安装 GRPC
 <dx-codeblock>
 :::  sh
-git clone -b v1.34.x https://github.com/grpc/grpc.git
-cd grpc/
-git submodule update --init --recursive
+wget https://apm-php-depend-src-1258344699.cos.ap-guangzhou.myqcloud.com/grpc.submodule.tar.gz
 mkdir -p cmake/build
 cd cmake/build
 cmake ../..
@@ -53,17 +51,25 @@ ldconfig
 
 ### 步骤3：编译 skywalking.so 扩展
 
-1. 配置境变量：
+1.编译 skywalking.so 扩展需要提前安装依赖库。(已安装可以忽略）
+<dx-codeblock>
+:::  Linux
+# yum install boost-devel
+# yum install autoconf
+  :::
+</dx-codeblock>
+
+2. 配置境变量：
 ` export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/lib64`
 `export LD_RUN_PATH=$LD_RUN_PATH:/usr/local/lib:/usr/local/lib64`
 
-2. 编译 skywalking.so 扩展：
+3. 编译 skywalking.so 扩展：
 <dx-codeblock>
 :::  sh
-git clone -b master https://github.com/SkyAPM/SkyAPM-php-sdk.git
+wget https://apm-php-depend-src-1258344699.cos.ap-guangzhou.myqcloud.com/SkyAPM-php-sdk.tar.gz
 cd SkyAPM-php-sdk/
 /usr/local/services/php7/bin/phpize
-./configure --with-grpc="/usr/local/services/grpc" --with-php-config="/usr/local/services/php7/bin/php-config"
+./configure --with-grpc-src="/本机路径/grpc" --with-php-config="/本机路径/php7/bin/php-config"
 make
 make install
 :::

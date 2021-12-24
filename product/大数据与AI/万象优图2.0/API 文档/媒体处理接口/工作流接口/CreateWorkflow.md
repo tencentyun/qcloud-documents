@@ -1636,7 +1636,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     <MediaWorkflow>
         <Name>demo</Name>
         <State>Active</State>
-        <WorkflowId></WorkflowId
+        <WorkflowId></WorkflowId>
         <BucketId></BucketId>
         <Topology>
             <Dependencies>

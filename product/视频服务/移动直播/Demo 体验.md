@@ -14,13 +14,13 @@
 <td>iOS</td>
 <td><a onclick="window.open('https://itunes.apple.com/cn/app/id1132521667?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/423f07ad3f0958f61ff065c04e77afea.png);background-size: cover;margin:auto">
 </div></a></td>
-<td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/iOS/XiaoZhiBoApp">Github</a></td>
+<td><a href="https://github.com/tencentyun/XiaoZhiBo/tree/main/iOS">Github</a></td>
 </tr>
 <tr>
 <td>Android</td>
 <td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/xiaozhibo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/8b235606b3c881da182b2af8d60d90af.png);background-size: cover;margin:auto">
 </div></a></td>
-<td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/Android/XiaoZhiBo">Github</a></td>
+<td><a href="https://github.com/tencentyun/XiaoZhiBo/tree/main/Android">Github</a></td>
 </tr>
 </tr>
 </table>

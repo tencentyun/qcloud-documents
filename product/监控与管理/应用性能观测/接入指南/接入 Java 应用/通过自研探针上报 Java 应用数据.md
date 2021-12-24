@@ -31,8 +31,8 @@ unzip tapm-agent-java-x.x.x.zip -d /path/to/appserver/
 	- **collector.addresses**：填写在 [应用性能观测控制台](https://console.cloud.tencent.com/apm) 接入应用时获取的接入点。例如 tapm.ap-guangzhou.api.tencentyun.com:80。
 3. 在 tapm 目录下执行以下命令自动安装探针。
 ```plaintext
-cd /path/to/appserver/tapm
-java -jar tapm-agent-java.jar install
+java -javaagent:/data/service/APM/java/tapm/tapm-agent-java-3.6.1.5/tapm/tapm-agent-java.jar -jar watch-0.0.1-SNAPSHOT.jar
+
 ```
 4. 启动或重启应用服务器。
 5. 登录应用性能观测控制台查看性能数据。
@@ -54,8 +54,8 @@ java -jar tapm-agent-java.jar install
 4. 在命令行窗口执行：(唤起控制台：Windows键+ **R**，然后输入**cmd**)。
 <dx-codeblock>
 :::  plaintext
-   cd tapm
-   java -jar tapm-agent-java.jar install
+java -javaagent:/data/service/APM/java/tapm/tapm-agent-java-3.6.1.5/tapm/tapm-agent-java.jar -jar watch-0.0.1-SNAPSHOT.jar
+
 :::
 </dx-codeblock>
 5. 启动或重启您的应用服务器。

@@ -68,7 +68,7 @@ var Authorization = COS.getAuthorization({
 ```js
 var url = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
-    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，例如ap-beijing，必须字段 */
     Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Sign: false
 });
@@ -80,7 +80,7 @@ var url = cos.getObjectUrl({
 ```js
 var url = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
-    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，例如ap-beijing，必须字段 */
     Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
 });
 ```
@@ -91,7 +91,7 @@ var url = cos.getObjectUrl({
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
-    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，例如ap-beijing，必须字段 */
     Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Sign: false
 }, function (err, data) {
@@ -105,7 +105,7 @@ cos.getObjectUrl({
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
-    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，例如ap-beijing，必须字段 */
     Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Sign: true,
     Expires: 3600, // 单位秒
@@ -122,7 +122,7 @@ var request = require('request');
 var fs = require('fs');
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
-    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，例如ap-beijing，必须字段 */
     Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Sign: true
 }, function (err, data) {
@@ -142,7 +142,7 @@ cos.getObjectUrl({
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
-    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，例如ap-beijing，必须字段 */
     Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Sign: true,
     /* 传入的请求参数需与实际请求相同，能够防止用户篡改此HTTP请求的参数 */
@@ -168,7 +168,7 @@ var request = require('request');
 var fs = require('fs');
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
-    Region: 'COS_REGION',  /* 存储桶所在地域，比如ap-beijing，必须字段 */
+    Region: 'COS_REGION',  /* 存储桶所在地域，例如ap-beijing，必须字段 */
     Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Method: 'PUT',
     Sign: true
