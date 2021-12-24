@@ -274,7 +274,7 @@ filebeat 以 filebeat.yml 文件为主配置文件，首先创建一个 filebeat
 在 kibana 中查看日志, 可以看到每条日志中都包含有 kubernetes 字段。
 ![](https://main.qcloudimg.com/raw/e3a067a58599b22f48aed63b8c10ea79.png)
 
-上述配置通过 container input 直接采集到了 filebeat pod 所在的 node 上的所有 pod 的日志，当然，也包括了 filebeat 自身的日志，在真实的业务场景中，通常只需要采集业务关心的 pod 的日志即可，此时一种方式是通过在 filebeat.yml 中定义[processor](https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-equals), 对采集到的所有日志 event 进行过滤，过滤掉不关心的日志 event 即可（比如通过 drop event processor 过滤掉某些不关心的 namespace 和 pod 的日志）；另外一种解决办法是通过 Autodiscover 定义新的 filebeat.yml 配置文件，通过定义模板只采集固定 pod 的日志，下面是一个简单的 Autodiscover 配置，该配置只采集容器名称为 nginx 的 pod 的日志：
+上述配置通过 container input 直接采集到了 filebeat pod 所在的 node 上的所有 pod 的日志，当然，也包括了 filebeat 自身的日志，在真实的业务场景中，通常只需要采集业务关心的 pod 的日志即可，此时一种方式是通过在 filebeat.yml 中定义[processor](https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-equals), 对采集到的所有日志 event 进行过滤，过滤掉不关心的日志 event 即可（例如通过 drop event processor 过滤掉某些不关心的 namespace 和 pod 的日志）；另外一种解决办法是通过 Autodiscover 定义新的 filebeat.yml 配置文件，通过定义模板只采集固定 pod 的日志，下面是一个简单的 Autodiscover 配置，该配置只采集容器名称为 nginx 的 pod 的日志：
 ```
     filebeat.autodiscover:
                 providers:
