@@ -181,7 +181,7 @@ TUILogin.login(userId, userSig) {
 
 ### 步骤5：实现音视频通话
 
-1. 发起方：调用 TUICallingManager 的 `call();` 方法发起通话的请求, 并传入用户 ID数组（userIDs）和通话类型（type），通话类型参数传入`.audio`（音频通话）或者`.video`（视频通话）。如果用户 ID 数组（userIDs）只有1个 userID 时视为单人通话，如果用户 ID数组（userIDs）有多个 userID 时（>=2）视为多人通话。
+1. 发起方：调用 TUICallingManager 的 `call();` 方法发起通话的请求, 并传入用户 ID数组（userIDs）和通话类型（type），通话类型参数传入`.audio`（音频通话）或者`.video`（视频通话）。如果用户 ID 数组（userIDs）只有1个 userID 时视为单人通话，如果用户 ID 数组（userIDs）有多个 userID 时（>=2）视为多人通话。
 2. 接收方：当接收方处于已登录状态时，会自动启动相应的界面。如果希望接收方在不处于登录状态时也能收到通话请求，请参见 [离线接听](#model.offline)。
 
 <dx-codeblock>
