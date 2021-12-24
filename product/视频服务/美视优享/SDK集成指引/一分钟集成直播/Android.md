@@ -1,16 +1,16 @@
 [](id:step1)
 ## 步骤一：解压 Demo 工程
-1. 下载集成了 X-Magic 的 MLVB [Demo]() 工程。
+1. 下载集成了 X-Magic 的 [MLVB Demo]() 工程。
 2. 将 Demo ⼯程中的 X - magic 模块引⼊到实际项⽬⼯程中。
 
 [](id:step2)
-## 步骤二：授权。
+## 步骤二：授权
 - **方法1：**
-	1. 打开 `xmagic/src/main/assets/` 将测试授权的 lic ⽂件添加到该⽬录下。
-	2. 打开 `xmagic/src/main/java/com.tencent.xmagic/XMagicImpl.java`  在 initAuth 方法中，将授权⽂件的 lic 添加到接⼝ `Auth.auth` 中。
-- **方法2：**
 	1. 在 MLVBApplication 中获取正确的的 Key 和 URL， 然后在 onCreate 方法中设置  `XMagicLicenseInit.setLicense(context,url,key)` 方法。
 	2. 打开 `xmagic/src/main/java/com.tencent.xmagic/XMagicImpl.java` 在 initAuth 方法中获取 licenseInfo 然后把 licenseInfo 添加到 `Auth.authByBase64` 中。
+- **方法2：**
+	1. 打开 `xmagic/src/main/assets/` 将测试授权的 lic ⽂件添加到该⽬录下。
+	2. 打开 `xmagic/src/main/java/com.tencent.xmagic/XMagicImpl.java`  在 initAuth 方法中，将授权⽂件的 lic 添加到接⼝ `Auth.auth` 中。
 
 [](id:step3)
 ## 步骤三：打开 app 模块的 build.gradle
@@ -21,7 +21,6 @@ configurations  {
 	all*.exclude  group:  'com.google.code.gson'
 }
 ```
-
 
 [](id:step4)
 ## 步骤四：SDK 接口集成
@@ -98,4 +97,4 @@ mXMagic.onDestroy();  //销毁，与Activity的onDestroy方法绑定
     android:layout_above="@+id/ll_edit_info" />
 ```
 7. **初始化面板与美颜设置回调接口**：
-具体操作请参见 Demo⼯程的 `ThirdBeautyActivity.initXMagic();` ⽅法。
+  具体操作请参见 Demo⼯程的 `ThirdBeautyActivity.initXMagic();` ⽅法。
