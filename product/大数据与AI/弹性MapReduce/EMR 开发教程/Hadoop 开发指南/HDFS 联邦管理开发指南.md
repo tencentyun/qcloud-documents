@@ -1,4 +1,4 @@
-﻿## HDFS 联邦管理类型选择
+## HDFS 联邦管理类型选择
 >! 当前 HDFS 联邦管理为白名单开放，如需要可[联系工单](https://console.cloud.tencent.com/workorder/category)开通。
 
 ### HDFS 联邦管理架构 
