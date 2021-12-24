@@ -1,17 +1,17 @@
 [](id:step1)
 ## 步骤一：解压 Demo 工程
 
-1. 下载集成了 X-Magic 的 TRTC [Demo]() 工程。
+1. 下载集成了 X-Magic 的 [TRTC Demo]() 工程。
 2. 将 Demo ⼯程中的 xmagic 模块引⼊到实际项⽬⼯程中。
 
 [](id:step2)
 ## 步骤二：授权
-- 方法1：
-    1.  打开 `xmagic/src/main/assets/` 将测试授权的 lic ⽂件添加到该⽬录下。
-    2.  打开 `xmagic/src/main/java/com.tencent.xmagic/XMagicImpl.java` 在 initAuth 方法中，将授权⽂件的 lic 添加到接⼝ Auth.auth 中。
-- 方法2：
-    1.  在 TRTCApplication 中设置正确的 Key 和 URL，然后在 onCreate 方法中设置 `XMagicLicenseInit.setLicense(context,url,key)` 方法。
-    2.  打开 `xmagic/src/main/java/com.tencent.xmagic/XMagicImpl.java` 在 initAuth 方法中获取 licenseInfo 然后把 licenseInfo 添加到 `Auth.authByBase64` 中。
+- **方法1：**
+	1.  在 TRTCApplication 中设置正确的 Key 和 URL，然后在 onCreate 方法中设置 `XMagicLicenseInit.setLicense(context,url,key)` 方法。
+	2.  打开 `xmagic/src/main/java/com.tencent.xmagic/XMagicImpl.java` 在 initAuth 方法中获取 licenseInfo 然后把 licenseInfo 添加到 `Auth.authByBase64` 中。
+- **方法2：**
+	1.  打开 `xmagic/src/main/assets/` 将测试授权的 lic ⽂件添加到该⽬录下。
+	2.  打开 `xmagic/src/main/java/com.tencent.xmagic/XMagicImpl.java` 在 initAuth 方法中，将授权⽂件的 lic 添加到接⼝ Auth.auth 中。
 
 [](id:step3)
 ## 步骤三：打开 app 模块的 build.gradle
@@ -22,7 +22,6 @@ configurations{
 all*.exclude group:'com.google.code.gson'
 }
 ```
-
 
 [](id:step4)
 ## 步骤四：SDK 接口集成
@@ -59,6 +58,7 @@ mTRTCCloud.setLocalVideoProcessListener(TRTCCloudDef.TRTC_VIDEO_PIXEL_FORMAT_Tex
 ```
 4. **将 textureId 传入到 SDK 内做渲染处理：**
 在 TRTCVideoFrameListener 接口的 `onProcessVideoFrame(TRTCCloudDef.TRTCVideoFrame srcFrame, TRTCCloudDef.TRTCVideoFrame dstFrame)` 方法内添加如下代码： 
+
 ```
 dstFrame.texture.textureId = mXMagic.process(srcFrame.texture.textureId, srcFrame.width, srcFrame.height);
 ```
