@@ -138,7 +138,7 @@ Xcode（11.0及以上的版本）打开源码工程 `TUICalling/Example/TUICalli
 ### 步骤4：初始化并登录组件
 
 1. 调用 `TUICallingManager.sharedInstance()` 进行组件初始化。
-2. 调用 `TUILogin.`init`(sdkAppID)` 进行登录初始化。
+2. 调用 `TUILogin.initWithSdkAppID(SDKAPPID)` 进行登录初始化。
 3. 调用 `TUILogin.login(userId, userSig)` 完成组件的登录，其中几个关键参数的填写请参考下表：
 <table>
 <tr><th>参数名</th><th>作用</th></tr>
@@ -158,7 +158,7 @@ Xcode（11.0及以上的版本）打开源码工程 `TUICalling/Example/TUICalli
 	 // 组件初始化
 	 TUICallingManager.sharedInstance();
    // 登录
-	 TUILogin.`init`(sdkAppID)
+	 TUILogin.initWithSdkAppID(SDKAPPID)
    TUILogin.login(userId, userSig) {
        print("login success")
    } fail: { code, errorDes in
