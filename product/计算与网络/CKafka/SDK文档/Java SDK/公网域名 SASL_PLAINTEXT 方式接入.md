@@ -150,6 +150,10 @@ public class CKafkaConfigurer {
       props.put(ProducerConfig.RETRIES_CONFIG, 5);
       //设置客户端内部重试间隔。
       props.put(ProducerConfig.RECONNECT_BACKOFF_MS_CONFIG, 3000);
+      //ack=0   producer 将不会等待来自 broker 的确认，重试配置不会生效。注意如果被限流了后，就会被关闭连接。
+      //ack=1   broker leader 将不会等待所有 broker follower 的确认，就返回 ack。
+      //ack=all broker leader 将等待所有 broker follower 的确认，才返回 ack。
+      props.put(ProducerConfig.ACKS_CONFIG, "all");
       //构造 Producer 对象，注意，该对象是线程安全的，一般来说，一个进程内一个Producer对象即可。
       KafkaProducer<String, String> producer = new KafkaProducer<>(props);
 
@@ -217,9 +221,12 @@ public class KafkaSaslConsumerDemo {
       //  SASL 采用 Plain 方式。
       props.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
 
-      //两次 Poll 之间的最大允许间隔。
-      //消费者超过该值没有返回心跳，服务端判断消费者处于非存活状态，服务端将消费者从Consumer Group移除并触发Rebalance，默认30s。
+      //消费者超时时长
+      //消费者超过该值没有返回心跳，服务端判断消费者处于非存活状态，服务端将消费者从Consumer Group移除并触发Rebalance，默认30s
       props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, 30000);
+      //两次poll的最长时间间隔
+      //0.10.1.0 版本前这2个概念是混合的，都用session.timeout.ms表示
+      props.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG, 30000);
       //每次 Poll 的最大数量。
       //注意该值不要改得太大，如果 Poll 太多数据，而不能在下次 Poll 之前消费完，则会触发一次负载均衡，产生卡顿。
       props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, 30);
