@@ -12,7 +12,8 @@
 
 ### 步骤一：初始化授权[](id:step1)
 
-1. 离线授权方式。
+<dx-tabs>
+::: 离线授权方式
 ```
 NSString *licensePath = [[NSBundle mainBundle] pathForResource:@"dev_test_v2_S1-04_2022-01-17.lic1.4.1" ofType:@""];
 NSLog(@"youtu auth ret0 : %@", licensePath);
@@ -21,8 +22,9 @@ NSString *version = [XMagicAuthManager getVersion];
 NSLog(@"youtu auth ret : %i", authRet);
 NSLog(@"youtu auth version : %@", version);
 ```
-2. 线上授权方式。
-首先在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码：
+:::
+::: 线上授权方式
+在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码：
 ```
 [TXLiveBase setLicenceURL:@"" key:@""];
 ```
@@ -40,6 +42,8 @@ NSLog(@"xmagic auth ret : %i", authRet);
 NSLog(@"xmagic auth version : %@", [XMagicAuthManager getVersion]);
 ```
 >! key 字段为申请 lic 时提供的 SecretKey。
+:::
+</dx-tabs>
 
 ### 步骤二：设置 SDK 素材资源路径[](id:step2)
 ```
@@ -68,9 +72,9 @@ self.beautyKit = [[XMagic alloc] initWithRenderSize:previewSize assetsDict:asset
 
 ### 步骤三：添加日志和事件监听[](id:step3)
 ```
-    // Register log
-    [self.beautyKit registerSDKEventListener:self];
-    [self.beautyKit registerLoggerListener:self withDefaultLevel:YT_SDK_ERROR_LEVEL];
+// Register log
+[self.beautyKit registerSDKEventListener:self];
+[self.beautyKit registerLoggerListener:self withDefaultLevel:YT_SDK_ERROR_LEVEL];
 ```
 
 ### 步骤四：配置美颜各种效果[](id:step4)
