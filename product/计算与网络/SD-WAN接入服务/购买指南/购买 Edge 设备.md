@@ -1,4 +1,7 @@
 SD-WAN 接入服务有 Edeg-100、Edeg-100-5G、Edeg-1000三种硬件设备，您需要通过线下进行购买。
+>?Edge-1000 目前 POC 测试中，如需体验，请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
+>
+
 
 ## 购买方式
 - 方式一：联系与您对接的腾讯商务经理进行购买。
