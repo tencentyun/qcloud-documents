@@ -32,11 +32,11 @@ const client = TRTC.createClient({
 ```javascript
 client
   .join({ roomId })
-  .catch(error => {
-    console.error('进房失败 ' + error);
-  })
   .then(() => {
     console.log('进房成功');
+  })
+  .catch(error => {
+    console.error('进房失败 ' + error);
   });
 ```
 
@@ -56,11 +56,11 @@ const localStream = TRTC.createStream({ userId, audio: true, video: true });
 ```javascript
 localStream
   .initialize()
-  .catch(error => {
-    console.error('初始化本地流失败 ' + error);
-  })
   .then(() => {
     console.log('初始化本地流成功');
+  })
+  .catch(error => {
+    console.error('初始化本地流失败 ' + error);
   });
 ```
 
@@ -68,11 +68,11 @@ localStream
 ```javascript
 client
   .publish(localStream)
-  .catch(error => {
-    console.error('本地流发布失败 ' + error);
-  })
   .then(() => {
     console.log('本地流发布成功');
+  })
+  .catch(error => {
+    console.error('本地流发布失败 ' + error);
   });
 ```
 
@@ -100,12 +100,12 @@ client.on('stream-subscribed', event => {
 ```javascript
 localStream
   .initialize()
-  .catch(error => {
-    console.error('初始化本地流失败 ' + error);
-  })
   .then(() => {
     console.log('初始化本地流成功');
     localStream.play('local_stream');
+  })
+  .catch(error => {
+    console.error('初始化本地流失败 ' + error);
   });
 ```
  - 订阅远端流成功时播放远端流
@@ -124,14 +124,14 @@ client.on('stream-subscribed', event => {
 
 ```javascript
 client
-.leave()
-.then(() => {
-  // 退房成功，可再次调用client.join重新进房开启新的通话。
-})
-.catch(error => {
-  console.error('退房失败 ' + error);
-  // 错误不可恢复，需要刷新页面。
-});
+  .leave()
+  .then(() => {
+    // 退房成功，可再次调用client.join重新进房开启新的通话。
+  })
+  .catch(error => {
+    console.error('退房失败 ' + error);
+    // 错误不可恢复，需要刷新页面。
+  });
 ```
 
 >! 每个端在应用场景 appScene 上必须要进行统一，否则会出现一些不可预料的问题。

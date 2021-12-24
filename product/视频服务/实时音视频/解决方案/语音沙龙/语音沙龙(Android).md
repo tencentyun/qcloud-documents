@@ -192,7 +192,7 @@ Source/src/main/java/com/tencent/liteav/trtcchatsalon/model
 </tr>
 <tr>
 <td>userId</td>
-<td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。</td>
+<td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。建议结合业务实际账号体系自行设置。</td>
 </tr>
 <tr>
 <td>userSig</td>
