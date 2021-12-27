@@ -164,7 +164,7 @@
 | ------------------------------------- -------- | ------------- | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
 | [域名注册](https://cloud.tencent.com/document/product/242)   | domain | 服务级   | &#10003; | -                | -        | -                                                            |
 | [网站备案](https://cloud.tencent.com/document/product/243)   | beian | 服务级   | &#10003; | -                | -        | -                                                            |
-| [SSL 证书](https://cloud.tencent.com/document/product/400)    | ssl |资源级   | &#10003; | -                | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/400/40432) |
+| [SSL 证书](https://cloud.tencent.com/document/product/400)    | ssl |资源级   | &#10003; |  &#10003;                | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/400/40432) |
 | [证书监控 SSLPod](https://cloud.tencent.com/document/product/1084) | sslpod | 操作级   | &#10003; | -                | -        | -                                                            |
 | [移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379) | httpdns | 操作级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/379/45155) |
 | [腾讯企业邮](https://cloud.tencent.com/product/exmail)       | exmail | 操作级   | &#10003; | -                | -        | -                                                            |
