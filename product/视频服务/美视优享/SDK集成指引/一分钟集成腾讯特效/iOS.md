@@ -94,12 +94,12 @@ NSDictionary *assetsDict = @{@"core_name":@"LightCore.bundle",
 	@"root_path":[[NSBundle mainBundle] bundlePath]
 };
 ```
-2. 初始化美颜 SDK。
+2. 初始化腾讯特效 SDK。
 ```
 initWithRenderSize:assetsDict: (XMagic)
 self.beautyKit = [[XMagic alloc] initWithRenderSize:previewSize assetsDict:assetsDict];
 ```
-3. 美颜 SDK 处理每帧数据并返回相应处理结果。
+3. 腾讯特效 SDK 处理每帧数据并返回相应处理结果。
 ```
 process: (XMagic)
 ```
@@ -116,12 +116,12 @@ process: (XMagic)
 // 使用GPU处理数据
 - (YTProcessOutput*)processDataWithGpuFuc:(CMSampleBufferRef)inputSampleBuffer;
 
-// 美颜SDK处理数据接口
+// 腾讯特效 SDK处理数据接口
 /// @param input 输入处理数据信息
 /// @return 输出处理后的数据信息
 - (YTProcessOutput* _Nonnull)process:(YTProcessInput * _Nonnull)input;
 ```
-4. 释放美颜 SDK。
+4. 释放腾讯特效 SDK。
 ```
 deinit (XMagic)
 // 在需要释放SDK资源的地方调用

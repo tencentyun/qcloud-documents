@@ -1,5 +1,5 @@
 ## 概述
-移动解析 HTTPDNS 的主要功能是为了有效避免由于运营商传统 LocalDns 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
+移动解析 HTTPDNS 的主要功能是为了有效避免由于运营商传统 LocalDNS 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
 
 ## 前期准备
 1. 首先需要开通移动解析 HTTPDNS 服务，请前往 [移动解析 HTTPDNS 控制台](https://console.cloud.tencent.com/httpdns) 开通。具体操作请参见 [开通移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/54577)。
@@ -97,17 +97,21 @@ typedef enum {
 	配置结构体
 	以下鉴权信息可在腾讯云控制台（https://console.cloud.tencent.com/httpdns/configure）开通服务后获取
 **/
-struct DnsConfig {
-    NSString* appId; // 应用ID，腾讯云控制台申请获得，用于上报
-    int dnsId; // 授权ID，用于域名解析鉴权
-    NSString* dnsKey; // 加密密钥，加密方式为 AES、DES 时必传
-    NSString* token; // 加密方式为 HTTPS 时必传
-    NSString* dnsIp; // HTTPDNS 服务器 IP
+typedef struct DnsConfigStruct {
+    NSString* appId; // 可选，应用ID，腾讯云控制台申请获得，用于灯塔数据上报（未集成灯塔时该参数无效）
+    int dnsId; // 授权ID，腾讯云控制台申请后可直接在控制台查看
+    NSString* dnsKey; // 加密密钥，加密方式为 AES、DES 时必传。腾讯云控制台申请后可直接在控制台查看，用于域名解析鉴权
+    NSString* token; // 加密 token，加密方式为 HTTPS 时必传
+    NSString* dnsIp; // HTTPDNS 服务器 IP。HTTP 协议服务地址为 `119.29.29.98`，HTTPS 协议服务地址为 `119.29.29.99`
     BOOL debug; // 是否开启Debug日志，YES：开启，NO：关闭。建议联调阶段开启，正式上线前关闭
-    int timeout; // 超时时间，单位ms，如设置0，则设置为默认值2000ms
+    int timeout; // 可选，超时时间，单位ms，如设置0，则使用默认值2000ms
     HttpDnsEncryptType encryptType; // 控制加密方式
-    NSString* routeIp; // 查询线路 IP 地址
-};
+    NSString* routeIp; // 可选，DNS 请求的 ECS（EDNS-Client-Subnet）值，默认情况下 HTTPDNS 服务器会查询客户端出口 IP 为 DNS 线路查询 IP，可以指定线路 IP 地址。支持 IPv4/IPv6 地址传入
+    BOOL httpOnly;// 可选，是否仅返回 httpDns 解析结果。默认 false，即当 httpDns 解析失败时会返回 LocalDNS 解析结果，设置为 true 时，仅返回 httpDns 的解析结果
+    NSUInteger retryTimesBeforeSwitchServer; // 可选，切换ip之前重试次数, 默认3次
+    NSUInteger minutesBeforeSwitchToMain; // 可选，设置切回主ip间隔时长，默认10分钟
+    BOOL enableReport; // 是否开启解析异常上报，默认NO，不上报
+} DnsConfig;
 ```
 
 #### 接口声明
@@ -134,7 +138,7 @@ struct DnsConfig {
 接口调用示例：
 - 在 Objective-C 项目中。
 ```objc
-	DNSConfig *config = new DnsConfig();
+	DnsConfig *config = new DnsConfig();
 	config->dnsIp = @"HTTPDNS 服务器IP";
 	config->dnsId = @"dns授权id";
 	config->dnsKey = @"加密密钥";
@@ -155,6 +159,7 @@ msdkDns?.initConfig(with: [
 		"encryptType": 0, // 0 -> des，1 -> aes，2 -> https
 ]);
 ```
+
 ### 域名解析接口
 
 **获取 IP 共有以下四个接口，**引入头文件，调用相应接口即可。

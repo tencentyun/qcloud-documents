@@ -9,6 +9,7 @@
 2. 在**实例管理**页面，找到目标实例，单击右侧**操作**列的**配置监听器**。
 3. 在 TCP/UDP 监听器页签，单击**新建**。
 4. 在弹出的**创建监听器**对话框中，配置 TCP 监听器的基本信息，配置完成后单击**下一步：健康检查**。
+![](https://qcloudimg.tencent-cloud.cn/raw/77e75f69a7e3f5e5a9795a171abdcf58.png)
 <table>
 <thead>
 <tr>
@@ -43,6 +44,7 @@
 2. 在**健康检查**页签配置监听器的健康检查信息，配置完成后单击**下一步：会话保持**。
 <dx-accordion>
 ::: 配置 TCP 健康检查
+![](https://qcloudimg.tencent-cloud.cn/raw/a1931826c183b51adb9c65517521d2e6.png)
 <table>
 <tr>
 <th>参数</th><th>说明</th>
@@ -71,6 +73,7 @@
 </table>
 :::
 ::: 配置 HTTP 健康检查
+![](https://qcloudimg.tencent-cloud.cn/raw/e4d645717b00acce296c9b3a2a8cd197.png)
 <table>
 <tr>
 <th>参数</th><th>说明</th>
@@ -134,6 +137,7 @@
 </table>
 :::
 ::: 配置自定义协议健康检查
+![](https://qcloudimg.tencent-cloud.cn/raw/58fcf2f7ea01f76db1f13882eb98ee25.png)
 <table>
 <tr>
 <th>参数</th><th>说明</th>
@@ -155,10 +159,10 @@
 </ul></td>
 </tr>
 <tr>
-<td>检查请求</td><td>自定义健康检查请求内容。</td>
+<td>检查请求</td><td>自定义健康检查请求内容。例如探测 DNS 服务的检查请求示例为：F13E0100000100000000000003777777047465737403636F6D0774656E63656E7403636F6D0000010001。</td>
 </tr>
 <tr>
-<td>检查返回结果</td><td>自定义健康检查请求时，必须填写健康检查返回结果。</td>
+<td>检查返回结果</td><td>自定义健康检查请求时，必须配置健康检查返回结果。例如探测 DNS 服务的检查返回结果示例为：F13E。</td>
 </tr>
 <tr>
 <td>响应超时</td><td><ul><li> 健康检查响应的最大超时时间。</li><li>如果后端云服务器在超时时间内没有正确响应，则判定为健康检查异常。</li><li>可配置范围：2 - 60秒。</li></ul></td>
@@ -178,7 +182,8 @@
 
 ### 步骤三：配置会话保持
 1. 完成以上 [步骤二](#step2) 的操作。
-2. 在**会话保持**页签配置监听器的会话保持，配置完成后单击**提交**。
+2. 在**会话保持**页签配置监听器的会话保持，配置完成后单击**完成**。
+![](https://qcloudimg.tencent-cloud.cn/raw/b03694613966fd2220d28688c300438f.png)
 <table>
 <thead>
 <tr>
@@ -201,4 +206,4 @@
 
 
 ## 后续操作
-[绑定后端服务](https://cloud.tencent.com/document/product/1510/61384)
+[绑定目标组](https://cloud.tencent.com/document/product/1510/61384#BindTargetGroup)
