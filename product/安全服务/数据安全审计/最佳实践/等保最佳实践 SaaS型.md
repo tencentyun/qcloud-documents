@@ -15,7 +15,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/47cd32b9c5641469479651fe1a22057d.png)
 
 - **审计范围是否覆盖到每个用户**
-在 [审计日志页面](https://console.cloud.tencent.com/dsaudit/log)，可以看到可以审计到每个用户名。
+在 [审计日志页面](https://console.cloud.tencent.com/dsaudit/log)，可以审计到每个用户名。
 ![](https://qcloudimg.tencent-cloud.cn/raw/96dc26559037109f23b1c1442a57cd9c.png)
 
 - **是否对重要的用户行为和重要安全事件进行审计**
