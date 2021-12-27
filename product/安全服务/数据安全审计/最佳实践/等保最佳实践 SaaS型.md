@@ -2,7 +2,7 @@
 >?若您使用的是数据安全审计传统型，请参见 [数据安全审计传统型](https://cloud.tencent.com/document/product/856/67026) 文档。
 
 ## 前提条件
-已购买 [数据安全审计 SaaS 型](https://cloud.tencent.com/document/product/856/17379)，并按照 [快速入门](https://cloud.tencent.com/document/product/856/56089) 完成产品初始化和部署工作。
+已购买 [数据安全审计 SaaS 型](https://cloud.tencent.com/document/product/856/17379)，并按照 [快速入门](https://cloud.tencent.com/document/product/856/64700) 完成产品初始化和部署工作。
 
 ## 等保二级
 **a) 应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计；**
