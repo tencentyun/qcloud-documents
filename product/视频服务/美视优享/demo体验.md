@@ -21,29 +21,29 @@
 </thead>
 <tbody>
 <tr>
-<td>美颜相机 X - magic</td>
-<td><a href="" class="inbuttom">ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/0ca2361fd9184b03eda2b1e101d159ca.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic-demo-2.4.0.103-signed.apk" class="inbuttom">单击下载</a></td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic_S1-04_android_2.4.0.103.zip" class="inbuttom">ZIP 包</a></td>
+<td>腾讯特效 TE</td>
+<td><a href="">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/0ca2361fd9184b03eda2b1e101d159ca.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic-demo-2.4.0.103-signed.apk">单击下载</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic_S1-04_android_2.4.0.103.zip">ZIP 包</a></td>
 <td><a href="https://tcloud-doc.isd.com/document/product/616/65894?!preview&!editLang=zh">DOC</a></td></tr>
 <tr>
 <td>直播 MLVB</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/MLVB-API-Example.zip" class="inbuttom">ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/b7ed0ffa9f0367dbe6589a023a678977.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/app-MLVB-xmagic.apk" class="inbuttom">单击下载</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/MLVB-xmagic-demo.zip" class="inbuttom">ZIP 包</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/MLVB-API-Example.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/b7ed0ffa9f0367dbe6589a023a678977.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/app-MLVB-xmagic.apk">单击下载</td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/MLVB-xmagic-demo.zip">ZIP 包</a></td>
 <td><a href="https://tcloud-doc.isd.com/document/product/616/65887?!preview&!editLang=zh">DOC</a></td>
 </tr>
 <tr>
 <td>实时音视频 TRTC</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/TRTC-API-Example.zip" class="inbuttom">ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/7610ada62ff0d86025d352f3f402279c.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/app-TRTC-xmagic.apk" class="inbuttom">单击下载</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/TRTC-xmagic-demo.zip" class="inbuttom">ZIP 包</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/TRTC-API-Example.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/7610ada62ff0d86025d352f3f402279c.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/app-TRTC-xmagic.apk">单击下载</td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/TRTC-xmagic-demo.zip">ZIP 包</a></td>
 <td><a href="https://tcloud-doc.isd.com/document/product/616/65892?!preview&!editLang=zh">DOC</a></td></tr>
 <tr>
 <td>短视频 UGSV</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/UGSV-API-Example.zip" class="inbuttom">ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/732b6b63bbba26fa877df993cf7903b2.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/app-UGSV-xmagic.apk" class="inbuttom">单击下载</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/UGSV-xmagic-demo.zip" class="inbuttom">ZIP 包</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/UGSV-API-Example.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/732b6b63bbba26fa877df993cf7903b2.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/app-UGSV-xmagic.apk">单击下载</td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/UGSV-xmagic-demo.zip">ZIP 包</a></td>
 <td><a href="https://tcloud-doc.isd.com/document/product/616/65893?!preview&!editLang=zh">DOC</a></td></tr>
 </tbody></table>
 
@@ -65,9 +65,9 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media1.gif" alt=""></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media2.gif" alt=""></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media3.gif" alt=""></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media1.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media2.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media3.gif"></td>
 </tr>
 </tbody></table>
 
@@ -84,17 +84,17 @@
 <table>
 <tr>
 <th colspan=4 align="center">2D 动效</th>
-<td align="center"><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media5.gif" alt=""></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media6.gif" alt=""></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media7.gif" alt=""></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media8.gif" alt=""></td>
+<td align="center"><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media5.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media6.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media7.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media8.gif"></td>
 </tr>
 <tr>
 <th colspan=4 align="center">3D 动效</th>
-<td align="center"><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media10.gif" alt=""></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media11.gif" alt=""></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media12.gif" alt=""></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media13.gif" alt=""></td>
+<td align="center"><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media10.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media11.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media12.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media13.gif"></td>
 </tr>
 </tbody></table>
 
