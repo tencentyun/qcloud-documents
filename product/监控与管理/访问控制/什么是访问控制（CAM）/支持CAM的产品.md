@@ -569,7 +569,6 @@
 | [迁移服务平台](https://cloud.tencent.com/document/product/659) | msp        | 服务级   | ✓      | -                | ✓        | -                                                            |
 | [前端性能监控](https://cloud.tencent.com/document/product/1464) | rum        | 资源级   | ✓      | ✓                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1464/58149) |
 | [应用性能观测](https://cloud.tencent.com/document/product/1463) | apm        | 资源级   | ✓      | ✓                | -        | -                                                            |
-| [应用性能监控](https://cloud.tencent.com/document/product/1349) | tapm       | 资源级   | ✓      | ✓                | -        | -                                                            |
 | [混沌演练平台](https://cloud.tencent.com/document/product/1500) | cfg        | 服务级   | ✓      | -                | ✓        | -                                                            |
 
 
