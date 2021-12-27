@@ -6,7 +6,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/c7bd24315d93ab81d9e72e280ac7b81d.png)
 4. 在添加黑名单页面，配置相关参数，单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ebe06ba5a593d5073d4f919fec18bc2a.png)
-**字段说明**
+**字段说明：**
  - **IP 地址：**支持任意 IP 地址，例如10.0.0.10或 FF05::B5；支持 CIDR 格式地址，例如10.0.0.0/16或 FF05:B5::/60，使用换行符进行分隔，一次最多添加20个。
 >?
 >- 选择域名为 ALL 时，添加的 IP 地址或 IP 段为全局的黑白名单。
