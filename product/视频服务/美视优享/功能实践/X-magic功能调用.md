@@ -25,7 +25,7 @@
 
 | API               | 描述         |
 | ----------------- | ---------- |
-| setLibPathAndLoad | 设置 libPath。 |
+| [setLibPathAndLoad](#setlibpathandload) | 设置 libPath。 |
 
 ## Public 成员函数说明
 
