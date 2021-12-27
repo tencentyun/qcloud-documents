@@ -1,19 +1,13 @@
 
-
 ## 操作场景
-
 本场景用于介绍恢复 MySQL 逻辑备份到腾讯云 MySQL 数据库中。
 
 ## 前提条件
-
 - 恢复目标数据库符合备份功能和版本要求，请参见 [支持的备份能力](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
-
 - 恢复账号需要具备目标数据库的如下对应权限。
-
-  ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。 
+ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。 
 
 ## 操作步骤
-
 1. 登录 [DBS 控制台](https://console.cloud.tencent.com/dbs)，在左侧导航选择**备份计划**页，进入备份计划页。
 2. 选择指定的备份计划，单击任务 ID 或者在**操作**列单击**查看**，进入基本信息页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c2712383ab008d638ac91765d19b1e1a.png)
@@ -52,7 +46,6 @@
 <td>帐号</td><td>目标数据库帐号。</td></tr>
 <tr>
 <td>密码</td><td>目标数据库帐号的密码。</td></tr></tbody></table>
-
 5. 在**配置恢复对象**页面中，选择恢复冲突选项和恢复对象，完成后单击**下一步**。
    对于库、表等可能同名发生冲突的情况，可选择不同的冲突策略：
    - 遇到同名对象则失败：恢复任务过程中，如果恢复的数据与目标库中的对象（库、表等）同名，则恢复任务失败。
@@ -62,3 +55,4 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/d73936527bdfee931a4d695029f321df.png)
 7. 返回**恢复数据库**页签，查看恢复任务进度。
 ![](https://qcloudimg.tencent-cloud.cn/raw/974b02cf30791b22c9a77b1c1be1f756.png)
+
