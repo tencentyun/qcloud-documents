@@ -71,7 +71,7 @@ Log.d(TAG, msg);
 	android:layout_height="match_parent" />
 ```
 3. （可选）快速实现相机。
-将 Demo 工程中的 `com.tencent.demo.camera` 目录拷贝到工程中。利用 `<tt>PreviewMgr` 类快速实现相机功能。详细实现可参考 Demo 工程的 `MainActivity.java`。
+将 Demo 工程中的 `com.tencent.demo.camera` 目录拷贝到工程中。利用 `PreviewMgr` 类快速实现相机功能。详细实现可参考 Demo 工程的 `MainActivity.java`。
 ```java
 //初始化相机
 mPreviewMgr = new PreviewMgr();
