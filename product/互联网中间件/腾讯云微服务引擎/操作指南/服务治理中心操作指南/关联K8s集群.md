@@ -21,7 +21,7 @@
 
 ## 资源清单
 
-在 tse 控制台关联 tke/eks 集群后，会在您对应的 tke/eks 中部署 polaris-controller 。在您的 tke/eks 创建的 k8s 资源清单如下：
+在 tse 控制台关联 tke/eks 集群后，会在您对应的 tke/eks 集群中部署 polaris-controller 。在您的 tke/eks 集群创建的 k8s 资源清单如下：
 
 
 | 资源类型 | 资源名 | 资源用途|
@@ -59,7 +59,7 @@ polaris-controller 默认会同步 k8s 集群所有的 namespace，service 和 e
 | 注解名称 | 注解解释 |
 |---------|-----|
 | polarismesh.cn/enableRegister | 是否同步这个服务到北极星。true 同步，false 不同步，默认同步 |
-| polarismesh.cn/aliasService | 把 k8s service 同步到北极星时，同时创建的别名的名字 |
+| polarismesh.cn/aliasService | 把 k8s service 同步到北极星时，同时创建的服务别名的名字 |
 | polarismesh.cn/aliasNamespace | 创建的别名所在的命名空间，配合 polarismesh.cn/aliasService 使用 |
 
 
