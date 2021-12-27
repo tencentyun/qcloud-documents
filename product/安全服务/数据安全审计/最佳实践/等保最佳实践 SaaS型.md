@@ -1,5 +1,5 @@
 为助力企业等保合规，本文为您介绍数据安全审计 SaaS 型各能力与等保相关条款的对应关系，以便有针对性地提供佐证材料。
->?若您使用的是数据安全审计传统型，请参见 [数据安全审计传统型](https://cloud.tencent.com/document/product/856/67026) 文档。
+>?若您使用的是数据安全审计传统型，请参见 [数据安全审计传统型](https://cloud.tencent.com/document/product/856/63886) 文档。
 
 ## 前提条件
 已购买 [数据安全审计 SaaS 型](https://cloud.tencent.com/document/product/856/17379)，并按照 [快速入门](https://cloud.tencent.com/document/product/856/64700) 完成产品初始化和部署工作。
