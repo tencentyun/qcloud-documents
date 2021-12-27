@@ -3,7 +3,6 @@
 >? 
 >- 使用一键 HTTPS 功能，您无需进行繁琐的 SSL 证书部署操作，即可帮助您实现从 HTTP 到 HTTPS 的能力升级。详情请参考 [一键 HTTPS](https://cloud.tencent.com/document/product/400/58062)。
 >- 目前仅提供以下14种安装证书的方式。
->- 如果您不熟悉证书安装，可以使用 “云市场” 的 [证书安装服务](https://market.cloud.tencent.com/categories/1100?tagName=%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85)。
 >
 
 <table>
@@ -72,5 +71,3 @@
 - [安装部署 SSL 证书到云直播（CSS）指引](https://cloud.tencent.com/document/product/400/56291)
 - [腾讯云实现全站 HTTPS 方案](https://cloud.tencent.com/document/product/400/6813)
 
-## [使用 “云市场” 的证书安装服务](id:service)
-以上手动证书安装方式主要包括主流服务器的证书安装，如果您因使用不同服务器类型，没有可进行参考的证书安装教程，腾讯云将提供人工服务安装证书的渠道，可快速帮助您进行证书的安装。详情请查看 [证书安装服务](https://market.cloud.tencent.com/categories/1100?tagName=%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85)。
