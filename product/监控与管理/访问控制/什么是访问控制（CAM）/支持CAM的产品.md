@@ -413,8 +413,8 @@
 
 | 产品                                                         | CAM 中简称 | 授权粒度 | 控制台 | 根据标签进行授权 | 服务角色 | 参考文档 |
 | ------------------------------------------------------------ | ---------- | -------- | ------ | ---------------- | -------- | -------- |
-| [智能钛机器学习平台](https://cloud.tencent.com/document/product/851) | tione      | 操作级   | ✓      | -                | ✓        | -        |
-| [智能钛弹性模型服务](https://cloud.tencent.com/document/product/1120) | tiems      | 服务级   | ✓      | -                | ✓        | -        |
+| [腾讯云 TI 平台 TI-ONE ](https://cloud.tencent.com/document/product/851) | tione      | 操作级   | ✓      | -                | ✓        | -        |
+| [腾讯云 TI 平台 TI-EMS ](https://cloud.tencent.com/document/product/1120) | tiems      | 服务级   | ✓      | -                | ✓        | -        |
 | [智能对话平台](https://cloud.tencent.com/document/product/1060) | tbp        | 服务级   | ✓      | -                | -        | -        |
 | 腾讯觅影开放实验平台                                         | taop       | 服务级   | ✓      | -                | ✓        | -        |
 | 客流数字化平台                                               | ump        | 服务级   | ✓      | -                | -        | -        |
