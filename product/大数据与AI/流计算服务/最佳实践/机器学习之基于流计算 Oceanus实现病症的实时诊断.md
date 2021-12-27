@@ -4,7 +4,7 @@
 
 乳腺癌是目前发病率仅次于肺癌的常见癌症，机器学习算法能够分析已有的临床乳腺癌数据，得到与乳腺癌发病关系最密切的特征，这能够极大地帮助医生进行早期诊断，及时拯救患者。
 
-本方案结合智能钛机器学习平台（TI-ONE）、智能钛弹性模型服务（TI-EMS）、流计算 Oceanus（Flink）、消息队列 CKafka、云数据仓库 ClickHouse、对象存储（COS）针对乳腺癌预测案例使用决策树分类算法实现全流程解决方案，包括离线模型训练、实时特征工程及实时在线预测功能。
+本方案结合腾讯云 TI 平台 TI-ONE、腾讯云 TI 平台 TI-EMS、流计算 Oceanus（Flink）、消息队列 CKafka、云数据仓库 ClickHouse、对象存储（COS）针对乳腺癌预测案例使用决策树分类算法实现全流程解决方案，包括离线模型训练、实时特征工程及实时在线预测功能。
 ![](https://qcloudimg.tencent-cloud.cn/raw/27d988154497fce329a443fbcb827b8e.png)
 
 ### 方案架构
@@ -13,8 +13,8 @@
 
 **涉及产品列表：**
 - [流计算 Oceanus（Flink）](https://console.cloud.tencent.com/oceanus/job)
-- [智能钛机器学习平台（TI-ONE）](https://console.cloud.tencent.com/tione)
-- [智能钛弹性模型服务（TI-EMS）](https://console.cloud.tencent.com/tiems/overview)
+- [腾讯云 TI 平台 TI-ONE ](https://console.cloud.tencent.com/tione)
+- [腾讯云 TI 平台 TI-EMS ](https://console.cloud.tencent.com/tiems/overview)
 - [消息队列 CKafka](https://console.cloud.tencent.com/ckafka/overview)
 - [云数据仓库 ClickHouse](https://console.cloud.tencent.com/cdwch)
 - [对象存储（COS）](https://console.cloud.tencent.com/cos5)
@@ -58,16 +58,16 @@ CREATE TABLE testdb.model_predict_result_1 on cluster default_cluster (res Strin
 ```
 
 ### 注册开通 TI-ONE 服务
-智能钛机器学习平台是为 AI 工程师打造的一站式机器学习服务平台，为用户提供从数据预处理、模型构建、模型训练、模型评估到模型服务的全流程开发及部署支持。 
+腾讯云 TI 平台 TI-ONE 是为 AI 工程师打造的一站式机器学习服务平台，为用户提供从数据预处理、模型构建、模型训练、模型评估到模型服务的全流程开发及部署支持。 
 
-进入 [智能钛机器学习平台控制台](https://console.cloud.tencent.com/tione)，在弹出的页面上开通**角色授权**。
+进入 [腾讯云 TI 平台 TI-ONE 控制台](https://console.cloud.tencent.com/tione)，在弹出的页面上开通**角色授权**。
 1. 单击**前往访问管理**，页面将跳转至访问管理控制台。
 2. 单击**同意授权**，即可创建服务预设角色并授予智能钛机器学习平台相关权限。
 
-角色授权开通后，返回 [智能钛机器学习平台控制台](https://console.cloud.tencent.com/tione)，开通所需地区的后付费计费模式。 具体步骤可参考 [注册与开通服务](https://cloud.tencent.com/document/product/851/39086)。
+角色授权开通后，返回 [腾讯云 TI 平台 TI-ONE 控制台](https://console.cloud.tencent.com/tione)，开通所需地区的后付费计费模式。 具体步骤可参考 [注册与开通服务](https://cloud.tencent.com/document/product/851/39086)。
 
 ### 注册开通 TI-EMS 服务
-智能钛弹性模型服务（Tencent Intelligence Elastic Model Service，TI-EMS）是具备虚拟化异构算力和弹性扩缩容能力的无服务器化在线推理平台。
+腾讯云 TI 平台 TI-EMS 是具备虚拟化异构算力和弹性扩缩容能力的无服务器化在线推理平台。
 - **角色授权**
 进入 [TI-EMS 控制台](https://console.cloud.tencent.com/tiems/overview)，参考上面步骤进行**角色授权**。
 - **创建专用资源组**  
@@ -106,7 +106,7 @@ TI-EMS 平台目前提供公共资源组和专用资源组两种模式。本文�
 
 #### 模型训练和保存
 **模型训练：**  
-进入 [智能钛机器学习平台控制台](https://console.cloud.tencent.com/tione)，选择左侧**工程列表**，单击**新建工程**。其中，**COS Bucket** 选择之前创建好的 COS。
+进入 [腾讯云 TI 平台 TI-ONE 控制台](https://console.cloud.tencent.com/tione)，选择左侧**工程列表**，单击**新建工程**。其中，**COS Bucket** 选择之前创建好的 COS。
 
 进入**工作流编辑页面**，按需拖拽对应的输入、算法、输出等模块到右侧页面即可快速构建一个完整的模型训练框架，具体构建方法可参考 [使用可视化建模构建模型](https://cloud.tencent.com/document/product/851/44432)。  
 
