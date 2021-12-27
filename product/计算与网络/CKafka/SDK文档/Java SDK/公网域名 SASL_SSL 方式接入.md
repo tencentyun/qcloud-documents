@@ -18,12 +18,10 @@ SSL 证书的核心功能是保护服务器-客户端通信。数据通过 SSL �
 1. 创建接入点。
 	1. 在 **[实例列表](https://console.cloud.tencent.com/ckafka/index)** 页面，单击目标实例 ID，进入实例详情页。
 	2. 在 **基本信息** > **接入方式** 中，单击**添加路由策略**，在打开窗口中选择：`路由类型：公网域名接入`,`接入方式：SASL_SSL`。
-![](https://qcloudimg.tencent-cloud.cn/raw/46e6b0bb08a7b73084cb51fabe9d03f2.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/54194786e4502f362cc5ed2142a107aa.png)
 2. 创建角色。
 在**用户管理**页面新建角色，设置密码。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb78b8290232e6342397a30a4c554ef9.png)
-
 3. 创建 Topic。
 在控制台 **topic 管理**页面新建 Topic（参考 [创建 Topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
 
@@ -31,7 +29,8 @@ SSL 证书的核心功能是保护服务器-客户端通信。数据通过 SSL �
 ### 步骤二：添加配置文件
 
 1. 在 pom.xml 中添加以下依赖。
-```xml
+<dx-codeblock>
+:::  xml
 <dependency>
    <dependency>
       <groupId>org.apache.kafka</groupId>
@@ -49,21 +48,24 @@ SSL 证书的核心功能是保护服务器-客户端通信。数据通过 SSL �
       <version>1.6.4</version>
    </dependency>
 </dependency>
-
-```
-
+:::
+</dx-codeblock>
 2. 创建 JAAS 配置文件 `ckafka_client_jaas.conf`，使用**用户管理**界面创建的用户进行修改。
-```properties
+<dx-codeblock>
+:::  properties
 KafkaClient {
 org.apache.kafka.common.security.plain.PlainLoginModule required
 username="yourinstance#yourusername"
 password="yourpassword";
 };
-```
->?username 是`实例 ID` + `#` + `配置的用户名`，password 是配置的用户密码。
-
+:::
+</dx-codeblock>
+<dx-alert infotype="explain" title="">
+username 是`实例 ID` + `#` + `配置的用户名`，password 是配置的用户密码。
+</dx-alert>
 3. 创建消息队列 CKafka 配置文件 kafka.properties。
-```properties
+<dx-codeblock>
+:::  properties
 ## 配置接入网络，在控制台的实例详情页面接入方式模块的网络列复制。
 bootstrap.servers=xx.xx.xx.xx:xxxx
 ## 配置 Topic，在控制台上 topic 管理页面复制。
@@ -76,19 +78,45 @@ java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
 ssl.truststore.location=/xxxx/client.truststore.jks
 ssl.truststore.password=5fi6R!M
 ssl.endpoint.identification.algorithm=
-```
-
-| 参数                                  | 说明                                                         |
-| ------------------------------------- | ------------------------------------------------------------ |
-| `bootstrap.servers`                      | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![](https://qcloudimg.tencent-cloud.cn/raw/6117de422e8b46cf75b7b249bb88c817.png) |
-| `topic`                                  | Topic 名称，您可以在控制台上 **topic管理**页面复制。<br/>![](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
-| `group.id`                               | 您可以自定义设置，Demo 运行成功后可以在 **Consumer Group** 页面看到该消费者。 |
-| `java.security.auth.login.config.plain` | 填写 JAAS 配置文件 `ckafka_client_jaas.conf` 的路径。          |
-| `client.truststore.jks`                  | 采用 `SASL_SSL` 方式接入时，所需的证书路径。          |
-
-
+:::
+</dx-codeblock>
+<table>
+    <thead>
+    <tr>
+        <th>参数</th>
+        <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><code>bootstrap.servers</code></td>
+        <td>接入网络，在控制台的实例详情页面<strong>接入方式</strong>模块的网络列复制。<br><img
+                src="https://qcloudimg.tencent-cloud.cn/raw/6117de422e8b46cf75b7b249bb88c817.png"
+                referrerpolicy="no-referrer"></td>
+    </tr>
+    <tr>
+        <td><code>topic</code></td>
+        <td>Topic 名称，您可以在控制台上 <strong>topic管理</strong>页面复制。<br><img
+                src="https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png" referrerpolicy="no-referrer">
+        </td>
+    </tr>
+    <tr>
+        <td><code>group.id</code></td>
+        <td>您可以自定义设置，Demo 运行成功后可以在 <strong>Consumer Group</strong> 页面看到该消费者。</td>
+    </tr>
+    <tr>
+        <td><code>java.security.auth.login.config.plain</code></td>
+        <td>填写 JAAS 配置文件 <code>ckafka_client_jaas.conf</code> 的路径。</td>
+    </tr>
+    <tr>
+        <td><code>client.truststore.jks</code></td>
+        <td>采用 <code>SASL_SSL</code> 方式接入时，所需的证书路径。</td>
+    </tr>
+    </tbody>
+</table>
 4. 创建配置文件加载程序 CKafkaConfigurer.java。
-```java
+<dx-codeblock>
+:::  java
 public class CKafkaConfigurer {
 
     private static Properties properties;
@@ -117,12 +145,15 @@ public class CKafkaConfigurer {
         return kafkaProperties;
     }
 }
-```
+:::
+</dx-codeblock>
+
 
 ### 步骤三：发送消息
 
 1. 创建发送消息程序 KafkaSaslProducerDemo.java。
-```java
+<dx-codeblock>
+:::  java
    public class KafkaSaslProducerDemo {
 
    public static void main(String[] args) {
@@ -194,9 +225,9 @@ public class CKafkaConfigurer {
       }
    }
 }
-```
+:::
+</dx-codeblock>
 2. 编译并运行 KafkaSaslProducerDemo.java 发送消息。
-   
 3. 运行结果（输出）。
 ```bash
 Produce ok:ckafka-topic-demo-0@198
@@ -210,7 +241,8 @@ Produce ok:ckafka-topic-demo-0@199
 ### 步骤四：消费消息
 
 1. 创建 Consumer 订阅消息程序 `KafkaSaslConsumerDemo.java`。
-```java
+<dx-codeblock>
+:::  java
 public class KafkaSaslConsumerDemo {
 
    public static void main(String[] args) {
@@ -284,13 +316,15 @@ public class KafkaSaslConsumerDemo {
       }
    }
 }
-```
-2. 编译并运行 KafkaSaslConsumerDemo.java 消费消息。
-   
+:::
+</dx-codeblock>
+2. 编译并运行 KafkaSaslConsumerDemo.java 消费消息。   
 3. 运行结果。
-```bash
+<dx-codeblock>
+:::  bash
    Consume partition:0 offset:298
-   Consume partition:0 offset:299   
-```
+   Consume partition:0 offset:299
+:::
+</dx-codeblock>
 4. 在 CKafka 控制台 **Consumer Group** 页面，选择对应的消费组名称，在主题名称输入 Topic 名称，单击**查询详情**，查看消费详情。
 ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)
