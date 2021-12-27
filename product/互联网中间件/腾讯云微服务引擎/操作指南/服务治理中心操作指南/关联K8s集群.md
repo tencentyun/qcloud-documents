@@ -39,6 +39,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/56445f32bd15e36d9c68a25feeca2852.png)
 
 ## polaris-controller 同步行为
+
 polaris-controller 默认会同步 k8s 集群所有的 namespace，service 和 endpoints 。
 
 - namespace: 
@@ -55,7 +56,7 @@ polaris-controller 默认会同步 k8s 集群所有的 namespace，service 和 e
 ## polaris-controller 支持的注解
 您可以在 k8s 的 service 指定注解，操作 polaris-controller 同步的行为，当前支持以下注解。
 
-| 注解名称 | 解释 |
+| 注解名称 | 注解解释 |
 |---------|-----|
 | polarismesh.cn/enableRegister | 是否同步这个服务到北极星。true 同步，false 不同步，默认同步 |
 | polarismesh.cn/aliasService | 把 k8s service 同步到北极星时，同时创建的别名的名字 |
@@ -80,10 +81,10 @@ metadata:
 
 ### 创建别名示例
 
-polaris-controller 默认会以 service 名字，创建一个对应的北极星服务。可能有以下情况，需要创建服务别名：
+polaris-controller 默认会以 service 名字，创建一个对应的北极星服务。可能有以下情况，需要创建服务别名：
 
 1. 因为 k8s 资源命名的限制，您不想用 service 名作为北极星服务的名字。例如您希望北极星的服务名是大写，但是 k8s 的 service 名限制只能小写。这时可以使用别名注解指定一个大写的北极星服务名。
-2. 您希望将某个 namespace 下的某个 service 暴露到另外命名空间中。这时可以使用别名注解指定另一个命名空间。
+2. 您希望将某个 namespace 下的某个 service 暴露到另外命名空间中。这时可以使用别名注解指定另一个命名空间。
 
 
 下面示例的 service 创建时，polaris-controller 会在北极星的 development 命名空间下创建一个名为 productpage 的服务。同时也会在 Development 命名空间下创建一个名为 Productpage 的服务别名。
