@@ -4,7 +4,7 @@
 >- 使用一键 HTTPS 功能，您无需进行繁琐的 SSL 证书部署操作，即可帮助您实现从 HTTP 到 HTTPS 的能力升级。详情请参考 [一键 HTTPS](https://cloud.tencent.com/document/product/400/58062)。
 >- 目前仅提供以下14种安装证书的方式。
 >- 如果您不熟悉证书安装，可以使用 “云市场” 的 [证书安装服务](https://market.cloud.tencent.com/categories/1100?tagName=%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85)。
->- 如果您的业务需要通过非浏览器客户端访问您的服务，则需要下载安装根证书，详情请参考 [SSL 根证书下载](https://cloud.tencent.com/document/product/400/67038)。
+>
 
 <table>
 <tr>
@@ -59,6 +59,9 @@
 <td><a href="https://cloud.tencent.com/document/product/400/47361">Nginx For Windows 服务器国密证书安装</a></td>
 </tr>
 </table>
+
+## 根证书下载
+如果您的业务需要通过非浏览器客户端访问您的服务，则需要下载安装根证书，详情请参考 [SSL 根证书下载](https://cloud.tencent.com/document/product/400/67038)。
 
 ## 证书部署至云服务
 目前证书支持以下方式部署至云服务，请您根据实际需求进行部署操作。
