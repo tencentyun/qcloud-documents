@@ -14,7 +14,7 @@ SSL 证书的核心功能是保护服务器-客户端通信。数据通过 SSL �
 
 ## 操作步骤
 
-### 步骤一：控制台配置
+### 步骤1：控制台配置
 1. 创建接入点。
 	1. 在 **[实例列表](https://console.cloud.tencent.com/ckafka/index)** 页面，单击目标实例 ID，进入实例详情页。
 	2. 在 **基本信息** > **接入方式** 中，单击**添加路由策略**，在打开窗口中选择：`路由类型：公网域名接入`,`接入方式：SASL_SSL`。
@@ -25,10 +25,10 @@ SSL 证书的核心功能是保护服务器-客户端通信。数据通过 SSL �
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb78b8290232e6342397a30a4c554ef9.png)
 
 3. 创建 Topic。
-在控制台 **topic 管理**页面新建 Topic（参考 [创建 Topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
+在控制台 **topic 管理**页面新建 Topic（参见 [创建 Topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
 
 
-### 步骤二：添加配置文件
+### 步骤2：添加配置文件
 
 1. 在 pom.xml 中添加以下依赖。
 ```xml
@@ -119,7 +119,7 @@ public class CKafkaConfigurer {
 }
 ```
 
-### 步骤三：发送消息
+### 步骤3：发送消息
 
 1. 创建发送消息程序 KafkaSaslProducerDemo.java。
 ```java
@@ -203,7 +203,7 @@ Produce ok:ckafka-topic-demo-0@199
 
 
 
-### 步骤四：消费消息
+### 步骤4：消费消息
 
 1. 创建 Consumer 订阅消息程序 `KafkaSaslConsumerDemo.java`。
 ```java

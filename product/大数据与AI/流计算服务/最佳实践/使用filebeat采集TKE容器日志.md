@@ -54,7 +54,7 @@ filebeat 以 filebeat.yml 文件为主配置文件，首先创建一个 filebeat
 
 ### 通过 YML 配置部署一个可以获取到 Pod 元信息的 filebeat demonset
 
-在实际的业务场景中，通常需要通过 filebeat 采集部署在相同 host 上的多个 pod 的日志，通常也需要获取到采集到的 pod 的元信息，比如命令空间、pod 名称、标签等信息，以方便进行过滤或者检索。获取到 pod 的元信息需要调用 k8s 的 API, filebeat 内部也实现了这个功能，因此可以直接使用 filebeat 的[container input](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-container.html)以及[add\_kubernetes\_metadata](https://www.elastic.co/guide/en/beats/filebeat/7.10/add-kubernetes-metadata.html) processors 来实现。
+在实际的业务场景中，通常需要通过 filebeat 采集部署在相同 host 上的多个 pod 的日志，通常也需要获取到采集到的 pod 的元信息，例如命令空间、pod 名称、标签等信息，以方便进行过滤或者检索。获取到 pod 的元信息需要调用 k8s 的 API, filebeat 内部也实现了这个功能，因此可以直接使用 filebeat 的[container input](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-container.html)以及[add\_kubernetes\_metadata](https://www.elastic.co/guide/en/beats/filebeat/7.10/add-kubernetes-metadata.html) processors 来实现。
 
 在 TKE 控制台上，单击 **YML 创建资源**按钮，直接使用如下 yml 配置创建 filebeat demonset。
 ```
@@ -274,7 +274,7 @@ filebeat 以 filebeat.yml 文件为主配置文件，首先创建一个 filebeat
 在 kibana 中查看日志, 可以看到每条日志中都包含有 kubernetes 字段。
 ![](https://main.qcloudimg.com/raw/e3a067a58599b22f48aed63b8c10ea79.png)
 
-上述配置通过 container input 直接采集到了 filebeat pod 所在的 node 上的所有 pod 的日志，当然，也包括了 filebeat 自身的日志，在真实的业务场景中，通常只需要采集业务关心的 pod 的日志即可，此时一种方式是通过在 filebeat.yml 中定义[processor](https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-equals), 对采集到的所有日志 event 进行过滤，过滤掉不关心的日志 event 即可（比如通过 drop event processor 过滤掉某些不关心的 namespace 和 pod 的日志）；另外一种解决办法是通过 Autodiscover 定义新的 filebeat.yml 配置文件，通过定义模板只采集固定 pod 的日志，下面是一个简单的 Autodiscover 配置，该配置只采集容器名称为 nginx 的 pod 的日志：
+上述配置通过 container input 直接采集到了 filebeat pod 所在的 node 上的所有 pod 的日志，当然，也包括了 filebeat 自身的日志，在真实的业务场景中，通常只需要采集业务关心的 pod 的日志即可，此时一种方式是通过在 filebeat.yml 中定义[processor](https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-equals), 对采集到的所有日志 event 进行过滤，过滤掉不关心的日志 event 即可（例如通过 drop event processor 过滤掉某些不关心的 namespace 和 pod 的日志）；另外一种解决办法是通过 Autodiscover 定义新的 filebeat.yml 配置文件，通过定义模板只采集固定 pod 的日志，下面是一个简单的 Autodiscover 配置，该配置只采集容器名称为 nginx 的 pod 的日志：
 ```
     filebeat.autodiscover:
                 providers:
