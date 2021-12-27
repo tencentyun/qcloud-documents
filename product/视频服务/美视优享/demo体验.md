@@ -1,7 +1,6 @@
 <style>
 .markdown-text-box table th,.markdown-text-box table td{text-align: center;}
-.inbuttom{height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #ffffff;color:#ffffff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;}
-.abuttom{width:120px;height: 120px;border:none;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;}
+.inbuttom{height: 30px;width: 120px;min-width: 24px;padding: 0 20px;background-color: #ffffff;color:#ffffff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;}
 </style>
 
 ## Demo 体验
@@ -23,36 +22,29 @@
 <tbody>
 <tr>
 <td>美颜相机 X - magic</td>
-<td><a href="">下载套餐 ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/0ca2361fd9184b03eda2b1e101d159ca.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic-demo-2.4.0.103-signed.apk" class="inbuttom">单击下载</td>
-<td><a onclick="window.open('https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic_S1-04_android_2.4.0.103.zip')"><button class="abuttom">
-</button></a></td>
-<td><a href="">DOC</a></td></tr>
+<td><a href="" class="inbuttom">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/0ca2361fd9184b03eda2b1e101d159ca.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic-demo-2.4.0.103-signed.apk" class="inbuttom">单击下载</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic_S1-04_android_2.4.0.103.zip" class="inbuttom">ZIP 包</a></td>
+<td><a href="https://tcloud-doc.isd.com/document/product/616/65894?!preview&!editLang=zh">DOC</a></td></tr>
 <tr>
 <td>直播 MLVB</td>
-<td><a onclick="window.open('https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/MLVB-API-Example.zip')"><button class="abuttom">
-</button></a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/MLVB-API-Example.zip" class="inbuttom">ZIP 包</a></td>
 <td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/b7ed0ffa9f0367dbe6589a023a678977.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/app-MLVB-xmagic.apk" class="inbuttom">单击下载</td>
-<td><a onclick="window.open('https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/MLVB-xmagic-demo.zip')"><button class="abuttom">
-</button></a></td>
-<td><a href="">DOC</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/MLVB-xmagic-demo.zip" class="inbuttom">ZIP 包</a></td>
+<td><a href="https://tcloud-doc.isd.com/document/product/616/65887?!preview&!editLang=zh">DOC</a></td>
 </tr>
 <tr>
 <td>实时音视频 TRTC</td>
-<td><a onclick="window.open('https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/TRTC-API-Example.zip')"><button class="abuttom">
-</button></a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/TRTC-API-Example.zip" class="inbuttom">ZIP 包</a></td>
 <td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/7610ada62ff0d86025d352f3f402279c.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/app-TRTC-xmagic.apk" class="inbuttom">单击下载</td>
-<td><a onclick="window.open('https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/TRTC-xmagic-demo.zip')"><button class="abuttom">
-</button></a></td>
-<td><a href="">DOC</a></td></tr>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/TRTC-xmagic-demo.zip" class="inbuttom">ZIP 包</a></td>
+<td><a href="https://tcloud-doc.isd.com/document/product/616/65892?!preview&!editLang=zh">DOC</a></td></tr>
 <tr>
 <td>短视频 UGSV</td>
-<td><a onclick="window.open('https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/UGSV-API-Example.zip')"><button class="abuttom">
-</button></a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/UGSV-API-Example.zip" class="inbuttom">ZIP 包</a></td>
 <td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/732b6b63bbba26fa877df993cf7903b2.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/app-UGSV-xmagic.apk" class="inbuttom">单击下载</td>
-<td><a onclick="window.open('https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/UGSV-xmagic-demo.zip')"><button class="abuttom">
-</button></a></td>
-<td><a href="">DOC</a></td></tr>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/UGSV-xmagic-demo.zip" class="inbuttom">ZIP 包</a></td>
+<td><a href="https://tcloud-doc.isd.com/document/product/616/65893?!preview&!editLang=zh">DOC</a></td></tr>
 </tbody></table>
 
 

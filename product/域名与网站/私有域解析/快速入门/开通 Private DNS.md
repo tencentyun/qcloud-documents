@@ -5,7 +5,7 @@
 
 ## 开通私有域解析 Private DNS
 1. 登录私有域解析 [Private DNS 管理控制台](https://console.cloud.tencent.com/privatedns)。
-2. 在 Private DNS 概览页中，阅读并勾选**用户服务等级协议**。
+2. 在 Private DNS 概览页中，阅读并勾选 **[用户服务等级协议](https://cloud.tencent.com/document/product/1338/51266)**。
 3. 单击**立即开通**，即可开通成功。
 >!KA 客户可享专属服务，请联系对应商务或架构师开通使用。
 

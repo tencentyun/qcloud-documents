@@ -34,26 +34,22 @@
 <td >FE节点JVM线程峰值</td>
 </tr><tr>		
 <td rowspan=2>GC 次数 </td>
-<td >YGC </td>
-<td >次 </td>
-<td >Young GC 次数 </td>
+<td >YoungGC </td>
+<td >count </td>
+<td >	FE 节点 JVM Young GC 次数 </td>
 </tr><tr>
-<td >FGC </td>
-<td >次 </td>
-<td >Full GC 次数 </td>
+<td >OldGC </td>
+<td >count </td>
+<td >	FE 节点JVM Old GC 次数 </td>
 </tr><tr>
-<td rowspan=3>GC 时间 </td>
-<td >FGCT </td>
+<td rowspan=2>GC 时间 </td>
+<td >YoungGC </td>
 <td >s </td>
-<td >Full GC 消耗时间 </td>
+<td >FE 节点 JVM Young GC 时间</td>
 </tr><tr>
-<td >GCT </td>
+<td >OldGC </td>
 <td >s </td>
-<td >垃圾回收时间消耗 </td>
-</tr><tr>
-<td >YGCT </td>
-<td >s </td>
-<td >Young GC 消耗时间 </td>
+<td >FE 节点 JVM Old GC 时间 </td>
 </tr><tr>
 <td rowspan=4>FE 查询延时 </td>
 <td >Quantile75 </td>

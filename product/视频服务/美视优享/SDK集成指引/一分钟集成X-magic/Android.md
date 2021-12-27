@@ -1,15 +1,21 @@
-## 集成准备
+## 集成准备[](id:ready)
+
 - **文件准备**
-```
-xmagic-xxx.aar  //sdk, 必选           
-../assets/  //算法模型、素材资源包，必选 
-../jniLibs  //so库，必选
-lic         //授权文件，必选
-```
--  **获取鉴权证书**
+<table>
+<tr><th>文件类型</th><th>说明</th></tr>
+<tr>
+<td>xmagic.aar</td><td>sdk，必选</td>
+</tr><tr>
+<td>../assets/</td><td>算法模型、素材资源包，必选</td>
+</tr><tr>
+<td>../jniLibs</td><td>so 库，必选</td>
+</tr><tr>
+<td>lic</td><td>授权文件，必选</td>
+</tr></table>
+- **获取鉴权证书**
 
-## 导入资源
 
+## 导入资源[](id:upload)
 ### 资源
 - 添加上述文件准备的全部 `.aar` 文件到 app 工程 `libs` 目录下。
 - 将 lic 文件添加到 `src/main/assets/` 目录下。
@@ -20,34 +26,34 @@ lic         //授权文件，必选
 打开 app 模块的 `build.gradle` 添加依赖引用：
 ```groovy
 android{
-    ...
-    defaultConfig {
-        applicationId "修改成与授权lic绑定的appID"
-        ....
-    }
-    packagingOptions {
-        pickFirst '**/libc++_shared.so'
-    }
+	...
+	defaultConfig {
+		applicationId "修改成与授权lic绑定的appID"
+		....
+	}
+	packagingOptions {
+		pickFirst '**/libc++_shared.so'
+	}
 }
 
 dependencies{
-    ...
-    compile fileTree(dir: 'libs', include: ['*.jar','*.aar'])//添加 *.aar
+	...
+	compile fileTree(dir: 'libs', include: ['*.jar','*.aar'])//添加 *.aar
 }
 ```
+
 ## 动态下载 assets、so、动效资源指引
 
 为了减少包大小，您可以将 SDK 所需的 assets 资源、so库、以及动效资源 MotionRes（部分基础版 SDK 无动效资源）改为联网下载。在下载成功后，将上述文件的路径设置给 SDK。
 
 我们建议您复用 Demo 的下载逻辑，当然，也可以使用您已有的下载服务。动态下载的详细指引，请参见 [腾讯特效 SDK 资源动态下载说明（Android）](https://docs.qq.com/doc/DWHRlU0dlcHlGR3V4)。 
 
-
-
 ## 整体流程
+
 ### 步骤一：鉴权
 1. 获取鉴权证书，将授权文件放入 `../app/src/main/assets/` 目录下。
 2. 调用 `Auth.auth(...)`  对 SDK 进行鉴权。
-```
+```java
 //初始化优图授权
 AuthResult result = Auth.auth(this, "传入lic文件名", "", "");
 String msg = Json.toJsonStr(result);
@@ -55,38 +61,36 @@ Log.d(TAG, msg);
 ```
 
 ### 步骤二：加载美颜 SDK xmagic-xxx.aar
-
 使用美颜 SDK 生命周期大致如下：
 1. 构造美颜 UI 数据，可参考 Demo 工程的 `XmagicResParser.java,XmagicPropertyData.java,XmagicUIState.java` 代码。
-2. 预览布局中添加 GLSurfaceView。
+2. 预览布局中添加 GLSurfaceView。 
 ```
 <android.opengl.GLSurfaceView
-    android:id="@+id/camera_gl_surface_view"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+	android:id="@+id/camera_gl_surface_view"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" />
 ```
 3. （可选）快速实现相机。
-将 Demo 工程中的 com.tencent.demo.camera 目录拷贝到工程中。利用 `<tt>PreviewMgr` 类快速实现相机功能。详细实现可参考 Demo 工程的 `MainActivity.java`。
+将 Demo 工程中的 `com.tencent.demo.camera` 目录拷贝到工程中。利用 `<tt>PreviewMgr` 类快速实现相机功能。详细实现可参考 Demo 工程的 `MainActivity.java`。
 ```java
 //初始化相机
 mPreviewMgr = new PreviewMgr();
 //将布局的GlSurfaceView示例传入相机工具类
 mPreviewMgr.onCreate(mGlSurfaceView);
 //注册预览纹理数据回调函数
-    mPreviewMgr.setCustomTextureProcessor((textureId, textureWidth, textureHeight) -> {
-        if (mXmagicApi == null) {
-            return textureId;
-        }
-        //调用美颜sdk进行渲染
-        int outTexture = mXmagicApi.process(textureId, textureWidth, textureHeight);
-        return outTexture;
+mPreviewMgr.setCustomTextureProcessor((textureId, textureWidth, textureHeight) -> {
+if (mXmagicApi == null) {
+    return textureId;
+}
+//调用美颜sdk进行渲染
+int outTexture = mXmagicApi.process(textureId, textureWidth, textureHeight);
+	return outTexture;
 });
-```
-```java
+
 //在Activity中的onResume方法中启动相机
 mPreviewMgr.onResume(this, 1280, 720);
 ```
-4. 初始化美颜 SDK，建议与 Activity 的 `onResume()` 生命周期绑定。
+4. 初始化美颜 SDK，建议放在 Activity 的 `onResume()`方法中。
 ```java
 mXmagicApi = new XmagicApi(this, XmagicResParser.getResPath(),                  
 new XmagicApi.OnXmagicPropertyErrorListener()); 
@@ -97,7 +101,7 @@ new XmagicApi.OnXmagicPropertyErrorListener());
 </tr><tr>
 <td>String resDir</td><td>资源文件目录，V1版本固定写法</td>
 </tr><tr>
-<td>XmagicResParser.getResPath() `OnXmagicPropertyErrorListener errorListener</td><td>回调函数实现类</td>
+<td>OnXmagicPropertyErrorListener errorListener</td><td>回调函数实现类</td>
 </tr></table>
 	- **返回**
 错误码含义对照表：
@@ -149,16 +153,16 @@ mXmagicApi.onPause();
 8. 添加素材提示语回调函数（方法回调有可能运行在子线程）。
 ```java
 mXmagicApi.setTipsListener(new XmagicTipsListener() {
-    final XmagicToast mToast = new XmagicToast();
-    @Override
-    public void tipsNeedShow(String tips, String tipsIcon, int type, int duration) {
-        mToast.show(MainActivity.this, tips, duration);
-    }
+	final XmagicToast mToast = new XmagicToast();
+	@Override
+	public void tipsNeedShow(String tips, String tipsIcon, int type, int duration) {
+		mToast.show(MainActivity.this, tips, duration);
+	}
 
-    @Override
-    public void tipsNeedHide(String tips, String tipsIcon, int type) {
-        mToast.dismiss();
-    }
+	@Override
+	public void tipsNeedHide(String tips, String tipsIcon, int type) {
+		mToast.dismiss();
+	}
 });
 ```
 
