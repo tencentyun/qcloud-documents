@@ -60,8 +60,8 @@ String msg = Json.toJsonStr(result);
 Log.d(TAG, msg);
 ```
 
-### 步骤二：加载美颜 SDK xmagic-xxx.aar
-使用美颜 SDK 生命周期大致如下：
+### 步骤二：加载腾讯特效 SDK xmagic-xxx.aar
+使用腾讯特效 SDK 生命周期大致如下：
 1. 构造美颜 UI 数据，可参考 Demo 工程的 `XmagicResParser.java,XmagicPropertyData.java,XmagicUIState.java` 代码。
 2. 预览布局中添加 GLSurfaceView。 
 ```
@@ -82,7 +82,7 @@ mPreviewMgr.setCustomTextureProcessor((textureId, textureWidth, textureHeight) -
 if (mXmagicApi == null) {
     return textureId;
 }
-//调用美颜sdk进行渲染
+//调用腾讯特效 SDK进行渲染
 int outTexture = mXmagicApi.process(textureId, textureWidth, textureHeight);
 	return outTexture;
 });
@@ -90,7 +90,7 @@ int outTexture = mXmagicApi.process(textureId, textureWidth, textureHeight);
 //在Activity中的onResume方法中启动相机
 mPreviewMgr.onResume(this, 1280, 720);
 ```
-4. 初始化美颜 SDK，建议放在 Activity 的 `onResume()`方法中。
+4. 初始化腾讯特效 SDK，建议放在 Activity 的 `onResume()`方法中。
 ```java
 mXmagicApi = new XmagicApi(this, XmagicResParser.getResPath(),                  
 new XmagicApi.OnXmagicPropertyErrorListener()); 
@@ -136,7 +136,7 @@ new XmagicApi.OnXmagicPropertyErrorListener());
 <td>5004</td><td>分割背景视频格式不支持</td>
 </tr>
 </tbody></table>
-5. 美颜 SDK 处理每帧数据并返回相应处理结果。
+5. 腾讯特效 SDK 处理每帧数据并返回相应处理结果。
 ```
 int outTexture = mXmagicApi.process(textureId, textureWidth, textureHeight);
 ```
@@ -145,7 +145,7 @@ int outTexture = mXmagicApi.process(textureId, textureWidth, textureHeight);
 // 可用的入参属性可以从 XmagicResParser.parseRes() 获得
 mXmagicApi.updateProperty(XmagicProperty<?> p);
 ```
-7. 释放美颜 SDK，建议与 Activity 的 `onPause()` 生命周期绑定。
+7. 释放腾讯特效 SDK，建议与 Activity 的 `onPause()` 生命周期绑定。
 ```java
 //在 Activity 的 onPause 时调用, 需要在 OpenGL 线程调用
 mXmagicApi.onPause();
