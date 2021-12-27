@@ -9,7 +9,7 @@
 
 本条款主要考察如下三点：
 - **是否开启了安全审计功能**
-  1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/cds/audit)，，显示立即进入，表明已经完成产品购买。
+  1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/cds/audit)，显示立即进入，表明已经完成产品购买。
   ![](https://qcloudimg.tencent-cloud.cn/raw/bef6d8fa05236237600a79625064c03b.png)
   2. 单击**立即进入**，跳转至数据安全审计概览页。可以查看到产品服务状态及资产安全概况，证明产品已正常运行。
 ![](https://qcloudimg.tencent-cloud.cn/raw/47cd32b9c5641469479651fe1a22057d.png)
@@ -43,7 +43,7 @@
 
 本条款主要考察如下三点：
 - **是否开启了安全审计功能**
-  1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/cds/audit)，，显示立即进入，表明已经完成产品购买。
+  1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/cds/audit)，显示立即进入，表明已经完成产品购买。
   ![](https://qcloudimg.tencent-cloud.cn/raw/bef6d8fa05236237600a79625064c03b.png)
   2. 单击**立即进入**，跳转至数据安全审计概览页。可以查看到产品服务状态及资产安全概况，证明产品已正常运行。
 ![](https://qcloudimg.tencent-cloud.cn/raw/47cd32b9c5641469479651fe1a22057d.png)
