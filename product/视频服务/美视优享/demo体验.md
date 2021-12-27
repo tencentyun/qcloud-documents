@@ -4,7 +4,6 @@
 </style>
 
 ## Demo 体验
-
 您可以直接下载我们的 Demo 进行功能体验，包括 X-magic Demo 工程以及集成了 X-magic 的 MLVB、UGSV、TRTC Demo 工程，您可以根据当前项目需要进行针对性的调试。
 
 >!腾讯特效 SDK 下载 iOS 平台 ZIP 包内囊括 SDK 和 Demo工程，若需使用 iOS 端口的 Demo 工程，可前往下载 iOS 端 ZIP 包。
@@ -22,30 +21,31 @@
 <tbody>
 <tr>
 <td>腾讯特效 TE</td>
-<td><a href="">ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/0ca2361fd9184b03eda2b1e101d159ca.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic-demo-2.4.0.103-signed.apk">单击下载</a></td>
+<td><a href="https://cloud.tencent.com/document/product/616/65876">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/6dffbd7690106f2dd51f187055cdc4bd.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic-demo-2.4.0.103-signed.apk">单击下载</a></td>
 <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic_S1-04_android_2.4.0.103.zip">ZIP 包</a></td>
 <td><a href="https://tcloud-doc.isd.com/document/product/616/65894?!preview&!editLang=zh">DOC</a></td></tr>
 <tr>
 <td>直播 MLVB</td>
 <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/MLVB-API-Example.zip">ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/b7ed0ffa9f0367dbe6589a023a678977.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/app-MLVB-xmagic.apk">单击下载</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/MLVB-xmagic-demo.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/879e6cf522845aaea880824c7c5ac354.png" width=120><br><a href="http://dldir1.qq.com/hudongzhibo/xmagic/MLVB-Xmagic-demo-2.4.0.108.apk">单击下载</td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.108.vcube/MLVB-xmagic-demo.zip">ZIP 包</a></td>
 <td><a href="https://tcloud-doc.isd.com/document/product/616/65887?!preview&!editLang=zh">DOC</a></td>
 </tr>
 <tr>
 <td>实时音视频 TRTC</td>
 <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/TRTC-API-Example.zip">ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/7610ada62ff0d86025d352f3f402279c.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/app-TRTC-xmagic.apk">单击下载</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/TRTC-xmagic-demo.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/2fd150becfa19b3333fe47c5c12eb253.png" width=120><br><a href="http://dldir1.qq.com/hudongzhibo/xmagic/TRTC-Xmagic-demo-2.4.0.108.apk">单击下载</td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.108.vcube/TRTC-xmagic-demo.zip">ZIP 包</a></td>
 <td><a href="https://tcloud-doc.isd.com/document/product/616/65892?!preview&!editLang=zh">DOC</a></td></tr>
 <tr>
 <td>短视频 UGSV</td>
 <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/UGSV-API-Example.zip">ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/732b6b63bbba26fa877df993cf7903b2.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/app-UGSV-xmagic.apk">单击下载</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.vcube/UGSV-xmagic-demo.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/c8f7958084e44d920c1542787dfb985f.png" width=120><br><a href="	http://dldir1.qq.com/hudongzhibo/xmagic/UGSV-Xmagic-demo-2.4.0.108.apk">单击下载</td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.108.vcube/UGSV-xmagic-demo.zip">ZIP 包</a></td>
 <td><a href="https://tcloud-doc.isd.com/document/product/616/65893?!preview&!editLang=zh">DOC</a></td></tr>
 </tbody></table>
+
 
 
 
