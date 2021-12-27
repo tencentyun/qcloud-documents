@@ -38,7 +38,7 @@
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/56445f32bd15e36d9c68a25feeca2852.png)
 
-## polaris-controller 同步行为
+## polaris-controller 同步行为
 
 polaris-controller 默认会同步 k8s 集群所有的 namespace，service 和 endpoints 。
 
