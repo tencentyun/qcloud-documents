@@ -56,7 +56,7 @@ polaris-controller 默认会同步 k8s 集群所有的 namespace，service 和 e
 ## polaris-controller 支持的注解
 您可以在 k8s 的 service 指定注解，操作 polaris-controller 同步的行为，当前支持以下注解。
 
-| 注解名称 | 注解解释 |
+| 注解名称 | 注解说明 |
 |---------|-----|
 | polarismesh.cn/enableRegister | 是否同步这个服务到北极星。true 同步，false 不同步，默认同步 |
 | polarismesh.cn/aliasService | 把 k8s service 同步到北极星时，同时创建的服务别名的名字 |
@@ -65,7 +65,7 @@ polaris-controller 默认会同步 k8s 集群所有的 namespace，service 和 e
 
 ### 关闭自动同步示例
 
-polaris-controller 默认会同步 k8s 集群所有的 service，某些场景下，有些 service 不想同步到北极星，可以使用 polarismesh.cn/enableRegister 注解关闭自动同步。
+polaris-controller 默认会同步 k8s 集群所有的 service。某些场景下，您可能不想同步某个 service 到北极星，这时可以使用 polarismesh.cn/enableRegister 注解关闭自动同步。
 
 下面的 service 创建时，polaris-controller 不会在北极星创建对应的服务。
 
@@ -83,7 +83,7 @@ metadata:
 
 polaris-controller 默认会以 service 名字，创建一个对应的北极星服务。可能有以下情况，需要创建服务别名：
 
-1. 因为 k8s 资源命名的限制，您不想用 service 名作为北极星服务的名字。例如您希望北极星的服务名是大写，但是 k8s 的 service 名限制只能小写。这时可以使用别名注解指定一个大写的北极星服务名。
+1. 您不想用 service 名作为北极星服务的名字。例如您希望北极星的服务名是大写，但是 k8s 的 service 名限制只能小写。这时可以使用别名注解指定一个大写的北极星服务名。
 2. 您希望将某个 namespace 下的某个 service 暴露到另外命名空间中。这时可以使用别名注解指定另一个命名空间。
 
 
