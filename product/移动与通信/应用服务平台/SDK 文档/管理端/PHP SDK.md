@@ -6,23 +6,23 @@
 
 - 通过 composer 安装（推荐使用）：
   具体安装步骤请参见 [官方说明文档](https://getcomposer.org/doc/00-intro)。
-
-```bash
+<dx-codeblock>
+:::  bash
 composer require tencentcloudbase/tcb-manager-php
-```
-
+:::
+</dx-codeblock>
 - 手动安装源码包：
   1. 前往 [源码仓库](https://github.com/TencentCloudBase/tcb-manager-php) 下载源码包。
   2. 将源码包放到项目合适的目录。
 
 ## API 文档
 
-- [介绍](https://docs.cloudbase.net/api-reference/manager/php/overview.html)
+- [介绍](https://docs.cloudbase.net/api-reference/manager/php/overview)
 
-- [初始化](https://docs.cloudbase.net/api-reference/manager/php/initialization.html)
+- [初始化](https://docs.cloudbase.net/api-reference/manager/php/initialization)
 
-- [云数据库](https://docs.cloudbase.net/api-reference/manager/php/clouddatabase.html)
+- [云数据库](https://docs.cloudbase.net/api-reference/manager/php/clouddatabase)
 
-- [云存储](https://docs.cloudbase.net/api-reference/manager/php/cloudstorage.html)
+- [云存储](https://docs.cloudbase.net/api-reference/manager/php/cloudstorage)
 
-- [云函数](https://docs.cloudbase.net/api-reference/manager/php/cloudfunction.html)
+- [云函数](https://docs.cloudbase.net/api-reference/manager/php/cloudfunction)
