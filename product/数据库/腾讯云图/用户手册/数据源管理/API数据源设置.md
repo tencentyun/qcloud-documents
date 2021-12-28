@@ -6,7 +6,7 @@
 
 >!由浏览器端发起的请求为跨域请求，接口的实现需要满足下文的要求。
 
-下图由接口 `http://127.0.0.1:3000/api`举例，文章后面会给出代码。
+下图由接口 `https://127.0.0.1/api`举例，文章后面会给出代码。
 
 ### 设置数据源
 
@@ -17,7 +17,7 @@
 返回 HTTP 响应头以支持浏览器端跨域发起请求。
 
 - `Access-Control-Allow-Credentials: true`：勾选**需要 Cookie**，需要返回。
-- `Access-Control-Allow-Origin: http://yuntu.cloud.tencent.com`：需要按照 HTTP 请求的协议头 Origin 来源返回，如果请求`https://v.yuntus.com`页面（Origin: `https://v.yuntus.com`），则需要对应返回`Access-Control-Allow-Origin: https://v.yuntus.com`。
+- `Access-Control-Allow-Origin: https://yuntu.cloud.tencent.com`：需要按照 HTTP 请求的协议头 Origin 来源返回，如果请求`https://v.yuntus.com`页面（Origin: `https://v.yuntus.com`），则需要对应返回`Access-Control-Allow-Origin: https://v.yuntus.com`。
 
 ![](https://main.qcloudimg.com/raw/165b0e11d9eba0fe5d9084e0c159cbb0.png)
 
@@ -32,12 +32,12 @@
 
 #### 接口示例代码
 
-接口`http://127.0.0.1:3000/api`的 NodeJs 示例代码（ 支持 node 8 及以上版本运行）：
+接口`https://127.0.0.1/api`的 NodeJs 示例代码（ 支持 node 8 及以上版本运行）：
 
 ```JavaScript
 const express = require('express')
 const app = express()
-const PORT = 3000
+const PORT = 443
 const BAR_DATA_MAX = 120
 const CORS_ALLOW_ORIGIN = [
   'http://yuntu.cloud.tencent.com',
@@ -102,7 +102,7 @@ app.listen(PORT)
 
 ### 创建密钥
 
-登录 [腾讯云图控制台](http://yuntu.cloud.tencent.com/#/access-key)，单击**新建访问密钥**，新建成功后即可得到 SecretId 和 SecretKey。
+登录 [腾讯云图控制台](https://yuntu.cloud.tencent.com/#/access-key)，单击**新建访问密钥**，新建成功后即可得到 SecretId 和 SecretKey。
 
 ![](https://main.qcloudimg.com/raw/43145c939ee0a226ae5712ed7b8fdf8f.png)
 
@@ -118,8 +118,8 @@ app.listen(PORT)
 
 上图中请求签名后的 API URL 如下：
 
-```JavaScript
-http://127.0.0.1:3000/api?TcvSecretId=zUYUtjPu2Kob9xxxxxxxxrbkau3FEq6pqxe6&TcvSignature=Ds3cyyhQCo%2FTvdyUi3%2BmuPj2DQKZXMpIRwTqvMXPiRE%3D&TcvTimestamp=1583399912&TcvNonce=302190
+```sh
+https://127.0.0.1/api?TcvSecretId=zUYUtjPu2Kob9xxxxxxxxrbkau3FEq6pqxe6&TcvSignature=Ds3cyyhQCo%2FTvdyUi3%2BmuPj2DQKZXMpIRwTqvMXPiRE%3D&TcvTimestamp=1583399912&TcvNonce=302190
 ```
 
 参数拆分如下：
@@ -133,7 +133,7 @@ http://127.0.0.1:3000/api?TcvSecretId=zUYUtjPu2Kob9xxxxxxxxrbkau3FEq6pqxe6&TcvSi
 
 将非 TcvSignature 的参数按照名称升序排列拼接，格式为 key1=value1&key2=value2&key3=value3，这里排序后如下：
 
-```JavaScript
+```sh
 TcvNonce=302190&TcvSecretId=zUYUtjPu2Kob9xxxxxxxxrbkau3FEq6pqxe6&TcvTimestamp=1583399912
 ```
 
@@ -159,7 +159,7 @@ const signature = crypto.createHmac('sha256', SecretKey).update(signStr).digest(
 const express = require('express')
 const crypto = require('crypto')
 const app = express()
-const PORT = 3000
+const PORT = 443
 const BAR_DATA_MAX = 120
 const CORS_ALLOW_ORIGIN = [
   'http://yuntu.cloud.tencent.com',
