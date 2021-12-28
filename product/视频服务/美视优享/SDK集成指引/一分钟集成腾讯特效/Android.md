@@ -140,7 +140,7 @@ new XmagicApi.OnXmagicPropertyErrorListener());
 ```
 int outTexture = mXmagicApi.process(textureId, textureWidth, textureHeight);
 ```
-6. 用于更新指定类型的美颜特效数值。
+6. 用于更新指定类型的腾讯特效数值。
 ```java
 // 可用的入参属性可以从 XmagicResParser.parseRes() 获得
 mXmagicApi.updateProperty(XmagicProperty<?> p);
