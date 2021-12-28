@@ -10,7 +10,7 @@
 
 ## 操作步骤
 
-### 步骤一：准备配置
+### 步骤1：准备配置
 
 1. 将下载的 Demo 中的 javakafkademo 上传至 Linux 服务器。
 2. 登录 Linux 服务器，进入 javakafkademo 目录，并配置相关参数。
@@ -61,7 +61,7 @@
       ```
 
 
-### 步骤二：发送消息
+### 步骤2：发送消息
 
 1. 编写生产消息程序 CKafkaProducerDemo.java。
 
@@ -128,7 +128,7 @@ Produce ok:ckafka-topic-demo-0@199
    ![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
 
 
-### 步骤三：消费消息
+### 步骤3：消费消息
 
 1. 创建 Consumer 订阅消息程序 CKafkaConsumerDemo.java。
 ```java

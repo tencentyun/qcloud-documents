@@ -34,7 +34,7 @@
 3. 在弹出的 “一键添加” 窗口中，配置相关信息。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/1826e7be5d496b037f12f684149bd79c.png)
  - **填写域名：**请输入您需要进行一键 HTTPS 的域名。
->? 填写的域名需要在工信部完成备案，否则将无法进行接入。详情请参见 [备案概述](https://cloud.tencent.com/document/product/243/18907)。
+>? 填写的域名需要在腾讯云完成备案，否则将无法正常进行接入。您可根据 [腾讯云可备案类型](https://cloud.tencent.com/document/product/243/18907#.E8.85.BE.E8.AE.AF.E4.BA.91.E5.8F.AF.E5.A4.87.E6.A1.88.E7.B1.BB.E5.9E.8B) 进行备案。
 >
  - **选择证书：**请选择已成功申请的证书。
 >?选择的证书需与**填写域名输入框**填写的域名对应。例如，填写的域名为 `cloud.tencent.com`，则选择绑定域名为 `cloud.tencent.com` 的证书。

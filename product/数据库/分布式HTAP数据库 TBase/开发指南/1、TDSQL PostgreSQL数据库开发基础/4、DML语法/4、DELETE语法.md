@@ -52,10 +52,8 @@ postgres=# delete from tdsql_pg returning *;
 ----+-----------
  2 | tdsql_pg好
 (1 row)
- 
 ```
 returning 特性可以返回 DML（insert、update、delete）修改的数据，降低应用复杂度。
-
 
 ## 删除所有数据
 ```

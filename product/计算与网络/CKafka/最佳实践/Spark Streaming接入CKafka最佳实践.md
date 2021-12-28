@@ -52,7 +52,7 @@ Spark Streaming 将连续数据抽象成 DStream（Discretized Stream），而 D
 | ssh      | CentOS 默认安装 |
 | Java     | 1.8             |
 
-具体安装步骤参考 [配置环境](#配置环境)。
+具体安装步骤参见 [配置环境](#配置环境)。
 
 ### 步骤4：对接 CKafka
 
@@ -96,7 +96,7 @@ libraryDependencies += "org.apache.kafka" % "kafka-clients" % "0.10.2.1"
    </dx-codeblock>
 
 
-更多有关 ProducerRecord 的用法请参考 [ProducerRecord](https://kafka.apache.org/0100/javadoc/org/apache/kafka/clients/producer/ProducerRecord.html) 文档。
+更多有关 ProducerRecord 的用法请参见 [ProducerRecord](https://kafka.apache.org/0100/javadoc/org/apache/kafka/clients/producer/ProducerRecord.html) 文档。
 
 :::
 
@@ -232,7 +232,7 @@ object Kafka {
 }
 ```
 
-更多 `kafkaParams` 用法参考 [kafkaParams](http://kafka.apache.org/documentation.html#newconsumerconfigs) 文档。
+更多 `kafkaParams` 用法参见 [kafkaParams](http://kafka.apache.org/documentation.html#newconsumerconfigs) 文档。
 
 :::
 

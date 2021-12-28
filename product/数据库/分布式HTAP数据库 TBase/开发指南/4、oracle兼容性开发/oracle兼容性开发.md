@@ -1,29 +1,21 @@
-# oracle兼容性开发
 
-oracle 兼容性开发针对的是 TDSQL PostgreSQL-v5.0版本。
-## oracle GUC参数配置
-### session中生效
+Oracle 兼容性开发针对的是 TDSQL  PostgreSQL版 v5.0 版本。
+
+## Oracle GUC 参数配置
+#### session 中生效
 ```
 SET enable_oracle_compatible to ON;
 ```
 
-
-
-### 配置某个库默认生效
-
+#### 配置某个库默认生效
 ```
 alter database postgres set enable_oracle_compatible to on;
 ```
 
-
-
-### 配置某个用户默认生效
-
+#### 配置某个用户默认生效
 ```
 alter role tbase set enable_oracle_compatible to on;
 ```
-
-
 
 ## 数据类型
 ### varchar2
@@ -39,6 +31,7 @@ postgres=# \d+ t_varchar2
  
 postgres=#
 ```
+
 ### number
 ```
 postgres=# create table t_number(f1 number,f2 number(10),f3 number(10,2));
@@ -53,8 +46,8 @@ postgres=#  \d t_number
  
 postgres=#
 ```
+系统转换成 numeric。
 
-系统转换成numeric
 ### blob
 ```
 postgres=# create table t_blob(f1 int,f2 Blob);
@@ -68,8 +61,8 @@ postgres=# \d t_blob
  
 postgres=#
 ```
+TDSQL  PostgreSQL版 的 blob 类型支持最大长度为1G。
 
- TDSQL PG版的blob类型支持最大长度为1G
 ### clob
 ```
 postgres=# create table t_clob(f1 int,f2 clob);
@@ -83,17 +76,12 @@ postgres=# \d t_clob
  
 postgres=#
 ```
-
- TDSQL PG版的clob类型支持最大长度为1G
-
- 
-
+TDSQL  PostgreSQL版 的 clob 类型支持最大长度为1G。
 
 ## 兼容性函数
 ### 字符函数
 #### regexp_count
-REGEXP_COUNT 返回pattern 在source_char 串中出现的次数
-
+REGEXP_COUNT 返回 pattern 在 source_char 串中出现的次数。
 ```
 postgres=# select REGEXP_COUNT('tdsql_pg_tdsql_pg','se') from DUAL;
  regexp_count 
@@ -101,9 +89,9 @@ postgres=# select REGEXP_COUNT('tdsql_pg_tdsql_pg','se') from DUAL;
             2
 (1 row)
 ```
-#### instr
-instr函数返回要截取的字符串在源字符串中的位置
 
+#### instr
+instr 函数返回要截取的字符串在源字符串中的位置。
 ```
 postgres=# select instr('helloworld','l') from dual;
  instr 
@@ -113,12 +101,13 @@ postgres=# select instr('helloworld','l') from dual;
  
 postgres=#
 ```
+
 #### regexp_substr
-string:需要进行正则处理的字符串 
-pattern：进行匹配的正则表达式  
-position：起始位置，从字符串的第几个字符开始正则表达式匹配（默认为1） 注意：字符串最初的位置是1而不是0   
-occurrence：获取第几个分割出来的组（分割后最初的字符串会按分割的顺序排列成组）     
-modifier：模式（‘i’不区分大小写进行检索；‘c’区分大小写进行检索。默认为’c’）针对的是正则表达式里字符大小写的匹配
+string：需要进行正则处理的字符串。
+pattern：进行匹配的正则表达式。  
+position：起始位置，从字符串的第几个字符开始正则表达式匹配（默认为1） 注意：字符串最初的位置是1而不是0。   
+occurrence：获取第几个分割出来的组（分割后最初的字符串会按分割的顺序排列成组）。     
+modifier：模式（‘i’不区分大小写进行检索；‘c’区分大小写进行检索。默认为’c’）针对的是正则表达式里字符大小写的匹配。
 
 ```
 postgres=# SELECT REGEXP_SUBSTR('17,20,23','[^,]+',1,1,'i') AS STR FROM DUAL;  
@@ -129,6 +118,7 @@ postgres=# SELECT REGEXP_SUBSTR('17,20,23','[^,]+',1,1,'i') AS STR FROM DUAL;
  
 postgres=#
 ```
+
 #### regexp_replace
 ```
 regexp_replace(1,2,3,4,5,6)  
@@ -143,9 +133,9 @@ postgres=# select regexp_replace('tbase_tbase','s','ee',1,1) from dual;
  
 postgres=#
 ```
-#### nlssort
-指定排序规则
 
+#### nlssort
+指定排序规则。
 ```
 postgres=# create table t_nlssort(f1 integer,f2 varchar2(10));
  
@@ -167,12 +157,10 @@ postgres=# SELECT * FROM t_nlssort ORDER BY NLSSORT(f2,'NLS_SORT = SCHINESE_PINY
   3 | 中国
 (1 rows)
 ```
-
-目前 TDSQL PostgreSQL只能支持按拼音
+目前 TDSQL PostgreSQL版 只能支持按拼音。
 
 #### nls_upper
-将字符转换为大写
-
+将字符转换为大写。
 ```
 postgres=# select NLS_UPPER('tdsql_pg','nls_sort= SCHINESE_PINYIN_M')  from dual;
  nls_upper 
@@ -180,9 +168,9 @@ postgres=# select NLS_UPPER('tdsql_pg','nls_sort= SCHINESE_PINYIN_M')  from dual
  TDSQL_PG
 (1 row)
 ```
-#### nchr
-给出一个数字代码，返回其对应字符
 
+#### nchr
+给出一个数字代码，返回其对应字符。
 ```
 postgres=# select NCHR(116) from dual;
  nchr 
@@ -190,9 +178,9 @@ postgres=# select NCHR(116) from dual;
  t
 (1 row)
 ```
-#### length
-获取字符长度
 
+#### length
+获取字符长度。
 ```
 postgres=# select length(1);
  length 
@@ -218,9 +206,9 @@ postgres=# select length(12.12::numeric(10,2));
       5
 (1 row)
 ```
-#### LENGTHB
-返回字符的长度
 
+#### LENGTHB
+返回字符的长度。
 ```
 postgres=# select LENGTHB('测试') from dual;
  lengthb 
@@ -234,11 +222,10 @@ postgres=# select LENGTH('测试') from dual;
       2
 (1 row)
 ```
+
 ### 日期函数
 #### NUMTODSINTERVAL
- numtodsinterval(<x>,<c>) ,x是一个数字,c是一个字符串,
-表明x的单位,这个函数把x转为interval day to second数据类型
-
+`numtodsinterval(<x>,<c>) ` x 是一个数字、c 是一个字符串，表明 x 的单位，这个函数把 x 转为 interval day to second 数据类型。
 ```
 postgres=# select sysdate,sysdate+numtodsinterval(2,'hour') as res from dual; 
     orcl_sysdate     |         res         
@@ -256,6 +243,7 @@ postgres=# select DBTIMEZONE from dual;
  
 postgres=#
 ```
+
 #### MONTHS_BETWEEN
 ```
 MONTHS_BETWEEN(DATE1,DATE2), 函数返回两个日期之间的月份数
@@ -272,22 +260,20 @@ postgres=#
 ```
 
 #### LAST_DAY
-
-LAST_DAY函数返回指定日期对应月份的最后一天
-
- ```
+LAST_DAY 函数返回指定日期对应月份的最后一天。
+```
  postgres=#  SELECT last_day('2020-05-01') FROM dual;            
         last_day        
 ------------------------
  2020-05-31 00:00:00+08
 (1 row)
- ```
+```
 
 #### ADD_MONTHS
 ```
 ADD_MONTHS(x,y)
 ```
-x值为日期，y值为数量, 用于计算某个日期向前或者向后y个月后的时间
+x 值为日期，y 值为数量，用于计算某个日期向前或者向后 y 个月后的时间。
 
 ```
 postgres=#  select add_months(sysdate,1) from dual;  
@@ -304,10 +290,10 @@ postgres=#  select add_months(sysdate,-1) from dual;
  
 postgres=#
 ```
+
 ### 转换函数
 #### to_clob
-转换字符为clob类型
-
+转换字符为 clob 类型。
 ```
 postgres=#  select to_clob('tbase') from dual;
  to_clob 
@@ -315,8 +301,9 @@ postgres=#  select to_clob('tbase') from dual;
  tbase
 (1 row)
 ```
+
 #### ROWIDTOCHAR
-转换rowid值为varchar2类型
+转换 rowid 值为 varchar2 类型。
 
 ```
 postgres=# \d+ t_rowid
@@ -341,7 +328,7 @@ postgres=#
 ```
 CHARTOROWID(c1)
 ```
-转换varchar2类型为rowid值,c1,字符串，长度为20的字符串，字符串必须符合rowid格式，ROWID
+转换 varchar2 类型为 rowid 值，c1，字符串，长度为20的字符串，字符串必须符合 rowid 格式。
 
 ```
 postgres=# select CHARTOROWID('AAAFd1AAFAAAABSACCAA') a1 from dual;
@@ -352,12 +339,12 @@ postgres=# select CHARTOROWID('AAAFd1AAFAAAABSACCAA') a1 from dual;
  
 postgres=#
 ```
+
 ### 系统函数
-### xml相关函数
+### xml 相关函数
 #### extractvalue
-xml文本解释
- ```
- 
+xml 文本解释。
+```
 postgres=# SELECT extractvalue(XMLTYPE('
 <AAA> 
 <BBB>治愈</BBB> 
@@ -369,10 +356,11 @@ postgres=# SELECT extractvalue(XMLTYPE('
 --------------
  好转
 (1 row)
- ```
+```
+
 #### extract
 ```
-extract(xmltype类型,节点)
+extract(xmltype类型,节点)。
 ```
 
 ```
@@ -416,8 +404,7 @@ de="a">笔记本</subfield>
 
 ### 表达式函数
 #### lnnvl
-传入表达式为true 返回false；传入为false 返回true
-
+传入表达式为 true 返回 false；传入为 false 返回 true。
 ```
 postgres=# create table t_lnnvl(f1 integer, f2 integer);
 CREATE TABLE
@@ -444,12 +431,12 @@ postgres=# select * from t_lnnvl where lnnvl(f2>2);
   1 |   
 (2 rows)
 ```
+
 #### nvl2
 ```
 NVL2(E1, E2, E3)
 ```
-如果E1为NULL，则函数返回E3，若E1不为null，则返回E2
-
+如果 E1 为 NULL，则函数返回 E3，若 E1 不为 null，则返回 E2。
 ```
 postgres=#  select NVL2('tbase', 'tbase1'::text, 'tbase2'::text) from dual;    
   nvl2  
@@ -465,10 +452,10 @@ postgres=#  select NVL2(NULL, 'tbase1'::text, 'tbase2'::text) from dual;
  tbase2
 (1 row)
 ```
+
 ### 二进制操作函数
 #### empty_clob
-初始化CLOB字段
-
+初始化 CLOB 字段。
 ```
 postgres=# select empty_clob();
  empty_clob 
@@ -482,13 +469,13 @@ postgres=# insert into t1(f1,f2) values (1,empty_clob());
 INSERT 0 1
 postgres=#
 ```
+
 ### 统计函数
 #### listagg
 ```
 listagg (filedname,',') WITHIN GROUP (ORDER BY filedname)
 ```
-行转列函数
-
+行转列函数。
 ```
 postgres=# create table person
 postgres-# (
@@ -524,6 +511,7 @@ postgres-#     deptno ;
  21     | ddd,eee
 (2 rows)
 ```
+
 ## 系统特性
 ### dual
 ```
@@ -535,6 +523,7 @@ postgres=# select 1 as f1 from dual;
  
 postgres=#
 ```
+
 ### rowid
 ```
 postgres=# create table t_rowid(f1 int,f2 int);
@@ -549,6 +538,7 @@ postgres=# select rowid,f1,f2 from  t_rowid;
  
 postgres=#
 ```
+
 ### rownum
 ```
 postgres=# create table t_rownum(f1 int,f2 int);
@@ -580,6 +570,7 @@ postgres=# select rownum,* from t_rownum where rownum<3;
       2 |  2 |  2
 (2 rows)
 ```
+
 ### sysdate
 ```
 postgres=# select sysdate from dual;
@@ -594,6 +585,7 @@ postgres=# select systimestamp from dual;
  2020-08-02 19:09:34.032923+08
 (1 row)
 ```
+
 ### merge into
 ```
 postgres=# create table test1(id int primary key,name varchar2(10));
@@ -632,8 +624,9 @@ postgres=# select * from test1;
   5 | test2
 (5 rows)
 ```
+
 ### connect by
-使用level实现1到5的序列
+使用 level 实现1到5的序列。
 ```
 postgres=# select level from dual connect by level<=5;
  level 
@@ -645,6 +638,7 @@ postgres=# select level from dual connect by level<=5;
      5
 (5 rows)
 ```
+
 ### pivot
 ```
 create table scores(student varchar(10) not null, course varchar(10) not null,score int not null);
@@ -678,9 +672,10 @@ from
  张三    | 98 | 79 | 80 | 81 |   338
 (2 rows)
 ```
+
 ### limit x offset 1
-如果参数enable_oracle_compatible配置为on，则offset 1表示从第一条提取记录
- ```
+如果参数 enable_oracle_compatible 配置为 on，则 offset 1表示从第一条提取记录。
+```
 postgres=# select * from test1;
  id | name  
 ----+-------
@@ -700,7 +695,8 @@ postgres=# select * from test1 limit 5 offset 1;
   4 | test2
   5 | test2
 (5 rows)
- ```
+```
+ 
 ## sql_hint
 ### 加载插件
 ```
@@ -710,8 +706,9 @@ postgres=# alter role all set session_preload_libraries='pg_hint_plan';
 ALTER ROLE
 postgres=# \c
 ```
-### hint用例
-#### full全表扫描
+
+### hint 用例
+#### full 全表扫描
 ```
 postgres=# create table hint_t1(f1 integer,f2 integer) ;
 CREATE TABLE
@@ -744,7 +741,8 @@ postgres=# explain select /*+full(hint_t1) */ * from hint_t1 where f1=1;
          Filter: (f1 = 1)
 (3 rows)
 ```
-#### index全表扫描
+
+#### index 全表扫描
 ```
 postgres=# create table hint_t2(f1 integer,f2 integer) ;
 CREATE TABLE
@@ -773,7 +771,8 @@ postgres=# explain select /*+index(hint_t2 hint_t2_f1_idx1) */ * from hint_t2 wh
          Filter: (f1 > 1)
 (3 rows)
 ```
-#### no_index全表扫描
+
+#### no_index 全表扫描
 ```
 postgres=# create table hint_t7(f1 integer,f2 integer) ;
 CREATE TABLE
@@ -802,6 +801,7 @@ postgres=# explain select  * from hint_t7 where f1=1 ;
  
 postgres=#
 ```
+
 #### 别名使用
 ```
 postgres=# create table hint_t6(f1 integer,f2 integer) ;
@@ -835,7 +835,8 @@ postgres=# explain select /*+full(a) */ * from hint_t6 a where f1=1;
          Filter: (f1 = 1)
 (3 rows)
 ```
-#### 强制走nest loop
+
+#### 强制走 nest loop
 ```
 postgres=# create table hint_t6(f1 integer,f2 integer) ;
 CREATE TABLE
@@ -879,7 +880,8 @@ postgres=# explain select /*+use_nl(t,t1) */ * from hint_t6 t,hint_t7 t1 where t
  
 postgres=#
 ```
-#### 强制走mergejoin
+
+#### 强制走 mergejoin
 ```
 postgres=# create table hint_t6(f1 integer,f2 integer) ;
 CREATE TABLE
@@ -923,7 +925,8 @@ postgres=# explain select /*+use_merge(t,t1) */ * from hint_t6 t,hint_t7 t1 wher
  
 postgres=#
 ```
-#### 强制走hashjoin
+
+#### 强制走 hashjoin
 ```
 postgres=# create table hint_t6(f1 integer,f2 integer) ;
 CREATE TABLE
@@ -966,6 +969,7 @@ postgres=# explain select /*+use_hash(t,t1) */  * from hint_t6 t,hint_t7 t1 wher
                      Index Cond: (f1 > 9999)
 (7 rows)
 ```
+
 #### 并行执行
 ```
 postgres=# create table hint_t3(f1 integer,f2 integer) ;
@@ -998,8 +1002,9 @@ postgres=# explain select /*+parallel(hint_t3 2) */ count(1) from hint_t3;
  
 postgres=#
 ```
-## dml操作加强
-### select支持别名不用as修饰
+
+## dml 操作加强
+### select 支持别名不用 as 修饰
 ```
 postgres=# select * from student as st where st.f1=1;
  f1 | f2 
@@ -1012,7 +1017,8 @@ postgres=# select * from student st where st.f1=1;
 ----+----
   1 |  2
 ```
-### update支持别名
+
+### update 支持别名
 ```
 postgres=# create table student(f1 int,f2 int);
 CREATE TABLE
@@ -1025,3 +1031,4 @@ postgres=# select * from student ;
 ----+----
   1 |  2
 ```
+

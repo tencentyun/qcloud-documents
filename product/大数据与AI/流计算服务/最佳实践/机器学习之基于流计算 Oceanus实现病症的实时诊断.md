@@ -141,31 +141,31 @@ CREATE TABLE random_source (
   ) WITH (
   'connector' = 'datagen', 
   'rows-per-second'='1',                           -- 每秒产生的数据条数
-  'fields.ClumpThickness.kind'='random',           -- 无界的随机数
+  'fields.ClumpThickness.kind'='random',           -- 随机数
   'fields.ClumpThickness.min'='0',                 -- 随机数的最小值
   'fields.ClumpThickness.max'='10',                -- 随机数的最大值
-  'fields.UniformityOfCellSize.kind'='random',     -- 无界的随机数
+  'fields.UniformityOfCellSize.kind'='random',     -- 随机数
   'fields.UniformityOfCellSize.min'='0',           -- 随机数的最小值
   'fields.UniformityOfCellSize.max'='10',          -- 随机数的最大值
-  'fields.UniformityOfCellShape.kind'='random',    -- 无界的随机数
+  'fields.UniformityOfCellShape.kind'='random',    -- 随机数
   'fields.UniformityOfCellShape.min'='0',          -- 随机数的最小值
   'fields.UniformityOfCellShape.max'='10',         -- 随机数的最大值
-  'fields.MarginalAdhsion.kind'='random',          -- 无界的随机数
+  'fields.MarginalAdhsion.kind'='random',          -- 随机数
   'fields.MarginalAdhsion.min'='0',                -- 随机数的最小值
   'fields.MarginalAdhsion.max'='10',               -- 随机数的最大值
-  'fields.SingleEpithelialCellSize.kind'='random', -- 无界的随机数
+  'fields.SingleEpithelialCellSize.kind'='random', -- 随机数
   'fields.SingleEpithelialCellSize.min'='0',       -- 随机数的最小值
   'fields.SingleEpithelialCellSize.max'='10',      -- 随机数的最大值
-  'fields.BareNuclei.kind'='random',               -- 无界的随机数
+  'fields.BareNuclei.kind'='random',               -- 随机数
   'fields.BareNuclei.min'='0',                     -- 随机数的最小值
   'fields.BareNuclei.max'='10',                    -- 随机数的最大值
-  'fields.BlandChromation.kind'='random',          -- 无界的随机数
+  'fields.BlandChromation.kind'='random',          -- 随机数
   'fields.BlandChromation.min'='0',                -- 随机数的最小值
   'fields.BlandChromation.max'='10',               -- 随机数的最大值
-  'fields.NormalNucleoli.kind'='random',           -- 无界的随机数
+  'fields.NormalNucleoli.kind'='random',           -- 随机数
   'fields.NormalNucleoli.min'='0',                 -- 随机数的最小值
   'fields.NormalNucleoli.max'='10',                -- 随机数的最大值
-  'fields.Mitoses.kind'='random',                  -- 无界的随机数
+  'fields.Mitoses.kind'='random',                  -- 随机数
   'fields.Mitoses.min'='0',                        -- 随机数的最小值
   'fields.Mitoses.max'='10'                        -- 随机数的最大值
 );
@@ -410,62 +410,62 @@ kafka.source.auto.offset.reset=latest
 </properties>
 
 <dependencies>
-	<dependency>
-		<groupId>org.apache.flink</groupId>
-		<artifactId>flink-streaming-java_2.11</artifactId>
-		<version>${flink.version}</version>
-		<scope>provided</scope>
-	</dependency>
+  <dependency>
+    <groupId>org.apache.flink</groupId>
+    <artifactId>flink-streaming-java_2.11</artifactId>
+    <version>${flink.version}</version>
+    <scope>provided</scope>
+  </dependency>
 
-	<dependency>
-		<groupId>org.apache.flink</groupId>
-		<artifactId>flink-connector-kafka_2.11</artifactId>
-		<version>${flink.version}</version>
-		<scope>provided</scope>
-	</dependency>
+  <dependency>
+    <groupId>org.apache.flink</groupId>
+    <artifactId>flink-connector-kafka_2.11</artifactId>
+    <version>${flink.version}</version>
+    <scope>provided</scope>
+  </dependency>
 
-	<dependency>
-		<groupId>org.apache.flink</groupId>
-		<artifactId>flink-connector-clickhouse</artifactId>
-		<version>${flink.version}</version>
-		<scope>provided</scope>
-	</dependency>
+  <dependency>
+    <groupId>org.apache.flink</groupId>
+    <artifactId>flink-connector-clickhouse</artifactId>
+    <version>${flink.version}</version>
+    <scope>provided</scope>
+  </dependency>
 
-	<dependency>
-		<groupId>org.apache.flink</groupId>
-		<artifactId>flink-table-common</artifactId>
-		<version>${flink.version}</version>
-		<scope>provided</scope>
-	</dependency>
+  <dependency>
+    <groupId>org.apache.flink</groupId>
+    <artifactId>flink-table-common</artifactId>
+    <version>${flink.version}</version>
+    <scope>provided</scope>
+  </dependency>
 
-	<dependency>
-		<groupId>org.apache.flink</groupId>
-		<artifactId>flink-table-api-java-bridge_2.11</artifactId>
-		<version>${flink.version}</version>
-		<scope>provided</scope>
-	</dependency>
+  <dependency>
+    <groupId>org.apache.flink</groupId>
+    <artifactId>flink-table-api-java-bridge_2.11</artifactId>
+    <version>${flink.version}</version>
+    <scope>provided</scope>
+  </dependency>
 
-	<dependency>
-		<groupId>org.apache.flink</groupId>
-		<artifactId>flink-table-api-java</artifactId>
-		<version>${flink.version}</version>
-		<scope>provided</scope>
-	</dependency>
+  <dependency>
+    <groupId>org.apache.flink</groupId>
+    <artifactId>flink-table-api-java</artifactId>
+    <version>${flink.version}</version>
+    <scope>provided</scope>
+  </dependency>
 
-	<!--httpclient-->
-	<dependency>
-		<groupId>org.apache.httpcomponents</groupId>
-		<artifactId>httpclient</artifactId>
-		<version>4.5.3</version>
-		<scope>compile</scope>
-	</dependency>
+  <!--httpclient-->
+  <dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+    <version>4.5.3</version>
+    <scope>compile</scope>
+  </dependency>
 
-	<dependency>
-		<groupId>org.json</groupId>
-		<artifactId>json</artifactId>
-		<version>20201115</version>
-		<scope>compile</scope>
-	</dependency>
+  <dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20201115</version>
+    <scope>compile</scope>
+  </dependency>
 </dependencies>
 ```
 

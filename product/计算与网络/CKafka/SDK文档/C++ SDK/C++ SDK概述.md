@@ -1,4 +1,4 @@
-[C/C++客户端](https://github.com/edenhill/librdkafka) 可以通过 CKafka 提供的多种接入点接入并收发消息，本示例仅列举了部分配置信息如何配置，如需了解更多配置请参考 [C/C++ sdk 配置列表](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md)、[CKafka 常用参数配置指南](https://cloud.tencent.com/document/product/597/30203)。
+[C/C++客户端](https://github.com/edenhill/librdkafka) 可以通过 CKafka 提供的多种接入点接入并收发消息，本示例仅列举了部分配置信息如何配置，如需了解更多配置请参见 [C/C++ sdk 配置列表](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md)、[CKafka 常用参数配置指南](https://cloud.tencent.com/document/product/597/30203)。
 
 
 

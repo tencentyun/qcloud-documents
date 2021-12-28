@@ -2,7 +2,6 @@
 ```
 postgres=# update tdsql_pg set nickname ='Hello tdsql_pg' where id=1;
 UPDATE 1
- 
 ```
 
 null 条件的表达方法。
@@ -37,9 +36,8 @@ postgres=# update tdsql_pg set nickname = nickname where id = (random()*2)::inte
 ----+-----------
  2 | tdsql_pg好
 (1 row)
- 
 ```
-上面的语句随机更新了一些数据，然后返回更新过的记录，returning 机制大在的降低的应用的复杂度。
+上面的语句随机更新了一些数据，然后返回更新过的记录，returning 机制旨在降低应用的复杂度。
 
 ## 多列匹配更新
 ```

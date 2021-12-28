@@ -90,7 +90,7 @@ postgres=# select row_number() over(order by amount),* from bills;
 (11 rows)
 ```
 
-#### row_number()  返回行号，按 begincity 分组，pubtime 排序
+#### row_number() 返回行号，按 begincity 分组，pubtime 排序
 ```
 postgres=# select row_number() over(partition by begincity order by pubtime),* from bills; 
  row_number | id |       goodsdesc        | beginunit | begincity |       pubtime       | amount  
@@ -147,7 +147,7 @@ postgres=# select dense_rank() over(partition by begincity order by pubtime),* f
 (11 rows)
 ```
 
-#### percent_rank() 从当前开始，计算在分组中的比例 (行号-1)*(1/(总记录数-1))
+#### percent_rank() 从当前开始，计算在分组中的比例 (行号 - 1) * (1 / (总记录数 - 1))
 ```
 postgres=# select percent_rank() over(partition by begincity order by id),* from bills;  
  percent_rank | id |       goodsdesc        | beginunit | begincity |       pubtime       | amount  

@@ -1,8 +1,8 @@
 
-COPY 用于 TDSQL PostgreSQL 表和标准文件系统文件之间数据互相复制。COPY TO 可以把一个表的内容复制到一个文件，COPY FROM 可以从一个文件复制数据到一个表（数据以追加形式入库），COPY TO 也能复制一个 SELECT 查询的结果到一个文件。
+COPY 用于 TDSQL PostgreSQL版 表和标准文件系统文件之间数据互相复制。COPY TO 可以把一个表的内容复制到一个文件，COPY FROM 可以从一个文件复制数据到一个表（数据以追加形式入库），COPY TO 也能复制一个 SELECT 查询的结果到一个文件。
 如果指定了一个列清单，COPY 将只把指定列的数据复制到文件或者从文件复制数据到指定列。如果表中有列不在列清单中，COPY FROM 将会为那些列插入默认值。 
 
-使用 COPY 时 TDSQL PostgreSQL 服务器直接从“本地”一个文件读取或者写入到一个文件。该文件必须是 TDSQL PostgreSQL 用户（运行服务器的用户 ID）可访问的并且应该以服务器的视角来指定其名称。
+使用 COPY 时 TDSQL PostgreSQL版 服务器直接从“本地”一个文件读取或者写入到一个文件。该文件必须是 TDSQL PostgreSQL版 用户（运行服务器的用户 ID）可访问的并且应该以服务器的视角来指定其名称。
 
 ## 实验表结构及数据
 ```
@@ -39,7 +39,6 @@ postgres=# \! cat /data/pgxz/t.txt
 1    tdsql_pg  \N    7
 2        2017-10-28 18:24:05.643102    3
 3    pgxz   2017-10-28 18:24:05.645691    \N
- 
 ```
 默认生成的文件内容为表的所有列，列与列之间使用 tab 分隔开来。NULL 值生成的值为 \N。
 
@@ -52,7 +51,6 @@ postgres=# \! cat /data/pgxz/t.txt
 2
 3    pgxz
 postgres=# 
-
 ```
 只导出 f1 和 f2 列。
 
@@ -65,7 +63,6 @@ postgres=# \! cat /data/pgxz/t.txt
 pgxz   2017-10-28 18:24:05.645691
 tdsql_pg  \N
 postgres=# 
- 
 ```
 查询可以是任何复杂查询。
 
@@ -134,7 +131,6 @@ postgres=# \! cat /data/pgxz/t.txt
 postgres=# copy public.t to '/data/pgxz/t.txt' with binary NULL 'NULL';  
 ERROR:  cannot specify NULL in BINARY mode
 postgres=# 
- 
 ```
 记录值为 NULL 时导出为 NULL 字符。使用 binary 格式时不允许这个选项。
 
@@ -180,8 +176,7 @@ COPY 3
 postgres=# \! cat /data/pgxz/t.txt
 35055  1    tdsql_pg  \N    7
 35056  2    pg'",    xc  2017-10-28 18:24:05.643102    3
-35177  3    pgxz   2017-10-28 18:24:05.645691    \N
- 
+35177  3    pgxz   2017-10-28 18:24:05.645691    \N 
 ```
 创建表时使用了 with oids 才能使用 oids 选项。
 
@@ -227,7 +222,6 @@ postgres=# \! cat /data/pgxz/t.txt
 1,tdsql_pg,,7
 2,%pg'",    xc%%%,2017-10-28 18:24:05.643102,3
 3,pgxz,2017-10-28 18:24:05.645691,
-
 ```
 不指定 escape 逃逸符，默认和 QUOTE 值一样。
 ```
@@ -238,7 +232,7 @@ postgres=# \! cat /data/pgxz/t.txt
 2,%pg'",    xc@%%,2017-10-28 18:24:05.643102,3
 3,pgxz,2017-10-28 18:24:05.645691,
 ```
-指定逃逸符为’@’。
+指定逃逸符为'@'。
 ```
 postgres=# copy t to  '/data/pgxz/t.txt' with quote '%' escape '@@' csv; 
 ERROR:  COPY escape must be a single one-byte character
@@ -258,7 +252,6 @@ postgres=# \! cat /data/pgxz/t.txt
 "1","tdsql_pg",,7
 "2","pg'"",    xc%",2017-10-28 18:24:05.643102,3
 "3","pgxz",2017-10-28 18:24:05.645691,
- 
 ```
 
 指定2列强制添加引用字符。
@@ -291,6 +284,7 @@ postgres=# copy t to  '/data/pgxz/t.csv' (encoding gbk);
 COPY 3
 postgres=# 
 ```
+
 导出文件编码为 gbk。
 使用 set_client_encdoing to gbk; 也可以将文件的内容设置为需要的编码，如下所示。
 ```
@@ -339,10 +333,9 @@ postgres=# select * from t;
  2 | pg'",    xc% | 2017-10-30 11:54:16.559579 |  
  3 | pgxz      | 2017-10-30 11:54:16.560283 |  
 (3 rows)
- 
 ```
 
-有默认值的字段在没有导入时，会自动的将默认值付上。
+有默认值的字段在没有导入时，会自动的将默认值赋上。
 ```
 postgres=# \! cat /data/pgxz/t.txt 
 1    \N    tdsql_pg
@@ -471,14 +464,12 @@ postgres=# select * from t;
  CONTEXT:  COPY t, line 1, column f3: "NULL"
 ```
 
-
 #### 自定义 quote 字符
 ```
 postgres=# \! cat /data/pgxz/t.csv
 1,tdsql_pg,,7
 2,%pg'",    xc%%%,2017-10-28 18:24:05.643102,3
-3,pgxz,2017-10-28 18:24:05.645691,
- 
+3,pgxz,2017-10-28 18:24:05.645691, 
 ```
 
 如果不配置 quote 字符则无法导入文件。
@@ -508,7 +499,6 @@ ERROR:  unterminated CSV quoted field
 CONTEXT:  COPY t, line 4: "2,"pg'@",    xc%",2017-10-28 18:24:05.643102,3
 3,pgxz,2017-10-28 18:24:05.645691,
 "
- 
 ```
 
 不指定 escape 字符时，系统默认就是双写的 quote 字符，如双倍的“双引号”。
@@ -525,7 +515,6 @@ CONTEXT:  COPY t, line 4: "2,"pg'@",    xc%",2017-10-28 18:24:05.643102,3
   
  postgres=# 
 ```
-
 
 #### csv header 忽略首行
 ```
@@ -548,7 +537,6 @@ postgres=# select * from t;
 (3 rows)
 ```
 如果不忽略首行，则系统会把首行当成数据，造成导入失败。
-
 
 #### 导入 oid 列值
 ```
@@ -598,10 +586,8 @@ postgres=# select * from t where f2='';
 ----+----+----------------------------+----
  4 |   | 2017-10-30 16:14:14.954213 |  4
 (1 row)
- 
 ```
 使用 FORCE_NOT_NULL 处理就变成长度为0的字符串。
-
 
 #### encoding 指定导入文件的编码
 ```
@@ -651,5 +637,4 @@ postgres=# select * from t;
  3 | pgxz      | 2017-10-28 18:24:05.645691 |  
  4 | 腾讯      | 2017-10-30 16:41:09.157612 |  4
 (4 rows)
-  
 ```
