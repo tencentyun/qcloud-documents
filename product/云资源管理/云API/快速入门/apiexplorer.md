@@ -81,7 +81,7 @@ tag 是在创建 Mock 时自动生成的唯一标识，请不要将 tag 分享�
 
 ### 使用 Mock
 1. 找到需调用的 API 接口，并选择右侧功能区中的**数据模拟**后，找到需使用的 Mock。
-2. 在“使用 Mock” 总，单击**打开Mock地址**。如下图所示：
+2. 在“使用 Mock” 中，单击**打开Mock地址**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/50aee69efb6f89f39440a85100eb6f6e.png)
 即可在弹出窗口中获取 Mock 数据的 url 地址，类似如下格式：
 ```
