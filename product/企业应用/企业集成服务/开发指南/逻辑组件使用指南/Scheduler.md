@@ -2,7 +2,10 @@
 
 ## 简介
 
-Scheduler是定时器，用于按设定的规则定时触发一条流。图形化Scheduler支持三种触发模式：单次触发，周期触发以及Cron表达式。单次触发模式支持选择多个指定的时间点触发；周期触发模式按照固定的周期触发；Cron表达式模式的配置中包含一条或多条 Cron 规则，当任意一条 Cron 规则与当前时间匹配时，该定时器所在的集成流将被触发。
+Scheduler 是定时器，用于按设定的规则定时触发一条流。图形化 Scheduler 支持三种触发模式：单次触发、周期触发和 Cron 表达式。
+- 单次触发模式：支持选择多个指定的时间点触发。
+- 周期触发模式：按照固定的周期触发。
+- Cron 表达式模式：配置中包含一条或多条 Cron 规则，当任意一条 Cron 规则与当前时间匹配时，该定时器所在的集成流将被触发。
 
 ## 操作配置
 
@@ -10,10 +13,10 @@ Scheduler是定时器，用于按设定的规则定时触发一条流。图形�
 
 | 参数       | 数据类型 | 描述                                             | 是否必填 | 默认值              |
 | :--------- | :------- | :----------------------------------------------- | :------- | ------------------- |
-| 触发模式   | Int      | 设置触发模式：单次触发，周期触发，Cron表达式     | 是       | 0（Cron表达式模式） |
+| 触发模式   | Int      | 设置触发模式：单次触发，周期触发，Cron 表达式     | 是       | 0（Cron 表达式模式） |
 | Cron表达式 | string   | 设置触发规则，例如每分钟触发1次等                | 是       | 无                  |
 | 时区       | string   | 指定时区                                         | 是       | UTC+08:00           |
-| 排队调度   | bool     | 若勾选当前有未结束的作业时跳过本次执行，则为true | 否       | false               |
+| 排队调度   | bool     | 若勾选当前有未结束的作业时跳过本次执行，则为 true | 否       | false               |
 
 Scheduler 包含一条或多条 cron 规则，当存在多条规则时，使用“\r”分隔，Cron 表达式的配置规则如下：
 
@@ -36,7 +39,7 @@ Scheduler 包含一条或多条 cron 规则，当存在多条规则时，使用�
 | , | 表示并列，例如：`months="1,3,5,7,8,10,12"` 表示大月。 | 
 | / | 表示增量，例如：`hours="8/2"` ，表示8点开始，每两个小时。 | 
 | L | 表示最后一个，例如：`weekdays="6L"` ，表示当月最后一个周六。 | 
-| ? | 表示不指定。这里有一个约束，即年月日和星期几中至少要有一个为不指定。这是为了避免冲突，例如同时指定2020年2月20日（原本周四）和周三。默认星期几是不指定的。 | 
+| ? | 表示不指定。此处有一个约束，即年月日和星期几中至少要有一个为不指定。该约束是为了避免冲突，例如：同时指定2020年2月20日（原本周四）和周三，默认星期几是不指定的。 | 
 
 
 
@@ -62,24 +65,21 @@ Scheduler 作为 trigger 组件，是集成流的第一个组件，Scheduler 会
 ## 案例
 
 ### 单次触发模式
-- 2025年1月1日0时0分0秒触发一次    
-
-<img src="https://qcloudimg.tencent-cloud.cn/raw/83c4e7a00c0d7924b6493f2002507723.png" alt="https://qcloudimg.tencent-cloud.cn/raw/83c4e7a00c0d7924b6493f2002507723.png" style="zoom:50%;" />
+2025年1月1日0时0分0秒触发一次    
+<img src="https://qcloudimg.tencent-cloud.cn/raw/52a5d128e6b8c3af3a91f366c0ed708c.png" alt="https://qcloudimg.tencent-cloud.cn/raw/52a5d128e6b8c3af3a91f366c0ed708c.png" style="zoom:50%;" />
 
 ### 周期触发模式
 
-- 每5秒触发一次   
-
+- 每5秒触发一次 
    <img src="https://qcloudimg.tencent-cloud.cn/raw/48bad66b965fec38b331539df17eabe9.png" alt="https://qcloudimg.tencent-cloud.cn/raw/48bad66b965fec38b331539df17eabe9.png" style="zoom:50%;" />
+	 
 - 每1分钟的0秒触发一次    
-
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/88cd720e515efed935cc4bc1ceb792ae.png" alt="https://qcloudimg.tencent-cloud.cn/raw/88cd720e515efed935cc4bc1ceb792ae.png" style="zoom:50%;" />
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/6a796b0e852975faaea6480a6754c694.png" alt="https://qcloudimg.tencent-cloud.cn/raw/6a796b0e852975faaea6480a6754c694.png" style="zoom:50%;" />
    
 ### Cron表达式模式
 - 每5分钟触发一次  
-
    <img src="https://qcloudimg.tencent-cloud.cn/raw/0815a446715582a8da037b3a2eca2c46.png" alt="https://qcloudimg.tencent-cloud.cn/raw/0815a446715582a8da037b3a2eca2c46.png" style="zoom:50%;" />
-- 每天8点触发  
 
+- 每天8点触发  
    <img src="https://qcloudimg.tencent-cloud.cn/raw/12240eb8729ac58102ed84076f17696b.png" alt="https://qcloudimg.tencent-cloud.cn/raw/12240eb8729ac58102ed84076f17696b.png" style="zoom:50%;" />
 
