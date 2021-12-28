@@ -8,7 +8,7 @@
 - [安装 GCC](https://gcc.gnu.org/install/)
 - [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-cpp-sdk-demo.zip)
 
-### 操作步骤
+## 操作步骤
 
 1. 准备环境。
    1. 在客户端环境安装 Pulsar C++ client，安装过程可参考官方教程 [Pulsar C++ client](https://pulsar.apache.org/docs/en/client-libraries-cpp/)。
