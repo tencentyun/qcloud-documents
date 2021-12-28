@@ -31,7 +31,7 @@ select count(1) as pv from log group by status
 ```
 * | select status, count(*) as pv group by status limit 10
 ```
-- 获取第2行到第42行的结果，共计41行：
+- 获取第3行到第42行的结果，共计40行：
 ```
 * | select status, count(*) as pv group by status offset 2 limit 40
 ```

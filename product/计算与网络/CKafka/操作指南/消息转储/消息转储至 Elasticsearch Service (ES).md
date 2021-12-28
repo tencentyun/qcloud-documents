@@ -14,7 +14,7 @@
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
 2. 在左侧导航栏单击**实例列表**，单击目标实例的“ID/名称”，进入实例详情页。
-3. 在实例详情页，点击**topic管理**标签页，单击操作列的**消息转储**。
+3. 在实例详情页，单击**topic管理**标签页，单击操作列的**消息转储**。
 4. 单击**添加消息转储**，转储类型选择**Elasticsearch Service**。
    ![](https://main.qcloudimg.com/raw/ef35ef87117791731fffff3b6c8a28ff.png)
     - 转储类型：选择Elasticsearch Service 
@@ -69,6 +69,6 @@ CKafka 转储能力基于 SCF 实现，可在 [SCF 控制台](https://console.cl
 ## 产品限制和费用计算
 
 - 转储速度与 CKafka 实例峰值带宽上限有关，如出现消费速度过慢，请检查 CKafka 实例的峰值带宽。
-- CKafkaToES 方案采用 CKafka 触发器，重试策略与最大消息数等设置参考 [CKafka 触发器](https://cloud.tencent.com/document/product/583/17530)。
-- 使用消息转储 ES 能力，默认转储的信息为 CKafka 触发器的 msgBody 数据，如需自行处理参考 [CKafka 触发器的事件消息结构](https://cloud.tencent.com/document/product/583/17530#ckafka-.E8.A7.A6.E5.8F.91.E5.99.A8.E7.9A.84.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF.E7.BB.93.E6.9E.84)。 
+- CKafkaToES 方案采用 CKafka 触发器，重试策略与最大消息数等设置参见 [CKafka 触发器](https://cloud.tencent.com/document/product/583/17530)。
+- 使用消息转储 ES 能力，默认转储的信息为 CKafka 触发器的 msgBody 数据，如需自行处理参见 [CKafka 触发器的事件消息结构](https://cloud.tencent.com/document/product/583/17530#ckafka-.E8.A7.A6.E5.8F.91.E5.99.A8.E7.9A.84.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF.E7.BB.93.E6.9E.84)。 
 - 该功能基于云函数 SCF 服务提供。SCF 为用户提供了一定 [免费额度](https://cloud.tencent.com/document/product/583/12282) ，超额部分产生的收费，请以 SCF 服务的 [计费规则](https://cloud.tencent.com/document/product/583/17299) 为准。

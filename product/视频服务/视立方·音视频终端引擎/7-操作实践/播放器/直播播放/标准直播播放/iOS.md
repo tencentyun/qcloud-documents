@@ -353,7 +353,7 @@ _config.cacheTime              = 5;
 |   评估参数                   |  含义说明                   |   
 | :------------------------  |  :------------------------ | 
 | NET_STATUS_CPU_USAGE     | 当前瞬时 CPU 使用率 | 
-| **NET_STATUS_VIDEO_WIDTH**  | 视频分辨率 - 宽 |
+| **NET_STATUS_VIDEO_WIDTH** | 视频分辨率 - 宽 |
 | **NET_STATUS_VIDEO_HEIGHT**| 视频分辨率 - 高 |
 |	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
 |	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |

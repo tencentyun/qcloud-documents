@@ -27,7 +27,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://qcloudimg.tencent-cloud.cn/raw/e09b6939285958ecd663950ff2b4db6f.png)
 3. 在添加 CC 防护规则弹窗中，填写相应参数，单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ca65fca899d0d0dc7ea8f822a1d1fe5f.png)
-**字段说明**
+**字段说明：**
  - **规则名称**：CC 防护规则名称，50个字符以内。
  - **识别模式**：支持 IP 和 SESSION 识别模式，默认为 IP，SESSION 模式需要提前设置 SESSION 位置信息。
  - **匹配条件**：CC 防护规则频率控制匹配条件，默认为 URL。支持设置多个匹配条件，同一规则的多个条件是“与”关系，同时满足才会执行动作，且最多配置10个，需要至少配置URL，详细字段说明如下：
@@ -115,7 +115,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://qcloudimg.tencent-cloud.cn/raw/966d8ea4b5e077a67717a53a832149f0.png)
 6. 根据规则设置，触发 CC 攻击行为。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ce52ad171d3a73c8ac97cd56dea2760c.png)
-7. 查看 IP 实时阻断信息。可在 [黑白名单页面](https://console.cloud.tencent.com/guanjia/tea-iplist)，对 IP 进行加白或者加黑处理，在 [IP 查询页面](https://console.cloud.tencent.com/guanjia/tea-ipsearch) 可以查看阻断信息。
+7. 可在 [黑白名单页面](https://console.cloud.tencent.com/guanjia/tea-iplist)，对 IP 进行加白或者加黑处理，在 [IP 查询页面](https://console.cloud.tencent.com/guanjia/tea-ipsearch) 可以查看阻断信息。
 
 #### 示例三： 基于 SESSION 的 CC 防护设置
 基于 SESSION 访问速率的 CC 防护，能够有效解决在办公网、商超和公共 WIFI 场合，用户因使用相同 IP 出口而导致的误拦截问题。
@@ -126,7 +126,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://qcloudimg.tencent-cloud.cn/raw/135c1a626032f0733ddb64763e6726c3.png)
 4. 在 SESSION 设置弹窗中，此示例选择 COOKIE 作为测试内容，标识为 security，开始位置为0，结束位置为9，配置完成后单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c7c2d5fb61cac8d5adc4752d86ff9288.png)
- **字段说明**
+ **字段说明：**
  - **SESSION 位置 ：**可选择 COOKIE、GET 、HEADER或 POST，其中 GET 或 POST 是指 HTTP 请求内容参数，非 HTTP 头部信息。
  - **匹配说明 ：**位置匹配或者字符串匹配。
  - **SESSION 标识 ：**取值标识。
