@@ -76,7 +76,7 @@ Scheduler 作为 trigger 组件，是集成流的第一个组件，Scheduler 会
 - 每1分钟的0秒触发一次    
    <img src="https://qcloudimg.tencent-cloud.cn/raw/6a796b0e852975faaea6480a6754c694.png" alt="https://qcloudimg.tencent-cloud.cn/raw/6a796b0e852975faaea6480a6754c694.png" style="zoom:50%;" />
    
-### Cron表达式模式
+### Cron 表达式模式
 - 每5分钟触发一次  
    <img src="https://qcloudimg.tencent-cloud.cn/raw/0815a446715582a8da037b3a2eca2c46.png" alt="https://qcloudimg.tencent-cloud.cn/raw/0815a446715582a8da037b3a2eca2c46.png" style="zoom:50%;" />
 
