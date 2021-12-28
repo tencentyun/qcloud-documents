@@ -1,5 +1,5 @@
 Metadata 是 Terraform 支持的内置元参数，可以在 provider、resource、data、module 块中使用。主要包括：
--` depends_on`：显式声明依赖关系。
+- `depends_on`：显式声明依赖关系。
 - `count`：创建多个资源实例。
 - `for_each`：迭代集合，为集合中每一个元素创建一个对应的资源实例。
 - `provider`：指定非默认 Provider 实例。
