@@ -27,14 +27,14 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
 ## API 文档
 
-- [介绍](https://docs.cloudbase.net/api-reference/server/php/introduction.html)
+- [介绍](https://docs.cloudbase.net/api-reference/server/php/introduction)
 
-- [应用初始化](https://docs.cloudbase.net/api-reference/server/php/initialization.html)
+- [应用初始化](https://docs.cloudbase.net/api-reference/server/php/initialization)
 
-- [数据库](https://docs.cloudbase.net/api-reference/server/php/database.html)
+- [数据库](https://docs.cloudbase.net/api-reference/server/php/database)
 
-- [云函数](https://docs.cloudbase.net/api-reference/server/php/functions.html)
+- [云函数](https://docs.cloudbase.net/api-reference/server/php/functions)
 
-- [存储](https://docs.cloudbase.net/api-reference/server/php/storage.html)
+- [存储](https://docs.cloudbase.net/api-reference/server/php/storage)
 
-- [云函数引入 php-sdk 快速教程](https://docs.cloudbase.net/api-reference/server/php/tutorial.html)
+- [云函数引入 php-sdk 快速教程](https://docs.cloudbase.net/api-reference/server/php/tutorial)
