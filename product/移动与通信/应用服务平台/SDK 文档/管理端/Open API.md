@@ -5,21 +5,50 @@ Cloudbase Open API 让开发者可以通过 HTTP 的方式，以管理员身份�
 ## 了解请求结构
 
 1. 服务地址
-
-**https://tcb-api.tencentcloudapi.com**
-
-1. 请求方法
-
+<dx-codeblock>
+:::  URL
+https://tcb-api.tencentcloudapi.com
+:::
+</dx-codeblock>
+2. 请求方法
 支持的 HTTP 请求方法：**GET**, **POST**, **PUT**, **PATCH**, **DELETE**
-
 3. 请求头构造
-
-| 头部字段                  | 类型   | 必填 | 说明                                                                 |
-| ------------------------- | ------ | ---- | -------------------------------------------------------------------- |
-| X-CloudBase-Authorization | String | 是   | 结构为：`"<凭证版本> <CloudBase 签名>"`，CloudBase Open API 标准凭证 |
-| X-CloudBase-SessionToken  | String | 是   | 腾讯云 CAM 临时密钥的 Session Token                                  |
-| X-CloudBase-TimeStamp     | Number | 否   | Unix 时间戳，以秒为单位                                              |
-| content-type              | String | 否   | POST 时请指定 application/json                                       |
+<table>
+    <thead>
+    <tr>
+        <th>头部字段</th>
+        <th>类型</th>
+        <th>必填</th>
+        <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>X-CloudBase-Authorization</td>
+        <td>String</td>
+        <td>是</td>
+        <td>结构为：<code>&quot;&lt;凭证版本&gt; &lt;CloudBase 签名&gt;&quot;</code>，CloudBase Open API 标准凭证</td>
+    </tr>
+    <tr>
+        <td>X-CloudBase-SessionToken</td>
+        <td>String</td>
+        <td>是</td>
+        <td>腾讯云 CAM 临时密钥的 Session Token</td>
+    </tr>
+    <tr>
+        <td>X-CloudBase-TimeStamp</td>
+        <td>Number</td>
+        <td>否</td>
+        <td>Unix 时间戳，以秒为单位</td>
+    </tr>
+    <tr>
+        <td>content-type</td>
+        <td>String</td>
+        <td>否</td>
+        <td>POST 时请指定 application/json</td>
+    </tr>
+    </tbody>
+</table>
 
 ## API 文档
 
