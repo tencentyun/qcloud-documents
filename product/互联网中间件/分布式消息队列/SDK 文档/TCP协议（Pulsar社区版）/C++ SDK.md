@@ -11,13 +11,11 @@
 ### 操作步骤
 
 1. 准备环境。
-
    1. 在客户端环境安装 Pulsar C++ client，安装过程可参考官方教程 [Pulsar C++ client](https://pulsar.apache.org/docs/en/client-libraries-cpp/)。
    2. 在项目中引入 Pulsar C++ client 相关头文件及动态库。
-
 2. 创建客户端。
-
-   ```c++
+<dx-codeblock>
+:::  c++
    // 客户端配置信息
    ClientConfiguration config;
    // 设置授权角色密钥
@@ -25,16 +23,35 @@
    config.setAuth(auth);
    // 创建客户端
    Client client(SERVICE_URL, config);
-   ```
-
-   | 参数           | 说明                                                         |
-   | :------------- | :----------------------------------------------------------- |
-   | SERVICE_URL    | 集群接入地址，可以在控制台 [**集群管理**](https://console.cloud.tencent.com/tdmq/cluster) 页面查看并复制。<br/>![img](https://qcloudimg.tencent-cloud.cn/raw/1221f6b1be8ad150a6544a3f9394a8eb.png) |
-   | AUTHENTICATION | 角色密钥，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制**密钥**列复制。![img](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
-
+:::
+</dx-codeblock>
+<table>
+    <thead>
+    <tr>
+        <th style='text-align:left;'>参数</th>
+        <th style='text-align:left;'>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td style='text-align:left;'>SERVICE_URL</td>
+        <td style='text-align:left;'>集群接入地址，可以在控制台 <a
+                href='https://console.cloud.tencent.com/tdmq/cluster'><strong>集群管理</strong></a> 页面查看并复制。<br><img
+                src="https://qcloudimg.tencent-cloud.cn/raw/1221f6b1be8ad150a6544a3f9394a8eb.png"
+                referrerpolicy="no-referrer" alt="img"></td>
+    </tr>
+    <tr>
+        <td style='text-align:left;'>AUTHENTICATION</td>
+        <td style='text-align:left;'>角色密钥，在 <strong><a
+                href='https://console.cloud.tencent.com/tdmq/role'>角色管理</a></strong> 页面复制<strong>密钥</strong>列复制。<img
+                src="https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png" referrerpolicy="no-referrer"
+                alt="img"></td>
+    </tr>
+    </tbody>
+</table>
 3. 创建生产者。
-
-   ```c++
+<dx-codeblock>
+:::  c++
    // 生产者配置
    ProducerConfiguration producerConf;
    producerConf.setBlockIfQueueFull(true);
@@ -50,13 +67,14 @@
        std::cout << "Error creating producer: " << result << std::endl;
        return -1;
    }
-   ```
-
-   > ?Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Topic`，`clusterid/namespace/topic` 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
-
+:::
+</dx-codeblock>
+<dx-alert infotype="explain" title="">
+Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Topic`，`clusterid/namespace/topic` 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
+</dx-alert>
 4. 发送消息。
-
-   ```c++
+<dx-codeblock>
+:::  c++
    // 消息内容
    std::string content = "hello cpp client, this is a msg";
    // 构建消息对象
@@ -73,11 +91,11 @@
        // 发送成功
        std::cout << "The message " << content << " sent successfully" << std::endl;
    }
-   ```
-
+:::
+</dx-codeblock>
 5. 创建消费者。
-
-   ```c++
+<dx-codeblock>
+:::  c++
    // 消费者配置信息
    ConsumerConfiguration consumerConfiguration;
    consumerConfiguration.setSubscriptionInitialPosition(pulsar::InitialPositionEarliest);
@@ -96,17 +114,16 @@
        std::cout << "Failed to subscribe: " << result << std::endl;
        return -1;
    }
-   ```
-
-   > ?
-   >
-   > - Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Topic`，`clusterid/namespace/topic` 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
-   >   ![img](https://qcloudimg.tencent-cloud.cn/raw/dc1bc50c434546755565c6dcb8d3e7f0.png)
-   > - subscriptionName 需要写入订阅名，可在**消费管理**界面查看。
-
+:::
+</dx-codeblock>
+> ?
+>
+> - Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Topic`，`clusterid/namespace/topic` 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
+>   ![img](https://qcloudimg.tencent-cloud.cn/raw/dc1bc50c434546755565c6dcb8d3e7f0.png)
+> - subscriptionName 需要写入订阅名，可在**消费管理**界面查看。
 6. 消费消息。
-
-   ```c++
+<dx-codeblock>
+:::  c++
    Message msg;
    // 获取消息
    consumer.receive(msg);
@@ -116,9 +133,9 @@
    consumer.acknowledge(msg);
    // 消费失败回复nack, 消息将会重新投递
    // consumer.negativeAcknowledge(msg);
-   ```
-
+:::
+</dx-codeblock>
 7. 登录 [TDMQ Pulsar 版控制台](https://console.cloud.tencent.com/tdmq)，依次点击 **Topic 管理** > **Topic 名称**进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
    ![img](https://main.qcloudimg.com/raw/da7ce2bc5ac606c91982efecdb3b53bb.png)
 
-上述是对消息的发布和订阅方式的简单介绍。更多操作可参考 `Demo` 或 [Pulsar 官方文档](https://pulsar.apache.org/docs/en/client-libraries-cpp/) 。
+>?上述是对消息的发布和订阅方式的简单介绍。更多操作可参考 `Demo` 或 [Pulsar 官方文档](https://pulsar.apache.org/docs/en/client-libraries-cpp/)。
