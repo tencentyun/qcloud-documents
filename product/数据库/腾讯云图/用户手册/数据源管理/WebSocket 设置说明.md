@@ -1,4 +1,4 @@
-# WebSocket 数据源设置
+# WebSocket 设置说明
 
 腾讯云图支持 Pull 和 Push 两种方式动态更新大屏。
 

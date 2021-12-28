@@ -1,4 +1,4 @@
-# API 数据源设置
+# API 设置说明
 
 腾讯云图支持用户通过自己的 API 提供实时数据，支持**浏览器端发起请求**和**服务器端发起请求**两种。
 
@@ -10,7 +10,7 @@
 
 ### 设置数据源
 
-![](https://main.qcloudimg.com/raw/5cd10c18f9e4ce4c98f017fad7fd1ed1.png)
+![设置数据源](https://main.qcloudimg.com/raw/5cd10c18f9e4ce4c98f017fad7fd1ed1.png)
 
 ### 接口的实现
 
@@ -19,7 +19,7 @@
 - `Access-Control-Allow-Credentials: true`：勾选**需要 Cookie**，需要返回。
 - `Access-Control-Allow-Origin: https://yuntu.cloud.tencent.com`：需要按照 HTTP 请求的协议头 Origin 来源返回，如果请求`https://v.yuntus.com`页面（Origin: `https://v.yuntus.com`），则需要对应返回`Access-Control-Allow-Origin: https://v.yuntus.com`。
 
-![](https://main.qcloudimg.com/raw/165b0e11d9eba0fe5d9084e0c159cbb0.png)
+![接口响应头](https://main.qcloudimg.com/raw/165b0e11d9eba0fe5d9084e0c159cbb0.png)
 
 #### 返回数据
 
@@ -28,7 +28,7 @@
 - JSON 格式。
 - 仅包含完整数据（不包含返回码）。
 
-![](https://main.qcloudimg.com/raw/e3d99babe5d85c4346ef9faa0de3a89c.png)
+![接口响应数据](https://main.qcloudimg.com/raw/e3d99babe5d85c4346ef9faa0de3a89c.png)
 
 #### 接口示例代码
 
@@ -91,7 +91,7 @@ app.listen(PORT)
 
 由服务器端发起请求，接口响应数据格式与**浏览器端发起请求**一致，但需要接口支持外网访问，即需勾选**服务器发起请求**。
 
-![](https://main.qcloudimg.com/raw/cb53beacb7f6280783cd108e4bb4923f.png)
+![API 设置](https://main.qcloudimg.com/raw/cb53beacb7f6280783cd108e4bb4923f.png)
 
 ## 使用访问密钥
 
@@ -104,17 +104,17 @@ app.listen(PORT)
 
 登录 [腾讯云图控制台](https://yuntu.cloud.tencent.com/#/access-key)，单击**新建访问密钥**，新建成功后即可得到 SecretId 和 SecretKey。
 
-![](https://main.qcloudimg.com/raw/43145c939ee0a226ae5712ed7b8fdf8f.png)
+![创建密钥](https://main.qcloudimg.com/raw/43145c939ee0a226ae5712ed7b8fdf8f.png)
 
 ### 选择访问密钥
 
-![](https://main.qcloudimg.com/raw/514a8947997b78ffb116f7371236d883.png)
+![访问密钥](https://main.qcloudimg.com/raw/514a8947997b78ffb116f7371236d883.png)
 
-### 计算并比较签名
+### 计算与验证签名
 
 可以通过浏览器开发工具看到，服务器使用计算出的签名向设置的 API 发起了请求。
 
-![](https://main.qcloudimg.com/raw/6b0f6cda1fc0bafd34211f5205f41b11.png)
+![请求地址](https://main.qcloudimg.com/raw/6b0f6cda1fc0bafd34211f5205f41b11.png)
 
 上图中请求签名后的 API URL 如下：
 
