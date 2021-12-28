@@ -1,6 +1,6 @@
 
 ## 操作场景
-本场景用于介绍恢复 MySQL 逻辑备份到腾讯云 MySQL 数据库中。
+本场景介绍恢复 MySQL 逻辑备份到腾讯云 MySQL 数据库中。
 
 ## 前提条件
 - 恢复目标数据库符合备份功能和版本要求，请参见 [支持的备份能力](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
@@ -11,7 +11,7 @@ ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE US
 1. 登录 [DBS 控制台](https://console.cloud.tencent.com/dbs)，在左侧导航选择**备份计划**页，进入备份计划页。
 2. 选择指定的备份计划，单击任务 ID 或者在**操作**列单击**查看**，进入基本信息页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c2712383ab008d638ac91765d19b1e1a.png)
-3. 切换页签，单击**恢复数据库**页签，然后单击**恢复数据库**。
+3. 切换**恢复数据库**页签，然后单击**恢复数据库**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0b022c36c3f15efac879d0c3e25492c.png)
 4. 在**配置恢复时间点**页面中，配置数据库恢复的时间点，完成后单击**测试连通性**，通过后单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9c53ac636aa405e1ae3fb4caff062880.png)
