@@ -13,10 +13,9 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 ```
 >?
 >- `currtime` 为当前系统的时间，`expire` 为签名过期的时间。
->- 更多相关详情，请参见 [客户端计算 UserSig](#Client) 和 [服务端计算 UserSig](#Server)。
+>- 上述原理图仅做 UserSig 计算原理说明，如需了解具体的 UserSig 拼接代码实现方式，请参见 [客户端计算](#Client) 和 [服务端计算](#Server)。
 
 [](id:Key)
-
 ### 如何获取密钥？
 1. 登录**实时音视频控制台** > **[应用管理](https://console.cloud.tencent.com/trtc/app)**。
 2. 单击您需查看的 SDKAppID 对应的**应用信息**，单击进入**快速上手**页签。
