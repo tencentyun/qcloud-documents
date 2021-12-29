@@ -5,7 +5,7 @@
 云开发 tcb-manager-php SDK 的安装方式有两种，通过 composer 安装和手动安装源码包。
 
 - 通过 composer 安装（推荐使用）：
-  具体安装步骤请参见 [官方说明文档](https://getcomposer.org/doc/00-intro)。
+  具体安装步骤请参见 [官方说明文档](https://getcomposer.org/doc/00-intro.md)。
 <dx-codeblock>
 :::  bash
 composer require tencentcloudbase/tcb-manager-php
