@@ -12,7 +12,7 @@
 ## 操作步骤
 
 1. 准备环境。
-   在客户端环境安装 pulsar-client 库，可以使用 pip 进行安装，也可以使用其他方式，参考 [Pulsar Python client](https://pulsar.apache.org/docs/en/client-libraries-python/)。
+   在客户端环境安装 pulsar-client 库，可以使用 pip 进行安装，也可以使用其他方式，参见 [Pulsar Python client](https://pulsar.apache.org/docs/en/client-libraries-python/)。
 <dx-codeblock>
 :::  shell
    pip install pulsar-client==2.8.1
