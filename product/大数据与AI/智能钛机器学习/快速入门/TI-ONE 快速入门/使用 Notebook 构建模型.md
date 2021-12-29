@@ -39,7 +39,7 @@ CSV_COLUMN_NAMES = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'S
 SPECIES = ['Setosa', 'Versicolor', 'Virginica']
 ```
 
-本测试数据存储在 COS 广州地域，您可 [单击查看](https://tesla-ap-guangzhou-1256322946.cos.ap-guangzhou.myqcloud.com/cephfs/tesla_common/deeplearning/dataset/contest/demo.zip)，在 Notebook 中导入所需数据。
+本测试数据存储在 COS 广州地域，您可 [单击下载并查看](https://tesla-ap-guangzhou-1256322946.cos.ap-guangzhou.myqcloud.com/cephfs/tesla_common/deeplearning/dataset/contest/demo.zip)，在 Notebook 中导入所需数据。
 
 ```python
 !pip install wget
