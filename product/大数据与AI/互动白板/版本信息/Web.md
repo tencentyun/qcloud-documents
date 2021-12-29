@@ -1,3 +1,38 @@
+### 2.6.8 @2021.12.10
+* 链接地址：https://res.qcloudtiw.com/board/2.6.8/TEduBoard.min.js
+- 新增接口
+	1. 跳转到指定动画步数(gotoStep)
+	2. 获取白板滚动位置(getBoardScroll)
+	3. 设置分段擦除模式是否开启(setPiecewiseErasureEnable)
+	4. 获取分段擦除模式开启状态(isPiecewiseErasureEnable)
+	5. 设置橡皮擦大小(setEraserSize)
+	6. 获取橡皮擦大小(getEraserSize)
+	7. 设置全局背景图(setGlobalBackgroundPic)
+	8. 获取全局背景图(getGlobalBackgroundPic)
+
+- 调整接口
+	1. 添加白板元素(addElement) 支持添加文本元素（TEDU_BOARD_ELEMENT_TEXT）
+
+- 新增事件
+	1. 白板移动回调(TEB_BOARD_SCROLL_CHANGED)
+
+- 调整事件
+	1. 框选工具选中元素回调(TEB_SELECTED_ELEMENTS) 新增元素位置、宽高、包围盒大小等返回字段
+
+- 新增初始化参数
+	1. 全局背景图(globalBackgroundPic)
+
+- 功能优化
+	1. 优化图片资源加载逻辑
+	2. 添加图片元素在低版本上进行旋转校正
+	3. 添加图片元素支持自定义大小
+	4. 支持画线涂鸦分段擦除
+
+- Bug 修复
+	1. 在不同缩放比下添加白板元素大小显示不一致
+	2. 若干已知问题修复
+
+
 ### 2.6.7 @ 2021.10.26
 * 链接地址：https://res.qcloudtiw.com/board/2.6.7/TEduBoard.min.js
 - 新增接口

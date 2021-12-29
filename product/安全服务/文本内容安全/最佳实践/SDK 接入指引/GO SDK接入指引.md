@@ -1,7 +1,7 @@
 ## 支持环境
 - 使用 Go 1.9 版本及以上（如使用 go mod 需要 Go 1.14），并设置好 GOPATH 等必须的环境变量。
 - 调用地址：`tms.tencentcloudapi.com`。
->!API 支持就近地域接入，本产品就近地域接入的域名为 tms.tencentcloudapi.com，也支持指定地域域名访问，例如：广州地域的域名为tms.ap-guangzhou.tencentcloudapi.com。详细请参考 [图片内容安全-请求结构](https://cloud.tencent.com/document/product/1124/51863)。
+>!API 支持就近地域接入，本产品就近地域接入的域名为 tms.tencentcloudapi.com，也支持指定地域域名访问，例如：广州地域的域名为tms.ap-guangzhou.tencentcloudapi.com。详细请参考 [文本内容安全-请求结构](https://cloud.tencent.com/document/product/1124/51863)。
 >
 
 ## 安装 GO SDK

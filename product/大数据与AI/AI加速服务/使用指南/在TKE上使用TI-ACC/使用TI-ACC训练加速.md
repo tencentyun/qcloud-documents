@@ -1,7 +1,7 @@
 目前 TI-ACC 处于内测阶段，请先进行 [申请内测权限](https://cloud.tencent.com/apply/p/vl6fzemdq1) 拿到私有镜像临时登录指令，然后进行使用。
 
 ## 使用要求
-TI-ACC 推理加速敏捷版仅支持以下操作系统、Python 版本、设备类型及框架版本：
+TI-ACC 训练加速仅支持以下操作系统、Python 版本、设备类型及框架版本：
 - 操作系统：Linux
 - Python 版本：Python 3.6
 - 设备类型：GPU 支持 CUDA 10.1、10.2、11.1
@@ -33,16 +33,21 @@ import tiacc_training.torch
 ```
 
 #### 使用 DDP 分布式训练通信优化
-在原生 DPP 的训练代码里，仅需在开头增加如下代码即可：
+以兼容原生 DDP 的方式启动训练脚本，无需进行训练代码的修改，启动命令参考示例如下：
+```
+python3 -u -m tiacc_training.torch.distributed.launch --nproc_per_node $GPUS_PER_NODE --nnodes $NNODES --node_rank $NODE_RANK --master_addr $MASTER_ADDR --master_port $MASTER_PORT main.py
+```
+
+以 mpirun 的方式启动训练脚本，需要在原生 DPP 的训练代码里进行修改，在开头增加如下代码：
 ```
 import tiacc_training.torch.distributed as tdist
 tdist.init_tiacc_training()
 ```
-以 mpirun 的方式启动训练脚本，2机16卡训练脚本的内容参考示例如下：
+
+mpirun 方式2机16卡训练脚本的启动命令，参考示例如下：
 ```
 node_list=node1:8,node2:8   //node1和node2为服务器IP或主机名
 gpu_num=16  //总的gpu卡数
-
 mpirun --allow-run-as-root -np ${gpu_num} -H ${node_list} -map-by slot -mca btl_tcp_if_include eth0 -mca oob_tcp_if_include eth0 \
 -x NCCL_DEBUG=INFO \
 -x NCCL_SOCKET_IFNAME=eth0 \
@@ -76,7 +81,7 @@ DDP 分布式训练通信优化实测效果：
 			<td>215</td> 
      </tr>
 		 <tr>        
-      <td>16（单机）</td>   
+      <td>16（双机）</td>   
       <td>116</td>   
 			<td>158.6</td> 
      </tr>
@@ -294,3 +299,6 @@ spec:
 | 输出参数        | 类型 | 参数说明                                                     |
 | --------------- | ---- | ------------------------------------------------------------ |
 | mixed_precision | BOOL | 输入的参数得到当前 epoch 是否需要开启自动混合精度，是返回 TRUE，否则返回 FLASE。 |
+
+	
+	

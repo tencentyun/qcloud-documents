@@ -63,6 +63,8 @@ export XDG_CURRENT_DESKTOP="GNOME-Flashback:GNOME"
 export XDG_MENU_PREFIX="gnome-flashback-"
 gnome-session --session=gnome-flashback-metacity --disable-acceleration-check &
 ```
+编辑完成后如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/4a4517779b930fca5a7c39c673f81a35.png)
 5. 按 **Esc**，输入 **:wq**，保存文件并返回。
 6. 执行以下命令，重启桌面进程。
 ```

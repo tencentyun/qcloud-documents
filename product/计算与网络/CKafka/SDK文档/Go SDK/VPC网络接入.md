@@ -9,7 +9,7 @@
 
 ## 操作步骤
 
-### 步骤一：准备配置
+### 步骤1：准备配置
 
 1. 将下载的 Demo 中的 gokafkademo 上传至 Linux 服务器。
 2. 登录 Linux 服务器，进入 gokafkademo 目录，执行以下命令添加依赖库。
@@ -39,7 +39,7 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
 | bootstrapServers | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
 | consumerGroupId  | 您可以自定义设置，Demo 运行成功后可以在**Consumer Group**页面看到该消费者。 |
 
-### 步骤二：发送消息
+### 步骤2：发送消息
 
 1. 编写生产消息程序。
 <dx-codeblock>
@@ -114,10 +114,10 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
    Delivered message to test[0]@629
    ```
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**topic管理**页面，选择对应的 Topic，单击**更多**>**消息查询**，查看刚刚发送的消息。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**topic管理**页面，选择对应的 Topic，单击**更多** > **消息查询**，查看刚刚发送的消息。
    ![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
 
-### 步骤三：消费消息
+### 步骤3：消费消息
 
 1. 编写消费消息程序。。
 <dx-codeblock>

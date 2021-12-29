@@ -187,7 +187,7 @@ Dataway Hello World!
 - 作为 EIS 数据处理流程的一个环节，dw_process 函数的返回值目前支持的类型有：str/None/bool/float/int/list/dict/Entity/MultiMap/FormDataParts/Message 等。
 - 关于 DataWay 中数据类型及返回值的详细介绍，可参考 [DataWay 数据类型系统](#dataway-types)。
 
-## <span id='dataway-types'></span>DataWay 数据类型系统
+## DataWay 数据类型系统
 
 | 类型名            | 说明                                                         | 是否 DataWay 特有类型       | 举例                                                         |
 | ----------------- | ------------------------------------------------------------ | ------------------------- | ------------------------------------------------------------ |
@@ -208,7 +208,7 @@ Dataway Hello World!
 >!1. 上述类型可以在 DataWay 表达式中使用，但 **dw_process 函数的返回值的类型为其中的 str/None/ bool/float/int/list/ dict/Entity/MultiMap/FormDataParts/Message 之一**。
 >2. 需要注意的是，如果 DataWay 表达式输出的值会作为集成流的最终返回结果，则支持的返回值类型还会受到相应连接器组件的限制。如在以 HTTP listener 组件作为第一个组件的流中，其最终的 payload 也需要是一个 Entity 类型。
 
-## <span id="message-explain"></span>Message 类型及预定义属性
+## Message 类型及预定义属性
 
 Message 类型是 DataWay 用于表示一条 EIS 消息的数据类型，其中包含 payload、vars、attrs 等属性，称之为**预定义属性（Predefined Properties）**。这些属性是由系统根据当前运行信息及处理的消息生成的，用于在 DataWay 中通过程序化的方式获取上下文信息。
 

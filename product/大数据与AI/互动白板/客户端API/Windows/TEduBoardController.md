@@ -571,58 +571,6 @@ virtual void SetAccessibleUsers(char **users, uint32_t userCount, TEduBoardAcces
 | operatorType | TEduBoardAccessibleOperation * | 用户操作类型  |
 | typeCount | uint32_t | 操作类型个数 该接口会产生以下影响：<br>1. ERASER 工具只能擦除 users 参数列出的用户绘制的涂鸦，无法擦除其他人绘制的涂鸦<br>2. POINTSELECT、SELECT 工具只能选中 users 参数列出的用户绘制的涂鸦，无法选中其他人绘制的涂鸦<br>3. clear 接口只能用于清空选中涂鸦以及 users 参数列出的用户绘制的涂鸦，无法清空背景及其他人绘制的涂鸦<br>4. 白板包含的其他功能未在本列表明确列出者都可以确定不受本接口影响  |
 
-
-### SetGlobalBackgroundColor
-设置所有白板的背景色 
-``` C++
-virtual void SetGlobalBackgroundColor(const TEduBoardColor &color)=0
-```
-#### 参数
-
-| 参数 | 类型 | 含义 |
-| --- | --- | --- |
-| color | const TEduBoardColor & | 要设置的全局背景色 |
-
-#### 介绍
-调用该接口将导致所有白板的背景色发生改变 新创建白板的默认背景色取全局背景色 
-
-
-### GetGlobalBackgroundColor
-获取白板全局背景色 
-``` C++
-virtual TEduBoardColor GetGlobalBackgroundColor()=0
-```
-
-#### 返回
-全局背景色 
-
-
-### SetBackgroundColor
-设置当前白板页的背景色 
-``` C++
-virtual void SetBackgroundColor(const TEduBoardColor &color)=0
-```
-
-#### 参数
-
-| 参数 | 类型 | 含义 |
-| --- | --- | --- |
-| color | const TEduBoardColor & | 要设置的背景色 |
-
-#### 介绍
-白板页创建以后的默认背景色由 SetDefaultBackgroundColor 接口设定 
-
-
-### GetBackgroundColor
-获取当前白板页的背景色 
-``` C++
-virtual TEduBoardColor GetBackgroundColor()=0
-```
-
-#### 返回
-当前白板页的背景色 
-
-
 ### SetToolType
 设置要使用的白板工具 
 ``` C++
@@ -851,38 +799,6 @@ virtual void Clear(bool clearBackground=false, bool clearSelectedOnly=false)=0
 #### 警告
 目前不支持清除选中部分的同时清除背景 
 
-
-### SetBackgroundImage
-设置当前白板页的背景图片 
-``` C++
-virtual void SetBackgroundImage(const char *url, TEduBoardImageFitMode mode)=0
-```
-#### 参数
-
-| 参数 | 类型 | 含义 |
-| --- | --- | --- |
-| url | const char * | 要设置的背景图片 URL，编码格式为 UTF8  |
-| mode | TEduBoardImageFitMode | 要使用的图片填充对齐模式 |
-
-#### 介绍
-当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS 
-
-
-### SetBackgroundH5
-设置当前白板页的背景 H5 页面 
-``` C++
-virtual void SetBackgroundH5(const char *url)=0
-```
-#### 参数
-
-| 参数 | 类型 | 含义 |
-| --- | --- | --- |
-| url | const char * | 要设置的背景 H5 页面 URL |
-
-#### 介绍
-该接口与 SetBackgroundImage 接口互斥 
-
-
 ### Undo
 撤销当前白板页上一次动作 
 ``` C++
@@ -912,6 +828,83 @@ virtual void setScrollBarVisible(bool enable)=0
 | --- | --- | --- |
 | enable | bool | true 显示滚动条 false 不显示滚动条 |
 
+
+### setTextFontFamily
+设置自定义字体
+``` C++
+virtual void setTextFontFamily(const char * fontFace)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fontFace	 | const char * | 设置自定义字体名称 |
+
+### addTextFontFamily
+设置自定义字体
+`建议在创建白板实例后立刻调用;本地端和远端都需要设置字体样式，否则可能出现两端字体显示样式不同步`
+``` C++
+virtual void AddTextFontFamily(const char * 	fontFace, const char * 	fontUrl)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fontFace	 | const char * | 字体样式名称 |
+| fontUrl	 | const char * | 字体资源链接 |
+
+### GetTextFontFamily
+获取当前使用字体
+
+``` C++
+virtual void GetTextFontFamily()
+```
+#### 返回
+当前使用字体
+
+### setPiecewiseErasureEnable
+是否启用点擦（分段擦除）功能
+
+``` C++
+virtual void setPiecewiseErasureEnable(bool enable)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable	 | bool | enable	: true 启用；false 不启用 |
+
+### isPiecewiseErasureEnable
+获取分段擦除模式开启状态
+
+``` C++
+virtual void isPiecewiseErasureEnable()
+```
+#### 返回
+true 已开启； false 未开启
+
+### setEraserSize
+获取分段擦除模式开启状态
+
+``` C++
+virtual void setEraserSize(uint32_t 	radius)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| radius	 | uint32_t | radius	橡皮擦擦除半径，单位：像素，默认16px |
+
+### getEraserSize
+获取橡皮擦大小
+
+``` C++
+virtual void getEraserSize()
+```
+#### 返回
+橡皮擦大小，单位：像素
+
+--------
 
 ## 白板页操作接口
 
@@ -1280,7 +1273,24 @@ virtual void SetRemoteCursorVisible(bool visible)=0
 | --- | --- | --- |
 | visible | bool | 远端画笔在本地是否可见  |
 
+### gotoStep
+跳转到指定动画步数 
+``` C++
+virtual void gotoStep(bool visible)
+```
 
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| boardId | const char * | 白板id  |
+| step | uint32_t | 动画步数 |
+
+### getBoardScroll
+获取白板滚动位置 
+``` C++
+virtual void gotoStep(bool visible)
+```
+#### 返回
+白板滚动位置 scrollLeft, scrollTop 以百分比形式展示，范围在 [0,1]
 
 ## 文件操作接口
 
@@ -1968,6 +1978,107 @@ virtual TEduBoardStringList* GetAllClassGroupIds()=0
 分组列表 
 
 
+## 背景接口
 
 
 
+### SetGlobalBackgroundColor
+设置所有白板的背景色 
+``` C++
+virtual void SetGlobalBackgroundColor(const TEduBoardColor &color)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| color | const TEduBoardColor & | 要设置的全局背景色 |
+
+#### 介绍
+调用该接口将导致所有白板的背景色发生改变 新创建白板的默认背景色取全局背景色 
+
+
+### GetGlobalBackgroundColor
+获取白板全局背景色 
+``` C++
+virtual TEduBoardColor GetGlobalBackgroundColor()=0
+```
+
+#### 返回
+全局背景色 
+
+
+### SetBackgroundColor
+设置当前白板页的背景色 
+``` C++
+virtual void SetBackgroundColor(const TEduBoardColor &color)=0
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| color | const TEduBoardColor & | 要设置的背景色 |
+
+#### 介绍
+白板页创建以后的默认背景色由 SetDefaultBackgroundColor 接口设定 
+
+
+### GetBackgroundColor
+获取当前白板页的背景色 
+``` C++
+virtual TEduBoardColor GetBackgroundColor()=0
+```
+
+#### 返回
+当前白板页的背景色 
+
+
+### SetBackgroundImage
+设置当前白板页的背景图片 
+``` C++
+virtual void SetBackgroundImage(const char *url, TEduBoardImageFitMode mode)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | const char * | 要设置的背景图片 URL，编码格式为 UTF8  |
+| mode | TEduBoardImageFitMode | 要使用的图片填充对齐模式 |
+
+#### 介绍
+当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS 
+
+
+### SetBackgroundH5
+设置当前白板页的背景 H5 页面 
+``` C++
+virtual void SetBackgroundH5(const char *url)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | const char * | 要设置的背景 H5 页面 URL |
+
+#### 介绍
+该接口与 SetBackgroundImage 接口互斥 
+
+### setGlobalBackgroundPic
+跳转到指定动画步数 
+``` C++
+virtual void setGlobalBackgroundPic(const char * 	url, const TEduBoardImageFitMode 	mode, int 	type)
+```
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | const char * | 资源链接  |
+| mode | TEduBoardImageFitMode | 图片填充对齐模式 |
+| type | int | 背景类型（0: 背景图 1：H5） |
+
+### getGlobalBackgroundPic
+跳转到指定动画步数 
+``` C++
+virtual void getGlobalBackgroundPic()
+```
+#### 返回
+TEduScrollPosition白板背景图结构

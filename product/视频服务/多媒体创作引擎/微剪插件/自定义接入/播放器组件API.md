@@ -9,7 +9,7 @@
 >- v1.5.0后新增功能：
 转场和动效，详情请参见 [转场和动效](https://cloud.tencent.com/document/product/1156/48610)。
 >- v1.6.0之后支持模板。
-
+ 
 ### 使用方式
 1. 配置 JSON 文件：
 ```json

@@ -9,10 +9,10 @@
 
 ### 下载安装 SDK
 
-- 语音合成 Android SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/tts_sdk_android_v1.4.3.zip)。
+- 语音合成 Android SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/tts_sdk_android_v1.5.0.zip)。
 - 解压后即是示例代码工程，工程目录 `libqcloudtts-demo/libs` 下的 aar 文件即 SDK 包。
 - 用 Android Studio 打开此工程查看语音合成示例代码。
-- 长文本接口：实例代码参考 LongTextTtsActivity 类，支持长文本，支持播放暂停与恢复。
+- 文本合成接口：基于基础语音合成接口封装，支持不限字数长文本入参，SDK内部会将文本切分为短句多次请求合成，也支持入参切分好的句子集合  ，支持播放暂停与恢复，适合实时播放场景，实例代码参考 LongTextTtsActivity 类。
 
 ### 参数说明
 
@@ -22,13 +22,21 @@
 | secretId  | String | 是   | 腾讯云安全凭证，[获取地址](https://console.cloud.tencent.com/cam/capi) |
 | secretKey | String | 是   | 腾讯云安全凭证，获取地址同上                                 |
 | sessionId | String | 否   | 一次请求对应一个 SessionId，会原样返回                       |
-| projectId | String  | 否   | 项目 ID，用户自定义，默认为0，[获取地址](https://console.cloud.tencent.com/project) 
+| projectId | String  | 否   | 项目 ID，用户自定义，默认为0，[获取地址](https://console.cloud.tencent.com/project) |
 | speed     | int | 否   | 语速，范围：[-2，2]，分别对应不同语速：0.6倍、0.8倍、1.0倍、1.2倍、1.5倍，默认为0 |
 | voiceType | int | 否   | tts 音色                                  |
 | language  | int | 否   | 主语言类型，默认中文                                         |
 
 ## 快速入门
+### 在 AndroidManifest.xml 添加如下权限 
+
+```
+< uses-permission android:name="android.permission.INTERNET"/>
+< uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+```
+
 ### 初始化 TtsController 示例
+
 通过 LongTextTtsController 构造 ttsController。
 ```
 LongTextTtsController mTtsController = new LongTextTtsController();
@@ -67,7 +75,7 @@ mTtsController.init(this,
 //更多音色id可查看官网文档https://cloud.tencent.com/document/product/1073/37995
 public enum VoiceType {
     VOICE_TYPE_Zhi_Yu(1001, "智瑜"),
-    VOICE_TYPE_Zhi_Xia(1000, "智侠"),
+    VOICE_TYPE_Zhi_Yun(1004, "智云"),
     VOICE_TYPE_Zhi_Ling(1002, "智聆"),
     VOICE_TYPE_Zhi_Mei(1003, "智美"),
     VOICE_TYPE_We_Jack(1050, "WeJack，英文男声"),
@@ -108,7 +116,15 @@ mTtsController.setProjectId(0);
 ```
 
 ### 语音合成
+
+语音合成有两个接口：
+
+合成接口1：直接入参文本段落，使用SDK内部的规则切分文本，如果sdk的切分规则不符合您的业务需求，您可以选用合成接口2。
+
+合成接口2：入参切分好的句子集合，您需要确保列表内每句话长度不超过后端接口最大字符限制，建议文本中第一句话不要设的太长，demo内附带了一份文本切分示例代码。
+
 ```
+合成接口1：直接入参文本段落
 mTtsController.startTts(ttsText, mTtsExceptionHandler, new QCloudPlayerCallback() {
 	//播放开始
 	@Override
@@ -145,10 +161,88 @@ mTtsController.startTts(ttsText, mTtsExceptionHandler, new QCloudPlayerCallback(
 	public void onTTSPlayEnd() {
 	    Log.d("tts", "onPlayEnd");
 	}
+	
+	//当前播放的音频对应的句子，以及这句话在文本队列数组中的序号
+	@Override
+	public void onTTSPlayText(String text, int lineSeq) {
+		Log.d("tts","onTTSPlayText:" + text + ":" + lineSeq);
+	}
+
+	//实时返回分段的音频缓存文件路径 ，业务需要时可以在这里获取到音频文件做其他处理
+	@Override
+	public void onTTSPlayAudioCachePath(String path) {
+		Log.d(TAG, "onTTSPlayAudioCachePath: "+path);
+	}	
+
+});
+//此方法能获取到sdk切分好的句子列表集合
+//List<String> TextArray = mTtsController.getTextArray(); 
+
+```
+
+```
+合成接口2：入参切分好的句子集合
+
+合成语音的源文本，按UTF-8编码统一计算。单条句子中文最大支持150个汉字（全角标点符号算一个汉字）；英文最大支持500个字母（半角标点符号算一个字母）。
+见https://cloud.tencent.com/document/product/1073/37995。
+
+List<String> lines = new ArrayList<>();
+lines.add("第一句。");
+lines.add("第二句。");
+mTtsController.startTts(lines, mTtsExceptionHandler, new QCloudPlayerCallback() {
+	//播放开始
+	@Override
+	public void onTTSPlayStart() {
+ 	   Log.d("tts", "onPlayStart");
+	}
+
+	//音频缓冲中
+	@Override
+	public void onTTSPlayWait() {
+   	 Log.d("tts", "onPlayWait");
+	}
+
+	//缓冲完成，继续播放
+	@Override
+	public void onTTSPlayResume() {
+	    Log.d("tts", "onPlayResume");
+	}
+
+	//连续播放下一句
+	@Override
+	public void onTTSPlayNext() {
+	    Log.d("tts", "onPlayNext");
+	}
+
+	//播放中止
+	@Override
+	public void onTTSPlayStop() {
+	    Log.d("tts", "onPlayStop");
+	}
+
+	//播放结束
+	@Override
+	public void onTTSPlayEnd() {
+	    Log.d("tts", "onPlayEnd");
+	}
+	
+	//当前播放的音频对应的句子，以及这句话在文本队列数组中的序号
+	@Override
+	public void onTTSPlayText(String text, int lineSeq) {
+		Log.d("tts","onTTSPlayText:" + text + ":" + lineSeq);
+	}
+
+	//实时返回分段的音频缓存文件路径 ，业务需要时可以在这里获取到音频文件做其他处理
+	@Override
+	public void onTTSPlayAudioCachePath(String path) {
+		Log.d(TAG, "onTTSPlayAudioCachePath: "+path);
+	}	
+
 });
 ```
 
 ### 接收异常
+
 ```
 //接收接口异常
 private final TtsController.TtsExceptionHandler mTtsExceptionHandler = new TtsController.TtsExceptionHandler() {
@@ -170,4 +264,3 @@ mTtsController.stop();
 
 ### 错误码
 请参考 [语音合成 API 文档](https://cloud.tencent.com/document/product/1073/37995)。
-

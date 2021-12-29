@@ -2,7 +2,7 @@
 ## 操作场景
 慢 SQL 分析对实例中慢 SQL 的记录和执行信息（来源信息、次数、执行时间、返回集合、扫描集合等）进行统计、抽样、聚合。针对聚合后的 SQL 语句、执行计划、综合资源消耗、扫描和返回集合大小、索引使用合理性等，对慢 SQL 的性能进行分析，并给出优化建议。
 >?
->- 慢 SQL 分析目前支持云数据库 MySQL（不含单节点 - 基础型）、云原生数据库 TDSQL-C（TDSQL-C for MySQL）、自建数据库 MySQL。Redis 的慢日志分析与 MySQL 和 TDSQL-C 不同，请参见 [Redis 慢日志分析](https://cloud.tencent.com/document/product/1130/58851)。
+>- 慢 SQL 分析目前支持云数据库 MySQL（不含单节点 - 基础型）、云原生数据库 TDSQL-C（TDSQL-C for MySQL）、自建数据库 MySQL、云数据库 MongoDB。Redis 的慢日志分析与 MySQL 和 TDSQL-C 不同，请参见 [Redis 慢日志分析](https://cloud.tencent.com/document/product/1130/58851)。
 >- agent 接入的自建数据库实例在使用慢日志分析前，需确认慢日志采集是否开启，具体参见 [慢日志分析配置](https://console.cloud.tencent.com/dbbrain/instance?product=dbbrain-mysql)。
 >- 直连接入的自建数据库实例不支持慢日志分析。
 

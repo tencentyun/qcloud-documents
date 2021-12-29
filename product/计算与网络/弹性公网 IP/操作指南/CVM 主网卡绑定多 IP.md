@@ -16,7 +16,8 @@
 >?若选择手动填写要分配的内网 IP，请确认填写的内网 IP 在所属子网网段内，且不属于系统保留 IP。
 >例如，所属子网网段为：`10.0.0.0/24`，则可填的内网 IP 范围 为：`10.0.0.2 - 10.0.0.254`，本次操作以手动填写 `10.0.0.3` 为例。
 >
-![](https://main.qcloudimg.com/raw/230608e14e90b0b4848661eb337e4d0c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/33a3ee70ea03fae9b6ddccb0b9b5327c.png)
+
 
 ### 步骤二：绑定 EIP[](id:bindEIP)
 1. 在“弹性网卡”页面，单击 <img src="https://main.qcloudimg.com/raw/57a0c76b72cd97bd80bf857cd30c867a.png" style="margin: 0;">，以展开主网卡信息。
@@ -25,9 +26,10 @@
 3. 在弹出的“绑定弹性公网IP”窗口中：
  - 若有可选的 EIP，选中并单击**确定**即可。
  - 若无可选的 EIP，可单击弹框上方的**新建**进行申请，详情请参见 [申请 EIP](https://cloud.tencent.com/document/product/1199/41698)，申请成功后返回弹出框并单击**刷新**，即可看见申请的 EIP，选中并单击**确定**即可。
-![](https://main.qcloudimg.com/raw/ac5172d56f2dc436a5b0c16d1be5ece1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6b742de292a1d10ecb7e14a7a8d0938f.png)
 4. 在主网卡的列表中，即可查看相关内网 IP 绑定公网 IP 的信息。
-![](https://main.qcloudimg.com/raw/4898e542a669a4591fcde007fc554aee.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f1fef47ab8957e36cb911995433d6eb0.png)
+
 
 ### 步骤三：配置网卡
 请根据您的云服务器操作系统类型，选择对应的配置网卡操作：
