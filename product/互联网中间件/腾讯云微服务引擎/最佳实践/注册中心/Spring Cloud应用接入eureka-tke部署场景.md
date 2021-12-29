@@ -23,7 +23,7 @@
 创建工作负载时，需将环境变量 `JAVA_OPTS` 指定为 `-Deureka.client.serviceUrl.defaultZone=http://[TSE Eureka注册中心实例访问IP:8761]/eureka/ `。
 </dx-alert>
 
-7. 在 [TSE 控制台](https://console.cloud.tencent.com/tse) 验证服务注册。点击进入注册中心实例的服务管理页面，若出现以下页面，则证明服务注册成功。
+7. 在 [TSE 控制台](https://console.cloud.tencent.com/tse) 验证服务注册。单击进入注册中心实例的服务管理页面，若出现以下页面，则证明服务注册成功。
 ![](https://main.qcloudimg.com/raw/43368b4a90fa23a8cf733de286b4c1d9.png)
 
 ## 注意事项

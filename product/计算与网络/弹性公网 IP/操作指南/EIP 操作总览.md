@@ -65,7 +65,7 @@
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/1199/62617">设置 ALG 功能</a></td>
-<td>弹性公网 IP 支持针对 FTP 和 SIP 协议设置 ALG 功能。开启 ALG 功能后，则可对指定协议的应用层数据载荷进行 NAT 穿透。</td>
+<td>公网 IP 支持针对 FTP 和 SIP 协议设置 ALG 功能。开启 ALG 功能后，则可对指定协议的应用层数据载荷进行 NAT 穿透。</td>
 </tr>
 <tr>
 <td rowspan="2">解绑/释放 EIP</td>

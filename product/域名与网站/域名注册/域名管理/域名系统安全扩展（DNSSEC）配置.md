@@ -29,9 +29,9 @@
 
 ## 操作指南
 1. 在 “我的域名” 管理页面，选择您需要配置的域名，并单击**管理**。如下图所示：
-![](https://main.qcloudimg.com/raw/d19438c7800e49ec15bfa09a61337b86.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/bc6f02b512918a8bac516a14d5b138ef.png)
 2. 进入 “域名信息” 管理页面，选择**域名安全**页签，并单击 **DNSSEC 设置 > 管理**。如下图所示：
-![](https://main.qcloudimg.com/raw/805d5bf566ca4476acaf6306e2db1cf0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0fbda5392a4764afa332a8bffd7ccccd.png)
 3. 请单击**我已了解**，并进入 “DNSSEC 设置” 管理页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/0f1804270c99e98ba11d3704575d8a21.png)
 4. 在 “DNSSEC 设置” 管理页面，您可以通过以下两种方式添加 DNSSEC 记录。如下图所示：
