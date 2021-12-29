@@ -13,7 +13,7 @@
 1. 登录 [**腾讯云视立方控制台**](https://console.cloud.tencent.com/vcube)，单击**创建测试 License**。
 2. 根据实际需求填写 `App Name`、`Package Name` 和 `Bundle ID`，勾选功能模块 **高级套餐 S1 - 04**的腾讯特效测试套餐，单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8184955b25fe97b1a79c4571897b2195.png)
-3. 测试版 License 成功创建后，页面会显示生成的 License 信息。在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。
+3. 测试版 License 成功创建后，页面会显示生成的 License 信息。此时 Key 和 LicenseURL 两个参数暂未生效，需按后续步骤提交审核，审核通过后方才生效使用。**在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。**
 ![](https://qcloudimg.tencent-cloud.cn/raw/f570acd4b527a49b98f9b412627dd83b.png)
 > ?
 > - 测试版 License 有效期内可单击右侧的**编辑**，进入修改 Bundle ID 和 Package Name 信息，单击**确定**即可保存，但会导致此测试 License 下生效中的测试版腾讯特效功能模块**重新进入审核流程**，待审核通过后方可继续使用。
