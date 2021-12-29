@@ -1,5 +1,5 @@
 
-## 简介
+## Terraform 是什么？
 [Terraform](https://www.terraform.io/) 是一款使用 Go 编写，运行在客户端且开源的资源编排工具。Terraform 基于 HashiCorp Plugin 的架构设计，为其高度可扩展提供可能性。目前腾讯云已实现 Provider Plugin，支持通过 Terraform 管理各自云上资源。示意图如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/d8c9eb0619e3bfab3f57dad1474a291c.png)
 
