@@ -1,4 +1,4 @@
-﻿![](https://qcloudimg.tencent-cloud.cn/raw/9a0462ef84001d6a437d2b6ac699e74a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9a0462ef84001d6a437d2b6ac699e74a.png)
 
 ## 准备阶段（POC测试）
 在本阶段需要您向腾讯云侧反馈具体的业务需求，腾讯侧依据需求制定相应的POC测试方案，下来您根据POC测试方案执行测试，POC测试完成进入正式商用阶段。
