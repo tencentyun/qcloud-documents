@@ -42,7 +42,7 @@ Host: sample.portal.tencentciam.com
 - 用户未登录，显示认证门户的默认登录页面。
 ```
 HTTP/1.1 302 Found
-Location: http://localhost:8080/portal/login?p_state=MOCK_LOGIN_PORTAL_STATE
+Location: https://sample.portal.tencentciam.com/portal/login?p_state=MOCK_LOGIN_PORTAL_STATE
 ```
 - 用户已登录，携带授权码和 state 参数重定向到应用回调地址。
 ```
