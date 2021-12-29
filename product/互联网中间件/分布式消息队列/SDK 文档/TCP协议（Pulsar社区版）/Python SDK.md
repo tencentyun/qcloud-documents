@@ -81,7 +81,7 @@ Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Top
    )
 :::
 </dx-codeblock>
-   还可以使用异步方式发送消息
+   还可以使用异步方式发送消息。
 <dx-codeblock>
 :::  python
    # 异步发送回调
@@ -101,7 +101,7 @@ Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Top
    )
 :::
 </dx-codeblock>
-5. 创建消费者
+5. 创建消费者。
 <dx-codeblock>
 :::  python
    # 订阅消息
@@ -136,4 +136,4 @@ Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Top
 7. 登录 [TDMQ Pulsar 版控制台](https://console.cloud.tencent.com/tdmq)，依次点击 **Topic 管理** > **Topic 名称**进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
    ![img](https://main.qcloudimg.com/raw/da7ce2bc5ac606c91982efecdb3b53bb.png)
 
->?上述是对消息的发布和订阅方式的简单介绍。更多操作可参见 `Demo` 或 [Pulsar 官方文档](https://pulsar.apache.org/docs/en/client-libraries-python/) 。
+>?上述是对消息的发布和订阅方式的简单介绍。更多操作可参见 `Demo` 或 [Pulsar 官方文档](https://pulsar.apache.org/docs/en/client-libraries-python/)。
