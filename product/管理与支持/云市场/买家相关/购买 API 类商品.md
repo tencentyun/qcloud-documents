@@ -3,7 +3,7 @@
 
 ## 选购商品
 1. 登录 [腾讯云云市场](https://market.cloud.tencent.com/categories?dt=api) ，选购 API 类商品。
-2. 寻找到您所需要的商品后，选择您所需的商品规格以及使用期限，单击**提交订单**。
+2. 寻找到您所需要的商品后，选择您所需的商品规格以及使用期限，单击**立即购买**。
 ![](https://main.qcloudimg.com/raw/20724c909cb47b28529697e1bcb58f20.jpg)  
 
 ## 核对订单信息并支付 
@@ -19,7 +19,7 @@
 进入 [已购产品与服务](https://console.cloud.tencent.com/servicemarket/services) 页面，单击**管理**或资源实例 ID，即可获取 API 相关信息。
 
 >? 
-- **secretId/secretKey：**secreId 用于标识所使用的哪个密钥，并参与签名计算，传输过程中体现。secretKey 用于签名计算，传递过程中无体现。如需了解详情，请参照 [secretId + secretKey 认证](https://cloud.tencent.com/document/product/628/11819)。  
+- **secretId/secretKey：**secretID 用于标识所使用的哪个密钥，并参与签名计算，传输过程中体现。secretKey 用于签名计算，传递过程中无体现。如需了解详情，请参照 [secretId + secretKey 认证](https://cloud.tencent.com/document/product/628/11819)。  
 - **总使用情况：**汇总累计您购买的可调用次数和已消耗的调用次数，例如，“0/100” 是指可调用次数为100，已消耗的调用次数为0。
 
 
