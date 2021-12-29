@@ -39,7 +39,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 ```
  - 源数据库为 MariaDB 10.5、10.6 版本时，还需要 SLAVE MONITOR 的权限才能执行 show slave status。
 
-- 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE,  CREATE ROUTINE, CREATE TEMPORARY TABLES,  CREATE USER,  CREATE VIEW,  DELETE,  DROP,  EVENT,  EXECUTE,  INDEX,  INSERT,  LOCK TABLES,  PROCESS,  REFERENCES,  RELOAD,  SELECT,  SHOW DATABASES,  SHOW VIEW,  TRIGGER,  UPDATE（如果目标库为腾讯云 MariaDB 数据库，需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行 RELOAD 授权）。
+- 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE,  CREATE ROUTINE, CREATE TEMPORARY TABLES,  CREATE USER,  CREATE VIEW,  DELETE,  DROP,  EVENT,  EXECUTE,  INDEX,  INSERT,  LOCK TABLES,  PROCESS,  REFERENCES,  RELOAD,  SELECT,  SHOW DATABASES,  SHOW VIEW,  TRIGGER,  UPDATE（如果目标库为腾讯云数据库 MariaDB，需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行 RELOAD 授权）。
 
 
 ## 异构迁移兼容性说明
