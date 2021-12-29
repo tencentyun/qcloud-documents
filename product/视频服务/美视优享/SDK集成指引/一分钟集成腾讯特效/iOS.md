@@ -57,7 +57,7 @@ framework 签名可以直接在 General-->Masonry.framework 和 libpag.framework
 1. 获取鉴权证书，将申请 License 过程获得的授权文件加入项目中，并确保添加到 Bundle Resources。
 2. 加载鉴权库 `YTCommon.framework`，并对腾讯特效 SDK 进行鉴权。
 <dx-tabs>
-::: 线上授权（X - Magic 版本 2.4.0 + 支持线上授权方式）
+::: 线上授权（X-Magic 版本 2.4.0 + 支持线上授权方式）
 ```
 [TESign setKeyUrl:@"key" url:@"url"];
 NSString* lic = [TESign getLicenceInfo];
