@@ -2,6 +2,8 @@
 用户在应用系统的登录页面，单击**登录**或访问受保护资源时，应用系统将用户（浏览器）重定向到此接口地址，发起登录认证。用户将在 CIAM 的认证门户上完成登录认证。登录成功后，认证门户把用户重定向到应用的 `redirect_uri` 地址。
 >?根据 OAuth 协议的安全最佳实践要求，本接口使用 PKCE 授权码模式。
 
+## 支持的应用类型
+Web 应用、单页应用、移动应用。
 
 ## 请求方法
 GET
@@ -14,7 +16,7 @@ GET
 ## 请求示例
 ```
 GET /oauth2/authorize?scope=openid&client_id=TENANT_CLIENT_ID&redirect_uri=https%3A%2F%2FTENANT.APP.DOMAIN%2Flogin%2Foauth2%2Fcode%2FTENANT_APP_ID&response_type=code&state=MOCK_STATE&code_challenge_method=S256&code_challenge=MOCK_CODE_CHALLENGE&auth_source_id=MOCK_USERNAME_PASSWORD_AUTH_SOURCE_ID HTTP/1.1
-Host: localhost:8080
+Host: sample.portal.tencentciam.com
 ```
 
 
