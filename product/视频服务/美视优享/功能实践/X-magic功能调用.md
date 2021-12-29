@@ -310,7 +310,7 @@ boolean isSupportBeauty()
 
 ### isBeautyAuthorized
 
-判断当前的 lic 授权支持哪些美颜。 仅支持 BEAUTY 类型的美颜项检测。检测后的结果会赋值到各个美颜对象 `XmagicProperty.isAuthz` 字段中。
+判断当前的 lic 授权支持哪些美颜。 仅支持 BEAUTY 类型的美颜项检测。检测后的结果会赋值到各个美颜对象 `XmagicProperty.isAuth` 字段中。
 
 ```
 void isBeautyAuthorized(List<XmagicProperty<?>> properties) 
