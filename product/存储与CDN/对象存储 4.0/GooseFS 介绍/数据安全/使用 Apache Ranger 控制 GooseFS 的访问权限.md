@@ -30,7 +30,7 @@ Apache Ranger 是大数据生态系统中用于控制访问权限的一个标准
 
 #### 在 Ranger Admin 侧部署 GooseFS Ranger Plugin 并注册对应服务
 
->? 单击 [此处](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs/extensions/ranger-plugin/1.0.0/release/ranger-goosefs-plugin-1.0.0.jar) 下载 GooseFS Ranger Plugin。
+>? 单击 [此处](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs/extensions/ranger-plugin/1.0.0/release/ranger-goosefs-plugin-1.0.0.tar.gz) 下载 GooseFS Ranger Plugin。
 >
 
 部署步骤如下：
@@ -127,7 +127,7 @@ curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H 
       </property>
     </configuration>
     ```
-3. 在 goosefs-site.xml 文件中，添加如下配置：
+3. 在 goosefs-site.properties 文件中，添加如下配置：
 ```properties
 ...
 goosefs.security.authorization.permission.type=CUSTOM
@@ -137,7 +137,7 @@ goosefs.security.authorization.custom.provider.class=org.apache.ranger.authoriza
 4. 在 \${GOOSEFS_HOME}/libexec/goosefs-config.sh 中，将 goosefs-ranger-plugin-${version}.jar 添加到 GooseFS 的类路径中：
 ```bash
 ...
-GOOSEFS_RANGER_CLASSPATH="${GOOSEFS_HOME}/lib/ranger-goosefs-plugin-1.0.0-SNAPSHOT.jar"
+GOOSEFS_RANGER_CLASSPATH="${GOOSEFS_HOME}/lib/ranger-goosefs-plugin-${version}.jar"
 GOOSEFS_SERVER_CLASSPATH=${GOOSEFS_SERVER_CLASSPATH}:${GOOSEFS_RANGER_CLASSPATH}
 ...
 ```
