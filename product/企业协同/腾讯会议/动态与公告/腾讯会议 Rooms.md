@@ -22,7 +22,7 @@
 	</tr>
 	<tr>		
 <td><center>V2.12.50</td>
-<td>1.支持非腾讯会议 APP 扫码。<br>
+<td>1.支持非腾讯会议 App 扫码。<br>
 2.支持扫码选择会议室登录。<br>
 3.Rooms支持进入网络研讨会（webinar）。<br>
 4.Rooms 控制器支持公网条件使用。</td>
@@ -54,7 +54,7 @@
 	</tr>
 	<tr>			
 <td><center>V2.12.50</td>
-<td>1. 支持非腾讯会议 APP 扫码。<br>
+<td>1. 支持非腾讯会议 App 扫码。<br>
 2. 支持扫码选择会议室登录。<br>
 3. Rooms 支持进入网络研讨会（webinar）。<br>
 4. Rooms 控制器支持公网条件使用。</td>
