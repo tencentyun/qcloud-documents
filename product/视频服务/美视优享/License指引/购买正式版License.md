@@ -17,7 +17,7 @@
 > ?单击**确定**前需要再次确认 Bundle ID 和 Package Name 与业务使用包名信息一致，如与提交到商店的不一致，请在提交前进行修改，**正式版 License 一旦提交成功将无法再修改 License 信息**。
 > 
 ![](https://qcloudimg.tencent-cloud.cn/raw/bb01e653c8e7279635349ea057f92f88.png)
-3. 正式版 License 成功创建后，页面会显示生成的正式版 License 信息。在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。
+3. 正式版 License 成功创建后，页面会显示生成的正式版 License 信息。此时 Key 和 LicenseURL 两个参数暂未生效，需按后续步骤提交审核，审核通过后方才生效使用。**在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。**
 ![](https://qcloudimg.tencent-cloud.cn/raw/7701a0f878af542bead25b34fb539bba.png)
 :::
 ::: 方式二：已创建的正式版应用中解锁模块
