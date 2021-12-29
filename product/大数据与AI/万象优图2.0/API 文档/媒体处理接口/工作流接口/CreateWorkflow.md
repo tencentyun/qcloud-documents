@@ -448,7 +448,7 @@ Container 类型 Output 的具体数据描述如下：
 | ------------------ | ------------------------------------------------------------ | ------------ | ------ | ---- | ------------------------------------------------------------ |
 | Region             | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是   | 无                                                           |
 | Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是   | 无                                                           |
-| Object             | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation.Output | 结果文件名称 | String | 是   | 1、bcd/${RunId}/bcd.gif <br/> 2、bcd/${RunId}/bcd.webp <br/> |
+| Object             | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation.Output | 结果文件名称 | String | 是   | <li>bcd/${RunId}/bcd.gif </li><li>bcd/${RunId}/bcd.webp</li> |
 
 Container 类型 Snapshot\_\*\*\* 的具体数据描述如下：
 
@@ -470,8 +470,8 @@ Container 类型 Output 的具体数据描述如下：
 | ------------------ | ------------------------------------------------------------ | ------------ | ------ | ------------ | ------------------------------------------------------------ |
 | Region             | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是           | 无                                                           |
 | Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是           | 无                                                           |
-| Object             | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 结果文件名称 | String | 否           | <li>abc/${RunId}/snapshot-${number}.${Ext}<br/><li>bcd/${RunId}/snapshot-${number}.jpg |
-| SpriteObject       | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 雪碧图的名称 | String | 否           | <li>abc/${RunId}/snapshot-${number}.jpg<br/><li>bcd/${RunId}/snapshot-${number}.jpg  |
+| Object             | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 结果文件名称 | String | 否           | <li>abc/${RunId}/snapshot-${number}.${Ext}</li><li>bcd/${RunId}/snapshot-${number}.jpg</li> |
+| SpriteObject       | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 雪碧图的名称 | String | 否           | <li>abc/${RunId}/snapshot-${number}.jpg</li><li>bcd/${RunId}/snapshot-${number}.jpg</li>  |
 
 Container 类型 SmartCover_*** 的具体数据描述如下：
 
@@ -834,8 +834,8 @@ Container 类型 Output 的具体数据描述如下：
 | ------------------ | ------------------------------------------------------------ | ------------ | ------ | ------------ | ------------------------------------------------------------ |
 | Region             | Request.MediaWorkflow.Topology.<br>Nodes.PicProcess\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是           | 无                                                           |
 | Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.PicProcess\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是           | 无                                                           |
-| Object             | Request.MediaWorkflow.Topology.<br>Nodes.PicProcess\_\*\*\*.Operation.Output | 结果文件名称 | String | 否           | <li>bcd/${RunId}/process-${number}.jpg |
-</br>
+| Object             | Request.MediaWorkflow.Topology.<br>Nodes.PicProcess\_\*\*\*.Operation.Output | 结果文件名称 | String | 否           | bcd/${RunId}/process-${number}.jpg |
+
 
 ## 响应
 
