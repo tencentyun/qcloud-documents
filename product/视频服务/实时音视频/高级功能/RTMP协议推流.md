@@ -1,9 +1,15 @@
+
 ## 方案背景
 为降低客户接入门槛，TRTC 支持 RTMP 标准协议推流，您可根据实际情况选择安装 [OBS](https://obsproject.com/download) 或 FFmpeg 进行推流。OBS 是一款好用的第三方开源程序直播流媒体内容制作软件，为用户提供免费使用，它可支持 OS X、Windows、Linux 操作系统，适用多种直播场景，满足大部分直播行为的操作需求，您可以到 [OBS 官网](https://obsproject.com/download?spm=a2c4g.11186623.2.15.6aac1445JPlKR8) 下载最新版本软件，使用 OBS 推流时无需安装插件。
 
 本功能目前免费开放内测中（后续若收费会提前通知），但接入的 RTMP 流会作为房间中的虚拟用户产生正常的通话费用，详情参见 [计费概述](https://cloud.tencent.com/document/product/647/17157)。如果您有需要可以联系页面右下方对话框 [售前在线咨询](https://cloud.tencent.com/online-service?source=PRESALE&from=doc_647)，提交工单申请加入白名单进行使用（需提供 SdkAppId）。
 
 >! 不支持 RTMP 从 TRTC 拉流，如果需要旁路 CDN 直播观看，请参见 [实现 CDN 直播观看](https://cloud.tencent.com/document/product/647/16826)。
+
+## 应用场景
+
+- **在线教育场景**：老师展示视频课件教学视频时，可以通过 PC 端 OBS 或者 FFmpeg 把绝大多数媒体格式以 RTMP 推流至 RTC 房间，房间内的学生通过 TRTC SDK 拉流，可以保证观看到相同进度的教学视频，课件播放跳转进度、调整速度、切换下一章等全部可由老师控制，各学生端观看对齐课堂秩序好，教学质量更稳定。
+- **一起看球赛场景**：比赛流媒体是赛事供应方固定以 RTMP 格式流的方式提供赛事画面，通过推流至 RT-ONE 的方案，实现 RTC 房间内同步观看超低延时的比赛直播，配合 RTC 的实时互动能力，与好友语音/视频讨论，一起喝彩加油，不会错过每一个精彩瞬间的共享体验。
 
 ## OBS 推流设置
 ### 准备工作[](id:ready)
