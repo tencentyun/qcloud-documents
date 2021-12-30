@@ -76,7 +76,7 @@ RTMP 后台不支持传输 B 帧，用户可以通过如下设置调整推流端
 ![](https://qcloudimg.tencent-cloud.cn/raw/ae71beea5458b056697433acdbf6844e.png)
 
 ## FFmpeg 设置[](id:FFmpeg)
-如果需要用命令行或其他 RTMP 库推流，请参见 [设置推流参数](#step2) 中服务器地址 + 串流秘钥组成标准 RTMP 推流地址，可供 FFmpeg 或其他 RTMP 库推流，视频编码使用 H.264，音频编码使用 AAC，容器格式使用 FLV，建议 GOP 设置为2s或1s。
+如果需要用命令行或其他 RTMP 库推流，请参见 [设置推流参数](#step2) 中服务器地址 + 串流密钥组成标准 RTMP 推流地址，可供 FFmpeg 或其他 RTMP 库推流，视频编码使用 H.264，音频编码使用 AAC，容器格式使用 FLV，建议 GOP 设置为2s或1s。
 FFmpeg 不同场景下指令配置参数不同，因此需要您具有一定的 FFmpeg 使用经验，以下列出 FFmpeg 常用命令行选项，更多 FFmpeg 选项请参见 [FFmpeg 官网](https://ffmpeg.org/ffmpeg.html)。
 
 ### FFmpeg 命令行[](id:order)
