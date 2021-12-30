@@ -90,7 +90,7 @@ def dw_process(msg):
 1. 单击画布中的 “+” 弹出组件筛选框。选择腾讯云物联网开发平台连接器。
 2. 此处请选择查看设备详情。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0a443ed36f75f81a1eb166a4f5ff1d6f.png)
-3. [步骤4](#step4) 已创建过的连接器配置可复用，单击绑定选择已有连接器配置即可。
+3. 已创建过的连接器配置可复用，单击绑定选择已有连接器配置即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f524585b721f8b050d5fe7afd654b99b.png)
 4. 通用配置填写。
 	- 产品ID：必填，参数如下：
@@ -109,7 +109,7 @@ def dw_process(msg):
 1. 单击画布中的 “+” 弹出组件筛选框。选择腾讯云物联网开发平台连接器。
 2. 此处请选择设备远程控制。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2cfb305484ea3b4f25aad09974c67a33.png)
-3. [步骤4](#step4) 已创建过的连接器配置可复用，单击绑定选择已有连接器配置即可。
+3. 已创建过的连接器配置可复用，单击绑定选择已有连接器配置即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a6a34c7f8b39e326e7f1b86a40a83959.png)
 4. 通用配置填写。
 	- 产品 ID（单击f(x)函数模数输入）：必填，参数如下：
@@ -130,17 +130,17 @@ def dw_process(msg):
 ![](https://qcloudimg.tencent-cloud.cn/raw/8ea96012a3e71583b9fe61b6245fcaed.png)
 
 ## 验证结果
-#### 步骤1：触发集成流
+### 步骤1：触发集成流
 发布成功后，复制触发链接，进行访问触发。如下图：
 ![](https://qcloudimg.tencent-cloud.cn/raw/674dd4cf07b2e0f65d8996fc3bc3e7c7.png)
 
-#### 步骤2：触发结果展示
+### 步骤2：触发结果展示
 访问结果如下图：
 ![](https://qcloudimg.tencent-cloud.cn/raw/76b611843583c34f1d213b98ecf3b52e.png)
 展示对应智能灯的产品 ID 状态等信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f421d0cb80b37ec6590551759e1d98b2.png)
 
-#### 步骤3：在腾讯云物联网开放平台查看日志信息
+### 步骤3：在腾讯云物联网开放平台查看日志信息
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，在实例管理页面单击实例，进入项目列表页。
 2. 在项目列表页，单击对应项目名称，选择**设备管理**，并单击操作列的**查看**进入设备详情页。
 3. 在设备详情页的**设备云端日志**标签页，可看到对应时间设备的通信内容等信息，对应企业集成服务侧的触发记录。
