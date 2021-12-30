@@ -43,7 +43,7 @@
 3. 选择左侧菜单栏中的**存储** > **StorageClass**，进入 “StorageClass” 页面。如下所示：
 ![](https://main.qcloudimg.com/raw/a630fa854ae6a45da2b24dcbabf50438.png)
 4. 单击**新建**，进入“新建StorageClass” 页面，参考以下信息进行创建。如下所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/c40e991232ed017114e73baaf4129a13.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0cb023e2ab933220e7e79c0c2bb1e0ee.png)
 主要参数信息如下：
 	- **名称**：自定义，本文以 `cfs-storageclass` 为例。
 	- **Provisioner**：选择**文件存储 CFS**。
