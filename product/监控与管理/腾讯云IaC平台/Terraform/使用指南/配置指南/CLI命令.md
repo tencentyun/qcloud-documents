@@ -127,7 +127,7 @@ init 会搜索 module 块，并通过 source 参数取回模块代码。您可�
  - `-compact-warnings`：如果 Terraform 仅生成了告警信息而无错误信息，则显示消息仅以总结的精简形式展示告警。
  - `-lock=true`：执行时是否先锁定状态文件。
  - `-lock-timeout=0s`：尝试重新获取状态锁的间隔。
- - `-input=true`：在无法获取输入变量的值是是否提示用户输入。
+ - `-input=true`：在无法获取输入变量的值时是否提示用户输入。
  - `-auto-approve`：跳过交互确认步骤，直接执行变更。
  - `-no-color`：禁用输出中的颜色。
  - `-parallelism=n`：限制 Terraform 遍历图时的最大并行度，默认值为10。
