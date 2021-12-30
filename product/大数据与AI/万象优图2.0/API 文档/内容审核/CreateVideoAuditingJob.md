@@ -60,6 +60,7 @@ Content-Type: application/xml
 <Request>
   <Input>
     <Object></Object>
+    <DataId></DataId>
   </Input>
   <Conf>
     <DetectType>Porn,Ads</DetectType>
@@ -94,16 +95,17 @@ Container 类型 Input 的具体数据描述如下：
 | ------------------ | ------------- | ------------------------------------------------------------ | ------ | -------- |
 | Object             | Request.Input | 当前 COS 存储桶中的视频文件名称，例如在目录 test 中的文件 video.mp4，则文件名称为 test/video.mp4。 | String | 否       |
 | Url                | Request.Input | 视频文件的链接地址，例如 http://examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/test.mp4。Object 和 Url 只能选择其中一种。 | String | 否       |
+| DataId             | Request.Input | 该字段在审核结果中会返回原始内容，长度限制为512字节。您可以使用该字段对待审核的数据进行唯一业务标识。 | String | 否       |
 
 Container 类型 Conf 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点       | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | ------------ | ------------------------------------------------------------ | --------- | -------- |
-| DetectType         | Request.Conf | 审核的场景类型，有效值：Porn（涉黄）、Ads（广告），可以传入多种类型，不同类型以逗号分隔，例如：Porn,Ads。 | String    | 是       |
+| BizType            | Request.Conf | 审核策略，不带审核策略时使用默认策略。可在控制台进行配置，详情请参见 [设置公共审核策略](#1)。 | String    | 否       |
+| DetectType         | Request.Conf | 审核的场景类型，有效值：Porn（涉黄）、Ads（广告），可以传入多种类型，不同类型以逗号分隔，例如：Porn,Ads。 | String    | 否       |
 | Snapshot           | Request.Conf | 视频画面的审核通过视频截帧能力截取出一定量的截图，通过对截图逐一审核而实现的，该参数用于指定视频截帧的配置。 | Container | 是       |
 | Callback           | Request.Conf | 回调地址，以`http://`或者`https://`开头的地址。              | String    | 否       |
 | CallbackVersion    | Request.Conf | 回调内容的结构，有效值：Simple（回调内容包含基本信息）、Detail（回调内容包含详细信息）。默认为 Simple。 | String    | 否       |
-| BizType            | Request.Conf | 审核策略，不带审核策略时使用默认策略。可在控制台进行配置，详情请参见 [设置公共审核策略](#1)。 | String    | 否       |
 | DetectContent      | Request.Conf | 用于指定是否审核视频声音，当值为0时：表示只审核视频画面截图；值为1时：表示同时审核视频画面截图和视频声音。默认值为0。 | Integer   | 否       |
 
 Container 类型 Snapshot 的具体数据描述如下：
@@ -127,6 +129,7 @@ Container 类型 Snapshot 的具体数据描述如下：
 ```plaintext
 <Response>
     <JobsDetail>
+      <DataId></DataId>
       <JobId></JobId>
       <State></State>
       <CreationTime></CreationTime>
@@ -152,6 +155,7 @@ Container 节点 JobsDetail 的内容：
 
 | 节点名称（关键字） | 父节点              | 描述                                                         | 类型   |
 | :----------------- | :------------------ | :----------------------------------------------------------- | :----- |
+| DataId             | Response.JobsDetail | 请求中添加的唯一业务标识。                                   | String |
 | JobId              | Response.JobsDetail | 本次视频审核任务的 ID。                                      | String |
 | State              | Response.JobsDetail | 视频审核任务的状态，值为 Submitted（已提交审核）、Snapshoting（视频截帧中）、Success（审核成功）、Failed（审核失败）、Auditing（审核中）其中一个。 | String |
 | CreationTime       | Response.JobsDetail | 视频审核任务的创建时间。                                     | String |
@@ -174,6 +178,7 @@ Content-Type: application/xml
 <Request>
   <Input>
     <Object>a.mp4</Object>
+    <DataId>123-fdrsg-123</DataID>
   </Input>
   <Conf>
     <DetectType>Porn,Ads</DetectType>
@@ -202,6 +207,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
   <JobsDetail>
+    <DataId>123-fdrsg-123</DataID>
     <JobId>vab1ca9fc8a3ed11ea834c525400863904</JobId>
     <State>Submitted</State>
     <CreationTime>2021-08-07T12:12:12+0800</CreationTime>

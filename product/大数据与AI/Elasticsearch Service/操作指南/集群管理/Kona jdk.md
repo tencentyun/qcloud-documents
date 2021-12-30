@@ -25,378 +25,3312 @@ Tencent Kona JDK，是腾讯基于社区 Open JDK 定制开发的 JDK 版本，�
 
 对比4核16GB SSD 200G 3节点的腾讯云 ES在 Kona JDK（11.0.9.1-ga+1） + G1-GC 和 Oracle JDK （1.8.0_181-b13）+CMS-GC 的集群性能指标，Kona JDK + G1-GC 各方面性能均有一定优势。主要得益于腾讯云自研 JDK 以及 GC 参数调优等方面的优化。
 
-| 说明                                                         | Metric                                      | Task                           | 腾讯云ES(Open JDK+  CMS-GC) | 腾讯云ES(Kona JDK+  G1-GC) | 差异值（Kona JDK  – Open JDK） | Unit    | 优劣 |
-| ------------------------------------------------------------ | ------------------------------------------- | ------------------------------ | --------------------------- | -------------------------- | ------------------------------ | ------- | ---- |
-| 写入总耗时                                                   | Cumulative indexing time of  primary shards |                                | 17.7745                     | 17.41703333                | -0.35747                       | min     | 优   |
-| GC 总次数、耗时统计                                          | Total Young Gen GC time                     |                                | 76.597                      | 4.988                      | -71.609                        | s       | 优   |
-| Total Young Gen GC count                                     |                                             | 4129                           | 981                         | -3148                      |                                |         |      |
-| Total Old Gen GC time                                        |                                             | 0.175                          | 0                           | -0.175                     | s                              |         |      |
-| Total Old Gen GC count                                       |                                             | 2                              | 0                           | -2                         |                                |         |      |
-| 存储大小                                                     | Store  size                                 |                                | 2.885286688                 | 2.87756444                 | -0.00772                       | GB      | -    |
-| Translog  size                                               |                                             | 3.59E-07                       | 3.59E-07                    | 0                          | GB                             |         |      |
-| 堆内存使用量                                                 | Heap  used for segments                     |                                | 0.045909882                 | 0.045909882                | 0                              | MB      |      |
-| Heap  used for doc values                                    |                                             | 0.000507355                    | 0.000507355                 | 0                          | MB                             |         |      |
-| Heap  used for terms                                         |                                             | 0.037261963                    | 0.037261963                 | 0                          | MB                             |         |      |
-| Heap  used for norms                                         |                                             | 0.003967285                    | 0.003967285                 | 0                          | MB                             |         |      |
-| Heap  used for points                                        |                                             | 0                              | 0                           | 0                          | MB                             |         |      |
-| Heap  used for stored fields                                 |                                             | 0.004173279                    | 0.004173279                 | 0                          | MB                             |         |      |
-| segment 总数量                                               | Segment  count                              |                                | 7                           | 7                          | 0                              |         |      |
-| 写入吞吐、耗时统计                                           | Min  Throughput                             | index-append                   | 82341.03288                 | 83678.1806                 | 1337.14773                     | docs/s  | 优   |
-| Mean  Throughput                                             | index-append                                | 85463.64521                    | 87617.83008                 | 2154.18488                 | docs/s                         |         |      |
-| Median  Throughput                                           | index-append                                | 85203.41999                    | 87749.05385                 | 2545.63387                 | docs/s                         |         |      |
-| Max  Throughput                                              | index-append                                | 88282.10166                    | 90448.56087                 | 2166.45921                 | docs/s                         |         |      |
-| 50th  percentile latency                                     | index-append                                | 369.9228433                    | 360.6725829                 | -9.25026                   | ms                             |         |      |
-| 90th  percentile latency                                     | index-append                                | 582.2157889                    | 521.3938987                 | -60.82189                  | ms                             |         |      |
-| 99th percentile  latency                                     | index-append                                | 2566.001355                    | 3331.056718                 | 765.05536                  | ms                             |         |      |
-| 99.9th  percentile latency                                   | index-append                                | 3249.023346                    | 4277.054507                 | 1028.03116                 | ms                             |         |      |
-| 100th  percentile latency                                    | index-append                                | 3677.799375                    | 5966.865065                 | 2289.06569                 | ms                             |         |      |
-| 50th  percentile service time                                | index-append                                | 369.9228433                    | 360.6725829                 | -9.25026                   | ms                             |         |      |
-| 90th  percentile service time                                | index-append                                | 582.2157889                    | 521.3938987                 | -60.82189                  | ms                             |         |      |
-| 99th  percentile service time                                | index-append                                | 2566.001355                    | 3331.056718                 | 765.05536                  | ms                             |         |      |
-| 99.9th  percentile service time                              | index-append                                | 3249.023346                    | 4277.054507                 | 1028.03116                 | ms                             |         |      |
-| 100th  percentile service time                               | index-append                                | 3677.799375                    | 5966.865065                 | 2289.06569                 | ms                             |         |      |
-| error  rate                                                  | index-append                                | 0                              | 0                           | 0                          | %                              |         |      |
-| index 指标统计                                               | Min  Throughput                             | index-stats                    | 90.00917629                 | 90.01515386                | 0.00598                        | ops/s   |      |
-| Mean  Throughput                                             | index-stats                                 | 90.01643728                    | 90.02981242                 | 0.01338                    | ops/s                          |         |      |
-| Median  Throughput                                           | index-stats                                 | 90.01545276                    | 90.03117871                 | 0.01573                    | ops/s                          |         |      |
-| Max  Throughput                                              | index-stats                                 | 90.0358266                     | 90.0417802                  | 0.00595                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | index-stats                                 | 2.71807611                     | 2.706557978                 | -0.01152                   | ms                             |         |      |
-| 90th  percentile latency                                     | index-stats                                 | 3.542617336                    | 3.530823253                 | -0.01179                   | ms                             |         |      |
-| 99th  percentile latency                                     | index-stats                                 | 4.209796032                    | 4.047978334                 | -0.16182                   | ms                             |         |      |
-| 99.9th percentile  latency                                   | index-stats                                 | 10.97994745                    | 4.319285007                 | -6.66066                   | ms                             |         |      |
-| 100th  percentile latency                                    | index-stats                                 | 18.87320075                    | 4.494163208                 | -14.37904                  | ms                             |         |      |
-| 50th  percentile service time                                | index-stats                                 | 1.521472819                    | 1.515000127                 | -0.00647                   | ms                             |         |      |
-| 90th percentile  service time                                | index-stats                                 | 1.832026243                    | 1.815253124                 | -0.01677                   | ms                             |         |      |
-| 99th  percentile service time                                | index-stats                                 | 2.493222319                    | 2.149661649                 | -0.34356                   | ms                             |         |      |
-| 99.9th  percentile service time                              | index-stats                                 | 3.265745808                    | 2.558897269                 | -0.70685                   | ms                             |         |      |
-| 100th percentile  service time                               | index-stats                                 | 18.49333011                    | 2.714292146                 | -15.77904                  | ms                             |         |      |
-| error  rate                                                  | index-stats                                 | 0                              | 0                           | 0                          | %                              |         |      |
-| node 指标统计                                                | Min  Throughput                             | node-stats                     | 89.77465925                 | 89.9748329                 | 0.20017                        | ops/s   |      |
-| Mean  Throughput                                             | node-stats                                  | 89.90322336                    | 89.99453842                 | 0.09132                    | ops/s                          |         |      |
-| Median  Throughput                                           | node-stats                                  | 89.92739222                    | 89.99716573                 | 0.06977                    | ops/s                          |         |      |
-| Max  Throughput                                              | node-stats                                  | 89.95708367                    | 90.01224368                 | 0.05516                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | node-stats                                  | 2.864421345                    | 2.847921103                 | -0.0165                    | ms                             |         |      |
-| 90th  percentile latency                                     | node-stats                                  | 4.03423449                     | 4.02287906                  | -0.01136                   | ms                             |         |      |
-| 99th  percentile latency                                     | node-stats                                  | 4.780995743                    | 4.921176638                 | 0.14018                    | ms                             |         |      |
-| 99.9th  percentile latency                                   | node-stats                                  | 11.95199643                    | 8.974571229                 | -2.97743                   | ms                             |         |      |
-| 100th  percentile latency                                    | node-stats                                  | 19.6932666                     | 13.60371523                 | -6.08955                   | ms                             |         |      |
-| 50th  percentile service time                                | node-stats                                  | 2.031991258                    | 2.032643184                 | 0.00065                    | ms                             |         |      |
-| 90th  percentile service time                                | node-stats                                  | 2.502718102                    | 2.520979941                 | 0.01826                    | ms                             |         |      |
-| 99th  percentile service time                                | node-stats                                  | 3.355697962                    | 3.726954078                 | 0.37126                    | ms                             |         |      |
-| 99.9th  percentile service time                              | node-stats                                  | 6.070044631                    | 8.64341661                  | 2.57337                    | ms                             |         |      |
-| 100th  percentile service time                               | node-stats                                  | 19.13440693                    | 11.63361594                 | -7.50079                   | ms                             |         |      |
-| error  rate                                                  | node-stats                                  | 0                              | 0                           | 0                          | %                              |         |      |
-| 默认查询，所有文档  score 为1（match_all）                   | Min  Throughput                             | default                        | 49.66239789                 | 49.88425331                | 0.22186                        | ops/s   |      |
-| Mean  Throughput                                             | default                                     | 49.80337019                    | 49.93227136                 | 0.1289                     | ops/s                          |         |      |
-| Median  Throughput                                           | default                                     | 49.8202478                     | 49.93857317                 | 0.11833                    | ops/s                          |         |      |
-| Max  Throughput                                              | default                                     | 49.87518669                    | 49.9563597                  | 0.08117                    | ops/s                          |         |      |
-| 50th percentile  latency                                     | default                                     | 3.394149244                    | 3.262675833                 | -0.13147                   | ms                             |         |      |
-| 90th  percentile latency                                     | default                                     | 4.578030575                    | 4.408122599                 | -0.16991                   | ms                             |         |      |
-| 99th  percentile latency                                     | default                                     | 6.253439859                    | 4.992298558                 | -1.26114                   | ms                             |         |      |
-| 99.9th  percentile latency                                   | default                                     | 19.66198959                    | 8.490681676                 | -11.17131                  | ms                             |         |      |
-| 100th  percentile latency                                    | default                                     | 20.0197883                     | 8.887056261                 | -11.13273                  | ms                             |         |      |
-| 50th  percentile service time                                | default                                     | 2.622524276                    | 2.356512472                 | -0.26601                   | ms                             |         |      |
-| 90th  percentile service time                                | default                                     | 3.102052212                    | 2.851721831                 | -0.25033                   | ms                             |         |      |
-| 99th  percentile service time                                | default                                     | 4.579989612                    | 3.174401047                 | -1.40559                   | ms                             |         |      |
-| 99.9th  percentile service time                              | default                                     | 18.49881567                    | 8.051926313                 | -10.44689                  | ms                             |         |      |
-| 100th  percentile service time                               | default                                     | 18.62356346                    | 8.21478758                  | -10.40878                  | ms                             |         |      |
-| error  rate                                                  | default                                     | 0                              | 0                           | 0                          | %                              |         |      |
-| term 条件查询                                                | Min  Throughput                             | term                           | 98.93043451                 | 99.71455545                | 0.78412                        | ops/s   |      |
-| Mean  Throughput                                             | term                                        | 99.33413382                    | 99.81852777                 | 0.48439                    | ops/s                          |         |      |
-| Median  Throughput                                           | term                                        | 99.38459416                    | 99.83007784                 | 0.44548                    | ops/s                          |         |      |
-| Max  Throughput                                              | term                                        | 99.57176235                    | 99.88279227                 | 0.31103                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | term                                        | 3.250969574                    | 3.228969406                 | -0.022                     | ms                             |         |      |
-| 90th  percentile latency                                     | term                                        | 3.966032993                    | 3.853681684                 | -0.11235                   | ms                             |         |      |
-| 99th  percentile latency                                     | term                                        | 10.50691157                    | 4.505703636                 | -6.00121                   | ms                             |         |      |
-| 99.9th  percentile latency                                   | term                                        | 17.10123536                    | 7.033703398                 | -10.06753                  | ms                             |         |      |
-| 100th  percentile latency                                    | term                                        | 19.53481138                    | 9.737900458                 | -9.79691                   | ms                             |         |      |
-| 50th  percentile service time                                | term                                        | 2.501523588                    | 2.488659229                 | -0.01286                   | ms                             |         |      |
-| 90th percentile  service time                                | term                                        | 3.069854062                    | 2.982806601                 | -0.08705                   | ms                             |         |      |
-| 99th  percentile service time                                | term                                        | 7.066733902                    | 3.509562407                 | -3.55717                   | ms                             |         |      |
-| 99.9th  percentile service time                              | term                                        | 16.17278317                    | 6.230151438                 | -9.94263                   | ms                             |         |      |
-| 100th percentile  service time                               | term                                        | 19.29396484                    | 8.562799543                 | -10.73117                  | ms                             |         |      |
-| error  rate                                                  | term                                        | 0                              | 0                           | 0                          | %                              |         |      |
-| 词组查询（query）                                            | Min  Throughput                             | phrase                         | 109.1666798                 | 109.563189                 | 0.39651                        | ops/s   |      |
-| Mean  Throughput                                             | phrase                                      | 109.4885892                    | 109.726084                  | 0.23749                    | ops/s                          |         |      |
-| Median Throughput                                            | phrase                                      | 109.531043                     | 109.7627623                 | 0.23172                    | ops/s                          |         |      |
-| Max  Throughput                                              | phrase                                      | 109.6776159                    | 109.8360981                 | 0.15848                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | phrase                                      | 2.736125607                    | 2.723197918                 | -0.01293                   | ms                             |         |      |
-| 90th  percentile latency                                     | phrase                                      | 3.2537736                      | 3.277133778                 | 0.02336                    | ms                             |         |      |
-| 99th  percentile latency                                     | phrase                                      | 5.174562978                    | 5.252283504                 | 0.07772                    | ms                             |         |      |
-| 99.9th  percentile latency                                   | phrase                                      | 17.94986153                    | 11.65228278                 | -6.29758                   | ms                             |         |      |
-| 100th  percentile latency                                    | phrase                                      | 20.16797382                    | 18.0053385                  | -2.16264                   | ms                             |         |      |
-| 50th percentile  service time                                | phrase                                      | 1.983109396                    | 1.964103896                 | -0.01901                   | ms                             |         |      |
-| 90th  percentile service time                                | phrase                                      | 2.38582911                     | 2.413296979                 | 0.02747                    | ms                             |         |      |
-| 99th  percentile service time                                | phrase                                      | 4.028498856                    | 3.426500661                 | -0.602                     | ms                             |         |      |
-| 99.9th percentile  service time                              | phrase                                      | 17.23640091                    | 10.3977854                  | -6.83862                   | ms                             |         |      |
-| 100th  percentile service time                               | phrase                                      | 19.54707783                    | 17.02223159                 | -2.52485                   | ms                             |         |      |
-| 不带缓存的聚合查询（aggregation）                            | error  rate                                 | phrase                         | 0                           | 0                          | 0                              | %       |      |
-| Min  Throughput                                              | country_agg_uncached                        | 2.996727436                    | 2.999315225                 | 0.00259                    | ops/s                          |         |      |
-| Mean  Throughput                                             | country_agg_uncached                        | 2.997330498                    | 2.999446981                 | 0.00212                    | ops/s                          |         |      |
-| Median  Throughput                                           | country_agg_uncached                        | 2.997367399                    | 2.999449396                 | 0.00208                    | ops/s                          |         |      |
-| Max  Throughput                                              | country_agg_uncached                        | 2.997811835                    | 2.999560826                 | 0.00175                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | country_agg_uncached                        | 137.708772                     | 138.3623141                 | 0.65354                    | ms                             |         |      |
-| 90th  percentile latency                                     | country_agg_uncached                        | 162.6020876                    | 162.0003162                 | -0.60177                   | ms                             |         |      |
-| 99th  percentile latency                                     | country_agg_uncached                        | 196.1384525                    | 190.0452044                 | -6.09325                   | ms                             |         |      |
-| 100th  percentile latency                                    | country_agg_uncached                        | 208.7042201                    | 205.8009086                 | -2.90331                   | ms                             |         |      |
-| 50th  percentile service time                                | country_agg_uncached                        | 136.977708                     | 137.0970309                 | 0.11932                    | ms                             |         |      |
-| 90th percentile  service time                                | country_agg_uncached                        | 161.4701347                    | 160.9131827                 | -0.55695                   | ms                             |         |      |
-| 99th  percentile service time                                | country_agg_uncached                        | 195.4892302                    | 188.7832217                 | -6.70601                   | ms                             |         |      |
-| 100th  percentile service time                               | country_agg_uncached                        | 208.3484558                    | 204.5730753                 | -3.77538                   | ms                             |         |      |
-| error  rate                                                  | country_agg_uncached                        | 0                              | 0                           | 0                          | %                              |         |      |
-| 带缓存的聚合查询（aggregation）                              | Min  Throughput                             | country_agg_cached             | 98.51641526                 | 98.62990947                | 0.11349                        | ops/s   |      |
-| Mean  Throughput                                             | country_agg_cached                          | 98.94635299                    | 99.03419609                 | 0.08784                    | ops/s                          |         |      |
-| Median Throughput                                            | country_agg_cached                          | 98.99545733                    | 99.08216113                 | 0.0867                     | ops/s                          |         |      |
-| Max  Throughput                                              | country_agg_cached                          | 99.24729184                    | 99.31333794                 | 0.06605                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | country_agg_cached                          | 2.211962827                    | 2.139798366                 | -0.07216                   | ms                             |         |      |
-| 90th percentile  latency                                     | country_agg_cached                          | 3.517023474                    | 3.494661488                 | -0.02236                   | ms                             |         |      |
-| 99th  percentile latency                                     | country_agg_cached                          | 4.158023223                    | 4.199306211                 | 0.04128                    | ms                             |         |      |
-| 99.9th  percentile latency                                   | country_agg_cached                          | 9.866942695                    | 8.245296748                 | -1.62165                   | ms                             |         |      |
-| 100th percentile  latency                                    | country_agg_cached                          | 18.06280296                    | 12.30363548                 | -5.75917                   | ms                             |         |      |
-| 50th  percentile service time                                | country_agg_cached                          | 1.467651688                    | 1.393478829                 | -0.07417                   | ms                             |         |      |
-| 90th  percentile service time                                | country_agg_cached                          | 1.777389366                    | 1.689927001                 | -0.08746                   | ms                             |         |      |
-| 99th  percentile service time                                | country_agg_cached                          | 2.282693414                    | 3.276122157                 | 0.99343                    | ms                             |         |      |
-| 99.9th  percentile service time                              | country_agg_cached                          | 4.195660669                    | 7.769071626                 | 3.57341                    | ms                             |         |      |
-| 100th  percentile service time                               | country_agg_cached                          | 16.24826528                    | 11.39958762                 | -4.84868                   | ms                             |         |      |
-| error  rate                                                  | country_agg_cached                          | 0                              | 0                           | 0                          | %                              |         |      |
-| 分页拉取                                                     | Min  Throughput                             | scroll                         | 20.04421286                 | 20.04208025                | -0.00213                       | pages/s |      |
-| Mean  Throughput                                             | scroll                                      | 20.05368445                    | 20.05111381                 | -0.00257                   | pages/s                        |         |      |
-| Median  Throughput                                           | scroll                                      | 20.05292541                    | 20.05042813                 | -0.0025                    | pages/s                        |         |      |
-| Max  Throughput                                              | scroll                                      | 20.0660563                     | 20.06287951                 | -0.00318                   | pages/s                        |         |      |
-| 50th  percentile latency                                     | scroll                                      | 272.1138773                    | 259.2352917                 | -12.87859                  | ms                             |         |      |
-| 90th  percentile latency                                     | scroll                                      | 290.9470227                    | 265.0907522                 | -25.85627                  | ms                             |         |      |
-| 99th percentile  latency                                     | scroll                                      | 302.488716                     | 284.5098141                 | -17.9789                   | ms                             |         |      |
-| 100th  percentile latency                                    | scroll                                      | 303.7193846                    | 297.6893578                 | -6.03003                   | ms                             |         |      |
-| 50th  percentile service time                                | scroll                                      | 270.1747189                    | 257.1577448                 | -13.01697                  | ms                             |         |      |
-| 90th percentile  service time                                | scroll                                      | 289.0668329                    | 263.437889                  | -25.62894                  | ms                             |         |      |
-| 99th  percentile service time                                | scroll                                      | 300.3281443                    | 282.0971792                 | -18.23097                  | ms                             |         |      |
-| 100th  percentile service time                               | scroll                                      | 301.2135932                    | 296.1045038                 | -5.10909                   | ms                             |         |      |
-| error  rate                                                  | scroll                                      | 0                              | 0                           | 0                          | %                              |         |      |
-| 脚本查询（使用  expression 脚本）                            | Min  Throughput                             | expression                     | 1.500956979                 | 1.501441158                | 0.00048                        | ops/s   |      |
-| Mean  Throughput                                             | expression                                  | 1.501160838                    | 1.501741788                 | 0.00058                    | ops/s                          |         |      |
-| Median  Throughput                                           | expression                                  | 1.501147998                    | 1.501719862                 | 0.00057                    | ops/s                          |         |      |
-| Max  Throughput                                              | expression                                  | 1.501414072                    | 1.502131242                 | 0.00072                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | expression                                  | 327.3259858                    | 295.2159694                 | -32.11002                  | ms                             |         |      |
-| 90th  percentile latency                                     | expression                                  | 342.0345129                    | 317.3502734                 | -24.68424                  | ms                             |         |      |
-| 99th  percentile latency                                     | expression                                  | 372.6446468                    | 378.85094                   | 6.20629                    | ms                             |         |      |
-| 100th  percentile latency                                    | expression                                  | 396.7165332                    | 417.1186928                 | 20.40216                   | ms                             |         |      |
-| 50th  percentile service time                                | expression                                  | 325.855901                     | 293.9883978                 | -31.8675                   | ms                             |         |      |
-| 90th  percentile service time                                | expression                                  | 340.6900207                    | 316.3654443                 | -24.32458                  | ms                             |         |      |
-| 99th  percentile service time                                | expression                                  | 370.736203                     | 377.514769                  | 6.77857                    | ms                             |         |      |
-| 100th  percentile service time                               | expression                                  | 395.4625437                    | 415.9661252                 | 20.50358                   | ms                             |         |      |
-| error  rate                                                  | expression                                  | 0                              | 0                           | 0                          | %                              |         |      |
-| 脚本查询（使用  painless 静态脚本，不动态取字段值）          | Min  Throughput                             | painless_static                | 1.396916338                 | 1.397483837                | 0.00057                        | ops/s   |      |
-| Mean  Throughput                                             | painless_static                             | 1.397478748                    | 1.397943395                 | 0.00046                    | ops/s                          |         |      |
-| Median  Throughput                                           | painless_static                             | 1.397513941                    | 1.397977624                 | 0.00046                    | ops/s                          |         |      |
-| Max  Throughput                                              | painless_static                             | 1.397920498                    | 1.398303982                 | 0.00038                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | painless_static                             | 431.2919118                    | 371.348965                  | -59.94295                  | ms                             |         |      |
-| 90th  percentile latency                                     | painless_static                             | 465.1254796                    | 391.1945282                 | -73.93095                  | ms                             |         |      |
-| 99th percentile  latency                                     | painless_static                             | 512.2339443                    | 437.3164341                 | -74.91751                  | ms                             |         |      |
-| 100th  percentile latency                                    | painless_static                             | 538.9131764                    | 465.5702729                 | -73.3429                   | ms                             |         |      |
-| 50th  percentile service time                                | painless_static                             | 429.9421017                    | 369.791389                  | -60.15071                  | ms                             |         |      |
-| 90th percentile  service time                                | painless_static                             | 463.2926716                    | 390.19037                   | -73.1023                   | ms                             |         |      |
-| 99th  percentile service time                                | painless_static                             | 511.3802825                    | 434.9970652                 | -76.38322                  | ms                             |         |      |
-| 100th  percentile service time                               | painless_static                             | 537.7559569                    | 464.3589323                 | -73.39702                  | ms                             |         |      |
-| error  rate                                                  | painless_static                             | 0                              | 0                           | 0                          | %                              |         |      |
-| 脚本查询（使用  painless 静态脚本，动态获取字段值）          | Min  Throughput                             | painless_dynamic               | 1.398724661                 | 1.396323104                | -0.0024                        | ops/s   |      |
-| Mean  Throughput                                             | painless_dynamic                            | 1.398964022                    | 1.396996725                 | -0.00197                   | ops/s                          |         |      |
-| Median  Throughput                                           | painless_dynamic                            | 1.398981831                    | 1.397038282                 | -0.00194                   | ops/s                          |         |      |
-| Max  Throughput                                              | painless_dynamic                            | 1.399149307                    | 1.397521303                 | -0.00163                   | ops/s                          |         |      |
-| 50th  percentile latency                                     | painless_dynamic                            | 432.8310895                    | 356.7619352                 | -76.06915                  | ms                             |         |      |
-| 90th  percentile latency                                     | painless_dynamic                            | 462.9847418                    | 383.0218635                 | -79.96288                  | ms                             |         |      |
-| 99th  percentile latency                                     | painless_dynamic                            | 494.9476089                    | 428.2430825                 | -66.70453                  | ms                             |         |      |
-| 100th  percentile latency                                    | painless_dynamic                            | 536.4017347                    | 446.9218394                 | -89.4799                   | ms                             |         |      |
-| 50th percentile  service time                                | painless_dynamic                            | 431.5832192                    | 355.6409795                 | -75.94224                  | ms                             |         |      |
-| 90th  percentile service time                                | painless_dynamic                            | 462.0900041                    | 381.7875394                 | -80.30246                  | ms                             |         |      |
-| 99th  percentile service time                                | painless_dynamic                            | 494.3205597                    | 425.9035249                 | -68.41703                  | ms                             |         |      |
-| 100th  percentile service time                               | painless_dynamic                            | 534.6057713                    | 445.0034723                 | -89.6023                   | ms                             |         |      |
-| error  rate                                                  | painless_dynamic                            | 0                              | 0                           | 0                          | %                              |         |      |
-| 地理范围查询（基于高斯衰减函数）                             | Min  Throughput                             | decay_geo_gauss_function_score | 1.001927565                 | 1.002114687                | 0.00019                        | ops/s   |      |
-| Mean  Throughput                                             | decay_geo_gauss_function_score              | 1.002340802                    | 1.002568849                 | 0.00023                    | ops/s                          |         |      |
-| Median  Throughput                                           | decay_geo_gauss_function_score              | 1.002308555                    | 1.002535216                 | 0.00023                    | ops/s                          |         |      |
-| Max  Throughput                                              | decay_geo_gauss_function_score              | 1.002881625                    | 1.003158744                 | 0.00028                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | decay_geo_gauss_function_score              | 387.5082242                    | 332.3548282                 | -55.1534                   | ms                             |         |      |
-| 90th  percentile latency                                     | decay_geo_gauss_function_score              | 397.8741518                    | 344.7444949                 | -53.12966                  | ms                             |         |      |
-| 99th  percentile latency                                     | decay_geo_gauss_function_score              | 407.4444408                    | 356.9588375                 | -50.4856                   | ms                             |         |      |
-| 100th  percentile latency                                    | decay_geo_gauss_function_score              | 409.4531341                    | 369.3594299                 | -40.0937                   | ms                             |         |      |
-| 50th  percentile service time                                | decay_geo_gauss_function_score              | 386.1244814                    | 331.0354254                 | -55.08906                  | ms                             |         |      |
-| 90th  percentile service time                                | decay_geo_gauss_function_score              | 396.8515609                    | 343.3262392                 | -53.52532                  | ms                             |         |      |
-| 99th  percentile service time                                | decay_geo_gauss_function_score              | 406.6675034                    | 355.0055938                 | -51.66191                  | ms                             |         |      |
-| 100th  percentile service time                               | decay_geo_gauss_function_score              | 407.7369291                    | 368.1781357                 | -39.55879                  | ms                             |         |      |
-| error  rate                                                  | decay_geo_gauss_function_score              | 0                              | 0                           | 0                          | %                              |         |      |
-| 地理范围查询（基于高斯衰减函数，且脚本动态获取字段值）       | Min  Throughput                             | decay_geo_gauss_script_score   | 1.001446744                 | 1.001552191                | 0.00011                        | ops/s   |      |
-| Mean Throughput                                              | decay_geo_gauss_script_score                | 1.001755635                    | 1.001885174                 | 0.00013                    | ops/s                          |         |      |
-| Median  Throughput                                           | decay_geo_gauss_script_score                | 1.001731537                    | 1.001860497                 | 0.00013                    | ops/s                          |         |      |
-| Max  Throughput                                              | decay_geo_gauss_script_score                | 1.002160032                    | 1.002318693                 | 0.00016                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | decay_geo_gauss_script_score                | 411.4939715                    | 334.8041                    | -76.68987                  | ms                             |         |      |
-| 90th  percentile latency                                     | decay_geo_gauss_script_score                | 429.658707                     | 345.120705                  | -84.538                    | ms                             |         |      |
-| 99th  percentile latency                                     | decay_geo_gauss_script_score                | 453.6645598                    | 355.949311                  | -97.71525                  | ms                             |         |      |
-| 100th  percentile latency                                    | decay_geo_gauss_script_score                | 454.430094                     | 358.0469266                 | -96.38317                  | ms                             |         |      |
-| 50th  percentile service time                                | decay_geo_gauss_script_score                | 409.7672189                    | 333.3149343                 | -76.45228                  | ms                             |         |      |
-| 90th  percentile service time                                | decay_geo_gauss_script_score                | 428.3069702                    | 343.9684012                 | -84.33857                  | ms                             |         |      |
-| 99th  percentile service time                                | decay_geo_gauss_script_score                | 451.8706388                    | 354.2061434                 | -97.6645                   | ms                             |         |      |
-| 100th  percentile service time                               | decay_geo_gauss_script_score                | 452.8327445                    | 356.5891208                 | -96.24362                  | ms                             |         |      |
-| error  rate                                                  | decay_geo_gauss_script_score                | 0                              | 0                           | 0                          | %                              |         |      |
-| 自定义评分函数查询（基于字段值定义函数）                     | Min  Throughput                             | field_value_function_score     | 1.503388048                 | 1.503875481                | 0.00049                        | ops/s   |      |
-| Mean  Throughput                                             | field_value_function_score                  | 1.504118746                    | 1.504719285                 | 0.0006                     | ops/s                          |         |      |
-| Median Throughput                                            | field_value_function_score                  | 1.504074621                    | 1.504659173                 | 0.00058                    | ops/s                          |         |      |
-| Max  Throughput                                              | field_value_function_score                  | 1.505051463                    | 1.505800982                 | 0.00075                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | field_value_function_score                  | 194.2629726                    | 134.5724794                 | -59.69049                  | ms                             |         |      |
-| 90th  percentile latency                                     | field_value_function_score                  | 203.7090491                    | 150.1895525                 | -53.5195                   | ms                             |         |      |
-| 99th  percentile latency                                     | field_value_function_score                  | 214.6481861                    | 166.6002053                 | -48.04798                  | ms                             |         |      |
-| 100th  percentile latency                                    | field_value_function_score                  | 217.926288                     | 184.5367327                 | -33.38956                  | ms                             |         |      |
-| 50th  percentile service time                                | field_value_function_score                  | 192.3880568                    | 133.1520383                 | -59.23602                  | ms                             |         |      |
-| 90th  percentile service time                                | field_value_function_score                  | 202.3297952                    | 148.4251454                 | -53.90465                  | ms                             |         |      |
-| 99th  percentile service time                                | field_value_function_score                  | 213.3810514                    | 165.5014484                 | -47.8796                   | ms                             |         |      |
-| 100th  percentile service time                               | field_value_function_score                  | 215.2935127                    | 183.1076834                 | -32.18583                  | ms                             |         |      |
-| error  rate                                                  | field_value_function_score                  | 0                              | 0                           | 0                          | %                              |         |      |
-| 自定义评分函数查询（通过脚本动态获取字段值计算评分）         | Min  Throughput                             | field_value_script_score       | 1.499697369                 | 1.500258349                | 0.00056                        | ops/s   |      |
-| Mean  Throughput                                             | field_value_script_score                    | 1.499757694                    | 1.500311799                 | 0.00055                    | ops/s                          |         |      |
-| Median  Throughput                                           | field_value_script_score                    | 1.499759282                    | 1.50030649                  | 0.00055                    | ops/s                          |         |      |
-| Max  Throughput                                              | field_value_script_score                    | 1.499799232                    | 1.500380821                 | 0.00058                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | field_value_script_score                    | 240.0929602                    | 174.8193153                 | -65.27364                  | ms                             |         |      |
-| 90th  percentile latency                                     | field_value_script_score                    | 250.0571281                    | 188.9238266                 | -61.1333                   | ms                             |         |      |
-| 99th  percentile latency                                     | field_value_script_score                    | 270.1539508                    | 215.9618342                 | -54.19212                  | ms                             |         |      |
-| 100th  percentile latency                                    | field_value_script_score                    | 291.1372129                    | 229.1083755                 | -62.02884                  | ms                             |         |      |
-| 50th percentile  service time                                | field_value_script_score                    | 238.8174967                    | 173.5835276                 | -65.23397                  | ms                             |         |      |
-| 90th  percentile service time                                | field_value_script_score                    | 248.7244156                    | 187.4786591                 | -61.24576                  | ms                             |         |      |
-| 99th  percentile service time                                | field_value_script_score                    | 268.9089779                    | 214.8508051                 | -54.05817                  | ms                             |         |      |
-| 100th  percentile service time                               | field_value_script_score                    | 290.2693953                    | 228.2811021                 | -61.98829                  | ms                             |         |      |
-| error  rate                                                  | field_value_script_score                    | 0                              | 0                           | 0                          | %                              |         |      |
-| 大量  terms 条件查询（query）                                | Min  Throughput                             | large_terms                    | 1.101304601                 | 1.100700963                | -0.0006                        | ops/s   |      |
-| Mean  Throughput                                             | large_terms                                 | 1.101582867                    | 1.100849475                 | -0.00073                   | ops/s                          |         |      |
-| Median  Throughput                                           | large_terms                                 | 1.101561184                    | 1.100839723                 | -0.00072                   | ops/s                          |         |      |
-| Max  Throughput                                              | large_terms                                 | 1.101945785                    | 1.101043                    | -0.0009                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | large_terms                                 | 211.8277326                    | 242.00767                   | 30.17994                   | ms                             |         |      |
-| 90th  percentile latency                                     | large_terms                                 | 231.8088979                    | 252.8580495                 | 21.04915                   | ms                             |         |      |
-| 99th  percentile latency                                     | large_terms                                 | 251.2304624                    | 265.9718477                 | 14.74139                   | ms                             |         |      |
-| 100th percentile  latency                                    | large_terms                                 | 255.3527635                    | 269.8639119                 | 14.51115                   | ms                             |         |      |
-| 50th  percentile service time                                | large_terms                                 | 203.8265727                    | 233.9178906                 | 30.09132                   | ms                             |         |      |
-| 90th  percentile service time                                | large_terms                                 | 223.8224964                    | 245.1530447                 | 21.33055                   | ms                             |         |      |
-| 99th percentile  service time                                | large_terms                                 | 241.849935                     | 258.2161737                 | 16.36624                   | ms                             |         |      |
-| 100th  percentile service time                               | large_terms                                 | 246.3486325                    | 262.1599194                 | 15.81129                   | ms                             |         |      |
-| error rate                                                   | large_terms                                 | 0                              | 0                           | 0                          | %                              |         |      |
-| 大量  terms 条件过滤查询（query、filter）                    | Min  Throughput                             | large_filtered_terms           | 1.102296697                 | 1.10245872                 | 0.00016                        | ops/s   |      |
-| Mean  Throughput                                             | large_filtered_terms                        | 1.102784885                    | 1.102979701                 | 0.00019                    | ops/s                          |         |      |
-| Median  Throughput                                           | large_filtered_terms                        | 1.102747397                    | 1.102939052                 | 0.00019                    | ops/s                          |         |      |
-| Max  Throughput                                              | large_filtered_terms                        | 1.103436209                    | 1.103668743                 | 0.00023                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | large_filtered_terms                        | 227.9210831                    | 243.4361419                 | 15.51506                   | ms                             |         |      |
-| 90th  percentile latency                                     | large_filtered_terms                        | 249.2253724                    | 255.9631401                 | 6.73777                    | ms                             |         |      |
-| 99th percentile  latency                                     | large_filtered_terms                        | 263.3142567                    | 276.256653                  | 12.9424                    | ms                             |         |      |
-| 100th  percentile latency                                    | large_filtered_terms                        | 265.4732559                    | 280.1711811                 | 14.69793                   | ms                             |         |      |
-| 50th  percentile service time                                | large_filtered_terms                        | 220.1946224                    | 235.739741                  | 15.54512                   | ms                             |         |      |
-| 90th  percentile service time                                | large_filtered_terms                        | 241.1826614                    | 248.5632175                 | 7.38056                    | ms                             |         |      |
-| 99th  percentile service time                                | large_filtered_terms                        | 255.2141531                    | 268.2613158                 | 13.04716                   | ms                             |         |      |
-| 100th  percentile service time                               | large_filtered_terms                        | 256.941474                     | 272.5524893                 | 15.61102                   | ms                             |         |      |
-| error  rate                                                  | large_filtered_terms                        | 0                              | 0                           | 0                          | %                              |         |      |
-| 大量条件取反查询（query、must not）                          | Min  Throughput                             | large_prohibited_terms         | 1.102827031                 | 1.102357904                | -0.00047                       | ops/s   |      |
-| Mean  Throughput                                             | large_prohibited_terms                      | 1.103422713                    | 1.102860804                 | -0.00056                   | ops/s                          |         |      |
-| Median  Throughput                                           | large_prohibited_terms                      | 1.103376606                    | 1.102821884                 | -0.00055                   | ops/s                          |         |      |
-| Max  Throughput                                              | large_prohibited_terms                      | 1.104211668                    | 1.103525116                 | -0.00069                   | ops/s                          |         |      |
-| 50th  percentile latency                                     | large_prohibited_terms                      | 202.5767318                    | 232.1078526                 | 29.53112                   | ms                             |         |      |
-| 90th  percentile latency                                     | large_prohibited_terms                      | 220.4174595                    | 247.2566163                 | 26.83916                   | ms                             |         |      |
-| 99th  percentile latency                                     | large_prohibited_terms                      | 234.3344817                    | 266.7954953                 | 32.46101                   | ms                             |         |      |
-| 100th  percentile latency                                    | large_prohibited_terms                      | 246.6131421                    | 268.8084021                 | 22.19526                   | ms                             |         |      |
-| 50th  percentile service time                                | large_prohibited_terms                      | 193.9010601                    | 224.5439067                 | 30.64285                   | ms                             |         |      |
-| 90th  percentile service time                                | large_prohibited_terms                      | 212.6108234                    | 239.8692667                 | 27.25844                   | ms                             |         |      |
-| 99th percentile  service time                                | large_prohibited_terms                      | 226.4359237                    | 258.9916089                 | 32.55569                   | ms                             |         |      |
-| 100th  percentile service time                               | large_prohibited_terms                      | 238.984541                     | 260.8724702                 | 21.88793                   | ms                             |         |      |
-| error  rate                                                  | large_prohibited_terms                      | 0                              | 0                           | 0                          | %                              |         |      |
-| 降序排序查询                                                 | Min  Throughput                             | desc_sort_population           | 1.504037884                 | 1.504180086                | 0.00014                        | ops/s   |      |
-| Mean  Throughput                                             | desc_sort_population                        | 1.504907329                    | 1.505087394                 | 0.00018                    | ops/s                          |         |      |
-| Median  Throughput                                           | desc_sort_population                        | 1.504841628                    | 1.505025118                 | 0.00018                    | ops/s                          |         |      |
-| Max  Throughput                                              | desc_sort_population                        | 1.506034196                    | 1.506249517                 | 0.00022                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | desc_sort_population                        | 61.13778474                    | 54.50106226                 | -6.63672                   | ms                             |         |      |
-| 90th  percentile latency                                     | desc_sort_population                        | 73.92849587                    | 69.35394919                 | -4.57455                   | ms                             |         |      |
-| 99th percentile  latency                                     | desc_sort_population                        | 85.77715084                    | 86.2006122                  | 0.42346                    | ms                             |         |      |
-| 100th  percentile latency                                    | desc_sort_population                        | 85.84200498                    | 87.74290979                 | 1.9009                     | ms                             |         |      |
-| 50th  percentile service time                                | desc_sort_population                        | 59.92501229                    | 53.58439684                 | -6.34062                   | ms                             |         |      |
-| 90th  percentile service time                                | desc_sort_population                        | 72.30911367                    | 68.09855495                 | -4.21056                   | ms                             |         |      |
-| 99th  percentile service time                                | desc_sort_population                        | 84.09957183                    | 84.57749833                 | 0.47793                    | ms                             |         |      |
-| 100th  percentile service time                               | desc_sort_population                        | 84.19063408                    | 85.95814556                 | 1.76751                    | ms                             |         |      |
-| error  rate                                                  | desc_sort_population                        | 0                              | 0                           | 0                          | %                              |         |      |
-| 升序排序查询                                                 | Min  Throughput                             | asc_sort_population            | 1.504247142                 | 1.504528234                | 0.00028                        | ops/s   |      |
-| Mean  Throughput                                             | asc_sort_population                         | 1.505166062                    | 1.505508302                 | 0.00034                    | ops/s                          |         |      |
-| Median  Throughput                                           | asc_sort_population                         | 1.505099341                    | 1.505440428                 | 0.00034                    | ops/s                          |         |      |
-| Max  Throughput                                              | asc_sort_population                         | 1.506349989                    | 1.506767598                 | 0.00042                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | asc_sort_population                         | 63.16776341                    | 62.82690261                 | -0.34086                   | ms                             |         |      |
-| 90th percentile  latency                                     | asc_sort_population                         | 78.09764324                    | 75.61749704                 | -2.48015                   | ms                             |         |      |
-| 99th  percentile latency                                     | asc_sort_population                         | 87.33172638                    | 84.58683862                 | -2.74489                   | ms                             |         |      |
-| 100th  percentile latency                                    | asc_sort_population                         | 87.89979294                    | 85.19899659                 | -2.7008                    | ms                             |         |      |
-| 50th percentile  service time                                | asc_sort_population                         | 61.90986466                    | 61.71039958                 | -0.19947                   | ms                             |         |      |
-| 90th  percentile service time                                | asc_sort_population                         | 76.55056985                    | 74.45018981                 | -2.10038                   | ms                             |         |      |
-| 99th  percentile service time                                | asc_sort_population                         | 85.81453795                    | 83.30245529                 | -2.51208                   | ms                             |         |      |
-| 100th  percentile service time                               | asc_sort_population                         | 86.60695888                    | 84.05557927                 | -2.55138                   | ms                             |         |      |
-| error  rate                                                  | asc_sort_population                         | 0                              | 0                           | 0                          | %                              |         |      |
-| 升序排序后 after 跳转查询                                    | Min  Throughput                             | asc_sort_with_after_population | 1.503017792                 | 1.503506494                | 0.00049                        | ops/s   |      |
-| Mean  Throughput                                             | asc_sort_with_after_population              | 1.503667166                    | 1.504271472                 | 0.0006                     | ops/s                          |         |      |
-| Median  Throughput                                           | asc_sort_with_after_population              | 1.503620246                    | 1.504214876                 | 0.00059                    | ops/s                          |         |      |
-| Max  Throughput                                              | asc_sort_with_after_population              | 1.504506304                    | 1.505248472                 | 0.00074                    | ops/s                          |         |      |
-| 50th  percentile latency                                     | asc_sort_with_after_population              | 79.49512405                    | 81.97531058                 | 2.48019                    | ms                             |         |      |
-| 90th  percentile latency                                     | asc_sort_with_after_population              | 94.07415418                    | 97.05960844                 | 2.98545                    | ms                             |         |      |
-| 99th  percentile latency                                     | asc_sort_with_after_population              | 115.1407234                    | 110.1778366                 | -4.96289                   | ms                             |         |      |
-| 100th  percentile latency                                    | asc_sort_with_after_population              | 117.4867153                    | 115.6357806                 | -1.85093                   | ms                             |         |      |
-| 50th  percentile service time                                | asc_sort_with_after_population              | 78.12653808                    | 80.56232799                 | 2.43579                    | ms                             |         |      |
-| 90th  percentile service time                                | asc_sort_with_after_population              | 92.57791536                    | 96.00112103                 | 3.42321                    | ms                             |         |      |
-| 99th  percentile service time                                | asc_sort_with_after_population              | 113.538067                     | 108.2517642                 | -5.2863                    | ms                             |         |      |
-| 100th percentile  service time                               | asc_sort_with_after_population              | 116.0558164                    | 114.5531256                 | -1.50269                   | ms                             |         |      |
-| error  rate                                                  | asc_sort_with_after_population              | 0                              | 0                           | 0                          | %                              |         |      |
-| 高基字段降序排序查询（基于 DistanceFeatureQuery 快速取 topK） | Min  Throughput                             | desc_sort_geonameid            | 6.011806976                 | 6.013534032                | 0.00173                        | ops/s   |      |
-| Mean  Throughput                                             | desc_sort_geonameid                         | 6.014040004                    | 6.016121536                 | 0.00208                    | ops/s                          |         |      |
-| Median  Throughput                                           | desc_sort_geonameid                         | 6.013860893                    | 6.015844404                 | 0.00198                    | ops/s                          |         |      |
-| Max  Throughput                                              | desc_sort_geonameid                         | 6.016975785                    | 6.019491653                 | 0.00252                    | ops/s                          |         |      |
-| 50th percentile  latency                                     | desc_sort_geonameid                         | 8.037513588                    | 6.896098144                 | -1.14142                   | ms                             |         |      |
-| 90th  percentile latency                                     | desc_sort_geonameid                         | 8.790209144                    | 7.481213845                 | -1.309                     | ms                             |         |      |
-| 99th  percentile latency                                     | desc_sort_geonameid                         | 20.16597                       | 7.890859395                 | -12.27511                  | ms                             |         |      |
-| 100th percentile  latency                                    | desc_sort_geonameid                         | 22.69194461                    | 8.130467497                 | -14.56148                  | ms                             |         |      |
-| 50th  percentile service time                                | desc_sort_geonameid                         | 7.199986372                    | 6.043605972                 | -1.15638                   | ms                             |         |      |
-| 90th  percentile service time                                | desc_sort_geonameid                         | 7.634483464                    | 6.330675445                 | -1.30381                   | ms                             |         |      |
-| 99th  percentile service time                                | desc_sort_geonameid                         | 18.95111335                    | 6.674837489                 | -12.27628                  | ms                             |         |      |
-| 100th  percentile service time                               | desc_sort_geonameid                         | 22.06934988                    | 6.795545109                 | -15.2738                   | ms                             |         |      |
-| error  rate                                                  | desc_sort_geonameid                         | 0                              | 0                           | 0                          | %                              |         |      |
-| 高基字段降序排序  after 跳转查询                             | Min  Throughput                             | desc_sort_with_after_geonameid | 6.003999251                 | 6.002224615                | -0.00177                       | ops/s   |      |
-| Mean  Throughput                                             | desc_sort_with_after_geonameid              | 6.00483332                     | 6.002715504                 | -0.00212                   | ops/s                          |         |      |
-| Median  Throughput                                           | desc_sort_with_after_geonameid              | 6.004831591                    | 6.002684836                 | -0.00215                   | ops/s                          |         |      |
-| Max  Throughput                                              | desc_sort_with_after_geonameid              | 6.005864935                    | 6.003257919                 | -0.00261                   | ops/s                          |         |      |
-| 50th  percentile latency                                     | desc_sort_with_after_geonameid              | 64.12782287                    | 69.3480419                  | 5.22022                    | ms                             |         |      |
-| 90th  percentile latency                                     | desc_sort_with_after_geonameid              | 79.63361973                    | 85.98741582                 | 6.3538                     | ms                             |         |      |
-| 99th  percentile latency                                     | desc_sort_with_after_geonameid              | 87.09606319                    | 91.30932659                 | 4.21326                    | ms                             |         |      |
-| 100th  percentile latency                                    | desc_sort_with_after_geonameid              | 88.47462852                    | 91.78488795                 | 3.31026                    | ms                             |         |      |
-| 50th  percentile service time                                | desc_sort_with_after_geonameid              | 63.23770666                    | 68.51645093                 | 5.27874                    | ms                             |         |      |
-| 90th  percentile service time                                | desc_sort_with_after_geonameid              | 78.83979175                    | 85.22403594                 | 6.38424                    | ms                             |         |      |
-| 99th  percentile service time                                | desc_sort_with_after_geonameid              | 86.525729                      | 90.76162191                 | 4.23589                    | ms                             |         |      |
-| 100th  percentile service time                               | desc_sort_with_after_geonameid              | 87.29847241                    | 91.3709281                  | 4.07246                    | ms                             |         |      |
-| error  rate                                                  | desc_sort_with_after_geonameid              | 0                              | 0                           | 0                          | %                              |         |      |
-| 高基字段升序排序查询（基于 DistanceFeatureQuery 快速取 topK） | Min  Throughput                             | asc_sort_geonameid             | 6.018840993                 | 6.018470998                | -0.00037                       | ops/s   |      |
-| Mean  Throughput                                             | asc_sort_geonameid                          | 6.022518134                    | 6.022078364                 | -0.00044                   | ops/s                          |         |      |
-| Median  Throughput                                           | asc_sort_geonameid                          | 6.022245684                    | 6.021816641                 | -0.00043                   | ops/s                          |         |      |
-| Max  Throughput                                              | asc_sort_geonameid                          | 6.027178807                    | 6.026594943                 | -0.00058                   | ops/s                          |         |      |
-| 50th  percentile latency                                     | asc_sort_geonameid                          | 7.024060003                    | 9.012220893                 | 1.98816                    | ms                             |         |      |
-| 90th  percentile latency                                     | asc_sort_geonameid                          | 7.69297732                     | 9.680523816                 | 1.98755                    | ms                             |         |      |
-| 99th  percentile latency                                     | asc_sort_geonameid                          | 20.44826921                    | 11.18117133                 | -9.2671                    | ms                             |         |      |
-| 100th  percentile latency                                    | asc_sort_geonameid                          | 21.87036537                    | 11.28741447                 | -10.58295                  | ms                             |         |      |
-| 50th  percentile service time                                | asc_sort_geonameid                          | 6.123304367                    | 8.064015303                 | 1.94071                    | ms                             |         |      |
-| 90th  percentile service time                                | asc_sort_geonameid                          | 6.746383384                    | 8.737695683                 | 1.99131                    | ms                             |         |      |
-| 99th  percentile service time                                | asc_sort_geonameid                          | 19.78318544                    | 10.16213525                 | -9.62105                   | ms                             |         |      |
-| 100th  percentile service time                               | asc_sort_geonameid                          | 21.25467733                    | 10.39039157                 | -10.86429                  | ms                             |         |      |
-| error  rate                                                  | asc_sort_geonameid                          | 0                              | 0                           | 0                          | %                              |         |      |
-| 高基字段升序排序  after 跳转查询                             | Min  Throughput                             | asc_sort_with_after_geonameid  | 6.013236842                 | 6.013266563                | 0.00003                        | ops/s   |      |
-| Mean  Throughput                                             | asc_sort_with_after_geonameid               | 6.015849171                    | 6.015858176                 | 0.00001                    | ops/s                          |         |      |
-| Median  Throughput                                           | asc_sort_with_after_geonameid               | 6.015618744                    | 6.015641333                 | 0.00002                    | ops/s                          |         |      |
-| Max  Throughput                                              | asc_sort_with_after_geonameid               | 6.019167352                    | 6.01911523                  | -0.00005                   | ops/s                          |         |      |
-| 50th  percentile latency                                     | asc_sort_with_after_geonameid               | 60.27546292                    | 64.3463349                  | 4.07087                    | ms                             |         |      |
-| 90th  percentile latency                                     | asc_sort_with_after_geonameid               | 78.63363056                    | 85.38805693                 | 6.75443                    | ms                             |         |      |
-| 99th  percentile latency                                     | asc_sort_with_after_geonameid               | 89.31191583                    | 91.7664034                  | 2.45449                    | ms                             |         |      |
-| 100th  percentile latency                                    | asc_sort_with_after_geonameid               | 90.85853212                    | 91.9917766                  | 1.13324                    | ms                             |         |      |
-| 50th  percentile service time                                | asc_sort_with_after_geonameid               | 59.692265                      | 63.68059153                 | 3.98833                    | ms                             |         |      |
-| 90th  percentile service time                                | asc_sort_with_after_geonameid               | 78.16235274                    | 84.53184282                 | 6.36949                    | ms                             |         |      |
-| 99th  percentile service time                                | asc_sort_with_after_geonameid               | 88.15484255                    | 91.29356634                 | 3.13872                    | ms                             |         |      |
-| 100th  percentile service time                               | asc_sort_with_after_geonameid               | 89.73695803                    | 91.64701309                 | 1.91006                    | ms                             |         |      |
-| error  rate                                                  | asc_sort_with_after_geonameid               | 0                              | 0                           | 0                          | %                              |         |      |
-
-
- 
-
- 
-
- 
+<table>
+<thead>
+<tr>
+<th width=10%>说明</th>
+<th width=15%>Metric</th>
+<th width=15%>Task</th>
+<th width=15%>腾讯云ES(Open JDK+CMS-GC)</th>
+<th width=15%>腾讯云ES(Kona JDK+G1-GC)</th>
+<th width=20%>差异值（Kona JDK-Open JDK）</th>
+<th width=5%>Unit</th>
+<th width=5%>优劣</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>写入总耗时</td>
+<td >Cumulative indexing time of  primary shards</td>
+<td >&nbsp;</td>
+<td >17.7745</td>
+<td >17.41703333</td>
+<td >-0.35747</td>
+<td >min</td>
+<td >优</td>
+</tr><tr>
+<td >GC 总次数、耗时统计</td>
+<td >Total Young Gen GC time</td>
+<td >&nbsp;</td>
+<td >76.597</td>
+<td >4.988</td>
+<td >-71.609</td>
+<td >s</td>
+<td >优</td>
+</tr><tr>
+<td >Total Young Gen GC count</td>
+<td >&nbsp;</td>
+<td >4129</td>
+<td >981</td>
+<td >-3148</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Total Old Gen GC time</td>
+<td >&nbsp;</td>
+<td >0.175</td>
+<td >0</td>
+<td >-0.175</td>
+<td >s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Total Old Gen GC count</td>
+<td >&nbsp;</td>
+<td >2</td>
+<td >0</td>
+<td >-2</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >存储大小</td>
+<td >Store  size</td>
+<td >&nbsp;</td>
+<td >2.885286688</td>
+<td >2.87756444</td>
+<td >-0.00772</td>
+<td >GB</td>
+<td >-</td>
+</tr><tr>
+<td >Translog  size</td>
+<td >&nbsp;</td>
+<td >3.59E-07</td>
+<td >3.59E-07</td>
+<td >0</td>
+<td >GB</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >堆内存使用量</td>
+<td >Heap  used for segments</td>
+<td >&nbsp;</td>
+<td >0.045909882</td>
+<td >0.045909882</td>
+<td >0</td>
+<td >MB</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Heap  used for doc values</td>
+<td >&nbsp;</td>
+<td >0.000507355</td>
+<td >0.000507355</td>
+<td >0</td>
+<td >MB</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Heap  used for terms</td>
+<td >&nbsp;</td>
+<td >0.037261963</td>
+<td >0.037261963</td>
+<td >0</td>
+<td >MB</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Heap  used for norms</td>
+<td >&nbsp;</td>
+<td >0.003967285</td>
+<td >0.003967285</td>
+<td >0</td>
+<td >MB</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Heap  used for points</td>
+<td >&nbsp;</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >MB</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Heap  used for stored fields</td>
+<td >&nbsp;</td>
+<td >0.004173279</td>
+<td >0.004173279</td>
+<td >0</td>
+<td >MB</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >segment 总数量</td>
+<td >Segment  count</td>
+<td >&nbsp;</td>
+<td >7</td>
+<td >7</td>
+<td >0</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >写入吞吐、耗时统计</td>
+<td >Min  Throughput</td>
+<td >index-append</td>
+<td >82341.03288</td>
+<td >83678.1806</td>
+<td >1337.14773</td>
+<td >docs/s</td>
+<td >优</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >index-append</td>
+<td >85463.64521</td>
+<td >87617.83008</td>
+<td >2154.18488</td>
+<td >docs/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >index-append</td>
+<td >85203.41999</td>
+<td >87749.05385</td>
+<td >2545.63387</td>
+<td >docs/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >index-append</td>
+<td >88282.10166</td>
+<td >90448.56087</td>
+<td >2166.45921</td>
+<td >docs/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >index-append</td>
+<td >369.9228433</td>
+<td >360.6725829</td>
+<td >-9.25026</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >index-append</td>
+<td >582.2157889</td>
+<td >521.3938987</td>
+<td >-60.82189</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th percentile  latency</td>
+<td >index-append</td>
+<td >2566.001355</td>
+<td >3331.056718</td>
+<td >765.05536</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99.9th  percentile latency</td>
+<td >index-append</td>
+<td >3249.023346</td>
+<td >4277.054507</td>
+<td >1028.03116</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >index-append</td>
+<td >3677.799375</td>
+<td >5966.865065</td>
+<td >2289.06569</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >index-append</td>
+<td >369.9228433</td>
+<td >360.6725829</td>
+<td >-9.25026</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >index-append</td>
+<td >582.2157889</td>
+<td >521.3938987</td>
+<td >-60.82189</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >index-append</td>
+<td >2566.001355</td>
+<td >3331.056718</td>
+<td >765.05536</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99.9th  percentile service time</td>
+<td >index-append</td>
+<td >3249.023346</td>
+<td >4277.054507</td>
+<td >1028.03116</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >index-append</td>
+<td >3677.799375</td>
+<td >5966.865065</td>
+<td >2289.06569</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >index-append</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >index 指标统计</td>
+<td >Min  Throughput</td>
+<td >index-stats</td>
+<td >90.00917629</td>
+<td >90.01515386</td>
+<td >0.00598</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >index-stats</td>
+<td >90.01643728</td>
+<td >90.02981242</td>
+<td >0.01338</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >index-stats</td>
+<td >90.01545276</td>
+<td >90.03117871</td>
+<td >0.01573</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >index-stats</td>
+<td >90.0358266</td>
+<td >90.0417802</td>
+<td >0.00595</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >index-stats</td>
+<td >2.71807611</td>
+<td >2.706557978</td>
+<td >-0.01152</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >index-stats</td>
+<td >3.542617336</td>
+<td >3.530823253</td>
+<td >-0.01179</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >index-stats</td>
+<td >4.209796032</td>
+<td >4.047978334</td>
+<td >-0.16182</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99.9th percentile  latency</td>
+<td >index-stats</td>
+<td >10.97994745</td>
+<td >4.319285007</td>
+<td >-6.66066</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >index-stats</td>
+<td >18.87320075</td>
+<td >4.494163208</td>
+<td >-14.37904</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >index-stats</td>
+<td >1.521472819</td>
+<td >1.515000127</td>
+<td >-0.00647</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th percentile  service time</td>
+<td >index-stats</td>
+<td >1.832026243</td>
+<td >1.815253124</td>
+<td >-0.01677</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >index-stats</td>
+<td >2.493222319</td>
+<td >2.149661649</td>
+<td >-0.34356</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99.9th  percentile service time</td>
+<td >index-stats</td>
+<td >3.265745808</td>
+<td >2.558897269</td>
+<td >-0.70685</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th percentile  service time</td>
+<td >index-stats</td>
+<td >18.49333011</td>
+<td >2.714292146</td>
+<td >-15.77904</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >index-stats</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >node 指标统计</td>
+<td >Min  Throughput</td>
+<td >node-stats</td>
+<td >89.77465925</td>
+<td >89.9748329</td>
+<td >0.20017</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >node-stats</td>
+<td >89.90322336</td>
+<td >89.99453842</td>
+<td >0.09132</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >node-stats</td>
+<td >89.92739222</td>
+<td >89.99716573</td>
+<td >0.06977</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >node-stats</td>
+<td >89.95708367</td>
+<td >90.01224368</td>
+<td >0.05516</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >node-stats</td>
+<td >2.864421345</td>
+<td >2.847921103</td>
+<td >-0.0165</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >node-stats</td>
+<td >4.03423449</td>
+<td >4.02287906</td>
+<td >-0.01136</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >node-stats</td>
+<td >4.780995743</td>
+<td >4.921176638</td>
+<td >0.14018</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99.9th  percentile latency</td>
+<td >node-stats</td>
+<td >11.95199643</td>
+<td >8.974571229</td>
+<td >-2.97743</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >node-stats</td>
+<td >19.6932666</td>
+<td >13.60371523</td>
+<td >-6.08955</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >node-stats</td>
+<td >2.031991258</td>
+<td >2.032643184</td>
+<td >0.00065</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >node-stats</td>
+<td >2.502718102</td>
+<td >2.520979941</td>
+<td >0.01826</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >node-stats</td>
+<td >3.355697962</td>
+<td >3.726954078</td>
+<td >0.37126</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99.9th  percentile service time</td>
+<td >node-stats</td>
+<td >6.070044631</td>
+<td >8.64341661</td>
+<td >2.57337</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >node-stats</td>
+<td >19.13440693</td>
+<td >11.63361594</td>
+<td >-7.50079</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >node-stats</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >默认查询，所有文档  score 为1（match_all）</td>
+<td >Min  Throughput</td>
+<td >default</td>
+<td >49.66239789</td>
+<td >49.88425331</td>
+<td >0.22186</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >default</td>
+<td >49.80337019</td>
+<td >49.93227136</td>
+<td >0.1289</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >default</td>
+<td >49.8202478</td>
+<td >49.93857317</td>
+<td >0.11833</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >default</td>
+<td >49.87518669</td>
+<td >49.9563597</td>
+<td >0.08117</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th percentile  latency</td>
+<td >default</td>
+<td >3.394149244</td>
+<td >3.262675833</td>
+<td >-0.13147</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >default</td>
+<td >4.578030575</td>
+<td >4.408122599</td>
+<td >-0.16991</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >default</td>
+<td >6.253439859</td>
+<td >4.992298558</td>
+<td >-1.26114</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99.9th  percentile latency</td>
+<td >default</td>
+<td >19.66198959</td>
+<td >8.490681676</td>
+<td >-11.17131</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >default</td>
+<td >20.0197883</td>
+<td >8.887056261</td>
+<td >-11.13273</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >default</td>
+<td >2.622524276</td>
+<td >2.356512472</td>
+<td >-0.26601</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >default</td>
+<td >3.102052212</td>
+<td >2.851721831</td>
+<td >-0.25033</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >default</td>
+<td >4.579989612</td>
+<td >3.174401047</td>
+<td >-1.40559</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99.9th  percentile service time</td>
+<td >default</td>
+<td >18.49881567</td>
+<td >8.051926313</td>
+<td >-10.44689</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >default</td>
+<td >18.62356346</td>
+<td >8.21478758</td>
+<td >-10.40878</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >default</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >term 条件查询</td>
+<td >Min  Throughput</td>
+<td >term</td>
+<td >98.93043451</td>
+<td >99.71455545</td>
+<td >0.78412</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >term</td>
+<td >99.33413382</td>
+<td >99.81852777</td>
+<td >0.48439</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >term</td>
+<td >99.38459416</td>
+<td >99.83007784</td>
+<td >0.44548</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >term</td>
+<td >99.57176235</td>
+<td >99.88279227</td>
+<td >0.31103</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >term</td>
+<td >3.250969574</td>
+<td >3.228969406</td>
+<td >-0.022</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >term</td>
+<td >3.966032993</td>
+<td >3.853681684</td>
+<td >-0.11235</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >term</td>
+<td >10.50691157</td>
+<td >4.505703636</td>
+<td >-6.00121</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99.9th  percentile latency</td>
+<td >term</td>
+<td >17.10123536</td>
+<td >7.033703398</td>
+<td >-10.06753</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >term</td>
+<td >19.53481138</td>
+<td >9.737900458</td>
+<td >-9.79691</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >term</td>
+<td >2.501523588</td>
+<td >2.488659229</td>
+<td >-0.01286</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th percentile  service time</td>
+<td >term</td>
+<td >3.069854062</td>
+<td >2.982806601</td>
+<td >-0.08705</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >term</td>
+<td >7.066733902</td>
+<td >3.509562407</td>
+<td >-3.55717</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99.9th  percentile service time</td>
+<td >term</td>
+<td >16.17278317</td>
+<td >6.230151438</td>
+<td >-9.94263</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th percentile  service time</td>
+<td >term</td>
+<td >19.29396484</td>
+<td >8.562799543</td>
+<td >-10.73117</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >term</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >词组查询（query）</td>
+<td >Min  Throughput</td>
+<td >phrase</td>
+<td >109.1666798</td>
+<td >109.563189</td>
+<td >0.39651</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >phrase</td>
+<td >109.4885892</td>
+<td >109.726084</td>
+<td >0.23749</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median Throughput</td>
+<td >phrase</td>
+<td >109.531043</td>
+<td >109.7627623</td>
+<td >0.23172</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >phrase</td>
+<td >109.6776159</td>
+<td >109.8360981</td>
+<td >0.15848</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >phrase</td>
+<td >2.736125607</td>
+<td >2.723197918</td>
+<td >-0.01293</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >phrase</td>
+<td >3.2537736</td>
+<td >3.277133778</td>
+<td >0.02336</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >phrase</td>
+<td >5.174562978</td>
+<td >5.252283504</td>
+<td >0.07772</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99.9th  percentile latency</td>
+<td >phrase</td>
+<td >17.94986153</td>
+<td >11.65228278</td>
+<td >-6.29758</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >phrase</td>
+<td >20.16797382</td>
+<td >18.0053385</td>
+<td >-2.16264</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th percentile  service time</td>
+<td >phrase</td>
+<td >1.983109396</td>
+<td >1.964103896</td>
+<td >-0.01901</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >phrase</td>
+<td >2.38582911</td>
+<td >2.413296979</td>
+<td >0.02747</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >phrase</td>
+<td >4.028498856</td>
+<td >3.426500661</td>
+<td >-0.602</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99.9th percentile  service time</td>
+<td >phrase</td>
+<td >17.23640091</td>
+<td >10.3977854</td>
+<td >-6.83862</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >phrase</td>
+<td >19.54707783</td>
+<td >17.02223159</td>
+<td >-2.52485</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >不带缓存的聚合查询（aggregation）</td>
+<td >error  rate</td>
+<td >phrase</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Min  Throughput</td>
+<td >country_agg_uncached</td>
+<td >2.996727436</td>
+<td >2.999315225</td>
+<td >0.00259</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >country_agg_uncached</td>
+<td >2.997330498</td>
+<td >2.999446981</td>
+<td >0.00212</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >country_agg_uncached</td>
+<td >2.997367399</td>
+<td >2.999449396</td>
+<td >0.00208</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >country_agg_uncached</td>
+<td >2.997811835</td>
+<td >2.999560826</td>
+<td >0.00175</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >country_agg_uncached</td>
+<td >137.708772</td>
+<td >138.3623141</td>
+<td >0.65354</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >country_agg_uncached</td>
+<td >162.6020876</td>
+<td >162.0003162</td>
+<td >-0.60177</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >country_agg_uncached</td>
+<td >196.1384525</td>
+<td >190.0452044</td>
+<td >-6.09325</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >country_agg_uncached</td>
+<td >208.7042201</td>
+<td >205.8009086</td>
+<td >-2.90331</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >country_agg_uncached</td>
+<td >136.977708</td>
+<td >137.0970309</td>
+<td >0.11932</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th percentile  service time</td>
+<td >country_agg_uncached</td>
+<td >161.4701347</td>
+<td >160.9131827</td>
+<td >-0.55695</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >country_agg_uncached</td>
+<td >195.4892302</td>
+<td >188.7832217</td>
+<td >-6.70601</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >country_agg_uncached</td>
+<td >208.3484558</td>
+<td >204.5730753</td>
+<td >-3.77538</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >country_agg_uncached</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >带缓存的聚合查询（aggregation）</td>
+<td >Min  Throughput</td>
+<td >country_agg_cached</td>
+<td >98.51641526</td>
+<td >98.62990947</td>
+<td >0.11349</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >country_agg_cached</td>
+<td >98.94635299</td>
+<td >99.03419609</td>
+<td >0.08784</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median Throughput</td>
+<td >country_agg_cached</td>
+<td >98.99545733</td>
+<td >99.08216113</td>
+<td >0.0867</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >country_agg_cached</td>
+<td >99.24729184</td>
+<td >99.31333794</td>
+<td >0.06605</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >country_agg_cached</td>
+<td >2.211962827</td>
+<td >2.139798366</td>
+<td >-0.07216</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th percentile  latency</td>
+<td >country_agg_cached</td>
+<td >3.517023474</td>
+<td >3.494661488</td>
+<td >-0.02236</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >country_agg_cached</td>
+<td >4.158023223</td>
+<td >4.199306211</td>
+<td >0.04128</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99.9th  percentile latency</td>
+<td >country_agg_cached</td>
+<td >9.866942695</td>
+<td >8.245296748</td>
+<td >-1.62165</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th percentile  latency</td>
+<td >country_agg_cached</td>
+<td >18.06280296</td>
+<td >12.30363548</td>
+<td >-5.75917</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >country_agg_cached</td>
+<td >1.467651688</td>
+<td >1.393478829</td>
+<td >-0.07417</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >country_agg_cached</td>
+<td >1.777389366</td>
+<td >1.689927001</td>
+<td >-0.08746</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >country_agg_cached</td>
+<td >2.282693414</td>
+<td >3.276122157</td>
+<td >0.99343</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99.9th  percentile service time</td>
+<td >country_agg_cached</td>
+<td >4.195660669</td>
+<td >7.769071626</td>
+<td >3.57341</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >country_agg_cached</td>
+<td >16.24826528</td>
+<td >11.39958762</td>
+<td >-4.84868</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >country_agg_cached</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >分页拉取</td>
+<td >Min  Throughput</td>
+<td >scroll</td>
+<td >20.04421286</td>
+<td >20.04208025</td>
+<td >-0.00213</td>
+<td >pages/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >scroll</td>
+<td >20.05368445</td>
+<td >20.05111381</td>
+<td >-0.00257</td>
+<td >pages/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >scroll</td>
+<td >20.05292541</td>
+<td >20.05042813</td>
+<td >-0.0025</td>
+<td >pages/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >scroll</td>
+<td >20.0660563</td>
+<td >20.06287951</td>
+<td >-0.00318</td>
+<td >pages/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >scroll</td>
+<td >272.1138773</td>
+<td >259.2352917</td>
+<td >-12.87859</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >scroll</td>
+<td >290.9470227</td>
+<td >265.0907522</td>
+<td >-25.85627</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th percentile  latency</td>
+<td >scroll</td>
+<td >302.488716</td>
+<td >284.5098141</td>
+<td >-17.9789</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >scroll</td>
+<td >303.7193846</td>
+<td >297.6893578</td>
+<td >-6.03003</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >scroll</td>
+<td >270.1747189</td>
+<td >257.1577448</td>
+<td >-13.01697</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th percentile  service time</td>
+<td >scroll</td>
+<td >289.0668329</td>
+<td >263.437889</td>
+<td >-25.62894</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >scroll</td>
+<td >300.3281443</td>
+<td >282.0971792</td>
+<td >-18.23097</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >scroll</td>
+<td >301.2135932</td>
+<td >296.1045038</td>
+<td >-5.10909</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >scroll</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >脚本查询（使用  expression 脚本）</td>
+<td >Min  Throughput</td>
+<td >expression</td>
+<td >1.500956979</td>
+<td >1.501441158</td>
+<td >0.00048</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >expression</td>
+<td >1.501160838</td>
+<td >1.501741788</td>
+<td >0.00058</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >expression</td>
+<td >1.501147998</td>
+<td >1.501719862</td>
+<td >0.00057</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >expression</td>
+<td >1.501414072</td>
+<td >1.502131242</td>
+<td >0.00072</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >expression</td>
+<td >327.3259858</td>
+<td >295.2159694</td>
+<td >-32.11002</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >expression</td>
+<td >342.0345129</td>
+<td >317.3502734</td>
+<td >-24.68424</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >expression</td>
+<td >372.6446468</td>
+<td >378.85094</td>
+<td >6.20629</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >expression</td>
+<td >396.7165332</td>
+<td >417.1186928</td>
+<td >20.40216</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >expression</td>
+<td >325.855901</td>
+<td >293.9883978</td>
+<td >-31.8675</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >expression</td>
+<td >340.6900207</td>
+<td >316.3654443</td>
+<td >-24.32458</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >expression</td>
+<td >370.736203</td>
+<td >377.514769</td>
+<td >6.77857</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >expression</td>
+<td >395.4625437</td>
+<td >415.9661252</td>
+<td >20.50358</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >expression</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >脚本查询（使用  painless 静态脚本，不动态取字段值）</td>
+<td >Min  Throughput</td>
+<td >painless_static</td>
+<td >1.396916338</td>
+<td >1.397483837</td>
+<td >0.00057</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >painless_static</td>
+<td >1.397478748</td>
+<td >1.397943395</td>
+<td >0.00046</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >painless_static</td>
+<td >1.397513941</td>
+<td >1.397977624</td>
+<td >0.00046</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >painless_static</td>
+<td >1.397920498</td>
+<td >1.398303982</td>
+<td >0.00038</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >painless_static</td>
+<td >431.2919118</td>
+<td >371.348965</td>
+<td >-59.94295</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >painless_static</td>
+<td >465.1254796</td>
+<td >391.1945282</td>
+<td >-73.93095</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th percentile  latency</td>
+<td >painless_static</td>
+<td >512.2339443</td>
+<td >437.3164341</td>
+<td >-74.91751</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >painless_static</td>
+<td >538.9131764</td>
+<td >465.5702729</td>
+<td >-73.3429</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >painless_static</td>
+<td >429.9421017</td>
+<td >369.791389</td>
+<td >-60.15071</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th percentile  service time</td>
+<td >painless_static</td>
+<td >463.2926716</td>
+<td >390.19037</td>
+<td >-73.1023</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >painless_static</td>
+<td >511.3802825</td>
+<td >434.9970652</td>
+<td >-76.38322</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >painless_static</td>
+<td >537.7559569</td>
+<td >464.3589323</td>
+<td >-73.39702</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >painless_static</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >脚本查询（使用  painless 静态脚本，动态获取字段值）</td>
+<td >Min  Throughput</td>
+<td >painless_dynamic</td>
+<td >1.398724661</td>
+<td >1.396323104</td>
+<td >-0.0024</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >painless_dynamic</td>
+<td >1.398964022</td>
+<td >1.396996725</td>
+<td >-0.00197</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >painless_dynamic</td>
+<td >1.398981831</td>
+<td >1.397038282</td>
+<td >-0.00194</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >painless_dynamic</td>
+<td >1.399149307</td>
+<td >1.397521303</td>
+<td >-0.00163</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >painless_dynamic</td>
+<td >432.8310895</td>
+<td >356.7619352</td>
+<td >-76.06915</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >painless_dynamic</td>
+<td >462.9847418</td>
+<td >383.0218635</td>
+<td >-79.96288</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >painless_dynamic</td>
+<td >494.9476089</td>
+<td >428.2430825</td>
+<td >-66.70453</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >painless_dynamic</td>
+<td >536.4017347</td>
+<td >446.9218394</td>
+<td >-89.4799</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th percentile  service time</td>
+<td >painless_dynamic</td>
+<td >431.5832192</td>
+<td >355.6409795</td>
+<td >-75.94224</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >painless_dynamic</td>
+<td >462.0900041</td>
+<td >381.7875394</td>
+<td >-80.30246</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >painless_dynamic</td>
+<td >494.3205597</td>
+<td >425.9035249</td>
+<td >-68.41703</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >painless_dynamic</td>
+<td >534.6057713</td>
+<td >445.0034723</td>
+<td >-89.6023</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >painless_dynamic</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >地理范围查询（基于高斯衰减函数）</td>
+<td >Min  Throughput</td>
+<td >decay_geo_gauss_function_score</td>
+<td >1.001927565</td>
+<td >1.002114687</td>
+<td >0.00019</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >decay_geo_gauss_function_score</td>
+<td >1.002340802</td>
+<td >1.002568849</td>
+<td >0.00023</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >decay_geo_gauss_function_score</td>
+<td >1.002308555</td>
+<td >1.002535216</td>
+<td >0.00023</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >decay_geo_gauss_function_score</td>
+<td >1.002881625</td>
+<td >1.003158744</td>
+<td >0.00028</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >decay_geo_gauss_function_score</td>
+<td >387.5082242</td>
+<td >332.3548282</td>
+<td >-55.1534</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >decay_geo_gauss_function_score</td>
+<td >397.8741518</td>
+<td >344.7444949</td>
+<td >-53.12966</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >decay_geo_gauss_function_score</td>
+<td >407.4444408</td>
+<td >356.9588375</td>
+<td >-50.4856</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >decay_geo_gauss_function_score</td>
+<td >409.4531341</td>
+<td >369.3594299</td>
+<td >-40.0937</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >decay_geo_gauss_function_score</td>
+<td >386.1244814</td>
+<td >331.0354254</td>
+<td >-55.08906</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >decay_geo_gauss_function_score</td>
+<td >396.8515609</td>
+<td >343.3262392</td>
+<td >-53.52532</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >decay_geo_gauss_function_score</td>
+<td >406.6675034</td>
+<td >355.0055938</td>
+<td >-51.66191</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >decay_geo_gauss_function_score</td>
+<td >407.7369291</td>
+<td >368.1781357</td>
+<td >-39.55879</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >decay_geo_gauss_function_score</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >地理范围查询（基于高斯衰减函数，且脚本动态获取字段值）</td>
+<td >Min  Throughput</td>
+<td >decay_geo_gauss_script_score</td>
+<td >1.001446744</td>
+<td >1.001552191</td>
+<td >0.00011</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean Throughput</td>
+<td >decay_geo_gauss_script_score</td>
+<td >1.001755635</td>
+<td >1.001885174</td>
+<td >0.00013</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >decay_geo_gauss_script_score</td>
+<td >1.001731537</td>
+<td >1.001860497</td>
+<td >0.00013</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >decay_geo_gauss_script_score</td>
+<td >1.002160032</td>
+<td >1.002318693</td>
+<td >0.00016</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >decay_geo_gauss_script_score</td>
+<td >411.4939715</td>
+<td >334.8041</td>
+<td >-76.68987</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >decay_geo_gauss_script_score</td>
+<td >429.658707</td>
+<td >345.120705</td>
+<td >-84.538</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >decay_geo_gauss_script_score</td>
+<td >453.6645598</td>
+<td >355.949311</td>
+<td >-97.71525</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >decay_geo_gauss_script_score</td>
+<td >454.430094</td>
+<td >358.0469266</td>
+<td >-96.38317</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >decay_geo_gauss_script_score</td>
+<td >409.7672189</td>
+<td >333.3149343</td>
+<td >-76.45228</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >decay_geo_gauss_script_score</td>
+<td >428.3069702</td>
+<td >343.9684012</td>
+<td >-84.33857</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >decay_geo_gauss_script_score</td>
+<td >451.8706388</td>
+<td >354.2061434</td>
+<td >-97.6645</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >decay_geo_gauss_script_score</td>
+<td >452.8327445</td>
+<td >356.5891208</td>
+<td >-96.24362</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >decay_geo_gauss_script_score</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >自定义评分函数查询（基于字段值定义函数）</td>
+<td >Min  Throughput</td>
+<td >field_value_function_score</td>
+<td >1.503388048</td>
+<td >1.503875481</td>
+<td >0.00049</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >field_value_function_score</td>
+<td >1.504118746</td>
+<td >1.504719285</td>
+<td >0.0006</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median Throughput</td>
+<td >field_value_function_score</td>
+<td >1.504074621</td>
+<td >1.504659173</td>
+<td >0.00058</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >field_value_function_score</td>
+<td >1.505051463</td>
+<td >1.505800982</td>
+<td >0.00075</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >field_value_function_score</td>
+<td >194.2629726</td>
+<td >134.5724794</td>
+<td >-59.69049</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >field_value_function_score</td>
+<td >203.7090491</td>
+<td >150.1895525</td>
+<td >-53.5195</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >field_value_function_score</td>
+<td >214.6481861</td>
+<td >166.6002053</td>
+<td >-48.04798</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >field_value_function_score</td>
+<td >217.926288</td>
+<td >184.5367327</td>
+<td >-33.38956</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >field_value_function_score</td>
+<td >192.3880568</td>
+<td >133.1520383</td>
+<td >-59.23602</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >field_value_function_score</td>
+<td >202.3297952</td>
+<td >148.4251454</td>
+<td >-53.90465</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >field_value_function_score</td>
+<td >213.3810514</td>
+<td >165.5014484</td>
+<td >-47.8796</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >field_value_function_score</td>
+<td >215.2935127</td>
+<td >183.1076834</td>
+<td >-32.18583</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >field_value_function_score</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >自定义评分函数查询（通过脚本动态获取字段值计算评分）</td>
+<td >Min  Throughput</td>
+<td >field_value_script_score</td>
+<td >1.499697369</td>
+<td >1.500258349</td>
+<td >0.00056</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >field_value_script_score</td>
+<td >1.499757694</td>
+<td >1.500311799</td>
+<td >0.00055</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >field_value_script_score</td>
+<td >1.499759282</td>
+<td >1.50030649</td>
+<td >0.00055</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >field_value_script_score</td>
+<td >1.499799232</td>
+<td >1.500380821</td>
+<td >0.00058</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >field_value_script_score</td>
+<td >240.0929602</td>
+<td >174.8193153</td>
+<td >-65.27364</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >field_value_script_score</td>
+<td >250.0571281</td>
+<td >188.9238266</td>
+<td >-61.1333</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >field_value_script_score</td>
+<td >270.1539508</td>
+<td >215.9618342</td>
+<td >-54.19212</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >field_value_script_score</td>
+<td >291.1372129</td>
+<td >229.1083755</td>
+<td >-62.02884</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th percentile  service time</td>
+<td >field_value_script_score</td>
+<td >238.8174967</td>
+<td >173.5835276</td>
+<td >-65.23397</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >field_value_script_score</td>
+<td >248.7244156</td>
+<td >187.4786591</td>
+<td >-61.24576</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >field_value_script_score</td>
+<td >268.9089779</td>
+<td >214.8508051</td>
+<td >-54.05817</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >field_value_script_score</td>
+<td >290.2693953</td>
+<td >228.2811021</td>
+<td >-61.98829</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >field_value_script_score</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >大量  terms 条件查询（query）</td>
+<td >Min  Throughput</td>
+<td >large_terms</td>
+<td >1.101304601</td>
+<td >1.100700963</td>
+<td >-0.0006</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >large_terms</td>
+<td >1.101582867</td>
+<td >1.100849475</td>
+<td >-0.00073</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >large_terms</td>
+<td >1.101561184</td>
+<td >1.100839723</td>
+<td >-0.00072</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >large_terms</td>
+<td >1.101945785</td>
+<td >1.101043</td>
+<td >-0.0009</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >large_terms</td>
+<td >211.8277326</td>
+<td >242.00767</td>
+<td >30.17994</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >large_terms</td>
+<td >231.8088979</td>
+<td >252.8580495</td>
+<td >21.04915</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >large_terms</td>
+<td >251.2304624</td>
+<td >265.9718477</td>
+<td >14.74139</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th percentile  latency</td>
+<td >large_terms</td>
+<td >255.3527635</td>
+<td >269.8639119</td>
+<td >14.51115</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >large_terms</td>
+<td >203.8265727</td>
+<td >233.9178906</td>
+<td >30.09132</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >large_terms</td>
+<td >223.8224964</td>
+<td >245.1530447</td>
+<td >21.33055</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th percentile  service time</td>
+<td >large_terms</td>
+<td >241.849935</td>
+<td >258.2161737</td>
+<td >16.36624</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >large_terms</td>
+<td >246.3486325</td>
+<td >262.1599194</td>
+<td >15.81129</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error rate</td>
+<td >large_terms</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >大量  terms 条件过滤查询（query、filter）</td>
+<td >Min  Throughput</td>
+<td >large_filtered_terms</td>
+<td >1.102296697</td>
+<td >1.10245872</td>
+<td >0.00016</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >large_filtered_terms</td>
+<td >1.102784885</td>
+<td >1.102979701</td>
+<td >0.00019</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >large_filtered_terms</td>
+<td >1.102747397</td>
+<td >1.102939052</td>
+<td >0.00019</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >large_filtered_terms</td>
+<td >1.103436209</td>
+<td >1.103668743</td>
+<td >0.00023</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >large_filtered_terms</td>
+<td >227.9210831</td>
+<td >243.4361419</td>
+<td >15.51506</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >large_filtered_terms</td>
+<td >249.2253724</td>
+<td >255.9631401</td>
+<td >6.73777</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th percentile  latency</td>
+<td >large_filtered_terms</td>
+<td >263.3142567</td>
+<td >276.256653</td>
+<td >12.9424</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >large_filtered_terms</td>
+<td >265.4732559</td>
+<td >280.1711811</td>
+<td >14.69793</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >large_filtered_terms</td>
+<td >220.1946224</td>
+<td >235.739741</td>
+<td >15.54512</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >large_filtered_terms</td>
+<td >241.1826614</td>
+<td >248.5632175</td>
+<td >7.38056</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >large_filtered_terms</td>
+<td >255.2141531</td>
+<td >268.2613158</td>
+<td >13.04716</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >large_filtered_terms</td>
+<td >256.941474</td>
+<td >272.5524893</td>
+<td >15.61102</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >large_filtered_terms</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >大量条件取反查询（query、must not）</td>
+<td >Min  Throughput</td>
+<td >large_prohibited_terms</td>
+<td >1.102827031</td>
+<td >1.102357904</td>
+<td >-0.00047</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >large_prohibited_terms</td>
+<td >1.103422713</td>
+<td >1.102860804</td>
+<td >-0.00056</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >large_prohibited_terms</td>
+<td >1.103376606</td>
+<td >1.102821884</td>
+<td >-0.00055</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >large_prohibited_terms</td>
+<td >1.104211668</td>
+<td >1.103525116</td>
+<td >-0.00069</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >large_prohibited_terms</td>
+<td >202.5767318</td>
+<td >232.1078526</td>
+<td >29.53112</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >large_prohibited_terms</td>
+<td >220.4174595</td>
+<td >247.2566163</td>
+<td >26.83916</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >large_prohibited_terms</td>
+<td >234.3344817</td>
+<td >266.7954953</td>
+<td >32.46101</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >large_prohibited_terms</td>
+<td >246.6131421</td>
+<td >268.8084021</td>
+<td >22.19526</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >large_prohibited_terms</td>
+<td >193.9010601</td>
+<td >224.5439067</td>
+<td >30.64285</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >large_prohibited_terms</td>
+<td >212.6108234</td>
+<td >239.8692667</td>
+<td >27.25844</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th percentile  service time</td>
+<td >large_prohibited_terms</td>
+<td >226.4359237</td>
+<td >258.9916089</td>
+<td >32.55569</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >large_prohibited_terms</td>
+<td >238.984541</td>
+<td >260.8724702</td>
+<td >21.88793</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >large_prohibited_terms</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >降序排序查询</td>
+<td >Min  Throughput</td>
+<td >desc_sort_population</td>
+<td >1.504037884</td>
+<td >1.504180086</td>
+<td >0.00014</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >desc_sort_population</td>
+<td >1.504907329</td>
+<td >1.505087394</td>
+<td >0.00018</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >desc_sort_population</td>
+<td >1.504841628</td>
+<td >1.505025118</td>
+<td >0.00018</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >desc_sort_population</td>
+<td >1.506034196</td>
+<td >1.506249517</td>
+<td >0.00022</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >desc_sort_population</td>
+<td >61.13778474</td>
+<td >54.50106226</td>
+<td >-6.63672</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >desc_sort_population</td>
+<td >73.92849587</td>
+<td >69.35394919</td>
+<td >-4.57455</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th percentile  latency</td>
+<td >desc_sort_population</td>
+<td >85.77715084</td>
+<td >86.2006122</td>
+<td >0.42346</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >desc_sort_population</td>
+<td >85.84200498</td>
+<td >87.74290979</td>
+<td >1.9009</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >desc_sort_population</td>
+<td >59.92501229</td>
+<td >53.58439684</td>
+<td >-6.34062</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >desc_sort_population</td>
+<td >72.30911367</td>
+<td >68.09855495</td>
+<td >-4.21056</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >desc_sort_population</td>
+<td >84.09957183</td>
+<td >84.57749833</td>
+<td >0.47793</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >desc_sort_population</td>
+<td >84.19063408</td>
+<td >85.95814556</td>
+<td >1.76751</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >desc_sort_population</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >升序排序查询</td>
+<td >Min  Throughput</td>
+<td >asc_sort_population</td>
+<td >1.504247142</td>
+<td >1.504528234</td>
+<td >0.00028</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >asc_sort_population</td>
+<td >1.505166062</td>
+<td >1.505508302</td>
+<td >0.00034</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >asc_sort_population</td>
+<td >1.505099341</td>
+<td >1.505440428</td>
+<td >0.00034</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >asc_sort_population</td>
+<td >1.506349989</td>
+<td >1.506767598</td>
+<td >0.00042</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >asc_sort_population</td>
+<td >63.16776341</td>
+<td >62.82690261</td>
+<td >-0.34086</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th percentile  latency</td>
+<td >asc_sort_population</td>
+<td >78.09764324</td>
+<td >75.61749704</td>
+<td >-2.48015</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >asc_sort_population</td>
+<td >87.33172638</td>
+<td >84.58683862</td>
+<td >-2.74489</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >asc_sort_population</td>
+<td >87.89979294</td>
+<td >85.19899659</td>
+<td >-2.7008</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th percentile  service time</td>
+<td >asc_sort_population</td>
+<td >61.90986466</td>
+<td >61.71039958</td>
+<td >-0.19947</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >asc_sort_population</td>
+<td >76.55056985</td>
+<td >74.45018981</td>
+<td >-2.10038</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >asc_sort_population</td>
+<td >85.81453795</td>
+<td >83.30245529</td>
+<td >-2.51208</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >asc_sort_population</td>
+<td >86.60695888</td>
+<td >84.05557927</td>
+<td >-2.55138</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >asc_sort_population</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >升序排序后 after 跳转查询</td>
+<td >Min  Throughput</td>
+<td >asc_sort_with_after_population</td>
+<td >1.503017792</td>
+<td >1.503506494</td>
+<td >0.00049</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >asc_sort_with_after_population</td>
+<td >1.503667166</td>
+<td >1.504271472</td>
+<td >0.0006</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >asc_sort_with_after_population</td>
+<td >1.503620246</td>
+<td >1.504214876</td>
+<td >0.00059</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >asc_sort_with_after_population</td>
+<td >1.504506304</td>
+<td >1.505248472</td>
+<td >0.00074</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >asc_sort_with_after_population</td>
+<td >79.49512405</td>
+<td >81.97531058</td>
+<td >2.48019</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >asc_sort_with_after_population</td>
+<td >94.07415418</td>
+<td >97.05960844</td>
+<td >2.98545</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >asc_sort_with_after_population</td>
+<td >115.1407234</td>
+<td >110.1778366</td>
+<td >-4.96289</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >asc_sort_with_after_population</td>
+<td >117.4867153</td>
+<td >115.6357806</td>
+<td >-1.85093</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >asc_sort_with_after_population</td>
+<td >78.12653808</td>
+<td >80.56232799</td>
+<td >2.43579</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >asc_sort_with_after_population</td>
+<td >92.57791536</td>
+<td >96.00112103</td>
+<td >3.42321</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >asc_sort_with_after_population</td>
+<td >113.538067</td>
+<td >108.2517642</td>
+<td >-5.2863</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th percentile  service time</td>
+<td >asc_sort_with_after_population</td>
+<td >116.0558164</td>
+<td >114.5531256</td>
+<td >-1.50269</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >asc_sort_with_after_population</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >高基字段降序排序查询（基于 DistanceFeatureQuery 快速取 topK）</td>
+<td >Min  Throughput</td>
+<td >desc_sort_geonameid</td>
+<td >6.011806976</td>
+<td >6.013534032</td>
+<td >0.00173</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >desc_sort_geonameid</td>
+<td >6.014040004</td>
+<td >6.016121536</td>
+<td >0.00208</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >desc_sort_geonameid</td>
+<td >6.013860893</td>
+<td >6.015844404</td>
+<td >0.00198</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >desc_sort_geonameid</td>
+<td >6.016975785</td>
+<td >6.019491653</td>
+<td >0.00252</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th percentile  latency</td>
+<td >desc_sort_geonameid</td>
+<td >8.037513588</td>
+<td >6.896098144</td>
+<td >-1.14142</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >desc_sort_geonameid</td>
+<td >8.790209144</td>
+<td >7.481213845</td>
+<td >-1.309</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >desc_sort_geonameid</td>
+<td >20.16597</td>
+<td >7.890859395</td>
+<td >-12.27511</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th percentile  latency</td>
+<td >desc_sort_geonameid</td>
+<td >22.69194461</td>
+<td >8.130467497</td>
+<td >-14.56148</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >desc_sort_geonameid</td>
+<td >7.199986372</td>
+<td >6.043605972</td>
+<td >-1.15638</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >desc_sort_geonameid</td>
+<td >7.634483464</td>
+<td >6.330675445</td>
+<td >-1.30381</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >desc_sort_geonameid</td>
+<td >18.95111335</td>
+<td >6.674837489</td>
+<td >-12.27628</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >desc_sort_geonameid</td>
+<td >22.06934988</td>
+<td >6.795545109</td>
+<td >-15.2738</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >desc_sort_geonameid</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >高基字段降序排序  after 跳转查询</td>
+<td >Min  Throughput</td>
+<td >desc_sort_with_after_geonameid</td>
+<td >6.003999251</td>
+<td >6.002224615</td>
+<td >-0.00177</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >desc_sort_with_after_geonameid</td>
+<td >6.00483332</td>
+<td >6.002715504</td>
+<td >-0.00212</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >desc_sort_with_after_geonameid</td>
+<td >6.004831591</td>
+<td >6.002684836</td>
+<td >-0.00215</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >desc_sort_with_after_geonameid</td>
+<td >6.005864935</td>
+<td >6.003257919</td>
+<td >-0.00261</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >desc_sort_with_after_geonameid</td>
+<td >64.12782287</td>
+<td >69.3480419</td>
+<td >5.22022</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >desc_sort_with_after_geonameid</td>
+<td >79.63361973</td>
+<td >85.98741582</td>
+<td >6.3538</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >desc_sort_with_after_geonameid</td>
+<td >87.09606319</td>
+<td >91.30932659</td>
+<td >4.21326</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >desc_sort_with_after_geonameid</td>
+<td >88.47462852</td>
+<td >91.78488795</td>
+<td >3.31026</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >desc_sort_with_after_geonameid</td>
+<td >63.23770666</td>
+<td >68.51645093</td>
+<td >5.27874</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >desc_sort_with_after_geonameid</td>
+<td >78.83979175</td>
+<td >85.22403594</td>
+<td >6.38424</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >desc_sort_with_after_geonameid</td>
+<td >86.525729</td>
+<td >90.76162191</td>
+<td >4.23589</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >desc_sort_with_after_geonameid</td>
+<td >87.29847241</td>
+<td >91.3709281</td>
+<td >4.07246</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >desc_sort_with_after_geonameid</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >高基字段升序排序查询（基于 DistanceFeatureQuery 快速取 topK）</td>
+<td >Min  Throughput</td>
+<td >asc_sort_geonameid</td>
+<td >6.018840993</td>
+<td >6.018470998</td>
+<td >-0.00037</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >asc_sort_geonameid</td>
+<td >6.022518134</td>
+<td >6.022078364</td>
+<td >-0.00044</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >asc_sort_geonameid</td>
+<td >6.022245684</td>
+<td >6.021816641</td>
+<td >-0.00043</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >asc_sort_geonameid</td>
+<td >6.027178807</td>
+<td >6.026594943</td>
+<td >-0.00058</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >asc_sort_geonameid</td>
+<td >7.024060003</td>
+<td >9.012220893</td>
+<td >1.98816</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >asc_sort_geonameid</td>
+<td >7.69297732</td>
+<td >9.680523816</td>
+<td >1.98755</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >asc_sort_geonameid</td>
+<td >20.44826921</td>
+<td >11.18117133</td>
+<td >-9.2671</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >asc_sort_geonameid</td>
+<td >21.87036537</td>
+<td >11.28741447</td>
+<td >-10.58295</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >asc_sort_geonameid</td>
+<td >6.123304367</td>
+<td >8.064015303</td>
+<td >1.94071</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >asc_sort_geonameid</td>
+<td >6.746383384</td>
+<td >8.737695683</td>
+<td >1.99131</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >asc_sort_geonameid</td>
+<td >19.78318544</td>
+<td >10.16213525</td>
+<td >-9.62105</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >asc_sort_geonameid</td>
+<td >21.25467733</td>
+<td >10.39039157</td>
+<td >-10.86429</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >asc_sort_geonameid</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >高基字段升序排序  after 跳转查询</td>
+<td >Min  Throughput</td>
+<td >asc_sort_with_after_geonameid</td>
+<td >6.013236842</td>
+<td >6.013266563</td>
+<td >0.00003</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Mean  Throughput</td>
+<td >asc_sort_with_after_geonameid</td>
+<td >6.015849171</td>
+<td >6.015858176</td>
+<td >0.00001</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Median  Throughput</td>
+<td >asc_sort_with_after_geonameid</td>
+<td >6.015618744</td>
+<td >6.015641333</td>
+<td >0.00002</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >Max  Throughput</td>
+<td >asc_sort_with_after_geonameid</td>
+<td >6.019167352</td>
+<td >6.01911523</td>
+<td >-0.00005</td>
+<td >ops/s</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile latency</td>
+<td >asc_sort_with_after_geonameid</td>
+<td >60.27546292</td>
+<td >64.3463349</td>
+<td >4.07087</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile latency</td>
+<td >asc_sort_with_after_geonameid</td>
+<td >78.63363056</td>
+<td >85.38805693</td>
+<td >6.75443</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile latency</td>
+<td >asc_sort_with_after_geonameid</td>
+<td >89.31191583</td>
+<td >91.7664034</td>
+<td >2.45449</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile latency</td>
+<td >asc_sort_with_after_geonameid</td>
+<td >90.85853212</td>
+<td >91.9917766</td>
+<td >1.13324</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >50th  percentile service time</td>
+<td >asc_sort_with_after_geonameid</td>
+<td >59.692265</td>
+<td >63.68059153</td>
+<td >3.98833</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >90th  percentile service time</td>
+<td >asc_sort_with_after_geonameid</td>
+<td >78.16235274</td>
+<td >84.53184282</td>
+<td >6.36949</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >99th  percentile service time</td>
+<td >asc_sort_with_after_geonameid</td>
+<td >88.15484255</td>
+<td >91.29356634</td>
+<td >3.13872</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >100th  percentile service time</td>
+<td >asc_sort_with_after_geonameid</td>
+<td >89.73695803</td>
+<td >91.64701309</td>
+<td >1.91006</td>
+<td >ms</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr><tr>
+<td >error  rate</td>
+<td >asc_sort_with_after_geonameid</td>
+<td >0</td>
+<td >0</td>
+<td >0</td>
+<td >%</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+</tr></tbody></table>

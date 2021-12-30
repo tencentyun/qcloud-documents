@@ -12,7 +12,7 @@
 
 将下载的 Demo 中的 pythonkafkademo 上传至 Linux 服务器，登录 Linux 服务器，进入 pythonkafkademo 目录。
 
-### 步骤一：添加 Python 依赖库
+### 步骤1：添加 Python 依赖库
 
 执行以下命令安装：
 
@@ -21,7 +21,7 @@ pip install kafka-python
 ```
 
 
-### 步骤二：生产消息
+### 步骤2：生产消息
 
 1. 修改生产消息程序 producer.py 中配置参数。
 
@@ -54,7 +54,7 @@ producer.close()
 
 
 
-### 步骤三：消费消息
+### 步骤3：消费消息
 
 1. 修改消费消息程序 consumer.py 中配置参数。
 

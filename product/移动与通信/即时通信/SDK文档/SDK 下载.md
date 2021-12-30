@@ -83,7 +83,7 @@
 <tr>
 <td style="text-align:center">Unity  </td>
 <td style="text-align:center" ><a href="https://comm.qq.com/im/sdk/unity_plus/im_unity_sdk_plus_v1.6.0.unitypackage">Unity Package</a></td>
-<td style="text-align:center" ><a href="https://comm.qq.com/im/sdk/unity_plus/_site/index.html">【客户端 API】SDK API(Unity)</a></td>
+<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/54111">【客户端 API】SDK API(Unity)</a></td>
 <td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/56150">更新日志(Unity)</a><br>公测中，技术咨询请加 QQ 群：<a href="https://qm.qq.com/cgi-bin/qm/qr?k=fVHzwGDQ0Hb9Qtn0KzQx7tsChGnzO9vm&jump_from=webapi">764231117</a></td>
 </tr>
 <tr>
@@ -154,11 +154,10 @@
 </tr>
 <tr>
 <td style="text-align:center" >直播互动 Demo  </td>
-<td style="text-align:center" >包含直播发起以及观看方点赞互动等能力。</td>
-<td style="text-align:center" >H5 及 Web</td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TWebLive">Github(推荐)</a></td>
-<td style="text-align:center" ><a href="https://web.sdk.qcloud.com/component/tweblive/download/TWebLive-demo.zip">ZIP</a></td>
-<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/47959">【Demo 入门】 一分钟跑通直播互动组件</a><br><a href="https://cloud.tencent.com/document/product/269/47954">【最佳实践】Web 直播互动组件</a></td>
+<td style="text-align:center" >包含直播发起以及观看方聊天互动等能力。</td>
+<td style="text-align:center" >Web</td>
+<td style="text-align:center" colspan="2"><a href="https://github.com/tencentyun/TUILiveRoom/tree/main/Web">Github</a></td>
+<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/65782">【最佳实践】Web 直播互动组件</a></td>
 </tr>
 </table>
 
