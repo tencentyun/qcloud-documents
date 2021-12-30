@@ -16,11 +16,7 @@ POST
 ```
 application/x-www-form-urlencoded
 ```
-POST /oauth2/token HTTP/1.1
-Host: sample.portal.tencentciam.com
-Content-Type: application/x-www-form-urlencoded
 
-client_id=TENANT_CLIENT_ID&grant_type=authorization_code&code=MOCK_CODE&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&code_verifier=MOCK_CODE_VERIFIER
 ## 请求示例
 ```
 POST /oauth2/token HTTP/1.1
@@ -67,7 +63,7 @@ Content-Type: application/json;charset=UTF-8
 | id_token      | String   | OIDC ID Token (JWT)。                |
 | token_type    | String   | Token 类型，目前取固定值 `Bearer` 。 |
 | expires_in    | Number   | Access Token 有效期，单位秒。        |
->?CIAM 返回的是 JWT 格式的 Access Token 和 ID Token，使用 Token 前需对 JWT 进行解密与验证。请参考 [RFC 9068 ](https://www.rfc-editor.org/rfc/rfc9068.html)和[ OIDC 官方文档 ](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)对 JWT 进行解密与验证。也可以直接使用相关的开发库完成解密验证。验证所需的公钥通过调用 [获取 JWT 公钥 ](https://cloud.tencent.com/document/product/1441/64397)接口获得。
+>?CIAM 返回的是 JWT 格式的 ID Token，请参考 [ OIDC 官方文档 ](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)对 ID Token 进行解密验证。也可以直接使用相关的开发库完成解密验证。 验证所需的公钥通过调用 [获取 JWT 公钥 ](https://cloud.tencent.com/document/product/1441/64397)接口获得。
 
 
 
