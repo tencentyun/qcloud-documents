@@ -1,5 +1,5 @@
 TRTC 是腾讯云 LiteAV 系列产品之一，由于 LiteAV 体系的 SDK 都使用了相同的基础模块，如果您的项目中同时集成了两款以上的 LiteAV 体系的 SDK，就会出现符号冲突（symbol duplicate）的问题。因此我们为您提供集成了不同产品能力的**精简版（TRTC）**、**专业版（Professional）**和**企业版（Enterprise）**，您可以根据实际业务需要选择不同的版本。
-
+ 
 以下视频将为您介绍各个版本 SDK 的功能差别：   
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2497-42188?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
    
@@ -109,7 +109,7 @@ TRTC 是腾讯云 LiteAV 系列产品之一，由于 LiteAV 体系的 SDK 都使
 </table>
 
 >? 
-> - 如需减少 SDK 带来的安装包体积增量请参考 [如何缩减安装包体积](https://cloud.tencent.com/document/product/647/34400)。
+> - 如需减少 SDK 带来的安装包体积增量请参见 [如何缩减安装包体积](https://cloud.tencent.com/document/product/647/34400)。
 > - 扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
 > ![](https://main.qcloudimg.com/raw/d8a8c8c130ef7799feff6efbc0260ea2.jpg)
 
@@ -151,7 +151,7 @@ TRTC 是腾讯云 LiteAV 系列产品之一，由于 LiteAV 体系的 SDK 都使
 >? 
 >- Windows 和 Mac 版本的 SDK 暂时只有一个版本，没有做精简版、专业版和企业版的区分。
 >- 由于 LiteAV 体系的 SDK 都使用了相同的基础模块，如果您的项目中同时集成了两款以上的 LiteAV 体系的 SDK，就会出现符号冲突（symbol duplicate）的问题，解决方法是只集成一个专业版的 LiteAVSDK。
->- 如需减少 SDK 带来的安装包体积增量请参考 [如何缩减安装包体积](https://cloud.tencent.com/document/product/647/34400)。
+>- 如需减少 SDK 带来的安装包体积增量请参见 [如何缩减安装包体积](https://cloud.tencent.com/document/product/647/34400)。
 
 
 <h2 id="Enterprise">企业版（Enterprise）</h2>
@@ -187,7 +187,7 @@ TRTC 是腾讯云 LiteAV 系列产品之一，由于 LiteAV 体系的 SDK 都使
 
 >?
 >- Windows 和 Mac 版的 SDK 暂无 AI 美颜特效组件，没有做精简版、专业版和企业版的区分。
->- 如需减少 SDK 带来的安装包体积增量请参考 [如何缩减安装包体积](https://cloud.tencent.com/document/product/647/34400)。
+>- 如需减少 SDK 带来的安装包体积增量请参见 [如何缩减安装包体积](https://cloud.tencent.com/document/product/647/34400)。
 
 
 ## 各版本差异对照表

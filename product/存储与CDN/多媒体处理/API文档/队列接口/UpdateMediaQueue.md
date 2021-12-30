@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 
 UpdateMediaQueue 接口用于更新队列。
 

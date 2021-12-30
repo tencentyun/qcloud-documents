@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 CreateMediaTemplate 用于新增精彩集锦模板。
 
 ## 请求

@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 UpdateMediaTemplate 用于更新动图模板。
 
 ## 请求

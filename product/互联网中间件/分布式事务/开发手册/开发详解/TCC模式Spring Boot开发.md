@@ -235,12 +235,12 @@ public interface IOrderService {
 
 在上面的例子中：
 
-- `try`：IOrderService.order(Long txId, Long branchId, Order order)
+- `name`：IOrderService.order(Long txId, Long branchId, Order order)
 - `confirmClass`：IOrderService
 - `confirmMethod`：confirmOrder(Long txId, Long branchId, Order order)
 - `cancelClass`：IOrderService
 - `cancelMethod`：cancelOrder(Long txId, Long branchId, Order order)
-- rollbackFor：默认为空。若想要在发生异常时回滚，可设置为 Exception
+- `rollbackFor`：默认为空。若想要在发生异常时回滚，可设置为 Exception
 
 ### 通过 API 管理分支事务（不推荐）
 

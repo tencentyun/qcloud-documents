@@ -88,6 +88,8 @@ cosXmlService.deleteMultiObjectAsync(deleteMultiObjectRequest,
 });
 ```
 
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/DeleteObject.java) 查看。
+
 ## 删除目录
 
 #### 功能说明
@@ -98,15 +100,16 @@ COS 上的文件夹概念是以 '/' 分隔对象名，形成类似文件系统�
 
 #### 示例代码
 
-```
-// 删除 parent/directory/ 目录
-String directory = "parent/directory/";
+[//]: # (.cssg-snippet-delete-prefix)
+```java
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+String prefix = "folder1/"; //指定前缀
 
 GetBucketRequest getBucketRequest = new GetBucketRequest(bucket);
-getBucketRequest.setPrefix(directory);
+getBucketRequest.setPrefix(prefix);
 
 // prefix表示要删除的文件夹
-getBucketRequest.setPrefix(directory);
+getBucketRequest.setPrefix(prefix);
 // 设置最大遍历出多少个对象, 一次listobject最大支持1000
 getBucketRequest.setMaxKeys(1000);
 GetBucketResult getBucketResult = null;
@@ -130,7 +133,6 @@ do {
     }
 } while (getBucketResult.listBucket.isTruncated);
 ```
-
 
 >?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/DeleteObject.java) 查看。
 

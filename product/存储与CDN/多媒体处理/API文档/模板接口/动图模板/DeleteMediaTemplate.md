@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 DeleteMediaTemplate 用于删除动图模板。
 
 ## 请求

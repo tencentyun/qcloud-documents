@@ -14,7 +14,7 @@
 ![#800px](https://main.qcloudimg.com/raw/52ee09ae4039d24f39e3cf8110e632c7.jpg)
 
 ## 特别说明
-**真机调试：**  由于 SDK 大量使用 Android 系统的音视频接口，这些接口在仿真模拟器下往往不能工作，推荐您尽量使用真机调试。
+**真机调试：** 由于 SDK 大量使用 Android 系统的音视频接口，这些接口在仿真模拟器下往往不能工作，推荐您尽量使用真机调试。
 
 ## 示例代码
 | 所属平台 |                         GitHub 地址                          |           关键类            |
@@ -98,9 +98,9 @@ mLivePusher.stopPush();
 >! 如果已经启动了摄像头预览，请在结束推流时将其关闭。 
 
 - **如何获取可用的推流 URL** 
-开通直播服务后，可以使用 [【直播控制台】>【直播工具箱】>【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。 
+开通直播服务后，可以使用 [**直播控制台** > **直播工具箱** > **地址生成器**](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。 
 ![](https://main.qcloudimg.com/raw/7110d39cdb464b789bd68301f4de7ebe.png)   
-- **返回 V2TXLIVE_ERROR_INVALID_LICENSE 的原因？**    
+- **返回 V2TXLIVE_ERROR_INVALID_LICENSE 的原因？**   
 如果 `startPush` 接口返回 `V2TXLIVE_ERROR_INVALID_LICENSE`，则代表您的 License 校验失败了，请检查 [第2步：给 SDK 配置 License 授权](#step2) 中的工作是否有问题。   
 
 [](id:step6)

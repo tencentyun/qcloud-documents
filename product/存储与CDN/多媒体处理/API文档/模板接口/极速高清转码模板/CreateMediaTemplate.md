@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 
 CreateMediaTemplate 用于新增极速高清转码模板。
 

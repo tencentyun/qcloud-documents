@@ -72,3 +72,5 @@ time5.cloud.tencent.com
 ![](https://main.qcloudimg.com/raw/1909910bc2a86a5f93e09f4601654327.png)
 可能原因是实例的公网 IP 在受到 DDOS 攻击时，会触发 NTP 的反射防护策略，针对访问腾讯云的源端口123外网流量全部拦截，导致时间同步异常。建议您在使用实例时尽量使用内网 NTP 时间服务器进行时间同步。
 
+
+

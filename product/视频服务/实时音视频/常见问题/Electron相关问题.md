@@ -34,7 +34,7 @@ $ npm install
 - **解决方案 D：**如果您是 Windows 环境。
 	1. 右键单击 **计算机 > 属性 > 高级系统设置 > 环境变量**。
 	2. 按下图操作设置环境变量 ELECTRON_GET_USE_PROXY ，然后执行 `npm install` 或 `npm install --proxy=[您的代理地址]`：
-![](https://qcloudimg.tencent-cloud.cn/raw/2788a541f1f409a1e68bc25ade65ca27.png)
+	![](https://qcloudimg.tencent-cloud.cn/raw/2788a541f1f409a1e68bc25ade65ca27.png)
 
 
 [](id:install_q3)
@@ -49,7 +49,8 @@ $ npm config set electron_custom_dir 8.1.1 # 根据版本号来决定
 [](id:run)
 ## 运行相关
 [](id:run_q1)
-###  Windows 32 系统运行报错， 提示需要 32 位的 trtc_electron_sdk.node?
+
+###  Windows 32 系统运行报错 `Error：resource\trtc_electron_sdk.node is not a valid Win32 application`， 提示需要 32 位的 trtc_electron_sdk.node?
 
 ![](https://main.qcloudimg.com/raw/4e0115819b868ee9a6d110f641096e01.png)
 **解决方法**：
@@ -78,7 +79,8 @@ vscode 需有摄像头权限, 可采用如下方式进行权限添加。
 ```
 
 [](id:run_q3)
-###  跑 Demo 抛出空指针未定义的错误：“cannot read property "dlopen" of undefined”？
+
+###  跑 Demo 抛出空指针未定义的错误：`“cannot read property 'dlopen' of undefined”`？
 
 ![](https://main.qcloudimg.com/raw/fa2ac368a07eefdc63901f3910a122f9.png)
 **解决方法**：
@@ -120,8 +122,8 @@ Error: Electron failed to install correctly, please delete node_modules/electron
 2. 手动下载 Electron ，并放到缓存目录中。
 3. 重新执行`npm install`。
 
-
 [](id:run_q6)
+
 ### 调用摄像头或麦克风时直接崩溃？
 
 使用 vscode 终端启动项目，当 trtc-electron-sdk 启动摄像头和麦克风时，程序直接崩溃：
@@ -163,7 +165,7 @@ Error: Electron failed to install correctly, please delete node_modules/electron
 
 - `NodeRTCCloud is not a constructor`
 	![](https://main.qcloudimg.com/raw/f06737dc6be7d4eeed7573cd495c922f.png)
-- `Cannot open xxx/trtc_electron_sdk.node`
+- `Cannot open xxx/trtc_electron_sdk.node` 或者 `The specified module could not be found`
 	![](https://main.qcloudimg.com/raw/a55c9ca2266bc6e591354e23da535e1d.png)
 - `dlopen(xxx/trtc_electron_sdk.node, 1): image not found`
 	![](https://main.qcloudimg.com/raw/36c0e62fee13da96dc2136e10a07824b.png)

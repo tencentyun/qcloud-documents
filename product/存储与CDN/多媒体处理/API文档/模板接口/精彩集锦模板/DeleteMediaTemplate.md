@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 DeleteMediaTemplate 用于精彩集锦转码模板。
 
 ## 请求

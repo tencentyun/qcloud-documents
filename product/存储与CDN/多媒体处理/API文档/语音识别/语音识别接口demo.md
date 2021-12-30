@@ -1,6 +1,6 @@
-﻿## 开通语音识别任务接口 
+## 开通语音识别任务接口 
 
-### 请求
+#### 请求
 
 ```
 POST /asrbucket HTTP/1.1
@@ -20,7 +20,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q
 </Request>
 ```
 
-### 响应
+#### 响应
 
 ```
 HTTP/1.1 200 OK
@@ -49,7 +49,7 @@ x-ci-request-id: NWYzZTMwZTlfOTBmYTUwNjRfMjJhNl8x
 
 ## 提交语音识别任务 
 
-### 请求
+#### 请求
 
 ```
 POST /asr_jobs HTTP/1.1
@@ -84,7 +84,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q
 </Request>
 ```
 
-### 响应
+#### 响应
 
 ```
 HTTP/1.1 200 OK
@@ -130,7 +130,7 @@ x-ci-request-id: request-id
 
 ## 语音识别任务队列
 
-### 请求
+#### 请求
 
 ```
 GET /asr_jobs?size=&states=&queueId=&startCreationTime=&endCreationTime= HTTP/1.1
@@ -165,7 +165,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q
 </Request>
 ```
 
-### 响应
+#### 响应
 
 ```
 HTTP/1.1 200 OK
@@ -219,7 +219,7 @@ x-ci-request-id: request-id
 
 ## 根据任务 ID 查询任务详情
 
-### 请求
+#### 请求
 
 ```
 GET /asr_jobs/s8988119ee2c911eab2cdd3817d4d5e64 HTTP/1.1
@@ -232,7 +232,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q
 ```
 
 
-### 响应
+#### 响应
 
 ```
 HTTP/1.1 200 OK
@@ -282,7 +282,7 @@ x-ci-request-id: request-id
 
 ## 查询 bucket 队列
 
-### 请求
+#### 请求
 ```
 GET /asrqueue?pageNumber=1&pageSize=5 HTTP/1.1
 Connection: keep-alive
@@ -294,7 +294,7 @@ Content-Type: application/xml
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q-sign-time=1597917121;1597927181&q-key-time=1597917121;1597927181&q-header-list=content-type;host&q-url-param-list=&q-signature=96322cc56f78ca161aaa6908f3d8af9105d21532
 ```
 
-### 响应
+#### 响应
 
 ```
 HTTP/1.1 200 OK
@@ -333,7 +333,7 @@ x-ci-request-id: NWYzZTQ3ZmRfOTBmYTUwNjRfMjJhNl8z
 
 ## 修改队列
 
-### 请求
+#### 请求
 
 ```
 PUT /asrqueue/pd0a7e02988c24db88b61551cf540444c HTTP/1.1
@@ -361,7 +361,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q
 </Request>
 ```
 
-### 响应
+#### 响应
 
 ```
 HTTP/1.1 200 OK
@@ -396,7 +396,7 @@ x-ci-request-id: NWYzZTQ3ZmRfOTBmYTUwNjRfMjJhNl8z
 
 ## 查询 bucketList
 
-### 请求
+#### 请求
 ```
 GET /asrbucket HTTP/1.1
 Connection: keep-alive
@@ -408,7 +408,7 @@ Content-Type: application/xml
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q-sign-time=1597999958;1598010018&q-key-time=1597999958;1598010018&q-header-list=content-type;host&q-url-param-list=&q-signature=a3ae564aa6f9798a4a7389badf3cb54a59f7686e
 ```
 
-### 响应
+#### 响应
 ```
 HTTP/1.1 200 OK
 Date: Fri, 21 Aug 2020 08:53:38 GMT

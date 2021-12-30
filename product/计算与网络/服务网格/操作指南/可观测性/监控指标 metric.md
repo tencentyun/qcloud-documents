@@ -1,4 +1,4 @@
-当前服务网格（Tencent Cloud Mesh，TCM）集成了 [云监控 CM](https://cloud.tencent.com/document/product/248)、 [云原生监控 TPS](https://cloud.tencent.com/document/product/457/49888)，为您提供服务流量 metric 数据的收集、存储与展示。
+当前腾讯云服务网格（Tencent Cloud Mesh，TCM）集成了 [云监控 CM](https://cloud.tencent.com/document/product/248)、 [云原生监控 TPS](https://cloud.tencent.com/document/product/457/49888)，为您提供服务流量 metric 数据的收集、存储与展示。
 
 服务网格控制台集成云监控，提供 metric 数据的基础图表与分析，如您有自定义监控的诉求，您可以开启高级监控，网格 metric 数据将集成至云原生监控托管 Prometheus 监控实例，通过预置 Grafana Dashboard 或自定义 Dashboard 即可实现灵活自定义监控的诉求。
 

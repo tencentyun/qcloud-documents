@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 DescribeMediaTemplates 用于搜索拼接模板。
 
 ## 请求

@@ -1,4 +1,4 @@
-﻿## 功能描述
+## 功能描述
 CreateMediaTemplate 用于新增水印模板。
 
 <div class="rno-api-explorer">
@@ -329,7 +329,7 @@ Content-Type: application/xml
 </Request>
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK
