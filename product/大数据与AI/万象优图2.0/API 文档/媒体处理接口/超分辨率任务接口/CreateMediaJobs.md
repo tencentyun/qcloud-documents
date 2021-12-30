@@ -86,10 +86,10 @@ Container 类型 Operation 的具体数据描述如下：
 
 Container 类型 SuperResolution 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                         | 描述                                   |
-| ------------------ | :----------------------------- | -------------------------------------- |
-| Resolution         | Request.Operation.SuperResolution | 同创建超分辨率模板 CreateMediaTemplate 接口中的 Request.Resolution | 
-| EnableScaleUp      | Request.Operation.SuperResolution | 同创建超分辨率模板 CreateMediaTemplate 接口中的 Request.EnableScaleUp|
+| 节点名称（关键字） | 父节点                         | 描述                                   | 类型                                 | 是否必选                               |
+| ------------------ | :----------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Resolution         | Request.Operation.SuperResolution | 同创建超分辨率模板 CreateMediaTemplate 接口中的 Request.Resolution | String | 是 |
+| EnableScaleUp      | Request.Operation.SuperResolution | 同创建超分辨率模板 CreateMediaTemplate 接口中的 Request.EnableScaleUp| String | 否 |
 
 Container 类型 Output 的具体数据描述如下：
 
@@ -256,7 +256,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
         <WatermarkTemplateId></WatermarkTemplateId>
         <Output>
             <Region>ap-beijing</Region>
-            <Bucket>abc-1250000000</Bucket>
+            <Bucket>examplebucket-1250000000</Bucket>
             <Object>test-montage.mkv</Object>
         </Output>
     </Operation>
