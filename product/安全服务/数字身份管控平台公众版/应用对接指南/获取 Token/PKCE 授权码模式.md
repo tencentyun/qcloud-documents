@@ -2,8 +2,6 @@
 应用系统通过 PKCE 授权码模式获得认证门户返回的 `code` 之后，调用此接口获取 Access Token 和 ID Token，完成登录。
 
 
-
-
 ## 请求方法
 POST
 
@@ -32,17 +30,6 @@ client_id=TENANT_CLIENT_ID&grant_type=authorization_code&code=MOCK_CODE&redirect
 | code_verifier | false | PKCE code_verifier 。需要与获取授权时用于生成 code_challenge 的 code_verifier 一致。 |
 
 
-## 响应参数
-| 参数          | 数据类型 | 描述                                 |
-| :------------ | :------- | :----------------------------------- |
-| access_token  | String   | OAuth 2.0 Access Token (JWT)。       |
-| refresh_token | String   | OAuth 2.0 Refresh Token。            |
-| scope         | String   | Access Token 的 Scope。              |
-| id_token      | String   | OIDC ID Token (JWT)。                |
-| token_type    | String   | Token 类型，目前取固定值 `Bearer` 。 |
-| expires_in    | Number   | Access Token 有效期，单位秒。        |
-
-
 ## 正常响应示例
 ```
 HTTP/1.1 200 OK
@@ -57,7 +44,22 @@ Content-Type: application/json;charset=UTF-8
   "expires_in" : 299
 }
 ```
+
+
+## 响应参数
+| 参数          | 数据类型 | 描述                                 |
+| :------------ | :------- | :----------------------------------- |
+| access_token  | String   | OAuth 2.0 Access Token (JWT)。       |
+| refresh_token | String   | OAuth 2.0 Refresh Token。            |
+| scope         | String   | Access Token 的 Scope。              |
+| id_token      | String   | OIDC ID Token (JWT)。                |
+| token_type    | String   | Token 类型，目前取固定值 `Bearer` 。 |
+| expires_in    | Number   | Access Token 有效期，单位秒。        |
 >?CIAM 返回的是 JWT 格式的 Access Token 和 ID Token，使用 Token 前需对 JWT 进行解密与验证。请参考 [RFC 9068 ](https://www.rfc-editor.org/rfc/rfc9068.html)和[ OIDC 官方文档 ](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)对 JWT 进行解密与验证。也可以直接使用相关的开发库完成解密验证。验证所需的公钥通过调用 [获取 JWT 公钥 ](https://cloud.tencent.com/document/product/1441/64397)接口获得。
+
+
+
+
 
 ## 异常响应示例
 - client_id 参数缺失或有误。
