@@ -1,6 +1,6 @@
 ## 功能描述
 
-DescribeMediaTemplates 用于搜索转码模板。
+DescribeMediaTemplates 用于搜索超分辨率模板。
 
 ## 请求
 
@@ -32,8 +32,8 @@ Content-Type: application/xml
 |节点名称（关键字）|父节点     |描述                    |   类型    |   是否必选    |
 |:---           |:--       |:--                    |   :--     |   :--    |
 | tag           | 无        | 模板 Tag：SuperResolution       | String    |是|
-| category      | 无   | Official，Custom，默认值：Custom | String    |是|
-| ids           | 无        | 模板 ID，以,符号分割字符串  | String     |否|
+| category      | 无   | Official，Custom，默认值: Custom | String    |是|
+| ids           | 无        | 模板 ID，以`,`符号分割字符串  | String     |否|
 | name          | 无        | 模板名称前缀              | String     |否|
 | pageNumber    | 无        | 第几页                   | Integer     |否|
 | pageSize      | 无        | 每页个数                 | Integer     |否|
@@ -61,6 +61,7 @@ Content-Type: application/xml
         <SuperResolution>
             <Resolution>sdtohd</Resolution>
             <EnableScaleUp>true</EnableScaleUp>
+            <Version>Enhance</Version>
         </SuperResolution>
         <CreateTime>2020-08-05T11:35:24+0800</CreateTime>
         <UpdateTime>2020-08-31T16:15:20+0800</UpdateTime>
@@ -78,13 +79,13 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点   | 描述                           | 类型      |
 | :----------------- | :------- | :----------------------------- | :-------- |
-| RequestId          | Response | 请求的唯一ID                   | String    |
+| RequestId          | Response | 请求的唯一 ID                   | String    |
 | TotalCount         | Response | 模板总数                       | Int       |
-| PageNumber         | Response | 当前页数，同请求中的pageNumber | Int       |
-| PageSize           | Response | 每页个数，同请求中的pageSize   | Int       |
+| PageNumber         | Response | 当前页数，同请求中的 pageNumber | Int       |
+| PageSize           | Response | 每页个数，同请求中的 pageSize   | Int       |
 | TemplateList       | Response | 模板数组                       | Container |
 
-Container节点TemplateList的内容：
+Container节点 TemplateList 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
@@ -103,6 +104,7 @@ Container 节点 SuperResolution 的内容：
 | :----------------- | :----------------------------- | :------- |
 | Resolution         | Response.TemplateList.SuperResolution | 同超分辨率模板 CreateMediaTemplate 接口中的 Request.Resolution |
 | EnableScaleUp      | Response.TemplateList.SuperResolution | 同超分辨率模板 CreateMediaTemplate 接口中的 Request.EnableScaleUp |
+| Version            | Response.TemplateList.SuperResolution | 同超分辨率模板 CreateMediaTemplate 接口中的 Request.Version     |
 
 #### 错误码
 
@@ -142,6 +144,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
         <SuperResolution>
             <Resolution>sdtohd</Resolution>
             <EnableScaleUp>true</EnableScaleUp>
+            <Version>Enhance</Version>
         </SuperResolution>
         <CreateTime>2020-08-05T11:35:24+0800</CreateTime>
         <UpdateTime>2020-08-31T16:15:20+0800</UpdateTime>
@@ -188,6 +191,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
         <SuperResolution>
             <Resolution>sdtohd</Resolution>
             <EnableScaleUp>true</EnableScaleUp>
+            <Version>Enhance</Version>
         </SuperResolution>
         <CreateTime>2020-08-05T11:35:24+0800</CreateTime>
         <UpdateTime>2020-08-31T16:15:20+0800</UpdateTime>

@@ -1,23 +1,43 @@
 ## 接口描述
 应用系统通过 PKCE 授权码模式获得认证门户返回的 `code` 之后，调用此接口获取 Access Token 和 ID Token，完成登录。
 
-
-
+## 支持的应用类型
+Web 应用、单页应用、移动应用。
 
 ## 请求方法
+```
 POST
-
+```
 ## 请求路径
 ```
 /oauth2/token
 ```
+## 请求 Content-Type
+```
+application/x-www-form-urlencoded
+```
+POST /oauth2/token HTTP/1.1
+Host: sample.portal.tencentciam.com
+Content-Type: application/x-www-form-urlencoded
 
+client_id=TENANT_CLIENT_ID&grant_type=authorization_code&code=MOCK_CODE&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&code_verifier=MOCK_CODE_VERIFIER
 ## 请求示例
 ```
 POST /oauth2/token HTTP/1.1
-Host: localhost:8080
+Host: sample.portal.tencentciam.com
 Content-Type: application/x-www-form-urlencoded
-client_id=TENANT_CLIENT_ID&grant_type=authorization_code&code=MOCK_CODE&redirect_uri=https%3A%2F%2FTENANT.APP.DOMAIN%2Flogin%2Foauth2%2Fcode%2FTENANT_APP_ID&code_verifier=MOCK_CODE_VERIFIER
+
+client_id=TENANT_CLIENT_ID&grant_type=authorization_code&code=MOCK_CODE&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&code_verifier=MOCK_CODE_VERIFIERHTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+
+{
+  "access_token" : "eyJraWQiOiJmOTY5NGQ5My1kNTQxLTQ5ODUtODhkYy00MjIyOTg3MzAwOGUiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJNT0NLX1VTRVJfSUQiLCJhdWQiOiJURU5BTlRfQ0xJRU5UX0lEIiwibmJmIjoxNjQwNTg4ODI4LCJzY29wZSI6WyJpZGVudGl0eV9wcm9vZmluZyIsIm9wZW5pZCJdLCJpc3MiOiJodHRwczpcL1wvc2FtcGxlLnBvcnRhbC50ZW5jZW50Y2lhbS5jb20iLCJleHAiOjE2NDA1ODkxMjgsImlhdCI6MTY0MDU4ODgyOCwianRpIjoiNDBjM2U3M2QtOThhYS00MWRjLThjNjQtMGNiNzFjNGFhZjEyIn0.TQ9D_tE9s7jMB7kYhhXWzkHpXBnd70TAA4_YPlw724zftaWgKtZzJ-x6bbubxEGVsoiXyJO-rhHIzOAQFRT6MKC4HGPxrrLhCpgAZ4NIEC2FR9v1lT5-9G8MAbPcX-KaIhtG7vib6dWEEq-4dbwdgLiweiaYKfDo7HuFN_uwXdPjf7P4K6dJfxuQxkl1rMPn3AWALKGylNOR1wNjSpWyOLYzXjgWQAG4tGJAxecZq6_VCZ-leKYiwQe-gW1_KQJToXVjvdg7IsSa1mWaDhtuRAe3Q0FENpHvm0CboARNfIfbkmceI3io3-cFarE46Oc_DHgh2zneu8JSqUsrtf7U8g",
+  "refresh_token" : "YFTSPphiEtebcKdiruYK5NvOps8kNpvT0qZ5twK4KyB1l1p6r9jW7YkcC6jQgSsolrdFsQ9ylBWQyNa0UEMdEDYaNR-Pb9kine9V3s2Xyk6Zp2yfp2fhKOSJh6pYocH4",
+  "scope" : "identity_proofing openid",
+  "id_token" : "eyJraWQiOiJmOTY5NGQ5My1kNTQxLTQ5ODUtODhkYy00MjIyOTg3MzAwOGUiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJNT0NLX1VTRVJfSUQiLCJhdWQiOiJURU5BTlRfQ0xJRU5UX0lEIiwiYXpwIjoiVEVOQU5UX0NMSUVOVF9JRCIsImlzcyI6Imh0dHBzOlwvXC9zYW1wbGUucG9ydGFsLnRlbmNlbnRjaWFtLmNvbSIsImV4cCI6MTY0MDU5MDYyOCwiaWF0IjoxNjQwNTg4ODI4LCJqdGkiOiJlYWU1MTQ1OC1mMDI5LTQ2N2QtOWZhMy02YTI4Y2ExMTY0NzEifQ.KsyTIlTIIn003tFxh841sOykFRrIipO4mBFAhscnHkyC99pjDYfbIW5ypLpXbL1Eea2F5g8HjbwdYnifCHobkehNe6DRXUf_H-WnOQfQ7x7OzRAZHox_2vJUkvipWKpDkf5zzWAiN4DB_vYf6xtBDepcWqegPtpS8q-B3iEKA-4Hx_izoNexgnrW3zy6YXa_TKrHaNpPfCdm4MNipycWpAFQXEhD4q9y9Ux46LWzPq7gZtOgiZNQQKg908Obx3CDf-usJ37Q_KdxJeDRCtEKVrkh8s8LJX3prZoIjqHDgU6KBr9VvzEW0eiH8NbAnzyV4UWdNzK5L-wmRAUvDKIXyw",
+  "token_type" : "Bearer",
+  "expires_in" : 299
+}
 ```
 
 
@@ -30,17 +50,6 @@ client_id=TENANT_CLIENT_ID&grant_type=authorization_code&code=MOCK_CODE&redirect
 | code          | false | 获取授权时返回的授权码。                                     |
 | redirect_uri  | false | 授权成功后的重定向地址。需要与获取授权时指定的地址一致。     |
 | code_verifier | false | PKCE code_verifier 。需要与获取授权时用于生成 code_challenge 的 code_verifier 一致。 |
-
-
-## 响应参数
-| 参数          | 数据类型 | 描述                                 |
-| :------------ | :------- | :----------------------------------- |
-| access_token  | String   | OAuth 2.0 Access Token (JWT)。       |
-| refresh_token | String   | OAuth 2.0 Refresh Token。            |
-| scope         | String   | Access Token 的 Scope。              |
-| id_token      | String   | OIDC ID Token (JWT)。                |
-| token_type    | String   | Token 类型，目前取固定值 `Bearer` 。 |
-| expires_in    | Number   | Access Token 有效期，单位秒。        |
 
 
 ## 正常响应示例
@@ -57,7 +66,22 @@ Content-Type: application/json;charset=UTF-8
   "expires_in" : 299
 }
 ```
+
+
+## 响应参数
+| 参数          | 数据类型 | 描述                                 |
+| :------------ | :------- | :----------------------------------- |
+| access_token  | String   | OAuth 2.0 Access Token (JWT)。       |
+| refresh_token | String   | OAuth 2.0 Refresh Token。            |
+| scope         | String   | Access Token 的 Scope。              |
+| id_token      | String   | OIDC ID Token (JWT)。                |
+| token_type    | String   | Token 类型，目前取固定值 `Bearer` 。 |
+| expires_in    | Number   | Access Token 有效期，单位秒。        |
 >?CIAM 返回的是 JWT 格式的 Access Token 和 ID Token，使用 Token 前需对 JWT 进行解密与验证。请参考 [RFC 9068 ](https://www.rfc-editor.org/rfc/rfc9068.html)和[ OIDC 官方文档 ](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)对 JWT 进行解密与验证。也可以直接使用相关的开发库完成解密验证。验证所需的公钥通过调用 [获取 JWT 公钥 ](https://cloud.tencent.com/document/product/1441/64397)接口获得。
+
+
+
+
 
 ## 异常响应示例
 - client_id 参数缺失或有误。
