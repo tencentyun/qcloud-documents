@@ -19,7 +19,7 @@
 2. 在 [SD-WAN控制台](https://console.cloud.tencent.com/sas/edge) 创建 Edge 实例，详情请参见 [新建 Edge 实例](https://cloud.tencent.com/document/product/1277/47255) 。
 3. 收到设备后请将设备连线、安装并激活，详情请参见 [安装 Edge 设备](https://cloud.tencent.com/document/product/1277/66361) 。
 4. 使用测试金购买测试带宽，详情请参见[ 购买带宽](https://cloud.tencent.com/document/product/1277/66362) 。
-5. [](id:step5)创建云联网实例并与 Edge 实例关联。
+5. 创建云联网实例并与 Edge 实例关联。
  - 创建云联网实例请参见[ 新建云联网实例](https://cloud.tencent.com/document/product/877/18752)。
  - Edge 实例关联云联网实例请参见 [关联云联网](https://cloud.tencent.com/document/product/1277/47262)。
 6. 进行 POC 测试。
