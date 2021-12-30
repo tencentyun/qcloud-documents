@@ -12,7 +12,15 @@ POST
 ```
 /oauth2/token
 ```
+## 请求 Content-Type
+```
+application/x-www-form-urlencoded
+```
+POST /oauth2/token HTTP/1.1
+Host: sample.portal.tencentciam.com
+Content-Type: application/x-www-form-urlencoded
 
+client_id=TENANT_CLIENT_ID&grant_type=authorization_code&code=MOCK_CODE&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&code_verifier=MOCK_CODE_VERIFIER
 ## 请求示例
 ```
 POST /oauth2/token HTTP/1.1
