@@ -41,7 +41,7 @@ POC 测试完成，您需要退还测试设备，购买正式商用设备。
 	- 创建云联网实例请参见 [新建云联网实例](https://cloud.tencent.com/document/product/877/18752)
 	- Edge实例关联云联网实例请参见 [关联云联网](https://cloud.tencent.com/document/product/1277/47262)
 6. 连通性测试。
-如果您可以访问到所需的腾讯云资源或者目的端资源，表示SD-WAN网络畅通。
+如果您可以访问到所需的腾讯云资源或者目的端资源，表示SD-WAN网络畅通；如果不通，可提交 [工单申请](https://console.cloud.tencent.com/workorder/category) 寻求帮助。
 
 
 ## 售后服务
