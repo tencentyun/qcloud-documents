@@ -4,7 +4,9 @@ JWT 公钥用于对 JWT 格式的 ID Token 和 Access Token 进行验证。
 
 
 ## 请求方法
+```
 GET
+```
 
 ## 请求路径
 ```
