@@ -44,7 +44,7 @@
 	- 为简化参数，只支持字符串房间号，不超过64个字符，字符只能是数字、字母、下划线。TRTC 其他端如果要观看 RTMP 流，需要使用**字符串房间号进房**。
 	- usersig 的生成规则，请参见 [UserSig 相关](https://cloud.tencent.com/document/product/647/17275) （**请注意签名要在有效期内**）。
 	- 以上服务器地址 + 串流密钥组成 RTMP 推流地址，也可以供 FFmpeg 或其他 RTMP 库推流。
-![](https://qcloudimg.tencent-cloud.cn/raw/990cc4a79e7a2b0cded1324c6746ee9d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/bc4be526005a7ac4f81ec6badd507271.png)
 
 ### 设置输出[](id:step3)
 RTMP 后台不支持传输 B 帧，用户可以通过如下设置调整推流端软件的视频编码参数来去除 B 帧。
@@ -76,7 +76,7 @@ RTMP 后台不支持传输 B 帧，用户可以通过如下设置调整推流端
 ![](https://qcloudimg.tencent-cloud.cn/raw/ae71beea5458b056697433acdbf6844e.png)
 
 ## FFmpeg 设置[](id:FFmpeg)
-如果需要用命令行或其他 RTMP 库推流，请参见 [设置推流参数](#step2) 中服务器地址 + 串流秘钥组成标准 RTMP 推流地址，可供 FFmpeg 或其他 RTMP 库推流，视频编码使用 H.264，音频编码使用 AAC，容器格式使用 FLV，建议 GOP 设置为2s或1s。
+如果需要用命令行或其他 RTMP 库推流，请参见 [设置推流参数](#step2) 中服务器地址 + 串流密钥组成标准 RTMP 推流地址，可供 FFmpeg 或其他 RTMP 库推流，视频编码使用 H.264，音频编码使用 AAC，容器格式使用 FLV，建议 GOP 设置为2s或1s。
 FFmpeg 不同场景下指令配置参数不同，因此需要您具有一定的 FFmpeg 使用经验，以下列出 FFmpeg 常用命令行选项，更多 FFmpeg 选项请参见 [FFmpeg 官网](https://ffmpeg.org/ffmpeg.html)。
 
 ### FFmpeg 命令行[](id:order)
