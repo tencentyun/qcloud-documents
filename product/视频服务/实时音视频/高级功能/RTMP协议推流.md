@@ -3,7 +3,7 @@
 
 本功能目前免费开放内测中（后续若收费会提前通知），但接入的 RTMP 流会作为房间中的虚拟用户产生正常的通话费用，详情参见 [计费概述](https://cloud.tencent.com/document/product/647/17157)。如果您有需要可以联系页面右下方对话框 [售前在线咨询](https://cloud.tencent.com/online-service?source=PRESALE&from=doc_647)，提交工单申请加入白名单进行使用（需提供 SdkAppId）。
 
->! 不支持 RTMP 从 TRTC 拉流，如果需要旁路 CDN 直播观看，请参考 [实现 CDN 直播观看](https://cloud.tencent.com/document/product/647/16826)。
+>! 不支持 RTMP 从 TRTC 拉流，如果需要旁路 CDN 直播观看，请参见 [实现 CDN 直播观看](https://cloud.tencent.com/document/product/647/16826)。
 
 ## OBS 推流设置
 ### 准备工作[](id:ready)
@@ -88,15 +88,21 @@ ffmpeg [global_options] {[input_file_options] -i input_url} ... {[output_file_op
 <table>
 <thead><tr><th>选项</th><th>说明</th></tr></thead>
 <tbody><tr>
-<td>-re</td><td>以 native 帧率读取输入，通常只用于读取本地文件（以下为 output_file_options）</td>
-</tr><tr>
-<td>-c:v</td><td>视频编码，建议用 libx264</td>
+<td>-re</td><td>以 native 帧率读取输入，通常只用于读取本地文件</td>
+</tr></tr></tbody></table>
+
+其中 **output_file_options** 可配置选项包括：
+
+<table>
+<thead><tr><th>选项</th><th>说明</th></tr></thead>
+<tbody><tr>
+<td>-c:v</td><td>视频编码，建议用 <code>libx264</code></td>
 </tr><tr>
 <td>-b:v</td><td>视频码率，例如 1500k 表示 1500kbps</td>
 </tr><tr>
 <td>-r</td><td>视频帧率</td>
 </tr><tr>
-<td>-profile:v</td><td>视频 profile，指定 baseline 将不编码B帧，TRTC 后端不支持 B 帧</td>
+<td>-profile:v</td><td>视频 profile，指定 baseline 将不编码 B 帧，TRTC 后端不支持 B 帧</td>
 </tr><tr>
 <td>-g</td><td>GOP 帧数间隔</td>
 </tr><tr>
