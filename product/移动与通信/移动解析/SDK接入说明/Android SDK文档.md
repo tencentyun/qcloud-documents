@@ -280,7 +280,7 @@ if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过 HTTPDNS 获取 IP �
 ```
  - 以 curl 为例，假设您想要访问 `www.qq.com`，通过 HTTPDNS 解析出来的 IP 为 `192.168.0.111`，那么您可以这么访问：
 ```shell
-   curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt
+curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt
 ```
 - 检测本地是否使用了 HTTP 代理。如果使用了 HTTP 代理，建议**不要使用 HTTPDNS** 做域名解析。示例如下：
 ```Java
