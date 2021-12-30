@@ -4,38 +4,21 @@ Namespace=QCE/TDMQ
 
 ## 监控指标
 
-| 指标英文名                   | 指标中文名                                                   | 单位  | 维度                                | 统计粒度         |
+> ?每个指标的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度。
+
+### TDMQ Pulsar 版
+
+| 指标英文名                   | 指标含义                                                     | 单位  | 维度                                | 统计粒度q        |
 | ---------------------------- | ------------------------------------------------------------ | ----- | ----------------------------------- | ---------------- |
-| Averagemsgsize               | 消息平均大小                                                 | B     | tenantId、topicName                 | 60s、300s、3600s |
-| Msgratein                    | 生产速率                                                     | 条/秒 | tenantId、topicName                 | 60s、300s、3600s |
-| Msgrateout                   | 在所选时间范围中，本 Topic 下所有消费者某一秒内消费消息的数量 | 条/秒 | tenantId、topicName                 | 60s、300s、3600s |
-| Msgthroughputout             | 在所选时间范围内某一秒，本 Topic 下所有消费者消费的消息数据量大小 | B     | tenantId、topicName                 | 60s、300s、3600s |
-| Msgthroughputin              | 生产流量                                                     | B     | tenantId、topicName                 | 60s、300s、3600s |
-| Numberofentries              | 消息当前总数量                                               | 条    | tenantId、topicName                 | 60s、300s、3600s |
-| Numproducers                 | 生产者数量                                                   | 个    | tenantId、topicName                 | 60s、300s、3600s |
-| Storagesize                  | 消息总大小                                                   | B     | tenantId、topicName                 | 60s、300s、3600s |
-| Numsubscriptions             | 订阅者数量                                                   | 个    | tenantId、topicName                 | 60s、300s、3600s |
 | MsgAverageSize               | 生产消息平均大小                                             | B     | tenantId、topicName                 | 60s、300s、3600s |
 | MsgRateIn                    | 消息生产速率                                                 | 条/秒 | tenantId、topicName                 | 60s、300s、3600s |
 | MsgThroughputIn              | 消息生产流量                                                 | B/S   | tenantId、topicName                 | 60s、300s、3600s |
-| InMessagesTotal              | 生产消息总数                                                 | 条    | tenantId、topicName                 | 60s、300s、3600s |
-| MsgRateOut                   | 在所选时间范围中，本 Topic 下所有消费者某一秒内消费消息的数量 | 条/秒 | tenantId、topicName                 | 60s、300s、3600s |
-| MsgThroughputOut             | 在所选时间范围内某一秒，本 Topic 下所有消费者消费的消息数据量大小 | B/S   | tenantId、topicName                 | 60s、300s、3600s |
+| InMessagesTotal              | 当前 Topic 生产消息总数，该指标在发生服务端重启或者切换时会归零 | 条    | tenantId、topicName                 | 60s、300s、3600s |
 | ProducersCount               | 生产者数量                                                   | 个    | tenantId、topicName                 | 60s、300s、3600s |
 | StorageSize                  | 积压消息大小                                                 | B     | tenantId、topicName                 | 60s、300s、3600s |
 | BacklogSize                  | 积压消息数量                                                 | 条    | tenantId、topicName                 | 60s、300s、3600s |
 | SubscriptionsCount           | 订阅者数量                                                   | 个    | tenantId、topicName                 | 60s、300s、3600s |
-| CmqQueueMsgBacklog           | 消息堆积数量                                                 | 条    | tenantId、topicName                 | 60s、300s、3600s |
-| CmqTopicMsgBacklog           | 消息堆积数量                                                 | 条    | tenantId、topicName                 | 60s、300s、3600s |
 | ConsumersCount               | 消费者数量                                                   | 个    | tenantId、topicName                 | 60s、300s、3600s |
-| SubMsgrateout                | 消费速率                                                     | 条/秒 | environmentId、 tenantId、topicName | 60s、300s、3600s |
-| SubMsgthroughputout          | 消费流量                                                     | B     | environmentId、 tenantId、topicName | 60s、300s、3600s |
-| SubMsgbacklog                | 所选时间范围内，已经生产到TDMQ，但并未被消费的消息数量。消息堆积不宜太多，如有明显增长趋势，请对消费者服务进行扩容以减少堆积量。 | 条    | environmentId、 tenantId、topicName | 60s、300s、3600s |
-| SubMsgdelayed                | 所选时间范围内，使用了 TDMQ 延迟消息功能的消息数量，这种消息在生产后不会马上被消费，用户会指定一条延迟时间，过后才允许消费者消费。 | 条    | environmentId、 tenantId、topicName | 60s、300s、3600s |
-| Unackedmessages              | 在所选时间范围内，已发送给消费者消息但是没有接收到确认信息回传的消息数量。如果存在很多这种消息，请检查您的消费者服务是否正常，以及是否使用官方SDK进行消费。 | 条    | environmentId、 tenantId、topicName | 60s、300s、3600s |
-| Numconsumers                 | 在所选时间范围内有效连接上本 Topic 的消费者数量。            | 条    | environmentId、 tenantId、topicName | 60s、300s、3600s |
-| Msgrateredeliver             | 在所选时间范围中，本 Topic 下某一秒内所有的重传消息的数量    | 条    | environmentId、 tenantId、topicName | 60s、300s、3600s |
-| Msgrateexpired               | 消息删除速率                                                 | 条/秒 | environmentId、 tenantId、topicName | 60s、300s、3600s |
 | SubMsgBacklog                | 所选时间范围内，已经生产到TDMQ，但并未被消费的消息数量。消息堆积不宜太多，如有明显增长趋势，请对消费者服务进行扩容以减少堆积量。 | 条    | environmentId、 tenantId、topicName | 60s、300s、3600s |
 | SubMsgDelayed                | 所选时间范围内，使用了 TDMQ 延迟消息功能的消息数量，这种消息在生产后不会马上被消费，用户会指定一条延迟时间，过后才允许消费者消费。 | 条    | environmentId、 tenantId、topicName | 60s、300s、3600s |
 | SubUnackedMsg                | 在所选时间范围内，已发送给消费者消息但是没有接收到确认信息回传的消息数量。如果存在很多这种消息，请检查您的消费者服务是否正常，以及是否使用官方SDK进行消费。 | 条    | environmentId、 tenantId、topicName | 60s、300s、3600s |
@@ -43,7 +26,6 @@ Namespace=QCE/TDMQ
 | SubMsgRateRedeliver          | 在所选时间范围中，本 Topic 下某一秒内所有的重传消息的数量    | 条/秒 | environmentId、 tenantId、topicName | 60s、300s、3600s |
 | SubMsgRateExpired            | 消息过期删除速率                                             | 条/秒 | environmentId、 tenantId、topicName | 60s、300s、3600s |
 | SubMsgRateOut                | 消息消费速率                                                 | 条/秒 | environmentId、 tenantId、topicName | 60s、300s、3600s |
-| RocketmqTopicMsgBacklog      | 消息堆积数量                                                 | 条    | environmentId、 tenantId、topicName | 60s、300s、3600s |
 | SubMsgThroughputOut          | 消息消费流量                                                 | B/S   | environmentId、 tenantId、topicName | 60s、300s、3600s |
 | NsStorageSize                | 命名空间消息积压大小                                         | B     | namespace、tenant                   | 60s、300s、3600s |
 | TenantInMessagesTotal        | 虚拟集群入消息总数                                           | 条    | tenant                              | 60s、300s、3600s |
@@ -74,7 +56,45 @@ Namespace=QCE/TDMQ
 | TenantOutEntrySizeLeOverflow | 消费消息大于1MB的entry数量                                   | 条    | tenant                              | 60s、300s、3600s |
 | TenantOutEntrySizeSum        | 消费消息entry总大小                                          | 条    | tenant                              | 60s、300s、3600s |
 
->?每个指标的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度。
+### TDMQ RocketMQ 版
+
+| 指标英文名              | 指标含义                                                     | 单位  | 维度                                | 统计粒度q        |
+| ----------------------- | ------------------------------------------------------------ | ----- | ----------------------------------- | ---------------- |
+| MsgAverageSize          | 生产消息平均大小                                             | B     | tenantId、topicName                 | 60s、300s、3600s |
+| MsgRateIn               | 消息生产速率                                                 | 条/秒 | tenantId、topicName                 | 60s、300s、3600s |
+| MsgThroughputIn         | 消息生产流量                                                 | B/S   | tenantId、topicName                 | 60s、300s、3600s |
+| InMessagesTotal         | 当前Topic生产消息总数，该指标在发生服务端重启或者切换时会归零 | 条    | tenantId、topicName                 | 60s、300s、3600s |
+| StorageSize             | 积压消息大小                                                 | B     | tenantId、topicName                 | 60s、300s、3600s |
+| TenantInMessagesTotal   | 虚拟集群入消息总数                                           | 条    | tenant                              | 60s、300s、3600s |
+| TenantMsgAverageSize    | 租户级别消息平均大小                                         | B     | tenant                              | 60s、300s、3600s |
+| TenantRateIn            | 租户级别消息生产速率                                         | 条    | tenant                              | 60s、300s、3600s |
+| TenantRateOut           | 租户级别消息消费速率                                         | 条    | tenant                              | 60s、300s、3600s |
+| TenantStorageSize       | 租户级别消息积压大小                                         | B     | tenant                              | 60s、300s、3600s |
+| RocketmqTopicMsgBacklog | 消息堆积数量                                                 | 条    | environmentId、 tenantId、topicName | 60s、300s、3600s |
+
+
+
+### TDMQ RabbitMQ 版
+
+| 指标英文名            | 指标含义                                                     | 单位  | 维度                | 统计粒度q        |
+| --------------------- | ------------------------------------------------------------ | ----- | ------------------- | ---------------- |
+| MsgAverageSize        | 生产消息平均大小                                             | B     | tenantId、topicName | 60s、300s、3600s |
+| MsgRateIn             | 消息生产速率                                                 | 条/秒 | tenantId、topicName | 60s、300s、3600s |
+| MsgThroughputIn       | 消息生产流量                                                 | B/S   | tenantId、topicName | 60s、300s、3600s |
+| InMessagesTotal       | 当前Topic生产消息总数，该指标在发生服务端重启或者切换时会归零 | 条    | tenantId、topicName | 60s、300s、3600s |
+| StorageSize           | 积压消息大小                                                 | B     | tenantId、topicName | 60s、300s、3600s |
+| TenantInMessagesTotal | 虚拟集群入消息总数                                           | 条    | tenant              | 60s、300s、3600s |
+| TenantMsgAverageSize  | 租户级别消息平均大小                                         | B     | tenant              | 60s、300s、3600s |
+| TenantRateIn          | 租户级别消息生产速率                                         | 条    | tenant              | 60s、300s、3600s |
+| TenantRateOut         | 租户级别消息消费速率                                         | 条    | tenant              | 60s、300s、3600s |
+| TenantStorageSize     | 租户级别消息积压大小                                         | B     | tenant              | 60s、300s、3600s |
+
+### TDMQ CMQ 版
+
+| 指标英文名         | 指标中文名   | 单位 | 维度                | 统计粒度         |
+| ------------------ | ------------ | ---- | ------------------- | ---------------- |
+| CmqQueueMsgBacklog | 消息堆积数量 | 条   | tenantId、topicName | 60s、300s、3600s |
+| CmqTopicMsgBacklog | 消息堆积数量 | 条   | tenantId、topicName | 60s、300s、3600s |
 
 ## 各维度对应参数总览
 
@@ -96,30 +116,29 @@ Namespace=QCE/TDMQ
 **查询消息队列监控数据，入参取值如下：**
 
 指标类型一：
-&Namespace=QCE/TDMQ
-&Instances.N.Dimensions.0.Name=tenantId
-&Instances.N.Dimensions.0.Value=具体集群 ID
-&Instances.N.Dimensions.1.Name=topicName
+&Namespace=QCE/TDMQ 
+&Instances.N.Dimensions.0.Name=tenantId 
+&Instances.N.Dimensions.0.Value=具体集群 ID 
+&Instances.N.Dimensions.1.Name=topicName 
 &Instances.N.Dimensions.1.Value=具体主题名称
 
-指标类型二：
-&Namespace=QCE/TDMQ
+指标类型二： 
+&Namespace=QCE/TDMQ 
 &Instances.N.Dimensions.0.Name=environmentId
 &Instances.N.Dimensions.0.Value=具体环境名称
-&Instances.N.Dimensions.1.Name=tenantId
-&Instances.N.Dimensions.1.Value=具体集群 ID
-&Instances.N.Dimensions.2.Name=topicName
+&Instances.N.Dimensions.1.Name=tenantId 
+&Instances.N.Dimensions.1.Value=具体集群 ID 
+&Instances.N.Dimensions.2.Name=topicName 
 &Instances.N.Dimensions.2.Value=具体主题名称
 
-指标类型三：
+指标类型三： 
 &Namespace=QCE/TDMQ
-&Instances.N.Dimensions.0.Name=namespace
-&Instances.N.Dimensions.0.Value=具体主题名称
-&Instances.N.Dimensions.1.Name=tenant
+&Instances.N.Dimensions.0.Name=namespace 
+&Instances.N.Dimensions.0.Value=具体主题名称 
+&Instances.N.Dimensions.1.Name=tenant 
 &Instances.N.Dimensions.1.Value=具体集群 ID
 
 指标类型四：
-&Namespace=QCE/TDMQ
-&Instances.N.Dimensions.0.Name=tenant
+&Namespace=QCE/TDMQ 
+&Instances.N.Dimensions.0.Name=tenant 
 &Instances.N.Dimensions.0.Value=具体集群 ID
-
