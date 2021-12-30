@@ -61,4 +61,4 @@ Content-Type: application/json;charset=UTF-8
 #### 响应参数
 | 参数      | 数据类型 | 描述                                                        |
 | :-------- | :------- | :---------------------------------------------------------- |
-| otp_token | String   | OTP token，用于在后续调用 [OTP 登录](https://cloud.tencent.com/document/product/1441/67151) 接口时携带，有效期5分钟。 |
+| otp_token | String   | OTP token，用于在后续调用 [OTP 登录](https://cloud.tencent.com/document/product/1441/67153) 接口时携带，有效期5分钟。 |
