@@ -7,7 +7,7 @@ DescribeMediaJobs 用于拉取符合条件的任务。
 #### 请求示例
 
 ```shell
-GET /jobs?size=&states=&queueId=&startCreationTime=&endCreationTime= HTTP/1.1
+GET /pic_jobs?size=&states=&queueId=&startCreationTime=&endCreationTime= HTTP/1.1
 Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
 Date: <GMT Date>
 Authorization: <Auth String>
@@ -16,14 +16,15 @@ Authorization: <Auth String>
 
 >? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
+
 #### 请求参数
 
 参数的具体内容如下：
 
 |节点名称（关键字）|父节点|描述|类型|是否必选|
-|:---|:-- |:--|:--|:--|
+|:---|:--- |:---|:---|:---|
 |queueId|无|拉取该队列 ID 下的任务|String|是|
-| tag |无| 任务的 Tag：SuperResolution | String |是|
+| tag |无| 任务的 Tag：PicProcess | String |是|
 | orderByTime |无| Desc 或者 Asc。默认为 Desc | String |否|
 | nextToken |无| 请求的上下文，用于翻页。上次返回的值 | String |否|
 | size |无| 拉取的最大任务数。默认为10。最大为100 | Integer |否|
@@ -49,7 +50,7 @@ Authorization: <Auth String>
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```shell
+``` shell
 <Response>
   <JobsDetail>
   </JobsDetail>
@@ -60,15 +61,15 @@ Authorization: <Auth String>
 具体的数据内容如下：
 
 |节点名称（关键字）|父节点|描述|类型|
-|:---|:-- |:--|:--|
+|:--- |:--- |:--- |:--- |
 | Response |无| 保存结果的容器 | Container |
 
 Container 节点 Response 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
-|:---|:-- |:--|:--|
-| JobsDetail | Response | 任务的详细信息，同 CreateMediaJobs 接口中的 Response.JobsDetail 节点 |  Container |
-| NextToken | Response | 翻页的上下文Token |  String |
+|:---|:--- |:--- |:--- |
+| JobsDetail | Response | 任务的详细信息，同 CreateMediaJobs <br/>接口中的 Response.JobsDetail 节点 |  Container |
+| NextToken | Response | 翻页的上下文 Token |  String |
 
 #### 错误码
 
@@ -80,8 +81,8 @@ Container 节点 Response 的内容：
 #### 请求
 
 ```shell
-GET /jobs?queueId=aaaaaaaaaaa&tag=SuperResolution HTTP/1.1
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+GET /pic_jobs?queueId=aaaaaaaaaaa&tag=PicProcess HTTP/1.1
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
 Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 
 ```
@@ -101,54 +102,47 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
   <JobsDetail>
     <Code>Success</Code>
     <Message>Success</Message>
-    <JobId>jabcxxxxfeipplsdfwe</JobId>
+    <JobId>je8f65004eb8511eaaed4f377124a303c</JobId>
     <State>Submitted</State>
     <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
-    <StartTime></StartTime>
-    <EndTime></EndTime>
+    <EndTime>2019-07-07T12:12:12+0800</EndTime>
     <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
-    <Tag>SuperResolution<Tag>
+    <Tag>PicProcess</Tag>
     <Input>
-      <Object>test.mp4</Object>
+      <Object>test.jpg</Object>
     </Input>
     <Operation>
-        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
-        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
-        <Output>
-            <Region>ap-beijing</Region>
-            <Bucket>abc-1250000000</Bucket>
-            <Object>test-montage.mp4</Object>
-        </Output>
+      <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+      <Output>
+        <Region>ap-beijing</Region>
+        <Bucket>abc-1250000000</Bucket>
+        <Object>picprocess.jpg</Object>
+        <SpriteObject></SpriteObject>
+      </Output>
     </Operation>
   </JobsDetail>
   <JobsDetail>
     <Code>Success</Code>
     <Message>Success</Message>
-    <JobId>jabcxxxxfeipplsdfwe</JobId>
+    <JobId>jbbbbccddabcddafesff</JobId>
     <State>Submitted</State>
     <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
-    <StartTime></StartTime>
-    <EndTime></EndTime>
+    <EndTime>2019-07-07T12:12:12+0800</EndTime>
     <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
-    <Tag>SuperResolution<Tag>
+    <Tag>PicProcess</Tag>
     <Input>
-        <Object>test.mp4</Object>
+      <Object>test.jpg</Object>
     </Input>
     <Operation>
-        <SuperResolution>
-          <Resolution>sdtohd</Resolution>
-          <EnableScaleUp>true</EnableScaleUp>
-        </SuperResolution>
-        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
-        <WatermarkTemplateId></WatermarkTemplateId>
-        <Output>
-          <Region>ap-beijing</Region>
-          <Bucket>abc-1250000000</Bucket>
-          <Object>test-montage.gif</Object>
-        </Output>
-      </Operation>
+      <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+      <Output>
+        <Region>ap-beijing</Region>
+        <Bucket>abc-1250000000</Bucket>
+        <Object>picprocess.jpg</Object>
+        <SpriteObject></SpriteObject>
+      </Output>
+    </Operation>
   </JobsDetail>
 </Response>
 ```
-
 

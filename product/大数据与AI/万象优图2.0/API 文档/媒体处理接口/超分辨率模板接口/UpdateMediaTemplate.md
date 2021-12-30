@@ -33,6 +33,7 @@ Content-Type: application/xml
     <Name>TemplateName</Name>
     <Resolution>sdtohd</Resolution>
     <EnableScaleUp>true</EnableScaleUp>
+    <Version>Enhance</Version>
 </Request>
 ```
 
@@ -50,7 +51,7 @@ Container 类型 Request 的具体数据描述如下：
 | Name               | Request | 同超分辨率模板 CreateMediaTemplate 接口中的 Request.Name        |
 | Resolution         | Request | 同超分辨率模板 CreateMediaTemplate 接口中的 Request.Resolution   |
 | EnableScaleUp      | Request | 同超分辨率模板 CreateMediaTemplate 接口中的 Request.EnableScaleUp  |
-
+| Version            | Request | 同超分辨率模板 CreateMediaTemplate 接口中的 Request.Version     |
 
 ## 响应
 
@@ -70,6 +71,7 @@ Container 类型 Request 的具体数据描述如下：
         <SuperResolution>
             <Resolution>sdtohd</Resolution>
             <EnableScaleUp>true</EnableScaleUp>
+            <Version>Enhance</Version>
         </SuperResolution>
         <CreateTime>2020-08-05T11:35:24+0800</CreateTime>
         <UpdateTime>2020-08-31T16:15:20+0800</UpdateTime>
@@ -81,7 +83,7 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点 | 描述                                       | 类型      |
 | :----------------- | :----- | :----------------------------------------- | :-------- |
-| Response           | 无     | 保存结果的容器，同 CreateMediaTemplate 中的Response | Container |
+| Response           | 无     | 保存结果的容器，同 CreateMediaTemplate 中的 Response | Container |
 
 
 #### 错误码
@@ -104,6 +106,7 @@ Content-Type: application/xml
     <Name>TemplateName</Name>
     <Resolution>sdtohd</Resolution>
     <EnableScaleUp>true</EnableScaleUp>
+    <Version>Enhance</Version>
 </Request>
 ```
 
@@ -126,6 +129,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
         <SuperResolution>
             <Resolution>sdtohd</Resolution>
             <EnableScaleUp>true</EnableScaleUp>
+            <Version>Enhance</Version>
         </SuperResolution>
         <CreateTime>2020-08-05T11:35:24+0800</CreateTime>
         <UpdateTime>2020-08-31T16:15:20+0800</UpdateTime>

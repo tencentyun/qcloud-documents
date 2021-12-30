@@ -22,6 +22,7 @@ Authorization: <Auth String>
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
 #### 请求体
+
 该请求无请求体。
 
 
@@ -34,7 +35,7 @@ Authorization: <Auth String>
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-``` plaintext
+```plaintext
 <Response>
       <JobsDetail>
       </JobsDetail>
@@ -58,6 +59,7 @@ Container 节点 Response 的内容：
 #### 错误码
 
 该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
+
 
 ## 实际案例
 
@@ -91,21 +93,19 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     <StartTime></StartTime>
     <EndTime></EndTime>
     <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
-    <Tag>SuperResolution</Tag>
+    <Tag>Segment</Tag>
     <Input>
       <Object>test.mp4</Object>
     </Input>
     <Operation>
-      <SuperResolution>
-        <Resolution>sdtohd</Resolution>
-        <EnableScaleUp>true</EnableScaleUp>
-      </SuperResolution>
-      <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
-      <WatermarkTemplateId></WatermarkTemplateId>
+      <Segment>
+        <Format>mp4</Format>
+        <Duration>5</Duration>
+      </Segment>
       <Output>
         <Region>ap-beijing</Region>
-        <Bucket>abc-1250000000</Bucket>
-        <Object>test-montage.gif</Object>
+        <Bucket>examplebucket-1250000000</Bucket>
+        <Object>test-trans${Number}</Object>
       </Output>
     </Operation>
   </JobsDetail>

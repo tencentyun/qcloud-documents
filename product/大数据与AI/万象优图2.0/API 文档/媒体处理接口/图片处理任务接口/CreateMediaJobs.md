@@ -1,13 +1,13 @@
 ## 功能描述
 
-CreateMediaJobs 用于提交一个任务。
+CreateMediaJobs 用于提交一个图片处理任务。
 
 ## 请求
 
 #### 请求示例
 
 ```shell
-POST /jobs HTTP/1.1
+POST /pic_jobs HTTP/1.1
 Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
 Date: <GMT Date>
 Authorization: <Auth String>
@@ -29,14 +29,12 @@ Content-Type: application/xml
 
 ```shell
 <Request>
-  <Tag>SuperResolution</Tag>
+  <Tag>PicProcess</Tag>
   <Input>
     <Object></Object>
   </Input>
   <Operation>
     <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
-    <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
-    <WatermarkTemplateId></WatermarkTemplateId>
     <Output>
       <Region></Region>
       <Bucket></Bucket>
@@ -58,11 +56,11 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Tag                | Request | 创建任务的 Tag：SuperResolution                            | String    | 是   |
+| Tag                | Request | 创建任务的 Tag：PicProcess                                 | String    | 是   |
 | Input              | Request | 待操作的媒体信息                                         | Container | 是   |
-| Operation          | Request | 操作规则                                                | Container | 是   |
-| QueueId            | Request | 任务所在的队列 ID                                         | String    | 是   |
-| CallBack           | Request | 回调地址                                                | String    | 否   |
+| Operation          | Request | 操作规则                                               | Container | 是   |
+| QueueId            | Request | 任务所在的图片处理队列 ID                                         | String    | 是   |
+| CallBack           | Request | 回调地址                 | String    | 否   |
 
 Container 类型 Input 的具体数据描述如下：
 
@@ -74,29 +72,18 @@ Container 类型 Operation 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- |
-| SuperResolution    | Request.Operation | 指定超分辨率模板参数                                         | Container | 否   |
-| TemplateId         | Request.Operation | 指定的模板 ID                                                 | String    | 否   |
-| Transcode          | Request.Operation | 指定转码模板参数，不能与 TranscodeTemplateId 同时为空             | Container | 否   |
-| TranscodeTemplateId| Request.Operation | 指定的转码模板 ID，优先使用模板 Id，不能与 Transcode 同时为空         | String  | 否|
-| Watermark          | Request.Operation | 指定水印模板参数，同创建水印模板 CreateMediaTemplate 接口的 Request.Watermark，最多传3个 | Container | 否 |
-| WatermarkTemplateId| Request.Operation | 指定的水印模板 ID，可以传多个水印模板 ID，最多传3个，优先使用模板 ID          | String    | 否 |无|
-| Output             | Request.Operation | 结果输出地址                                                 | Container | 是   |
+| PicProcess                   | Request.Operation | 指定该任务的参数，同创建图片处理模板 CreateMediaTemplate <br/>接口中的 Request.PicProcess | Container | 否   |
+| TemplateId                   | Request.Operation | 指定的模板 ID                                        | String    | 否   |
+| Output                       | Request.Operation | 结果输出地址                                          | Container | 是   |
 
 >!优先使用 TemplateId，无 TemplateId 时使用对应任务类型的参数。
-
-Container 类型 SuperResolution 的具体数据描述如下：
-
-| 节点名称（关键字） | 父节点                         | 描述                                   |
-| ------------------ | :----------------------------- | -------------------------------------- |
-| Resolution         | Request.Operation.SuperResolution | 同创建超分辨率模板 CreateMediaTemplate 接口中的 Request.Resolution | 
-| EnableScaleUp      | Request.Operation.SuperResolution | 同创建超分辨率模板 CreateMediaTemplate 接口中的 Request.EnableScaleUp|
 
 Container 类型 Output 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                   | 描述                                                         | 类型   | 是否必选 |
 | ------------------ | ------------------------ | ------------------------------------------------------------ | ------ | ---- |
 | Region             | Request.Operation.Output | 存储桶的地域                                                | String | 是   |
-| Bucket             | Request.Operation.Output | 存储结果的存储桶                                             | String | 是   |
+| Bucket             | Request.Operation.Output | 存储结果的存储桶                                              | String | 是   |
 | Object             | Request.Operation.Output | 输出结果的文件名                                             | String | 是   |
 
 
@@ -118,23 +105,22 @@ Container 类型 Output 的具体数据描述如下：
     <JobId></JobId>
     <State></State>
     <CreationTime></CreationTime>
-    <StartTime></StartTime>
     <EndTime></EndTime>
     <QueueId></QueueId>
-    <Tag>SuperResolution</Tag>
+    <Tag>PicProcess</Tag>
     <Input>
       <Object></Object>
     </Input>
     <Operation>
       <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
-      <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
       <Output>
         <Region></Region>
         <Bucket></Bucket>
         <Object></Object>
+        <SpriteObject></SpriteObject>
       </Output>
-      <MediaInfo>
-      </MeidaInfo>
+      <PicProcessResult>
+      </PicProcessResult>
     </Operation>
   </JobsDetail>
 </Response>
@@ -143,24 +129,24 @@ Container 类型 Output 的具体数据描述如下：
 具体的数据内容如下：
 
 |节点名称（关键字）|父节点|描述|类型|
-|:---|:-- |:--|:--|
+|:---|:--- |:--- |:--- |
 | Response |无| 保存结果的容器 | Container |
 
 Container 节点 Response 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
-|:---|:-- |:--|:--|
+|:---|:--- |:--- |:--- |
 | JobsDetail | Response | 任务的详细信息 |  Container |
 
 
 Container 节点 JobsDetail 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
-|:---|:-- |:--|:--|
+|:---|:--- |:--- |:--- |
 | Code | Response.JobsDetail | 错误码，只有 State 为 Failed 时有意义 |  String |
 | Message | Response.JobsDetail | 错误描述，只有 State 为 Failed 时有意义 |  String |
 | JobId | Response.JobsDetail | 新创建任务的 ID |  String |
-| Tag | Response.JobsDetail | 新创建任务的 Tag：SuperResolution | String |
+| Tag | Response.JobsDetail | 新创建任务的 Tag：PicProcess | String |
 | State | Response.JobsDetail | 任务的状态，为 Submitted、Running、Success、Failed、Pause、Cancel 其中一个 |  String |
 | CreationTime | Response.JobsDetail | 任务的创建时间 |  String |
 | StartTime | Response.JobsDetail | 任务的开始时间 |  String |
@@ -175,20 +161,16 @@ Container 节点 Input 的内容：
 Container 节点 Operation 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
-|:---|:-- |:--|:--|
-| TemplateId | Response.JobsDetail.Operation | 任务的模板 ID |  String |
-| Transcode          | Response.JobsDetail.Operation  | 指定转码模板参数，不能与 TranscodeTemplateId 同时为空             | Container | 否   |
-| TranscodeTemplateId| Response.JobsDetail.Operation  | 指定的转码模板 ID，优先使用模板 Id，不能与 Transcode 同时为空         | String  | 否|
-| Watermark           | Response.JobsDetail.Operation | 指定水印模板参数，同创建水印模板 CreateMediaTemplate 接口的 Request.Watermark，最多传3个 | Container | 否 |
-| WatermarkTemplateId | Response.JobsDetail.Operation | 指定的水印模板 ID，可以传多个水印模板 ID，最多传3个，优先使用模板 ID          | String    | 否 |无|
+|:---|:--- |:--- |:--- |
+| TemplateId | Response.JobsDetail.Operation | 任务的模版 ID |  String |
 | Output | Response.JobsDetail.Operation | 文件的输出地址 |  Container |
-| MediaInfo | Response.JobsDetail.Operation | 转码输出视频的信息，没有时不返回 |  Container |
+| PicProcessResult | Response.JobsDetail.Operation | 图片处理后输出图片的信息，没有时不返回 |  Container |
 
 Container 节点 Output 的内容：
 同请求中的 Request.Operation.Output 节点。
 
-Container 节点 MediaInfo 的内容：
-同 [GenerateMediaInfo](https://cloud.tencent.com/document/product/460/38935) 接口中的 Response.MediaInfo 节点。
+Container 节点 PicProcessResult 的内容：
+同 [图片持久化处理](https://cloud.tencent.com/document/product/460/18147) 接口中的 UploadResult 节点。
 
 #### 错误码
 
@@ -196,32 +178,35 @@ Container 节点 MediaInfo 的内容：
 
 ## 实际案例
 
-
-#### 请求1：使用超分辨率模板 ID
+#### 请求1：使用图片处理模板 ID
 
 ```shell
-POST /jobs HTTP/1.1
+POST /pic_jobs HTTP/1.1
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
 Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
 
+
+
 <Request>
-  <Tag>SuperResolution</Tag>
+  <Tag>PicProcess</Tag>
   <Input>
-    <Object>test.mp4</Object>
+    <Object>test.jpg</Object>
   </Input>
   <Operation>
     <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
-    <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
-    <WatermarkTemplateId></WatermarkTemplateId>
     <Output>
-        <Region>ap-beijing</Region>
-        <Bucket>examplebucket-1250000000</Bucket>
-        <Object>test-montage.mkv</Object>
+      <Region>ap-beijing</Region>
+      <Bucket>abc-1250000000</Bucket>
+      <Object>picprocess.jpg</Object>
+      <SpriteObject></SpriteObject>
     </Output>
+    <PicProcessResult>
+    </PicProcessResult>
   </Operation>
   <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
+  <CallBack>https://www.callback.com</CallBack>
 </Request>
 ```
 
@@ -236,6 +221,8 @@ Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
+
+
 <Response>
   <JobsDetail>
     <Code>Success</Code>
@@ -243,22 +230,20 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     <JobId>je8f65004eb8511eaaed4f377124a303c</JobId>
     <State>Submitted</State>
     <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
-    <StartTime></StartTime>
     <EndTime></EndTime>
     <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
-    <Tag>SuperResolution</Tag>
+    <Tag>PicProcess</Tag>
     <Input>
-      <Object>test.mp4</Object>
+      <Object>test.jpg</Object>
     </Input>
     <Operation>
-        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
-        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
-        <WatermarkTemplateId></WatermarkTemplateId>
-        <Output>
-            <Region>ap-beijing</Region>
-            <Bucket>abc-1250000000</Bucket>
-            <Object>test-montage.mkv</Object>
-        </Output>
+      <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+      <Output>
+        <Region>ap-beijing</Region>
+        <Bucket>abc-1250000000</Bucket>
+        <Object>picprocess.jpg</Object>
+        <SpriteObject></SpriteObject>
+      </Output>
     </Operation>
   </JobsDetail>
 </Response>
@@ -266,38 +251,37 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 
 
-
-
-#### 请求2：使用超分辨率处理参数
-
+#### 请求2：使用图片处理参数
 
 
 ```shell
-POST /jobs HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+POST /pic_jobs HTTP/1.1
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
 Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
 
+
+
 <Request>
-  <Tag>SuperResolution</Tag>
+  <Tag>PicProcess</Tag>
   <Input>
-    <Object>test.mp4</Object>
+    <Object>test.jpg</Object>
   </Input>
   <Operation>
-    <SuperResolution>
-      <Resolution>sdtohd</Resolution>
-      <EnableScaleUp>true</EnableScaleUp>
-    </SuperResolution>
-    <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
-    <WatermarkTemplateId></WatermarkTemplateId>
+    <PicProcess>
+      <IsPicInfo>true</IsPicInfo>
+      <ProcessRule>imageMogr2/rotate/90</ProcessRule>
+    </PicProcess>
     <Output>
       <Region>ap-beijing</Region>
-      <Bucket>examplebucket-1250000000</Bucket>
-      <Object>test-montage.gif</Object>
+      <Bucket>abc-1250000000</Bucket>
+      <Object>picprocess.jpg</Object>
+      <SpriteObject></SpriteObject>
     </Output>
   </Operation>
   <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
+  <CallBack>https://www.callback.com</CallBack>
 </Request>
 ```
 
@@ -312,6 +296,8 @@ Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
+
+
 <Response>
   <JobsDetail>
     <Code>Success</Code>
@@ -319,22 +305,26 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     <JobId>jabcxxxxfeipplsdfwe</JobId>
     <State>Submitted</State>
     <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
-    <StartTime></StartTime>
     <EndTime></EndTime>
     <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
-    <Tag>SuperResolution</Tag>
+    <Tag>PicProcess</Tag>
     <Input>
-      <Object>test.mp4</Object>
+      <Object>test.jpg</Object>
     </Input>
     <Operation>
-      <SuperResolution>
-        <Resolution>sdtohd</Resolution>
-        <EnableScaleUp>true</EnableScaleUp>
-      </SuperResolution>
-      <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
-      <WatermarkTemplateId></WatermarkTemplateId>
+        <PicProcess>
+          <IsPicInfo>true</IsPicInfo>
+          <ProcessRule>imageMogr2/rotate/90</ProcessRule>
+        </PicProcess>
+        <Output>
+            <Region>ap-beijing</Region>
+            <Bucket>abc-1250000000</Bucket>
+            <Object>picprocess.jpg</Object>
+            <SpriteObject></SpriteObject>
+        </Output>
+        <PicProcessResult>
+        </PicProcessResult>
     </Operation>
   </JobsDetail>
 </Response>
 ```
-

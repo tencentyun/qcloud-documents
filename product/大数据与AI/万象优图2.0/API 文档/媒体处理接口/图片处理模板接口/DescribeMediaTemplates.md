@@ -1,6 +1,5 @@
 ## 功能描述
-
-DescribeMediaTemplates 用于搜索超分辨率模板。
+DescribeMediaTemplates 用于搜索图片处理模板。
 
 ## 请求
 
@@ -30,13 +29,13 @@ Content-Type: application/xml
 参数的具体内容如下：
 
 |节点名称（关键字）|父节点     |描述                    |   类型    |   是否必选    |
-|:---           |:--       |:--                    |   :--     |   :--    |
-| tag           | 无        | 模板 Tag：SuperResolution       | String    |是|
-| category      | 无   | Official，Custom，默认值: Custom | String    |是|
-| ids           | 无        | 模板 ID，以`,`符号分割字符串  | String     |否|
-| name          | 无        | 模板名称前缀              | String     |否|
-| pageNumber    | 无        | 第几页                   | Integer     |否|
-| pageSize      | 无        | 每页个数                 | Integer     |否|
+| :------------ | :------- | :-----------------    | :---     | :----    |
+| tag           | 无        | 模板 Tag：PicProcess    | String    | 是      |
+| category      | 无        | 可选值：Official、Custom，默认值: Custom | String   | 是 |
+| ids           | 无        | 模板 ID，以`,`符号分割字符串  | String     | 否 |
+| name          | 无        | 模板名称前缀              | String     | 否 |
+| pageNumber    | 无        | 第几页                   | Integer     | 否 |
+| pageSize      | 无        | 每页个数                 | Integer     | 否 |
 
 
 ## 响应
@@ -55,16 +54,18 @@ Content-Type: application/xml
     <PageNumber>1</PageNumber>
     <PageSize>10</PageSize>
     <TemplateList>
-        <TemplateId>A</TemplateId>
-        <Name>TemplateName</Name>
-        <Tag>SuperResolution</Tag>
-        <SuperResolution>
-            <Resolution>sdtohd</Resolution>
-            <EnableScaleUp>true</EnableScaleUp>
-            <Version>Enhance</Version>
-        </SuperResolution>
-        <CreateTime>2020-08-05T11:35:24+0800</CreateTime>
-        <UpdateTime>2020-08-31T16:15:20+0800</UpdateTime>
+        <TemplateId>t1b98cba08d4a447ea8448b487446991f5</TemplateId>
+        <Name>pic-process779734</Name>
+        <State>Normal</State>
+        <Tag>PicProcess</Tag>
+        <CreateTime>2021-11-08T16:14:00+0800</CreateTime>
+        <UpdateTime>2021-11-08T16:14:00+0800</UpdateTime>
+        <BucketId>bj-flynnzzhang-1253960454</BucketId>
+        <Category>Custom</Category>
+        <PicProcess>
+                <IsPicInfo>false</IsPicInfo>
+                <ProcessRule><ProcessRule/>
+        </PicProcess>
     </TemplateList>
 </Response>
 ```
@@ -93,27 +94,26 @@ Container节点 TemplateList 的内容：
 | Name               | Response.TemplateList | 模板名字                                                     | String    |
 | BucketId           | Response.TemplateList | 模板所属存储桶                                                | String    |
 | Category           | Response.TemplateList | 模板属性，Custom 或者 Official                                | String    |
-| Tag                | Response.TemplateList | 模板类型，SuperResolution                                          | String    |
+| Tag                | Response.TemplateList | 模板类型，Transcode                                          | String    |
 | UpdateTime         | Response.TemplateList | 更新时间                                                     | String    |
 | CreateTime         | Response.TemplateList | 创建时间                                                     | String    |
-| SuperResolution    | Response.TemplateList | 详细的模板参数                                                | Container |
+| PicProcess         | Response.TemplateList | 详细的模板参数                                                | Container |
 
-Container 节点 SuperResolution 的内容：
 
-| 节点名称（关键字）   | 父节点                         | 描述     |
-| :----------------- | :----------------------------- | :------- |
-| Resolution         | Response.TemplateList.SuperResolution | 同超分辨率模板 CreateMediaTemplate 接口中的 Request.Resolution |
-| EnableScaleUp      | Response.TemplateList.SuperResolution | 同超分辨率模板 CreateMediaTemplate 接口中的 Request.EnableScaleUp |
-| Version            | Response.TemplateList.SuperResolution | 同超分辨率模板 CreateMediaTemplate 接口中的 Request.Version     |
+Container 节点 PicProcess 的内容：
+
+| 节点名称（关键字） | 父节点                         | 描述                                    | 类型      |
+| :----------------- | :----------------------------- | :-------------------------------------- | :-------- |
+| IsPicInfo          | Response.Template.PicProcess | 同请求体中的 <br/>Request.Container.IsPicInfo | String |
+| ProcessRule        | Response.Template.PicProcess | 同请求体中的 <br/>Request.Container.ProcessRule | String |
+
 
 #### 错误码
 
 该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
 
 ## 实际案例
-
 **案例一：按照模板 ID 维度查询**
-
 #### 请求
 
 ```shell
@@ -138,16 +138,18 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 <Response>
     <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhf****</RequestId>
     <TemplateList>
-        <TemplateId>A</TemplateId>
-        <Name>TemplateName</Name>
-        <Tag>SuperResolution</Tag>
-        <SuperResolution>
-            <Resolution>sdtohd</Resolution>
-            <EnableScaleUp>true</EnableScaleUp>
-            <Version>Enhance</Version>
-        </SuperResolution>
-        <CreateTime>2020-08-05T11:35:24+0800</CreateTime>
-        <UpdateTime>2020-08-31T16:15:20+0800</UpdateTime>
+        <TemplateId>t1b98cba08d4a447ea8448b487446991f5</TemplateId>
+        <Name>pic-process779734</Name>
+        <State>Normal</State>
+        <Tag>PicProcess</Tag>
+        <CreateTime>2021-11-08T16:14:00+0800</CreateTime>
+        <UpdateTime>2021-11-08T16:14:00+0800</UpdateTime>
+        <BucketId>bj-flynnzzhang-1253960454</BucketId>
+        <Category>Custom</Category>
+        <PicProcess>
+                <IsPicInfo>false</IsPicInfo>
+                <ProcessRule><ProcessRule/>
+        </PicProcess>
     </TemplateList>
     <NonExistTIDs>
         <TemplateId>B</TemplateId>
@@ -185,14 +187,18 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     <PageNumber>1</PageNumber>
     <PageSize>10</PageSize>
     <TemplateList>
-        <TemplateId>A</TemplateId>
-        <Name>TemplateName</Name>
-        <Tag>SuperResolution</Tag>
-        <SuperResolution>
-            <Resolution>sdtohd</Resolution>
-            <EnableScaleUp>true</EnableScaleUp>
-            <Version>Enhance</Version>
-        </SuperResolution>
+        <TemplateId>t1b98cba08d4a447ea8448b487446991f5</TemplateId>
+        <Name>pic-process779734</Name>
+        <State>Normal</State>
+        <Tag>PicProcess</Tag>
+        <CreateTime>2021-11-08T16:14:00+0800</CreateTime>
+        <UpdateTime>2021-11-08T16:14:00+0800</UpdateTime>
+        <BucketId>bj-flynnzzhang-1253960454</BucketId>
+        <Category>Custom</Category>
+        <PicProcess>
+                <IsPicInfo>false</IsPicInfo>
+                <ProcessRule><ProcessRule/>
+        </PicProcess>
         <CreateTime>2020-08-05T11:35:24+0800</CreateTime>
         <UpdateTime>2020-08-31T16:15:20+0800</UpdateTime>
     </TemplateList>

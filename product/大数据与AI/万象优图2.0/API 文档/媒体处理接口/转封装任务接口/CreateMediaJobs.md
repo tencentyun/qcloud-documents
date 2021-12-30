@@ -18,6 +18,7 @@ Content-Type: application/xml
 ```
 
 >? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>
 
 
 #### 请求头
@@ -29,14 +30,15 @@ Content-Type: application/xml
 
 ```shell
 <Request>
-  <Tag>SuperResolution</Tag>
+  <Tag>Segment</Tag>
   <Input>
     <Object></Object>
   </Input>
   <Operation>
-    <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
-    <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
-    <WatermarkTemplateId></WatermarkTemplateId>
+    <Segment>
+      <Format>mp4</Format>
+      <Duration>5</Duration>
+    </Segment>
     <Output>
       <Region></Region>
       <Bucket></Bucket>
@@ -58,7 +60,7 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Tag                | Request | 创建任务的 Tag：SuperResolution                            | String    | 是   |
+| Tag                | Request | 创建任务的 Tag：Segment                                   | String    | 是   |
 | Input              | Request | 待操作的媒体信息                                         | Container | 是   |
 | Operation          | Request | 操作规则                                                | Container | 是   |
 | QueueId            | Request | 任务所在的队列 ID                                         | String    | 是   |
@@ -73,32 +75,24 @@ Container 类型 Input 的具体数据描述如下：
 Container 类型 Operation 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 |
-| ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- |
-| SuperResolution    | Request.Operation | 指定超分辨率模板参数                                         | Container | 否   |
-| TemplateId         | Request.Operation | 指定的模板 ID                                                 | String    | 否   |
-| Transcode          | Request.Operation | 指定转码模板参数，不能与 TranscodeTemplateId 同时为空             | Container | 否   |
-| TranscodeTemplateId| Request.Operation | 指定的转码模板 ID，优先使用模板 Id，不能与 Transcode 同时为空         | String  | 否|
-| Watermark          | Request.Operation | 指定水印模板参数，同创建水印模板 CreateMediaTemplate 接口的 Request.Watermark，最多传3个 | Container | 否 |
-| WatermarkTemplateId| Request.Operation | 指定的水印模板 ID，可以传多个水印模板 ID，最多传3个，优先使用模板 ID          | String    | 否 |无|
-| Output             | Request.Operation | 结果输出地址                                                 | Container | 是   |
+| ------------------| ----------------- | ----------------------------------------------------------- | --------- | ---- |
+| Segment            | Request.Operation | 指定转封装参数                                                 | Container | 是   |
+| Output            | Request.Operation | 结果输出地址                                                 | Container | 是   |
 
->!优先使用 TemplateId，无 TemplateId 时使用对应任务类型的参数。
+Container 类型 Segment 的具体数据描述如下：
 
-Container 类型 SuperResolution 的具体数据描述如下：
-
-| 节点名称（关键字） | 父节点                         | 描述                                   |
-| ------------------ | :----------------------------- | -------------------------------------- |
-| Resolution         | Request.Operation.SuperResolution | 同创建超分辨率模板 CreateMediaTemplate 接口中的 Request.Resolution | 
-| EnableScaleUp      | Request.Operation.SuperResolution | 同创建超分辨率模板 CreateMediaTemplate 接口中的 Request.EnableScaleUp|
+| 节点名称（关键字） | 父节点                      | 描述                                   | 类型      | 是否必选 |限制 |
+| ------------------ | :------------------------ | -------------------------------------- | --------- | ---- |---- |
+| Format             | Request.Operation.Segment  | 封装格式                                | String | 是   |aac、mp3、flac、mp4、ts、mkv、avi|
+| Duration           | Request.Operation.Segment  | 转封装时长，单位：秒                         | String | 否   |不小于5的整数|
 
 Container 类型 Output 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                   | 描述                                                         | 类型   | 是否必选 |
 | ------------------ | ------------------------ | ------------------------------------------------------------ | ------ | ---- |
 | Region             | Request.Operation.Output | 存储桶的地域                                                | String | 是   |
-| Bucket             | Request.Operation.Output | 存储结果的存储桶                                             | String | 是   |
-| Object             | Request.Operation.Output | 输出结果的文件名                                             | String | 是   |
-
+| Bucket             | Request.Operation.Output | 存储结果的存储桶                                              | String | 是   |
+| Object             | Request.Operation.Output | 输出结果的文件名，如果设置了 Duration，必须包含${Number}参数作为自定义转封装后每一小段音/视频流的输出序号 | String | 是   |
 
 
 ## 响应
@@ -110,7 +104,7 @@ Container 类型 Output 的具体数据描述如下：
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```shell
+``` shell
 <Response>
   <JobsDetail>
     <Code></Code>
@@ -121,13 +115,15 @@ Container 类型 Output 的具体数据描述如下：
     <StartTime></StartTime>
     <EndTime></EndTime>
     <QueueId></QueueId>
-    <Tag>SuperResolution</Tag>
+    <Tag>Segment</Tag>
     <Input>
       <Object></Object>
     </Input>
     <Operation>
-      <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
-      <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
+      <Segment>
+        <Format>mp4</Format>
+        <Duration>5</Duration>
+      </Segment>
       <Output>
         <Region></Region>
         <Bucket></Bucket>
@@ -160,14 +156,14 @@ Container 节点 JobsDetail 的内容：
 | Code | Response.JobsDetail | 错误码，只有 State 为 Failed 时有意义 |  String |
 | Message | Response.JobsDetail | 错误描述，只有 State 为 Failed 时有意义 |  String |
 | JobId | Response.JobsDetail | 新创建任务的 ID |  String |
-| Tag | Response.JobsDetail | 新创建任务的 Tag：SuperResolution | String |
+| Tag | Response.JobsDetail | 新创建任务的 Tag：Segment | String |
 | State | Response.JobsDetail | 任务的状态，为 Submitted、Running、Success、Failed、Pause、Cancel 其中一个 |  String |
 | CreationTime | Response.JobsDetail | 任务的创建时间 |  String |
 | StartTime | Response.JobsDetail | 任务的开始时间 |  String |
 | EndTime | Response.JobsDetail | 任务的结束时间 |  String |
 | QueueId | Response.JobsDetail | 任务所属的队列 ID |  String |
 | Input | Response.JobsDetail | 该任务的输入资源地址 |  Container |
-| Operation | Response.JobsDetail | 该任务的规则，支持对单个文件执行多个不同任务，最多可填写6个 |  Container |
+| Operation | Response.JobsDetail | 该任务的规则 |  Container |
 
 Container 节点 Input 的内容：
 同请求中的 Request.Input 节点。
@@ -176,11 +172,7 @@ Container 节点 Operation 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| TemplateId | Response.JobsDetail.Operation | 任务的模板 ID |  String |
-| Transcode          | Response.JobsDetail.Operation  | 指定转码模板参数，不能与 TranscodeTemplateId 同时为空             | Container | 否   |
-| TranscodeTemplateId| Response.JobsDetail.Operation  | 指定的转码模板 ID，优先使用模板 Id，不能与 Transcode 同时为空         | String  | 否|
-| Watermark           | Response.JobsDetail.Operation | 指定水印模板参数，同创建水印模板 CreateMediaTemplate 接口的 Request.Watermark，最多传3个 | Container | 否 |
-| WatermarkTemplateId | Response.JobsDetail.Operation | 指定的水印模板 ID，可以传多个水印模板 ID，最多传3个，优先使用模板 ID          | String    | 否 |无|
+| Segment | Response.JobsDetail.Operation | 同请求中的 Request.Operation.Segment |  Container |
 | Output | Response.JobsDetail.Operation | 文件的输出地址 |  Container |
 | MediaInfo | Response.JobsDetail.Operation | 转码输出视频的信息，没有时不返回 |  Container |
 
@@ -188,7 +180,7 @@ Container 节点 Output 的内容：
 同请求中的 Request.Operation.Output 节点。
 
 Container 节点 MediaInfo 的内容：
-同 [GenerateMediaInfo](https://cloud.tencent.com/document/product/460/38935) 接口中的 Response.MediaInfo 节点。
+同 GenerateMediaInfo 接口中的 Response.MediaInfo 节点。
 
 #### 错误码
 
@@ -196,10 +188,9 @@ Container 节点 MediaInfo 的内容：
 
 ## 实际案例
 
+#### 请求
 
-#### 请求1：使用超分辨率模板 ID
-
-```shell
+```plaintext
 POST /jobs HTTP/1.1
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
 Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
@@ -207,27 +198,28 @@ Content-Length: 166
 Content-Type: application/xml
 
 <Request>
-  <Tag>SuperResolution</Tag>
+  <Tag>Segment</Tag>
   <Input>
     <Object>test.mp4</Object>
   </Input>
   <Operation>
-    <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
-    <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
-    <WatermarkTemplateId></WatermarkTemplateId>
+    <Segment>
+      <Format>mp4</Format>
+      <Duration>5</Duration>
+    </Segment>
     <Output>
-        <Region>ap-beijing</Region>
-        <Bucket>examplebucket-1250000000</Bucket>
-        <Object>test-montage.mkv</Object>
+      <Region>ap-beijing</Region>
+      <Bucket>examplebucket-1250000000</Bucket>
+      <Object>test-trans${Number}</Object>
     </Output>
   </Operation>
   <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
 </Request>
 ```
 
-#### 响应1
+#### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 230
@@ -246,95 +238,21 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     <StartTime></StartTime>
     <EndTime></EndTime>
     <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
-    <Tag>SuperResolution</Tag>
+    <Tag>Segment</Tag>
     <Input>
       <Object>test.mp4</Object>
     </Input>
     <Operation>
-        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
-        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
-        <WatermarkTemplateId></WatermarkTemplateId>
-        <Output>
-            <Region>ap-beijing</Region>
-            <Bucket>abc-1250000000</Bucket>
-            <Object>test-montage.mkv</Object>
-        </Output>
+      <Segment>
+        <Format>mp4</Format>
+        <Duration>5</Duration>
+      </Segment>
+      <Output>
+        <Region>ap-beijing</Region>
+        <Bucket>examplebucket-1250000000</Bucket>
+        <Object>test-trans${Number}</Object>
+      </Output>
     </Operation>
   </JobsDetail>
 </Response>
 ```
-
-
-
-
-
-#### 请求2：使用超分辨率处理参数
-
-
-
-```shell
-POST /jobs HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
-Content-Length: 166
-Content-Type: application/xml
-
-<Request>
-  <Tag>SuperResolution</Tag>
-  <Input>
-    <Object>test.mp4</Object>
-  </Input>
-  <Operation>
-    <SuperResolution>
-      <Resolution>sdtohd</Resolution>
-      <EnableScaleUp>true</EnableScaleUp>
-    </SuperResolution>
-    <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
-    <WatermarkTemplateId></WatermarkTemplateId>
-    <Output>
-      <Region>ap-beijing</Region>
-      <Bucket>examplebucket-1250000000</Bucket>
-      <Object>test-montage.gif</Object>
-    </Output>
-  </Operation>
-  <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
-</Request>
-```
-
-#### 响应2
-
-```shell
-HTTP/1.1 200 OK
-Content-Type: application/xml
-Content-Length: 230
-Connection: keep-alive
-Date: Thu, 15 Jun 2017 12:37:29 GMT
-Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
-
-<Response>
-  <JobsDetail>
-    <Code>Success</Code>
-    <Message>Success</Message>
-    <JobId>jabcxxxxfeipplsdfwe</JobId>
-    <State>Submitted</State>
-    <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
-    <StartTime></StartTime>
-    <EndTime></EndTime>
-    <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
-    <Tag>SuperResolution</Tag>
-    <Input>
-      <Object>test.mp4</Object>
-    </Input>
-    <Operation>
-      <SuperResolution>
-        <Resolution>sdtohd</Resolution>
-        <EnableScaleUp>true</EnableScaleUp>
-      </SuperResolution>
-      <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
-      <WatermarkTemplateId></WatermarkTemplateId>
-    </Operation>
-  </JobsDetail>
-</Response>
-```
-

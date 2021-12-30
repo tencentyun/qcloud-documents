@@ -7,7 +7,7 @@ DescribeMediaJob 接口用于查询指定的任务。
 #### 请求示例
 
 ```plaintext
-GET /jobs/<jobId> HTTP/1.1
+GET /pic_jobs/<jobId> HTTP/1.1
 Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
 Date: <GMT Date>
 Authorization: <Auth String>
@@ -34,7 +34,7 @@ Authorization: <Auth String>
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-``` plaintext
+```plaintext
 <Response>
       <JobsDetail>
       </JobsDetail>
@@ -52,19 +52,20 @@ Container 节点 Response 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| JobsDetail | Response | 任务的详细信息，同 CreateMediaJobs 接口的 Response.JobsDetail 节点 |  Container |
+| JobsDetail | Response | 任务的详细信息，同 CreateMediaJobs <br/>接口的 Response.JobsDetail 节点 |  Container |
 | NonExistJobIds | Response | 查询的 ID 中不存在任务，所有任务都存在时不返回 |  String |
 
 #### 错误码
 
 该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
 
+
 ## 实际案例
 
 #### 请求
 
 ```plaintext
-GET /jobs/jabcsdssfeipplsdfwe HTTP/1.1
+GET /pic_jobs/jabcsdssfeipplsdfwe HTTP/1.1
 Accept: */*
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
 Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
@@ -85,31 +86,25 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
   <JobsDetail>
     <Code>Success</Code>
     <Message>Success</Message>
-    <JobId>jabcxxxxfeipplsdfwe</JobId>
+    <JobId>je8f65004eb8511eaaed4f377124a303c</JobId>
     <State>Submitted</State>
     <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
-    <StartTime></StartTime>
-    <EndTime></EndTime>
+    <EndTime>2019-07-07T12:12:12+0800</EndTime>
     <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
-    <Tag>SuperResolution</Tag>
+    <Tag>PicProcess</Tag>
     <Input>
-      <Object>test.mp4</Object>
+      <Object>test.jpg</Object>
     </Input>
     <Operation>
-      <SuperResolution>
-        <Resolution>sdtohd</Resolution>
-        <EnableScaleUp>true</EnableScaleUp>
-      </SuperResolution>
-      <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
-      <WatermarkTemplateId></WatermarkTemplateId>
+      <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
       <Output>
         <Region>ap-beijing</Region>
         <Bucket>abc-1250000000</Bucket>
-        <Object>test-montage.gif</Object>
+        <Object>picprocess.jpg</Object>
+        <SpriteObject></SpriteObject>
       </Output>
     </Operation>
   </JobsDetail>
 </Response>
 ```
-
 
