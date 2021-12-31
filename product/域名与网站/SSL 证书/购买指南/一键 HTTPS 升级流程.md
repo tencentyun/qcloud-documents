@@ -1,13 +1,18 @@
 ## 概述
-本文将指导您如何为已有的一键 HTTPS 实例进行续费。
+本文将指导您如何为已有的一键 HTTPS 实例升级为更高版本套餐。
+
 
 
 ## 操作步骤
 1. 登录 SSL 证书 [一键 HTTPS 管理控制台](https://console.cloud.tencent.com/https)。
-2. 选择您需进行续费的实例，单击**续费**。如下图所示：
+2. 选择您需进行升级的实例，单击**升级**。如下图所示：
 >?若账号下仅存在一个实例，则无需筛选。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/3814bdd52b0f405de359caf5a534babf.png)
-3. 在弹出的 “一键 HTTPS 套餐续费” 窗口中，勾选您需续费的时长。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/5e248574eeed6cce0ea3559b64bca7fc.png)
-4. 单击**确定**，完成支付后即可续费成功。
+![](https://qcloudimg.tencent-cloud.cn/raw/39b37b295a9693ceaf6974d677b31f2e.png)
+3. 在弹出的“一键 HTTPS 套餐升级” 窗口中，确认升级的套餐类型以及套餐详情。如下图所示：
+>?一键 HTTPS 目前仅支持超轻版升级敏捷版，若需更高版本请前往 [Web 应用防火墙购买页](https://buy.cloud.tencent.com/buy/waf) 进行购买。
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/92f517cfeb7e4c6917feba687eac15f4.png)
+4. 单击**确定**，完成支付后即可升级成功。
+
+
