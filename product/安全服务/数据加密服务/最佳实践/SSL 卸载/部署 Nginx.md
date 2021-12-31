@@ -7,7 +7,7 @@
 make
 make install
 ```
-3. 根据实际需求选择对应的算法证书， 配置 Nginx 的使用证书。
+3. 配置 Nginx 的使用证书，根据使用的算法选择如下任意一种。
  -  使用 RSA 单证书
 根据如下代码所示，编辑 `/root/nginx/conf/nginx.conf` 配置文件中的证书部分。
 ```
