@@ -107,4 +107,4 @@ testdb1=> select * from foreign_table1;
 2. 如果目标实例非 TencentDB 实例，且搭建有热备模式，当主备切换后，需要自行更新 server 连接地址或者重新创建 server。
 
 ### 参考链接
-[postgres_fdw 官方介绍](http://www.postgres.cn/docs/9.5/postgres-fdw.html)
+[postgres_fdw 官方介绍](https://www.postgresql.org/docs/9.5/postgres-fdw.html)
