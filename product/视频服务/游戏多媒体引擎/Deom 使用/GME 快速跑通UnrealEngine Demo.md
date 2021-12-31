@@ -1,63 +1,62 @@
-本文主要介绍如何快速运行 GME UnrealEngine Demo，以及将工程示例代码接入到项目中。
+本文主要介绍如何快速运行 GME UnrealEngine Demo，并将工程示例代码接入到项目中。
 
-## 快速跑通 UnrealEngine Demo
+## 跑通 UnrealEngine Demo
 
 ### 环境要求
 
-1. UnrealEngine 4.22 及以上版本。
-2. Microsoft Visual Studio。
-3. 能运行 UnrealEngine 工程的配置环境。
+- UnrealEngine 4.22 及以上版本。
+- Microsoft Visual Studio。
+- 能运行 UnrealEngine 工程的配置环境。
 
 ### 前提条件
 
-您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 
-### 1、申请GME服务
+### 1. 申请 GME 服务[](id:step1)
 
-通过[开通指引](https://cloud.tencent.com/document/product/607/10782)申请 GME 实时语音服务，获取到实时语音Appid 和 Key。
+参考 [语音服务开通指引](https://cloud.tencent.com/document/product/607/10782)，申请 GME 实时语音服务，获取到实时语音 Appid 和 Key。
 
-### 2、下载工程
-通过[下载指引](https://cloud.tencent.com/document/product/607/18521)下载 UnrealEngine Demo。
-![](https://qcloudimg.tencent-cloud.cn/raw/272e438685b0aa606367e63c2435957d.png)
+### 2. 下载工程
 
-### 3、配置工程
-
-下载后打开工程目录，路径 Source\UEDemo1 中，找到 UserConfig.cpp，将图中蓝色框处 appID 及 appKey 修改为步骤 1 中申请的GME实时语音服务 Appid 和 key。
-
-![](https://qcloudimg.tencent-cloud.cn/raw/c49afcc8c67bd631c307bc81801e2e85.png)
+ [点此下载 UnrealEngine Demo](https://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.8.4/Other/GME_Unreal_Audio_Demo_2.8.4.f0b7053c.zip)
 
 
-### 4、编译运行
+### 3. 配置工程
 
-#### 1.运行程序
+下载后打开工程目录，路径 Source\UEDemo1 中，找到 UserConfig.cpp，将图中蓝色框处 appID 及 appKey 修改为 [步骤1](#step1) 中申请的 GME 实时语音服务 Appid 和 key。
 
-点击编辑器运行按钮，进入 Demo 运行程序。
+![](https://qcloudimg.tencent-cloud.cn/raw/9c503f9275f29da0c85c49ecbaf52f90.png)
+
+### 4. 编译运行
+
+#### 1. 运行程序
+
+单击编辑器运行按钮 <img src="https://qcloudimg.tencent-cloud.cn/raw/302e95d032818ed9e463a0b3b3417ce4.png" width="30">![]()，进入 Demo 运行程序。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/eb1b9543db8a5c81c543939313228413.jpg)
 
-#### 2.初始化
+#### 2. 初始化
 
-- UserId：相当于openid，每个端的openid必须唯一。
+- UserId：相当于 openid，每个端的 openid 必须唯一。
 - Voice Chat：实时语音功能界面。
 - Voice Message：语音消息功能界面。
 
-点击【Login】按钮，进行初始化，再点击【Voice Chat】按钮进入实时语音房间配置界面。
+单击 **Login**，进行初始化，再单击 **Voice Chat** 进入实时语音房间配置界面。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/ae9123a47b09642211b0aab42498daf2.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/b872b21122c244b443f7ff651048ca5b.jpg)
 
-#### 3.实时语音进房
+#### 3. 实时语音进房
 
 - RoomId：房间号码，同房间的人可以互相语音交流。
 - RoomType：请使用 Fluency 进入房间。
 - JoinRoom：进入语音房间。
 - Back：后退到上一个界面。
 
-配置好实时语音房间号后，点击【JoinRoom】进入实时语音房间。
+配置好实时语音房间号后，单击 **JoinRoom** 进入实时语音房间。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/8917f419ef433e8be8332ab915438667.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/4df80f35962207dcc5435eb78dd95138.jpg)
 
-
-#### 4.实时语音功能
+#### 4. 实时语音功能
 界面上会显示进房的 Roomid 以及本端的 openid。
 
 - Mic：勾选打开麦克风。
@@ -68,31 +67,28 @@
 本端勾选 Mic 及 Speaker 后，另一个终端的机器也重复以上步骤，进入相同的房间，也勾选 Mic 以及 Speaker，便可以互相实施沟通。
 如果两个终端都勾选 3D Voice Effect，通过键盘 【A】【S】【D】【W】改变方位，体验3D语音方位感。
 
+![](https://qcloudimg.tencent-cloud.cn/raw/3c34c7be421a1569cb47807990ae4d07.jpg)
 
-![](https://qcloudimg.tencent-cloud.cn/raw/fc3e0b71752adf9477f59137a7090e0e.jpg)
+#### 5. 语音消息功能
 
-
-#### 5.语音消息功能
-
-- Language：选择转文本的目标语音，比如说的是中文就选普通话。
+- Language：选择转文本的目标语音，例如说的是中文就选普通话。
 - Audio：录音后点击可以收听。
 - Audio-to-Text：语音转出来的文本内容。
 - Push To Talk：按住进行录音。
 - Back：后退到上一个界面。
 
-按住 【Push to Talk】按钮，对着麦克风进行说话，放开后语音会转成文本显示在界面中。
+按住 **Push to Talk** 按钮，对着麦克风进行说话，放开后语音会转成文本显示在界面中。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/81bea5a9a41cd781bd0f9f4eea7c3241.jpg)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/e2fecfdc7ed880315e6ec50179be2eaf.jpg)
 
 ## 工程示例代码介绍
 
-使用 GME 实时语音主要的流程是 Init->EnterRoom->EnableMic->EnableSpeaker。Demo 主要的代码在 BaseViewController.cpp 以及ExperientialDemoViewController.cpp 中。
+使用 GME 实时语音主要的流程是 Init > EnterRoom > EnableMic > EnableSpeaker。Demo 主要的代码在 BaseViewController.cpp 以及 ExperientialDemoViewController.cpp 中。
 
 
 ### 初始化相关
 
-初始化相关的代码在 BaseViewController.cpp 文件中的 InitGME 函数中。这里面包含了初始化、语音消息的鉴权初始化以及设置回调TMGDelegate。
+初始化相关的代码在 BaseViewController.cpp 文件中的 InitGME 函数中。这里面包含了初始化、语音消息的鉴权初始化以及设置回调 TMGDelegate。
 
 ```
 int UBaseViewController::InitGME(std::string sdkAppId, std::string sdkAppKey, std::string userId) {
@@ -190,9 +186,9 @@ void UExperientialDemoViewController::onCheckSpeaker(bool isChecked) {
 }
 ```
 
-### 3D音效相关
+### 3D 音效相关
 
-3D音效的接入可以参考[3D音效文档](https://cloud.tencent.com/document/product/607/18218)。在 Demo 中，首先初始化 3D 音效功能，相关代码在 ExperientialDemoViewController.cpp 中。
+3D 音效的接入可以参考 [3D 音效文档](https://cloud.tencent.com/document/product/607/18218)。在 Demo 中，首先初始化 3D 音效功能，相关代码在 ExperientialDemoViewController.cpp 中。
 
 ```
 void UExperientialDemoViewController::onCheckSpatializer(bool isChecked) {
@@ -250,7 +246,7 @@ void UBaseViewController::UpdatePosition() {
 
 ```
 
-在 ExperientialDemoViewController.cpp 中打开3D效果。
+在 ExperientialDemoViewController.cpp 中打开3D 效果。
 
 ```
 void UExperientialDemoViewController::onCheckSpatializer(bool isChecked) {
