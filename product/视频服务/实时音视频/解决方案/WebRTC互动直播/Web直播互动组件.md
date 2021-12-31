@@ -1,5 +1,3 @@
-## 概述
-
 本文介绍带 UI 的 Web 端直播互动组件 TUIPusher & TUIPlayer。TUIPusher & TUIPlayer 集成 [实时音视频 TRTC](https://cloud.tencent.com/product/trtc) 、 [即时通信 IM](https://cloud.tencent.com/product/im) 等基础 SDK，为企业直播、电商带货、行业培训、远程教学等多种直播场景提供快速上线 Web 端直播推拉流工具的解决方案。
 
 TUIPusher & TUIPlayer 的优势：
