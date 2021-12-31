@@ -21,18 +21,18 @@
 </tr>
 <tr>
 <th style="font-weight:700;" colspan=2>更轻量的业务场景</th>
-<td>轻量级应用场景，如下：
+<td>轻量级应用场景，典型场景如下：
 <ul style="margin:-3px 0px">
-<li>企业官网、个人展示网站、博客、论坛、资讯、商品展示等各类网站</li>
+<li>企业官网、博客、论坛、资讯、商品展示等各类网站</li>
 <li>通用 Web 应用</li>
 <li>微信小程序、小游戏</li>
-<li>App、H5、公众号</li>
+<li>移动端 App、H5、公众号</li>
 <li>跨境电商店铺管理、独立站搭建</li>
 <li>云盘、图床服务</li>
 <li>云端开发测试环境、学习环境</li>
 </ul>
 </td>
-<td>架构复杂的应用场景，如下：
+<td>架构复杂的应用场景，典型场景如下：
 <ul style="margin:-3px 0px">
 <li>高并发网站</li>
 <li>大型游戏</li>
@@ -46,7 +46,7 @@
 <tr>
 <th style="font-weight:700;" rowspan=2>更优惠的计费模式</th>
 <th style="font-weight:700;">售卖方式</th>
-<td>高性价比套餐式售卖（计算/网络/存储资源优化组合）</td>
+<td>高性价比套餐式售卖，整体更优惠（计算/网络/存储资源优化组合）</td>
 <td>灵活选配计算/存储/网络资源，独立叠加计费</td>
 </tr>
 <tr>
@@ -55,10 +55,10 @@
 <td>固定带宽/流量用量</td>
 </tr>
 <tr>
-<th style="font-weight:700;" rowspan=5>更简化的功能设计</th>
+<th style="font-weight:700;" rowspan=5>更简单的使用体验</th>
 <th style="font-weight:700;">管理控制台</th>
 <td>一站式整合，独立且简化的控制台</td>
-<td>面向全业务，涉及 CVM、VPC、EIP 及安全组等细节较多的控制台</td>
+<td>面向全业务，涉及 CVM、VPC、EIP 及安全组等细节较多</td>
 </tr>
 <tr>
 <th style="font-weight:700;">应用构建</th>

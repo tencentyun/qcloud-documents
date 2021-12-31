@@ -33,7 +33,7 @@
   ![](https://qcloudimg.tencent-cloud.cn/raw/e3886ca6597367aa1b6465a899d4eed9.png)
 :::
 ::: 飞书机器人
-添加钉钉机器人及获取 webhook 可参考 [产品文档](https://www.feishu.cn/hc/zh-CN/articles/360024984973#lineguid-AQqBzn)。
+添加飞书机器人及获取 webhook 可参考 [产品文档](https://www.feishu.cn/hc/zh-CN/articles/360024984973#lineguid-AQqBzn)。
 :::
 </dx-tabs>
 

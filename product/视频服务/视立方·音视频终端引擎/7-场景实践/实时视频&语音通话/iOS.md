@@ -148,7 +148,7 @@ Xcode（11.0及以上的版本）打开源码工程 `TUICalling/Example/TUICalli
 ### 步骤4：初始化并登录组件
 
 1. 调用 `TUICallingManager.sharedInstance()` 进行组件初始化。
-2. 调用 `TUILogin.`init`(sdkAppID)` 进行登录初始化。
+2. 调用 `TUILogin.initWithSdkAppID(SDKAPPID)` 进行登录初始化。
 3. 调用 `TUILogin.login(userId, userSig)` 完成组件的登录，其中几个关键参数的填写请参考下表：
 <table>
 <tr><th>参数名</th><th>作用</th></tr>
@@ -157,23 +157,23 @@ Xcode（11.0及以上的版本）打开源码工程 `TUICalling/Example/TUICalli
 <td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>
 </tr><tr>
 <td>userId</td>
-<td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（_）。 </td>
+<td>	当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（_）。建议结合业务实际账号体系自行设置。 </td>
 </tr><tr>
 <td>userSig</td>
-<td>腾讯云设计的一种安全保护签名，计算方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
+<td>腾讯云设计的一种安全保护签名，计算方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算及使用 UserSig</a>。</td>
 </tr></table>
 
 <dx-codeblock>
 ::: swift
-	 // 组件初始化
-	 TUICallingManager.sharedInstance();
-   // 登录
-	 TUILogin.`init`(sdkAppID)
-   TUILogin.login(userId, userSig) {
-       print("login success")
-   } fail: { code, errorDes in
-       print("login failed, code:\(code), error: \(errorDes ?? "nil")")
-   }
+// 组件初始化
+TUICallingManager.sharedInstance();
+// 登录
+TUILogin.initWithSdkAppID(SDKAPPID)
+TUILogin.login(userId, userSig) {
+	print("login success")
+} fail: { code, errorDes in
+	print("login failed, code:\(code), error: \(errorDes ?? "nil")")
+}
 :::
 </dx-codeblock>
 
@@ -181,7 +181,7 @@ Xcode（11.0及以上的版本）打开源码工程 `TUICalling/Example/TUICalli
 
 ### 步骤5：实现音视频通话
 
-1. 发起方：调用 TUICallingManager 的 `call();` 方法发起通话的请求, 并传入用户 ID数组（userIDs）和通话类型（type），通话类型参数传入`.audio`（音频通话）或者`.video`（视频通话）。如果用户 ID数组（userIDs）只有1个userID时视为单人通话，如果用户 ID数组（userIDs）有多个userID时（>=2）视为多人通话。
+1. 发起方：调用 TUICallingManager 的 `call();` 方法发起通话的请求, 并传入用户 ID数组（userIDs）和通话类型（type），通话类型参数传入`.audio`（音频通话）或者`.video`（视频通话）。如果用户 ID 数组（userIDs）只有1个 userID 时视为单人通话，如果用户 ID 数组（userIDs）有多个 userID 时（>=2）视为多人通话。
 2. 接收方：当接收方处于已登录状态时，会自动启动相应的界面。如果希望接收方在不处于登录状态时也能收到通话请求，请参见 [离线接听](#model.offline)。
 
 <dx-codeblock>

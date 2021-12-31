@@ -144,11 +144,6 @@
 <td >MB </td>
 <td >JVM 初始 NonHeapMem 的数量</td>
 </tr><tr>
-<td >堆内存使用占比 </td>
-<td >MemHeapUsedRate </td>
-<td >% </td>
-<td >JVM 当前已经使用的 HeapMemory 的数量所占 JVM 配置的 HeapMemory 的数量的百分比</td>
-</tr><tr>
 <td rowspan=2>数据输入输出速率 </td>
 <td >InputDataSize.OneMinute.Rate </td>
 <td >GB/min </td>
