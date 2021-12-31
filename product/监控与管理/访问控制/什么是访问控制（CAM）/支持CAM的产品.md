@@ -557,7 +557,7 @@
 | [集团账号管理](https://cloud.tencent.com/document/product/850) | organization | 操作级   | ✓      | -                | -        | -                                                            |
 | [商业流程服务](https://cloud.tencent.com/document/product/1083) | bpaas        | 操作级   | ✓      | -                | ✓        | [访问管理指南](https://cloud.tencent.com/document/product/1083/34888) |
 | 消息订阅                                                     | message      | -        | -      | -                | ✓        | -                                                            |
-| [安全凭证服务](https://cloud.tencent.com/document/product/1312) | sts          | 操作级   | ✓      | -                | -        | -                                                            |
+| [安全凭证服务](https://cloud.tencent.com/document/product/1312) | sts          | 资源级   | ✓      | -                | -        | -                                                            |
 | 腾讯云内测申请                                               | apex         | 服务级   | -      | -                | -        | -                                                            |
 
 ## 监控与运维  
