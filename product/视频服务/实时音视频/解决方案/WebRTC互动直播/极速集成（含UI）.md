@@ -1,12 +1,25 @@
-## 前言
-如果您正在为直播活动寻找一个推拉流的应用，如果您想要办一场讲座且在讲课的同时满足分享 PPT 的需求，如果您想要满足不同延迟度要求的直播场景，如果您需要在直播的过程中和在线观众进行互动，那么腾讯云快速推拉流场景化解决方案就是为解决您的需求而准备。
+## 概述
 
-借鉴市场中推拉流场景的常见解决方案，我们提供了包含 UI 的推拉流解决方案 [TUIPusher](https://github.com/tencentyun/TUILiveRoom/tree/main/Web/TUIPusher) 和 [TUIPlayer](https://github.com/tencentyun/TUILiveRoom/tree/main/Web/TUIPlayer) 供您使用和参考。TUIPusher 及 TUIPlayer 功能演示请观看以下图。同时，为了您更加快速的体验 TUIPusher & TUIPlayer 的功能，我们结合用户管理系统和房间管理系统提供了 [TUIPusher 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html) 及 [TUIPlayer 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html)。
+本文介绍带 UI 的 Web 端直播互动组件 TUIPusher & TUIPlayer。TUIPusher & TUIPlayer 集成 [实时音视频 TRTC](https://cloud.tencent.com/product/trtc) 、 [即时通信 IM](https://cloud.tencent.com/product/im) 等基础 SDK，为企业直播、电商带货、行业培训、远程教学等多种直播场景提供快速上线 Web 端直播推拉流工具的解决方案。
+
+TUIPusher & TUIPlayer 的优势：
++ 贴合直播场景需求，提供了含 UI 的直播场景通用解决方案，覆盖了直播场景常见功能（如设备选择、美颜、直播推流、观众拉流、聊天等），助力业务快速上线；
++ 直接接入腾讯云实时音视频 TRTC、腾讯云即时通信 IM 以及腾讯云超级播放器 TCPlayer 等基础 SDK，方便客户灵活扩展业务功能；
++ Web 端易于用户使用，易于功能迭代的天然优势；
+
+## 快速体验
+
+TUIPusher 及 TUIPlayer 功能演示请看下图。同时，为了方便您快速体验 TUIPusher & TUIPlayer 的功能，我们结合用户管理系统和房间管理系统提供了 [TUIPusher 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html) 及 [TUIPlayer 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html)。（注意：同时体验 TUIPusher 和 TUIPlayer 需要使用两个不同的账号登录。）  
 
 ![TUIPusher演示](https://web.sdk.qcloud.com/component/tuiliveroom/assets/pusher.gif)
 ![TUIPlayer演示](https://web.sdk.qcloud.com/component/tuiliveroom/assets/player.gif)
 
+## 代码下载
 
+Web 端直播互动组件（TUIPusher & TUIPlayer）下载方式请点击：
+
++ [TUIPusher](https://github.com/tencentyun/TUILiveRoom/tree/main/Web/TUIPusher) 
++ [TUIPlayer](https://github.com/tencentyun/TUILiveRoom/tree/main/Web/TUIPlayer)
 ## 功能介绍
 ### TUIPusher 推流组件
 - 支持采集摄像头和麦克风的流并推流
