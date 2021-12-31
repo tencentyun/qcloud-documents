@@ -1,4 +1,4 @@
-﻿### Livy-LivyServer
+### Livy-LivyServer
 <table>
 <tr>
 <th width=20%>标题 </th>
