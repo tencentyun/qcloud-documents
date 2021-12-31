@@ -16,7 +16,7 @@ TDMQ Pulsar 客户端（以下简称 PulsarClient ）是应用程序连接到 TD
 
 当前 TDMQ Pulsar 版对生产/消费者的限制为：
 - 单个 Topic 生产者上限1000个。
-- 单个 Topic 消费者上限500个。
+- 单个 Topic 消费者上限2000个。
 
 
 
