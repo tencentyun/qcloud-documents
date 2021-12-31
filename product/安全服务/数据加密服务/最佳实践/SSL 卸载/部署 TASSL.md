@@ -1,17 +1,166 @@
-## 操作场景
-文本主要介绍 TASSL 引擎包的使用方法。
+按照实际业务需要产生 RSA/SM2/ECC 的证书申请文件并签发证书，测试阶段可以采用自签发证书，正式运行阶段建议从运营 CA 签发合格的服务器证书，也可以对接腾讯云证书服务产品去签发证书。
 
-## 操作步骤
-1. 将 `tasshsm_engine.tgz` 上传至 CVM2 上并解压，下述以解压至 /root/tasshsm_engine 为例。
-![](https://qcloudimg.tencent-cloud.cn/raw/1edfd918f8911e0fefe9f1e528023899.png)
-2. 配置 TASSL 引擎要访问的 EVSM 信息，根据使用的算法选择如下任意一种。
- - 使用 RSA 算法
-编辑 `/root/tasshsm_engine/cfg/tasshsm_rsa_engine.ini` 将其中的 IP 和 PORT，设置为 EVSM 的地址和主机服务端口号。
-![](https://qcloudimg.tencent-cloud.cn/raw/0762663a5ac6cddcd2ee1abdab9c5302.png)
- - 使用国密 SM2 算法
-编辑 `/root/tasshsm_engine/cfg/tasshsm_sm2_engine.ini` 将其中的 IP 和 PORT，设置为 EVSM 的地址和主机服务端口号。
-![](https://qcloudimg.tencent-cloud.cn/raw/0762663a5ac6cddcd2ee1abdab9c5302.png)
- - 使用 ECC 算法
-编辑 `/root/tasshsm_engine/cfg/tasshsm_ecc_engine.ini` 将其中的 IP 和 PORT，设置为 EVSM 的地址和主机服务端口号。
-![](https://qcloudimg.tencent-cloud.cn/raw/0762663a5ac6cddcd2ee1abdab9c5302.png)
+## 签发 RSA 算法的服务端证书（单证）
+### 步骤1：产生证书申请文件
+#### 方式1：通过 EVSM 的管理工具产生
+1. 登录 VsmManager 软件，单击**密钥管理** > **非对称密钥管理** > **生成新密钥**，弹出产生非对称密钥弹窗。
+![](https://qcloudimg.tencent-cloud.cn/raw/fdeba5f3775f76bdf0f2f4d0921061cd.png)
+2. 在产生非对称密钥弹窗中，配置相关参数，单击**产生**，即可生成所需密钥。
+![](https://qcloudimg.tencent-cloud.cn/raw/16a35e1aa572236b3a81d1421d6162fb.png)
+**参数说明：**
+ - 算法标识：RSA。
+ - 密钥模长：2048。
+ - 幂指数 e：65537。
+ - 其他参数：按照实际需求填写。
+3. 在非对称密钥管理弹窗中， 单击**生成 ECC 请求**，配置相关参数单击**确定**。
+![](https://qcloudimg.tencent-cloud.cn/raw/30b74368dc7c0131058119c33cb6d71a.png)
+**参数说明：**
+ - 算法标识：SHA256WITHRSA。
+ - 主题标识：/ 。
+ - 主题：/C=CN/ST=BJ/L=HaiDian/O=Beijing JNTA Technology LTD./OU=BSRC of TASS/CN=rsa_commoname。
+ - 使用内部索引：15。
 
+#### 方式2：通过 tassl 配套脚本产生
+1. 进入 `/root/tasshsm_engine/cert/server/rsa` 目录。
+2. 设置环境变量，输入如下代码。
+``` 
+source ./setting
+```
+3. 产生证书申请文件 S_RSA_HSM.csr，按照如下代码所示，输入相关参数。
+```
+[root@localhost rsa]# ./gen_rsa_csr_with_hsm -r S_RSA_HSM.csr
+请输入DN：/C=CN/ST=BJ/L=HaiDian/O=Beijing 
+JNTA Technology LTD./OU=BSRC of TASS/CN=rsa_commoname/
+请输入密钥模长[1024 - 2048]:2048
+请选择摘要算法:1)SHA1
+               2)SHA224
+               3)SHA256
+               4)SHA384
+               5)SHA512
+请输入:3
+请输入加密机存储私钥的索引号：15
+```
+
+### 步骤2：签发证书
+测试阶段自签发证书：通过 tassl 配套脚本产生，具体如下：
+1. 进入 `/root/tasshsm_engine/cert/server/rsa` 目录。
+2. 设置环境变量，输入如下代码。
+``` 
+ source ./setting
+``` 
+3. 签发 S_RSA_HSM.crt，输入如下代码。
+```
+./sign_cert.sh S_RSA_HSM.csr S_RSA_HSM.crt
+```
+
+
+## 生成国密 SM2 算法的服务端证书（双证）
+### 步骤1：产生证书申请文件
+#### 方式1：通过 EVSM 的管理工具产生
+1. 登录 VsmManager 软件，单击**密钥管理** > **非对称密钥管理** > **生成新密钥**，弹出产生非对称密钥弹窗。
+![](https://qcloudimg.tencent-cloud.cn/raw/fdeba5f3775f76bdf0f2f4d0921061cd.png)
+2. 在产生非对称密钥弹窗中，配置相关参数，单击**产生**，即可生成所需密钥。
+![](https://qcloudimg.tencent-cloud.cn/raw/16a35e1aa572236b3a81d1421d6162fb.png)
+**参数说明：**
+  - 算法标识：SM2。
+ - 密钥模长：1024。
+ - 幂指数 e：65537。
+ - 密钥索引号[1-64]：15。
+ - 其他参数：按照实际需求填写。 
+3. 在非对称密钥管理弹窗中， 单击**生成 ECC 请求**，配置相关参数单击**确定**。
+![](https://qcloudimg.tencent-cloud.cn/raw/30b74368dc7c0131058119c33cb6d71a.png)
+**参数说明：**
+ - 算法标识：SHA256WITHRSA。
+ - 主题标识：/ 。
+ - 主题：/C=CN/ST=BJ/L=HaiDian/O=Beijing JNTA Technology LTD./OU=BSRC of TASS/CN=rsa_commoname。
+ - 使用内部索引：15。
+
+#### 方式2：通过 tassl 配套脚本产生
+1. 进入 `/root/tasshsm_engine/cert/server/sm2` 目录。
+2. 设置环境变量，输入如下代码。
+``` 
+source ./setting
+```
+3. 产生签名证书申请文件 SS_SM2_HSM.csr，按照如下代码所示，输入相关参数。
+```
+[root@localhost rsa]# ./gen_sm2_csr_with_hsm -r SS_SM2_HSM.csr
+请输入DN：/C=CN/ST=BJ/L=HaiDian/O=Beijing 
+JNTA Technology LTD./OU=BSRC of TASS/CN=sm2_commoname/
+请输入加密机存储私钥的索引号：15
+```
+4. 产生加密证书申请文件 SE_SM2_HSM.csr，按照如下代码所示，输入相关参数。
+```
+[root@localhost rsa]# ./gen_sm2_csr_with_hsm -r SE_SM2_HSM.csr
+请输入DN：/C=CN/ST=BJ/L=HaiDian/O=Beijing 
+JNTA Technology LTD./OU=BSRC of TASS/CN=sm2_commoname/
+请输入加密机存储私钥的索引号：16
+```
+
+### 步骤2：签发证书
+测试阶段自签发证书：通过 tassl 配套脚本产生，具体如下：
+1. 进入 `/root/tasshsm_engine/cert/server/sm2` 目录。
+2. 设置环境变量，输入如下代码。
+``` 
+source ./setting
+```
+3. 签发签名证书 SS_SM2_HSM.crt，输入如下代码。
+```
+./sign_cert_s.sh SS_SM2_HSM.csr SS_SM2_HSM.crt
+```
+4. 签发加密证书 SE_SM2_HSM.crt，输入如下代码。
+```
+./sign_cert_e.sh SE_SM2_HSM.csr SE_SM2_HSM.crt
+```
+
+## 生成 ECC 算法的服务端证书
+### 步骤1：产生证书申请文件
+#### 方式1：通过 EVSM 的管理工具产生
+1. 登录 VsmManager 软件，单击**密钥管理** > **非对称密钥管理** > **生成新密钥**，弹出产生非对称密钥弹窗。
+![](https://qcloudimg.tencent-cloud.cn/raw/fdeba5f3775f76bdf0f2f4d0921061cd.png)
+2. 在产生非对称密钥弹窗中，配置相关参数，单击**产生**，即可生成所需密钥。
+![](https://qcloudimg.tencent-cloud.cn/raw/16a35e1aa572236b3a81d1421d6162fb.png)
+**参数说明：**
+  - 算法标识：NID_NISTP256。
+ - 密钥模长：1024。
+ - 幂指数 e：65537。
+ - 密钥索引号[1-64]：17。
+ - 其他参数：按照实际需求填写。 
+3. 在非对称密钥管理弹窗中，选中产生的 ECC 曲线密钥，单击**生成 ECC 请求**，配置相关参数单击**确定**，即可产生 p10请求。
+![](https://qcloudimg.tencent-cloud.cn/raw/44fc1f6bddaba9a59880721d50dbe77f.png)
+**参数说明：**
+ - 算法标识：SHA256WITHRSA。
+ - 主题标识：/ 。
+ - 主题：/C=CN/ST=BJ/L=HaiDian/O=Beijing JNTA Technology LTD./OU=BSRC of TASS/CN=rsa_commoname。
+ - 使用内部索引：15。
+
+#### 方式2：通过 tassl 配套脚本产生
+1. 进入 `/root/tasshsm_engine/cert/server/ecc` 目录。
+2. 设置环境变量，输入如下代码。
+``` 
+source ./setting
+```
+3. 产生证书申请文件 test_ecc.csr，按照如下代码所示，输入相关参数。
+```
+[root@localhost rsa]# ./gen_ecc_csr_with_hsm -r test_ecc.csr
+请输入DN：/C=CNST=BJ/L=HaiDian/O=Beijing 
+JNTA Technology LTD./OU=BSRC of TASS/CN=ecc_commoname/    
+请选择摘要算法:1)SHA1
+               2)SHA224
+               3)SHA256
+               4)SHA384
+               5)SHA512
+请输入:3
+请输入加密卡存储私钥的索引号(0代表不保存，并且输出加密私钥)：17
+```
+
+### 步骤2：签发证书
+测试阶段自签发证书：通过 tassl 配套脚本产生，具体如下：
+1.进入 `/root/tasshsm_engine/cert/server/ecc` 目录。
+2.设置环境变量，输入如下代码。
+``` 
+source ./setting
+```
+3.签发 test_ecc.crt，输入如下代码。
+``` 
+./sign_cert.sh test_ecc.csr test_ecc.crt
+```
