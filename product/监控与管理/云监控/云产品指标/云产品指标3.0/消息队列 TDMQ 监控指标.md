@@ -1,6 +1,6 @@
 ## 命名空间
 
-Namespace=QCE/TDMQ
+Namespace = QCE/TDMQ
 
 ## 监控指标
 
@@ -33,28 +33,28 @@ Namespace=QCE/TDMQ
 | TenantRateIn                 | 租户级别消息生产速率                                         | 条    | tenant                              | 60s、300s、3600s |
 | TenantRateOut                | 租户级别消息消费速率                                         | 条    | tenant                              | 60s、300s、3600s |
 | TenantStorageSize            | 租户级别消息积压大小                                         | B     | tenant                              | 60s、300s、3600s |
-| TenantInEntryCount           | 生产消息entry数量                                            | 条    | tenant                              | 60s、300s、3600s |
-| TenantInEntrySizeLe128       | 生产消息小于等于128B的entry数量                              | 条    | tenant                              | 60s、300s、3600s |
-| TenantInEntrySizeLe1Kb       | 生产消息大小512B_1KB的entry数量                              | 条    | tenant                              | 60s、300s、3600s |
-| TenantInEntrySizeLe2Kb       | 生产消息大小1KB_2KB的entry数量                               | 条    | tenant                              | 60s、300s、3600s |
-| TenantInEntrySizeLe4Kb       | 生产消息大小2KB_4KB的entry数量                               | 条    | tenant                              | 60s、300s、3600s |
-| TenantInEntrySizeLe16Kb      | 生产消息大小1KB_2KB的entry数量                               | 条    | tenant                              | 60s、300s、3600s |
-| TenantInEntrySizeLe1Mb       | 生产消息大小100KB_1MB的entry数量                             | 条    | tenant                              | 60s、300s、3600s |
-| TenantInEntrySizeLe100Kb     | 生产消息大小16KB_100KB的entry数量                            | 条    | tenant                              | 60s、300s、3600s |
-| TenantInEntrySizeLeOverflow  | 生产消息大小1KB_2KB的entry数量                               | 条    | tenant                              | 60s、300s、3600s |
-| TenantInEntrySizeSum         | 生产消息entry总大小                                          | 条    | tenant                              | 60s、300s、3600s |
-| TenantInEntrySizeLe512       | 生产消息大小128B_512B的entry数量                             | 条    | tenant                              | 60s、300s、3600s |
-| TenantOutEntrySizeCount      | 消费消息entry数量                                            | 条    | tenant                              | 60s、300s、3600s |
-| TenantOutEntrySizeLe100Kb    | 消费消息大小16KB_100KB的entry数量                            | 条    | tenant                              | 60s、300s、3600s |
-| TenantOutEntrySizeLe128      | 消费消息小于等于128B的entry数量                              | 条    | tenant                              | 60s、300s、3600s |
-| TenantOutEntrySizeLe1Kb      | 消费消息大小512B_1KB的entry数量                              | 条    | tenant                              | 60s、300s、3600s |
-| TenantOutEntrySizeLe16Kb     | 消费消息大小4KB_16KB的entry数量                              | 条    | tenant                              | 60s、300s、3600s |
-| TenantOutEntrySizeLe1Mb      | 消费消息大小100KB_1MB的entry数量                             | 条    | tenant                              | 60s、300s、3600s |
-| TenantOutEntrySizeLe2Kb      | 消费消息大小1KB_2KB的entry数量                               | 条    | tenant                              | 60s、300s、3600s |
-| TenantOutEntrySizeLe4Kb      | 消费消息大小2KB_4KB的entry数量                               | 条    | tenant                              | 60s、300s、3600s |
-| TenantOutEntrySizeLe512      | 消费消息大小128B_512B的entry数量                             | 条    | tenant                              | 60s、300s、3600s |
-| TenantOutEntrySizeLeOverflow | 消费消息大于1MB的entry数量                                   | 条    | tenant                              | 60s、300s、3600s |
-| TenantOutEntrySizeSum        | 消费消息entry总大小                                          | 条    | tenant                              | 60s、300s、3600s |
+| TenantIn entry Count           | 生产消息 entry 数量                                            | 条    | tenant                              | 60s、300s、3600s |
+| TenantIn entry SizeLe128       | 生产消息小于等于128B的 entry 数量                              | 条    | tenant                              | 60s、300s、3600s |
+| TenantIn entry SizeLe1Kb       | 生产消息大小512B_1KB的 entry 数量                              | 条    | tenant                              | 60s、300s、3600s |
+| TenantIn entry SizeLe2Kb       | 生产消息大小1KB_2KB的 entry 数量                               | 条    | tenant                              | 60s、300s、3600s |
+| TenantIn entry SizeLe4Kb       | 生产消息大小2KB_4KB的 entry 数量                               | 条    | tenant                              | 60s、300s、3600s |
+| TenantIn entry SizeLe16Kb      | 生产消息大小1KB_2KB的 entry 数量                               | 条    | tenant                              | 60s、300s、3600s |
+| TenantIn entry SizeLe1Mb       | 生产消息大小100KB_1MB的 entry 数量                             | 条    | tenant                              | 60s、300s、3600s |
+| TenantIn entry SizeLe100Kb     | 生产消息大小16KB_100KB的 entry 数量                            | 条    | tenant                              | 60s、300s、3600s |
+| TenantIn entry SizeLeOverflow  | 生产消息大小1KB_2KB的 entry 数量                               | 条    | tenant                              | 60s、300s、3600s |
+| TenantIn entry SizeSum         | 生产消息 entry 总大小                                          | 条    | tenant                              | 60s、300s、3600s |
+| TenantIn entry SizeLe512       | 生产消息大小128B_512B的 entry 数量                             | 条    | tenant                              | 60s、300s、3600s |
+| TenantOut entry SizeCount      | 消费消息 entry 数量                                            | 条    | tenant                              | 60s、300s、3600s |
+| TenantOut entry SizeLe100Kb    | 消费消息大小16KB_100KB的 entry 数量                            | 条    | tenant                              | 60s、300s、3600s |
+| TenantOut entry SizeLe128      | 消费消息小于等于128B的 entry 数量                              | 条    | tenant                              | 60s、300s、3600s |
+| TenantOut entry SizeLe1Kb      | 消费消息大小512B_1KB的 entry 数量                              | 条    | tenant                              | 60s、300s、3600s |
+| TenantOut entry SizeLe16Kb     | 消费消息大小4KB_16KB的 entry 数量                              | 条    | tenant                              | 60s、300s、3600s |
+| TenantOut entry SizeLe1Mb      | 消费消息大小100KB_1MB的 entry 数量                             | 条    | tenant                              | 60s、300s、3600s |
+| TenantOut entry SizeLe2Kb      | 消费消息大小1KB_2KB的 entry 数量                               | 条    | tenant                              | 60s、300s、3600s |
+| TenantOut entry SizeLe4Kb      | 消费消息大小2KB_4KB的 entry 数量                               | 条    | tenant                              | 60s、300s、3600s |
+| TenantOut entry SizeLe512      | 消费消息大小128B_512B的 entry 数量                             | 条    | tenant                              | 60s、300s、3600s |
+| TenantOut entry SizeLeOverflow | 消费消息大于1MB的 entry 数量                                   | 条    | tenant                              | 60s、300s、3600s |
+| TenantOut entry SizeSum        | 消费消息 entry 总大小                                          | 条    | tenant                              | 60s、300s、3600s |
 
 ### TDMQ RocketMQ 版
 
@@ -81,7 +81,7 @@ Namespace=QCE/TDMQ
 | MsgAverageSize        | 生产消息平均大小                                             | B     | tenantId、topicName | 60s、300s、3600s |
 | MsgRateIn             | 消息生产速率                                                 | 条/秒 | tenantId、topicName | 60s、300s、3600s |
 | MsgThroughputIn       | 消息生产流量                                                 | B/S   | tenantId、topicName | 60s、300s、3600s |
-| InMessagesTotal       | 当前Topic生产消息总数，该指标在发生服务端重启或者切换时会归零 | 条    | tenantId、topicName | 60s、300s、3600s |
+| InMessagesTotal       | 当前 Topic 生产消息总数，该指标在发生服务端重启或者切换时会归零 | 条    | tenantId、topicName | 60s、300s、3600s |
 | StorageSize           | 积压消息大小                                                 | B     | tenantId、topicName | 60s、300s、3600s |
 | TenantInMessagesTotal | 虚拟集群入消息总数                                           | 条    | tenant              | 60s、300s、3600s |
 | TenantMsgAverageSize  | 租户级别消息平均大小                                         | B     | tenant              | 60s、300s、3600s |
@@ -116,29 +116,30 @@ Namespace=QCE/TDMQ
 **查询消息队列监控数据，入参取值如下：**
 
 指标类型一：
-&Namespace=QCE/TDMQ 
-&Instances.N.Dimensions.0.Name=tenantId 
-&Instances.N.Dimensions.0.Value=具体集群 ID 
-&Instances.N.Dimensions.1.Name=topicName 
-&Instances.N.Dimensions.1.Value=具体主题名称
+&Namespace = QCE/TDMQ 
+&Instances.N.Dimensions.0.Name = tenantId 
+&Instances.N.Dimensions.0.Value = 具体集群 ID 
+&Instances.N.Dimensions.1.Name = topicName 
+&Instances.N.Dimensions.1.Value = 具体主题名称
 
 指标类型二： 
-&Namespace=QCE/TDMQ 
-&Instances.N.Dimensions.0.Name=environmentId
-&Instances.N.Dimensions.0.Value=具体环境名称
-&Instances.N.Dimensions.1.Name=tenantId 
-&Instances.N.Dimensions.1.Value=具体集群 ID 
-&Instances.N.Dimensions.2.Name=topicName 
-&Instances.N.Dimensions.2.Value=具体主题名称
+&Namespace = QCE/TDMQ 
+&Instances.N.Dimensions.0.Name = environmentId
+&Instances.N.Dimensions.0.Value = 具体环境名称
+&Instances.N.Dimensions.1.Name = tenantId 
+&Instances.N.Dimensions.1.Value = 具体集群 ID 
+&Instances.N.Dimensions.2.Name = topicName 
+&Instances.N.Dimensions.2.Value = 具体主题名称
 
 指标类型三： 
-&Namespace=QCE/TDMQ
-&Instances.N.Dimensions.0.Name=namespace 
-&Instances.N.Dimensions.0.Value=具体主题名称 
-&Instances.N.Dimensions.1.Name=tenant 
-&Instances.N.Dimensions.1.Value=具体集群 ID
+&Namespace = QCE/TDMQ
+&Instances.N.Dimensions.0.Name = namespace 
+&Instances.N.Dimensions.0.Value = 具体主题名称 
+&Instances.N.Dimensions.1.Name = tenant 
+&Instances.N.Dimensions.1.Value = 具体集群 ID
 
 指标类型四：
-&Namespace=QCE/TDMQ 
-&Instances.N.Dimensions.0.Name=tenant 
-&Instances.N.Dimensions.0.Value=具体集群 ID
+&Namespace = QCE/TDMQ 
+&Instances.N.Dimensions.0.Name = tenant 
+&Instances.N.Dimensions.0.Value = 具体集群 ID
+
