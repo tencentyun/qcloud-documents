@@ -12,11 +12,11 @@
 - 新增初始化参数  
   globalBackgroundPic
 - 调整接口  
-  1. addElement 新增添加文本元素TEDU_BOARD_ELEMENT_TEXT  
+  1. addElement 新增添加文本元素 TEDU_BOARD_ELEMENT_TEXT  
 - 新增事件  
   1. onTEBScrollChanged 白板移动回调  
 - 调整事件  
-  1. onTEBSelectElement ElementItem新增boundingbox属性  
+  1. onTEBSelectElement ElementItem 新增 boundingbox 属性  
  
 
 ### 2.6.7.139 @ 2021.11.17

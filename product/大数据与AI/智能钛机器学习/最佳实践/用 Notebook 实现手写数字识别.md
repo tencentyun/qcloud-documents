@@ -1,14 +1,14 @@
 ## 案例背景
 手写数字识别是图像识别领域基本任务之一，旨在通过机器学习或深度学习算法将每张手写数字图片分类到0 - 9的数字标签中。在海量的手写数字图像数据集中，MNIST 数据集被学术界、工业界广泛研究。
 
-本文通过智能钛机器学习平台提供的 Notebook，利用 TensorFlow 框架构建一个简单的神经网络来实现 MNIST 手写数字识别。通过本文的学习，您可了解到如何通过智能钛机器学习平台实现您自己的代码。
+本文通过腾讯云 TI 平台 TI-ONE 提供的 Notebook，利用 TensorFlow 框架构建一个简单的神经网络来实现 MNIST 手写数字识别。通过本文的学习，您可了解到如何通过 TI-ONE 实现您自己的代码。
 
 ## 数据集介绍
 用户可从 [MNIST 官网](http://yann.lecun.com/exdb/mnist/) 下载 MNIST 数据集，该数据集由来自250个不同人手写的数字构成，共包含60,000个训练数据，10,000个测试数据，每个数据都是一张28px * 28px大小的灰度图像，该图像空白像素标记为0，有笔迹的地方用0 - 1之间的数值标记笔迹颜色的深浅。手写数字图像示例如下：
 ![](https://main.qcloudimg.com/raw/426361bfc93a89a622b17d4d5d491cb1/1568170022438.png)
 
 ## 整体流程
-在智能钛机器学习平台提供的 Notebook 中完成手写数字识别的任务，我们需要完成以下几个步骤：
+在腾讯云 TI 平台 TI-ONE 提供的 Notebook 中完成手写数字识别的任务，我们需要完成以下几个步骤：
 1. 新建 Notebook 实例
 2. 在 Notebook 中，创建 MNIST 手写数字识别项目
    - 创建 Python 文件
@@ -22,7 +22,7 @@
 
 ## 详细流程
 #### 新建 Notebook 实例
-1. 登录 [智能钛机器学习平台控制台](https://console.cloud.tencent.com/tione/project/list) 后，单击菜单栏的【Notebook】，页面跳转至 Notebook 实例列表页面。新增实例，配置参数（以下以广州地域为例说明）：
+1. 登录 [腾讯云 TI 平台 TI-ONE 控制台](https://console.cloud.tencent.com/tione/project/list) 后，单击菜单栏的【Notebook】，页面跳转至 Notebook 实例列表页面。新增实例，配置参数（以下以广州地域为例说明）：
    - 地区：广州
    - Notebook名称：mnist
    - 资源选择：您可按需选择

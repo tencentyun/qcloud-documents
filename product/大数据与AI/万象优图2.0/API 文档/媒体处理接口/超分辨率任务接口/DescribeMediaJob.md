@@ -91,7 +91,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     <StartTime></StartTime>
     <EndTime></EndTime>
     <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
-    <Tag>SuperResolution<Tag>
+    <Tag>SuperResolution</Tag>
     <Input>
       <Object>test.mp4</Object>
     </Input>

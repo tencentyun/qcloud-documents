@@ -73,7 +73,8 @@ iOS、Android 上的应用可以通过集成移动直播 SDK 来实现 App 端�
 WebRTC 协议推流主要用于视频云的快直播（超低延迟直播）推流，负责将采集的音视频画面或者视频文件通过 WebRTC 协议推送到直播服务器。下述内容主要介绍如何使用 OBS 工具，实现 webRTC 协议推流功能。
 
 ### 注意事项
-目前对 OBS 的版本要求在26版本或版本以上。
+- 目前对 OBS 的版本要求在26版本或版本以上。
+- WebRTC 协议推流目前针对 OBS 只有 Windows 端的插件，想要实现在 mac 上进行 WebRTC 推流，可以使用 [Web接入](https://cloud.tencent.com/document/product/267/59017#web-.E6.8E.A5.E5.85.A5)。
 
 [](id:set)
 ### 配置 OBS 插件

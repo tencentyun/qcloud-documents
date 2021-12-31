@@ -34,7 +34,7 @@ COSClient createCOSClient() {
 
     // 设置 bucket 的地域
     // COS_REGION 请参照 https://cloud.tencent.com/document/product/436/6224
-    clientConfig.setRegion = new Region("COS_REGION");
+    clientConfig.setRegion(new Region("COS_REGION"));
 
     // 设置请求协议, http 或者 https
     // 5.6.53 及更低的版本，建议设置使用 https 协议
@@ -50,7 +50,7 @@ COSClient createCOSClient() {
 
     // 如果需要的话，设置 http 代理，ip 以及 port
     clientConfig.setHttpProxyIp("httpProxyIp");
-    clientConfig.setHttpProxyPort("httpProxyPort");
+    clientConfig.setHttpProxyPort(80);
 
     // 生成 cos 客户端。
     return new COSClient(cred, clientConfig);
@@ -79,7 +79,7 @@ COSClient createCOSClient() {
 
     // 设置 bucket 的地域
     // COS_REGION 请参照 https://cloud.tencent.com/document/product/436/6224
-    clientConfig.setRegion = new Region("COS_REGION");
+    clientConfig.setRegion(new Region("COS_REGION"));
 
     // 设置请求协议, http 或者 https
     // 5.6.53 及更低的版本，建议设置使用 https 协议
@@ -95,7 +95,7 @@ COSClient createCOSClient() {
 
     // 如果需要的话，设置 http 代理，ip 以及 port
     clientConfig.setHttpProxyIp("httpProxyIp");
-    clientConfig.setHttpProxyPort("httpProxyPort");
+    clientConfig.setHttpProxyPort(80);
 
     // 生成 cos 客户端。
     return new COSClient(cred, clientConfig);
@@ -137,9 +137,7 @@ headers.put("header1", "value1");
 // 请求的 HTTP 方法，上传请求用 PUT，下载请求用 GET，删除请求用 DELETE
 HttpMethodName method = HttpMethodName.GET;
 
-cosClient.generatePresignedUrl(bucketName, key, expirationDate, method, headers, params)
-
-URL url = cosclient.generatePresignedUrl(req);
+URL url = cosClient.generatePresignedUrl(bucketName, key, expirationDate, method, headers, params);
 System.out.println(url.toString());
 
 // 确认本进程不再使用 cosClient 实例之后，关闭之
@@ -154,8 +152,8 @@ cosClient.shutdown();
 | bucketName      | 存储桶名称，存储桶的命名格式为 BucketName-APPID，详情请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | String | 是 |
 | key             | 对象键（Key）是对象在存储桶中的唯一标识，详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324#.E5.AF.B9.E8.B1.A1.E9.94.AE) | String                  |  是 |
 | expiration      | 签名过期的时间，可以设置任意一个未来的时间，不设置则默认是1小时之后过期              | Date                    |  否 |
-| headers         | 签名头部   | Map<String, String> | 否 |
-| params         | 签名参数   | Map<String, String> | 否 |
+| headers         | 签名头部   | Map&lt;String, String> | 否 |
+| params         | 签名参数   | Map&lt;String, String> | 否 |
 | signPrefixMode | 是否以 sign 参数指定签名（不推荐），默认 false | boolean | 否 |
 | signHost  | 是否签入 Host 头部（推荐），默认 true |  boolean | 否 |
 
@@ -236,7 +234,7 @@ Request 成员说明：
 | contentType     | set 方法            | 要签名的请求中的 Content-Type                                | String                  |
 | contentMd5      | set 方法            | 要签名的请求中的 Content-Md5                                 | String                  |
 | responseHeaders | set 方法            | 签名的下载请求中要覆盖的返回的 HTTP 头                       | ResponseHeaderOverrides |
-| versionId | set 方法            | 在存储桶开启多版本的时候，指定对象的版本号                       | String |
+| versionId | set 方法            | 在存储桶开启版本控制的时候，指定对象的版本号                       | String |
 
 ### 生成签名
 

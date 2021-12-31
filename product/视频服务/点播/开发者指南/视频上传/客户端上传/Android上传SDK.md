@@ -2,7 +2,7 @@
 
 ## 源码下载
 
-1. [单击下载](https://ugcupload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_Android.zip) Android 上传 Demo 及源码。
+1. [单击下载](https://liteav.sdk.qcloud.com/download/ugc/LiteAVSDK_UGC_Upload_Android.zip) Android 上传 Demo 及源码。
 2. 将下载好的压缩包解压，可以看到 Demo 目录，上传源码在`Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload`目录下。
 
 ##  集成上传库和源码

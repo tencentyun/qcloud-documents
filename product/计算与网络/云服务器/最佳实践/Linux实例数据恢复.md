@@ -8,15 +8,19 @@
 
 
 ## 操作步骤
->!在执行操作步骤前，请参考 [创建快照](https://cloud.tencent.com/document/product/362/5755) 及 [创建自定义镜像](https://cloud.tencent.com/document/product/213/4942) 进行数据备份，以确保出现问题时可恢复至初始状态。
->
+
+
+<dx-alert infotype="notice" title="">
+在执行操作步骤前，请参考 [创建快照](https://cloud.tencent.com/document/product/362/5755) 及 [创建自定义镜像](https://cloud.tencent.com/document/product/213/4942) 进行数据备份，以确保出现问题时可恢复至初始状态。
+</dx-alert>
+
 
 ### 安装 Extundelete
 1. 执行以下命令，安装 Extundelete 所需依赖及库。
->!
->- Extundelete 需 libext2fs 1.39或更高版本。
->- 如需支持 ext4 格式，请确保安装 e1fsprogs 1.41或更高版本。可执行 `dumpe2fs` 命令查看版本。 
->
+<dx-alert infotype="notice" title="">
+- Extundelete 需 libext2fs 1.39或更高版本。
+- 如需支持 ext4 格式，请确保安装 e1fsprogs 1.41或更高版本。可执行 `dumpe2fs` 命令查看版本。 
+</dx-alert>
 ```
 yum -y install  bzip2  e2fsprogs-devel  e2fsprogs  gcc-c++  make
 ```

@@ -2,7 +2,7 @@
 如果需要将域名指向另一个域名，再由另一个域名提供 IP 地址，则需要添加 CNAME 记录。本文档指导您如何添加 CNAME 记录。
 
 ## 前提条件
-已创建对应的私有域。
+已创建对应的私有域。详情请查看 [创建私有域](https://cloud.tencent.com/document/product/1338/50532)。
 
 ## 操作步骤
 1. 登录私有域解析 [Private DNS 管理控制台](https://console.cloud.tencent.com/privatedns)，并单击左侧导航栏的**私有域列表**，即可进入私有域列表。
@@ -19,9 +19,7 @@
  - **MX 优先级**：不需要填写。
  -  **TTL**：为缓存时间，数值越小，修改记录生效时间越快，默认设置为300，支持自定义1 - 86400区间的整数。
 4. 单击**保存**，完成添加。
->?
->- 相同主机记录的 CNAME 记录类型只能添加一条，且不能与其他任何记录共存。
->- 操作过程中如果出现问题，请您 [联系我们](https://cloud.tencent.com/act/event/connect-service)。
+>? 操作过程中如果出现问题，请您 [联系我们](https://cloud.tencent.com/act/event/connect-service)。
 
 
 

@@ -19,17 +19,22 @@
 根据操作系统版本按需选择 **Docker基础镜像**。
 
 #### 容器配置[](id:containerConfiguration)
->?您可在创建实例时添加容器，实例创建成功后将自动按照配置创建 Docker 容器（相当于 `docker run`）。若您仅需在实例创建成功后再创建容器，请参考 [已有实例创建容器](#createAfterExisting)。
->
+
+
+<dx-alert infotype="explain" title="">
+您可在创建实例时添加容器，实例创建成功后将自动按照配置创建 Docker 容器（相当于 `docker run`）。若您仅需在实例创建成功后再创建容器，请参考 [已有实例创建容器](#createAfterExisting)。
+</dx-alert>
+
+
 1. 单击**添加容器**后，参考以下信息进行配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/3d0c21bef9a032c9afb0be19c59cd2b9.png)
  - **容器名称**：自定义容器名称，不填写则默认使用 Docker 分配的随机名称。
  - **Docker镜像**：
     - **镜像仓库地址**：单击**选择镜像**，在弹出的“选择镜像”窗口中，选择所需镜像仓库地址。
->!
->- 仅支持选择 [腾讯云容器镜像服务（TCR）个人版](https://console.cloud.tencent.com/tke2/registry/user?rid=1) 中的“我的镜像（公有类型）”。
->- 建议选择与当前轻量应用服务器实例处于相同地域的镜像仓库，访问不同地域的镜像仓库将消耗公网流量，并受到公网网络出入带宽的影响。
->
+<dx-alert infotype="notice" title="">
+- 仅支持选择 [腾讯云容器镜像服务（TCR）个人版](https://console.cloud.tencent.com/tke2/registry/user?rid=1) 中的“我的镜像（公有类型）”。
+- 建议选择与当前轻量应用服务器实例处于相同地域的镜像仓库，访问不同地域的镜像仓库将消耗公网流量，并受到公网网络出入带宽的影响。
+</dx-alert>
       - **镜像版本**：单击**选择版本**，在弹出的“选择镜像版本”窗口中，选择所需镜像版本，不选则默认使用 `latest` 版本。
  - **启动命令**：可输入输入启动命令（Command）和参数（Arg），例如 `/run.sh`。
 2. 单击**高级设置**后，参考以下信息配置容器端口、环境变量及挂载存储卷设置。如下图所示：
@@ -42,8 +47,13 @@
    相当于 `docker run` 命令中的 `-v` 参数。您可将轻量应用服务器操作系统中的目录挂载至 Docker 容器中的目录，以实现容器内数据的持久化存储。若您输入的服务器目录当前在操作系统中并不存在，则将自动为您在服务器操作系统中创建该目录。
 :::
 ::: 已有实例创建容器[](id:createAfterExisting)
->?使用 Docker 基础镜像创建的实例，可通过控制台直接创建容器。若您的实例未使用 Docker 镜像，可通过 [重置应用](https://cloud.tencent.com/document/product/1207/44576) 进行重置。
->
+
+
+<dx-alert infotype="explain" title="">
+使用 Docker 基础镜像创建的实例，可通过控制台直接创建容器。若您的实例未使用 Docker 镜像，可通过 [重装系统](https://cloud.tencent.com/document/product/1207/44576) 进行重装。
+</dx-alert>
+
+
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)，选择实例。
 2. 在实例详情页中，选择**容器管理**页签，并单击**新建容器**。如下图所示：
 ![](https://main.qcloudimg.com/raw/4f26a9d6aad1ad928a880ac9d6c8c2a9.png)
@@ -52,10 +62,16 @@
 :::
 </dx-tabs>
 
+
 ### 重建容器
 您可通过控制台重建容器，相当于删除容器后再使用新配置重新创建容器。重建容器支持重新设置容器的启动命令、绑定端口、环境变量和挂载存储卷。
->!重建容器操作将会导致容器内的非持久化数据丢失，以及一段时间的对外服务中断。
->
+
+
+<dx-alert infotype="explain" title="">
+重建容器操作将会导致容器内的非持久化数据丢失，以及一段时间的对外服务中断。
+</dx-alert>
+
+
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)，选择实例。
 2. 在实例详情页中，选择**容器管理**页签。
 3. 选择需重建容器所在行右侧的**更多** > **重建**。如下图所示：
