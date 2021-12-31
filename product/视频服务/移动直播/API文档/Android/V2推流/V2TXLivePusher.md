@@ -138,70 +138,18 @@ public abstract int isPushing();
 - 1：正在推流中。
 - 0：已经停止推流。
 
-### startScreenCapture
-开启屏幕采集。
-```
-public abstract int startScreenCapture();
-```
-#### 返回
-
-返回值 V2TXLiveCode：
-- V2TXLIVE_OK：成功。
-
-***
-
-### stopScreenCapture
-关闭屏幕采集。
-```
-public abstract int stopScreenCapture();
-```
-#### 返回
-
-返回值 V2TXLiveCode：
-- V2TXLIVE_OK：成功。
-
-***
 
 ## 视频相关接口
 ### setVideoQuality
-设置推流视频分辨率，以及宽高比模式（横屏 / 竖屏）。
+设置推流视频编码参数。
 ```
-public abstract int setVideoQuality(V2TXLiveVideoResolution resolution, V2TXLiveVideoResolutionMode resolutionMode);
+public abstract int setVideoQuality(V2TXLiveVideoEncoderParam param);
 ```
 #### 参数
 
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| resolution | [V2TXLiveVideoResolution](#V2TXLiveVideoResolution) | 视频分辨率。 |
-| resolutionMode | [V2TXLiveVideoResolutionMode](#V2TXLiveVideoResolutionMode) | 视频宽高比模式（横屏或者竖屏模式）。 |
-
-[](id:V2TXLiveVideoResolution)
-
-#### V2TXLiveVideoResolution 枚举值
-
-| 取值 | 含义 |
-|---------|---------|
-| V2TXLiveVideoResolution160x160 | 分辨率 160*160，码率范围：100Kbps ~ 150Kbps，帧率: 15fps。 |
-| V2TXLiveVideoResolution270x270 | 分辨率 270*270，码率范围：200Kbps ~ 300Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution480x480 | 分辨率 480*480，码率范围：350Kbps ~ 525Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution320x240 | 分辨率 320*240，码率范围：250Kbps ~ 375Kbps，帧率：15fps。|
-| V2TXLiveVideoResolution480x360 | 分辨率 480*360，码率范围：400Kbps ~ 600Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution640x480 | 分辨率 640*480，码率范围：600Kbps ~ 900Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution320x180 | 分辨率 320*180，码率范围：250Kbps ~ 400Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution480x270 | 分辨率 480*270，码率范围：350Kbps ~ 550Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution640x360 | 分辨率 640*360，码率范围：500Kbps ~ 900Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution960x540 | 分辨率 960*540，码率范围：800Kbps ~ 1500Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution1280x720 |  分辨率 1280*720，码率范围：1000Kbps ~ 1800Kbps，帧率：15fps。 |
-| V2TXLiveVideoResolution1920x1080 | 分辨率 1920*1080，码率范围：2500Kbps ~ 3000Kbps，帧率：15fps。 |
-
-[](id:V2TXLiveVideoResolutionMode)
-
-#### V2TXLiveVideoResolutionMode 枚举值
-
-| 取值 | 含义 |
-|---------|---------|
-| V2TXLiveVideoResolutionModeLandscape | 横屏模式下的分辨率：V2TXLiveVideoResolution640_360 + V2TXLiveVideoResolutionModeLandscape = 640x360 |
-| V2TXLiveVideoResolutionModePortrait | 竖屏模式下的分辨率：V2TXLiveVideoResolution640_360 + V2TXLiveVideoResolutionModePortrait = 360x640 |
+| 参数  | 类型     | 含义           |
+| ---- | ---- | ---- |
+| param | [V2TXLiveVideoEncoderParam](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveDef__android.html#classcom_1_1tencent_1_1live2_1_1V2TXLiveDef_1_1V2TXLiveVideoEncoderParam) | 视频编码参数。 |
 
 ***
 
@@ -267,6 +215,9 @@ public abstract int setRenderMirror(V2TXLiveMirrorType mirrorType);
 ### startCamera
 
 打开本地摄像头。
+
+>? startVirtualCamera、startCamera 和 startScreenCapture 同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流。
+
 ```
 public abstract int startCamera(boolean frontCamera);
 ```
@@ -292,6 +243,64 @@ public abstract int stopCamera();
 - V2TXLIVE_OK：成功。
 
 ***
+### startVirtualCamera
+
+开启图片推流。
+
+>? startVirtualCamera、startCamera 和 startScreenCapture 同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流。
+
+```
+public abstract int startVirtualCamera(Bitmap image);
+```
+
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+
+### stopVirtualCamera
+
+关闭图片推流。
+
+```
+public abstract int stopVirtualCamera();
+```
+
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+
+### startScreenCapture
+开启屏幕采集。
+
+>? startVirtualCamera、startCamera 和 startScreenCapture 同一 Pusher 实例下，仅有一个能上行，三者为覆盖关系。例如先调用 startCamera，后调用 startVirtualCamera。此时表现为暂停摄像头推流，开启图片推流。
+
+```
+public abstract int startScreenCapture();
+```
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
+
+### stopScreenCapture
+关闭屏幕采集。
+```
+public abstract int stopScreenCapture();
+```
+#### 返回
+
+返回值 V2TXLiveCode：
+- V2TXLIVE_OK：成功。
+
+***
 
 ### snapshot
 
@@ -310,6 +319,7 @@ public abstract int snapshot();
 - V2TXLIVE_ERROR_REFUSED：已经停止推流，不允许调用截图操作。
 
 ***
+
 
 ### setWatermark
 设置推流器水印。默认情况下，水印不开启。
@@ -366,12 +376,13 @@ public abstract int sendCustomVideoFrame(V2TXLiveVideoFrame videoFrame);
 |-----|-----|-----|
 | videoFrame | V2TXLiveVideoFrame | 向 SDK 发送的 视频帧数据。 |
 
-
 #### 返回
 返回值 V2TXLiveCode：
 - V2TXLIVE_OK：成功。
 - V2TXLIVE_ERROR_INVALID_PARAMETER：发送失败，视频帧数据不合法。
 - V2TXLIVE_ERROR_REFUSED：发送失败，您必须先调用 enableCustomVideoCapture 开启自定义视频采集。
+
+***
 
 ### enableCustomVideoProcess
 开启/关闭自定义视频处理。
@@ -402,6 +413,23 @@ public abstract int enableCustomVideoProcess(boolean enable, V2TXLivePixelFormat
 | V2TXLiveBufferTypeByteBuffer|  DirectBuffer，装载 I420 等 buffer，在 native 层使用。 |
 |  V2TXLiveBufferTypeByteArray|  byte[]，装载 I420 等 buffer，在 Java 层使用。 |
 |  V2TXLiveBufferTypeTexture| 直接操作纹理 ID，性能最好，画质损失最少。 |
+
+***
+
+### sendSeiMessage
+发送 SEI 消息。播放端 [V2TXLivePlayer](https://liteav.sdk.qcloud.com/doc/api/zh-cn/interfaceV2TXLivePlayer.html) 通过 [V2TXLivePlayerObserver](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#protocolV2TXLivePlayerObserver-p) 中的 `onReceiveSeiMessage` 回调来接收该消息。
+```
+public abstract int sendSeiMessage(int payloadType, byte[] data);
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| payloadType | int | 数据类型，支持 5、242。推荐填：242 |
+| data | byte[]  | 待发送的数据 | 
+
+ #### 返回
+ 返回值 V2TXLiveCode：
+ - V2TXLIVE_OK：成功。
 
 ***
 
@@ -478,6 +506,7 @@ public abstract int setAudioQuality(V2TXLiveAudioQuality quality);
 
 启用采集音量大小提示。
 >? 开启后可以在 `V2TXLivePusherObserver#onMicrophoneVolumeUpdate(int)` 回调中获取到 SDK 对音量大小值的评估。
+
 ```
 public abstract int enableVolumeEvaluation(int intervalMs);
 ```

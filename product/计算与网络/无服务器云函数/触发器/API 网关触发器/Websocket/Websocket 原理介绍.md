@@ -1,3 +1,5 @@
+>?本文介绍**事件函数**支持 WebSocket 的解决方案，目前 **Web 函数**已经支持原生 WebSocket 协议，详情请参见 [WebSocket 协议支持](https://cloud.tencent.com/document/product/583/63406)。
+
 ## 实现原理
 
 WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览器与服务器全双工（full-duplex）通信，即允许服务器主动发送信息给客户端。WebSocket 在服务端有数据推送需求时，可以主动发送数据至客户端。而原有 HTTP 协议的服务端对于需推送的数据，仅能通过轮询或 long poll 的方式来让客户端获得。
@@ -83,7 +85,8 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 </tr>
 </table>
 
- >! 在 API 网关迭代过程中，requestContext 中的内容可能会大量增加。目前只保证数据结构内容仅增加，不删除，且不对已有结构进行破坏。
+>! 在 API 网关迭代过程中，requestContext 中的内容可能会大量增加。目前只保证数据结构内容仅增加，不删除，且不对已有结构进行破坏。
+
 2. 当注册函数收到连接建立的请求后，需要在函数处理结束时，将是否同意建立连接的响应消息返回至 API 网关中。响应  Body 要求为 JSON 格式，其示例如下：
 <dx-codeblock>
 :::  json

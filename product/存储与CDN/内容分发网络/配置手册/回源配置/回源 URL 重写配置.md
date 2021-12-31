@@ -40,4 +40,4 @@
 如上配置，则实际回源情况如下：
 - 回源请求 `www.test.com/images/2.jpg`，命中第2、3、4条规则，则底部优先级最大，实际回源请求为 `www.test.com/index.html`。
 - 回源请求 `www.test.com/images`，命中第3条规则，则实际回源请求为 `www.test.com/goodboy.html`。
-- 回源请求 `www.test.com/images/1.jpg`，为全路径匹配，则命中第1条规则，则实际回源请求为 `www.test.com/index2.html`。
+- 回源请求 `www.test.com/images/1.jpg`，命中第1、2、3、4条规则，底部优先级最大，实际回源请求为 `www.test.com/index.html`。

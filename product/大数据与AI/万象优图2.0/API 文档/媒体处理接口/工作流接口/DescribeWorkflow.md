@@ -57,7 +57,7 @@ Content-Type: application/xml
         <State></State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554,SCF_1581665960566,SuperResolution_1581665960583,Segment_1581665960667</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -65,6 +65,11 @@ Content-Type: application/xml
                 <SmartCover_1581665960539>End</SmartCover_1581665960539>
                 <VoiceSeparate_1581665960551>End</VoiceSeparate_1581665960551>
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
+                <SCF_1581665960566>End</SCF_1581665960566>
+                <SuperResolution_1581665960583>End</SuperResolution_1581665960583>
+                <Segment_1581665960667>End</Segment_1581665960667>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -72,6 +77,18 @@ Content-Type: application/xml
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <SmartCover_1581665960539>
@@ -82,6 +99,13 @@ Content-Type: application/xml
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/cover-${Number}.jpg</Object>
                         </Output>
+                        <SmartCover>
+                            <Format>png</Format>
+                            <Width>128</Width>
+                            <Height>128</Height>
+                            <Count>3</Count>
+                            <DeleteDuplicates>false</DeleteDuplicates>
+                        </SmartCover> 
                     </Operation>
                 </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
@@ -92,6 +116,7 @@ Content-Type: application/xml
                             <Region></Region>
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/snapshot-${number}.${Ext}</Object>
+                            <SpriteObject>abc/${RunId}/snapshot-${number}.jpg</SpriteObject>
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
@@ -102,7 +127,7 @@ Content-Type: application/xml
                         <Output>
                             <Region></Region>
                             <Bucket></Bucket>
-                            <Object>bcd/${RunId}/trans-${number}.mp4</Object>
+                            <Object>bcd/${RunId}/trans.mp4</Object>
                         </Output>
                     </Operation>
                 </Transcode_1581665960537>
@@ -151,8 +176,158 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>
+                    <Type>SDRtoHDR</Type>
+                    <Operation>
+                        <SDRtoHDR>
+                            <HdrMode>HLG</HdrMode>
+                        </SDRtoHDR>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/SDRtoHDR.mp4</Object>
+                        </Output>
+                    </Operation>
+                </SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>
+                    <Type>VideoProcess</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55356fshb18</TemplateId>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/videoProcess.mp4</Object>
+                        </Output>
+                    </Operation>
+                </VideoProcess_1581665960554>
+                <SCF_1581665960566>
+                    <Type>SCF</Type>
+                    <Operation>
+                        <SCF>
+                            <Region>ap-chengdu</Region>
+                            <FunctionName>test</FunctionName>
+                            <Namespace>testspace</Namespace>
+                        </SCF>
+                    </Operation>
+                </SCF_1581665960566>
+                <SuperResolution_1581665960583>
+                    <Type>SuperResolution</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}/SuperResolution.mkv</Object>
+                        </Output>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
+                    </Operation>
+                </SuperResolution_1581665960583>
+                <Segment_1581665960667>
+                    <Type>Segment</Type>
+                    <Operation>
+                        <Segment>
+                            <Format>mp4</Format>
+                            <Duration>5</Duration>
+                        </Segment>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>test-trans${Number}</Object>
+                        </Output>
+                    </Operation>
+                </Segment_1581665960667>
             </Nodes>
         </Topology>
+        <CreateTime></CreateTime>
+        <UpdateTime></UpdateTime>
+    </MediaWorkflowList>
+    <MediaWorkflowList>
+        <Name>demo</Name>
+        <State>Active</State>
+        <WorkflowId></WorkflowId>
+        <Topology>
+            <Dependencies>
+                <Start>HlsPackConfig_1581665960532</Start>
+                <HlsPackConfig_1581665960532>VideoStream_1581665960536,VideoStream_1581665960537</HlsPackConfig_1581665960532>
+                <VideoStream_1581665960536>HlsPack</VideoStream_1581665960536>
+                <VideoStream_1581665960537>HlsPack</VideoStream_1581665960537>
+                <HlsPack_1581665960538>End</HlsPack_1581665960538>
+            </Dependencies>
+            <Nodes>
+                <Start>
+                    <Type>Start</Type>
+                    <Input>
+                        <QueueId></QueueId>
+                        <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
+                        </ExtFilter>
+                    </Input>
+                </Start>
+                <HlsPackConfig_1581665960532>
+                    <Type>HlsPackConfig</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${InputPath}/${InputName}._${RunId}.${ext}</Object>
+                        </Output>
+                    </Operation>
+                </HlsPackConfig_1581665960532>
+                <VideoStream_1581665960536>
+                    <Type>VideoStream</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}_Substream_1/video.m3u8</Object>
+                        </Output>
+                    </Operation>
+                </VideoStream_1581665960536>
+                <VideoStream_1581665960537>
+                    <Type>VideoStream</Type>
+                    <Operation>
+                        <TemplateId>t1460606bgfdg2148c4ab182f55163ba7bj</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}_Substream_2/video.m3u8</Object>
+                        </Output>
+                    </Operation>
+                </VideoStream_1581665960537>
+                <HlsPack_1581665960538>
+                    <Type>HlsPack</Type>
+                    <Operation>
+                        <HlsPackInfo>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960536</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960537</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                        </HlsPackInfo>
+                    </Operation>
+                </HlsPack_1581665960538>
+            </Nodes>
+        </Topology>
+        <BucketId></BucketId>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>
     </MediaWorkflowList>
@@ -224,7 +399,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
         <State></State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554,SCF_1581665960566,SuperResolution_1581665960583,Segment_1581665960667</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -232,6 +407,11 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                 <SmartCover_1581665960539>End</SmartCover_1581665960539>
                 <VoiceSeparate_1581665960551>End</VoiceSeparate_1581665960551>
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
+                <SCF_1581665960566>End</SCF_1581665960566>
+                <SuperResolution_1581665960583>End</SuperResolution_1581665960583>
+                <Segment_1581665960667>End</Segment_1581665960667>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -239,6 +419,18 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <SmartCover_1581665960539>
@@ -249,6 +441,13 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/cover-${Number}.jpg</Object>
                         </Output>
+                        <SmartCover>
+                            <Format>png</Format>
+                            <Width>128</Width>
+                            <Height>128</Height>
+                            <Count>3</Count>
+                            <DeleteDuplicates>false</DeleteDuplicates>
+                        </SmartCover> 
                     </Operation>
                 </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
@@ -259,6 +458,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                             <Region></Region>
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/snapshot-${number}.${Ext}</Object>
+                            <SpriteObject>abc/${RunId}/snapshot-${number}.jpg</SpriteObject>
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
@@ -318,6 +518,71 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                         </Output>
                     </Operation>
                 </VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>
+                    <Type>SDRtoHDR</Type>
+                    <Operation>
+                        <SDRtoHDR>
+                            <HdrMode>HLG</HdrMode>
+                        </SDRtoHDR>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/SDRtoHDR.mp4</Object>
+                        </Output>
+                    </Operation>
+                </SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>
+                    <Type>VideoProcess</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55356fshb18</TemplateId>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/videoProcess.mp4</Object>
+                        </Output>
+                    </Operation>
+                </VideoProcess_1581665960554>
+                <SCF_1581665960566>
+                    <Type>SCF</Type>
+                    <Operation>
+                        <SCF>
+                            <Region>ap-chengdu</Region>
+                            <FunctionName>test</FunctionName>
+                            <Namespace>testspace</Namespace>
+                        </SCF>
+                    </Operation>
+                </SCF_1581665960566>
+                <SuperResolution_1581665960583>
+                    <Type>SuperResolution</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}/SuperResolution.mkv</Object>
+                        </Output>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
+                    </Operation>
+                </SuperResolution_1581665960583>
+                <Segment_1581665960667>
+                    <Type>Segment</Type>
+                    <Operation>
+                        <Segment>
+                            <Format>mp4</Format>
+                            <Duration>5</Duration>
+                        </Segment>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>test-trans${Number}</Object>
+                        </Output>
+                    </Operation>
+                </Segment_1581665960667>
             </Nodes>
         </Topology>
         <CreateTime></CreateTime>
@@ -358,7 +623,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
         <State></State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554,SCF_1581665960566,SuperResolution_1581665960583,Segment_1581665960667</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -366,6 +631,11 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
                 <SmartCover_1581665960539>End</SmartCover_1581665960539>
                 <VoiceSeparate_1581665960551>End</VoiceSeparate_1581665960551>
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
+                <SCF_1581665960566>End</SCF_1581665960566>
+                <SuperResolution_1581665960583>End</SuperResolution_1581665960583>
+                <Segment_1581665960667>End</Segment_1581665960667>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -373,6 +643,18 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
                     <Input>
                         <QueueId></QueueId>
                         <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
+                        </ExtFilter>
                     </Input>
                 </Start>
                 <SmartCover_1581665960539>
@@ -383,6 +665,13 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/cover-${Number}.jpg</Object>
                         </Output>
+                        <SmartCover>
+                            <Format>png</Format>
+                            <Width>128</Width>
+                            <Height>128</Height>
+                            <Count>3</Count>
+                            <DeleteDuplicates>false</DeleteDuplicates>
+                        </SmartCover> 
                     </Operation>
                 </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
@@ -452,8 +741,158 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
                         </Output>
                     </Operation>
                 </VideoMontage_1581665960551>
+                <SDRtoHDR_1581665960553>
+                    <Type>SDRtoHDR</Type>
+                    <Operation>
+                        <SDRtoHDR>
+                            <HdrMode>HLG</HdrMode>
+                        </SDRtoHDR>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/SDRtoHDR.mp4</Object>
+                        </Output>
+                    </Operation>
+                </SDRtoHDR_1581665960553>
+                <VideoProcess_1581665960554>
+                    <Type>VideoProcess</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55356fshb18</TemplateId>
+                        <TranscodeTemplateId></TranscodeTemplateId>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/videoProcess.mp4</Object>
+                        </Output>
+                    </Operation>
+                </VideoProcess_1581665960554>
+                <SCF_1581665960566>
+                    <Type>SCF</Type>
+                    <Operation>
+                        <SCF>
+                            <Region>ap-chengdu</Region>
+                            <FunctionName>test</FunctionName>
+                            <Namespace>testspace</Namespace>
+                        </SCF>
+                    </Operation>
+                </SCF_1581665960566>
+                <SuperResolution_1581665960583>
+                    <Type>SuperResolution</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}/SuperResolution.mkv</Object>
+                        </Output>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
+                    </Operation>
+                </SuperResolution_1581665960583>
+                <Segment_1581665960667>
+                    <Type>Segment</Type>
+                    <Operation>
+                        <Segment>
+                            <Format>mp4</Format>
+                            <Duration>5</Duration>
+                        </Segment>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>test-trans${Number}</Object>
+                        </Output>
+                    </Operation>
+                </Segment_1581665960667>
             </Nodes>
         </Topology>
+        <CreateTime></CreateTime>
+        <UpdateTime></UpdateTime>
+    </MediaWorkflowList>
+    <MediaWorkflowList>
+        <Name>demo</Name>
+        <State>Active</State>
+        <WorkflowId></WorkflowId>
+        <Topology>
+            <Dependencies>
+                <Start>HlsPackConfig_1581665960532</Start>
+                <HlsPackConfig_1581665960532>VideoStream_1581665960536,VideoStream_1581665960537</HlsPackConfig_1581665960532>
+                <VideoStream_1581665960536>HlsPack</VideoStream_1581665960536>
+                <VideoStream_1581665960537>HlsPack</VideoStream_1581665960537>
+                <HlsPack_1581665960538>End</HlsPack_1581665960538>
+            </Dependencies>
+            <Nodes>
+                <Start>
+                    <Type>Start</Type>
+                    <Input>
+                        <QueueId></QueueId>
+                        <ObjectPrefix></ObjectPrefix>
+                        <NotifyConfig>
+                            <Url>http://www.callback.com</Url>
+                            <Event>TaskFinish,WorkflowFinish</Event>
+                            <Type>Url</Type>
+                        </NotifyConfig>
+                        <ExtFilter>
+                            <State>on</State>
+                            <Audio>true</Audio>
+                            <Custom>true</Custom>
+                            <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
+                        </ExtFilter>
+                    </Input>
+                </Start>
+                <HlsPackConfig_1581665960532>
+                    <Type>HlsPackConfig</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${InputPath}/${InputName}._${RunId}.${ext}</Object>
+                        </Output>
+                    </Operation>
+                </HlsPackConfig_1581665960532>
+                <VideoStream_1581665960536>
+                    <Type>VideoStream</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}_Substream_1/video.m3u8</Object>
+                        </Output>
+                    </Operation>
+                </VideoStream_1581665960536>
+                <VideoStream_1581665960537>
+                    <Type>VideoStream</Type>
+                    <Operation>
+                        <TemplateId>t1460606bgfdg2148c4ab182f55163ba7bj</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}_Substream_2/video.m3u8</Object>
+                        </Output>
+                    </Operation>
+                </VideoStream_1581665960537>
+                <HlsPack_1581665960538>
+                    <Type>HlsPack</Type>
+                    <Operation>
+                        <HlsPackInfo>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960536</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                            <VideoStreamConfig>
+                                <VideoStreamName>VideoStream_1581665960537</VideoStreamName>
+                                <BandWidth>0</BandWidth>
+                            </VideoStreamConfig>
+                        </HlsPackInfo>
+                    </Operation>
+                </HlsPack_1581665960538>
+            </Nodes>
+        </Topology>
+        <BucketId></BucketId>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>
     </MediaWorkflowList>

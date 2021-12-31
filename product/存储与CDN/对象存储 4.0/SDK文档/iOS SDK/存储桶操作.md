@@ -74,7 +74,7 @@ QCloudCOSXMLService.defaultCOSXML().getService(getServiceReq);
 // 创建存储桶
 QCloudPutBucketRequest* request = [QCloudPutBucketRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 
 [request setFinishBlock:^(id outputObject, NSError* error) {
@@ -93,7 +93,7 @@ request.bucket = @"examplebucket-1250000000";
 // 创建存储桶
 let putBucketReq = QCloudPutBucketRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 putBucketReq.bucket = "examplebucket-1250000000";
 putBucketReq.finishBlock = {(result,error) in
     // 可以从 result 中获取服务器返回的 header 信息
@@ -125,7 +125,7 @@ HEAD Bucket 请求可以确认该存储桶是否存在，是否有权限访问�
 ```objective-c
 QCloudHeadBucketRequest* request = [QCloudHeadBucketRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 
 [request setFinishBlock:^(id outputObject, NSError* error) {
@@ -145,7 +145,7 @@ request.bucket = @"examplebucket-1250000000";
 ```swift
 let headBucketReq = QCloudHeadBucketRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 headBucketReq.bucket = "examplebucket-1250000000";
 
 headBucketReq.finishBlock = {(result,error) in
@@ -156,6 +156,35 @@ headBucketReq.finishBlock = {(result,error) in
     }
 }
 QCloudCOSXMLService.defaultCOSXML().headBucket(headBucketReq);
+```
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/HeadBucket.swift) 查看。
+
+## 判断存储桶是否存在
+
+#### 功能说明
+
+您可以通过 SDK 提供的快捷接口来判断 Bucket 是否存在
+
+
+#### 示例代码
+**Objective-C**
+
+[//]: # (.cssg-snippet-head-bucket)
+```objective-c
+  // 存储桶名称，格式为 BucketName-APPID
+  [[QCloudCOSXMLService defaultCOSXML] doesBucketExist: @"examplebucket-1250000000"];
+```
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/HeadBucket.m) 查看。
+
+
+**Swift**
+
+[//]: # (.cssg-snippet-head-bucket)
+```swift
+     // 存储桶名称，格式为 BucketName-APPID
+   QCloudCOSXMLService.defaultCOSXML().doesBucketExist("examplebucket-1250000000");
 ```
 
 >?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/HeadBucket.swift) 查看。

@@ -16,7 +16,7 @@
 
 ## 注意事项
 - 消息传输链路较长，可能会影响消息收发耗时。
-- 个人注册的订阅号，不能使用微信公众平台的【客服消息】接口向订阅者主动推送消息。
+- 个人注册的订阅号，不能使用微信公众平台的**客服消息**接口向订阅者主动推送消息。
 
 ## 前提条件
 
@@ -82,8 +82,8 @@ npm i tls-sig-api-v2@latest --save
 >?此指引文档是直接参考微信公众平台开发指南所写，若有变动，请以 [接入指南](https://mp.weixin.qq.com/wiki) 为准。
 
 1. 登录订阅号管理后台。
-2. 选择【基本配置】，勾选协议成为开发者。
-3. 单击【修改配置】，填写相关信息：
+2. 选择**基本配置**，勾选协议成为开发者。
+3. 单击**修改配置**，填写相关信息：
  - URL：服务器地址，用作接收微信消息和事件的接口 URL，必填参数。
  - Token：可任意填写，用作生成签名，该 Token 会和接口 URL 中包含的 Token 进行比对，从而验证安全性，必填参数。
  - EncodingAESKey：手动填写或随机生成，用作消息体加解密密钥，选填参数。
@@ -99,7 +99,7 @@ npm i tls-sig-api-v2@latest --save
 
 <span class="hljs-comment">// ------------ Web 服务 ------------</span>
 <span class="hljs-keyword">var</span> app = express();
-<span class="hljs-comment">// Token 需在【订阅号管理后台】&gt;【基本配置】设置</span>
+<span class="hljs-comment">// Token 需在**订阅号管理后台**&gt;**基本配置**设置</span>
 
 <span class="hljs-comment">// 处理所有进入80端口的 get 请求</span>
 app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> </span>{
@@ -353,7 +353,7 @@ app.post(<span class="hljs-string">'/imcallback'</span>, <span class="hljs-funct
     <span class="hljs-keyword">const</span> imData = <span class="hljs-built_in">JSON</span>.parse(tmpStr);
     <span class="hljs-comment">// kfAccount1 发的消息推送给客户</span>
     <span class="hljs-keyword">if</span> (imData.From_Account === kfAccount1) {
-      <span class="hljs-comment">// 组包消息，并通过微信的【客服消息】接口，向指定的用户推送消息</span>
+      <span class="hljs-comment">// 组包消息，并通过微信的**客服消息**接口，向指定的用户推送消息</span>
       <span class="hljs-comment">// 注意！个人注册的订阅号不支持使用此接口，详情请参见 <a href="https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Service_Center_messages.html">客服消息</a></span>
     }
 

@@ -95,6 +95,9 @@ bootmenupolicy          Standard
 </dx-tabs>
 
 
+### 转换镜像格式（可选）
+参考 [转换镜像镜像](https://cloud.tencent.com/document/product/213/62569#windows)，使用 `qemu-img` 将镜像文件转换为支持的格式。
+
 ### 检查镜像
 
 >? 当您未停止服务直接制作镜像或者其它原因，可能导致制作出的镜像文件系统有误，因此建议您在制作镜像后检查是否无误。

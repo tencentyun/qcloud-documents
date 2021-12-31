@@ -63,7 +63,7 @@ tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 ### 2. script 方式接入
 
 ```html
-<!-- tim-js.js 和 tim-upload-plugin.js 可以从 https://github.com/tencentyun/TIMSDK/tree/master/H5/sdk 获取 -->
+<!-- tim-js.js 和 tim-upload-plugin.js 可以从 https://github.com/tencentyun/TIMSDK/tree/master/Web/Demo/sdk 获取 -->
 <script src='./tim-js.js'></script>
 <script src='./tim-upload-plugin.js'></script>
 <script>

@@ -166,7 +166,7 @@ go run main.go config/config.yml
 ```
 
 成功运行可以查看到如下图输出：
-<img src="https://main.qcloudimg.com/raw/5d6be609d2c0173e85e80bc75bfb984e.png" />
+<img src="https://qcloudimg.tencent-cloud.cn/raw/2914b0552c23b473c488c12c6c5220c8.png" />
 
 
 

@@ -38,3 +38,5 @@ vim /etc/yum.repos.d/CentOS-Epel.repo
 ![](https://main.qcloudimg.com/raw/9c4b3eaf65d005b3d6819f013037443d.png)
 7. 按 **ESC** 输入 **:wq** 后，按 **Enter** 保存修改。
 8. 至此已完成 YUM 源切换，您可使用 `yum install` 命令安装所需软件。
+
+

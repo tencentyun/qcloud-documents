@@ -59,7 +59,7 @@ sql-client.sh embedded -j /usr/local/service/iceberg/iceberg-flink-runtime-0.11.
 ```
     - 查询数据
 ```
-CREATE CATALOG hive_catalog WITH ('type'='iceberg','catalog-type'='hive','uri'='thrift://hiveserver2_ip:hiveserver2_port','clients'='5','property-version'='1','warehouse'='hdfs:///usr/hive/warehouse/');
+CREATE CATALOG hive_catalog WITH ('type'='iceberg','catalog-type'='hive','uri'='hivemetastore_ip:hivemetastore_port','clients'='5','property-version'='1','warehouse'='hdfs:///usr/hive/warehouse/');
 CREATE DATABASE hive_catalog.iceberg_db;
 CREATE TABLE hive_catalog.iceberg_db.t1 (id BIGINT COMMENT 'unique id',data STRING);
 INSERT INTO hive_catalog.iceberg_db.t1 values(1, 'tom');

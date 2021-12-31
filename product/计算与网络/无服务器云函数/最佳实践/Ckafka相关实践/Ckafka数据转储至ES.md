@@ -6,7 +6,7 @@
 - 封装所有集群细节，无需用户运维。
 - 对消息引擎优化，性能比社区最高提升50%。
 
-腾讯云云函数与 Ckafka 也进行了深度联动，并推出了很多实用的功能。借助云函数和 Ckafka 触发器，可以非常方便实现 CKafka 消息转存到 COS、ES、DB 等，本文介绍使用云函数替代 Logstash，实现 Ckafka 消息罗盘 ES。如下图所示：
+腾讯云云函数与 Ckafka 也进行了深度联动，并推出了很多实用的功能。借助云函数和 Ckafka 触发器，可以非常方便实现 CKafka 消息转存到 COS、ES、DB 等，本文介绍使用云函数替代 Logstash，实现 Ckafka 消息落盘 ES。如下图所示：
  ![](https://main.qcloudimg.com/raw/52bfb4c0ee549307c459212b5bbc6ef4.png)
 
  

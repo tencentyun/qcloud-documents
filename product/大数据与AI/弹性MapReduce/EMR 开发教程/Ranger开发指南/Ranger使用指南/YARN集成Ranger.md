@@ -76,6 +76,6 @@ EMR Ranger YARN 目前仅支持 Capacity Scheduler 队列的 ACL，不支持 Fai
  - 配置 Policy 
 ![](https://main.qcloudimg.com/raw/68cceaed942cea8da21222b3d6903a19.png)
 ![](https://main.qcloudimg.com/raw/374ad719611ded0872a0aa51c5dcf6dd.png)
-4. 添加完 Policy 后，稍等约半分钟等待 Policy 生效。生效后使用 user1 就可以向 YARN 的 root.default 队列中提交、杀死、查询作业等操作。
+4. 添加完 Policy 后，稍等约半分钟等待 Policy 生效。生效后使用 user1 就可以向 YARN 的 root.default 队列中提交、删除、查询作业等操作。
 
 >!在配置 Ranger YARN Service 以及 Policy 时请务必确保期间没有 YARN 作业，否则会出现某些用户作业提交权限问题。

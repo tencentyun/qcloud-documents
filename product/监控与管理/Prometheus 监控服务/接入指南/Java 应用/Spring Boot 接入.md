@@ -14,9 +14,9 @@
 
 > !Spring Boot 已提供 actuator 组件来对应用进行监控，简化了开发的使用成本，所以这里直接使用 actuator 为 Spring Boot 应用进行监控埋点，基于 Spring Boot 2.0 及以上的版本，低版本会有配置上的差别需要注意。
 >**若您使用spring boot 1.5 接入，接入时和2.0会有一定区别，需要注意如下几点：**
-1. 访问 `prometheus metrics` 的地址和2.0不一样，1.5默认的是`/prometues`，即`http://localhost:8080/prometheus`。
+1. 访问 `prometheus metrics` 的地址和2.0不一样，1.5默认的是`/prometheus`，即`http://localhost:8080/prometheus`。
 2. 若报401错误则表示没有权限(Whitelabel Error Page)，1.5默认对 `management` 接口加了安全控制，需要修改 `management.security.enabled=false`。
-3. 若项目中用 `bootstrap.yml` 来配置参数，在 `bootstrap.yml` 中需改 `management` 不启作用，需要在 `application.yml` 中修改，原因： spring boot 启动加载顺序有关。
+3. 若项目中用 `bootstrap.yml` 来配置参数，在 `bootstrap.yml` 中修改 `management` 不起作用，需要在 `application.yml` 中修改，原因： spring boot 启动加载顺序有关。
 4. `metric common tag` 不能通过 `yml` 来添加，只有通过代码加一个 `bean` 的方式添加，详细信息可参见 [spring boot 1.5 接入](https://micrometer.io/docs/ref/spring/1.5)。
 
 ### 修改应用的依赖及配置
@@ -96,11 +96,11 @@ docker push ccr.ccs.tencentyun.com/prom_spring_demo/spring-boot-demo:latest
 #### 步骤3：应用部署
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)，选择需要部署的容器集群。
-2. 单击【工作负载】>【Deployment】，进入 Deployment 管理页面，选择对应的命名空间来进行部署服务，这里选择通过控制台的方式创建，同时打开 Service 访问方式，您也可以选择通过命令行的方式创建。
+2. 单击**工作负载** > **Deployment**，进入 Deployment 管理页面，选择对应的命名空间来进行部署服务，这里选择通过控制台的方式创建，同时打开 Service 访问方式，您也可以选择通过命令行的方式创建。
 ![](https://main.qcloudimg.com/raw/396a36fccd6f9c5568bcdac692626114.png)
 ![](https://main.qcloudimg.com/raw/22e6bb4a200f2664a8005f54f977a72b.png)
 3. 为对应的 Service 添加 K8S Labels，如果使用命令方式新建，可以将 Labels 直接加上。这里介绍在容器控制台调整配置，选择需要调整的容器集群。
-单击【服务与路由】>【Service】，进入 Service 管理页面，选择对应的命名空间来调整 Service Yaml 配置，如下图：
+单击**服务与路由** > **Service**，进入 Service 管理页面，选择对应的命名空间来调整 Service Yaml 配置，如下图：
 ![](https://main.qcloudimg.com/raw/fab7f044fdc658a7608214d86eed740e.png)
 配置示例如下：
 
@@ -130,7 +130,7 @@ docker push ccr.ccs.tencentyun.com/prom_spring_demo/spring-boot-demo:latest
 #### 步骤4：添加采取任务
 
 1. 登录 [ Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
-2. 单击集成容器服务列表中的【集群 ID】，进入到容器服务集成管理页面。
+2. 单击集成容器服务列表中的**集群 ID**，进入到容器服务集成管理页面。
 3. 通过服务发现添加 Service Monitor，目前支持基于 Labels 发现对应的目标实例地址，所以可以对一些服务添加特定的 K8S Labels，配置之后在 Labels 下的服务都将被 Prometheus 服务自动识别出来，不需要再为每个服务一一添加采取任务。以该例子介绍，配置信息如下：
 > ?这里需要注意的是 `port` 的取值为 `service yaml` 配置文件里的 `spec/ports/name` 对应的值。
 

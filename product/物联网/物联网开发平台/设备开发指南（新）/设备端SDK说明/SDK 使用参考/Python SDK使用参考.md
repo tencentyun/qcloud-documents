@@ -2,8 +2,7 @@
 
 ## 前提条件
 
-已按照 [设备接入准备](https://cloud.tencent.com/document/product/634/14442) 创建好产品和设备。
-
+已在 Explorer 平台创建好产品和设备。
 ## 引用方式
 
 - 如果您需要通过引用方式进行项目开发，可安装 SDK，如下：
@@ -22,7 +21,7 @@ pip3 install --upgrade tencent-iot-device
 
 ## MQTT 接口
 
-MQTT 的相关接口定义在 [hub.py](https://github.com/tencentyun/iot-device-python/blob/master/hub/hub.py) 类中，支持发布和订阅功能；如果需支持设备影子功能，则需使用 [shadow.py](https://github.com/tencentyun/iot-device-python/blob/master/hub/services/shadow/shadow.py) 类及其方法，介绍如下：
+MQTT 的相关接口定义在 [explorer.py](https://github.com/tencentyun/iot-device-python/blob/master/explorer/explorer.py) 类中，支持发布和订阅功能，介绍如下：
 
 | 方法名               | 说明                   |
 | :------------------- | :--------------------- |
@@ -41,12 +40,12 @@ MQTT 的相关接口定义在 [hub.py](https://github.com/tencentyun/iot-device-
 
 ## MQTT 网关接口
 
-- 对于无法直接接入以太网网络的设备，可先接入本地网关设备的网络，利用网关设备的通信功能，将代理设备接入 IoT Hub 平台。
+- 对于无法直接接入以太网网络的设备，可先接入本地网关设备的网络，利用网关设备的通信功能，将代理设备接入 explorer 平台。
 - 对于局域网中加入或退出网络的子设备，需通过平台进行绑定或解绑操作。
 
 > !当子设备发起过上线，后续只要网关链接成功，后台就会显示子设备在线，除非设备已发起下线操作。
 
-MQTT 网关的相关接口定义在 [gateway.py](https://github.com/tencentyun/iot-device-python/blob/master/hub/services/gateway/gateway.py) 类接口中，介绍如下：
+MQTT 网关的相关接口定义在 [gateway.py](https://github.com/tencentyun/iot-device-python/blob/master/explorer/services/gateway/gateway.py) 类接口中，介绍如下：
 
 | 方法名                     | 说明                     |
 | :------------------------- | :----------------------- |
@@ -60,9 +59,32 @@ MQTT 网关的相关接口定义在 [gateway.py](https://github.com/tencentyun/i
 | gatewaySubdevUnbind        | 解绑子设备               |
 | gatewaySubdevSubscribe     | 子设备订阅               |
 
+## 数据模板接口
+
+如果需要使用数据模板功能，需使用 [template.py](https://github.com/tencentyun/iot-device-python/blob/master/explorer/sample/template/example_template.py) 类中的接口，介绍如下：
+
+| 接口名称                         | 接口描述             |
+| -------------------------------- | -------------------- |
+| templateInit                     | 数据模板初始化       |
+| getEventsList                    | 获取设备event列表    |
+| getActionList                    | 获取设备action列表   |
+| getPropertyList                  | 获取设备property列表 |
+| templateSetup                    | 解析数据模板         |
+| templateEventPost                | events上报           |
+| templateJsonConstructReportArray | 构建上报的json结构   |
+| templateReportSysInfo            | 设备信息上报         |
+| templateControlReply             | 控制消息应答         |
+| templateActionReply              | action消息应答       |
+| templateGetStatus                | 获取设备最新状态     |
+| templateReport                   | 设备属性上报         |
+| clearControl                     | 清除控制             |
+| templateDeinit                   | 数据模板销毁         |
+
+
+
 ## 动态注册接口
 
-如果需要使用动态注册功能，需使用 [hub.py](https://github.com/tencentyun/iot-device-python/blob/master/hub/hub.py) 类中的接口，介绍如下：
+如果需要使用动态注册功能，需使用 [explorer.py](https://github.com/tencentyun/iot-device-python/blob/master/explorer/explorer.py) 类中的接口，介绍如下：
 
 | 方法名       | 说明                   |
 | :----------- | :--------------------- |
@@ -70,7 +92,7 @@ MQTT 网关的相关接口定义在 [gateway.py](https://github.com/tencentyun/i
 
 ## OTA 接口
 
-如果需要使用 OTA 功能，需使用 [hub.py](https://github.com/tencentyun/iot-device-python/blob/master/hub/hub.py) 类中的接口，介绍如下：
+如果需要使用 OTA 功能，需使用 [explorer.py](https://github.com/tencentyun/iot-device-python/blob/master/explorer/explorer.py) 类中的接口，介绍如下：
 
 | 方法名                  | 说明                                |
 | :---------------------- | :---------------------------------- |

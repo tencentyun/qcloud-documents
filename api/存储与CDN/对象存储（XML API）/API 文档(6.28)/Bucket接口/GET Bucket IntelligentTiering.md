@@ -15,6 +15,7 @@ GET Bucket IntelligentTiering 接口用于查询存储桶的智能分层配置�
        <Status>Enabled</Status>
        <Transition>
           <Days>30</Days>
+		  <RequestFrequent>1</RequestFrequent>
        </Transition>
 </IntelligentTieringConfiguration>
 ```
@@ -60,6 +61,7 @@ Authorization: Auth String
   <Status>Enabled</Status>
   <Transition>
     <Days>30|60|90</Days>
+    <RequestFrequent>1</RequestFrequent>
   </Transition>
 </IntelligentTieringConfiguration>
 ```
@@ -71,7 +73,9 @@ Authorization: Auth String
 | IntelligentTieringConfiguration | 无                                         | 智能分层存储配置的具体信息                                   | Container |
 | Status                          | IntelligentTieringConfiguration            | 说明智能分层存储配置是否开启，枚举值：Suspended、Enabled     | Enum      |
 | Transition                      | IntelligentTieringConfiguration            | 指定智能分层存储配置中有关数据转换的配置信息                 | Container |
-| Days                            | IntelligentTieringConfiguration.Transition | 指定智能分层存储配置中标准层数据转换为低频层数据的天数限制，可选值为30、60和90，默认值为30天 | Int       |
+| Days                            | IntelligentTieringConfiguration.Transition | 指定智能分层存储配置中标准层数据转换为低频层数据的天数限制，可选值为30、60和90，默认值为30天 | Int   |
+| RequestFrequent               |  IntelligentTieringConfiguration.Transition | 指定配置中标准层数据转换为低频层数据的访问次数限制，默认值为1次，和天数搭配使用可以实现转换效果。例如设置该参数为1，访问天数为30，代表连续30天访问次数小于1次的对象会从标准层降到低频层   |
+
 
 #### 错误码
 
@@ -106,6 +110,7 @@ x-cos-request-id: NTk5ZDM5OTRfZDNhZDM1MGFfMjYyMTFfZmU3****
   <Status>Enabled</Status>
   <Transition>
     <Days>30</Days>
+    <RequestFrequent>1</RequestFrequent>
   </Transition>
 </IntelligentTieringConfiguration>
 ```

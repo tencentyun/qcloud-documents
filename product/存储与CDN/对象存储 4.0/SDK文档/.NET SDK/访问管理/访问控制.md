@@ -35,7 +35,8 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   PutBucketACLRequest request = new PutBucketACLRequest(bucket);
   //设置私有读写权限
   request.SetCosACL(CosACL.Private);
@@ -74,7 +75,8 @@ catch (COSXML.CosException.CosServerException serverEx)
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   GetBucketACLRequest request = new GetBucketACLRequest(bucket);
   //执行请求
   GetBucketACLResult result = cosXml.GetBucketACL(request);
@@ -111,7 +113,8 @@ catch (COSXML.CosException.CosServerException serverEx)
 // 非必须情况不建议给对象单独设置 ACL(对象默认继承 bucket 权限).
 try
 {
-  string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   string key = "exampleobject"; //对象键
   PutObjectACLRequest request = new PutObjectACLRequest(bucket, key);
   //设置私有读写权限 
@@ -151,7 +154,8 @@ catch (COSXML.CosException.CosServerException serverEx)
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   string key = "exampleobject"; //对象键
   GetObjectACLRequest request = new GetObjectACLRequest(bucket, key);
   //执行请求

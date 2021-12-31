@@ -15,15 +15,19 @@ Unity Editor 版本： 2019.1.9+。
 ### 创建游戏项目
 1. 打开 Unity Hub，创建一个游戏项目。如下图所示：
 ![](https://main.qcloudimg.com/raw/4ef6bac33e204456e4a0870f8ff0186c.jpg)
-2. 单击【创建】，进入项目开发界面：
+2. 单击**创建**，进入项目开发界面：
 ![](https://main.qcloudimg.com/raw/714a449465bec007689a6c2325712356.jpg)
 
 
 
 ### 导入 Mgobe Package
-1. 将 `com.unity.Mgobe.unitypackage` 拖入 editor 中的 Project 栏，单击【import】进行 package 导入。 
->?您可通过 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406) 页面，下载 Package 即 Unity SDK 。
->
+1. 将 `com.unity.Mgobe.unitypackage` 拖入 editor 中的 Project 栏，单击**import**进行 package 导入。 
+
+
+<dx-alert infotype="explain" title="">
+您可通过 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406) 页面，下载 Package 即 Unity SDK 。
+</dx-alert>
+
 ![](https://main.qcloudimg.com/raw/77671c4601cd26f2cffdce577b802528.jpg)
 ![](https://main.qcloudimg.com/raw/2cc301f6917c6a7026558fb2ca920079.jpg)
 2. 在 Assets 目录下创建 “Scripts” 文件夹，并新建 Scripts/main.cs 文件。

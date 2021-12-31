@@ -172,7 +172,7 @@ Namespace=QCE/CDB
 
 > ? InstanceType 说明：
 >
-> - 假设 InstanceId 入参值为主实例的ID，仅 InstanceType 支持拉取主机（取值为1）、从机（取值为2）、第二从机（取值为3）的监控数据。
+> - 假设 InstanceId 入参值为主实例的ID，仅 InstanceType 支持拉取主机（取值为1）、从机（取值为2）、只读实例（取值为3）、第二从机（取值为4）的监控数据。
 > - 假设 InstanceId 入参值为主实例的ID，InstanceType入参为 2 （从机），且该主实例是三节点（一主两从）。由于拉取从机监控数据仅支持单节点和双节点，会导致缺少一个监控节点数据。
 > - 若需要拉取只读实例监控数据，InstanceId 需入参为只读实例 ID。
 

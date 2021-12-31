@@ -58,8 +58,10 @@ sudo EXTERNAL_URL="实例公网 IP 地址" yum install -y gitlab-ce
 ```
 如何获取实例公网 IP，请参见 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940)。
 12. 在本地浏览器中访问已获取的公网 IP，返回页面如下所示，则表示已成功安装 GitLab。
->!请在该页面配置登录 GitLab 帐户的密码。
->
+<dx-alert infotype="notice" title="">
+请在该页面配置登录 GitLab 帐户的密码。
+</dx-alert>
+
 ![](https://main.qcloudimg.com/raw/791f5250c2bca059369a141c047f2c21.png)
 
 
@@ -68,15 +70,15 @@ sudo EXTERNAL_URL="实例公网 IP 地址" yum install -y gitlab-ce
 ![](https://main.qcloudimg.com/raw/c0639741b40c1fa33d41434c0222c13b.png)
 2. 根据页面指引创建私人项目，本文以 `test` 为例。如下图所示：
 ![](https://main.qcloudimg.com/raw/912805dfffcba06558d3adbe8b33b4bc.png)
-3. 成功创建项目后，单击页面上方提示中的【Add SSH Key】。
+3. 成功创建项目后，单击页面上方提示中的 **Add SSH Key**。
 4. 进入 “SSH Keys” 页面，按照以下步骤添加 SSH Key：
  1. 通过 [获取密钥](#getKey) 步骤，获取需纳入项目管理 PC 的密钥信息，粘贴在 “Key” 中。
  2. 在 “Title” 中自定义命名该密钥。
- 3. 单击【Add key】即可添加密钥。如下图所示：
+ 3. 单击 **Add key** 即可添加密钥。如下图所示：
 ![](https://main.qcloudimg.com/raw/c8d21821f0d6919a650cf36d43666f06.png)
 如下图所示则表示密钥添加成功：
 ![](https://main.qcloudimg.com/raw/6908a9710bd01d57c01892b31247bc02.png)
-5. <span id="Step5"></span>返回项目首页，单击【clone】记录项目地址。如下图所示：
+5. [](id:Step5)返回项目首页，单击 **clone** 记录项目地址。如下图所示：
 ![](https://main.qcloudimg.com/raw/972726ec33e5a92c0a778a700ae9b4b0.png)
 
 
@@ -120,7 +122,7 @@ git push -u origin master
 ![](https://main.qcloudimg.com/raw/e208c7a0f7399e4a42a1bb3d17a89c1c.png)
 
 ## 相关操作
-### 获取密钥<span id="getKey"></span>
+### 获取密钥[](id:getKey)
 1. 在需要纳入项目管理的 PC 上执行以下命令，安装 Git。
 ```
 yum install -y git

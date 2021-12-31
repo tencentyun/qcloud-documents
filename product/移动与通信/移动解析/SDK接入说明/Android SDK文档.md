@@ -1,17 +1,28 @@
 ## 概述
-总的来说，HTTPDNS 作为移动互联网时代 DNS 优化的一个通用解决方案，主要解决了以下几类问题：
+总的来说，移动解析 HTTPDNS 作为移动互联网时代 DNS 优化的一个通用解决方案，主要解决了以下几类问题：
 - LocalDNS 劫持/故障
 - LocalDNS 调度不准确
 
-HTTPDNS 的 Android SDK，主要提供了基于 HTTPDNS 服务的域名解析和缓存管理能力：
-- SDK 在进行域名解析时，优先通过 HTTPDNS 服务得到域名解析结果，极端情况下如果 HTTPDNS 服务不可用，则使用 LocalDNS 解析结果。
-- HTTPDNS 服务返回的域名解析结果会携带相关的 TTL 信息，SDK 会使用该信息进行 HTTPDNS 解析结果的缓存管理。
+移动解析 HTTPDNS 的 Android SDK，主要提供了基于移动解析 HTTPDNS 服务的域名解析和缓存管理能力：
+- SDK 在进行域名解析时，优先通过移动解析 HTTPDNS 服务得到域名解析结果，极端情况下如果移动解析 HTTPDNS 服务不可用，则使用 LocalDNS 解析结果。
+- 移动解析 HTTPDNS 服务返回的域名解析结果会携带相关的 TTL 信息，SDK 会使用该信息进行移动解析 HTTPDNS 解析结果的缓存管理。
 
-HTTPDNS 服务的详细介绍可以参见文章 [全局精确流量调度新思路-HTTPDNS 服务详解](https://cloud.tencent.com/developer/article/1035562)。
+移动解析 HTTPDNS 服务的详细介绍可以参见文章 [全局精确流量调度新思路-HTTPDNS 服务详解](https://cloud.tencent.com/developer/article/1035562)。
 智营解析 Android SDK 的获取方式：[点此获取](https://github.com/tencentyun/httpdns-android-sdk)。
 
-## 接入
+## 前期准备
+1. 首先需要开通移动解析 HTTPDNS 服务，请前往 [移动解析 HTTPDNS 控制台](https://console.cloud.tencent.com/httpdns) 开通。具体操作请参见 [开通移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/54577)。
+2. 开通移动解析 HTTPDNS 服务后，您需在移动解析 HTTPDNS 控制台添加解析域名后才可正常使用。具体操作请参见 [添加域名](https://cloud.tencent.com/document/product/379/54588)。
+3. 已在移动解析 HTTPDNS 控制台 [开通 SDK](https://cloud.tencent.com/document/product/379/12544)。
+4. 开通服务后，移动解析 HTTPDNS 将为您分配授权 ID、AES 和 DES 加密密钥及 HTTPS Token 等配置信息。使用 Android SDK 需求获取的配置如下：
+![](https://main.qcloudimg.com/raw/9de378622bacb7ce9f67bcf77e4a602f.png)
+ - **授权 ID**：使⽤移动解析 HTTPDNS 服务中，开发配置的唯⼀标识。SDK中 `dnsId` 参数，用于域名解析鉴权。
+ - **DES 加密密钥**：SDK中 `dnsKey` 参数，加密方式为 DES 时传入此项。
+ - **AES 加密密钥**：SDK中 `dnsKey` 参数，加密方式为 AES 时传入此项。
+ - **HTTPS 加密 Token**：SDK中 `token` 参数，加密方式为 HTTPS 时传入此项。
+ -  **Android APPID**： [Android 端 SDK](https://cloud.tencent.com/document/product/379/17655) 的 `appkey` 鉴权信息。
 
+## 接入
 ### 权限配置
 
 ```xml
@@ -57,9 +68,9 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
 ### 接入灯塔（可选）
 
 将 HttpDNSLibs\beacon_android_xxxx.jar 拷贝至应用 libs 相应位置。
- >! 
- >- 若您已经接入了腾讯灯塔（beacon）组件的应用，请忽略此步骤。
- >- 灯塔（beacon）SDK 是由腾讯灯塔团队开发，用于移动应用统计分析，HTTPDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
+>! 
+>- 若您已经接入了腾讯灯塔（beacon）组件的应用，请忽略此步骤。
+>- 灯塔（beacon）SDK 是由腾讯灯塔团队开发，用于移动应用统计分析，HTTPDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
 
 ### 接口调用
 ```Java
@@ -84,11 +95,13 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
 ### SDK 初始化
 
 >?
-- http 协议服务地址为 `119.29.29.98`，https 协议服务地址为 `119.29.29.99`。
+- HTTP 协议服务地址为 `119.29.29.98`，HTTPS 协议服务地址为 `119.29.29.99`（仅当采用自选加密方式并且 `channel` 为 `Https` 时使用 `99` 的 IP）。
 - 新版本 API 更新为使用 `119.29.29.99/98` 接入，同时原移动解析 HTTPDNS 服务地址 `119.29.29.29` 仅供开发调试使用，无 SLA 保障，不建议用于正式业务，请您尽快将正式业务迁移至 `119.29.29.99/98`。
 - 具体以 [API 说明](https://cloud.tencent.com/document/product/379/54976) 提供的 IP 为准。
+- 使用 SDK 方式接入 HTTPDNS，若 HTTPDNS 未查询到解析结果，则通过 LocalDNS 进行域名解析，返回 LocalDNS 的解析结果。
 
 #### 默认使用 DES 加密
+##### 默认不进行解析异常上报
 
 ```Java
 // 以下鉴权信息可在腾讯云控制台（https://console.cloud.tencent.com/httpdns/configure）开通服务后获取
@@ -100,14 +113,35 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
  * @param appkey 业务 appkey，即 SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param dnskey dns解析key，即授权id对应的 key（加密密钥），在申请 SDK 后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持 http 请求），"119.29.29.99"（仅支持 https 请求）以腾讯云文档（https://cloud.tencent.com/document/product/379/54976）提供的 IP 为准
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"，以腾讯云文档（https://cloud.tencent.com/document/product/379/54976）提供的 IP 为准
  * @param debug 是否开启 debug 日志，true 为打开，false 为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  */
 MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp, debug, timeout);
 ```
 
+##### 手动开启异常解析上报
+```Java
+// 以下鉴权信息可在腾讯云控制台（https://console.cloud.tencent.com/httpdns/configure）开通服务后获取
+
+/**
+ * 初始化 HTTPDNS（默认为 DES 加密）：如果接入了 MSDK，建议初始化 MSDK 后再初始化 HTTPDNS
+ *
+ * @param context 应用上下文，最好传入 ApplicationContext
+ * @param appkey 业务 appkey，即 SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
+ * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
+ * @param dnskey dns解析key，即授权id对应的 key（加密密钥），在申请 SDK 后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持 http 请求，channel 为 DesHttp 和 AesHttp 时选择），"119.29.29.99"（仅支持 https 请求，channel为 Https 时选择）以腾讯云文档（https://cloud.tencent.com/document/product/379/54976）提供的 IP 为准
+ * @param debug 是否开启 debug 日志，true 为打开，false 为关闭，建议测试阶段打开，正式上线时关闭
+ * @param timeout dns请求超时时间，单位ms，建议设置1000
+ * @param enableReport 是否开启解析异常上报，默认 false，不上报
+ */
+MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp, debug, timeout, enableReport);
+```
+
+
 #### 自选加密方式（DesHttp, AesHttp, Https）
+
 ```Java
 /**
  * 初始化 HTTPDNS（自选加密方式）：如果接入了 MSDK，建议初始化 MSDK 后再初始化 HTTPDNS
@@ -116,13 +150,14 @@ MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dns
  * @param appkey 业务 appkey，即 SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param dnskey dns解析key，即授权id对应的 key（加密密钥），在申请 SDK 后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持 http 请求），"119.29.29.99"（仅支持 https 请求）以腾讯云文档（https://cloud.tencent.com/document/product/379/54976）提供的 IP 为准
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持 http 请求，channel 为 DesHttp 和 AesHttp 时选择），"119.29.29.99"（仅支持 https 请求，channel 为 Https 时选择）以腾讯云文档（https://cloud.tencent.com/document/product/379/54976）提供的 IP 为准
  * @param debug 是否开启 debug 日志，true 为打开，false 为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  * @param channel 设置 channel，可选：DesHttp（默认）, AesHttp, Https
  * @param token 腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于 HTTPS 校验
+ * @param enableReport 是否开启解析异常上报，默认 false，不上报
  */
-MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp, debug, timeout, channel, token);
+MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp, debug, timeout, channel, token, true);
 ```
 
 ### 接口调用
@@ -245,7 +280,7 @@ if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过 HTTPDNS 获取 IP �
 ```
  - 以 curl 为例，假设您想要访问 `www.qq.com`，通过 HTTPDNS 解析出来的 IP 为 `192.168.0.111`，那么您可以这么访问：
 ```shell
-   curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt
+curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt
 ```
 - 检测本地是否使用了 HTTP 代理。如果使用了 HTTP 代理，建议**不要使用 HTTPDNS** 做域名解析。示例如下：
 ```Java
@@ -556,8 +591,8 @@ String url = "https://192.168.0.1/"; // 业务自己的请求连接
 ### Unity
 
 - 初始化 HTTPDNS 和灯塔接口
-	>! 若已接入 msdk 或者单独接入了腾讯灯塔则不用初始化灯塔。
-	>
+>! 若已接入 msdk 或者单独接入了腾讯灯塔则不用初始化灯塔。
+>
 	示例如下：
 ```C#
  private static AndroidJavaObject sHttpDnsObj;

@@ -7,7 +7,7 @@
 
 ## 步骤1：编写基础应用
 
-首先我们创建一个 Spring Boot 应用。使用 curl 和 unzip 命令新建一个空 Web 项目：
+1. 首先我们创建一个 Spring Boot 应用。使用 curl 和 unzip 命令新建一个空 Web 项目：
 <dx-codeblock>
 :::  plaintext
 curl https://start.spring.io/starter.zip \
@@ -29,7 +29,7 @@ cd helloworld
 <li><a href = "https://cygwin.com/install.html">cygwin</a></li></ul>
 或者选择性地使用 <a href = "https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=helloworld&name=helloworld&description=&packageName=com.example.helloworld&dependencies=web">Spring Initializr（预加载配置）</a>生成项目。
 </dx-alert>
-将 `src/main/java/com/example/helloworld/HelloworldApplication.java` 内容更新如下：
+2. 将 `src/main/java/com/example/helloworld/HelloworldApplication.java` 内容更新如下：
 <dx-codeblock>
 :::  java
 package com.example.helloworld;
@@ -58,19 +58,21 @@ public class HelloworldApplication {
 }
 :::
 </dx-codeblock>
-在 `src/main/resources/application.properties` 中，将服务器端口设置成 `8080`：
+3. 在 `src/main/resources/application.properties` 中，将服务器端口设置成 `8080`：
 <dx-codeblock>
 :::  URL
 server.port=8080
 :::
 </dx-codeblock>
-
-
+<dx-alert infotype="explain" title="">
 以上代码会创建一个基本的 Web 服务器，并监听 `8080` 端口。
+</dx-alert>
+
+
 
 ## 步骤2：将应用容器化
 
-在项目根目录下，创建一个名为 `Dockerfile` 的文件，内容如下：
+1. 在项目根目录下，创建一个名为 `Dockerfile` 的文件，内容如下：
 <dx-codeblock>
 :::  docker
 # 使用官方 maven/Java 8 镜像作为构建环境
@@ -97,7 +99,7 @@ COPY --from=builder /app/target/helloworld-*.jar /helloworld.jar
 CMD ["java", "-Djava.security.egd=file:/d步骤1urandom", "-jar", "/helloworld.jar"]
 :::
 </dx-codeblock>
-添加一个 `.dockerignore` 文件，以从容器映像中排除文件：
+2. 添加一个 `.dockerignore` 文件，以从容器映像中排除文件：
 <dx-codeblock>
 :::  sh
 Dockerfile
@@ -108,20 +110,20 @@ target/
 
 ## 步骤3（可选）：本地构建镜像
 
-如果您本地已经安装了 Docker，可以运行以下命令，在本地构建 Docker 镜像：
+1. 如果您本地已经安装了 Docker，可以运行以下命令，在本地构建 Docker 镜像：
 <dx-codeblock>
 :::  sh
 docker build -t helloworld-java
 :::
 </dx-codeblock>
-构建成功后，运行 `docker images`，可以看到构建出的镜像：
+2. 构建成功后，运行 `docker images`，可以看到构建出的镜像，随后您可以将此镜像上传至您的镜像仓库。
 <dx-codeblock>
 :::  sh
 REPOSITORY        TAG       IMAGE ID         CREATED            SIZE
 helloworld-java   latest    c994813b495b     8 seconds ago      271MB
 :::
 </dx-codeblock>
-随后您可以将此镜像上传至您的镜像仓库。
+
 
 ## 步骤4：部署到 CloudBase 云托管
 

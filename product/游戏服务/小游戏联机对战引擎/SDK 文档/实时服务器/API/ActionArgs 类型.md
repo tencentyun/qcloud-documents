@@ -78,9 +78,15 @@ exports.data = newData;
 |:---|---|---|
 |data|{ playerIdList: string[]; data: UserDefinedData; }|消息内容|
 
->?
+
+
+<dx-alert infotype="explain" title="">
 - data.playerIdList 表示接收消息的玩家 ID 列表。数组为空表示发给房间内全部玩家。
 - data.data 为具体消息，类型为 UserDefinedData，即 object。
+</dx-alert>
+
+
+
 
 **返回值说明**
 
@@ -115,7 +121,13 @@ SDK.sendData(data2);
 
 无。
 
->?使用该方法后，下次 gameServer.onRecvFromClient 接口回调将处理该方法发送的消息。
+
+
+<dx-alert infotype="explain" title="">
+使用该方法后，下次 gameServer.onRecvFromClient 接口回调将处理该方法发送的消息。
+</dx-alert>
+
+
 
 **使用示例**
 
@@ -138,7 +150,13 @@ SDK.dispatchAction(actionData);
 
 无。
 
->?当 gameServer.mode 为 "sync" 时，gameServer.onRecvFromClient 广播会保存在一个队列里面，在 gameServer.onRecvFromClient 回调函数中通过调用 SDK.exitAction 才能处理下一条 gameServer.onRecvFromClient 广播。SDK.clearAction 作用就是清空 gameServer.onRecvFromClient 队列，可用于游戏结束后实时服务器忽略客户端消息的场景。
+
+
+<dx-alert infotype="explain" title="">
+当 gameServer.mode 为 "sync" 时，gameServer.onRecvFromClient 广播会保存在一个队列里面，在 gameServer.onRecvFromClient 回调函数中通过调用 SDK.exitAction 才能处理下一条 gameServer.onRecvFromClient 广播。SDK.clearAction 作用就是清空 gameServer.onRecvFromClient 队列，可用于游戏结束后实时服务器忽略客户端消息的场景。
+</dx-alert>
+
+
 
 **使用示例**
 
@@ -160,7 +178,13 @@ SDK.clearAction();
 
 无。
 
->?当 gameServer.mode 为 "sync" 时，需要在 gameServer.onRecvFromClient 回调里面显式调用 SDK.exitAction 方法才能继续处理下一条 gameServer.onRecvFromClient 广播消息。
+
+
+<dx-alert infotype="explain" title="">
+当 gameServer.mode 为 "sync" 时，需要在 gameServer.onRecvFromClient 回调里面显式调用 SDK.exitAction 方法才能继续处理下一条 gameServer.onRecvFromClient 广播消息。
+</dx-alert>
+
+
 
 **使用示例**
 
@@ -205,7 +229,13 @@ IGetRoomByRoomIdRsp 定义如下：
 
 无。
 
->?调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+
+
+<dx-alert infotype="explain" title="">
+调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+</dx-alert>
+
+
 
 
 **使用示例**
@@ -255,7 +285,13 @@ IChangeRoomRsp 定义如下：
 
 无。
 
->?调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+
+
+<dx-alert infotype="explain" title="">
+调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+</dx-alert>
+
+
 
 **使用示例**
 
@@ -301,7 +337,11 @@ IChangeCustomPlayerStatusRsp 定义如下：
 
 无。
 
->?调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+<dx-alert infotype="explain" title="">
+调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+</dx-alert>
+
+
 
 **使用示例**
 
@@ -346,7 +386,13 @@ IRemovePlayerRsp 定义如下：
 
 无。
 
->?调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+
+
+<dx-alert infotype="explain" title="">
+调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+</dx-alert>
+
+
 
 **使用示例**
 

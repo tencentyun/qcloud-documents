@@ -9,7 +9,7 @@ NTP 服务的通信端口为 UDP 123，转换为 NTP 服务之前，请确保您
 ## 操作步骤
 您可选择 [手动](#manual) 或者 [自动](#automatic) 的方式将 ntpdate 转换为 ntpd。
 
-### 手动将 ntpdate 转换为 ntpd<span id="manual"></span>
+### 手动将 ntpdate 转换为 ntpd[](id:manual)
 #### 关闭 ntpdate
 1. 执行以下命令，导出 crontab 配置，并过滤 ntpdate。
 ```
@@ -36,7 +36,7 @@ vi /etc/ntp.conf
 3. 按 **Esc**，输入 **:wq**，保存文件并返回。
 
 
-### 自动将 ntpdate 转换为 ntpd<span id="automatic"></span>
+### 自动将 ntpdate 转换为 ntpd[](id:automatic)
 1. 下载 `ntpd_enable.sh` 脚本。
 ```
 wget https://image-10023284.cos.ap-shanghai.myqcloud.com/ntpd_enable.sh

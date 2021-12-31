@@ -90,7 +90,7 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
    ```
 3. 进入每个项目的 `src/main/resource` 目录，根据已经部署的容器所有的云服务器地址，修改 application.yml 文件中的连接信息。
 	<dx-alert infotype="explain" title="">
-	若在本地安装调试可以忽略本步骤，即在本地安装docker和所有基础组件，在本地启动Spring Cloud调试。
+	若在本地安装调试可以忽略本步骤，即在本地安装 docker 和所有基础组件，在本地启动 Spring Cloud 调试。
 	</dx-alert>
    ```yml
    # mysql中替换localhost为内网IP
@@ -128,35 +128,35 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
 
 **2.1 新建集群**
 
-1. 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf/index)，左侧导航栏选择【集群】，单击新建，创建一个名为 mall-demo 的集群。
-2. 单击集群操作栏的【导入云主机】，将购买的云服务器全部导入到集群中。
+1. 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf/index)，左侧导航栏选择**集群**，单击新建，创建一个名为 mall-demo 的集群。
+2. 单击集群操作栏的**导入云主机**，将购买的云服务器全部导入到集群中。
 
 **2.2 新建日志配置项**
 
-在左侧导航栏选择【日志服务】>【日志配置】，单击【新建日志配置项】，创建日志采集规则。
+在左侧导航栏选择**日志服务** > **日志配置**，单击**新建日志配置项**，创建日志采集规则。
 
 ![](https://main.qcloudimg.com/raw/d5d682c4c1b61ef0a68efd212cd66f78.png)
 
 **2.3 创建并部署应用**
 
-1. 在左侧导航栏选择【应用管理】，单击【新建应用】，创建一个名为 mall-search 的应用。
+1. 在左侧导航栏选择**应用管理**，单击**新建应用**，创建一个名为 mall-search 的应用。
 
 	 ![](https://main.qcloudimg.com/raw/ebc5f4347228e517f5247a13232421a3.png)
 
-2. 单击【提交】后，在提醒弹窗“是否前往倒入程序包，并部署应用”中单击【确认】，前往上传程序包。
+2. 单击**提交**后，在提醒弹窗“是否前往倒入程序包，并部署应用”中单击**确认**，前往上传程序包。
 
-3. 在程序包管理页面，单击【上传程序包】，将 mall-search-1.0-SNAPSHOT.jar 程序包上传到TSF平台。
+3. 在程序包管理页面，单击**上传程序包**，将 mall-search-1.0-SNAPSHOT.jar 程序包上传到TSF平台。
 
-4. 单击【提交】后，在弹窗“已上传完程序包，是否部署应用”中选择【前往部署】，前往创建部署组。
+4. 单击**提交**后，在弹窗“已上传完程序包，是否部署应用”中选择**前往部署**，前往创建部署组。
 
-5. 在部署组页面，单击【新建部署组】，填写部署组信息。
+5. 在部署组页面，单击**新建部署组**，填写部署组信息。
 
    - 集群：选择**2.1步骤**中创建的集群
    - 日志配置项：选择**步骤2.2**中创建的日志配置项
 
    ![](https://main.qcloudimg.com/raw/a7ef5d0003109f2d33e3e1c9f275c610.png)
 
-6. 单击【保存&下一步】，选择要部署的云主机，单击【部署应用】。
+6. 单击**保存&下一步**，选择要部署的云主机，单击**部署应用**。
 
 7. 在部署应用页面，选择刚刚上传的程序包版本，健康检查建议勾选“存活检查”和“就绪检查”，因为项目已经集成 actuator，如图填写请求路径即可，端口号根据 application.yml 中定义填写。
 
@@ -164,7 +164,7 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
 	健康检查：
    ![](https://main.qcloudimg.com/raw/b43f9211d2bc584c68859f4b60570d2e.png)
 
-8. 单击【完成】，完成应用部署。
+8. 单击**完成**，完成应用部署。
 
 **2.4 查看部署结果**
 
@@ -205,7 +205,7 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
 
 6. 访问前端页面，地址：`http://中间件服务器的外网 IP: 8090`，体验服务。
 
-7. 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf/index)，在【依赖分析】>【服务依赖拓扑】页面，选择命名空间和时间后，可看到如下图的依赖关系。
+7. 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf/index)，在**依赖分析** > **服务依赖拓扑**页面，选择命名空间和时间后，可看到如下图的依赖关系。
 
    ![](https://main.qcloudimg.com/raw/8a1385e52ec3da92e197368f1771a9a7.png)
 
@@ -215,7 +215,7 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
 
 **2.1 验证服务限流功能**
 
-服务限流详细介绍请参考[服务限流](https://cloud.tencent.com/document/product/649/19046)。
+服务限流详细介绍请参考 [服务限流](https://cloud.tencent.com/document/product/649/19046)。
 
 典型业务问题：后端业务被高频恶意访问，导致核心业务链路阻塞，系统瘫痪。
 
@@ -233,11 +233,11 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
 
 **2.2 验证服务鉴权功能**
 
-服务鉴权详细介绍请参考[服务鉴权](https://cloud.tencent.com/document/product/649/18024)。
+服务鉴权详细介绍请参考 [服务鉴权](https://cloud.tencent.com/document/product/649/18024)。
 
 电商典型场景：后端敏感业务需要对访问权限进行控制。
 
-场景：对于后台商品管理模块，仅支持有权限的服务对它进行访问。例如，在这个场景中，我们限制gateway微服务可以不访问mall admin微服务，所有从gateway发起的请求都会被拒绝。
+场景：对于后台商品管理模块，仅支持有权限的服务对它进行访问。例如，在这个场景中，我们限制 gateway 微服务可以不访问 mall admin 微服务，所有从 gateway 发起的请求都会被拒绝。
 
 配置方式：在 [TSF 控制台](https://console.cloud.tencent.com/tsf/index) 服务治理页面找到 mall-admin 服务，进入服务详情页面，配置服务鉴权规则。
 
@@ -264,9 +264,9 @@ TSF 支持原生 Spring Cloud 应用无侵入接入，无需改造即可直接�
    | applicationName | 必选  | 应用名称                                                     |
    | appId | 必选            | 账号 APPID                                                    |
    | groupName | 可选        | 默认采用和应用名称同名，不可重复                             |
-   | microserviceType |可选 | 默认“NATIVE" 云原生应用。否，填写 “N”                        |
+   | microserviceType |可选 | 默认“NATIVE” 云原生应用。否，填写 “N”                        |
    | applicationType | 可选  | 默认“V”表示虚拟机部署                                        |
-   | pkgVerstion | 可选      | 上传的程序包版本号，默认当前时间戳，时间戳格式：”YYYYmmddHHMMSS“ |
+   | pkgVersion | 可选      | 上传的程序包版本号，默认当前时间戳，时间戳格式：“YYYYmmddHHMMSS”|
 
 2. 在 travis.yml 中添加脚本任务和任务所需的执行参数。依次是：程序包路径、应用名和 APPID。
 

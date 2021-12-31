@@ -1,6 +1,6 @@
 ## 功能说明
 
-Hadoop-COS 基于腾讯云对象存储 COS 实现了标准的 Hadoop 文件系统，可以为 Hadoop、Spark 以及 Tez 等大数据计算框架集成 COS 提供支持，使其能够跟访问 HDFS 文件系统时相同，读写存储在 COS 上的数据。
+Hadoop-COS 基于腾讯云对象存储（Cloud Object Storage，COS）实现了标准的 Hadoop 文件系统，可以为 Hadoop、Spark 以及 Tez 等大数据计算框架集成 COS 提供支持，使其能够跟访问 HDFS 文件系统时相同，读写存储在 COS 上的数据。
 
 Hadoop-COS 使用 cosn 作为 URI 的 scheme，因此也称为 Hadoop-COS 为 CosN 文件系统。
 
@@ -19,6 +19,7 @@ Hadoop-2.6.0及以上版本。
 >1. 目前 Hadoop-COS 已经正式被 Apache Hadoop-3.3.0 [官方集成](https://hadoop.apache.org/docs/r3.3.0/hadoop-cos/cloud-storage/index.html)。
 >2. 在 Apache Hadoop-3.3.0 之前版本或 CDH 集成 Hadoop-cos jar 包后，需要重启 NodeManager 才能加载到 jar 包。
 >3. 需要编译具体 Hadoop 版本的 jar 包时，可更改 pom 文件中 hadoop.version 进行编译。
+>
 
 
 
@@ -31,11 +32,9 @@ Hadoop-2.6.0及以上版本。
 #### 安装 Hadoop-COS 插件
 
 1. 将 `hadoop-cos-{hadoop.version}-{version}.jar` 和 `cos_api-bundle-{version}.jar` 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
-
-> ?根据 Hadoop 的具体版本选择对应的 jar 包，若 release 中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。 
-
+>? 根据 Hadoop 的具体版本选择对应的 jar 包，若 release 中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。
+> 
 2. 修改 hadoop_env.sh 文件。进入`$HADOOP_HOME/etc/hadoop`目录，编辑 hadoop_env.sh 文件，增加以下内容，将 cosn 相关 jar 包加入 Hadoop 环境变量：
-
 ```shell
 for f in $HADOOP_HOME/share/hadoop/tools/lib/*.jar; do
   if [ "$HADOOP_CLASSPATH" ]; then
@@ -46,9 +45,7 @@ for f in $HADOOP_HOME/share/hadoop/tools/lib/*.jar; do
 done
 ```
 
-
-
-## 使用方法
+## 配置方法
 
 ### 配置项说明
 
@@ -56,7 +53,7 @@ done
 | :--------------------------------------: | :----------------------------------------------------------- | :----------------------------------------------------------: | :----: |
 |   fs.cosn.userinfo.<br>secretId/secretKey    | 填写您账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。 |                              无                              |   是   |
 |       fs.cosn.<br>credentials.provider       | 配置 SecretId 和 SecretKey 的获取方式。当前支持五种获取方式：<br> 1.org.apache.hadoop.fs.auth.SessionCredential<br>Provider：从请求 URI 中获取 secret id 和 secret key。<br>其格式为：`cosn://{secretId}:{secretKey}@examplebucket-1250000000/`；<br>2.org.apache.hadoop.fs.auth.SimpleCredentialProvider：<br>从 core-site.xml 配置文件中读取 fs.cosn.userinfo.secretId 和 fs.cosn.userinfo.secretKey 来获取 SecretId 和 SecretKey；<br>3.org.apache.hadoop.fs.auth.EnvironmentVariableCredential<br>Provider：从系统环境变量 COS_SECRET_ID 和 COS_SECRET_KEY 中获取；<br>4.org.apache.hadoop.fs.auth.CVMInstanceCredentials<br>Provider：利用腾讯云云服务器（CVM）绑定的角色，获取访问 COS 的临时密钥；<br> 5.org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider：<br>利用腾讯云黑石物理机（CPM）绑定的角色，获取访问 COS 的临时密钥。 | 如果不指定该配置项，默认会按照<br>以下顺序读取：<br>1.org.apache.hadoop.fs.auth.<br>SessionCredentialProvider<br>2.org.apache.hadoop.fs.auth.<br>SimpleCredentialProvider <br>3.org.apache.hadoop.fs.auth.<br>EnvironmentVariableCredentialProvider<br>4.org.apache.hadoop.fs.auth.<br>CVMInstanceCredentialsProvider<br>5.org.apache.hadoop.fs.auth.<br>CPMInstanceCredentialsProvider |   否   |
-| fs.cosn.useHttps | 配置是否使用 https 作为与 COS 后端的传输协议。 | false | 否 |
+| fs.cosn.useHttps | 配置是否使用 HTTPS 作为与 COS 后端的传输协议。 | false | 否 |
 |               fs.cosn.impl               | cosn 对 FileSystem 的实现类，固定为 org.apache.hadoop.fs.CosFileSystem。 |                              无                              |   是   |
 |     fs.AbstractFileSystem.<br>cosn.impl      | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN。 |                              无                              |   是   |
 |          fs.cosn.bucket.region           | 请填写待访问存储桶的地域信息，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 中的地域简称，<br>例如：ap-beijing、ap-guangzhou 等。兼容原有配置：fs.cosn.userinfo.region。 |                              无                              |   是   |
@@ -215,7 +212,7 @@ done
         </description>
 </property>
 ```
-  
+
 ### 服务端加密
 
 Hadoop-COS 支持服务端加密，目前提供两种加密方式：COS 托管密钥方式（SSE-COS）和用户自定义密钥方式（SSE-C），Hadoop-COS 的加密功能默认为关闭状态，用户可以选择开启，通过以下方式进行配置。
@@ -249,10 +246,13 @@ SSE-C 加密即用户自定义密钥的服务端加密。加密密钥由用户�
  </property> 
 ```
 
-> !
->
+>!
 > - Hadoop-COS 的 SSE-C 服务端加密依赖于 COS 的 SSE-C 服务端加密。因此，Hadoop-COS 不存储用户提供的加密密钥。同时需要值得注意的是，COS 的 SSE-C 服务端加密方式不存储用户提供的加密密钥，而是存储加密密钥添加了随机数据的 HMAC 值，该值用于验证用户访问对象的请求。COS 无法使用随机数据的 HMAC 值来推导出加密密钥的值或解密加密对象的内容。因此，如果用户丢失了加密密钥，则无法再次获取到该对象。
 > - Hadoop-COS 配置了 SSE-C 服务端加密算法时，必须在 fs.cosn.server-side-encryption.key 配置项中配置 SSE-C 的密钥，密钥格式为 base64 编码的 AES-256 密钥。
+> 
+
+## 使用方法
+
 
 ### 使用示例
 
@@ -272,7 +272,8 @@ drwxrwxrwx   - root root          0 1970-01-01 00:00 cosn://examplebucket-125000
 
 运行 MapReduce 自带的 wordcount，执行以下命令。
 
-> !以下命令中 hadoop-mapreduce-examples-2.7.2.jar 是以2.7.2版本为例，若版本不同，请修改成对应的版本号。
+>! 以下命令中 hadoop-mapreduce-examples-2.7.2.jar 是以2.7.2版本为例，若版本不同，请修改成对应的版本号。
+>
 
 ```shell
 bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar wordcount cosn://example/mr/input cosn://example/mr/output3
@@ -326,6 +327,180 @@ File Input Format Counters
 Bytes Read=36
 File Output Format Counters
 Bytes Written=40
+```
+
+### 通过 Java 代码访问 COSN
+
+```
+package com.qcloud.chdfs.demo;
+
+import org.apache.commons.io.IOUtils;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FSDataInputStream;
+import org.apache.hadoop.fs.FSDataOutputStream;
+import org.apache.hadoop.fs.FileChecksum;
+import org.apache.hadoop.fs.FileStatus;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+
+import java.io.IOException;
+import java.net.URI;
+import java.nio.ByteBuffer;
+
+public class Demo {
+    private static FileSystem initFS() throws IOException {
+        Configuration conf = new Configuration();
+        // COSN 的配置项可参见 https://cloud.tencent.com/document/product/436/6884#hadoop-.E9.85.8D.E7.BD.AE
+        // 以下配置是必填项
+        conf.set("fs.cosn.impl", "org.apache.hadoop.fs.CosFileSystem");
+        conf.set("fs.AbstractFileSystem.cosn.impl", "org.apache.hadoop.fs.CosN");
+        conf.set("fs.cosn.tmp.dir", "/tmp/hadoop_cos");
+        conf.set("fs.cosn.bucket.region", "ap-guangzhou");
+        conf.set("fs.cosn.userinfo.secretId", "AKXXXXXXXXXXXXXXXXX");
+        conf.set("fs.cosn.userinfo.secretKey", "XXXXXXXXXXXXXXXXXX");
+        conf.set("fs.ofs.user.appid", "XXXXXXXXXXX");
+        // 其他配置参考官网文档https://cloud.tencent.com/document/product/436/6884#hadoop-.E9.85.8D.E7.BD.AE
+        // 是否开启 CRC64 校验。默认不开启，此时无法使用 hadoop fs -checksum 命令获取文件的 CRC64 校验值
+        conf.set("fs.cosn.crc64.checksum.enabled", "true");
+        String cosnUrl = "cosn://f4mxxxxxxxx-125xxxxxxx";
+        return FileSystem.get(URI.create(cosnUrl), conf);
+    }
+
+    private static void mkdir(FileSystem fs, Path filePath) throws IOException {
+        fs.mkdirs(filePath);
+    }
+
+    private static void createFile(FileSystem fs, Path filePath) throws IOException {
+        // 创建一个文件（如果存在则将其覆盖）
+        // if the parent dir does not exist, fs will create it!
+        FSDataOutputStream out = fs.create(filePath, true);
+        try {
+            // 写入一个文件
+            String content = "test write file";
+            out.write(content.getBytes());
+        } finally {
+            IOUtils.closeQuietly(out);
+        }
+    }
+
+    private static void readFile(FileSystem fs, Path filePath) throws IOException {
+        FSDataInputStream in = fs.open(filePath);
+        try {
+            byte[] buf = new byte[4096];
+            int readLen = -1;
+            do {
+                readLen = in.read(buf);
+            } while (readLen >= 0);
+        } finally {
+            IOUtils.closeQuietly(in);
+        }
+    }
+
+    private static void queryFileOrDirStatus(FileSystem fs, Path path) throws IOException {
+        FileStatus fileStatus = fs.getFileStatus(path);
+        if (fileStatus.isDirectory()) {
+            System.out.printf("path %s is dir\n", path);
+            return;
+        }
+        long fileLen = fileStatus.getLen();
+        long accessTime = fileStatus.getAccessTime();
+        long modifyTime = fileStatus.getModificationTime();
+        String owner = fileStatus.getOwner();
+        String group = fileStatus.getGroup();
+
+        System.out.printf("path %s is file, fileLen: %d, accessTime: %d, modifyTime: %d, owner: %s, group: %s\n",
+                path, fileLen, accessTime, modifyTime, owner, group);
+    }
+    
+    private static void getFileCheckSum(FileSystem fs, Path path) throws IOException {
+        FileChecksum checksum = fs.getFileChecksum(path);
+        System.out.printf("path %s, checkSumType: %s, checkSumCrcVal: %d\n",
+                path, checksum.getAlgorithmName(), ByteBuffer.wrap(checksum.getBytes()).getInt());
+    }
+
+    private static void copyFileFromLocal(FileSystem fs, Path cosnPath, Path localPath) throws IOException {
+        fs.copyFromLocalFile(localPath, cosnPath);
+    }
+
+    private static void copyFileToLocal(FileSystem fs, Path cosnPath, Path localPath) throws IOException {
+        fs.copyToLocalFile(cosnPath, localPath);
+    }
+
+    private static void renamePath(FileSystem fs, Path oldPath, Path newPath) throws IOException {
+        fs.rename(oldPath, newPath);
+    }
+
+    private static void listDirPath(FileSystem fs, Path dirPath) throws IOException {
+        FileStatus[] dirMemberArray = fs.listStatus(dirPath);
+
+        for (FileStatus dirMember : dirMemberArray) {
+            System.out.printf("dirMember path %s, fileLen: %d\n", dirMember.getPath(), dirMember.getLen());
+        }
+    }
+
+    // 递归删除标志用于删除目录
+    // 如果递归为 false 并且 dir 不为空，则操作将失败
+    private static void deleteFileOrDir(FileSystem fs, Path path, boolean recursive) throws IOException {
+        fs.delete(path, recursive);
+    }
+
+    private static void closeFileSystem(FileSystem fs) throws IOException {
+        fs.close();
+    }
+
+    public static void main(String[] args) throws IOException {
+        // 初始化文件
+        FileSystem fs = initFS();
+
+        // 创建文件
+        Path cosnFilePath = new Path("/folder/exampleobject.txt");
+        createFile(fs, cosnFilePath);
+
+        // 读取文件
+        readFile(fs, cosnFilePath);
+
+        // 查询文件或目录
+        queryFileOrDirStatus(fs, cosnFilePath);
+
+        // 获取文件校验和
+        getFileCheckSum(fs, cosnFilePath);
+
+        // 从本地复制文件
+        Path localFilePath = new Path("file:///home/hadoop/ofs_demo/data/exampleobject.txt");
+        copyFileFromLocal(fs, cosnFilePath, localFilePath);
+
+        // 获取文件到本地
+        Path localDownFilePath = new Path("file:///home/hadoop/ofs_demo/data/exampleobject.txt");
+        copyFileToLocal(fs, cosnFilePath, localDownFilePath);
+
+        listDirPath(fs, cosnFilePath);
+        // 重命名
+        mkdir(fs, new Path("/doc"));
+        Path newPath = new Path("/doc/example.txt");
+        renamePath(fs, cosnFilePath, newPath);
+
+        // 删除文件
+        deleteFileOrDir(fs, newPath, false);
+
+        // 创建目录
+        Path dirPath = new Path("/folder");
+        mkdir(fs, dirPath);
+
+        // 在目录中创建文件
+        Path subFilePath = new Path("/folder/exampleobject.txt");
+        createFile(fs, subFilePath);
+
+        // 列出目录
+        listDirPath(fs, dirPath);
+
+        // 删除目录
+        deleteFileOrDir(fs, dirPath, true);
+        deleteFileOrDir(fs, new Path("/doc"), true);
+
+        // 关闭文件系统
+        closeFileSystem(fs);
+    }
+}
 ```
 
 ## 常见问题

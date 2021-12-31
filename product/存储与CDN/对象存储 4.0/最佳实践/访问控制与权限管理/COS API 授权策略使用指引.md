@@ -524,6 +524,31 @@ API 接口为 POST Object，若授予其操作权限，则策略的 action 为 n
 }
 ```
 
+### 追加上传对象
+
+API 接口为 Append Object，若授予其操作权限，则策略的 action为 name/cos:AppendObject。
+
+#### 示例 
+
+授予只能在 APPID 为1250000000 ，地域为 ap-beijing，存储桶为 examplebucket-1250000000，路径前缀为 doc 下进行追加上传的操作权限，其策略详细内容如下：
+
+```shell
+ {
+  "version": "2.0",
+  "statement": [
+    {
+      "action": [
+        "name/cos:AppendObject"
+      ],
+      "effect": "allow",
+      "resource": [
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*"
+      ]
+    }
+  ]
+}
+```
+
 ### 查询对象元数据
 
 API 接口为 HEAD Object，若授予其操作权限，则策略的 action 为 name/cos:HeadObject。

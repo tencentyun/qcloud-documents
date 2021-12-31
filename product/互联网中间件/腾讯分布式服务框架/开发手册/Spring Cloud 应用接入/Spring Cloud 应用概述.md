@@ -5,21 +5,11 @@ TSF 支持原生 Spring Cloud 微服务框架，开发者只需要添加依赖�
 
 ## 兼容性说明
 TSF 兼容主流 SDK 版本（Edgware、Finchley、Greenwich），具体可参考 [SDK 版本概述](https://cloud.tencent.com/document/product/649/49320)。Spring Cloud 功能、开源实现及 TSF 兼容性如下表所示：
-<style>
-table th:first-of-type {
-	width: 150px;
-}
-table th:nth-of-type(2) {
-	width: 200px;
-}
-table th:nth-of-type(3) {
-	width: 120px;
-}
-</style>
-| Spring Cloud 功能 | 开源实现                            | TSF 兼容性 | 说明                                            |
+
+| <nobr>Spring Cloud 功能</nobr> | 开源实现                            | TSF 兼容性 | 说明                                            |
 | ----------------- | ---------------------------------------- |:--------------:| ------------------------------------------ |
 | 服务注册与发现  | <li>Netflix Eureka</li><li>Consul</li>  | 基于开源增强| 提供金融级高可用注册中心，无须用户自行搭建|        |
-| 负载均衡         | Netflix Ribbon                         | 兼容       | -                                                            |
+| 负载均衡        | Netflix Ribbon                         | 兼容       | -                                                            |
 | 服务调用         |<li>RestTemplate/AsyncRestTemplate</li><li>Feign</li>         | 兼容       | -                                              |
 | 调用链            | Spring Cloud Sleuth           | 基于开源增强        | 提供服务依赖拓扑、调用链查询基础功能，同时支持调用链与业务日志联动、调用链支持下游组件等高级特性 |
 | 分布式配置     | <li>Spring Cloud Config</li><li>Consul Config</li> | 基于开源增强       | 支持通过控制台管理配置，发布配置和查看配置发布历史           |

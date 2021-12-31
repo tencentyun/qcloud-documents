@@ -29,11 +29,11 @@
 ## 安装流程
 
 1. 登录 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)。
-2. 单击【新建环境】，新建一个**按量计费**环境，详情可参见 [开通环境](https://cloud.tencent.com/document/product/876/41391) 文档。
-3. 环境创建完后，单击【环境卡片】，进入环境管理页面。
-4. 单击左侧导航栏底部的 【[扩展应用](https://console.cloud.tencent.com/tcb/extensions/index)】，在更多扩展能力中，可以看到 Discuz!Q 应用。
+2. 单击**新建环境**，新建一个**按量计费**环境，详情可参见 [开通环境](https://cloud.tencent.com/document/product/876/41391) 文档。
+3. 环境创建完后，单击**环境卡片**，进入环境管理页面。
+4. 单击左侧导航栏底部的 **[扩展应用](https://console.cloud.tencent.com/tcb/extensions/index)**，在更多扩展能力中，可以看到 Discuz!Q 应用。
    ![disucz入口](https://main.qcloudimg.com/raw/69482ddda7cc18bf2fbc15d559417578.png)
-5. 在 Discuz!Q 应用中，单击【安装】，进入扩展安装流程。
+5. 在 Discuz!Q 应用中，单击**安装**，进入扩展安装流程。
    - 确认应用相关资源
    - 授予云开发相关资源的操作权限
    - 扩展云资源准备，声明会依赖的 2 个资源(文件存储、云数据库)
@@ -45,7 +45,7 @@
 
 ## 部署异常
 
-安装过程中可能遇到一些异常，请根据异常提示查看以下解决方案进行解决。如果遇到无法解决的问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，我们将协助你解决。
+安装过程中可能遇到一些异常，请根据异常提示查看以下解决方案进行解决。如果遇到无法解决的问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，我们将协助您解决。
 ![安装异常](https://main.qcloudimg.com/raw/1e8022496f7c221a6f84fa02ddd5859e.png)
 
 ### 账户余额不足
@@ -120,7 +120,7 @@ CynosDB for MySQL 与服务器类似，是按照使用时间计费，即使没�
 
 1. 安装 Discuz!Q 后，跳到[云托管的 webshell](https://docs.cloudbase.net/run/webshell.html#cao-zuo-bei-jing)
 2. 删除 lock 锁定文件 `rm /var/lib/discuz/.clusterlock /var/lib/discuz/storage/install.lock`,以发起重装。
-3. 点击[编辑配置并重新部署](https://docs.cloudbase.net/run/update-service.html#fang-shi-er-yuan-ban-ben-bian-ji-pei-zhi-bing-chong-xin-bu-shu)，更改对应的环境变量。注意需要在同一个 vpc 下，否则需要提供外网的 IP。
+3. 单击[编辑配置并重新部署](https://docs.cloudbase.net/run/update-service.html#fang-shi-er-yuan-ban-ben-bian-ji-pei-zhi-bing-chong-xin-bu-shu)，更改对应的环境变量。注意需要在同一个 vpc 下，否则需要提供外网的 IP。
    ![更新环境变量](https://main.qcloudimg.com/raw/b5f9eeeee8cf2488781b4e6bc1e5abb2.png)
 4. 如果需要导入原先的数据，请将 `/var/lib/discuz/config/config.php` 中的密钥字段。`'key' => 'base64:q94WREK6/c8WTTb+DeOQjmzyzQgOA5CmVpNfLQWK8kU='`，该密钥用于注册账号的密码数据加密。可使用 [nano 编辑器](https://cloud.tencent.com/developer/article/1187038)进行编辑。
 
@@ -170,11 +170,11 @@ Discuz! Q 当前部署采用的是按量付费的 CynosDB for MySQL 实例。是
 
 #### 步骤1：迁移数据到 Serverless 类型的 CynosDB
 
-1、前往 [CynosDB](https://console.cloud.tencent.com/cynosdb) 控制台，点击 Discuz! Q 创建的 DB 实例管理操作，即集群名为 DiscuzCynosDB 的实例。
+1、前往 [CynosDB](https://console.cloud.tencent.com/cynosdb) 控制台，单击 Discuz! Q 创建的 DB 实例管理操作，即集群名为 DiscuzCynosDB 的实例。
 ![管理](https://main.qcloudimg.com/raw/7468b97f3a16294c90feaf9e9f66e456.jpg)
-2、点击备份管理，进行回档操作
+2、单击备份管理，进行回档操作
 ![管理](https://main.qcloudimg.com/raw/f6b8c62f0d97f36005b9bcd644514d66.jpg)
-3、创建回档，确认创建回档，点击立即购买
+3、创建回档，确认创建回档，单击立即购买
 ![创建回档](https://main.qcloudimg.com/raw/b5d0c183a78f0f73e7197c1bbb8850b2.jpg)
 
 - 计费模式选择 serverless
@@ -187,11 +187,11 @@ Discuz! Q 当前部署采用的是按量付费的 CynosDB for MySQL 实例。是
 
 #### 步骤2：修改云托管的数据库配置，指向新的数据库
 
-1. 点击云托管的菜单，点击 discuzq 服务
+1. 单击云托管的菜单，单击 discuzq 服务
    ![discuzq](https://main.qcloudimg.com/raw/60ec5608e757a3436f529f028fa75b30.jpg)
-2. 点击当前版本的 更多-调试 按钮
+2. 单击当前版本的 更多-调试 按钮
    ![调试](https://main.qcloudimg.com/raw/f705a7713733f9cba5d6beee22926d11.jpg)
-3. 点击打开 webshell，进入到对应的文件夹并编辑配置文件 `cd /var/lib/discuz/config;nano config.php`,参考教程 [Nano 文本编辑器使用教程](https://cloud.tencent.com/developer/article/1187038)
+3. 单击打开 webshell，进入到对应的文件夹并编辑配置文件 `cd /var/lib/discuz/config;nano config.php`,参考教程 [Nano 文本编辑器使用教程](https://cloud.tencent.com/developer/article/1187038)
    ![编辑配置文件](https://main.qcloudimg.com/raw/4dd8e89a17f853636dd05942adb3f18d.png)
 4. 修改 `database` 的 `host` 配置，保存文件。
    ![修改host配置](https://main.qcloudimg.com/raw/9a8ce9974ea66aa745a6b3ca81a5579f.png)

@@ -81,11 +81,11 @@
 1. 在连接器列表中选择 SFTP 连接器，然后选择 SFTP 读取文件操作。
 ![](https://main.qcloudimg.com/raw/46e1bcd295b69f35bb72ce8018994f28/SFTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/bc86011ea5e668863ab8d2e513fab075/SFTP%E9%80%89%E6%8B%A9%E6%93%8D%E4%BD%9C.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 SFTP 服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图:
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 SFTP 服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图:
 ![](https://main.qcloudimg.com/raw/1637256729a45ea904246dc08ab56c45/SFTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数。文件路径设为“/data/sftptest.txt”，参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数。文件路径设为“/data/sftptest.txt”，参数输入见下图：
 ![](https://main.qcloudimg.com/raw/d6415e40409100a733fa06a103f2fdc3/SFTP-Read.png)
-4. 操作配置参数设置完成后保存返回即可，然后单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，然后单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/e4eb65a1fae7ea6666fc18e86ce401ba/SFTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制 HTTP Listener 监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/254ef6641c1fdf46fc136f4b153f546a/SFTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)
@@ -128,11 +128,11 @@ SFTP 写文件操作，若执行成功则 payload 为空；若执行失败时输
 1. 在连接器列表中选择 SFTP 连接器，然后选择 SFTP 写文件操作。
 ![](https://main.qcloudimg.com/raw/46e1bcd295b69f35bb72ce8018994f28/SFTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/bc86011ea5e668863ab8d2e513fab075/SFTP%E9%80%89%E6%8B%A9%E6%93%8D%E4%BD%9C.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 SFTP 服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图：
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 SFTP 服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图：
 ![](https://main.qcloudimg.com/raw/1637256729a45ea904246dc08ab56c45/SFTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数。文件路径设为“/data/sftptest.txt”，参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数。文件路径设为“/data/sftptest.txt”，参数输入见下图：
 ![](https://main.qcloudimg.com/raw/4c65bb755931088bbf9f26a27900dc91/SFTP-Write.png)
-4. 操作配置参数设置完成后保存返回即可，然后单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，然后单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/e4eb65a1fae7ea6666fc18e86ce401ba/SFTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制 HTTP Listener 监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/254ef6641c1fdf46fc136f4b153f546a/SFTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)
@@ -170,11 +170,11 @@ SFTP 删除文件操作若执行成功 payload 为空，若执行失败时输出
 1. 在连接器列表中选择 SFTP 连接器，然后选择 SFTP 删除文件操作。
 ![](https://main.qcloudimg.com/raw/46e1bcd295b69f35bb72ce8018994f28/SFTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/bc86011ea5e668863ab8d2e513fab075/SFTP%E9%80%89%E6%8B%A9%E6%93%8D%E4%BD%9C.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 SFTP 服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图：
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 SFTP 服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图：
 ![](https://main.qcloudimg.com/raw/1637256729a45ea904246dc08ab56c45/SFTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数。文件删除路径设为“/data/sftptest.txt”，参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数。文件删除路径设为“/data/sftptest.txt”，参数输入见下图：
 ![](https://main.qcloudimg.com/raw/2c150e0dd64aeb1fd9fed83b237632da/SFTP-Delete.png)
-4. 操作配置参数设置完成后保存返回即可，单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/e4eb65a1fae7ea6666fc18e86ce401ba/SFTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制 HTTP Listener 监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/254ef6641c1fdf46fc136f4b153f546a/SFTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)
@@ -216,11 +216,11 @@ SFTP 复制文件操作若执行成功 payload 为空，若执行失败时输出
 1. 在连接器列表中选择 SFTP 连接器，然后选择 SFTP 复制文件操作。
 ![](https://main.qcloudimg.com/raw/46e1bcd295b69f35bb72ce8018994f28/SFTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/bc86011ea5e668863ab8d2e513fab075/SFTP%E9%80%89%E6%8B%A9%E6%93%8D%E4%BD%9C.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 SFTP 服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图：
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 SFTP 服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图：
 ![](https://main.qcloudimg.com/raw/1637256729a45ea904246dc08ab56c45/SFTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数。源文件路径设为“/data/sftptest.txt”，目标文件路径设为“/data/copydir”，重命名设为“sftptestcopy.txt”，参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数。源文件路径设为“/data/sftptest.txt”，目标文件路径设为“/data/copydir”，重命名设为“sftptestcopy.txt”，参数输入见下图：
 ![](https://main.qcloudimg.com/raw/b882d2c30bdd7025c3540899adbe1348/SFTP-Copy.png)
-4. 操作配置参数设置完成后保存返回即可，单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/e4eb65a1fae7ea6666fc18e86ce401ba/SFTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制 HTTP Listener 监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/254ef6641c1fdf46fc136f4b153f546a/SFTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)
@@ -261,11 +261,11 @@ SFTP 重命名文件操作若执行成功则 payload 为空，若执行失败时
 1. 在连接器列表中选择 SFTP 连接器，然后选择 SFTP 重命名文件操作。
 ![](https://main.qcloudimg.com/raw/46e1bcd295b69f35bb72ce8018994f28/SFTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/bc86011ea5e668863ab8d2e513fab075/SFTP%E9%80%89%E6%8B%A9%E6%93%8D%E4%BD%9C.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 SFTP 服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图：
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 SFTP 服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图：
 ![](https://main.qcloudimg.com/raw/1637256729a45ea904246dc08ab56c45/SFTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数。文件路径设为“/data/sftptest.txt”，重命名名称设为“sftptestrename.txt”，参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数。文件路径设为“/data/sftptest.txt”，重命名名称设为“sftptestrename.txt”，参数输入见下图：
 ![](https://main.qcloudimg.com/raw/3e0a65300163cb8d8b801c08b15009df/SFTP-Rename.png)
-4. 操作配置参数设置完成后保存返回即可，单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/e4eb65a1fae7ea6666fc18e86ce401ba/SFTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制 HTTP Listener 监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/254ef6641c1fdf46fc136f4b153f546a/SFTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)
@@ -307,11 +307,11 @@ SFTP 移动文件操作若执行成功 payload 为空，若执行失败时输出
 1. 在连接器列表中选择 SFTP 连接器，然后选择 SFTP 移动文件操作。
 ![](https://main.qcloudimg.com/raw/46e1bcd295b69f35bb72ce8018994f28/SFTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/bc86011ea5e668863ab8d2e513fab075/SFTP%E9%80%89%E6%8B%A9%E6%93%8D%E4%BD%9C.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 SFTP 服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图：
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 SFTP 服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图：
 ![](https://main.qcloudimg.com/raw/1637256729a45ea904246dc08ab56c45/SFTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数。源文件路径设为“/data/sftptest.txt”，目标文件路径设为“/data/movedir”，重命名设为“sftptestmove.txt”，参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数。源文件路径设为“/data/sftptest.txt”，目标文件路径设为“/data/movedir”，重命名设为“sftptestmove.txt”，参数输入见下图：
 ![](https://main.qcloudimg.com/raw/0992064a7fa9312fa458f5765069050f/SFTP-Move.png)
-4. 操作配置参数设置完成后保存返回即可，单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/e4eb65a1fae7ea6666fc18e86ce401ba/SFTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制 HTTP Listener 监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/254ef6641c1fdf46fc136f4b153f546a/SFTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)
@@ -374,11 +374,11 @@ SFTP 目录遍历操作若执行失败时输出消息 error 中会设置详细�
 1. 在连接器列表中选择 SFTP 连接器，然后选择 SFTP 目录遍历操作。
 ![](https://main.qcloudimg.com/raw/46e1bcd295b69f35bb72ce8018994f28/SFTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/bc86011ea5e668863ab8d2e513fab075/SFTP%E9%80%89%E6%8B%A9%E6%93%8D%E4%BD%9C.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 SFTP 服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图：
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 SFTP 服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图：
 ![](https://main.qcloudimg.com/raw/1637256729a45ea904246dc08ab56c45/SFTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数。遍历目录路径设为“/data”，其他参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数。遍历目录路径设为“/data”，其他参数输入见下图：
 ![](https://main.qcloudimg.com/raw/d67552c581e4030c1489d830c859ae35/SFTP-List.png)
-4. 操作配置参数设置完成后保存返回即可，然后单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，然后单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/e4eb65a1fae7ea6666fc18e86ce401ba/SFTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制 HTTP Listener 监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/254ef6641c1fdf46fc136f4b153f546a/SFTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)
@@ -418,11 +418,11 @@ SFTP 目录创建操作若执行成功 payload 为空，若执行失败时输出
 1. 在连接器列表中选择 SFTP 连接器，然后选择 SFTP 目录创建操作。
 ![](https://main.qcloudimg.com/raw/46e1bcd295b69f35bb72ce8018994f28/SFTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/bc86011ea5e668863ab8d2e513fab075/SFTP%E9%80%89%E6%8B%A9%E6%93%8D%E4%BD%9C.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的SFTP服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图：
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的SFTP服务器对应参数，工作路径设置为 SFTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图：
 ![](https://main.qcloudimg.com/raw/1637256729a45ea904246dc08ab56c45/SFTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数。文件路径设为“/data/a/b/c”，参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数。文件路径设为“/data/a/b/c”，参数输入见下图：
 ![](https://main.qcloudimg.com/raw/2770b6100b4083edd4df7a9c7634ed8b/SFTP-CreateDir.png)
-4. 操作配置参数设置完成后保存返回即可，然后单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，然后单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/e4eb65a1fae7ea6666fc18e86ce401ba/SFTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制 HTTP Listener 监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/254ef6641c1fdf46fc136f4b153f546a/SFTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)

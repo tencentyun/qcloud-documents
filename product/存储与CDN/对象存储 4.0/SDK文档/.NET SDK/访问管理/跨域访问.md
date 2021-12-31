@@ -24,7 +24,8 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   PutBucketCORSRequest request = new PutBucketCORSRequest(bucket);
   //设置跨域访问配置 CORS
   COSXML.Model.Tag.CORSConfiguration.CORSRule corsRule = 
@@ -77,7 +78,8 @@ catch (COSXML.CosException.CosServerException serverEx)
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   GetBucketCORSRequest request = new GetBucketCORSRequest(bucket);
   //执行请求
   GetBucketCORSResult result = cosXml.GetBucketCORS(request);
@@ -110,7 +112,8 @@ catch (COSXML.CosException.CosServerException serverEx)
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   DeleteBucketCORSRequest request = new DeleteBucketCORSRequest(bucket);
   //执行请求
   DeleteBucketCORSResult result = cosXml.DeleteBucketCORS(request);

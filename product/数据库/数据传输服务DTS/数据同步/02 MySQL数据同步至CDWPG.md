@@ -11,7 +11,7 @@ CDWPG 是腾讯云大数据数据仓库产品，通过 DTS 实现云数据库 My
 - 需要具备源数据库的权限如下：
 ```
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 FLUSH PRIVILEGES;
 ```
 - 需要具备目标数据库的权限如下：
@@ -63,7 +63,6 @@ TRIGGER
  - 目标实例类型：目前仅 CDWPG。
  - 目标实例地域：选择后不支持再次修改，请选择目标实例所在的地域。
  - 同步任务规格：目前只支持标准版。
-![](https://main.qcloudimg.com/raw/38e4ed88b4ec409ad213f991bc0f0274.png)
 2. 在弹出的对话框，确认无误后，单击**立即购买**，返回数据同步列表，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 ![](https://main.qcloudimg.com/raw/edcdb7fc6c76f9ce77f49757ba7c760d.png)
 3. 在 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，单击**操作**列的**配置**，进入配置同步任务页面。
@@ -89,8 +88,15 @@ TRIGGER
     - 忽略并继续执行：全量数据初始化会全量追加数据，适用多张表汇聚到一张表中。
  - 同步操作类型：目前只支持 DML 操作。
  - 同步对象：在源库中选择待同步的表对象。
+>?
+>- 如果用户在同步过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**同步对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法同步 Online DDL 变更产生的临时表数据到目标数据库。
+>- 如果用户在同步过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**同步对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
+>
 ![](https://main.qcloudimg.com/raw/c1780105f32fdb299e213447881eba92.png)
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
+如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+ - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
+ - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
 ![](https://main.qcloudimg.com/raw/ad39b4d36b88f65afade0dec9a1afc48.png)
 7. 返回数据同步任务列表，任务开始进入**运行中**状态。
  - 暂停任务，则同步数据暂停，单击**启动**后继续进行数据同步。

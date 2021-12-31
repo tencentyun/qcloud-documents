@@ -1,4 +1,4 @@
-Prometheus 监控服务文档已迁移至新目录，下列为常用文档链接，如需快速访问请点击 [Prometheus 监控服务](https://cloud.tencent.com/document/product/1416)。
+Prometheus 监控服务文档已迁移至新目录，下列为常用文档链接，如需快速访问请单击 [Prometheus 监控服务](https://cloud.tencent.com/document/product/1416)。
 <h2  class="segment2"><img class="rno-learning-path-icon" src="https://main.qcloudimg.com/raw/a8ce0e6a692a35724164d759f9bfa5d9/icon-understand.svg" alt="">初识</h2>
 <dx-accordion>
 ::: 产品简介

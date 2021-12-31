@@ -58,5 +58,6 @@
 ![](https://main.qcloudimg.com/raw/9102b3394560ca9df2f70549baabe3ff.png)
 可能是 pods 的 target 版本无法满足所依赖的插件，因此造成报错。因此您需修改报错 pods 中的 target 到对应的版本。
 
-
-
+[](id:que12)
+### Flutter 支持自定义采集和渲染吗？
+目前不支持。自定义采集和渲染平台支持详情，请参见 [支持的平台](https://cloud.tencent.com/document/product/647/34066#.E6.94.AF.E6.8C.81.E7.9A.84.E5.B9.B3.E5.8F.B0)。

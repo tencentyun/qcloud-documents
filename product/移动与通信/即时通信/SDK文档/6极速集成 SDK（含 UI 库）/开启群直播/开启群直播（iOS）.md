@@ -1,4 +1,4 @@
-﻿TUIKit 组件在 5.0.10 以上版本开始支持群直播功能，并且支持 iOS 和 Android 平台的互通 ，群直播的实现需要额外集成 [TUIKitLive 组件](#step2) ，群直播界面请参考下图所示：
+TUIKit 组件在 5.0.10 以上版本开始支持群直播功能，并且支持 iOS 和 Android 平台的互通 ，群直播的实现需要额外集成 [TUIKitLive 组件](#step2) ，群直播界面请参考下图所示：
 
 <table>
 <tr><td  style="border-color:white">
@@ -25,11 +25,11 @@
 ## 步骤2：集成 TUIKitLive 组件
 
 1. 在 podfile 文件中添加以下内容。
- ```
+ ```objectivec
 pod 'TXIMSDK_TUIKit_live_iOS'                 // 默认集成了 TXLiteAVSDK_TRTC 音视频库
-// pod 'TXIMSDK_TUIKit_live_iOS_Professional' // 默认集成了 TXLiteAVSDK_Professional 音视频库
+// pod 'TXIMSDK_TUIKit_live_iOS/Professional' // 默认集成了 TXLiteAVSDK_Professional 音视频库
 ```
-腾讯云的 [音视频库](https://cloud.tencent.com/document/product/647/32689) 不能同时集成，会有符号冲突，如果您使用了非 [TRTC](https://cloud.tencent.com/document/product/647/32689#TRTC) 版本的音视频库，建议先去掉，然后 pod 集成 `TXIMSDK_TUIKit_iOS_Professional` 版本，该版本依赖的 [LiteAV_Professional](https://cloud.tencent.com/document/product/647/32689#.E4.B8.93.E4.B8.9A.E7.89.88.EF.BC.88professional.EF.BC.89) 音视频库包含了音视频的所有基础能力。
+腾讯云的 [音视频库](https://cloud.tencent.com/document/product/647/32689) 不能同时集成，会有符号冲突，如果您使用了非 [TRTC](https://cloud.tencent.com/document/product/647/32689#TRTC) 版本的音视频库，建议 pod 集成 `TXIMSDK_TUIKit_live_iOS/Professional` 版本，该版本依赖的 [LiteAV_Professional](https://cloud.tencent.com/document/product/647/32689#.E4.B8.93.E4.B8.9A.E7.89.88.EF.BC.88professional.EF.BC.89) 音视频库包含了音视频的所有基础能力。
 
 2. 执行以下命令，下载第三方库至当前工程。
 ```
@@ -43,7 +43,7 @@ pod install
 [](id:step3)
 ## 步骤3：初始化 TUIKit 
 初始化 TUIKit 需要传入 [步骤1](#Step1) 生成的 SDKAppID（如果您的项目已经集成了 TUIKit，请跳过此步骤）。
-```
+ ```objectivec
 [[TUIKit sharedInstance] setupWithAppId:SDKAppID];
 ```
 
@@ -51,7 +51,7 @@ pod install
 ## 步骤4：登录 TUIKit
 如果未登录 IM，需要先通过 TUIKit 提供的 `login` 接口登录，其中 UserSig 生成的具体操作请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)（如果已经集成了 TUIKit，请跳过此步骤）。
 
-```
+ ```objectivec
 [[TUIKit sharedInstance] login:@"userID" userSig:@"userSig" succ:^{
      NSLog(@"-----> 登录成功");
 } fail:^(int code, NSString *msg) {
@@ -61,9 +61,9 @@ pod install
 
 [](id:step5)
 ## 步骤5：打开/关闭群直播
-TUIKitLive 中已经默认打开了群直播，如果您不需要开启群直播，可在通过 ``TUIKitLive.h`` 中的 ``enableGroupLiveEntry`` 属性变量关闭群直播入口，代码如下：
+可以通过 `TUIBaseChatViewController.h` 中的 `isEnableLive` 参数设置关闭群直播入口，示例代码如下：
 
-```
-// enableGroupLiveEntry	YES：开启；NO：关闭	默认：YES
-[TUIKitLive shareInstance].enableGroupLiveEntry = YES;
+ ```objectivec
+TUIC2CChatViewController *vc = [[TUIC2CChatViewController alloc] init];  // c2c 会话
+vc.isEnableLive = NO; // isEnableLive    YES：开启；NO：关闭    默认：YES
 ```

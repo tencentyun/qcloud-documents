@@ -71,11 +71,11 @@
 1. 在连接器列表中选择 FTP 连接器，然后选择 FTP 读取文件操作。
 ![](https://main.qcloudimg.com/raw/3f47875db6fdad9083d2de814b7516e7/FTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/52aa50adfd6a87da7848d7ad54624fed/FTP-Read1.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 FTP 服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图:
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 FTP 服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图:
 ![](https://main.qcloudimg.com/raw/0152ba7ce05144355c18a37b91ce0341/FTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数。文件路径设为“/data/ftptest.txt”，参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数。文件路径设为“/data/ftptest.txt”，参数输入见下图：
 ![](https://main.qcloudimg.com/raw/b2bfb5fb816c63fd347ade2fc858feab/FTP-Read.png)
-4. 操作配置参数设置完成后保存返回即可，然后单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，然后单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/9fdfb937c0768c045f49bf4df21d75ed/FTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制HTTP Listener监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/7558ed97027d252256f804b0670f115c/FTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)
@@ -119,11 +119,11 @@ FTP 写文件操作，若执行成功则 payload 为空；若执行失败时输�
 1. 在连接器列表中选择 FTP 连接器，然后选择 FTP 写文件操作。
 ![](https://main.qcloudimg.com/raw/3f47875db6fdad9083d2de814b7516e7/FTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/8dc123452622cd771476cf226f5aede0/FTP-Write1.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 FTP 服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图:
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 FTP 服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图:
 ![](https://main.qcloudimg.com/raw/0152ba7ce05144355c18a37b91ce0341/FTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数。文件路径设为“/data/ftptest.txt”，参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数。文件路径设为“/data/ftptest.txt”，参数输入见下图：
 ![](https://main.qcloudimg.com/raw/39affa873000ccd7081966d25f9360de/FTP-Write.png)
-4. 操作配置参数设置完成后保存返回即可，然后单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，然后单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/9fdfb937c0768c045f49bf4df21d75ed/FTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制 HTTP Listener 监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/7558ed97027d252256f804b0670f115c/FTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)
@@ -162,11 +162,11 @@ FTP 删除文件操作，若执行成功则 payload 为空；若执行失败时�
 1. 在连接器列表中选择 FTP 连接器，然后选择 FTP 删除文件操作。
 ![](https://main.qcloudimg.com/raw/3f47875db6fdad9083d2de814b7516e7/FTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/b70e4865d9f9074355ad762b41af6c42/FTP-Delete1.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的FTP服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图:
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的FTP服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图:
 ![](https://main.qcloudimg.com/raw/0152ba7ce05144355c18a37b91ce0341/FTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数，文件删除路径设为“/data/ftptest.txt”，参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数，文件删除路径设为“/data/ftptest.txt”，参数输入见下图：
 ![](https://main.qcloudimg.com/raw/8456cab743e98664be47850a24639b29/FTP-Delete.png)
-4. 操作配置参数设置完成后保存返回即可，然后单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，然后单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/9fdfb937c0768c045f49bf4df21d75ed/FTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制 HTTP Listener 监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/7558ed97027d252256f804b0670f115c/FTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)
@@ -209,11 +209,11 @@ FTP 复制文件操作，若执行成功则 payload 为空；若执行失败时�
 1. 在连接器列表中选择 FTP 连接器，然后选择 FTP 复制文件操作。
 ![](https://main.qcloudimg.com/raw/3f47875db6fdad9083d2de814b7516e7/FTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/6ca5fd405bf6abff2c42f29a5a77995a/FTP-Copy1.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 FTP 服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图：
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 FTP 服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图：
 ![](https://main.qcloudimg.com/raw/0152ba7ce05144355c18a37b91ce0341/FTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数。源文件路径设为“/data/ftptest.txt”，目标文件路径设为“/data/copydir”，重命名设为“ftptestcopy.txt”，参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数。源文件路径设为“/data/ftptest.txt”，目标文件路径设为“/data/copydir”，重命名设为“ftptestcopy.txt”，参数输入见下图：
 ![](https://main.qcloudimg.com/raw/c0565f8a0dbf7df7c4bb66fb694c2728/FTP-Copy.png)
-4. 操作配置参数设置完成后保存返回即可，然后单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，然后单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/9fdfb937c0768c045f49bf4df21d75ed/FTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制 HTTP Listener 监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/7558ed97027d252256f804b0670f115c/FTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)
@@ -253,11 +253,11 @@ FTP 重命名文件操作，若执行成功则 payload 为空；若执行失败�
 1. 在连接器列表中选择 FTP 连接器，然后选择 FTP 重命名文件操作。
 ![](https://main.qcloudimg.com/raw/3f47875db6fdad9083d2de814b7516e7/FTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/4c127aa2959b625d3be84239acfc4623/FTP-Rename1.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 FTP 服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图：
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 FTP 服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图：
 ![](https://main.qcloudimg.com/raw/0152ba7ce05144355c18a37b91ce0341/FTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数。文件路径设为“/data/ftptest.txt”，重命名名称设为“ftptestrename.txt”，参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数。文件路径设为“/data/ftptest.txt”，重命名名称设为“ftptestrename.txt”，参数输入见下图：
 ![](https://main.qcloudimg.com/raw/5f473fca18d70258bf3c145a05608aba/FTP-Rename.png)
-4. 操作配置参数设置完成后保存返回即可，然后单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，然后单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/9fdfb937c0768c045f49bf4df21d75ed/FTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制 HTTP Listener 监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/7558ed97027d252256f804b0670f115c/FTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)
@@ -299,11 +299,11 @@ FTP 移动文件操作，若执行成功则 payload 为空；若执行失败时�
 1. 在连接器列表中选择 FTP 连接器，然后选择 FTP 移动文件操作。
 ![](https://main.qcloudimg.com/raw/3f47875db6fdad9083d2de814b7516e7/FTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/947b3b5e92bb46ebb63e704b6c37bde1/FTP-Move1.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 FTP 服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图：
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 FTP 服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图：
 ![](https://main.qcloudimg.com/raw/0152ba7ce05144355c18a37b91ce0341/FTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数。源文件路径设为“/data/ftptest.txt”，目标文件路径设为“/data/movedir”，重命名设为“ftptestmove.txt”，参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数。源文件路径设为“/data/ftptest.txt”，目标文件路径设为“/data/movedir”，重命名设为“ftptestmove.txt”，参数输入见下图：
 ![](https://main.qcloudimg.com/raw/78e9e6ae191b32732bf9c9d59be7fd07/FTP-Move.png)
-4. 操作配置参数设置完成后保存返回即可，然后单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，然后单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/9fdfb937c0768c045f49bf4df21d75ed/FTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制 HTTP Listener 监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/7558ed97027d252256f804b0670f115c/FTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)
@@ -366,11 +366,11 @@ FTP 移动文件操作，若执行成功则 payload 为空；若执行失败时�
 1. 在连接器列表中选择 FTP 连接器，然后选择 FTP 目录遍历操作。
 ![](https://main.qcloudimg.com/raw/3f47875db6fdad9083d2de814b7516e7/FTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/1adda87a32db99d8b9e8cf0e151067f6/FTP-List1.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 FTP 服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图：
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 FTP 服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图：
 ![](https://main.qcloudimg.com/raw/0152ba7ce05144355c18a37b91ce0341/FTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数。遍历目录路径设为“/data”，其他参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数。遍历目录路径设为“/data”，其他参数输入见下图：
 ![](https://main.qcloudimg.com/raw/ac786be8f13da5bfe7100ecded2d875b/FTP-List.png)
-4. 操作配置参数设置完成后保存返回即可，然后单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，然后单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/9fdfb937c0768c045f49bf4df21d75ed/FTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制HTTP Listener监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/7558ed97027d252256f804b0670f115c/FTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)
@@ -408,11 +408,11 @@ FTP 目录创建操作，若执行成功则 payload 为空；若执行失败时�
 1. 在连接器列表中选择 FTP 连接器，然后选择 FTP 目录创建操作。
 ![](https://main.qcloudimg.com/raw/3f47875db6fdad9083d2de814b7516e7/FTP%E7%BB%84%E4%BB%B6%E9%80%89%E6%8B%A9.png)
 ![](https://main.qcloudimg.com/raw/3c584305d19ff444e798251b1f4201be/FTP-CreateDir1.png)
-2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 FTP 服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方【测试连接】校验连接配置参数有效性。具体如下图：
+2. 输入连接器配置参数，其中域名、端口、用户名和密码设置为待连接的 FTP 服务器对应参数，工作路径设置为 FTP 服务器下文件处理的相对路径，默认为根路径“/”，其他参数保持默认值即可。参数填写完后可单击下方**测试连接**校验连接配置参数有效性。具体如下图：
 ![](https://main.qcloudimg.com/raw/0152ba7ce05144355c18a37b91ce0341/FTP%E8%BF%9E%E6%8E%A5%E5%99%A8%E9%85%8D%E7%BD%AE.png)
-3. 确认连接器配置参数填写无误后单击【保存】，然后设置操作配置参数，文件路径设为“/data/a/b/c”，参数输入见下图：
+3. 确认连接器配置参数填写无误后单击**保存**，然后设置操作配置参数，文件路径设为“/data/a/b/c”，参数输入见下图：
 ![](https://main.qcloudimg.com/raw/1f5ffa89b2fe0de589efca326665e2d4/FTP-CreateDir.png)
-4. 操作配置参数设置完成后保存返回即可，然后单击右上角【发布】，选择发布地域后单击【确定】。
+4. 操作配置参数设置完成后保存返回即可，然后单击右上角**发布**，选择发布地域后单击**确定**。
 ![](https://main.qcloudimg.com/raw/9fdfb937c0768c045f49bf4df21d75ed/FTP%E5%8F%91%E5%B8%83%E6%B5%81.png)
 5. 待集成流发布成功后复制 HTTP Listener 监听路径后访问该域名即可触发流。
 ![](https://main.qcloudimg.com/raw/7558ed97027d252256f804b0670f115c/FTP%E7%9B%91%E5%90%AC%E5%9F%9F%E5%90%8D.png)

@@ -24,10 +24,9 @@ Created topic "testtop".
 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 获取密钥。
 
 ## 选择数据订阅
-1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，选择左侧的【数据订阅】，进入数据订阅页面。
+1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，选择左侧的**数据订阅**，进入数据订阅页面。
 2. 在订阅列表，单击订阅名，进入订阅详情页，查看对应的通道 ID、服务 IP 和服务端口。
 3. 结合之前的密钥填写到对应 KafkaDemo.java 里。
-
 ```
 import com.qcloud.dts.context.SubscribeContext;
 import com.qcloud.dts.message.ClusterMessage;
@@ -57,8 +56,8 @@ public class KafkaDemo {
 
         // 创建一个 context
         SubscribeContext context = new SubscribeContext();
-        context.setSecretId("AKIDPko5fVtvTDE0WffffkCwd4NzKcdePt79uauy");
-        context.setSecretKey("ECtY8F5e2QqtdXAe18yX0EBqK");
+        context.setSecretId("AKIDPko5fVtxxxxxdePt79uauy");
+        context.setSecretKey("ECtY8F5exxxxx0EBqK");
         // 订阅通道所在 region
         context.setRegion("ap-beijing");
         final DefaultSubscribeClient client = new DefaultSubscribeClient(context);

@@ -1,11 +1,11 @@
 ## 操作场景
-TDMQ 提供了 Java 语言的 SDK 来调用服务，进行消息队列的生产和消费。
-本文主要介绍 Java SDK 的使用方式，提供代码编写示例，帮助工程师快速搭建 TDMQ 客户端工程。
+TDMQ Pulsar 版提供了 Java 语言的 SDK 来调用服务，进行消息队列的生产和消费。
+本文主要介绍 Java SDK 的使用方式，提供代码编写示例，帮助工程师快速搭建 TDMQ Pulsar 版客户端工程。
 
 ## 前提条件
 - 已完成 Java SDK 的下载和安装（参考 [Java SDK 下载方式](https://cloud.tencent.com/document/product/1179/44914)）。
 - 已获取调用地址（URL）和路由 ID（NetModel）。
-这两个参数均可以在【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】中的一个集群接入点列表中获取。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。
+这两个参数均可以在 **[集群管理](https://console.cloud.tencent.com/tdmq/cluster)** 中的一个集群接入点列表中获取。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。
 ![](https://main.qcloudimg.com/raw/6d2535de8a505fe4975690053925884e.png)
 - 已参考 [角色与鉴权](https://cloud.tencent.com/document/product/1179/47543) 文档配置好了角色与权限，并获取到了对应角色的密钥（Token）。
 
@@ -22,8 +22,8 @@ PulsarClient client = PulsarClient.builder()
 </dx-codeblock>
 
 >?
->- listenerName 即 “custom:” 拼接路由ID（NetModel），路由ID可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】接入点页面查看并复制。
->- token 即角色的密钥，角色密钥可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】中复制。
+>- listenerName 即 “custom:” 拼接路由ID（NetModel），路由ID可以在控制台 **[集群管理](https://console.cloud.tencent.com/tdmq/cluster)** 接入点页面查看并复制。
+>- token 即角色的密钥，角色密钥可以在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 中复制。
 
 
 ### 生产消息
@@ -35,7 +35,7 @@ producer.send("My message".getBytes());
 :::
 </dx-codeblock>
 
-Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
+Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
 ![](https://main.qcloudimg.com/raw/a2e32b311b825df9798b8c98df7c3416.png)
 
 这种生产方式是阻塞的方式生产消息到指定的 Topic 中，我们还可以使用异步发送的方式生产消息。
@@ -48,7 +48,7 @@ Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/To
 </dx-codeblock>
 
 
-TDMQ 的消息中除了可以保存消息体之外，还可以设置其他的消息属性。
+TDMQ Pulsar 版的消息中除了可以保存消息体之外，还可以设置其他的消息属性。
 <dx-codeblock>
 :::  java
 producer.newMessage()

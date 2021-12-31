@@ -30,7 +30,7 @@ COS Select 支持检索以下格式的对象数据：
 [//]: # (.cssg-snippet-select-object)
 ```objective-c
 QCloudSelectObjectContentRequest *request = [QCloudSelectObjectContentRequest new];
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "dir1/object1"
 request.object = @"exampleobject";
@@ -109,7 +109,7 @@ request.downloadingURL = [NSURL fileURLWithPath:QCloudFileInSubPath(@"test", @"2
 [//]: # (.cssg-snippet-select-object)
 ```swift
 let request = QCloudSelectObjectContentRequest.init();
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = "examplebucket-1250000000";
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "dir1/object1"
 request.object = "exampleobject";

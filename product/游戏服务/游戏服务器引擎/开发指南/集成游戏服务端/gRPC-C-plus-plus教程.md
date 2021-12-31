@@ -34,18 +34,18 @@ gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过�
 1. 定义好服务后，通过 protocol buffer 编译器 protoc 生成客户端和服务端的代码（任意 gRPC 支持的语言）。 
 2. 生成的代码包括客户端的存根和服务端要实现的抽象接口。
 3. 生成 gRPC 代码步骤：
-    在 proto 目录下执行：
+    1. 在 proto 目录下执行：
  ```
  protoc --cpp_out=. *.proto
  ``` 
-生成 pb.cc 和 pb.h 文件。
-```
-protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto``` 
-生成对应的 gRPC 代码。
-将生成的8个文件移到项目合适的位置。
+	2. 生成 pb.cc 和 pb.h 文件。
+	```
+	protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto``` 
+	3. 生成对应的 gRPC 代码。
+	4. 将生成的8个文件移到项目合适的位置。
 
 ## 游戏进程集成流程
-![](https://main.qcloudimg.com/raw/9ee6ee1823da180eccb92d8358a36f9c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/bfdf956d2c47482f4ad799beedce52a4.png)
 
 #### Game Server 回调接口列表
 
@@ -196,8 +196,8 @@ Status GameServerGrpcSdkServiceImpl::OnProcessTerminate(ServerContext* context, 
 	auto terminationTime = request->terminationtime();
 	GGseManager->SetTerminationTime(terminationTime);
 
-	//调以下两个接口，会立即结束游戏服务器会话，建议无玩家或无游戏服务器会话后，再调用ProcessEnding结束进程
-	//不调用以下两个接口，根据保护策略调用ProcessEnding结束进程，建议配置时限保护
+	//调以下两个接口，会立即结束游戏服务器会话，建议无玩家或无游戏服务器会话后，再调用 ProcessEnding 结束进程
+	//不调用以下两个接口，根据保护策略调用 ProcessEnding 结束进程，建议配置时限保护
 
 	//结束游戏服务器会话
 	GseResponse terminateGameServerSessionReply;
@@ -213,8 +213,8 @@ Status GameServerGrpcSdkServiceImpl::OnProcessTerminate(ServerContext* context, 
 
 9. Game Server 调用 ProcessEnding 接口会立刻结束进程，将服务器进程状态更改为“已终止”，并回收资源。
 ```
-//主动调用：一局游戏对应一个进程，当一局游戏结束后主动调用ProcessEnding接口
-//被动调用：当缩容或进程异常健康检查失败时，根据保护策略被动调用ProcessEnding接口，配置完全保护和时限保护策略时需要先判断游戏服务器会话上有无玩家，再被动调用
+//主动调用：一局游戏对应一个进程，当一局游戏结束后主动调用 ProcessEnding 接口
+//被动调用：当缩容或进程异常健康检查失败时，根据保护策略被动调用 ProcessEnding 接口，配置完全保护和时限保护策略时需要先判断游戏服务器会话上有无玩家，再被动调用
 Status GseManager::ProcessEnding(GseResponse& reply)
 {
 	GConsoleLog->PrintOut(true, "start to ProcessEnding\n");

@@ -1,8 +1,13 @@
 ## RAID 简介
 RAID 可以将多个磁盘组合起来构成一个磁盘阵列组，提高数据的读写性能和可靠性。操作系统只会将磁盘阵列组当作一个硬盘来使用。目前 RAID 有多种等级，根据选择版本不同，磁盘阵列组相较于一块容量相当的大硬盘有增强数据集成度、增强容错功能、增加处理量或容量等优势。
->!
->- 请及时对即将到期的弹性云硬盘进行 [续费](https://cloud.tencent.com/document/product/362/6739) 操作，以免由于弹性云硬盘到期被系统强制隔离对 RAID 产生影响。
->- 建议创建 RAID 1、RAID 01、RAID 10 时，使用相同大小的分区，减少磁盘空间的浪费。
+
+
+<dx-alert infotype="notice" title="">
+- 请及时对即将到期的弹性云硬盘进行 [续费](https://cloud.tencent.com/document/product/362/6739) 操作，以免由于弹性云硬盘到期被系统强制隔离对 RAID 产生影响。
+- 建议创建 RAID 1、RAID 01、RAID 10 时，使用相同大小的分区，减少磁盘空间的浪费。
+</dx-alert>
+
+
 
  RAID 0、RAID 1、RAID 01 和 RAID 10之间的相同点与差异点如下表所示：
 <table>
@@ -53,7 +58,13 @@ RAID 可以将多个磁盘组合起来构成一个磁盘阵列组，提高数据
 
 
 ## 构建 RAID
->?本文以在 CentOS 云服务器中使用四块弹性云硬盘构建 RAID 0 为例。不同操作系统、不同 RAID 级别的操作可能不同，本文仅供参考，具体操作步骤和差异请参考对应操作系统的产品文档或 RAID 相关文档。
+
+
+<dx-alert infotype="explain" title="">
+本文以在 CentOS 云服务器中使用四块弹性云硬盘构建 RAID 0 为例。不同操作系统、不同 RAID 级别的操作可能不同，本文仅供参考，具体操作步骤和差异请参考对应操作系统的产品文档或 RAID 相关文档。
+</dx-alert>
+
+
 
 Linux 内核提供用于管理 RAID 设备的 md 模块，可以直接使用 mdadm 工具来调用 md 模块创建 RAID 0。
 ![](https://main.qcloudimg.com/raw/a7e717737b22456319cde4ec4bc0c8e1.png)

@@ -3,22 +3,22 @@ Dashboard 支持最近访问面板、收藏面板和自定义面板三种方式�
 ## 准备工作
 
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。
-2. 在左侧导航栏中单击【Dashboard】>【Dashboard 列表】，进入 Dashboard 列表页。
+2. 在左侧导航栏中单击 **Dashboard** > **Dashboard 列表**，进入 Dashboard 列表页。
 
 ## 全屏查看
 
 1. 在 Dashboard 列表中找到您需要查看的 Dashboard，单击对应的面板名，进入 Dashboard管理页。
-2. 单击【![](https://main.qcloudimg.com/raw/9bd9730e6a3135b097d648f752399fac.png)】即可全屏查看 Dashboard。
+2. 单击![](https://main.qcloudimg.com/raw/9bd9730e6a3135b097d648f752399fac.png)即可全屏查看 Dashboard。
 
 ## 退出全屏
 
-如下图可单击左上角返回按钮或右上角的缩小按钮【![](https://main.qcloudimg.com/raw/5b5a54c5d7a23d82c942b04096a6be27.png)】退出全屏。
+如下图可单击左上角返回按钮或右上角的缩小按钮![](https://main.qcloudimg.com/raw/5b5a54c5d7a23d82c942b04096a6be27.png)退出全屏。
 ![](https://main.qcloudimg.com/raw/208b02e1ce8c6e076d59bb496a143a9f.png)
 
 ## 切换 Dashboard
 
 1. 在 Dashboard 列表中单击任意 Dashboard 的面板名。进入 Dashboard 管理页。
-2. 如下图单击 面板区的【![](https://main.qcloudimg.com/raw/86958abf68c7e937324b89b7a043fd0e.png)】，即可进行最近访问面板、收藏面板和自定义面板三种方式切换查看。
+2. 如下图单击 面板区的![](https://main.qcloudimg.com/raw/86958abf68c7e937324b89b7a043fd0e.png)，即可进行最近访问面板、收藏面板和自定义面板三种方式切换查看。
 	- 最近访问面板：展示您最近访问的三个监控面板。
 	- 收藏面板：展示您所收藏的所有面板。
 	- 自定义面板：展示您所自定义的所有面板。

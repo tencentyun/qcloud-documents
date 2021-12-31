@@ -1,3 +1,82 @@
+## Version 9.4 @ 2021.12.08
+
+**功能新增：**
+- 全平台：新增语音追光功能，适用于大型语音连麦场景，即使在多人同时开麦的嘈杂的环境下，仍然能聚焦关键用户的声音。您可以通过 [setRemoteAudioParallelParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a0e6e6434aaa03ce878280125a9c0fa4b) 接口进行设置。
+- Mac：增加对系统声音采集 [startSystemAudioLoopback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a2979e32c019708dcc9209bb6d2db9486) 的双声道支持。
+- iOS：增加对 24 位 wav 格式的背景音乐文件的支持。
+- Android&iOS：本版本符合国家隐私安全规范的规定，已经经过腾讯内部多款产品的验证。
+
+**问题修复：**
+- 全平台：修复快速调用 [switchRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a1f3bed34f92b3ff908beb2d0ed2866c9) 可能导致切换房间失败的问题。
+- iOS：修复在应用内录屏 [startScreenCaptureInApp](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#abf51acf26b2212192f7145468886b791) 过程中设置  [setVideoEncoderRotation](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a200c174b27bbe7397b0639e707ee6547) 无效的问题。
+- iOS：修复系统录屏 [startScreenCaptureByReplaykit](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#abebcd402e310d5d7dcbef9f6b601cfc4) 过程中偶现的内存上涨问题。
+
+**功能优化：**
+- 全平台：提升进房速度，减少进房耗时的波动。
+- Mac：解决了在屏幕采集的过程中开启鼠标采集后，CPU 和 内存占用率较高的问题。
+- Android：调整屏幕分享时的屏幕采集分辨率，使其能始终对齐屏幕分辨率，避免分享出的画面出现黑边等问题。
+- Android：提升视频硬解兼容性，解决部分手机在播放视频分辨率发生变化时可能出现的黑屏问题。
+- Windows：优化音量增益算法，解决部分设备出现增益过大导致杂音比较明显的问题。
+
+## Version 9.3 @ 2021.11.03
+
+**故障修复**
+- 全平台：修复 point2PointDelay 有时获取不到，数值为0的问题。
+- 全平台：修复偶现解析失败 SEI 消息丢失的问题。
+- Mac：修复在 MacOS 12 beta 上摄像头不出帧的问题。
+- iOS&Mac：修复特定顺序提前调用 startRemoteView 看不到画面的问题。
+- Windows：修复使用竖屏编码并开启美颜的情况下画面出现锯齿的问题。
+- Windows：修复第三方美颜开启情况下，切换分辨率后自定义渲染不回调的问题。
+
+**功能优化**
+- 全平台：优化弱网情况下视频秒开速度。
+- 全平台：优化弱网调控策略，同场景下更流畅。
+- 全平台：优化测速功能，支持对当前网络带宽进行检测。
+- 全平台：优化对 TCP 传输协议的支持，更好地应对复杂的网络环境。
+
+## Version 9.2 @ 2021.09.23
+
+**功能新增**
+- Android&iOS：支持 Socks5 代理。
+- Windows：TRTCAudioQualityMusic 高音质场景新增自适应回声消除功能，自动平衡音质与回声消除强度。
+- 全平台：新增设置语音音调功能。
+
+**故障修复**
+- Windows：修复 Mac 安装 Windows 的环境部分摄像头不吐数据问题。
+- Android：修复偶现 CDN/TRTC 互切后没有上行音频的问题。
+- iOS：修复 Web 端屏幕分享导致 iOS 接受端自定义渲染花屏的问题。
+
+**功能优化**
+- Android：优化硬解码时导致 ANR 的问题。
+- Android：优化摄像头本地预览角度兼容的问题。
+- Android：优化首帧秒开速度。
+- Android&iOS：优化合唱模式 3A 策略。
+- Windows：优化 AGC 算法，降低出现声音过小和声音过大的问题的概率。
+- 全平台：优化弱网环境抗抖动算法，视频播放更流畅。
+
+## Version 9.1 @ 2021.09.04
+
+**功能新增**
+- 全平台：C++ 接口支持音频帧回调格式设置。
+- Windows：播片增加 ac3 格式的支持。
+- Windows：摄像头信息支持获取支持的分辨率列表，具体请参见 [ITXDeviceCollection.getDeviceProperties](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXDeviceManager__cplusplus.html#ad502f48cb2a4470943134e4b48904450)。
+- Windows：支持 Nvidia、Intel、AMD 硬解。
+- Mac：新增本地媒体录制支持。
+
+**问题修复**
+- 全平台：修复偶现的进房失败问题。
+- Mac：修复屏幕分享时切换分辨率，预览画面闪一下的问题。
+- Android：修复子房间切回主房间时，辅路视频画面显示异常的问题。
+- Android：修复特定场景下偶现的帧率设置不生效问题。
+- Windows：修复观众切换为 CDN 流后无法拉流的问题。
+- Windows：修复播片功能播放特定格式视频画面消失的问题。
+
+**质量优化**
+- 全平台：优化弱网下音视频体验。
+- Android：优化退房时的音频状态管理。
+- Android：优化音频采集启动失败后的恢复逻辑，提升成功率。
+- Android：优化特定条件下视频画面过曝的问题。
+
 ## Version 9.0 @ 2021.08.06
 
 **功能新增**

@@ -1,3 +1,154 @@
+### 2.6.8.236 @ 2021-12-13
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.8.236.zip)
+
+- 新增接口
+    1. 跳转到指定动画步数(gotoStep)
+    2. 获取白板滚动位置(getBoardScroll)
+    3. 设置分段擦除模式是否开启(setPiecewiseErasureEnable)
+    4. 获取分段擦除模式开启状态(isPiecewiseErasureEnable)
+    5. 设置橡皮擦大小(setEraserSize)
+    6. 获取橡皮擦大小(getEraserSize)
+    7. 设置全局背景图(setGlobalBackgroundPic)
+    8. 获取全局背景图(getGlobalBackgroundPic)
+    
+- 调整初始化参数
+    1. 全局背景图(globalBackgroundPic)
+    
+- 调整接口
+    1. 添加白板元素(addElement) 支持添加文本元素（TEDU_BOARD_ELEMENT_TEXT）
+    
+- 新增事件
+    1. 白板移动回调(TEB_BOARD_SCROLL_CHANGED)
+    
+- 调整事件
+    1. 框选工具选中元素回调(TEB_SELECTED_ELEMENTS) 新增元素位置、宽高、包围盒大小等返回字段
+    
+- 功能优化
+    1. 优化图片资源加载逻辑
+    2. 添加图片元素在低版本上进行旋转校正
+    3. 添加图片元素支持自定义大小
+    4. 支持画线涂鸦分段擦除
+
+- Bug 修复
+    1. 优化Android和linux中，ppt转码的文字会往下面掉几个像素
+    2. 在不同缩放比下添加白板元素大小显示不一致
+    3. 绘制涂鸦时因精度误差导致出现毛刺
+    4. 若干已知问题修复
+
+### 2.6.7.233 @ 2021-10-27
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.7.233.zip)
+
+- 新增接口
+    1. 设置自定义字体(setTextFontFamily)
+    2. 添加自定义字体(addTextFontFamily)
+    3. 获取当前使用字体(getTextFontFamily)
+    
+- 调整初始化参数
+    1. 画笔模式下远端画笔是否显示(remoteCursorVisible)
+    
+- 调整接口
+    1. 设置远端画笔在本地是否可见(setRemoteCursorVisible)
+    
+- 调整全局变量
+    1. 白板警告码(TEduBoardWarningCode)，新增静态ppt重复的告警码
+    
+- 功能优化
+    1. 弱网环境下涂鸦同步
+    2. 优化涂鸦显示效果
+    3. 渲染进程残留进程处理
+
+- Bug 修复
+    若干已知问题修复
+### 2.6.6.232 @ 2021-10-12
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.6.232.zip)
+
+- 新增接口
+    1. setScrollBarVisible 设置白板滚动条是否可见
+    
+- 调整接口
+    1. getFileInfo 获取白板中指定文件的文件信息 返回fileType字段
+    2. getFileInfoList 获取白板中上传的所有文件的文件信息列表 返回fileType字段
+    3. addH5File 添加H5页面 支持title,needSwitch
+    4. addImagesFile 批量导入图片到白板 支持title,needSwitch
+    5. addVideoFile 添加视频文件 支持title,needSwitch
+    
+- 调整全局变量
+    1. TEduBoardFileType 白板文件类型 
+    
+- 功能优化
+    1. 涂鸦过多导致渲染卡顿
+    2. 优化日志上报逻辑
+    3. 增加网络探测能力
+    4. 优化SDK体积
+    5. Window端SDK升级CEF内核(93版本)
+   
+- Bug 修复
+    1. 若干已知问题修复
+   
+### 2.6.5.224 @ 2021-09-17
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.5.224.zip)
+
+- 新增接口
+    1. 设置输出日志级别(setLogLevel)
+    
+- 调整全局变量
+    1. 几何元素类型(TEduBoardMathGraphType)
+    2. 日志级别(TEduBoardLogLevel)
+ 
+- 当前版本废弃的接口与事件
+    1. SDK接口：发起文件转码请求(applyFileTranscode)
+    2. 回调事件：转码进度回调(TEB_TRANSCODEPROGRESS)
+    3. 全局常量：文件转码状态(TEduBoardTranscodeFileStatus)
+    
+- 功能优化
+    1. 几何画板新增多种几何图形支持
+    
+- Bug修复
+    1. 若干已知问题修复
+    
+### 2.6.5.219 @ 2021-09-01
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.5.219.zip)
+
+
+- 新增接口
+    1、设置输出日志级别(setLogLevel)
+    
+- 调整全局变量
+    1、几何元素类型(TEduBoardMathGraphType)
+    2、日志级别(TEduBoardLogLevel)
+ 
+- 当前版本废弃的接口与事件
+    1、SDK接口：发起文件转码请求(applyFileTranscode)
+    2、回调事件：转码进度回调(TEB_TRANSCODEPROGRESS)
+    3、全局常量：文件转码状态(TEduBoardTranscodeFileStatus)
+    
+- 功能优化
+    1、几何画板新增多种几何图形支持
+    
+- Bug修复
+    1、若干已知问题修复
+
+### 2.6.5.218 @ 2021-09-01
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.5.218.zip)
+
+- 新增接口
+    1、设置输出日志级别(setLogLevel)
+    
+- 调整全局变量
+    1、几何元素类型(TEduBoardMathGraphType)
+    2、日志级别(TEduBoardLogLevel)
+ 
+- 当前版本废弃的接口与事件
+    1、SDK接口：发起文件转码请求(applyFileTranscode)
+    2、回调事件：转码进度回调(TEB_TRANSCODEPROGRESS)
+    3、全局常量：文件转码状态(TEduBoardTranscodeFileStatus)
+    
+- 功能优化
+    1、几何画板新增多种几何图形支持
+    
+- Bug修复
+    1、若干已知问题修复
+    
 ### 2.6.4.216 @ 2021-08-17
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.4.216.zip)
 
@@ -26,6 +177,7 @@
 ### 2.6.4.214 @ 2021-08-06
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.4.214.zip)
 
+
 - 新增接口
     设置几何图形类型(setMathGraphType)，可用于几何画板绘制几何图形
     鼠标模式下的操作权限(setMouseToolBehavior)
@@ -43,11 +195,13 @@
     几何元素类型(TEduBoardMathGraphType)
     
 - 功能优化
+    支持涂鸦点擦
     几何画板新增多种几何图形支持
     新增公式元素的支持
     优化视频加载播放逻辑
     图形涂鸦绘制实时同步显示
     优化ppt资源加载重试逻辑
+    添加本地缓存，提高资源加载速度
     
 - Bug修复
     互动白板宽高变化时滚动条抖动

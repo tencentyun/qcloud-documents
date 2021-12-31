@@ -35,7 +35,8 @@ Arq® Backup 商业授权为49.99美元每个用户，用户购买后可以在�
 
 ## 安装并配置 Arq® Backup
 
-> ?本文以 Windows 的 Arq Backup 6.2.11版本为例。
+>? 本文以 Windows 的 Arq® Backup 6.2.11版本为例。
+>
 
 1. 从 [Arq® Backup 官网](https://www.arqbackup.com/) 下载软件。
 2. 按提示完成软件安装，安装完成后软件会自动启动，首次启动时会提示登录，此时输入邮箱地址并单击【Start Trial】。

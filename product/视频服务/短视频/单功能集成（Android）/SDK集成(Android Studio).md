@@ -11,6 +11,7 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有（A
 - targetSdkVersion：26
 - Android Studio（推荐您也使用 Android Studio，当然您也可以使用 Eclipse + ADT）
 
+
 [](id:step1)
 ### 步骤1：集成 SDK
 <dx-tabs>
@@ -87,6 +88,31 @@ dependencies {
 在用户等待过程中，App 就可以到 `http://xxx-appid.cossh.myqcloud.com/so_files.zip` 下载 so 文件，并存入应用目录下（例如应用根目录下的 files 文件夹），为了确保这个过程不受运营商 DNS 拦截的影响，请在文件下载完成后校验 so 文件的完整性。
   4. **加载 so 文件**
 等待所有 so 文件就位以后，调用 TXLiveBase 的 setLibraryPath 将下载的目标 path 设置给 SDK， 然后再调用 SDK 的相关功能。之后，SDK 会到这些路径下加载需要的 so 文件并启动相关功能。
+:::
+::: gradle 集成方式
+1. 在 dependencies 中添加 LiteAVSDK_UGC 的依赖。
+	- 若使用3.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
+```
+dependencies {
+   implementation 'com.tencent.liteav:LiteAVSDK_UGC:latest.release'
+}
+```
+	- 若使用2.x版本的 `com.android.tools.build:gradle` 工具，请执行以下命令：
+```
+dependencies {
+   compile 'com.tencent.liteav:LiteAVSDK_UGC:latest.release'
+}
+```
+2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
+```
+defaultConfig {
+   ndk {
+       abiFilters "armeabi", "armeabi-v7a"
+   }
+}
+```
+>?目前 SDK 支持 armeabi、armeabi-v7a 和 arm64-v8a。
+3. 单击 **Sync Now**，自动下载 SDK 并集成到工程里。
 :::
 </dx-tabs>
 

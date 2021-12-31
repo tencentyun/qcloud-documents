@@ -48,10 +48,23 @@ TSF Demo（**注册中心地址使用注册中心 IP 和端口替换**）：
 
 ```xml
 <dependency>
-  <groupId>com.tencent.tsf</groupId>
-  <artifactId>atom-extension-dubbo</artifactId>
-  <!-- 修改为对应的版本号 -->
-  <version>1.0.0-RELEASE</version>
+	<groupId>com.tencent.tsf</groupId>
+	<artifactId>atom-extension-dubbo</artifactId>
+	<!-- 修改为对应的版本号 -->
+	<version>1.1.0-RELEASE</version>
+	<exclusions>
+		<exclusion>
+			<groupId>org.jboss.netty</groupId>
+			<artifactId>netty</artifactId>
+		</exclusion>
+	</exclusions>
+</dependency>
+
+<!-- 1.1.0-RELEASE对应dubbo 2.6.8，依赖的netty版本是4.x -->
+<dependency>
+	<groupId>io.netty</groupId>
+	<artifactId>netty-all</artifactId>
+	<version>4.1.33.Final</version>
 </dependency>
 ```
 
@@ -167,7 +180,7 @@ TSF 支持上报 Alibaba Dubbo 程序的 API，在服务治理-接口列表中�
 
 - 提供对 TSF 平台的兼容支持。
 - 暂不支持全局命名空间。
-- 部分系统tag与部分监控能力暂时不支持，具体已实际展示为准。
+- 部分系统tag与部分监控能力暂时不支持，具体以实际展示为准。
 - 暂不支持对非 Restful 协议的 API 进行调试。
 - Dubbo 应用的其他能力（如 filter 机制），可以继续使用。
 
@@ -211,10 +224,10 @@ TSF Demo（**注册中心地址使用注册中心 IP 和端口替换**）：
 
 ```xml
 <dependency>
-  <groupId>com.tencent.tsf</groupId>
-  <artifactId>tsf-dubbo-registry</artifactId>
-  <!-- 修改为对应的版本号 -->
-  <version>1.1.7-alibaba-RELEASE</version>
+	<groupId>com.tencent.tsf</groupId>
+	<artifactId>tsf-dubbo-registry</artifactId>
+	<!-- 修改为对应的版本号 -->
+	<version>1.1.7-alibaba-RELEASE</version>
 </dependency>
 ```
 
@@ -236,9 +249,9 @@ TSF Demo（**注册中心地址使用注册中心 IP 和端口替换**）：
 部分包对版本有要求，如果发生**包冲突**，请尝试主动依赖以下版本：
 
 ```xml
- <dependency>
-  <groupId>com.ecwid.consul</groupId>
-  <artifactId>consul-api</artifactId>
-  <version>1.4.2</version>
+<dependency>
+	<groupId>com.ecwid.consul</groupId>
+	<artifactId>consul-api</artifactId>
+	<version>1.4.2</version>
 </dependency>
 ```

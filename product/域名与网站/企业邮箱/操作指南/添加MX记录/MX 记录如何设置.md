@@ -25,3 +25,4 @@ MX 记录是用于电子邮件系统发邮件时，根据收信人的地址后�
 目前仅提供以下2个域名提供商的 MX 记录设置：
 - [在腾讯云添加 MX 域名解析](https://cloud.tencent.com/document/product/613/46023)
 - [在 DNSPod 添加 MX 域名解析](https://cloud.tencent.com/document/product/613/46024)
+

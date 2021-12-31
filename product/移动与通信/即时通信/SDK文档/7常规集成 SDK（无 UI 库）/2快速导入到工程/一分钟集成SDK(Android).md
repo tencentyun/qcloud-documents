@@ -1,4 +1,4 @@
-﻿本文主要介绍如何快速地将腾讯云即时通信 IM SDK 集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
+本文主要介绍如何快速地将腾讯云即时通信 IM SDK 集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
 ## 开发环境要求
 - JDK 1.6。
 - Android 4.1（SDK API 16）及以上系统。
@@ -34,7 +34,7 @@ dependencies {
 		api 'com.tencent.imsdk:imsdk-plus:版本号'
 }
 ```
->?“版本号”应替换为 SDK 的实际版本号，建议使用 [最新版本]( https://github.com/tencentyun/TIMSDK/tree/master/Android/tuikit/libs)。
+>?“版本号”应替换为 SDK 的实际版本号，建议使用 [最新版本]( https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK)。
 >以版本号是`5.4.666`为例：
 >```
 dependencies {
@@ -61,7 +61,7 @@ dependencies {
 ### 方法二：手动下载（aar）
 如果您的网络连接 jcenter 有问题，也可以手动下载 SDK 集成到工程里：
 - **第一步：下载 IM SDK**
-在 Github 上可以下载到最新版本的 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK)。
+在 Github 上可以下载到最新版本的 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK)。
 
 - **第二步：拷贝 IM SDK 到工程目录**
 将下载到的 aar 文件拷贝到 app 工程的 **/libs** 目录下：
@@ -82,7 +82,7 @@ defaultConfig {
 如果您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 IM SDK：
 
 - **第一步：下载解压 IM SDK**
-在 Github 上可以 [下载](https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK) 到最新版本的 aar 文件。解压后的目录里面主要包含 jar 文件和 so 文件夹，把其中的 **classes.jar** 重命名成 **imsdk.jar** 。
+在 Github 上可以 [下载](https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK) 到最新版本的 aar 文件。解压后的目录里面主要包含 jar 文件和 so 文件夹，把其中的 **classes.jar** 重命名成 **imsdk.jar** 。
 ![](https://main.qcloudimg.com/raw/ecc6ae484565b0170c42698825951eba.png)
 
 - **第二步：拷贝 SDK 文件到工程目录**

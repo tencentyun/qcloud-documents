@@ -1,13 +1,13 @@
 ## 操作场景
 
-如需为 PVC 数据盘创建快照来备份数据，或者将备份的快照数据恢复到新的 PVC 中，可以通过 CBS CSI 插件来实现，本文将介绍如何利用 CBS CSI 插件实现 PVC 的数据备份与恢复。
+如需为 PVC 数据盘创建快照来备份数据，或者将备份的快照数据恢复到新的 PVC 中，可以通过 CBS-CSI 插件来实现，本文将介绍如何利用 CBS-CSI 插件实现 PVC 的数据备份与恢复。
 
 
 ## 前提条件
 
 - 已创建 [TKE 集群](https://cloud.tencent.com/document/product/457/32189) 或已在腾讯云自建 Kubernetes 集群，集群版本 >= 1.18。
-- 已安装 [CBS CSI 插件](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CBS.md)。
-
+- 已安装 [CBS-CSI 插件](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CBS.md)。
+- 在 [访问管理](https://console.cloud.tencent.com/cam/role) 控制台完成对 `TKE_QCSRole` 角色授予 CBS 快照操作的相关权限，详情请参考 [快照授权](https://cloud.tencent.com/document/product/457/51099#authorize)。
 
 ## 操作步骤
 
@@ -66,7 +66,7 @@ status:
 
 ### 从快照恢复数据到新 PVC
 
-1. 本文以上述 [步骤](#volumesnapshot)  创建的 VolumeSnapshot 对象名称 `new-snapshot-demo` 为例，使用以下 YAML 从快照恢复数据到新的 PVC 中。示例如下：
+1. 本文以上述 [步骤](#volumesnapshot) 创建的 VolumeSnapshot 对象名称 `new-snapshot-demo` 为例，使用以下 YAML 从快照恢复数据到新的 PVC 中。示例如下：
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -96,4 +96,4 @@ spec:
     volumeHandle: disk-ju0hw7no
 ...
 ```
-	>?如果 StorageClass 使用了拓扑感知（先调度 Pod 再创建 PV），即指定 `volumeBindingMode: WaitForFirstConsumer`，则需要先部署 Pod（需挂载 PVC）才会触发创建 PV（从快照创建新的 CBS 并与 PV 绑定）。
+>? 如果 StorageClass 使用了拓扑感知（先调度 Pod 再创建 PV），即指定 `volumeBindingMode: WaitForFirstConsumer`，则需要先部署 Pod（需挂载 PVC）才会触发创建 PV（从快照创建新的 CBS 并与 PV 绑定）。

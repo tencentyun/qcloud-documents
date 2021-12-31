@@ -26,6 +26,7 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 
 ## 代码对接
 
+[](id:Step1)
 ### Step1. 下载 LiteAVSDK 和 MLVBLiveRoom 组件
 
 移动直播提供的连麦能力需要依赖三个组件： 
@@ -37,14 +38,14 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 
 | 所属平台 |                          LiteAVSDK                           |                            TIMSDK                            |                      MLVBLiveRoom 组件                       |                           示例代码                           |
 | :------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|   iOS    | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/iOS/ImSDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LiveLinkMicDemoOld/LiveRoom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LiveLinkMicDemoOld/LiveRoomUI) |
-| Android  | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom/ui) |
+|   iOS    | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/iOS/IMSDK) | [MLVBLiveRoom](https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo/TXLiteAVDemo/LiveLinkMicDemoOld) | [SimpleCode](https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo/TXLiteAVDemo/LiveLinkMicDemoOld/LiveRoomUI) |
+| Android  | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom/ui) |
 
 >?除上述示例外，针对开发者的接入反馈的高频问题，腾讯云提供有更加简洁的 API-Example 工程，方便开发者可以快速的了解相关 API 的使用，欢迎使用。
->- **IOS：[MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)** 
+>- **IOS：[MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example-OC)** 
 >- **Android：[MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example)** 
 
-
+[](id:Step2)
 ### Step2. 申请 License 
 
 下载 LiteAVSDK 后需要 License 授权才能使用，请阅读 [License 申请](https://cloud.tencent.com/document/product/454/34750) 了解 License 的申请方法和使用方法。
@@ -60,6 +61,7 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 ```
 
+[](id:Step3)
 ### Step3. 购买连麦套餐包
 由于连麦功能会使用到高速专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则移动直播的各端 SDK 只能使用云直播的普通服务（推流和拉流），并不能开启连麦功能。
 
@@ -74,12 +76,13 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
   - 直播混流功能会产生标准转码费用，按照输出的分辨率和时长计费。
 
 
-
+[](id:Step4)
 ### Step4. 在应用管理中添加一个新的应用
 进入【云直播控制台】>【直播SDK】>[【应用管理】](https://console.cloud.tencent.com/live/license/appmanage)，单击【创建应用】。待应用创建完成后，记录其 SDKAPPID 信息。
 
 >?该操作的目的是创建一个即时通信 IM 应用，并将当前直播账号和该即时通信 IM 应用绑定起来。即时通信 IM 应用能为小直播 App 提供聊天室和连麦互动的能力。
 
+[](id:Step5)
 ### Step5. 登录房间服务
 
 MLVBLiveRoom 单靠一个终端的组件无法独自运行，它依赖一个后台服务为其实现房间管理和状态协调，这个后台服务我们称之为**房间服务**（RoomService）。而要使用这个房间服务，MLVBLiveRoom 就需要先进行**登录**（login）。
@@ -98,6 +101,7 @@ MLVBLiveRoom 的 login 函数需要指定相关参数：
 >- 由于 login 是一个需要跟后台服务器通讯的过程，建议等待 login 函数的异步回调后再调用其他函数。
 >- 后台接口限制并发为每秒100次请求，若您有高并发请求请提前 [联系我们](https://cloud.tencent.com/act/event/connect-service) 处理，避免影响服务调用。
 
+[](id:Step6)
 ### Step6. 获取房间列表（非必需）
 >? 如果您希望使用自己的房间列表，该步骤可跳过，但需要您在 [Step7](#Step7) 中自行指定 roomID。为避免房间号重复，建议使用主播的 userID 作为 roomID。
 
@@ -116,18 +120,21 @@ MLVBLiveRoom 的 login 函数需要指定相关参数：
 >?为避免房间号重复，建议使用主播的 userID 作为 roomID。如果您不手动设置 roomID，后台将会自动为您分配一个 roomID。
 >如果您想要管理房间列表，可以先由您的服务器确定 roomID，再通过 createRoom、enterRoom 和 exitRoom 接口使用 MLVBLiveRoom 的连麦能力。
 
+[](id:Step8)
 ### Step8. 观看直播
 
 观众通过 MLVBLiveRoom 中的 **enterRoom** 接口可以进入直播间观看视频直播，enterRoom 函数需要传入 view 对象用于显示直播流的视频影像。
 
 进入房间后，通过调用 **getAudienceList** 接口可以获取观众列表。如果少于30名观众，列表会展示全部观众信息。如果多于30名观众，列表仅展示新进入房间的30名观众的信息。
 
+[](id:Step9)
 ### Step9. 弹幕消息
 
 MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoomTextMsg** 函数发送普通的文本消息（用于弹幕），也可以通过 **sendRoomCustomMsg** 发送自定义消息（用于点赞，送花等等）。
 
 >!腾讯云 IM 的直播聊天室，每秒钟最多可以收取40条的消息。如果您以高于40条/次的速度刷新 UI 上的弹幕界面，很容易导致 CPU 100%，请注意控制刷新频率，避免高频刷新。
 
+[](id:Step10)
 ### Step10. 观众与主播连麦
 
 |  步骤  |    角色    | 详情                                                         |
@@ -145,6 +152,7 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 
 >?MLVBLiveRoom 在设计上最多支持10人同时连麦，但出于兼容低端 Android 终端和实际体验效果的考虑，建议将同时连麦人数控制在6人以下。
 
+[](id:Step11)
 ### Step11. 主播间跨房间 PK
 
 主播间跨房 PK 常被用于活跃直播平台的氛围，提升打赏频率，对平台的主播人数有一定要求。目前常见的主播 PK 方式是将所有愿意 PK 的主播“圈”在一起，再后台进行随机配对，每次 PK 都有一定时间要求，例如5分钟，超过后即结束 PK 状态。

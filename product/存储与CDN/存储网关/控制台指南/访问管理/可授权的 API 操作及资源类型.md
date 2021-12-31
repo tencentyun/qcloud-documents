@@ -1,6 +1,6 @@
 ## 简介
 
-本文档将会为您介绍存储网关（Cloud Storage Gateway，CSG）相关可授权的资源类型，API 操作以及预设策略。您可以在 CAM 控制台，使用可视化的操作授予子账号预设的权限策略，如您需要授予子账号更为细致的权限，请参考本文档下方相关产品接口说明以及 [授权策略语法](https://cloud.tencent.com/document/product/581/47926)。
+本文档将会为您介绍存储网关（Cloud Storage Gateway，CSG）相关可授权的资源类型，API 操作以及预设策略。您可以在访问管理（Cloud Access Management，CAM）控制台，使用可视化的操作授予子账号预设的权限策略，如您需要授予子账号更为细致的权限，请参考本文档下方相关产品接口说明以及 [授权策略语法](https://cloud.tencent.com/document/product/581/47926)。
 
 ## 预设策略
 

@@ -25,6 +25,7 @@ apache:
     name-server: xxx.xxx.xx.xx #rocketMq ip
     topic: long-topic
 ```
+
 ## 生产者示例
 向 Spring 容器中加入 bean DefaultMQProducer：
 ```

@@ -14,7 +14,7 @@
 **分片集群**
 
 1. 每个副本集是一个分片。
-2. 数据写入会根据片健经过一定的 hash 算法写入不同的片中，不需要应用程序。
+2. 数据写入会根据片键经过一定的 hash 算法写入不同的片中，不需要应用程序。
 3. 根据需要去指定读写库表。
 4. 存储量扩容只需要添加分片即可。
 ![](https://main.qcloudimg.com/raw/39fec6f08d91bf31272722a305026689.png)
@@ -420,7 +420,7 @@ Qr>100，Qw>100，Ar>100，Aw>100
 ### 配置云数据库 MongoDB 告警
 
 1. 登录 [腾讯云监控控制台](https://console.cloud.tencent.com/monitor )。
-2. 单击【告警配置】>【告警策略】>【新建】。
+2. 单击**告警配置** > **告警策略** > **新建**。
 3. 进入新建告警策略页，填写如下信息：
 	- 输入策略名称
 	- 输入备注
@@ -438,7 +438,7 @@ Qr>100，Qw>100，Ar>100，Aw>100
 
 **配置 Dashboard**
 1. 登录 [腾讯云监控控制台](https://console.cloud.tencent.com/monitor )。
-2. 单击【Dashboard】>【Dashboard 列表】。
+2. 单击 **Dashboard** > **Dashboard 列表**。
 3. 在 Dashboard 列表中选择“云数据库 MongoDB 预设面板”。
 	- 选择 MongoDB 实例
 	- 选择 MongoDB 副本集

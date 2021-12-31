@@ -1,3 +1,4 @@
+
 ## 功能说明
 COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通过简单的配置操作，用户可以将源地址数据快速迁移至 COS 中，它具有以下特点：
 - 丰富的数据源：
@@ -83,6 +84,9 @@ type=migrateLocal
 | migrateBucketCopy| 从源 Bucket 复制到目标 Bucket|
 |migrateUpyun  | 从又拍云迁移到 COS |
 
+>? 如果想从上述未提及的源站进行迁移，若源站兼容 AWS S3 的API，即可使用 AWS 的配置进行迁移。
+>
+
 #### 3.2 配置迁移任务
 用户根据实际的迁移需求进行相关配置，主要包括迁移至目标 COS 信息配置及迁移任务相关配置。
 ```plaintext
@@ -112,9 +116,9 @@ skipSamePath=false
 | ------| ------ |----- |
 | secretId| 用户密钥 SecretId，请将`COS_SECRETID`替换为您的真实密钥信息。可前往 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 中的云 API 密钥页面查看获取 |-|
 | secretKey| 用户密钥 SecretKey，请将`COS_SECRETKEY`替换为您的真实密钥信息。可前往 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 中的云 API 密钥页面查看获取|-|
-| bucketName| 目的 Bucket 的名称, 命名格式为 `<BucketName-APPID>`，即 Bucket 名必须包含 APPID，例如 examplebucket-1250000000 |-|
+| bucketName| 目的 Bucket 的名称, 命名格式为 `<BucketName-APPID>`，即 Bucket 名必须包含 APPID，例如 examplebucket-1250000000 |  -  |
 | region| 目的 Bucket 的 Region 信息。COS 的地域简称请参照 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) |-|
-| storageClass|存储类型：Standard（标准存储），Standard_IA（低频存储），Archive（归档存储） |Standard|
+| storageClass|   数据迁移后的存储类型，可选值为 Standard（标准存储）、Standard_IA（低频存储）、Archive（归档存储）、Maz_Standard（标准存储多 AZ）、Maz_Standard_IA（低频存储多 AZ），相关介绍请参见 [存储类型概述](https://cloud.tencent.com/document/product/436/33417)    |Standard|
 | cosPath|要迁移到的 COS 路径。`/`表示迁移到 Bucket 的根路径下，`/folder/doc/` 表示要迁移到 Bucket的`/folder/doc/` 下，若 `/folder/doc/` 不存在，则会自动创建路径|/|
 | https| 是否使用 HTTPS 传输：on 表示开启，off 表示关闭。开启传输速度较慢，适用于对传输安全要求高的场景|off|
 | tmpFolder|从其他云存储迁移至 COS 的过程中，用于存储临时文件的目录，迁移完成后会删除。要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，例如`/a/b/c` <br>Windows 下分隔符为两个反斜杠，例如`E:\\a\\b\\c`<br>默认为工具所在路径下的 tmp 目录|./tmp|
@@ -327,3 +331,4 @@ COS 迁移工具是有状态的，已经迁移成功的会记录在 db 目录下
 
 ## 常见问题
 如您在使用 COS Migration 工具过程中，遇到迁移失败、运行报错等异常情况，请参阅 [COS Migration 工具类常见问题](https://cloud.tencent.com/document/product/436/30745) 寻求解决。
+

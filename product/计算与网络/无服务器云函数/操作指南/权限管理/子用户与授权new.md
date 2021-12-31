@@ -1,5 +1,5 @@
 
->! 主账户需要在 **[角色](https://console.cloud.tencent.com/cam/role)**页面查看是否具有`SCF_QcsRole`，如果没有，请按照**角色与策略**中的**服务授权**操作完成授权，否则子用户无法正常使用 SCF 控制台和通过 SCF 调用其他云上资源。
+>! 主账户需要在 **[角色](https://console.cloud.tencent.com/cam/role)** 页面查看是否具有`SCF_QcsRole`，如果没有，请按照**角色与策略**中的**服务授权**操作完成授权，否则子用户无法正常使用 SCF 控制台和通过 SCF 调用其他云上资源。
 
 ## 创建子用户并授予 SCF 的所有操作权限
 

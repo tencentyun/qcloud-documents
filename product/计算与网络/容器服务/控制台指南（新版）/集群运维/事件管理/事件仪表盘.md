@@ -22,7 +22,7 @@
 
 您还可在该页面中查看更多统计信息，如下所示：
 - 事件总数及级别分布情况，异常事件的原因、对象分布情况检索如下图所示：
-![](https://main.qcloudimg.com/raw/087cc7d0cfbda52525eff616929604cb.png)
+![](https://main.qcloudimg.com/raw/a2a020e33b44f5f751d71e8e47ba51e4.png)
 - 各类常见事件的汇总信息检索如下图所示：
 ![](https://main.qcloudimg.com/raw/468b3a3ab8c70b812472c706f7825b7c.png)
 - 事件趋势及异常 TOP 事件列表检索如下图所示：

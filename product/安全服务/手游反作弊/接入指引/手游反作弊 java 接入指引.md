@@ -65,19 +65,19 @@ public static int initEx(int gameId, String appKey);
 ### 用户登录接口
 **函数原型**
 ```
-public static native int onUserLogin(int accountType, int worldId, String openId, String roleId);
+public static native int onUserLogin(int  accountType, int worldId, String openId, String roleId);
 ```
 
 **参数说明**
 
 | 参数 | 标题 2 |
 |---------|---------|
-| account_type | 与运营平台相关的帐号类型，参考下文的 TssSdkEntryId 填写 |
+|accountType | 与运营平台相关的帐号类型，参考下文的 TssSdkEntryId 填写 |
 | worldId | 用户游戏角色的大区信息 |
 | openId | 用户唯一身份标识，可自定义字符串。（和处罚相关必须填写） |
 | roleId | 区分用户创建的不同角色的标识 |
 
-account_type 默认 QQ 平台填 1，微信平台填 2，其他平台填 99。国内外主流帐号登录平台可参考以下数值填写。
+accountType 默认 QQ 平台填 1，微信平台填 2，其他平台填 99。国内外主流帐号登录平台可参考以下数值填写。
 ```
 enum TssSdkEntryId
 {

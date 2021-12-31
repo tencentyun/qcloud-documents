@@ -232,7 +232,7 @@ TRTCKaraokeRoomCallback.ActionCallback callback);
 | -------- | -------------- | ------------------------------------------------------------ |
 | sdkAppId | int            | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
 | userId   | String         | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
-| userSig  | String         | 腾讯云设计的一种安全保护签名，获取方式请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
+| userSig  | String         | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 | callback | ActionCallback | 登录回调，成功时 code 为0。                                  |
 
    
@@ -392,20 +392,22 @@ public abstract void getUserInfoList(List<String> userIdList, TRTCKaraokeRoomCal
 ### startPlayMusic
 
 播放音乐（上麦后调用）。
->?播放音乐后，自身会收到 `onMusicPrepareToPlay` 的事件通知。
->?音乐播放中，房间内所有成员会不断收到 `onMusicProgressUpdate` 的事件通知。
->?音乐播放完成，自身会收到 `onMusicCompletePlaying` 的事件通知。
+>?
+>- 播放音乐后，自身会收到 `onMusicPrepareToPlay` 的事件通知。
+>- 音乐播放中，房间内所有成员会不断收到 `onMusicProgressUpdate` 的事件通知。
+>- 音乐播放完成，自身会收到 `onMusicCompletePlaying` 的事件通知。
 
 ```java
-public abstract void startPlayMusic(int musicID, String url);
+public abstract void startPlayMusic(int musicID, String originalUrl, String accompanyUrl);
 ```
 
 参数如下表所示：
 
 | 参数      | 类型            | 含义                 |
 | --------- | -------------- | -------------------- |
-| musicID   | int            | 音乐的ID。 |
-| url       | String         | 音乐的绝对路径。           |
+|musicID   |   int | 音乐的 ID。  |
+|originalUrl  | String | 原唱音乐的绝对路径。   |
+|accompanyUrl |  String | 伴奏音乐的绝对路径。  |
 
 调用该接口后会停止上一个正在播放的歌曲。
 
@@ -421,8 +423,9 @@ public abstract void stopPlayMusic();
 ### pausePlayMusic
 
 暂停正在播放的音乐（播放音乐时调用）。
->? `onMusicProgressUpdate` 的事件通知会暂停
->?不会收到 `onMusicCompletePlaying` 的事件通知。
+>? 
+>- `onMusicProgressUpdate` 的事件通知会暂停
+>- 不会收到 `onMusicCompletePlaying` 的事件通知。
 
 ```java
 public abstract void pausePlayMusic();

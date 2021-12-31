@@ -28,7 +28,7 @@ Content-Type: application/xml
 
 该请求操作的实现需要有如下请求体：
 
-#### 请求体1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、音视频拼接、智能封面、视频增强、SDR to HDR
+#### 请求体1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、音视频拼接、智能封面、视频增强、SDR to HDR、自定义函数、超分辨率、音视频转封装和图片处理
 
 
 ```plaintext
@@ -38,7 +38,7 @@ Content-Type: application/xml
         <State>Active</State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554,SCF_1581665960566,SuperResolution_1581665960583,Segment_1581665960667,PicProcess_1581665960668</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -48,23 +48,31 @@ Content-Type: application/xml
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
                 <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
                 <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
+                <SCF_1581665960566>End</SCF_1581665960566>
+                <SuperResolution_1581665960583>End</SuperResolution_1581665960583>
+                <Segment_1581665960667>End</Segment_1581665960667>
+                <PicProcess_1581665960668>End</PicProcess_1581665960668>
             </Dependencies>
             <Nodes>
                 <Start>
                     <Type>Start</Type>
                     <Input>
                         <QueueId></QueueId>
+                        <PicProcessQueueId></PicProcessQueueId>
                         <ObjectPrefix></ObjectPrefix>
                         <NotifyConfig>
                             <Url>http://www.callback.com</Url>
                             <Event>TaskFinish,WorkflowFinish</Event>
                             <Type>Url</Type>
+                            <ResultFormat></ResultFormat>
                         </NotifyConfig>
                         <ExtFilter>
                             <State>on</State>
                             <Audio>true</Audio>
+                            <Image>true</Image>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -76,6 +84,13 @@ Content-Type: application/xml
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/cover-${Number}.jpg</Object>
                         </Output>
+                        <SmartCover>
+                            <Format>png</Format>
+                            <Width>128</Width>
+                            <Height>128</Height>
+                            <Count>3</Count>
+                            <DeleteDuplicates>false</DeleteDuplicates>
+                        </SmartCover> 
                     </Operation>
                 </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
@@ -86,6 +101,7 @@ Content-Type: application/xml
                             <Region></Region>
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/snapshot-${number}.${Ext}</Object>
+                            <SpriteObject>abc/${RunId}/snapshot-${number}.jpg</SpriteObject>
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
@@ -173,6 +189,54 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </VideoProcess_1581665960554>
+                <SCF_1581665960566>
+                    <Type>SCF</Type>
+                    <Operation>
+                        <SCF>
+                            <Region>ap-chengdu</Region>
+                            <FunctionName>test</FunctionName>
+                            <Namespace>testspace</Namespace>
+                        </SCF>
+                    </Operation>
+                </SCF_1581665960566>
+                <SuperResolution_1581665960583>
+                    <Type>SuperResolution</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}/SuperResolution.mkv</Object>
+                        </Output>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
+                    </Operation>
+                </SuperResolution_1581665960583>
+                <Segment_1581665960667>
+                    <Type>Segment</Type>
+                    <Operation>
+                        <Segment>
+                            <Format>mp4</Format>
+                            <Duration>5</Duration>
+                        </Segment>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>test-trans${Number}</Object>
+                        </Output>
+                    </Operation>
+                </Segment_1581665960667>
+                <PicProcess_1581665960668>
+                    <Type>PicProcess</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/trans.jpg</Object>
+                        </Output>
+                    </Operation>
+                </PicProcess_1581665960668>
             </Nodes>
         </Topology>
     </MediaWorkflow>
@@ -204,12 +268,14 @@ Content-Type: application/xml
                             <Url>http://www.callback.com</Url>
                             <Event>TaskFinish,WorkflowFinish</Event>
                             <Type>Url</Type>
+                            <ResultFormat></ResultFormat>
                         </NotifyConfig>
                         <ExtFilter>
                             <State>on</State>
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -314,6 +380,9 @@ Container 类型 Nodes 的具体数据描述如下：
 | SDRtoHDR\_\*\*\*       | Request.MediaWorkflow.</br>Topology.Nodes | SDRtoHDR 节点    | Container | 否           | 节点名称以 SDRtoHDR 为前缀，可能有多个 SDRtoHDR 节点             |
 | VideoProcess\_\*\*\*   | Request.MediaWorkflow.</br>Topology.Nodes | 视频处理节点    | Container | 否           | 节点名称以 VideoProcess 为前缀，可能有多个视频处理节点         |
 | SCF\_\*\*\*            | Request.MediaWorkflow.</br>Topology.Nodes | SCF 函数节点     | Container | 否           | 节点名称以 SCF 为前缀，可能有多个 SCF 函数节点                   |
+| SuperResolution\_\*\*\* | Request.MediaWorkflow.</br>Topology.Nodes | 超分辨率节点 | Container| 否 | 节点名称以 SuperResolution 为前缀，可能有多个超分辨率节点 |
+| Segment\_\*\*\* | Request.MediaWorkflow.</br>Topology.Nodes | 音视频转封装节点 | Container| 否 | 节点名称以 Segment 为前缀，可能有多个音视频转封装节点 |
+| PicProcess\_\*\*\* | Request.MediaWorkflow.</br>Topology.Nodes | 图片处理节点 | Container| 否 | 节点名称以 PicProcess 为前缀，可能有多个图片处理节点 |
 
 Container 类型 Start 的具体数据描述如下：
 
@@ -328,17 +397,19 @@ Container 类型 Input 的具体数据描述如下：
 | ------------------ | ------------------------------------------------ | ---------------------------------------- | --------- | -------- | ---- |
 | ObjectPrefix       | Request.MediaWorkflow.<br>Topology.Nodes.Start.Input | Object 前缀 | String | 是       | 无   |
 | QueueId            | Request.MediaWorkflow.<br>Topology.Nodes.Start.Input | 队列 ID     | String | 是       | 无   |
+| PicProcessQueueId  | Request.MediaWorkflow.<br>Topology.Nodes.Start.Input | 图片处理队列 ID     | String | 否       | 当存在图片处理节点时必选   |
 | NotifyConfig       | Request.MediaWorkflow.<br>Topology.Nodes.Start.Input | 回调信息，如果不设置，则使用队列的回调信息 | Container | 否       | 无   |
 | ExtFilter          | Request.MediaWorkflow.<br>Topology.Nodes.Start.Input | 文件后缀过滤器                           | Container | 否       | 无   |
 
 
 Container 类型 Start.Input.NotifyConfig 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                                                       | 描述     | 类型   | 是否必选 | 限制                                                         |
-| ------------------ | ------------------------------------------------------------ | -------- | ------ | ---- | ------------------------------------------------------------ |
-| Url                | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.NotifyConfig | 回调地址 | String | 是   | 不能为内网地址                                               |
-| Type               | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.NotifyConfig | 回调类型 | String | 是   |  Url:Url回调                                         |
-| Event              | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.NotifyConfig | 回调信息 | String | 是   | 1. TaskFinish：任务完成 </br> 2. WorkflowFinish：工作流完成 </br> 3. 支持多种事件，以逗号分隔 |
+| 节点名称（关键字） | 父节点                                                       | 描述     | 类型   | 是否必选 | 默认值 | 限制                                                         |
+| ------------------ | ------------------------------------------------------------ | -------- | ------ | ---- | ---- | ------------------------------------------------------------ |
+| Url                | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.NotifyConfig | 回调地址 | String | 是   |  无  | 不能为内网地址                                               |
+| Type               | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.NotifyConfig | 回调类型 | String | 是   |  无  | Url:Url回调                                         |
+| Event              | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.NotifyConfig | 回调信息 | String | 是   |  无  | 1. TaskFinish：任务完成 </br> 2. WorkflowFinish：工作流完成 </br> 3. 支持多种事件，以逗号分隔 |
+| ResultFormat       | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.NotifyConfig | 回调格式 | String | 否   |  XML | 1. XML：xml格式 </br> 2. JSON：json格式 |
 
 
 
@@ -349,9 +420,12 @@ Container 类型 Start.Input.ExtFilter 的具体数据描述如下：
 | State              | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 开关                | String | 否   | Off    | On/Off                                                       |
 | Video              | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 打开视频后缀限制    | String | 否   | false  | false/true                                                   |
 | Audio              | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 打开音频后缀限制    | String | 否   | false  | false/true                                                   |
+| Image              | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 打开图片后缀限制    | String | 否   | false  | false/true                                                   |
 | ContentType        | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 打开 ContentType 限制 | String | 否   | false  | false/true                                                   |
 | Custom             | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 打开自定义后缀限制  | String | 否   | false  | false/true                                                   |
 | CustomExts         | Request.MediaWorkflow.Topology.</br>Nodes.Start.Input.ExtFilter | 自定义后缀          | String | 否   | 无     | 1. 多种文件后缀以/分隔，后缀个数不超过10个</br>2. 当 Custom 为 true 时，该参数必填 |
+| AllFile    | Request.MediaWorkflow.Topology.Nodes.Start.Input.ExtFilter | 所有文件          |  String  |  否   | false    |  false/true  |
+
 
 Container 类型 Animation\_\*\*\* 的具体数据描述如下：
 
@@ -374,7 +448,7 @@ Container 类型 Output 的具体数据描述如下：
 | ------------------ | ------------------------------------------------------------ | ------------ | ------ | ---- | ------------------------------------------------------------ |
 | Region             | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是   | 无                                                           |
 | Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是   | 无                                                           |
-| Object             | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation.Output | 结果文件名称 | String | 是   | 1、bcd/${RunId}/bcd.gif <br/> 2、bcd/${RunId}/bcd.webp <br/> |
+| Object             | Request.MediaWorkflow.Topology.<br>Nodes.Animation\_\*\*\*.Operation.Output | 结果文件名称 | String | 是   | <li>bcd/${RunId}/bcd.gif </li><li>bcd/${RunId}/bcd.webp</li> |
 
 Container 类型 Snapshot\_\*\*\* 的具体数据描述如下：
 
@@ -396,7 +470,8 @@ Container 类型 Output 的具体数据描述如下：
 | ------------------ | ------------------------------------------------------------ | ------------ | ------ | ------------ | ------------------------------------------------------------ |
 | Region             | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是           | 无                                                           |
 | Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是           | 无                                                           |
-| Object             | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 结果文件名称 | String | 是           | <li>abc/${RunId}/snapshot-${number}.${Ext}<br/><li>bcd/${RunId}/snapshot-${number}.jpg |
+| Object             | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 结果文件名称 | String | 否           | <li>abc/${RunId}/snapshot-${number}.${Ext}</li><li>bcd/${RunId}/snapshot-${number}.jpg</li> |
+| SpriteObject       | Request.MediaWorkflow.Topology.<br>Nodes.Snapshot\_\*\*\*.Operation.Output | 雪碧图的名称 | String | 否           | <li>abc/${RunId}/snapshot-${number}.jpg</li><li>bcd/${RunId}/snapshot-${number}.jpg</li>  |
 
 Container 类型 SmartCover_*** 的具体数据描述如下：
 
@@ -410,6 +485,7 @@ Container 类型 SmartCover_***.Operation 的具体数据描述如下：
 | 节点名称（关键字） | 父节点                                                       | 描述     | 类型      | 是否必选 | 限制 |
 | ------------------ | ------------------------------------------------------------ | -------- | --------- | -------- | ---- |
 | Output             | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation | 输出地址 | Container | 是       | 无   |
+| SmartCover         | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation | 封面配置      | Container | 否   | 无   |
 
 Container 类型 SmartCover_***.Output 的具体数据描述如下：
 
@@ -418,6 +494,16 @@ Container 类型 SmartCover_***.Output 的具体数据描述如下：
 | Region             | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation.Output | 存储桶的地域 | String | 是       | 无                              |
 | Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation.Output | 存储桶的名称 | String | 是       | 无                              |
 | Object             | Request.MediaWorkflow.Topology.<br>Nodes.SmartCover_***.Operation.Output | 结果文件名称 | String | 是       | 必须包含 ${Number} ${RunId}参数 |
+
+Container 类型 SmartCover_***.SmartCover 的具体数据类型描述如下：
+
+| 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 | 默认值 | 限制 |
+| ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- | ---- | ---- |
+| Format             | Request.Operation.SmartCover | 封面图片类型    | String | 是  | 无 | png、jpg、webp  |
+| Width              | Request.Operation.SmartCover | 封面图片宽度    | String | 是  | 无 | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> |
+| Height             | Request.Operation.SmartCover | 封面图片高度    | String | 是  | 无 | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> |
+| Count              | Request.Operation.SmartCover | 封面数量        | String | 否  | 3 | 值范围：[1，10] |
+| DeleteDuplicates   | Request.Operation.SmartCover | 封面是否去重    | String | 否  | false | true/false |
 
 Container 类型 Transcode_*** 的具体数据描述如下：
 
@@ -547,7 +633,7 @@ Container 类型 VideoStream\_\*\*\*.Operation 的具体数据描述如下：
 | ------------------ | ------- | ------| --------- | ---- | ---- |
 | TemplateId   | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\*.Operation | 模板 ID  | String    | 是   | 无 |
 | Output       | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\*.Operation | 输出地址 | Container | 是   | 无 |
-| WatermarkTemplateId   | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\*.Operation | 水印模板 ID  | String    | 是   | 可以使用多个水印模板 |
+| WatermarkTemplateId   | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\*.Operation | 水印模板 ID  | String    | 是   | 可以使用多个水印模板，不超过3个 |
 | RemoveWatermark       | Request.MediaWorkflow.Topology.</br>Nodes.VideoStream\_\*\*\*.Operation | 去除水印参数        | Container | 否   |无|
 
 Container 类型 VideoStream\_\*\*\*.Output 的具体数据描述如下：
@@ -673,6 +759,84 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
 | Namespace          | Request.MediaWorkflow.Topology.</br>Nodes.SCF\_\*\*\*.Operation.SCF | 命名空间 | String | 否   | 无   |
 | Alias              | Request.MediaWorkflow.Topology.</br>Nodes.SCF\_\*\*\*.Operation.SCF | 函数别名 | String | 否   | 无   |
 
+Container 类型 SuperResolution\_\*\*\* 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                 | 描述        | 类型      | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | ------ | ---- | ---- |
+| Type               | Request.MediaWorkflow.<br>Topology.Nodes.SuperResolution\_\*\*\* | 节点类型 | String    | 是 | SuperResolution |
+| Operation          | Request.MediaWorkflow.<br>Topology.Nodes.SuperResolution\_\*\*\* | 操作规则 | Container | 是     | 无       |
+
+Container 类型 SuperResolution\_\*\*\*.Operation 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                 | 描述        | 类型      | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | ------ | ---- | ---- |
+| TemplateId   | Request.MediaWorkflow.Topology.<br>Nodes.SuperResolution\_\*\*\*.Operation | 模板 ID  | String    | 是   | 无 |
+| TranscodeTemplateId | Request.MediaWorkflow.Topology..<br>Nodes.SuperResolution\_\*\*\*.Operation | 转码模板 ID  | String    | 是   | 无 |
+| WatermarkTemplateId | Request.MediaWorkflow.Topology..<br>Nodes.SuperResolution***.Operation | 水印模板 ID  | String    | 否   | 可以使用多个水印模板，不超过3个 |
+| Output       | Request.MediaWorkflow.Topology.<br>Nodes.SuperResolution\_\*\*\*.Operation | 输出地址 | Container | 是   | 无 |
+
+
+Container 类型 Output 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                 | 描述        | 类型      | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | ------ | ---- | ---- |
+| Region             | Request.MediaWorkflow.Topology.<br>Nodes.SuperResolution\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是           | 无                                                     |
+| Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.SuperResolution\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是           | 无                                                     |
+| Object   | Request.MediaWorkflow.Topology.<br>Nodes.SuperResolution\_\*\*\*.Operation.Output | 结果文件名称  | String  | 是  | 无 |
+
+
+Container 类型 Segment\_\*\*\* 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                 | 描述        | 类型      | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | ------ | ---- | ---- |
+| Type               | Request.MediaWorkflow.<br>Topology.Nodes.Segment\_\*\*\* | 节点类型 | String    | 是       | Segment |
+| Operation          | Request.MediaWorkflow.<br>Topology.Nodes.Segment\_\*\*\* | 操作规则 | Container | 是       | 无        |
+
+Container 类型 Segment\_\*\*\*.Operation 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                 | 描述        | 类型      | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | ------ | ---- | ---- |
+| Segment   | Request.MediaWorkflow.Topology.<br>Nodes.Segment\_\*\*\*.Operation | 音视频转封装参数  | Container    | 是   | 无 |
+| Output   | Request.MediaWorkflow.Topology.<br>Nodes.Segment\_\*\*\*.Operation | 输出地址 | Container | 是   | 无 |
+
+Container 类型 Segment 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                 | 描述        | 类型      | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | ------ | ---- | ---- |
+| Format            | Request.MediaWorkflow.Topology.<br>Nodes.Segment\_\*\*\*.Operation.Segment | 封装格式 | String | 是  | aac、mp3、flac、mp4、ts、mkv、avi |
+| Duration          | Request.MediaWorkflow.Topology.<br>Nodes.Segment\_\*\*\*.Operation.Segment | 转封装时长,单位:秒 | String | 否  | 不小于5的整数|
+
+Container 类型 Output 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                 | 描述        | 类型      | 是否必选 | 限制 |
+| ------------------ | ---------------------------------------------------------- | -------- | ------ | ---- | ---- |
+| Region             | Request.MediaWorkflow.Topology.<br>Nodes.Segment\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是     | 无                                                     |
+| Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.Segment\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是     | 无                                                     |
+| Object   | Request.MediaWorkflow.Topology.<br>Nodes.Segment\_\*\*\*.Operation.Output | 结果文件名称  | String  | 是  | 必须包含${Number}参数，<br>作为自定义转封装后每一小段音/视频流的输出序号 |
+
+Container 类型 PicProcess\_\*\*\*.Operation 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                       | 描述     | 类型      | 是否必选 | 限制     |
+| ------------------ | ------------------------------------------------------------ | -------- | --------- | -------- | -------- |
+| Type               | Request.MediaWorkflow.Topology.<br>Nodes.PicProcess\_\*\*\*\*\*\* | 节点类型 | String    | 是       | Snapshot |
+| Operation          | Request.MediaWorkflow.Topology.<br>Nodes.PicProcess\_\*\*\*\*\*\* | 操作规则 | Container | 是       | 无       |
+
+Container 类型 Operation 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                       | 描述     | 类型      | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------------ | -------- | --------- | -------- | ---- |
+| TemplateId         | Request.MediaWorkflow.Topology.<br>Nodes.PicProcess\_\*\*\*.Operation | 模板 ID  | String    | 是       | 无   |
+| Output             | Request.MediaWorkflow.Topology.<br>Nodes.PicProcess\_\*\*\*.Operation | 输出地址 | Container | 是       | 无   |
+
+Container 类型 Output 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                       | 描述         | 类型   | 是否<br>必选 | 限制                                                         |
+| ------------------ | ------------------------------------------------------------ | ------------ | ------ | ------------ | ------------------------------------------------------------ |
+| Region             | Request.MediaWorkflow.Topology.<br>Nodes.PicProcess\_\*\*\*.Operation.Output | 存储桶的地域 | String | 是           | 无                                                           |
+| Bucket             | Request.MediaWorkflow.Topology.<br>Nodes.PicProcess\_\*\*\*.Operation.Output | 存储桶的名称 | String | 是           | 无                                                           |
+| Object             | Request.MediaWorkflow.Topology.<br>Nodes.PicProcess\_\*\*\*.Operation.Output | 结果文件名称 | String | 否           | bcd/${RunId}/process-${number}.jpg |
+
+
 ## 响应
 
 #### 响应头
@@ -683,7 +847,7 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
 
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-#### 响应体1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、音视频拼接、智能封面、视频增强、SDR to HDR
+#### 响应体1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、音视频拼接、智能封面、视频增强、SDR to HDR、自定义函数、超分辨率、音视频转封装和图片处理
 
 
 ```plaintext
@@ -694,7 +858,7 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
         <WorkflowId></WorkflowId>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554,SCF_1581665960566,SuperResolution_1581665960583,Segment_1581665960667,PicProcess_1581665960668</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -704,23 +868,31 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
                 <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
                 <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
+                <SCF_1581665960566>End</SCF_1581665960566>
+                <SuperResolution_1581665960583>End</SuperResolution_1581665960583>
+                <Segment_1581665960667>End</Segment_1581665960667>
+                <PicProcess_1581665960668>End</PicProcess_1581665960668>
             </Dependencies>
             <Nodes>
                 <Start>
                     <Type>Start</Type>
                     <Input>
                         <QueueId></QueueId>
+                        <PicProcessQueueId></PicProcessQueueId>
                         <ObjectPrefix></ObjectPrefix>
                         <NotifyConfig>
                             <Url>http://www.callback.com</Url>
                             <Event>TaskFinish,WorkflowFinish</Event>
                             <Type>Url</Type>
+                            <ResultFormat></ResultFormat>
                         </NotifyConfig>
                         <ExtFilter>
                             <State>on</State>
                             <Audio>true</Audio>
+                            <Image>true</Image>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -732,6 +904,13 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/cover-${Number}.jpg</Object>
                         </Output>
+                        <SmartCover>
+                            <Format>png</Format>
+                            <Width>128</Width>
+                            <Height>128</Height>
+                            <Count>3</Count>
+                            <DeleteDuplicates>false</DeleteDuplicates>
+                        </SmartCover> 
                     </Operation>
                 </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
@@ -742,6 +921,7 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
                             <Region></Region>
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/snapshot-${number}.${Ext}</Object>
+                            <SpriteObject>abc/${RunId}/snapshot-${number}.jpg</SpriteObject>                         
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
@@ -829,6 +1009,54 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
                         </Output>
                     </Operation>
                 </VideoProcess_1581665960554>
+                <SCF_1581665960566>
+                    <Type>SCF</Type>
+                    <Operation>
+                        <SCF>
+                            <Region>ap-chengdu</Region>
+                            <FunctionName>test</FunctionName>
+                            <Namespace>testspace</Namespace>
+                        </SCF>
+                    </Operation>
+                </SCF_1581665960566>
+                <SuperResolution_1581665960583>
+                    <Type>SuperResolution</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}/SuperResolution.mkv</Object>
+                        </Output>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
+                    </Operation>
+                </SuperResolution_1581665960583>
+                <Segment_1581665960667>
+                    <Type>Segment</Type>
+                    <Operation>
+                        <Segment>
+                            <Format>mp4</Format>
+                            <Duration>5</Duration>
+                        </Segment>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>test-trans${Number}</Object>
+                        </Output>
+                    </Operation>
+                </Segment_1581665960667>
+                <PicProcess_1581665960668>
+                    <Type>PicProcess</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/trans.jpg</Object>
+                        </Output>
+                    </Operation>
+                </PicProcess_1581665960668>
             </Nodes>
         </Topology>
         <BucketId></BucketId>
@@ -865,12 +1093,14 @@ Container 类型 SCF\_\*\*\*.Operation.SCF 的具体数据描述如下：
                             <Url>http://www.callback.com</Url>
                             <Event>TaskFinish,WorkflowFinish</Event>
                             <Type>Url</Type>
+                            <ResultFormat></ResultFormat>
                         </NotifyConfig>
                         <ExtFilter>
                             <State>on</State>
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -961,7 +1191,7 @@ Container节点 MediaWorkflow 的内容：
 
 ## 实际案例
 
-#### 请求1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、智能封面、音视频拼接示例
+#### 请求1：音视频转码、极速高清、截帧、转动图、人声分离、精彩集锦、智能封面、音视频拼接、自定义函数、超分辨率、音视频转封装和图片处理示例
 
 ```plaintext
 POST /workflow HTTP/1.1
@@ -976,7 +1206,7 @@ Content-Type: application/xml
         <State>Active</State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554,SCF_1581665960566,SuperResolution_1581665960583,Segment_1581665960667,PicProcess_1581665960668</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -986,23 +1216,31 @@ Content-Type: application/xml
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
                 <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
                 <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
+                <SCF_1581665960566>End</SCF_1581665960566>
+                <SuperResolution_1581665960583>End</SuperResolution_1581665960583>
+                <Segment_1581665960667>End</Segment_1581665960667>
+                <PicProcess_1581665960668>End</PicProcess_1581665960668>
             </Dependencies>
             <Nodes>
                 <Start>
                     <Type>Start</Type>
                     <Input>
                         <QueueId></QueueId>
+                        <PicProcessQueueId></PicProcessQueueId>
                         <ObjectPrefix></ObjectPrefix>
                         <NotifyConfig>
                             <Url>http://www.callback.com</Url>
                             <Event>TaskFinish,WorkflowFinish</Event>
                             <Type>Url</Type>
+                            <ResultFormat>XML</ResultFormat>
                         </NotifyConfig>
                         <ExtFilter>
                             <State>on</State>
                             <Audio>true</Audio>
+                            <Image>true</Image>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -1014,6 +1252,13 @@ Content-Type: application/xml
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/cover-${Number}.jpg</Object>
                         </Output>
+                        <SmartCover>
+                            <Format>png</Format>
+                            <Width>128</Width>
+                            <Height>128</Height>
+                            <Count>3</Count>
+                            <DeleteDuplicates>false</DeleteDuplicates>
+                        </SmartCover> 
                     </Operation>
                 </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
@@ -1024,6 +1269,7 @@ Content-Type: application/xml
                             <Region></Region>
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/snapshot-${number}.${Ext}</Object>
+                            <SpriteObject>abc/${RunId}/snapshot-${number}.jpg</SpriteObject>
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
@@ -1111,6 +1357,54 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </VideoProcess_1581665960554>
+                <SCF_1581665960566>
+                    <Type>SCF</Type>
+                    <Operation>
+                        <SCF>
+                            <Region>ap-chengdu</Region>
+                            <FunctionName>test</FunctionName>
+                            <Namespace>testspace</Namespace>
+                        </SCF>
+                    </Operation>
+                </SCF_1581665960566>
+                <SuperResolution_1581665960583>
+                    <Type>SuperResolution</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}/SuperResolution.mkv</Object>
+                        </Output>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
+                    </Operation>
+                </SuperResolution_1581665960583>
+                <Segment_1581665960667>
+                    <Type>Segment</Type>
+                    <Operation>
+                        <Segment>
+                            <Format>mp4</Format>
+                            <Duration>5</Duration>
+                        </Segment>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>test-trans${Number}</Object>
+                        </Output>
+                    </Operation>
+                </Segment_1581665960667>
+                <PicProcess_1581665960668>
+                    <Type>PicProcess</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/trans.jpg</Object>
+                        </Output>
+                    </Operation>
+                </PicProcess_1581665960668>
             </Nodes>
         </Topology>
     </MediaWorkflow>
@@ -1132,10 +1426,10 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     <MediaWorkflow>
         <Name>demo</Name>
         <State>Active</State>
-        <WorkflowId></WorkflowId
+        <WorkflowId></WorkflowId>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539,VoiceSeparate_1581665960551,VideoMontage_1581665960551,SDRtoHDR_1581665960553,VideoProcess_1581665960554,SCF_1581665960566,SuperResolution_1581665960583,Segment_1581665960667,PicProcess_1581665960668</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -1145,23 +1439,31 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                 <VideoMontage_1581665960551>End</VideoMontage_1581665960551>
                 <SDRtoHDR_1581665960553>End</SDRtoHDR_1581665960553>
                 <VideoProcess_1581665960554>End</VideoProcess_1581665960554>
+                <SCF_1581665960566>End</SCF_1581665960566>
+                <SuperResolution_1581665960583>End</SuperResolution_1581665960583>
+                <Segment_1581665960667>End</Segment_1581665960667>
+                <PicProcess_1581665960668>End</PicProcess_1581665960668>
             </Dependencies>
             <Nodes>
                 <Start>
                     <Type>Start</Type>
                     <Input>
                         <QueueId></QueueId>
+                        <PicProcessQueueId></PicProcessQueueId>
                         <ObjectPrefix></ObjectPrefix>
                         <NotifyConfig>
                             <Url>http://www.callback.com</Url>
                             <Event>TaskFinish,WorkflowFinish</Event>
                             <Type>Url</Type>
+                            <ResultFormat>XML</ResultFormat>
                         </NotifyConfig>
                         <ExtFilter>
                             <State>on</State>
                             <Audio>true</Audio>
+                            <Image>true</Image>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -1173,6 +1475,13 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/cover-${Number}.jpg</Object>
                         </Output>
+                        <SmartCover>
+                            <Format>png</Format>
+                            <Width>128</Width>
+                            <Height>128</Height>
+                            <Count>3</Count>
+                            <DeleteDuplicates>false</DeleteDuplicates>
+                        </SmartCover> 
                     </Operation>
                 </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
@@ -1183,6 +1492,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                             <Region></Region>
                             <Bucket></Bucket>
                             <Object>abc/${RunId}/snapshot-${number}.${Ext}</Object>
+                            <SpriteObject>abc/${RunId}/snapshot-${number}.jpg</SpriteObject>
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
@@ -1270,6 +1580,54 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                         </Output>
                     </Operation>
                 </VideoProcess_1581665960554>
+                <SCF_1581665960566>
+                    <Type>SCF</Type>
+                    <Operation>
+                        <SCF>
+                            <Region>ap-chengdu</Region>
+                            <FunctionName>test</FunctionName>
+                            <Namespace>testspace</Namespace>
+                        </SCF>
+                    </Operation>
+                </SCF_1581665960566>
+                <SuperResolution_1581665960583>
+                    <Type>SuperResolution</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>${RunId}/SuperResolution.mkv</Object>
+                        </Output>
+                        <WatermarkTemplateId></WatermarkTemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <TranscodeTemplateId>t160606b9752148c4absdfaf2f55163b1f</TranscodeTemplateId>
+                    </Operation>
+                </SuperResolution_1581665960583>
+                <Segment_1581665960667>
+                    <Type>Segment</Type>
+                    <Operation>
+                        <Segment>
+                            <Format>mp4</Format>
+                            <Duration>5</Duration>
+                        </Segment>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>test-trans${Number}</Object>
+                        </Output>
+                    </Operation>
+                </Segment_1581665960667>
+                <PicProcess_1581665960668>
+                    <Type>PicProcess</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/trans.jpg</Object>
+                        </Output>
+                    </Operation>
+                </PicProcess_1581665960668>
             </Nodes>
         </Topology>
         <BucketId></BucketId>
@@ -1366,7 +1724,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     <MediaWorkflow>
         <Name>demo</Name>
         <State>Active</State>
-        <WorkflowId></WorkflowId
+        <WorkflowId></WorkflowId>
         <BucketId></BucketId>
         <Topology>
             <Dependencies>
@@ -1381,17 +1739,20 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                     <Type>Start</Type>
                     <Input>
                         <QueueId></QueueId>
+                        <PicProcessQueueId></PicProcessQueueId>
                         <ObjectPrefix></ObjectPrefix>
                         <NotifyConfig>
                             <Url>http://www.callback.com</Url>
                             <Event>TaskFinish,WorkflowFinish</Event>
                             <Type>Url</Type>
+                            <ResultFormat>XML</ResultFormat>
                         </NotifyConfig>
                         <ExtFilter>
                             <State>on</State>
                             <Audio>true</Audio>
                             <Custom>true</Custom>
                             <CustomExts>mp4/mp3</CustomExts>
+                            <AllFile>true</AllFile>
                         </ExtFilter>
                     </Input>
                 </Start>
@@ -1450,5 +1811,4 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
     </MediaWorkflow>
 </Response>
 ```
-
 

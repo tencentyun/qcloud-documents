@@ -1,3 +1,4 @@
+在添加 Oracle 数据库前，请先将商业智能分析 BI 的 IP 地址添加至数据库安全组，详见 [数据库连接方式概览](https://cloud.tencent.com/document/product/590/19294)。
 1. 登录 [商业智能分析 BI 控制台](https://console.cloud.tencent.com/bi)，在添加数据源首页单击 **Oracle 数据库**，进入新建页面。新建的页面如下： 
 ![](https://main.qcloudimg.com/raw/25e531902982d49af206746b0d290747.png)
 2. 填写相应的 Oracle 数据库连接信息，至少把必填项都填写完毕。

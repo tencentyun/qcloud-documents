@@ -1,7 +1,5 @@
 本文介绍 URL 函数的语法及示例。
 
->? 当前日志服务已支持大部分地域使用 CLS 函数。北京、上海、广州、南京地域如有需要，请联系 [在线客服](https://cloud.tencent.com/act/event/Online_service)。
->
 
 ## 语法格式
 
@@ -21,7 +19,7 @@ URL 函数支持从标准 HTTP URL 路径中提取字段，一个标准的 URL �
 | ---------------- | ---------------------------- | ------------------------- | --------------------------------- |
 | url_extract_fragment(url)        | 提取出 URL 中的 fragment，结果为 varchar 类型。                   | `* | select url_extract_fragment('https://console.cloud.tencent.com/#/project/dashboard-demo/categoryList')` | `/project/dashboard-demo/categoryList`                       |
 | url_extract_host(url)            | 提取出 URL 中的 host，结果为 varchar 类型。                       | `* | select url_extract_host('https://console.cloud.tencent.com/cls')` | `console.cloud.tencent.com`                                  |
-| url_extract_parameter(url, name) | 提取出 URL 中的 query 中那么对应的参数值，结果为 varchar 类型。    | `* | select url_extract_parameter('https://console.cloud.tencent.com/cls?region=ap-chongqing','region')` | `ap-chongqing`                                               |
+| url_extract_parameter(url, name) | 提取出 URL 中的 query 对应的参数值，结果为 varchar 类型。    | `* | select url_extract_parameter('https://console.cloud.tencent.com/cls?region=ap-chongqing','region')` | `ap-chongqing`                                               |
 | url_extract_path(url)            | 提取出 URL 中的 path，结果为 varchar 类型。                       | `* | select url_extract_path('https://console.cloud.tencent.com/cls?region=ap-chongqing')` | `cls`                                                        |
 | url_extract_port(url)            | 提取出 URL 中的端口，结果为 bigint 类型。                        | `* | select url_extract_port('https://console.cloud.tencent.com:80/cls?region=ap-chongqing')` | `80`                                                         |
 | url_extract_protocol(url)        | 提取出 URL 中的协议，结果为 varchar 类型。                       | `* | select url_extract_protocol('https://console.cloud.tencent.com:80/cls?region=ap-chongqing')` | `https`                                                      |

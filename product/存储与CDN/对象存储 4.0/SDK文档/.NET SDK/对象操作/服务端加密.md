@@ -36,7 +36,8 @@ SSE-KMS 加密即使用 KMS 托管密钥的服务端加密。KMS 是腾讯云推
 
 [//]: # (.cssg-snippet-put-object-sse-kms)
 ```cs
-string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+string bucket = "examplebucket-1250000000";
 string key = "exampleobject"; //对象键
 string srcPath = @"temp-source-file";//本地文件绝对路径
 //.cssg-snippet-body-start:[put-object-sse-c]   

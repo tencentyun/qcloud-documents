@@ -47,7 +47,7 @@ Neo4j 连接器目前支持创建节点、查询节点、删除节点、更新�
 #### 案例
 1. 添加 Neo4j 连接器组件，选择创建节点操作。
 ![image-20210520171439537](https://main.qcloudimg.com/raw/8137c4e098a4206bbe571f80898166e1.png)
-2. 新建连接器配置，填写配置参数，单击【测试连接】，测试连接器配置是否正确。
+2. 新建连接器配置，填写配置参数，单击**测试连接**，测试连接器配置是否正确。
 ![image-20210520171520885](https://main.qcloudimg.com/raw/01592bb58a39687226fed9c6bd5944c3/neo4j4.png)
 3. 在通用配置中，填写节点标签名称和节点属性信息。例如：标签名称填写为 person、节点属性 item_1 的 key 为 name、value 为 'xiaoming'、item_2 的 key 为 age、value 为18。
 ![image-20210520171945127](https://main.qcloudimg.com/raw/9dbe1c7a719f40acb773e71f0075bb45/neo4.png)

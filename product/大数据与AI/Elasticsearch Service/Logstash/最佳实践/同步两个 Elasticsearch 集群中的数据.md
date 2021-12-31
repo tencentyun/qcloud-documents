@@ -1,9 +1,9 @@
 使用 Logstash 可以完成同步两个 Elasticsearch 集群中的数据，例如把数据从自建的 Elasticsearch 集群同步到腾讯云上的 Elasticsearch 集群，或者同步两个腾讯云上的 Elasticsearch 集群中的数据。下面介绍如何使用腾讯云 Logstash 同步两个 Elasticsearch 集群中的数据。
 
 ## 创建管道
-登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，选择需要操作的实例，单击实例【ID/名称】，进入实例基本信息页面。切换到“管道管理”页签，单击【新建管道】，创建一个管道。
+登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，选择需要操作的实例，单击实例 **ID/名称**，进入实例基本信息页面。切换到“管道管理”页签，单击**新建管道**，创建一个管道。
 ![](https://main.qcloudimg.com/raw/123a56e009cd371e6ce7a498f79d49a1.png)
-进入新建管道页面，单击【引用模板】，同时引用“input-elasticsearch”和“output-elasticsearch”两个模板：
+进入新建管道页面，单击**引用模板**，同时引用“input-elasticsearch”和“output-elasticsearch”两个模板：
 ![](https://main.qcloudimg.com/raw/b2f664a511a2ba7c603d832627b2b19b.png)
 ![](https://main.qcloudimg.com/raw/3ff3d5eac3201d3b429346c5da8ece70.png)
 
@@ -33,7 +33,7 @@
 
 查看更多参数，详情可参见 [output-elasticsearch](https://www.elastic.co/guide/en/logstash/7.10/plugins-outputs-elasticsearch.html)。
 
-在配置完管道后，单击【保存并部署】即可创建一个管道并自动部署。
+在配置完管道后，单击**保存并部署**即可创建一个管道并自动部署。
 ![](https://main.qcloudimg.com/raw/4624ba100e9b21f31f63972c4be9d2c6.png)
 
 ## 查看日志

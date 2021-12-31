@@ -87,7 +87,7 @@ mkdir -p /tmp/storage/framework/views
 ![](https://main.qcloudimg.com/raw/089fb093fba05db7ebf41b6fc1cb7c86.png)
 
 
-本地配置完成后，执行启动文件，确保您的服务可以本地正常启动，接下来，登陆腾讯云云控制台，部署您的 Laravel 项目。
+本地配置完成后，执行启动文件，确保您的服务可以本地正常启动，接下来，登录腾讯云云控制台，部署您的 Laravel 项目。
 
 **2. 控制台上传**
 

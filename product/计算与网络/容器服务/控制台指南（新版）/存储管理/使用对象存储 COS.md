@@ -66,7 +66,7 @@
 ![](https://main.qcloudimg.com/raw/ae126ccc936ac209fcb33234fd607a28.png)
 	- **名称**：自定义，本文以 `cos-secret` 为例。
 	- **Secret类型**：选择**Opaque**，该类型适用于保存密钥证书和配置文件，Value 将以 Base64 格式编码。
-	- **生效范围**：选择**指定命名空间**，其中命名空间 `kube-system` 必选。
+	- **生效范围**：选择**指定命名空间**，请确保 Secret 创建在 `kube-system` 命名空间下。
 	- **内容**：此处用于设置 Secret 访问存储桶（Bucket）所需的访问密钥，需包含变量名 `SecretId` 和 `SecretKey` 及其分别所对应的变量值。
 	请参考[ 创建访问密钥 ](#CreatAccessKey) 完成创建，并前往 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取访问密钥。
 5. 单击**创建 Secret**即可。
@@ -77,15 +77,15 @@
 >
 1. 在目标集群详情页面，选择左侧菜单栏中的**存储** > **PersistentVolume**，进入 “PersistentVolume” 页面。
 2. 单击**新建**进入“新建PersistentVolume” 页面，参考以下信息创建 PV。如下图所示：
-![](https://main.qcloudimg.com/raw/8dd2a6ad66bce8601a57b032a6ca8862.png)
+![](https://main.qcloudimg.com/raw/b4442141eaf8cc2fbdf96a4bbbf99d8e.png)
 主要参数信息如下：
 	- **来源设置**：选择**静态创建**。
 	- **名称**：自定义，本文以 `cos-pv` 为例。
 	- **Provisioner**：选择为**对象存储COS**。
 	- **读写权限**：对象存储仅支持多机读写。
-	- **Secret**：选择已在[ 步骤1 ](#StepOne)创建的 Secret，本文以 `cos-secret` 为例。
+	- **Secret**：选择已在[ 步骤1 ](#StepOne)创建的 Secret，本文以 `cos-secret` 为例（请确保 Secret 创建在 `kube-system` 命名空间下）。
 	- **存储桶列表**：用于保存对象存储中的对象，按需选择可用存储桶即可。
-	- **存储桶子目录**：填写已在[ 获取存储桶子目录 ](#getPath)中获取的存储桶子目录，本文以 `/costest` 为例。
+	- **存储桶子目录**：填写已在[ 获取存储桶子目录 ](#getPath)中获取的存储桶子目录，本文以 `/costest` 为例。若填写的子目录不存在，则系统将为您自动创建。
 	- **域名**：展示为默认域名，您可以使用该域名对存储桶进行访问。
 	- **挂载选项**：COSFS 工具支持将存储桶挂载到本地，挂载后可直接操作对象存储中的对象，此项用于设置相关限制条件。本例中挂载选项 `-oensure_diskfree=20480` 表示当缓存文件所在磁盘剩余空间不足20480MB时，COSFS 运行将尽量减少使用磁盘空间。
 >?不同的挂载项请以空格进行间隔，更多挂载选项请参见[ 常用挂载选项文档 ](https://cloud.tencent.com/document/product/436/6883#.E5.B8.B8.E7.94.A8.E6.8C.82.E8.BD.BD.E9.80.89.E9.A1.B9)。

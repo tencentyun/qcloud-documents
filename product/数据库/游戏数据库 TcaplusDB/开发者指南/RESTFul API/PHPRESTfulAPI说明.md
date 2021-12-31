@@ -1,3 +1,4 @@
+
 ## 准备工作
 ### 1. 创建 TcaplusDB 表
 创建 TcaplusDB 示例表，示例表为[`game_players.proto`](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/3.36.0.192960/game_players.proto)，请参见 [创建表格](https://cloud.tencent.com/document/product/596/38808)。

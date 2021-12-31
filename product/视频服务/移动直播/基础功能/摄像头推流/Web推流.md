@@ -1,4 +1,5 @@
 TXLivePusher 推流 SDK 主要用于视频云的快直播（超低延迟直播）推流，负责将浏览器采集的音视频画面通过 WebRTC 推送到直播服务器。目前支持摄像头推流、屏幕录制推流和本地媒体文件推流。
+>! 使用 WebRTC 协议推流，每个推流域名默认限制**100路并发**推流数，如您需要超过此推流限制，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 的方式联系我们进行申请。
 
 ## 基础知识
 
@@ -27,13 +28,14 @@ TXLivePusher 推流 SDK 主要用于视频云的快直播（超低延迟直播�
 在需要直播推流的页面（桌面端）中引入初始化脚本。
 
 ```html
-<script src="https://imgcache.qq.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.1.min.js" charset="utf-8"></script>
+<script src="https://imgcache.qq.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.2.min.js" charset="utf-8"></script>
 ```
+>? 需要在 HTML 的 body 部分引入脚本，如果在 head 部分引入会报错。
 
 如果在域名限制区域，可以引入以下链接：
 
 ```html
-<script src="https://cloudcache.tencent-cloud.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.1.min.js" charset="utf-8"></script>
+<script src="https://cloudcache.tencent-cloud.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.2.min.js" charset="utf-8"></script>
 ```
 
 ### 步骤2：在 HTML 中放置容器
@@ -178,8 +180,9 @@ deviceManager.switchCamera('camera_device_id');
 :::
 </dx-codeblock>
 
+### WebRTC 推流相关接口
 
-
+WebRTC 推流相关接口说明，请参见 [API 概览](https://cloud.tencent.com/document/product/454/56498)。
 
 
 

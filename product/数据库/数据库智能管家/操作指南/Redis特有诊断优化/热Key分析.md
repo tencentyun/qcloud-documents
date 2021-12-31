@@ -5,7 +5,7 @@
 
 
 ## 查看热 Key 分析
-1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain)，在左侧导航选择【诊断优化】，在上方选择对应数据库，然后选择【延迟分析】>【热Key分析】页。
+1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain)，在左侧导航选择**诊断优化**，在上方选择对应数据库，然后选择**延迟分析** > **热Key分析**页。
 ![](https://main.qcloudimg.com/raw/fb7c74e49a36c05c23a5c58de0ae60c0.png)
 2. 在热 Key 分析页，支持实时和历史视图的切换查看。
  - 实时视图：支持实时查看每个时间点的分析。

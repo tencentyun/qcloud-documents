@@ -119,13 +119,13 @@ trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 
 | 字段名称              | 字段含义                                                     |
 | --------------------- | ------------------------------------------------------------ |
-| **trtc://**           | 互动直播推流 URL 的前缀字段                                  |
-| **cloud.tencent.com** | 互动直播特定域名，**请勿修改**                               |
-| **push**              | 标识位，表示推流                                             |
-| **streamid**       | 流 ID，需要由开发者自定义                                            |
-| **sdkappid**      | 对应 [服务开通](#step1) 一节中生成的 SDKAppID |
-| **userId**           | 主播 ID，需要由开发者自定义                                  |
-| **usersig**         | 对应 [服务开通](#step1) 中获取的 UserSig 密钥 |
+| **trtc://**          | 互动直播推流 URL 的前缀字段                                  |
+| **cloud.tencent.com** | 互动直播特定域名，**请勿修改**                              |
+| **push**             | 标识位，表示推流                                             |
+| **streamid**      | 流 ID，需要由开发者自定义                                            |
+| **sdkappid**     | 对应 [服务开通](#step1) 一节中生成的 SDKAppID |
+| **userId**          | 主播 ID，需要由开发者自定义                                  |
+| **usersig**        | 对应 [服务开通](#step1) 中获取的 UserSig 密钥 |
 
 
 #### 示例代码
@@ -181,7 +181,7 @@ pusherA.startPush(pushURLA);
 V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
 ...
 /**
- * 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
+ * 这里使用CDN拉流，支持FLV、HLS、WebRTC协议，任选一种协议。FLV、HLS等标准协议价格更合理，WebRTC快直播能够提供更低延迟的互动体验。
  * playURLA= "http://3891.liveplay.myqcloud.com/live/streamidA.flv";
  * playURLA= "http://3891.liveplay.myqcloud.com/live/streamidA.hls";
  * playURLA= "webrtc://3891.liveplay.myqcloud.com/live/streamidA"
@@ -192,7 +192,7 @@ playerA.startPlay(playURLA);
 
 #### 3. 观众发起连麦
 
-其中观众 B 调用 `V2TXLivePusher` 发起推流（后续会称呼为连麦观众B）。
+其中观众 B 调用 `V2TXLivePusher` 发起推流（后续会称呼为连麦观众 B）。
 
 ```java
 V2TXLivePusher pusherB = new V2TXLivePusherImpl(this,V2TXLiveMode.TXLiveMode_RTC);
@@ -327,7 +327,7 @@ playerA.startPlay(playURLA);
 V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
 ...
 /**
- * 这里使用CDN拉流，支持flv，hls，webrtc协议，任选一种协议。flv，hls等标准协议价格更合理，webrtc快直播能够提供更低延迟的互动体验。
+ * 这里使用CDN拉流，支持FLV、HLS、WebRTC协议，任选一种协议。FLV、HLS等标准协议价格更合理，WebRTC快直播能够提供更低延迟的互动体验。
  * playURLB= "http://3891.liveplay.myqcloud.com/live/streamidA.flv";
  * playURLB= "http://3891.liveplay.myqcloud.com/live/streamidA.hls";
  * playURLB= "webrtc://3891.liveplay.myqcloud.com/live/streamidA"
@@ -358,7 +358,7 @@ RTC 连麦互动直播服务费用按所有参与连麦的用户产生的 [视�
 | -------- | ---------------------------- |
 | 标清 SD  | 不高于640 × 480（含）        |
 | 高清 HD  | 640 × 480 - 1280 × 720（含） |
-| 超清 HD+ | 高于1280 × 720               |
+| 全高清 FHD | 1280 × 720 - 1980 × 1080（含）               |
 
 - 用户观看视频时，不管该视频里面有没有包含音频，都只统计一次视频时长，不会重复计算语音时长。
 - 单个用户同时观看多路视频流时，其观看的每一路视频时长将分别统计后叠加计算。
@@ -381,7 +381,7 @@ RTC 连麦互动直播服务费用按所有参与连麦的用户产生的 [视�
 | 语音     | 7.00              |
 | 标清 SD  | 14.00             |
 | 高清 HD  | 28.00             |
-| 超清 HD+ | 105.00            |
+| 全高清 FHD | 105.00            |
 
 [](id:Billing_method)
 
@@ -391,7 +391,7 @@ RTC 连麦互动直播服务费用按所有参与连麦的用户产生的 [视�
 [](id:pre-payment)
 
 #### 预付费套餐包
-RTC连麦互动直播服务为您提供音视频通用套餐包，可按照**1:2:4:15**分别抵扣语音、标清 SD、高清 HD 和超清 HD+ 时长，例如1分钟高清视频时长扣除4分钟通用套餐包时长。
+RTC连麦互动直播服务为您提供音视频通用套餐包，可按照**1:2:4:15**分别抵扣语音、标清 SD、高清 HD 和全高清 FHD 时长，例如1分钟高清视频时长扣除4分钟通用套餐包时长。
 通用套餐包定价如下表所示：
 
 <table>
@@ -481,10 +481,10 @@ RTC连麦互动直播服务为您提供音视频通用套餐包，可按照**1:2
 #### 后付费
 当服务用量无套餐包可抵扣或超出套餐包余量时，将采用后付费的方式，按 [刊例价](#Fixed_price) 计费。
 RTC 连麦互动直播服务后付费有 [日结](#daily) 和 [月结](#monthly) 两种结算周期。
-- **日结后付费：**[](id:daily)
+- **日结后付费： **[](id:daily)
 2020年09月01日起首次在 实时音视频 控制台创建 [应用](https://cloud.tencent.com/document/product/647/46351#.E5.BA.94.E7.94.A8 ) 的用户，后付费生效后默认采用**日结**方式结算。按日计费，每天上午10点扣除前一天产生的费用。
 
-- **月结后付费：**[](id:monthly)
+- **月结后付费： **[](id:monthly)
 2020年08月31日及之前首次在实时音视频控制台创建 [应用](https://cloud.tencent.com/document/product/647/46351#.E5.BA.94.E7.94.A8 ) 的用户，后付费生效后默认采用**月结**方式结算。按月计费，每月01日 - 05日从您的账户余额中扣除前一月产生的费用，详情以 [计费账单](https://cloud.tencent.com/document/product/555/14192#.E4.BA.8C.E3.80.81.E6.96.B0.E7.89.88.E8.B4.A6.E5.8D.95.E5.8A.9F.E8.83.BD.E7.AE.80.E4.BB.8B) 为准。
 
 >!
@@ -516,7 +516,7 @@ RTC 连麦互动直播服务后付费有 [日结](#daily) 和 [月结](#monthly)
      <tr>
          <td style="text-align:center" rowspan="1">前30分钟</td>   
          <td style="text-align:center">1280 × 720（高清）</td>
-         <td style="text-align:center">1920 × 1080（超清）</td>   
+         <td style="text-align:center">1920 × 1080（全高清）</td>   
      </tr> 
      <tr>
          <td style="text-align:center" rowspan="1">后15分钟</td>   
@@ -532,8 +532,8 @@ RTC 连麦互动直播服务后付费有 [日结](#daily) 和 [月结](#monthly)
   - A 观看 B 的分辨率前30分钟位于高清档，后15分钟位于标清档。
   - A 产生的费用为 ` 高清视频时长单价 × 高清视频时长 + 标清视频时长单价 × 标清视频时长 = 28元/千分钟 × (30分钟 / 1000) + 14元/千分钟 × (15分钟 / 1000）= 1.05元`。
 - B 产生的用量及费用：
-  - B 观看 A 的分辨率前30分钟位于超清档，后15分钟位于标清档。
-  - B 产生的费用为 `超清视频时长单价 × 超清视频时长 + 标清视频时长单价 × 标清视频时长 = 105元/千分钟 × (30分钟 / 1000) + 14元/千分钟 × (15分钟 / 1000）= 3.36元`。
+  - B 观看 A 的分辨率前30分钟位于全高清档，后15分钟位于标清档。
+  - B 产生的费用为 `全高清视频时长单价 × 全高清视频时长 + 标清视频时长单价 × 标清视频时长 = 105元/千分钟 × (30分钟 / 1000) + 14元/千分钟 × (15分钟 / 1000）= 3.36元`。
 
 则产生的**总费用**为 `用户 A 产生的费用 + 用户 B 产生的费用 = 4.41元 `。
 
@@ -550,7 +550,7 @@ RTC 连麦互动直播服务后付费有 [日结](#daily) 和 [月结](#monthly)
      <tr>
          <td style="text-align:center" rowspan="1">前30分钟</td>   
          <td style="text-align:center">1280 × 720（高清）</td>
-         <td style="text-align:center">1920 × 1080（超清）</td>   
+         <td style="text-align:center">1920 × 1080（全高清）</td>   
      </tr> 
      <tr>
          <td style="text-align:center" rowspan="1">后15分钟</td>   
@@ -565,8 +565,8 @@ RTC 连麦互动直播服务后付费有 [日结](#daily) 和 [月结](#monthly)
   - A 接收 B 的分辨率前30分钟位于高清档，后15分钟位于标清档。
   - A 产生的费用为 ` 高清视频时长单价 × 高清视频时长 + 标清视频时长单价 × 标清视频时长 = 28元/千分钟 × (30分钟 / 1000） + 14元/千分钟 × (15分钟 / 1000)= 1.05元`。
 - B 产生的用量及费用：
-  - B 接收 A 的分辨率前30分钟位于超清档，后15分钟没有接收 A 的视频流。
-  - B 产生的费用为 `超清视频时长单价 × 超清视频时长 + 语音时长单价 × 语音时长 = 105元/千分钟 × (30分钟 / 1000) + 7元/千分钟 × (15分钟 / 1000）= 3.255元`。
+  - B 接收 A 的分辨率前30分钟位于全高清档，后15分钟没有接收 A 的视频流。
+  - B 产生的费用为 `全高清视频时长单价 × 全高清视频时长 + 语音时长单价 × 语音时长 = 105元/千分钟 × (30分钟 / 1000) + 7元/千分钟 × (15分钟 / 1000）= 3.255元`。
 
 则产生的**总费用**为 `用户 A 产生的费用 + 用户 B 产生的费用 = 4.305元 `。
 

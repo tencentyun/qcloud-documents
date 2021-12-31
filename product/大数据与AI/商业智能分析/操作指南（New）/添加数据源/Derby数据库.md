@@ -1,3 +1,4 @@
+在添加 DERBY 数据库前，请先将商业智能分析 BI 的 IP 地址添加至数据库安全组，详见 [数据库连接方式概览](https://cloud.tencent.com/document/product/590/19294)。
 1. 登录 [商业智能分析 BI 控制台](https://console.cloud.tencent.com/bi)，在添加数据源首页单击 **DERBY 数据库**，进入新建页面。新建的页面如下：
 ![](https://main.qcloudimg.com/raw/8b805744ee626cc52545a65633d6cc05.png)
 2. 填写相应的 DERBY 数据库连接信息，至少把必填项都填写完毕。

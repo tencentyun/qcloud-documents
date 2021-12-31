@@ -70,7 +70,7 @@ java -version
 
 
 
-### 3. Maven 配置 TDMQ 私服地址 
+### 3. Maven 配置 TDMQ Pulsar 版私服地址 
 
 #### 3.1 添加私服配置
 
@@ -167,10 +167,10 @@ mvn help:effective-settings
 
   ```xml
 <dependency>
-					<groupId>com.tencent.tdmq</groupId>
-					<artifactId>tdmq-client</artifactId>
-					<version>2.6.0</version>
+			<groupId>com.tencent.tdmq</groupId>
+			<artifactId>tdmq-client</artifactId>
+			<version>2.6.0</version>
 </dependency>
   ```
 
-2. 在 pom.xml 所在目录执行 `mvn clean package` 即可下载 TDMQ SDK。
+2. 在 pom.xml 所在目录执行 `mvn clean package` 即可下载 TDMQ Pulsar 版 SDK。

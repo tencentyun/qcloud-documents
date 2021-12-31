@@ -136,23 +136,23 @@ Namespace=QCE/TXMR_NODE
 | Instances.N.Dimensions.0.Name  | id4nodecpu          | EMR 实例 ID 的维度名称        | 输入 String 类型维度名称：id4nodecpu                         |
 | Instances.N.Dimensions.0.Value | id4nodecpu          | EMR 实例具体 ID               | 输入具体实例 ID，例如：emr-abcdef88                          |
 | Instances.N.Dimensions.1.Name  | host4nodecpu        | EMR 实例中节点 IP 的维度名称  | 输入String 类型维度名称：host4nodecpu                        |
-| Instances.N.Dimensions.1.Name  | host4nodecpu        | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Name  | host4nodecpu        | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.0.Name  | id4nodememory       | EMR  实例 ID 的维度名称       | 输入 String 类型维度名称：id4nodememory                      |
 | Instances.N.Dimensions.0.Value | id4nodememory       | EMR  实例具体 ID              | 输入具体实例  ID，例如：emr-abcdef88                         |
 | Instances.N.Dimensions.1.Name  | host4nodememory     | EMR  实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4nodememory                     |
-| Instances.N.Dimensions.1.Name  | host4nodememory     | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Name  | host4nodememory     | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.0.Name  | id4nodenetwork      | EMR  实例 ID 的维度名称       | 输入 String 类型维度名称： id4nodenetwork                    |
 | Instances.N.Dimensions.0.Value | id4nodenetwork      | EMR  实例具体 ID              | 输入具体实例 ID，例如：emr-abcdef88                          |
 | Instances.N.Dimensions.1.Name  | host4nodenetwork    | EMR 实例中节点 IP 的维度名称  | 输入String 类型维度名称：host4nodenetwork                    |
-| Instances.N.Dimensions.1.Name  | host4nodenetwork    | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Name  | host4nodenetwork    | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.0.Name  | id4nodefilehandle   | EMR 实例 ID 的维度名称        | 输入 String 类型维度名称：id4nodefilehandle                  |
 | Instances.N.Dimensions.0.Value | id4nodefilehandle   | EMR 实例具体 ID               | 输入具体实例  ID，例如：emr-abcdef88                         |
 | Instances.N.Dimensions.1.Name  | host4nodefilehandle | EMR 实例中节点 IP 的维度名称  | 输入String 类型维度名称：host4nodefilehandle                 |
-| Instances.N.Dimensions.1.Name  | host4nodefilehandle | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Name  | host4nodefilehandle | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.0.Name  | id4nodeprocess      | EMR 实例 ID 的维度名称        | 输入 String 类型维度名称： id4nodeprocess                    |
 | Instances.N.Dimensions.0.Value | id4nodeprocess      | EMR 实例具体 ID               | 输入具体实例  ID，例如：emr-abcdef88                         |
 | Instances.N.Dimensions.1.Name  | host4nodeprocess    | EMR 实例中节点 IP 的维度名称  | 输入String 类型维度名称：host4nodeprocess                    |
-| Instances.N.Dimensions.1.Name  | host4nodeprocess    | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Name  | host4nodeprocess    | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 
 
 ## 入参说明

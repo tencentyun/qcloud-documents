@@ -12,15 +12,14 @@ yum install java-1.8.0-openjdk-devel
 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 获取密钥。
 
 ## 选择数据订阅
-1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，选择左侧的【数据订阅】，进入数据订阅页面。
+1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，选择左侧的**数据订阅**，进入数据订阅页面。
 2. 选择需同步的 TencentDB 实例名，然后单击启动，再返回数据订阅，单击您所创建的数据订阅。 详细介绍请参考 [数据订阅](https://cloud.tencent.com/document/product/571/13707)。
 3. 查看对应的 DTS 通道、IP 和 Port，然后结合之前的密钥填写到对应 RedisDemo.java 里面。
-
 ```
-context.setSecretId("AKIDfdsfdsfsdt1331431sdfds"); 请填写您从云 API 获取的 secretID
-        context.setSecretKey("test111usdfsdfsddsfRkeT"); 请填写您从云 API 获取的 secretKey
-    // 在数据迁移服务里面通过数据订阅获取到对应的 IP,PORT,填写到此处
-        context.setServiceIp("10.66.112.181"); 请填写您从数据订阅配置获取到的 IP
+context.setSecretId("AKIDfdsfdsfsxxxxxsdfds"); 请填写您从云 API 获取的 secretID
+        context.setSecretKey("test111usdxxxxxfRkeT"); 请填写您从云 API 获取的 secretKey
+    // 在数据迁移服务里面通过数据订阅获取到对应的 IP,PORT 填写到此处
+        context.setServiceIp("10.xx.xx.181"); 请填写您从数据订阅配置获取到的 IP
         context.setServicePort(7507); 请填写您从数据订阅配置获取到的 PORT
 
         // 创建消费者

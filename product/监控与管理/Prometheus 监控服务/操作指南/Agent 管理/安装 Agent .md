@@ -7,7 +7,7 @@
 
 ## 操作步骤
 1. 登录 [ Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)。
-2. 在实例列表中，选择对应的 Prometheus 实例，单击左侧菜单栏的【Agent 管理】。
+2. 在实例列表中，选择对应的 Prometheus 实例，单击左侧菜单栏的 **Agent 管理**。
 3. 单击 Agent 对应的 ID, 进入 Agent 安装指南页，复制 Agent 安装命令于您的云服务器或自建 IDC ，修改命令中的`<secret_id>`和`<secret_key>`后即可执行。
    ![](https://main.qcloudimg.com/raw/1b514661b252a3dd87f52f841a5496d8.png)
    执行成功示例如下：

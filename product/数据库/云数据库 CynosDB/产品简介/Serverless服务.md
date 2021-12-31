@@ -1,4 +1,6 @@
+
 Serverless 是腾讯自研云原生数据库 TDSQL-C 的无服务器架构版，是全 Serverless 架构的云原生数据库。Serverless 服务支持按实际计算和存储资源使用量收取费用，不用不付费，将腾讯云云原生技术普惠用户。
+>?仅 TDSQL-C for MySQL 支持 Serverless 模式。
 
 ## 服务特性
 - 自动驾驶（Autopilot）：数据库根据业务负载自动启动停止，无感扩缩容，扩缩容过程不会断开连接。
@@ -25,7 +27,8 @@ CCU（CynosDB Compute Unit）为 Serverless 的计算计费单位，一个 CCU �
 ![](https://main.qcloudimg.com/raw/68beac7929b10a1085e61b64956ea465.png)
 - 您也可以在控制台对指定数据库进行手动暂停操作。
 ![](https://main.qcloudimg.com/raw/fa880723650d7cc8f86f888eb62e5521.png)
-
+>!TDSQL-C Serverless 架构的自动暂停的判断条件为是否存在用户连接，如果业务场景需要使用 event_scheduler 来实现定时触发 SQL 的操作，则不建议开启自动暂停。
+>
 ### 启动服务
 处于暂停状态的数据库无法使用控制台功能，如需操作可待数据库自动启动后操作，或手动在 [控制台](https://console.cloud.tencent.com/cynosdb) 启动 Serverless 数据库。
 ![](https://main.qcloudimg.com/raw/a1068366aa2b08d3043d9852b7e73663.png)

@@ -11,46 +11,18 @@
 
 #### 支持版本
 <table>
-    <tr>
-    <td rowspan=2 align=center>源实例版本</td>
-    <td colspan=4 align=center>目标实例版本</td>
-    </tr>
-    <tr>
-    <td>4.0内存版（标准架构）</td>
-		<td>4.0内存版（集群架构）</td>
-		<td>5.0内存版（标准架构）</td>
-		<td>5.0内存版（集群架构）</td>
-    </tr>
-    <tr>
-    <td>2.8内存版（标准架构）</td>
-    <td>✓</td>
-    <td>✓</td>
-		<td>✓</td>
-    <td>✓</td>
-    </tr>
-    <tr>
-    <td>4.0内存版（标准架构）</td>
-    <td>-</td>
-    <td>✓</td>
-	  <td>✓</td>
-		<td>✓</td>
-    </tr>
-		<tr>
-    <td>4.0内存版（集群架构）</td>
-    <td>-</td>
-		<td>-</td>
-    <td>✓</td>
-		<td>✓</td>
-    </tr>
-		<tr>
-    <td>5.0内存版（标准架构）</td>
-    <td>-</td>
-		<td>-</td>
-		<td>-</td>
-    <td>✓</td>
-    </tr>
+<tr><td rowspan=2 align=center>源实例版本</td><td colspan=4 align=center>目标实例版本</td></tr>
+<tr>
+<td>4.0内存版（标准架构）</td><td>4.0内存版（集群架构）</td><td>5.0内存版（标准架构）</td><td>5.0内存版（集群架构）</td></tr>
+<tr>
+<td>2.8内存版（标准架构）</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr>
+<td>4.0内存版（标准架构）</td><td>-</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr>
+<td>4.0内存版（集群架构）</td><td>-</td><td>-</td><td>✓</td><td>✓</td></tr>
+<tr>
+<td>5.0内存版（标准架构）</td><td>-</td><td>-</td><td>-</td><td>✓</td></tr>
 </table>
-
 
 ## 前提条件
 - 需是正常运行状态下的 Redis 源实例。

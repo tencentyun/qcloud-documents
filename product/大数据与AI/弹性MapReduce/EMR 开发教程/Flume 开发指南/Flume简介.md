@@ -2,7 +2,7 @@
 Apache Flume 是可以收集例如日志、事件等数据资源，并将这些数量庞大的数据从各项数据资源中集中起来存储的工具/服务。Flume 具有高可用、分布式、配置工具等特性，其设计原理也是将数据流（例如日志数据）从各种网站服务器上汇集起来存储到 HDFS、HBase 等集中存储器中。
 
 ## Flume 架构
-一个 Flume 事件被定义为一个数据流单元。Flume agent 其实是一个 JVM 进程，该进程中包含完成任务所需要的各个组件，其中最核心的三个组件是 Source、Chanel 以及 Sink。
+一个 Flume 事件被定义为一个数据流单元。Flume agent 其实是一个 JVM 进程，该进程中包含完成任务所需要的各个组件，其中最核心的三个组件是 Source、Channel 以及 Sink。
 ![](https://main.qcloudimg.com/raw/b09b330fba73733c011b36ed1d914962.png)
 - **Source**
 消费外部源（例如 Web 服务器或者其他 Source）传递给它的事件，并将其保存到 Channel（一个或多个）中。

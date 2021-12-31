@@ -1,7 +1,7 @@
 您可以将云服务器的普通公网 IP 转换为弹性公网 IP（EIP），转换后，弹性公网 IP 具备随时与云服务器解绑和绑定的能力，更易于实现公网 IP 的灵活管理。
 >?
 >- 当前普通公网 IP 仅支持常规 BGP IP 线路类型。
->- 按带宽包年包月计费的公网 IP 暂不支持转换为 EIP，请先切换网络计费模式为按流量计费或带宽按小时后付费。
+>- 若您的账户为标准账户类型，则按带宽包年包月计费的普通公网 IP 暂不支持转换为 EIP。您可以将网络计费模式切换为按流量计费或带宽按小时后付费。注意切换网络计费模式后，代金券及购买优惠折扣不退还。若您后续重新变更计费模式为**包月带宽**，则需要重新按官网刊例价购买。若您无法确定账户类型，请参见 [判断账户类型](https://cloud.tencent.com/document/product/1199/49090#judge)。
 >
 
 ## 背景信息
@@ -35,7 +35,7 @@
 <td>&#10003; </td>
 </tr>
 <tr>
-<td>实时调整带宽</td>
+<td>实时调整带宽<sup>1</sup></td>
 <td>&#10003; </td>
 <td>&#10003; </td>
 </tr>
@@ -45,6 +45,12 @@
 <td>&#10003; </td>
 </tr>
 </tbody></table>
+<dx-alert infotype="explain" title="">
+[公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=8) 仅支持调整 EIP 的带宽，具体操作请参见 [调整网络配置](https://cloud.tencent.com/document/product/1199/41705)；普通公网 IP 的带宽调整请参见 [调整普通公网 IP 网络配置](https://cloud.tencent.com/document/product/213/15517)。
+</dx-alert>
+
+
+
 
 ## 操作说明
 - 普通公网 IP 转成 EIP 前，请确保 EIP 总数未超过产品总配额，详情请参见 [配额限制](https://cloud.tencent.com/document/product/1199/41648?!#.E9.85.8D.E9.A2.9D.E9.99.90.E5.88.B6)。
@@ -56,11 +62,23 @@
 
 ## 操作步骤
 您可根据如下操作步骤，将普通公网 IP 转成 EIP：
+### 方式一：在公网 IP 控制台调整
+
+1. 登录 [公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip)。
+2. 在“公网 IP” 页面顶部，选择目的普通公网 IP 所在地域。
+3. 在公网 IP 列表中找到目标普通公网 IP 所在行的操作列，选择**更多 > 转换为弹性公网 IP**。
+![](https://qcloudimg.tencent-cloud.cn/raw/4cd1195003398ef725a11f56c4ddb9bc.png)
+4. 在弹出的**转换为弹性公网 IP**窗口中，单击**确定**。</br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/0fd87557e2e6daf45696e271976fd377.png" width="50%">
+
+
+### 方式二：在云服务器控制台调整
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
-2. 在实例管理页面，选择需转换的实例所在地域，单击对应实例的普通公网 IP 右侧的 <img src="https://main.qcloudimg.com/raw/25e8c0e37b73c12da900301f03e57dbc.png" style="margin: -3px;"></img>。
-![](https://main.qcloudimg.com/raw/aee823ae6b8f5f977cb3c42549eaf090.png)
-3. 在弹出的“转换为弹性公网IP”窗口中，单击【确定】即可。
+2. 在“实例管理”页面，选择需转换实例的地域，单击对应实例的普通公网 IP 右侧的 <img src="https://main.qcloudimg.com/raw/25e8c0e37b73c12da900301f03e57dbc.png" style="margin: -3px;"></img>。
+![](https://main.qcloudimg.com/raw/f74bd1a3707ea91376bfa99fa4aac02f.png)
+3. 在弹出的“转换为弹性公网IP”窗口中，单击**确定**即可。
 ![](https://main.qcloudimg.com/raw/29b368e16bcf388067be3f869ee3935a.png)
+
 
 ## 后续步骤
 - 若需要调整 EIP 的带宽峰值，请参见 [调整带宽](https://cloud.tencent.com/document/product/1199/41705)。

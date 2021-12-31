@@ -254,5 +254,3 @@ psql
 ![](https://main.qcloudimg.com/raw/2912a3d9892665469bff1768c76c7ae9.png)
 
 
-
-

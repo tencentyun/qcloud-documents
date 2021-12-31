@@ -18,7 +18,7 @@
  - 密码：密码为购买云服务器时设置的密码。
 
 #### 控制台登录云服务器
-- 在 [云服务器](https://console.cloud.tencent.com/cvm/index) 列表的操作列，单击【登录】按钮即可通过 VNC 连接至 Linux 云服务器。
+- 在 [云服务器](https://console.cloud.tencent.com/cvm/index) 列表的操作列，单击**登录**即可通过 VNC 连接至 Linux 云服务器。
 - 输入帐号和密码即可登录。
 
 >?该终端为独享，即同一时间只有一个用户可以使用控制台登录。
@@ -58,8 +58,8 @@ mkdir <待挂载目标目录>
 ```
 示例：
 ```plaintext
-mkdir /local/
-mkdir /local/test
+mkdir /localfolder/
+mkdir /localfolder/test
 ```
 
 #### 3. 挂载文件系统

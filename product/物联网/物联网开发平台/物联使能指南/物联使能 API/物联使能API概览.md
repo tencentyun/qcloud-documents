@@ -42,24 +42,67 @@
 
 ### 服务领取
 
-| 接口名称                       | 接口功能               |
-| :----------------------------- | :--------------------- |
-| [ServiceCreateCustomer](https://cloud.tencent.com/document/product/1081/56660)      | 创建用户信息           |
-| [ServiceGetCustomerList](https://cloud.tencent.com/document/product/1081/56661)     | 获取用户信息列表       |
-| [ServiceCreateOrder](https://cloud.tencent.com/document/product/1081/56662)         | 创建订单               |
-| [ServiceGetOrderList](https://cloud.tencent.com/document/product/1081/56663)        | 查询订单列表           |
-| [ServiceGetInsurancePageURL](https://cloud.tencent.com/document/product/1081/56664) | 获取保险领取 H5 页面地址 |
+<table>
+<thead>
+<tr>
+<th align="left">接口名称</th>
+<th align="left">接口功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56660">ServiceCreateCustomer</a></td>
+<td align="left">创建用户信息</td>
+</tr>
+<tr>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56661">ServiceGetCustomerList</a></td>
+<td align="left">获取用户信息列表</td>
+</tr>
+<tr>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56662">ServiceCreateOrder</a></td>
+<td align="left">创建订单</td>
+</tr>
+<tr>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56663">ServiceGetOrderList</a></td>
+<td align="left">查询订单列表</td>
+</tr>
+<tr>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56664">ServiceGetInsurancePageURL</a></td>
+<td align="left">获取保险领取页面地址</td>
+</tr>
+</tbody></table>
+
 
 ### **设备与用户绑定关系推送** 
 
-| 接口名称              | 接口功能               |
-| :-------------------- | :--------------------- |
-| [ServiceBindDevice](https://cloud.tencent.com/document/product/1081/56658) | 设备与用户绑定关系推送 |
+<table>
+<thead>
+<tr>
+<th align="left">接口名称</th>
+<th align="left">接口功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56658">ServiceBindDevice</a></td>
+<td align="left">设备与用户绑定关系推送</td>
+</tr>
+</tbody></table>
 
 ### 设备数据推送
 
-| 接口名称                     | 接口功能         |
-| :--------------------------- | :--------------- |
-| [ServiceReportDeviceData](https://cloud.tencent.com/document/product/1081/56665)  | 用于设备数据上报 |
-| [ServiceReportDeviceState](https://cloud.tencent.com/document/product/1081/56666) | 用于设备状态上报 |
+<table>
+<thead>
+<tr>
+<th align="left">接口名称</th>
+<th align="left">接口功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56665">ServiceReportDeviceData</a></td>
+<td align="left">用于设备数据上报</td>
+</tr>
+<tr>
+<td align="left"><a href="https://cloud.tencent.com/document/product/1081/56666">ServiceReportDeviceState</a></td>
+<td align="left">用于设备状态上报</td>
+</tr>
+</tbody></table>
 

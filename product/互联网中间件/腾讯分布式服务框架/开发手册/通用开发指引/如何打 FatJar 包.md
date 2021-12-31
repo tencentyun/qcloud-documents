@@ -20,3 +20,4 @@ FatJar 是一种可执行的 Jar 包（Executable Jar）。FatJar 和普通的 J
 
 添加完插件后，在工程的主目录下，使用 maven 命令 `mvn clean package` 进行打包，即可在 target 目录下找到打包好的 FatJar 文件。
 
+

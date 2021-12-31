@@ -3,7 +3,7 @@ iOS SDK 接入请观看视频：
 
 ## 接入准备
 ### SDK 获取
-一句话识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_IOS_v2.6.1.zip)。
+一句话识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_IOS_v2.6.4.zip)。
 
 ### 接入须知
 - 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的**使用要求**和**使用步骤**。
@@ -34,14 +34,14 @@ iOS SDK 接入请观看视频：
 + **申请系统麦克风权限，添加如下内容：**
 ```objective-c
    <key>NSMicrophoneUsageDescription</key>
-   <string>需要使用了的麦克风采集音频</string>
+   <string>需要使用您的麦克风采集音频</string>
 ```
 + **在工程中添加依赖库，在建阶段链接二进制与库中添加以下库：**
-   + AVFoundation.framework
-   + AudioToolbox.framework
-   + QCloudSDK.framework
-   + CoreTelephony.framework
-   + libWXVoiceSpeex.a
+  + AVFoundation.framework
+  + AudioToolbox.framework
+  + QCloudSDK.framework
+  + CoreTelephony.framework
+  + libWXVoiceSpeex.a
 
 添加完如下图所示：
 ![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
@@ -104,40 +104,35 @@ NSString *url = @"https://asr-audio-1256237915.cos.ap-shanghai.myqcloud.com/30s.
 ### 主要接口类说明
 #### QCloudSentenceRecognizer 初始化说明
 QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方法。
-
 ```objective-c
 /**
  * 初始化方法，调用者使用内置录音器采集音频
  * @param config 配置参数，详见 QCloudConfig 定义
  */
 - (instancetype)initWithConfig:(QCloudConfig *)config;
+
+
 /**
+ * 直接鉴权
  * 通过 appId secretId secretKey 初始化
  * @param appid     腾讯云 appId        
  * @param secretId  腾讯云 secretId     
  * @param secretKey 腾讯云 secretKey    
  */
 - (instancetype)initWithAppId:(NSString *)appid secretId:(NSString *)secretId secretKey:(NSString *)secretKey;
-```
 
-#### QCloudConfig 初始化方法说明
-参考一句话识别接口说明中的使用步骤，获取 AppID、SecretID 和 SecretKey。
-
-```objective-c
 /**
- * 初始化方法
- * @param appid     腾讯云 appId 
- * @param secretId  腾讯云 secretId
- * @param secretKey 腾讯云 secretKey
- * @param projectId 腾讯云 projectId
+ * 通过STS临时密钥鉴权，详见https://cloud.tencent.com/document/product/598/33416
+ * @param appid     腾讯云appId 
+ * @param secretId  腾讯云临时secretId  
+ * @param secretKey 腾讯云临时secretKey
+ * @param token     对应的token
  */
-- (instancetype)initWithAppId:(NSString *)appid
-                     secretId:(NSString *)secretId
-                    secretKey:(NSString *)secretKey
-                    projectId:(NSString *)projectId;
+- (instancetype)initWithAppId:(NSString *)appid secretId:(NSString *)secretId secretKey:(NSString *)secretKey token:(NSString *)token;
 ```
 
-#### QCloudSentenceRecognizerDelegate 协议说明[](id:QCloudSentenceRecognizerDelegate)
+[](id:QCloudSentenceRecognizerDelegate)
+#### QCloudSentenceRecognizerDelegate 协议说明
 此 delegate 为一句话识别相关回调，调用者需要实现此 delegate 获取识别结果、开始录音、结束录音事件。
 ```objective-c
 @protocol QCloudSentenceRecognizerDelegate <NSObject>
@@ -166,3 +161,4 @@ QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方�
 - (void)oneSentenceRecognizerDidUpdateVolume:(QCloudSentenceRecognizer *)recognizer volume:(float)volume;
 @end
 ```
+

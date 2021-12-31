@@ -1,6 +1,34 @@
 本文为您介绍 MySQL 内核版本更新动态，如需升级，请参见 [升级内核小版本](https://cloud.tencent.com/document/product/236/45522)。
 
 ## MySQL 8.0
+### 20210830
+#### 新特性：
+- 支持预加载行数限制功能。
+- 支持计划缓存点查优化功能。
+- 支持扩展 ANALYZE 语法（UPDATE HISTOGRAM c USING DATA 'json'），支持直接写入直方图功能。
+
+#### 性能优化：
+- 使用直方图替代索引下探，降低评估误差以及 I/O 开销，该能力默认未打开。
+
+#### Bug 修复：
+- 修复 online-DDL 期间统计信息可能为零的情况。
+- 修复从机 generated column 不更新的情况。
+- 修复 binlog 压缩时实例 hang 住的问题。
+- 修复新产生的 binlog 文件的 previous_gtids event 中的 gtid 缺失问题。
+- 修复修改系统变量时可能死锁的问题。
+- 修复 show processlist 中从机 sql 线程的 info 显示不正确的问题。
+- 移植官方8.0.23中 hash join 相关的 bugfix。
+- 移植官方 writeset 相关 bugfix。
+- 移植官方8.0.24中查询优化器相关的 bugfix。
+- 修复 FAST DDL 中优化 flush list 释放页面并发 bug。
+- 优化海量个数表的实例升级数据字典时占用大量内存。
+- 修复 instant add column 后在创建新主键场景下的 crash 问题。
+- 修复全文索引查询中内存增长导致 OOM 问题。
+- 修复 show processlist 返回结果集中 TIME 字段出现-1的问题。
+- 修复直方图兼容性可能导致表无法打开的问题。
+- 修复构建 Singleton 直方图的浮点累加误差。
+- 修复 row 格式日志时表名为较长的中文字符导致复制中断问题。
+
 ### 20210330
 #### 新特性：
 - 支持主从 bp 同步功能：当发生 HA 并进行主备切换后，备库通常需要一段比较长的时间来 warmup，把热点数据加载到buffer pool。为加速备机的预热，TXSQL  支持了主从 bp 同步功能。
@@ -47,6 +75,57 @@
 - 修复全文索引中，词组查找（phrase search）在多字节字符集下存在的崩溃问题。
 
 ## MySQL 5.7
+### 20211031
+#### 新特性：
+- 支持 writeset 复制功能。
+
+#### 性能优化：
+- 主动推进 checkpoint，提升备份成功率。
+- hash scan 索引选择优化。
+- 热点更新性能优化支持 insert on duplicate key update。
+
+#### Bug 修复：
+- 修复热点更新打开后性能不稳定的问题。
+- 修复 instant ddl 后回滚 update 操作导致 crash 的问题。
+- 修复在开启列压缩后，create table select 语句不会继承压缩属性的问题。
+- 修复在开启 skip-grant-table 选项后，show variables like 'tencent_root%’ 语句导致实例 crash 的问题。
+- 修复 Query Rewriter 插件在 read only 模式下 crash 的问题。
+- 修复 hash scan 在分区表下的1032的问题。
+- 修复 mts 模式下，第一个大事物 sbm 为0的问题。
+- 修复 slave_preserve_commit_order=ON，slave_transaction_retries=0 时的 stop slave 卡死问题。
+- 修复若干 XA 事务的 bug。
+- 修复创建带有 default 值的 json 字段后，在 show create 时拼装 SQL 错误的问题。
+- 修复事务被阻塞后，断开连接事务无法回滚的问题。
+- 修复长记录下，innodb persistent 方式的统计信息可能为0的问题。
+- 移植8.0 修复 ANALYZE TABLE 可能导致查询堆积的问题。
+- 修复 innodb 统计信息变更后，不能及时同步给 Server 层的问题。
+- 修复统计采样可能阻塞写入过长，而导致崩溃的问题 (Bug#31889883)。
+- 修复 innodb 统计信息更新流程，可能会导致一定机会读零的问题 (BUG#105224)。
+- 修复 MVCC 可能出现复杂度为 O(N^2) 的行为（Bug#28825617）。
+- 修复连接释放时，关闭临时表触发 binlog rotate 导致 crash。
+
+### 20210630
+#### 新特性：
+- 新增命令 SHOW SLAVE DETAIL [FOR CHANNEL channel]，用于展示当前 slave 已经回放的 binlog 时间戳。
+- 支持 transaction_read_only/transaction_isolation 参数。
+
+#### 性能优化：
+- 优化 hash scan 的应用速度；在 slave 端，通过聚合 event 多个相同的 binlog event 来提升 hash scan 的应用速度。
+
+#### Bug 修复：
+- 修复更新语句触发的临时表的重复主键、找不到列、列长度过长问题。
+- 修复 DDL 过程中统计信息可能为零的问题。
+- 修复连接状态统计中 undo log size 统计不准确的问题。
+- 修复查询 metadata_locks 表导致实例 crash 的问题。
+- 修改 of 为非保留关键字。
+- 修复动态修改版本号在新连接显示无效问题。
+- 修复 page_cache cleanning 访问野指针的问题。
+- 修复执行 alter table 语句可能引发“Incorrect key file for table”报错的问题。
+- 修复分区表使用内存过大的问题。
+- 修复 show processlist 返回结果集中 TIME 字段出现-1的问题。
+- 修复 slave 节点 XA 事务复制锁等待问题。
+- 修复分区表在 equal range 查询时错误加锁问题。
+
 ### 20210331
 #### 新特性：
 - 支持 delete/insert/replace 的 returning 语法，可以返回该 statment 所操作的数据行。 其中，delete 语句返回前镜像数据，insert/replace 返回后镜像数据。
@@ -228,6 +307,29 @@ FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提�
 - 修复在异步模式下速度限制插件不可用的问题。
 
 ## MySQL 5.6
+### 20211030
+#### 新特性：
+- 支持大事务复制优化。
+
+#### 性能优化：
+- 优化 hash scan 的应用速度。
+
+#### Bug 修复：
+- 修复大量表查询导致 OOM 的问题。
+- 修复将 innodb_thread_concurrecy 设置成0后，导致的死循环问题。
+- 修复长记录下统计信息为0问题。
+- 修复 sbm 跳变问题。
+- 修复 LOCK_binlog_end_pos hang 的问题。
+
+### 20210630
+#### 新特性：
+- 支持大事务复制优化。
+
+#### Bug 修复：
+- 修复 index merge 打开的情况下拷贝的正确性问题。
+- 修复在 row 模式下，打开 cdb_more_gtid_feature_supported 时，中断 create table select 的执行会复制中断。
+- 修复 max(id) 大于 show create table 中 AUTO_INCREMENT 的 Bug。
+
 ### 20201231
 #### 官方 bug 修复：
 - 修复由于 hash scan，导致1032问题。 

@@ -2,6 +2,7 @@
 
 调用 SDK 接口请求对象存储（Cloud Object Storage，COS）服务失败时，例如返回码为4xx或者5xx，系统将抛出 （Qcloud\Cos\Exception\ServiceResponseException）异常。
 
+
 ## 服务端异常
 
 CosServerException 包含了服务端返回的状态码、requestid 和出错明细等。捕获异常后，建议对整个异常进行打印，异常包含了必须的排查因素。以下是异常成员变量的描述以及异常捕获示例：
@@ -17,6 +18,21 @@ CosServerException 包含了服务端返回的状态码、requestid 和出错明
 #### 异常捕获示例
 
 ```php
+<?php
+
+require dirname(__FILE__) . '/../vendor/autoload.php';
+
+$secretId = "SECRETID"; //替换为用户的 secretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
+$secretKey = "SECRETKEY"; //替换为用户的 secretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
+$region = "ap-beijing"; //替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
+$cosClient = new Qcloud\Cos\Client(
+    array(
+        'region' => $region,
+        'schema' => 'https', //协议头部，默认为http
+        'credentials'=> array(
+            'secretId'  => $secretId ,
+            'secretKey' => $secretKey)));
+            
 try {
    $cosClient->listBuckets() 
 } catch (Qcloud\Cos\Exception\ServiceResponseException $e) {
@@ -33,3 +49,31 @@ try {
 ```
 >! 如您使用 Phar 方式或源码方式安装 SDK，返回的异常信息提示会更加准确。如您使用 Composer 方式安装 SDK，返回的异常信息如不符合您的需求，可通过修改 vendor/guzzlehttp/guzzle-services/src/SchemaValidator.php 来自定义一些错误信息。
 >
+
+
+## 使用自助诊断工具
+
+针对请求可能遇到不同的报错情况，我们为您提供了 [COS 自助诊断工具](https://console.cloud.tencent.com/cos5/diagnose)，帮助您快速定位问题，调试报错代码。
+
+#### 使用步骤
+1. 复制异常处理返回的 RequestId（请求 ID）。
+2. 单击 [COS 自助诊断工具](https://console.cloud.tencent.com/cos5/diagnose)，进入自助诊断页面。
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                COS 自助诊断工具
+            </div>
+            <a href="https://console.cloud.tencent.com/cos5/diagnose" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击自助诊断</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                输入 RequestId 进行智能诊断，获取请求基本信息、帮助指引和诊断提示，快速定位请求错误。
+            </div>
+        </div>
+    </div>
+</div>
+3. 在顶部的 RequestId 输入框中，输入待诊断的 RequestId，并单击**开始诊断**。
+4. 稍侯片刻，便能看到相应的智能诊断结果。
+
+

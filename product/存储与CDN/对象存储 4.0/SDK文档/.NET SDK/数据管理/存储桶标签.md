@@ -24,7 +24,8 @@ PUT Bucket tagging 用于为已存在的存储桶设置标签。
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   PutBucketTaggingRequest request = new PutBucketTaggingRequest(bucket);
   string akey = "aTagKey";
   string avalue = "aTagValue";
@@ -66,7 +67,8 @@ GET Bucket tagging 用于查询指定存储桶下已有的存储桶标签。
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   GetBucketTaggingRequest request = new GetBucketTaggingRequest(bucket);   
   //执行请求
   GetBucketTaggingResult result = cosXml.GetBucketTagging(request);
@@ -101,7 +103,8 @@ DELETE Bucket tagging 用于删除指定存储桶下已有的存储桶标签。
 ```cs
 try
 {
-  string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+  // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+  string bucket = "examplebucket-1250000000";
   DeleteBucketTaggingRequest request = new DeleteBucketTaggingRequest(bucket);   
   //执行请求
   DeleteBucketTaggingResult result = cosXml.DeleteBucketTagging(request);

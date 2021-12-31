@@ -37,7 +37,7 @@ hosts {
         fallthrough
 }
 ```
- >?将 `harbor.oa.com` 指向192.168.1.6；`es.oa.com` 指向192.168.1.8。
+>?将 `harbor.oa.com` 指向192.168.1.6；`es.oa.com` 指向192.168.1.8。
 
  **完整配置示例如下：**
 ```yaml
@@ -87,7 +87,7 @@ kubectl edit configmap coredns -n kube-system
 ```bash
 rewrite name es.oa.com es.logging.svc.cluster.local
 ```
-	>?将 `es.oa.com` 指向部署在 `logging` 命名空间下的 `es` 服务，如有多个域名可添加多行。
+>?将 `es.oa.com` 指向部署在 `logging` 命名空间下的 `es` 服务，如有多个域名可添加多行。
 
  **完整配置示例如下：**
 ```yaml
@@ -155,9 +155,8 @@ metadata:
       name: coredns
       namespace: kube-system
 ```
-3. 将自定义域名的解析记录配置到自建 DNS。建议将节点上 `/etc/resolv.conf` 中的 nameserver 添加到自建 DNS 的上游，因为部分服务依赖腾讯云内部 DNS 解析，如果未将其设为自建 DNS 的上游，可能导致部分服务无法正常工作。本文以 [BIND 9](https://www.bind9.net/) 为例修改配置文件，将上游 DNS 地址写入 forwarders 中。示例如下：
->!
-自建 DNS Server 和请求源不在同个 Region，可能会导致部分不支持跨域访问的腾讯域名失效。
+3. 将自定义域名的解析记录配置到自建 DNS。建议将节点上 `/etc/resolv.conf` 中的 nameserver 添加到自建 DNS 的上游，因为部分服务依赖腾讯云内部 DNS 解析，如果未将其设为自建 DNS 的上游，可能导致部分服务无法正常工作。本文以 [BIND 9](https://www.isc.org/bind/) 为例修改配置文件，将上游 DNS 地址写入 forwarders 中。示例如下：
+>! 自建 DNS Server 和请求源不在同个 Region，可能会导致部分不支持跨域访问的腾讯域名失效。
 >
 ```yaml
 options {

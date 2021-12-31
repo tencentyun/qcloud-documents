@@ -52,7 +52,7 @@ TCR 企业版实例支持网络访问控制，默认拒绝全部来源的外部�
 ![](https://main.qcloudimg.com/raw/9a63dbecc51517f3c54e5872d23e6a2f.png)
 
 <dx-alert infotype="explain" title="">
-当前 TCR 组件暂只支持 K8S 版本为1.14、1.16、1.18的集群，如集群版本暂不支持，请采用手动配置方式。
+当前 TCR 组件暂只支持 K8S 版本为 1.12、1.14、1.16、1.18、1.20 的集群，如集群版本暂不支持，请采用手动配置方式。
 </dx-alert>
 
 

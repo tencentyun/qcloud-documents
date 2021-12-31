@@ -89,7 +89,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '输入ro
 
 #### 安装配置 Node.js
 1. 执行以下命令，添加 Node.js 支持的安装版本。
->? Ghost 不同版本对于 Node.js 有不同的版本需求，请参考 [upported Node versions](https://ghost.org/docs/faq/node-versions/) 及以下命令，执行对应命令。
+>? Ghost 不同版本对于 Node.js 有不同的版本需求，请参考 [Supported Node versions](https://ghost.org/docs/faq/node-versions/) 及以下命令，执行对应命令。
 >
 ```
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash

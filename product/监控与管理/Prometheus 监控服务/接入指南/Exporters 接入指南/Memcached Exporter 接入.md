@@ -6,8 +6,8 @@
 
 1. 登录 [ Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)。
 2. 在实例列表中，选择对应的 Prometheus 实例。
-3. 进入实例详情页，单击【集成中心】。
-4. 在集成中心选择 `Memcached` 点击安装进行集成。
+3. 进入实例详情页，单击**集成中心**。
+4. 在集成中心选择 `Memcached` 单击安装进行集成。
 
 ### 配置说明
 
