@@ -36,7 +36,7 @@ v2.0 正式版本更新如下：
 
 
 <dx-alert infotype="notice" title="更新版本请注意">
-如果从旧版本升级到 2.9 版本，请参考更新指引进行解决。
+如果从旧版本升级到 2.9 版本，请参考 [更新指引](https://cloud.tencent.com/document/product/607/67303) 进行解决。
 </dx-alert>
 
 
@@ -57,7 +57,7 @@ v2.0 正式版本更新如下：
 
 
 
-> ?GME SDK 也支持**主机平台**（PlayStation、Xbox、Nintendo Switch），如果需要请工单联系 GME 开发者。
+> ?GME SDK 也支持**主机平台**（PlayStation、Xbox、Nintendo Switch），如果需要请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系 GME 开发者。
 
 
 ## Web SDK 下载
