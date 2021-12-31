@@ -12,13 +12,10 @@
 
 - MySQL 到 MariaDB 的数据迁移
 
-> ?
-> - 腾讯云数据库 MariaDB 支持三种内核 MariaDB、Percona 和 MySQL，用户在使用时不需要区分哪种内核，如果源数据库为腾讯云 MariaDB，不论源数据库的内核是 MariaDB、Percona 还是 MySQL，在设置源数据库或目标数据库的类型时，都选择 MariaDB。
-> - 如果用户需要体验腾讯云数据库 MariaDB 三种内核相关链路功能，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
 
 ## 注意事项 
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您的数据库配置过低，建议您在业务低峰期进行迁移。
-- 全量迁移过程通过有锁（备份锁）迁移来实现，锁表过程中会短暂（秒级）阻塞写入操作。
+- 默认采用无锁迁移来实现，迁移过程中对源库不加全局锁（FTWRL），仅对无主键，或者无非空唯一键的表加表锁，其他不加锁。
 
 ## 前提条件
 - 已 [创建云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433)。
@@ -41,7 +38,9 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 ```
  - 源数据库为 MariaDB 10.5、10.6 版本时，还需要 SLAVE MONITOR 的权限才能执行 show slave status。
-- 目标数据库需要具备的权限：ALTER, ALTER ROUTINE, CREATE,  CREATE ROUTINE, CREATE TEMPORARY TABLES,  CREATE USER,  CREATE VIEW,  DELETE,  DROP,  EVENT,  EXECUTE,  INDEX,  INSERT,  LOCK TABLES,  PROCESS,  REFERENCES,  RELOAD,  SELECT,  SHOW DATABASES,  SHOW VIEW,  TRIGGER,  UPDATE（如果目标库为腾讯云 MariaDB 数据库，需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行 RELOAD 授权）。
+
+- 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE,  CREATE ROUTINE, CREATE TEMPORARY TABLES,  CREATE USER,  CREATE VIEW,  DELETE,  DROP,  EVENT,  EXECUTE,  INDEX,  INSERT,  LOCK TABLES,  PROCESS,  REFERENCES,  RELOAD,  SELECT,  SHOW DATABASES,  SHOW VIEW,  TRIGGER,  UPDATE（如果目标库为腾讯云数据库 MariaDB，需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行 RELOAD 授权）。
+
 
 ## 异构迁移兼容性说明
 MariaDB 迁移到 MySQL，由于不同的数据库类型之间功能有略微差异，会存在以下兼容性问题。
