@@ -7,7 +7,8 @@
 make
 make install
 ```
-3. 配置 Nginx – 使用 RSA 单证书
+3. 根据实际需求选择对应的算法证书， 配置 Nginx 的使用证书。
+ -  使用 RSA 单证书
 根据如下代码所示，编辑 `/root/nginx/conf/nginx.conf` 配置文件中的证书部分。
 ```
 user root;
@@ -36,10 +37,10 @@ worker_processes  1;
             index  index.html index.htm;
 ```
 **参数说明：**
- - ssl_certificate：配置 RSA 证书文件，带绝对路径。
- - ssl_certificate_key：配置存储 RSA 私钥的索引号。
- - ssl_verify_client off：不验证客户端。
-4. 配置 Nginx – 使用国密双证书
+    - ssl_certificate：配置 RSA 证书文件，带绝对路径。
+    - ssl_certificate_key：配置存储 RSA 私钥的索引号。
+    - ssl_verify_client off：不验证客户端。
+ - 使用国密双证书
 根据如下代码所示，编辑 `/root/nginx/conf/nginx.conf` 配置文件中的证书部分。
 ```
 user root;
@@ -64,12 +65,12 @@ worker_processes  1;
             index  index.html index.htm;
 ```
 **参数说明：**
- - ssl_certificate：配置签名证书文件，带绝对路径。
- - ssl_certificate_key：配置存储签名私钥的索引号。
- - ssl_enc_certificate：配置加密证书文件，带绝对路径。
- - ssl_enc_certificate_key：配置存储加密私钥的索引号。
- - ssl_verify_client off：不验证客户端。
-5. 配置 Nginx – 使用 ECC 单证书
+    - ssl_certificate：配置签名证书文件，带绝对路径。
+    - ssl_certificate_key：配置存储签名私钥的索引号。
+    - ssl_enc_certificate：配置加密证书文件，带绝对路径。
+    - ssl_enc_certificate_key：配置存储加密私钥的索引号。
+    - ssl_verify_client off：不验证客户端。
+ - 使用 ECC 单证书
 根据如下代码所示，编辑 `/root/nginx/conf/nginx.conf` 配置文件中的证书部分。
 ```
 user root;
@@ -98,10 +99,10 @@ worker_processes  1;
             index  index.html index.htm;
 ```
 **参数说明：**
- - ssl_certificate：配置 RSA 证书文件，带绝对路径。
- - ssl_certificate_key：配置存储 RSA 私钥的索引号。
- - ssl_verify_client off：不验证客户端。
-6. 输入如下代码，启动 Nginx 代理。
+    - ssl_certificate：配置 RSA 证书文件，带绝对路径。
+    - ssl_certificate_key：配置存储 RSA 私钥的索引号。
+    - ssl_verify_client off：不验证客户端。
+4. 输入如下代码，启动 Nginx 代理。
 ```
 cd /root/nginx/sbin
 source ./setting
