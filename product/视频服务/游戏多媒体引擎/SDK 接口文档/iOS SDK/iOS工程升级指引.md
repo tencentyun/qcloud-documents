@@ -10,10 +10,10 @@ GME iOS SDK 已升级到2.9版本，如果您将 GME 升级到2.9版本，需要
 
 新版本中将 SDK 进行动态库拆分，多出以下几个文件：
 
-- libgme_fdkaac.framework
-- libgme_ogg.framework
-- libgme_lamemp3.framework
-- libgme_soundtouch.framework
+- libgmefdkaac.framework
+- libgmeogg.framework
+- libgmelamemp3.framework
+- libgmesoundtouch.framework
 
 确保下载下来的 SDK 中包含这几个文件。下载后与 GMESDK.framework 放与工程目录下。Release-iphoneos 为真机使用的SDK文件，Release-iphonesimulator 为模拟器使用的 SDK 文件。
 
