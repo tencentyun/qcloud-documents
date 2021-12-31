@@ -9,17 +9,19 @@ TUIPusher & TUIPlayer 的优势：
 
 ## 快速体验
 
-TUIPusher 及 TUIPlayer 功能演示请看下图。同时，为了方便您快速体验 TUIPusher & TUIPlayer 的功能，我们结合用户管理系统和房间管理系统提供了 [TUIPusher 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html) 及 [TUIPlayer 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html)。（注意：同时体验 TUIPusher 和 TUIPlayer 需要使用两个不同的账号登录。）  
+TUIPusher 及 TUIPlayer 功能演示请看下图。同时，为了方便您快速体验 TUIPusher & TUIPlayer 的功能，我们结合用户管理系统和房间管理系统提供了 [TUIPusher 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html) 及 [TUIPlayer 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html)。
+>! 同时体验 TUIPusher 和 TUIPlayer 需要使用两个不同的账号登录。  
 
 ![TUIPusher演示](https://web.sdk.qcloud.com/component/tuiliveroom/assets/pusher.gif)
 ![TUIPlayer演示](https://web.sdk.qcloud.com/component/tuiliveroom/assets/player.gif)
 
 ## 代码下载
 
-Web 端直播互动组件（TUIPusher & TUIPlayer）下载方式请点击：
-
+Web 端直播互动组件（TUIPusher & TUIPlayer）下载方式如下：
 + [TUIPusher](https://github.com/tencentyun/TUILiveRoom/tree/main/Web/TUIPusher) 
 + [TUIPlayer](https://github.com/tencentyun/TUILiveRoom/tree/main/Web/TUIPlayer)
+
+
 ## 功能介绍
 ### TUIPusher 推流组件
 - 支持采集摄像头和麦克风的流并推流
@@ -139,7 +141,7 @@ TUIPusher & TUIPlayer 实现的快直播和标准直播依托于腾讯云 [云�
 请参见 [屏幕分享](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-16-basic-screencast.html)。
 
 ### Web 端如何实现云端录制?
-1. 开启 云端录制，请参见 [实现云端录制与回放](https://cloud.tencent.com/document/product/647/16823)。
+1. 开启**云端录制**功能，具体操作请参见 [实现云端录制与回放](https://cloud.tencent.com/document/product/647/16823)。
 2. 开启**云端录制**> **指定用户录制**之后，Web 端可通过在调用 [TRTC.createClient](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#createClient) 接口时传入 userDefineRecordId 参数开启录制。
 	 
 ### Web 端如何实现推流到 CDN ？
