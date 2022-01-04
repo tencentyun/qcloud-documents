@@ -1,5 +1,5 @@
 Metadata 是 Terraform 支持的内置元参数，可以在 provider、resource、data、module 块中使用。主要包括：
--` depends_on`：显式声明依赖关系。
+- `depends_on`：显式声明依赖关系。
 - `count`：创建多个资源实例。
 - `for_each`：迭代集合，为集合中每一个元素创建一个对应的资源实例。
 - `provider`：指定非默认 Provider 实例。
@@ -42,8 +42,8 @@ resource "tencentcloud_instance" "foo" {
   }
   ...
 ```
-- **count.index**：代表当前对象对应的 count 下标索引（从0开始）。
-- **访问多资源实例对象**：`<TYPE>.<NAME>[<INDEX>] (tencentcloud_instance.foo[0]tencentcloud_instance.foo[1])`。
+- **count.index**：代表当前对象对应的 count 下标索引（从0开始）
+- **访问多资源实例对象**：`.`
 
 
 ### for_each
@@ -144,15 +144,16 @@ lifecycle {
 ```bash
 resource "tencentcloud_tcr_instance" "foo" {
   name                  = "example"
-  instance_type         = "basic"
+  instance_type		    = "basic"
   open_public_operation = true
-  dynamic "security_policy" {
-    for_each = toset(["10.0.0.1/24", "192.168.1.1/24"])
-    content {
-      cidr_block = security_policy.value
-    }
+  security_policy {
+    cidr_block = "10.0.0.1/24"
+  }
+  security_policy {
+    cidr_block = "192.168.1.1/24"
   }
 }
+
 ```
 此时，可使用 `dynamic` 块来动态构建重复且类似 security_policy 的内嵌块。例如：
 ```bash

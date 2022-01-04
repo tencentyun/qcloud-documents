@@ -52,10 +52,10 @@ https://tcb-api.tencentcloudapi.com
 
 ## API 文档
 
-- [介绍](https://docs.cloudbase.net/api-reference/openapi/introduction.html)
+- [介绍](https://docs.cloudbase.net/api-reference/openapi/introduction)
 
-- [数据库](https://docs.cloudbase.net/api-reference/openapi/database.html)
+- [数据库](https://docs.cloudbase.net/api-reference/openapi/database)
 
-- [云函数](https://docs.cloudbase.net/api-reference/openapi/function.html)
+- [云函数](https://docs.cloudbase.net/api-reference/openapi/function)
 
-- [文件存储](https://docs.cloudbase.net/api-reference/openapi/storage.html)
+- [文件存储](https://docs.cloudbase.net/api-reference/openapi/storage)

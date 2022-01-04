@@ -1,10 +1,8 @@
-本文介绍 Variables 的配置方法。
 
 ## 输入变量
-您可通过以下概念，了解什么是输入变量：
-- 通过输入变量，可自定义 Terraform 模块的各方面，且无需修改模块本身的源代码。通过此特性，您可在不同的 Terraform 配置间共享模块，使模块可组合和可重用。
-- 输入变量支持动态传入。例如，在创建或修改基础设施时传入值、在代码中定义 Provider 时用变量替代硬编码的访问密钥、由创建基础设施的用户决定创建所需尺寸的主机。
-- 您可将一组 Terraform 代码理解为一个参数，则输入变量即为函数的入参。
+- 通过输入变量，可自定义 Terraform 模块，且无需修改模块本身的源代码。通过此特性，您可在不同的 Terraform 配置间共享模块，使模块可组合和可重用。
+- 输入变量支持动态传入。例如，在创建或修改基础设施时传入值、在代码中定义 Provider 时用变量替代硬编码的访问密钥、由创建基础设施的用户决定创建所需尺寸的主机等。
+- 您可将一组 Terraform 代码理解为一个函数，则输入变量即为函数的入参。
 
 ### 定义输入变量
 输入变量通过 `variable` 块进行定义。例如：
@@ -50,7 +48,7 @@ variable "docker_ports" {
 - 复合类型：`list(<TYPE>)`、`set(<TYPE>)`、`map(<TYPE>)`、`object({<ATTR NAME> = <TYPE>, ... })`、`tuple([<TYPE>, ...])`。
 
 #### 描述
-简要描述每个变量的用途
+简要描述每个变量的用途。例如：
 ```bash
 variable "image_id" {
   type        = string
@@ -59,7 +57,7 @@ variable "image_id" {
 ```
 
 #### 自定义校验规则
-Terraform 0.13.0 前，只能用类型约束确保输入参数的类型正确。Terraform 0.13.0 已引入输入变量自定义校验规则。示例如下：
+Terraform 0.13.0 前，只能用类型约束确保输入参数的类型正确。Terraform 0.13.0 已引入输入变量自定义校验规则。例如：
 ```bash
 variable "image_id" {
   type        = string
@@ -71,7 +69,7 @@ variable "image_id" {
   }
 }
 ```
-其中，condition 参数为 bool 类型参数，可通过表达式来判断输入变量是否合法。当 contidion 为 true 时输入变量合法，否则不合法。condition 表达式中只能通过 `var.\` 引用当前定义的变量，并且它的计算不能产生错误。若表达式的计算产生错误是输入变量验证的一种判定手段，那么可以使用 can 函数来判定表达式的执行是否抛错。示例如下：
+其中，condition 参数为 bool 类型参数，可通过表达式来判断输入变量是否合法。当 contidion 为 true 时输入变量合法，否则不合法。condition 表达式中只能通过 `var.<变量名称>` 引用当前定义的变量，并且它的计算不能产生错误。若表达式的计算产生错误是输入变量验证的一种判定手段，那么可以使用 can 函数来判定表达式的执行是否抛错。例如：
 ```bash
 variable "image_id" {
   type        = string
@@ -101,7 +99,7 @@ resource "tencentclould_instance" "example" {
 ### 输入变量赋值
 
 #### 命令行参数
-在命令行上指定单个变量，需要在运行 terraform plan 和 terraform apply 命令时使用 -var 选项。例如：
+在命令行上指定单个变量，需要在执行 `terraform plan` 和 `terraform apply` 命令时使用 `-var` 选项。例如：
 ```bash
 terraform apply -var="image_id=ami-abc123"
 terraform apply -var='image_id_list=["ami-abc123","ami-def456"]' -var="instance_type=t2.micro"
@@ -109,7 +107,7 @@ terraform apply -var='image_id_map={"us-east-1":"ami-abc123","us-east-2":"ami-de
 ```
 
 #### 参数文件
-设置大量变量时，推荐在变量参数文件中指定它们的值（文件名以 `.tfvars` 或 `.tfvars.json` 结尾），并在命令行上使用 -var-file 指定该文件。例如：
+设置大量变量时，推荐在变量参数文件中指定它们的值（文件名以 `.tfvars` 或 `.tfvars.json` 结尾），并在命令行上使用 `-var-file` 指定该文件。例如：
 ```bash
 terraform apply -var-file="testing.tfvars"
 ```
@@ -162,7 +160,7 @@ export TF_VAR_availability_zone_names='["us-west-1b","us-west-1d"]'
 
 ### 定义输出变量
 输出变量通过 `output` 块进行声明。例如：
-```
+```bash
 output "instance_ip_addr" {
   value = tencentclould_instance.server.private_ip
 }

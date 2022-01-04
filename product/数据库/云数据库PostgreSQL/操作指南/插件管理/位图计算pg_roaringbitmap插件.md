@@ -1,43 +1,47 @@
-﻿腾讯云数据库 PostgreSQL提供pg_roaringbitmap插件，可以使用位图计算功能，提高查询性能。
+
+云数据库 PostgreSQL 提供 pg_roaringbitmap 插件，可以使用位图计算功能，提高查询性能。
+
 ## 前提条件
 实例为云数据库 PostgreSQL 10、11、12、13 全新版本。
-## 背景信息
-Roaring Bitmap算法是将32位的INT类型数据划分为216个数据块（Chunk），每一个数据块对应整数的高16位，并使用一个容器（Container）来存放一个数值的低16位。Roaring Bitmap将这些容器保存在一个动态数组中，作为一级索引。容器使用两种不同的结构：数组容器（Array Container）和位图容器（Bitmap Container）。数组容器存放稀疏的数据，位图容器存放稠密的数据。如果一个容器里面的整数数量小于4096，就用数组容器来存储值。若大于4096，就用位图容器来存储值。
 
+## 背景信息
+Roaring Bitmap 算法是将32位的 INT 类型数据划分为216个数据块（Chunk），每一个数据块对应整数的高16位，并使用一个容器（Container）来存放一个数值的低16位。
+Roaring Bitmap 将这些容器保存在一个动态数组中，作为一级索引。容器使用两种不同的结构：数组容器（Array Container）和位图容器（Bitmap Container）。数组容器存放稀疏的数据，位图容器存放稠密的数据。如果一个容器里面的整数数量小于4096，就用数组容器来存储值。若大于4096，就用位图容器来存储值。
 采用这种存储结构，Roaring Bitmap可以快速检索一个特定的值。在做位图计算（AND、OR、XOR）时，Roaring Bitmap提供了相应的算法来高效地实现在两种容器之间的运算。使得Roaring Bitmap无论在存储和计算性能上都表现优秀。
+
 ## 操作步骤
 1. 创建插件。示例如下：
 ```
 CREATE EXTENSION roaringbitmap;
 ```
-2. 创建带有RoaringBitmap数据类型的表。示例如下：
+2. 创建带有 RoaringBitmap 数据类型的表。示例如下：
 ```
 CREATE TABLE t1 (id integer, bitmap roaringbitmap);
 ```
-3. 使用rb_build函数插入roaringbitmap的数据。示例如下：
+3. 使用 rb_build 函数插入 roaringbitmap 的数据。示例如下：
 ```
---数组位置对应的BIT值为1
+--数组位置对应的 BIT 值为1
 INSERT INTO t1 SELECT 1,RB_BUILD(ARRAY[1,2,3,4,5,6,7,8,9,200]);
---将输入的多条记录的值对应位置的BIT值设置为1，最后聚合为一个roaringbitmap  
+--将输入的多条记录的值对应位置的 BIT 值设置为1，最后聚合为一个 roaringbitmap  
 INSERT INTO t1 SELECT 2,RB_BUILD_AGG(e) FROM GENERATE_SERIES(1,100) e;
 ```
-4. 进行Bitmap计算（OR、AND、XOR、ANDNOT）。示例如下：
+4. 进行 Bitmap 计算（OR、AND、XOR、ANDNOT）。示例如下：
 ```
---数组位置对应的BIT值为1
+--数组位置对应的 BIT 值为1
 SELECT RB_OR(a.bitmap,b.bitmap) FROM (SELECT bitmap FROM t1 WHERE id = 1) AS a,(SELECT bitmap FROM t1 WHERE id = 2) AS b;
 ```
-5. 进行Bitmap聚合计算（OR、AND、XOR、BUILD），并生成新的roaringbitmap类型。示例如下：
+5. 进行 Bitmap 聚合计算（OR、AND、XOR、BUILD），并生成新的 roaringbitmap 类型。示例如下：
 ```
 SELECT RB_OR_AGG(bitmap) FROM t1;
 SELECT RB_AND_AGG(bitmap) FROM t1;
 SELECT RB_XOR_AGG(bitmap) FROM t1;
 SELECT RB_BUILD_AGG(e) FROM GENERATE_SERIES(1,100) e;
 ```
-6. 统计基数（Cardinality），即统计roaringbitmap中包含多少个位置为1的BIT位。示例如下：
+6. 统计基数（Cardinality），即统计 roaringbitmap 中包含多少个位置为1的 BIT 位。示例如下：
 ```
 SELECT RB_CARDINALITY(bitmap) FROM t1;
 ```
-7. 从roaringbitmap中返回位置为1的BIT下标（即位置值）。示例如下：
+7. 从 roaringbitmap 中返回位置为1的 BIT 下标（即位置值）。示例如下：
 ```
 SELECT RB_ITERATE(bitmap) FROM t1 WHERE id = 1;
 ```

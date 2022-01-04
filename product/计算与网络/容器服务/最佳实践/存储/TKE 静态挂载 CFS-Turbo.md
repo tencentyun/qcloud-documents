@@ -168,7 +168,7 @@ spec:
 ### 使用 CFS Turbo 存储卷
 
 1. 创建 CFS Turbo 文件系统，具体操作请参见 [创建文件系统](#create-cfs)。
-2. 使用以下模版创建 CFS Turbo 类型的 PV。
+2. 使用以下模板创建 CFS Turbo 类型的 PV。
 ```yaml
 apiVersion: v1
 kind: PersistentVolume

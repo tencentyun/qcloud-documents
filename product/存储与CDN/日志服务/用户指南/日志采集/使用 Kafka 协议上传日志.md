@@ -86,35 +86,7 @@ func main() {
 }
 ```
 
-### 通过 Kafka Sarama SDK 上传日志到日志服务
 
-```
-func StartKafka() {
-	config := sarama.NewConfig()
-	config.Producer.Return.Successes = true
-	config.Version = sarama.V0_11_0_0
-	producer, err := sarama.NewSyncProducer([]string{"gz-producer.cls.tencentcs.com:9096"}, config)
-	if err != nil {
-		fmt.Println("new sync producer err : ", err)
-		return
-	}
-	defer producer.Close()
-	msg := &sarama.ProducerMessage{
-		Topic: "xxxxx",
-		Value: sarama.StringEncoder("go kafka client test - inner:9095 "),
-	}
-	// 发送消息
-	for {
-		message, offset, err := producer.SendMessage(msg)
-		if err != nil {
-			fmt.Println("SendMessage err : ", err)
-			return
-		}
-		fmt.Println(message, " ", offset)
-		time.Sleep(time.Duration(1) * time.Second)
-	}
-}
-```
  
  
 

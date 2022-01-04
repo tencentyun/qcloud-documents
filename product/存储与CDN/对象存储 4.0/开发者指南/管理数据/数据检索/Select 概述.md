@@ -1,4 +1,4 @@
-COS Select 功能通过结构化查询语句（SQL）筛选存储在 COS 上的对象，以便检索对象并获取用户所需的数据。通过 COS  Select 功能筛选对象数据，您可以减少 COS 传输的数据量，这将降低检索此数据所需的成本和延迟。
+COS Select 功能通过结构化查询语句（SQL）筛选存储在对象存储（Cloud Object Storage，COS）上的对象，以便检索对象并获取用户所需的数据。通过 COS  Select 功能筛选对象数据，您可以减少 COS 传输的数据量，这将降低检索此数据所需的成本和延迟。
 
 COS Select 功能目前支持检索以 CSV、JSON 和 Parquet 格式存储的对象，支持检索通过 GZIP 或 BZIP2 压缩的对象（仅对于 CSV、JSON 格式的对象）。此外，COS Select 功能还支持将结果的格式指定为 CSV 或 JSON，并且可以确定结果中记录的分隔方式。
 
@@ -9,6 +9,7 @@ COS Select 功能目前支持检索以 CSV、JSON 和 Parquet 格式存储的对
 >?
 >- COS Select 所支持的数据类型和当前的保留字段，请参见 [数据类型](https://cloud.tencent.com/document/product/436/37639) 和 [保留字段](https://cloud.tencent.com/document/product/436/37638) 了解详情。
 >- 目前检索功能仅支持中国大陆公有云地域，其他地域暂不支持此功能。
+>
 
 ## 使用限制
 
@@ -45,7 +46,8 @@ COS Select 目前支持以下运算符：
 - 模式匹配运算符：`LIKE`
 - 数学运算符：`+，-，*，%`
 
->?有关运算符的详细信息，您可以参见 [运算符](https://cloud.tencent.com/document/product/436/37640)。
+>? 有关运算符的详细信息，您可以参见 [运算符](https://cloud.tencent.com/document/product/436/37640)。
+>
 
 
 

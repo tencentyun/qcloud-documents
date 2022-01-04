@@ -1,6 +1,6 @@
 ## 命名空间
 
-Namespace=QCE/CES
+Namespace = QCE/CES
 
 ## 监控指标
 
@@ -121,53 +121,53 @@ Namespace=QCE/CES
 
 | 指标英文名                                       | 指标中文名                                                   | 单位  | 维度                 | 统计粒度（period）       |
 | ------------------------------------------------ | ------------------------------------------------------------ | ----- | -------------------- | ------------------------ |
-| NodeParentBreaker<br/>DifHotwarmMax              | 节点熔断次数_冷热_最大值                                     | 次    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeParentBreaker<br/>DifHotwarmAvg              | 节点熔断次数_冷热_平均值                                     | 次    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeJvmMemUsageHotwarmAvg                        | 节点JVM 内存使用率_平均值_冷热                               | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeJvmMemUsageHotwarmMax                        | 节点JVM 内存使用率_最大值_冷热                               | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeJvmOldMem<br/>UsageHotwarmMax                | JVM_Old 区内存使用率_最大值_冷热                             | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeJvmOldMemUsage<br/>HotwarmAvg                | JVM_Old 区内存使用率_平均值_冷热                             | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeOldGcDifHotwarmMax                           | 节点单周期 OldGC 次数_最大值_冷热                            | 次    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeOldGcDifHotwarmAvg                           | 节点单周期 OldGC 次数_平均值_冷热                            | 次    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeOldGcTimeDifHotwarmMax                       | 节点单周期 OldGC 时间_最大值_冷热                            | ms    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeOldGcTimeDifHotwarmAvg                       | 节点单周期 OldGC 时间_平均值_冷热                            | ms    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeFielddataMemoryIn<br>BytesHotwarmMax         | 节点 FieldData 占用的堆内存大小_最大值_冷热                  | B     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeFielddataMemoryIn<br/>BytesHotwarmAvg        | 节点 FieldData 占用的堆内存大小_平均值_冷热                  | B     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeSearchSpeedHotwarmMax                        | 节点查询速度_最大值_冷热                                     | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeSearchSpeedHotwarmAvg                        | 节点查询速度_平均值_冷热                                     | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeSearchSpeedHotwarmSum                        | 节点查询速度_加和值_冷热                                     | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeIndexSpeedHotwarmMax                         | 节点写入速度_最大值_冷热                                     | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeIndexSpeedHotwarmAvg                         | 节点写入速度_平均值_冷热                                     | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeIndexSpeedHotwarmSum                         | 节点写入速度_加和值_冷热                                     | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeBulkSpeedHotwarmMax                          | 节点单周期 bulk 速度_最大值_冷热                             | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeBulkSpeedHotwarmAvg                          | 节点单周期 bulk 速度_平均值_冷热                             | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeBulkSpeedHotwarmSum                          | 节点单周期 bulk 速度_加和值_冷热                             | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeBulkRejectedCompleted<br>PercentHotwarmMax   | 节点单周期 bulk 拒绝率_最大值_冷热                           | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeBulkRejectedCompleted<br>PercentHotwarmAvg   | 节点单周期 bulk 拒绝率_平均值_冷热                           | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeSearchRejectedCompleted<br>PercentHotwarmMax | 节点单周期查询拒绝率_最大值_冷热                             | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeSearchRejectedCompleted<br>PercentHotwarmAvg | 节点单周期查询拒绝率_平均值_冷热                             | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeSearchLatencyHotwarmMax                      | 节点单周期查询平均延迟_最大值_冷热                           | ms    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeSearchLatencyHotwarmAvg                      | 节点单周期查询平均延迟_平均值_冷热                           | ms    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeIndexLatencyHotwarmMax                       | 节点单周期写入平均延迟_最大值_冷热                           | ms    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeIndexLatencyHotwarmAvg                       | 节点单周期写入平均延迟_平均值_冷热                           | ms    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeCpuUsageHotwarmMax                           | 节点 CPU 使用率_最大值_冷热                                  | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeCpuUsageHotwarmAvg                           | 节点 CPU 使用率_平均值_冷热                                  | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeMemUsageHotwarmMax                           | 节点内存使用率_最大值_冷热                                   | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeMemUsageHotwarmAvg                           | 节点内存使用率_平均值_冷热                                   | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeCpuLoad1minHotwarmMax                        | 节点 CPU 1分钟负载_最大值_冷热                               | -     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeCpuLoad1minHotwarmAvg                        | 节点 CPU 1分钟负载_平均值_冷热                               | -     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeDiskUsageHotwarmMax                          | 节点磁盘使用率_最大值_冷热                                   | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeDiskUsageHotwarmAvg                          | 节点磁盘使用率_平均值_冷热                                   | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeDiskReadIopsHotwarmAvg                       | 集群内所有节点平均磁盘每秒读次数_冷热                        | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeDiskReadIopsHotwarmMax                       | 集群内所有节点最大磁盘每秒读次数_冷热                        | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeDiskWriteIopsHotwarmMax                      | 集群内所有节点最大磁盘每秒写次数_冷热                        | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeDiskWriteIopsHotwarmAvg                      | 集群内所有节点平均磁盘每秒写次数_冷热                        | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeDiskUtilHotwarmAvg                           | 集群内所有节点磁盘有 IO 操作的时间与总时间的百分比平均值_冷热 | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeDiskUtilHotwarmMax                           | 集群内所有节点磁盘有 IO 操作的时间与总时间的百分比最大值_冷热 | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeDiskReadTrafficHotwarmAvg                    | 节点磁盘读流量_平均值_冷热                                   | KB/s  | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeDiskReadTrafficHotwarmMax                    | 节点磁盘读流量_最大值_冷热                                   | KB/s  | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeDiskWriteTrafficHotwarmMax                   | 节点磁盘写流量_最大值_冷热                                   | KB/s  | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
-| NodeDiskWriteTrafficHotwarmAvg                   | 节点磁盘写流量_平均值_冷热                                   | KB/s  | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeParentBreaker<br/>DifHotwarmMax              | 节点熔断次数\_冷热\_最大值                                     | 次    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeParentBreaker<br/>DifHotwarmAvg              | 节点熔断次数\_冷热\_平均值                                     | 次    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeJvmMemUsageHotwarmAvg                        | 节点JVM 内存使用率\_平均值\_冷热                               | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeJvmMemUsageHotwarmMax                        | 节点JVM 内存使用率\_最大值\_冷热                               | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeJvmOldMem<br/>UsageHotwarmMax                | JVM\_Old 区内存使用率\_最大值\_冷热                             | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeJvmOldMemUsage<br/>HotwarmAvg                | JVM\_Old 区内存使用率\_平均值\_冷热                             | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeOldGcDifHotwarmMax                           | 节点单周期 OldGC 次数\_最大值\_冷热                            | 次    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeOldGcDifHotwarmAvg                           | 节点单周期 OldGC 次数\_平均值\_冷热                            | 次    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeOldGcTimeDifHotwarmMax                       | 节点单周期 OldGC 时间\_最大值\_冷热                            | ms    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeOldGcTimeDifHotwarmAvg                       | 节点单周期 OldGC 时间\_平均值\_冷热                            | ms    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeFielddataMemoryIn<br>BytesHotwarmMax         | 节点 FieldData 占用的堆内存大小\_最大值\_冷热                  | B     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeFielddataMemoryIn<br/>BytesHotwarmAvg        | 节点 FieldData 占用的堆内存大小\_平均值\_冷热                  | B     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeSearchSpeedHotwarmMax                        | 节点查询速度\_最大值\_冷热                                     | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeSearchSpeedHotwarmAvg                        | 节点查询速度\_平均值\_冷热                                     | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeSearchSpeedHotwarmSum                        | 节点查询速度\_加和值\_冷热                                     | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeIndexSpeedHotwarmMax                         | 节点写入速度\_最大值\_冷热                                     | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeIndexSpeedHotwarmAvg                         | 节点写入速度\_平均值\_冷热                                     | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeIndexSpeedHotwarmSum                         | 节点写入速度\_加和值\_冷热                                     | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeBulkSpeedHotwarmMax                          | 节点单周期 bulk 速度\_最大值\_冷热                             | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeBulkSpeedHotwarmAvg                          | 节点单周期 bulk 速度\_平均值\_冷热                             | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeBulkSpeedHotwarmSum                          | 节点单周期 bulk 速度\_加和值\_冷热                             | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeBulkRejectedCompleted<br>PercentHotwarmMax   | 节点单周期 bulk 拒绝率\_最大值\_冷热                           | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeBulkRejectedCompleted<br>PercentHotwarmAvg   | 节点单周期 bulk 拒绝率\_平均值\_冷热                           | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeSearchRejectedCompleted<br>PercentHotwarmMax | 节点单周期查询拒绝率\_最大值\_冷热                             | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeSearchRejectedCompleted<br>PercentHotwarmAvg | 节点单周期查询拒绝率\_平均值\_冷热                             | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeSearchLatencyHotwarmMax                      | 节点单周期查询平均延迟\_最大值\_冷热                           | ms    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeSearchLatencyHotwarmAvg                      | 节点单周期查询平均延迟\_平均值\_冷热                           | ms    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeIndexLatencyHotwarmMax                       | 节点单周期写入平均延迟\_最大值\_冷热                           | ms    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeIndexLatencyHotwarmAvg                       | 节点单周期写入平均延迟\_平均值\_冷热                           | ms    | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeCpuUsageHotwarmMax                           | 节点 CPU 使用率\_最大值\_冷热                                  | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeCpuUsageHotwarmAvg                           | 节点 CPU 使用率\_平均值\_冷热                                  | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeMemUsageHotwarmMax                           | 节点内存使用率\_最大值\_冷热                                   | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeMemUsageHotwarmAvg                           | 节点内存使用率\_平均值\_冷热                                   | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeCpuLoad1minHotwarmMax                        | 节点 CPU 1分钟负载\_最大值\_冷热                               | -     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeCpuLoad1minHotwarmAvg                        | 节点 CPU 1分钟负载\_平均值\_冷热                               | -     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeDiskUsageHotwarmMax                          | 节点磁盘使用率\_最大值\_冷热                                   | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeDiskUsageHotwarmAvg                          | 节点磁盘使用率\_平均值\_冷热                                   | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeDiskReadIopsHotwarmAvg                       | 集群内所有节点平均磁盘每秒读次数\_冷热                        | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeDiskReadIopsHotwarmMax                       | 集群内所有节点最大磁盘每秒读次数\_冷热                        | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeDiskWriteIopsHotwarmMax                      | 集群内所有节点最大磁盘每秒写次数\_冷热                        | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeDiskWriteIopsHotwarmAvg                      | 集群内所有节点平均磁盘每秒写次数\_冷热                        | 次/秒 | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeDiskUtilHotwarmAvg                           | 集群内所有节点磁盘有 IO 操作的时间与总时间的百分比平均值\_冷热 | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeDiskUtilHotwarmMax                           | 集群内所有节点磁盘有 IO 操作的时间与总时间的百分比最大值\_冷热 | %     | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeDiskReadTrafficHotwarmAvg                    | 节点磁盘读流量\_平均值\_冷热                                   | KB/s  | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeDiskReadTrafficHotwarmMax                    | 节点磁盘读流量\_最大值\_冷热                                   | KB/s  | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeDiskWriteTrafficHotwarmMax                   | 节点磁盘写流量\_最大值\_冷热                                   | KB/s  | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
+| NodeDiskWriteTrafficHotwarmAvg                   | 节点磁盘写流量\_平均值\_冷热                                   | KB/s  | uInstanceId、hotwarm | 60s、300s、3600s、86400s |
 
 ### Kibana节点
 
@@ -188,55 +188,55 @@ Namespace=QCE/CES
 | Instances.N.Dimensions.0.Name  | hotwarm     | ES 节点冷热属性的维度名称        | 输入 String 类型维度名称：hotwarm                            |
 | Instances.N.Dimensions.0.Value | hotwarm     | ES 具体节点冷热属性              | 输入实例具体节点冷热属性，根据节点数据盘确定，数据盘为高性能云盘填warm，为SSD云盘填hot |
 | Instances.N.Dimensions.0.Name  | nodeId      | ES 节点 ID 的维度名称            | 输入 String 类型维度名称：nodeId                             |
-| Instances.N.Dimensions.0.Value | nodeId      | ES 具体节点 ID                   | 输入实例具体 ID，例如：1111111111111111111                   |
+| Instances.N.Dimensions.0.Value | nodeId      | ES 具体节点 ID                   | 输入节点 ID，例如：1111111111111111111                   |
 | Instances.N.Dimensions.0.Name  | setid       | ES 节点所属可用区 ID 的维度名称 | 输入 String 类型维度名称：setid                              |
-| Instances.N.Dimensions.0.Value | setid       | ES 具体节点所属可用区 ID        | 输入实例具体 ID，例如广州六区为：100006                      |
+| Instances.N.Dimensions.0.Value | setid       | ES 具体节点所属可用区 ID        | 输入可用区 ID，例如广州六区为：100006                      |
 | Instances.N.Dimensions.0.Name  |device      |磁盘 ID 所属维度名称| 输入 String 类型维度名称：device                        |
-| Instances.N.Dimensions.0.Value | device    | 磁盘具体 ID      | 输入实例具体 ID，例如:disk-123456|
+| Instances.N.Dimensions.0.Value | device    | 磁盘具体 ID      | 输入磁盘具体 ID，例如:disk-123456|
 | Instances.N.Dimensions.0.Name  |env    |磁盘所属环境的维度名称  | 输入 String 类型维度名称： env                          |
-| Instances.N.Dimensions.0.Value |env     | 具体环境名称      | 输入实例具体 ID，例如：cvm            |
+| Instances.N.Dimensions.0.Value |env     | 具体环境名称      | 输入具体环境名称，例如：cvm            |
 | Instances.N.Dimensions.0.Name  | ip      | 所属 IP 的维度名称  | 输入 String 类型维度名称：ip                            |
-| Instances.N.Dimensions.0.Value | ip      | 具体 ip       | 输入实例具体 ID，例如：111.111.111.111                  |
+| Instances.N.Dimensions.0.Value | ip      | 具体 ip       | 输入 IP，例如：111.111.111.111                  |
 
 ## 入参说明
 
 1. 查询 Elasticsearch Service -基础指标监控数据，入参取值如下：
-&Namespace=QCE/CES
-&Instances.N.Dimensions.0.Name=uInstanceId
-&Instances.N.Dimensions.0.Value=ES 具体实例 ID
+&Namespace = QCE/CES
+&Instances.N.Dimensions.0.Name = uInstanceId
+&Instances.N.Dimensions.0.Value = ES 具体实例 ID
 
 2. 查询 Elasticsearch Service -磁盘指标控数据，入参取值如下：
-&Namespace=QCE/CES
-&Instances.N.Dimensions.0.Name=uInstanceId
-&Instances.N.Dimensions.0.Value=ES 具体实例 ID
-&Instances.N.Dimensions.1.Name=device
-&Instances.N.Dimensions.1.Value= 磁盘具体 ID
-&Instances.N.Dimensions.2.Name=env
-&Instances.N.Dimensions.2.Value= 磁盘所属环境
-&Instances.N.Dimensions.2.Name=ip
-&Instances.N.Dimensions.2.Value= 磁盘所属 ip
+&Namespace = QCE/CES
+&Instances.N.Dimensions.0.Name = uInstanceId
+&Instances.N.Dimensions.0.Value = ES 具体实例 ID
+&Instances.N.Dimensions.1.Name = device
+&Instances.N.Dimensions.1.Value =  磁盘具体 ID
+&Instances.N.Dimensions.2.Name = env
+&Instances.N.Dimensions.2.Value =  磁盘所属环境
+&Instances.N.Dimensions.3.Name = ip
+&Instances.N.Dimensions.3.Value =  磁盘所属 ip
 
 3. 查询 Elasticsearch Service -节点指标监控数据，入参取值如下：
-&Namespace=QCE/CES
-&Instances.N.Dimensions.0.Name=uInstanceId
-&Instances.N.Dimensions.0.Value=ES 具体实例 ID
-&Instances.N.Dimensions.1.Name=hotwarm
-&Instances.N.Dimensions.1.Value=ES 具体节点冷热属性 
-&Instances.N.Dimensions.2.Name=nodeId
-&Instances.N.Dimensions.2.Value=ES 具体节点 ID
-&Instances.N.Dimensions.3.Name=setid
-&Instances.N.Dimensions.3.Value=ES 具体节点所属可用区 ID
+&Namespace = QCE/CES
+&Instances.N.Dimensions.0.Name = uInstanceId
+&Instances.N.Dimensions.0.Value = ES 具体实例 ID
+&Instances.N.Dimensions.1.Name = hotwarm
+&Instances.N.Dimensions.1.Value = ES 具体节点冷热属性 
+&Instances.N.Dimensions.2.Name = nodeId
+&Instances.N.Dimensions.2.Value = ES 具体节点 ID
+&Instances.N.Dimensions.3.Name = setid
+&Instances.N.Dimensions.3.Value = ES 具体节点所属可用区 ID
 
 4. 查询 Elasticsearch Service -节点冷热属性指标控数据，入参取值如下：
-&Namespace=QCE/CES
-&Instances.N.Dimensions.0.Name=uInstanceId
-&Instances.N.Dimensions.0.Value=ES 具体实例 ID
-&Instances.N.Dimensions.1.Name=hotwarm
-&Instances.N.Dimensions.1.Value=ES 具体节点冷热属性 
+&Namespace = QCE/CES
+&Instances.N.Dimensions.0.Name = uInstanceId
+&Instances.N.Dimensions.0.Value = ES 具体实例 ID
+&Instances.N.Dimensions.1.Name = hotwarm
+&Instances.N.Dimensions.1.Value = ES 具体节点冷热属性 
 
 5. 查询 Elasticsearch Service -Kibana 节点指标控数据，入参取值如下：
-&Namespace=QCE/CES
-&Instances.N.Dimensions.0.Name=uInstanceId
-&Instances.N.Dimensions.0.Value=ES 具体实例 ID
-&Instances.N.Dimensions.1.Name=ip
-&Instances.N.Dimensions.1.Value= 节点所属 ip
+&Namespace = QCE/CES
+&Instances.N.Dimensions.0.Name = uInstanceId
+&Instances.N.Dimensions.0.Value = ES 具体实例 ID
+&Instances.N.Dimensions.1.Name = ip
+&Instances.N.Dimensions.1.Value =  节点所属 ip

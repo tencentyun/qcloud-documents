@@ -37,7 +37,7 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 1. 登录 [DBS 控制台](https://console.cloud.tencent.com/dbs)，在左侧导航选择**备份计划**页，然后在右侧选择已购买的备份计划，单击**配置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c8febe50a84a788546ca461860150b34.png)
 2. 在**设置备份源**页面配置备份计划和数据源，单击**测试连通性**，通过后进入**下一步**。
-   如果测试不通过，请参考 [连通性测试不通过处理方法](https://cloud.tencent.com/document/product/1513/64057) 进行处理。
+   如果连通性测试失败，请参考 [连通性测试不通过处理方法](https://cloud.tencent.com/document/product/1513/64057) 进行处理。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ad89d7899a6fa05f7c2680e8b3548a17.png)
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="20%">配置项</th><th width="70%">说明</th></tr></thead>
