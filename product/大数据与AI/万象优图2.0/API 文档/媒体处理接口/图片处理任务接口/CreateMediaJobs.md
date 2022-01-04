@@ -162,7 +162,7 @@ Container 节点 Operation 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:--- |:--- |:--- |
-| TemplateId | Response.JobsDetail.Operation | 任务的模版 ID |  String |
+| TemplateId | Response.JobsDetail.Operation | 任务的模板 ID |  String |
 | Output | Response.JobsDetail.Operation | 文件的输出地址 |  Container |
 | PicProcessResult | Response.JobsDetail.Operation | 图片处理后输出图片的信息，没有时不返回 |  Container |
 
