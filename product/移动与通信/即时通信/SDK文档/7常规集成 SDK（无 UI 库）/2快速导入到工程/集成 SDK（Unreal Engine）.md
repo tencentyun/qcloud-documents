@@ -9,11 +9,11 @@
    </tr>
    <tr>
       <td>Android</td>
-      <td><li>Android Studio 版本4.0及以上版本。</li><li>Visual Studio 2017 15.6版或更高。 </li><li>只支持真机调试                    </li></td>
+      <td><li>Android Studio 版本4.0及以上版本。</li><li>Visual Studio 2017 15.6版或更高。 </li><li>只支持真机调试。                    </li></td>
    </tr>
    <tr>
       <td>iOS & macOS</td>
-      <td><li>Xcode 11.0及以上版本。                   </li><li>OSX 系统版本要求 10.11 及以上版本        </li><li>请确保您的项目已设置有效的开发者签名。   </li></td>
+      <td><li>Xcode 11.0及以上版本。                   </li><li>OSX 系统版本要求 10.11 及以上版本 。       </li><li>请确保您的项目已设置有效的开发者签名。   </li></td>
    </tr>
    <tr>
       <td>Windows</td>
