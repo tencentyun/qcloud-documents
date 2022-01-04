@@ -13,11 +13,11 @@
 ### 安装 Grafana
 
 安装 Grafana，具体操作请参见 [Grafana 官网文档](https://grafana.com/docs/grafana/latest/installation/)。
-以 CentOS 安装 grafana 7.3.6 为例：
+以 CentOS  安装 grafana 8.3.3 （[点此获取新版本地址](https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1&edition=oss)）为例：
 ```
 sudo yum install initscripts urw-fonts wget
-wget https://dl.grafana.com/oss/release/grafana-7.3.6-1.x86_64.rpm
-sudo yum install grafana-7.3.6-1.x86_64.rpm
+wget https://dl.grafana.com/oss/release/grafana-8.3.3-1.x86_64.rpm 
+sudo yum install grafana-8.3.3-1.x86_64.rpm
 sudo systemctl daemon-reload
 sudo systemctl start grafana-server
 sudo systemctl status grafana-server 
