@@ -75,7 +75,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 ![](https://qcloudimg.tencent-cloud.cn/raw/c09ab0330b7eff7e38ef60a0aa9cb03e.png)
 
 [](id:getusersig)
-### 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
+#### 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
 TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#Old)，如已升级，您按需切换为新老版本算法。
 
 **升级/切换操作：**
