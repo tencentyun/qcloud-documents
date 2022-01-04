@@ -1,6 +1,6 @@
-本文主要介绍如何快速运行腾讯云 即时通信 IM Demo（Unreal Engine）。
+本文主要介绍如何快速运行腾讯云即时通信 IM Demo（Unreal Engine）。
 
->! 目前 支持Windows、MacOs、ios、Android。
+>?目前支持 Windows、MacOs、iOS、Android。
 
 ## 环境要求
 - 建议 Unreal Engine 4.27.1 及以上版本。
@@ -35,7 +35,6 @@
 [](id:step2)
 
 ## 步骤2：获取密钥信息
-
 1. 单击目标应用卡片，进入应用的基础配置页面，
 2. 在**基本信息**区域，单击**显示密钥**，复制并保存密钥信息。
 >!请妥善保管密钥信息，谨防泄露。
