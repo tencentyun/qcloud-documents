@@ -121,7 +121,7 @@ RESPONSE：
 <dx-codeblock>
 :::  json
 {
-    "SdkAppId":1400264214,
+    "SdkAppId":1400xxx214,
     "SessionId":"e97be0ab-1ef6-4ad2-a8c4-2b2bbfb18e55",
     "QueuedSkillGroupId":1072,
     "Direction":1,
