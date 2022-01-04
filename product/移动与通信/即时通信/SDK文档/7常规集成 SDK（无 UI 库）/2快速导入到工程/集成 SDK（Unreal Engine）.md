@@ -96,6 +96,7 @@ timConfig.initPath = static_cast<V2TIMString>("D:\\");
 timConfig.logPath = static_cast<V2TIMString>("D:\\");
 bool isInit = timInstance->InitSDK(SDKAppID, timConfig);
 ```
+
 ## 打包
 <dx-tabs>
 ::: macOS\s端
