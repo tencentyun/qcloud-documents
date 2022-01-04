@@ -125,7 +125,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 | C#       | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) |  [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)   |
 
 [](id:Old)
-### 老版本签名算法 UserSig 计算源代码
+#### 老版本签名算法 UserSig 计算源代码
 为了简化签名计算难度，方便客户更快速地使用腾讯云服务，实时音视频自 2019-07-19 开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256，也就是从 2019-07-19 之后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。
 
 如果您的 SDKAppID 是 2019-07-19 之前创建的，可以继续使用老版本的签名算法，算法的源码下载链接如下：
