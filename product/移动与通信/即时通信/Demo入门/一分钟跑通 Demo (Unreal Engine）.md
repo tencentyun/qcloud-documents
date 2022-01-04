@@ -80,7 +80,7 @@
 </dx-tabs>
 
 ## TRTC全平台 C++ API 文档
-[API概览](https://comm.qq.com/imsdk/ue4/md_introduction_CPP%E6%A6%82%E8%A7%88.html)
+[API 概览](https://comm.qq.com/imsdk/ue4/md_introduction_CPP%E6%A6%82%E8%A7%88.html)
 
 ## 常见问题
 
