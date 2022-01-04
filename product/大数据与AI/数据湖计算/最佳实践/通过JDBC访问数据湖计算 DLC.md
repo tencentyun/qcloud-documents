@@ -1,6 +1,6 @@
 ## 环境准备
 - 依赖：JDK 1.8
-- JDBC 下载：[点击下载 JDBC 驱动](https://dlc-jdbc-1304028854.cos.ap-beijing.myqcloud.com/dlc-jdbc-1.3.0-jar-with-dependencies.jar)
+- JDBC 下载：[点击下载JDBC驱动](https://dlc-jdbc-1304028854.cos.ap-beijing.myqcloud.com/dlc-jdbc-2.0.1-jar-with-dependencies.jar)
 
 ## 连接 DLC
 1. 加载 DLC JDBC 驱动
@@ -14,49 +14,51 @@ Connection cnct = DriverManager.getConnection(url, secretId, secretKey);
 
 ## url 格式
 ```
-jdbc:dlc:<dlc_endpoint>?task_type=SQLTask&database_name=abc&datasource_connection_name=DataLakeCatalog&region=ap-nanjing
+jdbc:dlc:<dlc_endpoint>task_type=SQLTask&database_name=abc&datasource_connection_name=DataLakeCatalog&region=ap-nanjing&data_engine_name=spark-cu
 ```
+
 <table>
+<thread>
 <tr>
-<th>参数</th>
-<th>必填</th>
-<th>说明</th> 
-</tr>
+<th >参数</th>
+<th >必填</th>
+<th >说明</th>
+</tr></thread>
+<tbody>
 <tr>
-<td>dlc_endpoint</td>
-<td>是</td>
-<td>dlc.tencentcloudapi.com，dlc 服务的 Endpoint，Endpoint 服务的详细说明请参见 Endpoint</td>
+<td >dlc_endpoint</td >
+<td >是</td >
+<td >dlc.tencentcloudapi.com， dlc 服务的 Endpoint，Endpoint 服务的详细说明请参见 Endpoint</td >
+</tr><tr>
+<td >datasource_connection_name</td >
+<td >是</td >
+<td >数据源连接</td >
+</tr><tr>
+<td >task_type</td >
+<td >是</td >
+<td >SQLTask、SparkSQLTask</td >
+</tr><tr>
+<td >database_name</td >
+<td >是</td >
+<td >数据库</td >
+</tr><tr>
+<td >region</td >
+<td >是</td >
+<td >地域，目前 dlc 服务支持 ap-nanjing, ap-beijing, ap-guangzhou</td >
+</tr><tr>
+<td >data_engine_name</td >
+<td >是</td >
+<td >数据引擎名称</td >
+</tr><tr>
+<td >secretId</td >
+<td >是</td >
+<td >腾讯云 API 密钥管理中的 SecretId</td >
+</tr><tr>
+<td >secretKey</td >
+<td >是</td >
+<td >腾讯云 API 密钥管理中的 Secretkey</td >
 </tr>
-<tr>
-<td>datasource_connection_name</td>
-<td>是</td>
-<td>数据源连接</td>
-</tr>
-<tr>
-<td>task_type</td>
-<td>是</td>
-<td>SQLTask、SparkSQLTask</td>
-</tr>
-<tr>
-<td>database_name</td>
-<td>是</td>
-<td>数据库</td>
-</tr>
-<tr>
-<td>region</td>
-<td>是</td>
-<td>地域，目前 dlc 服务支持 ap-nanjing、ap-beijing、ap-guangzhou</td>
-</tr>
-<tr>
-<td>secretId</td>
-<td>是</td>
-<td>腾讯云 API 密钥管理中的 SecretId</td>
-</tr>
-<tr>
-<td>secretKey</td>
-<td>是</td>
-<td>腾讯云 API 密钥管理中的 Secretkey</td>
-</tr>
+</tbody>
 </table>
 
 ## 执行查询
@@ -92,7 +94,7 @@ public class MetaTest {
       return;
     }
     Connection connection = DriverManager.getConnection(
-            "jdbc:dlc:<dlc_endpoint>?task_type=<task_type>&database_name=<database_name>&datasource_connection_name=DataLakeCatalog&region=<region>",
+            "jdbc:dlc:<dlc_endpoint>?task_type=<task_type>&database_name=<database_name>&datasource_connection_name=DataLakeCatalog&region=<region>&data_engine_name=<data_engine_name>",
             "<secret_id>",
             "secret_key");
     Statement statement = connection.createStatement();
@@ -146,7 +148,6 @@ public class MetaTest {
   }
 }
 ```
-
 ### 数据查询
 ```Java
 import java.sql.*;
@@ -160,7 +161,7 @@ public class DataTest {
       return;
     }
     Connection connection = DriverManager.getConnection(
-            "jdbc:dlc:<dlc_endpoint>?task_type=<task_type>&database_name=<database_name>&datasource_connection_name=DataLakeCatalog&region=<region>",
+            "jdbc:dlc:<dlc_endpoint>?task_type=<task_type>&database_name=<database_name>&datasource_connection_name=DataLakeCatalog&region=<region>&data_engine_name=<data_engine_name>",
             "<secret_id>",
             "secret_key");
     Statement statement = connection.createStatement();
@@ -176,8 +177,6 @@ public class DataTest {
   }
 }
 ```
-
-
 ## 数据库客户端 
 您可以将 DLC 的 JDBC 驱动包加载到 SQL 客户端，连接到 DLC 服务进行查询。
 
@@ -190,12 +189,13 @@ public class DataTest {
 1. 通过 jdbc 驱动包创建 DLC Driver。
 ![](https://main.qcloudimg.com/raw/afc6df5b900eb933aaf431d529b4241a.png)
 2. 连接 DLC，填入如下参数，单击 **test**，测试通过后，完成与 DLC 的连接。
- - Name：连接名称，用于标识与 DLC 的连接。
- - Username：对应于腾讯云用户的 secret_id。
- - Password：对应于腾讯云用户的 secret_key。
- - URL：用于连接 DLC 的 URL。格式和上文中通过 jdbc 创建连接的 URL 一致。
+	- Name：连接名称，用于标识与 DLC 的连接。
+	- Username：对应于腾讯云用户的 secret_id。
+	- Password：对应于腾讯云用户的 secret_key。
+	- URL：用于连接 DLC 的 URL，格式和上文中通过 jdbc 创建连接的 URL 一致。
 ![](https://main.qcloudimg.com/raw/abda4b50672f4c70b4d81e80a2c2158c.png)
-1. 查看库表信息。
-![](https://main.qcloudimg.com/raw/5ecbf80953f8589821eb008375f0bbff.png)
-1. 查询数据。
+3. 查看库表信息
+![](https://qcloudimg.tencent-cloud.cn/raw/7c805245262923e0c881bb1c18d69134.png)
+4. 查询数据
 ![](https://main.qcloudimg.com/raw/7090e6adac000b263cfc41bbcf25695f.png)
+
