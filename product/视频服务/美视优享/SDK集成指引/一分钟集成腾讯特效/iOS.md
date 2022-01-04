@@ -1,6 +1,6 @@
 ## 集成准备
 ### 开发者环境要求
-- 开发工具XCode 11 及以上：App Store 或 [下载地址](https://developer.apple.com/xcode/resources/)。
+- 开发工具 XCode 11 及以上：App Store 或 [下载地址](https://developer.apple.com/xcode/resources/)。
 - 建议运行环境：
     - 设备要求：iPhone 5 及以上；iPhone 6 及以下前置摄像头最多支持到 720p，不支持 1080p。
     - 系统要求：iOS 10.0 及以上。
@@ -57,7 +57,7 @@ framework 签名可以直接在 General-->Masonry.framework 和 libpag.framework
 1. 获取鉴权证书，将申请 License 过程获得的授权文件加入项目中，并确保添加到 Bundle Resources。
 2. 加载鉴权库 `YTCommon.framework`，并对腾讯特效 SDK 进行鉴权。
 <dx-tabs>
-::: 线上授权（X - Magic 版本 2.4.0 + 支持线上授权方式）
+::: 线上授权（TE 版本 2.4.0+ 支持线上授权方式）
 ```
 [TESign setKeyUrl:@"key" url:@"url"];
 NSString* lic = [TESign getLicenceInfo];

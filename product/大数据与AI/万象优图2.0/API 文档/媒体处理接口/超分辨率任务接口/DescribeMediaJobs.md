@@ -16,15 +16,8 @@ Authorization: <Auth String>
 
 >? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
-
-#### 请求头
-
-此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
-
-#### 请求体
-该请求无请求体。
-
 #### 请求参数
+
 参数的具体内容如下：
 
 |节点名称（关键字）|父节点|描述|类型|是否必选|
@@ -37,6 +30,15 @@ Authorization: <Auth String>
 | states |无| 拉取该状态的任务，以`,`分割，支持多状态：All、Submitted、Running、Success、Failed、Pause、Cancel。默认为 All | String |否|
 | startCreationTime |无| 拉取创建时间大于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z`，示例：2001-01-01T00:00:00+0800 | String |否|
 | endCreationTime |无| 拉取创建时间小于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z`，示例：2001-01-01T23:59:59+0800    | String |否|
+
+
+#### 请求头
+
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
+
+#### 请求体
+该请求无请求体。
+
 
 ## 响应
 
@@ -65,7 +67,7 @@ Container 节点 Response 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| JobsDetail | Response | 任务的详细信息，同CreateMediaJobs 接口中的 Response.JobsDetail 节点 |  Container |
+| JobsDetail | Response | 任务的详细信息，同 CreateMediaJobs 接口中的 Response.JobsDetail 节点 |  Container |
 | NextToken | Response | 翻页的上下文Token |  String |
 
 #### 错误码

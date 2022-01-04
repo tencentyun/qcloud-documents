@@ -4,9 +4,9 @@
 </style>
 
 ## Demo 体验
-您可以直接下载我们的 Demo 进行功能体验，包括 X-magic Demo 工程以及集成了 X-magic 的 MLVB、UGSV、TRTC Demo 工程，您可以根据当前项目需要进行针对性的调试。
+您可以直接下载我们的 Demo 进行功能体验，包括腾讯特效 TE Demo 工程以及集成了 TE 的 MLVB、UGSV、TRTC Demo 工程，您可以根据当前项目需要进行针对性的调试。
 
->!腾讯特效 SDK 下载 iOS 平台 ZIP 包内囊括 SDK 和 Demo工程，若需使用 iOS 端口的 Demo 工程，可前往下载 iOS 端 ZIP 包。
+>! 腾讯特效 TE iOS 平台 ZIP 包内囊括 **SDK** 和 **Demo 工程**，可前往下载 [iOS 端 ZIP 包](https://cloud.tencent.com/document/product/616/65876)。
 
 <table>
 <thead>
@@ -22,8 +22,8 @@
 <tr>
 <td>腾讯特效 TE</td>
 <td><a href="https://cloud.tencent.com/document/product/616/65876">ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/6dffbd7690106f2dd51f187055cdc4bd.png" width=120><br><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic-demo-2.4.0.103-signed.apk">单击下载</a></td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.103/xmagic_S1-04_android_2.4.0.103.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/6dffbd7690106f2dd51f187055cdc4bd.png" width=120><br><a href="http://dldir1.qq.com/hudongzhibo/xmagic/xmagic-demo-2.4.0.108-signed.apk">单击下载</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.108/xmagic_S1-04_android_2.4.0.108.zip">ZIP 包</a></td>
 <td><a href="https://tcloud-doc.isd.com/document/product/616/65894?!preview&!editLang=zh">DOC</a></td></tr>
 <tr>
 <td>直播 MLVB</td>

@@ -77,7 +77,7 @@ Container 类型 Operation 的具体数据描述如下：
 | SuperResolution    | Request.Operation | 指定超分辨率模板参数                                         | Container | 否   |
 | TemplateId         | Request.Operation | 指定的模板 ID                                                 | String    | 否   |
 | Transcode          | Request.Operation | 指定转码模板参数，不能与 TranscodeTemplateId 同时为空             | Container | 否   |
-| TranscodeTemplateId| Request.Operation | 指定的转码模板 ID,优先使用模板 Id，不能与 Transcode 同时为空         | String  | 否|
+| TranscodeTemplateId| Request.Operation | 指定的转码模板 ID，优先使用模板 Id，不能与 Transcode 同时为空         | String  | 否|
 | Watermark          | Request.Operation | 指定水印模板参数，同创建水印模板 CreateMediaTemplate 接口的 Request.Watermark，最多传3个 | Container | 否 |
 | WatermarkTemplateId| Request.Operation | 指定的水印模板 ID，可以传多个水印模板 ID，最多传3个，优先使用模板 ID          | String    | 否 |无|
 | Output             | Request.Operation | 结果输出地址                                                 | Container | 是   |
@@ -86,10 +86,10 @@ Container 类型 Operation 的具体数据描述如下：
 
 Container 类型 SuperResolution 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                         | 描述                                   |
-| ------------------ | :----------------------------- | -------------------------------------- |
-| Resolution         | Request.Operation.SuperResolution | 同创建超分辨率模板 CreateMediaTemplate 接口中的 Request.Resolution | 
-| EnableScaleUp      | Request.Operation.SuperResolution | 同创建超分辨率模板 CreateMediaTemplate 接口中的 Request.EnableScaleUp|
+| 节点名称（关键字） | 父节点                         | 描述                                   | 类型                                 | 是否必选                               |
+| ------------------ | :----------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Resolution         | Request.Operation.SuperResolution | 同创建超分辨率模板 CreateMediaTemplate 接口中的 Request.Resolution | String | 是 |
+| EnableScaleUp      | Request.Operation.SuperResolution | 同创建超分辨率模板 CreateMediaTemplate 接口中的 Request.EnableScaleUp| String | 否 |
 
 Container 类型 Output 的具体数据描述如下：
 
@@ -217,7 +217,7 @@ Content-Type: application/xml
     <WatermarkTemplateId></WatermarkTemplateId>
     <Output>
         <Region>ap-beijing</Region>
-        <Bucket>abc-1250000000</Bucket>
+        <Bucket>examplebucket-1250000000</Bucket>
         <Object>test-montage.mkv</Object>
     </Output>
   </Operation>
@@ -256,7 +256,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
         <WatermarkTemplateId></WatermarkTemplateId>
         <Output>
             <Region>ap-beijing</Region>
-            <Bucket>abc-1250000000</Bucket>
+            <Bucket>examplebucket-1250000000</Bucket>
             <Object>test-montage.mkv</Object>
         </Output>
     </Operation>

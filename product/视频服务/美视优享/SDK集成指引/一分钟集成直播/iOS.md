@@ -1,6 +1,6 @@
 ## 集成准备
 
-1. 下载并解压 [Demo 包]()。
+1. 下载并解压 [Demo 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/MLVB-API-Example.zip)。
 2. 将 Demo工程中的 xmagic 模块（bundle，XmagicIconRes，Xmagic文件夹）导入到实际项目工程中。
 3. 导入 SDK 目录中的 libpag.framework，Masonry.framework，XMagic.framework，YTCommonXMagic.framework。
 4. framework 签名 **General--> Masonry.framework** 和 **libpag.framework** 选 **Embed & Sign**。
@@ -13,7 +13,7 @@
 ### 步骤一：初始化授权[](id:step1)
 
 <dx-tabs>
-::: 线上授权（X - Magic 版本 2.4.0 + 支持线上授权方式）
+::: 线上授权（TE 版本 2.4.0+ 支持线上授权方式）
 
 首先在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，其中，LicenseURL 和 Key是控制台绑定 License 时生成的授权信息：
 

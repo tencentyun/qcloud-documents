@@ -17,7 +17,7 @@
 
 ## 导入资源[](id:upload)
 ### 资源
-- 添加上述文件准备的全部 `.aar` 文件到 app 工程 `libs` 目录下。
+- 添加上述 `.aar` 文件到 app 工程 `libs` 目录下。
 - 将 lic 文件添加到 `src/main/assets/` 目录下。
 - 将 SDK 包内的 assets/ 目录下的全部资源拷贝到 `../src/main/assets` 目录下。
 - 将 jniLibs 文件夹拷贝到工程的 `../src/main/jniLibs` 目录下。
@@ -140,7 +140,7 @@ new XmagicApi.OnXmagicPropertyErrorListener());
 ```
 int outTexture = mXmagicApi.process(textureId, textureWidth, textureHeight);
 ```
-6. 用于更新指定类型的美颜特效数值。
+6. 用于更新指定类型的腾讯特效数值。
 ```java
 // 可用的入参属性可以从 XmagicResParser.parseRes() 获得
 mXmagicApi.updateProperty(XmagicProperty<?> p);

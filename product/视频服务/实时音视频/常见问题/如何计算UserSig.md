@@ -13,10 +13,9 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 ```
 >?
 >- `currtime` 为当前系统的时间，`expire` 为签名过期的时间。
->- 更多相关详情，请参见 [客户端计算 UserSig](#Client) 和 [服务端计算 UserSig](#Server)。
+>- 上述原理图仅做 UserSig 计算原理说明，如需了解具体的 UserSig 拼接代码实现方式，请参见 [客户端计算 UserSig](#Client) 和 [服务端计算 UserSig](#Server)。
 
 [](id:Key)
-
 ### 如何获取密钥？
 1. 登录**实时音视频控制台** > **[应用管理](https://console.cloud.tencent.com/trtc/app)**。
 2. 单击您需查看的 SDKAppID 对应的**应用信息**，单击进入**快速上手**页签。
@@ -39,7 +38,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
       ![](https://main.qcloudimg.com/raw/b0412153935704abc9e286868ad8a916.png)
 
 [](id:Client)
-### 客户端如何计算 UserSig？
+### 客户端如何计算及使用 UserSig？
 
 我们在 TRTC SDK 的示例代码中提供了一个叫做 `GenerateTestUserSig` 的开源模块，您只需要将其中的 SDKAPPID、EXPIRETIME 和 SECRETKEY 三个成员变量修改成您自己的配置，就可以调用 `genTestUserSig()` 函数获取计算好的 UserSig，从而快速跑通 SDK 的相关功能：
 
@@ -61,7 +60,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 >- 正确的做法是将 UserSig 的计算代码放在您的业务服务器上，然后由您的 App 在需要的时候向您的服务器获取实时算出的 UserSig。
 
 [](id:Server)
-### 服务端如何计算 UserSig？
+### 服务端如何计算及使用 UserSig？
 
 采用服务端计算 UserSig 的方案，可以最大限度地保障计算 UserSig 用的密钥不被泄露，因为攻破一台服务器的难度要高于逆向一款 App。具体的做法如下：
 
@@ -87,7 +86,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 |    C#    | HMAC-SHA256 |        [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs)         |   [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)   |
 
 [](id:Old)
-### 老版本算法如何计算 UserSig？
+### 老版本算法如何计算及使用 UserSig？
 
 为了简化签名计算难度，方便客户更快速地使用腾讯云服务，实时音视频自 2019-07-19 开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256，也就是从 2019-07-19 之后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。
 

@@ -78,7 +78,7 @@ void updateProperty(XmagicProperty<?> p)
 
 | 参数                  | 含义                                                                |
 | ------------------- | ----------------------------------------------------------------- |
-| XmagicProperty<?> p | 美颜特效数据实体类。无需用户手动构造。可通过 `XmagicResParser.getProperties()` 获取所有美颜特效实体类。 |
+| XmagicProperty<?> p | 腾讯特效数据实体类。无需用户手动构造。可通过 `XmagicResParser.getProperties()` 获取所有腾讯特效实体类。 |
 
 ------
 
@@ -94,7 +94,7 @@ void updateProperties(List<XmagicProperty<?>> properties)
 
 | 参数                                  | 含义                                                               |
 | ----------------------------------- | ---------------------------------------------------------------- |
-| (List<XmagicProperty<?>> properties | 美颜特效数据列表。无需用户手动构造。可通过 `XmagicResParser.getProperties()` 获取所有美颜特效实体类。 |
+| (List<XmagicProperty<?>> properties | 腾讯特效数据列表。无需用户手动构造。可通过 `XmagicResParser.getProperties()` 获取所有腾讯特效实体类。 |
 
 ***
 
@@ -310,7 +310,7 @@ boolean isSupportBeauty()
 
 ### isBeautyAuthorized
 
-判断当前的 lic 授权支持哪些美颜。 仅支持 BEAUTY 类型的美颜项检测。检测后的结果会赋值到各个美颜对象 `XmagicProperty.isAuthz` 字段中。
+判断当前的 lic 授权支持哪些美颜。 仅支持 BEAUTY 类型的美颜项检测。检测后的结果会赋值到各个美颜对象 `XmagicProperty.isAuth` 字段中。
 
 ```
 void isBeautyAuthorized(List<XmagicProperty<?>> properties) 
