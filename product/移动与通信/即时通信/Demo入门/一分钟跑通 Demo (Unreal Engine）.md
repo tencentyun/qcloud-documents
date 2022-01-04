@@ -19,7 +19,7 @@
    </tr>
    <tr>
       <td>Windows</td>
-      <td><li>操作系统：Windows 7 SP1 或更高的版本（基于 x86-64 的 64 位操作系统）。                    </li><li>磁盘空间：除安装 IDE 和一些工具之外还应有至少 1.64 GB 的空间。                            </li><li>安装<a href="https://visualstudio.microsoft.com/zh-hans/downloads/">Visual Studio 2019</a> 。        </li></td>
+      <td><li>操作系统：Windows 7 SP1 或更高的版本（基于 x86-64 的 64 位操作系统）。                    </li><li>磁盘空间：除安装 IDE 和一些工具之外还应有至少 1.64 GB 的空间。                            </li><li>安装 <a href="https://visualstudio.microsoft.com/zh-hans/downloads/">Visual Studio 2019</a> 。        </li></td>
    </tr>
 </table>
 
