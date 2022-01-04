@@ -2082,3 +2082,25 @@ virtual void getGlobalBackgroundPic()
 ```
 #### 返回
 TEduScrollPosition白板背景图结构
+
+### LoadTeduBoardResource
+预加载资源接口 
+``` C++
+EDUSDK_API void LoadTeduBoardResource(const char * 	fileUrl)	
+```
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileUrl | const char * | fileUrl	预加载文件的url路径 |
+
+### SetTeduBoardResourceConfig
+预加载资源接口配置信息
+``` C++
+EDUSDK_API void SetTeduBoardResourceConfig(unsigned int sdkAppId, const char * 	userId)	
+```
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| sdkAppId | unsigned int | 互动白板应用id |
+| userId | const char * |	用户id |
+

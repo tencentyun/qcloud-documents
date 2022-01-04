@@ -1,3 +1,14 @@
+### 2.6.9.92 @ 2021-12-10
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.9.92.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.9.92.zip)
+
+- 新增接口
+    1. 支持PPT课件进行静音操作(soundMuteForPPT)
+    2. 课件资源预加载，支持课前和课中加载，具体请参考[课件预加载文档](../高级功能/课件预加载.md)
+- 功能优化
+    1. 优化课件加载
+    2. 截图功能在异常dpr中丢失几个像素的问题
+
 ### 2.6.8.87 @ 2021-12-10
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.8.87.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.8.87.zip)
