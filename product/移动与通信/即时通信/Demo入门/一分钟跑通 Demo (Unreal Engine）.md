@@ -58,18 +58,18 @@
 2. 编译运行调试：
 <dx-tabs>
 ::: macOS\s端
-1. File -> Package Project -> Mac
+**File** -> **Package Project** -> **Mac**
 :::
 ::: Windows\s端
-1. File->Package Project->Windows->Windows(64-bit)
+**File**->**Package Project**->**Windows**->**Windows(64-bit)**
 ![](https://imgcache.qq.com/operation/dianshi/other/win.ba79ccce59ae58718e6c35c16cdef55531456a70.png)
 :::
 ::: iOS\s端
-1. 打包项目。File -> Package Project -> iOS
+打包项目。**File** -> **Package Project **-> **iOS**
 :::
 ::: Android\s端
-1.开发调试：详见[Android快速入门](https://docs.unrealengine.com/4.27/zh-CN/SharingAndReleasing/Mobile/Android/GettingStarted/)
-2.打包项目：详见[打包Android项目](https://docs.unrealengine.com/4.27/zh-CN/SharingAndReleasing/Mobile/Android/PackagingAndroidProject/)
+1. 开发调试：详见 [Android 快速入门](https://docs.unrealengine.com/4.27/zh-CN/SharingAndReleasing/Mobile/Android/GettingStarted/)
+2. 打包项目：详见 [打包 Android 项目](https://docs.unrealengine.com/4.27/zh-CN/SharingAndReleasing/Mobile/Android/PackagingAndroidProject/)
 :::
 </dx-tabs>
 
