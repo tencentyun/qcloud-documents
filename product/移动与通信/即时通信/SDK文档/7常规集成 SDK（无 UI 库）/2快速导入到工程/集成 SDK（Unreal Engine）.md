@@ -1,19 +1,25 @@
 本文主要介绍如何快速地将腾讯云 IM SDK（Unreal Engine）集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
 
 ## 环境要求
-- 建议 Unreal Engine 4.27.1 及以上版本。
-- **Android 端开发：**
-  - Android Studio 版本4.0及以上版本。
-  - Visual Studio 2017 15.6版或更高。
-  - 只支持真机调试。
-- **iOS & macOS 端开发：**
-  - Xcode 11.0及以上版本。
-  - OSX 系统版本要求 10.11 及以上版本。
-  - 请确保您的项目已设置有效的开发者签名。
-- **Windows 开发：**
-    - 操作系统：Windows 7 SP1 或更高的版本（基于 x86-64 的 64 位操作系统）。
-    - 磁盘空间：除安装 IDE 和一些工具之外还应有至少 1.64 GB 的空间。
-    - 安装 [Visual Studio 2019](https://visualstudio.microsoft.com/zh-hans/downloads/)。
+建议 Unreal Engine 4.27.1 及以上版本。
+<table>
+   <tr>
+      <th width="0px" style="text-align:center">开发端</td>
+      <th width="0px" style="text-align:center">环境</td>
+   </tr>
+   <tr>
+      <td>Android</td>
+      <td><li>Android Studio 版本4.0及以上版本。</li><li>Visual Studio 2017 15.6版或更高。 </li><li>只支持真机调试                    </li></td>
+   </tr>
+   <tr>
+      <td>iOS & macOS</td>
+      <td><li>Xcode 11.0及以上版本。                   </li><li>OSX 系统版本要求 10.11 及以上版本        </li><li>请确保您的项目已设置有效的开发者签名。   </li></td>
+   </tr>
+   <tr>
+      <td>Windows</td>
+      <td><li>操作系统：Windows 7 SP1 或更高的版本（基于 x86-64 的 64 位操作系统）。                    </li><li>磁盘空间：除安装 IDE 和一些工具之外还应有至少 1.64 GB 的空间。                            </li><li>安装 <a href="https://visualstudio.microsoft.com/zh-hans/downloads/">Visual Studio 2019</a> 。        </li></td>
+   </tr>
+</table>
 
 ## 集成 SDK
 1. 下载 SDK 及配套的 [SDK 源码](https://github.com/tencentyun/IMUnrealEngine)（有疑问可加入 QQ 群号：764231117 咨询）。
