@@ -18,8 +18,6 @@ Content-Type: application/xml
 ```
 
 >? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
->
-
 
 #### 请求头
 
@@ -57,7 +55,7 @@ Container 类型 Request 的具体数据描述如下：
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
 | Tag                | Request | 创建任务的 Tag：VideoTag                                   | String    | 是   |
 | Input              | Request | 待操作的媒体信息                                         | Container | 是   |
-| Operation          | Request | 操作规则，支持对单个文件执行多个不同任务，最多可填写6个       |Container | 是   |
+| Operation          | Request | 操作规则，支持对单个文件执行多个不同任务，最多可填写6个       | Container | 是   |
 | QueueId            | Request | 任务所在的队列 ID                                         | String    | 是   |
 | CallBack           | Request | 回调地址                                                | String    | 否   |
 
@@ -77,11 +75,7 @@ Container 类型 VideoTag 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                      | 描述                                   | 类型      | 是否必选 |限制 |
 | ------------------ | :------------------------ | -------------------------------------- | --------- | ---- |---- |
-| Scenario           | Request.Operation.VideoTag | 场景类型，可选择视频标签的运用场景，不同的运用场景所使用的算法、输入输出等都会有所差异                              |string | 是  | 当前版本只适配"Stream"场景 |
-| MediaType          | Request.Operation.VideoTag | 文件类型                               | string | 是   |Video|
-| MediaLabel         | Request.Operation.VideoTag | 媒体一级标签                           | string | 是   |1. News<br/>2. Entertainment<br/>3. Internet<br/>4. Movie<br/>5. Series<br/>6. Special<br/>7. Sport<br/>|
-| MediaSecondLabel   | Request.Operation.VideoTag | 媒体二级标签                           | string | 否   |1. Evening<br/>2. Other<br/>注：当MediaLabel=Entertainment时,该字段才有意义|
-| MediaLang          | Request.Operation.VideoTag | 媒体语言                              | string | 是   |1. Mandarin<br/>2. Cantonese| -->
+| Scenario           | Request.Operation.VideoTag | 场景类型，可选择视频标签的运用场景，不同的运运用场景使用的算法、输入输出等都会有所差异                              | string | 是  | 当前版本只适配 Stream 场景 |
 
 
 ## 响应
@@ -148,7 +142,7 @@ Container 节点 JobsDetail 的内容：
 | Operation | Response.JobsDetail | 该任务的规则，支持对单个文件执行多个不同任务，最多可填写6个 |  Container |
 
 Container 节点 Input 的内容：
-同请求中的 Request.Input 节点。
+同 请求中的 Request.Input 节点。
 
 Container 节点 Operation 的内容：
 
@@ -166,8 +160,8 @@ Container 节点 Operation 的内容：
 
 ```shell
 POST /jobs HTTP/1.1
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
 
@@ -194,7 +188,7 @@ Content-Length: 230
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
 
 <Response>
   <JobsDetail>
