@@ -237,7 +237,7 @@ public class ResponseClass {
 2. 使用编译后的包作为提交包上传。
    您可以自行选择使用 zip 上传，或先上传至 COS Bucket 后再通过选择 COS Bucket 上传来提交。
 3. 设置云函数的执行方法为 `example.Pojo::handle`。
-4. 通过测试按钮展开测试界面，在测试模版内输入期望能处理的入参：
+4. 通过测试按钮展开测试界面，在测试模板内输入期望能处理的入参：
 ```json
 {  "person": {"firstName":"bob","lastName":"zou"},  "city": {"name":"shenzhen"}}
 ```
