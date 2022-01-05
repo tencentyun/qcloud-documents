@@ -1,4 +1,4 @@
-本文主要介绍如何快速的将腾讯云 TEduBoard SDK 集成到您的项目中。如果您使用互动课堂方案，请前往 [互动课堂集成文档](https://github.com/tencentyun/TIC/blob/master/Android/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3.md) 。
+本文主要介绍如何快速的将腾讯云 TEduBoard SDK 集成到您的项目中。如果您使用互动课堂方案，请前往 [互动课堂集成](https://github.com/tencentyun/TIC/blob/master/Android/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3.md)。
 
 ## 开发环境
 
@@ -245,7 +245,7 @@ TIMGroupManager.getInstance().applyJoinGroup(groupId, desc + groupId, new TIMCal
 });
 ```
 
-**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2 文档](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#ad64a09bea508672d6d5a402b3455b564)**。
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#ad64a09bea508672d6d5a402b3455b564)**。
 
 如果 IM 群组不存在，请先创建群组。
 
@@ -291,7 +291,7 @@ TIMGroupManager.getInstance().quitGroup(groupId, new TIMCallBack() {//NOTE:在�
 });
 ```
 
-**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2 文档](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#a6d140dbeb44906de9cb69f69c2ce5919)**。
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#a6d140dbeb44906de9cb69f69c2ce5919)**。
 
 步骤2：登出 IMSDK
 
