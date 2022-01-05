@@ -27,7 +27,7 @@
 </thead>
 <tbody>
   <tr>
-    <td>QPS峰值</td>
+    <td>QPS 峰值</td>
     <td>10</td>
     <td>30</td>
   </tr>
