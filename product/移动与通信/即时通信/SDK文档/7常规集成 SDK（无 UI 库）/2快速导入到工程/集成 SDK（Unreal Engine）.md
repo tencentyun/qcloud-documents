@@ -23,7 +23,7 @@
 
 ## 集成 SDK
 1. 下载 SDK 及配套的 [SDK 源码](https://github.com/tencentyun/IMUnrealEngine)（有疑问可加入 QQ 群号：764231117 咨询）。
-2. 把项目中的 `IMSDK` 文件夹拷贝到您项目中的 **Source/[project_name]** 目录下，其中 **[project_name]** 表示你项目的名称。
+2. 把项目中的 IMSDK 文件夹拷贝到您项目中的 **Source/[project_name]** 目录下，其中 **[project_name]** 表示你项目的名称。
 3. 编辑你项目中的 **[project_name].Build.cs**文件。添加下面函数：
 ```
 // 加载各个平台IM底层库
@@ -82,9 +82,9 @@ private void loadTIMSDK(ReadOnlyTargetRules Target) {
     }
 }
 ```
-4. 在**[project_name].Build.cs** 文件调用该函数：
-![](https://imgcache.qq.com/operation/dianshi/other/TRTCSDK.82d81b0b8fe050772b3c8e02c4578b920515a580.jpg)
-5. 到目前为止你已经集成了 IM SDK。可在你的 cpp 文件中使用 TRTC。`#include "V2TIMManager.h"`
+4. 在 **[project_name].Build.cs** 文件调用该函数：
+![](https://qcloudimg.tencent-cloud.cn/raw/2bca6fc64ec1ffb56378f08b8d92e675.png)
+5. 到目前为止你已经集成了 IM SDK。可在你的 cpp 文件中使用 IM 的能力了。`#include "V2TIMManager.h"`
 ```
 // 获取sdk单例对象
 V2TIMManager* timInstance = V2TIMManager::GetInstance();
@@ -115,5 +115,5 @@ bool isInit = timInstance->InitSDK(SDKAppID, timConfig);
 :::
 </dx-tabs>
 
-## IM 全平台 C++ API 文档
-[API 概览](https://comm.qq.com/imsdk/ue4/md_introduction_CPP%E6%A6%82%E8%A7%88.html)
+## IM Unreal Engine API 文档
+更多接口介绍，请参见 [API 概览](https://comm.qq.com/imsdk/ue4/md_introduction_CPP%E6%A6%82%E8%A7%88.html)。

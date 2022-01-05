@@ -56,7 +56,7 @@
 
 >?
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
->- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
+>- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688)。
 
 [](id:step4)
 ### 步骤4：编译打包运行
@@ -71,16 +71,17 @@
 ![](https://imgcache.qq.com/operation/dianshi/other/win.ba79ccce59ae58718e6c35c16cdef55531456a70.png)
 :::
 ::: iOS\s端
-打包项目。**File** -> **Package Project **-> **iOS**
+打包项目
+**File** -> **Package Project**-> **iOS**
 :::
 ::: Android\s端
-1. 开发调试：详见 [Android 快速入门](https://docs.unrealengine.com/4.27/zh-CN/SharingAndReleasing/Mobile/Android/GettingStarted/)
-2. 打包项目：详见 [打包 Android 项目](https://docs.unrealengine.com/4.27/zh-CN/SharingAndReleasing/Mobile/Android/PackagingAndroidProject/)
+1. 开发调试：详见 [Android 快速入门](https://docs.unrealengine.com/4.27/zh-CN/SharingAndReleasing/Mobile/Android/GettingStarted/)。
+2. 打包项目：详见 [打包 Android 项目](https://docs.unrealengine.com/4.27/zh-CN/SharingAndReleasing/Mobile/Android/PackagingAndroidProject/)。
 :::
 </dx-tabs>
 
-## TRTC全平台 C++ API 文档
-[API 概览](https://comm.qq.com/imsdk/ue4/md_introduction_CPP%E6%A6%82%E8%A7%88.html)
+## IM Unreal Engine API 文档
+更多接口介绍，请参见 [API 概览](https://comm.qq.com/imsdk/ue4/md_introduction_CPP%E6%A6%82%E8%A7%88.html)。
 
 ## 常见问题
 
