@@ -30,6 +30,31 @@
    ![](https://main.qcloudimg.com/raw/d7fd3c3539d6f623f45ebfdf0674d97e.png)
 3. 单击【确定】，即可将插件绑定到 API，此时插件的配置已经对 API 生效。
 
+## PluginData
+
+```json
+{
+    "allow_origin":[ // 允许的ORIGIN, 支持*，表示全部域名都允许
+        "*"
+    ],
+    "allow_methods":[ // 允许的方法, 支持GET、PUT、POST、DELETE、HEAD
+        "PUT",
+        "GET",
+        "POST",
+        "DELETE",
+        "HEAD"
+    ],
+    "allow_headers":[ // 允许的请求头部, 支持*，表示全部 Header 都允许
+        "X-Api-ID"
+    ],
+    "expose_headers":[ // 允许暴露给XMLHttpRequest对象的头, 支持*，表示全部 Header 都允许
+        "X-Api-ID"
+    ],
+    "allow_credentials":true, // 是否允许Cookie
+    "max_age":600 // 设置 OPTIONS 请求得到结果的有效期（秒）。数值必须为正整数，例如600秒
+}
+```
+
 ## 注意事项
 
 目前 API 网关中有两个地方可以设置跨域访问控制规则：
