@@ -1,12 +1,12 @@
 ## 功能介绍
 
-神笔aPaaS中 RESTful API 为开发者提供了一种通过 HTTP 请求与外部数据远程交互的方式。通过RESTful API 用 Json 携带数据发送 HTTP 请求后，会收到对应的 Json 格式的响应数据包。开发者可以通过 RESTful API 请求对数据进行增、删、改、查操作。
+千帆神笔 aPaaS中 RESTful API 为开发者提供了一种通过 HTTP 请求与外部数据远程交互的方式。通过RESTful API 用 Json 携带数据发送 HTTP 请求后，会收到对应的 Json 格式的响应数据包。开发者可以通过 RESTful API 请求对数据进行增、删、改、查操作。
 
 【使用须知】本功能属于平台高级能力，暂未全面开放，如您有意使用，请先邮件gqtian@tencent.com 并提供您的租户 ID，平台审核通过后方可使用。
 
 ## 外部数据源管理
 
-登录 [神笔 aPaaS 设计态首页](https://apaas.cloud.tencent.com/)，单击【对象建模】，右侧点击【外部数据源】，进入查看外部数据源列表。![1639033394351](https://qcloudimg.tencent-cloud.cn/raw/649b23feb849ebb03fab74ed4ab355d2.png)
+登录 [千帆神笔 aPaaS设计态首页](https://apaas.cloud.tencent.com/)，单击【对象建模】，右侧点击【外部数据源】，进入查看外部数据源列表。![1639033394351](https://qcloudimg.tencent-cloud.cn/raw/649b23feb849ebb03fab74ed4ab355d2.png)
 
 ## 通过Restful API 新建外部数据源
 
