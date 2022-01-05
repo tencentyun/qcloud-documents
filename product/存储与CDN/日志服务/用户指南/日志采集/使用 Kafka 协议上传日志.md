@@ -1,4 +1,4 @@
-日志服务（Cloud Log Service，CLS）目前已支持使用 Kafka Producer SDK 和其他 Kafka 相关 agent 上传日志日志到 CLS。
+日志服务（Cloud Log Service，CLS）目前已支持使用 Kafka Producer SDK 和其他 Kafka 相关 agent 上传日志到 CLS。
 
 ## 相关限制
 
@@ -34,27 +34,6 @@
 >
   
 ## 示例
-
-### Java 上传日志到 CLS
-
-#### Java SDK 示例
-
-```java
-Properties props = new Properties(); 
-props.put("bootstrap.servers", "xxxxxxxxxxxxxxxx:9895");    //produce 服务域名
-props.put("acks", "all");
-props.put("retries", xxx); 
-props.put("batch.size", xxxx); 
-props.put("tinger.ms", x); 
-props.put("buffer.memory", xxxxxx) 
-props.put("key.seriaLizer", "org.apache.kafka.common.serialization.StringSeriatizer");
-props.put("vatue.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-props.put("security.protocol", "SASL_PLAINTEXT"); 
-props.put("sasl.mechanism", "PLAIN");
-props.put("sasl.jaas.config", "org.apache.kafka..common.security.plain.PlainLoginModule required username='xxxxxxxx', password='xxxxxxxxxx#xxxxxxxxx';")    //username 填写日志集 ID，格式为 ${SecurityID}#${SecurityKey}#
-return props;
-```
-
 
 ### 通过 filebeat 采集日志到日志服务
 
@@ -107,35 +86,7 @@ func main() {
 }
 ```
 
-### 通过 Kafka Sarama SDK 上传日志到日志服务
 
-```
-func StartKafka() {
-	config := sarama.NewConfig()
-	config.Producer.Return.Successes = true
-	config.Version = sarama.V0_11_0_0
-	producer, err := sarama.NewSyncProducer([]string{"gz-producer.cls.tencentcs.com:9096"}, config)
-	if err != nil {
-		fmt.Println("new sync producer err : ", err)
-		return
-	}
-	defer producer.Close()
-	msg := &sarama.ProducerMessage{
-		Topic: "xxxxx",
-		Value: sarama.StringEncoder("go kafka client test - inner:9095 "),
-	}
-	// 发送消息
-	for {
-		message, offset, err := producer.SendMessage(msg)
-		if err != nil {
-			fmt.Println("SendMessage err : ", err)
-			return
-		}
-		fmt.Println(message, " ", offset)
-		time.Sleep(time.Duration(1) * time.Second)
-	}
-}
-```
  
  
 

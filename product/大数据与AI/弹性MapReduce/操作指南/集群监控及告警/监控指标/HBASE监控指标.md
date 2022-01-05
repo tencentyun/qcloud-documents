@@ -240,9 +240,9 @@
 ### HBASE-RegionServer
 <table>
 <tr>
-<th width=20%>标题 </th>
+<th width=23%>标题 </th>
 <th width=20%>指标名称</th>
-<th width=15%>指标单位</th>
+<th width=12%>指标单位</th>
 <th width=45%>指标含义 </th>
 </tr><tr>
 <td rowspan=2>GC 次数 </td>
@@ -365,7 +365,7 @@
 <td >Region 个数</td>
 </tr><tr>
 <td >Region 本地化</td>
-<td >percentFilesLocal	</td>
+<td >percentFilesLocal  </td>
 <td >%</td>
 <td >Region 的 HFile 位于本地 HDFS data node的比例</td>
 </tr><tr>
@@ -485,7 +485,7 @@
 <td >storeFileSize</td>
 <td >MB</td>
 <td >Storefile 大小</td>
-</tr><tr>、
+</tr><tr>
 <td >写磁盘速率</td>
 <td >flushedCellsSize</td>
 <td >bytes/s</td>
@@ -606,7 +606,7 @@
 <td >bytes/s</td>
 <td >接收数据量</td>
 </tr><tr>
-<td rowspan=10>写请求量</td>
+<td rowspan=10>读写请求量</td>
 <td >Total</td>
 <td >个/s</td>
 <td >总请求量，当有Scan请求时，该值会小于读写请求之和</td>
@@ -662,44 +662,44 @@
 <td >s</td>
 <td >进程启动时间</td>
 </tr><tr>
-<td >同步Log</td>
-<td >	source.sizeOfLogQueue</td>
+<td >同步 Log</td>
+<td >   source.sizeOfLogQueue</td>
 <td >个</td>
-<td >同步Log长度</td>
+<td >同步 Log 长度</td>
 </tr><tr>
 <td >同步耗时</td>
-<td >	source.ageOfLastShippedOp</td>
+<td >   source.ageOfLastShippedOp</td>
 <td >ms</td>
 <td >同步耗时</td>
 </tr><tr>
 <td rowspan=2>请求量</td>
-<td >	ReadRequestCount</td>
-<td >	个/s</td>
+<td >   ReadRequestCount</td>
+<td >   个/s</td>
 <td >读请求量/s</td>
 </tr><tr>
-<td >	WriteRequestCount</td>
-<td >	个/s</td>
+<td >   WriteRequestCount</td>
+<td >   个/s</td>
 <td >写请求量/s</td>
 </tr><tr>
 <td rowspan=2>请求量</td>
-<td >	Read</td>
-<td >	个/s</td>
+<td >   Read</td>
+<td >   个/s</td>
 <td >读请求量/s</td>
 </tr><tr>
-<td >	Write</td>
-<td >	个/s</td>
+<td >   Write</td>
+<td >   个/s</td>
 <td >写请求量/s</td>
 </tr><tr>
 <td rowspan=2>Store大小</td>
-<td >	memstoreSize</td>
-<td >	Byte</td>
+<td >   memstoreSize</td>
+<td >   Byte</td>
 <td >memstore大小</td>
 </tr><tr>
-<td >	storeFileSize</td>
-<td >	Byte</td>
+<td >   storeFileSize</td>
+<td >   Byte</td>
 <td storeFile大小</td>
 </tr><tr>
-<td rowspan=6>表级别请求延迟</td>		
+<td rowspan=6>表级别请求延迟</td>      
 <td >getTime_99th_percentile</td>
 <td >ms</td>
 <td >99%请求处理时延</td>

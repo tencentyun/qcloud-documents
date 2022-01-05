@@ -5,9 +5,12 @@
 <dx-tabs>
 ::: 使用控制台获取
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/)。
-2. 在实例的管理页面，鼠标移动至主 IP 地址列，出现 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin: -3px 0px;"></img>。如下图所示：
+2. 在实例的管理页面，根据实际使用的视图模式进行操作：
+  - **列表视图**：鼠标移动至主 IP 地址列，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin: 0;"/>，即可复制该 IP 地址。	如下图所示：
 ![](https://main.qcloudimg.com/raw/7f184b52a3311b4d3cc45b810bbda04f.png)
-3. 单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin: 0;"/>，即可复制该 IP 地址。	
+  - **页签视图**：在实例页面中，单击 “IP地址”中公网地址后的 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin: 0;"/> 即可复制公网 IP。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/19885d09721c2a2255324a45f60ad0c8.png)
+
 <dx-alert infotype="notice" title="">
 由于公网 IP 地址通过 NAT 映射到内网 IP 地址，因此，您如果在实例内部查看网络接口的属性（例如通过 `ifconfig (Linux)` 或 `ipconfig (Windows)` 命令），将不会显示公网 IP 地址。如需从实例内部确定实例的公网 IP 地址，可参考 [使用实例元数据获取](#jump)。
 </dx-alert>

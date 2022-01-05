@@ -16,9 +16,9 @@
 ## 原理解析
 音视频通话TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口机”和“代理机”：
 - **接口机**
-该类节点都采用最优质的线路和高性能的机器，善于处理端到端的低延时连麦通话，单位时长计费较高。
+该类节点都采用最优质的线路和高性能的机器，善于处理端到端的低延时连麦通话。
 - **代理机**
-该类节点都采用普通的线路和性能一般的机器，善于处理高并发的拉流观看需求，单位时长计费较低。
+该类节点都采用普通的线路和性能一般的机器，善于处理高并发的拉流观看需求。
 
 在通话模式下，音视频通话TRTC 房间中的所有用户都会被分配到接口机上，相当于每个用户都是“主播”，每个用户随时都可以发言（最高的上行并发限制为50路），因此适合在线会议等场景，但单个房间的人数限制为300人。
 ![](https://main.qcloudimg.com/raw/b88a624c0bd67d5d58db331b3d64c51c.gif)
@@ -52,7 +52,7 @@ dependencies {
       }
   }
 ```
-3. 单击【Sync Now】同步 SDK。
+3. 单击**Sync Now**同步 SDK。
  如果您的网络连接 jcenter 没有问题，SDK 会自动下载集成到工程中。
 
 #### 方式二：下载 ZIP 包手动集成
@@ -114,8 +114,8 @@ public void onError(int errCode, String errMsg, Bundle extraInfo) {
 | 参数名称 | 字段类型 | 补充说明 |填写示例 |
 |---------|---------|---------|---------|
 | sdkAppId | 数字 | 应用 ID，您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。|1400000123 |
-| userId | 字符串 | 只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。 |test_user_001 |
-| userSig | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/1449/58939)。| eJyrVareCeYrSy1SslI... |
+| userId | 字符串 | 只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。建议结合业务实际账号体系自行设置。 |test_user_001 |
+| userSig | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/1449/58939)。| eJyrVareCeYrSy1SslI... |
 | roomId | 数字 | 默认不支持字符串类型的房间号，字符串类型的房间号会影响进房速度。如果您确实需要支持字符串类型的房间号，可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。 | 29834 |
 
 >!TRTC 同一时间不支持两个相同的 userId 进入房间，否则会相互干扰。

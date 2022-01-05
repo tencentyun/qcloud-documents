@@ -1,7 +1,8 @@
 
 ## Request 智能推荐
 >? Request 智能推荐功能目前处于内部邀请使用阶段，如需使用可 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
->
+
+
 ### 介绍
 
 Kubernetes 可以有效的提升业务编排能力和资源利用率，但如果没有额外的能力支撑，提升的能力十分有限，根据 TKE 团队之前统计的数据：[Kubernetes 降本增效标准指南 | 容器化计算资源利用率现象剖析](https://mp.weixin.qq.com/s/8sHsI1pVm-1RX5w1F3uWPg)，TKE 节点的资源平均利用率也只有14%左右。如下图所示：
@@ -58,6 +59,9 @@ X86，不支持 ARM 机型
 
 
 ## 操作步骤
+
+以下视频和文档介绍了如何在腾讯云容器服务中使用 Request 智能推荐。
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3557-61732?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ### 开启/关闭 Request 智能推荐
 

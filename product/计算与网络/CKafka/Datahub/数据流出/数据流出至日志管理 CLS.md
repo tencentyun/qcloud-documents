@@ -57,5 +57,4 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至日志管�
 ## 产品限制和费用计算
 
 - 转储速度与 CKafka 实例峰值带宽上限有关，如出现消费速度过慢，请检查 CKafka 实例的峰值带宽或增加 CKafka partition 数。
-- 转储速度与 CKafka 单个文件大小相关，如超过该500M，会自动分包上传。
 - 该功能基于云函数 SCF 服务提供。SCF 为用户提供了一定 [免费额度](https://cloud.tencent.com/document/product/583/12282) ，超额部分产生的收费，请以 SCF 服务的 [计费规则](https://cloud.tencent.com/document/product/583/17299) 为准。
