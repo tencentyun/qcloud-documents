@@ -1,5 +1,5 @@
 [](id:UserSig)
-## 什么是 UserSig？
+### 什么是 UserSig？
 
 UserSig 是腾讯云设计的一种安全保护签名，目的是为了阻止恶意攻击者盗用您的云服务使用权。
 目前，腾讯云的实时音视频（TRTC）、即时通信（IM）以及移动直播（MLVB）等服务都采用了该套安全保护机制。要使用这些服务，您需要在相应 SDK 的初始化或登录函数中提供 SDKAppID，UserID 和 UserSig 三个关键信息。
@@ -16,7 +16,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 >- 上述原理图仅做 UserSig 计算原理说明，如需了解具体的 UserSig 拼接代码实现方式，请参见 [客户端计算 UserSig](#Client) 和 [服务端计算 UserSig](#Server)。
 
 [](id:Key)
-## 调试跑通阶段如何计算 UserSig？
+### 调试跑通阶段如何计算 UserSig？
 如果您当前希望快速跑通 Demo，了解 TRTC SDK 相关能力，您可以通过**客户端示例代码**和**控制台**两种方法计算获取UserSig，具体请参考以下介绍。
 
 >!
@@ -99,7 +99,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 </dx-tabs>
 
 [](id:formal)
-## 正式运行阶段如何计算 UserSig？
+### 正式运行阶段如何计算 UserSig？
 
 业务正式运行阶段，TRTC 提供安全等级更高的服务端计算 UserSig 的方案，可以最大限度地保障计算 UserSig 用的密钥不被泄露，因为攻破一台服务器的难度要高于逆向一款 App。具体的实现流程如下：
 
