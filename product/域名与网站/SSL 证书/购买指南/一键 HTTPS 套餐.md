@@ -1,12 +1,14 @@
 ## 概述
 一键 HTTPS 是 SSL 证书结合腾讯云 Web 应用防火墙（WAF）服务开发的快速部署 HTTPS 功能，帮助用户网站的 HTTPS 访问升级。使用该功能，您无需进行繁琐的 SSL 证书部署操作，仅需配置一个 CNAME 解析，即可实现从 HTTP 到 HTTPS 的能力升级。
 使用一键 HTTPS 功能时，需购买一键 HTTS 套餐才可正常使用。
->? 一键 HTTPS 功能操作步骤请参考 [一键 HTTPS](https://cloud.tencent.com/document/product/400/58062)。
+>? 
+>- 一键 HTTPS 功能操作步骤请参考 [一键 HTTPS](https://cloud.tencent.com/document/product/400/58062)。
+>- 一键 HTTPS 套餐将于**2022年01月07日**开放购买。
 
 
 
 ## 计费方式
-一键 HTTS 套餐为预付费包年结算方式计费，登录腾讯云 SSL 证书 [一键 HTTPS 管理控制台](https://console.cloud.tencent.com/https)，即可购买一键 HTTPS 套餐。如下图所示：
+一键 HTTS 套餐为预付费包年包月结算方式计费，登录腾讯云 SSL 证书 [一键 HTTPS 管理控制台](https://console.cloud.tencent.com/https)，即可购买一键 HTTPS 套餐。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/49505d00ffb01120085f96ba2bec7341.png)
 >?
 >- 一键 HTTPS 套餐目前仅支持包年包月预付费模式，不支持按照使用时长、流量结算。
@@ -26,7 +28,7 @@
 <tbody>
   <tr>
     <td>一键 HTTPS</td>
-    <td>不支持</td>
+    <td>支持</td>
     <td>支持</td>
   </tr>
   <tr>

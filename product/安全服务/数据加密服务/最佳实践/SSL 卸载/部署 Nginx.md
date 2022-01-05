@@ -1,6 +1,6 @@
 本文主要介绍如何部署 Nginx 服务 以及在 Nginx 上配置证书文件。
 
-1. 将 `nginx-1.16.0_tassl_hsm.tgz` 上传至 CVM2上并解压，下述以解压至 `/root/ nginx-1.16.0_tassl` 为例。
+1. 将 `nginx-1.16.0_tassl_hsm.tgz` 上传至 CVM2 上并解压，下述以解压至 `/root/ nginx-1.16.0_tassl` 为例。
 2. 安装 Nginx，在 `/root/nginx-1.16.0_tassl` 目录下执行：
 ```
 ./configure --with-http_ssl_module --with-stream --with-stream_ssl_module --with-openssl=/root/tasshsm_engine/tassl --prefix=/root/nginx
