@@ -1,4 +1,4 @@
-本文主要介绍如何快速的将腾讯云 TEduBoard SDK 集成到您的项目中。如果您使用互动课堂方案，请前往 [互动课堂集成文档](https://github.com/tencentyun/TIC/blob/master/Android/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3.md) 。
+本文主要介绍如何快速的将腾讯云 TEduBoard SDK 集成到您的项目中。如果您使用互动课堂方案，请前往 [互动课堂集成](https://github.com/tencentyun/TIC/blob/master/Android/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3.md)。
 
 ## 开发环境
 
@@ -172,7 +172,7 @@ void onTEBWarning(int code, String msg);
 ```
 
 #### 3. 白板窗口获取及显示
-在 `onTEBInit`  回调方法内，使用如下代码获取并显示白板视图：
+在 onTEBInit 回调方法内，使用如下代码获取并显示白板视图：
 
 ```java
 // （1）在 Activity 的布局 xml 文件中，用 FrameLayout 占位，将来放 board 的 View。
@@ -206,7 +206,7 @@ TIMSdkConfig timSdkConfig = new TIMSdkConfig(appId)
     //TODO::在正式发布时，设TIMLogLevel.OFF
 TIMManager.getInstance().init(context, timSdkConfig);
 ```
-> 注意: 以上示例为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2 文档](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#ac905c315726b517ba62421471bbecf56)
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#ac905c315726b517ba62421471bbecf56)**。
 
 如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，请在 Application 的 onCreate 方法中初始化 IMSDK，否则请在登录前初始化 IMSDK，在登出后反初始化 IMSDK 。
 
@@ -225,7 +225,7 @@ TIMGroupManager.getInstance().login(userId, userSig, new TIMCallBack() {
 });
 ```
 
-> 注意: 以上示例为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2 文档](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#a73fc0e14c5f2f5fc06a80081479fb416)
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#a73fc0e14c5f2f5fc06a80081479fb416)**
 
 步骤3：加入群组
 
@@ -245,7 +245,7 @@ TIMGroupManager.getInstance().applyJoinGroup(groupId, desc + groupId, new TIMCal
 });
 ```
 
-> 注意: 以上示例为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2 文档](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#ad64a09bea508672d6d5a402b3455b564)
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#ad64a09bea508672d6d5a402b3455b564)**。
 
 如果 IM 群组不存在，请先创建群组。
 
@@ -261,16 +261,13 @@ TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() 
         // 创建 IM 群组失败        
 });
 ```
-
-> 注意: 以上示例为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2 文档](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#af836e4912f668dddf6cc679233cfb0bb)
-
-
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#af836e4912f668dddf6cc679233cfb0bb)**。
 >!1. 推荐业务后台使用 [IM REST API](https://cloud.tencent.com/document/product/269/1615) 提前创建群组。<br>2. 不同的群组类型，群组功能以及成员数量有所区别，具体请查看 [IM 群组系统](https://cloud.tencent.com/document/product/269/1502)。
 
 
 #### 5. 销毁白板
 
-调用 `unInit` 方法后，内部将彻底销毁白板并停止计费，请您确保此接口的调用。
+调用 unInit 方法后，内部将彻底销毁白板并停止计费，请您确保此接口的调用。
 
 ```java
 mBoard.uninit();
@@ -294,7 +291,7 @@ TIMGroupManager.getInstance().quitGroup(groupId, new TIMCallBack() {//NOTE:在�
 });
 ```
 
-> 注意: 以上示例为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2 文档](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#a6d140dbeb44906de9cb69f69c2ce5919)
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#a6d140dbeb44906de9cb69f69c2ce5919)**。
 
 步骤2：登出 IMSDK
 
@@ -311,7 +308,7 @@ TIMManager.getInstance().logout(new TIMCallBack() {
 });
 ```
 
-> 注意: 以上示例为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2 文档](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#a0398924fa1b62a8f5cc9b51673273b48)
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#a0398924fa1b62a8f5cc9b51673273b48)**。
 
 步骤3：反初始化 IMSDK
 
@@ -319,7 +316,7 @@ TIMManager.getInstance().logout(new TIMCallBack() {
 TIMManager.getInstance().unInit();
 ```
 
-> 注意: 以上示例为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2 文档](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#a8ac73b4f71f9d9a1ca01551c919d3cdd)
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#a8ac73b4f71f9d9a1ca01551c919d3cdd)**。
 
 如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，无需调用此接口。
 

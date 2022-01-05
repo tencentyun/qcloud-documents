@@ -17,13 +17,14 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 [](id:Key)
 ## 调试跑通阶段如何计算 UserSig？
-如果您当前希望快速跑通 Demo，了解 TRTC SDK 相关能力，您可以通过**客户端示例代码**和**控制台**两种方法计算获取UserSig，具体请参考以下介绍。
+如果您当前希望快速跑通 Demo，了解 TRTC SDK 相关能力，您可以通过 [客户端示例代码](#client) 和 [控制台](#console) 两种方法计算获取UserSig，具体请参考以下介绍。
 
 >!
 - 以上两种 UserSig 获取计算方案仅适用于调试，如果产品要正式上线，**不推荐**采用这种方案，因为客户端代码（尤其是 Web 端）中的 SECRETKEY 很容易被反编译逆向破解。一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量。
 - 正确的做法是将 UserSig 的计算代码放在您的业务服务器上，然后由您的 App 在需要的时候向您的服务器获取实时算出的 UserSig。
-<dx-tabs>
-::: 客户端示例代码计算 UserSig
+
+[](id:client)
+### 客户端示例代码计算 UserSig
 1. **获取 SDKAPPID 和密钥**：
     1. 登录**实时音视频控制台** > **[应用管理](https://console.cloud.tencent.com/trtc/app)**。
     2. 单击您需查看的 SDKAppID 对应的**应用信息**，单击进入**快速上手**页签。
@@ -88,15 +89,15 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
   - 切换为新版本算法 HMAC-SHA256：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f2dae58eecc542686e034dbabb5334ff.png)
 
-:::
-::: 控制台获取 UserSig
+
+[](id:console)
+### 控制台获取 UserSig
 1. 登录**实时音视频控制台**，进入**开发辅助** > **[UserSig生成&校验](https://console.cloud.tencent.com/trtc/usersigtool)**。
 2. 在签名（UserSig）生成工具下，选择对应的 SDKAppID 和 UserID。
 3. 单击**生成签名(UserSig)**，即可计算得到对应的 UserSig。
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/04d1da9b5465b66ff31d6307a71079b4.png" style="zoom:50%;" />
-:::
-</dx-tabs>
+
 
 [](id:formal)
 ## 正式运行阶段如何计算 UserSig？
@@ -125,7 +126,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 | C#       | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) |  [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)   |
 
 [](id:Old)
-#### 老版本签名算法 UserSig 计算源代码
+### 老版本签名算法 UserSig 计算源代码
 为了简化签名计算难度，方便客户更快速地使用腾讯云服务，实时音视频自 2019-07-19 开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256，也就是从 2019-07-19 之后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。
 
 如果您的 SDKAppID 是 2019-07-19 之前创建的，可以继续使用老版本的签名算法，算法的源码下载链接如下：
