@@ -1,6 +1,6 @@
 本文主要介绍如何快速运行腾讯云即时通信 IM Demo（Unreal Engine）。
 
->?目前支持 Windows、MacOs、iOS、Android。
+>?目前支持 Windows、MacOS、iOS、Android。
 
 ## 环境要求
 建议 Unreal Engine 4.27.1 及以上版本。
@@ -11,20 +11,20 @@
    </tr>
    <tr>
       <td>Android</td>
-      <td><li>Android Studio 版本4.0及以上版本。</li><li>Visual Studio 2017 15.6版或更高。 </li><li>只支持真机调试。                    </li></td>
+      <td><li>Android Studio 版本 4.0 及以上版本。</li><li>Visual Studio 2017 15.6 及以上版本。 </li><li>只支持真机调试。                    </li></td>
    </tr>
    <tr>
       <td>iOS & macOS</td>
-      <td><li>Xcode 11.0及以上版本。                   </li><li>OSX 系统版本要求 10.11 及以上版本 。       </li><li>请确保您的项目已设置有效的开发者签名。   </li></td>
+      <td><li>Xcode 11.0 及以上版本。                   </li><li>OSX 系统版本要求 10.11 及以上版本 。       </li><li>请确保您的项目已设置有效的开发者签名。   </li></td>
    </tr>
    <tr>
       <td>Windows</td>
-      <td><li>操作系统：Windows 7 SP1 或更高的版本（基于 x86-64 的 64 位操作系统）。                    </li><li>磁盘空间：除安装 IDE 和一些工具之外还应有至少 1.64 GB 的空间。                            </li><li>安装 <a href="https://visualstudio.microsoft.com/zh-hans/downloads/">Visual Studio 2019</a> 。        </li></td>
+      <td><li>操作系统：Windows 7 SP1 及以上版本（基于 x86-64 的 64 位操作系统）。                    </li><li>磁盘空间：除安装 IDE 和一些工具之外还应有至少 1.64 GB 的空间。                            </li><li>安装 <a href="https://visualstudio.microsoft.com/zh-hans/downloads/">Visual Studio 2019</a> 。        </li></td>
    </tr>
 </table>
 
 ## 前提条件
-您已 [注册腾讯云](https://cloud.tencent.com) 账号，并完成实名认证。
+您已 [注册腾讯云](https://cloud.tencent.com) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 
 ## 操作步骤
 [](id:step1)
@@ -33,15 +33,16 @@
 >?如果您已有应用，请记录其 SDKAppID 并 [获取密钥信息](#step2)。
 >同一个腾讯云帐号，最多可创建300个即时通信 IM 应用。若已有300个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
 >
-2. 单击**+添加新应用**。
-3. 在**创建应用**对话框中输入您的应用名称，单击**确定**。
-  创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
-  ![](https://main.qcloudimg.com/raw/2753962b67754a9ebb2a2a5b8042f2ef.png)
+2. 单击**创建新应用**，在**创建应用**对话框中输入您的应用名称，单击**确定**。
+![](https://main.qcloudimg.com/raw/78340e403359fcf4d753ade29ae9aace.png)
+3. 创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
+![](https://qcloudimg.tencent-cloud.cn/raw/853d2c3c0d5887dadc254eb0e03a215e.png)
 
 [](id:step2)
 
-## 步骤2：获取密钥信息
-1. 单击目标应用卡片，进入应用的基础配置页面，
+### 步骤2：获取密钥信息
+1. 单击目标应用卡片，进入应用的基础配置页面。
+![](https://qcloudimg.tencent-cloud.cn/raw/e435332cda8d9ec7fea21bd95f7a0cba.png)
 2. 在**基本信息**区域，单击**显示密钥**，复制并保存密钥信息。
 >!请妥善保管密钥信息，谨防泄露。
 
