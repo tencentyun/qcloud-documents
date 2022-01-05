@@ -27,32 +27,43 @@
 </thead>
 <tbody>
   <tr>
-    <td>一键 HTTPS</td>
-    <td>支持</td>
-    <td>支持</td>
-  </tr>
-  <tr>
-    <td>IP 黑白名单</td>
-    <td>不支持</td>
-    <td>支持</td>
-  </tr>
-  <tr>
-    <td>支持域名数（不区分主域/子域）</td>
-    <td>1</td>
-    <td>泛域名</td>
-  </tr>
-  <tr>
-    <td>峰值业务 QPS</td>
+    <td>QPS峰值</td>
     <td>10</td>
     <td>30</td>
   </tr>
   <tr>
+    <td>实时带宽峰值<br>（源站在腾讯云内）</td>
+    <td>1Mbps</td>
+    <td>1Mbps</td>
+  </tr>
+  <tr>
+    <td>实时带宽峰值<br>（源站在腾讯云外）</td>
+    <td>不支持</td>
+    <td>不支持</td>
+  </tr>
+  <tr>
+    <td>支持一级域名个数</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>支持二级域名个数</td>
+    <td>2</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>泛域名</td>
+    <td>不支持</td>
+    <td>支持</td>
+  </tr>
+  <tr>
     <td>价格</td>
-    <td>99元/月 </td>
-    <td>199元/月 </td>
+    <td>99元/月</td>
+    <td>199元/月</td>
   </tr>
 </tbody>
 </table>
+
 
 ## 退费说明
 一键 HTTPS 套餐不支持提前退订，不适用五天无理由退款。若您已购买一键 HTTPS 套餐，一概不支持退款。
