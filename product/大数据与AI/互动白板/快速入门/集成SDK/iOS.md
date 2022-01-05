@@ -126,7 +126,7 @@ TIMSdkConfig *config = [[TIMSdkConfig alloc] init];
 config.sdkAppId = sdkAppId;
 [[TIMManager sharedInstance] initSdk:config];
 ```
-**以上示例为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#aa50978866934671438bc6e8c63f2c813)**。
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#aa50978866934671438bc6e8c63f2c813)**。
 
 如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，请在 AppDelegate 的 application:didFinishLaunchingWithOptions 方法中初始化 IMSDK，否则请在登录前初始化 IMSDK，在登出后反初始化 IMSDK。
 步骤2：登录 IMSDK
@@ -143,7 +143,7 @@ __weak typeof(self) ws = self;
 }];
 ```
 
-**以上示例为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a3237ea515b8a78e94a6579447ba282ee)**。
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a3237ea515b8a78e94a6579447ba282ee)**。
 
 步骤3：加入群组
 
@@ -158,7 +158,7 @@ __weak typeof(self) ws = self;
 }];
 ```
 
-**以上示例为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a9979ed856657724d317791c723bacef5)**。
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a9979ed856657724d317791c723bacef5)**。
 
 如果 IM 群组不存在，请先创建群组。
 
@@ -179,7 +179,7 @@ __weak typeof(self) ws = self;
 }];
 ```
 
-**以上示例为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a4bada5d6a06fac04a1424ae2c597e389)**。
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a4bada5d6a06fac04a1424ae2c597e389)**。
 
 >!1. 推荐业务后台使用 [IM REST API](https://cloud.tencent.com/document/product/269/1615) 提前创建群组。<br>2. 不同的群组类型，群组功能以及成员数量有所区别，具体请查看 [IM 群组系统](https://cloud.tencent.com/document/product/269/1502)。
 
@@ -198,7 +198,7 @@ __weak typeof(self) ws = self;
 }];
 ```
 
-**以上示例为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#abada02babd5dc4c59f485c6aa1678dcb)**。
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#abada02babd5dc4c59f485c6aa1678dcb)**。
 
 步骤2：登出 IMSDK
 ```objc
@@ -209,13 +209,13 @@ __weak typeof(self) ws = self;
 }];
 ```
 
-**以上示例为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#ab4233cb134d5c6125d0a2d2d83ec1afa)**。
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#ab4233cb134d5c6125d0a2d2d83ec1afa)**。
 
 步骤3：反初始化 IMSDK
 ```objc
 [[TIMManager sharedInstance] unInit];
 ```
 
-**以上示例为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a286e5358ec4cd0a8f9c66f4d2d7d4544)**。
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a286e5358ec4cd0a8f9c66f4d2d7d4544)**。
 
 如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，无需调用此接口。
