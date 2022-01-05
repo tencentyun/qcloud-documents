@@ -28,7 +28,7 @@
 <tbody>
   <tr>
     <td>一键 HTTPS</td>
-    <td>不支持</td>
+    <td>支持</td>
     <td>支持</td>
   </tr>
   <tr>
