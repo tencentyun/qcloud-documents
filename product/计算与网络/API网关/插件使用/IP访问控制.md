@@ -20,6 +20,17 @@ IP 访问控制是 API 网关提供的安全防护能力，主要用于限制 AP
 	 ![](https://main.qcloudimg.com/raw/d7fd3c3539d6f623f45ebfdf0674d97e.png)
 3. 单击【确定】，即可将插件绑定到 API，此时插件的配置已经对 API 生效。
 
+
+## PluginData
+
+```json
+{
+    "type":"white_list",    // IP访问控制类型，支持白名单模式（white_list）或黑名单模式（black_list）
+    "blocks":"1.1.1.1"    // IP地址段
+}
+```
+
+
 ## 注意事项
 
 - IP 访问控制插件支持黑名单/白名单方式。使用白名单时，不在白名单的请求将被 API 网关拒绝；使用黑名单时，黑名单中的 IP 请求将被 API 网关拒绝。
