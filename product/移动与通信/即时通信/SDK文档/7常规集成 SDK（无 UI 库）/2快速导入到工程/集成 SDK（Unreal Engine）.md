@@ -110,8 +110,8 @@ bool isInit = timInstance->InitSDK(SDKAppID, timConfig);
 打包项目。**File** -> **Package Project** -> **iOS**。
 :::
 ::: Android\s端
-1. 开发调试：详见 [Android 快速入门](https://docs.unrealengine.com/4.27/zh-CN/SharingAndReleasing/Mobile/Android/GettingStarted/)。
-2. 打包项目：详见 [打包 Android 项目](https://docs.unrealengine.com/4.27/zh-CN/SharingAndReleasing/Mobile/Android/PackagingAndroidProject/)。
+开发调试：详见 [Android 快速入门](https://docs.unrealengine.com/4.27/zh-CN/SharingAndReleasing/Mobile/Android/GettingStarted/)。
+打包项目：详见 [打包 Android 项目](https://docs.unrealengine.com/4.27/zh-CN/SharingAndReleasing/Mobile/Android/PackagingAndroidProject/)。
 :::
 </dx-tabs>
 
