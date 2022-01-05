@@ -29,6 +29,10 @@ FDW（FOREIGN DATA WRAPPER，外部数据包装器）是 PostgreSQL 提供用于
 ### 参考链接
 [9.3 版本 SERVER 创建](https://www.postgresql.org/docs/9.3/static/sql-createserver.html)
 [9.5 版本 SERVER 创建](https://www.postgresql.org/docs/9.5/static/sql-createserver.html)
+[10 版本 SERVER 创建](https://www.postgresql.org/docs/10/sql-createserver.html)
+[11 版本 SERVER 创建](https://www.postgresql.org/docs/11/sql-createserver.html)
+[12 版本 SERVER 创建](https://www.postgresql.org/docs/12/sql-createserver.html)
+[13 版本 SERVER 创建](https://www.postgresql.org/docs/13/sql-createserver.html)
 
 ## 使用 postgres_fdw 示例
 使用 postgres_fdw 插件可以访问本实例其他库或者其他 postgres 实例的数据。
