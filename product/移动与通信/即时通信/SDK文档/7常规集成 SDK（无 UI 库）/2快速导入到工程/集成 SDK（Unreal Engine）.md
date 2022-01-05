@@ -83,7 +83,7 @@ private void loadTIMSDK(ReadOnlyTargetRules Target) {
 }
 ```
 4. 在 **[project_name].Build.cs** 文件调用该函数：
-![](https://imgcache.qq.com/operation/dianshi/other/TRTCSDK.82d81b0b8fe050772b3c8e02c4578b920515a580.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/2bca6fc64ec1ffb56378f08b8d92e675.png)
 5. 到目前为止你已经集成了 IM SDK。可在你的 cpp 文件中使用 TRTC。`#include "V2TIMManager.h"`
 ```
 // 获取sdk单例对象
