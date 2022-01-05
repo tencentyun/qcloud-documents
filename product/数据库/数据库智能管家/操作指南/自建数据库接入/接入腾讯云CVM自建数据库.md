@@ -135,7 +135,7 @@ agent 状态及对应操作说明：
  - 若获取方式选择【列表拉取】，则选择好地域后，可直接在列表获取选择一个或多个 CVM。
 ![](https://main.qcloudimg.com/raw/9aa0ff851abe1af2c8c1fb79e4c5f4d3.png)
  - 若获取方式选择【手动输入】，则用户可以在文本框输入一个或多个实例 IP 来添加 CVM。
-![](https://main.qcloudimg.com/raw/4d4143756cb4f0a742c7a802bbfe15d6.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/579927a43ae7232f0e43aadcec38dcf6.png)
 
 #### 步骤2：添加数据库
 在添加数据库实例页面，展示了上一步选择的 CVM 及其数据库状态。
