@@ -74,8 +74,8 @@ boardCtrl->Init(authParam, ROOM_ID);
 
 白板事件回调接口 `TEduBoardCallback`的`onTEBError`和`onTEBWarning` 回调方法内监听白板事件 
 
-- [onTEBError 错误详情](https://cloud.tencent.com/document/product/1137/39985#onteberror)
-- [onTEBWarning 警告详情](https://cloud.tencent.com/document/product/1137/39985#ontebwarning)
+- [onTEBError 错误详情](https://cloud.tencent.com/document/product/1137/39987#teduboarderrorcode)
+- [onTEBWarning 警告详情](https://cloud.tencent.com/document/product/1137/39987#teduboardwarningcode)
 
 ```cpp
 /**
@@ -149,3 +149,5 @@ DestroyTEduBoardController(&boardCtrl);
 #### 步骤4：白板数据同步
 
 白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
+- [TIM同步信令通道](https://cloud.tencent.com/document/product/1137/60737)
+- [TIM相关文档](https://cloud.tencent.com/document/product/269/33543)
