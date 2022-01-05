@@ -60,6 +60,7 @@ Content-Type: application/xml
 <Request>
   <Input>
     <Object></Object>
+    <DataId></DataId>
   </Input>
   <Conf>
     <DetectType>Porn,Ads</DetectType>
@@ -94,6 +95,7 @@ Container 类型 Input 的具体数据描述如下：
 | ------------------ | ------------- | ------------------------------------------------------------ | ------ | -------- |
 | Object             | Request.Input | 当前 COS 存储桶中的视频文件名称，例如在目录 test 中的文件 video.mp4，则文件名称为 test/video.mp4。 | String | 否       |
 | Url                | Request.Input | 视频文件的链接地址，例如 http://examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/test.mp4。Object 和 Url 只能选择其中一种。 | String | 否       |
+| DataId             | Request.Input | 该字段在审核结果中会返回原始内容，长度限制为512字节。您可以使用该字段对待审核的数据进行唯一业务标识。 | String | 否       |
 
 Container 类型 Conf 的具体数据描述如下：
 
@@ -127,6 +129,7 @@ Container 类型 Snapshot 的具体数据描述如下：
 ```plaintext
 <Response>
     <JobsDetail>
+      <DataId></DataId>
       <JobId></JobId>
       <State></State>
       <CreationTime></CreationTime>
@@ -152,6 +155,7 @@ Container 节点 JobsDetail 的内容：
 
 | 节点名称（关键字） | 父节点              | 描述                                                         | 类型   |
 | :----------------- | :------------------ | :----------------------------------------------------------- | :----- |
+| DataId             | Response.JobsDetail | 请求中添加的唯一业务标识。                                   | String |
 | JobId              | Response.JobsDetail | 本次视频审核任务的 ID。                                      | String |
 | State              | Response.JobsDetail | 视频审核任务的状态，值为 Submitted（已提交审核）、Snapshoting（视频截帧中）、Success（审核成功）、Failed（审核失败）、Auditing（审核中）其中一个。 | String |
 | CreationTime       | Response.JobsDetail | 视频审核任务的创建时间。                                     | String |
@@ -174,6 +178,7 @@ Content-Type: application/xml
 <Request>
   <Input>
     <Object>a.mp4</Object>
+    <DataId>123-fdrsg-123</DataID>
   </Input>
   <Conf>
     <DetectType>Porn,Ads</DetectType>
@@ -202,6 +207,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
   <JobsDetail>
+    <DataId>123-fdrsg-123</DataID>
     <JobId>vab1ca9fc8a3ed11ea834c525400863904</JobId>
     <State>Submitted</State>
     <CreationTime>2021-08-07T12:12:12+0800</CreationTime>

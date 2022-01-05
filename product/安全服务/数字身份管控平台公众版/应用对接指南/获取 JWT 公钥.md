@@ -2,9 +2,13 @@
 JWT 公钥用于对 JWT 格式的 ID Token 和 Access Token 进行验证。
 >?JWT 密钥在创建用户目录时自动生成，不同用户目录的密钥不同。
 
+## 支持的应用类型
+Web 应用、单页应用、移动 App、M2M 应用、小程序应用。
 
 ## 请求方法
+```
 GET
+```
 
 ## 请求路径
 ```
@@ -14,19 +18,9 @@ GET
 ## 请求示例
 ```
 GET /oauth2/jwks HTTP/1.1
-Host: localhost:8080
+Host: sample.portal.tencentciam.com
 ```
 
-
-## 响应参数
-
-| 参数       | 数据类型 | 描述               |
-| :--------- | :------- | :----------------- |
-| keys       | Array    | 包含公钥的数组。   |
-| keys[].kty | String   | 密钥类型，如 RSA。 |
-| keys[].kid | String   | 密钥标识。         |
-| keys[].e   | String   | RSA 公钥。         |
-| keys[].n   | String   | RSA 公钥。         |
 
 
 ## 正常响应示例
@@ -38,9 +32,19 @@ Content-Type: application/json
   "keys" : [ {
     "kty" : "RSA",
     "e" : "AQAB",
-    "kid" : "d49bc505-5572-4ed6-9e48-388c3d44bb46",
-    "n" : "reCXJ_FkaMcjS6Qia3g4giV1IkGckkx_l9YSoP-bo2GpK948qGnn7sS4ji501cn8TTEU2MKYywEvB6eR-Mj6THEReTzxhMEwGoytZYxpkSj9t5gGZ9-EXOZBAqFirI3AG3_oVvCxwoFncqcKR5AidZONc0lO4Lf5U4tXa5ArrKRbRGczm3kQky-Vxy13f23y5yc_VPjnRgyhScIJOPzBMWXZ-jKD4Bc1UaPHwbE3fx5ayMUqjZXID1-0VpTxAvMLpEhrbfrlGjHAbljqwmt_yKBSiPP8vJAfyv0WOLHus6BnvhpVNKMvd2WXtk6njPDTibvFm9tkAhsrQ1Q5ZTbgRQ"
+    "kid" : "f9694d93-d541-4985-88dc-42229873008e",
+    "n" : "wYmf-IL7_pXqEjtfHme7KqS06hRQ0BzhTzORjgwnsJD_CPexMHQAd82vZfOQioW9oaMXTiSAtkXslxNIxKVjiYMVzTLHQ9nqCARHOAONiftvcOyMiDGwI_ZV2u2ltHCbQ1w8sMpREMxLiW46TYHANSQwgzg9gLojhzPEUmAS0ksTx3UURmQGLnFBEh6Ydbj8tPNnNxfZHRLtqTD0FwLpPrn3wJvQRxNk_fcrJexM5v96XdQ1SLhhcIAMyqU-_-3IkyWIcS-Z-EvZCiKNJPCfVIEpWdz0oQdGXdADSRU8cV_sl-YmUWSE355PSzK1UmbvNJWLMsO67ZsgZyetcvkaIw"
   } ]
 }
 ```
+
+## 响应参数
+
+| 参数       | 数据类型 | 描述               |
+| :--------- | :------- | :----------------- |
+| keys       | Array    | 包含公钥的数组。   |
+| keys[].kty | String   | 密钥类型，如 RSA。 |
+| keys[].kid | String   | 密钥标识。         |
+| keys[].e   | String   | RSA 公钥。         |
+| keys[].n   | String   | RSA 公钥。         |
 

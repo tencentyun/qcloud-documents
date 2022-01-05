@@ -87,7 +87,7 @@ TUICalling
 | -------- | ------ | ---- | ------------------------------------------------------------ |
 | sdkAppID | Number | 是   | 开通实时音视频服务创建应用后分配的 [SDKAppID](https://console.cloud.tencent.com/trtc/app)。 |
 | userID   | String | 是   | 用户 ID，可以由您的帐号体系指定。                            |
-| userSig  | String | 是   | 身份签名（即相当于登录密码），由 userID 计算得出，具体计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
+| userSig  | String | 是   | 身份签名（即相当于登录密码），由 userID 计算得出，具体计算方法请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 | type     | Number | 是   | 指定通话类型。1：语音通话，2：视频通话。                     |
 | tim     | Object | 否   | tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性。                     |
 

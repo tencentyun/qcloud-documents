@@ -50,7 +50,7 @@ tier1.sources.source1.kafka.topics = test1, test2
 tier1.sources.source1.kafka.consumer.group.id = custom.g.id
 ```
 
-更多内容请参考 [Apache Flume 官网](https://flume.apache.org/FlumeUserGuide.html)。
+更多内容请参见 [Apache Flume 官网](https://flume.apache.org/FlumeUserGuide.html)。
 
 :::
 :::Kafka\sSink
@@ -76,7 +76,7 @@ a1.sinks.k1.kafka.flumeBatchSize = 20
 a1.sinks.k1.kafka.producer.acks = 1
 ```
 
-更多内容请参考 [Apache Flume 官网](https://flume.apache.org/FlumeUserGuide.html)。
+更多内容请参见 [Apache Flume 官网](https://flume.apache.org/FlumeUserGuide.html)。
 
 :::
 

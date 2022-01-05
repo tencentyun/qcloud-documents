@@ -243,9 +243,9 @@ virtual int Login(int sdk_appid, const std::string& user_id, const std::string& 
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| sdk_appid | int |  您可以在实时音视频控制台 >**[应用管理](https://console.cloud.tencent.com/trtc/app)**> 应用信息中查看 SDKAppID。 |
+| sdk_appid | int |  您可以在实时音视频控制台 > **[应用管理](https://console.cloud.tencent.com/trtc/app)**> 应用信息中查看 SDKAppID。 |
 | user_id | string | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
-| user_sig | string | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
+| user_sig | string | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 
 ### Logout
 

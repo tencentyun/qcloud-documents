@@ -1,3 +1,13 @@
+### 2.6.9.240 @ 2021-12-31
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.9.240.zip)
+
+- 新增接口
+    1. 支持 PPT 课件进行静音操作(soundMuteForPPT)
+    2. 课件资源预加载，支持课前和课中加载，具体请参考 [课件预加载文档](https://cloud.tencent.com/document/product/1137/67344)
+    
+- 功能优化
+    1. 优化课件加载
+    2. 截图功能在异常 dpr 中丢失几个像素的问题
 ### 2.6.8.236 @ 2021-12-13
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.8.236.zip)
 
@@ -30,7 +40,7 @@
     4. 支持画线涂鸦分段擦除
 
 - Bug 修复
-    1. 优化Android和linux中，ppt转码的文字会往下面掉几个像素
+    1. 优化 Android 和 Linux 中，PPT 转码的文字会往下面掉几个像素
     2. 在不同缩放比下添加白板元素大小显示不一致
     3. 绘制涂鸦时因精度误差导致出现毛刺
     4. 若干已知问题修复
@@ -50,7 +60,7 @@
     1. 设置远端画笔在本地是否可见(setRemoteCursorVisible)
     
 - 调整全局变量
-    1. 白板警告码(TEduBoardWarningCode)，新增静态ppt重复的告警码
+    1. 白板警告码(TEduBoardWarningCode)，新增静态 ppt 重复的告警码
     
 - 功能优化
     1. 弱网环境下涂鸦同步
@@ -66,11 +76,11 @@
     1. setScrollBarVisible 设置白板滚动条是否可见
     
 - 调整接口
-    1. getFileInfo 获取白板中指定文件的文件信息 返回fileType字段
-    2. getFileInfoList 获取白板中上传的所有文件的文件信息列表 返回fileType字段
-    3. addH5File 添加H5页面 支持title,needSwitch
-    4. addImagesFile 批量导入图片到白板 支持title,needSwitch
-    5. addVideoFile 添加视频文件 支持title,needSwitch
+    1. getFileInfo 获取白板中指定文件的文件信息 返回 fileType 字段
+    2. getFileInfoList 获取白板中上传的所有文件的文件信息列表 返回 fileType 字段
+    3. addH5File 添加 H5 页面支持 title，needSwitch
+    4. addImagesFile 批量导入图片到白板支持 title，needSwitch
+    5. addVideoFile 添加视频文件支持 title，needSwitch
     
 - 调整全局变量
     1. TEduBoardFileType 白板文件类型 
@@ -189,7 +199,7 @@
     开启公式元素支持(formulaEnable)
     
 - 新增元素类型
-    公式元素(TEDU_BOARD_ELEMENT_FORMULA)，此功能需要设置开启公式元素支持(formulaEnable)为true。
+    公式元素(TEDU_BOARD_ELEMENT_FORMULA)，此功能需要设置开启公式元素支持(formulaEnable)为 true。
 
 - 新增全局变量
     几何元素类型(TEduBoardMathGraphType)
@@ -265,7 +275,7 @@
 - 优化：
    支持数学函数图像显示
    支持H5元素移动、缩放、旋转
-   添加元素支持自定义位置，目前支持图片元素，H5元素，数学函数图像
+   添加元素支持自定义位置，目前支持图片元素，H5 元素，数学函数图像
    移动端支持在任意工具下双指缩放白板
     
 ### 2.6.0. @ 2021-06-17
@@ -302,7 +312,7 @@
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.5.7.191.zip)
 
 - Bug 修复
-    1. 白板每次创建时重新注册IM消息回调，避免IM重新初始化导致收不到白板消息
+    1. 白板每次创建时重新注册IM消息回调，避免 IM 重新初始化导致收不到白板消息
 
 ### 2.5.7.187 @ 2021-02-22
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.5.7.187.zip)
@@ -332,7 +342,7 @@
     4. 激光笔功能性能优化
 - Bug 修复
     1. 图片旋转后缩放比例不对的问题
-    2. chrome 88版本纵向滚动条缺失
+    2. Chrome88 版本纵向滚动条缺失
     3. 滚动条触发异常滚动问题
     4. 添加自定义元素时点选框范围错误
     5. 文本工具相关问题

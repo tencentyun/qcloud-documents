@@ -23,7 +23,7 @@ Topic 是 TDMQ RocketMQ 版中的核心概念。Topic 通常用来对系统生�
    - 说明：填写 Topic 的说明信息
 4. 单击**提交**，在 Topic 列表中即可看见创建好的 Topic。
 
-### 查看订阅的Group
+### 查看订阅的 Group
 
 1. 在 Topic 列表中，单击目标Topic的**订阅 Group 数**栏下的数字。
 2. 页面跳转到 Group 列表，展示订阅该 Topic 的 Group 信息。
