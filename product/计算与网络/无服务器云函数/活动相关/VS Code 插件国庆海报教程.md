@@ -93,7 +93,7 @@ https://github.com/TencentServerless/scf_vscode_demo1.git
 
 ### 调试函数
 1. 进入插件页面，单击 `testFunc` 函数右侧的<img src="https://main.qcloudimg.com/raw/0e5a9ac04a38053224f6881b721cf35a.png" style="margin:-3px 0;">，打开本地调用页面。
-2. 选择**API Gateway 网关响应请求时间模版**，并等待调试结果。如下图所示：
+2. 选择**API Gateway 网关响应请求时间模板**，并等待调试结果。如下图所示：
 ![](https://main.qcloudimg.com/raw/65ed4038c42540b3f1c96124565a8d76.png)
 函数成功调用，则如下图所示：
 ![](https://main.qcloudimg.com/raw/79a829e0c74ba72076d448b5caaf21f3.png)
