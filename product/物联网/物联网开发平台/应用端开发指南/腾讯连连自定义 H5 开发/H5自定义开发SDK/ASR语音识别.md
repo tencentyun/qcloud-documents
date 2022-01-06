@@ -91,5 +91,3 @@ sdk.getAsrDownloadUrl({...}) => Promise<{...}>
 | :---------- | :----------- | :----- |
 | ResourceURL | cos 访问链接 | string |
 
-
-## 
