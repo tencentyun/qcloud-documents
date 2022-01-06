@@ -126,7 +126,7 @@ go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tdmq
     </tr>
     <tr>
         <td style='text-align:left;'>topicName</td>
-        <td style='text-align:left;'>Topic 名称，格式为: 集群（租户）ID/命名空间/Topic 名称，示例：pulsar-xxx/sdk_http/topic1。可以从控制台上
+        <td style='text-align:left;'>Topic 名称，格式为：集群（租户）ID/命名空间/Topic 名称，示例：pulsar-xxx/sdk_http/topic1。可以从控制台上
             <strong><a href='https://console.cloud.tencent.com/tdmq/topic'>Topic 管理</a></strong> 页面直接复制。
         </td>
     </tr>
@@ -165,7 +165,7 @@ go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tdmq
     <tbody>
     <tr>
         <td style='text-align:left;'>topicName</td>
-        <td style='text-align:left;'>Topic 名称，格式为: 集群（租户）ID/命名空间/Topic名称，示例：pulsar-xxx/sdk_http/topic1。可以从控制台上 <strong><a
+        <td style='text-align:left;'>Topic 名称，格式为：集群（租户）ID/命名空间/Topic名称，示例：pulsar-xxx/sdk_http/topic1。可以从控制台上 <strong><a
                 href='https://console.cloud.tencent.com/tdmq/topic'>Topic 管理</a></strong> 页面直接复制。
         </td>
     </tr>
@@ -210,7 +210,7 @@ go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tdmq
     </tr>
     <tr>
         <td style='text-align:left;'>topicName</td>
-        <td style='text-align:left;'>Topic名称，格式为: 集群（租户）ID/命名空间/Topic名称，示例：pulsar-xxx/sdk_http/topic1。可以从控制台上 <strong><a
+        <td style='text-align:left;'>Topic名称，格式为：集群（租户）ID/命名空间/Topic名称，示例：pulsar-xxx/sdk_http/topic1。可以从控制台上 <strong><a
                 href='https://console.cloud.tencent.com/tdmq/topic'>Topic 管理</a></strong> 页面直接复制。
         </td>
     </tr>
