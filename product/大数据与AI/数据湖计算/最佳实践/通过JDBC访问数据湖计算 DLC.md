@@ -11,19 +11,56 @@ Class.forName("com.tencent.cloud.dlc.jdbc.DlcDriver");
 ```
 Connection cnct = DriverManager.getConnection(url, secretId, secretKey);
 ```
-	- url 格式为
+
+## url 格式
 ```
-jdbc:dlc:<dlc_endpoint>?task_type=SQLTask&database_name=abc&datasource_connection_name=DataLakeCatalog&region=ap-nanjing
+jdbc:dlc:<dlc_endpoint>task_type=SQLTask&database_name=abc&datasource_connection_name=DataLakeCatalog&region=ap-nanjing&data_engine_name=spark-cu
 ```
-	- **dlc_endpoint**： dlc.tencentcloudapi.com， dlc 服务的 Endpoint，Endpoint 服务的详细说明请参见 Endpoint（必填）。
-	-  **datasource_connection_name**： 数据源连接（必填）。
-	-  **task_type**： SQLTask、SparkSQLTask（必填）。
-	-  **database_name**： 数据库（必填）。
-	-  **region**：地域，目前 dlc 服务支持 ap-nanjing, ap-beijing, ap-guangzhou（必填）。
-	-  **data_engine_name**： 数据引擎名称（非必填）。
-	-  **secretId**：腾讯云 API 密钥管理中的 SecretId。
-	-  **secretKey**：腾讯云 API 密钥管理中的 Secretkey。
- 
+
+<table>
+<thread>
+<tr>
+<th >参数</th>
+<th >必填</th>
+<th >说明</th>
+</tr></thread>
+<tbody>
+<tr>
+<td >dlc_endpoint</td >
+<td >是</td >
+<td >dlc.tencentcloudapi.com， dlc 服务的 Endpoint，Endpoint 服务的详细说明请参见 Endpoint</td >
+</tr><tr>
+<td >datasource_connection_name</td >
+<td >是</td >
+<td >数据源连接</td >
+</tr><tr>
+<td >task_type</td >
+<td >是</td >
+<td >SQLTask、SparkSQLTask</td >
+</tr><tr>
+<td >database_name</td >
+<td >是</td >
+<td >数据库</td >
+</tr><tr>
+<td >region</td >
+<td >是</td >
+<td >地域，目前 dlc 服务支持 ap-nanjing, ap-beijing, ap-guangzhou</td >
+</tr><tr>
+<td >data_engine_name</td >
+<td >是</td >
+<td >数据引擎名称</td >
+</tr><tr>
+<td >secretId</td >
+<td >是</td >
+<td >腾讯云 API 密钥管理中的 SecretId</td >
+</tr><tr>
+<td >secretKey</td >
+<td >是</td >
+<td >腾讯云 API 密钥管理中的 Secretkey</td >
+</tr>
+</tbody>
+</table>
+
 ## 执行查询
 ```Java
 Statement stmt = cnct.createStatement();

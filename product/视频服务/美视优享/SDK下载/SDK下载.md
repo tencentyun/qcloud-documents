@@ -1,4 +1,4 @@
-腾讯特效 SDK 提供了 10 种版本的 SDK，分别为 6 种基础版 SDK 和 4 种高级版 SDK。了解 10 个版本 SDK 的关系和各版本功能差异请参见 [计费概述](https://cloud.tencent.com/document/product/616/36807?!editLang=zh&!preview)。
+腾讯特效 SDK 提供了 10 种版本的 SDK，分别为 6 种基础版 SDK 和 4 种高级版 SDK。了解 10 个版本 SDK 的关系和各版本功能差异请参见 [计费概述](https://cloud.tencent.com/document/product/616/36807)。
 
 > ! 腾讯特效 SDK 下载 iOS 平台 ZIP 包内囊括 SDK 和 Demo工程，若需使用 iOS 端口的 Demo 工程，可在此下载 iOS 端 ZIP 包。
 

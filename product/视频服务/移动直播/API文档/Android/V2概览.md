@@ -61,6 +61,7 @@
 | --------- | --------------- |
 | [onError](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#af2195d3dbecb37826a101dfe525202c0)   | 直播播放器错误通知，播放器出现错误时，会回调该通知。 |
 | [onWarning](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#a88c8cba39a928dd7964f8f1753bd5bfe) | 直播播放器警告通知。 |
+| [onConnected](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__android.html#aa511a51b9f4dad03d35cbe08ad616d45) | 已经成功连接到服务器通知。 |
 
 ### 视频相关回调
 | API       | 描述                 |
