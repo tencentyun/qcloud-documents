@@ -1,6 +1,6 @@
 本文主要介绍如何快速运行腾讯云即时通信 IM Demo（Unreal Engine）。
 
->?目前支持 Windows、MacOS、iOS、Android。
+>?目前支持 Windows、macOS、iOS、Android。
 
 ## 环境要求
 建议 Unreal Engine 4.27.1 及以上版本。
@@ -11,7 +11,7 @@
    </tr>
    <tr>
       <td>Android</td>
-      <td><li>Android Studio 版本 4.0 及以上版本。</li><li>Visual Studio 2017 15.6 及以上版本。 </li><li>只支持真机调试。                    </li></td>
+      <td><li>Android Studio 4.0 及以上版本。</li><li>Visual Studio 2017 15.6 及以上版本。 </li><li>只支持真机调试。                    </li></td>
    </tr>
    <tr>
       <td>iOS & macOS</td>
@@ -24,7 +24,7 @@
 </table>
 
 ## 前提条件
-您已 [注册腾讯云](https://cloud.tencent.com) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 
 ## 操作步骤
 [](id:step1)
