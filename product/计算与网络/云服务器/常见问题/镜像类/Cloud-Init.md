@@ -41,11 +41,11 @@ rm -rf /var/lib/cloud
 腾讯云通过 Cloud-Init 实现了实例的所有初始化操作，使得整个实例内部的操作更加的透明。以下内容简单介绍了相关操作情况，更多详情可见 [Cloud-init 官方文档](http://cloudinit.readthedocs.io/en/latest/)。
 
 <table>
-  <tr>
-	<th style="width: 25%;">初始化类型</th>
-	<th style="width: 25%;">默认行为</th>
-	<th style="width: 25%;">禁用方式</th>
-	<th style="width: 25%;">注意事项</th>
+<tr>
+    <th style="width: 18%;">初始化类型</th>
+    <th style="width: 25%;">默认行为</th>
+    <th style="width: 27%;">禁用方式</th>
+    <th style="width: 30%;">注意事项</th>
   </tr>
   <tr>
 	<td>hostname 的初始化</td>
@@ -54,7 +54,7 @@ rm -rf /var/lib/cloud
 	<code>vendor_data.json</code> 中的 hostname 信息来设置实例的 hostname。</td>
 	<td>
 	当您使用自定义镜像创建或重装实例时，如需保持自定义镜像内部自定义的 hostname
-	设置，则请在制作自定义镜像之前将 <code>/etc/cloud/cloud.cfg</code> 中的 <code>preserve_hostname</code> 设置为 <code>true</code>，并删除删除 <code>- scripts-user</code> 这行配置。
+	设置，则请在制作自定义镜像之前将 <code>/etc/cloud/cloud.cfg</code> 中的 <code>preserve_hostname</code> 设置为 <code>true</code>，并删除 <code>- scripts-user</code> 这行配置。
 	</td>
 	<td>若 <code>preserve_hostname</code> 为 
 	<code>true</code> 且 <code>- scripts-user</code> 配置被禁用，则实例内部的 
