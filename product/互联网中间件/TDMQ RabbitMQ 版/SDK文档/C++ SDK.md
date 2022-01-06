@@ -10,12 +10,12 @@
 
 ## 操作步骤
 
-### 步骤1. 准备环境
+### 步骤1：准备环境
 
 1. 安装客户端相关的库 [C and C++ 库](https://www.rabbitmq.com/devtools.html?spm=a2c4g.11186623.0.0.22d166975jyVxo#c-dev)， 本文以 AMQP-CPP 为例。
 2. 导入动态库和头文件。
 
-### 步骤2. 生产消息
+### 步骤2：生产消息
 
 1. 建立连接。
 <dx-codeblock>
@@ -107,7 +107,7 @@ event_base_free(evbase);
 </table>
 
 
-### 步骤3. 消费消息
+### 步骤3：消费消息
 
 1. 建立连接。
 <dx-codeblock>
