@@ -83,21 +83,27 @@ FLUSH PRIVILEGES;
 <tbody><tr>
 <td>计费模式</td><td>支持包年包月和按量计费。目前免费，将来开始计费前1个月会通过邮件和站内信方式提前通知用户。</td></tr>
 <tr>
-<td>源实例类型</td><td>选择 MySQL（包括云数据库 MySQL 及自建 MySQL）。</td></tr>
+<td>源实例类型</td><td>选择 MySQL，购买后不可修改。</td></tr>
 <tr>
-<td>源实例地域</td><td>选择源实例所在地域。</td></tr>
+<td>源实例地域</td><td>选择源实例所在地域，购买后不可修改。</td></tr>
 <tr>
-<td>目的实例类型</td><td>选择 MySQL（包括云数据库 MySQL 及自建 MySQL）。</td></tr>
+<td>目的实例类型</td><td>选择 MySQL，购买后不可修改。</td></tr>
 <tr>
-<td>目的实例地域</td><td>选择目的实例所在地域。</td></tr>
+<td>目的实例地域</td><td>选择目的实例所在地域，购买后不可修改。</td></tr>
 <tr>
 <td>同步任务规格</td><td>目前只支持标准版。</td></tr>
 </tbody></table>
+
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
 ![](https://main.qcloudimg.com/raw/b21f1336854375bb1343c7ccb144900b.png)
 4. 在配置同步任务页面，配置源端实例、帐号密码，配置目标端实例、帐号和密码，测试连通性后，单击**下一步**。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/0a61f9b3a78e0dbd165d745f90e320a7.png" style="zoom:70%;" />
+
+**因源数据库部署形态和接入类型的交叉场景较多，各场景同步操作步骤类似，如下仅提供典型场景的配置示例，其他场景请用户参考配置。**
+
+**示例一**：本地自建数据库通过专线/VPN方式同步至腾讯云数据库
+
 <table>
 <thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
 <tbody><tr>
@@ -107,52 +113,155 @@ FLUSH PRIVILEGES;
 <tr>
 <td>运行模式</td><td>支持立即执行和定时执行两种模式。</td></tr>
 <tr>
-<td rowspan=4 >源实例设置</td>
+<td rowspan=10 >源实例设置</td>
 <td>源实例类型</td>
-<td>购买时所选择的云数据库实例类型，不可修改。</td></tr>
+<td>购买时所选择的源实例类型，不可修改。</td></tr>
 <tr>
 <td>源实例地域</td>
-<td>购买时选择的云数据库实例所在地域，不可修改。</td></tr>
+<td>购买时选择的源实例所在地域，不可修改。</td></tr>
 <tr>
 <td>服务提供商</td>
-<td>支持普通（包括腾讯云 MySQL 数据库及自建 MySQL 数据库）、AWS、阿里云。</td></tr>
+<td>自建数据库（包括云服务器上的自建）或者腾讯云数据库，请选择“普通”；第三方云厂商数据库，请选择对应的服务商。<br>本场景选择“普通”。</td></tr>
 <tr>
 <td>接入类型</td>
-<td>若服务提供商选择其他云厂商，接入类型可选公网；如服务提供商选择普通，请根据数据库部署情况选择。<ul>
+<td>请根据您的场景选择，本场景选择“专线接入”或“VPN接入”，该场景需要 <a href="https://cloud.tencent.com/document/product/571/60604">配置 VPN 和 IDC 之间的互通</a>，其他接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。<ul>
 <li>公网：源数据库可以通过公网 IP 访问。</li>
 <li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
 <li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
 <li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
-<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据和目标数据库都部署在腾讯云上，且有 <a href="https://cloud.tencent.com/document/product/215">私有网络</a>。如果需要使用私用网络 VPC接入类型，请 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a> 申请。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据和目标数据库都部署在腾讯云上，且有 <a href="https://cloud.tencent.com/document/product/215">私有网络</a>。如果需要使用私用网络 VPC接入类型，请 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a> 申请。</li></ul></td></tr>
 <tr>
-<td rowspan=3 >目标实例设置</td>
-<td>目标实例类型</td><td>所选择的目标实例类型，不可修改。</td></tr>
+<td>私有网络专线网关/VPN 网关</td><td>专线接入时只支持私有网络专线网关，请确认网关关联网络类型。<br>VPN 网关，请选择通过 VPN 网关接入的 VPN 网关实例。</td></tr>
 <tr>
-<td>目标实例地域</td><td>选择的目标实例所在地域，不可修改。</td></tr>
+<td>私有网络</td><td>选择私有网络专线网关和 VPN 网关关联的私有网络和子网。</td></tr>
 <tr>
-<td>接入类型</td><td>选择目标数据库类型。</td></tr>
+<td>主机地址</td><td>源实例 MySQL 访问 IP 地址或域名。</td></tr>
+<tr>
+<td>端口</td><td>源实例 MySQL 访问端口。</td></tr>
+<tr>
+<td>帐号</td><td>源实例帐号，帐号权限需要满足要求。</td></tr>
+<tr>
+<td>密码</td><td>源实例帐号的密码。</td></tr>
+<tr>
+<td rowspan=6>目标实例设置</td>
+<td>目标实例类型</td><td>购买时选择的目标实例类型，不可修改。</td></tr>
+<tr>
+<td>目标实例地域</td><td>购买时选择的目标实例地域，不可修改。</td></tr>
+<tr>
+<td>接入类型</td><td>根据您的场景选择，本场景选择“云数据库”。</td></tr>
+<tr>
+<td>实例 ID</td><td>选择目标实例 ID。</td></tr>
+<tr>
+<td>帐号</td><td>目标实例帐号，帐号权限需要满足要求。</td></tr>
+<tr>
+<td>密码</td><td>目标实例帐号的密码。</td></tr>
 </tbody></table>
-<strong>接入类型说明</strong><br>在源实例及目标实例设置中，根据接入类型选择的不同，会要求填写不同的参数，对应情况见下表：
+
+**示例二**：腾讯云数据库同步至腾讯云数据库
+
 <table>
-<thead><tr><th>服务提供商</th><th>接入类型</th><th>实例 ID</th><th>云主机实例</th><th>主机地址</th><th>端口</th><th>帐号</th><th>密码</th></tr></thead>
+<thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
 <tbody><tr>
-<td rowspan=4>普通</td><td>云数据库</td>
-<td>&#10003;</td><td>×</td><td>×</td><td>×</td><td>&#10003;</td><td>&#10003;</td></tr>
+<td rowspan=2 >任务设置</td>
+<td>任务名称</td>
+<td>DTS 会自动生成一个任务名称，用户可以根据实际情况进行设置。</td></tr>
 <tr>
-<td>云主机自建</td><td>×</td><td>&#10003;</td><td>×</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+<td>运行模式</td><td>支持立即执行和定时执行两种模式。</td></tr>
 <tr>
-<td>公网</td><td>×</td><td>×</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+<td rowspan=7 >源实例设置</td>
+<td>源实例类型</td>
+<td>购买时所选择的源实例类型，不可修改。</td></tr>
 <tr>
-<td>云联网</td><td>×</td><td>×</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+<td>源实例地域</td>
+<td>购买时选择的源实例所在地域，不可修改。</td></tr>
 <tr>
-<td>AWS</td>
-<td>公网</td><td>×</td><td>×</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+<td>服务提供商</td>
+<td>自建数据库（包括云服务器上的自建）或者腾讯云数据库，请选择“普通”；第三方云厂商数据库，请选择对应的服务商。<br>本场景选择“普通”。</td></tr>
 <tr>
-<td>阿里云</td>
-<td>公网</td><td>×</td><td>×</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+<td>接入类型</td>
+<td>请根据您的场景选择，本场景选择“云数据库”，不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。<ul>
+<li>公网：源数据库可以通过公网 IP 访问。</li>
+<li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
+<li>云数据库：源数据库属于腾讯云数据库实例。</li>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据和目标数据库都部署在腾讯云上，且有 <a href="https://cloud.tencent.com/document/product/215">私有网络</a>。如果需要使用私用网络 VPC接入类型，请 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a> 申请。</li></ul></td></tr>
+<tr>
+<td>实例 ID</td><td>源实例 ID。</td></tr>
+<tr>
+<td>帐号</td><td>源实例帐号，帐号权限需要满足要求。</td></tr>
+<tr>
+<td>密码</td><td>源实例帐号的密码。</td></tr>
+<tr>
+<td rowspan=6>目标实例设置</td>
+<td>目标实例类型</td><td>购买时选择的目标实例类型，不可修改。</td></tr>
+<tr>
+<td>目标实例地域</td><td>购买时选择的目标实例地域，不可修改。</td></tr>
+<tr>
+<td>接入类型</td><td>根据您的场景选择，本场景选择“云数据库”。</td></tr>
+<tr>
+<td>实例 ID</td><td>选择目标实例 ID。</td></tr>
+<tr>
+<td>帐号</td><td>目标实例帐号，帐号权限需要满足要求。</td></tr>
+<tr>
+<td>密码</td><td>目标实例帐号的密码。</td></tr>
 </tbody></table>
-5. 在设置同步选项和同步对象页面，将对数据初始化选项、数据同步选项、同步对象选项进行设置，在设置完成后单击**保存并下一步**。
+
+**示例三**：阿里云 RDS 通过公网方式同步至腾讯云数据库
+
+<table>
+<thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
+<tbody><tr>
+<td rowspan=2 >任务设置</td>
+<td>任务名称</td>
+<td>DTS 会自动生成一个任务名称，用户可以根据实际情况进行设置。</td></tr>
+<tr>
+<td>运行模式</td><td>支持立即执行和定时执行两种模式。</td></tr>
+<tr>
+<td rowspan=8 >源实例设置</td>
+<td>源实例类型</td>
+<td>购买时所选择的源实例类型，不可修改。</td></tr>
+<tr>
+<td>源实例地域</td>
+<td>购买时选择的源实例所在地域，不可修改。</td></tr>
+<tr>
+<td>服务提供商</td>
+<td>自建数据库（包括云服务器上的自建）或者腾讯云数据库，请选择“普通”；第三方云厂商数据库，请选择对应的服务商。<br>本场景选择“阿里云”。</td></tr>
+<tr>
+<td>接入类型</td>
+<td>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。<br>本场景选择“公网”，不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。<ul>
+<li>公网：源数据库可以通过公网 IP 访问。</li>
+<li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
+<li>云数据库：源数据库属于腾讯云数据库实例。</li>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据和目标数据库都部署在腾讯云上，且有 <a href="https://cloud.tencent.com/document/product/215">私有网络</a>。如果需要使用私用网络 VPC接入类型，请 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a> 申请。</li></ul></td></tr>
+<tr>
+<td>主机地址</td><td>源实例访问 IP 地址或域名。</td></tr>
+<tr>
+<td>端口</td><td>源实例端口。</td></tr>
+<tr>
+<td>帐号</td><td>源实例帐号，帐号权限需要满足要求。</td></tr>
+<tr>
+<td>密码</td><td>源实例帐号的密码。</td></tr>
+<tr>
+<td rowspan=6>目标实例设置</td>
+<td>目标实例类型</td><td>购买时选择的目标实例类型，不可修改。</td></tr>
+<tr>
+<td>目标实例地域</td><td>购买时选择的目标实例地域，不可修改。</td></tr>
+<tr>
+<td>接入类型</td><td>根据您的场景选择，本场景选择“云数据库”。</td></tr>
+<tr>
+<td>实例 ID</td><td>选择目标实例 ID。</td></tr>
+<tr>
+<td>帐号</td><td>目标实例帐号，帐号权限需要满足要求。</td></tr>
+<tr>
+<td>密码</td><td>目标实例帐号的密码。</td></tr>
+</tbody></table>
+
+5. 在设置同步选项和同步对象页面，将对数据初始化选项、数据同步选项、同步对象选项进行设置，
+6. 在设置完成后单击**保存并下一步**。
 >?
 >- 当**初始化类型**仅选择**全量数据初始化**，系统默认用户在目标库已经创建了表结构，不会进行表结构迁移，也不会校验源库和目标库是否有同名表，所以当用户同时在**已存在同名表**项选择**前置校验并报错**，则校验并报错功能不生效。
 >- 仅选择**全量数据初始化**的场景，用户需要提前在目标库创建好表结构。
