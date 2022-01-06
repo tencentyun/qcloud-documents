@@ -23,7 +23,7 @@ mTXCameraRecord.resumeBGM();
 // 音量大小,1为正常音量,建议值为0~2,如果需要调大背景音量可以设置更大的值
 mTXCameraRecord.setBGMVolume(x);
 
-// 设置背景音乐播放的开始位置和结束位置
+// 设置背景音乐播放的开始位置和结束位置，在startPlay之前调用
 mTXCameraRecord.seekBGM(startTime, endTime);
 :::
 </dx-codeblock>
