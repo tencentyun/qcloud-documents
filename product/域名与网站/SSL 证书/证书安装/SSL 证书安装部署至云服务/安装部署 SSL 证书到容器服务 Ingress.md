@@ -1,4 +1,3 @@
-
 ## 操作场景
 本文档将指导您如何在腾讯云容器服务 Ingress 中安装部署 SSL 证书，使部署在腾讯云容器服务的应用服务能够通过 HTTPS 方式访问您的业务域名。
 
@@ -14,7 +13,7 @@
 ## 操作步骤
 1. 登录腾讯云 [容器服务管理控制台](https://console.cloud.tencent.com/tke2/overview)。
 2. 选择您需要部署的集群，单击 **ID/名称**，进入该集群 “基本信息” 管理页面。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/1ad53560d796cea8325168218e7fcf01.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4b8ad41602b2d49c419a25cdb4f53331.png)
 3. 在左侧菜单栏选择**服务与路由 > Ingress**，进入 “Ingress” 管理页面，单击**新建**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/58cbbc422e2a58c5e415f0a40f708d72.png)
 4. 在新建 Ingress 设置页面。输入您的相关配置信息。如下图所示：
