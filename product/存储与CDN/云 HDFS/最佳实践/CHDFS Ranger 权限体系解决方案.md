@@ -55,7 +55,7 @@ V1.2版本及以上。
 ##生成服务，需传入 Ranger 管理员账号密码，以及 Ranger 服务的地址。
 ##对于腾讯云 EMR 集群，管理员用户是 root，密码是构建 emr 集群时设置的 root 密码，ranger 服务的 IP 换成 EMR 的 master 节点 IP。
 adminUser=root
-adminPasswd=xxxxxx （构建 EMR 集群时设置的密码，也是 ranger 服务 web 页面的登陆密码）
+adminPasswd=xxxxxx （构建 EMR 集群时设置的密码，也是 ranger 服务 web 页面的登录密码）
 ##如果 ranger 服务有多个 master 节点，任选一个 master 即可
 rangerServerAddr=10.0.0.1:6080
 ##命令行中 -d 指定步骤 2 中的 json 文件
@@ -120,7 +120,7 @@ chmod +x start_rpc_server.sh
 nohup ./start_rpc_server.sh &> nohup.txt &
 ```
 6. 如果启动失败，查看 log 下 error 日志是否有错误信息。
-7. cos-ranger-service 支持展示 HTTP 端口状态（端口名为 qcloud.object.storage.status.port，默认值为9998）。用户可通过以下命令获取状态信息（例如是否包含 leader、鉴权数量统计等)。
+7. cos-ranger-service 支持展示 HTTP 端口状态（端口名为 qcloud.object.storage.status.port，默认值为9998）。用户可通过以下命令获取状态信息（例如是否包含 leader、鉴权数量统计等）。
 ```
 # 请将下面的10.xx.xx.xxx替换为部署 ranger service 的机器 IP
 # port 9998 设置为 qcloud.object.storage.status.port 配置值
