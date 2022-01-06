@@ -1,4 +1,3 @@
-
 ## 操作场景
 本文档指导您如何在 Tomcat 服务器中安装 JKS 格式的 SSL 证书。
 >?
@@ -55,7 +54,7 @@
 <Connector port="443" protocol="HTTP/1.1" SSLEnabled="true"
   maxThreads="150" scheme="https" secure="true"
 #证书保存的路径
-  keystoreFile="Tomcat 安装目录\conf\cloud.tencent.com.jks" 
+  keystoreFile="Tomcat 安装目录/conf/cloud.tencent.com.jks" 
 #密钥库密码
   keystorePass="******"
   clientAuth="false"/>
@@ -83,7 +82,7 @@
         <Connector port="443" protocol="HTTP/1.1"
                maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
                clientAuth="false"
-                keystoreFile="Tomcat 安装目录\conf\cloud.tencent.com.jks"
+                keystoreFile="Tomcat 安装目录/conf/cloud.tencent.com.jks"
                 keystorePass="******" />
     <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
    <Engine name="Catalina" defaultHost="cloud.tencent.com">
