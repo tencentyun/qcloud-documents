@@ -261,8 +261,8 @@ TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() 
         // 创建 IM 群组失败        
 });
 ```
-
->!1. 以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#af836e4912f668dddf6cc679233cfb0bb)。<br>2. 推荐业务后台使用 [IM REST API](https://cloud.tencent.com/document/product/269/1615) 提前创建群组。<br>3. 不同的群组类型，群组功能以及成员数量有所区别，具体请查看 [IM 群组系统](https://cloud.tencent.com/document/product/269/1502)。
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#af836e4912f668dddf6cc679233cfb0bb)**。
+>!1. 推荐业务后台使用 [IM REST API](https://cloud.tencent.com/document/product/269/1615) 提前创建群组。<br>2. 不同的群组类型，群组功能以及成员数量有所区别，具体请查看 [IM 群组系统](https://cloud.tencent.com/document/product/269/1502)。
 
 
 #### 5. 销毁白板

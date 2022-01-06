@@ -105,10 +105,5 @@ testdb1=> select * from foreign_table1;
 (1 row)
 ```
 
-### 步骤7：postgres_fdw 使用注意
-如果目标实例在 CVM 上，需要注意以下几点：
-1. 需要放开 PostgreSQL 的 hba 限制，允许创建的映射用户（如：user2）以 MD5 方式访问。hba 的修改可参考 [PostgreSQL 官方说明](https://www.postgresql.org/docs/9.3/static/auth-pg-hba-conf.html)。
-2. 如果目标实例非 TencentDB 实例，且搭建有热备模式，当主备切换后，需要自行更新 server 连接地址或者重新创建 server。
-
 ### 参考链接
 [postgres_fdw 官方介绍](https://www.postgresql.org/docs/9.5/postgres-fdw.html)

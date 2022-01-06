@@ -1,6 +1,6 @@
 ## 录制添加 BGM 
 <dx-codeblock>
-::: android 
+::: java 
 // 设置 BGM 路径
 mTXCameraRecord.setBGM(path);
 
@@ -23,14 +23,14 @@ mTXCameraRecord.resumeBGM();
 // 音量大小,1为正常音量,建议值为0~2,如果需要调大背景音量可以设置更大的值
 mTXCameraRecord.setBGMVolume(x);
 
-// 设置背景音乐播放的开始位置和结束位置
+// 设置背景音乐播放的开始位置和结束位置，在startPlay之前调用，若在暂停时调用则无效
 mTXCameraRecord.seekBGM(startTime, endTime);
 :::
 </dx-codeblock>
 
 ## 编辑添加 BGM
 <dx-codeblock>
-::: android 
+::: java 
 // 设置 BGM 路径，返回值为0表示设置成功； 其他表示失败，如：不支持的音频格式。
 public int setBGM(String path);
 

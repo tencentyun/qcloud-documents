@@ -20,8 +20,8 @@
  - **函数类型**：选择 “HTTP”。
  - **函数名称**：填写 express-helloworld。
  - **运行环境**：选择 “Nodejs 8.9”。
- - **创建方式**：选择“模版函数”。
- - **模板搜索**：输入 Express 后按 “Enter” 进行搜索，选择 “Express” 模版。
+ - **创建方式**：选择“模板函数”。
+ - **模板搜索**：输入 Express 后按 “Enter” 进行搜索，选择 “Express” 模板。
 ![](https://main.qcloudimg.com/raw/f5758f5dc63b1527793edb3899177e43.png)
 4. 函数配置保持默认，并单击**完成**。如下图所示：
 ![](https://main.qcloudimg.com/raw/0fa5b842f20ad3a48360b94a40ca19e8.png)
