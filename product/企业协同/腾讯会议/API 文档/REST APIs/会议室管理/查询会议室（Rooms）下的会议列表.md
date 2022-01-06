@@ -1,7 +1,7 @@
 ## 接口描述
-**描述**：查询指定会议室（Rooms）下的会议列表，目前暂不支持 OAuth2.0 鉴权访问。
-**调用方式**：GET
-**接口请求域名**：
+- **描述**：查询指定会议室（Rooms）下的会议列表，目前暂不支持 OAuth2.0 鉴权访问。
+- **调用方式**：GET
+- **接口请求域名**：
 ```Plaintext
 https://api.meeting.qq.com/v1/meeting-rooms/{operator_id}/meetings
 ```
@@ -33,22 +33,22 @@ HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](ht
       <td>instanceid</td>
       <td>是</td>
       <td>用户的终端设备类型： 
-			<li>PC。 </li>
-			<li>Mac。 </li>
-			<li>Android。</li>
-			<li>iOS。 </li>
-			<li>Web。 </li>
-			<li>iPad。 </li>
-			<li>Android Pad。 </li>
-			<li>小程序。 </li>
-			<li>voip、sip 设备。 </li>
-			<li>Linux。 </li>
-			<li>Rooms for Touch Windows。 </li>
-			<li>Rooms for Touch Mac。 </li>
-			<li>Rooms for Touch Android。 </li>
-			<li>Controller for Touch Windows。 </li>
-			<li>Controller for Touch Android。 </li>
-			<li>Controller for Touch iPhone。</li>
+			<li>1：PC。 </li>
+			<li>2：Mac。 </li>
+			<li>3：Android。</li>
+			<li>4：iOS。 </li>
+			<li>5：Web。 </li>
+			<li>6：iPad。 </li>
+			<li>7：Android Pad。 </li>
+			<li>8：小程序。 </li>
+			<li>9：voip、sip 设备。 </li>
+			<li>10：Linux。 </li>
+			<li>20：Rooms for Touch Windows。 </li>
+			<li>21：Rooms for Touch Mac。 </li>
+			<li>22：Rooms for Touch Android。 </li>
+			<li>30：Controller for Touch Windows。 </li>
+			<li>32：Controller for Touch Android。 </li>
+			<li>33：Controller for Touch iPhone。</li>
 			</td>
    </tr>
    <tr>
@@ -93,6 +93,7 @@ HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](ht
 | meeting_code | string  | 有效会议 Code。                                              |
 | subject      | string  | 会议主题。                                                   |
 | status       | string  | 会议状态。                                                   |
-| meeting_type | integer | 会议类型：<br />(0-一次性会议，1-周期性会议，2-微信专属会议，4-rooms投屏会议，5-个人会议号会议，6-网络研讨会（Webinar）) |
+| meeting_type | integer | 会议类型：<li>0：一次性会议。<li>1：周期性会议。<li>2：微信专属会议。<li>4：rooms 投屏会议。<li>5：个人会议号会议。<li>6：络研讨会（Webinar）。|
 | start_time   | integer | 会议预订开始时间（Unix 秒）。                                |
 | end_time     | integer | 会议预订结束时间（Unix 秒）。                                |
+
