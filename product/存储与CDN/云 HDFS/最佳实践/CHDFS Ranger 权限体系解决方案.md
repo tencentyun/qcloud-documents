@@ -54,7 +54,8 @@ V1.2版本及以上。
 ##生成服务，需传入 Ranger 管理员账号密码，以及 Ranger 服务的地址。
 ##对于腾讯云 EMR 集群，管理员用户是 root，密码是构建 emr 集群时设置的 root 密码，ranger 服务的 IP 换成 EMR 的 master 节点 IP。
 adminUser=root
-adminPasswd=xxxxxx （构建EMR集群时设置的密码，也是ranger服务web页面的登陆密码）
+##构建EMR集群时设置的密码，也是ranger服务web页面的登陆密码）
+adminPasswd=xxxxxx
 ##如果ranger服务有多个master节点，任选一个master即可
 rangerServerAddr=10.0.0.1:6080
 ##命令行中 -d 指定步骤 2 中的json文件

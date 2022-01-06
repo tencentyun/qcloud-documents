@@ -43,7 +43,7 @@ V1.1版本及以上。
 a. 腾讯云的 EMR 环境，路径是 ranger/ews/webapp/WEB-INF/classes/ranger-plugins。
 b. 自建的 hadoop 环境，可以通过在 ranger 目录下查找 hdfs 等已经接入到 ranger 服务的组件，查找目录位置。
 ![](https://main.qcloudimg.com/raw/793f47a53343657a000b34b7ac66b074.png)
-2. 在 COS 目录下，放入 cos-chdfs-ranger-plugin-xxx.jar。（注意 jar 包至少有 r 权限）。
+2. 在 COS 目录下，放入 cos-chdfs-ranger-plugin-xxx.jar。（注意 jar 包至少有 r 权限）。同时需要放入chdfs-ranger.json文件，可前往 [Github](https://github.com/tencentyun/cos-ranger-service/tree/main/ranger-plugin) 获取。
 3. 重启 Ranger 服务。
 4. 在 Ranger 上注册 COS Service。可参考如下命令：
 <dx-codeblock>
@@ -51,7 +51,8 @@ b. 自建的 hadoop 环境，可以通过在 ranger 目录下查找 hdfs 等已�
 ##生成服务，需传入 Ranger 管理员账号密码，以及 Ranger 服务的地址。
 ##对于腾讯云 EMR 集群，管理员用户是 root，密码是构建 emr 集群时设置的 root 密码，ranger 服务的 IP 换成 EMR 的 master 节点 IP。
 adminUser=root
-adminPasswd=xxxxxx （构建EMR集群时设置的密码，也是ranger服务web页面的登陆密码）
+##构建EMR集群时设置的密码，也是ranger服务web页面的登陆密码
+adminPasswd=xxxxxx
 ##如果ranger服务有多个master节点，任选一个master即可
 rangerServerAddr=10.0.0.1:6080
 ##命令行中 -d 指定步骤 2 中的json文件
