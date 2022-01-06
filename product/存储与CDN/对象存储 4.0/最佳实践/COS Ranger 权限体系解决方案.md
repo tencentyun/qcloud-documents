@@ -44,7 +44,7 @@ V1.1版本及以上。
 a. 腾讯云的 EMR 环境，路径是 ranger/ews/webapp/WEB-INF/classes/ranger-plugins。
 b. 自建的 hadoop 环境，可以通过在 ranger 目录下查找 hdfs 等已经接入到 ranger 服务的组件，查找目录位置。
 ![](https://main.qcloudimg.com/raw/793f47a53343657a000b34b7ac66b074.png)
-2. 在 COS 目录下，放入 cos-chdfs-ranger-plugin-xxx.jar。（注意 jar 包至少有 r 权限）。同时需要放入cos-ranger.json文件，可前往 [Github](https://github.com/tencentyun/cos-ranger-service/tree/main/ranger-plugin) 获取。
+2. 在 COS 目录下，放入 cos-chdfs-ranger-plugin-xxx.jar。（注意 jar 包至少有 r 权限）。同时需要放入 cos-ranger.json 文件，可前往 [Github](https://github.com/tencentyun/cos-ranger-service/tree/main/ranger-plugin) 获取。
 3. 重启 Ranger 服务。
 4. 在 Ranger 上注册 COS Service。可参考如下命令：
 <dx-codeblock>
