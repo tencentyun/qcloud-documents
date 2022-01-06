@@ -1,13 +1,10 @@
 ## 接口描述
-
 **描述**：
-
 - 查询指定会议室（Rooms）下的会议列表。
 - 目前暂不支持 OAuth2.0 鉴权访问。
 
 **调用方式**：GET
 **接口请求域名**：
-
 ```Plaintext
 https://api.meeting.qq.com/v1/meeting-rooms/{operator_id}/meetings
 ```
@@ -15,15 +12,13 @@ https://api.meeting.qq.com/v1/meeting-rooms/{operator_id}/meetings
 
 
 ## 输入参数
-
 HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](https://cloud.tencent.com/document/product/1095/42413#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)，
-
 
 | 参数名称         | 是否必须 | 示例 | 备注                                                         |
 | :--------------- | :------- | :--- | :----------------------------------------------------------- |
 | operator_id      | 是       |      | 操作者 ID。operator_id 必须与 operator_id_type 配合使用。根据 operator_id_type 的值，operator_id 代表不同类型。 |
 | operator_id_type | 是       |      | 操作者 ID 的类型： <br />3. rooms 设备 rooms_id <br />5. 会议室ID meeting_room_id |
-| instanceid       | 是       |      | 用户的终端设备类型： <br />1：PC <br />2：Mac <br />3：Android <br />4：iOS <br />5：Web <br />6：iPad <br />7：Android Pad <br />8：小程序 <br />9：voip、sip 设备 <br />10：linux <br />20：Rooms for Touch Windows <br />21：Rooms for Touch Mac <br />22：Rooms for Touch Android <br />30：Controller for Touch Windows <br />32：Controller for Touch Android <br />33：Controller for Touch Iphone |
+| instanceid       | 是       |      | 用户的终端设备类型： <br />1. PC <br />2. Mac <br />3. Android <br />4. iOS <br />5. Web <br />6. iPad <br />7. Android Pad <br />8. 小程序 <br />9. voip、sip 设备 <br />10. linux <br />20. Rooms for Touch Windows <br />21. Rooms for Touch Mac <br />22. Rooms for Touch Android <br />30. Controller for Touch Windows <br />32. Controller for Touch Android <br />33. Controller for Touch Iphone |
 | start_time       | 否       |      | Unix 时间戳。查询起始时间，时间区间不超过90天。              |
 | end_time         | 否       |      | Unix 时间戳。查询结束时间，时间区间不超过90天。              |
 | page             | 否       |      | 当前页，页码起始值为1，默认为1。                             |
