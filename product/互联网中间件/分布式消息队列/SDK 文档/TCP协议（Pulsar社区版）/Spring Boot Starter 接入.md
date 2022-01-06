@@ -91,9 +91,6 @@ pulsar:
  }
 :::
 </dx-codeblock>
-> ?
->
-> Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Topic`，`clusterid/namespace/topic` 的部分可以从控制台上 **[Topic 管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
 2. 注入生产者。
 <dx-codeblock>
 :::  java
@@ -150,10 +147,6 @@ public void topicConsume(String msg) {
 }
 :::
 </dx-codeblock>
-
-> ?
-> - Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Topic`，`clusterid/namespace/topic` 的部分可以从控制台上 **[Topic 管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
-> - subscriptionName需要写入订阅名，可在**消费管理**界面查看。
 
 
 
