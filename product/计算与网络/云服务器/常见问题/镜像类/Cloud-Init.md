@@ -45,8 +45,8 @@ rm -rf /var/lib/cloud
 <tr>
 	<td>hostname 的初始化</td>
 	<td>实例<b>首次启动</b>时，Cloud-Init 会根据 <code>vendor_data.json</code> 中的 hostname 信息来设置实例的 hostname。</td>
-	<td>当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的 hostname 设置，可以在制作自定义镜像之前在 <code>/etc/cloud/cloud.cfg</code> 里面删除 <code>- scripts-user</code> 这行配置。</td>
-	<td>如果您禁用了 <code>- scripts-user</code> 这行配置，实例内部的 <code>/var/lib/cloud/instance/scripts/runcmd</code> 初始化脚本将不会被执行，并会同时影响其他子项的初始化（主要涉及：云监控、云安全的安装、软件源的设置）。 同时，在您创建子机时，自定义脚本也不会被执行。</td>
+	<td>当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的 hostname 设置，可以在制作自定义镜像之前将 <code>/etc/cloud/cloud.cfg</code>中的 <code>preserve_hostname</code> 设置为  <code>true</code>。</td>
+	<td>若 <code>preserve_hostname</code> 为 <code>true</code>，实例内部的 <code>/var/lib/cloud/instance/scripts/runcmd</code> 初始化脚本将不会被执行，并会同时影响其他子项的初始化（主要涉及：云监控、云安全的安装、软件源的设置）。 同时，在您创建子机时，自定义脚本也不会被执行。</td>
 </tr>
 
 <tr>
