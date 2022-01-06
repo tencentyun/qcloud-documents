@@ -12,7 +12,7 @@ $ npm install -g serverless
 
 ### 2. 配置
 
-初始化 nuxt.js 项目模版（可跳过，您可直接使用已有项目进行配置）
+初始化 nuxt.js 项目模板（可跳过，您可直接使用已有项目进行配置）
 ```
 sls init nuxtjs-demo
 ```

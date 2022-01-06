@@ -25,7 +25,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/75889ec1a3a37c14c222d7f89df75622.png)
 2. 选择**腾讯特效功能模块** > **正式版**，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/50b40a0491a024ee85957be34a3b9dc4.png)
-3. 进入选择资源项并绑定 License 界面，选择**未绑定**的腾讯特效套餐包（若无可绑定的腾讯特效套餐包，可单击 [资源包购买页](https://buy.cloud.tencent.com/vcube) 前往购买），并单击**确定**即可在应用下生成正式版腾讯特效功能模块。
+3. 进入选择资源项并绑定 License 界面，选择**未绑定**的腾讯特效套餐包（若无可绑定的腾讯特效套餐包，可单击 [资源包购买页](https://buy.cloud.tencent.com/vcube?type=magic) 前往购买），并单击**确定**即可在应用下生成正式版腾讯特效功能模块。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1530d7979bf74add8ced5fbbfa583e0d.png)
 :::
 </dx-tabs>
