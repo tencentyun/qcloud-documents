@@ -17,8 +17,8 @@
 ## 操作步骤
 1.	打开SecureCRT，单击左侧的 **Session Manager**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9d191e9d1ace8c665073422cfda0948a.png)
-2. 单击** New Session**，打开 New Session Wizard 窗口，窗口当中 Protocol 设置为 SSH2，然后单击 **Continue**。
-![](https://qcloudimg.tencent-cloud.cn/raw/5910cd141b1550e4f185041f6d1d310d.png)
+2. 单击 **New Session**，打开 New Session Wizard 窗口，窗口当中 Protocol 设置为 **SSH2**，单击 **Continue**。
+![](https://qcloudimg.tencent-cloud.cn/raw/086965702afe3926a9e3782e5d5ce077.png)
 3. 输入登录信息，单击 **Continue**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2e0665bbee20a6a3cb777f7be2600ffe.png)
 **参数列表**
