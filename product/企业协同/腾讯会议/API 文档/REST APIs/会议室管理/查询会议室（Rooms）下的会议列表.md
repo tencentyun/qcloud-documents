@@ -26,8 +26,8 @@ HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](ht
       <td>operator_id_type</td>
       <td>是</td>
       <td>操作者 ID 的类型： <br>
-			3. rooms 设备 rooms_id。<br>
-			5. 会议室ID meeting_room_id。</td>
+			3：rooms 设备 rooms_id。<br>
+			5：会议室ID meeting_room_id。</td>
    </tr>
    <tr>
       <td>instanceid</td>
