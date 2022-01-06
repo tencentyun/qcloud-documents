@@ -1,6 +1,6 @@
 ## 录制添加 BGM 
 <dx-codeblock>
-::: android 
+::: java 
 // 设置 BGM 路径
 mTXCameraRecord.setBGM(path);
 
@@ -30,7 +30,7 @@ mTXCameraRecord.seekBGM(startTime, endTime);
 
 ## 编辑添加 BGM
 <dx-codeblock>
-::: android 
+::: java 
 // 设置 BGM 路径，返回值为0表示设置成功； 其他表示失败，如：不支持的音频格式。
 public int setBGM(String path);
 
