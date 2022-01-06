@@ -1,7 +1,7 @@
 ## 接口描述
-- **描述**：查询指定会议室（Rooms）下的会议列表，目前暂不支持 OAuth2.0 鉴权访问。
-- **调用方式**：GET
-- **接口请求域名**：
+**描述**：查询指定会议室（Rooms）下的会议列表，目前暂不支持 OAuth2.0 鉴权访问。
+**调用方式**：GET
+**接口请求域名**：
 ```Plaintext
 https://api.meeting.qq.com/v1/meeting-rooms/{operator_id}/meetings
 ```
@@ -25,30 +25,30 @@ HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](ht
    <tr>
       <td>operator_id_type</td>
       <td>是</td>
-      <td>操作者 ID 的类型： 
-			<li>3. rooms 设备 rooms_id。 </li>
-			<li>5. 会议室ID meeting_room_id。</li></td>
+      <td>操作者 ID 的类型： <br>
+			3. rooms 设备 rooms_id。<br>
+			5. 会议室ID meeting_room_id。</td>
    </tr>
    <tr>
       <td>instanceid</td>
       <td>是</td>
-      <td>用户的终端设备类型： 
-			<li>1：PC。 </li>
-			<li>2：Mac。 </li>
-			<li>3：Android。</li>
-			<li>4：iOS。 </li>
-			<li>5：Web。 </li>
-			<li>6：iPad。 </li>
-			<li>7：Android Pad。 </li>
-			<li>8：小程序。 </li>
-			<li>9：voip、sip 设备。 </li>
-			<li>10：Linux。 </li>
-			<li>20：Rooms for Touch Windows。 </li>
-			<li>21：Rooms for Touch Mac。 </li>
-			<li>22：Rooms for Touch Android。 </li>
-			<li>30：Controller for Touch Windows。 </li>
-			<li>32：Controller for Touch Android。 </li>
-			<li>33：Controller for Touch iPhone。</li>
+      <td>用户的终端设备类型： <br>
+			1：PC。 <br>
+			2：Mac。 <br>
+			3：Android。<br>
+			4：iOS。 <br>
+			5：Web。 <br>
+			6：iPad。 <br>
+			7：Android Pad。 <br>
+			8：小程序。 <br>
+			9：voip、sip 设备。 <br>
+			10：Linux。 <br>
+			20：Rooms for Touch Windows。 <br>
+			21：Rooms for Touch Mac。 <br>
+			22：Rooms for Touch Android。 <br>
+			30：Controller for Touch Windows。 <br>
+			32：Controller for Touch Android。 <br>
+			33：Controller for Touch iPhone。<br>
 			</td>
    </tr>
    <tr>
@@ -79,21 +79,21 @@ HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](ht
 
 | 名称              | 类型         | 备注             |
 | :---------------- | :----------- | :--------------- |
-| current_page      | integer      | 当前页。         |
-| current_size      | integer      | 当前实际页大小。 |
-| total_count       | integer      | 数据总条数。     |
-| total_page        | integer      | 数据总页数。     |
+| current_page      | Integer      | 当前页。         |
+| current_size      | Integer      | 当前实际页大小。 |
+| total_count       | Integer      | 数据总条数。     |
+| total_page        | Integer      | 数据总页数。     |
 | meeting_info_list | 会议对象列表 | 会议对象列表。   |
 
 **会议对象**
 
 | 名称         | 类型    | 备注                                                         |
 | ------------ | ------- | ------------------------------------------------------------ |
-| meeting_id   | string  | 会议 ID。                                                    |
-| meeting_code | string  | 有效会议 Code。                                              |
-| subject      | string  | 会议主题。                                                   |
-| status       | string  | 会议状态。                                                   |
-| meeting_type | integer | 会议类型：<li>0：一次性会议。<li>1：周期性会议。<li>2：微信专属会议。<li>4：rooms 投屏会议。<li>5：个人会议号会议。<li>6：络研讨会（Webinar）。|
-| start_time   | integer | 会议预订开始时间（Unix 秒）。                                |
-| end_time     | integer | 会议预订结束时间（Unix 秒）。                                |
+| meeting_id   | String  | 会议 ID。                                                    |
+| meeting_code | String  | 有效会议 Code。                                              |
+| subject      | String  | 会议主题。                                                   |
+| status       | String  | 会议状态。                                                   |
+| meeting_type | Integer | 会议类型：<br>0：一次性会议。<br>1：周期性会议。<br>2：微信专属会议。<br>4：rooms 投屏会议。<br>5：个人会议号会议。<br>6：络研讨会（Webinar）。|
+| start_time   | Integer | 会议预订开始时间（Unix 秒）。                                |
+| end_time     | Integer | 会议预订结束时间（Unix 秒）。                                |
 
