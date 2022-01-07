@@ -24,7 +24,7 @@
 - spring-cloud-tsf-sleuth 兼容 mysql-connector-java 8.x。
   
 ### Bug 修复
-- 处理feign 和 httpclient 拦截的冲突 导致重复生成client span的问题
+- 修复 feign 和 httpclient 拦截的冲突 导致重复生成client span的问题
 
 ## 1.29.4-Finchley-RELEASE（2021-10-18）
 ### 优化
