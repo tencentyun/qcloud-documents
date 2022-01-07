@@ -93,17 +93,13 @@ FLUSH PRIVILEGES;
 <tr>
 <td>同步任务规格</td><td>目前只支持标准版。</td></tr>
 </tbody></table>
-
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
 ![](https://main.qcloudimg.com/raw/b21f1336854375bb1343c7ccb144900b.png)
 4. 在配置同步任务页面，配置源端实例、帐号密码，配置目标端实例、帐号和密码，测试连通性后，单击**下一步**。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/0a61f9b3a78e0dbd165d745f90e320a7.png" style="zoom:70%;" />
-
+![](https://qcloudimg.tencent-cloud.cn/raw/0a61f9b3a78e0dbd165d745f90e320a7.png)
 **因源数据库部署形态和接入类型的交叉场景较多，各场景同步操作步骤类似，如下仅提供典型场景的配置示例，其他场景请用户参考配置。**
-
 **示例一**：本地自建数据库通过专线/VPN方式同步至腾讯云数据库
-
 <table>
 <thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
 <tbody><tr>
@@ -157,9 +153,7 @@ FLUSH PRIVILEGES;
 <tr>
 <td>密码</td><td>目标实例帐号的密码。</td></tr>
 </tbody></table>
-
-**示例二**：腾讯云数据库同步至腾讯云数据库
-
+<b>示例二</b>：腾讯云数据库同步至腾讯云数据库
 <table>
 <thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
 <tbody><tr>
@@ -207,9 +201,7 @@ FLUSH PRIVILEGES;
 <tr>
 <td>密码</td><td>目标实例帐号的密码。</td></tr>
 </tbody></table>
-
-**示例三**：阿里云 RDS 通过公网方式同步至腾讯云数据库
-
+<b>示例三</b>：阿里云 RDS 通过公网方式同步至腾讯云数据库
 <table>
 <thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
 <tbody><tr>
@@ -259,9 +251,7 @@ FLUSH PRIVILEGES;
 <tr>
 <td>密码</td><td>目标实例帐号的密码。</td></tr>
 </tbody></table>
-
-5. 在设置同步选项和同步对象页面，将对数据初始化选项、数据同步选项、同步对象选项进行设置，
-6. 在设置完成后单击**保存并下一步**。
+5. 在设置同步选项和同步对象页面，将对数据初始化选项、数据同步选项、同步对象选项进行设置，在设置完成后单击**保存并下一步**。
 >?
 >- 当**初始化类型**仅选择**全量数据初始化**，系统默认用户在目标库已经创建了表结构，不会进行表结构迁移，也不会校验源库和目标库是否有同名表，所以当用户同时在**已存在同名表**项选择**前置校验并报错**，则校验并报错功能不生效。
 >- 仅选择**全量数据初始化**的场景，用户需要提前在目标库创建好表结构。
