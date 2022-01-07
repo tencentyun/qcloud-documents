@@ -123,7 +123,7 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 
 | API | 描述 |
 |-----|-----|
-| [OnError](#OnError) | 错误回调。|
+| [OnError](#onerror) | 错误回调。|
 
 ### 基础事件回调
 
@@ -445,7 +445,7 @@ virtual int SetVideoMirror(bool mirror) = 0;
 ## 远端用户相关接口
 
 ### StartRemoteView
-订阅远端用户的视频流
+订阅远端用户的视频流。
 
 ```C++
 virtual int StartRemoteView(const std::string& user_id, const liteav::TXView& view,
