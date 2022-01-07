@@ -45,6 +45,21 @@ public void onWarning(V2TXLivePlayer player, int code, String msg, Bundle extraI
 
 ***
 
+### onConnected
+
+已经成功连接到服务器通知。
+
+```
+public void onConnected(V2TXLivePlayer player, Bundle extraInfo) 
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| player | V2TXLivePlayer |  回调该通知的播放器对象。 |
+| extraInfo | Bundle |  扩展信息。 |
+
 ## 视频相关回调
 ### onVideoResolutionChanged
 
@@ -58,7 +73,7 @@ public void onVideoResolutionChanged(V2TXLivePlayer player, int width, int heigh
 |-----|-----|-----|
 | player | V2TXLivePlayer |  回调该通知的播放器对象。 |
 | width | int |  视频宽。 |
-| width | int |  视频高。 |
+| height | int |  视频高。 |
 
 ### onVideoLoading
 

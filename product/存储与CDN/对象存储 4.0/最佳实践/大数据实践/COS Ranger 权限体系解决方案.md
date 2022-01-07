@@ -1,7 +1,7 @@
 
 ## 背景
 
-Hadoop Ranger 权限体系是大数据场景下的权限解决方案。用户使用存算分离后，将数据托管在 COS 上。COS 使用的是腾讯云 CAM 权限体系，无论是用户身份，权限策略等，都与本地 Hadoop Ranger 体系不同。为维持客户的使用习惯，我们提供 COS 的 Ranger 接入解决方案。
+Hadoop Ranger 权限体系是大数据场景下的权限解决方案。用户使用存算分离后，将数据托管在对象存储（Cloud Object Storage，COS）上。COS 使用的是腾讯云访问管理（Cloud Access Management，CAM）权限体系，无论是用户身份，权限策略等，都与本地 Hadoop Ranger 体系不同。为维持客户的使用习惯，我们提供 COS 的 Ranger 接入解决方案。
 
 
 ## 优势
@@ -25,10 +25,11 @@ Hadoop 权限体系中, 认证由 Kerberos 提供，授权鉴权由 Ranger 负�
 
 - Hadoop 环境。
 - ZooKeeper、Ranger、Kerberos 服务（如果有认证需求，则部署）。
->?以上服务由于是成熟的开源组件，因此客户可自行安装。
+>? 以上服务由于是成熟的开源组件，因此客户可自行安装。
+>
 
 ## 部署组件
-
+部署组件请按照 CHDFS-Ranger-Plugin、Cos-Ranger-Service、Cos-Ranger-Client、COSN 次序进行。
 <dx-tabs>
 ::: 部署COS-Ranger-Plugin
 COS-Ranger-Plugin 拓展了 Ranger Admin 控制台上的服务种类，用户可在 Ranger 控制台上，设置和 COS 相关的操作权限。
@@ -43,7 +44,7 @@ V1.1版本及以上。
 a. 腾讯云的 EMR 环境，路径是 ranger/ews/webapp/WEB-INF/classes/ranger-plugins。
 b. 自建的 hadoop 环境，可以通过在 ranger 目录下查找 hdfs 等已经接入到 ranger 服务的组件，查找目录位置。
 ![](https://main.qcloudimg.com/raw/793f47a53343657a000b34b7ac66b074.png)
-2. 在 COS 目录下，放入 cos-chdfs-ranger-plugin-xxx.jar。（注意 jar 包至少有 r 权限）。
+2. 在 COS 目录下，放入 cos-chdfs-ranger-plugin-xxx.jar。（注意 jar 包至少有 r 权限）。同时需要放入 cos-ranger.json 文件，可前往 [Github](https://github.com/tencentyun/cos-ranger-service/tree/main/ranger-plugin) 获取。
 3. 重启 Ranger 服务。
 4. 在 Ranger 上注册 COS Service。可参考如下命令：
 <dx-codeblock>
@@ -51,8 +52,11 @@ b. 自建的 hadoop 环境，可以通过在 ranger 目录下查找 hdfs 等已�
 ##生成服务，需传入 Ranger 管理员账号密码，以及 Ranger 服务的地址。
 ##对于腾讯云 EMR 集群，管理员用户是 root，密码是构建 emr 集群时设置的 root 密码，ranger 服务的 IP 换成 EMR 的 master 节点 IP。
 adminUser=root
+##构建 EMR 集群时设置的密码，也是 ranger 服务 web 页面的登录密码
 adminPasswd=xxxxxx
+##如果 ranger 服务有多个 master 节点，任选一个 master 即可
 rangerServerAddr=10.0.0.1:6080
+##命令行中 -d 指定步骤 2 中的 json 文件
 curl -v -u${adminUser}:${adminPasswd} -X POST -H "Accept:application/json" -H "Content-Type:application/json" -d @./cos-ranger.json http://${rangerServerAddr}/service/plugins/definitions
 ##如果要删除刚定义的服务，则传入刚刚创建服务时，返回的服务 ID
 serviceId=102
@@ -64,7 +68,9 @@ curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H 
 6. 在 COS 服务侧单击【+】，定义新服务实例，服务实例名可自定义，例如`cos`或者`cos_test`，服务的配置如下所示。
 ![](https://main.qcloudimg.com/raw/2be86fb2b8232b16679b29e908f82d3a.png)
 其中 policy.grantrevoke.auth.users 需设置后续启动 COSRangerService 服务的用户名（即允许拉取权限策略的用户）。通常建议设置成 hadoop，后续 COSRangerService 可使用此用户名进行启动。
-7. 单击新生成的 COS 服务实例，添加 policy。如下所示：
+7. 单击新生成的 COS 服务实例。
+![](https://qcloudimg.tencent-cloud.cn/raw/bc48921e23571e81367b1c3aa8ca52a8.png)
+添加 policy，如下所示：
 ![](https://main.qcloudimg.com/raw/58ded7125d5c5d161ca6e2f5a98d8e7b.png)
 8. 在跳转界面中，配置以下参数，说明如下：
  - **bucket**：存储桶名称，例如 examplebucket-1250000000，可登录 [COS 控制台](https://console.cloud.tencent.com/cos5/bucket) 查看。
@@ -92,14 +98,14 @@ V5.0.6版本及以上。
 
 #### 部署步骤
 1. 将 COS Ranger Service 服务代码拷贝到集群的几台机器上，生产环境建议至少两台机器（一主一备）。因为涉及到敏感信息，建议是堡垒机或者权限严格管控的机器。
-2. 修改 cos-ranger.xml 文件中的相关配置，其中必须修改的配置项如下所示。配置项说明请参见文件中的注释说明。
+2. 修改 cos-ranger.xml 文件中的相关配置，其中必须修改的配置项如下所示。配置项说明请参见文件中的注释说明（配置文件可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-service/conf 目录下获取）。
  -  qcloud.object.storage.rpc.address
  -  qcloud.object.storage.status.port
  -  qcloud.object.storage.enable.cos.ranger
- -  qcloud.object.storage.zk.address
+ -  qcloud.object.storage.zk.address （zk 地址，cos ranger service 启动后注册到 zk 上）
  -  qcloud.object.storage.cos.secret.id
  -  qcloud.object.storage.cos.secret.key
-3. 修改 ranger-cos-security.xml 文件中的相关配置。其中必须修改的配置项有如下所示。配置项说明请参见文件中的注释说明。
+3. 修改 ranger-cos-security.xml 文件中的相关配置。其中必须修改的配置项有如下所示。配置项说明请参见文件中的注释说明（配置文件可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-service/conf 目录下获取）。
  -  ranger.plugin.cos.policy.cache.dir
  -  ranger.plugin.cos.policy.rest.url
  -  ranger.plugin.cos.service.name
@@ -110,12 +116,14 @@ chmod +x start_rpc_server.sh
 nohup ./start_rpc_server.sh &> nohup.txt &
 ```
 6. 如果启动失败，查看 log 下 error 日志是否有错误信息。
-7. cos-ranger-service 支持展示 HTTP 端口状态（端口名为 qcloud.object.storage.status.port，默认值为9998）。用户可通过以下命令获取状态信息（例如是否包含 leader、鉴权数量统计等)
+7. cos-ranger-service 支持展示 HTTP 端口状态（端口名为 qcloud.object.storage.status.port，默认值为9998）。用户可通过以下命令获取状态信息（例如是否包含 leader、鉴权数量统计等）
 ```
 # 请将下面的10.xx.xx.xxx替换为部署 ranger service 的机器 IP
 # port 9998 设置为 qcloud.object.storage.status.port 配置值
 curl -v http://10.xx.xx.xxx:9998/status
 ```
+ - 如果只部署了一个 cos ranger service 节点，会在上述接口响应中看到当前节点成为 leader。
+ - 如果部署了多个 cos ranger service 节点，会在上述接口响应中看到其他节点成为 leader，完成全部节点重启后，会看到最早完成重启的节点成为 leader。
 
 :::
 ::: 部署COS-Ranger-Client
@@ -128,7 +136,7 @@ COS-Ranger-Client 由 hadoop cosn 插件动态加载，并代理访问 COS-Range
 V3.8版本及以上。
 
 #### 部署方式
-1. 将 cos-ranger-client jar 包和cosn-ranger-interface jar 包拷贝到与 COSN 同一目录下（请选择拷贝与自身 hadoop 大版本一致的  jar 包）。
+1. 将 cos-ranger-client jar 包和cosn-ranger-interface jar 包拷贝到与 COSN 同一目录下通常在/usr/local/service/hadoop/share/hadoop/common/lib/目录下；请选择拷贝与自身 hadoop 大版本一致的 jar 包，最后确保 jar 包有可读权限。
 2. 在 core-site.xml 添加如下配置项：
 <dx-codeblock>
 ::: xml
@@ -138,7 +146,7 @@ V3.8版本及以上。
            <!-- zk 的地址，客户端从 zk 上查询得知 ranger-service 的服务地址 -->
            <property>
                <name>qcloud.object.storage.zk.address</name>
-               <value>10.0.0.8:2121</value>
+               <value>10.0.0.8:2181,10.0.0.9:2181,10.0.0.10:2181</value>
            </property>
 
            <!--***可选配置****-->           
@@ -210,3 +218,6 @@ Kerberos 满足认证的需求，如果所在的集群，用户都是可信的�
 可以是子账号，但是必须拥有被操作 bucket 的相应权限，才能生成临时密钥给到 COSN 插件，进行相应的操作。通常建议这里设置的密钥拥有对该 bucket 的所有权限。
 #### 临时密钥需如何更新，每次访问 COS 前都需要从 COS Ranger Service 侧获取?
 临时密钥是 cache 在 COSN 插件侧，并周期性进行异步更新。
+
+### 在 ranger 页面更改了 Policy 未生效怎么办？
+请修改 ranger-cos-security.xml 文件的配置项：ranger.plugin.cos.policy.pollIntervalMs，调小该配置项（单位为毫秒），然后重启 cos-ranger-service 服务。Policy 相关测试结束后，建议修改回原来值（时间间隔太小导致轮训频率高，从而导致 CPU 利用率高企）。

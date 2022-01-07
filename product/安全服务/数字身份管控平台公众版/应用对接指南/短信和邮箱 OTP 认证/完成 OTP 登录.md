@@ -5,7 +5,9 @@
 Web 应用。
 
 ## 请求方法
+```
 POST
+```
 
 ## 请求路径
 ```
@@ -39,8 +41,8 @@ Host: sample.portal.tencentciam.com
 
 | JSON 路径      | 数据类型 | 描述                                                         |
 | :------------- | :------- | :----------------------------------------------------------- |
-| grant_type     | String   | <li>短信 OTP 登录填写： `http://tencentciam.com/oauth2/grant-type/otp/sms`。</li><li>邮箱 OTP 登录填写：`http://tencentciam.com/oauth2/grant-type/otp/email`。</li> |
-| client_id      | String   | 应用的 client_id。需要与 [发送验证码](https://cloud.tencent.com/document/product/1441/67151) 时使用的一致。 |
+| grant_type     | String   | <li>短信 OTP 登录填写： `http://tencentciam.com/oauth2/grant-type/otp/sms`</li><li>邮箱 OTP 登录填写：`http://tencentciam.com/oauth2/grant-type/otp/email` </li> |
+| client_id      | String   | 应用的 client_id。需要与 [发送验证码](https://cloud.tencent.com/document/product/1441/67151) 时使用的一致 。 |
 | client_secret  | String   | 应用的 client_secret。                                       |
 | auth_source_id | String   | 短信 OTP 或邮箱 OTP 认证源 ID。需要与 [发送验证码](https://cloud.tencent.com/document/product/1441/67151) 时使用的一致。 |
 | phone_number   | String   | 用户的手机号。需要与  [发送验证码](https://cloud.tencent.com/document/product/1441/67151) 时使用的一致。短信 OTP 登录时传递此参数。 |
@@ -80,7 +82,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
--otp_token 错误已过期。
+- otp_token 错误已过期。
 ```
 HTTP/1.1 400 Bad Request
 Content-Type: application/json;charset=UTF-8

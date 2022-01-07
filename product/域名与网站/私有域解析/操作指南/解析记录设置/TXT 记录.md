@@ -2,7 +2,7 @@
 若您希望对域名进行标识和说明，可以使用 TXT 记录。本文档指导您如何添加 TXT 记录。
 
 ## 前提条件
-已创建对应的私有域。
+已创建对应的私有域。详情请查看 [创建私有域](https://cloud.tencent.com/document/product/1338/50532)。
 
 ## 操作步骤
 1. 登录私有域解析 [Private DNS 管理控制台](https://console.cloud.tencent.com/privatedns)，并单击左侧导航栏的**私有域列表**，即可进入私有域列表。

@@ -43,7 +43,7 @@
 </thead>
 <tbody>
 <tr><td>2021-12-09</td><td>v1.18.4-tke.17</td><td><li> 解决当集群中有大量 volume attachment 对象时，kube-controller-manager 访问 api-server 被限频的问题 。(kube-controller-manager)</li><li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/95650"> PR95650</a>，HPA 计算副本数时忽略已删除 Pod。(kube-controller-manager)</li><li>修复 EKS 计算 cpu 资源时与前端不一致的问题。(kube-scheduler)</li></td></tr>
-<tr><td>2021-12-02</td><td>v1.18.4-tke.16</td><td><li>修复调度到虚拟节点时的 bug。(kkube-scheduler)</li><li>优化虚拟节点调度算法。(kube-scheduler)</li></td></tr>
+<tr><td>2021-12-02</td><td>v1.18.4-tke.16</td><td><li>修复调度到虚拟节点时的 bug。(kube-scheduler)</li><li>优化虚拟节点调度算法。(kube-scheduler)</li></td></tr>
 	<tr><td>2021-11-26</td><td>v1.18.4-tke.15</td>
 <td><ul class="params"><li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/96444" target="_blank">pr96444</a>，在同步 RBAC 策略时，如果有错误则返回重试。(kube-apiserver)</li>
 	<li> 添加混合云外部节点支持定制化安装其他 cni。(kube-controller-manager)</li>
@@ -297,7 +297,7 @@ TKE 支持混合云节点。（kube-controller-manager）</td>
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
-<tr><td>2021-12-02</td><td>v1.14.3-tke.23</td><td><li>从 TKE 集群扩容到 EKS，在批量调度 Pod 时，能正确感知子网剩余 ip，调度正确数量的 Pod 到虚拟节点上。(kube-scheduler)</li><li> 针对 EKS 节点的调度优化：EKS 节点资源感知重调度；EKS 节点优先机型调度；优化了针对 EKS 节点的优选/预选策略。(kube-scheduler)</li><li> 支持扩展调度器 Prebind 及 Unreserve 操作。(kube-scheduler)</li><li> 避免使用了 cbs 的 Pod 调度到外部 CHC 节点。(kube-scheduler)</li><li> 修复调度到虚拟节点时的 bug。(kkube-scheduler)</li></td></tr>
+<tr><td>2021-12-02</td><td>v1.14.3-tke.23</td><td><li>从 TKE 集群扩容到 EKS，在批量调度 Pod 时，能正确感知子网剩余 ip，调度正确数量的 Pod 到虚拟节点上。(kube-scheduler)</li><li> 针对 EKS 节点的调度优化：EKS 节点资源感知重调度；EKS 节点优先机型调度；优化了针对 EKS 节点的优选/预选策略。(kube-scheduler)</li><li> 支持扩展调度器 Prebind 及 Unreserve 操作。(kube-scheduler)</li><li> 避免使用了 cbs 的 Pod 调度到外部 CHC 节点。(kube-scheduler)</li><li> 修复调度到虚拟节点时的 bug。(kube-scheduler)</li></td></tr>
 <tr>
     <td>2021-05-06</td>	
     <td>v1.14.3-tke.22</td>	

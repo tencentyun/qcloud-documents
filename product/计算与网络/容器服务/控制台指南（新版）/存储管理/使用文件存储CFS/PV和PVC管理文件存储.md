@@ -84,9 +84,8 @@
    - **Provisioner**：选择**文件存储CFS**。
    - **读写权限**：文件存储仅支持多机读写。
    - **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#createStorageClass) 步骤中创建的 `cfs-storageclass` 为例。
-   >?
-   >
-   >- PVC 和 PV 会绑定在同一个 StorageClass 下。
+>?
+>- PVC 和 PV 会绑定在同一个 StorageClass 下。
 >- 不指定意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
 > 
    - **PersistVolume**：按需指定PersistentVolume，本文选择以在[ 静态创建 PV ](#pv) 步骤中创建的 `cfs-pv` 为例。
@@ -111,5 +110,5 @@
        - **目标路径**：填写目标路径，本文以 `/cache` 为例。
        - **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如， `/data` 或 `/test.txt`。
 3. 单击**创建Workload**，完成创建。
- >! 如使用 CFS 的 PVC 挂载模式，数据卷支持挂载到多台 Node 主机上。
+>! 如使用 CFS 的 PVC 挂载模式，数据卷支持挂载到多台 Node 主机上。
 

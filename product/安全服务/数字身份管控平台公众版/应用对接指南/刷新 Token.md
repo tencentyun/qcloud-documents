@@ -1,20 +1,31 @@
 ## 接口描述
-使用 [获取 Token ](https://cloud.tencent.com/document/product/1441/64396)接口返回的 refresh_token 获取新的 access_token 。
+使用 refresh_token 获取新的 access_token。
 
+
+## 支持的应用类型
+Web 应用、单页应用、移动 App、M2M 应用、小程序应用。
 
 ## 请求方法
+```
 POST
-
+```
 ## 请求路径
 ```
 /oauth2/token
 ```
 
+## 请求 Content-Type
+```
+application/x-www-form-urlencoded
+```
+
+
 ## 请求示例
 ```
 POST /oauth2/token HTTP/1.1
-Host: localhost:8080
+Host: sample.portal.tencentciam.com
 Content-Type: application/x-www-form-urlencoded
+
 client_id=TENANT_CLIENT_ID&client_secret=TENANT_CLIENT_SECRET&grant_type=refresh_token&refresh_token=MOCK_REFRESH_TOKEN
 ```
 
@@ -26,18 +37,6 @@ client_id=TENANT_CLIENT_ID&client_secret=TENANT_CLIENT_SECRET&grant_type=refresh
 | client_secret | false | 应用的 `client_secret`。可通过租户管理平台的应用基本信息页面查看。 |
 | grant_type    | false | 填固定值 `refresh_token`。                                   |
 | refresh_token | true  | 获取 Token 时返回的 `refresh_token`。                         |
-
-
-
-## 响应参数
-| 参数          | 数据类型 | 描述                                    |
-| :------------ | :------- | :-------------------------------------- |
-| access_token  | String   | 刷新后的 OAuth 2.0 Access Token (JWT)。 |
-| refresh_token | String   | 刷新后的 OAuth 2.0 Refresh Token。      |
-| scope         | String   | Access Token 的 Scope。                 |
-| id_token      | String   | 刷新后的 OIDC ID Token (JWT)。          |
-| token_type    | String   | Token 类型，目前取固定值 `Bearer`。    |
-| expires_in    | Number   | Access Token 有效期，单位秒。           |
 
 
 
@@ -55,6 +54,17 @@ Content-Type: application/json;charset=UTF-8
   "expires_in" : 299
 }
 ```
+
+## 响应参数
+| 参数          | 数据类型 | 描述                                    |
+| :------------ | :------- | :-------------------------------------- |
+| access_token  | String   | 刷新后的 OAuth 2.0 Access Token (JWT)。 |
+| refresh_token | String   | 刷新后的 OAuth 2.0 Refresh Token。      |
+| scope         | String   | Access Token 的 Scope。                 |
+| id_token      | String   | 刷新后的 OIDC ID Token (JWT)。          |
+| token_type    | String   | Token 类型，目前取固定值 `Bearer`。    |
+| expires_in    | Number   | Access Token 有效期，单位秒。           |
+
 
 ## 异常响应示例
 refresh_token 参数有误。

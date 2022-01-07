@@ -125,7 +125,7 @@
 
 #### 创建可以访问对象存储的 Secret[](id:StepOne)
 
-可通过 YAML 创建可以访问对象存储的 Secret，模版如下：
+可通过 YAML 创建可以访问对象存储的 Secret，模板如下：
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -142,7 +142,7 @@ data:
 ```
 
 #### 创建支持 COS-CSI 动态配置的 PV[](id:StepTwo)
-可通过 YAML 创建 PV 以支持 COS-CSI 动态配置，模版如下：
+可通过 YAML 创建 PV 以支持 COS-CSI 动态配置，模板如下：
 ```yaml
 apiVersion: v1
 kind: PersistentVolume
@@ -174,7 +174,7 @@ spec:
 
 #### 创建 PVC 绑定 PV
 
-可通过 YAML 创建绑定上述 PV 的 PVC，模版如下：
+可通过 YAML 创建绑定上述 PV 的 PVC，模板如下：
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -193,7 +193,7 @@ spec:
 ```
 
 #### 创建 Pod 使用 PVC
-可通过 YAML 创建 Pod，模版如下：
+可通过 YAML 创建 Pod，模板如下：
 ```yaml
 apiVersion: v1
 kind: Pod
