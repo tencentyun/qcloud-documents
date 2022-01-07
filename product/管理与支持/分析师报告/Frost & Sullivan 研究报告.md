@@ -2,31 +2,31 @@
 ### 2021年12月
 **报告名称：**2021年中国计算机视觉市场报告
 **腾讯云情况：**腾讯云智能凭借在增长指数和创新指数方面的优势表现，在中国计算机视觉市场中综合竞争表现位居领导者象限。
-[申请下载报告](https://qcloudimg.tencent-cloud.cn/raw/8ba8ac305ff2b2c735c1635bb1cdd87f/2021%E5%B9%B4%E4%B8%AD%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%B8%82%E5%9C%BA%E6%8A%A5%E5%91%8A.pdf)
+[查看详情](https://qcloudimg.tencent-cloud.cn/raw/8ba8ac305ff2b2c735c1635bb1cdd87f/2021%E5%B9%B4%E4%B8%AD%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%B8%82%E5%9C%BA%E6%8A%A5%E5%91%8A.pdf)
 
 
 ### 2021年11月
 **报告名称：**2020年中国音视频解决方案系列追踪报告
 **腾讯云情况：**沙利文认为，腾讯云市场地位稳固的原因，是产品全面性、易用性、稳定性和创新性持续领跑行业。目前，腾讯云音视频已覆盖90%行业客户，搭建业内最完整解决方案产品矩阵，为客户提供云端一体音视频 PaaS 能力。
-[申请下载报告](https://qcloudimg.tencent-cloud.cn/raw/a8d1cee3716be064438a39d7bdbedd99/2020%E5%B9%B4%E4%B8%AD%E5%9B%BD%E9%9F%B3%E8%A7%86%E9%A2%91%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%B8%82%E5%9C%BA%E8%BF%BD%E8%B8%AA.pdf)
+[查看详情](https://qcloudimg.tencent-cloud.cn/raw/a8d1cee3716be064438a39d7bdbedd99/2020%E5%B9%B4%E4%B8%AD%E5%9B%BD%E9%9F%B3%E8%A7%86%E9%A2%91%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%B8%82%E5%9C%BA%E8%BF%BD%E8%B8%AA.pdf)
 
 
 ### 2021年09月
 **报告名称：**2021年中国 AI 开发平台市场报告
 **腾讯云情况：**腾讯云 TI 平台可提供全栈式人工智能开发服务，并支持多种学习框架及算法，可帮助开发者实现便捷化开发。
-[申请下载报告](https://qcloudimg.tencent-cloud.cn/raw/86106375375f6d8835d0cca36d3e93e4/2021%E5%B9%B4AI%E5%BC%80%E5%8F%91%E5%B9%B3%E5%8F%B0%E5%B8%82%E5%9C%BA%E6%8A%A5%E5%91%8A.pdf)
+[查看详情](https://qcloudimg.tencent-cloud.cn/raw/86106375375f6d8835d0cca36d3e93e4/2021%E5%B9%B4AI%E5%BC%80%E5%8F%91%E5%B9%B3%E5%8F%B0%E5%B8%82%E5%9C%BA%E6%8A%A5%E5%91%8A.pdf)
 
 
 ### 2021年08月
 **报告名称：**2021年智能客服市场报告
 **腾讯云情况：**腾讯企点无论是在协作能力、服务场景多元化、全渠道服务、研发潜力、以及知识建设能力上均占据明显的竞争优势，位列中国智能客服市场领导者象限第一。
-[申请下载报告](https://qcloudimg.tencent-cloud.cn/raw/e4b4dee09209ee818ad9ee37cc0e68c0/2021%E5%B9%B4%E4%B8%AD%E5%9B%BD%E6%99%BA%E8%83%BD%E5%AE%A2%E6%9C%8D%E5%B8%82%E5%9C%BA%E6%8A%A5%E5%91%8A.pdf)
+[查看详情](https://qcloudimg.tencent-cloud.cn/raw/e4b4dee09209ee818ad9ee37cc0e68c0/2021%E5%B9%B4%E4%B8%AD%E5%9B%BD%E6%99%BA%E8%83%BD%E5%AE%A2%E6%9C%8D%E5%B8%82%E5%9C%BA%E6%8A%A5%E5%91%8A.pdf)
 
 
 ### 2021年04月
 **报告名称：**2021年中国安全托管服务市场报告
 **腾讯云情况：**报告重点提及了以腾讯为代表的云服务厂商，对其在云安全领域的综合安全服务能力及服务定制化潜力表示认可。凭借全面稳健的安全能力，腾讯云成功入围中国安全托管服务市场领袖梯队。
-[申请下载报告](https://qcloudimg.tencent-cloud.cn/raw/959e07f3951da3aae60fea8d594e8e17/%E5%B8%82%E5%9C%BA%E6%8A%A5%E5%91%8A_2021%E5%B9%B4%E4%B8%AD%E5%9B%BD%E5%AE%89%E5%85%A8%E6%89%98%E7%AE%A1%E6%9C%8D%E5%8A%A1%E5%B8%82%E5%9C%BA%E6%8A%A5%E5%91%8A.pdf)
+[查看详情](https://qcloudimg.tencent-cloud.cn/raw/959e07f3951da3aae60fea8d594e8e17/%E5%B8%82%E5%9C%BA%E6%8A%A5%E5%91%8A_2021%E5%B9%B4%E4%B8%AD%E5%9B%BD%E5%AE%89%E5%85%A8%E6%89%98%E7%AE%A1%E6%9C%8D%E5%8A%A1%E5%B8%82%E5%9C%BA%E6%8A%A5%E5%91%8A.pdf)
 
 
 ### 2020年12月
