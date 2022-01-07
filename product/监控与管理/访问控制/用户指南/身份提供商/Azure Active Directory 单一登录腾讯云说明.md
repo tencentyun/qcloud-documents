@@ -6,7 +6,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 >?您可以通过本步骤创建 Azure AD 企业应用程序，如您已经有正在使用的应用程序，可忽略本操作，进行 [配置 CAM](#stepCAM)。
 
 
-1. 进入 [Azure AD 门户页](https://portal.azure.com/#home)，单击左侧导航栏中**Azure Active Directory**。如下图所示：
+1. 进入 [Azure AD 门户页](https://portal.azure.com/#home)，单击左侧导航栏中 **Azure Active Directory**。如下图所示：
 ![](https://main.qcloudimg.com/raw/69bac51131949b7c9e471b5e1afdab86.png)
 2. 单击**企业应用程序**，选择**所有应用程序**。如下图所示：
 ![](https://main.qcloudimg.com/raw/14c757580dd69950b7ce6352aaadcafc.png)
@@ -18,9 +18,9 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 ### <span id="stepCAM"></span>配置 CAM
 >?您可以通过本步骤配置 Azure AD 和腾讯云之间的信任关系使之相互信任。
 >
-1. 在左侧导航栏中，选择**Azure Active Directory**>**企业应用程序**> 您创建的应用程序 ，进入应用程序概览页面。
+1. 在左侧导航栏中，选择 **Azure Active Directory**>**企业应用程序**> 您创建的应用程序 ，进入应用程序概览页面。
 2. 单击**单一登录**，打开“选择单一登录方法”页面。
-3. 在打开的“选择单一登录方法”页面，选择**SAML**。如下图所示：
+3. 在打开的“选择单一登录方法”页面，选择 **SAML**。如下图所示：
 ![](https://main.qcloudimg.com/raw/103a22a9aed1c2a8f87f7c8fdcb38297.png)
 4. 在 “SAML 单一登录”的预览页面，下载**SAML签名证书**中的**联合元数据 XML**文件。如下图所示：
 ![](https://main.qcloudimg.com/raw/e14e13b4f0d8a6d376e71036ed3888f9.png)
@@ -80,20 +80,19 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 ### 配置 Azure AD 用户
 >?您可以通过本步骤分配用户访问权限，向 Azure AD 用户分配腾讯云的 SSO 访问权限。
 >
-1.	单击左侧导航栏**Azure Active Directory**，单击**用户**，打开**所有用户**。如下图所示：
+1.	单击左侧导航栏 **Azure Active Directory**，单击**用户**，打开**所有用户**。如下图所示：
 ![](https://main.qcloudimg.com/raw/7ca36c24562a867451312e003c4afd25.png)
 2. <span id="step2"></span>单击左上角**新建用户**，在“用户”页面填写**姓名**、**用户名**，勾选**显示密码**，信息无误后单击下方**创建**完成创建。如下图所示：
 ![](https://main.qcloudimg.com/raw/a67ec799cdcd060f34c86193f1e2ab7a.png)
-
->?用户名格式为：用户名@域名。您可以自定义用户名，域名可以单击左侧导航栏**Azure Active Directory**，打开概述页，查看您之前设置的**初始域名**。您可以复制保存用户名、密码留用。
+>?用户名格式为：用户名@域名。您可以自定义用户名，域名可以单击左侧导航栏 **Azure Active Directory**，打开概述页，查看您之前设置的**初始域名**。您可以复制保存用户名、密码留用。
 >
-3. 在左侧导航栏中，选择**Azure Active Directory**>**企业应用程序**> 您创建的应用程序，进入应用程序概览页面，并单击**用户和组**。如下图所示：
+3. 在左侧导航栏中，选择 **Azure Active Directory**>**企业应用程序**> 您创建的应用程序，进入应用程序概览页面，并单击**用户和组**。如下图所示：
 ![](https://main.qcloudimg.com/raw/0fbc968bbdcdc1b1378e79a5e116d28a.png)
 4. 单击**添加用户**，打开**用户和组**，选择 [步骤2](#step2) 您创建的用户，单击**选择**。如下图所示：
 ![](https://main.qcloudimg.com/raw/bd12f9c49ef1fd01bafc1d88566798e7.png)
 5. 跳转到“添加分配”页面，确认后单击**分配**。如下图所示：
 ![](https://main.qcloudimg.com/raw/6e463c38b9bd16bb36b053f41550727d.png)
-6. 在左侧导航栏中，选择**Azure Active Directory**>**企业应用程序**> 您创建的应用程序 ，进入应用程序概览页面。
+6. 在左侧导航栏中，选择 **Azure Active Directory**>**企业应用程序**> 您创建的应用程序 ，进入应用程序概览页面。
 7. 单击**单一登录**，打开 “SAML 单一登录”概览界面，单击**测试**。如下图所示：
 ![](https://main.qcloudimg.com/raw/18869ef276217645b1ac03ab92ed3ab7.png)
 8. 在“测试单一登录”界面，选择**以其他用户的身份登录**。
