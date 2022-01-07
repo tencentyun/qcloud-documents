@@ -9,3 +9,21 @@
 | 全球加速域名 | &lt;BucketName-APPID&gt;.cos.accelerate.myqcloud.com，不区分内、外网域名。   |  <ul  style="margin: 0;"><li>外网域名：&lt;BucketName-APPID&gt;.cos.accelerate.tencentcos.cn </li><li>内网域名：&lt;BucketName-APPID&gt;.cos-internal.accelerate.tencentcos.cn </li></ul>              |   
 | 静态网站域名 |&lt;BucketName-APPID&gt;.cos-website.&lt;Region&gt;.myqcloud.com，不区分内、外网域名。 | <ul  style="margin: 0;"><li>外网域名：&lt;BucketName-APPID&gt;.cos-website.&lt;Region&gt;.tencentcos.cn </li><li>内网域名：&lt;BucketName-APPID&gt;.cos-website-internal.&lt;Region&gt;.tencentcos.cn</li></ul> |       
 
+
+新域名 tencentcos.cn 主要有以下几点变化：
+
+**1. 统一使用 tencentcos.cn 后缀**
+
+以默认存储桶域名为例，
+
+- 旧域名形如：&lt;BucketName-APPID&gt;.cos.&lt;Region&gt;.myqcloud.com
+- 新域名形如：&lt;BucketName-APPID&gt;.cos.&lt;Region&gt;.tencentcos.cn
+
+**2. 区分内外网域名**
+
+旧域名不区分内、外网域名，以默认存储桶域名为例，域名形式统一使用：&lt;BucketName-APPID&gt;.cos.&lt;Region&gt;.myqcloud.com。
+
+新域名区分内、外网域名，以默认存储桶域名为例，域名形式如下：
+
+- 外网域名：&lt;BucketName-APPID&gt;.cos-website.&lt;Region&gt;.tencentcos.cn
+- 内网域名：&lt;BucketName-APPID&gt;.cos-website-internal.&lt;Region&gt;.tencentcos.cn
