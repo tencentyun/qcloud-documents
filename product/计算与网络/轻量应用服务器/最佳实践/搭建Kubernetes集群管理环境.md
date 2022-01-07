@@ -55,7 +55,7 @@ Kubernetes Dashboard 默认端口为9090。
 k3s-add-node {node-ip}
 ```
 <dx-alert infotype="explain" title="">
-- master 节点操作系统为 CentOS 8.2，建议您添加同地域同可用区下的其他轻量应用服务器实例作为集群 Node 节点。如需创建实例，可使用 CentOS 8.2 系统镜像参考 [快速创建 Linux 实例](https://cloud.tencent.com/document/product/1207/44548) 进行创建。
+- master 节点操作系统为 CentOS 8.2，建议您添加同地域同可用区下的其他轻量应用服务器实例作为集群 Node 节点。您可先使用 CentOS 8.2 系统镜像参考 [快速创建 Linux 实例](https://cloud.tencent.com/document/product/1207/44548) 创建实例，再通过以上命令将实例加入集群作为 Node 节点。
 - 建议 `node-ip` 使用同地域实例的内网 IP。若您需使用公网 IP，则请确保网络畅通。
 </dx-alert>
 示例命令如下：
