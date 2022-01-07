@@ -18,6 +18,14 @@
 ### 版本建议
 支持向后兼容，建议全量升级。
 
+## 1.29.5-Finchley-RELEASE（2022-01-07）
+### 优化
+- 优化 spring-cloud-openfeign-core、swagger 的依赖冲突。
+- spring-cloud-tsf-sleuth 兼容 mysql-connector-java 8.x。
+  
+### Bug 修复
+- 处理feign 和 httpclient 拦截的冲突 导致重复生成client span的问题
+
 ## 1.29.4-Finchley-RELEASE（2021-10-18）
 ### 优化
 - 支持通过 -Dtsf.discovery.zeroInstanceProtect=false 关闭零实例保护。
