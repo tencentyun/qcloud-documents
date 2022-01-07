@@ -3,7 +3,7 @@ TUIRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组�
 - 参会人员之间进行屏幕分享。
 - 支持发送各种文本消息和自定义消息。
 
-TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [多人音视频房间(Windows)](https://cloud.tencent.com/document/product/647/63494)。
+TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [多人音视频房间(Windows&Mac)](https://cloud.tencent.com/document/product/647/63494)。
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时视频会议组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 实现聊天室的功能（**IM SDK 使用 C++ 版本**）。
 
@@ -169,7 +169,7 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 | [OnSpeechApplicationCancelled](#onspeechapplicationcancelled) | 用户取消申请发言回调。             |
 | [OnReceiveReplyToSpeechApplication](#onreceivereplytospeechapplication) | 主持人同意发言申请回调。           |
 | [OnSpeechApplicationForbidden](#onspeechapplicationforbidden) | 主持人禁止申请发言回调。           |
-| [OnOrderedToExitSpeechkState](#onorderedtoexitspeechkstate)  | 成员被请求停止发言的回调。         |
+| [OnOrderedToExitSpeechState](#onorderedtoexitspeechstate)  | 成员被请求停止发言的回调。         |
 | [OnCallingRollStarted](#oncallingrollstarted)                | 主持人开始点名，成员收到的回调。   |
 | [OnCallingRollStopped](#oncallingrollstopped)                | 主持人结束点名，成员收到的回调。   |
 | [OnMemberReplyCallingRoll](#onmemberreplycallingroll)        | 成员回复点名，主持人收到的回调。   |
@@ -244,7 +244,7 @@ virtual int Login(int sdk_appid, const std::string& user_id, const std::string& 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | sdk_appid | int |  您可以在实时音视频控制台 > **[应用管理](https://console.cloud.tencent.com/trtc/app)**> 应用信息中查看 SDKAppID。 |
-| user_id | string | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
+| user_id | string | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。建议结合业务实际账号体系自行设置。 |
 | user_sig | string | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 
 ### Logout
@@ -1186,11 +1186,11 @@ virtual void OnSpeechApplicationForbidden(bool forbidden) = 0;
 |-----|-----|-----|
 | forbidden | bool | 是否禁止。 |
 
-### OnOrderedToExitSpeechkState
+### OnOrderedToExitSpeechState
 
 成员被请求停止发言的回调。
 ```C++
-virtual void OnOrderedToExitSpeechkState() = 0;
+virtual void OnOrderedToExitSpeechState() = 0;
 ```
 
 ### OnCallingRollStarted
