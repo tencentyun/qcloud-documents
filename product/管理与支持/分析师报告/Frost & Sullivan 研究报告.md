@@ -32,7 +32,7 @@
 ### 2020年12月
 **报告名称：**2020年中国云主机安全市场报告
 **腾讯云情况：**领袖梯队-腾讯云镜主机安全表现出优越的二进制查杀、多引擎检测能力、在付费周期、部署规则 、核心功能开放等方面表现出较强的定价灵活度，凸显用户友好差异化优势。
-[申请下载报告](https://cloud.tencent.com/apply/p/uspg3c4cr8)
+[查看详情](https://qcloudimg.tencent-cloud.cn/raw/b8291e8f47673f07a13f1bcef6979d6e/%E5%B8%82%E5%9C%BA%E6%8A%A5%E5%91%8A_2020%E4%B8%AD%E5%9B%BD%E4%B8%BB%E6%9C%BA%E5%AE%89%E5%85%A8%E5%B8%82%E5%9C%BA%E6%8A%A5%E5%91%8A_20201221(Market%C2%A0Overview_2020%C2%A0China%C2%A0Cloud%C2%A0Workload%C2%A0Protection%C2%A0%C2%A0Market%C2%A0Overview_20201221).pdf)
 
 
 ### 2020年08月
