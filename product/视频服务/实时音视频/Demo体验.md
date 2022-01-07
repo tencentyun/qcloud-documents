@@ -3,6 +3,25 @@
 .inbuttom{height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;}
 </style>
 
+## Web&小程序 Demo 
+<table>
+<tr>
+<th>微信小程序</th><th>Web</th>
+</tr>
+<tr>
+</div></a></td>
+<td><img src="https://main.qcloudimg.com/raw/4cfc59a1b60c02fc975c8b3e23169fc7.png" width=150px data-nonescope="true">
+</div>
+</td>
+<td>
+<input type="button" value="视频通话" class="inbuttom" onclick="aegis.reportEvent({name: 'demo_click_web', ext1: 'api-sample'});window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html')" /><br><br>
+<input type="button" value="互动直播推流端" class="inbuttom" onclick="aegis.reportEvent({name: 'demo_click_web', ext1: 'pusher'});window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html')" /><br><br>
+<input type="button" value="互动直播拉流端" class="inbuttom" onclick="aegis.reportEvent({name: 'demo_click_web', ext1: 'player'});window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html')" /><br><br>
+<input type="button" value="1V1音视频通话" class="inbuttom" onclick="aegis.reportEvent({name: 'demo_click_web', ext1: 'calling'});window.open('https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html')" />
+</td>
+</tr>
+</table>
+
 ## Native Demo
 <table>
 <tr>
@@ -23,19 +42,10 @@
 ## 跨平台 Demo
 <table>
 <tr>
-<th>微信小程序</th><th>Web</th><th>Flutter </th><th>Electron</th>
-</tr>
+<th>Uni-app</th><th>Web</th><th>Flutter </th>
 <tr>
-</div></a></td>
-<td><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/4cfc59a1b60c02fc975c8b3e23169fc7.png);background-size: cover;">
-</div>
-</td>
-<td>
-<input type="button" value="视频通话" class="inbuttom" onclick="aegis.reportEvent({name: 'demo_click_web', ext1: 'api-sample'});window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html')" /><br><br>
-<input type="button" value="互动直播推流端" class="inbuttom" onclick="aegis.reportEvent({name: 'demo_click_web', ext1: 'pusher'});window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html')" /><br><br>
-<input type="button" value="互动直播拉流端" class="inbuttom" onclick="aegis.reportEvent({name: 'demo_click_web', ext1: 'player'});window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html')" /><br><br>
-<input type="button" value="1V1音视频通话" class="inbuttom" onclick="aegis.reportEvent({name: 'demo_click_web', ext1: 'calling'});window.open('https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html')" />
-</td>
+<td><a onclick="aegis.reportEvent({name: 'demo_click_native', ext1: 'android'});window.open('https://ext.dcloud.net.cn/plugin?id=7097')"><button style="width:150px;height: 150px;border:none;background-image:url(https://qcloudimg.tencent-cloud.cn/raw/5907367f4860fa2cba12b7566afb77a7.png);background-size: cover;">
+</button></a></td>
 <td>
 <a onclick="aegis.reportEvent({name: 'demo_click_flutter', ext1: 'ios'});window.open('https://www.pgyer.com/TtEk')" value="Flutter_ios_版">
 	<button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/a3b7ef0199988c33850eeeb186c8d26f.png);background-size: cover;">
@@ -51,8 +61,6 @@
 <input type="button" value="MacOS 版" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="aegis.reportEvent({name: 'demo_click_electron', ext1: 'mac'});window.open('https://web.sdk.qcloud.com/trtc/electron/download/api-example/TRTC-Electron-API-Examples-mac.zip')" /></td>
 </tr>
 </table>
-
-
 
 
 

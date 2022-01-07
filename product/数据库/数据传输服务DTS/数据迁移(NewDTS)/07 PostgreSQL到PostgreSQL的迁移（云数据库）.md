@@ -136,7 +136,6 @@ ldd --version | grep -i libc
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
-
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 <img src="https://main.qcloudimg.com/raw/aadd11ed6a095813fa767690e6857276.png"  style="zoom:60%;">
 <table>
