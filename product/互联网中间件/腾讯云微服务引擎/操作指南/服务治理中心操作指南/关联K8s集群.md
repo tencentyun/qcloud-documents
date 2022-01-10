@@ -21,7 +21,9 @@
 
 ## 原理说明
 
-在 tse 控制台关联 tke/eks 集群后，会在您对应的 tke/eks 集群中部署 polaris-controller 。
+- 在 TSE 控制台关联 tke/eks 集群后， TSE 会自动在您对应的 tke/eks 集群中部署 polaris-controller 。具体详见**资源清单**。
+- polaris-controller 默认会同步 k8s 集群所有的 namespace，service 和 endpoints 。具体详见**polaris-controller 同步行为**。
+- 您可以在 k8s 的 service 指定注解，操作 polaris-controller 同步的行为。具体指引和示例详见**polaris-controller 支持的注解**。
 
 ### 资源清单
 
