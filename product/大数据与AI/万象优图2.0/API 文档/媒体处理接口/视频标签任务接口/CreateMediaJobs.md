@@ -77,11 +77,7 @@ Container 类型 VideoTag 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                      | 描述                                   | 类型      | 是否必选 |限制 |
 | ------------------ | :------------------------ | -------------------------------------- | --------- | ---- |---- |
-| Scenario           | Request.Operation.VideoTag | 场景类型，可选择视频标签的运用场景，不同的运用场景所使用的算法、输入输出等都会有所差异                              |string | 是  | 当前版本只适配"Stream"场景 |
-| MediaType          | Request.Operation.VideoTag | 文件类型                               | string | 是   |Video|
-| MediaLabel         | Request.Operation.VideoTag | 媒体一级标签                           | string | 是   |1. News<br/>2. Entertainment<br/>3. Internet<br/>4. Movie<br/>5. Series<br/>6. Special<br/>7. Sport<br/>|
-| MediaSecondLabel   | Request.Operation.VideoTag | 媒体二级标签                           | string | 否   |1. Evening<br/>2. Other<br/>注：当MediaLabel=Entertainment时,该字段才有意义|
-| MediaLang          | Request.Operation.VideoTag | 媒体语言                              | string | 是   |1. Mandarin<br/>2. Cantonese| -->
+| Scenario | Request.Operation.VideoTag | 场景类型，可选择视频标签的运用场景，不同的运用场景所使用的算法、输入输出等都会有所差异 | string | 是 | 当前版本只适配 Stream 场景 |
 
 
 ## 响应
