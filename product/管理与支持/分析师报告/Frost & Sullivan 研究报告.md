@@ -20,7 +20,7 @@
 ### 2021年08月
 **报告名称：**2021年智能客服市场报告
 **腾讯云情况：**腾讯企点无论是在协作能力、服务场景多元化、全渠道服务、研发潜力、以及知识建设能力上均占据明显的竞争优势，位列中国智能客服市场领导者象限第一。
-[查看详情](https://qcloudimg.tencent-cloud.cn/raw/e4b4dee09209ee818ad9ee37cc0e68c0/2021%E5%B9%B4%E4%B8%AD%E5%9B%BD%E6%99%BA%E8%83%BD%E5%AE%A2%E6%9C%8D%E5%B8%82%E5%9C%BA%E6%8A%A5%E5%91%8A.pdf)
+[查看详情](https://qcloudimg.tencent-cloud.cn/raw/546d0d7b06c846d2384a05131fb32f73/2021%E5%B9%B4%E4%B8%AD%E5%9B%BD%E6%99%BA%E8%83%BD%E5%AE%A2%E6%9C%8D%E5%B8%82%E5%9C%BA%E6%8A%A5%E5%91%8A.pdf)
 
 
 ### 2021年04月

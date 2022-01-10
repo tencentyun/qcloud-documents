@@ -5,6 +5,10 @@
 
 
 ## 安装 NginxIngress 组件[](id:Nginx-ingress)
+>? 如果您需要安装 NginxIngress 组件，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 来联系我们。
+>
+
+
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。

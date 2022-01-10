@@ -7,9 +7,10 @@
 - 已创建 PolarisMesh 服务治理中心，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
 - 下载 Github 的 [demo 源码](https://github.com/polarismesh/grpc-go-polaris/tree/main/examples/quickstart) 到本地并解压。
 - 本地编译构建打包机器环境已安装了 [Go](https://go.dev/doc/devel/release)，并且能够使用 Go mod 拉取依赖。
-- 根据您自身的业务，已准备好业务部署的资源，虚拟机部署和容器化部署选择其中一种方式即可。
+- 根据您自身的业务，已准备好业务部署的资源，```虚拟机部署```、```容器化部署```和```TEM部署```选择其中一种方式即可。
   - **虚拟机部署**已创建 CVM 虚拟机，请参见 [创建 CVM 虚拟机](https://cloud.tencent.com/document/product/213/2936)。
   - **容器化部署**已创建 TKE 容器集群，请参见 [创建 TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
+  - **TEM部署**已创建TEM环境，请参见[创建TEM环境](https://cloud.tencent.com/document/product/1371/53293)。
 
 ## 操作步骤
 
@@ -72,6 +73,25 @@ global:
 :::
 </dx-codeblock>        
      - 通过 TKE 部署并运行镜像
+
+ 3. **TEM部署**部署provider和consumer微服务应用。
+   
+     - 选择TEM环境，注意所选择的环境，其依赖的VPC，必须和上面已经创建的治理中心实例所依赖的VPC一致：
+
+          ![](https://qcloudimg.tencent-cloud.cn/raw/15e364b650b20f0ea13943b3943b2a31.png)
+          
+     - 在已选择的环境中，新建TEM应用，相关参数填写参考：
+
+          ![](https://qcloudimg.tencent-cloud.cn/raw/4c70b9b075058558c5071746beef919b.png)
+	  
+     - 部署应用，相关参数填写请参考（端口号映射，consumer默认端口号为16011，provider默认端口号为16010）：
+
+          ![](https://qcloudimg.tencent-cloud.cn/raw/c44b96784b46707ee665e5d7052eb981.png)
+          
+     - 查看访问路径，consumer应用部署完后，可以在**基本信息** > **访问配置**中查看访问地址，如需公网访问，可以**编辑并更新**开启公网访问：
+     
+           ![](https://qcloudimg.tencent-cloud.cn/raw/0c4543bb26c4424fd3022208aef66821.png)
+
 8. 确认部署结果。
  1. 进入前面提到的微服务治理中心实例页面。
  - 选择**服务管理** > **服务列表**，查看微服务 EchoServerGRPC（provider）的实例数量：

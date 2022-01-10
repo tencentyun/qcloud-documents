@@ -1,3 +1,11 @@
+本文介绍 PC 端 TUIRoom 组件，是一款布局灵活、适用性强的音视频沟通协作工具，可用于协同办公、远程招聘、远程问诊、保险理赔、在线客服、视频面试、数字政务、金融数字化、在线会议、在线教育等场景。与各行业场景深度融合，助力企业降本增效，加快数字化转型，提升竞争力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验。
+
+## 方案优势
+- 集成了超低延时音视频通话、聊天室、屏幕共享、美颜、设备检测、数据统计等能力，覆盖多人音视频房间常见功能。
+- 根据需求二次开发，可以快速实现自定义 UI 界面和布局，助力业务快速上线。
+- 封装了 TRTC 和 IM 基础 SDK，实现基础的逻辑控制，并提供接口方便调用。
+
 ## 版本支持
 本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
@@ -8,11 +16,7 @@
 
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
-## 效果展示
-您可以[下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验多人音视频房间的效果，包括聊天室、屏幕分享、美颜、低延时视频等 TRTC 在多人音视频房间场景下的相关能力。
-
-[](id:step1)
-## 复用 App 的 UI 界面
+## 接入指引
 如需快速接入多人音视频房间功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用的 App 内的 Module 模块实现自定义 UI 界面。
 
 [](id:step1_1)
@@ -20,12 +24,22 @@
 单击进入 [RoomApp](https://github.com/tencentyun/TUIMeeting)，Clone 或者下载源码。
 
 [](id:step1_2)
-### 步骤2：配置App文件
+### 步骤2：配置 App 文件
+<dx-tabs>
+::: Windows 端配置
 1. 找到并打开 `Windows\RoomApp\utils\usersig\win\GenerateTestUserSig.h` 文件。
 2. 设置 `GenerateTestUserSig.h` 中的参数：
-        - **SDKAPPID**：默认为0，请设置为实际的 SDKAPPID。
-        - **SECRETKEY**：默认为空，请设置为实际的 SECRETKEY。
+	- **SDKAPPID**：默认为0，请设置为实际的 SDKAPPID。
+	- **SECRETKEY**：默认为空，请设置为实际的 SECRETKEY。
 ![](https://main.qcloudimg.com/raw/3e83f6ed266617afbe637edc51eb0543.png)
+:::
+::: Mac 端配置
+1. 找到并打开 `Windows\RoomApp\utils\usersig\mac\UserSigConfig.h` 文件。
+2. 设置 `UserSigConfig.h` 中的参数：
+	- **SDKAPPID_**：默认为0，请设置为实际的 SDKAPPID。
+	- **SecretKey_**：默认为空，请设置为实际的 SECRETKEY。
+:::
+</dx-tabs>
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
@@ -33,14 +47,24 @@
 
 [](id:step1_3)
 ### 步骤3：配置并运行 App
+<dx-tabs>
+::: Windows 端配置
 1. 编译环境使用 Virtual Studio（最低为2015版本）。
 2. App 的 UI 使用的是当前主流的 QT 框架，版本为5.9版本，请下载并安装 QT，配置 QT 工具到 VS 中。或者根据您的版本，修改 App 工程中 QT 配置，即可完成配置。
-3. 打开 RoomApp 源码工程，编译并运行程序。
+3. 打开 RoomApp 下的 RoomApp.vcxproj 源码工程，编译并运行程序。
+
+:::
+::: Mac 端配置
+1. 编译环境使用 QtCreator，在安装 QT 时选择同时安装 QtCreator 即可，版本跟随 QT 官方安装包。
+2. App 的 UI 使用的是当前主流的 QT 框架，版本为5.9版本，请下载安装 QT 5.9，并配置系统环境变量 QTDIR 指向 QT 的安装目录。
+3. 打开 RoomApp 下的 RoomApp.pro 源码工程，编译并运行程序。
+:::
+</dx-tabs>
 
 [](id:step1_4)
 ### 步骤4：修改 App 源代码
-1. Module 层为对 TRTC 和 IM 的封装，实现了基础的逻辑控制，并提供了功能接口，方便 UI 层调用。
-2. App 模块是 UI 模块，包含了界面的功能实现，您可以根据需求进行二次开发，或者替换整体 UI。
+-  Module 层为对 TRTC 和 IM 的封装，实现了基础的逻辑控制，并提供了功能接口，方便 UI 层调用。
+- App 模块是 UI 模块，包含了界面的功能实现，您可以根据需求进行二次开发，或者替换整体 UI。
 
 ## 体验应用
 >! 体验应用至少需要两台设备。
@@ -70,13 +94,14 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/eb7f3d3f4eda424b800796affb40f58f.png)
 
 ### 聊天室
-聊天室可以进行群成员聊天，主持人可以对全员进行禁言/解除禁言。
+- 聊天室可以进行群成员聊天。
+- 主持人可以对全员进行禁言/解除禁言。
 ![](https://qcloudimg.tencent-cloud.cn/raw/198aff7b09cb93c2658eae922fe0a64b.png)
 
 ### 退出房间
-主持人退出房间时可以有两种选择，分别为：
-- 解散房间，即所有人退出房间，所有人都需要退出。
-- 自己离开房间，将房间主持人权限转交给其他用户作为主持人。
+主持人退出房间时可以有两种选择。
+- **解散房间**：即所有人退出房间，所有人都需要退出。
+- **自己离开房间**：将房间主持人权限转交给其他用户作为主持人。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/7ceacac7a6817ffe80927af35e0df9c4.png)
 
@@ -84,37 +109,40 @@
 源码中的 Module 模块包含了对 TRTC SDK 以及 IM SDK 的封装，您可以在 `TUIRoomCore.h`、`TUIRoomCoreCallback.h`、`TUIRoomDef.h` 等文件中查看该模块提供的接口函数以及其他定义，并使用对应接口实现自定义 UI 界面。
 
 [](id:step2_1)
-### 步骤1：集成 SDK
+### 步骤1：集成SDK
 从官网下载 [TRTC SDK](https://cloud.tencent.com/document/product/647/32689) 和 [IM SDK](https://cloud.tencent.com/document/product/269/36887)，替换外层的 SDK 目录中 IM SDK 和 LiteAVSDK 目录下的文件。
->! IM SDK 需使用 C++ 版本。
+>! IM SDK 使用 C++ 版本。
 
-| SDK      | 下载页面  | 集成指引  |
-| ------ | ------ | ------ |
-| TRTC SDK | [DOWNLOAD](https://cloud.tencent.com/document/product/647/32689) | [集成文档](https://cloud.tencent.com/document/product/647/32178) |
-| IM SDK   | [DOWNLOAD](https://cloud.tencent.com/document/product/269/36887) | [集成文档](https://cloud.tencent.com/document/product/269/33489) |
-
+|SDK|下载页面|集成指引|
+|--|--|--|
+|TRTC SDK|[DOWNLOAD](https://cloud.tencent.com/document/product/647/32689)|[集成文档](https://cloud.tencent.com/document/product/647/32178)|
+|IM SDK|[DOWNLOAD](https://cloud.tencent.com/document/product/269/36887)|[集成文档](https://cloud.tencent.com/document/product/269/33489)|
 
 [](id:step2_2)
 ### 步骤2：工程配置SDK目录以及库文件
-在 VS 中配置头文件目录，静态库目录，以及依赖的静态库文件。
+- **Windows 端**：在 VS 中配置头文件目录，静态库目录，以及依赖的静态库文件。
+- **Mac 端**：在 pro 和 pri 文件中增加依赖库和文件目录。
 
 [](id:step2_3)
-### 步骤3：创建并登录 
+### 步骤3：创建并登录
 1. 使用 `IUIRoomCore::Instance` 接口创建并使用 IUIRoomCore 单例。
 2. 调用 AddCallback 接口设置回调类，接受 SDK 的回调通知。
 3. 调用 Login 接口进行登录。
 <table>
-<tr><th>参数名</th><th>说明</th></tr>
-<tr>
+<thead><tr><th>参数名</th><th>说明</th></tr></thead>
+<tbody><tr>
 <td>sdk_appid</td>
-<td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID</td>
-</tr><tr>
+<td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>
+</tr>
+<tr>
 <td>user_id</td>
 <td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。建议结合业务实际账号体系自行设置。</td>
-</tr><tr>
+</tr>
+<tr>
 <td>user_sig</td>
-<td>腾讯云设计的一种安全保护签名，获取方式请参见 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算及使用 UserSig</a></td>
-</tr></table>
+<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算及使用 UserSig</a>。</td>
+</tr>
+</tbody></table>
 
 [](id:step2_4)
 ### 步骤4：设置昵称
@@ -129,14 +157,14 @@
 
 [](id:step2_6)
 ### 步骤6：解散房间
-1. 主持人调用 DestoryRoom 接口解散房间，解散 IM 群聊，退出 TRTC 房间。
-2. 成员端会收到 OnExitRoom 回调消息，通知群解散，退出 TRTC 房间。
+1. 主持人调用 DestoryRoom 接口解散房间，解散 IM 群聊，退出 TRTC 房间
+2. 成员端会收到 OnExitRoom 回调消息，通知群解散，退出 TRTC 房间
 
 [](id:step2_7)
 ### 步骤7：转让房间
 1. 主持人调用 TransferRoomMaster 接口将房间转让给其他人，用于离开房间的操作。
 2. 成员端会收到 OnRoomMasterChanged 回调消息，通知房间主持人更改。
-3. 更改后的主持人获取到主持人权限，可以对群成员进行控制。
+3. 更改后的主持人获取到主持人权限，可以对群成员进行控制
 
 [](id:step2_8)
 ### 步骤8：加入房间
@@ -156,12 +184,9 @@
 1. 调用 StartScreenCapture 接口进行屏幕分享。
 2. 其他成员收到 OnRemoteUserScreenVideoAvailable 回调，通知有成员正在分享屏幕。
 
->? 屏幕分享模块需要做窗口选择的逻辑，具体实现请参考 App 中的`ScreenShareWindow.h` 的实现。
+>? 屏幕分享模块需要做窗口选择的逻辑，具体实现请参考 App 中的 `ScreenShareWindow.h` 的实现。
 
 [](id:step2_11)
 ### 步骤11：实现文字聊天和禁言消息
 1. 调用 SendChatMessage 接口发送文字，房间内的成员可以收到 OnRecevieChatMessage 回调消息，获取聊天消息并显示。
 2. 主持人可以调用 MuteChatRoom 接口进行聊天禁言或者解除禁言，成员端收到 OnChatRoomMuted 回调，UI 层做对应的处理。
-
-
-
