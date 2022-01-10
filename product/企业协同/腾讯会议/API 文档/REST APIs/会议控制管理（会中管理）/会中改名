@@ -32,4 +32,9 @@ https://api.meeting.qq.com/v1/real-control/meetings/{meetingId}/names`
 
 ## 输出参数
 成功返回空消息体，失败返回 [错误码](https://cloud.tencent.com/document/product/1095/43704) 和 错误信息。
-注意：若有部分成员不在会中、传入的 instanceid 与成员入会终端不符等成员信息不匹配情况，将会导致本次调用失败，本次改名均不生效。
+
+
+<dx-alert infotype="notice" title="">
+若有部分成员不在会中、传入的 instanceid 与成员入会终端不符等成员信息不匹配情况，将会导致本次调用失败，本次改名均不生效。
+</dx-alert>
+
