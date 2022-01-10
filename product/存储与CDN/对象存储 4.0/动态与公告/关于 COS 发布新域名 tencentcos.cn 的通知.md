@@ -25,5 +25,5 @@
 
 新域名区分内、外网域名，以默认存储桶域名为例，域名形式如下：
 
-- 外网域名：&lt;BucketName-APPID&gt;.cos-website.&lt;Region&gt;.tencentcos.cn
-- 内网域名：&lt;BucketName-APPID&gt;.cos-website-internal.&lt;Region&gt;.tencentcos.cn
+- 外网域名：&lt;BucketName-APPID&gt;.cos.&lt;Region&gt;.tencentcos.cn
+- 内网域名：&lt;BucketName-APPID&gt;.cos-internal.&lt;Region&gt;.tencentcos.cn
