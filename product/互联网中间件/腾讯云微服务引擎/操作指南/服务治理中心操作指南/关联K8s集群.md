@@ -19,5 +19,90 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/455c1e3826f61d957c94f8130d45af00.png)
 
 
+## 原理说明
 
+- 在 TSE 控制台关联 tke/eks 集群后， TSE 会自动在您对应的 tke/eks 集群中部署 polaris-controller 。具体详见**资源清单**。
+- polaris-controller 默认会同步 k8s 集群所有的 namespace，service 和 endpoints 。具体详见**polaris-controller 同步行为**。
+- 您可以在 k8s 的 service 指定注解，操作 polaris-controller 同步的行为。具体指引和示例详见**polaris-controller 支持的注解**。
+
+### 资源清单
+
+在您的 tke/eks 集群创建的 k8s 资源清单如下：
+
+| 资源类型 | 资源名 | 资源用途|
+|-------|-------|------|
+| namespace | polaris-system | polaris-controller 和其相关配置都在这个命名空间下|
+| deployment | polaris-controller | 提供同步服务的工作负载|
+| configmap | injector-mesh, polaris-sidecar-injector | polaris-controller 使用的配置文件|
+| serviceAccount | polaris-controller | 提供访问 k8s 资源需要的权限|
+| clusterRole | polaris-controller | 提供访问 k8s 资源需要的权限|
+| clusterRoleBinding | polaris-controller | 提供访问 k8s 资源需要的权限|
+| mutatingWebhookConfiguration | polaris-sidecar-injector | 提供自动注入能力|
+
+可以使用下面图片中的命令查看到上述的资源。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/56445f32bd15e36d9c68a25feeca2852.png)
+
+### polaris-controller 同步行为
+
+polaris-controller 默认会同步 k8s 集群所有的 namespace，service 和 endpoints 。
+
+- namespace: 
+   - 创建 namespace 时，会在北极星创建一个同名的命名空间。
+   - 删除 namespace 时，不会移除北极星的同名命名空间。
+- service: 
+  - 创建 service 时，不论创建的 service 的类型，都会在北极星对应的命名空间下创建一个同名的服务。
+  - 删除 service 时，不会移除北极星对应命名空间下的服务，会移除北极星中对应服务的实例（只移除本 k8s 集群同步到北极星对应服务下的实例）。
+- endpoints: 
+  - 某个 service 的 endpoints 创建时，会把 endpoints 列表中 ip 和 port 每个组合，作为北极星对应服务下的一个服务实例，同步到北极星。如果 ip 在 endpoints 的就绪地址列表中，则北极星服务实例状态为健康，如在未就绪地址列表中，则北极星状态为不健康。
+  - 某个 service 的 endpoints 地址列表变化时，会动态的同步到北极星。地址列表增加，则在北极星服务下注册新实例；地址列表减少，则反注册北极星服务下对应的实例。
+  - 某个 service 的 endpoints 被移除时，本 k8s 集群同步到北极星对应服务下的实例都会从北极星的服务中移除。
+
+### polaris-controller 支持的注解
+您可以在 k8s 的 service 指定注解，操作 polaris-controller 同步的行为，当前支持以下注解。
+
+| 注解名称 | 注解说明 |
+|---------|-----|
+| polarismesh.cn/enableRegister | 是否同步这个服务到北极星。true 同步，false 不同步，默认同步 |
+| polarismesh.cn/aliasService | 把 k8s service 同步到北极星时，同时创建的服务别名的名字 |
+| polarismesh.cn/aliasNamespace | 创建的别名所在的命名空间，配合 polarismesh.cn/aliasService 使用 |
+
+
+#### 关闭自动同步示例
+
+polaris-controller 默认会同步 k8s 集群所有的 service。某些场景下，您可能不想同步某个 service 到北极星，这时可以使用 polarismesh.cn/enableRegister 注解关闭自动同步。
+
+下面的 service 创建时，polaris-controller 不会在北极星创建对应的服务。
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: details
+  annotations:
+    polarismesh.cn/enableRegister: false
+... ...
+```
+
+#### 创建别名示例
+
+polaris-controller 默认会以 service 名字，创建一个对应的北极星服务。可能有以下情况，需要创建服务别名：
+
+1. 您不想用 service 名作为北极星服务的名字。例如您希望北极星的服务名是大写，但是 k8s 的 service 名限制只能小写。这时可以使用别名注解指定一个大写的北极星服务名。
+2. 您希望将某个 namespace 下的某个 service 暴露到另外命名空间中。这时可以使用别名注解指定另一个命名空间。
+
+
+下面示例的 service 创建时，polaris-controller 会在北极星的 development 命名空间下创建一个名为 productpage 的服务。同时也会在 Development 命名空间下创建一个名为 Productpage 的服务别名。
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: development
+  name: productpage
+  annotations:
+    polarismesh.cn/aliasService: Productpage
+    polarismesh.cn/aliasNamespace: Development
+... ...
+```
 
