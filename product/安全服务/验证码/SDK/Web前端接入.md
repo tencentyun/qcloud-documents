@@ -335,7 +335,7 @@ new TencentCaptcha(element, CaptchaAppId, callback, {type: 'embed'});
 ```
 <div id="tc"></div>
 <script>
-new TencentCaptcha(document.getElementById('tc'),'CaptchaAppId',callbackName,{type:'embed'}).show()
+new TencentCaptcha(document.getElementById('tc'),CaptchaAppId,callbackName,{type:'embed'}).show()
 //将验证码绑定到id为‘tc’的容器元素中
 </script>
 ```
