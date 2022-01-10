@@ -19,10 +19,13 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/455c1e3826f61d957c94f8130d45af00.png)
 
 
-## 资源清单
+## 原理说明
 
-在 tse 控制台关联 tke/eks 集群后，会在您对应的 tke/eks 集群中部署 polaris-controller 。在您的 tke/eks 集群创建的 k8s 资源清单如下：
+在 tse 控制台关联 tke/eks 集群后，会在您对应的 tke/eks 集群中部署 polaris-controller 。
 
+### 资源清单
+
+在您的 tke/eks 集群创建的 k8s 资源清单如下：
 
 | 资源类型 | 资源名 | 资源用途|
 |-------|-------|------|
@@ -38,7 +41,7 @@
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/56445f32bd15e36d9c68a25feeca2852.png)
 
-## polaris-controller 同步行为
+### polaris-controller 同步行为
 
 polaris-controller 默认会同步 k8s 集群所有的 namespace，service 和 endpoints 。
 
@@ -53,7 +56,7 @@ polaris-controller 默认会同步 k8s 集群所有的 namespace，service 和 e
   - 某个 service 的 endpoints 地址列表变化时，会动态的同步到北极星。地址列表增加，则在北极星服务下注册新实例；地址列表减少，则反注册北极星服务下对应的实例。
   - 某个 service 的 endpoints 被移除时，本 k8s 集群同步到北极星对应服务下的实例都会从北极星的服务中移除。
 
-## polaris-controller 支持的注解
+### polaris-controller 支持的注解
 您可以在 k8s 的 service 指定注解，操作 polaris-controller 同步的行为，当前支持以下注解。
 
 | 注解名称 | 注解说明 |
@@ -63,7 +66,7 @@ polaris-controller 默认会同步 k8s 集群所有的 namespace，service 和 e
 | polarismesh.cn/aliasNamespace | 创建的别名所在的命名空间，配合 polarismesh.cn/aliasService 使用 |
 
 
-### 关闭自动同步示例
+#### 关闭自动同步示例
 
 polaris-controller 默认会同步 k8s 集群所有的 service。某些场景下，您可能不想同步某个 service 到北极星，这时可以使用 polarismesh.cn/enableRegister 注解关闭自动同步。
 
@@ -79,7 +82,7 @@ metadata:
 ... ...
 ```
 
-### 创建别名示例
+#### 创建别名示例
 
 polaris-controller 默认会以 service 名字，创建一个对应的北极星服务。可能有以下情况，需要创建服务别名：
 
