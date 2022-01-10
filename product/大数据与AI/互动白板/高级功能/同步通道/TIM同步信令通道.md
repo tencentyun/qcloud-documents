@@ -11,7 +11,7 @@
 因为实时录制会以 TIMSDK 作为信令通道，同时是以自定义消息的 extension:'TXWhiteBoardExt' 为标识，所以在同步的信令的时候需要注意以下四点：
 
 1. 使用 TIMSDK 作为信令通道。
-2. 关闭互动白板内置的信令通道（一定需要关闭，否则会收不到onTEBSyncData回调）。
+2. 关闭互动白板内置的信令通道（一定需要关闭，否则会收不到 onTEBSyncData 回调）。
 3. 同步信令的时候发送的消息类型为自定义消息类型。
 4. 自定义消息的 extension 字段必须为 TXWhiteBoardExt。
 
@@ -26,7 +26,7 @@
 
 **Mac/iOS**
 
-> 以下示例代码为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2 创建自定义消息](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#ab0aa735c735cf82a593707b296d2a060)，[TIM V2 消息发送](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a3694cd507a21c7cfdf7dfafdb0959e56)，[TIM V2 消息回调](https://im.sdk.qcloud.com/doc/zh-cn/protocolV2TIMSimpleMsgListener-p.html)，按以下步骤进行接入。
+以下示例代码为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2 创建自定义消息](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#ab0aa735c735cf82a593707b296d2a060)，[TIM V2 消息发送](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a3694cd507a21c7cfdf7dfafdb0959e56)，[TIM V2 消息回调](https://im.sdk.qcloud.com/doc/zh-cn/protocolV2TIMSimpleMsgListener-p.html)，按以下步骤进行接入。
 
 ```objc
 // 1. 将 TEduBoardInitParam 的 timSync 参数初始为 NO (关闭互动白板内置的信令通道)
@@ -70,7 +70,7 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 
 **Android**
 
-> 以下示例代码为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2 创建自定义消息](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a313b1ea616f082f535946c83edd2cc7f)，[TIM V2 消息发送](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a28e01403acd422e53e999f21ec064795)，[TIM V2 消息回调](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#afd96fd1591e41f031421c0655d8e5d6b)，按以下步骤进行接入。
+以下示例代码为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2 创建自定义消息](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a313b1ea616f082f535946c83edd2cc7f)，[TIM V2 消息发送](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a28e01403acd422e53e999f21ec064795)，[TIM V2 消息回调](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#afd96fd1591e41f031421c0655d8e5d6b)，按以下步骤进行接入。
 
 ```java
 // 1. 将 TEduBoardInitParam 的 timSync 参数初始为 NO (关闭互动白板内置的信令通道)
@@ -122,7 +122,7 @@ mBoard.addSyncData(data);
 
 **Windows**
 
-> 以下代码为演示代码，最新 TIM 相关接口请参考 [TIM V2 创建自定义消息](https://cloud.tencent.com/document/product/269/33553#customelem)，[TIM V2 消息发送](https://cloud.tencent.com/document/product/269/33549#timmsgsendmessage)，[TIM V2 消息回调](https://cloud.tencent.com/document/product/269/33552#timrecvnewmsgcallback)，按以下步骤进行接入。
+以下代码为演示代码，最新 TIM 相关接口请参考 [TIM V2 创建自定义消息](https://cloud.tencent.com/document/product/269/33553#customelem)，[TIM V2 消息发送](https://cloud.tencent.com/document/product/269/33549#timmsgsendmessage)，[TIM V2 消息回调](https://cloud.tencent.com/document/product/269/33552#timrecvnewmsgcallback)，按以下步骤进行接入。
 
 ```cpp
 // 引入IM SDK头文件
@@ -171,7 +171,7 @@ boardCtrl->AddSyncData(data);
 
 **Web**
 
-> 以下代码为演示代码，最新 TIM 相关接口请参考 [TIM 创建自定义消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#createCustomMessage)，[TIM 消息发送](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#sendMessage)，[TIM 消息回调](https://web.sdk.qcloud.com/im/doc/zh-cn//module-EVENT.html#.MESSAGE_RECEIVED)，按以下步骤进行接入。
+以下代码为演示代码，最新 TIM 相关接口请参考 [TIM 创建自定义消息](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#createCustomMessage)，[TIM 消息发送](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#sendMessage)，[TIM 消息回调](https://web.sdk.qcloud.com/im/doc/zh-cn//module-EVENT.html#.MESSAGE_RECEIVED)，按以下步骤进行接入。
 
 
 ```js

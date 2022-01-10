@@ -19,7 +19,7 @@
 ```
 sls init scf-nodejs
 ```
->?目前 SCF 组件支持的 helloworld 模板有：scf-golang、scf-php、scf-python，只需要将命令中的 `scf-nodejs` 更换为前面列出的模版名称，即可快速初始化相应语言模版。
+>?目前 SCF 组件支持的 helloworld 模板有：scf-golang、scf-php、scf-python，只需要将命令中的 `scf-nodejs` 更换为前面列出的模板名称，即可快速初始化相应语言模板。
 
 #### 部署
 执行以下命令，将会弹出二维码，直接扫码授权进行部署：

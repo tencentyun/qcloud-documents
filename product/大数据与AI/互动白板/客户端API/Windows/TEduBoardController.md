@@ -811,11 +811,6 @@ virtual void Undo()=0
 virtual void Redo()=0
 ```
 
-### 
-重做当前白板页上一次撤销 
-``` C++
-virtual void Redo()=0
-```
 
 ### setScrollBarVisible
 设置白板滚动条是否可见 

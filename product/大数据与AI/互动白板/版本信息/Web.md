@@ -1,14 +1,14 @@
 ### 2.6.9 @ 2021.12.27
 * 链接地址：https://res.qcloudtiw.com/board/2.6.9/TEduBoard.min.js
 - 新增接口
-    1. 支持PPT课件进行静音操作(soundMuteForPPT)
+    1. 支持 PPT 课件进行静音操作(soundMuteForPPT)
 
 - 功能优化
     1.优化课件加载
 
 - Bug 修复
-    1. 截图功能在异常dpr中丢失几个像素的问题
-    2. 修复vivo 5.x，6.x版本初始化失败的问题
+    1. 截图功能在异常 dpr 中丢失几个像素的问题
+    2. 修复 vivo 5.x，6.x版本初始化失败的问题
 
 ### 2.6.8 @2021.12.10
 * 链接地址：https://res.qcloudtiw.com/board/2.6.8/TEduBoard.min.js

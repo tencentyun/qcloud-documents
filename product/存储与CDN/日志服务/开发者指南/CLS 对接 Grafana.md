@@ -62,9 +62,9 @@ allow_loading_unsigned_plugins = tencent-cls-grafana-datasource
 ```
 http://Grafana IP 地址:3000
 ```
-2. 在左侧菜单栏中，选择设置图标，进入**Data Sources** 页面。
-3. 在 **Data Sources** 页面，单击【**Add data source**】。
-4. 选中【**Tencent Cloud Log Service Datasource**】，并按照如下说明配置数据源。
+2. 在左侧菜单栏中，选择设置图标，进入 **Data Sources** 页面。
+3. 在 **Data Sources** 页面，单击 **Add data source**。
+4. 选中 **Tencent Cloud Log Service Datasource**，并按照如下说明配置数据源。
 ![image-20201229200229285](https://main.qcloudimg.com/raw/275835ded7a0826d6027984ab9aa0b84.png)
 <table>
 <tr><th>配置项</th><th>说明</th><tr>
@@ -74,8 +74,8 @@ http://Grafana IP 地址:3000
 
 ### 配置 dashboard
 
-1. 在左侧导航栏中，单击【**Creat Dashboards**】。
-2. 在 Dashboard 页面，单击【**Add new panel**】。
+1. 在左侧导航栏中，单击 **Creat Dashboards**。
+2. 在 Dashboard 页面，单击 **Add new panel**。
 3. 将数据源选择为您新建的日志数据源。如下图所示：
    ![image-20201229200254913](https://main.qcloudimg.com/raw/b0981c7c5e43d803d0eb694f3b737060.png)
 4. 输入 Query 语句，并根据待展示的图表类型，选择 Format 形式。系统会自动转换数据以满足 Grafana 的展示。

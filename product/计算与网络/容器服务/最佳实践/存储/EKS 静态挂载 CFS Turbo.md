@@ -36,7 +36,7 @@ kubectl apply -f csidriver.yaml
 
 ### 创建 CFS Turbo 存储卷
 
-#### 步骤1：使用以下模版创建 CFS Turbo 类型 PV[](id:step1)
+#### 步骤1：使用以下模板创建 CFS Turbo 类型 PV[](id:step1)
 
 ```yaml
 apiVersion: v1
@@ -64,7 +64,7 @@ spec:
 - **spec.csi.volumeAttributes.fsid**：文件系统 fsid（非文件系统 id），可在文件系统挂载点信息中查看（挂载命令中 "tcp0:/" 与 "/cfs" 之间的字符串，如下图）。
   ![](https://qcloudimg.tencent-cloud.cn/raw/357dd592683ac766f8e6b4c653a27951.png)
 
-#### 步骤2：使用以下模版创建 PVC 绑定 PV
+#### 步骤2：使用以下模板创建 PVC 绑定 PV
 
 ```yaml
 apiVersion: v1
@@ -87,7 +87,7 @@ spec:
 
 ### 使用 CFS Turbo 存储卷
 
-使用以下模版创建 Pod 挂载 PVC。
+使用以下模板创建 Pod 挂载 PVC。
 
 ```yaml
 apiVersion: v1
