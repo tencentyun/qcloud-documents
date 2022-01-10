@@ -7,7 +7,7 @@ Android SDK 接入请观看视频：
 
 ### 接入须知
 - 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。
-- 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为 **Android 4.0** 及其以上版本。
+- 该接口需要手机能够连接网络（3G、4G、5G 或 Wi-Fi 等），且系统为 **Android 5.0** 及其以上版本。
 
 ### 开发环境
 - 引入 aar 包
@@ -18,16 +18,16 @@ implementation(name: 'speech_release', ext: 'aar')
 - 添加相关依赖
   okhttp3、okio、gson 和 slf4j 依赖添加，在 build.gradle 文件中添加：
 ```
-	implementation 'com.squareup.okhttp3:okhttp:4.2.2' 
-	implementation 'com.squareup.okio:okio:1.11.0'
-	implementation 'com.google.code.gson:gson:2.8.5'
-	implementation 'org.slf4j:slf4j-api:1.7.25'
+    implementation 'com.squareup.okhttp3:okhttp:4.2.2' 
+    implementation 'com.squareup.okio:okio:1.11.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'org.slf4j:slf4j-api:1.7.25'
 ```
 - 在 AndroidManifest.xml 添加如下权限：
 ```
-	< uses-permission android:name="android.permission.RECORD_AUDIO"/>
-	< uses-permission android:name="android.permission.INTERNET"/>
-	< uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    < uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    < uses-permission android:name="android.permission.INTERNET"/>
+    < uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
 ## 快速接入
@@ -52,38 +52,38 @@ try {
 * **/
   // aaiClient = new AAIClient(MainActivity.this, appid, projectId,"临时secretId", "临时secretKey","对应的token" ,credentialProvider);
 
-	 // 2、初始化语音识别请求。
-	final AudioRecognizeRequest audioRecognizeRequest = builder
-				.pcmAudioDataSource(new AudioRecordDataSource()) // 设置数据源
-				.template(new AudioRecognizeTemplate(
-				EngineModelType.EngineModelType16K.getType(),0)) 
-				// 设置自定义模板
-				.setFilterDirty(0)  // 0 ：默认状态 不过滤脏话 1：过滤脏话
-				.setFilterModal(0) // 0 ：默认状态 不过滤语气词  1：过滤部分语气词 2:严格过滤
-				.setFilterPunc(0) // 0 ：默认状态 不过滤句末的句号 1：滤句末的句号
-				.setNeedvad(1) //0：关闭 vad，1：默认状态 开启 vad。语音时长超过一分钟需要开启,如果对实时性要求较高,并且时间较短的识别,建议关闭,可以显著降低onSliceSuccess结果返回的时延以及stop后onSegmentSuccess和onSuccess返回的时延
-				.build();
+     // 2、初始化语音识别请求。
+    final AudioRecognizeRequest audioRecognizeRequest = builder
+                .pcmAudioDataSource(new AudioRecordDataSource()) // 设置数据源
+                .template(new AudioRecognizeTemplate(
+                EngineModelType.EngineModelType16K.getType(),0)) 
+                // 设置自定义模板
+                .setFilterDirty(0)  // 0 ：默认状态 不过滤脏话 1：过滤脏话
+                .setFilterModal(0) // 0 ：默认状态 不过滤语气词  1：过滤部分语气词 2:严格过滤
+                .setFilterPunc(0) // 0 ：默认状态 不过滤句末的句号 1：滤句末的句号
+                .setNeedvad(1) //0：关闭 vad，1：默认状态 开启 vad。语音时长超过一分钟需要开启,如果对实时性要求较高,并且时间较短的识别,建议关闭,可以显著降低onSliceSuccess结果返回的时延以及stop后onSegmentSuccess和onSuccess返回的时延
+                .build();
 
     // 3、初始化语音识别结果监听器。
     final AudioRecognizeResultListener audioRecognizeResultListener = new AudioRecognizeResultListener() {
         @Override
         public void onSliceSuccess(AudioRecognizeRequest audioRecognizeRequest, AudioRecognizeResult audioRecognizeResult, int i) {
-			// 返回语音分片的识别结果
+            // 返回语音分片的识别结果
         }
 
         @Override
         public void onSegmentSuccess(AudioRecognizeRequest audioRecognizeRequest, AudioRecognizeResult audioRecognizeResult, int i) {
-			// 返回语音流的识别结果
+            // 返回语音流的识别结果
         }
 
         @Override
         public void onSuccess(AudioRecognizeRequest audioRecognizeRequest, String s) {
-			// 返回所有的识别结果
+            // 返回所有的识别结果
         }
 
         @Override
         public void onFailure(AudioRecognizeRequest audioRecognizeRequest, ClientException e, ServerException e1) {
-			// 识别失败
+            // 识别失败
         }
     };
 
@@ -112,7 +112,7 @@ new Thread(new Runnable() {
     @Override
     public void run() {
         if (aaiClient!=null){
-	    //停止语音识别，等待当前任务结束
+        //停止语音识别，等待当前任务结束
             aaiClient.stopAudioRecognize(requestId);
         }
     }
@@ -129,7 +129,7 @@ new Thread(new Runnable() {
     @Override
     public void run() {
         if (aaiClient!=null){
-	    //取消语音识别，丢弃当前任务
+        //取消语音识别，丢弃当前任务
             aaiClient.cancelAudioRecognize(requestId);
         }
     }
@@ -313,7 +313,7 @@ void onFailure(AudioRecognizeRequest request, final ClientException clientExcept
 <tr>
 <td>response</td>
 <td>String</td>
-<td>	服务端返回的 json 字符串</td>
+<td>    服务端返回的 json 字符串</td>
 </tr>
 </tbody></table>
 
@@ -331,10 +331,10 @@ void onFailure(AudioRecognizeRequest request, final ClientException clientExcept
 **示例：**
 ```
 AudioRecognizeConfiguration audioRecognizeConfiguration = new AudioRecognizeConfiguration.Builder()
-	.setSilentDetectTimeOut(true)// 是否使能静音检测，false 表示不检查静音部分
+    .setSilentDetectTimeOut(true)// 是否使能静音检测，false 表示不检查静音部分
         .audioFlowSilenceTimeOut(5000) // 静音检测超时停止录音
-    	.minVolumeCallbackTime(80) // 音量回调时间
-    	.build();
+        .minVolumeCallbackTime(80) // 音量回调时间
+        .build();
 
 // 启动语音识别
 new Thread(new Runnable() {
