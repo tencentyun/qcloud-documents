@@ -1,6 +1,9 @@
-本文介绍使用数据传输服务 DTS 从 TDSQL-C MySQL 数据库同步数据至腾讯云 TDSQL-C MySQL 数据库的操作指导。
+﻿本文介绍使用数据传输服务 DTS 从 TDSQL-C MySQL 数据库同步数据至 TDSQL-C MySQL 数据库的操作指导。
 
-MySQL 到 TDSQL-C MySQL 的数据同步、TDSQL-C MySQL 到 MySQL 的数据同步，与  TDSQL-C MySQL 到 TDSQL-C MySQL 的数据同步要求一致，可参考本场景相关内容。
+如下场景与  TDSQL-C MySQL 到 TDSQL-C MySQL 的数据同步要求一致，可参考本场景相关内容。
+
+- MySQL 到 TDSQL-C MySQL 的数据同步
+- TDSQL-C MySQL 到 MySQL 的数据同步
 
 ## 注意事项 
 - DTS 在执行全量数据同步时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
@@ -171,17 +174,18 @@ FLUSH PRIVILEGES;
 <tr>
 <td>已选对象</td><td>展示已选择的同步对象，支持库表映射。</td></tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/272026696de9d8dd15b0034f7bf8f0dd.png"  style="zoom:50%;">
-<strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
-<img src="https://main.qcloudimg.com/raw/533a454e1edc2dded72ac92b65948f31.png"  style="zoom:50%;">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/8600bb548c8aa3526d018a64788c94bf.png"  style="zoom:50%;">
+
+<strong>库表重命名</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/a58cbaee41a4c253569adc9c8a3e9d52.png"  style="zoom:50%;">
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
  - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
-![](https://main.qcloudimg.com/raw/1871bfc0cb585ff2ac190bb706baf36e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/67cb666d8638ec138c4358810f03b30d.png)
 7. 返回数据同步任务列表，任务开始进入**运行中**状态。 
 >?选择**操作**列的**更多** > **结束**可关闭同步任务，请您确保数据同步完成后再关闭任务。
 >
-![](https://main.qcloudimg.com/raw/41165637339063c13bb8cc720e8e6541.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d2b936caf20aafcd849039cc3033f22f.png)
 8. （可选）您可以单击任务名，进入任务详情页，查看任务初始化状态和监控数据。
 
