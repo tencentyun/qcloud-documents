@@ -22,7 +22,8 @@ PUT Bucket tagging 用于为已存在的存储桶设置标签。
 
 [//]: # (.cssg-snippet-put-bucket-tagging)
 ```java
-String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 PutBucketTaggingRequest putBucketTaggingRequest =
         new PutBucketTaggingRequest(bucket);
 // 设置标签
@@ -37,10 +38,12 @@ cosXmlService.putBucketTaggingAsync(putBucketTaggingRequest,
                 (PutBucketTaggingResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest cosXmlRequest,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -62,7 +65,8 @@ GET Bucket tagging 用于查询指定存储桶下已有的存储桶标签。
 
 [//]: # (.cssg-snippet-get-bucket-tagging)
 ```java
-String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 GetBucketTaggingRequest getBucketTaggingRequest =
         new GetBucketTaggingRequest(bucket);
 
@@ -74,10 +78,12 @@ cosXmlService.getBucketTaggingAsync(getBucketTaggingRequest,
                 (GetBucketTaggingResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest cosXmlRequest,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -99,7 +105,8 @@ DELETE Bucket tagging 用于删除指定存储桶下已有的存储桶标签。
 
 [//]: # (.cssg-snippet-delete-bucket-tagging)
 ```java
-String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 DeleteBucketTaggingRequest deleteBucketTaggingRequest =
         new DeleteBucketTaggingRequest(bucket);
 
@@ -111,10 +118,12 @@ cosXmlService.deleteBucketTaggingAsync(deleteBucketTaggingRequest,
                 (DeleteBucketTaggingResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest cosXmlRequest,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {

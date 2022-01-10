@@ -3,7 +3,7 @@
 弹性容器服务 EKS 不仅支持上传日志到 CLS，也支持采集日志到自建 Kafka 或者 CKafka。
 
 ## 创建 CRD
-若需要采集日志到 Kafka，只需定义 CRD 即可。具体模版如下：
+若需要采集日志到 Kafka，只需定义 CRD 即可。具体模板如下：
 
 ```
 apiVersion: cls.cloud.tencent.com/v1

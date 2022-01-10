@@ -34,6 +34,7 @@ grant pg_tencentdb_superuser to 迁移用户;
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
 - 为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。如需要跨地域迁移，请选择公网接入方式。
 - 如果进行整个实例迁移，目标库中不能存在与源库同名的用户和角色。
+- **迁移类型**选择**全量 + 增量迁移**时，源数据库中的表必须有主键，否则会出现源库和不目标库数据不一致，对于无主键的表，建议选择**全量迁移**。
 
 ## 操作限制
 - 迁移过程中请勿修改、删除源数据库和目标数据库中用户信息（包括用户名、密码和权限）和端口号。
@@ -106,17 +107,17 @@ ldd --version | grep -i libc
 <td rowspan=6>源库设置</td>
 <td>源库类型</td><td>根据您的源数据库类型选择，本场景选择“PostgreSQL”。</td></tr>
 <tr>
-<td>接入类型</td><td>请根据您的场景选择，本场景选择“云数据库”。<br>为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。如需要跨地域迁移，请选择公网接入方式。
+<td>接入类型</td><td>请根据您的场景选择，本场景以“云数据库”为例，不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。<br>为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。如需要跨地域迁移，请选择公网接入方式。
 <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
 <li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
 <li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
 <li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
-<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul>不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul></td></tr>
 <tr>
 <td>所属地域</td><td>源库 PostgreSQL 所属地域。</td></tr>
 <tr>
-<td>数据库实例</td><td>选择目标库的实例 ID。</td></tr>
+<td>数据库实例</td><td>选择源库 PostgreSQL 的实例 ID。</td></tr>
 <tr>
 <td>帐号</td><td>源库 PostgreSQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
@@ -127,7 +128,7 @@ ldd --version | grep -i libc
 <tr>
 <td>接入类型</td><td>根据您的场景选择，本场景默认选择“云数据库”。</td></tr>
 <tr>
-<td>所属地域</td><td>源库中已选择的地域。</td></tr>
+<td>所属地域</td><td>选择目标库所属地域。</td></tr>
 <tr>
 <td>数据库实例</td><td>选择目标库的实例 ID。</td></tr>
 <tr>

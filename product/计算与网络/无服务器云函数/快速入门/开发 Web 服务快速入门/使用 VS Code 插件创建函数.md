@@ -88,7 +88,7 @@ Tencent Serverless Toolkit for VS Code 是腾讯云 Serverless 产品的 VS Code
 单击左侧导航栏中的<img src="https://main.qcloudimg.com/raw/5c3bec3934e5d5a2dbdbf53ec105d6bd.png" style="margin:-3px 0;">，进入本地编辑页面，给函数设置断点。如下图所示：  
 ![](https://main.qcloudimg.com/raw/a112a7af7dd57e7f7a4e1de20f7c4db3.png)
 
-#### 设置调试模版
+#### 设置调试模板
 1. 单击左侧导航栏顶部的<img src="https://main.qcloudimg.com/raw/f51801927eb766c828e721b193539e9e.png" style="margin:-3px 0;">，进入调试页面（或 `Ctrl+Shift+D`）。
 2. 选择**create a launch.json file**，新建调试配置文件。
 3. 选择 SCF Debugger For Python 调试模板（Node 项目请选择 SCF Debugger For Node）。如下图所示：
@@ -209,7 +209,7 @@ Resources:
 
 本地调用时，可根据函数功能选择不同的测试模板，也可以自定义模板。如下图所示：  
 ![](https://main.qcloudimg.com/raw/c2b7c5ed4cebcc1f488fdd2e2a4bb905.png)
-更多测试模版相关内容，详情请参见 [触发器](https://cloud.tencent.com/document/product/583/9705)。
+更多测试模板相关内容，详情请参见 [触发器](https://cloud.tencent.com/document/product/583/9705)。
 
 
 

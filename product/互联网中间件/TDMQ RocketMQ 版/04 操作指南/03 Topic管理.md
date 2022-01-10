@@ -16,13 +16,14 @@ Topic 是 TDMQ RocketMQ 版中的核心概念。Topic 通常用来对系统生�
 1. 登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，选择地域后，单击目标集群的ID进入集群基本信息页面。
 2. 单击顶部**Topic**页签，选择命名空间后，单击**新建**进入创建 Topic 页面。
 3. 在新建 Topic 对话框中，填写以下信息。
-   ![](https://main.qcloudimg.com/raw/51c79615c68090464f867fe76abebe68.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/5cc63ed25feb1b5c05a543cfe18b4cd5.png)
    - Topic 名称：填写 Topic 名称（创建后不可修改），3-64个字符，只能包含字母、数字、“-”及“_”
    - 类型：选择消息类型，包括：普通、全局顺序、局部顺序（关于消息类型的说明，请参考 [消息类型](https://cloud.tencent.com/document/product/1179/44833)）
+   - 分区数：选择分区数量，最大支持32分区。多分区可以提高单 Topic 的生产消费性能，但是无法保证顺序性。
    - 说明：填写 Topic 的说明信息
 4. 单击**提交**，在 Topic 列表中即可看见创建好的 Topic。
 
-### 查看订阅的Group
+### 查看订阅的 Group
 
 1. 在 Topic 列表中，单击目标Topic的**订阅 Group 数**栏下的数字。
 2. 页面跳转到 Group 列表，展示订阅该 Topic 的 Group 信息。
