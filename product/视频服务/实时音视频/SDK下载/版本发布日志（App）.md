@@ -1,10 +1,10 @@
 ## Version 9.5 @ 2022.01.11
 
 **故障修复：**
+- 全平台：提升 API 易用性，修复部分 API 特定调用时序导致自定义渲染播放黑屏的问题。
+- Windows：修复屏幕分享采集区域不完整的问题。
 - iOS：修复 [muteLocalVideo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#ac3a158f935a99abd4965d308c0f88977) 调用后退房下次进房还是不推流状态的问题。
 - iOS：修复混流设置背景图无效的问题。
-- Windows：修复屏幕分享采集区域不完整的问题。
-- 全平台：提升 API 易用性，修复部分 API 特定调用时序导致自定义渲染播放黑屏的问题。
 
 **功能优化：**
 - 全平台：优化通话场景在弱网时的流畅度。
