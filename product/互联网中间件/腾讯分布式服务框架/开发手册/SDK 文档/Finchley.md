@@ -351,7 +351,7 @@ spring-cloud-tsf-gateway 网关兼容新插件类型。
 
 支持 swagger 自动扫描包多路径特性。
 
-## 1.18.7-Finchley-RELEASE（2021-01-10）
+## 1.18.7-Finchley-RELEASE（2022-01-10）
 ### Bug 修复
 - 修复redis 连接异常时对象无法被回收的问题。
 - 修复服务治理时 API PATH 标签匹配 PATH 参数失败问题。
