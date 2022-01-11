@@ -424,5 +424,5 @@ if(Aegis) {
         reportAssetSpeed: false
     });
 }
-reportEvent(options){ aegis && aegis.reportEvent(options); }
+function reportEvent(options){ aegis && aegis.reportEvent(options); }
 </script>
