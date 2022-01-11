@@ -4,7 +4,7 @@
 ## 前提条件
 - 已注册腾讯云账号，并开通 [腾讯云直播服务](https://cloud.tencent.com/product/lvb)。
 - 已在 [域名注册](https://dnspod.cloud.tencent.com/?from=qcloudProductDns) 申请域名，并备案成功。
-- 已在 **云直播控制台 ** >**[域名管理](https://console.cloud.tencent.com/live/domainmanage)** 中添加推流/播放域名，并 CNAME 成功。详细操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
+- 已在 **云直播控制台** > **[域名管理](https://console.cloud.tencent.com/live/domainmanage)** 中添加推流/播放域名，并 CNAME 成功。详细操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
 
 [](id:push)
 ## 拼装推流 URL
