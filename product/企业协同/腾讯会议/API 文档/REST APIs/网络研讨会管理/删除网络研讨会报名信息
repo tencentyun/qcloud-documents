@@ -1,0 +1,22 @@
+## 接口描述
+**描述**：删除指定网络研讨会（Webinar）的报名信息，支持删除用户手动报名的信息和导入的报名信息。
+**请求方式**：DELETE
+**接口请求域名**：
+```plaintext
+https://api.meeting.qq.com/v1/webinars/{meeting_id}/enroll/unregistration
+```
+## **输入参数**
+
+| 名称             | 类型       | 是否必须 | 备注                                                         |
+| ---------------- | ---------- | -------- | ------------------------------------------------------------ |
+| operator_id      | String     | 必须     | 操作者 ID。会议创建者可以删除报名信息。<br />operator_id 必须与 operator_id_type 配合使用。<br />根据 operator_id_type 的值，operator_id 代表不同类型。 |
+| operator_id_type | Integer    | 必须     | 操作者 ID 的类型： <br />1：企业用户 userid。                  |
+| instanceid       | Integer    | 必须     | 操作者的终端设备类型。                                         |
+| enroll_id_list   | Integer [] | 必须     | 报名 ID （`enroll_id`）列表。                                  |
+
+
+## 输出参数
+
+| 名称        | 类型    | 备注                   |
+| ----------- | ------- | ---------------------- |
+| total_count | Integer | 成功删除的报名信息数量。 |
