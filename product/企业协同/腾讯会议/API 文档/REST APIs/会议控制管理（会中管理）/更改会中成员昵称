@@ -50,7 +50,7 @@ PUT https://api.meeting.qq.com/v1/real-control/meetings/1232132132131/names
 		"nick_name": "tester1"
     },
     {
-         "ms_open_id" : "agaqwwgdkkddd",
+        "ms_open_id" : "agaqwwgdkkddd",
         "instanceid":2,
 		"nick_name": "tester2"
     }
