@@ -413,7 +413,7 @@ TRTC 是腾讯云 LiteAV 系列产品之一，由于 LiteAV 体系的 SDK 都使
   </tr>
 </table>
 
-<script src="https://cdn-go.cn/aegis/aegis-sdk/latest/min.js"></script>
+<script src="https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js"></script>
 <script>
 let aegis;
 if(Aegis) {
