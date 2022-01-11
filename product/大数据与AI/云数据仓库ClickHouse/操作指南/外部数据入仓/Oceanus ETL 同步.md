@@ -92,7 +92,7 @@
 </table>
 
 ## 前提条件
-1. 已开通 Oceanus 服务。
+1. 已开通 [Oceanus 服务](https://cloud.tencent.com/product/oceanus)。
 2. Oceanus 集群和云数据 ClickHouse 集群须在同一个 VPC 下。
 3. 流计算作业 ETL 作业需运行于流计算独享集群，若还没有集群，请参考 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。
 
@@ -109,7 +109,7 @@ ENGINE = CollapsingMergeTree(Sign)
 ORDER BY id
 ```
 
- - 若您到任务中不需要 updatable，可以通过 [MergeTree](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/) 来实现。
+ - 若您到任务中不需要 update，可以通过 [MergeTree](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/) 来实现。
 ```
 CREATE TABLE test.test ON CLUSTER default_cluster
 (
@@ -126,11 +126,11 @@ ORDER BY id
  3. 流计算服务委托授权。
 ![](https://qcloudimg.tencent-cloud.cn/raw/41542923204713538b3e39faf7c1bc3d.png)
  4. 创建数据源表和目的表，并完成字段映射。
- 5. **发布运行 ETL 作业**。
- 6. **查看作业运行情况**。
+ 5. 发布运行 ETL 作业。
+ 6. 查看作业运行情况。
 作业发布并启动运行后，将变为操作中的状态，成功启动后将变为运行中的状态。作业运行中时，可以通过监控、日志、Flink UI 等功能查看作业运行的情况。
 
-3. **登录云数据仓库 ClickHouse，并查询数据**
+3. **登录云数据仓库 ClickHouse，并查询数据**。
 ```
 select * from  test.test ;
 ```
