@@ -5,7 +5,7 @@
 2. 确保 HDFS 的实例和云数据仓库 ClickHouse 集群处在相同 VPC 中。
 
 ## 操作步骤
-1. 登陆云数据仓库 ClickHouse ，创建 HDFS 表。
+1. 登录云数据仓库 ClickHouse ，创建 HDFS 表。
 ```
 CREATE TABLE hdfs_engine_table
 (
