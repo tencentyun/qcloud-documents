@@ -18,7 +18,7 @@ https://api.meeting.qq.com/v1/real-control/meetings/{meetingId}/names
 |参数名称 |必选 |参数类型 |参数描述 |
 |----------|----- |--------- |--------- |
 |operator_id |是 |String |操作者 ID，根据  operator_id_type  的值，使用不同的类型。 |
-|operator_id_type |是 |String |操作者 ID 的类型： <br>4：ms_open_id |
+|operator_id_type |是 |Integer |操作者 ID 的类型： <br>4：ms_open_id |
 |instanceid |是 |Integer |用户的终端设备类型：<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序 |
 |users |是 |Array[UserObj] |被操作用户对象信息列表。 |
 
