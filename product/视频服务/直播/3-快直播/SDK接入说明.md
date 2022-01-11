@@ -63,7 +63,7 @@ iOS、Android 上的应用可以通过集成移动直播 SDK 来实现 App 端�
 - **Web 端直播拉流**：可通过 [WebRTC Live Demo](https://tcplayer.vcube.tencent.com/webrtc-demo/index.html) 工具进行播放体验。
 >?
 >- Web 端直播推流和拉流均使用标准 WebRTC 协议，Web 端推流时不包含 B帧 ，且音频编码为 OPUS 音频格式，所以不会产生音频转码及去 B 帧转码费用。
->- WebRTC Live Demo 支持多清晰度功能，可在云直播控制台 **功能配置**>[**直播转码**](https://console.cloud.tencent.com/live/config/transcode) 配置高清-HD、标清-SD 的转码模板，将带有转码模板的 WebRTC 流地址填入 Demo 中对应的栏目后测试播放（如不需要测试此功能则只需要在 Demo 中填入一条 WebRTC 原始流即可）。
+>- WebRTC Live Demo 支持多清晰度功能，可在云直播控制台 **功能配置** > [**直播转码**](https://console.cloud.tencent.com/live/config/transcode) 配置高清-HD、标清-SD 的转码模板，将带有转码模板的 WebRTC 流地址填入 Demo 中对应的栏目后测试播放（如不需要测试此功能则只需要在 Demo 中填入一条 WebRTC 原始流即可）。
 >- 直播转码操作指引及转码计费内容，请参见文档 [直播转码](https://cloud.tencent.com/document/product/267/20385)。
 >
 <img src="https://main.qcloudimg.com/raw/1f871aa2d45e2d3529cee8a98ef24673.png" width=600>
@@ -89,11 +89,11 @@ WebRTC 协议推流主要用于视频云的快直播（超低延迟直播）推�
 ### 配置推流链接
 [](id:push)
 1. **生成 WebRTC 推流地址**。
-	1. 登录腾讯云直播控制台，在 **直播工具箱**>**[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)** 生成推流地址，具体操作请参见 [地址生成器](https://cloud.tencent.com/document/product/267/35257)。
+	1. 登录腾讯云直播控制台，在 **直播工具箱** > **[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)** 生成推流地址，具体操作请参见 [地址生成器](https://cloud.tencent.com/document/product/267/35257)。
 	2. 把生成的 `rtmp` 前缀修改成 `webrtc`，具体使用说明请参见 [自主拼装直播 URL](https://cloud.tencent.com/document/product/267/32720)。
 	![](https://main.qcloudimg.com/raw/34924378812d1a36f04cfe1a2180e7a0.png)    
 2. **配置 OBS 推流服务**。[](id:set_obs)
-	1. 打开 OBS，您可通过底部工具栏的 **控件**>**设置** 按钮进入设置界面。
+	1. 打开 OBS，您可通过底部工具栏的 **控件** > **设置** 按钮进入设置界面。
 	2. 单击 **推流** 进入流设置页签，选择服务类型为 `Tenent webrtc`，服务器为 `Default`，串流密钥中输入之前生成的 [WebRTC 推流地址](#push)，并在后面拼接上 `&stopstream_api=https://webrtcpush.myqcloud.com/webrtc/v1/stopstream`。
 	**串流密钥示例：**
 ```
