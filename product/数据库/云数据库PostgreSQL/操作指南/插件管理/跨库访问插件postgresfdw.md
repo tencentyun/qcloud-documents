@@ -1,5 +1,5 @@
 ## 简介
-FDW（FOREIGN DATA WRAPPER，外部数据包装器）是 PostgreSQL 提供用于访问外部数据源的一类插件，外部数据源包括本实例其他库中数据或者其他实例的数据。
+FDW（FOREIGN DATA WRAPPER，外部数据包装器）是 PostgreSQL 提供用于访问外部数据源的一类插件，外部数据源包括本实例其他库中数据或者其他实例的数据。使用过程包含以下步骤：
 1. 使用 “CREATE EXTENSION” 语句安装 FDW 插件。
 2. 使用 “CREATE SERVER” 语句，为每个需要连接的远程数据库创建一个外部服务器对象。指定除了 user 和 password 以外的连接信息作为服务器对象的选项。
 3. 使用 “CREATE USER MAPPING” 语句，为每个需要通过外部服务器访问的数据库创建用户映射。指定远程的帐号和密码作为映射用户的 user 和 password。
@@ -29,6 +29,10 @@ FDW（FOREIGN DATA WRAPPER，外部数据包装器）是 PostgreSQL 提供用于
 ### 参考链接
 [9.3 版本 SERVER 创建](https://www.postgresql.org/docs/9.3/static/sql-createserver.html)
 [9.5 版本 SERVER 创建](https://www.postgresql.org/docs/9.5/static/sql-createserver.html)
+[10 版本 SERVER 创建](https://www.postgresql.org/docs/10/sql-createserver.html)
+[11 版本 SERVER 创建](https://www.postgresql.org/docs/11/sql-createserver.html)
+[12 版本 SERVER 创建](https://www.postgresql.org/docs/12/sql-createserver.html)
+[13 版本 SERVER 创建](https://www.postgresql.org/docs/13/sql-createserver.html)
 
 ## 使用 postgres_fdw 示例
 使用 postgres_fdw 插件可以访问本实例其他库或者其他 postgres 实例的数据。
@@ -100,11 +104,6 @@ testdb1=> select * from foreign_table1;
    1
 (1 row)
 ```
-
-### 步骤7：postgres_fdw 使用注意
-如果目标实例在 CVM 上，需要注意以下几点：
-1. 需要放开 PostgreSQL 的 hba 限制，允许创建的映射用户（如：user2）以 MD5 方式访问。hba 的修改可参考 [PostgreSQL 官方说明](https://www.postgresql.org/docs/9.3/static/auth-pg-hba-conf.html)。
-2. 如果目标实例非 TencentDB 实例，且搭建有热备模式，当主备切换后，需要自行更新 server 连接地址或者重新创建 server。
 
 ### 参考链接
 [postgres_fdw 官方介绍](https://www.postgresql.org/docs/9.5/postgres-fdw.html)

@@ -251,7 +251,7 @@
 
 | 产品                                                         | CAM 中简称 | 授权粒度 | 控制台 | 根据标签进行授权 | 服务角色 | 参考文档 |
 | ------------------------------------------------------------ | ---------- | -------- | ------ | ---------------- | -------- | -------- |
-| [Web   应用防火墙](https://cloud.tencent.com/document/product/627) | cfw        | 操作级   | ✓      | ✓                | -        | -        |
+| [Web 应用防火墙](https://cloud.tencent.com/document/product/627) | waf       | 操作级   | ✓      | ✓                | -        | -        |
 | [漏洞扫描服务](https://cloud.tencent.com/document/product/692) | cws        | 操作级   | ✓      | -                | ✓        | -        |
 | [网络资产风险监测系统](https://cloud.tencent.com/document/product/1088) | narms      | 服务级   | ✓      | -                | ✓        | -        |
 | [小程序应用安全](https://cloud.tencent.com/document/product/1223) | mmps       | 操作级   | ✓      | -                | -        | -        |

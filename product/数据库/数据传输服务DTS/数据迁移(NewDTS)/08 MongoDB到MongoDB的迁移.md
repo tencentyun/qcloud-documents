@@ -73,20 +73,22 @@ db.createUser({
 <td>标签</td>
 <td>标签用于从不同维度对资源分类管理。如现有标签不符合您的要求，请前往控制台管理标签。</td></tr>
 <tr>
-<td rowspan=6>源库设置</td>
+<td rowspan=7>源库设置</td>
 <td>源库类型</td><td>根据您的源数据库类型选择，本场景选择“MongoDB”。</td></tr>
 <tr>
-<td>接入类型</td><td>请根据您的场景选择，本场景选择“云数据库”。
+<td>接入类型</td><td>请根据您的场景选择，本场景以“云数据库”为例，不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
 <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
 <li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
 <li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
 <li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
-<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。</td></tr>
 <tr>
+<td>是否跨账号</td><td>接入类型选择“云数据库”时需要配置。<ul><li>本账号：源数据库实例和目标数据库实例所属的主账号为同一个腾讯云主账号。</li><li>跨账号：源数据库实例和目标数据库实例所属的主账号为不同的腾讯云主账号。跨账号操作指导请参见 <a href="https://cloud.tencent.com/document/product/571/54117">云数据库跨账号实例间迁移</a>。</li></ul></td></tr>
+ <tr>
 <td>所属地域</td><td>源库 MongoDB 所属地域。</td></tr>
 <tr>
-<td>数据库实例</td><td>选择目标库的实例 ID。</td></tr>
+<td>数据库实例</td><td>选择源库的实例 ID。</td></tr>
 <tr>
 <td>帐号</td><td>源库 MongoDB 的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
@@ -97,7 +99,7 @@ db.createUser({
 <tr>
 <td>接入类型</td><td>本场景选择“云数据库”。</td></tr>
 <tr>
-<td>所属地域</td><td>源库中已选择的地域。</td></tr>
+<td>所属地域</td><td>选择目标库所属地域。</td></tr>
 <tr>
 <td>数据库实例</td><td>选择目标库的实例 ID。</td></tr>
 <tr>

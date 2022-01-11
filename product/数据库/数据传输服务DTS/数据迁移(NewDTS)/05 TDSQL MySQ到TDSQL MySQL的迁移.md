@@ -124,30 +124,30 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>标签用于从不同维度对资源分类管理。如现有标签不符合您的要求，请前往控制台管理标签。</td></tr>
 <tr>
 <td rowspan=6>源库设置</td>
-<td>源库类型</td><td>选择“TDSQL MySQL”。</td></tr>
-<tr>
-<td>服务提供商</td><td>选择“普通”。</td></tr>
+<td>源库类型</td><td>选择“TDSQL MySQL 版”。</td></tr>
 <tr>
 <td>接入类型</td><td>选择“云数据库”。</td></tr>
 <tr>
-<td>所属地域</td><td>源库所属地域为 DTS 服务出口地域，选择离自建实例最近的一个地域即可。</td></tr>
+<td>所属地域</td><td>选择源库所属地域。</td></tr>
 <tr>
-<td>帐号</td><td>源库 TDSQL MySQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
+<td>数据库实例</td><td>选择源数据库实例 ID。</td></tr>
 <tr>
-<td>密码</td><td>源库 TDSQL MySQL 的数据库帐号的密码。</td></tr>
+<td>帐号</td><td>源库 TDSQL MySQL 版的数据库帐号，帐号权限需要满足要求。</td></tr>
+<tr>
+<td>密码</td><td>源库 TDSQL MySQL 版的数据库帐号的密码。</td></tr>
 <tr>
 <td rowspan=6>目标库设置</td>
-<td>目标库类型</td><td>选择“TDSQL MySQL版”。</td></tr>
+<td>目标库类型</td><td>选择“TDSQL MySQL 版”。</td></tr>
 <tr>
 <td>接入类型</td><td>选择“云数据库”。</td></tr>
 <tr>
-<td>所属地域</td><td>上一步中已选择的地域。</td></tr>
+<td>所属地域</td><td>选择目标库所属地域。</td></tr>
 <tr>
-<td>数据库实例</td><td>选择目标端 TDSQL MySQL版 实例 ID。</td></tr>
+<td>数据库实例</td><td>选择目标端 TDSQL MySQL 版实例 ID。</td></tr>
 <tr>
-<td>帐号</td><td>目标端 TDSQL MySQL版 的数据库帐号，帐号权限需要满足要求。</td></tr>
+<td>帐号</td><td>目标端 TDSQL MySQL 版的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
-<td>密码</td><td>目标端 TDSQL MySQL版 的数据库帐号的密码。</td></tr>
+<td>密码</td><td>目标端 TDSQL MySQL 版的数据库帐号的密码。</td></tr>
 </tbody></table>
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 > ?

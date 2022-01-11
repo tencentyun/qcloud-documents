@@ -1,3 +1,34 @@
+### 2.16.0 @2022.1.5
+
+**新增**
+
+- [setMessageRemindType](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setMessageRemindType)，支持设置 C2C 会话消息免打扰。
+- [setAllMessageRead](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setAllMessageRead)，支持一键清空所有会话未读。
+- [sendMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#sendMessage)，支持发送不计入会话未读和不更新会话 `lastMessage` 的消息。
+- 支持直播群新成员查看入群前历史消息（需开通旗舰版）。
+  
+**变更**
+
+- SDK 使用 [严格模式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode)。
+- 会话列表过滤掉与被删除的帐号的会话。
+- 优化漫游消息的 `nick` 和 `avatar` 的更新时机。
+- 收到对端（好友）资料更新后，对应更新 `conversation.userProfile`。
+
+**修复**
+
+- 非 UTF-8 字符导致 WebSocket 长连接异常断开问题。
+- [deleteMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessage) 时传入复制的消息导致的运行时错误： `e.getOnlineOnlyFlag is not a function`。
+- [deleteMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessage) 后会话 `lastMessage` 未正确更新。
+- C2C 会话未读数计算问题。
+- C2C 会话的实时消息未带 `nick` 和 `avatar` 导致的消息渲染异常。
+- 偶现的会话 `lastMessage.payload` 为 `null`。
+- 预签名上传图片缩略图 URL 不生效。
+- @ 群成员，重新登录后拉漫游消息，对应的 message.atUserList 为空数组。
+- 处理群提示消息（转让群主）时的错误。
+- 一些统计错误。
+
+
+
 ### 2.15.0 @2021.10.29
 
 **新增**
