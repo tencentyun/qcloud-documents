@@ -93,15 +93,11 @@ mysql> show variables like '%binlog_format%';
 ```
 set global binlog_row_image = FULL;
 ```
-
 3. 重启线程使配置生效，然后通过如下命令查看参数修改是否生效。
-
 ```
 show variables like '%binlog_row_image%';
 ```
-
 系统显示结果类似如下：
-
 ```
 mysql> show variables like '%binlog_row_image%';
 +------------------+-------+
@@ -111,7 +107,6 @@ mysql> show variables like '%binlog_row_image%';
 +------------------+-------+
 1 row in set (0.00 sec)
 ```
-
 4. 重新执行校验任务。
 
 ### 修改 gtid_mode 参数
@@ -177,15 +172,11 @@ enforce_gtid_consistency = on
 ```
 set global server_id = 2;  //建议设为大于1的整数，此处仅为示例
 ```
-
 3. 通过如下命令查看参数修改是否生效。
-
 ```
 show global variables like '%server_id%';
 ```
-
 系统显示结果类似如下：
-
 ```
 mysql> show global variables like '%server_id%';
 +---------------+-------+
@@ -195,7 +186,6 @@ mysql> show global variables like '%server_id%';
 +---------------+-------+
 1 row in set (0.00 sec)
 ```
-
 4. 重新执行校验任务。
 
 ### 删除 do_db，ignore_db 设置
@@ -232,13 +222,11 @@ mysql> show master status;
 在主从复用结构中，从库开启 `log-bin` 参数，直接在从库操作数据时，可以记录在 binlog 中，但是从库从主库上复制数据时，不能记录在 binlog 中，所以从库作为其他从库的主库时，需要打开 `log_slave_updates` 参数。 
 1. 登录源数据库。
 2. 在源数据库的配置文件 `my.cnf` 中增加如下内容。
-
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
-
+>
 ```
 log_slave_updates = ON
 ```
-
 3. 参考如下命令重启源数据库。
 ```
 [$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
