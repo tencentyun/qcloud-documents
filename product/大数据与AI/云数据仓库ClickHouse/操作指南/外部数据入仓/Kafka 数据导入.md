@@ -85,7 +85,7 @@
  
  - 如果您的集群是单副本版：
 ```
-CREATE TABLE daily on cluster default cluster
+CREATE TABLE daily on cluster default_cluster
 (
     day Date,
     level String,
