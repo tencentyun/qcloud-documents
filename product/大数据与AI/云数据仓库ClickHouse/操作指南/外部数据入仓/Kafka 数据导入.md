@@ -4,22 +4,22 @@
 数据源 Kafka 集群和目的端云数据仓库 ClickHouse 集群必须在同一个 VPC 下。
 
 ## 操作步骤
-1. [登陆](https://cloud.tencent.com/document/product/1299/49824) 云数据仓库 ClickHouse 集群，创建 Kafka 消费表。
+1. [登录](https://cloud.tencent.com/document/product/1299/49824) 云数据仓库 ClickHouse 集群，创建 Kafka 消费表。
 ```
-	CREATE TABLE queue (
-		timestamp UInt64,
-		level String,
-		message String
-	) ENGINE = Kafka
-	SETTINGS
-			kafka_broker_list = 'localhost:9092',
-			kafka_topic_list = 'topic',
-			kafka_group_name = 'group',
-			kafka_format = 'JSONEachRow',
-			kafka_num_consumers = 1,
-			kafka_max_block_size = 65536,
-			kafka_skip_broken_messages = 0,
-			kafka_auto_offset_reset = 'latest';
+    CREATE TABLE queue (
+        timestamp UInt64,
+        level String,
+        message String
+    ) ENGINE = Kafka
+    SETTINGS
+            kafka_broker_list = 'localhost:9092',
+            kafka_topic_list = 'topic',
+            kafka_group_name = 'group',
+            kafka_format = 'JSONEachRow',
+            kafka_num_consumers = 1,
+            kafka_max_block_size = 65536,
+            kafka_skip_broken_messages = 0,
+            kafka_auto_offset_reset = 'latest';
 ```
 
 ### 常用参数说明如下
