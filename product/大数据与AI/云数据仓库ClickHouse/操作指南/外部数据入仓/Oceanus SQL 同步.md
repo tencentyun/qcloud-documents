@@ -92,7 +92,7 @@
 </table>
 
 ## 前提条件
-1. 已开通 Oceanus 服务。
+1. 已开通 [Oceanus 服务](https://cloud.tencent.com/product/oceanus)。
 2. Oceanus 集群和云数据 ClickHouse 集群须在同一个 VPC 下。
 3. 流计算作业 ETL 作业需运行于流计算独享集群，若还没有集群，请参见 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。
 
@@ -109,7 +109,7 @@ ENGINE = CollapsingMergeTree(Sign)
 ORDER BY id
 ```
 
- - 若您到任务中不需要 updatable，可以通过 [MergeTree](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/) 来实现。
+ - 若您到任务中不需要 update，可以通过 [MergeTree](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/) 来实现。
 ```
 CREATE TABLE test.test ON CLUSTER default_cluster
 (
