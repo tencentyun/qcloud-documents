@@ -15,19 +15,18 @@
 
 如发生类似报错，请参考如下指导进行修复。
 1. 登录源数据库。
-2. 参考如下内容修改源数据库的配置文件 `my.cnf`。
+2. 参考如下内容修改源数据库的配置文件 `my.cnf`。因 log_bin 参数修改后需要重启数据库，所以建议同步修改 binlog_format 和 binlog_row_image 参数为校验要求配置。
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
 >
 ```
 log_bin = MYSQL_BIN
 binlog_format = ROW
-server_id = 2         //建议设为大于1的整数，此处仅为示例。
 binlog_row_image = FULL
 ```
 3. 参考如下命令重启源数据库。
 ```
-[\$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
-[\$Mysql_Dir]/bin/safe_mysqld &
+[$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
+[$Mysql_Dir]/bin/safe_mysqld &
 ```
 >?[\$Mysql_Dir] 指源数据库的安装路径，请替换为实际的源数据库安装目录。
 4. 确认 binlog 功能是否已启用。
@@ -37,11 +36,15 @@ show variables like '%log_bin%';
 系统显示结果类似如下：
 ```
 mysql> show variables like '%log_bin%';
-+---------------+-------+
-| Variable_name | Value |
-+---------------+-------+
-| log_bin       | ON    |
-+---------------+-------+
++------------------+-------+
+| Variable_name    | Value |
++------------------+-------+
+| log_bin          | ON    |
++------------------+-------+
+| binlog_format    | ROW   |
++------------------+-------+
+| binlog_row_image | FULL  |
++------------------+-------+
 1 row in set (0.00 sec)
 ```
 5. 重新执行校验任务。
@@ -53,18 +56,16 @@ mysql> show variables like '%log_bin%';
 - `MIXED`：前两种模式的结合，MySQL 会根据执行的每一条具体的 SQL 语句来区分对待记录的日志形式，在 `STATEMENT` 和 `ROW` 之间选择一种。 
 
 综上，为了保证 master 和 slave 的正确复制，`binlog_format` 参数需要设置为 `ROW`。如发生类似报错，请参考如下指导进行修复。
->?该参数修改可以不重启数据库，但是需要中断当前数据库上的所有业务连接，当源库为从库时，还需重启主从同步 SQL 线程，避免当前业务连接继续使用修改前的模式写入。
+>?该参数修改需要重置数据库上的所有连接才能生效，当源库为从库时，还需重启主从同步 SQL 线程，避免当前业务连接继续使用修改前的模式写入。
 
 1. 登录源数据库。
-2. 参考如下内容修改配置文件 `my.cnf`。
->?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
->
+2. 参考如下命令修改`binlog_format`。
 ```
-binlog_format = ROW
+set global binlog_format = ROW;
 ```
-3. 查看参数修改是否生效。
+3. 重启线程使配置生效，然后通过如下命令查看参数修改是否生效。
 ```
-show variables like "%binlog_format%";
+show variables like '%binlog_format%';
 ```
 系统显示结果类似如下：
 ```
@@ -85,20 +86,22 @@ mysql> show variables like '%binlog_format%';
 - `MINIMAL`：在 `ROW` 模式下，当表没有主键或唯一键时，前镜像记录所有列，后镜像记录被修改的列；如果存在主键或唯一键，不管是前镜像还是后镜像，都只记录有影响的列。
 
 综上，`binlog_row_image` 需要配置为 `FULL`，源数据库的 binlog 记录全镜像。如发生报错，请参考如下步骤修复。
->?该参数修改可以不重启数据库，但是需要中断当前数据库上的所有业务连接，当源库为从库时，还需重启主从同步SQL线程，避免当前业务连接继续使用修改前的模式写入。
+>?该参数修改需要重置数据库上的所有连接才能生效，当源库为从库时，还需重启主从同步SQL线程，避免当前业务连接继续使用修改前的模式写入。
 
 1. 登录源数据库。
-2. 参考如下内容修改源数据库的配置文件 `my.cnf`。
->?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
->
+2. 参考如下内容修改 `binlog_row_image`。
 ```
-binlog_row_image = FULL
+set global binlog_row_image = FULL;
 ```
-3. 确认参数修改是否生效。
+
+3. 重启线程使配置生效，然后通过如下命令查看参数修改是否生效。
+
 ```
-show variables like "%binlog_row_image%";
+show variables like '%binlog_row_image%';
 ```
+
 系统显示结果类似如下：
+
 ```
 mysql> show variables like '%binlog_row_image%';
 +------------------+-------+
@@ -108,6 +111,7 @@ mysql> show variables like '%binlog_row_image%';
 +------------------+-------+
 1 row in set (0.00 sec)
 ```
+
 4. 重新执行校验任务。
 
 ### 修改 gtid_mode 参数
@@ -134,7 +138,7 @@ set global gtid_mode = ON_PERMISSIVE;
 ```
 4. 在各个实例节点上执行如下命令，检查匿名事务是否消耗完毕，参数值为`0`则代表消耗完毕。
 ```
-show variables like "%ONGOING_ANONYMOUS_TRANSACTION_COUNT%";
+show variables like '%ONGOING_ANONYMOUS_TRANSACTION_COUNT%';
 ```
 系统显示结果类似如下：
 ```
@@ -159,8 +163,8 @@ enforce_gtid_consistency = on
 ```
 7. （可选）参考如下命令重启数据库。MySQL 5.7.6 之前的版本需要重启，5.7.6 及之后的版本不需要重启，但是需要中断所有业务连接。
 ```
-[\$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
-[\$Mysql_Dir]/bin/safe_mysqld &
+[$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
+[$Mysql_Dir]/bin/safe_mysqld &
 ```
 8. 重新执行校验任务。 
 
@@ -169,17 +173,19 @@ enforce_gtid_consistency = on
 >?该参数修改可以不重启数据库，但是需要中断当前数据库上的所有业务连接，当源库为从库时，还需重启主从同步 SQL 线程，避免当前业务连接继续使用修改前的模式写入。
 
 1. 登录源数据库。
-2. 参考如下内容修改源数据库的配置文件 `my.cnf`。
->?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
->
+2. 参考如下内容修改 `server_id`。
 ```
-server_id = 2    //建议设为大于1的整数，此处仅为示例
+set global server_id = 2;  //建议设为大于1的整数，此处仅为示例
 ```
-3. 确认参数修改是否生效。
+
+3. 通过如下命令查看参数修改是否生效。
+
 ```
-show global variables like "%server_id%";
+show global variables like '%server_id%';
 ```
+
 系统显示结果类似如下：
+
 ```
 mysql> show global variables like '%server_id%';
 +---------------+-------+
@@ -189,6 +195,7 @@ mysql> show global variables like '%server_id%';
 +---------------+-------+
 1 row in set (0.00 sec)
 ```
+
 4. 重新执行校验任务。
 
 ### 删除 do_db，ignore_db 设置
@@ -202,8 +209,8 @@ binlog 会记录数据库所有执行的 DDL 和 DML 语句，而 do_db，ignore
 >?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
 3. 参考如下命令重启源数据库。
 ```
-[\$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
-[\$Mysql_Dir]/bin/safe_mysqld &
+[$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
+[$Mysql_Dir]/bin/safe_mysqld &
 ```
 >?[\$Mysql_Dir] 指源数据库的安装路径，请替换为实际的源数据库安装目录。
 4. 确认参数修改是否生效。
@@ -224,14 +231,18 @@ mysql> show master status;
 ### 修改 log_slave_updates 参数
 在主从复用结构中，从库开启 `log-bin` 参数，直接在从库操作数据时，可以记录在 binlog 中，但是从库从主库上复制数据时，不能记录在 binlog 中，所以从库作为其他从库的主库时，需要打开 `log_slave_updates` 参数。 
 1. 登录源数据库。
-2. 修改 `log_slave_updates` 参数为`1`。
+2. 在源数据库的配置文件 `my.cnf` 中增加如下内容。
+
+>?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。
+
 ```
-set global log_slave_updates = 1;
+log_slave_updates = ON
 ```
+
 3. 参考如下命令重启源数据库。
 ```
-[\$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
-[\$Mysql_Dir]/bin/safe_mysqld &
+[$Mysql_Dir]/bin/mysqladmin -u root -p shutdown
+[$Mysql_Dir]/bin/safe_mysqld &
 ```
 >?[\$Mysql_Dir] 指源数据库的安装路径，请替换为实际的源数据库安装目录。
 4. 查看配置是否生效。
@@ -244,7 +255,7 @@ mysql> show global variables like '%log_slave_updates%';
 +-------------------+-------+
 | Variable_name     | Value |
 +-------------------+-------+
-| log_slave_updates | 1     |
+| log_slave_updates | ON    |
 +-------------------+-------+
 1 row in set (0.00 sec)
 ```
