@@ -1,4 +1,4 @@
-﻿本文介绍使用数据传输服务 DTS 从 TDSQL-C MySQL 数据库同步数据至 TDSQL-C MySQL 数据库的操作指导。
+本文介绍使用数据传输服务 DTS 从 TDSQL-C MySQL 数据库同步数据至 TDSQL-C MySQL 数据库的操作指导。
 
 如下场景与  TDSQL-C MySQL 到 TDSQL-C MySQL 的数据同步要求一致，可参考本场景相关内容。
 
@@ -151,11 +151,10 @@ FLUSH PRIVILEGES;
 >- 仅选择**全量数据初始化**的场景，用户需要提前在目标库创建好表结构。
 >- 如果用户在同步过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**同步对象**需要选择这个表所在的整个库，不能仅选择这个表（或者整个实例），否则无法同步 Online DDL 变更产生的临时表数据到目标数据库。
 >- 如果用户在同步过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**同步对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
-
+>
 ![](https://qcloudimg.tencent-cloud.cn/raw/6e4f1db84dbd29ed0badd4e058c044e9.png)
 <strong>库表重命名</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/48f402195fb799ab0b8c0d7dd5658a9e.png" style="zoom:30%;" />
-
 <table>
 <thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
 <tbody>
@@ -171,14 +170,13 @@ FLUSH PRIVILEGES;
 <td>冲突处理机制</td>
 <td><ul><li>冲突报错：在同步时发现表主键冲突，报错并暂停数据同步任务。<li>冲突忽略：在同步时发现表主键冲突，保留目标库主键记录。<li>冲突覆盖：在同步时发现表主键冲突，用源库主键记录覆盖目标库主键记录。</td></tr>
 <tr>
-<td>同步操作类型</td><td>支持操作：Insert、Update、Delete、DDL。勾选“DDL自定义”，可以根据需要选择不同的DDL同步策略。详情请参考 <a href="https://cloud.tencent.com/document/product/571/63955">设置 SQL 过滤策略</a>。</td></tr>
+<td>同步操作类型</td><td>支持操作：Insert、Update、Delete、DDL。勾选“DDL自定义”，可以根据需要选择不同的 DDL 同步策略。详情请参考 <a href="https://cloud.tencent.com/document/product/571/63955">设置 SQL 过滤策略</a>。</td></tr>
 <tr>
 <td rowspan=2>同步对象选项</td>
 <td>源实例库表对象</td><td>选择待同步的对象，支持库级别和表及视图级别。</td></tr>
 <tr>
 <td>已选对象</td><td>展示已选择的同步对象，支持库表映射。</td></tr>
 </tbody></table>
-
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
