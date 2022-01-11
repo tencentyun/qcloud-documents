@@ -35,7 +35,7 @@ order by int_id;
 ```
 	- 如果您的集群是双副本版：
 ```
-create table test.test on default_cluster 
+create table test.test on cluster default_cluster 
 (
 `int_id` UInt32
 )
