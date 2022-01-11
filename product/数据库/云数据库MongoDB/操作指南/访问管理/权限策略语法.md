@@ -293,7 +293,7 @@ MongoDB 能够使用的资源和对应的资源描述方法，如下表所示。
 </td></tr>
 <tr>
 <td>ExchangeInstance</td>
-<td>交换实例</td>
+<td>临时实例替换原实例</td>
 <td>
     <ul>
         <li>qcs::mongodb:$region:$account:instance/*</li>
