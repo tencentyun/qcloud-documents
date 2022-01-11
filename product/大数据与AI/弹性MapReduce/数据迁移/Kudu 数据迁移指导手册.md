@@ -23,7 +23,7 @@ Kudu 可以通过 rebalance tool 做数据迁移。
 ```
 等待命令执行结束，再次用 ksck 检查，状态为 ok，继续后面步骤。
 
-5. 暂停 fb9afb1b2989456cac5800bf6990dfea对应节点10.0.1.45的 tserver 进程。注意此时，使用 ksck 命令，集群状态不健康，需要重启 tmaster。 
+5. 暂停 fb9afb1b2989456cac5800bf6990dfea 对应节点10.0.1.45的 tserver 进程。注意此时，使用 ksck 命令，集群状态不健康，需要重启 tmaster。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/216ee22e20f45c4ca26143dd115c694f.png)
-6. 在 EMR 控制台重启 master。注意需要手动一台一台的重启（不建议使用控制台的滚动重启）。重启结束后，使用 ksck 命令，确保集群状态健康。
+6. 在 EMR 控制台重启 master。注意需要手动一台一台地重启（不建议使用控制台的滚动重启）。重启结束后，使用 ksck 命令，确保集群状态健康。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c5c596e1221718dd565921d568932e84.png)
