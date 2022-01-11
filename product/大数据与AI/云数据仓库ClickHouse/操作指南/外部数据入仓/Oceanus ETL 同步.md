@@ -1,4 +1,4 @@
-﻿本文介绍通过 [Oceanus](https://cloud.tencent.com/product/oceanus) ETL 方式将外部数据源实时导入到云数据仓库 ClickHouse，支持的外部数据源有如下：
+本文介绍通过 [Oceanus](https://cloud.tencent.com/product/oceanus) ETL 方式将外部数据源实时导入到云数据仓库 ClickHouse，支持的外部数据源有如下：
 
 <table>
 <thread>
@@ -97,7 +97,7 @@
 3. 流计算作业 ETL 作业需运行于流计算独享集群，若还没有集群，请参考 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。
 
 ## 操作步骤
-1. 登陆云数据仓库 ClickHouse ，创建目标表
+1. 登录云数据仓库 ClickHouse ，创建目标表
  - 若您的任务有 update 和 delete 操作，可以通过[ CollapsingMergeTree](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/collapsingmergetree/) 来实现。
 ```
 CREATE TABLE test.test ON CLUSTER default_cluster
@@ -130,7 +130,7 @@ ORDER BY id
  - **查看作业运行情况**
 作业发布并启动运行后，将变为操作中的状态，成功启动后将变为运行中的状态。作业运行中时，可以通过监控、日志、Flink UI 等功能查看作业运行的情况。
 
-3. **登陆云数据仓库 ClickHouse，并查询数据**
+3. **登录云数据仓库 ClickHouse，并查询数据**
 ```
 select * from  test.test ;
 ```
