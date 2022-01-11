@@ -1,4 +1,4 @@
-﻿Kudu 可以通过 rebalance tool 做数据迁移。
+Kudu 可以通过 rebalance tool 做数据迁移。
 >!一次只能下线一台 tserver，如果下线多台，需重复执行下述步骤。
 
 ## Kudu 基于 rebalance tool 迁移
