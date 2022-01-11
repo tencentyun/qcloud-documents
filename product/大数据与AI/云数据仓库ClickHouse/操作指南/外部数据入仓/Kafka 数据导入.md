@@ -96,7 +96,7 @@ order by int_id;
 ```
  - 如果您的集群是双副本版：
 ```
-create table daily on cluster_default
+create table daily on default_cluster
 (
     day Date,
     level String,
