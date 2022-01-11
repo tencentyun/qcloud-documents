@@ -3,7 +3,7 @@
 **调用方式**：PUT
 **接口请求域名**：
 ```Plaintext
-https://api.meeting.qq.com/v1/real-control/meetings/{meetingId}/names`
+https://api.meeting.qq.com/v1/real-control/meetings/{meetingId}/names
 ```
 
 ## 输入参数
