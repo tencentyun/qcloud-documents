@@ -45,13 +45,13 @@ PUT https://api.meeting.qq.com/v1/real-control/meetings/1232132132131/names
 	"operator_id_type" : 4,
     "instanceid" : 1,
     "user":[{
-        "ms_open_id" : "agaqwwgdkkddd",,
-        "instanceid":2
+        "ms_open_id" : "agaqwwgdkkddd",
+        "instanceid":2,
 		"nick_name": "tester1"
     },
     {
-         "ms_open_id" : "agaqwwgdkkddd",,
-        "instanceid":2
+         "ms_open_id" : "agaqwwgdkkddd",
+        "instanceid":2,
 		"nick_name": "tester2"
     }
     ]
