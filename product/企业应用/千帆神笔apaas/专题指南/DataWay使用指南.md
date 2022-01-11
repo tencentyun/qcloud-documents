@@ -95,11 +95,11 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/4cb2660adf0f55711ea9f1960bf66091.png)
 
 
-### 代码开发
+## 代码开发
 
 DataWay 基于 Python3.7 语法进行实现。
 
-#### 函数结构
+### 函数结构
 
 Python 函数形态一般如下所示：
 
@@ -124,7 +124,7 @@ def dw_process(msg):
 
 DataWay 使用缩进来标识代码块，不同的缩进行数代表不同的代码层级，同一层级的缩进行数需保持一致。
 
-#### 基本语法
+### 基本语法
 <dx-tabs>
 ::: 关键字
 在 DataWay 中，支持的关键字如下表所示。关键字作为 DataWay 中的保留字，不会被当成任何标识符名称。
@@ -193,7 +193,7 @@ DataWay 单行注释以`#`开头，多行注释则可以用多个`#` 号，或�
 
 
 
-#### 内置函数
+### 内置函数
 
 目前 DataWay 中支持的内置函数如下：
  
@@ -239,7 +239,7 @@ DataWay 单行注释以`#`开头，多行注释则可以用多个`#` 号，或�
 | type()  |  返回对象类型
 | zip()  |  打包可迭代对象中元素成多个 tuple。例如：list(zip([1,2,3], [4,5,6])) -> [(1, 4), (2, 5), (3, 6)]
 
-#### 脚本调试
+### 脚本调试
 
 在开发 Dataway 时，对脚本进行调试和测试，以方便问题排查和结果验证，该功能可通过手工定义输入参数 ，测试后可以直接查看脚本运行结果、调试日志和错误信息。 
 
@@ -253,11 +253,11 @@ DataWay 单行注释以`#`开头，多行注释则可以用多个`#` 号，或�
 3. 运行完成 dw_process 函数后，编辑框下方会弹出输出结果和调试日志，如果运行错误会有 error 报错信息。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/ab8a9166c6aa1b5302f2b18d1f153d87.png)
 
-### 案列说明
+## 案列说明
 
 这里通过设置员工公司个人邮箱，来说明在 apaas 应用中如何使用云函数。
 
-#### 创建函数
+### 创建函数
 
 **操作步骤**： 
 
@@ -265,7 +265,7 @@ DataWay 单行注释以`#`开头，多行注释则可以用多个`#` 号，或�
 2. 弹出框中，填写函数名称、选择编程语言，点击**确定**创建函数。 ![img](https://qcloudimg.tencent-cloud.cn/raw/341e4f327447eb3caf92d9a18acee0f1.png)
 函数创建成功后，跳转到代码管理页面，区域1 为函数入参设置区域，区域 2 为函数返回值类型设置区域，区域 3 为编辑函数代码的在线 IDE，如下图所示： ![img](https://qcloudimg.tencent-cloud.cn/raw/47fa68b745fe4006ee5d3217254cf8e4.png)
 
-#### 编写代码并测试验证
+### 编写代码并测试验证
 
 1. 设置函数入参。该步骤可选，如果该函数不需要使用入参，则无需设置。
  ![img](https://qcloudimg.tencent-cloud.cn/raw/d1fff6b966f82bdf711d958e1625d16e.png)
@@ -278,7 +278,7 @@ DataWay 单行注释以`#`开头，多行注释则可以用多个`#` 号，或�
 测试结果如下：
 ![img](https://qcloudimg.tencent-cloud.cn/raw/5e402a559e67078974a8a13ef86ad30e.png)
 
-#### 在流程中使用函数
+### 在流程中使用函数
 
 1. aPaaS 设计态应用中，点击流程编排，右上方点击**新建流程**，创建流程。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/9c93b2b6a16d67a8426adf959526b052.png)
@@ -304,7 +304,7 @@ aPaaS设计态应用中，点击“对象建模”，勾选定位对象，设置
 添加事件，并设置触发时机、选择流程等，点击**确定**完成流程应用。如下图所示：
 ![img](https://qcloudimg.tencent-cloud.cn/raw/33365599bda35186c90de86f18e46bfc.png)
 
-#### 功能测试
+### 功能测试
 
 1. aPaaS 设计态应用中，右上方点击"预览"，测试表达式功能。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/9450728d604e89248f3116ceb10ae1ee.png)
