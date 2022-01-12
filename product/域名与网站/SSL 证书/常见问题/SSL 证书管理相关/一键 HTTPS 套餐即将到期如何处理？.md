@@ -1,4 +1,3 @@
-
 ## 一键 HTTPS 套餐即将到期如何处理？
 若您需继续使用一键 HTTPS 功能，您可前往腾讯云 [SSL 证书管理控制台](https://console.cloud.tencent.com/https) 进行升级续费操作。详情请参见 [一键 HTTPS 续费流程](https://cloud.tencent.com/document/product/400/67311)。
 
@@ -10,7 +9,7 @@
 >!若您的源站地址为 IP 地址，请将记录类型修改为 A 记录并在记录值处填写您的源站 IP 地址。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/e5dba6791502ba152b4a95b2e047e181.png)
-3. 单击**确定**，即可完成设置。
+3. 单击**确认**，即可完成设置。
 
 
 
