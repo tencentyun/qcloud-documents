@@ -19,20 +19,20 @@ LicenceCheck.getInstance().setXMagicLicense(context, URL, KEY);
 3. 然后在真正要使用美颜功能时（例如 XMagicImpl.java 中），再去做鉴权：
 ```java
 private void auth() {
-LicenceCheck.getInstance().setListener(new LicenceCheck.LicenceCheckListener() {
-	 @Override
-	 public void onLicenceLoaded(int result, String reason) {
-		 //在2.4.0版本，如果无需下载，或者下载失败，不会回调这个方法。（后续版本会补齐）
-		 //如果有下载，且下载成功，会回调。result为LicenceCheck.ERROR_OK表示下载下来的license文件是有效的
-		 if (result == LicenceCheck.ERROR_OK) {
-				 checkAuth(context);
+	LicenceCheck.getInstance().setListener(new LicenceCheck.LicenceCheckListener() {
+		 @Override
+		 public void onLicenceLoaded(int result, String reason) {
+			 //在2.4.0版本，如果无需下载，或者下载失败，不会回调这个方法。（后续版本会补齐）
+			 //如果有下载，且下载成功，会回调。result为LicenceCheck.ERROR_OK表示下载下来的license文件是有效的
+			 if (result == LicenceCheck.ERROR_OK) {
+					 checkAuth(context);
+			 }
 		 }
-	 }
-});
-//再次触发下载（因为有可能之前在onCreate那里触发下载没有成功）
-LicenceCheck.getInstance().setXMagicLicense(context,URL,KEY);
+	});
+	//再次触发下载（因为有可能之前在onCreate那里触发下载没有成功）
+	LicenceCheck.getInstance().setXMagicLicense(context,URL,KEY);
 
-checkAuth(context);
+	checkAuth(context);
 }
 
 private boolean authorized = false;
