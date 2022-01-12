@@ -134,6 +134,6 @@ Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Top
 :::
 </dx-codeblock>
 7. 登录 [TDMQ Pulsar 版控制台](https://console.cloud.tencent.com/tdmq)，依次点击 **Topic 管理** > **Topic 名称**进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
-   ![img](https://main.qcloudimg.com/raw/da7ce2bc5ac606c91982efecdb3b53bb.png)
+   ![img](https://main.qcloudimg.com/raw/3bee532dab55b7cab1167416aac95f4d.png)
 
 >?上述是对消息的发布和订阅方式的简单介绍。更多操作可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/tdmq-pulsar-python-sdk-demo.zip) 或 [Pulsar 官方文档](https://pulsar.apache.org/docs/en/client-libraries-python/)。
