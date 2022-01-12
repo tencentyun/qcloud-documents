@@ -18,6 +18,14 @@
 ### 版本建议
 支持向后兼容，建议全量升级。
 
+## 1.29.5-Finchley-RELEASE（2022-01-07）
+### 优化
+- 优化 spring-cloud-openfeign-core、swagger 的依赖冲突。
+- spring-cloud-tsf-sleuth 兼容 mysql-connector-java 8.x。
+  
+### Bug 修复
+- 修复 feign 和 httpclient 拦截的冲突 导致重复生成client span的问题
+
 ## 1.29.4-Finchley-RELEASE（2021-10-18）
 ### 优化
 - 支持通过 -Dtsf.discovery.zeroInstanceProtect=false 关闭零实例保护。
@@ -343,7 +351,18 @@ spring-cloud-tsf-gateway 网关兼容新插件类型。
 
 支持 swagger 自动扫描包多路径特性。
 
+## 1.18.7-Finchley-RELEASE（2022-01-10）
+### Bug 修复
+- 修复redis 连接异常时对象无法被回收的问题。
+- 修复服务治理时 API PATH 标签匹配 PATH 参数失败问题。
+- spring-cloud-tsf-ratelimit：修复当只有一个限流规则时，限流规则关闭不生效的问题。
+- spring-cloud-tsf-swagger 修复通过分布式配置下发 spring.application.name 时，API 上报失败的问题。
+- 修复网关多个命名空间时 consul index 混用问题。
 
+### 优化
+- 优化和开源 spring cloud consul 依赖的冲突。。
+- spring-cloud-tsf-consul-discovery 心跳请求增加重试。
+- spring-cloud-tsf-consul-config 支持本地加密配置解析。
 
 ## 1.18.5-Finchley-RELEASE（2020-10-27）
 ### Bug 修复
