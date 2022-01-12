@@ -153,8 +153,8 @@ public void topicConsume(String msg) {
 ### 步骤5：查询消息
 
 1. 登录控制台，进入 **[消息查询](https://console.cloud.tencent.com/tdmq/message)** 页面，可查看 Demo 运行后的消息轨迹。
-![](https://qcloudimg.tencent-cloud.cn/raw/b873ae93a79a471fc4eac9003173efc5.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/bb160d0e4cbe3bb77437713025b1fcca.png)
    消息轨迹如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/516f92151e0757f7c6a9c2a69ee69579.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a5794d7dad969cc77b1d0b78d0a93dab.png)
 
 >?以上是基于 Springboot Starter 方式对 Pulsar 简单使用的配置。详细使用可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/tdmq-pulsar-springboot-demo.zip) 或 [Starter 文档](https://github.com/majusko/pulsar-java-spring-boot-starter)。
