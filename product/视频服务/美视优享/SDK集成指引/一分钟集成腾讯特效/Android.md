@@ -48,7 +48,7 @@ dependencies{
 ## 整体流程
 
 [](id:step1)
-### 步骤1：鉴权
+### 步骤一：鉴权
 
 > !部分代码与 Demo 工程中的代码有差异，请以本文档描述为准。
 
@@ -107,7 +107,7 @@ private synchronized void checkAuth(Context context) {
 ```
 
 [](id:step2)
-### 步骤2：加载腾讯特效 SDK xmagic-xxx.aar
+### 步骤二：加载腾讯特效 SDK xmagic-xxx.aar
 使用腾讯特效 SDK 生命周期大致如下：
 1. 构造美颜 UI 数据，可参考 Demo 工程的 `XmagicResParser.java,XmagicPropertyData.java,XmagicUIState.java` 代码。
 2. 预览布局中添加 GLSurfaceView。  
