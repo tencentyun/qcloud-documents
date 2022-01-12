@@ -1,4 +1,4 @@
-# 基于鹊桥iPaaS完成IOT-智能灯远程控制
+# 基于千帆鹊桥iPaaS完成IOT-智能灯远程控制
 ## 操作场景
 假设一款智能灯接入到物联网开发平台，通过物联网开发平台可以远程控制灯的亮度、颜色、开关，并实时获取智能灯上报到开发平台的数据，鹊桥iPaaS可通过配置一个集成流实现通过HTTP请求触发集成流通过IOT接口远程控制灯的亮度、颜色、开关等。
 您可以参考如下流程配置一个简单的远程控制智能灯的流。
@@ -11,7 +11,7 @@
 可参考文档[智能灯接入指引](https://cloud.tencent.com/document/product/1081/41155#.E6.9F.A5.E7.9C.8B.E8.AE.BE.E5.A4.87.E9.80.9A.E4.BF.A1.E6.97.A5.E5.BF.97)。
 ### 集成流设计
 #### 步骤1：创建集成流
-1.登录 [企业集成服务控制台](https://console.cloud.tencent.com/eis)。
+1.登录 [千帆鹊桥iPaaS控制台](https://console.cloud.tencent.com/eis)。
 2.单击深度集成 > 选择对应项目 > 添加应用，选择空白应用，并命名为 “IOT测试（应用名称可自行定义）”。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb65a776b5644009a8e2bfe3a49fa752.png)
 3.单击确定，自动跳转进入应用编辑页。单击画布左侧“NewFlow” 进入集成流编辑页面。
