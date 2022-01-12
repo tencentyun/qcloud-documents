@@ -31,7 +31,7 @@
 - 支持 springfox 2.10.5
 
 ### Bug 修复
-- 修复scg trace参数传递问题
+- 修复 scg trace 参数传递问题
 
 ### 版本建议
 支持向后兼容，建议全量升级。
@@ -186,7 +186,7 @@ spring-cloud-tsf-msgw：
   - 新增网关微信小程序登录插件功能。 
 - spring-cloud-tsf-sleuth：新增调用链支持 RocketMQ。
 - spring-cloud-tsf-core：
-  - 监控数据结构中增加 HTTP 请求方法、以及请求模版路径。
+  - 监控数据结构中增加 HTTP 请求方法、以及请求模板路径。
   - 调用链数据结构中增加 HTTP 请求方法。
 
 ### Bug 修复
