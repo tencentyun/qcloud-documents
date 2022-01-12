@@ -1,6 +1,6 @@
 ## 使用场景
 
-为 EKS 集群挂载 CFS Turbo 类型存储，该组件基于私有协议将腾讯云 CFS Turbo 文件系统挂载到工作负载，目前仅支持静态配置。CFS 存储类型详情见 [文件存储类型及性能规格](https://cloud.tencent.com/document/product/582/38112)。
+为 EKS 集群挂载文件存储（Cloud File Storage，CFS）Turbo 类型存储，该组件基于私有协议将腾讯云 CFS Turbo 文件系统挂载到工作负载，目前仅支持静态配置。CFS 存储类型详情见 [文件存储类型及性能规格](https://cloud.tencent.com/document/product/582/38112)。
 
 ## 前提条件
 
@@ -13,6 +13,7 @@
 创建 CFS Turbo 文件系统，具体操作请参见 [创建文件系统](https://cloud.tencent.com/document/product/582/9132)。
 
 >! 文件系统创建后，需将集群网络（vpc-xx）关联到文件系统的 [云联网](https://cloud.tencent.com/document/product/877/18747)（可在文件系统挂载点信息中查看）。
+>
 
 ### 部署 Node Plugin
 
@@ -62,7 +63,7 @@ spec:
 - **spec.csi.volumeHandle**：与 PV 名称保持一致。  
 - **spec.csi.volumeAttributes.host**：文件系统 ip 地址，可在文件系统挂载点信息中查看。  
 - **spec.csi.volumeAttributes.fsid**：文件系统 fsid（非文件系统 id），可在文件系统挂载点信息中查看（挂载命令中 "tcp0:/" 与 "/cfs" 之间的字符串，如下图）。
-  ![](https://qcloudimg.tencent-cloud.cn/raw/357dd592683ac766f8e6b4c653a27951.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/56b46e1e64fb2531f313da0a61485097.png)
 
 #### 步骤2：使用以下模板创建 PVC 绑定 PV
 
