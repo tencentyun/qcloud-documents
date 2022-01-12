@@ -42,7 +42,7 @@
 ### 集成流设计
 #### 步骤1：创建集成流 
 
-1. 登录 [企业集成服务控制台](https://console.cloud.tencent.com/eis)。
+1. 登录 [千帆鹊桥iPaaS控制台](https://console.cloud.tencent.com/eis)。
 2. 单击**深度集成 > 选择对应项目 > 添加应用**，选择空白应用，并命名为 “EB - 企业微信机器人（应用名称可自行定义）”。
 ![](https://qcloudimg.tencent-cloud.cn/raw/29fa12309ec3063d66a7dae258f6c0eb.png)
 3. 单击**确定**，进入默认对应应用名称（此处为 “EB - 企业微信机器人”）的应用编辑页。选中 NewFlow 进入集成流编辑页面。
