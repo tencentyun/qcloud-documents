@@ -119,7 +119,7 @@ MNA 移动网络加速是一款由腾讯云计算（北京）有限责任公司�
 
 ## 三、如何使用 Cookie 等同类技术
 当第三方开发者访问、登录、使用本 SDK 时，为确保网站正常运转，我们可能会在第三方开发者的计算机或移动设备上通过 Cookie 缓存功能使用相关信息。Cookie 通常包含当前登录帐号、站点地址、浏览次数。运用 Cookie 技术，我们能够为第三方开发者提供更加周到的个性化服务，并允许第三方开发者设定第三方开发者特定的服务选项。
-有关我们使用的 Cookie 类型、原因、功能以及如何控制 Cookie 的更多信息，请参阅腾讯《[Cookie 政策说明](《Cookie政策说明》)》。
+有关我们使用的 Cookie 类型、原因、功能以及如何控制 Cookie 的更多信息，请参阅腾讯《[Cookie 政策说明](https://privacy.qq.com/document/priview/UzHogYzog73ns7vnu5_vvI3ogYzog73nur866YWN572uIkNvb2tpZeaUv-etliI6Q29va2ll5pS_562W)》。
 
 ## 四、如何共享、转让、公开披露第三方开发者和/或终端用户的个人信息
 ### （一）共享
