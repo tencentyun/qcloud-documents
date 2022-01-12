@@ -208,7 +208,7 @@ Message 类型是 DataWay 用于表示一条 EIS 消息的数据类型，其中�
 
 ### 7.3 内存控制与执行超时限制
 
-为防止恶意代码对 EIS 运行时造成损害，DataWay 表达式的执行环境会受到内存与执行时间的限制。
+为防止恶意代码对 千帆鹊桥iPaaS 运行时造成损害，DataWay 表达式的执行环境会受到内存与执行时间的限制。
 目前单条 DataWay 表达式所能使用的内存上限是100MB，超过此上限将导致运行时 MemoryError 错误；
 同时执行时间不能超过1000毫秒，超过此限制将导致 TimeoutError 错误；
 
@@ -225,9 +225,9 @@ Message 类型是 DataWay 用于表示一条 EIS 消息的数据类型，其中�
 | int          | 整数，即 Python 原生整型 int                                 | 否                        | 123                                                         |
 | list         | 列表，序列类型容器，即 Python 原生 list 类型                 | 否                        | [1,2,3]                                                     |
 | dict         | 字典，kv 类型容器，即 Python 原生 dict 类型                  | 否                        | {1:1, 'key': 'value'}                                       |
-| **Entity**   | 即 EIS 中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括 blob、mime_type、encoding 等信息 |** 是** | http-listener 构造消息中的 payload，msg.payload               |
+| **Entity**   | 即 千帆鹊桥iPaaS 中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括 blob、mime_type、encoding 等信息 |** 是** | http-listener 构造消息中的 payload，msg.payload               |
 | **MultiMap** | 多值 map，类似于 xml 而与 dict 不同，该类型可以支持重复的 key。 | **是** | application/www-form-urlencoded 格式的数据解析之后得到的对象 |
-| **Message**  | 即 EIS 中的消息，在 DataWay 中以 Message 进行访问            | **是** | dw_process 入口函数中的 msg 参数                               |
+| **Message**  | 即 千帆鹊桥iPaaS 中的消息，在 DataWay 中以 Message 进行访问            | **是** | dw_process 入口函数中的 msg 参数                               |
 
 对于 list、dict、MultiMap 以及 Message 等容器类型，其容器元素也必须符合上述类型限制。
 
@@ -276,4 +276,4 @@ Entity 对象在本质上是一个对二进制数据的封装对象，但是为�
 
 #### 8.2 DataWay 表达式在什么场景下使用？
 
-目前几乎所有的 EIS 核心组件都具有表达式求值的能力，DataWay 是 EIS 具有动态求值能力的关键所在。
+目前几乎所有的 千帆鹊桥iPaaS 核心组件都具有表达式求值的能力，DataWay 是 千帆鹊桥iPaaS 具有动态求值能力的关键所在。
