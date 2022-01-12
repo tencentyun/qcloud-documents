@@ -10,7 +10,7 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 
 [](id:step0)
 ## 获取推流地址
-1. 登录云直播控制台，进入[ **地址生成器** ](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，进行如下配置：
+1. 登录云直播控制台，进入 [**地址生成器**](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，进行如下配置：
    1. 选择生成类型为**推流域名**或**播放域名**。
    2. 选择您已添加到域名管理里对应的域名。
    3. AppName 为区分同一个域名下多个 App 的地址路径，默认为 live。
@@ -83,7 +83,7 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 
 >? 
 >- 底部出现![](https://main.qcloudimg.com/raw/a10bafc9eb0895dc4c6b542b61217253.png)绿灯，表示推流成功。
->- 若需停止推流，单击 **停止推流>停止推流** 即可。
+>- 若需停止推流，单击 **停止推流 > 停止推流** 即可。
 
 ## 其他推流相关配置
 ### 影响直播延迟相关设置
