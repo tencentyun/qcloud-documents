@@ -176,7 +176,7 @@ TUICalling.logout()
 
 了解更多详情您可 QQ 咨询：309869925 (技术交流群)
 
-## 相关文档：
+## 相关文档
 - [uni-app 原生音视频插件示例](https://github.com/tencentyun/TIMSDK/tree/master/uni-app/TUICalling/TUICalling-app)
 - [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)
 - [一分钟跑通 Demo (uni-app)](https://cloud.tencent.com/document/product/269/64506)
