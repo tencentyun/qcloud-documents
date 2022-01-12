@@ -11,10 +11,10 @@
 
 ## Agent 列表
 1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/dsaudit)，在左侧导航栏中，单击**配置管理** > **Agent 管理** > **Agent 列表**，进入 Agent 列表页面。
-2. 在 Agent 列表页面，可以查看所有已配置成功的 Agent。Agent 列表默认展示内容包括：部署 IP、流量来源、VPC、地域、操作系统、最后上报时间、运行状态、开启状态及相关操作。
-![](https://qcloudimg.tencent-cloud.cn/raw/cea0da9df20e4aac101fe28aa7a55b1b.png)
+2. 在 Agent 列表页面，可以查看所有已配置成功的 Agent。Agent 列表默认展示内容包括：部署 IP、流量来源、VPC、地域、操作系统、机器负载、最后上报时间、运行状态、开启状态及相关操作。
+![](https://qcloudimg.tencent-cloud.cn/raw/e0b0917543bc426d0c8acac972cc3c93.png)
 3. 在 Agent 列表页面，您可以按**流量来源、地域、数据资产、部署 IP、运行状态**对 Agent 进行搜索。
-![](https://qcloudimg.tencent-cloud.cn/raw/af8c89875e236a70e99373452fc4c4c7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/176857435d287f17491b1a1b11fcc893.png)
 4. 在 Agent 列表页面，选择所需部署 IP，单击**编辑**，可以查看和修改 Agent 配置相关信息。
 >?设置停止审计阈值。为尽最大可能保证业务运行不受影响，您可以设置基于 CPU 与内存使用率的阈值，当 Agent 宿主机性能超过阈值时，Agent 并暂停流量采集，待宿主机性能降回阈值以下时再恢复采集。如您要求 Agent 任何情况都进行工作，可将负载检测开关关闭，Agent 将持续审计数据。
 >

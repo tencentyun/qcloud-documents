@@ -3,7 +3,7 @@
 ### 开发准备
 
 - 支持 Android 4.0 以上版本 API LEVEL 16，支持手机与平板。
-- 合成实时流式语音，需要手机能够连接网络（2/3/4G 或 Wi-Fi 网络等）。
+- 合成实时流式语音，需要手机能够连接网络（3/4/5G 或 Wi-Fi 网络等）。
 - 建议使用最新版本 Android Studio 进行开发。
 - 服务端 [API 文档](https://cloud.tencent.com/document/product/1073/37995)。
 
