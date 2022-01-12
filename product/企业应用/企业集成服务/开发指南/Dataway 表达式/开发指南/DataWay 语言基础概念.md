@@ -184,7 +184,7 @@ Dataway Hello World!
 ## dw_process 入口函数
 - dw_process 是 DataWay 的主入口函数，其作用相当于 C/C++语言中的 main 函数。
 - dw_process 仅接受一个类型为 [Message](#message-explain) 的参数，而其返回值就是该 DataWay 表达式最终的输出值。
-- 作为 EIS 数据处理流程的一个环节，dw_process 函数的返回值目前支持的类型有：str/None/bool/float/int/list/dict/Entity/MultiMap/FormDataParts/Message 等。
+- 作为 千帆鹊桥iPaaS 数据处理流程的一个环节，dw_process 函数的返回值目前支持的类型有：str/None/bool/float/int/list/dict/Entity/MultiMap/FormDataParts/Message 等。
 - 关于 DataWay 中数据类型及返回值的详细介绍，可参考 [DataWay 数据类型系统](#dataway-types)。
 
 ## DataWay 数据类型系统
@@ -200,17 +200,17 @@ Dataway Hello World!
 | set               | 集合，即 Python 集合类型set                                  | 否                        | {1,2,3}                                                      |
 | list              | 列表，序列类型容器，即 Python 原生 list 类型                 | 否                        | [1,2,3]                                                      |
 | dict              | 字典，kv 类型容器，即 Python 原生 dict 类型                  | 否                        | {1:1, 'key': 'value'}                                        |
-| Entity      | 即 EIS 中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括blob、mime_type、encoding 等信息 | 是 | HTTP-listener 构造消息中的 payload，如 msg.payload            |
+| Entity      | 即 千帆鹊桥iPaaS 中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括blob、mime_type、encoding 等信息 | 是 | HTTP-listener 构造消息中的 payload，如 msg.payload            |
 | MultiMap      | 多值 map，类似于 xml 而与 dict 不同，该类型可以支持重复的 key。 |是| application/www-form-urlencoded 格式的数据解析之后得到的对象 |
 |FormDataParts | 数组+列表的数据结构，类似于 Python 中的 orderDict 结构       | 是 | multipart/form-data 格式的数据解析后得到的对象               |
-| Message       | 即 eis 中的消息，在 dataWay 中以 Message 进行访问            |是| dw_process 入口函数中的 msg 参数                             |
+| Message       | 即 千帆鹊桥iPaaS 中的消息，在 dataWay 中以 Message 进行访问            |是| dw_process 入口函数中的 msg 参数                             |
 
 >!1. 上述类型可以在 DataWay 表达式中使用，但 **dw_process 函数的返回值的类型为其中的 str/None/ bool/float/int/list/ dict/Entity/MultiMap/FormDataParts/Message 之一**。
 >2. 需要注意的是，如果 DataWay 表达式输出的值会作为集成流的最终返回结果，则支持的返回值类型还会受到相应连接器组件的限制。如在以 HTTP listener 组件作为第一个组件的流中，其最终的 payload 也需要是一个 Entity 类型。
 
 ## Message 类型及预定义属性
 
-Message 类型是 DataWay 用于表示一条 EIS 消息的数据类型，其中包含 payload、vars、attrs 等属性，称之为**预定义属性（Predefined Properties）**。这些属性是由系统根据当前运行信息及处理的消息生成的，用于在 DataWay 中通过程序化的方式获取上下文信息。
+Message 类型是 DataWay 用于表示一条 千帆鹊桥iPaaS 消息的数据类型，其中包含 payload、vars、attrs 等属性，称之为**预定义属性（Predefined Properties）**。这些属性是由系统根据当前运行信息及处理的消息生成的，用于在 DataWay 中通过程序化的方式获取上下文信息。
 
 **目前 Message 中包含的属性及其说明如下：**
 
@@ -224,7 +224,7 @@ Message 类型是 DataWay 用于表示一条 EIS 消息的数据类型，其中�
 | msg.error   | 当前处理上下文中的错误信息                       | dict 类型，键为 str，代表错误属性名；值为 str，代表属性值    | 包含的内容有：msg.error['code']：错误类型；msg.error['desc']：错误描述字符串 |
 
 ## DataWay IDE 使用
-在 EIS 系统新建一个 Set Variable 组件，单击变量值文本框进入 DataWay 脚本编辑器，该编辑器提供语法检查、格式化、脚本调试、自动联想、代码高亮等类 IDE 功能。
+在 千帆鹊桥iPaaS 系统新建一个 Set Variable 组件，单击变量值文本框进入 DataWay 脚本编辑器，该编辑器提供语法检查、格式化、脚本调试、自动联想、代码高亮等类 IDE 功能。
 <img src="https://main.qcloudimg.com/raw/27cb6a575cbd1bdac914981679ff2bc2/ide-%E6%95%B4%E4%BD%93%E9%A1%B5%E9%9D%A2.png" alt="ide-整体页面" style="zoom: 50%;" />
 
 ### 语法检查
