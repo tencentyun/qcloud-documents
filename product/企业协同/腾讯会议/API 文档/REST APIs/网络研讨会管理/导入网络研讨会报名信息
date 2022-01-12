@@ -4,7 +4,7 @@
 **请求方式**：POST
 **接口请求域名**：
 ```plaintext
-https://api.meeting.qq.com//v1/webinars/{meeting_id}/enroll/import
+https://api.meeting.qq.com/v1/webinars/{meeting_id}/enroll/import
 ```
 
 ## **输入参数**
