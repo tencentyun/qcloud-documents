@@ -1,19 +1,19 @@
 本文介绍混合云部署场景和 NAT64 CLB 场景下的 CLB 的四层（仅 TCP）服务如何通过 TOA 获取客户端真实源 IP。
 <dx-steps>
--加载 TOA 模块
--适配后端服务
--（可选）监控 TOA 模块状态
+-[加载 TOA 模块](#load-toa)
+-[适配后端服务](#id:adapt-rs)
+-[（可选）监控 TOA 模块状态](monitor-toa)
 </dx-steps>
 
 
 ## 应用场景
 ### 混合云部署场景
-在 [混合云部署](https://cloud.tencent.com/document/product/214/48181) 中，您需要配置云上 VPC 的内网 IP 为 SNAT IP，用于将请求转发至 IDC 内服务器。IDC 的 IP 和云上 VPC 的 IP 可能会有地址重叠，因此需要进行 SNAT 转换源 IP。对于服务端而言，无法获得真实源 IP，因此需要通过 TOA 进行获取。
+在 [混合云部署](https://cloud.tencent.com/document/product/214/48181) 中，IDC 的 IP 和云上 VPC 的 IP 可能会有地址重叠，因此需要配置 SNAT IP，进行 SNAT 转换源 IP。对于服务端而言，无法获得真实源 IP，因此需要通过 TOA 进行获取。
 
 ### NAT64 CLB 场景
-在 NAT64 CLB 场景中，客户端真实的 IPv6 源 IP 会被转换成 IPv4 的公网IP，因此对于真实的服务端的服务而言，无法获得真实的客户端 IPv6 IP。
+在 NAT64 CLB 场景中，客户端真实的 IPv6 源 IP 会被转换成 IPv4 的公网 IP，因此对于真实的服务端的服务而言，无法获得真实的客户端 IPv6 IP。
 腾讯云 NAT64 CLB 提供获取客户端真实 IP 的功能，即将客户端真实的源 IP 放入 TCP 协议的自定义 option 中，当被嵌入真实源 IP 的 TCP 数据包发往服务端时，服务端插入的 TOA 内核模块可提取 TCP 数据包中的真实客户端源 IP，此时客户端应用只需要调用 TOA 内核模块提供的接口即可获取真实客户端源 IP。
-请注意：本文档只针对4层（TCP协议）。
+
 
 ## 限制说明
 <dx-accordion>
@@ -24,7 +24,7 @@
 :::
 ::: 兼容性限制
  - UDP 监听器不支持通过 TOA 获取源 IP。
- - 若客户端和真实服务端中间的设备有其他进行 TOA 相关操作的设备，则可能存在冲突，无法保证服务端获取真实 IP 的有效性。
+ - 若客户端和真实服务端中间的设备有其他已经进行过 TOA 相关操作的设备，则可能存在冲突，无法保证服务端获取真实 IP 的有效性。
  -  插入 TOA 后，只对插入后的新建连接生效，对存量已有连接无效。
  - 由于 TOA 模块需要对 TCP option 中的地址进行提取等额外处理，因此TOA 模块会引起服务端部分的性能下降。
  - 腾讯云的 TOA 模块无法保证和其他用户自定义的内核模块兼容，也无法保证与其他厂商或开源的 TOA 模块兼容。
@@ -33,14 +33,8 @@
 </dx-accordion>
 
 
-## 前提条件
-- 编译内核模块的 Linux 环境已安装 GCC 编译器。
-- 编译内核模块的 Linux 环境已安装 Make 工具。
-- 编译内核模块的 Linux 环境已安装内核模块开发包。
-
 
 ## [加载 TOA 模块](id:load-toa)
-
 1. 根据腾讯云上 Linux 的版本，下载对应的 TOA 包解压。
 <dx-accordion>
 ::: centos
@@ -61,16 +55,16 @@
 :::
 </dx-accordion>
 
-2. 解压完成后，执行 cd 命令进入到刚解压的文件夹里，执行以下命令加载模块：
+2. [](id:step2)解压完成后，执行 cd 命令进入到刚解压的文件夹里，执行以下命令加载模块：
 ```
 insmod toa.ko
 ```
-2. 执行以下命令确认 TOA 模块是否加载成功。若提示“toa load success”，则说明已加载成功。
+3. 执行以下命令确认 TOA 模块是否加载成功。若提示“toa load success”，则说明已加载成功。
 ```
 dmesg -T | grep TOA
 ```
-3. 加载成功以后，在启动脚本中加载 `toa.ko` 文件（重启机器 ko 文件需要重新加载）。
-4. （可选）若不再需要使用 TOA 模块，运行以下命令，即可完成卸载。若提示“TOA unloaded”，则说明卸载成功。
+4. 加载成功以后，在启动脚本中加载 `toa.ko` 文件（重启机器 ko 文件需要重新加载）。
+5. （可选）若不再需要使用 TOA 模块，运行以下命令，即可完成卸载。若提示“TOA unloaded”，则说明卸载成功。
 ```
 dmesg -T
 ```
@@ -123,7 +117,7 @@ tar zxvf tgw_toa_linux_ver.tar.gz
 cd tgw_toa_linux_ver//进入解压后的tgw_toa目录
 make
 ```
-4. 编译 toa.ko 成功后，执行上文中的加载 TOA 模块的操作。
+4. 编译 toa.ko 成功后，执行上文 [步骤2](#step2) 中的加载 TOA 模块的操作，。
 
 
 ## [适配后端服务](id:adapt-rs)
@@ -152,7 +146,7 @@ struct toa_nat64_peer {  
 struct toa_nat64_peer client_addr;  
 ....  
 ```
-2. 其次定义消息并调用函数获取真实的 IPv6 源地址；
+2. 其次定义消息并调用函数获取真实的 IPv6 源地址。
 ```
 enum {  
 	TOA_BASE_CTL            = 4096,  
