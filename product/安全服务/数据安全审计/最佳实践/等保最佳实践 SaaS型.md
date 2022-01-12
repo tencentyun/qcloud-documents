@@ -35,8 +35,9 @@
 
 **其他：《网络安全法》要求网络日志保留六个月以上。**
 
-在 [审计日志页面](https://console.cloud.tencent.com/dsaudit/log)，选中**自定义**，选择近六个月的区间，可以查看近六个月的日志。
-![](https://qcloudimg.tencent-cloud.cn/raw/f124578b02fa22649e874037a4f5d62a.png)
+在 [审计日志页面](https://console.cloud.tencent.com/dsaudit/log)，选中**近半年**，可以查看近六个月的日志。
+![](https://qcloudimg.tencent-cloud.cn/raw/0683adbbfbadb8b16e81774082d2b7f4.png)
+
 
 ## 等保三级
 **a) 应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计；**
@@ -46,15 +47,17 @@
   1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/cds/audit)，显示立即进入，表明已经完成产品购买。
   ![](https://qcloudimg.tencent-cloud.cn/raw/bef6d8fa05236237600a79625064c03b.png)
   2. 单击**立即进入**，跳转至数据安全审计概览页。可以查看到产品服务状态及资产安全概况，证明产品已正常运行。
-![](https://qcloudimg.tencent-cloud.cn/raw/47cd32b9c5641469479651fe1a22057d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ad227cc784d2fc3bc005538312b0f307.png)
+
 
 - **审计范围是否覆盖到每个用户**
 在 [审计日志页面](https://console.cloud.tencent.com/dsaudit/log)，可以审计到每个用户名。
-![](https://qcloudimg.tencent-cloud.cn/raw/96dc26559037109f23b1c1442a57cd9c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7fc572cff390f0a0801c8e459b1bf592.png)
+
 
 - **是否对重要的用户行为和重要安全事件进行审计**
 通过 [审计日志](https://console.cloud.tencent.com/dsaudit/log) 或 [审计风险](https://console.cloud.tencent.com/dsaudit/risk) 页面，可以筛选风险等级（即重要的用户行为和重要安全事件）查看日志。
-![](https://qcloudimg.tencent-cloud.cn/raw/23e66acb232efa4df8faabc00f222b3c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/484009d2cca1b86dbc823e78d9d73acf.png)
 
 
 **b) 审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息；**
