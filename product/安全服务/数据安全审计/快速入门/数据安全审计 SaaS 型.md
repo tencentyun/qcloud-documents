@@ -28,7 +28,7 @@
 1. 在 **[审计规则](https://console.cloud.tencent.com/dsaudit/rule)** > **规则列表**页面，可查看系统中的审计规则，若内置规则无法满足您的特定需要，您可以单击**新建**创建自定义规则。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e0cef05f6f25ef6b459ffc8b8852b686.png)
 2. 单击**规则启用**，进入规则启用页面，选择数据资产，为其启用需要的审计规则。
-![](https://qcloudimg.tencent-cloud.cn/raw/2e845d7b56a62dd1c60ecfdbbe6513e1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/687f99e3660e9b752f6df035959185bd.png)
 
 
 ## 步骤4：查看审计日志
