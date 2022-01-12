@@ -285,8 +285,8 @@
 ### 音频数据自定义回调
 | API | 描述 |
 |-----|-----|
-| [onCapturedRawAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudCallback__cplusplus.html#a1488e35460441c351cab75d9702498f6) | 本地麦克风采集到的原始音频数据回调 |
-| [onLocalProcessedAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudCallback__cplusplus.html#affb432a77f938d1e8dfb6c0d5488dbcf) | 本地采集并经过音频模块前处理后的音频数据回调 |
+| [onCapturedRawAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudCallback__cplusplus.html#a1488e35460441c351cab75d9702498f6) | 本地采集并经过音频模块前处理后的音频数据回调 |
+| [onLocalProcessedAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudCallback__cplusplus.html#affb432a77f938d1e8dfb6c0d5488dbcf) | 本地采集并经过音频模块前处理、音效处理和混 BGM 后的音频数据回调 |
 | [onPlayAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudCallback__cplusplus.html#ab841da62beb88a9fa9bce58d25df6f23) | 混音前的每一路远程用户的音频数据 |
 | [onMixedPlayAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudCallback__cplusplus.html#a6649f62d4138d9bc73ae484e63dec081) | 将各路待播放音频混合之后并在最终提交系统播放之前的数据回调 |
 

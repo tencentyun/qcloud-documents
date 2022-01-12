@@ -23,7 +23,7 @@
 
 ### 安装 Traefik
 
-本文提供以下在 TKE 集群上安装 Traefik 为例，完整安装方法请参见 [官方文档](https://doc.traefik.io/traefik/getting-started/install-traefik/#use-the-helm-chart)。
+本文提供以下在 TKE 集群上安装 Traefik 为例，完整安装方法请参见 [Traefik 官方文档](https://doc.traefik.io/traefik/getting-started/install-traefik/#use-the-helm-chart)。
 
 1. 执行以下命令，添加 Traefik 的 Helm chart repo 源。示例如下：
 ```bash

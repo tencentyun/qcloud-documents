@@ -20,10 +20,11 @@
 
 ## 原理说明
 
-- 在 TSE 控制台关联 tke/eks 集群后， TSE 会自动在您对应的 tke/eks 集群中部署 polaris-controller 。具体详见**资源清单**。
-- polaris-controller 默认会同步 K8s 集群所有的 namespace，service 和 endpoints 。具体详见**polaris-controller 同步行为**。
-- 您可以在 K8s 的 service 指定注解，操作 polaris-controller 同步的行为。具体指引和示例详见**polaris-controller 支持的注解**。
+- 在 TSE 控制台关联 tke/eks 集群后， TSE 会自动在您对应的 tke/eks 集群中部署 polaris-controller 。具体详见 **[资源清单](#sourceList)**。
+- polaris-controller 默认会同步 K8s 集群所有的 namespace，service 和 endpoints 。具体详见 **[polaris-controller 同步行为](#act)**。
+- 您可以在 K8s 的 service 指定注解，操作 polaris-controller 同步的行为。具体指引和示例详见 **[polaris-controller 支持的注解](#msg)**。
 
+[](id:sourceList)
 ### 资源清单
 
 在您的 tke/eks 集群创建的 K8s 资源清单如下：
@@ -78,6 +79,7 @@
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/56445f32bd15e36d9c68a25feeca2852.png)
 
+[](id:act)
 ### polaris-controller 同步行为
 
 polaris-controller 默认会同步 K8s 集群所有的 namespace，service 和 endpoints 的行为。
@@ -108,7 +110,7 @@ polaris-controller 默认会同步 K8s 集群所有的 namespace，service 和 e
     </tbody>
 </table>
 
-
+[](id:msg)
 ### polaris-controller 支持的注解
 您可以在 k8s 的 service 指定注解，操作 polaris-controller 同步的行为，当前支持以下注解。
 
