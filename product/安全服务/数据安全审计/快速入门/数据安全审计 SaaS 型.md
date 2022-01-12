@@ -33,6 +33,6 @@
 
 ## 步骤4：查看审计日志
 1. 完成以上配置后，在 [审计日志](https://console.cloud.tencent.com/dsaudit/log) 页面，可查看数据库的操作日志。
-![](https://qcloudimg.tencent-cloud.cn/raw/e79a666d6567907f54c5e995944d60f8.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c6f1c81b03ce6dc1c578ab73f5ef8092.png)
 2. 在 [审计风险](https://console.cloud.tencent.com/dsaudit/risk) 页面，可查看发现的数据安全风险，安全管理人员可根据风险提示，判断是否需要采取进一步措施。
 ![](https://qcloudimg.tencent-cloud.cn/raw/da645dd09e966ab8cf92c28642710545.png)
