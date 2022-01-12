@@ -5,7 +5,8 @@
 -[（可选）监控 TOA 模块状态](#monitor-toa)
 </dx-steps>
 
-
+>?仅四层 TCP 可通过 TOA 获取客户端真实源 IP，UDP 和七层（HTTP/HTTPS）无法获取。
+>
 ## 应用场景
 ### 混合云部署场景
 在 [混合云部署](https://cloud.tencent.com/document/product/214/48181) 中，IDC 的 IP 和云上 VPC 的 IP 可能会有地址重叠，因此需要配置 SNAT IP，进行 SNAT 转换源 IP。对于服务端而言，无法获得真实源 IP，因此需要通过 TOA 进行获取。
