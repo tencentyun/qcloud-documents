@@ -1,10 +1,14 @@
 ## 集成准备
-**文件准备**
-```
-xmagic-xxx.aar  //sdk, 必选           
-../assets/  //算法模型、素材资源包，必选 
-../jniLibs  //so库，必选
-```
+**文件准备**：
+<table>
+<tbody><tr><th>文件类型</th><th>说明</th></tr>
+<tr>
+<td>xmagic-xxx.aar</td><td>SDK，必选</td>
+</tr><tr>
+<td>../assets/</td><td>算法模型、素材资源包，必选</td>
+</tr><tr>
+<td>../jniLibs</td><td>so 库，必选</td>
+</tr></tbody></table>
 
 ## 导入资源
 
