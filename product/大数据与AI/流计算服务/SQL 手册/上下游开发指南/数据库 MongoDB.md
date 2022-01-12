@@ -1,4 +1,4 @@
-﻿## 介绍
+## 介绍
 Flink connector mongodb 目前支持通过 Flink 将数据批量写入到 mongodb 中，目前仅支持 append 流。
 
 ## 版本说明
