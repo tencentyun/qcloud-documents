@@ -270,9 +270,9 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 
 >! 
 - 您可以在浏览器中打开 [TRTC Web SDK 能力测试页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 检测当前浏览器是否支持 WebRTC 所有能力。例如 WebView 等浏览器环境。
-- 由于 H.264 版权限制，如果您希望在华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器正常运行 TRTC Web 端请 [提交工单申请](https://console.cloud.tencent.com/workorder/category) 开通 VP8 编解码。
+- 由于 H.264 版权限制，华为 Chrome 88 以下版本，无法使用 H264 编码（即无法推流）。如果您希望在华为设备 Chrome 浏览器中，使用 TRTC Web SDK 推流，请进 [TRTC 交流群](https://cloud.tencent.com/document/product/647/19906#trtc-.E4.BA.A4.E6.B5.81.E7.BE.A4)，联系群内技术支持开通 VP8 编解码。
 - Mac OS 下的 Firefox 屏幕分享效果比较差且暂无解决方案，建议使用 Chrome 或者 Safari 进行屏幕分享。[](id:attention3)
-- 如果您希望 Web 端在推流时支持双声道编码，请 [提交工单申请](https://console.cloud.tencent.com/workorder/category) WebRTC 双声道编码。
+- 如果您希望 Web 端在推流时支持双声道编码，请进 [TRTC 交流群](https://cloud.tencent.com/document/product/647/19906#trtc-.E4.BA.A4.E6.B5.81.E7.BE.A4)，联系群内技术支持开通 WebRTC 双声道编码能力。
 
 
 ## URL 域名协议限制
@@ -428,5 +428,6 @@ RtcError 错误对象。
 
 ## 联系我们
 
-关注公众号"腾讯云音视频"，了解腾讯云视频最新资讯。
-![](https://main.qcloudimg.com/raw/30ad559e5f1f35dccc56149208aba552.jpg)
+工作日微信扫码，回复“TRTC 交流群”，将有专人拉您进群进行技术交流。
+
+<img src="https://main.qcloudimg.com/raw/ac29fcef8ce2bb2b3a1ca5c368685b83.jpg" width="250px">

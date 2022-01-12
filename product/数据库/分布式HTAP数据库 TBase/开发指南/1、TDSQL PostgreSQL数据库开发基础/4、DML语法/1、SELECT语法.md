@@ -104,7 +104,6 @@ postgres=#  select * from tdsql_pg order by nickname nulls first;
  1 | tdsql_pg分布式数据库的时代来了
  2 | tdsql_pg好
 (4 rows)
-
 ```
 null 值记录排在最后。
 ```
@@ -127,9 +126,7 @@ postgres=# select * from (values ('张三'), ('李四'),('陈五')) t(myname) or
  李四
  陈五
 (3 rows)
-
 ```
-
 如果不加处理，则按汉字的 utf8 编码进行排序，不符合中国人使用习惯。
 ```
 postgres=# select * from (values ('张三'), ('李四'),('陈五')) t(myname) order by convert(myname::bytea,'UTF-8','GBK');
@@ -139,9 +136,7 @@ postgres=# select * from (values ('张三'), ('李四'),('陈五')) t(myname) or
  李四
  张三
 (3 rows)
- 
 ```
-
 使用 convert 函数实现汉字按拼音进行排序。
 ```
 postgres=# select * from (values ('张三'), ('李四'),('陈五')) t(myname) order by convert_to(myname,'GBK');     
@@ -151,9 +146,7 @@ postgres=# select * from (values ('张三'), ('李四'),('陈五')) t(myname) or
  李四
  张三
 (3 rows)
-
 ```
-
 使用 convert_to 函数实现汉字按拼音进行排序。
 ```
 postgres=# select * from (values ('张三'), ('李四'),('陈五')) t(myname) order by myname  collate "zh_CN.utf8";
@@ -283,7 +276,6 @@ postgres=# select * from tdsql_pg limit 1;
  1 | hello tdsql_pg
 (1 row)
 ```
-
 使用 offset 指定从第几条开始，0表示第一条开始，返回1条记录。
 ```
 postgres=# select * from tdsql_pg limit 1 offset 0;  
@@ -292,7 +284,6 @@ postgres=# select * from tdsql_pg limit 1 offset 0;
  1 | hello tdsql_pg
 (1 row)
 ```
-
 从第3条开始，返回二条记录。
 ```
 postgres=# select * from tdsql_pg limit 1 offset 2;
@@ -301,7 +292,6 @@ postgres=# select * from tdsql_pg limit 1 offset 2;
  1 | tdsql_pg分布式数据库的时代来了
 (1 row)
 ```
-
 上面的语句没有使用排序，返回结果不可预知，使用 order by 可以获得一个有序的结果。
 ```
 postgres=# select * from tdsql_pg order by id limit 1 offset 2;
@@ -322,9 +312,7 @@ postgres=# select * from tdsql_pg union all select * from t_appoint_col;
  1 | tdsql_pg分布式数据库的时代来了
  1 | hello tdsql_pg
 (4 rows)
- 
 ```
-
 过虑重复的记录。
 ```
 postgres=# select * from tdsql_pg union select * from t_appoint_col;   
@@ -335,7 +323,6 @@ postgres=# select * from tdsql_pg union select * from t_appoint_col;
  2 | tdsql_pg好
 (3 rows)
 ```
-
 每个子查询分布在合并结果中的使用。
 ```
 postgres=# select * from ( select * from tdsql_pg limit 1) as t union all select * from (select * from t_appoint_col limit 1) as t ;
@@ -422,7 +409,6 @@ postgres=# select * from t_all where id>all (select 1 union select 2);
 ----+-------
  3 | tdsql_pg
 (1 row)
- 
 ```
 需要大于所有值才为真。
 
@@ -481,7 +467,6 @@ postgres=# select avg(id) from tdsql_pg;
 (1 row)
 ```
 
-
 ## 多表关联
 - **内连接**
 ```
@@ -491,7 +476,6 @@ postgres=# select * from tdsql_pg inner join t_appoint_col on tdsql_pg.id=t_appo
  1 | hello tdsql_pg         |  1 | hello tdsql_pg
  1 | tdsql_pg分布式数据库的时代来了 |  1 | hello tdsql_pg
 (2 rows)
- 
 ```
 
 - **左外连接**
@@ -544,7 +528,6 @@ postgres=# select count(1) from t_count;
  
 Time: 3777.518 ms (00:03.778)
 ```
-
 
 - **二核并行**
 ```
@@ -638,8 +621,7 @@ postgres=# select array_to_string(array(select mc from t_mulcol_tosimplecol),','
  array_to_string 
 -----------------
  tdsql_pg,tdsql_pg
-(1 row)
- 
+(1 row) 
 ```
 
 - **一列变成多行**
@@ -679,7 +661,6 @@ postgres=# select t1.xc_node_id,pgxc_node.node_name,t1.* from t1,pgxc_node where
 postgres=# 
 ```
 
-
 ## grouping sets/rollup/cube 用法
 #### group by 用法
 销售明细表。
@@ -707,7 +688,7 @@ postgres=# select dep,product,sum(num) from t_grouping group by dep,product orde
  业务3部 | 电脑   |  80
  业务3部 | 手机   | 160
 ```
-按d ep、product 两级汇总分数。
+按 dep、product 两级汇总分数。
 
 #### 使用 grouping sets
 >?grouping sets 的每个子列表可以指定零个或多个列或表达式，并且与其直接在 GROUP BY 子句中的解释方式相同。 一个空的分组集合意味着所有的行都被聚合到一个组中。
@@ -723,7 +704,6 @@ postgres=# select dep,product,sum(num) from t_grouping group by grouping sets((d
      | 电脑   | 280
      | 手机   | 370
      |     | 650
- 
 ```
 
 使用 grouping sets 代替 group by 。
@@ -740,8 +720,7 @@ postgres=# select dep,product,sum(num) from t_grouping group by grouping sets((d
 ```
 
 #### 使用 rollup
- rollup((a),(b)) 等价于 grouping sets((a,b),(a),())。
-
+rollup((a),(b)) 等价于 grouping sets((a,b),(a),())。
 ```
 postgres=# select dep,product,sum(num) from t_grouping group by rollup((dep),(product)) order by dep,product;
   dep  | product | sum 
@@ -758,9 +737,7 @@ postgres=# select dep,product,sum(num) from t_grouping group by rollup((dep),(pr
      |     | 650
 ```
 
-
-
-该功能等价于grouping sets((dep, product),( dep),())。
+该功能等价于 grouping sets((dep, product),( dep),())。
 ```
 postgres=# select dep,product,sum(num) from t_grouping group by grouping sets((dep, product),( dep),()) order by dep,product;
   dep  | product | sum 
@@ -777,9 +754,8 @@ postgres=# select dep,product,sum(num) from t_grouping group by grouping sets((d
      |     | 650
 ```
 
-
-#### 使用cube
-cube((a),(b))等价于grouping sets((a,b),(a),(b),()) 。
+#### 使用 cube
+cube((a),(b)) 等价于 grouping sets((a,b),(a),(b),()) 。
 ```
 postgres=# select dep,product,sum(num) from t_grouping group by cube((dep),(product)) order by dep,product;
   dep  | product | sum 
@@ -798,7 +774,7 @@ postgres=# select dep,product,sum(num) from t_grouping group by cube((dep),(prod
      |     | 650
 ```
 
-该功能等价于grouping sets((name,class),(name),(class),())。
+该功能等价于 grouping sets((name,class),(name),(class),())。
 ```
 postgres=# select dep,product,sum(num) from t_grouping group by grouping sets((dep,product),(dep),(product),()) order by dep,product;
   dep  | product | sum 

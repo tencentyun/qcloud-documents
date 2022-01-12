@@ -48,16 +48,16 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops 服务，本文将介
 ### 创建构建计划
 1. 登录 Coding DevOps ，选择左侧导航中的 **[项目](https://tencent-test.coding.net/user/projects)**，进入项目管理页。
 2. 在“项目管理页”中，单击已创建 [测试项目](#step2) 的名称，进入该项目详情页。
-3. 在左侧导航栏中选择**持续集成** > **构建计划** > **创建构建计划**，进入**选择构建计划模版**页面。
->? 构建计划是持续集成的基本单元，可以通过选择构建计划模版快速创建一个构建计划，详情请参见 [快速开始持续集成](https://help.coding.net/docs/ci/start.html)。
+3. 在左侧导航栏中选择**持续集成** > **构建计划** > **创建构建计划**，进入**选择构建计划模板**页面。
+>? 构建计划是持续集成的基本单元，可以通过选择构建计划模板快速创建一个构建计划，详情请参见 [快速开始持续集成](https://help.coding.net/docs/ci/start.html)。
 >
-4. 选择 “构建镜像并推送到 TCR 企业版” 模版快速创建一个构件计划，如下图所示：
+4. 选择 “构建镜像并推送到 TCR 企业版” 模板快速创建一个构件计划，如下图所示：
 ![](https://main.qcloudimg.com/raw/dd99288dbf9a993199530f22ff789926.png)
- 根据构建计划模版选择需要检出的代码源和配置 TCR 访问凭证相关环境变量，在右边可查看模版生成的 Jenkinsfile 预览，如下图所示：
+ 根据构建计划模板选择需要检出的代码源和配置 TCR 访问凭证相关环境变量，在右边可查看模板生成的 Jenkinsfile 预览，如下图所示：
  >? Coding DevOps 和 TCR 实例之间内网互通，镜像 push 默认使用内网传输，无需另外配置。
  > 
 ![](https://main.qcloudimg.com/raw/414a5b4d3dcb1faa2f1c794be8cc7493.png)
-使用构建模版生成的构建项目，也可通过在构建计划详情页中选择项目名称，进入项目详情页后单击**设置**菜单对构建详情进行自定义配置，构建计划配置页面如下图所示： 
+使用构建模板生成的构建项目，也可通过在构建计划详情页中选择项目名称，进入项目详情页后单击**设置**菜单对构建详情进行自定义配置，构建计划配置页面如下图所示： 
 ![](https://main.qcloudimg.com/raw/7bea5de5055144ec617d39aa1844e3fe.png)
  - **基础信息**基础配置页面可选择代码源和节点池等基础配置，节点池相关说明请参见 [构建节点](https://help.coding.net/docs/ci/node/overview.html)。
  - **流程配置**用来配置运行构建任务的环境，相关说明请参见 [构建环境](https://help.coding.net/docs/ci/ways.html)。
@@ -93,13 +93,13 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops 服务，本文将介
 关于 Coding 应用与项目相关说明请参见 [应用与项目](https://help.coding.net/docs/cd/app-project.html) 和 [流程配置](https://help.coding.net/docs/cd/pipe/overview.html)，本文将介绍配置应用和流程过程中的关键配置项。
 1. 在创建应用时，需要勾选** Kubernetes(TKE) 部署**方式，如下图所示：
 ![](https://main.qcloudimg.com/raw/ed426b65010cebfea21a86dafe131939.png)
-2. 在新建的应用中创建部署流程时，选择**Kubernetes**流程模版，再根据实际需要选择模版流程，本文以“部署 Deployment 和 Service 到 Kubernetes 集群”流程为例。如下图所示：
+2. 在新建的应用中创建部署流程时，选择**Kubernetes**流程模板，再根据实际需要选择模板流程，本文以“部署 Deployment 和 Service 到 Kubernetes 集群”流程为例。如下图所示：
 ![](https://main.qcloudimg.com/raw/e9dc02a43375d9d26f12071377ab3514.png)
 3. 在**部署流程**中配置部署流程时，**启动所需制品**选项关联之前的持续集成环节生成的 TCR 仓库镜像制品。如下图所示：
 ![](https://main.qcloudimg.com/raw/4f957dd0e30ad1701d62a66421ad836c.png)
 4. 使用**自动触发器**绑定 TCR 仓库镜像制品，当有新版本镜像构建成功时，将自动触发部署流程。配置方式如下图所示：
 ![](https://main.qcloudimg.com/raw/ef7b2d48a7d5726f83f02c2d2c8c1e7b.png)
-5. 配置**部署 Deployment**和**部署 Service**部署阶段，两个阶段的配置方式类似，选择添加有部署权限的 [云账号](#one) 和填写自定义的 Manifest，即自定义部署 YAML 模版。
+5. 配置**部署 Deployment**和**部署 Service**部署阶段，两个阶段的配置方式类似，选择添加有部署权限的 [云账号](#one) 和填写自定义的 Manifest，即自定义部署 YAML 模板。
 ![](https://main.qcloudimg.com/raw/8f389ec513011636f9c8a0fa84dc92a3.png)
 本文将以“手动配置 TKE 拉取 TCR 私有仓库镜像的访问凭证” 的方式为例，自定义 Deployment YAML。示例如下：
 >! 本示例仅使用简单的 Deployment YAML 部署到 Kubernetes 集群，使用了默认的滚动部署（RollingUpdate）更新策略。实际上，可以借助 Nginx-ingress / Istio 等工具配置更高级的更新策略，如蓝绿发布、金丝雀、A / B 测试等，具体使用方法可参见 [蓝绿发布](https://help.coding.net/docs/best-practices/cd/blue-green.html) 、[Nginx-ingress 实现自动化灰度发布](https://help.coding.net/docs/best-practices/cd/nginx-ingress.html)、[持续部署 + TKE Mesh 灰度发布实践](https://help.coding.net/docs/best-practices/cd/tke-mesh.html)。

@@ -8,10 +8,10 @@
 1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/dsgc/dsaudit)，单击**立即进入**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8d656cb1a704ecdf9d3f54f261a8a10b.png)
 2. 进入数据安全审计服务之后，单击侧边栏的**数据资产**，进入数据资产页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/7fe7c7a5c58ab1b91fd1cfc7d6599be4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/27538fc6aee98035c7b50271629e2ad5.png)
 3. 通过单击**更新资产列表**拉取云数据库列表，也可使用自建数据库的添加数据资产功能，当需要审计腾讯云外的数据资产时，可在腾讯云外数据库添加。
 4. 添加数据库后，可通过单击对应数据库后面的![](https://qcloudimg.tencent-cloud.cn/raw/d3638827e13e926286f7fee006ba8801.png)，开启审计权限，允许数据安全审计采集其日志进行安全分析。
-![](https://qcloudimg.tencent-cloud.cn/raw/1c140874a233d33bce9cc6e8e23ee18e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/25c6f99d220838987396d63a2cba817e.png)
 >!
 >- 开启审计权限将消耗 License 授权资产数。
 >- 部分操作需要用户授权，只需按提示操作即可。
@@ -22,13 +22,13 @@
 2. 在 Agent 部署中，根据数据库和应用系统所在位置和操作系统，下载对应的 Agent，进行部署。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6524df86f03e724323ef4fcd44c95e21.png)
 3. Agent 部署完成后，单击 **Agent 列表**，切换至 Agent 列表页面，验证 Agent 状态是否正常。
-![](https://qcloudimg.tencent-cloud.cn/raw/162d9eee630c7edf951accf1e930950a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f4ed7aed266a3922a135202265523c49.png)
 
 ## 步骤3：配置审计规则
 1. 在 **[审计规则](https://console.cloud.tencent.com/dsaudit/rule)** > **规则列表**页面，可查看系统中的审计规则，若内置规则无法满足您的特定需要，您可以单击**新建**创建自定义规则。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e0cef05f6f25ef6b459ffc8b8852b686.png)
 2. 单击**规则启用**，进入规则启用页面，选择数据资产，为其启用需要的审计规则。
-![](https://qcloudimg.tencent-cloud.cn/raw/57607f148276a893738fb00ca4e46b3d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2e845d7b56a62dd1c60ecfdbbe6513e1.png)
 
 
 ## 步骤4：查看审计日志

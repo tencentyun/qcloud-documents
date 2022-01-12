@@ -18,7 +18,7 @@ QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议
 [](id:push)
 
 ### 接入方法
-直播推流支持 RTMP over QUIC 协议，需使用 UDP 1935 进行推流。推流地址同 RTMP over TCP 协议一致，可以在云直播控制台的【[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)】中 [生成推流地址](https://cloud.tencent.com/document/product/267/35257#push)。
+直播推流支持 RTMP over QUIC 协议，需使用 UDP 1935 进行推流。推流地址同 RTMP over TCP 协议一致，可以在云直播控制台的 **[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)**中 [生成推流地址](https://cloud.tencent.com/document/product/267/35257#push)。
 
 ![](https://main.qcloudimg.com/raw/31d20b09de1c8d3c9748872e59f9a828.png)
 
@@ -35,9 +35,9 @@ QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议
 您可以使用腾讯云 [移动直播小程序 DEMO](https://cloud.tencent.com/document/product/454/6555#.E5.B0.8F.E7.A8.8B.E5.BA.8F-demo)。
 
 1. 打开手机微信搜索小程序 [腾讯视频云](https://cloud.tencent.com/document/product/454/6555#.E5.B0.8F.E7.A8.8B.E5.BA.8F-demo) 或扫描二维码，进入腾讯视频云微信小程序。
-2. 选择【RTMP推流】，进入推流设置界面。
-3. 手动输入或单击【扫码读取】扫码录入您已生成的 [推流地址](#push)。
-4. 单击【开始】会默认使用 RTMP over QUIC  进行推流。
+2. 选择 **RTMP推流**，进入推流设置界面。
+3. 手动输入或单击 **扫码读取** 扫码录入您已生成的 [推流地址](#push)。
+4. 单击 **开始** 会默认使用 RTMP over QUIC  进行推流。
 ![](https://main.qcloudimg.com/raw/a4adf24a47553c6ee6694c094b5fef07.png)
 
 
@@ -47,7 +47,7 @@ QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议
 
 ### 拉流接入
 
-直播拉流支持 HTTP over QUIC 协议，需使用 UDP 443 端口进行拉流。拉流地址同 HTTP FLV 协议地址一样，也可以使用云直播控制台的【[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)】中 [生成拉流地址](https://cloud.tencent.com/document/product/267/35257#play)。
+直播拉流支持 HTTP over QUIC 协议，需使用 UDP 443 端口进行拉流。拉流地址同 HTTP FLV 协议地址一样，也可以使用云直播控制台的 **[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)** 中 [生成拉流地址](https://cloud.tencent.com/document/product/267/35257#play)。
 ![](https://main.qcloudimg.com/raw/e4727db59f2e195abdd9382456212d14.png)
 
 [](id:playtest)
@@ -62,7 +62,7 @@ QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议
    ![](https://main.qcloudimg.com/raw/b5aee3532ef918518206b607cc2d8f53.png) 
 2. 打开 TCPlayerDemo，填入 HTTPS 的播放地址时建议使用 FLV 和 HLS 的拉流地址，RTMP 的地址只支持 Flash 播放。单击生成连接后，单击![](https://main.qcloudimg.com/raw/5886ad8b68619d7ba99268e0a4e24f2c.png)开始播放。
 ![](https://main.qcloudimg.com/raw/a2e4d83ca259b97b4376875215015a22.png)
-3. 在 Chrome 的开发者工具中，选择【Network】标签页，可以看到请求的 protocol 是已经是 `http/2+quic/46`。
+3. 在 Chrome 的开发者工具中，选择 **Network** 标签页，可以看到请求的 protocol 是已经是 `http/2+quic/46`。
 ![](https://main.qcloudimg.com/raw/e1e61b7ae544881b898ccd7aa116e8a4.png)
 
 > ? 

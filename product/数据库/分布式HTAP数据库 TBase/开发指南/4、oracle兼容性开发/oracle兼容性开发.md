@@ -1,5 +1,5 @@
 
-Oracle 兼容性开发针对的是 TDSQL PostgreSQL-v5.0 版本。
+Oracle 兼容语法说明针对的是 TDSQL PostgreSQL版（Oracle 兼容版）。
 
 ## Oracle GUC 参数配置
 #### session 中生效
@@ -61,7 +61,7 @@ postgres=# \d t_blob
  
 postgres=#
 ```
-TDSQL PG版的 blob 类型支持最大长度为1G。
+TDSQL  PostgreSQL版 的 blob 类型支持最大长度为1G。
 
 ### clob
 ```
@@ -76,7 +76,7 @@ postgres=# \d t_clob
  
 postgres=#
 ```
-TDSQL PG版的 clob 类型支持最大长度为1G。
+TDSQL  PostgreSQL版 的 clob 类型支持最大长度为1G。
 
 ## 兼容性函数
 ### 字符函数
@@ -157,7 +157,7 @@ postgres=# SELECT * FROM t_nlssort ORDER BY NLSSORT(f2,'NLS_SORT = SCHINESE_PINY
   3 | 中国
 (1 rows)
 ```
-目前 TDSQL PostgreSQL 只能支持按拼音。
+目前 TDSQL PostgreSQL版 只能支持按拼音。
 
 #### nls_upper
 将字符转换为大写。
@@ -209,7 +209,6 @@ postgres=# select length(12.12::numeric(10,2));
 
 #### LENGTHB
 返回字符的长度。
-
 ```
 postgres=# select LENGTHB('测试') from dual;
  lengthb 

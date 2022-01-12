@@ -104,7 +104,7 @@
 <tr><th width="17%">效果数据</th><th width="50%">说明</th>
 </tr><tr>
 <td>MOS 值</td>
-<td>常以衡量通信系统语音质量的重要指标。客观 MOS 值采用 Spirent Nomad 设备进行 POLQA 打分，分数越高代表音质越好</td>
+<td>常以衡量通信系统语音质量的重要指标。客观 MOS 值采用 Spirent Nomad 设备进行 <a href="#POLQA">POLQA</a> 打分，分数越高代表音质越好</td>
 </tr><tr>
 <td>端到端延时</td>
 <td>端对端延时指从发送端音频采集到接收端播放的耗时</td>

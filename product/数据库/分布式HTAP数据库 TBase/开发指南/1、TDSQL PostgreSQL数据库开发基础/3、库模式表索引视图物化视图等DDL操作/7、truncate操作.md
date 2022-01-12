@@ -1,4 +1,3 @@
-
 truncate 功能用于对表数据进行快速清除，truncate 属于 ddl 级别，会给 truncate 表加上 ACCESS EXCLUSIVE 最高级别的锁。
 
 ## truncate 普通表
@@ -48,7 +47,6 @@ postgres=# select * from t_time_range;
 (1 row)
  
 postgres=# 
-
 ```
 
 - truncate 一个数字分区表。
@@ -84,8 +82,7 @@ postgres=# select * from t_range ;
 ----+----------------------------+-----
  2 | 2017-12-22 11:47:39.153234 | 110
  3 | 2017-12-22 11:47:39.153234 | 100
-(2 rows)
- 
+(2 rows) 
 ```
 
  

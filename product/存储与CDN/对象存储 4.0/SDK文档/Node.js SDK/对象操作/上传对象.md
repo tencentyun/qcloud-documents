@@ -49,7 +49,7 @@ cos.putObject({
     StorageClass: 'STANDARD',
     /* 当Body为stream类型时，ContentLength必传，否则onProgress不能返回正确的进度信息 */
     Body: fs.createReadStream(filePath), // 上传文件对象
-    ContentLength: fs.statSync(filepath).size,
+    ContentLength: fs.statSync(filePath).size,
     onProgress: function(progressData) {
         console.log(JSON.stringify(progressData));
     }

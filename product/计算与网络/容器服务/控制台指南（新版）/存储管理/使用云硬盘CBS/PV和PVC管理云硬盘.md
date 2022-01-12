@@ -123,9 +123,8 @@ spec:
      requests:
        storage: 10Gi
 ```
-- 普通云盘大小必须是10的倍数，最小为10GB。
-- 高性能云硬盘最小为50GB。
-- SSD 云硬盘最小为100GB，详情请参见 [云硬盘类型](https://cloud.tencent.com/product/cbs/types)。
+- 云硬盘大小必须为10的倍数。
+- 高性能云硬盘最小为10GB，SSD 和增强型 SSD 云硬盘最小为20GB，详情见 [创建云硬盘](https://cloud.tencent.com/document/product/362/5744)。
 
 #### 使用 PVC
 

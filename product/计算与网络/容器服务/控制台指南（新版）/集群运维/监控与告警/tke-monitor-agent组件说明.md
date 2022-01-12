@@ -16,7 +16,8 @@
   - **Evicted** 状态：DaemonSet tke-monitor-agent 的 Pod 如果处于此状态，可能是您的节点资源不够或者节点本身负载就已经过高，可通过如下方式去查看具体的原因，并进行排查和解决：
       - 执行 `kubectl describe pod -n kube-system <podName>`，通过 Message 字段的描述信息来查看具体被驱逐的原因。
       - 执行 `kubectl describe pod -n kube-system <podName>`，通过 Events 字段描述的信息来查看具体被驱逐的原因。
-  - **CrashLoopBackOff** 或者 **OOMKilled** 状态，可以通过 `kubectl describe pod -n kube-system <podName>` 查看是否为 OOM，如果是，可以通过提升 memory limits 的数值解决，limits 值最多不超过100M，如果设置为100M仍然出现 OOM，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 来寻求帮助。
+  - **CrashLoopBackOff** 或者 **OOMKilled** 状态：可以通过 `kubectl describe pod -n kube-system <podName>` 查看是否为 OOM，如果是，可以通过提升 memory limits 的数值解决，limits 值最多不超过100M，如果设置为100M仍然出现 OOM，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 来寻求帮助。
+  - **ContainerCreating** 状态：执行命令 `kubectl describe pod -n  kube-system <pod 名称>`，查看 Events 字段。若显示如下内容：`Failed to create pod sandbox: rpc error: code = Unknown desc = failed to create a sandbox for pod "<pod 名称 >": Error response from daemon: Failed to set projid for /data/docker/overlay2/xxx-init: no space left on device`，则表明容器数据盘已满，清理节点上数据盘后即可恢复。
 >? 如果以上描述未解决您的疑问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 来寻求帮助。
 >
 
