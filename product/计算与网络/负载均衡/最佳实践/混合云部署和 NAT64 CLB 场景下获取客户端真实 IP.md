@@ -26,9 +26,9 @@
  - UDP 监听器不支持通过 TOA 获取源 IP。
  - 若客户端和真实服务端中间的设备有其他已经进行过 TOA 相关操作的设备，则可能存在冲突，无法保证服务端获取真实 IP 的有效性。
  -  插入 TOA 后，只对插入后的新建连接生效，对存量已有连接无效。
- - 由于 TOA 模块需要对 TCP option 中的地址进行提取等额外处理，因此TOA 模块会引起服务端部分的性能下降。
+ - 由于 TOA 模块需要对 TCP option 中的地址进行提取等额外处理，因此 TOA 模块会引起服务端部分的性能下降。
  - 腾讯云的 TOA 模块无法保证和其他用户自定义的内核模块兼容，也无法保证与其他厂商或开源的 TOA 模块兼容。
- - 腾讯自研的 TencentOS 内嵌的 TOA 模块支持混合云部署场景下获取真实源 IP，因此若服务端的系统为 TencentOS 且为混合云部署时，可尝试直接执行 `modprobe toa` 命令进行加载使用。需要注意的是，TencentOS 与其他发行版 Linux 系统是两套TOA，不支持混用。
+ - 腾讯自研的 TencentOS 内嵌的 TOA 模块支持混合云部署场景下获取真实源 IP，因此若服务端的系统为 TencentOS 且为混合云部署时，可尝试直接执行 `modprobe toa` 命令进行加载使用。需要注意的是，TencentOS 与其他发行版 Linux 系统是两套 TOA，不支持混用。
 :::
 </dx-accordion>
 
@@ -117,7 +117,7 @@ tar zxvf tgw_toa_linux_ver.tar.gz
 cd tgw_toa_linux_ver//进入解压后的tgw_toa目录
 make
 ```
-4. 编译 toa.ko 成功后，执行上文 [步骤2](#step2) 中的加载 TOA 模块的操作，。
+4. 编译 toa.ko 成功后，执行上文 [步骤2](#step2) 中的加载 TOA 模块的操作。
 
 
 ## [适配后端服务](id:adapt-rs)
@@ -291,7 +291,7 @@ cat /proc/net/toa_stats
 </tr>
 <tr>
 <td>ip6_address_free</td>
-<td>当连接释放时，toa内核模块会释放先前用于保存源ip、源port的内存，在所有连接都关闭的情况下，所有CPU的此计数相加应等于ip6_address_alloc的计数。</td>
+<td>当连接释放时，toa 内核模块会释放先前用于保存源 IP、源 port 的内存，在所有连接都关闭的情况下，所有 CPU 的此计数相加应等于 ip6_address_alloc 的计数。</td>
 </tr>
 </tbody>
 </table>
