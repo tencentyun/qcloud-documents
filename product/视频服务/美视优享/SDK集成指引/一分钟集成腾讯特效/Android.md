@@ -52,7 +52,7 @@ dependencies{
 
 > !部分代码与 Demo 工程中的代码有差异，请以本文档描述为准。
 
-1. 申请授权，得到 License URL 和 License KEY。
+1. 申请授权，得到 License URL 和 License KEY，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)。
 > !**不需要**把 License 文件下载下来放到本地工程里。
 2. 在 Application 的 onCreate 或相关业务模块的初始化代码中设置 URL 和 KEY，触发 license 下载，避免在使用前才临时去下载。
 ```
