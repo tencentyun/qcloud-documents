@@ -215,7 +215,7 @@ spring-cloud-tsf-msgw：
   - 新增调用链支持 RocketMQ。
   - 修复 Kafka 中的类型转发错误。
 - spring-cloud-tsf-core：
-  - 监控数据结构中增加 HTTP 请求方法、以及请求模版路径。
+  - 监控数据结构中增加 HTTP 请求方法、以及请求模板路径。
   - 调用链数据结构中增加 HTTP 请求方法。
 
 ### Bug 修复
