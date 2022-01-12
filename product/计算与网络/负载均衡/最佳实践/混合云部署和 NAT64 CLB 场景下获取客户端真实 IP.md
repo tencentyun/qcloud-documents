@@ -47,7 +47,7 @@
 :::
 ::: suse linux
 [SUSE 12 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/SUSE%2012.zip)
-[SUSE 11](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/SUSE%2011.zip)
+[SUSE 11 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/SUSE%2011.zip)
 :::
 ::: ubuntu
 [Ubuntu 18.04.4 LTS 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/Ubuntu%2018.04.4%20LTS.zip)
