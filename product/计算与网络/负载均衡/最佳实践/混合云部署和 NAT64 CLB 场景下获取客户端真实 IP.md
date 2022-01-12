@@ -1,8 +1,8 @@
 本文介绍混合云部署场景和 NAT64 CLB 场景下的 CLB 的四层（仅 TCP）服务如何通过 TOA 获取客户端真实源 IP。
 <dx-steps>
 -[加载 TOA 模块](#load-toa)
--[适配后端服务](#id:adapt-rs)
--[（可选）监控 TOA 模块状态](monitor-toa)
+-[适配后端服务](#adapt-rs)
+-[（可选）监控 TOA 模块状态](#monitor-toa)
 </dx-steps>
 
 
