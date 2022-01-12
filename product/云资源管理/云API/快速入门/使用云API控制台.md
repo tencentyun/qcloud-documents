@@ -17,6 +17,27 @@
 - 可查看错误码分布详情。如下图所示：
 ![](https://main.qcloudimg.com/raw/c2b276d7f58601637498c421d90db4f4.png)
 
+#### 子账号权限配置
+子账号如需查看当前或其他账号下的 API 调用信息，则需主账号进行授权。请使用主账号配置如下自定义策略，并参考 [子用户权限设置](https://cloud.tencent.com/document/product/598/36256) 关联子账号即可。
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "effect": "allow",
+            "action": [
+                "api:*",
+                "cam:ListMaskedSubAccounts"
+            ],
+            "resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+
+
 ## 使用 API 库
 您可选择云 API 控制台左侧导航栏中的【API库】，进入产品 API 文档库查看对应文档。也可直接使用腾讯云 API 平台，详情请参见 [使用腾讯云 API 平台](https://cloud.tencent.com/document/product/1278/47394)。如下图所示：
 ![](https://main.qcloudimg.com/raw/f197e7af8abd7b02cc068528e7f9fee3.png)
