@@ -69,7 +69,7 @@ dmesg -T | grep TOA
 ```
 rmmod toa
 ```
-6. 执行以下命令确认 TOA 模块是否卸载成功。若提示“TOA unloaded”，则说明卸载成功。
+6. （可选）执行以下命令确认 TOA 模块是否卸载成功。若提示“TOA unloaded”，则说明卸载成功。
 ```
 dmesg -T
 ```
