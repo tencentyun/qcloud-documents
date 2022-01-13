@@ -1,5 +1,5 @@
-DataWay 是 千帆鹊桥iPaaS 服务中用于对数据进行自定义转换与处理的表达式脚本语言，集成在 千帆鹊桥iPaaS 运行时服务中，是提供 千帆鹊桥iPaaS 可扩展性的关键能力。
-千帆鹊桥iPaaS 的许多内置组件中都可提供基于 DataWay 脚本的自定义能力，可以用于对 千帆鹊桥iPaaS 事件进行动态处理。例如在 Set-Variable 组件中，可以通过 DataWay 表达式来动态地设置变量的值；在 Transform 组件中，可以充分利用 DataWay 的灵活语法进行复杂的数据处理与表达式运算，以最终生成期望的 Payload 产出，用于下游组件的处理。
+DataWay 是千帆鹊桥 iPaaS 服务中用于对数据进行自定义转换与处理的表达式脚本语言，集成在千帆鹊桥 iPaaS 运行时服务中，是提供千帆鹊桥 iPaaS 可扩展性的关键能力。
+千帆鹊桥iPaaS 的许多内置组件中都可提供基于 DataWay 脚本的自定义能力，可以用于对千帆鹊桥 iPaaS 事件进行动态处理。例如在 Set-Variable 组件中，可以通过 DataWay 表达式来动态地设置变量的值；在 Transform 组件中，可以充分利用 DataWay 的灵活语法进行复杂的数据处理与表达式运算，以最终生成期望的 Payload 产出，用于下游组件的处理。
 
 ## 1. 脚本结构
 
@@ -18,7 +18,7 @@ def dw_process(msg):
     return Entity.from_value(val, mime_type='application/json')
 ```
 
-dw_process 入口函数仅接受一个参数，该参数代表当前表达式需要处理的 千帆鹊桥iPaaS 消息。dw_process 的返回值即是表达式的返回值。
+dw_process 入口函数仅接受一个参数，该参数代表当前表达式需要处理的千帆鹊桥 iPaaS 消息。dw_process 的返回值即是表达式的返回值。
 内置的 Entity.from_value 函数用于为构造 Entity 类型的返回值，可以指定序列化参数，例如 mime_type、encoding 等。
 
 ## 2. 语法说明
@@ -37,7 +37,7 @@ dw_process 是 DataWay 脚本的主入口，其作用相当于 C/C++语言中的
 
 dw_process 仅接受一个**类型为 Message 的参数**，而其返回值就是该 DataWay 表达式最终的输出值。
 
-作为 千帆鹊桥iPaaS 数据处理流程的一个环节，dw_process 函数的返回值类型是受到严格限制的，目前支持的类型有：str/None/bool/float/int/list/dict/Entity/MultiMap/Message 等。
+作为千帆鹊桥 iPaaS 数据处理流程的一个环节，dw_process 函数的返回值类型是受到严格限制的，目前支持的类型有：str/None/bool/float/int/list/dict/Entity/MultiMap/Message 等。
 - 关于 DataWay 中数据类型的详细介绍，可参考 [DataWay 类型系统](#4.-dataway-.E7.B1.BB.E5.9E.8B.E7.B3.BB.E7.BB.9F)。
 - 关于返回值类型限制的说明，可参考 [返回值类型的限制](#7.4-.E8.BF.94.E5.9B.9E.E5.80.BC.E7.B1.BB.E5.9E.8B.E9.99.90.E5.88.B6)。
 
@@ -57,9 +57,9 @@ dw_process 仅接受一个**类型为 Message 的参数**，而其返回值就�
 | set          | 集合，即 Python 集合类型set                                  | 否                        | {1,2,3}                                                     |
 | list         | 列表，序列类型容器，即 Python 原生 list 类型                 | 否                        | [1,2,3]                                                     |
 | dict         | 字典，kv 类型容器，即 Python 原生 dict 类型                  | 否                        | {1:1, 'key': 'value'}                                       |
-| **Entity**   | 即 千帆鹊桥iPaaS 中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括 blob、mime_type、encoding 等信息 | **是** | http-listener 构造消息中的 payload，msg.payload               |
+| **Entity**   | 即千帆鹊桥 iPaaS 中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括 blob、mime_type、encoding 等信息 | **是** | http-listener 构造消息中的 payload，msg.payload               |
 | **MultiMap** | 多值 map，类似于 xml 而与 dict 不同，该类型可以支持重复的 key。 | **是** | application/www-form-urlencoded 格式的数据解析之后得到的对象 |
-| **Message**  | 即 千帆鹊桥iPaaS 中的消息，在 DataWay 中以 Message 进行访问            | **是** | dw_process 入口函数中的msg 参数                               |
+| **Message**  | 即千帆鹊桥 iPaaS 中的消息，在 DataWay 中以 Message 进行访问            | **是** | dw_process 入口函数中的msg 参数                               |
 
 >!上述类型可以在 DataWay 表达式中使用，但是 dw_process 函数**返回值的类型受到严格限制**，详情可参考 [返回值类型限制](#7.4-.E8.BF.94.E5.9B.9E.E5.80.BC.E7.B1.BB.E5.9E.8B.E9.99.90.E5.88.B6)。
 
