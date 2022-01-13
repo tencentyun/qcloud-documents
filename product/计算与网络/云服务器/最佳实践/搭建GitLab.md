@@ -8,7 +8,7 @@ GitLab 是使用 Ruby 开发的开源版本管理系统，以 Git 作为代码�
 - 本文使用的云服务器配置如下：
 	- vCPU：2核
 	- 内存：4GB
-	- Linux 操作系统：以 CentOS 8.2 及 CentOS 7.7 为例
+	- Linux 操作系统：以 CentOS 8.2 及 CentOS 7.9 为例
 
 ## 前提条件
 - 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。

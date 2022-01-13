@@ -35,7 +35,7 @@
 >
 ![](https://main.qcloudimg.com/raw/e327528f08706299fef120e04c993099.png)
 3. 在弹出的 “一键添加” 窗口中，配置相关信息。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/18172bb1fb0cdf9f036539b528b1630d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b8cbfc23698be5faefdbf9fa5b650046.png)
  - **填写域名：**请输入您需要进行一键 HTTPS 的域名。
 >? 填写的域名需要在腾讯云完成备案，否则将无法正常进行接入。您可根据 [腾讯云可备案类型](https://cloud.tencent.com/document/product/243/18907#.E8.85.BE.E8.AE.AF.E4.BA.91.E5.8F.AF.E5.A4.87.E6.A1.88.E7.B1.BB.E5.9E.8B) 进行备案。
 >
