@@ -252,7 +252,6 @@ room.StopFrameSync (eve => {
 
 // 广播：停止帧同步
 room.OnStopFrameSync = eve => {
-	RecvFrameBst bst = (RecvFrameBst) eve.Data;
 	Debug.LogFormat ("停止帧同步: {0}", eve.Data);
 };
 ```
