@@ -17,7 +17,7 @@
 1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1) ，在左侧导航栏单击**服务**。
 2. 在服务列表中，单击目标服务的服务 ID，查看 API 列表。
 3. 单击**新建**，填写 API 前端配置，单击**下一步**。
-4. API 后端类型选择**云函数SCF**，勾选“Base64编码”，完成后续配置流程。此时创建的 API 已经开启了 Base64 编码，并默认为“全部触发”。
+4. API 后端类型选择**云函数 SCF**，勾选“Base64编码”，完成后续配置流程。此时创建的 API 已经开启了 Base64 编码，并默认为“全部触发”。
 ![](https://main.qcloudimg.com/raw/c116fc0017274148daf0290c8a20f445.png)
 
 ### 配置 Header 触发
