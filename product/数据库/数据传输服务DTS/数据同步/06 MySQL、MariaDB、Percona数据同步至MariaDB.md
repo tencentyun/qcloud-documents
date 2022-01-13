@@ -86,4 +86,4 @@ FLUSH PRIVILEGES;
 </table>
 
 ## 操作步骤
-本场景操作步骤与 [MySQL 数据同步至 MySQL](https://cloud.tencent.com/document/product/571/58688) 的一致，请参考 MySQL 同步场景的操作步骤。
+本场景操作步骤与 [MySQL 数据同步至 MySQL](https://cloud.tencent.com/document/product/571/56516) 的一致，请参考 MySQL 同步场景的操作步骤。
