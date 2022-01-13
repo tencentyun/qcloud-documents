@@ -12,7 +12,7 @@
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK">Github(推荐)</a></td>
 <td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Android/IMSDK">Gitee</a></td>
 <td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/37059">【极速集成】导入TUIKit (Android)</a><br><a href="https://cloud.tencent.com/document/product/269/32679">【常规集成】快速导入到工程 (Android)</a></td>
-<td style="text-align:center" rowspan='4'><a href="https://cloud.tencent.com/document/product/269/1606">更新日志(终端)</a> </td>
+<td style="text-align:center" rowspan='4'><a href="https://cloud.tencent.com/document/product/269/1606">更新日志（终端）</a> </td>
 </tr>
 <tr>
 <td style="text-align:center">iOS  </td>
@@ -50,7 +50,7 @@
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Web/IMSDK">Github</a></td>
 <td style="text-align:left" rowspan='3' ><a href="https://web.sdk.qcloud.com/im/download/im-latest.zip">ZIP</a></td>
 <td style="text-align:center" rowspan='2'><a href="https://cloud.tencent.com/document/product/269/37413">【常规集成】快速导入到工程</a> </td>
-<td style="text-align:center" rowspan='3'><a href="https://cloud.tencent.com/document/product/269/38492">更新日志(Web & 小程序)</a> </td>
+<td style="text-align:center" rowspan='3'><a href="https://cloud.tencent.com/document/product/269/38492">更新日志（Web & 小程序）</a> </td>
 </tr>
 <tr>
 <td style="text-align:center">小程序 </td>
@@ -78,13 +78,13 @@
 <td style="text-align:center">Flutter  </td>
 <td style="text-align:center" ><a href="https://pub.dev/packages/tencent_im_sdk_plugin">Github(推荐)</a></td>
 <td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/51940">【客户端 API】SDK API(Flutter)</a></td>
-<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/52049">更新日志(开源框架)</a></td>
+<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/52049">更新日志（Flutter）</a></td>
 </tr>
 <tr>
 <td style="text-align:center">Unity  </td>
 <td style="text-align:center" ><a href="https://comm.qq.com/im/sdk/unity_plus/im_unity_sdk_plus_v1.6.0.unitypackage">Unity Package</a></td>
-<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/54111">【客户端 API】SDK API(Unity)</a></td>
-<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/56150">更新日志(Unity)</a><br>公测中，技术咨询请加 QQ 群：<a href="https://qm.qq.com/cgi-bin/qm/qr?k=fVHzwGDQ0Hb9Qtn0KzQx7tsChGnzO9vm&jump_from=webapi">764231117</a></td>
+<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/54111">【客户端 API】SDK API(Unity)</a><br><a href="https://cloud.tencent.com/document/product/269/54106">【快速入门】ump 引入教程</a></td>
+<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/56150">更新日志（Unity）</a><br>公测中，技术咨询请加 QQ 群：<a href="https://qm.qq.com/cgi-bin/qm/qr?k=fVHzwGDQ0Hb9Qtn0KzQx7tsChGnzO9vm&jump_from=webapi">764231117</a></td>
 </tr>
 <tr>
 <td style="text-align:center">Electron  </td>
@@ -111,7 +111,7 @@
 <td style="text-align:center" >Android</td>
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Android">Github(推荐)</a></td>
 <td style="text-align:center" rowspan='4' ><a href="https://im.sdk.qcloud.com/download/github/TIMSDK.zip">ZIP</a></td>
-<td style="text-align:left" rowspan='4'><a href="https://cloud.tencent.com/document/product/269/36838">【Demo入门】一分钟跑通Demo</a></td>
+<td style="text-align:left" rowspan='4'><a href="https://cloud.tencent.com/document/product/269/36838">快速入门（Android & iOS）</a></td>
 </tr>
 <tr>
 <td style="text-align:center" >iOS</td>
@@ -132,7 +132,7 @@
 <td style="text-align:center" >uni-app</td>
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/uni-app">Github(推荐)</a></td>
 <td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/uni-app">Gitee</a></td>
-<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/64506">一分钟跑通 Demo (uni-app）</a></td>
+<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/64506">快速入门（uni-app）</a></td>
 </tr>
 
 
@@ -150,14 +150,14 @@
 <td style="text-align:center" >微信小程序</td>
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TencentIMDemos">Github(推荐)</a></td>
 <td style="text-align:center" ><a href="https://im-demos-1256635546.cos.ap-guangzhou.myqcloud.com/TencentIMDemos-master.zip">ZIP</a></td>
-<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/44932">【最佳实践】 小程序直播带货</a><br><a href="https://cloud.tencent.com/document/product/269/44527">【最佳实践】小程序直播SDK API</a></td>
+<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/44932">【场景方案】 小程序直播带货</a><br><a href="https://cloud.tencent.com/document/product/269/44527">【场景方案】小程序直播SDK API</a></td>
 </tr>
 <tr>
 <td style="text-align:center" >直播互动 Demo  </td>
 <td style="text-align:center" >包含直播发起以及观看方聊天互动等能力。</td>
 <td style="text-align:center" >Web</td>
 <td style="text-align:center" colspan="2"><a href="https://github.com/tencentyun/TUILiveRoom/tree/main/Web">Github</a></td>
-<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/65782">【最佳实践】Web 直播互动组件</a></td>
+<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/65782">【场景方案】Web 直播互动组件</a></td>
 </tr>
 </table>
 
