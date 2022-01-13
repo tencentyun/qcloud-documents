@@ -114,7 +114,7 @@ Entity 类型在 DataWay 中用于表示一个二进制数据的封装对象，�
 
 ### 4.4 Message 类型与预定义属性
 
-Message 类型是 DataWay 用于表示一条 EIS 消息的数据类型，其中包含 payload、vars、attrs 等属性，称之为**预定义属性（Predefined Properties）**。这些属性由系统根据当前运行信息及处理的消息生成，用于在 DataWay 中通过程序化的方式获取上下文信息。
+Message 类型是 DataWay 用于表示一条 千帆鹊桥iPaaS 消息的数据类型，其中包含 payload、vars、attrs 等属性，称之为**预定义属性（Predefined Properties）**。这些属性由系统根据当前运行信息及处理的消息生成，用于在 DataWay 中通过程序化的方式获取上下文信息。
 
 目前 Message 中包含的属性及其说明如下：
 
