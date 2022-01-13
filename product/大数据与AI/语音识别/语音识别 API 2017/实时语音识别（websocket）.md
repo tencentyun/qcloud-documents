@@ -17,8 +17,8 @@
 | 请求地址 | wss://asr.cloud.tencent.com/asr/v2/&lt;appid&gt;?{请求参数} |
 | 接口鉴权 | 签名鉴权机制，详见 [签名生成](#sign) |
 | 响应格式 | 统一采用 JSON 格式 |
-| 数据发送 | 建议每40ms发送40ms时长（即1:1实时率）的数据包，对应8k采样率为640字节，16k采样率为1280字节。<br>音频发送速率过快超过1:1实时率或者音频数据包之间发送间隔超过6秒，可能导致引擎出错，后台将返回错误并主动断开连接。 |
-| 并发限制 | 默认单账号限制并发连接数为20路，如您有提高并发限制的需求，[请提工单](https://console.cloud.tencent.com/workorder/category) 进行咨询。 |
+| 数据发送 | 建议每200ms 发送200ms 时长（即1:1实时率）的数据包，对应 pcm 大小为：8k 采样率3200字节，16k 采样率6400字节。<br>音频发送速率过快超过1:1实时率或者音频数据包之间发送间隔超过6秒，可能导致引擎出错，后台将返回错误并主动断开连接。 |
+| 并发限制 | 默认单账号限制并发连接数为50路，如您有提高并发限制的需求，[请提工单](https://console.cloud.tencent.com/workorder/category) 进行咨询。 |
 
 ## 接口调用流程
 接口调用流程分为两个阶段：握手阶段和识别阶段。两阶段后台均返回 text message，内容为 json 序列化字符串，以下是格式说明：
@@ -36,13 +36,13 @@
 
 | 字段名 | 类型 | 描述 |
 |---------|---------|---------|
-| slice_type | Integer | 该识别结果类型，0表示一句话开始，1表示一句话进行中，2表示一句话结束。<br>根据一句话时间长度以及后台处理情况，一句话识别过程中后台可能返回的 message 序列为：<br>0-1-2：1表示一个或者多个结果类型为1的 message。<br>0-2:后台仅返回一句话开始与结束两个 message。<br>2:后台仅返回一句话完整结果的 message。 |
-| index | Integer | 当前一句话结果在整个音频流中的序号，从0开始逐句递增。 |
-| start_time | Integer | 当前一句话结果在整个音频流中的起始时间。 |
-| end_time | Integer | 当前一句话结果在整个音频流中的结束时间。 |
-| voice_text_str | String | 当前一句话文本结果，编码为 UTF8。 |
-| word_size | Integer | 当前一句话的词结果个数。 |
-| word_list | Word Array | 当前一句话的词列表，Word 结构体格式为：<br>word：String 类型，该词的内容；<br>start_time：Integer 类型，该词在整个音频流中的起始时间；<br>end_time：Integer 类型，该词在整个音频流中的结束时间；<br>stable_flag：Integer 类型，该词的稳态结果，0表示该词在后续识别中可能发生变化，1表示该词在后续识别过程中不会变化。 |
+| slice_type | Integer | 识别结果类型，0：一段话开始识别；1：一段话识别中，voice_text_str 为非稳态结果(该段识别结果还可能变化) ；2：一段话识别结束，voice_text_str 为稳态结果(该段识别结果不再变化)。<br>根据发送的音频情况，识别过程中可能返回的 slice_type 序列有：<br>0-1-2：一段话开始识别、识别中(可能有多次1返回)、识别结束。<br>0-2:  一段话开始识别、识别结束。<br> 2:  直接返回一段话完整的识别结果。|
+| index | Integer | 当前一段话结果在整个音频流中的序号，从0开始逐句递增。 |
+| start_time | Integer | 当前一段话结果在整个音频流中的起始时间。 |
+| end_time | Integer | 当前一段话结果在整个音频流中的结束时间。 |
+| voice_text_str | String | 当前一段话文本结果，编码为 UTF8。 |
+| word_size | Integer | 当前一段话的词结果个数。 |
+| word_list | Word Array | 当前一段话的词列表，Word 结构体格式为：<br>word：String 类型，该词的内容；<br>start_time：Integer 类型，该词在整个音频流中的起始时间；<br>end_time：Integer 类型，该词在整个音频流中的结束时间；<br>stable_flag：Integer 类型，该词的稳态结果，0表示该词在后续识别中可能发生变化，1表示该词在后续识别过程中不会变化。 |
 
 ### 握手阶段
 #### 请求格式
@@ -66,7 +66,7 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | engine_model_type | 是 | String | 引擎模型类型。<br>电话场景：<br>• 8k_en：电话 8k 英语；<br>• 8k_zh：电话 8k 中文普通话通用；<br>• 8k_zh_finance：电话 8k 金融领域模型；<br>非电话场景：<br>• 16k_zh：16k 中文普通话通用；<br>• 16k_en：16k 英语；<br>• 16k_ca：16k 粤语；<br>• 16k_ko：16k 韩语；<br>• 16k_zh-TW：16k 中文普通话繁体；<br>• 16k_ja：16k 日语；<br>• 16k_wuu-SH：16k 上海话方言；<br>• 16k_zh_medical 医疗；<br>• 16k_en_game 英文游戏；<br>• 16k_zh_court 法庭；<br>• 16k_en_edu 英文教育；<br>• 16k_zh_edu 中文教育；<br>• 16k_th 泰语。 |
 | voice_id | 是 | String | 16位 String 串作为每个音频的唯一标识，用户自己生成。 |
 | voice_format | 否 | Integer | 语音编码方式，可选，默认值为4。1：pcm；4：speex(sp)；6：silk；8：mp3；12：wav；14：m4a（每个分片须是一个完整的 m4a 音频）；16：aac。 |
-| needvad | 否 | Integer | 0：关闭 vad，1：开启 vad。<br>如果语音分片长度超过60秒，用户需开启 vad。 |
+| needvad | 否 | Integer | 0：关闭 vad，1：开启 vad。<br>如果语音分片长度超过60秒，用户需开启 vad（人声检测切分功能）。 |
 | hotword_id | 否 | String | 热词 id。用于调用对应的热词表，如果在调用语音识别服务时，不进行单独的热词 id 设置，自动生效默认热词；如果进行了单独的热词 id 设置，那么将生效单独设置的热词 id。 |
 | customization_id | 否 | String | 自学习模型 id。用于调用对应的自学习模型，如果在调用语音识别服务时，不进行单独的自学习模型 id 设置，自动生效默认自学习模型；如果进行了单独的自学习模型 id 设置，那么将生效单独设置的自学习模型 id。|
 | filter_dirty | 否 | Integer | 是否过滤脏词（目前支持中文普通话引擎）。默认为0。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。 |

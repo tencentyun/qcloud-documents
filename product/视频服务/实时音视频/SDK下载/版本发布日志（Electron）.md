@@ -1,3 +1,21 @@
+## Version 9.3.201 @ 2022.01.05
+
+**功能新增**
+Windows & Mac：新增 [onSpeedTestResult](http://localhost:63342/trtc-electron-sdk/_doc/TRTCCallback.html#event:onSpeedTestResult) 网速测试的结果回调。
+
+**改进**
+- Windows & Mac：改进 [startSpeedTest](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#startSpeedTest) 开始进行网络测速。
+- Windows & Mac：改进 [muteLocalVideo](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#muteLocalVideo) 暂停/恢复发布本地的视频流，新增 streamType 参数。
+- Windows & Mac：改进 [muteRemoteVideoStream](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#muteRemoteVideoStream) 暂停接收指定的远端视频流，新增 streamType 参数。
+- Windows & Mac：改进 [selectScreenCaptureTarget](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#selectScreenCaptureTarget) 设置屏幕共享参数，支持 source、captureRect、property 三个参数。
+- Windows & Mac：改进 [startScreenCapture](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#startScreenCapture) 启动屏幕分享，新增 params 参数。
+
+**问题修复**
+- Mac：Mac OS 12 新系统下的摄像头采集问题。
+- Windows & Mac：优化弱网调控策略，同场景下更流畅。
+- Windows：优化 AGC 算法，降低出现声音过小和声音过大的问题的概率。
+- Winodws：修复屏幕分享时采集帧率异常的问题。
+
 ## Version 8.9.102 @ 2021.08.11
 
 **功能新增**
@@ -33,7 +51,7 @@ Windows & Mac：onStatistics 回调新增字段 gatewayRtt [onStatistics](https:
 
 **质量优化**
 - 全平台：优化 [Music](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#ga865e618ff3a81236f9978723c00e86fb) 模式下的声音质量，更加适合类似 cloubhouse 的语音直播场景。
--  全平台：优化音视频链路的网络抗性，在 70% 的极端查网络环境下，音视频依然较为流畅。
+-  全平台：优化音视频链路的网络抗性，在 70% 的极端差网络环境下，音视频依然较为流畅。
 -  Windows：优化部分场景下的直播音质，大幅减少了声音损伤问题。
 -  Windows：性能优化，在部分使用场景下的性能较旧版本有 20%-30% 的提升。
 

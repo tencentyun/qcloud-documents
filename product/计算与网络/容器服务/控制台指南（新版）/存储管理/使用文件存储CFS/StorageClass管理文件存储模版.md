@@ -43,7 +43,7 @@
 3. 选择左侧菜单栏中的**存储** > **StorageClass**，进入 “StorageClass” 页面。如下所示：
 ![](https://main.qcloudimg.com/raw/a630fa854ae6a45da2b24dcbabf50438.png)
 4. 单击**新建**，进入“新建StorageClass” 页面，参考以下信息进行创建。如下所示：
-![](https://main.qcloudimg.com/raw/c7a96aa3160f93c6fe844f2fa8f05dd4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0cb023e2ab933220e7e79c0c2bb1e0ee.png)
 主要参数信息如下：
 	- **名称**：自定义，本文以 `cfs-storageclass` 为例。
 	- **Provisioner**：选择**文件存储 CFS**。
@@ -55,7 +55,8 @@
 	- **文件服务协议**：默认为 NFS 协议，允许透明访问服务器上的文件和文件系统。
 	- **权限组**：为文件系统配置权限组，便于进一步管理与文件系统处于同一网络下的来访客户端的访问权限及读写权限。请根据实际需求选择合适的权限组，如不具备，请前往 [权限组](https://console.cloud.tencent.com/cfs/permission) 页面进行创建。
 	- **回收策略**：云盘的回收策略，提供**删除**和**保留**两种回收策略。出于数据安全考虑，推荐使用保留回收策略。
-5. 单击**新建 StorageClass **即可。
+	- **标签**：选择 CFS 实例需要绑定的云标签。该标签将由 StorageClass 动态创建的 CFS 实例自动继承，StorageClass 创建后其绑定的标签参数不支持修改。如现有标签不符合您的要求，请前往 [标签控制台](https://console.cloud.tencent.com/tag/taglist) 操作。
+5. 单击 **新建 StorageClass** 即可。
 
 
 #### 使用指定 StorageClass 创建 PVC[](id:createPVC)

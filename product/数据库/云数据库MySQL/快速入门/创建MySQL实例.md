@@ -29,7 +29,7 @@
  - **自定义端口**：数据库的访问端口，默认为3306。
  - **安全组**：安全组创建与管理请参见 [云数据库安全组](https://cloud.tencent.com/document/product/236/9537)。
 >?安全组入站规则需要放通 MySQL 实例的3306端口。MySQL 内网默认端口为3306，同时支持自定义端口，若修改过默认端口号，安全组中需放通 MySQL 新端口信息。
- - **参数模版**：除提供的系统参数模板外，您也可以创建自定义参数模板，请参见 [使用参数模板](https://cloud.tencent.com/document/product/236/30304)。
+ - **参数模板**：除提供的系统参数模板外，您也可以创建自定义参数模板，请参见 [使用参数模板](https://cloud.tencent.com/document/product/236/30304)。
   - **字符集**：支持 LATIN1 、GBK、UTF8 、UTF8MB4 字符集，默认字符集编码格式是 UTF8。购买完成后，亦可在控制台实例详情页修改字符集，更多说明请参见 [字符集说明](https://cloud.tencent.com/document/product/236/7259#.E5.AD.97.E7.AC.A6.E9.9B.86.E8.AF.B4.E6.98.8E)。
  - **表名大小写敏感**：表名是否大小写敏感，默认为开启。
  - **root密码**：新创建的 MySQL 数据库的用户名默认为 root，此处用来设置该 root 帐号的密码。选择**自动生成密码**时，可在创建完实例后再 [重置密码](https://cloud.tencent.com/document/product/236/10305)。

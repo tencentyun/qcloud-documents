@@ -5,7 +5,7 @@
 >
 > 我们建议您开通弹性微服务并进行能力迁移，有关更多弹性微服务的信息，您可以查看 [弹性微服务](https://cloud.tencent.com/product/tem) 官网。
 >
-> [点击体验弹性微服务 >>](https://console.cloud.tencent.com/tem)
+> [单击体验弹性微服务 >>](https://console.cloud.tencent.com/tem)
 >
 > 若您有其他疑问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，将有工程师为您服务。
 

@@ -75,6 +75,35 @@
 - 修复全文索引中，词组查找（phrase search）在多字节字符集下存在的崩溃问题。
 
 ## MySQL 5.7
+### 20211031
+#### 新特性：
+- 支持 writeset 复制功能。
+
+#### 性能优化：
+- 主动推进 checkpoint，提升备份成功率。
+- hash scan 索引选择优化。
+- 热点更新性能优化支持 insert on duplicate key update。
+
+#### Bug 修复：
+- 修复热点更新打开后性能不稳定的问题。
+- 修复 instant ddl 后回滚 update 操作导致 crash 的问题。
+- 修复在开启列压缩后，create table select 语句不会继承压缩属性的问题。
+- 修复在开启 skip-grant-table 选项后，show variables like 'tencent_root%’ 语句导致实例 crash 的问题。
+- 修复 Query Rewriter 插件在 read only 模式下 crash 的问题。
+- 修复 hash scan 在分区表下的1032的问题。
+- 修复 mts 模式下，第一个大事物 sbm 为0的问题。
+- 修复 slave_preserve_commit_order=ON，slave_transaction_retries=0 时的 stop slave 卡死问题。
+- 修复若干 XA 事务的 bug。
+- 修复创建带有 default 值的 json 字段后，在 show create 时拼装 SQL 错误的问题。
+- 修复事务被阻塞后，断开连接事务无法回滚的问题。
+- 修复长记录下，innodb persistent 方式的统计信息可能为0的问题。
+- 移植8.0 修复 ANALYZE TABLE 可能导致查询堆积的问题。
+- 修复 innodb 统计信息变更后，不能及时同步给 Server 层的问题。
+- 修复统计采样可能阻塞写入过长，而导致崩溃的问题 (Bug#31889883)。
+- 修复 innodb 统计信息更新流程，可能会导致一定机会读零的问题 (BUG#105224)。
+- 修复 MVCC 可能出现复杂度为 O(N^2) 的行为（Bug#28825617）。
+- 修复连接释放时，关闭临时表触发 binlog rotate 导致 crash。
+
 ### 20210630
 #### 新特性：
 - 新增命令 SHOW SLAVE DETAIL [FOR CHANNEL channel]，用于展示当前 slave 已经回放的 binlog 时间戳。
@@ -278,6 +307,20 @@ FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提�
 - 修复在异步模式下速度限制插件不可用的问题。
 
 ## MySQL 5.6
+### 20211030
+#### 新特性：
+- 支持大事务复制优化。
+
+#### 性能优化：
+- 优化 hash scan 的应用速度。
+
+#### Bug 修复：
+- 修复大量表查询导致 OOM 的问题。
+- 修复将 innodb_thread_concurrecy 设置成0后，导致的死循环问题。
+- 修复长记录下统计信息为0问题。
+- 修复 sbm 跳变问题。
+- 修复 LOCK_binlog_end_pos hang 的问题。
+
 ### 20210630
 #### 新特性：
 - 支持大事务复制优化。

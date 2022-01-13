@@ -195,7 +195,7 @@
 ### CLICKHOUSE-Events
 <table>
 <tr>
-<th width=25>标题 </th>
+<th width=25%>标题 </th>
 <th width=20%>指标名称</th>
 <th width=10%>指标单位</th>
 <th width=45%>指标含义 </th>
@@ -279,9 +279,9 @@
 
 <table>
 <tr>
-<th width=25>标题 </th>
+<th width=25%>标题 </th>
 <th width=20%>指标名称</th>
-<th width=10>指标单位</th>
+<th width=10%>指标单位</th>
 <th width=45%>指标含义 </th>
 </tr><tr>
 <td >StorageMergeTree 的 marks 的缓存大小</td>

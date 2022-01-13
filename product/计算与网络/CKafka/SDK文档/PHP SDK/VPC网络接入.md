@@ -11,11 +11,12 @@
 
 ## 操作步骤
 
-### 步骤一：添加 Rdkafka 扩展
+### 步骤1：添加 Rdkafka 扩展
 
 1. 在 [rdkafka 官方页面](http://pecl.php.net/package/rdkafka) 查找最新的 rdkafka php 扩展包版本。
-   >?不同版本的包对 PHP 版本要求不同，这里仅以 4.1.2 为示例。
-
+<dx-alert infotype="explain" title="">
+不同版本的包对 PHP 版本要求不同，这里仅以 4.1.2 为示例。
+</dx-alert>
 2. 登录 Linux 服务器，安装 rdkafka 扩展。
 
    ```bash
@@ -30,7 +31,7 @@
 
 
 
-### 步骤二：准备配置
+### 步骤2：准备配置
 
 1. 将下载的 Demo 中的 phpkafkademo 上传至 Linux 服务器。
 2. 登录 Linux 服务器，进入 phpkafkademo 目录，修改 CKafkaSetting.php 配置文件。
@@ -45,13 +46,13 @@ return [
 
 | 参数              | 描述                                                         |
 | ----------------- | ------------------------------------------------------------ |
-| bootstrap_servers | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
-| topic_name        | Topic 名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
-| group_id          | 消费者的组 ID，您可以自定义设置，Demo 运行成功后可以在【Consumer Group】页面看到该消费者。 |
+| bootstrap_servers | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
+| topic_name        | Topic 名称，您可以在控制台上**topic管理**页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
+| group_id          | 消费者的组 ID，您可以自定义设置，Demo 运行成功后可以在**Consumer Group**页面看到该消费者。 |
 
 
 
-### 步骤三：发送消息
+### 步骤3：发送消息
 
 1. 编写生产消息程序 Producer.php。
 
@@ -83,11 +84,11 @@ $conf->set('reconnect.backoff.max.ms', 3000);
 
 // 注册发送消息的回调
 $conf->setDrMsgCb(function ($kafka, $message) {
-    echo '【Producer】发送消息：message=' . var_export($message, true) . "\n";
+    echo '**Producer**发送消息：message=' . var_export($message, true) . "\n";
 });
 // 注册发送消息错误的回调
 $conf->setErrorCb(function ($kafka, $err, $reason) {
-    echo "【Producer】发送消息错误：err=$err reason=$reason \n";
+    echo "**Producer**发送消息错误：err=$err reason=$reason \n";
 });
 
 $producer = new RdKafka\Producer($conf);
@@ -106,7 +107,7 @@ while ($producer->getOutQLen() > 0) {
     $producer->poll(50);
 }
 
-echo "【Producer】消息发送成功\n";
+echo "**Producer**消息发送成功\n";
   ```
 
 
@@ -117,7 +118,7 @@ php Producer.php
 
 3. 查看运行结果，示例如下。
   ```bash
->【Producer】发送消息：message=RdKafka\Message::__set_state(array(
+>**Producer**发送消息：message=RdKafka\Message::__set_state(array(
 >   'err' => 0,
 >   'topic_name' => 'topic_name',
 >   'timestamp' => 1618800895159,
@@ -128,7 +129,7 @@ php Producer.php
 >   'offset' => 0,
 >   'headers' => NULL,
 >))
->【Producer】发送消息：message=RdKafka\Message::__set_state(array(
+>**Producer**发送消息：message=RdKafka\Message::__set_state(array(
 >   'err' => 0,
 >   'topic_name' => 'topic_name',
 >   'timestamp' => 1618800895159,
@@ -142,15 +143,15 @@ php Producer.php
 
 ...
 
->【Producer】消息发送成功
+>**Producer**消息发送成功
   ```
 
-4. 在  [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic 管理】页面，选择对应的 Topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
+4. 在  [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**topic 管理**页面，选择对应的 Topic，单击**更多** > **消息查询**，查看刚刚发送的消息。
 ![](https://main.qcloudimg.com/raw/f83d6cd8112ef371572b93a8c1575192.png)
 
 
 
-### 步骤四：消费消息
+### 步骤4：消费消息
 
 1. 编写消息订阅消费程序 Consumer.php。
 
@@ -187,13 +188,13 @@ while ($isConsuming) {
     $message = $consumer->consume(10 * 1000);
     switch ($message->err) {
         case RD_KAFKA_RESP_ERR_NO_ERROR:
-            echo "【消费者】接收到消息：" . var_export($message, true) . "\n";
+            echo "**消费者**接收到消息：" . var_export($message, true) . "\n";
             break;
         case RD_KAFKA_RESP_ERR__PARTITION_EOF:
-            echo "【消费者】等待信息消息中\n";
+            echo "**消费者**等待信息消息中\n";
             break;
         case RD_KAFKA_RESP_ERR__TIMED_OUT:
-            echo "【消费者】等待超时\n";
+            echo "**消费者**等待超时\n";
             $isConsuming = false;
             break;
         default:
@@ -210,7 +211,7 @@ php Consumer.php
 
 3. 查看运行结果。
   ```bash
-  >【消费者】接收到消息：RdKafka\Message::__set_state(array(
+  >**消费者**接收到消息：RdKafka\Message::__set_state(array(
   >   'err' => 0,
   >   'topic_name' => 'topic_name',
   >   'timestamp' => 1618800895159,
@@ -221,7 +222,7 @@ php Consumer.php
   >   'offset' => 0,
   >   'headers' => NULL,
   >))
-  >【消费者】接收到消息：RdKafka\Message::__set_state(array(
+  >**消费者**接收到消息：RdKafka\Message::__set_state(array(
   >   'err' => 0,
   >   'topic_name' => 'topic_name',
   >   'timestamp' => 1618800895159,
@@ -236,5 +237,5 @@ php Consumer.php
   ...
   ```
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费者组名称，在主题名称输入 Topic 名称，单击【查询详情】查看消费详情。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**Consumer Group**页面，选择对应的消费者组名称，在主题名称输入 Topic 名称，单击**查询详情**查看消费详情。
 ![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)

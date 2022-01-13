@@ -1,10 +1,18 @@
 ## 接口描述
-用户在应用系统的登录页面，单击**登录**或访问受保护资源时，应用系统将用户（浏览器）重定向到此接口地址，发起登录认证。用户将在 CIAM 的认证门户上完成登录认证。登录成功后，认证门户把用户重定向到应用的 `redirect_uri` 地址。
->?根据 OAuth 协议的安全最佳实践要求，本接口使用 PKCE 授权码模式。
+将用户（浏览器）重定向到此接口地址，发起登录。CIAM 会将用户重定向到认证门户进行登录认证。登录成功后，CIAM 将用户重定向到   `redirect_uri` 参数指定的地址。
 
+如果发起登录时用户已经登录，则无需再次登录，CIAM 会直接将用户重定向到 `redirect_uri`。
+>?
+>- 根据 OAuth 协议的安全最佳实践要求，本接口使用 PKCE 授权码模式。
+>- 本节请求示例中使用的应用系统 Redirect URI 为 `https://example.com/callback`。
+
+## 支持的应用类型
+Web 应用、单页应用、移动 App。
 
 ## 请求方法
+```
 GET
+```
 
 ## 请求路径
 ```
@@ -14,7 +22,7 @@ GET
 ## 请求示例
 ```
 GET /oauth2/authorize?scope=openid&client_id=TENANT_CLIENT_ID&redirect_uri=https%3A%2F%2FTENANT.APP.DOMAIN%2Flogin%2Foauth2%2Fcode%2FTENANT_APP_ID&response_type=code&state=MOCK_STATE&code_challenge_method=S256&code_challenge=MOCK_CODE_CHALLENGE&auth_source_id=MOCK_USERNAME_PASSWORD_AUTH_SOURCE_ID HTTP/1.1
-Host: localhost:8080
+Host: sample.portal.tencentciam.com
 ```
 
 
@@ -36,14 +44,14 @@ Host: localhost:8080
 - 用户未登录，显示认证门户的默认登录页面。
 ```
 HTTP/1.1 302 Found
-Location: http://localhost:8080/portal/login?p_state=MOCK_LOGIN_PORTAL_STATE
+Location: https://sample.portal.tencentciam.com/portal/login?p_state=MOCK_LOGIN_PORTAL_STATE
 ```
 - 用户已登录，携带授权码和 state 参数重定向到应用回调地址。
 ```
 HTTP/1.1 302 Found
-Location: https://TENANT.APP.DOMAIN/login/oauth2/code/TENANT_APP_ID?code=rGdq86P6LQaHb-QA25DTcZKgi_TtGefDDjKNReM_nYtxExn0Nh-46TYGWlIlYXjxo1bDR07kUZQSgzHj_emwbnq5YajUSmBthaXZMCu2QsPBGd4p8t6nc471Wp22kcvp&state=MOCK_STATE
+Location: https://example.com/callback?code=DVtNBg5XGqeu2IytLi6WOWwfh7pRc5jqI8vUb2K8k_2OryR2OsYN3260DwhlTDqEMtUSD1XN6gNuRDjYQ25nJX6H8MzfpIxJHIoi0tdtkXfRpV1ELhmw7behuwYraTlC&state=MOCK_STATE
 ```
->?用户登录成功后，认证门户将把用户重定向到应用的 `redirect_uri` 地址，并在参数中携带授权码 `code`。应用系统获取到 `code` 参数后，调用 [ PKCE 模式 获取 Token](https://cloud.tencent.com/document/product/1441/64396) 接口获取 Access Token 和 ID Token，完成登录。
+>?应用回调地址拿到 code 参数后，需要调用 [ PKCE 模式 获取 Token](https://cloud.tencent.com/document/product/1441/64396) 口获取 Access Token 和 ID Token，完成登录。
 >
 
 ## 异常响应示例
@@ -64,5 +72,5 @@ HTTP/1.1 400 Bad Request
 - 不支持的 code_challenge_method。
 ```
 HTTP/1.1 302 Found
-Location: https://TENANT.APP.DOMAIN/login/oauth2/code/TENANT_APP_ID?error=invalid_request&error_description=OAuth%202.0%20Parameter:%20code_challenge_method&error_uri=https://datatracker.ietf.org/doc/html/rfc7636%23section-4.4.1&state=MOCK_STATE
+Location: https://example.com/callback?error=invalid_request&error_description=OAuth%202.0%20Parameter:%20code_challenge_method&error_uri=https://datatracker.ietf.org/doc/html/rfc7636%23section-4.4.1&state=MOCK_STATE
 ```

@@ -19,6 +19,7 @@
 ### 步骤一：为 VPC 分配 IPv6 CIDR[](id:step1)
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 选择支持 IPv6 的地域，在 VPC 所在行的右侧操作栏下，选择**更多** > **编辑 IPv6 CIDR**。
+![](https://qcloudimg.tencent-cloud.cn/raw/5c02c1344ace4a56d7dd4418a4c09487.png)
 3. 在“编辑 IPv6 CIDR” 弹框中，单击**获取**并确认相关信息后，单击**确定**。
 系统将为 VPC 分配一个`/56`的 IPv6 地址段，您可以在列表中，查看到 IPv6 地址段的详细信息。
 ![](https://main.qcloudimg.com/raw/12f6f55a2dfa1047ec5e2fa0f82c1517.png)

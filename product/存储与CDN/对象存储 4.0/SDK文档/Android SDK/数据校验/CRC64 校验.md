@@ -37,7 +37,8 @@ TransferConfig transferConfig = new TransferConfig.Builder()
 TransferService transferService = new TransferService(cosXmlService, transferConfig);
 
 // 2. 初始化 PutObjectRequest
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 String srcPath = "examplefilepath"; //本地文件的绝对路径
 PutObjectRequest putObjectRequest = new PutObjectRequest(bucket,
@@ -52,10 +53,12 @@ uploadTask.setCosXmlResultListener(new CosXmlResultListener() {
         String crc64 = result.getHeader("x-cos-hash-crc64ecma");
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest request,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -77,7 +80,8 @@ TransferConfig transferConfig = new TransferConfig.Builder()
 TransferService transferService = new TransferService(cosXmlService, transferConfig);
 
 // 2. 初始化 GetObjectRequest
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 String savePathDir = context.getCacheDir().toString(); //本地目录路径
 //本地保存的文件名，若不填（null），则与 COS 上的文件名一样
@@ -94,10 +98,12 @@ downloadTask.setCosXmlResultListener(new CosXmlResultListener() {
         String cosCRC64 = result.getHeader("x-cos-hash-crc64ecma");
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest request,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {

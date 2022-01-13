@@ -1,27 +1,22 @@
 ## 集成准备
 
-1. 解压 Demo 包，将 Demo 工程中的 xmagic 模块（bundle，XmagicIconRes，Xmagic 文件夹）导入到实际项目工程中。
+1. 下载并解压 [Demo 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/TRTC-API-Example.zip
+)，将 Demo 工程中的 xmagic 模块（bundle，XmagicIconRes，Xmagic 文件夹）导入到实际项目工程中。
 2. 导入 SDK 目录中的 `libpag.framework`，`Masonry.framework`，`XMagic.framework`，`YTCommonXMagic.framework`。
 3. framework 签名 **General--> Masonry.framework** 和 **libpag.framework** 选 **Embed & Sign**。
 4. 将 Bundle ID 修改成与申请的测试授权一致。
 
 ## SDK 接口集成
-- [步骤一](step1) 和 [步骤二](#step2) 可参考 Demo 工程中，ThirdBeautyViewController 类 viewDidLoad，buildBeautySDK 方法。
+- [步骤一](#step1) 和 [步骤二](#step2) 可参考 Demo 工程中，ThirdBeautyViewController 类 viewDidLoad，buildBeautySDK 方法。
 - [步骤四](#step4) 至 [步骤七](#step7) 可参考 Demo 工程的 ThirdBeautyViewController，BeautyView 类相关实例代码。
 
 ### 步骤一：初始化授权 [](id:step1)
 
-1. 离线授权方式。
-```objectivec
-NSString *licensePath = [[NSBundle mainBundle] pathForResource:@"dev_test_v2_S1-04_2022-01-17.lic1.4.1" ofType:@""];
-NSLog(@"youtu auth ret0 : %@", licensePath);
-int authRet = [XMagicAuthManager initAuthByFilePath:licensePath withSecretKey:@"xxxxx"];
-NSString *version = [XMagicAuthManager getVersion];
-NSLog(@"youtu auth ret : %i", authRet);
-NSLog(@"youtu auth version : %@", version);
-```
-2. 线上授权方式。
-首先在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码：
+<dx-tabs>
+::: 线上授权（TE 版本 2.4.0+ 支持线上授权方式）
+
+在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码：
+
 ```objectivec
 [TXLiveBase setLicenceURL:@"" key:@""];
 ```
@@ -40,6 +35,21 @@ NSLog(@"xmagic auth version : %@", [XMagicAuthManager getVersion]);
 ```
 
 > ! key 字段为申请 lic 时提供的 SecretKey。
+
+:::
+::: 离线授权
+
+```objectivec
+NSString *licensePath = [[NSBundle mainBundle] pathForResource:@"dev_test_v2_S1-04_2022-01-17.lic1.4.1" ofType:@""];
+NSLog(@"youtu auth ret0 : %@", licensePath);
+int authRet = [XMagicAuthManager initAuthByFilePath:licensePath withSecretKey:@"xxxxx"];
+NSString *version = [XMagicAuthManager getVersion];
+NSLog(@"youtu auth ret : %i", authRet);
+NSLog(@"youtu auth version : %@", version);
+```
+
+:::
+</dx-tabs>
 
 ### 步骤二：设置 SDK 素材资源路径[](id:step2)
 

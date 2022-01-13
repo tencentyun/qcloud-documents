@@ -6,7 +6,7 @@
 ## 步骤2：配置文件[](id:step2)
 解压 Demo 工程文件，打开 `demo` 目录下 `demo.html` 文件。
 - 请求 **url**：修改为您后台程序中的对应后台接口地址。
-- **GameId**：修改为您在 [接入准备 - 步骤4](https://cloud.tencent.com/document/product/1162/65421#step4) 中部署后会在**云游戏控制台** > **游戏管理**中生成对应的 GameID。
+- **GameId**：修改为您在 [接入准备 - 步骤4](https://cloud.tencent.com/document/product/1162/46135#step4) 中部署后会在**云游戏控制台** > **游戏管理**中生成对应的 GameID。
 - **UserId**：修改为用户唯一标识（由业务方自定义），ClientSession 修改为云游戏 Web 端 Session。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb3decdca3d69ee5d528639ff02835b0.png)

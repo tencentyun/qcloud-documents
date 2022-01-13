@@ -67,7 +67,7 @@ Container 类型 MovingObjectDetect 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Type              | Request.AI.MovingObjectDetect | 检测物体 | String    | 是   | 无 | 值范围：{Baby}<br/>|
+| Type              | Request.AI.MovingObjectDetect | 检测物体 | String    | 是   | 无 | 值范围：{Baby（婴儿识别）、Pet（宠物识别）、Human（人体检测）、Car（车辆识别）} |
 
 ## 响应
 ### 响应头

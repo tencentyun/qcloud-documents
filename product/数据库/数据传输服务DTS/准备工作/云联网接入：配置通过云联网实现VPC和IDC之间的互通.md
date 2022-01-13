@@ -11,7 +11,7 @@
 > ?云联网仅提供所有地域间 10Kbps 以下的免费带宽，使用 DTS 数据传输时需要更高带宽，所以链接中的配置带宽是必选操作。
 
 ## 后续步骤
-1. 在 [DTS 任务页面](https://console.cloud.tencent.com/dts/migration) 选择**云联网**，关键参数配置说明如下：
+1. 用户在 [数据迁移任务](https://cloud.tencent.com/document/product/571/58688) 或 [数据同步任务](https://cloud.tencent.com/document/product/571/58672) 中需要配置相关参数，此处以 MySQL 的数据迁移为示例。在数据迁移任务的**设置源和目标数据库**步骤中，选择 **云联网**，关键参数配置说明如下：
 ![](https://main.qcloudimg.com/raw/9a918fdb3da73967a62cdeb95a6fa120.png)
 <table>
 <thead><tr><th><strong>参数</strong></th><th><strong>说明</strong></th><th><strong>参数示例</strong></th></tr></thead>
@@ -32,7 +32,6 @@
 <td>源数据库使用的端口。常见数据库默认端口如下：（如用户修改了默认端口，请按实际情况填写）<ul><li>MySQL：3306</li><li>SQL Server：1433</li><li>PostgreSQL：5432</li><li>MongoDB：27017</li><li>Redis：6379</li></ul></td>
 <td>3306</td></tr>
 </tbody></table>
-
 2. 单击**测试连通性**。如果出现测试不通过，请按照如下指导进行排查。
    - Telnet 测试不通过。
      在云联网关联 VPC 中（本例中为 vpc-南京）购买一个云服务器 CVM，在 CVM 上 ping 源数据库主机地址：

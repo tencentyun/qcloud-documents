@@ -19,8 +19,8 @@
 |方式 | 说明 | 
 |---------|---------|
 | [方式1：作用于单个命名空间的权限绑定](#way1) |  RoleBinding 引用 Role 对象，为 Subjects 只授予某单个命名空间下资源权限。 |
-|[方式2：多个命名空间复用集群权限对象绑定](#way2) | 多个命名空间下不同的 Rolebinding 可引用同一个 ClusterRole 对象模版为 Subjects 授予相同模版权限。 | 
-|[方式3：整个集群权限的绑定](#way3) | ClusterRoleBinding 引用 ClusterRole 模版，为 Subjects 授予整个集群的权限。 | 
+|[方式2：多个命名空间复用集群权限对象绑定](#way2) | 多个命名空间下不同的 Rolebinding 可引用同一个 ClusterRole 对象模板为 Subjects 授予相同模板权限。 | 
+|[方式3：整个集群权限的绑定](#way3) | ClusterRoleBinding 引用 ClusterRole 模板，为 Subjects 授予整个集群的权限。 | 
 
 
 >?除上述3种方式之外，从 Kubernetes RBAC 1.9版本开始，集群角色（ClusterRole）还可通过使用 aggregationRule 组合其他 ClusterRoles 的方式进行创建，本文不作详细介绍，您可参见官网文档 [Aggregated ClusterRoles]( https://kubernetes.io/zh/docs/reference/access-authn-authz/rbac/#aggregated-clusterroles) 说明。
@@ -98,7 +98,7 @@ roleRef:
 
 ### 方式2：多个命名空间复用集群权限对象绑定[](id:way2)
 
-此方式主要用于为用户授予多个命名空间下相同的权限，适用于使用一个权限模版为多个命名空间绑定授权的场景，例如需要为 DevOps 人员在多个命名空间绑定相同资源操作的权限。以下将为您介绍如何在 TKE 中使用多个命名空间复用集群权限绑定授权。
+此方式主要用于为用户授予多个命名空间下相同的权限，适用于使用一个权限模板为多个命名空间绑定授权的场景，例如需要为 DevOps 人员在多个命名空间绑定相同资源操作的权限。以下将为您介绍如何在 TKE 中使用多个命名空间复用集群权限绑定授权。
 
 1. 使用以下 Shell 脚本，创建使用 X509 自签证书认证的用户、证书签名请求（CSR）和证书审批允许信任并设置集群资源访问凭证 Context。示例如下：
 ```bash

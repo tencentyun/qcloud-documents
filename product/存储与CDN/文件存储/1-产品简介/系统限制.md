@@ -32,7 +32,7 @@
     <tr align="center" >
         <td>系统起步容量</td>
         <td colspan="2">无要求</td>
-        <td colspan="2">100GiB</td>
+        <td colspan="2">无要求</td>
         <td colspan="2">40TiB</td>
         <td colspan="2">20TiB</td>
    </tr>
@@ -40,8 +40,8 @@
         <td>系统带宽上限</td>
         <td>300MiB/s</td>
         <td>240MiB/s</td>
-        <td>2GiB/s</td>
-        <td>1.6GiB/s</td>
+        <td>1GiB/s</td>
+        <td>800MiB/s</td>
         <td>100GiB/s</td>
         <td>10GiB/S</td>
         <td>100GiB/s</td>
@@ -51,8 +51,8 @@
         <td>系统文件数上限</td>
         <td>Min[1.5万*已使用容量(GiB)，10亿]</td>
         <td>Min[1万*已使用容量(GiB)，8亿]</td>
-        <td>Min[2万*已部署容量(GiB)，15亿]</td>
-        <td>Min[1.5万*已部署容量(GiB)，10亿]</td>
+        <td>Min[2万*已使用容量(GiB)，15亿]</td>
+        <td>Min[1.5万*已使用容量(GiB)，10亿]</td>
         <td>Min[1.5万*已部署容量(GiB)，10亿]</td>
         <td>Min[1万*已部署容量(GiB)，8亿]</td>
         <td>Min[3万*已部署容量(GiB)，15亿]</td>
@@ -178,7 +178,8 @@
 - 为保证扩容后系统负载的均衡，在使用至集群80%容量左右时，应启动扩容。扩容支持在线扩容，整体过程业务无感知。
 - Turbo 系列不支持对原文件系统缩容，可新建 Turbo 实例进行迁移后，然后对老实例进行删除的方式达到缩容的目的。
 - Turbo 系列在初次创建时，因涉及到独立集群的重新搭建，约需20分钟左右，请耐心等待。
-- Turbo 系列默认只支持root用户挂载使用，若需要普通用户挂载，可提交工单与我们联系。
+- Turbo 系列默认只支持 root 用户挂载并使用，若需要普通用户使用，可 [提交工单](https://console.cloud.tencent.com/workorder/category) 与我们联系。
+- 仅推荐客户端在同可用区挂载使用Turbo文件系统，跨可用区的延时可能会导致客户端挂载超时、剔除等问题。
 - 若需要更高规格（支持更多文件数、目录数等）的 Turbo 系列，可提交工单与我们联系。
 
 

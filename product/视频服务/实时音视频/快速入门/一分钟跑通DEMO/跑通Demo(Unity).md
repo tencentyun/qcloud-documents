@@ -20,9 +20,9 @@
 ## 运行示例程序
 [](id:step1)
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 单击【新建应用】输入应用名称，例如 `TestTRTC`；若您已创建应用可单击【选择已有应用】。
-3. 根据实际业务需求添加或编辑标签，单击【创建】。
+1. 登录实时音视频控制台，选择**开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+2. 单击**新建应用**输入应用名称，例如 `TestTRTC`；若您已创建应用可单击**选择已有应用**。
+3. 根据实际业务需求添加或编辑标签，单击**创建**。
 ![](https://main.qcloudimg.com/raw/f04d288ed091c98a5e8056eb86fb49e8.png)
 >?
 >- 应用名称只能包含数字、中英文字符和下划线，长度不能超过15个字符。
@@ -31,7 +31,7 @@
 [](id:step2)
 ### 步骤2：下载 SDK 与源码
 1. 根据您的实际业务需求，下载 SDK 及配套的 [Demo 源码](https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/unity/TRTCUnitySDK.zip)。
-2. 下载完成后，单击【已下载，下一步】。（可直接用 Unity 打开本项目；如果想直接用 SDK 文件，也可把 SDK 包中的 `TRTCUnitySDK/Assets/TRTCSDK/SDK` 文件夹拷贝到您项目中的 Assets 目录下。）
+2. 下载完成后，单击**已下载，下一步**。（可直接用 Unity 打开本项目；如果想直接用 SDK 文件，也可把 SDK 包中的 `TRTCUnitySDK/Assets/TRTCSDK/SDK` 文件夹拷贝到您项目中的 Assets 目录下。）
 ![](https://main.qcloudimg.com/raw/a452f35ef0efe73124b301084e1a77f4.png)
 3. 找到并打开 `Assets/TRTCSDK/Demo/Tools/GenerateTestUserSig.cs` 文件。
 4. 设置 `GenerateTestUserSig.cs` 文件中的相关参数：
@@ -43,27 +43,27 @@
 ### 步骤3：编译运行
 <dx-tabs>
 ::: Android\s平台
-1. 配置 Unity Editor，单击【File】>【Build Setting】，切换至 Android。
+1. 配置 Unity Editor，单击**File**>**Build Setting**，切换至 Android。
 ![](https://main.qcloudimg.com/raw/4464eb891829e3505a59c8ec00cc2414.png)
-2. 连接 Android 真机，单击【 Build And Run】，Demo 就能跑起来。
+2. 连接 Android 真机，单击** Build And Run**，Demo 就能跑起来。
 3. 接口测试，需要先点击调用 enterRoom ，然后自行测试其他相关，数据展示窗口显示点击调用成功，另外一个窗口显示回调信息。
 :::
 ::: iOS\s平台
-1. 配置 Unity Editor，单击【File】>【Build Setting】，切换至 iOS。
+1. 配置 Unity Editor，单击**File**>**Build Setting**，切换至 iOS。
 ![](https://main.qcloudimg.com/raw/3a0ef43000fe53e8e7ff58b6cc243785.png)
-2. 连接 iPhone 真机，单击【Build And Run】，需要选择一个新的目录存放编译出来的 iOS 工程，等待编译完成，会有新窗口弹出 Xcode 工程。
+2. 连接 iPhone 真机，单击**Build And Run**，需要选择一个新的目录存放编译出来的 iOS 工程，等待编译完成，会有新窗口弹出 Xcode 工程。
 :::
 ::: Windows\s平台
-1. 配置 Unity Editor，单击【File】>【Build Setting】，切换至 `PC, Mac & Linux Standalone`，Target Platform 选择 Windows。
+1. 配置 Unity Editor，单击**File**>**Build Setting**，切换至 `PC, Mac & Linux Standalone`，Target Platform 选择 Windows。
 ![](https://main.qcloudimg.com/raw/580764f661c06cf71c4952727c409c5e.png)
-2. 单击【 Build And Run】，Demo 就能跑起来。
+2. 单击** Build And Run**，Demo 就能跑起来。
 :::
 ::: macOS\s平台
-1. 配置 Unity Editor，单击【File】>【Build Setting】，切换至 `PC, Mac & Linux Standalone`，Target Platform 选择 macOS。
+1. 配置 Unity Editor，单击**File**>**Build Setting**，切换至 `PC, Mac & Linux Standalone`，Target Platform 选择 macOS。
 ![](https://main.qcloudimg.com/raw/6f3f9c21aa9eeadd7a4e3be377b2a6b3.png)
-2. 单击【 Build And Run】，Demo 就能跑起来。
+2. 单击** Build And Run**，Demo 就能跑起来。
 3. 使用 Unity Editor 模拟器运行，先要安装 `Device Simulator Package`。
-4. 单击【Window】>【General】>【Device Simulator】
+4. 单击**Window**>**General**>**Device Simulator**
 ![](https://main.qcloudimg.com/raw/79f707b89553528956a888f48b4d4d6d.png)
 :::
 </dx-tabs>

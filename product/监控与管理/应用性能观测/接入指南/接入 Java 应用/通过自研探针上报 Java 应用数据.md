@@ -7,7 +7,7 @@
 ## 前提条件
 
 - 在安装探针前，需要先确保本地浏览器时间与服务器时区、时间都一致。若有多个服务器，则要保证本地浏览器、多个服务器的时区、时间都一致。否则，可能会影响数据的准确性，例如拓扑不正确等。
-- 下载  [自研SDK](https://apm-sdk-1258344699.cos.ap-guangzhou.myqcloud.com/tapm-agent-java-3.6.1.5.zip)。
+- 下载  [自研SDK](https://tapm-agent-java-3-1303053965.cos.ap-guangzhou.myqcloud.com/tapm-agent-java-3.6.1.5%20.zip)。
 
 ## 操作步骤
 ### 通过修改配置文件安装[](id:conf)

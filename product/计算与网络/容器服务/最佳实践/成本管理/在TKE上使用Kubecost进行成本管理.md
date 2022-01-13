@@ -145,7 +145,7 @@ Reports 主要保存一些观测数据，观测粒度和 Cost Allocation 里一�
 
 登录到某个 Node 节点，执行以下命令安装 helm：
 ```sh
-curl https:``//raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 ```
 
 ### 下载 Kubecost helm
@@ -153,14 +153,15 @@ curl https:``//raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | b
 执行以下命令下载 Kubecost helm：
 
 ```sh
-wget https:``//qitian-1251707795.cos.ap-beijing.myqcloud.com/cost-analyzer-1.81.0.tgz
+wget https://qitian-1251707795.cos.ap-beijing.myqcloud.com/cost-analyzer-1.81.0.tgz
 ```
 
 ### 安装 Kubecost
 
 1. 执行以下命令安装 Kubecost：
 ```sh
-kubectl create ns kubecost``helm install cost-analyzer cost-analyzer-``1.81``.``0``.tgz -n kubecost
+kubectl create ns kubecost
+helm install cost-analyzer cost-analyzer-1.81.0.tgz -n kubecost
 ```
 2. 执行以下命令，查看服务 Pod 是否都正常运行。示例如下：
 ```sh
