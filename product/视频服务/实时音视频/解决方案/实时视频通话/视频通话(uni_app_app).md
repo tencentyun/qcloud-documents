@@ -163,9 +163,7 @@ TUICalling.logout()
  应该重新提交云端打包（不能勾选“**自定义基座**”）生成正式版本。
 
 ## 实现案例
-###  在线客服场景
-单击可下载 [在线客服场景 Demo](https://github.com/tencentyun/TIMSDK/tree/master/uni-app/TUIKit)。
-在线客服场景提供了示例客服群、示例好友的基础模板，在线客服场景功能包括：
+我们提供了**在线客服场景**的相关源码，建议您 [下载](https://github.com/tencentyun/TIMSDK/tree/master/uni-app/TUIKit) 并集成体验。该场景提供了示例客服群 + 示例好友的基础模板，实现功能包括：
 - 支持发送文本消息、图片消息、语音消息、视频消息等常见消息。
 - 支持双人语音、视频通话功能
 - 支持创建群聊会话、群成员管理等。
