@@ -1,3 +1,7 @@
+## 1.6.4
+- SDK 支持 package manager 引入
+- 增加 iOS 编译后依赖添加
+
 ## 1.6.0 @2021.12.21
 - 切换底层跨平台 c 接口
 - 支持平台：Windows、macOS、Android、iOS，且四端接口统一
