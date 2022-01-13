@@ -69,9 +69,9 @@ exports.main_handler = async(event, context, callback) => {
 ![](https://main.qcloudimg.com/raw/eb5bab8b734149e5f54e49dfd8571191.png)
 
 ### 步骤五：发布服务并访问
-1. 在服务详情页的**服务信息**Tab 页中，单击页面右上角的**发布**，将服务发布至“发布”环境。
+1. 在服务详情页的**服务信息** Tab 页中，单击页面右上角的**发布**，将服务发布至“发布”环境。
 ![](https://main.qcloudimg.com/raw/d18ae93f6a8e24aab4c59048d3b44d05.png)
-2. 在服务详情页的**服务信息**Tab 页中，查看“公网访问地址”，单击复制图标将地址复制到剪切板中。
+2. 在服务详情页的**服务信息** Tab 页中，查看“公网访问地址”，单击复制图标将地址复制到剪切板中。
 ![](https://main.qcloudimg.com/raw/5ea3316d9acaed82104cacb9ea2feaca.png)
 3. 将“公网访问地址”粘贴至浏览器的地址栏，单击回车键，即可访问部署好的网站。
 ![](https://main.qcloudimg.com/raw/ffffd8d4c16b080003a103473ae14b25.png)
