@@ -25,6 +25,3 @@ example.com {
 2. 在弹窗中设置 host 或域名，单击**确认**保存设置，保存后可以再次进行修改。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8f964ab7f19d3aa938a2f84e8d379938.png)
 
-
-
-   
