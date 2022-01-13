@@ -15,7 +15,7 @@
    ![](https://qcloudimg.tencent-cloud.cn/raw/f35af2e585b2542a647dadcdef158a46.png)        
 2. API 发布后，创建一个条件路由插件。
    1. 控制台左侧导航栏**插件** > **系统插件**。
-   2. 点击**新建**，类型选择**条件路由**。
+   2. 单击**新建**，类型选择**条件路由**。
       <img src="https://qcloudimg.tencent-cloud.cn/raw/2291584bab61ecc63b2e1dec59879783.png" width="450px">                         
    3. 创建条件路由策略：下面举例中的条件路由语义是，请求 Header 中 UserName 的值是 admin 的时候，就转发到 TKE 通道upstream-1ca1d6yi。
       ![](https://qcloudimg.tencent-cloud.cn/raw/2dfe8aa99b540e172305f4d4d6d0cb3e.png)        

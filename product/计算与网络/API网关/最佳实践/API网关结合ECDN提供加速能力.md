@@ -29,7 +29,7 @@
                 
 3. 修改源站 Host。
 ![](https://qcloudimg.tencent-cloud.cn/raw/085b738d32e6b5b9db4d1aabd0b0aebb.png)                         
-在 ECDN 控制台域名列表里，选择刚刚配置好的域名，点击进入详情页。
+在 ECDN 控制台域名列表里，选择刚刚配置好的域名，单击进入详情页。
 修改回源配置中的源站 Host 为第一步中生成的默认公网域名。
 
 4. 配置 cname。
