@@ -7,7 +7,7 @@
 >- 直连接入的自建数据库实例不支持慢日志分析。
 
 ## 操作步骤
-1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/slow-sql)，在左侧导航选择【诊断优化】，在上方选择对应数据库，然后选择【慢 SQL 分析】页。
+1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/slow-sql)，在左侧导航选择**诊断优化**，在上方选择对应数据库，然后选择**慢 SQL 分析**页。
 >?“SQL 统计”栏展示实例的慢查询数和 CPU 使用率，可调整时间范围查看任意时间段的慢 SQL 视图。若实例中有慢 SQL，视图中会显示慢 SQL 产生的时间点和个数。
 2. 单击（选择单一时间段）或拉选（选择多个时间段）“SQL 统计”图表的慢查询（柱形图），下方会显示聚合 SQL 模板以及执行信息（包括执行次数、总耗时执行时间、扫描行数、返回行数等），各列数据均支持正序或逆序排序。右侧的耗时分布中会展示所选时间段内的 SQL 总体耗时分布情况。
 ![](https://main.qcloudimg.com/raw/dfce7ffad362522c7002ec33628bf530.png)
