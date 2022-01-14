@@ -56,7 +56,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ### 手动集成
 
 1. 下载 [TEduBoard SDK](https://tic-res-1259648581.cos.ap-shanghai.myqcloud.com/sdk/macOS.zip)。
-2. 前往 [即时通讯官网](https://cloud.tencent.com/document/product/269/36887) 下载 IMSDK。互动白板默认使用 IMSDK 作为信令通道，如果您有独立的信令通道，请跳过此步。
+2. 前往 [即时通信 IM](https://cloud.tencent.com/document/product/269/36887) 下载 IMSDK。互动白板默认使用 IMSDK 作为信令通道，如果您有独立的信令通道，请跳过此步。
 3. 单击 Link Binary with Libraries 项展开，单击底下的“+”号图标去添加依赖库。
 ![](https://main.qcloudimg.com/raw/f2ce73bfbd06cb34c14147475142b539.jpg)
 
