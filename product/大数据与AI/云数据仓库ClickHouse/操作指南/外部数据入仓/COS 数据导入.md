@@ -7,7 +7,7 @@
 
 ## 操作步骤
 以下例子可以作为从 S3系统（本文以 COS 为例）将数据导入到云数据仓库 ClickHouse 的参考。
-1. 登陆云数据仓库 ClickHouse ，创建 S3表。
+1. 登录云数据仓库 ClickHouse ，创建 S3表。
 ```
 CREATE TABLE cos_engine_table
 (
@@ -19,7 +19,7 @@ ENGINE = S3('http://clickhouse-xxx.myqcloud.com/clickhouse-xxx/cos/data.csv.gz',
 S3 表引擎提供与 Amazon S3生态系统的集成。其参数格式为：S3(path, [aws_access_key_id, aws_secret_access_key,] format, [compression])。
 	- path — 带有文件路径的 Bucket url。在只读模式下支持以下通配符: *, ?, {abc,def} 和 {N..M} 其中 N, M 是数字, 'abc', 'def' 是字符串；
 	- format — 文件的格式。
-	- aws_access_key_id，aws_secret_access_key — COS对象存储账号的长期凭证。你可以使用凭证来对你的请求进行认证，参数是可选的。如果没有指定凭据，将从配置文件中读取凭据。更多信息参见 使用 S3 来存储数据。
+	- aws_access_key_id，aws_secret_access_key — COS对象存储账号的长期凭证。您可以使用凭证来对您的请求进行认证，参数是可选的。如果没有指定凭据，将从配置文件中读取凭据。更多信息参见 使用 S3 来存储数据。
 	- compression — 压缩类型。支持的值： none， gzip/gz， brotli/br， xz/LZMA， zstd/zst。 参数是可选的， 默认情况下，通过文件扩展名自动检测压缩类型。
 
 2. 创建目标表。
