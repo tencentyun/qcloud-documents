@@ -16,7 +16,7 @@ __介绍__
 
 连麦直播间（MLVBLiveRoom）是一个开源的 Class，依赖两个腾讯云的闭源 SDK：
 
-- LiteAVSDK：使用了其中的 V2TXLivePusher 和 [V2TXLivePlayer](https://cloud.tencent.com/document/product/454/56044) 两个组件，前者用于推流，后者用于拉流。
+- LiteAVSDK：使用了其中的 XLivePusher 和 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34762) 两个组件，前者用于推流，后者用于拉流。
 - IM SDK：使用 IM SDK 的 AVChatroom 用于实现直播聊天室的功能，同时，主播间的连麦流程也是依靠 IM 消息串联起来的。
 
 
