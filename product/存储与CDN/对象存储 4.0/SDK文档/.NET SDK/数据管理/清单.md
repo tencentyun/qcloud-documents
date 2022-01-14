@@ -30,7 +30,10 @@ try
   PutBucketInventoryRequest putRequest = new PutBucketInventoryRequest(bucket, inventoryId);
   putRequest.SetDestination("CSV", "100000000001", "examplebucket-1250000000", "ap-guangzhou","list1");
   putRequest.IsEnable(true);
+  // 清单任务周期，枚举值：Daily、Weekly
   putRequest.SetScheduleFrequency("Daily");
+  // 是否在清单中包含对象版本，枚举值：All、Current
+  putRequest.SetIncludedObjectVersions("All");
   //执行请求
   PutBucketInventoryResult putResult = cosXml.PutBucketInventory(putRequest); 
   

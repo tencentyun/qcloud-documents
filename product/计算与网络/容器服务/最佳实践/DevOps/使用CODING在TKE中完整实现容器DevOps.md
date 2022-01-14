@@ -103,7 +103,7 @@ kubectl  create secret docker-registry coding --docker-server=coding的registry�
 
 1. 登录 Coding DevOps ，选择左侧导航中的 **[项目](https://tencent-test.coding.net/user/projects)**，进入项目管理页。
 2. 在“项目管理页”中，单击需要创建制品库的项目名称，进入该项目详情页。
-3. 在左侧导航栏中选择**持续集成** > **构建计划** > **创建构建计划**，进入**选择构建计划模版**页面。如下图所示：
+3. 在左侧导航栏中选择**持续集成** > **构建计划** > **创建构建计划**，进入**选择构建计划模板**页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/82dd4540bab7095f50c4eb78805899d2.png)
 4. 根据实际情况选择构建计划模板，并确认模板默认设置信息，单击**确认**即可完成。
 本文以选择 Golang+Gin+Docker 模板为例，进行 go 项目演示。以下视频将为您介绍具体的操作步骤：

@@ -6,8 +6,12 @@
 <dx-tabs>
 ::: 使用控制台获取
 1. 登录 [云服务器控制台]( https://console.cloud.tencent.com/cvm/)。
-2. 在实例的管理页面，选择您需要查看内网 IP 的实例，将鼠标移动到 “主IP地址” 列，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin: -3px 0px;"> 即可复制内网 IP。如下图所示：
+2. 在实例管理页面中，根据实际使用的视图模式进行操作：
+   - **列表视图**：选择您需要查看内网 IP 的实例，将鼠标移动到 “主IP地址” 列，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin: -3px 0px;"> 即可复制内网 IP。如下图所示：
 ![](https://main.qcloudimg.com/raw/b25c842ea6c3e14c391a786ad0e336ac.png)
+ - **页签视图**：在实例页面中，单击 “IP地址”中内网地址后的 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin: -3px 0px;"> 即可复制内网 IP。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/419782c0324e74e7f215f5c6bdef1089.png)
+
 :::
 ::: 使用\sAPI\s获取
 请参考 [DescribeInstances 接口](https://cloud.tencent.com/document/product/213/15728)。

@@ -59,7 +59,7 @@
 >- 不指定 PersistentVolume。详情请参见 [查看 PV 和 PVC 的绑定规则](https://cloud.tencent.com/document/product/457/47014)。
 > 
    - **云盘类型**：根据所选的 StorageClass 展示所选的云盘类型为**高性能云硬盘**、**SSD云硬盘**和**增强型SSD云硬盘**。
-   - **容量**：在不指定 PersistentVolume 时，需提供期望的云硬盘容量。
+   - **容量**：在不指定 PersistentVolume 时，需提供期望的云硬盘容量（云硬盘大小必须为10的倍数。高性能云硬盘最小为10GB；SSD 和增强型 SSD 云硬盘最小为20GB）。
    - **费用**：根据上述参数计算创建对应云盘的所需费用，详情参考 [计费模式](https://cloud.tencent.com/document/product/362/32361)。
 4. 单击**创建PersistentVolumeClaim**，即可完成创建。
 

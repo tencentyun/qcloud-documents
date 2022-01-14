@@ -364,7 +364,17 @@ TRTC 专门针对在线直播场景推出了10万人低延时互动直播解决�
 ### TRTC 是否支持私有化部署？
 TRTC 私有化部署暂未完全开放。若您需咨询或使用私有化服务，请填写 [私有化问卷](https://cloud.tencent.com/apply/p/1a2ofbzgo1w)。我们会在2个 - 3个工作日内完成评估并反馈结果。
 
-
-
-
+[](id:que73)
+### TRTC SDK 是否支持断线重连?
+SDK 支持用户断线情况下的无限重连机制，连接过程中具体的连接状态和处理逻辑如下说明。
+下图展示了从用户 Userid1 加入频道，到连接中断，再到重新加入房间过程中，收到的监听回调事件：
+![](https://qcloudimg.tencent-cloud.cn/raw/6fa1c30fbdef1ba8d40dba183a5f6d74.png)
+**具体说明**：
+- T1：用户侧发起调用 `enterRoom` 接口发起进房请求。
+- T2：收到 `onEnterRoom` 回调。
+- T3：客户端因网络问题断网，SDK 会尝试重新加入房间。
+- T4：如果联系8秒没有连接上服务端，收到 `onConnectionLost` 断连回调。
+- T5：接着隔3秒没有连接上服务端，收到 `onTryToReconnect` 重试回调。
+- T6：接着每隔24秒，收到 `onTryToReconnect` 重试回调。
+- T7：断连期间任意时刻重连成功，收到 `onConnectionRecovery` 恢复回调。
 

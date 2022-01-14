@@ -1,6 +1,12 @@
-## TWebLive 简介
+**TWebLive SDK 即日起不再迭代。** 如需实现 Web 端推拉流场景，建议您使用带 UI 的 Web 端互动直播推拉流组件 [TUIPusher & TUIPlayer](https://cloud.tencent.com/document/product/647/63830)。
+不同于 TWebLive 提供集成 SDK 的方式，TUIPusher & TUIPlayer 具有以下特点：
+- 直接接入腾讯云即时通信 IM，腾讯云实时音视频 TRTC 以及腾讯云超级播放器 TCPlayer 等基础 SDK，可灵活扩展业务功能。
+- 提供带 UI 的组件源码，开箱即用，助力业务快速上线。
 
-TWebLive 即腾讯云 Web 直播互动组件，是腾讯云终端研发团队推出的一个新的 SDK，集成了 腾讯云实时音视频 TRTC、腾讯云即时通信 IM 以及腾讯云超级播放器 TCPlayer，覆盖了 Web 直播互动场景常见的功能（如推流、开/关麦、开/关摄像头、微信分享观看、聊天点赞等），并封装了简单易用的 [API](https://web.sdk.qcloud.com/component/tweblive/doc/zh-cn/TWebLive.html)，接入后可快速实现 Web 端推流、拉流以及实时聊天互动功能。您可以进入 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 来体验。
+> ?**TUIPusher & TUIPlayer** 与 **TWebLive** 在设计方案和代码逻辑上互不兼容，如果您已经接入 TWebLive SDK，使用 TUIPusher & TUIPlayer 需要重新接入。
+
+## TWebLive 简介
+TWebLive 即腾讯云 Web 直播互动组件，是腾讯云终端研发团队推出的 Web 端直播场景 SDK，集成了 腾讯云实时音视频 TRTC、腾讯云即时通信 IM 以及腾讯云超级播放器 TCPlayer，覆盖了 Web 直播互动场景常见的功能（如推流、开/关麦、开/关摄像头、微信分享观看、聊天点赞等），并封装了简单易用的 [API](https://web.sdk.qcloud.com/component/tweblive/doc/zh-cn/TWebLive.html)，接入后可快速实现 Web 端推流、拉流以及实时聊天互动功能。您可以进入 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 来体验。
 
 ![](https://web.sdk.qcloud.com/component/tweblive/assets/doc/demo-official-website.gif)
 
@@ -138,7 +144,6 @@ im.enterRoom('your roomID').then((imResponse) => {
 #### 步骤1：创建实时音视频 TRTC 应用
 在 [实时音视频 TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，单击左侧导航栏 **应用管理>创建应用**，输入您的应用名称，单击 **确定** 即可创建一个实时音视频应用。创建完毕后，请保存 SDKAPPID。
 ![](https://main.qcloudimg.com/raw/34f87b8c0a817d8d3e49baac5b82a1fa.png)
-
 >?与此同时会自动创建一个 SDKAppID 相同的即时通信 IM 应用。
 
 #### 步骤2：开启自动旁路推流
@@ -150,11 +155,9 @@ im.enterRoom('your roomID').then((imResponse) => {
 3. 单击 **快速上手**，可查看密钥信息，请保存密钥。[](id:step2)
 ![](https://main.qcloudimg.com/raw/fb699d54006563b8e63a13d54804b19d.png)
 4. 在 [腾讯云直播控制台](https://console.cloud.tencent.com/live/) 配置播放域名并完成 CNAME 配置，详细操作指引请参见 [实现 CDN 直播观看](https://cloud.tencent.com/document/product/647/16826) 文档。
-
 >?如果不需要 CDN 直播观看，可略过配置播放域名步骤。
 
 #### 步骤3：下载并配置 Demo
-
 1. 请下载 [腾讯云 TWebLive 直播互动组件 Demo 工程](https://github.com/tencentyun/TWebLive)。
 2. 打开 `TWebLive/dist/debug/GenerateTestUserSig.js` 文件，并设置相关参数：
  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
@@ -189,8 +192,8 @@ Vue.prototype.TWebLive = TWebLive
 >- 目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 >- TWebLive 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击 **允许** 即可。
 >  ![](https://main.qcloudimg.com/raw/7eb28d195649d6c0027026eaa02fdedd.png)
-:::
-::: 方式2：基于即时通信\sIM
+ :::
+ ::: 方式2：基于即时通信\sIM
 #### 步骤1：创建即时通信 IM 应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击 **创建新应用** 将弹出对话框。
    ![](https://main.qcloudimg.com/raw/c8d1dc415801404e30e49ddd4e0c0c13.png)
@@ -240,8 +243,8 @@ Vue.prototype.TWebLive = TWebLive
 >- 目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 >- TWebLive 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击 **允许** 即可。
 >  ![](https://main.qcloudimg.com/raw/7eb28d195649d6c0027026eaa02fdedd.png)
-:::
-</dx-tabs>
+ :::
+ </dx-tabs>
 
 ## 架构与平台支持
 
@@ -328,4 +331,4 @@ iOS 自动播放受限，请参见 [自动播放受限处理建议](https://web.
 ## 相关文档
 
 [折扣活动](https://cloud.tencent.com/document/product/269/46181)
- 
+

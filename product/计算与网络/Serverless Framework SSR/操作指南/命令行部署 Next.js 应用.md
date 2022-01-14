@@ -20,7 +20,7 @@ $ npm install -g serverless
 
 ### 2. 配置
 
-本地初始化 next.js 的模版项目（可跳过，您也可以使用您已有的 next.js 项目）
+本地初始化 next.js 的模板项目（可跳过，您也可以使用您已有的 next.js 项目）
 ```
 sls init nextjs-demo
 ```

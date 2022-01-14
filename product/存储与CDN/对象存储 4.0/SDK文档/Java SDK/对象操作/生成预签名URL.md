@@ -34,7 +34,7 @@ COSClient createCOSClient() {
 
     // 设置 bucket 的地域
     // COS_REGION 请参照 https://cloud.tencent.com/document/product/436/6224
-    clientConfig.setRegion = new Region("COS_REGION");
+    clientConfig.setRegion(new Region("COS_REGION"));
 
     // 设置请求协议, http 或者 https
     // 5.6.53 及更低的版本，建议设置使用 https 协议
@@ -50,7 +50,7 @@ COSClient createCOSClient() {
 
     // 如果需要的话，设置 http 代理，ip 以及 port
     clientConfig.setHttpProxyIp("httpProxyIp");
-    clientConfig.setHttpProxyPort("httpProxyPort");
+    clientConfig.setHttpProxyPort(80);
 
     // 生成 cos 客户端。
     return new COSClient(cred, clientConfig);
@@ -79,7 +79,7 @@ COSClient createCOSClient() {
 
     // 设置 bucket 的地域
     // COS_REGION 请参照 https://cloud.tencent.com/document/product/436/6224
-    clientConfig.setRegion = new Region("COS_REGION");
+    clientConfig.setRegion(new Region("COS_REGION"));
 
     // 设置请求协议, http 或者 https
     // 5.6.53 及更低的版本，建议设置使用 https 协议
@@ -95,7 +95,7 @@ COSClient createCOSClient() {
 
     // 如果需要的话，设置 http 代理，ip 以及 port
     clientConfig.setHttpProxyIp("httpProxyIp");
-    clientConfig.setHttpProxyPort("httpProxyPort");
+    clientConfig.setHttpProxyPort(80);
 
     // 生成 cos 客户端。
     return new COSClient(cred, clientConfig);
@@ -238,7 +238,7 @@ Request 成员说明：
 
 ### 生成签名
 
-构造 COS 请求的签名。推荐谁用临时密钥来生成签名。
+构造 COS 请求的签名。推荐使用临时密钥来生成签名。
 
 #### 使用临时密钥（推荐）
 

@@ -74,7 +74,7 @@ CMD ["sh", "-ec", "exec java -Xloggc:/data/tsf_apm/monitor/jvm-metrics/gclog.log
 
 **3. 使用文件配置**
 
-如果您希望使用 TSF [文件配置](https://cloud.tencent.com/document/product/649/30825) 功能，则需要在 Dockerfile 中增加文件配置组件 `tsf-consul-template-docker.tar.gz`（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE/tsf-consul-template-docker.tar.gz)），然后在 CMD 启动命令中启动该组件。
+如果您希望使用 TSF [文件配置](https://cloud.tencent.com/document/product/649/30825) 功能，则需要在 Dockerfile 中增加文件配置组件 `tsf-consul-template-docker.tar.gz`（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE/tsf-consul-template-docker.zip)），然后在 CMD 启动命令中启动该组件。
 
 ```dockerfile
 FROM centos:7

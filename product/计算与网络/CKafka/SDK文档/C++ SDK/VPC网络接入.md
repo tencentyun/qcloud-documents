@@ -9,12 +9,12 @@
 
 ## 操作步骤
 
-### 步骤一：安装 C/C++ 依赖库
+### 步骤1：安装 C/C++ 依赖库
 
 1. 将下载的 Demo 中的 cppkafkademo 上传至 Linux 服务器。
 2. 登录 Linux 服务器，安装 [librdkafka](https://github.com/edenhill/librdkafka#installation)。
 
-### 步骤二：发送消息
+### 步骤2：发送消息
 
 1. 创建 producer.c 文件。
 
@@ -346,7 +346,7 @@ gcc -lrdkafka ./producer.c -o producer
 
 
 
-### 步骤三：消费消息
+### 步骤3：消费消息
 
 1. 创建 consumer.c 文件。
 

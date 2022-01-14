@@ -11,7 +11,7 @@
 
 ## 操作步骤
 
-### 步骤一：安装 C++ 依赖库
+### 步骤1：安装 C++ 依赖库
 
 1. 执行以下命令切换到 yum 源配置目录 `/etc/yum.repos.d/`。
 
@@ -42,7 +42,7 @@
    yum install librdkafka-devel
    ```
 
-### 步骤二：安装 Node.js 依赖库
+### 步骤2：安装 Node.js 依赖库
 
 1. 执行以下命令为预处理器指定 OpenSSL 头文件路径。
 
@@ -62,7 +62,7 @@
    npm install i --unsafe-perm node-rdkafka
    ```
 
-### 步骤三：准备配置
+### 步骤3：准备配置
 
 创建消息队列 CKafka 配置文件 setting.js。
 
@@ -85,7 +85,7 @@ module.exports = {
 | topic_name          | Topic名称，在 CKafka 控制台实例详情页面的**topic管理**创建和获取。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png)  |
 | group_id            | 消费者的组 ID，根据业务需求自定义                            |
 
-### 步骤四：发送消息
+### 步骤4：发送消息
 
 1. 编写生产消息程序 producer.js
    <dx-codeblock>
@@ -170,7 +170,7 @@ module.exports = {
 4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)**topic管理**页面，选择对应的 Topic，单击**更多** > **消息查询**，查看刚发送的消息。
    ![](https://main.qcloudimg.com/raw/e20a0809942f90e0efd5fd1f217574b0.png)
 
-### 步骤五：订阅消息
+### 步骤5：订阅消息
 
 1. 创建消费消息程序consumer.js。
    <dx-codeblock>

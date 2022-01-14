@@ -11,11 +11,12 @@
 
 ## 操作步骤
 
-### 步骤一：添加 Rdkafka 扩展
+### 步骤1：添加 Rdkafka 扩展
 
 1. 在 [rdkafka 官方页面](http://pecl.php.net/package/rdkafka) 查找最新的 rdkafka php 扩展包版本。
-   >?不同版本的包对 PHP 版本要求不同，这里仅以 4.1.2 为示例。
-
+<dx-alert infotype="explain" title="">
+不同版本的包对 PHP 版本要求不同，这里仅以 4.1.2 为示例。
+</dx-alert>
 2. 登录 Linux 服务器，安装 rdkafka 扩展。
 
    ```bash
@@ -30,7 +31,7 @@
 
 
 
-### 步骤二：准备配置
+### 步骤2：准备配置
 
 1. 将下载的 Demo 中的 phpkafkademo 上传至 Linux 服务器。
 2. 登录 Linux 服务器，进入 phpkafkademo 目录，修改 CKafkaSetting.php 配置文件。
@@ -51,7 +52,7 @@ return [
 
 
 
-### 步骤三：发送消息
+### 步骤3：发送消息
 
 1. 编写生产消息程序 Producer.php。
 
@@ -150,7 +151,7 @@ php Producer.php
 
 
 
-### 步骤四：消费消息
+### 步骤4：消费消息
 
 1. 编写消息订阅消费程序 Consumer.php。
 

@@ -1,5 +1,6 @@
-为满足您的业务需求，腾讯云提供 Edge-100、Edge-100-5G 和 Edge-1000 两种 Edge 设备。本文将介绍如何安装 Edge 设备。
->?Edge-100-5G 目前处于 POC 测试阶段，如需体验请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
+为满足您的业务需求，腾讯云提供 Edge-100、Edge-100-5G 和 Edge-1000 三种 Edge 设备。本文将介绍如何安装 Edge 设备。
+>?Edge-1000 目前 POC 测试中，如需体验，请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
+>
 
 
 ## 背景信息
@@ -45,7 +46,7 @@
 
 ## 后续操作
 - [创建Edge实例](https://cloud.tencent.com/document/product/1277/47255)
-- [购买带宽]()
+- [购买带宽](https://cloud.tencent.com/document/product/1277/66362)
 - [新建静态路由](https://cloud.tencent.com/document/product/1277/47273)
 - [配置防火墙](https://cloud.tencent.com/document/product/1277/47266)
 - [关联云联网](https://cloud.tencent.com/document/product/1277/47262)

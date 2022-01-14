@@ -63,7 +63,7 @@ Kafka 0.9.x 版本引入了 New Consumer，其融合了 Old Consumer（0.8版本
 
 #### 0.8版本 Consumer API 
 
-- **High Level Consumer API**（[参考 Demo](https://cwiki.apache.org/confluence/display/KAFKA/Consumer+Group+Example)）
+- **High Level Consumer API**（[参见 Demo](https://cwiki.apache.org/confluence/display/KAFKA/Consumer+Group+Example)）
   如果您只需要数据而不考虑消息 offset 相关的处理时，High Level API 可以满足一般性消费要求。High Level Consumer API 围绕着 Consumer Group 逻辑概念展开，屏蔽 Offset 管理、具有 Broker 异常处理、Consumer 负载均衡功能。使开发者可以快速上手 Consumer 客户端。
   在使用 High Level Consumer 时需要注意以下几点：
  - 如果消费线程大于 Partition 个数，某些消费线程将无法获得数据。
@@ -71,7 +71,7 @@ Kafka 0.9.x 版本引入了 New Consumer，其融合了 Old Consumer（0.8版本
  - Partition 和消费者变动会影响 Rebalance。
 
 
-- **Low Level Consumer API**（[参考 Demo](https://cwiki.apache.org/confluence/display/KAFKA/0.8.0+SimpleConsumer+Example)）
+- **Low Level Consumer API**（[参见 Demo](https://cwiki.apache.org/confluence/display/KAFKA/0.8.0+SimpleConsumer+Example)）
   如果使用者关心消息的 offset 并且希望进行重复消费或者跳读等功能、又或者希望指定某些 partition 进行消费时和确保更多消费语义时推荐使用 Low Level Consumer API。但是使用者需要自己处理 Offset 以及 Broker 的异常情况。
   在使用 Low Level Consumer 时需要注意以下几点：
  - 自行跟踪维护 Offset，控制消费进度。

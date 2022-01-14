@@ -1,3 +1,6 @@
+>!因产品策略调整，游戏联机对战引擎后续将与云开发 CloudBase 整合为新产品形态，现将该产品保持维护状态，不再接收新用户使用申请，老用户仍可正常使用。
+
+
 ActionArgs 是一个模板类型，其 TypeScript 定义如下：
 ```
 export interface ActionArgs<T> {

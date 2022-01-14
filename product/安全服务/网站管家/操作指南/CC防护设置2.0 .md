@@ -93,5 +93,3 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://main.qcloudimg.com/raw/0ad87b36576f38b14d60a826058a3aa1.png)7. 配置完成，基于 SESSION 的 CC 防护策略生效。
 >!使用基于 SESSION 的 CC 防护机制，无法在 IP 封堵状态中查看封堵信息。
 
-[上一步：DNS 劫持检测](/document/product/627/11708)
-[下一步：网页防篡改](/document/product/627/11710)

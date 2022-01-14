@@ -58,7 +58,7 @@
 <th style="font-weight:700;" rowspan=5>更简单的使用体验</th>
 <th style="font-weight:700;">管理控制台</th>
 <td>一站式整合，独立且简化的控制台</td>
-<td>面向全业务，涉及 CVM、VPC、EIP 及安全组等细节较多的控制台</td>
+<td>面向全业务，涉及 CVM、VPC、EIP 及安全组等细节较多</td>
 </tr>
 <tr>
 <th style="font-weight:700;">应用构建</th>

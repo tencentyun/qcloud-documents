@@ -40,7 +40,8 @@ TransferConfig transferConfig = new TransferConfig.Builder().build();
 TransferManager transferManager = new TransferManager(cosXmlService,
         transferConfig);
 
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 String srcPath = new File(context.getCacheDir(), "exampleobject")
         .toString(); //本地文件的绝对路径
@@ -62,14 +63,16 @@ cosxmlUploadTask.setCosXmlProgressListener(new CosXmlProgressListener() {
 cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
     @Override
     public void onSuccess(CosXmlRequest request, CosXmlResult result) {
-        COSXMLUploadTask.COSXMLUploadTaskResult cOSXMLUploadTaskResult =
+        COSXMLUploadTask.COSXMLUploadTaskResult uploadResult =
                 (COSXMLUploadTask.COSXMLUploadTaskResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest request,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -98,7 +101,8 @@ TransferConfig transferConfig = new TransferConfig.Builder().build();
 TransferManager transferManager = new TransferManager(cosXmlService,
         transferConfig);
 
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 
 // 上传字节数组
@@ -110,14 +114,16 @@ COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath,
 cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
     @Override
     public void onSuccess(CosXmlRequest request, CosXmlResult result) {
-        COSXMLUploadTask.COSXMLUploadTaskResult cOSXMLUploadTaskResult =
+        COSXMLUploadTask.COSXMLUploadTaskResult uploadResult =
                 (COSXMLUploadTask.COSXMLUploadTaskResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest request,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -139,7 +145,8 @@ TransferConfig transferConfig = new TransferConfig.Builder().build();
 TransferManager transferManager = new TransferManager(cosXmlService,
         transferConfig);
 
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 
 // 流式上传
@@ -153,14 +160,16 @@ COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath,
 cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
     @Override
     public void onSuccess(CosXmlRequest request, CosXmlResult result) {
-        COSXMLUploadTask.COSXMLUploadTaskResult cOSXMLUploadTaskResult =
+        COSXMLUploadTask.COSXMLUploadTaskResult uploadResult =
                 (COSXMLUploadTask.COSXMLUploadTaskResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest request,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -182,7 +191,8 @@ TransferConfig transferConfig = new TransferConfig.Builder().build();
 TransferManager transferManager = new TransferManager(cosXmlService,
         transferConfig);
 
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 
 // 文件的 Uri
@@ -196,14 +206,16 @@ COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath,
 cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
     @Override
     public void onSuccess(CosXmlRequest request, CosXmlResult result) {
-        COSXMLUploadTask.COSXMLUploadTaskResult cOSXMLUploadTaskResult =
+        COSXMLUploadTask.COSXMLUploadTaskResult uploadResult =
                 (COSXMLUploadTask.COSXMLUploadTaskResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest request,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -229,8 +241,8 @@ TransferConfig transferConfig = new TransferConfig.Builder()
 TransferManager transferManager = new TransferManager(cosXmlService,
         transferConfig);
 ```
->?
->- 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferUploadObject.java) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferUploadObject.java) 查看。
+>
 
 #### 示例代码六: 上传暂停、继续与取消
 
@@ -259,8 +271,8 @@ if (pauseSuccess) {
 cosxmlUploadTask.cancel();
 ```
 
->?
->- 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferUploadObject.java) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferUploadObject.java) 查看。
+>
 
 #### 示例代码七: 批量上传
 
@@ -282,14 +294,16 @@ for (File file : files) {
     cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
         @Override
         public void onSuccess(CosXmlRequest request, CosXmlResult result) {
-            COSXMLUploadTask.COSXMLUploadTaskResult cOSXMLUploadTaskResult =
+            COSXMLUploadTask.COSXMLUploadTaskResult uploadResult =
                     (COSXMLUploadTask.COSXMLUploadTaskResult) result;
         }
 
-        @Override
-        public void onFail(CosXmlRequest request,
-                           CosXmlClientException clientException,
-                           CosXmlServiceException serviceException) {
+        // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
+    @Override
+    public void onFail(CosXmlRequest request,
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
             if (clientException != null) {
                 clientException.printStackTrace();
             } else {
@@ -300,14 +314,15 @@ for (File file : files) {
 }
 ```
 
->?
->- 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferUploadObject.java) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferUploadObject.java) 查看。
+>
 
 #### 示例代码八：创建目录
 
 [//]: # (.cssg-snippet-create-directory)
 ```java
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 // 文件夹在存储桶中的位置标识符，即称对象键，必须以 '/' 结尾
 String cosPath = "exampleobject/";
 PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, new byte[0]);
@@ -318,10 +333,12 @@ cosXmlService.putObjectAsync(putObjectRequest, new CosXmlResultListener() {
                 (PutObjectResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest request,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -338,7 +355,8 @@ cosXmlService.putObjectAsync(putObjectRequest, new CosXmlResultListener() {
 
 [//]: # (.cssg-snippet-transfer-upload-priority-low)
 ```java
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 // 文件夹在存储桶中的位置标识符，即称对象键，必须以 '/' 结尾
 String cosPath = "exampleobject/";
 String srcPath = new File(context.getCacheDir(), "exampleobject")
@@ -355,8 +373,8 @@ uploadTask.setCosXmlResultListener(new CosXmlResultListener() {
     public void onFail(CosXmlRequest request, CosXmlClientException clientException, CosXmlServiceException serviceException) {}
 });
 ```
->?
->- 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferUploadObject.java) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferUploadObject.java) 查看。
+>
 
 
 
@@ -369,14 +387,16 @@ uploadTask.setCosXmlResultListener(new CosXmlResultListener() {
 PUT Object 接口可以上传一个对象至指定存储桶中，该操作需要请求者对存储桶有 WRITE 权限。最大支持上传不超过5GB的对象，5GB以上对象请使用 [分块上传](#.E5.88.86.E5.9D.97.E6.93.8D.E4.BD.9C) 或 [高级接口](#.E9.AB.98.E7.BA.A7.E6.8E.A5.E5.8F.A3.EF.BC.88.E6.8E.A8.E8.8D.90.EF.BC.89) 上传。
 
 > !
-> 1. Key（文件名）不能以`/`结尾，否则会被识别为文件夹。
-> 2. 每个主账号（即同一个 APPID），存储桶的 ACL 规则数量最多为1000条，对象 ACL 规则数量不限制。如果您不需要进行对象 ACL 控制，请在上传时不要设置，默认继承存储桶权限。
+> - Key（文件名）不能以`/`结尾，否则会被识别为文件夹。
+> - 每个主账号（即同一个 APPID），存储桶的 ACL 规则数量最多为1000条，对象 ACL 规则数量不限制。如果您不需要进行对象 ACL 控制，请在上传时不要设置，默认继承存储桶权限。
+> 
 
 #### 示例代码
 
 [//]: # (.cssg-snippet-put-object)
 ```java
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象位于存储桶中的位置标识符，即对象键。
 String srcPath = new File(context.getCacheDir(), "exampleobject")
         .toString();//"本地文件的绝对路径";
@@ -395,10 +415,12 @@ cosXmlService.putObjectAsync(putObjectRequest, new CosXmlResultListener() {
         PutObjectResult putObjectResult = (PutObjectResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest cosXmlRequest,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -442,10 +464,12 @@ cosXmlService.postObjectAsync(postObjectRequest, new CosXmlResultListener() {
         PutObjectResult putObjectResult = (PutObjectResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest cosXmlRequest,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -455,7 +479,8 @@ cosXmlService.postObjectAsync(postObjectRequest, new CosXmlResultListener() {
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/PostObject.java) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/PostObject.java) 查看。
+>
 
 
 ## 分块操作
@@ -490,7 +515,8 @@ cosXmlService.postObjectAsync(postObjectRequest, new CosXmlResultListener() {
 
 [//]: # (.cssg-snippet-list-multi-upload)
 ```java
-String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 ListMultiUploadsRequest listMultiUploadsRequest =
         new ListMultiUploadsRequest(bucket);
 cosXmlService.listMultiUploadsAsync(listMultiUploadsRequest,
@@ -501,10 +527,12 @@ cosXmlService.listMultiUploadsAsync(listMultiUploadsRequest,
                 (ListMultiUploadsResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest cosXmlRequest,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -514,7 +542,8 @@ cosXmlService.listMultiUploadsAsync(listMultiUploadsRequest,
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/MultiPartsUploadObject.java) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/MultiPartsUploadObject.java) 查看。
+>
 
 ### 初始化分块上传
 
@@ -526,7 +555,8 @@ cosXmlService.listMultiUploadsAsync(listMultiUploadsRequest,
 
 [//]: # (.cssg-snippet-init-multi-upload)
 ```java
-String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。
 
 InitMultipartUploadRequest initMultipartUploadRequest =
@@ -540,10 +570,12 @@ cosXmlService.initMultipartUploadAsync(initMultipartUploadRequest,
                 .initMultipartUpload.uploadId;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest cosXmlRequest,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -553,7 +585,8 @@ cosXmlService.initMultipartUploadAsync(initMultipartUploadRequest,
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/MultiPartsUploadObject.java) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/MultiPartsUploadObject.java) 查看。
+>
 
 ### 上传分块
 
@@ -563,7 +596,8 @@ cosXmlService.initMultipartUploadAsync(initMultipartUploadRequest,
 
 [//]: # (.cssg-snippet-upload-part)
 ```java
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键
 UploadPartRequest uploadPartRequest = new UploadPartRequest(bucket, cosPath,
         partNumber, srcFile.getPath(), offset, PART_SIZE, uploadId);
@@ -582,10 +616,12 @@ cosXmlService.uploadPartAsync(uploadPartRequest, new CosXmlResultListener() {
         eTags.put(partNumber, eTag);
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest cosXmlRequest,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -595,7 +631,8 @@ cosXmlService.uploadPartAsync(uploadPartRequest, new CosXmlResultListener() {
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/MultiPartsUploadObject.java) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/MultiPartsUploadObject.java) 查看。
+>
 
 
 
@@ -609,7 +646,8 @@ cosXmlService.uploadPartAsync(uploadPartRequest, new CosXmlResultListener() {
 
 [//]: # (.cssg-snippet-list-parts)
 ```java
-String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。
 
 ListPartsRequest listPartsRequest = new ListPartsRequest(bucket, cosPath,
@@ -620,10 +658,12 @@ cosXmlService.listPartsAsync(listPartsRequest, new CosXmlResultListener() {
         ListParts listParts = ((ListPartsResult) result).listParts;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest cosXmlRequest,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -633,7 +673,8 @@ cosXmlService.listPartsAsync(listPartsRequest, new CosXmlResultListener() {
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/MultiPartsUploadObject.java) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/MultiPartsUploadObject.java) 查看。
+>
 
 ### 完成分块上传
 
@@ -644,7 +685,8 @@ cosXmlService.listPartsAsync(listPartsRequest, new CosXmlResultListener() {
 #### 示例代码
 [//]: # (.cssg-snippet-complete-multi-upload)
 ```java
-String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。
 
 CompleteMultiUploadRequest completeMultiUploadRequest =
@@ -658,10 +700,12 @@ cosXmlService.completeMultiUploadAsync(completeMultiUploadRequest,
                 (CompleteMultiUploadResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest cosXmlRequest,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -671,7 +715,8 @@ cosXmlService.completeMultiUploadAsync(completeMultiUploadRequest,
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/MultiPartsUploadObject.java) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/MultiPartsUploadObject.java) 查看。
+>
 
 ### 终止分块上传
 
@@ -683,7 +728,8 @@ cosXmlService.completeMultiUploadAsync(completeMultiUploadRequest,
 
 [//]: # (.cssg-snippet-abort-multi-upload)
 ```java
-String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。
 
 AbortMultiUploadRequest abortMultiUploadRequest =
@@ -697,10 +743,12 @@ cosXmlService.abortMultiUploadAsync(abortMultiUploadRequest,
                 (AbortMultiUploadResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest cosXmlRequest,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -710,4 +758,5 @@ cosXmlService.abortMultiUploadAsync(abortMultiUploadRequest,
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/AbortMultiPartsUpload.java) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/AbortMultiPartsUpload.java) 查看。
+>

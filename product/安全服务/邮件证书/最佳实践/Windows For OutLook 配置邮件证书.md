@@ -20,7 +20,7 @@
 ![](https://main.qcloudimg.com/raw/077f862d101bab03bb91723780f1f700.png)
 3. 在“Outlook 选项”窗口的左侧导航中，单击**信任中心**，在“Microsoft Outlook 信任中心”模块，单击**信任中心设置**。
 <img src="https://main.qcloudimg.com/raw/2402e883dc9bc8bf19a25b5d62c2a10f.png" style="zoom:80%;" />
-4. 在“信任中心”窗口的左侧导航中，单击**电子邮件安全**，并在“数字标识（证书）模块”，单击**导入/导出** 。
+4. 在“信任中心”窗口的左侧导航中，单击**电子邮件安全性**，并在“数字标识（证书）模块”，单击**导入/导出** 。
 <img src="https://main.qcloudimg.com/raw/7278d60e65350675496ec11087364545.png" style="zoom:80%;" />
 5. 在“导入/导出数字标识”窗口中，勾选“从某文件导入现有的数字标识” ，然后单击**浏览...**，选取证书文件，单击**确定**。
 <img src="https://main.qcloudimg.com/raw/dc0317ac8538a41f8206eb7d74c5ae70.png" style="zoom:85%;" />
@@ -36,7 +36,7 @@
 ![](https://main.qcloudimg.com/raw/077f862d101bab03bb91723780f1f700.png)
 3. 在“Outlook 选项”窗口的左侧导航中，单击**信任中心**，在“Microsoft Outlook 信任中心”模块，单击**信任中心设置**。
 <img src="https://main.qcloudimg.com/raw/2402e883dc9bc8bf19a25b5d62c2a10f.png" style="zoom:80%;" />
-4. 在“信任中心”窗口的左侧导航中，单击**电子邮件安全**，并在“加密电子邮件模块”，单击**设置**。
+4. 在“信任中心”窗口的左侧导航中，单击**电子邮件安全性**，并在“加密电子邮件模块”，单击**设置**。
 <img src="https://main.qcloudimg.com/raw/0df60ac7733954755ccffbdea0325daa.png" style="zoom:85%;" />
 5. 在“更改安全设置”窗口中，选择“安全设置名称”并勾选“该安全邮件格式的默认加密设置”与“所有安全邮件的默认加密设置”。
 ![](https://main.qcloudimg.com/raw/736d6deb38c62ae3ee1e46681063f432.png)
@@ -49,13 +49,13 @@
 
 
 ### 步骤4：S/MIME 加密邮件配置
-如果需要发送加密邮件，电子邮件安全中默认配置需调整操作步骤如下：
+如果需要发送加密邮件，电子邮件安全性中默认配置需调整操作步骤如下：
 1. 打开 Outlook ，在主菜单中，单击**文件**。
 2. 在左侧导航中，单击**选项**。
 ![](https://main.qcloudimg.com/raw/077f862d101bab03bb91723780f1f700.png)
 3. 在“Outlook 选项”窗口的左侧导航中，单击**信任中心**，在“Microsoft Outlook 信任中心”模块，单击**信任中心设置**。
 <img src="https://main.qcloudimg.com/raw/2402e883dc9bc8bf19a25b5d62c2a10f.png" style="zoom:80%;" />
-4. 在“信任中心”窗口的左侧导航中，单击**电子邮件安全**，并在“加密电子邮件模块”，勾选“加密待发邮件的内容和附件”“给待发邮件添加数字签名”及“对所有 S/MIME 签名邮件要求 S/MIME 回执”。
+4. 在“信任中心”窗口的左侧导航中，单击**电子邮件安全性**，并在“加密电子邮件模块”，勾选“加密待发邮件的内容和附件”“给待发邮件添加数字签名”及“对所有 S/MIME 签名邮件要求 S/MIME 回执”。
 ![](https://main.qcloudimg.com/raw/9658b335b0d8314a11e74241e030704f.png)
 
 ### 步骤5：发送邮件

@@ -20,13 +20,13 @@ CREATE TABLE hive_table (
   `hr` STRING
 ) PARTITIONED BY (dt, hr)
 with (
-	'connector' = 'hive',  -- Flink 1.13 请使用 'connector' = 'hive'
-	'hive-version' = '3.1.1',
-	'hive-database' = 'testdb',
-	'partition.time-extractor.timestamp-pattern'='$dt $hr:00:00',
-	'sink.partition-commit.trigger'='partition-time',
-	'sink.partition-commit.delay'='1 h',
-	'sink.partition-commit.policy.kind'='metastore,success-file'
+    'connector' = 'hive',  -- Flink 1.13 请使用 'connector' = 'hive'
+    'hive-version' = '3.1.1',
+    'hive-database' = 'testdb',
+    'partition.time-extractor.timestamp-pattern'='$dt $hr:00:00',
+    'sink.partition-commit.trigger'='partition-time',
+    'sink.partition-commit.delay'='1 h',
+    'sink.partition-commit.policy.kind'='metastore,success-file'
 );
 ```
 
@@ -118,13 +118,13 @@ CREATE TABLE hive_table (
   `hr` STRING
 ) PARTITIONED BY (dt, hr)
 with (
-	'connector' = 'hive',  -- Flink 1.13 请使用 'connector' = 'hive'
-	'hive-version' = '3.1.1',
-	'hive-database' = 'testdb',
-	'partition.time-extractor.timestamp-pattern'='$dt $hr:00:00',
-	'sink.partition-commit.trigger'='partition-time',
-	'sink.partition-commit.delay'='1 h',
-	'sink.partition-commit.policy.kind'='metastore,success-file'
+    'connector' = 'hive',  -- Flink 1.13 请使用 'connector' = 'hive'
+    'hive-version' = '3.1.1',
+    'hive-database' = 'testdb',
+    'partition.time-extractor.timestamp-pattern'='$dt $hr:00:00',
+    'sink.partition-commit.trigger'='partition-time',
+    'sink.partition-commit.delay'='1 h',
+    'sink.partition-commit.policy.kind'='metastore,success-file'
 );
 
 -- streaming sql, insert into hive table
@@ -223,7 +223,7 @@ containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
 containerized.master.env.HADOOP_USER_NAME: hadoop
 security.kerberos.login.principal: hadoop/172.28.28.51@EMR-OQPO48B9
 security.kerberos.login.keytab: emr.keytab
-security.kerberos.login.conf: krb5.conf
+security.kerberos.login.conf: krb5.conf.path
 ```
 
 >! 历史 Oceanus 集群可能不支持该功能，您可通过 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_849) 联系我们升级集群管控服务，以支持 Kerberos 访问。

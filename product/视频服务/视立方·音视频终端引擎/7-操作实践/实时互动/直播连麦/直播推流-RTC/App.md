@@ -89,21 +89,16 @@
 
 [](id:step1)
 ### 步骤1：服务开通 
-RTC 连麦互动直播需要在开始接入前，先开通腾讯云 [**实时音视频**](https://cloud.tencent.com/document/product/647) 服务，具体步骤如下：
+1. 登录**云直播控制台**，选择 **连麦管理** > **[连麦应用](https://console.cloud.tencent.com/live/micro/appmanage)**。
+2. 单击  **新建连麦应用** ，输入应用名称，例如  `V2Demo` ，单击  **确定** 。
+3. 创建成功后，单击应用列表中 **应用名称** 为  `V2Demo`  这行右侧的 **管理** ，查看应用对应的 `SDKAppID` 和 `秘钥` 信息。
+![](https://qcloudimg.tencent-cloud.cn/raw/9c4fa13e11ac39c9c5b5092d49ea4713.png)
+4. 若您的播放端需要进行 CDN 播放，则需要在 **连麦管理** > **[连麦应用](https://console.cloud.tencent.com/live/micro/appmanage)** 中选择 `V2Demo` 行右侧的 **管理**，选择 **CDN 观看配置** 页，开启 **旁路推流** 功能。
+![](https://qcloudimg.tencent-cloud.cn/raw/c1b6acb80cc162e9e8cdb4c79546eefb.png)
 
-1. 您需要 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
-2. 登录实时音视频控制台，选择 **[应用管理](https://console.cloud.tencent.com/trtc/app)**。
-3.  单击 **创建应用**，输入应用名称，例如 `V2Demo`，单击 **确定**。
-![](https://main.qcloudimg.com/raw/3d1853c6540a47f1b02de37dccf01f74.png)
-4. 创建成功后，单击右侧 **应用信息**，查看应用对应的 `SDKAppID` 信息。
-5. 单击 **快速上手**，加载完成后，记录出现的 **UserSig 的密钥**。
-> !
-> - 本文提到的生成 UserSig 的方案是在客户端代码中配置 UserSig，该UserSig 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此 **该方法仅适合本地跑通 Demo 和功能调试**。
-> - 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
-6. 在播放端，推荐使用 CDN 播放，所以需要在 [实时音视频控制台](https://console.cloud.tencent.com/trtc/app) 开启**旁路推流**功能。
-<img src="https://main.qcloudimg.com/raw/f5f2ae04edfb169ec78d2bca1fb10321.png" width="500">
-
-> ?在服务开通后，建议先可以编译和体验一下上述示例代码章节中腾讯云提供的移动直播的 API-Example 工程，配合上下文可以快速的了解相关 API 的使用。
+>? 
+>- 旁路推流的方式默认选择 `指定流旁路` 即可，对于 V2TXLivePusher 两种方式没有区别。
+>- 在服务开通后，建议先可以编译和体验一下上述示例代码章节中腾讯云提供的移动直播的 API-Example 工程，配合上下文可以快速的了解相关 API 的使用。
 
 [](id:step2)
 ### 步骤2：V2TXLivePusher RTC 推流
@@ -119,13 +114,13 @@ trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 
 | 字段名称              | 字段含义                                                     |
 | --------------------- | ------------------------------------------------------------ |
-| **trtc://**           | 互动直播推流 URL 的前缀字段                                  |
-| **cloud.tencent.com** | 互动直播特定域名，**请勿修改**                               |
-| **push**              | 标识位，表示推流                                             |
-| **streamid**       | 流 ID，需要由开发者自定义                                            |
-| **sdkappid**      | 对应 [服务开通](#step1) 一节中生成的 SDKAppID |
-| **userId**           | 主播 ID，需要由开发者自定义                                  |
-| **usersig**         | 对应 [服务开通](#step1) 中获取的 UserSig 密钥 |
+| **trtc://**          | 互动直播推流 URL 的前缀字段                                  |
+| **cloud.tencent.com** | 互动直播特定域名，**请勿修改**                              |
+| **push**             | 标识位，表示推流                                             |
+| **streamid**      | 流 ID，需要由开发者自定义                                            |
+| **sdkappid**     | 对应 [服务开通](#step1) 一节中生成的 SDKAppID |
+| **userId**          | 主播 ID，需要由开发者自定义                                  |
+| **usersig**        | 对应 [服务开通](#step1) 中获取的 UserSig 密钥 |
 
 
 #### 示例代码
@@ -481,10 +476,10 @@ RTC连麦互动直播服务为您提供音视频通用套餐包，可按照**1:2
 #### 后付费
 当服务用量无套餐包可抵扣或超出套餐包余量时，将采用后付费的方式，按 [刊例价](#Fixed_price) 计费。
 RTC 连麦互动直播服务后付费有 [日结](#daily) 和 [月结](#monthly) 两种结算周期。
-- **日结后付费：**[](id:daily)
+- **日结后付费： **[](id:daily)
 2020年09月01日起首次在 实时音视频 控制台创建 [应用](https://cloud.tencent.com/document/product/647/46351#.E5.BA.94.E7.94.A8 ) 的用户，后付费生效后默认采用**日结**方式结算。按日计费，每天上午10点扣除前一天产生的费用。
 
-- **月结后付费：**[](id:monthly)
+- **月结后付费： **[](id:monthly)
 2020年08月31日及之前首次在实时音视频控制台创建 [应用](https://cloud.tencent.com/document/product/647/46351#.E5.BA.94.E7.94.A8 ) 的用户，后付费生效后默认采用**月结**方式结算。按月计费，每月01日 - 05日从您的账户余额中扣除前一月产生的费用，详情以 [计费账单](https://cloud.tencent.com/document/product/555/14192#.E4.BA.8C.E3.80.81.E6.96.B0.E7.89.88.E8.B4.A6.E5.8D.95.E5.8A.9F.E8.83.BD.E7.AE.80.E4.BB.8B) 为准。
 
 >!

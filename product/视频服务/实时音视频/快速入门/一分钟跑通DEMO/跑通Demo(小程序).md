@@ -20,15 +20,15 @@
 出于政策和合规的考虑，微信暂未放开所有小程序对实时音视频功能（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签）的支持：
  - 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
  - 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
- - 符合类目要求的小程序，需要在【[微信公众平台](https://mp.weixin.qq.com)】>【开发】>【开发管理】>【接口设置】中自助开通该组件权限，如下图所示：
+ - 符合类目要求的小程序，需要在 **[微信公众平台](https://mp.weixin.qq.com)**>**开发**>**开发管理**>**接口设置**中自助开通该组件权限，如下图所示：
 ![](https://main.qcloudimg.com/raw/dc6d3c9102bd81443cb27b9810c8e981.png)
 
 ## 操作步骤
 [](id:step1)
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 单击【新建应用】输入应用名称，例如 `TestTRTC`；若您已创建应用可单击【选择已有应用】。
-3. 根据实际业务需求添加或编辑标签，单击【创建】。
+1. 登录实时音视频控制台，选择**开发辅助**> **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+2. 单击**新建应用**输入应用名称，例如 `TestTRTC`；若您已创建应用可单击**选择已有应用**。
+3. 根据实际业务需求添加或编辑标签，单击**创建**。
 ![](https://main.qcloudimg.com/raw/f04d288ed091c98a5e8056eb86fb49e8.png)
 >?
 >- 应用名称只能包含数字、中英文字符和下划线，长度不能超过15个字符。
@@ -37,7 +37,7 @@
 [](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
-2. 下载完成后，单击【已下载，下一步】。
+2. 下载完成后，单击**已下载，下一步**。
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:step3)
@@ -48,24 +48,24 @@
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
   <img src="https://main.qcloudimg.com/raw/575902219de19b4f2d4595673fa755d4.png">
-4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
-5. 编译完成后，单击【回到控制台概览】即可。
+4. 粘贴完成后，单击**已复制粘贴，下一步**即创建成功。
+5. 编译完成后，单击**回到控制台概览**即可。
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 ### 步骤4：编译运行
-1. 打开微信开发者工具，选择【小程序】，单击新建图标，选择【导入项目】。
-2. 填写您微信小程序的 AppID，单击【导入】。
+1. 打开微信开发者工具，选择**小程序**，单击新建图标，选择**导入项目**。
+2. 填写您微信小程序的 AppID，单击**导入**。
  >!此处应输入您微信小程序的 AppID，而非 SDKAppID。
  >
 ![](https://main.qcloudimg.com/raw/a06f3651a1399eabaa802a607b9a9cf8.png) 
-3. 单击【预览】，生成二维码，通过手机微信扫码二维码即可进入小程序。
+3. 单击**预览**，生成二维码，通过手机微信扫码二维码即可进入小程序。
 
 >! 
 >- 小程序 &lt;live-player&gt; 和 &lt;live-pusher&gt; 标签需要在手机微信上才能使用，微信开发者工具上无法使用。
->- 为了小程序能够使用腾讯云房间管理服务，您需要在手机微信上开启调试功能：手机微信扫码二维码后，单击右上角【...】>【打开调试】。
+>- 为了小程序能够使用腾讯云房间管理服务，您需要在手机微信上开启调试功能：手机微信扫码二维码后，单击右上角**...**>**打开调试**。
 ![](https://main.qcloudimg.com/raw/ba85130b18cac0f713994a3a5feb2e83.png)
 
 [](id:online)
@@ -91,8 +91,8 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 升级/切换操作：
  1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
- 2. 在左侧导航栏选择【应用管理】，单击目标应用所在行的【应用信息】。
- 3. 选择【快速上手】页签，单击【第二步 获取签发UserSig的密钥】区域的【点此升级】、【非对称式加密】或【HMAC-SHA256】。
+ 2. 在左侧导航栏选择**应用管理**，单击目标应用所在行的**应用信息**。
+ 3. 选择**快速上手**页签，单击**第二步 获取签发UserSig的密钥**区域的**点此升级**、**非对称式加密**或**HMAC-SHA256**。
   - 升级：
 ![](https://main.qcloudimg.com/raw/6d09db9663d8ca6b46f2ae3ab95cfa4b.png)
   - 切换回老版本算法 ECDSA-SHA256：

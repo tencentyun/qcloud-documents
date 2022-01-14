@@ -34,5 +34,5 @@ Packetbeat 支持采集多种协议的网络流量，具体每个协议的参数
 ### Kibana 查看结果
 1. 登录腾讯云 Kibana 控制台。
 2. 在 Kibana 左侧导航栏单击 **Discover**，查询 Packetbeat 采集的数据：
-![](https://main.qcloudimg.com/raw/db453667565e7afa7eb928830badf943.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3e0c08cd9d7d89c7d5326e396544d63e.png)
 

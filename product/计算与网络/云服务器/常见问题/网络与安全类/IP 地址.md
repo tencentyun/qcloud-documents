@@ -29,6 +29,9 @@
 可能原因如下：
 - 云服务器实例已关机，并设置了关机不收费。
 - 云服务器更换过公网 IP。
+- 云服务器因 DDoS 攻击被封堵，详情请参见 [封堵相关问题](https://cloud.tencent.com/document/product/1020/34518)。
+- 服务器处于隔离状态下，详情请参见 [服务器被隔离导致无法登录](https://cloud.tencent.com/document/product/213/10318)。
+
 
 
 ### 创建实例时未分配独立公网 IP（IPv4），创建成功后该如何获取公网 IP 地址？

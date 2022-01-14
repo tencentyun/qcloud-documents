@@ -27,7 +27,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://qcloudimg.tencent-cloud.cn/raw/e09b6939285958ecd663950ff2b4db6f.png)
 3. 在添加 CC 防护规则弹窗中，填写相应参数，单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ca65fca899d0d0dc7ea8f822a1d1fe5f.png)
-**字段说明**
+**字段说明：**
  - **规则名称**：CC 防护规则名称，50个字符以内。
  - **识别模式**：支持 IP 和 SESSION 识别模式，默认为 IP，SESSION 模式需要提前设置 SESSION 位置信息。
  - **匹配条件**：CC 防护规则频率控制匹配条件，默认为 URL。支持设置多个匹配条件，同一规则的多个条件是“与”关系，同时满足才会执行动作，且最多配置10个，需要至少配置URL，详细字段说明如下：
@@ -50,7 +50,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 <td>Method</td>
 <td>无</td>
 <td><ul><li>等于</li><li>包含</li><li>不等于</li></ul></td>
-<td>支持HEAD、GET、POST、PUT、OPTIONS、TRACE、DELETE、PATCH、CONNECT，每次支持输入一个值 。</td>
+<td>支持 HEAD、GET、POST、PUT、OPTIONS、TRACE、DELETE、PATCH、CONNECT，每次支持输入一个值 。</td>
 </tr>
 <tr>
 <td>Query</td>
@@ -80,7 +80,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 <td>自定义请求头</td>
 <td>填写请求头 key 值，如： Accept、Accept-Language ，Accept-Encoding，Connectiton等</td>
 <td><ul><li>等于</li><li>包含</li><li>不等 </li><li>内容为空 </li><li>不存在</li></ul></td>
-<td>填写具体value值，512字符以内，可配置多次；内容为空或者不存在时，无匹配内容输入框，填写匹配参数即可。</td>
+<td>填写具体 value 值，512字符以内，可配置多次；内容为空或者不存在时，无匹配内容输入框，填写匹配参数即可。</td>
 </tr>
 </tbody></table>
  - **访问频次**：根据业务情况设置访问频次。建议输入正常访问次数的3倍 - 10倍，例如，网站人平均访问20次/分钟，可配置为60次/分钟 - 200次/分钟，可依据被攻击严重程度调整。
@@ -106,7 +106,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 </tr>
 <tr>
 <td align="left">拦截</td>
-<td align="left">符合频率控制条件的请求将执行拦截，将会拦截该IP对网站所有URL的访问，可设置惩罚时长，取值为：5分钟 - 10080分钟（7天），拦截结果可在 <a href="https://console.cloud.tencent.com/guanjia/log/attack">攻击日志</a> 中查看，拦截 IP 的实时信息可在 <a href="https://console.cloud.tencent.com/guanjia/tea-ipsearch">IP 查询</a> 中查看。</td>
+<td align="left">符合频率控制条件的请求将执行拦截，将会拦截该IP对网站所有 URL 的访问，可设置惩罚时长，取值为：5分钟 - 10080分钟（7天），拦截结果可在 <a href="https://console.cloud.tencent.com/guanjia/log/attack">攻击日志</a> 中查看，拦截 IP 的实时信息可在 <a href="https://console.cloud.tencent.com/guanjia/tea-ipsearch">IP 查询</a> 中查看。</td>
 </tr>
 </tbody></table>
  - **惩罚时长**：默认为10分钟，最短为1分钟，最长为一周。
@@ -115,7 +115,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://qcloudimg.tencent-cloud.cn/raw/966d8ea4b5e077a67717a53a832149f0.png)
 6. 根据规则设置，触发 CC 攻击行为。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ce52ad171d3a73c8ac97cd56dea2760c.png)
-7. 查看 IP 实时阻断信息。可在 [黑白名单页面](https://console.cloud.tencent.com/guanjia/tea-iplist)，对 IP 进行加白或者加黑处理，在 [IP 查询页面](https://console.cloud.tencent.com/guanjia/tea-ipsearch) 可以查看阻断信息。
+7. 可在 [黑白名单页面](https://console.cloud.tencent.com/guanjia/tea-iplist)，对 IP 进行加白或者加黑处理，在 [IP 查询页面](https://console.cloud.tencent.com/guanjia/tea-ipsearch) 可以查看阻断信息。
 
 #### 示例三： 基于 SESSION 的 CC 防护设置
 基于 SESSION 访问速率的 CC 防护，能够有效解决在办公网、商超和公共 WIFI 场合，用户因使用相同 IP 出口而导致的误拦截问题。
@@ -126,8 +126,8 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://qcloudimg.tencent-cloud.cn/raw/135c1a626032f0733ddb64763e6726c3.png)
 4. 在 SESSION 设置弹窗中，此示例选择 COOKIE 作为测试内容，标识为 security，开始位置为0，结束位置为9，配置完成后单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c7c2d5fb61cac8d5adc4752d86ff9288.png)
- **字段说明**
- - **SESSION 位置 ：**可选择 COOKIE、GET 、HEADER或 POST，其中 GET 或 POST 是指 HTTP 请求内容参数，非 HTTP 头部信息。
+ **字段说明：**
+ - **SESSION 位置 ：**可选择 COOKIE、GET 、HEADER 或 POST，其中 GET 或 POST 是指 HTTP 请求内容参数，非 HTTP 头部信息。
  - **匹配说明 ：**位置匹配或者字符串匹配。
  - **SESSION 标识 ：**取值标识。
  - **开始位置：**字符串或者位置匹配的开始位置。
@@ -141,8 +141,8 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
  	- 字符串匹配模式下，SESSION 标识为 cookie_2 =，结束字符为“;”，则匹配内容为456。
  	- 位置匹配模式下，SESSION 标识为 cookie_2，开始位置为0，结束位置2，则匹配内容为456。
  - **HEADER 示例 ：**
-如果一条请求的完整HEADER内容为：X-UUID: b65781026ca5678765。
-    - 位置匹配模式下，SESSION标识为X-UUID，开始位置为0，结束位置2；则，匹配内容为 b65。
+如果一条请求的完整 HEADER 内容为：X-UUID: b65781026ca5678765。
+    - 位置匹配模式下，SESSION 标识为X-UUID，开始位置为0，结束位置2；则，匹配内容为 b65。
 5. SESSION 维度信息测试。添加完成后，单击**测试**将填写内容后，单击**确定**进行测试。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9f91d01eecbb125534bcc9eccf2f44ce.png)
 5. 进入 SESSION 设置页面，设置内容为 security = 0123456789……，后继 Web 应用防火墙将把 security 后面10位字符串作为 SESSION 标识，SESSION 信息也可以删除重新配置。

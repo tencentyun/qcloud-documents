@@ -46,9 +46,9 @@
 [](id:step4)
 ### 步骤4：修改工程配置
 #### 步骤4.1：添加引用
-1. 在 Visual Studio 的【生成】目录下找到【配置管理器】并打开。[](id:step4_1_2)
-2. 在【活动解决方案平台】下拉框中选择【新建】，弹出【新建解决方案平台】对话框。[](id:step4_1_3)
-3. 输入或选择新平台，单击【确定】。
+1. 在 Visual Studio 的**生成**目录下找到**配置管理器**并打开。[](id:step4_1_2)
+2. 在**活动解决方案平台**下拉框中选择**新建**，弹出**新建解决方案平台**对话框。[](id:step4_1_3)
+3. 输入或选择新平台，单击**确定**。
  ![](https://main.qcloudimg.com/raw/75f07143f2c6a83a4d22e3f95f8f3864.png)
 4. 根据实际需求重复 [步骤2](#step4_1_2) - [步骤3](#step4_1_3)  新建需要支持的解决方案平台。
  ![](https://main.qcloudimg.com/raw/e7d906cbc18d32848a25cce38f50d20c.png)
@@ -70,8 +70,8 @@
 ![](https://main.qcloudimg.com/raw/a76052df7be5fb54cfbcdedc7a5afc58.png)
 
 #### 步骤4.2：添加 copy 命令
-1. 打开 TRTCCSharpDemo 属性页，选择【解决方案资源管理器】>【TRTCCSharpDemo 工程的右键菜单】>【属性】。
-2. 在【生成事件】>【后期生成事件命令行】中添加以下命令，实现在编译完成后自动将不同平台下的 SDK 的 .dll 文件拷贝到程序的运行目录下，如下图所示：
+1. 打开 TRTCCSharpDemo 属性页，选择**解决方案资源管理器** > **TRTCCSharpDemo 工程的右键菜单** > **属性**。
+2. 在**生成事件** > **后期生成事件命令行**中添加以下命令，实现在编译完成后自动将不同平台下的 SDK 的 .dll 文件拷贝到程序的运行目录下，如下图所示：
 ```
 set Platform=Win64
 SETLOCAL ENABLEDELAYEDEXPANSION
@@ -84,7 +84,7 @@ ENDLOCAL
 ![](https://main.qcloudimg.com/raw/1939c8a6702da356fe58d9945c40a60c.png)
 
 #### 步骤4.3：修改调试环境
-打开 TRTCDemo 属性页，选择【生成】，将【平台(M)】与顶部菜单栏中的解决方案平台设置为一致，如下图所示：
+打开 TRTCDemo 属性页，选择**生成**，将**平台(M)** 与顶部菜单栏中的解决方案平台设置为一致，如下图所示：
 ![](https://main.qcloudimg.com/raw/23462af7ca105e5f78c5b5cbd3242063.png)
 
 
@@ -151,19 +151,19 @@ namespace TRTCCSharpDemo
 
 [](id:using_cpp_step4)
 ### 步骤4：修改工程配置
-打开 TRTCDemo 属性页，在【解决方案资源管理器】 >【TRTCDemo 工程的右键菜单】>【属性】，请按照以下步骤进行配置：
+打开 TRTCDemo 属性页，在**解决方案资源管理器** >**TRTCDemo 工程的右键菜单** > **属性**，请按照以下步骤进行配置：
 
 1.  **添加包含目录：**
-在【C/C++】>【常规】>【附件包含目录】，添加 SDK 头文件目录 `$(ProjectDir)LiteAVSDK\include` 和 `$(ProjectDir)LiteAVSDK\include\TRTC`，如下图所示：
+在**C/C++** > **常规** > **附件包含目录**，添加 SDK 头文件目录 `$(ProjectDir)LiteAVSDK\include` 和 `$(ProjectDir)LiteAVSDK\include\TRTC`，如下图所示：
 ![](https://main.qcloudimg.com/raw/b4bf2ccdfcc498c96c7eb28a4429bda2.png)
 2. **添加库目录：**
-  在【链接器】>【常规】>【附加库目录】，添加 SDK 库目录 `$(ProjectDir)LiteAVSDK\lib`，如下图所示：
+  在**链接器** > **常规** > **附加库目录**，添加 SDK 库目录 `$(ProjectDir)LiteAVSDK\lib`，如下图所示：
     ![](https://main.qcloudimg.com/raw/55ec832996c5355acc9215f67351fed2.png)
 3. **添加库文件：**
-  在【链接器】>【输入】>【附加依赖项】，添加 SDK 库文件 `liteav.lib`，如下图所示：
+  在**链接器** > **输入** > **附加依赖项**，添加 SDK 库文件 `liteav.lib`，如下图所示：
     ![](https://main.qcloudimg.com/raw/2d78d5e833668ac009f5d2c04f9ec7aa.png)
 4. **添加 copy 命令：**
-在【生成事件】>【后期生成事件】>【命令行】，添加拷贝命令 `copy /Y "$(ProjectDir)LiteAVSDK\lib\\\*.dll" "\$(OutDir)"`，能够在编译完成后，自动将 SDK 的 .dll 文件拷贝到程序的运行目录下，如下图所示：
+在**生成事件** > **后期生成事件** > **命令行**，添加拷贝命令 `copy /Y "$(ProjectDir)LiteAVSDK\lib\\\*.dll" "\$(OutDir)"`，能够在编译完成后，自动将 SDK 的 .dll 文件拷贝到程序的运行目录下，如下图所示：
 ![](https://main.qcloudimg.com/raw/f6d626301b74d85dd6e7eb8577648988.png)
 
 

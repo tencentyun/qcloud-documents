@@ -58,7 +58,7 @@ eks.tke.cloud.tencent.com/volume-name-for-parser: "volume-name"
  - `eks.tke.cloud.tencent.com/parser-name` 是指已创建的 [Configmap](#Configmap) 的 name。
  - `eks.tke.cloud.tencent.com/volume-name-for-parser` 是指 Pod 中挂载的 Volume 名称，可自定义。
 
-**Pod yaml 模版**
+**Pod yaml 模板**
 
 ```
 apiVersion: apps/v1 
