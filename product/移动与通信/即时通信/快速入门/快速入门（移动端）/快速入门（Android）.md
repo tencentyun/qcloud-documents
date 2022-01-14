@@ -14,7 +14,7 @@
 3. 创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间、标签以及到期时间。请记录 SDKAppID 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/853d2c3c0d5887dadc254eb0e03a215e.png)
 
-  
+
 [](id:step2)
 ### 步骤2：获取密钥信息
 1. 单击目标应用卡片，进入应用的基础配置页面。
@@ -27,37 +27,7 @@
 
 1. 下载即时通信 IM Demo 工程，具体下载地址请参见 [SDK 下载](https://cloud.tencent.com/document/product/269/36887)。
 >?为尊重表情设计版权，下载的 Demo 工程中不包含大表情元素切图，您可以使用自己本地表情包来配置代码。未授权使用 IM Demo 中的表情包可能会构成设计侵权。
-2. 打开所属终端目录的工程，找到对应的`GenerateTestUserSig`文件。
- <table>
-     <tr>
-         <th nowrap="nowrap">所属平台</th>  
-         <th nowrap="nowrap">文件相对路径</th>  
-     </tr>
-  <tr>      
-      <td>Android</td>   
-      <td>Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/signature/GenerateTestUserSig.java</td>   
-     </tr> 
-  <tr>
-      <td>iOS</td>   
-      <td>iOS/Demo/TUIKitDemo/Private/GenerateTestUserSig.h</td>
-     </tr> 
-  <tr>      
-      <td>Mac</td>   
-      <td>Mac/Demo/TUIKitDemo/Debug/GenerateTestUserSig.h</td>   
-     </tr>  
-  <tr>      
-      <td>Windows</td>   
-      <td>cross-platform/Windows/IMApp/IMApp/GenerateTestUserSig.h</td>   
-     </tr>  
-  <tr>      
-      <td>Web（通用）</td>   
-      <td>Web/Demo/dist/debug/GenerateTestUserSig.js</td>   
-     </tr>  
-  <tr>      
-      <td>小程序</td>   
-      <td>MiniProgram/Demo/dist/wx/debug/GenerateTestUserSig.js</td>   
-     </tr>  
-</table>
+2. 打开终端目录的工程，找到对应的 `GenerateTestUserSig` 文件，路径为  Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/signature/GenerateTestUserSig.java
 3. 设置`GenerateTestUserSig`文件中的相关参数：
 
  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
