@@ -164,7 +164,7 @@ __weak typeof(self) ws = self;
 }];
 ```
 
-**以上示例为 TIM V1 版本代码，如果你接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a9979ed856657724d317791c723bacef5)**。
+**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/interfaceV2TIMManager.html#a9979ed856657724d317791c723bacef5)**。
 
 如果 IM 群组不存在，请先创建群组。
 
