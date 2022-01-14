@@ -186,7 +186,7 @@ VPN 通道的建立包括以下配置信息：
 <td>单位：s</td>
 </tr>
 <tr>
-<td>IPsec SA lifetime(KB</td>
+<td>IPsec SA lifetime(KB)</td>
 <td>单位：KB</td>
 </tr>
 </table>
