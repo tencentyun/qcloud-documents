@@ -1,13 +1,13 @@
-﻿本场景介绍使用 DTS 创建云原生数据库 TDSQL-C MySQL 的数据订阅任务操作指导。
+本场景介绍使用 DTS 创建云原生数据库 TDSQL-C MySQL 的数据订阅任务操作指导。
 
 ## 前提条件
-- 已 [创建云原生数据库 TDSQL-C（兼容 MySQL 版)](https://cloud.tencent.com/document/product/1003/30505)，并且数据库版本符合要求，请参见 [数据订阅支持的数据库](https://cloud.tencent.com/document/product/571/59965)。
+- 已 [创建 TDSQL-C for MySQL](https://cloud.tencent.com/document/product/1003/30505)，并且数据库版本符合要求，请参见 [数据订阅支持的数据库](https://cloud.tencent.com/document/product/571/59965)。
 - 已在源端实例中开启 Binlog。
 - 已在源端实例中创建订阅帐号，需要帐号权限如下：REPLICATION CLIENT、REPLICATION SLAVE、PROCESS 和全部对象的 SELECT 权限。
 具体授权语句如下：
 ```
-create user '账号' IDENTIFIED BY '密码';
-grant SELECT, REPLICATION CLIENT,REPLICATION SLAVE,PROCESS on *.* to '账号'@'%';
+create user '帐号' IDENTIFIED BY '密码';
+grant SELECT, REPLICATION CLIENT,REPLICATION SLAVE,PROCESS on *.* to '帐号'@'%';
 flush privileges;
 ```
 

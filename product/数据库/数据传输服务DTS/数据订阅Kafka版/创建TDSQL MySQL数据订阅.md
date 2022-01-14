@@ -6,8 +6,8 @@
 - 已在源端实例中创建订阅帐号，需要帐号权限如下：REPLICATION CLIENT、REPLICATION SLAVE、PROCESS 和全部对象的 SELECT 权限。
 具体授权语句如下：
 ```
-create user '迁移账号' IDENTIFIED BY '账号密码';
-grant SELECT, REPLICATION CLIENT,REPLICATION SLAVE,PROCESS on *.* to '迁移账号'@'%';
+create user '迁移帐号' IDENTIFIED BY '帐号密码';
+grant SELECT, REPLICATION CLIENT,REPLICATION SLAVE,PROCESS on *.* to '迁移帐号'@'%';
 flush privileges;
 ```
 
@@ -16,14 +16,13 @@ flush privileges;
 - 数据消费的地域需要与订阅实例的地域相同。
 - 当前不支持 geometry 相关的数据类型。 
 - 数据订阅源是 TDSQL MySQL版 时，不支持直接执行授权语句授权，所以订阅帐号的权限需要在 [TDSQL 控制台](https://console.cloud.tencent.com/tdsqld) 单击实例 ID，进入帐号管理页中添加。
-  订阅账号所需要的权限即上述授权语句中所示权限，对于为订阅账号进行`__tencentdb__`的授权操作，在控制台修改权限弹窗中选择对象级特权，勾选所有权限即可。
+  订阅帐号所需要的权限即上述授权语句中所示权限，对于为订阅帐号进行 `__tencentdb__` 的授权操作，在控制台修改权限弹窗中选择对象级特权，勾选所有权限即可。
 - 数据订阅源是 TDSQL MySQL版 时，不支持订阅 [二级分区](https://cloud.tencent.com/document/product/557/58907) 表。
    - 如果在订阅任务启动前源库创建了二级分区表，则校验任务不通过。
    - 如果在订阅任务运行中源库创建了二级分区表，那么订阅到二级分区表的数据是子表数据（订阅对象选择整库或者整实例，源库在订阅任务启动后创建的二级分区表也会被订阅，导致最终的结果订阅了二级分区表）。因为二级分区表的底层是通过子表实现，所以不建议用户在订阅任务过程中创建二级分区表，否则会导致如下示例的订阅数据差异。 
 示例：源库表名为“test_a”是二级分区表，那么 DTS 订阅到该表的 DML 的表名为“test_a_tdsql_subp0/test_a_tdsql_subp1”。
    
 ## 注意事项
-
 - 数据订阅源是 TDSQL MySQL版 的订阅任务，各个分片的 DDL 操作都会被订阅并投递到 Kafka，所以对于一个分表的 DDL 操作，会出现重复的 DDL 语句。例如，实例 A 有3个分片，订阅了一个分表 tableA，那么对于表 tableA 的 DDL 语句会订阅到3条。
 
 - Kafka 中的每条消息的消息头中都带有分片信息，以 key/value 的形式存在消息头中，key 是 ShardId，value 是 SQL 透传 ID，可根据 SQL 透传 ID 区分该消息来自哪个分片。用户可以在 **[TDSQL 控制台](https://console.cloud.tencent.com/tdsqld/instance-tdmysql) > 实例列表 > 分片管理**中查看 SQL 透传 ID。

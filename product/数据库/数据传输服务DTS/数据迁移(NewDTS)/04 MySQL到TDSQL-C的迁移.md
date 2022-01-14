@@ -1,7 +1,15 @@
 本文介绍使用 DTS 数据迁移功能，从 MySQL 迁移数据至腾讯云云原生数据库 TDSQL-C MySQL 的操作指导。
 
+## 注意事项
+
+- DTS 在执行全量数据迁移时，会占用一定源端实例资源可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
+- 默认采用无锁迁移来实现，迁移过程中对源库不加全局锁（FTWRL），仅对无主键，或者无非空唯一键的表加表锁，其他不加锁。
+- [创建数据一致性校验](https://cloud.tencent.com/document/product/571/62564) 时，DTS 会使用执行迁移任务的账号在源库中写入系统库`__tencentdb__`，用于记录迁移任务过程中的数据对比信息。
+  - 为保证后续数据对比问题可定位，迁移任务结束后不会删除源库中的`__tencentdb__`。
+  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
+
 ## 前提条件
-- 已 [创建云原生数据库 TDSQL-C（兼容 MySQL 版）](https://cloud.tencent.com/document/product/1003/30505)。
+- 已 [创建 TDSQL-C for MySQL](https://cloud.tencent.com/document/product/1003/30505)。
 - 源数据库和目标数据库符合迁移功能和版本要求，请参见 [数据迁移支持的数据库](https://cloud.tencent.com/document/product/571/58686) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
 - 需要您在源端自建 MySQL 中创建迁移帐号，需要的帐号权限如下：
@@ -15,10 +23,6 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 - 部分库表迁移：`GRANT SELECT ON 待迁移的库.* TO '迁移帐号';`
 - 全实例迁移：`GRANT SELECT ON *.* TO '迁移帐号';`
 - 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
-
-## 注意事项
-- DTS 在执行全量数据迁移时，会占用一定源端实例资源可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
-- 默认采用无锁迁移来实现，迁移过程中对源库不加全局锁（FTWRL），仅对无主键，或者无非空唯一键的表加表锁，其他不加锁。
 
 ## 应用限制
 - 只支持迁移基础表和视图，不支持迁移函数、触发器、存储过程等对象。
@@ -112,7 +116,7 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 <td rowspan=8>源库设置</td>
 <td>源库类型</td><td>选择“MySQL”。</td></tr>
 <tr>
-<td>服务提供商</td><td>自建数据库（包括云服务器上的自建）或者腾讯云数据库，请选择“普通”；第三方云厂商数据库，请选择对应的服务商。本场景以腾讯云数据库为例，此处选择“普通”。</td></tr>
+<td>服务提供商</td><td>自建数据库（包括云服务器上的自建）或者腾讯云数据库，请选择“普通”；第三方云厂商数据库，请选择对应的服务商。本场景以自建数据库为例，此处选择“普通”。</td></tr>
 <tr>
 <td>接入类型</td><td>根据您的源数据库类型选择，此处以“公网”为例。
 <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
@@ -137,7 +141,7 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 <tr>
 <td>接入类型</td><td>选择“云数据库”。</td></tr>
 <tr>
-<td>所属地域</td><td>上一步中已选择的地域。</td></tr>
+<td>所属地域</td><td>目标库所属地域。</td></tr>
 <tr>
 <td>数据库实例</td><td>选择目标端 TDSQL-C ID。</td></tr>
 <tr>
@@ -145,7 +149,6 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 <tr>
 <td>密码</td><td>目标端 TDSQL-C 的数据库帐号的密码。</td></tr>
 </tbody></table>
-
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 >?
 >- 如果用户在迁移过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**迁移对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法迁移 Online DDL 变更产生的临时表数据到目标数据库。
@@ -163,17 +166,15 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 <tr>
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
-    <tr>
+<tr>
 <td>是否迁移账号</td>
 <td>如果需要对源数据中的账号信息进行迁移，请勾选该按钮。</td></tr>
 </tbody></table>
-
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
-如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
- - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
- - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
-
-   如果选择账号迁移，则会对源库的账号信息进行校验，校验详情请参考 [迁移账号](https://cloud.tencent.com/document/product/571/65702)。
+ - 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+    - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
+    - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
+ - 如果选择账号迁移，则会对源库的账号信息进行校验，校验详情请参考 [迁移账号](https://cloud.tencent.com/document/product/571/65702)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2152cde418f07208cfb5e6d7a2f7f99e.png)
 6. 返回数据迁移任务列表，任务进入创建中状态，运行1分钟 - 2分钟后，数据迁移任务开始正式启动。
  -  选择**结构迁移**或者**全量迁移**：任务完成后会自动结束，不需要手动结束。

@@ -1,4 +1,4 @@
-﻿本文介绍如何从 [Kafka](https://cloud.tencent.com/product/ckafka) 中实时消费数据到云数据仓库 ClickHouse。
+本文介绍如何从 [Kafka](https://cloud.tencent.com/product/ckafka) 中实时消费数据到云数据仓库 ClickHouse。
 
 ## 前提条件
 数据源 Kafka 集群和目的端云数据仓库 ClickHouse 集群必须在同一个 VPC 下。
@@ -6,23 +6,24 @@
 ## 操作步骤
 1. [登录](https://cloud.tencent.com/document/product/1299/49824) 云数据仓库 ClickHouse 集群，创建 Kafka 消费表。
 ```
-    CREATE TABLE queue (
-        timestamp UInt64,
-        level String,
-        message String
-    ) ENGINE = Kafka
-    SETTINGS
-            kafka_broker_list = 'localhost:9092',
-            kafka_topic_list = 'topic',
-            kafka_group_name = 'group',
-            kafka_format = 'JSONEachRow',
-            kafka_num_consumers = 1,
-            kafka_max_block_size = 65536,
-            kafka_skip_broken_messages = 0,
-            kafka_auto_offset_reset = 'latest';
+	CREATE TABLE queue (
+			timestamp UInt64,
+			level String,
+			message String
+	) ENGINE = Kafka
+	SETTINGS
+					kafka_broker_list = 'localhost:9092',
+					kafka_topic_list = 'topic',
+					kafka_group_name = 'group',
+					kafka_format = 'JSONEachRow',
+					kafka_num_consumers = 1,
+					kafka_max_block_size = 65536,
+					kafka_skip_broken_messages = 0,
+					kafka_auto_offset_reset = 'latest';
 ```
 
-### 常用参数说明如下
+**常用参数说明如下：**
+
 <table>
 <thread>
 <tr>
@@ -80,10 +81,11 @@
 </tbody>
 </table>
 
-2. 创建 ClickHouse 本地表（目标表）
- - 如果您的集群是单副本版
+2. 创建 ClickHouse 本地表（目标表）。
+ 
+ - 如果您的集群是单副本版：
 ```
-CREATE TABLE daily on cluster defaultcluster
+CREATE TABLE daily on cluster default_cluster
 (
     day Date,
     level String,
@@ -92,9 +94,9 @@ CREATE TABLE daily on cluster defaultcluster
 engine = SummingMergeTree()
 order by int_id;
 ```
- - 如果您的集群是双副本版
+ - 如果您的集群是双副本版：
 ```
-create table daily on cluster default
+create table daily on cluster default_cluster
 (
     day Date,
     level String,
@@ -103,21 +105,21 @@ create table daily on cluster default
 engine = ReplicatedSummingMergeTree('/clickhouse/tables/test/test/{shard}', '{replica}')
 order by int_id;`
 ```
- - 创建分布式表
+ - 创建分布式表：
 ```
 create table daily_dis on cluster default_cluster
 AS test.test
 engine = Distributed('default_cluster', 'default', 'daily', rand());
 ```
 
-3. 创建物化视图，把 Kafka 消费表消费到的数据同步到 ClickHouse 目的表
+3. 创建物化视图，把 Kafka 消费表消费到的数据同步到 ClickHouse 目的表。
 ```
 CREATE MATERIALIZED VIEW consumer TO daily
 AS SELECT toDate(toDateTime(timestamp)) AS day, level, count() as total
 FROM queue GROUP BY day, level;
 ```
 
-4. 查询
+4. 查询。
 ```
 SELECT level, sum(total) FROM daily GROUP BY level;
 ```
