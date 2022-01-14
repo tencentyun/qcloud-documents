@@ -31,7 +31,9 @@ v2.0 正式版本更新如下：
 
 </ul ></td>
 <td>2021-12-31</td> 
-<td><a href="https://cloud.tencent.com/document/product/607/15210">实时语音</tr>
+<td><a href="https://cloud.tencent.com/document/product/607/67303">iOS工程升级指引
+<a href="https://cloud.tencent.com/document/product/607/67297">Unity 使用高清音质
+</tr>
 </tbody></table>
 
 
