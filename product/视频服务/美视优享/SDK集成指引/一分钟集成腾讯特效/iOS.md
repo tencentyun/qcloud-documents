@@ -2,7 +2,7 @@
 
 ### 开发者环境要求
 
-- 开发工具 XCode 11 及以上：App Store 或 单击[下载地址](https://developer.apple.com/xcode/resources/)。
+- 开发工具 XCode 11 及以上：App Store 或单击[下载地址](https://developer.apple.com/xcode/resources/)。
 - 建议运行环境：
   - 设备要求：iPhone 5 及以上；iPhone 6 及以下前置摄像头最多支持到 720p，不支持 1080p。
   - 系统要求：iOS 10.0 及以上。
