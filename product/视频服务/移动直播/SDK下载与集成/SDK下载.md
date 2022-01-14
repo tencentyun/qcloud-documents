@@ -1,7 +1,14 @@
-移动直播 SDK 提供了4种版本的 SDK，了解4个版本 SDK 的关系和对应的 License 使用可参见 [功能说明](https://cloud.tencent.com/document/product/454/19075)。
-以下视频将为您介绍4个 SDK 之间的区别和各自的特点：
+移动直播 SDK 提供了4种版本的 SDK，可以按照下表选择适合您的版本：
 
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2343-35187?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
+| 版本 | 功能 |
+|---------|---------|
+| [基础直播 Smart](#Smart) | 支持直播推流、直播播放和基础美颜（美白、磨皮等）功能。|
+| [互动直播 Live](#Live) | 在 [基础直播 Smart](#Smart) 之上增加了连麦功能。|
+| [全功能版 ALL](#ALL) | 在 [互动直播 Live](#Live) 之上增加了 [实时音视频 SDK](https://cloud.tencent.com/product/trtc)、[超级播放器（Player+）](https://cloud.tencent.com/product/player)和 [短视频（UGSV）](https://cloud.tencent.com/product/ugsv)等 SDK。|
+| [企业版 Enterprise](#Enterprise) | 在 [全功能版 ALL](#ALL) 之上增加了高级美颜特效能力。|
+
+>? 更多版本特性能力请参考 [功能说明](https://cloud.tencent.com/document/product/454/19075)，也可以通过 [介绍视频](#Video) 来了解选择您所需要的版本。
 
 [](id:Smart)
 ## 基础直播 Smart   
@@ -121,10 +128,9 @@
 </table>
 
 >? 根据您具体使用的服务，使用全功能版需先购买对应产品授权，您可按需选购：
->
->1. 使用其中的移动直播请购买  [直播推流 License（原移动直播基础版 License）](https://cloud.tencent.com/document/product/454/8008#live_pag_price)。
->1. 使用其中的短视频请购买 [短视频精简版/基础版 License](https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
->1. 使用其中的实时音视频请购买 [实时音视频套餐包](https://cloud.tencent.com/document/product/647/37097)。
+>- 使用其中的移动直播请购买  [直播推流 License（原移动直播基础版 License）](https://cloud.tencent.com/document/product/454/8008#live_pag_price)。
+>- 使用其中的短视频请购买 [短视频精简版/基础版 License](https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
+>- 使用其中的实时音视频请购买 [实时音视频套餐包](https://cloud.tencent.com/document/product/647/37097)。
 
 [](id:Enterprise)
 ## 企业版 Enterprise
@@ -158,261 +164,12 @@
 
 >! 动效贴纸、AI抠图、美妆特效和手势动作特效需通过额外的素材来使用功能。
 
-## 各版本差异对照表
-![](https://qcloudimg.tencent-cloud.cn/raw/286d70e01b2201258baa293ebed014c7.svg)
+[](id:Video)
+## 介绍视频
+以下视频将为您介绍4个 SDK 之间的区别和各自的特点：
 
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2343-35187?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
-<table>
-  <tr>
-    <th width="100px" style="text-align:center">功能模块</th>
-    <th width="100px" style="text-align:center">功能项</th>
-    <th width="100px" style="text-align:center"><a href="#Smart">基础直播版</a><br>LiteAV_Smart</th>
-    <th width="100px" style="text-align:center"><a href="#Live">互动直播版</a><br>LiteAV_Live</th>
-    <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/9366">短视频版</a><br>LiteAV_UGC</th>
-    <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32689">TRTC版</a><br>LiteAV_TRTC</th>
-    <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/881/20205">播放器版</a><br>LiteAV_Player</th>
-    <th width="100px" style="text-align:center"><a href="#ALL">全功能版</a><br>ALL</th>
-    <th width="100px" style="text-align:center"><a href="#Enterprise">企业版</a><br>Enterprise</th>
-  </tr>
-  <tr>
-    <td rowspan='2' style="text-align:center">直播推流</td>
-    <td style="text-align:center">摄像头推流</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-   <tr>
-    <td style="text-align:center">录屏推流</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td rowspan='4' style="text-align:center">直播播放</td>
-    <td style="text-align:center">RTMP 协议</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">HTTP - FLV</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">HLS(m3u8)</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-   <tr>
-    <td style="text-align:center">快直播（WebRTC 协议）</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td rowspan='3' style="text-align:center">点播播放</td>
-    <td style="text-align:center">MP4 格式</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-   <tr>
-    <td style="text-align:center">HLS(m3u8)</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-   <tr>
-    <td style="text-align:center">DRM 加密</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td rowspan='2' style="text-align:center">美颜滤镜</td>
-    <td style="text-align:center">基础美颜</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">基础滤镜</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td rowspan='2' style="text-align:center">直播连麦</td>
-    <td style="text-align:center">连麦互动</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">跨房 PK</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td rowspan='2' style="text-align:center">视频通话</td>
-    <td style="text-align:center">双人通话</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">视频会议</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td rowspan='4' style="text-align:center">短视频</td>
-    <td style="text-align:center">录制和拍摄</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">裁剪拼接</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">“抖音”特效</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">视频上传</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td rowspan='4' style="text-align:center">AI 特效</td>
-    <td style="text-align:center">大眼瘦脸</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">V 脸隆鼻</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">动效贴纸</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">绿幕抠图</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-</table>
 
 
 
@@ -429,4 +186,3 @@
   })();
 </script>
    
-
