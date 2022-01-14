@@ -5,9 +5,7 @@
 - 支持 Kafka 协议版本为："0.11.0.X"，"1.0.X"，"1.1.X"，"2.0.X"，"2.1.X"，"2.2.X"，"2.3.X"，"2.4.X"，"2.5.X"，"2.6.X"，"2.7.X"，"2.8.X"
 - 支持压缩方式："gzip"，"snappy"，"lz4"
 - confluent-kafka-go 的 Kafka 库的代码（V3版本 Kafka协议，暂不支持，预计12月初支持），可以使用 sarama 库代替。
-- 当前使用非强制（SASL_PLAINTEXT）认证。
-
-
+- 当前使用 SASL_PLAINTEXT 认证。
 
 
 ## 配置方式
@@ -17,12 +15,13 @@
 | 参数 | 说明 |
 |---------|---------|
 | 链接类型 | 当前支持 SASL_PLAINTEXT |
-| hosts | 初始连接的集群地址，详细参见服务入口：</br><ul  style="margin: 0;"><li>内网使用：端口为 9095。例如：gz-producer.cls.tencentyun.com:9095</li><li>外网使用：端口为 9096。例如：gz-producer.cls.tencentcs.com:9096</li></ul>**注意**：示例以广州为例，内外网域名用不同端口标识，其他地域替换地址前缀。请参考 [可用域名-Kafka上传日志](https://cloud.tencent.com/document/product/614/18940#Kafka) |
+| hosts | 初始连接的集群地址，详细参见 [服务入口](#hosts) |
 | topic | 配置为日志主题 ID。例如：76c63473-c496-466b-XXXX-XXXXXXXXXXXX |
 | username | 配置为日志集 ID。  例如：0f8e4b82-8adb-47b1-XXXX-XXXXXXXXXXXX |
 | password | 格式为 `${SecurityId}#${SecurityKey}`。例如：XXXXXXXXXXXXXX#YYYYYYYY |
 
 
+<span id="hosts"></span>
 ## 服务入口 
 
 <table>
@@ -31,7 +30,7 @@
 	<tr><td>外网</td><td>gz-producer.cls.tencentcs.com:9096</td></tr>
 </table>
 
->? 本文档以广州地域为例，由于内外网域名用不同端口标识，其他地域请替换地址前缀。
+>! 本文档以广州地域为例，由于内外网域名用不同端口标识，其他地域请替换地址前缀。详情请参考 [可用域名-Kafka上传日志](https://cloud.tencent.com/document/product/614/18940#Kafka)。
 >
 
 ## 使用场景
@@ -199,7 +198,3 @@ output.kafka:
 
 
 
-
-
- 
- 
