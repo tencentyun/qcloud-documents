@@ -23,7 +23,7 @@ TRTC 是腾讯云 LiteAV 系列产品之一，由于 LiteAV 体系的 SDK 都使
       <td style="text-align:center"><a onclick="reportEvent({name: 'download-click-ios', ext1: 'gitee'})" href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a onclick="reportEvent({name: 'download-click-ios', ext1: 'doc-demo'})" href="https://cloud.tencent.com/document/product/647/32396">DOC</a></td>
       <td style="text-align:center"><a onclick="reportEvent({name: 'download-click-ios', ext1: 'doc-sdk'})" href="https://cloud.tencent.com/document/product/647/32173">DOC</a></td>
-      <td style="text-align:center">3M（arm64）</td>
+      <td style="text-align:center">3.23M（arm64）</td>
    </tr>
      <tr>
       <td style="text-align:center">Android</td>

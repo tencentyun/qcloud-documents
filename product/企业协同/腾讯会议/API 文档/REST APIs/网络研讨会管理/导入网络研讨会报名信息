@@ -4,7 +4,7 @@
 **请求方式**：POST
 **接口请求域名**：
 ```plaintext
-https://api.meeting.qq.com//v1/webinars/{meeting_id}/enroll/import
+https://api.meeting.qq.com/v1/webinars/{meeting_id}/enroll/import
 ```
 
 ## **输入参数**
@@ -32,7 +32,7 @@ https://api.meeting.qq.com//v1/webinars/{meeting_id}/enroll/import
 | ------------------- | --------- | ------------------------------------------------------------ |
 | total_count         | Integer   | 成功导入的报名信息条数。                                       |
 | enroll_list         | Object [] | 报名对象列表。                                                 |
-| user_non_registered | String [] | 邀请的参会者中未注册用户的 userid 数组。<br />注意：仅腾讯会议商业版和企业版可获取该参数。 |
+| user_non_registered | String [] | 通过 userid 方式导入时，本企业内未注册用户。返回未注册的 userid 数组。|
 
 
 **报名对象**

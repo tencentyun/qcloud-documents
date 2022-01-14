@@ -26,7 +26,7 @@
 <dx-codeblock>
 :::  yaml
 global:
-  serverConnector:
+    serverConnector:
     addresses:
     - 10.0.4.6:8091
 :::
@@ -51,7 +51,7 @@ global:
 <td>服务消费者</td>
 </tr>
 </table>
-7. 部署 provider 和 consumer 微服务应用，虚拟机部署方式和容器化部署根据您业务实际的部署方式选择一种即可。
+7. 部署 provider 和 consumer 微服务应用，虚拟机部署方式、容器化部署方式以及 TEM 部署方式根据您业务实际的部署方式选择一种即可。
  1. **虚拟机部署**部署 provider 和 consumer 微服务应用。
     - 上传 Jar 包至 CVM 实例。
     - 执行启动命令进行启动：
@@ -65,12 +65,13 @@ global:
 <dx-codeblock>
 :::  shell
      FROM java:8
-    
-     ADD ./quickstart-example-provider-${VERSION}.jar /root/app.jar
-    
-     ENTRYPOINT  ["java","-jar","/root/app.jar"]
+      
+     
+    ADD ./quickstart-example-provider-${VERSION}.jar /root/app.jar
+         
+ENTRYPOINT  ["java","-jar","/root/app.jar"]
 :::
-</dx-codeblock>   
+     </dx-codeblock>   
       - 通过 TKE 部署并运行镜像。
   3. **TEM 部署**部署 provider 和 consumer 微服务应用。
       - 选择 TEM 环境，注意所选择的环境，其依赖的 VPC，必须和上面已经创建的治理中心实例所依赖的 VPC 一致：     

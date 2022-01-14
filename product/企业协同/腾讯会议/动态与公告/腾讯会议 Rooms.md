@@ -6,9 +6,20 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
-<td><center>V2.12.70	</td>
-<td>修复部分已知问题并优化产品体验。</td>	
-<td><center>2021-12-14</td>
+<td><center>V2.12.80</td>	
+<td>
+1.支持批量设置自定义背景图。<br>
+2.支持设置 Rooms 屏幕默认视图布局。<br>
+3.添加快速退出 Rooms 应用入口。	</td>	
+<td><center>2022-01-05</td>	
+	</tr>
+	<tr>
+<td><center>V2.12.70</td>	
+<td>
+1.Rooms 视图语音激励优化。<br>
+2.Rooms 云录制支持录制多种视图。<br>
+3.支持快速交换双屏显示内容。</td>		
+<td><center>2021-12-14</td>	
 	</tr>
 	<tr>			
 <td><center>V2.12.60	</td>
@@ -37,10 +48,21 @@
 	<th style="width: 50%;"><center>更新内容</center></th>
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
-	<tr>	
-<td><center>V2.12.70	</td>	
-<td>修复部分已知问题并优化产品体验。</td>
-<td><center>2021-12-14</td>
+	<tr>
+<td><center>V2.12.80</td>	
+<td>
+1.支持批量设置自定义背景图。<br>
+2.支持设置 Rooms 屏幕默认视图布局。<br>
+3.添加快速退出 Rooms 应用入口。	</td>	
+<td><center>2022-01-05</td>	
+	</tr>
+	<tr>
+<td><center>V2.12.70</td>	
+<td>
+1.Rooms 视图语音激励优化。<br>
+2.Rooms 云录制支持录制多种视图。<br>
+3.支持快速交换双屏显示内容。</td>		
+<td><center>2021-12-14</td>	
 	</tr>
 	<tr>			
 <td><center>V2.12.60</td>

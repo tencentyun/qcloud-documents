@@ -1,7 +1,6 @@
-，同旧版本中的 Private
+- **同旧版本中的 Private**
 
-
-，同旧版本中的 ChatRoom**新接入的开发者推荐使用 [新版本 API](https://cloud.tencent.com/document/product/269/44499)。**
+- **同旧版本中的 ChatRoom 新接入的开发者推荐使用 [新版本 API](https://cloud.tencent.com/document/product/269/44499)。**
 
 ## TIMManager
 
@@ -271,7 +270,5 @@ TIMConversation 提供的接口函数都是围绕消息的相关操作，包括�
 | [convertToImportedMsg](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#converttoimportedmsg) | 将消息导入到本地。 |
 | [setTime](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#settime) | 设置消息时间戳。 |
 | [setSender](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#setsender) | 设置消息发送方。 |
-
-
 
 
