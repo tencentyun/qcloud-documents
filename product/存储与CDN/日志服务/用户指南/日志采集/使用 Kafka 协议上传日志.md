@@ -45,6 +45,22 @@ CLS 支持您使用各类 Kafka producer SDK 采集日志，并通过 Kafka 协�
 
 ## 示例
 
+### Agent 调用示例
+
+<span id="filebeat"></span>
+#### filebeat 配置
+
+```filebeat
+output.kafka:
+  enabled: true
+  hosts: ["${region}-producer.cls.tencentyun.com:9096"] # TODO 服务地址；公网端口9096，内网端口9095
+  topic: "${topicID}" #  TODO topicID
+  version: "0.11.0.2"
+  compression: "${compress}"   # TODO 配置压缩方式
+  username: "${logsetID}"
+  password: "${SecurityId}#${SecurityKey}"
+```
+
 <span id="SDKSample"></span>
 ### SDK 调用示例
 
@@ -178,22 +194,6 @@ public class ProducerDemo {
         producer.close();
     }
 }
-```
-
-### Agent 调用示例
-
-<span id="filebeat"></span>
-#### filebeat 配置
-
-```filebeat
-output.kafka:
-  enabled: true
-  hosts: ["${region}-producer.cls.tencentyun.com:9096"] # TODO 服务地址；公网端口9096，内网端口9095
-  topic: "${topicID}" #  TODO topicID
-  version: "0.11.0.2"
-  compression: "${compress}"   # TODO 配置压缩方式
-  username: "${logsetID}"
-  password: "${SecurityId}#${SecurityKey}"
 ```
 
 
