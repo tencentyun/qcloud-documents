@@ -1,6 +1,6 @@
 <style> .markdown-text-box table td, .markdown-text-box table th { text-align:center} </style>
 
-## AME-TRTC 1.0.5版
+## AME 1.0.5 版
 <table>
 <thead><tr><th width=20%>所属平台</th><th>更新内容</th><th width=15%>下载地址</th></tr>
 </thead>
@@ -16,52 +16,3 @@
 </tr>
 </tbody></table>
 
-
-
-## AME-PCM 2.0.0正式版
-
-<table>
-<thead><tr><th width=50%>所属平台</th><th>下载地址</th></tr></thead>
-<tbody><tr>
-<td>iOS</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCopyrightedMedia/Release/2.0.0/TXCopyrightedMedia-iOS-PCM-2.0.0.220113.zip">ZIP</a></td>
-</tr>
-<tr>
-<td>Android</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCopyrightedMedia/Release/2.0.0/TXCopyrightedMedia-Android-PCM-2.0.220111.zip">ZIP</a></td>
-</tr>
-</tbody></table>
-
-
-## AME-声网 2.0.0正式版
-
-<table>
-<thead><tr><th width=50%>所属平台</th><th>下载地址</th></tr></thead>
-<tbody><tr>
-<td>iOS</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCopyrightedMedia/Release/2.0.0/TXCopyrightedMedia-iOS-Agora-2.0.0.220113.zip">ZIP</a></td>
-</tr>
-<tr>
-<td>Android</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCopyrightedMedia/Release/2.0.0/TXCopyRightedMedia-Android-Proxy-2.0.220111.zip">ZIP</a></td>
-</tr>
-</tbody></table>
-
-
-## AME-Zego 2.0.0正式版
-
-<table>
-<thead><tr><th width=50%>所属平台</th><th>下载地址</th></tr></thead>
-<tbody><tr>
-<td>iOS ZegoExpress</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCopyrightedMedia/Release/2.0.0/TXCopyrightedMedia-iOS-ZegoExpress-2.0.0.220113.zip">ZIP</a></td>
-</tr>
-<tr>
-<td>iOS ZegoLiveRoom</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCopyrightedMedia/Release/2.0.0/TXCopyrightedMedia-iOS-ZegoLiveRoom-2.0.0.220113.zip">ZIP</a></td>
-</tr>
-<tr>
-<td>Android（包含 Express + LiveRoom）</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCopyrightedMedia/Release/2.0.0/TXCopyRightedMedia-Android-Proxy-2.0.220111.zip">ZIP</a></td>
-</tr>
-</tbody></table>
