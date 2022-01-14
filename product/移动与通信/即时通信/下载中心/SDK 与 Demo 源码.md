@@ -140,7 +140,7 @@
 <td style="text-align:center" >IM Demo (Flutter)  </td>
 <td style="text-align:center" >包含 IM 主要功能。</td>
 <td style="text-align:center" >Flutter</td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TencentIMFlutterDemo/tree/master">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im_discuss">Github(推荐)</a></td>
 <td style="text-align:center" ><a href="https://upload-dianshi-1255598498.cos.ap-guangzhou.myqcloud.com/nodir/TencentImSDKPlugin-1610442889170.zip">ZIP</a></td>
 <td style="text-align:left" >参考 github README</td>
 </tr>

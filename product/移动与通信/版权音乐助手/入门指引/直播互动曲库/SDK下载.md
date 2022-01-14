@@ -6,7 +6,7 @@
 </thead>
 <tbody><tr>
 <td>iOS</td>
-<td style="text-align:left"><li>修复 iOS50 切换后台播放上报 crash 信息</li><li>加强切换到后台时候的播放能力</li><li> iPhone 锁屏时 license 校验失败</li></td>
+<td style="text-align:left"><li>修复 iOS15 切换后台播放上报 crash 信息</li><li>加强切换到后台时候的播放能力</li><li> iPhone 锁屏时 license 校验失败</li></td>
 <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCopyrightedMedia/Release/1.0.5/TXCopyrightedMedia-iOS-1.0.5.220113.zip">ZIP</a></td>
 </tr>
 <tr>

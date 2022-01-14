@@ -5,9 +5,9 @@
 
 ### SDK 更新动态
 - 动态库拆分。
-- 修改Android包名。
+- 修改 Android 包名。
 
-GME SDK 更新后，除了libgmesdk 外，新增以下库文件。
+GME SDK 更新后，除了 libgmesdk 外，新增以下库文件。
 
 ### 库文件对应功能
 

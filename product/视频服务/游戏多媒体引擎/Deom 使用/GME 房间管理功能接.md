@@ -59,7 +59,7 @@ public abstract int EnableMic(boolean isEnabled,String receiverID);
 
 | 参数       | 类型      | 含义                                                    |
 | ---------- | --------- | ------------------------------------------------------- |
-| enable     | BOOL      | YES：打开某用户麦克风 NO：关闭某用户麦克风 |
+| enable     | BOOL      | YES：打开某用户麦克风，NO：关闭某用户麦克风 |
 | receiverID | NSString* | 填入目标用户 OpenId                                     |
 
 
@@ -86,7 +86,7 @@ public abstract int EnableAudioSend(boolean isEnabled,String receiverID);
 
 | 参数       | 类型      | 含义                                                |
 | ---------- | --------- | --------------------------------------------------- |
-| enable     | BOOL      |YES：打开某用户上行 NO：关闭某用户上行 |
+| enable     | BOOL      |YES：打开某用户上行，NO：关闭某用户上行 |
 | receiverID | NSString* | 填入目标用户 OpenId                                 |
 
 #### 回调
@@ -110,7 +110,7 @@ public abstract int EnableAudioCaptureDevice(boolean isEnabled,String receiverID
 
 | 参数       | 类型      | 含义                                                         |
 | ---------- | --------- | ------------------------------------------------------------ |
-| enable     | BOOL      |YES：打开某用户音频采集硬件设备 NO：关闭某用户音频采集硬件设备 |
+| enable     | BOOL      |YES：打开某用户音频采集硬件设备，NO：关闭某用户音频采集硬件设备 |
 | receiverID | NSString* | 填入目标用户 OpenId                                          |
 
 #### 回调
@@ -140,7 +140,7 @@ public abstract int EnableSpeaker(boolean isEnabled,String receiverID);
 
 | 参数       | 类型      | 含义                                                    |
 | ---------- | --------- | ------------------------------------------------------- |
-| enable     | BOOL      | YES ：打开某用户扬声器 NO：关闭某用户扬声器 |
+| enable     | BOOL      | YES ：打开某用户扬声器，NO：关闭某用户扬声器 |
 | receiverID | NSString* | 填入目标用户 OpenId                                     |
 
 #### 回调
@@ -165,7 +165,7 @@ public abstract int EnableAudioRecv(boolean isEnabled,String receiverID);
 
 | 参数       | 类型      | 含义                                                        |
 | ---------- | --------- | ----------------------------------------------------------- |
-| enable     | BOOL      | YES ：打开某用户音频下行 NO：即关闭某用户音频下行 |
+| enable     | BOOL      | YES ：打开某用户音频下行，NO：关闭某用户音频下行 |
 | receiverID | NSString* | 填入目标用户 OpenId                                         |
 
 #### 回调
@@ -191,7 +191,7 @@ public abstract int EnableAudioPlayDevice(boolean isEnabled,String receiverID);
 
 | 参数       | 类型      | 含义                                                         |
 | ---------- | --------- | ------------------------------------------------------------ |
-| enable     | BOOL      |YES ：打开某用户音频播放硬件设备 NO：关闭某用户音频播放硬件设备 |
+| enable     | BOOL      |YES ：打开某用户音频播放硬件设备，NO：关闭某用户音频播放硬件设备 |
 | receiverID | NSString* | 填入目标用户 OpenId                                          |
 
 #### 回调
@@ -261,7 +261,7 @@ public  abstract int ForbidUserOperation(boolean isEnabled,String receiverID);
 
 | 参数       | 类型      | 含义                                                        |
 | ---------- | --------- | ----------------------------------------------------------- |
-| enable     | BOOL      | YES：允许某用户操作设备 NO：禁止某用户操作设备 |
+| enable     | BOOL      | YES：允许某用户操作设备，NO：禁止某用户操作设备 |
 | receiverID | NSString* | 填入目标用户 OpenId                                         |
 
 #### 回调
@@ -301,7 +301,7 @@ public  abstract int ForbidUserOperation(boolean isEnabled,String receiverID);
 
 | 成员      | 含义                     |
 | --------- | ------------------------ |
-| boolValue |  0：关闭命令 1：打开命令 |
+| boolValue |  0：关闭命令，1：打开命令 |
 
 
 #### 示例代码
