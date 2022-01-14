@@ -11,9 +11,6 @@
 
 ### 步骤一：初始化授权 [](id:step1)
 
-<dx-tabs>
-::: 线上授权（TE 版本 2.4.0+ 支持线上授权方式）
-
 在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码：
 
 ```
@@ -35,20 +32,7 @@ NSLog(@"xmagic auth version : %@", [XMagicAuthManager getVersion]);
 ```
 >! key 字段为申请 lic 时提供的 SecretKey。
 
-:::
-::: 离线授权
 
-```
-NSString *licensePath = [[NSBundle mainBundle] pathForResource:@"dev_test_v2_S1-04_2022-01-17.lic1.4.1" ofType:@""];
-NSLog(@"youtu auth ret0 : %@", licensePath);
-int authRet = [XMagicAuthManager initAuthByFilePath:licensePath withSecretKey:@"xxxxx"];
-NSString *version = [XMagicAuthManager getVersion];
-NSLog(@"youtu auth ret : %i", authRet);
-NSLog(@"youtu auth version : %@", version);
-```
-
-:::
-</dx-tabs>
 
 ### 步骤二：设置 SDK 素材资源路径 [](id:step2)
 
