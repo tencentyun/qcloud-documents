@@ -5,7 +5,7 @@ __功能__
 
 __介绍__
 
-主要负责 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34775#txliveplayer) 对应的参数设置，**其中绝大多数设置项在播放开始之后再设置是无效的**。
+主要负责 [V2TXLivePlayer](https://cloud.tencent.com/document/product/454/56045#txliveplayer) 对应的参数设置，**其中绝大多数设置项在播放开始之后再设置是无效的**。
 
  
 
