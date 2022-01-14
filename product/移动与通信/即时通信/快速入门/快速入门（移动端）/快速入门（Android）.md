@@ -1,5 +1,5 @@
 本文主要介绍如何快速运行腾讯云即时通信 IM Demo（Android）。
-以下视频将帮助您快速了解如何跑通即时通信 IM 的体验 Demo：
+以下视频将帮助您快速了解如何跑通即时通信 IM Demo（Android）：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3130-56294?source=gw.pro.media&withPoster=1&notip=1"></iframe></div>
 
 ## 操作步骤
