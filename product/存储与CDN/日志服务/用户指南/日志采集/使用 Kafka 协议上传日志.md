@@ -2,9 +2,9 @@
 
 ## 相关限制
 
-- 支持 Kafka 协议版本为："0.11.0.X"，"1.0.X"，"1.1.X"，"2.0.X"，"2.1.X"，"2.2.X"，"2.3.X"，"2.4.X"，"2.5.X"，"2.6.X"，"2.7.X"，"2.8.X"
-- 支持压缩方式："gzip"，"snappy"，"lz4"
-- confluent-kafka-go 的 Kafka 库的代码（V3版本 Kafka协议，暂不支持，预计12月初支持），可以使用 sarama 库代替。
+- 支持 Kafka 协议版本为：0.11.0.X，1.0.X，1.1.X，2.0.X，2.1.X，2.2.X，2.3.X，2.4.X，2.5.X，2.6.X，2.7.X，2.8.X
+- 支持压缩方式：gzip，snappy，lz4
+- confluent-kafka-go 的 Kafka 库的代码（V3版本 Kafka 协议，暂不支持，预计12月初支持），可以使用 sarama 库代替。
 - 当前使用 SASL_PLAINTEXT 认证。
 
 
@@ -25,12 +25,12 @@
 ## 服务入口 
 
 <table>
-	<tr><th>地域</th><th>网络类型</th><th>服务入口</th></tr>
-	<tr><td rowspan=2>广州</td><td>内网</td><td>gz-producer.cls.tencentyun.com:9095</td></tr>
-	<tr><td>外网</td><td>gz-producer.cls.tencentcs.com:9096</td></tr>
+	<tr><th>地域</th><th>网络类型</th><th>端口号</th><th>服务入口</th></tr>
+	<tr><td rowspan=2>广州</td><td>内网</td><td>9095</td><td>gz-producer.cls.tencentyun.com:<b>9095</b></td></tr>
+	<tr><td>外网</td><td>9096</td><td>gz-producer.cls.tencentcs.com:<b>9096</b></td></tr>
 </table>
 
->! 本文档以广州地域为例，由于内外网域名用不同端口标识，其他地域请替换地址前缀。详情请参考 [可用域名-Kafka上传日志](https://cloud.tencent.com/document/product/614/18940#Kafka)。
+>! 本文档以广州地域为例，内外网域名需用不同端口标识，其他地域请替换地址前缀。详情请参考 [可用域名-Kafka上传日志](https://cloud.tencent.com/document/product/614/18940#Kafka)。
 >
 
 ## 使用场景
