@@ -1,5 +1,4 @@
-本文主要介绍如何快速运行腾讯云即时通信 IM Demo（iOS）。
-以下视频将帮助您快速了解如何跑通即时通信 IM Demo（iOS）：
+本文主要介绍如何快速运行腾讯云即时通信 IM Demo（iOS）。以下视频将帮助您快速入门：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/course-3130-56316"></iframe></div>
 
 ## 操作步骤
