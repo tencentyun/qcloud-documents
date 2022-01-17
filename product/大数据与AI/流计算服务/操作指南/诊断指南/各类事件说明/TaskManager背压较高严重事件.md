@@ -17,7 +17,7 @@ Flink 的 [背压](https://nightlies.apache.org/flink/flink-docs-master/zh/docs/
 >- 背压事件检测功能仅支持 Flink 1.13 及之后的版本。
 
 ## 告警配置
-用户可以对该事件 **配置作业监控告警（异常事件）**，并实时接收触发和恢复的告警通知。
+用户可以对该事件 [配置作业监控告警（异常事件）](https://tcloud-doc.isd.com/document/product/849/68291)，并实时接收触发和恢复的告警通知。
 
 > ! TaskManager 背压较高（OceanusBackpressureHigh）、TaskManager 背压过高（OceanusBackpressureTooHigh） 为两种**不同**的告警事件。如果您只关心影响作业运行的严重背压事件，可以只配置后者的告警通知。
 
