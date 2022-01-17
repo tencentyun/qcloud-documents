@@ -1,9 +1,8 @@
-在开发 Dataway 时，对脚本进行调试和测试，以方便问题排查和结果验证，EIS 系统提供 Dataway 脚本的调试功能。该功能可通过手工定义输入参数 msg，单击测试后可以直接查看脚本运行结果、调试日志和错误信息。
+在开发 Dataway 时，对脚本进行调试和测试，以方便问题排查和结果验证，千帆鹊桥 iPaaS 系统提供 Dataway 脚本的调试功能。该功能可通过手工定义输入参数 msg，单击测试后可以直接查看脚本运行结果、调试日志和错误信息。
 
 **操作步骤：**
-1. 打开 EIS 系统，新建一个组件，在 Dataway IDE 编辑框中输入表达式。
+1. 打开千帆鹊桥 iPaaS 系统，新建一个组件，在 Dataway IDE 编辑框中输入表达式。
 >?Dataway 调试模式下，支持在表达式中通过 print() 函数打印要观察的信息，运行结束后打印消息会显示在界面上。
-
 <img src="https://main.qcloudimg.com/raw/48417aeac8c13654a1fd67e941cac43b/SetPayload%E7%BB%84%E4%BB%B6%E8%BE%93%E5%85%A5.png" alt="Transform组件输入" style="zoom:50%;" />
 2. 单击 Dataway 表达式编辑框右上角“Debug”，弹出 msg 数据填写对话框，在对话框可以对 message 的 payload、vars 和 attrs 进行设置。设置完成后单击**开始测试**，系统会自动组装成一个 msg 参数，并作为脚本的输入传递到 dw_process 函数中。
 
