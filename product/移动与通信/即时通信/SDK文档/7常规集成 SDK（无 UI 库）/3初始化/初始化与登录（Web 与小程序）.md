@@ -24,7 +24,7 @@ tim.registerPlugin({<span class="hljs-string">'tim-upload-plugin'</span>: TIMUpl
 ### 小程序项目
 
 <pre><code><span class="hljs-keyword">import</span> TIM <span class="hljs-keyword">from</span> <span class="hljs-string">'tim-wx-sdk'</span>;
-<span class="hljs-comment">// 发送图片、文件等消息需要腾讯云即时通信IM上传插件</span>
+<span class="hljs-comment">// 发送图片、文件等消息需要腾讯云即时通信 IM上传插件</span>
 <span class="hljs-keyword">import</span> TIMUploadPlugin <span class="hljs-keyword">from</span> <span class="hljs-string">'tim-upload-plugin'</span>;
 
 
