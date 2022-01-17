@@ -13,7 +13,6 @@
 
 
 ## 相关文档
-- [快速入门（Android）](https://cloud.tencent.com/document/product/269/36838)
 - [IM SDK（小程序）TUIKit 运行](https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram/TUIKit)
 - [IM SDK（Web） Demo 运行](https://github.com/tencentyun/TIMSDK/tree/master/Web/Demo)
 - [集成 SDK 上传插件（Web & 小程序）](https://cloud.tencent.com/document/product/269/52962)
