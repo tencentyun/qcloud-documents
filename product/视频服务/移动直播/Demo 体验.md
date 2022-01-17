@@ -22,7 +22,6 @@
 </div></a></td>
 <td><a href="https://github.com/tencentyun/XiaoZhiBo/tree/main/Android">Github</a></td>
 </tr>
-</tr>
 </table>
 
 
