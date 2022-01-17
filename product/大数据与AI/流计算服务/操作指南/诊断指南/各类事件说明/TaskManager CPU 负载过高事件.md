@@ -12,7 +12,7 @@ Flink 作业的 TaskManager 负责执行用户定义的各类算子逻辑，CPU 
 
 
 ## 告警配置
-用户可以对该事件 **配置作业监控告警（异常事件）**，并实时接收触发和恢复的告警通知。
+用户可以对该事件 [配置作业监控告警（异常事件）](https://tcloud-doc.isd.com/document/product/849/68291)，并实时接收触发和恢复的告警通知。
 
 ## 处理建议
 如果用户使用的是 Flink 1.13 版本，可以使用 Flink UI 内置的 [火焰图功能](https://nightlies.apache.org/flink/flink-docs-release-1.13/docs/ops/debugging/flame_graphs/) 分析 CPU 调用热点，即占用 CPU 时间片较多的方法（首先需要在作业的 [高级参数](https://cloud.tencent.com/document/product/849/53391) 选项中，加入 `rest.flamegraph.enabled: true` 参数，并重新发布作业版本，才可使用火焰图绘制功能），如下图：
