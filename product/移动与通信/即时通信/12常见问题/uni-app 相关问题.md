@@ -66,9 +66,9 @@
 
 [](id:Q7)
 ### 引入原生音视频插件报以下错怎么办？
-![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-q-1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e68ad1caf6be5d7f551a3b765c4aca53.png)
 根据 uni-app [原生插件调试](https://ask.dcloud.net.cn/article/35412) 制作 [自定义基座](https://ask.dcloud.net.cn/article/35115)
-![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-a-1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7758e1f3b5214a1ecd5a1aac46445ac3.png)
 
 [](id:Q8)
 ### 微信小程序如果需要上线或者部署正式环境怎么办？
@@ -110,5 +110,4 @@ v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
 [](id:QQ)
 ### 技术咨询
 了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">309869925</dx-tag-link>
-
 
