@@ -13,7 +13,7 @@
 
 
 ## 相关文档
-- [一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)
+- [快速入门（Android）](https://cloud.tencent.com/document/product/269/36838)
 - [IM SDK（小程序）TUIKit 运行](https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram/TUIKit)
 - [IM SDK（Web） Demo 运行](https://github.com/tencentyun/TIMSDK/tree/master/Web/Demo)
 - [集成 SDK 上传插件（Web & 小程序）](https://cloud.tencent.com/document/product/269/52962)
@@ -139,7 +139,7 @@ tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 ### 相关资源
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
 - [SDK 接口文档](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
-- [常见问题](https://web.sdk.qcloud.com/im/doc/zh-cn/tutorial-01-faq.html)
+- [常见问题](https://cloud.tencent.com/document/product/269/68275)
 - [IM Web Demo](https://github.com/tencentyun/TIMSDK/tree/master/Web/Demo)
 - [腾讯云即时通信 IM 上传插件下载地址](https://www.npmjs.com/package/tim-upload-plugin)
 
@@ -151,7 +151,7 @@ tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 
 将以下域名添加到 **request 合法域名**：
 
-从v2.11.2起，SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
+从v2.11.2起 SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
 
 | 域名 | 说明 |  是否必须 |
 |:-------:|---------|----|
@@ -160,7 +160,7 @@ tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 |`https://web.sdk.qcloud.com`| Web IM 业务域名 | 必须|
 |`https://webim.tim.qq.com` | Web IM 业务域名 | 必须|
 
-v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
+v2.10.2及以下版本使用 HTTP，HTTP 版本须添加以下域名：
 
 | 域名 | 说明 |  是否必须 |
 |:-------:|---------|----|
