@@ -1,12 +1,17 @@
-本文介绍使用 DTS 数据迁移功能从 PostgreSQL 迁移数据至腾讯云数据库 PostgreSQL 的操作指导。
+本文介绍使用 DTS 数据迁移功能从 PostgreSQL 迁移数据至腾讯云云原生数据库 TDSQL-C PostgreSQL 的操作指导。
 
-## 注意事项 
+如下场景的迁移要求与 PostgreSQL 迁移数据至腾讯云云原生数据库 TDSQL-C PostgreSQL 的要求一致，可参考本场景相关内容。
+
+- TDSQL-C PostgreSQL 到 PostgreSQL 的数据迁移
+- TDSQL-C PostgreSQL 到 TDSQL-C PostgreSQL 的数据迁移
+
+## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您的数据库配置过低，建议您在业务低峰期进行迁移。
 - 外网实例迁移时，请确保源实例服务在外网环境下可访问，并且要保持外网连接的稳定性，当网络出现波动或者故障时会导致迁移失败，迁移一旦失败，就需要重新发起迁移任务。
 - 除腾讯云数据库 PostgreSQL 之外的其他 PostgreSQL 作为源端时，必须要求源端库具有 replication 权限，否则迁移前校验步骤将不通过。
 
 ## 前提条件
-- 已 [创建云数据库 PostgreSQL](https://cloud.tencent.com/document/product/409/56961)。
+- 已 [创建云原生数据库 TDSQL-C（兼容 PostgreSQL 版）](https://cloud.tencent.com/document/product/1003/30505)。
 - 源数据库和目标数据库符合迁移功能和版本要求，请参见 [数据迁移支持的数据库](https://cloud.tencent.com/document/product/571/58686) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
 - 源数据库需要具备的权限如下：
@@ -69,7 +74,7 @@ grant pg_tencentdb_superuser to 迁移用户;
 
 ## 操作步骤
 1. （可选）PostgreSQL 9.4、9.5、9.6 版本作为源数据库进行“全量 + 增量迁移”时，需要参考如下指导安装 tencent_decoding 插件，其他场景请跳过该步骤。
- 1. 根据源数据库所在服务器的系统架构，下载对应的插件。  
+   1. 根据源数据库所在服务器的系统架构，下载对应的插件。  
     - 只支持系统架构为 x86_64 和 aarch64。
     - 插件版本需要和 PostgreSQL 版本保持一致。
     - Glibc 版本需要满足要求：x86_64 系统不低于 2.17 - 323 版本，aarch64 系统不低于 2.17 - 260 版本。 
@@ -81,15 +86,18 @@ RHEL/CentOS: rpm -q glibc
 ```
 ldd --version | grep -i libc
 ```
-下载地址：  [x86_64 9.4](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.4/tencent_decoding.so)、[x86_64 9.5](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.5/tencent_decoding.so)、[x86_64 9.6](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.6/tencent_decoding.so)、[aarch64 9.4](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.4/tencent_decoding.so)、[aarch64 9.5](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.5/tencent_decoding.so)、[aarch64 9.6](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.6/tencent_decoding.so)。    
- 2. 将下载得到的 tencent_decoding.so 文件放置于 Postgres 进程目录的 lib 文件夹下，无需重启实例。 
+   下载地址：  [x86_64 9.4](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.4/tencent_decoding.so)、[x86_64 9.5](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.5/tencent_decoding.so)、[x86_64 9.6](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.6/tencent_decoding.so)、[aarch64 9.4](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.4/tencent_decoding.so)、[aarch64 9.5](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.5/tencent_decoding.so)、[aarch64 9.6](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.6/tencent_decoding.so)。    
+
+   2. 将下载得到的 tencent_decoding.so 文件放置于 Postgres 进程目录的 lib 文件夹下，无需重启实例。
+
 2. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
 3. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。
 >?迁移任务订购后不支持更换地域，请谨慎选择。
-3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
+4. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/0b08063be84ca67d3f5258f1851073ba.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/67993e51e8960179acc5054ca27304d7.png" style="zoom:67%;" />
+
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
@@ -124,7 +132,7 @@ ldd --version | grep -i libc
 <td>密码</td><td>源库 PostgreSQL 的数据库帐号的密码。</td></tr>
 <tr>
 <td rowspan=6>目标库设置</td>
-<td>目标库类型</td><td>选择“PostgreSQL”。</td></tr>
+<td>目标库类型</td><td>选择“TDSQL-C PostgreSQL 版”。</td></tr>
 <tr>
 <td>接入类型</td><td>根据您的场景选择，本场景默认选择“云数据库”。</td></tr>
 <tr>
@@ -136,6 +144,7 @@ ldd --version | grep -i libc
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
+
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 <img src="https://main.qcloudimg.com/raw/aadd11ed6a095813fa767690e6857276.png"  style="zoom:60%;">
 <table>
