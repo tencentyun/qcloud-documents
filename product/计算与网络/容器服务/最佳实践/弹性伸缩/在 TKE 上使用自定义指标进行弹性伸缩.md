@@ -310,3 +310,4 @@ httpserver-6f94475d45-wl78d   0/1     ContainerCreating   0          1s
 ```
 
 若扩容正常，则说明已实现 HPA 基于业务自定义指标进行弹性伸缩。
+
