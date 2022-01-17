@@ -160,7 +160,6 @@ http://播放域名/live/[streamId].flv
 
 - **设置 V2TXLivePlayer 的播放模式为极速模式**
 可以通过设置 V2TXLivePlayer 的参数来实现极速模式，以 [iOS](https://cloud.tencent.com/document/product/454/56597#Delay) 为例。
-以 iOS 端的 Objective-C 代码为例：
 ```ObjectiveC
 //自动模式
 [_txLivePlayer setCacheParams:1 maxTime:5];
