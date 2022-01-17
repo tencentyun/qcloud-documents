@@ -11,7 +11,7 @@
 - **通过 DMC 连接**：通过数据管理平台（Database Management Console，DMC）访问云原生数据库 TDSQL-C。
 
 
-## 内外网连接 TDSQL-C for MySQL
+## 内外网连接 TDSQL-C MySQL版
 ### 从 Windows 云服务器连接
 1. 登录到 Windows 云服务器，请参见 [快速配置 Windows 云服务器](https://cloud.tencent.com/document/product/213/2764)。
 2. 下载一个标准的 SQL 客户端。
@@ -70,7 +70,7 @@ mysql -h hostname -P port -u username -p
 下图中以`show databases;`为例：
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 
-## 内外网连接 TDSQL-C for PostgreSQL
+## 内外网连接 TDSQL-C PostgreSQL版
 ### 从 Windows 云服务器连接
 1. 登录到 Windows 云服务器，请参见 [快速配置 Windows 云服务器](https://cloud.tencent.com/document/product/213/2764)。
 2. 下载一个标准的 SQL 客户端。
@@ -98,11 +98,11 @@ yum install postgresql13
 ```
 psql -h hostname -U username -p 5432 -d postgres
 ```
-  - hostname：替换为目标 TDSQL-C PostgreSQL版集群的内网地址，在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 的集群详情页可查看内网地址。如使用外网，则为外网域名。
+  - hostname：替换为目标 TDSQL-C PostgreSQL版 集群的内网地址，在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 的集群详情页可查看内网地址。如使用外网，则为外网域名。
   - username：替换为默认的用户名 root。
   - port： 默认为5432
-4. 在提示 `Enter password：` 后输入 TDSQL-C for PostgreSQL 集群的帐号对应的密码，如忘记密码可在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。
-本例中提示 `postgres #>` 说明成功登录到 TDSQL-C for PostgreSQL。
+4. 在提示 `Enter password：` 后输入 TDSQL-C PostgreSQL版 集群的帐号对应的密码，如忘记密码可在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。
+本例中提示 `postgres #>` 说明成功登录到 TDSQL-C PostgreSQL版。
 
 
 ## 通过 DMC 平台连接

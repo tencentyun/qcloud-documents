@@ -2,7 +2,7 @@ Namespaces 是 Kubernetes 在同一个集群中进行逻辑环境划分的对象
 
 ## 使用方法
 
-- 通过 TKE 控制台使用：TKE 控制台提供 Namespaces 的增删改查功能。
+- 通过 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1) 使用：容器服务控制台提供 Namespaces 的增删改查功能。
 - 通过 Kubectl 使用：更多详情可查看 [Kubernetes 官网文档](https://kubernetes.io/docs/tasks/administer-cluster/namespaces/)。
 
 ## 通过 ResourceQuota 设置 Namespaces 资源的使用配额
