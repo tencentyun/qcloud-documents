@@ -14,7 +14,7 @@
 ![](https://main.qcloudimg.com/raw/879a2413fee05c39cc3ff8d2fd41f80b.png)
 2. 安装 Fluid Controller。
 ![](https://main.qcloudimg.com/raw/ffbc185e04789cb5a679b8e32ec92d59.jpg)
-3. 检查 controller 组件。在左侧【集群】中找到对应集群，如果看到了两个 controller，则说明 fluid 组件安装成功。
+3. 检查 controller 组件。在左侧**集群**中找到对应集群，如果看到了两个 controller，则说明 fluid 组件安装成功。
 ![](https://main.qcloudimg.com/raw/27f12c25ac4da44eace986eddf356691.png)
 
 
@@ -31,7 +31,7 @@
 
 ### 2. 创建 UFS 数据集 Dataset（COS 为例）
 
-先创建 secret.yaml 用于加密， 模版如下：
+先创建 secret.yaml 用于加密， 模板如下：
 
 ```yaml
 apiVersion: v1
@@ -49,7 +49,7 @@ stringData:
 secret/mysecret created
 ```
 
-dataset.yaml 模版如下：
+dataset.yaml 模板如下：
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
