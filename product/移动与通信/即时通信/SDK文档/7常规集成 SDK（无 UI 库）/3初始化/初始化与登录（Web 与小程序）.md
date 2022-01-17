@@ -4,7 +4,7 @@
 ### Web 项目
 
 <pre><code><span class="hljs-keyword">import</span> TIM <span class="hljs-keyword">from</span> <span class="hljs-string">'tim-js-sdk'</span>;
-<span class="hljs-comment">// 发送图片、文件等消息需要腾讯云即时通信 IM上传插件</span>
+<span class="hljs-comment">// 发送图片、文件等消息需要腾讯云即时通信 IM 上传插件</span>
 <span class="hljs-keyword">import</span> TIMUploadPlugin <span class="hljs-keyword">from</span> <span class="hljs-string">'tim-upload-plugin'</span>;
 
 <span class="hljs-keyword">let</span> options = {
@@ -17,14 +17,14 @@
 tim.setLogLevel(<span class="hljs-number">0</span>); <span class="hljs-comment">// 普通级别，日志量较多，接入时建议使用</span>
 <span class="hljs-comment">// tim.setLogLevel(1); // release 级别，SDK 输出关键信息，生产环境时建议使用</span>
 
-<span class="hljs-comment">// 注册腾讯云即时通信 IM上传插件</span>
+<span class="hljs-comment">// 注册腾讯云即时通信 IM 上传插件</span>
 tim.registerPlugin({<span class="hljs-string">'tim-upload-plugin'</span>: TIMUploadPlugin});</code></pre>
 
 
 ### 小程序项目
 
 <pre><code><span class="hljs-keyword">import</span> TIM <span class="hljs-keyword">from</span> <span class="hljs-string">'tim-wx-sdk'</span>;
-<span class="hljs-comment">// 发送图片、文件等消息需要腾讯云即时通信 IM上传插件</span>
+<span class="hljs-comment">// 发送图片、文件等消息需要腾讯云即时通信 IM 上传插件</span>
 <span class="hljs-keyword">import</span> TIMUploadPlugin <span class="hljs-keyword">from</span> <span class="hljs-string">'tim-upload-plugin'</span>;
 
 
@@ -38,7 +38,7 @@ tim.registerPlugin({<span class="hljs-string">'tim-upload-plugin'</span>: TIMUpl
 tim.setLogLevel(<span class="hljs-number">0</span>); <span class="hljs-comment">// 普通级别，日志量较多，接入时建议使用</span>
 <span class="hljs-comment">// tim.setLogLevel(1); // release 级别，SDK 输出关键信息，生产环境时建议使用</span>
 
-<span class="hljs-comment">// 注册腾讯云即时通信 IM上传插件</span>
+<span class="hljs-comment">// 注册腾讯云即时通信 IM 上传插件</span>
 tim.registerPlugin({<span class="hljs-string">'tim-upload-plugin'</span>: TIMUploadPlugin});</code></pre>
 
 
