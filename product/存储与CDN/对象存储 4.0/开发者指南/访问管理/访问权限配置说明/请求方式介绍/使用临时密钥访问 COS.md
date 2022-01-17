@@ -34,7 +34,7 @@
 类似永久密钥，您也可以通过临时密钥生成签名，填入请求头部 Authorization，形成签名请求。COS 接收到请求后，会校验签名是否有效，以及临时密钥是否过期。
 签名算法的介绍请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778)，COS 同时提供了 [签名生成工具](https://cos5.cloud.tencent.com/static/cos-sign/)，也可以通过 SDK 生成签名，可参考 [SDK 签名实现](https://cloud.tencent.com/document/product/436/7778#sdk-.E7.AD.BE.E5.90.8D.E5.AE.9E.E7.8E.B0)。
 - 使用 SDK 工具
-安装 SDK 工具后，除了使用临时密钥初始化用户身份信息，您也可以使用临时密钥（SecretId、SecretKey、Token）初始化 COSClient，直接使用SDK进行上传、下载等操作，而无需生成签名。临时密钥生成可参考临时密钥生成及使用指引。
+安装 SDK 工具后，除了使用临时密钥初始化用户身份信息，您也可以使用临时密钥（SecretId、SecretKey、Token）初始化 COSClient，直接使用 SDK 进行上传、下载等操作，而无需生成签名。临时密钥生成可参考临时密钥生成及使用指引。
 
 Java SDK 参考示例如下，更多语言 demo 可参考 [SDK 概览](https://cloud.tencent.com/document/product/436/6474)。
 
