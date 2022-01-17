@@ -133,8 +133,8 @@ http://播放域名/live/[streamId].flv
 
 | 所属平台 | 对接文档 | API 概览 | 支持的格式|
 |:-------:|:-------:|:-------:|-------|
-| iOS App| [接入指引](https://cloud.tencent.com/document/product/454/56597) | [V2TXLivePlayer(iOS)](https://cloud.tencent.com/document/product/454/56044)  | 推荐 FLV |
-| Android App | [接入指引](https://cloud.tencent.com/document/product/454/56598) | [V2TXLivePlayer(Android)](https://cloud.tencent.com/document/product/454/56045) | 推荐 FLV |
+| iOS App| [接入指引](https://cloud.tencent.com/document/product/454/56597) | [V2V2TXLivePlayer(iOS)](https://cloud.tencent.com/document/product/454/56044)  | 推荐 FLV |
+| Android App | [接入指引](https://cloud.tencent.com/document/product/454/56598) | [V2V2TXLivePlayer(Android)](https://cloud.tencent.com/document/product/454/56045) | 推荐 FLV |
 | Web 浏览器 | [接入指引](https://cloud.tencent.com/document/product/454/7503) | - |  <li/>桌面端 Chrome 浏览器支持 FLV <li/>Mac 端 Safari 和移动端手机浏览器仅支持 HLS |
 |微信小程序| [接入指引](https://cloud.tencent.com/document/product/454/34931) | [&lt;live-player&gt; 标签](https://developers.weixin.qq.com/miniprogram/dev/component/live-player.html)| 推荐 FLV |
 
@@ -143,27 +143,27 @@ http://播放域名/live/[streamId].flv
 ### 步骤6：优化播放延时
 
 开启旁路直播后的 http - flv 地址，由于经过了直播 CDN 的扩散和分发，观看时延肯定要比直接在 TRTC 直播间里的通话时延要高。
-按照目前腾讯云的直播 CDN 技术，如果配合 TXLivePlayer 播放器，可以达到下表中的延时标准：
+按照目前腾讯云的直播 CDN 技术，如果配合 V2TXLivePlayer 播放器，可以达到下表中的延时标准：
 
-| 旁路流类型 | TXLivePlayer 的播放模式 |  平均延时 |  实测效果 |
+| 旁路流类型 | V2TXLivePlayer 的播放模式 |  平均延时 |  实测效果 |
 |:-------:|:-------:|:--------:|:---------:|
 | 独立画面 | 极速模式（推荐） | **2s - 3s** | 下图中左侧对比图（橙色）|
 | 混合画面 | 极速模式（推荐） | **4s - 5s** | 下图中右侧对比图（蓝色）|
 
-下图中的实测效果，采用了同样的一组手机，左侧 iPhone 6s 使用了 TRTC SDK 进行直播，右侧的小米6 使用 TXLivePlayer 播放器播放 FLV 协议的直播流。
+下图中的实测效果，采用了同样的一组手机，左侧 iPhone 6s 使用了 TRTC SDK 进行直播，右侧的小米6 使用 V2TXLivePlayer 播放器播放 FLV 协议的直播流。
 ![](https://main.qcloudimg.com/raw/98cf3ebc48875d831ef0bd138f7a3cb5.jpg)
 
 如果您在实测中延时比上表中的更大，可以按照如下指引优化延时：
 
-- **使用 TRTC SDK 自带的 TXLivePlayer**
-普通的 ijkplayer 或者 ffmpeg 基于 ffmpeg 的内核包装出的播放器，缺乏延时调控的能力，如果使用该类播放器播放上述直播流地址，时延一般不可控。TXLivePlayer 有一个自研的播放引擎，具备延时调控的能力。
+- **使用 TRTC SDK 自带的 V2TXLivePlayer**
+普通的 ijkplayer 或者 ffmpeg 基于 ffmpeg 的内核包装出的播放器，缺乏延时调控的能力，如果使用该类播放器播放上述直播流地址，时延一般不可控。V2TXLivePlayer 有一个自研的播放引擎，具备延时调控的能力。
 
-- **设置 TXLivePlayer 的播放模式为极速模式**
-可以通过设置 TXLivePlayerConfig 的三个参数来实现极速模式，以 [iOS](https://cloud.tencent.com/document/product/454/7880#Delay) 为例。
+- **设置 V2TXLivePlayer 的播放模式为极速模式**
+可以通过设置 V2TXLivePlayerConfig 的三个参数来实现极速模式，以 [iOS](https://cloud.tencent.com/document/product/454/56597#Delay) 为例。
 以 iOS 端的 Objective-C 代码为例：
 ```
- // 设置 TXLivePlayer 的播放模式为极速模式
-    TXLivePlayerConfig * config = [[TXLivePlayerConfig alloc] init];
+ // 设置 V2TXLivePlayer 的播放模式为极速模式
+    V2TXLivePlayerConfig * config = [[V2TXLivePlayerConfig alloc] init];
     config.bAutoAdjustCacheTime = YES;
     config.minAutoAdjustCacheTime = 1; // 最小缓冲1s
     config.maxAutoAdjustCacheTime = 1; // 最大缓冲1s
