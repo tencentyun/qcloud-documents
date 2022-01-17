@@ -80,7 +80,6 @@
 </div></td>
 <td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/WXMini">Github</a></td>
 </tr>
-<tr>
 </table>
  
 **腾讯云视频云小程序展示**
