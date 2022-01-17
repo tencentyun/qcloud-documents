@@ -33,10 +33,10 @@
 
 ### 创建自定义连接器
 
-1. 登录企业集成服务控制台，在左侧菜单栏中单击【[自定义连接器](https://console.cloud.tencent.com/eis/connector)】。
+1. 登录千帆鹊桥iPaaS控制台，在左侧菜单栏中单击【[自定义连接器](https://console.cloud.tencent.com/eis/connector)】。
 2. 单击【添加连接器】，在弹出的添加自定义连接器窗口中单击【选择文件】。
 ![](https://main.qcloudimg.com/raw/cd29bb84ef204addcd649590a53dff0e.jpg)
-3. 选择上述准备的 XML 文件，单击【确认上传】>【确认】，即可将 XML 文件上传到企业集成服务控制台。
+3. 选择上述准备的 XML 文件，单击【确认上传】>【确认】，即可将 XML 文件上传到千帆鹊桥iPaaS控制台。
 4. 成功上传自定义连接器 XML 文件后，即可在集成流中使用该自定义连接器。
 #### 查看
 将示例的 XML 上传后，前端展示页面如下：
@@ -50,9 +50,9 @@
 
 ### 创建应用
 
-1. 登录企业集成服务控制台，在左侧菜单栏中单击【[应用管理](https://console.cloud.tencent.com/eis)】。
+1. 登录千帆鹊桥iPaaS控制台，在左侧菜单栏中单击【[应用管理](https://console.cloud.tencent.com/eis)】。
 2. 单击【添加应用】，在弹出的添加应用窗口中选择添加方式，本文选择”空白应用“方式。
- - HelloWorld 模版：企业集成服务提供的 HelloWorld 模版。
+ - HelloWorld 模版：千帆鹊桥iPaaS提供的 HelloWorld 模版。
  - 空白应用：创建集成留为空的应用。
 3. 单击【确定】创建应用并默认进入集成流页面。
 4. 在页面右侧可以查看到上述步骤创建到 HelloWorld 连接器。
