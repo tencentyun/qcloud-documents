@@ -59,7 +59,7 @@ https://test-12345678.cos.ap-beijing.myqcloud.com/test.png?q-sign-algorithm=sha1
 **使用永久密钥生成预签名 URL（任意时长）**
 
 永久密钥不会过期，预签名 URL 的有效期取决于您设置的签名有效期。您可以直接调用 SDK 的预签名 URL 方法。操作步骤如下：
-1. 输入 secret_id、secret_key、region 等初始化 client；
+1. 输入 secret_id、secret_key、region 等初始化 client。
 2. 输入您的存储桶名称、对象名称、签名有效期，生成自定义时长的预签名 URL。详情请参见下列各语言 SDK 文档：
 <table>
 <tr>
@@ -86,7 +86,7 @@ https://test-12345678.cos.ap-beijing.myqcloud.com/test.png?q-sign-algorithm=sha1
 **使用临时密钥生成预签名 URL（不超过36小时）**
 
 在前端直传的场景中，经常需要使用到临时密钥。关于临时密钥的说明和生成指引您可以参考：
-- [使用临时密钥访问COS](跳转到"请求方式介绍"下面的“使用临时密钥访问COS”)
+- [使用临时密钥访问COS](https://cloud.tencent.com/document/product/436/68283)
 - [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048)
 - [用于前端直传 COS 的临时密钥安全指引](https://cloud.tencent.com/document/product/436/40265)
 
