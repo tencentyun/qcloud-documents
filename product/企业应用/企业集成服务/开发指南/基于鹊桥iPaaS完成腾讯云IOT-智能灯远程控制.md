@@ -33,7 +33,9 @@
 2.将物联网开放平台“产品ID”用变量名 PID 通过存在 message 的 variables 进行保留。后续节点可通过 msg.vars.get('PID') 形式引用该变量。
 
 - 变量名：必填，用户可自定义，此处填写为PID
-- 变量值：必填，此处填写string：产品ID [开发中心-产品开发页获取](https://console.cloud.tencent.com/iotexplorer/project/prj-h7cotfew/product/list)
+- 变量值：必填，此处填写string：产品ID  
+产品ID获取：进入 [物联网开发平台](https://console.cloud.tencent.com/iotexplorer)单击【实例管理】>【对应公共实例】>【项目列表】>【对应项目名称】进入产品开发页面，即可获取对应产品ID。
+![](https://qcloudimg.tencent-cloud.cn/raw/12f5fc637364ce838cc95aa3016dc0f1.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/0ab7e664e882221fe82542b08c8bcde7.png)
 #### 步骤4：配置 腾讯云物联网开发平台-获取设备列表
 1.单击 画布中的 “+” 弹出组件筛选框。选择腾讯云物联网开发平台连接器。
