@@ -6,7 +6,7 @@ Flink 作业的 TaskManager 运行在 Kubernetes Pod 中，当 Pod 终止时，�
 系统实时监测 TaskManager Pod 的退出事件，判断退出时的状态码是否为 SIGTERM 造成的（即正常的退出码为 143）。如果退出码异常，说明该停止请求并非由 JobManager 发出，而是因为 TaskManager 自身发生了错误，此时会判定为 Pod 异常退出事件。
 
 ## 告警配置
-用户可以对该事件 **配置作业监控告警（异常事件）**，并实时接收触发和恢复的告警通知。
+用户可以对该事件 [配置作业监控告警（异常事件）](https://tcloud-doc.isd.com/document/product/849/68291)，并实时接收触发和恢复的告警通知。
 
 ## 处理建议
 | 状态码 | 可能原因                                                     | 解决方案                                                     |
