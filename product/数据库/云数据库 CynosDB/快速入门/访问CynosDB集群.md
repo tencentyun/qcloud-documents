@@ -98,10 +98,10 @@ yum install postgresql13
 ```
 psql -h hostname -U username -p 5432 -d postgres
 ```
-  - hostname：替换为目标 TDSQL-C PostgreSQL版集群的内网地址，在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 的集群详情页可查看内网地址。如使用外网，则为外网域名。
+  - hostname：替换为目标 TDSQL-C PostgreSQL版 集群的内网地址，在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 的集群详情页可查看内网地址。如使用外网，则为外网域名。
   - username：替换为默认的用户名 root。
   - port： 默认为5432
-4. 在提示 `Enter password：` 后输入 TDSQL-C PostgreSQL版集群的帐号对应的密码，如忘记密码可在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。
+4. 在提示 `Enter password：` 后输入 TDSQL-C PostgreSQL版 集群的帐号对应的密码，如忘记密码可在 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。
 本例中提示 `postgres #>` 说明成功登录到 TDSQL-C PostgreSQL版。
 
 

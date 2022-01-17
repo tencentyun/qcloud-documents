@@ -1,5 +1,5 @@
 [](id:Q1)
-### uni-app  同时支持 Android，iOS， 微信小程序平台，IM SDK 如何选择？
+### uni-app  同时支持 Android、iOS 和微信小程序平台，IM SDK 如何选择？
 请选择 `tim-wx-sdk` ，npm 安装或者静态引入：
 ```javascript
     // 从v2.11.2起，SDK 支持了 WebSocket，推荐接入；v2.10.2及以下版本，使用 HTTP
@@ -50,10 +50,9 @@
 ### uni-app  打包 app 发送语音消息时间显示错误怎么办？
    uni-app 打包 app，`recorderManager.onStop` 回调中没有 `duration` 和 `fileSize`，需要用户自己补充 duration 和 fileSize。
 - **通过本地起定时器记录时间，计算出 duration。**
-- **本地计算文件大小，fileSize ＝ (音频码率) x 时间长度(单位:秒) / 8，粗略估算。**
+- **本地计算文件大小，fileSize ＝ (音频码率) x 时间长度(单位：秒) / 8，粗略估算。**
 详细代码请参见 [uni-app TUIKit](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)。
->!
->- 语音消息对象中必须包括 `duration` 和 `fileSize`，如果没有 `fileSize`，语音消息时长是一串错误的数字
+>!语音消息对象中必须包括 `duration` 和 `fileSize`，如果没有 `fileSize`，语音消息时长是一串错误的数字
 
 [](id:Q5)
 ### video 视频消息层级过高无法滑动怎么办？
@@ -62,14 +61,14 @@
 >!请参见官方 [原生组件说明](https://uniapp.dcloud.io/component/native-component)。
 
 [](id:Q6)
-### 微信小程序环境，真机预览，报系统错误，体积过大怎么办？
+### 微信小程序环境在真机预览下报系统错误，体积过大怎么办？
 运行时请勾选代码压缩，运行到小程序模拟器>运行时是否压缩代码。
 
 [](id:Q7)
 ### 引入原生音视频插件报以下错怎么办？
-![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-q-1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e68ad1caf6be5d7f551a3b765c4aca53.png)
 根据 uni-app [原生插件调试](https://ask.dcloud.net.cn/article/35412) 制作 [自定义基座](https://ask.dcloud.net.cn/article/35115)
-![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-a-1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7758e1f3b5214a1ecd5a1aac46445ac3.png)
 
 [](id:Q8)
 ### 微信小程序如果需要上线或者部署正式环境怎么办？
@@ -111,5 +110,4 @@ v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
 [](id:QQ)
 ### 技术咨询
 了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">309869925</dx-tag-link>
-
 

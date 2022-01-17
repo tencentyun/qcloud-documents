@@ -2,7 +2,7 @@
 ## 基础问题
 
 [](id:b1)
-### 什么 TRTCCalling？
+### 什么是 TRTCCalling？
 TRTCCalling 是在 TRTC 和 TIM 的基础上诞生的一款快速集成的音视频的解决方案。支持1v1和多人视频/语音通话。
 ![](https://main.qcloudimg.com/raw/db70b140c138ba8c4aff32f679332ac3.png)      
 
