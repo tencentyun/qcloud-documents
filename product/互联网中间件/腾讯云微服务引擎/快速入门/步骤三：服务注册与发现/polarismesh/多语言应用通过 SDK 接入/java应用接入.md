@@ -7,9 +7,10 @@
 - 已创建 PolarisMesh 服务治理中心，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
 - 下载 Github 的 [demo 源码](https://github.com/polarismesh/polaris-java/tree/main/polaris-examples/quickstart-example) 到本地并解压。
 - 本地编译构建打包机器环境已安装了Java JDK、Maven，并且能够访问 Maven 中央库。
-- 根据您自身的业务，已准备好业务部署的资源，虚拟机部署和容器化部署选择其中一种方式即可。
+- 根据您自身的业务，已准备好业务部署的资源，`虚拟机部署`、`容器化部署`和 `TEM 部署`选择其中一种方式即可。
   - **虚拟机部署**已创建 CVM 虚拟机，请参见 [创建 CVM 虚拟机](https://cloud.tencent.com/document/product/213/2936)。
   - **容器化部署**已创建 TKE 容器集群，请参见 [创建 TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
+  - **TEM部署**已创建 TEM 环境，请参见 [创建 TEM 环境](https://cloud.tencent.com/document/product/1371/53293)。
 
 ## 操作步骤
 
@@ -25,7 +26,7 @@
 <dx-codeblock>
 :::  yaml
 global:
-  serverConnector:
+    serverConnector:
     addresses:
     - 10.0.4.6:8091
 :::
@@ -50,7 +51,7 @@ global:
 <td>服务消费者</td>
 </tr>
 </table>
-7. 部署 provider 和 consumer 微服务应用，虚拟机部署方式和容器化部署根据您业务实际的部署方式选择一种即可。
+7. 部署 provider 和 consumer 微服务应用，虚拟机部署方式、容器化部署方式以及 TEM 部署方式根据您业务实际的部署方式选择一种即可。
  1. **虚拟机部署**部署 provider 和 consumer 微服务应用。
     - 上传 Jar 包至 CVM 实例。
     - 执行启动命令进行启动：
@@ -64,16 +65,26 @@ global:
 <dx-codeblock>
 :::  shell
      FROM java:8
-    
-     ADD ./quickstart-example-provider-${VERSION}.jar /root/app.jar
-    
-     ENTRYPOINT  ["java","-jar","/root/app.jar"]
+      
+     
+    ADD ./quickstart-example-provider-${VERSION}.jar /root/app.jar
+         
+ENTRYPOINT  ["java","-jar","/root/app.jar"]
 :::
-</dx-codeblock>   
-      - 通过 TKE 部署并运行镜像
+     </dx-codeblock>   
+      - 通过 TKE 部署并运行镜像。
+  3. **TEM 部署**部署 provider 和 consumer 微服务应用。
+      - 选择 TEM 环境，注意所选择的环境，其依赖的 VPC，必须和上面已经创建的治理中心实例所依赖的 VPC 一致：     
+![](https://qcloudimg.tencent-cloud.cn/raw/f0d2eb2341c6d4f5ef327f8c105b9cc1.png)
+      - 在已选择的环境中，新建 TEM 应用，相关参数填写参考：
+![](https://qcloudimg.tencent-cloud.cn/raw/621a01eaa2dc6c3cd742eaa95a722c4e.png)
+      - 部署应用，相关参数填写请参考（端口号映射，consumer 默认端口号为15700， provider 默认端口号为15800）：
+![](https://qcloudimg.tencent-cloud.cn/raw/951d18d1fe7136c5b4efacc7609624d1.png)
+      - 查看访问路径，consumer 应用部署完后，可以在**基本信息** > **访问配置**中查看访问地址，如需公网访问，可以**编辑并更新**开启公网访问：
+![](https://qcloudimg.tencent-cloud.cn/raw/0aeabca6534b0c09dd8475a55b32fc8c.png)
 8. 确认部署结果。
  1. 进入前面提到的微服务治理中心实例页面。
- - 选择**服务管理** > **服务列表**，查看微服务 EchoServerGRPC 的实例数量：
+    - 选择**服务管理** > **服务列表**，查看微服务 EchoServerGRPC 的实例数量：
     - 若实例数量值不为0，则表示已经成功接入微服务引擎。
     - 若实例数量为0，或者找不到 EchoServerGRPC 服务名，则表示微服务应用接入微服务引擎失败。
      ![java_service_list](https://qcloudimg.tencent-cloud.cn/raw/d4de0068cc995248ae0e3eabddce1c6c.png)

@@ -17,6 +17,7 @@ Velero 工作原理图如下图所示（来源于 [Velero](https://velero.io/) �
 
 
 
+
 ## 前提条件
 
 - 已 [注册腾讯云账号](https://cloud.tencent.com/register)。

@@ -190,7 +190,7 @@ CREATE TABLE `kafka_canal_json_sink_table`
 | topic                         |        是        |      无       |                  要读写的 Kafka Topic 名。                   |
 | properties.bootstrap.servers  |        是        |      无       |              逗号分隔的 Kafka Bootstrap 地址。               |
 | properties.group.id           | 作为数据源时必选 |      无       |                  Kafka 消费时的 Group ID。                   |
-| format                        |        是        |      无       | Kafka 消息的输入输出格式。目前支持`'csv'`、`'json'`、`'avro'`、`'debezium-json'`以及`'canal-json'`。 |
+| format                        |        是        |      无       | Kafka 消息的输入输出格式。目前支持 `csv`、`json`、`avro`、`debezium-json`、`canal-json`，Flink1.13支持 `maxwell-json`。 |
 | scan.startup.mode             |        否        | group-offsets | Kafka consumer 的启动模式。可以是 `latest-offset`、`earliest-offset`、`specific-offsets`、`group-offsets`、`timestamp` 的任何一种。<li/>`'scan.startup.specific-offsets' = 'partition:0,offset:42;partition:1,offset:300'`，使用 `'specific-offsets'` 启动模式时需要指定每个 partition 对应的 offsets。<li/>`'scan.startup.timestamp-miles' = '1631588815000'`，使用 `'timestamp'` 启动模式时需要指定启动的时间戳（单位毫秒）。 |
 | scan.startup.specific-offsets |        否        |      无       | 如果 `scan.startup.mode` 的值为`'specific-offsets'`，则必须使用本参数指定具体起始读取的偏移量。例如 `'partition:0,offset:42;partition:1,offset:300'`。 |
 | scan.startup.timestamp-millis |        否        |      无       | 如果`scan.startup.mode` 的值为`'timestamp'`，则必须使用本参数来指定开始读取的时间点（毫秒为单位的 Unix 时间戳）。 |

@@ -17,7 +17,7 @@ APM 满足不需要登录腾讯云控制台即可查询分析 APM 数据的诉�
 5. 为角色设置访问策略，例如只读策略权限 QcloudAPMReadOnlyFullAccess，单击**下一步**。
   ![](https://qcloudimg.tencent-cloud.cn/raw/ea9dfe93baefe0a8a45ca33b4972e74d.png)  
 6. 输入角色名，完成创建。
-![](https://qcloudimg.tencent-cloud.cn/raw/fda729280a84235a8dcbe2641220fb62.png)    
+![](https://qcloudimg.tencent-cloud.cn/raw/0505f9fadb3340eed6ac9e115f9d43e3.png)  
 
 ### 通过 API 创建 CAM 角色
 

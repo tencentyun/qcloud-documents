@@ -12,7 +12,7 @@
 ### 步骤一：初始化授权 [](id:step1)
 
 <dx-tabs>
-::: 线上授权（X - Magic 版本 2.4.0 + 支持线上授权方式）
+::: 线上授权（TE 版本 2.4.0+ 支持线上授权方式）
 
 在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码：
 

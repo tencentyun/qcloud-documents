@@ -77,10 +77,10 @@ openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key \
 openssl x509  -noout -text -in ./server.crt
 ```
 生成的证书及密钥文件说明如下：
-- `ca.crt`：为颁发机构证书。
-- `ca.key`：为颁发机构证书密钥，用于服务端证书颁发。
-- `server.crt`：为颁发的服务端证书。
-- `server.key`：为颁发的服务端证书密钥。
+  - `ca.crt`：为颁发机构证书。
+  - `ca.key`：为颁发机构证书密钥，用于服务端证书颁发。
+  - `server.crt`：为颁发的服务端证书。
+  - `server.key`：为颁发的服务端证书密钥。
 
 #### [方法2：使用 K8S CSR API 签发证书](id:K8SCertificate)
 可使用 K8S 的证书颁发机构系统来下发证书，执行以下脚本可使用 K8S 集群根证书和根密钥签发一个可信任的证书用户。
