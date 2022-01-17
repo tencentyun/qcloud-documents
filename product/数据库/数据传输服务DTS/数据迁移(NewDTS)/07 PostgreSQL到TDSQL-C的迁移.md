@@ -11,7 +11,7 @@
 - 除腾讯云数据库 PostgreSQL 之外的其他 PostgreSQL 作为源端时，必须要求源端库具有 replication 权限，否则迁移前校验步骤将不通过。
 
 ## 前提条件
-- 已 [创建云原生数据库 TDSQL-C（兼容 PostgreSQL 版）](https://cloud.tencent.com/document/product/1003/30505)。
+- 已 [创建 TDSQL-C PostgreSQL版](https://cloud.tencent.com/document/product/1003/30505)。
 - 源数据库和目标数据库符合迁移功能和版本要求，请参见 [数据迁移支持的数据库](https://cloud.tencent.com/document/product/571/58686) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
 - 源数据库需要具备的权限如下：
@@ -87,17 +87,14 @@ RHEL/CentOS: rpm -q glibc
 ldd --version | grep -i libc
 ```
    下载地址：  [x86_64 9.4](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.4/tencent_decoding.so)、[x86_64 9.5](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.5/tencent_decoding.so)、[x86_64 9.6](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.6/tencent_decoding.so)、[aarch64 9.4](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.4/tencent_decoding.so)、[aarch64 9.5](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.5/tencent_decoding.so)、[aarch64 9.6](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.6/tencent_decoding.so)。    
-
    2. 将下载得到的 tencent_decoding.so 文件放置于 Postgres 进程目录的 lib 文件夹下，无需重启实例。
-
 2. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
 3. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。
 >?迁移任务订购后不支持更换地域，请谨慎选择。
 4. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
-
+>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/67993e51e8960179acc5054ca27304d7.png" style="zoom:67%;" />
-
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
@@ -144,7 +141,6 @@ ldd --version | grep -i libc
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
-
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 <img src="https://main.qcloudimg.com/raw/aadd11ed6a095813fa767690e6857276.png"  style="zoom:60%;">
 <table>
