@@ -4,7 +4,7 @@
 ### Web 项目
 
 <pre><code><span class="hljs-keyword">import</span> TIM <span class="hljs-keyword">from</span> <span class="hljs-string">'tim-js-sdk'</span>;
-<span class="hljs-comment">// 发送图片、文件等消息需要腾讯云即时通信IM上传插件</span>
+<span class="hljs-comment">// 发送图片、文件等消息需要腾讯云即时通信 IM上传插件</span>
 <span class="hljs-keyword">import</span> TIMUploadPlugin <span class="hljs-keyword">from</span> <span class="hljs-string">'tim-upload-plugin'</span>;
 
 <span class="hljs-keyword">let</span> options = {
@@ -17,7 +17,7 @@
 tim.setLogLevel(<span class="hljs-number">0</span>); <span class="hljs-comment">// 普通级别，日志量较多，接入时建议使用</span>
 <span class="hljs-comment">// tim.setLogLevel(1); // release 级别，SDK 输出关键信息，生产环境时建议使用</span>
 
-<span class="hljs-comment">// 注册腾讯云即时通信IM上传插件</span>
+<span class="hljs-comment">// 注册腾讯云即时通信 IM上传插件</span>
 tim.registerPlugin({<span class="hljs-string">'tim-upload-plugin'</span>: TIMUploadPlugin});</code></pre>
 
 
@@ -38,7 +38,7 @@ tim.registerPlugin({<span class="hljs-string">'tim-upload-plugin'</span>: TIMUpl
 tim.setLogLevel(<span class="hljs-number">0</span>); <span class="hljs-comment">// 普通级别，日志量较多，接入时建议使用</span>
 <span class="hljs-comment">// tim.setLogLevel(1); // release 级别，SDK 输出关键信息，生产环境时建议使用</span>
 
-<span class="hljs-comment">// 注册腾讯云即时通信IM上传插件</span>
+<span class="hljs-comment">// 注册腾讯云即时通信 IM上传插件</span>
 tim.registerPlugin({<span class="hljs-string">'tim-upload-plugin'</span>: TIMUploadPlugin});</code></pre>
 
 
@@ -163,15 +163,15 @@ tim.login({userID: 'your userID', userSig: 'your userSig'});
 :::  js
 let onKickedOut = function (event) {
   console.log(event.data.type);
-  // TIM.TYPES.KICKED_OUT_MULT_ACCOUNT(Web端，同一账号，多页面登录被踢)
+  // TIM.TYPES.KICKED_OUT_MULT_ACCOUNT(Web 端，同一账号，多页面登录被踢)
   // TIM.TYPES.KICKED_OUT_MULT_DEVICE(同一账号，多端登录被踢)
-  // TIM.TYPES.KICKED_OUT_USERSIG_EXPIRED(签名过期。使用前需要将SDK版本升级至v2.4.0或以上)
+  // TIM.TYPES.KICKED_OUT_USERSIG_EXPIRED(签名过期。使用前需要将 SDK 版本升级至v2.4.0或以上)
 };
 tim.on(TIM.EVENT.KICKED_OUT, onKickedOut);
 :::
 </dx-codeblock>
 
-如需支持多实例登录（允许在多个网页中同时登录同一帐号），请登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，找到相应 SDKAppID，选择【应用配置】>【功能配置】>【登录与消息】>【Web端实例同时在线】配置实例个数。配置将在5分钟内生效。
+如需支持多实例登录（允许在多个网页中同时登录同一帐号），请登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，找到相应 SDKAppID，选择**应用配置**>**功能配置**>**登录与消息**>**Web 端实例同时在线**配置实例个数。配置将在5分钟内生效。
 
 **接口名**
 
@@ -217,8 +217,8 @@ promise.then(function(imResponse) {
 
 >!
 >- 调用此接口的实例会发布 [`SDK_NOT_READY`](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.SDK_NOT_READY) 事件，此时该实例下线，无法收、发消息。
->- 如果您在[即时通信 IM 控制台](https://console.cloud.tencent.com/im)配置的“Web端实例同时在线个数”大于 1，且同一帐号登录了`a1`和`a2`两个实例（含小程序端），当执行`a1.logout()`后，`a1`会下线，无法收、发消息。而`a2`实例不会受影响。
->- 多实例被踢：基于第 2 点，如果“Web端实例同时在线个数”配置为 2，且您的某一帐号已经登录了 `a1`，`a2`两个实例，当使用此帐号成功登录第三个实例`a3`时，`a1`或`a2`中的一个实例会被踢下线（通常是最先处在登录态的实例会触发），这种情况称之为**“多实例被踢”**。假设`a1`实例被踢下线，`a1`实例内部会执行登出流程，然后抛出[`KICKED_OUT`](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.KICKED_OUT)事件，接入侧可以监听此事件，并在触发时跳转到登录页。此时`a1`实例下线，而`a2`、`a3`实例可以正常运行。
+>- 如果您在[即时通信 IM 控制台](https://console.cloud.tencent.com/im)配置的“Web 端实例同时在线个数”大于 1，且同一帐号登录了`a1`和`a2`两个实例（含小程序端），当执行`a1.logout()`后，`a1`会下线，无法收、发消息。而`a2`实例不会受影响。
+>- 多实例被踢：基于第 2 点，如果“Web 端实例同时在线个数”配置为 2，且您的某一帐号已经登录了 `a1`，`a2`两个实例，当使用此帐号成功登录第三个实例`a3`时，`a1`或`a2`中的一个实例会被踢下线（通常是最先处在登录态的实例会触发），这种情况称之为**“多实例被踢”**。假设`a1`实例被踢下线，`a1`实例内部会执行登出流程，然后抛出[`KICKED_OUT`](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.KICKED_OUT)事件，接入侧可以监听此事件，并在触发时跳转到登录页。此时`a1`实例下线，而`a2`、`a3`实例可以正常运行。
 
 **接口名**
 
