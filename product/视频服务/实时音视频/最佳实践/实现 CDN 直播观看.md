@@ -159,7 +159,7 @@ http://播放域名/live/[streamId].flv
 普通的 ijkplayer 或者 ffmpeg 基于 ffmpeg 的内核包装出的播放器，缺乏延时调控的能力，如果使用该类播放器播放上述直播流地址，时延一般不可控。V2TXLivePlayer 有一个自研的播放引擎，具备延时调控的能力。
 
 - **设置 V2TXLivePlayer 的播放模式为极速模式**
-可以通过设置 V2TXLivePlayer 的参数来实现极速模式，以 [iOS](https://cloud.tencent.com/document/product/454/56597#Delay) 为例。
+可以通过设置 V2TXLivePlayer 的参数来实现极速模式，以 [iOS](https://cloud.tencent.com/document/product/454/56597#Delay) 为例：
 ```ObjectiveC
 //自动模式
 [_txLivePlayer setCacheParams:1 maxTime:5];
