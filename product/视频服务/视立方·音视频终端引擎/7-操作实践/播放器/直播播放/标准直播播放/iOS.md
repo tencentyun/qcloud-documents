@@ -273,7 +273,7 @@ _config.cacheTime              = 5;
 // 设置完成之后再启动播放
 ```
 
->? 更多关于卡顿和延迟优化的技术知识，可以阅读 [视频卡顿怎么办？](https://cloud.tencent.com/document/product/454/56613)
+>? 更多关于卡顿和延迟优化的技术知识，可以阅读 [视频卡顿怎么办？](https://cloud.tencent.com/document/product/454/7946)
 
 <h2 id="RealTimePlay">超低延时播放</h2>
 支持<strong>400ms</strong>左右的超低延迟播放是腾讯云直播播放器的一个特点，它可以用于一些对时延要求极为苛刻的场景，例如<strong>远程夹娃娃</strong>或者<strong>主播连麦</strong>等，关于这个特性，您需要知道：
