@@ -88,8 +88,8 @@ ldd --version | grep -i libc
 >?迁移任务订购后不支持更换地域，请谨慎选择。
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
->
-<img src="https://main.qcloudimg.com/raw/414b9b3caf06c106ce894dea9a0ddf2a.png"  style="zoom:50%;">
+
+![](https://qcloudimg.tencent-cloud.cn/raw/0b08063be84ca67d3f5258f1851073ba.png)
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
