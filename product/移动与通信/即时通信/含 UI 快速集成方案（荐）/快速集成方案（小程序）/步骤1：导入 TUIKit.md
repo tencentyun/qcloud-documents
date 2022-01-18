@@ -40,7 +40,7 @@ TUIKit 支持以原生 js 的方式集成。可从 Github 下载 TUIKit 源码�
 
 ### 步骤4： 集成所需模块
 
-由于微信对于小程序的主包体积要求不得超过2 M，所以 TUIKit 推出分包的解决方案，为客户解决体积超出这一问题。
+由于微信对于小程序的主包体积要求不得超过2M，所以 TUIKit 推出分包的解决方案，为客户解决体积超出这一问题。
 
 
 <dx-tabs>
@@ -90,11 +90,11 @@ TUIKit 支持以原生 js 的方式集成。可从 Github 下载 TUIKit 源码�
 
   - 引入模块所需静态资源
 
-  <img src=" https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/clipboard_20220107_042239.png"   width = "200">
+  <img src=" https://qcloudimg.tencent-cloud.cn/raw/0b750acf1e04d282e35055fa9125a29f.png"   width = "200">
 
   - 引入自己所需的模块
 
-  <img src="https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/clipboard_20220107_042547.png"   width = "200">
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/97c8a36611d8bb230099f4d94f6f999e.png"   width = "200">
 
  - 在 app.json 中配置分包路径。主包路径为原来的 page 路径不变。
     <dx-codeblock>
