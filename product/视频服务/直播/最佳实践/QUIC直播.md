@@ -4,8 +4,8 @@ QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议
 
 ## 协议版本支持
 当前云直播支持 IEFT QUIC 和 Google QUIC，支持的版本分别为：
-	- IEFT QUIC 版本：h3-27、h3-29；
-	- Google QUIC 版本：Q39、Q43、Q46。
+- IEFT QUIC 版本：h3-27、h3-29；
+- Google QUIC 版本：Q39、Q43、Q46。
 
 ## 注意事项
 
