@@ -1,4 +1,30 @@
 
+## 2022年01月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.1.1 版本发布</td>
+	<td>
+		<li>新增：适配荣耀设备角标的新方式</li>
+		<li>新增：定期更新通知状态</li>
+		<li>优化：更新厂商通道策略</li>
+		<li>优化：注册和账号绑定流程</li>
+		<li>修复：移除部分可能引发应用自启动的广播事件</li>
+		<li>修复：避免安卓 Service 组件自启动问题</li>
+		</td>
+        <td>2022-01-18</td><td>
+<a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a>
+</td>
+    </tr>
+<tr>
+</table>
+
 ## 2021年09月
 
 <table>
