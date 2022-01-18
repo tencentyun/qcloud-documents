@@ -13,20 +13,15 @@ QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议
 若需使用 QUIC 拉流功能，请 [提工单](https://console.cloud.tencent.com/workorder/category) 给腾讯云开通对应拉流域名的 QUIC 协议拉流能力。
 
 
-## 直播推流
-
-[](id:push)
-
-### 接入方法
+## 直播推流[](id:push)
+### 接入方法[](id:push_in)
 1. 直播推流支持 RTMP over QUIC 协议，需使用 UDP 1935 进行推流。推流地址同 RTMP over TCP 协议一致，可以在云直播控制台的 **[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)**中 [生成推流地址](https://cloud.tencent.com/document/product/267/35257#push)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/156bc4c6c55d7ccd101cd4df1c97e0ca.png)
 2. 推流接入方式有两种：
 	- **使用腾讯云 [移动直播 SDK](https://cloud.tencent.com/document/product/454/7873)**：使用方式同 RTMP over TCP 方式一样，SDK 会默认使用 QUIC 协议接入腾讯云。
 	- **使用自己的 QUIC 协议客户端**：可直接通过标准直播生成的推流地址，发起 QUIC 协议推流，RTMP over QUIC 的推流地址和 RTMP over TCP 的推流地址是一样的，QUIC 协议推流会直接接入腾讯云的 QUIC 接流服务器。
 
-[](id:pushtest)
-
-### 推流测试
+### 推流测试[](id:pushtest)
 
 您可以使用腾讯云 [移动直播小程序 DEMO](https://cloud.tencent.com/document/product/454/6555#.E5.B0.8F.E7.A8.8B.E5.BA.8F-demo)。
 
@@ -37,23 +32,17 @@ QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议
 ![](https://main.qcloudimg.com/raw/a4adf24a47553c6ee6694c094b5fef07.png)
 
 
-## 直播拉流
-
-[](id:play)
-
-### 拉流接入
+## 直播拉流[](id:play)
+### 拉流接入[](id:play_in)
 
 直播拉流支持 HTTP over QUIC 协议，需使用 UDP 443 端口进行拉流。拉流地址同 HTTPS FLV 协议地址一样，也可以使用云直播控制台的 **[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)** 工具 [生成拉流地址](https://cloud.tencent.com/document/product/267/35257#play)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c75ec072b4360577b82171cc9a5c2c71.png)
 
-[](id:playtest)
-
-### 拉流测试
-
+### 拉流测试[](id:playtest)
 您可以使用腾讯云 [TCPlayer Lite](https://tcplayer.vcube.tencent.com/tcplayerlite) 工具进行检验，具体步骤如下所述：
 > ? Chrome 浏览器支持 QUIC 协议请求，用 Chrome 浏览器结合腾讯云 TCPlayer Lite 可以验证播放是否已使用 QUIC 协议播放。
 
-1. 打开 Chrome 浏览器。 Chrome浏览器目前默认使用 IEFT QUIC版本，如果要验证 Google QUIC 版本，需使用命令行工具指定`quic-version` 打开： 打开命令行工具，进入 Chrome 安装目录，执行 `chrome --enable-quic --quic-version=QUIC_VERSION_43`。
+1. 打开 Chrome 浏览器。 Chrome 浏览器目前默认使用 IEFT QUIC版本，如果要验证 Google QUIC 版本，需使用命令行工具指定 `quic-version` 打开： 打开命令行工具，进入 Chrome 安装目录，执行 `chrome --enable-quic --quic-version=QUIC_VERSION_43`。
 2. 打开 Chrome 的 QUIC 开关。 在 Chrome 浏览器地址栏输入 `chrome://flags/#enable-quic`，将开关设置成 Enabled，并重启 Chrome 浏览器。
  ![](https://main.qcloudimg.com/raw/b5aee3532ef918518206b607cc2d8f53.png)
 3. 打开 TCPlayer Lite，单击 FLV 标签，填入 **HTTPS** 的 FLV 播放地址。单击 **PC 端播放器预览**，开始播放。
