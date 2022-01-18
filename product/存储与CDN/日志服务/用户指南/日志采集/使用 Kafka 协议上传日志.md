@@ -1,10 +1,19 @@
 日志服务（Cloud Log Service，CLS）目前已支持使用 Kafka Producer SDK 和其他 Kafka 相关 agent 上传日志到 CLS。
 
+## 使用场景
+
+日志应用中使用 Kafka 作为消息管道是非常普遍的场景。先通过机器上的开源采集客户端或者使用 producer 直接写入收集日志，再通过消费管道提供给下游如 spark、flink 等进行消费。CLS 具备完整的 Kafka 数据管道上下行能力，以下主要介绍哪些场景适合您使用 Kafka 协议上传日志，更多 Kafka 协议消费场景请参考 [Kafka 协议实时消费](https://cloud.tencent.com/document/product/614/63036) 文档。
+
+- **场景1**：您已有基于开源采集的自建系统，不希望有复杂的二次改造，您可以通过修改配置文件将日志上传到 CLS。
+例如，您之前使用 ELK 搭建日志系统的客户，现在只需要通过修改 Filebeat 或者 Logstash 的配置文件，将 Output 配置（详情请参考 [filebeat 配置](#filebeat)）到 CLS，即可非常方便简洁的将日志上传。
+- **场景2**：您希望通过 Kafka producer 来采集日志并上传，不必再安装采集 Agent。
+CLS 支持您使用各类 Kafka producer SDK 采集日志，并通过 Kafka 协议上传到 CLS。（详情请参考本文提供的 [SDK 调用示例](#SDKSample) ）
+
+
 ## 相关限制
 
 - 支持 Kafka 协议版本为：0.11.0.X，1.0.X，1.1.X，2.0.X，2.1.X，2.2.X，2.3.X，2.4.X，2.5.X，2.6.X，2.7.X，2.8.X
 - 支持压缩方式：gzip，snappy，lz4
-- confluent-kafka-go 的 Kafka 库的代码（V3版本 Kafka 协议，暂不支持，预计12月初支持），可以使用 sarama 库代替。
 - 当前使用 SASL_PLAINTEXT 认证。
 
 
@@ -32,16 +41,6 @@
 
 >! 本文档以广州地域为例，内外网域名需用不同端口标识，其他地域请替换地址前缀。详情请参考 [可用域名-Kafka上传日志](https://cloud.tencent.com/document/product/614/18940#Kafka)。
 >
-
-## 使用场景
-
-日志应用中使用 Kafka 作为消息管道是非常普遍的场景。先通过机器上的开源采集客户端或者使用 producer 直接写入收集日志，再通过消费管道提供给下游如 spark、flink 等进行消费。CLS 具备完整的 Kafka 数据管道上下行能力，以下主要介绍哪些场景适合您使用 Kafka 协议上传日志，更多 Kafka 协议消费场景请参考 [Kafka 协议实时消费](https://cloud.tencent.com/document/product/614/63036) 文档。
-
-- **场景1**：您已有基于开源采集的自建系统，不希望有复杂的二次改造，您可以通过修改配置文件将日志上传到 CLS。
-例如，您之前使用 ELK 搭建日志系统的客户，现在只需要通过修改 Filebeat 或者 Logstash 的配置文件，将 Output 配置（详情请参考 [filebeat 配置](#filebeat)）到 CLS，即可非常方便简洁的将日志上传。
-- **场景2**：您希望通过 Kafka producer 来采集日志并上传，不必再安装采集 Agent。
-CLS 支持您使用各类 Kafka producer SDK 采集日志，并通过 Kafka 协议上传到 CLS。（详情请参考本文提供的 [SDK 调用示例](#SDKSample) ）
-
 
 ## 示例
 

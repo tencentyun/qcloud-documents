@@ -383,7 +383,7 @@ VPA 使用 `lowerBound` 和 `upperBound` 推荐值来决定是否驱逐 Pod 并�
 
 ## 故障处理
 
-### 1. 执行 `vpa-up.sh` 脚本时报错
+### 1. 执行 vpa-up.sh 脚本时报错
 
 #### 报错信息
 ```shell

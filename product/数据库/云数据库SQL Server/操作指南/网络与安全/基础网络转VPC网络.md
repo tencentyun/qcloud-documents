@@ -22,13 +22,11 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/a3bd54a0970a1cda404fbc523e6d8aa4.png)
 2. 在**实例详情**页的**基本信息** > **所属网络**，单击**转VPC网络**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0f6eaf8e7eb4838528952d5c9443e91c.png)
-3. 在弹出的对话框，选择 VP C网络，设置旧 IP 回收时间，选择分配或指定新 IP 后，单击**确定**。
+3. 在弹出的对话框，选择 VPC 网络，设置旧 IP 回收时间，选择分配或指定新 IP 后，单击**确定**。
  - 选择网络：选择 VPC 网络后，仅对应 VPC 网络的主机可访问数据库。
  - 旧IP地址回收时间：可选范围为0 - 168小时，设置为0时，将立即回收。
  - 自动分配IP：由系统自动分配新 IP 地址。
  - 指定IP：您可自定义子网 IP 地址。
  ![](https://qcloudimg.tencent-cloud.cn/raw/2d911c7ebfd7bcd21d2d5ef72ecef7e0.png)
-
 4. 待实例状态恢复为“**运行中**”时，完成从基础网络转 VPC 网络。
-
 
