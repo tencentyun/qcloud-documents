@@ -16,7 +16,7 @@
 		<li>优化：更新厂商通道策略</li>
 		<li>优化：注册和账号绑定流程</li>
 		<li>修复：移除部分可能引发应用自启动的广播事件</li>
-		<li>修复：避免安卓 Service 组件自启动问题</li>
+		<li>修复：避免 Android Service 组件自启动问题</li>
 		</td>
         <td>2022-01-18</td><td>
 <a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a>
@@ -37,7 +37,7 @@
 	<tr>
         <td>SDK 1.2.7.1 版本发布</td>
 	<td>修复：偶现的跨进程存储不一致问题</td>
-        <td>2021-09-1</td><td><li>使用新增的应用内消息能力时，请注意高版本安卓使用 WebView 的兼容性，参考 <a href="https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA">Android 接口文档</a></li>
+        <td>2021-09-1</td><td><li>使用新增的应用内消息能力时，请注意高版本 Android 使用 WebView 的兼容性，参考 <a href="https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA">Android 接口文档</a></li>
 <li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
 <li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li></td>
     </tr>
@@ -58,7 +58,7 @@
 		<li>  新增：新增应用内消息展示
 		<li>  优化：推送服务注册流程优化
 		<li>  修复：同意隐私协议前获取设备型号问题</td>
-        <td>2021-08-27</td><td><li>使用新增的应用内消息能力时，请注意高版本安卓使用 WebView 的兼容性，参考 <a href="https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA">Android 接口文档</a></li>
+        <td>2021-08-27</td><td><li>使用新增的应用内消息能力时，请注意高版本 Android 使用 WebView 的兼容性，参考 <a href="https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA">Android 接口文档</a></li>
 <li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li></td>
     </tr>
 <tr>
