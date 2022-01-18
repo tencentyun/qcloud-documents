@@ -182,7 +182,6 @@ systemctl restart kubelet
     - 为确保集群内部域名能够被正常解析，需要配置 searches。
     - 适当降低 ndots 值有利于加速集群外部域名访问。
     - 当 Pod 没有使用带有多个 dots 的集群内部域名的情况下，建议将值设为2。
-
  ```
  dnsConfig:
 	       nameservers: ["169.254.20.10"]

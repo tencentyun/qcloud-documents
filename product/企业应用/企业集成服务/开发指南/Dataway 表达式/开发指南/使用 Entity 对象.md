@@ -1,7 +1,7 @@
 
 
 ## 类型
-- 在 DataWay 中， 用 Entity 类型来表示 EIS 中的实体数据，表示二进制数据的封装对象，其主要组成部分包括 blob、mime_type 以及 encoding。
+- 在 DataWay 中， 用 Entity 类型来表示千帆鹊桥 iPaaS 中的实体数据，表示二进制数据的封装对象，其主要组成部分包括 blob、mime_type 以及 encoding。
  - blob：原始的二进制数据。
  - mime_type：表示二进制数据的内容格式，例如：application/json、application/www-form-urlencoded、multipart/form-data 等。
  - encoding：表示二进制数据的字符编码格式，例如：utf8、gbk 等。
@@ -70,7 +70,6 @@ def dw_process(msg):
 }
 ```
 >!在 DataWay 表达式中，字符串可以用`''`或`""`的方式表示，其作用一致。
-
 ## 类型对象构造
 ### Entity.from_value 函数
 用于将值类型 data 封装为 Entity 类型，并返回。如下所示：

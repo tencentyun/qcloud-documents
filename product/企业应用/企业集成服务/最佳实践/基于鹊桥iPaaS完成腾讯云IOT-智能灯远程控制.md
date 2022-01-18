@@ -1,11 +1,11 @@
 ## 操作场景
-假设一款智能灯接入到物联网开发平台，通过物联网开发平台可以远程控制灯的亮度、颜色、开关，并实时获取智能灯上报到开发平台的数据，企业集成服务可通过配置一个集成流实现通过 HTTP 请求触发集成流通过 IOT 接口远程控制灯的亮度、颜色、开关等。
+假设一款智能灯接入到物联网开发平台，通过物联网开发平台可以远程控制灯的亮度、颜色、开关，并实时获取智能灯上报到开发平台的数据，千帆鹊桥 iPaaS 可通过配置一个集成流实现通过 HTTP 请求触发集成流通过 IOT 接口远程控制灯的亮度、颜色、开关等。
 
 您可以参考如下流程配置一个简单的远程控制智能灯的流。
 
 ## 准备工作
 #### 1. 获取物联网开发平台相关配置
-在 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，获取 SecretId 和 SecretKey，通过 API 获取物联网开发平台的相关数据。如下图所示：
+在 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，获取 SecretId 和 SecretKey，通过 API 获取物联网开发平台的相关数据。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/222ebb51241eb592d4ff12d471991e90.png)
 
 
@@ -16,7 +16,7 @@
 
 ## 集成流设计
 ### 步骤1：创建集成流
-1. 登录 [企业集成服务控制台](https://console.cloud.tencent.com/eis)，在左侧导航栏，单击**深度集成** 
+1. 登录 [千帆鹊桥 iPaaS 控制台](https://console.cloud.tencent.com/ipaas)，在左侧导航栏，单击**深度集成** 
 2. 在深度集成页面，选择对应项目后，单击**添加应用**。
 3. 在添加应用窗口，选择空白应用，并命名为 “IOT测试”（应用名称可自行定义）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/07abe45201b7e786975051d15822094b.png)
@@ -35,12 +35,14 @@
 	
 	
 ### 步骤3：设置可共享变量-PID（产品ID）
-使用逻辑组件 Set Variable 流级别的组件间的可共享变量，此处主要是设置物联网开放平台中“产品ID”为共享变量。具体步骤如下：
+使用逻辑组件 Set Variable 流级别的组件间的可共享变量，此处主要是设置物联网开放平台中“产品ID”为共享变量。具体步骤如下：
 1. 单击画布中的 “+” 弹出组件筛选框。选择 Set Variable 组件。
 ![](https://qcloudimg.tencent-cloud.cn/raw/23c3c2ee60d242e725e9163e57d53e4f.png)
 2. 将物联网开放平台“产品ID”用变量名 PID 通过存在 message 的 variables 进行保留。后续节点可通过 msg.vars.get('PID') 形式引用该变量。
 	- 变量名：必填，用户可自定义，此处填写为 PID。
-	- 变量值：必填，此处填写 string：产品 ID 在 [开发中心-产品开发页](https://console.cloud.tencent.com/iotexplorer/project/prj-h7cotfew/product/list) 获取。
+	- 变量值：必填，此处填写 string：产品 ID   
+       产品ID获取：进入 [物联网开发平台](https://console.cloud.tencent.com/iotexplorer)单击【实例管理】       >【对应公共实例】>【项目列表】>【对应项目名称】进入产品开发页面，即可获取对应产品ID。
+![](https://qcloudimg.tencent-cloud.cn/raw/12f5fc637364ce838cc95aa3016dc0f1.png)(https://console.cloud.tencent.com/iotexplorer/project/prj-h7cotfew/product/list) 获取。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0ab7e664e882221fe82542b08c8bcde7.png)
 
 ### 步骤4：配置腾讯云物联网开发平台-获取设备列表[](step4)
@@ -50,7 +52,7 @@
 3. 单击**新建**，进行腾讯云物联网开发平台连接器配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c3fad7ee1077719395fbee98fd82cc2e.png)
 4. 填写连接器配置名称为 “腾讯云物联网开发平台 #0”（可自定义名称），并单击下一步。
-	- SecretId 及 SecretKey：请通过 [API密钥管理](https://console.cloud.tencent.com/cam/capi ) 获取。
+	- SecretId 及 SecretKey：请通过 [API密钥管理](https://console.cloud.tencent.com/cam/capi ) 获取。
 	- 地域：推荐选择广州，部分接口的地域会有所要求，具体请参考 [地域列表](https://cloud.tencent.com/document/api/1081/34961#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
 	![](https://qcloudimg.tencent-cloud.cn/raw/ac62d818ec5e755936492ea324790652.png)
 5. 填写通用配置。
@@ -75,7 +77,7 @@ def dw_process(msg):
 ![](https://qcloudimg.tencent-cloud.cn/raw/df28f6ab2a6a2c414b094c9e23cfb923.png)
 
 ### 步骤6：设置可共享变量-PName（设备名）
-使用逻辑组件 Set Variable 流级别的组件间的可共享变量，此处主要是设置物联网开放平台中“产品ID”为共享变量。具体步骤如下：
+使用逻辑组件 Set Variable 流级别的组件间的可共享变量，此处主要是设置物联网开放平台中“产品ID”为共享变量。具体步骤如下：
 1. 单击画布中的 “+” 弹出组件筛选框。选择 Set Variable 组件。
 2. 将物联网开放平台“设备名” 用变量名pName 通过存在 message 的 variables 进行保留。后续节点可通过 msg.vars.get('pName') 形式引用该变量。
 	- 变量名：必填，用户可自定义，此处填写为pName
@@ -143,6 +145,8 @@ def dw_process(msg):
 ### 步骤3：在腾讯云物联网开放平台查看日志信息
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，在实例管理页面单击实例，进入项目列表页。
 2. 在项目列表页，单击对应项目名称，选择**设备管理**，并单击操作列的**查看**进入设备详情页。
-3. 在设备详情页的**设备云端日志**标签页，可看到对应时间设备的通信内容等信息，对应企业集成服务侧的触发记录。
+3. 在设备详情页的**设备云端日志**标签页，可看到对应时间设备的通信内容等信息，对应千帆鹊桥 iPaaS 侧的触发记录。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c96e2bb0286f02a6f957562c2e59bc31.png)
+
+
 

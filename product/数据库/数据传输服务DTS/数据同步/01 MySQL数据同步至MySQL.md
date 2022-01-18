@@ -261,9 +261,8 @@ FLUSH PRIVILEGES;
 >- 如果用户在同步过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**同步对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法同步 Online DDL 变更产生的临时表数据到目标数据库。
 >- 如果用户在同步过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**同步对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/6e4f1db84dbd29ed0badd4e058c044e9.png)
-<strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/48f402195fb799ab0b8c0d7dd5658a9e.png" style="zoom:30%;" />
+![](https://qcloudimg.tencent-cloud.cn/raw/793b1914c8bb9eec917d3296d92000e9.png)
+<strong>库表重命名</strong>：如需要修改目标库中的对象名称，请在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写新的名称。
 <table>
 <thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
 <tbody>
