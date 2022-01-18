@@ -9,9 +9,15 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至 Elasticse
 ## 操作步骤
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
+
 2. 在左侧导航栏单击**数据流出**，选择好地域后，单击**新建任务**。
-3. 目标类型选择 **Elasticsearch Service**，单击**下一步**。
-![](https://qcloudimg.tencent-cloud.cn/raw/b70c9137a0e5fabc98c8750cc8f745a4.png)
+
+3. 目标类型选择**事件总线（Event Bridge）>** **ES**，单击**下一步**。
+
+   > ?通过云函数和事件总线处理，需要确认同意[云函数使用说明](https://cloud.tencent.com/document/product/583)和[云函数计费说明](https://cloud.tencent.com/document/product/583/17299)。
+
+   ![](https://qcloudimg.tencent-cloud.cn/raw/680638f643bd75cf60b93b37ebcc7da3.png)
+
    - 任务名称：只能包含字母、数字、下划线、"-"、"."。
    - CKafka 实例：选择数据源 CKafka。
    - 源 Topic：选择源 Topic。
@@ -20,8 +26,8 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至 Elasticse
    - 实例用户名：输入 Elasticsearch 实例用户名，腾讯云 Elasticsearch 默认用户名为 elastic，且不可更改。
    - 实例密码：输入 Elasticsearch 实例密码。
    - 起始位置：转储时历史消息的处理方式，topic offset 设置。
-   - 角色授权：使用云函数 SCF 产品功能，您需要授予一个第三方角色代替您执行访问相关产品权限。
-   - 云函数授权：知晓并同意开通创建云函数，该函数创建后需用户前往云函数设置更多高级配置及查看监控信息。
+   - 云函数授权：知晓并同意开通云函数和事件总线，该函数创建后需用户前往云函数设置更多高级配置及查看监控信息。
+
 4. 单击**提交**，完成任务创建。
 
 ### 查看监控
@@ -29,6 +35,7 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至 Elasticse
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏单击**数据流出**，单击目标任务的 **ID**，进入任务基本信息页面。
 3. 在任务详情页顶部，单击**监控**，选择要查看资源，设置好时间范围，可以查看对应的监控数据。
+
 <table>
     <tr>
         <th>图标</th>
@@ -51,6 +58,7 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至 Elasticse
         <td>勾选后可在图表上显示图例信息。</td>
     </tr>
 </table> 
+
    选择分区后，可以查看指定 Partition 的监控数据。
 <img src ="https://qcloudimg.tencent-cloud.cn/raw/7dbbfca73fd617ea96e276c7ab55370a.png"> 
    不选择时默认全部，展示现有的 Topic 级别的监控数据。
