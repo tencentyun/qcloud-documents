@@ -3,8 +3,7 @@ QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议
 当前腾讯视频云支持使用 QUIC 协议来进行 [直播推流](#push) 和 [直播拉流](#play)。
 
 ## 协议版本支持
-- 当前云直播支持的 QUIC 协议版本：39、43、46。
-- 当前云直播支持 IEFT QUIC 和 Google QUIC，支持的版本分别为：
+当前云直播支持 IEFT QUIC 和 Google QUIC，支持的版本分别为：
 	- IEFT QUIC 版本：h3-27、h3-29；
 	- Google QUIC 版本：Q39、Q43、Q46。
 
