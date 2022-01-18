@@ -44,13 +44,13 @@ postgres=# select * from x;
 ```
 
 ## 系统表
-TDSQL-C PostgreSQL版完全支持 PG10 系统表，例如 pg_class, pg_proc 等。
+TDSQL-C PostgreSQL版 完全支持 PG10 系统表，例如 pg_class, pg_proc 等。
 
 ## GUC 参数
-TDSQL-C PostgreSQL版兼容 PG10 的 GUC 参数，使用 SHOW 或者 SET 命令可以显示和设置 GUC 参数。
+TDSQL-C PostgreSQL版 兼容 PG10 的 GUC 参数，使用 SHOW 或者 SET 命令可以显示和设置 GUC 参数。
 
 ## index
-TDSQL-C PostgreSQL版支持多种索引：B-tree、Hash、GiST、SP-GiST、GIN 以及 BRIN，默认的 CREATE INDEX 创建的是 B-tree 索引。
+TDSQL-C PostgreSQL版 支持多种索引：B-tree、Hash、GiST、SP-GiST、GIN 以及 BRIN，默认的 CREATE INDEX 创建的是 B-tree 索引。
 
 ## 多列和单列索引
 ```
@@ -75,7 +75,7 @@ CREATE INDEX
 ```
 
 ## 表达式索引
-与 PG10 兼容，TDSQL-C PostgreSQL版支持表达式索引。
+与 PG10 兼容，TDSQL-C PostgreSQL版 支持表达式索引。
 ```
 postgres=# CREATE INDEX test2_expr ON test2 ((major + minor));
 CREATE INDEX
