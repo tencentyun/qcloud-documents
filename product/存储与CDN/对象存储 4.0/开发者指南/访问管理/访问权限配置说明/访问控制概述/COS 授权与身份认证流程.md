@@ -66,7 +66,7 @@ COS 支持多种权限配置方式，包括 [存储桶策略](https://cloud.tenc
 
 - 从控制台或 COSBrowser 获取临时下载链接（有效期1 - 2小时）
 您可以直接从控制台或 COSBrowser 快速获取对象的临时下载链接，在浏览器直接输入这个临时链接，即可下载对象。详情参考 [快速获取临时链接](https://cloud.tencent.com/document/product/436/68284) 文档。
-<span id="UseSDKSignURL"></span> 
+<span id="使用SDK生成预签名url"></span> 
 - 使用 SDK 生成预签名 URL
 使用 SDK 可以批量获取自定义有效期的预签名 URL，详情参考 [使用 SDK 批量获取预签名 URL](https://cloud.tencent.com/document/product/436/68284) 文档。
 - 使用签名工具生成预签名 URL
