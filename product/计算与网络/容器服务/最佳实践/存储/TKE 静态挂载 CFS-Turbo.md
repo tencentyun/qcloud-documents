@@ -201,7 +201,7 @@ spec:
 >! 使用 `lustre` 协议挂载 CFS Turbo 卷需预先在集群节点内根据操作系统内核版本安装对应客户端，详情请参考 [在 Linux 客户端上使用 CFS Turbo 文件系统](https://cloud.tencent.com/document/product/582/54765)；
 
 
-3. 使用以下模版创建 PVC 绑定 PV。
+3. 使用以下模板创建 PVC 绑定 PV。
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -221,7 +221,7 @@ spec:
   - **spec.volumeName**: 与上一步中创建 PV 名称保持一致。
 
 
-4. 使用以下模版创建 Pod 挂载 PVC。
+4. 使用以下模板创建 Pod 挂载 PVC。
 ```yaml
 apiVersion: v1
 kind: Pod

@@ -1,4 +1,4 @@
-HTTP 连接器是最常用的 **connector**，也是 **iPaaS** 内置的最重要的 **connector**。它提供了两个组件：HTTP监听触发器（**listener**）和 HTTP 请求操作（**request**）。
+HTTP 连接器是最常用的 **connector**，也是 **千帆鹊桥 iPaaS** 内置的最重要的 **connector**。它提供了两个组件：HTTP监听触发器（**listener**）和 HTTP 请求操作（**request**）。
 
 ## listener
 

@@ -7,7 +7,7 @@
 4. 将 Bundle ID 修改成与申请的测试授权一致。
 
 ## SDK 接口集成
-- [步骤一](step1) 和 [步骤二](#step2) 可参考 Demo 工程中，ThirdBeautyViewController 类 viewDidLoad，buildBeautySDK 方法。
+- [步骤一](#step1) 和 [步骤二](#step2) 可参考 Demo 工程中，ThirdBeautyViewController 类 viewDidLoad，buildBeautySDK 方法。
 - [步骤四](#step4) 至 [步骤七](#step7) 可参考 Demo 工程的 ThirdBeautyViewController，BeautyView 类相关实例代码。
 
 ### 步骤一：初始化授权 [](id:step1)

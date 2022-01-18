@@ -70,7 +70,7 @@ server {
         ssl_certificate_key cloud.tencent.com.key; 
         ssl_session_timeout 5m;
 	    #请按照以下协议配置
-        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; 
+        ssl_protocols TLSv1.2 TLSv1.3; 
 	    #请按照以下套件配置，配置加密套件，写法遵循 openssl 标准。
         ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; 
         ssl_prefer_server_ciphers on;
@@ -113,7 +113,7 @@ server {
     ssl_certificate_key cloud.tencent.com.key; 
     ssl_session_timeout 5m;
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_protocols TLSv1.2 TLSv1.3;
     ssl_prefer_server_ciphers on;
     location / {
 			#网站主页路径。此路径仅供参考，具体请您按照实际目录操作。 

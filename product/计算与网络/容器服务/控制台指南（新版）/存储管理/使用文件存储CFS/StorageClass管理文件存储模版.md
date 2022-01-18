@@ -55,7 +55,7 @@
 	- **文件服务协议**：默认为 NFS 协议，允许透明访问服务器上的文件和文件系统。
 	- **权限组**：为文件系统配置权限组，便于进一步管理与文件系统处于同一网络下的来访客户端的访问权限及读写权限。请根据实际需求选择合适的权限组，如不具备，请前往 [权限组](https://console.cloud.tencent.com/cfs/permission) 页面进行创建。
 	- **回收策略**：云盘的回收策略，提供**删除**和**保留**两种回收策略。出于数据安全考虑，推荐使用保留回收策略。
-	- **标签**：选择 CFS 实例需要绑定的云标签。该标签将由 torageClass 动态创建的 CFS 实例自动继承，StorageClass 创建后其绑定的标签参数不支持修改。如现有标签不符合您的要求，请前往 [标签控制台](https://console.cloud.tencent.com/tag/taglist) 操作。
+	- **标签**：选择 CFS 实例需要绑定的云标签。该标签将由 StorageClass 动态创建的 CFS 实例自动继承，StorageClass 创建后其绑定的标签参数不支持修改。如现有标签不符合您的要求，请前往 [标签控制台](https://console.cloud.tencent.com/tag/taglist) 操作。
 5. 单击 **新建 StorageClass** 即可。
 
 
