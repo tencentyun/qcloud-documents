@@ -70,8 +70,7 @@ Vue.prototype.$axios = service;
 ```
 3.	全局引入验证码脚本 ，即在 public/index.html 引入 `<script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>`。
 ```
-src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
- 	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="">
   <head>
     <meta charset="utf-8">
