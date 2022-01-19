@@ -147,7 +147,7 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 | [OnRemoteUserLeave](#onremoteuserleave)                      | 远端用户离开房间回调。           |
 | [OnRemoteUserCameraAvailable](#onremoteusercameraavailable)  | 远端用户是否开启摄像头视频回调。 |
 | [OnRemoteUserScreenAvailable](#onremoteuserscreenavailable) | 远端用户是否开启屏幕分享回调。   |
-| [OnRemoteUserAudioAvailable](#onremoteuseraudioavailable)    | 远端用户是否开启音频上行回调。   |
+| [OnRemoteUserAudioAvailable](#onremoteuseraudioavailable)    |  远端用户是否开启麦克风。   |
 | [OnRemoteUserEnterSpeechState](#onremoteuserenterspeechstate) | 远端用户开始发言回调。           |
 | [OnRemoteUserExitSpeechState](#onremoteuserexitspeechstate)  | 远端用户结束发言回调。           |
 
@@ -1035,7 +1035,7 @@ virtual void OnRemoteUserScreenAvailable(const std::string& user_id, bool availa
 
 ### OnRemoteUserAudioAvailable
 
-远端用户是否开启音频上行回调。
+ 远端用户是否开启麦克风。
 ```C++
 virtual void OnRemoteUserAudioAvailable(const std::string& user_id, bool available) = 0;
 ```
@@ -1045,7 +1045,7 @@ virtual void OnRemoteUserAudioAvailable(const std::string& user_id, bool availab
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | user_id | string | 用户 ID。 |
-| available | bool | true：有视频流数据；false：无视频流数据。 |
+| available | bool | true：有音频流数据；false：无音频流数据。 |
 
 ### OnRemoteUserEnterSpeechState
 
