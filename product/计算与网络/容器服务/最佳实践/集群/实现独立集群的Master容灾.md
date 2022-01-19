@@ -11,7 +11,8 @@
 >!置放群组需与 TKE 独立集群在同一地域。 
 >
 <img style="width:50%" src="https://main.qcloudimg.com/raw/a999a9d7a433c3476a5160f769d24b7f.png"></img>
-置放群组层级如下，本文以选择“机架层级”为例：
+ 
+ 置放群组层级如下，本文以选择“机架层级”为例：
 <table>
 <tr>
 <th>置放群组层级</th><th>说明</th>
@@ -28,7 +29,8 @@
 </table>
 2. 参考 [创建集群](https://cloud.tencent.com/document/product/457/32189) 创建 TKE 独立集群。在 “Master&Etcd 配置”的“高级设置”中，勾选“将实例添加到分散置放群组” ，并选择已创建的置放群组。如下图所示：
 <img style="width:50%" src="https://main.qcloudimg.com/raw/854becf1c40e0b8689c41460b0048caa.png"></img>
-配置完成后，对应 Master 节点就会被打散部署到不同的机架上，实现机架级别的容灾。 
+
+ 配置完成后，对应 Master 节点就会被打散部署到不同的机架上，实现机架级别的容灾。 
 
 ## Master 跨可用区容灾
 如果对容灾要求较高，避免因发生大规模故障时整个数据中心都不可用，导致所有 Master 异常，可选择将 Master 部署在不同可用区中。配置方法如下：
