@@ -10,8 +10,6 @@ Datahub 支持接入各种数据源产生的不同类型的数据，统一管理
 
 **前提条件**：已创建好目标 CKafka 实例和 Topic。
 
-**操作步骤**：
-
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏单击**数据接入**，选择好地域后，单击**新建任务**。
