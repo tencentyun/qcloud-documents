@@ -63,7 +63,7 @@ resources:
 :::
 </dx-codeblock>
 
- >? 完整的默认配置可执行 `helm show values traefik/traefik` 命令查看。
+>? 完整的默认配置可执行 `helm show values traefik/traefik` 命令查看。
 3. 执行以下命令将 Traefik 安装到 TKE 集群。示例如下：
 ```bash
 kubectl create ns ingress
