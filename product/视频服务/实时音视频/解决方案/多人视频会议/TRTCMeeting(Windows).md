@@ -136,7 +136,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | [OnUserVoiceVolume](#OnUserVoiceVolume) | 用户音量大小回调通知。|
 | [OnRemoteUserVideoAvailable](#OnRemoteUserVideoAvailable) | 远端用户是否开启摄像头视频回调。|
 | [OnRemoteUserAudioAvailable](#OnRemoteUserAudioAvailable) | 远端用户是否开启音频上行回调。|
-| [OnRemoteUserScreenVideoAvailable](#OnRemoteUserScreenVideoAvailable) | 远端用户是否开启屏幕分享回调。|
+| [OnRemoteUserScreenAvailable](#OnRemoteUserScreenAvailable) | 远端用户是否开启屏幕分享回调。|
 
 ### 场控事件回调
 
@@ -798,11 +798,11 @@ virtual void OnRemoteUserVideoAvailable(const std::string& user_id, bool availab
 | user_id | string | 用户 ID。 |
 | available | bool | true：有视频流数据；false：无视频流数据。 |
 
-### OnRemoteUserScreenVideoAvailable
+### OnRemoteUserScreenAvailable
 
-远端用户是否开启摄像头视频。
+远端用户是否开启屏幕分享。
 ```C++
-virtual void OnRemoteUserScreenVideoAvailable(const std::string& user_id, bool available) = 0;
+virtual void OnRemoteUserScreenAvailable(const std::string& user_id, bool available) = 0;
 ```
 
 参数如下表所示：
@@ -814,7 +814,7 @@ virtual void OnRemoteUserScreenVideoAvailable(const std::string& user_id, bool a
 
 ### OnRemoteUserAudioAvailable
 
-远端用户是否开启摄像头视频。
+远端用户是否开启麦克风。
 ```C++
 virtual void OnRemoteUserAudioAvailable(const std::string& user_id, bool available) = 0;
 ```
