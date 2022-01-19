@@ -2,8 +2,7 @@
                     
 
 ## 效果展示
-
-![](https://web.sdk.qcloud.com/im/assets/im-web.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5f65b75ed5eb8ba52fc7734e8aea672c.png)
 
 
 ## 操作步骤
@@ -15,7 +14,7 @@
 >
 2. 单击**创建新应用**，在**创建应用**对话框中输入您的应用名称，单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/febed2f15dee6ff09f066ba228c7fc27.png)
-3. 创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间、标签以及到期时间。请记录 SDKAppID 信息。
+3. 创建完成后，可在 [控制台总览页](https://console.cloud.tencent.com/im) 查看新建应用的状态、业务版本、SDKAppID、创建时间、标签以及到期时间。请记录 SDKAppID 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/853d2c3c0d5887dadc254eb0e03a215e.png)
 
 
@@ -59,7 +58,6 @@ npm install
 在项目终端执行以下命令行，在浏览器中运行即可：
 <dx-codeblock>
 :::  js
-
 # 命令行执行
 npm run start
 :::
