@@ -1,5 +1,7 @@
 
 
+
+
 腾讯云容器服务 TKE 具备通过 `service.kubernetes.io/tke-existed-lbid: <LoadBalanceId>` 注解实现使用已有负载均衡的功能，您可使用该注解指定集群 Service 资源关联的负载均衡实例。还提供了 **Service 负载均衡复用**功能，即指定多个 Service 使用同一个已有负载均衡，您可参考本文进行设置。
 
 ## 使用已有负载均衡的同步行为
