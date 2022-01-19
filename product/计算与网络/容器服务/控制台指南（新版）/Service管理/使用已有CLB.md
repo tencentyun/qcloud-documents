@@ -97,3 +97,12 @@ spec:
     app: game
   type: LoadBalancer
 ```
+
+
+
+
+
+
+
+
+
