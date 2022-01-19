@@ -44,7 +44,7 @@ CKafka 由于各种原因对分区进行 reBalance 后，Sarama 需要大约 10 
         <td>kafka-go</td>
         <td><ul style = "margin-bottom: 0px;"><li>接口完善。kafka-go 不仅提供顶层接口，同时也暴露底层接口。用户可以更为灵活的调用配置 kafka 客户端。</li>
 				<li>操作简单。kafka-go 在进行基础的生产消费所需代码较少，具有较多的缺省配置。</li></ul></td>
-				<td>性能与前两款客户端相比性能较差，可能无法满足大规模并发需求。</td>
+				<td>与前两款客户端相比性能较差，可能无法满足大规模并发需求。</td>
     </tr>
     </tbody>
 </table>
