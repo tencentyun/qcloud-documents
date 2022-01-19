@@ -101,8 +101,8 @@ kubectl patch backupstoragelocation default --namespace velero \
 			--type merge \
 			--patch '{"spec":{"accessMode":"ReadOnly"}}'
 ```
-	>?您可以指定在还原期间或还原资源后执行自定义 Hook 操作。例如，可能需要在数据库应用程序容器启动之前执行自定义数据库还原操作。了解 Hook 更多信息，请参见 [还原 Hook](https://velero.io/docs/v1.5/restore-hooks/)。 
-
+>?您可以指定在还原期间或还原资源后执行自定义 Hook 操作。例如，可能需要在数据库应用程序容器启动之前执行自定义数据库还原操作。了解 Hook 更多信息，请参见 [还原 Hook](https://velero.io/docs/v1.5/restore-hooks/)。 
+>
 2. 在还原操作之前，需确保集群 B 中 的 Velero 资源与对象存储 COS 中的备份文件同步。默认同步间隔是1分钟，可以使用 `--backup-sync-period` 来配置同步间隔。可以执行以下命令，查看集群 A 的备份是否已同步。 
 ```bash
 velero backup get <BACKUP-NAME>
