@@ -73,7 +73,8 @@ velero backup create <BACKUP-NAME> --exclude-namespaces <NAMESPACE>
 ```bash
 velero backup logs <BACKUP-NAME> | grep error
 ```
-	>!请确保备份过程未发生任何错误，若 Velero 在执行备份过程中发生错误，请排查解决后重新执行备份。 
+>!请确保备份过程未发生任何错误，若 Velero 在执行备份过程中发生错误，请排查解决后重新执行备份。 
+>
 3. 备份完成后执行以下命令，将备份存储位置临时更新为只读模式（非必须，可以防止在还原过程时， Velero 在备份存储位置中创建或删除备份对象）。示例如下：
 ```bash
 kubectl patch backupstoragelocation default --namespace velero \
