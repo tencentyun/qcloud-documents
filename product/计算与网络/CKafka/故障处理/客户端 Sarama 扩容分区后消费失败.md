@@ -1,6 +1,6 @@
 ## 问题概述
 
-[Sarama](https://github.com/Shopify/sarama) 是一个 Golang 语言编写的 Kafka 客户端，具有较高的消息吞吐性能。
+[Sarama](https://github.com/Shopify/sarama) 是一个 Golang 编写的 Kafka 客户端，具有较高的消息吞吐性能。
 
 当因为性能达到瓶颈，主动扩容 CKafka 分区后，Sarama 客户端可能会无法感知分区的 reBalance，导致新分区的信息无法被正常生产消费。
 
