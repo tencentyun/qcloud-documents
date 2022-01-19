@@ -1,5 +1,5 @@
 
-
+ 
 ## TKE Nginx-ingress 监控介绍
 
 Nginx Controller 现已提供组件运行状态相关的监控数据，您可以通过配置 Nginx-ingress 监控，开启 Nginx-ingress 监控能力。
