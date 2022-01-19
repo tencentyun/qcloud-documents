@@ -66,7 +66,7 @@ log4j.appender.loghubAppender.accessKeySecret=
 #设置log字段的格式，必选参数
 log4j.appender.loghubAppender.layout=org.apache.log4j.PatternLayout
 log4j.appender.loghubAppender.layout.ConversionPattern=%-4r [%t] %-5p %c %x - %m%n
-#指定日志主题，可选参数
+#指定日志主题，必选参数
 log4j.appender.loghubAppender.topicID =
 #指定日志来源，可选参数
 log4j.appender.loghubAppender.source =
