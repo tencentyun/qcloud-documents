@@ -14,9 +14,9 @@ Datahub 支持接入各种数据源产生的不同类型的数据，统一管理
 
 **操作步骤**：
 
-1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
+1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏单击**数据流入**，选择好地域后，单击**新建任务**。
-3. 在弹窗中数据源类型选择**异步拉取**。
+3. 在弹窗中数据源类型选择**异步拉取** > **DTS**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/7acb9788a080bba5d5ac25025bb6fbd4.png)
 4. 单击**下一步**，填写任务详情。
    ![](https://qcloudimg.tencent-cloud.cn/raw/045ae1e9daf5b41ea0cb7ce7a32f0519.png)
@@ -33,7 +33,7 @@ Datahub 支持接入各种数据源产生的不同类型的数据，统一管理
 
 ### 更改数据源和数据目标
 
-1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
+1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 单击**数据目标**模块右上角的**更改数据目标**，修改数据目标信息。
 
@@ -41,7 +41,7 @@ Datahub 支持接入各种数据源产生的不同类型的数据，统一管理
 
 ### 查看监控
 
-1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
+1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 选择**监控**页签，可查看目标 Topic 监控数据。
 <table>
