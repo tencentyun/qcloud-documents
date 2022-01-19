@@ -7,7 +7,7 @@
 [](id:npm)
 ### 方式1：NPM 安装
 #### 安装前提
-使用 npm 安装前，需要确保您的环境中已安装好了 Node（版本需要 > 10）以及 npm（查看 [Node.js 安装指南](https://nodejs.org/zh-cn/download/)）。
+使用 npm 安装前，需要确保您的环境中已安装好了 Node（版本需要 > 12）以及 npm（查看 [Node.js 安装指南](https://nodejs.org/zh-cn/download/)）。
 ```sh
 $ node -v
 v12.18.0
