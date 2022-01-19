@@ -147,7 +147,7 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 | [OnRemoteUserLeave](#onremoteuserleave)                      | 远端用户离开房间回调。           |
 | [OnRemoteUserCameraAvailable](#onremoteusercameraavailable)  | 远端用户是否开启摄像头视频回调。 |
 | [OnRemoteUserScreenAvailable](#onremoteuserscreenavailable) | 远端用户是否开启屏幕分享回调。   |
-| [OnRemoteUserAudioAvailable](#onremoteuseraudioavailable)    |  远端用户是否开启麦克风。   |
+| [OnRemoteUserAudioAvailable](#onremoteuseraudioavailable)    |  远端用户是否开启麦克风回调。   |
 | [OnRemoteUserEnterSpeechState](#onremoteuserenterspeechstate) | 远端用户开始发言回调。           |
 | [OnRemoteUserExitSpeechState](#onremoteuserexitspeechstate)  | 远端用户结束发言回调。           |
 
