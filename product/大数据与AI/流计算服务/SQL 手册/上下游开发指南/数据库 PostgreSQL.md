@@ -1,4 +1,4 @@
-﻿## 介绍
+## 介绍
 JDBC-PG Connector 提供了对 CDW PostgreSQL 数据库写支持。
 
 ## 版本说明
