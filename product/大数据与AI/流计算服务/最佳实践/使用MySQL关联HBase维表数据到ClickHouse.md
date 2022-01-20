@@ -110,7 +110,7 @@ CREATE TABLE testdb.student_school ON cluster default_cluster (
 按照上面的操作创建表，并向 MySQL 和 HBase 表中插入数据。
 
 ### 创建 Flink SQL 作业
-在流计算 Oceanus 控制台创建 SQL 作业，选择响应的内置 Connector。
+在流计算 Oceanus 控制台创建 SQL 作业，选择相应的内置 Connector。
 
 #### Source 端
 MySQL-CDC Source：
