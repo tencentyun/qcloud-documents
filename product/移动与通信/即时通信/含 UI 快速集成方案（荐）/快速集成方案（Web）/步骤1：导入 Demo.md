@@ -3,20 +3,20 @@ Web Demo 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天�
 ## 效果展示 
   <table>
 <tr>
-   <th>搜索界面：</th>
-   <th>会话，聊天界面：</th>
-    <th>关系链界面：</th>
+   <th>搜索界面</th>
+   <th>会话，聊天界面</th>
+    <th>关系链界面</th>
  </tr>
 <tr>
 <td><img style="width:300px;height: 192px;max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0181e221bd996f959a9d501676a0759a.png" /></td>
 <td><img  style="width:300px; height: 192px;max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/f0f683e8bc4163adb58a8b8826c50953.png"></td>
-<td><img  style="width:200px; height: 394px;max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/af6452c11fa5ce5741bcbb1da21835de.png"></td>
+<td><img  style="width:200px; height: 385px;max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/af6452c11fa5ce5741bcbb1da21835de.png"></td>
 
 </table> 
 <table>
 <tr>
-  <th>群组界面：</th>
-  <th>音视频通话界面：</th>
+  <th>群组界面</th>
+  <th>音视频通话界面</th>
  </tr>
 <tr>
 <td><img  style="width:300px; height: 286px;max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/cc3c68f6ad4e47584a6a987d30b6251a.png"></td>
