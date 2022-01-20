@@ -1,3 +1,8 @@
+<style>
+table th:nth-of-type(1) {
+width: 40%        
+}
+</style>
 
 ## useModel
 
@@ -15,7 +20,7 @@ options 对象参数：
 
 |参数名 | 参数说明 | 
 |---------|---------|
-| `{string} stateKey`  | 绑定的状态名, 默认绑定到value状态上 | 
+| `{string} stateKey`  | 绑定的状态名, 默认绑定到 value 状态上 | 
 | `{any} defaultValue`  | 默认值| 
 | `{string} defaultValueByExpression`  | 表达式默认值 | 
 | `{string} dynamicValue`  | 表达式动态值 |
@@ -25,8 +30,8 @@ options 对象参数：
 
 |参数名 | 参数说明 | 
 |---------|---------|
-|  `{any} value`  | 一个组件state值
-|  `{Function} onChange`  | 调用setState更新组件状态的值 | 
+|  `{any} value`  | 一个组件 state 值
+|  `{Function} onChange`  | 调用 setState 更新组件状态的值 | 
 
 **示例**
 
@@ -46,6 +51,7 @@ const { value, onChange } = SDK.useModel({
   }
 })
 ```
+
 
 ## useComponentState
 
@@ -68,13 +74,12 @@ const [pageIndex, setPageIndex] = SDK.useComponentState('pageIndex', 1);
 
 ## useComponentAction
 
-<Tag theme="primary" className="apa-font-16">运行态</Tag>
 
 **用法**
 
 定义组件的动作，传入一个方法，并返回这个方法的`useCallback`的函数。传入的方法，当动作编辑器中，触发组件动作时可以执行。
 
-这个方法可以类比React中的`useCallback`。
+这个方法可以类比 React中 的 `useCallback`。
 
 **参数**
 
