@@ -87,7 +87,6 @@ new ASR(options)说明：
 
 	- 将生成 AppID、SecretID 和 SecretKey 作为参数传入 ASR 类中，具体调用示例如下 ：
 ```javascript 
-// this.localStream_.getAudioTrack() 为获取的本地流的音轨
 const localStreamAsr = new ASR({
   secretKey: '',
   secretId: '',
@@ -103,7 +102,7 @@ const localStreamAsr = new ASR({
   filter_punc: 1,
   convert_num_mode : 1,
   word_info: 2,,
-  audioTrack: this.localStream_.getAudioTrack()
+  audioTrack: this.localStream_.getAudioTrack() // this.localStream_.getAudioTrack() 为获取的本地流的音轨
 })
 // 开始语音识别调用
 localStreamAsr.start();
