@@ -27,16 +27,16 @@ chmod 744 tencentcloud-cls-k8s-install.sh
 -	--secretid：腾讯云账户访问密钥 ID。
 -	--secretkey：腾讯云账户访问密钥 Key。
 -	--region：CLS 服务地域。
--	--docker_root：集群 Docker 的根目录，默认是 /var/lib/docker。如果集群不是这个默认目录，需要指定具体的 Docker 的根目录。
--	--cluster_id：集群 ID。如果不指定集群 ID，在安装期间会生成一个默认 ID 关联机器组。
+-	--docker_root：集群 Docker 的根目录，默认是 /var/lib/docker。
 >? 
 > - 建议不同的集群使用不同的 cluster_id。
 > - 不同的集群数据可以投递到相同的 topic。
 > - 默认 ID 生成规则为：cls-k8s-8位随机 ID。
 >   
--	--network：网络使用类型，内网或者外网，默认使用外网。
--	--api_network：云 API 的网络使用类型，内网或者外网，默认使用外网（internet）。
+-	--network：网络使用类型，内网（intra）或者外网（internet），默认使用内网。
+-	--api_network：云 API 的网络使用类型，内网（intra）或者外网（internet），默认使用外网（internet）。
 - --api_region：云 API 的地域，地域详情请参见 [可用地域](https://cloud.tencent.com/document/product/614/18940) 文档。
+- region 和 api_region 地区保持一致，可分别参考 [域名-loglistener](https://cloud.tencent.com/document/product/614/18940#LogListener) ，[地域-日志服务 API3.0](https://cloud.tencent.com/document/product/614/18940#API3) 文档检验网络。
 
 #### 示例
 

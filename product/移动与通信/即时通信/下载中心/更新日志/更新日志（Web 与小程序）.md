@@ -1,3 +1,18 @@
+
+### 2.16.1 @2022.1.14
+
+**新增**
+
+- 支持支付宝小程序发送 .image 后缀的图片。
+- 删除会话 [deleteConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteConversation) 同时删除历史消息。
+
+**修复**
+
+- 下行文件消息 `fileName` 为空字符串导致的错误。
+- 群属性接口调用时序引起的问题。
+- uni-app 打包到百度小程序等平台，遇到的 `__wxConfig is not defined` 问题。
+
+
 ### 2.16.0 @2022.1.5
 
 **新增**

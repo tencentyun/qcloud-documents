@@ -7,6 +7,7 @@ FileSystem connector 提供了对 `HDFS` 和 [COS](https://cloud.tencent.com/doc
 | :-------- | :--- |
 | 1.11      | 支持 |
 | 1.13      | 支持 |
+| 1.14      | 支持 |
 
 ## 使用范围
 FileSystem 支持作为 Append-Only 数据流的目的表 (Sink)，目前还不支持 Upsert 数据流的目的表。FileSystem 目前支持以下格式的数据写入：

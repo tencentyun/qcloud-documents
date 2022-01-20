@@ -1,6 +1,6 @@
 
 Serverless 是腾讯自研云原生数据库 TDSQL-C 的无服务器架构版，是全 Serverless 架构的云原生数据库。Serverless 服务支持按实际计算和存储资源使用量收取费用，不用不付费，将腾讯云云原生技术普惠用户。
->?仅 TDSQL-C for MySQL 支持 Serverless 模式。
+>?仅 TDSQL-C MySQL版 支持 Serverless 模式。
 
 ## 服务特性
 - 自动驾驶（Autopilot）：数据库根据业务负载自动启动停止，无感扩缩容，扩缩容过程不会断开连接。
