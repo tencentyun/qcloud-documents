@@ -71,8 +71,8 @@ self.beautyKit = [[XMagic alloc] initWithRenderSize:previewSize assetsDict:asset
 - (int)configPropertyWithType:(NSString *_Nonnull)propertyType withName:(NSString *_Nonnull)propertyName withData:(NSString*_Nonnull)propertyValue withExtraInfo:(id _Nullable)extraInfo;
 ```
 
-### 步骤五：在视频帧回调接口，构造YTProcessInput传入到 SDK 内做渲染处理，参考ThirdBeautyViewController[](id:step5)
-
+### 步骤五：进行渲染处理[](id:step5)
+在视频帧回调接口，构造 YTProcessInput 传入到 SDK 内做渲染处理，可参考 Demo 中的 ThirdBeautyViewController。
 ```objectivec
  [self.xMagicKit process:inputCPU withOrigin:YtLightImageOriginTopLeft withOrientation:YtLightCameraRotation0]
 ```
