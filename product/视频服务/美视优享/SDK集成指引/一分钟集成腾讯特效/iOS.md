@@ -67,14 +67,14 @@ framework 签名可以直接在 General-->Masonry.framework 和 libpag.framework
 
 ### 步骤二：鉴权
 
-1. 申请授权，得到 License URL 和 License KEY，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)。
+1. 申请授权，得到 LicenseURL 和 LicenseKEY，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)。
 
    > !***\*不需要\****把 License 文件下载下来放到本地工程里。
 
-2. 在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，触发 license 下载，避免在使用前才临时去下载。其中，LicenseURL 和 Key是控制台绑定 License 时生成的授权信息。
+2. 在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，触发 license 下载，避免在使用前才临时去下载。其中，LicenseURL 和 LicenseKey是控制台绑定 License 时生成的授权信息。
 
    ```
-   [TESign setKeyUrl:@"Key" url:@"LicenseURL"];
+   [TESign setKeyUrl:@"LicenseKey" url:@"LicenseURL"];
    ```
 
    
