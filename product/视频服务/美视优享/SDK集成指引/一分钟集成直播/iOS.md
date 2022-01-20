@@ -1,8 +1,8 @@
 ## 集成准备
 
 1. 下载并解压 [Demo 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/MLVB-API-Example.zip)。
-2. 将 Demo工程中的 xmagic 模块（bundle，XmagicIconRes，Xmagic文件夹）导入到实际项目工程中。
-3. 导入 SDK 目录中的 libpag.framework，Masonry.framework，XMagic.framework，YTCommonXMagic.framework。
+2. 将 Demo工程中的 xmagic 模块（bundle，XmagicIconRes，Xmagic 文件夹）导入到实际项目工程中。
+3. 导入 SDK 目录中的 libpag.framework、Masonry.framework、XMagic.framework、YTCommonXMagic.framework。
 4. framework 签名 **General--> Masonry.framework** 和 **libpag.framework** 选 **Embed & Sign**。
 5. 将 Bundle ID 修改成与签发的授权一致。
 
