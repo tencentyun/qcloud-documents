@@ -10,21 +10,21 @@
 
 
 ## 基于 RTC 协议的连麦方案
-目前，在 [**连麦互动 - RTMP方案**](https://cloud.tencent.com/document/product/1449/57101) 中，腾讯云移动直播 SDK 提供连麦互动组件 `MLVBLiveRoom` 用来帮助开发者快速实现连麦需求，为了更好的满足开发者针对连麦功能的需求，腾讯云新增了基于 RTC 协议的连麦方案，同时提供了更加简单灵活的 V2 接口。
+目前，在 [**连麦互动 - RTMP方案**](https://cloud.tencent.com/document/product/454/14606) 中，腾讯云视立方·移动直播 SDK 提供连麦互动组件 `MLVBLiveRoom` 用来帮助开发者快速实现连麦需求，为了更好的满足开发者对连麦功能的需求，腾讯云新增了**基于实时音视频 TRTC 能力实现的新版连麦方案**，同时提供了更加简单灵活的全新接口：`V2TXLivePusher` （推流）、`V2TXLivePlayer` （拉流）。
 
-移动直播 V2 接口同时支持通过 RTMP 协议及 RTC 协议进行推流/连麦，开发者可根据自身需求选择适合的方案，对比如下：
+移动直播全新接口同时支持通过 RTMP 协议及 RTC 协议进行推流/连麦，开发者可根据自身需求选择适合的方案，对比如下：
 
-| 对比项   | RTMP 方案                  | RTC 方案                                           |
-| -------- | -------------------------- | -------------------------------------------------- |
-| 协议     | RTMP 基于 TCP 协议            | RTC 基于 UDP 协议（更适合流媒体传输）                 |
-| QoS      | 弱网抗性能力弱             | 50%丢包率可正常视频观看，70%丢包率可正常语音连麦 |
-| 支持区域 | 仅支持中国内地（大陆）地区 | 全球覆盖                                           |
-| 使用产品 | 需开通移动直播、云直播服务 | 需开通移动直播、云直播、实时音视频服务             |
-| 价格     | 0.016元/分钟               | 阶梯价格，详情请参见 [RTC 连麦方案怎么计算费用](#price)  |
+| 对比项   | 旧版连麦方案               | 新版连麦方案                                                 |
+| :------- | :------------------------- | :----------------------------------------------------------- |
+| 协议     | RTMP 基于 TCP 协议         | RTC 基于 UDP 协议（更适合流媒体传输）                        |
+| QoS      | 弱网抗性能力弱             | 50%丢包率可正常视频观看，70%丢包率可正常语音连麦             |
+| 支持区域 | 仅支持中国内地（大陆）地区 | 全球覆盖                                                     |
+| 使用产品 | 需开通移动直播、云直播服务 | 需开通移动直播、云直播、实时音视频服务                       |
+| 价格     | 0.016元/分钟               | 阶梯价格，详情请参见 [RTC 连麦方案怎么计算费用](#price) |
 
 
 ## RTC 连麦方案如何接入
-移动直播 SDK 提供了新的 V2 接口：` V2TXLivePusher` （推流）、` V2TXLivePlayer` （拉流），用来帮助客户实现更加灵活、更低延时、更多人数的直播互动场景。开播端可以利用 V2 提供的 RTC 推流能力，默认情况下，观众端观看则可使用 CDN 方式进行拉流。 CDN 观看费用较低。如果观众端有连麦需求，连麦观众上麦后，可以从 CDN 切换到 RTC 进行观看，这样延时更低，互动效果更好。以下是相关示例代码和具体的步骤说明，方便您快速接入：
+RTC 连麦方案用来帮助客户实现更加灵活、更低延时、更多人数的直播互动场景。开播端可以利用全新接口提供的 RTC 推流能力，默认情况下，观众端观看则可使用 CDN 方式进行拉流。 CDN 观看费用较低。如果观众端有连麦需求，连麦观众上麦后，可以从 CDN 切换到 RTC 进行观看，这样延时更低，互动效果更好。以下是相关示例代码和具体的步骤说明，方便您快速接入：
 
 ### 示例工程
 
@@ -34,58 +34,45 @@
 | iOS      | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)|[LiveLink](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example/Basic/LiveLink) |
 
 ### 演示图示
-
-####  直播前
+<dx-tabs>
+::: 直播前
 <table>
-        <tr> 
-                <th><div align=center>主播端（手机 A)</div></th>
-                <th><div align=center>连麦观众（手机 B）</div></th>
-                <th><div align=center>普通观众（手机 C）</div></th>
-        </tr>
-        <tr>
-                <td>
-                  <div align=center>
-                    <img src="https://main.qcloudimg.com/raw/f46b67807534a6f95905a9334189e2a3.jpeg" style="width: 250px;height: 510px">
-                    </div>
-                  </td>
-                <td>
-                  <div align=center>
-                    <img src="https://main.qcloudimg.com/raw/502949e9fe3133c10e5f985122bcada3.jpeg" style="width: 250px;height: 510px">
-                    </div>
-                </td>
-                <td>
-                  <div align=center>
-                    <img src="https://main.qcloudimg.com/raw/53c6cd620e83c4a82ca9cdb25aae81e8.jpg" style="width: 250px;height: 510px">
-                    </div>
-                </td>
-        </tr>
-</table>
-
-####  连麦中
+<tr> 
+  <th style="text-align:center" width=15%>主播</th>
+	  <td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/828be0e34f31ec1f8da5febb64cdaaec.jpeg" width=250px></div></td>
+	<td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/cfe7d3b3c2d606de6893a83b50c54ad8.jpeg" width=250px></div></td>
+  <td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/f3a9bc93492e6f6358f0b7eda8e2ccae.jpeg" width=250px></div></td>
+</tr><tr>
+  <th style="text-align:center">连麦观众和观众</th>
+<td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/828be0e34f31ec1f8da5febb64cdaaec.jpeg" width=250px></div></td>
+<td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/75d3e30333c7444d1412c255442b1b01.jpeg" width=250px></div>
+    <td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/04bff25eab8521bcf6594d6e6ed447cb.jpeg" width=250px></div></td>
+</tr></table>
+:::
+::: 连麦操作
 <table>
-        <tr> 
-                <th><div align=center>主播端（手机 A）</div></th>
-                <th><div align=center>连麦观众（手机 B）</div></th>
-                <th><div align=center>普通观众（手机 C）</div></th>
-        </tr>
-        <tr>
-                <td>
-                  <div align=center>
-                    <img src="https://main.qcloudimg.com/raw/bc7e2b8bb14e1da6d1fbf6acbaf768e1.png" style="width: 250px;">
-                    </div>
-                  </td>
-                <td>
-                  <div align=center>
-                     <img src="https://main.qcloudimg.com/raw/86ff2214e670457a14c1eaa0b4246e6b.png" style="width: 250px;">
-                    </div>
-                </td>
-                <td>
-                  <div align=center>
-                    <img src="https://main.qcloudimg.com/raw/4be01085e5b39229288428ca735bd53d.png" style="width: 250px;"> 
-                    </div>
-                </td>
-        </tr>
-</table>
+<tr> 
+  <th style="text-align:center" width=15%>主播</th>
+    <td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/b6a4bfd36b45148331e96ad9390085a7.png" width=250px></div></td>
+    <td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/f548418a64ce4b4cbedcdccf512169e0.png" width=250px></div></td>
+</tr><tr>
+  <th style="text-align:center">连麦观众</th>
+  <td  colspan=2><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/b6a4bfd36b45148331e96ad9390085a7.png" width=250px></div></td>
+</tr></table>
+:::
+::: 连麦中
+<table>
+<tr> 
+  <th><div align=center width=15%>主播端（手机 A）</div></th>
+  <th><div align=center>连麦观众（手机 B）</div></th>
+  <th><div align=center>普通观众（手机 C）</div></th>
+</tr><tr>
+ <td><div align=center><img src="https://main.qcloudimg.com/raw/18136e6a4b51870675dd4b66576f2209.png" width=250px></div></td>
+<td><div align=center><img src="https://main.qcloudimg.com/raw/18136e6a4b51870675dd4b66576f2209.png" width=250px></div></td>
+<td><div align=center><img src="https://main.qcloudimg.com/raw/24637509a20f7f50545ceb0aac69ea74.png" width=250px></div></td>
+</tr></table>
+:::
+</dx-tabs>
 
 [](id:step1)
 ### 步骤1：服务开通 
@@ -136,7 +123,7 @@ pusher.startMicrophone();
 pusher.startPush("trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=finnguan&usersig=xxxxx");
 ```
 
-
+[](id:step3)
 ### 步骤3：V2TXLivePlayer CDN 播放
 
 #### URL 拼接
@@ -152,13 +139,11 @@ player.setRenderView(mSurfaceView);
 player.startPlay("https://3891.liveplay.myqcloud.com/live/streamid.flv");
 ```
 
-
+[](id:step4)
 ### 步骤4：实现观众连麦
 ![](https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/blog/min.helloworld/24e495dd1a910f53069237ecdf28491e.jpg)
-#### 1. 主播 RTC 推流
-
+-  **主播 RTC 推流：**
 主播 A 开始推流，调用 `V2TXLivePusher` 组件开始主播 A 的推流。
-
 ```java
 V2TXLivePusher pusherA = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RTC);
 ...
@@ -167,11 +152,8 @@ V2TXLivePusher pusherA = new V2TXLivePusherImpl(this, V2TXLiveMode.TXLiveMode_RT
  */
 pusherA.startPush(pushURLA);
 ```
-
-#### 2. 观众 CDN 拉流
-
+- **观众 CDN 拉流：**
 所有观众观看主播 A 直播，调用 `V2TXLivePlayer` 开始播放主播 A 的流。
-
 ```java
 V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
 ...
@@ -183,12 +165,8 @@ V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
  */
 playerA.startPlay(playURLA);
 ```
-
-
-#### 3. 观众发起连麦
-
+-  **观众发起连麦：**
 其中观众 B 调用 `V2TXLivePusher` 发起推流（后续会称呼为连麦观众 B）。
-
 ```java
 V2TXLivePusher pusherB = new V2TXLivePusherImpl(this,V2TXLiveMode.TXLiveMode_RTC);
 ...
@@ -197,37 +175,29 @@ V2TXLivePusher pusherB = new V2TXLivePusherImpl(this,V2TXLiveMode.TXLiveMode_RTC
  */
 pusherB.startPush(pushURLB);
 ```
-
-#### 4. 进入连麦状态
-
+-  **进入连麦状态：**
 主播 A 调用 `V2TXLivePlayer` 使用 RTC 协议拉取放**连麦观众 B** 的流。
-
 ```java
 V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
 ...
 /**
- * playURLB= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx";
+ * playURLB= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
  */
 playerB.startPlay(playURLB);
 ```
 同时，**连麦观众 B** 调用 `V2TXLivePlayer` 切换至 RTC 协议，开始播放主播 A 的流。
-
 ```java
 V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
 ...
 /**
- *playURLA= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
+ *playURLA= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx";
  */
 playerA.startPlay(playURLA);
 ```
 此时主播 A 和**连麦观众 B** 即可进入超低延时的实时互动场景中。
-
-
-#### 5. 连麦成功后，进行混流
-
-为了保证观众可以看到连麦观众B的画面，这里主播 A 需要发起一次混流操作。也就是将主播A自己和连麦观众 B，混合成一路流。观众可以在一路流上看到主播和连麦观众进行互动。 A 调用 setMixTranscodingConfig 接口启动云端混流，调用时需要设置音频相关的参数，例如 `音频采样率 audioSampleRate`、`音频码率 audioBitrate` 和 `声道数 audioChannels` 等。
+-  **连麦成功后，进行混流：**
+为了保证观众可以看到连麦观众 B 的画面，这里主播 A 需要发起一次混流操作。也就是将主播A自己和连麦观众 B，混合成一路流。观众可以在一路流上看到主播和连麦观众进行互动。 A 调用 setMixTranscodingConfig 接口启动云端混流，调用时需要设置音频相关的参数，例如 `音频采样率 audioSampleRate`、`音频码率 audioBitrate` 和 `声道数 audioChannels` 等。
 如果您的业务场景中也包含视频，需同时设置视频相关的参数，例如 `视频宽度 videoWidth`、`视频高度 videoHeight`、`视频码率 videoBitrate`、`视频帧率 videoFramerate` 等。
-
 **示例代码**：
 ```java
 V2TXLiveDef.V2TXLiveTranscodingConfig config = new V2TXLiveDef.V2TXLiveTranscodingConfig();
@@ -278,7 +248,6 @@ config.mixStreams.add(remoteB);
 // 发起云端混流
 pusher.setMixTranscodingConfig(config);
 ```
-
 > ! 发起云端混流后，默认混流 ID，是发起混流者的 ID，如果需要指定流 ID，需要进行传入。
 
 这样其他观众在观看时，就可以看到 A，B 两个主播的连麦互动。
@@ -334,7 +303,7 @@ playerB.startPlay(playURLB);
 
 > ? 此处开发者可能会有疑问：貌似新的 RTC 连麦方案还需要我们自己维护一套房间和用户状态，这样不是更麻烦吗？是的，**没有更好的方案，只有更适合自己的方案**，我们也有考虑到这样的场景：
 > - 如果对时延和并发要求并不高的场景，可以继续使用连麦互动的旧方案。
-> - 如果既想用到 V2 相关的接口，但是又不想维护一套单独的房间状态，可以尝试搭配 [腾讯云 IM SDK](https://cloud.tencent.com/document/product/269)，快速实现相关逻辑。
+> - 如果既想用到新版连麦方案相关的接口，但是又不想维护一套单独的房间状态，可以尝试搭配 [腾讯云 IM SDK](https://cloud.tencent.com/document/product/269)，快速实现相关逻辑。
 
 
 [](id:price)
