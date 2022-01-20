@@ -68,7 +68,7 @@ self.beautyKit = [[XMagic alloc] initWithRenderSize:previewSize assetsDict:asset
 - (int)configPropertyWithType:(NSString *_Nonnull)propertyType withName:(NSString *_Nonnull)propertyName withData:(NSString*_Nonnull)propertyValue withExtraInfo:(id _Nullable)extraInfo;
 ```
 
-### 步骤五：在短视频预处理帧回调接口，构造YTProcessInput将 textureId 传入到 SDK 内做渲染处理 [](id:step5)
+### 步骤五：在短视频预处理帧回调接口，构造 YTProcessInput 将 textureId 传入到 SDK 内做渲染处理 [](id:step5)
 ```
  [self.xMagicKit process:inputCPU withOrigin:YtLightImageOriginTopLeft withOrientation:YtLightCameraRotation0]
 ```
