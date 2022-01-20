@@ -1,4 +1,4 @@
-## *接口说明
+## 接口说明
 
 接口请求地址：`/metadata/ModifyEntityRecord`
 
