@@ -5,6 +5,7 @@ width: 40%
 </style>
 
 ## useModel
+**使用条件：**运行态
 
 **用法**
 
@@ -54,6 +55,7 @@ const { value, onChange } = SDK.useModel({
 
 
 ## useComponentState
+**使用条件：**运行态
 
 **用法**
 
@@ -74,6 +76,7 @@ const [pageIndex, setPageIndex] = SDK.useComponentState('pageIndex', 1);
 
 ## useComponentAction
 
+**使用条件：**运行态
 
 **用法**
 
@@ -99,6 +102,7 @@ const fetchData = SDK.useComponentAction('fetchData', () => {
 
 
 ## useComponentSubscriber
+**使用条件：**运行态
 
 **用法**
 
