@@ -83,7 +83,7 @@ new ASR(options)说明：
 </tbody></table>
 
 	其他参数和返回字段参考 [接口文档](https://cloud.tencent.com/document/product/1093/48982)。
->?目前 ASR 类将 TRTC 对应的音频默认处理为16k、16bit的 pcm 格式音频数据，所以 engine_model_type 目前只支持16k模型，voice_format 只能为1，若对音频数据有要求，可自行处理数据，具体可参考 [speechrecognizer.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/dist/speechrecognizer.js) 中16k音频的处理方式。
+>?目前 ASR 类将 TRTC 对应的音频默认处理为16k、16bit的 pcm 格式音频数据，所以 engine_model_type 目前只支持16k模型，voice_format 只能为1，若对音频数据有要求，可自行处理数据，具体可参考 [asr.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/examples/trtc/asr.js) 中16k音频的处理方式。
 
 	- 将生成 AppID、SecretID 和 SecretKey 作为参数传入 ASR 类中，具体调用示例如下 ：
 ```javascript 
