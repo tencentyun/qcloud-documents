@@ -4,7 +4,7 @@ Web Demo 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天�
   <table>
 <tr>
    <th>搜索界面</th>
-   <th>会话，聊天界面</th>
+   <th>会话与聊天界面</th>
     <th>关系链界面</th>
  </tr>
 <tr>
