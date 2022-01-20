@@ -5,7 +5,7 @@
 在 [流计算 Oceanus](https://console.cloud.tencent.com/oceanus/cluster) 控制台的**集群管理 > 新建集群**创建集群，选择地域、可用区、VPC、日志、存储、设置初始密码等。创建完后的集群如下：
 >?
 >- 若未使用过 VPC、日志、存储这些组件，需要先进行创建。
->- VPC 及子网需要和下面的 MySQL、EMR 集群使用同一个 VPC，否则需要手动打通（例如对等连接）。
+>- Oceanus 集群需要和下面的 MySQL、EMR 集群使用同一个 VPC，否则需要手动打通（例如对等连接）。
 
 ![](https://main.qcloudimg.com/raw/6dafa64073856583ce73ca85c7505e6b.png)
 
