@@ -172,7 +172,7 @@
 [](id:step2_10)
 ### 步骤10：屏幕分享
 1. 调用 StartScreenCapture 接口进行屏幕分享。
-2. 其他成员收到 OnRemoteUserScreenVideoAvailable 回调，通知有成员正在分享屏幕。
+2. 其他成员收到 OnRemoteUserScreenAvailable 回调，通知有成员正在分享屏幕。
 
 >? 屏幕分享模块需要做窗口选择的逻辑，具体实现请参考 App 中的 `ScreenShareWindow.h` 的实现。
 

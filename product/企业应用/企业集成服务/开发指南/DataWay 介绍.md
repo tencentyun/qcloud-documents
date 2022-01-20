@@ -1,5 +1,5 @@
-DataWay 是 EIS 服务中用于对数据进行自定义转换与处理的表达式脚本语言，集成在 EIS 运行时服务中，是提供 EIS 可扩展性的关键能力。
-EIS 的许多内置组件中都可提供基于 DataWay 脚本的自定义能力，可以用于对 EIS 事件进行动态处理。例如在 Set-Variable 组件中，可以通过 DataWay 表达式来动态地设置变量的值；在 Transform 组件中，可以充分利用 DataWay 的灵活语法进行复杂的数据处理与表达式运算，以最终生成期望的 Payload 产出，用于下游组件的处理。
+DataWay 是千帆鹊桥 iPaaS 服务中用于对数据进行自定义转换与处理的表达式脚本语言，集成在千帆鹊桥 iPaaS 运行时服务中，是提供千帆鹊桥 iPaaS 可扩展性的关键能力。
+千帆鹊桥iPaaS 的许多内置组件中都可提供基于 DataWay 脚本的自定义能力，可以用于对千帆鹊桥 iPaaS 事件进行动态处理。例如在 Set-Variable 组件中，可以通过 DataWay 表达式来动态地设置变量的值；在 Transform 组件中，可以充分利用 DataWay 的灵活语法进行复杂的数据处理与表达式运算，以最终生成期望的 Payload 产出，用于下游组件的处理。
 
 ## 1. 脚本结构
 
@@ -18,7 +18,7 @@ def dw_process(msg):
     return Entity.from_value(val, mime_type='application/json')
 ```
 
-dw_process 入口函数仅接受一个参数，该参数代表当前表达式需要处理的 EIS 消息。dw_process 的返回值即是表达式的返回值。
+dw_process 入口函数仅接受一个参数，该参数代表当前表达式需要处理的千帆鹊桥 iPaaS 消息。dw_process 的返回值即是表达式的返回值。
 内置的 Entity.from_value 函数用于为构造 Entity 类型的返回值，可以指定序列化参数，例如 mime_type、encoding 等。
 
 ## 2. 语法说明
@@ -37,7 +37,7 @@ dw_process 是 DataWay 脚本的主入口，其作用相当于 C/C++语言中的
 
 dw_process 仅接受一个**类型为 Message 的参数**，而其返回值就是该 DataWay 表达式最终的输出值。
 
-作为 EIS 数据处理流程的一个环节，dw_process 函数的返回值类型是受到严格限制的，目前支持的类型有：str/None/bool/float/int/list/dict/Entity/MultiMap/Message 等。
+作为千帆鹊桥 iPaaS 数据处理流程的一个环节，dw_process 函数的返回值类型是受到严格限制的，目前支持的类型有：str/None/bool/float/int/list/dict/Entity/MultiMap/Message 等。
 - 关于 DataWay 中数据类型的详细介绍，可参考 [DataWay 类型系统](#4.-dataway-.E7.B1.BB.E5.9E.8B.E7.B3.BB.E7.BB.9F)。
 - 关于返回值类型限制的说明，可参考 [返回值类型的限制](#7.4-.E8.BF.94.E5.9B.9E.E5.80.BC.E7.B1.BB.E5.9E.8B.E9.99.90.E5.88.B6)。
 
@@ -57,12 +57,11 @@ dw_process 仅接受一个**类型为 Message 的参数**，而其返回值就�
 | set          | 集合，即 Python 集合类型set                                  | 否                        | {1,2,3}                                                     |
 | list         | 列表，序列类型容器，即 Python 原生 list 类型                 | 否                        | [1,2,3]                                                     |
 | dict         | 字典，kv 类型容器，即 Python 原生 dict 类型                  | 否                        | {1:1, 'key': 'value'}                                       |
-| **Entity**   | 即 EIS 中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括 blob、mime_type、encoding 等信息 | **是** | http-listener 构造消息中的 payload，msg.payload               |
+| **Entity**   | 即千帆鹊桥 iPaaS 中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括 blob、mime_type、encoding 等信息 | **是** | http-listener 构造消息中的 payload，msg.payload               |
 | **MultiMap** | 多值 map，类似于 xml 而与 dict 不同，该类型可以支持重复的 key。 | **是** | application/www-form-urlencoded 格式的数据解析之后得到的对象 |
-| **Message**  | 即 EIS 中的消息，在 DataWay 中以 Message 进行访问            | **是** | dw_process 入口函数中的msg 参数                               |
+| **Message**  | 即千帆鹊桥 iPaaS 中的消息，在 DataWay 中以 Message 进行访问            | **是** | dw_process 入口函数中的msg 参数                               |
 
 >!上述类型可以在 DataWay 表达式中使用，但是 dw_process 函数**返回值的类型受到严格限制**，详情可参考 [返回值类型限制](#7.4-.E8.BF.94.E5.9B.9E.E5.80.BC.E7.B1.BB.E5.9E.8B.E9.99.90.E5.88.B6)。
-
 
 ### 4.1 Entity 类型
 
@@ -84,7 +83,6 @@ Entity 类型在 DataWay 中用于表示一个二进制数据的封装对象，�
 >- 对于以下标方式访问 Entity 的详细定义，可参考 [选择器](#4.2-entity-.E9.80.89.E6.8B.A9.E5.99.A8)。
 >- 对于如何手动构造 Entity 类型的对象，可参考 [Entity 对象构造](#4.3-entity-.E5.AF.B9.E8.B1.A1.E6.9E.84.E9.80.A0)。
 >- 对于使用 Entity 类型时的相关限制，可参考 [Entity 类型 mime_type 与 encoding 支持情况](#7.5-entity-.E7.B1.BB.E5.9E.8B-mime_type-.E4.B8.8E-encoding-.E6.94.AF.E6.8C.81.E6.83.85.E5.86.B5)。
-
 ### 4.2 Entity 选择器
 
 对于 Entity 类型的变量，如预定义属性 msg.payload，DataWay 支持通过选择器 (selector) 的方式进行快速访问，支持的操作类型如下：
@@ -114,7 +112,7 @@ Entity 类型在 DataWay 中用于表示一个二进制数据的封装对象，�
 
 ### 4.4 Message 类型与预定义属性
 
-Message 类型是 DataWay 用于表示一条 EIS 消息的数据类型，其中包含 payload、vars、attrs 等属性，称之为**预定义属性（Predefined Properties）**。这些属性由系统根据当前运行信息及处理的消息生成，用于在 DataWay 中通过程序化的方式获取上下文信息。
+Message 类型是 DataWay 用于表示一条 千帆鹊桥iPaaS 消息的数据类型，其中包含 payload、vars、attrs 等属性，称之为**预定义属性（Predefined Properties）**。这些属性由系统根据当前运行信息及处理的消息生成，用于在 DataWay 中通过程序化的方式获取上下文信息。
 
 目前 Message 中包含的属性及其说明如下：
 
@@ -208,7 +206,7 @@ Message 类型是 DataWay 用于表示一条 EIS 消息的数据类型，其中�
 
 ### 7.3 内存控制与执行超时限制
 
-为防止恶意代码对 EIS 运行时造成损害，DataWay 表达式的执行环境会受到内存与执行时间的限制。
+为防止恶意代码对 千帆鹊桥iPaaS 运行时造成损害，DataWay 表达式的执行环境会受到内存与执行时间的限制。
 目前单条 DataWay 表达式所能使用的内存上限是100MB，超过此上限将导致运行时 MemoryError 错误；
 同时执行时间不能超过1000毫秒，超过此限制将导致 TimeoutError 错误；
 
@@ -225,15 +223,14 @@ Message 类型是 DataWay 用于表示一条 EIS 消息的数据类型，其中�
 | int          | 整数，即 Python 原生整型 int                                 | 否                        | 123                                                         |
 | list         | 列表，序列类型容器，即 Python 原生 list 类型                 | 否                        | [1,2,3]                                                     |
 | dict         | 字典，kv 类型容器，即 Python 原生 dict 类型                  | 否                        | {1:1, 'key': 'value'}                                       |
-| **Entity**   | 即 EIS 中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括 blob、mime_type、encoding 等信息 |** 是** | http-listener 构造消息中的 payload，msg.payload               |
+| **Entity**   | 即 千帆鹊桥iPaaS 中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括 blob、mime_type、encoding 等信息 |** 是** | http-listener 构造消息中的 payload，msg.payload               |
 | **MultiMap** | 多值 map，类似于 xml 而与 dict 不同，该类型可以支持重复的 key。 | **是** | application/www-form-urlencoded 格式的数据解析之后得到的对象 |
-| **Message**  | 即 EIS 中的消息，在 DataWay 中以 Message 进行访问            | **是** | dw_process 入口函数中的 msg 参数                               |
+| **Message**  | 即 千帆鹊桥iPaaS 中的消息，在 DataWay 中以 Message 进行访问            | **是** | dw_process 入口函数中的 msg 参数                               |
 
 对于 list、dict、MultiMap 以及 Message 等容器类型，其容器元素也必须符合上述类型限制。
 
 >!如果 DataWay 表达式输出的值会作为集成流的最终返回结果，则其允许的类型还会受到相应连接器组件的限制。
 > 例如，在以 http listener 组件作为第一个组件的流中，其最终的 payload 必须是一个 Entity 类型，否则会导致 RESPONSE_TYPE_ERROR 错误。
-
 ### 7.5  Entity 类型 mime_type 与 encoding 支持情况
 
 #### 构造 Entity 对象时的限制
@@ -276,4 +273,4 @@ Entity 对象在本质上是一个对二进制数据的封装对象，但是为�
 
 #### 8.2 DataWay 表达式在什么场景下使用？
 
-目前几乎所有的 EIS 核心组件都具有表达式求值的能力，DataWay 是 EIS 具有动态求值能力的关键所在。
+目前几乎所有的 千帆鹊桥iPaaS 核心组件都具有表达式求值的能力，DataWay 是 千帆鹊桥iPaaS 具有动态求值能力的关键所在。

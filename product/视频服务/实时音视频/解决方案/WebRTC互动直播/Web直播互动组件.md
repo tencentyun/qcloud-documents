@@ -7,7 +7,7 @@ TUIPusher & TUIPlayer 的优势：
 
 ## 快速体验
 
-TUIPusher 及 TUIPlayer 功能演示请看下图。同时，为了方便您快速体验 TUIPusher & TUIPlayer 的功能，我们结合用户管理系统和房间管理系统提供了 [TUIPusher 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html) 及 [TUIPlayer 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html)。
+TUIPusher 及 TUIPlayer 功能演示请看下图。同时，为了方便您快速体验 TUIPusher & TUIPlayer 的功能，我们结合用户管理系统和房间管理系统提供了 [TUIPusher 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/login.html) 及 [TUIPlayer 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/login.html)。
 >! 同时体验 TUIPusher 和 TUIPlayer 需要使用两个不同的账号登录。  
 
 ![TUIPusher演示](https://web.sdk.qcloud.com/component/tuiliveroom/assets/pusher.gif)
