@@ -2,7 +2,7 @@
 
 ### 开发者环境要求
 
-- 开发工具 XCode 11 及以上：App Store 或单击[下载地址](https://developer.apple.com/xcode/resources/)。
+- 开发工具 XCode 11 及以上：App Store 或单击 [下载地址](https://developer.apple.com/xcode/resources/)。
 - 建议运行环境：
   - 设备要求：iPhone 5 及以上；iPhone 6 及以下前置摄像头最多支持到 720p，不支持 1080p。
   - 系统要求：iOS 10.0 及以上。
@@ -46,7 +46,7 @@ XCode 默认 C++ 环境。
 
 ### 导入方法
 - **方法一**：加入到工程资源中即可。
-- **方法二**：如果需要指定路径`initWithRenderSize:assetsDict: (XMagic)` 可通过这里的`assetsDict` 配置每个资源路径。
+- **方法二**：如果需要指定路径 `initWithRenderSize:assetsDict: (XMagic)` 可通过这里的 `assetsDict` 配置每个资源路径。
 
 ### 配置权限
 在 Info.plist 文件中添加相应权限的说明，否则程序在 iOS 10 系统上会出现崩溃。请在 Privacy - Camera Usage Description 中开启相机权限，允许 App 使用相机。
@@ -60,15 +60,11 @@ framework 签名可以直接在 General-->Masonry.framework 和 libpag.framework
 [](id:step2)
 ### 步骤二：鉴权
 1. 申请授权，得到 LicenseURL 和 LicenseKEY，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)。
-
-   > !***\*不需要\****把 License 文件下载下来放到本地工程里。
-
-2. 在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，触发 license 下载，避免在使用前才临时去下载。其中，LicenseURL 和 LicenseKey是控制台绑定 License 时生成的授权信息。
-
-   ```
-   [TESign setKeyUrl:@"LicenseKey" url:@"LicenseURL"];
-   ```
-   
+> ! **不需要**把 License 文件下载下来放到本地工程里。
+2. 在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，触发 license 下载，避免在使用前才临时去下载。其中，LicenseURL 和 LicenseKey 是控制台绑定 License 时生成的授权信息。
+```
+[TESign setKeyUrl:@"LicenseKey" url:@"LicenseURL"];
+```
 3. 然后在真正要使用美颜功能时，再去做鉴权。
 > !部分代码与 Demo 工程中的代码有差异，请以本文档描述为准。
 > 
@@ -153,14 +149,13 @@ deinit (XMagic)
 [](id:que1)
 ### 问题1：编译报错：“unexpected service error: build aborted due to an internal error: unable to write manifest to-xxxx-manifest.xcbuild': mkdir(/data, S_IRWXU | S_IRWXG | S_IRWXO): Read-only file system (30):”？
 
-1. 前往**File** >**Project settings** >**Build System** 选择**Legacy Build System**。
-2. Xcode 13.0++  需要在**File** >**Workspace Settings**  勾选**Do not show a diagnostic issue about build system deprecation**。
+1. 前往 **File** > **Project settings** > **Build System** 选择 **Legacy Build System**。
+2. Xcode 13.0++  需要在 **File** >**Workspace Settings**  勾选 **Do not show a diagnostic issue about build system deprecation**。
 
 [](id:que2)
 ### 问题2：iOS 导入资源运行后报错：“Xcode 12.X 版本编译提示 Building for iOS Simulator, but the linked and embedded framework '.framework'...”？
 
 将 **Buil Settings** > **Build Options** > **Validate Workspace** 改为 Yes，再单击**运行**。
-
 > ?  Validate Workspace 改为 Yes 之后编译完成，再改回 No，也可以正常运行，所这里有这个问题注意下即可。
 
 [](id:que3)
