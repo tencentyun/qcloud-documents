@@ -1,4 +1,4 @@
-为了提高在弱网下的推流效果，移动直播 SDK 在传统的 RTMP 协议推流的基础上增加了 RTC（Real-Time Communication） 协议的推流方式。本文档主要介绍不同档位弱网条件下两种协议的数据对比。效果可以参考下面的视频：
+为了提高在弱网下的推流效果，移动直播 SDK 在传统的 RTMP 协议推流的基础上增加了 RTC 协议的推流方式。本文档主要介绍不同档位弱网条件下两种协议的数据对比。效果可以参考下面的视频：
 <video width="610" controls><source src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/RTC_vs_RTMP.MP4">
   对不起，您的浏览器暂时不支持视频预览。
 </video>
