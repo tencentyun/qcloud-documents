@@ -3,6 +3,7 @@ uni-app TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、�
 
 目前我们提供了示例客服群、示例好友的基础模板，在线客服功能包括：
 - 支持发送文本消息、图片消息、语音消息、视频消息等常见消息。
+- 支持双人语音、视频通话功能。
 - 支持常用语、订单、服务评价等自定义消息。
 - 支持创建群聊会话、群成员管理等。
 
@@ -26,20 +27,24 @@ uni-app TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、�
 
 ## 如何集成 TUIKit？
 
+## 快速搭建
+
 ### 步骤1：安装依赖
 1. uni-app TUIKit 支持源码集成，下载 [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master)。将 TUIKit 文件夹与自己的工程文件夹置于同级，例如：
 ![](https://qcloudimg.tencent-cloud.cn/raw/096980f3029fae3e2750d4b77082cb55.png)
 2. 根据 package.json 进行对应依赖安装。
-![](https://qcloudimg.tencent-cloud.cn/raw/69b4ec0b2df2121226b83bc5caa21ae6.png)
->?可参见 [uni-app 官网](https://www.cxybb.com/article/weixin_44168109/111037919)。
+![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-11.png)
+>?可参见 [uni-app 官网](https://www.cxybb.com/article/weixin_44168109/111037919)
 
 ### 步骤2：初始化TUIKit
 将 app.vue 中的代码复制到 myApplication 项目中，填写 SDKAppID。
-![](https://qcloudimg.tencent-cloud.cn/raw/506dba53308bcf85239e13a6f82eec4a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/526abe7a9580e55262a99faa9d938238.png)
 
 ### 步骤3：集成静态资源文件
-在 myApplication 项目中集成静态资源文件 （工具、图片等）。
+1. 在 myApplication 项目中集成静态资源文件 （工具、图片等）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb8de22dac2e222b1e4f508865b416fa.png)
+2. 在 myApplication 引入 mixins，用于实现 setData 等功能。
+![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-10.png)
 
 ### 步骤4：集成所需模块
 1. 将 pages 和 components 复制到 myApplication 项目中。
@@ -56,7 +61,9 @@ uni-app TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、�
 >! 
 >- 正确的 `UserSig` 签发方式是将 `UserSig` 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 `UserSig` 时由您的 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
-```javascript
+<dx-codeblock>
+:::  js
+
 uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
 .then(function(imResponse) {
   console.log(imResponse.data); // 登录成功
@@ -68,15 +75,21 @@ uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
 .catch(function(imError) {
   console.warn('login error:', imError); // 登录失败的相关信息
 });
-```
+:::
+</dx-codeblock>
+## 开启音视频通话
+### 打包 App 集成  请参考原生音视频插件接入 [原生音视频插件](https://ext.dcloud.net.cn/plugin?id=7097)
+### 打包小程序集成  请参考小程序音视频插件接入 [腾讯云小程序音视频插件](https://ext.dcloud.net.cn/plugin?id=7151)
 
 ## 常见问题
 [](id:Q1)
 ### 1. uni-app  同时支持 Android，iOS， 微信小程序平台，IM SDK 如何选择？
 请选择 `tim-wx-sdk` ，npm 安装或者静态引入：
-```javascript
-    // 从v2.11.2起，SDK 支持了 WebSocket，推荐接入；v2.10.2及以下版本，使用 HTTP
-	npm install tim-wx-sdk@2.15.0 --save
+<dx-codeblock>
+:::  js
+
+  // 从v2.11.2起，SDK 支持了 WebSocket，推荐接入；v2.10.2及以下版本，使用 HTTP
+	 npm install tim-wx-sdk@latest --save
 	import TIM from 'tim-wx-sdk';
 	// 创建 SDK 实例，`TIM.create()`方法对于同一个 `SDKAppID` 只会返回同一份实例
 	uni.$TUIKit = TIM.create({
@@ -86,34 +99,44 @@ uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
 	// 设置 SDK 日志输出级别，详细分级请参见 setLogLevel 接口的说明
 	uni.$TUIKit.setLogLevel(0); // 普通级别，日志量较多，接入时建议使用
 	// uni.$TUIKit.setLogLevel(1); // release 级别，SDK 输出关键信息，生产环境时建议使用
-```
+:::
+</dx-codeblock>
 如果您的项目需要关系链功能，请使用 `tim-wx-friendship.js`：
-```javascript
+<dx-codeblock>
+:::  js
+
 	import TIM from 'tim-wx-sdk/tim-wx-friendship.js';
-```
+:::
+</dx-codeblock>
 >?
 >- **为了 uni-app 更好地接入使用 tim，快速定位和解决问题，请勿修改 uni.$TUIKit 命名，如果您已经接入 tim ，请将 uni.tim 修改为 uni.$TUIKit。**
 >- 请将 IM SDK 升级到 [2.15.0](https://cloud.tencent.com/document/product/269/38492)，该版本支持了 iOS 语音播放。
 >- 若同步依赖过程中出现问题，请切换 npm 源后再次重试。
-```javascript
+<dx-codeblock>
+:::  js
+
 	切换 cnpm 源
 	>npm config set registry http://r.cnpmjs.org/
 	>
 	>
-```
+:::
+</dx-codeblock>
 
 [](id:Q2)
 ### 2. 如何上传图片、视频、语音消息等富媒体消息？
 请使用 `cos-wx-sdk-v5`：
-```javascript
-    // 发送图片、语音、视频等消息需要 cos-wx-sdk-v5 上传插件
+<dx-codeblock>
+:::  js
+
+  // 发送图片、语音、视频等消息需要 cos-wx-sdk-v5 上传插件
 	npm install cos-wx-sdk-v5@0.7.11 --save
 	import COS from "cos-wx-sdk-v5";
 	// 注册 COS SDK 插件
 	uni.$TUIKit.registerPlugin({
 		'cos-wx-sdk': COS
 	});
-```
+:::
+</dx-codeblock>
 
 [](id:Q3)
 ### 3. uni-app  打包 iOS 语音消息无法播放怎么办？
@@ -138,12 +161,20 @@ uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
 运行时请勾选代码压缩，运行到小程序模拟器>运行时是否压缩代码。
 
 [](id:Q7)
-### 7. 微信小程序如果需要上线或者部署正式环境怎么办？
+### 7. 引入原生音视频插件报以下错怎么办？
+![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-q-1.png)
+
+解决方案：根据 uni-app [原生插件调试](https://ask.dcloud.net.cn/article/35412)制作[自定义基座](https://ask.dcloud.net.cn/article/35115)
+
+![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-a-1.png)
+
+[](id:Q8)
+### 8. 微信小程序如果需要上线或者部署正式环境怎么办？
 请在**微信公众平台**>**开发**>**开发设置**>**服务器域名**中进行域名配置：
 
 将以下域名添加到 **request 合法域名**：
 
-从v2.11.2起，SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
+从v2.11.2起 SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
 
 | 域名 | 说明 |  是否必须 |
 |:-------:|---------|----|
@@ -152,7 +183,7 @@ uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
 |`https://web.sdk.qcloud.com`| Web IM 业务域名 | 必须|
 |`https://webim.tim.qq.com` | Web IM 业务域名 | 必须|
 
-v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
+v2.10.2及以下版本使用 HTTP，HTTP 版本须添加以下域名：
 
 | 域名 | 说明 |  是否必须 |
 |:-------:|---------|----|
@@ -186,4 +217,3 @@ v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
 - [一分钟跑通 Demo (uni-app）](https://cloud.tencent.com/document/product/269/64506)
 - [快速集成微信小程序原生 TUIKit](https://cloud.tencent.com/document/product/269/62766)
 - [微信小程序原生 TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram)
-
