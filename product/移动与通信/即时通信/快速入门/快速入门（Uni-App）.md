@@ -42,13 +42,19 @@
 
 ### 步骤3：下载并配置 uni-app 源码
 1. 根据您的实际业务需求，下载 SDK 及配套的 [Demo 源码](https://cloud.tencent.com/document/product/269/36887)。
-```javascript
+<dx-codeblock>
+:::  js
+
 # 命令行执行
 git clone https://github.com/tencentyun/TIMSDK.git
 
 # 进入 uni-app TUIKit 项目
 cd TIMSDK/uni-app/TUIKit
-```
+
+# 安装依赖
+npm install
+:::
+</dx-codeblock>
 2. 将 uni-app 中 TUIKit 工程文件，导入自己的 HBuilderX 工程（版本3.2.11.20211021-alpha），请参见官方 [uni-app 开发](https://uniapp.dcloud.io/quickstart-hx)。
 3. 设置 GenerateTestUserSig 文件中的相关参数。
 - 找到并打开 `debug/GenerateTestUserSig.js` 文件。
@@ -61,22 +67,28 @@ cd TIMSDK/uni-app/TUIKit
 >- 本文提到的生成 `UserSig` 的方案是在客户端代码中配置 `SECRETKEY`，该方法中 `SECRETKEY` 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 uni-app 和功能调试**。
 >- 正确的 `UserSig` 签发方式是将 `UserSig` 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 `UserSig` 时由您的 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
-###  步骤4：编译运行
+###  步骤4：开通音视频能力
+
+请参考原生音视频插件接入 [原生音视频插件](https://ext.dcloud.net.cn/plugin?id=7097)
+
+###  步骤5：编译运行
 请参见官方 [uni-app 运行](https://uniapp.dcloud.io/quickstart-hx?id=%e8%bf%90%e8%a1%8cuni-app)。
 
-###  步骤5：打包发布
+###  步骤6：打包发布
 
  请参见官方 [uni-app 打包](https://uniapp.dcloud.io/quickstart-hx?id=%e5%8f%91%e5%b8%83uni-app)。
 - 原生 App - 云打包：**HBuilderX 编辑器** > **发行** > **原生 App** - **云打包** （app 图标，启动页等详细配置可在 manifest.json 进行配置）。
 - 原生 App - 离线打包：**HBuilderX 编辑器** > **发行** > 生成本地打包 App 资源 （详细打包方案请看 iOS、Android 本地打包指南）。
 
+
 ## 常见问题
 [](id:Q1)
 ### 1. uni-app  同时支持 Android，iOS， 微信小程序平台，IM SDK 如何选择？
 请选择 `tim-wx-sdk` ，npm 安装或者静态引入：
-```javascript
-    // 从v2.11.2起，SDK 支持了 WebSocket，推荐接入；v2.10.2及以下版本，使用 HTTP
-	npm install tim-wx-sdk@2.15.0 --save
+<dx-codeblock>
+:::  js
+  // 从v2.11.2起，SDK 支持了 WebSocket，推荐接入；v2.10.2及以下版本，使用 HTTP
+	npm install tim-wx-sdk@latest --save
 	import TIM from 'tim-wx-sdk';
 	// 创建 SDK 实例，`TIM.create()`方法对于同一个 `SDKAppID` 只会返回同一份实例
 	uni.$TUIKit = TIM.create({
@@ -86,26 +98,33 @@ cd TIMSDK/uni-app/TUIKit
 	// 设置 SDK 日志输出级别，详细分级请参见 setLogLevel 接口的说明
 	uni.$TUIKit.setLogLevel(0); // 普通级别，日志量较多，接入时建议使用
 	// uni.$TUIKit.setLogLevel(1); // release 级别，SDK 输出关键信息，生产环境时建议使用
-```
+:::
+</dx-codeblock>
 如果您的项目需要关系链功能，请使用 `tim-wx-friendship.js`：
-```javascript
+<dx-codeblock>
+:::  js
 	import TIM from 'tim-wx-sdk/tim-wx-friendship.js';
-```
+:::
+</dx-codeblock>
+
 >?
 >- **为了 uni-app 更好地接入使用 tim，快速定位和解决问题，请勿修改 uni.$TUIKit 命名，如果您已经接入 tim ，请将 uni.tim 修改为 uni.$TUIKit。**
 >- 请将 IM SDK 升级到 [2.15.0](https://cloud.tencent.com/document/product/269/38492)，该版本支持了 iOS 语音播放。
 >- 若同步依赖过程中出现问题，请切换 npm 源后再次重试。
-```javascript
+<dx-codeblock>
+:::  js
 	切换 cnpm 源
 	>npm config set registry http://r.cnpmjs.org/
 	>
 	>
-```
+:::
+</dx-codeblock>
 
 [](id:Q2)
 ### 2. 如何上传图片、视频、语音消息等富媒体消息？
 请使用 `cos-wx-sdk-v5`：
-```javascript
+<dx-codeblock>
+:::  js
     // 发送图片、语音、视频等消息需要 cos-wx-sdk-v5 上传插件
 	npm install cos-wx-sdk-v5@0.7.11 --save
 	import COS from "cos-wx-sdk-v5";
@@ -113,7 +132,8 @@ cd TIMSDK/uni-app/TUIKit
 	uni.$TUIKit.registerPlugin({
 		'cos-wx-sdk': COS
 	});
-```
+:::
+</dx-codeblock>
 
 [](id:Q3)
 ### 3. uni-app  打包 iOS 语音消息无法播放怎么办？
@@ -144,7 +164,7 @@ cd TIMSDK/uni-app/TUIKit
 
 将以下域名添加到 **request 合法域名**：
 
-从v2.11.2起，SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
+从v2.11.2起 SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
 
 | 域名 | 说明 |  是否必须 |
 |:-------:|---------|----|
@@ -153,7 +173,7 @@ cd TIMSDK/uni-app/TUIKit
 |`https://web.sdk.qcloud.com`| Web IM 业务域名 | 必须|
 |`https://webim.tim.qq.com` | Web IM 业务域名 | 必须|
 
-v2.10.2及以下版本，使用 HTTP，HTTP 版本须添加以下域名：
+v2.10.2及以下版本使用 HTTP，HTTP 版本须添加以下域名：
 
 | 域名 | 说明 |  是否必须 |
 |:-------:|---------|----|
