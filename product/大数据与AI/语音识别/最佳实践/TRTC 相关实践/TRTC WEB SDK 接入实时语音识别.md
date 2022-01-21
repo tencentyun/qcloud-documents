@@ -3,12 +3,12 @@
 ## 准备工作
 1. 需要在 [腾讯云语音识别控制台](https://console.cloud.tencent.com/asr) 已开通相关语音产品。
 2. 在腾讯云控制台 [访问管理](https://console.cloud.tencent.com/cam/capi) 页面获取 SecretID 和 SecretKey 。
-3. 在腾讯云控制台 [账号信息](https://console.cloud.tencent.com/developer) 页面获取AppId。
+3. 在腾讯云控制台 [账号信息](https://console.cloud.tencent.com/developer) 页面获取 AppId。
 
 ## 接入流程
-1. 首先需要接入 TRTC eb 端 SDk，完成接入流程。
-2. 引入语音识别的 [speechrecognizer.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/dist/speechrecognizer.js) 和 [asr.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/examples/trtc/asr.js) ，asr.js 中主要封装了从 TRTC web端 demo 中获取音轨，处理音频，以及调用 ASR 整个过程。
-3. 在 TRTC web 端中的调用，（这里以 TRTC web端 demo 本地流为例）：
+1. 首先需要接入 TRTC web 端 SDK，完成接入流程。
+2. 引入语音识别的 [speechrecognizer.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/dist/speechrecognizer.js) 和 [asr.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/examples/trtc/asr.js) ，asr.js 中主要封装了从 TRTC web 端 demo 中获取音轨，处理音频，以及调用 ASR 整个过程。
+3. 在 TRTC web 端中的调用，（这里以 TRTC web 端 demo 本地流为例）：
 	- 参数说明
 ASR 类的方法列表：
 <table>
@@ -81,11 +81,12 @@ new ASR(options)说明：
 <td>语音编码方式</td>
 </tr>
 </tbody></table>
->?目前 ASR 类将 TRTC 对应的音频默认处理为16k、16bit的 pcm 格式音频数据，所以 engine_model_type 目前只支持16k模型，voice_format 只能为1，若对音频数据有要求，可自行处理数据，具体可参考[speechrecognizer.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/dist/speechrecognizer.js) 中16k音频的处理方式。其他参数和返回字段参考 [接口文档](https://cloud.tencent.com/document/product/1093/48982) 。
 
-	- 将生成 AppID、SecretID 和 SecretKey作为参数传入ASR类中，具体调用示例如下 ：
+	其他参数和返回字段参考 [接口文档](https://cloud.tencent.com/document/product/1093/48982)。
+>?目前 ASR 类将 TRTC 对应的音频默认处理为16k、16bit的 pcm 格式音频数据，所以 engine_model_type 目前只支持16k模型，voice_format 只能为1，若对音频数据有要求，可自行处理数据，具体可参考 [asr.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/examples/trtc/asr.js) 中16k音频的处理方式。
+
+	- 将生成 AppID、SecretID 和 SecretKey 作为参数传入 ASR 类中，具体调用示例如下 ：
 ```javascript 
-let resultTextLocal = '';
 const localStreamAsr = new ASR({
   secretKey: '',
   secretId: '',
@@ -101,7 +102,7 @@ const localStreamAsr = new ASR({
   filter_punc: 1,
   convert_num_mode : 1,
   word_info: 2,,
-  audioTrack: this.localStream_.getAudioTrack()
+  audioTrack: this.localStream_.getAudioTrack() // this.localStream_.getAudioTrack() 为获取的本地流的音轨
 })
 // 开始语音识别调用
 localStreamAsr.start();

@@ -18,7 +18,6 @@
                  "ms_open_id":"WMfgHRYj6m36mcDGtK",//用户会中身份ID
                  "user_name":"tester_name",//事件操作者名称
                  "instance_id":"2"//用户的终端设备类型
-				 "ms_open_id":"tester_id"//会议中的临时id
              }, 
              "to_operator":{//被操作者，即角色变更的用户
                  "userid":"tester-2",//被操作者id（OAuth用户返回openId）

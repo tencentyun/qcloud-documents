@@ -70,13 +70,11 @@ npm install
 在自己的项目中集成静态资源文件（工具，图片等）。
   <img src="https://qcloudimg.tencent-cloud.cn/raw/f0aff5e265cac1d7eefab7fa53bda545.png"   width = "200">
 
-
 ### 步骤4：集成所需模块
 1. 复制整个 components 到自己项目中：
-  <img src="https://qcloudimg.tencent-cloud.cn/raw/cc1af89c7b48f6e4e456e69f254da7fb.png"   width = "200">
-
+![](https://qcloudimg.tencent-cloud.cn/raw/18a5f940d61cb15c3979cf6944152bb2.png)
 2. 也可以只集成自己所需的模块，下面以会话模块为例：
-  <img src="https://qcloudimg.tencent-cloud.cn/raw/5b3f9e3636b4ce5c387bdc025784c3a0.png"   width = "200">
+![](https://qcloudimg.tencent-cloud.cn/raw/8b9573f02146f3958af080bd07f716eb.png)
 
 ### 步骤5：更新路由
 根据引入模块更新路由：

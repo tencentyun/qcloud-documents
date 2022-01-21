@@ -14,7 +14,7 @@
 
 #### 获取 PushGateway 访问配置
 
-1. 前往 [**弹性 MapReduce**](https://console.cloud.tencent.com/emr) > **选择对应的“实例”** > **基本信息** > **实例信息**页面，获取 Pushgateway 地址和 Token。
+1. 前往 [**Prometheus 监控服务控制台**](https://console.cloud.tencent.com/monitor/prometheus) > **选择对应的“实例”** > **基本信息** > **实例信息**页面，获取 Pushgateway 地址和 Token。
 ![](https://main.qcloudimg.com/raw/1853a917832e275511cfc7c537815941.png)
 2. 在 [账号信息](https://console.cloud.tencent.com/developer) 页面获取 APPID。
 
