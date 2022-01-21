@@ -854,7 +854,7 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 更多常见问题，请参见 [TRTCCalling Web 相关问题](https://cloud.tencent.com/document/product/647/62484)。
 
 ## 技术咨询[](id:QQ)
-了解更多详情您可以 QQ 咨询：646165204 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
+了解更多详情您可以 QQ 咨询：592465424 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
 
 
 ## 参考文档
