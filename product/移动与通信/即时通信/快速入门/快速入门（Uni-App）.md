@@ -3,6 +3,7 @@
 ## 在线客服场景
 提供了示例客服群、示例好友的基础模板，在线客服场景功能包括：
 - 支持发送文本消息、图片消息、语音消息、视频消息等常见消息。
+- 支持双人语音、视频通话功能。
 - 支持常用语、订单、服务评价等自定义消息。
 - 支持创建群聊会话、群成员管理等。
 
@@ -68,14 +69,12 @@ npm install
 >- 正确的 `UserSig` 签发方式是将 `UserSig` 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 `UserSig` 时由您的 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 ###  步骤4：开通音视频能力
-
-请参考原生音视频插件接入 [原生音视频插件](https://ext.dcloud.net.cn/plugin?id=7097)
+请参见原生音视频插件接入 [原生音视频插件](https://ext.dcloud.net.cn/plugin?id=7097)。
 
 ###  步骤5：编译运行
 请参见官方 [uni-app 运行](https://uniapp.dcloud.io/quickstart-hx?id=%e8%bf%90%e8%a1%8cuni-app)。
 
 ###  步骤6：打包发布
-
  请参见官方 [uni-app 打包](https://uniapp.dcloud.io/quickstart-hx?id=%e5%8f%91%e5%b8%83uni-app)。
 - 原生 App - 云打包：**HBuilderX 编辑器** > **发行** > **原生 App** - **云打包** （app 图标，启动页等详细配置可在 manifest.json 进行配置）。
 - 原生 App - 离线打包：**HBuilderX 编辑器** > **发行** > 生成本地打包 App 资源 （详细打包方案请看 iOS、Android 本地打包指南）。
@@ -164,7 +163,7 @@ npm install
 
 将以下域名添加到 **request 合法域名**：
 
-从v2.11.2起 SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
+从v2.11.2起SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
 
 | 域名 | 说明 |  是否必须 |
 |:-------:|---------|----|
