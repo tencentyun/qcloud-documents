@@ -14,9 +14,9 @@ uni-app TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、�
 		 <th style="text-align:center">群组聊天界面</th>
      </tr>
 	 <tr>
-	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-9.jpeg" width="200"/></td>
-	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-10.jpeg" width="200"/></td>
-	 <td style="text-align:center"><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-11.jpeg" width="200"/></td>
+	 <td style="text-align:center"><img src="https://qcloudimg.tencent-cloud.cn/raw/a4c7abfd6a58a54da955c151c9a4a9ef.jpeg" width="200"/></td>
+	 <td style="text-align:center"><img src="https://qcloudimg.tencent-cloud.cn/raw/5931930a9061f55623a8e6cbff09e342.jpeg" width="200"/></td>
+	 <td style="text-align:center"><img src="https://qcloudimg.tencent-cloud.cn/raw/32e3f7d32fa8a7b14052b82ac698e6ab.jpeg" width="200"/></td>
      </tr>
 </table>
 
@@ -33,7 +33,7 @@ uni-app TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、�
 1. uni-app TUIKit 支持源码集成，下载 [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master)。将 TUIKit 文件夹与自己的工程文件夹置于同级，例如：
 ![](https://qcloudimg.tencent-cloud.cn/raw/096980f3029fae3e2750d4b77082cb55.png)
 2. 根据 package.json 进行对应依赖安装。
-![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-11.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d0594851c404f6bb4c5ed30b1ab02359.png)
 >?可参见 [uni-app 官网](https://www.cxybb.com/article/weixin_44168109/111037919)
 
 ### 步骤2：初始化TUIKit
@@ -44,7 +44,7 @@ uni-app TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、�
 1. 在 myApplication 项目中集成静态资源文件 （工具、图片等）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb8de22dac2e222b1e4f508865b416fa.png)
 2. 在 myApplication 引入 mixins，用于实现 setData 等功能。
-![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-10.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/05bb2cbe69432fcacf19919a694d67ac.png)
 
 ### 步骤4：集成所需模块
 1. 将 pages 和 components 复制到 myApplication 项目中。
@@ -77,9 +77,10 @@ uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
 });
 :::
 </dx-codeblock>
+
 ## 开启音视频通话
-### 打包 App 集成  请参考原生音视频插件接入 [原生音视频插件](https://ext.dcloud.net.cn/plugin?id=7097)
-### 打包小程序集成  请参考小程序音视频插件接入 [腾讯云小程序音视频插件](https://ext.dcloud.net.cn/plugin?id=7151)
+-  打包 App 集成，请参见原生音视频插件接入 [原生音视频插件](https://ext.dcloud.net.cn/plugin?id=7097)。
+- 打包小程序集成 ，请参见小程序音视频插件接入 [腾讯云小程序音视频插件](https://ext.dcloud.net.cn/plugin?id=7151)。
 
 ## 常见问题
 [](id:Q1)
@@ -108,6 +109,7 @@ uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
 	import TIM from 'tim-wx-sdk/tim-wx-friendship.js';
 :::
 </dx-codeblock>
+
 >?
 >- **为了 uni-app 更好地接入使用 tim，快速定位和解决问题，请勿修改 uni.$TUIKit 命名，如果您已经接入 tim ，请将 uni.tim 修改为 uni.$TUIKit。**
 >- 请将 IM SDK 升级到 [2.15.0](https://cloud.tencent.com/document/product/269/38492)，该版本支持了 iOS 语音播放。
@@ -162,11 +164,9 @@ uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
 
 [](id:Q7)
 ### 7. 引入原生音视频插件报以下错怎么办？
-![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-q-1.png)
-
-解决方案：根据 uni-app [原生插件调试](https://ask.dcloud.net.cn/article/35412)制作[自定义基座](https://ask.dcloud.net.cn/article/35115)
-
-![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-a-1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1ca0dd341e8258236a9265a9ba23f780.png)
+根据 uni-app [原生插件调试](https://ask.dcloud.net.cn/article/35412)制作[自定义基座](https://ask.dcloud.net.cn/article/35115)
+![](https://qcloudimg.tencent-cloud.cn/raw/5957ce797f77f3101156cb63c3622633.png)
 
 [](id:Q8)
 ### 8. 微信小程序如果需要上线或者部署正式环境怎么办？
@@ -209,8 +209,7 @@ v2.10.2及以下版本使用 HTTP，HTTP 版本须添加以下域名：
 ## 技术咨询
 了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">309869925</dx-tag-link>
 
-## 参见文档：
-
+## 参见文档
 - [SDK API 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
 - [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)
