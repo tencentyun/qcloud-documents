@@ -21,7 +21,7 @@
 
 ### 几种弱网场景下关键指标的对比
 - **帧率**
-![](https://qcloudimg.tencent-cloud.cn/raw/2b30962de9f2c5039c64826c58f0aad5.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/62878cd6195e3d9169362db59b8e270a.png)
 - **卡顿率**
-![](https://qcloudimg.tencent-cloud.cn/raw/37474d5a059770165b767b2733f6846a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2d9a13ce5a6b336844378d55122d52c4.png)
 >? 卡顿率由测试 Demo 统计得出，渲染间隔大于200毫秒视为卡顿，所有卡顿时间的总和除以总拉流时长则为卡顿率。
