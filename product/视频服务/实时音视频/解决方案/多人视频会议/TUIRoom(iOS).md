@@ -90,7 +90,7 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 
 | API | 描述 |
 |-----|-----|
-| [getBeautyManager](#getbeautymanager) | 获取美颜管理对象 [TXBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。|
+| [getBeautyManager](#getbeautymanager) | 获取美颜管理对象 [TXBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__ios.html)。|
 
 
 ### 相关设置接口
@@ -768,7 +768,7 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 |-----|-----|-----|
 | encParams | TRTCVideoEncParam | 设置屏幕分享时的编码参数。 |
 
->? 详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58)
+>? 详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a92330045ce479f3b5e5c6b366731c7ff)
 
 ### stopScreenCapture
 
@@ -780,7 +780,7 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 ## 美颜滤镜相关接口函数
 ### getBeautyManager
 
-获取美颜管理对象 [TXBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。
+获取美颜管理对象 [TXBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__ios.html)。
 ```objectivec
 - (TXBeautyManager *)getBeautyManager;
 ```
@@ -818,7 +818,7 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| quality | TRTCAudioQuality | 音频质量，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55) |
+| quality | TRTCAudioQuality | 音频质量，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a2cdffa1529fcaec866404f4f9b92ec53) |
 
 ### setVideoResolution
 
@@ -832,7 +832,7 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| resolution | TRTCVideoResolution | 视频分辨率，详细请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#aa3b72c532f3ffdf64c6aacab26be5f87)。 |
+| resolution | TRTCVideoResolution | 视频分辨率，详细请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#gaa58db9156c82d75257499cb5e0cdf0e5)。 |
 
 
 ### setVideoFps
@@ -862,7 +862,7 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| bitrate | int | 码率，SDK 会按照目标码率进行编码，只有在网络不佳的情况下才会主动降低视频码率。详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html)。 |
+| bitrate | int | 码率，SDK 会按照目标码率进行编码，只有在网络不佳的情况下才会主动降低视频码率。详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#a21a93f89a608f4642ecc9d81ef25a454)。 |
 
 >? **推荐取值**：请参考 TRTCVideoResolution 在各档位注释的最佳码率，也可以在此基础上适当调高。 例如 TRTC_VIDEO_RESOLUTION_1280_720 对应1200kbps的目标码率，您也可以设置为1500kbps以便获得更好的清晰度观感。
 
@@ -918,7 +918,7 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| params | TRTCAudioRecordingParams | 录音参数，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCAudioRecordingParams) |
+| params | TRTCAudioRecordingParams | 录音参数，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#a21a93f89a608f4642ecc9d81ef25a454#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCAudioRecordingParams) |
 
 >? 该方法调用后， SDK 会将通话过程中的所有音频（包括本地音频，远端音频，BGM 等）录制到一个文件里。无论是否进房，调用该接口都生效。如果调用 leaveRoom 时还在录音，录音会自动停止。
 
@@ -1314,7 +1314,7 @@ void onReceiveSpeechApplication(String userId);
 | localQuality | TRTCQualityInfo | 上行网络质量。 |
 | remoteQuality |NSArray&lt;TRTCQualityInfo *&gt; | 下行网络质量。 |
 
->? 详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#aba07d4191391dadef900422521f34e5b)。
+>? 详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#a723002319845fbfc03db501aa9da6c28)。
 
 
 ## 屏幕分享事件回调

@@ -1,13 +1,13 @@
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验多人视频会议的效果，包括屏幕分享、美颜、低延时会议等 TRTC 在多人视频会议场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验多人音视频互动的效果，包括屏幕分享、美颜、低延时会议等 TRTC 在多人音视频互动场景下的相关能力。
 
 [](id:DemoUI)
 ## 复用 App 的 UI 界面
 [](id:ui.step1)
 ### 步骤1：创建新的应用
 
-1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 输入应用名称，例如 `TestMeetingRoom`，单击【创建】。
-3. 单击【已下载，下一步】，跳过此步骤。
+1. 登录实时音视频控制台，选择 **开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+2. 输入应用名称，例如 `TestMeetingRoom`，单击 **创建**。
+3. 单击 **已下载，下一步** ，跳过此步骤。
 
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
@@ -29,8 +29,8 @@
     <li>SECRETKEY：默认为PLACEHOLDER，请设置为实际的密钥信息。</li>
 </ul>
 <img src="https://main.qcloudimg.com/raw/fba60aa9a44a94455fe31b809433cfa4.png">
-4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
-5. 编译完成后，单击【回到控制台概览】即可。
+4. 粘贴完成后，单击 **已复制粘贴，下一步** 即创建成功。
+5. 编译完成后，单击 **回到控制台概览** 即可。
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
@@ -50,7 +50,7 @@
 :::
 ::: Android\s端
 1. 执行 `flutter run`。
-2. 使用 Android Studio（3.5及以上的版本）打开源码工程，单击【运行】即可。
+2. 使用 Android Studio（3.5及以上的版本）打开源码工程，单击 **运行** 即可。
 :::
 
 </dx-tabs>
@@ -90,7 +90,7 @@ dependencies:
 
 <dx-tabs>
 ::: iOS\s端
-1. 需要在 `Info.plist` 中加入对相机和麦克风的权限申请：
+需要在 `Info.plist` 中加入对相机和麦克风的权限申请：
 ```
 <key>NSMicrophoneUsageDescription</key>
 <string>授权麦克风权限才能正常语音通话</string>
