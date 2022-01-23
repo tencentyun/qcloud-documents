@@ -1,7 +1,7 @@
 ## 操作场景
 
 
-您可以通过配置 Ckafka 连接器来消费 Ckafka 消息队列的内容。Ckafka 连接器实现方式为 **Pull 模型**，事件连接器会主动拉取 Ckafka 内容，并将相关事件通过事件规则路由到更多服务。本文为您介绍如何创建 Ckafka 连接器和介绍 Ckafka 连接器数据结构。
+您可以通过配置 Ckafka 连接器来消费 Ckafka 消息队列的内容。Ckafka 连接器实现方式为 **Pull 模型**，事件连接器会主动拉取 Ckafka 内容，并将相关事件通过事件规则路由到更多服务。本文为您介绍如何创建 Ckafka 连接器及 Ckafka 连接器生成的事件结构。
 
 
 ## 前提条件
@@ -35,11 +35,11 @@
      
 
 
-#### Ckafka 连接器的数据结构说明
+#### Ckafka 连接器生成的事件结构说明
 
 ```json
  {       
-        "specversion":"0",       
+        "specversion":"1.0",       
         "id":"13a3f42d-7258-4ada-da6d-023a333b4662",    
         "type":"connector:kafka",   
         "source":"ckafka.cloud.tencent",   
