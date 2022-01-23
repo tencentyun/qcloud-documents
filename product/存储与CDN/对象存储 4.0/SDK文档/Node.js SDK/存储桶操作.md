@@ -126,6 +126,8 @@ HEAD Bucket 请求可以确认该存储桶是否存在，是否有权限访问�
 
 #### 使用示例
 
+检索存储桶信息：
+
 [//]: # (.cssg-snippet-head-bucket)
 ```js
 cos.headBucket({
@@ -134,6 +136,26 @@ cos.headBucket({
 }, function(err, data) {
     console.log(err || data);
 });
+```
+
+判断存储桶是否存在：
+
+[//]: # (.cssg-snippet-head-bucket)
+```js
+function doesBucketExist() {
+    cos.headBucket({
+        Bucket: 'examplebucket-1250000000', /* 必须 */
+        Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
+    }, function(err, data) {
+        if (data) {
+            console.log('存储桶存在');
+        } else if (err.code === 404) {
+            console.log('存储桶不存在');
+        } else if (err.code === 403) {
+            console.log('没有该存储桶读权限');
+        }
+    });
+}
 ```
 
 #### 参数说明

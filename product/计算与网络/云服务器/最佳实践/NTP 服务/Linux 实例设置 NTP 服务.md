@@ -1,6 +1,6 @@
 ## 操作场景
 
-ntpd（Network Time Protocol daemon）是 Linux 操作系统的一个守护进程，用于校正本地系统与时钟源服务器之前的时间，完整的实现了 NTP 协议。ntpd 与 ntpdate 的区别是 ntpd 是步进式的逐渐校正时间，不会出现时间跳变，而 ntpdate 是断点更新。本文档以 CentOS 7.5 操作系统云服务器为例，介绍如何安装和配置 ntpd。
+ntpd（Network Time Protocol daemon）是 Linux 操作系统的一个守护进程，用于校正与时钟源服务器同步的本地系统时间，完整的实现了 NTP 协议。ntpd 与 ntpdate 的区别是 ntpd 是步进式的逐渐校正时间，不会出现时间跳变，而 ntpdate 是断点更新。本文档以 CentOS 7.5 操作系统云服务器为例，介绍如何安装和配置 ntpd。
 
 ## 注意事项
 

@@ -63,7 +63,7 @@ TSF 应用可以使用 Jenkins 构建持续集成方案。
 5. 配置 GitLab 的 Web Hook，实现自动构建  
    5.1 项目 > Settings > Integrations 进入添加webhook界面
    ![gitlib add webhook](https://main.qcloudimg.com/raw/bfbe6dd37c4c7fe109ab8bb913279c4e/gitlib_add_webhook.png)
-   5.2 将 4.3 中Jenkins产生的GitLab webhook URL填入URL，其他选项使用默认设置，点击"Add webhook"。
+   5.2 将 4.3 中Jenkins产生的GitLab webhook URL填入URL，其他选项使用默认设置，单击"Add webhook"。
    ![gitlib add jenkens url](https://main.qcloudimg.com/raw/59c4bf4c29f8844a745fd531b2df7050/gitlib_add_jenkens_url.png)
    5.3 测试 WebHook
    ![test webhook](https://main.qcloudimg.com/raw/bef07b027653b2ee74af88b186a2cdab/test_webhook.png)

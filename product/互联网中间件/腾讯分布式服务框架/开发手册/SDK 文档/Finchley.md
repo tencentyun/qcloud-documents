@@ -13,10 +13,18 @@
   
 ### Bug 修复
 - 修复 Feign 在指定 URL 的模式下无法请求的问题。
-- 修改scg metrics duration异常问题
+- 修改 scg metrics duration 异常问题
 
 ### 版本建议
 支持向后兼容，建议全量升级。
+
+## 1.29.5-Finchley-RELEASE（2022-01-07）
+### 优化
+- 优化 spring-cloud-openfeign-core、swagger 的依赖冲突。
+- spring-cloud-tsf-sleuth 兼容 mysql-connector-java 8.x。
+  
+### Bug 修复
+- 修复 feign 和 httpclient 拦截的冲突 导致重复生成 client span 的问题
 
 ## 1.29.4-Finchley-RELEASE（2021-10-18）
 ### 优化
@@ -24,7 +32,7 @@
 - 优化 TSF 加密判断逻辑，只有配置了 TSF 密钥才对 ENC 配置进行解析。
   
 ### Bug 修复
-- 修复 for 循环调用导致泳道 HTTP Header过大的问题。
+- 修复 for 循环调用导致泳道 HTTP Header 过大的问题。
 - 修复服务发现时无本地缓存文件导致延迟。
 
 ### 版本建议
@@ -68,62 +76,10 @@
 ### 版本建议
 支持向后兼容，建议全量升级。
 
-## 1.26.1-Finchley-RELEASE（2020-12-31）
-### 优化
-spring-cloud-tsf-sleuth 新增 CMQ 调用支持。
-
-### 版本建议
-支持向后兼容，建议全量升级。
-
-## 1.26.0-Finchley-RELEASE（2020-12-07）
-
-### 新特性
-- spring-cloud-tsf-msgw-scg：
-  - 补齐 Spring Cloud Gateway 网关的服务治理能力，支持用户按照需求灵活选择 Zuul 或 Spring Cloud Gateway。
-  - 支持托管外部 API。
-- spring-cloud-tsf-msgw-zuul：支持托管外部 API。
-- spring-cloud-tsf-swagger：支持添加注解 @IgnoreGatewayApi 来忽略某个网关 API 不被发现（忽略该网关的 API，但服务治理 API 不受影响）。
-
-### 版本建议
-
-支持向后兼容，建议全量升级。
-
-## 1.25.0-Finchley-RELEASE（2020-12-04）
-
-### 新特性
-spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
-
-### Bug 修复
-
-- spring-cloud-tsf-ratelimit：修复多个限流规则时，全局限流无法关闭的问题。
-- spring-cloud-tsf-route：修复当只有一个路由规则时，路由规则关闭不生效的问题。
-- spring-cloud-tsf-lane：修复泳道规则内存可见性 Bug。
-
-### 版本建议
-
-支持向后兼容，建议全量升级。
-
-## 1.24.0-Finchley-RELEASE（2020-09-25）
-
-### 新特性
-- 支持云上 Spring Cloud 应用平滑迁移 TSF。
-- 支持 PostgreSQL 组件调用链。
-
-### Bug 修复
-- spring-cloud-tsf-consul-config：
-  - 修复本地加密配置不能正确解密的问题。
-  - 修复 MySQL 调用链对多数据源支持。
-- spring-cloud-tsf-core：
-  增加线程上下文接口，在父亲线程中塞入线程局部变量后，子线程不论是线程池反复使用还是一次性使用都能正确继承父线程局部变量。
-  
- 
-### 版本建议
-
-支持向后兼容，建议全量升级。
 
 ## 1.23.11-Finchley-RELEASE（2021-09-28）
 ### Bug 修复
-- 修复sdk 调用链数据 输出 log4j组件重复初始化导致写入多个文件的问题
+- 修复 sdk 调用链数据 输出 log4j 组件重复初始化导致写入多个文件的问题
 
 ### 优化
 - 优化零实例保护优化引起的，服务发现实例为空时的 warn 提示
@@ -259,7 +215,7 @@ spring-cloud-tsf-msgw：
   - 新增调用链支持 RocketMQ。
   - 修复 Kafka 中的类型转发错误。
 - spring-cloud-tsf-core：
-  - 监控数据结构中增加 HTTP 请求方法、以及请求模版路径。
+  - 监控数据结构中增加 HTTP 请求方法、以及请求模板路径。
   - 调用链数据结构中增加 HTTP 请求方法。
 
 ### Bug 修复
@@ -271,33 +227,6 @@ spring-cloud-tsf-msgw：
   - 升级 org.apache.tomcat.embed.tomcat-embed-core 到8.5.56版本。
   - 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.56版本。
   - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.56版本。
-
-## 1.22.1-Finchley-RELEASE（2020-05-06）
-
-### 优化
-
-优化 TSF MSGW scg 使用，用户无需显示配置全局路由。
-
-### 版本建议
-
-支持向后兼容，建议全量升级。
-
-## 1.22.0-Finchley-RELEASE（2020-04-29）
-
-### 新特性
-
-- 支持 SpringCloud Gateway 链路追踪和调用监控。
-- TSF MSGW scg 版本发布。
-
-### Bug 修复
-
-- 修复在使用 redis，自定义多个 LettuceConnectionFactory 时，不能链路追踪所有请求的问题。
-- 修复调用监控禁用场景内存泄露问题。
-
-### 优化
-
-- 优化默认日志配置支持容器部署场景。
-- 优化 TSF MSGW zuul 依赖。
 
 ## 1.21.12-Finchley-RELEASE（2021-07-15）
 ### 新特性
@@ -402,7 +331,7 @@ spring-cloud-tsf-gateway 网关兼容新插件类型。
 
 ### 优化
 
-任务调度组件优化任务生成器逻辑，兼容 BeanName和BeanType 方式获取工厂。
+任务调度组件优化任务生成器逻辑，兼容 BeanName 和 BeanType 方式获取工厂。
 
 ## 1.21.0-Finchley-RELEASE (2020-04-17)
 
@@ -422,37 +351,18 @@ spring-cloud-tsf-gateway 网关兼容新插件类型。
 
 支持 swagger 自动扫描包多路径特性。
 
-## 1.20.0-Finchley-RELEASE（2020-03-02）
-
-### 新特性
-
-新增`分布式任务调度`功能。
-
+## 1.18.7-Finchley-RELEASE（2022-01-10）
 ### Bug 修复
-
-- spring-cloud-tsf-gateway 修复 tag plugin中header 类型取值大小写敏感的问题。
-- 处理 tomcat 组件开源漏洞风险。
-  - 升级 org.apache.tomcat.embed.tomcat-embed-core 到8.5.51版本。
-  - 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.51版本。
-  - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.51版本。
+- 修复 redis 连接异常时对象无法被回收的问题。
+- 修复服务治理时 API PATH 标签匹配 PATH 参数失败问题。
+- spring-cloud-tsf-ratelimit：修复当只有一个限流规则时，限流规则关闭不生效的问题。
+- spring-cloud-tsf-swagger 修复通过分布式配置下发 spring.application.name 时，API 上报失败的问题。
+- 修复网关多个命名空间时 consul index 混用问题。
 
 ### 优化
-
-spring-cloud-tsf-gateway  新增 tag plugin 中 path 类型取值。
-
-### 版本建议
-
-支持向后兼容，建议全量升级。
-
-## 1.19.0-Finchley-RELEASE（2020-01-16）
-
-### 新特性
-
-新增`服务熔断`功能。
-
-### 版本建议
-
-支持向后兼容，建议全量升级。
+- 优化和开源 spring cloud consul 依赖的冲突。。
+- spring-cloud-tsf-consul-discovery 心跳请求增加重试。
+- spring-cloud-tsf-consul-config 支持本地加密配置解析。
 
 ## 1.18.5-Finchley-RELEASE（2020-10-27）
 ### Bug 修复
@@ -534,91 +444,6 @@ spring-cloud-tsf-sleuth 修改调用 SQL 存储的最长长度到64000字符。
 ### 优化
 
 spring-cloud-tsf-sleuth 优化 TraceStatementProxyHandler  JDBC 代理过程 SDK 内部异常处理逻辑：非代理异常、非 SDK 产生的异常，直接抛出；代理异常或 SDK 产生的异常，直接调用服务不经过调用链逻辑。
-
-### 版本建议
-
-支持向后兼容，建议全量升级。
-
-## 1.16.2-Finchley-RELEASE (2020-03-02)
-
-### Bug 修复
-
-spring-cloud-tsf-sleuth bug fixed：
-  - 处理 Custom Metadata 设置接口不兼容。
-  - 调用链输出用户自定义 Tag和Metadata。
-  - 修复 druid 连接池事务兼容问题。
-  - 修复同时依赖多个数据库连接池问题。
-
-## 1.16.1-Finchley-RELEASE（2019-12-3）
-
-### Bug 修复
-
-- 增加使用 jedis 作为 redis 客户端的调用链追踪功能。
-- 修复因为 kafka 生产者、消费者使用 sdk 版本不匹配导致的错误。
-- API 注册兼容从环境变量和启动参数中读取 TSF 参数信息。
-
-## 1.16.0-Finchley-RELEASE（2019-10-11）
-
-### 新特性
-
-- kafka 的链路追踪能力。
-- 增加 swagger-ui 依赖包。
-
-### 优化
-
-- 集成 spring-cloud-tsf-swagger包后，本地启动无需设置 tsf.swagger.enabled=false。
-- 集成 spring-cloud-tsf-swagger包后，支持本地使用 swagger-ui 进行调试。
-
-### Bug 修复
-
-- 修复 DEBUG 日志级别启动时，spring-cloud-tsf-sleuth 包空指针异常。
-- 修复引入 swagger 包后，低版本 guava 包引起冲突。
-- 配置回调功能空指针异常。
-
-### 版本建议
-
-支持向后兼容，建议全量升级。
-
-## 1.14.3-Finchley-RELEASE（2019-09-10）
-
-### Bug 修复
-
-- 限流 Bug fix。
-- TsfContext.putTag 覆盖 bug fix。
-
-### 版本建议
-
-支持向后兼容，建议全量升级。
-
-## 1.14.2-Finchley-RELEASE（2019-08-14）
-
-### Bug 修复
-
-- 修复使用 RedisConnectionFactory 获取 Redis 连接，这种方式使用时的一个类型转化错误。
-- 修复在给 span.tag(key,value) 传入 value 时没判空抛出异常的问题。
-
-### 版本建议
-
-支持向后兼容，建议全量升级。
-
-## 1.14.1-Finchley-RELEASE（2019-07-24）
-
-### Bug 修复
-
-- 修复 tsf sdk 依赖的 scheduler 和业务自身的 scheduler 相互影响的问题
-- 修复 spring-cloud-tsf-route 包路由不生效的问题
-- 修复 spring-cloud-tsf-ratelimit 包限流不准确问题
-- 修复 spring-cloud-tsf-sleuth 包数据源和 Mybatis 兼容性问题
-
-### 版本建议
-
-支持向后兼容，建议全量升级。
-
-## 1.14.0-Finchley-RELEASE（2019-06-21）
-
-### 新特性
-
-支持 MySQL JDBC、Redis、MongoDB、CMQ 组件调用链。	
 
 ### 版本建议
 

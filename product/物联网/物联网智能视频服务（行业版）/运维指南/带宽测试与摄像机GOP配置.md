@@ -18,21 +18,21 @@ $ make && make install
 
 - 服务端
 ```
-iperf3 -p 8000  -s -i 1
+iperf3 -p 30000  -s -i 1
 # 参数说明： -c : 服务端的ip地址 -p : 端口号 -u : 标示udp协议 -b : 每一次发送的数据大小 -t : 总的发送时间(单位：秒) -i : 发送数据的时间间隔(单位：秒) -P : 表示线程个数，不指定则默认单线程
 ```
 
 - 客户端
 ```
-iperf3 -c 42.194.138.41 -p 8000  -i 1 
+iperf3 -c 80.1.1.1 -p 30000  -i 1 
 # 参数说明： -c : 服务端的ip地址 -p : 端口号 -u : 标示udp协议 -b : 每一次发送的数据大小 -t : 总的发送时间(单位：秒) -i : 发送数据的时间间隔(单位：秒) -P : 表示线程个数，不指定则默认单线程
 ```
 
 服务器输出示例：
-![](https://main.qcloudimg.com/raw/016f3b951646203ecf2ef2e92a8df248.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/444dd7f35d1becbb2d107c6ac1a2a522.png)
 
 客户端输出示例：
-![](https://main.qcloudimg.com/raw/7fe2d8c3461a098038581fa3e6ab4f65.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1dd45e05b4ab2d0dbdafa21ca3570493.png)
 
 
 ## MTR 工具使用
@@ -52,7 +52,7 @@ $ cp mtr-packet /usr/local/bin/
 $ sudo mtr www.baidu.com
 ```
 如下图：
-![](https://main.qcloudimg.com/raw/28f13536e6ee4dd08603a09fe22224fe.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/afccd9ea8f0403112970a2d7c9ccb714.png)
 
 - Linux
   Linux 下面无须安装，MTR 工具是自带的。
@@ -60,16 +60,16 @@ $ sudo mtr www.baidu.com
 ### 网络延时测试
 
 详细使用如下图：
-![](https://main.qcloudimg.com/raw/780c3dc087610c49b31c04f27c758ae6.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fce79fb93356afce544b6ae89182e543.png)
 
 
-以在 macOS 上面测试 `42.194.138.41` 服务器为例：
+以在 macOS 上面测试 `192.168.1.1` 服务器为例：
 
 ```
-sudo mtr -rw 42.194.138.41
-# 也可以直接 sudo mtr 42.194.138.41
+sudo mtr -rw 192.168.1.1
+# 也可以直接 sudo mtr 192.168.1.1
 ```
-![](https://main.qcloudimg.com/raw/7edec3886b18f4a74410cbf5c7e3a818.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0ad46fd5d06e1897e52adf794ec97f75.png)
 
 常见可选参数说明：
 - -r 或 --report：以报告模式显示输出。

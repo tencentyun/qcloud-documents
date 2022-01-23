@@ -34,6 +34,8 @@ param.imageData = outputStream.toByteArray();
 
 param.secretId = "";
 param.secretKey = "";
+// 如果使用服务端生成临时secretKey，需要同时传入token
+param.token = "";
 //作业批改
 this.correction.correction(param, new TAIMathCorrectionCallback() {
     @Override

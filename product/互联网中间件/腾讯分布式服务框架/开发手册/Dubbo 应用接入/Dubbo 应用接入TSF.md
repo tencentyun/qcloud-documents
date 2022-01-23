@@ -48,10 +48,23 @@ TSF Demo（**注册中心地址使用注册中心 IP 和端口替换**）：
 
 ```xml
 <dependency>
-  <groupId>com.tencent.tsf</groupId>
-  <artifactId>atom-extension-dubbo</artifactId>
-  <!-- 修改为对应的版本号 -->
-  <version>1.0.0-RELEASE</version>
+	<groupId>com.tencent.tsf</groupId>
+	<artifactId>atom-extension-dubbo</artifactId>
+	<!-- 修改为对应的版本号 -->
+	<version>1.1.0-RELEASE</version>
+	<exclusions>
+		<exclusion>
+			<groupId>org.jboss.netty</groupId>
+			<artifactId>netty</artifactId>
+		</exclusion>
+	</exclusions>
+</dependency>
+
+<!-- 1.1.0-RELEASE对应dubbo 2.6.8，依赖的netty版本是4.x -->
+<dependency>
+	<groupId>io.netty</groupId>
+	<artifactId>netty-all</artifactId>
+	<version>4.1.33.Final</version>
 </dependency>
 ```
 
@@ -211,10 +224,10 @@ TSF Demo（**注册中心地址使用注册中心 IP 和端口替换**）：
 
 ```xml
 <dependency>
-  <groupId>com.tencent.tsf</groupId>
-  <artifactId>tsf-dubbo-registry</artifactId>
-  <!-- 修改为对应的版本号 -->
-  <version>1.1.7-alibaba-RELEASE</version>
+	<groupId>com.tencent.tsf</groupId>
+	<artifactId>tsf-dubbo-registry</artifactId>
+	<!-- 修改为对应的版本号 -->
+	<version>1.1.7-alibaba-RELEASE</version>
 </dependency>
 ```
 
@@ -236,9 +249,9 @@ TSF Demo（**注册中心地址使用注册中心 IP 和端口替换**）：
 部分包对版本有要求，如果发生**包冲突**，请尝试主动依赖以下版本：
 
 ```xml
- <dependency>
-  <groupId>com.ecwid.consul</groupId>
-  <artifactId>consul-api</artifactId>
-  <version>1.4.2</version>
+<dependency>
+	<groupId>com.ecwid.consul</groupId>
+	<artifactId>consul-api</artifactId>
+	<version>1.4.2</version>
 </dependency>
 ```

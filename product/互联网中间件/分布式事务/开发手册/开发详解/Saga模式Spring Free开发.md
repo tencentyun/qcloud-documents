@@ -31,21 +31,21 @@
 
 在客户端中，使用以下方式添加基本配置。
 
-```java
-private static void initEnv() {
-    DtfEnv.setServer("客户端服务标识");
-    DtfEnv.setSecretId("SecretID");
-    DtfEnv.setSecretKey("SecretKey");
-    DtfEnv.addTxmBroker("事务分组ID", "独占集群列表");
-}
+``` java
+DtfEnv.setServer(String server);
+DtfEnv.setSecretId(String secretId);
+DtfEnv.setSecretKey(String secretKey);
+DtfEnv.addTxmBroker(String groupId, String txmBrokerList);
 ```
 
-| 配置项              | 数据类型 | 必填 | 默认值                                   | 描述                                                         |
-| ------------------- | -------- | ---- | ---------------------------------------- | ------------------------------------------------------------ |
-| DtfEnv.addTxmBroker | String   | 是   | 共享集群 TC 列表，如果是独占集群则需要填写 | 用户的事务分组 ID，单客户端使用多个事务分组时可以配置多项。     |
-| DtfEnv.setSecretId  | String   | 是   | 无                                       | 用户的腾讯云 SecretID。                                         |
-| DtfEnv.setSecretKey | String   | 是   | 无                                       | 用户的腾讯云 SecretKey。                                        |
-| DtfEnv.setServer    | String   | 是   | ${spring.application.name}               | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识。 |
+| 配置项        | 数据类型 | 必填 | 默认值 | 描述                                                         |
+| ------------- | -------- | ---- | ------ | ------------------------------------------------------------ |
+| groupId       | String   | 是   | 无     | 用户的事务分组 ID                                            |
+| txmBrokerList | String   | 是   | 无     | TC 集群节点列表                                               |
+| secretId      | String   | 是   | 无     | 用户的腾讯云 SecretID                                         |
+| secretKey     | String   | 是   | 无     | 用户的腾讯云 SecretKey                                        |
+| server        | String   | 是   | 无     | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识 |
+| dtf.env.fmt  |  Boolean  | 否  | true  | 启动时会对 DB 进行大量初始化工作，若不需使用 fmt 建议禁用 |
 
 >?通常情况下，仅需要在 dtf.env.groups 下配置一个事务分组。
 

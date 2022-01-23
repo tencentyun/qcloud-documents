@@ -160,7 +160,7 @@ public static void main(String[] args) throws JoseException, MalformedClaimExcep
 
 ##  JWT 插件配置步骤
 ### 1. 新建插件
-微服务网关已经对外提供了 JWT 认证功能，用户可在【[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)】>【微服务网关】>【插件管理】页面创建 JWT 类型插件。
+微服务网关已经对外提供了 JWT 认证功能，用户可在**[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)** > **微服务网关** > **插件管理**页面创建 JWT 类型插件。
 ![](https://main.qcloudimg.com/raw/c5a490b04b9168b1d2ee56b9df2e25a1.png)
 * 校验参数值：指用户存放 JWT 令牌（Token）参数名称，示例中参数名为 `token`。
 * 校验参数携带位置：指用户存放 JWT 令牌（Token）的位置，目前支持 Query 和 Header 两种携带方式，示例中为 Query 方式。

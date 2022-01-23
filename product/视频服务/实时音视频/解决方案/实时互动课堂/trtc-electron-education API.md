@@ -19,7 +19,7 @@ npm i trtc-electron-education --save
 | ----- | ----- | ----- |
 |sdkAppId|number|必填参数，您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。|
 |userID|string|必填参数，用户 ID，可以由您的帐号体系指定。|
-|userSig|string|必填参数，身份签名（相当于登录密码），由 userID 计算得出，具体计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。|
+|userSig|string|必填参数，身份签名（相当于登录密码），由 userID 计算得出，具体计算方法请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。|
 
 ## 初始化示例
 

@@ -4,7 +4,7 @@
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 单击左导航栏中 **VPN 连接** > **VPN 网关**。
-3. 在**VPN 网关**页面，选择地域和私有网络，单击 VPN 网关实例 ID 进入详情页。
+3. 在 **VPN 网关**页面，选择地域和私有网络，单击 VPN 网关实例 ID 进入详情页。
 4. 在**实例详情**页面，单击**路由表**页签。
    ![](https://main.qcloudimg.com/raw/d261071d65c453ecf21d3980d1b3a8cd.png)
 5. 单击**新增路由**，并配置路由策略。

@@ -10,12 +10,12 @@
 创建 zookeeper 注册中心实例时，若不开启公网访问，则所选定的 VPC 需要与 TEM 已创建的环境的 VPC 保持一致。
 </dx-alert>
 
-3. 在 [TEM 控制台](https://console.cloud.tencent.com/tem) 点击环境名，进入基本信息页，一键关联 TSE 中的 Zookeeper 注册中心。
+3. 在 [TEM 控制台](https://console.cloud.tencent.com/tem) 单击环境名，进入基本信息页，一键关联 TSE 中的 Zookeeper 注册中心。
 ![](https://main.qcloudimg.com/raw/ed95c9e3282710777c3a0367031b3a8c.png)
 
 4. 在 [TEM 控制台](https://console.cloud.tencent.com/tem) 创建应用，并部署至所创建的环境。具体操作请参见 [创建并部署应用](https://cloud.tencent.com/document/product/1371/53294)。
 
-5. 在 [TSE 控制台](https://console.cloud.tencent.com/tse) 中验证服务注册。点击进入注册中心实例的服务管理页面，若出现以下页面，则证明服务注册成功。
+5. 在 [TSE 控制台](https://console.cloud.tencent.com/tse) 中验证服务注册。单击进入注册中心实例的服务管理页面，若出现以下页面，则证明服务注册成功。
 ![](https://main.qcloudimg.com/raw/2f9befc1fee7efbbcd30542cbf3728fb.png)
 
 ## 注意事项

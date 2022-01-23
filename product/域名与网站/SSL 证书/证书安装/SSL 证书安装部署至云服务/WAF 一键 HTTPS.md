@@ -1,9 +1,11 @@
 
 ## 概述
 一键 HTTPS 是 SSL 证书结合腾讯云 Web 应用防火墙（WAF）服务开发的快速部署 HTTPS 功能，帮助用户网站的 HTTPS 访问升级。
-使用该功能，您无需进行繁琐的 SSL 证书部署操作，仅需配置一个CNAME 解析，即可实现从 HTTP 到 HTTPS 的能力升级。
+使用该功能，您无需进行繁琐的 SSL 证书部署操作，仅需配置一个 CNAME 解析，即可实现从 HTTP 到 HTTPS 的能力升级。
 本文将指导您如何在 [证书管理控制台](https://console.cloud.tencent.com/https) 一键添加 WAF 接入域名并配置 HTTPS。
->! 一键 HTTPS 功能目前为免费，可免费使用至2021年12月31日。
+>! 
+>- 一键 HTTPS 功能目前为免费，可免费使用至2022年01月15日。
+>- 一键 HTTPS 套餐到期后，如您需继续使用，可进行续费升级操作，如不再使用，避免影响您的访问，需修改您配置的 CNAME 记录。具体操作请查看 [一键 HTTPS 套餐即将到期如何处理？](https://cloud.tencent.com/document/product/400/68102)
 
 
 ## 一键 HTTPS 与传统服务器部署 SSL 证书的区别
@@ -17,8 +19,9 @@
 
 
 ## 限制说明
-- SSL 证书默认开通 WAF 小微版。支持1个二级域名、3个子域名、50 QPS。
+- SSL 证书默认开通 WAF 小微版。支持1个二级域名、8个子域名、50 QPS。
 >! www 子域名占用一个子域名名额，例如 `www.tencent.com` 。
+>
 - 若您一键 HTTPS 域名已使用腾讯云 CDN 或 CLB ，则无法使用一键 HTTPS 功能。
 
 
@@ -26,35 +29,44 @@
 
 ## 操作指南
 ### 步骤1：添加一键 HTTPS 域名
-1. 登录 [证书管理控制台](https://console.cloud.tencent.com/ssl)，并单击左侧菜单栏**一键 HTTPS**，进入**一键 HTTPS**管理页面。
-2. 在**一键 HTTPS**管理页面中，单击**一键添加**。如下图所示：
+1. 登录 [证书管理控制台](https://console.cloud.tencent.com/ssl)，并单击左侧菜单栏**一键 HTTPS**，进入**一键 HTTPS** 管理页面。
+2. 在**一键 HTTPS** 管理页面中，单击**一键添加**。如下图所示：
 >?若您是首次使用，请在弹出的授权窗口中，授予对应权限。
 >
 ![](https://main.qcloudimg.com/raw/e327528f08706299fef120e04c993099.png)
 3. 在弹出的 “一键添加” 窗口中，配置相关信息。如下图所示：
-![](https://main.qcloudimg.com/raw/5e8f1474ff34ca297f5ccf9f7ae57e6a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b8cbfc23698be5faefdbf9fa5b650046.png)
  - **填写域名：**请输入您需要进行一键 HTTPS 的域名。
-<dx-alert infotype="explain" title="">
- 填写的域名需要在工信部完成备案，否则将无法进行接入。详情请参见 [备案概述](https://cloud.tencent.com/document/product/243/18907)。
-</dx-alert>
+>? 填写的域名需要在腾讯云完成备案，否则将无法正常进行接入。您可根据 [腾讯云可备案类型](https://cloud.tencent.com/document/product/243/18907#.E8.85.BE.E8.AE.AF.E4.BA.91.E5.8F.AF.E5.A4.87.E6.A1.88.E7.B1.BB.E5.9E.8B) 进行备案。
+>
  - **选择证书：**请选择已成功申请的证书。
-<dx-alert infotype="explain" title="">
-选择的证书需与**填写域名输入框**填写的域名对应。例如，填写的域名为 `cloud.tencent.com`，则选择绑定域名为 `cloud.tencent.com` 的证书。
-</dx-alert>
- - **源站地址：**请根据您的实际需求选择**IP**与**域名**。
+>?选择的证书需与**填写域名输入框**填写的域名对应。例如，填写的域名为 `cloud.tencent.com`，则选择绑定域名为 `cloud.tencent.com` 的证书。
+>
+ - **源站地址：**请根据您的实际需求选择 **IP** 与**域名**。
     - **IP**：请输入需要防护网站的真实 IP 源站地址，即源站的公网 IP 地址。
     - **域名**：请输入需要防护网站的真实源站域名。
  - **强制 HTTPS：**开启该功能，浏览器端的每个 HTTP 请求都会被跳转成 HTTPS 请求。例如，当浏览器使用 HTTP 协议访问 `http://cloud.tencent.com ` 时，将返回302状态码重定向到 HTTPS 协议访问 `https://cloud.tencent.com`。
- - **回源协议：**	开启该功能，腾讯云将使用 HTTP 协议访问源站。例如，当浏览器使用 HTTP 或 HTTPS 协议访问 `cloud.tencent.com` 时，无论 HTTP 或 HTTPS 协议都将使用 HTTP 协议访问源站。
- - **回源端口：**请根据您的实际需求选择回源端口。默认情况下支持443与8443，若您开启回源协议，则为80与8080。
+ - **回源协议：**	开启该功能，腾讯云将使用 HTTP 协议访问源站。
+ - **回源端口：**请根据您的实际需求选择回源端口。默认情况下支持80与8080端口，若回源协议勾选 HTTPS ，则为443与8443。
+ - **高级选项（可选）**：
+![](https://qcloudimg.tencent-cloud.cn/raw/a12a55c0bf89753cfb30fda0bf0fa2ca.png)
+    -  **回源连接方式**：默认使用长连接回源，请确认源站是否支持长连接，若不支持，即使设置长连接，也会使用短连接回源。
+    -  **开启 HTTP2.0**：若您的源站不支持 HTTP2.0，从腾讯云到源站链路将降级为 HTTP1.1。源站支持 HTTP2.0 情况下建议您选择开启 HTTP2.0，将提高您网站的访问速率。
+    -  **开启 WebSocket**：若您的网站使用了 WebSocket 建议您选择开启 WebSocket，将提高轮询的效率以及降低资源浪费。
 4. 单击**确定**，即可生成配置实例。如下图所示：
 ![](https://main.qcloudimg.com/raw/2c548a3cf3bc61f73512a57150319cec.png)
+
+
+
 
 ### 步骤2：配置 CNAME 记录
 
 >?
->- 添加一键 HTTPS 域名后，还需配置对应的 CNAME 记录后，接入才可正常生效。
+>- 添加一键 HTTPS 域名后，还需配置对应的 CNAME 记录后，接入才可正常生效。 CNAME 记录可查看 [什么是 CNAME 记录？](https://cloud.tencent.com/document/product/302/3450)
 >- 配置 CNAME 记录步骤以腾讯云配置 CNAME 记录为例，若您的一键 HTTPS 域名解析未在 DNSPod DNS 解析托管，具体操作请咨询您的域名解析商或将域名托管至 DNSPod DNS 解析后，再进行配置 CNAME 记录。详情请参见 [域名托管至 DNSPod DNS 解析](https://docs.dnspod.cn/dns/60b99ba0e90008112f815bde/)。
+>- 若您需进一步了解 DNS 知识，详情请参考：[DNS 解析 DNSPod](https://cloud.tencent.com/document/product/302)。
+
+
 
 <dx-tabs>
 ::: 一键添加\sCNAME\s记录
@@ -68,7 +80,7 @@
 ![](https://main.qcloudimg.com/raw/c0efc2dc88bb465e19f3b58e960f7c1e.png)
 :::
 ::: 手动添加\sCNAME\s记录
-1. 登录  [DNSPod 管理控制台](https://console.dnspod.cn/dns/list)。
+1. 登录 [DNSPod 管理控制台](https://console.dnspod.cn/dns/list)。
 2. 在 “我的域名” 中，选择需要配置记录的一键 HTTPS 域名，单击域名名称，即可进入该域名的**记录管理**页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/3888e10fc99f01d0cbb0058411f0e662.png)
 3. 单击**添加记录**，填写记录信息。如下图所示：

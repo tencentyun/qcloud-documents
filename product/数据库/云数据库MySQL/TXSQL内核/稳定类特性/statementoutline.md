@@ -29,6 +29,9 @@ create table t3(a int, b int, c int, unique key idx3(a));
 | ----------------------- | ---- | ---- | ----- | ---------- | ------------------- |
 | cdb_opt_outline_enabled | yes  | bool | fasle | true/false | 是否打开 outline 功能 |
 
+>?用户目前无法直接修改以上参数的参数值，如需修改可 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行修改。
+>
+
 ### 绑定 OUTLINE
 直接绑定 OUTLINE 的方式是将一条 SQL 替换成另一条，SQL 的语义没有改变，仅是加入了一些 HINT 信息告知优化器如何去执行。
 语法形式为：`outline "sql" set outline_info "outline";`，注意 outline_info 后的字符串应该以 "OUTLINE:" 开头，"OUTLINE:" 之后为加入 HINT 之后的 SQL。如给 `select *from t1, t2 where t1.a = t2.a` 这条 SQL 的 t2 表加上 a 列上的索引。

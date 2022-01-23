@@ -20,8 +20,8 @@
         </dependency>
 </dependencies>
 ```
-2. 参考如下操作 hadoop 的代码进行修改，其中的配置项及其说明可参见 [挂载 CHDFS](https://cloud.tencent.com/document/product/1105/36368)。
-以下只列出部分常见的文件系统操作接口，其他接口请参考 [Hadoop FileSystem 接口文档](https://hadoop.apache.org/docs/r2.8.2/api/org/apache/hadoop/fs/FileSystem.html)。
+2. 参考如下 hadoop 的代码进行修改， 其中的配置项可参考 [挂载 CHDFS](https://cloud.tencent.com/document/product/1105/36368) 文档进行修改。**以及重点关注其中数据持久化和可见性相关的说明。**
+以下只列出了部分常见的文件系统的操作，其他的接口可参考 [Hadoop FileSystem 接口文档](https://hadoop.apache.org/docs/r2.8.2/api/org/apache/hadoop/fs/FileSystem.html)。
 ```java
 package com.qcloud.chdfs.demo;
 
@@ -67,7 +67,8 @@ public class Demo {
 						String content = "test write file";
 						out.write(content.getBytes());
 				} finally {
-						IOUtils.closeQuietly(out);
+						// close 返回成功, 表示数据写入成功, 若抛出异常, 表示数据写入失败
+						out.close();
 				}
 			}
 
@@ -150,7 +151,7 @@ public class Demo {
 
 
 			public static void main(String[] args) throws IOException {
-				// 初始化文件
+				// 初始化文件系统
 				FileSystem fs = initFS();
 
 

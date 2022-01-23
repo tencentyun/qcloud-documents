@@ -31,9 +31,9 @@
 
 [](id:ui.step1)
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 输入应用名称，例如  `TestChatSalon`  ，单击【创建】。
-3. 单击【已下载，下一步】，跳过此步骤。
+1. 登录实时音视频控制台，选择**开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+2. 输入应用名称，例如  `TestChatSalon`  ，单击**创建**。
+3. 单击**已下载，下一步**，跳过此步骤。
 
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 >!本功能同时使用了腾讯云视立方音视频通话 TRTC 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
@@ -54,8 +54,8 @@
 <ul style="margin:0"><li/>SDKAPPID：默认为占位符（PLACEHOLDER），请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为占位符（PLACEHOLDER），请设置为实际的密钥信息。</ul>
 <img src="https://main.qcloudimg.com/raw/09a7c2e06bb792e1c3d651a61aff4000.png">
-4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
-5. 编译完成后，单击【回到控制台概览】即可。
+4. 粘贴完成后，单击**已复制粘贴，下一步**即创建成功。
+5. 编译完成后，单击**回到控制台概览**即可。
 
 
 >!
@@ -64,7 +64,7 @@
 
 [](id:ui.step4)
 ### 步骤4：运行 App
-使用 Android Studio（3.5以上的版本）打开源码工程 `TUIChatSalon`，单击【运行】即可开始调试本 App。
+使用 Android Studio（3.5以上的版本）打开源码工程 `TUIChatSalon`，单击**运行**即可开始调试本 App。
 
 [](id:ui.step5)
 ### 步骤5：修改 App 源代码
@@ -85,14 +85,14 @@
 
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 <img src="https://main.qcloudimg.com/raw/a0c73f6904ac152a84cdf4d619171fc4.png" width="320"/>
-2. 进入后，单击【创建房间】，如下图示：
+2. 进入后，单击**创建房间**，如下图示：
 <img src="https://main.qcloudimg.com/raw/1a56b06671c6958a83b748450c93d6a6.png" width="320"/>
-3. 输入房间主题，单击【开始交谈】。
+3. 输入房间主题，单击**开始交谈**。
 
 ### 用户 B
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 <img src="https://main.qcloudimg.com/raw/94fcd741becbcfe4cca97778e180e4ca.png" width="320"/>
-2. 输入用户 A 创建的房间号，单击【进入房间】。<br>
+2. 输入用户 A 创建的房间号，单击**进入房间**。<br>
 <img src="https://main.qcloudimg.com/raw/ae041395a8488725f405819491646f99.png" width="320"/>
 
 >! 房间号在用户 A 的房间顶部查看，如下图示：
@@ -132,7 +132,7 @@ defaultConfig {
 }
 :::
 </dx-codeblock>
-3. 单击【Sync Now】，自动下载 SDK 并集成到工程里。
+3. 单击**Sync Now**，自动下载 SDK 并集成到工程里。
 
 
 
@@ -202,11 +202,11 @@ Source/src/main/java/com/tencent/liteav/trtcchatsalon/model
 </tr>
 <tr>
 <td>userId</td>
-<td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。</td>
+<td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。建议结合业务实际账号体系自行设置。</td>
 </tr>
 <tr>
 <td>userSig</td>
-<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
+<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算及使用 UserSig</a>。</td>
 </tr>
 <tr>
 <td>callback</td>

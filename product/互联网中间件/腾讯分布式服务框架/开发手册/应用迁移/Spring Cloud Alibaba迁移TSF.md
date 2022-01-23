@@ -281,7 +281,7 @@ feign:
 ### 步骤4：代码调整
 
 1. 删除服务发现的注解 `@EnableDiscoveryClient`。
-2. 服务消费端的 `@Reference` 注解添加 url 属性，属性值为 `dubbo：//服务名:端口`，添加`check=fales` 属性。在兼容双注册的场景下，这个代码需要额外添加。
+2. 服务消费端的 `@Reference` 注解添加 url 属性，属性值为 `dubbo：//服务名:端口`，添加 `check=false` 属性。在兼容双注册的场景下，这个代码需要额外添加。
 
 ### 步骤5：应用部署
 

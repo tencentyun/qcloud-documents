@@ -2,7 +2,10 @@
 
 ## 注意事项 
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您的数据库配置过低，建议您在业务低峰期进行迁移。
-- 全量迁移过程通过有锁迁移来实现，锁表过程中会短暂（秒级）阻塞写入操作。
+- 默认采用无锁迁移来实现，迁移过程中对源库不加全局锁（FTWRL），仅对无主键的表加表锁，其他不加锁。
+- [创建数据一致性校验](https://cloud.tencent.com/document/product/571/62564) 时，DTS 会使用执行迁移任务的账号在源库中写入系统库`__tencentdb__`，用于记录迁移任务过程中的数据对比信息。
+  - 为保证后续数据对比问题可定位，迁移任务结束后不会删除源库中的`__tencentdb__`。
+  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## 前提条件
 - 已 [创建云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433)。
@@ -24,17 +27,18 @@ GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端�
 GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 ```
-- 目标数据库需要具备的权限：ALTER, ALTER ROUTINE, CREATE,  CREATE ROUTINE, CREATE TEMPORARY TABLES,  CREATE USER,  CREATE VIEW,  DELETE,  DROP,  EVENT,  EXECUTE,  INDEX,  INSERT,  LOCK TABLES,  PROCESS,  REFERENCES,  RELOAD,  SELECT,  SHOW DATABASES,  SHOW VIEW,  TRIGGER,  UPDATE。
+- 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE,  CREATE ROUTINE, CREATE TEMPORARY TABLES,  CREATE USER,  CREATE VIEW,  DELETE,  DROP,  EVENT,  EXECUTE,  INDEX,  INSERT,  LOCK TABLES,  PROCESS,  REFERENCES,  RELOAD,  SELECT,  SHOW DATABASES,  SHOW VIEW,  TRIGGER,  UPDATE。
+
 
 ## 应用限制
 - 只支持迁移基础表和视图，不支持迁移函数、触发器、存储过程等对象。
-- 不支持迁移系统库表和用户信息，包括 `information_schema`， `sys`， `performance_schema`，`__cdb_recycle_bin__`， `__recycle_bin__`， `__tencentdb__`， `mysql`。迁移完成后，如果需要调用目标库的视图、存储过程或函数，则要对调用者授予读写权限。 
+- 不支持迁移系统库表，包括 `information_schema`， `sys`， `performance_schema`，`__cdb_recycle_bin__`， `__recycle_bin__`， `__tencentdb__`， `mysql`。迁移完成后，如果需要调用目标库的视图、存储过程或函数，则要对调用者授予读写权限。 
 - 在导出视图结构时，DTS 会检查源库中 `DEFINER` 对应的 user1（ [DEFINER = user1]）和迁移目标的 user2 是否一致，如果不一致，则会修改 user1 在目标库中的 `SQL SECURITY` 属性，由 `DEFINER` 转换为 `INVOKER`（ [INVOKER = user1]），同时设置目标库中 `DEFINER` 为迁移目标的 user2（[DEFINER = 迁移目标 user2]）。
 - 源端如果是非 GTID 实例，DTS 不支持源端 HA 切换，一旦源端 MySQL 发生切换可能会导致 DTS 增量同步中断。
-- 只支持迁移 InnoDB、MySIAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行迁移。
+- 只支持迁移 InnoDB、MyISAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行迁移。
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
 - 增量迁移过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致迁移失败。
--  无锁迁移场景（源库为阿里云 MySQL 5.6，阿里云 PolarDB MySQL 5.6，AWS MySQL，目标库为腾讯云 MySQL 数据库的场景），全量阶段不支持 DDL 操作。
+-  无锁迁移场景，迁移任务步骤为“源库导出”时，不支持 DDL 操作。
 
 ## 操作限制
 - 迁移过程中请勿进行如下操作，否则会导致迁移任务失败。
@@ -45,6 +49,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
   - 在库表结构迁移和全量迁移阶段，请勿执行库或表结构变更的 DDL 操作。
   - 在增量迁移阶段，请勿删除系统库表 `__tencentdb__`。 
 - 如果仅执行全量数据迁移，请勿在迁移过程中向源实例中写入新的数据，否则会导致源和目标数据不一致。针对有数据写入的场景，为实时保持数据一致性，建议选择全量+增量数据迁移。
+- 源数据库为阿里云 RDS，PolarDB 时，由于 RDS，PolarDB 在 Binlog 中为无主键或无非空唯一键的表加上附加主键列，但在表结构中不可见，可能会导致 DTS 无法识别，因此建议用户尽量不要迁移无主键的表。
 
 ## 支持的 SQL 操作
 | 操作类型 | 支持的 SQL 操作                                              |
@@ -53,7 +58,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 | DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE <br>VIEW：CREATE VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br>DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
 
 ## 环境要求
->?如下环境要求，系统会在启动迁移任务前自动进行校验，不符合要求的系统会报错。如果用户能够识别出来，可以参考 [校验项检查要求](https://cloud.tencent.com/document/product/571/58685) 自行修改，如果不能则等系统校验完成，按照报错提示修改。
+>?如下环境要求，系统会在启动迁移任务前自动进行校验，不符合要求的系统会报错。如果用户能够识别出来，可以参考 [校验项检查要求](https://cloud.tencent.com/document/product/571/61639) 自行修改，如果不能则等系统校验完成，按照报错提示修改。
 
 <table>
 <tr><th width="20%">类型</th><th width="80%">环境要求</th></tr>
@@ -104,8 +109,10 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
 >
-<img src="https://main.qcloudimg.com/raw/ef55d13eb5f3f2fe7551ad4fbb7cb5a5.png"  style="margin:0;">
-<img src="https://main.qcloudimg.com/raw/6db0920d8371181091c1105e2d4da86a.png"  style="margin:0;">
+![](https://qcloudimg.tencent-cloud.cn/raw/ec7829ac6cd56989488982765bbb4734.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/665f1c340b41bf328684f9b4a27f36c6.png)
+**因源数据库部署形态和接入类型的交叉场景较多，各场景迁移步骤类似，如下仅提供典型场景的配置示例，其他场景请用户参考配置。**
+**示例一**：本地自建数据库通过专线/VPN方式迁移至腾讯云数据库
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="20%">配置项</th><th width="70%">说明</th></tr></thead>
 <tbody>
@@ -123,17 +130,17 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td rowspan=10>源库设置</td>
 <td>源库类型</td><td>根据您的源数据库类型选择，本场景选择“MySQL”。</td></tr>
 <tr>
-<td>服务提供商</td><td>选择“普通”。</td></tr>
+<td>服务提供商</td><td>自建数据库（包括云服务器上的自建）或者腾讯云数据库，请选择“普通”；第三方云厂商数据库，请选择对应的服务商。<br>本场景选择“普通”。</td></tr>
 <tr>
-<td>接入类型</td><td>请根据您的场景选择，本场景选择“专线接入”或“VPN 接入”。
+<td>接入类型</td><td>请根据您的场景选择，本场景选择“专线接入”或“VPN接入”，该场景需要 <a href="https://cloud.tencent.com/document/product/571/60604">配置 VPN 和 IDC 之间的互通</a>，其他接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
 <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
 <li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
 <li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
 <li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
-<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul></td></tr>
 <tr>
-<td>所属地域</td><td>源库所属地域为 DTS 服务出口地域，选择离自建实例最近的一个地域即可。</td></tr>
+<td>所属地域</td><td>选择离自建数据库最近的一个地域即可。</td></tr>
 <tr>
 <td>私有网络专线网关/VPN 网关</td><td>专线接入时只支持私有网络专线网关，请确认网关关联网络类型。<br>VPN 网关，请选择通过 VPN 网关接入的 VPN 网关实例。</td></tr>
 <tr>
@@ -152,7 +159,109 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <tr>
 <td>接入类型</td><td>根据您的场景选择，本场景选择“云数据库”。</td></tr>
 <tr>
-<td>所属地域</td><td>源库中已选择的地域。</td></tr>
+<td>所属地域</td><td>选择目标库所属地域。</td></tr>
+<tr>
+<td>数据库实例</td><td>选择目标库的实例 ID。</td></tr>
+<tr>
+<td>帐号</td><td>目标库的数据库帐号，帐号权限需要满足要求。</td></tr>
+<tr>
+<td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
+</tbody></table>
+<b>示例二</b>：腾讯云数据库迁移至腾讯云数据库
+<table>
+<thead><tr><th width="10%">设置类型</th><th width="20%">配置项</th><th width="70%">说明</th></tr></thead>
+<tbody>
+<tr>
+<td rowspan=3>任务设置</td>
+<td>任务名称</td>
+<td>设置一个具有业务意义的名称，便于任务识别。</td></tr>
+<tr>
+<td>运行模式</td>
+<td><ul><li>立即执行：完成任务校验通过后立即启动任务。</li><li>定时执行：需要配置一个任务执行时间，到时间后启动任务。</li></ul></td></tr>
+<tr>
+<td>标签</td>
+<td>标签用于从不同维度对资源分类管理。如现有标签不符合您的要求，请前往控制台管理标签。</td></tr>
+<tr>
+<td rowspan=8>源库设置</td>
+<td>源库类型</td><td>根据您的源数据库类型选择，本场景选择“MySQL”。</td></tr>
+<tr>
+<td>服务提供商</td><td>自建数据库（包括云服务器上的自建）或者腾讯云数据库，请选择“普通”；第三方云厂商数据库，请选择对应的服务商。<br>本场景选择“普通”。</td></tr>
+<tr>
+<td>接入类型</td><td>请根据您的场景选择，本场景选择“云数据库”，不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
+<ul><li>公网：源数据库可以通过公网 IP 访问。</li>
+<li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
+<li>云数据库：源数据库属于腾讯云数据库实例。</li>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul></td></tr>
+<tr>
+<td>是否跨账号</td><td><ul><li>本账号：源数据库实例和目标数据库实例所属的主账号为同一个腾讯云主账号。</li><li>跨账号：源数据库实例和目标数据库实例所属的主账号为不同的腾讯云主账号。<br>如下以同账号之间的迁移为例，跨账号操作指导请参见 <a href="https://cloud.tencent.com/document/product/571/54117">云数据库跨账号实例间迁移</a>。</li></ul></td></tr>
+<tr>
+<td>所属地域</td><td>源库所属地域。</td></tr>
+<tr>
+<td>数据库实例</td><td>源库 MySQL 实例 ID。</td></tr>
+<tr>
+<td>帐号</td><td>源库 MySQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
+<tr>
+<td>密码</td><td>源库 MySQL 的数据库帐号的密码。</td></tr>
+<tr>
+<td rowspan=6>目标库设置</td>
+<td>目标库类型</td><td>选择“MySQL”。</td></tr>
+<tr>
+<td>接入类型</td><td>根据您的场景选择，本场景选择“云数据库”。</td></tr>
+<tr>
+<td>所属地域</td><td>选择目标库所属地域。</td></tr>
+<tr>
+<td>数据库实例</td><td>选择目标库的实例 ID。</td></tr>
+<tr>
+<td>帐号</td><td>目标库的数据库帐号，帐号权限需要满足要求。</td></tr>
+<tr>
+<td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
+</tbody></table>
+<b>示例三</b>：阿里云 RDS 通过公网方式迁移至腾讯云数据库
+<table>
+<thead><tr><th width="10%">设置类型</th><th width="20%">配置项</th><th width="70%">说明</th></tr></thead>
+<tbody>
+<tr>
+<td rowspan=3>任务设置</td>
+<td>任务名称</td>
+<td>设置一个具有业务意义的名称，便于任务识别。</td></tr>
+<tr>
+<td>运行模式</td>
+<td><ul><li>立即执行：完成任务校验通过后立即启动任务。</li><li>定时执行：需要配置一个任务执行时间，到时间后启动任务。</li></ul></td></tr>
+<tr>
+<td>标签</td>
+<td>标签用于从不同维度对资源分类管理。如现有标签不符合您的要求，请前往控制台管理标签。</td></tr>
+<tr>
+<td rowspan=8>源库设置</td>
+<td>源库类型</td><td>根据您的源数据库类型选择，本场景选择“MySQL”。</td></tr>
+<tr>
+<td>服务提供商</td><td>自建数据库（包括云服务器上的自建）或者腾讯云数据库，请选择“普通”；第三方云厂商数据库，请选择对应的服务商。<br>本场景选择“阿里云”。</td></tr>
+<tr>
+<td>接入类型</td><td>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。<br>本场景选择“公网”，不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
+<ul><li>公网：源数据库可以通过公网 IP 访问。</li>
+<li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
+<li>云数据库：源数据库属于腾讯云数据库实例。</li>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul></td></tr>
+<tr>
+<td>所属地域</td><td>源库所属地域。</td></tr>
+<tr>
+<td>主机地址</td><td>源库 MySQL 访问 IP 地址或域名。</td></tr>
+<tr>
+<td>端口</td><td>源库 MySQL 访问端口。</td></tr>
+<tr>
+<td>帐号</td><td>源库 MySQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
+<tr>
+<td>密码</td><td>源库 MySQL 的数据库帐号的密码。</td></tr>
+<tr>
+<td rowspan=6>目标库设置</td>
+<td>目标库类型</td><td>选择“MySQL”。</td></tr>
+<tr>
+<td>接入类型</td><td>根据您的场景选择，本场景选择“云数据库”。</td></tr>
+<tr>
+<td>所属地域</td><td>选择目标库所属地域。</td></tr>
 <tr>
 <td>数据库实例</td><td>选择目标库的实例 ID。</td></tr>
 <tr>
@@ -165,7 +274,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 >- 如果用户在迁移过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**迁移对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法迁移 Online DDL 变更产生的临时表数据到目标数据库。
 >- 如果用户在迁移过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**迁移对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。 
 >
-<img src="https://main.qcloudimg.com/raw/51d26749a5a208f84c3750e9afc9ea32.png"  style="margin:0;">
+![](https://qcloudimg.tencent-cloud.cn/raw/59f84553fab9fd963d7db2a6ec272ef5.png)
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
@@ -178,12 +287,16 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <tr>
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
+<tr>
+<td>是否迁移账号</td>
+<td>如果需要迁移源库的账号信息，则勾选此功能。</td></tr>
 </tbody></table>
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
-    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
- - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
- - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
-![](https://main.qcloudimg.com/raw/652fd77b719de63ad40a00a4d56d8967.png)
+ - 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。
+    - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。  
+    - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
+ - 如果勾选了账号迁移，则校验任务会对源库的账号信息进行检查，对满足要求的账号进行迁移，不满足的不迁移或者降权迁移，检查详情请参见[迁移账号](https://cloud.tencent.com/document/product/571/65702)。
+![](https://qcloudimg.tencent-cloud.cn/raw/32ae94770e6ce95b75295586d1d13e82.png)
 6. 返回数据迁移任务列表，任务进入准备运行状态，运行1分钟 - 2分钟后，数据迁移任务开始正式启动。
    - 选择**结构迁移**或者**全量迁移**：任务完成后会自动结束，不需要手动结束。
    - 选择**全量 + 增量迁移**：全量迁移完成后会自动进入增量数据同步阶段，增量数据同步不会自动结束，需要您手动单击**完成**结束增量数据同步。

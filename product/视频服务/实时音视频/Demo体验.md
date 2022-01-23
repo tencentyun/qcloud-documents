@@ -10,11 +10,11 @@
 </tr>
 <tr>
 <td><img style="width:150px;" src="https://main.qcloudimg.com/raw/a1a6fd4a9bc3ad2b5fe60e31202c8fda.png" data-nonescope="true"></td>
-<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/TRTCDemo.apk')"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/8a603ced0a61983018c794df842f7029.png);background-size: cover;">
+<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/TRTCDemo.apk');reportEvent({name: 'demo-click-native', ext1: 'android'});"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/8a603ced0a61983018c794df842f7029.png);background-size: cover;">
 </button></a></td>
-<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Win_Demo.exe')"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;">
+<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Win_Demo.exe');reportEvent({name: 'demo-click-native', ext1: 'windows'});"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;">
 </button></a></td>
-<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Mac_Demo.tar.bz2')"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;">
+<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Mac_Demo.tar.bz2');reportEvent({name: 'demo-click-native', ext1: 'mac'});"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;">
 </button></a></td>
 </tr>
 </table>
@@ -28,26 +28,27 @@
 <tr>
 </div></a></td>
 <td><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/4cfc59a1b60c02fc975c8b3e23169fc7.png);background-size: cover;">
-</div>
+</div>git 
 </td>
 <td>
-<input type="button" value="视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html')" /><br><br>
-<input type="button" value="互动直播推流端" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html')" /><br><br>
-<input type="button" value="互动直播拉流端" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html')" />
+<input type="button" value="视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html');reportEvent({name: 'demo-click-web', ext1: 'api-example'});" /><br><br>
+<input type="button" value="互动直播推流端" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html');reportEvent({name: 'demo-click-web', ext1: 'pusher'});" /><br><br>
+<input type="button" value="互动直播拉流端" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html');reportEvent({name: 'demo-click-web', ext1: 'player'});" /><br><br>
+<input type="button" value="1V1音视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html');reportEvent({name: 'demo-click-web', ext1: 'calling'});" />
 </td>
 <td>
-<a onclick="window.open('https://www.pgyer.com/TtEk')" value="Flutter_ios_版">
+<a onclick="window.open('https://www.pgyer.com/TtEk');reportEvent({name: 'demo-click-flutter', ext1: 'ios'});" value="Flutter_ios_版">
 	<button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/a3b7ef0199988c33850eeeb186c8d26f.png);background-size: cover;">
 </button>
 </a>
 <br>
-<a onclick="window.open('https://comm.qq.com/im_demo_download/trtc_flutter_demo.apk')" value="Flutter_android_版"> 
+<a onclick="window.open('https://comm.qq.com/im_demo_download/trtc_flutter_demo.apk');reportEvent({name: 'demo-click-flutter', ext1: 'android'});" value="Flutter_android_版"> 
 	<button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/f53741b9ad7567c475841e68cc65dbc3.png);background-size: cover;">
 </button>
 </a></td>
 <td>
-<input type="button" value="Windows 版" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/api-example/TRTC-Electron-API-Examples-windows.zip')" /><br><br>
-<input type="button" value="MacOS 版" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/api-example/TRTC-Electron-API-Examples-mac.zip')" /></td>
+<input type="button" value="Windows 版" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/api-example/TRTC-Electron-API-Examples-windows.zip');reportEvent({name: 'demo-click-electron', ext1: 'windows'});" /><br><br>
+<input type="button" value="MacOS 版" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/api-example/TRTC-Electron-API-Examples-mac.zip');reportEvent({name: 'demo-click-electron', ext1: 'mac'});" /></td>
 </tr>
 </table>
 
@@ -84,11 +85,8 @@
 ::: Flutter\s(iOS/Android)
 ![](https://imgcache.qq.com/operation/dianshi/other/8d81a52d-ffd3-4bbd-bd09-1a1648569b2d.453825bf12c01b9fe937ca8d7291f3c44b48cced.gif)
 :::
-::: Windows
-![](https://imgcache.qq.com/operation/dianshi/other/win.836bd473a766ea962d0b40117888e99aad5db6c8.gif)
-:::
-::: macOS
-![](https://imgcache.qq.com/operation/dianshi/other/macOS.cd7d6d7e8a7fcc388ec27e41c6952b8615ce9d34.gif)
+::: Windows & Mac
+![](https://qcloudimg.tencent-cloud.cn/raw/0f663092120f8f8f3673bc5d8f444516.gif)
 :::
 ::: Web
 ![](https://imgcache.qq.com/operation/dianshi/other/058ffcf5-60f0-430c-96c7-e1760b93e444.fdd0f2c10a8242dadbf99108a48a59124124b437.gif)
@@ -191,7 +189,7 @@ KTV 场景支持主播与观众上麦唱歌；支持平滑上下麦，切换过�
 <td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_experience_audience.gif"/></td>
 </tr>
 </table>
- 
+
 ## 实时合唱（Chorus 场景）
 
 Chorus 场景支持房主主唱与一名观众上麦唱歌；支持平滑上下麦，切换过程无需等待，主播延时小于100ms；低延时直播模式下，支持10万观众同时播放，播放延时低至1000ms；CDN 旁路直播模式下，观众数量无限制。常见应用场景有双人合唱、K 歌房、FM 电台等。
@@ -207,4 +205,16 @@ Chorus 场景支持房主主唱与一名观众上麦唱歌；支持平滑上下�
 </tr>
 </table>
 
-
+<script src="https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js"></script>
+<script>
+let aegis;
+if(Aegis) {
+    aegis = new Aegis({
+        id: 'iHWefAYqlXjjlfAkpx',
+        uin: document.cookie.replace(/(?:(?:^|.*;\s*)uin\s*\=\s*([^;]*).*$)|^.*$/, "$1")|| '',
+        reportApiSpeed: false,
+        reportAssetSpeed: false
+    });
+}
+function reportEvent(options){ aegis && aegis.reportEvent(options); }
+</script>

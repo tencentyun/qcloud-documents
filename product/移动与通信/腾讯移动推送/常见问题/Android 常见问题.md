@@ -182,7 +182,7 @@ android:value="true" />
 }
 ```
 
-适配后的具体效果如下，建议参考 Demo logo 图标进行作图。
+适配后的具体效果如下，[建议参考 Demo logo 图标进行作图](https://git.code.tencent.com/tpns/TPNS-Demo-Android/blob/master/app/src/main/res/drawable/notification_icon.png)。
 
 <img src="https://main.qcloudimg.com/raw/d9f92fb413aa98a01af64b2c17680bef.jpg" width="60%"></img>
 

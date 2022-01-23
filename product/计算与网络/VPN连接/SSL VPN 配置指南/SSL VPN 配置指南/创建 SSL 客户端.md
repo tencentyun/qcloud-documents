@@ -1,9 +1,5 @@
 SSL VPN 网关和 SSL 服务端创建完成后，您还需要在腾讯云侧创建 SSL 客户端证书。SSL 客户端证书记录了腾讯云分配给用户的 SSL 证书信息，即用于服务端和客户移动端进行双向认证的 SSL 证书。您可以下载该证书至移动端，并通过 OpenVPN 与腾讯云进行通信。
 
-## 前提条件
-- 已[ 创建 SSL VPN 网关](https://cloud.tencent.com/document/product/554/63716)。 
-- 已[ 创建 SSL 服务端](https://cloud.tencent.com/document/product/554/63717)。
-
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。

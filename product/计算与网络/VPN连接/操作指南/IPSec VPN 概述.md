@@ -7,8 +7,8 @@
   创建 IPSec 协议类型的 VPN 网关。
 2. [创建对端网关](https://cloud.tencent.com/document/product/554/52865)。
    在 SSL 服务端中指定要连接的腾讯云侧网段和客户端网段。
-3. [创建 VPN 通道](https://iwiki.woa.com/pages/viewpage.action?pageId=1059338353)。
-  用户使用证书和密钥与 VPN 网关建连，用户侧验证服务端证书，服务端验证用户端证书，校验通过后，服务端从客户端 IP 地址池中分配一个 IP 给用户，该 IP 用于和 VPC 内 VM 通信时使用。
+3. [创建 VPN 通道](https://cloud.tencent.com/document/product/554/52864)。
+  用户使用证书和密钥与 VPN 网关建连，用户侧验证服务端证书，服务端验证用户端证书，校验通过后，服务端从客户端 IP 地址池中分配一个 IP 给用户，该 IP 用于和 VPC 内 CVM 通信时使用。
 4. 用户本地网关配置。
   在用户侧完成网关配置。
 >! 腾讯 IPSec VPN 支持业界主流的用户端网关（防火墙），具体配置请参考[ 本地网关配置](https://cloud.tencent.com/document/product/554/55321) 。

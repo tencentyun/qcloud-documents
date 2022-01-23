@@ -94,7 +94,6 @@ System.out.println(">> pulsar client created.");
 </dx-tabs>
 
  **创建消费者进程**
-
 ```java
 Consumer<byte[]> consumer = client.newConsumer()
                 //topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称，从【Topic管理】处复制
@@ -108,18 +107,12 @@ Consumer<byte[]> consumer = client.newConsumer()
                 .subscribe();
         System.out.println(">> pulsar consumer created.");
 ```
-
- <dx-alert infotype="explain" title="">
-
-- Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
+>?
+>- Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
   ![](https://main.qcloudimg.com/raw/a2e32b311b825df9798b8c98df7c3416.png)
-- subscriptionName需要写入订阅名，可在**消费管理**界面查看。
-  </dx-alert>
-
-
-
-   **创建生产者进程**
-
+>- subscriptionName需要写入订阅名，可在**消费管理**界面查看。
+>
+**创建生产者进程**
 ```java
 Producer<byte[]> producer = client.newProducer()
                 //topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称
@@ -127,15 +120,9 @@ Producer<byte[]> producer = client.newProducer()
                 .create();
         System.out.println(">> pulsar producer created.");
 ```
-
-<dx-alert infotype="explain" title="">
-Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
-</dx-alert>
-
-
-
-   **生产消息**
-
+>?Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
+>
+**生产消息**
 ```java
 for (int i = 0; i < 5; i++) {
             String value = "my-sync-message-" + i;
@@ -146,9 +133,7 @@ for (int i = 0; i < 5; i++) {
         //关闭生产者
         producer.close();
 ```
-
-   **消费消息**
-
+**消费消息**
 ```java
 for (int i = 0; i < 5; i++) {
             //接收当前offset对应的一条消息
@@ -176,6 +161,6 @@ for (int i = 0; i < 5; i++) {
    ![](https://main.qcloudimg.com/raw/da7ce2bc5ac606c91982efecdb3b53bb.png)
 
 6. 进入 **[消息查询](https://console.cloud.tencent.com/tdmq/message)** 页面，可查看 Demo 运行后的消息轨迹。
-   ![](https://main.qcloudimg.com/raw/d5e09b9c789749b28182b62a501797ca.png)
+	 ![](https://qcloudimg.tencent-cloud.cn/raw/6178970f9e7395b8e7430275fc039d47.png)
    消息轨迹如下：
    ![](https://main.qcloudimg.com/raw/eaa0125f6dcd7675e367c4e3e069c915.png)

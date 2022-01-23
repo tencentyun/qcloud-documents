@@ -57,6 +57,8 @@ pod 'TPNS-iOS', '~> 版本'  // 如果不指定版本则默认为本地 pod TPNS
 ### 工程配置
 1. 在工程配置和后台模式中打开推送，如下图所示：
 ![](https://main.qcloudimg.com/raw/549acb8c1cf61c1d2f41de4762baf47b.png)
+1.1 如需使用 iOS15 新增的"时效性通知功能"，请在`Capabilities`中开启`Time Sensitive Notifications`
+![](https://qcloudimg.tencent-cloud.cn/raw/f07a8d6912cc85830a99358dcf66d28a.png)
 2. 添加编译参数 `-ObjC` 。
 ![](https://main.qcloudimg.com/raw/b0b74cec883f69fb0287fedc7bad4140.png)
 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
@@ -223,28 +225,6 @@ if (msgType.integerValue == 1) {
 
 
 ## 高级配置（可选）
-<span id="zhuxiao"></span>
-### 注销信鸽平台推送服务
-如果 App 的推送服务是从 [信鸽平台](https://xg.qq.com) 迁移到腾讯移动推送平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在信鸽平台中进行反注册。
-
-#### 接口
-
-```objective-c
-// 信鸽平台的 accessId(支持信鸽 SDK V2、V3版本)
-@property uint32_t freeAccessId;
-```
-
-#### 用法
-
-- 引入头文件：`XGForFreeVersion.h` 。
-- 在`startXGWithAccessID:accessKey:delegate:`之前调用此接口，参考示例：
-
-```objective-c
-[XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
-[[XGPush defaultManager] startXGWithAccessID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
-```
->!如果未做以上配置，在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
-
 
 <span id="QHToken"></span>
 ### 获取 TPNS Token 交互建议

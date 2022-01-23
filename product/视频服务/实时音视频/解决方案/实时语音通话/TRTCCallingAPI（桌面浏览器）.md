@@ -5,6 +5,9 @@
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频通话组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
 
+## 环境要求
+请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。具体请参见 [环境要求](https://cloud.tencent.com/document/product/647/49795#.E7.8E.AF.E5.A2.83.E8.A6.81.E6.B1.82)。
+
 ## TRTCCalling API 
 
 #### 事件订阅/取消订阅相关接口函数 
@@ -51,7 +54,7 @@
 | [switchToVideoCall()](#switchToVideoCall) | 语音通话切换视频通话   |
 | [getCameras()](#getCameras)  | 获取摄像头设备列表   |
 | [getMicrophones()](#getMicrophones)     | 获取麦克风设备列表   |
-| [switchDevice({deviceType, deviceID})](#switchDevice) | 切换摄像头或麦克风设备 |
+| [switchDevice({deviceType, deviceId}) ](#switchDevice) | 切换摄像头或麦克风设备 |
 
 
 ## TRTCCalling 详解
@@ -63,6 +66,23 @@
 
 <dx-codeblock>
 ::: javascript javascript
+  npm i trtc-js-sdk --save
+  npm i tim-js-sdk --save
+  npm i tsignaling --save
+  npm i trtc-calling-js --save
+  // 如果是通过node下载的依赖，则使用 import 引入
+  import TRTCCalling from 'trtc-calling-js';
+
+  // 如果您通过 script 方式使用 trtc-calling-js，需要按顺序
+  // 手动引入 trtc.js
+  <script src="./trtc.js"></script>
+  // 接着手动引入 tim-js.js
+  <script src="./tim-js.js"></script>
+  // 然后再手动引入 tsignaling.js
+  <script src="./tsignaling.js"></script>
+  // 最后再手动引入 trtc-calling-js.js
+  <script src="./trtc-calling-js.js"></script>
+
 let options = {
   SDKAppID: 0, // 接入时需要将0替换为您的即时通信IM应用的 SDKAppID
   // 从v0.10.2起，新增 tim 参数
@@ -123,7 +143,7 @@ trtcCalling.login({userID, userSig})
 | 参数    | 类型   | 含义       |
 | ------- | ------ | ------------------------------------------------------------- |
 | userID  | String | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。    |
-| userSig | String | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
+| userSig | String | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 
 
 [](id:logout)
@@ -179,6 +199,7 @@ offlinePushInfo 参数 (仅限于v1.0.0及其之后的版本)
 | title | String | 离线推送标题（选填）     |
 | description          | String | 离线推送内容（选填)      |
 | androidOPPOChannelID | String | 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID（选填） |
+| extension            | String | 离线推送透传内容（选填），**仅限于TRTCCalling 版本>=1.0.2, tsignaling 版本 >= 0.9.0** |
 
 [](id:groupCall)
 #### groupCall({userIDList, type, groupID, offlinePushInfo})
@@ -216,6 +237,7 @@ offlinePushInfo 参数 (仅限于v1.0.0及其之后的版本)
 | title | String | 离线推送标题（选填）     |
 | description          | String | 离线推送内容（选填)      |
 | androidOPPOChannelID | String | 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID（选填） |
+| extension            | String | 离线推送透传内容（选填），**仅限于TRTCCalling 版本>=1.0.2, tsignaling 版本 >= 0.9.0** |
 
 [](id:accept)
 #### accept()
@@ -231,6 +253,7 @@ import TRTCCalling from 'trtc-calling-js';
 trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
   // v1.0.0之前
+  const { roomID, callType } = inviteData;
   trtcCalling.accept({inviteID, roomID, callType})
   // v1.0.0及其之后
   trtcCalling.accept();
@@ -240,11 +263,11 @@ trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 
 参数如下表所示：
 
-| 参数     | 类型   | 含义 |
-| -------- | ------ | --------------------- |
-| inviteID | String | 邀请 ID，标识一次邀请。**仅限于v1.0.0之前的版本**    |
-| roomID   | Number | 通话房间号 ID。**仅限于v1.0.0之前的版本**   |
-| callType | Number | 1：语音通话，2：视频通话。**仅限于v1.0.0之前的版本** |
+| 参数     | 类型   | 含义                                                  |
+| -------- | ------ | ----------------------------------------------------- |
+| inviteID | String | 邀请 ID，标识一次邀请（监听事件 INVITED 回调数据 inviteID）。**仅限于v1.0.0之前的版本**    |
+| roomID   | Number | 通话房间号 ID（监听事件 INVITED 回调数据 inviteData.roomID）。**仅限于v1.0.0之前的版本**            |
+| callType | Number | 1：语音通话，2：视频通话（监听事件 INVITED 回调数据 inviteData.callType）。**仅限于v1.0.0之前的版本** |
 
 [](id:reject)
 #### reject()
@@ -258,6 +281,7 @@ import TRTCCalling from 'trtc-calling-js';
 trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
   // v1.0.0之前
+  const { callType } = inviteData;
   trtcCalling.reject({inviteID, isBusy, callType})
   // v1.0.0及其以后
   trtcCalling.reject();
@@ -267,11 +291,11 @@ trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 
 参数如下表所示：
 
-| 参数     | 类型    | 含义 |
-| -------- | ------- | --------------------- |
-| inviteID | String  | 邀请 ID, 标识一次邀请。**仅限于v1.0.0之前的版本**   |
-| isBusy   | Boolean | 是否是忙线中。**仅限于v1.0.0之前的版本**    |
-| callType | Number  | 1：语音通话，2：视频通话。**仅限于v1.0.0之前的版本** |
+| 参数     | 类型    | 含义                                                  |
+| -------- | ------- | ----------------------------------------------------- |
+| inviteID | String  | 邀请 ID, 标识一次邀请（监听事件 INVITED 回调数据 inviteID）。**仅限于v1.0.0之前的版本**   |
+| isBusy   | Boolean | 是否是忙线中。**仅限于v1.0.0之前的版本**             |
+| callType | Number  | 1：语音通话，2：视频通话（监听事件 INVITED 回调数据 inviteData.callType）。**仅限于v1.0.0之前的版本** |
 
 [](id:hangup)
 #### hangup()
@@ -477,15 +501,15 @@ trtcCalling.getMicrophones() // 获取麦克风列表
 </dx-codeblock>
 
 [](id:switchDevice)
-####  switchDevice({deviceType,deviceID}) 
+####  switchDevice({deviceType, deviceId}) 
 
-您可以调用此接口切换摄像头或麦克风设备
+您可以调用此接口切换摄像头或麦克风设备。
 
 >?v1.0.0 及其之后版本，新增该方法。
 
 <dx-codeblock>
 ::: javascript javascript
-trtcCalling.switchDevice(deviceType, deviceID) // 切换设备
+trtcCalling.switchDevice({deviceType: 'audio', deviceId: deviceId}) // 切换设备
 :::
 </dx-codeblock>
 
@@ -493,8 +517,8 @@ trtcCalling.switchDevice(deviceType, deviceID) // 切换设备
 
 | 参数       | 类型   | 含义          |
 | ---------- | ------ | ------------------------------- |
-| deviceType | String | video: 摄像头, audio: 麦克风   |
-| deviceID   | String | <li/>摄像头设备标识通过 getCameras() 获取。<li/>麦克风设备标识通过 getMicrophones() 获取。 |
+| deviceType | String | video：摄像头，audio：麦克风   |
+| deviceId   | String | <li/>摄像头设备标识通过 getCameras() 获取<li/>麦克风设备标识通过 getMicrophones() 获取 |
 
 
 [](id:event)
@@ -814,6 +838,16 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 | 60003 | 权限获取失败 | 没有可用的麦克风设备       |
 | 60004 | 权限获取失败 | 没有可用的摄像头设备       |
 | 60005 | 权限获取失败 | 用户禁止使用设备  |
+| 60006 | 环境检测失败 | 当前环境不支持 WebRTC（ >=v1.0.4版本 ）      |
+
+## 升级指引
+
+- **升级 TRTCCalling 版本 >= 1.0.2**
+	- 注意：需升级 TSignaling 版本 >= 0.9.0
+	- 原因：[更新日志](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/tutorial-CHANGELOG.html#h2-3)
+- **升级  1.0.2 >= TRTCCalling 版本 >=1.0.0**
+	- 注意：需升级 TSignaling 版本 >= 0.8.0
+	- 原因：[更新日志](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/tutorial-CHANGELOG.html#h2-5)
 
 ## 常见问题
 
@@ -822,4 +856,16 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 > ?
 > - **多实例**：一个 UserID 重复登入，或在不同端登入，将会引起信令的混乱。
 > - **离线推送**：实例在线才能接收消息，实例离线时接收到的信令不会在上线后重新推送。
+更多常见问题，请参见 [TRTCCalling Web 相关问题](https://cloud.tencent.com/document/product/647/62484)。
 
+## 技术咨询[](id:QQ)
+
+了解更多详情您可以 QQ 咨询：592465424 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
+
+
+## 参考文档
+- [TRTCCalling web 官网体验](https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html#/login)
+- [TRTCCalling npm](https://www.npmjs.com/package/trtc-calling-js)
+- [TRTCCalling web demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Web/TRTCScenesDemo/trtc-calling-web)
+- [TRTCCalling web API](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/TRTCCalling.html)
+- [TRTCCalling web 相关问题](https://cloud.tencent.com/document/product/647/62484)

@@ -1,8 +1,11 @@
 ## 支持的平台
 
 WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器、桌面版 Edge 浏览器、桌面版 Firefox 浏览器、桌面版 Safari 浏览器以及移动版 Safari 浏览器上有较为完整的支持，其他平台（例如 Android 平台的浏览器）支持情况均比较差。
-- 在移动端推荐使用 [小程序](https://cloud.tencent.com/document/product/647/17018) 解决方案，微信和手机 QQ 小程序均已支持，都是由各平台的 Native 技术实现，音视频性能更好，且针对主流手机品牌进行了定向适配。
-- 如果您的应用场景主要为教育场景，那么教师端推荐使用稳定性更好的 [Electron](https://cloud.tencent.com/document/product/647/38549) 解决方案，支持大小双路画面，更灵活的屏幕分享方案以及更强大的弱网络恢复能力。
+
+在移动端推荐使用 [小程序](https://cloud.tencent.com/document/product/647/17018) 解决方案，微信和手机 QQ 小程序均已支持，都是由各平台的 Native 技术实现，音视频性能更好，且针对主流手机品牌进行了定向适配。
+
+
+
 
 <table>
 <tr>
@@ -266,9 +269,11 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 </table>
 
 >! 
-> 1. 您可以在浏览器中打开 [TRTC Web SDK 能力测试页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 检测当前浏览器是否支持 WebRTC 所有能力。例如 WebView 等浏览器环境。
-> 2. 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC Web 端 SDK 的正常运行。
-> 3. [](id:attention3)Mac OS 下的 Firefox 屏幕分享效果比较差且暂无解决方案，建议使用 Chrome 或者 Safari 进行屏幕分享。
+- 您可以在浏览器中打开 [TRTC Web SDK 能力测试页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 检测当前浏览器是否支持 WebRTC 所有能力。例如 WebView 等浏览器环境。
+- 由于 H.264 版权限制，华为 Chrome 88 以下版本，无法使用 H264 编码（即无法推流）。如果您希望在华为设备 Chrome 浏览器中，使用 TRTC Web SDK 推流，请进 [TRTC 交流群](https://cloud.tencent.com/document/product/647/19906#trtc-.E4.BA.A4.E6.B5.81.E7.BE.A4)，联系群内技术支持开通 VP8 编解码。
+- Mac OS 下的 Firefox 屏幕分享效果比较差且暂无解决方案，建议使用 Chrome 或者 Safari 进行屏幕分享。[](id:attention3)
+- 如果您希望 Web 端在推流时支持双声道编码，请进 [TRTC 交流群](https://cloud.tencent.com/document/product/647/19906#trtc-.E4.BA.A4.E6.B5.81.E7.BE.A4)，联系群内技术支持开通 WebRTC 双声道编码能力。
+
 
 ## URL 域名协议限制
 | 应用场景     | 协议             | 接收（播放） | 发送（上麦） | 屏幕分享 | 备注 |
@@ -295,6 +300,16 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 | 自定义采集与自定义播放渲染 | [指引链接](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-20-advanced-customized-capture-rendering.html) |
 | 房间内上行用户个数限制     | [指引链接](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-04-info-uplink-limits.html)        |
 | 背景音乐和音效实现方案     | [指引链接](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-22-advanced-audio-mixer.html)          |
+| 通话前环境与设备检测| [指引链接](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-23-advanced-support-detection.html) |
+| 通话前的网络质量检测| [指引链接](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-24-advanced-network-quality.html) |
+| 检测设备插拔行为| [指引链接](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-25-advanced-device-change.html)
+| 实现推流到 CDN| [指引链接](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-26-advanced-publish-cdn-stream.html) |
+| 开启大小流传输| [指引链接](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-27-advanced-small-stream.html) |
+| 开启美颜| [指引链接](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-28-advanced-beauty.html) |
+| 开启水印| [指引链接](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-29-advance-water-mark.html) |
+| 实现跨房连麦| [指引链接](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-30-advanced-cross-room-link.html) |
+
+>? [单击查看](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-10-basic-get-started-with-demo.html) 更多能力。
 
 
 ## TRTC
@@ -423,5 +438,6 @@ RtcError 错误对象。
 
 ## 联系我们
 
-关注公众号"腾讯云音视频"，了解腾讯云视频最新资讯。
-![](https://main.qcloudimg.com/raw/30ad559e5f1f35dccc56149208aba552.jpg)
+工作日微信扫码，回复“TRTC 交流群”，将有专人拉您进群进行技术交流。
+
+<img src="https://main.qcloudimg.com/raw/ac29fcef8ce2bb2b3a1ca5c368685b83.jpg" width="250px">

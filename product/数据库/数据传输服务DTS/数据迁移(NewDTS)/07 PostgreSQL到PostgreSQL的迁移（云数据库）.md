@@ -34,6 +34,7 @@ grant pg_tencentdb_superuser to 迁移用户;
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
 - 为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。如需要跨地域迁移，请选择公网接入方式。
 - 如果进行整个实例迁移，目标库中不能存在与源库同名的用户和角色。
+- **迁移类型**选择**全量 + 增量迁移**时，源数据库中的表必须有主键，否则会出现源库和不目标库数据不一致，对于无主键的表，建议选择**全量迁移**。
 
 ## 操作限制
 - 迁移过程中请勿修改、删除源数据库和目标数据库中用户信息（包括用户名、密码和权限）和端口号。
@@ -41,7 +42,7 @@ grant pg_tencentdb_superuser to 迁移用户;
 - 如果仅执行全量数据迁移，仅会迁移在发起迁移这一刻之前的数据，如果在迁移过程中向源实例中写入新的数据，源库和目标库的数据会出现不一致。针对有数据写入的场景，为实时保持数据一致性，建议选择全量 + 增量数据迁移。
 
 ## 环境要求
->?如下环境要求，系统会在启动迁移任务前自动进行校验，不符合要求的系统会报错。如果用户能够识别出来，可以 参考 [校验项检查要求](https://cloud.tencent.com/document/product/571/58685) 自行修改，如果不能则等系统校验完成，按照报错提示修改。
+>?如下环境要求，系统会在启动迁移任务前自动进行校验，不符合要求的系统会报错。如果用户能够识别出来，可以 参考 [校验项检查要求](https://cloud.tencent.com/document/product/571/61639) 自行修改，如果不能则等系统校验完成，按照报错提示修改。
 
 <table>
 <tr><th width="20%">类型</th><th width="80%">环境要求</th></tr>
@@ -88,7 +89,7 @@ ldd --version | grep -i libc
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
 >
-<img src="https://main.qcloudimg.com/raw/414b9b3caf06c106ce894dea9a0ddf2a.png"  style="zoom:50%;">
+![](https://qcloudimg.tencent-cloud.cn/raw/0b08063be84ca67d3f5258f1851073ba.png)
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
@@ -106,17 +107,17 @@ ldd --version | grep -i libc
 <td rowspan=6>源库设置</td>
 <td>源库类型</td><td>根据您的源数据库类型选择，本场景选择“PostgreSQL”。</td></tr>
 <tr>
-<td>接入类型</td><td>请根据您的场景选择，本场景选择“云数据库”。<br>为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。如需要跨地域迁移，请选择公网接入方式。
+<td>接入类型</td><td>请根据您的场景选择，本场景以“云数据库”为例，不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。<br>为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。如需要跨地域迁移，请选择公网接入方式。
 <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
 <li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
 <li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
 <li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
-<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul>不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul></td></tr>
 <tr>
 <td>所属地域</td><td>源库 PostgreSQL 所属地域。</td></tr>
 <tr>
-<td>数据库实例</td><td>选择目标库的实例 ID。</td></tr>
+<td>数据库实例</td><td>选择源库 PostgreSQL 的实例 ID。</td></tr>
 <tr>
 <td>帐号</td><td>源库 PostgreSQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
@@ -127,7 +128,7 @@ ldd --version | grep -i libc
 <tr>
 <td>接入类型</td><td>根据您的场景选择，本场景默认选择“云数据库”。</td></tr>
 <tr>
-<td>所属地域</td><td>源库中已选择的地域。</td></tr>
+<td>所属地域</td><td>选择目标库所属地域。</td></tr>
 <tr>
 <td>数据库实例</td><td>选择目标库的实例 ID。</td></tr>
 <tr>
@@ -151,7 +152,7 @@ ldd --version | grep -i libc
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
 </tbody></table>
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
-    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。
   - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
   - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
  ![](https://main.qcloudimg.com/raw/5ed72bfbcaefe3234e5c08114a2761f3.png)

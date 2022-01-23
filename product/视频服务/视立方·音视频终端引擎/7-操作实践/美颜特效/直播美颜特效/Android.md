@@ -49,7 +49,7 @@
         }
     }
 ```
-5. 单击【Sync Now】，完成 LiteAVSDK 的集成工作。
+5. 单击**Sync Now**，完成 LiteAVSDK 的集成工作。
 :::
 ::: 方式二：jar集成方式
  若您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 LiteAVSDK：
@@ -76,7 +76,7 @@
         }
     }
 ```
- 7. 单击【Sync Now】，完成 LiteAVSDK 的集成工作。
+ 7. 单击**Sync Now**，完成 LiteAVSDK 的集成工作。
 :::
 </dx-tabs>
 

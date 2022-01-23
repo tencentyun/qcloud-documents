@@ -5,7 +5,7 @@
 
 
 ## 获取密钥
-1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，选择左侧菜单【配置管理】>【基础配置】。
+1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，选择左侧菜单**配置管理 > 基础配置**。
 2. 在应用信息一栏中，获取应用`Access ID` 和`SECRET KEY`（仅主账号可见）。
 
 

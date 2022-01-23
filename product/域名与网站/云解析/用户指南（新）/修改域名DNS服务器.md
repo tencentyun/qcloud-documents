@@ -7,9 +7,12 @@
 
 ### 查看 DNS 服务器
 您可以通过以下步骤查看 DNS 服务器是否正确：
-1. 登录 [DNS 解析 DNSPod 控制台](https://console.cloud.tencent.com/cns)，选择需要查看的域名，单击**解析**，进入该域名的管理页面。
-2. 选择 “记录管理” 页签。若您未设置 DNS 服务器地址或 DNS 服务器地址有误，您可复制页面提供的 DNS 地址至该域名的管理页面进行修改。如下图所示：
-![](https://main.qcloudimg.com/raw/db7f868c22b7bdf94a9186457b9bb75f.png)
+1. 登录 [DNSPod 管理控制台](https://console.dnspod.cn/dns/list)，单击 **DNS 解析 > 我的域名**，进入 “我的域名” 页面。
+2. 查看需要查看的域名状态栏，若存在如下提示，则说明 DNS 服务器不正确。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/71fe9581afe2b3103496b38f7421853b.png)
+3. 单击**DNS 未设置**，在弹出的 “未正确设置 DNS 服务器” 窗口中查看正确的 DNS 服务器。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/7666525632367870947063a681844852.png)
+4. 获取正确的 DNS 服务器后，即可前往您的域名注册商处修改为对应地址。
 >!
 >- 不同解析套餐对应的 DNS 地址不同，请参考 [各个套餐对应的 DNS 服务器地址](https://cloud.tencent.com/document/product/302/9070)。
 >- 如您需要修改 DNS 服务器地址的域名在腾讯云注册，您可以按照下一步（腾讯云注册域名修改 DNS）进行操作。
@@ -53,6 +56,7 @@
 <li><a href="https://docs.dnspod.cn/dns/5ffbccf346757d460d99eccd/">易名注册域名如何配置为 DNSPod 的 DNS 服务器</a></li>
 <li><a href="https://docs.dnspod.cn/dns/5ffbc4f146757d460d99ecc4/">西部数码注册域名如何配置为 DNSPod 的 DNS 服务器</a></li>
 <li><a href="https://docs.dnspod.cn/dns/5ffbbd8346757d460d99ecba/">百度智能云注册域名如何配置为 DNSPod 的 DNS 服务器</a></li>
+<li><a href="https://docs.dnspod.cn/dns/61978bc898b4774596a983e5/">华为云注册域名如何配置为 DNSPod 的 DNS 服务器</a></li>
 </ul>
 
 

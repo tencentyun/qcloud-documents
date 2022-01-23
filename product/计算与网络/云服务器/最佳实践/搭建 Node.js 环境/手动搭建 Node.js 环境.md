@@ -125,7 +125,7 @@ server.listen(port, hostname, () => {
 <dx-alert infotype="explain" title="">
 本文在 `index.js` 项目文件中使用端口号为7500，您可根据实际需求自行修改。
 </dx-alert>
-3. 按 **Esc**，输入 **:wq**，保存文件并返回。
+3. 按 **Esc**，输入 **:wq** 并按 **Enter**，保存文件并返回。
 4. 执行以下命令，运行 Node.js 项目。
 ```
 node index.js

@@ -1031,11 +1031,12 @@ UUID 类型。
 
 | 名称 | 含义 |
 |-----|-----|
-| kTIMGroup_Public | 公开群 |
-| kTIMGroup_Private | 私有群 |
-| kTIMGroup_ChatRoom | 聊天室 |
-| kTIMGroup_BChatRoom | 在线成员广播大群 |
-| kTIMGroup_AVChatRoom | 互动直播聊天室 |
+| kTIMGroup_Public | 公开群（Public），成员上限 2000 人，任何人都可以申请加群，但加群需群主或管理员审批，适合用于类似 QQ 中由群主管理的兴趣群。 |
+| kTIMGroup_Private | 工作群（Work），成员上限 200  人，不支持由用户主动加入，需要他人邀请入群，适合用于类似微信中随意组建的工作群（对应老版本的 Private 群）。 |
+| kTIMGroup_ChatRoom | 会议群（Meeting），成员上限 6000 人，任何人都可以自由进出，且加群无需被审批，适合用于视频会议和在线培训等场景（对应老版本的 ChatRoom 群）。 |
+| kTIMGroup_BChatRoom | 在线成员广播大群，推荐使用 直播群（AVChatRoom） |
+| kTIMGroup_AVChatRoom | 直播群（AVChatRoom），人数无上限，任何人都可以自由进出，消息吞吐量大，适合用作直播场景中的高并发弹幕聊天室。 |
+| kTIMGroup_Community | 社群（Community），成员上限 100000 人，任何人都可以自由进出，且加群无需被审批，适合用于知识分享和游戏交流等超大社区群聊场景。5.8 版本开始支持，需要您购买旗舰版套餐。 |
 
 ### TIMGroupMemberRole
 
@@ -1088,7 +1089,7 @@ UUID 类型。
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMCreateGroupParamGroupName | string | 只写（必填） | 群组名称 |
-| kTIMCreateGroupParamGroupId | string | 只写（选填） | 群组 ID，不填时创建成功回调会返回一个后台分配的群 ID |
+| kTIMCreateGroupParamGroupId | string | 只写（选填） | 群组ID,不填时创建成功回调会返回一个后台分配的群ID。如果创建社群（Community）需要自定义群组 ID ，那必须以 "@TGS#_" 作为前缀。 |
 | kTIMCreateGroupParamGroupType | uint [TIMGroupType](#timgrouptype) | 只写（选填） | 群组类型，默认为 Public |
 | kTIMCreateGroupParamGroupMemberArray | array [GroupMemberInfo](#groupmemberinfo) | 只写（选填） | 群组初始成员数组 |
 | kTIMCreateGroupParamNotification | string | 只写（选填） | 群组公告 |

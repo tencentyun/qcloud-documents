@@ -1,6 +1,6 @@
 
 ## 使用场景
-使用环境变量去配置 EKS 日志采集时，默认使用单行提取模式。但当客户程序的日志数据跨占多行时（例如 Java 程序日志），不能以换行符 `\n` 作为日志的结束标识符。为了能让日志系统明确区分开每条日志，需要配置具有首行正则表达式的 configmap，当某行日志匹配了预先设置的正则表达式，则认为是一条日志的开头，而在下一个行首出现则作为该条日志的结束标识符。本文向您介绍使用环境变量的方式开启 EKS 日志采集时，如何实现多行日志合并。
+使用环境变量去配置 EKS 日志采集时，默认使用单行提取模式。但当客户程序的日志数据跨占多行时（例如 Java 程序日志），不能以换行符 `\n` 作为日志的结束标识符。为了能让日志系统明确区分开每条日志，需要配置具有首行正则表达式的 configmap，当某行日志匹配了预先设置的正则表达式，则认为是一条日志的开头，而在下一个行首出现则作为该条日志的结束标识符。本文向您介绍使用环境变量的方式开启 EKS 日志采集时，如何实现多行日志合并。 
 
 
 
@@ -44,21 +44,21 @@ metadata:
 eks.tke.cloud.tencent.com/parser-name: parser_name
 ```
 
-更多 `parser.conf` 配置文件相关内容可参见 [Regular Expression](https://docs.fluentbit.io/manual/pipeline/parsers/regular-expression)。
+更多 `parser.conf` 配置文件相关内容可参见 [Regular Expression](https://docs.fluentbit.io/manual/pipeline/parsers/regular-expression)。 
 
 ### 创建 Pod 时挂载 Configmap
 在创建 Pod 时需要做以下操作：
-1. 以 Volume 形式挂载已创建的 [Configmap](#Configmap)。
-2. 通过环境变量的方式开启日志采集，详情可参见 [配置日志采集](https://cloud.tencent.com/document/product/457/47200#.E9.80.9A.E8.BF.87-yaml-.E9.85.8D.E7.BD.AE.E6.97.A5.E5.BF.97.E9.87.87.E9.9B.86-.3Ca-id.3D.22yaml.22.3E.3C.2Fa.3E)。
-3. 指定两个 annotation。
+1. 以 Volume 形式挂载已创建的 [Configmap](#Configmap)。 
+2. 通过环境变量的方式开启日志采集，详情可参见 [配置日志采集](https://cloud.tencent.com/document/product/457/47200#.E9.80.9A.E8.BF.87-yaml-.E9.85.8D.E7.BD.AE.E6.97.A5.E5.BF.97.E9.87.87.E9.9B.86-.3Ca-id.3D.22yaml.22.3E.3C.2Fa.3E)。 
+3. 指定两个 annotation。 
 ```
 eks.tke.cloud.tencent.com/parser-name: "parser_name"
 eks.tke.cloud.tencent.com/volume-name-for-parser: "volume-name"
 ```
- - `eks.tke.cloud.tencent.com/parser-name` 是指已创建的 [Configmap](#Configmap) 的 name。
- - `eks.tke.cloud.tencent.com/volume-name-for-parser` 是指 Pod 中挂载的 Volume 名称，可自定义。
+ - `eks.tke.cloud.tencent.com/parser-name` 是指已创建的 [Configmap](#Configmap) 的 name。 
+ - `eks.tke.cloud.tencent.com/volume-name-for-parser` 是指 Pod 中挂载的 Volume 名称，可自定义。 
 
-**Pod yaml 模版**
+**Pod yaml 模板**
 
 ```
 apiVersion: apps/v1 

@@ -1,16 +1,22 @@
-本文介绍使用数据传输服务 DTS 从 TDSQL-C MySQL 数据库同步数据至腾讯云 TDSQL-C MySQL 数据库的操作指导。
+本文介绍使用数据传输服务 DTS 从 TDSQL-C MySQL 数据库同步数据至 TDSQL-C MySQL 数据库的操作指导。
 
-MySQL 到 TDSQL-C MySQL 的数据同步、TDSQL-C MySQL 到 MySQL 的数据同步，与  TDSQL-C MySQL 到 TDSQL-C MySQL 的数据同步要求一致，可参考本场景相关内容。
+如下场景与  TDSQL-C MySQL 到 TDSQL-C MySQL 的数据同步要求一致，可参考本场景相关内容。
+
+- MySQL 到 TDSQL-C MySQL 的数据同步
+- TDSQL-C MySQL 到 MySQL 的数据同步
 
 ## 注意事项 
 - DTS 在执行全量数据同步时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
 - 为了避免数据重复，请确保需要同步的表具有主键或者非空唯一键。
+- 数据同步时，DTS 会使用执行同步任务的账号在源库中写入系统库`__tencentdb__`，用于记录同步任务过程中的数据对比信息。
+  - 为保证后续数据对比问题可定位，同步任务结束后不会删除源库中的`__tencentdb__`。
+  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## 前提条件
 - 已 [创建云原生数据库 TDSQL-C](https://cloud.tencent.com/document/product/1003/30505)。
 - 需要具备源数据库的权限如下：
 ```
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW VIEW,PROCESS,SELECT ON *.* TO '帐号'@'%' IDENTIFIED BY '密码';
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 FLUSH PRIVILEGES;
 ```
@@ -21,7 +27,7 @@ FLUSH PRIVILEGES;
 - 只支持同步基础表和视图，不支持同步函数、触发器、存储过程等对象。
 - 在导出视图结构时，DTS 会检查源库中 `DEFINER` 对应的 user1（ [DEFINER = user1]）和同步用户的 user2 是否一致，如果不一致，则会修改 user1 在目标库中的 `SQL SECURITY` 属性，由 `DEFINER` 转换为 `INVOKER`（ [INVOKER = user1]），同时设置目标库中 `DEFINER` 为同步用户的 user2（[DEFINER = user2]）。
 - 源端如果是非 GTID 实例，DTS 不支持源端 HA 切换，一旦源端 TDSQL-C 发生切换可能会导致 DTS 增量同步中断。
-- 只支持同步 InnoDB、MySIAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行同步。
+- 只支持同步 InnoDB、MyISAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行同步。
 
 ## 操作限制
 同步过程中请勿进行如下操作，否则会导致同步任务失败。
@@ -149,6 +155,8 @@ FLUSH PRIVILEGES;
 >- 如果用户在同步过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**同步对象**需要选择这个表所在的整个库，不能仅选择这个表（或者整个实例），否则无法同步 Online DDL 变更产生的临时表数据到目标数据库。
 >- 如果用户在同步过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**同步对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
 >
+![](https://qcloudimg.tencent-cloud.cn/raw/793b1914c8bb9eec917d3296d92000e9.png)
+<strong>库表重命名</strong>：如需要修改目标库中的对象名称，请在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写新的名称。
 <table>
 <thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
 <tbody>
@@ -164,24 +172,21 @@ FLUSH PRIVILEGES;
 <td>冲突处理机制</td>
 <td><ul><li>冲突报错：在同步时发现表主键冲突，报错并暂停数据同步任务。<li>冲突忽略：在同步时发现表主键冲突，保留目标库主键记录。<li>冲突覆盖：在同步时发现表主键冲突，用源库主键记录覆盖目标库主键记录。</td></tr>
 <tr>
-<td>同步操作类型</td><td>支持操作：Insert、Update、Delete、DDL。</td></tr>
+<td>同步操作类型</td><td>支持操作：Insert、Update、Delete、DDL。勾选“DDL自定义”，可以根据需要选择不同的 DDL 同步策略。详情请参考 <a href="https://cloud.tencent.com/document/product/571/63955">设置 SQL 过滤策略</a>。</td></tr>
 <tr>
 <td rowspan=2>同步对象选项</td>
 <td>源实例库表对象</td><td>选择待同步的对象，支持库级别和表及视图级别。</td></tr>
 <tr>
 <td>已选对象</td><td>展示已选择的同步对象，支持库表映射。</td></tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/272026696de9d8dd15b0034f7bf8f0dd.png"  style="zoom:50%;">
-<strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
-<img src="https://main.qcloudimg.com/raw/533a454e1edc2dded72ac92b65948f31.png"  style="zoom:50%;">
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
  - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
-![](https://main.qcloudimg.com/raw/1871bfc0cb585ff2ac190bb706baf36e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/67cb666d8638ec138c4358810f03b30d.png)
 7. 返回数据同步任务列表，任务开始进入**运行中**状态。 
 >?选择**操作**列的**更多** > **结束**可关闭同步任务，请您确保数据同步完成后再关闭任务。
 >
-![](https://main.qcloudimg.com/raw/41165637339063c13bb8cc720e8e6541.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d2b936caf20aafcd849039cc3033f22f.png)
 8. （可选）您可以单击任务名，进入任务详情页，查看任务初始化状态和监控数据。
 

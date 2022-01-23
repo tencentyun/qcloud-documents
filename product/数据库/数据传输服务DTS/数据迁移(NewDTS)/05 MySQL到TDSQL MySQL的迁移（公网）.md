@@ -3,11 +3,19 @@
 如下场景的迁移要求与 MySQL 到 TDSQL MySQL 的迁移要求一致，可参考本场景相关内容。
 
 - MariaDB 到腾讯云数据库 TDSQL MySQL 的数据迁移
-- MariaDB（Percona）到腾讯云数据库 TDSQL MySQL 的数据迁移
+- Percona 到腾讯云数据库 TDSQL MySQL 的数据迁移
+
+> ? 
+> - 云数据库 MariaDB 支持三种内核 MariaDB、MySQL 和 Percona，用户在使用时不需要区分哪种内核，如果源数据库为腾讯云 MariaDB，不论源数据库的内核是 MariaDB、Percona 还是 MySQL，在设置源数据库的类型时，都选择 MariaDB。
+> - 如果用户需要体验腾讯云数据库 MariaDB 三种内核相关链路功能，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
+
 
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
 - 在全量迁移过程通过有锁迁移来实现，锁表过程中会短暂阻塞写入操作。
+- [创建数据一致性校验](https://cloud.tencent.com/document/product/571/62564) 时，DTS 会使用执行迁移任务的账号在源库中写入系统库`__tencentdb__`，用于记录迁移任务过程中的数据对比信息。
+  - 为保证后续数据对比问题可定位，迁移任务结束后不会删除源库中的`__tencentdb__`。
+  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## 前提条件
 - 已 [创建分布式数据库 TDSQL MySQL版](https://cloud.tencent.com/document/product/557/10236)。
@@ -18,19 +26,19 @@
   - “整个实例”迁移，需要的帐号权限如下：
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  //源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权 
 GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 GRANT SELECT ON *.* TO '迁移帐号';
 ```
   - “指定对象”迁移，需要的帐号权限如下：
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  //源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权 
 GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 ```
-- 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
+- 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE（如果目标库为腾讯云 MariaDB 数据库，需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行 RELOAD 授权）。
 
 ## 应用限制
 - 只支持迁移基础表，不支持迁移视图、函数、触发器、存储过程等对象。
@@ -55,7 +63,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 | DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE<br>VIEW：CREATE VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX<br>DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
 
 ## 环境要求
-> ?如下环境要求，系统会在启动迁移任务前自动进行校验，不符合要求的系统会报错。如果用户能够识别出来，可以参考 [校验项检查要求](https://cloud.tencent.com/document/product/571/58685) 自行修改，如果不能则等系统校验完成，按照报错提示修改。
+> ?如下环境要求，系统会在启动迁移任务前自动进行校验，不符合要求的系统会报错。如果用户能够识别出来，可以参考 [校验项检查要求](https://cloud.tencent.com/document/product/571/61639) 自行修改，如果不能则等系统校验完成，按照报错提示修改。
 
 <table>
 <tr><th width="20%">类型</th><th width="80%">环境要求</th></tr>
@@ -115,17 +123,17 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td rowspan=8>源库设置</td>
 <td>源库类型</td><td>选择“MySQL”。</td></tr>
 <tr>
-<td>服务提供商</td><td>选择“普通”。</td></tr>
+<td>服务提供商</td><td>自建数据库（包括云服务器上的自建）或者腾讯云数据库，请选择“普通”；第三方云厂商数据库，请选择对应的服务商。<br>本场景以本地自建数据库为例，此处选择“普通”。</td></tr>
 <tr>
-<td>接入类型</td><td>请根据您的场景选择，本场景选择“公网”。
+<td>接入类型</td><td>请根据您的场景选择，本场景选择“公网”，不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
 <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
 <li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
 <li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
 <li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
-<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul>不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
+    <li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。</td></tr>
 <tr>
-<td>所属地域</td><td>源库所属地域为 DTS 服务出口地域，选择离自建实例最近的一个地域即可。</td></tr>
+<td>所属地域</td><td>选择源库所属地域。</td></tr>
 <tr>
 <td>主机地址</td><td>源库 MySQL 访问 IP 地址或域名。</td></tr>
 <tr>
@@ -136,18 +144,19 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>密码</td><td>源库 MySQL 的数据库帐号的密码。</td></tr>
 <tr>
 <td rowspan=6>目标库设置</td>
-<td>目标库类型</td><td>选择“TDSQL MySQL版”。</td></tr>
+<td>目标库类型</td><td>选择“TDSQL MySQL 版”。</td></tr>
 <tr>
 <td>接入类型</td><td>选择“云数据库”。</td></tr>
 <tr>
-<td>所属地域</td><td>上一步中已选择的地域。</td></tr>
+<td>所属地域</td><td>选择目标库所属地域。</td></tr>
 <tr>
-<td>数据库实例</td><td>选择目标端 TDSQL MySQL版 实例 ID。</td></tr>
+<td>数据库实例</td><td>选择目标端 TDSQL MySQL 版实例 ID。</td></tr>
 <tr>
-<td>帐号</td><td>目标端 TDSQL MySQL版 的数据库帐号，帐号权限需要满足要求。</td></tr>
+<td>帐号</td><td>目标端 TDSQL MySQL 版的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
-<td>密码</td><td>目标端 TDSQL MySQL版 的数据库帐号的密码。</td></tr>
+<td>密码</td><td>目标端 TDSQL MySQL 版的数据库帐号的密码。</td></tr>
 </tbody></table>
+
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 > ?
 >- 如果用户在迁移过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**迁移对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法迁移 Online DDL 变更产生的临时表数据到目标数据库。
@@ -168,7 +177,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
 </tbody></table>
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
-如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
  - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
 ![](https://main.qcloudimg.com/raw/c8a82a647ce9d5bc21f902f35011e120.png)

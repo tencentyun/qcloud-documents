@@ -218,7 +218,7 @@ http_code < 400 | select url ,count(*) as  "访问次数", round(sum(rsp_size)/1
 ![](https://main.qcloudimg.com/raw/ed3d50ce8310e69ab72e50309ccc31b4/14.png)
 - 访问 PV、UV 统计，统计某一时间段内的访问次数和独立的 client ip 的变化趋势
 ```sql
-* | select date_trunc('minute', __TIMESTAMP__) as time, count(*) as pv,count( distinct client_ip) as uv group by time order by time limit 1000 
+* | select time_series(__TIMESTAMP__, '1m', '%Y-%m-%dT%H:%i:%s+08:00', '0') as time, count(*) as pv,approx_distinct(client_ip) as uv group by time order by time limit 1000
 ```
 ![](https://main.qcloudimg.com/raw/1932a986b7754f2749651fce12f844da/9.png)
 

@@ -26,17 +26,46 @@ func (s *BucketService) PutDomain(ctx context.Context, opt *BucketPutDomainOptio
 
 [//]: # (.cssg-snippet-put-bucket-domain)
 ```go
-opt := &cos.BucketPutDomainOptions{
-    Rules: []cos.BucketDomainRule{
-    {
-        Status:            "ENABLED",
-        Name:              "www.example.com",
-        Type:              "REST",
-        ForcedReplacement: "CNAME",
-    },
-    },
-}   
-resp, err := c.Bucket.PutDomain(context.Background(), opt)
+package main
+
+import (
+    "context"
+    "fmt"
+    "github.com/tencentyun/cos-go-sdk-v5"
+    "net/http"
+    "net/url"
+    "os"
+)
+
+func main() {
+    // 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+    // 替换为用户的 region，存储桶region可以在COS控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
+    u, _ := url.Parse("https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
+    b := &cos.BaseURL{BucketURL: u}
+    client := cos.NewClient(b, &http.Client{
+        Transport: &cos.AuthorizationTransport{
+            // 通过环境变量获取密钥
+            // 环境变量 SECRETID 表示用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+            SecretID: os.Getenv("SECRETID"),
+            // 环境变量 SECRETKEY 表示用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+            SecretKey: os.Getenv("SECRETKEY"),
+        },
+    })
+    opt := &cos.BucketPutDomainOptions{
+        Rules: []cos.BucketDomainRule{
+            {
+                Status:            "ENABLED",
+                Name:              "www.example.com",
+                Type:              "REST",
+                ForcedReplacement: "CNAME",
+            },
+        },
+    }
+    _, err := client.Bucket.PutDomain(context.Background(), opt)
+    if err != nil {
+        fmt.Println(err)
+    }
+}
 ```
 
 #### 参数说明
@@ -89,7 +118,37 @@ func (s *BucketService) GetDomain(ctx context.Context) (*BucketGetDomainResult, 
 
 [//]: # (.cssg-snippet-get-bucket-domain)
 ```go
-v, resp, err := c.Bucket.GetDomain(context.Background())
+package main
+
+import (
+    "context"
+    "fmt"
+    "github.com/tencentyun/cos-go-sdk-v5"
+    "net/http"
+    "net/url"
+    "os"
+)
+
+func main() {
+    // 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+    // 替换为用户的 region，存储桶region可以在COS控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
+    u, _ := url.Parse("https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
+    b := &cos.BaseURL{BucketURL: u}
+    client := cos.NewClient(b, &http.Client{
+        Transport: &cos.AuthorizationTransport{
+            // 通过环境变量获取密钥
+            // 环境变量 SECRETID 表示用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+            SecretID: os.Getenv("SECRETID"),
+            // 环境变量 SECRETKEY 表示用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+            SecretKey: os.Getenv("SECRETKEY"),
+        },
+    })
+    v, _, err := client.Bucket.GetDomain(context.Background())
+    if err != nil {
+        fmt.Println(err)
+    }
+    fmt.Println(v)
+}
 ```
 
 #### 返回结果说明
@@ -121,5 +180,34 @@ func (s *BucketService) DeleteDomain(ctx context.Context) (*Response, error)
 
 [//]: # (.cssg-snippet-delete-bucket-domain)
 ```go
-_, err := c.Bucket.DeleteDomain(context.Background())
+package main
+
+import (
+    "context"
+    "fmt"
+    "github.com/tencentyun/cos-go-sdk-v5"
+    "net/http"
+    "net/url"
+    "os"
+)
+
+func main() {
+    // 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+    // 替换为用户的 region，存储桶region可以在COS控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
+    u, _ := url.Parse("https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
+    b := &cos.BaseURL{BucketURL: u}
+    client := cos.NewClient(b, &http.Client{
+        Transport: &cos.AuthorizationTransport{
+            // 通过环境变量获取密钥
+            // 环境变量 SECRETID 表示用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+            SecretID: os.Getenv("SECRETID"),
+            // 环境变量 SECRETKEY 表示用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+            SecretKey: os.Getenv("SECRETKEY"),
+        },
+    })
+    _, err := client.Bucket.DeleteDomain(context.Background())
+    if err != nil {
+        fmt.Println(err)
+    }
+}
 ```

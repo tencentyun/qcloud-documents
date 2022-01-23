@@ -8,6 +8,6 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中选择 **VPN 连接** > **VPN 网关**，进入管理页。
 3. 在“VPN 网关”页面找到需要删除的 SSL VPN 网关，然后单击操作列的**删除**，并在弹出的对话框中单击**删除**。
->?该 VPN 网关删除后，其关联的所有连接将立即中断，请务必确认后再进行操作。
+>!该 VPN 网关删除后，其关联的所有连接将立即中断，请务必确认后再进行操作。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/cd3f31eb87723fd57f1d8fbab5eb6086.png)

@@ -49,7 +49,7 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 >!
 >- 如果不指定安全组，则 Pod 会默认绑定节点池指定的安全组。请确保安全组的网络策略不影响该 Pod 正常工作，例如，Pod 启用 80 端口提供服务，请放通入方向 80 端口的访问。
 >- 如需分配 CPU 资源，则必须同时填写 `cpu` 和 `mem` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 CPU 规格。另外，可以通过 `cpu-type` 指定分配 intel 或 amd CPU，其中 amd 具备更高的性价比，详情请参考 [产品定价](https://cloud.tencent.com/document/product/457/39806)。 
-
+>- 如需通过 annotation 指定的方式分配 GPU 资源，则必须同时填写`gpu-type` 及 `gpu-count` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 GPU 规格。
 
 <table>
 <thead>
@@ -100,6 +100,11 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 <td>如需 GPU，则此项为必填项。填写时，请确保为支持的 GPU 型号，否则会报错。</td>
 </tr>
 <tr>
+<td>eks.tke.cloud.tencent.com/gpu-count</td>
+<td>Pod 所需的 GPU 数量，请参考 <a href="https://cloud.tencent.com/document/product/457/39808" target="_blank">资源规格</a> 填写，默认单位为卡，无需再次注明。</td>
+<td>否。如填写，请确保为支持的规格。</td>
+</tr>
+<tr>
 <td>eks.tke.cloud.tencent.com/retain-ip</td>
 <td>Pod 固定 IP，value 填写 <code>"true"</code> 开启此特性，开启特性的 Pod ，当 Pod 被销毁后，默认会保留这个 Pod 的 IP 24小时。24小时内 Pod 重建，还能使用该 IP。24小时以后，该 IP 有可能被其他 Pod 抢占。<b>仅对 statefulset、rawpod 生效。</b></td>
 <td>否</td>
@@ -122,11 +127,6 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 <tr>
 <td>eks.tke.cloud.tencent.com/eip-id-list</td>
 <td>如果工作负载为 StatefulSet，也可以使用指定已有 EIP 的方式，可指定多个，如"eip-xx1,eip-xx2"。请注意，StatefulSet pod 的数量必须小于等于此 annotation 中指定 EIP Id 的数量，否则分配不到 EIP 的 pod 会处于 Pending 状态。注意，非带宽上移的账号无法使用。</td>
-<td>否 </td>
-</tr>
-<tr>
-<td>eks.tke.cloud.tencent.com/eip-injection</td>
-<td>值为 "true" 时，表明会在 Pod 内暴露 EIP 的 IP 信息。在 Pod 内使用 ip addr 命令可以查看到 EIP 的地址。注意，非带宽上移的账号无法使用。</td>
 <td>否 </td>
 </tr>
 </tbody></table>

@@ -1,4 +1,4 @@
-VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现外部网络到腾讯云 VPC 的网络的安全访问之前，您必须先创建一个SSL VPN 网关，本文指导您如何在控制台创建  SSL VPN 网关。
+SSL VPN 网关是 VPC 建立 SSL VPN 连接的出口网关 ，主要用于腾讯云 VPC 和客户移动端建立安全可靠的加密网络通信。
 
 ## 前提条件
 已创建 VPC，详情请参考 [创建私有网络](https://cloud.tencent.com/document/product/215/36515)。
@@ -8,7 +8,7 @@ VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现
 2. 在左侧目录中单击 **VPN 连接** > **VPN 网关**，进入管理页。
 3. 在 VPN 网关管理页面，单击**+新建**。
 4. 在弹出的**新建 VPN 网关**对话框中，配置如下网关参数。
-![](https://qcloudimg.tencent-cloud.cn/raw/77e1f97a3415d9b7e20caf363580a2a2.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/23e8ef37978e91f527c3d90815859ba0.png)
 <table>
 <tr>
 <th width="12%">参数名称</th>
@@ -28,7 +28,7 @@ VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现
 </tr>
 <tr>
 <td>SSL 连接数</td>
-<td>SSL 连接数规格有5、10、20、50、100、200、500、1000，请依据实际需求选择。</td>
+<td>连接客户移动端的数量。</td>
 </tr>
 <tr>
 <td>关联网络</td>
@@ -40,8 +40,8 @@ VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现
 </tr>
 <tr>
 <td>带宽上限</td>
-<td>请根据业务实际情况，合理设置 VPN 网关带宽上限。目前仅可设置5Mbps、10Mbps、20Mbps、50Mbps、100Mbps。</td>
+<td>请根据业务实际情况，合理设置 VPN 网关带宽上限。</td>
 </tr>
 </table>
-5. 完成网关参数设置后，单击**创建**启动 VPN 网关的创建，此时**状态**为**创建中**，等待约1～2分钟，创建成功的 VPN 网关状态为**运行中**，系统为 VPN 网关分配一个公网 IP。
-![](https://qcloudimg.tencent-cloud.cn/raw/3802654ba785b089c20622d0b4b26fb4.png)
+5. 完成网关参数设置后，单击**创建**。
+![](https://qcloudimg.tencent-cloud.cn/raw/924af0981d7e15edb7543e2c24c46b94.png)

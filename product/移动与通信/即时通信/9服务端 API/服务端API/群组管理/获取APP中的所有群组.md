@@ -20,7 +20,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=
 | identifier         | 必须为 App 管理员帐号，更多详情请参见 [App 管理员](https://cloud.tencent.com/document/product/269/31999#app-.E7.AE.A1.E7.90.86.E5.91.98)                |
 | usersig            | App 管理员帐号生成的签名，具体操作请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)    |
 | random             | 请输入随机的32位无符号整数，取值范围0 - 4294967295                 |
-
+|contenttype|请求格式固定值为`json`|
 
 ### 最高调用频率
 
@@ -70,7 +70,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=
 |---------|---------|---------|---------|
 | Limit | Integer | 选填| 本次获取的群组 ID 数量的上限，不得超过 10000。如果不填，默认为最大值 10000 |
 | Next | Integer | 选填 | 群太多时分页拉取标志，第一次填0，以后填上一次返回的值，返回的 Next 为0代表拉完了 |
-| GroupType | String | 选填 |如果仅需要返回特定群组形态的群组，可以通过 GroupType 进行过滤，但此时返回的 TotalCount 的含义就变成了 App 中属于该群组形态的群组总数。不填为获取所有类型的群组。<br>群组形态包括 Public（公开群），Private（即 Work，好友工作群），ChatRoom（即 Meeting，会议群），AVChatRoom（音视频聊天室）和BChatRoom（在线成员广播大群）|
+| GroupType | String | 选填 |如果仅需要返回特定群组形态的群组，可以通过 GroupType 进行过滤，但此时返回的 TotalCount 的含义就变成了 App 中属于该群组形态的群组总数。不填为获取所有类型的群组。<br>群组形态包括 Public（公开群），Private（即 Work，好友工作群），ChatRoom（即 Meeting，会议群），AVChatRoom（音视频聊天室），BChatRoom（在线成员广播大群）和社群（Community）|
 
 ### 应答包体示例
 ```

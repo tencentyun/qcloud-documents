@@ -11,7 +11,7 @@
 本节主要说明如何在腾讯云 EMR 上创建开箱即用的 Alluxio 集群。EMR 创建集群提供了购买页创建和 API 创建两种方式。
 
 ### 购买页创建集群
-您需要登录腾讯云 EMR [购买页](https://buy.cloud.tencent.com/emapreduce/)，在购买页选择支持的 Alluxio 发布版本，并且在可选组件列表中勾选 Alluxio 组件。
+您需要登录腾讯云 EMR [购买页](https://buy.cloud.tencent.com/emr)，在购买页选择支持的 Alluxio 发布版本，并且在可选组件列表中勾选 Alluxio 组件。
 ![](https://main.qcloudimg.com/raw/32d5f013d14def8a396951cd751e1352.png)
 其他的选项可根据业务具体业务场景，进行个性化配置，创建过程中的具体选项可参考 [创建 EMR 集群](https://cloud.tencent.com/document/product/589/10981)。
 

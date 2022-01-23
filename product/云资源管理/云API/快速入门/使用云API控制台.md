@@ -1,16 +1,28 @@
 [云 API 控制台](https://console.cloud.tencent.com/api/overview) 提供了用户查看调用产品情况的可视化界面，方便用户了解腾讯云 API 调用次数、错误率、使用 API 调用的产品分布以及错误码分布。同时还提供了 API 库、API Explorer 工具及错误码中心，您可按需选择并开始使用。
->!
->- 云 API 控制台仅展示您使用 API 3.0调用的数据情况（包括 API Explorer、TCCLI 及 SDK 调用），不包括控制台关联的 API 调用。
->- [API 中心](https://cloud.tencent.com/document/api) 具有3.0标识代表该产品具备 API 3.0。
 
-## 查看 API 调用概览
-您可通过云 API 控制台概览页查看以下信息：
-- 可查看1小时、24小时、7天或30天内的 API 调用次数及错误率分布情况。如下图所示：
-![](https://main.qcloudimg.com/raw/a307cad3077309266256051607ee96df.png)
+<dx-alert infotype="notice" title="">
+- 云 API 控制台仅展示您使用 API 3.0调用的数据情况（包括 API Explorer、TCCLI 及 SDK 调用），不包括控制台关联的 API 调用。
+- [API 中心](https://cloud.tencent.com/document/api) 具有3.0标识代表该产品具备 API 3.0。
+</dx-alert>
+
+
+
+## 使用信息中心
+您可通过云 API 控制台信息中心页查看以下信息：
+- 可根据账号、产品、接口及时间段进行筛选，查看对应条件下的 API 调用次数及错误率分布情况。如下图所示：
+若当前账号为主账号，则可选择查看主账号或对应子账号的 API 调用信息。若当前账号为子账号，则仅能查看当前账号的 API 调用信息。
+![](https://qcloudimg.tencent-cloud.cn/raw/5a1e55b2ebb328de6fbaf532eb48210e.png)
 - 可查看 API 产品使用分布，了解具体产品的调用情况。如下图所示：
 ![](https://main.qcloudimg.com/raw/1ebdb6ddfd6822bec849afe9ca26e8ab.png)
 - 可查看错误码分布详情。如下图所示：
 ![](https://main.qcloudimg.com/raw/c2b276d7f58601637498c421d90db4f4.png)
+
+
+<dx-alert infotype="explain" title="">
+若子账号如需查看当前或其他账号下的 API 调用信息，则需主账号进行授权。具体操作请参见 [子账号权限配置](#subaccount)。
+</dx-alert>
+
+
 
 ## 使用 API 库
 您可选择云 API 控制台左侧导航栏中的【API库】，进入产品 API 文档库查看对应文档。也可直接使用腾讯云 API 平台，详情请参见 [使用腾讯云 API 平台](https://cloud.tencent.com/document/product/1278/47394)。如下图所示：
@@ -25,3 +37,37 @@
 ## 使用错误码中心
 您可选择云 API 控制台左侧导航栏中的【错误码】，进入错误码中心快速定位并解决问题。如下图所示：
 ![](https://main.qcloudimg.com/raw/79ddda6aa37c39811b8afa1f8248c965.png)
+
+## 相关操作
+
+### 子账号权限配置[](id:subaccount)
+子账号如需查看当前或其他账号下的 API 调用信息，则需主账号进行授权。步骤如下：
+
+1. 使用主账号登录访问管理控制台，选择左侧导航栏中的 **[策略](https://console.cloud.tencent.com/cam/policy)**。
+2. 在“策略”页面中，选择**新建自定义策略**后，在弹出的“选择创建策略方式”窗口中单击**按策略生成器创建**。
+3. 在“按策略生成器创建”的“编辑策略”步骤中，选择 **JSON** 页签，并输入以下自定义策略：
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "effect": "allow",
+            "action": [
+                "api:*",
+                "cam:ListMaskedSubAccounts"
+            ],
+            "resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+添加完成后如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/400fcd77b0264672a86981021d96b2cd.png)
+4. 单击**下一步**。
+5. 在“关联用户/用户组”步骤中，单击**选择用户**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/c3fac6b55bb5f2203bc78bf75ba3a1ab.png)
+6. 在弹出的“关联用户”窗口中，选择需授权子账号，并单击**确定**。
+7. 单击**完成**即可。
+

@@ -4,7 +4,7 @@
 ## 前提条件
 - 已经部署了网站服务，获取了 COS/API 网关的网站托管地址。具体部署方法参考 [部署 Vue.js+Express.js 全栈应用](https://cloud.tencent.com/document/product/1154/39272) 或 [快速部署 Hexo 博客](https://cloud.tencent.com/document/product/1154/40217)。
 - 已拥有自定义域名（例如 www.example.com），并确保输入的域名已 [备案](https://cloud.tencent.com/product/ba)。
-- 如果需要 HTTPS 访问，可以申请证书并且 [获得证书 ID](https://console.cloud.tencent.com/ssl) （例如：certificateId : axE1bo3），个人站点可以直接申请 [域名型（DV）免费SSL证书](https://cloud.tencent.com/document/product/400/8422)。
+- 如果需要 HTTPS 访问，可以申请证书并且 [获得证书 ID](https://console.cloud.tencent.com/ssl) （例如：certificateId : axE1bo3），个人站点可以直接申请 [域名型（DV）免费 SSL 证书](https://cloud.tencent.com/document/product/400/8422)。
 
 
 
@@ -45,7 +45,7 @@ inputs:
 [查看完整配置项说明 >>](https://github.com/serverless-components/tencent-website/blob/master/docs/configure.md)
 
 ### 部署服务
-再次通过`sls deploy`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息。
+再次通过 `sls deploy` 命令进行部署，并可以添加 `--debug` 参数查看部署过程中的信息。
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 >?`sls` 是 `serverless` 命令的简写。
@@ -83,7 +83,7 @@ inputs:
    environment: release
    customDomains:
      - domain: www.example.com
-       # 如要添加https，需先行在腾讯云-SSL证书进行认证获取cettificateId
+       # 如要添加 https，需先行在腾讯云 - SSL 证书进行认证获取 cettificateId
        certificateId: abcdefg
        protocols:
          - http
@@ -95,9 +95,9 @@ inputs:
          functionName: myFunction # 网关所连接函数名
         
 ```
-[查看完整配置项说明>>](https://github.com/serverless-components/tencent-apigateway/blob/master/docs/configure.md)
+[查看完整配置项说明 >>](https://github.com/serverless-components/tencent-apigateway/blob/master/docs/configure.md)
 ### 部署服务
-再次通过`sls deploy`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息。
+再次通过 `sls deploy` 命令进行部署，并可以添加 `--debug` 参数查看部署过程中的信息。
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 >? `sls` 是 `serverless` 命令的简写。
 

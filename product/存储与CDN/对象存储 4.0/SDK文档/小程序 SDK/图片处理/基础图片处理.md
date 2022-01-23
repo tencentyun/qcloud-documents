@@ -194,7 +194,9 @@ Page({
         Bucket: 'examplebucket-1250000000',
         Region: 'COS_REGION',
         Key: 'exampleobject',
-        QueryString: `imageMogr2/thumbnail/200x/`,
+        Query: {
+          `imageMogr2/thumbnail/200x/`: ''
+        },
         Expires: 1800,
         Sign: true,
       },
@@ -212,7 +214,9 @@ Page({
         Bucket: 'examplebucket-1250000000',
         Region: 'COS_REGION',
         Key: 'exampleobject',
-        QueryString: `imageMogr2/thumbnail/200x/`,
+        Query: {
+          `imageMogr2/thumbnail/200x/`: ''
+        },
         Sign: false,
       },
       (err, data) => {

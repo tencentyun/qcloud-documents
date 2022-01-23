@@ -175,7 +175,7 @@ tls.on(TLS.EVENT.ADD_GOODS, async(data) => {
 
 ### TLS.EVENT.KICKED
 
-账号其它地方登录时触发。
+帐号其它地方登录时触发。
 
 ```javascript
 tls.on(TLS.EVENT.KICKED, async() => {
@@ -415,7 +415,7 @@ TIM  通过 `TIM.create` 创建的对象，可使用 TIM 所有的方法。
 | [TLS.EVENT.MESSAGE](#tls.event.message)               | 有人发送群消息时触发。                                       |
 | [TLS.EVENT.PROFILE_UPDATE](#tls.event.profile_update) | 个人资料发生修改时触发。                                     |
 | [TLS.EVENT.ERROR](#tls.event.error)                   | SDK 发生错误时触发。                                         |
-| [TLS.EVENT.KICKED](#tls.event.kicked)                 | 账号其它地方登录时触发。                                     |
+| [TLS.EVENT.KICKED](#tls.event.kicked)                 | 帐号其它地方登录时触发。                                     |
 | [TLS.EVENT.NETWORK_CHANGE](#tls.event.network_change) | 网络发生改变时触发。                                         |
 | [TLS.EVENT.SDK_NOT_READY](#tls.event.sdk_not_ready)   | SDK 不可用时触发。                                           |
 | [TLS.EVENT.LIKE](#tls.event.like)                     | 有人给主播点赞时触发。                                       |

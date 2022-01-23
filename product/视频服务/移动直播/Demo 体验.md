@@ -14,14 +14,13 @@
 <td>iOS</td>
 <td><a onclick="window.open('https://itunes.apple.com/cn/app/id1132521667?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/423f07ad3f0958f61ff065c04e77afea.png);background-size: cover;margin:auto">
 </div></a></td>
-<td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/iOS/XiaoZhiBoApp">Github</a></td>
+<td><a href="https://github.com/tencentyun/XiaoZhiBo/tree/main/iOS">Github</a></td>
 </tr>
 <tr>
 <td>Android</td>
 <td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/xiaozhibo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/8b235606b3c881da182b2af8d60d90af.png);background-size: cover;margin:auto">
 </div></a></td>
-<td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/Android/XiaoZhiBo">Github</a></td>
-</tr>
+<td><a href="https://github.com/tencentyun/XiaoZhiBo/tree/main/Android">Github</a></td>
 </tr>
 </table>
 
@@ -58,6 +57,8 @@
 </tr>
 </table>
  
+ 
+ 
 **腾讯云工具包 App 展示**
  
 <img width="900" src="https://main.qcloudimg.com/raw/52ee09ae4039d24f39e3cf8110e632c7.jpg"/>
@@ -79,11 +80,10 @@
 </div></td>
 <td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/WXMini">Github</a></td>
 </tr>
-<tr>
 </table>
  
 **腾讯云视频云小程序展示**
-<img width="900" src="https://main.qcloudimg.com/raw/f694497d19b92b71b649ad41da185e5a.png"/>
+<img width="900" src="https://qcloudimg.tencent-cloud.cn/raw/ecb05f6734c39a2c16cf1963f3b83fd5.png"/>
 
 [](id:MLVB_API-Example )
 ## MLVB API-Example 

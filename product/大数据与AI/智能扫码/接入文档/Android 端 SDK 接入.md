@@ -9,22 +9,23 @@
 
 ### Android 端智能扫码 SDK 介绍
 
-SDK文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接口、so 文件、检测与超分模型的资源文件。
+SDK 文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接口、so 文件、检测与超分模型的资源文件。
 
 功能：提供实时识别一维码、二维码和图片内一、二维码检测识别的服务。
 
 
 
 ### 环境依赖
-当前 Android 端智能扫码 SDK 适用于API 19 (Android 4.4) 及以上版本。
+
+当前 Android 端智能扫码 SDK 适用于 API 19 (Android 4.4) 及以上版本。
 
 
 
 ### 接入步骤
 
-1. 将 **QBarCode-v0.1.2.aar** 包添加到您的工程文件中的 **libs** 目录下。
+1. 将 **QBarCode-v0.1.2.aar** 包添加到您的工程文件中的**libs**目录下。
 2. 配置 **build**
-   在您的工程文件中的 **build.gradle** 中进行如下配置：
+在您的工程文件中的 **build.gradle** 中进行如下配置：
 ```groovy
    //使用 aar 时必须要设置
    android {
@@ -47,9 +48,8 @@ SDK文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
        implementation 'commons-io:commons-io:2.6'
    }
 ```
-
 3. 权限申请
-   需要在 AndroidManifest.xml 文件中声明权限
+需要在 AndroidManifest.xml 文件中声明权限
 ```xml
    <!--摄像头使用权限-->
    <uses-feature android:name="android.hardware.camera" />
@@ -59,17 +59,18 @@ SDK文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
    <!--文件存储使用权限-->
    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+   <uses-permission android:name="android.permission.INTERNET"/>
 ```
+
 对于需要兼容 Android 6.0 以上的用户，以上权限除了需要在 AndroidManifest.xml 文件中声明权以外，还需使用代码动态申请权限。
 
 
 
 ### SDK 接口说明
 
-#### SDK 初始化：
+#### sdk 初始化：
 
 用户初始化智能扫码 SDK，SECRET_ID 与 SECRET_KEY 传入云服务后台申请的密钥信息（申请地址：[智能扫码申请](https://console.cloud.tencent.com/ocr/is)）
-
 ```java
    private QBarCodeKit qBarCodeKit;
    
@@ -77,7 +78,7 @@ SDK文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
    qBarCodeKit = QBarCodeKit.getInstance();
    qBarCodeKit.initQBarCodeKit(SECRET_ID, SECRET_KEY, MainActivity2.this, new QBarCodeKit.OnSdkKitInitCallback (){
      @Override
-     public void oonInitResult(String errCode, String errMsg) {
+     public void onInitResult(String errCode, String errMsg) {
        //initAuth 执行时间可能有1-2s，当返回SUCCESS(0) 说明授权成功，再进行后面的操作
        Log.d("onInitResult：", "errCode:" + errCode + " errMsg:" + errMsg);
      }
@@ -86,8 +87,7 @@ SDK文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
 
 #### 摄像头数据实时识别：
 
-扫描 SDK 提供了 ScanCodeDetectView，用来方便您在自定义的 UI 界面里使用智能扫描功能。首先您需要在 UI 界面的布局文件中添加 ScanCodeDetectView：
-
+扫描 SDK 提供了 ScanCodeDetectView，用来方便您在自定义的 UI 界面里使用智能扫描功能。首先您需要在 UI 界面的布局文件中添加ScanCodeDetectView：
 ```xml
 <com.tencent.scanlib.ui.ScanCodeDetectView
    android:id="@+id/scan_view"
@@ -95,9 +95,7 @@ SDK文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
    android:layout_height="match_parent"
    app:show="false"/><!--show 设置false-->
 ```
-
 然后只需要在对应的界面代码中为 ScanCodeDetectView 设置结果回调即可。
-
 ```java
 scanView.setScanCallBack(new QBarSdkCallback() {
   @Override
@@ -109,9 +107,7 @@ scanView.setScanCallBack(new QBarSdkCallback() {
 });
 scanView.onCreate(); // 构建ScanCodeDetectView
 ```
-
 ScanCodeDetectView 的声明周期如下，请在对应的生命周期阶段进行调用。
-
 ```java
 //scanView Life cycle
 scanView.onCreate();
@@ -124,7 +120,6 @@ scanView.onDestroy();
 #### 默认扫描界面识别：
 
 如果您只关注扫码功能不需要支持自定义 UI 界面，可以使用智能扫码 SDK 内自带的默认界面完成扫描操作。
-
 ```java
 qBarCodeKit.startDefaultQBarScan(MainActivity.this, new QBarSdkCallback() {
   @Override
@@ -133,22 +128,30 @@ qBarCodeKit.startDefaultQBarScan(MainActivity.this, new QBarSdkCallback() {
     String charset = result.getTypeName(); // 内容信息字符集
     String typeName = result.getCharset(); // 扫码类型
   }
+  
+  @Override
+  public void onFail(final int errorCode, final String errorMsg) {
+ 		// 智能扫码的错误
+    runOnUiThread(new Runnable() {
+    	@Override
+      public void run() {
+      	Toast.makeText(MainActivity.this, "code: " + errorCode + " msg: " + errorMsg,
+                         Toast.LENGTH_SHORT).show();
+      }
+    });
 });
 ```
 
 #### 传入图片识别：
 
 除了主动扫描以外，智能扫码 SDK 还支持图片识别功能，只需传入需要识别的图像即可：
-
 ```java
 /*
- * bitmap 图片大小建议小于 1M，避免 OOM
+ * bitmap 图片大小建议小于1M，避免OOM
  */
 List<ScanResult> results = qBarCodeKit.decodeImageWithQBar(bitmap, MainActivity.this);
 ```
-
 图片识别功能具体使用范例如下：
-
 ```java
    /*
    * bitmap 获取
@@ -164,7 +167,7 @@ List<ScanResult> results = qBarCodeKit.decodeImageWithQBar(bitmap, MainActivity.
     }
     Bitmap bitmap = BitmapFactory.decodeFile(filePath, decodeOptions);
     /*
-    * bitmap 图片大小建议小于 1M，避免 OOM
+    * bitmap 图片大小建议小于1M，避免OOM
     */
    List<ScanResult> results = qBarCodeKit.decodeImageWithQBar(bitmap, MainActivity.this);
    for (ScanResult result : results) {
@@ -195,6 +198,7 @@ List<ScanResult> results = qBarCodeKit.decodeImageWithQBar(bitmap, MainActivity.
 -keep class com.tencent.scanlib.kit.** {*;}
 -keep class com.tencent.cloud.auth.lib.Jni$AuthResult {*;}
 -keep class com.tencent.scanlib.model.ScanResult {*;}
+-keep class com.tencent.scanlib.model.ScanResultWithDetect {*;}
 
 ```
 

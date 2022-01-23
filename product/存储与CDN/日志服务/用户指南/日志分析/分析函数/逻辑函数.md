@@ -6,7 +6,7 @@
 | ------ | ---------------------------------------- | ------- |
 | AND    | 只有左右运算数都是 TRUE 时，结果才为 TRUE。 | a AND b |
 | OR     | 左右运算数任一个为 TRUE 时，结果为 TRUE。   | a OR b  |
-| NOT    | 右侧运算数为 FALSE 时，结果才为 FALSE。     | NOT a   |
+| NOT    | 右侧运算数为 FALSE 时，结果才为 TRUE。     | NOT a   |
 
 ### 与 NULL 相关的逻辑运算
 a 和 b 分别取值 TRUE，FALSE 和 NULL 时的真值表如下：
