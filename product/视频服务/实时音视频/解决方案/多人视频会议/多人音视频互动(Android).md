@@ -186,17 +186,17 @@ src/main/java/com/tencent/liteav/tuiroom/model
 ```java
 TUILogin.init(this, "sdkAppid", null, new V2TIMSDKListener() {
 
-	@Override
-	public void onKickedOffline() {
+		@Override
+		public void onKickedOffline() {
 
-	}
+		}
 
-	@Override
-	public void onUserSigExpired() {
+		@Override
+		public void onUserSigExpired() {
 
-	}
+		}
 	});
-	TUILogin.login("userId", "userSig", new V2TIMCallback() {
+TUILogin.login("userId", "userSig", new V2TIMCallback() {
 	@Override
 	public void onError(int code, String msg) {
 
@@ -226,8 +226,8 @@ tuiCore.createRoom("roomId", TUIRoomCoreDef.SpeechMode.FREE_SPEECH,
             if (code == 0) {
             // 创建房间成功
             } else {
-            }
-        }
+		}
+	}
 });
 
 ```
@@ -252,8 +252,8 @@ tuiCore.enterRoom("roomId", new TUIRoomCoreCallback.ActionCallback() {
             if (code == 0) {
             // 进入房间成功
             } else {
-            }
-        }
+		}
+	}
 });
 ``` 
 ![](https://qcloudimg.tencent-cloud.cn/raw/bc320a6fbd044ddad021aed0a488c298.png)
