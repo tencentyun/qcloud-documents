@@ -3,7 +3,7 @@
 - 进入房间人员之间进行屏幕分享。
 - 支持发送各种文本消息和自定义消息。
 
-TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [多人音视频房间(Android)](https://cloud.tencent.com/document/product/647/45667)。
+TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [多人音视频互动(Android)](https://cloud.tencent.com/document/product/647/45667)。
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频房间组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 实现聊天室的功能（**IM SDK 使用 Android 版本**）。
 
