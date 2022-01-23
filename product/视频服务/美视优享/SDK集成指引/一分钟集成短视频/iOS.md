@@ -1,6 +1,6 @@
 ## 集成准备[](id:ready)
 
-1. 下载并解压 [Demo 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/UGSV-API-Example.zip)，将 Demo 工程中的 xmagic 模块（bundle，XmagicIconRes 两个文件夹下面的文件，**Record** >**View** 文件夹下面的文件）导入到实际项目工程中。
+1. 下载并解压 [Demo 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/UGSV-API-Example.zip)，将 Demo 工程中的 xmagic 模块（bundle，XmagicIconRes 两个文件夹下面的文件，**Record** > **View** 文件夹下面的文件）导入到实际项目工程中。
 2. 导入 lib 目录中的 `libpag.framework`、`Masonry.framework`、`XMagic.framework` 和 `YTCommonXMagic.framework`。
 3. framework 签名 **General--> Masonry.framework** 和 **libpag.framework** 选 **Embed & Sign**。
 4. 将 Bundle ID 修改成与申请的测试授权一致。
