@@ -184,4 +184,4 @@ WriteResult({ "nRemoved" : 1 })
 ```
 
 ## 更多信息
-更多操作方法，请参见 [MongoDB 官网文档](https://docs.mongodb.com/manual/reference/connection-string/)。
+更多操作方法，请参见 [MongoDB 官网文档](https://docs.mongodb.com/manual/reference/command/)。
