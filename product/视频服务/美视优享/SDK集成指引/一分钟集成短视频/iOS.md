@@ -1,35 +1,39 @@
 ## 集成准备[](id:ready)
 
-1.  下载并解压 [Demo 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/UGSV-API-Example.zip)，将 Demo 工程中的 xmagic 模块（bundle，XmagicIconRes 两个文件夹下面的文件，**Record** > **View** 文件夹下面的文件）导入到实际项目工程中。 
-2.  导入 lib 目录中的 `libpag.framework`，`Masonry.framework`，`XMagic.framework`，`YTCommonXMagic.framework`。
-3.  framework 签名 **General--> Masonry.framework** 和 **libpag.framework** 选 **Embed & Sign**。
-4.  将 Bundle ID 修改成与申请的测试授权一致。 
+1. 下载并解压[Demo 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/UGSV-API-Example.zip)，将 Demo 工程中的 xmagic 模块（bundle，XmagicIconRes 两个文件夹下面的文件，**Record** >**View** 文件夹下面的文件）导入到实际项目工程中。
+2. 导入 lib 目录中的`libpag.framework`，`Masonry.framework`，`XMagic.framework`，`YTCommonXMagic.framework`。
+3. framework 签名**General--> Masonry.framework** 和**libpag.framework** 选**Embed & Sign**。
+4. 将 Bundle ID 修改成与申请的测试授权一致。
 
 ## SDK 接口集成 [](id:step)
-- [步骤一](#step1) 和 [步骤二](#step2) 可参考 Demo 工程中，UGCKitRecordViewController 类 viewDidLoad，buildBeautySDK 方法。
-- [步骤四](#step4) 至 [步骤七](#step7) 可参考 Demo 工程的 UGCKitRecordViewController，BeautyView 类相关实例代码。
+
+- [步骤一](#step1) 和[步骤二](#step2) 可参考 Demo 工程中，UGCKitRecordViewController 类 viewDidLoad，buildBeautySDK 方法。
+- [步骤四](#step4) 至[步骤七](#step7) 可参考 Demo 工程的 UGCKitRecordViewController，BeautyView 类相关实例代码。
 
 ### 步骤一：初始化授权 [](id:step1)
 
 在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，其中 LicenseURL，LicenseKey 为腾讯云官网申请到授权信息，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)：
 
 ```
-[TXUGCBase setLicenceURL:@"LicenseURL" key:@"LicenseKey"];
+[TXUGCBase setLicenceURL:LicenseURL key:LicenseKey];
 ```
+
 授权代码可参考 Demo 中 UGCKitRecordViewController 类 viewDidLoad 中的授权代码：
+
 ```
 NSString *licenseInfo = [TXUGCBase getLicenceInfo];
 NSData *jsonData = [licenseInfo dataUsingEncoding:NSUTF8StringEncoding];
 NSError *err = nil;
 NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
 options:NSJSONReadingMutableContainers error:&err];
-NSString *xmagicLicBase64Str = [dic objectForKey:@"pituLicense"];
+NSString *xmagicLicBase64Str = [dic objectForKey:@"TELicense"];
 
 //初始化 xmagic 授权
 int authRet = [XMagicAuthManager initAuthByString:xmagicLicBase64Str withSecretKey:@""];// withSecretKey 为空字符串, 不需要填写内容
 NSLog(@"xmagic auth ret : %i", authRet);
 NSLog(@"xmagic auth version : %@", [XMagicAuthManager getVersion]);
 ```
+
 ### 步骤二：设置 SDK 素材资源路径 [](id:step2)
 
 ```objectivec
@@ -57,6 +61,7 @@ self.beautyKit = [[XMagic alloc] initWithRenderSize:previewSize assetsDict:asset
 ```
 
 ### 步骤三：添加日志和事件监听[](id:step3)
+
 ```
 // Register log
 [self.beautyKit registerSDKEventListener:self];
@@ -64,22 +69,27 @@ self.beautyKit = [[XMagic alloc] initWithRenderSize:previewSize assetsDict:asset
 ```
 
 ### 步骤四：配置美颜各种效果[](id:step4)
+
 ```
 - (int)configPropertyWithType:(NSString *_Nonnull)propertyType withName:(NSString *_Nonnull)propertyName withData:(NSString*_Nonnull)propertyValue withExtraInfo:(id _Nullable)extraInfo;
 ```
 
 ### 步骤五：进行渲染处理[](id:step5)
 在短视频预处理帧回调接口，构造 YTProcessInput 将 textureId 传入到 SDK 内做渲染处理。
+
 ```
  [self.xMagicKit process:inputCPU withOrigin:YtLightImageOriginTopLeft withOrientation:YtLightCameraRotation0]
 ```
+
 ### 步骤六：暂停/恢复 SDK [](id:step6)
+
 ```
 [self.beautyKit onPause];
 [self.beautyKit onResume];
 ```
 
 ### 步骤七：布局中添加 SDK 美颜面板 [](id:step7)
+
 ```
 UIEdgeInsets gSafeInset;
 #if __IPHONE_11_0 && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
@@ -110,4 +120,3 @@ dispatch_async(dispatch_get_main_queue(), ^{
 		_vBeauty.hidden = YES;
 });
 ```
-

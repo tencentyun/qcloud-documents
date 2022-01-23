@@ -15,7 +15,7 @@
 首先在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，其中 LicenseURL，LicenseKey 为腾讯云官网申请到授权信息，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)：
 
 ```
-[TXLiveBase setLicenceURL:@"LicenseURL" key:@"LicenseKey"];
+[TXLiveBase setLicenceURL:LicenseURL key:LicenseKey];
 ```
 
 授权代码可参考 Demo 中 ThirdBeautyViewController 类 viewDidLoad 中的授权代码：
@@ -26,7 +26,7 @@ NSData *jsonData = [licenseInfo dataUsingEncoding:NSUTF8StringEncoding];
 NSError *err = nil;
 NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
 options:NSJSONReadingMutableContainers error:&err];
-NSString *xmagicLicBase64Str = [dic objectForKey:@"pituLicense"];
+NSString *xmagicLicBase64Str = [dic objectForKey:@"TELicense"];
 //初始化 xmagic 授权
 int authRet = [XMagicAuthManager initAuthByString:xmagicLicBase64Str withSecretKey:@""];// withSecretKey 为空字符串, 不需要填写内容
 NSLog(@"xmagic auth ret : %i", authRet);
