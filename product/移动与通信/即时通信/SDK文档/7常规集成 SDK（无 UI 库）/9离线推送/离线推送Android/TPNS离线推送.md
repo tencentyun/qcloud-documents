@@ -16,7 +16,7 @@
 如果您之前没有在 IM 控制台配置过离线推送信息，请您直接登录到 [TPNS 控制台](https://console.cloud.tencent.com/tpns/product) ，按照下面的步骤配置离线推送信息。
 1. 创建产品：进入 **TPNS 控制台** > **产品管理** > **新增产品**，输入名称和描述等信息。
 >! 服务接入点的选择：
->- 需要接入 Google FCM 支持海外客户，请选择新加坡/香港接入点。
+>- 需要接入 Google FCM 支持海外客户，请选择新加坡/中国香港接入点。
 >- 仅支持国内客户，请选择广州/上海接入点。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/2253167ef7cdb850b22e6f603a68a6aa.png)
@@ -103,7 +103,7 @@
 [](id:step5)
 ### 步骤五：配置 TPNS 推送规则
 
-在 [清单文件 AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml) 中配置 TPNS 推送规则，比如 TPNS 服务接入点、TPNS 推送类等。
+在 [清单文件 AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml) 中配置 TPNS 推送规则，例如 TPNS 服务接入点、TPNS 推送类等。
 
 ```
 <!-- 第一步：配置 TPNS 服务接入点，参照步骤二 TPNS 控制台新建产品时选择的服务接入点。如果需要接入Google FCM支持海外客户，请选择新加坡/香港接入点；如果仅支持国内客户，TPNS 默认的服务接入点为广州，不需要额外配置：
