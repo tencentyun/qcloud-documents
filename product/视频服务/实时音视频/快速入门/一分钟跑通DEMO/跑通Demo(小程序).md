@@ -103,3 +103,6 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 ### 2. 防火墙有什么限制？
 
 由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
+
+## 技术咨询
+了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">941036374</dx-tag-link>
