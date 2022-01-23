@@ -2,7 +2,7 @@
 
 ## 配置离线推送
 
-如想要接收 APNs 离线消息通知，需要遵从如下几个步骤：
+如想要接入 TPNS 推送，请参照 [TPNS 离线推送（推荐)](https://cloud.tencent.com/document/product/269/68721) 接入推送功能。如想要接收 APNs 离线消息通知，需要遵从如下几个步骤：
 
 1. [申请 APNs 证书](#ApplyForCertificate)。
 2. [上传证书到 IM 控制台](#UploadCertificate)。
