@@ -66,7 +66,7 @@ framework 签名可以直接在 General-->Masonry.framework 和 libpag.framework
 2. 在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，触发 license 下载，避免在使用前才临时去下载。其中，LicenseURL 和 LicenseKey是控制台绑定 License 时生成的授权信息。
 
    ```
-   [TESign setKeyUrl:@"LicenseKey" url:@"LicenseURL"];
+   [TESign setKeyUrl:LicenseKey url:LicenseURL];
    ```
    
 3. 然后在真正要使用美颜功能时，再去做鉴权。
