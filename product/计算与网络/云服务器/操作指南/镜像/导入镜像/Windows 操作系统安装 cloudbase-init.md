@@ -2,8 +2,8 @@
 
 本文档以 Windows Server 2012 R2 64位操作系统为例，指导您在 Windows 操作系统上安装 Cloudbase-Init。
 
-<span id="PreparationSoftware"></span>
-## 准备软件
+
+## 准备软件[](id:PreparationSoftware)
 安装 Cloudbase-Init 需准备以下软件：
 
 | 软件名称 | 获取路径 | 说明 |
@@ -17,17 +17,18 @@
 ### 安装 Cloudbase-Init
 
 1. 在操作系统界面，双击打开 Cloudbase-Init 安装包。
-2. 在弹出的安全警告提示框中，单击【运行】，进入 Cloudbase-Init 安装界面。如下图所示：
+2. 在弹出的安全警告提示框中，单击**运行**，进入 Cloudbase-Init 安装界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/3249309f71fccaf73feeaa5bb55301c3.png)
-3. 单击【Next】。
-4. 勾选【I accept the terms in the License Agreement】，连续单击2次【Next】。
-5. 在 “Configuration options” 界面，将 “**Serial port for logging**” 设置为 “**COM1**”，勾选 “Run Cloudbase-Init service as LocalSystem”，并单击【Next】。如下图所示：
+3. 单击 **Next**。
+4. 勾选 “I accept the terms in the License Agreement”，连续单击2次 **Next**。
+5. 在 “Configuration options” 界面，将 “**Serial port for logging**” 设置为 “**COM1**”，勾选 “Run Cloudbase-Init service as LocalSystem”，并单击 **Next**。如下图所示：
 ![](https://main.qcloudimg.com/raw/a772c35958cdf3be511dab58f730e7be.png)
-6. 单击【Install】，安装 Cloudbase-Init。
-7. 待 Cloudbase-Init 完成安装后，单击【Finish】，关闭 Cloudbase-Init 安装界面。如下图所示：
->! 关闭 Cloudbase-Init 安装界面时，请勿勾选任何复选框，不要运行 Sysprep。
->
-![](https://main.qcloudimg.com/raw/9cb4414c157c535e0f102f6088187a29.png)
+6. 单击 **Install**，安装 Cloudbase-Init。
+7. 待 Cloudbase-Init 完成安装后，单击 **Finish**，关闭 Cloudbase-Init 安装界面。如下图所示：
+<dx-alert infotype="notice" title="">
+关闭 Cloudbase-Init 安装界面时，请勿勾选任何复选框，不要运行 Sysprep。
+</dx-alert>
+<img src="https://main.qcloudimg.com/raw/9cb4414c157c535e0f102f6088187a29.png"/>
 
 ### 修改 cloudbase-init 配置文件 
 
@@ -44,26 +45,43 @@ config_drive_cdrom=true
 config_drive_vfat=true
 bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe
 mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\
-metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService
+
+san_policy=OnlineAll
+
+metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService,cloudbaseinit.metadata.services.ec2service.EC2Service
+#,cloudbaseinit.metadata.services.httpservice.HttpService
+#,cloudbaseinit.metadata.services.maasservice.MaaSHttpService
+
+metadata_base_url=http://169.254.0.23/
+ec2_metadata_base_url=http://169.254.0.23/
+
+retry_count=2
+retry_count_interval=5
+
 plugins=cloudbaseinit.plugins.windows.extendvolumes.ExtendVolumesPlugin,cloudbaseinit.plugins.common.networkconfig.NetworkConfigPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,cloudbaseinit.plugins.common.setuserpassword.SetUserPasswordPlugin,cloudbaseinit.plugins.common.localscripts.LocalScriptsPlugin,cloudbaseinit.plugins.common.userdata.UserDataPlugin
 verbose=true
 debug=true
 logdir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\
 logfile=cloudbase-init.log
 default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN
-logging_serial_port_settings=COM1,115200,N,8
+#logging_serial_port_settings=COM1,115200,N,8
 mtu_use_dhcp_config=true
 ntp_use_dhcp_config=true
 first_logon_behaviour=no
 netbios_host_name_compatibility=false
-allow_reboot=false
+allow_reboot=true
 activate_windows=true
 kms_host="kms.tencentyun.com"
 local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
+
+C:\powershell
+PS C:\Set-ExecutionPolicy Unrestricted
+
+volumes_to_extend=1,2
 ```
 3. 将 `TencentCloudRun.ps1` 脚本拷贝到 `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts` 路径下。
-4. 右键单击 `TencentCloudRun.ps1` 脚本，选择【属性】，并在弹出窗口中查看脚本是否具备可执行权限。如下图所示：
+4. 右键单击 `TencentCloudRun.ps1` 脚本，选择**属性**，并在弹出窗口中查看脚本是否具备可执行权限。如下图所示：
 ![](https://main.qcloudimg.com/raw/3a3a31fc4d0dbd58cacb9211f7a97e79.png)
- - 如存在 Unblock 选项，则需勾选 Unblock，并单击【OK】退出。 
+ - 如存在 Unblock 选项，则需勾选 Unblock，并单击 **OK** 退出。 
  - 如不存在 Unblock 选项，则请跳过本步骤。
 5. 将 `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\Python\Lib\site-packages\cloudbaseinit\plugins\common` 路径下的 `localscripts.py` 替换为 [准备软件](#PreparationSoftware) 中的  `localscripts.py` 文件。
