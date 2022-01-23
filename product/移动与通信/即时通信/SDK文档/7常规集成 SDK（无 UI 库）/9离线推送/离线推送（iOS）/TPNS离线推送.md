@@ -2,7 +2,7 @@
 
 >!
 >- 接入 TPNS 需升级 IMSDK 至 [6.0.1975 及以上版本](https://cloud.tencent.com/document/product/269/36887)。
->- 如果 IMSDK 版本是 6.0.1975 以前且没有接入 TPNS 的客户，请参照 [APNS 离线推送](https://cloud.tencent.com/document/product/269/44516) 接入推送功能。
+>- 如果 IMSDK 版本是 6.0.1975 以前且没有接入 TPNS 的客户，请参照 [APNS 离线推送](https://cloud.tencent.com/document/product/269/44517) 接入推送功能。
 ## 接入 TPNS 推送跑通离线推送功能
 
 [](id:step1)

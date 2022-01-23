@@ -1,4 +1,4 @@
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验多人视频会议的效果，包括屏幕分享、美颜、低延时会议等 TRTC 在多人视频会议场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验多人音视频互动的效果，包括屏幕分享、美颜、低延时会议等 TRTC 在多人音视频互动场景下的相关能力。
 
 [](id:DemoUI)
 ## 复用 App 的 UI 界面
