@@ -12,7 +12,7 @@
 
 ### 步骤一：初始化授权 [](id:step1)
 
-在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，其中LicenseURL，LicenseKey为腾讯云官网申请到授权信息，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)：
+在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，其中 LicenseURL，LicenseKey 为腾讯云官网申请到授权信息，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)：
 
 ```objectivec
 [TXLiveBase setLicenceURL:LicenseURL key:LicenseKey];
@@ -71,8 +71,8 @@ self.beautyKit = [[XMagic alloc] initWithRenderSize:previewSize assetsDict:asset
 - (int)configPropertyWithType:(NSString *_Nonnull)propertyType withName:(NSString *_Nonnull)propertyName withData:(NSString*_Nonnull)propertyValue withExtraInfo:(id _Nullable)extraInfo;
 ```
 
-### 步骤五：在视频帧回调接口，构造YTProcessInput传入到 SDK 内做渲染处理，参考ThirdBeautyViewController[](id:step5)
-
+### 步骤五：进行渲染处理[](id:step5)
+在视频帧回调接口，构造 YTProcessInput 传入到 SDK 内做渲染处理，可参考 Demo 中的 ThirdBeautyViewController。
 ```objectivec
  [self.xMagicKit process:inputCPU withOrigin:YtLightImageOriginTopLeft withOrientation:YtLightCameraRotation0]
 ```

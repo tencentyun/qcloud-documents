@@ -5,11 +5,11 @@
 ## 相关示例
 ### SDK 实例化
 ```
-	import { WXAppletClient }  from 'ciam-miniapp-sdk';
+import { WXAppletClient }  from 'ciam-miniapp-sdk';
 const authSDK = new WXAppletClient({
-      clientId: 'YTFiNjEzM2FiNTJiNDJmNjhlZTIzNzM3MDkzMThjMjE',
-      authSourceId: 'f1d2116d-f124-42ad-8a04-5704c2f148f3',
-      userDomain: 'https://shingao.demo.tencentciam.com',
+      clientId: 'your-clientId',
+      authSourceId: 'your-authSourceId',
+      userDomain: 'your-userDomain',
 	       agreements: [
         {
             "name": "用户协议|隐私协议|附加协议|...", // 必传
@@ -116,7 +116,10 @@ async bindLoginBySlience() {
 ```
 
 ### 用户手机号授权登录 loginPhone
->!该方法需要页面产生点击事件（例如：button 上 bindtap 的回调中）后才可调用。详情参见：[获取手机号](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/getPhoneNumber.html)。
+>!
+>- 该方法需要页面产生点击事件（例如：button 上 bindtap 的回调中）后才可调用。详情参见：[获取手机号](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/getPhoneNumber.html)。
+>- 该方法已更新为官方最新版本的获取手机号接口，开发时请检查开发者工具是否更新以及小程序基础库版本是否在2.21.2以上，暂不支持旧版本调用。
+>- 官方文档详情参见：[获取手机号](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/getPhoneNumber.html)。
 >
 ```
 	async bindLoginByPhone(e) {
