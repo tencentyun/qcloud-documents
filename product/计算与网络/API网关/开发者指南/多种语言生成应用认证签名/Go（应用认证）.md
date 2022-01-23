@@ -20,232 +20,420 @@ API 网关提供 JSON 请求方式和 form 请求方式的示例代码，请您�
 - 应用生成签名过程请您参考 [应用认证方式](https://cloud.tencent.com/document/product/628/55088)。
 
 ## 示例代码[](id:示例代码)
+
 ### JSON 请求方式示例代码
-<dx-codeblock>
-:::  golang
+
+```go
 package main
 
 import (
-	"crypto/hmac"
-	"crypto/md5"
-	"crypto/sha1"
-	"encoding/base64"
-	"encoding/hex"
-	"fmt"
-	"io/ioutil"
-	"log"
-	"net/http"
-	"net/url"
-	"strings"
-	"time"
-)
-
-func main() {
-	/* 环境名(发布环境可以不需要在请求的 Path 中加上环境信息)：
-	   发布： /release 或 ""
-	   测试： /test
-	   预发布：/prepub
-	*/
-	const environment = ""
-	const Url = "http://service-xxxxxxxx-1234567890.hk.apigw.tencentcs.com/app"
-	// 应用 ApiAppKey
-	const ApiAppKey = "Your ApiAppKey"
-	//应用 ApiAppSecret
-	const ApiAppSecret = "Your ApiAppSecret"
-
-	const GmtFormat = "Mon, 02 Jan 2006 15:04:05 GMT"
-	const HTTPMethod = "POST"
-	const Accept = "application/json"
-	const ContentType = "application/json"
-
-	// 根据 Url 解析 Host 和 Path
-	u, err := url.Parse(Url)
-	if err != nil {
-		log.Fatal(err)
-	}
-	Host := u.Hostname()
-	Path := u.Path
-	if environment != "" {
-		Path = strings.TrimPrefix(Path, environment)
-	}
-
-	// 获取当前 UTC
-	xDate := time.Now().UTC().Format(GmtFormat)
-
-	bodyStr := `{"arg1":"a","arg2":"b"}`
-
-	h := md5.New()
-	h.Write([]byte(bodyStr))
-	md5Str := hex.EncodeToString(h.Sum(nil))
-	ContentMD5 := base64.StdEncoding.EncodeToString([]byte(md5Str))
-
-	// 构造签名
-	signingStr := fmt.Sprintf("x-date: %s\n%s\n%s\n%s\n%s\n%s", xDate, HTTPMethod, Accept, ContentType,
-		ContentMD5, Path)
-	mac := hmac.New(sha1.New, []byte(ApiAppSecret))
-
-	_, err = mac.Write([]byte(signingStr))
-	if err != nil {
-		log.Fatal(err)
-	}
-	signature := base64.StdEncoding.EncodeToString(mac.Sum(nil))
-	sign := fmt.Sprintf("hmac id=\"%s\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\"%s\"",
-		ApiAppKey, signature)
-
-	// 构造请求
-	headers := map[string]string{
-		"Host":          Host,
-		"Accept":        Accept,
-		"Content-Type":  ContentType,
-		"x-date":        xDate,
-		"Authorization": sign,
-	}
-
-	// 发送请求
-	req, err := http.NewRequest(HTTPMethod, Url, strings.NewReader(bodyStr))
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	for k, v := range headers {
-		req.Header.Add(k, v)
-	}
-
-	res, err := http.DefaultClient.Do(req)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer res.Body.Close()
-
-	resBody, _ := ioutil.ReadAll(res.Body)
-
-	fmt.Println(string(resBody))
-
-}
-:::
-</dx-codeblock>
-
-### form 请求方式示例代码
-<dx-codeblock>
-:::  golang
-package main
-
-import (
-	"crypto/hmac"
-	"crypto/sha1"
-	"encoding/base64"
-	"fmt"
-	"io/ioutil"
-	"log"
-	"net/http"
+    "crypto/hmac"
+    "crypto/md5"
+    "crypto/sha1"
+    "encoding/base64"
+    "encoding/hex"
+    "fmt"
+    "io/ioutil"
+    "log"
+    "net/http"
 	"net/url"
 	"sort"
-	"strings"
-	"time"
+    "strings"
+    "time"
 )
 
 func main() {
-	/* 环境名(发布环境可以不需要在请求的 Path 中加上环境信息)：
-		发布： /release 或 ""
-		测试： /test
-		预发布：/prepub
-	*/
-	const environment	= ""
-	const Url			= "http://service-xxxxxxxx-1234567890.hk.apigw.tencentcs.com/app"
-	// 应用 ApiAppKey
-	const ApiAppKey 	= "Your ApiAppKey"
-	//应用 ApiAppSecret
-	const ApiAppSecret 	= "Your ApiAppSecret"
+    // 应用 ApiAppKey
+    const ApiAppKey = "Your ApiAppKey"
+    //应用 ApiAppSecret
+	const ApiAppSecret = "Your ApiAppSecret"
+	
+    const Url = "http://service-xxx-xxx.gz.apigw.tencentcs.com/"
 
+    const GmtFormat = "Mon, 02 Jan 2006 15:04:05 GMT"
+    const HTTPMethod = "GET"
+    const Accept = "application/json"
+    const ContentType = "application/json"
 
-const GmtFormat 	= "Mon, 02 Jan 2006 15:04:05 GMT"
-const HTTPMethod 	= "POST"
-const Accept 		= "application/json"
-const ContentType 	= "application/x-www-form-urlencoded"
-const ContentMD5 	= ""
+    // 根据 Url 解析 Host 和 Path
+    u, err := url.Parse(Url)
+    if err != nil {
+        log.Fatal(err)
+    }
+    Host := u.Hostname()
+	Path := u.Path
+	Query := u.RawQuery
+	
+	// 签名path不带环境信息
+	if strings.HasPrefix(Path, "/release") {
+		Path = strings.TrimPrefix(Path, "/release")
+	}else if strings.HasPrefix(Path, "/test") {
+		Path = strings.TrimPrefix(Path, "/test")
+	}else if strings.HasPrefix(Path, "/prepub") {
+		Path = strings.TrimPrefix(Path, "/prepub")
+	}
+	
+	if Path == "" {
+		Path = "/"
+	}
 
-// 根据 Url 解析 Host 和 Path
-u, err := url.Parse(Url)
-if err != nil {
-	log.Fatal(err)
+	// 拼接query参数，query参数需要按字典序排序
+	if len(Query) > 0 {
+		args, _ := url.ParseQuery(Query)
+
+		var keys []string
+		for k := range args {
+			keys = append(keys, k)
+		}
+		sort.Strings(keys)
+
+		sortQuery := ""
+		for _, k := range keys {
+			if args[k][0] != "" {
+				sortQuery = sortQuery + "&" + k + "=" + args[k][0]
+			} else {
+				sortQuery = sortQuery + "&" + k 
+			}
+		}
+		sortQuery = strings.TrimPrefix(sortQuery, "&")
+		
+    	Path = Path + "?" + sortQuery
+	}
+
+    // 获取当前 UTC
+    xDate := time.Now().UTC().Format(GmtFormat)
+	ContentMD5 := ""
+	bodyStr := `{"arg1":"a","arg2":"b"}`
+	if HTTPMethod == "POST" {
+		h := md5.New()
+		h.Write([]byte(bodyStr))
+		md5Str := hex.EncodeToString(h.Sum(nil))
+		ContentMD5 = base64.StdEncoding.EncodeToString([]byte(md5Str))
+	}
+
+    // 构造签名
+    signingStr := fmt.Sprintf("x-date: %s\n%s\n%s\n%s\n%s\n%s", xDate, HTTPMethod, Accept, ContentType,
+        ContentMD5, Path)
+    mac := hmac.New(sha1.New, []byte(ApiAppSecret))
+
+    _, err = mac.Write([]byte(signingStr))
+    if err != nil {
+        log.Fatal(err)
+    }
+    signature := base64.StdEncoding.EncodeToString(mac.Sum(nil))
+    sign := fmt.Sprintf("hmac id=\"%s\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\"%s\"",
+        ApiAppKey, signature)
+
+    // 构造请求
+    headers := map[string]string{
+        "Host":          Host,
+        "Accept":        Accept,
+        "Content-Type":  ContentType,
+        "x-date":        xDate,
+        "Authorization": sign,
+    }
+
+    // 发送请求
+    req, err := http.NewRequest(HTTPMethod, Url, strings.NewReader(bodyStr))
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    for k, v := range headers {
+        req.Header.Add(k, v)
+    }
+
+    res, err := http.DefaultClient.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer res.Body.Close()
+
+    resBody, _ := ioutil.ReadAll(res.Body)
+
+    fmt.Println(string(resBody))
 }
-Host				:= u.Hostname()
-Path				:= u.Path
-if environment != "" {
-	Path = strings.TrimPrefix(Path, environment)
+```
+
+### form 请求方式示例代码
+
+```go
+package main
+
+import (
+    "crypto/hmac"
+    "crypto/sha1"
+    "encoding/base64"
+    "fmt"
+    "io/ioutil"
+    "log"
+    "net/http"
+    "net/url"
+    "sort"
+    "strings"
+    "time"
+)
+
+func main() {
+    // 应用 ApiAppKey
+    const ApiAppKey = "Your ApiAppKey"
+    //应用 ApiAppSecret
+	const ApiAppSecret = "Your ApiAppSecret"
+	
+    const Url = "http://service-xxx-xxx.gz.apigw.tencentcs.com/"
+
+    const GmtFormat = "Mon, 02 Jan 2006 15:04:05 GMT"
+    const HTTPMethod = "POST"
+    const Accept = "application/json"
+    const ContentType = "application/x-www-form-urlencoded"
+
+    // 根据 Url 解析 Host 和 Path
+    u, err := url.Parse(Url)
+    if err != nil {
+        log.Fatal(err)
+    }
+    Host := u.Hostname()
+	Path := u.Path
+    Query := u.RawQuery
+	
+	// 签名path不带环境信息
+	if strings.HasPrefix(Path, "/release") {
+		Path = strings.TrimPrefix(Path, "/release")
+	}else if strings.HasPrefix(Path, "/test") {
+		Path = strings.TrimPrefix(Path, "/test")
+	}else if strings.HasPrefix(Path, "/prepub") {
+		Path = strings.TrimPrefix(Path, "/prepub")
+	}
+	
+	if Path == "" {
+		Path = "/"
+	}
+
+	// 拼接query参数，query参数需要按字典序排序，demo假设已经排序，请自行实现排序
+	if len(Query) > 0 {
+    	Path = Path + "?" + Query
+	}
+
+    // 获取当前 UTC
+    xDate := time.Now().UTC().Format(GmtFormat)
+    ContentMD5 := ""
+    
+    // 请求 Body form数据
+	body := map[string]string{
+        "arg1": "a",
+        "arg2": "b",
+    }
+    var bodyKeys []string
+    for k := range body {
+        bodyKeys = append(bodyKeys, k)
+    }
+    
+    var bodyBuilder strings.Builder
+    sort.Strings(bodyKeys)
+    for _, k := range bodyKeys {
+        bodyBuilder.WriteString(fmt.Sprintf("%s=%s&", k, body[k]))
+    }
+    bodyStr := bodyBuilder.String()
+    // 去掉最后一个&
+    bodyStr = bodyStr[:len(bodyStr) - 1]
+
+    // 构造签名
+    signingStr := fmt.Sprintf("x-date: %s\n%s\n%s\n%s\n%s\n%s?%s", xDate, HTTPMethod, Accept, ContentType,
+        ContentMD5, Path, bodyStr)
+    mac := hmac.New(sha1.New, []byte(ApiAppSecret))
+
+    _, err = mac.Write([]byte(signingStr))
+    if err != nil {
+        log.Fatal(err)
+    }
+    signature := base64.StdEncoding.EncodeToString(mac.Sum(nil))
+    sign := fmt.Sprintf("hmac id=\"%s\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\"%s\"",
+        ApiAppKey, signature)
+
+    // 构造请求
+    headers := map[string]string{
+        "Host":          Host,
+        "Accept":        Accept,
+        "Content-Type":  ContentType,
+        "x-date":        xDate,
+        "Authorization": sign,
+    }
+
+    // 发送请求
+    req, err := http.NewRequest(HTTPMethod, Url, strings.NewReader(bodyStr))
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    for k, v := range headers {
+        req.Header.Add(k, v)
+    }
+
+    res, err := http.DefaultClient.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer res.Body.Close()
+
+    resBody, _ := ioutil.ReadAll(res.Body)
+
+    fmt.Println(string(resBody))
+}
+```
+
+
+
+### 国密 hmac_sm3 算法代码示例
+
+[点击下载>>](https://bruceppeng-1300555551.cos.ap-nanjing.myqcloud.com/%E5%9B%BD%E5%AF%86hmac_sm3%E7%AE%97%E6%B3%95.zip) 完整项目示例
+
+```go
+package main
+
+import (
+    "crypto/md5"
+    "encoding/base64"
+    "encoding/hex"
+    "fmt"
+    "io/ioutil"
+    "log"
+    "net/http"
+	"net/url"
+	"sort"
+    "strings"
+    "time"
+    "unsafe"
+)
+
+/*
+#cgo CFLAGS: -I./
+#cgo LDFLAGS: -L./ -lTencentSM
+#include "sm.h" //非标准c头文件，所以用引号
+*/
+import "C"
+
+
+func mySM3_HMAC(data []byte, dataLen int, key []byte, keyLen int, mac []byte, macLen int) int {
+    if data == nil || key == nil || mac == nil || len(mac) != macLen {
+		panic("invalid parameter")
+	}
+	return int(C.SM3_HMAC((*C.uchar)(unsafe.Pointer(&data[0])), (C.size_t)(dataLen),
+		(*C.uchar)(unsafe.Pointer(&key[0])), (C.size_t)(keyLen), (*C.uchar)(unsafe.Pointer(&mac[0]))))
 }
 
-// 获取当前 UTC
-xDate				:= time.Now().UTC().Format(GmtFormat)
+func main() {
+    // 应用 ApiAppKey
+    const ApiAppKey = "Your ApiAppKey"
+    //应用 ApiAppSecret
+	const ApiAppSecret = "Your ApiAppSecret"
+	
+    const Url = "http://service-xxx-xxx.gz.apigw.tencentcs.com/a?c=1&b=3"
 
-// 请求 Body
-body			 	:= map[string]string{
-	"arg1": "a",
-	"arg2": "b",
+    const GmtFormat = "Mon, 02 Jan 2006 15:04:05 GMT"
+    const HTTPMethod = "GET"
+    const Accept = "application/json"
+    const ContentType = "application/json"
+
+    // 根据 Url 解析 Host 和 Path
+    u, err := url.Parse(Url)
+    if err != nil {
+        log.Fatal(err)
+    }
+    Host := u.Hostname()
+	Path := u.Path
+	Query := u.RawQuery
+	
+	// 签名path不带环境信息
+	if strings.HasPrefix(Path, "/release") {
+		Path = strings.TrimPrefix(Path, "/release")
+	}else if strings.HasPrefix(Path, "/test") {
+		Path = strings.TrimPrefix(Path, "/test")
+	}else if strings.HasPrefix(Path, "/prepub") {
+		Path = strings.TrimPrefix(Path, "/prepub")
+	}
+	
+	if Path == "" {
+		Path = "/"
+	}
+
+	// 拼接query参数，query参数需要按字典序排序
+	if len(Query) > 0 {
+		args, _ := url.ParseQuery(Query)
+
+		var keys []string
+		for k := range args {
+			keys = append(keys, k)
+		}
+		sort.Strings(keys)
+
+		sortQuery := ""
+		for _, k := range keys {
+			if args[k][0] != "" {
+				sortQuery = sortQuery + "&" + k + "=" + args[k][0]
+			} else {
+				sortQuery = sortQuery + "&" + k 
+			}
+		}
+		sortQuery = strings.TrimPrefix(sortQuery, "&")
+		
+    	Path = Path + "?" + sortQuery
+	}
+
+    // 获取当前 UTC
+    xDate := time.Now().UTC().Format(GmtFormat)
+	ContentMD5 := ""
+	bodyStr := `{"arg1":"a","arg2":"b"}`
+	if HTTPMethod == "POST" {
+		h := md5.New()
+		h.Write([]byte(bodyStr))
+		md5Str := hex.EncodeToString(h.Sum(nil))
+		ContentMD5 = base64.StdEncoding.EncodeToString([]byte(md5Str))
+	}
+
+    // 构造签名
+    signingStr := fmt.Sprintf("x-date: %s\n%s\n%s\n%s\n%s\n%s", xDate, HTTPMethod, Accept, ContentType,
+        ContentMD5, Path)
+
+    data := []byte(signingStr)
+    key := []byte(ApiAppSecret)
+    var out [32]byte
+
+    mySM3_HMAC(data[:], len(data), key[:], len(key), out[:], len(out))
+    signature := base64.StdEncoding.EncodeToString(out[:])
+    
+    sign := fmt.Sprintf("hmac id=\"%s\", algorithm=\"hmac-sm3\", headers=\"x-date\", signature=\"%s\"",
+        ApiAppKey, signature)
+
+    // 构造请求
+    headers := map[string]string{
+        "Host":          Host,
+        "Accept":        Accept,
+        "Content-Type":  ContentType,
+        "x-date":        xDate,
+        "Authorization": sign,
+    }
+
+    // 发送请求
+    req, err := http.NewRequest(HTTPMethod, Url, strings.NewReader(bodyStr))
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    for k, v := range headers {
+        req.Header.Add(k, v)
+    }
+
+    res, err := http.DefaultClient.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer res.Body.Close()
+
+    resBody, _ := ioutil.ReadAll(res.Body)
+
+    fmt.Println(string(resBody))
 }
-var bodyKeys []string
-for k := range body {
-	bodyKeys = append(bodyKeys, k)
-}
-
-var bodyBuilder strings.Builder
-sort.Strings(bodyKeys)
-for _, k := range bodyKeys {
-	bodyBuilder.WriteString(fmt.Sprintf("%s=%s&", k, body[k]))
-}
-bodyStr := bodyBuilder.String()
-// 去掉最后一个&
-bodyStr = bodyStr[:len(bodyStr) - 1]
+```
 
 
-// 构造签名
-signingStr := fmt.Sprintf("x-date: %s\n%s\n%s\n%s\n%s\n%s?%s", xDate, HTTPMethod, Accept, ContentType,
-	ContentMD5, Path, bodyStr)
-mac := hmac.New(sha1.New, []byte(ApiAppSecret))
 
-_, err	= mac.Write([]byte(signingStr))
-if err != nil {
-	log.Fatal(err)
-}
-signature := base64.StdEncoding.EncodeToString(mac.Sum(nil))
-sign := fmt.Sprintf("hmac id=\"%s\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\"%s\"",
-	ApiAppKey, signature)
-
-
-// 构造请求
-headers := map[string]string{
-	"Host": Host,
-	"Accept": Accept,
-	"Content-Type": ContentType,
-	"x-date": xDate,
-	"Authorization": sign,
-}
-bodyValues := url.Values{}
-for k, v := range body {
-	bodyValues.Add(k, v)
-}
-
-
-// 发送请求
-req, err := http.NewRequest(HTTPMethod, Url, strings.NewReader(bodyValues.Encode()))
-if err != nil {
-	log.Fatal(err)
-}
-
-for k, v := range headers {
-	req.Header.Add(k, v)
-}
-
-res, err := http.DefaultClient.Do(req)
-if err != nil {
-	log.Fatal(err)
-}
-defer res.Body.Close()
-
-resBody, _ := ioutil.ReadAll(res.Body)
-
-fmt.Println(string(resBody))
-
-}
-:::
-</dx-codeblock>
