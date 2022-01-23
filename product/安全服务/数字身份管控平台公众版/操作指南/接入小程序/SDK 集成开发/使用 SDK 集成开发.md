@@ -5,11 +5,11 @@
 ## 相关示例
 ### SDK 实例化
 ```
-	import { WXAppletClient }  from 'ciam-miniapp-sdk';
+import { WXAppletClient }  from 'ciam-miniapp-sdk';
 const authSDK = new WXAppletClient({
-      clientId: 'YTFiNjEzM2FiNTJiNDJmNjhlZTIzNzM3MDkzMThjMjE',
-      authSourceId: 'f1d2116d-f124-42ad-8a04-5704c2f148f3',
-      userDomain: 'https://shingao.demo.tencentciam.com',
+      clientId: 'your-clientId',
+      authSourceId: 'your-authSourceId',
+      userDomain: 'your-userDomain',
 	       agreements: [
         {
             "name": "用户协议|隐私协议|附加协议|...", // 必传
