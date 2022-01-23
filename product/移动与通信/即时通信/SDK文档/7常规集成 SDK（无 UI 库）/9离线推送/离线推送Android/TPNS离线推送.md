@@ -65,7 +65,7 @@
 [](id:step3)
 ### 步骤三：TPNS 工程配置
 在**配置管理**页面中， 单击**快速接入**。
-- 参照快速接入第 1 步指引，下载 tpns-configs.json 文件，并将其添加到您的 Android Studio 工程里。
+- 参照快速接入第 1 步指引，下载 `tpns-configs.json` 文件，并将其添加到您的 Android Studio 工程里。
 ![](https://qcloudimg.tencent-cloud.cn/raw/18e22286a9c159b75e7ac31dfefd3220.png)
 - 参照快速接入第 2 步指引，添加工程配置，分别修改项目和应用的 gradle 配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/12a5120ec10eeec69035f229db7c6f0c.png)
@@ -352,7 +352,7 @@ String msgID = V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, isGrou
 [](id:step8)
 ### 步骤八：解析离线推送消息
 
-当手机收到离线推送消息时，会在系统通知栏里展示收到的推送消息。单击通知栏的消息时，会自动跳转到您在步骤四配置的界面，您可以在该界面通过调用 getIntent().getData() 获取您在步骤七中配置的离线推送参数。示例代码可以参考 TUIKitDemo 的 [handleOfflinePush()](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/main/MainActivity.java) 方法。
+当手机收到离线推送消息时，会在系统通知栏里展示收到的推送消息。单击通知栏的消息时，会自动跳转到您在步骤四配置的界面，您可以在该界面通过调用 getIntent().getData() 获取您在 [步骤七](#step7) 中配置的离线推送参数。示例代码可以参考 TUIKitDemo 的 [handleOfflinePush()](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/main/MainActivity.java) 方法。
 
 
 ```
