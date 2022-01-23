@@ -1,4 +1,4 @@
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验多人视频会议的效果，包括屏幕分享、美颜、低延时会议等腾讯云视立方音视频通话 TRTC 在多人视频会议场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验多人音视频互动的效果，包括屏幕分享、美颜、低延时会议等 TRTC 在多人音视频互动场景下的相关能力。
 
 ## 版本支持
 本页文档所描述功能，在腾讯云视立方中支持情况如下：
@@ -10,14 +10,16 @@
 
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
+
+
 [](id:DemoUI)
 ## 复用 App 的 UI 界面
 [](id:ui.step1)
 ### 步骤1：创建新的应用
 
-1. 登录实时音视频控制台，选择**开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
-2. 输入应用名称，例如 `TestMeetingRoom`，单击**创建**。
-3. 单击**已下载，下一步**，跳过此步骤。
+1. 登录实时音视频控制台，选择 **开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+2. 输入应用名称，例如 `TestMeetingRoom`，单击 **创建**。
+3. 单击 **已下载，下一步** ，跳过此步骤。
 
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
@@ -35,12 +37,12 @@
 2. 找到并打开 `/lib/debug/GenerateTestUserSig.dart` 文件。
 3. 设置 `GenerateTestUserSig.dart` 文件中的相关参数：
 <ul style="margin:0">
-    <li>SDKAPPID：默认为 PLACEHOLDER，请设置为实际的 SDKAppID。</li>
-    <li>SECRETKEY：默认为 PLACEHOLDER，请设置为实际的密钥信息。</li>
+    <li>SDKAPPID：默认为PLACEHOLDER，请设置为实际的 SDKAppID。</li>
+    <li>SECRETKEY：默认为PLACEHOLDER，请设置为实际的密钥信息。</li>
 </ul>
 <img src="https://main.qcloudimg.com/raw/fba60aa9a44a94455fe31b809433cfa4.png">
-4. 粘贴完成后，单击**已复制粘贴，下一步**即创建成功。
-5. 编译完成后，单击**回到控制台概览**即可。
+4. 粘贴完成后，单击 **已复制粘贴，下一步** 即创建成功。
+5. 编译完成后，单击 **回到控制台概览** 即可。
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
@@ -60,7 +62,7 @@
 :::
 ::: Android\s端
 1. 执行 `flutter run`。
-2. 使用 Android Studio（3.5及以上的版本）打开源码工程，单击**运行**即可。
+2. 使用 Android Studio（3.5及以上的版本）打开源码工程，单击 **运行** 即可。
 :::
 
 </dx-tabs>
@@ -145,7 +147,7 @@ lib/TRTCMeetingDemo/model/
     </tr>
     <tr>
         <td>userSig</td>
-        <td>腾讯云设计的一种安全保护签名，获取方式请参见 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算及使用 UserSig</a>。</td>
+        <td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算及使用 UserSig</a>。</td>
     </tr>
 </table>
 
@@ -251,7 +253,7 @@ onListener(TRTCMeetingDelegate type, param) {
 2. 调用 startScreenCapture，传入编码参数和录屏过程中的悬浮窗即可实现屏幕分享功能，具体信息请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58)。
 3. 会议中其他成员会收到 onUserVideoAvailable 的事件通知。
 
->! 屏幕分享和摄像头采集是两个互斥的操作，如果需要打开屏幕分享功能，请先调用 stopCameraPreview 关闭摄像头采集。详情请参见 [实时屏幕分享(Flutter)](https://cloud.tencent.com/document/product/647/53877)。
+>! 屏幕分享和摄像头采集是两个互斥的操作，如果需要打开屏幕分享功能，请先调用 stopCameraPreview 关闭摄像头采集。详情请参见 [TRTC SDK](https://cloud.tencent.com/document/product/647/53877)。
 
 <dx-codeblock>
 ::: dart dart
