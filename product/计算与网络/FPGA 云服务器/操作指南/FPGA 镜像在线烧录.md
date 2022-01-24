@@ -14,7 +14,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/e4f0405e9cd1e1d1a34fbb52a4bfa264.png)
     - **被授权用户**：选择**指定用户**。
     - **资源范围**：选择**整个存储桶**。
-    - **选择模板**：选择“只读对象”。
+    - **选择模板**：选择“只读对象（含列出对象列表）”。
    2. 单击**下一步**，完成权限配置。
    3. 在“配置策略”步骤中，进行以下配置。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/330610c96baa4bc46b33251d2d8c503f.png)
