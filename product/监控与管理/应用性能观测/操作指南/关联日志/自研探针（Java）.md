@@ -24,4 +24,3 @@ class_transformer.tapm-logback-plugin-1.2.enabled=true
    %R 会打印 TraceID，当有请求调用时，会显示 `NBS.REQUEST_GUID:traceID`，即表示 TraceID 注入成功。
    ![](https://qcloudimg.tencent-cloud.cn/raw/31b463a00bbf97d8dfd86b73648223ed.png)
 >?上图中，` NBS.REQUEST_GUID` 后的字符串为 TraceID，即 TraceID：ffde4e5b09a36187。
-
