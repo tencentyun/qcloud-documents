@@ -28,7 +28,7 @@
 <dx-alert infotype="explain" title="">
 单击镜像名可查看镜像详情。
 </dx-alert>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/ea1d069871f04dd8e9b9c29d20a78ab5.png" style="width: 88%"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/ea1d069871f04dd8e9b9c29d20a78ab5.png" style="width: 88%"/><br>
 更多关于此镜像信息，请参见 <a href="https://market.cloud.tencent.com/products/1386">Discuz X3.4 论坛系统（CentOS7.6 | LAMP）</a>。
 5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的创建。
 
