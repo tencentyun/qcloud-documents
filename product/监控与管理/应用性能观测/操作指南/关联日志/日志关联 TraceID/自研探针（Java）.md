@@ -1,4 +1,4 @@
-本文介绍 Java 自研探针上报方式如何 TraceID 。
+本文介绍 Java 自研探针上报方式如何关联 TraceID 。
 
 ## 操作步骤
 1. 修改探针配置文件 tapm.properties。
