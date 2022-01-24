@@ -20,10 +20,11 @@
 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有**镜像市场**，请选择其他支持镜像市场的地域。
 </dx-alert>
 <img src="https://main.qcloudimg.com/raw/f65014010e9d40e71b945a189ed574f2.png">
-3. 在弹出的“镜像市场”对话框中，选择**建站系统**，输入 **wordpress** 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。如下图所示：
+3. 在弹出的“镜像市场”对话框中，选择**建站系统**，输入 **wordpress** 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。
+4. 按需选择镜像，本文以选择 **Wordpress 建站系统** 为例，单击**免费使用**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c0c39a1f915315b1572fdd2d3e3f6a65.png)
 更多关于此镜像信息，请参见 <a href="https://market.cloud.tencent.com/products/1794">WordPress博客平台（Wordpress 建站系统 CentOS7.6 | LAMP）</a>。
-4. 在实例关联的安全组需添加放通80端口的入站规则，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)。
+5. 在实例关联的安全组需添加放通80端口的入站规则，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)。
 存储介质、带宽等其他配置请根据实际需求选择，最终选择购买完成 WordPress 建站系统。
 
 
