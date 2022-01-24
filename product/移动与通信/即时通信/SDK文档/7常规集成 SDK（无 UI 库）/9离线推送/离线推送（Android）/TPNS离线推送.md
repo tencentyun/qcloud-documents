@@ -1,15 +1,15 @@
 即时通信 IM 的离线推送功能由 [TPNS（Tencent Push Notification Service）](https://cloud.tencent.com/document/product/548/36645)提供，本文向您介绍接入 TPNS 并跑通离线推送功能的详细步骤。
 
 >!
->- 接入 TPNS 需升级 IMSDK 至 [6.0.1975 及以上版本](https://cloud.tencent.com/document/product/269/36887)。
->- 如果 IMSDK 版本是 6.0.1975 以前且没有接入 TPNS 的客户，请参照 [IM 离线推送](https://cloud.tencent.com/document/product/269/44516) 接入推送功能。
+>- 接入 TPNS 需升级 IM SDK 至 [6.0.1975 及以上版本](https://cloud.tencent.com/document/product/269/36887)。
+>- 如果您的 IM SDK 版本是 6.0.1975 之前的版本，且没有接入 TPNS，请参照 [IM 离线推送](https://cloud.tencent.com/document/product/269/44516) 接入推送功能。
 
 ## 接入 TPNS 跑通离线推送功能
 
 [](id:step1)
 ### 步骤一：注册应用到厂商推送平台
 
-离线推送功能依赖厂商原始通道，您需要将自己的应用注册到各个厂商的推送平台，得到 APPID 和 APPKEY 等参数。目前国内支持的手机厂商有：[小米]( https://dev.mi.com/console/doc/detail?pId=68)、[华为](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/service-introduction-0000001050040060)、[OPPO](https://open.oppomobile.com/wiki/doc#id=10195)、[VIVO](https://dev.vivo.com.cn/documentCenter/doc/281)、[魅族](http://open-wiki.flyme.cn/doc-wiki/index#id?129)，海外支持 [Google FCM](https://console.firebase.google.com/u/0/?hl=zh-cn)。
+离线推送功能依赖厂商原始通道，您需要将自己的应用注册到各个厂商的推送平台，得到 AppID 和 AppKey 等参数。目前国内支持的手机厂商有：[小米]( https://dev.mi.com/console/doc/detail?pId=68)、[华为](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/service-introduction-0000001050040060)、[OPPO](https://open.oppomobile.com/wiki/doc#id=10195)、[VIVO](https://dev.vivo.com.cn/documentCenter/doc/281)、[魅族](http://open-wiki.flyme.cn/doc-wiki/index#id?129)，海外支持 [Google FCM](https://console.firebase.google.com/u/0/?hl=zh-cn)。
 
 [](id:step2)
 ### 步骤二：TPNS 控制台配置 
@@ -24,7 +24,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/eaec2f774dfe3efb552d75a043b917e4.png)
 3. 产品创建成功后，得到 TPNS 的 AccessID 和 AsscessKey 等参数。
 ![](https://qcloudimg.tencent-cloud.cn/raw/aa8ecc7474d153afc23ba31474a8d087.png)
-4. 配置厂商推送参数：进入 **TPNS 控制台** > **选择产品** > **基础配置** > **选择厂商通道** > **开启**，将您在步骤一中获取的各厂商的  AppId、AppKey、AppSecret 等参数配置给 TPNS。
+4. 配置厂商推送参数：进入 **TPNS 控制台** > **选择产品** > **基础配置** > **选择厂商通道** > **开启**，将您在步骤一中获取的各厂商的  AppID、AppKey、AppSecret 等参数配置给 TPNS。
 <table>
 <thead><tr><th>厂商</th><th>厂商推送平台</th><th>TPNS 厂商通道配置</th></tr></thead>
 <tbody><tr>
@@ -59,20 +59,20 @@
     2. 选择要授权绑定的 IM 应用，选择新建的 TPNS 产品应用，提交授权。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/284b12d42b8035311567c1e9eb2de463.png" width=500>
 
->? 如果您之前已经在 IM 控制台配置了离线推送信息, 我们会自动把这些配置信息迁移到  [TPNS 控制台](https://console.cloud.tencent.com/tpns/product)，您可以登录  [TPNS 控制台](https://console.cloud.tencent.com/tpns/product) 修改配置信息。即时通信 IM 会继续使用这些配置信息进行离线推送。
+>? 如果您之前已经在 IM 控制台配置了离线推送信息，我们会自动把这些配置信息迁移到  [TPNS 控制台](https://console.cloud.tencent.com/tpns/product)，您可以登录  [TPNS 控制台](https://console.cloud.tencent.com/tpns/product) 修改配置信息。即时通信 IM 会继续使用这些配置信息进行离线推送。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2a9c1c81da25d94d55227e0223495111.png)
 
 [](id:step3)
 ### 步骤三：TPNS 工程配置
 在**配置管理**页面中， 单击**快速接入**。
-- 参照快速接入第 1 步指引，下载 `tpns-configs.json` 文件，并将其添加到您的 Android Studio 工程里。
+1. 参照快速接入第 1 步指引，下载 `tpns-configs.json` 文件，并将其添加到您的 Android Studio 工程里。
 ![](https://qcloudimg.tencent-cloud.cn/raw/18e22286a9c159b75e7ac31dfefd3220.png)
-- 参照快速接入第 2 步指引，添加工程配置，分别修改项目和应用的 gradle 配置。
+2. 参照快速接入第 2 步指引，添加工程配置，分别修改项目和应用的 gradle 配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/12a5120ec10eeec69035f229db7c6f0c.png)
 
 [](id:step4)
 ### 步骤四：配置离线推送跳转参数
-收到离线推送后，通知栏会显示推送信息如图所示，单击通知栏会打开应用并进入配置的跳转界面。请您参照下面的步骤，配置单击通知消息后跳转的 Activity。
+收到离线推送后，通知栏会显示推送信息，如图所示，单击通知栏会打开应用并进入配置的跳转界面。请您参照下面的步骤，配置单击通知消息后跳转的 Activity。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/7e6b56b3bb60bc9ccf7d5d0179eb51ea.png" width=400>
 1. 在 TPNS 控制台配置跳转参数，跳转参数配置的格式是：`protocol://hostname/path/`。
  ![](https://qcloudimg.tencent-cloud.cn/raw/d85b48a8e6014a984ea83af6683e5fdb.png)
@@ -194,7 +194,7 @@ XGPushManager.registerPush(context, new XGIOperateCallback() {
         }
 });
 ```
-- IM 登录成功后，调用 IM SDK 的 setOfflinePushConfig 接口上报 TPNS token。
+- IM 登录成功后，调用 IM SDK 的 [setOfflinePushConfig](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 接口上报 TPNS token。
 >! 构造 V2TIMOfflinePushConfig 类，需设置 businessID 为0，isTPNSToken 为 true，上报注册 TPNS 获取的 token。
 >
 ```
@@ -352,7 +352,7 @@ String msgID = V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, isGrou
 [](id:step8)
 ### 步骤八：解析离线推送消息
 
-当手机收到离线推送消息时，会在系统通知栏里展示收到的推送消息。单击通知栏的消息时，会自动跳转到您在步骤四配置的界面，您可以在该界面通过调用 getIntent().getData() 获取您在 [步骤七](#step7) 中配置的离线推送参数。示例代码可以参考 TUIKitDemo 的 [handleOfflinePush()](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/main/MainActivity.java) 方法。
+当手机收到离线推送消息时，会在系统通知栏里展示收到的推送消息。单击通知栏的消息时，会自动跳转到您在步骤四配置的界面，您可以在该界面通过调用 `getIntent().getData()` 获取您在 [步骤七](#step7) 中配置的离线推送参数。示例代码可以参考 TUIKitDemo 的 [handleOfflinePush()](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/main/MainActivity.java) 方法。
 
 
 ```
@@ -411,7 +411,7 @@ OPPO 手机收不到推送一般有以下几种情况：
 
 ### 收不到离线推送消息?
 按照文档指引流程执行后，离线推送功能即可正常运行。如果遇到收不到离线消息，可能存在如下情况：
-- 首先在 IM 控制台通过 [离线测试工具](https://console.cloud.tencent.com/im-detail/tool-push-check) ，或者 TPNS 控制台 [推送任务](https://console.cloud.tencent.com/tpns/push) 新建推送测试，自测下是否可以正常推送。
+- 首先在 IM 控制台通过 [离线测试工具](https://console.cloud.tencent.com/im-detail/tool-push-check)，或者 TPNS 控制台 [推送任务](https://console.cloud.tencent.com/tpns/push) 新建推送测试，自测下是否可以正常推送。
 推送异常情况，设备状态异常，需要检查下 IM 控制台配置各项参数是否正确，再者需要检查下代码初始化注册逻辑，包括厂商推送服务注册和 IM 设置离线推送配置相关逻辑是否正确设置。
 推送异常情况，设备状态正常，需要看下是否需要正确填写 channel ID 或者后台服务是否正常。
 
