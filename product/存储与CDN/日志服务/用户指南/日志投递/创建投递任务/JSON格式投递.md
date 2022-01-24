@@ -11,9 +11,9 @@
 ## 操作步骤
 
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
-2. 在左侧导航栏中，单击【日志主题】。
+2. 在左侧导航栏中，单击**日志主题**。
 3. 单击需要投递的日志主题ID/名称，进入日志主题管理页面。
-4. 单击【投递至 COS】页签，进入投递至 COS 配置页面，依次填写配置信息。
+4. 单击**投递至 COS** 页签，进入投递至 COS 配置页面，依次填写配置信息。
 ![](https://main.qcloudimg.com/raw/375916ba16d7539e5e901145a96870f2.png)
 **配置项说明如下：**
 <table>
@@ -85,7 +85,7 @@
 		<td>bucket_test:logset/20180731/log_{random}_{index}</td>
 	</tr>
 </tbody></table>
-5. 单击【下一步】，进入高级配置，选择投递格式为 json，依次填写相关配置参数。
+5. 单击**下一步**，进入高级配置，选择投递格式为 json，依次填写相关配置参数。
 ![](https://main.qcloudimg.com/raw/3711401cfd70d3f583bb82dae1970331.png)
 **配置项说明如下：**
 <table>

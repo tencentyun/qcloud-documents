@@ -96,7 +96,7 @@ https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/access_token
 | expires       | Int       | access_token 过期时间，时间戳（单位秒）。           |
 | open_id       | String    | 用户唯一标识（同一 OAuth 应用，同一用户，值唯一）。 |
 | scopes        | String | 用户授权的权限作用域，字符串数组。                |
-| open_corpid_id        | String | 授权用户的企业 ID，个人版用户返回为空。                |
+| open_corp_id        | String | 授权用户的企业 ID，个人版用户返回为空。                |
 
 #### 示例
 **输入示例**

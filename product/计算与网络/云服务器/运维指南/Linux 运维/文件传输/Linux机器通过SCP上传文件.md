@@ -1,5 +1,5 @@
 ## 操作场景
-本文档以 CentOS 7.6 操作系统的腾讯云云服务器（CVM）为例，通过 SCP 向 Linux 云服务器上传或下载文件。
+本文档以 CentOS 8.2 操作系统的腾讯云云服务器（CVM）为例，通过 SCP 向 Linux 云服务器上传或下载文件。
 
 
 ## 前提条件
@@ -20,6 +20,9 @@ scp 本地文件地址 云服务器帐号@云服务器实例公网 IP/域名:云
 ```
 scp /home/Inmp0.4.tar.gz root@129.20.0.2:/home/Inmp0.4.tar.gz
 ```
+<dx-alert infotype="explain" title="">
+您可增加 `-r` 参数来上传文件夹。如需了解更多 scp 命令功能，可执行 `man scp` 获取更多信息。
+</dx-alert>
 2. 输入 **yes** 后按 **Enter** 确认上传，并输入登录密码，即可完成上传。
  - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
  - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
