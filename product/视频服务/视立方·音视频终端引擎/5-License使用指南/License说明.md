@@ -61,7 +61,7 @@
 ## 正式版 License
 > ! 获得 License 解锁功能模块的计费详情，请参见 [计费概述](https://cloud.tencent.com/document/product/1449/56972)。
 
-目前 [直播推流模块](#Live)和 [短视频模块](#UGSV) 有正式版License；终端极速高清模块处于体验期，暂无正式版 License，如有需求可使用 [测试版License](https://cloud.tencent.com/document/product/1449/68750)。
+目前 [直播推流模块](#Live) 和 [短视频模块](#UGSV) 有正式版 License；终端极速高清模块处于体验期，暂无正式版 License，如有需求可使用 [测试版 License](https://cloud.tencent.com/document/product/1449/68750)。
 
 [](id:Live)
 ### 直播推流模块
