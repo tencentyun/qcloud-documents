@@ -66,7 +66,7 @@ cd trtc-education-electron
 ```
 
 [](id:step5)
-### 步骤5: 配置 SDKAppID 和密钥
+### 步骤5：配置 SDKAppID 和密钥
 1. 找到并打开 `src/main/config/generateUserSig.js` 文件。
 2. 设置 `generateUserSig.js` 文件中的相关参数，用于生成身份认证用的用户签名 UserSig：：
    - SDKAPPID：默认为 0，请设置为 [步骤1](#step1) 创建应用的 SDKAppID。
@@ -77,7 +77,7 @@ cd trtc-education-electron
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 [](id:step6)
-### 步骤6: 开发模式运行
+### 步骤6：开发模式运行
 在命令行终端中，进入代码目录 `trtc-education-electron`，执行以下命令。
 ```
 yarn
@@ -89,7 +89,7 @@ yarn start
 >- 安装依赖过程中，如遇到 Electron 下载慢甚至卡住不动等问题，您可以参考 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668) 文档解决。
 
 [](id:step7)
-### 步骤7: 构建安装包、运行
+### 步骤7：构建安装包、运行
 在命令行终端中，进入代码目录 `trtc-education-electron`，执行以下命令构建安装包，构建好的安装包位于 `trtc-education-electron/build/release` 目录下，可以安装运行。
 
 ```
