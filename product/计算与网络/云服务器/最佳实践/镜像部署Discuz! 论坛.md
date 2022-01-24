@@ -42,7 +42,7 @@
 4. 在检查安装环境页面，确认当前状态正常，单击**下一步**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/ecd2b765193fcde3a24b473d0c8e19f2.png)
 5. 在设置运行环境页面，选择全新安装，单击**下一步**。如下图所示：
-![安装3](https://main.qcloudimg.com/raw/b314e56fc96eb23520ecb06064196988.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/68af477dd0b07078a850c8ec8151597e.png)
 6. 在创建数据库页面，根据页面提示和实际需求，填写相关信息。如下图所示：
 <dx-alert infotype="notice" title="">
 - 请记录或保存本页面的数据库信息及管理员信息。
