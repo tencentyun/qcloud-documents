@@ -21,9 +21,10 @@ API 网关提供 Python 2.7 和 Python 3 两个版本， 以及 JSON 请求方�
 
 
 ## 示例代码[](id:示例代码)
+
 ### Python 2.7 JSON 请求方式示例代码
-<dx-codeblock>
-:::  python
+
+```python
 # -*- coding: utf-8 -*-
 import base64
 import datetime
@@ -31,38 +32,55 @@ import hashlib
 import hmac
 import json
 import requests
+from urlparse import urlparse
 
-
-Url = 'http://service-xxxxxxxx-1234567890.cq.apigw.tencentcs.com/app'
-Host = 'service-xxxxxxxx-1234567890.cq.apigw.tencentcs.com'
 #应用 ApiAppKey
-ApiAppKey = 'APIDkva7jni5ihyaaaaaaaaavyz7scdnxdhhba9'
+ApiAppKey = 'Your ApiAppKey'
 #应用 ApiAppSecret
-ApiAppSecret = '5rbMhtz2Q44ZxyaaaaaaaaaNBeWjnO9Qgwz537wv'
+ApiAppSecret = 'Your ApiAppSecret'
 
-
-# 获取签名串
-GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
-xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
-HTTPMethod = "POST"
+# apigw 访问地址
+Url = 'http://service-xxx-xxx.gz.apigw.tencentcs.com/'
+HTTPMethod = 'GET'  # method
 Accept = 'application/json'
 ContentType = 'application/json'
-body = {
-    "arg1": "a",
-    "arg2": "b"
-}
-body_json = json.dumps(body)
-ContentMD5 = base64.b64encode(hashlib.md5(body_json).hexdigest())
-signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n/app' % (
-    xDate, HTTPMethod, Accept, ContentType, ContentMD5)
 
+urlInfo = urlparse(Url)
+Host = urlInfo.hostname
+Path = urlInfo.path
+
+# 签名path不带环境信息
+if Path.startswith(('/release', '/test', '/prepub')) :
+    Path = '/' + Path[1:].split('/',1)[1]
+Path = Path if Path else '/'
+
+# 拼接query参数，query参数需要按字典序排序
+if urlInfo.query :
+    queryStr = urlInfo.query
+    splitStr = queryStr.split('&')
+    splitStr = sorted(splitStr)
+    sortStr = '&'.join(splitStr)
+    Path = Path + '?' + sortStr 
+
+ContentMD5 = ''
+GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
+xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
+
+# 修改 body 内容
+if HTTPMethod == 'POST' :
+    body = { "arg1": "a", "arg2": "b" }
+    body_json = json.dumps(body)
+    ContentMD5 = base64.b64encode(hashlib.md5(body_json).hexdigest())
+
+# 获取签名串
+signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n%s' % (
+    xDate, HTTPMethod, Accept, ContentType, ContentMD5, Path)
 
 # 计算签名
 sign = hmac.new(ApiAppSecret, msg=signing_str, digestmod=hashlib.sha1).digest()
 sign = base64.b64encode(sign)
 auth = "hmac id=\"" + ApiAppKey + "\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\""
 sign = auth + sign + "\""
-
 
 # 发送请求
 headers = {
@@ -72,76 +90,20 @@ headers = {
     'x-date': xDate,
     'Authorization': sign
 }
+if(HTTPMethod == 'GET'):
+    ret = requests.get(Url, headers=headers)
+if(HTTPMethod == 'POST'):
+    ret = requests.post(Url, headers=headers, data=body_json)
 
-ret = requests.post(Url, headers=headers, data=body_json)
+print(ret.headers)
 print(ret.text)
-:::
-</dx-codeblock>
+```
 
 
 
 ### Python 2.7 form 请求方式示例代码
-<dx-codeblock>
-:::  python
-# -*- coding: utf-8 -*-
-import base64
-import datetime
-import hashlib
-import hmac
-import requests
 
-
-Url = 'http://service-xxxxxxxx-1234567890.hk.apigw.tencentcs.com/app'
-Host = 'service-xxxxxxxx-1234567890.hk.apigw.tencentcs.com'
-#应用 ApiAppKey
-ApiAppKey = 'APID4I7Ic3DPy83aaaaaaaaan2fwtwe1ywl64fof'
-#应用 ApiAppSecret
-ApiAppSecret = '42A6S7ZUpK2UL6Faaaaaaaa1rz2qe22RU6h4mT5'
-
-
-# 获取签名串
-GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
-xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
-HTTPMethod = "POST"
-Accept = 'application/json'
-ContentType = 'application/x-www-form-urlencoded'
-ContentMD5 = ''
-body = {
-    "arg1": "a",
-    "arg2": "b"
-}
-sorted_body = sorted(body)
-signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n/app?%s=%s&%s=%s' % (
-    xDate, HTTPMethod, Accept, ContentType, ContentMD5, sorted_body[0], body[sorted_body[0]], sorted_body[1],
-    body[sorted_body[1]])
-
-
-# 计算签名
-sign = hmac.new(ApiAppSecret, msg=signing_str, digestmod=hashlib.sha1).digest()
-sign = base64.b64encode(sign)
-auth = "hmac id=\"" + ApiAppKey + "\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\""
-sign = auth + sign + "\""
-
-
-# 发送请求
-headers = {
-    'Host': Host,
-    'Accept': Accept,
-    'Content-Type': ContentType,
-    'x-date': xDate,
-    'Authorization': sign
-}
-
-ret = requests.post(Url, headers=headers, data=body)
-print(ret.text)
-:::
-</dx-codeblock>
-
-
-
-### Python 3 JSON 请求方式示例代码
-<dx-codeblock>
-:::  python
+```python
 # -*- coding: utf-8 -*-
 import base64
 import datetime
@@ -149,39 +111,55 @@ import hashlib
 import hmac
 import json
 import requests
+import urllib
+from urlparse import urlparse
 
-
-Url = 'http://service-xxxxxxxx-1234567890.cq.apigw.tencentcs.com/app'
-Host = 'service-xxxxxxxx-1234567890.cq.apigw.tencentcs.com'
 #应用 ApiAppKey
-ApiAppKey = 'APIDkva7jni5ihyaaaaaaaaavyz7scdnxdhhba9'
+ApiAppKey = 'Your ApiAppKey'
 #应用 ApiAppSecret
-ApiAppSecret = '5rbMhtz2Q44ZxyaaaaaaaaaNBeWjnO9Qgwz537wv'
+ApiAppSecret = 'Your ApiAppSecret'
 
+# apigw 访问地址
+Url = 'http://service-xxx-xxx.gz.apigw.tencentcs.com/'
+HTTPMethod = 'POST'  # method
+Accept = 'application/json'
+ContentType = 'application/x-www-form-urlencoded'
 
-# 获取签名串
+urlInfo = urlparse(Url)
+Host = urlInfo.hostname
+Path = urlInfo.path
+
+# 签名path不带环境信息
+if Path.startswith(('/release', '/test', '/prepub')) :
+    Path = '/' + Path[1:].split('/',1)[1]
+Path = Path if Path else '/'
+
+ContentMD5 = ''
 GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
 xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
-HTTPMethod = "POST"
-Accept = 'application/json'
-ContentType = 'application/json'
-body = {
-    "arg1": "a",
-    "arg2": "b"
-}
-body_json = json.dumps(body)
-body_md5 = hashlib.md5(body_json.encode()).hexdigest()
-ContentMD5 = base64.b64encode(body_md5.encode()).decode()
-signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n/app' % (
-    xDate, HTTPMethod, Accept, ContentType, ContentMD5)
 
+# 修改 body 内容
+body = { "arg1": "a", "arg2": "b" }
+argBody = urllib.urlencode(body)
+
+# 签名时，form参数拼接query参数，参数需要按字典序排序
+if urlInfo.query :
+    argBody = argBody + '&' + urlInfo.query
+
+splitStr = argBody.split('&')
+argBody = sorted(splitStr)
+sortStr = '&'.join(argBody)
+Path = Path + '?' + sortStr
+
+# 获取签名串
+signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n%s' % (
+    xDate, HTTPMethod, Accept, ContentType, ContentMD5, Path)
 
 # 计算签名
-sign = hmac.new(ApiAppSecret.encode(), msg=signing_str.encode(), digestmod=hashlib.sha1).digest()
-sign = base64.b64encode(sign).decode()
+sign = hmac.new(ApiAppSecret, msg=signing_str, digestmod=hashlib.sha1).digest()
+sign = base64.b64encode(sign)
 auth = "hmac id=\"" + ApiAppKey + "\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\""
 sign = auth + sign + "\""
-
 
 # 发送请求
 headers = {
@@ -191,49 +169,69 @@ headers = {
     'x-date': xDate,
     'Authorization': sign
 }
+if(HTTPMethod == 'GET'):
+    ret = requests.get(Url, headers=headers)
+if(HTTPMethod == 'POST'):
+    ret = requests.post(Url, headers=headers, data=body)
 
-ret = requests.post(Url, headers=headers, data=body_json)
+print(ret.headers)
 print(ret.text)
-:::
-</dx-codeblock>
+```
 
+### Python 3 JSON 请求方式示例代码
 
-
-### Python 3 form 请求方式示例代码
-<dx-codeblock>
-:::  python
+```python
 # -*- coding: utf-8 -*-
 import base64
 import datetime
 import hashlib
 import hmac
+import json
 import requests
+from urllib.parse import urlparse
 
-
-Url = 'http://service-xxxxxxxx-1234567890.hk.apigw.tencentcs.com/app'
-Host = 'service-xxxxxxxx-1234567890.hk.apigw.tencentcs.com'
 #应用 ApiAppKey
-ApiAppKey = 'APID4I7Ic3DPy83aaaaaaaaan2fwtwe1ywl64fof'
+ApiAppKey = 'Your ApiAppKey'
 #应用 ApiAppSecret
-ApiAppSecret = '42A6S7ZUpK2UL6Faaaaaaaa1rz2qe22RU6h4mT5'
+ApiAppSecret = 'Your ApiAppSecret'
 
+# apigw 访问地址
+Url = 'http://service-xxx-xxx.gz.apigw.tencentcs.com/'
+HTTPMethod = 'GET'  # method
+Accept = 'application/json'
+ContentType = 'application/json'
 
-# 获取签名串
+urlInfo = urlparse(Url)
+Host = urlInfo.hostname
+Path = urlInfo.path
+
+# 签名path不带环境信息
+if Path.startswith(('/release', '/test', '/prepub')) :
+    Path = '/' + Path[1:].split('/',1)[1]
+Path = Path if Path else '/'
+
+# 拼接query参数，query参数需要按字典序排序
+if urlInfo.query :
+    queryStr = urlInfo.query
+    splitStr = queryStr.split('&')
+    splitStr = sorted(splitStr)
+    sortStr = '&'.join(splitStr)
+    Path = Path + '?' + sortStr
+
+ContentMD5 = ''
 GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
 xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
-HTTPMethod = "POST"
-Accept = 'application/json'
-ContentType = 'application/x-www-form-urlencoded'
-ContentMD5 = ''
-body = {
-    "arg1": "a",
-    "arg2": "b"
-}
-sorted_body = sorted(body)
-signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n/app?%s=%s&%s=%s' % (
-    xDate, HTTPMethod, Accept, ContentType, ContentMD5, sorted_body[0], body[sorted_body[0]], sorted_body[1],
-    body[sorted_body[1]])
 
+# 修改 body 内容
+if HTTPMethod == 'POST' :
+    body = { "arg1": "a", "arg2": "b" }
+    body_json = json.dumps(body)
+    body_md5 = hashlib.md5(body_json.encode()).hexdigest()
+    ContentMD5 = base64.b64encode(body_md5.encode()).decode()
+
+# 获取签名串
+signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n%s' % (
+    xDate, HTTPMethod, Accept, ContentType, ContentMD5, Path)
 
 # 计算签名
 sign = hmac.new(ApiAppSecret.encode(), msg=signing_str.encode(), digestmod=hashlib.sha1).digest()
@@ -251,8 +249,93 @@ headers = {
     'Authorization': sign
 }
 
-ret = requests.post(Url, headers=headers, data=body)
+if HTTPMethod == 'GET' :
+    ret = requests.get(Url, headers=headers)
+if HTTPMethod == 'POST' :
+    ret = requests.post(Url, headers=headers, data=body_json)
+
+print(ret.headers)
 print(ret.text)
-:::
-</dx-codeblock>
+```
+
+
+
+### Python 3 form 请求方式示例代码
+
+```python
+# -*- coding: utf-8 -*-
+import base64
+import datetime
+import hashlib
+import hmac
+import json
+import requests
+from urllib.parse import urlparse
+from urllib.parse import urlencode
+
+#应用 ApiAppKey
+ApiAppKey = 'Your ApiAppKey'
+#应用 ApiAppSecret
+ApiAppSecret = 'Your ApiAppSecret'
+
+# apigw 访问地址
+Url = 'http://service-xxx-xxx.gz.apigw.tencentcs.com/'
+HTTPMethod = 'POST'  # method
+Accept = 'application/json'
+ContentType = 'application/x-www-form-urlencoded'
+
+urlInfo = urlparse(Url)
+Host = urlInfo.hostname
+Path = urlInfo.path
+
+# 签名path不带环境信息
+if Path.startswith(('/release', '/test', '/prepub')) :
+    Path = '/' + Path[1:].split('/',1)[1]
+Path = Path if Path else '/' 
+
+ContentMD5 = ''
+GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
+xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
+
+# 修改 body 内容
+body = { "arg1": "a", "arg2": "b" }
+argBody = urlencode(body)
+
+# 签名时，form参数拼接query参数，参数需要按字典序排序
+if urlInfo.query :
+    argBody = argBody + '&' + urlInfo.query
+
+splitStr = argBody.split('&')
+argBody = sorted(splitStr)
+sortStr = '&'.join(argBody)
+Path = Path + '?' + sortStr
+
+# 获取签名串
+signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n%s' % (
+    xDate, HTTPMethod, Accept, ContentType, ContentMD5, Path)
+
+# 计算签名
+sign = hmac.new(ApiAppSecret.encode(), msg=signing_str.encode(), digestmod=hashlib.sha1).digest()
+sign = base64.b64encode(sign).decode()
+auth = "hmac id=\"" + ApiAppKey + "\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\""
+sign = auth + sign + "\""
+
+
+# 发送请求
+headers = {
+    'Host': Host,
+    'Accept': Accept,
+    'Content-Type': ContentType,
+    'x-date': xDate,
+    'Authorization': sign
+}
+
+if HTTPMethod == 'GET' :
+    ret = requests.get(Url, headers=headers)
+if HTTPMethod == 'POST' :
+    ret = requests.post(Url, headers=headers, data=body)
+
+print(ret.headers)
+print(ret.text)
+```
 
