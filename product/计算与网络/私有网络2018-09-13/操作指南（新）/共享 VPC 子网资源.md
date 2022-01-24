@@ -28,9 +28,7 @@
  - 选择**共享资源**页面，即可查看已具备的共享子网资源。
  您还可登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc)，选择左侧导航栏中的 **[子网](https://console.cloud.tencent.com/vpc/subnet?rid=1)**，并在“子网”页面上方选择地域，即可查看共享的子网资源。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c0222dace0680051efe7d902c8921da6.png)
-<dx-alert infotype="explain" title="">
-目前仅在共享子网上创建云服务器资源。
-</dx-alert>
+
 
 ## 计费说明
 腾讯云集团账号管理本身不另外收取费用。您只需支付账号使用的腾讯云资源所产生的费用。例如，您需要为账号所使用的腾讯云云服务器 CVM 实例、公网带宽费等支付标准费用。
