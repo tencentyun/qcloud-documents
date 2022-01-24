@@ -106,6 +106,12 @@ private synchronized void checkAuth(Context context) {
 }
 ```
 
+4. 如果鉴权失败，你可以
+
+[查看鉴权结果及错误码详情]: 
+
+，以定位失败原因。
+
 [](id:step2)
 ### 步骤二：加载腾讯特效 SDK xmagic-xxx.aar
 使用腾讯特效 SDK 生命周期大致如下：
