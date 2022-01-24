@@ -1,5 +1,5 @@
 ## 操作场景
-本文介绍如何通过 [在线烧录 FPGA 镜像](https://cloud.tencent.com/document/product/213/68353) API 接口进行 FPGA 镜像在线烧录。
+本文介绍如何使用 [在线烧录 FPGA 镜像](https://cloud.tencent.com/document/product/213/68353) API 接口进行 FPGA 镜像在线烧录。
 
 
 ## 操作步骤
@@ -38,7 +38,7 @@
 ### 进行烧录
 1. 通过 [API Inspector 工具](https://console.cloud.tencent.com/cvm/instance/index?rid=1)、[命令行工具 TCCLI](https://cloud.tencent.com/document/product/440) 或其他工具调用腾讯云 [在线烧录 FPGA 镜像](https://cloud.tencent.com/document/product/213/68353) API 接口进行烧录。
 2. 您在发起烧录流程后，需关注以下事项：
- - 可调用 [查看实例列表](https://cloud.tencent.com/document/product/213/15728) 接口，通过返回字段 `ProgramFpgaImageOperationState` 获取 FPGA 镜像烧录流程的状态。
+ - 可调用 [查看实例列表](https://cloud.tencent.com/document/product/213/15728) 接口，通过返回字段 `LatestOperation`  及 `OperationState`（当 `LatestOperation` 为 `ProgramFpgaImage` 时，`OperationState` 表示当前的烧录情况），获取 FPGA 镜像烧录流程的状态。
 <dx-alert infotype="explain" title="">
 由于 [查看实例列表](https://cloud.tencent.com/document/product/213/15728) 接口仅支持查询实例最近一次的操作状态，若您在发起镜像烧录后进行了其他实例操作，则可能无法获取镜像烧录流程的状态。后续可使用云审计查看镜像烧录状态，详情请参见 [查看操作记录事件详情](https://cloud.tencent.com/document/product/629/56259)。
 </dx-alert>
