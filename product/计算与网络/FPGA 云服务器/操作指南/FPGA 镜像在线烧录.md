@@ -26,9 +26,9 @@
 
 
 ### 上传镜像文件并获取 COS URL
-1. 参考 [上传对象](https://cloud.tencent.com/document/product/436/13321)，将需烧录的 FPGA 镜像文件到已配置的存储桶。
+1. 参考 [上传对象](https://cloud.tencent.com/document/product/436/13321)，将需烧录的 FPGA 镜像文件上传到已配置的存储桶。
 <dx-alert infotype="notice" title="">
-目前仅 xclbin 格式的 FPGA 镜像文件。
+目前仅支持 xclbin 格式的 FPGA 镜像文件。
 </dx-alert>
 2. 单击已上传的镜像文件所在行右侧的**详情**，进入对象详情页。
 3. “基本信息”的“对象地址”即为需获取的 COS URL。如下图所示：
