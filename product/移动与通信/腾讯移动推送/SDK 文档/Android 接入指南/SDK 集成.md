@@ -14,7 +14,7 @@
 >! 在配置 SDK 前，确保已创建 Android 平台的应用。
 >
 
-1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，在【产品管理】>【配置管理】页面获取应用的 AccessID、AccessKey。
+1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，在**产品管理**>**配置管理**页面获取应用的 AccessID、AccessKey。
 2. 在 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面，获取当前最新版本号。
 ![](https://main.qcloudimg.com/raw/37b19f4e6c8dba5084c052f7e442be7f.png)
 3. 在 app build.gradle 文件下，配置以下内容：
