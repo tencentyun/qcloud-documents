@@ -12,44 +12,24 @@
 
 ### 步骤一：初始化授权 [](id:step1)
 
-<dx-tabs>
-::: 线上授权（TE 版本 2.4.0+ 支持线上授权方式）
-
-在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码：
+在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，其中 LicenseURL，LicenseKey 为腾讯云官网申请到授权信息，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)：
 
 ```objectivec
-[TXLiveBase setLicenceURL:@"" key:@""];
+[TXLiveBase setLicenceURL:LicenseURL key:LicenseKey];
 ```
 授权代码可参考 Demo 中 ThirdBeautyViewController 类 viewDidLoad 中的授权代码：
 ```
-NSString *licenseInfo = [TXUGCBase getLicenceInfo];
+NSString *licenseInfo = [TXLiveBase getLicenceInfo];
 NSData *jsonData = [licenseInfo dataUsingEncoding:NSUTF8StringEncoding];
 NSError *err = nil;
 NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
 options:NSJSONReadingMutableContainers error:&err];
-NSString *xmagicLicBase64Str = [dic objectForKey:@"pituLicense"];
+NSString *xmagicLicBase64Str = [dic objectForKey:@"TELicense"];
 //初始化 xmagic 授权
 int authRet = [XMagicAuthManager initAuthByString:xmagicLicBase64Str withSecretKey:@""];// withSecretKey 为空字符串, 不需要填写内容
 NSLog(@"xmagic auth ret : %i", authRet);
 NSLog(@"xmagic auth version : %@", [XMagicAuthManager getVersion]);
 ```
-
-> ! key 字段为申请 lic 时提供的 SecretKey。
-
-:::
-::: 离线授权
-
-```objectivec
-NSString *licensePath = [[NSBundle mainBundle] pathForResource:@"dev_test_v2_S1-04_2022-01-17.lic1.4.1" ofType:@""];
-NSLog(@"youtu auth ret0 : %@", licensePath);
-int authRet = [XMagicAuthManager initAuthByFilePath:licensePath withSecretKey:@"xxxxx"];
-NSString *version = [XMagicAuthManager getVersion];
-NSLog(@"youtu auth ret : %i", authRet);
-NSLog(@"youtu auth version : %@", version);
-```
-
-:::
-</dx-tabs>
 
 ### 步骤二：设置 SDK 素材资源路径[](id:step2)
 
@@ -91,8 +71,8 @@ self.beautyKit = [[XMagic alloc] initWithRenderSize:previewSize assetsDict:asset
 - (int)configPropertyWithType:(NSString *_Nonnull)propertyType withName:(NSString *_Nonnull)propertyName withData:(NSString*_Nonnull)propertyValue withExtraInfo:(id _Nullable)extraInfo;
 ```
 
-### 步骤五：将 textureId 传入到 SDK 内做渲染处理[](id:step5)
-
+### 步骤五：进行渲染处理[](id:step5)
+在视频帧回调接口，构造 YTProcessInput 传入到 SDK 内做渲染处理，可参考 Demo 中的 ThirdBeautyViewController。
 ```objectivec
  [self.xMagicKit process:inputCPU withOrigin:YtLightImageOriginTopLeft withOrientation:YtLightCameraRotation0]
 ```

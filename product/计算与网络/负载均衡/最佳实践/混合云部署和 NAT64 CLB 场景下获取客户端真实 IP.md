@@ -39,20 +39,21 @@
 1. 根据腾讯云上 Linux 的版本，下载对应的 TOA 包解压。
 <dx-accordion>
 ::: centos
-[CentOS 8.0 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/CentOS%208.0.1905.zip)
-[CentOS 7.6 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/CentOS%207.6.1810.zip)
-[CentOS 7.2 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/CentOS%207.2.1511.zip)
+[CentOS 8.0 64](https://clb-toa-1255852779.file.myqcloud.com/CentOS%208.0.1905.zip)
+[CentOS 7.6 64](https://clb-toa-1255852779.file.myqcloud.com/CentOS%207.6.1810.zip)
+[CentOS 7.2 64](https://clb-toa-1255852779.file.myqcloud.com/CentOS%207.2.1511.zip)
+
 :::
 ::: debian
-[Debian 9.0 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/CentOS%208.0.1905.zip)
+[Debian 9.0 64](https://clb-toa-1255852779.file.myqcloud.com/Debian%209.zip)
 :::
 ::: suse linux
-[SUSE 12 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/SUSE%2012.zip)
-[SUSE 11 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/SUSE%2011.zip)
+[SUSE 12 64](https://clb-toa-1255852779.file.myqcloud.com/SUSE%2012.zip)
+[SUSE 11 64](https://clb-toa-1255852779.file.myqcloud.com/SUSE%2011.zip)
 :::
 ::: ubuntu
-[Ubuntu 18.04.4 LTS 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/Ubuntu%2018.04.4%20LTS.zip)
-[Ubuntu 16.04.7 LTS 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/Ubuntu%2016.04.7%20LTS.zip)
+[Ubuntu 18.04.4 LTS 64](https://clb-toa-1255852779.file.myqcloud.com/Ubuntu%2018.04.4%20LTS.zip)
+[Ubuntu 16.04.7 LTS 64](https://clb-toa-1255852779.file.myqcloud.com/Ubuntu%2016.04.7%20LTS.zip)
 :::
 </dx-accordion>
 
@@ -65,7 +66,11 @@ insmod toa.ko
 dmesg -T | grep TOA
 ```
 4. 加载成功以后，在启动脚本中加载 `toa.ko` 文件（重启机器 ko 文件需要重新加载）。
-5. （可选）若不再需要使用 TOA 模块，运行以下命令，即可完成卸载。若提示“TOA unloaded”，则说明卸载成功。
+5. （可选）若不再需要使用 TOA 模块，执行以下命令进行卸载。
+```
+rmmod toa
+```
+6. （可选）执行以下命令确认 TOA 模块是否卸载成功。若提示“TOA unloaded”，则说明卸载成功。
 ```
 dmesg -T
 ```
@@ -74,13 +79,15 @@ dmesg -T
 >? 由于 Linux 内核版本众多，且 Linux 发行版操作系统市场庞大，版本繁多，因此考虑到内核模块的兼容性问题，建议在使用的系统上对 TOA 源码包进行编译后使用。
 >
 1. 下载源码包
+>!Linux 与 腾讯 TLinux 的 TOA 模块不能混用，请根据对应系统选择对应的 TOA 模块源码包。
+>
   - Linux
 ```
-wget "https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/tgw_toa_linux_ver.tar.gz"
+wget "https://clb-toa-1255852779.file.myqcloud.com/tgw_toa_linux_ver.tar.gz"
 ```
   - 腾讯 TLinux
 ```
-wget "https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/tgw_toa_tlinux_ver.tar.gz"
+wget "https://clb-toa-1255852779.file.myqcloud.com/tgw_toa_tlinux_ver.tar.gz"
 ```
 2. 编译 TOA 内核模块的 Linux 环境需先安装 GCC 编译器、Make 工具和内核模块开发包。
 <dx-accordion>
@@ -317,21 +324,21 @@ uname -a
 ```
 rpm -qa | grep kernel
 ```
-![](https://qcloudimg.tencent-cloud.cn/raw/4559818bd61436d7a752bcd9caf1b53d.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/4559818bd61436d7a752bcd9caf1b53d.png" width="70%">
 :::
 ::: 无法获取源地址，如何进行初步的排查？
 1. 执行以下命令确认 TOA 模块是否已经加载。
 ```
 lsmod | grep toa
 ```
-![](https://qcloudimg.tencent-cloud.cn/raw/5b92aa9de0db3e43e91316c4363886f1.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/5b92aa9de0db3e43e91316c4363886f1.png" width="70%">
 2. 确认服务端程序是否已经正确调用接口获取源地址，请参见以上 [适配后端服务](#adapt-rs) 内容。
 3. 在服务端抓包排查，确认是否已经有携带真实源地址的 TCP 包抵达。
- - 若 tcp option 中存在 `unknown-200` 的提示，则说明 LBANT 下 IPv4 的真实源 IP 已经插入。
+ - 若 tcp option 中存在 `unknown-200` 的提示，则说明经过 SNAT 后，真实的源 IP 已经插入到 TCP option 中。
  - 若存在 `unknown-253`，则说明在 NAT64 场景下的真实 IPv6 的源 IP 已经插入。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e8fed1ab42370a97889c7dcdce660b72.png)
 4. 在上一步的操作中，若确定携带 TOA 地址的包进入了服务端，则将 toa.ko 编译出 DEBUG 版本，通过内核日志便可进一步定位。在下载出的 TOA 源码目录中，将 Makefile 中添加 DEBUG 编译选项。
-![](https://qcloudimg.tencent-cloud.cn/raw/e89cf9fd3d96a760485fb04c966ef6b0.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e89cf9fd3d96a760485fb04c966ef6b0.png"width="60%">
 5. 执行以下命令重新编译。
 ```
 make clean

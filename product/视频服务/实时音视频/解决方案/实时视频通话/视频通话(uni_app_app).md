@@ -1,4 +1,4 @@
-TUICalling 插件是**腾讯云官方推出**的基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的插件，支持双人和多人音视频通话。插件提供了全套定制UI，开发者仅需两个 API 可集成实现通话功能。
+TUICalling 插件是**腾讯云官方推出**的基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的插件，支持双人和多人音视频通话。插件提供了全套定制 UI，开发者仅需两个 API 可集成实现通话功能。
 
 ## 效果展示
 <table>
@@ -20,12 +20,14 @@ TUICalling 插件是**腾讯云官方推出**的基于腾讯云实时音视频�
 **Android** 和 **iOS** 端均支持。
 
 ## 快速跑通
+[](id:run.step1)
 ### 步骤一：注册并创建 uni-app 账号
 搭建 App 开发环境步骤如下：
 1. 下载 [HBuilderX 编辑器 ](https://www.dcloud.io/hbuilderx.html)。
 >!项目中 HBuilderX 目前使用的最新版本，如果此前下载过 HBuilderX，为保证开发环境统一请更新到最新版本。
 2. [DCloud 开发者中心注册](https://dev.dcloud.net.cn/) 之后登录 HBuilderX 编辑器。
 
+[](id:run.step2)
 ### 步骤二：创建应用并开通腾讯云服务
 <dx-tabs>
 ::: 方式1：基于实时音视频
@@ -72,7 +74,7 @@ TUICalling 插件是**腾讯云官方推出**的基于腾讯云实时音视频�
 :::
 </dx-tabs>
 
-[](id:step3)
+[](id:run.step3)
 ### 步骤三：下载并配置 TUICalling 源码
 1. 根据您的实际业务需求，下载 SDK 及配套的 [Demo 源码](https://gitee.com/cloudtencent/TIMSDK/tree/master/uni-app/TUICalling)。
 ```
@@ -94,7 +96,7 @@ cd TIMSDK/uni-app/TUICalling/TUICalling-app
 >- 本文提到的生成 `UserSig` 的方案是在客户端代码中配置 `SECRETKEY`，该方法中 `SECRETKEY` 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 uni-app 和功能调试**。
 >- 正确的 `UserSig` 签发方式是将 `UserSig` 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 `UserSig` 时由您的 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
-[](id:step4)
+[](id:run.step4)
 ### 步骤四：导入插件 
 1. **购买 uni-app 原生插件**：
 登录 [uni 原生插件市场](https://ext.dcloud.net.cn/plugin?id=7097)，在插件详情页中购买（免费插件也可以在插件市场0元购）。购买后才能够云端打包使用插件。**购买插件时请选择正确的 appid，以及绑定正确包名**。
@@ -108,11 +110,11 @@ cd TIMSDK/uni-app/TUICalling/TUICalling-app
 >- 自定义基座不是正式版，真正发布时，需要再打正式包。使用自定义基座是无法正常升级替换 APK 的。
 >- 请尽量不要使用本地插件，插件包超过自定义基座的限制，可能导致调试收费
 
-[](id:step5)
+[](id:run.step5)
 ### 步骤五：编译运行
 具体操作请参见 [uni-app 运行](https://uniapp.dcloud.io/quickstart-hx?id=%e8%bf%90%e8%a1%8cuni-app)。
 
-[](id:step6)
+[](id:run.step6)
 ### 步骤六：打包发布
 使用自定义基座开发调试 uni-app 原生插件后，不可直接将自定义基座 APK 作为正式版发布。
 应该重新提交云端打包（不能勾选“**自定义基座**”）生成正式版本。
@@ -161,9 +163,7 @@ TUICalling.logout()
  应该重新提交云端打包（不能勾选“**自定义基座**”）生成正式版本。
 
 ## 实现案例
-###  在线客服场景
-单击可下载 [在线客服场景 Demo](https://github.com/tencentyun/TIMSDK/tree/master/uni-app/TUIKit)。
-在线客服场景提供了示例客服群、示例好友的基础模板，在线客服场景功能包括：
+我们提供了**在线客服场景**的相关源码，建议您 [下载](https://github.com/tencentyun/TIMSDK/tree/master/uni-app/TUIKit) 并集成体验。该场景提供了示例客服群 + 示例好友的基础模板，实现功能包括：
 - 支持发送文本消息、图片消息、语音消息、视频消息等常见消息。
 - 支持双人语音、视频通话功能
 - 支持创建群聊会话、群成员管理等。

@@ -1,6 +1,6 @@
 ## 功能介绍
 
-千帆神笔 aPaaS中 RESTful API 为开发者提供了一种通过 HTTP 请求与外部数据远程交互的方式。通过 RESTful API 用 Json 携带数据发送 HTTP 请求后，会收到对应的 Json 格式的响应数据包。开发者可以通过 RESTful API 请求对数据进行增、删、改、查操作。
+千帆神笔 aPaaS中 Restful API 为开发者提供了一种通过 HTTP 请求与外部数据远程交互的方式。通过 Restful API 用 Json 携带数据发送 HTTP 请求后，会收到对应的 Json 格式的响应数据包。开发者可以通过 Restful API 请求对数据进行增、删、改、查操作。
 
 >?本功能属于平台高级能力，暂未全面开放，如您有意使用，请先发送邮件至 gqtian@tencent.com 并提供您的租户 ID，平台审核通过后方可使用。
 

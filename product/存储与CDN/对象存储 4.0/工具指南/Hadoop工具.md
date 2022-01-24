@@ -52,7 +52,7 @@ done
 |                  属性键                  | 说明                                                         |                            默认值                            | 必填项 |
 | :--------------------------------------: | :----------------------------------------------------------- | :----------------------------------------------------------: | :----: |
 |   fs.cosn.userinfo.<br>secretId/secretKey    | 填写您账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。 |                              无                              |   是   |
-|       fs.cosn.<br>credentials.provider       | 配置 SecretId 和 SecretKey 的获取方式。当前支持五种获取方式：<br> 1.org.apache.hadoop.fs.auth.SessionCredential<br>Provider：从请求 URI 中获取 secret id 和 secret key。<br>其格式为：`cosn://{secretId}:{secretKey}@examplebucket-1250000000/`；<br>2.org.apache.hadoop.fs.auth.SimpleCredentialProvider：<br>从 core-site.xml 配置文件中读取 fs.cosn.userinfo.secretId 和 fs.cosn.userinfo.secretKey 来获取 SecretId 和 SecretKey；<br>3.org.apache.hadoop.fs.auth.EnvironmentVariableCredential<br>Provider：从系统环境变量 COS_SECRET_ID 和 COS_SECRET_KEY 中获取；<br>4.org.apache.hadoop.fs.auth.CVMInstanceCredentials<br>Provider：利用腾讯云云服务器（CVM）绑定的角色，获取访问 COS 的临时密钥；<br> 5.org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider：<br>利用腾讯云黑石物理机（CPM）绑定的角色，获取访问 COS 的临时密钥。 | 如果不指定该配置项，默认会按照<br>以下顺序读取：<br>1.org.apache.hadoop.fs.auth.<br>SessionCredentialProvider<br>2.org.apache.hadoop.fs.auth.<br>SimpleCredentialProvider <br>3.org.apache.hadoop.fs.auth.<br>EnvironmentVariableCredentialProvider<br>4.org.apache.hadoop.fs.auth.<br>CVMInstanceCredentialsProvider<br>5.org.apache.hadoop.fs.auth.<br>CPMInstanceCredentialsProvider |   否   |
+|       fs.cosn.<br>credentials.provider       | 配置 SecretId 和 SecretKey 的获取方式。当前支持五种获取方式：<br> 1.org.apache.hadoop.fs.auth.SessionCredentialProvider：从请求 URI 中获取 secret id 和 secret key。其格式为：`cosn://{secretId}:{secretKey}@examplebucket-1250000000/`；<br> 2.org.apache.hadoop.fs.auth.SimpleCredentialProvider：从 core-site.xml 配置文件中读取 fs.cosn.userinfo.secretId 和 fs.cosn.userinfo.secretKey 来获取 SecretId 和 SecretKey；<br> 3.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider：从系统环境变量 COS_SECRET_ID 和 COS_SECRET_KEY 中获取；<br> 4.org.apache.hadoop.fs.auth.SessionTokenCredentialProvider：使用临时密钥形式访问；<br> 5.org.apache.hadoop.fs.auth.CVMInstanceCredentialsProvider：利用腾讯云云服务器（CVM）绑定的角色，获取访问 COS 的临时密钥；<br> 6.org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider：利用腾讯云黑石物理机（CPM）绑定的角色，获取访问 COS 的临时密钥；<br> 7.org.apache.hadoop.fs.auth.EMRInstanceCredentialsProvider：利用腾讯云 EMR 实例绑定的角色，获取访问 COS 的临时密钥；<br> 8.org.apache.hadoop.fs.auth.RangerCredentialsProvider 使用 ranger 进行获取密钥。| 如果不指定该配置项，默认会按照<br>以下顺序读取：<br> 1.org.apache.hadoop.fs.auth.SessionCredentialProvider;<br> 2.org.apache.hadoop.fs.auth.SimpleCredentialProvider;<br> 3.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider;<br> 4.org.apache.hadoop.fs.auth.SessionTokenCredentialProvider;<br> 5.org.apache.hadoop.fs.auth.CVMInstanceCredentialsProvider;<br> 6.org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider;<br> 7.org.apache.hadoop.fs.auth.EMRInstanceCredentialsProvider. |   否   |
 | fs.cosn.useHttps | 配置是否使用 HTTPS 作为与 COS 后端的传输协议。 | false | 否 |
 |               fs.cosn.impl               | cosn 对 FileSystem 的实现类，固定为 org.apache.hadoop.fs.CosFileSystem。 |                              无                              |   是   |
 |     fs.AbstractFileSystem.<br>cosn.impl      | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN。 |                              无                              |   是   |
@@ -63,7 +63,7 @@ done
 | fs.cosn.<br>upload.buffer | CosN 文件系统上传时依赖的缓冲区类型。当前支持三种类型的缓冲区：非直接内存缓冲区（non_direct_memory），<br>直接内存缓冲区（direct_memory），磁盘映射缓冲区（mapped_disk）。非直接内存缓冲<br>区使用的是 JVM 堆内存，直接内存缓冲区使用的是堆外内存，而磁盘映射缓冲区则是基于内存文件映射得到的缓冲区。| mapped_disk | 否 |
 | fs.cosn.<br>upload.buffer.size | CosN 文件系统上传时依赖的缓冲区大小，如果指定为-1，则表示不限制缓冲区。若不<br>限制缓冲区大小，则缓冲区的类型必须为 mapped_disk。如果指定大小大于0，则要求该值至少大于等于一个 block 的大小。兼容原有配置 fs.cosn.buffer.size。 | -1 | 否 |
 |  fs.cosn.block.size | CosN 文件系统 block size。 | 134217728（128MB）| 否 | 
-|        fs.cosn.<br>upload_thread_pool        | 文件流式上传到 COS 时，并发上传的线程数目。                  |                        8                        |   否   |
+|        fs.cosn.<br>upload_thread_pool        | 文件流式上传到 COS 时，并发上传的线程数目。                  |                        10                        |   否   |
 |         fs.cosn.<br>copy_thread_pool         | 目录拷贝操作时，可用于并发拷贝和删除文件的线程数目。               |                   3                       |   否   |
 |      fs.cosn.<br>read.ahead.block.size       | 预读块的大小。                                               |                        1048576（1MB）                        |   否   |
 |      fs.cosn.<br>read.ahead.queue.size       | 预读队列的长度。                                             |                              8                               |   否   |
@@ -101,8 +101,10 @@ done
             1. org.apache.hadoop.fs.auth.SessionCredentialProvider
             2. org.apache.hadoop.fs.auth.SimpleCredentialProvider
             3. org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider
-            4. org.apache.hadoop.fs.auth.CVMInstanceCredentialsProvider
-            5. org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider
+            4. org.apache.hadoop.fs.auth.SessionTokenCredentialProvider
+            5. org.apache.hadoop.fs.auth.CVMInstanceCredentialsProvider
+            6. org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider
+            7. org.apache.hadoop.fs.auth.EMRInstanceCredentialsProvider
         </description>
     </property>
   

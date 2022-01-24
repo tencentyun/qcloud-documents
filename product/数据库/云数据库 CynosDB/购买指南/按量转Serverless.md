@@ -1,5 +1,5 @@
 
-TDSQL-C for MySQL 计费方式支持按量计费转 Serverless。TDSQL-C 通过后台转换集群类型来实现按量计费转 Serverless，转换后 [账单和明细](https://console.cloud.tencent.com/expense/bill/summary) 会发生变化，计费模式仍然为后付费。
+TDSQL-C MySQL版 计费方式支持按量计费转 Serverless。TDSQL-C 通过后台转换集群类型来实现按量计费转 Serverless，转换后 [账单和明细](https://console.cloud.tencent.com/expense/bill/summary) 会发生变化，计费模式仍然为后付费。
 
 >!
 >- 按量计费转换 Serverless 过程中，数据库可提供访问，转换的时间点会发生闪断，建议您的应用程序配置自动重连功能。

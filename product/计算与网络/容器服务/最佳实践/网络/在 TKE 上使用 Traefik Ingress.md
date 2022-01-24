@@ -2,19 +2,19 @@
 
 [Traefik](https://doc.traefik.io/traefik/) 是一款优秀的反向代理工具，与 Nginx 相比，Traefik 具有以下优势：
 
-- 原生支持动态配置。例如，Kubernetes 的 Ingress 资源或 IngressRoute 等 CRD 资源（Nginx 每次需重新加载完整配置，部分情况下可能会影响连接）。
-- 原生支持服务发现。使用 Ingress 或 IngressRoute 等动态配置后，会自动 watch 后端 endpoint，同步更新到负载均衡的后端列表中。
-- 提供美观的 Dashboard 管理页面。
-- 原生支持 Metrics，与 Prometheus 和 Kubernetes 无缝集成。
-- 拥有更丰富的高级功能。例如，多版本的灰度发布、流量复制、自动生成 HTTPS 免费证书、中间件等。
+- 原生支持动态配置。例如，Kubernetes 的 Ingress 资源或 IngressRoute 等 CRD 资源（Nginx 每次需重新加载完整配置，部分情况下可能会影响连接）。 
+- 原生支持服务发现。使用 Ingress 或 IngressRoute 等动态配置后，会自动 watch 后端 endpoint，同步更新到负载均衡的后端列表中。 
+- 提供美观的 Dashboard 管理页面。 
+- 原生支持 Metrics，与 Prometheus 和 Kubernetes 无缝集成。 
+- 拥有更丰富的高级功能。例如，多版本的灰度发布、流量复制、自动生成 HTTPS 免费证书、中间件等。 
 
-本文将介绍如何在 TKE 集群安装 Traefik 以及提供通过 Traefik 使用 Ingress 和 IngressRoute 示例。
+本文将介绍如何在 TKE 集群安装 Traefik 以及提供通过 Traefik 使用 Ingress 和 IngressRoute 示例。 
 
 
 ## 前提条件
 
-- 已创建 [TKE 集群](https://cloud.tencent.com/document/product/457/32189) 并能够通过 Kubectl [连接集群](https://cloud.tencent.com/document/product/457/32191)。
-- 已安装 [Helm](https://helm.sh/docs/intro/install/)。
+- 已创建 [TKE 集群](https://cloud.tencent.com/document/product/457/32189) 并能够通过 Kubectl [连接集群](https://cloud.tencent.com/document/product/457/32191)。 
+- 已安装 [Helm](https://helm.sh/docs/intro/install/)。 
 
 
 
@@ -23,7 +23,7 @@
 
 ### 安装 Traefik
 
-本文提供以下在 TKE 集群上安装 Traefik 为例，完整安装方法请参见 [Traefik 官方文档](https://doc.traefik.io/traefik/getting-started/install-traefik/#use-the-helm-chart)。
+本文提供以下在 TKE 集群上安装 Traefik 为例，完整安装方法请参见 [Traefik 官方文档](https://doc.traefik.io/traefik/getting-started/install-traefik/#use-the-helm-chart)。 
 
 1. 执行以下命令，添加 Traefik 的 Helm chart repo 源。示例如下：
 ```bash
@@ -63,7 +63,8 @@ resources:
 :::
 </dx-codeblock>
 
- >? 完整的默认配置可执行 `helm show values traefik/traefik` 命令查看。
+>? 完整的默认配置可执行 `helm show values traefik/traefik` 命令查看。 
+>
 3. 执行以下命令将 Traefik 安装到 TKE 集群。示例如下：
 ```bash
 kubectl create ns ingress
@@ -102,7 +103,7 @@ spec:
 :::
 </dx-codeblock>
 
->! TKE 暂未将 Traefik 产品化，无法直接在 TKE 控制台进行可视化创建 Ingress，需要使用 YAML 进行创建。
+>! TKE 暂未将 Traefik 产品化，无法直接在 TKE 控制台进行可视化创建 Ingress，需要使用 YAML 进行创建。 
 
 ### 使用 IngressRoute
 
@@ -126,4 +127,4 @@ spec:
 :::
 </dx-codeblock>
 
->?Traefik 更多用法请参见 [Traefik 官方文档](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/)。
+>?Traefik 更多用法请参见 [Traefik 官方文档](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/)。 
