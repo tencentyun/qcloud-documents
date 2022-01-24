@@ -57,7 +57,7 @@ Log4j 由三个重要的组件构成：
 
 ```
 #loghubAppender
-log4j.appender.loghubAppender=com.tencentcloud.cls.LoghubAppender
+log4j.appender.loghubAppender=com.tencentcloudapi.cls.LoghubAppender
 #日志服务的 http 地址，必选参数
 log4j.appender.loghubAppender.endpoint=ap-guangzhou.cls.tencentcs.com
 #用户身份标识，必选参数
