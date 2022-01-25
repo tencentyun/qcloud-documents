@@ -104,6 +104,7 @@ global:
     - 10.0.4.6:8091
 :::
 </dx-codeblock>
+至此，您的 nginx-polaris 就已经构建完毕，后续您可以整体将 /user/local/nginx 目录打包进行主调端部署。
 7. 注册被调端服务：
 在容器环境下，用户开发完被调端的服务后，可以通过 [关联 K8s 集群](https://cloud.tencent.com/document/product/1364/65869?from=copy) 的方式，将通过容器部署的服务，自动注册到北极星上（默认会使用default命名空间进行注册），注册后如下图：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c41f8224309f7996713593ceb9887309.png)
