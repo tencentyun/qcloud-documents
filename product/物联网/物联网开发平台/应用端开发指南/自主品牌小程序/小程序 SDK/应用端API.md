@@ -38,8 +38,6 @@ sdk.requestApi('AppGetFamilyDeviceList', { FamilyId: 'default' })
 ```
 
 > ! 
->
-> 腾讯云物联网开发平台是基于**家庭**的设备体系，每个家庭有其对应的 `FamilyId`，每台设备均归属一个家庭。
->
-> 开发者也可以选择不关注家庭这一概念，对所有需要传 `FamilyId` 的接口（例如 [获取用户绑定设备列表](https://cloud.tencent.com/document/product/1081/40803)）传入 `default` 作为 `FamilyId`，SDK 会自动完成内部的家庭相关的逻辑（SDK 会为用户创建一个默认家庭，若 `FamilyId` 入参的值为 `default`，SDK 会自动替换为用户默认家庭的 `FamilyId`）。
+>- 腾讯云物联网开发平台是基于**家庭**的设备体系，每个家庭有其对应的 `FamilyId`，每台设备均归属一个家庭。
+>- 开发者也可以选择不关注家庭这一概念，对所有需要传 `FamilyId` 的接口（例如 [获取用户绑定设备列表](https://cloud.tencent.com/document/product/1081/40803)）传入 `default` 作为 `FamilyId`，SDK 会自动完成内部的家庭相关的逻辑（SDK 会为用户创建一个默认家庭，若 `FamilyId` 入参的值为 `default`，SDK 会自动替换为用户默认家庭的 `FamilyId`）。
 
