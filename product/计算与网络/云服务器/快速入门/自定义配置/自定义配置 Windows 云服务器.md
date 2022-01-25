@@ -36,30 +36,118 @@
 </table>
 2. 单击**下一步：设置主机**，进入设置主机页面。
 
+
+
 ## 设置主机
 1. 根据页面提示，配置以下信息：
-![](https://main.qcloudimg.com/raw/2f2bcbddb36f29ac593cfb16ba44a17b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/97a3dc71809b34d2e434432a82ea0e8f.png)
 <table>
-<tr><th style="width: 20%">类别</th><th style="width: 12%">必选/可选</th><th>配置说明</th></tr>
-<tr><td>安全组</td><td>必选</td><td>用于设置单台或多台云服务器的网络访问控制。</br><b>请确保已开放3389登录端口</b>，更多信息请参见 <a href="https://cloud.tencent.com/document/product/213/12452">安全组</a>。</td></tr>
-<tr><td>所属项目</td><td>必选</td><td>默认为默认项目，可根据实际需求，选择已建立的项目，用于管理不同的云服务器。</td></tr>
-<tr><td>标签</td><td>可选</td><td>设置标签之后可以对云服务器实现资源的分类管理。具体可参考 <a href="https://cloud.tencent.com/document/product/213/19548">标签</a> 进行设置。</td></tr>
-<tr><td>实例名称</td><td>可选</td><td>表示需要创建的云服务器的名称。</br>用户自定义，推荐为“CVM-01”。</td></tr>
-<tr><td>登录方式</td><td>必选</td><td>设置用户登录云服务器的方式，请根据实际需求进行设置。<ul><li><b>设置密码</b>：自定义设置登录实例的密码。</li><li><b>自动生成密码</b>：自动生成的密码将会以 <a href="https://console.cloud.tencent.com/message">站内信</a> 方式发送。</li></ul></td></tr>
-<tr><td>安全加固</td><td>可选</td><td>默认免费开通，帮助用户构建服务器安全防护体系，防止数据泄露。</td></tr>
-<tr><td>云监控</td><td>可选</td><td>默认免费开通，提供立体化云服务器数据监控、智能化数据分析、实时化故障告警和个性化数据报表配置，让用户精准掌控业务和云服务器的健康状况。</td></tr>
-<tr><td>自动续费</td><td>可选</td><td>仅限包年包月的云服务器。</br>勾选“账户余额足够时，设备到期后按月自动续费”，避免设备到期时需要进行手动续费的操作。</td></tr>
-<tr><td>高级设置</td><td>可选</td><td>根据实际需求对实例做更多配置。<ul><li><b>主机名</b>：用户可以自定义设置云服务器操作系统内部的计算机名，云服务器成功生产后可以通过登录云服务器内部查看。</li><li><b>CAM角色</b>：设置角色后可以通过角色对云服务器授予腾讯云中服务、操作和资源的访问权限。具体可参考 <a href="https://cloud.tencent.com/document/product/213/47668">管理实例角色</a> 进行设置。</li><li><b>置放群组</b>：根据需要可以将实例添加到置放群组中，提高业务的可用性。具体可参考 <a href="https://cloud.tencent.com/document/product/213/15486">置放群组</a> 进行设置。</li><li><b>自定义数据</b>：指定自定义数据来配置实例，既当实例启动时运行配置的脚本。如果一次购买多台云服务器，自定义数据会在所有的云服务器上运行。Windows 操作系统支持 PowerShell 格式，最大支持 16KB 原始数据。具体可参考 <a href="https://cloud.tencent.com/document/product/213/17526">自定义设置自定义数据（Windows 云服务器）</a>。</br><b>注意</b>：自定义数据配置仅支持 Windows 公有镜像，具体可参考 <a href="https://cloud.tencent.com/document/product/213/17526#.E6.B3.A8.E6.84.8F.E4.BA.8B.E9.A1.B9">注意事项</a>。
+  <tr>
+	<th style="width: 20%">类别</th>
+	<th style="width: 12%">必选/可选</th>
+	<th>配置说明</th>
+  </tr>
+  <tr>
+	<td>安全组</td>
+	<td>必选</td>
+	<td>用于设置单台或多台云服务器的网络访问控制。
+	<br />
+	<b>请确保已开放3389登录端口</b>，更多信息请参见 <a href="https://cloud.tencent.com/document/product/213/12452">安全组</a>。</td>
+  </tr>
+  <tr>
+	<td>所属项目</td>
+	<td>必选</td>
+	<td>默认为默认项目，可根据实际需求，选择已建立的项目，用于管理不同的云服务器。</td>
+  </tr>
+  <tr>
+	<td>标签</td>
+	<td>可选</td>
+	<td>设置标签之后可以对云服务器实现资源的分类管理。具体可参考 <a href="https://cloud.tencent.com/document/product/213/19548">标签</a> 进行设置。</td>
+  </tr>
+  <tr>
+	<td>实例名称</td>
+	<td>可选</td>
+	<td>表示需要创建的云服务器的名称。
+	<br />用户自定义，推荐为“CVM-01”。</td>
+  </tr>
+  <tr>
+	<td>登录方式</td>
+	<td>必选</td>
+	<td>设置用户登录云服务器的方式，请根据实际需求进行设置。
+	<ul>
+	  <li>
+	  <b>设置密码</b>：自定义设置登录实例的密码。</li>
+	  <li>
+	  <b>自动生成密码</b>：自动生成的密码将会以 <a href="https://console.cloud.tencent.com/message">站内信</a> 方式发送。</li>
+	</ul></td>
+  </tr>
+  <tr>
+	<td>安全加固</td>
+	<td>可选</td>
+	<td>默认免费开通，帮助用户构建服务器安全防护体系，防止数据泄露。</td>
+  </tr>
+  <tr>
+	<td>云监控</td>
+	<td>可选</td>
+	<td>
+	默认免费开通，提供立体化云服务器数据监控、智能化数据分析、实时化故障告警和个性化数据报表配置，让用户精准掌控业务和云服务器的健康状况。</td>
+  </tr>
+  <tr>
+	<td>自动化助手</td>
+	<td>可选</td>
+	<td>默认安装组件免费开通自动化助手，支持免密码、免 SSH
+	登录即批量管理实例、执行命令，完成日常管理任务。具体可参考 <a href="https://cloud.tencent.com/document/product/1340/50752">自动化助手</a>。</td>
+  </tr>
+  <tr>
+	<td>统一到期日</td>
+	<td>可选</td>
+	<td>
+	统一到期日支持用户将预付费设备到期时间统一至每月同一日期，方便用户对云服务器进行统一管理和续费。
+	<ul>
+	  <li>如您从未使用过统一到期日功能，则购买页不显示统一到期日勾选框。如需设置请参见  <a href="https://cloud.tencent.com/document/product/555/7454#.E7.BB.9F.E4.B8.80.E5.88.B0.E6.9C.9F.E6.97.A5">统一到期日</a>
+	  操作指引。</li>
+	  <li>
+	  如您已经使用过统一到期日功能，购买页将显示统一到期日勾选框。勾选过该字段的云服务器购买时长须大于一个月，不足整月的部分，系统将按照月价折算成天数的价格为您计费。
+	  <br />例如，11月12日购买且勾选统一到期日的云服务器，月价格为60元/月，统一到期日为每月20日，则该云服务器到期时间为12月20日，您需要支付的金额为76元（60+60÷30×8）。</li>
+	</ul></td>
+  </tr>
+  <tr>
+	<td>自动续费</td>
+	<td>可选</td>
+	<td>仅限包年包月的云服务器。
+	<br />勾选“账户余额足够时，设备到期后按月自动续费”，避免设备到期时需要进行手动续费的操作。</td>
+  </tr>
+  <tr>
+	<td>高级设置</td>
+	<td>可选</td>
+	<td>根据实际需求对实例做更多配置。
+	<ul>
+	  <li>
+	  <b>主机名</b>：用户可以自定义设置云服务器操作系统内部的计算机名，云服务器成功生产后可以通过登录云服务器内部查看。</li>
+	  <li><b>CAM角色</b>：设置角色后可以通过角色对云服务器授予腾讯云中服务、操作和资源的访问权限。具体可参考 <a href="https://cloud.tencent.com/document/product/213/47668">管理实例角色</a> 进行设置。</li>
+	  <li> <b>置放群组</b>：根据需要可以将实例添加到置放群组中，提高业务的可用性。具体可参考 <a href="https://cloud.tencent.com/document/product/213/15486">置放群组</a> 进行设置。</li>
+	  <li> <b>自定义数据</b>：指定自定义数据来配置实例，既当实例启动时运行配置的脚本。如果一次购买多台云服务器，自定义数据会在所有的云服务器上运行。Windows
+	  操作系统支持 PowerShell 格式，最大支持 16KB 原始数据。具体可参考 <a href="https://cloud.tencent.com/document/product/213/17526">自定义设置自定义数据（Windows
+	  云服务器）</a>。
+	  <br />
+	  <b>注意</b>：自定义数据配置仅支持 Windows 公有镜像，具体可参考 <a href="https://cloud.tencent.com/document/product/213/17526#.E6.B3.A8.E6.84.8F.E4.BA.8B.E9.A1.B9">注意事项</a>。</li>
+	</ul></td>
+  </tr>
 </table>
-2. 单击**下一步：确认配置信息**，进入确认配置信息页面。
+2. 单击<b>下一步：确认配置信息</b>，进入确认配置信息页面。
+
+
+
+
+
+
 
 ## 确认配置信息
-
 1. 核对购买的云服务器信息，了解各项配置的费用明细。
 2. 阅读并勾选“同意《腾讯云服务协议》和《退款规则》”或“同意《腾讯云服务协议》”。
 4. 您可根据实际需求，进行以下操作：
- - 选择**保存为启动模板**：将该实例的配置保存为启动模板，您可使用启动模板快速创建实例。详情请参见 [管理实例启动模板](https://cloud.tencent.com/document/product/213/62034)。
- - 选择**生成 API Explorer 最佳实践脚本**：生成已选配置对应的创建实例 OpenAPI 最佳实践脚本代码，您可保存代码用于购买同配置云服务器。详情请参见 [生成创建实例 API Explorer 最佳实践脚本](https://cloud.tencent.com/document/product/213/49856)。
+    - 选择**保存为启动模板**：将该实例的配置保存为启动模板，您可使用启动模板快速创建实例。详情请参见 [管理实例启动模板](https://cloud.tencent.com/document/product/213/62034)。
+    - 选择**生成 API Explorer 最佳实践脚本**：生成已选配置对应的创建实例 OpenAPI 最佳实践脚本代码，您可保存代码用于购买同配置云服务器。详情请参见 [生成创建实例 API Explorer 最佳实践脚本](https://cloud.tencent.com/document/product/213/49856)。
 5. 单击**立即购买**或**开通**，完成支付。当您付款完成后，即可进入 [云服务器控制台](https://console.cloud.tencent.com/cvm) 查收您的云服务器。
 云服务器的实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息将以 [站内信](https://console.cloud.tencent.com/message) 的方式发送到账户上。您可以使用这些信息登录和管理实例，也请尽快更改您的云服务器登录密码，以保障主机安全性。
 

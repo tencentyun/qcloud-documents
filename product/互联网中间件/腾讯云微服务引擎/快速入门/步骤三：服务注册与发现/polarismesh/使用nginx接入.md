@@ -19,7 +19,7 @@
        - 将预编译包放进 nginx-1.20.2 目录中，并进行解压。
     - 对于其他版本操作系统的用户：
          1. 下载 [polaris-cpp](https://github.com/polarismesh/polaris-cpp/releases) 最新版本源码，并进行解压
-         - 执行 make pacakge 编译 polaris-cpp 源码，编译后获得 polaris_cpp_sdk.tar.gz。
+         - 执行 make package 编译 polaris-cpp 源码，编译后获得 polaris_cpp_sdk.tar.gz。
          - 将 polaris_cpp_sdk.tar.gz 放到 nginx-1.20.2 目录中，并进行解压，获得 polaris_cpp_sdk 目录。
          - 下载 [nginx-polaris](https://github.com/polarismesh/nginx-polaris/releases) 最新版本源码，并进行解压，获得 nginx-polaris-${version} 目录。
          - 拷贝 nginx-polaris-${version}/config 到 nginx-1.20.2/polaris_cpp_sdk 目录中。
@@ -104,6 +104,7 @@ global:
     - 10.0.4.6:8091
 :::
 </dx-codeblock>
+至此，您的 nginx-polaris 就已经构建完毕，后续您可以整体将 /user/local/nginx 目录打包进行主调端部署。
 7. 注册被调端服务：
 在容器环境下，用户开发完被调端的服务后，可以通过 [关联 K8s 集群](https://cloud.tencent.com/document/product/1364/65869?from=copy) 的方式，将通过容器部署的服务，自动注册到北极星上（默认会使用default命名空间进行注册），注册后如下图：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c41f8224309f7996713593ceb9887309.png)
