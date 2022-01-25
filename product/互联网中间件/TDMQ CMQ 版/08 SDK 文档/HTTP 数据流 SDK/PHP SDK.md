@@ -8,26 +8,23 @@
 - [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-cmq-demo/tdmq-cmq-php-sdk-demo.zip)
 
 ## 一、队列模型
-
-1. 在控制台创建符合需求的队列服务，参考 [创建队列服务](https://cloud.tencent.com/document/product/1496/61015)。
-
-   > ? 目前创建消息队列可以在控制台，或者通过云 API 方式来创建，使用云API 需要安装相关 SDK，SDK 安装可参考 [PHP SDK 3.0安装使用](https://cloud.tencent.com/document/sdk/PHP)。
-
+1. 在控制台创建符合需求的队列服务，参见 [创建队列服务](https://cloud.tencent.com/document/product/1496/61015)。
+   > ? 目前创建消息队列可以在控制台，或者通过云 API 方式来创建，使用云API 需要安装相关 SDK，SDK 安装可参见 [PHP SDK 3.0安装使用](https://cloud.tencent.com/document/sdk/PHP)。
 2. 添加依赖。
-
-   ```shell
-   composer require tencentcloud/tencentcloud-sdk-php
-   ```
-
+<dx-codeblock>
+:::  shell
+composer require tencentcloud/tencentcloud-sdk-php
+:::
+</dx-codeblock>
 3. 添加引用。
-
-   ```php
-   require '/path/to/vendor/autoload.php';
-   ```
-
+<dx-codeblock>
+:::  php
+require '/path/to/vendor/autoload.php';
+:::
+</dx-codeblock>
 4. 创建消息队列。
-
-   ```php
+<dx-codeblock>
+:::  php
    $cred = new Credential($secretId, $secretKey);
    $httpProfile = new HttpProfile();
    $httpProfile->setEndpoint($endPoint);
@@ -49,18 +46,34 @@
    $req->fromJsonString(json_encode($params));
    
    $resp = $client->CreateCmqQueue($req);
-   ```
-
-   | 参数                  | 说明                                                         |
-   | :-------------------- | :----------------------------------------------------------- |
-   | $endPoint             | API 调用地址，在 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务** > **API请求地址**处复制。![img](https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png) |
-   | $secretId、$secretKey | 云 API 密钥，登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，在**访问密钥** > **API密钥管理**页面复制。![img](https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png) |
-
+:::
+</dx-codeblock>
+<table>
+    <thead>
+    <tr>
+        <th>参数</th>
+        <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>$endPoint</td>
+        <td>API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt;
+            <strong>API请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png"
+                                             referrerpolicy="no-referrer" alt="img"></td>
+    </tr>
+    <tr>
+        <td>$secretId、$secretKey</td>
+        <td>云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt;
+            <strong>API密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png"
+                                              referrerpolicy="no-referrer" alt="img"></td>
+    </tr>
+    </tbody>
+</table>
 5. 在项目中引入 [CMQ 相关文件](https://github.com/tencentyun/cmq-php-sdk)。
-
 6. 发送消息。
-
-```php
+<dx-codeblock>
+:::  php
 // 消息队列名称
 $queue_name = "php_queue";
 // 认证信息
@@ -86,17 +99,16 @@ try {
     echo "Create Queue Fail! Exception: " . $e;
     return;
 }
-```
-
-| 参数                | 说明                                                         |
-| :------------------ | :----------------------------------------------------------- |
-| endpoint            | API 调用地址，在 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务** > **API请求地址**处复制。![img](https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png) |
-| secretId、secretKey | 云 API 密钥，登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，在**访问密钥** > **API密钥管理**页面复制。![img](https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png) |
-| $queue_name         | 队列名称，在 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务**列表页面获取。 |
-
+:::
+</dx-codeblock>
+<table>
+<thead>
+<tr><th >参数</th><th >说明</th></tr></thead>
+<tbody><tr><td >endpoint</td><td >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >secretId、secretKey</td><td >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td style='text-align:left;' >$queue_name</td><td style='text-align:left;' >队列名称，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong>列表页面获取。</td></tr></tbody>
+</table>
 7. 消费消息。
-
-```php
+<dx-codeblock>
+:::  php
 // 消息队列名称
 $queue_name = "php_queue";
 // 认证结果
@@ -121,21 +133,20 @@ try {
     echo "Create Queue Fail! Exception: " . $e;
     return;
 }
-```
-
-| 参数                | 说明                                                         |
-| :------------------ | :----------------------------------------------------------- |
-| endpoint            | API 调用地址，在 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务** > **API请求地址**处复制。![img](https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png) |
-| secretId、secretKey | 云 API 密钥，登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，在**访问密钥** > **API密钥管理**页面复制。![img](https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png) |
-| $queue_name         | 队列名称，在 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务**列表页面获取。 |
+:::
+</dx-codeblock>
+<table>
+<thead>
+<tr><th >参数</th><th >说明</th></tr></thead>
+<tbody><tr><td >endpoint</td><td >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >secretId、secretKey</td><td >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >$queue_name</td><td >队列名称，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong>列表页面获取。</td></tr></tbody>
+</table>
 
 ## 二、主题模型
 
 1. 准备所需资源，创建主题订阅和订阅者。
-
-   1. 创建主题订阅，创建主题订阅可通过控制台，或云 API 进行创建，使用云 API 需要安装相关 SDK，SDK 安装可参考 [PHP SDK 3.0安装使用](https://cloud.tencent.com/document/sdk/PHP)。
-
-      ```php
+   1. 创建主题订阅，创建主题订阅可通过控制台，或云 API 进行创建，使用云 API 需要安装相关 SDK，SDK 安装可参见 [PHP SDK 3.0安装使用](https://cloud.tencent.com/document/sdk/PHP)。
+<dx-codeblock>
+:::  php
       $cred = new Credential($secretId, $secretKey);
       $httpProfile = new HttpProfile();
       $httpProfile->setEndpoint($endPoint);
@@ -155,16 +166,16 @@ try {
       
       // 创建topic
       $resp = $client->CreateCmqTopic($req);
-      ```
-
-      | 参数                  | 说明                                                         |
-      | :-------------------- | :----------------------------------------------------------- |
-      | $endPoint             | API 调用地址，在 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务** > **API请求地址**处复制。![img](https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png) |
-      | $secretId、$secretKey | 云 API 密钥，登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，在**访问密钥** > **API密钥管理**页面复制。![img](https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png) |
-
-   2. 创建订阅者，创建订阅者可通过控制台，或云 API 进行创建，使用云 API 需要安装相关 SDK，SDK 安装可参考 [PHP SDK 3.0安装使用](https://cloud.tencent.com/document/sdk/PHP)。
-
-      ```php
+:::
+</dx-codeblock>
+<table>
+<thead>
+<tr><th >参数</th><th >说明</th></tr></thead>
+<tbody><tr><td >$endPoint</td><td >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >$secretId、$secretKey</td><td >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr></tbody>
+</table>
+   2. 创建订阅者，创建订阅者可通过控制台，或云 API 进行创建，使用云 API 需要安装相关 SDK，SDK 安装可参见 [PHP SDK 3.0安装使用](https://cloud.tencent.com/document/sdk/PHP)。
+<dx-codeblock>
+:::  php
       $cred = new Credential($secretId, $secretKey);
       $httpProfile = new HttpProfile();
       $httpProfile->setEndpoint($endPoint);
@@ -197,51 +208,48 @@ try {
       
       // 创建订阅
       $resp = $client->CreateCmqSubscribe($req);
-      ```
-
-      > !
-      >
-      > BindingKey 与 FilterTag 要根据所订阅 Topic 类型进行设置，否则无效。
-
-      | 参数                  | 说明                                                         |
-      | :-------------------- | :----------------------------------------------------------- |
-      | $endPoint             | API 调用地址，在 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务** > **API请求地址**处复制。![img](https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png) |
-      | $secretId、$secretKey | 云 API 密钥，登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，在**访问密钥** > **API密钥管理**页面复制。![img](https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png) |
-
+:::
+</dx-codeblock>
+<dx-alert infotype="notice" title="">
+BindingKey 与 FilterTag 要根据所订阅 Topic 类型进行设置，否则无效。
+</dx-alert>
+<table>
+<thead>
+<tr><th >参数</th><th >说明</th></tr></thead>
+<tbody><tr><td >$endPoint</td><td >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >$secretId、$secretKey</td><td >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr></tbody>
+</table>
 2. 在项目中引入 [CMQ 文件](https://github.com/tencentyun/cmq-php-sdk)。
-
 3. 创建 my_topic，用来发布消息。
-
-   ```php
+<dx-codeblock>
+:::  php
    // 主题订阅名称
    $topic_name = "php_topic_tag";
    // 认证信息
    $my_account = new Account($this->endpoint, $this->secretId, $this->secretKey);
    $my_topic = $my_account->get_topic($topic_name);
-   ```
-
-   | 参数                | 说明                                                         |
-   | :------------------ | :----------------------------------------------------------- |
-   | endpoint            | API 调用地址，在 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务** > **API请求地址**处复制。![img](https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png) |
-   | secretId、secretKey | 云 API 密钥，登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，在**访问密钥** > **API密钥管理**页面复制。![img](https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png) |
-   | $topic_name         | 主题订阅名称，在 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**主题订阅**列表页面获取。 |
-
+:::
+</dx-codeblock>
+<table>
+<thead>
+<tr><th >参数</th><th >说明</th></tr></thead>
+<tbody><tr><td >endpoint</td><td >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >secretId、secretKey</td><td >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >$topic_name</td><td >主题订阅名称，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>主题订阅</strong>列表页面获取。</td></tr></tbody>
+</table>
 4. 发送 TAG 类型消息。
-
-   ```php
+<dx-codeblock>
+:::  php
    // 发送tag消息
    $msg = "this is a test message for tag.";
    $msgid = $my_topic->publish_message($msg, array("TAG","TAG1"));
-   ```
-
+:::
+</dx-codeblock>
 5. 发送 route 消息。
-
-   ```php
+<dx-codeblock>
+:::  php
    // 发送route消息
    $msg = "this is a test message for route.";
    $msgid = $my_topic->publish_message($msg, array(), "a.b.c");
-   ```
-
+:::
+</dx-codeblock>
 6. 消费者消费订阅者订阅的消息队列即可。
 
-以上是 CMQ 两种模型下的生产和消费方式的简单介绍，更多使用可参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-cmq-demo/tdmq-cmq-php-sdk-demo.zip) 或 [CMQ 代码仓库](https://github.com/tencentyun/cmq-php-sdk)。
+>?以上是 CMQ 两种模型下的生产和消费方式的简单介绍，更多使用可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-cmq-demo/tdmq-cmq-php-sdk-demo.zip) 或 [CMQ 代码仓库](https://github.com/tencentyun/cmq-php-sdk)。
