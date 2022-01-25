@@ -4,7 +4,7 @@
 
 <img src=https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/shuaisguo/1629101191691.gif style="width: 200px">
 
-您也可以通过官方的[小程序 SDK demo](https://github.com/tencentyun/qcloud-iotexplorer-appdev-miniprogram-sdk-demo)的 添加标准蓝牙设备 部分来掌握连接标准蓝牙设备的流程。
+您也可以通过官方的 [小程序 SDK demo](https://github.com/tencentyun/qcloud-iotexplorer-appdev-miniprogram-sdk-demo) 的添加标准蓝牙设备 部分来掌握连接标准蓝牙设备的流程。
 
 
 
@@ -60,7 +60,7 @@ export const bluetoothAdapter = new BlueToothAdapter({
 
 ## 3. 连接设备
 
-用户从上面获取到的设备中选择一个，并发起连接操作时，可以调用 `bluetoothAdapter.connectDevice` 方法进行连接。连接成功后会返回一个 deviceAdapter，可以用来向连接的设备发送Wi-Fi，token等数据。
+用户从上面获取到的设备中选择一个，并发起连接操作时，可以调用 `bluetoothAdapter.connectDevice` 方法进行连接。连接成功后会返回一个 deviceAdapter，可以用来向连接的设备发送 Wi-Fi，token 等数据。
 
 > ! 如果在连接时提示没有权限操作该产品，请到控制台/应用开发对应用和产品进行关联
 
@@ -84,7 +84,7 @@ try {
 
 ## 4. 绑定设备
 
-绑定设备时，可以传入familyId, roomId, 从而将设备绑定到特定的家庭和房间，绑定完成后，可以在设备列表中看到该设备。
+绑定设备时，可以传入 familyId, roomId, 从而将设备绑定到特定的家庭和房间，绑定完成后，可以在设备列表中看到该设备。
 
 ```ts
 try {
@@ -144,7 +144,7 @@ await deviceAdapter.disconnectDevice()
 
 
 
-## 9. deviceAdapter事件
+## 9. deviceAdapter 事件
 
 | 事件       | 描述                   | 参数                          |
 | ---------- | ---------------------- | ----------------------------- |
