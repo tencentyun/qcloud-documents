@@ -26,7 +26,7 @@
 ## 调试 API
 您可在商品详情页的 API 接口中单击**去调试**，输入相应参数即可调试。            
 ![](https://main.qcloudimg.com/raw/79abf713f4f92696df57c82f01e60a00.png)                 
-若在调试页面中需输入 secretId 以及 secretKey，则可单击**获取 secretId **进入 [已购产品与服务](https://console.cloud.tencent.com/servicemarket/services) 页面，复制该资源实例的 secretId 以及 secretKey 到 API 调试页面中即可调试。                 
+若在调试页面中需输入 secretId 以及 secretKey，则可单击**获取secretId**进入 [已购产品与服务](https://console.cloud.tencent.com/servicemarket/services) 页面，复制该资源实例的 secretId 以及 secretKey 到 API 调试页面中即可调试。                 
 ![](https://main.qcloudimg.com/raw/22d05633849a6655bec92e7ddc22c51a.png)              
 >!若商品参数为购买后调试，则需购买完成后才能进行调试，每次调试均会扣取次数包中的调用次数。
 

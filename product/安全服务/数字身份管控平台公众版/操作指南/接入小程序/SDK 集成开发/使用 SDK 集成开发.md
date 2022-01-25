@@ -122,23 +122,27 @@ async bindLoginBySlience() {
 >- 官方文档详情参见：[获取手机号](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/getPhoneNumber.html)。
 >
 ```
-	async bindLoginByPhone(e) {
-	    const loginPromise = await authSDK.loginPhone(); // 此处返回Function
-	    const {iv, encryptedData} = e.detail;
-	
-	    try { 
-	      await loginPromise(iv, encryptedData);
-	    }
-	    catch(err) {
-	      console.log('bindLoginByPhone error', err)
-	    }
-			const userInfo = authSDK.getUser();
-			if (userInfo) {
-			...
-	    }
-		
-  },
+async bindLoginByPhone(e) {
+   
+    const {code} = e.detail;
+    if (!code) {
+      console.error('未获取到code,请检查开发者工具是否更新以及小程序基础库版本是否在2.21.2以上');
+      return;
+    }
+    try { 
+      await authSDK.loginPhone(code);
+    }
+    catch(err) {
+      console.log('bindLoginByPhone error', err)
+    }
 
+    const userInfo = authSDK.getUser();
+   
+    if (userInfo) {
+      ...
+    }
+   
+  },
 ```
 
 **参数说明**

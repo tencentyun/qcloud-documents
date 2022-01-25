@@ -77,7 +77,7 @@
 1. 打开 [小米开放平台官网](https://dev.mi.com/console/) 进行注册并通过开发者认证。登录小米开放平台的管理控制台，选择**应用服务**>**PUSH服务**，创建小米推送服务应用，记录**`主包名`**、**`AppID`**、**`AppSecret`**信息。
    ![](https://main.qcloudimg.com/raw/7a291196c6f4800d5d1c9b9e23aed617.jpg)
    [](id:xiaomiStep1_2)
-2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击**Android平台推送设置**区域的**添加证书**。根据 [步骤1](#Step1_1) 中获取的信息设置以下参数：
+2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击 **Android 平台推送设置**区域的**添加证书**。根据 [步骤1](#Step1_1) 中获取的信息设置以下参数：
 
  - **推送平台**：选择**小米**
  - **应用包名称**：填写小米推送服务应用的**主包名**
@@ -221,7 +221,7 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 1. 打开 [华为开发者联盟官网](https://developer.huawei.com/consumer/cn/) 进行注册并通过开发者认证。进入管理中心，选择**应用服务**>**开发服务**>**PUSH**，创建华为推送服务应用。记录**`包名`**、**`APP ID`**、**`Client ID`**、**`Client SECRET`**信息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/4b6aee44ab3a9026f2bda728cfc4d3f4.png)
    [](id:huaweiStep1_2)
-2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击**Android平台推送设置**区域的**添加证书**。根据 [步骤1](#huaweiStep1_1) 中获取的信息设置以下参数：
+2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击 **Android 平台推送设置**区域的**添加证书**。根据 [步骤1](#huaweiStep1_1) 中获取的信息设置以下参数：
 
  - **推送平台**：选择**华为**
  - **应用包名称**：填写华为推送服务应用的**包名**
@@ -379,7 +379,7 @@ V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null,
 
    [](id:oppoStep1_3)
 
-3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击**Android平台推送设置**区域的**添加证书**。根据 [步骤1](#oppoStep1_1) 中获取的信息设置以下参数：
+3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击 **Android 平台推送设置**区域的**添加证书**。根据 [步骤1](#oppoStep1_1) 中获取的信息设置以下参数：
 
  - **推送平台**：选择**OPPO**
  - **AppKey**：填写 OPPO 推送服务应用的 **AppKey**
@@ -497,7 +497,7 @@ if (set != null) {
 
 1. [vivo 开放平台官网](https://dev.vivo.com.cn/home) 进行注册并通过开发者认证。登录其开放平台的管理中心，选择**消息推送**>**创建**>**测试推送**，创建 vivo 推送服务应用。记录**APP ID**、**APP key**和**APP secret**信息。
    [](id:vivoStep1_2)
-2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击**Android平台推送设置**区域的**添加证书**。根据 [步骤1](#vivoStep1_1) 中获取的信息设置以下参数：
+2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击 ** Android平台推送设置**区域的**添加证书**。根据 [步骤1](#vivoStep1_1) 中获取的信息设置以下参数：
 
  - **推送平台**：选择 **vivo**
  - **AppKey**：填写 vivo 推送服务应用的 **APP key**
@@ -629,7 +629,7 @@ String extContent = paramMap.get("ext");
 1. 打开 [魅族开放平台官网](http://open.flyme.cn) 进行注册并通过开发者认证。登录其控制台，选择**开发服务**>**Flyme推送**，创建魅族推送服务应用。记录**`应用包名`**、**`App ID`**、**`App Secret`**信息。
    ![](https://main.qcloudimg.com/raw/e0674cc1bca92fd549c03a3523b2144c.png)
    [](id:meizuStep1_2)
-2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击**Android平台推送设置**区域的**添加证书**。根据 [步骤1](#meizuStep1_1) 中获取的信息设置以下参数：
+2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击 **Android 平台推送设置**区域的**添加证书**。根据 [步骤1](#meizuStep1_1) 中获取的信息设置以下参数：
 
  - **推送平台**：选择**魅族**
  - **应用包名称**：填写魅族推送服务应用的**应用包名**
@@ -736,7 +736,7 @@ String extContent = bundle.getString("ext");
 [](id:fcmStep1_2)
 2. 登录 [Firebase 控制台](https://console.firebase.google.com)，单击您的应用卡片，进入应用配置页面。单击 Project Overview 右侧的 <img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择**项目设置**>**服务帐号**，单击**生成新的私钥**下载私钥文件。
 [](id:fcmStep1_3)
-3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击**Android平台推送设置**区域的**添加证书**。上传 [步骤2](#fcmStep1_2) 中获取的私钥文件。
+3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击 **Android 平台推送设置**区域的**添加证书**。上传 [步骤2](#fcmStep1_2) 中获取的私钥文件。
  ![](https://main.qcloudimg.com/raw/b18e2414561c6733b24c56cd1e866f21.png)
 4. 单击**确认**保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
  ![](https://main.qcloudimg.com/raw/2199bbf955cf52f09b78af6a97ab8122.png)
