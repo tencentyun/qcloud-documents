@@ -3,7 +3,7 @@ TRTCMeeting 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务
 - 参会人员之间进行屏幕分享。
 - 支持发送各种文本消息和自定义消息。
 
-TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [多人视频会议（Flutter）](https://cloud.tencent.com/document/product/647/58405)。
+TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [多人音视频互动（Flutter）](https://cloud.tencent.com/document/product/647/58405)。
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时视频会议组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 MeetingRoom 实现会议中聊天室的功能。
 

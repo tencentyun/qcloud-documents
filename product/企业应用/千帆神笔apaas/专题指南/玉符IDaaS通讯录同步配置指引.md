@@ -15,7 +15,7 @@
 ### 获取玉符 Domain 和 Service Account
 
 1. 登录千帆玉符管理后台。
->?线下开通后，每位租户会有一个独立的登录链接，由工作人员进行提供。
+> 线下开通后，每位租户会有一个独立的登录链接，由工作人员进行提供。
 >
 ![img](https://main.qcloudimg.com/raw/b0f87e203eae9c066382b5b991eb6f2c.png)
 2. 从地址栏获取 Domain 信息，并将其填入配置页面对应字段。例如：`https://apaas-test-admin.cig.tencentcs.com/#/，-admin` 前面的 apaas-test 即为 Domain。
@@ -25,7 +25,7 @@
 ### 创建玉符 OIDC 类型应用
 
 1. 登录千帆玉符管理后台，定位到“应用管理”。
->?线下开通后，每位租户会有一个独立的登录链接，由工作人员进行提供。
+> 线下开通后，每位租户会有一个独立的登录链接，由工作人员进行提供。
 > 
 ![img](https://main.qcloudimg.com/raw/8c45332448720d66ff5f0b27e8c2f873.png)
 2. 单击**添加应用**，选择“创建自定义应用”进入创建应用页面。
