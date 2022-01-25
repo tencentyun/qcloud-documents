@@ -54,7 +54,7 @@ App客户端 ->> TRTC SDK:startPlayMusic（传入genMusicURI返回值）
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/d9aa702f15daedbc090a0d7b8343003a.png)
 
-### 步骤4 白名单添加
+### 步骤4：白名单添加
 因产品尚在内测，在正式接入之前，请联系对应商务经理为您添加白名单。
 
 ### 步骤5：API 联调
