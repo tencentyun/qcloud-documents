@@ -17,7 +17,6 @@
  - 文件夹名称：`cloud.tencent.com_jks`
  - 文件夹内容：
     - `cloud.tencent.com.jks` 证书文件
-    - `cloud.tencent.com.key` 私钥文件
     - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
   
 >?
