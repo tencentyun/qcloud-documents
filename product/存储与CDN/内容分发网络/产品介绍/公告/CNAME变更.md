@@ -14,7 +14,7 @@
 1. 新增 CNAME
    CNAME 变更发布后，对于中国境内/全球域名，会出现两条 CNAME 解析。**原来已生效 CNAME 解析可正常使用，但仍建议您尽快配置新的 CNAME 解析**，即 `.com.cn` 后缀的 CNAME。配置成功后，CDN 将不再展示原来的 CNAME。
 ![](https://qcloudimg.tencent-cloud.cn/raw/062465982361ae2d543edffc207a1199.jpg)
->? 域名若添加腾讯云dnspod解析，支持[一键解析](https://cloud.tencent.com/document/product/228/59152)。
+>? 域名若添加腾讯云 dnspod 解析，支持 [一键解析](https://cloud.tencent.com/document/product/228/59152)。
 2. 加速区域变更
    中国境内/全球域名的 CNAME 将统一采用最新的后缀：`cdn.dnsv1.com.cn`；中国境外域名的 CNAME 将统一采用后缀：`.cdn.dnsv1.com`。若您需要进行加速区域变更，相应 CNAME 后缀也会发生变更，请注意确认和修改您的 CNAME 解析。
 >? 切换前，旧的 CNAME 保持有效，不影响现网业务。建议您尽早切换为新的 CNAME，后期将为您集中切换为新的 CNAME ，届时请您关注消息通知。
