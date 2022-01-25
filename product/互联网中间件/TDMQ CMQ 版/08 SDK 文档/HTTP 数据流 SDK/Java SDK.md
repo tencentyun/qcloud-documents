@@ -8,7 +8,7 @@
 - [安装2.5或以上版本 Maven](http://maven.apache.org/download.cgi#)
 - [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-cmq-demo/tdmq-cmq-Java-sdk-demo.zip)
 
-## 一、队列模型
+## 队列模型
 
 1. 在控制台创建符合需求的队列服务，参见 [创建队列服务](https://cloud.tencent.com/document/product/1496/61015)。
 2. 引入 CMQ 客户端相关依赖。
