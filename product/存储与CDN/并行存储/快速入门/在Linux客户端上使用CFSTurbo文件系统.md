@@ -10,6 +10,7 @@
 
 ## 操作步骤
 
+### 安装自动化工具
 <dx-tabs>
 ::: 自动安装
 1. 参考 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)，登录云服务器实例。
@@ -35,10 +36,6 @@ Ubuntu 16.04 版本因镜像原因，暂不支持自动下载。若需使用，�
 
 :::
 ::: 手动安装[](id:ManualInstallation)
-请在此输入 undefined 正文
-:::
-</dx-tabs>
-
 1. 参考 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)，登录云服务器实例。
 2. 执行如下命令，查看实例的内核版本。
 ```
@@ -110,11 +107,16 @@ sudo dpkg -i
 ```
 yum install
 ```
-5. 登录文件存储控制台，进入 [文件系统](https://console.cloud.tencent.com/cfs/fs?rid=1) 管理页面。
-6. 单击需要操作的 Turbo 文件系统 ID/名称，选择**挂载点信息**页签。
-7. 在挂载点信息页签的“挂载命令”中，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png"/>，复制所需命令。如下图所示：
+:::
+</dx-tabs>
+
+
+### 挂载文件系统至实例
+1. 登录文件存储控制台，进入 [文件系统](https://console.cloud.tencent.com/cfs/fs?rid=1) 管理页面。
+2. 单击需要操作的 Turbo 文件系统 ID/名称，选择**挂载点信息**页签。
+3. 在挂载点信息页签的“挂载命令”中，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png"/>，复制所需命令。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e66b83862958d4d7a915f7badd4fab52.png)
-8. 切换至登录的实例，执行复制的挂载命令。
+4. 切换至登录的实例，执行复制的挂载命令。
 关于挂载指令的说明如下，请根据实际的业务情况使用合适的挂载指令：
  - 如果您希望支持扩展属性且所有操作默认为同步执行（机器重启不会丢数据，但性能会有损耗），请复制和执行第如下命令。
  例如：
