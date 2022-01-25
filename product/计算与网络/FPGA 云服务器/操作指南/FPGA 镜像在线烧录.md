@@ -42,7 +42,7 @@
 <dx-alert infotype="explain" title="">
 由于 [查看实例列表](https://cloud.tencent.com/document/product/213/15728) 接口仅支持查询实例最近一次的操作状态，若您在发起镜像烧录后进行了其他实例操作，则可能无法获取镜像烧录流程的状态。后续可使用云审计查看镜像烧录状态，详情请参见 [查看操作记录事件详情](https://cloud.tencent.com/document/product/629/56259)。
 </dx-alert>
- - 由于目前 xilinx FPGA 卡的 user pf 和 mgmt pf 不互通，在发起烧录流程之后，还需要在子机内部执行以下命令，重新加载 xocl 驱动才可将 FPGA 镜像信息更新到 FPGA shell。
+ -  由于目前 xilinx FPGA 卡的 user pf 和 mgmt pf 不互通，在发起烧录流程之后，还需要在子机内部执行以下命令，重新加载 xocl 驱动。
  ```
  modprobe -r xocl && modprobe xocl
  ```
