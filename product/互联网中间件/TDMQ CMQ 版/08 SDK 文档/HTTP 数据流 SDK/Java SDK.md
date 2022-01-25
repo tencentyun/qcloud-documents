@@ -157,6 +157,7 @@
        e.printStackTrace();
    }
 :::
+</dx-codeblock>
 <table>
     <thead>
     <tr>
@@ -168,14 +169,12 @@
     <tr>
         <td>NameServerAddress</td>
         <td>API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt;
-            <strong>API请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png"
-                                             referrerpolicy="no-referrer" alt="img"></td>
+            <strong>API请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png"></td>
     </tr>
     <tr>
         <td>SecretId、SecretKey</td>
         <td>云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt;
-            <strong>API密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png"
-                                              referrerpolicy="no-referrer" alt="img"></td>
+            <strong>API密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png"></td>
     </tr>
     <tr>
         <td>queue</td>
