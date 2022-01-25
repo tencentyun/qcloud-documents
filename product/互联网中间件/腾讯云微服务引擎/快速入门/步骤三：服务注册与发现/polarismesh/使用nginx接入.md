@@ -19,7 +19,7 @@
        - 将预编译包放进 nginx-1.20.2 目录中，并进行解压。
     - 对于其他版本操作系统的用户：
          1. 下载 [polaris-cpp](https://github.com/polarismesh/polaris-cpp/releases) 最新版本源码，并进行解压
-         - 执行 make pacakge 编译 polaris-cpp 源码，编译后获得 polaris_cpp_sdk.tar.gz。
+         - 执行 make package 编译 polaris-cpp 源码，编译后获得 polaris_cpp_sdk.tar.gz。
          - 将 polaris_cpp_sdk.tar.gz 放到 nginx-1.20.2 目录中，并进行解压，获得 polaris_cpp_sdk 目录。
          - 下载 [nginx-polaris](https://github.com/polarismesh/nginx-polaris/releases) 最新版本源码，并进行解压，获得 nginx-polaris-${version} 目录。
          - 拷贝 nginx-polaris-${version}/config 到 nginx-1.20.2/polaris_cpp_sdk 目录中。
