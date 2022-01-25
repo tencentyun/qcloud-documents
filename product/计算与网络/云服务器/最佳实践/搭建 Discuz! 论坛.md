@@ -119,7 +119,7 @@ chmod -R 777 /var/www/html
 1. 在 Web 浏览器地址栏中，输入 Discuz! 站点的 IP 地址（即云服务器实例的公网 IP 地址）或通过 [相关操作](#ConfigureDomain) 获取的可用域名，即可看到 Discuz! 安装界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/aeb31eb70f45bef295250b359a750b84.png)
 <dx-alert infotype="explain" title="">
-若有弹窗提示出现安全提醒，单击**取消**忽略即可。
+若出现版本过低的安全提醒，建议采用更高版本的镜像。
 </dx-alert>
 2. 单击**我同意**，进入检查安装环境页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/470f6dd4dd2551da8c543070d100707b.png)
