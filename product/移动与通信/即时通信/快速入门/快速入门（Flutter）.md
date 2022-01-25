@@ -72,7 +72,7 @@ flutter run --dart-define=SDK_APPID=xxxx --dart-define=ISPRODUCT_ENV=false --dar
 确保设备没被其他资源占用，或单击 **Build** 生成 APK 包，再拖动进模拟器里运行。
 
 ### iOS 第一次运行报错？
-按照上面的 Demo 运行配置后，如果报错，可以单击**Product**>**Clean**，清除产物后重新 Build，或者关闭 Xcode 重新打开再次 Build。
+按照上面的 Demo 运行配置后，如果报错，可以单击 **Product** > **Clean**，清除产物后重新 Build，或者关闭 Xcode，重新打开后再次 Build。
 
 ### Flutter 环境问题
 如您需得知 Flutter 的环境是否存在问题，请运行 Flutter doctor 检测 Flutter 环境是否装好。

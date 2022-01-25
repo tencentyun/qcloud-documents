@@ -29,15 +29,15 @@ DDoS 高防 IP 服务提供防护策略调整功能，针对 DDoS 攻击提供�
 您需要成功 [购买 DDoS 高防 IP](https://cloud.tencent.com/document/product/1014/44082) ，并设置防护对象。
 
 ## 操作步骤
-1. 登录 [DDoS 高防 IP（新版）管理控制台](https://console.cloud.tencent.com/ddos/antiddos-advanced/package) ，在左侧导航中，单击**防护配置**。
-2. 在左边的列表选中高防 IP 的 ID，如“xxx.xx.xx.xx bgpip-000003n2”。
-![](https://main.qcloudimg.com/raw/d6586694f3fc6b1cbc6099b6b1498c38.png)
-3.	在右侧“DDoS 防护等级”卡片中，设置“防护等级”与“清洗阈值”。
+1. 登录 [DDoS 高防 IP 控制台](https://console.cloud.tencent.com/ddos/antiddos-advanced/config/port) ，在左侧导航中，单击**防护配置** > **DDoS 防护**。
+2. 在 DDoS 防护页面的左侧，选中高防IP的 ID，如“bgpip-xxxxxx”。
+![](https://qcloudimg.tencent-cloud.cn/raw/dc74678859a3da4f3dcbb27ffe07e367.png)
+3. 在 DDoS 防护等级卡片中，设置“防护等级”与“清洗阈值”。
 >?若明确该清洗阈值，可进行自定义设置。若无法明确该清洗阈值，DDoS 防护系统将根据 AI 算法自动学习并生成一套专属的默认阈值。
 >
-![](https://main.qcloudimg.com/raw/5493d666511df983f24362189d39901f.png)
-**配置参数说明：**
-	- **防护等级**
+![](https://qcloudimg.tencent-cloud.cn/raw/529b3232e04d9ad800c8aa51b7aad614.png)
+    **配置参数说明：**
+	  - **防护等级**
 	默认在开启“防护状态”的情况下，业务刚接入的 DDoS 高防 IP 实例采用适中防护等级，您可以根据实际业务防护需求自由调整 DDoS 防护等级。
 	- **清洗阈值**
 		- 清洗阈值是高防产品启动清洗动作的阈值，当流量小于阈值时，即使检测到攻击也不会进行清洗操作。
