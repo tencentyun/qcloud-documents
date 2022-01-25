@@ -10,21 +10,20 @@
 
 ## 一、队列模型
 
-1. 在控制台创建符合需求的队列服务，参考 [创建队列服务](https://cloud.tencent.com/document/product/1496/61015)。
-
+1. 在控制台创建符合需求的队列服务，参见 [创建队列服务](https://cloud.tencent.com/document/product/1496/61015)。
 2. 引入 CMQ 客户端相关依赖。
-
-   ```xml
+<dx-codeblock>
+:::  xml
    <dependency>
        <groupId>com.qcloud</groupId>
        <artifactId>cmq-tcp-client</artifactId>
        <version>1.1.7</version>
    </dependency>
-   ```
-
+:::
+</dx-codeblock>
 3. 发送消息。
-
-   ```java
+<dx-codeblock>
+:::  java
    Producer producer = new Producer();
    // 设置 Name Server地址。必须设置 不同地域不同网络不同
    producer.setNameServerAddress(NameServerAddress);
@@ -62,17 +61,38 @@
    } catch (InterruptedException e) {
        e.printStackTrace();
    }
-   ```
-
-   | 参数                | 说明                                                         |
-   | :------------------ | :----------------------------------------------------------- |
-   | NameServerAddress   | API 调用地址，在 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务** > **API请求地址**处复制。![img](https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png) |
-   | SecretId、SecretKey | 云 API 密钥，登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，在**访问密钥** > **API密钥管理**页面复制。![img](https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png) |
-   | queue               | 队列名称，在 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务**列表页面获取。 |
-
+:::
+</dx-codeblock>
+<table>
+    <thead>
+    <tr>
+        <th>参数</th>
+        <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>NameServerAddress</td>
+        <td>API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt;
+            <strong>API请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png"
+                                             referrerpolicy="no-referrer" alt="img"></td>
+    </tr>
+    <tr>
+        <td>SecretId、SecretKey</td>
+        <td>云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt;
+            <strong>API密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png"
+                                              referrerpolicy="no-referrer" alt="img"></td>
+    </tr>
+    <tr>
+        <td style='text-align:left;'>queue</td>
+        <td style='text-align:left;'>队列名称，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong>列表页面获取。
+        </td>
+    </tr>
+    </tbody>
+</table>
 4. 消费消息。
-
-   ```java
+<dx-codeblock>
+:::  java
    final Consumer consumer = new Consumer();
    // 设置 Name Server地址。必须设置 不同地域不同网络不同
    consumer.setNameServerAddress("https://cmq-gz.public.tencenttdmq.com");
@@ -136,17 +156,36 @@
    } catch (InterruptedException e) {
        e.printStackTrace();
    }
-   ```
-
-   | 参数                | 说明                                                         |
-   | :------------------ | :----------------------------------------------------------- |
-   | NameServerAddress   | API 调用地址，在 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务** > **API请求地址**处复制。![img](https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png) |
-   | SecretId、SecretKey | 云 API 密钥，登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，在**访问密钥** > **API密钥管理**页面复制。![img](https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png) |
-   | queue               | 队列名称，在 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务**列表页面获取。 |
-
+:::
+<table>
+    <thead>
+    <tr>
+        <th>参数</th>
+        <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>NameServerAddress</td>
+        <td>API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt;
+            <strong>API请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png"
+                                             referrerpolicy="no-referrer" alt="img"></td>
+    </tr>
+    <tr>
+        <td>SecretId、SecretKey</td>
+        <td>云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt;
+            <strong>API密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png"
+                                              referrerpolicy="no-referrer" alt="img"></td>
+    </tr>
+    <tr>
+        <td>queue</td>
+        <td>队列名称，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong>列表页面获取。</td>
+    </tr>
+    </tbody>
+</table>
 5. 主动获取消息。
-
-   ```java
+<dx-codeblock>
+:::  java
    // 单条消息拉取，没有消息可消费时等待10s，不传入该参数则使用consumer设置的等待时间
    // 建议在try-catch中接收，出现异常可以打印日志
    ReceiveResult result = consumer.receiveMsg(queue, 10);
@@ -173,28 +212,27 @@
    } else {
        System.out.println("receive Error, ret:" + ret + " ErrMsg:" + result.getErrorMessage());
    }
-   ```
+:::
+</dx-codeblock>
 
-## 二、主题模型
+## 主题模型
 
 1. 在控制台创建资源。
-
-   1. 在控制台创建主题，参考[主题管理](https://cloud.tencent.com/document/product/1496/61021)。
-   2. 给主题创建一个订阅者，参考[订阅管理](https://cloud.tencent.com/document/product/1496/61022)。
-
+   -  在控制台创建主题，参见 [主题管理](https://cloud.tencent.com/document/product/1496/61021)。
+   -  给主题创建一个订阅者，参见 [订阅管理](https://cloud.tencent.com/document/product/1496/61022)。
 2. 引入 CMQ 客户端相关依赖。
-
-   ```xml
+<dx-codeblock>
+:::  xml
    <dependency>
        <groupId>com.qcloud</groupId>
        <artifactId>cmq-tcp-client</artifactId>
        <version>1.1.7</version>
    </dependency>
-   ```
-
+:::
+</dx-codeblock>
 3. 创建生产者。
-
-   ```java
+<dx-codeblock>
+:::  java
    Producer producer = new Producer();
    // 设置 Name Server地址。必须设置 不同地域不同网络不同
    producer.setNameServerAddress(NameServerAddress);
@@ -209,16 +247,33 @@
    // 设置请求超时时间， 默认3000ms
    producer.setRequestTimeoutMS(5000);
    producer.start();
-   ```
-
-   | 参数                | 说明                                                         |
-   | :------------------ | :----------------------------------------------------------- |
-   | NameServerAddress   | API 调用地址，在 [TDMQ CMQ 版控制台](https://console.cloud.tencent.com/tdmq) 的**队列服务** > **API请求地址**处复制。![img](https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png) |
-   | SecretId、SecretKey | 云 API 密钥，登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，在**访问密钥** > **API密钥管理**页面复制。![img](https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png) |
-
+:::
+</dx-codeblock>
+<table>
+    <thead>
+    <tr>
+        <th>参数</th>
+        <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>NameServerAddress</td>
+        <td>API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt;
+            <strong>API请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png"
+                                             referrerpolicy="no-referrer" alt="img"></td>
+    </tr>
+    <tr>
+        <td>SecretId、SecretKey</td>
+        <td>云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt;
+            <strong>API密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png"
+                                              referrerpolicy="no-referrer" alt="img"></td>
+    </tr>
+    </tbody>
+</table>
 4. 发送 TAG 类型消息。
-
-   ```java
+<dx-codeblock>
+:::  java
    // 1. 向标签过滤的topic发布同步消息（也可发布异步消息和批量发布消息）
    String tag = "TAG";
    String msgTag = "This is a tag message. message tag:" + tag + ".";
@@ -235,11 +290,11 @@
    } catch (MQClientException | MQServerException e) {
        e.printStackTrace();
    }
-   ```
-
+:::
+</dx-codeblock>
 5. 发送 route 消息。
-
-   ```java
+<dx-codeblock>
+:::  java
    // 路由键
    String route = "a.#";
    // 向路由消息匹配主题发布同步消息（也可发布异步消息和批量发布消息）
@@ -257,8 +312,8 @@
    } catch (MQClientException | MQServerException e) {
        e.printStackTrace();
    }
-   ```
-
+:::
+</dx-codeblock>
 6. 消费者消费订阅者订阅的消息队列即可。
 
-以上是 CMQ 两种模型下的生产和消费方式的简单介绍，更多使用可参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-cmq-demo/tdmq-cmq-Java-sdk-demo.zip)。
+>?以上是 CMQ 两种模型下的生产和消费方式的简单介绍，更多使用可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-cmq-demo/tdmq-cmq-Java-sdk-demo.zip)。
