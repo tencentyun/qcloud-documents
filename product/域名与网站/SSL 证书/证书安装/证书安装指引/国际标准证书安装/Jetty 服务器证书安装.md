@@ -46,7 +46,6 @@
  - **文件夹名称**：`cloud.tencent.com_jks`
  - **文件夹内容**：
     - `cloud.tencent.com.jks` 密钥库
-    - `cloud.tencent.com.key` 私钥文件
     - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
 3. 远程登录 Jetty 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 4. 进入部署证书步骤，在 `/usr/local/jetty/jetty-distribution-9.4.28.v20200408/etc` 目录下执行命令 `mkdir cert` 创建 cert 文件夹。
