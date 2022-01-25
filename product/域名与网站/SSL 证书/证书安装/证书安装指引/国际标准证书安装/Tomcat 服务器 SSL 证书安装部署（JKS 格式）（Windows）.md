@@ -45,7 +45,6 @@
  - **文件夹名称**：`cloud.tencent.com_jks`
  - **文件夹内容**：
     - `cloud.tencent.com.jks` 密钥库
-    - `cloud.tencent.com.key` 私钥文件
     - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
 3. 将已获取到的 `cloud.tencent.com.jks` 密钥库文件拷贝至 Tomcat 安装目录 `conf` 目录下。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/aeeb63eef0e23d82fe2345ca49436e47.png)
