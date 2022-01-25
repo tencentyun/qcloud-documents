@@ -4,6 +4,8 @@
 3. 	在“IP 接入”页面，单击**添加规则**，进入绑定资源弹窗。
 ![](https://main.qcloudimg.com/raw/4793023eccd1a6023f93d16b0e90b1c0.png)
 4. 在“绑定资源”弹窗中，选择关联 Anycast 高防 IP、地区和可用实例后，单击**确定**，即可完成绑定资源。
->?可用实例支持不同地区筛选。
+>?
+>- 可用实例支持不同地区筛选。
+>- 当前支持绑定实例类型：云主机（CVM）和负载均衡（CLB）。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/b729d560f2b51ceeae3de7621fdebefb.png)

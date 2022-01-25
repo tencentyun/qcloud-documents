@@ -3,7 +3,7 @@ TUIRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组�
 - 参会人员之间进行屏幕分享。
 - 支持发送各种文本消息和自定义消息。
 
-TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [多人音视频房间(Windows&Mac)](https://cloud.tencent.com/document/product/647/63494)。
+TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [多人音视频互动(Windows&Mac)](https://cloud.tencent.com/document/product/647/63494)。
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时视频会议组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 实现聊天室的功能（**IM SDK 使用 C++ 版本**）。
 
@@ -146,8 +146,8 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 | [OnRemoteUserEnter](#onremoteuserenter)                      | 远端用户进入房间回调。           |
 | [OnRemoteUserLeave](#onremoteuserleave)                      | 远端用户离开房间回调。           |
 | [OnRemoteUserCameraAvailable](#onremoteusercameraavailable)  | 远端用户是否开启摄像头视频回调。 |
-| [OnRemoteUserScreenVideoAvailable](#onremoteuserscreenvideoavailable) | 远端用户是否开启屏幕分享回调。   |
-| [OnRemoteUserAudioAvailable](#onremoteuseraudioavailable)    | 远端用户是否开启音频上行回调。   |
+| [OnRemoteUserScreenAvailable](#onremoteuserscreenavailable) | 远端用户是否开启屏幕分享回调。   |
+| [OnRemoteUserAudioAvailable](#onremoteuseraudioavailable)    |  远端用户是否开启麦克风回调。   |
 | [OnRemoteUserEnterSpeechState](#onremoteuserenterspeechstate) | 远端用户开始发言回调。           |
 | [OnRemoteUserExitSpeechState](#onremoteuserexitspeechstate)  | 远端用户结束发言回调。           |
 
@@ -1019,11 +1019,11 @@ virtual void OnRemoteUserCameraAvailable(const std::string& user_id, bool availa
 | user_id | string | 用户 ID。 |
 | available | bool | true：有视频流数据；false：无视频流数据。 |
 
-### OnRemoteUserScreenVideoAvailable
+### OnRemoteUserScreenAvailable
 
-远端用户是否开启摄像头视频。
+远端用户是否开启屏幕分享。
 ```C++
-virtual void OnRemoteUserScreenVideoAvailable(const std::string& user_id, bool available) = 0;
+virtual void OnRemoteUserScreenAvailable(const std::string& user_id, bool available) = 0;
 ```
 
 参数如下表所示：
@@ -1035,7 +1035,7 @@ virtual void OnRemoteUserScreenVideoAvailable(const std::string& user_id, bool a
 
 ### OnRemoteUserAudioAvailable
 
-远端用户是否开启摄像头视频。
+ 远端用户是否开启麦克风。
 ```C++
 virtual void OnRemoteUserAudioAvailable(const std::string& user_id, bool available) = 0;
 ```
@@ -1045,7 +1045,7 @@ virtual void OnRemoteUserAudioAvailable(const std::string& user_id, bool availab
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | user_id | string | 用户 ID。 |
-| available | bool | true：有视频流数据；false：无视频流数据。 |
+| available | bool | true：有音频流数据；false：无音频流数据。 |
 
 ### OnRemoteUserEnterSpeechState
 

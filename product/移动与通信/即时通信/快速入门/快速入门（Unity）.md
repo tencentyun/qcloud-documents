@@ -60,7 +60,7 @@
 ## 常见问题
 
 ### 支持哪些平台？
-目前支持 iOS 和 Android 两个平台，另外 Windows 和 Mac 版正在开发中，敬请期待。
+目前支持 iOS、Android、Windows 和 Mac。
 
 ### Android 单击 Build And Run 报错找不到可用设备？
 确保设备没被其他资源占用，或单击 Build 生成 apk 包，再拖动进模拟器里运行。

@@ -55,7 +55,6 @@
 | 检索元数据中容器名为 `nginx`，且请求延时大于1s 的日志        | <code>\_\_TAG\_\_.container_name:nginx AND request_time:>1</code>           |
 | 检索包含 `message` 字段的日志，即 `message` 字段有值的日志   | `message:*` 或 `_exists_:message`                            |
 | 检索不包含 `message` 字段的日志                              | `NOT _exists_:message`                                       |
-| 检索 `message` 字段为空的日志                                | `message:""`                                                 |
 
 
 

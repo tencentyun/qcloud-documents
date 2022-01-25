@@ -1,17 +1,17 @@
 ## 操作场景
 
-容器服务 TKE 基于 [Custom Metrics API](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/custom-metrics-api.md) 支持许多用于弹性伸缩的指标，涵盖 CPU、内存、硬盘、网络以及 GPU 相关的指标，覆盖绝大多数的 HPA 弹性伸缩场景，详细列表请参见 [自动伸缩指标说明](https://cloud.tencent.com/document/product/457/38929)。
-针对例如基于业务单副本 QPS 大小来进行自动扩缩容等复杂场景，可通过安装 [prometheus-adapter](https://github.com/DirectXMan12/k8s-prometheus-adapter) 来实现自动扩缩容。而 Kubernetes 提供 [Custom Metrics API](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/custom-metrics-api.md) 与 [External Metrics API](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/external-metrics-api.md) 来对 HPA 指标进行扩展，让用户能够根据实际需求进行自定义。
-prometheus-adapter 支持以上两种API，在实际环境中，使用 Custom Metrics API 即可满足大部分场景。本文将介绍如何通过 Custom Metrics API 实现使用自定义指标进行弹性伸缩。
+容器服务 TKE 基于 [Custom Metrics API](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/custom-metrics-api.md) 支持许多用于弹性伸缩的指标，涵盖 CPU、内存、硬盘、网络以及 GPU 相关的指标，覆盖绝大多数的 HPA 弹性伸缩场景，详细列表请参见 [自动伸缩指标说明](https://cloud.tencent.com/document/product/457/38929)。 
+针对例如基于业务单副本 QPS 大小来进行自动扩缩容等复杂场景，可通过安装 [prometheus-adapter](https://github.com/DirectXMan12/k8s-prometheus-adapter) 来实现自动扩缩容。而 Kubernetes 提供 [Custom Metrics API](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/custom-metrics-api.md) 与 [External Metrics API](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/external-metrics-api.md) 来对 HPA 指标进行扩展，让用户能够根据实际需求进行自定义。 
+prometheus-adapter 支持以上两种API，在实际环境中，使用 Custom Metrics API 即可满足大部分场景。本文将介绍如何通过 Custom Metrics API 实现使用自定义指标进行弹性伸缩。 
 
 
 
 
 ## 前提条件
 
-- 已创建1.12或以上版本的 TKE 集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
-- 已部署 Prometheus 并进行相应的自定义指标采集。
-- 已安装 [Helm](https://helm.sh/docs/intro/install/)。
+- 已创建1.12或以上版本的 TKE 集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。 
+- 已部署 Prometheus 并进行相应的自定义指标采集。 
+- 已安装 [Helm](https://helm.sh/docs/intro/install/)。 
 
 ## 操作步骤
 
@@ -117,7 +117,7 @@ spec:
 
 ### Prometheus 采集业务监控
 
-您可以通过 [Promtheus 采集规则](#way1) 或 [ServiceMonitor](#way2) 配置 Promtheus 采集业务暴露的监控指标。
+您可以通过 [Promtheus 采集规则](#way1) 或 [ServiceMonitor](#way2) 配置 Promtheus 采集业务暴露的监控指标。 
 
 
 [](id:way1)
@@ -242,7 +242,7 @@ $ kubectl get --raw /apis/custom.metrics.k8s.io/v1beta1
 ```
 
 执行以下命令，可以查看到 Pod 的 QPS 值。示例如下：
->?下述示例 QPS 为500m，表示 QPS 值为0.5。
+>?下述示例 QPS 为500m，表示 QPS 值为0.5。 
 ``` bash
 $ kubectl get --raw /apis/custom.metrics.k8s.io/v1beta1/namespaces/httpserver/pods/*/httpserver_requests_qps
 {
@@ -309,5 +309,5 @@ httpserver-6f94475d45-6c5xm   0/1     ContainerCreating   0          1s
 httpserver-6f94475d45-wl78d   0/1     ContainerCreating   0          1s
 ```
 
-若扩容正常，则说明已实现 HPA 基于业务自定义指标进行弹性伸缩。
+若扩容正常，则说明已实现 HPA 基于业务自定义指标进行弹性伸缩。 
 

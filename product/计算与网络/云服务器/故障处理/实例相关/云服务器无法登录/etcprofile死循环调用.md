@@ -2,7 +2,7 @@
 使用 SSH 登录 Linux 实例时，SSH 命令在输出 “Last login: ” 相关信息后卡住。
 
 
-## 问题原因
+## 可能原因
 可能由于 `/etc/profile` 文件被修改过，出现在 `/etc/profile` 中调用 `/etc/profile` 现象，导致陷入死循环调用，无法成功登录。
 
 
