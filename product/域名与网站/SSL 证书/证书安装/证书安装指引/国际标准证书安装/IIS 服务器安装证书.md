@@ -15,7 +15,6 @@
 解压缩后，可获得相关类型的证书文件。其中包含 `cloud.tencent.com.iis` 文件夹：
  - 文件夹名称： `cloud.tencent.com.iis`
  - 文件夹内容：
-    - `cloud.tencent.com.key` 密钥文件
     - `cloud.tencent.com.pfx` 证书文件
     - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
 3. 打开 IIS 服务管理器，选择计算机名称，双击打开 “服务器证书”。如下图所示：
