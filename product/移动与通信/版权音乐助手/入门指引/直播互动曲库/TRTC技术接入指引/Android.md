@@ -161,7 +161,7 @@ implementation 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release
 -keep class com.tencent. { *; }
 ```
 
-### SDK 使用 说明
+### SDK 使用说明
 - **获取 TXCopyrightedMedia 单例**
 ```java
 TXCopyrightedMedia copyrightedMedia = TXCopyrightedMedia.instance();
@@ -172,24 +172,16 @@ copyrightedMedia.setLicense(Context context, String licenseUrl, String key);
 ```
 参数说明：
 <table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
+<thead><tr><th>参数名</th><th>类型</th><th>描述</th></tr></thead>
 <tbody><tr>
 <td>context</td>
 <td>Context</td>
 <td>Context 上下文</td>
-</tr>
-<tr>
+</tr><tr>
 <td>licenseUrl</td>
 <td>String</td>
 <td>控制台生成的 LicenseURL</td>
-</tr>
-<tr>
+</tr><tr>
 <td>key</td>
 <td>String</td>
 <td>控制台生成的 key</td>
@@ -211,29 +203,20 @@ copyrightedMedia.preloadMusic(String musicId, String bitrateDefinition, String p
 ```
 参数说明：
 <table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
+<thead><tr><th>参数名</th><th>类型</th><th>描述</th></tr></thead>
 <tbody><tr>
 <td>musicId</td>
 <td>String</td>
 <td>歌曲 ID</td>
-</tr>
-<tr>
+</tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
 <td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
-</tr>
-<tr>
+</tr><tr>
 <td>playToken</td>
 <td>String</td>
 <td>播放Token</td>
-</tr>
-<tr>
+</tr><tr>
 <td>callback</td>
 <td>ITXMusicPreloadCallback</td>
 <td>回调函数</td>
@@ -259,43 +242,35 @@ errCode 返回错误码定义如下：
 <td>ERR_NONE</td>
 <td>0</td>
 <td>无错误</td>
-</tr>
-<tr>
+</tr><tr>
 <td>ERR_INIT_FAIL</td>
 <td>-1</td>
 <td>初始化失败</td>
-</tr>
-<tr>
+</tr><tr>
 <td>ERR_CANCEL</td>
 <td>-2</td>
 <td>用户取消数据获取</td>
-</tr>
-<tr>
+</tr><tr>
 <td>ERR_TOKEN_FAIL</td>
 <td>-3</td>
 <td>token 过期</td>
-</tr>
-<tr>
+</tr><tr>
 <td>ERR_NET_FAIL</td>
 <td>-4</td>
 <td>网络错误</td>
-</tr>
-<tr>
+</tr><tr>
 <td>ERR_INNER</td>
 <td>-5</td>
 <td>内部错误</td>
-</tr>
-<tr>
+</tr><tr>
 <td>ERR_PARSE_FAIL</td>
 <td>-6</td>
 <td>解析错误</td>
-</tr>
-<tr>
+</tr><tr>
 <td>ERR_DECRYPT_FAIL</td>
 <td>-7</td>
 <td>解密错误</td>
-</tr>
-<tr>
+</tr><tr>
 <td>ERR_LICENCE_FAIL</td>
 <td>-8</td>
 <td>License 校验不通过</td>
@@ -307,19 +282,12 @@ copyrightedMedia.cancelPreloadMusic(String musicId, String bitrateDefinition);
 ```
 参数说明：
 <table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
+<thead><tr><th>参数名</th><th>类型</th><th>描述</th></tr></thead>
 <tbody><tr>
 <td>musicId</td>
 <td>String</td>
 <td>歌曲 ID</td>
-</tr>
-<tr>
+</tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
 <td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
@@ -331,19 +299,12 @@ boolean isPreloaded = copyrightedMedia.isMusicPreloaded(String musicId, String b
 ```
 参数说明：
 <table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
+<thead><tr><th>参数名</th><th>类型</th><th>描述</th></tr></thead>
 <tbody><tr>
 <td>musicId</td>
 <td>String</td>
 <td>音乐 ID</td>
-</tr>
-<tr>
+</tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
 <td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
@@ -356,24 +317,16 @@ String MusicUri = TXCopyrightedMedia.genMusicURI(String musicId，int musicType,
 ```
 参数说明：
 <table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
+<thead><tr><th>参数名</th><th>类型</th><th>描述</th></tr></thead>
 <tbody><tr>
 <td>musicId</td>
 <td>String</td>
 <td>歌曲 ID</td>
-</tr>
-<tr>
+</tr><tr>
 <td>musicType</td>
 <td>Int</td>
 <td>0：原唱，1：伴奏, 2：歌词</td>
-</tr>
-<tr>
+</tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
 <td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
@@ -381,13 +334,7 @@ String MusicUri = TXCopyrightedMedia.genMusicURI(String musicId，int musicType,
 </tbody></table>
 返回说明：
 <table>
-<thead>
-<tr>
-<th>返回值</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
+<thead><tr><th>返回值</th><th>类型</th><th>描述</th></tr></thead>
 <tbody><tr>
 <td>musicUri</td>
 <td>String</td>
@@ -404,13 +351,7 @@ copyrightedMedia.setMusicCacheMaxCount(int maxCount);
 ```
 参数说明：
 <table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
+<thead><tr><th>参数名</th><th>类型</th><th>描述</th></tr></thead>
 <tbody><tr>
 <td>maxCount</td>
 <td>Int</td>
@@ -418,7 +359,7 @@ copyrightedMedia.setMusicCacheMaxCount(int maxCount);
 </tr>
 </tbody></table>
 
-## 代码示例
+### 代码示例
 - application 创建时候调用:
 ```java
 TXCopyrightedMedia.instance().setLicense(context, licenseUrl, key);
