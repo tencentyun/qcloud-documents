@@ -312,7 +312,7 @@ RTC 连麦互动直播服务费用按所有参与连麦的用户产生的 [视�
 
 >!
 >- 时长统计精度为秒，以当月累计秒数转换成分钟数后进行计费，不足一分钟按一分钟计。
->- 如果您与商务经理约定了 TRTC 其他的计费方式，详细计费和出账时间以实际计费方式和实际计费账单为准。单击 [查看费用账单](https://console.cloud.tencent.com/expense/bill/overview)。
+>- 如果您与商务经理约定了 TRTC 其他的计费方式，请以实际计费方式和账单中心输出账单为准，单击 [查看费用账单](https://console.cloud.tencent.com/expense/bill/overview)。
 
 [](id:v_duration)
 ### 视频时长
