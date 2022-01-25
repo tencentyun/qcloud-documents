@@ -23,7 +23,7 @@
 
 [](id:step2)
 ### 步骤2：配置即时通信 IM
->? 本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+>? 实时互动课堂同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 1. 进入**相关云服务**菜单，单击下图中**即时通信 IM 应用**跳转到 IM 应用管理页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/673eea54650d3fd62aa7499dfd0db39d.png)
@@ -50,7 +50,7 @@ npm i -g corepack
 ```
 corepack enable
 ```
->!Window 10、11 下如果遇到权限不足的错误提示，请尝试以管理员身份，在 cmd 控制台执行。
+>!Window 10、11 下如果遇到权限不足的错误提示，请尝试以管理员身份，在 cmd 中执行。
 
 
 
@@ -85,7 +85,7 @@ yarn
 yarn start
 ```
 >!
->- 第一次执行 yarn 命令安装依赖时，Window10、Window11 下如果遇到权限不足的错误提示，请尝试以管理员身份，在 cmd 控制台执行一次。之后就可以以普通用户身份在 cmd 控制台或者集成开发工具自带终端中执行，例如：Visual Studio Code、WebStorm 等。
+>- 第一次执行 yarn 命令安装依赖时，Window10、Window11 下如果遇到权限不足的错误提示，请尝试以管理员身份，在 cmd 中执行一次。之后就可以以普通用户身份在 cmd 中或者集成开发工具自带终端中执行，例如：Visual Studio Code、WebStorm 等。
 >- 安装依赖过程中，如遇到 Electron 下载慢甚至卡住不动等问题，您可以参考 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668) 文档解决。
 
 [](id:step7)
