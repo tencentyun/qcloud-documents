@@ -6,7 +6,7 @@
 
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1179/44814)
 - [安装 GCC](https://gcc.gnu.org/install/)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-cpp-sdk-demo.zip)
+- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/tdmq-pulsar-cpp-sdk-demo.zip)
 
 ## 操作步骤
 
