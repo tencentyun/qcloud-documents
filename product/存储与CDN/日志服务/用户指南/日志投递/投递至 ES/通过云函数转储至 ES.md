@@ -7,7 +7,7 @@
 
 ### 创建云函数 SCF
 
-1. 登录云函数控制台，选择左侧导航栏中的 **[函数服务](https://console.cloud.tencent.com/scf/list)**。
+1. 登录云函数控制台，选择左侧导航栏中的 <b>[函数服务](https://console.cloud.tencent.com/scf/list)</b>。
 2. 在“函数服务”页面上方选择**北京**地域，并单击**新建**进入新建函数页面，配置以下参数：
    - **函数名称**：命名为 “CLSdemo”。
    - **运行环境**：选择 “Python 2.7”。
