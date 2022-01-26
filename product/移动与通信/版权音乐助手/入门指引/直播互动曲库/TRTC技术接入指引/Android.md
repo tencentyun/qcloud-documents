@@ -180,7 +180,7 @@ copyrightedMedia.setLicense(Context context, String licenseUrl, String key);
 </tr><tr>
 <td>licenseUrl</td>
 <td>String</td>
-<td>控制台生成的 LicenseURL</td>
+<td>控制台生成的 License URI</td>
 </tr><tr>
 <td>key</td>
 <td>String</td>
@@ -191,7 +191,7 @@ copyrightedMedia.setLicense(Context context, String licenseUrl, String key);
 ```java
 copyrightedMedia.init();
 ```
-- **销毁TXCopyrightedMedia**
+- **销毁 TXCopyrightedMedia**
 当程序退出后调用销毁。
 ```java
 copyrightedMedia.destroy();
@@ -215,7 +215,7 @@ copyrightedMedia.preloadMusic(String musicId, String bitrateDefinition, String p
 </tr><tr>
 <td>playToken</td>
 <td>String</td>
-<td>播放Token</td>
+<td>播放 Token</td>
 </tr><tr>
 <td>callback</td>
 <td>ITXMusicPreloadCallback</td>
@@ -253,7 +253,7 @@ errCode 返回错误码定义如下：
 </tr><tr>
 <td>ERR_TOKEN_FAIL</td>
 <td>-3</td>
-<td>token 过期</td>
+<td>Token 过期</td>
 </tr><tr>
 <td>ERR_NET_FAIL</td>
 <td>-4</td>
@@ -338,7 +338,7 @@ String MusicUri = TXCopyrightedMedia.genMusicURI(String musicId，int musicType,
 <tbody><tr>
 <td>musicUri</td>
 <td>String</td>
-<td><ul><li>原唱&伴奏：传给 TRTC 播放的 URL，格式 <code>CopyRightMusic://audiotype=xxxx&amp;musicid=xxxx&amp;bitrate=xxxx；</code></li><li>歌词：返回歌词的本地路径</li></ul></td>
+<td><ul><li>原唱&伴奏：传给 TRTC 播放的 URI，格式 <code>CopyRightMusic://audiotype=xxxx&amp;musicid=xxxx&amp;bitrate=xxxx；</code></li><li>歌词：返回歌词的本地路径</li></ul></td>
 </tr>
 </tbody></table>
 - **清理歌曲缓存**
@@ -360,7 +360,7 @@ copyrightedMedia.setMusicCacheMaxCount(int maxCount);
 </tbody></table>
 
 ### 代码示例
-- application 创建时候调用:
+- application 创建时候调用：
 ```java
 TXCopyrightedMedia.instance().setLicense(context, licenseUrl, key);
 ```
