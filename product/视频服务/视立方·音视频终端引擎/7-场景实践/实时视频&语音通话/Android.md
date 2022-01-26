@@ -69,15 +69,15 @@
 >! 体验应用至少需要两台设备。
 
 ### 用户 A
-1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：<br>
 <img src="https://main.qcloudimg.com/raw/a0c73f6904ac152a84cdf4d619171fc4.png" width="320"/>
-2. 输入要拨打的 userId，单击搜索，如下图示：
+2. 输入要拨打的 userId，单击搜索，如下图示：<br>
 <img src="https://main.qcloudimg.com/raw/61edd11a23197ebce26e91863f9fef63.png" width="320"/>
 3. 单击 **呼叫**，选择拨打 **视频通话** （**请确保被叫方保持在应用内，否则可能会拨打失败**）。<br>
 <img src="https://main.qcloudimg.com/raw/450e50dd4bb58e2950d6574ab88715e2.png" width="320"/>
 
 ### 用户 B
-1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：<br>
 <img src="https://main.qcloudimg.com/raw/94fcd741becbcfe4cca97778e180e4ca.png" width="320"/>
 2. 进入主页，等待接听来电。
 
