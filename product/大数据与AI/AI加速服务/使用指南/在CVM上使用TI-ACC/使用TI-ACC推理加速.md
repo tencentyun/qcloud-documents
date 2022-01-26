@@ -67,7 +67,6 @@ docker login tiacc-test.tencentcloudcr.com --username xxx --password xxx
 >?username 为账号 ID，password 为临时登录指令。
 
 -  从 TI-ACC 加速镜像仓库拉取镜像，参考命令如下所示：
-
 ```
 docker pull tiacc-test.tencentcloudcr.com/tiacc/tiacc_pytorch:[tag]
 ```
