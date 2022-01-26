@@ -38,7 +38,7 @@ flutter run --dart-define=SDK_APPID=xxxx --dart-define=ISPRODUCT_ENV=false --dar
 :::
 </dx-codeblock>
 >?
->-  `--dart-define=SDK_APPID=xxxx`其中`xxxx`需替换成替换成 [步骤1](#step1) 中您创建的 SDKAppID。
+>-  `--dart-define=SDK_APPID=xxxx`其中`xxxx`需替换成 [步骤1](#step1) 中您创建的 SDKAppID。
 >- `--dart-define=ISPRODUCT_ENV=false` 对开发生产环境做判断，如您是开发环境请标 false。
 >-  `--dart-define=KEY=xxxx` 其中`xxxx`需替换成 [步骤1](#step1) 中的密钥信息。
 4. Visual Studio 配置 launch.json 启动。

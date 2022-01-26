@@ -61,12 +61,12 @@ TargetDirPath=/path/to/targetDir
 ```
 filetruck_client -c newTask.ini
 ```
- - 如果新任务启动成功，迁移工具将返回如下包含 TaskId 的返回信息：
+   - 如果新任务启动成功，迁移工具将返回如下包含 TaskId 的返回信息：
 ```
 # filetruck_client -c newTask.ini
 TaskId=1
 ```
- - 如果配置文件中信息有误，会导致新任务启动失败，迁移工具将返回相关告警信息提示用户修改配置文件：
+   - 如果配置文件中信息有误，会导致新任务启动失败，迁移工具将返回相关告警信息提示用户修改配置文件：
 ```
 # filetruck_client -c newTask.ini
 Error: Directory does not exist: /path/to/sourceDir

@@ -26,9 +26,9 @@ chmod a+x cfs_turbo_client_setup
 ```
 sudo ./cfs_turbo_client_setup
 ```
- - 若返回如下信息，即表示安装成功。
+   - 若返回如下信息，即表示安装成功。
 ![](https://main.qcloudimg.com/raw/71cc3fdd2e94887cf4976bb80692792c.png)
- - 若返回如下信息，即表示暂不支持该内核版本，请参考已支持的 [内核版本清单](#CVMKernelVersion) 进行调整。
+   - 若返回如下信息，即表示暂不支持该内核版本，请参考已支持的 [内核版本清单](#CVMKernelVersion) 进行调整。
 ![](https://main.qcloudimg.com/raw/cf1eb0ca5d9f5097099f472ae3ff7929.png)
 <dx-alert infotype="explain" title="">
 Ubuntu 16.04 版本因镜像原因，暂不支持自动下载。若需使用，请 [手动安装](#ManualInstallation)。
@@ -263,11 +263,11 @@ https://cfsturbo-client-1251013638.cos.ap-guangzhou.myqcloud.com/2.12.4/centos/3
 </table>
 
 4. 根据实例的操作系统类型，执行相应命令，安装客户端。
- - Ubuntu 操作系统：
+   - Ubuntu 操作系统：
 ```
 sudo dpkg -i
 ```
- - CentOS 操作系统：
+   - CentOS 操作系统：
 ```
 yum install
 ```
