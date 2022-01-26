@@ -1,11 +1,36 @@
-目前 TI-ACC 处于内测阶段，请先进行 [申请内测权限](https://cloud.tencent.com/apply/p/vl6fzemdq1) 拿到私有镜像临时登录指令，然后进行使用。
+目前 TI-ACC 处于公测阶段，请参考以下使用要求和步骤进行使用。
 
 ## 使用要求
 TI-ACC 训练加速仅支持以下操作系统、Python 版本、设备类型及框架版本：
 - 操作系统：Linux
 - Python 版本：Python 3.6
-- 设备类型：GPU 支持 CUDA 10.1、10.2、11.1
-- 框架版本：PyTorch 1.7.1、1.8.1、1.9.0
+- 设备类型：GPU 支持 CUDA 10.0、10.1、10.2、11.1
+- 框架版本：Tensorflow1.15，PyTorch 1.7.1、1.8.1、1.9.0
+- 支持的镜像版本：
+
+<table>
+     <tr>
+         <th>框架类型</th>  
+         <th>仓库地址</th>  
+         <th>镜像版本</th>  
+     </tr>
+  <tr>      
+      <td rowspan="3">PyTorch</td>   
+      <td rowspan="4">tiacc-test.tencentcloudcr.com/ti-acc/ti-accv1.0</td>   
+      <td>tiacc-training-v1.0.0-torch1.7.1-cu101-py36-ubuntu18.04</td>   
+     </tr> 
+  <tr>
+      <td>tiacc-training-v1.0.0-torch1.8.1-cu102-py36-ubuntu18.04</td>   
+     </tr> 
+  <tr>      
+    <td>tiacc-training-v1.0.0-torch1.9.0-cu111-py38-ubuntu18.04</td>    
+     </tr> 
+	<tr>      
+    <td>TensorFlow</td>    
+		<td>tiacc-training-v1.0.0-tensorflow1.15.5-cu100-py36-ubuntu18.04</td>    
+    </tr> 
+</table>
+
 
 ## 使用步骤
 ### 步骤1：环境搭建
@@ -25,8 +50,10 @@ TI-ACC 训练加速仅支持以下操作系统、Python 版本、设备类型及
 
 #### 安装nvidia-docker
 安装 nvidia-docker，详情请参见 [NVIDIA 官方文档](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)。
+
 #### 申请临时登录指令
-线下 [申请](https://cloud.tencent.com/apply/p/vl6fzemdq1) 加速产品私有镜像仓库临时登录指令。
+线下 [申请](https://cloud.tencent.com/apply/p/vl6fzemdq1) 加速产品私有镜像仓库临时登录指令，获取 password。
+
 #### 获取加速镜像
 - 使用线下申请的私有镜像临时登录指令，登录腾讯云容器服务 Docker Registry 加速镜像仓库，参考命令如下所示：
 ```
@@ -38,7 +65,7 @@ docker login tiacc-test.tencentcloudcr.com --username xxx --password xxx
 ```
 docker pull tiacc-test.tencentcloudcr.com/tiacc/tiacc_pytorch:[tag]
 ```
->!tag 为镜像名称。
+>!tag 为镜像版本，请参考使用要求里支持的镜像版本。
 
 #### 启动加速镜像
 启动加速镜像并进入容器实例，参考命令如下所示：
@@ -217,6 +244,47 @@ scaler.update()
 			<td>30.6</td> 
      </tr>
 </table>
+
+使用通信优化后的 embedding 变量构造（TensorFlow+PS）
+
+```
+#将 tensorflow 原生的 get_variable（）替换为 TI-ACC 优化后的 get_variable（）
+import tiacc_training.tensorflow
+embeddings = tiacc_training.tensorflow.get_variable(name="embeddings",devices=["/job:ps/replica:0/task:0/CPU:0", "/job:ps/replica:0/task:1/CPU:0"],initializer=tf.compat.v1.random_normal_initializer(0, 0.005),dim=32)
+```
+使用通信优化后的 embedding lookup 计算（TensorFlow+PS）
+
+```
+#将 tensorflow 原生的 embedding_lookup_sparse() 替换为 TI-ACC 优化后的 embedding_lookup_sparse()
+import tiacc_training.tensorflow
+sp_tensor = tiacc_training.tensorflow.SparseTensor(indices=[[0,0],[3,1],[2,2],[1,0]], values=[0,1,2,6], dense_shape=(3,3))sparse_weights = tf.nn.embedding_lookup_sparse(params=embeddings,sp_ids=sp_tensor,name="sparse-weights")
+```
+embedding 变量构造+lookup 计算优化实测效果：
+
+<table>
+     <tr>
+         <th>硬件环境</th>  
+         <th>模型</th>  
+         <th>GPU 卡数</th>  
+				 <th>原生 TensorFlow(global_steps/sec per V100)</th> 
+				 <th>TI-ACC 优化后 (global_steps/sec per V100)</th> 
+     </tr>
+  <tr>      
+      <td rowspan="2">腾讯云 GN10Xp.20XLARGE320</td>   
+      <td> DeepFM</td>   
+      <td>16（双机）</td>  
+			<td>41.9-56</td>
+			<td>96.1-103.3 </td>
+     </tr> 
+  <tr>
+      <td>Wide & Deep</td>   
+      <td>16（双机）</td>
+			<td>49.9-69</td>   
+      <td>120-128</td>
+     </tr> 
+</table>
+
+
 
 #### 训练加速类/函数说明
 ##### init_tiacc_training 函数
