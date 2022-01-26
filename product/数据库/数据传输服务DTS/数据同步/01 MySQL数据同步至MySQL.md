@@ -39,7 +39,7 @@ FLUSH PRIVILEGES;
 | 操作类型 | SQL 操作语句                                                 |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE                                       |
-| DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE VIEW、DROP VIEW、CREATE INDEX、DROP INDEX |
+| DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE VIEW、DROP VIEW、CREATE INDEX、DROP INDEX<br/><dx-alert infotype="explain" title="说明">不支持同步涉及分区（Partition）的 DDL。</dx-alert> |
 
 ## 环境要求
 <table>

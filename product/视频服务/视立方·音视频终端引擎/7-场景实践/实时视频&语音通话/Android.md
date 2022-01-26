@@ -22,7 +22,7 @@
 </table>
 
 
->! 为方便您快速实现音视频通话功能，我们对 TUICalling 组件进行了改造，通话UI在TUICalling 组件内部实现，您可以无需关注UI。
+>! 为方便您快速实现音视频通话功能，我们对 TUICalling 组件进行了改造，通话 UI 在 TUICalling 组件内部实现，您可以无需关注UI。
 
 [](id:ui)
 
@@ -31,7 +31,7 @@
 [](id:ui.step1)
 
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择 **开发辅助>[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+1. 登录实时音视频控制台，选择**开发辅助** > [**快速跑通Demo**](https://console.cloud.tencent.com/trtc/quickstart)。
 2. 输入应用名称，例如 `TestVideoCall` ，单击 **创建**。
 3. 单击 **已下载，下一步**，跳过此步骤。
 
@@ -69,15 +69,15 @@
 >! 体验应用至少需要两台设备。
 
 ### 用户 A
-1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：<br>
 <img src="https://main.qcloudimg.com/raw/a0c73f6904ac152a84cdf4d619171fc4.png" width="320"/>
-2. 输入要拨打的 userId，单击搜索，如下图示：
+2. 输入要拨打的 userId，单击搜索，如下图示：<br>
 <img src="https://main.qcloudimg.com/raw/61edd11a23197ebce26e91863f9fef63.png" width="320"/>
 3. 单击 **呼叫**，选择拨打 **视频通话** （**请确保被叫方保持在应用内，否则可能会拨打失败**）。<br>
 <img src="https://main.qcloudimg.com/raw/450e50dd4bb58e2950d6574ab88715e2.png" width="320"/>
 
 ### 用户 B
-1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：<br>
 <img src="https://main.qcloudimg.com/raw/94fcd741becbcfe4cca97778e180e4ca.png" width="320"/>
 2. 进入主页，等待接听来电。
 
@@ -97,7 +97,7 @@
 
 音视频通话组件 TUICalling 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
-#### 方法一：通过 Maven 仓库依赖
+#### 方法一：通过 mavenCentral 仓库依赖
 
 1. 在 dependencies 中添加 TRTCSDK 和 IMSDK 的依赖。
 <dx-codeblock>
@@ -123,11 +123,11 @@ defaultConfig {
 :::
 </dx-codeblock>
 3. 单击 **Sync Now** 同步 SDK。
->?若您的网络连接 jcenter 没有问题，SDK 会自动下载集成到工程里。
+>?若您的网络连接 mavenCentral 没有问题，SDK 会自动下载集成到工程里。
 
 
 #### 方法二：通过本地 AAR 依赖
-如果您的开发环境访问 Maven 仓库较慢，可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
+如果您的开发环境访问 mavenCentral 仓库较慢，可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
 
 | SDK      | 下载页面                                                     | 集成指引                                                     |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -165,7 +165,7 @@ defaultConfig {
 
 ### 步骤3：导入 TUICalling 组件
 
-include App下的 Source 到您的项目中：
+拷贝 Source 目录到您的工程中，并在 `setting.gradle` 中完成导入，参考如下：
 
 ```
 include ':Source'
@@ -185,7 +185,7 @@ include ':Source'
 <td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>
 </tr><tr>
 <td>userId</td>
-<td>	当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（_）。建议结合业务实际账号体系自行设置。</td>
+<td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（_）。建议结合业务实际账号体系自行设置。</td>
 </tr><tr>
 <td>userSig</td>
 <td>腾讯云设计的一种安全保护签名，计算方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算及使用 UserSig</a>。</td>
@@ -318,9 +318,7 @@ TUICalling 组件的 API 接口列表如下：
 | call            | C2C 邀请通话         |
 | receiveAPNSCalled          | 作为被邀请方接听来电                                      |
 | setCallingListener          | 设置监听器                                     |
-| setCallingBell          | 设置铃声（建议在30s以内）                                                 |
+| setCallingBell          | 设置铃声(建议在30s以内)                                                 |
 | enableMuteMode | 开启静音模式    |
 | enableCustomViewRoute      | 开启自定义视图， 开启后，会在呼叫/被叫开始回调中，接收到 CallingView 的实例，由开发者自行决定展示方式。注意：必须全屏或者与屏幕等比例展示，否则会有展示异常            |
-
-
 

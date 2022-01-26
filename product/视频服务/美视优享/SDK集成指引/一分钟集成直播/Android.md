@@ -62,6 +62,8 @@ private synchronized void checkAuth(Context context) {
 }
 ```
 
+>? 如果鉴权失败，您可参考 [查看鉴权结果及错误码说明](https://cloud.tencent.com/document/product/616/68760) 定位失败原因。
+
 [](id:step3)
 ## 步骤三：打开 app 模块的 build.gradle
 1. 将 applicationId 修改成与申请的测试授权⼀致的包名。

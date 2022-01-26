@@ -1,8 +1,8 @@
 即时通信 IM 的离线推送功能由 [TPNS（Tencent Push Notification Service）](https://cloud.tencent.com/document/product/548/36645)提供，本文向您介绍接入 TPNS 并跑通离线推送功能的详细步骤。
 
 >!
->- 接入 TPNS 需升级 IMSDK 至 [6.0.1975 及以上版本](https://cloud.tencent.com/document/product/269/36887)。
->- 如果 IMSDK 版本是 6.0.1975 以前且没有接入 TPNS 的客户，请参照 [APNS 离线推送](https://cloud.tencent.com/document/product/269/44517) 接入推送功能。
+>- 接入 TPNS 需升级 IM SDK 至 [6.0.1975 及以上版本](https://cloud.tencent.com/document/product/269/36887)。
+>- 如果您的 IM SDK 版本是 6.0.1975 之前的版本，且没有接入 TPNS，请参照 [APNS 离线推送](https://cloud.tencent.com/document/product/269/44517) 接入推送功能。
 ## 接入 TPNS 推送跑通离线推送功能
 
 [](id:step1)
@@ -63,9 +63,9 @@
     NSLog(@"[PUSH][TPNS] %s", __func__);
 }
 ```
-2. **登录时绑定账号**。IMSDK 登录完成之后，需要做两个操作：
+2. **登录时绑定账号**。IM SDK 登录完成之后，需要做两个操作：
 	 1. 在 TPNS-iOS SDK 的回调 `- xgPushDidRegisteredDeviceToken:xgToken:error:`中获取 TPNS 注册的 token，并保存。
-	 2.  将当前的登录 IM 账号与 TPNS 的推送绑定。
+	 2.  将当前登录的 IM 账号与 TPNS 的推送绑定。
 ```
 /**
 @brief 注册推送服务回调
@@ -88,7 +88,7 @@
 }
 
 // 该方法需要在两个位置调用:
-// 1. 在 IMSDK 登录完成之后需要调用该方法
+// 1. 在 IM SDK 登录完成之后需要调用该方法
 // 2. 在 TPNS 的回调 xgPushDidRegisteredDeviceToken:xgToken:error: 获取到 token 之后
 - (void)push_registerIfLogined:(NSString *)userID
 {
@@ -113,7 +113,7 @@
     [XGPushTokenManager.defaultTokenManager upsertAccountsByDict:@{ @(0): userID?:@"" }];
 }
 ```
-3. **退出时解绑账号**。在 IMSDK 退出登录之后，需要调用下面的方法解绑 TPNS 推送账号，以免出现退出登录之后还可以收到推送的问题。
+3. **退出时解绑账号**。在 IM SDK 退出登录之后，需要调用下面的方法解绑 TPNS 推送账号，以免出现退出登录之后还可以收到推送的问题。
 ```
 - (void)push_unregisterIfLogouted
 {

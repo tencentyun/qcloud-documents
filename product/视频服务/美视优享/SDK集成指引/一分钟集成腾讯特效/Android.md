@@ -106,6 +106,8 @@ private synchronized void checkAuth(Context context) {
 }
 ```
 
+>? 如果鉴权失败，您可参考 [查看鉴权结果及错误码说明](https://cloud.tencent.com/document/product/616/68760) 定位失败原因。
+
 [](id:step2)
 ### 步骤二：加载腾讯特效 SDK xmagic-xxx.aar
 使用腾讯特效 SDK 生命周期大致如下：
