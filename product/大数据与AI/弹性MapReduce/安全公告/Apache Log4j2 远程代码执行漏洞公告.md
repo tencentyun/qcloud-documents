@@ -24,10 +24,9 @@
 </tr>
 </thead>
 </table >
-
 2. 运行任务时缓存目录中 jar 修复。
-- 确保提交的任务里面没有问题 jar，否则下次提交的任务还会缓存。
-- 直接删除目录下的问题 jar。
+	- 确保提交的任务里面没有问题 jar，否则下次提交的任务还会缓存。
+	- 直接删除目录下的问题 jar。
 <table>
 <thead>
 <tr>
@@ -40,9 +39,7 @@
 </tr>
 </thead>
 </table >
-
 上述只列出了3块数据盘的情况，其中/data 后面跟的数字为数据盘索引，需要把全部数据盘的/data 目录下对应文件进行清理。
-
 3. 非标准目录(非/usr/local/service 目录)修复，执行命令。
  <table>
 <thead>
@@ -51,25 +48,24 @@
 </tr>
 </thead>
 </table >
-
 4. 其他场景修复。
-升级该漏洞相关的6个 jar 包：log4j-api,log4j-core,log4j-jul,log4j-slf4j-impl,log4j-web，disruptor。如果没有上面的某个包，则无需替换。
+升级该漏洞相关的6个jar包：log4j-api、log4j-core、log4j-jul、log4j-slf4j-impl、log4j-web 和 disruptor。如果没有上述的某个包，则无需替换。
 
 ## 重启服务与灰度修复
 -----
-1. 对集群的某台机器执行修复。
-- 重启这个节点上的服务 flink、spark、hive、ranger 、 presto 、oozie、storm、impala、knox、druid。
-- 重启各个常驻任务，flink任务，storm任务，spark任务。
+1. 对集群的某台机器执行修复。
+	- 重启这个节点上的服务 flink、spark、hive、ranger 、 presto 、oozie、storm、impala、knox、druid。
+	- 重启各个常驻任务，flink任务，storm任务，spark任务。
+2. 此节点重启服务验证没问题后，再执行其他节点的修复。
 
-2. 此节点重启服务验证没问题后，再执行其他节点的修复。
 
 ## 修复原理
 
 -----
 1. 将修复后的6个 jar 放在执行目录的 fix-log4j 目录下。 
 2. 查找待修复目录，修复6个 jar 包，发现则替换，未发现不会替换，会同时替换 tar.gz 以及 war 包中的对应问题 jar，以及 hdfs 上/user/hadoop/share 路径下的缓存包。
-- 替换其中的 log4j-api,log4j-core,log4j-jul,log4j-slf4j-impl,log4j-web 2.0～2.17.1为2.17.1版本。
-- 替换其中的 disruptor-3.4.2.jar 以下的版本为3.4.2版本，注意 disruptor 仅对部分组件替换。
+	- 替换其中的 `log4j-api,log4j-core,log4j-jul,log4j-slf4j-impl,log4j-web 2.0～2.17.1` 为2.17.1版本。
+	- 替换其中的 `disruptor-3.4.2.jar` 以下的版本为3.4.2版本，注意 disruptor 仅对部分组件替换。
 
 ## 服务有问题回滚步骤
 -----
@@ -84,7 +80,6 @@
 </thead>
 </table >
 其中1639576622为临时生成的时间戳，需找到对应文件进行解压。
-
 2. 将备份文件拷贝回去。
 <table>
 <thead>
@@ -94,7 +89,6 @@
 </thead>
 </table >
 其中10812_1639576622 为执行时临时生成的数字，需找到对应文件进行复制。
-
 3. 删除添加的 log4j 系列最新 jar 包。
 <table>
 <thead>
@@ -107,6 +101,5 @@
 </tr>
 </thead>
 </table >
-
 4. 如果是其他目录/path/to/other 的回滚，则将/usr/local/service/替换为/path/to/other。
 
