@@ -195,7 +195,7 @@ scaler.update()
 <table>
      <tr>
          <th>硬件环境</th>  
-         <th>模型</th>  x
+         <th>模型</th> 
          <th>GPU 卡数</th> 
 				 <th>原生 PyTorch(examples/sec per V100)</th>
 				 <th>TI-ACC 数据 IO 优化(examples/sec per V100)</th>
