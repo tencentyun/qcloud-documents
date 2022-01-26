@@ -103,18 +103,18 @@ spec:
       claimName: pvc-cfsturbo
 ```
 5. 在上传脚本文件的目录下，依次执行如下命令。
- - 配置 RBAC。
+   - 配置 RBAC。
 ```
 kubectl apply -f csi-node-rbac.yaml
 ```
- - 配置节点 CSI 插件。
+   - 配置节点 CSI 插件。
 ```
 kubectl apply -f csidriver.yaml
 ```
 ```
 kubectl apply -f csi-node.yaml
 ```
- - 创建 PV、PVC、POD。
+   - 创建 PV、PVC、POD。
 ```
 kubectl create -f static-allinone.yaml
 ```
