@@ -70,7 +70,7 @@ docker pull tiacc-test.tencentcloudcr.com/tiacc/tiacc_pytorch:[tag]
 #### 启动加速镜像
 启动加速镜像并进入容器实例，参考命令如下所示：
 ```
-docker run -it --net=host --privileged --rm --gpus all --shm-size=32g --ulimit memlock=-1 --ulimit stack=67108864 --name TI-ACC-gpu tiacc-test.tencentcloudcr.com/tiacc/tiacc_pytorch:[tag]
+docker run -it --net=host --privileged --rm --gpus all --shm-size=32g --ulimit memlock=-1 --ulimit stack=67108864 --name TI-ACC-gpu tiacc-test.tencentcloudcr.com/ti-acc/ti-accv1.0:[tag]
 ```
 
 #### 配置多实例镜像间免密登录
