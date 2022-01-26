@@ -26,8 +26,8 @@
 </table >
 
 2. 运行任务时缓存目录中 jar 修复。
- - 确保提交的任务里面没有问题 jar，否则下次提交的任务还会缓存。
- - 直接删除目录下的问题 jar。
+- 确保提交的任务里面没有问题 jar，否则下次提交的任务还会缓存。
+- 直接删除目录下的问题 jar。
 <table>
 <thead>
 <tr>
@@ -40,7 +40,9 @@
 </tr>
 </thead>
 </table >
+
 上述只列出了3块数据盘的情况，其中/data 后面跟的数字为数据盘索引，需要把全部数据盘的/data 目录下对应文件进行清理。
+
 3. 非标准目录(非/usr/local/service 目录)修复，执行命令
  <table>
 <thead>
@@ -49,6 +51,7 @@
 </tr>
 </thead>
 </table >
+
 4. 其他场景修复
 升级该漏洞相关的6个 jar 包：log4j-api,log4j-core,log4j-jul,log4j-slf4j-impl,log4j-web，disruptor。如果没有上面的某个包，则无需替换。
 
