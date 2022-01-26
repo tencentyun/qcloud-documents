@@ -32,7 +32,7 @@ DDoS 高防包服务提供防护策略调整功能，针对 DDoS 攻击提供三
 
 ## 操作步骤
 1. 登录 [DDoS 高防包控制台](https://console.cloud.tencent.com/ddos/antiddos-native/package) ，在左侧导航中，单击**防护配置** > **DDoS 防护**。
-2. 在 DDoS 防护页面的左侧列表中，选中高防包的 ID 下面的域名。
+2. 在 DDoS 防护页面的左侧列表中，选中高防包 ID，如"bgp-00xxxxxx"。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e2c9264fae4a3243bf8d570562ced1e5.png)
 3. 在 DDoS 防护等级卡片中，设置防护等级即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/816c14bdbc957cd5b9500310f49915c8.png)

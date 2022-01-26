@@ -14,28 +14,28 @@ TUICalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
 1. 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 2. **开通小程序类目与推拉流标签权限（如不开通则无法正常使用）**。
 出于政策和合规的考虑，微信暂未放开所有小程序对实时音视频功能（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签）的支持：
- - 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
- - 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
- - 符合类目要求的小程序，需要在 **[微信公众平台](https://mp.weixin.qq.com)** > **开发** > **开发管理** > **接口设置** 中自助开通该组件权限，如下图所示：
+	- 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
+	- 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
+	- 符合类目要求的小程序，需要在 **[微信公众平台](https://mp.weixin.qq.com)** > **开发** > **开发管理** > **接口设置** 中自助开通该组件权限，如下图所示：
 ![](https://main.qcloudimg.com/raw/dc6d3c9102bd81443cb27b9810c8e981.png)
 3. **配置推流域名及 IM 域名**到小程序控制台 request 合法域名。
   因 TUICalling 使用 TSignalling（IM） 进行信令交互，涉及使用 [IM 的受信域名](https://web.sdk.qcloud.com/im/doc/zh-cn/tutorial-02-upgradeguideline.html)。
 ```js
-  https://official.opensso.tencent-cloud.com
-  https://yun.tim.qq.com
-  https://cloud.tencent.com
-  https://webim.tim.qq.com
-  https://query.tencent-cloud.com
-  wss://wss.im.qcloud.com
-  wss://wss.tim.qq.com
-  https://web.sdk.qcloud.com
+https://official.opensso.tencent-cloud.com
+https://yun.tim.qq.com
+https://cloud.tencent.com
+https://webim.tim.qq.com
+https://query.tencent-cloud.com
+wss://wss.im.qcloud.com
+wss://wss.tim.qq.com
+https://web.sdk.qcloud.com
 ```
 
 ## 支持平台
 
 | 微信小程序 | QQ小程序 |
 | ---------- | -------- |
-| ✓          | ✓        |
+| &#10003;          |&#10003;        |
 
 ## 支持框架
 
@@ -133,10 +133,10 @@ TUICallingContext.destroyed()
 #### call({userID, type})
 进行某个 user 进行呼叫。
 
-| 参数 | 含义 | 
-|---------|---------|
-| userID | 希望呼叫用户的 userID。 | 
-| type | 通话类型，type = 1：语音通话，type =2：视频通话。 | 
+| 参数 | 类型 | 含义 | 
+|---------|---------|---------|
+| userID | String | 希望呼叫用户的 userID。 | 
+| type | Number | 通话类型，type = 1：语音通话，type =2：视频通话。 | 
 
 ```javascript
 let userID = 'test'
@@ -151,7 +151,7 @@ TUICallingContext.call({userID, type})
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userIDList | Arrary | 拨打的用户列表 |
+| userIDList | Array | 拨打的用户列表 |
 |type|Number|type 为通话类型，1：语音通话，2：视频通话。|
 |groupID|String| IM 群组的 groupID。|
 

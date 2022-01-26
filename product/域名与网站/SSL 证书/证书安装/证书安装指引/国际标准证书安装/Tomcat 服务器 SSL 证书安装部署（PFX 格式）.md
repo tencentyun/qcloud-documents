@@ -44,11 +44,11 @@
 1. 请在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中选择您需要安装的证书并单击**下载**。
 2. 在弹出的 “证书下载” 窗口中，服务器类型选择 **Tomcat**，单击**下载**并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
 解压缩后，可获得相关类型的证书文件。其中包含  `cloud.tencent.com_tomcat` 文件夹：
- - **文件夹名称**：`cloud.tencent.com_tomcat`
- - **文件夹内容**：
-    - `cloud.tencent.com.pfx` 证书文件
-    - `cloud.tencent.com.key` 密钥文件
-    - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
+   - **文件夹名称**：`cloud.tencent.com_tomcat`
+   - **文件夹内容**：
+     - `cloud.tencent.com.pfx` 证书文件
+     - `cloud.tencent.com.key` 密钥文件
+     - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
 3. 使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 Tomcat 服务器。
 4. 将已获取到的 `cloud.tencent.com.pfx` 证书文件从本地目录拷贝至 `/usr/*/conf` 目录下。
 5. 远程登录 Tomcat  服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
