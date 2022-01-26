@@ -21,7 +21,7 @@
 [](id:ui.step1)
 
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择 **开发辅助>[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+1. 登录实时音视频控制台，选择**开发辅助** > [**快速跑通Demo**](https://console.cloud.tencent.com/trtc/quickstart)。
 2. 输入应用名称，例如 `TestVideoCall` ，单击 **创建**。
 3. 单击 **已下载，下一步**，跳过此步骤。
 
@@ -59,15 +59,15 @@
 >! 体验应用至少需要两台设备。
 
 ### 用户 A
-1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：<br>
 <img src="https://main.qcloudimg.com/raw/a0c73f6904ac152a84cdf4d619171fc4.png" width="320"/>
-2. 输入要拨打的 userId，单击搜索，如下图示：
+2. 输入要拨打的 userId，单击搜索，如下图示：<br>
 <img src="https://main.qcloudimg.com/raw/61edd11a23197ebce26e91863f9fef63.png" width="320"/>
 3. 单击 **呼叫**，选择拨打 **视频通话** （**请确保被叫方保持在应用内，否则可能会拨打失败**）。<br>
 <img src="https://main.qcloudimg.com/raw/450e50dd4bb58e2950d6574ab88715e2.png" width="320"/>
 
 ### 用户 B
-1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
+1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：<br>
 <img src="https://main.qcloudimg.com/raw/94fcd741becbcfe4cca97778e180e4ca.png" width="320"/>
 2. 进入主页，等待接听来电。
 
@@ -87,7 +87,7 @@
 
 音视频通话组件 TUICalling 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
-#### 方法一：通过 Maven 仓库依赖
+#### 方法一：通过 mavenCentral 仓库依赖
 
 1. 在 dependencies 中添加 TRTCSDK 和 IMSDK 的依赖。
 <dx-codeblock>
@@ -113,11 +113,11 @@ defaultConfig {
 :::
 </dx-codeblock>
 3. 单击 **Sync Now** 同步 SDK。
->?若您的网络连接 maven 没有问题，SDK 会自动下载集成到工程里。
+>?若您的网络连接 mavenCentral 没有问题，SDK 会自动下载集成到工程里。
 
 
 #### 方法二：通过本地 AAR 依赖
-如果您的开发环境访问 Maven 仓库较慢，可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
+如果您的开发环境访问 mavenCentral 仓库较慢，可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
 
 | SDK      | 下载页面                                                     | 集成指引                                                     |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
