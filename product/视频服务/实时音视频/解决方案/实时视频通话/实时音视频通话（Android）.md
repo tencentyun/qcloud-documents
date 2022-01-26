@@ -12,7 +12,7 @@
 </table>
 
 
->! 为方便您快速实现音视频通话功能，我们对 TUICalling 组件进行了改造，通话UI在TUICalling 组件内部实现，您可以无需关注UI。
+>! 为方便您快速实现音视频通话功能，我们对 TUICalling 组件进行了改造，通话 UI 在 TUICalling 组件内部实现，您可以无需关注UI。
 
 [](id:ui)
 
