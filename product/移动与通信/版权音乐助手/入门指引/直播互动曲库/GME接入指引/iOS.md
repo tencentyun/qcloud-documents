@@ -191,7 +191,7 @@ errCode 返回错误码定义如下：
 </tr><tr>
 <td>TXCopyrightedErrorTokenFail</td>
 <td>-3</td>
-<td>token 过期</td>
+<td>Token 过期</td>
 </tr><tr>
 <td>TXCopyrightedErrorNetFail</td>
 <td>-4</td>
@@ -280,7 +280,7 @@ NSString *musicUri = [copyrightedMedia genMusicURI:musicId bgmType:musicType bit
 <tbody><tr>
 <td>musicUri</td>
 <td>NSString</td>
-<td><ul style="margin:0"><li>原唱&amp;伴奏：传给TRTC 播放的 URL，格式 <code>CopyRightMusic://audiotype=xxxx&amp;musicid=xxxx；</code></li><li>歌词：返回歌词的本地路径</li></ul></td>
+<td><ul style="margin:0"><li>原唱&伴奏：传给 TRTC 播放的 URI，格式 <code>CopyRightMusic://audiotype=xxxx&amp;musicid=xxxx；</code></li><li>歌词：返回歌词的本地路径</li></ul></td>
 </tr>
 </tbody></table>
 - **清理本地所有缓存歌曲数据**
@@ -316,7 +316,7 @@ NSString *musicUri = [copyrightedMedia genMusicURI:musicId bgmType:musicType bit
 ```
 [TXCopyrightedMedia destroy];
 ```
-- 进入 K 歌房间，单击 **K 歌**并开始下载 Music：
+- 进入 K 歌房间，单击 **K 歌**，下载 Music：
 ```
     TXCopyrightedMedia *copyRightedMedia = [TXCopyrightedMedia instance];
     if([copyRightedMedia isMusicPreloaded:musicId bitrateDefinition:@"audio/lo"]) {
