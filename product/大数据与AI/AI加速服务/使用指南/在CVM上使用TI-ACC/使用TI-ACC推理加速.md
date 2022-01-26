@@ -102,7 +102,7 @@ output_model,optimized_report = tiacc_inference.optimize(input_model,optimizatio
 				 <th>加速比</th>
      </tr>
   <tr>      
-      <td rowspan="12">腾讯云 GN7.2XLARGE32</td>   
+      <td rowspan="13">腾讯云 GN7.2XLARGE32</td>   
       <td rowspan="2">resnet50<br>(torchvision)<br>224x224</td>   
       <td>1</td>   
 			<td>5.4622 </td> 
