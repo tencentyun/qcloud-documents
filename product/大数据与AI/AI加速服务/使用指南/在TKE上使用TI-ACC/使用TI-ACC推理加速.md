@@ -138,7 +138,8 @@ import tiacc_inference
 #模型定义和训练，得到input_model
 ...
 #对训练完成的model进行推理加速
-output_model,optimized_report = tiacc_inference.optimize(input_model,optimization_level,device_type,input_shapes,test_data,save_path)
+output_model,optimized_report = tiacc_inference.optimize(input_model,optimization_level,device_type,input_shapes,input_nodes_names,output_nodes_names,test_data,save_path,optimization_config)
+
 ```
 
 
