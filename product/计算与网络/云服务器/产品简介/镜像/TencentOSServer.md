@@ -56,27 +56,7 @@ Usage:
 TencentOS-kernel 提供了4.14和5.4两个版本，详情请参见 [TencentOS-kernel](https://github.com/Tencent/TencentOS-kernel)。
 
 ## 发布说明
-
-<table>
-  <tr>
-	<th>发布时间</th>
-	<th style="width:30%">镜像版本</th>
-	<th>版本说明</th>
-	<th>发布地域</th>
-  </tr>
-  <tr>
-	<td>2021年07月13日</td>
-	<td>TencentOS Server 3.1</td>
-	<td>镜像 ID：<a href="https://console.cloud.tencent.com/cvm/image/detail?rid=16&id=img-eb30mz89">img-eb30mz89</a><br>内核版本：5.4.119</td>
-	<td>所有地域</td>
-  </tr>
-  <tr>
-	<td>2019年09月17日</td>
-	<td>TencentOS Server 2.4，原名 Tencent linux release 2.4 (Final)</td>
-	<td>镜像 ID：<a href="https://console.cloud.tencent.com/cvm/image/detail?rid=16&id=img-hdt9xxkt">img-hdt9xxkt</a><br>内核版本：4.14.105</td>
-	<td>所有地域</td>
-  </tr>
-</table>
+详情请参见 [TencentOS Server 镜像更新日志](https://cloud.tencent.com/document/product/213/68849)。
 
 
 ## 获取 TencentOS Server
