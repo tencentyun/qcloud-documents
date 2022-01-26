@@ -143,6 +143,8 @@ output_model,optimized_report = tiacc_inference.optimize(input_model,optimizatio
 
 
 #### 推理实测效果
+TI-ACC 优化过的模型包括但不限于以下模型：
+
 <table>
      <tr>
          <th>硬件环境</th>  
