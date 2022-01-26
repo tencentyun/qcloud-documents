@@ -134,10 +134,10 @@ TUICallingContext.destroyed()
 #### call({userID, type})
 进行某个 user 进行呼叫。
 
-| 参数 | 含义 | 
-|---------|---------|
-| userID | 希望呼叫用户的 userID。 | 
-| type | 通话类型，type = 1：语音通话，type =2：视频通话。 | 
+| 参数 | 类型 | 含义 | 
+|---------|---------|---------|
+| userID | String | 希望呼叫用户的 userID。 | 
+| type | Number | 通话类型，type = 1：语音通话，type =2：视频通话。 | 
 
 ```javascript
 let userID = 'test'
@@ -152,7 +152,7 @@ TUICallingContext.call({userID, type})
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userIDList | Arrary | 拨打的用户列表。 |
+| userIDList | Array | 拨打的用户列表。 |
 |type|Number|type 为通话类型，1：语音通话，2：视频通话。|
 |groupID|String| IM 群组的 groupID。|
 
