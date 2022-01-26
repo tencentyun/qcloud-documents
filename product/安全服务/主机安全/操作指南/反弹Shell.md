@@ -18,8 +18,8 @@
 	- **事件导出**：在反弹 Shell 事件列表上方，单击<img src="https://main.qcloudimg.com/raw/ac6451a8dab74a5cf57770ff8af30954.png" style="margin:0;">，可将反弹 Shell 事件列表导出。
 	- **详情**：在目标反弹 Shell 事件的右侧操作栏，单击**详情**，可查看反弹 Shell 事件详情。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4386c769db0405a0e5d789336726dd7f.png)
-	- **加入白名单**：如需将反弹 Shell 事件加入白名单，可在目标反弹 Shell 事件的右侧操作栏，单击**加白名单**，确认无误后，在弹窗中，单击**提交**，即可将该反弹 Shell 事件标记为白名单事件。
-	- **删除**：反弹 Shell 事件列表支持对反弹 Shell 事件进行删除。
+	- **加入白名单**：如需将反弹 Shell 事件加入白名单，可在目标反弹 Shell 事件的右侧操作栏，单击**加入白名单**，确认无误后，在弹窗中，单击**提交**，即可将该反弹 Shell 事件标记为白名单事件。
+	- **删除记录**：反弹 Shell 事件列表支持对反弹 Shell 事件进行删除。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4d109566f74448150e113770521f1e23.png)
 3. 单击反弹 Shell 事件的服务器 IP，可查看该服务器详情。	
 ![](https://qcloudimg.tencent-cloud.cn/raw/6639999f1f8b53b791a605d7908723e1.png)
