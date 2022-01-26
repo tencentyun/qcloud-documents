@@ -222,7 +222,8 @@ python3tiacc_training/tools/img2tfrecord.py --img_dir val_demo --img_list val_li
 </tr>
 </tbody></table>
 
-##### 使用自适应混合精度优化
+##### 使用自适应混合精度优化（PyTorch）
+
 ```
 import torch.cuda.amp as amp 
 import tiacc_training.torch
