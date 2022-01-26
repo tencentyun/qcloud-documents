@@ -278,7 +278,7 @@ TXCopyrightedMedia.instance().init();
 ```
 TXCopyrightedMedia.instance().destroy();
 ```
-- 进入 K 歌房间，单击 **K 歌**,下载 Music：
+- 进入 K 歌房间，单击 **K 歌**，下载 Music：
 ```
 TXCopyrightedMedia copyRightedMedia = TXCopyrightedMedia.instance();
 if(copyRightedMedia.isMusicPreloaded(musicId, bitrateDefinition){
