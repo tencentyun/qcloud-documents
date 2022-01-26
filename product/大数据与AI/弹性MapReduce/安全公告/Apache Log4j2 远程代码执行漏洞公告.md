@@ -26,8 +26,8 @@
 </table >
 
 2. 运行任务时缓存目录中 jar 修复。
-1）确保提交的任务里面没有问题 jar，否则下次提交的任务还会缓存。
-2）直接删除目录下的问题 jar。
+- 确保提交的任务里面没有问题 jar，否则下次提交的任务还会缓存。
+- 直接删除目录下的问题 jar。
 <table>
 <thead>
 <tr>
@@ -58,8 +58,8 @@
 ## 重启服务与灰度修复
 -----
 1. 对集群的某台机器执行修复。
-1）重启这个节点上的服务 flink、spark、hive、ranger 、 presto 、oozie、storm、impala、knox、druid。
-2）重启各个常驻任务，flink任务，storm任务，spark任务。
+- 重启这个节点上的服务 flink、spark、hive、ranger 、 presto 、oozie、storm、impala、knox、druid。
+- 重启各个常驻任务，flink任务，storm任务，spark任务。
 
 2. 此节点重启服务验证没问题后，再执行其他节点的修复。
 
@@ -68,8 +68,8 @@
 -----
 1. 将修复后的6个 jar 放在执行目录的 fix-log4j 目录下。 
 2. 查找待修复目录，修复6个 jar 包，发现则替换，未发现不会替换，会同时替换 tar.gz 以及 war 包中的对应问题 jar，以及 hdfs 上/user/hadoop/share 路径下的缓存包。
-1）替换其中的 log4j-api,log4j-core,log4j-jul,log4j-slf4j-impl,log4j-web 2.0～2.17.1为2.17.1版本。
-2）替换其中的 disruptor-3.4.2.jar 以下的版本为3.4.2版本，注意 disruptor 仅对部分组件替换。
+- 替换其中的 log4j-api,log4j-core,log4j-jul,log4j-slf4j-impl,log4j-web 2.0～2.17.1为2.17.1版本。
+- 替换其中的 disruptor-3.4.2.jar 以下的版本为3.4.2版本，注意 disruptor 仅对部分组件替换。
 
 ## 服务有问题回滚步骤
 -----
