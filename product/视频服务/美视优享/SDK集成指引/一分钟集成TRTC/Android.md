@@ -15,7 +15,6 @@
 import com.tencent.xmagic.license.LicenceCheck;
 LicenceCheck.getInstance().setXMagicLicense(context, URL, KEY);
 ```
-
 3. 然后在真正要使用美颜功能时（例如 XMagicImpl.java 中），再去做鉴权：
 ```java
 private void auth() {
@@ -64,8 +63,9 @@ private synchronized void checkAuth(Context context) {
 }
 ```
 
-[](id:step3)
+>? 如果鉴权失败，您可参考 [查看鉴权结果及错误码说明](https://cloud.tencent.com/document/product/616/68760) 定位失败原因。
 
+[](id:step3)
 ## 步骤三：打开 app 模块的 build.gradle
 1. 将 applicationId 修改成与申请的测试授权⼀致的包名。
 2. 添加 gson 依赖设置。

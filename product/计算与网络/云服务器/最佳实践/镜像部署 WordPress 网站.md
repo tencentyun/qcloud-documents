@@ -20,36 +20,23 @@
 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有**镜像市场**，请选择其他支持镜像市场的地域。
 </dx-alert>
 <img src="https://main.qcloudimg.com/raw/f65014010e9d40e71b945a189ed574f2.png">
-3. 在弹出的“镜像市场”对话框中，选择**建站系统**，输入 **wordpress** 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。如下图所示：
+3. 在弹出的“镜像市场”对话框中，选择**建站系统**，输入 **wordpress** 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。
+4. 按需选择镜像，本文以选择 **Wordpress 建站系统** 为例，单击**免费使用**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c0c39a1f915315b1572fdd2d3e3f6a65.png)
 更多关于此镜像信息，请参见 <a href="https://market.cloud.tencent.com/products/1794">WordPress博客平台（Wordpress 建站系统 CentOS7.6 | LAMP）</a>。
-4. 在实例关联的安全组需添加放通80端口的入站规则，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)。
+5. 在实例关联的安全组需添加放通80端口的入站规则，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)。
 存储介质、带宽等其他配置请根据实际需求选择，最终选择购买完成 WordPress 建站系统。
 
 
-### 步骤2：获取数据库名称及密码
-
+### 步骤2：安装 WordPress 网站
 <dx-alert infotype="explain" title="">
 不同的 WordPress 镜像，安装配置 WordPress 的操作步骤略有不同。具体操作请参见腾讯云市场提供的对应 WordPress 镜像商品详情页。
 </dx-alert>
-
-1. 登录实例，详情请参见 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
-2. 执行以下命令，获取数据库帐号及密码。
-```
-cat /credentials/password.txt
-```
-返回结果如下图所示，请记录数据库名称及密码。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/22ad9a7131dba086e699a2bd244d7d6b.png"/>
-
-
-
-### 步骤3：安装 WordPress 网站
 
 1. 在实例的管理页面，找到运行中的云服务器实例，并复制该云服务器实例的**公网 IP**。例如，需启动实例的公网 IP 为193.112.145.136，则只需复制该实例的公网 IP 即可。如下图所示：
 ![](https://main.qcloudimg.com/raw/3f015e2decf3a89e0fa03a5bf32e13a4.png)
 2. 在本地浏览器中访问**公网 IP**，开始安装 WordPress 网站。
   1. 选择 Wordpress 语言后，单击 **Continue**。 
-<img src="//mc.qcloudimg.com/static/img/f7ea8180f0c49be0f422e88140bbafee/image.png" style="width: 65%;">
   2. 在页面中按需输入 WordPress 站点标题、管理员用户名、管理员密码及电子邮件。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/fdf0c8fa2cc7cc70e9f4ffdbcc2a6f49.png)
   3. 单击**安装WordPress**，在页面中查看到安装成功提示即表示已完成安装。如下图所示：

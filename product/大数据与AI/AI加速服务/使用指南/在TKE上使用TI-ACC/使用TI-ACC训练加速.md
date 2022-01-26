@@ -1,11 +1,35 @@
-目前 TI-ACC 处于内测阶段，请先进行 [申请内测权限](https://cloud.tencent.com/apply/p/vl6fzemdq1) 拿到私有镜像临时登录指令，然后进行使用。
+目前 TI-ACC 处于公测阶段，请参考以下使用要求和步骤进行使用。
 
 ## 使用要求
 TI-ACC 训练加速仅支持以下操作系统、Python 版本、设备类型及框架版本：
 - 操作系统：Linux
 - Python 版本：Python 3.6
-- 设备类型：GPU 支持 CUDA 10.1、10.2、11.1
-- 框架版本：PyTorch 1.7.1、1.8.1、1.9.0
+- 设备类型：GPU 支持 CUDA 10.0、10.1、10.2、11.1
+- 框架版本：Tensorflow1.15，PyTorch 1.7.1、1.8.1、1.9.0
+- 支持的镜像版本：
+
+<table>
+     <tr>
+         <th>框架类型</th>  
+         <th>仓库地址</th>  
+         <th>镜像版本</th>  
+     </tr>
+  <tr>      
+      <td rowspan="3">PyTorch</td>   
+      <td rowspan="4">tiacc-test.tencentcloudcr.com/ti-acc/ti-accv1.0</td>   
+      <td>tiacc-training-v1.0.0-torch1.7.1-cu101-py36-ubuntu18.04</td>   
+     </tr> 
+  <tr>
+      <td>tiacc-training-v1.0.0-torch1.8.1-cu102-py36-ubuntu18.04</td>   
+     </tr> 
+  <tr>      
+    <td>tiacc-training-v1.0.0-torch1.9.0-cu111-py38-ubuntu18.04</td>    
+     </tr> 
+	<tr>      
+    <td>TensorFlow</td>    
+		<td>tiacc-training-v1.0.0-tensorflow1.15.5-cu100-py36-ubuntu18.04</td>    
+    </tr> 
+</table>
 
 ## 使用步骤
 ### 步骤1：创建 TKE 集群
@@ -14,25 +38,22 @@ TI-ACC 训练加速仅支持以下操作系统、Python 版本、设备类型及
 ![](https://qcloudimg.tencent-cloud.cn/raw/c3e76d577081bc2814df825f3d039a80.png)
 
 ### 步骤2：申请临时登录指令
-线下 [申请](https://cloud.tencent.com/apply/p/vl6fzemdq1) 加速产品私有镜像仓库临时登录指令以及相关 tag 信息，并创建镜像拉取密钥 imagePullSecrets，参考如下命令：
+线下 [申请](https://cloud.tencent.com/apply/p/vl6fzemdq1) 加速产品私有镜像仓库临时登录指令，并创建镜像拉取密钥imagePullSecrets，参考如下命令：
+
 ```
 kubectl create secret docker-registry tiacc-reg --docker-server=
 tiacc-test.tencentcloudcr.com --docker-username=<your-name> --docker-password=<your-pword>
 ```
+>?`<your-pword>`为临时登录指令。
 
-### 步骤3：使用加速
+
+### 步骤3：使用 TI-ACC 训练加速
 
 #### 使用训练加速
-训练加速中的通信加速能力通过兼容原生的 DDP 工具提供，用户无需修改原生的使用代码可直接进行使用，数据 IO 优化、自适应 FP16 都通过封装好的简单函数/类进行提供，用户仅需增加几行代码便可使用。
+在自己的训练代码里使用 TI-ACC 提供的训练加速能力，训练加速中的通信加速能力通过兼容原生的 DDP 工具提供，用户无需修改原生的使用代码可直接进行使用，数据 IO 优化、自适应 FP16 都通过封装好的简单函数/类进行提供，用户仅需增加几行代码便可使用。
 
-#### 引入训练加速库
 
-```
-#引入新的加速库
-import tiacc_training.torch 
-```
-
-#### 使用 DDP 分布式训练通信优化
+#### 使用 DDP 分布式训练通信优化（PyToch+DDP）
 以兼容原生 DDP 的方式启动训练脚本，无需进行训练代码的修改，启动命令参考示例如下：
 ```
 python3 -u -m tiacc_training.torch.distributed.launch --nproc_per_node $GPUS_PER_NODE --nnodes $NNODES --node_rank $NODE_RANK --master_addr $MASTER_ADDR --master_port $MASTER_PORT main.py
@@ -87,7 +108,8 @@ DDP 分布式训练通信优化实测效果：
      </tr>
 </table>
 
-#### 使用数据 IO 优化
+#### 使用数据 IO 优化（PyToch）
+
 ```
 #数据预处理，IO 优化
 train_dataset = tiacc_training.torch.tiacc_torch_warp.IndexTFRDataset(tfrecored_dir, tfrecord_file, transform)
@@ -122,11 +144,11 @@ tfrecord_file 可使用 TI-ACC 提供的 tools 工具进行生成：
 
 | 工具名称                                   | 具体功能                                          | 输入参数                                                     | 使用示例                                                     |
 | ------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| tiacc_training/tools/general_image_list.py | 生成 tfrecord_file 需要的 image list                 | <li>img_dir（必填）：图片存放路径，下面若干个文件夹，文件夹名为当前类别名<br><li>img_list（必填）：希望生成的 list 文件名，格式为 图片路径 当前图片类别标签，[list文件示例](https://tiacc-1308240844.cos.ap-nanjing.myqcloud.com/list文件示例.txt)<br><li>label_str2int（非必填）：类别名（str）到类别id（int）的映射关系文件，若不输入，则会自动生成；[label_str2int文件示例](https://tiacc-1308240844.cos.ap-nanjing.myqcloud.com/label_str2int.pkl) | python3 tiacc_training/tools/general_image_list.py --img_dir val_demo/ --img_list val_list |
-| tiacc_training/tools/img2tfrecord.py | 转 tfrecord 格式，生成数据 IO 优化需要的 tfrecord_file | <li>img_dir：图片存放路径<br><li>img_list：1中生成 <br><li>tfrecords_name：生成数据名称<br><li>dataset_type：目前支持<br><li>ImageFold、coco 两种<br><li>workers（非必填）：默认为0，tfrecord 生成支持多线程，若需加速，可指定大于1的整数 |python3tiacc_training/tools/img2tfrecord.py --img_dir val_demo --img_list val_list --tfrecords_name val_demo --dataset_type ImageFold |
+| tiacc_training/tools/general_image_list.py | 生成 tfrecord_file 需要的 image list                 | <li>img_dir（必填）：图片存放路径，下面若干个文件夹，文件夹名为当前类别名<br><li>img_list（必填）：希望生成的 list 文件名，格式为 图片路径 当前图片类别标签，[list文件示例](https://tiacc-1308240844.cos.ap-nanjing.myqcloud.com/list文件示例.txt)<br><li>label_str2int（非必填）：类别名（str）到类别id（int）的映射关系文件，若不输入，则会自动生成；[label_str2int文件示例](https://tiacc-1308240844.cos.ap-nanjing.myqcloud.com/label_str2int.pkl) | Python3 tiacc_training/tools/general_image_list.py --img_dir val_demo/ --img_list val_list |
+| tiacc_training/tools/img2tfrecord.py | 转 tfrecord 格式，生成数据 IO 优化需要的 tfrecord_file | <li>img_dir：图片存放路径<br><li>img_list：1中生成 <br><li>tfrecords_name：生成数据名称<br><li>dataset_type：目前支持<br><li>ImageFold、coco 两种<br><li>workers（非必填）：默认为0，tfrecord 生成支持多线程，若需加速，可指定大于1的整数 |Python3tiacc_training/tools/img2tfrecord.py --img_dir val_demo --img_list val_list --tfrecords_name val_demo --dataset_type ImageFold |
 
 
-#### 使用自适应混合精度优化
+#### 使用自适应混合精度优化（PyToch）
 ```
 import torch.cuda.amp as amp 
 scaler = amp.GradScaler() 
@@ -168,6 +190,43 @@ scaler.update()
      </tr>
 </table>
 
+使用通信优化后的 embedding 变量构造（TensorFlow+PS）
+```
+#将tensorflow原生的get_variable（）替换为TI-ACC优化后的get_variable（）
+import tiacc_training.tensorflow
+embeddings = tiacc_training.tensorflow.get_variable(name="embeddings",devices=["/job:ps/replica:0/task:0/CPU:0", "/job:ps/replica:0/task:1/CPU:0"],initializer=tf.compat.v1.random_normal_initializer(0, 0.005),dim=32)
+```
+
+使用通信优化后的embedding lookup计算（TensorFlow+PS）
+```
+#将tensorflow原生的embedding_lookup_sparse()替换为TI-ACC优化后的embedding_lookup_sparse()
+import tiacc_training.tensorflow
+sp_tensor = tiacc_training.tensorflow.SparseTensor(indices=[[0,0],[3,1],[2,2],[1,0]], values=[0,1,2,6], dense_shape=(3,3))sparse_weights = tf.nn.embedding_lookup_sparse(params=embeddings,sp_ids=sp_tensor,name="sparse-weights")
+```
+embedding 变量构造+lookup 计算优化实测效果：
+
+<table>
+     <tr>
+         <th>硬件环境</th>  
+         <th>模型</th>  
+         <th>GPU 卡数</th>  
+				 <th>原生 TensorFlow(global_steps/sec per V100)</th> 
+				 <th>TI-ACC 优化后 (global_steps/sec per V100)</th> 
+     </tr>
+  <tr>      
+      <td rowspan="2">腾讯云 GN10Xp.20XLARGE320</td>   
+      <td> DeepFM</td>   
+      <td>16（双机）</td>  
+			<td>41.9-56</td>
+			<td>96.1-103.3 </td>
+     </tr> 
+  <tr>
+      <td>Wide & Deep</td>   
+      <td>16（双机）</td>
+			<td>49.9-69</td>   
+      <td>120-128</td>
+     </tr> 
+</table>
 
 
 #### 提交分布式加速训练任务

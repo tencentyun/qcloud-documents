@@ -1,11 +1,41 @@
-目前 TI-ACC 处于内测阶段，请先进行 [申请内测权限](https://cloud.tencent.com/apply/p/vl6fzemdq1) 拿到私有镜像临时登录指令，然后进行使用。
+目前TI-ACC处于公测阶段，请参考以下使用要求和步骤进行使用。
 
 ## 使用要求
-TI-ACC 推理加速仅支持以下操作系统、Python 版本、设备类型及框架版本：
+TI-ACC 推理加速仅支持以下操作系统、Python 版本、设备类型、框架版本及镜像版本：
 - 操作系统：Linux
 - Python 版本：Python 3.6
-- 设备类型：GPU 支持 CUDA 10.1、10.2、11.1
-- 框架版本：PyTorch 1.7.1、1.8.1、1.9.0
+- 设备类型：GPU 支持 CUDA 10.0、10.2、11.1
+- 框架版本：Tensorflow1.15，PyTorch 1.7.1、1.8.1、1.9.0
+- 支持的镜像版本：
+
+<table>
+     <tr>
+         <th>框架类型</th>  
+         <th>仓库地址</th>  
+         <th>镜像版本</th>  
+     </tr>
+  <tr>      
+      <td rowspan="5">PyTorch</td>     
+      <td  rowspan="6">tiacc-test.tencentcloudcr.com/ti-acc/ti-accv1.0</td> 
+      <td>tiacc-inference-v1.0.0-torch1.7.1-cu102-py36-ubuntu18.04</td>   
+     </tr> 
+  <tr>      
+      <td>tiacc-inference-v1.0.0-torch1.8.1-cu102-py36-ubuntu18.04</td>   
+     </tr> 
+   <tr>      
+      <td>tiacc-inference-v1.0.0-torch1.8.1-cu111-py36-ubuntu18.04</td>   
+     </tr> 
+	<tr>
+	<td>tiacc-inference-v1.0.0-torch1.9.0-cu102-py36-ubuntu18.04</td>
+	</tr>
+  <tr>
+	<td>tiacc-inference-v1.0.0-torch1.9.0-cu111-py36-ubuntu18.04</td>
+	</tr>
+	<tr>
+	<td>TensorFlow</td>
+	<td>tiacc-inference-v1.0.0-tensorflow1.15-cu100-py36-ubuntu18.04</td>
+	</tr>
+</table>
 
 ## 使用步骤
 ### 步骤1：创建 TKE 集群
@@ -13,12 +43,14 @@ TI-ACC 推理加速仅支持以下操作系统、Python 版本、设备类型及
 ![](https://qcloudimg.tencent-cloud.cn/raw/c3e76d577081bc2814df825f3d039a80.png)
 
 ### 步骤2：申请临时登录指令
-线下 [申请](https://cloud.tencent.com/apply/p/vl6fzemdq1) 加速产品私有镜像仓库临时登录指令以及相关 tag 信息，并创建镜像拉取密钥 imagePullSecrets，参考如下命令：
+线下 [申请](https://cloud.tencent.com/apply/p/vl6fzemdq1) 加速产品私有镜像仓库临时登录指令，并创建镜像拉取密钥 imagePullSecrets，参考如下命令：
 
 ```
 kubectl create secret docker-registry tiacc-inference-reg --docker-server=
 tiacc-test.tencentcloudcr.com --docker-username=<your-name> --docker-password=<your-pword>
 ```
+>?`<your-pword>`为临时登录指令。
+
 
 ### 步骤3：使用加速
 #### 使用推理加速
@@ -116,85 +148,84 @@ output_model,optimized_report = tiacc_inference.optimize(input_model,optimizatio
          <th>硬件环境</th>  
          <th>模型</th>  
          <th>batch</th> 
-				 <th>torchscript（时延，ms）</th>
-				 <th>TI-ACC（时延，ms）</th>
-				 <th>TI-ACC（fp16）（时延，ms）</th>
+				 <th>torchscript（ms）</th>
+				 <th>TI-ACC（ms）</th>
+				 <th>加速比</th>
      </tr>
   <tr>      
-      <td rowspan="12">腾讯云GN7.2XLARGE32</td>   
-      <td rowspan="4">resnet50<br>torchvision<br>224x224</td>   
+      <td rowspan="12">腾讯云 GN7.2XLARGE32</td>   
+      <td rowspan="2">resnet50<br>torchvision<br>224x224</td>   
       <td>1</td>   
-			<td>7.10 </td> 
-			<td>3.35</td> 
-			<td>1.10 </td> 
+			<td>5.4622 </td> 
+			<td>1.1482</td> 
+			<td>4.8x</td> 
      </tr> 
   <tr>
-      <td>16</td>   
-      <td>42.67</td>
-			<td>30.75</td>
-			<td>7.97 </td>
+      <td>8</td>   
+      <td>27.062</td>
+			<td>4.5707</td>
+			<td>5.9x</td>
      </tr> 
-  <tr>      
-       <td>32</td>   
-      <td>82.79</td>   
-      <td>59.01 </td>   
-			<td>14.12</td>
-     </tr> 
-		   <tr>      
-       <td>64</td>   
-      <td>162.67</td>   
-      <td>115.62</td> 
-			<td>26.49</td>
-     </tr> 
-		 		   <tr>      
-       <td rowspan="4">resnest50<br>mmcls<br>224x224</td>   
-      <td>1</td>   
-			<td>12.47 </td> 
-			<td>7.78</td>
-			<td>5.22</td>
-     </tr> 
-  <tr>
-      <td>16</td>   
-      <td>61.22 </td>
-			<td>44.40</td>
-			<td>24.53</td>
-     </tr> 
-  <tr>      
-       <td>32</td>   
-      <td>168.47 </td>   
-      <td>85.63</td> 
-			<td>46.03</td>
-     </tr> 
-		   <tr>      
-       <td>64</td>   
-      <td>348.70</td>   
-      <td>171.82</td>
-			<td>88.44</td>
-     </tr> 
-		 <tr>      
-       <td rowspan="4">centernet-custom</td>   
-      <td>1</td>   
-			<td>29.28</td> 
-			<td>13.88</td>
-			<td>4.89 </td>
-     </tr> 
-  <tr>
-      <td>2</td>   
-      <td>56.18 </td>
-			<td>27.22</td>
-			<td>9.41</td>
-     </tr> 
-  <tr>      
-       <td>4</td>   
-      <td>113.25</td>   
-      <td>53.53</td>
-			<td>16.03 </td>
+  <tr> 
+	     <td rowspan="2">resnet50<br>mmcls<br>224x224</td>   
+       <td>1</td>   
+      <td>7.7667</td>   
+      <td> 4.3958 </td>   
+			<td>1.8x</td>
      </tr> 
 		   <tr>      
        <td>8</td>   
-      <td>232.11</td>   
-      <td>108.45 </td>
-			<td>32.41</td>
+      <td>36.806</td>   
+      <td>14.1152</td> 
+			<td>2.6x</td>
+     </tr> 
+		 		<tr>      
+       <td rowspan="2">centernet<br>640x640</td>   
+      <td>1</td>   
+			<td>20.9992</td> 
+			<td>4.7775</td>
+			<td>4.4x</td>
+     </tr> 
+  <tr>
+      <td>8</td>   
+      <td>170.5488</td>
+			<td>34.3523</td>
+			<td>5.0x</td>
+     </tr> 
+  <tr>  
+	    <td>Cascade Mask R-CNN<br>2016x3008</td>  
+      <td>1</td>   
+      <td>600.0671</td>   
+      <td>165.8467</td> 
+			<td>3.6x</td>
+     </tr> 
+		   <tr> 
+			 <td>Faster R-CNN<br>1088x800</td>  
+       <td>1</td>   
+      <td>107.3483</td>   
+      <td>35.5021</td>
+			<td>3.0x</td>
+     </tr> 
+		 <tr>      
+       <td>Vision Transformer<br>224x224</td>   
+      <td>8</td>   
+			<td>28.887</td> 
+			<td>10.53</td>
+			<td>2.7x</td>
+     </tr> 
+  <tr>
+	<td>Wide & Deep</td>   
+      <td>128</td>   
+      <td>5.804</td>
+			<td>3.399</td>
+			<td>1.7x</td>
+     </tr> 
+  <tr> 
+	<td>DeepFM</td>   
+       <td>128</td>   
+      <td>5.16</td>   
+      <td>3.21</td>
+			<td>1.6x</td>
      </tr> 
 </table>
 
@@ -205,13 +236,15 @@ output_model,optimized_report = tiacc_inference.optimize(input_model,optimizatio
 
 | 参数               | 类型                                        | 是否必填 | 参数说明                                                     | 默认值 | 示例                                                         |
 | ------------------ | ------------------------------------------- | -------- | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| input_model        | 多种（STRING+torch.jit.ScriptModule类型）   | 是       | 输入待优化的原始模型。Pytorch 模型格式，支持以下格式：torch.jit.ScriptModule 导出的模型文件，以 .pt、.pth 为后缀（计算图结构+参数的模型）；torch.jit.ScriptModule 对象 | 无     | 字符串格式的路径，'./lzz'、'./lzz.pb                         |
-| optimization_level | INT                                         | 是       | 推理加速的优化级别。0：无损；1：FP16                         | 无     | 0                                                            |
-| device_type        | INT                                         | 是       | 运行设备。0：GPU                                             | 无     | 0                                                            |
-| input_shapes       | 多种（LIST[STRING]+LIST[LIST)]+LIST[DICT]） | 是       | 模型输入的相关信息，主要包括形状 shape 和类型 data_type 最外层是 list，其中每个元素代表一个输入节点 input，每个 input 允许 str、list、dict 的格式，允许嵌套：str 用于单一节点固定输入尺寸；list 用于多节点固定尺寸；dict 用于输入非固定尺寸或者非 float 类型，对应的 key 为 'seperate\|range,int\|float\|half'，seperate 静态，value 填写的是 range 表示动态，value 填写的是 min 和 max | 无     | 单一节点固定尺寸：[ '1 * 3 * 224 * 224' ]多节点固定尺寸：[[ '1 * 3 * 224 * 224' ],[ '1 * 3 * 512 * 512' ]]单节点非固定静态尺寸：[{'seperate': ['1 * 3 * 224 * 224','2 * 3 * 224 * 224']}]单节点非固定动态尺寸：[{'range': ['1 * 3 * 224 * 224','10 * 3 * 224 * 224']}] |
-| test_data          | 多种（LIST[Tuple[torch.tensor, ]]）         | 否       | 用于模型推理速度对比的测试数据。用户给出则使用用户给出的测试数据；如果用户不给出，那么 TI-ACC 来自动提供测试数据。对于不同类型的模型，其测试数据格式存在差异， PyTorch 模型的测试数据为若干组输入Tensor Tuple，类型为 LIST[Tuple[torch.tensor, ]] | None   | /                                                            |
-| save_path          | STRING                                      | 否       | 优化模型的保存路径。如果需要将优化后的模型进行保存，则必填。如果是 pytorch 模型格式，支持以下方式：torch.jit.ScriptModule 保存方式，即填写导出的模型文件，以 .pt/.pth 为后缀 | None   | ‘../lzz’、‘../lzz.pb’、‘../lzz.pbt                           |
-
+| input_model        | 多种（STRING+torch.jit.ScriptModule 类型 + GraphDef 类型）  | 是       | 输入待优化的原始模型。<br><li>如果是 Pytorch 模型，支持以下格式：<br><li>torch.jit.ScriptModule 导出的模型文件，以.pt、.pth 为后缀（计算图结构+参数的模型）。<br><li>torch.jit.ScriptModule 对象。<br>如果是 tensorflow 模型，支持以下格式：<br><li>SavedModel 方式保存的模型文件夹路径。<br><li>Frozen Graph 方式保存的模型文件.以 .pb 为后缀。<br><li>GraphDef 对象。 | 无     | 字符串格式的路径，'./lzz'、'./lzz.pb' |
+| optimization_level | INT                                         | 是       | 推理加速的优化级别。<br>0：无损。<br>1：FP16。                       | 无     | 0                                                            |
+| device_type        | INT                                         | 是       | 运行设备。0：GPU。                                             | 无     | 0                                                            |
+| input_shapes       | 多种（LIST[STRING]+LIST[LIST)]+LIST[DICT]） | 是       | 模型输入的相关信息，主要包括形状 shape 和类型 data_type 最外层是 list，其中每个元素代表一个输入节点 input，每个 input 允许 str、list、dict 的格式，允许嵌套：str 用于单一节点固定输入尺寸；list 用于多节点固定尺寸；dict 用于输入非固定尺寸或者非 float 类型，对应的 key 为 'seperate\|range,int\|float\|half'，seperate 静态，value 填写的是 range 表示动态，value 填写的是 min 和 max。 | 无     | 单一节点固定尺寸：[ '1 * 3 * 224 * 224' ]多节点固定尺寸：[[ '1 * 3 * 224 * 224' ],[ '1 * 3 * 512 * 512' ]]单节点非固定静态尺寸：[{'seperate': ['1 * 3 * 224 * 224','2 * 3 * 224 * 224']}]单节点非固定动态尺寸：[{'range': ['1 * 3 * 224 * 224','10 * 3 * 224 * 224']}] |
+| inputs_nodes_names  | LIST[STRING]                                                 | 否   | 原始模型的输入节点。如果不指定该参数，则系统尝试自动推断。   | None          | [“lzz_input1”,“lzz_input2”]       |
+| outputs_nodes_names | LIST[STRING]                                                 | 否   | 原始模型的输出节点。如果不指定该参数，则系统尝试自动推断。   | None                                                         | [“lzz_output”]       |  -   |
+| test_data           | 多种（LIST[DICT[STRING, np.ndarray]]+LIST[Tuple[torch.tensor, ]]） | 否   | 用于模型推理速度对比的测试数据。用户给出则使用用户给出的测试数据；如果用户不给出，那么 TI-ACC 来自动提供测试数据。对于不同类型的模型，其测试数据格式存在差异， PyTorch 模型的测试数据为若干组输入Tensor Tuple，类型为LIST[Tuple[torch.tensor, ]]。TensorFlow 模型的测试数据为包含若干组 feed_dict 的列表，类型为 LIST[DICT[STRING, np.ndarray]] | None  |   -   |
+| save_path           | STRING                                                       | 否   | 优化模型的保存路径。如果需要将优化后的模型进行保存，则必填。如果是 pytorch 模型格式，支持以下方式：torch.jit.ScriptModule 保存方式，即填写导出的模型文件，以 .pt/.pth 为后缀；如果是 tensorflow 模型格式，支持以下方式：savemodel 保存方式，即填写模型文件夹路径；frozen graph 保存方式，即填写保存的模型文件名。 | None     | ‘../lzz’、‘../lzz.pb’、‘../lzz.pbt’   |
+| optimization_config | tiacc 中自定义的 OptimizeConfig 类     | 否   | 用于指导模型优化 tf.nn.embedding_lookup_sparse 层。设置参数时，需包含前缀 "tiemb/"。<br>参数包括：最大 batch 数（max_batch_size、int 类型），slot 数（slot_num、int 类型），最大 nnz 数（max_nnz、int 类型），gpu cache 使用率（cache_percentage、float 类型），cpu cache 使用率（cpu_cache_percentage、float 类型），gpu cache命中率阈值（hit_rate_threshold、float 类型），是否开启分布式模式（enable_distributed、bool 类型）。另外还有 output_names 参数，该参数类型和 output_nodes_names 相同。如果用户手动设置了 output_nodes_names，tiacc 内部自动将 names 同步到 output_names 参数中。用户应尽量使用 output_nodes_names 进行设置，而非在 config 中设置。 | output_names、max_batch_size、slot_num、max_nnz 无默认值 cache_percentage 默认值为0.2cpu_cache_percentage 默认值为 1.0hit_rage_threshold 默认值为 0.95enable_distributed 默认值为 false | optimization_config = tiacc_tf.OptimizeConfig()optimization_config.parameter_map["tiemb/max_batch_size"].i = batch_sizeoptimization_config.parameter_map["tiemb/slot_num"].i = slot_numoptimization_config.parameter_map["tiemb/max_nnz"].i = max_nnzoptimization_config.parameter_map["tiemb/cache_percentage"].f = 0.2optimization_config.parameter_map["tiemb/cpu_cache_percentage"].f = 1.0optimization_config.parameter_map["tiemb/hit_rate_threshold"].f = 0.95optimization_config.parameter_map["tiemb/enable_distributed"].b = False |
 
 - 输出参数及说明
 

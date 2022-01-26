@@ -64,12 +64,14 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 
 #### **示例三： 基于 SESSION 的 CC 防护设置**
 基于 SESSION 访问速率的 CC 防护，能够有效解决在办公网、商超和公共 WIFI 场合，用户因使用相同 IP 出口而导致的误拦截问题。
-1. 进入 [ Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 安全防护】>【防护设置】，进入防护设置页面，在域名列表中，找到需要防护的域名，单击【防护配置】进入配置页面。
+1. 进入 [ Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择 **Web 安全防护** > **防护设置**，进入防护设置页面，在域名列表中，找到需要防护的域名，单击**防护配置**进入配置页面。
 ![](https://main.qcloudimg.com/raw/9f30721ac5c501c07935833eeb364417.png)
-2. 选择【CC 防护设置2.0】>【设置】，设置 SESSION 维度信息。
+2. 选择 **CC 防护设置2.0** > **设置**，设置 SESSION 维度信息。
 ![](https://main.qcloudimg.com/raw/a9bbf8a68bdd04f6bb66b97081ffb86e.png)
-3. 进入 SESSION 设置页面，此示例选择 COOKIE 作为测试内容，标识为 security，开始位置为0，结束位置为9，配置完成后单击【设置】。
-![](https://main.qcloudimg.com/raw/eb778e9f0416b1864763ff4471713725.png)
+3. 进入 SESSION 设置页面，此示例选择 COOKIE 作为测试内容，标识为 security，开始位置为0，结束位置为9，配置完成后单击**设置**。
+>?CC兜 底策略可以对域名全站进行兜底防护，该策略可以防护：在60秒内会话次数达到20次的访问源 IP，WAF 对此 IP 进行拦截封禁操作，封禁时长10分钟。
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/cc825daa7ed7f003d167a67b28a59c36.png)
  - **配置项说明：**
  - **SESSION 位置 ：**可选择 COOKIE、GET 或 POST，其中 GET 或 POST 是指 HTTP 请求内容参数，非 HTTP 头部信息。
  - **匹配说明 ：**位置匹配或者字符串匹配。
