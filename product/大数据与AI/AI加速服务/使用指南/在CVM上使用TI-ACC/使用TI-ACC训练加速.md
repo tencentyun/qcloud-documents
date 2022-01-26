@@ -166,7 +166,7 @@ DDP 分布式训练通信优化实测效果：
 
 ##### 使用数据 IO 优化
 ```
-#数据预处理，IO优化
+#数据预处理，IO 优化
 train_dataset = tiacc_training.torch.tiacc_torch_warp.IndexTFRDataset(tfrecored_dir, tfrecord_file, transform)
 ```
 
