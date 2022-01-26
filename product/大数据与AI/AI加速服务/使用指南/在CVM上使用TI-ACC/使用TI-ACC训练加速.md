@@ -65,7 +65,7 @@ docker login tiacc-test.tencentcloudcr.com --username xxx --password xxx
 ```
 docker pull tiacc-test.tencentcloudcr.com/tiacc/tiacc_pytorch:[tag]
 ```
->!tag 为镜像版本，请参考使用要求里支持的镜像版本。
+>?tag 为镜像版本，请参考使用要求里支持的镜像版本。
 
 #### 启动加速镜像
 启动加速镜像并进入容器实例，参考命令如下所示：
@@ -280,7 +280,7 @@ embeddings = tiacc_training.tensorflow.get_variable(name="embeddings",devices=["
 import tiacc_training.tensorflow
 sp_tensor = tiacc_training.tensorflow.SparseTensor(indices=[[0,0],[3,1],[2,2],[1,0]], values=[0,1,2,6], dense_shape=(3,3))sparse_weights = tf.nn.embedding_lookup_sparse(params=embeddings,sp_ids=sp_tensor,name="sparse-weights")
 ```
-**embedding 变量构造+lookup 计算优化实测效果**：
+embedding 变量构造+lookup 计算优化实测效果：
 
 <table>
      <tr>
@@ -349,7 +349,7 @@ sp_tensor = tiacc_training.tensorflow.SparseTensor(indices=[[0,0],[3,1],[2,2],[1
 
 | 对象   | 类型                            | 对象说明                                     |
 | ------ | ------------------------------- | -------------------------------------------- |
-| policy | MixedPrecision_TrainingPolicy类 | 训练过程中自动混合精度自适应策略的实例化对象 |
+| policy | MixedPrecision_TrainingPolicy 类 | 训练过程中自动混合精度自适应策略的实例化对象 |
 
 #### enable_mixed_precision 函数方法
 属于 MixedPrecision_TrainingPolicy 类，根据输入的参数得到当前 epoch 是否需要开启自动混合精度。
