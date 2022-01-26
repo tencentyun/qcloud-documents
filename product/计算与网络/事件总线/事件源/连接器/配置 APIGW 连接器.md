@@ -35,9 +35,9 @@ APIGW 连接器实现方式为 **Push 模型**，APIGW 会监控请求并生成�
 
 #### APIGW 连接器数据结构说明
 
-```plaintext
+```json
 {
-    "specversion": "1.0.2",
+    "specversion": "1.0",
     "id": "13a3f42d-7258-4ada-da6d-023a333b4662",
     "type": "connector:apigw",
     "source": "apigw.cloud.tencent",
