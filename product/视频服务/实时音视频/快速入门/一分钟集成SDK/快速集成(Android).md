@@ -14,13 +14,13 @@ TRTC SDK 已经发布到 maven 库，您可以通过配置 gradle 自动下载�
 ![](https://main.qcloudimg.com/raw/763847f3b613649d7f2354ceb8c47d38.png)
 
 1. 在 dependencies 中添加 TRTCSDK 的依赖。
- - 若使用3.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
+	- 若使用3.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
 ```
 dependencies {
          implementation 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
 }
 ```
- - 若使用2.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
+	- 若使用2.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
 ```
 dependencies {
          compile 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
@@ -35,7 +35,7 @@ defaultConfig {
 }
 ```
 >?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
-3. 单击【Sync Now】，自动下载 SDK 并集成到工程里。
+3. 单击 **Sync Now**，自动下载 SDK 并集成到工程里。
 
 
 ### 方法二：手动下载（aar）
@@ -56,7 +56,7 @@ defaultConfig {
 }
 ```
 >?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
-6. 单击【Sync Now】，完成 TRTC SDK 的集成工作。
+6. 单击**Sync Now**，完成 TRTC SDK 的集成工作。
 
 
 ## 集成 SDK（jar）
@@ -86,8 +86,7 @@ defaultConfig {
 }
 ```
 >?目前 TRTC SDK 支持 armeabi， armeabi-v7a 和 arm64-v8a。
->
-7. 单击【Sync Now】，完成 TRTC SDK 的集成工作。
+7. 单击 **Sync Now**，完成 TRTC SDK 的集成工作。
 
 
 ## 配置 App 权限
