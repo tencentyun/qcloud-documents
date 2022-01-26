@@ -55,7 +55,7 @@
 -----
 1. 对集群的某台机器执行修复。
 	- 重启这个节点上的服务 flink、spark、hive、ranger 、 presto 、oozie、storm、impala、knox、druid。
-	- 重启各个常驻任务，flink任务，storm任务，spark任务。
+	- 重启各个常驻任务，flink 任务，storm 任务，spark 任务。
 2. 此节点重启服务验证没问题后，再执行其他节点的修复。
 
 
