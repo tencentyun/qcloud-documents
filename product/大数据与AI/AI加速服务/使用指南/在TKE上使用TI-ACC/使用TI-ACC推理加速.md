@@ -1,4 +1,4 @@
-目前TI-ACC处于公测阶段，请参考以下使用要求和步骤进行使用。
+目前 TI-ACC 处于公测阶段，请参考以下使用要求和步骤进行使用。
 
 ## 使用要求
 TI-ACC 推理加速仅支持以下操作系统、Python 版本、设备类型、框架版本及镜像版本：
@@ -139,7 +139,6 @@ import tiacc_inference
 ...
 #对训练完成的model进行推理加速
 output_model,optimized_report = tiacc_inference.optimize(input_model,optimization_level,device_type,input_shapes,input_nodes_names,output_nodes_names,test_data,save_path,optimization_config)
-
 ```
 
 
