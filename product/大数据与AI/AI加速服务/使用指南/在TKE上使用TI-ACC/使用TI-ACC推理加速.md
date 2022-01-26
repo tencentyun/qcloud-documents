@@ -148,14 +148,14 @@ output_model,optimized_report = tiacc_inference.optimize(input_model,optimizatio
      <tr>
          <th>硬件环境</th>  
          <th>模型</th>  
-         <th>batch</th> 
+         <th>Batchsize</th> 
 				 <th>torchscript（ms）</th>
 				 <th>TI-ACC（ms）</th>
 				 <th>加速比</th>
      </tr>
   <tr>      
       <td rowspan="12">腾讯云 GN7.2XLARGE32</td>   
-      <td rowspan="2">resnet50<br>torchvision<br>224x224</td>   
+      <td rowspan="2">resnet50<br>(torchvision)<br>224x224</td>   
       <td>1</td>   
 			<td>5.4622 </td> 
 			<td>1.1482</td> 
@@ -168,7 +168,7 @@ output_model,optimized_report = tiacc_inference.optimize(input_model,optimizatio
 			<td>5.9x</td>
      </tr> 
   <tr> 
-	     <td rowspan="2">resnet50<br>mmcls<br>224x224</td>   
+	     <td rowspan="2">resnet50<br>(mmcls)<br>224x224</td>   
        <td>1</td>   
       <td>7.7667</td>   
       <td> 4.3958 </td>   
@@ -193,15 +193,28 @@ output_model,optimized_report = tiacc_inference.optimize(input_model,optimizatio
 			<td>34.3523</td>
 			<td>5.0x</td>
      </tr> 
+			<tr>      
+      <td rowspan="2">yolov3<br>(ultralytics)<br>640x640</td>   
+      <td>1</td>   
+			<td>47.19</td> 
+			<td>10.3671</td>
+			<td>4.5x</td>
+     </tr> 
+  <tr>
+      <td>8</td>   
+      <td>302.983</td>
+			<td>82.6971</td>
+			<td>3.7x</td>
+     </tr> 
   <tr>  
-	    <td>Cascade Mask R-CNN<br>2016x3008</td>  
+	    <td>Cascade Mask R-CNN<br>(mmdet)<br>2016x3008</td>  
       <td>1</td>   
       <td>600.0671</td>   
       <td>165.8467</td> 
 			<td>3.6x</td>
      </tr> 
 		   <tr> 
-			 <td>Faster R-CNN<br>1088x800</td>  
+			 <td>Faster R-CNN<br>(mmdet)<br>1088x800</td>  
        <td>1</td>   
       <td>107.3483</td>   
       <td>35.5021</td>
@@ -215,18 +228,18 @@ output_model,optimized_report = tiacc_inference.optimize(input_model,optimizatio
 			<td>2.7x</td>
      </tr> 
   <tr>
-	<td>Wide & Deep</td>   
-      <td>128</td>   
-      <td>5.804</td>
-			<td>3.399</td>
-			<td>1.7x</td>
+	<td>Wide & Deep<br>(NVIDIA DeepLearningExamples)</td>   
+      <td>512</td>   
+      <td>15.7</td>
+			<td>4.436</td>
+			<td>3.5x</td>
      </tr> 
   <tr> 
-	<td>DeepFM</td>   
-       <td>128</td>   
-      <td>5.16</td>   
-      <td>3.21</td>
-			<td>1.6x</td>
+	<td>DeepFM<br>(NVIDIA DeepLearningExamples)</td>   
+       <td>512</td>   
+      <td>12.91</td>   
+      <td>4.51</td>
+			<td>2.9x</td>
      </tr> 
 </table>
 
