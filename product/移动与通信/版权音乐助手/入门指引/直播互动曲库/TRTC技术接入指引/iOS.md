@@ -389,12 +389,11 @@ NSString *musicUri = [copyrightedMedia genMusicURI:musicId bgmType:musicType bit
 ```
 - 进入 K 歌房间，单击 **K 歌**，下载 Music：
 ```java
-    TXCopyrightedMedia *copyRightedMedia = [TXCopyrightedMedia instance];
-    if([copyRightedMedia isMusicPreloaded:musicId bitrateDefinition:@"audio/lo"]) {
-         [self startPlayMusic];
-    }else {
-        [copyRightedMedia preloadMusic:musicId bitrateDefinition:@"audio/lo" playToken:playToken callback:self];
-    }
+TXCopyrightedMedia *copyRightedMedia = [TXCopyrightedMedia instance];
+if([copyRightedMedia isMusicPreloaded:musicId bitrateDefinition:@"audio/lo"]) {
+		 [self startPlayMusic];
+}else {
+		[copyRightedMedia preloadMusic:musicId bitrateDefinition:@"audio/lo" playToken:playToken callback:self];
 }
 
 - (void)startPlayMusic
