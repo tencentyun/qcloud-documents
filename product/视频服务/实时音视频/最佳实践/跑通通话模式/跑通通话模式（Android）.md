@@ -23,7 +23,7 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 ### 步骤1：集成 SDK
 您可以选择以下方式将 **TRTC SDK** 集成到项目中。
 #### 方式一：自动加载（aar）
-TRTC SDK 已发布到 maven 库，您可以通过配置 gradle 自动下载更新。
+TRTC SDK 已发布到 mavenCentral 库，您可以通过配置 gradle 自动下载更新。
 您只需用 Android Studio 打开待集成 SDK 的工程（TRTC-API-Example 已完成集成，示例代码可以供您参考），然后通过简单的步骤修改`app/build.gradle`文件，即可完成 SDK 集成：
 
 1. 在 dependencies 中添加 TRTCSDK 的依赖。
@@ -43,7 +43,7 @@ dependencies {
   }
 ```
 3. 单击 **Sync Now** 同步 SDK。
- 如果您的网络连接 maven 没有问题，SDK 会自动下载集成到工程中。
+ 如果您的网络连接 mavenCentral 没有问题，SDK 会自动下载集成到工程中。
 
 #### 方式二：下载 ZIP 包手动集成
 您可以直接下载 [ZIP 压缩包](https://cloud.tencent.com/document/product/647/32689)，并参考 [快速集成(Android)](https://cloud.tencent.com/document/product/647/32175#.E6.96.B9.E6.B3.95.E4.BA.8C.EF.BC.9A.E6.89.8B.E5.8A.A8.E4.B8.8B.E8.BD.BD.EF.BC.88aar.EF.BC.89) 将 SDK 集成到您的工程中。
@@ -114,8 +114,8 @@ public void onError(int errCode, String errMsg, Bundle extraInfo) {
 ### 步骤5：创建并进入房间
 1. 调用 [enterRoom()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c) 即可加入 TRTCParams 参数中`roomId`代指的音视频房间。如果该房间不存在，SDK 会自动创建一个以字段`roomId`的值为房间号的新房间。
 2. 请根据应用场景设置合适的**`appScene`**参数，使用错误可能会导致卡顿率或画面清晰度不达预期。
-	- 视频通话，请设置为`TRTC_APP_SCENE_VIDEOCALL`。
-	- 语音通话，请设置为`TRTC_APP_SCENE_AUDIOCALL`。
+    - 视频通话，请设置为`TRTC_APP_SCENE_VIDEOCALL`。
+    - 语音通话，请设置为`TRTC_APP_SCENE_AUDIOCALL`。
 3. 进房成功后，SDK 会回调`onEnterRoom(result)`事件。其中，参数`result`大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当`result`小于0时表示进房失败，具体数值为进房失败的错误码。
 
 ```
@@ -152,8 +152,8 @@ SDK 支持自动订阅和手动订阅。
 2. 您可以通过 [muteRemoteAudio(userId, true)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a8d8b8edf120036d4049cc3639a1ce81f) 屏蔽某一个 userId 的音频数据，也可以通过 [muteAllRemoteAudio(true)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a5b63c0796404b80323ae67aafe0384ba) 屏蔽所有远端用户的音频数据，屏蔽后 SDK 不再继续拉取对应远端用户的音频数据。
 3. 当房间中有其他用户在上行视频数据时，您会收到 [onUserVideoAvailable()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#ac1a0222f5b3e56176151eefe851deb05) 事件通知，但此时 SDK 未收到该如何展示视频数据的指令，因此不会自动处理视频数据。您需要通过调用 [startRemoteView(userId, view)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c) 方法将远端用户的视频数据和显示`view`关联起来。
 4. 您可以通过 [setRemoteViewFillMode()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ab4197bc2efb62b471b49f926bab9352f) 指定视频画面的显示模式：
-	- Fill 模式：表示填充，画面可能会等比放大和裁剪，但不会有黑边。
-	- Fit 模式：表示适应，画面可能会等比缩小以完全显示其内容，可能会有黑边。
+    - Fill 模式：表示填充，画面可能会等比放大和裁剪，但不会有黑边。
+    - Fit 模式：表示适应，画面可能会等比缩小以完全显示其内容，可能会有黑边。
 5. 您可以通过 [stopRemoteView(userId)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a8f3e86bc219090d0e8f2d5c2fab4467a) 屏蔽某一个 userId 的视频数据，也可以通过 [stopAllRemoteView()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#addaac0786ac0bd6e73a5f35c038df127) 屏蔽所有远端用户的视频数据，屏蔽后 SDK 不再继续拉取对应远端用户的视频数据。
 
 ```
@@ -184,8 +184,8 @@ public void onUserVideoAvailable(String userId, boolean available) {
 1. 调用 [startLocalAudio()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a9428ef48d67e19ba91272c9cf967e35e) 可以开启本地的麦克风采集，并将采集到的声音编码并发送出去。
 2. 调用 [startLocalPreview()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a84098740a2e69e3d1f02735861614116) 可以开启本地的摄像头，并将采集到的画面编码并发送出去。
 3. 调用 [setLocalViewFillMode()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#af36ab721c670e5871e5b21a41518b51d) 可以设定本地视频画面的显示模式：
-	- Fill 模式表示填充，画面可能会被等比放大和裁剪，但不会有黑边。
-	- Fit 模式表示适应，画面可能会等比缩小以完全显示其内容，可能会有黑边。
+    - Fill 模式表示填充，画面可能会被等比放大和裁剪，但不会有黑边。
+    - Fit 模式表示适应，画面可能会等比缩小以完全显示其内容，可能会有黑边。
 4. 调用 [setVideoEncoderParam()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ae047d96922cb1c19135433fa7908e6ce) 接口可以设定本地视频的编码参数，该参数将决定房间里其他用户观看您的画面时所感受到的 [画面质量](https://cloud.tencent.com/document/product/647/32236)。
 ```java
 //示例代码：发布本地的音视频流
