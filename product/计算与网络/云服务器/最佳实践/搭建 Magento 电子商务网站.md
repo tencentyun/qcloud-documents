@@ -32,7 +32,12 @@ Magento 是使用 PHP 语言开发的开源电子商务平台，是国际电子�
 
 
 ### 步骤2：登录 Magento 后台管理页面
-Magento 2.4 版本后官方不再支持 Web 向导模式安装，由于镜像使用了 Magento 2.4.1 版本，请在实例创建完毕后等待大约5分钟，完成自动初始化安装。
+
+<dx-alert infotype="explain" title="">
+Magento 2.4 版本后官方不再支持 Web 向导模式安装，由于示例镜像使用了 Magento 2.4.1 版本，请在实例创建完毕后等待大约5分钟，完成自动初始化安装。
+</dx-alert>
+
+
 1. 在浏览器中访问以下地址，登录 Magento 后台管理页面。
 ```
 http://云服务器实例的公网 IP/admin
@@ -45,7 +50,7 @@ http://云服务器实例的公网 IP/admin
 ![](https://qcloudimg.tencent-cloud.cn/raw/4382343f2828a736dc8bd53f0ef06ecc.png)
 
 ### 后续步骤：访问 Magento 主页面
-使用本地浏览器访问下列地址，查看 Magento 主页面。
+您可使用本地浏览器访问下列地址，访问 Magento 主页面。
 ```
 http://云服务器实例的公网 IP
 ```
