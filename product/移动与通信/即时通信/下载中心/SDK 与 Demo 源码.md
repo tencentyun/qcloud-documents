@@ -1,5 +1,6 @@
 您可以在这里下载最新的即时通信 IM SDK 以及 Demo 源码。
 ## SDK 下载[](id:TLS)
+[](id:client)
 <table>
 <tr>
 <th width="94px" style="text-align:center" >终端 SDK</td>
@@ -36,7 +37,7 @@
 
 
 
-
+[](id:web)
 <table>
 <tr>
 <th width="94px" style="text-align:center" >Web SDK</td>
@@ -66,7 +67,7 @@
 </table>
 
 
-
+[](id:opensource)
 <table>
 <tr>
 <th width="94px" style="text-align:center" >框架 SDK</td>
