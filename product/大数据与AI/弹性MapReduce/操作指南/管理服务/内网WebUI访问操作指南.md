@@ -1,4 +1,4 @@
-EMR 集群创建时，如果没有勾选“开启集群 Master 节点公网”，将不能通过组件管理页面的原生 WebUI 访问地址进入相关组件的 WebUI 界面。本文主要介绍没有开启 Master 节点公网的集群如何查看组件原生 WebUI。
+EMR 集群创建时，如果没有勾选**开启集群 Master 节点公网**，将不能通过组件管理页面的原生 WebUI 访问地址进入相关组件的 WebUI 界面。本文主要介绍没有开启 Master 节点公网的集群如何查看组件原生 WebUI。
 
 ## 内网访问
 在内网环境中通过浏览器访问组件 WebUI。各组件原生 WebUI 链接如下表所示：
@@ -20,14 +20,14 @@ EMR 集群创建时，如果没有勾选“开启集群 Master 节点公网”�
 
 ## 绑定弹性公网 IP
 给 Master 节点绑定一个弹性公网 IP（EIP），即可在外网环境中通过浏览器访问组件 WebUI。绑定 EIP 操作如下：
-1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在集群列表中单击对应的集群 **ID/名称**进入集群详情页，然后在**集群资源 > 资源管理**中选择需要绑定弹性公网 IP 的 Master 节点，单击“资源名称/资源 ID”进入云服务器控制台。
+1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在集群列表中单击对应的集群 **ID/名称**进入集群详情页，然后在**集群资源 > 资源管理**中选择需要绑定弹性公网 IP 的 Master 节点，单击**资源名称/资源 ID** 进入云服务器控制台。
 ![](https://main.qcloudimg.com/raw/25a29a278ac544b437af54c40feac6aa.png)
 2. 调整 CVM 实例的网络带宽设置，保证需要绑定 EIP 的 CVM 实例带宽不为0，否则会无法连接相应节点。
 在云服务器控制台 CVM 实例列表中选择对应实例的**更多 > 资源调整 > 调整网络**。
 ![](https://main.qcloudimg.com/raw/d48157c5f3470efb9d5a987de7d43210.png)
 调整合适的目标带宽上限，保证 CVM 实例带宽大于0。
 ![](https://main.qcloudimg.com/raw/b1faea1c23b292c0ddcbf9ddfa5dff79.png)
-3. 单击 CVM 实例的实例 ID 进入实例基本信息页面，并切换到弹性网卡页面。
+3. 单击 CVM 实例的**实例 ID** 进入实例基本信息页面，并切换到弹性网卡页面。
 ![](https://main.qcloudimg.com/raw/73c82695d894aaac6ad6290d5a75cc54.png)
 ![](https://main.qcloudimg.com/raw/5c4c02a725a7fbd925da25431c0e4a9b.png)
 4. 单击**绑定**，为当前 CVM 实例绑定一个已有的 EIP 或创建一个新的 EIP。
