@@ -1,13 +1,24 @@
 本文介绍 PC 端 TUIRoom 组件，是一款布局灵活、适用性强的音视频沟通协作工具，可用于协同办公、远程招聘、远程问诊、保险理赔、在线客服、视频面试、数字政务、金融数字化、在线会议、在线教育等场景。与各行业场景深度融合，助力企业降本增效，加快数字化转型，提升竞争力。
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验。
 
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
+
+| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
+
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
+
+
 ## 方案优势
-- 集成了超低延时音视频通话、聊天室、屏幕共享、美颜、设备检测、数据统计等能力，覆盖多人音视频互动常见功能。
+- 集成了超低延时音视频通话、聊天室、屏幕共享、美颜、设备检测、数据统计等能力，覆盖多人音视频房间常见功能。
 - 根据需求二次开发，可以快速实现自定义 UI 界面和布局，助力业务快速上线。
 - 封装了 TRTC 和 IM 基础 SDK，实现基础的逻辑控制，并提供接口方便调用。
 
 ## 接入指引
-如需快速接入多人音视频互动功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用的 App 内的 Module 模块实现自定义 UI 界面。
+如需快速接入多人音视频房间功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用的 App 内的 Module 模块实现自定义 UI 界面。
 
 [](id:step1_1)
 ### 步骤1：下载 App 源码

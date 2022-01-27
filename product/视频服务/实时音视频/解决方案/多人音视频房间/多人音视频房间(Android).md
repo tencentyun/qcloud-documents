@@ -1,13 +1,3 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
-
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
-
 ## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验多人音视频通话的效果，包括屏幕分享、美颜、低延时视频通话等 TRTC 在多人音视频场景下的相关能力。
 <table>
@@ -22,12 +12,12 @@
 </table>
 
 ## 方案优势
-- 集成了超低延时音视频通话、屏幕共享、美颜等能力，覆盖多人音视频互动常见功能。
+- 集成了超低延时音视频通话、屏幕共享、美颜等能力，覆盖多人音视频房间常见功能。
 - 根据需求二次开发，可以快速实现自定义 UI 界面和布局，助力业务快速上线。
 - 封装了 TRTC 和 IM 基础 SDK，实现基础的逻辑控制，并提供接口方便调用。
 
 ## 接入指引
-如需快速接入多人音视频互动功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用的 App 内的 Module 模块实现自定义 UI 界面。
+如需快速接入多人音视频房间功能，您可以直接基于我们提供的 App 进行修改适配，也可以使用的 App 内的 Module 模块实现自定义 UI 界面。
 
 [](id:step1_1)
 ### 步骤1：创建新的应用
@@ -121,7 +111,7 @@ B 用户输入 A 用户的房间号，单击 **加入房间** 可以进入主页
 
 [](id:step2_1)
 ### 步骤1：集成 SDK
-多人音视频互动组件 TUIRoomCore 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
+多人音视频房间组件 TUIRoomCore 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 - **方法一：通过 Maven 仓库依赖**
 	1. 在 dependencies 中添加 TRTCSDK 和 IMSDK 的依赖。
