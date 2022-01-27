@@ -89,11 +89,12 @@ SELECT rolname from pg_roles;
 ```
 返回如下结果，表示已创建成功。
 ```
-rolname  
-----------
+rolname      
+-------------------
+pg_signal_backend
 postgres
 replica
-(2 rows)
+(3 rows)
 ```
 13. 输入 **\q**，按 **Enter**，退出 SQL 终端。
 14. 输入 **exit**，按 **Enter**，退出 PostgreSQL。
@@ -106,10 +107,10 @@ vim /var/lib/pgsql/9.6/data/pg_hba.conf
 host    all             all             <从节点的VPC IPv4网段>          md5     #允许 VPC 网段中 md5 密码认证连接
 host    replication     replica         <从节点的VPC IPv4网段>          md5     #允许用户从 replication 数据库进行数据同步
 ```
-例如，数据库账号为 `replica`，从节点的 VPC IPv4 网段为 `192.10.0.0/16`，则在 `IPv4 local connections` 段添加如下内容：
+例如，数据库账号为 `replica`，从节点的 VPC IPv4 网段为 `xx.xx.xx.xx/16`，则在 `IPv4 local connections` 段添加如下内容：
 ```
-host    all             all             192.10.0.0/16         md5
-host    replication     replica         192.10.0.0/16          md5
+host    all             all             xx.xx.xx.xx/16         md5
+host    replication     replica         xx.xx.xx.xx/16         md5
 ```
 17. 按 **Esc**，输入 **:wq**，保存文件返回。
 18. 执行以下命令，打开 `postgresql.conf` 文件。
@@ -214,14 +215,14 @@ Password:
 ps aux |grep receiver
 ```
 返回如下结果，即表示可成功查看到 sender 进程。
-![](https://main.qcloudimg.com/raw/d25daabc3d32c58237dd20d871e6852a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/acb491cfcc0dc317932305774df785d2.png)
 3. 在从节点中，执行以下命令，查看 receiver 进程。
 ```
 ps aux | grep receiver
 ```
 返回如下结果，即表示可成功查看到 receiver 进程。
-![](https://main.qcloudimg.com/raw/961283ed95a9640ba2121f5fafba2a7b.png)
-3. 在主节点中，依次执行以下命令，进入 PostgreSQL 交互终端，在主库中查看从库状态。
+![](https://qcloudimg.tencent-cloud.cn/raw/13c908ae7d83ff8d5099f2c488b40046.png)
+4. 在主节点中，依次执行以下命令，进入 PostgreSQL 交互终端，在主库中查看从库状态。
 ```
 su - postgres
 ```
@@ -232,5 +233,5 @@ psql
 select * from pg_stat_replication;
 ```
 返回如下结果，即表示可成功查看到从库状态。
-![](https://main.qcloudimg.com/raw/c85b5324929a4bffddd92c9dce906d56.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c38c6faf64af66188df0e944b335353a.png)
 
