@@ -182,7 +182,7 @@ src/main/java/com/tencent/liteav/tuiroom/model
 
 [](id:step2_4)
 ### 步骤4：创建并登录组件
-1.  调用 TUICore 中的 TUILogin 进行登录，请参考如下示例：
+调用 TUICore 中的 TUILogin 进行登录，请参考如下示例：
 ```java
 TUILogin.init(this, "sdkAppid", null, new V2TIMSDKListener() {
 
