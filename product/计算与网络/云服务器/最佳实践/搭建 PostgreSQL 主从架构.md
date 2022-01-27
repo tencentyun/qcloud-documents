@@ -55,15 +55,11 @@ su - postgres
 ```
 psql
 ```
-8. 执行以下命令，进入 PostgreSQL 交互终端。
-```
-psql
-```
-9. 执行以下命令，为用户 postgres 设置密码，增强安全性。
+8. 执行以下命令，为用户 postgres 设置密码，增强安全性。
 ```
 ALTER USER postgres WITH PASSWORD '自定义密码';
 ```
-10. 执行以下命令，创建数据库账号，并设置密码及登录权限和备份权限。
+9. 执行以下命令，创建数据库账号，并设置密码及登录权限和备份权限。
 ```
 create role 账户名 login replication encrypted password '自定义密码';
 ```
@@ -71,7 +67,7 @@ create role 账户名 login replication encrypted password '自定义密码';
 ```
 create role replica login replication encrypted password '123456';
 ```
-11. 执行以下命令，查询账号是否创建成功。
+10. 执行以下命令，查询账号是否创建成功。
 ```
 SELECT usename from pg_user;
 ```
@@ -83,7 +79,7 @@ postgres
 replica
 (2 rows)
 ```
-12. 执行以下命令，查询权限是否创建成功。
+11. 执行以下命令，查询权限是否创建成功。
 ```
 SELECT rolname from pg_roles;
 ```
@@ -96,13 +92,13 @@ postgres
 replica
 (3 rows)
 ```
-13. 输入 **\q**，按 **Enter**，退出 SQL 终端。
-14. 输入 **exit**，按 **Enter**，退出 PostgreSQL。
-15. 执行以下命令，打开 `pg_hba.conf` 配置文件，设置 `replica` 用户白名单。
+12. 输入 **\q**，按 **Enter**，退出 SQL 终端。
+13. 输入 **exit**，按 **Enter**，退出 PostgreSQL。
+14. 执行以下命令，打开 `pg_hba.conf` 配置文件，设置 `replica` 用户白名单。
 ```
 vim /var/lib/pgsql/9.6/data/pg_hba.conf
 ```
-16. 按 **i** 切换至编辑模式，在 `IPv4 local connections` 段添加如下两行内容：
+15. 按 **i** 切换至编辑模式，在 `IPv4 local connections` 段添加如下两行内容：
 ```
 host    all             all             <从节点的VPC IPv4网段>          md5     #允许 VPC 网段中 md5 密码认证连接
 host    replication     replica         <从节点的VPC IPv4网段>          md5     #允许用户从 replication 数据库进行数据同步
@@ -112,12 +108,12 @@ host    replication     replica         <从节点的VPC IPv4网段>          md
 host    all             all             xx.xx.xx.xx/16         md5
 host    replication     replica         xx.xx.xx.xx/16         md5
 ```
-17. 按 **Esc**，输入 **:wq**，保存文件返回。
-18. 执行以下命令，打开 `postgresql.conf` 文件。
+16. 按 **Esc**，输入 **:wq**，保存文件返回。
+17. 执行以下命令，打开 `postgresql.conf` 文件。
 ```
 vim /var/lib/pgsql/9.6/data/postgresql.conf
 ```
-19. 按 **i** 进入编辑模式，分别找到以下参数，并将参数修改为以下内容：
+18. 按 **i** 进入编辑模式，分别找到以下参数，并将参数修改为以下内容：
 ```
 listen_addresses = '*'   #监听的内网 IP 地址
 max_connections = 100    #最大连接数，从库的 max_connections 必须要大于主库的
@@ -126,8 +122,8 @@ synchronous_commit = on  #开启同步复制
 max_wal_senders = 32     #同步最大的进程数量
 wal_sender_timeout = 60s #流复制主机发送数据的超时时间
 ```
-20. 按 **Esc**，输入 **:wq**，保存文件返回。
-21. 执行以下命令，重启服务。
+19. 按 **Esc**，输入 **:wq**，保存文件返回。
+20. 执行以下命令，重启服务。
 ```
 systemctl restart postgresql-9.6.service
 ```
@@ -212,13 +208,12 @@ Password:
 ```
 2. 在主节点中，执行以下命令，查看 sender 进程。
 ```
-ps aux |grep receiver
+ps aux |grep sender
 ```
-返回如下结果，即表示可成功查看到 sender 进程。
-![](https://qcloudimg.tencent-cloud.cn/raw/acb491cfcc0dc317932305774df785d2.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/bc610cf837b18158a8d0ddd89d5d87ae.png)
 3. 在从节点中，执行以下命令，查看 receiver 进程。
 ```
-ps aux | grep receiver
+ps aux |grep receiver
 ```
 返回如下结果，即表示可成功查看到 receiver 进程。
 ![](https://qcloudimg.tencent-cloud.cn/raw/13c908ae7d83ff8d5099f2c488b40046.png)
