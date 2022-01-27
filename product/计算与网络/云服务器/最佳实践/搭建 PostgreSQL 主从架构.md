@@ -165,8 +165,8 @@ vim /var/lib/pgsql/9.6/data/recovery.conf
 7. 按 **i** 切换至编辑模式，分别找到如下参数，并修改为如下内容：
 ```
 standby_mode = on     #声明此节点为从库
-primary_conninfo = ‘host=<主节点公网 IP> port=5432 user=数据库账号 password=数据库密码’ #对应主库的连接信息
-recovery_target_timeline = ‘latest’ #流复制同步到最新的数据
+primary_conninfo = 'host=<主节点公网 IP> port=5432 user=数据库账号 password=数据库密码' #对应主库的连接信息
+recovery_target_timeline = 'latest' #流复制同步到最新的数据
 ```
 8. 按 **Esc**，输入 **:wq**，保存文件返回。
 9. 执行以下命令，打开 `postgresql.conf` 文件。
