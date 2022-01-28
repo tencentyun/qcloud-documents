@@ -47,6 +47,7 @@
         }
 </style>
 
+## 下载 SDK
 实时音视频（TRTC） 是腾讯云提供的一套低延时、高质量的音视频通讯服务，致力于为腾讯云客户提供稳定、可靠和低成本的音视频传输能力。该服务由一套遍布全球的音视频传输网络和一组终端 SDK 组成，您可以在本页面下载到涵盖目前主流客户端平台和热门框架的终端 SDK：
 
 >? 如果您当前网络访问 Github 速度不理想，可以 [单击这里](https://gitee.com/cloudtencent/TRTCSDK) 访问 Gitee 中的镜像仓库。
@@ -78,7 +79,7 @@
                            <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
                                 <h3 style="color:#191919;">预览版（TRTC） SDK</h3>
                 <p style="color:#586376;">采用全新架构，功能对齐稳定版，但体积更小，性能表现更出色。</p>
-                                <a href="https://liteav.sdk.qcloud.com/download/preview/TXLiteAVSDK_TRTC_Android_Preview_latest.zip">ZIP 下载</a>
+                                <a href="https://liteav.sdk.qcloud.com/download/preview/TXLiteAVSDK_TRTC_Android_preview.zip">ZIP 下载</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32175">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32166">运行 Demo</a>
             </div>
