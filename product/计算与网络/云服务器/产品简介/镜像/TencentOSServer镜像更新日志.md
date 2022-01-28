@@ -103,7 +103,10 @@ TencentOS Server 2.4 上线公有云
 </tr>
 <tr>
 <td>
-更新内核至5.4.119-19-0009.1.CVE-2022-0185
+<ul class="params">
+<li>更新内核至5.4.119-19-0009.1</li>
+<li>CVE-2022-0185</li>
+</ul>
 </td>
 <td>2021-01-28</td>
 </tr>
@@ -142,7 +145,12 @@ TencentOS Server 2.4 上线公有云
 <td rowspan=6>TencentOS Server 3.1 (TK4)</td>
 </tr>
 <tr>
-<td>更新内核至5.4.119-19-0009.1.CVE-2022-0185</td>
+<td>
+<ul class="params">
+<li>更新内核至5.4.119-19-0009.1</li>
+<li>CVE-2022-0185</li>
+</ul>
+</td>
 <td>2021-01-28</td>
 </tr>
 <tr>
