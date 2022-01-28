@@ -6,7 +6,7 @@
 ## 操作步骤
 ### 千帆玉符人员组织同步
 
-1. 登录 [千帆神笔 aPaaS 运行态首页](https://apaas.cloud.tencent.com/)，进入管理后台，单击**用户管理**。当租户企业管理员未进行人员组织初始化时，进入下图页面。对于用户管理的基本介绍可参考 [用户管理](https://cloud.tencent.com/document/product/1365/67915。
+1. 登录 [千帆神笔 aPaaS 运行态首页](https://apaas.cloud.tencent.com/)，进入管理后台，单击**用户管理**。当租户企业管理员未进行人员组织初始化时，进入下图页面。对于用户管理的基本介绍可参考 [用户管理](https://cloud.tencent.com/document/product/1365/67915)。
    ![img](https://main.qcloudimg.com/raw/7b770a45bb124318933d60dc93235153.png)
 2. 单击**千帆玉符**进行信息填写。
    ![img](https://main.qcloudimg.com/raw/f392e51c4229d10a2d6c0f5ee9f23510.png)
