@@ -108,7 +108,7 @@ TencentOS Server 2.4 上线公有云
 <li>CVE-2022-0185</li>
 </ul>
 </td>
-<td>2021-01-28</td>
+<td>2022-01-28</td>
 </tr>
 <tr>
 <td>
@@ -151,7 +151,7 @@ TencentOS Server 2.4 上线公有云
 <li>CVE-2022-0185</li>
 </ul>
 </td>
-<td>2021-01-28</td>
+<td>2022-01-28</td>
 </tr>
 <tr>
 <td>
