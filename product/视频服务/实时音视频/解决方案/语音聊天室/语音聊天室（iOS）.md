@@ -18,7 +18,7 @@
 
 [](id:ui.step1)
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择 **开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+1. 登录实时音视频控制台，选择 **开发辅助** > [**快速跑通Demo**](https://console.cloud.tencent.com/trtc/quickstart)。
 2. 输入应用名称，例如 `TestVoiceRoom`，单击 **创建**。
 3. 单击 **已下载，下一步**，跳过此步骤。
 

@@ -1,7 +1,7 @@
-登录 [腾讯云 Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，选择一个集群，进入集群详情页的【插件列表】页面，可以看到系统默认插件中已经预装了 IK 中文分词插件。关于 IK 中文分词插件的介绍，详情可查看 [IK Analysis for Elasticsearch](https://github.com/medcl/elasticsearch-analysis-ik)，您可以利用该插件对存到 ES 集群数据中的中文关键词建立索引，实现搜索功能。
+登录 [腾讯云 Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，选择一个集群，进入集群详情页的**插件列表**页面，可以看到系统默认插件中已经预装了 IK 中文分词插件。关于 IK 中文分词插件的介绍，详情可查看 [IK Analysis for Elasticsearch](https://github.com/medcl/elasticsearch-analysis-ik)，您可以利用该插件对存到 ES 集群数据中的中文关键词建立索引，实现搜索功能。
 
 ### 更新词典
-单击【更新词典】，进入更新词典页面。有分词词典和停用词词典两项，单击【本地上传】，选择您需要更新的词典文件后，单击【保存】，即可热更新词典（不需要重启集群）。 
+单击**更新词典**，进入更新词典页面。有分词词典和停用词词典两项，单击**本地上传**，选择您需要更新的词典文件后，单击**保存**，即可热更新词典（不需要重启集群）。 
 ![](https://main.qcloudimg.com/raw/2011d36f5e471219fcc3eb51a2a026df.png)
 
 ### 关于词典文件的要求及说明  
