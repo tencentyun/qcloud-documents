@@ -47,7 +47,6 @@
    - **文件夹名称**：`cloud.tencent.com_tomcat`
    - **文件夹内容**：
      - `cloud.tencent.com.pfx` 证书文件
-     - `cloud.tencent.com.key` 密钥文件
      - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
 3. 使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 Tomcat 服务器。
 4. 将已获取到的 `cloud.tencent.com.pfx` 证书文件从本地目录拷贝至 `/usr/*/conf` 目录下。
