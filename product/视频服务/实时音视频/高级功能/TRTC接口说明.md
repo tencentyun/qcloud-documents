@@ -83,8 +83,8 @@ trtc://trtc.tencentcloudapi.com/moderation?sdk_app_id=xxxx&room_id=xxxx&user_id=
 
 	该接口需注意以下几点：
 	- **BizType**
-	用户的审核策略，可以通过控制台上的[策略管理](https://console.cloud.tencent.com/cms/livevideo/strategy)根据不同的需求创建不同的审核策略，在开通服务时，会自动创建一个 BizType 为“default”的审核策略，测试时，可使用该 BizType 传入。
-	![img](https://qcloudimg.tencent-cloud.cn/raw/8d3e1ea799323e11c60265935cc1343e.png) 
+	用户的审核策略，可以通过控制台上的 [策略管理](https://console.cloud.tencent.com/cms/livevideo/strategy) 根据不同的需求创建不同的审核策略，在开通服务时，会自动创建一个 BizType 为“default”的审核策略，测试时，可使用该 BizType 传入。
+	![](https://qcloudimg.tencent-cloud.cn/raw/645be687541a6033be0ff5e316df83b0.png)
 	- **Type**
 	根据实际的应用类型进行传入，TRTC实时音视频根据应用类型调用不同的产品的接口。（例如：实时语音房场景调用 ams 产品的接口，Type 输入 LIVE_AUDIO；视频聊天调用 vm 产品的接口，Type 填写 LIVE_VIDEO）。
 	- **CallbackUrl**
