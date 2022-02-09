@@ -36,7 +36,7 @@ Host: sample.portal.tencentciam.com
 | response_type        | false| 填固定值 `code`。                                              |
 | state               | true  | 应用随机生成的一个字符串，服务器会以 HTTP 响应参数的形式原样返回给应用。为防止 CSRF 攻击，建议携带此参数。 |
 | code_challenge_method | false | 计算 PKCE code_challenge 的算法。目前仅支持固定值 `S256` 。  |
-| code_challenge        | false | PKCE code_challenge ，计算方法请参考 RFC 7636，或直接使用开发库来生成。 |
+| code_challenge        | false | PKCE code_challenge ，计算方法请参考 [RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636)。 |
 | auth_source_id       | true | 使用特定的认证源登录。如果此参数为空，则显示默认登录页面。   |
 
 
