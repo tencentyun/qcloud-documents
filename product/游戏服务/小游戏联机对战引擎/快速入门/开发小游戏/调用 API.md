@@ -1,9 +1,8 @@
+>!因产品策略调整，游戏联机对战引擎后续将与云开发 CloudBase 整合为新产品形态，现将该产品保持维护状态，不再接收新用户使用申请，老用户仍可正常使用。
 
 
+**gameInfo.gameId、gameInfo.secretKey、config.url 均需前往 [游戏联机对战引擎控制台](https://console.cloud.tencent.com/mgobe)，在游戏概览的基本信息里获取。**
 
-<dx-alert infotype="notice" title="">
-gameInfo.gameId、gameInfo.secretKey、config.url 均需前往 [游戏联机对战引擎控制台](https://console.cloud.tencent.com/mgobe)，在游戏概览的基本信息里获取。
-</dx-alert>
 
 
 1. 在 game.js 中输入以下代码，完成 SDK 初始化，获得 room 实例。

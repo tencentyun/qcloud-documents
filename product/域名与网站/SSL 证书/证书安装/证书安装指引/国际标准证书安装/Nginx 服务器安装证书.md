@@ -70,7 +70,7 @@ server {
         ssl_certificate_key cloud.tencent.com.key; 
         ssl_session_timeout 5m;
 	    #请按照以下协议配置
-        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; 
+        ssl_protocols TLSv1.2 TLSv1.3; 
 	    #请按照以下套件配置，配置加密套件，写法遵循 openssl 标准。
         ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; 
         ssl_prefer_server_ciphers on;
@@ -86,18 +86,18 @@ server {
 ```
 ./sbin/nginx -t
 ```
- - 若存在，请您重新配置或者根据提示修改存在问题。
- - 若不存在，请执行 [步骤7](#step7)。
-[](id:step7)
+   - 若存在，请您重新配置或者根据提示修改存在问题。
+   - 若不存在，请执行 [步骤8](#step8)。
+ [](id:step8)
 8. 重启 Nginx，即可使用 `https://cloud.tencent.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 如果您需要将 HTTP 请求自动重定向到 HTTPS。您可以通过以下操作设置：
 1. 根据实际需求，选择以下配置方式：
- - 在页面中添加 JS 脚本。
- - 在后端程序中添加重定向。
- - 通过 Web 服务器实现跳转。
- - Nginx 支持 rewrite 功能。若您在编译时没有去掉 pcre，您可在 HTTP 的 server 中增加 `return 301 https://$host$request_uri;`，即可将默认80端口的请求重定向为 HTTPS。修改如下内容：
+   - 在页面中添加 JS 脚本。
+   - 在后端程序中添加重定向。
+   - 通过 Web 服务器实现跳转。
+   - Nginx 支持 rewrite 功能。若您在编译时没有去掉 pcre，您可在 HTTP 的 server 中增加 `return 301 https://$host$request_uri;`，即可将默认80端口的请求重定向为 HTTPS。修改如下内容：
 >?
 >- 未添加注释的配置语句，您按照下述配置即可。
 >- 由于版本问题，配置文件可能存在不同的写法。例如：Nginx 版本为 `nginx/1.15.0` 以上请使用 `listen 443 ssl` 代替 `listen 443` 和 `ssl on`。
@@ -113,7 +113,7 @@ server {
     ssl_certificate_key cloud.tencent.com.key; 
     ssl_session_timeout 5m;
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_protocols TLSv1.2 TLSv1.3;
     ssl_prefer_server_ciphers on;
     location / {
 			#网站主页路径。此路径仅供参考，具体请您按照实际目录操作。 

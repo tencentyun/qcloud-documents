@@ -2,21 +2,21 @@
 
 ## 操作场景
 
-为 TKE 集群挂载 CFS Turbo 类型存储，可以通过安装 `kubernetes-csi-tencentloud` 组件来实现。该组件基于私有协议将腾讯云 CFS Turbo 文件系统挂载到工作负载，目前仅支持静态配置。CFS 存储类型请参考 [文件存储类型及性能规格](https://cloud.tencent.com/document/product/582/38112)。
+为 TKE 集群挂载 CFS Turbo 类型存储，可以通过安装 `kubernetes-csi-tencentloud` 组件来实现。该组件基于私有协议将腾讯云 CFS Turbo 文件系统挂载到工作负载，目前仅支持静态配置。CFS 存储类型请参考 [文件存储类型及性能规格](https://cloud.tencent.com/document/product/582/38112)。 
 
 ## 前提条件
 
-- 已创建 TKE 集群或已在腾讯云自建 Kubernetes 集群，集群版本 >=1.14。
-- kube-apiserver 和 kubelet 开启特权，即 `--allow-privileged = true`。
-- 设置组件 `feature gates` 为 `CSINodeInfo = true, CSIDriverRegistry = true`。
+- 已创建 TKE 集群或已在腾讯云自建 Kubernetes 集群，集群版本 >=1.14。 
+- kube-apiserver 和 kubelet 开启特权，即 `--allow-privileged = true`。 
+- 设置组件 `feature gates` 为 `CSINodeInfo = true, CSIDriverRegistry = true`。 
 
 ## 操作步骤
 
 ### 创建文件系统 [](id:create-cfs)
 
-创建 CFS Turbo 文件系统，具体操作请参见 [创建文件系统](https://cloud.tencent.com/document/product/582/9132)。
+创建 CFS Turbo 文件系统，具体操作请参见 [创建文件系统](https://cloud.tencent.com/document/product/582/9132)。 
 
->! 文件系统创建后，需将集群网络（vpc-xx）关联到文件系统的 [云联网](https://cloud.tencent.com/document/product/877/18747)（可在文件系统挂载点信息中查看）。
+>! 文件系统创建后，需将集群网络（vpc-xx）关联到文件系统的 [云联网](https://cloud.tencent.com/document/product/877/18747)（可在文件系统挂载点信息中查看）。 
 
 
 ### 部署 RBAC 策略
@@ -167,8 +167,8 @@ spec:
 
 ### 使用 CFS Turbo 存储卷
 
-1. 创建 CFS Turbo 文件系统，具体操作请参见 [创建文件系统](#create-cfs)。
-2. 使用以下模版创建 CFS Turbo 类型的 PV。
+1. 创建 CFS Turbo 文件系统，具体操作请参见 [创建文件系统](#create-cfs)。 
+2. 使用以下模板创建 CFS Turbo 类型的 PV。 
 ```yaml
 apiVersion: v1
 kind: PersistentVolume
@@ -192,16 +192,16 @@ spec:
   storageClassName: ""
 ```
 参数说明：  
-  - **metadata.name**: 创建 PV 名称。
+  - **metadata.name**: 创建 PV 名称。 
   - **spec.csi.volumeHandle**: 与 PV 名称保持一致。  
   - **spec.csi.volumeAttributes.host**: 文件系统 ip 地址，可在文件系统挂载点信息中查看。  
-  - **spec.csi.volumeAttributes.fsid**: 文件系统 fsid（非文件系统 id），可在文件系统挂载点信息中查看（挂载命令中 "tcp0:/" 之后 "/cfs" 之前的那一段字符串，如下图）。
-  - **spec.csi.volumeAttributes.proto**：文件系统默认挂载协议。
+  - **spec.csi.volumeAttributes.fsid**: 文件系统 fsid（非文件系统 id），可在文件系统挂载点信息中查看（挂载命令中 "tcp0:/" 之后 "/cfs" 之前的那一段字符串，如下图）。 
+  - **spec.csi.volumeAttributes.proto**：文件系统默认挂载协议。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/357dd592683ac766f8e6b4c653a27951.png)
 >! 使用 `lustre` 协议挂载 CFS Turbo 卷需预先在集群节点内根据操作系统内核版本安装对应客户端，详情请参考 [在 Linux 客户端上使用 CFS Turbo 文件系统](https://cloud.tencent.com/document/product/582/54765)；
 
 
-3. 使用以下模版创建 PVC 绑定 PV。
+3. 使用以下模板创建 PVC 绑定 PV。 
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -217,11 +217,11 @@ spec:
       storage: 10Gi
 ```
 参数说明：  
-  - **metadata.name**: 创建 PVC 名称。
-  - **spec.volumeName**: 与上一步中创建 PV 名称保持一致。
+  - **metadata.name**: 创建 PVC 名称。 
+  - **spec.volumeName**: 与上一步中创建 PV 名称保持一致。 
 
 
-4. 使用以下模版创建 Pod 挂载 PVC。
+4. 使用以下模板创建 Pod 挂载 PVC。 
 ```yaml
 apiVersion: v1
 kind: Pod

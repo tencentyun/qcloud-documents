@@ -6,32 +6,32 @@ CDR 以整体会话为维度记录数据，一次客户的整体呼入或者呼�
 2. 客服属于多个电话技能组，优先选择外呼号码绑定的技能组（多个取第一个技能组）。
 3. 不满足1、2，则取客服第一个电话技能组。
 
-URL：https://{custom_url}?action=cdr&version=1
-METHOD: POST
-Content-Type: application/json;charset=utf8
+URL：`https://{custom_url}?action=cdr&version=1`
+METHOD: `POST`
+Content-Type: `application/json;charset=utf8`
 REQUEST：
 
 | 参数                 | 类型      | 说明                                              |
 | ------------------ | ------- | ----------------------------------------------- |
-| SdkAppId           | 数值(长整型） | 呼叫中心实例ID                                        |
+| SdkAppId           | 数值(长整型） | 呼叫中心实例 ID                                        |
 | SessionId          | 字符串     | 会话ID                                            |
-| Direction          | 数值      | 会话整体方向，0 呼入 | 1 呼出                              |
-| StartTimestamp     | 数值(长整型） | 整个会话开始时间戳（UNIX秒级时间戳）                            |
-| EndedTimestamp     | 数值(长整型） | 会话整体结束时间戳（UNIX秒级时间戳）                            |
-| QueuedSkillGroupId | 数值      | 会话进入排队技能组ID                                     |
+| Direction          | 数值      | 会话整体方向，0 呼入 或 1 呼出                              |
+| StartTimestamp     | 数值(长整型） | 整个会话开始时间戳（UNIX 秒级时间戳）                            |
+| EndedTimestamp     | 数值(长整型） | 会话整体结束时间戳（UNIX 秒级时间戳）                            |
+| QueuedSkillGroupId | 数值      | 会话进入排队技能组 ID                                     |
 | Duration           | 数值      | 会话整体服务时间，单位秒 EndedTimestamp-AcceptTimestamp     |
 | IVRDuration        | 数值      | IVR 阶段持续时长，单位秒，QueuedTimestamp - StartTimestamp |
 | EndStatusString    | 字符串     | 会话整体结束状态，枚举值见下表。                                |
-| HungUpSide         | 字符串     | 挂断方（user - 用户挂断 | seat - 坐席挂断）                  |
+| HungUpSide         | 字符串     | 挂断方（user - 用户挂断 或 seat - 坐席挂断）                  |
 | Caller             | 字符串     | 主叫方                                             |
 | Callee             | 字符串     | 被叫方                                             |
-| IVRKeyPressed      | 字符串数组   | IVR按键信息 （e.g. \["1","2","3"\])                  |
-| IVRKeyPressedEx    | 对象数组    | IVR按键信息（e.g. \[{"Key":"1","Label":"非常满意"}\]）    |
-| PostIVRKeyPressed  | 对象数组    | 后置IVR按键信息（e.g. \[{"Key":"1","Label":"非常满意"}\]）  |
+| IVRKeyPressed      | 字符串数组   | IVR 按键信息 （e.g. \["1","2","3"\])                  |
+| IVRKeyPressedEx    | 对象数组    | IVR 按键信息（e.g. \[{"Key":"1","Label":"非常满意"}\]）    |
+| PostIVRKeyPressed  | 对象数组    | 后置 IVR 按键信息（e.g. \[{"Key":"1","Label":"非常满意"}\]）  |
 | SeatUser           | 对象      | 客服信息，格式见下（如果发生转接则是最后一个客服信息)                     |
 | ServeParticipants  | 对象数组    | 服务参与者列表，格式见下                                    |
 | UserRemark         | 字符串     | 用户备注                                            |
-| TelLocation        | Json对象  | 号码归属地相关信息，格式见下                                  |
+| TelLocation        | Json 对象  | 号码归属地相关信息，格式见下                                  |
 | Uui                | 字符串     | 随入数据（电话外呼接口客户带入的数据）                             |
 
 EndStatusString 枚举值
@@ -43,8 +43,8 @@ EndStatusString 枚举值
 | seatGiveUp      | 坐席未接       |
 | seatForward     | 坐席转接       |
 | outboundForward | 外线转接       |
-| ivrGiveUp       | IVR期间用户放弃  |
-| ivrEnd          | IVR后直接结束   |
+| ivrGiveUp       | IVR 期间用户放弃  |
+| ivrEnd          | IVR 后直接结束   |
 | waitingGiveUp   | 会话排队期间用户放弃 |
 | ringingGiveUp   | 会话振铃期间用户放弃 |
 | noSeatOnline    | 无坐席在线      |
@@ -74,7 +74,7 @@ SeatUser 数据格式
 | Name               | 字符串   | 坐席名称      |
 | Nick               | 字符串   | 坐席昵称      |
 | Phone              | 字符串   | 坐席电话号码    |
-| UserId             | 字符串   | 用户ID      |
+| UserId             | 字符串   | 用户 ID      |
 | StaffNumber        | 字符串   | 坐席工号      |
 | SkillGroupNameList | 字符串数组 | 坐席所属技能组列表 |
 
@@ -121,7 +121,7 @@ RESPONSE：
 <dx-codeblock>
 :::  json
 {
-    "SdkAppId":1400264214,
+    "SdkAppId":1400xxx214,
     "SessionId":"e97be0ab-1ef6-4ad2-a8c4-2b2bbfb18e55",
     "QueuedSkillGroupId":1072,
     "Direction":1,

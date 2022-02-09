@@ -7,7 +7,7 @@
 [](id:npm)
 ### 方式1：NPM 安装
 #### 安装前提
-使用 npm 安装前，需要确保您的环境中已安装好了 Node（版本需要 > 10）以及 npm（查看 [Node.js 安装指南](https://nodejs.org/zh-cn/download/)）。
+使用 npm 安装前，需要确保您的环境中已安装好了 Node（**版本需要 > 12**）以及 npm（查看 [Node.js 安装指南](https://nodejs.org/zh-cn/download/)）。
 ```sh
 $ node -v
 v12.18.0
@@ -76,7 +76,7 @@ serverless -v
 
 ## 相关操作
 下一步：快速开始
- - [快速部署函数模版](https://cloud.tencent.com/document/product/1154/50938)
- - [快速创建应用模版](https://cloud.tencent.com/document/product/1154/50933)
+ - [快速部署函数模板](https://cloud.tencent.com/document/product/1154/50938)
+ - [快速创建应用模板](https://cloud.tencent.com/document/product/1154/50933)
 
 

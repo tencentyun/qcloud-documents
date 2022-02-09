@@ -32,15 +32,15 @@ TRTC 最擅长的领域就是音视频互动连麦，如果一个房间里同时
 ### 步骤1：开启旁路推流功能
 
 1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
-2. 在左侧导航栏选择【应用管理】，单击目标应用所在行的【功能配置】。
-3. 在【旁路推流配置】中，单击【启用旁路推流】右侧的![](https://main.qcloudimg.com/raw/5f58afe211aa033037e5c0b793023b49.png)，在弹出的【开启旁路推流功能】对话框中，单击【开启旁路推流功能】即可开通。
+2. 在左侧导航栏选择**应用管理**，单击目标应用所在行的**功能配置**。
+3. 在**旁路推流配置**中，单击**启用旁路推流**右侧的![](https://main.qcloudimg.com/raw/5f58afe211aa033037e5c0b793023b49.png)，在弹出的**开启旁路推流功能**对话框中，单击**开启旁路推流功能**即可开通。
 
 
 [](id:step2)
 ### 步骤2：配置播放域名并完成 CNAME
 1. 登录 [云直播控制台](https://console.cloud.tencent.com/live/)。
-2. 在左侧导航栏选择【域名管理】，您会看到在您的域名列表新增了一个推流域名，格式为 `xxxxx.livepush.myqcloud.com`，其中 xxxxx 是一个数字，叫做 bizid，您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】>【应用信息】中查找到 bizid 信息。
-3. 单击【添加域名】，输入您已经备案过的播放域名，选择域名类型为【播放域名】，选择加速区域（默认为【中国大陆】），单击【确定】即可。
+2. 在左侧导航栏选择**域名管理**，您会看到在您的域名列表新增了一个推流域名，格式为 `xxxxx.livepush.myqcloud.com`，其中 xxxxx 是一个数字，叫做 bizid，您可以在**实时音视频控制台** > **[应用管理](https://console.cloud.tencent.com/trtc/app)** > **应用信息**中查找到 bizid 信息。
+3. 单击**添加域名**，输入您已经备案过的播放域名，选择域名类型为**播放域名**，选择加速区域（默认为**中国大陆**），单击**确定**即可。
 4. 域名添加成功后，系统会为您自动分配一个 CNAME 域名（以`.liveplay.myqcloud.com`为后缀）。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受云直播服务。具体操作请参见 [CNAME 配置](https://cloud.tencent.com/document/product/267/19908)。
 
 ![](https://main.qcloudimg.com/raw/97b24ee2a758b311ba8dea23db04c3ae.png)
@@ -59,7 +59,7 @@ http://播放域名/live/[streamId].flv
 您可以在调用 `TRTCCloud` 的 `enterRoom` 函数时，通过其参数 `TRTCParams` 中的 `streamId` 参数指定直播流 ID。
 以 iOS 端的 Objective-C 代码为例：
 
-```Objective-C
+```ObjectiveC
 TRTCCloud *trtcCloud = [TRTCCloud sharedInstance];
 TRTCParams *param = [[TRTCParams alloc] init];
 param.sdkAppId = 1400000123;     // TRTC 的 SDKAppID，创建应用后可获得
@@ -76,8 +76,8 @@ userSig 的计算方法请参见 [如何计算及使用 UserSig](https://cloud.t
 开启自动旁路推流后，如果您没有自定义指定 streamId，系统会默认为您生成一个缺省的 streamId，生成规则如下：
 
 - **拼装 streamId 用到的字段**
-  - SDKAppID：您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) >【应用管理】>【应用信息】中查找到。
-  - bizid：您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) >【应用管理】>【应用信息】中查找到。
+  - SDKAppID：您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) > **应用管理** > **应用信息**中查找到。
+  - bizid：您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) > **应用管理** > **应用信息**中查找到。
   - roomId：由您在 `enterRoom` 函数的参数 `TRTCParams` 中指定。
   - userId：由您在 `enterRoom` 函数的参数 `TRTCParams` 中指定。
   - streamType： 摄像头画面为 main，屏幕分享为 aux （WebRTC 由于同时只支持一路上行，因此 WebRTC 上屏幕分享的流类型是 main）。
@@ -133,9 +133,9 @@ http://播放域名/live/[streamId].flv
 
 | 所属平台 | 对接文档 | API 概览 | 支持的格式|
 |:-------:|:-------:|:-------:|-------|
-| iOS App| [接入指引](https://cloud.tencent.com/document/product/454/7880) | [TXLivePlayer(iOS)](https://cloud.tencent.com/document/product/454/34762)  | 推荐 FLV |
-| Android App | [接入指引](https://cloud.tencent.com/document/product/454/7886) | [TXLivePlayer(Android)](https://cloud.tencent.com/document/product/454/34775) | 推荐 FLV |
-| Web 浏览器 | [接入指引](https://cloud.tencent.com/document/product/454/7503) | - |  桌面端 Chrome 浏览器支持 FLV <br> Mac 端 Safari和移动端手机浏览器仅支持 HLS |
+| iOS App| [接入指引](https://cloud.tencent.com/document/product/454/56597) | [V2TXLivePlayer(iOS)](https://cloud.tencent.com/document/product/454/56044)  | 推荐 FLV |
+| Android App | [接入指引](https://cloud.tencent.com/document/product/454/56598) | [V2TXLivePlayer(Android)](https://cloud.tencent.com/document/product/454/56045) | 推荐 FLV |
+| Web 浏览器 | [接入指引](https://cloud.tencent.com/document/product/454/7503) | - |  <li/>桌面端 Chrome 浏览器支持 FLV <li/>Mac 端 Safari 和移动端手机浏览器仅支持 HLS |
 |微信小程序| [接入指引](https://cloud.tencent.com/document/product/454/34931) | [&lt;live-player&gt; 标签](https://developers.weixin.qq.com/miniprogram/dev/component/live-player.html)| 推荐 FLV |
 
 
@@ -143,32 +143,32 @@ http://播放域名/live/[streamId].flv
 ### 步骤6：优化播放延时
 
 开启旁路直播后的 http - flv 地址，由于经过了直播 CDN 的扩散和分发，观看时延肯定要比直接在 TRTC 直播间里的通话时延要高。
-按照目前腾讯云的直播 CDN 技术，如果配合 TXLivePlayer 播放器，可以达到下表中的延时标准：
+按照目前腾讯云的直播 CDN 技术，如果配合 V2TXLivePlayer 播放器，可以达到下表中的延时标准：
 
-| 旁路流类型 | TXLivePlayer 的播放模式 |  平均延时 |  实测效果 |
+| 旁路流类型 | V2TXLivePlayer 的播放模式 |  平均延时 |  实测效果 |
 |:-------:|:-------:|:--------:|:---------:|
 | 独立画面 | 极速模式（推荐） | **2s - 3s** | 下图中左侧对比图（橙色）|
 | 混合画面 | 极速模式（推荐） | **4s - 5s** | 下图中右侧对比图（蓝色）|
 
-下图中的实测效果，采用了同样的一组手机，左侧 iPhone 6s 使用了 TRTC SDK 进行直播，右侧的小米6 使用 TXLivePlayer 播放器播放 FLV 协议的直播流。
+下图中的实测效果，采用了同样的一组手机，左侧 iPhone 6s 使用了 TRTC SDK 进行直播，右侧的小米6 使用 V2TXLivePlayer 播放器播放 FLV 协议的直播流。
 ![](https://main.qcloudimg.com/raw/98cf3ebc48875d831ef0bd138f7a3cb5.jpg)
 
 如果您在实测中延时比上表中的更大，可以按照如下指引优化延时：
 
-- **使用 TRTC SDK 自带的 TXLivePlayer**
-普通的 ijkplayer 或者 ffmpeg 基于 ffmpeg 的内核包装出的播放器，缺乏延时调控的能力，如果使用该类播放器播放上述直播流地址，时延一般不可控。TXLivePlayer 有一个自研的播放引擎，具备延时调控的能力。
+- **使用 TRTC SDK 自带的 V2TXLivePlayer**
+普通的 ijkplayer 或者 ffmpeg 基于 ffmpeg 的内核包装出的播放器，缺乏延时调控的能力，如果使用该类播放器播放上述直播流地址，时延一般不可控。V2TXLivePlayer 有一个自研的播放引擎，具备延时调控的能力。
 
-- **设置 TXLivePlayer 的播放模式为极速模式**
-可以通过设置 TXLivePlayerConfig 的三个参数来实现极速模式，以 [iOS](https://cloud.tencent.com/document/product/454/7880#Delay) 为例。
-以 iOS 端的 Objective-C 代码为例：
-```
- // 设置 TXLivePlayer 的播放模式为极速模式
-    TXLivePlayerConfig * config = [[TXLivePlayerConfig alloc] init];
-    config.bAutoAdjustCacheTime = YES;
-    config.minAutoAdjustCacheTime = 1; // 最小缓冲1s
-    config.maxAutoAdjustCacheTime = 1; // 最大缓冲1s
-    [player setConfig:config];
-    // 启动直播播放
+- **设置 V2TXLivePlayer 的播放模式为极速模式**
+可以通过设置 V2TXLivePlayer 的参数来实现极速模式，以 [iOS](https://cloud.tencent.com/document/product/454/56597#Delay) 为例：
+```ObjectiveC
+//自动模式
+[_txLivePlayer setCacheParams:1 maxTime:5];
+//极速模式
+[_txLivePlayer setCacheParams:1 maxTime:1];
+//流畅模式
+[_txLivePlayer setCacheParams:5 maxTime:5];
+
+//设置完成之后再启动播放
 ```
 
 [](id:expense)

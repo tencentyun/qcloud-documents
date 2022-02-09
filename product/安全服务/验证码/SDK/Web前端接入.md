@@ -294,6 +294,7 @@ options 提供以下配置参数：
 | ready          | Function        | 验证码加载完成的回调，回调参数为验证码实际的宽高：<br>{"sdkView": {<br>"width": number,<br>"height": number<br>}}<br>请勿使用此参数直接设定宽高。 |
 | needFeedBack   | Boolean         | 隐藏帮助按钮。 示例 { needFeedBack: false }                  |
 | userLanguage   | String          | 指定验证码提示文案的语言，优先级高于后台配置，暂时仅支持滑块拼图验证码。支持传入值同 navigator.language 用户首选语言，大小写不敏感。详情请参见 [userLaguage 配置参数](#userLanguage)。 |
+|type|String|定义验证码展示方式。<li>popup（默认）弹出式，以浮层形式展示验证码。</li><li>embed 嵌入式，以嵌入指定容器元素中的方式展示验证码。详情请参见 [热点问题-验证码以嵌入式方式进行展示如何配置?](#Q1)。</li>|
 
 **userLaguage 配置参数**[](id:userLanguage)
 
@@ -324,7 +325,22 @@ options 提供以下配置参数：
 | vi       | 越南语               |
 
 
-
+## 热点问题
+#### 验证码以嵌入式方式进行展示如何配置?[](id:Q1)
+- 手动初始化并绑定到一个元素，第一个参数为容器元素，将 options 提供的配置参数 type 设置为 `embed` 。
+```
+new TencentCaptcha(element, CaptchaAppId, callback, {type: 'embed'});
+```
+- 示例代码
+```
+<div id="tc"></div>
+<script>
+new TencentCaptcha(document.getElementById('tc'),CaptchaAppId,callbackName,{type:'embed'}).show()
+//将验证码绑定到id为‘tc’的容器元素中
+</script>
+```
+>!如果使用嵌入式，容器元素在界面里找不到会报错。
+>
 
 ## 更多信息
 您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击**快速咨询**，了解更多详细信息。

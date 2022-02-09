@@ -2,9 +2,15 @@
 - 第一部分：介绍如何开通服务并跑通我们提供的演示 Demo。
 - 第二部分：介绍如何使用 TRTCCalling 组件快速搭建自己的视频通话功能。
 
-本文介绍如何实现一套可以在浏览器上运行的视频通话解决方案，文章分成两个部分：
-- 第一部分：介绍如何开通服务并跑通我们提供的演示 Demo。
-- 第二部分：介绍如何使用 TRTCCalling 组件快速搭建自己的视频通话功能。
+## 版本支持
+本页文档所描述功能，在腾讯云视立方中支持情况如下：
+
+| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
+| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
+
+不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 环境要求
 请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
@@ -195,7 +201,7 @@ trtcCalling.hangup()
 更多常见问题，请参见 [TRTCCalling Web 相关问题](https://cloud.tencent.com/document/product/647/62484)。
 
 ## 技术咨询[](id:QQ)
-了解更多详情您可以 QQ 咨询：646165204 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
+了解更多详情您可以 QQ 咨询：592465424 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
 
 
 

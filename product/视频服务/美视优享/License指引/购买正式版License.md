@@ -1,4 +1,4 @@
-腾讯特效 License 用于解锁腾讯特效 SDK 的使用权限，您可登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 购买绑定正式版 License。腾讯特效 SDK 提供测试版 License 进行功能体验，详情请参见 [申请测试版 License](https://cloud.tencent.com/document/product/616/65878?!editLang=zh&!preview)。
+腾讯特效 License 用于解锁腾讯特效 SDK 的使用权限，您可登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 购买绑定正式版 License。腾讯特效 SDK 提供测试版 License 进行功能体验，详情请参见 [申请测试版 License](https://cloud.tencent.com/document/product/616/65878)。
 
 ## 购买正式版 License[](id:create)
 您可根据具体需求场景，在 [腾讯云视立方·音视频终端引擎购买页](https://buy.cloud.tencent.com/vcube?type=magic) 选择并购买 SDK 套餐，获得相应的正式版 License 使用授权（有效期 1 年至到期次日00:00:00为止）。各版本 SDK 的功能差异请参见 [计费概述](https://cloud.tencent.com/document/product/616/36807)。

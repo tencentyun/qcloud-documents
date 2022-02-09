@@ -132,4 +132,4 @@ sed -i '' "s/group_ip *=.*/group_ip = ${group_ip}/" etc/loglistener.conf
 ```shell
  /etc/init.d/loglistenerd restart
 ```
- c. 如果使用的是 IP 机器组，登录 [日志服务控制台](https://console.cloud.tencent.com/cls/overview?region=ap-guangzhou)，在左侧导航栏中，单击【机器组管理】，修改该服务器绑定的机器组配置，使用新 IP 替换原机器 IP 地址并确定。
+ c. 如果使用的是 IP 机器组，登录 [日志服务控制台](https://console.cloud.tencent.com/cls/overview?region=ap-guangzhou)，在左侧导航栏中，单击**机器组管理**，修改该服务器绑定的机器组配置，使用新 IP 替换原机器 IP 地址并确定。

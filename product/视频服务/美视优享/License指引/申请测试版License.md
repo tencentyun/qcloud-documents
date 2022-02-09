@@ -1,7 +1,7 @@
-腾讯特效 License 用于解锁腾讯特效 SDK 的使用权限，您可以在 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 申请腾讯特效测试版 License。新增和续期正式版 License 等操作请参见 [购买正式版 License](https://cloud.tencent.com/document/product/616/65879?!editLang=zh&!preview)。
+腾讯特效 License 用于解锁腾讯特效 SDK 的使用权限，您可以在 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 申请腾讯特效测试版 License。新增和续期正式版 License 等操作请参见 [购买正式版 License](https://cloud.tencent.com/document/product/616/65879)。
 
 ## 申请测试版 License[](id:create)
-您可以免费申请腾讯特效模块的测试版 License（免费测试有效期为14天，可续期1次，共28天）体验测试。测试版 License 统一签发的最高级版本 S1 - 04 的授权，您可以用此版本测试腾讯特效 SDK 的全功能，最高级版本 S1 - 04 功能说明请参见 [功能说明](https://cloud.tencent.com/document/product/616/67043?!editLang=zh&!preview) S 系列高级套餐 S1-04。
+您可以免费申请腾讯特效模块的测试版 License（免费测试有效期为14天，可续期1次，共28天）体验测试。测试版 License 统一签发的最高级版本 S1 - 04 的授权，您可以用此版本测试腾讯特效 SDK 的全功能，最高级版本 S1 - 04 功能说明请参见 [功能说明](https://cloud.tencent.com/document/product/616/67043) S 系列高级套餐 S1-04。
 
 > !**腾讯特效功能模块在申请之后，需要审核通过才能签发授权**，测试版授权到期时间以审核通过时刻为准；若试用期结束后申请测试续期，则续期到期时间以申请测试续期时刻为准。
 > - 当提交腾讯特效功能模块测试版审核信息后，进入**审核中状态**，审核时间通常 1-2 个工作日。提交审核信息时间为 `2021-12-31 21:26:23`，审核通过时间为 `2022-01-01 09:39:38`，则开始时间为 `2022-01-01 09:39:38`，14天后到期时间为 `2022-01-16 00:00:00`。
@@ -44,7 +44,7 @@
 ## 续期测试版 License[](id:renewal)
 测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**。单击功能模块**腾讯特效**右侧的**续期**，单击**确定续期**即可续期该功能模块14天。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6dd85e6c359d2ffcd931475e4ff6e1f2.png)
-> ?测试版 License 有效期共28天，**只能续期一次**。若您需继续使用，请购买 [正式版 License](https://cloud.tencent.com/document/product/616/65879?!editLang=zh&!preview)。
+> ?测试版 License 有效期共28天，**只能续期一次**。若您需继续使用，请购买 [正式版 License](https://cloud.tencent.com/document/product/616/65879)。
 
 ## 升级测试版 License[](id:upgrade)
 若您需要将腾讯特效模块的测试版 License 升级成为正式版 License，增加使用的有效期，请先 [选择并购买腾讯特效正式版套餐包](https://buy.cloud.tencent.com/vcube?type=magic)，然后执行如下操作：

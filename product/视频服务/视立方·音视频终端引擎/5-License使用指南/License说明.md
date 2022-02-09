@@ -1,7 +1,7 @@
-腾讯云视立方 License 通过一组 License URL 和 Key 来获取并校验一个应用下功能模块的授权。不同的功能模块具备不同的功能。若您下载的腾讯云视立方版本中，包含直播推流（主播开播和主播观众连麦/主播跨房 PK）或短视频（视频录制编辑/视频上传发布）功能模块，需通过购买对应的云服务的资源包免费获取 License，从而解锁对应功能模块的能力。功能模块解锁详情请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
+腾讯云视立方 License 通过一组 License URL 和 Key 来获取并校验一个应用下功能模块的授权。不同的功能模块具备不同的功能。若您下载的腾讯云视立方版本中，包含直播推流（主播开播和主播观众连麦/主播跨房 PK）或短视频（视频录制编辑/视频上传发布）功能模块，需通过购买对应的云服务的资源包免费获取 License，从而解锁对应功能模块的能力。功能模块解锁详情请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 新旧 License 区别
-旧版 License 仅支持一组 License URL 和 Key 解锁对应一个 SDK 功能（移动直播或短视频），相比腾讯云视立方 License 维护和使用较为繁琐；升级后的新版视立方 License 后仅需维护一组 License URL 和 Key ，便可以管理所有腾讯云音视频的终端授权。
+旧版 License 仅支持一组 License URL 和 Key 解锁对应一个 SDK 功能（移动直播或短视频），相比腾讯云视立方 License 维护和使用较为繁琐；升级后的新版视立方 License 后仅需维护一组 License URL 和 Key ，便可以管理所有腾讯云音视频的终端授权。
 
 原移动直播 License、短视频 License 可在腾讯云视立方·音视频终端引擎中继续使用，对应授权解锁腾讯云视立方·音视频终端引擎中的直播推流（主播开播、主播观众连麦/主播跨房 PK）与短视频（视频录制编辑/视频上传发布）模块，**若您使用包含上述功能模块的版本时，处于有效期内的 License 无需再次购买解锁授权**。新旧 License 对应详情如下：
 
@@ -30,7 +30,27 @@
 >? 若您的应用正使用旧版 License 进行校验，可继续使用旧版 License 或改用新版 License（推荐）。未来新购买获赠的 License 进行绑定时将不再提供旧版 License 的 URL 和 Key 。
 
 ## 测试版 License
-您可以登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 在线申请为期28天的试用 License（试用期为14天，可免费续期一次，合计28天），该 License 可以在直播推流模块和短视频模块上使用。
+您可以登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 在线申请不同功能模块的试用 License，每个功能模块均可申请1次，不同功能模块的试用License有效期如下表：
+<table>
+<thead>
+<tr>
+<th colspan=2>测试版 License 功能模块</th>
+<th>规则</th>
+</tr>
+</thead>
+<tbody><tr>
+<td colspan=2>直播推流</td>
+<td>试用期为14天，可免费续期一次，合计28天</td>
+</tr>
+<tr>
+<td colspan=2>短视频</td>
+<td>试用期为14天，可免费续期一次，合计28天</td>
+</tr>
+<tr>
+<td colspan=2>终端极速高清</td>
+<td>试用期为90天，如需更新有效期，请联系商务或 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a></td>
+</tr>
+</tbody></table>
 
 > ? 
 > - 每个功能模块仅可申请一次，长期使用请 [购买](https://buy.cloud.tencent.com/vcube) 正式 License。
@@ -40,6 +60,8 @@
 
 ## 正式版 License
 > ! 获得 License 解锁功能模块的计费详情，请参见 [计费概述](https://cloud.tencent.com/document/product/1449/56972)。
+
+目前 [直播推流模块](#Live) 和 [短视频模块](#UGSV) 有正式版 License；终端极速高清模块处于体验期，暂无正式版 License，如有需求可使用 [测试版 License](https://cloud.tencent.com/document/product/1449/68750)。
 
 [](id:Live)
 ### 直播推流模块
@@ -297,4 +319,3 @@
 </table>
 
 > !美颜特效更多高级美颜、动效贴纸、AI 抠图和绿幕抠图的功能能力暂通过原（移动直播/短视频）企业版 SDK 对外售卖，通过购买原移动直播企业版License、短视频企业版 License 或者短视频企业版 Pro License 后，使用对应的功能。详情请参见 [美颜特效功能概述](https://cloud.tencent.com/document/product/1449/58916)。
-
