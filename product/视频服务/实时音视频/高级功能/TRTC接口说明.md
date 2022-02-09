@@ -1,0 +1,152 @@
+## 审核接入流程
+
+![](https://qcloudimg.tencent-cloud.cn/raw/6d574125b9319e228bb0b70d79ff15f8.png)
+
+1. 用户通过 TRTC 提供的 SDK 创建房间发起实时音视频后，会获取到 sdk_app_id（TRTC 控制台创建应用时的应用 ID），room_id（创建的房间号），然后通过 TRTC SDK 生成一个该房间的内容审核用户（建议每个房间生成不同内容审核的 user_id），此时可以获取到 user_id 和 user_sig（内容安全将使用该用户作为观众进入该房间拉取直播流数据）。
+2. 将上一步获取到的 sdk_app_id、room_id、user_id 和 user_sig 拼装成 TRTC 审核 URL，URL 格式如下：[](id:step2)
+```
+trtc://trtc.tencentcloudapi.com/moderation?sdk_app_id=xxxx&room_id=xxxx&user_id=xxxx&user_sig=xxxx
+```
+>! URL 中的每个参数值在拼装前需要先 escape 一下，防止有特殊字符无法解析，特别是 user_sig。
+<table>
+<thead><tr><th>参数名称</th><th>必选</th><th>描述</th></tr></thead>
+<tbody><tr>
+<td>sdk_app_id</td>
+<td>是</td>
+<td>TRTC 控制台创建应用时的应用 ID。</td>
+</tr><tr>
+<td>room_id</td>
+<td>是</td>
+<td>创建的房间号，TRTC 的 room_id 有数值和字符串两种形式，默认是数值，如果为字符串的 room_id，则需要将 room_id_type 设置为 string。</td>
+</tr><tr>
+<td>user_id</td>
+<td>是</td>
+<td>用户 ID，建议每个房间生成不同内容审核的 user_id。</td>
+</tr><tr>
+<td>user_sig</td>
+<td>是</td>
+<td>user_sig 是基于 sdk_app_id 和 user_id 计算出的安全签名。</td>
+</tr><tr>
+<td>mix</td>
+<td>否</td>
+<td>取值时 true 为混流审核，false 为单流审核。不填默认是混流审核。</td>
+</tr><tr>
+<td>room_id_type</td>
+<td>否</td>
+<td>房间类型，默认可不传，可传入值为：string/number</td>
+</tr></tbody></table>
+3. 通过 [创建审核任务](https://cloud.tencent.com/document/product/1219/53257)接口，发起该房间的内容安全审核。
+<table>
+<thead><tr><th>参数名称</th><th>必选</th><th>类型</th><th>描述</th></tr></thead>
+<tbody><tr>
+<td>Action</td>
+<td>是</td>
+<td>String</td>
+<td>公共参数，本接口取值：CreateAudioModerationTask。</td>
+</tr><tr>
+<td>Version</td>
+<td>是</td>
+<td>String</td>
+<td>公共参数，本接口取值：2020-12-29。</td>
+</tr><tr>
+<td>Region</td>
+<td>否</td>
+<td>String</td>
+<td>公共参数，本接口不需要传递此参数。</td>
+</tr><tr>
+<td>Tasks.N</td>
+<td>是</td>
+<td>Array of <a href="https://cloud.tencent.com/document/api/1219/53259#TaskInput">TaskInput</a></td>
+<td>该字段表示输入的音频审核任务信息，具体输入内容请参见 TaskInput 数据结构的详细描述。 <br>备注：最多同时可创建<strong>10个任务</strong>。</td>
+</tr><tr>
+<td>BizType</td>
+<td>否</td>
+<td>String</td>
+<td>该字段表示策略的具体编号，用于接口调度，在内容安全控制台中可配置。若不传入 Biztype 参数（留空），则代表采用默认的识别策略；传入则会在审核时根据业务场景采取不同的审核策略。<br>备注：Biztype 仅为数字、字母与下划线的组合，长度为3个-32个字符；不同 Biztype 关联不同的业务场景与识别能力策略，调用前请确认正确的 Biztype。</td>
+</tr><tr>
+<td>Type</td>
+<td>否</td>
+<td>String</td>
+<td>该字段表示输入的音频审核类型，取值为：<b>AUDIO</b>（点播音频）和 <b>LIVE_AUDIO</b>（直播音频），默认值为 AUDIO。</td>
+</tr><tr>
+<td>Seed</td>
+<td>否</td>
+<td>String</td>
+<td>可选参数，该字段表示回调签名的 key 信息，用于保证数据的安全性。 签名方法为在返回的 HTTP 头部添加 X-Signature 的字段，值为： seed + body 的 SHA256 编码和 Hex 字符串，在收到回调数据后，可以根据返回的body，用 <b>sha256(seed + body)</b>，计算出 <code>X-Signature</code> 进行验证。 具体使用实例请参见 <a href="https://cloud.tencent.com/document/product/1219/53263">回调签名示例</a>。</td></tr>
+<tr>
+<td>CallbackUrl</td>
+<td>否</td>
+<td>String</td>
+<td>可选参数，该字段表示接受审核信息回调的地址，格式为 URL 链接默认格式。配置成功后，审核过程中产生的违规音频片段将通过此接口发送。回调返回内容格式请参见 <a href="https://cloud.tencent.com/document/product/1219/53257#.E7.A4.BA.E4.BE.8B2-.E5.9B.9E.E8.B0.83.E7.AD.BE.E5.90.8D.E7.A4.BA.E4.BE.8B">回调签名示例</a>。</td></tr>
+</tbody></table>
+
+	该接口需注意以下几点：
+	- **BizType**
+	用户的审核策略，可以通过控制台上的[策略管理](https://console.cloud.tencent.com/cms/livevideo/strategy)根据不同的需求创建不同的审核策略，在开通服务时，会自动创建一个 BizType 为“default”的审核策略，测试时，可使用该 BizType 传入。
+	![img](https://qcloudimg.tencent-cloud.cn/raw/8d3e1ea799323e11c60265935cc1343e.png) 
+	- **Type**
+	根据实际的应用类型进行传入，TRTC实时音视频根据应用类型调用不同的产品的接口。（例如：实时语音房场景调用 ams 产品的接口，Type 输入 LIVE_AUDIO；视频聊天调用 vm 产品的接口，Type 填写 LIVE_VIDEO）。
+	- **CallbackUrl**
+	该地址用于用户接口直播过程中和直播结束的审核结果，可以在控制台配置界面中设置，也可以通过接口传入。回调格式同 [查询任务详情接口](https://cloud.tencent.com/document/product/1219/53256) 的输出参数。
+	- **Tasks.N.Input.Url**
+	填入 [第2步](#step2) 拼装的 TRTC 审核 URL。输入示例：
+	![](https://qcloudimg.tencent-cloud.cn/raw/1f73346ea902eb1464efbba0ecd6ea9f.png)
+4. 创建审核任务成功，腾讯云内容安全审核服务会返回 task_id、task_id 作为内容审核针对该房间审核的唯一ID。
+5. 在审核过程中，用户的回调服务器会持续接收到内容安全审核服务的审核结果，针对 TRTC 是在直播过程中，每个用户的音频切片和图片截帧的审核结果。用户可以根据该结果决定是否封禁直播间，或者是针对直播间发出警告。
+6. 在直播结束后，用户需要调用结束审核接口（传入创建审核时的 task_id），关闭直播间审核。
+7. 内容安全审核服务在接收到结束审核请求后，停止拉取该直播间的数据流，并根据审核策略，推导出该直播间的最终审核结果，同时发送审核结束的回调信息给用户。TRTC 回调的片段会存储在 cos 上面，文件名为：
+```
+trtc/{{sdk_app_id}}/screenshot_{{roomid}}_{{userid}}{{timestamp}}.jpg（图片格式）
+trtc/{{sdk_app_id}}/audio{{roomid}}_{{userid}}_{{timestamp}}.mp3（音频格式）
+```
+>!
+>-  **混流的 user_id 统一为 mixer**。
+> - 直播内容安全审核过程中，如果出现直播流中断，或者持续拉不到数据流，会进行拉流重试，在一段时间内（不同的错误码重试逻辑会有差异）拉取不到数据流，会认为该直播间已经关闭，此时会发送审核结束回调给用户。用户需要在接收到回调后判断该直播间是否为关闭状态，如果不为关闭状态，需要重新发起审核，以此保证直播间不会漏过）
+
+## 常见问题
+
+### 1. TRTC 进行内容安全审核传入的 user_id 用户是否可以看见？
+不可见，内容安全是以观众审核从TRTC拉流，对于用户端是看不到该user_id的。
+
+### 2. 内容安全拉取 TRTC 的数据流是否需要收费？
+
+内容安全是以观众身份从 TRTC 拉取数据流进行审核的，TRTC 默认计费方式按订阅时长（拉流）计费，所以这里会产生费用，具体的收费规则可以咨询 TRTC 运营。
+>!
+>- 创建审核任务的 user_id 不能同房间内的任何一个 user_id 相同。
+>- TRTC room_id 的限制是 uint，房间号取值区间为1 - 4294967295，由开发者自行维护和分配。
+
+### 3. 内容安全是以观众审核从 TRTC 拉流，那这个内容审核用户，是按照正常创建用户创建吗？
+是的，我们是用这个用户进入房间拉数据的。他也是一个正常的用户。
+
+### 4. 对 TRTC 的音频、视频做内容审核，分别需要多久才能返回审核结果？
+片段会即时返回。音频是 0.2 的实时率，图片会在拿到数据之后 1s 内返回。
+
+### 5. 什么是user_sig?
+具体请参见 [UserSig 相关](https://cloud.tencent.com/document/product/647/17275)。
+
+### 6. TRTC 怎么校验生成的 user_sig 是否正确？进房报错 -3319、-3320 错误怎么排查？
+
+可登录实时音视频控制台，选择 **开发辅助** > **[User_sig 生成&校验](https://console.cloud.tencent.com/trtc/usersigtool)** 校验 user_sig。
+
+### 7. 多人语聊房中，多路流，怎么判断谁违规了吗？
+
+目前只能通过我们返回的回调上的地址去区分，我们回调的片段会存储在 cos 上面，文件名是 `trtc_[roomid]_[userid]_timestamp` 的格式。
+
+### 8. 对于拼装的 TRTC 审核 URL 有什么需要注意的点？
+由于 user_sig 中包含有特殊符号，拼装成 url 前要先进行 escape 才能放到 URL 中。
+
+>?更多问题，请参见 [TRTC 常见问题文档](https://cloud.tencent.com/document/product/647/43020 )。
+
+
+## 附录
+
+- **音频审核服务**提供以下四个审核接口，通过单击链接查看详细接口文档：
+	- [创建审核任务](https://cloud.tencent.com/document/product/1219/53257 )
+	- [结束审核](https://cloud.tencent.com/document/product/1219/53258)
+	- [查询审核任务列表](https://cloud.tencent.com/document/product/1219/53255) 
+	- [查询审核任务详情](https://cloud.tencent.com/document/product/1219/53256)
+- **视频审核服务**提供以下四个审核接口，通过单击链接查看详细接口文档：
+	- [创建审核任务](https://cloud.tencent.com/document/product/1265/51879)
+	- [结束审核](https://cloud.tencent.com/document/product/1265/51880)
+	- [查询审核任务列表](https://cloud.tencent.com/document/product/1265/51902)
+	- [查询审核任务详情](https://cloud.tencent.com/document/product/1265/51878)
