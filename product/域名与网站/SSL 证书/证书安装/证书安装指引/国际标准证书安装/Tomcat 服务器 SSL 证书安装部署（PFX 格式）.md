@@ -2,12 +2,12 @@
 本文档指导您如何在 Tomcat 服务器中安装 PFX 格式 SSL 证书。
 
 >?
-- 文档以证书名称 `cloud.tencent.com` 为例。
-- Tomcat 版本以 `tomcat9.0.40` 为例。
-- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
-- 若您需在 Tomcat 服务器中安装 JKS 格式 SSL 证书。具体可参考：[Tomcat 服务器 SSL 证书安装部署（JKS 格式）](https://cloud.tencent.com/document/product/400/35224)。
-- 安装 SSL 证书前，请您在 Tomcat 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。具体可参考：[服务器如何开启443端口？](https://cloud.tencent.com/document/product/400/45144)
-- SSL 证书文件上传至服务器方法可参考：[如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
+>- 文档以证书名称 `cloud.tencent.com` 为例。
+>- Tomcat 版本以 `tomcat9.0.40` 为例。
+>- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
+>- 若您需在 Tomcat 服务器中安装 JKS 格式 SSL 证书。具体可参考：[Tomcat 服务器 SSL 证书安装部署（JKS 格式）](https://cloud.tencent.com/document/product/400/35224)。
+>- 安装 SSL 证书前，请您在 Tomcat 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。具体可参考：[服务器如何开启443端口？](https://cloud.tencent.com/document/product/400/45144)
+>- SSL 证书文件上传至服务器方法可参考：[如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
 
 ## 前提条件
 - 已准备文件远程拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
@@ -35,7 +35,7 @@
 
 >!
 >- 在腾讯云官网购买的云服务器，您可以登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)  获取服务器 IP 地址、用户名及密码。
-- 当前 Tomcat 服务器安装在`/usr`目录下，例如，Tomcat 文件夹名称为 `tomcat9.0.40`。则 `/usr/*/conf` 实际为 `/usr/tomcat9.0.40/conf`。
+>- 当前 Tomcat 服务器安装在`/usr`目录下，例如，Tomcat 文件夹名称为 `tomcat9.0.40`。则 `/usr/*/conf` 实际为 `/usr/tomcat9.0.40/conf`。
 
 # 操作步骤
 
