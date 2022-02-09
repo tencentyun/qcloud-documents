@@ -1,6 +1,6 @@
 ## 审核接入流程
 ### 接入流程图
-![](https://qcloudimg.tencent-cloud.cn/raw/6d574125b9319e228bb0b70d79ff15f8.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b77f750cb7e415c6e4afb57cb7d9e348.png)
 
 ### 接入步骤
 1. 用户通过 TRTC 提供的 SDK 创建房间发起实时音视频后，会获取到 sdk_app_id（TRTC 控制台创建应用时的应用 ID），room_id（创建的房间号），然后通过 TRTC SDK 生成一个该房间的内容审核用户（建议每个房间生成不同内容审核的 user_id），此时可以获取到 user_id 和 user_sig（内容安全将使用该用户作为观众进入该房间拉取直播流数据）。
