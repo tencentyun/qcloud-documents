@@ -4,7 +4,7 @@
 
 | API                        |             操作名                     | 操作描述                                               |
 | ------------------------------------------------------------ | --------------------------|---------------------------- |
-| [DescribeMediaBuckets](https://cloud.tencent.com/document/product/436/48988) | 查询媒体处理开通情况 |用于查询已经开通媒体处理功能的存储桶      |
+| [DescribeMediaBuckets](https://cloud.tencent.com/document/product/436/48988) | 查询媒体处理开通情况 |用于查询已经开通媒体处理功能的存储桶  |
 
 ## 查询媒体处理开通情况
 
