@@ -3,8 +3,7 @@
 反弹 Shell 功能是基于腾讯云安全技术及多维度多手段，对服务器上的 Shell 反向连接行为进行识别记录，为您的云服务器提供反弹 Shell 行为的实时监控能力。
 
 ## 前提条件
-反弹 Shell 功能为专业版付费功能，需升级为 [专业版主机安全](https://buy.cloud.tencent.com/yunjing) 进行使用。
-
+反弹 Shell 功能仅专业版主机与旗舰版主机支持，基础版和未防护主机须 [升级专业版或旗舰版](https://buy.cloud.tencent.com/yunjing) 才可使用该功能。
 
 ## 操作步骤
 ### 事件列表

@@ -51,14 +51,13 @@
 </style>
 
 ## 下载 SDK
-实时音视频（TRTC） 是腾讯云提供的一套低延时、高质量的音视频通讯服务，致力于为腾讯云客户提供稳定、可靠和低成本的音视频传输能力。该服务由一套遍布全球的音视频传输网络和一组终端 SDK 组成，您可以在本页面下载到涵盖目前主流客户端平台和热门框架的终端 SDK：
+实时音视频（TRTC） 是腾讯云提供的一套低延时、高质量的音视频通讯服务，致力于为腾讯云客户提供稳定、可靠和低成本的音视频传输能力。该服务由一套遍布全球的音视频传输网络和一组终端 SDK 组成，您可以在本页面下载到涵盖目前主流客户端平台和热门框架的终端 SDK。
 
 >? 如果您当前网络访问 Github 速度不理想，可以 [单击这里](https://gitee.com/cloudtencent/TRTCSDK) 访问 Gitee 中的镜像仓库。
 
 ### Web SDK
 
 <div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
-    <a target="view_window">
         <div class="card-container">
             <div class="card">
                <img src="https://main.qcloudimg.com/raw/7e2651085e3e3c6e32190e401a6dfd32.svg" data-nonescope="true">
@@ -70,13 +69,11 @@
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32396">运行 Demo</a>
             </div>
         </div>
-    </a>
 </div>
 
 ### Android SDK
 
 <div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
-    <a target="view_window">
         <div class="card-container">
             <div class="card">
                            <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
@@ -87,8 +84,6 @@
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32166">运行 Demo</a>
             </div>
         </div>
-   </a>
-   <a target="view_window">
         <div class="card-container">
             <div class="card">
                             <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
@@ -100,8 +95,6 @@
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32166">运行 Demo</a>
             </div>
         </div>
-   </a>
-   <a href="https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTC-API-Example-OC" target="view_window">
         <div class="card-container">
             <div class="card">
                                 <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
@@ -113,13 +106,11 @@
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32166">运行 Demo</a>
             </div>
         </div>
-   </a>
 </div>
 
 ### iOS SDK
 
 <div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
-   <a target="view_window">
         <div class="card-container">
             <div class="card">
                                 <img class="icon" src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
@@ -130,8 +121,6 @@
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32396">运行 Demo</a>
             </div>
         </div>
-   </a>
-   <a target="view_window">
         <div class="card-container">
             <div class="card">
                                 <img class="icon" src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
@@ -143,8 +132,6 @@
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32396">运行 Demo</a>
             </div>
         </div>
-   </a>
-   <a target="view_window">
         <div class="card-container">
             <div class="card">
                                 <img class="icon" src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
@@ -156,13 +143,11 @@
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32396">运行 Demo</a>
             </div>
         </div>
-   </a>
 </div>
 
 ### Windows SDK
 
 <div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
-   <a target="view_window">
         <div class="card-container">
             <div class="card">
                                 <img src="https://main.qcloudimg.com/raw/104e3aadbd4515f61c3f2f5378948cfb.svg" data-nonescope="true">
@@ -173,8 +158,6 @@
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32397">运行 Demo</a>
             </div>
         </div>
-   </a>
-   <a target="view_window">
         <div class="card-container">
             <div class="card">
                                 <img src="https://main.qcloudimg.com/raw/104e3aadbd4515f61c3f2f5378948cfb.svg" data-nonescope="true">
@@ -186,13 +169,11 @@
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32397">运行 Demo</a>
             </div>
         </div>
-   </a>
 </div>
 
 ### Mac SDK
 
 <div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
-   <a target="view_window">
         <div class="card-container">
             <div class="card">
                                 <img src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
@@ -203,8 +184,6 @@
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/42046">运行 Demo</a>
             </div>
         </div>
-   </a>
-   <a target="view_window">
         <div class="card-container">
             <div class="card">
                                 <img src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
@@ -216,13 +195,11 @@
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32396">运行 Demo</a>
             </div>
         </div>
-   </a>
 </div>
 
 ### 微信小程序 SDK
 
 <div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
-   <a target="view_window">
         <div class="card-container">
             <div class="card">
                             <img src="https://qcloudimg.tencent-cloud.cn/raw/af07e321883032c9796848d189a80f5e.png" data-nonescope="true"/>
@@ -234,13 +211,11 @@
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32399">运行 Demo</a>
             </div>
         </div>
-   </a>
 </div>
 
 ### 跨平台 SDK
 
 <div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
-   <a href="https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTC-API-Example-OC" target="view_window">
         <div class="card-container">
             <div class="card">
                                 <img src="https://qcloudimg.tencent-cloud.cn/raw/d6fd52f011bdbb13302b2ae261e8a756.png" data-nonescope="true"/>
@@ -252,21 +227,17 @@
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/38548">运行 Demo</a>
             </div>
         </div>
-   </a>
-   <a target="view_window">
         <div class="card-container">
             <div class="card">
                             <img src="https://qcloudimg.tencent-cloud.cn/raw/3b6929f89ce1113bc2005873f2338de9.png" data-nonescope="true"/>
                                 <p class="titlename">Flutter SDK</p>
-                <p style="color:#586376;">基于 Flutter 框架封装的 TRTC SDK，让您用一套代码快速构建出能够运行于平台的 App。</p>
+                <p style="color:#586376;">基于 Flutter 框架封装的 TRTC SDK，让您用一套代码快速构建出能够运行于各平台的 App。</p>
                                 <a href="https://pub.dev/packages/tencent_trtc_cloud/versions">ZIP 下载</a>
                 <a style="margin-left: 10px;" href="https://github.com/c1avie/trtc_demo">GitHub</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/51602">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/51601">运行 Demo</a>
             </div>
         </div>
-   </a>
-   <a target="view_window">
         <div class="card-container">
             <div class="card">
                             <img src="https://qcloudimg.tencent-cloud.cn/raw/90f1ef49218b43d7042bb05b1c0a3959.png" data-nonescope="true">
@@ -277,7 +248,6 @@
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/63790">运行 Demo</a>
             </div>
         </div>
-   </a>
 </div>
 
 
