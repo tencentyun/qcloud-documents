@@ -1,7 +1,7 @@
 ## Version 9.3.201 @ 2022.01.05
 
 **功能新增**
-Windows & Mac：新增 [onSpeedTestResult](http://localhost:63342/trtc-electron-sdk/_doc/TRTCCallback.html#event:onSpeedTestResult) 网速测试的结果回调。
+Windows & Mac：新增 [onSpeedTestResult](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onSpeedTestResult) 网速测试的结果回调。
 
 **改进**
 - Windows & Mac：改进 [startSpeedTest](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#startSpeedTest) 开始进行网络测速。

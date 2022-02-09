@@ -104,4 +104,4 @@ webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx &stopstream_api=https
 
 [](id:play)
 ### 快直播拉流播放
-集成快直播 SDK 进行拉流播放，具体请参见 [快直播拉流](https://cloud.tencent.com/document/product/454/56879)。
+集成快直播 SDK 进行拉流播放，具体请参见 [快直播拉流](https://cloud.tencent.com/document/product/454/55880)。

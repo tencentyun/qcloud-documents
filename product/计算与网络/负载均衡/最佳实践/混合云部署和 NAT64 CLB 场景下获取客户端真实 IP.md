@@ -39,20 +39,21 @@
 1. 根据腾讯云上 Linux 的版本，下载对应的 TOA 包解压。
 <dx-accordion>
 ::: centos
-[CentOS 8.0 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/CentOS%208.0.1905.zip)
-[CentOS 7.6 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/CentOS%207.6.1810.zip)
-[CentOS 7.2 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/CentOS%207.2.1511.zip)
+[CentOS 8.0 64](https://clb-toa-1255852779.file.myqcloud.com/CentOS%208.0.1905.zip)
+[CentOS 7.6 64](https://clb-toa-1255852779.file.myqcloud.com/CentOS%207.6.1810.zip)
+[CentOS 7.2 64](https://clb-toa-1255852779.file.myqcloud.com/CentOS%207.2.1511.zip)
+
 :::
 ::: debian
-[Debian 9.0 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/CentOS%208.0.1905.zip)
+[Debian 9.0 64](https://clb-toa-1255852779.file.myqcloud.com/Debian%209.zip)
 :::
 ::: suse linux
-[SUSE 12 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/SUSE%2012.zip)
-[SUSE 11 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/SUSE%2011.zip)
+[SUSE 12 64](https://clb-toa-1255852779.file.myqcloud.com/SUSE%2012.zip)
+[SUSE 11 64](https://clb-toa-1255852779.file.myqcloud.com/SUSE%2011.zip)
 :::
 ::: ubuntu
-[Ubuntu 18.04.4 LTS 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/Ubuntu%2018.04.4%20LTS.zip)
-[Ubuntu 16.04.7 LTS 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/Ubuntu%2016.04.7%20LTS.zip)
+[Ubuntu 18.04.4 LTS 64](https://clb-toa-1255852779.file.myqcloud.com/Ubuntu%2018.04.4%20LTS.zip)
+[Ubuntu 16.04.7 LTS 64](https://clb-toa-1255852779.file.myqcloud.com/Ubuntu%2016.04.7%20LTS.zip)
 :::
 </dx-accordion>
 
@@ -82,11 +83,11 @@ dmesg -T
 >
   - Linux
 ```
-wget "https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/tgw_toa_linux_ver.tar.gz"
+wget "https://clb-toa-1255852779.file.myqcloud.com/tgw_toa_linux_ver.tar.gz"
 ```
   - 腾讯 TLinux
 ```
-wget "https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/tgw_toa_tlinux_ver.tar.gz"
+wget "https://clb-toa-1255852779.file.myqcloud.com/tgw_toa_tlinux_ver.tar.gz"
 ```
 2. 编译 TOA 内核模块的 Linux 环境需先安装 GCC 编译器、Make 工具和内核模块开发包。
 <dx-accordion>

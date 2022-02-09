@@ -5,7 +5,7 @@
 
 从注册腾讯云账号开始，COS 的授权与身份认证流程需要经过以下五步：注册腾讯云账号、开通 COS 服务、创建授权身份、为身份设置权限、开始访问与身份认证。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/93fa6e0d9b7483358b1cb36aa15ecc7a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9d95ab96154600c8d92d45daf2375f10.png)
 
 #### 第一步：注册腾讯云账号
 
@@ -38,7 +38,7 @@ COS 支持多种权限配置方式，包括 [存储桶策略](https://cloud.tenc
 
 ## COS 身份认证方式
 
-![](https://qcloudimg.tencent-cloud.cn/raw/e6be31d67c60f26302f669067bbd0c50.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6e44d339c032f4920c5c9c6cea76c4c2.png)
 
 默认情况下，COS 存储桶为私有的，访问 COS 需要通过密钥（永久密钥、临时密钥）进行身份认证，或使用预签名 URL 进行访问。出于特殊需要，您也可以将存储桶开放为公有读，这是一种有风险的操作，任何用户都可以通过对象 URL 直接下载对象，不需要经过身份认证。
 
@@ -46,7 +46,7 @@ COS 支持多种权限配置方式，包括 [存储桶策略](https://cloud.tenc
 
 密钥（SecretId/SecretKey），是用户访问腾讯云 API 进行身份验证时需要用到的安全凭证，可在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取，每个主账号和子账号都可以创建多个密钥。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/36aca86fa63cb782214eb58789a9c82c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/04ea2e35e83786447c17a4d432d522f2.png)
 
 永久密钥包括 SecretId 和 SecretKey，每个主张号和子账号都可以生成两对永久密钥，永久密钥代表了账号的永久身份，如果不删除则长期有效。详情可参考 [使用永久密钥访问 COS](https://cloud.tencent.com/document/product/436/68282)。
 
@@ -66,7 +66,7 @@ COS 支持多种权限配置方式，包括 [存储桶策略](https://cloud.tenc
 
 - 从控制台或 COSBrowser 获取临时下载链接（有效期1 - 2小时）
 您可以直接从控制台或 COSBrowser 快速获取对象的临时下载链接，在浏览器直接输入这个临时链接，即可下载对象。详情参考 [快速获取临时链接](https://cloud.tencent.com/document/product/436/68284) 文档。
-<span id="UseSDKSignURL"></span> 
+<span id="使用SDK生成预签名url"></span> 
 - 使用 SDK 生成预签名 URL
 使用 SDK 可以批量获取自定义有效期的预签名 URL，详情参考 [使用 SDK 批量获取预签名 URL](https://cloud.tencent.com/document/product/436/68284) 文档。
 - 使用签名工具生成预签名 URL

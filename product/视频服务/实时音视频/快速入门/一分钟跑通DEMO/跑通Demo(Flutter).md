@@ -22,7 +22,7 @@
 ## 操作步骤
 [](id:step1)
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择**开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+1. 登录实时音视频控制台，选择**开发辅助** > [**快速跑通Demo**](https://console.cloud.tencent.com/trtc/quickstart)。
 2. 单击**新建应用**输入应用名称，例如 `TestTRTC`；若您已创建应用可单击**选择已有应用**。
 3. 根据实际业务需求添加或编辑标签，单击**创建**。
 ![](https://main.qcloudimg.com/raw/f04d288ed091c98a5e8056eb86fb49e8.png)

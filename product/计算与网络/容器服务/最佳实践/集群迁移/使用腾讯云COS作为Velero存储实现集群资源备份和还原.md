@@ -2,27 +2,27 @@
 
 
 开源工具 [Velero](https://velero.io/)（旧版本名称为 Heptio Ark）可以安全地备份和还原、执行灾难恢复以及迁移 Kubernetes 集群资源和持久卷。在容器服务 TKE 集群或自建 Kubenetes 集群中部署 Velero 可以实现以下功能：
-- 备份集群资源并在丢失的情况下进行还原。
-- 将集群资源迁移到其他集群。
-- 将生产集群资源复制到开发和测试集群。
+- 备份集群资源并在丢失的情况下进行还原。 
+- 将集群资源迁移到其他集群。 
+- 将生产集群资源复制到开发和测试集群。 
 
 Velero 工作原理图如下图所示（来源于 [Velero](https://velero.io/) 官网），当用户执行备份命令时，备份过程说明如下：
-1. 调用自定义资源 API 创建备份对象（1）。
-2. BackupController 控制器检测到生成的备份对象时（2）执行备份操作（3）。
-3. 将备份的集群资源和存储卷快照上传到 Velero 的后端存储（4）和（5）。
+1. 调用自定义资源 API 创建备份对象（1）。 
+2. BackupController 控制器检测到生成的备份对象时（2）执行备份操作（3）。 
+3. 将备份的集群资源和存储卷快照上传到 Velero 的后端存储（4）和（5）。 
 ![backup-process](https://main.qcloudimg.com/raw/1aea8598f3c0345101e91b586544896d.png)
 
-另外当执行还原操作时，Velero 会将指定备份对象的数据从后端存储同步到 Kubernetes 集群完成还原工作。
-更多关于 Velero 介绍，请参见 [Velero](https://velero.io/) 官网文档。本文将介绍如何使用腾讯云 [对象存储 COS](https://cloud.tencent.com/document/product/436) 作为 Velero 后端存储实现集群备份和还原。
+另外当执行还原操作时，Velero 会将指定备份对象的数据从后端存储同步到 Kubernetes 集群完成还原工作。 
+更多关于 Velero 介绍，请参见 [Velero](https://velero.io/) 官网文档。本文将介绍如何使用腾讯云 [对象存储 COS](https://cloud.tencent.com/document/product/436) 作为 Velero 后端存储实现集群备份和还原。 
 
 
 
 
 ## 前提条件
 
-- 已 [注册腾讯云账号](https://cloud.tencent.com/register)。
-- 已开通腾讯云 [对象存储 COS](https://console.cloud.tencent.com/cos5) 服务。
-- 已创建 v1.10 或以上版本的 Kubernetes 集群，集群可正常使用 DNS 和 互联网服务，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
+- 已 [注册腾讯云账号](https://cloud.tencent.com/register)。 
+- 已开通腾讯云 [对象存储 COS](https://console.cloud.tencent.com/cos5) 服务。 
+- 已创建 v1.10 或以上版本的 Kubernetes 集群，集群可正常使用 DNS 和 互联网服务，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。 
 
 
 ## 操作步骤
@@ -30,10 +30,10 @@ Velero 工作原理图如下图所示（来源于 [Velero](https://velero.io/) �
 
 #### 创建存储桶
 
-1. 在 [对象存储控制台](https://console.cloud.tencent.com/cos5) 为 Velero 创建一个对象存储桶用于存储备份，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
+1. 在 [对象存储控制台](https://console.cloud.tencent.com/cos5) 为 Velero 创建一个对象存储桶用于存储备份，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。 
 2. 为存储桶 [设置访问权限](https://cloud.tencent.com/document/product/436/13315)。对象存储 COS 支持设置两种权限类型：
-	- **公共权限**：为了安全起见，推荐存储桶权限类别为私有读写，关于公共权限的说明，请参见存储桶概述中的 [权限类别](https://cloud.tencent.com/document/product/436/13312#.E6.9D.83.E9.99.90.E7.B1.BB.E5.88.AB)。
-	- **用户权限**：主账号默认拥有存储桶所有权限（即完全控制）。另外 COS 支持添加子账号有数据读取、数据写入、权限读取、权限写入，甚至**完全控制**的最高权限。
+	- **公共权限**：为了安全起见，推荐存储桶权限类别为私有读写，关于公共权限的说明，请参见存储桶概述中的 [权限类别](https://cloud.tencent.com/document/product/436/13312#.E6.9D.83.E9.99.90.E7.B1.BB.E5.88.AB)。 
+	- **用户权限**：主账号默认拥有存储桶所有权限（即完全控制）。另外 COS 支持添加子账号有数据读取、数据写入、权限读取、权限写入，甚至**完全控制**的最高权限。 
 	由于需要对存储桶进行读写操作，为示例子账号授予**数据读取、数据写入**权限，如下图所示：
 	![](https://main.qcloudimg.com/raw/3f23d6cfeca3c3b01bed6577bc173eb0.jpg)
 
@@ -131,19 +131,19 @@ region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcl
 </tr>
 </tbody></table>
 
-其他安装参数可以使用命令 `velero install --help` 查看。例如，不备份存储卷数据，可以设置 `--use-volume-snapshots=false` 来关闭存储卷快照备份。
+其他安装参数可以使用命令 `velero install --help` 查看。例如，不备份存储卷数据，可以设置 `--use-volume-snapshots=false` 来关闭存储卷快照备份。 
 执行安装命令之后查看安装过程，如下图所示：
 ![](https://main.qcloudimg.com/raw/817541d26a0d167de0a20a0f8127c8d1.png)
 
 5. 安装完成后，等待 Velero 和 Restic 工作负载就绪。执行以下命令，查看配置的存储位置是否可用，若显示 “Avaliable”，则说明集群可正常访问对象存储 COS，如下图所示：
 ![](https://main.qcloudimg.com/raw/a1cf8fc3d5bd53daa09be30edac332fa.png)
-至此，Velero 安装完成。了解 Velero 更多安装介绍，请参见 [Velero](https://velero.io/docs/) 官网文档。
+至此，Velero 安装完成。了解 Velero 更多安装介绍，请参见 [Velero](https://velero.io/docs/) 官网文档。 
 
 
 
 ### Velero 备份还原测试
 
-1. 在集群中使用 Helm 工具，创建一个具有持久卷的 MinIO 测试服务，MinIO 安装方式请参见 [MinIO 安装]( https://github.com/minio/charts)。在此示例中，已经为 MinIO 服务绑定了负载均衡器，可以在浏览器中使用公网地址访问管理页面。
+1. 在集群中使用 Helm 工具，创建一个具有持久卷的 MinIO 测试服务，MinIO 安装方式请参见 [MinIO 安装]( https://github.com/minio/charts)。在此示例中，已经为 MinIO 服务绑定了负载均衡器，可以在浏览器中使用公网地址访问管理页面。 
 ![](https://main.qcloudimg.com/raw/9352391a728698fe72ca414fb55d03d1.png)
 2. 登录 MinIO Web 管理页面，上传用于测试的图片， 如下图所示：
 ![](https://main.qcloudimg.com/raw/9dd7e1f08709292e5c58f5744ffb5f10.png)
@@ -151,7 +151,7 @@ region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcl
 ```bash
 velero backup create default-backup --include-namespaces default
 ```
-4. 执行以下命令查看备份任务是否完成，当备份任务状态是 “Completed” 且 “ERRORS” 为0时，说明备份任务完成且未发生任何错误。
+4. 执行以下命令查看备份任务是否完成，当备份任务状态是 “Completed” 且 “ERRORS” 为0时，说明备份任务完成且未发生任何错误。 
 ```bash
 velero backup get
 ```
@@ -159,7 +159,7 @@ velero backup get
 	![](https://main.qcloudimg.com/raw/fff36d963fb9b600e3c34c0556c5a2bf.png)
 5. 执行以下命令，删除 MinIO 下所有资源，包括 PVC 持久卷。如下图所示：
 ![](https://main.qcloudimg.com/raw/23a84feb0f24b45484175278c97c01b9.png)
-6. 删除 MinIO 资源后，使用之前的备份测试是否可以成功还原被删除的 MinIO 资源。执行以下命令，将备份存储位置临时更新为只读模式（可以防止在还原过程中，Velero 在备份存储位置中创建或删除备份对象）。
+6. 删除 MinIO 资源后，使用之前的备份测试是否可以成功还原被删除的 MinIO 资源。执行以下命令，将备份存储位置临时更新为只读模式（可以防止在还原过程中，Velero 在备份存储位置中创建或删除备份对象）。 
 ```bash
 kubectl patch backupstoragelocation default --namespace velero \
 			--type merge \
@@ -176,7 +176,7 @@ velero restore create --from-backup default-backup
 8. 还原完成后，执行以下命令，可以查看到之前被删除的 MinIO 相关资源已经还原成功。如下图所示：
 ![](https://main.qcloudimg.com/raw/fc58c6f4325913d01cd7bb131a920d78.png)
 9. 在浏览器上登录 MinIO 的管理页面，可以查看到之前上传的图片，说明持久卷的数据还原成功。如下图所示：
->!本文使用 Restic 来备份和还原持久卷，但 Restic 不支持 `hostPath` 类型卷，详情请参见 [Restic 限制](https://velero.io/docs/v1.5/restic/#limitations)。
+>!本文使用 Restic 来备份和还原持久卷，但 Restic 不支持 `hostPath` 类型卷，详情请参见 [Restic 限制](https://velero.io/docs/v1.5/restic/#limitations)。 
 >
 ![](https://main.qcloudimg.com/raw/1ed0a87a01ece26311c41a026cc8013a.png)
 10. 另外在还原完成后，可以执行以下命令，将备份存储位置恢复为读写模式，以便在下次可以正常备份。示例如下：
@@ -200,7 +200,7 @@ kubectl delete crds -l component=velero
 
 ## 总结
 
-本文主要介绍 Kubernetes 集群资源备份工具 Velero，展示了如何配置腾讯云 COS 对象存储来作为 Velero 的后端存储，并成功实践 MinIO 服务资源和数据的备份和还原操作。
+本文主要介绍 Kubernetes 集群资源备份工具 Velero，展示了如何配置腾讯云 COS 对象存储来作为 Velero 的后端存储，并成功实践 MinIO 服务资源和数据的备份和还原操作。 
 
 
 
