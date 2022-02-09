@@ -3,7 +3,7 @@
 ## 实现原理
 直播内容安全通过“哑终端”的形式进入指定的 TRTC 房间，作为“观众”拉取音视频流，并针对拉取到音视频流进行内容审核，然后通过回调把违规信息发送到用户指定的 HTTP/HTTPS 服务上。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/9dd136e8b540f3e41b5941fad65b841c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4a2e43462a99c00539a11211af7611f5.png)
 
 ## 开通服务
 1. 进入 [腾讯云 TRTC 控制台](https://console.cloud.tencent.com/trtc)，开通 TRTC 服务。TRTC 会分配 SDKAppID，在创建内容审核时需要用到。（已经成功接入 TRTC 可以忽略该步骤）。
