@@ -1,7 +1,7 @@
 若您的数据储存在 Excel 文件中，可通过以下方式上传 Excel 数据源后进行分析
 
 ## 选择 Excel 建表
-进入项目后，选择**数据** > **数据表** > **新建数据表** > ** Excel 建表**。
+进入项目后，选择**数据** > **数据表** > **新建数据表** > **Excel 建表**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7de1bfb36e2ccf8e093995c570501eac.png)
 
 ## 上传文件

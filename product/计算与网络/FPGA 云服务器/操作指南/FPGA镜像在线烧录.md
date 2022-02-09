@@ -12,16 +12,16 @@
 4. 在弹出的“添加策略”窗口中进行配置：
    1. 在“选择模板”步骤中，进行以下配置。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e4f0405e9cd1e1d1a34fbb52a4bfa264.png)
-    - **被授权用户**：选择**指定用户**。
-    - **资源范围**：选择**整个存储桶**。
-    - **选择模板**：选择“只读对象（含列出对象列表）”。
+      - **被授权用户**：选择**指定用户**。
+      - **资源范围**：选择**整个存储桶**。
+      - **选择模板**：选择“只读对象（含列出对象列表）”。
    2. 单击**下一步**，完成权限配置。
    3. 在“配置策略”步骤中，进行以下配置。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/330610c96baa4bc46b33251d2d8c503f.png)
-    - **效力**：选择“允许”。
-    - **用户**：选择“云服务 - 腾讯云 CVM”。
-    - **资源**：选择“整个存储桶”。
-    - **操作**：选择“读操作（含列出对象列表）”。
+      - **效力**：选择“允许”。
+      - **用户**：选择“云服务 - 腾讯云 CVM”。
+      - **资源**：选择“整个存储桶”。
+      - **操作**：选择“读操作（含列出对象列表）”。
 5. 单击**完成**，完成权限配置。
 
 
@@ -36,13 +36,48 @@
 
 
 ### 进行烧录
-1. 通过 [API Inspector 工具](https://console.cloud.tencent.com/api/explorer?Product=cvm&Version=2017-03-12&Action=ProgramFpgaImage&SignVersion=)、[命令行工具 TCCLI](https://cloud.tencent.com/document/product/440) 或其他工具调用腾讯云 [在线烧录 FPGA 镜像](https://cloud.tencent.com/document/product/213/68353) API 接口进行烧录。
-2. 您在发起烧录流程后，需关注以下事项：
- - 可调用 [查看实例列表](https://cloud.tencent.com/document/product/213/15728) 接口，通过返回字段 `LatestOperation`  及 `OperationState`（当 `LatestOperation` 为 `ProgramFpgaImage` 时，`OperationState` 表示当前的烧录情况），获取 FPGA 镜像烧录流程的状态。
+通过 [API Explorer 工具](https://console.cloud.tencent.com/api/explorer?Product=cvm&Version=2017-03-12&Action=ProgramFpgaImage&SignVersion=)、[命令行工具 TCCLI](https://cloud.tencent.com/document/product/440) 或其他工具调用腾讯云 [在线烧录 FPGA 镜像](https://cloud.tencent.com/document/product/213/68353) API 接口进行烧
+
+#### 注意事项：
+- 可调用 [查看实例列表](https://cloud.tencent.com/document/product/213/15728) 接口，通过返回字段 `LatestOperation`  及 `OperationState`（当 `LatestOperation` 为 `ProgramFpgaImage` 时，`OperationState` 表示当前的烧录情况），获取 FPGA 镜像烧录流程的状态。
 <dx-alert infotype="explain" title="">
 由于 [查看实例列表](https://cloud.tencent.com/document/product/213/15728) 接口仅支持查询实例最近一次的操作状态，若您在发起镜像烧录后进行了其他实例操作，则可能无法获取镜像烧录流程的状态。后续可使用云审计查看镜像烧录状态，详情请参见 [查看操作记录事件详情](https://cloud.tencent.com/document/product/629/56259)。
 </dx-alert>
- -  由于目前 xilinx FPGA 卡的 user pf 和 mgmt pf 不互通，在发起烧录流程之后，还需要在子机内部执行以下命令，重新加载 xocl 驱动。
- ```
- modprobe -r xocl && modprobe xocl
- ```
+- 由于目前 xilinx FPGA 卡的 user pf 和 mgmt pf 不互通，在发起烧录流程之后，还需要在子机内部执行以下命令，重新加载 xocl 驱动。
+```
+modprobe -r xocl && modprobe xocl
+```
+ 
+ #### 在线烧录示例
+ 
+<dx-tabs>
+:::  使用 API Explorer
+ 1. 获取调用接口所需信息。
+    - 待烧录的实例 ID
+    - FPGA 镜像 COS URL
+    - FPGA 卡的 DBDF 号，可通过在实例内部执行 `lspci -v -D | grep -i xilinx` 命令获取。
+2. 使用 [API Explorer 工具](https://console.cloud.tencent.com/api/explorer?Product=cvm&Version=2017-03-12&Action=ProgramFpgaImage&SignVersion=) 对实例发起在线烧录。
+在页面中填写相关参数后，单击**发送请求**发起 API 调用。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/000e53f07cdc2ac87f2be9ae38b6ab0e.png)
+:::
+:::  使用 TCCLI
+ 1. 参考 [安装 TCCLI](https://cloud.tencent.com/document/product/440/34011)，安装并配置命令行工具。
+ 2. 获取调用接口所需信息。
+    - 待烧录的实例 ID
+    - FPGA 镜像 COS URL
+    - FPGA 卡的 DBDF 号，可通过在实例内部执行 `lspci -v -D | grep -i xilinx` 命令获取。
+ 3. 执行命令发起烧录。示例如下：
+```
+tccli cvm ProgramFpgaImage \
+--InstanceId ins-abcdefgh \
+--FPGAUrl https://test-123456789.cos.ap-guangzhou.myqcloud.com/01_kernel_c.xclbin \
+--DBDFs ‘[“0000:00:08.0”]’
+```
+:::
+</dx-tabs>
+
+ 
+
+
+
+

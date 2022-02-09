@@ -2,7 +2,7 @@
 实时音视频 TRTC & 版权曲库 AME 在线 KTV 联合解决方案深度整合腾讯在音视频深度积累的技术能力以及音乐内容版权上的核心优势产生1+1大于2的化学反应，帮助开发者极速搭建在线 KTV 业务。
 
 - **实时音视频 TRTC** 提供全球端到端平均延时 &lt; 300 ms实时连麦以及10万人 &lt; 1s的超低延时观看的技术方案。
-同时面向在线KTV场景提供48kHz采样率，128kbps立体声音频、低延时耳返让线上拥有媲美线下的KTV体验；更有变声、气氛音效、混响等多种趣味玩法。
+同时面向在线 KTV 场景提供48kHz采样率，128kbps立体声音频、低延时耳返让线上拥有媲美线下的 KTV 体验；更有变声、气氛音效、混响等多种趣味玩法。
 - **正版曲库直通车**聚合 TME 等多家版权方优质曲目资源，结合腾讯云存储、编解码、内容分发、边缘计算等能力，有效解决多场景音乐素材应用版权问题。您可在控制台选购单曲/曲库包，提供下载/API/SDK 多种接入方式，灵活高效实现正版音乐素材在多端的顺畅播放与应用。
 
 ## 产品原理
@@ -180,7 +180,7 @@ copyrightedMedia.setLicense(Context context, String licenseUrl, String key);
 </tr><tr>
 <td>licenseUrl</td>
 <td>String</td>
-<td>控制台生成的 LicenseURL</td>
+<td>控制台生成的 License URI</td>
 </tr><tr>
 <td>key</td>
 <td>String</td>
@@ -191,7 +191,7 @@ copyrightedMedia.setLicense(Context context, String licenseUrl, String key);
 ```java
 copyrightedMedia.init();
 ```
-- **销毁TXCopyrightedMedia**
+- **销毁 TXCopyrightedMedia**
 当程序退出后调用销毁。
 ```java
 copyrightedMedia.destroy();
@@ -215,7 +215,7 @@ copyrightedMedia.preloadMusic(String musicId, String bitrateDefinition, String p
 </tr><tr>
 <td>playToken</td>
 <td>String</td>
-<td>播放Token</td>
+<td>播放 Token</td>
 </tr><tr>
 <td>callback</td>
 <td>ITXMusicPreloadCallback</td>
@@ -253,7 +253,7 @@ errCode 返回错误码定义如下：
 </tr><tr>
 <td>ERR_TOKEN_FAIL</td>
 <td>-3</td>
-<td>token 过期</td>
+<td>Token 过期</td>
 </tr><tr>
 <td>ERR_NET_FAIL</td>
 <td>-4</td>
@@ -338,7 +338,7 @@ String MusicUri = TXCopyrightedMedia.genMusicURI(String musicId，int musicType,
 <tbody><tr>
 <td>musicUri</td>
 <td>String</td>
-<td><ul><li>原唱&伴奏：传给 TRTC 播放的 URL，格式 <code>CopyRightMusic://audiotype=xxxx&amp;musicid=xxxx&amp;bitrate=xxxx；</code></li><li>歌词：返回歌词的本地路径</li></ul></td>
+<td><ul><li>原唱&伴奏：传给 TRTC 播放的 URI，格式 <code>CopyRightMusic://audiotype=xxxx&amp;musicid=xxxx&amp;bitrate=xxxx；</code></li><li>歌词：返回歌词的本地路径</li></ul></td>
 </tr>
 </tbody></table>
 - **清理歌曲缓存**
@@ -360,7 +360,7 @@ copyrightedMedia.setMusicCacheMaxCount(int maxCount);
 </tbody></table>
 
 ### 代码示例
-- application 创建时候调用:
+- application 创建时候调用：
 ```java
 TXCopyrightedMedia.instance().setLicense(context, licenseUrl, key);
 ```

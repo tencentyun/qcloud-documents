@@ -9,7 +9,9 @@
 
 ## 一、队列模型
 1. 在控制台创建符合需求的队列服务，参见 [创建队列服务](https://cloud.tencent.com/document/product/1496/61015)。
-   > ? 目前创建消息队列可以在控制台，或者通过云 API 方式来创建，使用云API 需要安装相关 SDK，SDK 安装可参见 [PHP SDK 3.0安装使用](https://cloud.tencent.com/document/sdk/PHP)。
+<dx-alert infotype="explain" title="">
+目前创建消息队列可以在控制台，或者通过云 API 方式来创建，使用云API 需要安装相关 SDK，SDK 安装可参见 [PHP SDK 3.0安装使用](https://cloud.tencent.com/document/sdk/PHP)。
+</dx-alert>
 2. 添加依赖。
 <dx-codeblock>
 :::  shell
