@@ -146,7 +146,6 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 | ------------------------------------------------------------ | ---------------------------------- |
 | [onReceiveSpeechInvitation](#onreceivespeechinvitation)      | 用户收到主持人发言邀请回调。       |
 | [onReceiveInvitationCancelled](#onreceiveinvitationcancelled) | 用户收到主持人取消发言邀请回调。   |
-| [onReceiveReplyToSpeechInvitation](#onreceivereplytospeechinvitation) | 主持人收到用户同意邀请发言的回调。 |
 | [onReceiveSpeechApplication](#onreceivespeechapplication)    | 主持人收到用户发言申请的回调。     |
 | [onSpeechApplicationCancelled](#onspeechapplicationcancelled) | 用户取消申请发言回调。             |
 | [onSpeechApplicationForbidden](#onspeechapplicationforbidden) | 主持人禁止申请发言回调。           |
@@ -1146,19 +1145,6 @@ void onReceiveInvitationCancelled(String userId);
 | ------- | ------ | ------------ |
 | userId | String | 主持人用户 ID。 |
 
-### onReceiveReplyToSpeechInvitation
-
-主持人收到用户同意邀请发言的回调。
-```java
-void onReceiveReplyToSpeechInvitation(String userId, boolean agree);
-```
-
-参数如下表所示：
-
-| 参数 | 类型| 含义 |
-| ------- | ------ | ---------- |
-| userId | String | 用户 ID。  |
-| agree| boolean| 是否同意。 |
 
 ### onReceiveSpeechApplication
 
