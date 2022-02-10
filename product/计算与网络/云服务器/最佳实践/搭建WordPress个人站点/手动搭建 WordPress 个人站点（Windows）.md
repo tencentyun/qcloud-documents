@@ -74,7 +74,7 @@ create database wordpress;
 1. 使用浏览器访问 `http://localhost/wp-admin/install.php`，转至 WordPress 安装页，开始配置 WordPress。
 2. 根据 WordPress 安装向导提示输入以下安装信息，单击**安装 WordPress**，完成安装。
 <table>
-	<tr><th width="14%">所需信息</th><th>说明</th></tr>
+	<tr><th width="16%">所需信息</th><th>说明</th></tr>
 	<tr><td>站点标题</td><td>WordPress 网站名称。</td></tr>
 	<tr><td>用户名</td><td>WordPress 管理员名称。出于安全考虑，建议设置一个不同于 admin 的名称。因为与默认用户名称 admin 相比，该名称更难破解。</td></tr>
 	<tr><td>密码</td><td>可以使用默认强密码或者自定义密码。请勿重复使用现有密码，并确保将密码保存在安全的位置。</td></tr>
