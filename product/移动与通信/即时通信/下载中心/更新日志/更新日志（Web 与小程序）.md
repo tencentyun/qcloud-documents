@@ -2,7 +2,7 @@
 
 **修复**
 
-Windows 微信访问小程序和 uni-app 打包 android app（部分设备）后遇到的无法登录的问题。
+Windows 微信访问小程序和 uni-app 打包 Android app（部分设备）后遇到的无法登录的问题。
 
 ### 2.16.2 @2022.2.10
 
