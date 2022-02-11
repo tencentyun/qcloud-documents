@@ -15,8 +15,8 @@ NAT 防火墙 DNS 开关开启后，系统会修改所接入 VPC 的 DNS 解析�
 ![](https://qcloudimg.tencent-cloud.cn/raw/5ccbd4362f9e3050f90ca972fe96e22b.png)
 
 ## 步骤1：创建 NAT 防火墙[](id:step1)
-1. 登录 [云防火墙控制台](https://console.cloud.tencent.com/cfw/asset)，在左侧导航中，单击**防火墙开关** > **NAT 边界开关**。
-2. 在 NAT 边界开关页面，单击**网络拓扑** > **创建实例**，选择所需地域。
+1. 登录 [云防火墙控制台](https://console.cloud.tencent.com/cfw/asset)，在左侧导航中，单击**防火墙开关** > **NAT 边界开关** > **网络拓扑**。
+2. 在网络拓扑页面，单击**创建实例**，选择所需地域。
 ![](https://qcloudimg.tencent-cloud.cn/raw/52ddea2afea3ed5f3cc6efaeaf0b43d0.png)
 3. 在新建 NAT 边界防火墙弹窗中，配置相关参数，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c5b25f65243eb0f72e86f0ec1720ba0e.png)
@@ -31,14 +31,12 @@ NAT 防火墙 DNS 开关开启后，系统会修改所接入 VPC 的 DNS 解析�
 		- **新增模式**：若当前地域没有 NAT 网关，新增模式可以通过 NAT 边界防火墙内置的 NAT 功能，实现指定实例通过防火墙访问互联网。
 		- **接入模式**：若当前地域已有 NAT 网关，或者希望公网对外的出口 IP 保持不变，接入模式可以将 NAT 边界防火墙平滑接入到 NAT 网关与 CVM 实例之间。
 	- **弹性 IP**：若选择新建弹性 IP，系统会自动为用户申请一个弹性 IP，用户也可从所有闲置的弹性 IP 中选择一个进行绑定。
-4. 选择需要接入的 VPC，单击**创建**。
-![](https://qcloudimg.tencent-cloud.cn/raw/64b4218d798b56456fb99d81942a6aca.png)
-5. 等待若干分钟后，即可在防火墙实例列表中，查看刚刚创建的实例。
+4. 选择需要接入的 VPC，单击**创建**，等待若干分钟后，即可在防火墙实例列表中，查看刚刚创建的实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b6656b22872bb4e84573fb083e50b19c.png)
 
 
 ## 步骤2：开启防火墙开关
-在 [NAT 边界开关页面](https://console.cloud.tencent.com/cfw/switch/nat?tab=switch)，单击**防火墙开关** ，根据实际需求选择数据库在所在的子网，单击![](https://qcloudimg.tencent-cloud.cn/raw/9345ed8d746cbba9548277c2a156c95b.png)开启防火墙开关。
+在 [NAT 边界开关页面](https://console.cloud.tencent.com/cfw/switch/nat?tab=switch)，单击**防火墙开关** ，根据实际需求选择数据库所在的子网，单击![](https://qcloudimg.tencent-cloud.cn/raw/9345ed8d746cbba9548277c2a156c95b.png)开启防火墙开关。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3830acc3569c4f40e7e717be0deb105a.png)
 
 

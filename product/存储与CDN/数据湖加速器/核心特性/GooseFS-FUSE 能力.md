@@ -68,7 +68,7 @@ conf 目录下：
 - workers：worker 服务器的 IP 配置文件
 - goosefs-site.properties：goosefs 配置文件
 - libexec：goosefs-fuse 运行依赖的 lib 库文件
-- goosefs-fuse-1.1.0.jar：goosefs-fuse 后台运行的 jar 包
+- goosefs-fuse-1.2.0：goosefs-fuse 后台运行的 jar 包
 - log：日志目录
 
 ## 可选配置

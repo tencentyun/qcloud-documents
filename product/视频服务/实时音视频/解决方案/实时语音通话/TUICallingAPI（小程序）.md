@@ -1,5 +1,5 @@
 ## 组件介绍
-TUICalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯云信令 SDK（TSignalling）组合而成，支持1V1，多人场景下的语音通话。TUICalling 是一个开源组件，依赖闭源的信令 SDK（TSignalling）进行状态管理，通过 C2C 通信，完成信令传递。组件可快速服务线上客服，咨询，医疗问诊，跨端实时通话等应用场景。您可前往 [ **Github** ](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/TRTCScenesDemo)或单击 [ **ZIP** ](https://web.sdk.qcloud.com/component/trtccalling/download/trtc-calling-miniapp.zip)，下载相关 SDK 及配套的 Demo 源码。
+TUICalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯云信令 SDK（TSignalling）组合而成，支持1V1，多人场景下的语音通话。TUICalling 是一个开源组件，依赖闭源的信令 SDK（TSignalling）进行状态管理，通过 C2C 通信，完成信令传递。组件可快速服务线上客服，咨询，医疗问诊，跨端实时通话等应用场景。您可前往 [ **Github** ](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/TRTCScenesDemo) 或单击 [**ZIP**](https://web.sdk.qcloud.com/component/trtccalling/download/trtc-calling-miniapp.zip)，下载相关 SDK 及配套的 Demo 源码。
 ![](https://web.sdk.qcloud.com/component/trtccalling/doc/miniapp/6b1368e2186abcd5126fc1c165f2fb78.png)
 
 ## 环境要求
@@ -8,35 +8,34 @@ TUICalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
 - 小程序基础库最低版本要求：2.10.0。
 - 由于微信开发者工具不支持原生组件（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签），需要在真机上进行运行体验。
 - 由于小程序测试号不具备 &lt;live-pusher&gt; 和 &lt;live-player&gt; 的使用权限，需要申请常规小程序账号进行开发。
-- 不支持 uniapp 开发环境，请使用原生小程序开发环境。
+- 支持 uniapp 开发环境，详情请参见 [视频通话(uni-app / 小程序)](https://cloud.tencent.com/document/product/647/68087)。
 
 ## 前提条件
 1. 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 2. **开通小程序类目与推拉流标签权限（如不开通则无法正常使用）**。
 出于政策和合规的考虑，微信暂未放开所有小程序对实时音视频功能（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签）的支持：
- - 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
- - 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
- - 符合类目要求的小程序，需要在 **[微信公众平台](https://mp.weixin.qq.com)** > **开发** > **开发管理** > **接口设置** 中自助开通该组件权限，如下图所示：
+	- 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
+	- 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
+	- 符合类目要求的小程序，需要在 **[微信公众平台](https://mp.weixin.qq.com)** > **开发** > **开发管理** > **接口设置** 中自助开通该组件权限，如下图所示：
 ![](https://main.qcloudimg.com/raw/dc6d3c9102bd81443cb27b9810c8e981.png)
 3. **配置推流域名及 IM 域名**到小程序控制台 request 合法域名。
   因 TUICalling 使用 TSignalling（IM） 进行信令交互，涉及使用 [IM 的受信域名](https://web.sdk.qcloud.com/im/doc/zh-cn/tutorial-02-upgradeguideline.html)。
 ```js
-  https://official.opensso.tencent-cloud.com
-  https://yun.tim.qq.com
-  https://cloud.tencent.com
-  https://webim.tim.qq.com
-  https://query.tencent-cloud.com
-  wss://wss.im.qcloud.com
-  wss://wss.tim.qq.com
-  https://web.sdk.qcloud.com
+https://official.opensso.tencent-cloud.com
+https://yun.tim.qq.com
+https://cloud.tencent.com
+https://webim.tim.qq.com
+https://query.tencent-cloud.com
+wss://wss.im.qcloud.com
+wss://wss.tim.qq.com
+https://web.sdk.qcloud.com
 ```
-4. 不支持 uniapp、taro 开发环境，请使用原生小程序开发环境。
 
 ## 支持平台
 
 | 微信小程序 | QQ小程序 |
 | ---------- | -------- |
-| ✓          | ✓        |
+| &#10003;          |&#10003;        |
 
 ## 支持框架
 
@@ -134,10 +133,10 @@ TUICallingContext.destroyed()
 #### call({userID, type})
 进行某个 user 进行呼叫。
 
-| 参数 | 含义 | 
-|---------|---------|
-| userID | 希望呼叫用户的 userID。 | 
-| type | 通话类型，type = 1：语音通话，type =2：视频通话。 | 
+| 参数 | 类型 | 含义 | 
+|---------|---------|---------|
+| userID | String | 希望呼叫用户的 userID。 | 
+| type | Number | 通话类型，type = 1：语音通话，type =2：视频通话。 | 
 
 ```javascript
 let userID = 'test'
@@ -152,7 +151,7 @@ TUICallingContext.call({userID, type})
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userIDList | Arrary | 拨打的用户列表 |
+| userIDList | Array | 拨打的用户列表 |
 |type|Number|type 为通话类型，1：语音通话，2：视频通话。|
 |groupID|String| IM 群组的 groupID。|
 
@@ -173,7 +172,7 @@ TUICallingContext.groupCall({userIDList, type, groupID})
 
 ## 技术咨询[](id:QQ)
 
-了解更多详情您可以 QQ 咨询：646165204<dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
+了解更多详情您可以 QQ 咨询：592465424 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
 
 
 ## 参考文档

@@ -24,7 +24,7 @@ GitLab 是使用 Ruby 开发的开源版本管理系统，以 Git 作为代码�
 yum install -y curl policycoreutils-python-utils openssh-server
 ```
 :::
-::: CentOS 7.7
+::: CentOS 7.9
 ```
 yum install -y curl policycoreutils-python openssh-server
 ```

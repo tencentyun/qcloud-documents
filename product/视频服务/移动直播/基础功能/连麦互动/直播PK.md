@@ -55,12 +55,12 @@
 <tr> 
   <th><div align=center width=15%>主播 A（手机 A)</div></th>
   <th><div align=center>主播 B（手机 B）</div></th>
-  <th><div align=center>主播 A 的观众</div></th>
+  <th><div align=center>主播 A 的观众（手机 C)</div></th>
 </tr><tr>
   <td>
   <div align=center><img src="https://main.qcloudimg.com/raw/d3f44a38c294cec0e0d5d4597948795f.png" width=250px></div>
 </td><td>
-  <div align=center><img src="https://main.qcloudimg.com/raw/d3f44a38c294cec0e0d5d4597948795f.png" width=250px></div>
+  <div align=center><img src="https://main.qcloudimg.com/raw/3d56a195860bc82fab2653aaf37b9414.png" width=250px></div>
 </td><td>
   <div align=center><img src="https://main.qcloudimg.com/raw/df3ae3b3dcebb39404e50dfbc7667ad5.png" width=250px></div>
 </td>

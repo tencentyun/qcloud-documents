@@ -14,7 +14,7 @@
 >! 在配置 SDK 前，确保已创建 Android 平台的应用。
 >
 
-1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，在【产品管理】>【配置管理】页面获取应用的 AccessID、AccessKey。
+1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，在**产品管理**>**配置管理**页面获取应用的 AccessID、AccessKey。
 2. 在 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面，获取当前最新版本号。
 ![](https://main.qcloudimg.com/raw/37b19f4e6c8dba5084c052f7e442be7f.png)
 3. 在 app build.gradle 文件下，配置以下内容：
@@ -151,40 +151,68 @@ dependencies {
 
 ```xml
 <application>
-    <!-- 应用的其它配置 -->
-    <uses-library android:name="org.apache.http.legacy" android:required="false"/> 
-    <!-- 【必须】 移动推送 TPNS 默认通知 -->
     <activity android:name="com.tencent.android.tpush.TpnsActivity"
-               android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:launchMode="singleInstance"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="${applicationId}.OPEN_TPNS_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
             <intent-filter>
                 <data
                     android:scheme="tpns"
-                    android:host="应用包名"/>
+                    android:host="${applicationId}"/>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action" />
+            </intent-filter>
         </activity>
-		
-    <!-- 【必须】 移动推送 TPNS receiver广播接收 -->
-    <receiver
-        android:name="com.tencent.android.tpush.XGPushReceiver"
-        android:process=":xg_vip_service">
-        <intent-filter android:priority="0x7fffffff">
-            <!-- 【必须】 移动推送 TPNS SDK的内部广播 -->
-            <action android:name="com.tencent.android.xg.vip.action.SDK" />
-            <action android:name="com.tencent.android.xg.vip.action.INTERNAL_PUSH_MESSAGE" />
-            <action android:name="com.tencent.android.xg.vip.action.ACTION_SDK_KEEPALIVE" />
-            <!-- 【可选】 系统广播：网络切换 -->
-            <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            <!-- 【可选】 系统广播：开屏 -->
-            <action android:name="android.intent.action.USER_PRESENT" />
-            <!-- 【可选】 一些常用的系统广播，增强移动推送 TPNS service的复活机会，请根据需要选择。当然，您也可以添加App自定义的一些广播让启动service -->
-            <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
-            <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-            <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-        </intent-filter>
-    </receiver>
+
+        <activity
+            android:name="com.tencent.android.tpush.InnerTpnsActivity"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="${applicationId}.OPEN_TPNS_ACTIVITY_V2" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <data
+                    android:host="${applicationId}"
+                    android:scheme="stpns" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action" />
+            </intent-filter>
+        </activity>
+
+        <!-- 【必须】 信鸽receiver广播接收 -->
+        <receiver
+            android:name="com.tencent.android.tpush.XGPushReceiver"
+            android:exported="false"
+            android:process=":xg_vip_service">
+
+            <intent-filter android:priority="0x7fffffff">
+
+
+                <!-- 【必须】 信鸽SDK的内部广播 -->
+                <action android:name="com.tencent.android.xg.vip.action.SDK" />
+                <action android:name="com.tencent.android.xg.vip.action.INTERNAL_PUSH_MESSAGE" />
+                <action android:name="com.tencent.android.xg.vip.action.ACTION_SDK_KEEPALIVE" />
+            </intent-filter>
+
+        </receiver>
 
     <!-- 【必须】移动推送 TPNS service -->
     <service
@@ -272,7 +300,7 @@ dependencies {
 
 >!
 >  - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
->  - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置。
+>  - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置，否则会导致注册推送服务失败并返回-502或1008003错误码。
 >  在 AndroidManifest 文件 application 标签内添加以下元数据：
 > ```
 <application>

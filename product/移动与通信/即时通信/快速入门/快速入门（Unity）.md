@@ -52,7 +52,8 @@
 
 [](id:step5)
 ### 步骤5：测试脚本
-1. 您可 [下载测试脚本](https://imgcache.qq.com/operation/dianshi/other/Demo.98f90f6fc7fe192159cd94bc85c848a45af7fd6b.zip)，将文件解压后，放入项目中，并绑定 TestApi.cs 到任意场景上。
+1. 您可 [下载测试脚本](https://imgcache.qq.com/operation/dianshi/other/Demo.1fdc6bd474aa3d12f0f3061155d4a5accdf30c7b.zip
+)，将文件解压后，放入项目中，并绑定 TestApi.cs 到任意场景上。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b4d770775523fdd76b75f1d80f07c925.jpg)
 2. 选中场景并运行，配置 [步骤1](#step1) 中的 SDKAppID，UserID，UserSig 开始测试。
 ![](https://qcloudimg.tencent-cloud.cn/raw/940da8044cd80db27d08a7b0dff45b94.png)
@@ -60,7 +61,7 @@
 ## 常见问题
 
 ### 支持哪些平台？
-目前支持 iOS 和 Android 两个平台，另外 Windows 和 Mac 版正在开发中，敬请期待。
+目前支持 iOS、Android、Windows 和 Mac。
 
 ### Android 单击 Build And Run 报错找不到可用设备？
 确保设备没被其他资源占用，或单击 Build 生成 apk 包，再拖动进模拟器里运行。

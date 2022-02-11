@@ -46,16 +46,16 @@
 ### 证书安装
 1. 前往 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载 SSL 证书（名称以 `cloud.tencent.com` 为例）文件压缩包，并解压到本地目录。
 解压缩后，可获得相关类型的证书文件。其中包含 Nginx 文件夹和 CSR 文件：
- - **文件夹名称**：Nginx
- - **文件夹内容**：
+   - **文件夹名称**：Nginx
+   - **文件夹内容**：
      - `1_cloud.tencent.com_bundle.crt` 证书文件
      - `2_cloud.tencent.com.key` 私钥文件
-  - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
+   - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
 <dx-alert infotype="explain" title="">
 CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 </dx-alert>
 2. 在本地计算机中使用远程登录工具（如 WinSCP），通过用户名密码方式或者 SSH 密钥对方式登录轻量应用服务器。详情请参见 [远程登录Linux实例](https://cloud.tencent.com/document/product/1207/44578)。
-3. 将已获取到的 `1_cloud.tencent.com_bundle.crt` 证书文件和 `2_cloud.tencent.com.key` 私钥文件从本地目录拷贝到轻量应用服务器 Nginx 默认配置文件目录中。
+3. 将已获取到的 `1_cloud.tencent.com_bundle.crt` 证书文件和 `2_cloud.tencent.com.key` 私钥文件从本地目录拷贝到轻量应用服务器 Nginx 默认配置文件目录中。您可参考 [如何将本地文件拷贝到轻量应用服务器](https://cloud.tencent.com/document/product/1207/53135) 上传证书文件。
 <dx-alert infotype="explain" title="">
 WordPress 镜像的默认配置文件目录为 `/www/server/nginx/conf`。
 </dx-alert>
@@ -134,9 +134,9 @@ ssl_certificate_key 2_cloud.tencent.com.key;    #填写您的私钥文件名称�
 ```
 sudo nginx -t
 ```
- - 若输出信息如下如所示，则为配置成功，请继续执行 [步骤8](#Step8)。
+   - 若输出信息如下如所示，则为配置成功，请继续执行 [步骤8](#Step8)。
 ![](https://main.qcloudimg.com/raw/bead4ecd767b34c600f1ce4d5844cac0.png)
- - 若存在错误提示，请您重新配置或者根据提示修改存在问题。
+   - 若存在错误提示，请您重新配置或者根据提示修改存在问题。
 8. [](id:Step8)执行以下命令，重启 Nginx。
 ```
 sudo systemctl reload nginx
