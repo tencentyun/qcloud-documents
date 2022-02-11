@@ -73,6 +73,7 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
 
 - **view：大小和位置**
 如需修改画面的大小及位置，直接调整 [step1](#step_1) 中添加的`video_view`控件的大小和位置即可。
+
 - **setRenderMode：铺满or适应**
 <table>
 <thead><tr><th>可选值</th><th>含义</th></tr></thead>
@@ -83,6 +84,7 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
 <td>RENDER_MODE_ADJUST_RESOLUTION</td>
 <td>将图像等比例缩放，适配最长边，缩放后的宽和高都不会超过显示区域，居中显示，画面可能会留有黑边。</td></tr>
 </tbody></table>
+
 - **setRenderRotation：画面旋转**
 <table>
 <thead><tr><th>可选值</th><th>含义</th></tr>
@@ -236,6 +238,7 @@ mLivePlayer.seek(600); // 从第10分钟开始播放
 
 >? time 为视频流时间点，当前取值为600，单位为秒。
 
+
 接入时移功能需要在后台打开2处配置：
 
 1. 录制：配置时移时长、时移储存时长。
@@ -324,7 +327,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 您可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后 SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）通知给您。
 
 ### 播放事件
-| 事件 ID                 |    数值  |  含义说明                    |   
+| 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 | PLAY_EVT_CONNECT_SUCC     |  2001    | 已经连接服务器            |
 | PLAY_EVT_RTMP_STREAM_BEGIN|  2002    | 已经连接服务器，开始拉流（仅播放 RTMP 地址时会抛送） |
@@ -351,7 +354,6 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 
  **如何判断直播已结束？**
 RTMP 协议中规定了直播结束事件，但是 HTTP-FLV 则没有，如果您在播放 FLV 的地址时直播结束了，可预期的 SDK 的表现是：SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 PLAY_ERR_NET_DISCONNECT 事件。
-所以 `-2301`要监听，用来作为直播结束的判定事件。
 
 
 ### 警告事件
