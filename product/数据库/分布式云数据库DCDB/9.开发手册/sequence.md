@@ -104,7 +104,7 @@ mysql> select * from test.t1;
 2 rows in set (0.00 sec)
 ```
 
-如需获取上一次的值，以连接相关数据：如果之前没有用 nextval 命令获取过数据，数值将返回为0。
+如需获取上一次的值以连接相关数据：如果之前没有用 nextval 命令获取过数据，数值将返回为0。
 ```
 select tdsql_lastval(test.s1)
 select tdsql_previous value for test.s1;
