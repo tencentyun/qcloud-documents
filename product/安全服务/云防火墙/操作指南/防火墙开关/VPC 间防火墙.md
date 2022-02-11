@@ -87,6 +87,19 @@
 >?销毁实例后，对应地域的 VPC 间防火墙实例将被回收，所有数据将清除，您的 VPC 间防火墙配额将会归还，系统会自动还原网络和路由设置。
 >
 
+#### 重新选择接入实例
+1. 在 VPC 间开关页面，选择所需实例，单击防火墙开关处的**数字**。
+![](https://qcloudimg.tencent-cloud.cn/raw/4297db05620764ab6a04385344e9c4fd.png)
+2. 在防火墙开关页面，单击![](https://qcloudimg.tencent-cloud.cn/raw/3ab29f514c114f26fdd157e67e15628a.png)关闭已开启的防护墙。
+![](https://qcloudimg.tencent-cloud.cn/raw/861c4edcd14449430b1ccf5a749b4785.png)
+3. 在防火墙开关页面，单击 **更多** > **重新选择接入实例**，进入编辑 VPC 间防火墙页面。
+![](https://qcloudimg.tencent-cloud.cn/raw/904e5279e7560f5ac126b7d58025f72c.png)
+4. 在编辑 VPC 间防火墙页面，选择所需实例，单击**下一步**。
+![](https://qcloudimg.tencent-cloud.cn/raw/d8a0cf72381de0d7275c5363ea468b88.png)
+5. 选择选择部署的地域/可用区，单击**完成**，即可完成重新选择接入的实例。
+>?异地灾备：勾选后，支持将主机和备机防火墙部署在不同可用区。
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/e70b43d04e0117eb41313281ad7498e8.png)
 ## 查看网络拓扑
 云防火墙提供了一个可视化视图，帮助您快速梳理 VPC间资产的访问关系，具体操作如下所示。
 1. 在 [VPC 间开关页面](https://console.cloud.tencent.com/cfw/switch/vpc/vpc?tab=instance)，单击**网络拓扑**，查看接入的 VPC 网络实例详情。
@@ -130,6 +143,8 @@
 #### 查看日志
 在防火墙开关页面，单击 **更多** > **查看日志**，可以选择查看流量访问控制日志或流量日志。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8199d1c748860f4c7113f24b4d2604ba.png)
+
+
 
 
 ## 使用 VPC 视图梳理 VPC 间的访问关系
