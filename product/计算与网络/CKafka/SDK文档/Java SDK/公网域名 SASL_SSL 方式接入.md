@@ -183,6 +183,10 @@ public class CKafkaConfigurer {
       props.put(ProducerConfig.RETRIES_CONFIG, 5);
       //设置客户端内部重试间隔。
       props.put(ProducerConfig.RECONNECT_BACKOFF_MS_CONFIG, 3000);
+      //ack=0   producer 将不会等待来自 broker 的确认，重试配置不会生效。注意如果被限流了后，就会被关闭连接。
+      //ack=1   broker leader 将不会等待所有 broker follower 的确认，就返回 ack。
+      //ack=all broker leader 将等待所有 broker follower 的确认，才返回 ack。
+      props.put(ProducerConfig.ACKS_CONFIG, "all");
       //构造 Producer 对象，注意，该对象是线程安全的，一般来说，一个进程内一个Producer对象即可。
       KafkaProducer<String, String> producer = new KafkaProducer<>(props);
       //构造一个消息队列 Kafka 版消息。
@@ -252,7 +256,7 @@ public class KafkaSaslConsumerDemo {
       props.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, kafkaProperties.getProperty(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG));
       props.put(SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG,kafkaProperties.getProperty(SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG));
       //消费者超时时长
-      //消费者超过该值没有返回心跳，服务端判断消费者处于非存活状态，服务端将消费者从Consumer Group移除并触发Rebalance，默认30s
+      //消费者超过该值没有返回心跳，服务端判断消费者处于非存活状态，服务端将消费者从 Consumer Group 移除并触发Rebalance，默认30s。
       props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, 30000);
       //两次poll的最长时间间隔
       //0.10.1.0 版本前这2个概念是混合的，都用session.timeout.ms表示
