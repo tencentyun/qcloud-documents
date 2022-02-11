@@ -6,7 +6,7 @@ HTTP2.0 作为最新的 HTTP 协议，大幅提升了 Web 性能，进一步减�
 ## 配置指南
 ### 查看配置
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面【Https 配置】中，可看到【HTTP2.0 配置】：
-![](https://main.qcloudimg.com/raw/6baf0831d42acad8b8ab1a0c705805bf.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/fa2d1fa2c007a472a86b01ec63f5feec.png" width="60%">
 
 ###  修改配置
 通过单击开关，可对 HTTP2.0 配置进行开启或关闭操作，删除证书配置后，HTTP2.0 配置会同步失效：
