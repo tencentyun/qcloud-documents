@@ -1,7 +1,7 @@
 关键字 Sequence 语法和 MariaDB/Oracle 兼容，但是保证分布式全局递增且唯一，具体使用如下：
 
 >?
->- 在 TDSQL MySQL版 分布式数据库当中使用 Sequence 时，须在该关键字前面加 `tdsql_` 前缀。在 proxy 版本1.19.5-M-V2.0R745D005之后的数据库，可通过数据库管理语句 `/*Proxy*/show status` 查询，若 proxy 版本较老可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行升级。
+>- 在 TDSQL MySQL版 分布式数据库当中使用 Sequence 时，须在该关键字前面加 `tdsql_` 前缀，且要求 proxy 版本最低为1.19.5-M-V2.0R745D005；可通过数据库管理语句 `/*Proxy*/show status` 查询 proxy 版本，若 proxy 版本较老可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行升级。
 >- 目前 Sequence 为保证分布式全局数值唯一，导致性能较差，主要适用于并发不高的场景。
 
 创建序列需要 CREATE SEQUENCE 系统权限。序列的创建语法如下：
