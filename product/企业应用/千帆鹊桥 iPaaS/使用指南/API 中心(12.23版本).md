@@ -60,7 +60,7 @@ API 管理功能支持 3.0.0 版本的 OpenAPI 规范。OpenAPI 3.0.0 规范的�
 
 
 ## 使用流程
-1. [创建 API 服务](#create)及其 [API Endpoint](#manage)，流程参考上方 。
+1. [创建 API 服务](#create)及其 [API Endpoint](#manage)，流程参考上方。
 2. 获取 API 请求地址。
  1. 在 API 服务列表中获取 API 服务的域名。![](https://qcloudimg.tencent-cloud.cn/raw/08e23ac17016f047fa5a7466bd5e4b52.png)
  2. 在 API Endpoint 列表中获取需要请求的 Endpoint 路径。![](https://qcloudimg.tencent-cloud.cn/raw/7d7c31eb072b541db869cab21a73e46b.png)

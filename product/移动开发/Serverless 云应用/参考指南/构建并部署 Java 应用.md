@@ -96,7 +96,7 @@ FROM adoptopenjdk/openjdk11:alpine-slim
 COPY --from=builder /app/target/helloworld-*.jar /helloworld.jar
 
 # 启动服务
-CMD ["java", "-Djava.security.egd=file:/d步骤1urandom", "-jar", "/helloworld.jar"]
+CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/helloworld.jar"]
 :::
 </dx-codeblock>
 2. 添加一个 `.dockerignore` 文件，以从容器映像中排除文件：
