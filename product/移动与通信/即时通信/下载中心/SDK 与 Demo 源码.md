@@ -59,8 +59,6 @@
       <td style="text-align:center">win32：1.4MB<br>win64：1.5MB</td>
    </tr>
 </table>
-​
-
 
 [](id:web)
 <table>
