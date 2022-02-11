@@ -289,3 +289,4 @@ QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法�
 @end
 ```
 
+ 
