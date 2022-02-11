@@ -183,7 +183,6 @@ mysql> select nextval(test.s2);
 1 row in set (0.01 sec)
 ```
 
-
 需要注意，sequence 的部分关键字以 TDSQL_ 前缀开始：
 ```
  TDSQL_CYCLE
