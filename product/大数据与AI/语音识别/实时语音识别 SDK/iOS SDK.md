@@ -61,7 +61,7 @@ iOS SDK 接入请观看视频：
  QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
   						   secretId:kQDSecretId 
 					          secretKey:kQDSecretKey 
-					          projectId:kQDProjectId];
+					          projectId:0];
  config.sliceTime = 600;                        //语音分片时长600ms
  config.enableDetectVolume = YES;               //是否检测音量
  config.endRecognizeWhenDetectSilence = YES;    //是否检测到静音停止识别
@@ -289,4 +289,3 @@ QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法�
 @end
 ```
 
- 
