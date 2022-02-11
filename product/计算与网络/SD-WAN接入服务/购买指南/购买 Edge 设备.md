@@ -1,4 +1,4 @@
-购买 SD-WAN Edge 设备 SD-WAN 接入服务有 Edeg-100、Edeg-100-5G、Edeg-1000 三种硬件设备，您需要通过线下进行购买。
+购买 SD-WAN Edge 设备 SD-WAN 接入服务有 Edge-100、Edge-100-5G、Edge-1000 三种硬件设备，您需要通过线下进行购买。
 >?Edge-1000 目前 POC 测试中，如需体验，请联系[ 在线支持](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
 >
 
