@@ -6,21 +6,20 @@
 
 创建序列需要 CREATE SEQUENCE 系统权限。序列的创建语法如下：
 ```
-CREATE TDSQL_SEQUENCE 序列名
-[START WITH n]
-[{TDSQL_MINALUE/ TDSQL_MAXMINVALUE n| TDSQL_NOMAXVALUE}]
-[{CACHE n| NOCACHE}];
-[TDSQL_INCREMENT BY n]
-[{TDSQL_CYCLE|TDSQL_NOCYCLE}]
+　　CREATE TDSQL_SEQUENCE 序列名
+　　[START WITH n]
+　　[{TDSQL_MINALUE/ TDSQL_MAXMINVALUE n| TDSQL_NOMAXVALUE}]
+　　[TDSQL_INCREMENT BY n]
+　　[{TDSQL_CYCLE|TDSQL_NOCYCLE}]
 ```
 
 ## 创建 Sequence
 ```
-create tdsql_sequence test.s1 start with 12 tdsql_minvalue 10 maxvalue 50000 cache 1000 tdsql_increment by 5 tdsql_nocycle
-create tdsql_sequence test.s2 start with 12 tdsql_minvalue 10 maxvalue 50000 cache 1000 tdsql_increment by 1 tdsql_cycle
+create tdsql_sequence test.s1 start with 12 tdsql_minvalue 10 maxvalue 50000 tdsql_increment by 5 tdsql_nocycle
+create tdsql_sequence test.s2 start with 12 tdsql_minvalue 10 maxvalue 50000 tdsql_increment by 1 tdsql_cycle
 ```
-- 以上 SQL 语句包含开始值、最小值、最大值、步长、缓存大小及是否回绕6个参数，参数都应为正整数。
-- 参数默认值，开始值（1）、最小值（1）、最大值（LONGLONG_MAX-1）、步长（1）、缓存大小（1）、是否回绕（0）。
+- 以上SQL语句包含开始值、最小值、最大值、步长、缓存大小及是否回绕6个参数，参数都应为正整数。
+- 参数默认值，开始值（1）、最小值（1）、最大值（LONGLONG_MAX-1）、步长（1）、是否回绕（0）。
 
 ## 删除 Sequence
 ```
