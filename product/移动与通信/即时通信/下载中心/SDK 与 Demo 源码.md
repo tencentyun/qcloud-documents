@@ -3,11 +3,11 @@
 [](id:client)
 <table>
    <tr>
-      <th width="0px" style="text-align:center">终端 SDK</td>
-      <th width="0px" style="text-align:center" colspan='2'>下载地址</td>
-      <th width="0px"  style="text-align:center" colspan='2'>安装包增量</td>
-      <th width="0px"  style="text-align:center">集成指引文档</td>
-      <th width="0px"  style="text-align:center">更新日志</td>
+      <th width="10%" style="text-align:center">终端 SDK</td>
+      <th width="25%" style="text-align:center" colspan='2'>下载地址</td>
+      <th width="50%"  style="text-align:center" colspan='2'>安装包增量</td>
+      <th width="10%"  style="text-align:center">集成指引文档</td>
+      <th width="5%"  style="text-align:center">更新日志</td>
    </tr>
    <tr>
       <td rowspan='2' style="text-align:center">Android</td>
