@@ -295,7 +295,6 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 
  **如何判断直播已结束？**
 RTMP 协议中规定了直播结束事件，但是 HTTP-FLV 则没有，如果您在播放 FLV 的地址时直播结束了，可预期的 SDK 的表现是：SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 `PLAY_ERR_NET_DISCONNECT` 事件。
-所以 -2301 要监听，用来作为直播结束的判定事件。
 
 
 ### 警告事件
