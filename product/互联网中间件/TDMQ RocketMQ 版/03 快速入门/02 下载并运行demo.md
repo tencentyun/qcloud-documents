@@ -214,4 +214,4 @@ Topic:topic1 send success, queueId is: 1
     body=Hello world——8
    ```
 4. 登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，在**集群管理** > **Group** 页面，可查看与 Group 连接的客户端列表，单击操作列的**查看详情**，可查看消费者详情。
-	 ![](https://main.qcloudimg.com/raw/7187da67219534d767206553e2a383ab.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2a25497bb9161ab7fdd555ebfee0ccc9.png)
