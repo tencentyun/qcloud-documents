@@ -69,4 +69,4 @@
 
 ## 最佳实践
 
-请参见 Alluxio [使用文档](https://github.com/fluid-cloudnative/fluid/blob/master/docs/zh/TOC.md)。
+请参见 Fluid [使用文档](https://github.com/fluid-cloudnative/fluid/blob/master/docs/zh/TOC.md)。
