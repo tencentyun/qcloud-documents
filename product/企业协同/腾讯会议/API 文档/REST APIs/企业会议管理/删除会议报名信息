@@ -5,15 +5,19 @@
 ```plaintext
 https://api.meeting.qq.com/v1/meetings/{meeting_id}/enroll/unregistration
 ```
-## **输入参数**
+## 输入参数
 
 | 名称             | 类型       | 是否必须 | 备注                                                         |
 | ---------------- | ---------- | -------- | ------------------------------------------------------------ |
 | operator_id      | String     | 必须     | 操作者 ID。会议创建者可以删除报名信息。<br />operator_id 必须与 operator_id_type 配合使用。<br />根据 operator_id_type 的值，operator_id 代表不同类型。 |
 | operator_id_type | Integer    | 必须     | 操作者 ID 的类型： <br />1：企业用户 userid。                  |
 | instanceid       | Integer    | 必须     | 操作者的终端设备类型。                                         |
-| enroll_id_list   | Integer [] | 必须     | 报名 ID （`enroll_id`）列表。                                  |
+| enroll_id_list   | 报名对象数组 | 必须     | 报名 ID 列表。                                  |
 
+## 报名对象
+| 名称             | 类型       | 是否必须 | 备注                                                         |
+| ---------------- | ---------- | -------- | ------------------------------------------------------------ |
+| enroll_id   | Integer | 必须     | 报名 ID。                                  |
 
 ## 输出参数
 

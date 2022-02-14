@@ -31,8 +31,8 @@ https://api.meeting.qq.com/v1/meetings/{meeting_id}/enroll/import
 | 名称                | 类型      | 备注                                                         |
 | ------------------- | --------- | ------------------------------------------------------------ |
 | total_count         | Integer   | 成功导入的报名信息条数。                                       |
-| enroll_list         | Object [] | 报名对象列表。                                                 |
-| user_non_registered | String [] | 通过 userid 方式导入时，本企业内未注册用户。返回未注册的 userid 数组。|
+| enroll_list         | Object 数组 | 报名对象列表。                                                 |
+| user_non_registered | String 数组 | 通过 userid 方式导入时，本企业内未注册用户。返回未注册的 userid 数组。|
 
 
 **报名对象**

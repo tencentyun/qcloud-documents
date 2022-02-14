@@ -35,7 +35,7 @@ implementation(name: 'speech_release', ext: 'aar')
 ### 启动实时语音识别
 ```
 int appid = XXX;
-int projectid = XXX;
+int projectid = 0; //此参数固定为0；
 String secretId = "XXX";
 
 // 为了方便用户测试，sdk提供了本地签名，但是为了secretKey的安全性，正式环境下请自行在第三方服务器上生成签名。
@@ -165,7 +165,7 @@ public AAIClient(Context context, int appid, int projectId, String secreteId, Ab
 | ------------------ | --------------------- | -------- | ------------------ |
 | context            | Context               | 是       | 上下文             |
 | appid              | Int                   | 是       | 腾讯云注册的 AppID |
-| projectId          | Int                   | 否       | 用户的 projectId   |
+| projectId          | Int                   | 否       | 此参数固定为0   |
 | secreteId          | String                | 是       | 用户的 SecreteId   |
 | credentialProvider | AbsCredentialProvider | 是       | 鉴权类             |
 
@@ -356,6 +356,7 @@ AudioRecognizeStateListener 可以用来监听语音识别的状态，一共有�
 | onStopRecord               | 结束录音                                                     |
 | onVoiceFlowStart           | 检测到语音流的起点                                           |
 | onVoiceFlowStartRecognize  | 语音流开始识别                                               |
+| onVoiceFlowFinish | 检测到语音流的终点                                               |
 | onVoiceFlowFinishRecognize | 语音流结束识别                                               |
 | onVoiceVolume              | 音量                                                         |
 | onNextAudioData            | 返回音频流，用于返回宿主层做录音缓存业务。new AudioRecordDataSource(true) 传递 true 时生效 |
