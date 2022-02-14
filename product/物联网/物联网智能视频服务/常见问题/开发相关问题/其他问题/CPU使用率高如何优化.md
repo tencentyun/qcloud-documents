@@ -13,10 +13,13 @@ CPU 使用率高如何优化
 P2P 视频传输采用的 AES-CTR-128 性能和 AES-CBC-128 性能相近，假设有多个用户同时向设备端拉流观看，CPU 的使用率会成倍增长，给设备端带来较大压力。
 SDK 使用的 mbedtls 版本为2.16.9，用户可以自行下载对应版本并编译进行跑分测试，方法如下：
 设置环境变量并编译
+```
 export CC="XXXXX"
 export CFLAGS="-std=c99"
 make
-./programs/test/benchmark即为性能测试程序，在设备上运行该程序查看跑分结果并估算 CPU 使用率
+./programs/test/benchmark
+```
+即为性能测试程序，在设备上运行该程序查看跑分结果并估算 CPU 使用率
 
 ## 解决方法
 
