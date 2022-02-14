@@ -14,8 +14,8 @@
 - 安装 SSL 证书前需准备的数据如下：
 <table>
 <tr>
-<td>名称</td>
-<td>说明</td>
+<th>名称</th>
+<th>说明</th>
 </tr>
 <tr>
 <td>服务器的 IP 地址</td>
@@ -91,15 +91,15 @@ CORE_LIBS="$CORE_LIBS $OPENSSL/lib/libcrypto.a"
 ### 国密标准证书安装
 1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
 解压缩后，可获得相关类型的证书文件。 其中包含 Nginx 目录和 CSR 文件：
- - **文件夹名称**：Nginx
- - **文件夹内容**：
-    - `1_cloud.tencent.com_sign_bundle.crt` 证书文件
-    - `2_cloud.tencent.com_encrypt_bundle.crt` 证书文件
-    - `3_cloud.tencent.com.key` 私钥文件
-  - **CSR 文件内容**：
-    -   `cloud.tencent.com_sign.csr` 文件
-    - 	`cloud.tencent.com_encrypt.csr` 文件
-    
+   - **文件夹名称**：Nginx
+   - **文件夹内容**：
+     - `1_cloud.tencent.com_sign_bundle.crt` 证书文件
+     - `2_cloud.tencent.com_encrypt_bundle.crt` 证书文件
+     - `3_cloud.tencent.com.key` 私钥文件
+   - **CSR 文件内容**：
+     -  `cloud.tencent.com_sign.csr` 文件
+     - 	`cloud.tencent.com_encrypt.csr` 文件
+
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 >
 2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Nginx 服务器。
@@ -130,8 +130,8 @@ location / {
 ```
 /usr/local/nginx/sbin/nginx -t
 ```
- - 若提示 `Syntax OK`，则表示配置正常，可以启动 Nginx 服务器。
- - 若提示非 `Syntax OK`，请您重新配置或者根据提示修改存在问题。
+    - 若提示 `Syntax OK`，则表示配置正常，可以启动 Nginx 服务器。
+    - 若提示非 `Syntax OK`，请您重新配置或者根据提示修改存在问题。
 6. 重新启动 Nginx 服务器，即可使用 `https://cloud.tencent.com` 进行访问。
 
 ### 国际标准证书与国密标准证书双安装（可选）
@@ -151,8 +151,8 @@ ssl_certificate_key /usr/local/nginx/conf/sm2/2_cloud.tencent.com.key;
 ```
 /usr/local/nginx/sbin/nginx -t
 ```
- - 若提示 `Syntax OK` ，则表示配置正常，可以启动 Nginx 服务器。
- - 若提示非 `Syntax OK` ，请您重新配置或者根据提示修改存在问题。
+   - 若提示 `Syntax OK` ，则表示配置正常，可以启动 Nginx 服务器。
+   - 若提示非 `Syntax OK` ，请您重新配置或者根据提示修改存在问题。
 5. 重新启动 Nginx 服务器，即可解决浏览器浏览器兼容问题。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
