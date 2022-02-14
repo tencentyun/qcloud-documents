@@ -2,7 +2,6 @@
 
 >!
 >- 接入 TPNS 需升级 IM SDK 至 [6.0.1975 及以上版本](https://cloud.tencent.com/document/product/269/36887)。
->- 如果您的 IM SDK 版本是 6.0.1975 之前的版本，且没有接入 TPNS，请参照 [IM 离线推送](https://cloud.tencent.com/document/product/269/44516) 接入推送功能。
 
 ## 接入 TPNS 跑通离线推送功能
 
