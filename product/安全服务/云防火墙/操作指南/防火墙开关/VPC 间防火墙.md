@@ -137,7 +137,7 @@
 #### 查看规则
 1. 在防火墙开关页面，单击 **查看规则**，进入 VPC 间规则页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/df1488d4b19c831887971f8725753ecd.png)
-2. 在 VPC 间规则页面，
+2. 在 VPC 间规则页面，可以对规则进行查看和编辑，操作详情请参见 [访问控制-VPC 间规则](https://cloud.tencent.com/document/product/1132/46934)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6030da610ad41f22b7b9757969ebe8c4.png)
 
 #### 查看日志
