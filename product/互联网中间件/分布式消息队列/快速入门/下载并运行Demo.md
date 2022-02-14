@@ -13,8 +13,8 @@
 以 Java 客户端为例说明，其他语言客户端请参见 [SDK 文档](https://cloud.tencent.com/document/product/1179/66699)。
 </dx-alert>
 
-
-1. 下载 Demo（[Demo下载地址](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-java-client.zip)），并配置相关参数。
+1. 下载 Demo（[Demo下载地址](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/tdmq-java-client.zip
+)），并配置相关参数。
    **关于 Maven 依赖**
 pom.xml 文件中的依赖是按照 Pulsar 的官方依赖进行配置的，详情可以参见 [其官方文档](https://pulsar.apache.org/docs/en/client-libraries-java/)。
 <dx-codeblock>
