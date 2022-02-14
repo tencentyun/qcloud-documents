@@ -16,7 +16,7 @@ SDK 使用的 mbedtls 版本为2.16.9，用户可以自行下载对应版本并�
 export CC="XXXXX"
 export CFLAGS="-std=c99"
 make
-./programs/test/benchmark即为性能测试程序，在设备上运行该程序查看跑分结果并估算CPU使用率
+./programs/test/benchmark即为性能测试程序，在设备上运行该程序查看跑分结果并估算 CPU 使用率
 
 ## 解决方法
 
