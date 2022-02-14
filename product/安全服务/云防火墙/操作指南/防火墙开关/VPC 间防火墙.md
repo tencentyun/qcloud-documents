@@ -100,6 +100,7 @@
 >?异地灾备：勾选后，支持将主机和备机防火墙部署在不同可用区。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/e70b43d04e0117eb41313281ad7498e8.png)
+
 ## 查看网络拓扑
 云防火墙提供了一个可视化视图，帮助您快速梳理 VPC间资产的访问关系，具体操作如下所示。
 1. 在 [VPC 间开关页面](https://console.cloud.tencent.com/cfw/switch/vpc/vpc?tab=instance)，单击**网络拓扑**，查看接入的 VPC 网络实例详情。
