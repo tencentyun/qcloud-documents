@@ -15,15 +15,13 @@
 <col >
 <col >
 </colgroup>
-<thead>
-  <tr>
-    <th>内、外网IP地址</th>
-    <th>主机名</th>
-    <th>live（不包含 .live 顶级域名）</th>
-    <th>bank</th>
-  </tr>
-</thead>
 <tbody>
+  <tr>
+    <td>内、外网 IP 地址</td>
+    <td>主机名</td>
+    <td>live（不包含 .live 顶级域名）</td>
+    <td>bank</td>
+  </tr>
   <tr>
     <td>banc</td>
     <td>ban.c</td>
