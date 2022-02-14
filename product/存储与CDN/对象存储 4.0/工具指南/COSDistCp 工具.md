@@ -66,7 +66,7 @@ COSDistCp 基于 MapReduce 框架实现，为多进程+多线程的架构，可�
 |         --skipMode=MODE          | 拷贝文件前，校验源文件和目标文件是否相同，相同则跳过，可选 none（不校验）、length （长度）、checksum（CRC值）和 length-checksum（长度 + CRC 值）</br>示例：--skipMode=length |  length-checksum  |    否    |
 |         --checkMode=MODE         | 当文件拷贝完成的时候，校验源文件和目标文件是否相同，可选 none（不校验）、 length （长度）、checksum（CRC值）和 length-checksum（长度 + CRC 值）<br/>示例：--checkMode=length-checksum |  length-checksum  |    否    |
 |         --diffMode=MODE          | 指定获取源和目的目录的差异文件列表，可选 length （长度）、checksum（CRC 值）和 length-checksum（长度 + CRC 值）</br>示例：--diffMode=length-checksum |   无   |    否    |
-|      --diffOutput=LOCATION       | 指定差异文件列表的 HDFS 输出目录，该输出目录必须为空<br/>示例：--diffOutput=/diff-output |   无   |    否    |
+|      --diffOutput=LOCATION       | 指定 diffMode 的 HDFS 输出目录，该输出目录必须为空<br/>示例：--diffOutput=/diff-output |   无   |    否    |
 |      --cosChecksumType=TYPE      | 指定 Hadoop-COS 插件使用的 CRC 算法，可选值为 CRC32C 和 CRC64<br/>示例：--cosChecksumType=CRC32C | CRC32C |    否    |
 |      --preserveStatus=VALUE      | 指定是否将源文件的 user、group、permission、xattr 和 timestamps 元信息拷贝到目标文件，可选值为 ugpxt（即为 user、group、permission、xattr 和 timestamps 的英文首字母）<br/>示例：--preserveStatus=ugpt |   无   |    否    |
 |      --ignoreSrcMiss      | 忽略存在于文件清单中，但拷贝时不存在的文件 |   false   | 否       |
@@ -124,7 +124,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 ```
 
 
-COSDistCp 默认会对拷贝失败的文件重试5次，如果仍然失败，则会将失败文件信息写入 /tmp/${randomUUID}/output/failed/ 目录下，其中，${randomUUID} 为随机字符串。记录失败文件信息后，COSDistcp 会继续迁移剩余文件，迁移任务并不会因为部分文件迁移失败而失败。在迁移任务完成的时候，COSDistcp 会输出计数器信息，并判断是否存在文件迁移失败，如果存在，则在提交任务的客户端抛出异常。
+COSDistCp 默认会对拷贝失败的文件重试5次，如果仍然失败，则会将失败文件信息写入 /tmp/${randomUUID}/output/failed/ 目录下，其中，${randomUUID} 为随机字符串。记录失败文件信息后，COSDistcp 会继续迁移剩余文件，迁移任务并不会因为部分文件迁移失败而失败。在迁移任务完成的时候，COSDistcp 会输出计数器信息（请确保您的客户端机器，配置了 MapReduce 任务的 INFO 日志输出），并判断是否存在文件迁移失败，如果存在，则在提交任务的客户端抛出异常。
 
 以下类型的源文件信息包含在输出文件中：
 1. 存在源文件的清单中，但拷贝时源文件不存在，记录为 SRC_MISS
@@ -202,7 +202,7 @@ hadoop fs  -Ddfs.checksum.combine.mode=COMPOSITE_CRC -checksum /data/test.txt
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --diffMode=length-checksum --diffOutput=/tmp/diff-output
 ```
 
-以上命令执行成功后，会输出以源文件系统文件列表为基准的计数器信息，您可以根据计数器信息，分析源和目的是否相同，计数器信息说明如下：
+以上命令执行成功后，会输出以源文件系统文件列表为基准的计数器信息（请确保您的客户端机器，配置了 MapReduce 任务的 INFO 日志输出），您可以根据计数器信息，分析源和目的是否相同，计数器信息说明如下：
 
 1. 源和目的文件相同，记录为 SUCCESS
 2. 目标文件不存在，记录为 DEST_MISS
@@ -212,7 +212,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 6. 由于读取权限不够等因素导致 diff 操作失败，记录为：DIFF_FAILED
 7. 源为目录，目的为文件，记录为：TYPE_DIFF
 
-此外，COSDistcp 会在 HDFS 的 `/tmp/diff-output/failed` 目录下（低版本为 /tmp/diff-output），生成差异文件列表，您可以通过如下命令，获取除 SRC_MISS 以外的差异文件列表：
+此外，COSDistcp 会在 HDFS 的 `/tmp/diff-output/failed` 目录下（1.0.5 及之前版本为 /tmp/diff-output），生成差异文件列表，您可以通过如下命令，获取除 SRC_MISS 以外的差异文件列表：
 
 ```plaintext
 hadoop fs -getmerge /tmp/diff-output/failed diff-manifest
