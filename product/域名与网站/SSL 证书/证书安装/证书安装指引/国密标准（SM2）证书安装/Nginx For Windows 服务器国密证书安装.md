@@ -78,7 +78,7 @@ ssl_certificate c:/gmssl/nginx-1.16.0/conf/ssl/2_cloud.tencent.com_encrypt_bundl
 ssl_certificate_key c:/gmssl/nginx-1.16.0/conf/ssl/3_cloud.tencent.com.key; 
 #先配置签名证书，再配置加密证书，签名加密证书私钥 key 为同一个！
 ssl_session_timeout 5m; 
-ssl_protocols TLSv1 TlSv1.1 TLSv1.2;
+ssl_protocols TLSv1.2;
 ssl_ciphers SM2-WITH-SMS4-SM3:ECDH:AESGCM:HIGH:MEDIUM:!RC4:!DH:!MD5:!aNULL:!eNULL; 
 ssl_prefer_server_ciphers on;
 location / { 
