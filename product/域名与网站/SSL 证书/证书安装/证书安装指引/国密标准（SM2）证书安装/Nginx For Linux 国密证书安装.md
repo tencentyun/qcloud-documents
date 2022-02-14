@@ -98,7 +98,7 @@ CORE_LIBS="$CORE_LIBS $OPENSSL/lib/libcrypto.a"
      - `3_cloud.tencent.com.key` 私钥文件
    - **CSR 文件内容**：
      -  `cloud.tencent.com_sign.csr` 文件
-     - 	`cloud.tencent.com_encrypt.csr` 文件
+     - `cloud.tencent.com_encrypt.csr` 文件
 
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 >
