@@ -1,7 +1,8 @@
 ## 操作背景
 
-该任务以 Java 客户端为例指导您在公网网络环境下，使用 SASL_PLAINTEXT 方式接入消息队列 CKafka 并收发消息。
+该任务以 Java 客户端为例指导您在公网网络环境下，使用 SASL_SSL 方式接入消息队列 CKafka 并收发消息。
 
+SSL 证书的核心功能是保护服务器-客户端通信。数据通过 SSL 证书加密，其他人无法拥有解锁它的私钥，只能由预期的服务端解锁。
 
 ## 前提条件
 
@@ -9,23 +10,23 @@
 - [安装 2.5 或以上版本 Maven](http://maven.apache.org/download.cgi#)
 - [配置 ACL 策略](https://cloud.tencent.com/document/product/597/31528)
 - [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/javakafkademo/PUBLIC_SASL)
+- [下载 SASL_SSL 证书](https://ckafka-public-certs-1255613487.cos.ap-guangzhou.myqcloud.com/ssl-certs/client.truststore.jks)
 
 ## 操作步骤
 
-### 步骤一：控制台配置
+### 步骤1：控制台配置
 1. 创建接入点。
 	1. 在 **[实例列表](https://console.cloud.tencent.com/ckafka/index)** 页面，单击目标实例 ID，进入实例详情页。
-	2. 在 **基本信息** > **接入方式** 中，单击**添加路由策略**，在打开窗口中选择：`路由类型：公网域名接入`, `接入方式：SASL_PLAINTEXT`。
-![](https://qcloudimg.tencent-cloud.cn/raw/4ac0033364e13d3f2c81d464c878d7f4.png)
+	2. 在 **基本信息** > **接入方式** 中，单击**添加路由策略**，在打开窗口中选择：`路由类型：公网域名接入`,`接入方式：SASL_SSL`。
+![](https://qcloudimg.tencent-cloud.cn/raw/46e6b0bb08a7b73084cb51fabe9d03f2.png)
 2. 创建角色。
 在**用户管理**页面新建角色，设置密码。
-![](https://qcloudimg.tencent-cloud.cn/raw/b4fd547ddb7d4fdac1c24d59bb4806bc.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fb78b8290232e6342397a30a4c554ef9.png)
 3. 创建 Topic。
 在控制台 **topic 管理**页面新建 Topic（参见 [创建 Topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
 
 
-
-### 步骤二：添加配置文件
+### 步骤2：添加配置文件
 
 1. 在 pom.xml 中添加以下依赖。
 <dx-codeblock>
@@ -73,6 +74,10 @@ topic=XXX
 group.id=XXX
 ## SASL 配置
 java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
+## SSL 证书配置,接入方式选择为 SASL_SSL 时生效
+ssl.truststore.location=/xxxx/client.truststore.jks
+ssl.truststore.password=5fi6R!M
+ssl.endpoint.identification.algorithm=
 :::
 </dx-codeblock>
 <table>
@@ -85,12 +90,14 @@ java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
     <tbody>
     <tr>
         <td><code>bootstrap.servers</code></td>
-        <td>接入网络，在控制台的实例详情页面<strong>接入方式</strong>模块的网络列复制。<br><img src="https://main.qcloudimg.com/raw/c5cf200a66f6dcf627d2ca6f1c747ecf.png" referrerpolicy="no-referrer">
-        </td>
+        <td>接入网络，在控制台的实例详情页面<strong>接入方式</strong>模块的网络列复制。<br><img
+                src="https://qcloudimg.tencent-cloud.cn/raw/6117de422e8b46cf75b7b249bb88c817.png"
+                referrerpolicy="no-referrer"></td>
     </tr>
     <tr>
         <td><code>topic</code></td>
-        <td>Topic 名称，您可以在控制台上 <strong>topic管理</strong>页面复制。<br><img src="https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png" referrerpolicy="no-referrer">
+        <td>Topic 名称，您可以在控制台上 <strong>topic管理</strong>页面复制。<br><img
+                src="https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png" referrerpolicy="no-referrer">
         </td>
     </tr>
     <tr>
@@ -101,15 +108,17 @@ java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
         <td><code>java.security.auth.login.config.plain</code></td>
         <td>填写 JAAS 配置文件 <code>ckafka_client_jaas.conf</code> 的路径。</td>
     </tr>
+    <tr>
+        <td><code>client.truststore.jks</code></td>
+        <td>采用 <code>SASL_SSL</code> 方式接入时，所需的证书路径。</td>
+    </tr>
     </tbody>
 </table>
 4. 创建配置文件加载程序 CKafkaConfigurer.java。
 <dx-codeblock>
 :::  java
 public class CKafkaConfigurer {
-
     private static Properties properties;
-
     public static void configureSaslPlain() {
         //如果用 -D 或者其它方式设置过，这里不再设置。
         if (null == System.getProperty("java.security.auth.login.config")) {
@@ -118,7 +127,6 @@ public class CKafkaConfigurer {
                     getCKafkaProperties().getProperty("java.security.auth.login.config.plain"));
         }
     }
-
     public synchronized static Properties getCKafkaProperties() {
         if (null != properties) {
             return properties;
@@ -138,32 +146,32 @@ public class CKafkaConfigurer {
 </dx-codeblock>
 
 
-### 步骤三：发送消息
+### 步骤3：发送消息
 
 1. 创建发送消息程序 KafkaSaslProducerDemo.java。
 <dx-codeblock>
 :::  java
    public class KafkaSaslProducerDemo {
-
    public static void main(String[] args) {
       //设置 JAAS 配置文件的路径。
       CKafkaConfigurer.configureSaslPlain();
-
       //加载 kafka.properties。
       Properties kafkaProperties = CKafkaConfigurer.getCKafkaProperties();
-
       Properties props = new Properties();
       //设置接入点，请通过控制台获取对应 Topic 的接入点。
       props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
               kafkaProperties.getProperty("bootstrap.servers"));
-
       //
-      //  SASL_PLAINTEXT 公网接入
+      //  SASL_SSL 公网接入
       //
-      props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");
+      //  接入协议。
+      props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
       //  SASL 采用 Plain 方式。
       props.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
-
+      //  SSL 加密。
+      props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, kafkaProperties.getProperty(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG));
+      props.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, kafkaProperties.getProperty(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG));
+      props.put(SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG,kafkaProperties.getProperty(SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG));
       //消息队列 Kafka 版消息的序列化方式。
       props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
               "org.apache.kafka.common.serialization.StringSerializer");
@@ -181,11 +189,9 @@ public class CKafkaConfigurer {
       props.put(ProducerConfig.ACKS_CONFIG, "all");
       //构造 Producer 对象，注意，该对象是线程安全的，一般来说，一个进程内一个Producer对象即可。
       KafkaProducer<String, String> producer = new KafkaProducer<>(props);
-
       //构造一个消息队列 Kafka 版消息。
       String topic = kafkaProperties.getProperty("topic"); //消息所属的Topic，请在控制台申请之后，填写在这里。
       String value = "this is ckafka msg value"; //消息的内容。
-
       try {
          //批量获取 Future 对象可以加快速度。但注意，批量不要太大。
          List<Future<RecordMetadata>> futures = new ArrayList<>(128);
@@ -195,7 +201,6 @@ public class CKafkaConfigurer {
                     value + ": " + i);
             Future<RecordMetadata> metadataFuture = producer.send(kafkaMessage);
             futures.add(metadataFuture);
-
          }
          producer.flush();
          for (Future<RecordMetadata> future : futures) {
@@ -211,7 +216,7 @@ public class CKafkaConfigurer {
 }
 :::
 </dx-codeblock>
-2. 编译并运行 KafkaSaslProducerDemo.java 发送消息。
+2. 编译并运行 KafkaSaslProducerDemo.java 发送消息。 
 3. 运行结果（输出）。
 <dx-codeblock>
 :::  bash
@@ -220,37 +225,38 @@ Produce ok:ckafka-topic-demo-0@199
 :::
 </dx-codeblock>
 4. 在 CKafka 控制台 **topic管理**页面，选择对应的 Topic，单击**更多** > **消息查询**，查看刚刚发送的消息。
-![](https://qcloudimg.tencent-cloud.cn/raw/236b886212bd8dc2e53242bbaab6cb2c.png)
+![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
 
 
-### 步骤四：消费消息
+
+### 步骤4：消费消息
 
 1. 创建 Consumer 订阅消息程序 `KafkaSaslConsumerDemo.java`。
 <dx-codeblock>
 :::  java
 public class KafkaSaslConsumerDemo {
-
    public static void main(String[] args) {
       //设置JAAS配置文件的路径。
       CKafkaConfigurer.configureSaslPlain();
-
       //加载kafka.properties。
       Properties kafkaProperties = CKafkaConfigurer.getCKafkaProperties();
-
       Properties props = new Properties();
       //设置接入点，请通过控制台获取对应Topic的接入点。
       props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
               kafkaProperties.getProperty("bootstrap.servers"));
-
       //
-      //  SASL_PLAINTEXT 公网接入
+      //  SASL_SSL 公网接入
       //
-      props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");
+      //  接入协议。
+      props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
       //  SASL 采用 Plain 方式。
       props.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
-
+      //  SSL 加密。
+      props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, kafkaProperties.getProperty(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG));
+      props.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, kafkaProperties.getProperty(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG));
+      props.put(SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG,kafkaProperties.getProperty(SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG));
       //消费者超时时长
-      //消费者超过该值没有返回心跳，服务端判断消费者处于非存活状态，服务端将消费者从Consumer Group移除并触发Rebalance，默认30s
+      //消费者超过该值没有返回心跳，服务端判断消费者处于非存活状态，服务端将消费者从 Consumer Group 移除并触发Rebalance，默认30s。
       props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, 30000);
       //两次poll的最长时间间隔
       //0.10.1.0 版本前这2个概念是混合的，都用session.timeout.ms表示
@@ -279,7 +285,6 @@ public class KafkaSaslConsumerDemo {
          subscribedTopics.add(topic.trim());
       }
       consumer.subscribe(subscribedTopics);
-
       //循环消费消息。
       while (true) {
          try {

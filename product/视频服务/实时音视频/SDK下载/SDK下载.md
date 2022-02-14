@@ -58,17 +58,17 @@
 ### Web SDK
 
 <div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
-        <div class="card-container">
-            <div class="card">
-               <img src="https://main.qcloudimg.com/raw/7e2651085e3e3c6e32190e401a6dfd32.svg" data-nonescope="true">
-                                <p class="titlename">稳定版（TRTC） SDK</p>
-                <p style="color:#586376;">包含 TRTC 和直播播放（TXLivePlayer）两项功能，体积小巧，功能稳定。</p>
-                                <a href="https://web.sdk.qcloud.com/trtc/webrtc/download/webrtc_latest.zip">ZIP 下载</a>
-                <a style="margin-left: 10px;" href="https://github.com/tencentyun/TRTCSDK">GitHub</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/16863">集成指引</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32396">运行 Demo</a>
-            </div>
-        </div>
+  <div class="card-container">
+      <div class="card">
+        <img src="https://main.qcloudimg.com/raw/7e2651085e3e3c6e32190e401a6dfd32.svg" data-nonescope="true">
+        <p class="titlename">稳定版（TRTC）SDK</p>
+        <p style="color:#586376;">包含 TRTC 功能，无需安装 App 即可音视频通话，兼容主流的桌面和移动端浏览器。</p>
+        <a onclick="reportEvent({name: 'download-click-web', ext1: 'zip'})" target="_blank" href="https://web.sdk.qcloud.com/trtc/webrtc/download/webrtc_latest.zip">ZIP 下载</a>
+        <a style="margin-left: 10px;" onclick="reportEvent({name: 'download-click-web', ext1: 'github'})" target="_blank" href="https://github.com/tencentyun/TRTCSDK/tree/master/Web">GitHub</a>
+        <a style="margin-left: 10px;" onclick="reportEvent({name: 'download-click-web', ext1: 'doc-sdk'})" target="_blank" href="https://cloud.tencent.com/document/product/647/16863">集成指引</a>
+        <a style="margin-left: 10px;" onclick="reportEvent({name: 'download-click-web', ext1: 'doc-demo'})" target="_blank" href="https://cloud.tencent.com/document/product/647/32398">运行 Demo</a>
+      </div>
+  </div>
 </div>
 
 ### Android SDK
@@ -77,7 +77,7 @@
         <div class="card-container">
             <div class="card">
                            <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
-                                <p class="titlename">预览版（TRTC） SDK</p>
+                                <p class="titlename">预览版（TRTC）SDK</p>
                 <p style="color:#586376;">采用全新架构，功能对齐稳定版，但体积更小，性能表现更出色。</p>
                                 <a href="https://liteav.sdk.qcloud.com/download/preview/TXLiteAVSDK_TRTC_Android_preview.zip">ZIP 下载</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32175">集成指引</a>
@@ -87,7 +87,7 @@
         <div class="card-container">
             <div class="card">
                             <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
-                                <p class="titlename">稳定版（TRTC） SDK</p>
+                                <p class="titlename">稳定版（TRTC）SDK</p>
                 <p style="color:#586376;">包含 TRTC 和直播播放（TXLivePlayer）两项功能，体积小巧，功能稳定。</p>
                                 <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Android_latest.zip">ZIP 下载</a>
                 <a style="margin-left: 10px;" href="https://github.com/tencentyun/TRTCSDK">GitHub</a>
@@ -98,7 +98,7 @@
         <div class="card-container">
             <div class="card">
                                 <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
-                                <p class="titlename">全功能版（Professional） SDK</p>
+                                <p class="titlename">全功能版（Professional）SDK</p>
                 <p style="color:#586376;">包含 TRTC、直播、短视频、点播等多项功能，功能强大！</p>
                                 <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Professional_Android_latest.zip">ZIP 下载</a>
                 <a style="margin-left: 10px;" href="https://github.com/tencentyun/LiteAVProfessional_Android">GitHub</a>
@@ -114,7 +114,7 @@
         <div class="card-container">
             <div class="card">
                                 <img class="icon" src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
-                                <p class="titlename">预览版（TRTC） SDK</p>
+                                <p class="titlename">预览版（TRTC）SDK</p>
                 <p style="color:#586376;">采用全新架构，功能对齐稳定版，但体积更小，性能表现更出色。</p>
                                 <a href="https://liteav.sdk.qcloud.com/download/preview/TXLiteAVSDK_TRTC_iOS_preview.zip">ZIP 下载</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32173">集成指引</a>
@@ -124,7 +124,7 @@
         <div class="card-container">
             <div class="card">
                                 <img class="icon" src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
-                                <p class="titlename">稳定版（TRTC） SDK</p>
+                                <p class="titlename">稳定版（TRTC）SDK</p>
                 <p style="color:#586376;">包含 TRTC 和直播播放（TXLivePlayer）两项功能，体积小巧，功能稳定。</p>
                                 <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_iOS_latest.zip">ZIP 下载</a>
                 <a style="margin-left: 10px;" href="https://github.com/tencentyun/TRTCSDK">GitHub</a>
@@ -135,7 +135,7 @@
         <div class="card-container">
             <div class="card">
                                 <img class="icon" src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
-                                <p class="titlename">全功能版（Professional） SDK</p>
+                                <p class="titlename">全功能版（Professional）SDK</p>
                  <p style="color:#586376;">包含 TRTC、直播、短视频、点播等多项功能，功能强大！</p>
                                 <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Professional_iOS_latest.zip">ZIP 下载</a>
                 <a style="margin-left: 10px;" href="https://github.com/tencentyun/LiteAVProfessional_iOS">GitHub</a>
@@ -151,7 +151,7 @@
         <div class="card-container">
             <div class="card">
                                 <img src="https://main.qcloudimg.com/raw/104e3aadbd4515f61c3f2f5378948cfb.svg" data-nonescope="true">
-                                <p class="titlename">预览版（TRTC） SDK</p>
+                                <p class="titlename">预览版（TRTC）SDK</p>
                 <p style="color:#586376;">采用全新架构，功能对齐稳定版，但体积更小，性能表现更出色。</p>
                                 <a href="https://liteav.sdk.qcloud.com/download/preview/TXLiteAVSDK_TRTC_Win_preview.zip">ZIP 下载</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32178">集成指引</a>
@@ -161,7 +161,7 @@
         <div class="card-container">
             <div class="card">
                                 <img src="https://main.qcloudimg.com/raw/104e3aadbd4515f61c3f2f5378948cfb.svg" data-nonescope="true">
-                                <p class="titlename">稳定版（TRTC） SDK</p>
+                                <p class="titlename">稳定版（TRTC）SDK</p>
                 <p style="color:#586376;">包含 TRTC、直播播放（TXLivePlayer）和点播播放（TXVodPlayer）三项功能。</p>
                           <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_latest.zip">ZIP 下载</a>
                 <a style="margin-left: 10px;" href="https://github.com/tencentyun/TRTCSDK">GitHub</a>
@@ -177,7 +177,7 @@
         <div class="card-container">
             <div class="card">
                                 <img src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
-                                <p class="titlename">预览版（TRTC） SDK</p>
+                                <p class="titlename">预览版（TRTC）SDK</p>
                 <p style="color:#586376;">采用全新架构，功能对齐稳定版，但体积更小，性能表现更出色。</p>
                                 <a href="https://liteav.sdk.qcloud.com/download/preview/TXLiteAVSDK_TRTC_Mac_preview.zip">ZIP 下载</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/42046">集成指引</a>
@@ -187,7 +187,7 @@
         <div class="card-container">
             <div class="card">
                                 <img src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
-                                <p class="titlename">稳定版（TRTC） SDK</p>
+                                <p class="titlename">稳定版（TRTC）SDK</p>
                 <p style="color:#586376;">包含 TRTC、直播播放（TXLivePlayer）和点播播放（TXVodPlayer）三项功能。</p>
                                 <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Mac_latest.tar.bz2">ZIP 下载</a>
                 <a style="margin-left: 10px;" href="https://github.com/tencentyun/TRTCSDK">GitHub</a>
@@ -400,3 +400,17 @@
     <td style="text-align:center">x86_64：18.1M</td>
     <td style="text-align:center">N/A</td>
 </table>
+
+<script src="https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js"></script>
+<script>
+let aegis;
+if(Aegis) {
+    aegis = new Aegis({
+        id: 'iHWefAYqlXjjlfAkpx',
+        uin: document.cookie.replace(/(?:(?:^|.*;\s*)uin\s*\=\s*([^;]*).*$)|^.*$/, "$1")|| '',
+        reportApiSpeed: false,
+        reportAssetSpeed: false
+    });
+}
+function reportEvent(options){ aegis && aegis.reportEvent(options); }
+</script>

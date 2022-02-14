@@ -8,10 +8,6 @@ Web 端播放器支持 PC 端和移动端的浏览器视频播放，丰富灵活
 Web 端超级播放器 TCPlayer 提供了可对比查看视频播放功能效果及其配套代码的 Demo 体验页面，您可以通过修改示例代码，即时的在播放区域内查看修改后的功能效果。
 ![image](https://user-images.githubusercontent.com/88317062/150525835-2f843cf0-82e2-42b5-8625-c7977fb81e32.png)
 
-### Demo 体验
-[Web 端超级播放器 TCPlayer 体验 Demo](https://tcplayer.vcube.tencent.com/)
-
-
 [](id:mobile)
 ## 移动端
 移动端播放器支持 iOS 和 Android 的视频播放，多样视频功能可快速打造一款视频播放 App。
