@@ -32,7 +32,7 @@
 | !             | 非逻辑，类似 NOT，例如 `level:ERROR !pid:1234`                |
 | /             | 正则表达式标识符，/${regExp}/ , 例如 /[mb]oat/ 表示搜索包含 moat 或 boat 的结果</br>注意：有分词符时，正则表达式针对分词后的单个词进行匹配，而不是整条日志或整个字段 |
 | \_exists\_    | \_exists\_:key，返回 key 存在的日志，例如 `_exists_:userAgent` 表示搜索存在 `userAgent` 字段的日志 |
-| ~             | 相似搜索，例如 `level:errro~`，可以命中 level 为 error 关键字的结果 |
+| ~             | 相似搜索，例如 `level:error~`，可以命中 level 为 error 关键字的结果 |
 
 
 

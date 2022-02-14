@@ -89,7 +89,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/0f663092120f8f8f3673bc5d8f444516.gif)
 :::
 ::: Web
-![](https://imgcache.qq.com/operation/dianshi/other/058ffcf5-60f0-430c-96c7-e1760b93e444.fdd0f2c10a8242dadbf99108a48a59124124b437.gif)
+![](https://imgcache.qq.com/operation/dianshi/other/webrtc-sdk-demo.140bfaedb71e65ca221c1338281492622950ecd6.gif)
 :::
 </dx-tabs>
 

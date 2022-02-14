@@ -27,6 +27,10 @@ Hadoop-2.6.0及以上版本、Hadoop-COS 插件 5.9.3 及以上版本。
 - Hadoop 2.x 用户可下载 [cos-distcp-1.9-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.9-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.9-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
 - Hadoop 3.x 用户可下载 [cos-distcp-1.9-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.9-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.9-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
 
+#### 安装说明
+
+在 Hadoop 环境下，安装 [Hadoop-COS](https://cloud.tencent.com/document/product/436/6884#.E4.B8.8B.E8.BD.BD.E4.B8.8E.E5.AE.89.E8.A3.85) 后，即可直接运行 COSDistCp 工具。
+
 
 ## 原理说明
 
@@ -43,7 +47,7 @@ COSDistCp 基于 MapReduce 框架实现，为多进程+多线程的架构，可�
 |              --help              | 输出 COSDistCp 支持的参数选项<br> 示例：--help               |   无   |    否    |
 |          --src=LOCATION          | 指定拷贝的源目录，可以是 HDFS 或者 COS 路径<br> 示例：--src=hdfs://user/logs/ |   无   |    是    |
 |         --dest=LOCATION          | 指定拷贝的目标目录，可以是 HDFS 或者 COS 路径<br> 示例：--dest=cosn://examplebucket-1250000000/user/logs |   无   |    是 |
-|       --srcPattern=PATTERN       | 指定正则表达式对源目录中的文件进行过滤<br>示例：`--srcPattern='.*.log'`<br>**注意：您需要将参数使用单引号包围，以避免符号`*`被 shell 解释** |   无   |    否    |
+|       --srcPattern=PATTERN       | 指定正则表达式对源目录中的文件进行过滤<br>示例：`--srcPattern='.*\.log$'`<br>**注意：您需要将参数使用单引号包围，以避免符号`*`被 shell 解释** |   无   |    否    |
 |       --taskNumber=VALUE       | 指定拷贝进程数，示例：--taskNumber=10 |   10   |    否    |
 |       --workerNumber=VALUE       | 指定拷贝线程数，COSDistCp 在每个拷贝进程中创建该参数大小的拷贝线程池<br>示例：--workerNumber=4 |   4    |    否    |
 |      --filesPerMapper=VALUE      | 指定每个 Mapper 输入文件的行数<br>示例：--filesPerMapper=10000 | 500000 |    否    |
@@ -62,7 +66,7 @@ COSDistCp 基于 MapReduce 框架实现，为多进程+多线程的架构，可�
 |         --skipMode=MODE          | 拷贝文件前，校验源文件和目标文件是否相同，相同则跳过，可选 none（不校验）、length （长度）、checksum（CRC值）和 length-checksum（长度 + CRC 值）</br>示例：--skipMode=length |  length-checksum  |    否    |
 |         --checkMode=MODE         | 当文件拷贝完成的时候，校验源文件和目标文件是否相同，可选 none（不校验）、 length （长度）、checksum（CRC值）和 length-checksum（长度 + CRC 值）<br/>示例：--checkMode=length-checksum |  length-checksum  |    否    |
 |         --diffMode=MODE          | 指定获取源和目的目录的差异文件列表，可选 length （长度）、checksum（CRC 值）和 length-checksum（长度 + CRC 值）</br>示例：--diffMode=length-checksum |   无   |    否    |
-|      --diffOutput=LOCATION       | 指定差异文件列表的 HDFS 输出目录，该输出目录必须为空<br/>示例：--diffOutput=/diff-output |   无   |    否    |
+|      --diffOutput=LOCATION       | 指定 diffMode 的 HDFS 输出目录，该输出目录必须为空<br/>示例：--diffOutput=/diff-output |   无   |    否    |
 |      --cosChecksumType=TYPE      | 指定 Hadoop-COS 插件使用的 CRC 算法，可选值为 CRC32C 和 CRC64<br/>示例：--cosChecksumType=CRC32C | CRC32C |    否    |
 |      --preserveStatus=VALUE      | 指定是否将源文件的 user、group、permission、xattr 和 timestamps 元信息拷贝到目标文件，可选值为 ugpxt（即为 user、group、permission、xattr 和 timestamps 的英文首字母）<br/>示例：--preserveStatus=ugpt |   无   |    否    |
 |      --ignoreSrcMiss      | 忽略存在于文件清单中，但拷贝时不存在的文件 |   false   | 否       |
@@ -120,7 +124,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 ```
 
 
-COSDistCp 默认会对拷贝失败的文件重试5次，如果仍然失败，则会将失败文件信息写入 /tmp/${randomUUID}/output/failed/ 目录下，其中，${randomUUID} 为随机字符串。记录失败文件信息后，COSDistcp 会继续迁移剩余文件，迁移任务并不会因为部分文件迁移失败而失败。在迁移任务完成的时候，COSDistcp 会输出计数器信息，并判断是否存在文件迁移失败，如果存在，则在提交任务的客户端抛出异常。
+COSDistCp 默认会对拷贝失败的文件重试5次，如果仍然失败，则会将失败文件信息写入 /tmp/${randomUUID}/output/failed/ 目录下，其中，${randomUUID} 为随机字符串。记录失败文件信息后，COSDistcp 会继续迁移剩余文件，迁移任务并不会因为部分文件迁移失败而失败。在迁移任务完成的时候，COSDistcp 会输出计数器信息（请确保您的任务提交机器，配置了 MapReduce 任务的提交端 INFO 日志输出），并判断是否存在文件迁移失败，如果存在，则在提交任务的客户端抛出异常。
 
 以下类型的源文件信息包含在输出文件中：
 1. 存在源文件的清单中，但拷贝时源文件不存在，记录为 SRC_MISS
@@ -192,14 +196,13 @@ hadoop fs  -Ddfs.checksum.combine.mode=COMPOSITE_CRC -checksum /data/test.txt
  - `--diffMode=length`表示根据文件大小是否相同，获取差异文件列表。
  - `--diffMode=length-checksum`，根据文件大小和 CRC 检验和是否相同，获取差异文件列表。
 - `--diffOutput` 指定 diff 操作的输出目录。
-
 如果目标文件系统为 COS，且源文件系统的 CRC 算法与之不同，则 COSDistCp 会拉取源文件计算目的文件系统的 CRC，以进行相同 CRC 算法值的对比。以下示例中，在迁移完成后，使用 --diffMode 参数，根据文件大小和 CRC 值，校验源和目标文件是否相同：
 
 ```plaintext
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --diffMode=length-checksum --diffOutput=/tmp/diff-output
 ```
 
-以上命令执行成功后，会输出以源文件系统文件列表为基准的计数器信息，您可以根据计数器信息，分析源和目的是否相同，计数器信息说明如下：
+以上命令执行成功后，会输出以源文件系统文件列表为基准的计数器信息（请确保您的任务提交机器，配置了 MapReduce 任务的提交端 INFO 日志输出），您可以根据计数器信息，分析源和目的是否相同，计数器信息说明如下：
 
 1. 源和目的文件相同，记录为 SUCCESS
 2. 目标文件不存在，记录为 DEST_MISS
@@ -209,7 +212,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 6. 由于读取权限不够等因素导致 diff 操作失败，记录为：DIFF_FAILED
 7. 源为目录，目的为文件，记录为：TYPE_DIFF
 
-此外，COSDistcp 会在 HDFS 的 `/tmp/diff-output/failed` 目录下（低版本为 /tmp/diff-output），生成差异文件列表，您可以通过如下命令，获取除 SRC_MISS 以外的差异文件列表：
+此外，COSDistcp 会在 HDFS 的 `/tmp/diff-output/failed` 目录下（1.0.5 及之前版本为 /tmp/diff-output），生成差异文件列表，您可以通过如下命令，获取除 SRC_MISS 以外的差异文件列表：
 
 ```plaintext
 hadoop fs -getmerge /tmp/diff-output/failed diff-manifest
@@ -261,10 +264,14 @@ hadoop jar  cos-distcp-${version}.jar --src /data/warehouse  --srcPrefixesFile f
 
 ### 对输入文件进行正则表达式过滤
 
-以参数`--srcPattern`执行命令，只同步 `/data/warehouse/logs` 目录下，以 .log 结尾的日志文件，示例如下：
+以参数`--srcPattern`执行命令，只同步 `/data/warehouse/` 目录下，以 .log 结尾的日志文件，示例如下：
 
 ```plaintext
-hadoop jar cos-distcp-${version}.jar  --src /data/warehouse/logs --dest cosn://examplebucket-1250000000/data/warehouse --srcPattern='.*/logs/.*\.log'
+hadoop jar cos-distcp-${version}.jar  --src /data/warehouse/ --dest cosn://examplebucket-1250000000/data/warehouse --srcPattern='.*\.log$'
+```
+不迁移以 .temp 或 .tmp 结尾的文件：
+```
+ hadoop jar cos-distcp-${version}.jar --src /data/warehouse/ --dest cosn://examplebucket-1250000000/data/warehouse/ --srcPattern='.*(?<!\.temp|\.tmp)$'
 ```
 
 ### 指定 Hadoop-COS 的文件检验和类型
@@ -292,7 +299,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse/logs --dest cosn://examplebucket-1250000000/data/warehouse/logs-gzip --outputCodec=gzip
 ```
 
->! 其中除 keep 选项外，皆会先对文件先解压，随后转换为目标压缩类型。因此，除 keep 选项外，可能会由于压缩参数等不一致，导致目标文件和源文件不一致，但解压后的文件一致；在未指定 --groupBy，且 --outputCodec 为默认值时，可通过 --checkMode 进行数据校验。
+>! 其中除 keep 选项外，皆会先对文件先解压，随后转换为目标压缩类型。因此，除 keep 选项外，可能会由于压缩参数等不一致，导致目标文件和源文件不一致，但解压后的文件一致；在未指定 --groupBy，且 --outputCodec 为默认值时，可通过 --skipMode 进行增量迁移，--checkMode 进行数据校验。
 >
 
 ### 删除源文件
@@ -417,11 +424,11 @@ hadoop jar cos-distcp-1.4-2.8.5.jar \
 
 ## 常见问题
 ### 使用 COSDistcp 迁移 HDFS 数据包含哪些阶段，如何调整迁移性能和保障数据的正确性？
-您可以执行如下两个阶段的命令，以保障数据的准确性，首先执行如下的命令进行迁移：
+COSDistcp 每迁移完成一个文件，都会根据 checkMode 对迁移的文件进行校验：
 ```
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --taskNumber=20
 ```
-迁移完成后，执行如下的命令，查看源和目的的差异文件列表：
+此外，您也可以迁移完成后，执行如下的命令，查看源和目的的差异文件列表：
 ```
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --diffMode=length-checksum --diffOutput=/tmp/diff-output
 ```
@@ -469,3 +476,13 @@ yarn logs -applicationId application_1610615435237_0021 > application_1610615435
 
 ### COS 存储桶中存在一些看不见的未完成上传文件，占用存储空间，如何处理？
 由于机器异常、进程被 Kill 等因素，可能导致 COS 存储桶中存在一些碎片文件占用存储空间，您可参考官网 [生命周期文档](https://cloud.tencent.com/document/product/436/14605) 配置碎片删除规则，进行清理。
+
+### 迁移过程中，出现内存溢出和任务超时，如何进行参数调优？
+在迁移过程中，COSDistcp 和访问 COS 和 CHDFS 的工具，基于自身逻辑，都会占用一些内存。为避免内存溢出和任务超时，您可以进行一些 MapReduce 任务的参数调整，例如：
+```
+hadoop jar cos-distcp-${version}.jar -Dmapreduce.task.timeout=18000 -Dmapreduce.reduce.memory.mb=8192 --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse  
+```
+其中，将任务的超时时间 mapreduce.task.timeout 调整为18000秒，避免拷贝超大型文件时，出现任务超时；将 Reduce 进程的内存空间 mapreduce.reduce.memory.mb 大小调整为8GB，避免内存溢出。
+
+### 通过专线迁移，如何控制迁移任务的迁移带宽？
+COSDistcp 迁移的总带宽限制计算公式为：taskNumber * workerNumber * bandWidth，您可以将 workerNumber 设置为 1，通过参数 taskNumber 控制迁移并发数，以及参数 bandWidth 控制单个并发的带宽。

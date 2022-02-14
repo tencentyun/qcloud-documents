@@ -93,9 +93,9 @@ public QCloudOneSentenceRecognizer(Activity activity, String appId, String secre
   * 通过语音url进行一句话识别的快捷入口, 本地参数校验不通过抛出异常
   * @param audioUrl 资源url 如http://www.qq.music/hello.mp3
   * @param audioFormat 语音数据格式，QCloudAudioFormat
-  * @param frequence 语音数据采样率，QCloudAudioFrequence
+  * @param frequence 引擎模型类型，QCloudAudioFrequence枚举类获取对应模型名称，也可直接传符串，此参数与API文档EngSerViceType对应
   */
- public void recognize(String audioUrl, QCloudAudioFormat audioFormat, QCloudAudioFrequence frequence) throws Exception;
+ public void recognize(String audioUrl, QCloudAudioFormat audioFormat, String frequence) throws Exception;
  
 /**
   * 通过语音数据进行一句话识别的快捷入口, 本地参数校验不通过抛出异常

@@ -1,42 +1,66 @@
 您可以在这里下载最新的即时通信 IM SDK 以及 Demo 源码。
 ## SDK 下载[](id:TLS)
+[](id:client)
 <table>
-<tr>
-<th width="94px" style="text-align:center" >终端 SDK</td>
- <th width="0px" style="text-align:center" colspan='2' >下载地址</td>
-<th width="0px"  style="text-align:center">集成指引文档</td>
-<th width="175px" style="text-align:center">更新日志</td>
-</tr>
-<tr>
-<td style="text-align:center">Android  </td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK">Github(推荐)</a></td>
-<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Android/IMSDK">Gitee</a></td>
-<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/37059">【极速集成】导入TUIKit (Android)</a><br><a href="https://cloud.tencent.com/document/product/269/32679">【常规集成】快速导入到工程 (Android)</a></td>
-<td style="text-align:center" rowspan='4'><a href="https://cloud.tencent.com/document/product/269/1606">更新日志（终端）</a> </td>
-</tr>
-<tr>
-<td style="text-align:center">iOS  </td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/iOS/IMSDK">Github(推荐)</a></td>
-<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/iOS/IMSDK">Gitee</a></td>
-<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/37060">【极速集成】导入TUIKit (iOS)</a><br><a href="https://cloud.tencent.com/document/product/269/32675">【常规集成】快速导入到工程  (iOS)</a></td>
-</tr>
-<tr>
-<td style="text-align:center">Mac  </td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Mac/IMSDK">Github(推荐)</a></td>
-<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Mac/IMSDK">Gitee</a></td>
-<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/32676">【常规集成】快速导入到工程 (Mac)</a></td>
-</tr>
-<tr>
-<td style="text-align:center">Windows  </td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Windows/IMSDK">Github(推荐)</a></td>
-<td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Windows/IMSDK">Gitee</a></td>
-<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/33489">【常规集成】快速导入到工程 (Windows)</a></td>
-</tr>
+   <tr>
+      <th width="10%" style="text-align:center">终端 SDK</td>
+      <th width="26%" style="text-align:center" colspan='2'>下载地址</td>
+      <th width="47%"  style="text-align:center" colspan='2'>安装包增量</td>
+      <th width="12%"  style="text-align:center">集成指引文档</td>
+      <th width="5%"  style="text-align:center">更新日志</td>
+   </tr>
+   <tr>
+      <td rowspan='2' style="text-align:center">Android</td>
+      <td rowspan='2' style="text-align:center"><a href="https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK">Github(推荐)</a></td>
+      <td rowspan='2' style="text-align:center"><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Android/IMSDK">Gitee</a></td>
+      <td style="text-align:center">基础版</td>
+      <td  style="text-align:center">armeabi-v7a：3.2MB<br>arm64-v8a：5.2MB</td>
+      <td rowspan='2' style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/37059">【极速集成】导入TUIKit (Android)</a><br><a href="https://cloud.tencent.com/document/product/269/32679">【常规集成】快速导入到工程 (Android)</a></td>
+      <td rowspan='8'><a href="https://cloud.tencent.com/document/product/269/1606">更新日志（终端）</a> </td>
+   </tr>
+   <tr>
+      <td style="text-align:center">增强版</td>
+      <td style="text-align:center">armeabi-v7a：1.1MB<br>arm64-v8a：1.7MB</td>
+   </tr>
+   <tr>
+      <td rowspan='2' style="text-align:center">iOS</td>
+      <td rowspan='2' style="text-align:center"><a href="https://github.com/tencentyun/TIMSDK/tree/master/iOS/IMSDK">Github(推荐)</a></td>
+      <td rowspan='2' style="text-align:center"><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/iOS/IMSDK">Gitee</a></td>
+      <td style="text-align:center">基础版</td>
+      <td style="text-align:center">arm64：2.1MB</td>
+      <td style="text-align:center" rowspan='2'><a href="https://cloud.tencent.com/document/product/269/37060">【极速集成】导入TUIKit (iOS)</a><br><a href="https://cloud.tencent.com/document/product/269/32675">【常规集成】快速导入到工程  (iOS)</a></td>
+   </tr>
+   <tr>
+      <td style="text-align:center">增强版</td>
+      <td style="text-align:center">  arm64：1.1MB</td>
+   </tr>
+   <tr>
+      <td rowspan='2' style="text-align:center">Mac</td>
+      <td rowspan='2' style="text-align:center"><a href="https://github.com/tencentyun/TIMSDK/tree/master/Mac/IMSDK">Github(推荐)</a></td>
+      <td rowspan='2' style="text-align:center"><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Mac/IMSDK">Gitee</a></td>
+      <td style="text-align:center">基础版</td>
+      <td style="text-align:center">arm64：2.1MB</td>
+      <td style="text-align:center" rowspan='2'><a href="https://cloud.tencent.com/document/product/269/32676">【常规集成】快速导入到工程 (Mac)</a></td>
+   </tr>
+   <tr>
+      <td style="text-align:center">增强版</td>
+      <td style="text-align:center">arm64：1.1MB</td>
+   </tr>
+   <tr>
+      <td rowspan='2' style="text-align:center">Windows</td>
+      <td rowspan='2' style="text-align:center"><a href="https://github.com/tencentyun/TIMSDK/tree/master/Windows/IMSDK">Github(推荐)</a></td>
+      <td rowspan='2' style="text-align:center"><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Windows/IMSDK">Gitee</a></td>
+      <td style="text-align:center">基础版</td>
+      <td style="text-align:center">win32：1.8MB<br>win64：2.4MB</td>
+      <td  rowspan='2' style="text-align:center"><a href="https://cloud.tencent.com/document/product/269/33489">【常规集成】快速导入到工程 (Windows)</a></td>
+   </tr>
+   <tr>
+      <td style="text-align:center">增强版</td>
+      <td style="text-align:center">win32：1.4MB<br>win64：1.5MB</td>
+   </tr>
 </table>
 
-
-
-
+[](id:web)
 <table>
 <tr>
 <th width="94px" style="text-align:center" >Web SDK</td>
@@ -66,7 +90,7 @@
 </table>
 
 
-
+[](id:opensource)
 <table>
 <tr>
 <th width="94px" style="text-align:center" >框架 SDK</td>
