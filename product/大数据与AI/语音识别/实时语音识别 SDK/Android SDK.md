@@ -356,6 +356,7 @@ AudioRecognizeStateListener 可以用来监听语音识别的状态，一共有�
 | onStopRecord               | 结束录音                                                     |
 | onVoiceFlowStart           | 检测到语音流的起点                                           |
 | onVoiceFlowStartRecognize  | 语音流开始识别                                               |
+| onVoiceFlowFinish | 检测到语音流的终点                                               |
 | onVoiceFlowFinishRecognize | 语音流结束识别                                               |
 | onVoiceVolume              | 音量                                                         |
 | onNextAudioData            | 返回音频流，用于返回宿主层做录音缓存业务。new AudioRecordDataSource(true) 传递 true 时生效 |
