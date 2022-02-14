@@ -93,7 +93,7 @@ tcb login
 #### 步骤5：浏览 Hexo
 
 1. 登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击左侧菜单栏中的**静态网站托管** > **文件管理**，进入文件管理页面。
-2. 在文件管理页面可以找到默认的域名，单击域名，即可访问您部署的 VuePress。
+2. 在文件管理页面可以找到默认的域名，单击域名，即可访问您部署的 Hexo。
 ![](https://main.qcloudimg.com/raw/bba86e0e75526788d65c931bdcd5296d.jpg)
 
 
