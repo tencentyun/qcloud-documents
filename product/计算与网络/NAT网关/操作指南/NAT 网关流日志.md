@@ -4,12 +4,12 @@ NAT 网关提供流日志采集功能，通过对 NAT 网关流量的采集分�
 >+ 流日志本身不会产生费用，数据存储在日志服务中，将按日志服务的 [标准收费](https://cloud.tencent.com/document/product/614/11323)。
 >+ 流日志数据存储在日志服务 CLS 中，请确保已完成 [授权流日志访问 CLS 权限](https://cloud.tencent.com/document/product/682/63357)，否则无法在 CLS 上查询到日志数据。
 >
-
+![]()
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，在左侧导航栏中单击**流日志** > **日志列表**。
 2. 在“流日志”页面左上角选择地域，然后单击 **+新建**。
-3. 在“新建流日志”对话框中配置如下参数。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/0cb8bf34661237feae5b330bc6b61e6f.png" width="80%">
+3. 在“新建流日志”对话框中配置如下参数。</br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/86f096a60a1ff000f0d9cde46c9da1fe.png" width="60%">
 <table>
 <tr>
 <th width="15%">字段</th>
