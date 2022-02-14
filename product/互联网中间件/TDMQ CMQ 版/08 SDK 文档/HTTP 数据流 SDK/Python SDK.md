@@ -6,10 +6,10 @@
 
 - [安装 Python](https://www.python.org/downloads/)
 - [安装 pip](https://pip-cn.readthedocs.io/en/latest/installing.html)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-cmq-demo/tdmq-cmq-python-sdk-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/cmq/tdmq-cmq-python-sdk-demo.zip)
 
-## 一、队列模型
-
+## 队列模型
+### 操作步骤
 1. 在控制台创建符合需求的队列，参见 [创建队列服务](https://cloud.tencent.com/document/product/1496/61015)。
 <dx-alert infotype="explain" title="">
 创建消息队列可在控制台手动创建，或通过云 API 进行创建，使用云 API 需要安装相关 SDK，SDK 安装可参见 [Python SDK 安装](https://cloud.tencent.com/document/sdk/Python)。
@@ -137,11 +137,11 @@ except CMQExceptionBase as e:
 <table>
 <thead>
 <tr><th style='text-align:left;' >参数</th><th style='text-align:left;' >说明</th></tr></thead>
-<tbody><tr><td style='text-align:left;' >NameServerAddress</td><td style='text-align:left;' >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td style='text-align:left;' >SecretId、SecretKey</td><td style='text-align:left;' >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td style='text-align:left;' >queue</td><td style='text-align:left;' >队列名称，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong>列表页面获取。</td></tr></tbody>
+<tbody><tr><td style='text-align:left;' >NameServerAddress</td><td style='text-align:left;' >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API 请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td style='text-align:left;' >SecretId、SecretKey</td><td style='text-align:left;' >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td style='text-align:left;' >queue</td><td style='text-align:left;' >队列名称，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong>列表页面获取。</td></tr></tbody>
 </table>
 
-## 二、主题模型
-
+## 主题模型
+### 操作步骤
 1. 准备所需资源，创建主题订阅和订阅者。
    1. 创建主题订阅。可通过控制台手动创建，也可以通过云 API 进行创建，使用云 API 需要安装相关 SDK，SDK 安装可参见 [Python SDK 安装](https://cloud.tencent.com/document/sdk/Python)。
 <dx-codeblock>
@@ -170,7 +170,7 @@ resp = client.CreateCmqTopic(req)
 <table>
 <thead>
 <tr><th style='text-align:left;' >参数</th><th style='text-align:left;' >说明</th></tr></thead>
-<tbody><tr><td style='text-align:left;' >NameServerAddress</td><td style='text-align:left;' >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td style='text-align:left;' >SecretId、SecretKey</td><td style='text-align:left;' >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr></tbody>
+<tbody><tr><td style='text-align:left;' >NameServerAddress</td><td style='text-align:left;' >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API 请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td style='text-align:left;' >SecretId、SecretKey</td><td style='text-align:left;' >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr></tbody>
 </table>
    2. 创建订阅者。可通过控制台进行手动创建，也可以通过云 API 进行创建，使用云 API 需要安装相关 SDK，SDK 安装可参见 [Python SDK 安装](https://cloud.tencent.com/document/sdk/Python)。
 <dx-codeblock>
@@ -207,7 +207,7 @@ BindingKey 与 FilterTag 要根据所订阅topic类型进行设置，否则无�
 <table>
 <thead>
 <tr><th style='text-align:left;' >参数</th><th style='text-align:left;' >说明</th></tr></thead>
-<tbody><tr><td style='text-align:left;' >NameServerAddress</td><td style='text-align:left;' >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td style='text-align:left;' >SecretId、SecretKey</td><td style='text-align:left;' >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr></tbody>
+<tbody><tr><td style='text-align:left;' >NameServerAddress</td><td style='text-align:left;' >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API 请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td style='text-align:left;' >SecretId、SecretKey</td><td style='text-align:left;' >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr></tbody>
 </table>
 2. 在项目中引入 [CMQ 相关文件](https://github.com/tencentyun/cmq-python-sdk)，需要根据使用的 Python 版本选择分支，默认为 Python2 SDK，您可切换至 Python3 分支中查看 Python3 SDK。
 3. 创建 my_topic，用来发布消息。
@@ -245,7 +245,7 @@ except CMQExceptionBase as e:
 <table>
 <thead>
 <tr><th style='text-align:left;' >参数</th><th style='text-align:left;' >说明</th></tr></thead>
-<tbody><tr><td style='text-align:left;' >NameServerAddress</td><td style='text-align:left;' >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td style='text-align:left;' >SecretId、SecretKey</td><td style='text-align:left;' >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td style='text-align:left;' >topic_name</td><td style='text-align:left;' >主题订阅名称，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>主题订阅</strong>列表页面获取。</td></tr></tbody>
+<tbody><tr><td style='text-align:left;' >NameServerAddress</td><td style='text-align:left;' >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API 请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td style='text-align:left;' >SecretId、SecretKey</td><td style='text-align:left;' >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td style='text-align:left;' >topic_name</td><td style='text-align:left;' >主题订阅名称，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>主题订阅</strong>列表页面获取。</td></tr></tbody>
 </table>
 4. 发送 TAG 类型消息。
 <dx-codeblock>
@@ -276,5 +276,5 @@ print("Send Message Succeed! MessageBody:%s MessageID:%s" % (message.msgBody, re
 </dx-codeblock>
 6. 消费者消费订阅者订阅的消息队列即可。
 
->?以上是 CMQ 两种模型下的生产和消费方式的简单介绍，更多使用可参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-cmq-demo/tdmq-cmq-python-sdk-demo.zip) 或 [CMQ 代码仓库](https://github.com/tencentyun/cmq-python-sdk)。
+>?以上是 CMQ 两种模型下的生产和消费方式的简单介绍，更多使用可参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/cmq/tdmq-cmq-python-sdk-demo.zip) 或 [CMQ 代码仓库](https://github.com/tencentyun/cmq-python-sdk)。
 
