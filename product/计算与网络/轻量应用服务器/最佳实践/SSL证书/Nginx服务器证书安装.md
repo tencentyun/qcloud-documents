@@ -48,14 +48,14 @@
 解压缩后，可获得相关类型的证书文件。其中包含 Nginx 文件夹和 CSR 文件：
    - **文件夹名称**：Nginx
    - **文件夹内容**：
-     - `1_cloud.tencent.com_bundle.crt` 证书文件
-     - `2_cloud.tencent.com.key` 私钥文件
+     - `cloud.tencent.com_bundle.crt` 证书文件
+     - `cloud.tencent.com.key` 私钥文件
    - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
 <dx-alert infotype="explain" title="">
 CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 </dx-alert>
 2. 在本地计算机中使用远程登录工具（如 WinSCP），通过用户名密码方式或者 SSH 密钥对方式登录轻量应用服务器。详情请参见 [远程登录Linux实例](https://cloud.tencent.com/document/product/1207/44578)。
-3. 将已获取到的 `1_cloud.tencent.com_bundle.crt` 证书文件和 `2_cloud.tencent.com.key` 私钥文件从本地目录拷贝到轻量应用服务器 Nginx 默认配置文件目录中。您可参考 [如何将本地文件拷贝到轻量应用服务器](https://cloud.tencent.com/document/product/1207/53135) 上传证书文件。
+3. 将已获取到的 `cloud.tencent.com_bundle.crt` 证书文件和 `cloud.tencent.com.key` 私钥文件从本地目录拷贝到轻量应用服务器 Nginx 默认配置文件目录中。您可参考 [如何将本地文件拷贝到轻量应用服务器](https://cloud.tencent.com/document/product/1207/53135) 上传证书文件。
 <dx-alert infotype="explain" title="">
 WordPress 镜像的默认配置文件目录为 `/www/server/nginx/conf`。
 </dx-alert>
@@ -77,8 +77,8 @@ server {
     access_log logs/wordpress.log;
     error_log logs/wordpress.error.log;
     server_name cloud.tencent.com; #填写您的证书绑定的域名，例如：www.cloud.tencent.com
-    ssl_certificate 1_cloud.tencent.com_bundle.crt; #填写您的证书文件名称，例如：1_cloud.tencent.com_bundle.crt
-    ssl_certificate_key 2_cloud.tencent.com.key; #填写您的私钥文件名称，例如：2_cloud.tencent.com.key
+    ssl_certificate cloud.tencent.com_bundle.crt; #填写您的证书文件名称，例如：cloud.tencent.com_bundle.crt
+    ssl_certificate_key cloud.tencent.com.key; #填写您的私钥文件名称，例如：cloud.tencent.com.key
     ssl_session_timeout 5m;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;  # 可参考此 SSL 协议进行配置
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;   #可按照此加密套件配置，写法遵循 openssl 标准
@@ -96,8 +96,8 @@ server {
 ```
 5. 找到 `http{...}`，并输入以下配置信息。
 ```
-ssl_certificate 1_cloud.tencent.com_bundle.crt;   #填写您的证书文件名称，例如：1_cloud.tencent.com_bundle.crt
-ssl_certificate_key 2_cloud.tencent.com.key;    #填写您的私钥文件名称，例如：2_cloud.tencent.com.key
+ssl_certificate cloud.tencent.com_bundle.crt;   #填写您的证书文件名称，例如：cloud.tencent.com_bundle.crt
+ssl_certificate_key cloud.tencent.com.key;    #填写您的私钥文件名称，例如：cloud.tencent.com.key
 ```
 6. 保存修改后的 `nginx.conf` 文件后退出。
 7. [](id:Step7)执行以下命令，验证配置文件是否存在问题。
