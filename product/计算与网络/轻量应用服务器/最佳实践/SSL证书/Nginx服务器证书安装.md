@@ -63,37 +63,7 @@ WordPress 镜像的默认配置文件目录为 `/www/server/nginx/conf`。
 ```
 sudo vim /www/server/nginx/conf/nginx.conf
 ```
-找到以下配置信息：
-```
-server {
-    listen       80;
-    server_name  localhost;
-
-    location / {
-        root   html;
-        index  index.html index.htm;
-    }
-
-    location /server-status {
-#       stub_status  on;
-        allow        127.0.0.1;
-        deny         all;
-    }
-
-    location /status {
-        include      fastcgi.conf;
-        fastcgi_pass 127.0.0.1:9000;
-        allow        127.0.0.1;
-        deny         all;
-    }
-
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   html;
-    }
-}
-```
-参考以下配置对 `nginx.conf` 文件进行修改：
+找到 `server {...}`，并将 `server` 大括号中相应的配置信息替换为如下内容。
 <dx-alert infotype="explain" title="">
 此配置仅供参考，请参考注释并按照实际环境进行修改。您也可以参考 Nginx 官方文档按需进行配置。
 </dx-alert>
@@ -124,7 +94,7 @@ server {
     }
 }
 ```
-5. 找到 http{...}，并输入以下配置信息。
+5. 找到 `http{...}`，并输入以下配置信息。
 ```
 ssl_certificate 1_cloud.tencent.com_bundle.crt;   #填写您的证书文件名称，例如：1_cloud.tencent.com_bundle.crt
 ssl_certificate_key 2_cloud.tencent.com.key;    #填写您的私钥文件名称，例如：2_cloud.tencent.com.key
