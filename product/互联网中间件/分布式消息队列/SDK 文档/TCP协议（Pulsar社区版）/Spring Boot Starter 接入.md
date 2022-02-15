@@ -7,7 +7,7 @@
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1179/44814)
 - [安装1.8或以上版本 JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [安装2.5或以上版本 Maven](http://maven.apache.org/download.cgi#)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/tdmq-pulsar-springboot-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/tcp/tdmq-pulsar-springboot-demo.zip)
 
 ## 操作步骤
 
@@ -157,4 +157,4 @@ public void topicConsume(String msg) {
    消息轨迹如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/a5794d7dad969cc77b1d0b78d0a93dab.png)
 
->?以上是基于 Springboot Starter 方式对 Pulsar 简单使用的配置。详细使用可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/tdmq-pulsar-springboot-demo.zip) 或 [Starter 文档](https://github.com/majusko/pulsar-java-spring-boot-starter)。
+>?以上是基于 Springboot Starter 方式对 Pulsar 简单使用的配置。详细使用可参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/tcp/tdmq-pulsar-springboot-demo.zip) 或 [Starter 文档](https://github.com/majusko/pulsar-java-spring-boot-starter)。
