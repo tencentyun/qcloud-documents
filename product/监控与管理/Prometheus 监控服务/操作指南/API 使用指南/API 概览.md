@@ -1,57 +1,64 @@
-## HTTP API
-
-Prometheus 所有稳定的 HTTP API 都在 `/api/v1` 路径下。当我们有数据查询需求时，可以通过查询 API 请求监控数据，提交数据可以使用 [remote write](https://prometheus.io/docs/practices/remote_write/) 协议或者 [Pushgateway](https://prometheus.io/docs/practices/pushing/) 的方式。
-
 ## 支持的 API
 
-| API                               |         说明          | 需要认证 | 方法         |
-| --------------------------------- | :-------------------: | -------- | ------------ |
-| /api/v1/query                     |       查询接口        | 是       | GET/POST     |
-| /api/v1/query_range               |       范围查询        | 是       | GET/POST     |
-| /api/v1/series                    |      series 查询      | 是       | GET/POST     |
-| /api/v1/labels                    |      labels 查询      | 是       | GET/POST     |
-| /api/v1/label/&lt;label_name>/values |   label value 查询    | 是       | GET          |
-| /api/v1/prom/write                | remote write 数据提交 | 是       | remote write |
-| Pushgateway                       | pushgateway 数据提交  | 是       | SDK          |
+ Prometheus 监控服务所有支持的 API 与开源 Prometheus 提供的 API 有相同的参数输入和响应数据格式，未在此列出的 API 默认都不支持，或者部分 API 不是所有的版本都支持，以当前文档为准，所有 API 均为 HTTP 协议：
+
+| API                               |          说明       | 使用方式 |
+|-----------------------------------|:-------------------:|----------|
+| /api/v1/query                     | [查询某一时刻的数据](https://prometheus.io/docs/prometheus/latest/querying/api/#instant-queries) | 推荐使用 Grafana，可使用 HTTP 相关工具，部分 SDK 提供实现 |
+| /api/v1/query_range               | [查询时间范围类的数据](https://prometheus.io/docs/prometheus/latest/querying/api/#range-queries) | 推荐使用 Grafana，可使用 HTTP 相关工具，部分 SDK 提供实现 |
+| /api/v1/series                    | [查询 series](https://prometheus.io/docs/prometheus/latest/querying/api/#finding-series-by-label-matchers) | 推荐使用 Grafana，可使用 HTTP 相关工具，部分 SDK 提供实现 |
+| /api/v1/labels                    | [查询标签名](https://prometheus.io/docs/prometheus/latest/querying/api/#getting-label-names) | 推荐使用 Grafana，可使用 HTTP 相关工具，部分 SDK 提供实现 |
+| /api/v1/label/{label_name}/values | [查询标签名多对应的值](https://prometheus.io/docs/prometheus/latest/querying/api/#querying-label-values) | 推荐使用 Grafana，可使用 HTTP 相关工具，部分 SDK 提供实现 |
+| /api/v1/prom/write                | [remote write](https://prometheus.io/docs/practices/remote_write/) 上报数据 | 常用方式为使用相关 Agent，比如 Prometheus|
+| /metrics/{job}/{label-pairs*}     | [Pushgateway](https://prometheus.io/docs/instrumenting/pushing/) 上报数据 | 开源 SDK |
+
+>? Prometheus 监控服务不直接提供 SDK 实现，需使用开源 Prometheus 实现，各语言的实现请参见：[开源指引](https://prometheus.io/docs/instrumenting/clientlibs/) 。
+ [Pushgateway](https://prometheus.io/docs/practices/pushing/) 协议在这里仅作为 [remote write](https://prometheus.io/docs/practices/remote_write/) 协议的补充，不支持删除操作，可以理解为我们提供的删除接口是空的不执行任何逻辑，特殊需求可自行部署 [PushGateway](https://github.com/prometheus/pushgateway)。
 
 ## 认证方法
 
-默认开启认证，因此所有的接口都需要认证，且所有的认证方式都支持 Bearer Token和 Basic Auth。
+以上提供的所有的 API 都需要认证，且所有的认证方式都支持下面两种。
+
+### Basic Auth （推荐）
+
+Basic Auth 兼容原生 Prometheus Query 的认证方式，用户名为用户的 APPID，进入控制台基本信息里面的 Token 即为密码。
+
+了解更多：https://swagger.io/docs/specification/authentication/basic-authentication/
 
 ### Bearer Token
 
-Bearer Token 随着实例产生而生成，可以通过控制台进行查询。了解 Bearer Token 更多信息，请参见 [Bearer Authentication](https://swagger.io/docs/specification/authentication/bearer-authentication/)。
+Bearer Token 随着实例创建而生成，进入控制台查看基本信息里面的 Token。
 
-### Basic Auth
-
-Basic Auth 兼容原生 Prometheus Query 的认证方式，用户名为用户的 APPID，密码为 bearer token（实例产生时生成），可以通过控制台进行查询。了解 Basic Auth 更多信息，请参见 [Basic Authentication](https://swagger.io/docs/specification/authentication/basic-authentication/)。   
+了解更多：https://swagger.io/docs/specification/authentication/bearer-authentication/
 
 
-## 数据返回格式
+## API 响应及相关状态码
 
-所有 API 的响应数据格式都为 JSON。每一次成功的请求会返回 `2xx` 状态码。
+数据上报请求无固定的响应格式，程序只需关注状态码即可，错误响应最好记录详细的响应信息。
 
-无效的请求会返回一个包含错误对象的 JSON 格式数据，同时也将包含一个如下表格的状态码：
-
-| 状态码 | 含义                                         |
-| ------ | -------------------------------------------- |
-| 401    | 认证失败                                     |
-| 400    | 当参数缺失或错误时返回无效的请求状态码       |
-| 422    | 当一个无效的表达式无法被指定时 (RFC4918)     |
-| 503    | 当查询不可用或者被取消时返回服务不可用状态码 |
-
-无效请求响应返回模板如下：
-
+查询请求的响应格式为 JSON，基本结构如下：
 ```
 {
   "status": "success" | "error",
   "data": <data>,
 
-  // 当 status 状态为 error 时，下面的数据将被返回
+  // 当 status 状态为 error 时，下面的数据将被返回。
   "errorType": "<string>",
   "error": "<string>",
 
-  // 当执行请求时有警告信息时，该字段将被填充返回
+  // 当执行请求时有警告信息时，该字段将被填充返回。
   "warnings": ["<string>"]
 }
 ```
+
+相关状态码注解，错误相关的详细信息会包含在 HTTP 响应体内：
+
+| 状态码 | 请求类型 | 概述 |
+|--------|----------|------|
+| 400    | 查询 / 数据上报 | 请求参数错误 / 数据上报时如果 series 达到上限可能会出现此错误 |
+| 401    | 查询 / 数据上报 | 认证失败 |
+| 404    | 查询 / 数据上报 | API 不存在 |
+| 422    | 查询 | 查询请求的表达式无法执行([RFC4918](https://datatracker.ietf.org/doc/html/rfc4918#page-78)) |
+| 429    | 数据上报 | 数据上报时 samples 速率达到上限（对于基础版，如果自监控上体现出余量还较多，Agent 会自动重试上报数据，这种情况理论上不会丢失数据，平均下来不超过限制）|
+| 500    | 查询 / 数据上报 | 内部错误，频繁出现请联系我们 |
+| 503    | 查询 / 数据上报 | 服务在启动、重建或升级中 / 查询请求被中止或者超时 |
