@@ -5,8 +5,6 @@
 4. [跳转至 H5 进行核身](#eidh5)
 5. [获取E证通核验结果信息](#jieguo)
 6. [查看错误码](https://cloud.tencent.com/document/product/1007/47912)
-7. [对账指引](https://cloud.tencent.com/document/product/1007/51816)
-
 详细接入操作如下：
 
 [](id:spang)
