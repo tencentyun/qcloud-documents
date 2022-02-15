@@ -65,7 +65,7 @@ HTTPDNS `119.29.29.29` 仅提供基础的域名解析服务，以下功能特性
 </tbody>
 </table>
 
->?ECS（EDNS-Client-Subnet）协议在 DNS 请求包中附加请求域名解析的用户 IP 地址，DNS 服务器可以根据该地址返回用户更容快速访问的服务器 IP 地址。
+>?ECS（EDNS-Client-Subnet）协议在 DNS 请求包中附加请求域名解析的用户 IP 地址，DNS 服务器可以根据该地址返回用户访问最优的服务器 IP 地址。
 >
 ## 切换指引
 >?
