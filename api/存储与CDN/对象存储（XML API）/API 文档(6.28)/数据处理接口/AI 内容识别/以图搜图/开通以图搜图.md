@@ -8,7 +8,7 @@
 
 ```plaintext
 POST /ImageSearchBucket HTTP/1.1
-Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
 Date: <GMT Date>
 Authorization: <Auth String>
 Content-Length: <length>
@@ -76,7 +76,7 @@ Request 节点的具体数据描述如下：
 ```plaintext
 POST /ImageSearchBucket HTTP/1.1
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1558699190;1558706390&q-key-time=1558699190;1558706390&q-header-list=date;host&q-url-param-list=&q-signature=89fa1f6a56c34e460f3db4d65f928eaf034a****
-Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 50
 Content-Type: application/xml
 
