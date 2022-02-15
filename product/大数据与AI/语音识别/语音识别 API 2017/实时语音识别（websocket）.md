@@ -65,7 +65,7 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | nonce | 是 | Integer | 随机正整数。用户需自行生成，最长10位。 |
 | engine_model_type | 是 | String | 引擎模型类型。<br>电话场景：<br>• 8k_en：电话 8k 英语；<br>• 8k_zh：电话 8k 中文普通话通用；<br>• 8k_zh_finance：电话 8k 金融领域模型；<br>非电话场景：<br>• 16k_zh：16k 中文普通话通用；<br>• 16k_en：16k 英语；<br>• 16k_ca：16k 粤语；<br>• 16k_ko：16k 韩语；<br>• 16k_zh-TW：16k 中文普通话繁体；<br>• 16k_ja：16k 日语；<br>• 16k_wuu-SH：16k 上海话方言；<br>• 16k_zh_medical 医疗；<br>• 16k_en_game 英文游戏；<br>• 16k_zh_court 法庭；<br>• 16k_en_edu 英文教育；<br>• 16k_zh_edu 中文教育；<br>• 16k_th 泰语。 |
 | voice_id | 是 | String | 16位 String 串作为每个音频的唯一标识，用户自己生成。 |
-| voice_format | 否 | Integer | 语音编码方式，可选，默认值为4。1：pcm；4：speex(sp)；6：silk；8：mp3；12：wav；14：m4a（每个分片须是一个完整的 m4a 音频）；16：aac。 |
+| voice_format | 否 | Int | 语音编码方式，可选，默认值为4。1：pcm；4：speex(sp)；6：silk；8：mp3；10：opus（[opus 格式音频流封装说明](#jump)）；12：wav；14：m4a（每个分片须是一个完整的 m4a 音频）；16：aac。|
 | needvad | 否 | Integer | 0：关闭 vad，1：开启 vad。<br>如果语音分片长度超过60秒，用户需开启 vad（人声检测切分功能）。 |
 | hotword_id | 否 | String | 热词 id。用于调用对应的热词表，如果在调用语音识别服务时，不进行单独的热词 id 设置，自动生效默认热词；如果进行了单独的热词 id 设置，那么将生效单独设置的热词 id。 |
 | customization_id | 否 | String | 自学习模型 id。用于调用对应的自学习模型，如果在调用语音识别服务时，不进行单独的自学习模型 id 设置，自动生效默认自学习模型；如果进行了单独的自学习模型 id 设置，那么将生效单独设置的自学习模型 id。|
@@ -77,7 +77,6 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | vad_silence_time | 否 | Integer | 语音断句检测阈值，静音时长超过该阈值会被认为断句（多用在智能客服场景，需配合 needvad = 1 使用），取值范围：240-2000，单位 ms，此参数建议不要随意调整，可能会影响识别效果，目前仅支持 8k_zh、8k_zh_finance、16k_zh 引擎模型。 |
 | signature | 是 | String | 接口签名参数。 |
 
-[](id:sign)
 **signature 签名生成**
 1. 对除 signature 之外的所有参数按字典序进行排序，拼接请求 URL 作为签名原文，这里以 Appid=1259228442, SecretId=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r 为例拼接签名原文，则拼接的签名原文为：
 ```
@@ -96,12 +95,18 @@ HepdTRX6u155qIPKNKC+3U0j1N0=
 wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1592380492&filter_dirty=1&filter_modal=1&filter_punc=1&needvad=1&nonce=1592294092123&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&timestamp=1592294092&voice_format=1&voice_id=RnKu9FODFHK5FPpsrN&signature=HepdTRX6u155qIPKNKC%2B3U0j1N0%3D
 ```
 
+#### Opus 音频流封装说明
+压缩 FrameSize 固定640，即一次压缩640 short，否则解压会失败。传到服务端可以是多帧的拼接组合，每一帧需满足下面格式。
+每一帧压缩数据封装如下：
+| OpusHead（4字节） | 帧数据长度（2字节） | Opus 一帧压缩数据 |
+|---------|---------|---------|
+| opus | 长度 len | 对应 len 长的 opus decode data |
+
 #### 请求响应
 客户端发起连接请求后，后台建立连接进并进行签名校验，校验成功则返回 code 值为0的确认消息表示握手成功；如果校验失败，后台返回 code 为非0值的消息并断开连接。
 ```
  {"code":0,"message":"success","voice_id":"RnKu9FODFHK5FPpsrN"}
 ```
-
 
 ### 识别阶段
 握手成功之后，进入识别阶段，客户端上传语音数据并接收识别结果消息。
