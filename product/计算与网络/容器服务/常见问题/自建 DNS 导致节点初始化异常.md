@@ -14,7 +14,7 @@
 
 ## 解决措施
 ### 将腾讯云 DNS Nameserver 配置为自建 DNS 的上游
-建议将 `/etc/resolv.conf` 配置中的 nameserver 添加到自建 DNS 服务器的上游，因为部分服务依赖腾讯云内部 DNS 解析，如果未将其设为自建 DNS 的上游，可能导致部分服务无法正常工作。将上游 DNS 地址写入 forwarders 中，示例如下：
+建议将 `/etc/resolv.conf` 配置中的 nameserver 添加到自建 DNS 服务器的上游，因为部分服务依赖腾讯云内部 DNS 解析，如果未将其设为自建 DNS 的上游，可能导致部分服务无法正常工作。本文以 [BIND 9](https://www.isc.org/bind/) 为例修改配置文件，将上游 DNS 地址写入 forwarders 中，示例如下：
 ```yaml
 options {
         forwarders {
