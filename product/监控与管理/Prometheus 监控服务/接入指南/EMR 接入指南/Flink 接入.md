@@ -6,7 +6,7 @@
 ## 前提条件
 
 1. 购买的腾讯云弹性 MapReduce（以下简称 EMR）产品包含 Flink 组件，并在实例上跑 Flink 任务。
-2. 在 Prometheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)。
+2. 使用与 MER 相同的地域及私有网络 VPC 购买腾讯云 [Prometheus 实例](https://cloud.tencent.com/document/product/1416/55763)。
 
 
 ## 操作步骤
@@ -145,11 +145,15 @@ wget https://rig-1258344699.cos.ap-guangzhou.myqcloud.com/flink/flink-metrics-pr
 
 #### 验证
 
-1. 在 Master 节点上执行 `flink run` 命令提交新任务，查看任务日志。
+1. 在 Master 节点上使用 `hadoop` 这个用户使用 `flink run` 来提交一个任务，参考：
+```plaintext
+sudo -H -u hadoop bash -c 'flink run /usr/local/service/flink/examples/streaming/StateMachineExample.jar'
+```
+2. 然后通过如下命令查看任务日志。
 ```plaintext
 grep metrics /usr/local/service/flink/log/flink-hadoop-client-*.log
 ```
-2. 日志中包含下图内容，表示配置加载成功：
+3. 日志中包含下图内容，表示配置加载成功：
 ![](https://main.qcloudimg.com/raw/316151abb6369f2e73081dc233b46fcd.png)
 >!集群中已经提交的任务，由于使用的是旧配置文件，因此不会上报 metrics。
 
