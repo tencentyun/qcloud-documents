@@ -8,7 +8,7 @@
 ## 接入流程
 1. 首先需要接入 TRTC web 端 SDK，完成接入流程。
 2. 引入[asr.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/examples/trtc/asr.js)，asr.js 中封装了从 TRTC web 端 demo 中获取音轨，处理音频，以及调用 ASR 整个过程。为了更好的兼容浏览器，asr.js 主要是 es5写法，若要通过 import 方式引入，可参考 [asr.esm.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/examples/trtc/asr.esm.js) 中代码。
-3. 在 TRTC web 端中的调用，（这里以 TRTC web 端 demo 本地流为例）：
+3. 在 TRTC web 端中的调用（这里以 TRTC web 端 demo 本地流为例）：
 - 参数说明
 	- ASR 类的方法列表：
 <table>
