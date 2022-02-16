@@ -8,6 +8,57 @@ GooseFS 日志上报功能支持将 GooseFS 运行日志上报到腾讯云的日
 ### 部署 GooseFS 集群
 GooseFS 的部署请参考：[GooseFS 部署指南](https://cloud.tencent.com/document/product/436/57223)
 
+### GooseFS 上报日志到 CLS
+#### 创建 CLS 主题
+GooseFS 日志上报依赖于第三方采集系统平台，下面以日志服务（Cloud Log Service）（简称：CLS）为例说明：
+- 创建 CLS 主题，具体创建方式参考：[CLS 一分钟入门指南](https://cloud.tencent.com/document/product/614/55242)
+
+#### 配置 filebeat
+- 配置日志采集目录，编辑 GooseFS 部署根目录下的 $GOOSEFS_HOME/conf/filebeat.yml文件
+```
+- type: log
+  enabled: true
+  paths:
+    - ${path.home}/../logs/job_master.log* 
+    
+  fields:
+    type: "master"
+  exclude_files: ['.gz$']
+
+  multiline.pattern: '^[[:space:]]+(at|\.{3})[[:space:]]+\b|^Caused by:'
+  multiline.negate: false
+  multiline.match: after
+  ------------------------------
+  说明：
+  paths：配置要采集的日志路径，多个日志文件使用通配符*。
+  fields.type：自定义类型名。
+  multiline.pattern：多行合并规则。
+```
+
+- 配置 CLS 日志采集平台账号
+```
+output.kafka:
+  hosts: ["sh-producer.cls.tencentcs.com"]
+  topic: "a99cf1de-81d4-47a-97xxxxx-xxxx"
+  version: "0.11.0.0"
+  compression: "none"
+  username: "cc098474-b387-381xxxx-xxxxx"
+  password: "secretId#secretKey"
+  ------------------------------
+  说明：
+  hosts：CLS 平台的可用地域。
+  topic：CLS 平台创建日志主题时分配的日志主题ID。
+  version：CLS 平台服务支持 kafka 的版本，默认值：0.11.0.0。
+  username：CLS 平台创建日志主题时分配的日志集ID。
+  password：SecretId#SecretKey，SecretId和SecretKey是云管理账号下 APP密钥管理 中分配的密钥。
+```
+- 启动 filebeat，进入 GooseFS 部署根目录下的 $GOOSEFS_HOME/filebeat，执行命令：
+```
+./goosefs-filebeat -c filebeat.yml
+```
+filebeat 启动完成之后，会实时采集 GooseFS 服务产生的日志上报到 CLS 平台，通过 CLS 平台可以查看具体上报的日志信息，如下图：
+![](https://qcloudimg.tencent-cloud.cn/raw/6e1110050db635fe8523fa0d4bf76255.png)
+
 ### GooseFS 上报日志到 ES
 #### 创建 ES
 GooseFS 日志上报依赖于第三方采集系统平台，下面以 Elasticsearch Service（简称：ES）为例说明：
@@ -63,57 +114,6 @@ output.elasticsearch:
 ```
 filebeat 启动完成之后，会实时采集 GooseFS 服务产生的日志上报到 ES 平台，通过 ES 平台可以查看具体上报的日志信息，如下图：
 ![](https://qcloudimg.tencent-cloud.cn/raw/485e670cdc4360d52397919140a6cd3a.png)
-
-### GooseFS 上报日志到 CLS
-#### 创建 CLS 主题
-GooseFS 日志上报依赖于第三方采集系统平台，下面以日志服务（Cloud Log Service）（简称：CLS）为例说明：
-- 创建 CLS 主题，具体创建方式参考：[CLS 一分钟入门指南](https://cloud.tencent.com/document/product/614/55242)
-
-#### 配置 filebeat
-- 配置日志采集目录，编辑 GooseFS 部署根目录下的 $GOOSEFS_HOME/conf/filebeat.yml文件
-```
-- type: log
-  enabled: true
-  paths:
-    - ${path.home}/../logs/job_master.log* 
-    
-  fields:
-    type: "master"
-  exclude_files: ['.gz$']
-
-  multiline.pattern: '^[[:space:]]+(at|\.{3})[[:space:]]+\b|^Caused by:'
-  multiline.negate: false
-  multiline.match: after
-  ------------------------------
-  说明：
-  paths：配置要采集的日志路径，多个日志文件使用通配符*。
-  fields.type：自定义类型名。
-  multiline.pattern：多行合并规则。
-```
-
-- 配置 CLS 日志采集平台账号
-```
-output.kafka:
-  hosts: ["sh-producer.cls.tencentcs.com"]
-  topic: "a99cf1de-81d4-47a-97xxxxx-xxxx"
-  version: "0.11.0.0"
-  compression: "none"
-  username: "cc098474-b387-381xxxx-xxxxx"
-  password: "secretId#secretKey"
-  ------------------------------
-  说明：
-  hosts：CLS 平台的可用地域。
-  topic：CLS 平台创建日志主题时分配的日志主题ID。
-  version：CLS 平台服务支持 kafka 的版本，默认值：0.11.0.0。
-  username：CLS 平台创建日志主题时分配的日志集ID。
-  password：SecretId#SecretKey，SecretId和SecretKey是云管理账号下 APP密钥管理 中分配的密钥。
-```
-- 启动 filebeat，进入 GooseFS 部署根目录下的 $GOOSEFS_HOME/filebeat，执行命令：
-```
-./goosefs-filebeat -c filebeat.yml
-```
-filebeat 启动完成之后，会实时采集 GooseFS 服务产生的日志上报到 CLS 平台，通过 CLS 平台可以查看具体上报的日志信息，如下图：
-![](https://qcloudimg.tencent-cloud.cn/raw/6e1110050db635fe8523fa0d4bf76255.png)
 
 ### 开启 GooseFS 审计日志上报
 如果需要上报 GooseFS 服务的审计日志，需要开启审计日志配置，操作如下：
