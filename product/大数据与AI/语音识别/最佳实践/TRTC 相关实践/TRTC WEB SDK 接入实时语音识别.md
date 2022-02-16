@@ -7,10 +7,10 @@
 
 ## 接入流程
 1. 首先需要接入 TRTC web 端 SDK，完成接入流程。
-2. 引入语音识别的 [speechrecognizer.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/dist/speechrecognizer.js) 和 [asr.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/examples/trtc/asr.js) ，asr.js 中主要封装了从 TRTC web 端 demo 中获取音轨，处理音频，以及调用 ASR 整个过程。
+2. 引入语音识别的 [speechrecognizer.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/dist/speechrecognizer.js) 和 [asr.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/examples/trtc/asr.js) ，asr.js 中主要封装了从 TRTC web 端 demo 中获取音轨，处理音频，以及调用 ASR 整个过程。为了更好的兼容性，asr.js 主要是 es5写法，若要通过 import 方式引入，直接参考同目录下的 asr.esm.js 代码。
 3. 在 TRTC web 端中的调用，（这里以 TRTC web 端 demo 本地流为例）：
-	- 参数说明
-ASR 类的方法列表：
+- 参数说明
+	- ASR 类的方法列表：
 <table>
 <thead>
 <tr>
@@ -58,7 +58,7 @@ ASR 类的方法列表：
 <td>有识别结果回调</td>
 </tr>
 </tbody></table>
-new ASR(options)说明：
+	- new ASR(options)说明：
 <table>
 <thead>
 <tr>
@@ -82,11 +82,11 @@ new ASR(options)说明：
 </tr>
 </tbody></table>
 
-	其他参数和返回字段参考 [接口文档](https://cloud.tencent.com/document/product/1093/48982)。
+	- 其他参数和返回字段参考 [接口文档](https://cloud.tencent.com/document/product/1093/48982)。
 >?目前 ASR 类将 TRTC 对应的音频默认处理为16k、16bit的 pcm 格式音频数据，所以 engine_model_type 目前只支持16k模型，voice_format 只能为1，若对音频数据有要求，可自行处理数据，具体可参考 [asr.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/examples/trtc/asr.js) 中16k音频的处理方式。
 
-	- 将生成 AppID、SecretID 和 SecretKey 作为参数传入 ASR 类中，具体调用示例如下 ：
-```javascript 
+- 将生成 AppID、SecretID 和 SecretKey 作为参数传入 ASR 类中，具体调用示例如下 ：
+	```javascript 
 const localStreamAsr = new ASR({
   secretKey: '',
   secretId: '',
@@ -101,7 +101,7 @@ const localStreamAsr = new ASR({
   filter_modal: 1,
   filter_punc: 1,
   convert_num_mode : 1,
-  word_info: 2,,
+  word_info: 2,
   audioTrack: this.localStream_.getAudioTrack() // this.localStream_.getAudioTrack() 为获取的本地流的音轨
 })
 // 开始语音识别调用
@@ -139,6 +139,19 @@ localStreamAsr.OnError = (res) => {
 
 // 关闭识别时
 localStreamAsr.stop();
-
 ```
 >! SecretID 和 SecretKey 作为敏感信息，不建议直接放在前端代码里运行，可以通过接口服务获取，同时建议采取临时密钥方案，具体可参考：[临时身份凭证](https://cloud.tencent.com/document/product/1312/48195) 。
+
+- 采取临时密钥方案时，policy 参数需要授予该临时证书权限的 CAM 策略，这里以只授权 asr 服务为例：
+```
+policy = {
+  "version": "2.0",
+  "statement": [
+    {
+		"effect": "allow",
+      "action": ["name/asr:*"],
+      "resource": "*",
+    }]}
+```
+通过调用接口然后获取临时密钥信息。
+- 然后将获取到的参数 tmpSecretId、tmpSecretkey和Token依次作为参数 secretId、secretKey 和 token 传入 ASR 类中，若未采用临时密钥方案，可直接按照示例传入 secretId、secretKey 即可。
