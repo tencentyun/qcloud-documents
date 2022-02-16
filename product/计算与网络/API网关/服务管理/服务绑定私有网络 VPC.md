@@ -1,5 +1,5 @@
 ## 操作场景
-为服务绑定 [私有网络 VPC](https://console.cloud.tencent.com/vpc) 属性后，即可在服务中创建对接该 VPC 下后端资源的API。
+为服务绑定 [私有网络 VPC](https://console.cloud.tencent.com/vpc) 属性后，即可在服务中创建对接该 VPC 下后端资源的 API。
 
 ## 共享实例下服务绑定 VPC
 ### 创建服务绑定 VPC
@@ -19,6 +19,5 @@
 
 
 ## 专享实例下服务绑定 VPC
-由于专享实例本身具备 VPC 属性中，因此不需要用户操作绑定 VPC；
-创建专享实例下服务时，所属 VPC 字段会自动选择专享实例所在的 VPC。
+由于专享实例本身具备 VPC 属性中，因此不需要用户操作绑定 VPC。创建专享实例下服务时，所属 VPC 字段会自动选择专享实例所在的 VPC。
 ![](https://qcloudimg.tencent-cloud.cn/raw/44b6ec02dfe85fe93297c52ff2c674e9.png)
