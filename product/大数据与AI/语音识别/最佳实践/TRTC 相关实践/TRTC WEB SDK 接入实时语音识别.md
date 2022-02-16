@@ -154,4 +154,4 @@ policy = {
     }]}
 ```
 通过调用接口然后获取临时密钥信息。
-- 然后将获取到的参数 tmpSecretId、tmpSecretkey和Token依次作为参数 secretId、secretKey 和 token 传入 ASR 类中，若未采用临时密钥方案，可直接按照示例传入 secretId、secretKey 即可。
+- 然后将获取到的参数 tmpSecretId、tmpSecretkey 和 Token 依次作为参数 secretId、secretKey 和 token 传入 ASR 类中，若未采用临时密钥方案，可直接按照示例传入 secretId、secretKey 即可。
