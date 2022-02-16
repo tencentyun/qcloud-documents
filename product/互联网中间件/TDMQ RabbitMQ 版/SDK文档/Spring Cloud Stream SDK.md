@@ -75,7 +75,7 @@ spring:
                 host: 192.168.xxx.xxx #集群接入地址，在集群管理页面操作列的获取接入地址获取。
                 port: 5672
                 username: admin #角色名称
-                password: password #角色迷药
+                password: password #角色密钥
                 virtual-host: vhostnanme #Vhost名称
 ```
 
