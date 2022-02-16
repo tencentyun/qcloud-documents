@@ -22,6 +22,6 @@
 
 ### 关闭自动创建 Consumer Group
 
-CKafka 默认允许自动创建 Consumer Group，你可以在 CKafka 控制台关闭允许自动创建 Consumer Group 开关，关闭后只能消费在控制台上已有的消费组，无法正常新建数据同步任务。
+CKafka 默认允许自动创建 Consumer Group，您可以在 CKafka 控制台关闭允许自动创建 Consumer Group 开关，关闭后只能消费在控制台上已有的消费组，无法正常新建数据同步任务。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/294107dd0591e3a0d9c46c8a9e9df61d.png)
