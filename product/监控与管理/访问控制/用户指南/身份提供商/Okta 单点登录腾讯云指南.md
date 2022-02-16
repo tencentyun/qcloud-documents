@@ -28,13 +28,12 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 3. <span id="buzhou3"></span>在配置 SAML/Configure SAML 页面将 GENERAL 下 Single sign on URL 和 Audience URL(SP Entity ID)补充为以下信息，如下图所示：
 ![](https://main.qcloudimg.com/raw/43a621945ad09042a40986abaea67962.png)
 
->?
-> - 如果您的腾讯云账号所在站点为中国站，请按照如下信息进行配置：
- Single sign on URL：https://cloud.tencent.com/login/saml
-Audience URL(SP Entity ID)：cloud.tencent.com
-> - 如果您的腾讯云账号所在站点为 International ，请按照如下信息进行配置：
- Single sign on URL：https://intl.cloud.tencent.com/login/saml
-Audience URL(SP Entity ID)：intl.cloud.tencent.com
+您可以根据您的腾讯云账号所在站点进行配置
+|所在站点 | Single sign on URL| Audience URL(SP Entity ID) | 
+|---------|---------|---------|
+| 中国站 | https://cloud.tencent.com/login/saml| cloud.tencent.com|
+| 国际站 | https://intl.cloud.tencent.com/login/saml| intl.cloud.tencent.com|
+>?Single sign on URL 为跳转的腾讯云页面，如您需要指定其他页面，可使用https://cloud.tencent.com/login/saml?s_url=xxxx 形式指定，其中 xxxx 为需要指定的地址，需要做 urlencode。
 
 4. 在配置 SAML/Configure SAML 页面将 GENERAL 下 ATTRIBUTE STATEMENTS 补充为以下信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/7114ab440ba1a593111296871fc807f9.png)
