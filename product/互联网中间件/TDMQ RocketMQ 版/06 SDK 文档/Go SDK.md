@@ -6,7 +6,7 @@
 
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1495/61829)
 - [安装 Go](https://golang.org/dl/)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-go-sdk-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rocketmq/tdmq-rocketmq-go-sdk-demo.zip)
 
 ## 操作步骤
 ### 步骤1：准备环境
@@ -147,7 +147,7 @@
  
 
 <dx-alert infotype="explain" title="">
-异步发送、单向发送等，可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-go-sdk-demo.zip) 示例或参见 [rocketmq-client-go 示例](https://github.com/apache/rocketmq-client-go/tree/master/examples)。
+异步发送、单向发送等，可参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rocketmq/tdmq-rocketmq-go-sdk-demo.zip) 示例或参见 [rocketmq-client-go 示例](https://github.com/apache/rocketmq-client-go/tree/master/examples)。
 
 </dx-alert>
 
@@ -305,5 +305,5 @@
 
    
 
->?本文简单介绍了使用 Go 客户端进行简单的收发消息，更多操作可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-go-sdk-demo.zip) 或 [rocketmq-client-go 示例](https://github.com/apache/rocketmq-client-go/tree/master/examples)。
+>?本文简单介绍了使用 Go 客户端进行简单的收发消息，更多操作可参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rocketmq/tdmq-rocketmq-go-sdk-demo.zip) 或 [rocketmq-client-go 示例](https://github.com/apache/rocketmq-client-go/tree/master/examples)。
 

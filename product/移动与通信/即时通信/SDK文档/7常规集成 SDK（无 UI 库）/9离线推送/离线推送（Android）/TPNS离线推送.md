@@ -2,14 +2,13 @@
 
 >!
 >- 接入 TPNS 需升级 IM SDK 至 [6.0.1975 及以上版本](https://cloud.tencent.com/document/product/269/36887)。
->- 如果您的 IM SDK 版本是 6.0.1975 之前的版本，且没有接入 TPNS，请参照 [IM 离线推送](https://cloud.tencent.com/document/product/269/44516) 接入推送功能。
 
 ## 接入 TPNS 跑通离线推送功能
 
 [](id:step1)
 ### 步骤一：注册应用到厂商推送平台
 
-离线推送功能依赖厂商原始通道，您需要将自己的应用注册到各个厂商的推送平台，得到 AppID 和 AppKey 等参数。目前国内支持的手机厂商有：[小米]( https://dev.mi.com/console/doc/detail?pId=68)、[华为](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/service-introduction-0000001050040060)、[OPPO](https://open.oppomobile.com/wiki/doc#id=10195)、[VIVO](https://dev.vivo.com.cn/documentCenter/doc/281)、[魅族](http://open-wiki.flyme.cn/doc-wiki/index#id?129)，海外支持 [Google FCM](https://console.firebase.google.com/u/0/?hl=zh-cn)。
+离线推送功能依赖厂商原始通道，您需要将自己的应用注册到各个厂商的推送平台，得到 AppID 和 AppKey 等参数。目前国内支持的手机厂商有：[小米](https://dev.mi.com/console/doc/detail?pId=68)、[华为](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/service-introduction-0000001050040060)、[OPPO](https://open.oppomobile.com/wiki/doc#id=10195)、[VIVO](https://dev.vivo.com.cn/documentCenter/doc/281)、[魅族](http://open-wiki.flyme.cn/doc-wiki/index#id?129)，海外支持 [Google FCM](https://console.firebase.google.com/u/0/?hl=zh-cn)。
 
 [](id:step2)
 ### 步骤二：TPNS 控制台配置 

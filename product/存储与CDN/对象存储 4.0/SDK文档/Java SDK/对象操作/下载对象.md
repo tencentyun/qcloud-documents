@@ -259,7 +259,7 @@ try {
     // 返回一个异步结果 Donload, 可同步的调用 waitForCompletion 等待下载结束, 成功返回 void, 失败抛出异常
     Download download = transferManager.download(getObjectRequest, downloadFile);
     // 打印上传进度，直到上传结束
-    showTransferProgress();
+    showTransferProgress(download);
     // 这里可以捕获可能出现的异常
     download.waitForCompletion();
 } catch (CosServiceException e) {
