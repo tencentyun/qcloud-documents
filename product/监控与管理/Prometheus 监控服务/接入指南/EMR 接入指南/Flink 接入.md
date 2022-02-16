@@ -39,7 +39,7 @@
 <td>metrics.reporter.promgateway.class</td>
 <td align="center">无</td>
 <td align="center" nowrap="nowrap">字符串</td>
-<td>实现 metrics 导出到 push gateway 的 java 类名</td>
+<td>实现 metrics 导出到 push gateway 的 Java 类名</td>
 <td>-</td>
 </tr>
 <tr>
@@ -134,7 +134,8 @@ metrics.reporter.promgateway.password: token
 ```plaintext
 cd /usr/local/service/flink/lib
 rm flink-metrics-prometheus*jar
-```2. 在** [弹性 MapReduce 控制台](https://console.cloud.tencent.com/emr)** > **选择对应的“实例”** > **集群资源** > **资源管理** > **Master**页面，查看 Master 节点。
+```
+2. 在 [弹性 MapReduce 控制台](https://console.cloud.tencent.com/emr) > **选择对应的“实例”** > **集群资源** > **资源管理** > **Master** 页面，查看 Master 节点。
 3. 单击实例 ID 跳转至 CVM 控制台，登录 CVM 执行以下命令安装插件。
 ```plaintext
 cd /usr/local/service/flink/lib
