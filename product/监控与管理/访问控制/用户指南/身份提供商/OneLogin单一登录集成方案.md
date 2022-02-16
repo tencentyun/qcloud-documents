@@ -31,15 +31,13 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
 1. 在 [OneLogin 应用管理页](#app)，单击已创建的 “test” 应用，跳转至应用编辑页。
 2. 选择 **Configuration** 页签，输入以下内容，单击 **SAVE**。如下图所示：
 ![](https://main.qcloudimg.com/raw/2211da7f372415f536a81795d3a02207.png)
->?
-> - 如果您的腾讯云账号所在站点为中国站，请按照如下信息进行配置：
-SAML Consumer URL：https://cloud.tencent.com/login/saml
-SAML Audience：https://cloud.tencent.com
-SAML Recipient：https://cloud.tencent.com/login/saml
-> - 如果您的腾讯云账号所在站点为 International ，请按照如下信息进行配置：
-SAML Consumer URL：https://intl.cloud.tencent.com/login/saml
-SAML Audience：https://intl.cloud.tencent.com
-SAML Recipient：https://intl.cloud.tencent.com/login/saml
+
+您可以根据您的腾讯云账号所在站点进行配置
+|所在站点 | SAML Consumer URL| SAML Audience | SAML Recipient|
+|---------|---------|---------|---------|
+| 中国站 | https://cloud.tencent.com/login/saml|https://cloud.tencent.com|https://cloud.tencent.com/login/saml|
+| 国际站 | https://intl.cloud.tencent.com/login/saml|https://intl.cloud.tencent.com/login/saml|https://intl.cloud.tencent.com/login/saml|
+>?SAML Recipient 为跳转的腾讯云页面，如您需要指定其他页面，可使用https://cloud.tencent.com/login/saml?s_url=xxxx 形式指定，其中 xxxx 为需要指定的地址，需要做 urlencode。
 >
 3. 单击 **Parameters**，选择 **Add parameter**，添加以下两条配置信息。
 <table>
