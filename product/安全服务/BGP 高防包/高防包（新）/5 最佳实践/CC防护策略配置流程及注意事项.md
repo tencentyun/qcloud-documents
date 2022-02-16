@@ -1,6 +1,6 @@
 DDoS 高防包提供针对 CC 攻击的防护功能，策略包括防护等级、清洗阈值、精准防护、CC 频率限制等。业务完成接入后，您可以参考本文介绍的 CC 攻击防护策略配置流程，进行相关的配置，更好地保护您的业务。
 
-## 步骤1：设置清洗阀值
+## 步骤1：设置清洗阈值
 1. 登录 [DDoS 高防包管理控制台](https://console.cloud.tencent.com/ddos/antiddos-native/config/web)，在左侧导航中，单击**防护配置** > **CC防护**。
 2. 在 CC 防护页面的左侧列表中，选中高防包的 ID，如“bgp-00xxxxxx”。
 ![](https://qcloudimg.tencent-cloud.cn/raw/87a4773836c1e230b9b742325f35270c.png)
@@ -75,7 +75,7 @@ DDoS 高防为已接入防护的网站业务提供频率控制防护策略，支
 1. 在右侧 CC 频率限制卡片中，单击**设置**，进入 CC 频率限制列表。
 ![](https://qcloudimg.tencent-cloud.cn/raw/02c524bc9b7dd9d08f0abfd0b38d678a.png)
 2. 在CC 频率限制列表中，可以新建防护等级，或对已创建的防护等级进行编辑。
->防护等级为 DDoS 高防开启 CC 防护且遭受攻击触发清洗动作时，对流量检测的严格程度，分为三种等级：宽松、攻击紧急、适中、严格、自定义，可根据攻击情况进行选择，详细说明请参见 [CC 防护开关及清洗阈值](https://cloud.tencent.com/document/product/1021/43921)。
+>?防护等级为 DDoS 高防开启 CC 防护且遭受攻击触发清洗动作时，对流量检测的严格程度，分为三种等级：宽松、攻击紧急、适中、严格、自定义，可根据攻击情况进行选择，详细说明请参见 [CC 防护开关及清洗阈值](https://cloud.tencent.com/document/product/1021/43921)。
 3. 单击**新建**，创建频率控制规则，填写相关字段，单击**确定**即可。详细配置说明，请参见 [频率控制](https://cloud.tencent.com/document/product/1021/43925)。
 >!
 >- 新增规则在自定义模式下才生效。
