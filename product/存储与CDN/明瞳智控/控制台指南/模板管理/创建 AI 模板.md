@@ -57,7 +57,7 @@
 	</tr>
    <tr>
 		<td>厨师服识别</td>
-		<td><ul  style="margin: 0;"><li>算法识别准确度不低于90%。</li><li>最小检测尺寸：40px * 40px。</li></ul></td>
+		<td><ul  style="margin: 0;"><li>算法识别准确度不低于95%。</li><li>最小检测尺寸：40px * 40px。</li></ul></td>
 	</tr>
      <tr>
 		<td>接打电话识别</td>
