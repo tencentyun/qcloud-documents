@@ -24,6 +24,8 @@
 | {{.TriggerParams}}            | 告警触发时参数             |  $1.success_counts=15;                                            |
 | {{.CustomizeMessage}}     | 自定义告警通知内容               |  -                                             |
 | {{.NotifyType}}      |   告警通知类型，1代表告警通知，2代表恢复通知     | 1     |
+| {{.DetailUrl}}  | 告警详情页面链接（免登录）  | https://alarm.cls.tencentcs.com/CJNmxxxx  |
+| {{.QueryUrl}}  | 第一个执行语句的检索分析链接  | https://alarm.cls.tencentcs.com/Olw8xxxx  |
  
 
 ## 示例

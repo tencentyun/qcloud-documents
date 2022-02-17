@@ -168,30 +168,30 @@ private class MyPusherObserver extends V2TXLivePusherObserver {
  */
     @interface V2TXLiveVideoFrame : NSObject
 
-///【字段含义】视频帧像素格式
-///【推荐取值】V2TXLivePixelFormatNV12
+///**字段含义**视频帧像素格式
+///**推荐取值**V2TXLivePixelFormatNV12
 @property(nonatomic, assign) V2TXLivePixelFormat pixelFormat;
 
-///【字段含义】视频数据包装格式
-///【推荐取值】V2TXLiveBufferTypePixelBuffer
+///**字段含义**视频数据包装格式
+///**推荐取值**V2TXLiveBufferTypePixelBuffer
 @property(nonatomic, assign) V2TXLiveBufferType bufferType;
 
-///【字段含义】bufferType 为 V2TXLiveBufferTypeNSData 时的视频数据
+///**字段含义**bufferType 为 V2TXLiveBufferTypeNSData 时的视频数据
 @property(nonatomic, strong, nullable) NSData *data;
 
-///【字段含义】bufferType 为 V2TXLiveBufferTypePixelBuffer 时的视频数据
+///**字段含义**bufferType 为 V2TXLiveBufferTypePixelBuffer 时的视频数据
 @property(nonatomic, assign, nullable) CVPixelBufferRef pixelBuffer;
 
-///【字段含义】视频宽度
+///**字段含义**视频宽度
 @property(nonatomic, assign) NSUInteger width;
 
-///【字段含义】视频高度
+///**字段含义**视频高度
 @property(nonatomic, assign) NSUInteger height;
 
-///【字段含义】视频帧的顺时针旋转角度
+///**字段含义**视频帧的顺时针旋转角度
 @property(nonatomic, assign) V2TXLiveRotation rotation;
 
-///【字段含义】视频纹理ID
+///**字段含义**视频纹理ID
 @property (nonatomic, assign) GLuint textureId;
 
 @end

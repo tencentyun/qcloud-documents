@@ -1,55 +1,72 @@
-
 ## PK 方案介绍
-目前，在 [**连麦互动 - RTMP方案**](https://cloud.tencent.com/document/product/454/14606) 中，腾讯云视立方·移动直播 SDK 提供连麦互动组件 `MLVBLiveRoom` 用来帮助开发者快速实现 PK 需求，为了更好的满足开发者针对 PK 功能的需求，腾讯云新增了基于 RTC 协议的 PK 方案，同时提供了更加简单灵活的 V2 接口。
+目前，在 [**连麦互动 - RTMP方案**](https://cloud.tencent.com/document/product/454/14606) 中，腾讯云视立方·移动直播 SDK 提供连麦互动组件 `MLVBLiveRoom` 用来帮助开发者快速实现 PK 需求，为了更好的满足开发者对连麦功能的需求，腾讯云新增了**基于实时音视频 TRTC 能力实现的新版连麦方案**，同时提供了更加简单灵活的全新接口：`V2TXLivePusher` （推流）、`V2TXLivePlayer` （拉流）。
 
-移动直播 V2 接口同时支持通过 RTMP 协议及 RTC 协议进行推流/PK，开发者可根据自身需求选择适合的方案，对比如下：
+移动直播全新接口同时支持通过 RTMP 协议及 RTC 协议进行推流/PK，开发者可根据自身需求选择适合的方案，对比如下：
 
-| 对比项   | RTMP 方案                  | RTC 方案                                           |
-| -------- | -------------------------- | -------------------------------------------------- |
-| 协议     | RTMP 基于 TCP 协议            | RTC 基于 UDP 协议（更适合流媒体传输）                 |
-| QoS      | 弱网抗性能力弱             | 50%丢包率可正常视频观看，70%丢包率可正常语音连麦 |
-| 支持区域 | 仅支持中国内地（大陆）地区 | 全球覆盖                                           |
-| 使用产品 | 需开通移动直播、云直播服务 | 需开通移动直播、云直播、实时音视频服务             |
+| 对比项   | 旧版连麦方案               | 新版连麦方案                                                 |
+| :------- | :------------------------- | :----------------------------------------------------------- |
+| 协议     | RTMP 基于 TCP 协议         | RTC 基于 UDP 协议（更适合流媒体传输）                        |
+| QoS      | 弱网抗性能力弱             | 50%丢包率可正常视频观看，70%丢包率可正常语音连麦             |
+| 支持区域 | 仅支持中国内地（大陆）地区 | 全球覆盖                                                     |
+| 使用产品 | 需开通移动直播、云直播服务 | 需开通移动直播、云直播、实时音视频服务                       |
 | 价格     | 0.016元/分钟               | 阶梯价格，详情请参见 [费用介绍](https://cloud.tencent.com/document/product/454/8008#rtc_live) |
 
-
 ## RTC PK 方案演示
-移动直播 SDK 提供了新的 V2 接口：` V2TXLivePusher` （推流）、` V2TXLivePlayer` （拉流），用来帮助客户实现更加灵活、更低延时、更多人数的直播互动场景。开播端可以利用 V2 提供的 RTC 推流能力，默认情况下，观众端观看则可使用 CDN 方式进行拉流。 CDN 观看费用较低。如果主播端有 PK 需求，直接互相播放对方的流即可。RTC PK 需要另外开通服务，具体步骤请参见 [配置连麦或 PK 能力](https://cloud.tencent.com/document/product/454/60985#step4) 配置。
+
+新版连麦方案用来帮助客户实现更加灵活、更低延时、更多人数的直播互动场景。开播端可以利用全新接口提供的 RTC 推流能力，默认情况下，观众端观看则可使用 CDN 方式进行拉流。 CDN 观看费用较低。如果观众端有 PK 需求，直接互相播放对方的流即可。RTC PK 需要另外开通服务，具体步骤请参见 [配置连麦或 PK 能力](https://cloud.tencent.com/document/product/454/60985#step4) 配置。
+
+为了方便用户快速接入，我们在音视频终端引擎控制台整理推出连麦管理功能，通过简单配置即可快速跑通 MLVB-API-Example Demo，体验新版连麦方案，全方位管理连麦应用，实时查看连麦应用相关用量统计，以及连麦地址生成器。若您是首次接入，推荐您前往 [音视频终端引擎控制台 - 连麦管理](https://console.cloud.tencent.com/vcube/micro/start) 体验，再自行接入移动直播 SDK。
+
 下面是 [MLVB-API-Example Demo](https://cloud.tencent.com/document/product/454/60985) 的演示效果。
 
 ### 演示图示
-
-####  直播前
+<dx-tabs>
+::: 直播前
 <table>
 <tr> 
-	<th><div align=center>主播 A（手机 A)</div></th>
-	<th><div align=center>主播 B（手机 B）</div></th>
-	<th><div align=center>主播 A 的观众（手机 B）</div></th>
+  <th style="text-align:center" width=15%>主播 A 和<br>主播 B</th>
+    <td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/2ba7a460bc235b1902c6681265708d72.jpeg" width=250px></div></td>
+  <td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/801563570d4579d1564aa3ea86e9b174.jpeg" width=250px></div></td>
+  <td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/3a4ba9ffa543ae83329d10de0df7a1ff.jpeg" width=250px></div></td>
 </tr><tr>
-	<td>
-	<div align=center><img src="https://main.qcloudimg.com/raw/d1468d2b7b57458e1b4c9d399edafe25.png"></div>
-</td><td>
-	<div align=center><img src="https://main.qcloudimg.com/raw/b4d8c701b5e7214f96fc9391ce8c8a5f.png"></div>
-</td><td>
-	<div align=center><img src="https://main.qcloudimg.com/raw/5553ac9e0039c38be81979d4678638ab.png"></div>
-</td>
+  <th style="text-align:center">观众</th>
+<td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/a051c9a0c54159344839398afc2a98de.jpeg" width=250px></div></td>
+<td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/fc81c197632a2813de0a1220102c0239.jpeg" width=250px></div></td>
+<td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/d3a312da2056d86e8d45fe30e536f9a9.jpeg" width=250px></div></td>
 </tr></table>
-
-####  PK 中
+:::
+::: PK 操作
 <table>
 <tr> 
-	<th><div align=center>主播 A（手机 A）</div></th>
-	<th><div align=center>主播 B（手机 B）</div></th>
-	<th><div align=center>主播 A 的观众（手机 C）</div></th>
+  <th style="text-align:center" width=15%>主播 A</th>
+    <td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/802cc1411e89b0ad0a6f367e764d392e.png" width=250px></div></td>
+    <td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/8d19ef3684718ef3452efd71a25af3bc.png" width=250px></div></td>
 </tr><tr>
-<td>
-	<div align=center><img src="https://main.qcloudimg.com/raw/a4b22306830a0cf7754df0668d0f7dfa.png"></div>
+  <th style="text-align:center">主播 B</th>
+  <td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/33e97d536e3acb493df44dce26154735.png" width=250px></div></td>
+<td><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/1aa60704584fd713e4f7bcb849953611.png" width=250px></div></td>
+</tr><tr>
+  <th style="text-align:center">主播 A 的观众</th>
+  <td  colspan=2><div align=center><img src="https://qcloudimg.tencent-cloud.cn/raw/0c588816f4fd646d3ee09a88b121101d.png" width=250px></div></td>
+</tr></table>
+:::
+::: PK 中
+<table>
+<tr> 
+  <th><div align=center width=15%>主播 A（手机 A)</div></th>
+  <th><div align=center>主播 B（手机 B）</div></th>
+  <th><div align=center>主播 A 的观众（手机 C)</div></th>
+</tr><tr>
+  <td>
+  <div align=center><img src="https://main.qcloudimg.com/raw/d3f44a38c294cec0e0d5d4597948795f.png" width=250px></div>
 </td><td>
-	<div align=center><img src="https://main.qcloudimg.com/raw/1c22fd4c4b7cbf8696050386ad3591ab.png"></div>
+  <div align=center><img src="https://main.qcloudimg.com/raw/3d56a195860bc82fab2653aaf37b9414.png" width=250px></div>
 </td><td>
-	<div align=center><img src="https://main.qcloudimg.com/raw/e85046243380bb1c505033c74e1f97a4.png"></div>
+  <div align=center><img src="https://main.qcloudimg.com/raw/df3ae3b3dcebb39404e50dfbc7667ad5.png" width=250px></div>
 </td>
 </tr></table>
+:::
+</dx-tabs>
 
 ## RTC PK 功能实现
 如下示意图，主播 A 有观众 A，主播 B 有观众 B，如果主播 A 和 B 进行 PK，需要做的事情非常简单：
@@ -98,26 +115,26 @@ NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=140018888
 ::: java java
 // 主播A
 V2TXLivePlayer player = new V2TXLivePlayerImpl(mContext);
-playURLB = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx&appscene=live"
+playURLB = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx&appscene=live"
 player.startPlay(playURLB);
 ...
 
 // 主播B
 V2TXLivePlayer player = new V2TXLivePlayerImpl(mContext);
-playURLA= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx&appscene=live"
+playURLA= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx&appscene=live"
 player.startPlay(playURLA);
 :::
 ::: Objective-C ObjectiveC
 // 主播A
 V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
-NSString *playURLB = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx&appscene=live"
+NSString *playURLB = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx&appscene=live"
 [player setRenderView:view];
 [player startPlay:playURLB];
 ...
 
 // 主播B
 V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
- NSString *playURLA = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx&appscene=live"
+ NSString *playURLA = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx&appscene=live"
 [player setRenderView:view];
 [player startPlay:playURLA];
 :::
@@ -294,7 +311,7 @@ pusher.setMixTranscodingConfig(config);
 
 >? 此处开发者可能会有疑问：貌似新的 RTC 连麦方案还需要我们自己维护一套房间和用户状态，这样不是更麻烦吗？是的，**没有更好的方案，只有更适合自己的方案**，我们也有考虑到这样的场景：
 - 如果对时延和并发要求并不高的场景，可以继续使用连麦互动的旧方案。
-- 如果既想用到 V2 相关的接口，但是又不想维护一套单独的房间状态，可以尝试搭配 [腾讯云 IM SDK](https://cloud.tencent.com/document/product/269)，快速实现相关逻辑。
+- 如果既想用到新版连麦方案相关的接口，但是又不想维护一套单独的房间状态，可以尝试搭配 [腾讯云 IM SDK](https://cloud.tencent.com/document/product/269)，快速实现相关逻辑。
 
 [](id:price)
 ## RTC 连麦方案怎么计算费用

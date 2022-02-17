@@ -95,12 +95,13 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
 ### SDK 初始化
 
 >?
-- HTTP 协议服务地址为 `119.29.29.98`，https 协议服务地址为 `119.29.29.99`。
+- HTTP 协议服务地址为 `119.29.29.98`，HTTPS 协议服务地址为 `119.29.29.99`（仅当采用自选加密方式并且 `channel` 为 `Https` 时使用 `99` 的 IP）。
 - 新版本 API 更新为使用 `119.29.29.99/98` 接入，同时原移动解析 HTTPDNS 服务地址 `119.29.29.29` 仅供开发调试使用，无 SLA 保障，不建议用于正式业务，请您尽快将正式业务迁移至 `119.29.29.99/98`。
 - 具体以 [API 说明](https://cloud.tencent.com/document/product/379/54976) 提供的 IP 为准。
 - 使用 SDK 方式接入 HTTPDNS，若 HTTPDNS 未查询到解析结果，则通过 LocalDNS 进行域名解析，返回 LocalDNS 的解析结果。
 
 #### 默认使用 DES 加密
+##### 默认不进行解析异常上报
 
 ```Java
 // 以下鉴权信息可在腾讯云控制台（https://console.cloud.tencent.com/httpdns/configure）开通服务后获取
@@ -112,14 +113,35 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
  * @param appkey 业务 appkey，即 SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param dnskey dns解析key，即授权id对应的 key（加密密钥），在申请 SDK 后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持 http 请求），"119.29.29.99"（仅支持 https 请求）以腾讯云文档（https://cloud.tencent.com/document/product/379/54976）提供的 IP 为准
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"，以腾讯云文档（https://cloud.tencent.com/document/product/379/54976）提供的 IP 为准
  * @param debug 是否开启 debug 日志，true 为打开，false 为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  */
 MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp, debug, timeout);
 ```
 
+##### 手动开启异常解析上报
+```Java
+// 以下鉴权信息可在腾讯云控制台（https://console.cloud.tencent.com/httpdns/configure）开通服务后获取
+
+/**
+ * 初始化 HTTPDNS（默认为 DES 加密）：如果接入了 MSDK，建议初始化 MSDK 后再初始化 HTTPDNS
+ *
+ * @param context 应用上下文，最好传入 ApplicationContext
+ * @param appkey 业务 appkey，即 SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
+ * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
+ * @param dnskey dns解析key，即授权id对应的 key（加密密钥），在申请 SDK 后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持 http 请求，channel 为 DesHttp 和 AesHttp 时选择），"119.29.29.99"（仅支持 https 请求，channel为 Https 时选择）以腾讯云文档（https://cloud.tencent.com/document/product/379/54976）提供的 IP 为准
+ * @param debug 是否开启 debug 日志，true 为打开，false 为关闭，建议测试阶段打开，正式上线时关闭
+ * @param timeout dns请求超时时间，单位ms，建议设置1000
+ * @param enableReport 是否开启解析异常上报，默认 false，不上报
+ */
+MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp, debug, timeout, enableReport);
+```
+
+
 #### 自选加密方式（DesHttp, AesHttp, Https）
+
 ```Java
 /**
  * 初始化 HTTPDNS（自选加密方式）：如果接入了 MSDK，建议初始化 MSDK 后再初始化 HTTPDNS
@@ -128,13 +150,14 @@ MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dns
  * @param appkey 业务 appkey，即 SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param dnskey dns解析key，即授权id对应的 key（加密密钥），在申请 SDK 后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持 http 请求），"119.29.29.99"（仅支持 https 请求）以腾讯云文档（https://cloud.tencent.com/document/product/379/54976）提供的 IP 为准
+ * @param dnsIp 由外部传入的dnsIp，可选："119.29.29.98"（仅支持 http 请求，channel 为 DesHttp 和 AesHttp 时选择），"119.29.29.99"（仅支持 https 请求，channel 为 Https 时选择）以腾讯云文档（https://cloud.tencent.com/document/product/379/54976）提供的 IP 为准
  * @param debug 是否开启 debug 日志，true 为打开，false 为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  * @param channel 设置 channel，可选：DesHttp（默认）, AesHttp, Https
  * @param token 腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于 HTTPS 校验
+ * @param enableReport 是否开启解析异常上报，默认 false，不上报
  */
-MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp, debug, timeout, channel, token);
+MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp, debug, timeout, channel, token, true);
 ```
 
 ### 接口调用
@@ -257,7 +280,7 @@ if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过 HTTPDNS 获取 IP �
 ```
  - 以 curl 为例，假设您想要访问 `www.qq.com`，通过 HTTPDNS 解析出来的 IP 为 `192.168.0.111`，那么您可以这么访问：
 ```shell
-   curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt
+curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt
 ```
 - 检测本地是否使用了 HTTP 代理。如果使用了 HTTP 代理，建议**不要使用 HTTPDNS** 做域名解析。示例如下：
 ```Java

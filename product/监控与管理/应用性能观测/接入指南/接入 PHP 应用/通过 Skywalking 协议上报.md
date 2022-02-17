@@ -34,6 +34,8 @@ yum 安装的版本也较低，因此采用从源码安装方式。
 <dx-codeblock>
 :::  sh
 wget https://apm-php-depend-src-1258344699.cos.ap-guangzhou.myqcloud.com/grpc.submodule.tar.gz
+tar -xzf grpc.submodule.tar.gz
+cd grpc/
 mkdir -p cmake/build
 cd cmake/build
 cmake ../..

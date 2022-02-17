@@ -64,6 +64,8 @@ DNSPod 品牌国密标准（SM2）OV/EV 型证书续费后需人工审核及域�
 
 ## [证书安装相关文档](id:certificate)
 证书颁发成功后，您需要重新安装证书，您可以根据您购买的证书加密标准类型和搭建的服务器类型进行证书安装。
+>?使用一键 HTTPS 功能，您无需进行繁琐的 SSL 证书部署操作，即可帮助您实现从 HTTP 到 HTTPS 的能力升级。详情请参考 [一键 HTTPS](https://cloud.tencent.com/document/product/400/58062)。
+>
 - 国际标准证书：
  - 若您购买使用的服务器是 Linux 系统，建议您使用以下方式：
    - [宝塔面板 SSL 证书安装部署](https://cloud.tencent.com/document/product/400/50874)
@@ -78,13 +80,12 @@ DNSPod 品牌国密标准（SM2）OV/EV 型证书续费后需人工审核及域�
    - [IIS 服务器证书安装](https://cloud.tencent.com/document/product/400/35225)
    - [Weblogic 服务器证书安装部署](https://cloud.tencent.com/document/product/400/47358)
    - [Apache 服务器 SSL 证书安装部署（Windows）](https://cloud.tencent.com/document/product/400/61400)
+   - [Tomcat 服务器 SSL 证书安装部署（JKS 格式）（Windows）](https://cloud.tencent.com/document/product/400/67502)
 - 国密标准证书：
  - 若您购买使用的服务器是 Linux 系统，建议您使用以下方式：
    - [Apache 服务器国密证书安装部署](https://cloud.tencent.com/document/product/400/47359)
    - [Nginx For Linux 国密证书安装部署](https://cloud.tencent.com/document/product/400/47360)
  - 若您购买使用的服务器是 Windows 系统，建议您使用以下方式：
    - [Nginx For Windows 服务器国密证书安装部署](https://cloud.tencent.com/document/product/400/47361)
-
->?如果您因使用不同服务器类型，没有可进行参考的证书安装教程，腾讯云将提供人工服务安装证书的渠道，可快速帮助您进行证书的安装。详情请查看 [证书安装服务](https://market.cloud.tencent.com/categories/1100?tagName=%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85)。
 
 

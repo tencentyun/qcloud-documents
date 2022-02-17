@@ -2,7 +2,7 @@
 
 SELECT 语句用于从表中选取数据。
 
-## SELECT 语法格式
+## 语法格式
 
 ```plaintext
 * | SELECT 列名（KEY）
@@ -14,9 +14,10 @@ SELECT 语句用于从表中选取数据。
 * | SELECT *
 ```
 
->?SQL 语句对大小写不敏感。`SELECT`等效于`select`。
+>? SQL 语句对大小写不敏感。`SELECT`等效于`select`。
+>
 
-## SELECT 语法示例
+## 语法示例
 
 从日志数据中选取列（KEY）为`remote_addr`以及`method`的值，列（KEY）之间用逗号分隔：
 

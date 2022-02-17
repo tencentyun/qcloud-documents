@@ -1,3 +1,6 @@
+>!因产品策略调整，游戏联机对战引擎后续将与云开发 CloudBase 整合为新产品形态，现将该产品保持维护状态，不再接收新用户使用申请，老用户仍可正常使用。
+
+
 ## 操作场景
 该文档指导您通过实时服务器直接调用云 API。[下载示例代码 >>](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/demo/mgobexs_capi_demo.zip) 
 

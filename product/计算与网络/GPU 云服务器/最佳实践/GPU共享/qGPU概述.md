@@ -21,4 +21,4 @@ qGPU 方案框架图如下：
 ![](https://main.qcloudimg.com/raw/ac99fd3de566decc2510df90394fb44a.png)
 
 ## 使用 qGPU
-请参考 [使用 qGPU](https://cloud.tencent.com/document/product/560/66233) 了解并开始使用。
+请参考 [qGPU 使用](https://cloud.tencent.com/document/product/560/66233) 了解并开始使用。

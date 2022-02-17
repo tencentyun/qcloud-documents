@@ -26,6 +26,7 @@
 - 不支持 [撤回消息](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#revokeMessage)。
 - 群主不可以退群，群主退群只能通过解散群组的方式。
 - 不支持移除群成员。
+- 不支持历史消息存储。
 
 
 ## 相关文档

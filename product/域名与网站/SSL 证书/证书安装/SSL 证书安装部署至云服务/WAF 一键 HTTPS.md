@@ -1,9 +1,11 @@
 
 ## 概述
 一键 HTTPS 是 SSL 证书结合腾讯云 Web 应用防火墙（WAF）服务开发的快速部署 HTTPS 功能，帮助用户网站的 HTTPS 访问升级。
-使用该功能，您无需进行繁琐的 SSL 证书部署操作，仅需配置一个CNAME 解析，即可实现从 HTTP 到 HTTPS 的能力升级。
+使用该功能，您无需进行繁琐的 SSL 证书部署操作，仅需配置一个 CNAME 解析，即可实现从 HTTP 到 HTTPS 的能力升级。
 本文将指导您如何在 [证书管理控制台](https://console.cloud.tencent.com/https) 一键添加 WAF 接入域名并配置 HTTPS。
->! 一键 HTTPS 功能目前为免费，可免费使用至2021年12月31日。
+>! 
+>- 一键 HTTPS 功能目前为免费，可免费使用至2022年01月15日。
+>- 一键 HTTPS 套餐到期后，如您需继续使用，可进行续费升级操作，如不再使用，避免影响您的访问，需修改您配置的 CNAME 记录。具体操作请查看 [一键 HTTPS 套餐即将到期如何处理？](https://cloud.tencent.com/document/product/400/68102)
 
 
 ## 一键 HTTPS 与传统服务器部署 SSL 证书的区别
@@ -17,8 +19,9 @@
 
 
 ## 限制说明
-- SSL 证书默认开通 WAF 小微版。支持1个二级域名、3个子域名、50 QPS。
+- SSL 证书默认开通 WAF 小微版。支持1个二级域名、8个子域名、50 QPS。
 >! www 子域名占用一个子域名名额，例如 `www.tencent.com` 。
+>
 - 若您一键 HTTPS 域名已使用腾讯云 CDN 或 CLB ，则无法使用一键 HTTPS 功能。
 
 
@@ -26,15 +29,15 @@
 
 ## 操作指南
 ### 步骤1：添加一键 HTTPS 域名
-1. 登录 [证书管理控制台](https://console.cloud.tencent.com/ssl)，并单击左侧菜单栏**一键 HTTPS**，进入**一键 HTTPS**管理页面。
-2. 在**一键 HTTPS**管理页面中，单击**一键添加**。如下图所示：
+1. 登录 [证书管理控制台](https://console.cloud.tencent.com/ssl)，并单击左侧菜单栏**一键 HTTPS**，进入**一键 HTTPS** 管理页面。
+2. 在**一键 HTTPS** 管理页面中，单击**一键添加**。如下图所示：
 >?若您是首次使用，请在弹出的授权窗口中，授予对应权限。
 >
 ![](https://main.qcloudimg.com/raw/e327528f08706299fef120e04c993099.png)
 3. 在弹出的 “一键添加” 窗口中，配置相关信息。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/1826e7be5d496b037f12f684149bd79c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b8cbfc23698be5faefdbf9fa5b650046.png)
  - **填写域名：**请输入您需要进行一键 HTTPS 的域名。
->? 填写的域名需要在工信部完成备案，否则将无法进行接入。详情请参见 [备案概述](https://cloud.tencent.com/document/product/243/18907)。
+>? 填写的域名需要在腾讯云完成备案，否则将无法正常进行接入。您可根据 [腾讯云可备案类型](https://cloud.tencent.com/document/product/243/18907#.E8.85.BE.E8.AE.AF.E4.BA.91.E5.8F.AF.E5.A4.87.E6.A1.88.E7.B1.BB.E5.9E.8B) 进行备案。
 >
  - **选择证书：**请选择已成功申请的证书。
 >?选择的证书需与**填写域名输入框**填写的域名对应。例如，填写的域名为 `cloud.tencent.com`，则选择绑定域名为 `cloud.tencent.com` 的证书。

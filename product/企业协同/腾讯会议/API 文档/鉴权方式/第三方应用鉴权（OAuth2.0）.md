@@ -35,17 +35,17 @@ https://meeting.tencent.com/authorize.html?corp_id={corpId}&sdk_id={sdkId}&redir
 
 | 参数名称     | 必选 | 参数类型 | 参数描述                                                     |
 | ------------ | ---- | -------- | ------------------------------------------------------------ |
-| corp_id      | 是   | string   | OAuth 应用的企业 ID。                                            |
-| sdk_id       | 是   | string   | OAuth 应用 ID。                                                  |
-| redirect_uri | 是   | string   | 授权后重定向的回调链接地址，请使用 urlEncode 对链接进行处理。 |
-| state        | 是   | string   | 重定向后会带上 state 参数，开发者可以填写 a-zA-Z0-9 的参数值，最多64字节。 |
+| corp_id      | 是   | String   | OAuth 应用的企业 ID。                                            |
+| sdk_id       | 是   | String   | OAuth 应用 ID。                                                  |
+| redirect_uri | 是   | String   | 授权后重定向的回调链接地址，请使用 urlEncode 对链接进行处理。 |
+| state        | 是   | String   | 重定向后会带上 state 参数，开发者可以填写 a-zA-Z0-9 的参数值，最多64字节。 |
 
 #### 输出参数
 
 | 参数名称  | 参数类型 | 参数描述                                  |
 | --------- | -------- | ----------------------------------------- |
-| auth_code | string   | 授权码。                                    |
-| state     | string   | 入参的 state，接入方自行校验，防止 CSRF 攻击。 |
+| auth_code | String   | 授权码。                                    |
+| state     | String   | 入参的 state，接入方自行校验，防止 CSRF 攻击。 |
 
 
 #### 示例
@@ -83,20 +83,20 @@ https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/access_token
 
 | 参数名称  | 必选 | 参数类型 | 参数描述      |
 | --------- | ---- | -------- | ------------- |
-| sdk_id    | 是   | string   | OAuth 应用 ID。   |
-| secret    | 是   | string   | OAuth 应用密钥。 |
-| auth_code | 是   | string   | 授权码，有效期五分钟。        |
+| sdk_id    | 是   | String   | OAuth 应用 ID。   |
+| secret    | 是   | String   | OAuth 应用密钥。 |
+| auth_code | 是   | String   | 授权码，有效期五分钟。        |
 
 #### 输出参数
 
 | 参数名称      | 参数类型  | 参数描述                                        |
 | ------------- | --------- | ----------------------------------------------- |
-| access_token  | string    | 访问凭证（有效期6小时）。                           |
-| refresh_token | string    | 用户刷新 access_token 凭证（有效期30天）。         |
-| expires       | int       | access_token 过期时间，时间戳（单位秒）。           |
-| open_id       | string    | 用户唯一标识（同一 OAuth 应用，同一用户，值唯一）。 |
-| scopes        | string | 用户授权的权限作用域，字符串数组。                |
-
+| access_token  | String    | 访问凭证（有效期6小时）。                           |
+| refresh_token | String    | 用户刷新 access_token 凭证（有效期30天）。         |
+| expires       | Int       | access_token 过期时间，时间戳（单位秒）。           |
+| open_id       | String    | 用户唯一标识（同一 OAuth 应用，同一用户，值唯一）。 |
+| scopes        | String | 用户授权的权限作用域，字符串数组。                |
+| open_corp_id        | String | 授权用户的企业 ID，个人版用户返回为空。                |
 
 #### 示例
 **输入示例**

@@ -7,7 +7,7 @@
 如果域名在腾讯云注册，或者已转入腾讯云，可以通过以下步骤修改 DNS 服务器：
 1. 登录 [腾讯云域名注册控制台](https://console.cloud.tencent.com/domain/)，进入 “我的域名” 页面。
 2. 选择待修改 DNS 的域名，单击**管理**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/cec42b283df9cbb37f1855db914f7bb6.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/226f6fb13728e198fa26fc0a4c218381.png)
 3. 在 “基本信息” 栏中，单击 “DNS 服务器” 的**修改**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/46f554f0f1c6a0299b2acf9860774253.png)
 4. 在弹出的 “修改 DNS 服务器” 窗口中，选择您需要修改域名 DNS 服务器方式。如下图所示：

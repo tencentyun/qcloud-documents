@@ -11,7 +11,7 @@ TXLivePusher 推流 SDK 主要用于视频云的快直播（超低延迟直播�
 
 ![](https://main.qcloudimg.com/raw/44bf2ab0ddae946b440faa4fc2f6d43a.png)
 
-其中鉴权 Key 部分非必需，如果需要防盗链，请开启推流鉴权，具体使用说明请参见  [自主拼装直播 URL](https://cloud.tencent.com/document/product/267/32720) 。
+其中鉴权 Key 部分非必需，如果需要防盗链，请开启推流鉴权，具体使用说明请参见 [自主拼装直播 URL](https://cloud.tencent.com/document/product/267/32720) 。
 
 ### 浏览器支持
 

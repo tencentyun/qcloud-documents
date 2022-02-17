@@ -45,15 +45,15 @@ TRTC 虽然支持 WebRTC 协议接入，但主要用于 Chrome 桌面版浏览�
 ### 步骤1：开启旁路推流功能
 
 1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
-2. 在左侧导航栏选择【应用管理】，单击目标应用所在行的【功能配置】。
-3. 在【旁路推流配置】中，单击【启用旁路推流】右侧的![](https://main.qcloudimg.com/raw/5f58afe211aa033037e5c0b793023b49.png)，在弹出的【开启旁路推流功能】对话框中，单击【开启旁路推流功能】即可开通。
+2. 在左侧导航栏选择**应用管理**，单击目标应用所在行的**功能配置**。
+3. 在**旁路推流配置**中，单击**启用旁路推流**右侧的![](https://main.qcloudimg.com/raw/5f58afe211aa033037e5c0b793023b49.png)，在弹出的**开启旁路推流功能**对话框中，单击**开启旁路推流功能**即可开通。
 
 
 [](id:step2)
 ### 步骤2：配置播放域名并完成 CNAME
 1. 登录 [云直播控制台](https://console.cloud.tencent.com/live/)。
-2. 在左侧导航栏选择【域名管理】，您会看到在您的域名列表新增了一个推流域名，格式为 `xxxxx.livepush.myqcloud.com`，其中 xxxxx 是一个数字，叫做 bizid，您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】>【应用信息】中查找到 bizid 信息。
-3. 单击【添加域名】，输入您已经备案过的播放域名，选择域名类型为【播放域名】，选择加速区域（默认为【中国大陆】），单击【确定】即可。
+2. 在左侧导航栏选择**域名管理**，您会看到在您的域名列表新增了一个推流域名，格式为 `xxxxx.livepush.myqcloud.com`，其中 xxxxx 是一个数字，叫做 bizid，您可以在实时音视频控制台 > **[应用管理](https://console.cloud.tencent.com/trtc/app)** > **应用信息**中查找到 bizid 信息。
+3. 单击**添加域名**，输入您已经备案过的播放域名，选择域名类型为**播放域名**，选择加速区域（默认为**中国大陆**），单击**确定**即可。
 4. 域名添加成功后，系统会为您自动分配一个 CNAME 域名（以`.liveplay.myqcloud.com`为后缀）。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受云直播服务。具体操作请参见 [CNAME 配置](https://cloud.tencent.com/document/product/267/19908)。
 
 ![](https://main.qcloudimg.com/raw/97b24ee2a758b311ba8dea23db04c3ae.png)
@@ -83,14 +83,14 @@ param.role     = TRTCRoleAnchor; // 角色：主播
 param.streamId = @"stream1001";  // 流 ID
 [trtcCloud enterRoom:params appScene:TRTCAppSceneLIVE]; // 请使用 LIVE 模式
 ```
-userSig 的计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/1449/58939)。
+userSig 的计算方法请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/1449/58939)。
 
 #### 方式二：系统指定 streamId
 开启自动旁路推流后，如果您没有自定义指定 streamId，系统会默认为您生成一个缺省的 streamId，生成规则如下：
 
 - **拼装 streamId 用到的字段**
-  - SDKAppID：您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) >【应用管理】>【应用信息】中查找到。
-  - bizid：您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) >【应用管理】>【应用信息】中查找到。
+  - SDKAppID：您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) >**应用管理** > **应用信息**中查找到。
+  - bizid：您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) >**应用管理** > **应用信息**中查找到。
   - roomId：由您在 `enterRoom` 函数的参数 `TRTCParams` 中指定。
   - userId：由您在 `enterRoom` 函数的参数 `TRTCParams` 中指定。
   - streamType： 摄像头画面为 main，屏幕分享为 aux （WebRTC 由于同时只支持一路上行，因此 WebRTC 上屏幕分享的流类型是 main）。

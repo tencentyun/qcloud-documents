@@ -4,7 +4,7 @@
 
 ## 可能原因
 
-默认情况下，Topic 是没有配置 ACL 的，在同一个 VPC 内可以自由访问该 Topic。如果需要在 VPC 内做权限控制，可以参考 [配置 ACL 策略](https://cloud.tencent.com/document/product/597/31528) 配置 ACL。
+默认情况下，Topic 是没有配置 ACL 的，在同一个 VPC 内可以自由访问该 Topic。如果需要在 VPC 内做权限控制，可以参见 [配置 ACL 策略](https://cloud.tencent.com/document/product/597/31528) 配置 ACL。
 
 当为 Topic 添加一条 ACL 策略后，该策略会阻止其他所有不符合条件的请求访问 Topic，包括其他云产品联动 CKafka 的调用（例如：日志服务 CLS 的日志投递、云函数 SCF 消息转储、大数据 EMR 组件的消费等）。
 

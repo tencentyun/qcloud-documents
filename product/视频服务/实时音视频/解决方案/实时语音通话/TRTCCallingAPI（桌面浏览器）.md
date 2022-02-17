@@ -143,7 +143,7 @@ trtcCalling.login({userID, userSig})
 | 参数    | 类型   | 含义       |
 | ------- | ------ | ------------------------------------------------------------- |
 | userID  | String | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。    |
-| userSig | String | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
+| userSig | String | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 
 
 [](id:logout)
@@ -838,6 +838,7 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 | 60003 | 权限获取失败 | 没有可用的麦克风设备       |
 | 60004 | 权限获取失败 | 没有可用的摄像头设备       |
 | 60005 | 权限获取失败 | 用户禁止使用设备  |
+| 60006 | 环境检测失败 | 当前环境不支持 WebRTC（ >=v1.0.4版本 ）      |
 
 ## 升级指引
 
@@ -859,7 +860,7 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 
 ## 技术咨询[](id:QQ)
 
-了解更多详情您可以 QQ 咨询：646165204 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
+了解更多详情您可以 QQ 咨询：592465424 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
 
 
 ## 参考文档

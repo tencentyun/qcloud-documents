@@ -25,7 +25,7 @@ ClientConfig clientConfig = new ClientConfig();
 
 // 设置 bucket 的地域
 // COS_REGION 请参照 https://cloud.tencent.com/document/product/436/6224
-clientConfig.setRegion = new Region("COS_REGION");
+clientConfig.setRegion(new Region("COS_REGION"));
 
 // 设置生成的 url 的请求协议, http 或者 https
 // 5.6.53 及更低的版本，建议设置使用 https 协议

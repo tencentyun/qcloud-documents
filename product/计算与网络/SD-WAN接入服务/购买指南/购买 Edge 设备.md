@@ -1,14 +1,17 @@
-SD-WAN 接入服务有 Edeg-100、Edeg-100-5G、Edeg-1000三种硬件设备，您需要通过线下进行购买。
+购买 SD-WAN Edge 设备 SD-WAN 接入服务有 Edge-100、Edge-100-5G、Edge-1000 三种硬件设备，您需要通过线下进行购买。
+>?Edge-1000 目前 POC 测试中，如需体验，请联系[ 在线支持](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
+>
+
 
 ## 购买方式
-- 方式一：联系与您对接的腾讯商务经理进行购买。
-- 方式二：请提交 [工单申请](https://console.cloud.tencent.com/workorder/category) 进行购买。
+- 方式一：联系与您对接的腾讯商务经理进行购买。从控制台 - 渠道管理 - 公司信息 - 基本资料 - 专属渠道经理中可以查看到联系人、企业微信、邮箱。
+- 方式二：请联系 [在线支持](https://cloud.tencent.com/online-service?from=sales&source=PRESALE) 进行购买，同时，您也可以直接致电销售人员，咨询热线：4009100100转1（工作日9：00 - 18：00）。
 
 ## 售后服务
 
 ### 退货说明
 1. 目前暂不支持无理由退货。
-2. 当出现如下非人力因素的质量问题可提交 [工单申请](https://console.cloud.tencent.com/workorder/category) 退货：
+2. 当出现如下非人力因素的质量问题，可提交 [工单申请](https://console.cloud.tencent.com/workorder/category) 退货：
  - 收到设备后出现设备破损。
  - 设备故障无法上电激活。
 
@@ -27,7 +30,7 @@ SD-WAN 接入服务有 Edeg-100、Edeg-100-5G、Edeg-1000三种硬件设备，�
  - 换货运费：运费无需客户承担。
 
 ## 后续操作
-您收到设备后，您需要将设备进行安装、在 SD-WAN 接入服务控制创建 Edge 实例、绑定设备 SN、购买带宽等操作后您的 SD-WAN 接入服务才可以运行。
+您收到设备后，您需要将设备进行安装、在 SD-WAN 接入服务控制创建 Edge 实例、绑定设备 [SN](https://cloud.tencent.com/document/product/1121/36888#2224)、购买带宽等操作后，您的 SD-WAN 接入服务才可以运行。
 - [安装 Edge 设备](https://cloud.tencent.com/document/product/1277/66361)。
 - [创建 Edge 实例](https://cloud.tencent.com/document/product/1277/47255)。
 - [绑定 Edge 实例 SN](https://cloud.tencent.com/document/product/1277/64769)。

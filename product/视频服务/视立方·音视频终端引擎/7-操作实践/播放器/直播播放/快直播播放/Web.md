@@ -155,7 +155,7 @@ style 支持的样式如下：
 ```
 #### 4.3 实现用例
 
-使用 cover 方式显示封面。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现，请参见 [视频封面](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-poster.html)。
+使用 cover 方式显示封面。线上示例如下，在 PC 浏览器中右键单击**查看页面源码**即可查看页面的代码实现，请参见 [视频封面](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-poster.html)。
 >!
 >- 在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/1449/58949#que1)。
 >- 以上示例链接仅用于文档演示，请勿用于生产环境。
@@ -198,7 +198,7 @@ var player = new TcPlayer('id_test_video', {
 
 
 #### 5.3 实现用例
-使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现，请参见 [分辨率切换](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-clarity.html)。
+使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击**查看页面源码**即可查看页面的代码实现，请参见 [分辨率切换](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-clarity.html)。
 正常情况将看到如下效果：
 ![](https://main.qcloudimg.com/raw/99c05e75f0d417df33942d18dad2f509.jpg)
 >!
@@ -225,7 +225,7 @@ var player = new TcPlayer('id_test_video', {
 </dx-codeblock>
 
 #### 6.2 实现用例
-视频播放失败，同时使用自定义提示文案的功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
+视频播放失败，同时使用自定义提示文案的功能。线上示例如下，在 PC 浏览器中右键单击**查看页面源码**即可查看页面的代码实现：
 
 ```
 https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
@@ -257,7 +257,7 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 >- 由于 Flash 的黑盒特性以及 H5 视频播放标准的不确定性，错误提示语会不定期更新。
 
 ## 源码参考
-如下是一个线上示例代码，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现，请参见 [播放示例](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer.html)。
+如下是一个线上示例代码，在 PC 浏览器中右键单击**查看页面源码**即可查看页面的代码实现，请参见 [播放示例](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer.html)。
 >!以上示例链接仅用于文档演示，请勿用于生产环境。
 
 ## 参数列表
@@ -288,7 +288,7 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 | poster        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br><li/>default 居中1：1显示。 <br><li/>stretch 拉伸铺满播放器区域，图片可能会变形。 <br><li/>cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内。    <br> 示例： "`http://www.test.com/myimage.jpg`" 或者<br>{"style": "cover", "src": `http://www.test.com/myimage.jpg`}  [v2.3.0+]|
 | controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件。<br> （备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式，[在线示例](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-consoles.html) ）  <br> 示例："system"|
 | systemFullscreen| Boolean  |false     | 开启后，在不支持 Fullscreen API 的浏览器环境下，尝试使用浏览器提供的 webkitEnterFullScreen 方法进行全屏，如果支持，将进入系统全屏，控件为系统控件。  <br> 示例：true  |
-| flash           | Boolean  | true     | 是否优先使用 Flash 播放视频。<br>（**备注：该选项只对 PC 平台生效**[v2.2.0+]）  <br> 示例：true  |
+| flash           | Boolean  | true     | 是否优先使用 Flash 播放视频。<br>（**备注：该选项只对 PC 平台生效 **[v2.2.0+]）  <br> 示例：true  |
 | flashUrl        | String   | 无       | 可以设置 flash swf url。 <br>（**备注：该选项只对 PC 平台生效** [v2.2.1+]）  |
 | h5_flv          | Boolean  | false    | 是否启用 flv.js 的播放 flv。启用时播放器将在支持 MSE 的浏览器下，采用 flv.js 播放 flv，然而并不是所有支持 MSE 的浏览器都可以使用 flv.js，所以播放器不会默认开启这个属性，[v2.2.0+]。   <br> 示例：true |
 | x5_player       | Boolean  | false    | 是否启用 TBS 的播放 flv 或 hls 。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ 浏览器），将 flv 或 hls 播放地址直接赋给 `<video>` 播放。[TBS 视频能力](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+]。   <br> 示例： true   |

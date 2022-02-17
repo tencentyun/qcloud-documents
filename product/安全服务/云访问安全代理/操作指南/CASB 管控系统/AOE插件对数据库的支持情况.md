@@ -75,41 +75,55 @@
 | 对 order by 的支持                                     | 只支持非加密字段的排序               | select * from table_a order by id desc                       |
 | 临时表                                                 | 支持                                 | select * from (select table1.col1,table1.col2,table1.col3,table2.id,table2.col4 from table1,table2 where table1.col1 = table2.col1 ) tmp |
 
-## 其他注意事项
+## 功能支持和使用限制
+
 ### 数据库
+- 支持**5.7及以上**版本的 MySQL 数据库和兼容 MySQL 协议的数据库（如 TDSQL、MariaDB）。
+- 支持**8.0及以上版本**的数据库, 但不支持此系列版本新增的 SQL 语法。
+- 仅只支持 `utf8` 和 `utf8mb4` 字符集。
 - 数据库、表和字段名不区分大小写。
-- 仅支持 utf8 和 utf8mb4 字符集。
 
 ### 连接
--  数据源删除后重新添加时，需要建立新的 MySQL 连接查询。
 - 连接内不允许切换登录用户。
-- 后端 DB 认证方式仅支持`mysql_native_password`和`caching_sha2_password`。
-- 不支持 SSL 连接, proxy 账号认证方式为`mysql_native_password`。
+- 不支持 SSL 连接, CASB 账号认证方式为 `mysql_native_password`。
+- CASB 连接后端 DB 的认证方式仅支持 `mysql_native_password` 和 `caching_sha2_password`。
 
-### 加解密
-- 所有表结构必须预先在策略控制台定义，账号必须和相应数据源绑定后才能通过 proxy 操作相应的数据源。
-- 连接查询时，JOIN字段需选择同样的密钥，否则密文不一致，无法正确进行连接查询。
-- 不支持 变量的加解密。
-- 不支持 函数字段加解密。
-- 不支持 COM_QUERY 的 Prepare、Execute 语句的加解密。
-- UNION 语句应用第一个 SELECT 语句的加解密策略。
-- 加解密前后字段值类型不能改变。
-- ORDER BY， GROUP BY 不能用于加密字段。
-- LIKE 条件不能用于加密字段。
+### 加解密和脱敏
+- 加解密算法支持 `AES` 和 `SM4` 算法。
+- 仅支持 `string` 和 `blob` 类型的数据加解密。
+- 支持数值和字符串类型字段数据的动态脱敏。
+- 加密后密文超过字段长度时会保存**明文**。
+- 支持 `SELECT`, `INSERT`, `REPLACE`, `UPDATE`, `DELETE` 语句中  `WHERE、ON、IN、INSERT VALUE、SET` 等各字段中非表达式的值加解密。
+- 支持 `ROW` 条件中非表达式的值加解密，如支持 ` where (id, 'n2' , addr)=(2, name,'a2')` 中的字段加解密。
+- 支持 `table references` 和 `where condition` 中的子查询字段中非表达式的值加解密。
+- `information_schema` 数据库不会应用加密规则。
+- `UNION` 语句使用第一个 `SELECT 子句` 的加解密策略。 
+- 不支持存储过程的加解密。
+- 不支持I `NSERT INTO ... SELECT ...` 等不经过 CASB 处理的数据的加解密。
+- 连接查询时，JOIN 字段需选择同样的密钥，否则密文不一致，无法正确进行连接查询。
+
+### 协议
+- 支持 `COM_QUERY`,`COM_STMT_PREPARE` 和 `COM_STMT_EXECUTE` 协议中字段加解密。
+- 不支持 `COM_STMT_SEND_LONG_DATA`，`COM_STMT_RESET` 协议。
+- 不支持 `COM_QUERY Protocol::LOCAL_INFILE_Data` 协议。
 
 ### 语句
-- DML 执行前，需先切换到相应的库
-- `SET`语句仅支持 `SET NAMES utf8`和`SET NAMES utf8mb4`, 其余的`SET`语句将被忽略。
-- 不支持 COM_STMT_SEND_LONG_DATA，COM_STMT_RESET 协议。
-- 不支持 COM_QUERY Protocol::LOCAL_INFILE_Data 协议。
-- 不支持 MultiResultSets 结果集处理。
-- 不支持 SELECT INTO 语句。
-- 不支持 mysqldump。
-- 不支持 INSERT VIEW，UPDATE VIEW， ALTER VIEW。
-- 不支持 CREATE TABLE xx AS SELECT、CHECK TABLE、CHECKSUM TABLE 语法。
-- 有包含 INFORMATION_SCHEMA 的语句都会忽略。
-
-###  其他数据库产品
--  除了 TDSQL 增删改查语句的行首注释外，SQL 语句中的其余注释不会生效。
+- DML 执行前，需先切换到或指定相应的库。
+- 加密字段不支持函数操作。
+- 加密字段不支持数学运算。
+- 加密字段不支持 `ORDER BY`。
+- 加密字段不支持 `LIKE` 查询和正则查询。
+- 不支持包含自定义变量的语句。
+- 不支持视图相关语句。
+- 不支持 `SELECT INTO` 语句。
+- 不支持 `mysqldump`。
+- 不支持 `CREATE TABLE xx AS SELECT`、`CHECK TABLE`、`CHECKSUM TABLE` 语法。
+- 不支持 TDSQL 自定义的管理语法, 如 `help`, `repair` 等。
+- 不支持 **COM_QUERY 协议**的  `Prepare`、`Execute` 语句的加解密。
+- 除了 TDSQL 增删改查语句的行首注释外，SQL 语句中的其余注释不会生效。
 - TDSQL 的 ShardKey 字段不能配置加密。
-- 不支持 TDSQL自定义的管理语法, 如 help, repair 等。
+
+### 其他
+- 所有表结构必须预先在策略控制台定义，账号必须和相应数据源绑定后才能通过 proxy 操作相应的数据源。
+- 数据源删除后重新添加时，需断开存量连接，建立新的 MySQL 连接查询。
+- 单次查询处理的数据大小需小于2^24字节。

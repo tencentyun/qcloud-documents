@@ -12,10 +12,14 @@
 | [unInitSDK](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/unInitSDK.html) | 反初始化 SDK |
 | [login](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/login.html) | 登录 |
 | [logout](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/logout.html) | 登出 |
-| [getLoginStatus](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/getLoginStatus.html) | 获取登录状态 |
 | [getLoginUser](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/getLoginUser.html) | 获取当前登录用户的 UserID |
+| [getLoginStatus](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/getLoginStatus.html) | 获取登录状态 |
+| [getServerTime](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/getServerTime.html) | 获取服务器当前时间(web不支持) |
+| [getVersion](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/getVersion.html) | 获取版本号 |
 
-## 简单消息收发接口
+## 简单消息收发接口（3.6.0后已废弃）
+>!后续版本会删除简单消息收发接口，如还在使用请尽快考虑更换。
+
 如果您只需要使用文本和信令（即一段自定义buffer）消息，只需要使用这套简单消息收发接口即可。
 
 | API | 描述 |
@@ -37,26 +41,63 @@
 | [cancel](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_signaling_manager/V2TIMSignalingManager/cancel.html) | 邀请方取消邀请 |
 | [accept](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_signaling_manager/V2TIMSignalingManager/accept.html) | 接收方接受邀请 |
 | [reject](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_signaling_manager/V2TIMSignalingManager/reject.html) | 接收方拒绝邀请 |
+| [getSignalingInfo](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_signaling_manager/V2TIMSignalingManager/getSignalingInfo.html) | 获取信令信息 |
 
-## 高级消息收发接口
-如果您需要收发图片、视频、文件等富媒体消息，并需要撤回消息、标记已读、查询历史消息等高级功能，推荐使用下面这套高级消息接口（简单消息接口和高级消息接口请不要混用）。
+## 创建消息接口
+
+创建的消息会返回一个id字段，将id字段等传递给统一的发送接口（sendMessage）即可发送消息。
+
+| API | 描述 |
+|---------|---------|
+| [createTextMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/createTextMessage.html) | 创建文本消息 |
+| [createCustomMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/createCustomMessage.html) | 创建定制化消息 |
+| [createImageMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/createImageMessage.html) | 创建图片消息 |
+| [createSoundMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/createSoundMessage.html) | 创建音频文件 |
+| [createVideoMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/createVideoMessage.html) | 创建视频文件 |
+| [createTextAtMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/createTextAtMessage.html) | 创建AT消息 |
+| [createFileMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/createFileMessage.html) | 创建文件消息 |
+| [createLocationMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/createLocationMessage.html) | 创建位置信息 |
+| [createFaceMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/createFaceMessage.html) | 创建表情消息 |
+| [createMergerMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/createMergerMessage.html) | 创建合并消息 |
+
+## 消息收发接口
+如果您需要收发图片、视频、文件等富媒体消息，并需要撤回消息、标记已读、查询历史消息等高级功能，推荐使用下面这套高级消息接口（原3.6.0前的高级消息部分接口已弃用，请使用新版创建消息接口后调用发送消息接口）。
 
 | API | 描述 |
 |---------|---------|
 | [addAdvancedMsgListener](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/addAdvancedMsgListener.html) | 设置高级消息的事件监听器， 请不要同 [addSimpleMsgListener](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/addSimpleMsgListener.html) 混用 |
 | [removeAdvancedMsgListener](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/removeAdvancedMsgListener.html) | 移除高级消息的事件监听器 |
-| [sendCustomMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendCustomMessage.html) | 发送自定义消息 |
-| [sendImageMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendImageMessage.html) | 发送图片消息 |
-| [sendSoundMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendSoundMessage.html) | 发送语音消息 |
-| [sendVideoMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendVideoMessage.html) | 发送视频消息 |
-| [sendFileMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendFileMessage.html) | 发送文件消息 |
-| [sendLocationMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendLocationMessage.html) | 发送地理位置消息 |
 | [getC2CHistoryMessageList](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getC2CHistoryMessageList.html) | 获取单聊（C2C）历史消息 |
+| [getHistoryMessageList](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getHistoryMessageList.html) | 获取历史消息高级接口 |
+| [getHistoryMessageListWithoutFormat](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getHistoryMessageListWithoutFormat.html) | 获取历史消息高级接口(没有处理Native返回数据) |
 | [getGroupHistoryMessageList](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getGroupHistoryMessageList.html) | 获取群组历史消息 |
 | [markC2CMessageAsRead](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/markC2CMessageAsRead.html) | 设置单聊（C2C）消息已读 |
 | [markGroupMessageAsRead](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/markGroupMessageAsRead.html) | 设置群组消息已读 |
+| [markAllMessageAsRead](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/markAllMessageAsRead.html) | 标记所有消息为已读  |
 | [deleteMessageFromLocalStorage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/deleteMessageFromLocalStorage.html) | 删除本地消息 |
+| [deleteMessages](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/deleteMessages.html) | 删除本地及漫游消息 |
 | [insertGroupMessageToLocalStorage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/insertGroupMessageToLocalStorage.html) | 向群组消息列表中添加一条消息 |
+| [insertC2CMessageToLocalStorage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/insertC2CMessageToLocalStorage.html) | 向C2C消息列表中添加一条消息 |
+| [clearC2CHistoryMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/clearC2CHistoryMessage.html) | 清空单聊本地及云端的消息（不删除会话） |
+| [clearGroupHistoryMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/clearGroupHistoryMessage.html) | 清空群组及云端的消息（不删除会话） |
+| [downloadMergerMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/downloadMergerMessage.html) | 获取合并消息的子消息 |
+| [reSendMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/reSendMessage.html) | 消息重发 |
+| [setC2CReceiveMessageOpt](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/setC2CReceiveMessageOpt.html) | 设置针对某个用户的 C2C 消息接收选项（支持批量设置） |
+| [getC2CReceiveMessageOpt](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getC2CReceiveMessageOpt.html) | 查询针对某个用户的 C2C 消息接收选项 |
+| [setGroupReceiveMessageOpt](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/setGroupReceiveMessageOpt.html) | 修改群消息接收选项 |
+| [setLocalCustomData](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/setLocalCustomData.html) | 设置消息自定义数据（本地保存，不会发送到对端，程序卸载重装后失效） |
+| [setLocalCustomInt](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/setLocalCustomInt.html) | 设置消息自定义数据，可以用来标记语音、视频消息是否已经播放（本地保存，不会发送到对端，程序卸载重装后失效）|
+| [revokeMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/revokeMessage.html) | 撤回消息的时间限制默认 2 minutes，超过 2 minutes 的消息不能撤回，您也可以在 控制台（功能配置 -> 登录与消息 -> 消息撤回设置）自定义撤回时间限制。|
+| [sendMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendMessage.html) | 发送消息 |
+| [sendReplyMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendReplyMessage.html) | 发送回复消息 |
+| [searchLocalMessages](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/searchLocalMessages.html) | 搜索本地消息 |
+| [findMessages](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/findMessages.html) | 根据 messageID 查询指定会话中的本地消息 |
+| [~~sendCustomMessage~~](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendCustomMessage.html) | 发送自定义消息(已废弃) |
+| [~~sendImageMessage~~](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendImageMessage.html) | 发送图片消息(已废弃) |
+| [~~sendSoundMessage~~](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendSoundMessage.html) | 发送语音消息(已废弃) |
+| [~~sendVideoMessage~~](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendVideoMessage.html) | 发送视频消息(已废弃) |
+| [~~sendFileMessage~~](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendFileMessage.html) | 发送文件消息(已废弃) |
+| [~~sendLocationMessage~~](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendLocationMessage.html) | 发送地理位置消息(已废弃) |
 
 
 ## 群组相关接口
@@ -77,10 +118,18 @@
 | [getJoinedGroupList](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/getJoinedGroupList.html) | 获取已经加入的群列表（不包括已加入的直播群） |
 | [getGroupsInfo](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/getGroupsInfo.html) | 拉取群资料 |
 | [setGroupInfo](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/setGroupInfo.html) | 修改群资料 |
+| [initGroupAttributes](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/initGroupAttributes.html) | 初始化群属性，会清空原有的群属性列表 |
+| [setGroupAttributes](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/setGroupAttributes.html) | 设置群属性。已有该群属性则更新其 value 值，没有该群属性则添加该属性。 |
+| [deleteGroupAttributes](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/deleteGroupAttributes.html) | 删除指定群属性，keys 传 null 则清空所有群属性。 |
+| [getGroupAttributes](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/getGroupAttributes.html) | 获取指定群属性，keys 传 null 则获取所有群属性。 |
+| [searchGroups](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/searchGroups.html) | 搜索群列表 |
+| [searchGroupByID](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/searchGroupByID.html) | 通过 groupID 搜索群组 |
 | [setReceiveMessageOpt](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/setReceiveMessageOpt.html) | 设置群消息的接收选项 |
+| [getGroupOnlineMemberCount](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/getGroupOnlineMemberCount.html) | 获取指定群在线人数(目前只支持直播群) |
 | [getGroupMemberList](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/getGroupMemberList.html) | 获取群成员列表 |
 | [getGroupMembersInfo](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/getGroupMembersInfo.html) | 获取指定的群成员资料 |
 | [setGroupMemberInfo](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/setGroupMemberInfo.html) | 修改指定的群成员资料 |
+| [searchGroupMembers](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/searchGroupMembers.html) | 搜索群成员 |
 | [muteGroupMember](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/muteGroupMember.html) | 禁言 |
 | [kickGroupMember](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/kickGroupMember.html) | 踢人 |
 | [setGroupMemberRole](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_group_manager/V2TIMGroupManager/setGroupMemberRole.html) | 切换群成员的角色 |
@@ -98,6 +147,11 @@
 |---------|---------|
 | [setConversationListener](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_conversation_manager/V2TIMConversationManager/setConversationListener.html) | 设置会话监听器 |
 | [getConversationList](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_conversation_manager/V2TIMConversationManager/getConversationList.html) | 获取会话列表 |
+| [getConversationListWithoutFormat](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_conversation_manager/V2TIMConversationManager/getConversationListWithoutFormat.html) | 获取会话列表（无格式化） |
+| [getConversationListByConversaionIds](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_conversation_manager/V2TIMConversationManager/getConversationListByConversaionIds.html) | 通过会话ID获取指定会话列表 |
+| [pinConversation](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_conversation_manager/V2TIMConversationManager/pinConversation.html) | 会话置顶 |
+| [getTotalUnreadMessageCount](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_conversation_manager/V2TIMConversationManager/getTotalUnreadMessageCount.html) | 获取会话未读总数 |
+| [getConversation](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_conversation_manager/V2TIMConversationManager/getConversation.html) | 获取指定会话 |
 | [deleteConversation](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_conversation_manager/V2TIMConversationManager/deleteConversation.html) | 删除会话 |
 | [setConversationDraft](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_conversation_manager/V2TIMConversationManager/setConversationDraft.html) | 设置会话草稿 |
 
@@ -142,3 +196,4 @@
 | [renameFriendGroup](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/renameFriendGroup.html) | 修改好友分组的名称 |
 | [addFriendsToFriendGroup](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/addFriendsToFriendGroup.html) | 添加好友到一个好友分组 |
 | [deleteFriendsFromFriendGroup](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/deleteFriendsFromFriendGroup.html) | 从好友分组中删除好友 |
+| [searchFriends](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/searchFriends.html) | 搜索好友 |

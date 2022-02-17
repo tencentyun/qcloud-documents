@@ -1,5 +1,5 @@
 为满足您的业务需求，腾讯云提供 Edge-100 、Edge-100-5G 和 Edge-1000 三种 Edge 设备。本文将介绍如何在 SD-WAN 接入服务控制台创建 Edge 实例。
->?Edge-1000 目前POC测试中，如需体验，请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
+>?Edge-1000 目前 POC 测试中，如需体验，请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
 >
 
 ## 操作步骤

@@ -6,12 +6,12 @@ VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击 **VPN 连接** > **VPN 网关**，进入管理页。
-3. 在 VPN 网关管理页面，单击**+新建**。
+3. 在 VPN 网关管理页面，单击 **+新建**。
 4. 在弹出的**新建 VPN 网关**对话框中，配置如下网关参数。
 <dx-alert infotype="explain" title="">
 <ul><li>200Mbps、500Mbps和1000Mbps带宽目前仅华北地区（北京）、华东地区（上海）、华南地区（广州）、西南地区（成都）、港澳台地区（香港）、华东地区（南京）和华北地区（北京金融）等可用区开放，如需请 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a>。</li><li>200Mbps、500Mbps和1000Mbps带宽仅支持新建网关，存量网关暂不支持。</li><li>如果 VPN 网关使用200Mbps、500Mbps和1000Mbps规格的带宽，VPN 通道加密协议建议使用 AES128+MD5。</li></ul>
 </dx-alert>
-<img src="https://main.qcloudimg.com/raw/52f055358ccea8f1679ddb49a49b2d40.png" width="50%" />
+<img src="https://qcloudimg.tencent-cloud.cn/raw/c0c62cf364b6a93b382adaccc95ea556.png" width="50%" />
 <table>
 <tr>
 <th>参数名称</th>
@@ -48,5 +48,5 @@ VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现
 </tr>
 </table>
 5. 完成网关参数设置后，单击<b>创建</b>启动 VPN 网关的创建，此时<b>状态</b>为<b>创建中</b>，等待约1～2分钟，创建成功的 VPN 网关状态为<b>运行中</b>，系统为 VPN 网关分配一个公网 IP。
-<img src="https://main.qcloudimg.com/raw/880187e214d253d4fac8fd135b838ebf.png">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/cf34595cf180cf84c867de80898c2d8f.png">
 
