@@ -7,8 +7,8 @@
 
 ## 接入流程
 1. 首先需要接入 TRTC web 端 SDK，完成接入流程。
-2. 引入语音识别的 [speechrecognizer.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/dist/speechrecognizer.js) 和 [asr.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/examples/trtc/asr.js) ，asr.js 中主要封装了从 TRTC web 端 demo 中获取音轨，处理音频，以及调用 ASR 整个过程。为了更好的兼容性，asr.js 主要是 es5写法，若要通过 import 方式引入，直接参考同目录下的 asr.esm.js 代码。
-3. 在 TRTC web 端中的调用，（这里以 TRTC web 端 demo 本地流为例）：
+2. 引入[asr.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/examples/trtc/asr.js)，asr.js 中封装了从 TRTC web 端 demo 中获取音轨，处理音频，以及调用 ASR 整个过程。为了更好的兼容浏览器，asr.js 主要是 es5写法，若要通过 import 方式引入，可参考 [asr.esm.js](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/blob/main/examples/trtc/asr.esm.js) 中代码。
+3. 在 TRTC web 端中的调用（这里以 TRTC web 端 demo 本地流为例）：
 - 参数说明
 	- ASR 类的方法列表：
 <table>
@@ -148,10 +148,10 @@ policy = {
   "version": "2.0",
   "statement": [
     {
-		"effect": "allow",
+	  "effect": "allow",
       "action": ["name/asr:*"],
       "resource": "*",
     }]}
 ```
-通过调用接口然后获取临时密钥信息。
-- 然后将获取到的参数 tmpSecretId、tmpSecretkey 和 Token 依次作为参数 secretId、secretKey 和 token 传入 ASR 类中，若未采用临时密钥方案，可直接按照示例传入 secretId、secretKey 即可。
+通过调用接口获取临时密钥信息。
+- 将接口返回的密钥信息 tmpSecretId、tmpSecretkey 和 Token 依次作为参数 secretId、secretKey 和 token 传入 ASR 类中，若未采用临时密钥方案，可直接按照示例传入 secretId、secretKey 即可。

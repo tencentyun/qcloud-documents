@@ -101,4 +101,4 @@ data:
 
 如果多个 Service 共用一个域名，可以自行部署 Ingress Controller (例如 nginx-ingress)：
 1. 用上述 rewrite 的方法将域名指向自建的 Ingress Controller。
-2. 将自建的 Ingress 根据请求 location (域名+路径) 匹配 Service，再转发给后端 Pod。整段链路不经过 CLB，同意能规避回环问题。
+2. 将自建的 Ingress 根据请求 location (域名+路径) 匹配 Service，再转发给后端 Pod。整段链路不经过 CLB，同样能规避回环问题。

@@ -20,7 +20,7 @@
 - 操作（Action）：用户可进行的操作，例如检索日志、修改索引配置、上传日志、创建告警策略等。
 - 资源（Resource）：可操作的资源范围，例如特定的日志主题、仪表盘、数据加工任务等。
 
-日志服务支持的所有操作及资源定义方式参见 CAM 的 [日志服务](https://cloud.tencent.com/document/product/598/66554) 文档，配置方式参见 [创建自定义策略](https://cloud.tencent.com/document/product/598/37739)。
+日志服务支持授权的资源类型及相关接口参见 [可授权的资源类型](https://cloud.tencent.com/document/product/614/70091)，配置方式参见 [创建自定义策略](https://cloud.tencent.com/document/product/598/37739)。
 
 自定义权限策略配置存在一定的复杂度，实际使用过程中可参见 [自定义权限策略示例](https://cloud.tencent.com/document/product/614/68374)，这些示例能够满足大多数的权限管理需求，也可以基于这些策略示例再进行个性化调整。详细操作方式如下：
 1. 主账号（或具备 CAM 管理权限的用户）在 [策略](https://console.cloud.tencent.com/cam/policy) 页面，单击**新建自定义策略**。

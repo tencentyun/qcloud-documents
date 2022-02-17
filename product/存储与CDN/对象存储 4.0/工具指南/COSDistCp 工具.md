@@ -24,8 +24,8 @@ Hadoop-2.6.0及以上版本、Hadoop-COS 插件 5.9.3 及以上版本。
 
 #### 获取 COSDistCp jar 包
 
-- Hadoop 2.x 用户可下载 [cos-distcp-1.9-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.9-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.9-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
-- Hadoop 3.x 用户可下载 [cos-distcp-1.9-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.9-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.9-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
+- Hadoop 2.x 用户可下载 [cos-distcp-1.10-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.10-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.10-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
+- Hadoop 3.x 用户可下载 [cos-distcp-1.10-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.10-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.10-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
 
 #### 安装说明
 
@@ -63,9 +63,9 @@ COSDistCp 基于 MapReduce 框架实现，为多进程+多线程的架构，可�
 |        --copyFromManifest        | 和 --previousManifest=LOCATION 一起使用，可将 --previousManifest 中的文件，拷贝到目标文件系统<br>示例：--copyFromManifest | false  |    否    |
 |       --storageClass=VALUE       | 指定对象存储类型，可选值为 STANDARD、STANDARD_IA、ARCHIVE、DEEP_ARCHIVE、INTELLIGENT_TIERING，关于更多支持的存储类型和介绍，请参见 [存储类型概述](https://cloud.tencent.com/document/product/436/33417) |   无   |    否    |
 |    --srcPrefixesFile=LOCATION    | 指定本地文件，该文件中每行包含一个需要拷贝的源目录</br>示例：--srcPrefixesFile=file:///data/migrate-folders.txt |   无   |    否    |
-|         --skipMode=MODE          | 拷贝文件前，校验源文件和目标文件是否相同，相同则跳过，可选 none（不校验）、length （长度）、checksum（CRC值）和 length-checksum（长度 + CRC 值）</br>示例：--skipMode=length |  length-checksum  |    否    |
-|         --checkMode=MODE         | 当文件拷贝完成的时候，校验源文件和目标文件是否相同，可选 none（不校验）、 length （长度）、checksum（CRC值）和 length-checksum（长度 + CRC 值）<br/>示例：--checkMode=length-checksum |  length-checksum  |    否    |
-|         --diffMode=MODE          | 指定获取源和目的目录的差异文件列表，可选 length （长度）、checksum（CRC 值）和 length-checksum（长度 + CRC 值）</br>示例：--diffMode=length-checksum |   无   |    否    |
+|         --skipMode=MODE          | 拷贝文件前，校验源文件和目标文件是否相同，相同则跳过，可选 none（不校验）、length （长度）、checksum（CRC值）、length-mtime(长度+mtime值)和 length-checksum（长度 + CRC 值）</br>示例：--skipMode=length |  length-checksum  |    否    |
+|         --checkMode=MODE         | 当文件拷贝完成的时候，校验源文件和目标文件是否相同，可选 none（不校验）、 length （长度）、checksum（CRC值）、length-mtime(长度+mtime值)和 length-checksum（长度 + CRC 值）<br/>示例：--checkMode=length-checksum |  length-checksum  |    否    |
+|         --diffMode=MODE          | 指定获取源和目的目录的差异文件列表，可选 length （长度）、checksum（CRC 值）、length-mtime(长度+mtime值)和 length-checksum（长度 + CRC 值）</br>示例：--diffMode=length-checksum |   无   |    否    |
 |      --diffOutput=LOCATION       | 指定 diffMode 的 HDFS 输出目录，该输出目录必须为空<br/>示例：--diffOutput=/diff-output |   无   |    否    |
 |      --cosChecksumType=TYPE      | 指定 Hadoop-COS 插件使用的 CRC 算法，可选值为 CRC32C 和 CRC64<br/>示例：--cosChecksumType=CRC32C | CRC32C |    否    |
 |      --preserveStatus=VALUE      | 指定是否将源文件的 user、group、permission、xattr 和 timestamps 元信息拷贝到目标文件，可选值为 ugpxt（即为 user、group、permission、xattr 和 timestamps 的英文首字母）<br/>示例：--preserveStatus=ugpt |   无   |    否    |
