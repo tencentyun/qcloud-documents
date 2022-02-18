@@ -7,10 +7,10 @@
 4、多 Zookeeper 使用只是在创建表的时候有区别，其他按照数仓常规操作即可。
 
 ## 控制台操作步骤
-1. 可在配置文件 config.xml 中查看已经存在的多 Zookeeper 信息。
+1. 登录 [CDWCH](https://console.cloud.tencent.com/cdwch) 控制台，在**集群列表**中选择对应的集群，在集群详情页面右下角单击**升级多 ZK** 页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b1eca0157f7fa725234bed97e0f4fc68.png)
 
-2. 登录 [CDWCH](https://console.cloud.tencent.com/cdwch) 控制台，在**集群列表**中选择对应的集群，在集群详情页面右下角单击**升级多 ZK** 页面。
+2. 可在配置文件 config.xml 中查看已经存在的多 Zookeeper 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/41a08086c51bf56407a60c5a37f1e009.png)
 
 3. 创建多 Zookeeper 之后，也可以对集群中的 Zookeeper 节点进行垂直升降配和扩容磁盘。
