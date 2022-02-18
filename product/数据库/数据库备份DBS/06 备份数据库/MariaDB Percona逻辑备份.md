@@ -1,5 +1,5 @@
 ## 操作场景
-本章节介绍通过 DBS 对自建、第三方厂商、腾讯云 MySQL 数据库进行逻辑备份。
+本章节介绍通过 DBS 对 MariaDB、Percona 数据库进行逻辑备份。
 
 ## 前提条件
 - 源数源数据库符合备份功能和版本要求，请参见 [备份和恢复能力汇总](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
@@ -8,13 +8,13 @@
   - “整个实例”备份：
 ```
 CREATE USER '帐号'@'%' IDENTIFIED BY '密码';  
-GRANT RELOAD,LOCK TABLES,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html 
+GRANT RELOAD,LOCK TABLES,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  
 GRANT SELECT ON *.* TO '帐号';
 ```
   - “指定对象”备份：
 ```
 CREATE USER '帐号'@'%' IDENTIFIED BY '密码';  
-GRANT RELOAD,LOCK TABLES,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html  
+GRANT RELOAD,LOCK TABLES,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  
 GRANT SELECT ON `mysql`.* TO '帐号'@'%';
 GRANT SELECT ON 待备份的库.* TO '帐号';
 ```
@@ -35,10 +35,10 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 
 ### 配置备份计划
 1. 登录 [DBS 控制台](https://console.cloud.tencent.com/dbs)，在左侧导航选择**备份计划**页，然后在右侧选择已购买的备份计划，单击**配置**。
-![](https://qcloudimg.tencent-cloud.cn/raw/c8febe50a84a788546ca461860150b34.png)
-2. 在**设置备份源**页面配置备份计划和数据源，单击**测试连通性**，通过后进入**下一步**。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/020d9771d050e2bf1d9942458c7d853c.png)
+3. 在**设置备份源**页面配置备份计划和数据源，单击**测试连通性**，通过后进入**下一步**。
    如果连通性测试失败，请参考 [连通性测试不通过处理方法](https://cloud.tencent.com/document/product/1513/64057) 进行处理。
-![](https://qcloudimg.tencent-cloud.cn/raw/ad89d7899a6fa05f7c2680e8b3548a17.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/ab0602611ea3ee9a6270f98fe27332f3.png)
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="20%">配置项</th><th width="70%">说明</th></tr></thead>
 <tbody>
@@ -50,10 +50,8 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <td>全量备份并行数上限</td>
 <td>该上限与用户购买的备份计划规格中的上限一致。</td></tr>
 <tr>
-<td rowspan=8>源实例设置</td>
-<td>数据库类型</td><td>选择“MySQL”。</td></tr>
-<tr>
-<td>服务提供商</td><td>如果源数据库为自建数据库（包括腾讯云 CVM 上自建）、腾讯云数据库，请选择“普通”，如果是第三方云厂商，选择对应的服务提供商。</td></tr>
+<td rowspan=9>源实例设置</td>
+<td>数据库类型</td><td>购买计划中设置的数据库类型，不可修改。</td></tr>
 <tr>
 <td>接入类型</td><td>请根据您的场景选择，本场景选择“公网”。
 <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
@@ -62,24 +60,29 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
 <li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li>
-<li>私用网络 VPC：源数据部署在腾讯云上，且有<a href"https://cloud.tencent.com/document/product/215">私有网络</a>。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/1513/64040">准备工作概述</a>。</td></tr>
+<li>私用网络 VPC：源数据部署在腾讯云上，且有<a href="https://cloud.tencent.com/document/product/215">私有网络</a>。</li></ul></td></tr>
 <tr>
-<td>所属地域</td><td>备份计划中的地域，该地域为备份数据存储和恢复所在的地域。</td></tr> 
+<td>所属地域</td><td>备份计划中的地域，该地域为备份数据存储和恢复所在地域。</td></tr> 
 <tr>
-<td>主机地址</td><td>源库 MySQL 访问 IP 地址或域名。</td></tr>
+<td>主机地址</td><td>源库访问 IP 地址或域名。</td></tr>
 <tr>
-<td>端口</td><td>源库 MySQL 访问端口。</td></tr>
+<td>端口</td><td>源库访问端口。</td></tr>
 <tr>
-<td>帐号</td><td>源库 MySQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
+<td>帐号</td><td>源库的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
-<td>密码</td><td>源库 MySQL 的数据库帐号的密码。</td></tr></tbody></table>
+<td>密码</td><td>源库的数据库帐号的密码。</td></tr>
+    <tr>
+<td>连接方式</td><td><li>非加密方式：DBS 与源数据库的连接不加密。</li><li>SSL 安全连接：DBS 与源数据库通过 SSL（Secure socket layer）安全连接，对传输链路进行加密。</li><dx-alert infotype="explain" title="说明">选择 SSL 安全连接可能会增加源库的连接响应时间，一般腾讯云内网链路相对较安全，无需开启 SSL 安全连接，采用公网/专线等传输方式，并且对数据安全要求较高的场景，需要开启 SSL 安全连接。<br>选择<b> SSL 安全连接</b>前，请先在源数据库中开启 SSL 加密。如果源库为腾讯云数据库，请参考<a href="https://cloud.tencent.com/document/product/237/33944">开启 SSL 加密</a>。</dx-alert></td></tr>
+    <tr>
+<td>CA 根证书</td><td>可选，上传 CA 证书后，DBS 会校验传输目标服务器的身份，使传输链路更加安全。</td></tr></tbody></table>
+
 3. 在**设置备份对象**页面，选择备份对象后，单击**下一步**。
 备份对象：
   - 整个实例：备份整个实例，当前仅支持备份库、表和视图，暂不支持备份用户权限、存储过程、Function等。  
   - 指定对象：备份指定对象，然后在下面的界面中选择需要备份的指定库、表等。
 ![](https://qcloudimg.tencent-cloud.cn/raw/069c3df7c09a9b5f97a2c597053176b0.png)
 4. 在**选择备份策略**页面，选择策略模板、备份方式、备份频率、备份周期等，单击**下一步**。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/2e034676dcd755a7795c6ffb32512832.png" style="zoom:67%;" />
+![](https://qcloudimg.tencent-cloud.cn/raw/2e55da1199d1137fbb9f73b3f1d8e328.png)
 <table>
 <thead><tr><th width="20%">配置项</th><th width="80%">说明</th></tr></thead>
 <tbody>
@@ -102,12 +105,16 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <td>存储池</td>
 <td>选择该备份计划地域的存储池。</td></tr>
 <tr>
+<td>存储方式</td>
+<td><li>非存储加密：数据保存在 DBS 内置存储中，不加密。</li><li>内置加密存储：数据以加密的方式保存在 DBS 内置存储中，加密方式为存储系统自身的加密方式，数据上传到存储系统时加密，从存储系统获取数据即解密。</li><li>KMS 加密存储：数据以 KMS （<a hrref="https://cloud.tencent.com/document/product/573">密钥管理系统</a>）加密方式保存在 DBS 内置存储中，加密密钥为  <a hrref="https://console.cloud.tencent.com/kms2">KMS 中设置的密钥</a>。</li></td></tr>
+<tr>
 <td>保留时间</td>
 <td>可设置范围为7天到3650天（10年）。</td></tr>
 <tr>
 <td>保存为策略模板</td>
 <td>支持将当前配置的策略保存为模板，方便后续直接使用。</td></tr>
 </tbody></table>
+
 5. 在**预检查及启动**页面，执行校验任务通过后，单击**立即启动**。
    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/1513/65196) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
