@@ -32,7 +32,7 @@
 </tr>
 <tr>
 <td>计费模式</td>
-<td>可选择按流量或共享带宽包计费，若使用共享带宽包计费 ，需要先<a href="https://console.cloud.tencent.com/vpc/package?rid=5">创建精品 BGP 带宽包</a>或在下拉列表中选择对应的共享带宽包。
+<td>可选择按流量或共享带宽包计费，若使用共享带宽包计费 ，需要先<a href="https://console.cloud.tencent.com/vpc/package?rid=5"> 创建精品 BGP 带宽包 </a>或在下拉列表中选择对应的共享带宽包。
 </td>
 </tr>
 <tr>
