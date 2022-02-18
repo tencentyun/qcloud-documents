@@ -1,10 +1,10 @@
 ## 功能介绍
 腾讯云上创建 ClickHouse 高可用集群之后，会默认创建一个 Zookeeper 集群来为 ClickHouse 集群提供服务。但是当 Zookeeper 集群负载过高时，会造成 ClickHouse 集群写入阻塞，严重时会导致集群崩溃。为此 cdwch 支持了多 Zookeeper 方案，用户可以根据集群的负载情况添加多套 Zookeeper 来为 ClickHouse 服务。
 ## 注意事项
-1、多 Zookeeper 方案只能应用于高可用集群。
-2、最多可以支持7套额外的 Zookeeper 集群。
-3、同一个集群所有的 Zookeeper 规格保持一致，垂直升降配后也会保持同一规格。
-4、多 Zookeeper 使用只是在创建表的时候有区别，其他按照数仓常规操作即可。
+1. 多 Zookeeper 方案只能应用于高可用集群。
+2. 最多可以支持7套额外的 Zookeeper 集群。
+3. 同一个集群所有的 Zookeeper 规格保持一致，垂直升降配后也会保持同一规格。
+4. 多 Zookeeper 使用只是在创建表的时候有区别，其他按照数仓常规操作即可。
 
 ## 控制台操作步骤
 1. 登录 [CDWCH](https://console.cloud.tencent.com/cdwch) 控制台，在**集群列表**中选择对应的集群，在集群详情页面右下角单击**升级多 ZK** 页面。
