@@ -51,13 +51,13 @@ cd extundelete-1.0
 ```
 make
 ```
-
-:::
-</dx-tabs>
-2. 依次执行以下命令，尝试恢复数据。
+5. 执行以下命令，进入 src 目录，可查看已编译好的 Extundelete 文件。
 ```
 cd ./src
 ```
+:::
+</dx-tabs>
+2. 执行以下命令，尝试恢复数据。
 ```
 ./extundelete  --restore-all  /dev/对应盘
 ```

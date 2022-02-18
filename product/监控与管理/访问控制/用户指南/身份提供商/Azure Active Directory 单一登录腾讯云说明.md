@@ -33,13 +33,12 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 ![](https://main.qcloudimg.com/raw/abeffc5c30a39561448523a5fc29b8ee.png)
 2. 在“基本 SAML 配置”编辑页面填写以下信息，并单击**保存**。如下图所示：
 ![](https://main.qcloudimg.com/raw/a0161d7c8eeddcf00dab05d6a65dd2d7.png)
->?
-> - 如果您的腾讯云账号所在站点为中国站，请按照如下信息进行配置：
-标识符（实体 ID）：cloud.tencent.com
-回复 URL（断言使用者服务 URL）：https://cloud.tencent.com/login/saml
-> - 如果您的腾讯云账号所在站点为 International ，请按照如下信息进行配置：
-标识符（实体 ID）：intl.cloud.tencent.com
-回复 URL（断言使用者服务 URL）：https://intl.cloud.tencent.com/login/saml
+您可以根据您的腾讯云账号所在站点进行配置
+|所在站点 |标识符（实体 ID）| 回复 URL（断言使用者服务 URL） | 
+|---------|---------|---------|
+| 中国站| cloud.tencent.com| https://cloud.tencent.com/login/saml|
+| 国际站 |intl.cloud.tencent.com| https://intl.cloud.tencent.com/login/saml|
+>?回复 URL（断言使用者服务 URL）为跳转的腾讯云页面，如您需要指定其他页面，可使用https://cloud.tencent.com/login/saml?s_url=xxxx 形式指定，其中 xxxx 为需要指定的地址，需要做 urlencode。
 >
 3. 在 “SAML 单一登录”概览界面，单击“用户属性和声明”右上角的<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">，打开“用户属性声明”编辑页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/012441d7e961f9f784e05cc347c66294.png)

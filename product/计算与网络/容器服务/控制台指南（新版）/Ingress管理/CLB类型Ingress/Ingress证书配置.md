@@ -18,7 +18,7 @@
 
 ## 示例
 TKE 支持通过 Ingress 中的 `spec.tls` 的字段，为 Ingress 创建的 CLB HTTPS 监听器配置证书。其中，secretName 为包含腾讯云证书 ID 的 Kubernetes Secret 资源。 示例如下：
-- **ingress**
+#### Ingress
 ```yaml
 spec:
     tls:
@@ -26,7 +26,9 @@ spec:
       - www.abc.com
       secretName: secret-tls-2
 ```
-- **Secret**
+
+#### Secret
+- 通过 YAML 进行创建：
 ```yaml
 apiVersion: v1
 stringData:
@@ -37,14 +39,17 @@ metadata:
     namespace: default
 type: Opaque
 ```
->?您还可参考 [创建 Secret](https://cloud.tencent.com/document/product/457/31718#.E5.88.9B.E5.BB.BA-secret)，通过容器服务控制台进行创建。主要参数配置如下：
->- **名称**：自定义，本文以 cos-secret 为例。
->- **Secret类型**：选择**Opaque**，该类型适用于保存密钥证书和配置文件，Value 将以 Base64 格式编码。
->- **生效范围**：按需选择，需确保与 Ingress 在同一 Namespace 下。
->- **内容**：变量名设置为 `qcloud_cert_id`，变量值配置为 qcloud_cert_id 所对应的证书 ID。
->
 
-## Ingress 证书配置的行为
+- 通过**容器服务控制台**进行创建：
+  操作详情可参考 [创建 Secret](https://cloud.tencent.com/document/product/457/31718#.E5.88.9B.E5.BB.BA-secret)。在“新建Secret” 页面，Secret 主要参数配置如下：
+    - **名称**：自定义，本文以 cos-secret 为例。
+    - **Secret类型**：选择 **Opaque**，该类型适用于保存密钥证书和配置文件，Value 将以 Base64 格式编码。
+    - **生效范围**：按需选择，需确保与 Ingress 在同一 Namespace 下。
+    - **内容**：变量名设置为 `qcloud_cert_id`，变量值配置为 qcloud_cert_id 所对应的证书 ID。
+
+
+
+## Ingress 证书配置行为
 - 仅配置单个 `spec.secretName` 且未配置 hosts 的情况下，将会为所有的 HTTPS 的转发规则配置该证书。示例如下：
 ```yaml
 spec:
@@ -94,21 +99,27 @@ spec:
 4. 单击**提交**即可完成创建。
 
 ### 创建使用证书的 Ingress 对象
+
+#### 注意事项：
+- 当控制台创建的 Ingress 开启 HTTPS 服务，会先创建同名的 Secret 资源用于存放证书 ID，并在 Ingress 中使用并监听该 Secret。
+- TLS 配置域名与证书的对应关系如下：
+ 	- 可以使用一级泛域名统配。
+  - 若域名匹配中多个不同的证书，将随机选择一个证书，不建议相同域名使用不同证书。
+  - 需为所有 HTTPS 域名配置证书，否则会创建不通过。
+
+
+#### 操作步骤：
 参考 [创建 Ingress ](https://cloud.tencent.com/document/product/457/31711#.E5.88.9B.E5.BB.BA-ingress) 完成 Ingress 新建，其中监听端口勾选 **Https:443**。
 
->!
->- 当控制台创建的 Ingress 开启 HTTPS 服务，会先创建同名的 Secret 资源用于存放证书 ID，并在 Ingress 中使用并监听该 Secret。
->- TLS 配置域名与证书的对应关系如下：
-> 	 - 可以使用一级泛域名统配。
-> 	 - 若域名匹配中多个不同的证书，将随机选择一个证书，不建议相同域名使用不同证书。
-> 	 - 需为所有 HTTPS 域名配置证书，否则会创建不通过。
->
+
 
 ### 修改证书
->! 
->- 如果您需要修改证书， 请确认所有使用该证书的 Ingress。如用户的多个 Ingress 配置使用同一个 Secret 资源，那么这些 Ingress 对应 CLB 的证书会同步变更。
->- 证书需要通过修改 Secret 进行修改， Secret 内容中包含您使用的腾讯云证书的 ID。
->
+
+#### 注意事项：
+- 如果您需要修改证书， 请确认所有使用该证书的 Ingress。如用户的多个 Ingress 配置使用同一个 Secret 资源，那么这些 Ingress 对应 CLB 的证书会同步变更。
+- 证书需要通过修改 Secret 进行修改， Secret 内容中包含您使用的腾讯云证书的 ID。
+
+#### 操作步骤：
 1. 执行以下命令，使用默认编辑器打开需修改的 Secret。其中，`[secret-name]` 需更换为需修改的 Secret 的名称。
 ```
 kubectl edit secrets [secret-name]
