@@ -180,7 +180,7 @@ Error: Electron failed to install correctly, please delete node_modules/electron
 2. 使用 electron-builder 打包时，需要将 entitlements.mac.plist 文件路径配置到 electron-builder 打包配置中。参考代码如下，注意 `"entitlements"` 和 `"entitlementsInherit"` 两个配置项，`"hardenedRuntime"` 需要配置为 true，配置项含义请参见 [electron-builder官网](https://www.electron.build/configuration/mac)。
 ```json
 {
-"build": {
+  "build": {
     "mac": {
       "extraFiles": [
         {
