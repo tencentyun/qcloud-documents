@@ -132,11 +132,11 @@ const client = new smsClient({
    * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
    * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
    * 以免泄露密钥对危及你的财产安全。
-   * SecretId、SecretKey 查询: https://console.cloud.tencent.com/cam/capi */
+   * CAM密匙查询: https://console.cloud.tencent.com/cam/capi */
     secretId: process.env.secretId,
     secretKey: process.env.secretKey,
   },
-  /* 必填：地域信息，可以直接填写字符串ap-guangzhou，支持的地域列表参考 https://cloud.tencent.com/document/api/382/52071#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8 */
+  /* 必填：地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
   region: "ap-guangzhou",
   /* 非必填:
    * 客户端配置对象，可以指定超时时间等配置 */
@@ -195,11 +195,11 @@ const client = new smsClient({
    * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
    * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
    * 以免泄露密钥对危及你的财产安全。
-   * SecretId、SecretKey 查询: https://console.cloud.tencent.com/cam/capi */
+   * CAM密匙查询: https://console.cloud.tencent.com/cam/capi */
     secretId: process.env.secretId,
     secretKey: process.env.secretKey,
   },
-  /* 必填：地域信息，可以直接填写字符串ap-guangzhou，支持的地域列表参考 https://cloud.tencent.com/document/api/382/52071#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8 */
+  /* 必填：地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
   region: "ap-guangzhou",
   /* 非必填:
    * 客户端配置对象，可以指定超时时间等配置 */
@@ -264,11 +264,11 @@ const client = new smsClient({
    * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
    * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
    * 以免泄露密钥对危及你的财产安全。
-   * SecretId、SecretKey 查询: https://console.cloud.tencent.com/cam/capi */
+   * CAM密匙查询: https://console.cloud.tencent.com/cam/capi */
     secretId: process.env.secretId,
     secretKey: process.env.secretKey,
   },
-  /* 必填：地域信息，可以直接填写字符串ap-guangzhou，支持的地域列表参考 https://cloud.tencent.com/document/api/382/52071#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8 */
+  /* 必填：地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
   region: "ap-guangzhou",
   /* 非必填:
    * 客户端配置对象，可以指定超时时间等配置 */
@@ -324,3 +324,4 @@ client.AddSmsTemplate(params, function (err, response) {
 如有代理的环境下，需要设置系统环境变量 `https_proxy` ，否则可能无法正常调用，抛出连接超时的异常现象。
 :::
 </dx-accordion>
+
