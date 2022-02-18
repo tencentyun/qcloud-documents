@@ -20,9 +20,13 @@ Extundelete 支持文件系统类型为 ext3 及 ext4 的文件误删恢复，�
 1. 安装 Extundelete，通过以下两种方式：
 <dx-tabs>
 ::: 下载已编译好的二进制程序（推荐）
-执行以下命令，可直接下载已编译好的二进制程序。
+1. 执行以下命令，可直接下载已编译好的二进制程序。
 ```
 wget https://github.com/curu/extundelete/releases/download/v1.0/extundelete
+```
+2. 执行以下命令，授予文件权限。
+```
+chmod a+x extundelete
 ```
 :::
 ::: 手动编译安装
