@@ -99,7 +99,6 @@ spec:
 4. 单击**提交**即可完成创建。
 
 ### 创建使用证书的 Ingress 对象
-参考 [创建 Ingress ](https://cloud.tencent.com/document/product/457/31711#.E5.88.9B.E5.BB.BA-ingress) 完成 Ingress 新建，其中监听端口勾选 **Https:443**。
 
 #### 注意事项：
 - 当控制台创建的 Ingress 开启 HTTPS 服务，会先创建同名的 Secret 资源用于存放证书 ID，并在 Ingress 中使用并监听该 Secret。
@@ -107,6 +106,11 @@ spec:
  	- 可以使用一级泛域名统配。
   - 若域名匹配中多个不同的证书，将随机选择一个证书，不建议相同域名使用不同证书。
   - 需为所有 HTTPS 域名配置证书，否则会创建不通过。
+
+
+#### 操作步骤：
+参考 [创建 Ingress ](https://cloud.tencent.com/document/product/457/31711#.E5.88.9B.E5.BB.BA-ingress) 完成 Ingress 新建，其中监听端口勾选 **Https:443**。
+
 
 
 ### 修改证书
