@@ -87,7 +87,7 @@ public class SendSms
              * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
              * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
              * 以免泄露密钥对危及你的财产安全。
-             * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
+             * SecretId、SecretKey 查询: https://console.cloud.tencent.com/cam/capi */
             Credential cred = new Credential("secretId", "secretKey");
 
             // 实例化一个http选项，可选，没有特殊需求可以跳过
@@ -113,7 +113,7 @@ public class SendSms
             clientProfile.setSignMethod("HmacSHA256");
             clientProfile.setHttpProfile(httpProfile);
             /* 实例化要请求产品(以sms为例)的client对象
-             * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+             * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，支持的地域列表参考 https://cloud.tencent.com/document/api/382/52071#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8 */
             SmsClient client = new SmsClient(cred, "ap-guangzhou",clientProfile);
             /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
              * 你可以直接查询SDK源码确定接口有哪些属性可以设置
@@ -209,7 +209,7 @@ public class PullSmsSendStatus {
              * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
              * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
              * 以免泄露密钥对危及你的财产安全。
-             * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
+             * SecretId、SecretKey 查询: https://console.cloud.tencent.com/cam/capi */
             Credential cred = new Credential("secretId", "secretKey");
 
             // 实例化一个http选项，可选，没有特殊需求可以跳过
@@ -236,7 +236,7 @@ public class PullSmsSendStatus {
             clientProfile.setHttpProfile(httpProfile);
 
             /* 实例化要请求产品(以sms为例)的client对象
-             * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+             * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，支持的地域列表参考 https://cloud.tencent.com/document/api/382/52071#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8 */
             SmsClient client = new SmsClient(cred, "ap-guangzhou", clientProfile);
 
             /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
@@ -304,7 +304,7 @@ public class SendStatusStatistics {
              * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
              * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
              * 以免泄露密钥对危及你的财产安全。
-             * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
+             * SecretId、SecretKey 查询: https://console.cloud.tencent.com/cam/capi */
             Credential cred = new Credential("secretId", "secretKey");
 
             // 实例化一个http选项，可选，没有特殊需求可以跳过
@@ -331,7 +331,7 @@ public class SendStatusStatistics {
             clientProfile.setHttpProfile(httpProfile);
 
             /* 实例化要请求产品(以sms为例)的client对象
-             * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+             * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，支持的地域列表参考 https://cloud.tencent.com/document/api/382/52071#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8 */
             SmsClient client = new SmsClient(cred, "ap-guangzhou",clientProfile);
 
             /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
