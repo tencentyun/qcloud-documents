@@ -30,6 +30,6 @@ CREATE TABLE testdb.account ON CLUSTER default_cluster(accountid UInt16,name Str
 
 3. 创建使用多 Zookeeper 的表。
 ```
---创建表时，如果是使用第二套Zookeeper就在创建表的Zookeeper路径前加：'Zookeeper2:'前缀，以此类推，使用第三套Zookeeper，则加'Zookeeper3'前缀。
-CREATE TABLE testdb.account2 ON CLUSTER default_cluster(accountid UInt16,name String,address String,year UInt64) ENGINE =ReplicatedMergeTree('Zookeeper2:/clickhouse/tables/{layer}-{shard}/testdb/account2', '{replica}') ORDER BY (accountid);
+--创建表时，如果是使用第二套zookeeper就在创建表的zookeeper路径前加：'zookeeper2:'前缀，以此类推，使用第三套zookeeper，则加'zookeeper3'前缀。
+CREATE TABLE testdb.account2 ON CLUSTER default_cluster(accountid UInt16,name String,address String,year UInt64) ENGINE =ReplicatedMergeTree('zookeeper2:/clickhouse/tables/{layer}-{shard}/testdb/account2', '{replica}') ORDER BY (accountid);
 ```
