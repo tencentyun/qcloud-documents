@@ -36,7 +36,12 @@
 <tr>
 <td>计费模式</td>
 <td>
-常规 BGP IP 支持按流量、包月带宽、按小时带宽和共享带宽包计费模式，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/51693">公网网络费用</a>。
+<ul>
+<li>常规 BGP IP 支持按流量、包月带宽、按小时带宽和共享带宽包计费模式，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/51693">公网网络费用</a>。
+</li>
+<li>加速 IP 和静态单线 IP 只支持共享带宽包计费模式，不支持其它计费模式，创建后会自动新增并添加到共享带宽包中。
+</li>
+</ul>
 </td>
 </tr>
 <tr>
