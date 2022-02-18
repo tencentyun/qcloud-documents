@@ -11,7 +11,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 - 已开通短信服务，具体操作请参见 [国内短信快速入门](https://cloud.tencent.com/document/product/382/37745)。
 - 如需发送国内短信，需要先 [购买国内短信套餐包](https://cloud.tencent.com/document/product/382/18060)。
 - 已准备依赖环境：Go 1.9版本及以上。
-- 已在访问管理控制台 >**[API密钥管理](https://console.cloud.tencent.com/cam/capi)**页面获取 SecretID 和 SecretKey。
+- 已在访问管理控制台 >[**API密钥管理**](https://console.cloud.tencent.com/cam/capi) 页面获取 SecretID 和 SecretKey。
  - SecretID 用于标识 API 调用者的身份。
  - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，**SecretKey 需妥善保管，避免泄露**。
 - 短信的调用地址为`sms.tencentcloudapi.com`。
@@ -57,7 +57,7 @@ func main() {
      * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
      * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
      * 以免泄露密钥对危及你的财产安全。
-     * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
+     * SecretId、SecretKey 查询: https://console.cloud.tencent.com/cam/capi */
     credential := common.NewCredential(
         // os.Getenv("TENCENTCLOUD_SECRET_ID"),
         // os.Getenv("TENCENTCLOUD_SECRET_KEY"),
@@ -84,7 +84,7 @@ func main() {
     cpf.SignMethod = "HmacSHA1"
 
     /* 实例化要请求产品(以sms为例)的client对象
-     * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+     * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，支持的地域列表参考 https://cloud.tencent.com/document/api/382/52071#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8 */
     client, _ := sms.NewClient(credential, "ap-guangzhou", cpf)
 
     /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
@@ -156,7 +156,7 @@ func main() {
      * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
      * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
      * 以免泄露密钥对危及你的财产安全。
-     * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
+     * SecretId、SecretKey 查询: https://console.cloud.tencent.com/cam/capi */
     credential := common.NewCredential(
         // os.Getenv("TENCENTCLOUD_SECRET_ID"),
         // os.Getenv("TENCENTCLOUD_SECRET_KEY"),
@@ -184,7 +184,7 @@ func main() {
     cpf.SignMethod = "HmacSHA1"
 
     /* 实例化要请求产品(以sms为例)的client对象
-     * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+     * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，支持的地域列表参考 https://cloud.tencent.com/document/api/382/52071#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8 */
     client, _ := sms.NewClient(credential, "ap-guangzhou", cpf)
 
     /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
@@ -243,7 +243,7 @@ func main() {
      * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
      * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
      * 以免泄露密钥对危及你的财产安全。
-     * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
+     * SecretId、SecretKey 查询: https://console.cloud.tencent.com/cam/capi */
     credential := common.NewCredential(
         // os.Getenv("TENCENTCLOUD_SECRET_ID"),
         // os.Getenv("TENCENTCLOUD_SECRET_KEY"),
@@ -271,7 +271,7 @@ func main() {
     cpf.SignMethod = "HmacSHA1"
 
     /* 实例化要请求产品(以sms为例)的client对象
-     * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+     * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，支持的地域列表参考 https://cloud.tencent.com/document/api/382/52071#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8 */
     client, _ := sms.NewClient(credential, "ap-guangzhou", cpf)
 
     /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
