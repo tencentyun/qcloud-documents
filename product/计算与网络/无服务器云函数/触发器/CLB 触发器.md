@@ -54,12 +54,12 @@ CLB 负载均衡发送到云函数的请求处理方式，和云函数响应给 
     "X-Forwarded-Proto": "http",  
     "X-Client-Proto-Ver": "HTTP/1.1",  
     "X-Real-IP": "9.43.175.219",
-    "X-Forwarded-For": "9.43.175.xx"  
+    "X-Forwarded-For": "9.43.175.xx", 
  
     "X-Vip": "121.23.21.xx",  
     "X-Vport": "xx",  
     "X-Uri": "/scf_location",  
-    "X-Method": "POST"    
+    "X-Method": "POST",    
     "X-Real-Port": "44347",  
   },  
   "payload": {  
