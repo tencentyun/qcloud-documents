@@ -392,7 +392,7 @@ namespace TencentCloudExamples
               // httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
               clientProfile.HttpProfile = httpProfile;
               /* 实例化 SMS 的 client 对象
-               * 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量 */
+               * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，支持的地域列表参考 https://cloud.tencent.com/document/api/382/52071#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8 */
               SmsClient client = new SmsClient(cred, "ap-guangzhou", clientProfile);
               /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
                * 您可以直接查询 SDK 源码确定 SendSmsRequest 有哪些属性可以设置
