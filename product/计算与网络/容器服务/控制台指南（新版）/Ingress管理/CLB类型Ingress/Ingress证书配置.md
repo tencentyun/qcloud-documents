@@ -26,7 +26,7 @@ spec:
       - www.abc.com
       secretName: secret-tls-2
 ```
-- **Sercret**
+- **Secret**
 ```yaml
 apiVersion: v1
 stringData:
@@ -74,7 +74,7 @@ spec:
    - HTTPS 的 rules.host 无任何匹配时，若判断不通过，则不能提交更新。
    - HTTPS 的 rules.host 匹配中单个 TLS 时，可提交更新，并为该 host 配置对 Secret 中对应的证书。
    - 修改 TLS 的 SecretName 时仅校验 SecretName 的存在性，而不校验 Secret 内容， Secret 存在即可提交更新。
-   > ! 请确保 Secret 中证书 ID 符合要求。
+> ! 请确保 Secret 中证书 ID 符合要求。
 
 
 
@@ -84,26 +84,25 @@ spec:
 ### 通过控制台新建服务器证书[](id:create)
 >?若您已具备需配置的证书，则请跳过此步骤。
 >
-1. 登录负载均衡控制台，选择左侧导航栏中的 **[证书管理](https://console.cloud.tencent.com/clb/cert)**。
+1. 登录负载均衡控制台，选择左侧导航栏中的 [证书管理](https://console.cloud.tencent.com/clb/cert)。
 2. 在“证书管理”页面中，单击**新建**。
 3. 在弹出的“新建证书”窗口中，参考以下信息进行设置。
- - **证书名称**：自定义设置。
- - **证书类型**：选择“服务器证书”。
-**服务器证书**：即 SSL 证书（SSL Certificates）。基于 SSL 证书，可将站点由 HTTP（Hypertext Transfer Protocol）切换到 HTTPS（Hyper Text Transfer Protocol over Secure Socket Layer），即基于安全套接字层（SSL）进行安全数据传输的加密版 HTTP 协议。
+   - **证书名称**：自定义设置。
+   - **证书类型**：选择“服务器证书”。**服务器证书**即 SSL 证书（SSL Certificates）。基于 SSL 证书，可将站点由 HTTP（Hypertext Transfer Protocol）切换到 HTTPS（Hyper Text Transfer Protocol over Secure Socket Layer），即基于安全套接字层（SSL）进行安全数据传输的加密版 HTTP 协议。
    - **证书内容**：根据实际情况填写证书内容，证书格式要求请参见文档[ SSL 证书格式要求及格式转换说明](https://cloud.tencent.com/document/product/214/5369)。
    - **密钥内容**：仅当证书类型选择为“服务器证书”时，该选项才会显示。请参考文档[ SSL 证书格式要求及格式转换说明](https://cloud.tencent.com/document/product/214/5369) 添加相关密钥内容。
 4. 单击**提交**即可完成创建。
 
 ### 创建使用证书的 Ingress 对象
-参考 [创建 Ingress ](https://cloud.tencent.com/document/product/457/31711#.E5.88.9B.E5.BB.BA-ingress) 完成 Ingress 新建，其中监听端口勾选**Https:443**。
+参考 [创建 Ingress ](https://cloud.tencent.com/document/product/457/31711#.E5.88.9B.E5.BB.BA-ingress) 完成 Ingress 新建，其中监听端口勾选 **Https:443**。
 
 >!
 >- 当控制台创建的 Ingress 开启 HTTPS 服务，会先创建同名的 Secret 资源用于存放证书 ID，并在 Ingress 中使用并监听该 Secret。
-- TLS 配置域名与证书的对应关系如下：
- - 可以使用一级泛域名统配。
- - 若域名匹配中多个不同的证书，将随机选择一个证书，不建议相同域名使用不同证书。
- - 需为所有 HTTPS 域名配置证书，否则会创建不通过。
-
+>- TLS 配置域名与证书的对应关系如下：
+> 	 - 可以使用一级泛域名统配。
+> 	 - 若域名匹配中多个不同的证书，将随机选择一个证书，不建议相同域名使用不同证书。
+> 	 - 需为所有 HTTPS 域名配置证书，否则会创建不通过。
+>
 
 ### 修改证书
 >! 
