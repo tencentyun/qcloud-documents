@@ -2,7 +2,7 @@
 本章节介绍通过 DBS 对自建、第三方厂商、腾讯云 MySQL 数据库进行逻辑备份。
 
 ## 前提条件
-- 源数源数据库符合备份功能和版本要求，请参见 [支持的备份能力](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
+- 源数源数据库符合备份功能和版本要求，请参见 [备份和恢复能力汇总](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/1513/64040)。
 - 备份账号需要具备源数据库的对应权限，请参考如下指导进行授权。
   - “整个实例”备份：
