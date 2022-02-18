@@ -7,7 +7,7 @@ Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 <dx-accordion>
 ::: Windows 操作系统状态检查
 #### 现象描述[](id:OSStatusCheck)
-系统可能出现稳定性降级、预故障、无法正常启动、开关机，有意外重启、宕机等风险。    
+系统可能出现稳定性降级、预故障、无法正常启动、开关机等问题，且有意外重启、宕机等风险。    
 
 
 #### 解决方法
@@ -20,13 +20,14 @@ Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 :::
 ::: 内存限制检查
 #### 现象描述[](id:memoryLimit)
- Windows 操作系统无法最大化使用内存，可能受到内存瓶颈导致不能充分发挥系统性能。
+ Windows 操作系统无法最大化使用内存，可能存在内存瓶颈导致不能充分发挥系统性能。
  
  
 #### 解决方法
-1. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
-2. 在 powershell 窗口中输入 `resmon` 并按 **Enter**，打开资源监视器。
-3. 在“资源监视器”窗口中，选择**内存**页签，并检查“为硬件保留的内存”是否大于512MB。如下图所示：
+1. 登录实例，详情请参见 [使用标准方式登录 Windows 实例](https://cloud.tencent.com/document/product/213/57778)。
+2. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
+3. 在 powershell 窗口中输入 `resmon` 并按 **Enter**，打开“资源监视器”窗口。
+4. 在“资源监视器”窗口中，选择**内存**页签，并检查“为硬件保留的内存”是否大于512MB。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/ae6886f97b1ea3fd1d1dfcf492d8ee1b.png)
    - 小于，则表示正常。
    - 大于，请参考以下步骤进行修复。
@@ -48,17 +49,18 @@ Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 ::: CPU 限制检查
 #### 现象描述[](id:CPULimit)
 
-Windows 操作系统无法最大化使用 CPU，可能受到 CPU 瓶颈导致不能充分发挥系统性能。
+Windows 操作系统无法最大化使用 CPU，可能存在 CPU 瓶颈导致不能充分发挥系统性能。
 
 
 #### 解决方法
-1. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
-2. 在 powershell 窗口中输入 `msconfig` 并按 **Enter**，打开“系统配置”窗口。
-3. 在“系统配置”窗口中，选择**引导**页签，并单击**高级选项**。如下图所示：
+1. 登录实例，详情请参见 [使用标准方式登录 Windows 实例](https://cloud.tencent.com/document/product/213/57778)。
+2. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
+3. 在 powershell 窗口中输入 `msconfig` 并按 **Enter**，打开“系统配置”窗口。
+4. 在“系统配置”窗口中，选择**引导**页签，并单击**高级选项**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/d29df9b834e14607e08f6df6ef20b720.png)
-4. 在弹出的“引导高级选项”中，取消勾选“最大处理器个数”。如下图所示：
+5. 在弹出的“引导高级选项”中，取消勾选“最大处理器个数”。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0cfb11a9edc44dafb5bb132042e6f4b.png)
-5. 通过控制台重启实例，使配置生效。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
+6. 通过控制台重启实例，使配置生效。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
 
 
 :::
@@ -106,9 +108,10 @@ Windows 操作系统无法最大化使用 CPU，可能受到 CPU 瓶颈导致不
 3. 在 powershell 窗口中输入 `sysdm.cpl` 并按 **Enter**，打开“系统属性”窗口。
 4. 在“系统属性”窗口中，选择**高级**页签，并单击**环境变量**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/ddbbb55a834f3e3ab2c7acf714a323bf.png)
-5. 双击“系统变量”中的 `Path`，检查环境变量。请确保以下4个环境变量存在、顺序无误且位置处在最顶端。若您还有其他自定义环境变量，请尽量放至最底端。如下图所示：
+5. 双击“系统变量”中的 `Path`，检查环境变量。
+请确保以下4个环境变量存在、顺序无误且位置处在最顶端。若您还有其他自定义环境变量，请尽量放至最底端。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/0b6e2510590dc3f8c41b60c4b6cbdfb1.png)
-若您的环境变量出现问题，请进行修复。
+若您的环境变量出现问题，请进行修复：
 	- `%SystemRoot%\system32`
 	- `%SystemRoot%`
 	- `%SystemRoot%\System32\Wbem`
@@ -254,39 +257,39 @@ Start-Service TermService
 #### 解决方法
 
 <dx-alert infotype="explain" title="">
-执行以下步骤时，每执行完一步后检查一次问题是否修复，若未修复则继续执行步骤。
+执行以下步骤时，请在每执行完一步后检查一次问题是否修复，若未修复则继续执行步骤。
 </dx-alert>
 
 
 
-1. 执行命令恢复
+1. **执行命令恢复**
    1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
    2. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
    3. 在 powershell 窗口中，执行以下命令进行恢复。
 ```
 Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\' -Name fEnableWinStation -Value "1" -Force
 ```
-2. 检查系统是否激活
+2. **检查系统是否激活**
     1. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，选择**设置**。
     2. 在“设置”窗口中选择**更新与安全**，并在左侧单击**激活**。
     3. 检查系统是否已激活。若未激活，则请参考 [系统激活](https://cloud.tencent.com/document/product/213/2757) 进行激活。
-3. 重置 WinSock
+3. **重置 WinSock**
     1. 执行以下命令，重置 WinSock。
 ```
 netsh.exe winsock reset
 ```
     2. 执行该命令后需重启实例，使配置生效。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
-4. 修复多用户登录远程
+4. **修复多用户登录远程**
 若您已安装多用户登录的远程桌面功能，建议先卸载，待排查后再安装。
 请参考以下步骤，备份问题实例的注册表文件，并将正常实例的注册表文件导入至问题实例。  
    1. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
-   2. 在 powershell 窗口中，输入 `regedit` 并按 **Enter** 打开“注册表编辑器”。
+   2. 在 powershell 窗口中，输入 `regedit` 并按 **Enter**，打开“注册表编辑器”。
    3. 在“注册表编辑器”左侧文件树中，根据 **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations** 路径找到  `WinStations` 文件。
    4. 右键单击 `WinStations` 文件，在弹出菜单中选择**导出**。如下图所示：
    ![](https://qcloudimg.tencent-cloud.cn/raw/31f426407555d48405c4120b46357e7d.png)
 	 5. 在弹出窗口中设置导出文件名，本文以 `WinStations.reg` 为例。
    6. 单击**确定**，即可在已指定位置查看导出文件 `WinStations.reg`。
-   如需导入文件，双击 `WinStations.reg` 文件，并在弹出窗口中单击**是**即可。
+   7. 备份完成后，请参考以上步骤导出正常实例的注册表 `WinStations` 文件。如需导入文件，双击 `WinStations.reg` 文件，并在弹出窗口中单击**是**即可。
 
 
 
@@ -377,7 +380,7 @@ Windows 实例内部防火墙未放通远程桌面服务端口，无法远程登
 #### 解决方法
 1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
 2. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
-3. 在 powershell 窗口中，输入 `wf` 并按 **Enter**。
+3. 在 powershell 窗口中，输入 `wf` 并按 **Enter**，打开“高级安全 Windows 防火墙”窗口。
 4. 在“高级安全 Windows 防火墙”中，单击“概述”中的 **Windows 防火墙属性**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/d71d9a601da72b4c1f52d779c3ffd510.png)
 5. 在弹出的“本地计算机-属性”窗口中，分别切换至**域配置文件/专用配置文件/公用配置文件**页签，并将“防火墙状态”设置为“关闭”。
@@ -437,10 +440,16 @@ Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\ -Name
 #### 解决方法
 1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
 2. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
-3. 在 powershell 窗口中，输入 `ncpa.cpl` 并按 **Enter**。
-4. 在“网络连接”窗口中，右键单击网卡，在弹出的菜单中选择**禁用**。
-5. 再次右键单击后，再选择**启用**，以尝试快速修复。
-若仍未修复，请确认网卡是否为自动获取 IP 地址。若非此设置，建议调整为自动获取 IP 地址。设置完成后再次检查网关状态。
+3. 在 powershell 窗口中，输入 `ncpa.cpl` 并按 **Enter**，打开“网络连接”窗口。
+4. 在“网络连接”窗口中，重启网卡：
+    - 右键单击网卡，在弹出的菜单中选择**禁用**。
+    - 再次右键单击后，再选择**启用**，以尝试快速修复。
+5. 若仍未修复，请确认网卡是否为自动获取 IP 地址。若非此设置，建议调整为自动获取 IP 地址。步骤如下：
+   1. 在“网络连接”窗口中，右键单击网卡，在弹出的菜单中选择**属性**。
+   2. 在弹出的“以太网 属性”窗口中，选择 “Internet 协议版本 4（TCP/IPv4）”，并单击**属性**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/2e59ccc6a9a06f925f333e469e3b0c74.png)
+   3. 在弹出的 “Internet 协议版本 4（TCP/IPv4）”窗口中，选择“自动获得 IP 地址”。
+   4. 单击**确定**，设置完成后再次检查网关状态。
 
 
 :::
@@ -453,15 +462,16 @@ MAC 地址异常可能会导致机器网络不通。
 #### 解决方法
 1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
 2. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
-3. 在 powershell 窗口中，输入 `ncpa.cpl` 并按 **Enter**。
+3. 在 powershell 窗口中，输入 `ncpa.cpl` 并按 **Enter**，打开“网络连接”窗口。
 4. 在“网络连接”窗口中，右键单击网卡，在弹出的菜单中选择**属性**。
 5. 在弹出的“以太网 属性”窗口中，单击**配置**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/75f386098e85a05734fb71cef06c0782.png)
 6. 在弹出的 “Tencent VirtIO Ethernet Adapter 属性”窗口中，选择**高级**页签，并选择属性中的 **Assign MAC**，设置其为“不存在”。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/4ab18d143228863478a6c55eb849b5d0.png)
 7. 单击**确定**，保存设置。
-8.  在“网络连接”窗口中，右键单击网卡，在弹出的菜单中选择**禁用**。
-9. 再次右键单击后，再选择**启用**，以重启网卡。
+8.  在“网络连接”窗口中，重启网卡：
+    - 右键单击网卡，在弹出的菜单中选择**禁用**。
+    - 再次右键单击后，再选择**启用**。
 
 
 
@@ -475,7 +485,7 @@ MAC 地址异常可能会导致机器网络不通。
 #### 解决方法
 1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
 2. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
-3. 在 powershell 窗口中，输入 `ncpa.cpl` 并按 **Enter**。
+3. 在 powershell 窗口中，输入 `ncpa.cpl` 并按 **Enter**，打开“网络连接”窗口。
 4. 在“网络连接”窗口中，右键单击网卡，在弹出的菜单中选择**属性**。
 5. 在弹出的“以太网 属性”窗口中，选择 “Internet 协议版本 4（TCP/IPv4）”，并单击**属性**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/2e59ccc6a9a06f925f333e469e3b0c74.png)
