@@ -3,7 +3,7 @@
 1. 使用 mysqldump 数据导出工具，将本地数据库数据导出为数据文件。
 >?
 >- 导出期间请勿进行数据更新。本步骤仅导出数据，不包括存储过程、触发器和函数。
->- 导出账号需拥有 select on *.* 的权限。
+>- 导出帐号需拥有 select on *.* 的权限。
 >
 ```
 mysqldump -h localIp -u userName -p --opt --default-character-set=utf8 --hex-blob dbName --skip-triggers > /tmp/dbName.sql
