@@ -56,7 +56,7 @@ spec:
 spec:
     tls: 
     - hosts:
-      - *.abc.com
+      - '*.abc.com'
       secretName: secret-tls
 ```
 -  若同时配置证书与泛域名证书，将优先选择一个证书。 示例如下，`www.abc.com` 将会使用 `secret-tls-2` 中描述的证书。
@@ -64,7 +64,7 @@ spec:
 spec:
     tls: 
     - hosts:
-      - *.abc.com
+      - '*.abc.com'
       secretName: secret-tls-1
     - hosts:
       - www.abc.com
