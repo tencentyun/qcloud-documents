@@ -6,9 +6,7 @@ CLB 触发器具有以下特点：
 - **同步调用**
 CLB 触发器通过同步调用的方式来调用函数。有关调用类型的更多信息，请参阅 [调用类型](https://cloud.tencent.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B)。
 
->?
-- CLB 触发器目前处于灰度测试阶段，您可点击 [申请链接](https://cloud.tencent.com/apply/p/h2r3ix3s5vs) 进行申请。
-- CLB 账户分为标准账户类型和传统账户类型。传统账户类型不支持绑定 SCF，建议升级为标准账户类型。详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。 
+>? CLB 账户分为标准账户类型和传统账户类型。传统账户类型不支持绑定 SCF，建议升级为标准账户类型。详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。 
 >
 
 ## CLB 触发器配置
