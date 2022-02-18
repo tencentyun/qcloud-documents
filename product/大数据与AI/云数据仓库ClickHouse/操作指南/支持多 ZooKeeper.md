@@ -1,4 +1,4 @@
-﻿## 功能介绍
+## 功能介绍
 腾讯云上创建 ClickHouse 高可用集群之后，会默认创建一个 ZooKeeper 集群来为 ClickHouse 集群提供服务。但是当 ZooKeeper 集群负载过高时，会造成 ClickHouse 集群写入阻塞，严重时会导致集群崩溃。为此 cdwch 支持了多 ZooKeeper 方案，用户可以根据集群的负载情况添加多套 ZooKeeper 来为 ClickHouse 服务。
 ## 注意事项
 1、多 ZooKeeper 方案只能应用于高可用集群。
