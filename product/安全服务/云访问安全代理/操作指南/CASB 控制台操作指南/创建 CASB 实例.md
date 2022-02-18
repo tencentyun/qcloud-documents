@@ -12,7 +12,7 @@
 
 ### 步骤2：设置基本信息
 1. 实例初始化后，在 [实例列表](https://console.cloud.tencent.com/casb) 左侧操作栏，单击 ID/名称处的“实例名”，进入“基本信息”页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/c0b207188e4859ebc9d02fc0c4fc359c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ccb974ea8b86b0f8b783c22740ff294b.png)
 4. 在“基本信息”页面中，可查看实例的基本信息并可进行相关操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f79b90a62186172188172a0a99960d60.png)
 	字段说明：
@@ -28,7 +28,7 @@
 ### 步骤3：设置安全组
 1. 基本信息设置完成后，在 [实例列表](https://console.cloud.tencent.com/casb) 左侧操作栏，单击 ID/名称处的“实例名”，进入“基本信息”页面。
 2. 在基本信息页面右上角操作栏中，单击**安全组**，进入安全组页面。
-![](https://main.qcloudimg.com/raw/0115a337644a15dd919dec2b54fabc4c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e8ea75a5c1254df0cbd619d64cc38e68.png)
 3. 在安全组页面中，单击**编辑**，进入“绑定安全组”页面。
 ![](https://main.qcloudimg.com/raw/9f7d77b56fbb5c28e6602448befaac17.png)
 4. 在绑定安全组页面中，选择所需的安全组，单击**确定**即完成安全组配置。
