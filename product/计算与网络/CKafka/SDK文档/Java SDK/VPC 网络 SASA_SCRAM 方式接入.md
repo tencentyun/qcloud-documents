@@ -2,7 +2,7 @@
 
 该任务以 Java 客户端为例指导您在 VPC 网络环境下，使用 SASL_SCRAM 方式接入消息队列 CKafka 并收发消息。
 
-> ? SASL_SCRAM 接入方式仅北京地域且2.4.1版本实例支持，其他地域和存量实例需要 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=876&level2_id=951&source=0&data_title=消息服务CKafKa&step=1) 申请）
+> ? SASL_SCRAM 接入方式仅北京地域且2.4.1版本实例支持，其他地域和存量实例需要 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=876&level2_id=951&source=0&data_title=消息服务CKafKa&step=1) 申请）。
 
 ## 前提条件
 
@@ -17,8 +17,10 @@
 
 1. 创建接入点。
    1. 在 **[实例列表](https://console.cloud.tencent.com/ckafka/index)** 页面，单击目标实例 ID，进入实例详情页。
-   2. 在 **基本信息** > **接入方式** 中，单击**添加路由策略**，在打开窗口中选择：`路由类型：公网域名接入`, `接入方式：SASL_SCRAM`。
-      ![](https://qcloudimg.tencent-cloud.cn/raw/bbf1483ecb988ac834ccb43d855d0e3f.png)
+   2. 在 **基本信息** > **接入方式** 中，单击**添加路由策略**。在打开窗口中选择：
+	 - 路由类型：公网域名接入。
+	 - 接入方式：SASL_SCRAM。
+![](https://qcloudimg.tencent-cloud.cn/raw/2afdb0937589d6384004690ef450f81a.png)
 2. 创建角色。
    在**用户管理**页面新建角色，设置密码。
    ![](https://qcloudimg.tencent-cloud.cn/raw/b4fd547ddb7d4fdac1c24d59bb4806bc.png)
@@ -85,7 +87,6 @@ group.id=XXX
 java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
 :::
 </dx-codeblock>
-
 <table>
     <thead>
     <tr>
@@ -102,7 +103,7 @@ java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
     </tr>
     <tr>
         <td><code>topic</code></td>
-        <td>Topic 名称，您可以在控制台上 <strong>topic管理</strong>页面复制。<br><img src="https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png" referrerpolicy="no-referrer">
+        <td>Topic 名称，您可以在控制台上 <strong>topic 管理</strong>页面复制。<br><img src="https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png" referrerpolicy="no-referrer">
         </td>
     </tr>
     <tr>
@@ -225,9 +226,7 @@ java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
    }
    :::
    </dx-codeblock>
-
 2. 编译并运行 KafkaSaslProducerDemo.java 发送消息。
-
 3. 运行结果（输出）。
    <dx-codeblock>
    :::  bash
@@ -235,8 +234,7 @@ java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
    Produce ok:ckafka-topic-demo-0@199
    :::
    </dx-codeblock>
-
-4. 在 CKafka 控制台 **topic管理**页面，选择对应的 Topic，单击**更多** > **消息查询**，查看刚刚发送的消息。
+4. 在 CKafka 控制台 **topic 管理**页面，选择对应的 Topic，单击**更多** > **消息查询**，查看刚刚发送的消息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/236b886212bd8dc2e53242bbaab6cb2c.png)
 
 
@@ -315,9 +313,7 @@ java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
    }
    :::
    </dx-codeblock>
-
 2. 编译并运行 KafkaSaslConsumerDemo.java 消费消息。
-
 3. 运行结果。
    <dx-codeblock>
    :::  bash
@@ -325,6 +321,5 @@ java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
    Consume partition:0 offset:299   
    :::
    </dx-codeblock>
-
 4. 在 CKafka 控制台 **Consumer Group** 页面，选择对应的消费组名称，在主题名称输入 Topic 名称，单击**查询详情**，查看消费详情。
    ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)
