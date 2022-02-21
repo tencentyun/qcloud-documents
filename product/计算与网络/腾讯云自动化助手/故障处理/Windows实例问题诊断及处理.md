@@ -58,7 +58,7 @@ Windows 操作系统无法最大化使用 CPU，可能存在 CPU 瓶颈导致不
 3. 在 powershell 窗口中输入 `msconfig` 并按 **Enter**，打开“系统配置”窗口。
 4. 在“系统配置”窗口中，选择**引导**页签，并单击**高级选项**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/d29df9b834e14607e08f6df6ef20b720.png)
-5. 在弹出的“引导高级选项”中，取消勾选“最大处理器个数”。如下图所示：
+5. 在弹出的“引导高级选项”中，取消勾选“处理器个数”。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0cfb11a9edc44dafb5bb132042e6f4b.png)
 6. 通过控制台重启实例，使配置生效。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
 
@@ -281,7 +281,7 @@ netsh.exe winsock reset
     2. 执行该命令后需重启实例，使配置生效。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
 4. **修复多用户登录远程**
 若您已安装多用户登录的远程桌面功能，建议先卸载，待排查后再安装。
-请参考以下步骤，备份问题实例的注册表文件，并将正常实例的注册表文件导入至问题实例。  
+请参考以下步骤，导出及备份问题实例的注册表文件，并将正常实例的注册表文件导入至问题实例。  
    1. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
    2. 在 powershell 窗口中，输入 `regedit` 并按 **Enter**，打开“注册表编辑器”。
    3. 在“注册表编辑器”左侧文件树中，根据 **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations** 路径找到  `WinStations` 文件。
