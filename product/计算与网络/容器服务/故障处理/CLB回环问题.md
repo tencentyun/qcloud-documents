@@ -14,9 +14,8 @@ CLB 回环问题可能导致存在以下现象：
 ## 规避方法
 
 ### 避免四层回环问题
->? [健康检查源 IP 支持非 VIP](https://cloud.tencent.com/document/product/214/65860) 功能目前处于内测中，如需使用可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 来联系我们。
+>? 避免四层回环问题需要 CLB 支持 [健康检查源 IP 支持非 VIP](https://cloud.tencent.com/document/product/214/65860)，该功能目前处于内测中，如需使用可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 来联系我们。
 >
-
 
 
 解决使用 Service 时可能遇到的回环问题，步骤如下：
