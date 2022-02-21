@@ -55,3 +55,4 @@
 - 个人实名认证可以变更为其他个人/企业实名认证，具体操作请参考 [变更个人认证信息](https://cloud.tencent.com/document/product/378/34075)。
 - 企业实名认证可以变更为其他企业/个人实名认证，如果企业因企业名称变更，也可以申请变更实名信息，具体操作请参考 [变更企业认证信息](https://cloud.tencent.com/document/product/378/43087)。
 - 港澳台及境外用户请前往 [国际站](https://intl.cloud.tencent.com/) 进行认证。
+- 个人实名认证适用于年满18周岁的用户。

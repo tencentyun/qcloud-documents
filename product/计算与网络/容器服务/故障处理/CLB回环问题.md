@@ -85,7 +85,7 @@ TKE 通常用的 Global Router 网络模式（网桥方案），还有一种是 
 
 访问集群内服务尽量使用 Service 名称，例如 `server.prod.svc.cluster.local` ，通过这样的配置将不会经过 CLB，也不会导致回环问题。
 
-如果业务有耦合域名，不能使用 Service 名称，可以使用 coredns 的 rewirte 插件，将域名指向集群内的 Service，coredns 配置示例如下：
+如果业务有耦合域名，不能使用 Service 名称，可以使用 coredns 的 rewrite 插件，将域名指向集群内的 Service，coredns 配置示例如下：
 ```yaml
 apiVersion: v1
 kind: ConfigMap
