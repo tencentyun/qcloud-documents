@@ -169,12 +169,12 @@ CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASCli
 方法说明：检索 Archive
 参数说明：
 
-| 参数名        | 类型     | 说明                                       | 必选   |
-| ---------- | ------ | ---------------------------------------- | ---- |
-| archive_id | string | 要检索的 Archive 对象的 ID                         | 是    |
-| desc       | string | 检索任务的描述                                  | 否    |
-| byte_range | string | Archive 检索操作要检索的字节范围。其格式为“StartByteValue-EndByteValue”。如果未指定，则检索整个档案。 | 否    |
-| tier       | string | Archive 检索的检索类型。枚举值： Expedited ，Standard ，Bulk。默认值：Standard | 否    |
+| 参数名     | 类型   | 说明                                                         | 必选 |
+| ---------- | ------ | ------------------------------------------------------------ | ---- |
+| archive_id | string | 要检索的 Archive 对象的 ID                                   | 是   |
+| desc       | string | 检索任务的描述                                               | 否   |
+| byte_range | string | 该参数已废弃。                                               | 否   |
+| tier       | string | Archive 检索的检索类型。枚举值： Expedited ，Standard ，Bulk。默认值：Standard | 否   |
 
 返回值：如果调用成功，则返回一个 archive-retrieval 类型的 Job 对象。否则，抛出异常（具体参见异常说明）
 
@@ -278,11 +278,11 @@ CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASCli
 方法说明：启动一个档案检索任务
 参数说明：
 
-| 参数名        | 类型     | 说明                                       | 必选   |
-| ---------- | ------ | ---------------------------------------- | ---- |
-| desc       | string | Archive 检索任务的描述                           | 否    |
-| byte_range | string | 档案检索要检索的字节范围                             | 否    |
-| tier       | string | Archive 检索的检索类型。枚举值： Expedited ，Standard ，Bulk。默认值：Standard | 否    |
+| 参数名     | 类型   | 说明                                                         | 必选 |
+| ---------- | ------ | ------------------------------------------------------------ | ---- |
+| desc       | string | Archive 检索任务的描述                                       | 否   |
+| byte_range | string | 该参数已废弃。                                               | 否   |
+| tier       | string | Archive 检索的检索类型。枚举值： Expedited ，Standard ，Bulk。默认值：Standard | 否   |
 
 返回值：如果调用成功，则返回检索 Job 的对象。否则，抛出异常（具体参见异常说明）
 
@@ -291,21 +291,21 @@ CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASCli
 
 #### 成员变量
 
-| 成员变量            | 变量类型   | 变量描述                                     |
-| --------------- | ------ | ---------------------------------------- |
-| id              | string | 任务的 ID                                    |
-| archive_id      | string | 在档案取回操作中请求的档案的 ID                     |
-| archive_size    | int    | 档案取回任务请求的档案的大小                           |
-| archive_etag    | string | 档案取回操作的整个档案的 SHA256 树形哈希                   |
-| description     | string | 任务的描述                                    |
-| job_range       | string | 档案取回任务所取回的字节范围，格式为“StartByteValue-EndByteValue”。如果没有在档案取回中指定范围，则取回整个档案 |
-| creation_date   | string | 任务启动时的通用协调时间 (UTC) 日期。ISO 8601 日期格式的字符串表示，例如，2013-03-20T17:03:43.221Z。 |
-| completed       | bool   | 如果任务完成，则为 True，否则为 False                   |
-| completion_date | string | 任务完成时的通用协调时间 (UTC) 日期。ISO 8601 日期格式的字符串表示，例如，2013-03-20T17:03:43.221Z。 |
-| status_code     | string | 任务状态代码。枚举值： Succeeded、Failed 或 InProgress |
-| status_message  | string | 任务状态消息                                   |
-| tier            | string | Archive检索任务的类型。枚举值： Expedited ，Standard ，Bulk |
-| inventory_size  | int    | 与检索 Archive 列表任务请求相关联的列表的大小，单位字节           |
+| 成员变量        | 变量类型 | 变量描述                                                     |
+| --------------- | -------- | ------------------------------------------------------------ |
+| id              | string   | 任务的 ID                                                    |
+| archive_id      | string   | 在档案取回操作中请求的档案的 ID                              |
+| archive_size    | int      | 档案取回任务请求的档案的大小                                 |
+| archive_etag    | string   | 档案取回操作的整个档案的 SHA256 树形哈希                     |
+| description     | string   | 任务的描述                                                   |
+| job_range       | string   | 档案取回任务所取回的整个档案的字节范围，格式为“StartByteValue-EndByteValue”。 |
+| creation_date   | string   | 任务启动时的通用协调时间 (UTC) 日期。ISO 8601 日期格式的字符串表示，例如，2013-03-20T17:03:43.221Z。 |
+| completed       | bool     | 如果任务完成，则为 True，否则为 False                        |
+| completion_date | string   | 任务完成时的通用协调时间 (UTC) 日期。ISO 8601 日期格式的字符串表示，例如，2013-03-20T17:03:43.221Z。 |
+| status_code     | string   | 任务状态代码。枚举值： Succeeded、Failed 或 InProgress       |
+| status_message  | string   | 任务状态消息                                                 |
+| tier            | string   | Archive检索任务的类型。枚举值： Expedited ，Standard ，Bulk  |
+| inventory_size  | int      | 与检索 Archive 列表任务请求相关联的列表的大小，单位字节      |
 
 #### 构造方法
 

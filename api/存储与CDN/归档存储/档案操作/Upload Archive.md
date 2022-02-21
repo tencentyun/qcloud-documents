@@ -4,8 +4,6 @@ Upload Archive 请求实现上传一个 Archive 到指定 Vault。请求成功�
 
 上传文件时，可以指定 x-cas-archive-description 用来做文件内容备注。
 
-支持跨账户操作。当操作本账户时，UID为"-"。
-
 ## 请求
 
 #### 请求语法
@@ -33,7 +31,7 @@ x-cas-archive-description: description
 
 | 名称                     | 描述                             | 类型     | 必选   |
 | ---------------------- | ------------------------------ | ------ | ---- |
-| x-cas-content-sha256   | 档案的 SHA256 校验和（线性哈希）            | String | 是    |
+| x-cas-content-sha256   | 档案的 SHA256 校验和（线性哈希）            | String | 否   |
 | Content-Length         | RFC 2616 中定义的 HTTP 请求内容长度（字节）。 | String | 是    |
 | x-cas-sha256-tree-hash | 档案的树形哈希校验和。                    | String | 是    |
 
@@ -55,7 +53,6 @@ Archive。
 | ---------------------- | ------------------- | ------ |
 | Location               | 创建成功以后，Archive 的路径 。 | String |
 | x-cas-archive-id       | Archive的表示 ID。    | String |
-| x-cas-content-sha256   | 档案的SHA256校验和（线性哈希） | String |
 | x-cas-sha256-tree-hash | 档案的树形哈希校验和。       | String |
 
 #### 返回内容

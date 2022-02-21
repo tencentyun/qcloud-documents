@@ -9,8 +9,6 @@ Delete Archive 请求实现删除一个 Archive。请求成功以后会返回 x-
 - 收到删除 Archive 请求时，Archive 检索任务正在下载 Archive 到缓存池，则 Archive 检索操作可能会失败。
 - 收到删除 Archive 请求时，Archive 检索任务已经下载 Archive 到缓存池，则您将能够下载输出。
 
-支持跨账户操作。当操作本账户时，UID 为"-"。
-
 ## 请求
 
 #### 请求语法
