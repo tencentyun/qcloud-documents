@@ -1,6 +1,141 @@
 ## 现象描述
 Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 
+
+
+## 检测项分类
+<table>
+<tr>
+<th>检测项</th>
+<th>检测内容</th>
+</tr>
+<tr>
+<td rowspan=6>操作系统环境相关</td>
+<td>
+<a href="#OSStatusCheck">Windows 操作系统状态检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#memoryLimit">内存限制检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#CPULimit">CPU 限制检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#handleLeak">句柄泄露检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#BruteForceAttack">系统暴力破解和攻击检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#environmentVariable">系统环境变量检查</a>
+</td>
+</tr>
+<tr>
+<td rowspan=5>系统资源使用率相关</td>
+<td>
+<a href="#highMemoryUsage">内存使用率过高</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#highVirtualMemoryUsage">虚拟内存使用率高</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#totalCPUusagehigh">总 CPU 使用率过高</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#CPUusagehigh">单 CPU 使用率过高</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#ntfsFileUsageHigh">Ntfs 文件系统元文件磁盘占用高</a>
+</td>
+</tr>
+<tr>
+<td rowspan=8>远程连接相关</td>
+<td>
+<a href="#remoteDesktopCheck">远程桌面服务状态检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#remoteDesktopPortCheck">远程桌面服务端口检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#RDPCconnectionCheck">RDP-Tcp 连接检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#allowRemoteDesktopConnection">允许远程桌面连接检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#signedCertificateExpiration">RDP 自签证书到期时间检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#desktopRoleInstallatAuthorization">远程桌面服务角色安装及授权检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#networkAccessAccountCheck">网络访问帐户检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#servicePortFirewallAllowed">远程桌面服务端口防火墙放通检查</a>
+</td>
+</tr>
+<tr>
+<td rowspan=5>网络配置相关</td>
+<td>
+<a href="#portExhaustionCheck">端口耗尽检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#timewaitClosewaitConnections">Timewait/Closewait 连接数检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#gatewayStatusCheck">网关状态检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#MACAddressCheck">MAC 地址检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#intranetDomainNameResolution">内网域名解析检查</a>
+</td>
+</tr>
+</table>
+
+
 ## 问题定位及处理
 您可匹配具体检测项结果，参考以下步骤处理对应问题：
 
@@ -195,13 +330,13 @@ CPU 使用率过高，系统性能会降低，可用 CPU 资源不足系统可�
 1. 请通过检查结果定位占用单 CPU 最高的进程名。
 2. 确认该进程运行是否正常。
    - 正常，则请忽略。
-   - 错误，若非特定设置则请建议优化进程 CPU 使用，或请联系程序设计厂商进行优化适配。
+   - 异常，若非特定设置则建议优化异常进程 CPU 使用，或请联系程序设计厂商进行优化适配。
 
 
 :::
 ::: Ntfs 文件系统元文件磁盘占用高
 #### 现象描述[](id:ntfsFileUsageHigh)
-Ntfs 文件系统元文件总大小占用过高，导致系统可用空间不足，但无法定位具体原因。
+Ntfs 文件系统隐藏的元文件总大小占用过高，导致系统可用空间不足。
 
 
 
@@ -289,7 +424,7 @@ netsh.exe winsock reset
    ![](https://qcloudimg.tencent-cloud.cn/raw/31f426407555d48405c4120b46357e7d.png)
 	 5. 在弹出窗口中设置导出文件名，本文以 `WinStations.reg` 为例。
    6. 单击**确定**，即可在已指定位置查看导出文件 `WinStations.reg`。
-   7. 备份完成后，请参考以上步骤导出正常实例的注册表 `WinStations` 文件。如需导入文件，双击 `WinStations.reg` 文件，并在弹出窗口中单击**是**即可。
+   7. 备份完成后，请参考以上步骤导出正常实例的注册表 `WinStations` 文件，并将导出的 `WinStations` 文件导入异常实例。请双击需导入的 `WinStations.reg` 文件，并在弹出窗口中单击**是**即可完成导入。
 
 
 
@@ -367,7 +502,7 @@ Remove-WindowsFeature Remote-Desktop-Services
  2. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
  3. 在 powershell 窗口中，依次执行以下命令进行恢复。
 ```shell
-Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\Lsa -Name forceguest -Value 
+Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\Lsa -Name forceguest -Value 0 -Force
 ```
 
 :::
@@ -407,7 +542,7 @@ netsh int ipv4 set dynamicport tcp start=10000 num=55536
 ```
 netsh int ipv4 set dynamicport udp start=10000 num=55536
 ```
-    - 加快端口释放。推荐使用该方式，但需重启实例。
+    - 加快端口释放，同时扩容端口。推荐使用该方式，但需重启实例。
 ```
 Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\ -Name TcpTimedWaitDelay -Value 30 -Force
 ```
@@ -427,8 +562,7 @@ Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\ -Name
 ```
 Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\ -Name TcpTimedWaitDelay -Value 30 -Force
 ```
-您可按需更换默认端口号，同时建议您在使用安全组时，仅放通必要的 IP 及端口号，以过滤部分恶意请求。
-
+建议优先使用安全组，仅放通必要的 IP 及端口号，以过滤部分恶意请求。同时按需更换 wait 连接数过多的默认业务端口号，例如远程桌面服务默认端口号3389。
 
 :::
 ::: 网关状态检查
