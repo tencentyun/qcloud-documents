@@ -24,12 +24,12 @@
 #### 途径一：COS 控制台
 
 1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)。
-2. 单击**存储桶列表**，进入指定存储桶【域名与传输管理】下的【默认 CDN 加速域名】，可查看当前存储桶处于开启状态下的默认 CDN 加速域名，关闭状态下的默认 CDN 加速域名请前往 [CDN 控制台](https://console.cloud.tencent.com/cdn/domains) 查看。
+2. 单击**存储桶列表**，进入指定存储桶**域名与传输管理**下的**默认 CDN 加速域名**，可查看当前存储桶处于开启状态下的默认 CDN 加速域名，关闭状态下的默认 CDN 加速域名请前往 [CDN 控制台](https://console.cloud.tencent.com/cdn/domains) 查看。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d9216bcf4e2aed86a426eb770130df4f.png)
 
 #### 途径二：CDN 控制台
 
-您可以在 [CDN 控制台](https://console.cloud.tencent.com/cdn/domains) 的【域名管理】中查看处于开启和关闭状态下的默认 CDN 加速域名，域名形如`<BucketName-APPID>.file.myqcloud.com`，接入方式为 COS 源。
+您可以在 [CDN 控制台](https://console.cloud.tencent.com/cdn/domains) 的**域名管理**中查看处于开启和关闭状态下的默认 CDN 加速域名，域名形如`<BucketName-APPID>.file.myqcloud.com`，接入方式为 COS 源。
 
 >! 截至2022年3月28日，处于关闭状态下的默认 CDN 域名支持继续使用；但对于已删除的默认 CDN 加速域名，CDN 控制台无记录，将无法支持继续使用。
 
