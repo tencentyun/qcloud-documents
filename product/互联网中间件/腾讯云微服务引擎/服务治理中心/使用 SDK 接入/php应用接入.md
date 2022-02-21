@@ -37,8 +37,8 @@
 <dx-codeblock>
 :::  shell
    ## 内核版本信息
-   Linux VM-50-33-centos 4.14.105-1-tlinux3-0022 #1 SMP Wed Sep 29 11:01:45 CST 2021 x86_64 x86_64 x86_64 GNU/Linux
-   ## 启用 remi 
+   Linux VM-50-33-centos 4.14.105-1-tlinux3-0022
+   ## 启用 remi, 这里仅提供上述内核版本的 remi 启用命令
    rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
    ## 下载php-5.x版本
    yum -y install --enablerepo=remi --enablerepo=remi-php56 php
