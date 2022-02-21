@@ -49,7 +49,7 @@ java -jar app.jar &
 1. 首先需要您准备一个腾讯云 CVM 实例，如果您没有实例，可以前往腾讯云 CVM 购买。
 >? 为了更接近真实的服务场景，我们建议您使用与上文的注册中心不同的 CVM 示例。
 2. 进入示例项目的 `config-server/src/main/resources` 目录，修改 `application.yml`，将 Eureka 的地址改为上文的 **注册中心（eureka-server）** 的地址，如下图：
-![](https://qcloudimg.tencent-cloud.cn/raw/24fb64ec4e06177d69a063c6b5a7f1b4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/14ebaee198c40787f92686418a508d85.png)
 3. 进入 `config-server` 目录，执行：
 <dx-codeblock>
 :::  sh
