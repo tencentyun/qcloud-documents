@@ -16,13 +16,13 @@ Oracle 官方将在未来的几年内放弃对 Java 8 的支持，而 Java 11 �
 
 您可以参见 [The State of the Module System](http://openjdk.java.net/projects/jigsaw/spec/sotms) 来了解模块系统的工作方式。
 
-### JVM的分析诊断工具
+### JVM 的分析诊断工具
 
 #### Java Flight Recorder 和 Java Mission Control
 
 Java Flight Recorder (JFR) [JEP 328](http://openjdk.java.net/jeps/328) 从正在运行的 Java 应用程序收集诊断和分析数据。JFR 对正在运行的 Java 应用程序几乎没有影响。开发者可以使用 Java Mission Control (JMC) 和其他工具分析收集到的数据。 JFR 和 JMC 在 Java 8 中是商业功能，但它们在 Java 11 中都是开源的。
 
-#### JVM日志系统
+#### JVM 日志系统
 
 Java 11 为 JVM 的所有组件提供了一个通用的日志记录系统 [JEP 158](http://openjdk.java.net/jeps/158)。这个统一的日志系统允许用户定义想要记录的组件，以及记录到什么级别。这种细粒度的日志能帮助开发者在 JVM 崩溃时进行根因分析，以及诊断生产环境中的性能问题。
 
@@ -92,7 +92,7 @@ jdeprscan 和 jdeps 无法检查使用反射访问的 API。因此，您需要�
 
 ### 运行时检查
 
-#### 检查JVM参数
+#### 检查 JVM 参数
 
 在 Java 11 上运行之前，请检查 JVM 参数。 使用已删除的 JVM 参数将导致 JVM 崩溃退出（`Error: Could not create the Java Virtual Machine`）。如果您开启了 GC 日志，则此检查尤其重要，因为GC 日志与 Java 8 相比发生了巨大变化。您可以使用 JaCoLine 工具来检测JVM参数。
 
