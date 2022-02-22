@@ -82,7 +82,7 @@ skip_ssl
 ```
 service mysqld restart
 ```
-3. 使用上述 [检测方式](JCFS)，验证是否修改成功。
+3. 使用上述 [检测方式](#JCFS)，验证是否修改成功。
 ```
 dba:(none)> show global variables like '%ssl%';
 +---------------+-----------------+
@@ -115,7 +115,7 @@ ssl_cipher="AES128-SHA:AES256-SHA:AES128-SHA256:AES256-SHA256"
 ```
 service mysqld restart
 ```
-3. 使用上述 [检测方式](JCFS)，验证是否修改成功。
+3. 使用上述 [检测方式](#JCFS)，验证是否修改成功。
 ```
 dba:(none)> show global variables like 'tls_version';
 +---------------+----------------------+
