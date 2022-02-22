@@ -13,7 +13,7 @@
   - 支持的加密算法：TLS_RSA_WITH_AES_128_CBC_SHA 、TLS_RSA_WITH_AES_256_CBC_SHA 、TLS_RSA_WITH_AES_128_CBC_SHA256、 TLS_RSA_WITH_AES_256_CBC_SHA256。
 
 ## 检测方式[](id:JCFS)
-#### 检测是否开启加密
+### 步骤1：检测是否开启加密
 1. 在数据库中，输入如下命令，确认是否开启了 SSL 加密。
 ```
 show global variables like '%ssl%';
@@ -36,7 +36,7 @@ dba:(none)> show global variables like '%ssl%';
 +---------------+-----------------+
 ```
 
-#### 检测通信协议版本
+### 步骤2：检测通信协议版本
 1. 在数据库中，输入如下命令，检测通信协议版本。
 ```
 show variables like "tls_version";
@@ -51,7 +51,7 @@ dba:(none)> show global variables like 'tls_version';
 +---------------+----------------------+
 ```
 
-#### 检测加密算法
+### 步骤3：检测加密算法
 1. 在数据库中，输入如下命令，检测加密算法。
 ```
 show global variables like 'ssl_cipher';
@@ -67,9 +67,9 @@ dba:(none)> show global variables like 'ssl_cipher';
 ```
 
 ## 修改方式
-通过修改数据库的相关配置，使数据安全审计可以审计到数据库语句。
+通过修改数据库的相关配置，使数据安全审计可以审计到数据库语句。可根据实际情况，任意选择如下一种修改方式。
 
-#### 关闭 SSL 加密
+### 关闭 SSL 加密
 MySQL 的 SSL 虽然提高了安全性，但也特性了部分性能。如果用户单位是否没有必须开启 SSL 加密的相同规定，可以考虑直接关闭 SSL 加密，一劳永逸。
 >!该方法需要重启数据库。
 
@@ -100,8 +100,8 @@ dba:(none)> show global variables like '%ssl%';
 +---------------+-----------------+
 ```
 
-#### 在配置文件中设置通信协议和加密算法
-该方法可以对数据库的所有连接生效。
+### 设置通信协议和加密算法
+在配置文件中，设置通信协议和加密算法，该方法可以对数据库的所有连接生效。
 >!该方法需要重启数据库。
 
 1. 修改配置文件my.cnf，增加如下内容：
@@ -133,7 +133,8 @@ dba:(none)> show global variables like 'ssl_cipher';
 +---------------+--------------------------------------------------+
 ```
 
-#### 在客户端连接时指定参数
+
+### 在客户端连接时指定参数
 若不想修改数据库配置，可以在客户端建立连接时，指定参数，如：
 ```
 mysql -u root  -pxxxx -h10.3.1.17 --ssl-cipher=AES128-SHA --tls-version=TLSv1.2
