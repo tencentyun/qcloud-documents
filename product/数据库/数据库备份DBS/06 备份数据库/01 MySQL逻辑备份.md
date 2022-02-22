@@ -2,7 +2,7 @@
 本章节介绍通过 DBS 对自建、第三方厂商、腾讯云 MySQL 数据库进行逻辑备份。
 
 ## 前提条件
-- 源数源数据库符合备份功能和版本要求，请参见 [支持的备份能力](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
+- 源数源数据库符合备份功能和版本要求，请参见 [备份和恢复能力汇总](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/1513/64040)。
 - 备份账号需要具备源数据库的对应权限，请参考如下指导进行授权。
   - “整个实例”备份：
@@ -62,7 +62,7 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
 <li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li>
-<li>私用网络 VPC：源数据部署在腾讯云上，且有<a href"https://cloud.tencent.com/document/product/215">私有网络</a>。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/1513/64040">准备工作概述</a>。</td></tr>
+<li>私有网络 VPC：源数据部署在腾讯云上，且有<a href"https://cloud.tencent.com/document/product/215">私有网络</a>。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/1513/64040">准备工作概述</a>。</td></tr>
 <tr>
 <td>所属地域</td><td>备份计划中的地域，该地域为备份数据存储和恢复所在的地域。</td></tr> 
 <tr>
@@ -75,11 +75,11 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <td>密码</td><td>源库 MySQL 的数据库帐号的密码。</td></tr></tbody></table>
 3. 在**设置备份对象**页面，选择备份对象后，单击**下一步**。
 备份对象：
-  - 整个实例：备份整个实例，当前仅支持备份库、表和视图，暂不支持备份用户权限、存储过程、Function等。  
-  - 指定对象：备份指定对象，然后在下面的界面中选择需要备份的指定库、表等。
+   - 整个实例：备份整个实例，当前仅支持备份库、表和视图，暂不支持备份用户权限、存储过程、Function等。  
+   - 指定对象：备份指定对象，然后在下面的界面中选择需要备份的指定库、表等。
 ![](https://qcloudimg.tencent-cloud.cn/raw/069c3df7c09a9b5f97a2c597053176b0.png)
 4. 在**选择备份策略**页面，选择策略模板、备份方式、备份频率、备份周期等，单击**下一步**。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/2e034676dcd755a7795c6ffb32512832.png" style="zoom:67%;" />
+<img src="https://qcloudimg.tencent-cloud.cn/raw/2e55da1199d1137fbb9f73b3f1d8e328.png" style="zoom:67%;" />
 <table>
 <thead><tr><th width="20%">配置项</th><th width="80%">说明</th></tr></thead>
 <tbody>
@@ -102,6 +102,9 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <td>存储池</td>
 <td>选择该备份计划地域的存储池。</td></tr>
 <tr>
+<td>存储方式</td>
+<td><ul><li>非存储加密：数据保存在 DBS 内置存储中，不加密。</li><li>内置加密存储：数据以加密的方式保存在 DBS 内置存储中，加密方式为存储系统自身的加密方式，数据上传到存储系统时加密，从存储系统获取数据即解密。</li><li>KMS 加密存储：数据以 KMS （<a href="https://cloud.tencent.com/document/product/573">密钥管理系统</a>）加密方式保存在 DBS 内置存储中，加密密钥为  <a href="https://console.cloud.tencent.com/kms2">KMS 中设置的密钥</a>。</li></ul></td></tr>
+<tr>
 <td>保留时间</td>
 <td>可设置范围为7天到3650天（10年）。</td></tr>
 <tr>
@@ -110,8 +113,8 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 </tbody></table>
 5. 在**预检查及启动**页面，执行校验任务通过后，单击**立即启动**。
    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/1513/65196) 修复问题后重新发起校验任务。
- - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
- - 警告：表示检验项检查不完全符合要求，用户需要根据警告评估对业务的影响，确认影响可接受，则可以忽略警告继续任务。
+   - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
+   - 警告：表示检验项检查不完全符合要求，用户需要根据警告评估对业务的影响，确认影响可接受，则可以忽略警告继续任务。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7e3d527a2f3d8113734223e4748dd0cb.png)
 6. 备份计划会在后续按系统指示启动备份任务。
 7. （可选）用户如果需要对备份计划进行修改、暂停等操作，请参考 [备份任务管理](https://cloud.tencent.com/document/product/1513/64046)。
