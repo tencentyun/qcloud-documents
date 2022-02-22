@@ -14,7 +14,7 @@ Oracle 官方将在未来的几年内放弃对 Java 8 的支持，而 Java 11 �
 
 对于从 Java 8 过度来的开发者来说，模块并不是必选的，应用程序可以继续使用类路径在 Java 11 上运行。
 
-您可以参考[The State of the Module System](http://openjdk.java.net/projects/jigsaw/spec/sotms)来了解模块系统的工作方式。
+您可以参见 [The State of the Module System](http://openjdk.java.net/projects/jigsaw/spec/sotms) 来了解模块系统的工作方式。
 
 ### JVM的分析诊断工具
 
@@ -24,7 +24,7 @@ Java Flight Recorder (JFR) [JEP 328](http://openjdk.java.net/jeps/328) 从正在
 
 #### JVM日志系统
 
-Java 11 为 JVM 的所有组件提供了一个通用的日志记录系统[JEP 158](http://openjdk.java.net/jeps/158)。这个统一的日志系统允许用户定义想要记录的组件，以及记录到什么级别。这种细粒度的日志能帮助开发者在 JVM 崩溃时进行根因分析，以及诊断生产环境中的性能问题。
+Java 11 为 JVM 的所有组件提供了一个通用的日志记录系统 [JEP 158](http://openjdk.java.net/jeps/158)。这个统一的日志系统允许用户定义想要记录的组件，以及记录到什么级别。这种细粒度的日志能帮助开发者在 JVM 崩溃时进行根因分析，以及诊断生产环境中的性能问题。
 
 #### 低开销的堆分析
 
@@ -34,7 +34,7 @@ Java 虚拟机工具接口 (JVMTI) 中添加了新的 API，用于对 Java 堆�
 
 Java 11 中提供了以下垃圾收集器：串行（Serial）、并行（Parallel）、G1（Garbage-First）和 Epsilon。Java 11 中的默认垃圾收集器是G1。
 
-- G1 的目标是在延迟和吞吐量之间取得平衡。G1 旨在避免Full GC，但是当并发收集不能足够快地回收内存时，仍然会产生 Full GC。
+- G1 的目标是在延迟和吞吐量之间取得平衡。G1 旨在避免 Full GC，但是当并发收集不能足够快地回收内存时，仍然会产生 Full GC。
 - 并行GC 是 Java 8 中的默认收集器，它是一种吞吐量优先的收集器，它使用多个线程来加速垃圾收集。
 - Epsilon 垃圾收集器处理分配但不回收任何内存。当堆内存耗尽时，JVM 将关闭。Epsilon 对于短期服务和无垃圾的应用程序会很有用。
 
@@ -46,7 +46,7 @@ Java 11 中提供了以下垃圾收集器：串行（Serial）、并行（Parall
 
 ### 容器环境的改进
 
-在 Java 10 之前，JVM 无法识别在容器上设置的内存和 CPU 限制。例如，在 Java 8 中，JVM 默认最大堆为底层主机物理内存的 1/4。从 Java 10 开始，JVM 使用cgroups 来设置内存和 CPU 限制。例如，默认的最大堆是容器内存的 1/4。
+在 Java 10 之前，JVM 无法识别在容器上设置的内存和 CPU 限制。例如，在 Java 8 中，JVM 默认最大堆为底层主机物理内存的 1/4。从 Java 10 开始，JVM 使用 cgroups 来设置内存和 CPU 限制。例如，默认的最大堆是容器内存的 1/4。
 
 此外，Java 10 中还提供了新的 JVM 参数，以便 Docker 容器用户可以细粒度地控制将用于 Java 堆的系统内存量。
 
@@ -68,8 +68,8 @@ Java 11 提供了两个工具，jdeprscan 和 jdeps，可用于发现潜在问�
 
 [jdeprscan](https://docs.oracle.com/en/java/javase/11/tools/jdeprscan.html) 用于查找程序中是否有使用已弃用或已删除的 API 。使用已弃用的 API 并不会阻塞您的迁移，但您仍需要注意，因为他们有可能在未来的版本中被删除。
 
-若要使用 [jdeprscan](https://docs.oracle.com/en/java/javase/11/tools/jdeprscan.html)，最简单的方法是提供一个现成的 jar 包，您可以为其指定目录或是某个类名。 使用 `--release 11` 参数可获取使用已弃用 API 的最完整列表。例如`jdeprscan --release 11 my-application.jar` 。
-如果您遇到`error: cannot find class XXX`的错误，则需要优先检查此依赖类文件是否存在于 jar 包的类路径中。如此依赖类并非第三方依赖，则有可能是您使用了在Java 11中已被删除的 API。
+若要使用 [jdeprscan](https://docs.oracle.com/en/java/javase/11/tools/jdeprscan.html)，最简单的方法是提供一个现成的 jar 包，您可以为其指定目录或是某个类名。 使用 `--release 11` 参数可获取使用已弃用 API 的最完整列表。例如 `jdeprscan --release 11 my-application.jar`。
+如果您遇到 `error: cannot find class XXX` 的错误，则需要优先检查此依赖类文件是否存在于 jar 包的类路径中。如此依赖类并非第三方依赖，则有可能是您使用了在 Java 11 中已被删除的 API。
 
 运行 `jdeprscan --release 11 --list` 即可了解自 Java 8 后弃用的具体 API。 若要获取已删除 API 的列表，请运行 `jdeprscan --release 11 --list --for-removal` 。
 
@@ -79,7 +79,7 @@ Java 11 提供了两个工具，jdeprscan 和 jdeps，可用于发现潜在问�
 
 您可以继续在 Java 11 中使用内部 API，但这种方式已经不在推荐。OpenJDK wiki [Java Dependency Analysis Tool](https://wiki.openjdk.java.net/display/JDK8/Java+Dependency+Analysis+Tool) 推荐了一些常用 JDK 内部 API 的替代品。
 
-您应该尽量避免使用来自jdk.unsupported中的任何 API 。尽管在替代的 API 可用之前，使用内部 API 仍将被支持，但在未来，它们有可能被彻底弃用或删除。[JEP 260](http://openjdk.java.net/jeps/260) 提供了一些替代方案。
+您应该尽量避免使用来自 jdk.unsupported 中的任何 API 。尽管在替代的 API 可用之前，使用内部 API 仍将被支持，但在未来，它们有可能被彻底弃用或删除。[JEP 260](http://openjdk.java.net/jeps/260) 提供了一些替代方案。
 
 Gradle 和 Maven都有 jdeps 和 jdeprscan 插件。我们建议将这些工具添加到您的构建脚本中。
 
@@ -119,7 +119,7 @@ Java 11 中语言环境数据的默认源已随 [JEP 252](http://openjdk.java.ne
 
 如果 JVM 参数已被删除，应用程序将打印 `Unrecognized option:` 或 `Unrecognized VM option` 。无法识别的参数将导致 JVM 崩溃退出（`Error: Could not create the Java Virtual Machine`）。已弃用但未删除的选项将产生 JVM 警告（`VM Warning: Option <option> was deprecated`）。
 
-通常情况下，您需要删除这些不能识别的JVM参数。GC 日志参数除外。GC 日志在 [jep 271](http://openjdk.java.net/jeps/271) 中重新实现。请参阅[oracle 官方文档](https://docs.oracle.com/en/java/javase/11/tools/java.html#GUID-BE93ABDC-999C-4CB5-A88B-1994AAAC74D5) 进行重新配置。
+通常情况下，您需要删除这些不能识别的 JVM 参数。GC 日志参数除外。GC 日志在 [jep 271](http://openjdk.java.net/jeps/271) 中重新实现。请参见 [oracle 官方文档](https://docs.oracle.com/en/java/javase/11/tools/java.html#GUID-BE93ABDC-999C-4CB5-A88B-1994AAAC74D5) 进行重新配置。
 
 #### WARNING: An illegal reflective access operation has occurred
 
@@ -127,11 +127,11 @@ Java 11 中语言环境数据的默认源已随 [JEP 252](http://openjdk.java.ne
 
 #### java.lang.reflect.InaccessibleObjectException
 
-此异常表明您正在试图通过`setAccessible(true)`的方式来反射获取一个包/模块中私有的类的字段或方法。使用 `--add-opens`参数可让您的代码访问包/模块的非公共成员。
+此异常表明您正在试图通过 `setAccessible(true)` 的方式来反射获取一个包/模块中私有的类的字段或方法。使用 `--add-opens` 参数可让您的代码访问包/模块的非公共成员。
 
 #### java.lang.NoClassDefFoundError
 
-如果应用程序在 Java 8 上正常运行，但在Java 11中抛出 `java.lang.NoClassDefFoundError` 或 `java.lang.ClassNotFoundException` ，那么很可能应用程序正在使用来自 Java EE 或 CORBA 模块的包。这些模块在 Java 9 中被弃用并在 Java 11 中被删除 [jep 320](https://openjdk.java.net/jeps/320)。
+如果应用程序在 Java 8 上正常运行，但在Java 11中抛出 `java.lang.NoClassDefFoundError` 或 `java.lang.ClassNotFoundException`，那么很可能应用程序正在使用来自 Java EE 或 CORBA 模块的包。这些模块在 Java 9 中被弃用并在 Java 11 中被删除 [jep 320](https://openjdk.java.net/jeps/320)。
 
 要解决此问题，请向您的项目添加运行时依赖。
 
