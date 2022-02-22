@@ -75,7 +75,7 @@ CLB 直接绑定 Pod 时检查 Pod 是否 Ready，需查看 Pod 是否 Running�
 
 #### 通过控制台创建 Service
 如果通过控制台创建 Service，可以勾选“采用负载均衡直连Pod模式”，详情请参见 [创建 Service](https://cloud.tencent.com/document/product/457/45489#.E5.88.9B.E5.BB.BA-service)。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/360b1f8c9eee2c9b33c4834ad00786d9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a8fa2b540e15712533b58d20a25f0dd2.png)
 
 #### 通过 YAML 创建 Service
 如果通过 YAML 创建 Service，需要为 Service 加上 `service.cloud.tencent.com/direct-access: "true"` 的 annotation。示例如下：
