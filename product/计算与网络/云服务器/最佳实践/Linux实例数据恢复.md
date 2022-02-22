@@ -11,7 +11,7 @@ Extundelete 支持文件系统类型为 ext3 及 ext4 的文件误删恢复，�
 
 ## 准备工作
 在执行恢复数据相关操作前，请完成以下准备工作：
- - 参考 [创建快照](https://cloud.tencent.com/document/product/362/5755) 及 [创建自定义镜像](https://cloud.tencent.com/document/product/213/4942) 进行数据备份，以确保出现问题时可恢复至初始状态。
+- 参考 [创建快照](https://cloud.tencent.com/document/product/362/5755) 及 [创建自定义镜像](https://cloud.tencent.com/document/product/213/4942) 进行数据备份，以确保出现问题时可恢复至初始状态。
 - 停止相关业务程序继续写数据到该文件系统。若需执行恢复操作的为数据盘，则可先对数据盘执行 `umount` 操作。
 
 
