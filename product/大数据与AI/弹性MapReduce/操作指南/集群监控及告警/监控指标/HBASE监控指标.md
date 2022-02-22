@@ -638,7 +638,13 @@
 <td >Get_num_ops</td>
 <td >个/s</td>
 <td >Get 请求量</td>
-</tr><tr>
+</tr>
+<tr>
+<td >Put_num_ops</td>
+<td >个/s</td>
+<td >Put 请求量</td>
+</tr>
+<tr>
 <td >ScanTime_num_ops</td>
 <td >个/s</td>
 <td >Scan 请求量</td>
@@ -646,11 +652,6 @@
 <td >ScanSize_num_ops</td>
 <td >个/s</td>
 <td >Scan 请求量</td>
-</tr>
-<tr>
-<td >Put_num_ops</td>
-<td >个/s</td>
-<td >Put 请求量</td>
 </tr>
 <tr>
 <td >mutation 个数</td>
