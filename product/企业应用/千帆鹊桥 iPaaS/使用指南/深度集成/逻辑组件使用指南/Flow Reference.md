@@ -14,7 +14,7 @@ Flow Reference 组件用来引用当前项目下集成应用中的其他集成�
 | 集成流 | String   | 集成流名称 | 是       | 无     |
 
 ### 配置界面
-![image-20210325142105983](https://main.qcloudimg.com/raw/7eaca90631c9f34001f9d726b9ad5cd8/image-20210325142105983.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e24b9d6247d7e043907b186ace34afea.png)
 
 ### 输入到子流中的 message
 
