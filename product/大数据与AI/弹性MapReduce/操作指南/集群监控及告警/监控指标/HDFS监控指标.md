@@ -508,7 +508,7 @@
 <tr>
 <td > 等待文件锁的队列长度  </td>
 <td >LockQueueLength </td>
-<td >LockQueueLength </td>
+<td >count </td>
 <td >	LockQueueLength	等待文件锁的队列长度</td>
 </tr>
 <tr>
