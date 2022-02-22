@@ -75,6 +75,7 @@ MySQL 的 SSL 虽然提高了安全性，但也牺牲了部分性能。如果用
 
 1. 修改配置文件 my.cnf，在[mysqld]下增加如下内容：
 ```
+[mysqld]
 # disable_ssl
 skip_ssl
 ```
@@ -106,6 +107,7 @@ dba:(none)> show global variables like '%ssl%';
 
 1. 修改配置文件my.cnf，在[mysqld]下增加如下内容：
 ```
+[mysqld]
 # 设置通信协议
 tls_version=TLSv1.2
 # 设置加密算法
