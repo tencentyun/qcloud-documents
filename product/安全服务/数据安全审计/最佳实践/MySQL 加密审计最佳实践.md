@@ -73,7 +73,7 @@ dba:(none)> show global variables like 'ssl_cipher';
 MySQL 的 SSL 虽然提高了安全性，但也特性了部分性能。如果用户单位是否没有必须开启 SSL 加密的相同规定，可以考虑直接关闭 SSL 加密，一劳永逸。
 >!该方法需要重启数据库。
 
-1. 修改配置文件 my.cnf，增加如下内容：
+1. 修改配置文件 my.cnf，在[mysqld]下增加如下内容：
 ```
 # disable_ssl
 skip_ssl
@@ -104,7 +104,7 @@ dba:(none)> show global variables like '%ssl%';
 在配置文件中，设置通信协议和加密算法，该方法可以对数据库的所有连接生效。
 >!该方法需要重启数据库。
 
-1. 修改配置文件my.cnf，增加如下内容：
+1. 修改配置文件my.cnf，在[mysqld]下增加如下内容：
 ```
 # 设置通信协议
 tls_version=TLSv1.2
