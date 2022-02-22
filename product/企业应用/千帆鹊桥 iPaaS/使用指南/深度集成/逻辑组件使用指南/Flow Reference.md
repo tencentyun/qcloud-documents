@@ -43,6 +43,6 @@ Flow Reference 组件的执行结果，是子流的最后一个组件的输出�
 2. 对需要被引用的流，设置**共享**集成流的操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7d7787290f5545d0165bb5663431dc66.png)
 3. 添加 Flow Reference 组件，在下拉框中选择流 flow2，则对当前集成流设置引用 flow2 集成流完成。
- ![image-20210330144057018](https://main.qcloudimg.com/raw/17cc533f713724dd3e9411e460c67c1e/image-20210330144057018.png)
- 完成后界面如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/11c8f8970aec2d07dcf29d3cb7cfad11.png)
+ 完成后界面如下：
+![](https://qcloudimg.tencent-cloud.cn/raw/e34afb8d16a80ac8ce8e7e4a0776e2f4.png)
