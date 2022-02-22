@@ -1,7 +1,7 @@
 精品 BGP IP 线路类型的 EIP 使用专属线路，避免绕行国际运营商出口，网络延时更低。如需体验，请提交 [内测申请](https://cloud.tencent.com/apply/p/224jt7718s8)。
 >?
 >- 目前仅标准账户类型支持精品 BGP IP，传统账户类型需升级后才能使用，升级详情请参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。
->- 仅香港地域支持精品 BGP IP，价格详情请参见 [公网网络费用计费模式一览表](文档更新后提供链接)。
+>- 仅香港地域支持精品 BGP IP，价格详情请参见 [公网网络费用计费模式一览表](https://cloud.tencent.com/document/product/1199/51693#ylb)。
 
 
 ## 操作步骤
