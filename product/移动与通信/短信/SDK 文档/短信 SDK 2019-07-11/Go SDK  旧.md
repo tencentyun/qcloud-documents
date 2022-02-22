@@ -73,8 +73,7 @@ func main() {
 	 * 如有需要请在代码中查阅以获取最新的默认值 */
 	//cpf.HttpProfile.ReqTimeout = 5
 
-	/* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-     * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+	/* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com */
 	cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
 
 	/* SDK 默认用 TC3-HMAC-SHA256 进行签名，非必要请不要修改该字段 */
@@ -168,8 +167,7 @@ func main() {
 	 * 如有需要请在代码中查阅以获取最新的默认值 */
 	//cpf.HttpProfile.ReqTimeout = 5
 
-	/* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-     * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+	/* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com */
 	cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
 
 	/* SDK 默认用 TC3-HMAC-SHA256 进行签名，非必要请不要修改该字段 */
@@ -269,8 +267,7 @@ func main() {
 	 * 如有需要请在代码中查阅以获取最新的默认值 */
 	//cpf.HttpProfile.ReqTimeout = 5
 
-	/* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-     * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+	/* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com */
 	cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
 
 	/* SDK 默认用 TC3-HMAC-SHA256 进行签名
@@ -356,8 +353,7 @@ func main() {
 	 * 如有需要请在代码中查阅以获取最新的默认值 */
 	//cpf.HttpProfile.ReqTimeout = 5
 
-	/* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-     * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+	/* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com */
 	cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
 
 	/* SDK 默认用 TC3-HMAC-SHA256 进行签名
