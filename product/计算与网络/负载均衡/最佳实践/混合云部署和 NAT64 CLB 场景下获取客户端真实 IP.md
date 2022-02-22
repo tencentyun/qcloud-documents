@@ -6,8 +6,8 @@
 </dx-steps>
 
 >?
->- 仅四层 TCP 支持通过 TOA 获取客户端真实源 IP，UDP 和七层（HTTP/HTTPS）不支持获取。
 >- 仅北京地域支持通过 TOA 获取客户端真实源 IP。
+>- 仅四层 TCP 支持通过 TOA 获取客户端真实源 IP，UDP 和七层（HTTP/HTTPS）不支持获取。
 >- 该功能目前处于内测中，如需使用，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=0&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20CLB&level3_id=1068&radio_title=%E9%85%8D%E9%A2%9D/%E7%99%BD%E5%90%8D%E5%8D%95&queue=96&scene_code=41669&step=2)。
 >
 
@@ -39,7 +39,7 @@
 </dx-accordion>
 
 ## 控制台开启 TOA
-1. 已创建 IPv4 和 NAT64 版本的 CLB 实例，详情请参见 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149) 和 [创建 IPv6 NAT64 负载均衡实例](https://cloud.tencent.com/document/product/214/30440)。
+1. 已创建 NAT64 版本的 CLB 实例，详情请参见 [创建 IPv6 NAT64 负载均衡实例](https://cloud.tencent.com/document/product/214/30440)。
 2. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，创建 TCP 监听器，详情请参见 [配置 TCP 监听器](https://cloud.tencent.com/document/product/214/36386)。
 3. 在“创建监听器”对话框中，开启 TOA 开关。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c92df2a900b94e104d261c5dbb475202.png)
