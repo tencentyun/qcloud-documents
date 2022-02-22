@@ -1,5 +1,6 @@
 本文介绍混合云部署场景和 NAT64 CLB 场景下的 CLB 的四层（仅 TCP）服务如何通过 TOA 获取客户端真实源 IP。
 <dx-steps>
+-[控制台开启 TOA](#loadopentoa)
 -[加载 TOA 模块](#load-toa)
 -[适配后端服务](#adapt-rs)
 -[（可选）监控 TOA 模块状态](#monitor-toa)
@@ -38,7 +39,7 @@
 :::
 </dx-accordion>
 
-## 控制台开启 TOA
+## 控制台开启 TOA[](id:loadopentoa)
 1. 已创建 NAT64 版本的 CLB 实例，详情请参见 [创建 IPv6 NAT64 负载均衡实例](https://cloud.tencent.com/document/product/214/30440)。
 2. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，创建 TCP 监听器，详情请参见 [配置 TCP 监听器](https://cloud.tencent.com/document/product/214/36386)。
 3. 在“创建监听器”对话框中，开启 TOA 开关。
