@@ -50,7 +50,7 @@ Java 11 中提供了以下垃圾收集器：串行（Serial）、并行（Parall
 
 此外，Java 10 中还提供了新的 JVM 参数，以便 Docker 容器用户可以细粒度地控制将用于 Java 堆的系统内存量。
 
-从 jdk8u191 开始，大部分 cgroup 支持工作都被向后移植到 Java 8。
+>?从 jdk8u191 开始，大部分 cgroup 支持工作都被向后移植到 Java 8。
 
 ## 从 Java 8 迁移到 Java 11
 
@@ -69,6 +69,7 @@ Java 11 提供了两个工具，jdeprscan 和 jdeps，可用于发现潜在问�
 [jdeprscan](https://docs.oracle.com/en/java/javase/11/tools/jdeprscan.html) 用于查找程序中是否有使用已弃用或已删除的 API 。使用已弃用的 API 并不会阻塞您的迁移，但您仍需要注意，因为他们有可能在未来的版本中被删除。
 
 若要使用 [jdeprscan](https://docs.oracle.com/en/java/javase/11/tools/jdeprscan.html)，最简单的方法是提供一个现成的 jar 包，您可以为其指定目录或是某个类名。 使用 `--release 11` 参数可获取使用已弃用 API 的最完整列表。例如 `jdeprscan --release 11 my-application.jar`。
+
 如果您遇到 `error: cannot find class XXX` 的错误，则需要优先检查此依赖类文件是否存在于 jar 包的类路径中。如此依赖类并非第三方依赖，则有可能是您使用了在 Java 11 中已被删除的 API。
 
 运行 `jdeprscan --release 11 --list` 即可了解自 Java 8 后弃用的具体 API。 若要获取已删除 API 的列表，请运行 `jdeprscan --release 11 --list --for-removal` 。
@@ -81,7 +82,7 @@ Java 11 提供了两个工具，jdeprscan 和 jdeps，可用于发现潜在问�
 
 您应该尽量避免使用来自 jdk.unsupported 中的任何 API 。尽管在替代的 API 可用之前，使用内部 API 仍将被支持，但在未来，它们有可能被彻底弃用或删除。[JEP 260](http://openjdk.java.net/jeps/260) 提供了一些替代方案。
 
-Gradle 和 Maven都有 jdeps 和 jdeprscan 插件。我们建议将这些工具添加到您的构建脚本中。
+Gradle 和 Maven 都有 jdeps 和 jdeprscan 插件。我们建议将这些工具添加到您的构建脚本中。
 
 | 工具      | Gradle 插件                                                  | Maven 插件                                                   |
 | --------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -94,7 +95,7 @@ jdeprscan 和 jdeps 无法检查使用反射访问的 API。因此，您需要�
 
 #### 检查 JVM 参数
 
-在 Java 11 上运行之前，请检查 JVM 参数。 使用已删除的 JVM 参数将导致 JVM 崩溃退出（`Error: Could not create the Java Virtual Machine`）。如果您开启了 GC 日志，则此检查尤其重要，因为GC 日志与 Java 8 相比发生了巨大变化。您可以使用 JaCoLine 工具来检测JVM参数。
+在 Java 11 上运行之前，请检查 JVM 参数。 使用已删除的 JVM 参数将导致 JVM 崩溃退出（`Error: Could not create the Java Virtual Machine`）。如果您开启了 GC 日志，则此检查尤其重要，因为 GC 日志与 Java 8 相比发生了巨大变化。您可以使用 JaCoLine 工具来检测 JVM 参数。
 
 #### 检查第三方依赖类库
 
@@ -106,8 +107,8 @@ jdeprscan 和 jdeps 无法检查使用反射访问的 API。因此，您需要�
 
 #### 类加载器注意事项
 
-在 Java 11 中的类加载器层次结构发生了变化。`SystemClassloader`（也称为`AppClassloader`）现在是一个内部类。强制转换成 `URLClassLoader`会抛出 `ClassCastException`异常。 Java 11 没有在运行时动态增加 classpath 的 API，但您仍然可以通过反射来完成获取。
-在 Java 11 中，`BootstrapClassloader` 只加载核心模块。如果您创建一个没有父级加载器的 classloader ，它可能无法找到所有平台类。在 Java 11 中，您需要传递 `ClassLoader.getPlatformClassLoader()` 作为其父级加载器。
+- 在 Java 11 中的类加载器层次结构发生了变化。`SystemClassloader`（也称为`AppClassloader`）现在是一个内部类。强制转换成 `URLClassLoader` 会抛出  `ClassCastException` 异常。 Java 11 没有在运行时动态增加 classpath 的 API，但您仍然可以通过反射来完成获取。
+- 在 Java 11 中，`BootstrapClassloader` 只加载核心模块。如果您创建一个没有父级加载器的 classloader，它可能无法找到所有平台类。在 Java 11 中，您需要传递  `ClassLoader.getPlatformClassLoader()` 作为其父级加载器。
 
 #### 语言环境数据更改
 
