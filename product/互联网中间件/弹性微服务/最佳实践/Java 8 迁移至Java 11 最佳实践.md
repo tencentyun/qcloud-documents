@@ -32,13 +32,13 @@ Java 虚拟机工具接口 (JVMTI) 中添加了新的 API，用于对 Java 堆�
 
 ### 垃圾回收
 
-Java 11 中提供了以下垃圾收集器：串行（Serial）、并行（Parallel）、G1（Garbage-First）和 Epsilon。Java 11 中的默认垃圾收集器是G1。
+Java 11 中提供了以下垃圾收集器：串行（Serial）、并行（Parallel）、G1（Garbage-First）和 Epsilon。Java 11 中的默认垃圾收集器是 G1。
 
 - G1 的目标是在延迟和吞吐量之间取得平衡。G1 旨在避免 Full GC，但是当并发收集不能足够快地回收内存时，仍然会产生 Full GC。
 - 并行GC 是 Java 8 中的默认收集器，它是一种吞吐量优先的收集器，它使用多个线程来加速垃圾收集。
 - Epsilon 垃圾收集器处理分配但不回收任何内存。当堆内存耗尽时，JVM 将关闭。Epsilon 对于短期服务和无垃圾的应用程序会很有用。
 
-除此之外，Java 11还提供其他三种垃圾回收器：
+除此之外，Java 11 还提供其他三种垃圾回收器：
 
 - ZGC 是一个并发、低延迟的收集器，它试图将暂停时间保持在 10 毫秒以下。ZGC 作为 Java 11 中的一项实验性功能提供。
 - Shenandoah 是一种低暂停收集器，它会与正在运行的 Java 程序同时执行，并以此来减少 GC 暂停时间。Shenandoah 是 Java 12 中的一项实验性功能，但已经移植到 Java 11。
@@ -106,7 +106,7 @@ jdeprscan 和 jdeps 无法检查使用反射访问的 API。因此，您需要�
 
 #### 类加载器注意事项
 
-在Java 11 中的类加载器层次结构发生了变化。`SystemClassloader`（也称为`AppClassloader`）现在是一个内部类。强制转换成 `URLClassLoader`会抛出 `ClassCastException`异常。 Java 11 没有在运行时动态增加 classpath 的 API，但您仍然可以通过反射来完成获取。
+在 Java 11 中的类加载器层次结构发生了变化。`SystemClassloader`（也称为`AppClassloader`）现在是一个内部类。强制转换成 `URLClassLoader`会抛出 `ClassCastException`异常。 Java 11 没有在运行时动态增加 classpath 的 API，但您仍然可以通过反射来完成获取。
 在 Java 11 中，`BootstrapClassloader` 只加载核心模块。如果您创建一个没有父级加载器的 classloader ，它可能无法找到所有平台类。在 Java 11 中，您需要传递 `ClassLoader.getPlatformClassLoader()` 作为其父级加载器。
 
 #### 语言环境数据更改
