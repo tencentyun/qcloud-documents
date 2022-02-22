@@ -261,4 +261,17 @@
 <td >个</td>
 <td >系统 CPU 利用率</td>
 </tr>
+<tr>
+<td >Beeswax API 客户端连接数</td>
+<td >Use</td>
+<td >个</td>
+<td >活跃 Beeswax API 连接数</td>
+</tr>
+<tr>
+<td >HiveServer2 API 客户端连接数</td>
+<td >Use</td>
+<td >个</td>
+<td >活跃 HiveServer2 API 连接数</td>
+</tr>
 </table>
+
