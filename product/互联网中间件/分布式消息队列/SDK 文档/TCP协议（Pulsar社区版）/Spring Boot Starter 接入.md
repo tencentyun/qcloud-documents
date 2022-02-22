@@ -43,7 +43,7 @@ pulsar:
   service-url: http://pulsar-xxx.tdmq.ap-gz.public.tencenttdmq.com:8080
   # 授权角色密钥
   token-auth-value: eyJrZXlJZC....
-  # 集群名称
+  # 集群 ID
   tenant: pulsar-xxx
 :::
 </dx-codeblock>
