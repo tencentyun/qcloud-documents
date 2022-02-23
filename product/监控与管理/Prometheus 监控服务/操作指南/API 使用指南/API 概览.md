@@ -9,7 +9,7 @@
 | /api/v1/series                    | [查询 series](https://prometheus.io/docs/prometheus/latest/querying/api/#finding-series-by-label-matchers) | 推荐使用 Grafana，可使用 HTTP 相关工具，部分 SDK 提供实现 |
 | /api/v1/labels                    | [查询标签名](https://prometheus.io/docs/prometheus/latest/querying/api/#getting-label-names) | 推荐使用 Grafana，可使用 HTTP 相关工具，部分 SDK 提供实现 |
 | /api/v1/label/{label_name}/values | [查询标签名多对应的值](https://prometheus.io/docs/prometheus/latest/querying/api/#querying-label-values) | 推荐使用 Grafana，可使用 HTTP 相关工具，部分 SDK 提供实现 |
-| /api/v1/prom/write                | [remote write](https://prometheus.io/docs/practices/remote_write/) 上报数据 | 常用方式为使用相关 Agent，比如 Prometheus|
+| /api/v1/prom/write                | [remote write](https://prometheus.io/docs/practices/remote_write/) 上报数据 | 常用方式为使用相关 Agent，例如 Prometheus|
 | /metrics/{job}/{label-pairs*}     | [Pushgateway](https://prometheus.io/docs/instrumenting/pushing/) 上报数据 | 开源 SDK |
 
 >? Prometheus 监控服务不直接提供 SDK 实现，需使用开源 Prometheus 实现，各语言的实现请参见：[开源指引](https://prometheus.io/docs/instrumenting/clientlibs/) 。
