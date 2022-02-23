@@ -5,8 +5,22 @@
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频通话组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
 
+## 下载 Demo
+  单击进入 [TUICalling](https://github.com/tencentyun/TUICalling)，根据实际业务需求下载 Demo 源码。
+
 ## 环境要求
 请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。具体请参见 [环境要求](https://cloud.tencent.com/document/product/647/49789#.E7.8E.AF.E5.A2.83.E8.A6.81.E6.B1.82)。
+
+## URL 域名协议限制
+| 应用场景     | 协议             | 接收（播放） | 发送（上麦） | 屏幕分享 | 备注 |
+| ------------ | :--------------- | :----------- | ------------ | -------- | ---- |
+| 生产环境     | HTTPS 协议        | 支持         | 支持         | 支持     | 推荐 |
+| 生产环境     | HTTP 协议         | 支持         | 不支持       | 不支持   |  -    |
+| 本地开发环境 | http://localhost | 支持         | 支持         | 支持     | 推荐 |
+| 本地开发环境 | http://127.0.0.1 | 支持         | 支持         | 支持     |  -    |
+| 本地开发环境 | http://[本机IP]  | 支持         | 不支持       | 不支持   |   -   |
+| 本地开发环境 | file:///         | 支持         | 支持         | 支持     |   -   |
+
 
 ## TRTCCalling API 
 
