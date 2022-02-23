@@ -1,9 +1,13 @@
 ## 操作场景
 本文介绍如何激活 Windows 云服务器的操作系统。
 
-## 说明事项
-- 此文档只针对腾讯云提供的 Windows Server 公共镜像，自定义镜像或外部导入镜像不能采用本文的激活方式。
-- 在某些 Windows 操作系统未被激活的场景下，高配机器的系统内存将被限制只能用至2GB，其余的会以“为硬件保留的内存”的形式被限制使用。若您的实例存在该问题，则请参考本文进行激活。
+
+
+<dx-alert infotype="explain" title="">
+此文档只针对腾讯云提供的 Windows Server 公共镜像，自定义镜像或外部导入镜像不能采用本文的激活方式。
+</dx-alert>
+
+
 
 
 ## 操作步骤
@@ -31,11 +35,11 @@ slmgr /ato
 
 
 ## 相关问题
-在某些 Windows 操作系统未被激活的场景下，高配机器的系统内存将被限制只能用至2GB，其余的会以“为硬件保留的内存”的形式被限制使用。该原因为 `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\ProductOptions` 注册表被损坏，您可执行以下命令，判断是否需重新激活系统。
+在某些 Windows 操作系统未被激活的场景下，高配机器的系统内存将被限制只能用至2GB，其余内存会以“为硬件保留的内存”的形式被限制使用。该原因为 `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\ProductOptions` 注册表被损坏，您可执行以下命令，判断是否需重新激活系统。
 ```
 (Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\ProductOptions\).ProductPolicy.count
 ```
- - 若返回结果为例如56184等万级别数值，则表明注册表未被损坏。
+ - 若返回结果为例如56184等万级别数值，则无需再次激活系统。
  - 若返回结果为 “未激活值：1960”，则请参考以下方法进行解决。
 <dx-tabs>
 ::: 方法1
