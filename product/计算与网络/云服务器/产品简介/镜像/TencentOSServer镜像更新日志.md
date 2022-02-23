@@ -18,7 +18,15 @@
 </thead>
 <tbody>
 <tr>
-<td rowspan=9>TencentOS Server 2.4</td>
+<td rowspan=11>TencentOS Server 2.4</td>
+</tr>
+<tr>
+<td><ul class="params">
+<li>安装 java-8-konajdk-8.0.8-1.1.312.x86_64</li>
+</ul></td>
+<td>2022-02-23</td>
+</tr>
+<tr>
 <td>
 <ul class="params">
 <li>默认 enable rngd 服务</li>
@@ -93,19 +101,28 @@
 <tr>
 <td>
 <ul class="params">
-TencentOS Server 2.4 上线公有云
+<li>TencentOS Server 2.4 上线公有云</li>
 </ul>
 </td>
 <td>2019-06-28</td>
 </tr>
 <tr>
-<td rowspan=6>TencentOS Server 2.4 (TK4)</td>
+<td rowspan=7>TencentOS Server 2.4 (TK4)</td>
+</tr>
+<tr>
+<td>
+<ul class="params">
+<li>安装 java-8-konajdk-8.0.8-1.1.312.x86_64</li>
+<li>更新 polkit 至0.112-26.tl.1</li>
+</ul>
+</td>
+<td>2022-02-23</td>
 </tr>
 <tr>
 <td>
 <ul class="params">
 <li>更新内核至5.4.119-19-0009.1</li>
-<li>CVE-2022-0185</li>
+<li>修复 CVE-2022-0185</li>
 </ul>
 </td>
 <td>2022-01-28</td>
@@ -138,17 +155,30 @@ TencentOS Server 2.4 上线公有云
 <td>2021-07-16</td>
 </tr>
 <tr>
-<td>TencentOS Server 2.4 (TK4) 上线公有云</td>
+<td>
+<ul class="params">
+<li>TencentOS Server 2.4 (TK4) 上线公有云</li>
+</ul>
+</td>
 <td>2021-03-03</td>
 </tr>
 <tr>
-<td rowspan=6>TencentOS Server 3.1 (TK4)</td>
+<td rowspan=7>TencentOS Server 3.1 (TK4)</td>
+</tr>
+<tr>
+<td>
+<ul class="params">
+<li>安装 java-8-konajdk-8.0.8-1.1.312.x86_64</li>
+<li>更新 polkit 至0.112-26.tl.1</li>
+</ul>
+</td>
+<td>2022-02-23</td>
 </tr>
 <tr>
 <td>
 <ul class="params">
 <li>更新内核至5.4.119-19-0009.1</li>
-<li>CVE-2022-0185</li>
+<li>修复 CVE-2022-0185</li>
 </ul>
 </td>
 <td>2022-01-28</td>
