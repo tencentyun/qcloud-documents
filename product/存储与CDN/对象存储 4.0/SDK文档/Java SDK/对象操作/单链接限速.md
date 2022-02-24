@@ -40,7 +40,7 @@ try {
 
 // 确定本进程不再使用 transferManager 实例之后，关闭之
 // 详细代码参见本页：高级接口 -> 关闭 TransferManager
-shutdownTransferManger(transferManager);
+shutdownTransferManager(transferManager);
 ```
 
 ### 设置下载限速
@@ -76,5 +76,5 @@ try {
 
 // 确定本进程不再使用 transferManager 实例之后，关闭之
 // 详细代码参见本页：高级接口 -> 关闭 TransferManager
-shutdownTransferManger(transferManager);
+shutdownTransferManager(transferManager);
 ```
