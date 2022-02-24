@@ -14,13 +14,13 @@
 		<li>优化：升级小米推送 SDK 4.9.1</li>
 		<li>优化：升级 vivo 推送 SDK 3.0.0.4</li>
 		<li>优化：升级魅族推送SDK 4.1.0</li>
-		<li>优化：升级OPPO推送 SDK 3.0.0</li>
+		<li>优化：升级 OPPO 推送 SDK 3.0.0</li>
 		<li>新增：提供接口方便在推送目标页面内获取随推送下发的自定义参数 customContent</li>
 		<li> 修复：其他已知问题</li>
 		</td>
         <td>2022-02-23</td><td>
 		<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
-		<li>获取随推送下发的 custom_content 请参考<a href="https://cloud.tencent.com/document/product/548/48572#.E5.AE.A2.E6.88.B7.E7.AB.AF.E8.8E.B7.E5.8F.96.E5.8F.82.E6.95.B0">通知点击跳转-客户端获取参数</a></li>
+		<li>获取随推送下发的 custom_content 请参见 <a href="https://cloud.tencent.com/document/product/548/48572#.E5.AE.A2.E6.88.B7.E7.AB.AF.E8.8E.B7.E5.8F.96.E5.8F.82.E6.95.B0">通知点击跳转 > 客户端获取参数</a></li>
 </td>
     </tr>
 <tr>
