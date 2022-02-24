@@ -5,11 +5,6 @@
 >- 互联网 IPv6 网络大环境还处于建设初期，不提供 SLA 保障，如出现线路访问不通的情况，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=0&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB&step=1) 反馈。
 >
 
->!为了给您提供稳定优质的网络服务，腾讯云计划于北京时间2022年2月24日（周四）凌晨00:00-02:00对上海地区 IPV6 NAT64 CLB 服务进行升级优化。2022年2月24日（周四）8:00前暂时无法购买 IPV6 NAT64 CLB 实例，此时间以后可以正常购买 IPV6 NAT64 CLB 实例。
->
-
-
-
 负载均衡支持创建 IPv6 NAT64 负载均衡实例，腾讯云会给实例分配一个 IPv6 公网地址（即 IPv6 版的 VIP），该 VIP 会将来自 IPv6 客户端的请求转发给后端的 IPv4 云服务器。
 
 ## 什么是 IPv6 NAT64 负载均衡
