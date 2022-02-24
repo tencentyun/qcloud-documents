@@ -71,10 +71,11 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 ### Step3. 购买连麦套餐包
 由于连麦功能会使用到高速专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则移动直播的各端 SDK 只能使用云直播的普通服务（推流和拉流），并不能开启连麦功能。
 
-- [购买连麦预付费套餐包](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb)
+- 仅限老用户前往 **云直播控制台** > **资源包/插件管理** > **[连麦包](https://console.cloud.tencent.com/live/resources/liveroom)**，单击**购买连麦包**
 - [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/8008)
 
->? 
+>!
+>- **旧版移动直播连麦资源包已下线，仅限连麦老用户购买**。
 >- 默认开通连麦服务需要先购买正式的连麦套餐包（非体验包），开通后可选择继续购买套餐包进行消费抵扣，也可以按照后付费日结计费进行结算。
 >- 若您购买的套餐包为体验包，用尽后次日会自动停止连麦服务，超出部分仍会按照后付费计费。
 >- 使用连麦的**双方**是**按连麦时长计费**，普通观众观看会先通过直播混流，将连麦画面混合后通过 CDN 播放来降低播放成本。
