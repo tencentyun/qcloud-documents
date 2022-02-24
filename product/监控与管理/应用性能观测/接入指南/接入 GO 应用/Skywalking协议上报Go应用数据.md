@@ -70,8 +70,8 @@ flag.Parse()
 /*参数说明：@oapServer:SkyWalking 后端收集器地址*/
 report, err = reporter.NewGRPCReporter(
 	oapServer,
-	reporter.WithAuthentication("c944279f910baee6d2e102817270696f"))
-	//c944279f910baee6d2e102817270696f 需替换成您的 Token
+	reporter.WithAuthentication("c944279f910baee6d2e1028172xxxxxx"))
+	//c944279f910baee6d2e1028172xxxxxx 需替换成您的 Token
 	//report, err = reporter.NewLogReporter()
 	if err != nil {
 	log.Fatalf("crate grpc reporter error: %v \n", err)
