@@ -1,7 +1,6 @@
 >?
 >- IPv6 NAT64 负载均衡仅支持北京、上海、广州三个地域。
 >- IPv6 NAT64 负载均衡不支持传统型负载均衡。
->- IPv6 NAT64 负载均衡不支持获取 Client IP。
 >- 互联网 IPv6 网络大环境还处于建设初期，不提供 SLA 保障，如出现线路访问不通的情况，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=0&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB&step=1) 反馈。
 >
 
@@ -38,4 +37,5 @@ IPv6 NAT64 负载均衡的架构如下图所示。
 登录 [负载均衡控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，单击实例 ID，进入详情页，在“监听器管理”页面配置监听器、转发规则、绑定云服务器，详情请参见 [负载均衡快速入门](https://cloud.tencent.com/document/product/214/8975)。
 ![](https://main.qcloudimg.com/raw/37295edc8457d19babd3b6b9f2785de5.png)
 
-
+## 相关文档
+[混合云部署场景下通过 TOA 获取客户端真实 IP](https://cloud.tencent.com/document/product/214/68105)
