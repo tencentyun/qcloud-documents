@@ -1,5 +1,5 @@
 ## TrustAsia 品牌根证书变更通知
-接 TrustAsia  品牌 CA 机构通知，自**2022年3月03日 22:00:00**起，TrustAsia 根证书签发由 Digicert 根证书变更为 Sectigo 根证书。您可以理解为**2022年3月03日 22:00:00** 前申请的 TrustAsia  品牌 SSL 证书根证书由 Digicert 进行签发，**2022年3月03日 22:00:00**后申请的 TrustAsia  品牌 SSL 证书根证书由 Sectigo 进行签发。
+接 TrustAsia  品牌 CA 机构通知，自**2022年3月03日22:00:00**起，TrustAsia 根证书签发由 Digicert 根证书变更为 Sectigo 根证书。您可以理解为**2022年3月03日22:00:00**前申请的 TrustAsia  品牌 SSL 证书根证书由 Digicert 进行签发，**2022年3月03日22:00:00**后申请的 TrustAsia  品牌 SSL 证书根证书由 Sectigo 进行签发。
 
 根证书变更后，基于 Sectigo 根证书支持中国区 OCSP（在线证书状态协议）节点特性，将在很大程度上解决中国区网站设置 HTTPS 后访问速度变慢问题。
 
