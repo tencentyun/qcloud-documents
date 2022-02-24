@@ -20,7 +20,7 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 - **Android**
   下载 [apk](https://dldir1.qq.com/hudongzhibo/liteav/xiaozhibo.apk) 安装包，安装“小直播”，注册一个账号即可开始体验。
 - **微信小程序**
-  打开微信，选择【发现】>【小程序】，搜索“腾讯视频云”，单击“移动直播”功能即可体验。
+  打开微信，选择**发现** > **小程序**，搜索“腾讯视频云”，单击“移动直播”功能即可体验。
 
 ![](https://main.qcloudimg.com/raw/5b6184f8857bdfb1501632951403f8d0.jpg)
 
@@ -65,7 +65,7 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 ### Step3. 购买连麦套餐包
 由于连麦功能会使用到高速专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则移动直播的各端 SDK 只能使用云直播的普通服务（推流和拉流），并不能开启连麦功能。
 
-- [购买连麦预付费套餐包](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb)
+- 仅限老用户前往 **云直播控制台** > **资源包/插件管理** > **[连麦包](https://console.cloud.tencent.com/live/resources/liveroom)**，单击**购买连麦包**
 - [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/8008)
 
 >? 
@@ -78,7 +78,7 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 
 [](id:Step4)
 ### Step4. 在应用管理中添加一个新的应用
-进入【云直播控制台】>【直播SDK】>[【应用管理】](https://console.cloud.tencent.com/live/license/appmanage)，单击【创建应用】。待应用创建完成后，记录其 SDKAPPID 信息。
+进入**云直播控制台** > **直播SDK**>[**应用管理**](https://console.cloud.tencent.com/live/license/appmanage)，单击**创建应用**。待应用创建完成后，记录其 SDKAPPID 信息。
 
 >?该操作的目的是创建一个即时通信 IM 应用，并将当前直播账号和该即时通信 IM 应用绑定起来。即时通信 IM 应用能为小直播 App 提供聊天室和连麦互动的能力。
 
