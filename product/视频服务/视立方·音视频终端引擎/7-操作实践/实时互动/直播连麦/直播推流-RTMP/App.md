@@ -72,7 +72,7 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 由于连麦功能会使用到高速专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则移动直播的各端 SDK 只能使用云直播的普通服务（推流和拉流），并不能开启连麦功能。
 
 - 仅限老用户前往 **云直播控制台** > **资源包/插件管理** > **[连麦包](https://console.cloud.tencent.com/live/resources/liveroom)**，单击**购买连麦包**
-- [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/8008)
+- [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/70298)
 
 >!
 >- **旧版移动直播连麦资源包已下线，仅限连麦老用户购买**。
