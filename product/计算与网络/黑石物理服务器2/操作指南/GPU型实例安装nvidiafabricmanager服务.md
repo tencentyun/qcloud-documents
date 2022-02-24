@@ -8,21 +8,24 @@ HCCPNV4h 实例搭载了 A100 GPU 并支持 **NvLink & NvSwitch**，需额外安
 ### 安装 nvidia-fabricmanager 服务
 1. 登录实例，详情请参见 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 2. 不同操作系统版本安装方法不同，请您参考以下方式，执行对应命令进行安装。
- - **CentOS 7.x 镜像**
+<dx-tabs>
+::: CentOS 7.x 镜像
 ```ruby
 version=470.103.01
 yum -y install yum-utils
 yum-config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-rhel7.repo
 yum install -y nvidia-fabric-manager-${version}-1
 ```
- - **Ubuntu 18.04 镜像**
+:::
+::: Ubuntu 18.04 镜像
 ```ruby
 version=470.103.01
 main_version=$(echo $version | awk -F '.' '{print $1}')
 apt-get update
 apt-get -y install nvidia-fabricmanager-${main_version}=${driver_version}-*
 ```
-
+:::
+</dx-tabs>
 
 
 ### 启动 nvidia-fabricmanager 服务
