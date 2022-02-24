@@ -67,9 +67,11 @@ package gindemo
 
 import (
 	"fmt"
-	"git.code.oa.com/taw/taw-simple-demo/examples/go-jaeger-demo/trace"
 	"github.com/gin-gonic/gin"
 	"github.com/opentracing-contrib/go-gin/ginhttp"
+	"github.com/opentracing/opentracing-go"
+	"github.com/uber/jaeger-client-go"
+	jaegerConfig "github.com/uber/jaeger-client-go/config"
 	"net/http"
 )
 
@@ -144,12 +146,15 @@ package gindemo
 import (
 	"context"
 	"fmt"
-	"git.code.oa.com/taw/taw-simple-demo/examples/go-jaeger-demo/trace"
+	"github.com/opentracing-contrib/go-stdlib/nethttp"
 	"github.com/opentracing/opentracing-go"
+	"github.com/opentracing/opentracing-go/ext"
+	opentracingLog "github.com/opentracing/opentracing-go/log"
+	"github.com/uber/jaeger-client-go"
+	jaegerConfig "github.com/uber/jaeger-client-go/config"
 	"io/ioutil"
 	"log"
 	"net/http"
-	"github.com/opentracing-contrib/go-stdlib/nethttp"
 )
 
 const (
