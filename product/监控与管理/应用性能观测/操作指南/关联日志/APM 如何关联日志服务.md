@@ -12,8 +12,8 @@
 ## 操作步骤
 ### 步骤1：在日志中关联 TraceID
 不同语言不同协议注入 TraceID 方式不同，详情请查看以下文档指引，关联 TraceID。
-- [关联 TraceID-skywalking 协议（Java）]()
-- [ 关联 TraceID-自研探针（Java）]()
+- [关联 TraceID-skywalking 协议（Java）](https://cloud.tencent.com/document/product/1463/68741)
+- [ 关联 TraceID-自研探针（Java）](https://cloud.tencent.com/document/product/1463/68737)
 
 ### 步骤2：在系统配置页面关联日志
 1. 进入[应用性能观测控制台-系统配置](https://console.cloud.tencent.com/apm/monitor/settings)。
@@ -22,8 +22,17 @@
  - 选择对应的日志地域、日志集和日志主题。
 3. 配置完后单击**保存**即可。
    ![](https://qcloudimg.tencent-cloud.cn/raw/1785475da96eba265aa330733d42c60c.png)
+	 
+### 步骤3：在日志服务中配置 traceID 键值索引
+1. 进入[日志服务-日志主题](https://console.cloud.tencent.com/cls/topic)。
+2. 找到对应的日志主题，点击日志主题名称，进入日志基本信息页面。
+3. 切换顶部菜单为**索引配置**。
+4. 在索引配置也中，单击右上角的**编辑**，在键值索引中添加“traceID”字段，如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/494ca269a82b8f8dd9424e640c071fbd.png)
+5.添加完后单击**保存**即可。
 
-### 步骤3：在链路查询页面查看日志信息
+
+### 步骤4：在链路查询页面查看日志信息
 1. 进入[应用性能观测控制台-链路查询](https://console.cloud.tencent.com/apm/monitor/span)。
 2. 选择对应的业务系统，找到对应的 TraceID，单击 TraceID 进入链路详情。
 3. 在右侧窗口切换日志菜单，即可查看日志相关信息，排查故障。
