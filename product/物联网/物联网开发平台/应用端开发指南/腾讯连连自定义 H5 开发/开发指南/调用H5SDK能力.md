@@ -21,7 +21,7 @@ module.exports = {
 
 ## 获取基本参数
 
-H5 SDK 提供产品信息、设备数据、用户信息与家庭信息等基本参数供 H5 面板使用，可通过 `sdk.属性名` 取得。具体的参数列表，请参见 [基本参数](https://cloud.tencent.com/document/product/1081/49029)。
+H5 SDK 提供产品信息、设备数据、用户信息与家庭信息等基本参数供 H5 面板使用，可通过 `sdk.属性名` 取得。具体的参数列表，请参见 [基本参数](https://cloud.tencent.com/document/product/1081/67446)。
 
 ```javascript
 console.log(sdk.deviceId);
@@ -54,7 +54,7 @@ sdk.requestTokenApi(action, params).then(data = >  {
 
 ## 控制设备
 
-调用 H5 SDK 的 [控制设备属性](https://cloud.tencent.com/document/product/1081/49029#sdk-control-device-data) 接口可对指定设备发起控制操作。
+调用 H5 SDK 的 [控制设备属性](https://cloud.tencent.com/document/product/1081/67447#sdk-control-device-data) 接口可对指定设备发起控制操作。
 
 ```javascript
 // 指定要控制的设备的属性数据
@@ -91,7 +91,7 @@ SDK 封装了检查固件更新的接口，以及一个默认样式的固件升�
 
 ### 检查固件升级
 
-调用 H5 SDK 的 [检查设备是否有可升级固件](https://cloud.tencent.com/document/product/1081/49029#sdk-check-firmware-upgrade) 接口，可以检查指定设备是否有可升级固件。开发者可以直接使用 H5 SDK 提供的默认样式固件升级提示，也可以利用该接口的返回值来实现自定义的固件升级提示，详情如下。
+调用 H5 SDK 的 [检查设备是否有可升级固件](https://cloud.tencent.com/document/product/1081/67447#sdk-check-firmware-upgrade) 接口，可以检查指定设备是否有可升级固件。开发者可以直接使用 H5 SDK 提供的默认样式固件升级提示，也可以利用该接口的返回值来实现自定义的固件升级提示，详情如下。
 
 - 方式一：使用 H5 SDK 提供的默认样式固件升级提示
   执行以下命令调用 `sdk.checkFirmwareUpgrade` 。
@@ -176,7 +176,7 @@ sdk.goDeviceDetailPage();
 
 #### 调用 H5 自定义设备详情
 
-执行以下代码后，将在 H5 面板内展示设备详情页面。关于 H5 自定义设备详情的接口参数描述，详见 [展示 H5 自定义设备详情视图](https://cloud.tencent.com/document/product/1081/49029#sdk-show-device-detail)。
+执行以下代码后，将在 H5 面板内展示设备详情页面。关于 H5 自定义设备详情的接口参数描述，详见 [展示 H5 自定义设备详情视图](https://cloud.tencent.com/document/product/1081/67449#sdk-show-device-detail)。
 
 ```javascript
 sdk.showDeviceDetail({
