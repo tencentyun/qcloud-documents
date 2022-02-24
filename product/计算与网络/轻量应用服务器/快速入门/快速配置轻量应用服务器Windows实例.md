@@ -27,7 +27,7 @@
 
 1. 在 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index) 的服务器列表中，找到刚购买的服务器，单击**登录**。
 Windows 实例将通过 VNC 终端登录。
-![](https://main.qcloudimg.com/raw/8255eaade6b397131f48a99aec108b68.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c5c363f868b0bfa9062940bc292a5e91.png)
 2. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 **Ctrl-Alt-Delete** 进入系统登录界面。
 ![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
 3. 输入登录密码，按 **Enter**，即可登录该实例。
