@@ -279,6 +279,6 @@ sdk.on('pageShow', async () = >  {
 
 ## 蓝牙设备通信
 
-H5 面板内无法直接调用小程序的蓝牙接口，H5 SDK 中已封装 H5 面板与小程序间的蓝牙协议通信机制。要在 H5 面板使用蓝牙通信能力，必须使用 H5 SDK 提供的蓝牙模块。关于蓝牙设备的 H5 面板开发，请参见 [蓝牙设备文档](https://github.com/tencentyun/iotexplorer-h5-panel-demo/blob/master/BLUETOOTH-README.md)。
+H5 面板内无法直接调用小程序的蓝牙接口，H5 SDK 中已封装 H5 面板与小程序间的蓝牙协议通信机制。要在 H5 面板使用蓝牙通信能力，必须使用 H5 SDK 提供的蓝牙模块。关于蓝牙设备的 H5 面板开发，请参见 [蓝牙设备文档](https://cloud.tencent.com/document/product/1081/67444)。
 
 <span id="upload-h5-panel" > </span > 
