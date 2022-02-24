@@ -22,7 +22,7 @@ iPaaS Database 连接器目前支持的数据库有：MySQL、Oracle、PostgreSQ
 
 ##  操作说明
 
-Database 连接器目前支持查询、插入、更新、删除、存储过程（目前仅支持 Sql Server）操作。
+Database 连接器目前支持 MySQL、Oracle、PostgreSQL、Sql Server 数据库的查询、插入、更新、删除操作。同时支持Sql Server存储过程操作。
 
 ### 查询操作
 <dx-tabs>
