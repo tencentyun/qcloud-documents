@@ -67,12 +67,14 @@ package grpcdemo
 
 import (
 	"context"
+	"fmt"
+	"github.com/opentracing/opentracing-go"
+	"github.com/uber/jaeger-client-go"
+	jaegerConfig "github.com/uber/jaeger-client-go/config"
 	"log"
 	"net"
 	"github.com/opentracing-contrib/go-grpc"
 	"google.golang.org/grpc"
-	pb "git.code.oa.com/taw/taw-simple-demo/examples/go-jaeger-demo/proto"
-	"git.code.oa.com/taw/taw-simple-demo/examples/go-jaeger-demo/trace"
 )
 
 const (
@@ -138,9 +140,11 @@ package grpcdemo
 
 import (
 	"context"
-	"git.code.oa.com/taw/taw-simple-demo/examples/go-jaeger-demo/proto"
-	"git.code.oa.com/taw/taw-simple-demo/examples/go-jaeger-demo/trace"
+	"fmt"
 	"github.com/opentracing-contrib/go-grpc"
+	"github.com/opentracing/opentracing-go"
+	"github.com/uber/jaeger-client-go"
+	jaegerConfig "github.com/uber/jaeger-client-go/config"
 	"google.golang.org/grpc"
 	"log"
 	"time"
