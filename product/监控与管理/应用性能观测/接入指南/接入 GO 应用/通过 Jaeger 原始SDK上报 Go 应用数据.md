@@ -12,7 +12,7 @@
 1. 下载 [Jaeger Agent](https://github.com/jaegertracing/jaeger/releases/tag/v1.22.0)。
 2. 执行下列命令启动 Agent 。
 <dx-codeblock>
-:::  shell
+::: shell
 nohup ./jaeger-agent --reporter.grpc.host-port={{接入点}} --agent.tags=token={{token}}
 :::
 </dx-codeblock>
@@ -23,11 +23,27 @@ nohup ./jaeger-agent --reporter.grpc.host-port={{接入点}} --agent.tags=token=
 通过 Jaeger 原始 SDK 上报数据：
 1. 客户端侧由于需要模拟 HTTP 请求，引入 `opentracing-contrib/go-stdlib/nethttp` 依赖
  - 依赖路径：`github.com/opentracing-contrib/go-stdlib/nethttp`
- - 版本要求： ≥ `dv1.0.0`
+ - 版本要求： ≥ `v1.0.0`
 2. 配置 Jaeger，创建 Trace 对象。示例如下：
 <dx-codeblock>
 :::  GO
-tracer, _ := trace.NewJaegerTracer(clientServerName)
+cfg := &jaegerConfig.Configuration{
+  ServiceName: ginClientName, //对其发起请求的的调用链，叫什么服务
+  Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
+    Type:  "const",
+    Param: 1,
+  },
+  Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
+    LogSpans:          true,
+    CollectorEndpoint: httpEndPoint,
+  },
+  //Token配置
+  Tags:        []opentracing.Tag{ //设置tag，token等信息可存于此
+    opentracing.Tag{Key: "token", Value: token}, //设置token
+  },
+}
+
+tracer, closer, err := cfg.NewTracer(jaegerConfig.Logger(jaeger.StdLogger)) //根据配置得到tracer
 :::
 </dx-codeblock>
 3. 构建 span 并把 span 放入 conext 中，示例如下：
@@ -65,6 +81,12 @@ log.Printf(" %s recevice: %s\n", clientServerName, string(body))
 完整代码如下：
 <dx-codeblock>
 :::  GO
+// Copyright © 2019-2020 Tencent Co., Ltd.
+
+// This file is part of tencent project.
+// Do not copy, cite, or distribute without the express
+// permission from Cloud Monitor group.
+
 package gindemo
 
 import (
@@ -83,13 +105,36 @@ import (
 
 const (
 	// 服务名 服务唯一标示，服务指标聚合过滤依据。
-	clientServerName = "demo-gin-client"
-	ginPort          = ":8080"
+	ginClientName = "demo-gin-client"
+	ginPort       = ":8080"
+	httpEndPoint  = "http://localhost:14268/api/traces" // HTTP 直接上报地址
+	token         = "abc"
 )
 
 // StartClient gin client 也是标准的 http client.
 func StartClient() {
-	tracer, _ := trace.NewJaegerTracer(clientServerName)
+	cfg := &jaegerConfig.Configuration{
+		ServiceName: ginClientName, //对其发起请求的的调用链，叫什么服务
+		Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
+			Type:  "const",
+			Param: 1,
+		},
+		Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
+			LogSpans:          true,
+			CollectorEndpoint: httpEndPoint,
+		},
+		//Token配置
+		Tags: []opentracing.Tag{ //设置tag，token等信息可存于此
+			opentracing.Tag{Key: "token", Value: token}, //设置token
+		},
+	}
+
+	tracer, closer, err := cfg.NewTracer(jaegerConfig.Logger(jaeger.StdLogger)) //根据配置得到tracer
+	defer closer.Close()
+	if err != nil {
+		panic(fmt.Sprintf("ERROR: fail init Jaeger: %v\n", err))
+	}
+	//构建span，并将span放入context中
 	span := tracer.StartSpan("CallDemoServer")
 	ctx := opentracing.ContextWithSpan(context.Background(), span)
 	defer span.Finish()
@@ -101,7 +146,7 @@ func StartClient() {
 		nil,
 	)
 	if err != nil {
-		trace.HandlerError(span, err)
+		HandlerError(span, err)
 		return
 	}
 	// 构建带tracer的请求
@@ -114,16 +159,22 @@ func StartClient() {
 	// 发起请求
 	res, err := httpClient.Do(req)
 	if err != nil {
-		trace.HandlerError(span, err)
+		HandlerError(span, err)
 		return
 	}
 	defer res.Body.Close()
 	body, err := ioutil.ReadAll(res.Body)
 	if err != nil {
-		trace.HandlerError(span, err)
+		HandlerError(span, err)
 		return
 	}
-	log.Printf(" %s recevice: %s\n", clientServerName, string(body))
+	log.Printf(" %s recevice: %s\n", ginClientName, string(body))
+}
+
+// HandlerError handle error to span.
+func HandlerError(span opentracing.Span, err error) {
+	span.SetTag(string(ext.Error), true)
+	span.LogKV(opentracingLog.Error(err))
 }
 :::
 </dx-codeblock>
