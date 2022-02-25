@@ -56,7 +56,7 @@ dba:(none)> show global variables like 'tls_version';
 ```
 show global variables like 'ssl_cipher';
 ```
-2. 若 ssl_cipher 的值中只包含 AES128-SHA、AES256-SHA、AES128-SHA256、AES256-SHA256四个中的一个或多个，则表示是支持的，否则表示不支持，需要进行修改。
+2. 若 ssl_cipher 的值中只包含 AES128-SHA、AES256-SHA、AES128-SHA256、AES256-SHA256 四个中的一个或多个，则表示是支持的，否则表示不支持，需要进行修改。
 ```
 dba:(none)> show global variables like 'ssl_cipher';
 +---------------+-----------------+
@@ -105,7 +105,7 @@ dba:(none)> show global variables like '%ssl%';
 在配置文件中，设置通信协议和加密算法，该方法可以对数据库的所有连接生效。
 >!该方法需要重启数据库。
 
-1. 修改配置文件my.cnf，在[mysqld]下增加如下内容：
+1. 修改配置文件 my.cnf，在[mysqld]下增加如下内容：
 ```
 [mysqld]
 # 设置通信协议

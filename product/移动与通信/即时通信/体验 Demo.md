@@ -88,7 +88,7 @@
             <div class="card">
                             <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
                                 <p class="titlename">Android</p>
-                <p style="color:#586376;"><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/e225271f575b3ddb660d1fc9ec7947e9.png" /></p>
+                <p style="color:#586376;"><img style="width:150px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/968ed9efc4a0a17de372afaab4a796ee.png" /></p>
                                 <a href="https://cloud.tencent.com/document/product/269/64506">快速入门</a>
             </div>
         </div>
@@ -101,7 +101,7 @@
             <div class="card">
                             <img src="https://qcloudimg.tencent-cloud.cn/raw/af07e321883032c9796848d189a80f5e.png" data-nonescope="true">
                                 <p class="titlename">微信小程序</p>
-                <p style="color:#586376;"><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/e225271f575b3ddb660d1fc9ec7947e9.png" /></p>
+                <p style="color:#586376;"><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/d705f9bd3ec330c34329e1763c8added.png" /></p>
                                 <a href="https://cloud.tencent.com/document/product/269/68376">快速入门</a>
             </div>
         </div>
@@ -113,7 +113,7 @@
             <div class="card">
                             <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
                                 <p class="titlename">Android</p>
-                <p style="color:#586376;"><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/e225271f575b3ddb660d1fc9ec7947e9.png" /></p>
+                <p style="color:#586376;"><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/4dca99a243498c180a1bb274b229919a.png" /></p>
                                 <a href="https://cloud.tencent.com/document/product/269/68823">快速入门</a>
             </div>
 </div>
@@ -122,7 +122,7 @@
             <div class="card">
                             <img src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
                                 <p class="titlename">iOS</p>
-                <p style="color:#586376;"><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/e225271f575b3ddb660d1fc9ec7947e9.png" /></p>
+                <p style="color:#586376;"><img style="width:150px; max-width: inherit;" src="https://main.qcloudimg.com/raw/4dca99a243498c180a1bb274b229919a.png" /></p>
                                 <a href="https://cloud.tencent.com/document/product/269/68823">快速入门</a>
             </div>
 </div>

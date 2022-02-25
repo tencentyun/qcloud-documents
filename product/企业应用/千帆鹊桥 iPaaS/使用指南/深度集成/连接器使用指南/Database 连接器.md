@@ -2,7 +2,7 @@
 
 iPaaS Database 连接器可连接第三方关系型数据库系统并执行 SQL 操作。用户通过连接器配置来配置数据库的连接参数，配置成功后便可执行对应的数据库操作。
 
-iPaaS Database 连接器目前支持的数据库有：MySQL、Oracle、PostgreSQL、Sql Server。
+iPaaS Database 连接器目前支持的数据库有：MySQL、Oracle、PostgreSQL、SQL Server。
 
 ## 连接器配置
 
@@ -22,7 +22,7 @@ iPaaS Database 连接器目前支持的数据库有：MySQL、Oracle、PostgreSQ
 
 ##  操作说明
 
-Database 连接器目前支持查询、插入、更新、删除、存储过程（目前仅支持 Sql Server）操作。
+Database 连接器目前支持 MySQL、Oracle、PostgreSQL、SQL Server 数据库的查询、插入、更新、删除操作。同时支持 SQL Server 存储过程操作。
 
 ### 查询操作
 <dx-tabs>
@@ -199,7 +199,7 @@ Database 连接器目前支持查询、插入、更新、删除、存储过程�
 ![image-20210624194603160](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database34.png)
 5. 可以通过“For Each”组件对 RecordSet 数据进行迭代：
 ![image-20210624194833360](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database35.png)
- - 迭代结果如下：
+ 迭代结果如下：
 ![image-20210624194921846](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database36.png)
 :::
 </dx-tabs>
@@ -539,7 +539,7 @@ def dw_process(msg):
 def dw_process(msg):
     return [['xiaomi',66.66,'e'], ['xiaoming',66.66,'f'], ['xiaohua',66.66,'g']]
 ```
- - 测试组件如下：
+ 测试组件如下：
 ![image-20210624203014745](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database47.png)
 5. 构造好 RecordSet 数据后，输入数据集如下：
 ```python
