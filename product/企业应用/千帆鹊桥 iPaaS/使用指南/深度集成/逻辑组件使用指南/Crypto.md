@@ -50,7 +50,7 @@ Crypto 连接器提供常用的对称、非对称和 PGP 加解密功能。
 
 [](id:1)
 
->!密钥长度限制与**组件配置-通用**中选择的加密算法有关，AES/16，DES/8，3DES/24。
+>!密钥长度限制与**组件配置-通用**中选择的加密算法有关，AES/16字节，DES/8字节，3DES/24字节。
 
 :::
 ::: PGP 加密配置
@@ -403,8 +403,8 @@ def dw_process(msg):
 :::
 </dx-tabs>
 
-### 配置回调测试-对称加解密案列
-1. 下载 [回调测试 Demo](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/demo/%E5%9B%9E%E8%B0%83%E5%8A%A0%E5%AF%86%E7%BB%84%E4%BB%B6%E6%B5%8B%E8%AF%95(20220104_12.0).ipaas)。
+### 配置“对称加解密”案列
+1. 下载 [对称加解密 Demo](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/demo/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E8%A7%A3%E5%AF%86demo.ipaas)。
 2. 将 Demo [导入应用](https://cloud.tencent.com/document/product/1270/62261#.E5.AF.BC.E5.85.A5.E5.92.8C.E5.AF.BC.E5.87.BA.E5.BA.94.E7.94.A8) 后，进行调试或发布测试。
 
 
