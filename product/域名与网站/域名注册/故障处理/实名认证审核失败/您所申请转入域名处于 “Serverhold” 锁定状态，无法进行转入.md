@@ -1,5 +1,5 @@
 ## 现象概述
-在 [域名注册控制台](https://console.cloud.tencent.com/domain/mydomain) 进行域名转入操作时，控制台提示 “**很抱歉，您所申请转入域名处于 `Serverhold` 锁定状态,无法进行转入。请查看失败原因并解除锁定后尝试重新转入**”。
+在 [域名注册控制台](https://console.cloud.tencent.com/domain/mydomain) 进行域名转入操作时，控制台提示 “**很抱歉，您所申请转入域名处于 `Serverhold` 锁定状态，无法进行转入。请查看失败原因并解除锁定后尝试重新转入**”。
 
 
 ## 可能原因
