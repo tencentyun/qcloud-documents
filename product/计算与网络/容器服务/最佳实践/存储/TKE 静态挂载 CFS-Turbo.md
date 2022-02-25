@@ -188,6 +188,8 @@ spec:
       host: 10.0.0.116
       # cfs turbo fsid (not cfs id)
       fsid: xxxxxxxx
+      # cfs turbo subPath
+      path: /
       proto: lustre
   storageClassName: ""
 ```
@@ -195,7 +197,8 @@ spec:
   - **metadata.name**: 创建 PV 名称。 
   - **spec.csi.volumeHandle**: 与 PV 名称保持一致。  
   - **spec.csi.volumeAttributes.host**: 文件系统 ip 地址，可在文件系统挂载点信息中查看。  
-  - **spec.csi.volumeAttributes.fsid**: 文件系统 fsid（非文件系统 id），可在文件系统挂载点信息中查看（挂载命令中 "tcp0:/" 之后 "/cfs" 之前的那一段字符串，如下图）。 
+  - **spec.csi.volumeAttributes.fsid**: 文件系统 fsid（非文件系统 id），可在文件系统挂载点信息中查看（挂载命令中 "tcp0:/" 之后 "/cfs" 之前的那一段字符串，如下图）。
+  - **spec.csi.volumeAttributes.path**: 文件系统子目录，默认为文件系统根目录 “/”。挂载后 workload 将无法访问到该子目录的上层目录，须确保该子目录在文件系统中已存在。 
   - **spec.csi.volumeAttributes.proto**：文件系统默认挂载协议。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/357dd592683ac766f8e6b4c653a27951.png)
 >! 使用 `lustre` 协议挂载 CFS Turbo 卷需预先在集群节点内根据操作系统内核版本安装对应客户端，详情请参考 [在 Linux 客户端上使用 CFS Turbo 文件系统](https://cloud.tencent.com/document/product/582/54765)；
