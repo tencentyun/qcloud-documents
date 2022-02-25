@@ -14,7 +14,7 @@
 - 下载并安装 [.vsix](https://download.qt.io/official_releases/vsaddin/) 插件⽂件，官⽹上找对应插件版本安装即可。
 - 打开 VS 并在⼯具栏找到 `QT VS Tools -> Qt Options -> Qt Versions`，add 添加我们⾃⼰的 Qt 编译器 msvc。
 - 需要将 `SDK/CPlusPlus/Win64/lib` 下的所有的 `.dll` ⽂件拷⻉到⼯程⽬录下的 `debug` / `release` ⽂件夹下。
->! `debug/release` ⽂件夹均是在 VS 上的环境配置完后⾃动⽣成。如果是32位程序，则需要拷贝 `SDK/CPlusPlus/Win64/lib` 下的所有 `.dll`到 `debug` / `release` ⽂件夹下
+>! `debug/release` ⽂件夹均是在 VS 上的环境配置完后⾃动⽣成。如果是32位程序，则需要拷贝 `SDK/CPlusPlus/Win64/lib` 下的所有 `.dll`到 `debug` / `release` ⽂件夹下。
 
 
 ## 前提条件
@@ -63,7 +63,7 @@
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul>
   <img src="https://qcloudimg.tencent-cloud.cn/raw/50bda8edeba1217a7744729f057aac51.png">
->! C++ DuilibDemo 和 C++ QTDemo 分别修改 `Windows/DuilibDemo/GenerateTestUserSig.h` 和 `Windows/QTDemo/src/Util/defs.h` 文件中的 SDKAPPID/SDKAppID 和 SECRETKEY 字段为实际的 SDKAppID 和 密钥信息。
+  >! C++ DuilibDemo 和 C++ QTDemo 分别修改 `Windows/DuilibDemo/GenerateTestUserSig.h` 和 `Windows/QTDemo/src/Util/defs.h` 文件中的 SDKAPPID/SDKAppID 和 SECRETKEY 字段为实际的 SDKAppID 和 密钥信息。
 4. 粘贴完成后，单击**已复制粘贴，下一步**即创建成功。
 5. 编译完成后，单击**回到控制台概览**即可。
 
@@ -78,9 +78,8 @@
 - **Windows（C#）：**
 使用 Visual Studio（建议 VS2017）打开源码目录下的 `CSharpDemo\TRTCCSharpDemo.sln` 工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
 - **Windows（QT）：**
-<ul><li>（方法一）使⽤ QtCreator 打开源码⽬录下的
-QTDemo\QTDemo.pro⼯程⽂件，编译并运⾏ QTDemo ⼯程即可。</li>
-<li>（方法二）启动安装了 [Qt开发插件](https://download.qt.io/archive/vsaddin/2.6.0/qt-vsaddin-msvc2015-2.6.0.vsix) 的Visual Studio（建议 VS2015 或以上），在菜单中选择 `Qt VS Tools > Open Qt Project File(.pro)...` 打开源码⽬录下的 `QTDemo\QTDemo.pro` ⼯程⽂件，编译并运⾏ QTDemo ⼯程即可。</li></ul>
+	- **方法一：**使⽤ QtCreator 打开源码⽬录下的 `QTDemo\QTDemo.pro` ⼯程⽂件，编译并运⾏ QTDemo ⼯程即可。
+	- **方法二：**启动安装了 QT 开发插件的 Visual Studio（建议 VS2015 或以上），在菜单中选择 `Qt VS Tools > Open Qt Project File(.pro)...` 打开源码⽬录下的 `QTDemo\QTDemo.pro` ⼯程⽂件，编译并运⾏ QTDemo ⼯程即可。
 
 ## 常见问题
 
