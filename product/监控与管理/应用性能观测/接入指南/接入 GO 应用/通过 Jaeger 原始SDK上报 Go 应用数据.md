@@ -35,7 +35,7 @@ cfg := &jaegerConfig.Configuration{
   },
   Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
     LogSpans:          true,
-    CollectorEndpoint: httpEndPoint,
+   LocalAgentHostPort: endPoint,
   },
   //Token配置
   Tags:        []opentracing.Tag{ //设置tag，token等信息可存于此
@@ -87,7 +87,7 @@ log.Printf(" %s recevice: %s\n", clientServerName, string(body))
 // Do not copy, cite, or distribute without the express
 // permission from Cloud Monitor group.
 
-package gindemo
+package httpdemo
 
 import (
 	"context"
@@ -105,30 +105,27 @@ import (
 
 const (
 	// 服务名 服务唯一标示，服务指标聚合过滤依据。
-	ginClientName = "demo-gin-client"
-	ginPort       = ":8080"
-	httpEndPoint  = "http://localhost:14268/api/traces" // HTTP 直接上报地址
-	token         = "abc"
+	httpClientName = "demo-http-client"
+	endPoint       = "xxxxx:6831" // 本地agent地址
+	token          = "abc"
 )
 
-// StartClient gin client 也是标准的 http client.
 func StartClient() {
 	cfg := &jaegerConfig.Configuration{
-		ServiceName: ginClientName, //对其发起请求的的调用链，叫什么服务
+		ServiceName: httpClientName, //对其发起请求的的调用链，叫什么服务
 		Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
 			Type:  "const",
 			Param: 1,
 		},
 		Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
 			LogSpans:          true,
-			CollectorEndpoint: httpEndPoint,
+			LocalAgentHostPort: endPoint,
 		},
 		//Token配置
 		Tags: []opentracing.Tag{ //设置tag，token等信息可存于此
 			opentracing.Tag{Key: "token", Value: token}, //设置token
 		},
 	}
-
 	tracer, closer, err := cfg.NewTracer(jaegerConfig.Logger(jaeger.StdLogger)) //根据配置得到tracer
 	defer closer.Close()
 	if err != nil {
@@ -142,7 +139,7 @@ func StartClient() {
 	// 构建http请求
 	req, err := http.NewRequest(
 		http.MethodGet,
-		fmt.Sprintf("http://localhost%s/ping", ginPort),
+		fmt.Sprintf("http://localhost%s/helloTrace", *serverPort),
 		nil,
 	)
 	if err != nil {
@@ -153,10 +150,9 @@ func StartClient() {
 	req = req.WithContext(ctx)
 	req, ht := nethttp.TraceRequest(tracer, req)
 	defer ht.Finish()
-
 	// 初始化http客户端
 	httpClient := &http.Client{Transport: &nethttp.Transport{}}
-	// 发起请求
+	// 发送请求
 	res, err := httpClient.Do(req)
 	if err != nil {
 		HandlerError(span, err)
@@ -168,10 +164,9 @@ func StartClient() {
 		HandlerError(span, err)
 		return
 	}
-	log.Printf(" %s recevice: %s\n", ginClientName, string(body))
+	log.Printf(" %s recevice: %s\n", httpClientName, string(body))
 }
 
-// HandlerError handle error to span.
 func HandlerError(span opentracing.Span, err error) {
 	span.SetTag(string(ext.Error), true)
 	span.LogKV(opentracingLog.Error(err))
