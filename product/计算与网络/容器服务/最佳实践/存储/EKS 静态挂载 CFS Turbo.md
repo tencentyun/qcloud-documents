@@ -55,6 +55,8 @@ spec:
     volumeAttributes: 
       host: *.*.*.*
       fsid: ********
+      # cfs turbo subPath
+      path: /
   storageClassName: ""
 ```
 
@@ -63,6 +65,7 @@ spec:
 - **spec.csi.volumeHandle**：与 PV 名称保持一致。  
 - **spec.csi.volumeAttributes.host**：文件系统 ip 地址，可在文件系统挂载点信息中查看。  
 - **spec.csi.volumeAttributes.fsid**：文件系统 fsid（非文件系统 id），可在文件系统挂载点信息中查看（挂载命令中 "tcp0:/" 与 "/cfs" 之间的字符串，如下图）。 
+- **spec.csi.volumeAttributes.path**: 文件系统子目录，默认为文件系统根目录 “/”。挂载后 workload 将无法访问到该子目录的上层目录，须确保该子目录在文件系统中已存在。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/56b46e1e64fb2531f313da0a61485097.png)
 
 #### 步骤2：使用以下模板创建 PVC 绑定 PV
