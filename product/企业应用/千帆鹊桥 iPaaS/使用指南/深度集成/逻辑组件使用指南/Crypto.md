@@ -47,6 +47,7 @@ Crypto 连接器提供常用的对称、非对称和 PGP 加解密功能。
 | :--- | -------- | -------- | ------------ | ---------- |
 | 密钥 | string   | 加密密钥 | 是           |    -        |
 
+
 [](id:1)
 
 >!密钥长度限制与**组件配置-通用**中选择的加密算法有关，AES/16，DES/8，3DES/24。
@@ -130,7 +131,7 @@ def dw_process(msg):
 | 内容填充模式 | enum     | PKCS5_PADDING、ZERO_PADDING、PKCS7_PADDING、NO_PADDING | 是           | PKCS5_PADDING |
 
 **CBC 加密模式**
-选择 CBC 加密模式时，随机向量必填，长度跟密钥长度一致，再填写明文和填充模式即可。
+选择 CBC 加密模式时，随机向量必填，长度跟 [密钥长度](#1) 一致，再填写明文和填充模式即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/79d632a96d9f33ee1e07aa2dc4db8c98.png)
 **ECB 加密模式**
 当选择 ECB 加密模式时，只需填写明文和填充模式，无其他配置项。
