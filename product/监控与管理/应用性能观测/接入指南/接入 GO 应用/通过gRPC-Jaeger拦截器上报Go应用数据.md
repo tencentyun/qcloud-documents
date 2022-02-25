@@ -35,7 +35,7 @@ cfg := &jaegerConfig.Configuration{
   },
   Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
     LogSpans:          true,
-    CollectorEndpoint: httpEndPoint,
+    LocalAgentHostPort: endPoint,
   },
   //Token配置
   Tags:        []opentracing.Tag{ //设置tag，token等信息可存于此
@@ -111,8 +111,8 @@ func StartServer() {
 			Param: 1,
 		},
 		Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
-			LogSpans:          true,
-			CollectorEndpoint: httpEndPoint,
+			LogSpans:           true,
+			LocalAgentHostPort: endPoint,
 		},
 		//Token配置
 		Tags: []opentracing.Tag{ //设置tag，token等信息可存于此
@@ -156,7 +156,7 @@ cfg := &jaegerConfig.Configuration{
   },
   Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
     LogSpans:          true,
-    CollectorEndpoint: httpEndPoint,
+    LocalAgentHostPort: endPoint,
   },
   //Token配置
   Tags:        []opentracing.Tag{ //设置tag，token等信息可存于此
@@ -203,7 +203,7 @@ const (
 	grpcClientName = "demo-grpc-client"
 	defaultName    = "TAW Tracing"
 	serverAddress  = "localhost:9090"
-	httpEndPoint   = "http://localhost:14268/api/traces" // HTTP 直接上报地址
+	endPoint       = "xxxxx:6831" // 本地agent地址
 	token          = "abc"
 )
 
@@ -216,8 +216,8 @@ func StartClient() {
 			Param: 1,
 		},
 		Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
-			LogSpans:          true,
-			CollectorEndpoint: httpEndPoint,
+			LogSpans:           true,
+			LocalAgentHostPort: endPoint,
 		},
 		//Token配置
 		Tags: []opentracing.Tag{ //设置tag，token等信息可存于此
