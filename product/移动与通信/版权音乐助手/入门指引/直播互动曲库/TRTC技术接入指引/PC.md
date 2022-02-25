@@ -1,41 +1,18 @@
 ## 产品原理
 流程图：
-```mermaid
-sequenceDiagram
-participant App客户端
-participant App后台
-participant TRTC SDK
-participant TXCopyrightedMedia
-participant 腾讯云后台
-
-App客户端 ->> App后台:请求搜索音乐
-App后台 ->> 腾讯云后台:请求搜索音乐 SearchKTVMusics
-腾讯云后台 -->> App后台:返回音乐列表
-App后台 -->> App客户端:返回音乐列表
-
-App客户端 -->> App后台:请求音乐详情
-App后台 ->> 腾讯云后台:请求音乐详情 DescribeKTVMusicDetail（带musicId）
-腾讯云后台 -->> App后台:返回音乐详情
-App后台 -->> App客户端:返回音乐详情
-
-App客户端 ->> TXCopyrightedMedia:preloadMusic（传入musicId+playToken+bitrateDefinition）
-TXCopyrightedMedia ->> 腾讯云后台:请求Music数据
-腾讯云后台 -->> TXCopyrightedMedia:返回Music数据
-TXCopyrightedMedia -->> App客户端:回调preloadMusic进度和结果
-App客户端 ->> TRTC SDK:startPlayMusic（传入genMusicURI返回值）
-```
+![](https://qcloudimg.tencent-cloud.cn/raw/cec74bd81f718b03ce5d9ab32794f97b.png)
 
 ## 接入前准备工作
 
-### 账号注册及认证
+### 步骤1：账号注册及认证
 - 注册 [腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F)。
 - 完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 
-### 服务开通
+### 步骤2：服务开通
 - **正版曲库直通车 AME 服务开通**：登录 [正版曲库直通车 AME 控制台](https://console.cloud.tencent.com/ame) 后，您可在勾选同意 [腾讯云服务协议](https://cloud.tencent.com/document/product/301/1967) 以及 [正版曲库直通车服务协议](https://cloud.tencent.com/document/product/1155/40757) 后单击**立即开通**，即可开通服务。<br>
 - **实时音视频 TRTC 服务开通**：登录 [实时音视频 TRTC 控制台](https://console.cloud.tencent.com/trtc) 开通并使用产品。
 
-## 步骤1：应用创建
+### 步骤3：应用创建
 您可在左导航栏进入**应用管理**页面，单击**创建应用**按钮，根据弹窗填空提示，填写相应的信息。
 
 | 配置项              | 配置说明                                                     |
@@ -48,10 +25,10 @@ App客户端 ->> TRTC SDK:startPlayMusic（传入genMusicURI返回值）
 
 ![img](https://qcloudimg.tencent-cloud.cn/raw/d9aa702f15daedbc090a0d7b8343003a.png)
 
-## 步骤2：白名单添加
+### 步骤4：白名单添加
 因产品尚在内测，在正式接入之前，请联系对应商务经理为您添加白名单。
 
-## 步骤3：API 联调
+### 步骤5：API 联调
 
 | API 名称     | 描述   | 使用说明                   |
 | ---------- | ------ | ---------------------- |
