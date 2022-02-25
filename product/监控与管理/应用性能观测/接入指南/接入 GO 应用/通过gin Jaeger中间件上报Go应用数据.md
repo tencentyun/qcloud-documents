@@ -29,21 +29,20 @@ nohup ./jaeger-agent --reporter.grpc.host-port={{collectorRPCHostPort}} --agent.
 <dx-codeblock>
 :::  go
 cfg := &jaegerConfig.Configuration{
-  ServiceName: ginServerName, //对其发起请求的的调用链，叫什么服务
+  ServiceName: grpcServerName, //对其发起请求的的调用链，叫什么服务
   Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
     Type:  "const",
     Param: 1,
   },
   Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
     LogSpans:          true,
-    CollectorEndpoint: httpEndPoint,
+    LocalAgentHostPort: endPoint,
   },
   //Token配置
   Tags:        []opentracing.Tag{ //设置tag，token等信息可存于此
     opentracing.Tag{Key: "token", Value: token}, //设置token
   },
 }
-
 tracer, closer, err := cfg.NewTracer(jaegerConfig.Logger(jaeger.StdLogger)) //根据配置得到tracer
 :::
 </dx-codeblock>
@@ -75,58 +74,71 @@ r.Use(ginhttp.Middleware(tracer, ginhttp.OperationNameFunc(func(r *http.Request)
 // Do not copy, cite, or distribute without the express
 // permission from Cloud Monitor group.
 
-package gindemo
+package grpcdemo
 
 import (
+	"context"
 	"fmt"
-	"github.com/gin-gonic/gin"
-	"github.com/opentracing-contrib/go-gin/ginhttp"
 	"github.com/opentracing/opentracing-go"
 	"github.com/uber/jaeger-client-go"
 	jaegerConfig "github.com/uber/jaeger-client-go/config"
-	"net/http"
+	"log"
+	"net"
+
+	"github.com/opentracing-contrib/go-grpc"
+	"google.golang.org/grpc"
 )
 
-// 服务名 服务唯一标示，服务指标聚合过滤依据。
-const ginServerName = "demo-gin-server"
+const (
+	// 服务名 服务唯一标示，服务指标聚合过滤依据。
+	grpcServerName = "demo-grpc-server"
+	serverPort     = ":9090"
+)
+
+// server is used to implement proto.HelloTraceServer.
+type server struct {
+	UnimplementedHelloTraceServer
+}
+
+// SayHello implements proto.HelloTraceServer
+func (s *server) SayHello(ctx context.Context, in *TraceRequest) (*TraceResponse, error) {
+	log.Printf("Received: %v", in.GetName())
+	return &TraceResponse{Message: "Hello " + in.GetName()}, nil
+}
 
 // StartServer
 func StartServer() {
-	//初始化jaeger，得到tracer
 	cfg := &jaegerConfig.Configuration{
-		ServiceName: ginServerName, //对其发起请求的的调用链，叫什么服务
+		ServiceName: grpcServerName, //对其发起请求的的调用链，叫什么服务
 		Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
 			Type:  "const",
 			Param: 1,
 		},
 		Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
-			LogSpans:          true,
-			CollectorEndpoint: httpEndPoint,
+			LogSpans:           true,
+			LocalAgentHostPort: endPoint,
 		},
 		//Token配置
 		Tags: []opentracing.Tag{ //设置tag，token等信息可存于此
 			opentracing.Tag{Key: "token", Value: token}, //设置token
 		},
 	}
-
 	tracer, closer, err := cfg.NewTracer(jaegerConfig.Logger(jaeger.StdLogger)) //根据配置得到tracer
+	defer closer.Close()
 	if err != nil {
 		panic(fmt.Sprintf("ERROR: fail init Jaeger: %v\n", err))
 	}
-	defer closer.Close()
-	r := gin.Default()
-	//这里说明一下，官方默认 OperationName 是 HTTP + HttpMethod,
-	//建议使用 HTTP + HttpMethod + URL 可以分析到具体接口，具体用法如下
-	//PS：Restful 接口主要URL应该是参数名，不是具体参数值。 如： 正确：/user/{id}， 错误：/user/1
-	r.Use(ginhttp.Middleware(tracer, ginhttp.OperationNameFunc(func(r *http.Request) string {
-		return fmt.Sprintf("HTTP %s %s", r.Method, r.URL.String())
-	})))
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-	r.Run() // 监听 0.0.0.0:8080
+	lis, err := net.Listen("tcp", serverPort)
+	if err != nil {
+		log.Fatalf("failed to listen: %v", err)
+	}
+	s := grpc.NewServer(grpc.UnaryInterceptor(otgrpc.OpenTracingServerInterceptor(tracer)))
+
+	// 在gRPC服务器处注册我们的服务
+	RegisterHelloTraceServer(s, &server{})
+	if err := s.Serve(lis); err != nil {
+		log.Fatalf("failed to serve: %v", err)
+	}
 }
 
 :::
@@ -141,21 +153,20 @@ func StartServer() {
 <dx-codeblock>
 :::  go
 cfg := &jaegerConfig.Configuration{
-  ServiceName: ginClientName, //对其发起请求的的调用链，叫什么服务
+  ServiceName: grpcClientName, //对其发起请求的的调用链，叫什么服务
   Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
     Type:  "const",
     Param: 1,
   },
   Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
     LogSpans:          true,
-    CollectorEndpoint: httpEndPoint,
+		LocalAgentHostPort: endPoint,
   },
   //Token配置
   Tags:        []opentracing.Tag{ //设置tag，token等信息可存于此
     opentracing.Tag{Key: "token", Value: token}, //设置token
   },
 }
-
 tracer, closer, err := cfg.NewTracer(jaegerConfig.Logger(jaeger.StdLogger)) //根据配置得到tracer
 :::
 </dx-codeblock>
@@ -200,94 +211,69 @@ log.Printf(" %s recevice: %s\n", clientServerName, string(body))
 // Do not copy, cite, or distribute without the express
 // permission from Cloud Monitor group.
 
-package gindemo
+package grpcdemo
 
 import (
 	"context"
 	"fmt"
-	"github.com/opentracing-contrib/go-stdlib/nethttp"
+	"github.com/opentracing-contrib/go-grpc"
 	"github.com/opentracing/opentracing-go"
-	"github.com/opentracing/opentracing-go/ext"
-	opentracingLog "github.com/opentracing/opentracing-go/log"
 	"github.com/uber/jaeger-client-go"
 	jaegerConfig "github.com/uber/jaeger-client-go/config"
-	"io/ioutil"
+	"google.golang.org/grpc"
 	"log"
-	"net/http"
+	"time"
 )
 
 const (
 	// 服务名 服务唯一标示，服务指标聚合过滤依据。
-	ginClientName = "demo-gin-client"
-	ginPort       = ":8080"
-	httpEndPoint  = "http://localhost:14268/api/traces" // HTTP 直接上报地址
-	token         = "abc"
+	grpcClientName = "demo-grpc-client"
+	defaultName    = "TAW Tracing"
+	serverAddress  = "localhost:9090"
+	endPoint       = "xxxxx:6831" // 本地agent地址
+	token          = "abc"
 )
 
-// StartClient gin client 也是标准的 http client.
+// StartClient
 func StartClient() {
 	cfg := &jaegerConfig.Configuration{
-		ServiceName: ginClientName, //对其发起请求的的调用链，叫什么服务
+		ServiceName: grpcClientName, //对其发起请求的的调用链，叫什么服务
 		Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
 			Type:  "const",
 			Param: 1,
 		},
 		Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
-			LogSpans:          true,
-			CollectorEndpoint: httpEndPoint,
+			LogSpans:           true,
+			LocalAgentHostPort: endPoint,
 		},
 		//Token配置
 		Tags: []opentracing.Tag{ //设置tag，token等信息可存于此
 			opentracing.Tag{Key: "token", Value: token}, //设置token
 		},
 	}
-
 	tracer, closer, err := cfg.NewTracer(jaegerConfig.Logger(jaeger.StdLogger)) //根据配置得到tracer
 	defer closer.Close()
 	if err != nil {
 		panic(fmt.Sprintf("ERROR: fail init Jaeger: %v\n", err))
 	}
-	//构建span，并将span放入context中
-	span := tracer.StartSpan("CallDemoServer")
-	ctx := opentracing.ContextWithSpan(context.Background(), span)
-	defer span.Finish()
-
-	// 构建http请求
-	req, err := http.NewRequest(
-		http.MethodGet,
-		fmt.Sprintf("http://localhost%s/ping", ginPort),
-		nil,
-	)
+	// 向服务端建立链接，配置拦截器
+	conn, err := grpc.Dial(serverAddress, grpc.WithInsecure(), grpc.WithBlock(),
+		grpc.WithUnaryInterceptor(otgrpc.OpenTracingClientInterceptor(tracer)))
 	if err != nil {
-		HandlerError(span, err)
-		return
+		log.Fatalf("did not connect: %v", err)
 	}
-	// 构建带tracer的请求
-	req = req.WithContext(ctx)
-	req, ht := nethttp.TraceRequest(tracer, req)
-	defer ht.Finish()
+	defer conn.Close()
 
-	// 初始化http客户端
-	httpClient := &http.Client{Transport: &nethttp.Transport{}}
-	// 发起请求
-	res, err := httpClient.Do(req)
+	//
+	c := NewHelloTraceClient(conn)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	defer cancel()
+	// 发起RPC调用
+	r, err := c.SayHello(ctx, &TraceRequest{Name: defaultName})
 	if err != nil {
-		HandlerError(span, err)
-		return
+		log.Fatalf("could not greet: %v", err)
 	}
-	defer res.Body.Close()
-	body, err := ioutil.ReadAll(res.Body)
-	if err != nil {
-		HandlerError(span, err)
-		return
-	}
-	log.Printf(" %s recevice: %s\n", ginClientName, string(body))
-}
-
-// HandlerError handle error to span.
-func HandlerError(span opentracing.Span, err error) {
-	span.SetTag(string(ext.Error), true)
-	span.LogKV(opentracingLog.Error(err))
+	log.Printf("RPC Client receive: %s", r.GetMessage())
 }
 :::
 </dx-codeblock>
