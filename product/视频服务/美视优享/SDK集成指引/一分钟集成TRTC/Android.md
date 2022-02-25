@@ -5,65 +5,10 @@
 2. 将 Demo ⼯程中的 xmagic 模块引⼊到实际项⽬⼯程中。
 
 [](id:step2)
-## 步骤二：授权
-> !部分代码与 Demo 工程中的代码有差异，请以本文档描述为准。
+## 步骤二：鉴权
+鉴权流程请参考
 
-1. 申请 License URL 和 License KEY，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)。
-> !**不需要**把 License 文件下载下来放到本地工程里。
-2. 在 TRTCApplication 的 onCreate 方法中调用下面这个方法 ，触发 License 下载，避免在使用前才临时去下载。
-```java
-import com.tencent.xmagic.license.LicenceCheck;
-LicenceCheck.getInstance().setXMagicLicense(context, URL, KEY);
-```
-3. 然后在真正要使用美颜功能时（例如 XMagicImpl.java 中），再去做鉴权：
-```java
-private void auth() {
-	LicenceCheck.getInstance().setListener(new LicenceCheck.LicenceCheckListener() {
-		 @Override
-		 public void onLicenceLoaded(int result, String reason) {
-			 //在2.4.0版本，如果无需下载，或者下载失败，不会回调这个方法。（后续版本会补齐）
-			 //如果有下载，且下载成功，会回调。result为LicenceCheck.ERROR_OK表示下载下来的license文件是有效的
-			 if (result == LicenceCheck.ERROR_OK) {
-					 checkAuth(context);
-			 }
-		 }
-	});
-	//再次触发下载（因为有可能之前在onCreate那里触发下载没有成功）
-	LicenceCheck.getInstance().setXMagicLicense(context,URL,KEY);
-
-	checkAuth(context);
-}
-
-private boolean authorized = false;
-private synchronized void checkAuth(Context context) {
-	Log.d(TAG, "checkAuth: authorized=" + authorized);
-	if (authorized) {
-		 return;
-	}
-	LicenceCheck mLicenceCheck = LicenceCheck.getInstance();
-	String licenseInfo = mLicenceCheck.getBase64Licence();
-	if (TextUtils.isEmpty(licenseInfo)) {
-		 licenseInfo = mLicenceCheck.getLicensePathBase64();
-	}
-	if (TextUtils.isEmpty(licenseInfo)) {
-		 Log.d(TAG, "licenseInfo is empty");
-		 authorized = false;
-	} else {
-		 Auth.AuthResult result = Auth.authByBase64(context, licenseInfo, "");
-
-		 String msg = Json.toJsonStr(result);
-		 Log.d(TAG, "isSucceed=" + result.isSucceed);
-		 Log.d(TAG, "msg=" + msg);
-		 authorized = result.isSucceed;
-	}
-
-	if (authorized) {
-		 //TODO 鉴权成功，在这里通知UI刷新、执行下一步操作之类的事情
-	}
-}
-```
-
->? 如果鉴权失败，您可参考 [查看鉴权结果及错误码说明](https://cloud.tencent.com/document/product/616/68760) 定位失败原因。
+[https://cloud.tencent.com/document/product/616/65891#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E9.89.B4.E6.9D.83](https://cloud.tencent.com/document/product/616/65891#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E9.89.B4.E6.9D.83)
 
 [](id:step3)
 ## 步骤三：打开 app 模块的 build.gradle
