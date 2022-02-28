@@ -53,7 +53,7 @@
 #### 2. 选择域名
 
 根据上传 / 选择的证书，CDN 会自动匹配出允许配置的域名列表，可按需进行勾选配置：
-![](https://main.qcloudimg.com/raw/89ad35a4fb3a5b30c0736c88bb06cf37.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/068cf040a9332c3139817e65905d5173.png)
 
 
 
