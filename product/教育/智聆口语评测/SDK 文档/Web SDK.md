@@ -25,7 +25,7 @@ new TencentSOE
 | EvalMode         | Integer  | 0：词模式（中文评测模式下为文字模式），1：句子模式，2：段落模式，3：自由说模式 | 否 | 0 |
 | ScoreCoeff       | Float    | 评价苛刻指数，取值为[1.0 - 4.0]范围内的浮点数<br>用于平滑不同年龄段的分数，1.0为小年龄段，4.0为最高年龄段 | 否 | 3.5 |
 | SoeAppId         | String   | 业务应用 ID，与账号应用 APPID 无关，是用来方便客户管理服务的参数 | 否 | 无 |
-| StorageMode      | Integer  | 音频存储模式，0：不存储，1：存储到公共对象存储，<br>输出结果为该会话最后一个分片 TransmitOralProcess 返回结果 AudioUrl 字段 | 否 | 无 |
+| StorageMode      | Integer  | 音频存储模式，此参数已废弃，无需设置，设置与否都默认为0不存储；**注意：有存储需求的用户建议自行存储至 [腾讯云 COS 对象存储](https://cloud.tencent.com/document/product/436/11365) 使用** | 否 | 无 |
 | ServerType       | Integer  | 评估语言，0：英文，1：中文 | 否 | 0 |
 | TextMode         | Integer  | 输入文本模式，0: 普通文本，1: 音素结构文本 | 否 | 0 |
 | MediaUrl         | String   | 获取高清语音素材获取接口（微信端） | 是 | 0 |

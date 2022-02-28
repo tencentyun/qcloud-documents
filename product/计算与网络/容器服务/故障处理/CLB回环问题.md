@@ -36,7 +36,9 @@ CLB 回环问题可能导致存在以下现象：
 
 解决使用 Ingress 时可能遇到的回环问题，步骤如下：
 
-1.  [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通 CLB 7层 SNAT 能力的白名单。
+1.  [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通 CLB 7层 SNAT 和 Keep Alive 能力的白名单。
+>! 该能力将启用长连接，CLB 与后端服务之间使用长连接，CLB 不再透传源 IP，请从 XFF 中获取源 IP。为保证正常转发，请在 CLB 上打开安全组默认放通或者在 CVM 的安全组上放通 100.127.0.0/16。更多请参考 [配置监听器](https://cloud.tencent.com/document/product/214/36384#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E9.85.8D.E7.BD.AE.E7.9B.91.E5.90.AC.E5.99.A8)。
+
 2. 利用 TkeServiceConfig 的能力增强 Ingress 的配置能力,对于存量的 Ingress，需要添加一个 annotation：`ingress.cloud.tencent.com/tke-service-config-auto: "true"`，[Ingress Annotation 说明](https://cloud.tencent.com/document/product/457/56112) 可以参考下图：
    ![](https://qcloudimg.tencent-cloud.cn/raw/b8d84d9072d8b81877e51d513b1be8e9.png)
    **目的**：为该 Ingress 自动生成对应的 TkeServiceConfig，提供 Ingress 额外的配置

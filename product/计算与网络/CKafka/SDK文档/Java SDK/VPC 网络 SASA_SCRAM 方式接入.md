@@ -9,7 +9,7 @@
 - [安装 1.8 或以上版本 JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [安装 2.5 或以上版本 Maven](http://maven.apache.org/download.cgi#)
 - [配置 ACL 策略](https://cloud.tencent.com/document/product/597/31528)
-- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/javakafkademo/PUBLIC_SASL)
+- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/javakafkademo/PUBLIC_SASL/src/main/java/ckafka/demo/scram)
 
 ## 操作步骤
 

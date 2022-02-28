@@ -87,7 +87,7 @@ spec:
 2.  执行 `kubectl apply -f csi-node.yaml` 命令，csi-node.yaml 代码参考如下：
 ```yaml
 # This YAML file contains driver-registrar & csi driver nodeplugin API objects
-# that are necessary to run CSI nodeplugin for cfs
+# that are necessary to run CSI nodeplugin for cfsturbo
 kind: DaemonSet
 apiVersion: apps/v1
 metadata:
@@ -106,11 +106,11 @@ spec:
       hostNetwork: true
       containers:
         - name: driver-registrar
-          image: ccr.ccs.tencentyun.com/k8scsi/csi-node-driver-registrar:v1.2.0
+          image: ccr.ccs.tencentyun.com/tkeimages/csi-node-driver-registrar:v1.2.0
           lifecycle:
             preStop:
               exec:
-                command: ["/bin/sh", "-c", "rm -rf /registration/com.tencent.cloud.csi.cfsturbo/registration/com.tencent.cloud.csi.cfsturbo-reg.sock"]
+                command: ["/bin/sh", "-c", "rm -rf /registration/com.tencent.cloud.csi.cfsturbo /registration/com.tencent.cloud.csi.cfsturbo-reg.sock"]
           args:
             - "--v=5"
             - "--csi-address=/plugin/csi.sock"
@@ -131,7 +131,7 @@ spec:
             capabilities:
               add: ["SYS_ADMIN"]
             allowPrivilegeEscalation: true
-          image: ccr.ccs.tencentyun.com/k8scsi/csi-tencentcloud-cfsturbo:v1.2.0
+          image: ccr.ccs.tencentyun.com/tkeimages/csi-tencentcloud-cfsturbo:v1.2.1
           args :
             - "--nodeID=$(NODE_ID)"
             - "--endpoint=$(CSI_ENDPOINT)"
@@ -149,6 +149,9 @@ spec:
             - name: pods-mount-dir
               mountPath: /var/lib/kubelet/pods
               mountPropagation: "Bidirectional"
+            - name: global-mount-dir
+              mountPath: /etc/cfsturbo/global
+              mountPropagation: "Bidirectional"
       volumes:
         - name: plugin-dir
           hostPath:
@@ -162,6 +165,10 @@ spec:
           hostPath:
             path: /var/lib/kubelet/plugins_registry
             type: Directory
+        - name: global-mount-dir
+          hostPath:
+            path: /etc/cfsturbo/global
+            type: DirectoryOrCreate
 ```
 
 
@@ -188,6 +195,8 @@ spec:
       host: 10.0.0.116
       # cfs turbo fsid (not cfs id)
       fsid: xxxxxxxx
+      # cfs turbo subPath
+      path: /
       proto: lustre
   storageClassName: ""
 ```
@@ -195,7 +204,8 @@ spec:
   - **metadata.name**: 创建 PV 名称。 
   - **spec.csi.volumeHandle**: 与 PV 名称保持一致。  
   - **spec.csi.volumeAttributes.host**: 文件系统 ip 地址，可在文件系统挂载点信息中查看。  
-  - **spec.csi.volumeAttributes.fsid**: 文件系统 fsid（非文件系统 id），可在文件系统挂载点信息中查看（挂载命令中 "tcp0:/" 之后 "/cfs" 之前的那一段字符串，如下图）。 
+  - **spec.csi.volumeAttributes.fsid**: 文件系统 fsid（非文件系统 id），可在文件系统挂载点信息中查看（挂载命令中 “tcp0:/” 之后 “/cfs” 之前的那一段字符串，如下图）。
+  - **spec.csi.volumeAttributes.path**: 文件系统子目录，不填写默认为 “/”（为提高挂载性能，插件后端将 “/”目录实际定位到 “/cfs目录下”）。如需指定子目录挂载，须确保该子目录在文件系统 “/cfs”中存在，挂载后 workload 将无法访问到该子目录的上层目录。例如：path: /test，需在文件系统中保证 /cfs/test 目录存在。 
   - **spec.csi.volumeAttributes.proto**：文件系统默认挂载协议。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/357dd592683ac766f8e6b4c653a27951.png)
 >! 使用 `lustre` 协议挂载 CFS Turbo 卷需预先在集群节点内根据操作系统内核版本安装对应客户端，详情请参考 [在 Linux 客户端上使用 CFS Turbo 文件系统](https://cloud.tencent.com/document/product/582/54765)；

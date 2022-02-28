@@ -1,33 +1,5 @@
-## 产品概述
-
-- **正版曲库直通车**（Authorized Music Express，AME）聚合 TME 等多家版权方优质曲目资源，结合腾讯云存储、编解码、内容分发、边缘计算等能力，有效解决多场景音乐素材应用版权问题。提供API及SDK，灵活高效实现正版音乐素材在多端的顺畅播放与应用。
-- **游戏多媒体引擎**（Game Multimedia Engine, GME）提供一站式语音解决方案。针对游戏场景，提供实时语音、语音消息、语音转文本、语音内容安全、未成年人识别、正版曲库、语音录制等服务，覆盖 FPS、MOBA、MMORPG、休闲对战、棋牌、线上桌游等多种游戏玩法类型；支持移动游戏、端游、主机游戏、网页游戏跨平台互通，一次接入即可满足多样化的语音需求。
-
 ## 产品原理
-```mermaid
-sequenceDiagram
-participant App客户端
-participant App后台
-participant TRTC SDK
-participant TXCopyrightedMedia
-participant 腾讯云后台
-
-App客户端 ->> App后台:请求搜索音乐
-App后台 ->> 腾讯云后台:请求搜索音乐 SearchKTVMusics
-腾讯云后台 -->> App后台:返回音乐列表
-App后台 -->> App客户端:返回音乐列表
-
-App客户端 -->> App后台:请求音乐详情
-App后台 ->> 腾讯云后台:请求音乐详情 DescribeKTVMusicDetail（带musicId）
-腾讯云后台 -->> App后台:返回音乐详情
-App后台 -->> App客户端:返回音乐详情
-
-App客户端 ->> TXCopyrightedMedia:preloadMusic（传入musicId+playToken）
-TXCopyrightedMedia ->> 腾讯云后台:请求Music数据
-腾讯云后台 -->> TXCopyrightedMedia:返回Music数据
-TXCopyrightedMedia -->> App客户端:回调preloadMusic进度和结果
-App客户端 ->> TRTC SDK:startPlayMusic（传入genMusicURI返回值）
-```
+![](https://qcloudimg.tencent-cloud.cn/raw/2ddeea2ddce1e57ff4bc443c4751dfb6.png)
 
 ## 接入前准备工作
 
