@@ -75,7 +75,12 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>开启健康检查</td>
-<td>健康检查的开启/关闭开关，用于检测链路健康状态，默认不开启。</td>
+<td>健康检查的开启/关闭开关，用于检测链路健康状态，默认不开启。
+
+<dx-alert infotype="explain" title="">
+健康检查参数配置完成后，您还需要在 [步骤6](#buzhou6) 中配置健康检查的 SPD 策略，这样健康检查功能才会生效。健康检查操作指导可参考 [配置健康检查](https://cloud.tencent.com/document/product/554/70209)。
+</dx-alert>
+</td>
 </tr>
 <tr>
 <td>健康检查本端地址</td>
